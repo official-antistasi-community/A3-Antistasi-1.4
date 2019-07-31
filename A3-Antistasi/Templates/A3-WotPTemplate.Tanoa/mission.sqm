@@ -425,7 +425,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Antistasi - Warlords of the Pacific - 1.4c1.03";
+		briefingName="Antistasi - Warlords of the Pacific - 1.4c1.04";
 		overviewText="Build a  Syndikat Army from scratch and defeat NATO and CSAT forces in a persistent mission with Tanoa as AO.";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;

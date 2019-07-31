@@ -7,6 +7,7 @@ _dog setVariable ["BIS_fnc_animalBehaviour_disable", true];
 _dog disableAI "FSM";
 _dog setBehaviour "CARELESS";
 _dog setRank "PRIVATE";
+_dog setVariable ["isAnimal", true, true];
 
 while {alive _dog} do
 	{

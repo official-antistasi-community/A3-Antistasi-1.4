@@ -36,14 +36,12 @@ limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {fal
 
 //Load Campaign ID if resuming game
 if(loadLastSave) then {
-	campaignID = profileNameSpace getVariable ["ss_CampaignID",nil];
-};
-if(isNil "campaignID") then
-	{
+	campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
+} else {
 	campaignID = str(round((random(100000)) + random 10000));
 	profileNameSpace setVariable ["ss_CampaignID", campaignID];
-	};
-		
+};
+	
 publicVariable "campaignID";
 
 _nul = call compile preprocessFileLineNumbers "initVar.sqf";
@@ -180,7 +178,7 @@ resourcecheck = [] execVM "resourcecheck.sqf";
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
 
-[] call A3A_fnc_spawnDebuggingLoop;
+[] spawn A3A_fnc_spawnDebuggingLoop;
 
 //Enable performance logging
 [] spawn {

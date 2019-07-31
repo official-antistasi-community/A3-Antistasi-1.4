@@ -6,7 +6,18 @@ if (isServer and (isNil "serverInitDone")) then {skipTime random 24};
 
 if (!isMultiPlayer) then
     {
+    //Init server parameters
     gameMode = 1;
+    autoSave = false;
+    membershipEnabled = false;
+    memberOnlyMagLimit = 0;
+    switchCom = false;
+    tkPunish = false;
+    skillMult = 1;
+    minWeaps = 24;
+    civTraffic = 1;
+    limitedFT = false;
+		
     diag_log "Starting Antistasi SP";
     call compile preprocessFileLineNumbers "initVar.sqf";//this is the file where you can modify a few things.
     initVar = true;
@@ -45,15 +56,9 @@ if (!isMultiPlayer) then
     serverInitDone = true;
     diag_log "Antistasi SP. serverInitDone is true. Arsenal loaded";
     _nul = [] execVM "modBlacklist.sqf";
-    autoSave = false;
-    membershipEnabled = false;
-    switchCom = false;
-    tkPunish = false;
+		
     distanceMission = if (hasIFA) then {2000} else {4000};
-    skillMult = 1;
-    minWeaps = 24;
-    civTraffic = 1;
-    limitedFT = false;
+		
     {
     private _index = _x call jn_fnc_arsenal_itemType;
     [_index,_x,-1] call jn_fnc_arsenal_addItem;

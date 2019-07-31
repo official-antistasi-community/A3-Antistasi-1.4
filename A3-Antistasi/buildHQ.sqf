@@ -8,6 +8,7 @@ if (petros != (leader group petros)) then
 	[petros] join groupPetros;
 	};
 [petros,"remove"] remoteExec ["A3A_fnc_flagaction",0,petros];
+petros switchAction "PlayerStand";
 petros disableAI "MOVE";
 petros disableAI "AUTOTARGET";
 respawnTeamPlayer setMarkerPos getPos petros;

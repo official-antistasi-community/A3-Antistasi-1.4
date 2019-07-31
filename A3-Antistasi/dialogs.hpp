@@ -31,7 +31,7 @@ class first_load 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Loads the previous personal session";
-			action = "closeDialog 0;nul = [] execVM ""statSave\loadPlayer.sqf"";";
+			action = "closeDialog 0;nul = [] spawn A3A_fnc_loadPreviousSession;";
 		};
 		class HQ_button_Gstatic: RscButton
 		{

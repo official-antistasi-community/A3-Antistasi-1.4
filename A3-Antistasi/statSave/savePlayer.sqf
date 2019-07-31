@@ -17,6 +17,7 @@ if (isNil "_playerId" || isNil "_playerUnit" || { isNull _playerUnit }) exitWith
 };
 
 savingClient = true;
+diag_log format ["[Antistasi] Saving player %1", _playerId];
 
 private _canSaveLoadout = true;
 if (hasACEMedical && {[_playerUnit] call ace_medical_fnc_getUnconsciousCondition}) then 

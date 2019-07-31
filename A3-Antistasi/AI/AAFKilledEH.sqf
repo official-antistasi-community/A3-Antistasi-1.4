@@ -50,7 +50,7 @@ if (side (group _killer) == teamPlayer) then
 			if ((player distance _victim < 300) and (captive player)) then {player setCaptive false};
 			};
 		};
-	if (count weapons _victim < 1) then
+	if (count weapons _victim < 1 && !(_victim getVariable ["isAnimal", false])) then
 		{
 		if (_sideX == Occupants) then
 			{

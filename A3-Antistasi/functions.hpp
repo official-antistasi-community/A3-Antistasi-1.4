@@ -276,6 +276,7 @@ class A3A
 	{
         class loadPlayer {file="statSave\loadPlayer.sqf";};
         class savePlayer {file="statSave\savePlayer.sqf";};
+        class loadPreviousSession {file="statSave\loadPreviousSession.sqf";};
 	}
 	
 	class Utility

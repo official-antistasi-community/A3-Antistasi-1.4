@@ -11,12 +11,17 @@ _unit disableAI "AUTOTARGET";
 
 _unit addEventHandler ["HandleDamage",
 	{
+	private _unit = _this select 0;
 	_dam = _this select 2;
 	_proy = _this select 4;
+	_injurer = _this select 3;
+	if(!isNil "_injurer" && isPlayer _injurer) then {
+		_unit setVariable ["injuredByPlayer", _injurer, true];
+		_unit setVariable ["lastInjuredByPlayer", time, true];
+	};
 	if (_proy == "") then
 		{
-		_injurer = _this select 3;
-		if ((_dam > 0.95) and (!isPlayer _injurer)) then {_dam = 0.9};
+			if ((_dam > 0.95) and (!isPlayer _injurer)) then {_dam = 0.9};
 		};
 	_dam
 	}
@@ -25,6 +30,12 @@ _EHkilledIdx = _unit addEventHandler ["killed",
 	{
 	_victim = _this select 0;
 	_killer = _this select 1;
+	if (time - (_victim getVariable ["lastInjuredByPlayer", 0]) < 120) then {
+		_killer = _victim getVariable ["injuredByPlayer", _killer];
+	};
+	if (isNull _killer) then {
+		_killer	= _victim;
+	};
 	if (_victim == _killer) then
 		{
 		_nul = [-1,-1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];

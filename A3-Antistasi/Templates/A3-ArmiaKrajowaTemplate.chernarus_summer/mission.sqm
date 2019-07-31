@@ -179,7 +179,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="A3-Antistasi Armia Krajowa Chernarus 1.4c1.03";
+		briefingName="A3-Antistasi Armia Krajowa Chernarus 1.4c1.04";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.25;

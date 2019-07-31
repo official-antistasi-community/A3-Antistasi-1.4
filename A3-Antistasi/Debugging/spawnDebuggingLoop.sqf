@@ -12,6 +12,8 @@ while {shouldRunDebuggingLoop} do {
 		diag_log "[Antistasi] Cleaning groups";
 		[teamPlayer] remoteExec ["A3A_fnc_deleteEmptyGroupsOnSide", 0];
 		[civilian] remoteExec ["A3A_fnc_deleteEmptyGroupsOnSide", 0];
+		[Occupants] remoteExec ["A3A_fnc_deleteEmptyGroupsOnSide", 0];
+		[Invaders] remoteExec ["A3A_fnc_deleteEmptyGroupsOnSide", 0];
 		_lastGroupCleanTime = serverTime;
 	};
 	

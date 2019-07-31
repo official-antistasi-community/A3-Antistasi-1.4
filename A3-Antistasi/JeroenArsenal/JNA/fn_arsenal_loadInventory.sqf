@@ -312,9 +312,12 @@ _backpackItems = _inventory select 2 select 1;
 
 //add containers
 _containers = [_uniform,_vest,_backpack];
-private _invCallArray = [{removeUniform player;player forceAddUniform _uniform;},//todo remove
-                      {removeVest player;player addVest _vest;},
-                      {removeBackpackGlobal player;player addBackpack _backpack;}];
+private _removeContainerFuncs = [{removeUniform player;},{removeVest player;},{removeBackpackGlobal player;}];										
+private _addContainerFuncs = [
+                              {player forceAddUniform (_this select 0);},
+                              {player addVest (_this select 0);},
+                              {player addBackpack (_this select 0);}
+														 ];
 {
 	_item = _x;
 	if!(_item isEqualTo "")then{
@@ -324,20 +327,22 @@ private _invCallArray = [{removeUniform player;player forceAddUniform _uniform;}
 			IDC_RSCDISPLAYARSENAL_TAB_VEST,
 			IDC_RSCDISPLAYARSENAL_TAB_BACKPACK
 		] select _foreachindex;
-
+		
+		_addContainerFunc = (_addContainerFuncs select _foreachindex);
+		
 		call {
 			if ([_itemCounts select _index, _item] call jn_fnc_arsenal_itemCount == -1) exitWith {
-				call (_invCallArray select _foreachindex);
+				[_item] call _addContainerFunc;
 			};
 
 			if ([_availableItems select _index, _item] call jn_fnc_arsenal_itemCount > 0) then {
-				call (_invCallArray select _foreachindex);
+				[_item] call _addContainerFunc;
 				[_arrayTaken,_index,_item,_amount] call _addToArray;
 				[_availableItems,_index,_item,_amount] call _removeFromArray;
 			} else {
 				_oldItem = [_uniform_old,_vest_old,_backpack_old] select _foreachindex;
 				if !(_oldItem isEqualTo "") then {
-					call (_invCallArray select _foreachindex);
+					[_oldItem] call _addContainerFunc;
 					_arrayReplaced = [_arrayReplaced,[_item,_oldItem]] call jn_fnc_arsenal_addToArray;
 					[_arrayTaken,_index,_oldItem,1] call _addToArray;
 				} else {
@@ -407,11 +412,23 @@ private _invCallArray = [{removeUniform player;player forceAddUniform _uniform;}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Update global
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+private _lookupConfigName = {
+	private _class = param [0];
+	private _configs = "configName _x == _class" configClasses (configFile >> "CfgWeapons");
+	if (count _configs > 0) exitWith {
+		[_configs select 0] call BIS_fnc_displayName;
+	};
+	private _configs = "configName _x == _class" configClasses (configFile >> "CfgMagazines");
+	if (count _configs > 0) exitWith {
+		[_configs select 0] call BIS_fnc_displayName;
+	};
+	_class;
+};
+
 _arrayAdd = [_arrayPlaced, _arrayTaken] call _subtractArrays; //remove items that where not added
 _arrayRemove = [_arrayTaken, _arrayPlaced] call _subtractArrays;
 
 _arrayAdd call jn_fnc_arsenal_addItem;
-diag_log "adadadadada";
 diag_log _arrayTaken;
 diag_log _arrayPlaced;
 _arrayRemove call jn_fnc_arsenal_removeItem;
@@ -422,24 +439,24 @@ _arrayRemove call jn_fnc_arsenal_removeItem;
 _reportTotal = "";
 _reportReplaced = "";
 {
-	_nameNew = _x select 0;
-	_nameOld = _x select 1;
-	_reportReplaced = _reportReplaced + _nameOld + " instead of " + _nameNew + "\n";
+	_nameNew = [_x select 0] call _lookupConfigName;
+	_nameOld = [_x select 1] call _lookupConfigName;
+	_reportReplaced = _reportReplaced + _nameOld + " has been kept, because there is no " + _nameNew + "\n";
 } forEach _arrayReplaced;
 
 if!(_reportReplaced isEqualTo "")then{
-	_reportTotal = ("I keep this items because i couldn't find the other ones:\n" + _reportReplaced+"\n");
+	_reportTotal = ("These items were not in the Arsenal, so the originals have been kept:\n" + _reportReplaced+"\n");
 };
 
 _reportMissing = "";
 {
-	_name = _x select 0;
+	_name = [_x select 0] call _lookupConfigName;
 	_amount = _x select 1;
 	_reportMissing = _reportMissing + _name + " (" + (str _amount) + "x)\n";
 }forEach _arrayMissing;
 
 if!(_reportMissing isEqualTo "")then{
-	_reportTotal = (_reportTotal+"I couldn't find the following items:\n" + _reportMissing+"\n");
+	_reportTotal = (_reportTotal+"These items were not in the Arsenal:\n" + _reportMissing+"\n");
 };
 
 if!(_reportTotal isEqualTo "")then{

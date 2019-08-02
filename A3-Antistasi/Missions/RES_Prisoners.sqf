@@ -16,12 +16,17 @@ _POWs = [];
 
 _timeLimit = if (_difficultX) then {30} else {120};//120
 if (hasIFA) then {_timeLimit = _timeLimit * 2};
+
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
+
 _dateLimitNum = dateToNumber _dateLimit;
+_dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly
+_displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time portion of the date array to a string for clarity in hints
+
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 
-[[teamPlayer,civilian],"RES",[format ["A group of POWs is awaiting for execution in %1. We must rescue them before %2:%3. Bring them to HQ",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4],"POW Rescue",_markerX],_positionX,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"RES",[format ["A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ",_nameDest,_displayTime],"POW Rescue",_markerX],_positionX,false,0,true,"run",true] call BIS_fnc_taskCreate;
 //_blacklistbld = ["Land_Cargo_HQ_V1_F", "Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F"];
 missionsX pushBack ["RES","CREATED"]; publicVariable "missionsX";
 _posHouse = [];
@@ -113,14 +118,14 @@ _bonus = if (_difficultX) then {2} else {1};
 
 if ({alive _x} count _POWs == 0) then
 	{
-	["RES",[format ["A group of POWs is awaiting for execution in %1. We must rescue them before %2:%3. Bring them to HQ",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4],"POW Rescue",_markerX],_positionX,"FAILED","run"] call A3A_fnc_taskUpdate;
+	["RES",[format ["A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ",_nameDest,_displayTime],"POW Rescue",_markerX],_positionX,"FAILED","run"] call A3A_fnc_taskUpdate;
 	{[_x,false] remoteExec ["setCaptive",0,_x]; _x setCaptive false} forEach _POWs;
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	}
 else
 	{
 	sleep 5;
-	["RES",[format ["A group of POWs is awaiting for execution in %1. We must rescue them before %2:%3. Bring them to HQ",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4],"POW Rescue",_markerX],_positionX,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
+	["RES",[format ["A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ",_nameDest,_displayTime],"POW Rescue",_markerX],_positionX,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
 	_countX = {(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 150)} count _POWs;
 	_hr = 2 * (_countX);
 	_resourcesFIA = 100 * _countX*_bonus;

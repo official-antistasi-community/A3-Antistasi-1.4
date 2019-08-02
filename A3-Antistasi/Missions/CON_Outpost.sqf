@@ -15,18 +15,20 @@ _timeLimit = if (_difficultX) then {30} else {90};//120
 if (hasIFA) then {_timeLimit = _timeLimit * 2};
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
+_dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly
+_displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time portion of the date array to a string for clarity in hints
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _textX = "";
 _taskName = "";
 if (_markerX in resourcesX) then
 	{
-	_textX = format ["A %1 would be a fine addition to our cause. Go there and capture it before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4];
+	_textX = format ["A %1 would be a fine addition to our cause. Go there and capture it before %2.",_nameDest,_displayTime];
 	_taskName = "Resource Acquisition";
 	}
 else
 	{
-	_textX = format ["A %1 is disturbing our operations in the area. Go there and capture it before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4];
+	_textX = format ["A %1 is disturbing our operations in the area. Go there and capture it before %2.",_nameDest,_displayTime];
 	_taskName = "Take the Outpost";
 	};
 

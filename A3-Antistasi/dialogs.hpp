@@ -261,7 +261,7 @@ class garrison_recruit 			{
 		class HQ_frame: RscFrame
 		{
 			idc = 102;
-			text = $STR_garrison_recruit_frame_text;
+			text = $STR_antistasi_dialogs_garrison_recruit_frame_text;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
@@ -270,8 +270,8 @@ class garrison_recruit 			{
 		class HQ_button_back: RscButton
 		{
 			idc = 103;
-			text = $STR_garrison_recruit_button_back_text;
-			tooltip = $STR_garrison_recruit_button_back_tooltip;
+			text = $STR_antistasi_dialogs_garrison_recruit_button_back_text;
+			tooltip = $STR_antistasi_dialogs_garrison_recruit_button_back_tooltip;
 			x = 0.61 * safezoneW + safezoneX;
 			y = 0.251941 * safezoneH + safezoneY;
 			w = 0.06 * safezoneW;//0.175015
@@ -281,7 +281,7 @@ class garrison_recruit 			{
 		class HQ_button_rifleman: RscButton
 		{
 			idc = 104;
-			text = $STR_garrison_spawn_rifleman_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_rifleman_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -291,7 +291,7 @@ class garrison_recruit 			{
 		class HQ_button_autorifleman: RscButton
 		{
 			idc = 105;
-			text = $STR_garrison_spawn_autorifleman_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_autorifleman_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -301,7 +301,7 @@ class garrison_recruit 			{
 		class HQ_button_medic: RscButton
 		{
 			idc = 126;
-			text = $STR_garrison_spawn_medic_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_medic_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -311,7 +311,7 @@ class garrison_recruit 			{
 		class HQ_button_engineer: RscButton
 		{
 			idc = 107;
-			text = $STR_garrison_spawn_squad_lead_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_squad_lead_text;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -321,7 +321,7 @@ class garrison_recruit 			{
 		class HQ_button_explosive: RscButton
 		{
 			idc = 108;
-			text = $STR_garrison_spawn_mortar_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_mortar_text;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -331,7 +331,7 @@ class garrison_recruit 			{
 		class HQ_button_grenadier: RscButton
 		{
 			idc = 109;
-			text = $STR_garrison_spawn_grenadier_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_grenadier_text;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -341,7 +341,7 @@ class garrison_recruit 			{
 		class HQ_button_marksman: RscButton
 		{
 			idc = 110;
-			text = $STR_garrison_spawn_marksman_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_marksman_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -352,7 +352,7 @@ class garrison_recruit 			{
 		class HQ_button_AT: RscButton
 		{
 			idc = 111;
-			text = $STR_garrison_spawn_at_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_at_text;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;

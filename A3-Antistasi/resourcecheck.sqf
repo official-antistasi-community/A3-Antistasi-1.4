@@ -157,7 +157,20 @@ while {true} do
 			};
 		};
 	sleep 3;
-	if ((count antennasDead > 0) and (not(["REP"] call BIS_fnc_taskExists))) then
+	_wreckedAntennas = false;
+    _wc = count antennasDead;
+    if (_wc > 0) then {_wreckedAntennas = true};
+    _smallWar = false;
+    _bigWar = false;
+    if ((tierWar<=3)and{not(["REP"] call BIS_fnc_taskExists)}) then
+    {_smallWar = true};
+    if ((tierWar>3)and{(count(["REP"] call BIS_fnc_taskExists)>1)}) then
+    {_bigWar = true};
+    _xchance = (tierWar*20);
+    _xroll = round(random 100);
+    _final = false;
+    if (_xroll<_xchance) then {_final = true};
+    if ((_wreckedAntennas)and((_smallWar)or(_bigWar))and(_final)) then
 		{
 		_potentials = [];
 		{

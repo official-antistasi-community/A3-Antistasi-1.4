@@ -24,7 +24,7 @@ if(_isTank) then
   _time = 45 + (random 15);
 };
 
-_caller setVariable ["timeToHeal",time + _time];
+_caller setVariable ["timeToBreach",time + _time];
 _caller playMoveNow selectRandom medicAnims;
 _caller setVariable ["breachVeh", _vehicle];
 _caller setVariable ["animsDone",false];
@@ -43,7 +43,7 @@ _caller addEventHandler ["AnimDone",
     {(_caller == vehicle _caller) &&
     {(_caller distance _vehicle < 8) &&
     {([_caller] call A3A_fnc_canFight) &&
-    {(time <= (_caller getVariable ["timeToHeal",time])) &&
+    {(time <= (_caller getVariable ["timeToBreach",time])) &&
     {!(_caller getVariable ["cancelBreach",false])}}}}}
   ) then
 	{

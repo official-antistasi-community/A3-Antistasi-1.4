@@ -73,6 +73,7 @@ Mission is on Beta STAGE.
 
 # References
 
+- [Official discord](https://discord.gg/t7JD7eT)
 - [Official website](http://a3antistasi.enjin.com/)
 - [Official guide](https://docs.google.com/document/d/1cCptf8Uo-mBHRhIqx1BPznECzgRqwJuj70AGjiI6KOI/edit)
 - [Official video tutorial](https://www.youtube.com/watch?v=nebLG3Jhrbk)

@@ -1,3 +1,7 @@
 *.xcopy.log
 Tools/ValidationResults.txt
 *.pbo
+A3-Antistasi/description.ext
+A3-Antistasi/mission.sqm
+A3-Antistasi/*.jpg
+A3-Antistasi/roadsDBAltis.sqf

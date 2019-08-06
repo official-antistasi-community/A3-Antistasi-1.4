@@ -30,7 +30,7 @@ _caller setVariable ["breachVeh", _vehicle];
 _caller setVariable ["animsDone",false];
 _caller setVariable ["cancelBreach",false];
 
-_action = _caller addAction ["Cancel Breaching", {(_this select 1) setVariable ["cancelBreach",true]},nil,6,true,true,"","(isPlayer _this)"];
+_action = _caller addAction ["Cancel Breaching", {(_this select 1) setVariable ["cancelBreach",true]},nil,6,true,true,"","(isPlayer _this) && (_this == vehicle _this)"];
 _vehicle removeAction _actionID;
 
 _caller addEventHandler ["AnimDone",

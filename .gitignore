@@ -1,6 +1,6 @@
 *.xcopy.log
 Tools/ValidationResults.txt
-*.pbo
+*.pbo*
 A3-Antistasi/description.ext
 A3-Antistasi/mission.sqm
 A3-Antistasi/PIC.jpg

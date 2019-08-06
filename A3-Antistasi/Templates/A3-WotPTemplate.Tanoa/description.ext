@@ -4,7 +4,7 @@
 author="Barbolani & The Official AntiStasi Community";
 OnLoadName = "Warlords of the Pacific";
 OnLoadMission = "Business and War...";
-loadScreen = "pic.JPG";
+loadScreen = "pic.jpg";
 
 overviewText = "Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.";
 overviewPicture = "pic.jpg";

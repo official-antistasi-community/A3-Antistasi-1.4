@@ -4,7 +4,7 @@
 author="Barbolani & The Official AntiStasi Community";
 OnLoadName = "Armia Krajowa";
 OnLoadMission = "Between the anvil and a steamroller";
-loadScreen = "pic.JPG";
+loadScreen = "pic.jpg";
 
 overviewText = "Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.";
 overviewPicture = "pic.jpg";

@@ -5,7 +5,7 @@
 //Not commented lines cannot be changed.
 //Don't touch them.
 
-antistasiVersion = "v 1.4.0.2";
+antistasiVersion = format[localize "STR_antistasi_credits_generic_version_text"];
 
 
 debug = false;//debug variable, not useful for everything..
@@ -416,7 +416,7 @@ injuredSounds =
 medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic0","AinvPknlMstpSnonWnonDnon_medic1","AinvPknlMstpSnonWnonDnon_medic2"];
 
 _getMissionPath = [] execVM "initGetMissionPath.sqf";
-waitUntil 
+waitUntil
 {
 	if (scriptDone _getMissionPath) then {true} else
 	{
@@ -660,7 +660,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
     //tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";//to make enemy vehicles usable as LR radio
     ["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;
     ["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;
-	
+
     //unlockedBackpacks pushBack "tf_rt1523g_sage";//uncomment this if you are adding LR radios for players
     };
 //ACE detection and ACE item availability in Arsenal

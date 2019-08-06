@@ -148,47 +148,47 @@
       </Key>
     </Container>
     <Container name="dialog_garrison_recruit">
-      <Key ID="str_garrison_recruit_frame_text">
+      <Key ID="STR_antistasi_dialogs_garrison_recruit_frame_text">
         <Original>Garrison Recruitment Options</Original>
         <English>Garrison Recruitment Options</English>
       </Key>
-      <Key ID="str_garrison_recruit_button_back_text">
+      <Key ID="STR_antistasi_dialogs_garrison_recruit_button_back_text">
         <Original>Back</Original>
         <English>Back</English>
       </Key>
-      <Key ID="str_garrison_recruit_button_back_tooltip">
+      <Key ID="STR_antistasi_dialogs_garrison_recruit_button_back_tooltip">
         <Original>Takes you back</Original>
         <English>Takes you back</English>
       </Key>
-      <Key ID="str_garrison_spawn_rifleman_text">
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_rifleman_text">
         <Original>Recruit Rifleman</Original>
         <English>Recruit Rifleman</English>
       </Key>
-      <Key ID="str_garrison_spawn_autorifleman_text">
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_autorifleman_text">
         <Original>Recruit Autorifleman</Original>
         <English>Recruit Autorifleman</English>
       </Key>
-      <Key ID="str_garrison_spawn_medic_text">
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_medic_text">
         <Original>Recruit Medic</Original>
         <English>Recruit Medic</English>
       </Key>
-      <Key ID="str_garrison_spawn_squad_lead_text">
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_squad_lead_text">
         <Original>Recruit Squad Leader</Original>
         <English>Recruit Squad Leader</English>
       </Key>
-      <Key ID="str_garrison_spawn_mortar_text">
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
         <Original>Recruit Mortar</Original>
         <English>Recruit Mortar</English>
       </Key>
-      <Key ID="str_garrison_spawn_grenadier_text">
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
         <Original>Recruit Grenadier</Original>
         <English>Recruit Grenadier</English>
       </Key>
-      <Key ID="str_garrison_spawn_marksman_text">
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_marksman_text">
         <Original>Recruit Marksman</Original>
         <English>Recruit Marksman</English>
       </Key>
-      <Key ID="str_garrison_spawn_at_text">
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
         <Original>Recruit AT</Original>
         <English>Recruit AT</English>
       </Key>

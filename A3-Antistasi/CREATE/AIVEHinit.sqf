@@ -8,7 +8,9 @@ if ((_veh isKindOf "FlagCarrier") or (_veh isKindOf "Building") or (_veh isKindO
 _typeX = typeOf _veh;
 
 if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
-	{
+{
+	_veh addAction ["Breach Vehicle", {[_this select 0, _this select 1, _this select 2] execVM "breachVehicle.sqf"},nil,4,false,true,"","(isPlayer _this) && (_this == vehicle _this)",5];
+
 	_veh addEventHandler ["Killed",
 		{
 		private _veh = _this select 0;

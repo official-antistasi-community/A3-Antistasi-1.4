@@ -1,2 +1,3 @@
 *.xcopy.log
 Tools/ValidationResults.txt
+*.pbo

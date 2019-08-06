@@ -6,7 +6,7 @@ OnLoadName = $STR_antistasi_credits_generic_missionname_text;
 OnLoadMission = $STR_antistasi_credits_generic_missiondesc_text;
 loadScreen = "pic.jpg";
 
-overviewText = format [localize "STR_antistasi_credits_generic_overview_text" + " " + localize "STR_antistasi_credits_generic_version_text"];
+overviewText = format [localize "STR_antistasi_credits_generic_overview_text"];
 overviewPicture = "pic.jpg";
 
 allowFunctionsLog = 1;

@@ -581,23 +581,23 @@ class vehicle_option 	{
 		class HQ_button_Gsquad: RscButton
 		{
 			idc = -1;
-			text = "Civilian Vehicle"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_vehicle_purchase_civie_text;
+			tooltip = $STR_antistasi_dialogs_vehicle_purchase_civie_tooltip;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Civilian vehicles will allow you to travel in Undercover mode, while you stay close to roads and not entering bases, outposts and roadblocks";
 			action = "closeDialog 0;nul=[] execVM ""Dialogs\buy_vehicle_civ.sqf"";";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
 			idc = -1;
-			text = "Military Vehicle"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_vehicle_purchase_military_text;
+			tooltip = $STR_antistasi_dialogs_vehicle_purchase_military_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Wide variety of available faction vehicles";
 			action = "closeDialog 0; nul=[] execVM ""Dialogs\buy_vehicle.sqf"";";
 		};
 	};

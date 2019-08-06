@@ -2,11 +2,11 @@
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi Mission">
     <Container name="dialog_load_previous_session">
-      <Key ID="STR_antistasi_lps_box_text">
+      <Key ID="STR_antistasi_dialogs_lps_box_text">
         <Original>Box</Original>
         <English>Box</English>
       </Key>
-      <Key ID="str_antistasi_lps_frame_text">
+      <Key ID="STR_antistasi_dialogs_lps_frame_text">
         <Original>Load previous session?</Original>
         <English>Load previous session?</English>
         <Czech>Load previous session?</Czech>
@@ -18,131 +18,131 @@
         <Russian>Лоад превиоус сессион?</Russian>
         <German>Load previous session?</German>
       </Key>
-      <Key ID="str_antistasi_lps_button_yes_text">
+      <Key ID="STR_antistasi_dialogs_lps_button_yes_text">
         <Original>Yes</Original>
         <English>Yes</English>
         <Russian>Да</Russian>
       </Key>
-      <Key ID="str_antistasi_lps_button_yes_tooltip">
+      <Key ID="STR_antistasi_dialogs_lps_button_yes_tooltip">
         <Original>Load previous Game save.</Original>
         <English>Loads the pervious personal session</English>
         <Russian>Загрузить последнюю персональную сессию</Russian>
       </Key>
-      <Key ID="str_antistasi_lps_button_no_text">
+      <Key ID="STR_antistasi_dialogs_lps_button_no_text">
         <Original>No</Original>
         <English>No</English>
         <Russian>Нет</Russian>
       </Key>
-      <Key ID="str_antistasi_lps_button_no_tooltip">
+      <Key ID="STR_antistasi_dialogs_lps_button_no_tooltip">
         <Original>Start a New Game</Original>
         <English>Start a New Game</English>
         <Russian>Начать новую игру</Russian>
       </Key>
     </Container>
     <Container name="dialog_headquarters">
-      <Key ID="str_antistasi_hq_frame_text">
+      <Key ID="STR_antistasi_dialogs_hq_frame_text">
         <Original>HQ Options: Commander Only</Original>
         <English>HQ Options: Commander Only</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_close_text">
+      <Key ID="STR_antistasi_dialogs_hq_button_close_text">
         <Original>Close</Original>
         <English>Close</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_withdraw_text">
+      <Key ID="STR_antistasi_dialogs_hq_button_withdraw_text">
         <Original>Grab 100€ from Pool</Original>
         <English>Grab $100 from Pool</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_withdraw_tooltip">
+      <Key ID="STR_antistasi_dialogs_hq_button_withdraw_tooltip">
         <Original>Take 100€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</Original>
         <English>Take $100 from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_garrisons_text">
+      <Key ID="STR_antistasi_dialogs_hq_button_garrisons_text">
         <Original>Manage Garrisons</Original>
         <English>Manage Garrisons</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_garrisons_tooltip">
+      <Key ID="STR_antistasi_dialogs_hq_button_garrisons_tooltip">
         <Original>Add or remove units to garrisons</Original>
         <English>Add or remove units to garrisons</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_move_headquarters_text">
+      <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_text">
         <Original>Move HQ to another Zone</Original>
         <English>Move HQ to another Zone</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_move_headquarters_tooltip">
+      <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
         <Original>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</Original>
         <English>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_members_list_text">
+      <Key ID="STR_antistasi_dialogs_hq_button_members_list_text">
         <Original>Ingame Member List</Original>
         <English>Ingame Member List</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_members_list_tooltip">
+      <Key ID="STR_antistasi_dialogs_hq_button_members_list_tooltip">
         <Original>Displays which server members are currently playing</Original>
         <English>Displays which server members are currently playing</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_rebuild_assets_text">
+      <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_text">
         <Original>Rebuild Assets</Original>
         <English>Rebuild Assets</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_rebuild_assets_tooltip">
+      <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_tooltip">
         <Original>Cost: 5€</Original>
         <English>Cost: 5€</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_train_ai_text">
+      <Key ID="STR_antistasi_dialogs_hq_button_train_ai_text">
         <Original>Train FIA Troops</Original>
         <English>Train FIA Troops</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_train_ai_tooltip">
+      <Key ID="STR_antistasi_dialogs_hq_button_train_ai_tooltip">
         <Original>Upgrades the AI skill level</Original>
         <English>Upgrades the AI skill level</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_garage_text">
+      <Key ID="STR_antistasi_dialogs_hq_button_garage_text">
         <Original>Garage Access</Original>
         <English>Garage Access</English>
       </Key>
-      <Key ID="str_antistasi_hq_button_garage_tooltip">
+      <Key ID="STR_antistasi_dialogs_hq_button_garage_tooltip">
         <Original>Check Faction garage</Original>
         <English>Check Faction garage</English>
       </Key>
     </Container>
     <Container name="dialog_build_menu">
-      <Key ID="str_antistasi_build_frame_text">
+      <Key ID="STR_antistasi_dialogs_build_frame_text">
         <Original>Building - Garrison Options</Original>
         <English>Building - Garrison Options</English>
       </Key>
-      <Key ID="str_antistasi_build_button_no_text">
+      <Key ID="STR_antistasi_dialogs_build_button_no_text">
         <Original>Back</Original>
         <English>Back</English>
       </Key>
-      <Key ID="str_antistasi_build_minefield_button_text">
+      <Key ID="STR_antistasi_dialogs_build_minefield_button_text">
         <Original>Minefield Options</Original>
         <English>Minefield Options</English>
       </Key>
-      <Key ID="str_antistasi_build_minefield_button_tooltip">
+      <Key ID="STR_antistasi_dialogs_build_minefield_button_tooltip">
         <Original>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</Original>
         <English>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</English>
       </Key>
-      <Key ID="str_antistasi_build_outpost_button_text">
+      <Key ID="STR_antistasi_dialogs_build_outpost_button_text">
         <Original>Outpost or Roadblock</Original>
         <English>Outpost or Roadblock</English>
       </Key>
-      <Key ID="str_antistasi_build_outpost_button_tooltip">
+      <Key ID="STR_antistasi_dialogs_build_outpost_button_tooltip">
         <Original>Establish a new watchpost or roadblock depending on the type of terrain you select.</Original>
         <English>Establish a new watchpost or roadblock depending on the type of terrain you select.</English>
       </Key>
-      <Key ID="str_antistasi_build_recruit_units_button_text">
+      <Key ID="STR_antistasi_dialogs_build_recruit_units_button_text">
         <Original>Recruit Units</Original>
         <English>Recruit Units</English>
       </Key>
-      <Key ID="str_antistasi_build_recruit_units_button_tooltip">
+      <Key ID="STR_antistasi_dialogs_build_recruit_units_button_tooltip">
         <Original>Add units to an existing garrison.</Original>
         <English>Add units to an existing garrison.</English>
       </Key>
-      <Key ID="str_antistasi_build_disband_units_button_text">
+      <Key ID="STR_antistasi_dialogs_build_disband_units_button_text">
         <Original>Disband Units or Posts</Original>
         <English>Disband Units or Posts</English>
       </Key>
-      <Key ID="str_antistasi_build_disband_units_button_tooltip">
+      <Key ID="STR_antistasi_dialogs_build_disband_units_button_tooltip">
         <Original>Remove whole garrisons or posts.</Original>
         <English>Remove whole garrisons or posts.</English>
       </Key>

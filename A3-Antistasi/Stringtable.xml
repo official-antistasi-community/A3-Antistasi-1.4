@@ -2,10 +2,6 @@
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi Mission">
     <Container name="dialog_load_previous_session">
-      <Key ID="STR_antistasi_dialogs_lps_box_text">
-        <Original>Box</Original>
-        <English>Box</English>
-      </Key>
       <Key ID="STR_antistasi_dialogs_lps_frame_text">
         <Original>Load previous session?</Original>
         <English>Load previous session?</English>
@@ -17,26 +13,6 @@
         <Portuguese>Load previous session?</Portuguese>
         <Russian>Лоад превиоус сессион?</Russian>
         <German>Load previous session?</German>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_lps_button_yes_text">
-        <Original>Yes</Original>
-        <English>Yes</English>
-        <Russian>Да</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_lps_button_yes_tooltip">
-        <Original>Load previous Game save.</Original>
-        <English>Loads the pervious personal session</English>
-        <Russian>Загрузить последнюю персональную сессию</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_lps_button_no_text">
-        <Original>No</Original>
-        <English>No</English>
-        <Russian>Нет</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_lps_button_no_tooltip">
-        <Original>Start a New Game</Original>
-        <English>Start a New Game</English>
-        <Russian>Начать новую игру</Russian>
       </Key>
     </Container>
     <Container name="dialog_headquarters">
@@ -152,14 +128,6 @@
         <Original>Garrison Recruitment Options</Original>
         <English>Garrison Recruitment Options</English>
       </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_recruit_button_back_text">
-        <Original>Back</Original>
-        <English>Back</English>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_recruit_button_back_tooltip">
-        <Original>Takes you back</Original>
-        <English>Takes you back</English>
-      </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_rifleman_text">
         <Original>Recruit Rifleman</Original>
         <English>Recruit Rifleman</English>
@@ -191,6 +159,160 @@
       <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
         <Original>Recruit AT</Original>
         <English>Recruit AT</English>
+      </Key>
+    </Container>
+    <Container name="dialog_build_minefield">
+      <Key ID="STR_antistasi_dialogs_minefield_frame_text">
+        <Original>Build Minefield</Original>
+        <English>Build Minefield</English>
+        <Czech />
+        <French />
+        <Spanish />
+        <Italian />
+        <Polish />
+        <Portuguese />
+        <Russian />
+        <German />
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_text">
+        <Original>APERS Mines</Original>
+        <English>APERS Mines</English>
+        <Czech />
+        <French />
+        <Spanish />
+        <Italian />
+        <Polish />
+        <Portuguese />
+        <Russian />
+        <German />
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_tooltip">
+        <Original>Creates an APERS Minefield in the designated location</Original>
+        <English>Creates an APERS Minefield in the designated location</English>
+        <Czech />
+        <French />
+        <Spanish />
+        <Italian />
+        <Polish />
+        <Portuguese />
+        <Russian />
+        <German />
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_remove_text">
+        <Original>Remove Minefield</Original>
+        <English>Remove Minefield</English>
+        <Czech />
+        <French />
+        <Spanish />
+        <Italian />
+        <Polish />
+        <Portuguese />
+        <Russian />
+        <German />
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_remove_tooltip">
+        <Original>Spawn an AI Engineer which will clear any mine in it's surroundings</Original>
+        <English>Spawn an AI Engineer which will clear any mine in it's surroundings</English>
+        <Czech />
+        <French />
+        <Spanish />
+        <Italian />
+        <Polish />
+        <Portuguese />
+        <Russian />
+        <German />
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_text">
+        <Original>AT Mines</Original>
+        <English>AT Mines</English>
+        <Czech />
+        <French />
+        <Spanish />
+        <Italian />
+        <Polish />
+        <Portuguese />
+        <Russian />
+        <German />
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_tooltip">
+        <Original>Creates an Anti Tank minefield at designated location</Original>
+        <English>Creates an Anti Tank minefield at designated location</English>
+        <Czech />
+        <French />
+        <Spanish />
+        <Italian />
+        <Polish />
+        <Portuguese />
+        <Russian />
+        <German />
+      </Key>
+    </Container>
+    <Container name="dialog_unit_recruit">
+      <Key ID="STR_antistasi_dialogs_unit_recruit_frame_text">
+        <Original>Recruitment Options</Original>
+        <English>Recruitment Options</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_militiaman_text">
+        <Original>Recruit Militiaman</Original>
+        <English>Recruit Militiaman</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_mg_text">
+        <Original>Recruit Autorifleman</Original>
+        <English>Recruit Autorifleman</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_medic_text">
+        <Original>Recruit Medic</Original>
+        <English>Recruit Medic</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_engineer_text">
+        <Original>Recruit Engineer</Original>
+        <English>Recruit Engineer</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_explosive_text">
+        <Original>Recruit Bomb Specialist</Original>
+        <English>Recruit Bomb Specialist</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_grenadier_text">
+        <Original>Recruit Grenadier</Original>
+        <English>Recruit Grenadier</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_marksman_text">
+        <Original>Recruit Marksman</Original>
+        <English>Recruit Marksman</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_antitank_text">
+        <Original>Recruit Antitank Solider</Original>
+        <English>Recruit Antitank Solider</English>
+      </Key>
+    </Container>
+    <Container name="dialog_generic">
+      <Key ID="STR_antistasi_dialogs_generic_box_text">
+        <Original />
+        <English />
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_button_back_text">
+        <Original>Back</Original>
+        <English>Back</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_button_back_tooltip">
+        <Original>Back</Original>
+        <English>Back</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_button_yes_text">
+        <Original>Yes</Original>
+        <English>Yes</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_button_no_text">
+        <Original>No</Original>
+        <English>No</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_button_yes_tooltip">
+        <Original />
+        <English />
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_button_no_tooltip">
+        <Original />
+        <English />
       </Key>
     </Container>
   </Package>

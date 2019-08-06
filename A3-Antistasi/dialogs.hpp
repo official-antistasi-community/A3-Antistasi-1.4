@@ -16,7 +16,7 @@ class first_load 		{
 		class HQ_frame: RscFrame
 		{
 			idc = -1;
-			text = $STR_antistasi_lps_frame_text;
+			text = $STR_antistasi_dialogs_lps_frame_text;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
@@ -25,8 +25,8 @@ class first_load 		{
 		class HQ_button_Gsquad: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_lps_button_yes_text;
-			tooltip = $STR_antistasi_lps_button_yes_tooltip;
+			text = $STR_antistasi_dialogs_lps_button_yes_text;
+			tooltip = $STR_antistasi_dialogs_lps_button_yes_tooltip;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -36,8 +36,8 @@ class first_load 		{
 		class HQ_button_Gstatic: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_lps_button_no_text;
-			tooltip = $STR_antistasi_lps_button_no_tooltip;
+			text = $STR_antistasi_dialogs_lps_button_no_text;
+			tooltip = $STR_antistasi_dialogs_lps_button_no_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -58,7 +58,7 @@ class HQ_menu 			{
 		class HQ_box: BOX
 		{
 			idc = 101;
-			text = $STR_antistasi_hq_box_text;
+			text = $STR_antistasi_dialogs_hq_box_text;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -67,7 +67,7 @@ class HQ_menu 			{
 		class HQ_frame: RscFrame
 		{
 			idc = 102;
-			text = $STR_antistasi_hq_frame_text;
+			text = $STR_antistasi_dialogs_hq_frame_text;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
@@ -76,7 +76,7 @@ class HQ_menu 			{
 		class HQ_button_back: RscButton
 		{
 			idc = 103;
-			text = $STR_antistasi_hq_button_close_text;
+			text = $STR_antistasi_dialogs_hq_button_close_text;
 			x = 0.61 * safezoneW + safezoneX;
 			y = 0.251941 * safezoneH + safezoneY;
 			w = 0.06 * safezoneW;//0.175015
@@ -87,8 +87,8 @@ class HQ_menu 			{
 		class HQ_button_load: RscButton
 		{
 			idc = 104; 	//L1
-			text = $STR_antistasi_hq_button_withdraw_text;
-			tooltip = $STR_antistasi_hq_button_withdraw_tooltip;
+			text = $STR_antistasi_dialogs_hq_button_withdraw_text;
+			tooltip = $STR_antistasi_dialogs_hq_button_withdraw_tooltip;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -98,8 +98,8 @@ class HQ_menu 			{
 		class HQ_button_savegame: RscButton
 		{
 			idc = 105; 	//L2
-			text = $STR_antistasi_hq_button_garrisons_text;
-			tooltip = $STR_antistasi_hq_button_garrisons_tooltip;
+			text = $STR_antistasi_dialogs_hq_button_garrisons_text;
+			tooltip = $STR_antistasi_dialogs_hq_button_garrisons_tooltip;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -109,8 +109,8 @@ class HQ_menu 			{
 		class HQ_button_moveHQ: RscButton
 		{
 			idc = 106;	//L3
-			text = $STR_antistasi_hq_button_move_headquarters_text;
-			tooltip = $STR_antistasi_hq_button_move_headquarters_tooltip;
+			text = $STR_antistasi_dialogs_hq_button_move_headquarters_text;
+			tooltip = $STR_antistasi_dialogs_hq_button_move_headquarters_tooltip;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -120,8 +120,8 @@ class HQ_menu 			{
 		class HQ_button_recruitUnit: RscButton
 		{
 			idc = 107;	//R1
-			text = $STR_antistasi_hq_button_members_list_text;
-			tooltip = $STR_antistasi_hq_button_members_list_tooltip;
+			text = $STR_antistasi_dialogs_hq_button_members_list_text;
+			tooltip = $STR_antistasi_dialogs_hq_button_members_list_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -131,8 +131,8 @@ class HQ_menu 			{
 		class HQ_button_recruitSquad: RscButton
 		{
 			idc = 108;	//R2
-			text = $STR_antistasi_hq_button_rebuild_assets_text;
-			tooltip = $STR_antistasi_hq_button_rebuild_assets_tooltip;
+			text = $STR_antistasi_dialogs_hq_button_rebuild_assets_text;
+			tooltip = $STR_antistasi_dialogs_hq_button_rebuild_assets_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -142,8 +142,8 @@ class HQ_menu 			{
 		class HQ_button_vehicle: RscButton
 		{
 			idc = 109;	//R3
-			text = $STR_antistasi_hq_button_train_ai_text;
-			tooltip = $STR_antistasi_hq_button_train_ai_tooltip;
+			text = $STR_antistasi_dialogs_hq_button_train_ai_text;
+			tooltip = $STR_antistasi_dialogs_hq_button_train_ai_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -153,8 +153,8 @@ class HQ_menu 			{
 		class HQ_button_skill: RscButton
 		{
 			idc = 110;	//M4
-			text = $STR_antistasi_hq_button_garage_text;
-			tooltip = $STR_antistasi_hq_button_garage_tooltip;
+			text = $STR_antistasi_dialogs_hq_button_garage_text;
+			tooltip = $STR_antistasi_dialogs_hq_button_garage_tooltip;
 			x = 0.37749 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -181,7 +181,7 @@ class build_menu  			{
 		class HQ_frame: RscFrame
 		{
 			idc = -1;
-			text = $STR_antistasi_build_frame_text;
+			text = $STR_antistasi_dialogs_build_frame_text;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
@@ -190,7 +190,7 @@ class build_menu  			{
 		class HQ_button_back: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_build_button_no_text;
+			text = $STR_antistasi_dialogs_build_button_no_text;
 			x = 0.61 * safezoneW + safezoneX;
 			y = 0.251941 * safezoneH + safezoneY;
 			w = 0.06 * safezoneW;//0.175015
@@ -201,8 +201,8 @@ class build_menu  			{
 		class 4slots_L1: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_build_minefield_button_text;
-			tooltip = $STR_antistasi_build_minefield_button_tooltip;
+			text = $STR_antistasi_dialogs_build_minefield_button_text;
+			tooltip = $STR_antistasi_dialogs_build_minefield_button_tooltip;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -212,8 +212,8 @@ class build_menu  			{
 		class 4slots_R1: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_build_outpost_button_text;
-			tooltip = $STR_antistasi_build_outpost_button_tooltip;
+			text = $STR_antistasi_dialogs_build_outpost_button_text;
+			tooltip = $STR_antistasi_dialogs_build_outpost_button_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -223,8 +223,8 @@ class build_menu  			{
 		class 4slots_L2: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_build_recruit_units_button_text;
-			tooltip = $STR_antistasi_build_recruit_units_button_tooltip;
+			text = $STR_antistasi_dialogs_build_recruit_units_button_text;
+			tooltip = $STR_antistasi_dialogs_build_recruit_units_button_tooltip;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -234,8 +234,8 @@ class build_menu  			{
 		class 4slots_R2: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_build_disband_units_button_text;
-			tooltip = $STR_antistasi_build_disband_units_button_tooltip;
+			text = $STR_antistasi_dialogs_build_disband_units_button_text;
+			tooltip = $STR_antistasi_dialogs_build_disband_units_button_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;

@@ -638,7 +638,7 @@ class buy_vehicle 			{
 		class HQ_button_quad: RscButton
 		{
 			idc = 104;
-			text = "Buy Quadbike"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_quad_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -648,7 +648,7 @@ class buy_vehicle 			{
 		class HQ_button_offroad: RscButton
 		{
 			idc = 105;
-			text = "Buy Offroad"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_offroad_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -658,7 +658,7 @@ class buy_vehicle 			{
 		class HQ_button_truck: RscButton
 		{
 			idc = 106;
-			text = "Buy Truck"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_truck_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -668,7 +668,7 @@ class buy_vehicle 			{
 		class HQ_button_Aoffroad: RscButton
 		{
 			idc = 107;
-			text = "Buy Armed Offroad"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_a_offroad_text;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -678,7 +678,8 @@ class buy_vehicle 			{
 		class HQ_button_MG: RscButton
 		{
 			idc = 108;
-			text = "Buy MG"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mg_text;
+			tooltip = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mg_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -688,7 +689,8 @@ class buy_vehicle 			{
 		class HQ_button_mortar: RscButton
 		{
 			idc = 109;
-			text = "Buy Mortar"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_text;
+			tooltip = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -698,7 +700,8 @@ class buy_vehicle 			{
 		class HQ_button_AT: RscButton
 		{
 			idc = 110;
-			text = "Buy Static AT"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_text;
+			tooltip = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_tooltip;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -709,7 +712,8 @@ class buy_vehicle 			{
 		class HQ_button_AA: RscButton
 		{
 			idc = 111;
-			text = "Buy Static AA"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_aa_text;
+			tooltip = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_aa_tooltip;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -735,7 +739,7 @@ class civ_vehicle 			{
 		class HQ_frame: RscFrame
 		{
 			idc = -1;
-			text = "Buy Civilian Vehicle"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_text;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
@@ -754,7 +758,7 @@ class civ_vehicle 			{
 		class HQ_button_Gsquad: RscButton
 		{
 			idc = 104;
-			text = "Offroad"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_offroad_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -764,7 +768,7 @@ class civ_vehicle 			{
 		class HQ_button_Gstatic: RscButton
 		{
 			idc = 105;
-			text = "Truck"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_truck_text;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -774,7 +778,7 @@ class civ_vehicle 			{
 		class HQ_button_Gremove: RscButton
 		{
 			idc = 106;
-			text = "Helicopter"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_heli_text;
 			//x = 0.37749 * safezoneW + safezoneX;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
@@ -785,7 +789,7 @@ class civ_vehicle 			{
 		class HQ_button_offroad: RscButton
 		{
 			idc = 107;
-		 	text = "Boat"; //--- ToDo: Localize;
+		 	text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_boat_text;
 			x = 0.272481 * safezoneW + safezoneX;
 		 	y = 0.415981 * safezoneH + safezoneY;
 		 	w = 0.175015 * safezoneW;

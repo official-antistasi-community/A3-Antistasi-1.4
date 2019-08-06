@@ -363,5 +363,77 @@
         <English>Wide variety of available faction vehicles</English>
       </Key>
     </Container>
+    <Container name="dialog_vehicle_purchase_military">
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_quad_text">
+        <Original>ATV</Original>
+        <English>Quadbike</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mg_text">
+        <Original>Machine Gun</Original>
+        <English>Machine Gun</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mg_tooltip">
+        <Original>Buy Static Machinegun Emplacement</Original>
+        <English>Buy Static Machinegun Emplacement</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_text">
+        <Original>Mortar</Original>
+        <English>Mortar</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_tooltip">
+        <Original>Buy Static Mortar Emplacement</Original>
+        <English>Buy Static Mortar Emplacement</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_aa_text">
+        <Original>Static AA</Original>
+        <English>Static AA</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_aa_tooltip">
+        <Original>Buy Static Anti-Air emplacement</Original>
+        <English>Buy Static Anti-Air emplacement</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_text">
+        <Original>Static AT</Original>
+        <English>Static AT</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_tooltip">
+        <Original>Buy Static Anti-Tank emplacement</Original>
+        <English>Buy Static Anti-Tank emplacement</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_truck_text">
+        <Original>Pickup Truck</Original>
+        <English>Pickup Truck</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_offroad_text">
+        <Original>Offroad Truck</Original>
+        <English>Offroad Truck</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_a_offroad_text">
+        <Original>Armed Pickup Truck</Original>
+        <English>Armed Pickup Truck</English>
+      </Key>
+    </Container>
+    <Container name="dialog_vehicle_purchase_civ">
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_text">
+        <Original>Buy Civilian Vehicle</Original>
+        <English>Buy Civilian Vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_offroad_text">
+        <Original>Offroad</Original>
+        <English>Offroad</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_truck_text">
+        <Original>Truck</Original>
+        <English>Truck</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_boat_text">
+        <Original>Boat</Original>
+        <English>Boat</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_heli_text">
+        <Original>Helicopter</Original>
+        <English>Helicopter</English>
+      </Key>
+    </Container>
   </Package>
 </Project>

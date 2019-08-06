@@ -19,7 +19,7 @@ _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber b
 _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time portion of the date array to a string for clarity in hints
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
-_taskDescription = format ["%1 population is in need of supplies. We may improve our relationship with that city if we are the ones who provide them. I reserved a transport truck with supplies near our HQ. Drive the transport truck to %1 city center. Hold it there for 2 minutes and it's done. Do this before %2. You may allways sell those supplies here, that money can be welcome. Just sell the truck and job is done",_nameDest,_displayTime];
+_taskDescription = format ["%1 population is in need of supplies. We may improve our relationship with that city if we are the ones who provide them. I reserved a transport truck with supplies near our HQ. Drive the transport truck to %1 city center. Hold it there for 2 minutes and it's done. Do this before %2.",_nameDest,_displayTime];
 
 [[teamPlayer,civilian],"LOG",[_taskDescription,"City Supplies",_markerX],_positionX,false,0,true,"Heal",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";

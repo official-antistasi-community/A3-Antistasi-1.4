@@ -619,7 +619,7 @@ class buy_vehicle 			{
 		class HQ_frame: RscFrame
 		{
 			idc = 102;
-			text = "Purchase Military Vehicle"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_vehicle_purchase_military_text;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;

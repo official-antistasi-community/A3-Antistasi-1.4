@@ -337,5 +337,31 @@
         <English>1.4c1.04</English>
       </Key>
     </Container>
+    <Container name="dialog_vehicle_purchase">
+      <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_text">
+        <Original>Buy Vehicle</Original>
+        <English>Buy Vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_tooltip">
+        <Original>Allows you to buy a vehicle</Original>
+        <English>Allows you to buy a vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_text">
+        <Original>Civilian Vehicle</Original>
+        <English>Civilian Vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_tooltip">
+        <Original>Civilian vehicles will allow you to travel in Undercover mode, while you stay close to roads and not entering bases, outposts and roadblocks.</Original>
+        <English>Civilian vehicles will allow you to travel in Undercover mode, while you stay close to roads and not entering bases, outposts and roadblocks.</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_purchase_military_text">
+        <Original>Military Vehicle</Original>
+        <English>Military Vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_purchase_military_tooltip">
+        <Original>Wide variety of available faction vehicles</Original>
+        <English>Wide variety of available faction vehicles</English>
+      </Key>
+    </Container>
   </Package>
 </Project>

@@ -150,13 +150,13 @@ private _itemCategory = switch true do {
 		// Lists to check against
 		private _grenadeList = [];
 		{
-			_grenadeList append getArray (_configCfgWeapons >> "Throw" >> _item >> "magazines");
+			_grenadeList append getArray (_configCfgWeapons >> "Throw" >> _x >> "magazines");
 			false
 		} count getArray (_configCfgWeapons >> "Throw" >> "muzzles");
 
 		private _putList = [];
 		{
-			_putList append getArray (_configCfgWeapons >> "Put" >> _item >> "magazines");
+			_putList append getArray (_configCfgWeapons >> "Put" >> _x >> "magazines");
 			false
 		} count getArray (_configCfgWeapons >> "Put" >> "muzzles");
 		

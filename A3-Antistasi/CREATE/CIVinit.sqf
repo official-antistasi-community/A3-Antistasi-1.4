@@ -44,34 +44,27 @@ _EHkilledIdx = _unit addEventHandler ["killed",
 		{
 		if (isPlayer _killer) then
 			{
-			if (!isMultiPlayer) then
-				{
-				_nul = [0,20] remoteExec ["A3A_fnc_resourcesFIA",2];
-				_killer addRating 1000;
-				}
-			else
-				{
-				if (typeOf _victim == "C_man_w_worker_F") then {_killer addRating 1000};
-				[-10,_killer] call A3A_fnc_playerScoreAdd
-				}
+			if (typeOf _victim == "C_man_w_worker_F") then {_killer addRating 1000};
+			[-10,_killer] call A3A_fnc_playerScoreAdd;
 			};
 		_multiplier = 1;
 		if (typeOf _victim == "C_journalist_F") then {_multiplier = 10};
-		if (side _killer == teamPlayer) then
+		//Must be group, in case they're undercover.
+		if (side group _killer == teamPlayer) then
 			{
 			_nul = [1*_multiplier,0] remoteExec ["A3A_fnc_prestige",2];
 			_nul = [1,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 			}
 		else
 			{
-			if (side _killer == Occupants) then
+			if (side group _killer == Occupants) then
 				{
 				//_nul = [-1*_multiplier,0] remoteExec ["A3A_fnc_prestige",2];
 				_nul = [0,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 				}
 			else
 				{
-				if (side _killer == Invaders) then
+				if (side group _killer == Invaders) then
 					{
 					//_nul = [2*_multiplier,0] remoteExec ["A3A_fnc_prestige",2];
 					_nul = [-1,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];

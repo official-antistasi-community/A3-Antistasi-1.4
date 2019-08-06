@@ -58,7 +58,7 @@ class A3A
         class sellVehicle {file="sellVehicle.sqf";};
         class sizeMarker {file="sizeMarker.sqf";};
         class statistics {file="statistics.sqf";};
-        class stripGearFromLoadout {file="stripGearFromLoadout.sqf"};
+        class stripGearFromLoadout {file="stripGearFromLoadout.sqf";};
         class teleportVehicleToBase {file="teleportVehicleToBase.sqf";};
         class translateVariable {file="statSave\translateVariable.sqf";};
         class keys {file="keys.sqf";};

@@ -129,7 +129,7 @@ activeGREF = false;
 hasFFAA = false;
 hasIFA = false;
 myCustomMod = false;
-active3CB = false;
+has3CB = false;
 
 if (isClass(configFile/"CfgPatches"/"LIB_Core")) then
 	{
@@ -139,7 +139,7 @@ if (isClass(configFile/"CfgPatches"/"LIB_Core")) then
 	}
 else
 	{
- 	if ("UK3CB_BAF_L1A1" in arifles) then {active3CB = true; has3CB = true};
+ 	if ("UK3CB_BAF_L1A1" in arifles) then {has3CB = true};
 	if ("rhs_weap_akms" in arifles) then {activeAFRF = true; hasRHS = true};
 	if ("ffaa_armas_hkg36k_normal" in arifles) then {hasFFAA = true};
 	if ("rhs_weap_m4a1_d" in arifles) then {activeUSAF = true; hasRHS = true};

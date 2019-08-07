@@ -98,16 +98,13 @@ if (_owner in hcArray) then
 		{
 		hcArray = hcArray - [_owner];
 		};
-	}
-else
-	{
-	_pos = getPosATL _unit;
-	_wholder = nearestObjects [_pos, ["weaponHolderSimulated", "weaponHolder"], 2];
-	{deleteVehicle _x} forEach _wholder + [_unit];
-	if !(isNull _unit) then
-		{
-		_unit setVariable ["owner",_unit,true];
-		_unit setDamage 1;
-		};
 	};
-//diag_log format ["dataX de handledisconnect: %1",_this];
+_pos = getPosATL _unit;
+_wholder = nearestObjects [_pos, ["weaponHolderSimulated", "weaponHolder"], 2];
+{deleteVehicle _x} forEach _wholder + [_unit];
+if !(isNull _unit) then
+	{
+	_unit setVariable ["owner",_unit,true];
+	_unit setDamage 1;
+	};
+diag_log format ["[Antistasi]: disconnected player: %1",_this];

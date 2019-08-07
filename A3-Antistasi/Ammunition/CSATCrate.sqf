@@ -1,5 +1,5 @@
 
-private ["_crate","_loot","_num","_magazines"];
+private ["_crate","_thingX","_num","_magazines"];
 
 _crate = _this select 0;
 
@@ -8,69 +8,58 @@ clearWeaponCargoGlobal _crate;
 clearItemCargoGlobal _crate;
 clearBackpackCargoGlobal _crate;
 
-_var1 = 1 + round random 4;
-_var2 = 1 + round random 4;
-_var3 = 1 + round random 4;
-_var4 = 1 + round random 4;
-_var5 = 1 + round random 4;
+_var1 = 1+ round random 4;
+_var2 = 1 + round random 5;
+_var3 = 1 + floor random 3;
+_var4 = floor random 2;
 if (typeOf _crate == vehCSATAmmoTruck) then
 	{
 	_var1=_var1*2;
 	_var2=_var2*2;
 	_var3=_var3*2;
 	_var4=_var4*2;
-	_var5=_var5*2;
 	};
 
 for "_i" from 0 to _var1 do
 	{
-	_guns = (weaponsCSAT + antitankAAF);
-	_avail = (_guns - unlockedWeapons);
-	_loot = selectRandom _avail;
-	//_thingX = selectRandom (weaponsCSAT + antitankAAF);
-	if (!(_loot in weaponCargo _crate)) thenn
+	_thingX = selectRandom (weaponsCSAT + antitankAAF);
+	if (!(_thingX in unlockedWeapons)) then
 		{
-		_num = 1 + (floor random 9);
-		_crate addWeaponCargoGlobal [_loot, _num];
-		_magazines = getArray (configFile / "CfgWeapons" / _loot / "magazines");
+		_num = 1+ (floor random 12);
+		_crate addWeaponCargoGlobal [_thingX, _num];
+		_magazines = getArray (configFile / "CfgWeapons" / _thingX / "magazines");
 		_crate addMagazineCargoGlobal [_magazines select 0, _num * 3];
 		};
 	};
 for "_i" from 0 to _var2 do
 	{
-	_items = itemsAAF;
-	_avail = (itemsAAF - unlockedItems);
-	_loot = selectRandom _avail;
-	if (!(_loot in itemCargo _crate)) then
+	_thingX = selectRandom itemsAAF;
+	if (!(_thingX in unlockedItems)) then
 		{
-		_num = 1 + (floor random 4);
-		_crate addItemCargoGlobal [_loot, _num];
+		_num = floor random 5;
+		_crate addItemCargoGlobal [_thingX, _num];
+		};
 	};
-for "_i" from 0 to _var3 do
+for "_i" from 0 to _var2 do
 	{
-	_ammo = ammunitionCSAT;
-	_avail = (_ammo - unlockedMagazines);
-	_loot = selectRandom _avail;
-	if (!(_loot in magazineCargo _crate)) then {_crate addMagazineCargoGlobal [_loot, 10]};
+	_thingX = selectRandom ammunitionCSAT;
+	if (!(_thingX in unlockedMagazines)) then {_crate addMagazineCargoGlobal [_thingX, 10]};
 	};
-for "_i" from 0 to _var4 do
+for "_i" from 1 to _var3 do
 	{
-	_loot = selectRandom minesAAF;
-	_num = 1 + (floor random 4);
-	_crate addMagazineCargoGlobal [_loot, _num];
+	_thingX = selectRandom minesAAF;
+	_num = 1 + (floor random 5);
+	_crate addMagazineCargoGlobal [_thingX, _num];
 	};
 
 if !(hasIFA) then
 	{
-	for "_i" from 0 to _var5 do
+	for "_i" from 1 to _var4 do
 		{
-		_optics = opticsAAF;
-		_avail = (opticsAAF - unlockedItems);
-		_loot = selectRandom _avail;
-		_num = 1 + (floor random 4);
-		if (!(_loot in itemCargo _crate)) then
+		_thingX = selectRandom opticsAAF;
+		if (not(_thingX in unlockedItems)) then
 			{
-			_crate addItemCargoGlobal [_loot, _num];
+			_crate addItemCargoGlobal [_thingX, 1 + (floor random 2)];
 			};
 		};
 

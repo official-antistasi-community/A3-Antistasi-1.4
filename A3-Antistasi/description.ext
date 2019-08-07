@@ -188,6 +188,13 @@ class Params
         texts[] = {"No","Yes"};
         default = 1;
     };
+    class napalmEnabled
+    {
+        title = "Enable Napalm Bombing for AI";
+        values[] = {0,1};
+        texts[] = {"No","Yes"};
+        default = 0;
+    };
 };
 
 class CfgIdentities
@@ -418,14 +425,4 @@ class CfgDebriefing
         picture = "b_unknown";
         pictureColor[] = {0.0,0.5,0.0,1};
     };
-    /*
-    class asshole
-    {
-        title = "Forbidden";
-        subtitle = "You are not allowed to run Antistasi";
-        description = "Sorry, but you cannot play Antistasi in your server. Please contact author to discuss your situation.";
-        picture = "b_unknown";
-        pictureColor[] = {0.0,0.5,0.0,1};
-    };
-    */
 };

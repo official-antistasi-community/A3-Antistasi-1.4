@@ -65,7 +65,7 @@ if ((!_isMarker) and (_typeOfAttack != "Air") and (!_super) and ({sidesX getVari
 		_friendlies = if (_sideX == Occupants) then {allUnits select {(_x distance _posDestination < 200) and (alive _x) and ((side (group _x) == _sideX) or (side (group _x) == civilian))}} else {allUnits select {(_x distance _posDestination < 100) and ([_x] call A3A_fnc_canFight) and (side (group _x) == _sideX)}};
 		if (count _friendlies == 0) then
 			{
-			_typeX = "NAPALM";
+			_typeX = if (napalmEnabled) then {"NAPALM"} else {"HE"};
 			{
 			if (vehicle _x isKindOf "Tank") then
 				{

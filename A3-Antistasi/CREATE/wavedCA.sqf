@@ -594,25 +594,19 @@ while {(_waves > 0)} do
 				{
 				sleep 60;
 				_rnd = if (_mrkDestination in airportsX) then {round random 4} else {round random 2};
+				private _bombOptions = if (napalmEnabled) then {["HE","CLUSTER","NAPALM"]} else {["HE","CLUSTER"]};
 				for "_i" from 0 to _rnd do
 					{
 					if ([_plane] call A3A_fnc_vehAvailable) then
 						{
 						diag_log "Antistasi: Airstrike Spawned";
-						if (_i == 0) then
+						if (_i == 0 && {_mrkDestination in airportsX}) then
 							{
-							if (_mrkDestination in airportsX) then
-								{
-								_nul = [_mrkDestination,_sideX,"HE"] spawn A3A_fnc_airstrike;
-								}
-							else
-								{
-								_nul = [_mrkDestination,_sideX,selectRandom ["HE","CLUSTER","NAPALM"]] spawn A3A_fnc_airstrike;
-								};
+							_nul = [_mrkDestination,_sideX,"HE"] spawn A3A_fnc_airstrike;
 							}
 						else
 							{
-							_nul = [_mrkDestination,_sideX,selectRandom ["HE","CLUSTER","NAPALM"]] spawn A3A_fnc_airstrike;
+							_nul = [_mrkDestination,_sideX,selectRandom _bombOptions] spawn A3A_fnc_airstrike;
 							};
 						sleep 30;
 						};
@@ -630,25 +624,19 @@ while {(_waves > 0)} do
 				{
 				sleep 60;
 				_rnd = if (_mrkDestination in airportsX) then {if ({sidesX getVariable [_x,sideUnknown] == Invaders} count airportsX == 1) then {8} else {round random 4}} else {round random 2};
+				private _bombOptions = if (napalmEnabled) then {["HE","CLUSTER","NAPALM"]} else {["HE","CLUSTER"]};
 				for "_i" from 0 to _rnd do
 					{
 					if ([_plane] call A3A_fnc_vehAvailable) then
 						{
 						diag_log "Antistasi: Airstrike Spawned";
-						if (_i == 0) then
+						if (_i == 0 && {_mrkDestination in airportsX}) then
 							{
-							if (_mrkDestination in airportsX) then
-								{
-								_nul = [_mrkDestination,_sideX,"HE"] spawn A3A_fnc_airstrike;
-								}
-							else
-								{
-								_nul = [_mrkDestination,_sideX,selectRandom ["HE","CLUSTER","NAPALM"]] spawn A3A_fnc_airstrike;
-								};
+							_nul = [_mrkDestination,_sideX,"HE"] spawn A3A_fnc_airstrike;
 							}
 						else
 							{
-							_nul = [_posDestination,_sideX,selectRandom ["HE","CLUSTER","NAPALM"]] spawn A3A_fnc_airstrike;
+							_nul = [_posDestination,_sideX,selectRandom _bombOptions] spawn A3A_fnc_airstrike;
 							};
 						sleep 30;
 						};

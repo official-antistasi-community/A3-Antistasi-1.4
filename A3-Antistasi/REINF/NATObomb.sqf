@@ -68,9 +68,11 @@ _wp1 = group _plane addWaypoint [_pos1, 0];
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "LIMITED";
 _wp1 setWaypointBehaviour "CARELESS";
+
+if (_typeX == "NAPALM" && napalmEnabled) then {_wp1 setWaypointStatements ["true", "[this,""NAPALM""] execVM 'AI\airbomb.sqf'"]} else {_typeX = "HE"};
 if (_typeX == "CARPET") then {_wp1 setWaypointStatements ["true", "[this,""CARPET""] execVM 'AI\airbomb.sqf'"]};
-if (_typeX == "NAPALM") then {_wp1 setWaypointStatements ["true", "[this,""NAPALM""] execVM 'AI\airbomb.sqf'"]};
 if (_typeX == "HE") then {_wp1 setWaypointStatements ["true", "[this] execVM 'AI\airbomb.sqf'"]};
+
 
 
 _wp2 = group _plane addWaypoint [_pos2, 1];

@@ -144,7 +144,8 @@ for "_i" from 0 to round random 2 do
 	{
 	if ([vehCSATPlane] call A3A_fnc_vehAvailable) then
 		{
-		_nul = [_mrkDestination,Invaders,"NAPALM"] spawn A3A_fnc_airstrike;
+		private _bombType = if (napalmEnabled) then {"NAPALM"} else {"HE"};
+		_nul = [_mrkDestination,Invaders,_bombType] spawn A3A_fnc_airstrike;
 		sleep 30;
 		};
 	};

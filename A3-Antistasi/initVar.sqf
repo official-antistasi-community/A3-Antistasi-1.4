@@ -5,7 +5,7 @@
 //Not commented lines cannot be changed.
 //Don't touch them.
 
-antistasiVersion = "v 1.4.0.2";
+antistasiVersion = "v 1.4c1.05";
 
 
 debug = false;//debug variable, not useful for everything..
@@ -373,7 +373,7 @@ vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPl
 vehUAVs = [vehNATOUAV,vehCSATUAV];
 vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
 vehAPCs = vehNATOAPC + vehCSATAPC;
-vehTanks = [vehNATOTank,vehCSATTank];
+vehTanks = vehNATOTanks + vehCSATTanks;
 vehTrucks = vehNATOTrucks + vehCSATTrucks + [vehSDKTruck,vehFIATruck];
 vehAA = [vehNATOAA,vehCSATAA];
 vehMRLS = [vehCSATMRLS, vehNATOMRLS];
@@ -515,8 +515,8 @@ if (!isServer) exitWith {};
 {timer setVariable [_x,6,true]} forEach [staticATInvaders,staticAAInvaders];
 {timer setVariable [_x,0,true]} forEach vehNATOAPC;
 {timer setVariable [_x,10,true]} forEach vehCSATAPC;
-timer setVariable [vehNATOTank,0,true];
-timer setVariable [vehCSATTank,10,true];
+{timer setVariable [_x,0,true]} forEach vehNATOAPC;
+{timer setVariable [_x,10,true]} forEach vehCSATAPC;
 timer setVariable [vehNATOAA,0,true];
 timer setVariable [vehCSATAA,3,true];
 timer setVariable [vehNATOBoat,3,true];

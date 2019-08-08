@@ -230,14 +230,14 @@ if (_base != "") then
 			{
 			if (_rnd > prestigeNATO) then
 				{
-				_vehPool = _vehPool - [vehNATOTank];
+				_vehPool = _vehPool - vehNATOTanks;
 				};
 			}
 		else
 			{
 			if (_rnd > prestigeCSAT) then
 				{
-				_vehPool = _vehPool - [vehCSATTank];
+				_vehPool = _vehPool - vehCSATTanks;
 				};
 			};
 		};
@@ -269,11 +269,11 @@ if (_base != "") then
 								{
 								if (_sideX == Occupants) then
 									{
-									if ([vehNATOTank] call A3A_fnc_vehAvailable) then {vehNATOTank} else {selectRandom _vehPool}
+									if ([vehNATOTank] call A3A_fnc_vehAvailable) then {selectRandom vehNATOTanks} else {selectRandom _vehPool}
 									}
 								else
 									{
-									if ([vehCSATTank] call A3A_fnc_vehAvailable) then {vehCSATTank} else {selectRandom _vehPool}
+									if ([vehCSATTank] call A3A_fnc_vehAvailable) then {selectRandom vehCSATTanks} else {selectRandom _vehPool}
 									};
 								};
 							};

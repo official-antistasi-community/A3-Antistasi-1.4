@@ -109,14 +109,14 @@ while {(_waves > 0)} do
 				{
 				if (_rnd > prestigeNATO) then
 					{
-					_vehPool = _vehPool - [vehNATOTank];
+					_vehPool = _vehPool - vehNATOTanks;
 					};
 				}
 			else
 				{
 				if (_rnd > prestigeCSAT) then
 					{
-					_vehPool = _vehPool - [vehCSATTank];
+					_vehPool = _vehPool - vehCSATTanks;
 					};
 				};
 			};
@@ -691,7 +691,7 @@ while {(_waves > 0)} do
 			if !(_posOriginLand isEqualTo []) then
 				{
 				if ({[_x] call A3A_fnc_vehAvailable} count vehNATOAPC == 0) then {_waves = _waves -1};
-				if !([vehNATOTank] call A3A_fnc_vehAvailable) then {_waves = _waves - 1};
+				if !(vehNATOTanks call A3A_fnc_vehAvailable) then {_waves = _waves - 1};
 				};
 			if ({[_x] call A3A_fnc_vehAvailable} count vehNATOAttackHelis == 0) then
 				{
@@ -738,7 +738,7 @@ while {(_waves > 0)} do
 			if !(_posOriginLand isEqualTo []) then
 				{
 				if ({[_x] call A3A_fnc_vehAvailable} count vehCSATAPC == 0) then {_waves = _waves -1};
-				if !([vehCSATTank] call A3A_fnc_vehAvailable) then {_waves = _waves - 1};
+				if !(vehCSATTanks call A3A_fnc_vehAvailable) then {_waves = _waves - 1};
 				};
 			if ({[_x] call A3A_fnc_vehAvailable} count vehCSATAttackHelis == 0) then
 				{

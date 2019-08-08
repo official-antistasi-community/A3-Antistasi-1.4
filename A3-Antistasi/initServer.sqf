@@ -33,6 +33,7 @@ civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic
 memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
 limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
 napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
+tpLeashGroupSize = if ("tpLeashGroupSize" call BIS_fnc_getParamValue) then {true} else {false}; publicVariable "tpLeashGroupSize"
 
 //Load Campaign ID if resuming game
 if(loadLastSave) then {
@@ -41,7 +42,7 @@ if(loadLastSave) then {
 	campaignID = str(round((random(100000)) + random 10000));
 	profileNameSpace setVariable ["ss_CampaignID", campaignID];
 };
-	
+
 publicVariable "campaignID";
 
 _nul = call compile preprocessFileLineNumbers "initVar.sqf";

@@ -193,6 +193,13 @@ class Params
         texts[] = {"No","Yes"};
         default = 0;
     };
+    class tpLeashGroupSize
+    {
+        title = "Sets the minimum group size before player is teleported to base.";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12};
+        texts[] = {"Unlocked","1 Player","2 Players","3 Players","4 Players","5 Players","6 Players","7 Players","8 Players","9 Players","10 Players",};
+        default = 2;
+    };
 };
 
 class CfgIdentities

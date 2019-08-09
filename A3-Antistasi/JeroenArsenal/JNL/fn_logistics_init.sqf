@@ -137,6 +137,12 @@ jnl_vehicleHardpoints = [
     [1,[-0.0065918,0.0195313,-0.48801],[12,3,13,4,5,2]],
     [1,[0.0373535,-1.80859,-0.433626],[6,7,8,9,11,10]]
     ]],
+    
+    //USAF M1078A1P2_B_M2
+	["\rhsusf\addons\rhsusf_fmtv\M1078A1P2_B_M2",[
+    [1,[-0.0065918,0.0195313,-1.138801],[12,3,13,4,5,2]],
+    [1,[0.0373535,-1.80859,-1.133626],[6,7,8,9,11,10]]
+    ]],
 
     //USAF Truck "rhsusf_M1078A1P2_B_WD_fmtv_usarmy" and "rhsusf_M1078A1P2_B_WD_open_fmtv_usarmy"
     ["\rhsusf\addons\rhsusf_fmtv\M1078A1P2_B",[

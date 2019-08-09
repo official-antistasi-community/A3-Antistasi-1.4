@@ -269,11 +269,11 @@ if (_base != "") then
 								{
 								if (_sideX == Occupants) then
 									{
-									if ([vehNATOTank] call A3A_fnc_vehAvailable) then {selectRandom vehNATOTanks} else {selectRandom _vehPool}
+									if ([vehNATOTanks] call A3A_fnc_vehAvailable) then {selectRandom vehNATOTanks} else {selectRandom _vehPool}
 									}
 								else
 									{
-									if ([vehCSATTank] call A3A_fnc_vehAvailable) then {selectRandom vehCSATTanks} else {selectRandom _vehPool}
+									if ([vehCSATTanks] call A3A_fnc_vehAvailable) then {selectRandom vehCSATTanks} else {selectRandom _vehPool}
 									};
 								};
 							};

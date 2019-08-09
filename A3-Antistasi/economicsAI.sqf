@@ -34,7 +34,7 @@ if !(_typeX isEqualTo []) then
 	};
 //tanks
 _maxItems = (_outposts * 0.5) + (_airbases * 2);
-_typeX = if (_sideX == Occupants) then {vehNATOTank} else {vehCSATTank};
+_typeX = if (_sideX == Occupants) then {vehNATOTanks} else {vehCSATTanks};
 _currentItems = timer getVariable [_typeX,0];
 if (_currentItems < _maxItems) then
 	{

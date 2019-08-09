@@ -15,6 +15,7 @@ staticAAOccupants = "rhsgref_ins_g_Igla_AA_pod";
 vehNATOLightArmed = ["rhsgref_ins_g_uaz_ags","rhsgref_ins_g_uaz_dshkm_chdkz","rhsgref_ins_g_uaz_spg9","rhsgref_BRDM2_HQ_ins_g"];
 vehNATOLightUnarmed = ["rhsgref_ins_g_uaz","rhsgref_ins_g_uaz_open","rhsgref_BRDM2UM_ins_g"];
 vehNATOTrucks = ["rhsgref_ins_g_gaz66","rhsgref_ins_g_ural","rhsgref_ins_g_ural_open","rhsgref_ins_g_gaz66o"];
+vehNATOCargoTrucks = [];
 vehNATOAmmoTruck = "rhsgref_ins_g_gaz66_ammo";
 vehNATORepairTruck = "rhsgref_ins_g_ural_repair";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;

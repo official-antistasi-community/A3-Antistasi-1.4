@@ -163,16 +163,13 @@ else
 	antitankAAF = [];
 	minesAAF = [];
 	itemsAAF = ["FirstAidKit","Medikit","ToolKit"];
+	MAntitankAAF= [];
 	if (hasIFA) then
 		{
 			MAntitankAAF = ["LIB_Shg24"];
 			minesAAF = ["LIB_PMD6_MINE_mag","LIB_TM44_MINE_mag","LIB_US_TNT_4pound_mag"];
 			itemsAAF = ["FirstAidKit","Medikit","ToolKit","LIB_ToolKit"];
 		}
-		else
-		{
-			MAntitankAAF=[]
-		};
 	if (hasRHS) then
 		{
 			minesAAF = ["rhsusf_m112_mag","rhsusf_mine_m14_mag","rhs_mine_M19_mag","rhs_mine_tm62m_mag","rhs_mine_pmn2_mag"];

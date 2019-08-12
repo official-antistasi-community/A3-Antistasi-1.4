@@ -2,8 +2,7 @@
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-
-diag_log "Init JNA: Start";
+diag_log format ["%1: [Antistasi]: JNA Init Started.",servertime];
 
 params [["_object",objNull,[objNull]]];
 
@@ -51,7 +50,7 @@ jna_minItemMember = [24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24
 
 //server
 if(isServer)then{
-	diag_log "Init JNA: server";
+    diag_log format ["%1: [Antistasi]: JNA Server Detected.",servertime];
 
     //load default if it was not loaded from savegame
     if(isnil "jna_dataList" )then{jna_dataList = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];};
@@ -59,7 +58,7 @@ if(isServer)then{
 
 //player
 if(hasInterface)then{
-    diag_log "Init JNA: player";
+    diag_log format ["%1: [Antistasi]: JNA Loading Player Data.",servertime];
 
     //add arsenal button
     _object addaction [
@@ -167,6 +166,5 @@ if(hasInterface)then{
         };
     }] call BIS_fnc_addScriptedEventHandler;
 };
-
-diag_log "Init JNA: done";
+diag_log format ["%1: [Antistasi]: JNA Completed.",servertime];
 arsenalInit = true;

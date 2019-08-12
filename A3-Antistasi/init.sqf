@@ -1,4 +1,4 @@
-diag_log format ["%1: [Antistasi]: Init Started. Version: %2",servertime,antistasiVersion];
+diag_log format ["%1: [Antistasi]: Init Started.",servertime];
 //Arma 3 - Antistasi - Warlords of the Pacific by Barbolani & The Official AntiStasi Community
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.
 enableSaving [false,false];
@@ -18,9 +18,9 @@ if (!isMultiPlayer) then
     minWeaps = 24;
     civTraffic = 1;
     limitedFT = false;
-		
-    diag_log "Starting Antistasi SP";
+	diag_log format ["%1: [Antistasi]: Singleplayer Starting.",servertime];
     call compile preprocessFileLineNumbers "initVar.sqf";//this is the file where you can modify a few things.
+    diag_log format ["%1: [Antistasi]: SP Version: %2 loaded.",servertime,antistasiVersion];
     initVar = true;
     respawnOccupants setMarkerAlpha 0;
     "respawn_east" setMarkerAlpha 0;

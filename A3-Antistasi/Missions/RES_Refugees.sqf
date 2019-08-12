@@ -100,7 +100,9 @@ else
 		};
 	_road = _roads select 0;
 	_posroad = getPos _road;
-	_roadcon = roadsConnectedto _road; if (count _roadCon == 0) then {diag_log format ["Antistasi Error: Esta carretera no tiene conexión: %1",position _road]};
+	_roadcon = roadsConnectedto _road; if (count _roadCon == 0) then {
+		diag_log format ["%1: [Antistasi] | ERROR | RES_Refugees.sqf | Road has no connection :%2.",servertime,position _road];
+		};
 	if (count _roadCon > 0) then
 		{
 		_posrel = getPos (_roadcon select 0);

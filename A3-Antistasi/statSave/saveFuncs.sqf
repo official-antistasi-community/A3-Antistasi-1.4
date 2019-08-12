@@ -51,7 +51,9 @@ fn_ReturnSavedStat =
     _varValue = [_spanishVarName] call _loadVariable;
   };
   
-	if(isNil "_varValue") exitWith {diag_log format ["Antistasi: Error during Persistent Load. The variable %1 does not exist", _varName]};
+	if(isNil "_varValue") exitWith {
+		diag_log format ["%1: [Antistasi] | ERROR | saveFuncs.sqf | Variable %2 does not exist.",servertime,position _varName];
+		};
 	_varValue;
 };
 

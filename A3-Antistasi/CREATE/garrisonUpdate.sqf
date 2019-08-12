@@ -19,18 +19,18 @@ else
 _sideX = _this select 1;
 _markerX = _this select 2;
 if !(_markerX isEqualType "") exitWith {
-		diag_log format ["%1: [Antistasi] | Error | garrisonUpdate.sqf | Failed to update Garrison at Position:%2",servertime,_this];
+		diag_log format ["%1: [Antistasi] | ERROR | garrisonUpdate.sqf | Failed to update Garrison at Position:%2",servertime,_this];
 		};
 _modeX = _this select 3;//-1 to remove 1 unbit (killed EHs etc). 1 add 1 single classname / object. 2 adds a hole array and admits classnames or objects
 _exit = false;
 {if (isNil _x) exitWith {_exit = true}} forEach ["_typeX","_sideX","_markerX","_modeX"];
 if (_exit) exitWith {
-	diag_log format ["%1: [Antistasi] | Error | garrisonUpdate.sqf | Failed to update Garrison with params:%2,%3,%4,%5",servertime,_typeX,_sideX,_markerX,_modeX];
+	diag_log format ["%1: [Antistasi] | ERROR | garrisonUpdate.sqf | Failed to update Garrison with params:%2,%3,%4,%5",servertime,_typeX,_sideX,_markerX,_modeX];
 	};
 waitUntil {!garrisonIsChanging};
 {if (isNil _x) exitWith {_exit = true}} forEach ["_typeX","_sideX","_markerX","_modeX"];
 if (_exit) exitWith {
-	diag_log format ["%1: [Antistasi] | Error | garrisonUpdate.sqf | Failed to update Garrison with params:%2,%3,%4,%5",servertime,_typeX,_sideX,_markerX,_modeX];
+	diag_log format ["%1: [Antistasi] | ERROR | garrisonUpdate.sqf | Failed to update Garrison with params:%2,%3,%4,%5",servertime,_typeX,_sideX,_markerX,_modeX];
 	};
 garrisonIsChanging = true;
 if ((_sideX == Occupants) and (!(sidesX getVariable [_markerX,sideUnknown] == Occupants))) exitWith {garrisonIsChanging = false};

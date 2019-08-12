@@ -6,12 +6,12 @@
 //of course all the editor placed objects (petros, flag, respawn marker etc..) have to be ported to the new island
 //deletion of a marker in the array will require deletion of the corresponding marker in the editor
 //only touch the commented arrays
-diag_log format ["%1: [Antistasi]: initZones Started.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initZones Started.",servertime];
 forcedSpawn = [];
 citiesX = [];
 if (worldName == "Tanoa") then
     {
-    diag_log format ["%1: [Antistasi]: initZones | Setting Spawn Points for %2.",servertime,worldname];
+    diag_log format ["%1: [Antistasi] | INFO | initZones | Setting Spawn Points for %2.",servertime,worldname];
     airportsX = ["airport","airport_1","airport_2","airport_3","airport_4"];//airports
     spawnPoints = ["spawnPoint","spawnPoint_1","spawnPoint_2","spawnPoint_3","spawnPoint_4"];
     resourcesX = ["resource","resource_1","resource_2","resource_3","resource_4","resource_5","resource_6","resource_7"];//economic resources
@@ -27,7 +27,7 @@ else
     {
     if (worldName == "Altis") then
         {
-        diag_log format ["%1: [Antistasi]: initZones | Setting Spawn Points for %2.",servertime,worldname];
+        diag_log format ["%1: [Antistasi] | INFO | initZones | Setting Spawn Points for %2.",servertime,worldname];
         airportsX = ["airport","airport_1","airport_2","airport_3","airport_4","airport_5"];//airports
         spawnPoints = ["spawnPoint","spawnPoint_1","spawnPoint_2","spawnPoint_3","spawnPoint_4","spawnPoint_5"];
         resourcesX = ["resource","resource_1","resource_2","resource_3","resource_4","resource_5","resource_6","resource_7"];//economic resources
@@ -61,7 +61,7 @@ else
         {
         if (worldName == "chernarus_summer") then
             {
-            diag_log format ["%1: [Antistasi]: initZones | Setting Spawn Points for %2.",servertime,worldname];
+            diag_log format ["%1: [Antistasi] | INFO | initZones | Setting Spawn Points for %2.",servertime,worldname];
             airportsX = ["airport","airport_1","airport_2"];
             spawnPoints = ["spawnPoint","spawnPoint_1","spawnPoint_2"];
             resourcesX = ["resource","resource_1","resource_2","resource_3","resource_4","resource_5","resource_6","resource_7","resource_8","resource_9"];
@@ -100,7 +100,7 @@ outpostsFIA = [];
 destroyedCities = [];
 garrison setVariable ["Synd_HQ",[],true];
 markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
-diag_log format ["%1: [Antistasi]: initZones | Building roads for %2.",servertime,worldname];
+diag_log format ["%1: [Antistasi] | INFO | initZones | Building roads for %2.",servertime,worldname];
 {_x setMarkerAlpha 0;
     spawner setVariable [_x,2,true];
 } forEach markersX;
@@ -137,7 +137,7 @@ if ((_nameX != "") and (_nameX != "Lakatoro01") and (_nameX != "Galili01") and (
         _numCiv = server getVariable _nameX;
         if (isNil "_numCiv") then
             {
-            diag_log format ["%1: [Antistasi]: initZones | No Civilian Limit Set %2.",servertime,_nameX];
+            diag_log format ["%1: [Antistasi] | INFO | initZones | No Civilian Limit Set %2.",servertime,_nameX];
             _numCiv = (count (nearestObjects [_pos, ["house"], _size]));
             _roadsProv = _pos nearRoads _size;
             //_roads = [];
@@ -152,7 +152,7 @@ if ((_nameX != "") and (_nameX != "Lakatoro01") and (_nameX != "Galili01") and (
             };
         if (typeName _numCiv != typeName 0) then {
                 hint format ["Incorrect Data: %1. Data Type: %2",_nameX, typeName _numCiv];
-                diag_log format ["%1: [Antistasi]: initZones | Incorrect data type for %2, Type given %2",servertime,_nameX, typeName _numCiv];
+                diag_log format ["%1: [Antistasi] | INFO | initZones | Incorrect data type for %2, Type given %2",servertime,_nameX, typeName _numCiv];
                 };
         //if (isNil "_roads") then {hint format ["A mi no me sale en %1",_nameX]};
         };
@@ -180,7 +180,7 @@ if ((_nameX != "") and (_nameX != "Lakatoro01") and (_nameX != "Galili01") and (
     server setVariable [_nameX,_info,true];
     };
 }foreach (nearestLocations [getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition"), ["NameCityCapital","NameCity","NameVillage","CityCenter"], 25000]);
-diag_log format ["%1: [Antistasi]: initZones | Roads built in %2.",servertime,worldname];
+diag_log format ["%1: [Antistasi] | INFO | initZones | Roads built in %2.",servertime,worldname];
 markersX = markersX + citiesX;
 sidesX setVariable ["Synd_HQ",teamPlayer,true];
 //if !(isMultiplayer) then {call compile preprocessFileLineNumbers "initGarrisons.sqf"};
@@ -192,7 +192,7 @@ _posAntennas = [];
 _posBank = [];
 _blacklistPos = [];
 mrkAntennas = [];
-diag_log format ["%1: [Antistasi]: initZones | Setting up Radio Towers.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initZones | Setting up Radio Towers.",servertime];
 if (worldName == "Tanoa") then
     {
     _posAntennas = [[6617.95,7853.57,0.200073],[7486.67,9651.9,1.52588e-005],[6005.47,10420.9,0.20298],[2437.25,7224.06,0.0264893],[4701.6,3165.23,0.0633469],[11008.8,4211.16,-0.00154114],[10114.3,11743.1,9.15527e-005],[10949.8,11517.3,0.14209],[11153.3,11435.2,0.210876],[12889.2,8578.86,0.228729],[2682.94,2592.64,-0.000686646],[2690.54,12323,0.0372467],[2965.33,13087.1,0.191544],[13775.8,10976.8,0.170441]];
@@ -244,8 +244,8 @@ else
             };
         };
     };
-diag_log format ["%1: [Antistasi]: initZones | Radio Tower built.",servertime];
-diag_log format ["%1: [Antistasi]: initZones | Finding broken Radio Towers.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initZones | Radio Tower built.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initZones | Finding broken Radio Towers.",servertime];
 if (count _posAntennas > 0) then
     {
     for "_i" from 0 to (count _posAntennas - 1) do
@@ -282,7 +282,7 @@ if (count _posAntennas > 0) then
             };
         };
     };
-diag_log format ["%1: [Antistasi]: initZones | Broken Radio Towers identified.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initZones | Broken Radio Towers identified.",servertime];
 if (count _posBank > 0) then
     {
     for "_i" from 0 to (count _posBank - 1) do
@@ -327,4 +327,4 @@ publicVariable "banks";
 publicVariable "seaSpawn";
 publicVariable "seaAttackSpawn";
 publicVariable "defaultControlIndex";
-diag_log format ["%1: [Antistasi]: initZones Completed.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initZones Completed.",servertime];

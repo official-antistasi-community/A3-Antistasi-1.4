@@ -64,4 +64,3 @@ if (_dz !=0 && _fogDecay != 0) then
 private _fogAverage = _fogValue * _fogCoeff;
 private _fogViewDistance = 0.9 * _MaxViewDistance * exp (- _fogAverage * ln(_ViewDistanceDecayRate));
 0 max (1.0 - _l/_fogViewDistance)
-

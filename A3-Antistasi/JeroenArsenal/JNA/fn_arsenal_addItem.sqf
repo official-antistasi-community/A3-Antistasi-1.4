@@ -38,8 +38,3 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 		};
 	} forEach _x;
 }foreach _array;
-
-
-
-
-

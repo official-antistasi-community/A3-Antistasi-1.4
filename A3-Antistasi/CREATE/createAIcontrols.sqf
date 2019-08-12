@@ -55,7 +55,7 @@ if (_isControl) then
 
 	_dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
 	if ((isNull (_roads select 0)) or (isNull (_roadscon select 0))) then {
-		diag_log format ["%1: [Antistasi] | Error | createAIcontrols.sqf | Roadblock error: %2 bad position.",servertime, _markerX];
+		diag_log format ["%1: [Antistasi] | ERROR | createAIcontrols.sqf | Roadblock error: %2 bad position.",servertime, _markerX];
 		};
 
 	if (!_isFIA) then
@@ -310,4 +310,3 @@ if (_conquered) then
 		*/
 		};
 	};
-

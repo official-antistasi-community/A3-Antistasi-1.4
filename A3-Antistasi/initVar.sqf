@@ -4,7 +4,7 @@
 //You do not have enough balls to make any modification and after making a Bug report because something is wrong. You don't wanna be there. Believe me.
 //Not commented lines cannot be changed.
 //Don't touch them.
-
+diag_log format ["%1: [Antistasi]: initVar Started.",servertime];
 antistasiVersion = "v 1.4c1.05";
 
 
@@ -838,3 +838,4 @@ publicVariable "unlockedAA";
 publicVariable "initialRifles";
 
 if (isMultiplayer) then {[[petros,"hint","Variables Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;};
+diag_log format ["%1: [Antistasi]: initVar Completed.",servertime];

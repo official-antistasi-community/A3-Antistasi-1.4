@@ -1,6 +1,7 @@
 if (!isMultiplayer) exitWith {};
 if (!(isNil "serverInitDone")) exitWith {};
-diag_log "Antistasi MP Server init";
+diag_log format ["%1: [Antistasi]: Dedicated Server Detected.",servertime];
+diag_log format ["%1: [Antistasi]: initServer Started.",servertime];
 boxX allowDamage false;
 flagX allowDamage false;
 vehicleBox allowDamage false;
@@ -192,3 +193,4 @@ savingServer = false;
 			sleep 30;
 		};
 };
+diag_log format ["%1: [Antistasi]: initServer Completed.",servertime];

@@ -6,7 +6,7 @@
 //of course all the editor placed objects (petros, flag, respawn marker etc..) have to be ported to the new island
 //deletion of a marker in the array will require deletion of the corresponding marker in the editor
 //only touch the commented arrays
-
+diag_log format ["%1: [Antistasi]: initZones Started.",servertime];
 forcedSpawn = [];
 citiesX = [];
 if (worldName == "Tanoa") then
@@ -318,3 +318,4 @@ publicVariable "banks";
 publicVariable "seaSpawn";
 publicVariable "seaAttackSpawn";
 publicVariable "defaultControlIndex";
+diag_log format ["%1: [Antistasi]: initZones Completed.",servertime];

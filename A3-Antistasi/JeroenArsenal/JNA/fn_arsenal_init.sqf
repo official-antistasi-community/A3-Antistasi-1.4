@@ -2,7 +2,7 @@
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-diag_log format ["%1: [Antistasi]: JNA Init Started.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | JNA Init Started.",servertime];
 
 params [["_object",objNull,[objNull]]];
 
@@ -50,7 +50,7 @@ jna_minItemMember = [24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24
 
 //server
 if(isServer)then{
-    diag_log format ["%1: [Antistasi]: JNA Server Detected.",servertime];
+    diag_log format ["%1: [Antistasi] | INFO | JNA Server Detected.",servertime];
 
     //load default if it was not loaded from savegame
     if(isnil "jna_dataList" )then{jna_dataList = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];};
@@ -58,7 +58,7 @@ if(isServer)then{
 
 //player
 if(hasInterface)then{
-    diag_log format ["%1: [Antistasi]: JNA Loading Player Data.",servertime];
+    diag_log format ["%1: [Antistasi] | INFO | JNA Loading Player Data.",servertime];
 
     //add arsenal button
     _object addaction [
@@ -84,7 +84,7 @@ if(hasInterface)then{
 		        ["bis_fnc_arsenal"] call BIS_fnc_endLoadingScreen;
 	       	};
 	    };
-	    
+
             //save proper ammo because BIS arsenal rearms it, and I will over write it back again
             missionNamespace setVariable ["jna_magazines_init",  [
                 magazinesAmmoCargo (uniformContainer player),
@@ -166,5 +166,5 @@ if(hasInterface)then{
         };
     }] call BIS_fnc_addScriptedEventHandler;
 };
-diag_log format ["%1: [Antistasi]: JNA Completed.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | JNA Completed.",servertime];
 arsenalInit = true;

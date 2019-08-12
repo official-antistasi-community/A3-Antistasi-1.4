@@ -1,4 +1,4 @@
-diag_log format ["%1: [Antistasi]: InitFuncs Started.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | InitFuncs Started.",servertime];
 call compile preprocessFileLineNumbers "scripts\Init_UPSMON.sqf";
 
 WPCreate = if (worldName == "Tanoa") then {compile preprocessFileLineNumbers "CREATE\WPCreate.sqf"} else {compile preprocessFileLineNumbers "CREATE\WPCreateAltis.sqf"};
@@ -22,4 +22,4 @@ call compile preprocessFileLineNumbers "statSave\saveFuncs.sqf";
 call jn_fnc_logistics_init;
 boxX call jn_fnc_arsenal_init;
 
-diag_log format ["%1: [Antistasi]: InitFuncs Completed.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | InitFuncs Completed.",servertime];

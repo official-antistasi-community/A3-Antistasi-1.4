@@ -3,7 +3,7 @@ private ["_unit","_skill"];
 _unit = _this select 0;
 if (isNil "_unit") exitWith {};
 if (isNull _unit) exitWith {
-	diag_log format ["%1: [Antistasi] | Error | FIAinitBases.sqf | Error with Nato Parameter:%2",servertime,_this];
+	diag_log format ["%1: [Antistasi] | ERROR | FIAinitBases.sqf | Error with Nato Parameter:%2",servertime,_this];
 	};
 _markerX = "";
 if (count _this > 1) then

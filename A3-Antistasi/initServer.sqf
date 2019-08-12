@@ -51,9 +51,7 @@ savingServer = true;
 diag_log format ["%1: [Antistasi]: MP Version: %2 loaded.",servertime,antistasiVersion];
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 _nul = call compile preprocessFileLineNumbers "initFuncs.sqf";
-diag_log "Antistasi MP Server. Funcs init finished";
 _nul = call compile preprocessFileLineNumbers "initZones.sqf";
-diag_log "Antistasi MP Server. Zones init finished";
 if (gameMode != 1) then
     {
     Occupants setFriend [Invaders,1];
@@ -76,7 +74,6 @@ private _index = _x call jn_fnc_arsenal_itemType;
 //waitUntil {!isNil "bis_fnc_preload_init"};
 //waitUntil {!isNil "BIS_fnc_preload_server"};
 _nul = call compile preprocessFileLineNumbers "initGarrisons.sqf";
-diag_log "Antistasi MP Server. Garrisons init finished";
 if (loadLastSave) then
     {
 
@@ -146,16 +143,16 @@ else
     publicVariable "membersX";
     [] execVM "Ammunition\boxAAF.sqf";
     };
-diag_log "Antistasi MP Server. Players are in";
 
+diag_log format ["%1: [Antistasi]: Accepting Players.",servertime];
 {
 private _index = _x call jn_fnc_arsenal_itemType;
 [_index,_x,-1] call jn_fnc_arsenal_addItem;
 }foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
 
+diag_log format ["%1: [Antistasi]: Arsenal unlock finished.",servertime];
 
-diag_log "Antistasi MP Server. Arsenal config finished";
-[[petros,"hint","Server Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+[[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 
 //HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.
 addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnect;false}];
@@ -175,7 +172,7 @@ addMissionEventHandler ["BuildingChanged",
         }];
 
 serverInitDone = true; publicVariable "serverInitDone";
-diag_log "Antistasi MP Server. serverInitDone set to true.";
+diag_log format ["%1: [Antistasi]: Marking serverInitDone : %2.",servertime, serverInitDone];
 
 waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distances4;

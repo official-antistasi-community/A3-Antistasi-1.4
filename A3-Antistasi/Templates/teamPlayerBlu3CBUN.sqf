@@ -1,4 +1,4 @@
-_I
+
 SDKMortar = "rhsgref_UN_B_2b14_82mm";
 SDKMortarHEMag = "rhs_mag_3vo18_10";
 SDKMortarSmokeMag = "rhs_mag_d832du_10";

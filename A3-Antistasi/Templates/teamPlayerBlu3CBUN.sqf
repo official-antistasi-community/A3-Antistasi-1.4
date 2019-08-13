@@ -66,7 +66,6 @@ if (gameMode != 4) then
     groupsFIASquad = [FIASquad];
     factionFIA = "UK3CB_TKP_I";
     };
-  }
 else
   {
   FIARifleman = "UK3CB_TKP_O_RIF_1";

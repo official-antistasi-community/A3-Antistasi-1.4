@@ -1,6 +1,7 @@
 if (isServer) then
+diag_log format ["%1: [Antistasi] | INFO | loadServer Starting.",servertime];
 	{
-	diag_log "Antistasi: Starting Persistent Load";
+	diag_log format ["%1: [Antistasi] | INFO | Starting Persistent Load.",servertime];
 	petros allowdamage false;
 
 	["outpostsFIA"] call fn_LoadStat; publicVariable "outpostsFIA";
@@ -158,8 +159,8 @@ if (isServer) then
 	clearBackpackCargoGlobal boxX;
 
 	[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
-	diag_log "Antistasi: Server sided Persistent Load done";
-
+	diag_log format ["%1: [Antistasi] | INFO | Persistent Load Completed.",servertime];
+	diag_log format ["%1: [Antistasi] | INFO | Generating Map Markers.",servertime];
 	["tasks"] call fn_LoadStat;
 	if !(isMultiplayer) then
 		{
@@ -231,3 +232,4 @@ if (isServer) then
 	placementDone = true; publicVariable "placementDone";
 	petros allowdamage true;
 	};
+diag_log format ["%1: [Antistasi] | INFO | loadServer Completed.",servertime];

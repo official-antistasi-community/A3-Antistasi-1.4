@@ -76,13 +76,12 @@ private _index = _x call jn_fnc_arsenal_itemType;
 _nul = call compile preprocessFileLineNumbers "initGarrisons.sqf";
 if (loadLastSave) then
     {
-
-    diag_log "Antistasi: Persitent Load selected";
+    diag_log format ["%1: [Antistasi] | INFO | Persitent Load selected.",servertime];
     ["membersX"] call fn_LoadStat;
     if (isNil "membersX") then
         {
         loadLastSave = false;
-        diag_log "Antistasi: Persitent Load selected but there is no older session";
+         diag_log format ["%1: [Antistasi] | ERROR | initServer.sqf | No previous session detected.",servertime];
         };
     };
 publicVariable "loadLastSave";
@@ -99,7 +98,8 @@ if (loadLastSave) then
     if (membershipEnabled and (membersX isEqualTo [])) then
         {
         [petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list"] remoteExec ["A3A_fnc_commsMP"];
-        diag_log "Antistasi: Persitent Load done but membership enabled with members array empty";
+        diag_log format ["%1: [Antistasi] | INFO | Session load completed.",servertime];
+        diag_log format ["%1: [Antistasi] | INFO | Membership enabled however there are no members.",servertime];
         membersX = [];
         {
         membersX pushBack (getPlayerUID _x);
@@ -131,7 +131,7 @@ else
        }
     else
         {
-        diag_log "Antistasi: New Game selected";
+        diag_log format ["%1: [Antistasi] | INFO | New Session Selected.",servertime];
         if (isNil "commanderX") then {commanderX = (playableUnits select 0)};
         if (isNull commanderX) then {commanderX = (playableUnits select 0)};
         theBoss = commanderX;

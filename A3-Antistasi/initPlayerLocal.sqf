@@ -130,26 +130,26 @@ if (player getVariable ["pvp",false]) exitWith
 	if ((!_isJIP) or !pvpEnabled) then
 		{
 		["noPvP",false,1,false,false] call BIS_fnc_endMission;
-		diag_log "Antistasi: PvP player kicked because he is not jipping or PvP slots are disabled";
+		diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because he is not jipping or PvP slots are disabled.",servertime];
 		}
 	else
 		{
 		if (not([player] call A3A_fnc_isMember)) then
 			{
 			["noPvP",false,1,false,false] call BIS_fnc_endMission;
-			diag_log "Antistasi: PvP player kicked because he is not member";
+			diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because he is not member.",servertime];
 			}
 		else
 			{
 			if ({(side group _x != teamPlayer)} count playableUnits > {(side group _x == teamPlayer)} count playableUnits) then
 				{
 				["noPvP",false,1,false,false] call BIS_fnc_endMission;
-				diag_log "Antistasi: PvP player kicked because PvP players number is equal to non PvP";
+				diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because PvP players number is equal to non PvP.",servertime];
 				}
 			else
 				{
 				[player] remoteExec ["A3A_fnc_playerHasBeenPvPCheck",2];
-				diag_log "Antistasi: PvP player logged in, doing server side checks if the player has been rebel recently";
+				diag_log format ["%1: [Antistasi] | INFO | PvP player logged in, doing server side checks if the player has been rebel recently.",servertime];
 				};
 			};
 		};

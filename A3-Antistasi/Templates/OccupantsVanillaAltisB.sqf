@@ -6,11 +6,15 @@ NATOCrew = "I_Crew_F";
 NATOUnarmed = "I_G_Survivor_F";
 NATOMarksman = "I_Soldier_M_F";
 staticCrewOccupants = "I_support_MG_F";
+
 NATOMG = "I_HMG_01_high_F";
 NATOMortar = "I_Mortar_01_F";
 staticATOccupants = "I_static_AT_F";
 staticAAOccupants = "I_static_AA_F";
 NATOPilot = "I_Helipilot_F";
+
+vehNATOPVP = ["I_MRAP_03_F","I_MRAP_03_hmg_F"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
+
 vehNATOLightArmed = ["I_MRAP_03_hmg_F"];
 vehNATOLightUnarmed = ["I_MRAP_03_F"];
 vehNATOTrucks = ["I_Truck_02_covered_F","I_Truck_02_transport_F"];

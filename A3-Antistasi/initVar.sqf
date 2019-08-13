@@ -399,11 +399,11 @@ else
 		}
 	else
 		{
-		["LIB_CIV_Assistant","LIB_CIV_Assistant_2","LIB_CIV_Citizen_1","LIB_CIV_Citizen_2","LIB_CIV_Citizen_3","LIB_CIV_Citizen_4","LIB_CIV_Citizen_5","LIB_CIV_Citizen_6","LIB_CIV_Citizen_7","LIB_CIV_Citizen_8","LIB_CIV_Priest","LIB_CIV_Doctor","LIB_CIV_Functionary_3","LIB_CIV_Functionary_2","LIB_CIV_Functionary_4","LIB_CIV_Villager_4","LIB_CIV_Villager_1","LIB_CIV_Villager_2","LIB_CIV_Villager_3","LIB_CIV_Woodlander_1","LIB_CIV_Woodlander_3","LIB_CIV_Woodlander_2","LIB_CIV_Woodlander_4","LIB_CIV_SchoolTeacher","LIB_CIV_SchoolTeacher_2","LIB_CIV_Rocker","LIB_CIV_Worker_3","LIB_CIV_Worker_1","LIB_CIV_Worker_4","LIB_CIV_Worker_2"]
+		["LIB_CIV_Assistant","LIB_CIV_Assistant_2","LIB_CIV_Citizen_1","LIB_CIV_Citizen_2","LIB_CIV_Citizen_3","LIB_CIV_Citizen_4","LIB_CIV_Citizen_5","LIB_CIV_Citizen_6","LIB_CIV_Citizen_7","LIB_CIV_Citizen_8","LIB_CIV_Doctor","LIB_CIV_Functionary_3","LIB_CIV_Functionary_2","LIB_CIV_Functionary_4","LIB_CIV_Villager_4","LIB_CIV_Villager_1","LIB_CIV_Villager_2","LIB_CIV_Villager_3","LIB_CIV_Woodlander_1","LIB_CIV_Woodlander_3","LIB_CIV_Woodlander_2","LIB_CIV_Woodlander_4","LIB_CIV_SchoolTeacher","LIB_CIV_SchoolTeacher_2","LIB_CIV_Rocker","LIB_CIV_Worker_3","LIB_CIV_Worker_1","LIB_CIV_Worker_4","LIB_CIV_Worker_2"]
 		};
 	};//array of possible civs. Only euro types picked (this is Greece). Add any civ classnames you wish here
 //3CB Civ addition
-if (has3CB) then {arrayCivs append ["UK3CB_CHC_C_BODYG","UK3CB_CHC_C_CAN","UK3CB_CHC_C_COACH","UK3CB_CHC_C_DOC","UK3CB_CHC_C_FUNC","UK3CB_CHC_C_HIKER","UK3CB_CHC_C_LABOUR","UK3CB_CHC_C_PILOT","UK3CB_CHC_C_PRIEST","UK3CB_CHC_C_POLITIC","UK3CB_CHC_C_PROF","UK3CB_CHC_C_VILL","UK3CB_CHC_C_WORKER"]};
+if (has3CB) then {arrayCivs append ["UK3CB_CHC_C_BODYG","UK3CB_CHC_C_CAN","UK3CB_CHC_C_COACH","UK3CB_CHC_C_DOC","UK3CB_CHC_C_FUNC","UK3CB_CHC_C_HIKER","UK3CB_CHC_C_LABOUR","UK3CB_CHC_C_PILOT","UK3CB_CHC_C_POLITIC","UK3CB_CHC_C_PROF","UK3CB_CHC_C_VILL","UK3CB_CHC_C_WORKER"]};
 
 civBoats = if !(hasIFA) then {["C_Boat_Civil_01_F","C_Scooter_Transport_01_F","C_Boat_Transport_02_F","C_Rubberboat"]} else {[]};
 lamptypes = ["Lamps_Base_F", "PowerLines_base_F","Land_LampDecor_F","Land_LampHalogen_F","Land_LampHarbour_F","Land_LampShabby_F","Land_NavigLight","Land_runway_edgelight","Land_PowerPoleWooden_L_F"];

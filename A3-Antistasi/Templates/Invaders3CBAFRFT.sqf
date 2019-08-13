@@ -13,8 +13,10 @@ CSATMG = "rhs_KORD_high_VMF";
 staticATInvaders = "rhs_Kornet_9M133_2_vmf";
 staticAAInvaders = "RHS_ZU23_MSV";
 
+vehCSATPVP = ["rhs_tigr_msv","rhs_uaz_msv","rhsgref_BRDM2UM_msv","rhs_tigr_m_msv","rhs_tigr_sts_msv"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
+
 vehCSATLightArmed = ["rhsgref_BRDM2_msv","rhsgref_BRDM2_HQ_msv","rhsgref_BRDM2_ATGM_msv","rhs_tigr_sts_msv"];
-vehCSATLightUnarmed = ["rhs_tigr_msv","rhs_uaz_msv","rhsgref_BRDM2UM_msv","rhs_tigr_m_msv",""];
+vehCSATLightUnarmed = ["rhs_tigr_msv","rhs_uaz_msv","rhsgref_BRDM2UM_msv","rhs_tigr_m_msv"];
 vehCSATTrucks = ["rhs_kamaz5350_msv","rhs_kamaz5350_open_msv","RHS_Ural_Open_MSV_01","rhs_gaz66_msv"];
 vehCSATAmmoTruck = "rhs_gaz66_ammo_msv";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;

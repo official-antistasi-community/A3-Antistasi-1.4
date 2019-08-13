@@ -173,7 +173,7 @@ if (player getVariable ["pvp",false]) exitWith
 		if (_veh != lastVehicleSpawned) then
 			{
 			private _isACEHandcuffed = _unit getVariable ["ACE_captives_isHandcuffed", false];
-			if (!((typeOf _veh) in (vehNATOLightUnarmed + vehCSATLightUnarmed)) && !(_role == "Cargo") && !_isACEHandcuffed) then
+			if (!((typeOf _veh) in (vehNATOPVP + vehCSATPVP)) && !(_role == "Cargo") && !_isACEHandcuffed) then
 				{
 				//ACE has a loop which tries to force handcuffed players back into vehicles if anything kicks them out.
 				//The spawn stops Arma hanging indefinitely in an infinite loop if /somehow/ we hit that condition.

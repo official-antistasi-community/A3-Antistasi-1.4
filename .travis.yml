@@ -4,5 +4,5 @@ python:
 install:
   - pip install sqflint
 script:
-  - python .\Tools\sqfvalidator\sqflint.py -d "A3-Antistasi"
+  - python ".\Tools\sqfvalidator\sqflint.py" -d "A3-Antistasi"
 after_success: coveralls

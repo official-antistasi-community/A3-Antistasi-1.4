@@ -2,7 +2,7 @@ language: python
 python:
   - "3.6"
 install:
-  - pip install .
+  - pip install sqflint
 script:
   - python .\Tools\sqfvalidator\sqflint.py -d "A3-Antistasi"
 after_success: coveralls

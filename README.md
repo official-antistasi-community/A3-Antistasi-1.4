@@ -1,4 +1,7 @@
 # How to play AntiStasi
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0c94ee6a4d1c4ac7af2c3b3580e0e890)](https://app.codacy.com/app/Toakan/A3-Antistasi-1.4?utm_source=github.com&utm_medium=referral&utm_content=official-antistasi-community/A3-Antistasi-1.4&utm_campaign=Badge_Grade_Settings)
+
 Please note that this GitHub is still work-in-process.
 Therefore, if you would like to play AntiStasi 1.4, following we have posted a plug & play pbos as well as a tested modsets:
 

@@ -187,6 +187,13 @@ class Params
         texts[] = {"No","Yes"};
         default = 1;
     };
+    class napalmEnabled
+    {
+        title = "Enable Napalm Bombing for AI";
+        values[] = {0,1};
+        texts[] = {"No","Yes"};
+        default = 0;
+    };
 };
 
 class CfgIdentities

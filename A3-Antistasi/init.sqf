@@ -1,3 +1,4 @@
+diag_log format ["%1: [Antistasi]: Init Started. Version: %2",servertime,antistasiVersion];
 //Arma 3 - Antistasi - Warlords of the Pacific by Barbolani & The Official AntiStasi Community
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.
 enableSaving [false,false];
@@ -24,7 +25,6 @@ if (!isMultiPlayer) then
     respawnOccupants setMarkerAlpha 0;
     "respawn_east" setMarkerAlpha 0;
     [] execVM "briefing.sqf";
-    diag_log format ["Antistasi SP. InitVar done. Version: %1",antistasiVersion];
     _nul = [] execVM "musica.sqf";
     {if (/*(side _x == teamPlayer) and */(_x != commanderX) and (_x != Petros)) then {_grupete = group _x; deleteVehicle _x; deleteGroup _grupete}} forEach allUnits;
     _serverHasID = profileNameSpace getVariable ["ss_ServerID",nil];
@@ -47,14 +47,14 @@ if (!isMultiPlayer) then
 
 
     call compile preprocessFileLineNumbers "initFuncs.sqf";
-    diag_log "Antistasi SP. Funcs init finished";
+    //diag_log "Antistasi SP. Funcs init finished";
     call compile preprocessFileLineNumbers "initZones.sqf";//this is the file where you can transport Antistasi to another island
-    diag_log "Antistasi SP. Zones init finished";
+    //diag_log "Antistasi SP. Zones init finished";
     [] execVM "initPetros.sqf";
 
     hcArray = [];
     serverInitDone = true;
-    diag_log "Antistasi SP. serverInitDone is true. Arsenal loaded";
+    diag_log format ["%1: [Antistasi]: Arsenal Loaded.",servertime];
     _nul = [] execVM "modBlacklist.sqf";
 		
     distanceMission = if (hasIFA) then {2000} else {4000};
@@ -82,3 +82,4 @@ if (!isMultiPlayer) then
     deleteMarker "respawn_east";
     if (teamPlayer == independent) then {deleteMarker "respawn_west"} else {deleteMarker "respawn_guerrila"};
     };
+    diag_log format ["%1: [Antistasi]: Init finished.",servertime];

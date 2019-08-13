@@ -1,5 +1,5 @@
 #include "Garage\defineCommon.inc"
-
+diag_log format ["%1: [Antistasi]: initPlayerLocal Started.",servertime];
 if (hasInterface) then
 	{
 	waitUntil {!isNull player};
@@ -657,3 +657,4 @@ disableSerialization;
 _layer = ["statisticsX"] call bis_fnc_rscLayer;
 _layer cutRsc ["H8erHUD","PLAIN",0,false];
 [] spawn A3A_fnc_statistics;
+diag_log format ["%1: [Antistasi]: initPlayerLocal Completed.",servertime];

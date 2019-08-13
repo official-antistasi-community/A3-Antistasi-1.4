@@ -80,7 +80,6 @@ else
   groupsFIASquad = [FIASquad];
   factionFIA = "UK3CB_TKP_O";
   };
-};
 
 vehPoliceCar = "UK3CB_TKP_O_Lada_Police";
 policeOfficer = "UK3CB_TKP_O_TL";

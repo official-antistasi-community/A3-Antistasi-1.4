@@ -164,7 +164,7 @@ if (player getVariable ["pvp",false]) exitWith
 		};
 	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	respawnTeamPlayer setMarkerAlphaLocal 0;
-	
+
 	player addEventHandler ["GetInMan", {_this call A3A_fnc_ejectPvPPlayerIfInvalidVehicle}];
 	player addEventHandler ["SeatSwitchedMan", {[_this select 0, assignedVehicleRole (_this select 0) select 0, _this select 2] call A3A_fnc_ejectPvPPlayerIfInvalidVehicle}];
 	player addEventHandler ["InventoryOpened",
@@ -637,7 +637,7 @@ petros setIdentity "friendlyX";
 petros setName "Petros";
 petros disableAI "MOVE";
 petros disableAI "AUTOTARGET";
-petros addAction ["Mission Request", {nul=CreateDialog "mission_menu";},nil,0,false,true,"","_this == theBoss"];
+petros addAction ["Mission Request", {nul=CreateDialog "mission_menu";},nil,0,false,true,"","([player] call A3A_fnc_isMember)"];
 
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];

@@ -1,34 +1,34 @@
-SDKMortar = "rhsgref_ins_g_2b14";
+SDKMortar = "rhsgref_nat_2b14";
 SDKMortarHEMag = "rhs_mag_3vo18_10";
 SDKMortarSmokeMag = "rhs_mag_d832du_10";
-SDKMGStatic = "rhsgref_ins_g_DSHKM";
-staticATteamPlayer = "rhsgref_ins_g_SPG9M";
-staticAAteamPlayer = "rhsgref_ins_g_ZU23";
+SDKMGStatic = "rhsgref_nat_NSV_TriPod";
+staticATteamPlayer = "rhsgref_nat_SPG9";
+staticAAteamPlayer = "rhsgref_nat_ZU23";
 
-staticCrewTeamPlayer = "rhsgref_ins_g_militiaman_mosin";
+staticCrewTeamPlayer = "rhsgref_nat_crew";
 SDKUnarmed = "I_G_Survivor_F";
 SDKSniper = ["rhsgref_nat_hunter","rhsgref_nat_pmil_hunter"];
 SDKATman = ["rhsgref_nat_grenadier_rpg","rhsgref_nat_pmil_grenadier_rpg"];
-SDKMedic = ["rhsgref_ins_g_medic","rhsgref_cdf_ngd_medic"];
-SDKMG = ["rhsgref_ins_g_machinegunner","rhsgref_cdf_ngd_machinegunner"];
-SDKExp = ["rhsgref_nat_pmil_saboteur","rhsgref_ins_g_saboteur"];
-SDKGL = ["rhsgref_nat_pmil_grenadier","rhsgref_ins_g_grenadier"];
-SDKMil = ["rhsgref_nat_militiaman_kar98k","rhsgref_nat_rifleman_akms"];
-SDKSL = ["rhsgref_nat_pmil_commander","rhsgref_nat_commander"];
-SDKEng = ["rhsgref_ins_g_engineer","rhsgref_cdf_ngd_engineer"];
+SDKMedic = ["rhsgref_nat_medic","rhsgref_nat_pmil_medic"];
+SDKMG = ["rhsgref_nat_machinegunner_mg42","rhsgref_nat_pmil_machinegunner"];
+SDKExp = ["rhsgref_nat_saboteur","rhsgref_nat_pmil_saboteur"];
+SDKGL = ["rhsgref_nat_grenadier","rhsgref_nat_pmil_grenadier"];
+SDKMil = ["rhsgref_nat_rifleman_mp44","rhsgref_nat_pmil_rifleman"];
+SDKSL = ["rhsgref_nat_commander","rhsgref_nat_pmil_commander"];
+SDKEng = ["rhsgref_cdf_ngd_engineer","rhsgref_cdf_reg_engineer"];
 
 vehSDKBike = "I_G_Quadbike_01_F";
-vehSDKLightArmed = "rhsgref_ins_g_uaz_dshkm_chdkz";
+vehSDKLightArmed = "rhsgref_nat_uaz_dshkm";
 vehSDKAT = "rhsgref_nat_uaz_spg9";
 vehSDKLightUnarmed = "rhsgref_cdf_reg_uaz_open";
-vehSDKTruck = "rhsgref_nat_ural_open";
+vehSDKTruck = "rhsgref_cdf_zil131";
 //vehSDKHeli = "rhsgref_ins_g_Mi8amt";
 vehSDKPlane = "RHS_AN2";
 vehSDKBoat = "I_C_Boat_Transport_01_F";
-vehSDKRepair = "rhsgref_ins_g_gaz66_repair";
+vehSDKRepair = "rhsgref_cdf_gaz66_repair";
 SDKFlag = "Flag_Syndikat_F";
 SDKFlagTexture = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
-typePetros = "rhsgref_ins_g_squadleader";
+typePetros = "rhsgref_nat_warlord";
 
 supportStaticSDKB = "RHS_SPG9_Tripod_Bag";
 ATStaticSDKB = "RHS_SPG9_Gun_Bag";
@@ -40,10 +40,10 @@ supportStaticsSDKB3 = "RHS_Podnos_Bipod_Bag";
 
 civCar = "C_Offroad_01_F";
 civTruck = "RHS_Ural_Open_Civ_03";
-civHeli = "RHS_Mi8amt_civilian";
+civHeli = "RHS_Mi8t_civilian";
 civBoat = "C_Boat_Transport_02_F";
 
-arrayCivVeh = arrayCivVeh + ["RHS_Ural_Open_Civ_03","RHS_Ural_Open_Civ_01","RHS_Ural_Open_Civ_02"];
+arrayCivVeh = arrayCivVeh + ["RHS_Ural_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_01","RHS_Ural_Open_Civ_02","RHS_Ural_Open_Civ_03"];
 
 sniperRifle = "rhs_weap_m76_pso";
 lampsSDK = ["rhs_acc_2dpZenit","acc_flashlight"];
@@ -91,6 +91,6 @@ vehPoliceCar = "rhsusf_mrzr4_d";
 policeOfficer = "rhsusf_army_ucp_rifleman_m590";
 policeGrunt = "rhsusf_army_ucp_rifleman_82nd";
 groupsNATOGen = [policeOfficer,policeGrunt];
-nameTeamPlayer = "ChDKZ";
+nameTeamPlayer = "NAPA";
 
 factionGEN = "BLU_GEN_F";

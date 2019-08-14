@@ -11,6 +11,8 @@ CSATMG = "LIB_Maxim_M30_Trench";
 staticATInvaders = "LIB_Zis3";
 staticAAInvaders = "LIB_61k";
 
+vehCSATPVP = ["LIB_GazM1_SOV","LIB_GazM1_SOV_camo_sand","LIB_Willys_MB","LIB_Scout_M3"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.
+
 vehCSATLightArmed = ["LIB_Scout_M3"];
 vehCSATLightUnarmed = ["LIB_GazM1_SOV","LIB_GazM1_SOV_camo_sand","LIB_Willys_MB"];
 vehCSATTrucks = ["LIB_Zis5v","LIB_US6_Tent","LIB_US6_Open"];

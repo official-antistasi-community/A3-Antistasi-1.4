@@ -1,0 +1,9 @@
+language: python
+#branches:
+#  only:
+#    - unstable
+python: "3.6"
+install:
+  - pip3 install sqflint
+script:
+  - python3 Tools/sqf_validate.py

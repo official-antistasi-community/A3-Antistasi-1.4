@@ -1,5 +1,6 @@
 #include "Garage\defineCommon.inc"
 diag_log format ["%1: [Antistasi]: initPlayerLocal Started.",servertime];
+
 if (hasInterface) then
 	{
 	waitUntil {!isNull player};
@@ -15,7 +16,7 @@ if (isMultiplayer) then
 		{
 		call compile preprocessFileLineNumbers "initFuncs.sqf";
 		call compile preprocessFileLineNumbers "initVar.sqf";
-		waitUntil {!isNil "initVar"}; 
+		waitUntil {!isNil "initVar"};
 		diag_log format ["%1: [Antistasi]: MP Client | Version : %2.",servertime, antistasiVersion];
 		}
 	else
@@ -103,7 +104,7 @@ _introShot = [
 	waitUntil {!isNil "BIS_fnc_establishingShot_playing" && {BIS_fnc_establishingShot_playing}};
 	private _credits = [] execVM "credits.sqf";
 };
-		
+
 disableUserInput false;
 player addWeaponGlobal "itemmap";
 if !(hasIFA) then {player addWeaponGlobal "itemgps"};
@@ -163,25 +164,9 @@ if (player getVariable ["pvp",false]) exitWith
 		};
 	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	respawnTeamPlayer setMarkerAlphaLocal 0;
-	//Let a player in a vehicle if they're: A passenger, or the vehicle is a light unarmed vehicle.
-	player addEventHandler ["GetInMan",
-		{
-		private ["_unit","_veh", "_role"];
-		_unit = _this select 0;
-		_role = _this select 1;
-		_veh = _this select 2;
-		if (_veh != lastVehicleSpawned) then
-			{
-			private _isACEHandcuffed = _unit getVariable ["ACE_captives_isHandcuffed", false];
-			if (!((typeOf _veh) in (vehNATOLightUnarmed + vehCSATLightUnarmed)) && !(_role == "Cargo") && !_isACEHandcuffed) then
-				{
-				//ACE has a loop which tries to force handcuffed players back into vehicles if anything kicks them out.
-				//The spawn stops Arma hanging indefinitely in an infinite loop if /somehow/ we hit that condition.
-				_unit spawn { moveOut _this };
-				hint "PvP player are only allowed to use their own or other PvP player vehicles";
-				};
-			};
-		}];
+	
+	player addEventHandler ["GetInMan", {_this call A3A_fnc_ejectPvPPlayerIfInvalidVehicle}];
+	player addEventHandler ["SeatSwitchedMan", {[_this select 0, assignedVehicleRole (_this select 0) select 0, _this select 2] call A3A_fnc_ejectPvPPlayerIfInvalidVehicle}];
 	player addEventHandler ["InventoryOpened",
 		{
 		_override = false;
@@ -279,6 +264,7 @@ player addEventHandler ["InventoryOpened",
 		_containerX = _this select 1;
 		_typeX = typeOf _containerX;
 		if (((_containerX isKindOf "Man") and (!alive _containerX)) or (_typeX == NATOAmmoBox) or (_typeX == CSATAmmoBox)) then
+		if (((_containerX isKindOf "CAManBase") and (!alive _containerX)) or (_typeX == NATOAmmoBox) or (_typeX == CSATAmmoBox)) then
 			{
 			if ({if (((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout _playerX > 1.4)) exitWith {1}} count allUnits > 0) then
 				{
@@ -658,4 +644,9 @@ disableSerialization;
 _layer = ["statisticsX"] call bis_fnc_rscLayer;
 _layer cutRsc ["H8erHUD","PLAIN",0,false];
 [] spawn A3A_fnc_statistics;
+
+//Disables rabbits and snakes, because they cause the log to be filled with "20:06:39 Ref to nonnetwork object Agent 0xf3b4a0c0"
+//Can re-enable them if we find the source of the bug.
+enableEnvironment [false, true];
+
 diag_log format ["%1: [Antistasi]: initPlayerLocal Completed.",servertime];

@@ -1,12 +1,12 @@
 #include "defines.hpp"
 #include "dialogs.hpp"
 
-author="Barbolani & The Official AntiStasi Community";
-OnLoadName = "Warlords of the Pacific";
-OnLoadMission = "Business and War...";
-loadScreen = "pic.JPG";
+author = $STR_antistasi_credits_generic_author_text;
+OnLoadName = $STR_antistasi_mission_info_tanoa_mapname_text;
+OnLoadMission = $STR_antistasi_mission_info_tanoa_blurb_text;
+loadScreen = "pic.jpg";
 
-overviewText = "Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.";
+overviewText = $STR_antistasi_mission_info_tanoa_description_text;
 overviewPicture = "pic.jpg";
 
 allowFunctionsLog = 1;

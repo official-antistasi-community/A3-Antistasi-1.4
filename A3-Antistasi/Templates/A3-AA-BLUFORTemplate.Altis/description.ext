@@ -1,12 +1,12 @@
 #include "defines.hpp"
 #include "dialogs.hpp"
 
-author="Barbolani & The Official AntiStasi Community";
-OnLoadName = "Antistasi Altis";
-OnLoadMission = "Be a Resistance leader, be a hero";
-loadScreen = "pic.JPG";
+author = $STR_antistasi_credits_generic_author_text;
+OnLoadName = $STR_antistasi_credits_generic_missionname_text;
+OnLoadMission = $STR_antistasi_credits_generic_missiondesc_text;
+loadScreen = "pic.jpg";
 
-overviewText = "Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.";
+overviewText = $STR_antistasi_credits_generic_overview_text + " " + $STR_antistasi_credits_generic_version_text;
 overviewPicture = "pic.jpg";
 
 allowFunctionsLog = 1;
@@ -34,7 +34,7 @@ class CfgTaskEnhancements
     {
     enable       = 1;            //0: disable new task features (default), 1: enable new task features & add new task markers and task widgets into the map
     3d           = 1;            //0: do not use new 3D markers (default), 1: replace task waypoints with new 3D markers
-    3dDrawDist   = 3500;         //3d marker draw distance (default: 2000)
+    3dDrawDist   = 3500;        //3d marker draw distance (default: 2000)
     share        = 1;            //0: do not count assigned players (default), 1: count how many players have the task assigned
     propagate    = 1;            //0: do not propagate (default), 1: propagate shared tasks to subordinates
     };

@@ -19,7 +19,7 @@ _OcloseX = [];
 _bodies = objNull;
 		
 //Buscamos objectsX closeX
-_OcloseX = nearestObjects [_npc,["Man"],_distance];
+_OcloseX = nearestObjects [_npc,["CAManBase"],_distance];
 			
 {	
 	if (!alive _x) then

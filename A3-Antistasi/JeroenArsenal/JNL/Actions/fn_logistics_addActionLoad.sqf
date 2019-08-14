@@ -13,7 +13,7 @@ if((_object call jn_fnc_logistics_getCargoType) == -1) exitWith {};
 
 _text = "";
 
-if (_object isKindOf "Man") then {_text = format ["<img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa' />  Load %1 in Vehicle</t>",name _object]} else {_text = "<img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa' />  Load Cargo in Vehicle</t>"};
+if (_object isKindOf "CAManBase") then {_text = format ["<img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa' />  Load %1 in Vehicle</t>",name _object]} else {_text = "<img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa' />  Load Cargo in Vehicle</t>"};
 
 _loadActionID = _object addAction [
 	_text,
@@ -42,7 +42,7 @@ _loadActionID = _object addAction [
 			hint 'Bring vehicle closer';
 			_exit = true;
 		};
-		if (_cargo isKindOf "Man") then
+		if (_cargo isKindOf "CAManBase") then
 			{
 			if (([_cargo] call A3A_fnc_canFight) or !(isNull (_cargo getVariable ["helped",objNull])) or !(isNull attachedTo _cargo)) then
 				{
@@ -78,7 +78,7 @@ _loadActionID = _object addAction [
 	nil, 1, true, false, "", "isnull attachedTo _target && vehicle player == player;", 3.5, false, ""
 ];
 
-if (_object isKindOf "Man") then {_text = format ["Load %1 in Vehicle",name _object]} else {_text = "Load Cargo in Vehicle"};
+if (_object isKindOf "CAManBase") then {_text = format ["Load %1 in Vehicle",name _object]} else {_text = "Load Cargo in Vehicle"};
 _object setUserActionText [
 	_loadActionID,
 	_text,

@@ -1,16 +1,16 @@
 #include "defines.hpp"
 #include "dialogs.hpp"
 
-author="Barbolani & The Official AntiStasi Community";
-OnLoadName = "Antistasi Altis";
-OnLoadMission = "Be a Resistance leader, be a hero";
-loadScreen = "pic.JPG";
+author = $STR_antistasi_credits_generic_author_text;
+OnLoadName = $STR_antistasi_credits_generic_missionname_text;
+OnLoadMission = $STR_antistasi_credits_generic_missiondesc_text;
+loadScreen = "pic.jpg";
 
-overviewText = "Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.";
+overviewText = $STR_antistasi_credits_generic_overview_text + " " + $STR_antistasi_credits_generic_version_text;
 overviewPicture = "pic.jpg";
 
 allowFunctionsLog = 1;
-enableDebugConsole[] = {"76561197979729653","76561198034977762","76561198127254055","76561197981991967","76561198274184887","76561197981991967","76561198011383725"};
+enableDebugConsole[] = {"76561197979729653","76561198034977762","76561198127254055","76561197981991967","76561198274184887","76561198011383725","76561198304402577"};
 
 respawn = "BASE";
 respawnDelay = 15;
@@ -155,7 +155,6 @@ class Params
         title = "Number of magazines needed for guests to be able to use them";
         values[] = {10,20,30,40,50,60};
         default = 40;
-        //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
     };
     class civTraffic
     {
@@ -374,7 +373,7 @@ class CfgDebriefing
 	{
 		title = "V I C T O R Y";
 		subtitle = "Altis is Ours!";
-		description = "The population of Altis loves you!<br/>The brave soldiers prooved their valour, and Petros, Altis new Prime Minister, could at last to have a nice holidays. A deserved rest in a Greek island, drinking with Petros, his war master.";
+		description = "The population of Altis loves you!<br/>The brave soldiers prooved their valour, and Petros, Altis new Prime Minister, could at last to have a nice holidays. A deserved rest in a Greek island with drinks and fine food.";
 		picture = "n_inf";
 		pictureColor[] = {0.0,0.5,0.0,1};
 	};

@@ -79,11 +79,11 @@ else
   FIASquad = ["UK3CB_TKP_O_CIB_SL","UUK3CB_TKP_O_CIB_RIF_2","UK3CB_TKP_O_CIB_AT","UK3CB_TKP_O_CIB_MD","UK3CB_TKP_O_CIB_TL","UK3CB_TKP_O_CIB_AR","UK3CB_TKP_O_CIB_RIF_1","UK3CB_TKP_O_CIB_ENG"];//"IRG_InfSquad";///
   groupsFIASquad = [FIASquad];
   factionFIA = "UK3CB_TKP_O";
-  };
+};
 
-vehPoliceCar = "UK3CB_TKP_O_Lada_Police";
-policeOfficer = "UK3CB_TKP_O_TL";
-policeGrunt = "UK3CB_TKP_O_RIF_2";
+vehPoliceCar = "UK3CB_TKP_I_Lada_Police";
+policeOfficer = "UK3CB_TKP_I_TL";
+policeGrunt = "UK3CB_TKP_I_RIF_2";
 groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = "UN";
 

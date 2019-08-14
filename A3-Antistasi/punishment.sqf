@@ -1,6 +1,6 @@
 
 private ["_countX","_foolish","_timeX","_punish"];
-//if (isDedicated) exitWith {};
+if (isDedicated) exitWith {};
 
 if (!isMultiplayer) exitWith {};
 

@@ -13,7 +13,7 @@ _updated = "";
 _weaponsX = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HANDGUN) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW) + /*(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT) + */(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON)) select {_x select 1 != -1};
 //_magazines = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL)) select {_x select 1 == -1};
 _backpcks = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BACKPACK) select {_x select 1 != -1};
-_items = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_VEST) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GOGGLES) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_MAP) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GPS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_RADIO) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_COMPASS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_WATCH) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMACC) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS)) select {_x select 1 != -1};
+_items = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_VEST) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GOGGLES) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_MAP) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GPS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_RADIO) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_COMPASS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_WATCH) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMACC) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC)) select {_x select 1 != -1};
 _optics = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC) select {_x select 1 != -1};
 _nv = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_NVGS) select {_x select 1 != -1};
 
@@ -135,23 +135,30 @@ if (_check) then
 	_check = false;
 	};
 
-if (!haveNV) then
-	{
-	_countX = 0;
-	{
-	_countX = _countX + (_x select 1);
-	} forEach _nv;
-	if (_countX >= minWeaps) then
-		{
-		unlockedItems = unlockedItems + NVGoggles;
-		haveNV = true; publicVariable "haveNV";
-		publicVariable "unlockedItems";
-		_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> "NVGoggles" >> "displayName")];
-		{
-		_index = _x call jn_fnc_arsenal_itemType;
-		[_index,_x,-1] call jn_fnc_arsenal_addItem;
-		}foreach NVGoggles;
-		};
+//Handle NVG unlocking
+//Unlock a random NVG per X non-unlocked NVG we have, from the list we've collected.
+private _countX = 0;
+private _lockedNvs = [];
+
+//Add up how many non-unlocked NVGs we have.
+{
+	private _amount = (_x select 1);
+	if (_amount > 0) then {
+		_countX = _countX + _amount;
+		_lockedNvs pushBack (_x select 0);
 	};
+} forEach _nv;
+
+//Implicitly, we have locked NVGs if we've counted more than 0 locked NVGs in the box.
+if (_countX >= minWeaps) then
+{
+	private _nvToUnlock = selectRandom _lockedNvs;
+	unlockedItems = unlockedItems + [_nvToUnlock];
+	haveNV = true; publicVariable "haveNV";
+	publicVariable "unlockedItems";
+	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _nvToUnlock >> "displayName")];
+	_index = _nvToUnlock call jn_fnc_arsenal_itemType;
+	[_index,_nvToUnlock,-1] call jn_fnc_arsenal_addItem;
+};
 
 _updated

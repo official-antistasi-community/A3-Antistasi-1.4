@@ -8,6 +8,7 @@ class A3A
         class blackout {file="blackout.sqf";};
         class attackAAF {file="attackAAF.sqf";};
         class buildHQ {file="buildHQ.sqf";};
+        class ejectPvPPlayerIfInvalidVehicle {file="ejectPvPPlayerIfInvalidVehicle.sqf";};
         class createPetros {file="createPetros.sqf";};
         class punishment {file="punishment.sqf";};
         class citiesToCivPatrol {file="citiesToCivPatrol.sqf";};

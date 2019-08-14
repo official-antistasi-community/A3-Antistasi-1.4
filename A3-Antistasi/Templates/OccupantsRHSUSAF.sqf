@@ -13,6 +13,8 @@ NATOMortar = "RHS_M252_USMC_WD";
 staticATOccupants = "RHS_TOW_TriPod_USMC_WD";
 staticAAOccupants = "RHS_Stinger_AA_pod_D";
 
+vehNATOPVP = ["rhsusf_m1025_w_s","rhsusf_m998_w_s_2dr","rhsusf_m998_w_s_2dr_fulltop","rhsusf_m998_w_s_4dr","rhsusf_m1025_w_s_m2"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
+
 vehNATOLightArmed = ["rhsusf_m1025_w_s_m2","rhsusf_CGRCAT1A2_M2_usmc_wd","rhsusf_CGRAT1A2_Mk19_usmc_wd","rhsusf_M1117_W","rhsusf_M1220_M2_usarmy_wd","rhsusf_M1237_M2_usarmy_wd","rhsusf_M1238A1_M2_socom_d","rhsusf_m1045_w_s"];
 vehNATOLightUnarmed = ["rhsusf_m1025_w_s","rhsusf_m998_w_s_2dr","rhsusf_m998_w_s_2dr_fulltop","rhsusf_m998_w_s_4dr","rhsusf_CGRCAT1A2_usmc_wd","rhsusf_M1232_usarmy_wd"];
 vehNATOTrucks = ["rhsusf_M1078A1P2_wd_open_fmtv_usarmy","rhsusf_M1078A1P2_B_wd_fmtv_usarmy","rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy"];
@@ -20,7 +22,7 @@ vehNATOCargoTrucks = [];
 vehNATOAmmoTruck = "rhsusf_M977A4_AMMO_BKIT_usarmy_wd";
 vehNATORepairTruck = "rhsusf_M977A4_REPAIR_BKIT_usarmy_wd";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
-vehNATOAPC = ["rhsusf_stryker_m1126_m2_wd","RHS_M2A3_BUSKIII_wd","RHS_M2A3_BUSKI_wd","rhsusf_M1237_MK19_usarmy_wd","RHS_M2A2_BUSKI_WD","","rhsusf_m113_usarmy","rhsusf_m113_usarmy_MK19","rhsusf_m113_usarmy"];//"B_T_APC_Tracked_01_CRV_F" has no cargo seats
+vehNATOAPC = ["rhsusf_stryker_m1126_m2_wd","RHS_M2A3_BUSKIII_wd","RHS_M2A3_BUSKI_wd","rhsusf_M1237_MK19_usarmy_wd","RHS_M2A2_BUSKI_WD","rhsusf_m113_usarmy","rhsusf_m113_usarmy_MK19","rhsusf_m113_usarmy"];//"B_T_APC_Tracked_01_CRV_F" has no cargo seats
 vehNATOTank = "rhsusf_m1a1fep_wd";
 vehNATOAA = "RHS_M6";
 vehNATOAttack = vehNATOAPC + [vehNATOTank];

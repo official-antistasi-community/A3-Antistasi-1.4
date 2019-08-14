@@ -8544,7 +8544,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3605.1279,15.822696,10278.098};
+				position[]={3605.1279,16.32,10278.098};
 				angles[]={0.014660765,1.0016968,6.2232509};
 			};
 			side="Empty";
@@ -8554,7 +8554,7 @@ class Mission
 				name="fireX";
 			};
 			id=1546;
-			type="Land_Sleeping_bag_blue_F";
+			type="Land_TentSolar_01_olive_F";
 			class CustomAttributes
 			{
 				class Attribute0

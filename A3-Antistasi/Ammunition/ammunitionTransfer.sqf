@@ -151,7 +151,7 @@ if (_destinationX == boxX) then
 	_updated = [] call A3A_fnc_arsenalManage;
 	if (_updated != "") then
 		{
-		_updated = format ["Arsenal Updated<br/><br/>%1",_updated];
+		_updated = format ["<t size='0.5' color='#C1C0BB'>Arsenal Updated<br/><br/>%1</t>",_updated];
 		[petros,"income",_updated] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 		};
 	}

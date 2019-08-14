@@ -13,6 +13,8 @@ NATOMortar = "rhsgref_cdf_reg_m252";
 staticATOccupants = "rhsgref_cdf_SPG9M";
 staticAAOccupants = "rhsgref_cdf_Igla_AA_pod";
 
+vehNATOPVP = ["rhsgref_ins_g_uaz","rhsgref_ins_g_uaz_open","rhsgref_BRDM2UM_ins_g","rhsgref_ins_g_uaz_dshkm_chdkz"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
+
 vehNATOLightArmed = ["rhsgref_cdf_uaz_ags","rhsgref_cdf_reg_uaz_dshkm","rhsgref_cdf_reg_uaz_spg9","rhsgref_BRDM2_HQ"];
 vehNATOLightUnarmed = ["rhsgref_cdf_reg_uaz","rhsgref_cdf_reg_uaz_open","rhsgref_BRDM2UM"];
 vehNATOTrucks = ["rhsgref_cdf_gaz66","rhsgref_cdf_ural","rhsgref_cdf_ural_open","rhsgref_cdf_gaz66o","rhsgref_cdf_zil131","rhsgref_cdf_zil131_open"];

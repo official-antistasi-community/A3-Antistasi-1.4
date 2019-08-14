@@ -15,7 +15,7 @@ if (isMultiplayer) then
 		{
 		call compile preprocessFileLineNumbers "initFuncs.sqf";
 		call compile preprocessFileLineNumbers "initVar.sqf";
-		waitUntil {!isNil "initVar"}; 
+		waitUntil {!isNil "initVar"};
 		diag_log format ["%1: [Antistasi]: MP Client | Version : %2.",servertime, antistasiVersion];
 		}
 	else
@@ -103,7 +103,7 @@ _introShot = [
 	waitUntil {!isNil "BIS_fnc_establishingShot_playing" && {BIS_fnc_establishingShot_playing}};
 	private _credits = [] execVM "credits.sqf";
 };
-		
+
 disableUserInput false;
 player addWeaponGlobal "itemmap";
 if !(hasIFA) then {player addWeaponGlobal "itemgps"};
@@ -643,7 +643,7 @@ mapX allowDamage false;
 mapX addAction ["Game Options", {hint format ["Antistasi - %2\n\nVersion: %1\n\nDifficulty: %3\nUnlock Weapon Number: %4\nLimited Fast Travel: %5",antistasiVersion,worldName,if (skillMult == 1) then {"Normal"} else {if (skillMult == 0.5) then {"Easy"} else {"Hard"}},minWeaps,if (limitedFT) then {"Yes"} else {"No"}]; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 mapX addAction ["Map Info", {nul = [] execVM "cityinfo.sqf";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 mapX addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
-if (isMultiplayer) then {mapX addAction ["AI Load Info", "[] remoteExec [""A3A_fnc_AILoadInfo"",2]",nil,0,false,true,"","(_this == theBoss)"]};
+if (isMultiplayer) then {mapX addAction ["AI Load Info", "[] remoteExec [""A3A_fnc_AILoadInfo"",2]",nil,0,false,true,"","((_this == theBoss) || ((admin owner _this) == 2))"]};
 _nul = [player] execVM "OrgPlayers\unitTraits.sqf";
 groupPetros = group petros;
 groupPetros setGroupIdGlobal ["Petros","GroupColor4"];

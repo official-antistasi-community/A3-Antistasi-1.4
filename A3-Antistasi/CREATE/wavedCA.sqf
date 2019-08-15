@@ -52,7 +52,7 @@ else
 
 //forcedSpawn = forcedSpawn + _forced; publicVariable "forcedSpawn";
 forcedSpawn pushBack _mrkDestination; publicVariable "forcedSpawn";
-diag_log format ["Antistasi: Side attacker: %1. Side defender (false, the other AI side):  %2",_sideX,_isSDK];
+diag_log format ["%1: [Antistasi] | INFO | Side Attacker:%2, Side Defender: %3",servertime,_sideX,_isSDK];
 _nameDest = [_mrkDestination] call A3A_fnc_localizar;
 
 [_sideTsk,"AttackAAF",[format ["%2 Is attacking from the %1. Intercept them or we may loose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
@@ -655,7 +655,7 @@ while {(_waves > 0)} do
 	_solMax = round ((count _soldiers)*0.6);
 	_waves = _waves -1;
 	_firstWave = false;
-	diag_log format ["Antistasi: Reached end of spawning attack, wave %1. Vehicles: %2. Wave Units: %3. Total units: %4 ",_waves, count _vehiclesX, count _soldiers, count _soldiersTotal];
+	diag_log format ["%1: [Antistasi] | INFO | Reached end of spawning attack, wave %2. Vehicles: %3. Wave Units: %4. Total units: %5",servertime,_waves, count _vehiclesX, count _soldiers, count _soldiersTotal];
 	if (sidesX getVariable [_mrkDestination,sideUnknown] != teamPlayer) then {_soldiers spawn A3A_fnc_remoteBattle};
 	if (_sideX == Occupants) then
 		{
@@ -727,7 +727,7 @@ while {(_waves > 0)} do
 		if (!(sidesX getVariable [_mrkDestination,sideUnknown] == Invaders)) then
 			{
 			_timeX = time + 3600;
-			diag_log format ["Antistasi debug wavedCA: Wave number %1 on wavedCA lost",_waves];
+			diag_log format ["%1: [Antistasi] | INFO | Wave number %2 on wavedCA lost",servertime,_waves];
 			if (sidesX getVariable [_mrkOrigin,sideUnknown] == Invaders) then
 				{
 				_killZones = killZones getVariable [_mrkOrigin,[]];

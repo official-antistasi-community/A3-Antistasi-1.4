@@ -6,7 +6,9 @@ private _array = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 
 if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_index, _item, _amount];
 	params["_index","_item",["_amount",1]];
-	if(_index < 0)exitWith{diag_log format ["Antistasi: ERROR in additemarsenal: %1", _this]};
+	if(_index < 0)exitWith{
+		diag_log format ["%1: [Antistasi] | ERROR | fn_arsenal_additem.sqf | Failed to addItem:%2.",servertime,_this];
+		};
 	_array set [_index,[[_item,_amount]]];
 }else{
 	_array = _this;
@@ -36,8 +38,3 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 		};
 	} forEach _x;
 }foreach _array;
-
-
-
-
-

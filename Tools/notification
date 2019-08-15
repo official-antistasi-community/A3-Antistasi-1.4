@@ -72,13 +72,9 @@ WEBHOOK_DATA='{
         "name": "Branch",
         "value": "'"[\`$TRAVIS_BRANCH\`](https://github.com/$TRAVIS_REPO_SLUG/tree/$TRAVIS_BRANCH)"'",
         "inline": true
-      },
-      {
-          "Name": "Output",
-          "value": "'"$travisOut"'",
-	  "inline": false
       }
     ],
+    files: [{ attachment: 'Tools/output.txt', name: 'Output Log' }] 
     "timestamp": "'"$TIMESTAMP"'"
   } ]
 }'

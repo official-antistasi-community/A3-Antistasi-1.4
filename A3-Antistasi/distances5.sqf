@@ -69,7 +69,7 @@ if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 		{
 		if (spawner getVariable _markerX == 2) then
 			{
-			if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if ((_x distance2D _positionMRK < distanceSPWN2)) exitWith {1}} count _opfor > 0) or ({if ((isPlayer _x) and (_x distance2D _positionMRK < distanceSPWN2)) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then
+			if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if ((_x distance2D _positionMRK < distanceSPWN2)) exitWith {1}} count _opfor > 0) or (_markerX in forcedSpawn)) then
 				{
 				spawner setVariable [_markerX,0,true];
 				if (_markerX in citiesX) then
@@ -91,7 +91,7 @@ if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 			}
 		else
 			{
-			if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if ((_x distance2D _positionMRK < distanceSPWN2)) exitWith {1}} count _opfor > 0) or ({if ((isPlayer _x) and (_x distance2D _positionMRK < distanceSPWN2)) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then
+			if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if ((_x distance2D _positionMRK < distanceSPWN2)) exitWith {1}} count _opfor > 0) or (_markerX in forcedSpawn)) then
 				{
 				spawner setVariable [_markerX,0,true];
 				if (isMUltiplayer) then
@@ -105,7 +105,7 @@ if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 				}
 			else
 				{
-				if (({if (_x distance2D _positionMRK < distanceSPWN1) exitWith {1}} count _greenfor == 0) and ({if ((_x distance2D _positionMRK < distanceSPWN)) exitWith {1}} count _opfor == 0) and ({if ((isPlayer _x) and (_x distance2D _positionMRK < distanceSPWN)) exitWith {1}} count _blufor == 0) and (not(_markerX in forcedSpawn))) then
+				if (({if (_x distance2D _positionMRK < distanceSPWN1) exitWith {1}} count _greenfor == 0) and ({if ((_x distance2D _positionMRK < distanceSPWN)) exitWith {1}} count _opfor == 0) and (not(_markerX in forcedSpawn))) then
 					{
 					spawner setVariable [_markerX,2,true];
 					};
@@ -195,7 +195,7 @@ else
 			{
 			if (spawner getVariable _markerX == 2) then
 				{
-				if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if ((_x distance2D _positionMRK < distanceSPWN2) and (isPlayer _x)) exitWith {1}} count _opfor > 0) or ({if (_x distance2D _positionMRK < distanceSPWN2) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then
+				if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if (_x distance2D _positionMRK < distanceSPWN2) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then
 					{
 					spawner setVariable [_markerX,0,true];
 					if (_markerX in controlsX) then {[[_markerX],"A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler} else {
@@ -206,7 +206,7 @@ else
 				}
 			else
 				{
-				if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if ((_x distance2D _positionMRK < distanceSPWN2) and (isPlayer _x)) exitWith {1}} count _opfor > 0) or ({if (_x distance2D _positionMRK < distanceSPWN2) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then
+				if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if (_x distance2D _positionMRK < distanceSPWN2) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then
 					{
 					spawner setVariable [_markerX,0,true];
 					if (isMUltiplayer) then
@@ -220,7 +220,7 @@ else
 					}
 				else
 					{
-					if (({if (_x distance2D _positionMRK < distanceSPWN1) exitWith {1}} count _greenfor == 0) and ({if ((_x distance2D _positionMRK < distanceSPWN2) and (isPlayer _x)) exitWith {1}} count _opfor == 0) and ({if ((_x distance2D _positionMRK < distanceSPWN)) exitWith {1}} count _blufor == 0) and (not(_markerX in forcedSpawn))) then
+					if (({if (_x distance2D _positionMRK < distanceSPWN1) exitWith {1}} count _greenfor == 0) and ({if ((_x distance2D _positionMRK < distanceSPWN)) exitWith {1}} count _blufor == 0) and (not(_markerX in forcedSpawn))) then
 						{
 						spawner setVariable [_markerX,2,true];
 						};

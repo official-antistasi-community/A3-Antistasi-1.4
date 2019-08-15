@@ -15,7 +15,7 @@ petros addEventHandler ["HandleDamage",
 
         if (isPlayer _injurer) then
             {
-            _dam = 0;
+            _dam = (_this select 0) getHitPointDamage (_this select 7);
             };
         if ((isNull _injurer) or (_injurer == petros)) then {_dam = 0};
         if (_part == "") then

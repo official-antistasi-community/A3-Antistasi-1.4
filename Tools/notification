@@ -8,10 +8,8 @@ fi
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
 # Setup output file
-if [ -z "$3" ]; then
-  echo -e "No ouput file detected"
-fi
 travisOut='cat Tools/output.txt'
+echo "$travisOut"
 
 case $1 in
   "success" )
@@ -77,7 +75,8 @@ WEBHOOK_DATA='{
       },
       {
           "Name": "Output",
-          "value": "'"$travisOut"'"
+          "value": "'"$travisOut"'",
+	  "inline": false
       }
     ],
     "timestamp": "'"$TIMESTAMP"'"

@@ -74,7 +74,7 @@ WEBHOOK_DATA='{
         "inline": true
       }
     ],
-    files: [{ attachment: 'Tools/output.txt', name: 'Output Log' }] 
+    files: [{ attachment: 'Tools/output.txt', name: 'Output Log' }],
     "timestamp": "'"$TIMESTAMP"'"
   } ]
 }'

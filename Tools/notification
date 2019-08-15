@@ -77,7 +77,7 @@ WEBHOOK_DATA='{
       },
       {
           "Name": "Output",
-          "value": $travisOut
+          "value": "'"$travisOut"'"
       }
     ],
     "timestamp": "'"$TIMESTAMP"'"

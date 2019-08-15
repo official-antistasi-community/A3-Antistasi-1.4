@@ -7,11 +7,11 @@ fn_varNameToSaveName = {
 		}
 	else
 		{
-		if (side group petros == independent) then 
+		if (side group petros == independent) then
 			{
 			_varName + serverID + campaignID + "Antistasi" + worldName;
-			} 
-		else 
+			}
+		else
 			{
 			_varName + serverID + campaignID + "AntistasiB" + worldName;
 			};
@@ -30,28 +30,30 @@ fn_SaveStat =
 		};
 };
 
-fn_ReturnSavedStat = 
+fn_ReturnSavedStat =
 {
 	private _varName = _this select 0;
-  
+
   _loadVariable = {
     private ["_varName","_varValue"];
     _varName = _this select 0;
 		_varSaveName = [_varName] call fn_varNameToSaveName;
-    
+
     //Return the value of this statement
 		profileNameSpace getVariable (_varSaveName);
   };
-  
+
   private _varValue = [_varName] call _loadVariable;
-  
+
   if(isNil "_varValue") then
   {
     _spanishVarName = [_varName] call A3A_fnc_translateVariable;
     _varValue = [_spanishVarName] call _loadVariable;
   };
-  
-	if(isNil "_varValue") exitWith {diag_log format ["Antistasi: Error during Persistent Load. The variable %1 does not exist", _varName]};
+
+	if(isNil "_varValue") exitWith {
+		diag_log format ["%1: [Antistasi] | ERROR | saveFuncs.sqf | Variable %2 does not exist.",servertime,position _varName];
+		};
 	_varValue;
 };
 
@@ -59,7 +61,7 @@ fn_LoadStat =
 {
 	private ["_varName","_varValue"];
 	_varName = _this select 0;
-  
+
 	_varValue = [_varName] call fn_ReturnSavedStat;
 	if (isNil "_varValue") exitWith {};
 	[_varName,_varValue] call fn_SetStat;
@@ -69,28 +71,28 @@ fn_SavePlayerStat = {
 	private _playerUID = _this select 0;
 	private _varName = _this select 1;
 	private _varValue = _this select 2;
-	
+
 	private _abort = false;
-	
+
 	if (isNil "_playerUID") then {
 		_playerUID = "";
 		_abort = true;
 	};
-	
+
 	if (isNil "_varName") then {
 		_varName = "";
 		_abort = true;
 	};
-	
+
 	if (isNil "_varValue") then {
 		_varValue = "";
 		_abort = true;
 	};
-	
+
 	if (_abort) exitWith {
 		diag_log format ["[Antistiasi] Save invalid for %1, saving %3 as %2", _playerUID, _varName, _varValue];
 	};
-	
+
 	private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
 	[_playerVarName, _varValue] call fn_SaveStat;
 };
@@ -98,9 +100,9 @@ fn_SavePlayerStat = {
 fn_RetrievePlayerStat = {
 	private _playerUID = _this select 0;
 	private _varName = _this select 1;
-	
+
 	if (isNil "_playerUID" || isNil "_varName") exitWith {diag_log ["[Antistiasi] Load invalid for player %1 var %2", _playerUID, _varName]};
-	
+
 	private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
 	[_playerVarName] call fn_ReturnSavedStat;
 };

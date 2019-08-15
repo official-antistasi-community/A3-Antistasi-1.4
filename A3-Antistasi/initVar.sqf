@@ -4,7 +4,7 @@
 //You do not have enough balls to make any modification and after making a Bug report because something is wrong. You don't wanna be there. Believe me.
 //Not commented lines cannot be changed.
 //Don't touch them.
-diag_log format ["%1: [Antistasi]: initVar Started.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar Started.",servertime];
 antistasiVersion = "v 1.4c1.05";
 
 debug = false;//debug variable, not useful for everything..
@@ -28,7 +28,7 @@ minItems = 20;
 minOptics = 12;*/
 maxUnits = 140;
 
-diag_log format ["%1: [Antistasi]: initVar | Generating Players.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Generating Players.",servertime];
 teamPlayer = side group petros;
 Occupants = if (teamPlayer == independent) then {west} else {independent};
 Invaders = east;
@@ -41,7 +41,7 @@ respawnTeamPlayer = if (teamPlayer == independent) then {"respawn_guerrila"} els
 respawnOccupants = if (teamPlayer == independent) then {"respawn_west"} else {"respawn_guerrila"};
 posHQ = getMarkerPos respawnTeamPlayer;
 
-diag_log format ["%1: [Antistasi]: initVar | Building Magazine Pool.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Building Magazine Pool.",servertime];
 allMagazines = [];
 _cfgmagazines = configFile >> "cfgmagazines";
 for "_i" from 0 to (count _cfgMagazines) -1 do
@@ -66,7 +66,7 @@ helmets = [];
 hasRHS = false;
 
 //lockedWeapons = ["Rangefinder","Laserdesignator"];
-diag_log format ["%1: [Antistasi]: initVar | Building Weapon list",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Building Weapon list",servertime];
 _allPrimaryWeapons = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
@@ -98,7 +98,7 @@ _allItems = "
     &&
     { getNumber ( _x >> ""type"" ) isEqualTo 131072 } } )
 " configClasses ( configFile >> "cfgWeapons" );
-diag_log format ["%1: [Antistasi]: initVar | Placing weapons.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Placing weapons.",servertime];
 _alreadyPlaced = [];
 {
 _nameX = configName _x;
@@ -131,7 +131,7 @@ hasFFAA = false;
 hasIFA = false;
 myCustomMod = false;
 has3CB = false;
-diag_log format ["%1: [Antistasi]: initVar | Patching mod weapon support",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Patching mod weapon support",servertime];
 if (isClass(configFile/"CfgPatches"/"LIB_Core")) then
 	{
 	hasIFA = true;
@@ -140,10 +140,10 @@ if (isClass(configFile/"CfgPatches"/"LIB_Core")) then
 	}
 else
 	{
- 	if ("UK3CB_BAF_L1A1" in arifles) then {has3CB = true; diag_log format ["%1: [Antistasi]: initVar | 3CB Detected.",servertime];};
-	if ("rhs_weap_akms" in arifles) then {activeAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi]: initVar | RHS Detected.",servertime];};
-	if ("ffaa_armas_hkg36k_normal" in arifles) then {hasFFAA = true; diag_log format ["%1: [Antistasi]: initVar | FFAA Detected.",servertime];};
-	if ("rhs_weap_m4a1_d" in arifles) then {activeUSAF = true; hasRHS = true; diag_log format ["%1: [Antistasi]: initVar | USAF Patch for RHS Detected.",servertime];};
+ 	if ("UK3CB_BAF_L1A1" in arifles) then {has3CB = true; diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.",servertime];};
+	if ("rhs_weap_akms" in arifles) then {activeAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS Detected.",servertime];};
+	if ("ffaa_armas_hkg36k_normal" in arifles) then {hasFFAA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | FFAA Detected.",servertime];};
+	if ("rhs_weap_m4a1_d" in arifles) then {activeUSAF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | USAF Patch for RHS Detected.",servertime];};
 	if ("rhs_weap_m92" in arifles) then {activeGREF = true; hasRHS = true} else {mguns pushBack "LMG_Mk200_BI_F"};
 	helmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
 	smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
@@ -193,7 +193,7 @@ ammunitionNATO = [];
 weaponsNato = [];
 ammunitionCSAT = [];
 weaponsCSAT = [];
-diag_log format ["%1: [Antistasi]: initVar | Reading Player Templates",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",servertime];
 if (!hasIFA) then
 	{
 	if(has3CB) then {
@@ -230,7 +230,7 @@ else
 	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
 	};
 
-diag_log format ["%1: [Antistasi]: initVar | Assigning Squad Types.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
 squadLeaders = SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
 medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
 sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
@@ -340,7 +340,7 @@ if (hasRHS) then
 	flashlights = flashlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	pointers = pointers select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	};
-diag_log format ["%1: [Antistasi]: initVar | Assigning vehicle Types",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning vehicle Types",servertime];
 vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair];
 vehBoats = [vehNATOBoat,vehCSATBoat,vehSDKBoat];
 vehAttack = vehNATOAttack + vehCSATAttack;
@@ -432,7 +432,7 @@ bigAttackInProgress = false;
 chopForest = false;
 distanceForAirAttack = 10000;
 distanceForLandAttack = if (hasIFA) then {5000} else {3000};
-diag_log format ["%1: [Antistasi]: initVar | Setting Vehicle Spawn Points.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Vehicle Spawn Points.",servertime];
 if (worldName == "Tanoa") then
 	{
 	roadsMrk = ["road","road_1","road_2","road_3","road_4","road_5","road_6","road_7","road_8","road_9","road_10","road_11","road_12","road_13","road_14","road_15","road_16"];
@@ -482,7 +482,7 @@ if (side (group petros) == west) then {swoopShutUp pushBack "U_B_Wetsuit"} else 
 
 //Pricing values for soldiers, vehicles
 if (!isServer) exitWith {};
-diag_log format ["%1: [Antistasi]: initVar | Building Pricelist.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Building Pricelist.",servertime];
 {server setVariable [_x,50,true]} forEach SDKMil;
 {server setVariable [_x,75,true]} forEach (sdkTier1 - SDKMil);
 {server setVariable [_x,100,true]} forEach  sdkTier2;
@@ -556,7 +556,7 @@ else
 	unlockedItems = ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"] + uniformsSDK + civUniforms;
 	};
 
-diag_log format ["%1: [Antistasi]: initVar | Setting Default Arsenal Unlocks.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Default Arsenal Unlocks.",servertime];
 //The following are the initial weapons and mags unlocked and available in the Arsenal, vanilla or RHS
 if (!has3CB) then
 	{
@@ -782,7 +782,7 @@ else
 
 if (isDedicated) then {civPerc = 70; publicVariable "civPerc"};
 
-diag_log format ["%1: [Antistasi]: initVar | Storing variables.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Storing variables.",servertime];
 
 publicVariable "unlockedWeapons";
 publicVariable "unlockedRifles";
@@ -817,4 +817,4 @@ publicVariable "unlockedAA";
 publicVariable "initialRifles";
 
 if (isMultiplayer) then {[[petros,"hint","Variables Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;};
-diag_log format ["%1: [Antistasi]: initVar Completed.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar Completed.",servertime];

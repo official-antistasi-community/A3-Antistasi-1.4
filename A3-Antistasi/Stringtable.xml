@@ -333,8 +333,7 @@
         <English>Be a Resistance leader, be a hero.</English>
       </Key>
       <Key ID="STR_antistasi_credits_generic_version_text">
-        <Original>1.4c1.04</Original>
-        <English>1.4c1.04</English>
+        <Original>1.4c2.0</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">

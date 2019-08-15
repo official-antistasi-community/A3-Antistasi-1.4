@@ -1,7 +1,7 @@
 if (!isMultiplayer) exitWith {};
 if (!(isNil "serverInitDone")) exitWith {};
-diag_log format ["%1: [Antistasi]: Dedicated Server Detected.",servertime];
-diag_log format ["%1: [Antistasi]: initServer Started.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | Dedicated Server Detected.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initServer Started.",servertime];
 boxX allowDamage false;
 flagX allowDamage false;
 vehicleBox allowDamage false;
@@ -42,13 +42,13 @@ if(loadLastSave) then {
 	campaignID = str(round((random(100000)) + random 10000));
 	profileNameSpace setVariable ["ss_CampaignID", campaignID];
 };
-	
+
 publicVariable "campaignID";
 
 _nul = call compile preprocessFileLineNumbers "initVar.sqf";
 initVar = true; publicVariable "initVar";
 savingServer = true;
-diag_log format ["%1: [Antistasi]: MP Version: %2 loaded.",servertime,antistasiVersion];
+diag_log format ["%1: [Antistasi] | INFO | MP Version: %2 loaded.",servertime,antistasiVersion];
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 _nul = call compile preprocessFileLineNumbers "initFuncs.sqf";
 _nul = call compile preprocessFileLineNumbers "initZones.sqf";
@@ -76,13 +76,12 @@ private _index = _x call jn_fnc_arsenal_itemType;
 _nul = call compile preprocessFileLineNumbers "initGarrisons.sqf";
 if (loadLastSave) then
     {
-
-    diag_log "Antistasi: Persitent Load selected";
+    diag_log format ["%1: [Antistasi] | INFO | Persitent Load selected.",servertime];
     ["membersX"] call fn_LoadStat;
     if (isNil "membersX") then
         {
         loadLastSave = false;
-        diag_log "Antistasi: Persitent Load selected but there is no older session";
+         diag_log format ["%1: [Antistasi] | ERROR | initServer.sqf | No previous session detected.",servertime];
         };
     };
 publicVariable "loadLastSave";
@@ -99,7 +98,8 @@ if (loadLastSave) then
     if (membershipEnabled and (membersX isEqualTo [])) then
         {
         [petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list"] remoteExec ["A3A_fnc_commsMP"];
-        diag_log "Antistasi: Persitent Load done but membership enabled with members array empty";
+        diag_log format ["%1: [Antistasi] | INFO | Session load completed.",servertime];
+        diag_log format ["%1: [Antistasi] | INFO | Membership enabled however there are no members.",servertime];
         membersX = [];
         {
         membersX pushBack (getPlayerUID _x);
@@ -131,7 +131,7 @@ else
        }
     else
         {
-        diag_log "Antistasi: New Game selected";
+        diag_log format ["%1: [Antistasi] | INFO | New Session Selected.",servertime];
         if (isNil "commanderX") then {commanderX = (playableUnits select 0)};
         if (isNull commanderX) then {commanderX = (playableUnits select 0)};
         theBoss = commanderX;
@@ -144,13 +144,13 @@ else
     [] execVM "Ammunition\boxAAF.sqf";
     };
 
-diag_log format ["%1: [Antistasi]: Accepting Players.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | Accepting Players.",servertime];
 {
 private _index = _x call jn_fnc_arsenal_itemType;
 [_index,_x,-1] call jn_fnc_arsenal_addItem;
 }foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
 
-diag_log format ["%1: [Antistasi]: Arsenal unlock finished.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | Arsenal unlock finished.",servertime];
 
 [[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 
@@ -172,7 +172,7 @@ addMissionEventHandler ["BuildingChanged",
         }];
 
 serverInitDone = true; publicVariable "serverInitDone";
-diag_log format ["%1: [Antistasi]: Marking serverInitDone : %2.",servertime, serverInitDone];
+diag_log format ["%1: [Antistasi] | INFO | Marking serverInitDone : %2.",servertime, serverInitDone];
 
 waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distances4;
@@ -190,4 +190,4 @@ savingServer = false;
 			sleep 30;
 		};
 };
-diag_log format ["%1: [Antistasi]: initServer Completed.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initServer Completed.",servertime];

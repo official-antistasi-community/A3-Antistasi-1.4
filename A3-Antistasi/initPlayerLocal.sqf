@@ -1,6 +1,5 @@
 #include "Garage\defineCommon.inc"
-diag_log format ["%1: [Antistasi]: initPlayerLocal Started.",servertime];
-
+diag_log format ["%1: [Antistasi] | INFO | initPlayerLocal Started.",servertime];
 if (hasInterface) then
 	{
 	waitUntil {!isNull player};
@@ -17,7 +16,7 @@ if (isMultiplayer) then
 		call compile preprocessFileLineNumbers "initFuncs.sqf";
 		call compile preprocessFileLineNumbers "initVar.sqf";
 		waitUntil {!isNil "initVar"};
-		diag_log format ["%1: [Antistasi]: MP Client | Version : %2.",servertime, antistasiVersion];
+		diag_log format ["%1: [Antistasi] | INFO | MP Client | Version : %2.",servertime, antistasiVersion];
 		}
 	else
 		{
@@ -40,11 +39,11 @@ if (isMultiplayer) then
 	//waitUntil {scriptdone _introshot};
 	disableUserInput true;
 	cutText ["Waiting for Players and Server Init","BLACK",0];
-	diag_log format ["%1: [Antistasi]: MP Client | Waiting for Server...",servertime];
+	diag_log format ["%1: [Antistasi] | INFO | MP Client | Waiting for Server...",servertime];
 	waitUntil {(!isNil "serverInitDone")};
 	cutText ["Starting Mission","BLACK IN",0];
-	diag_log format ["%1: [Antistasi]: MP Client | Server loaded..",servertime];
-	diag_log format ["%1: [Antistasi]: MP Client | JIP?: %2",servertime,_isJip];
+	diag_log format ["%1: [Antistasi] | INFO | MP Client | Server loaded..",servertime];
+	diag_log format ["%1: [Antistasi] | INFO | MP Client | JIP?: %2",servertime,_isJip];
 	if (hasTFAR) then {[] execVM "orgPlayers\radioJam.sqf"};//reestablecer cuando controle las variables
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if ((side player == teamPlayer) and tkPunish) then
@@ -131,26 +130,26 @@ if (player getVariable ["pvp",false]) exitWith
 	if ((!_isJIP) or !pvpEnabled) then
 		{
 		["noPvP",false,1,false,false] call BIS_fnc_endMission;
-		diag_log "Antistasi: PvP player kicked because he is not jipping or PvP slots are disabled";
+		diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because he is not jipping or PvP slots are disabled.",servertime];
 		}
 	else
 		{
 		if (not([player] call A3A_fnc_isMember)) then
 			{
 			["noPvP",false,1,false,false] call BIS_fnc_endMission;
-			diag_log "Antistasi: PvP player kicked because he is not member";
+			diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because he is not member.",servertime];
 			}
 		else
 			{
 			if ({(side group _x != teamPlayer)} count playableUnits > {(side group _x == teamPlayer)} count playableUnits) then
 				{
 				["noPvP",false,1,false,false] call BIS_fnc_endMission;
-				diag_log "Antistasi: PvP player kicked because PvP players number is equal to non PvP";
+				diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because PvP players number is equal to non PvP.",servertime];
 				}
 			else
 				{
 				[player] remoteExec ["A3A_fnc_playerHasBeenPvPCheck",2];
-				diag_log "Antistasi: PvP player logged in, doing server side checks if the player has been rebel recently";
+				diag_log format ["%1: [Antistasi] | INFO | PvP player logged in, doing server side checks if the player has been rebel recently.",servertime];
 				};
 			};
 		};
@@ -164,7 +163,7 @@ if (player getVariable ["pvp",false]) exitWith
 		};
 	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	respawnTeamPlayer setMarkerAlphaLocal 0;
-	
+
 	player addEventHandler ["GetInMan", {_this call A3A_fnc_ejectPvPPlayerIfInvalidVehicle}];
 	player addEventHandler ["SeatSwitchedMan", {[_this select 0, assignedVehicleRole (_this select 0) select 0, _this select 2] call A3A_fnc_ejectPvPPlayerIfInvalidVehicle}];
 	player addEventHandler ["InventoryOpened",
@@ -505,7 +504,7 @@ if (_isJip) then
 		{
 		_nul = [] execVM "Dialogs\firstLoad.sqf";
 		};
-	diag_log format ["%1: [Antistasi]: MP Client | JIP Client Loaded.",servertime];
+	diag_log format ["%1: [Antistasi] | INFO | MP Client | JIP Client Loaded.",servertime];
 	player setPos (getMarkerPos respawnTeamPlayer);
 	}
 else
@@ -532,7 +531,7 @@ else
 		    		{
 		    		_nul = [true] execVM "Dialogs\firstLoad.sqf";
 			    	};
-				diag_log format ["%1: [Antistasi]: MP Client | Client load finished.",servertime];
+				diag_log format ["%1: [Antistasi] | INFO | MP Client | Client load finished.",servertime];
 		    	}
 		    else
 		    	{
@@ -629,7 +628,7 @@ mapX allowDamage false;
 mapX addAction ["Game Options", {hint format ["Antistasi - %2\n\nVersion: %1\n\nDifficulty: %3\nUnlock Weapon Number: %4\nLimited Fast Travel: %5",antistasiVersion,worldName,if (skillMult == 1) then {"Normal"} else {if (skillMult == 0.5) then {"Easy"} else {"Hard"}},minWeaps,if (limitedFT) then {"Yes"} else {"No"}]; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 mapX addAction ["Map Info", {nul = [] execVM "cityinfo.sqf";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 mapX addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
-if (isMultiplayer) then {mapX addAction ["AI Load Info", "[] remoteExec [""A3A_fnc_AILoadInfo"",2]",nil,0,false,true,"","(_this == theBoss)"]};
+if (isMultiplayer) then {mapX addAction ["AI Load Info", "[] remoteExec [""A3A_fnc_AILoadInfo"",2]",nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout"")"]};
 _nul = [player] execVM "OrgPlayers\unitTraits.sqf";
 groupPetros = group petros;
 groupPetros setGroupIdGlobal ["Petros","GroupColor4"];
@@ -637,7 +636,7 @@ petros setIdentity "friendlyX";
 petros setName "Petros";
 petros disableAI "MOVE";
 petros disableAI "AUTOTARGET";
-petros addAction ["Mission Request", {nul=CreateDialog "mission_menu";},nil,0,false,true,"","_this == theBoss"];
+petros addAction ["Mission Request", {nul=CreateDialog "mission_menu";},nil,0,false,true,"","([player] call A3A_fnc_isMember)"];
 
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];

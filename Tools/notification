@@ -8,7 +8,7 @@ fi
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
 # Setup output file
-travisOut='cat Tools/output.txt'
+travisOut=$(<Tools/output.txt)
 echo "$travisOut"
 
 case $1 in

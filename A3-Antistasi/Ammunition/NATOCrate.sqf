@@ -45,6 +45,7 @@ for "_i" from 0 to _var2 do
 		{
 		_num = 1 + (floor random 4);
 		_crate addItemCargoGlobal [_loot, _num];
+		};
 	};
 for "_i" from 0 to _var3 do
 	{

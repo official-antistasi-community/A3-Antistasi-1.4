@@ -153,14 +153,7 @@ if (player getVariable ["pvp",false]) exitWith
 				};
 			};
 		};
-	if (side player == Occupants) then
-		{
-		if (activeUSAF) then {[player] call A3A_fnc_RHSdress};
-		}
-	else
-		{
-		if (activeAFRF) then {[player] call A3A_fnc_RHSdress};
-		};
+	[player] call A3A_fnc_dress;
 	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	respawnTeamPlayer setMarkerAlphaLocal 0;
 
@@ -218,7 +211,7 @@ stragglers = creategroup teamPlayer;
 player setUnitTrait ["camouflageCoef",0.8];
 player setUnitTrait ["audibleCoef",0.8];
 
-if (activeGREF) then {[player] call A3A_fnc_RHSdress};
+[player] call A3A_fnc_dress;
 player setUnitLoadout ((getUnitLoadout player) call A3A_fnc_stripGearFromLoadout);
 player setvariable ["compromised",0];
 player addEventHandler ["FiredMan",

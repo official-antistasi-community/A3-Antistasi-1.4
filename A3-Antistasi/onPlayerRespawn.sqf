@@ -241,6 +241,6 @@ else
 	{
 	_oldUnit setVariable ["spawner",nil,true];
 	_newUnit setVariable ["spawner",true,true];
-	if (hasRHS) then {[player] call A3A_fnc_RHSdress};
+	[player] call A3A_fnc_dress;
 	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	};

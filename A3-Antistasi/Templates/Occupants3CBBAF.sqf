@@ -16,6 +16,22 @@ NATOMortar = "UK3CB_BAF_Static_L16_Deployed_DDPM_RM";
 staticATOccupants = "RHS_TOW_TriPod_USMC_D";
 staticAAOccupants = "RHS_Stinger_AA_pod_D";
 
+//NATO PvP Loadouts
+NATOPlayerLoadouts = [
+	//Team Leader
+	"UK3CB_BAF_SC_DDPM_REC",
+	//Medic
+	"UK3CB_BAF_Medic_DDPM_REC",
+	//Autorifleman
+	"UK3CB_BAF_MGLMG_DDPM_REC",
+	//Marksman
+	"UK3CB_BAF_Marksman_DDPM_REC",
+	//Anti-tank Scout
+	"UK3CB_BAF_Explosive_DDPM_REC",
+	//Anti-tank Scout
+	"UK3CB_BAF_FAC_DDPM_REC"
+];
+
 vehNATOPVP = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Sand","UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Snatch_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Soft_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Sand_A_DDPM"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
 
 vehNATOLightArmed = ["UK3CB_BAF_LandRover_WMIK_HMG_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_GMG_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_Milan_FFR_Sand_A_DDPM","UK3CB_BAF_Jackal2_L2A1_D_DDPM","UK3CB_BAF_Coyote_Logistics_L111A1_D_DDPM","UK3CB_BAF_Coyote_Passenger_L111A1_D_DDPM"];

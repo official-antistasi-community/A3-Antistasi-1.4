@@ -1,8 +1,7 @@
 private ["_unit","_veh","_sideX","_typeX","_skill","_riflefinal","_magazines","_hmd","_markerX","_revealX"];
 
 _unit = _this select 0;
-if (isNil "_unit") exitWith {diag_log format ["Antistasi: Error enviando a NATOinit los parámetros:%1",_this]};
-if (isNull _unit) exitWith {diag_log format ["Antistasi: Error enviando a NATOinit los parámetros:%1",_this]};
+if ((isNil "_unit") || (isNull _unit)) exitWith {diag_log format ["%1: [Antistasi] | ERROR | NATOinit.sqf | Error with Nato Parameter:%2",servertime,_this];};
 _typeX = typeOf _unit;
 if (typeOf _unit == "Fin_random_F") exitWith {};
 _sideX = side _unit;

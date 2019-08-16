@@ -19,7 +19,7 @@ params ["_object"];
 //private _type  = if(_simulation isEqualTo "tankx")then{0}else{1};//0 = weapon, 1 = cargo
 _objectModel = getText(configfile >> "CfgVehicles" >> typeOf _object >> "model");
 _return = -1;
-if (_object isKindOf "Man") exitWith {1};
+if (_object isKindOf "CAManBase") exitWith {1};
 {
 	if(_x select 0 isEqualTo _objectModel) exitWith {_return = _x select 3;};
 }forEach jnl_attachmentOffset;

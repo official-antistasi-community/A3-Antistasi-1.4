@@ -8,6 +8,7 @@ class A3A
         class blackout {file="blackout.sqf";};
         class attackAAF {file="attackAAF.sqf";};
         class buildHQ {file="buildHQ.sqf";};
+        class ejectPvPPlayerIfInvalidVehicle {file="ejectPvPPlayerIfInvalidVehicle.sqf";};
         class createPetros {file="createPetros.sqf";};
         class punishment {file="punishment.sqf";};
         class citiesToCivPatrol {file="citiesToCivPatrol.sqf";};
@@ -40,6 +41,7 @@ class A3A
         class NATOFT {file="NATOFT.sqf";};
         class numericRank {file="numericRank.sqf";};
         class onPlayerDisconnect {file="onPlayerDisconnect.sqf";};
+        class onHeadlessClientDisconnect {file="onHeadlessClientDisconnect.sqf";};
         class patrolDestinations {file="patrolDestinations.sqf";};
         class placementSelection {file="placementselection.sqf";};
         class playerHasBeenPvPCheck {file="playerHasBeenPvPCheck.sqf";};

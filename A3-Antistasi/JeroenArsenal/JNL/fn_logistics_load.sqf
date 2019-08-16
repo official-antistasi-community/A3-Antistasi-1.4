@@ -50,7 +50,7 @@ if _playAnimation then{
 		private _locStart = [_locEnd select 0, _yEnd, _locEnd select 2];
 		//Set initial position
 		_object attachto [_vehicle, _locStart];
-		if (_object isKindOf "Man") then {_object setVectorDirAndUp [_cargoOffsetAndDir select 1, [0, 0, 0]]} else {_object setVectorDirAndUp [_cargoOffsetAndDir select 1, [0, 0, 1]]};
+		if (_object isKindOf "CAManBase") then {_object setVectorDirAndUp [_cargoOffsetAndDir select 1, [0, 0, 0]]} else {_object setVectorDirAndUp [_cargoOffsetAndDir select 1, [0, 0, 1]]};
 		private _step = 0.1;
 
 		//lock seats
@@ -63,7 +63,7 @@ if _playAnimation then{
 			_locStart = _locStart vectorAdd [0, _step, 0];
 			_object attachto [_vehicle, _locStart];
 			//_object setVectorDirAndUp [_cargoOffsetAndDir select 1, [0, 0, 1]];
-			if (_object isKindOf "Man") then {_object setVectorDirAndUp [_cargoOffsetAndDir select 1, [0, 0, 0]]} else {_object setVectorDirAndUp [_cargoOffsetAndDir select 1, [0, 0, 1]]};
+			if (_object isKindOf "CAManBase") then {_object setVectorDirAndUp [_cargoOffsetAndDir select 1, [0, 0, 0]]} else {_object setVectorDirAndUp [_cargoOffsetAndDir select 1, [0, 0, 1]]};
 			sleep 0.1;
 		};
 

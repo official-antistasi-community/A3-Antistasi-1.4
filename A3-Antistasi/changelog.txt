@@ -1243,4 +1243,77 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Solved bug in Destroy Heli missions.
 - Added RHS SPG9 as AT gun for rebel RHSGREF config, thanks to Mocksybren!!
 
+1.4c1.01 through to 1.4c1.05
+
+All Improvements
+- Support for 3CB - You can now play as the British Armed Forces
+- ADV - ACE Medical support
+- Players save on disconnect
+- Commander can pass command to someone by resigning while looking at them
+- Vehicles are teleported along with players when outside member leash range
+- The Heal and Repair box now removes vehicles and players from the wanted list
+- The Heal and Repair box now has a 30 second cooldown timer. No more spam-healing.
+- PvP players can get into the passenger seats of vehicles (i.e - they can be taken captive)
+- Undercover is much more likely to be broken by outposts at higher war levels
+- Arsenal categorization is significantly improved. Fewer items will be wrongly in the 'Bipod' section.
+- HEMTT Cargo and HEMTT Flatbed added to the list of trucks in Vanilla.
+- Placing vehicles from the garage is more reliable
+- Building fortifications UI improvements
+- Ammo is now accessible when X magazines is reached, rather than 500 rounds
+- Notification when a player is given temporary membership
+- Notifications removed when a player joins BLUFOR/OPFOR
+- Translated version is backwards compatible with original Antistasi 1.4
+- Add a light to the flag
+- Improved vehicle placement and building system
+- roadsDB.sqf added for Chernarus
+
+All Fixes
+- Vanilla police replaced with RHS police where appropriate
+- Players no longer start with guns appropriate to their role (No more free guns)
+- Bodies now vanish when players disconnect
+- Apex Jeeps replaced with Offroads (to remove dependency on DLC)
+- Civilans now correctly increase Occupant aggression if shot in limbs
+- Players are no longer rewarded for killing civilians in singleplayer
+- Players no longer have rifleman radios during WW2
+- German radios no longer vanish during WW2
+- Dogs can no longer detect you from the other side of the world (100m reduced to 20m)
+- Player loadouts are removed for players that disconnect while unconscious or downed
+- Only rebels can save - no more BLUFOR loadouts sneaking onto the rebel side
+- Supply missions no longer claim you can sell supplies.
+- Marker text and colours should update more reliably when changing side
+- Roadblocks no longer spawn two flags
+- Times on missions should no longer be missing 0s (13:07, rather than 13:7)
+- Petros no longer has 'Build HQ on him' when he dies.
+- Sleeping bag is less likely to clip into the ground (still happens rarely)
+- Vehicles are much less likely to fly off into the sky while you're placing them.
+- Many, many fixes for personal saving. It's now more reliable than ever.
+- Undercover no longer works in airports (no stealing helicopters early-game)
+- Another fix for commander getting stuck on none
+- Objects placed near HQ like bunkers no longer wander off when you reload
+- Fixes box/flag/map not moving when placed
+- Killing guard dogs no longer counts as killing a surrendered soldier.
+- Frequencies of SR and LR don't change when you enter the Arsenal
+- Petros gets respawned automatically if he for some reason vanishes
+- Fixed commander not being reassigned
+- Shooting from vehicles should now always break undercover if in range of a city or enemy
+- Undercover Friendly NPCs should drive on roads always
+- Mission convoys should bug out less (Still not perfect)
+- Civilians no longer shout orders to each other
+- ACE removed from mod blacklist in singleplayer
+- Object moving in the HQ should bug out less
+- Player saves no longer carry over from previous campaigns
+- Camping light no longer loses actions (replaced with sleeping bag)
+- Static weapons always spawn the correct bags, in more sensible places
+- Non-commander admins can give temp membership
+- Arsenal sorting now works, alphabetically and by count
+- Arsenal bug where items temporarily stop being unlimited
+- Arsenal items go more-reliably into the correct tabs.
+- Various arsenal duplication bugs
+- Groups will no-longer hit the limit (fixing several other issues)
+- Curator modules added to all maps
+- Fix IFA Detection in WW2
+- Several exploits
+- Several runtime errors
+- Probably more fixes we've missed.
+
 meter veh civiles IFA y rehacer lo relativo a JNL

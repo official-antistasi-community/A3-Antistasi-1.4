@@ -18,15 +18,20 @@ else
 	};
 _sideX = _this select 1;
 _markerX = _this select 2;
-if !(_markerX isEqualType "") exitWith {diag_log format ["Antistasi error: En garrison update hemos enviado algo que no es markerX. Params: %1",_this]};
+if !(_markerX isEqualType "") exitWith {
+		diag_log format ["%1: [Antistasi] | ERROR | garrisonUpdate.sqf | Failed to update Garrison at Position:%2",servertime,_this];
+		};
 _modeX = _this select 3;//-1 to remove 1 unbit (killed EHs etc). 1 add 1 single classname / object. 2 adds a hole array and admits classnames or objects
 _exit = false;
-//diag_log format ["Antistasi: Error en garrisonUpdate al enviar mal dataX: %1,%2,%3,%4",_typeX,_sideX,_markerX,_modeX];
 {if (isNil _x) exitWith {_exit = true}} forEach ["_typeX","_sideX","_markerX","_modeX"];
-if (_exit) exitWith {diag_log format ["Antistasi: Error en garrisonUpdate al enviar mal dataX: %1,%2,%3,%4",_typeX,_sideX,_markerX,_modeX]};
+if (_exit) exitWith {
+	diag_log format ["%1: [Antistasi] | ERROR | garrisonUpdate.sqf | Failed to update Garrison with params:%2,%3,%4,%5",servertime,_typeX,_sideX,_markerX,_modeX];
+	};
 waitUntil {!garrisonIsChanging};
 {if (isNil _x) exitWith {_exit = true}} forEach ["_typeX","_sideX","_markerX","_modeX"];
-if (_exit) exitWith {diag_log format ["Antistasi: Error en garrisonUpdate al enviar mal dataX: %1,%2,%3,%4",_typeX,_sideX,_markerX,_modeX]};
+if (_exit) exitWith {
+	diag_log format ["%1: [Antistasi] | ERROR | garrisonUpdate.sqf | Failed to update Garrison with params:%2,%3,%4,%5",servertime,_typeX,_sideX,_markerX,_modeX];
+	};
 garrisonIsChanging = true;
 if ((_sideX == Occupants) and (!(sidesX getVariable [_markerX,sideUnknown] == Occupants))) exitWith {garrisonIsChanging = false};
 if ((_sideX == Invaders) and (!(sidesX getVariable [_markerX,sideUnknown] == Invaders))) exitWith {garrisonIsChanging = false};

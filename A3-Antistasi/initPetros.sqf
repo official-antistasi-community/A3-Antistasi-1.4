@@ -1,3 +1,4 @@
+diag_log format ["%1: [Antistasi] | INFO | initPetros Started.",servertime];
 removeHeadgear petros;
 removeGoggles petros;
 petros setSkill 1;
@@ -14,7 +15,7 @@ petros addEventHandler ["HandleDamage",
 
         if (isPlayer _injurer) then
             {
-            _dam = 0;
+            _dam = (_this select 0) getHitPointDamage (_this select 7);
             };
         if ((isNull _injurer) or (_injurer == petros)) then {_dam = 0};
         if (_part == "") then
@@ -75,9 +76,9 @@ petros addMPEventHandler ["mpkilled",
             }
         else
             {
-            call A3A_fnc_createPetros;
+            [] call A3A_fnc_createPetros;
             };
         };
    }];
-sleep 120;
-petros allowDamage true;
+[] spawn {sleep 120; petros allowDamage true;};
+diag_log format ["%1: [Antistasi] | INFO | initPetros Completed.",servertime];

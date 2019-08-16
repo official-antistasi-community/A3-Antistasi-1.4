@@ -166,26 +166,62 @@ jnl_vehicleHardpoints = [
     ]],
 
     //Tanoa boat
-	["\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d",[
-		[1,[-0.0615234,0.492443,0.322869],[5,6,2]]
-	]],
+    ["\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d",[
+        [1,[-0.0615234,0.492443,0.322869],[5,6,2]]
+    ]],
+
+    //Vanilla HEMTT Flatbed
+    ["a3\Soft_F_Gamma\Truck_01\Truck_01_flatbed_F.p3d",[
+        [0,[0.0283203,-0.29126,-0.799927],[]],
+        [0,[0.0771484,-2.97998,-0.799805],[]],
+        [1,[0.0283203,-0.29126,-0.799927],[]],
+        [1,[0.0771484,-2.97998,-0.799805],[]]
+    ]],
 	
-	//Vanilla HEMTT Flatbed
-	["a3\Soft_F_Gamma\Truck_01\Truck_01_flatbed_F.p3d",[
-		[0,[0.0283203,-0.29126,-0.799927],[]],
-		[0,[0.0771484,-2.97998,-0.799805],[]],
-		[1,[0.0283203,-0.29126,-0.799927],[]],
-		[1,[0.0771484,-2.97998,-0.799805],[]]
-	]],
-	
-	//Vanilla HEMTT Cargo
-	["a3\Soft_F_Gamma\Truck_01\Truck_01_cargo_F.p3d",[
-		[0,[0.0283203,-0.29126,-0.51],[]],
-		[0,[0.0771484,-2.97998,-0.51],[]],
-		[1,[0.0283203,-0.29126,-0.51],[]],
-		[1,[0.0771484,-2.97998,-0.51],[]]
-	]]
-	
+    //Vanilla HEMTT Cargo
+    ["a3\Soft_F_Gamma\Truck_01\Truck_01_cargo_F.p3d",[
+        [0,[0.0283203,-0.29126,-0.51],[]],
+        [0,[0.0771484,-2.97998,-0.51],[]],
+        [1,[0.0283203,-0.29126,-0.51],[]],
+        [1,[0.0771484,-2.97998,-0.51],[]]
+    ]],
+
+    //3CB MAN 6x6 flatbed
+    ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_man\uk3cb_man_6x6_cargo.p3d",[
+    //TYPE, [left/right,   for/aft,  up/down], seat disabler
+        [1,[-0.00610352,4.5175781,-1.254599],[]],
+        [1,[-0.00610352,2.5175781,-1.254599],[]],
+        [1,[0.0383301,0.51055,-1.254599],[]]
+    ]],
+
+    //3CB MAN 4x4 flatbed
+    ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_man\uk3cb_man_4x4_cargo.p3d",[
+    //TYPE, [left/right,   for/aft,  up/down], seat disabler
+        [1,[-0.00610352,2.5175781,-1.254599],[]],
+        [1,[0.0383301,0.51055,-1.254599],[]]
+    ]],
+
+    //3CB v3s Recovery
+    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_recovery.p3d",[
+    //TYPE, [left/right,   for/aft,  up/down], seat disabler
+        [1,[-0.00610352,-0.5175781,-0.504599],[]],
+        [1,[0.0383301,-2.51055,-0.504599],[]]
+    ]],
+
+    //3CB v3s closed
+    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_transport.p3d",[
+    //TYPE, [left/right,   for/aft,  up/down], seat disabler
+        [1,[-0.00610352,-0.5175781,-0.504599],[10,3,11,4,5,2]],
+        [1,[0.0383301,-2.51055,-0.504599],[6,7,8,9,12,13]]
+    ]],
+
+    //3CB v3s open
+    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_open.p3d",[
+    //TYPE, [left/right,   for/aft,  up/down], seat disabler
+        [1,[-0.00610352,-0.5175781,-0.504599],[10,3,11,4,5,2]],
+        [1,[0.0383301,-2.51055,-0.504599],[6,7,8,9,12,13]]
+    ]]
+
 ];
 
 //lock seats when cargo is added

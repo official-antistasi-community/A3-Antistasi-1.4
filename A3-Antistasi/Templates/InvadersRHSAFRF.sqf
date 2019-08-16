@@ -11,25 +11,27 @@ CSATMG = "rhs_KORD_high_VMF";
 staticATInvaders = "rhs_Kornet_9M133_2_vmf";
 staticAAInvaders = "RHS_ZU23_MSV";
 
+vehCSATPVP = ["rhs_tigr_vdv","rhs_uaz_vdv","rhsgref_ins_g_uaz_dshkm_chdkz"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.
+
 vehCSATLightArmed = ["rhsgref_BRDM2_vdv","rhsgref_BRDM2_HQ_vdv","rhsgref_BRDM2_ATGM_vdv","rhs_tigr_sts_vdv"];
-vehCSATLightUnarmed = ["rhs_tigr_vdv","rhs_uaz_vdv"];
-vehCSATTrucks = ["rhs_kamaz5350_vdv","rhs_kamaz5350_open_vdv","RHS_Ural_Open_VDV_01","rhs_gaz66_vdv"];
+vehCSATLightUnarmed = ["rhs_tigr_vdv","rhs_uaz_vdv","rhs_tigr_m_msv"];
+vehCSATTrucks = ["rhs_kamaz5350_vdv","rhs_kamaz5350_open_vdv","RHS_Ural_Open_VDV_01","rhs_zil131_vdv","RHS_Ural_VDV_01"];
 vehCSATAmmoTruck = "rhs_gaz66_ammo_vmf";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
-vehCSATAPC = ["rhs_bmp2d_vdv","rhs_bmp1p_vdv"];
-vehCSATTank = "rhs_sprut_vdv";
+vehCSATAPC = ["rhs_bmd1r","rhs_bmp1p_vdv","rhs_bmd1p","rhs_bmd2m","rhs_bmp1p_vdv","rhs_bmp2k_vdv","rhs_btr80a_vdv","rhsbmp3mera_msv","rhs_bmd1PK"];
+vehCSATTank = "rhs_t90sab_tv";
 vehCSATAA = "rhs_zsu234_aa";
 vehCSATAttack = vehCSATAPC + [vehCSATTank];
 vehCSATBoat = "O_T_Boat_Armed_01_hmg_F";
 vehCSATRBoat = "O_T_Boat_Transport_01_F";
 vehCSATBoats = [vehCSATBoat,vehCSATRBoat,"rhs_btr80a_vdv"];
 vehCSATPlane = "RHS_Su25SM_CAS_vvs";
-vehCSATPlaneAA = "RHS_T50_vvs_051";
+vehCSATPlaneAA = "RHS_mig29s_vvs";
 vehCSATPatrolHeli = "rhs_ka60_c";
-vehCSATTransportHelis = ["RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv",vehCSATPatrolHeli];
-vehCSATAttackHelis = ["RHS_Mi24V_vdv","RHS_Mi8MTV3_FAB_vdv"];
+vehCSATTransportHelis = ["RHS_Mi8AMT_vvsc","RHS_Mi8mt_vvsc","RHS_Mi8MTV3_vvsc",vehCSATPatrolHeli];
+vehCSATAttackHelis = ["RHS_Mi24P_vvsc","RHS_Mi8AMTSh_vvsc","RHS_Ka52_vvs","rhs_mi28n_vvs"];
 vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA];
-vehCSATUAV = "rhs_pchela1t_vvs";
+vehCSATUAV = "rhs_pchela1t_vvsc";
 vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "rhs_2s3_tv";
 vehCSATMRLSMags = "rhs_mag_HE_2a33";
@@ -59,12 +61,12 @@ AAStaticCSATB = "O_AA_01_weapon_F";
 MortStaticCSATB = "RHS_Podnos_Gun_Bag";
 supportStaticCSATB3 = "RHS_Podnos_Bipod_Bag";
 
-weaponsCSAT append ["rhs_weap_ak103","rhs_weap_ak104_npz","rhs_weap_ak105_npz","arifle_AK12_F","arifle_AK12_GL_F","rhs_weap_ak74_2","rhs_weap_ak74_gp25","rhs_weap_ak74m_2mag","rhs_weap_ak74m_gp25_1p29","rhs_weap_ak74n_gp25","rhs_weap_akm","rhs_weap_akm_gp25","rhs_weap_asval","rhs_weap_svdp","rhs_weap_svds","rhs_weap_t5000","rhs_weap_vss","rhs_weap_aks74u","rhs_weap_rpg26","rhs_weap_rpg7","hgun_Pistol_heavy_01_F","rhs_weap_igla","rhs_weap_pya","rhs_weap_pkm","rhs_weap_pkp","rhs_weap_makarov_pm","rhs_weap_rpg7_pgo","rhs_weap_rshg2"];
-ammunitionCSAT append ["rhs_mag_nspn_yellow","rhs_mag_nspn_red","rhs_mag_nspn_green"];
-smokeX = smokeX + ["rhs_mag_nspd","rhs_mag_rdg2_white","rhs_mag_rdg2_black"];
+weaponsCSAT append ["rhs_weap_ak103","rhs_weap_ak104_npz","rhs_weap_ak105_npz","rhs_weap_ak105","rhs_weap_akmn","rhs_weap_ak74_2","rhs_weap_ak74_gp25","rhs_weap_ak74m_2mag","rhs_weap_ak74m_gp25_1p29","rhs_weap_ak74n_gp25","rhs_weap_akm","rhs_weap_akm_gp25","rhs_weap_asval","rhs_weap_svdp","rhs_weap_svds","rhs_weap_t5000","rhs_weap_vss","rhs_weap_aks74u","rhs_weap_rpg26","rhs_weap_rpg7","rhs_weap_pb_6p9","rhs_weap_igla","rhs_weap_pya","rhs_weap_pkm","rhs_weap_pkp","rhs_weap_makarov_pm","rhs_weap_rpg7_pgo","rhs_weap_rshg2"];
+ammunitionCSAT append ["rhs_mag_nspn_yellow","rhs_mag_nspn_red","rhs_mag_nspn_green","rhs_mag_nspd"];
+smokeX = smokeX + ["rhs_mag_nspd","rhs_mag_rdg2_white","rhs_mag_rdg2_black","rhs_mag_zarya2","rhs_mag_rgo","rhs_mag_rgn","rhs_mag_plamyam","rhs_mag_fakels","rhs_mag_fakel"];
 NVGoggles = NVGoggles + ["rhs_1PN138"];
 //opticsAAF = opticsAAF + ["rhs_acc_1p29","rhs_acc_1p63","rhs_acc_rakursPM","rhs_acc_1p78","rhs_acc_1pn93_1","rhs_acc_1pn93_2","rhs_acc_dh520x56","rhs_acc_ekp1","rhs_acc_pgo7v","rhs_acc_pgo7v2","rhs_acc_pgo7v3","rhs_acc_pkas","rhs_acc_pso1m2","rhs_acc_pso1m21"];
-itemsAAF = itemsAAF + ["rhs_acc_2dpZenit","rhs_acc_2dpZenit_ris","rhs_acc_uuk","rhs_acc_dtk1l","rhs_acc_ak5","rhs_acc_dtk","rhs_acc_dtk1983","rhs_acc_dtk1","rhs_acc_dtk1p","rhs_acc_dtk2","rhs_acc_dtk3","rhs_acc_dtk4short","rhs_acc_dtk4screws","rhs_acc_dtk4long","rhs_item_flightrecorder","rhs_acc_pbs1","rhs_acc_pbs4","rhs_acc_perst1ik","rhs_acc_perst1ik_ris","rhs_acc_perst3","rhs_acc_perst3_top","rhs_acc_perst3_2dp_h","rhs_acc_perst3_2dp_light_h","rhs_acc_pgs64","rhs_acc_pgs64_74u","rhs_acc_pgs64_74un","rhs_acc_grip_rk2","rhs_acc_grip_rk6","rhs_acc_tgpa","rhs_acc_tgpv"];
+itemsAAF = itemsAAF + ["rhs_acc_2dpZenit","rhs_acc_2dpZenit_ris","rhs_acc_uuk","rhs_acc_dtk1l","rhs_acc_ak5","rhs_acc_dtk","rhs_acc_dtk1983","rhs_acc_dtk1","rhs_acc_dtk1p","rhs_acc_dtk2","rhs_acc_dtk3","rhs_acc_dtk4short","rhs_acc_dtk4screws","rhs_acc_dtk4long","rhs_75Rnd_762x39mm_tracer","rhs_acc_pbs1","rhs_acc_pbs4","rhs_acc_perst1ik","rhs_acc_perst1ik_ris","rhs_acc_perst3","rhs_acc_perst3_top","rhs_acc_perst3_2dp_h","rhs_acc_perst3_2dp_light_h","rhs_acc_pgs64","rhs_acc_pgs64_74u","rhs_acc_pgs64_74un","rhs_acc_grip_rk2","rhs_acc_grip_rk6","rhs_acc_tgpa","rhs_acc_tgpv","rhs_pdu4","rhs_tr8_periscope","rhs_tr8_periscope_pip"];
 
 lampInvaders = "rhs_acc_2dpZenit";
 flagCSATmrk = "rhs_flag_vmf";

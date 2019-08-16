@@ -11,6 +11,22 @@ CSATMG = "rhs_KORD_high_VMF";
 staticATInvaders = "rhs_Kornet_9M133_2_vmf";
 staticAAInvaders = "RHS_ZU23_MSV";
 
+//CSAT PvP Loadouts
+CSATPlayerLoadouts = [
+	//Team Leader
+	"rhs_vmf_recon_sergeant",
+	//Medic
+	"rhs_vmf_recon_medic",
+	//Autorifleman
+	"rhs_vmf_recon_arifleman",
+	//Marksman
+	"rhs_vmf_recon_marksman",
+	//Anti-tank Scout
+	"rhs_vmf_recon_rifleman_lat",
+	//Anti-tank Scout
+	"rhs_vmf_recon_rifleman_lat"
+];
+
 vehCSATPVP = ["rhs_tigr_vdv","rhs_uaz_vdv","rhsgref_ins_g_uaz_dshkm_chdkz"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.
 
 vehCSATLightArmed = ["rhsgref_BRDM2_vdv","rhsgref_BRDM2_HQ_vdv","rhsgref_BRDM2_ATGM_vdv","rhs_tigr_sts_vdv"];

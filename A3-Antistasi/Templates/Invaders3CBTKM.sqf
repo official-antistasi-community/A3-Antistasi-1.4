@@ -13,6 +13,22 @@ CSATMG = "UK3CB_TKM_O_KORD_high";
 staticATInvaders = "UK3CB_TKM_O_SPG9";
 staticAAInvaders = "UK3CB_TKM_O_ZU23";
 
+//CSAT PvP Loadouts
+CSATPlayerLoadouts = [
+	//Team Leader
+	"UK3CB_TKM_O_SL",
+	//Medic
+	"UK3CB_TKM_O_MD",
+	//Autorifleman
+	"UK3CB_TKM_O_AR",
+	//Marksman
+	"UK3CB_TKM_O_MK",
+	//Anti-tank Scout
+	"UK3CB_TKM_O_LAT",
+	//Anti-tank Scout
+	"UK3CB_TKM_O_LAT"
+];
+
 vehCSATPVP = ["UK3CB_TKM_O_BTR40","UK3CB_TKM_O_Hilux_Open","UK3CB_TKM_O_UAZ_Closed","UK3CB_TKM_O_Datsun_Pkm","UK3CB_TKM_O_Hilux_Dshkm"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.
 
 vehCSATLightArmed = ["UK3CB_TKM_O_Datsun_Pkm","UK3CB_TKM_O_Hilux_Dshkm","UK3CB_TKM_O_Hilux_GMG","UK3CB_TKM_O_Hilux_Rocket","UK3CB_TKM_O_Hilux_Spg9","UK3CB_TKM_O_Hilux_Zu23"];//zu may be too much

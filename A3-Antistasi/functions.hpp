@@ -219,7 +219,7 @@ class A3A
         class ammunitionTransfer {file="Ammunition\ammunitionTransfer.sqf";};
         class NATOCrate {file="Ammunition\NATOCrate.sqf";};
         class randomRifle {file="Ammunition\randomRifle.sqf";};
-        class RHSdress {file="Ammunition\RHSdress.sqf";};
+        class dress {file="Ammunition\dress.sqf";};
         class empty {file="Ammunition\empty.sqf";};
         //class boxAAF {file="Ammunition\boxAAF.sqf";};
 	}

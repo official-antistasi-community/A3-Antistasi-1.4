@@ -84,6 +84,9 @@ nameTeamPlayer = "AK";
 
 factionGEN = "SG_STURMPANZER";
 
+//Player spawn loadout
+teamPlayerDefaultLoadout = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],["ItemMap","","","","",""]];
+
 //Arsenal and Initial AI weapon setup
 unlockedWeapons = ["LIB_PTRD","LIB_M2_Flamethrower","LIB_Binocular_GER","LIB_K98","LIB_M1895","LIB_FLARE_PISTOL"];//"LMG_03_F"
 unlockedRifles = ["LIB_K98"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.

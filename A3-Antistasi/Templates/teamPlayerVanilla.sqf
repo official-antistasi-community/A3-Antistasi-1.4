@@ -93,6 +93,9 @@ nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
 
 factionGEN = "BLU_GEN_F";
 
+//Player spawn loadout
+teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+
 //Arsenal and Initial AI weapon setup
 unlockedWeapons = ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F","Binocular","SMG_05_F","SMG_02_F"];//"LMG_03_F"
 unlockedRifles = ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.

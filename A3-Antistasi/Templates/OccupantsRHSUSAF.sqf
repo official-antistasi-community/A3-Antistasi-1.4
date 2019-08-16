@@ -13,6 +13,22 @@ NATOMortar = "RHS_M252_USMC_WD";
 staticATOccupants = "RHS_TOW_TriPod_USMC_WD";
 staticAAOccupants = "RHS_Stinger_AA_pod_D";
 
+//NATO PvP Loadouts
+NATOPlayerLoadouts = [
+	//Team Leader
+	"rhsusf_socom_marsoc_teamleader",
+	//Medic
+	"rhsusf_socom_marsoc_sarc",
+	//Autorifleman
+	"rhsusf_socom_marsoc_cso_mk17",
+	//Marksman
+	"rhsusf_socom_marsoc_marksman",
+	//Anti-tank Scout
+	"rhsusf_socom_marsoc_cso_grenadier",
+	//Anti-tank Scout
+	"rhsusf_socom_marsoc_cso_grenadier"
+];
+
 vehNATOPVP = ["rhsusf_m1025_w_s","rhsusf_m998_w_s_2dr","rhsusf_m998_w_s_2dr_fulltop","rhsusf_m998_w_s_4dr","rhsusf_m1025_w_s_m2"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
 
 vehNATOLightArmed = ["rhsusf_m1025_w_s_m2","rhsusf_CGRCAT1A2_M2_usmc_wd","rhsusf_CGRAT1A2_Mk19_usmc_wd","rhsusf_M1117_W","rhsusf_M1220_M2_usarmy_wd","rhsusf_M1237_M2_usarmy_wd","rhsusf_M1238A1_M2_socom_d","rhsusf_m1045_w_s"];

@@ -28,7 +28,7 @@ for "_i" from 0 to _var1 do
 	_avail = (_guns - unlockedWeapons);
 	_loot = selectRandom _avail;
 	//_thingX = selectRandom (weaponsCSAT + antitankAAF);
-	if (!(_loot in weaponCargo _crate)) thenn
+	if (!(_loot in weaponCargo _crate)) then
 		{
 		_num = 1 + (floor random 9);
 		_crate addWeaponCargoGlobal [_loot, _num];

@@ -37,7 +37,7 @@ If (!(_unit getvariable ["UPSMON_Rearming",false])) then
 								_ammo = [];
 								if (_supply != _unit) then
 								{
-									If (_supply iskindof "MAN") then
+									If (_supply iskindof "CAManBase") then
 									{
 										If (alive _supply) then
 										{

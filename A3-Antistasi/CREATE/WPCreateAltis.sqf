@@ -5,7 +5,9 @@ _mrkDestination = _this select 1;
 _posDestination = if (_mrkDestination isEqualType "") then {getMarkerPos _mrkDestination} else {_mrkDestination};
 _distance = _posOrigin distance2d _posDestination;
 //diag_log format ["Antistasi: Convoy Debug. Convoy sent from %1 to %2, distance: %3",_mrkOrigin,_mrkDestination,_distance];
-if (_distance < 1500) exitWith {diag_log format ["Antistasi: Convoy Debug. Convoy with zero WP because they are too close: %1 to %2, distance: %3",_mrkOrigin,_mrkDestination,_distance];};
+if (_distance < 1500) exitWith {
+	diag_log format ["%1: [Antistasi] | DEBUG | WPCreateAltis.sqf | Convoy with zero WP because they are too close: %2 to %3, distance: %4",servertime,_mrkOrigin,_mrkDestination,_distance];
+};
 //_roadsMrk = roadsMrk + (controlsX select {isOnRoad (getMarkerPos _x)});
 //_roadsMrk = _roadsMrk select {((getMarkerPos _x) distance2d _posDestination < _distance) and ((getMarkerPos _x) distance2d _posOrigin < _distance)};
 _roadsMrk = roadsMrk select {((getMarkerPos _x) distance2d _posDestination < _distance) and ((getMarkerPos _x) distance2d _posOrigin < _distance)};
@@ -31,5 +33,5 @@ _groupX = _this select 2;
 
 for "_i" from 0 to (count _finalArray) - 1 do
 	{
-	_groupX addWaypoint [getMarkerPos (_finalArray select _i), _i];
+	_groupX addWaypoint [getMarkerPos (_finalArray select _i), _i]
 	};

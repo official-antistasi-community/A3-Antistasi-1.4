@@ -2,11 +2,14 @@ private ["_unit","_resourcesX","_hr","_weaponsX","_ammunition","_items","_pos"];
 
 _unit = _this select 0;
 _uid = _this select 2;
-_owner = _this select 4;
 _resourcesX = 0;
 _hr = 0;
 
 diag_log format ["[Antistasi] Player disconnected with id %1 and unit %2 on side %3", _uid, _unit, (side _unit)];
+
+if (side _unit == sideLogic || {_uid == ""}) exitWith {
+	diag_log "[Antistasi] Exiting onPlayerDisconnect due to no UID or sideLogic unit. Possible Headless Client disconnect?";
+};
 
 if (_unit == theBoss) then
 	{
@@ -79,35 +82,13 @@ if (side group _playerUnit == teamPlayer || side group _playerUnit == sideUnknow
 	};
 	
 [_uid, _unit] call A3A_fnc_savePlayer;
-	
-if (_owner in hcArray) then
-	{
-	//["hcDown",true,true,true,true] remoteExec ["BIS_fnc_endMission"]
-	if ({owner _x == _owner} count allUnits > 0) then
-		{
-		[] spawn
-			{
-			while {true} do
-				{
-				[petros,"hint","A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart"] remoteExec ["A3A_fnc_commsMP"];
-				sleep 30;
-				};
-			};
-		}
-	else
-		{
-		hcArray = hcArray - [_owner];
-		};
-	}
-else
-	{
-	_pos = getPosATL _unit;
-	_wholder = nearestObjects [_pos, ["weaponHolderSimulated", "weaponHolder"], 2];
-	{deleteVehicle _x} forEach _wholder + [_unit];
-	if !(isNull _unit) then
-		{
-		_unit setVariable ["owner",_unit,true];
-		_unit setDamage 1;
-		};
-	};
+
+_pos = getPosATL _unit;
+_wholder = nearestObjects [_pos, ["weaponHolderSimulated", "weaponHolder"], 2];
+{deleteVehicle _x} forEach _wholder + [_unit];
+if !(isNull _unit) then
+{
+	_unit setVariable ["owner",_unit,true];
+	_unit setDamage 1;
+};
 //diag_log format ["dataX de handledisconnect: %1",_this];

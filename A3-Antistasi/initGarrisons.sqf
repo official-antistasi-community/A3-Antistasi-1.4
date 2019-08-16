@@ -1,4 +1,4 @@
-
+diag_log format ["%1: [Antistasi] | INFO | InitGarrisons Started.",servertime];
 
 _mrkNATO = [];
 _mrkCSAT = [];
@@ -214,3 +214,4 @@ _nul = [_x] call A3A_fnc_createControls;
 
 sidesX setVariable ["NATO_carrier",Occupants,true];
 sidesX setVariable ["CSAT_carrier",Invaders,true];
+diag_log format ["%1: [Antistasi] | INFO | InitGarrison Completed.",servertime];

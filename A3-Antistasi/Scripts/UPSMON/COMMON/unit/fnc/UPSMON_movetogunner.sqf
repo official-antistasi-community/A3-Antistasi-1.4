@@ -17,7 +17,7 @@ _vehicle = vehicle _npc;
 	
 sleep 0.05;
 //Si est� victim
-if (vehicle _npc == _npc || !alive _npc || !canmove _npc || !(_npc iskindof "Man")) exitwith{};
+if (vehicle _npc == _npc || !alive _npc || !canmove _npc || !(_npc iskindof "CAManBase")) exitwith{};
 	
 if (isnull(gunner _vehicle) || !alive(gunner _vehicle) || !canmove(gunner _vehicle)) then 
 { 	

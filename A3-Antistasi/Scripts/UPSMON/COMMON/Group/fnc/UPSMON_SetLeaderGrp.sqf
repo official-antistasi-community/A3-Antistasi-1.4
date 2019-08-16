@@ -16,7 +16,7 @@ _unit = _this select 0;
 _grp = group _unit;
 _Leader = leader (_grp);
 
-if ((_unit iskindof "Man")) then {
+if ((_unit iskindof "CAManBase")) then {
 
 	if(_unit != _Leader) then {
 		_grp selectLeader _unit;

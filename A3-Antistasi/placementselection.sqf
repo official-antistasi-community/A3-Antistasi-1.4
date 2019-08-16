@@ -5,7 +5,7 @@ if (!isNil "placementDone") then
 	}
 else
 	{
-	diag_log "Antistasi: New Game selected";
+	diag_log format ["%1: [Antistasi] | INFO | New Game session selected.",servertime];
 	"Initial HQ Placement Selection" hintC ["Click on the Map Position you want to start the Game.","Close the map with M to start in the default position.","Don't select areas with enemies nearby!!\n\nGame experience changes a lot on different starting positions."];
 	};
 

@@ -122,7 +122,7 @@ private _itemCategory = switch true do {
 			case (_itemInfoType == TYPE_VEST): { "Vest" };
 			case (_simulationType == "NVGoggles"): { "NVGoggles" };
 			//Binos after NVGs to avoid accidentally catching them;
-			case (_simulationType == "Binocular" ||	_itemInfoType == TYPE_BINOCULAR_AND_NVG): { "Binocular" };
+			case (_simulationType == "Binocular" ||	{_simulationType == "Weapon" && _itemType == TYPE_BINOCULAR_AND_NVG}): { "Binocular" };
 			case (_simulationType == "ItemMap"): { "Map" };
 			case (_simulationType == "ItemCompass"): { "Compass" };
 			case (_simulationType == "ItemRadio"): { "Radio" };

@@ -6,11 +6,15 @@ NATOCrew = "LIB_GER_tank_crew";
 NATOUnarmed = "B_G_Survivor_F";
 NATOMarksman = "LIB_GER_scout_sniper";
 staticCrewOccupants = "LIB_GER_gun_crew";
+
 NATOMG = "LIB_MG42_Lafette_Deployed";
 NATOMortar = "LIB_GrWr34_g";
 staticATOccupants = "LIB_FlaK_36";
 staticAAOccupants = "LIB_Flakvierling_38";
 NATOPilot = "LIB_GER_pilot";
+
+vehNATOPVP = ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt","LIB_Kfz1_MG42_sernyt"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
+
 vehNATOLightArmed = ["LIB_Kfz1_MG42_sernyt","LIB_SdKfz222"];
 vehNATOLightUnarmed = ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt"];
 vehNATOTrucks = ["LIB_OpelBlitz_Open_Y_Camo","LIB_OpelBlitz_Tent_Y_Camo"];

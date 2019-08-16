@@ -7,7 +7,7 @@ Second: Mod detection, Antistasi automatically detects the integrated mods, my s
 	- Comment the lines which load the templates (ATM 222 to 249) and call compile your template / templates
 Third: From there, most of the things are detected automatically from your mod or your templates, the only thing you may want to edit outside the templates is, in initVar.sqf, vehFastRope variable, adding classnames of helis you want
 to fast rope soldiers.
-Fourth: This document is made for the rebel as GREENFOR version. Versions are detected checking Petros side. Obviously if you plan to build a version on which rebels are BLUFOR or REDFOR, templates will have to contain proper side 
+Fourth: This document is made for the rebel as GREENFOR version. Versions are detected checking Petros side. Obviously if you plan to build a version on which rebels are BLUFOR or REDFOR, templates will have to contain proper side
 classnames.
 Fifth: VERY IMPORTANT: RESPECT THE VARIABLE FORMATS IN THE TEMPLATES, IF YOU SEE AN ARRAY, IT HAS TO BE AN ARRAY, IF YOU SEE A STRING, IT HAS TO BE A STRING!!!!!
 
@@ -22,7 +22,7 @@ staticATteamPlayer = "I_Static_AT_F";//rebel static AT
 staticAAteamPlayer = "I_Static_AA_F";//rebel static AA
 
 staticCrewTeamPlayer = "I_G_Soldier_unarmed_F";// static crew classname, has to be unique, if the mod does not have a cre model, use this and some script will replace his clothing
-SDKUnarmed = "I_G_Survivor_F";//unarmed prisoner model, it has to be unique, if the mod does not have an unarmed model, use this and some script will replace his clothing 
+SDKUnarmed = "I_G_Survivor_F";//unarmed prisoner model, it has to be unique, if the mod does not have an unarmed model, use this and some script will replace his clothing
 SDKSniper = ["I_C_Soldier_Bandit_5_F","I_C_Soldier_Para_7_F"];//sniper, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
 SDKATman = ["I_C_Soldier_Bandit_2_F","I_C_Soldier_Para_5_F"];//AT soldier, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
 SDKMedic = ["I_C_Soldier_Bandit_1_F","I_C_Soldier_Para_3_F"];//Medic, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
@@ -36,7 +36,7 @@ SDKEng = ["I_G_engineer_F","I_G_engineer_F"];//Engineer, with two tiers, both ha
 vehSDKBike = "I_G_Quadbike_01_F";//most of the mods dont have a bike model, replace it with the most basic militia car of your mod or just leave the quadbike
 vehSDKLightArmed = "I_C_Offroad_02_LMG_F";//rebel MG car
 vehSDKAT = "I_C_Offroad_02_AT_F";//rebel self propelled cannon
-vehSDKLightUnarmed = "I_C_Offroad_02_unarmed_F";//rebel car
+vehSDKLightUnarmed = "I_C_Offroad_01_F";//rebel car
 vehSDKTruck = "I_C_Van_01_Transport_F";//rebel truck
 //vehSDKHeli = "I_C_Heli_Light_01_civil_F";//this no longer exists
 vehSDKPlane = "I_C_Plane_civil_01_F";//rebel plane, pick the most basic plane
@@ -54,7 +54,7 @@ AAStaticSDKB = "I_AA_01_weapon_F";//static support backpack, place "not_supporte
 MortStaticSDKB = "I_Mortar_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
 supportStaticsSDKB3 = "I_Mortar_01_support_F";//static support backpack, place "not_supported" if your mod lacks of it
 
-civCar = "C_Offroad_02_unarmed_F";//purchaseable civ car
+civCar = "C_Offroad_01_F";//purchaseable civ car
 civTruck = "C_Van_01_transport_F";//purchaseable civ truck
 civHeli = "C_Heli_Light_01_civil_F";//purchaseable civ heli
 civBoat = "C_Boat_Transport_02_F";//purchaseable civ boat
@@ -74,7 +74,7 @@ if (hasFFAA) then//FFAA mod template loading, ignore it.
 	}
 else
 	{
-	if (gameMode != 4) then//this is tricky, if you play on the version which the invaders have the whole island, then you need REDFOR rebels, but by defualt, this is the setting 
+	if (gameMode != 4) then//this is tricky, if you play on the version which the invaders have the whole island, then you need REDFOR rebels, but by defualt, this is the setting
 		{
 		FIARifleman = "B_G_Soldier_F";//PMC grunt
 		FIAMarksman = "B_G_Sharpshooter_F";//PMC maksman

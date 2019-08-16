@@ -148,6 +148,7 @@ else
 	if ("rhs_weap_m92" in arifles) then {activeGREF = true; hasRHS = true} else {mguns pushBack "LMG_Mk200_BI_F"};
 	helmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
 	smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
+	chemX = ["Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue"];
 	};
 
 	//TFAR detection and config.
@@ -216,21 +217,22 @@ else
 	};//possible mines that spawn in AAF ammoboxescomment "Exported from Arsenal by Alberto";
 itemsAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
-	["FirstAidKit","Medikit","MineDetector","NVGoggles","ToolKit","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"]
+	["MineDetector","NVGoggles","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"]
 	}
 else
 	{
 	if (hasRHS) then
 		{
-		["FirstAidKit","Medikit","MineDetector","ToolKit","ItemGPS","acc_pointer_IR","ItemRadio"]
+		["MineDetector","ItemGPS","acc_pointer_IR","ItemRadio"]
 		}
 	else
 		{
-		if (hasIFA and !myCustomMod) then {["FirstAidKit","Medikit","ToolKit","LIB_ToolKit"]} else {["FirstAidKit","Medikit","ToolKit"]};
+		if (hasIFA and !myCustomMod) then {["LIB_ToolKit"]} else {[]};
 		}
 	};
 diag_log format ["%1: [Antistasi]: initVar | Building NightVision list.",servertime];
-NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
+NVGoggles = if ((!hasIFA) and (tierWar >= 6)) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
+NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles","Item_NVGogglesB_blk_F","Item_NVGogglesB_grn_F","Item_NVGogglesB_gry_F"]} else {[]};
 diag_log format ["%1: [Antistasi]: initVar | Building Vehicle list.",servertime];
 arrayCivVeh = if !(hasIFA) then
 	{

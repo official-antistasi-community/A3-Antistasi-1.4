@@ -52,7 +52,7 @@ fn_ReturnSavedStat =
   };
 
 	if(isNil "_varValue") exitWith {
-		diag_log format ["%1: [Antistasi] | ERROR | saveFuncs.sqf | Variable %2 does not exist.",servertime,position _varName];
+		diag_log format ["%1: [Antistasi] | ERROR | saveFuncs.sqf | Variable %2 does not exist.",servertime, _varName];
 		};
 	_varValue;
 };

@@ -92,3 +92,26 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
 
 factionGEN = "BLU_GEN_F";
+
+//Player spawn loadout
+teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+
+//Arsenal and Initial AI weapon setup
+unlockedWeapons = ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F","Binocular","SMG_05_F","SMG_02_F"];//"LMG_03_F"
+unlockedRifles = ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
+unlockedMagazines = ["9Rnd_45ACP_Mag","30Rnd_9x21_Mag","30Rnd_762x39_Mag_F","MiniGrenade","1Rnd_HE_Grenade_shell","30Rnd_545x39_Mag_F","30Rnd_9x21_Mag_SMG_02","10Rnd_9x21_Mag","200Rnd_556x45_Box_F","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
+initialRifles = ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];
+unlockedBackpacks = ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
+
+if !(isMultiplayer) then
+	{
+	unlockedWeapons append ["arifle_AKM_F","arifle_AKS_F"];
+	unlockedRifles append ["arifle_AKM_F","arifle_AKS_F"];
+	initialRifles append ["arifle_AKM_F","arifle_AKS_F"];
+	unlockedWeapons pushBack "launch_RPG7_F";
+	unlockedAT = ["launch_RPG7_F"];
+	unlockedMagazines pushBack "RPG7_F";
+  };
+//TFAR unlocks
+if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc148jem","ItemRadio"]};
+if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_anprc155"]};

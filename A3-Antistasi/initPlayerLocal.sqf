@@ -153,14 +153,7 @@ if (player getVariable ["pvp",false]) exitWith
 				};
 			};
 		};
-	if (side player == Occupants) then
-		{
-		if (activeUSAF) then {[player] call A3A_fnc_RHSdress};
-		}
-	else
-		{
-		if (activeAFRF) then {[player] call A3A_fnc_RHSdress};
-		};
+	[player] call A3A_fnc_dress;
 	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	respawnTeamPlayer setMarkerAlphaLocal 0;
 
@@ -218,7 +211,7 @@ stragglers = creategroup teamPlayer;
 player setUnitTrait ["camouflageCoef",0.8];
 player setUnitTrait ["audibleCoef",0.8];
 
-if (activeGREF) then {[player] call A3A_fnc_RHSdress};
+[player] call A3A_fnc_dress;
 player setUnitLoadout ((getUnitLoadout player) call A3A_fnc_stripGearFromLoadout);
 player setvariable ["compromised",0];
 player addEventHandler ["FiredMan",
@@ -628,7 +621,7 @@ mapX allowDamage false;
 mapX addAction ["Game Options", {hint format ["Antistasi - %2\n\nVersion: %1\n\nDifficulty: %3\nUnlock Weapon Number: %4\nLimited Fast Travel: %5",antistasiVersion,worldName,if (skillMult == 1) then {"Normal"} else {if (skillMult == 0.5) then {"Easy"} else {"Hard"}},minWeaps,if (limitedFT) then {"Yes"} else {"No"}]; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 mapX addAction ["Map Info", {nul = [] execVM "cityinfo.sqf";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 mapX addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
-if (isMultiplayer) then {mapX addAction ["AI Load Info", "[] remoteExec [""A3A_fnc_AILoadInfo"",2]",nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout"")"]};
+if (isMultiplayer) then {mapX addAction ["AI Load Info", "[] remoteExec [""A3A_fnc_AILoadInfo"",2]",nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 _nul = [player] execVM "OrgPlayers\unitTraits.sqf";
 groupPetros = group petros;
 groupPetros setGroupIdGlobal ["Petros","GroupColor4"];

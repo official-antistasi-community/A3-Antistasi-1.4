@@ -54,13 +54,14 @@ lampsSDK = ["rhs_acc_2dpZenit","acc_flashlight"];
 ATMineMag = "rhs_mine_tm62m_mag";
 APERSMineMag = "rhs_mine_pmn2_mag";
 
-if (hasFFAA) then
+//setting up low war level garrison units for the occupants.
+if (hasFFAA) then//checks if you have FFAA installed then uses their units
 	{
 	call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"
 	}
 else
 	{
-	if (gameMode != 4) then
+	if (gameMode != 4) then//if you have occupants on your map it uses these
 		{
 		FIARifleman = "UK3CB_BAF_Rifleman_Smock_DPMW";
 		FIAMarksman = "UK3CB_BAF_Pointman_Smock_DPMW";
@@ -74,7 +75,7 @@ else
 		groupsFIASquad = [FIASquad];
 		factionFIA = "UK3CB_TKP_B";
 		}
-	else
+	else//if you have invaders only it uses these
 		{
 		FIARifleman = "UK3CB_TKP_O_RIF_1";
 		FIAMarksman = "UK3CB_TKP_O_MK";
@@ -90,10 +91,26 @@ else
 		};
 	};
 
+//Police vic and unit setting
 vehPoliceCar = "UK3CB_TKP_B_Lada_Police";
 policeOfficer = "UK3CB_ANP_B_TL";
 policeGrunt = "UK3CB_ANP_B_RIF_1";
 groupsNATOGen = [policeOfficer,policeGrunt];
-nameTeamPlayer = "CCM";
+nameTeamPlayer = "CCM";//player faction
 
-factionGEN = "BLU_GEN_F";
+factionGEN = "BLU_GEN_F";//police faction
+
+//Player spawn loadout
+teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+
+//Arsenal and Initial AI weapon setup
+unlockedWeapons = ["UK3CB_Enfield","rhsusf_weap_m1911a1","Binocular","rhs_weap_panzerfaust60","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_pp2000_folded","UK3CB_M79","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
+unlockedRifles = ["UK3CB_Enfield","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
+unlockedMagazines = ["UK3CB_Enfield_Mag","rhsusf_mag_7x45acp_MHP","rhsgref_1Rnd_Slug","rhs_mag_rgd5","rhs_mag_9x19mm_7n31_44","rhs_mag_m576","rhs_mag_m713_red","rhs_mag_m4009","rhsgref_30rnd_1143x23_M1T_SMG","rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle"];
+initialRifles = ["UK3CB_Enfield","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_savz61"];
+unlockedItems = unlockedItems + ["rhs_acc_2dpZenit","rhs_acc_m852v"];
+unlockedAT = ["rhs_weap_panzerfaust60"];
+unlockedBackpacks = ["UK3CB_ANA_B_B_ASS","UK3CB_TKC_C_B_Sidor_MED","UK3CB_B_Hiker","UK3CB_B_Hiker_Camo"];
+//TFAR Unlocks
+if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc148jem","ItemRadio"]};
+if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_anprc155_coyote"]};

@@ -13,6 +13,23 @@ staticATOccupants = "LIB_FlaK_36";
 staticAAOccupants = "LIB_Flakvierling_38";
 NATOPilot = "LIB_GER_pilot";
 
+//NATO PvP Loadouts
+NATOPlayerLoadouts = [
+	//Team Leader
+	"LIB_FSJ_NCO",
+	//Medic
+	"LIB_FSJ_medic",
+	//Autorifleman
+	"LIB_FSJ_Soldier_2",
+	//Marksman
+	"LIB_FSJ_Sniper",
+	//Anti-tank Scout
+	"LIB_FSJ_LAT_Soldier",
+	//Anti-tank Scout
+	"LIB_FSJ_LAT_Soldier"
+];
+
+
 vehNATOPVP = ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt","LIB_Kfz1_MG42_sernyt"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
 
 vehNATOLightArmed = ["LIB_Kfz1_MG42_sernyt","LIB_SdKfz222"];

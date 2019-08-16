@@ -83,3 +83,16 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = "AK";
 
 factionGEN = "SG_STURMPANZER";
+
+//Player spawn loadout
+teamPlayerDefaultLoadout = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],["ItemMap","","","","",""]];
+
+//Arsenal and Initial AI weapon setup
+unlockedWeapons = ["LIB_PTRD","LIB_M2_Flamethrower","LIB_Binocular_GER","LIB_K98","LIB_M1895","LIB_FLARE_PISTOL"];//"LMG_03_F"
+unlockedRifles = ["LIB_K98"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
+unlockedMagazines = ["LIB_1Rnd_145x114","LIB_M2_Flamethrower_Mag","LIB_5Rnd_792x57","LIB_Pwm","LIB_Rg42","LIB_US_TNT_4pound_mag","LIB_7Rnd_762x38","LIB_1Rnd_flare_red","LIB_1Rnd_flare_green","LIB_1Rnd_flare_white","LIB_1Rnd_flare_yellow"];
+initialRifles = ["LIB_K98"];
+unlockedAT = [];
+unlockedBackpacks = ["B_LIB_US_M2Flamethrower","B_LIB_SOV_RA_MGAmmoBag_Empty"];
+//TFAR Unlocks
+if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["B_LIB_US_Radio"]};

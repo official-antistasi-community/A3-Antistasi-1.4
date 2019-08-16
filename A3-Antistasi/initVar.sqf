@@ -124,6 +124,7 @@ if (not(_nameX in _alreadyPlaced)) then
 	};
 } forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems;
 //vests = vests select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
+//Mod detection
 activeAFRF = false;
 activeUSAF = false;
 activeGREF = false;
@@ -148,46 +149,97 @@ else
 	helmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
 	smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
 	};
-diag_log format ["%1: [Antistasi]: initVar | Building Weapon loadout.",servertime];
 
-if ((!hasRHS) and !hasIFA and !myCustomMod) then {
-	titanLaunchers = ["launch_B_Titan_F","launch_I_Titan_F","launch_O_Titan_ghex_F","launch_O_Titan_F","launch_B_Titan_tna_F"];
-	antitankAAF = ["launch_I_Titan_F","launch_I_Titan_short_F"];
-	MAntitankAAF = ["Titan_AT", "Titan_AP", "Titan_AA"];
-	minesAAF = ["SLAMDirectionalMine_Wire_Mag","SatchelCharge_Remote_Mag","ClaymoreDirectionalMine_Remote_Mag", "ATMine_Range_Mag","APERSTripMine_Wire_Mag","APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag"];
-	itemsAAF = ["FirstAidKit","Medikit","MineDetector","NVGoggles","ToolKit","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"];
-}
-else {
-	titanLaunchers = [];
-	antitankAAF = [];
-	minesAAF = [];
-	itemsAAF = ["FirstAidKit","Medikit","ToolKit"];
-	MAntitankAAF= [];
-	if (hasIFA) then
-		{
-			MAntitankAAF = ["LIB_Shg24"];
-			minesAAF = ["LIB_PMD6_MINE_mag","LIB_TM44_MINE_mag","LIB_US_TNT_4pound_mag"];
-			itemsAAF = ["FirstAidKit","Medikit","ToolKit","LIB_ToolKit"];
-		};
+	//TFAR detection and config.
+	hasTFAR = false;//default setting to avoid errors when mod is not present
+	startLR = false;//default setting to avoid errors when mod is not present
+	unlockedItems = [];
+	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
+	    {
+	    hasTFAR = true;
+	    haveRadio = true;
+			startLR = false;//set to true to start with LR radios unlocked.
+	    //unlockedItems = unlockedItems;
+	    ["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
+	    if (hasIFA) then {
+	      ["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
+	      ["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
+	    };
+	    //tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";//to make enemy vehicles usable as LR radio
+	    //tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code"; //to make enemy vehicles usable as LR radio
+	    //tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";//to make enemy vehicles usable as LR radio
+	    ["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize SR default frequencies
+	    ["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize LR default frequencies
+
+	    };
+
+//Launcher selection
+diag_log format ["%1: [Antistasi]: initVar | Building Launcher list.",servertime];
+titanLaunchers = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+	{
+	["launch_B_Titan_F","launch_I_Titan_F","launch_O_Titan_ghex_F","launch_O_Titan_F","launch_B_Titan_tna_F"]
+	}
+else
+	{
+	[]
+	};
+antitankAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+	{
+	["launch_I_Titan_F","launch_I_Titan_short_F"]
+	}
+else
+	{
+	[];
+	};//possible Titan weapons that spawn in  ammoboxes
+MAntitankAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+	{
+	["Titan_AT", "Titan_AP", "Titan_AA"]
+	}
+else
+	{
+	if (hasIFA) then {["LIB_Shg24"]} else {[]};
+	};//possible Titan rockets that spawn in  ammoboxes
+minesAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+	{
+	["SLAMDirectionalMine_Wire_Mag","SatchelCharge_Remote_Mag","ClaymoreDirectionalMine_Remote_Mag", "ATMine_Range_Mag","APERSTripMine_Wire_Mag","APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag"]
+	}
+else
+	{
 	if (hasRHS) then
 		{
-			minesAAF = ["rhsusf_m112_mag","rhsusf_mine_m14_mag","rhs_mine_M19_mag","rhs_mine_tm62m_mag","rhs_mine_pmn2_mag"];
-			itemsAAF = ["FirstAidKit","Medikit","MineDetector","ToolKit","ItemGPS","acc_pointer_IR","ItemRadio"];
-		};
-};
-
-if !(hasIFA) then {
-	diag_log format ["%1: [Antistasi]: initVar | Building list - No IFA.",servertime];
-
-	NVGoggles = ["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"];
-	arrayCivVeh = ["C_Hatchback_01_F","C_Hatchback_01_sport_F","C_Offroad_01_F","C_SUV_01_F","C_Van_01_box_F","C_Van_01_fuel_F","C_Van_01_transport_F","C_Truck_02_transport_F","C_Truck_02_covered_F","C_Offroad_02_unarmed_F"];
-}
-else {
-	diag_log format ["%1: [Antistasi]: initVar | Building list - With IFA.",servertime];
-
-	NVGoggles = [];
-	arrayCivVeh = ["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
-};
+		["rhsusf_m112_mag","rhsusf_mine_m14_mag","rhs_mine_M19_mag","rhs_mine_tm62m_mag","rhs_mine_pmn2_mag"]
+		}
+	else
+		{
+		if (hasIFA and !myCustomMod) then {["LIB_PMD6_MINE_mag","LIB_TM44_MINE_mag","LIB_US_TNT_4pound_mag"]} else {[]};
+		}
+	};//possible mines that spawn in AAF ammoboxescomment "Exported from Arsenal by Alberto";
+itemsAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+	{
+	["FirstAidKit","Medikit","MineDetector","NVGoggles","ToolKit","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"]
+	}
+else
+	{
+	if (hasRHS) then
+		{
+		["FirstAidKit","Medikit","MineDetector","ToolKit","ItemGPS","acc_pointer_IR","ItemRadio"]
+		}
+	else
+		{
+		if (hasIFA and !myCustomMod) then {["FirstAidKit","Medikit","ToolKit","LIB_ToolKit"]} else {["FirstAidKit","Medikit","ToolKit"]};
+		}
+	};
+diag_log format ["%1: [Antistasi]: initVar | Building NightVision list.",servertime];
+NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
+diag_log format ["%1: [Antistasi]: initVar | Building Vehicle list.",servertime];
+arrayCivVeh = if !(hasIFA) then
+	{
+	["C_Hatchback_01_F","C_Hatchback_01_sport_F","C_Offroad_01_F","C_SUV_01_F","C_Van_01_box_F","C_Van_01_fuel_F","C_Van_01_transport_F","C_Truck_02_transport_F","C_Truck_02_covered_F","C_Offroad_02_unarmed_F"];
+	}
+else
+	{
+	["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
+	};
 
 ammunitionNATO = [];
 weaponsNato = [];
@@ -548,86 +600,27 @@ missionsX = []; publicVariable "missionsX";
 movingMarker = false;
 if !(hasIFA) then
 	{
-	unlockedItems = ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"] + uniformsSDK + civUniforms;//Initial Arsenal available items
+	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"] + uniformsSDK + civUniforms;//Initial Arsenal available items
 	if (side group petros == independent) then {unlockedItems pushBack "I_UavTerminal"} else {unlockedItems pushBack "B_UavTerminal"};
 	}
 else
 	{
-	unlockedItems = ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"] + uniformsSDK + civUniforms;
+	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"] + uniformsSDK + civUniforms;
 	};
 
-diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Default Arsenal Unlocks.",servertime];
-//The following are the initial weapons and mags unlocked and available in the Arsenal, vanilla or RHS
-if (!has3CB) then
-	{
-	if (!activeGREF) then
-		{
-		if !(hasIFA) then
-			{
-			unlockedWeapons = ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F","Binocular","SMG_05_F","SMG_02_F"];//"LMG_03_F"
-			unlockedRifles = ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
-			unlockedMagazines = ["9Rnd_45ACP_Mag","30Rnd_9x21_Mag","30Rnd_762x39_Mag_F","MiniGrenade","1Rnd_HE_Grenade_shell","30Rnd_545x39_Mag_F","30Rnd_9x21_Mag_SMG_02","10Rnd_9x21_Mag","200Rnd_556x45_Box_F","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
-			initialRifles = ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];
-			//unlockedItems = unlockedItems + ["V_Chestrig_khk","V_BandollierB_cbr","V_BandollierB_rgr","U_C_HunterBody_grn"];
-			if !(isMultiplayer) then
-				{
-				unlockedWeapons append ["arifle_AKM_F","arifle_AKS_F"];
-				unlockedRifles append ["arifle_AKM_F","arifle_AKS_F"];
-				initialRifles append ["arifle_AKM_F","arifle_AKS_F"];
-				if (worldName == "Tanoa") then
-					{
-					unlockedWeapons pushBack "launch_RPG7_F";
-					unlockedAT = ["launch_RPG7_F"];
-					unlockedMagazines pushBack "RPG7_F";
-					}
-				else
-					{
-					if (worldName == "Altis") then
-						{
-						unlockedWeapons pushBack "launch_MRAWS_olive_rail_F";
-						unlockedAT = ["launch_MRAWS_olive_rail_F"];
-						unlockedMagazines pushBack "MRAWS_HEAT_F";
-						};
-					};
-				};
-			unlockedItems = unlockedItems + ["U_C_HunterBody_grn"];
-			}
-		else
-			{
-			unlockedWeapons = ["LIB_PTRD","LIB_M2_Flamethrower","LIB_Binocular_GER","LIB_K98","LIB_M1895","LIB_FLARE_PISTOL"];//"LMG_03_F"
-			unlockedRifles = ["LIB_K98"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
-			unlockedMagazines = ["LIB_1Rnd_145x114","LIB_M2_Flamethrower_Mag","LIB_5Rnd_792x57","LIB_Pwm","LIB_Rg42","LIB_US_TNT_4pound_mag","LIB_7Rnd_762x38","LIB_1Rnd_flare_red","LIB_1Rnd_flare_green","LIB_1Rnd_flare_white","LIB_1Rnd_flare_yellow"];
-			initialRifles = ["LIB_K98"];
-			unlockedAT = [];
-			};
-		}
-	else
-		{
-		unlockedWeapons = ["rhs_weap_akms","rhs_weap_makarov_pmm","Binocular","rhs_weap_rpg7","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_pp2000_folded","rhs_weap_savz61","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
-		unlockedRifles = ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_savz61","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
-		unlockedMagazines = ["rhs_30Rnd_762x39mm","rhs_mag_9x18_12_57N181S","rhs_rpg7_PG7VL_mag","rhsgref_5Rnd_762x54_m38","rhsgref_5Rnd_792x57_kar98k","rhs_mag_rgd5","rhs_mag_9x19mm_7n21_20","rhsgref_20rnd_765x17_vz61","rhsgref_30rnd_1143x23_M1911B_SMG","rhsgref_8Rnd_762x63_M2B_M1rifle"];
-		initialRifles = ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_savz61"];
-		unlockedItems = unlockedItems + ["rhs_acc_2dpZenit"];
-		unlockedAT = ["rhs_weap_rpg7"];
-		};
-	}
-else
-	{
-	unlockedWeapons = ["UK3CB_Enfield","rhsusf_weap_m1911a1","Binocular","rhs_weap_panzerfaust60","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_pp2000_folded","UK3CB_M79","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
-	unlockedRifles = ["UK3CB_Enfield","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
-	unlockedMagazines = ["UK3CB_Enfield_Mag","rhsusf_mag_7x45acp_MHP","rhsgref_1Rnd_Slug","rhs_mag_rgd5","rhs_mag_9x19mm_7n31_44","rhs_mag_m576","rhs_mag_m713_red","rhs_mag_m4009","rhsgref_30rnd_1143x23_M1T_SMG","rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle"];
-	initialRifles = ["UK3CB_Enfield","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_savz61"];
-	unlockedItems = unlockedItems + ["rhs_acc_2dpZenit","rhs_acc_m852v"];
-	unlockedAT = ["rhs_weap_panzerfaust60"];
-	};
-{
-_loadOut = getUnitLoadout (_x select 0);
-_vest = _loadOut select 4;
-if !(_vest isEqualTo []) then {unlockedItems pushBackUnique (_vest select 0)};
-} forEach [SDKSniper,SDKATman,SDKMedic,SDKMG,SDKExp,SDKGL,SDKMil,SDKSL,SDKEng,[SDKUnarmed],[staticCrewTeamPlayer]];
 
-unlockedBackpacks = if !(hasIFA) then { if !(has3CB) then {["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"]} else {["UK3CB_ANA_B_B_ASS","UK3CB_ANA_C_B_MED","UK3CB_TKC_C_B_Sidor_MED","UK3CB_B_Hiker","UK3CB_B_Hiker_Camo"]}} else {["B_LIB_US_M2Flamethrower","B_LIB_SOV_RA_MGAmmoBag_Empty"]}; //Initial Arsenal available backpacks
-//lockedbackpcks = lockedbackpcks - unlockedBackpacks;
+diag_log format ["%1: [Antistasi]: initVar | Setting Default Arsenal Unlocks.",servertime];
+//The following are the arrays used for arsenal unlocks in the templates
+/*
+unlockedWeapons = [];
+unlockedRifles = [];
+unlockedMagazines = [];
+initialRifles = [];
+unlockedAT = [];
+unlockedItems = [];
+unlockedBackpacks = [];
+*/
+
 unlockedOptics = [];
 unlockedMG = [];
 unlockedGL = [];
@@ -637,32 +630,11 @@ garageIsUsed = false;
 vehInGarage = [];
 destroyedBuildings = []; //publicVariable "destroyedBuildings";
 reportedVehs = [];
-hasTFAR = false;
 hasACRE = false;
 hasACE = false;
 hasACEhearing = false;
 hasACEMedical = false;
-//TFAR detection and config.
-if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
-    {
-    hasTFAR = true;
-    haveRadio = true;
-    unlockedItems = unlockedItems;
-    ["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will start with LR radio, uncomment the last line of so.
-    if (hasIFA) then {
-      ["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
-      ["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
-    } else {
-      unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc148jem","ItemRadio"];
-    };
-    //tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";//to make enemy vehicles usable as LR radio
-    //tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code"; //to make enemy vehicles usable as LR radio
-    //tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";//to make enemy vehicles usable as LR radio
-    ["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;
-    ["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;
 
-    //unlockedBackpacks pushBack "tf_rt1523g_sage";//uncomment this if you are adding LR radios for players
-    };
 //ACE detection and ACE item availability in Arsenal
 	aceItems = [
 		"ACE_EarPlugs",

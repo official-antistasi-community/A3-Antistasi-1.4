@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={13566.947,48.906258,12082.707};
-		dir[]={-0.5398916,-0.84152031,0.019479921};
-		up[]={-0.84097511,0.54022151,0.030343205};
-		aside[]={0.036057953,1.1497468e-007,0.99935985};
+		pos[]={13536.766,40.658741,12051.118};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -43,7 +43,7 @@ addons[]=
 	"A3_Ui_F_Exp",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Exp_Military_Flags",
-	"A3_Structures_F_Civ_Camping",
+	"A3_Props_F_Enoch_Military_Camps",
 	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
@@ -130,8 +130,8 @@ class AddonsMetaData
 		};
 		class Item11
 		{
-			className="A3_Structures_F";
-			name="Arma 3 - Buildings and Structures";
+			className="A3_Props_F_Enoch";
+			name="Arma 3 Enoch - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -253,7 +253,7 @@ class Mission
 			colorName="ColorEAST";
 			a=289.47849;
 			b=276.12943;
-			angle=304.4054;
+			angle=304.40536;
 			id=7;
 			atlOffset=-3.1900001;
 		};
@@ -333,7 +333,7 @@ class Mission
 			colorName="ColorOrange";
 			a=129.34793;
 			b=81.033745;
-			angle=43.014832;
+			angle=43.014828;
 			id=13;
 			atlOffset=-33.919998;
 		};
@@ -605,7 +605,7 @@ class Mission
 			colorName="ColorGreen";
 			a=68.976608;
 			b=100.23182;
-			angle=91.816498;
+			angle=91.81649;
 			id=39;
 			atlOffset=-51.561615;
 		};
@@ -687,7 +687,7 @@ class Mission
 			colorName="ColorEAST";
 			a=205.79118;
 			b=114.87317;
-			angle=143.3698;
+			angle=143.36978;
 			id=46;
 			atlOffset=-0.50217724;
 		};
@@ -767,7 +767,7 @@ class Mission
 			colorName="ColorBrown";
 			a=74.850113;
 			b=72.464348;
-			angle=111.93683;
+			angle=111.93682;
 			id=56;
 			atlOffset=-37.166481;
 		};
@@ -858,7 +858,7 @@ class Mission
 			colorName="ColorOrange";
 			a=147.30019;
 			b=150.74289;
-			angle=357.22232;
+			angle=357.22229;
 			id=63;
 			atlOffset=-9.5367432e-007;
 		};
@@ -1078,7 +1078,7 @@ class Mission
 			colorName="ColorBlue";
 			a=95.609772;
 			b=91.161003;
-			angle=212.98593;
+			angle=212.98592;
 			id=193;
 			atlOffset=8.3497543;
 		};
@@ -1240,7 +1240,7 @@ class Mission
 			colorName="ColorGreen";
 			a=161.16826;
 			b=157.68202;
-			angle=69.383202;
+			angle=69.383194;
 			id=40;
 			atlOffset=0.22096157;
 		};
@@ -1268,7 +1268,7 @@ class Mission
 			colorName="ColorGreen";
 			a=125.26378;
 			b=95.629669;
-			angle=195.57721;
+			angle=195.57719;
 			id=863;
 			atlOffset=-47.84948;
 		};
@@ -1310,7 +1310,7 @@ class Mission
 			colorName="ColorGreen";
 			a=80;
 			b=109.71587;
-			angle=41.942501;
+			angle=41.942497;
 			id=867;
 			atlOffset=-27.299999;
 		};
@@ -1654,7 +1654,7 @@ class Mission
 			colorName="ColorEAST";
 			a=279.32584;
 			b=133.11584;
-			angle=130.22893;
+			angle=130.22891;
 			id=1101;
 			atlOffset=1.5478401;
 		};
@@ -2588,7 +2588,7 @@ class Mission
 			name="seaSpawn_8";
 			type="mil_objective";
 			id=1186;
-			atlOffset=4.5166793;
+			atlOffset=5.0577831;
 		};
 		class Item200
 		{
@@ -7450,7 +7450,7 @@ class Mission
 					flags=3;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
 						name="pvp_green_1";
 						isPlayable=1;
 					};
@@ -7511,7 +7511,7 @@ class Mission
 					flags=1;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
 						name="pvp_green_2";
 						isPlayable=1;
 					};
@@ -7572,7 +7572,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
 						name="pvp_green_4";
 						isPlayable=1;
 					};
@@ -7633,7 +7633,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
 						name="pvp_green_3";
 						isPlayable=1;
 					};
@@ -7693,7 +7693,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
 						name="pvp_green_6";
 						isPlayable=1;
 					};
@@ -7753,7 +7753,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
 						name="pvp_green_5";
 						isPlayable=1;
 					};
@@ -7836,7 +7836,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="groupPlayersCSAT = group this;this setVariable [""pvp"",true]";
+						init="groupPlayersCSAT = group this; this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
 						name="pvp_red_1";
 						isPlayable=1;
 					};
@@ -7896,7 +7896,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
 						name="pvp_red_2";
 						isPlayable=1;
 					};
@@ -7956,7 +7956,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
 						name="pvp_red_4";
 						isPlayable=1;
 					};
@@ -8016,7 +8016,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
 						name="pvp_red_5";
 						isPlayable=1;
 					};
@@ -8077,7 +8077,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
 						name="pvp_red_3";
 						isPlayable=1;
 					};
@@ -8137,7 +8137,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]";
+						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
 						name="pvp_red_6";
 						isPlayable=1;
 					};
@@ -8295,6 +8295,7 @@ class Mission
 			};
 			id=1641;
 			type="Land_TentSolar_01_olive_F";
+			atlOffset=-0.14473438;
 		};
 		class Item298
 		{

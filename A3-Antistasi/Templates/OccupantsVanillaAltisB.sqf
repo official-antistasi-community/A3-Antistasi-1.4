@@ -13,6 +13,22 @@ staticATOccupants = "I_static_AT_F";
 staticAAOccupants = "I_static_AA_F";
 NATOPilot = "I_Helipilot_F";
 
+//NATO PvP Loadouts
+NATOPlayerLoadouts = [
+	//Team Leader
+	"I_Soldier_SL_F",
+	//Medic
+	"I_medic_F",
+	//Autorifleman
+	"I_Soldier_AR_F",
+	//Marksman
+	"I_Soldier_M_F",
+	//Anti-tank Scout
+	"I_Soldier_LAT_F",
+	//Anti-tank Scout
+	"I_Soldier_LAT_F"
+];
+
 vehNATOPVP = ["I_MRAP_03_F","I_MRAP_03_hmg_F"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
 
 vehNATOLightArmed = ["I_MRAP_03_hmg_F"];

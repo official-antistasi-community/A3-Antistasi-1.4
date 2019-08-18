@@ -231,8 +231,7 @@ else
 		}
 	};
 diag_log format ["%1: [Antistasi]: initVar | Building NightVision list.",servertime];
-NVGoggles = if ((!hasIFA) and (tierWar >= 6)) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
-NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles","Item_NVGogglesB_blk_F","Item_NVGogglesB_grn_F","Item_NVGogglesB_gry_F"]} else {[]};
+NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
 diag_log format ["%1: [Antistasi]: initVar | Building Vehicle list.",servertime];
 arrayCivVeh = if !(hasIFA) then
 	{

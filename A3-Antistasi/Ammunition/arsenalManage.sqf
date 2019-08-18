@@ -22,8 +22,8 @@ _check = false;
 if (_x select 1 >= minWeaps) then
 	{
 	_weaponX = _x select 0;
-	if !(_weaponX in mlaunchers) then
-		{
+	//if !(_weaponX in mlaunchers) then
+		//{
 		_magazine = (getArray (configFile / "CfgWeapons" / _weaponX / "magazines") select 0);
 		if (!isNil "_magazine") then
 			{
@@ -59,13 +59,15 @@ if (_x select 1 >= minWeaps) then
 					}
 				else
 					{
-					if (_weaponX in ((rlaunchers + mlaunchers) select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 0)})) then
+					if (_weaponX in (rlaunchers + mlaunchers)) then
+					//if (_weaponX in ((rlaunchers + mlaunchers) select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 0)})) then
 						{
 						unlockedAT pushBack _weaponX; publicVariable "unlockedAT";
 						}
 					else
 						{
-						if (_weaponX in (mlaunchers select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 1)})) then {unlockedAA pushBack _weaponX; publicVariable "unlockedAA"};
+						if (_weaponX in (mlaunchers)) then {unlockedAA pushBack _weaponX; publicVariable "unlockedAA"};
+						//if (_weaponX in (mlaunchers select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 1)})) then {unlockedAA pushBack _weaponX; publicVariable "unlockedAA"};
 						};
 					};
 				};
@@ -73,7 +75,7 @@ if (_x select 1 >= minWeaps) then
 		_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _weaponX >> "displayName")];
 		_index = _weaponX call jn_fnc_arsenal_itemType;
 		[_index,_weaponX,-1] call jn_fnc_arsenal_addItem;
-		};
+		//};
 	};
 } forEach _weaponsX;
 
@@ -160,5 +162,17 @@ if (_countX >= minWeaps) then
 	_index = _nvToUnlock call jn_fnc_arsenal_itemType;
 	[_index,_nvToUnlock,-1] call jn_fnc_arsenal_addItem;
 };
+
+{
+if (_x select 1 >= minWeaps) then
+	{
+	_item = _x select 0;
+	unlockedMagazines pushBack _item;
+	publicVariable "unlockedItems";
+	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
+	_index = _item call jn_fnc_arsenal_itemType;
+	[_index,_item,-1] call jn_fnc_arsenal_addItem;
+	};
+} forEach _magazines;
 
 _updated

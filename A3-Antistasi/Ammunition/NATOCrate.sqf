@@ -1,6 +1,7 @@
 
-private ["_crate","_loot","_num","_magazines"];
+private ["_crate","_loot","_num","_magazines","_unlocks"];
 
+_unlocks = (unlockedItems + unlockedOptics + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
 _crate = _this select 0;
 
 clearMagazineCargoGlobal _crate;
@@ -25,21 +26,21 @@ if (typeOf _crate == vehNATOAmmoTruck) then
 for "_i" from 0 to _var1 do
 	{
 	_guns = (weaponsNato + antitankAAF);
-	_avail = (_guns - unlockedWeapons);
+	_avail = (_guns - _unlocks);
 	_loot = selectRandom _avail;
 	//_thingX = selectRandom (weaponsNato + antitankAAF);
 	if (!(_loot in weaponCargo _crate)) then
 		{
 		_num = 1 + (floor random 9);
 		_crate addWeaponCargoGlobal [_loot, _num];
-		_magazines = getArray (configFile / "CfgWeapons" / _loot / "magazines");
+		_magazines = (getArray (configFile / "CfgWeapons" / _loot / "magazines"));
 		_crate addMagazineCargoGlobal [_magazines select 0, _num * 3];
 		};
 	};
 for "_i" from 0 to _var2 do
 	{
-	_items = itemsAAF + smokeX + chemX;
-	_avail = (itemsAAF - unlockedItems);
+	_items = itemsAAF;
+	_avail = (itemsAAF - _unlocks);
 	_loot = selectRandom _avail;
 	if (!(_loot in itemCargo _crate)) then
 		{
@@ -49,8 +50,8 @@ for "_i" from 0 to _var2 do
 	};
 for "_i" from 0 to _var3 do
 	{
-	_ammo = ammunitionNATO;
-	_avail = (_ammo - unlockedMagazines);
+	_ammo = smokeX + chemX + ammunitionNATO;
+	_avail = (_ammo - _unlocks);
 	_loot = selectRandom _avail;
 	if (!(_loot in magazineCargo _crate)) then {_crate addMagazineCargoGlobal [_loot, 10]};
 	};
@@ -65,7 +66,7 @@ if !(hasIFA) then
 	for "_i" from 0 to _var5 do
 		{
 		_optics = opticsAAF;
-		_avail = (opticsAAF - unlockedOptics);
+		_avail = (opticsAAF - _unlocks);
 		_loot = selectRandom _avail;
 		_num = 1 + (floor random 4);
 		if (!(_loot in itemCargo _crate)) then

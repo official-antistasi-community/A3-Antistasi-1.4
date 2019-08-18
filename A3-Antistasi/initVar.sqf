@@ -653,14 +653,10 @@ hasACEMedical = false;
 		"ACE_CableTie",
 		"ACE_SpottingScope",
 		"ACE_Tripod",
-		"ACE_Chemlight_HiWhite",
-		"ACE_Chemlight_HiRed",
 		"ACE_Kestrel4500",
 		"ACE_ATragMX",
-		"ACE_acc_pointer_green",
-		"ACE_HandFlare_White",
-		"ACE_HandFlare_Red",
-		"ACE_Spraypaintred"
+		"ACE_Spraypaintred",
+		"ACE_IR_Strobe_Item"
 	];
 	if (hasIFA) then {aceItems append ["ACE_LIB_LadungPM","ACE_SpareBarrel"]};
 	publicVariable "aceItems";
@@ -700,8 +696,6 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 	if !(hasIFA) then
 		{
 		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
-		unlockedWeapons pushBackUnique "ACE_VMH3";
-		itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX"];
 		weaponsNato = weaponsNato + ["ACE_M84"];
 		};
 	hasACE = true;

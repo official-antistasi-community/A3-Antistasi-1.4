@@ -242,6 +242,32 @@ private _fnc_runwayInfo = {
 	[_mainRunway] + _otherRunways;
 };
 
+//Use sin and cos combined to determine angles based on quadrant
+private _fnc_sinCosToDir = { 
+	params ["_sinVal", "_cosVal"]; 
+
+	//Sin +ve amd Cos +ve = First 0-90 
+	//Sin +ve and Cos -ve = Second 90-180 
+	//Both -ve = 180-270 
+	//Sin -ve and Cos +ve = 270-360 
+
+	//0-180, where acos works as expected 
+	// We have to use a tiny negative here, because (sin 180) sucks and doesn't return 0. 
+	// Worst case, we get a 0.1 degree margin of error.
+	if (_sinVal >= -0.0001) exitWith { 
+		acos _cosVal; 
+	}; 
+
+	//270-360, where asin works as expected 
+	if (_cosVal >= 0) exitWith { 
+		asin _sinVal; 
+	}; 
+
+	//180-270, where need to do some addition 
+	0 - acos _cosVal; 
+};
+
+
 if (!_busy) then
 	{
 	private _runways = [] call _fnc_runwayInfo;
@@ -251,7 +277,8 @@ if (!_busy) then
 	{
 		if (_positionX distance _x < 700) exitWith {
 			//Array of position, and extract compass direction of runway.
-			_runwaySpawnLocation = [_x, acos (getArray ((_runways select _foreachindex) >> "ilsDirection") select 2) + 180];
+			private _ilsDir = getArray ((_runways select _foreachindex) >> "ilsDirection");
+			_runwaySpawnLocation = [_x, ([_ilsDir select 0, _ilsDir select 2] call _fnc_sinCosToDir) + 180];
 		};
 	} forEach _runwayIlsPositions;
 

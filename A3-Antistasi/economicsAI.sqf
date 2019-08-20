@@ -72,6 +72,18 @@ if (_currentItems < _maxItems) then
 	{
 	timer setVariable [_typeX,_currentItems + (0.2 * _accelerator),true];
 	};
+//TRANSPORT PLANES
+_maxItems = _airbases * 4;
+_typeX = if (_sideX == Occupants) then {vehNATOTransportPlanes} else {vehCSATTransportPlanes}; //{vehCSATTransportHelis - [vehCSATPatrolHeli]};
+if !(_typeX isEqualTo []) then
+	{
+	_currentItems = 0;
+	{_currentItems = _currentItems + (timer getVariable [_x,0])} forEach _typeX;
+	if (_currentItems < _maxItems) then
+		{
+		timer setVariable [selectRandom _typeX,_currentItems + (0.2 * _accelerator),true];
+		};
+	};
 //AIR TRANSPORTS
 _maxItems = _airbases * 4;
 _typeX = if (_sideX == Occupants) then {vehNATOTransportHelis - [vehNATOPatrolHeli]} else {vehCSATTransportHelis - [vehCSATPatrolHeli]};

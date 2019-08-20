@@ -91,7 +91,7 @@ switch true do {
 	};
 	case (worldName == "Malden"): {
 		diag_log format ["%1: [Antistasi] | INFO | initZones | Setting Spawn Points for %2.",servertime,worldname];
-		airportsX = ["airport","airport_1"];//airports
+		airportsX = ["airport","airport_1","airport_2"];//airports
 		spawnPoints = ["spawnPoint","spawnPoint_1","spawnPoint_2"];
 		resourcesX = ["resource","resource_1","resource_2","resource_3","resource_4","resource_5"];//economic resources
 		factories = ["factory","factory_1","factory_2"];//factories

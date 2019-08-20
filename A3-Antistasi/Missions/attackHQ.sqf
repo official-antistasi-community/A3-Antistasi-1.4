@@ -40,6 +40,7 @@ if (count _typesVeh > 0) then
 	sleep 30;
 	};
 _typesVeh = if (_sideX == Occupants) then {vehNATOTransportHelis} else {vehCSATTransportHelis};
+if (_typesVeh isEqualTo []) then {if (_sideX == Occupants) then {vehNATOTransportPlanes} else {vehCSATTransportPlanes};};
 _typeGroup = if (_sideX == Occupants) then {NATOSpecOp} else {CSATSpecOp};
 
 for "_i" from 0 to (round random 2) do
@@ -59,7 +60,13 @@ for "_i" from 0 to (round random 2) do
 	{_x assignAsCargo _heli; _x moveInCargo _heli; _soldiers pushBack _x; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
 	_groups pushBack _groupX;
 	//[_heli,"Air Transport"] spawn A3A_fnc_inmuneConvoy;
-	[_heli,_groupX,_positionX,_posOrigin,_groupHeli] spawn A3A_fnc_fastrope;
+	if (_typeVehX isKindOf "Plane") then {
+		[_heli,_groupX,_positionX,_posOrigin] spawn A3A_fnc_airdrop;
+	} else {
+		[_heli,_groupX,_positionX,_posOrigin,_groupHeli] spawn A3A_fnc_fastrope;
+	};
+	
+	
 	sleep 10;
 	};
 

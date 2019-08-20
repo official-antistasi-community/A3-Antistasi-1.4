@@ -23,7 +23,7 @@ _timeX = time + 3600;
 
 for "_i" from 1 to 3 do
 	{
-	_typeVehX = if (_i != 3) then {selectRandom (vehCSATAir select {[_x] call A3A_fnc_vehAvailable})} else {selectRandom (vehCSATTransportHelis select {[_x] call A3A_fnc_vehAvailable})};
+	_typeVehX = if (_i != 3) then {selectRandom (vehCSATAir select {[_x] call A3A_fnc_vehAvailable})} else {selectRandom ((vehCSATTransportHelis + vehCSATTransportPlanes) select {[_x] call A3A_fnc_vehAvailable})};
 	_timeOut = 0;
 	_pos = _posOrigin findEmptyPosition [0,100,_typeVehX];
 	while {_timeOut < 60} do
@@ -66,7 +66,7 @@ for "_i" from 1 to 3 do
 			_landPos = _posDestination getPos [(random 500) + 300, random 360];
 
 			_landPos = [_landPos, 200, 350, 10, 0, 0.20, 0,[],[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
-			if !(_landPos isEqualTo [0,0,0]) then
+			if !((_typeVehX in vehCSATTransportPlanes) || _landPos isEqualTo [0,0,0]) then
 				{
 				_landPos set [2, 0];
 				_pad = createVehicle ["Land_HelipadEmpty_F", _landpos, [], 0, "NONE"];

@@ -471,7 +471,13 @@ while {(_waves > 0)} do
 		while {(_countX <= _nVeh) and (count _soldiers <= 80)} do
 			{
 			_proceed = true;
-			if (_countX == _nveh) then {if (_sideX == Occupants) then {_vehPool = _vehPool select {_x in vehNATOTransportHelis}} else {_vehPool = _vehPool select {_x in vehCSATTransportHelis}}};
+			if (_countX == _nveh) then {
+				if (_sideX == Occupants) then {
+					_vehPool = _vehPool select {_x in (vehNATOTransportHelis + vehNATOTransportPlanes)}
+				} else {
+					_vehPool = _vehPool select {_x in (vehCSATTransportHelis + vehCSATTransportPlanes)}
+				}
+			};
 			_typeVehX = if !(_vehPool isEqualTo []) then {selectRandom _vehPool} else {if (_sideX == Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli}};
 			if ((_typeVehX in vehTransportAir) and !(_spawnedSquad)) then
 				{

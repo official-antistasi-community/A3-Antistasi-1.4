@@ -33,8 +33,6 @@ for "_i" from 0 to _var1 do
 		{
 		_num = 1 + (floor random 9);
 		_crate addWeaponWithAttachmentsCargoGlobal [[_loot, "", "", "", [], [], ""], _num];
-		_magazines = (getArray (configFile / "CfgWeapons" / _loot / "magazines"));
-		_crate addMagazineCargoGlobal [_magazines select 0, _num * 3];
 		};
 	};
 for "_i" from 0 to _var2 do

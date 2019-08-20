@@ -24,7 +24,8 @@ if (_x select 1 >= minWeaps) then
 	_weaponX = _x select 0;
 	//if !(_weaponX in mlaunchers) then
 		//{
-		_magazine = (getArray (configFile / "CfgWeapons" / _weaponX / "magazines") select 0);
+		
+		/*_magazine = (getArray (configFile / "CfgWeapons" / _weaponX / "magazines") select 0);
 		if (!isNil "_magazine") then
 			{
 			if (not(_magazine in unlockedMagazines)) then
@@ -34,8 +35,10 @@ if (_x select 1 >= minWeaps) then
 				_index = _magazine call jn_fnc_arsenal_itemType;
 				[_index,_magazine,-1] call jn_fnc_arsenal_addItem;
 				};
-			};
+			};*/
+			
 		unlockedWeapons pushBack _weaponX;
+		unlockedWeapons = [unlockedWeapons,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
 		//lockedWeapons = lockedWeapons - [_weaponX];
 		if (_weaponX in arifles) then
 			{
@@ -103,6 +106,7 @@ if (_x select 1 >= minWeaps) then
 	{
 	_item = _x select 0;
 	unlockedItems pushBack _item;
+	unlockedItems = [unlockedItems,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 	_check = true;
 	_index = _item call jn_fnc_arsenal_itemType;
@@ -122,7 +126,7 @@ if (_x select 1 >= minWeaps) then
 	_item = _x select 0;
 	unlockedOptics pushBack _item;
 	unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
-	unlockedItems pushBack _item;
+	//unlockedItems pushBack _item; //TESTING DISABLE PBP
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 	_check = true;
 	_index = _item call jn_fnc_arsenal_itemType;
@@ -142,7 +146,7 @@ if (_check) then
 		{
 			_item = _x select 0;
 			unlockedMagazines pushBack _item;
-			publicVariable "unlockedItems";
+			unlockedMagazines = [unlockedMagazines,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
 			_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 			_check = true;
 			_index = _item call jn_fnc_arsenal_itemType;

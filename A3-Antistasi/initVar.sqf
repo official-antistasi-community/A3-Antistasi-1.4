@@ -704,11 +704,11 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 	if !(hasIFA) then
 		{
 		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
-		weaponsNato = weaponsNato + ["ACE_VMH3"];
+		weaponsNato = weaponsNato + ["ACE_VMH3","ACE_Chemlight_Shield"];
 		ammunitionNATO = ammunitionNATO + ["ACE_M84"];
 		itemsAAF = itemsAAF + ["acc_pointer_IR","ACE_acc_pointer_green_IR"];
 		itemsAAF = itemsAAF - ["MineDetector"];
-		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR","ACE_Chemlight_Shield"];
+		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
 		smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
 		};
 	hasACE = true;

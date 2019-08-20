@@ -29,12 +29,10 @@ for "_i" from 0 to _var1 do
 	_avail = (_guns - _unlocks);
 	_loot = selectRandom _avail;
 	if (!(_loot in weaponCargo _crate)) then
-		{
-		_num = 1 + (floor random 9);
-		_crate addWeaponWithAttachmentsCargoGlobal [[_loot, "", "", "", [], [], ""], _num];
-		_magazines = (getArray (configFile / "CfgWeapons" / _loot / "magazines"));
-		_crate addMagazineCargoGlobal [_magazines select 0, _num * 3];
-		};
+			{
+			_num = 1 + (floor random 9);
+			_crate addWeaponWithAttachmentsCargoGlobal [[_loot, "", "", "", [], [], ""], _num];
+			};
 	};
 for "_i" from 0 to _var2 do
 	{
@@ -42,17 +40,20 @@ for "_i" from 0 to _var2 do
 	_avail = (itemsAAF - _unlocks);
 	_loot = selectRandom _avail;
 	if (!(_loot in itemCargo _crate)) then
-		{
-		_num = 1 + (floor random 4);
-		_crate addItemCargoGlobal [_loot, _num];
-		};
+			{
+			_num = 1 + (floor random 4);
+			_crate addItemCargoGlobal [_loot, _num];
+			};
 	};
 for "_i" from 0 to _var3 do
 	{
 	_ammo = smokeX + chemX + ammunitionNATO;
 	_avail = (_ammo - _unlocks);
 	_loot = selectRandom _avail;
-	if (!(_loot in magazineCargo _crate)) then {_crate addMagazineCargoGlobal [_loot, 10]};
+	if (!(_loot in magazineCargo _crate)) then
+			{
+			_crate addMagazineCargoGlobal [_loot, 10]
+			};
 	};
 for "_i" from 0 to _var4 do
 	{
@@ -69,9 +70,9 @@ if !(hasIFA) then
 		_loot = selectRandom _avail;
 		_num = 1 + (floor random 4);
 		if (!(_loot in itemCargo _crate)) then
-			{
-			_crate addItemCargoGlobal [_loot, _num];
-			};
+				{
+				_crate addItemCargoGlobal [_loot, _num];
+				};
 		};
 
 	if (round random 100 < 25) then

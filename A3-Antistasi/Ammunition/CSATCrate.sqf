@@ -10,11 +10,11 @@ clearWeaponCargoGlobal _crate;
 clearItemCargoGlobal _crate;
 clearBackpackCargoGlobal _crate;
 
-_var1 = 1 + round random 4;
-_var2 = 1 + round random 4;
-_var3 = 1 + round random 4;
-_var4 = 1 + round random 4;
-_var5 = 1 + round random 4;
+_var1 = 1 + floor random 4;
+_var2 = 1 + floor random 4;
+_var3 = 1 + floor random 4;
+_var4 = 1 + floor random 4;
+_var5 = 1 + floor random 4;
 if (typeOf _crate == vehCSATAmmoTruck) then
 	{
 	_var1=_var1*2;
@@ -29,18 +29,17 @@ for "_i" from 0 to _var1 do
 	_guns = (weaponsCSAT + antitankAAF);
 	_avail = (_guns - _unlocks);
 	_loot = selectRandom _avail;
-	//_thingX = selectRandom (weaponsCSAT + antitankAAF);
 	if (!(_loot in weaponCargo _crate)) then
 		{
 		_num = 1 + (floor random 9);
-		_crate addWeaponCargoGlobal [_loot, _num];
-		_magazines =  smokeX + chemX + (getArray (configFile / "CfgWeapons" / _loot / "magazines"));
+		_crate addWeaponWithAttachmentsCargoGlobal [[_loot, "", "", "", [], [], ""], _num];
+		_magazines = (getArray (configFile / "CfgWeapons" / _loot / "magazines"));
 		_crate addMagazineCargoGlobal [_magazines select 0, _num * 3];
 		};
 	};
 for "_i" from 0 to _var2 do
 	{
-	_items = itemsAAF + smokeX + chemX;
+	_items = itemsAAF;
 	_avail = (itemsAAF - _unlocks);
 	_loot = selectRandom _avail;
 	if (!(_loot in itemCargo _crate)) then
@@ -94,7 +93,6 @@ if !(hasIFA) then
 				{
 				_crate addBackpackCargoGlobal ["B_UAV_01_backpack_F",1];
 				_crate addItemCargoGlobal ["B_UavTerminal",1];
-				comment "Exported from Arsenal by Alberto";
 				};
 			}
 		else

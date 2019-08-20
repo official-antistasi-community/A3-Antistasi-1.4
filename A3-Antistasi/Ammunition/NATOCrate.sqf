@@ -9,11 +9,11 @@ clearWeaponCargoGlobal _crate;
 clearItemCargoGlobal _crate;
 clearBackpackCargoGlobal _crate;
 
-_var1 = 1 + round random 4;
-_var2 = 1 + round random 4;
-_var3 = 1 + round random 4;
-_var4 = 1 + round random 4;
-_var5 = 1 + round random 4;
+_var1 = 1 + floor random 4;
+_var2 = 1 + floor random 4;
+_var3 = 1 + floor random 4;
+_var4 = 1 + floor random 4;
+_var5 = 1 + floor random 4;
 if (typeOf _crate == vehNATOAmmoTruck) then
 	{
 	_var1=_var1*2;
@@ -28,11 +28,10 @@ for "_i" from 0 to _var1 do
 	_guns = (weaponsNato + antitankAAF);
 	_avail = (_guns - _unlocks);
 	_loot = selectRandom _avail;
-	//_thingX = selectRandom (weaponsNato + antitankAAF);
 	if (!(_loot in weaponCargo _crate)) then
 		{
 		_num = 1 + (floor random 9);
-		_crate addWeaponCargoGlobal [_loot, _num];
+		_crate addWeaponWithAttachmentsCargoGlobal [[_loot, "", "", "", [], [], ""], _num];
 		_magazines = (getArray (configFile / "CfgWeapons" / _loot / "magazines"));
 		_crate addMagazineCargoGlobal [_magazines select 0, _num * 3];
 		};
@@ -101,8 +100,10 @@ if !(hasIFA) then
 		};
 	if (hasACE) then
 		{
-		_crate addMagazineCargoGlobal ["ACE_HuntIR_M203", 3];
+			if !("ACE_HuntIR_M203" in _unlocks) then
+		{_crate addMagazineCargoGlobal ["ACE_HuntIR_M203", 3]};
 		//_crate addBackpackCargoGlobal ["ACE_HuntIR_Box",1];
-		_crate addItemCargoGlobal ["ACE_HuntIR_monitor", 1];
+			if !("ACE_HuntIR_monitor" in _unlocks) then
+		{_crate addItemCargoGlobal ["ACE_HuntIR_monitor", 1]};
 		};
 	};

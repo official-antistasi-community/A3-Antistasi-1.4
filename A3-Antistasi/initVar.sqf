@@ -5,7 +5,7 @@
 //Not commented lines cannot be changed.
 //Don't touch them.
 diag_log format ["%1: [Antistasi] | INFO | initVar Started.",servertime];
-antistasiVersion = "v 1.4c1.05";
+antistasiVersion = "v 1.4c2.0";
 
 debug = false;//debug variable, not useful for everything..
 
@@ -217,7 +217,7 @@ else
 	};//possible mines that spawn in AAF ammoboxescomment "Exported from Arsenal by Alberto";
 itemsAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
-	["MineDetector","NVGoggles","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"]
+	["Laserbatteries","MineDetector","NVGoggles","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"]
 	}
 else
 	{
@@ -323,8 +323,11 @@ if !(_typeX in _checked) then
 	_loadout = getUnitLoadout _typeX;
 	for "_i" from 0 to 2 do
 		{
-		_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
-		if !(_weapon in weaponsCSAT) then {weaponsCSAT pushBack _weapon};
+		if !(_loadout select _i isEqualTo []) then
+			{
+				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
+				if !(_weapon in weaponsCSAT) then {weaponsCSAT pushBack _weapon};
+			};
 		};
 	};
 } forEach _x;
@@ -339,8 +342,11 @@ if !(_typeX in _checked) then
 	_loadout = getUnitLoadout _typeX;
 	for "_i" from 0 to 2 do
 		{
-		_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
-		if !(_weapon in weaponsNato) then {weaponsNato pushBack _weapon};
+		if !(_loadout select _i isEqualTo []) then
+			{
+				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
+				if !(_weapon in weaponsNato) then {weaponsNato pushBack _weapon};
+			};
 		};
 	};
 } forEach _x;
@@ -696,7 +702,12 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 	if !(hasIFA) then
 		{
 		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
-		weaponsNato = weaponsNato + ["ACE_M84"];
+		weaponsNato = weaponsNato + ["ACE_VMH3"];
+		ammunitionNATO = ammunitionNATO + ["ACE_M84"];
+		itemsAAF = itemsAAF + ["acc_pointer_IR","ACE_acc_pointer_green_IR"];
+		itemsAAF = itemsAAF - ["MineDetector"];
+		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR","ACE_Chemlight_Shield"];
+		smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
 		};
 	hasACE = true;
 	if (isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak")) then {

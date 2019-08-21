@@ -735,19 +735,8 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	if !(hasIFA) then
 		{
-		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
-		weaponsNato = weaponsNato + ["ACE_VMH3","ACE_Chemlight_Shield"];
-		ammunitionNATO = ammunitionNATO + ["ACE_M84"];
-		itemsAAF = itemsAAF + ["acc_pointer_IR","ACE_acc_pointer_green_IR"];
-		itemsAAF = itemsAAF - ["MineDetector"];
-		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
-		smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
-		diag_log format ["PBP: InitVar: unlockedBackpacks: %1",unlockedBackpacks];
-		diag_log format ["PBP: InitVar: weaponsNato: %1",weaponsNato];
-		diag_log format ["PBP: InitVar: ammunitionNATO: %1",ammunitionNATO];
-		diag_log format ["PBP: InitVar: itemsAAF: %1",itemsAAF];
-		diag_log format ["PBP: InitVar: chemX: %1",chemX];
-		diag_log format ["PBP: InitVar: smokeX: %1",smokeX];
+		unlockedWeapons pushBackUnique "ACE_VMH3";
+		itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
 		};
 	hasACE = true;
 	if (isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak")) then {

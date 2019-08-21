@@ -45,7 +45,7 @@ vehCSATPlane = "O_Plane_CAS_02_dynamicLoadout_F";
 vehCSATPlaneAA = "O_Plane_Fighter_02_F";
 vehCSATTransportPlanes = ["O_T_VTOL_02_infantry_F"]; //VTOL isn't available without APEX nor there is a replacement, i'd leave it there regardles it's Altis
 vehCSATPatrolHeli = "O_Heli_Light_02_unarmed_F";
-vehCSATTransportHelis = ["O_Heli_Transport_04_bench_F",vehCSATPatrolHeli]; 
+vehCSATTransportHelis = ["O_Heli_Transport_04_bench_F",vehCSATPatrolHeli];
 vehCSATAttackHelis = ["O_Heli_Attack_02_dynamicLoadout_F","O_Heli_Attack_02_F"];
 vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 vehCSATUAV = "O_UAV_02_F";
@@ -78,8 +78,9 @@ AAStaticCSATB = "O_AA_01_weapon_F";
 MortStaticCSATB = "O_Mortar_01_weapon_F";
 supportStaticCSATB3 = "O_Mortar_01_support_F";
 
+backpacksCSAT = ["B_Bergen_mcamo_F","B_Bergen_dgtl_F","B_Bergen_hex_F","B_Bergen_tna_F","B_ViperHarness_blk_F","B_ViperHarness_ghex_F","B_ViperHarness_hex_F","B_ViperHarness_khk_F","B_ViperHarness_oli_F","B_ViperLightHarness_blk_F","B_ViperLightHarness_ghex_F","B_ViperLightHarness_hex_F","B_ViperLightHarness_khk_F","B_ViperLightHarness_oli_F","B_LegStrapBag_black_F","B_LegStrapBag_coyote_F","B_LegStrapBag_olive_F"];
 weaponsCSAT append ["srifle_DMR_04_F","arifle_CTAR_ghex_F","arifle_CTAR_GL_blk_F","arifle_Katiba_C_F","srifle_DMR_05_tan_f","arifle_Katiba_F","arifle_Katiba_GL_F","srifle_DMR_02_sniper_F","MMG_01_tan_F","srifle_DMR_01_F","launch_RPG32_F","LMG_Zafir_F"];
-ammunitionCSAT append ["30Rnd_65x39_caseless_green","10Rnd_762x54_Mag","150Rnd_762x54_Box","6Rnd_45ACP_Cylinder","150Rnd_93x64_Mag","10Rnd_127x54_Mag","30Rnd_9x21_Mag","5Rnd_127x108_Mag","10Rnd_93x64_DMR_05_Mag"]; //not sure
+ammunitionCSAT append ["30Rnd_65x39_caseless_green","10Rnd_762x54_Mag","150Rnd_762x54_Box","6Rnd_45ACP_Cylinder","150Rnd_93x64_Mag","10Rnd_127x54_Mag","30Rnd_9x21_Mag","5Rnd_127x108_Mag","10Rnd_93x64_DMR_05_Mag","Titan_AA","Titan_AP","Titan_AT"]; //not sure
 flagCSATmrk = "flag_CSAT";
 nameInvaders = "CSAT";
 if (isServer) then {"CSAT_carrier" setMarkerText "CSAT Carrier"};

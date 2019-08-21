@@ -735,8 +735,7 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	if !(hasIFA) then
 		{
-		weaponsNato = weaponsNato + ["ACE_VMH3","ACE_Chemlight_Shield"];
-		ammunitionNATO = ammunitionNATO + ["ACE_M84"];
+		weaponsNato = weaponsNato + ["ACE_VMH3","ACE_Chemlight_Shield","ACE_M84"];
 		itemsAAF = itemsAAF + ["acc_pointer_IR","ACE_acc_pointer_green_IR"];
 		itemsAAF = itemsAAF - ["MineDetector"];
 		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];

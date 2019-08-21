@@ -14,6 +14,7 @@ _var2 = 1 + floor random 4;
 _var3 = 1 + floor random 4;
 _var4 = 1 + floor random 4;
 _var5 = 1 + floor random 4;
+_var6 = 1 + floor random 4;
 if (typeOf _crate == vehNATOAmmoTruck) then
 	{
 	_var1=_var1*2;
@@ -21,6 +22,7 @@ if (typeOf _crate == vehNATOAmmoTruck) then
 	_var3=_var3*2;
 	_var4=_var4*2;
 	_var5=_var5*2;
+	_var6=_var6*2;
 	};
 
 for "_i" from 0 to _var1 do
@@ -75,6 +77,17 @@ if !(hasIFA) then
 				};
 		};
 
+	for "_i" from 0 to _var6 do
+		{
+		_items = backpacksNATO;
+		_avail = (_items - _unlocks);
+		_loot = selectRandom _avail;
+		if (!(_loot in itemCargo _crate)) then
+				{
+				_num = 1 + (floor random 4);
+				_crate addItemCargoGlobal [_loot, _num];
+				};
+		};
 	if (round random 100 < 25) then
 		{
 		_crate addBackpackCargoGlobal ["B_Static_Designator_01_weapon_F",1];
@@ -93,10 +106,6 @@ if !(hasIFA) then
 				_crate addBackpackCargoGlobal ["B_UAV_01_backpack_F",1];
 				_crate addItemCargoGlobal ["B_UavTerminal",1];
 				};
-			}
-		else
-			{
-			_crate addBackpackCargoGlobal ["B_Carryall_oli",round (random 2)];
 			};
 		};
 	if (hasACE) then

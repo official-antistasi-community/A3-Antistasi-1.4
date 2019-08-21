@@ -157,10 +157,7 @@ while {true} do
 			};
 		};
 	sleep 3;
-    _numWreckedAntennas = count antennasDead;
-	//Probability of spawning a mission in.
-    _shouldSpawnRepairThisTick = round(random 100) < 20;
-    if ((_numWreckedAntennas > 0) && _shouldSpawnRepairThisTick && !(["REP"] call BIS_fnc_taskExists)) then
+	if ((count antennasDead > 0) and (not(["REP"] call BIS_fnc_taskExists))) then
 		{
 		_potentials = [];
 		{

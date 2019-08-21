@@ -31,9 +31,30 @@ for "_i" from 0 to (count _buildings) - 1 do
 			];
 		};*/
 	_typeB = typeOf _building;
+	//Helipads spawn in different types of helicopter. By default, patrol helis.
+	//In the editor, drop this code in 'init' on the helipad to change that.
+	//this setVariable ["spawnableHelicopterTypes", ["patrol", "transport", "attack"]];
 	if ((_typeB == "Land_HelipadSquare_F") and (!_frontierX)) then
 		{
-		_typeVehX = if (_sideX == Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli};
+		private _helicopterCategories = _building getVariable ["spawnableHelicopterTypes", ["patrol"]];
+		private _helicopterTypes = [];
+		{
+			switch _x do {
+				case "patrol": {
+					_helicopterTypes pushBack (if (_sideX == Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli});
+				};
+				case "transport": {
+					_helicopterTypes append (if (_sideX == Occupants) then {vehNATOTransportHelis} else {vehCSATTransportHelis});
+				};
+				case "attack": {
+					_helicopterTypes append (if (_sideX == Occupants) then {vehNATOAttackHelis} else {vehCSATAttackHelis});
+				};
+			};
+		} forEach _helicopterCategories;
+		diag_log format ["Types of All Heli: %1", _helicopterTypes];
+		_helicopterTypes = _helicopterTypes select {[_x] call A3A_fnc_vehAvailable};
+		diag_log format ["Types of Heli: %1", _helicopterTypes];
+		_typeVehX = selectRandom _helicopterTypes;
 		_veh = createVehicle [_typeVehX, position _building, [],0, "CAN_COLLIDE"];
 		_veh setDir (getDir _building);
 		_vehiclesX pushBack _veh;

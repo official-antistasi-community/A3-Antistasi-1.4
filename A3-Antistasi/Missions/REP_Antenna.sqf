@@ -97,7 +97,7 @@ if (dateToNumber date > _dateLimitNum) then
 		];
 	};
 
-_nul = [0,"REP"] spawn A3A_fnc_deleteTask;
+_nul = [30,"REP"] spawn A3A_fnc_deleteTask;
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 

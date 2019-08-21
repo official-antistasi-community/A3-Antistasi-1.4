@@ -406,7 +406,7 @@ vehTanks = [vehNATOTank,vehCSATTank];
 vehTrucks = vehNATOTrucks + vehCSATTrucks + [vehSDKTruck,vehFIATruck];
 vehAA = [vehNATOAA,vehCSATAA];
 vehMRLS = [vehCSATMRLS, vehNATOMRLS];
-vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis;
+vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis + vehNATOTransportPlanes + vehCSATTransportPlanes;
 vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
 vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
 sniperGroups = [groupsNATOSniper,groupsCSATSniper];
@@ -554,7 +554,9 @@ timer setVariable [vehNATOPlane,0,true];
 timer setVariable [vehCSATPlane,10,true];
 timer setVariable [vehNATOPlaneAA,0,true];
 timer setVariable [vehCSATPlaneAA,10,true];
+{timer setVariable [_x,1,true]} forEach vehNATOTransportPlanes;
 {timer setVariable [_x,1,true]} forEach vehNATOTransportHelis - [vehNATOPatrolHeli];
+{timer setVariable [_x,1,true]} forEach vehCSATTransportPlanes;
 {timer setVariable [_x,10,true]} forEach vehCSATTransportHelis - [vehCSATPatrolHeli];
 {timer setVariable [_x,0,true]} forEach vehNATOAttackHelis;
 {timer setVariable [_x,10,true]} forEach vehCSATAttackHelis;
@@ -700,8 +702,7 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 		{
 		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
 		unlockedWeapons pushBackUnique "ACE_VMH3";
-		itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX"];
-		weaponsNato = weaponsNato + ["ACE_M84"];
+		itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
 		};
 	hasACE = true;
 	if (isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak")) then {

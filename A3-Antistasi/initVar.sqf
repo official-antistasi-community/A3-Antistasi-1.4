@@ -53,6 +53,7 @@ for "_i" from 0 to (count _cfgMagazines) -1 do
 		allMagazines pushBack _nameX;
 		};
 	};
+diag_log format ["PBP: InitVar: allMagazines: %1",allMagazines];
 
 arifles = [];
 srifles = [];
@@ -98,6 +99,7 @@ _allItems = "
     &&
     { getNumber ( _x >> ""type"" ) isEqualTo 131072 } } )
 " configClasses ( configFile >> "cfgWeapons" );
+
 diag_log format ["%1: [Antistasi] | INFO | initVar | Placing weapons.",servertime];
 _alreadyPlaced = [];
 {
@@ -123,6 +125,13 @@ if (not(_nameX in _alreadyPlaced)) then
 
 	};
 } forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems;
+diag_log format ["PBP: InitVar: AssaultRifle: %1",arifles];
+diag_log format ["PBP: InitVar: MachineGun: %1",mguns];
+diag_log format ["PBP: InitVar: SniperRifle: %1",srifles];
+diag_log format ["PBP: InitVar: Handgun: %1",hguns];
+diag_log format ["PBP: InitVar: MissileLauncher: %1",mlaunchers];
+diag_log format ["PBP: InitVar: RocketLauncher: %1",rlaunchers];
+diag_log format ["PBP: InitVar: Headgear: %1",helmets];
 //vests = vests select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
 //Mod detection
 activeAFRF = false;
@@ -150,7 +159,10 @@ else
 	smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
 	chemX = ["Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue"];
 	};
-
+diag_log format ["PBP: InitVar: MachineGun: %1",mguns];
+diag_log format ["PBP: InitVar: Headgear: %1",helmets];
+diag_log format ["PBP: InitVar: SmokeGrenades: %1",smokeX];
+diag_log format ["PBP: InitVar: Chemlights: %1",chemX];
 	//TFAR detection and config.
 	hasTFAR = false;//default setting to avoid errors when mod is not present
 	startLR = false;//default setting to avoid errors when mod is not present
@@ -159,7 +171,7 @@ else
 	    {
 	    hasTFAR = true;
 	    haveRadio = true;
-			startLR = false;//set to true to start with LR radios unlocked.
+	    startLR = false;//set to true to start with LR radios unlocked.
 	    //unlockedItems = unlockedItems;
 	    ["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
 	    if (hasIFA) then {
@@ -178,7 +190,7 @@ else
 diag_log format ["%1: [Antistasi]: initVar | Building Launcher list.",servertime];
 titanLaunchers = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
-	["launch_B_Titan_F","launch_I_Titan_F","launch_O_Titan_ghex_F","launch_O_Titan_F","launch_B_Titan_tna_F"]
+	["launch_B_Titan_F","launch_B_Titan_tna_F","launch_I_Titan_F","launch_O_Titan_ghex_F","launch_O_Titan_F","launch_Titan_F"]
 	}
 else
 	{
@@ -200,6 +212,9 @@ else
 	{
 	if (hasIFA) then {["LIB_Shg24"]} else {[]};
 	};//possible Titan rockets that spawn in  ammoboxes
+diag_log format ["PBP: InitVar: TitanLaunchers: %1",titanLaunchers];
+diag_log format ["PBP: InitVar: antitankAAF: %1",antitankAAF];
+diag_log format ["PBP: InitVar: MAntitankAAF: %1",MAntitankAAF];
 minesAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
 	["SLAMDirectionalMine_Wire_Mag","SatchelCharge_Remote_Mag","ClaymoreDirectionalMine_Remote_Mag", "ATMine_Range_Mag","APERSTripMine_Wire_Mag","APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag"]
@@ -215,6 +230,7 @@ else
 		if (hasIFA and !myCustomMod) then {["LIB_PMD6_MINE_mag","LIB_TM44_MINE_mag","LIB_US_TNT_4pound_mag"]} else {[]};
 		}
 	};//possible mines that spawn in AAF ammoboxescomment "Exported from Arsenal by Alberto";
+diag_log format ["PBP: InitVar: minesAAF: %1",minesAAF];
 itemsAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
 	["Laserbatteries","MineDetector","NVGoggles","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"]
@@ -230,8 +246,10 @@ else
 		if (hasIFA and !myCustomMod) then {["LIB_ToolKit"]} else {[]};
 		}
 	};
+diag_log format ["PBP: InitVar: itemsAAF: %1",itemsAAF];
 diag_log format ["%1: [Antistasi]: initVar | Building NightVision list.",servertime];
 NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
+diag_log format ["PBP: InitVar: NVGoggles: %1",NVGoggles];
 diag_log format ["%1: [Antistasi]: initVar | Building Vehicle list.",servertime];
 arrayCivVeh = if !(hasIFA) then
 	{
@@ -282,7 +300,10 @@ else
 	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
 	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
 	};
-
+diag_log format ["PBP: InitVar: ammunitionNATO: %1",ammunitionNATO];
+diag_log format ["PBP: InitVar: weaponsNato: %1",weaponsNato];
+diag_log format ["PBP: InitVar: ammunitionCSAT: %1",ammunitionCSAT];
+diag_log format ["PBP: InitVar: weaponsCSAT: %1",weaponsCSAT];
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
 squadLeaders = SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
 medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
@@ -332,6 +353,7 @@ if !(_typeX in _checked) then
 	};
 } forEach _x;
 } forEach groupsCSATmid + [CSATSpecOp] + groupsCSATSquad;
+diag_log format ["PBP: InitVar: weaponsCSAT: %1",weaponsCSAT];
 _checked = [];
 {
 {
@@ -351,17 +373,19 @@ if !(_typeX in _checked) then
 	};
 } forEach _x;
 } forEach groupsNATOmid + [NATOSpecOp] + groupsNATOSquad;
-
+diag_log format ["PBP: InitVar: weaponsNato: %1",weaponsNato];
 {
 _nameX = [_x] call BIS_fnc_baseWeapon;
 _magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
 ammunitionNATO pushBack (_magazines select 0);
 } forEach weaponsNato;
+diag_log format ["PBP: InitVar: ammunitionNATO: %1",ammunitionNATO];
 {
 _nameX = [_x] call BIS_fnc_baseWeapon;
 _magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
 ammunitionCSAT pushBack (_magazines select 0);
 } forEach weaponsCSAT;
+diag_log format ["PBP: InitVar: ammunitionCSAT: %1",ammunitionCSAT];
 //optic, pointer and flashlight automated detection
 opticsAAF = [];
 flashLights = [];
@@ -383,7 +407,7 @@ if !(_item in (opticsAAF + flashLights + pointers)) then
 			}
 		else
 			{
-			if (isClass (configfile >> "CfgWeapons" >> "acc_pointer_IR" >> "ItemInfo" >> "Pointer")) then
+			if (isClass (configfile >> "CfgWeapons" >> _item >> "ItemInfo" >> "Pointer")) then
 				{
 				pointers pushBack _item;
 				};
@@ -391,13 +415,18 @@ if !(_item in (opticsAAF + flashLights + pointers)) then
 		};
 	};
 } forEach (_x call BIS_fnc_compatibleItems);
-
 } forEach (weaponsNato + weaponsCSAT);
+diag_log format ["PBP: InitVar: opticsAAF: %1",opticsAAF];
+diag_log format ["PBP: InitVar: flashLights: %1",flashLights];
+diag_log format ["PBP: InitVar: pointers: %1",pointers];
 if (hasRHS) then
 	{
 	opticsAAF = opticsAAF select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	flashlights = flashlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	pointers = pointers select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	diag_log format ["PBP: InitVar: opticsAAF: %1",opticsAAF];
+	diag_log format ["PBP: InitVar: flashLights: %1",flashLights];
+	diag_log format ["PBP: InitVar: pointers: %1",pointers];
 	};
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning vehicle Types",servertime];
 vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair];
@@ -475,7 +504,7 @@ waitUntil
 };
 hint "Done compiling missionPath";
 
-ladridos = ["Music\dog_bark01.wss", "Music\dog_bark02.wss", "Music\dog_bark03.wss", "Music\dog_bark04.wss", "Music\dog_bark05.wss","Music\dog_maul01.wss","Music\dog_yelp01.wss","Music\dog_yelp02.wss","Music\dog_yelp03.wss"];
+dogSounds = ["Music\dog_bark01.wss", "Music\dog_bark02.wss", "Music\dog_bark03.wss", "Music\dog_bark04.wss", "Music\dog_bark05.wss","Music\dog_maul01.wss","Music\dog_yelp01.wss","Music\dog_yelp02.wss","Music\dog_yelp03.wss"];
 
 UPSMON_Bld_remove = ["Bridge_PathLod_base_F","Land_Slum_House03_F","Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_Bridge_01_F","Land_Bridge_Asphalt_F","Land_Bridge_Concrete_F","Land_Bridge_HighWay_F","Land_Canal_Wall_Stairs_F","warehouse_02_f","cliff_wall_tall_f","cliff_wall_round_f","containerline_02_f","containerline_01_f","warehouse_01_f","quayconcrete_01_20m_f","airstripplatform_01_f","airport_02_terminal_f","cliff_wall_long_f","shop_town_05_f","Land_ContainerLine_01_F"];
 listMilBld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F","Land_Cargo_HQ_V1_F","Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F","Land_HelipadSquare_F"];
@@ -610,11 +639,13 @@ movingMarker = false;
 if !(hasIFA) then
 	{
 	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"] + uniformsSDK + civUniforms;//Initial Arsenal available items
-	if (side group petros == independent) then {unlockedItems pushBack "I_UavTerminal"} else {unlockedItems pushBack "B_UavTerminal"};
+	//if (side group petros == independent) then {unlockedItems pushBack "I_UavTerminal"} else {unlockedItems pushBack "B_UavTerminal"};
+	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	}
 else
 	{
 	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"] + uniformsSDK + civUniforms;
+	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	};
 
 
@@ -701,6 +732,7 @@ hasACEMedical = false;
 
 if (!isNil "ace_common_fnc_isModLoaded") then {
 	unlockedItems = unlockedItems + aceItems;
+	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	if !(hasIFA) then
 		{
 		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
@@ -710,6 +742,12 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 		itemsAAF = itemsAAF - ["MineDetector"];
 		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
 		smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
+		diag_log format ["PBP: InitVar: unlockedBackpacks: %1",unlockedBackpacks];
+		diag_log format ["PBP: InitVar: weaponsNato: %1",weaponsNato];
+		diag_log format ["PBP: InitVar: ammunitionNATO: %1",ammunitionNATO];
+		diag_log format ["PBP: InitVar: itemsAAF: %1",itemsAAF];
+		diag_log format ["PBP: InitVar: chemX: %1",chemX];
+		diag_log format ["PBP: InitVar: smokeX: %1",smokeX];
 		};
 	hasACE = true;
 	if (isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak")) then {
@@ -719,6 +757,7 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 		if (ace_medical_level == 1) then {
 			hasACEMedical = true;
 			unlockedItems = unlockedItems + aceBasicMedItems;
+			diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 		};
 	};
 
@@ -726,6 +765,7 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 		if (ace_medical_level == 2) then {
 			hasACEMedical = true;
 			unlockedItems = unlockedItems + aceBasicMedItems + aceAdvMedItems;
+			diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 		};
 	};
 };
@@ -734,6 +774,7 @@ if (isClass(configFile >> "cfgPatches" >> "acre_main")) then
 	hasACRE = true;
 	haveRadio = true;
 	unlockedItems = unlockedItems + ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
+	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	};
 
 //allItems = allItems + itemsAAF + opticsAAF + _vests + helmets + NVGoggles;

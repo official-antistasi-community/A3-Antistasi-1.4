@@ -395,7 +395,7 @@ pointers = [];
 _item = _x;
 if !(_item in (opticsAAF + flashLights + pointers)) then
 	{
-	if (((_item call BIS_fnc_itemType) select 1) == "AccessorySights") then
+	if (isCLass(configFile >> "CfgWeapons" >> _item >> "ItemInfo" >> "OpticsModes")) then
 		{
 		opticsAAF pushBack _item
 		}
@@ -416,6 +416,7 @@ if !(_item in (opticsAAF + flashLights + pointers)) then
 	};
 } forEach (_x call BIS_fnc_compatibleItems);
 } forEach (weaponsNato + weaponsCSAT);
+opticsAAF = opticsAAF call BIS_fnc_sortAlphabetically;
 diag_log format ["PBP: InitVar: opticsAAF: %1",opticsAAF];
 diag_log format ["PBP: InitVar: flashLights: %1",flashLights];
 diag_log format ["PBP: InitVar: pointers: %1",pointers];
@@ -736,11 +737,12 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	if !(hasIFA) then
 		{
-		weaponsNato = weaponsNato + ["ACE_VMH3","ACE_Chemlight_Shield","ACE_M84"];
-		itemsAAF = itemsAAF + ["acc_pointer_IR","ACE_acc_pointer_green_IR"];
+		weaponsNato = weaponsNato + ["ACE_VMH3","ACE_Chemlight_Shield"];
+		itemsAAF = itemsAAF + ["ACE_acc_pointer_green_IR"];
 		itemsAAF = itemsAAF - ["MineDetector"];
 		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
-		smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
+		smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow","ACE_M84"];
+		ammunitionNATO = ammunitionNATO - ["ACE_PreloadedMissileDummy"];
 		diag_log format ["PBP: InitVar: unlockedBackpacks: %1",unlockedBackpacks];
 		diag_log format ["PBP: InitVar: weaponsNato: %1",weaponsNato];
 		diag_log format ["PBP: InitVar: ammunitionNATO: %1",ammunitionNATO];

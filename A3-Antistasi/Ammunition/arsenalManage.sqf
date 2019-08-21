@@ -125,7 +125,7 @@ if (_x select 1 >= minWeaps) then
 	{
 	_item = _x select 0;
 	unlockedOptics pushBack _item;
-	unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
+	unlockedOptics = unlockedOptics call BIS_fnc_sortAlphabetically;
 	//unlockedItems pushBack _item; //TESTING DISABLE PBP
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 	_check = true;

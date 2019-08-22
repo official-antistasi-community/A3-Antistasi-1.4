@@ -185,4 +185,11 @@ if (_countX >= minWeaps) then
 	_index = _nvToUnlock call jn_fnc_arsenal_itemType;
 	[_index,_nvToUnlock,-1] call jn_fnc_arsenal_addItem;
 };
+//fixes for case issues
+if (("optic_hamr") in unlockedOptics) then {unlockedOptics = unlockedOptics + ["optic_Hamr"]};
+if (("optic_aco_smg") in unlockedOptics) then {unlockedOptics = unlockedOptics + ["optic_Aco_smg"]};
+if (("optic_aco") in unlockedOptics) then {unlockedOptics = unlockedOptics + ["optic_Aco"]};
+if (("30Rnd_65x39_caseless_mag") in unlockedMagazines) then {unlockedMagazines = unlockedMagazines + ["30Rnd_65x39_Caseless_mag"]};
+if (("100Rnd_65x39_caseless_mag") in unlockedMagazines) then {unlockedMagazines = unlockedMagazines + ["100Rnd_65x39_Caseless_mag"]};
+if (("30Rnd_45ACP_Mag_SMG_01_tracer_green") in unlockedMagazines) then {unlockedMagazines = unlockedMagazines + ["30Rnd_45ACP_Mag_SMG_01_Tracer_Green"]};
 _updated

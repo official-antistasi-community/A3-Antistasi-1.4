@@ -5,7 +5,7 @@
 //Not commented lines cannot be changed.
 //Don't touch them.
 diag_log format ["%1: [Antistasi] | INFO | initVar Started.",servertime];
-antistasiVersion = $STR_antistasi_credits_generic_version_text;
+antistasiVersion = localize "STR_antistasi_credits_generic_version_text";
 
 debug = false;//debug variable, not useful for everything..
 

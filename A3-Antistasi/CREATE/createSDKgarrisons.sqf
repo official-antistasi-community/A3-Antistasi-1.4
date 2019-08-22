@@ -68,7 +68,7 @@ if (_markerX != "Synd_HQ") then
 		[_veh,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
 		};
 	};
-_staticsX = staticsToSave select {_x distance _positionX < _size};
+_staticsX = staticsToSave select {_x distance2D _positionX < _size};
 
 _garrison = [];
 _garrison = _garrison + (garrison getVariable [_markerX,[]]);

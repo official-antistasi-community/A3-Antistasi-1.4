@@ -51,6 +51,7 @@ class A3A
         class outpostDialog {file="outpostDialog.sqf";};
         class radioCheck {file="radioCheck.sqf";};
         class rebuildAssets {file="rebuildAssets.sqf";};
+        class repairRuinedBuilding {file="repairRuinedBuilding.sqf";};
         class relocateHQObjects {file="relocateHQObjects.sqf";};
         class resourceCheckSkipTime {file="resourcecheckSkipTime.sqf";};
         class resourcesFIA {file="resourcesFIA.sqf";};

@@ -231,6 +231,10 @@ if (spawner getVariable _markerX != 2) then
 } forEach _posAT;
 
 _ret = [_markerX,_size,_sideX,_frontierX] call A3A_fnc_milBuildings;
+ 
+{[_x] call A3A_fnc_AIVEHinit} forEach (_ret select 1);
+{[_x,_markerX] call A3A_fnc_NATOinit} forEach (_ret select 2);
+
 _groups pushBack (_ret select 0);
 _vehiclesX append (_ret select 1);
 _soldiers append (_ret select 2);
@@ -286,6 +290,7 @@ if (!_busy) then
 	if !(_runwaySpawnLocation isEqualTo []) then
 		{
 		_pos = _runwaySpawnLocation select 0;
+		_pos set [2, 0.1]; //Always spawn on the ground.
 		_ang = _runwaySpawnLocation select 1;
 		
 		_heliPos = [_pos, 30,_ang + 90] call BIS_fnc_relPos;

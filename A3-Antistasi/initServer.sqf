@@ -159,17 +159,18 @@ addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnec
 //PlayerDisconnected doesn't get access to the unit, so we shouldn't use it to handle saving.
 addMissionEventHandler ["PlayerDisconnected",{_this call A3A_fnc_onHeadlessClientDisconnect;false}];
 
-addMissionEventHandler ["BuildingChanged",
-        {
-        _building = _this select 0;
-        if !(_building in antennas) then
-            {
-            if (_this select 2) then
-                {
-                destroyedBuildings pushBack (getPosATL _building);
-                };
-            };
-        }];
+addMissionEventHandler ["BuildingChanged", {
+	params ["_oldBuilding", "_newBuilding", "_isRuin"];
+	
+	if (_isRuin) then {
+		_oldBuilding setVariable ["ruins", _newBuilding];
+		_newBuilding setVariable ["building", _oldBuilding];
+		
+		if !(_oldBuilding in antennas) then {
+			destroyedBuildings pushBack (getPosATL _oldBuilding);
+		};
+	};
+}];
 
 serverInitDone = true; publicVariable "serverInitDone";
 diag_log format ["%1: [Antistasi] | INFO | Marking serverInitDone : %2.",servertime, serverInitDone];

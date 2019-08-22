@@ -3,7 +3,7 @@ if (player != player getVariable ["owner",player]) exitWith {hint "You cannot go
 _player = player getVariable ["owner",player];
 if (captive _player) exitWith {hint "You are Undercover already"};
 
-private ["_compromised","_changeX","_airportsX","_roadblocks","_arrayCivVeh","_player","_size","_base"];
+private ["_compromised","_changeX","_airportsX","_roadblocks","_arrayCivVeh","_player","_size","_base","_onDetectionMarker","_onBaseMarker","_airportSide"];
 
 _changeX = "";
 _roadblocks = (controlsX select {isOnRoad (getMarkerPos _x)});
@@ -11,6 +11,8 @@ _airportsX = airportsX + outposts + _roadblocks;
 _airportsX1 = airportsX;
 _arrayCivVeh = arrayCivVeh + [civHeli] + civBoats;
 _compromised = _player getVariable "compromised";
+
+
 
 if (vehicle _player != _player) then
 	{
@@ -132,23 +134,27 @@ while {_changeX == ""} do
 				{
 				_base = [_airportsX,_player] call BIS_fnc_nearestPosition;
 				//_size = [_base] call A3A_fnc_sizeMarker;
-				if ((_player inArea _base) and (sidesX getVariable [_base,sideUnknown] != teamPlayer)) then
+//Following lines are for the detection of players in the detectionAreas
+_onDetectionMarker = (detectionAreas findIf {_player inArea _x } != -1);
+_onBaseMarker = (_player inArea _base);
+_airportSide = (sidesX getVariable [_base, sideUnknown]);
+_airport = [_airportsX1,_player] call BIS_fnc_nearestPosition;
+			if(_onBaseMarker  && {_baseSide != teamPlayer} || {_onDetectionMarker && {sidesX getVariable _airport != teamPlayer}}) then
 					{
 					if !(_isInControl) then
 						{
 						_aggro = if (sidesX getVariable [_base,sideUnknown] == Occupants) then {prestigeNATO + (tierWar*10)} else {prestigeCSAT + (tierWar*10)};
 						//Probability	of being spotted. Unless we're in an airfield - then we're always spotted.
-						if (_base in _airportsX1 ||	random 100 < _aggro) then
+						if (_base in _airportsX1 || _onDetectionMarker ||    random 100 < _aggro) then
 							{
-							if (_base in _roadblocks) then 
+							if (_base in _roadblocks) then
 								{
 								_changeX = "distanceX";
-								} 
-							else 
+								}
+							else
 								{
 								_changeX = "Control";
 								};
-							
 							}
 						else
 							{
@@ -176,6 +182,7 @@ while {_changeX == ""} do
 			};
 		};
 	};
+diag_log format ["[Antistasi] Player detected in %1 (undercover.sqf)", _onDetectionMarker];
 
 if (captive _player) then {[_player,false] remoteExec ["setCaptive"]; _player setCaptive false};
 

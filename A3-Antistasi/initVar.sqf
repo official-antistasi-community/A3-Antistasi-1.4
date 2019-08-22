@@ -231,9 +231,14 @@ else
 		}
 	};//possible mines that spawn in AAF ammoboxescomment "Exported from Arsenal by Alberto";
 diag_log format ["PBP: InitVar: minesAAF: %1",minesAAF];
+
+diag_log format ["%1: [Antistasi]: initVar | Building NightVision list.",servertime];
+NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
+diag_log format ["PBP: InitVar: NVGoggles: %1",NVGoggles];
+
 itemsAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
-	["Laserbatteries","MineDetector","NVGoggles","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"]
+	["Laserbatteries","MineDetector","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"] + NVGoggles;
 	}
 else
 	{
@@ -247,9 +252,7 @@ else
 		}
 	};
 diag_log format ["PBP: InitVar: itemsAAF: %1",itemsAAF];
-diag_log format ["%1: [Antistasi]: initVar | Building NightVision list.",servertime];
-NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
-diag_log format ["PBP: InitVar: NVGoggles: %1",NVGoggles];
+
 diag_log format ["%1: [Antistasi]: initVar | Building Vehicle list.",servertime];
 arrayCivVeh = if !(hasIFA) then
 	{
@@ -737,8 +740,8 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	if !(hasIFA) then
 		{
-		weaponsNato = weaponsNato + ["ACE_VMH3","ACE_Chemlight_Shield"];
-		itemsAAF = itemsAAF + ["ACE_acc_pointer_green_IR"];
+		weaponsNato pushBack "ACE_VMH3";
+		itemsAAF = itemsAAF + ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield"];
 		itemsAAF = itemsAAF - ["MineDetector"];
 		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
 		smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow","ACE_M84"];

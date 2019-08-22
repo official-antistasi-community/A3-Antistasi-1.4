@@ -38,7 +38,7 @@ if (_x select 1 >= minWeaps) then
 			};*/
 			
 		unlockedWeapons pushBack _weaponX;
-		unlockedWeapons = [unlockedWeapons,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
+		unlockedWeapons = unlockedWeapons call BIS_fnc_sortAlphabetically;
 		//lockedWeapons = lockedWeapons - [_weaponX];
 		if (_weaponX in arifles) then
 			{
@@ -106,7 +106,7 @@ if (_x select 1 >= minWeaps) then
 	{
 	_item = _x select 0;
 	unlockedItems pushBack _item;
-	unlockedItems = [unlockedItems,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
+	unlockedItems = unlockedItems call BIS_fnc_sortAlphabetically;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 	_check = true;
 	_index = _item call jn_fnc_arsenal_itemType;
@@ -146,7 +146,7 @@ if (_check) then
 		{
 			_item = _x select 0;
 			unlockedMagazines pushBack _item;
-			unlockedMagazines = [unlockedMagazines,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
+			unlockedMagazines = unlockedMagazines call BIS_fnc_sortAlphabetically;
 			_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 			_check = true;
 			_index = _item call jn_fnc_arsenal_itemType;
@@ -185,11 +185,14 @@ if (_countX >= minWeaps) then
 	_index = _nvToUnlock call jn_fnc_arsenal_itemType;
 	[_index,_nvToUnlock,-1] call jn_fnc_arsenal_addItem;
 };
+
 //fixes for case issues
-if (("optic_hamr") in unlockedOptics) then {unlockedOptics = unlockedOptics + ["optic_Hamr"]};
-if (("optic_aco_smg") in unlockedOptics) then {unlockedOptics = unlockedOptics + ["optic_Aco_smg"]};
-if (("optic_aco") in unlockedOptics) then {unlockedOptics = unlockedOptics + ["optic_Aco"]};
-if (("30Rnd_65x39_caseless_mag") in unlockedMagazines) then {unlockedMagazines = unlockedMagazines + ["30Rnd_65x39_Caseless_mag"]};
-if (("100Rnd_65x39_caseless_mag") in unlockedMagazines) then {unlockedMagazines = unlockedMagazines + ["100Rnd_65x39_Caseless_mag"]};
-if (("30Rnd_45ACP_Mag_SMG_01_tracer_green") in unlockedMagazines) then {unlockedMagazines = unlockedMagazines + ["30Rnd_45ACP_Mag_SMG_01_Tracer_Green"]};
+//if (("ACE_Chemlight_Shield") in unlockedItems) then {unlockedWeapons pushBack "ACE_Chemlight_Shield"};
+if (("optic_Hamr") in unlockedOptics) then {unlockedOptics pushBack "optic_hamr"};
+if (("optic_Aco_smg") in unlockedOptics) then {unlockedOptics pushBack "optic_aco_smg"};
+if (("optic_Aco") in unlockedOptics) then {unlockedOptics pushBack "optic_aco"};
+if (("30Rnd_65x39_caseless_mag") in unlockedMagazines) then {unlockedMagazines pushBack "30Rnd_65x39_Caseless_mag"};
+if (("100Rnd_65x39_caseless_mag") in unlockedMagazines) then {unlockedMagazines pushBack "100Rnd_65x39_Caseless_mag"};
+if (("30Rnd_45ACP_Mag_SMG_01_Tracer_Green") in unlockedMagazines) then {unlockedMagazines pushBack "30Rnd_45ACP_Mag_SMG_01_tracer_green"};
+
 _updated

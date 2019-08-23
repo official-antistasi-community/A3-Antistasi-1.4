@@ -60,7 +60,9 @@ for "_i" from 0 to _var3 do
 	};
 for "_i" from 0 to _var4 do
 	{
-	_loot = selectRandom minesAAF;
+	_mines = selectRandom minesAAF;
+	_avail = (_mines - _unlocks);
+	_loot = selectRandom _avail;
 	_num = 1 + (floor random 4);
 	_crate addMagazineCargoGlobal [_loot, _num];
 	};

@@ -27,7 +27,7 @@ switchCom = if ("switchComm" call BIS_fnc_getParamValue == 1) then {true} else {
 tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 distanceMission = "mRadius" call BIS_fnc_getParamValue; publicVariable "distanceMission";
 pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false};
-skillMult = "AISkill" call BIS_fnc_getParamValue; publicVariable "skillMult";
+skillMult = (paramsArray select 10); publicVariable "skillMult";
 minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
 memberOnlyMagLimit = "MemberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
 civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
@@ -191,4 +191,5 @@ savingServer = false;
 			sleep 30;
 		};
 };
+[] call A3A_fnc_arsenalManage; //By PBP - to ensure case issues are resolved on server start
 diag_log format ["%1: [Antistasi] | INFO | initServer Completed.",servertime];

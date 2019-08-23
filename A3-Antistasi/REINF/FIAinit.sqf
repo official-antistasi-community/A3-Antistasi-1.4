@@ -17,17 +17,8 @@ if (_typeX in SDKSniper) then
 	{
 	if (count unlockedSN > 0) then
 		{
-		_magazines = getArray (configFile / "CfgWeapons" / (primaryWeapon _unit) / "magazines");
-		{_unit removeMagazines _x} forEach _magazines;
-		_unit removeWeaponGlobal (primaryWeapon _unit);
-		[_unit, selectRandom unlockedSN, 8, 0] call BIS_fnc_addWeapon;
-		if (count unlockedOptics > 0) then
-			{
-			_compatibleX = [primaryWeapon _unit] call BIS_fnc_compatibleItems;
-			_potentials = unlockedOptics select {_x in _compatibleX};
-			if (count _potentials > 0) then {_unit addPrimaryWeaponItem (_potentials select 0)};
-			};
-		}
+		[_unit,unlockedSN] call A3A_fnc_randomRifle;
+		};
 	else
 		{
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
@@ -35,23 +26,22 @@ if (_typeX in SDKSniper) then
 	}
 else
 	{
-	if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]};
-	if (random 40 < skillFIA) then
+	if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]}; 	// if unit isnt a sniper maximum accuracy is 35% (because fuck difficulty?)
+	if (random 40 < skillFIA) then 												// 50% or greater chance that units will have there helmets removed (also because fuck difficulty)
 		{
 		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom helmets)};
 		};
-	if ((_typeX in SDKMil) or (_typeX == staticCrewTeamPlayer)) then
+	if ((_typeX in SDKMil) or (_typeX == staticCrewTeamPlayer)) then						// If unit is in the military or static crew troop lists
 		{
-		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		if ((loadAbs _unit < 340) and (_typeX in SDKMil)) then
-			{
-			if ((random 20 < skillFIA) and (count unlockedAA > 0)) then
-				{
-				_unit addbackpack (unlockedBackpacks select 0);
-				[_unit, selectRandom unlockedAA, 2, 0] call BIS_fnc_addWeapon;
-				//removeBackpack _unit;
-				};
-			};
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;								// Give them a Rifle
+		if ((loadAbs _unit < 340) and (_typeX in SDKMil)) then							//
+			{																//
+			if ((random 20 < skillFIA) and (count unlockedAA > 0)) then					// if roll succeeds and there are unlocked AA launchers
+				{															//
+				_unit addbackpack (unlockedBackpacks select 0);						// give them the first unlocked backpack (needs improvement)
+				[_unit, selectRandom unlockedAA, 2, 0] call BIS_fnc_addWeapon;			// give them a random launcher from the AA list and 2 magazines of the first type in CfgWeapons
+				};															//
+			};																//
 		}
 	else
 		{

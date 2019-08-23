@@ -5,12 +5,12 @@
 //Not commented lines cannot be changed.
 //Don't touch them.
 diag_log format ["%1: [Antistasi] | INFO | initVar Started.",servertime];
-antistasiVersion = "v 1.4c2.0";
+antistasiVersion = localize "STR_antistasi_credits_generic_version_text";
 
-debug = false;//debug variable, not useful for everything..
+debug = false;										//debug variable, not useful for everything..
 
-cleantime = 3600;//time to delete dead bodies, vehicles etc..
-distanceSPWN = 1000;//initial spawn distance. Less than 1Km makes parked vehicles spawn in your nose while you approach.
+cleantime = 3600;									//time to delete dead bodies, vehicles etc..
+distanceSPWN = 1000;								//initial spawn distance. Less than 1Km makes parked vehicles spawn in your nose while you approach.
 distanceSPWN1 = 1300;
 distanceSPWN2 = 500;
 musicON = if (isMultiplayer) then {false} else {true};
@@ -19,13 +19,6 @@ autoHeal = false;
 recruitCooldown = 0;
 savingClient = false;
 incomeRep = false;
-//distanceMission = 2500;
-/*
-minMags = 20;
-
-minPacks = 20;
-minItems = 20;
-minOptics = 12;*/
 maxUnits = 140;
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Generating Players.",servertime];
@@ -66,7 +59,6 @@ helmets = [];
 
 hasRHS = false;
 
-//lockedWeapons = ["Rangefinder","Laserdesignator"];
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Weapon list",servertime];
 _allPrimaryWeapons = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
@@ -147,6 +139,7 @@ if (isClass(configFile/"CfgPatches"/"LIB_Core")) then
 	hasIFA = true;
 	helmets = [];
 	smokeX = ["LIB_RDG","LIB_NB39"];
+	//PBP - Are there chemlights in IFA?
 	}
 else
 	{
@@ -172,7 +165,6 @@ diag_log format ["PBP: InitVar: Chemlights: %1",chemX];
 	    hasTFAR = true;
 	    haveRadio = true;
 	    startLR = false;//set to true to start with LR radios unlocked.
-	    //unlockedItems = unlockedItems;
 	    ["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
 	    if (hasIFA) then {
 	      ["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
@@ -419,7 +411,6 @@ if !(_item in (opticsAAF + flashLights + pointers)) then
 	};
 } forEach (_x call BIS_fnc_compatibleItems);
 } forEach (weaponsNato + weaponsCSAT);
-opticsAAF = opticsAAF call BIS_fnc_sortAlphabetically;
 diag_log format ["PBP: InitVar: opticsAAF: %1",opticsAAF];
 diag_log format ["PBP: InitVar: flashLights: %1",flashLights];
 diag_log format ["PBP: InitVar: pointers: %1",pointers];
@@ -640,16 +631,20 @@ garrisonIsChanging = false;
 playerHasBeenPvP = [];
 missionsX = []; publicVariable "missionsX";
 movingMarker = false;
-startingVests = ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
+
 if !(hasIFA) then
 	{
-	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"] + uniformsSDK + civUniforms + startingVests;//Initial Arsenal available items
-	//if (side group petros == independent) then {unlockedItems pushBack "I_UavTerminal"} else {unlockedItems pushBack "B_UavTerminal"};
+	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"];
+	unlockedItems append uniformsSDK;
+	unlockedItems append civUniforms;			// these are huge arrays, so lets append them for performance
+	unlockeditems append startingVests;
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	}
 else
 	{
-	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"] + uniformsSDK + civUniforms;
+	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"];
+	unlockedItems append uniformsSDK;
+	unlockedItems append civUniforms;			// these are huge arrays, so lets append them for performance
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	};
 
@@ -780,8 +775,6 @@ if (isClass(configFile >> "cfgPatches" >> "acre_main")) then
 	unlockedItems = unlockedItems + ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	};
-
-//allItems = allItems + itemsAAF + opticsAAF + _vests + helmets + NVGoggles;
 
 if (worldName == "Tanoa") then
 	{

@@ -18,15 +18,15 @@ if (!isMultiPlayer) then
     minWeaps = 24;
     civTraffic = 1;
     limitedFT = false;
-	diag_log format ["%1: [Antistasi] | INFO | Singleplayer Starting.",servertime];
-    call compile preprocessFileLineNumbers "initVar.sqf";//this is the file where you can modify a few things.
+    diag_log format ["%1: [Antistasi] | INFO | Singleplayer Starting.",servertime];
+    call compile preprocessFileLineNumbers "initVar.sqf";
     diag_log format ["%1: [Antistasi] | INFO | SP Version: %2 loaded.",servertime,antistasiVersion];
     initVar = true;
     respawnOccupants setMarkerAlpha 0;
     "respawn_east" setMarkerAlpha 0;
     [] execVM "briefing.sqf";
     _nul = [] execVM "musica.sqf";
-    {if (/*(side _x == teamPlayer) and */(_x != commanderX) and (_x != Petros)) then {_grupete = group _x; deleteVehicle _x; deleteGroup _grupete}} forEach allUnits;
+    {if (/*(side _x == teamPlayer) and */(_x != commanderX) and (_x != Petros)) then {_grupete = group _x; deleteVehicle _x; deleteGroup _grupete}} forEach allUnits;          //what the fuck is this?
     _serverHasID = profileNameSpace getVariable ["ss_ServerID",nil];
     if(isNil "_serverHasID") then
         {
@@ -63,6 +63,7 @@ if (!isMultiPlayer) then
     private _index = _x call jn_fnc_arsenal_itemType;
     [_index,_x,-1] call jn_fnc_arsenal_addItem;
     }foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
+    [] call A3A_fnc_arsenalManage; //By PBP - to ensure case issues are resolved on mission start
     [] execVM "Ammunition\boxAAF.sqf";
     waitUntil {sleep 1;!(isNil "placementDone")};
     distanceXs = [] spawn A3A_fnc_distances4;

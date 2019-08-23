@@ -18,7 +18,7 @@ if (_typeX in SDKSniper) then
 	if (count unlockedSN > 0) then
 		{
 		[_unit,unlockedSN] call A3A_fnc_randomRifle;
-		};
+		}
 	else
 		{
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;

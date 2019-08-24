@@ -1,4 +1,4 @@
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayerVanillaAltisB.sqf"};
+if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\REBELtemplateVANILLAaltisBLUFOR.sqf"};
 REBELmortar = "I_G_Mortar_01_F";
 REBELmortarHEmag = "8Rnd_82mm_Mo_shells";
 REBELmortarSMOKEmag = "8Rnd_82mm_Mo_Smoke_white";

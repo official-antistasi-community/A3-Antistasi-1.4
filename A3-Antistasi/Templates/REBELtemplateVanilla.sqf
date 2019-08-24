@@ -1,4 +1,4 @@
-if (worldName == "Altis") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayerVanillaAltis.sqf"};
+if (worldName == "Altis") exitWith {call compile preProcessFileLineNumbers "Templates\REBELtemplateVanillaAltis.sqf"};
 
 REBELmortar = "I_G_Mortar_01_F";
 REBELmortarHEmag = "8Rnd_82mm_Mo_shells";

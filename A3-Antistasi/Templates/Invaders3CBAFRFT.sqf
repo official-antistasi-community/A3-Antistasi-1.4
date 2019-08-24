@@ -1,4 +1,4 @@
-//if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayer3CBBAFT.sqf"} else {
+//if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBBAFT.sqf"} else {
 
 CSATGrunt = "rhs_msv_rifleman";
 CSATOfficer = "rhs_msv_officer";

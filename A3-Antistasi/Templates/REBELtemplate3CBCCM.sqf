@@ -1,5 +1,5 @@
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayerBlu3CBUN.sqf"};
-if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayer3CBCCMT.sqf"};
+if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\REBELtemplateBlu3CBUN.sqf"};
+if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBCCMT.sqf"};
 
 REBELmortar = "rhsgref_ins_g_2b14";
 REBELmortarHEmag = "rhs_mag_3vo18_10";

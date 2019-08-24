@@ -1,4 +1,4 @@
-//if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayer3CBBAFT.sqf"} else {
+//if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBBAFT.sqf"} else {
 
 NATOGrunt = "UK3CB_BAF_Rifleman_762_Tropical";
 NATOOfficer = "UK3CB_BAF_Officer_Tropical";

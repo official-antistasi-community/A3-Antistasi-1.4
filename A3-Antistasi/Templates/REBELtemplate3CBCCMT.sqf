@@ -1,4 +1,4 @@
-//if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayer3CBCCMT.sqf"} else {
+//if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBCCMT.sqf"} else {
 
 REBELmortar = "rhsgref_ins_g_2b14";
 REBELmortarHEmag = "rhs_mag_3vo18_10";

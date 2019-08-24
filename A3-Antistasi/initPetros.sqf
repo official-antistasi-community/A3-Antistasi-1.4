@@ -6,45 +6,53 @@ petros setVariable ["respawning",false];
 petros allowDamage false;
 [petros, sniperRifle, 8, 0] call BIS_fnc_addWeapon;
 petros selectWeapon (primaryWeapon petros);
-petros addEventHandler ["HandleDamage",
-        {
-        private ["_unit","_part","_dam","_injurer"];
-        _part = _this select 1;
-        _dam = _this select 2;
-        _injurer = _this select 3;
+petros addEventHandler 
+[
+    "HandleDamage",
+    {
+    _part = _this select 1;
+    _damage = _this select 2;
+    _injurer = _this select 3;
 
-        if (isPlayer _injurer) then
-            {
-            _dam = (_this select 0) getHitPointDamage (_this select 7);
-            };
-        if ((isNull _injurer) or (_injurer == petros)) then {_dam = 0};
+    _victim = _this select 0;
+    _instigator = _this select 6;
+    if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.1) then
+    {
+        [_instigator, 60, 1] remoteExec ["A3A_fnc_punishment",_instigator];
+    };
+    if (isPlayer _injurer) then
+    {
+        _damage = (_this select 0) getHitPointDamage (_this select 7);
+    };
+    if ((isNull _injurer) or (_injurer == petros)) then {_damage = 0};
         if (_part == "") then
+        {
+            if (_damage > 1) then
             {
-            if (_dam > 1) then
-                {
                 if (!(petros getVariable ["INCAPACITATED",false])) then
-                    {
+                {
                     petros setVariable ["INCAPACITATED",true,true];
-                    _dam = 0.9;
+                    _damage = 0.9;
                     if (!isNull _injurer) then {[petros,side _injurer] spawn A3A_fnc_unconscious} else {[petros,sideUnknown] spawn A3A_fnc_unconscious};
-                    }
+                }
                 else
-                    {
-                    _overall = (petros getVariable ["overallDamage",0]) + (_dam - 1);
+                {
+                    _overall = (petros getVariable ["overallDamage",0]) + (_damage - 1);
                     if (_overall > 1) then
-                        {
+                    {
                         petros removeAllEventHandlers "HandleDamage";
-                        }
+                    }
                     else
-                        {
+                    {
                         petros setVariable ["overallDamage",_overall];
-                        _dam = 0.9;
-                        };
+                        _damage = 0.9;
                     };
                 };
             };
-        _dam
-        }];
+        };
+    _damage;
+    }
+];
 
 petros addMPEventHandler ["mpkilled",
     {

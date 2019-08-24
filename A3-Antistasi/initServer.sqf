@@ -48,7 +48,7 @@ publicVariable "campaignID";
 _nul = call compile preprocessFileLineNumbers "initVar.sqf";
 initVar = true; publicVariable "initVar";
 savingServer = true;
-diag_log format ["%1: [Antistasi] | INFO | MP Version: %2 loaded.",servertime,antistasiVersion];
+diag_log format ["%1: [Antistasi] | INFO | MP Version: %2 loaded.",servertime, localize "STR_antistasi_credits_generic_version_text"];
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 _nul = call compile preprocessFileLineNumbers "initFuncs.sqf";
 _nul = call compile preprocessFileLineNumbers "initZones.sqf";

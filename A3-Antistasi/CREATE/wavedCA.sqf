@@ -427,11 +427,11 @@ while {(_waves > 0)} do
 			};
 		_vehPool = if (_sideX == Occupants) then
 					{
-					if (_mrkDestination in airportsX) then {(vehNATOAir - [vehNATOPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}} else {(vehNatoAir - vehFixedWing) select {[_x] call A3A_fnc_vehAvailable}};
+					if (_mrkDestination in airportsX) then {(vehNATOAir - [vehNATOPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}} else {(vehNatoAir - [vehNATOPlaneAA, vehNATOPlane]) select {[_x] call A3A_fnc_vehAvailable}};
 					}
 				else
 					{
-					if (_mrkDestination in airportsX) then {(vehCSATAir - [vehCSATPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}} else {(vehCSATAir - vehFixedWing) select {[_x] call A3A_fnc_vehAvailable}};
+					if (_mrkDestination in airportsX) then {(vehCSATAir - [vehCSATPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}} else {(vehCSATAir - [vehCSATPlaneAA, vehCSATPlane]) select {[_x] call A3A_fnc_vehAvailable}};
 					};
 		if (_isSDK) then
 			{
@@ -459,14 +459,11 @@ while {(_waves > 0)} do
 		_pos = _posOrigin;
 		_ang = 0;
 		_size = [_mrkOrigin] call A3A_fnc_sizeMarker;
-		_buildings = nearestObjects [_posOrigin, ["Land_LandMark_F","Land_runway_edgelight"], _size / 2];
-		if (count _buildings > 1) then
-			{
-			_pos1 = getPos (_buildings select 0);
-			_pos2 = getPos (_buildings select 1);
-			_ang = [_pos1, _pos2] call BIS_fnc_DirTo;
-			_pos = [_pos1, 5,_ang] call BIS_fnc_relPos;
-			};
+		private _runwayTakeoff = [_mrkOrigin] call A3A_fnc_getRunwayTakeoffForAirportMarker
+		if (count _runwayTakeoff > 0) then {
+			_pos = _runwayTakeoff select 0;
+			_ang = _runwayTakeoff select 1;
+		};
 		_spawnedSquad = false;
 		while {(_countX <= _nVeh) and (count _soldiers <= 80)} do
 			{
@@ -478,7 +475,7 @@ while {(_waves > 0)} do
 					_vehPool = _vehPool select {_x in (vehCSATTransportHelis + vehCSATTransportPlanes)}
 				}
 			};
-			_typeVehX = if !(_vehPool isEqualTo []) then {selectRandom _vehPool} else {if (_sideX == Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli}};
+			_typeVehX = if !(_vehPool isEqualTo []) then {selectRandom _vehPool} else {if (_sideX == Occupants) then {vehNATOPatrolHeli + vehNATOTransportPlanes} else {vehCSATPatrolHeli + vehCSATTransportPlanes}};
 			if ((_typeVehX in vehTransportAir) and !(_spawnedSquad)) then
 				{
 				_allUnits = {(local _x) and (alive _x)} count allUnits;
@@ -498,7 +495,9 @@ while {(_waves > 0)} do
 				{
 				_vehicle=[_pos, _ang + 90,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
 				_veh = _vehicle select 0;
-				if (hasIFA) then {_veh setVelocityModelSpace [((velocityModelSpace _veh) select 0) + 0,((velocityModelSpace _veh) select 1) + 150,((velocityModelSpace _veh) select 2) + 50]};
+				if (_veh isKindOf "Plane") then {
+					_veh setVelocityModelSpace (velocityModelSpace _veh vectorAdd [0, 150, 50]);
+				};
 				_vehCrew = _vehicle select 1;
 				_groupVeh = _vehicle select 2;
 				_pilots append _vehCrew;

@@ -48,7 +48,8 @@ if (isMultiplayer) then
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if ((side player == teamPlayer) and tkPunish) then
 	{
-		private _firedHandlerTk = {
+		private _firedHandlerTk = 
+		{
 			_typeX = _this select 1;
 			if ((_typeX == "Put") or (_typeX == "Throw")) then
 			{
@@ -57,7 +58,7 @@ if (isMultiplayer) then
 					deleteVehicle (_this select 6);
 					if (_typeX == "Put") then
 					{
-						if (player distance petros < 10) then {[player,60] spawn A3A_fnc_punishment};
+						if (player distance petros < 10) then {[player, 20, 0.34] remoteExec ["A3A_fnc_punishment",player];};
 					};
 				};
 			};
@@ -217,73 +218,91 @@ player setUnitTrait ["audibleCoef",0.8];
 
 [player] call A3A_fnc_dress;
 player setvariable ["compromised",0];
-player addEventHandler ["FiredMan",
+player addEventHandler 
+[
+	"FiredMan",
 	{
-	_player = _this select 0;
-	if (captive _player) then
+		_player = _this select 0;
+		if (captive _player) then
 		{
-		//if ({((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout player > 1.4)} count allUnits > 0) then
-		if ({if (((side _x == Occupants) or (side _x == Invaders)) and (_x distance player < 300)) exitWith {1}} count allUnits > 0) then
+			//if ({((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout player > 1.4)} count allUnits > 0) then
+			if ({if (((side _x == Occupants) or (side _x == Invaders)) and (_x distance player < 300)) exitWith {1}} count allUnits > 0) then
 			{
-			[_player,false] remoteExec ["setCaptive",0,_player];
-			_player setCaptive false;
+				[_player,false] remoteExec ["setCaptive",0,_player];
+				_player setCaptive false;
 			}
-		else
+			else
 			{
-			_city = [citiesX,_player] call BIS_fnc_nearestPosition;
-			_size = [_city] call A3A_fnc_sizeMarker;
-			_dataX = server getVariable _city;
-			if (random 100 < _dataX select 2) then
+				_city = [citiesX,_player] call BIS_fnc_nearestPosition;
+				_size = [_city] call A3A_fnc_sizeMarker;
+				_dataX = server getVariable _city;
+				if (random 100 < _dataX select 2) then
 				{
-				if (_player distance getMarkerPos _city < _size * 1.5) then
+					if (_player distance getMarkerPos _city < _size * 1.5) then
 					{
-					[_player,false] remoteExec ["setCaptive",0,_player];
-					_player setCaptive false;
-					if (vehicle _player != _player) then
+						[_player,false] remoteExec ["setCaptive",0,_player];
+						_player setCaptive false;
+						if (vehicle _player != _player) then
 						{
-						{if (isPlayer _x) then {[_x,false] remoteExec ["setCaptive",0,_x]; _x setCaptive false}} forEach ((assignedCargo (vehicle _player)) + (crew (vehicle _player)) - [player]);
+							{if (isPlayer _x) then {[_x,false] remoteExec ["setCaptive",0,_x]; _x setCaptive false}} forEach ((assignedCargo (vehicle _player)) + (crew (vehicle _player)) - [player]);
 						};
 					};
 				};
 			};
 		}
 	}
-	];
-player addEventHandler ["InventoryOpened",
+];
+player addEventHandler 
+[
+	"HandleDamage",
 	{
-	private ["_playerX","_containerX","_typeX"];
-	_control = false;
-	_playerX = _this select 0;
-	if (captive _playerX) then
+		_victim = _this select 0;
+		_damage = _this select 2;
+		_instigator = _this select 6;
+		if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.9) then
 		{
-		_containerX = _this select 1;
-		_typeX = typeOf _containerX;
-		if (((_containerX isKindOf "Man") and (!alive _containerX)) or (_typeX == NATOAmmoBox) or (_typeX == CSATAmmoBox)) then
-		if (((_containerX isKindOf "CAManBase") and (!alive _containerX)) or (_typeX == NATOAmmoBox) or (_typeX == CSATAmmoBox)) then
+			[_instigator, 20, 0.34] remoteExec ["A3A_fnc_punishment",_instigator];
+			hint format["%1 hurt you!",_instigator];
+		};
+	}
+];
+player addEventHandler 
+[
+	"InventoryOpened",
+	{
+		private ["_playerX","_containerX","_typeX"];
+		_control = false;
+		_playerX = _this select 0;
+		if (captive _playerX) then
+		{
+			_containerX = _this select 1;
+			_typeX = typeOf _containerX;
+			if (((_containerX isKindOf "Man") and (!alive _containerX)) or (_typeX == NATOAmmoBox) or (_typeX == CSATAmmoBox)) then
 			{
-			if ({if (((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout _playerX > 1.4)) exitWith {1}} count allUnits > 0) then
+				if ({if (((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout _playerX > 1.4)) exitWith {1}} count allUnits > 0) then
 				{
-				[_playerX,false] remoteExec ["setCaptive",0,_playerX];
-				_playerX setCaptive false;
+					[_playerX,false] remoteExec ["setCaptive",0,_playerX];
+					_playerX setCaptive false;
 				}
-			else
+				else
 				{
-				_city = [citiesX,_playerX] call BIS_fnc_nearestPosition;
-				_size = [_city] call A3A_fnc_sizeMarker;
-				_dataX = server getVariable _city;
-				if (random 100 < _dataX select 2) then
+					_city = [citiesX,_playerX] call BIS_fnc_nearestPosition;
+					_size = [_city] call A3A_fnc_sizeMarker;
+					_dataX = server getVariable _city;
+					if (random 100 < _dataX select 2) then
 					{
-					if (_playerX distance getMarkerPos _city < _size * 1.5) then
+						if (_playerX distance getMarkerPos _city < _size * 1.5) then
 						{
-						[_playerX,false] remoteExec ["setCaptive",0,_playerX];
-						_playerX setCaptive false;
+							[_playerX,false] remoteExec ["setCaptive",0,_playerX];
+							_playerX setCaptive false;
 						};
 					};
 				};
 			};
 		};
 	_control
-	}];
+	}
+];
 /*
 player addEventHandler ["InventoryClosed",
 	{

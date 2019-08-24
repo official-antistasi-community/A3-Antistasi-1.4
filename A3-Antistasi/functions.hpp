@@ -277,6 +277,12 @@ class A3A
         class respawn {file="Revive\respawn.sqf";};
 	}
 	
+	class Runways 
+	{
+		class getRunwayTakeoffForAirportMarker {file="getRunwayTakeoffForAirportMarker.sqf";};	
+		class runwayInfo {file="runwayInfo.sqf";};
+	}
+	
 	class Save
 	{
         class playerHasSave {file="statSave\playerHasSave.sqf";};

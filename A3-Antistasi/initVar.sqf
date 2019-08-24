@@ -263,7 +263,7 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",s
 if (!hasIFA) then
 	{
 	if(has3CB) then {
-		call compile preProcessFileLineNumbers "Templates\teamplayer3CBCCM.sqf";
+		call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBCCM.sqf";
 		call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
 		call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
 		}
@@ -275,23 +275,23 @@ if (!hasIFA) then
 			}
 		else
 			{
-			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf"} else {call compile preProcessFileLineNumbers "Templates\teamPlayerRHSUSAF.sqf"};
+			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf"} else {call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSUSAF.sqf"};
 			};
 		if (!activeAFRF) then {call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf"} else {call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf"};
 
 		if (!activeGREF) then
 			{
-			call compile preProcessFileLineNumbers "Templates\teamPlayerVanilla.sqf"
+			call compile preProcessFileLineNumbers "Templates\REBELtemplateVanilla.sqf"
 			}
 		else
 			{
-			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\teamPlayerRHSGREF.sqf"} else {call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf"};
+			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSGREF.sqf"} else {call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf"};
 			};
 		}
 	}
 else
 	{
-	call compile preProcessFileLineNumbers "Templates\teamPlayerIFA.sqf";
+	call compile preProcessFileLineNumbers "Templates\REBELtemplateIFA.sqf";
 	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
 	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
 	};

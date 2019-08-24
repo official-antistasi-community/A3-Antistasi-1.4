@@ -459,7 +459,7 @@
         <Original>Between the anvil and a steamroller.</Original>
         <English>Between the anvil and a steamroller.</English>
       </Key>
-      <Key ID="STR_antistasi_missoin_info_malden_description_text">
+      <Key ID="STR_antistasi_mission_info_malden_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
       </Key>
@@ -470,6 +470,18 @@
       <Key ID="STR_antistasi_mission_info_malden_blurb_text">
         <Original>The island is small but packed with enemies. Look out!</Original>
         <English>The island is small but packed with enemies. Look out!</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_livonia_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_livonia_mapname_text">
+        <Original>Liberation of Livonia</Original>
+        <English>Liberation of Livonia</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_livonia_blurp_text">
+        <Original>They are in the trees!</Original>
+        <English>They are in the trees!</English>
       </Key>
     </Container>
   </Package>

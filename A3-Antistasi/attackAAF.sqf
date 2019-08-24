@@ -316,7 +316,7 @@ if ((count _objectivesFinal > 0) and (count _easyX < 3)) then
 	_objectiveFinal = _arrayFinal selectRandomWeighted _countFinal;
 	_destinationX = _objectiveFinal select 0;
 	_originX = _objectiveFinal select 1;
-	///aquí decidimos las oleadas
+	///This will always fire, as waves is always 1 at this point.
 	if (_waves == 1) then
 		{
 		if (sidesX getVariable [_destinationX,sideUnknown] == teamPlayer) then

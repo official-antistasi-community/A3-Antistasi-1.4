@@ -155,6 +155,17 @@ if (_markerX in resourcesX) then
 if (_winner == teamPlayer) then
 	{
 	[] call A3A_fnc_tierCheck;
+	
+	//Convert all of the static weapons to teamPlayer, essentially. Make them mannable by AI.
+	//Make the size larger, as rarely does the marker cover the whole outpost.
+	private _staticWeapons = nearestObjects [_positionX, ["StaticWeapon"], _size * 1.5, true];
+	{
+		if !(_x in staticsToSave) then {
+			staticsToSave pushBack _x;
+		};
+	} forEach _staticWeapons;
+	publicVariable "staticsToSave";
+	
 	if (!isNull _flagX) then
 		{
 		//[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];

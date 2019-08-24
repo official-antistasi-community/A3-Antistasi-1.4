@@ -1808,6 +1808,12 @@ switch _mode do {
 						//give player new weapon
 						[player,_item,0] call bis_fnc_addweapon;
 						[_index, _item]call jn_fnc_arsenal_removeItem;
+						
+						//Remove any attachments that spawn *with* the weapon.
+						switch _index do {
+							case IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON: {removeAllPrimaryWeaponItems player};
+							case IDC_RSCDISPLAYARSENAL_TAB_HANDGUN: {removeAllHandgunItems player};
+						};
 
 						//try adding back attachments
 						{

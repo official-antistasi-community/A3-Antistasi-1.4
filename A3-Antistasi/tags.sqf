@@ -19,7 +19,7 @@ while{true}do{
 
    // PLAYER NAME CHECK AND DISPLAY
         _target = cursorTarget;
-        if (_target isKindOf "Man" && player == vehicle player) then{
+        if (_target isKindOf "CAManBase" && player == vehicle player) then{
                 if((side _target == playerSide) && ((player distance _target) < _distance))then
                 	{
 					_weaponsplayer = weapons _target;

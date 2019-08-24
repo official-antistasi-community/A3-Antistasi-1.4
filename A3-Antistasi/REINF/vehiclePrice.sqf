@@ -6,7 +6,7 @@ _costs = server getVariable _typeX;
 
 if (isNil "_costs") then
 	{
-	diag_log format ["Antistasi Error en vehicleprice: %!",_typeX];
+	diag_log format ["%1: [Antistasi] | ERROR | vehiclePrice.sqf | Invalid vehicle price :%2.",servertime,_typeX];
 	_costs = 0;
 	}
 else

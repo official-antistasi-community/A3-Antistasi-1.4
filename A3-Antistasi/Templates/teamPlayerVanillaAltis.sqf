@@ -90,8 +90,6 @@ policeGrunt = "B_GEN_Soldier_F";
 groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
 
-<<<<<<< Updated upstream
-factionGEN = "BLU_GEN_F";
 =======
 factionGEN = "BLU_GEN_F";
 

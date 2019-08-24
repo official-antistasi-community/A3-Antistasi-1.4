@@ -1,3 +1,4 @@
+if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Occupants3CBTKA.sqf"};
 if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\Occupants3CBBAFT.sqf"};
 
 NATOGrunt = "UK3CB_BAF_Rifleman_DDPM";
@@ -15,6 +16,24 @@ NATOMortar = "UK3CB_BAF_Static_L16_Deployed_DDPM_RM";
 staticATOccupants = "RHS_TOW_TriPod_USMC_D";
 staticAAOccupants = "RHS_Stinger_AA_pod_D";
 
+//NATO PvP Loadouts
+NATOPlayerLoadouts = [
+	//Team Leader
+	"UK3CB_BAF_SC_DDPM_REC",
+	//Medic
+	"UK3CB_BAF_Medic_DDPM_REC",
+	//Autorifleman
+	"UK3CB_BAF_MGLMG_DDPM_REC",
+	//Marksman
+	"UK3CB_BAF_Marksman_DDPM_REC",
+	//Anti-tank Scout
+	"UK3CB_BAF_Explosive_DDPM_REC",
+	//Anti-tank Scout
+	"UK3CB_BAF_FAC_DDPM_REC"
+];
+
+vehNATOPVP = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Sand","UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Snatch_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Soft_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Sand_A_DDPM"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
+
 vehNATOLightArmed = ["UK3CB_BAF_LandRover_WMIK_HMG_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_GMG_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_Milan_FFR_Sand_A_DDPM","UK3CB_BAF_Jackal2_L2A1_D_DDPM","UK3CB_BAF_Coyote_Logistics_L111A1_D_DDPM","UK3CB_BAF_Coyote_Passenger_L111A1_D_DDPM"];
 vehNATOLightUnarmed = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Sand","UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Snatch_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Soft_FFR_Sand_A_DDPM"];
 vehNATOTrucks = ["UK3CB_BAF_MAN_HX58_Transport_Sand_DDPM","UK3CB_BAF_MAN_HX60_Transport_Sand_DDPM"];
@@ -31,10 +50,11 @@ vehNATORBoat = "UK3CB_BAF_RHIB_GPMG_DDPM_RM";
 vehNATOBoats = [vehNATOBoat,vehNATORBoat];
 vehNATOPlane = "RHS_A10_AT";
 vehNATOPlaneAA = "rhsusf_f22";
+vehNATOTransportPlanes = ["UK3CB_BAF_Hercules_C3"];
 vehNATOPatrolHeli = "UK3CB_BAF_Merlin_HC3_CSAR";
-vehNATOTransportHelis = ["UK3CB_BAF_Wildcat_AH1_TRN_8A_DDPM_RM","UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM",vehNATOPatrolHeli,"UK3CB_BAF_Chinook_HC1_DDPM","UK3CB_BAF_Hercules_C3"];
+vehNATOTransportHelis = ["UK3CB_BAF_Wildcat_AH1_TRN_8A_DDPM_RM","UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM",vehNATOPatrolHeli,"UK3CB_BAF_Chinook_HC1_DDPM"];
 vehNATOAttackHelis = ["UK3CB_BAF_Apache_AH1_CAS_DDPM_RM","UK3CB_BAF_Apache_AH1_DDPM_RM","UK3CB_BAF_Wildcat_AH1_CAS_6A_DDPM_RM","UK3CB_BAF_Wildcat_AH1_CAS_8A"];
-vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA];
+vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
 vehNATOUAV = "B_UAV_02_F";
 vehNATOUAVSmall = "B_UAV_01_F";
 vehNATOMRLS = "rhsusf_m109d_usarmy";

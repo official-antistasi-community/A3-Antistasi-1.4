@@ -52,7 +52,7 @@ else
 
 //forcedSpawn = forcedSpawn + _forced; publicVariable "forcedSpawn";
 forcedSpawn pushBack _mrkDestination; publicVariable "forcedSpawn";
-diag_log format ["Antistasi: Side attacker: %1. Side defender (false, the other AI side):  %2",_sideX,_isSDK];
+diag_log format ["%1: [Antistasi] | INFO | Side Attacker:%2, Side Defender: %3",servertime,_sideX,_isSDK];
 _nameDest = [_mrkDestination] call A3A_fnc_localizar;
 
 [_sideTsk,"AttackAAF",[format ["%2 Is attacking from the %1. Intercept them or we may loose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
@@ -427,11 +427,11 @@ while {(_waves > 0)} do
 			};
 		_vehPool = if (_sideX == Occupants) then
 					{
-					if (_mrkDestination in airportsX) then {(vehNATOAir - [vehNATOPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}} else {(vehNatoAir - vehFixedWing) select {[_x] call A3A_fnc_vehAvailable}};
+					if (_mrkDestination in airportsX) then {(vehNATOAir - [vehNATOPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}} else {(vehNatoAir - [vehNATOPlaneAA, vehNATOPlane]) select {[_x] call A3A_fnc_vehAvailable}};
 					}
 				else
 					{
-					if (_mrkDestination in airportsX) then {(vehCSATAir - [vehCSATPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}} else {(vehCSATAir - vehFixedWing) select {[_x] call A3A_fnc_vehAvailable}};
+					if (_mrkDestination in airportsX) then {(vehCSATAir - [vehCSATPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}} else {(vehCSATAir - [vehCSATPlaneAA, vehCSATPlane]) select {[_x] call A3A_fnc_vehAvailable}};
 					};
 		if (_isSDK) then
 			{
@@ -459,20 +459,23 @@ while {(_waves > 0)} do
 		_pos = _posOrigin;
 		_ang = 0;
 		_size = [_mrkOrigin] call A3A_fnc_sizeMarker;
-		_buildings = nearestObjects [_posOrigin, ["Land_LandMark_F","Land_runway_edgelight"], _size / 2];
-		if (count _buildings > 1) then
-			{
-			_pos1 = getPos (_buildings select 0);
-			_pos2 = getPos (_buildings select 1);
-			_ang = [_pos1, _pos2] call BIS_fnc_DirTo;
-			_pos = [_pos1, 5,_ang] call BIS_fnc_relPos;
-			};
+		private _runwayTakeoff = [_mrkOrigin] call A3A_fnc_getRunwayTakeoffForAirportMarker;
+		if (count _runwayTakeoff > 0) then {
+			_pos = _runwayTakeoff select 0;
+			_ang = _runwayTakeoff select 1;
+		};
 		_spawnedSquad = false;
 		while {(_countX <= _nVeh) and (count _soldiers <= 80)} do
 			{
 			_proceed = true;
-			if (_countX == _nveh) then {if (_sideX == Occupants) then {_vehPool = _vehPool select {_x in vehNATOTransportHelis}} else {_vehPool = _vehPool select {_x in vehCSATTransportHelis}}};
-			_typeVehX = if !(_vehPool isEqualTo []) then {selectRandom _vehPool} else {if (_sideX == Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli}};
+			if (_countX == _nveh) then {
+				if (_sideX == Occupants) then {
+					_vehPool = _vehPool select {_x in (vehNATOTransportHelis + vehNATOTransportPlanes)}
+				} else {
+					_vehPool = _vehPool select {_x in (vehCSATTransportHelis + vehCSATTransportPlanes)}
+				}
+			};
+			_typeVehX = if !(_vehPool isEqualTo []) then {selectRandom _vehPool} else {if (_sideX == Occupants) then {vehNATOPatrolHeli + vehNATOTransportPlanes} else {vehCSATPatrolHeli + vehCSATTransportPlanes}};
 			if ((_typeVehX in vehTransportAir) and !(_spawnedSquad)) then
 				{
 				_allUnits = {(local _x) and (alive _x)} count allUnits;
@@ -492,7 +495,9 @@ while {(_waves > 0)} do
 				{
 				_vehicle=[_pos, _ang + 90,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
 				_veh = _vehicle select 0;
-				if (hasIFA) then {_veh setVelocityModelSpace [((velocityModelSpace _veh) select 0) + 0,((velocityModelSpace _veh) select 1) + 150,((velocityModelSpace _veh) select 2) + 50]};
+				if (_veh isKindOf "Plane") then {
+					_veh setVelocityModelSpace (velocityModelSpace _veh vectorAdd [0, 150, 50]);
+				};
 				_vehCrew = _vehicle select 1;
 				_groupVeh = _vehicle select 2;
 				_pilots append _vehCrew;
@@ -655,7 +660,7 @@ while {(_waves > 0)} do
 	_solMax = round ((count _soldiers)*0.6);
 	_waves = _waves -1;
 	_firstWave = false;
-	diag_log format ["Antistasi: Reached end of spawning attack, wave %1. Vehicles: %2. Wave Units: %3. Total units: %4 ",_waves, count _vehiclesX, count _soldiers, count _soldiersTotal];
+	diag_log format ["%1: [Antistasi] | INFO | Reached end of spawning attack, wave %2. Vehicles: %3. Wave Units: %4. Total units: %5",servertime,_waves, count _vehiclesX, count _soldiers, count _soldiersTotal];
 	if (sidesX getVariable [_mrkDestination,sideUnknown] != teamPlayer) then {_soldiers spawn A3A_fnc_remoteBattle};
 	if (_sideX == Occupants) then
 		{
@@ -727,7 +732,7 @@ while {(_waves > 0)} do
 		if (!(sidesX getVariable [_mrkDestination,sideUnknown] == Invaders)) then
 			{
 			_timeX = time + 3600;
-			diag_log format ["Antistasi debug wavedCA: Wave number %1 on wavedCA lost",_waves];
+			diag_log format ["%1: [Antistasi] | INFO | Wave number %2 on wavedCA lost",servertime,_waves];
 			if (sidesX getVariable [_mrkOrigin,sideUnknown] == Invaders) then
 				{
 				_killZones = killZones getVariable [_mrkOrigin,[]];

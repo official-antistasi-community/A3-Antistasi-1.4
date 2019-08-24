@@ -27,8 +27,9 @@ if (_spawninveh) then {_gunner moveingunner _vehicle;};
 waituntil  { _gunner != vehicle _gunner || !alive _gunner || !canmove _gunner ||!alive _vehicle || !canfire _vehicle};
 	
 if ( alive _gunner && alive _vehicle && canmove _gunner && canfire _vehicle) then {				
-_dist = _gunner distanceSqr _vehicle;
-if (_dist < 3) then 
-{
-	_gunner moveInTurret [_vehicle, [0]] ;	
-};		
+	_dist = _gunner distanceSqr _vehicle;
+	if (_dist < 3) then 
+	{
+		_gunner moveInTurret [_vehicle, [0]] ;	
+	};		
+};

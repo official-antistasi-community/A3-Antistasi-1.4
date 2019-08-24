@@ -231,38 +231,50 @@ if (spawner getVariable _markerX != 2) then
 } forEach _posAT;
 
 _ret = [_markerX,_size,_sideX,_frontierX] call A3A_fnc_milBuildings;
+ 
+{[_x] call A3A_fnc_AIVEHinit} forEach (_ret select 1);
+{[_x,_markerX] call A3A_fnc_NATOinit} forEach (_ret select 2);
+
 _groups pushBack (_ret select 0);
 _vehiclesX append (_ret select 1);
 _soldiers append (_ret select 2);
 
 if (!_busy) then
 	{
-	_buildings = nearestObjects [_positionX, ["Land_LandMark_F","Land_runway_edgelight"], _size / 2];
-	if (count _buildings > 1) then
-		{
-		_pos1 = getPos (_buildings select 0);
-		_pos2 = getPos (_buildings select 1);
-		_ang = [_pos1, _pos2] call BIS_fnc_DirTo;
+	private _runwaySpawnLocation = [_markerX] call A3A_fnc_getRunwayTakeoffForAirportMarker;
 
-		_pos = [_pos1, 5,_ang] call BIS_fnc_relPos;
+	//If we've found a nearby runway, we can continue.
+	if !(_runwaySpawnLocation isEqualTo []) then
+		{
+		_pos = _runwaySpawnLocation select 0;
+		_ang = _runwaySpawnLocation select 1;
+		
+		_heliPos = [_pos, 30,_ang + 90] call BIS_fnc_relPos;
+		_heliPos = [_heliPos, 20,_ang] call BIS_fnc_relPos;
+		 
 		_groupX = createGroup _sideX;
 		_groups pushBack _groupX;
 		_countX = 0;
+		_taxiwayPosSelection = 0;
+		
 		while {(spawner getVariable _markerX != 2) and (_countX < 5)} do
 			{
 			_typeVehX = if (_sideX == Occupants) then {selectRandom (vehNATOAir select {[_x] call A3A_fnc_vehAvailable})} else {selectRandom (vehCSATAir select {[_x] call A3A_fnc_vehAvailable})};
-			_veh = createVehicle [_typeVehX, _pos, [],3, "NONE"];
-			_veh setDir (_ang + 90);
-			sleep 1;
+
+			private _veh = objNull;
+			if (_typeVehX isKindOf "Helicopter") then {
+				_veh = createVehicle [_typeVehX, _heliPos, [],3, "NONE"];
+				_vehiclesX pushBack (createVehicle ["Land_HelipadCircle_F", getPosATL _veh, [],0, "CAN_COLLIDE"]);		
+				_veh setDir (_ang + 90);
+				_heliPos = [_heliPos, 50, _ang] call BIS_fnc_relPos;				
+			} else {
+				_veh = createVehicle [_typeVehX, _pos, [],3, "NONE"];
+				_veh setDir (_ang);
+				_pos = [_pos, 50,_ang] call BIS_fnc_relPos;
+			};
+			
 			_vehiclesX pushBack _veh;
 			_nul = [_veh] call A3A_fnc_AIVEHinit;
-			_pos = [_pos, 50,_ang] call BIS_fnc_relPos;
-			/*
-			_typeUnit = if (_sideX==Occupants) then {NATOpilot} else {CSATpilot};
-			_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
-			[_unit,_markerX] call A3A_fnc_NATOinit;
-			_soldiers pushBack _unit;
-			*/
 			_countX = _countX + 1;
 			};
 		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOFOLLOW","NOVEH"] execVM "scripts\UPSMON.sqf";

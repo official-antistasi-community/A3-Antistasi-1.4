@@ -7,7 +7,7 @@ if (sidesX getVariable [_markerX,sideUnknown] != _sideX) exitWith {hint format [
 if ((!(_markerX in airportsX)) and (!(_markerX in seaports)) and (!(_markerX in outposts))) exitWith {hint "You need to be close to an Airbase, Seaport or Outpost of your side in order to request a vehicle"};
 if (not(player inArea _markerX)) exitWith {hint "You need to be close to an Airbase, Seaport or Outpost in order to request a vehicle"};
 
-_typeBike = if (_sideX == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};
+_typeBike = if (_sideX == Occupants) then {selectRandom vehNATOPVP} else {selectRandom vehCSATPVP};
 
 if (!isNull lastVehicleSpawned) then
 	{

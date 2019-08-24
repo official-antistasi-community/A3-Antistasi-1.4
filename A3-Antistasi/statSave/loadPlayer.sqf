@@ -48,7 +48,6 @@ if (isMultiplayer && side _unit == teamPlayer) then
 	//Personal garage has a nil check built in
 	[_unit, [_playerId, "personalGarage"] call fn_RetrievePlayerStat] call A3A_fnc_setPersonalGarage;
 };
-	
-diag_log "Antistasi: Personal player stats loaded";
+diag_log format ["%1: [Antistasi] | INFO | Personal player stats loaded.",servertime];
 
 [] remoteExec ["A3A_fnc_statistics", _unit];

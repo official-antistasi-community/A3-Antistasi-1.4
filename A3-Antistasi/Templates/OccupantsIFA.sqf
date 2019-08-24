@@ -6,11 +6,32 @@ NATOCrew = "LIB_GER_tank_crew";
 NATOUnarmed = "B_G_Survivor_F";
 NATOMarksman = "LIB_GER_scout_sniper";
 staticCrewOccupants = "LIB_GER_gun_crew";
+
 NATOMG = "LIB_MG42_Lafette_Deployed";
 NATOMortar = "LIB_GrWr34_g";
 staticATOccupants = "LIB_FlaK_36";
 staticAAOccupants = "LIB_Flakvierling_38";
 NATOPilot = "LIB_GER_pilot";
+
+//NATO PvP Loadouts
+NATOPlayerLoadouts = [
+	//Team Leader
+	"LIB_FSJ_NCO",
+	//Medic
+	"LIB_FSJ_medic",
+	//Autorifleman
+	"LIB_FSJ_Soldier_2",
+	//Marksman
+	"LIB_FSJ_Sniper",
+	//Anti-tank Scout
+	"LIB_FSJ_LAT_Soldier",
+	//Anti-tank Scout
+	"LIB_FSJ_LAT_Soldier"
+];
+
+
+vehNATOPVP = ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt","LIB_Kfz1_MG42_sernyt"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
+
 vehNATOLightArmed = ["LIB_Kfz1_MG42_sernyt","LIB_SdKfz222"];
 vehNATOLightUnarmed = ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt"];
 vehNATOTrucks = ["LIB_OpelBlitz_Open_Y_Camo","LIB_OpelBlitz_Tent_Y_Camo"];
@@ -27,10 +48,11 @@ vehNATORBoat = "B_T_Boat_Transport_01_F";
 vehNATOBoats = [vehNATOBoat,vehNATORBoat];
 vehNATOPlane = "LIB_ARR_Ju87";
 vehNATOPlaneAA = "LIB_FW190F8";
+vehNATOTransportPlanes = ["LIB_Ju52","LIB_Ju52","LIB_Ju52","LIB_Ju52"];
 vehNATOPatrolHeli = "LIB_Ju52";
-vehNATOTransportHelis = ["LIB_Ju52","LIB_Ju52","LIB_Ju52","LIB_Ju52"];
+vehNATOTransportHelis = [];
 vehNATOAttackHelis = ["LIB_Ju87"];
-vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA];
+vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
 vehNATOUAV = "not_supported";
 vehNATOUAVSmall = "not_supported";
 vehNATOMRLS = "LIB_SdKfz124";

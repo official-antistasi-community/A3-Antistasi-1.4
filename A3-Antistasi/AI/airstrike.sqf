@@ -1,7 +1,7 @@
 // usage: Activate via radio trigger, on act: [] execVM "airstrike.sqf";
 if (!isServer and hasInterface) exitWith{};
 
-private ["_markerX","_positionX","_ang","_angorig","_pos1","_origpos","_pos2","_finpos","_plane","_wp1","_wp2","_wp3","_sideX","_isMarker","_typePlane","_exit","_timeOut","_size","_buildings","_friendlies","_enemiesX","_mediaX","_mediaY","_pos","_countX","_distantNum","_distantX","_planefn","_planeCrew","_groupPlane","_typeX"];
+private ["_markerX","_positionX","_ang","_angorig","_pos1","_origpos","_pos2","_finpos","_plane","_wp1","_wp2","_wp3","_sideX","_isMarker","_typePlane","_exit","_timeOut","_friendlies","_enemiesX","_mediaX","_mediaY","_pos","_countX","_distantNum","_distantX","_planefn","_planeCrew","_groupPlane","_typeX"];
 
 _markerX = _this select 0;
 _sideX = _this select 1;
@@ -29,15 +29,10 @@ if (_isMarker) then
 	waitUntil {sleep 1; (spawner getVariable _markerX == 0) or (time > _timeOut)};
 	if (_markerX in airportsX) then
 		{
-		_size = [_markerX] call A3A_fnc_sizeMarker;
-		_buildings = nearestObjects [_positionX, ["Land_LandMark_F","Land_runway_edgelight"], _size / 2];
-		if (count _buildings > 1) then
-			{
-			_positionX = getPos (_buildings select 0);
-			_pos2 = getPos (_buildings select 1);
-			_ang = [_positionX, _pos2] call BIS_fnc_DirTo;
-			_angOrig = _ang + 180;
-			}
+		private _runwayTakeoff = [_markerX] call A3A_fnc_getRunwayTakeoffForAirportMarker;
+		_positionX = _runwayTakeoff select 0;
+		_angOrig = (_runwayTakeoff select 1) + (random 20 - 10);
+		_ang = _angOrig + 180;
 		};
 	_pos1 = [_positionX, 400, _angorig] call BIS_Fnc_relPos;
 	_origpos = [_positionX, 3*distanceSPWN, _angorig] call BIS_fnc_relPos;
@@ -93,11 +88,11 @@ else
 if (_exit) exitWith {};
 _planefn = [_origpos, _ang, _typePlane, _sideX] call bis_fnc_spawnvehicle;
 _plane = _planefn select 0;
-if (hasIFA) then {_plane setVelocityModelSpace [((velocityModelSpace _plane) select 0) + 0,((velocityModelSpace _plane) select 1) + 150,((velocityModelSpace _plane) select 2) + 50]};
 _planeCrew = _planefn select 1;
 _groupPlane = _planefn select 2;
 {_x setVariable ["spawner",true,true]} forEach _planeCrew;
 _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
+_plane setVelocityModelSpace (velocityModelSpace _plane vectorAdd [0, 150, 50]);
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
 _plane flyInHeight 150;

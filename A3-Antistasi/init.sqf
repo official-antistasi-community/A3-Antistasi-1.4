@@ -1,4 +1,4 @@
-diag_log format ["%1: [Antistasi]: Init Started.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | Init Started.",servertime];
 //Arma 3 - Antistasi - Warlords of the Pacific by Barbolani & The Official AntiStasi Community
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.
 enableSaving [false,false];
@@ -18,9 +18,9 @@ if (!isMultiPlayer) then
     minWeaps = 24;
     civTraffic = 1;
     limitedFT = false;
-	diag_log format ["%1: [Antistasi]: Singleplayer Starting.",servertime];
+	diag_log format ["%1: [Antistasi] | INFO | Singleplayer Starting.",servertime];
     call compile preprocessFileLineNumbers "initVar.sqf";//this is the file where you can modify a few things.
-    diag_log format ["%1: [Antistasi]: SP Version: %2 loaded.",servertime,antistasiVersion];
+    diag_log format ["%1: [Antistasi] | INFO | SP Version: %2 loaded.",servertime,antistasiVersion];
     initVar = true;
     respawnOccupants setMarkerAlpha 0;
     "respawn_east" setMarkerAlpha 0;
@@ -54,11 +54,11 @@ if (!isMultiPlayer) then
 
     hcArray = [];
     serverInitDone = true;
-    diag_log format ["%1: [Antistasi]: Arsenal Loaded.",servertime];
+    diag_log format ["%1: [Antistasi] | INFO | Arsenal Loaded.",servertime];
     _nul = [] execVM "modBlacklist.sqf";
-		
+
     distanceMission = if (hasIFA) then {2000} else {4000};
-		
+
     {
     private _index = _x call jn_fnc_arsenal_itemType;
     [_index,_x,-1] call jn_fnc_arsenal_addItem;
@@ -82,4 +82,4 @@ if (!isMultiPlayer) then
     deleteMarker "respawn_east";
     if (teamPlayer == independent) then {deleteMarker "respawn_west"} else {deleteMarker "respawn_guerrila"};
     };
-    diag_log format ["%1: [Antistasi]: Init finished.",servertime];
+    diag_log format ["%1: [Antistasi] | INFO | Init finished.",servertime];

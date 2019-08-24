@@ -77,6 +77,8 @@ _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "A
 		};
 	};
 	
-	if (UPSMON_Debug>0) then {diag_log format ["Busy:%1 Distance:%2 RadioRange:%3 Rounds:%4",_artibusy,leader _x distance _npcpos,_RadioRange,_rounds];};
+	if (UPSMON_Debug > 0) then {
+		diag_log format ["Busy:%1 Distance:%2 RadioRange:%3 Rounds:%4",_artibusy,leader _x distance _npcpos,_RadioRange,_rounds];
+	};
 		
-} ForEach _artiarray;
+} forEach _artiarray;

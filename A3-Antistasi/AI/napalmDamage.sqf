@@ -1,7 +1,7 @@
 private ["_pos"];
 _pos = _this select 0;
 
-_argumentX = ["Car","Truck","Man","Air"];
+_argumentX = ["Car","Truck","CAManBase","Air"];
 
 if (isServer) then {_argumentX = ["All", "", "House", "Wall"]};
 
@@ -21,7 +21,7 @@ while {time < _timeOut} do
 			if (alive _x) then
 				{
 				_distMult = (1-((_x distance _pos)/70))/2;
-				if (_x isKindOf "Man") then
+				if (_x isKindOf "CAManBase") then
 					{
 					_dam = damage _x + _distMult;
 					if ((_dam >= 1) and (isPlayer _x)) then

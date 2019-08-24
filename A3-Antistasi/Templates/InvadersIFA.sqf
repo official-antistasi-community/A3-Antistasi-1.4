@@ -11,6 +11,24 @@ CSATMG = "LIB_Maxim_M30_Trench";
 staticATInvaders = "LIB_Zis3";
 staticAAInvaders = "LIB_61k";
 
+//CSAT PvP Loadouts
+CSATPlayerLoadouts = [
+	//Team Leader
+	"LIB_SOV_scout_p_officer",
+	//Medic
+	"LIB_SOV_medic",
+	//Autorifleman
+	"LIB_SOV_mgunner",
+	//Marksman
+	"LIB_SOV_scout_sniper",
+	//Anti-tank Scout
+	"LIB_SOV_LAT_Soldier",
+	//Anti-tank Scout
+	"LIB_SOV_LAT_Soldier"
+];
+
+vehCSATPVP = ["LIB_GazM1_SOV","LIB_GazM1_SOV_camo_sand","LIB_Willys_MB","LIB_Scout_M3"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.
+
 vehCSATLightArmed = ["LIB_Scout_M3"];
 vehCSATLightUnarmed = ["LIB_GazM1_SOV","LIB_GazM1_SOV_camo_sand","LIB_Willys_MB"];
 vehCSATTrucks = ["LIB_Zis5v","LIB_US6_Tent","LIB_US6_Open"];
@@ -25,10 +43,11 @@ vehCSATRBoat = "O_T_Boat_Transport_01_F";
 vehCSATBoats = [vehCSATBoat,vehCSATRBoat];
 vehCSATPlane = "LIB_Pe2";
 vehCSATPlaneAA = "LIB_P39";
+vehCSATTransportPlanes = ["LIB_Li2", "LIB_Li2", "LIB_Li2", "LIB_Li2"];
 vehCSATPatrolHeli = "LIB_Li2";
-vehCSATTransportHelis = [vehCSATPatrolHeli,vehCSATPatrolHeli,vehCSATPatrolHeli,vehCSATPatrolHeli];
+vehCSATTransportHelis = [];
 vehCSATAttackHelis = ["LIB_RA_P39_3","LIB_RA_P39_2"];
-vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA];
+vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 vehCSATUAV = "not_supported";
 vehCSATUAVSmall = "not_supported";
 vehCSATMRLS = "LIB_US6_BM13";

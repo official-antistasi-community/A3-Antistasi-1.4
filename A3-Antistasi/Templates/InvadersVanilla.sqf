@@ -13,6 +13,24 @@ CSATMG = "O_HMG_01_high_F";
 staticATInvaders = "O_T_static_AT_F";
 staticAAInvaders = "O_static_AA_F";
 
+//CSAT PvP Loadouts
+CSATPlayerLoadouts = [
+	//Team Leader
+	"O_T_Recon_TL_F",
+	//Medic
+	"O_T_Recon_Medic_F",
+	//Autorifleman
+	"O_Soldier_AR_F",
+	//Marksman
+	"O_T_Recon_M_F",
+	//Anti-tank Scout
+	"O_T_Recon_LAT_F",
+	//Anti-tank Scout
+	"O_T_Recon_LAT_F"
+];
+
+vehCSATPVP = ["O_T_MRAP_02_ghex_F","O_T_LSV_02_unarmed_F","O_T_MRAP_02_hmg_ghex_F","O_T_LSV_02_armed_F"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.
+
 vehCSATLightArmed = ["O_T_MRAP_02_gmg_ghex_F","O_T_MRAP_02_hmg_ghex_F","O_T_LSV_02_armed_F"];
 vehCSATLightUnarmed = ["O_T_MRAP_02_ghex_F","O_T_LSV_02_unarmed_F"];
 vehCSATTrucks = ["O_T_Truck_03_transport_ghex_F","O_T_Truck_03_covered_ghex_F"];
@@ -27,10 +45,11 @@ vehCSATRBoat = "O_T_Boat_Transport_01_F";
 vehCSATBoats = [vehCSATBoat,vehCSATRBoat,"O_T_APC_Wheeled_02_rcws_ghex_F"];
 vehCSATPlane = "O_Plane_CAS_02_F";
 vehCSATPlaneAA = "O_Plane_Fighter_02_F";
+vehCSATTransportPlanes = ["O_T_VTOL_02_infantry_F"];
 vehCSATPatrolHeli = "O_Heli_Light_02_unarmed_F";
-vehCSATTransportHelis = ["O_T_VTOL_02_infantry_F","O_Heli_Transport_04_bench_F",vehCSATPatrolHeli];
+vehCSATTransportHelis = ["O_Heli_Transport_04_bench_F",vehCSATPatrolHeli];
 vehCSATAttackHelis = ["O_Heli_Light_02_F","O_Heli_Attack_02_F"];
-vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA];
+vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 vehCSATUAV = "O_UAV_02_F";
 vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "O_T_MBT_02_arty_ghex_F";

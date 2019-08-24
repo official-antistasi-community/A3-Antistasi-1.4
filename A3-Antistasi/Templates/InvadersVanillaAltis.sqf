@@ -11,6 +11,24 @@ CSATMG = "O_HMG_01_high_F";
 staticATInvaders = "O_static_AT_F";
 staticAAInvaders = "O_static_AA_F";
 
+//CSAT PvP Loadouts
+CSATPlayerLoadouts = [
+	//Team Leader
+	"O_T_Recon_TL_F",
+	//Medic
+	"O_T_Recon_Medic_F",
+	//Autorifleman
+	"O_Soldier_AR_F",
+	//Marksman
+	"O_T_Recon_M_F",
+	//Anti-tank Scout
+	"O_T_Recon_LAT_F",
+	//Anti-tank Scout
+	"O_T_Recon_LAT_F"
+];
+
+vehCSATPVP = ["O_MRAP_02_F","O_LSV_02_unarmed_F","O_MRAP_02_hmg_F","O_LSV_02_armed_F"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.
+
 vehCSATLightArmed = ["O_MRAP_02_hmg_F","O_MRAP_02_gmg_F","O_LSV_02_armed_F"];
 vehCSATLightUnarmed = ["O_MRAP_02_F","O_LSV_02_unarmed_F"];
 vehCSATTrucks = ["O_Truck_03_transport_F","O_Truck_03_covered_F"];
@@ -25,10 +43,11 @@ vehCSATRBoat = "O_Boat_Transport_01_F";
 vehCSATBoats = [vehCSATBoat,vehCSATRBoat,"O_APC_Wheeled_02_rcws_v2_F"];
 vehCSATPlane = "O_Plane_CAS_02_dynamicLoadout_F";
 vehCSATPlaneAA = "O_Plane_Fighter_02_F";
+vehCSATTransportPlanes = ["O_T_VTOL_02_infantry_F"]; //VTOL isn't available without APEX nor there is a replacement, i'd leave it there regardles it's Altis
 vehCSATPatrolHeli = "O_Heli_Light_02_unarmed_F";
-vehCSATTransportHelis = ["O_T_VTOL_02_infantry_F","O_Heli_Transport_04_bench_F",vehCSATPatrolHeli]; //VTOL isn't available without APEX nor there is a replacement, i'd leave it there regardles it's Altis
+vehCSATTransportHelis = ["O_Heli_Transport_04_bench_F",vehCSATPatrolHeli]; 
 vehCSATAttackHelis = ["O_Heli_Attack_02_dynamicLoadout_F","O_Heli_Attack_02_F"];
-vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA];
+vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 vehCSATUAV = "O_UAV_02_F";
 vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "O_MBT_02_arty_F";

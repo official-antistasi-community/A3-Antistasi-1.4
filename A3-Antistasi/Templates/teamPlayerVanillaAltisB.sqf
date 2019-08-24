@@ -81,9 +81,6 @@ policeGrunt = FIARifleman;
 groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = "FIA";
 
-<<<<<<< Updated upstream
-factionGEN = "IND_C_F";
-=======
 factionGEN = "IND_C_F";
 
 //Player spawn loadout
@@ -107,4 +104,3 @@ if !(isMultiplayer) then
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str","ItemRadio"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_rt1523g"]};
->>>>>>> Stashed changes

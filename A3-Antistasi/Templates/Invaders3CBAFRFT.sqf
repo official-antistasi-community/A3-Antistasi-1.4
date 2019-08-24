@@ -13,8 +13,26 @@ CSATMG = "rhs_KORD_high_VMF";
 staticATInvaders = "rhs_Kornet_9M133_2_vmf";
 staticAAInvaders = "RHS_ZU23_MSV";
 
+//CSAT PvP Loadouts
+CSATPlayerLoadouts = [
+	//Team Leader
+	"rhs_vdv_recon_sergeant",
+	//Medic
+	"rhs_vdv_recon_medic",
+	//Autorifleman
+	"rhs_vdv_recon_arifleman",
+	//Marksman
+	"rhs_vdv_recon_marksman",
+	//Anti-tank Scout
+	"rhs_vdv_recon_rifleman_lat",
+	//Anti-tank Scout
+	"rhs_vdv_recon_rifleman_lat"
+]
+
+vehCSATPVP = ["rhs_tigr_msv","rhs_uaz_msv","rhsgref_BRDM2UM_msv","rhs_tigr_m_msv","rhs_tigr_sts_msv"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
+
 vehCSATLightArmed = ["rhsgref_BRDM2_msv","rhsgref_BRDM2_HQ_msv","rhsgref_BRDM2_ATGM_msv","rhs_tigr_sts_msv"];
-vehCSATLightUnarmed = ["rhs_tigr_msv","rhs_uaz_msv","rhsgref_BRDM2UM_msv","rhs_tigr_m_msv",""];
+vehCSATLightUnarmed = ["rhs_tigr_msv","rhs_uaz_msv","rhsgref_BRDM2UM_msv","rhs_tigr_m_msv"];
 vehCSATTrucks = ["rhs_kamaz5350_msv","rhs_kamaz5350_open_msv","RHS_Ural_Open_MSV_01","rhs_gaz66_msv"];
 vehCSATAmmoTruck = "rhs_gaz66_ammo_msv";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
@@ -27,10 +45,11 @@ vehCSATRBoat = "O_T_Boat_Transport_01_F";
 vehCSATBoats = [vehCSATBoat,vehCSATRBoat,"rhs_btr80a_msv"];
 vehCSATPlane = "RHS_Su25SM_CAS_vvs";
 vehCSATPlaneAA = "RHS_T50_vvs_blueonblue";
+vehCSATTransportPlanes = [];
 vehCSATPatrolHeli = "RHS_ka60_gray";
 vehCSATTransportHelis = ["RHS_Mi24V_vdv","RHS_Mi24P_vdv","RHS_Mi8MTV3_vdv",vehCSATPatrolHeli];
 vehCSATAttackHelis = ["RHS_Ka52_vvs","RHS_mi28n_vvs"];
-vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA];
+vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 vehCSATUAV = "rhs_pchela1t_vvs";
 vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "rhs_2s3_tv";

@@ -72,9 +72,9 @@ if (dateToNumber date > _dateLimitNum) then
 		[-10,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	antennasDead = antennasDead - [_positionX]; publicVariable "antennasDead";
-	_antenna = nearestBuilding _positionX;
-	if (isMultiplayer) then {[_antenna,true] remoteExec ["hideObjectGlobal",2]} else {_antenna hideObject true};
-	_antenna = createVehicle ["Land_Communication_F", _positionX, [], 0, "NONE"];
+	_antenna = nearestObject [_positionX, "Ruins"];
+	diag_log format ["%1: [Antistasi] | DEBUG | Repairing Antenna %2.",servertime, typeOf _antenna];
+	[_antenna] call A3A_fnc_repairRuinedBuilding;
 	antennas pushBack _antenna; publicVariable "antennas";
 	{if ([antennas,_x] call BIS_fnc_nearestPosition == _antenna) then {[_x,true] spawn A3A_fnc_blackout}} forEach citiesX;
 	_mrkFinal = createMarker [format ["Ant%1", count antennas], _positionX];
@@ -97,7 +97,7 @@ if (dateToNumber date > _dateLimitNum) then
 		];
 	};
 
-_nul = [0,"REP"] spawn A3A_fnc_deleteTask;
+_nul = [30,"REP"] spawn A3A_fnc_deleteTask;
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 

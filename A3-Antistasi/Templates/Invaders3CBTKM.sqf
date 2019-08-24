@@ -13,6 +13,24 @@ CSATMG = "UK3CB_TKM_O_KORD_high";
 staticATInvaders = "UK3CB_TKM_O_SPG9";
 staticAAInvaders = "UK3CB_TKM_O_ZU23";
 
+//CSAT PvP Loadouts
+CSATPlayerLoadouts = [
+	//Team Leader
+	"UK3CB_TKM_O_SL",
+	//Medic
+	"UK3CB_TKM_O_MD",
+	//Autorifleman
+	"UK3CB_TKM_O_AR",
+	//Marksman
+	"UK3CB_TKM_O_MK",
+	//Anti-tank Scout
+	"UK3CB_TKM_O_LAT",
+	//Anti-tank Scout
+	"UK3CB_TKM_O_LAT"
+];
+
+vehCSATPVP = ["UK3CB_TKM_O_BTR40","UK3CB_TKM_O_Hilux_Open","UK3CB_TKM_O_UAZ_Closed","UK3CB_TKM_O_Datsun_Pkm","UK3CB_TKM_O_Hilux_Dshkm"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.
+
 vehCSATLightArmed = ["UK3CB_TKM_O_Datsun_Pkm","UK3CB_TKM_O_Hilux_Dshkm","UK3CB_TKM_O_Hilux_GMG","UK3CB_TKM_O_Hilux_Rocket","UK3CB_TKM_O_Hilux_Spg9","UK3CB_TKM_O_Hilux_Zu23"];//zu may be too much
 vehCSATLightUnarmed = ["UK3CB_TKM_O_BTR40","UK3CB_TKM_O_Hilux_Open","UK3CB_TKM_O_UAZ_Closed"];
 vehCSATTrucks = ["UK3CB_TKM_O_Ural_Covered","UK3CB_TKM_O_V3S_Closed","UK3CB_TKM_O_V3S_Open","UK3CB_TKM_O_Ural_Open"];
@@ -27,10 +45,11 @@ vehCSATRBoat = "UK3CB_TKM_O_MTLB_PKT";
 vehCSATBoats = [vehCSATBoat,vehCSATRBoat,"UK3CB_TKM_O_BTR60"];
 vehCSATPlane = "UK3CB_TKA_O_Su25SM_CAS";
 vehCSATPlaneAA = "UK3CB_TKA_O_L39_AA";
+vehCSATTransportPlanes = [];
 vehCSATPatrolHeli = "UK3CB_TKA_O_UH1H_M240";
 vehCSATTransportHelis = ["UK3CB_TKA_O_Mi8AMTSh","UK3CB_TKA_O_Mi8","UK3CB_TKC_O_Mi8AMT",vehCSATPatrolHeli];
 vehCSATAttackHelis = ["UK3CB_TKA_O_Mi_24P","UK3CB_TKA_O_Mi_24V"];
-vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA];
+vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 vehCSATUAV = "rhs_pchela1t_vvs";
 vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "UK3CB_TKM_O_Hilux_Rocket_Arty";

@@ -34,7 +34,7 @@ if (_typeX != "delete") then
 	if (_isRoad) then
 		{
 		_typeGroup = groupsSDKAT;
-		_costs = _costs + ([vehSDKLightArmed] call A3A_fnc_vehiclePrice) + (server getVariable staticCrewTeamPlayer);
+		_costs = _costs + ([REBELvehARMEDlite] call A3A_fnc_vehiclePrice) + (server getVariable REBELstaticCREW);
 		_hr = _hr + 1;
 		};
 

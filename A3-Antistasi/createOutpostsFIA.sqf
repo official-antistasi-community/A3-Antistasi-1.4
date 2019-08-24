@@ -11,13 +11,13 @@ _isRoad = isOnRoad _positionTel;
 
 _textX = format ["%1 Observation Post",nameTeamPlayer];
 _typeGroup = groupsSDKSniper;
-_typeVehX = vehSDKBike;
+_typeVehX = REBELvehQUAD;
 private _tsk = "";
 if (_isRoad) then
 	{
 	_textX = format ["%1 Roadblock",nameTeamPlayer];
 	_typeGroup = groupsSDKAT;
-	_typeVehX = vehSDKTruck;
+	_typeVehX = REBELvehTRANSPORT;
 	};
 
 _mrk = createMarker [format ["FIAPost%1", random 1000], _positionTel];
@@ -72,7 +72,7 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 	_mrk setMarkerText _textX;
 	if (_isRoad) then
 		{
-		_garrison = [staticCrewTeamPlayer];
+		_garrison = [REBELstaticCREW];
 		{
 		if (random 20 <= skillFIA) then {_garrison pushBack (_x select 1)} else {_garrison pushBack (_x select 0)};
 		} forEach groupsSDKAT;

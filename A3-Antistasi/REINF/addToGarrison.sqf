@@ -40,7 +40,7 @@ else
 _leave = false;
 
 {
-if ((typeOf _x == staticCrewTeamPlayer) or (typeOf _x == SDKUnarmed) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_leave = true}
+if ((typeOf _x == REBELstaticCREW) or (typeOf _x == REBELprisoner) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_leave = true}
 } forEach _unitsX;
 
 if (_leave) exitWith {hint "Static crewman, prisoners, refugees or dead units cannot be added to any garrison"};

@@ -13,11 +13,11 @@ _costs = 0;
 if (_typeX isEqualType "") then
 	{
 	_costs = server getVariable _typeX;
-	_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice);
+	_costs = _costs + ([REBELmortar] call A3A_fnc_vehiclePrice);
 	}
 else
 	{
-	_typeX = if (random 20 <= skillFIA) then {_typeX select 1} else {_typeX select 0};  // Chance to be a military unit instead of guerilla 
+	_typeX = if (random 20 <= skillFIA) then {_typeX select 1} else {_typeX select 0};  // Chance to be a military unit instead of guerilla
 	_costs = server getVariable _typeX;
 	};
 
@@ -25,7 +25,7 @@ if (_costs > _resourcesFIA) exitWith {hint format ["You do not have enough money
 
 _markerX = positionXGarr;
 
-if ((_typeX == staticCrewTeamPlayer) and (_markerX in outpostsFIA)) exitWith {hint "You cannot add mortars to a Roadblock garrison"};
+if ((_typeX == REBELstaticCREW) and (_markerX in outpostsFIA)) exitWith {hint "You cannot add mortars to a Roadblock garrison"};
 
 _positionX = getMarkerPos _markerX;
 

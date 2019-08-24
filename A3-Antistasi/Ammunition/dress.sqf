@@ -14,7 +14,7 @@ _loadout = switch _team do
 	};
 	
 	case teamPlayer: {
-		teamPlayerDefaultLoadout;
+		REBELloadoutDEFAULT;
 	};
 	
 	default {

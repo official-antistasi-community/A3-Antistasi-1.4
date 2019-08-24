@@ -45,7 +45,7 @@ missionsX pushBack ["RES","CREATED"]; publicVariable "missionsX";
 _groupPOW = createGroup teamPlayer;
 for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	{
-	_unit = _groupPOW createUnit [SDKUnarmed, _posHouse select _i, [], 0, "NONE"];
+	_unit = _groupPOW createUnit [REBELprisoner, _posHouse select _i, [], 0, "NONE"];
 	_unit allowdamage false;
 	_unit disableAI "MOVE";
 	_unit disableAI "AUTOTARGET";

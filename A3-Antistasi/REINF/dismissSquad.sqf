@@ -55,10 +55,10 @@ if (alive _x) then
 		{
 		switch (_backpck) do
 			{
-			case MortStaticSDKB: {_resourcesFIA = _resourcesFIA + ([SDKMortar] call A3A_fnc_vehiclePrice)};
-			case AAStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticAAteamPlayer] call A3A_fnc_vehiclePrice)};
-			case MGStaticSDKB: {_resourcesFIA = _resourcesFIA + ([SDKMGStatic] call A3A_fnc_vehiclePrice)};
-			case ATStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticATteamPlayer] call A3A_fnc_vehiclePrice)};
+			case REBELstaticSUPPORTbagMORTAR: {_resourcesFIA = _resourcesFIA + ([REBELmortar] call A3A_fnc_vehiclePrice)};
+			case REBELstaticSUPPORTbagAA: {_resourcesFIA = _resourcesFIA + ([REBELstaticAA] call A3A_fnc_vehiclePrice)};
+			case REBELstaticSUPPORTbagTALL: {_resourcesFIA = _resourcesFIA + ([REBELstaticMG] call A3A_fnc_vehiclePrice)};
+			case REBELstaticSUPPORTbagAT: {_resourcesFIA = _resourcesFIA + ([REBELstaticAT] call A3A_fnc_vehiclePrice)};
 			};
 		};
 	};

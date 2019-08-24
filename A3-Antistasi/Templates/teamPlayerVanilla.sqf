@@ -1,55 +1,55 @@
 if (worldName == "Altis") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayerVanillaAltis.sqf"};
 
-SDKMortar = "I_G_Mortar_01_F";
-SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
-SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
-SDKMGStatic = "I_HMG_01_high_F";
-staticATteamPlayer = "I_Static_AT_F";
-staticAAteamPlayer = "I_Static_AA_F";
+REBELmortar = "I_G_Mortar_01_F";
+REBELmortarHEmag = "8Rnd_82mm_Mo_shells";
+REBELmortarSMOKEmag = "8Rnd_82mm_Mo_Smoke_white";
+REBELstaticMG = "I_HMG_01_high_F";
+REBELstaticAT = "I_Static_AT_F";
+REBELstaticAA = "I_Static_AA_F";
 
-staticCrewTeamPlayer = "I_G_Soldier_unarmed_F";
-SDKUnarmed = "I_G_Survivor_F";
-SDKSniper = ["I_C_Soldier_Bandit_5_F","I_C_Soldier_Para_7_F"];
-SDKATman = ["I_C_Soldier_Bandit_2_F","I_C_Soldier_Para_5_F"];
-SDKMedic = ["I_C_Soldier_Bandit_1_F","I_C_Soldier_Para_3_F"];
-SDKMG = ["I_C_Soldier_Bandit_3_F","I_C_Soldier_Para_4_F"];
-SDKExp = ["I_C_Soldier_Bandit_8_F","I_C_Soldier_Para_8_F"];
-SDKGL = ["I_C_Soldier_Bandit_6_F","I_C_Soldier_Para_6_F"];
-SDKMil = ["I_C_Soldier_Bandit_7_F","I_C_Soldier_Para_1_F"];
-SDKSL = ["I_C_Soldier_Bandit_4_F","I_C_Soldier_Para_2_F"];
-SDKEng = ["I_G_engineer_F","I_G_engineer_F"];
+REBELstaticCREW = "I_G_Soldier_unarmed_F";
+REBELprisoner = "I_G_Survivor_F";
+REBELsniper = ["I_C_Soldier_Bandit_5_F","I_C_Soldier_Para_7_F"];
+REBELsoldierAT = ["I_C_Soldier_Bandit_2_F","I_C_Soldier_Para_5_F"];
+REBELmedic = ["I_C_Soldier_Bandit_1_F","I_C_Soldier_Para_3_F"];
+REBELsoldierMG = ["I_C_Soldier_Bandit_3_F","I_C_Soldier_Para_4_F"];
+REBELsoldierEXP = ["I_C_Soldier_Bandit_8_F","I_C_Soldier_Para_8_F"];
+REBELsoldierGL = ["I_C_Soldier_Bandit_6_F","I_C_Soldier_Para_6_F"];
+REBELliteAT = ["I_C_Soldier_Bandit_7_F","I_C_Soldier_Para_1_F"];
+REBELsquadLeader = ["I_C_Soldier_Bandit_4_F","I_C_Soldier_Para_2_F"];
+REBELengineer = ["I_G_engineer_F","I_G_engineer_F"];
 
-vehSDKBike = "I_G_Quadbike_01_F";
-vehSDKLightArmed = "I_C_Offroad_02_LMG_F";
-vehSDKAT = "I_C_Offroad_02_AT_F";
-vehSDKLightUnarmed = "I_C_Offroad_01_F";
-vehSDKTruck = "I_C_Van_01_Transport_F";
-//vehSDKHeli = "I_C_Heli_Light_01_civil_F";
-vehSDKPlane = "I_C_Plane_civil_01_F";
-vehSDKBoat = "I_C_Boat_Transport_01_F";
-vehSDKRepair = "B_G_Offroad_01_repair_F";
-SDKFlag = "Flag_Syndikat_F";
-SDKFlagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
+REBELvehQUAD = "I_G_Quadbike_01_F";
+REBELvehARMEDlite = "I_C_Offroad_02_LMG_F";
+REBELvehAT = "I_C_Offroad_02_AT_F";
+REBELvehUNARMEDlite = "I_C_Offroad_01_F";
+REBELvehTRANSPORT = "I_C_Van_01_Transport_F";
+//REBELvehHELI = "I_C_Heli_Light_01_civil_F";
+REBELvehPLANE = "I_C_Plane_civil_01_F";
+REBELvehBOAT = "I_C_Boat_Transport_01_F";
+REBELvehREPAIR = "B_G_Offroad_01_repair_F";
+REBELflag = "Flag_Syndikat_F";
+REBELflagTEX = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
 typePetros = "I_C_Soldier_Camo_F";
 
-supportStaticSDKB = "I_HMG_01_support_F";
-ATStaticSDKB = "I_AT_01_weapon_F";
-MGStaticSDKB = "I_HMG_01_high_weapon_F";
-supportStaticsSDKB2 = "I_HMG_01_support_high_F";
-AAStaticSDKB = "I_AA_01_weapon_F";
-MortStaticSDKB = "I_Mortar_01_weapon_F";
-supportStaticsSDKB3 = "I_Mortar_01_support_F";
+REBELstaticSUPPORTbag = "I_HMG_01_support_F";
+REBELstaticSUPPORTbagAT = "I_AT_01_weapon_F";
+REBELstaticSUPPORTbagTALL = "I_HMG_01_high_weapon_F";
+REBELstaticSUPPORTbagTALL2 = "I_HMG_01_support_high_F";
+REBELstaticSUPPORTbagAA = "I_AA_01_weapon_F";
+REBELstaticSUPPORTbagMORTAR = "I_Mortar_01_weapon_F";
+REBELstaticSUPPORTbagMORTAR2 = "I_Mortar_01_support_F";
 
-civCar = "C_Offroad_01_F";
-civTruck = "C_Van_01_transport_F";
-civHeli = "C_Heli_Light_01_civil_F";
-civBoat = "C_Boat_Transport_02_F";
+CIVcar = "C_Offroad_01_F";
+CIVtruck = "C_Van_01_transport_F";
+CIVheli = "C_Heli_Light_01_civil_F";
+CIVboat = "C_Boat_Transport_02_F";
 
-sniperRifle = "srifle_DMR_06_camo_F";
-lampsSDK = ["acc_flashlight"];
+petrosRifle = "srifle_DMR_06_camo_F";
+REBELflashlight = ["acc_flashlight"];
 
-ATMineMag = "ATMine_Range_Mag";
-APERSMineMag = "APERSMine_Range_Mag";
+REBELmineAT = "ATMine_Range_Mag";
+REBELmineAP = "APERSMine_Range_Mag";
 
 if (hasFFAA) then
 	{
@@ -94,7 +94,7 @@ nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
 factionGEN = "BLU_GEN_F";
 
 //Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+REBELloadoutDEFAULT = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
 
 //Arsenal and Initial AI weapon setup
 unlockedWeapons = ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F","Binocular","SMG_05_F","SMG_02_F"];//"LMG_03_F"

@@ -18,7 +18,7 @@ if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} els
 		}
 	else
 		{
-		if ((_typeVehX == SDKMortar) or (_typeVehX == staticATteamPlayer) or (_typeVehX == staticAAteamPlayer) or (_typeVehX == SDKMGStatic)) then {_resourcesFIA = server getVariable "resourcesFIA"} else {_resourcesFIA = player getVariable "moneyX"};
+		if ((_typeVehX == REBELmortar) or (_typeVehX == REBELstaticAT) or (_typeVehX == REBELstaticAA) or (_typeVehX == REBELstaticMG)) then {_resourcesFIA = server getVariable "resourcesFIA"} else {_resourcesFIA = player getVariable "moneyX"};
 		};
 	};
 

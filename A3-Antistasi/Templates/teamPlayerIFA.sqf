@@ -1,53 +1,53 @@
-SDKMortar = "LIB_M2_60";
-SDKMortarHEMag = "LIB_8Rnd_60mmHE_M2";
-SDKMortarSmokeMag = "not_supported";
-SDKMGStatic = "LIB_M1919_M2";
-staticATteamPlayer = "LIB_Pak40";
-staticAAteamPlayer = "LIB_FlaK_30";
+REBELmortar = "LIB_M2_60";
+REBELmortarHEmag = "LIB_8Rnd_60mmHE_M2";
+REBELmortarSMOKEmag = "not_supported";
+REBELstaticMG = "LIB_M1919_M2";
+REBELstaticAT = "LIB_Pak40";
+REBELstaticAA = "LIB_FlaK_30";
 
-staticCrewTeamPlayer = "LIB_US_Bomber_Crew";
-SDKUnarmed = "I_G_Survivor_F";
-SDKSniper = ["LIB_WP_Sniper","LIB_WP_Sniper"];
-SDKATman = ["LIB_WP_AT_grenadier","LIB_WP_AT_grenadier"];
-SDKMedic = ["LIB_WP_Medic","LIB_WP_Medic"];
-SDKMG = ["LIB_WP_Mgunner","LIB_WP_Mgunner"];
-SDKExp = ["LIB_WP_Saper","LIB_WP_Saper"];
-SDKGL = ["LIB_WP_Radioman","LIB_WP_Radioman"];
-SDKMil = ["LIB_WP_Strzelec","LIB_WP_Strzelec"];
-SDKSL = ["LIB_WP_Porucznic","LIB_WP_Porucznic"];
-SDKEng = ["LIB_WP_Starszy_saper","LIB_WP_Starszy_saper"];
+REBELstaticCREW = "LIB_US_Bomber_Crew";
+REBELprisoner = "I_G_Survivor_F";
+REBELsniper = ["LIB_WP_Sniper","LIB_WP_Sniper"];
+REBELsoldierAT = ["LIB_WP_AT_grenadier","LIB_WP_AT_grenadier"];
+REBELmedic = ["LIB_WP_Medic","LIB_WP_Medic"];
+REBELsoldierMG = ["LIB_WP_Mgunner","LIB_WP_Mgunner"];
+REBELsoldierEXP = ["LIB_WP_Saper","LIB_WP_Saper"];
+REBELsoldierGL = ["LIB_WP_Radioman","LIB_WP_Radioman"];
+REBELliteAT = ["LIB_WP_Strzelec","LIB_WP_Strzelec"];
+REBELsquadLeader = ["LIB_WP_Porucznic","LIB_WP_Porucznic"];
+REBELengineer = ["LIB_WP_Starszy_saper","LIB_WP_Starszy_saper"];
 
-vehSDKBike = "LIB_DAK_Kfz1";
-vehSDKLightArmed = "LIB_DAK_Kfz1_MG42";
-vehSDKAT = "not_supported";
-vehSDKLightUnarmed = "LIB_US_Willys_MB";
-vehSDKTruck = "LIB_US_GMC_Open";
-//vehSDKHeli = "I_C_Heli_Light_01_civil_F";
-vehSDKPlane = "LIB_US_NAC_P39";
-vehSDKBoat = "I_C_Boat_Transport_01_F";
-vehSDKRepair = "LIB_US_GMC_Parm";
-SDKFlag = "Flag_Syndikat_F";
-SDKFlagTexture = "ak.jpg"; if (isServer) then {flagX setFlagTexture SDKFlagTexture};
+REBELvehQUAD = "LIB_DAK_Kfz1";
+REBELvehARMEDlite = "LIB_DAK_Kfz1_MG42";
+REBELvehAT = "not_supported";
+REBELvehUNARMEDlite = "LIB_US_Willys_MB";
+REBELvehTRANSPORT = "LIB_US_GMC_Open";
+//REBELvehHELI = "I_C_Heli_Light_01_civil_F";
+REBELvehPLANE = "LIB_US_NAC_P39";
+REBELvehBOAT = "I_C_Boat_Transport_01_F";
+REBELvehREPAIR = "LIB_US_GMC_Parm";
+REBELflag = "Flag_Syndikat_F";
+REBELflagTEX = "ak.jpg"; if (isServer) then {flagX setFlagTexture REBELflagTEX};
 typePetros = "LIB_WP_Sierzant";
 
-supportStaticSDKB = "not_supported";
-ATStaticSDKB = "not_supported";
-MGStaticSDKB = "not_supported";
-supportStaticsSDKB2 = "not_supported";
-AAStaticSDKB = "not_supported";
-MortStaticSDKB = "not_supported";
-supportStaticsSDKB3 = "not_supported";
+REBELstaticSUPPORTbag = "not_supported";
+REBELstaticSUPPORTbagAT = "not_supported";
+REBELstaticSUPPORTbagTALL = "not_supported";
+REBELstaticSUPPORTbagTALL2 = "not_supported";
+REBELstaticSUPPORTbagAA = "not_supported";
+REBELstaticSUPPORTbagMORTAR = "not_supported";
+REBELstaticSUPPORTbagMORTAR2 = "not_supported";
 
-civCar = "LIB_GazM1_dirty";
-civTruck = "LIB_DAK_OpelBlitz_Open";
-civHeli = "not_supported";
-civBoat = "C_Boat_Transport_02_F";
+CIVcar = "LIB_GazM1_dirty";
+CIVtruck = "LIB_DAK_OpelBlitz_Open";
+CIVheli = "not_supported";
+CIVboat = "C_Boat_Transport_02_F";
 
-sniperRifle = "LIB_K98ZF39";
-lampsSDK = ["not_supported"];
+petrosRifle = "LIB_K98ZF39";
+REBELflashlight = ["not_supported"];
 
-ATMineMag = "LIB_TM44_MINE_mag";
-APERSMineMag = "LIB_PMD6_MINE_mag";
+REBELmineAT = "LIB_TM44_MINE_mag";
+REBELmineAP = "LIB_PMD6_MINE_mag";
 
 if (gameMode != 4) then
 	{
@@ -85,7 +85,7 @@ nameTeamPlayer = "AK";
 factionGEN = "SG_STURMPANZER";
 
 //Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],["ItemMap","","","","",""]];
+REBELloadoutDEFAULT = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],["ItemMap","","","","",""]];
 
 //Arsenal and Initial AI weapon setup
 unlockedWeapons = ["LIB_PTRD","LIB_M2_Flamethrower","LIB_Binocular_GER","LIB_K98","LIB_M1895","LIB_FLARE_PISTOL"];//"LMG_03_F"

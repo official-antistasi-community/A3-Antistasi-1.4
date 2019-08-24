@@ -300,21 +300,21 @@ diag_log format ["PBP: InitVar: weaponsNato: %1",weaponsNato];
 diag_log format ["PBP: InitVar: ammunitionCSAT: %1",ammunitionCSAT];
 diag_log format ["PBP: InitVar: weaponsCSAT: %1",weaponsCSAT];
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
-squadLeaders = SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
-medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
-sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
-sdkTier2 = SDKMedic + SDKExp + SDKEng;
-sdkTier3 = SDKSL + SDKSniper;
+squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
+medics = REBELmedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
+sdkTier1 = REBELliteAT + [REBELstaticCREW] + REBELsoldierMG + REBELsoldierGL + REBELsoldierAT;
+sdkTier2 = REBELmedic + REBELsoldierEXP + REBELengineer;
+sdkTier3 = REBELsquadLeader + REBELsniper;
 soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
-vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
-groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
-groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
+vehFIA = [REBELvehQUAD,REBELvehARMEDlite,REBELstaticMG,REBELvehUNARMEDlite,REBELvehTRANSPORT,REBELvehBOAT,REBELmortar,REBELstaticAT,REBELstaticAA,REBELvehREPAIR];
+groupsSDKmid = [REBELsquadLeader,REBELsoldierGL,REBELsoldierMG,REBELliteAT];
+groupsSDKAT = [REBELsquadLeader,REBELsoldierMG,REBELsoldierAT,REBELsoldierAT,REBELsoldierAT];
 //["BanditShockTeam","ParaShockTeam"];
-groupsSDKSquad = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
-groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
-groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
-groupsSDKSniper = [SDKSniper,SDKSniper];
-groupsSDKSentry = [SDKGL,SDKMil];
+groupsSDKSquad = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELliteAT,REBELsoldierAT,REBELliteAT,REBELmedic];
+groupsSDKSquadEng = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierEXP,REBELsoldierAT,REBELengineer,REBELmedic];
+groupsSDKSquadSupp = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierAT,REBELmedic,[REBELstaticCREW,REBELstaticCREW],[REBELstaticCREW,REBELstaticCREW]];
+groupsSDKSniper = [REBELsniper,REBELsniper];
+groupsSDKSentry = [REBELsoldierGL,REBELliteAT];
 banditUniforms = [];
 uniformsSDK = [];
 {
@@ -328,7 +328,7 @@ if (count _x > 1) then
 	_uniform = (getUnitLoadout _unit select 3) select 0;
 	uniformsSDK pushBackUnique _uniform;
 	};
-} forEach [SDKSniper,SDKATman,SDKMedic,SDKMG,SDKExp,SDKGL,SDKMil,SDKSL,SDKEng,[SDKUnarmed],[staticCrewTeamPlayer]];
+} forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,REBELsoldierEXP,REBELsoldierGL,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
 _checked = [];
 {
 {
@@ -424,24 +424,24 @@ if (hasRHS) then
 	diag_log format ["PBP: InitVar: pointers: %1",pointers];
 	};
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning vehicle Types",servertime];
-vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair];
-vehBoats = [vehNATOBoat,vehCSATBoat,vehSDKBoat];
+vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,REBELvehTRANSPORT,REBELvehARMEDlite,REBELvehQUAD,REBELvehREPAIR];
+vehBoats = [vehNATOBoat,vehCSATBoat,REBELvehBOAT];
 vehAttack = vehNATOAttack + vehCSATAttack;
-vehPlanes = vehNATOAir + vehCSATAir + [vehSDKPlane];
+vehPlanes = vehNATOAir + vehCSATAir + [REBELvehPLANE];
 vehAttackHelis = vehCSATAttackHelis + vehNATOAttackHelis;
-vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
+vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,REBELvehPLANE] + vehNATOTransportPlanes + vehCSATTransportPlanes;
 vehUAVs = [vehNATOUAV,vehCSATUAV];
 vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
 vehAPCs = vehNATOAPC + vehCSATAPC;
 vehTanks = [vehNATOTank,vehCSATTank];
-vehTrucks = vehNATOTrucks + vehCSATTrucks + [vehSDKTruck,vehFIATruck];
+vehTrucks = vehNATOTrucks + vehCSATTrucks + [REBELvehTRANSPORT,vehFIATruck];
 vehAA = [vehNATOAA,vehCSATAA];
 vehMRLS = [vehCSATMRLS, vehNATOMRLS];
 vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis + vehNATOTransportPlanes + vehCSATTransportPlanes;
 vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
 vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
 sniperGroups = [groupsNATOSniper,groupsCSATSniper];
-sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + SDKSniper + [FIAMarksman,NATOMarksman,CSATMarksman];
+sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + REBELsniper + [FIAMarksman,NATOMarksman,CSATMarksman];
 if (hasRHS) then {sniperUnits = sniperUnits + ["rhsusf_socom_marsoc_sniper","rhs_vdv_marksman_asval"]};
 
 arrayCivs = if (worldName == "Tanoa") then
@@ -566,8 +566,8 @@ if (side (group petros) == west) then {swoopShutUp pushBack "U_B_Wetsuit"} else 
 //Pricing values for soldiers, vehicles
 if (!isServer) exitWith {};
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Pricelist.",servertime];
-{server setVariable [_x,50,true]} forEach SDKMil;
-{server setVariable [_x,75,true]} forEach (sdkTier1 - SDKMil);
+{server setVariable [_x,50,true]} forEach REBELliteAT;
+{server setVariable [_x,75,true]} forEach (sdkTier1 - REBELliteAT);
 {server setVariable [_x,100,true]} forEach  sdkTier2;
 {server setVariable [_x,150,true]} forEach sdkTier3;
 //{timer setVariable [_x,0,true]} forEach (vehAttack + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA] + vehCSATAttackHelis + vehAA + vehMRLS);
@@ -595,16 +595,16 @@ timer setVariable [vehNATOMRLS,0,true];
 timer setVariable [vehCSATMRLS,5,true];
 
 
-server setVariable [civCar,200,true];//200
-server setVariable [civTruck,600,true];//600
-server setVariable [civHeli,5000,true];//5000
-server setVariable [civBoat,200,true];//200
-server setVariable [vehSDKBike,50,true];//50
-server setVariable [vehSDKLightUnarmed,200,true];//200
-server setVariable [vehSDKTruck,300,true];//300
-{server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];
-{server setVariable [_x,400,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];//400
-{server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];//800
+server setVariable [CIVcar,200,true];//200
+server setVariable [CIVtruck,600,true];//600
+server setVariable [CIVheli,5000,true];//5000
+server setVariable [CIVboat,200,true];//200
+server setVariable [REBELvehQUAD,50,true];//50
+server setVariable [REBELvehUNARMEDlite,200,true];//200
+server setVariable [REBELvehTRANSPORT,300,true];//300
+{server setVariable [_x,700,true]} forEach [REBELvehARMEDlite,REBELvehAT];
+{server setVariable [_x,400,true]} forEach [REBELstaticMG,REBELvehBOAT,REBELvehREPAIR];//400
+{server setVariable [_x,800,true]} forEach [REBELmortar,REBELstaticAT,REBELstaticAA];//800
 server setVariable ["hr",8,true];//initial HR value
 server setVariable ["resourcesFIA",1000,true];//Initial FIA money pool value
 skillFIA = 0;//Initial skill level for FIA soldiers
@@ -637,7 +637,7 @@ if !(hasIFA) then
 	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"];
 	unlockedItems append uniformsSDK;
 	unlockedItems append civUniforms;			// these are huge arrays, so lets append them for performance
-	unlockeditems append startingVests;
+	unlockeditems append REBELvests0;
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	}
 else

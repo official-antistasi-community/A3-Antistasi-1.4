@@ -31,14 +31,14 @@ if (str (_display) != "no display") then
 	//_formatX = (cfgSDKInf >> (groupsSDKAT select 0));
 	//_unitsX = [_formatX] call groupComposition;
 	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach groupsSDKSquadSupp;
-	_costs = _costs + ([SDKMGStatic] call A3A_fnc_vehiclePrice);
+	_costs = _costs + ([REBELstaticMG] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 107;
 	_costs = 0;
 	_costHR = 0;
-	//_unitsX = [SDKSL,SDKSL];
+	//_unitsX = [REBELsquadLeader,REBELsquadLeader];
 	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach groupsSDKSquadSupp;
-	_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice);
+	_costs = _costs + ([REBELmortar] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 };

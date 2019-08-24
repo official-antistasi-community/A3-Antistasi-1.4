@@ -61,7 +61,7 @@ else
 _grpPOW = createGroup teamPlayer;
 for "_i" from 0 to _countX do
 	{
-	_unit = _grpPOW createUnit [SDKUnarmed, (_posHouse select _i), [], 0, "NONE"];
+	_unit = _grpPOW createUnit [REBELprisoner, (_posHouse select _i), [], 0, "NONE"];
 	_unit allowDamage false;
 	[_unit,true] remoteExec ["setCaptive",0,_unit];
 	_unit setCaptive true;

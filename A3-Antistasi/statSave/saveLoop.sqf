@@ -64,10 +64,10 @@ if ((_friendX getVariable ["spawner",false]) and (side group _friendX == teamPla
 				{
 				switch (_backpck) do
 					{
-					case MortStaticSDKB: {_resourcesBackground = _resourcesBackground + ([SDKMortar] call A3A_fnc_vehiclePrice)};
-					case AAStaticSDKB: {_resourcesBackground = _resourcesBackground + ([staticAAteamPlayer] call A3A_fnc_vehiclePrice)};
-					case MGStaticSDKB: {_resourcesBackground = _resourcesBackground + ([SDKMGStatic] call A3A_fnc_vehiclePrice)};
-					case ATStaticSDKB: {_resourcesBackground = _resourcesBackground + ([staticATteamPlayer] call A3A_fnc_vehiclePrice)};
+					case REBELstaticSUPPORTbagMORTAR: {_resourcesBackground = _resourcesBackground + ([REBELmortar] call A3A_fnc_vehiclePrice)};
+					case REBELstaticSUPPORTbagAA: {_resourcesBackground = _resourcesBackground + ([REBELstaticAA] call A3A_fnc_vehiclePrice)};
+					case REBELstaticSUPPORTbagTALL: {_resourcesBackground = _resourcesBackground + ([REBELstaticMG] call A3A_fnc_vehiclePrice)};
+					case REBELstaticSUPPORTbagAT: {_resourcesBackground = _resourcesBackground + ([REBELstaticAT] call A3A_fnc_vehiclePrice)};
 					};
 				};
 			if (vehicle _friendX != _friendX) then

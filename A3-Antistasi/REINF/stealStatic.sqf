@@ -9,7 +9,7 @@ if (alive gunner _staticX) exitWith {hint "You cannot steal a static weapon when
 
 if ((alive assignedGunner _staticX) and (!isPlayer (assignedGunner _staticX))) exitWith {hint "The gunner of this static weapon is still alive"};
 
-if (activeGREF and ((typeOf _staticX == staticATteamPlayer) or (typeOf _staticX == staticAAteamPlayer))) exitWith {hint "This weapon cannot be dissassembled"};
+if (activeGREF and ((typeOf _staticX == REBELstaticAT) or (typeOf _staticX == REBELstaticAA))) exitWith {hint "This weapon cannot be dissassembled"};
 
 _nearX = [markersX,_staticX] call BIS_fnc_nearestPosition;
 

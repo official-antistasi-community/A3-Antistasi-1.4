@@ -9,7 +9,7 @@ _changeX = "";
 _roadblocks = (controlsX select {isOnRoad (getMarkerPos _x)});
 _airportsX = airportsX + outposts + _roadblocks;
 _airportsX1 = airportsX;
-_arrayCivVeh = arrayCivVeh + [civHeli] + civBoats;
+_arrayCivVeh = arrayCivVeh + [CIVheli] + civBoats;
 _compromised = _player getVariable "compromised";
 
 
@@ -93,7 +93,7 @@ while {_changeX == ""} do
 					}
 				else
 					{
-					if ((_typeX != civHeli) and (!(_typeX in civBoats))) then
+					if ((_typeX != CIVheli) and (!(_typeX in civBoats))) then
 						{
 						if !(isOnRoad position _veh) then
 							{
@@ -130,7 +130,7 @@ while {_changeX == ""} do
 			};
 		if (_changeX == "") then
 			{
-			if ((_typeX != civHeli) and (!(_typeX in civBoats))) then
+			if ((_typeX != CIVheli) and (!(_typeX in civBoats))) then
 				{
 				_base = [_airportsX,_player] call BIS_fnc_nearestPosition;
 				//_size = [_base] call A3A_fnc_sizeMarker;
@@ -169,7 +169,7 @@ _airport = [_airportsX1,_player] call BIS_fnc_nearestPosition;
 				}
 			else
 				{
-				if (_typeX == civHeli) then
+				if (_typeX == CIVheli) then
 					{
 					_base = [_airportsX1,_player] call BIS_fnc_nearestPosition;
 					_size = [_base] call A3A_fnc_sizeMarker;

@@ -1,53 +1,53 @@
-SDKMortar = "B_G_Mortar_01_F";
-SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
-SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
-SDKMGStatic = "B_HMG_01_high_F";
-staticATteamPlayer = "B_Static_AT_F";
-staticAAteamPlayer = "B_Static_AA_F";
+REBELmortar = "B_G_Mortar_01_F";
+REBELmortarHEmag = "8Rnd_82mm_Mo_shells";
+REBELmortarSMOKEmag = "8Rnd_82mm_Mo_Smoke_white";
+REBELstaticMG = "B_HMG_01_high_F";
+REBELstaticAT = "B_Static_AT_F";
+REBELstaticAA = "B_Static_AA_F";
 
-staticCrewTeamPlayer = "B_G_Soldier_unarmed_F";
-SDKUnarmed = "B_G_Survivor_F";
-SDKSniper = ["B_G_Soldier_M_F","B_G_Sharpshooter_F"];
-SDKATman = ["B_G_Soldier_LAT2_F","B_G_Soldier_LAT_F"];
-SDKMedic = ["B_G_medic_F","B_G_medic_F"];
-SDKMG = ["B_G_Soldier_AR_F","B_G_Soldier_AR_F"];
-SDKExp = ["B_G_Soldier_exp_F","B_G_Soldier_exp_F"];
-SDKGL = ["B_G_Soldier_GL_F","B_G_Soldier_GL_F"];
-SDKMil = ["B_G_Soldier_lite_F","B_G_Soldier_lite_F"];
-SDKSL = ["B_G_Soldier_SL_F","B_G_Soldier_SL_F"];
-SDKEng = ["B_G_engineer_F","B_G_engineer_F"];
+REBELstaticCREW = "B_G_Soldier_unarmed_F";
+REBELprisoner = "B_G_Survivor_F";
+REBELsniper = ["B_G_Soldier_M_F","B_G_Sharpshooter_F"];
+REBELsoldierAT = ["B_G_Soldier_LAT2_F","B_G_Soldier_LAT_F"];
+REBELmedic = ["B_G_medic_F","B_G_medic_F"];
+REBELsoldierMG = ["B_G_Soldier_AR_F","B_G_Soldier_AR_F"];
+REBELsoldierEXP = ["B_G_Soldier_exp_F","B_G_Soldier_exp_F"];
+REBELsoldierGL = ["B_G_Soldier_GL_F","B_G_Soldier_GL_F"];
+REBELliteAT = ["B_G_Soldier_lite_F","B_G_Soldier_lite_F"];
+REBELsquadLeader = ["B_G_Soldier_SL_F","B_G_Soldier_SL_F"];
+REBELengineer = ["B_G_engineer_F","B_G_engineer_F"];
 
-vehSDKBike = "B_G_Quadbike_01_F";
-vehSDKLightArmed = "B_G_Offroad_01_armed_F";
-vehSDKAT = "B_G_Offroad_01_AT_F";
-vehSDKLightUnarmed = "B_G_Offroad_01_F";
-vehSDKTruck = "B_G_Van_01_transport_F";
-//vehSDKHeli = "I_C_Heli_Light_01_civil_F";
-vehSDKPlane = "C_Plane_Civil_01_F";
-vehSDKBoat = "B_G_Boat_Transport_01_F";
-vehSDKRepair = "B_G_Offroad_01_repair_F";
-SDKFlag = "Flag_FIA_F";
-SDKFlagTexture = "\A3\Data_F\Flags\Flag_FIA_CO.paa";
+REBELvehQUAD = "B_G_Quadbike_01_F";
+REBELvehARMEDlite = "B_G_Offroad_01_armed_F";
+REBELvehAT = "B_G_Offroad_01_AT_F";
+REBELvehUNARMEDlite = "B_G_Offroad_01_F";
+REBELvehTRANSPORT = "B_G_Van_01_transport_F";
+//REBELvehHELI = "I_C_Heli_Light_01_civil_F";
+REBELvehPLANE = "C_Plane_Civil_01_F";
+REBELvehBOAT = "B_G_Boat_Transport_01_F";
+REBELvehREPAIR = "B_G_Offroad_01_repair_F";
+REBELflag = "Flag_FIA_F";
+REBELflagTEX = "\A3\Data_F\Flags\Flag_FIA_CO.paa";
 typePetros = "B_G_officer_F";
 
-supportStaticSDKB = "B_HMG_01_support_F";
-ATStaticSDKB = "B_AT_01_weapon_F";
-MGStaticSDKB = "B_HMG_01_high_weapon_F";
-supportStaticsSDKB2 = "B_HMG_01_support_high_F";
-AAStaticSDKB = "B_AA_01_weapon_F";
-MortStaticSDKB = "B_Mortar_01_weapon_F";
-supportStaticsSDKB3 = "B_Mortar_01_support_F";
+REBELstaticSUPPORTbag = "B_HMG_01_support_F";
+REBELstaticSUPPORTbagAT = "B_AT_01_weapon_F";
+REBELstaticSUPPORTbagTALL = "B_HMG_01_high_weapon_F";
+REBELstaticSUPPORTbagTALL2 = "B_HMG_01_support_high_F";
+REBELstaticSUPPORTbagAA = "B_AA_01_weapon_F";
+REBELstaticSUPPORTbagMORTAR = "B_Mortar_01_weapon_F";
+REBELstaticSUPPORTbagMORTAR2 = "B_Mortar_01_support_F";
 
-civCar = "C_Offroad_01_F";
-civTruck = "C_Van_01_transport_F";
-civHeli = "C_Heli_Light_01_civil_F";
-civBoat = "C_Boat_Transport_02_F";
+CIVcar = "C_Offroad_01_F";
+CIVtruck = "C_Van_01_transport_F";
+CIVheli = "C_Heli_Light_01_civil_F";
+CIVboat = "C_Boat_Transport_02_F";
 
-sniperRifle = "srifle_DMR_06_camo_F";
-lampsSDK = ["acc_flashlight"];
+petrosRifle = "srifle_DMR_06_camo_F";
+REBELflashlight = ["acc_flashlight"];
 
-ATMineMag = "ATMine_Range_Mag";
-APERSMineMag = "APERSMine_Range_Mag";
+REBELmineAT = "ATMine_Range_Mag";
+REBELmineAP = "APERSMine_Range_Mag";
 if (gameMode != 4) then
 	{
 	FIARifleman = "I_C_Soldier_Para_7_F";
@@ -84,7 +84,7 @@ nameTeamPlayer = "FIA";
 factionGEN = "IND_C_F";
 
 //Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla2_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+REBELloadoutDEFAULT = [[],[],[],["U_BG_Guerilla2_1", []],[],[],"","",[],["ItemMap","","","","",""]];
 
 unlockedWeapons = ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F","Binocular","SMG_05_F","SMG_02_F"];//"LMG_03_F"
 unlockedRifles = ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.

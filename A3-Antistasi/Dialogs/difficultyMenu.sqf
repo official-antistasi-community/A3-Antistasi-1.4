@@ -8,19 +8,19 @@ if !(skillMult == 1) then
 		{
 		server setVariable ["hr",25,true];
 		server setVariable ["resourcesFIA",5000,true];
-		vehInGarage = [vehSDKTruck,vehSDKTruck,SDKMortar,SDKMGStatic,staticAAteamPlayer];
+		vehInGarage = [REBELvehTRANSPORT,REBELvehTRANSPORT,REBELmortar,REBELstaticMG,REBELstaticAA];
 		minWeaps = 15;
-		_index = sniperRifle call jn_fnc_arsenal_itemType;
-		[_index,sniperRifle,-1] call jn_fnc_arsenal_addItem;
-		unlockedSN pushBack sniperRifle;
-		_magazine = (getArray (configFile / "CfgWeapons" / sniperRifle / "magazines") select 0);
+		_index = petrosRifle call jn_fnc_arsenal_itemType;
+		[_index,petrosRifle,-1] call jn_fnc_arsenal_addItem;
+		unlockedSN pushBack petrosRifle;
+		_magazine = (getArray (configFile / "CfgWeapons" / petrosRifle / "magazines") select 0);
 		if (!isNil "_magazine") then
 			{
 			unlockedMagazines pushBack _magazine;
 			_index = _magazine call jn_fnc_arsenal_itemType;
 			[_index,_magazine,-1] call jn_fnc_arsenal_addItem;
 			};
-		unlockedWeapons pushBack sniperRifle;
+		unlockedWeapons pushBack petrosRifle;
 		if !(hasTFAR) then
 			{
 			_index = "ItemRadio" call jn_fnc_arsenal_itemType;

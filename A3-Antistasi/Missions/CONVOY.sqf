@@ -285,7 +285,7 @@ if (_typeConvoyX == "Prisoners") then
 	_groups pushBack _grpPOW;
 	for "_i" from 1 to (1+ round (random 11)) do
 		{
-		_unit = _grpPOW createUnit [SDKUnarmed, _posbase, [], 0, "NONE"];
+		_unit = _grpPOW createUnit [REBELprisoner, _posbase, [], 0, "NONE"];
 		[_unit,true] remoteExec ["setCaptive",0,_unit];
 		_unit setCaptive true;
 		_unit disableAI "MOVE";

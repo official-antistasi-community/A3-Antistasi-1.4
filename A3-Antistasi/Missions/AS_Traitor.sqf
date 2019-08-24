@@ -82,7 +82,7 @@ else
 	_dirVeh = getDir _road;
 	};
 _posVeh = [_posroad, 3, _dirveh + 90] call BIS_Fnc_relPos;
-_veh = vehSDKLightUnarmed createVehicle _posVeh;
+_veh = REBELvehUNARMEDlite createVehicle _posVeh;
 _veh allowDamage false;
 _veh setDir _dirVeh;
 sleep 15;

@@ -26,26 +26,25 @@ if (count _this > 1) then
 
 _unit allowFleeing 0;
 _typeX = typeOf _unit;
-//_skill = if (_typeX in sdkTier1) then {0.1 + (skillFIA * 0.2)} else {if (_typeX in sdkTier2) then {0.2 + (skillFIA * 0.2)} else {0.3 + (skillFIA * 0.2)}};
-_skill = 0.1 + (skillFIA * 0.05 * skillMult);
-if ((_markerX == "Synd_HQ") and (isMultiplayer)) then {_skill = 1};
+_skill = 0.1 + (skillFIA * 0.05 * skillMult);													// current initial skill is [0.025,0.05,0.1] based on difficulty. at skillFIA = 10 [0.25,0.5,1] at 20 [0.5,1,2]
+if ((_markerX == "Synd_HQ") and (isMultiplayer)) then {_skill = 1};									// HQ garrison units are always skill 1?
 _unit setSkill _skill;
-if (!activeGREF) then {if (not((uniform _unit) in uniformsSDK)) then {[_unit] call A3A_fnc_reDress}};
+if (!activeGREF) then {if (not((uniform _unit) in uniformsSDK)) then {[_unit] call A3A_fnc_reDress}};		// if not using GREF and unit isnt weairng a guerilla uniform, give him one
 if (_typeX in SDKSniper) then
 	{
 	if (count unlockedSN > 0) then
 		{
-		[_unit, selectRandom unlockedSN, 8, 0] call BIS_fnc_addWeapon;
+		[_unit, selectRandom unlockedSN, 8, 0] call BIS_fnc_addWeapon;								// if unit is a sniper and there are unlocked sniper rifles then give him a random one and 8 magazines of the first type in Cfg
 		if (count unlockedOptics > 0) then
 			{
 			_compatibleX = [primaryWeapon _unit] call BIS_fnc_compatibleItems;
 			_potentials = unlockedOptics select {_x in _compatibleX};
-			if (count _potentials > 0) then {_unit addPrimaryWeaponItem (_potentials select 0)};
+			if (count _potentials > 0) then {_unit addPrimaryWeaponItem (_potentials select 0)};			// if there are unlockedOptics then give the unit the heaviest compatible one (because the array is sorted by weight descending) presumably it will be the best?
 			};
 		}
 	else
 		{
-		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;											// if unit is a sniper but we dont have snipers unlocked then call randomRifle with any arifle
 		};
 	}
 else
@@ -64,7 +63,6 @@ else
 				{
 				_unit addbackpack (unlockedBackpacks select 0);
 				[_unit, selectRandom unlockedAA, 2, 0] call BIS_fnc_addWeapon;
-				//removeBackpack _unit;
 				};
 			};
 		}

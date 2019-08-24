@@ -60,11 +60,14 @@ for "_i" from 0 to _var3 do
 	};
 for "_i" from 0 to _var4 do
 	{
-	_mines = selectRandom minesAAF;
+	_mines = minesAAF;
 	_avail = (_mines - _unlocks);
 	_loot = selectRandom _avail;
 	_num = 1 + (floor random 4);
-	_crate addMagazineCargoGlobal [_loot, _num];
+	if (!(_loot in itemCargo _crate)) then
+		{
+			_crate addMagazineCargoGlobal [_loot, _num];
+		};
 	};
 
 if !(hasIFA) then
@@ -95,6 +98,7 @@ if !(hasIFA) then
 
 	if (round random 100 < 25) then
 		{
+		if !("O_Static_Designator_02_weapon_F" in _unlocks) then
 		_crate addBackpackCargoGlobal ["O_Static_Designator_02_weapon_F",1];
 		}
 	else
@@ -103,13 +107,17 @@ if !(hasIFA) then
 			{
 			if (side group petros == independent) then
 				{
-				_crate addBackpackCargoGlobal ["I_UAV_01_backpack_F",1];
-				_crate addItemCargoGlobal ["I_UavTerminal",1];
+				if !("O_Static_Designator_02_weapon_F" in _unlocks) then
+				{_crate addBackpackCargoGlobal ["I_UAV_01_backpack_F",1]};
+				if !("O_Static_Designator_02_weapon_F" in _unlocks) then
+				{_crate addItemCargoGlobal ["I_UavTerminal",1]};
 				}
 			else
 				{
-				_crate addBackpackCargoGlobal ["B_UAV_01_backpack_F",1];
-				_crate addItemCargoGlobal ["B_UavTerminal",1];
+				if !("O_Static_Designator_02_weapon_F" in _unlocks) then
+				{_crate addBackpackCargoGlobal ["B_UAV_01_backpack_F",1]};
+				if !("O_Static_Designator_02_weapon_F" in _unlocks) then
+				{_crate addItemCargoGlobal ["B_UavTerminal",1]};
 				};
 			};
 		};

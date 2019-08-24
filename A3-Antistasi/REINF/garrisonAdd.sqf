@@ -17,7 +17,7 @@ if (_typeX isEqualType "") then
 	}
 else
 	{
-	_typeX = if (random 20 <= skillFIA) then {_typeX select 1} else {_typeX select 0};
+	_typeX = if (random 20 <= skillFIA) then {_typeX select 1} else {_typeX select 0};  // Chance to be a military unit instead of guerilla 
 	_costs = server getVariable _typeX;
 	};
 

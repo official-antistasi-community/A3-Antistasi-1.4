@@ -29,7 +29,7 @@ while {true} do
 	_numVeh = _dataX select 1;
 	_supportDEFENDER = _dataX select 2;
 	_supportREBELS = _dataX select 3;
-	_radioCheck = [_city] call A3A_fnc_radioCheckCheck;
+	_radioCheck = [_city] call A3A_fnc_powerCheck;
 	_popTotal = _popTotal + _popCITY;
 	_popREBELS = _popREBELS + (_popCITY * (_supportREBELS / 100));
 	_popDEFENDER = _popDEFENDER + (_popCITY * (_supportDEFENDER / 100));

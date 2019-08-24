@@ -1,9 +1,9 @@
-private ["_isDEFENDER","_seaportBoost","_pos","_city","_dataX","_numCiv","_numVeh","_roads","_supportDEFENDER","_supportREBELS"];
+private ["_changeDEFENDER","_changeREBELS","_pos","_city","_dataX","_numCiv","_numVeh","_roads","_supportDEFENDER","_supportREBELS"];
 
 waitUntil {!cityIsSupportChanging};
 cityIsSupportChanging = true;
-_isDEFENDER = _this select 0;
-_seaportBoost = _this select 1;
+_changeDEFENDER = _this select 0;
+_changeREBELS = _this select 1;
 _pos = _this select 2;
 if (typeName _pos == typeName "") then {_city = _pos} else {_city = [citiesX, _pos] call BIS_fnc_nearestPosition};
 _dataX = server getVariable _city;
@@ -16,16 +16,16 @@ _numVeh = _dataX select 1;
 _supportDEFENDER = _dataX select 2;
 _supportREBELS = _dataX select 3;
 
-if (_supportDEFENDER + _supportREBELS + _isDEFENDER > 100) then
+if (_supportDEFENDER + _supportREBELS + _changeDEFENDER > 100) then
 	{
-	_isDEFENDER = (_supportDEFENDER + _supportREBELS) - 100;
+	_changeDEFENDER = (_supportDEFENDER + _supportREBELS) - 100;
 	};
-_supportDEFENDER = _supportDEFENDER + _isDEFENDER;
-if (_supportDEFENDER + _supportREBELS + _seaportBoost > 100) then
+_supportDEFENDER = _supportDEFENDER + _changeDEFENDER;
+if (_supportDEFENDER + _supportREBELS + _changeREBELS > 100) then
 	{
-	_seaportBoost = (_supportDEFENDER + _supportREBELS) - 100;
+	_changeREBELS = (_supportDEFENDER + _supportREBELS) - 100;
 	};
-_supportREBELS = _supportREBELS + _seaportBoost;
+_supportREBELS = _supportREBELS + _changeREBELS;
 
 
 if (_supportDEFENDER > 100) then {_supportDEFENDER = 100};

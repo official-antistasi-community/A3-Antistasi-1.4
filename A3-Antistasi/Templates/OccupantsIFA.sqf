@@ -72,7 +72,7 @@ groupsNATOmid = [["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_scout_ober_r
 NATOSquad = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_Soldier2_base","LIB_GER_scout_ober_rifleman","LIB_GER_stggunner","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_medic"];//"B_T_InfSquad";//
 NATOSpecOp = ["LIB_FSJ_NCO","LIB_FSJ_Mgunner","LIB_FSJ_Soldier_2","LIB_FSJ_AT_soldier","LIB_FSJ_Soldier_2","LIB_FSJ_sapper","LIB_FSJ_Sniper","LIB_FSJ_medic"];
 groupsNATOSquad = [NATOSquad,["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_smgunner","LIB_GER_AT_grenadier","LIB_GER_ober_rifleman","LIB_GER_sapper","LIB_GER_sapper_gefr","LIB_GER_medic"]]; //[NATOSquad,"B_T_InfSquad_Weapons"];///
-factionMaleOccupants = "LIB_FSJ";
+DEFENDERspecopsFACTION = "LIB_FSJ";
 
 
 supportStaticNATOB = "not_supported";

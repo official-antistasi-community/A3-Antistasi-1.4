@@ -23,7 +23,6 @@ else
 		_veh = vehicle _unit;
 		if (_unit in (assignedCargo _veh)) then
 			{
-			//if (typeOf _veh in vehAPCs) then {if (isMultiplayer) then {[_unit,false] remoteExec ["enableSimulationGlobal",2]} else {_unit enableSimulation false}};
 			_unit addEventHandler ["GetOutMan",
 				{
 				_unit = _this select 0;
@@ -111,7 +110,7 @@ if !(hasIFA) then
 		{
 		if (!hasRHS) then
 			{
-			if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders) and (_unit != leader (group _unit))) then
+			if ((faction _unit != DEFENDERspecopsFACTION) and (faction _unit != INVADERspecopsFACTION) and (_unit != leader (group _unit))) then
 				{
 				if (_hmd != "") then
 					{
@@ -193,7 +192,7 @@ if !(hasIFA) then
 		{
 		if (!hasRHS) then
 			{
-			if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders)) then
+			if ((faction _unit != DEFENDERspecopsFACTION) and (faction _unit != INVADERspecopsFACTION)) then
 				{
 				if (_hmd != "") then
 					{

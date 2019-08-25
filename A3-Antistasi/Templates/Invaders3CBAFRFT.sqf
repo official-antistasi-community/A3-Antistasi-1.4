@@ -69,7 +69,7 @@ groupsCSATAT = ["rhs_msv_junior_sergeant","rhs_msv_at","rhs_msv_strelok_rpg_assi
 groupsCSATmid = [["rhs_msv_efreitor","rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_medic"],groupsCSATAA,groupsCSATAT];///["O_T_InfTeam","O_T_InfTeam_AA","O_T_InfTeam_AT"];///
 CSATSquad = ["rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_grenadier_rpg","rhs_msv_strelok_rpg_assist","rhs_msv_at","rhs_msv_strelok_rpg_assist","rhs_msv_rifleman","rhs_msv_medic"];///"O_T_InfSquad";///
 CSATSpecOp = ["rhs_vdv_recon_sergeant","rhs_vdv_recon_rifleman_scout","rhs_vdv_recon_efreitor","rhs_vdv_recon_arifleman","rhs_vdv_recon_machinegunner_assistant","rhs_vdv_flora_engineer","rhs_vdv_recon_rifleman_lat","rhs_vdv_recon_medic"];///(configfile >> "CfgGroups" >> "East" >> "OPF_T_F" >> "SpecOps" >> "O_T_ViperTeam");///
-factionMaleInvaders = "rhs_faction_msv";
+INVADERspecopsFACTION = "rhs_faction_msv";
 groupsCSATSquad = [CSATSquad,["rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_arifleman","rhs_msv_rifleman","rhs_msv_marksman","rhs_msv_machinegunner_assistant","rhs_msv_LAT","rhs_msv_medic"],["rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_arifleman","rhs_msv_rifleman","rhs_msv_marksman","rhs_msv_machinegunner_assistant","rhs_msv_aa","rhs_msv_medic"]];//[CSATSquad,"O_T_InfSquad_Weapons"];///
 
 supportStaticCSATB = "RHS_Kord_Tripod_Bag";

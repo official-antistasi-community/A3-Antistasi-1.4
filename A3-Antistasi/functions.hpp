@@ -6,7 +6,6 @@ class A3A
         class addTimeForIdle {file="addTimeForIdle.sqf";};
         class AILoadInfo {file="AILoadInfo.sqf";};
         class blackout {file="blackout.sqf";};
-        class attackAAF {file="attackAAF.sqf";};
         class buildHQ {file="buildHQ.sqf";};
         class ejectPvPPlayerIfInvalidVehicle {file="ejectPvPPlayerIfInvalidVehicle.sqf";};
         class createPetros {file="createPetros.sqf";};
@@ -74,7 +73,7 @@ class A3A
 
 	class AI
 	{
-        class AAFKilledEH {file="AI\AAFKilledEH.sqf";};
+        class AIKilledEH {file="AI\AIKilledEH.sqf";};
         class airdrop {file="AI\airdrop.sqf";};
         class AIreactOnKill {file="AI\AIreactOnKill.sqf";};
         class airstrike {file="AI\airstrike.sqf";};
@@ -129,9 +128,10 @@ class A3A
 
 	class CREATE
 	{
-        class AAFroadPatrol {file="CREATE\AAFroadpatrol.sqf";};
+        class AIvehPATROL {file="CREATE\AIvehPATROL.sqf";};
+        class AIoutpostATTACK {file="CREATE\AIoutpostATTACK.sqf";};
         class airportCanAttack {file="CREATE\airportCanAttack.sqf";};
-        class AIVEHinit {file="CREATE\AIVEHinit.sqf";};
+        class AIvehINIT {file="CREATE\AIvehINIT.sqf";};
         class cargoSeats {file="CREATE\cargoSeats.sqf";};
         class CIVinit {file="CREATE\CIVinit.sqf";};
         class civVEHinit {file="CREATE\civVEHinit.sqf";};
@@ -142,11 +142,11 @@ class A3A
         class createAIOutposts {file="CREATE\createAIOutposts.sqf";};
         class createAIResources {file="CREATE\createAIResources.sqf";};
         class createCIV {file="CREATE\createCIV.sqf";};
-        class createFIAOutposts2 {file="CREATE\createFIAOutposts2.sqf";};
-        class createSDKGarrisons {file="CREATE\createSDKGarrisons.sqf";};
-        class createSDKgarrisonsTemp {file="CREATE\createSDKgarrisonsTemp.sqf";};
-        class CSATpunish {file="CREATE\CSATpunish.sqf";};
-        class FIAinitBases {file="CREATE\FIAinitBases.sqf";};
+        class createREBELOutposts2 {file="CREATE\createREBELOutposts2.sqf";};
+        class createREBELGarrisons {file="CREATE\createREBELGarrisons.sqf";};
+        class createREBELgarrisonsTemp {file="CREATE\createREBELgarrisonsTemp.sqf";};
+        class INVADERpunish {file="CREATE\INVADERpunish.sqf";};
+        class REBELinitBases {file="CREATE\REBELinitBases.sqf";};
         class garrisonReorg {file="CREATE\garrisonReorg.sqf";};
         class garrisonSize {file="CREATE\garrisonSize.sqf";};
         class garrisonUpdate {file="CREATE\garrisonUpdate.sqf";};
@@ -154,7 +154,7 @@ class A3A
         class milBuildings {file="CREATE\milBuildings.sqf";};
         class minefieldAAF {file="CREATE\minefieldAAF.sqf";};
         class mortarPos {file="CREATE\mortarPos.sqf";};
-        class NATOinit {file="CREATE\NATOinit.sqf";};
+        class DEFENDERinit {file="CREATE\DEFENDERinit.sqf";};
         class patrolCA {file="CREATE\patrolCA.sqf";};
         class patrolReinf {file="CREATE\patrolReinf.sqf";};
         class reinforcementsAI {file="CREATE\reinforcementsAI.sqf";};
@@ -216,13 +216,13 @@ class A3A
 	{
         class ACEpvpReDress {file="Ammunition\ACEpvpReDress.sqf";};
         class arsenalManage {file="Ammunition\arsenalManage.sqf";};
-        class CSATCrate {file="Ammunition\CSATCrate.sqf";};
+        class INVADERCrate {file="Ammunition\INVADERCrate.sqf";};
         class ammunitionTransfer {file="Ammunition\ammunitionTransfer.sqf";};
-        class NATOCrate {file="Ammunition\NATOCrate.sqf";};
+        class DEFENDERCrate {file="Ammunition\DEFENDERCrate.sqf";};
         class randomRifle {file="Ammunition\randomRifle.sqf";};
         class dress {file="Ammunition\dress.sqf";};
         class empty {file="Ammunition\empty.sqf";};
-        //class boxAAF {file="Ammunition\boxAAF.sqf";};
+        //class REBELcrate {file="Ammunition\REBELcrate.sqf";};
 	}
 
 	class OrgPlayers
@@ -277,9 +277,9 @@ class A3A
         class respawn {file="Revive\respawn.sqf";};
 	}
 	
-	class Runways 
+	class Runways
 	{
-		class getRunwayTakeoffForAirportMarker {file="getRunwayTakeoffForAirportMarker.sqf";};	
+		class getRunwayTakeoffForAirportMarker {file="getRunwayTakeoffForAirportMarker.sqf";};
 		class runwayInfo {file="runwayInfo.sqf";};
 	}
 	

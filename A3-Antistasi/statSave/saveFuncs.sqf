@@ -189,7 +189,7 @@ fn_SetStat =
 				_costs = round (_costs + (_costs * (_i/280)));
 				};
 			server setVariable [_x,_costs,true];
-			} forEach soldiersSDK;
+			} forEach REBELunitsALL;
 			};
 		if(_varName == 'distanceSPWN') then {distanceSPWN = _varValue; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable "distanceSPWN";publicVariable "distanceSPWN1";publicVariable "distanceSPWN2"};
 		if(_varName == 'civPerc') then {civPerc = _varValue; if (civPerc < 1) then {civPerc = 35}; publicVariable "civPerc"};
@@ -200,7 +200,7 @@ fn_SetStat =
 			destroyedBuildings= +_varValue;
 			//publicVariable "destroyedBuildings";
 			{
-				(nearestObject [_x, "House"]) setDamage [1,false];
+			(nearestObject [_x, "House"]) setDamage [1,false];
 			} forEach destroyedBuildings;
 			};
 		if(_varName == 'minesX') then
@@ -244,7 +244,7 @@ fn_SetStat =
 				_mrk setMarkerShape "ICON";
 				_mrk setMarkerType "loc_bunker";
 				_mrk setMarkerColor colourTeamPlayer;
-				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer]} else {_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer]};
+				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",REBELfactionNAME]} else {_mrk setMarkerText format ["%1 Watchpost",REBELfactionNAME]};
 				spawner setVariable [_mrk,2,true];
 				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
 				outpostsFIA pushBack _mrk;
@@ -364,7 +364,7 @@ fn_SetStat =
 					{
 					staticsToSave pushBack _veh;
 					};
-				[_veh] call A3A_fnc_AIVEHinit;
+				[_veh] call A3A_fnc_AIvehINIT;
 				};
 			publicVariable "staticsToSave";
 			};
@@ -373,7 +373,7 @@ fn_SetStat =
 			{
 			if (_x == "AttackAAF") then
 				{
-				[] call A3A_fnc_attackAAF;
+				[] call A3A_fnc_AIoutpostATTACK;
 				}
 			else
 				{

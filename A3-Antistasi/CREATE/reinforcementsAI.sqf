@@ -64,4 +64,4 @@ if ((_numberX >= 4) and (reinfPatrols <= 4)) then
 if (count _reinfPlaces > 3) exitWith {};
 } forEach _airportsX;
 
-if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFroadPatrol};
+if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AIvehPATROL};

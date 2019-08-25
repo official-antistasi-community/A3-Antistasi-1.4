@@ -38,7 +38,7 @@ if (spawner getVariable _markerX == 0) then
 	_veh = createVehicle [_typeVehX, _pos, [], 0, "NONE"];
 	_veh allowdamage false;
 	_veh setDir random 360;
-	[_veh] call A3A_fnc_AIVEHinit;
+	[_veh] call A3A_fnc_AIvehINIT;
 
 	_groupX = createGroup _sideX;
 

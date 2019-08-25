@@ -80,8 +80,8 @@ AAStaticCSATB = "O_AA_01_weapon_F";
 MortStaticCSATB = "O_Mortar_01_weapon_F";
 supportStaticCSATB3 = "O_Mortar_01_support_F";
 
-weaponsCSAT append ["srifle_DMR_01_F","LMG_Zafir_F","hgun_Pistol_heavy_02_F","arifle_Katiba_F","MMG_01_hex_F","srifle_DMR_04_F","arifle_Katiba_GL_F","SMG_02_F","srifle_GM6_camo_F","srifle_DMR_05_blk_F","arifle_AK12_F","arifle_AK12_GL_F"];
-ammunitionCSAT append ["30Rnd_65x39_caseless_green","10Rnd_762x54_Mag","150Rnd_762x54_Box","6Rnd_45ACP_Cylinder","150Rnd_93x64_Mag","10Rnd_127x54_Mag","30Rnd_9x21_Mag","5Rnd_127x108_Mag","10Rnd_93x64_DMR_05_Mag"];
+weaponsINVADER append ["srifle_DMR_01_F","LMG_Zafir_F","hgun_Pistol_heavy_02_F","arifle_Katiba_F","MMG_01_hex_F","srifle_DMR_04_F","arifle_Katiba_GL_F","SMG_02_F","srifle_GM6_camo_F","srifle_DMR_05_blk_F","arifle_AK12_F","arifle_AK12_GL_F"];
+ammoINVADER append ["30Rnd_65x39_caseless_green","10Rnd_762x54_Mag","150Rnd_762x54_Box","6Rnd_45ACP_Cylinder","150Rnd_93x64_Mag","10Rnd_127x54_Mag","30Rnd_9x21_Mag","5Rnd_127x108_Mag","10Rnd_93x64_DMR_05_Mag"];
 flagCSATmrk = "flag_CSAT";
 nameInvaders = "CSAT";
 if (isServer) then {"CSAT_carrier" setMarkerText "CSAT Carrier"};

@@ -116,7 +116,7 @@ switch (_typeConvoyX) do
 		};
 	case "Supplies":
 		{
-		_textX = format ["A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.",_nameOrigin,_displayTime,_nameDest,nameTeamPlayer];
+		_textX = format ["A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.",_nameOrigin,_displayTime,_nameDest,REBELfactionNAME];
 		_taskTitle = "Supply Convoy";
 		_taskIcon = "heal";
 		_typeVehObj = "C_Van_01_box_F";
@@ -167,7 +167,7 @@ _vehCrew = _vehicle select 1;
 _soldiers = _soldiers + _vehCrew;
 //_groups pushBack _groupVeh;
 _vehiclesX pushBack _vehLead;
-[_vehLead] call A3A_fnc_AIVEHinit;
+[_vehLead] call A3A_fnc_AIvehINIT;
 
 _vehLead limitSpeed 50;
 
@@ -222,7 +222,7 @@ for "_i" from 1 to _countX do
 	{[_x] call A3A_fnc_NATOinit;_x allowDamage false} forEach _vehCrew;
 	_soldiers = _soldiers + _vehCrew;
 	_vehiclesX pushBack _veh;
-	[_veh] call A3A_fnc_AIVEHinit;
+	[_veh] call A3A_fnc_AIvehINIT;
 	if (_i == 1) then {_veh setConvoySeparation 60} else {_veh setConvoySeparation 20};
 	if (!_isFIA) then
 		{
@@ -274,7 +274,7 @@ _vehCrew = _vehicle select 1;
 _soldiers = _soldiers + _vehCrew;
 //_groups pushBack _groupVeh;
 _vehiclesX pushBack _vehObj;
-[_vehObj] call A3A_fnc_AIVEHinit;
+[_vehObj] call A3A_fnc_AIvehINIT;
 //_vehObj forceFollowRoad true;
 _vehObj setConvoySeparation 50;
 
@@ -342,7 +342,7 @@ _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit; _x allowDamage false} forEach _vehCrew;
 _soldiers = _soldiers + _vehCrew;
 _vehiclesX pushBack _veh;
-[_veh] call A3A_fnc_AIVEHinit;
+[_veh] call A3A_fnc_AIvehINIT;
 //_veh forceFollowRoad true;
 _veh setConvoySeparation 20;
 //_veh limitSpeed 50;

@@ -10,7 +10,7 @@ clearBackpackCargoGlobal boxX;
 
 for "_i" from 0 to (1 + floor random 4) do
 	{
-	_thingX = selectRandom (weaponsNato + antitankAAF);
+	_thingX = selectRandom (weaponsDEFENDER + antitankAAF);
 	_num = 1 + (floor random 9);
 	boxX addWeaponWithAttachmentsCargoGlobal [[_thingX, "", "", "", [], [], ""], _num];
 	};
@@ -37,7 +37,7 @@ for "_i" from 0 to (1 + floor random 4) do
 	
 for "_i" from 0 to (1 + floor random 4) do
 	{
-	_ammo = smokeX + chemX + ammunitionNATO;
+	_ammo = smokeX + chemX + ammoDEFENDER;
 	_loot = selectRandom _ammo;
 	boxX addMagazineCargoGlobal [_loot, 5]
 	};

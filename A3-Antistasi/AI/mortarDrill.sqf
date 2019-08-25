@@ -64,7 +64,7 @@ _groupX addVehicle _mortarX;
 _morty assignAsGunner _mortarX;
 [_morty] orderGetIn true;
 [_morty] allowGetIn true;
-_nul = [_mortarX] call A3A_fnc_AIVEHinit;
+_nul = [_mortarX] call A3A_fnc_AIvehINIT;
 _movable = _groupX getVariable ["movable",[]];
 _movable pushBack _helperX;
 _groupX setVariable ["movable",_movable];

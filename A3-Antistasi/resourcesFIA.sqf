@@ -26,11 +26,11 @@ _moneySim = "";
 if (_moneyREBELSchange > 0) then {_moneySim = "+"};
 if ((_hrREBELSchange != 0) and (_moneyREBELSchange != 0)) then
 	{
-	_textX = format ["<t size='0.6' color='#C1C0BB'>%5 Resources.<br/> <t size='0.5' color='#C1C0BB' shadow='2'><br/>HR: %3%1<br/>Money: %4%2 €",_hrREBELSchange,_moneyREBELSchange,_hrSim,_moneySim,nameTeamPlayer]
+	_textX = format ["<t size='0.6' color='#C1C0BB'>%5 Resources.<br/> <t size='0.5' color='#C1C0BB' shadow='2'><br/>HR: %3%1<br/>Money: %4%2 €",_hrREBELSchange,_moneyREBELSchange,_hrSim,_moneySim,REBELfactionNAME]
 	}
 else
 	{
-	if (_hrREBELSchange != 0) then {_textX = format ["<t size='0.6' color='#C1C0BB' shadow='2'>%4 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>HR: %3%1",_hrREBELSchange,_moneyREBELSchange,_hrSim,nameTeamPlayer]} else {if (_moneyREBELSchange != 5) then {_textX = format ["<t size='0.6' color='#C1C0BB' shadow='2'>%4 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>Money: %4%2 €",_hrREBELSchange,_moneyREBELSchange,_hrSim,_moneySim,nameTeamPlayer]}};
+	if (_hrREBELSchange != 0) then {_textX = format ["<t size='0.6' color='#C1C0BB' shadow='2'>%4 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>HR: %3%1",_hrREBELSchange,_moneyREBELSchange,_hrSim,REBELfactionNAME]} else {if (_moneyREBELSchange != 5) then {_textX = format ["<t size='0.6' color='#C1C0BB' shadow='2'>%4 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>Money: %4%2 €",_hrREBELSchange,_moneyREBELSchange,_hrSim,_moneySim,REBELfactionNAME]}};
 	};
 
 if (_textX != "") then

@@ -96,7 +96,7 @@ if (_isControl) then
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 			sleep 1;
-			{_nul = [_x] call A3A_fnc_AIVEHinit} forEach _vehiclesX;
+			{_nul = [_x] call A3A_fnc_AIvehINIT} forEach _vehiclesX;
 			};
 		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsNATOmid} else {selectRandom groupsCSATmid};
 		_groupX = if !(hasIFA) then {[_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup} else {[_positionX,_sideX, _typeGroup] call A3A_fnc_spawnGroup};
@@ -121,7 +121,7 @@ if (_isControl) then
 		_typeVehX = if !(hasIFA) then {vehFIAArmedCar} else {vehFIACar};
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
 		_veh setDir _dirveh + 90;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		_nul = [_veh] call A3A_fnc_AIvehINIT;
 		_vehiclesX pushBack _veh;
 		sleep 1;
 		_typeGroup = selectRandom groupsFIAMid;

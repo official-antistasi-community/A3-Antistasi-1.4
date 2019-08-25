@@ -40,7 +40,7 @@ for "_i" from 1 to 3 do
 	private _veh = _spawnResult select 0;
 	private _vehCrew = _spawnResult select 1;
 	{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
-	[_veh] call A3A_fnc_AIVEHinit;
+	[_veh] call A3A_fnc_AIvehINIT;
 	_groupVeh = _spawnResult select 2;
 	_pilots = _pilots + _vehCrew;
 	_groups pushBack _groupVeh;

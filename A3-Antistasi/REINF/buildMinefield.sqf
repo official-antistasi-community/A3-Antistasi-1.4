@@ -78,7 +78,7 @@ _truckX = REBELvehTRANSPORT createVehicle _pos;
 
 _groupX addVehicle _truckX;
 {[_x] spawn A3A_fnc_FIAinit; [_x] orderGetIn true} forEach units _groupX;
-_nul = [_truckX] call A3A_fnc_AIVEHinit;
+_nul = [_truckX] call A3A_fnc_AIvehINIT;
 leader _groupX setBehaviour "SAFE";
 theBoss hcSetGroup [_groupX];
 _truckX allowCrewInImmobile true;

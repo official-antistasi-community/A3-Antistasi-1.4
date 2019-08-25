@@ -1,11 +1,9 @@
-private ["_unit","_veh","_sideX","_typeX","_skill","_riflefinal","_magazines","_hmd","_markerX","_revealX"];
+private ["_unit","_veh","_typeX","_skill","_riflefinal","_magazines","_hmd","_markerX","_revealX"];
 
 _unit = _this select 0;
 if ((isNil "_unit") || (isNull _unit)) exitWith {diag_log format ["%1: [Antistasi] | ERROR | NATOinit.sqf | Error with Nato Parameter:%2",servertime,_this];};
 _typeX = typeOf _unit;
 if (typeOf _unit == "Fin_random_F") exitWith {};
-_sideX = side _unit;
-//_unit setVariable ["sideX",_sideX];
 _unit addEventHandler ["HandleDamage",A3A_fnc_handleDamageAAF];
 
 _unit addEventHandler ["killed",A3A_fnc_AAFKilledEH];
@@ -55,7 +53,7 @@ else
 	};
 
 _skill = (tierWar + difficultyCoef) * 0.1 * skillMult;
-if ((faction _unit != factionGEN) and (faction _unit != factionFIA)) then
+if ((faction _unit != POLICE) and (faction _unit != factionFIA)) then
 	{
 	if (side _unit == Occupants) then
 		{

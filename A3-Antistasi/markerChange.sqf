@@ -30,7 +30,7 @@ if (isNil "_flagX") then {_flagX = objNull};
 
 if (_looser == teamPlayer) then
 	{
-	_textX = format ["%1 ",nameTeamPlayer];
+	_textX = format ["%1 ",REBELfactionNAME];
 	[] call A3A_fnc_tierCheck;
 	}
 else

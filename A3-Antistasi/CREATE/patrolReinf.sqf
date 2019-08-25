@@ -58,7 +58,7 @@ if (_land) then
 		[_x] call A3A_fnc_NATOinit;
 		};
 	} forEach units _groupX;
-	[_veh] call A3A_fnc_AIVEHinit;
+	[_veh] call A3A_fnc_AIvehINIT;
 	[_veh,"Inf Truck."] spawn A3A_fnc_inmuneConvoy;
 	_groupX spawn A3A_fnc_attackDrillAI;
 	[_mrkOrigin,_posDestination,_groupX] call WPCreate;
@@ -91,7 +91,7 @@ else
 	[_x] call A3A_fnc_NATOinit;
 	_x addEventHandler ["Killed",{deleteVehicle (group (_this select 0) getVariable ["myPad",objNull])}];
 	} forEach units _groupVeh;
-	[_veh] call A3A_fnc_AIVEHinit;
+	[_veh] call A3A_fnc_AIvehINIT;
 
 	_groupX = [_posOrigin,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
 	{

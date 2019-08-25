@@ -29,11 +29,11 @@ if (_typeX != "delete") then
 	{
 	_isRoad = isOnRoad _positionTel;
 
-	_typeGroup = groupsSDKSniper;
+	_typeGroup = REBELgroupSNIPER;
 
 	if (_isRoad) then
 		{
-		_typeGroup = groupsSDKAT;
+		_typeGroup = REBELgroupAT;
 		_costs = _costs + ([REBELvehARMEDlite] call A3A_fnc_vehiclePrice) + (server getVariable REBELstaticCREW);
 		_hr = _hr + 1;
 		};

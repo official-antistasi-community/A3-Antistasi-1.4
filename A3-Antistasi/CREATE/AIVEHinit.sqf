@@ -3,7 +3,7 @@ private ["_veh","_typeX"];
 _veh = _this select 0;
 if (isNil "_veh") exitWith {};
 if ((_veh isKindOf "FlagCarrier") or (_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
-//if (_veh isKindOf "ReammoBox_F") exitWith {[_veh] call A3A_fnc_NATOcrate};
+//if (_veh isKindOf "ReammoBox_F") exitWith {[_veh] call A3A_fnc_DEFENDERcrate};
 
 _typeX = typeOf _veh;
 
@@ -19,7 +19,7 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
 		{
 		if (_typeX in vehAmmoTrucks) then
 			{
-			if (_veh distance getMarkerPos respawnTeamPlayer > 50) then {if (_typeX == vehNatoAmmoTruck) then {_nul = [_veh] call A3A_fnc_NATOcrate} else {_nul = [_veh] call A3A_fnc_CSATcrate}};
+			if (_veh distance getMarkerPos respawnTeamPlayer > 50) then {if (_typeX == vehNatoAmmoTruck) then {_nul = [_veh] call A3A_fnc_DEFENDERcrate} else {_nul = [_veh] call A3A_fnc_INVADERcrate}};
 			};
 		if (_veh isKindOf "Car") then
 			{

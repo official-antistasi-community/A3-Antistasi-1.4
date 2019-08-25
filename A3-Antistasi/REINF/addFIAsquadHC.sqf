@@ -91,11 +91,11 @@ if (_esinf) then
 	if (_typeGroup isEqualType []) then
 		{
 		_groupX = [_pos, teamPlayer, _formatX,true] call A3A_fnc_spawnGroup;
-		//if (_typeGroup isEqualTo groupsSDKSquad) then {_format = "Squd-"};
-		if (_typeGroup isEqualTo groupsSDKmid) then {_format = "Tm-"};
-		if (_typeGroup isEqualTo groupsSDKAT) then {_format = "AT-"};
-		if (_typeGroup isEqualTo groupsSDKSniper) then {_format = "Snpr-"};
-		if (_typeGroup isEqualTo groupsSDKSentry) then {_format = "Stry-"};
+		//if (_typeGroup isEqualTo REBELgroupSQUAD) then {_format = "Squd-"};
+		if (_typeGroup isEqualTo REBELgroupFIRETEAM) then {_format = "Tm-"};
+		if (_typeGroup isEqualTo REBELgroupAT) then {_format = "AT-"};
+		if (_typeGroup isEqualTo REBELgroupSNIPER) then {_format = "Snpr-"};
+		if (_typeGroup isEqualTo REBELgroupSENTRY) then {_format = "Stry-"};
 		if (_withBackpck == "MG") then
 			{
 			((units _groupX) select ((count (units _groupX)) - 2)) addBackpackGlobal REBELstaticSUPPORTbagTALL2;
@@ -145,7 +145,7 @@ else
 		_pos = _pos findEmptyPosition [1,30,REBELmortar];
 		_morty = _groupX createUnit [REBELstaticCREW, _pos, [],0, "NONE"];
 		_mortarX = _typeGroup createVehicle _pos;
-		_nul = [_mortarX] call A3A_fnc_AIVEHinit;
+		_nul = [_mortarX] call A3A_fnc_AIvehINIT;
 		_mortarX attachTo [_truckX,[0,-1.5,0.2]];
 		_mortarX setDir (getDir _truckX + 180);
 		_morty moveInGunner _mortarX;
@@ -154,7 +154,7 @@ else
 	if (_typeGroup == REBELstaticAA) then {_groupX setGroupId [format ["M.AA-%1",{side (leader _x) == teamPlayer} count allGroups]]};
 
 	driver _truckX action ["engineOn", vehicle driver _truckX];
-	_nul = [_truckX] call A3A_fnc_AIVEHinit;
+	_nul = [_truckX] call A3A_fnc_AIvehINIT;
 	_bypassAI = true;
 	};
 
@@ -212,7 +212,7 @@ vehQuery = nil;
 //if (_resourcesFIA < _costs) exitWith {hint format ["You do not have enough money for this vehicle: %1 € required",_costs]};
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 _mortarX = _typeVehX createVehicle _pos;
-_nul = [_mortarX] call A3A_fnc_AIVEHinit;
+_nul = [_mortarX] call A3A_fnc_AIvehINIT;
 _groupX addVehicle _mortarX;
 _mortarX setVariable ["owner",_groupX,true];
 _nul = [0, - _costs] remoteExec ["A3A_fnc_resourcesFIA",2];

@@ -141,7 +141,7 @@ else
         };
     publicVariable "theBoss";
     publicVariable "membersX";
-    [] execVM "Ammunition\boxAAF.sqf";
+    [] execVM "Ammunition\REBELcrate.sqf";
     };
 
 diag_log format ["%1: [Antistasi] | INFO | Accepting Players.",servertime];

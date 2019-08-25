@@ -125,16 +125,16 @@ _boxX = objNull;
 if (_sideX == Occupants) then
 	{
 	_boxX = NATOAmmoBox createVehicle _positionX;
-	_nul = [_boxX] call A3A_fnc_NATOcrate;
+	_nul = [_boxX] call A3A_fnc_DEFENDERcrate;
 	}
 else
 	{
 	_boxX = CSATAmmoBox createVehicle _positionX;
-	_nul = [_boxX] call A3A_fnc_CSATcrate;
+	_nul = [_boxX] call A3A_fnc_INVADERcrate;
 	};
 _vehiclesX pushBack _boxX;
 _boxX call jn_fnc_logistics_addAction;
-{_nul = [_x] call A3A_fnc_AIVEHinit;} forEach _vehiclesX;
+{_nul = [_x] call A3A_fnc_AIvehINIT;} forEach _vehiclesX;
 _roads = _positionX nearRoads _size;
 
 if ((_markerX in seaports) and (spawner getVariable _markerX!=2) and !hasIFA) then
@@ -146,7 +146,7 @@ if ((_markerX in seaports) and (spawner getVariable _markerX!=2) and !hasIFA) th
 		_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
 		_vehicle=[_pos, 0,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
 		_veh = _vehicle select 0;
-		[_veh] call A3A_fnc_AIVEHinit;
+		[_veh] call A3A_fnc_AIvehINIT;
 		_vehCrew = _vehicle select 1;
 		{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
 		_groupVeh = _vehicle select 2;
@@ -189,7 +189,7 @@ else
 					_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
 					_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
 					[_unit,_markerX] call A3A_fnc_NATOinit;
-					[_veh] call A3A_fnc_AIVEHinit;
+					[_veh] call A3A_fnc_AIvehINIT;
 					_unit moveInGunner _veh;
 					_soldiers pushBack _unit;
 					}
@@ -201,7 +201,7 @@ else
 						{
 						_veh = vehFIAArmedCar createVehicle getPos _road;
 						_veh setDir _dirveh + 90;
-						_nul = [_veh] call A3A_fnc_AIVEHinit;
+						_nul = [_veh] call A3A_fnc_AIvehINIT;
 						_vehiclesX pushBack _veh;
 						sleep 1;
 						_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
@@ -223,7 +223,7 @@ if (count _roads != 0) then
 		_veh = createVehicle [selectRandom _typeVehX, _pos, [], 0, "NONE"];
 		_veh setDir random 360;
 		_vehiclesX pushBack _veh;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		_nul = [_veh] call A3A_fnc_AIvehINIT;
 		sleep 1;
 		};
 	};

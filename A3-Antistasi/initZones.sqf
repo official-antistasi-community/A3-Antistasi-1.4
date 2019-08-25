@@ -10,7 +10,7 @@ diag_log format ["%1: [Antistasi] | INFO | initZones Started.", servertime];
 
 _fnc_rw_mrkArray = {
 	params ["_mrkName"];
-	private _return = allMapMarkers select { ((_x splitString "_") select 0) == _mrkName };
+	private _return = allMapMarkers select { ((_x splitString "_") select 0) isEqualTo _mrkName };
 	_return
 };
 

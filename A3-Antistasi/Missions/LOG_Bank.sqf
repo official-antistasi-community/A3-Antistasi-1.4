@@ -33,7 +33,7 @@ _pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"
 
 _truckX = "C_Van_01_box_F" createVehicle _pos;
 {_x reveal _truckX} forEach (allPlayers - (entities "HeadlessClient_F"));
-[_truckX] call A3A_fnc_AIVEHinit;
+[_truckX] call A3A_fnc_AIvehINIT;
 _truckX setVariable ["destinationX",_nameDest,true];
 _truckX addEventHandler ["GetIn",
 	{

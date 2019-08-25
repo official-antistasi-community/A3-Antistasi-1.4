@@ -255,10 +255,10 @@ else
 	["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
 	};
 
-ammunitionNATO = [];
-weaponsNato = [];
-ammunitionCSAT = [];
-weaponsCSAT = [];
+ammoDEFENDER = [];
+weaponsDEFENDER = [];
+ammoINVADER = [];
+weaponsINVADER = [];
 diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",servertime];
 if (!hasIFA) then
 	{
@@ -295,38 +295,27 @@ else
 	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
 	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
 	};
-diag_log format ["PBP: InitVar: ammunitionNATO: %1",ammunitionNATO];
-diag_log format ["PBP: InitVar: weaponsNato: %1",weaponsNato];
-diag_log format ["PBP: InitVar: ammunitionCSAT: %1",ammunitionCSAT];
-diag_log format ["PBP: InitVar: weaponsCSAT: %1",weaponsCSAT];
+diag_log format ["PBP: InitVar: ammoDEFENDER: %1",ammoDEFENDER];
+diag_log format ["PBP: InitVar: weaponsDEFENDER: %1",weaponsDEFENDER];
+diag_log format ["PBP: InitVar: ammoINVADER: %1",ammoINVADER];
+diag_log format ["PBP: InitVar: weaponsINVADER: %1",weaponsINVADER];
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
+
 squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
 medics = REBELmedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
-sdkTier1 = REBELliteAT + [REBELstaticCREW] + REBELsoldierMG + REBELsoldierGL + REBELsoldierAT;
-sdkTier2 = REBELmedic + REBELsoldierEXP + REBELengineer;
-sdkTier3 = REBELsquadLeader + REBELsniper;
-soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
-vehFIA = [REBELvehQUAD,REBELvehARMEDlite,REBELstaticMG,REBELvehUNARMEDlite,REBELvehTRANSPORT,REBELvehBOAT,REBELmortar,REBELstaticAT,REBELstaticAA,REBELvehREPAIR];
-groupsSDKmid = [REBELsquadLeader,REBELsoldierGL,REBELsoldierMG,REBELliteAT];
-groupsSDKAT = [REBELsquadLeader,REBELsoldierMG,REBELsoldierAT,REBELsoldierAT,REBELsoldierAT];
-//["BanditShockTeam","ParaShockTeam"];
-groupsSDKSquad = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELliteAT,REBELsoldierAT,REBELliteAT,REBELmedic];
-groupsSDKSquadEng = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierEXP,REBELsoldierAT,REBELengineer,REBELmedic];
-groupsSDKSquadSupp = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierAT,REBELmedic,[REBELstaticCREW,REBELstaticCREW],[REBELstaticCREW,REBELstaticCREW]];
-groupsSDKSniper = [REBELsniper,REBELsniper];
-groupsSDKSentry = [REBELsoldierGL,REBELliteAT];
-banditUniforms = [];
-uniformsSDK = [];
+
+REBELuniforms = [];
+REBELuniformsPM = [];
 {
 _unit = _x select 0;
 _uniform = (getUnitLoadout _unit select 3) select 0;
-banditUniforms pushBackUnique _uniform;
-uniformsSDK pushBackUnique _uniform;
+REBELuniforms pushBackUnique _uniform;
+REBELuniformsPM pushBackUnique _uniform;
 if (count _x > 1) then
 	{
 	_unit = _x select 1;
 	_uniform = (getUnitLoadout _unit select 3) select 0;
-	uniformsSDK pushBackUnique _uniform;
+	REBELuniformsPM pushBackUnique _uniform;
 	};
 } forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,REBELsoldierEXP,REBELsoldierGL,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
 _checked = [];
@@ -342,13 +331,13 @@ if !(_typeX in _checked) then
 		if !(_loadout select _i isEqualTo []) then
 			{
 				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
-				if !(_weapon in weaponsCSAT) then {weaponsCSAT pushBack _weapon};
+				if !(_weapon in weaponsINVADER) then {weaponsINVADER pushBack _weapon};
 			};
 		};
 	};
 } forEach _x;
 } forEach groupsCSATmid + [CSATSpecOp] + groupsCSATSquad;
-diag_log format ["PBP: InitVar: weaponsCSAT: %1",weaponsCSAT];
+diag_log format ["PBP: InitVar: weaponsINVADER: %1",weaponsINVADER];
 _checked = [];
 {
 {
@@ -362,25 +351,25 @@ if !(_typeX in _checked) then
 		if !(_loadout select _i isEqualTo []) then
 			{
 				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
-				if !(_weapon in weaponsNato) then {weaponsNato pushBack _weapon};
+				if !(_weapon in weaponsDEFENDER) then {weaponsDEFENDER pushBack _weapon};
 			};
 		};
 	};
 } forEach _x;
 } forEach groupsNATOmid + [NATOSpecOp] + groupsNATOSquad;
-diag_log format ["PBP: InitVar: weaponsNato: %1",weaponsNato];
+diag_log format ["PBP: InitVar: weaponsDEFENDER: %1",weaponsDEFENDER];
 {
 _nameX = [_x] call BIS_fnc_baseWeapon;
 _magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
-ammunitionNATO pushBack (_magazines select 0);
-} forEach weaponsNato;
-diag_log format ["PBP: InitVar: ammunitionNATO: %1",ammunitionNATO];
+ammoDEFENDER pushBack (_magazines select 0);
+} forEach weaponsDEFENDER;
+diag_log format ["PBP: InitVar: ammoDEFENDER: %1",ammoDEFENDER];
 {
 _nameX = [_x] call BIS_fnc_baseWeapon;
 _magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
-ammunitionCSAT pushBack (_magazines select 0);
-} forEach weaponsCSAT;
-diag_log format ["PBP: InitVar: ammunitionCSAT: %1",ammunitionCSAT];
+ammoINVADER pushBack (_magazines select 0);
+} forEach weaponsINVADER;
+diag_log format ["PBP: InitVar: ammoINVADER: %1",ammoINVADER];
 //optic, pointer and flashlight automated detection
 opticsAAF = [];
 flashLights = [];
@@ -410,7 +399,7 @@ if !(_item in (opticsAAF + flashLights + pointers)) then
 		};
 	};
 } forEach (_x call BIS_fnc_compatibleItems);
-} forEach (weaponsNato + weaponsCSAT);
+} forEach (weaponsDEFENDER + weaponsINVADER);
 diag_log format ["PBP: InitVar: opticsAAF: %1",opticsAAF];
 diag_log format ["PBP: InitVar: flashLights: %1",flashLights];
 diag_log format ["PBP: InitVar: pointers: %1",pointers];
@@ -567,9 +556,9 @@ if (side (group petros) == west) then {swoopShutUp pushBack "U_B_Wetsuit"} else 
 if (!isServer) exitWith {};
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Pricelist.",servertime];
 {server setVariable [_x,50,true]} forEach REBELliteAT;
-{server setVariable [_x,75,true]} forEach (sdkTier1 - REBELliteAT);
-{server setVariable [_x,100,true]} forEach  sdkTier2;
-{server setVariable [_x,150,true]} forEach sdkTier3;
+{server setVariable [_x,75,true]} forEach (REBELunitsTIER1 - REBELliteAT);
+{server setVariable [_x,100,true]} forEach  REBELunitsTIER2;
+{server setVariable [_x,150,true]} forEach REBELunitsTIER3;
 //{timer setVariable [_x,0,true]} forEach (vehAttack + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA] + vehCSATAttackHelis + vehAA + vehMRLS);
 {timer setVariable [_x,3,true]} forEach [staticATOccupants,staticAAOccupants];
 {timer setVariable [_x,6,true]} forEach [staticATInvaders,staticAAInvaders];
@@ -634,15 +623,16 @@ movingMarker = false;
 
 if !(hasIFA) then
 	{
-	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"] + uniformsSDK + civUniforms;//Initial Arsenal available items
-	//Adds starting vests. THIS IS TEMPORARY and should be moved to the template files.
-	unlockedItems append ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
-	if (side group petros == independent) then {unlockedItems pushBack "I_UavTerminal"} else {unlockedItems pushBack "B_UavTerminal"};
+	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"];
+	unlockedItems append REBELuniformsPM;
+	unlockedItems append civUniforms;			// these are huge arrays, so lets append them for performance
+	unlockeditems append REBELvests0;
+	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	}
 else
 	{
 	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"];
-	unlockedItems append uniformsSDK;
+	unlockedItems append REBELuniformsPM;
 	unlockedItems append civUniforms;			// these are huge arrays, so lets append them for performance
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	};
@@ -654,7 +644,7 @@ diag_log format ["%1: [Antistasi]: initVar | Setting Default Arsenal Unlocks.",s
 unlockedWeapons = [];
 unlockedRifles = [];
 unlockedMagazines = [];
-initialRifles = [];
+unlockedRifles = [];
 unlockedAT = [];
 unlockedItems = [];
 unlockedBackpacks = [];
@@ -734,15 +724,15 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
 	if !(hasIFA) then
 		{
-		weaponsNato pushBack "ACE_VMH3";
+		weaponsDEFENDER pushBack "ACE_VMH3";
 		itemsAAF = itemsAAF + ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield"];
 		itemsAAF = itemsAAF - ["MineDetector"];
 		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
 		smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow","ACE_M84"];
-		ammunitionNATO = ammunitionNATO - ["ACE_PreloadedMissileDummy"];
+		ammoDEFENDER = ammoDEFENDER - ["ACE_PreloadedMissileDummy"];
 		diag_log format ["PBP: InitVar: unlockedBackpacks: %1",unlockedBackpacks];
-		diag_log format ["PBP: InitVar: weaponsNato: %1",weaponsNato];
-		diag_log format ["PBP: InitVar: ammunitionNATO: %1",ammunitionNATO];
+		diag_log format ["PBP: InitVar: weaponsDEFENDER: %1",weaponsDEFENDER];
+		diag_log format ["PBP: InitVar: ammoDEFENDER: %1",ammoDEFENDER];
 		diag_log format ["PBP: InitVar: itemsAAF: %1",itemsAAF];
 		diag_log format ["PBP: InitVar: chemX: %1",chemX];
 		diag_log format ["PBP: InitVar: smokeX: %1",smokeX];
@@ -831,7 +821,7 @@ publicVariable "unlockedGL";
 publicVariable "unlockedSN";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
-publicVariable "initialRifles";
+publicVariable "unlockedRifles";
 
 if (isMultiplayer) then {[[petros,"hint","Variables Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;};
 diag_log format ["%1: [Antistasi] | INFO | initVar Completed.",servertime];

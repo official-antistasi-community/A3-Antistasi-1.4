@@ -19,7 +19,7 @@ if (_isRoad) then
 		_garrison = [REBELstaticCREW];
 		{
 		if (random 20 <= skillFIA) then {_garrison pushBack (_x select 1)} else {_garrison pushBack (_x select 0)};
-		} forEach groupsSDKAT;
+		} forEach REBELgroupAT;
 		garrison setVariable [_markerX,_garrison,true];
 		};
 	while {true} do
@@ -35,7 +35,7 @@ if (_isRoad) then
 		_veh = REBELvehARMEDlite createVehicle getPos (_road select 0);
 		_veh setDir _dirveh + 90;
 		_veh lock 3;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		_nul = [_veh] call A3A_fnc_AIvehINIT;
 		sleep 1;
 		};
 	_groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
@@ -48,7 +48,7 @@ else
 	_formatX = [];
 	{
 	if (random 20 <= skillFIA) then {_formatX pushBack (_x select 1)} else {_formatX pushBack (_x select 0)};
-	} forEach groupsSDKSniper;
+	} forEach REBELgroupSNIPER;
 	_groupX = [_positionX, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
 	_groupX setBehaviour "STEALTH";
 	_groupX setCombatMode "GREEN";

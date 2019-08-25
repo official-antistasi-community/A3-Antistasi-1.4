@@ -106,6 +106,6 @@ vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
 policeOfficer = "B_GEN_Commander_F";
 policeGrunt = "B_GEN_Soldier_F";
 groupsNATOGen = [policeOfficer,policeGrunt];
-nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
+REBELfactionNAME = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
 
-factionGEN = "BLU_GEN_F";
+POLICE = "BLU_GEN_F";

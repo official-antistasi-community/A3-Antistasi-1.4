@@ -1,52 +1,52 @@
 diag_log format ["%1: [Antistasi] | INFO | InitGarrisons Started.",servertime];
 
-_mrkNATO = [];
-_mrkCSAT = [];
-_controlsNATO = [];
-_controlsCSAT = [];
+_mrkDEFENDER = [];
+_mrkINVADER = [];
+_roadblockDEFENDER = [];
+_roadblockINVADER = [];
 
 if (gameMode == 1) then
 	{
-    _controlsNATO = controlsX;
+    _roadblockDEFENDER = controlsX;
 	if (worldName == "Tanoa") then
 	    {
-	    _mrkCSAT = ["airport_1","seaport_5","outpost_10","control_20"];
-	    _controlsNATO = _controlsNATO - ["control_20"];
-	    _controlsCSAT = ["control_20"];
+	    _mrkINVADER = ["airport_1","seaport_5","outpost_10","control_20"];
+	    _roadblockDEFENDER = _roadblockDEFENDER - ["control_20"];
+	    _roadblockINVADER = ["control_20"];
 	    }
 	else
 	    {
 	    if (worldName == "Altis") then
 	        {
-	        _mrkCSAT = ["airport_2","seaport_4","outpost_5","control_52","control_33"];
-	        _controlsNATO = _controlsNATO - ["control_52","control_33"];
-	    	_controlsCSAT = ["control_52","control_33"];
+	        _mrkINVADER = ["airport_2","seaport_4","outpost_5","control_52","control_33"];
+	        _roadblockDEFENDER = _roadblockDEFENDER - ["control_52","control_33"];
+	    	_roadblockINVADER = ["control_52","control_33"];
 	        }
         else
             {
             if (worldName == "chernarus_summer") then
                 {
-                _mrkCSAT = ["outpost_21"];
+                _mrkINVADER = ["outpost_21"];
                 };
             };
 	    };
-	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
+	_mrkDEFENDER = markersX - _mrkINVADER - ["Synd_HQ"];
 	}
 else
 	{
 	if (gameMode == 4) then
 		{
-		_mrkCSAT = markersX - ["Synd_HQ"];
-		_controlsCSAT = controlsX;
+		_mrkINVADER = markersX - ["Synd_HQ"];
+		_roadblockINVADER = controlsX;
 		}
 	else
 		{
-		_mrkNATO = markersX - ["Synd_HQ"];
-		_controlsNATO = controlsX;
+		_mrkDEFENDER = markersX - ["Synd_HQ"];
+		_roadblockDEFENDER = controlsX;
 		};
 	};
-{sidesX setVariable [_x,Occupants,true]} forEach _controlsNATO;
-{sidesX setVariable [_x,Invaders,true]} forEach _controlsCSAT;
+{sidesX setVariable [_x,Occupants,true]} forEach _roadblockDEFENDER;
+{sidesX setVariable [_x,Invaders,true]} forEach _roadblockINVADER;
 {
 _pos = getMarkerPos _x;
 _dmrk = createMarker [format ["Dum%1",_x], _pos];
@@ -55,7 +55,7 @@ _garrNum = [_x] call A3A_fnc_garrisonSize;
 _garrNum = _garrNum / 8;
 _garrison = [];
 killZones setVariable [_x,[],true];
-if (_x in _mrkCSAT) then
+if (_x in _mrkINVADER) then
     {
     _dmrk setMarkerType flagCSATmrk;
     _dmrk setMarkerText format ["%1 Airbase",nameInvaders];
@@ -80,7 +80,7 @@ else
     sidesX setVariable [_x,Occupants,true];
     };
 _nul = [_x] call A3A_fnc_createControls;
-server setVariable [_x,0,true];//dateX en fomrato dateToNumber en la que estarán idle
+server setVariable [_x,0,true];
 } forEach airportsX;
 
 {
@@ -96,7 +96,7 @@ for "_i" from 1 to _garrNum do
    {
    _garrison append (selectRandom groupsFIASquad);
    };
-if (_x in _mrkCSAT) then
+if (_x in _mrkINVADER) then
 	{
 	_dmrk setMarkerColor colorInvaders;
 	sidesX setVariable [_x,Invaders,true];
@@ -123,7 +123,7 @@ for "_i" from 1 to _garrNum do
    {
    _garrison append (selectRandom groupsFIASquad);
    };
-if (_x in _mrkCSAT) then
+if (_x in _mrkINVADER) then
 	{
 	_dmrk setMarkerColor colorInvaders;
     sidesX setVariable [_x,Invaders,true];
@@ -146,7 +146,7 @@ _garrNum = _garrNum / 8;
 _garrison = [];
 killZones setVariable [_x,[],true];
 _dmrk setMarkerType "loc_bunker";
-if !(_x in _mrkCSAT) then
+if !(_x in _mrkINVADER) then
     {
     _dmrk setMarkerColor colorOccupants;
     _dmrk setMarkerText format ["%1 Outpost",nameOccupants];
@@ -190,7 +190,7 @@ _garrNum = _garrNum / 8;
 _garrison = [];
 _dmrk setMarkerType "b_naval";
 _dmrk setMarkerText "Sea Port";
-if (_x in _mrkCSAT) then
+if (_x in _mrkINVADER) then
     {
     _dmrk setMarkerColor colorInvaders;
 	for "_i" from 1 to _garrNum do

@@ -48,7 +48,7 @@ if (isMultiplayer) then
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if ((side player == teamPlayer) and tkPunish) then
 	{
-		private _firedHandlerTk = 
+		private _firedHandlerTk =
 		{
 			_typeX = _this select 1;
 			if ((_typeX == "Put") or (_typeX == "Throw")) then
@@ -64,7 +64,7 @@ if (isMultiplayer) then
 			};
 		};
 		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then 
+		if (hasACE) then
 		{
 			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
 		};
@@ -215,7 +215,6 @@ stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
 player setUnitTrait ["camouflageCoef",0.8];
 player setUnitTrait ["audibleCoef",0.8];
-
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;
 //Add a maplight if we're running ACE, because it can be really dark.
@@ -223,7 +222,7 @@ if (hasACE) then {
 	player addItem "ACE_Flashlight_XL50";
 };
 player setvariable ["compromised",0];
-player addEventHandler 
+player addEventHandler
 [
 	"FiredMan",
 	{
@@ -257,7 +256,7 @@ player addEventHandler
 		}
 	}
 ];
-player addEventHandler 
+player addEventHandler
 [
 	"HandleDamage",
 	{
@@ -271,7 +270,7 @@ player addEventHandler
 		};
 	}
 ];
-player addEventHandler 
+player addEventHandler
 [
 	"InventoryOpened",
 	{
@@ -372,7 +371,7 @@ player addEventHandler ["WeaponAssembled",
 			{
 			staticsToSave pushBack _veh;
 			publicVariable "staticsToSave";
-			[_veh] call A3A_fnc_AIVEHinit;
+			[_veh] call A3A_fnc_AIvehINIT;
 			};
 		_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 		_pos = position _veh;
@@ -389,8 +388,8 @@ player addEventHandler ["WeaponDisassembled",
 		_bag2 = _this select 2;
 		//_bag1 = objectParent (_this select 1);
 		//_bag2 = objectParent (_this select 2);
-		[_bag1] call A3A_fnc_AIVEHinit;
-		[_bag2] call A3A_fnc_AIVEHinit;
+		[_bag1] call A3A_fnc_AIvehINIT;
+		[_bag2] call A3A_fnc_AIvehINIT;
 		}
 	];
 

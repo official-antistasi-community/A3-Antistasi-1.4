@@ -4,7 +4,7 @@ _nameDest = [_markerX] call A3A_fnc_localizar;
 _sideEny = _this select 1;
 _nameENY = if (_sideEny == teamPlayer) then
 				{
-				nameTeamPlayer
+				REBELfactionNAME
 				}
 			else
 				{

@@ -30,7 +30,7 @@ if (spawner getVariable _markerX != 2) then
 	_veh = createVehicle [vehNATORepairTruck, _pos, [], 0, "NONE"];
 	_veh allowdamage false;
 	_veh setDir (getDir _road);
-	_nul = [_veh] call A3A_fnc_AIVEHinit;
+	_nul = [_veh] call A3A_fnc_AIvehINIT;
 	_groupX = createGroup Occupants;
 
 	sleep 5;

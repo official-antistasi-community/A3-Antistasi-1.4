@@ -22,7 +22,7 @@ if (_exit) exitWith {hint "You are not owner of this vehicle and you cannot sell
 _typeX = typeOf _veh;
 _costs = 0;
 
-if (_typeX in vehFIA) then
+if (_typeX in REBELvehALL) then
 	{
 	_costs = round (([_typeX] call A3A_fnc_vehiclePrice)/2)
 	}

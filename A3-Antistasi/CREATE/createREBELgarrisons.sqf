@@ -104,7 +104,7 @@ if (REBELstaticCREW in _garrison) then
 	_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";
 	_unit assignAsGunner _veh;
 	_unit moveInGunner _veh;
-	[_veh] call A3A_fnc_AIVEHinit;
+	[_veh] call A3A_fnc_AIvehINIT;
 	_soldiers pushBack _unit;
 	} forEach (_garrison select {_x == REBELstaticCREW});
 	_garrison = _garrison - [REBELstaticCREW];

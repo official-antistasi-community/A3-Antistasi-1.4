@@ -4,24 +4,22 @@ private ["_objectivesX","_markersX","_base","_objectiveX","_countX","_airportX",
 _objectivesX = [];
 _markersX = [];
 _countXFacil = 0;
-_natoIsFull = false;
-_csatIsFull = false;
+_DEFENDERisFULL = false;
+_INVADERisFULL = false;
 _airportsX = airportsX select {([_x,false] call A3A_fnc_airportCanAttack) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
 _objectivesX = markersX - controlsX - outpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedCities;
 if (gameMode != 1) then {_objectivesX = _objectivesX select {sidesX getVariable [_x,sideUnknown] == teamPlayer}};
-//_objectivisSDK = _objectivesX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 if ((tierWar < 2) and (gameMode <= 2)) then
 	{
 	_airportsX = _airportsX select {(sidesX getVariable [_x,sideUnknown] == Occupants)};
-	//_objectivesX = _objectivisSDK;
 	_objectivesX = _objectivesX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 	}
 else
 	{
 	if (gameMode != 4) then {if ({sidesX getVariable [_x,sideUnknown] == Occupants} count _airportsX == 0) then {_airportsX pushBack "NATO_carrier"}};
 	if (gameMode != 3) then {if ({sidesX getVariable [_x,sideUnknown] == Invaders} count _airportsX == 0) then {_airportsX pushBack "CSAT_carrier"}};
-	if (([vehNATOPlane] call A3A_fnc_vehAvailable) and ([vehNATOMRLS] call A3A_fnc_vehAvailable) and ([vehNATOTank] call A3A_fnc_vehAvailable)) then {_natoIsFull = true};
-	if (([vehCSATPlane] call A3A_fnc_vehAvailable) and ([vehCSATMRLS] call A3A_fnc_vehAvailable) and ([vehCSATTank] call A3A_fnc_vehAvailable)) then {_csatIsFull = true};
+	if (([vehNATOPlane] call A3A_fnc_vehAvailable) and ([vehNATOMRLS] call A3A_fnc_vehAvailable) and ([vehNATOTank] call A3A_fnc_vehAvailable)) then {_DEFENDERisFULL = true};
+	if (([vehCSATPlane] call A3A_fnc_vehAvailable) and ([vehCSATMRLS] call A3A_fnc_vehAvailable) and ([vehCSATTank] call A3A_fnc_vehAvailable)) then {_INVADERisFULL = true};
 	};
 if (gameMode != 4) then
 	{
@@ -57,8 +55,8 @@ _countFinal = [];
 _objectiveFinal = [];
 _easyX = [];
 _easyArray = [];
-_seaportCSAT = if ({(sidesX getVariable [_x,sideUnknown] == Invaders)} count seaports >0) then {true} else {false};
-_seaportNATO = if ({(sidesX getVariable [_x,sideUnknown] == Occupants)} count seaports >0) then {true} else {false};
+_seaportINVADER = if ({(sidesX getVariable [_x,sideUnknown] == Invaders)} count seaports >0) then {true} else {false};
+_seaportDEFENDER = if ({(sidesX getVariable [_x,sideUnknown] == Occupants)} count seaports >0) then {true} else {false};
 _waves = 1;
 
 {
@@ -66,7 +64,7 @@ _base = _x;
 _posBase = getMarkerPos _base;
 _killZones = killZones getVariable [_base,[]];
 _tmpObjectives = [];
-_baseNATO = true;
+_baseDEFENDER = true;
 if (sidesX getVariable [_base,sideUnknown] == Occupants) then
 	{
 	_tmpObjectives = _objectivesX select {sidesX getVariable [_x,sideUnknown] != Occupants};
@@ -74,7 +72,7 @@ if (sidesX getVariable [_base,sideUnknown] == Occupants) then
 	}
 else
 	{
-	_baseNATO = false;
+	_baseDEFENDER = false;
 	_tmpObjectives = _objectivesX select {sidesX getVariable [_x,sideUnknown] != Invaders};
 	_tmpObjectives = _tmpObjectives - (citiesX select {(((server getVariable _x) select 2) + ((server getVariable _x) select 3) < 90) and ([_x] call A3A_fnc_powerCheck != Occupants)});
 	};
@@ -87,15 +85,15 @@ if !(_tmpObjectives isEqualTo []) then
 	_isCity = if (_x in citiesX) then {true} else {false};
 	_proceed = true;
 	_posSite = getMarkerPos _x;
-	_isSDK = false;
+	_isREBEL = false;
 	_isTheSameIsland = [_x,_base] call A3A_fnc_isTheSameIsland;
 	if ([_x,true] call A3A_fnc_fogCheck >= 0.3) then
 		{
 		if (sidesX getVariable [_x,sideUnknown] == teamPlayer) then
 			{
-			_isSDK = true;
+			_isREBEL = true;
 			/*
-			_valueX = if (_baseNATO) then {prestigeNATO} else {prestigeCSAT};
+			_valueX = if (_baseDEFENDER) then {prestigeNATO} else {prestigeCSAT};
 			if (random 100 > _valueX) then
 				{
 				_proceed = false
@@ -104,7 +102,7 @@ if !(_tmpObjectives isEqualTo []) then
 			};
 		if (!_isTheSameIsland and (not(_x in airportsX))) then
 			{
-			if (!_isSDK) then {_proceed = false};
+			if (!_isREBEL) then {_proceed = false};
 			};
 		}
 	else
@@ -120,9 +118,9 @@ if !(_tmpObjectives isEqualTo []) then
 				if !(_x in _easyArray) then
 					{
 					_siteX = _x;
-					if (((!(_siteX in airportsX)) or (_isSDK)) and !(_base in ["NATO_carrier","CSAT_carrier"])) then
+					if (((!(_siteX in airportsX)) or (_isREBEL)) and !(_base in ["NATO_carrier","CSAT_carrier"])) then
 						{
-						_sideEnemy = if (_baseNATO) then {Invaders} else {Occupants};
+						_sideEnemy = if (_baseDEFENDER) then {Invaders} else {Occupants};
 						if ({(sidesX getVariable [_x,sideUnknown] == _sideEnemy) and (getMarkerPos _x distance _posSite < distanceSPWN)} count airportsX == 0) then
 							{
 							_garrison = garrison getVariable [_siteX,[]];
@@ -147,14 +145,14 @@ if !(_tmpObjectives isEqualTo []) then
 	if (_proceed) then
 		{
 		_times = 1;
-		if (_baseNATO) then
+		if (_baseDEFENDER) then
 			{
 			if ({sidesX getVariable [_x,sideUnknown] == Occupants} count airportsX <= 1) then {_times = 2};
 			if (!_isCity) then
 				{
 				if ((_x in outposts) or (_x in seaports)) then
 					{
-					if (!_isSDK) then
+					if (!_isREBEL) then
 						{
 						if (({[_x] call A3A_fnc_vehAvailable} count vehNATOAttack > 0) or ({[_x] call A3A_fnc_vehAvailable} count vehNATOAttackHelis > 0)) then {_times = 2*_times} else {_times = 0};
 						}
@@ -167,7 +165,7 @@ if !(_tmpObjectives isEqualTo []) then
 					{
 					if (_x in airportsX) then
 						{
-						if (!_isSDK) then
+						if (!_isREBEL) then
 							{
 							if (([vehNATOPlane] call A3A_fnc_vehAvailable) or (!([vehCSATAA] call A3A_fnc_vehAvailable))) then {_times = 5*_times} else {_times = 0};
 							}
@@ -178,7 +176,7 @@ if !(_tmpObjectives isEqualTo []) then
 						}
 					else
 						{
-						if ((!_isSDK) and _natoIsFull) then {_times = 0};
+						if ((!_isREBEL) and _DEFENDERisFULL) then {_times = 0};
 						};
 					};
 				};
@@ -195,7 +193,7 @@ if !(_tmpObjectives isEqualTo []) then
 				{
 				if ((_x in outposts) or (_x in seaports)) then
 					{
-					if (!_isSDK) then
+					if (!_isREBEL) then
 						{
 						if (({[_x] call A3A_fnc_vehAvailable} count vehCSATAttack > 0) or ({[_x] call A3A_fnc_vehAvailable} count vehCSATAttackHelis > 0)) then {_times = 2*_times} else {_times = 0};
 						}
@@ -208,7 +206,7 @@ if !(_tmpObjectives isEqualTo []) then
 					{
 					if (_x in airportsX) then
 						{
-						if (!_isSDK) then
+						if (!_isREBEL) then
 							{
 							if (([vehCSATPlane] call A3A_fnc_vehAvailable) or (!([vehNATOAA] call A3A_fnc_vehAvailable))) then {_times = 5*_times} else {_times = 0};
 							}
@@ -219,7 +217,7 @@ if !(_tmpObjectives isEqualTo []) then
 						}
 					else
 						{
-						if ((!_isSDK) and _csatIsFull) then {_times = 0};
+						if ((!_isREBEL) and _INVADERisFULL) then {_times = 0};
 						};
 					}
 				};
@@ -231,7 +229,7 @@ if !(_tmpObjectives isEqualTo []) then
 			};
 		if (_times > 0) then
 			{
-			if ((!_isSDK) and (!_isCity)) then
+			if ((!_isREBEL) and (!_isCity)) then
 				{
 				//_times = _times + (floor((garrison getVariable [_x,0])/8))
 				_numGarr = [_x] call A3A_fnc_garrisonSize;
@@ -250,7 +248,7 @@ if !(_tmpObjectives isEqualTo []) then
 			if (!_isCity) then
 				{
 				_isSea = false;
-				if ((_baseNATO and _seaportNATO) or (!_baseNATO and _seaportCSAT)) then
+				if ((_baseDEFENDER and _seaportDEFENDER) or (!_baseDEFENDER and _seaportINVADER)) then
 					{
 					for "_i" from 0 to 3 do
 						{
@@ -356,8 +354,8 @@ if ((count _objectivesFinal > 0) and (count _easyX < 3)) then
 		}
 	else
 		{
-		//if (sidesX getVariable [_originX,sideUnknown] == Occupants) then {[[_destinationX,_originX,_waves],"A3A_fnc_wavedCA"] call A3A_fnc_scheduler} else {[[_destinationX,_originX],"A3A_fnc_CSATpunish"] call A3A_fnc_scheduler};
-		if (sidesX getVariable [_originX,sideUnknown] == Occupants) then {[_destinationX,_originX,_waves] spawn A3A_fnc_wavedCA} else {[_destinationX,_originX] spawn A3A_fnc_CSATpunish};
+		//if (sidesX getVariable [_originX,sideUnknown] == Occupants) then {[[_destinationX,_originX,_waves],"A3A_fnc_wavedCA"] call A3A_fnc_scheduler} else {[[_destinationX,_originX],"A3A_fnc_INVADERpunish"] call A3A_fnc_scheduler};
+		if (sidesX getVariable [_originX,sideUnknown] == Occupants) then {[_destinationX,_originX,_waves] spawn A3A_fnc_wavedCA} else {[_destinationX,_originX] spawn A3A_fnc_INVADERpunish};
 		};
 	};
 

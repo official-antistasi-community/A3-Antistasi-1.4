@@ -17,6 +17,20 @@ REBELliteAT = ["rhsgref_nat_rifleman_mp44","rhsgref_nat_pmil_rifleman"];
 REBELsquadLeader = ["rhsgref_nat_commander","rhsgref_nat_pmil_commander"];
 REBELengineer = ["rhsgref_cdf_ngd_engineer","rhsgref_cdf_reg_engineer"];
 
+REBELunitsTIER1 = REBELliteAT + [REBELstaticCREW] + REBELsoldierMG + REBELsoldierGL + REBELsoldierAT;
+REBELunitsTIER2 = REBELmedic + REBELsoldierEXP + REBELengineer;
+REBELunitsTIER3 = REBELsquadLeader + REBELsniper;
+REBELunitsALL = REBELunitsTIER1 + REBELunitsTIER2 + REBELunitsTIER3;
+
+REBELgroupFIRETEAM = [REBELsquadLeader,REBELsoldierGL,REBELsoldierMG,REBELliteAT];
+REBELgroupAT = [REBELsquadLeader,REBELsoldierMG,REBELsoldierAT,REBELsoldierAT,REBELsoldierAT];
+//["BanditShockTeam","ParaShockTeam"];
+REBELgroupSQUAD = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELliteAT,REBELsoldierAT,REBELliteAT,REBELmedic];
+REBELgroupSQUADengineer = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierEXP,REBELsoldierAT,REBELengineer,REBELmedic];
+REBELgroupSQUADsupport = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierAT,REBELmedic,[REBELstaticCREW,REBELstaticCREW],[REBELstaticCREW,REBELstaticCREW]];
+REBELgroupSNIPER = [REBELsniper,REBELsniper];
+REBELgroupSENTRY = [REBELsoldierGL,REBELliteAT];
+
 REBELvehQUAD = "I_G_Quadbike_01_F";
 REBELvehARMEDlite = "rhsgref_nat_uaz_dshkm";
 REBELvehAT = "rhsgref_nat_uaz_spg9";
@@ -26,6 +40,9 @@ REBELvehTRANSPORT = "rhsgref_cdf_zil131";
 REBELvehPLANE = "RHS_AN2";
 REBELvehBOAT = "I_C_Boat_Transport_01_F";
 REBELvehREPAIR = "rhsgref_cdf_gaz66_repair";
+
+REBELvehALL = [REBELvehQUAD,REBELvehARMEDlite,REBELstaticMG,REBELvehUNARMEDlite,REBELvehTRANSPORT,REBELvehBOAT,REBELmortar,REBELstaticAT,REBELstaticAA,REBELvehREPAIR];
+
 REBELflag = "Flag_Syndikat_F";
 REBELflagTEX = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
 typePetros = "rhsgref_nat_warlord";
@@ -91,21 +108,48 @@ vehPoliceCar = "rhsusf_mrzr4_d";
 policeOfficer = "rhsusf_army_ucp_rifleman_m590";
 policeGrunt = "rhsusf_army_ucp_rifleman_82nd";
 groupsNATOGen = [policeOfficer,policeGrunt];
-nameTeamPlayer = "NAPA";
+REBELfactionNAME = "NAPA";
 
-factionGEN = "BLU_GEN_F";
+POLICE = "BLU_GEN_F";
 
 //Player spawn loadout
 REBELloadoutDEFAULT = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
 
 //Arsenal and Initial AI weapon setup
+REBELvests0 = ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
 unlockedWeapons = ["rhs_weap_akms","rhs_weap_makarov_pmm","Binocular","rhs_weap_rpg7","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_pp2000_folded","rhs_weap_savz61","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
 unlockedRifles = ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_savz61","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
 unlockedMagazines = ["rhs_30Rnd_762x39mm","rhs_mag_9x18_12_57N181S","rhs_rpg7_PG7VL_mag","rhsgref_5Rnd_762x54_m38","rhsgref_5Rnd_792x57_kar98k","rhs_mag_rgd5","rhs_mag_9x19mm_7n21_20","rhsgref_20rnd_765x17_vz61","rhsgref_30rnd_1143x23_M1911B_SMG","rhsgref_8Rnd_762x63_M2B_M1rifle"];
-initialRifles = ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_savz61"];
-unlockedItems = unlockedItems + ["rhs_acc_2dpZenit"];
-unlockedAT = ["rhs_weap_rpg7"];
+unlockedRifles = ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_savz61"];
 unlockedBackpacks = ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
+
+if !(isMultiplayer) then
+	{
+	unlockedWeapons append ["arifle_AKM_F","arifle_AKS_F"];
+	unlockedRifles append ["arifle_AKM_F","arifle_AKS_F"];
+	unlockedRifles append ["arifle_AKM_F","arifle_AKS_F"];
+	unlockedWeapons pushBack "launch_RPG7_F";
+	unlockedAT = ["launch_RPG7_F"];
+	unlockedMagazines pushBack "RPG7_F";
+  };
+
+// BEGIN ITEM CLASSIFICATION
+
+REBELuniforms = [];
+REBELuniformsPM = [];
+{
+_unit = _x select 0;
+_uniform = (getUnitLoadout _unit select 3) select 0;
+REBELuniforms pushBackUnique _uniform;
+REBELuniformsPM pushBackUnique _uniform;
+if (count _x > 1) then
+	{
+	_unit = _x select 1;
+	_uniform = (getUnitLoadout _unit select 3) select 0;
+	REBELuniformsPM pushBackUnique _uniform;
+	};
+} forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,REBELsoldierEXP,REBELsoldierGL,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
+
 //TAFR Unlocks
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc148jem","ItemRadio"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_anprc155_coyote"]};

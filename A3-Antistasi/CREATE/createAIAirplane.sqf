@@ -42,7 +42,7 @@ if (spawner getVariable _markerX != 2) then
 			_veh = _vehicle select 0;
 			_vehCrew = _vehicle select 1;
 			{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
-			[_veh] call A3A_fnc_AIVEHinit;
+			[_veh] call A3A_fnc_AIvehINIT;
 			_groupVeh = _vehicle select 2;
 			_soldiers = _soldiers + _vehCrew;
 			_groups pushBack _groupVeh;
@@ -79,7 +79,7 @@ if ((spawner getVariable _markerX != 2) and _frontierX) then
 		_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
 		_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
 		[_unit,_markerX] call A3A_fnc_NATOinit;
-		[_veh] call A3A_fnc_AIVEHinit;
+		[_veh] call A3A_fnc_AIvehINIT;
 		_unit moveInGunner _veh;
 		_soldiers pushBack _unit;
 		};
@@ -148,7 +148,7 @@ if (spawner getVariable _markerX != 2) then
 	_unit moveInGunner _veh;
 	_soldiers pushBack _unit;
 	_vehiclesX pushBack _veh;
-	_nul = [_veh] call A3A_fnc_AIVEHinit;
+	_nul = [_veh] call A3A_fnc_AIvehINIT;
 	sleep 1;
 	};
 } forEach _posMort;
@@ -172,7 +172,7 @@ if (spawner getVariable _markerX != 2) then
 		_unit moveInGunner _veh;
 		_soldiers pushBack _unit;
 		_vehiclesX pushBack _veh;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		_nul = [_veh] call A3A_fnc_AIvehINIT;
 		sleep 1;
 		};
 	};
@@ -198,7 +198,7 @@ if (spawner getVariable _markerX != 2) then
 		_unit moveInGunner _veh;
 		_soldiers pushBack _unit;
 		_vehiclesX pushBack _veh;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		_nul = [_veh] call A3A_fnc_AIvehINIT;
 		sleep 1;
 		};
 	};
@@ -224,7 +224,7 @@ if (spawner getVariable _markerX != 2) then
 		_unit moveInGunner _veh;
 		_soldiers pushBack _unit;
 		_vehiclesX pushBack _veh;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		_nul = [_veh] call A3A_fnc_AIvehINIT;
 		sleep 1;
 		};
 	};
@@ -232,7 +232,7 @@ if (spawner getVariable _markerX != 2) then
 
 _ret = [_markerX,_size,_sideX,_frontierX] call A3A_fnc_milBuildings;
  
-{[_x] call A3A_fnc_AIVEHinit} forEach (_ret select 1);
+{[_x] call A3A_fnc_AIvehINIT} forEach (_ret select 1);
 {[_x,_markerX] call A3A_fnc_NATOinit} forEach (_ret select 2);
 
 _groups pushBack (_ret select 0);
@@ -274,7 +274,7 @@ if (!_busy) then
 			};
 			
 			_vehiclesX pushBack _veh;
-			_nul = [_veh] call A3A_fnc_AIVEHinit;
+			_nul = [_veh] call A3A_fnc_AIvehINIT;
 			_countX = _countX + 1;
 			};
 		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOFOLLOW","NOVEH"] execVM "scripts\UPSMON.sqf";
@@ -289,14 +289,14 @@ _vehiclesX pushBack _flagX;
 if (_sideX == Occupants) then
 	{
 	_veh = NATOAmmoBox createVehicle _positionX;
-	_nul = [_veh] call A3A_fnc_NATOcrate;
+	_nul = [_veh] call A3A_fnc_DEFENDERcrate;
 	_vehiclesX pushBack _veh;
 	_veh call jn_fnc_logistics_addAction;
 	}
 else
 	{
 	_veh = CSATAmmoBox createVehicle _positionX;
-	_nul = [_veh] call A3A_fnc_CSATcrate;
+	_nul = [_veh] call A3A_fnc_INVADERcrate;
 	_vehiclesX pushBack _veh;
 	_veh call jn_fnc_logistics_addAction;
 	};
@@ -310,7 +310,7 @@ if (!_busy) then
 		_veh = createVehicle [selectRandom _arrayVehAAF, (_x select 0), [], 0, "NONE"];
 		_veh setDir (_x select 1);
 		_vehiclesX pushBack _veh;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		_nul = [_veh] call A3A_fnc_AIvehINIT;
 		_nVeh = _nVeh -1;
 		sleep 1;
 		};
@@ -326,7 +326,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _nVeh)} do
 	_veh = createVehicle [_typeVehX, _pos, [], 0, "NONE"];
 	_veh setDir random 360;
 	_vehiclesX pushBack _veh;
-	_nul = [_veh] call A3A_fnc_AIVEHinit;
+	_nul = [_veh] call A3A_fnc_AIvehINIT;
 	sleep 1;
 	_countX = _countX + 1;
 	};

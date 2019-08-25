@@ -30,9 +30,9 @@ for "_i" from 0 to ((count _staticComponents) - 1) do
 		_groundWeaponHolder addBackpackCargoGlobal [(_staticComponents select _i), 1];
 	};
 
-[_groundWeaponHolder] call A3A_fnc_AIVEHinit;
+[_groundWeaponHolder] call A3A_fnc_AIvehINIT;
 
-/* [_bag1] call A3A_fnc_AIVEHinit;
-[_bag2] call A3A_fnc_AIVEHinit; */
+/* [_bag1] call A3A_fnc_AIvehINIT;
+[_bag2] call A3A_fnc_AIvehINIT; */
 
 hint "Weapon Stolen. It won't despawn when you assemble it again";

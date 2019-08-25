@@ -38,7 +38,7 @@ if (alive _x) then
 	if (!isNull (assignedVehicle _x)) then
 		{
 		_veh = assignedVehicle _x;
-		if ((typeOf _veh) in vehFIA) then
+		if ((typeOf _veh) in REBELvehALL) then
 			{
 			_resourcesFIA = _resourcesFIA + ([(typeOf _veh)] call A3A_fnc_vehiclePrice);
 			if (count attachedObjects _veh > 0) then

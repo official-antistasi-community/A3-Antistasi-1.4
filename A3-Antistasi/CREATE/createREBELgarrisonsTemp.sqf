@@ -21,7 +21,7 @@ if (_typeX isEqualType "") then
 		_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";
 		_unit assignAsGunner _veh;
 		_unit moveInGunner _veh;
-		[_veh] call A3A_fnc_AIVEHinit;
+		[_veh] call A3A_fnc_AIvehINIT;
 		};
 	if (_groups isEqualTo []) then
 		{

@@ -19,6 +19,20 @@ REBELliteAT = ["UK3CB_CCM_I_RIF_BOLT","UK3CB_CCM_I_RIF_1"];
 REBELsquadLeader = ["UK3CB_CCM_I_TL","UK3CB_CCM_I_OFF"];
 REBELengineer = ["UK3CB_CCM_I_ENG","UK3CB_CCM_I_ENG"];
 
+REBELunitsTIER1 = REBELliteAT + [REBELstaticCREW] + REBELsoldierMG + REBELsoldierGL + REBELsoldierAT;
+REBELunitsTIER2 = REBELmedic + REBELsoldierEXP + REBELengineer;
+REBELunitsTIER3 = REBELsquadLeader + REBELsniper;
+REBELunitsALL = REBELunitsTIER1 + REBELunitsTIER2 + REBELunitsTIER3;
+
+REBELgroupFIRETEAM = [REBELsquadLeader,REBELsoldierGL,REBELsoldierMG,REBELliteAT];
+REBELgroupAT = [REBELsquadLeader,REBELsoldierMG,REBELsoldierAT,REBELsoldierAT,REBELsoldierAT];
+//["BanditShockTeam","ParaShockTeam"];
+REBELgroupSQUAD = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELliteAT,REBELsoldierAT,REBELliteAT,REBELmedic];
+REBELgroupSQUADengineer = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierEXP,REBELsoldierAT,REBELengineer,REBELmedic];
+REBELgroupSQUADsupport = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierAT,REBELmedic,[REBELstaticCREW,REBELstaticCREW],[REBELstaticCREW,REBELstaticCREW]];
+REBELgroupSNIPER = [REBELsniper,REBELsniper];
+REBELgroupSENTRY = [REBELsoldierGL,REBELliteAT];
+
 REBELvehQUAD = "UK3CB_CCM_I_Golf";
 REBELvehARMEDlite = "UK3CB_CCM_I_Datsun_Pkm";
 REBELvehAT = "UK3CB_CCM_I_Hilux_Spg";
@@ -28,6 +42,9 @@ REBELvehTRANSPORT = "UK3CB_CCM_I_V3S_Closed";
 REBELvehPLANE = "UK3CB_CHC_I_Antonov_AN2";
 REBELvehBOAT = "I_C_Boat_Transport_01_F";
 REBELvehREPAIR = "UK3CB_CCM_I_V3S_Repair";
+
+REBELvehALL = [REBELvehQUAD,REBELvehARMEDlite,REBELstaticMG,REBELvehUNARMEDlite,REBELvehTRANSPORT,REBELvehBOAT,REBELmortar,REBELstaticAT,REBELstaticAA,REBELvehREPAIR];
+
 REBELflag = "Flag_CCM_B";
 REBELflagTEX = "\UK3CB_Factions\addons\UK3CB_Factions_CCM\Flag\ccm_i_flag_co.paa";
 typePetros = "UK3CB_TKP_I_OFF";
@@ -93,9 +110,9 @@ vehPoliceCar = "UK3CB_TKP_B_Lada_Police";
 policeOfficer = "UK3CB_ANP_B_TL";
 policeGrunt = "UK3CB_ANP_B_RIF_1";
 groupsNATOGen = [policeOfficer,policeGrunt];
-nameTeamPlayer = "CCM";//player faction
+REBELfactionNAME = "CCM";//player faction
 
-factionGEN = "BLU_GEN_F";//police faction
+POLICE = "BLU_GEN_F";//police faction
 
 //Player spawn loadout
 REBELloadoutDEFAULT = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
@@ -104,10 +121,28 @@ REBELloadoutDEFAULT = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMa
 unlockedWeapons = ["UK3CB_Enfield","rhsusf_weap_m1911a1","Binocular","rhs_weap_panzerfaust60","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_pp2000_folded","UK3CB_M79","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
 unlockedRifles = ["UK3CB_Enfield","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
 unlockedMagazines = ["UK3CB_Enfield_Mag","rhsusf_mag_7x45acp_MHP","rhsgref_1Rnd_Slug","rhs_mag_rgd5","rhs_mag_9x19mm_7n31_44","rhs_mag_m576","rhs_mag_m713_red","rhs_mag_m4009","rhsgref_30rnd_1143x23_M1T_SMG","rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle"];
-initialRifles = ["UK3CB_Enfield","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_savz61"];
+unlockedRifles = ["UK3CB_Enfield","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_savz61"];
 unlockedItems = unlockedItems + ["rhs_acc_2dpZenit","rhs_acc_m852v"];
 unlockedAT = ["rhs_weap_panzerfaust60"];
 unlockedBackpacks = ["UK3CB_ANA_B_B_ASS","UK3CB_TKC_C_B_Sidor_MED","UK3CB_B_Hiker","UK3CB_B_Hiker_Camo"];
+
+// BEGIN ITEM CLASSIFICATION
+
+REBELuniforms = [];
+REBELuniformsPM = [];
+{
+_unit = _x select 0;
+_uniform = (getUnitLoadout _unit select 3) select 0;
+REBELuniforms pushBackUnique _uniform;
+REBELuniformsPM pushBackUnique _uniform;
+if (count _x > 1) then
+	{
+	_unit = _x select 1;
+	_uniform = (getUnitLoadout _unit select 3) select 0;
+	REBELuniformsPM pushBackUnique _uniform;
+	};
+} forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,REBELsoldierEXP,REBELsoldierGL,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
+
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc148jem","ItemRadio"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_anprc155_coyote"]};

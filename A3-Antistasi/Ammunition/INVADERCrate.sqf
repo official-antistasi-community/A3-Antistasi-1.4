@@ -28,7 +28,7 @@ if (typeOf _crate == vehCSATAmmoTruck) then
 
 for "_i" from 0 to _var1 do
 	{
-	_guns = (weaponsCSAT + antitankAAF);
+	_guns = (weaponsINVADER + antitankAAF);
 	_avail = (_guns - _unlocks);
 	_loot = selectRandom _avail;
 	_num = 1 + (floor random 9);
@@ -50,7 +50,7 @@ for "_i" from 0 to _var2 do
 	};
 for "_i" from 0 to _var3 do
 	{
-	_ammo = smokeX + chemX + ammunitionCSAT;
+	_ammo = smokeX + chemX + ammoINVADER;
 	_avail = (_ammo - _unlocks);
 	_loot = selectRandom _avail;
 	if (!(_loot in magazineCargo _crate)) then

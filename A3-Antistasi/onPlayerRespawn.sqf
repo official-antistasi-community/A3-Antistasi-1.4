@@ -222,7 +222,7 @@ if (side group player == teamPlayer) then
 				{
 				staticsToSave pushBack _veh;
 				publicVariable "staticsToSave";
-				[_veh] call A3A_fnc_AIVEHinit;
+				[_veh] call A3A_fnc_AIvehINIT;
 				};
 			}
 		else
@@ -236,8 +236,8 @@ if (side group player == teamPlayer) then
 			_bag2 = _this select 2;
 			//_bag1 = objectParent (_this select 1);
 			//_bag2 = objectParent (_this select 2);
-			[_bag1] call A3A_fnc_AIVEHinit;
-			[_bag2] call A3A_fnc_AIVEHinit;
+			[_bag1] call A3A_fnc_AIvehINIT;
+			[_bag2] call A3A_fnc_AIvehINIT;
 			}
 		];
 	[true] execVM "reinitY.sqf";

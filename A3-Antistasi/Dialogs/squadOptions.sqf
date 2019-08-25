@@ -12,25 +12,25 @@ if (str (_display) != "no display") then
 	_ChildControl = _display displayCtrl 104;
 	_costs = 0;
 	_costHR = 0;
-	//_formatX = (cfgSDKInf >> (groupsSDKSquad select 0));
+	//_formatX = (cfgSDKInf >> (REBELgroupSQUAD select 0));
 	//_unitsX = [_formatX] call groupComposition;
-	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach groupsSDKSquad;
+	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach REBELgroupSQUAD;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 105;
 	_costs = 0;
 	_costHR = 0;
-	//_formatX = (cfgSDKInf >> (groupsSDKmid select 0));
+	//_formatX = (cfgSDKInf >> (REBELgroupFIRETEAM select 0));
 	//_unitsX = [_formatX] call groupComposition;
-	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach groupsSDKSquadEng;
+	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach REBELgroupSQUADengineer;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 106;
 	_costs = 0;
 	_costHR = 0;
-	//_formatX = (cfgSDKInf >> (groupsSDKAT select 0));
+	//_formatX = (cfgSDKInf >> (REBELgroupAT select 0));
 	//_unitsX = [_formatX] call groupComposition;
-	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach groupsSDKSquadSupp;
+	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach REBELgroupSQUADsupport;
 	_costs = _costs + ([REBELstaticMG] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 
@@ -38,7 +38,7 @@ if (str (_display) != "no display") then
 	_costs = 0;
 	_costHR = 0;
 	//_unitsX = [REBELsquadLeader,REBELsquadLeader];
-	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach groupsSDKSquadSupp;
+	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach REBELgroupSQUADsupport;
 	_costs = _costs + ([REBELmortar] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 };

@@ -298,7 +298,7 @@ if (_base != "") then
 		_veh = _vehicle select 0;
 		_vehCrew = _vehicle select 1;
 		{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
-		[_veh] call A3A_fnc_AIVEHinit;
+		[_veh] call A3A_fnc_AIvehINIT;
 		_groupVeh = _vehicle select 2;
 		_soldiers = _soldiers + _vehCrew;
 		_groups pushBack _groupVeh;
@@ -495,7 +495,7 @@ else
 		_groups pushBack _groupVeh;
 		_vehiclesX pushBack _veh;
 		{[_x] call A3A_fnc_NATOinit} forEach units _groupVeh;
-		[_veh] call A3A_fnc_AIVEHinit;
+		[_veh] call A3A_fnc_AIvehINIT;
 		if (not (_typeVehX in vehTransportAir)) then
 			{
 			_Hwp0 = _groupVeh addWaypoint [_posDestination, 0];

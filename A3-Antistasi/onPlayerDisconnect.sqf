@@ -37,7 +37,7 @@ if (_unit == theBoss) then
 						}
 					else
 						{
-						if (_typeVehX in vehFIA) then {_resourcesX = _resourcesX + ([_typeVehX] call A3A_fnc_vehiclePrice);};
+						if (_typeVehX in REBELvehALL) then {_resourcesX = _resourcesX + ([_typeVehX] call A3A_fnc_vehiclePrice);};
 						/*
 						if (_typeVehX in vehAAFnormal) then {_resourcesX = _resourcesX + 300};
 						if (_typeVehX in vehAAFAT) then

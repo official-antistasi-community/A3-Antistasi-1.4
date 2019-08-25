@@ -17,6 +17,20 @@ REBELliteAT = ["LIB_WP_Strzelec","LIB_WP_Strzelec"];
 REBELsquadLeader = ["LIB_WP_Porucznic","LIB_WP_Porucznic"];
 REBELengineer = ["LIB_WP_Starszy_saper","LIB_WP_Starszy_saper"];
 
+REBELunitsTIER1 = REBELliteAT + [REBELstaticCREW] + REBELsoldierMG + REBELsoldierGL + REBELsoldierAT;
+REBELunitsTIER2 = REBELmedic + REBELsoldierEXP + REBELengineer;
+REBELunitsTIER3 = REBELsquadLeader + REBELsniper;
+REBELunitsALL = REBELunitsTIER1 + REBELunitsTIER2 + REBELunitsTIER3;
+
+REBELgroupFIRETEAM = [REBELsquadLeader,REBELsoldierGL,REBELsoldierMG,REBELliteAT];
+REBELgroupAT = [REBELsquadLeader,REBELsoldierMG,REBELsoldierAT,REBELsoldierAT,REBELsoldierAT];
+//["BanditShockTeam","ParaShockTeam"];
+REBELgroupSQUAD = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELliteAT,REBELsoldierAT,REBELliteAT,REBELmedic];
+REBELgroupSQUADengineer = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierEXP,REBELsoldierAT,REBELengineer,REBELmedic];
+REBELgroupSQUADsupport = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierAT,REBELmedic,[REBELstaticCREW,REBELstaticCREW],[REBELstaticCREW,REBELstaticCREW]];
+REBELgroupSNIPER = [REBELsniper,REBELsniper];
+REBELgroupSENTRY = [REBELsoldierGL,REBELliteAT];
+
 REBELvehQUAD = "LIB_DAK_Kfz1";
 REBELvehARMEDlite = "LIB_DAK_Kfz1_MG42";
 REBELvehAT = "not_supported";
@@ -26,6 +40,9 @@ REBELvehTRANSPORT = "LIB_US_GMC_Open";
 REBELvehPLANE = "LIB_US_NAC_P39";
 REBELvehBOAT = "I_C_Boat_Transport_01_F";
 REBELvehREPAIR = "LIB_US_GMC_Parm";
+
+REBELvehALL = [REBELvehQUAD,REBELvehARMEDlite,REBELstaticMG,REBELvehUNARMEDlite,REBELvehTRANSPORT,REBELvehBOAT,REBELmortar,REBELstaticAT,REBELstaticAA,REBELvehREPAIR];
+
 REBELflag = "Flag_Syndikat_F";
 REBELflagTEX = "ak.jpg"; if (isServer) then {flagX setFlagTexture REBELflagTEX};
 typePetros = "LIB_WP_Sierzant";
@@ -80,9 +97,9 @@ vehPoliceCar = "LIB_Kfz1_sernyt";
 policeOfficer = "SG_sturmpanzer_unterofficer";
 policeGrunt = "SG_sturmpanzer_crew";
 groupsNATOGen = [policeOfficer,policeGrunt];
-nameTeamPlayer = "AK";
+REBELfactionNAME = "AK";
 
-factionGEN = "SG_STURMPANZER";
+POLICE = "SG_STURMPANZER";
 
 //Player spawn loadout
 REBELloadoutDEFAULT = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],["ItemMap","","","","",""]];
@@ -91,8 +108,26 @@ REBELloadoutDEFAULT = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],[
 unlockedWeapons = ["LIB_PTRD","LIB_M2_Flamethrower","LIB_Binocular_GER","LIB_K98","LIB_M1895","LIB_FLARE_PISTOL"];//"LMG_03_F"
 unlockedRifles = ["LIB_K98"];//standard rifles for AI riflemen, medics engineers etc. are picked from this array. Add only rifles.
 unlockedMagazines = ["LIB_1Rnd_145x114","LIB_M2_Flamethrower_Mag","LIB_5Rnd_792x57","LIB_Pwm","LIB_Rg42","LIB_US_TNT_4pound_mag","LIB_7Rnd_762x38","LIB_1Rnd_flare_red","LIB_1Rnd_flare_green","LIB_1Rnd_flare_white","LIB_1Rnd_flare_yellow"];
-initialRifles = ["LIB_K98"];
+unlockedRifles = ["LIB_K98"];
 unlockedAT = [];
 unlockedBackpacks = ["B_LIB_US_M2Flamethrower","B_LIB_SOV_RA_MGAmmoBag_Empty"];
+
+// BEGIN ITEM CLASSIFICATION
+
+REBELuniforms = [];
+REBELuniformsPM = [];
+{
+_unit = _x select 0;
+_uniform = (getUnitLoadout _unit select 3) select 0;
+REBELuniforms pushBackUnique _uniform;
+REBELuniformsPM pushBackUnique _uniform;
+if (count _x > 1) then
+	{
+	_unit = _x select 1;
+	_uniform = (getUnitLoadout _unit select 3) select 0;
+	REBELuniformsPM pushBackUnique _uniform;
+	};
+} forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,REBELsoldierEXP,REBELsoldierGL,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
+
 //TFAR Unlocks
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["B_LIB_US_Radio"]};

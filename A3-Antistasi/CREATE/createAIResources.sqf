@@ -58,7 +58,7 @@ if ((spawner getVariable _markerX != 2) and _frontierX) then
 			_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
 			_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
 			[_unit,_markerX] call A3A_fnc_NATOinit;
-			[_veh] call A3A_fnc_AIVEHinit;
+			[_veh] call A3A_fnc_AIvehINIT;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 			}
@@ -70,7 +70,7 @@ if ((spawner getVariable _markerX != 2) and _frontierX) then
 				{
 				_veh = vehFIAArmedCar createVehicle getPos _road;
 				_veh setDir _dirveh + 90;
-				_nul = [_veh] call A3A_fnc_AIVEHinit;
+				_nul = [_veh] call A3A_fnc_AIvehINIT;
 				_vehiclesX pushBack _veh;
 				sleep 1;
 				_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
@@ -188,7 +188,7 @@ if (count _pos > 0) then
 	_veh = createVehicle [selectRandom _typeVehX, _pos, [], 0, "NONE"];
 	_veh setDir random 360;
 	_vehiclesX pushBack _veh;
-	_nul = [_veh] call A3A_fnc_AIVEHinit;
+	_nul = [_veh] call A3A_fnc_AIvehINIT;
 	sleep 1;
 	};
 

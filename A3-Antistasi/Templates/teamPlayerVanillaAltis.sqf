@@ -90,7 +90,6 @@ policeGrunt = "B_GEN_Soldier_F";
 groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
 
-=======
 factionGEN = "BLU_GEN_F";
 
 //Player spawn loadout
@@ -114,4 +113,3 @@ if !(isMultiplayer) then
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc154","ItemRadio"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_anprc155"]};
->>>>>>> Stashed changes

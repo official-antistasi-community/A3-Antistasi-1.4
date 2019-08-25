@@ -22,7 +22,7 @@ SDKEng = ["I_G_engineer_F","I_G_engineer_F"];
 vehSDKBike = "I_G_Quadbike_01_F";
 vehSDKLightArmed = "I_C_Offroad_02_LMG_F";
 vehSDKAT = "I_C_Offroad_02_AT_F";
-vehSDKLightUnarmed = "I_C_Offroad_02_unarmed_F";
+vehSDKLightUnarmed = "I_C_Offroad_01_F";
 vehSDKTruck = "I_C_Van_01_Transport_F";
 //vehSDKHeli = "I_C_Heli_Light_01_civil_F";
 vehSDKPlane = "I_C_Plane_civil_01_F";
@@ -40,7 +40,7 @@ AAStaticSDKB = "I_AA_01_weapon_F";
 MortStaticSDKB = "I_Mortar_01_weapon_F";
 supportStaticsSDKB3 = "I_Mortar_01_support_F";
 
-civCar = "C_Offroad_02_unarmed_F";
+civCar = "C_Offroad_01_F";
 civTruck = "C_Van_01_transport_F";
 civHeli = "C_Heli_Light_01_civil_F";
 civBoat = "C_Boat_Transport_02_F";

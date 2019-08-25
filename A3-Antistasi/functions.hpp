@@ -73,7 +73,7 @@ class A3A
 
 	class AI
 	{
-        class AIKilledEH {file="AI\AIKilledEH.sqf";};
+        class AIKilledEH {file="AI\AIkilledEH.sqf";};
         class airdrop {file="AI\airdrop.sqf";};
         class AIreactOnKill {file="AI\AIreactOnKill.sqf";};
         class airstrike {file="AI\airstrike.sqf";};

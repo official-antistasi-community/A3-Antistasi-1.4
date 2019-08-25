@@ -6,7 +6,7 @@ _typeX = typeOf _unit;
 if (typeOf _unit == "Fin_random_F") exitWith {};
 _unit addEventHandler ["HandleDamage",A3A_fnc_handleDamageAAF];
 
-_unit addEventHandler ["killed",A3A_fnc_AAFKilledEH];
+_unit addEventHandler ["killed",A3A_fnc_AIkilledEH];
 if (count _this > 1) then
 	{
 	_markerX = _this select 1;

@@ -30,11 +30,12 @@ for "_i" from 0 to _var1 do
 	_guns = (weaponsDEFENDER + antitankAAF);
 	_avail = (_guns - _unlocks);
 	_loot = selectRandom _avail;
-	if (isNil "_loot") then {};
+	if (isNil "_loot") then {} else {
 	_num = 1 + (floor random 9);
 	if (!(_loot in weaponCargo _crate)) then
 		{
 		_crate addWeaponWithAttachmentsCargoGlobal [[_loot, "", "", "", [], [], ""], _num];
+		};
 		};
 	};
 for "_i" from 0 to _var2 do
@@ -42,11 +43,12 @@ for "_i" from 0 to _var2 do
 	_items = itemsAAF;
 	_avail = (_items - _unlocks);
 	_loot = selectRandom _avail;
-	if (isNil "_loot") then {};
+	if (isNil "_loot") then {} else {
 	_num = 1 + (floor random 4);
 	if (!(_loot in itemCargo _crate)) then
 		{
 		_crate addItemCargoGlobal [_loot, _num];
+		};
 		};
 	};
 for "_i" from 0 to _var3 do
@@ -54,10 +56,11 @@ for "_i" from 0 to _var3 do
 	_ammo = smokeX + chemX + ammoDEFENDER;
 	_avail = (_ammo - _unlocks);
 	_loot = selectRandom _avail;
-	if (isNil "_loot") then {};
+	if (isNil "_loot") then {} else {
 	if (!(_loot in magazineCargo _crate)) then
 		{
-		_crate addMagazineCargoGlobal [_loot, 10]
+		_crate addMagazineCargoGlobal [_loot, 10];
+		};
 		};
 	};
 for "_i" from 0 to _var4 do
@@ -65,11 +68,12 @@ for "_i" from 0 to _var4 do
 	_mines = minesAAF;
 	_avail = (_mines - _unlocks);
 	_loot = selectRandom _avail;
-	if (isNil "_loot") then {};
+	if (isNil "_loot") then {} else {
 	_num = 1 + (floor random 4);
 	if (!(_loot in itemCargo _crate)) then
 		{
 			_crate addMagazineCargoGlobal [_loot, _num];
+		};
 		};
 	};
 if !(hasIFA) then
@@ -79,11 +83,12 @@ if !(hasIFA) then
 		_optics = opticsAAF;
 		_avail = (_optics - _unlocks);
 		_loot = selectRandom _avail;
-		if (isNil "_loot") then {};
+		if (isNil "_loot") then {} else {
 		_num = 1 + (floor random 4);
 		if (!(_loot in itemCargo _crate)) then
 			{
 			_crate addItemCargoGlobal [_loot, _num];
+			};
 			};
 		};
 
@@ -92,12 +97,8 @@ if !(hasIFA) then
 		_items = backpacksNATO;
 		_avail = (_items - _unlocks);
 		_loot = selectRandom _avail;
-		if (isNil "_loot") then {};
-		_num = 1 + (floor random 4);
-		if (!(_loot in itemCargo _crate)) then
-			{
-			_crate addBackpackCargoGlobal [_loot, _num];
-			};
+		if (isNil "_loot") then {} else {
+		};
 		};
 	if (round random 100 < 25) then
 		{

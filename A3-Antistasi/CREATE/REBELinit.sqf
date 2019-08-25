@@ -29,7 +29,7 @@ _typeX = typeOf _unit;
 _skill = 0.1 + (skillFIA * 0.05 * skillMult);													// current initial skill is [0.025,0.05,0.1] based on difficulty. at skillFIA = 10 [0.25,0.5,1] at 20 [0.5,1,2]
 if ((_markerX == "Synd_HQ") and (isMultiplayer)) then {_skill = 1};									// HQ garrison units are always skill 1?
 _unit setSkill _skill;
-if (!activeGREF) then {if (not((uniform _unit) in REBELuniformsPM)) then {[_unit] call A3A_fnc_reDress}};		// if not using GREF and unit isnt weairng a guerilla uniform, give him one
+if (!hasGREF) then {if (not((uniform _unit) in REBELuniformsPM)) then {[_unit] call A3A_fnc_reDress}};		// if not using GREF and unit isnt weairng a guerilla uniform, give him one
 if (_typeX in REBELsniper) then
 	{
 	if (count unlockedSN > 0) then

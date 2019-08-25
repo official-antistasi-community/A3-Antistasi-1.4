@@ -112,6 +112,10 @@ POLICE = "BLU_GEN_F";
 //Player spawn loadout
 REBELloadoutDEFAULT = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
 
+
+
+// BEGIN ITEM CLASSIFICATION
+
 //Arsenal and Initial AI weapon setup
 unlockedWeapons = ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F","Binocular","SMG_05_F","SMG_02_F"];//"LMG_03_F"
 unlockedMagazines = ["9Rnd_45ACP_Mag","30Rnd_9x21_Mag","30Rnd_762x39_Mag_F","MiniGrenade","1Rnd_HE_Grenade_shell","30Rnd_545x39_Mag_F","30Rnd_9x21_Mag_SMG_02","10Rnd_9x21_Mag","200Rnd_556x45_Box_F","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
@@ -119,6 +123,7 @@ unlockedRifles = ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG
 unlockedBackpacks = ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_ghex_F","B_Messenger_Coyote_F","B_Messenger_Olive_F","B_Messenger_Black_F","B_Messenger_Gray_F"];
 unlockedVEST = ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
 
+//Additional Unlocks for SP mission
 if !(isMultiplayer) then
 	{
 	unlockedWeapons append ["arifle_AKM_F","arifle_AKS_F","launch_MRAWS_olive_rail_F"];
@@ -126,8 +131,6 @@ if !(isMultiplayer) then
 	unlockedAT = ["launch_MRAWS_olive_rail_F"];
 	unlockedMagazines pushBack "MRAWS_HEAT_F";
   };
-
-// BEGIN ITEM CLASSIFICATION
 
 REBELuniforms = [];
 REBELuniformsPM = [];
@@ -143,6 +146,7 @@ if (count _x > 1) then
 	REBELuniformsPM pushBackUnique _uniform;
 	};
 } forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,REBELsoldierEXP,REBELsoldierGL,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
+//BEGIN MOD DETECTION UNLOCKS
 
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems  append ["tf_microdagr","tf_anprc148jem","ItemRadio"]};
@@ -153,7 +157,8 @@ publicVariable "unlockedWeapons";
 publicVariable "unlockedRifles";
 publicVariable "unlockedAT";
 publicVariable "unlockedMagazines";
-publicVariable "unlockedRifles";
 publicVariable "unlockedItems";
+publicVariable "REBELuniforms";
+publicVariable "REBELuniformsPM";
 publicVariable "unlockedBackpacks";
 publicVariable "unlockedVEST";

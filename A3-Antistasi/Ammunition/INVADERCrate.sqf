@@ -31,6 +31,7 @@ for "_i" from 0 to _var1 do
 	_guns = (weaponsINVADER + antitankAAF);
 	_avail = (_guns - _unlocks);
 	_loot = selectRandom _avail;
+	if (isNil "_loot") then {};
 	_num = 1 + (floor random 9);
 	if (!(_loot in weaponCargo _crate)) then
 		{
@@ -42,6 +43,7 @@ for "_i" from 0 to _var2 do
 	_items = itemsAAF;
 	_avail = (itemsAAF - _unlocks);
 	_loot = selectRandom _avail;
+	if (isNil "_loot") then {};
 	_num = 1 + (floor random 4);
 	if (!(_loot in itemCargo _crate)) then
 		{
@@ -53,6 +55,7 @@ for "_i" from 0 to _var3 do
 	_ammo = smokeX + chemX + ammoINVADER;
 	_avail = (_ammo - _unlocks);
 	_loot = selectRandom _avail;
+	if (isNil "_loot") then {};
 	if (!(_loot in magazineCargo _crate)) then
 		{
 		_crate addMagazineCargoGlobal [_loot, 10]
@@ -77,6 +80,7 @@ if !(hasIFA) then
 		_optics = opticsAAF;
 		_avail = (opticsAAF - _unlocks);
 		_loot = selectRandom _avail;
+		if (isNil "_loot") then {};
 		_num = 1 + (floor random 4);
 		if (!(_loot in itemCargo _crate)) then
 			{
@@ -89,6 +93,7 @@ if !(hasIFA) then
 		_items = backpacksNATO;
 		_avail = (_items - _unlocks);
 		_loot = selectRandom _avail;
+		if (isNil "_loot") then {};
 		_num = 1 + (floor random 4);
 		if (!(_loot in itemCargo _crate)) then
 			{

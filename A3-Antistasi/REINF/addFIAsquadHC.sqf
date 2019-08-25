@@ -21,7 +21,7 @@ if (_typeGroup isEqualType "") then
 	if (hasIFA and ((_typeGroup == REBELmortar) or (_typeGroup == REBELstaticMG)) and !debug) then {_exit = true; hint "The group or vehicle type you request is not supported in your modset"};
 	};
 
-if (activeGREF) then
+if (hasGREF) then
 	{
 	if (_typeGroup isEqualType objNull) then
 		{
@@ -129,7 +129,7 @@ else
 	_pos = position _road findEmptyPosition [1,30,REBELvehTRANSPORT];
 	_vehicle = if (_typeGroup == REBELstaticAA) then
 		{
-		if (activeGREF) then {[_pos, 0,"rhsgref_ins_g_ural_Zu23", teamPlayer] call bis_fnc_spawnvehicle} else {[_pos, 0,REBELvehTRANSPORT, teamPlayer] call bis_fnc_spawnvehicle};
+		if (hasGREF) then {[_pos, 0,"rhsgref_ins_g_ural_Zu23", teamPlayer] call bis_fnc_spawnvehicle} else {[_pos, 0,REBELvehTRANSPORT, teamPlayer] call bis_fnc_spawnvehicle};
 		}
 	else
 		{
@@ -140,7 +140,7 @@ else
 	//_mortarX attachTo [_truckX,[0,-1.5,0.2]];
 	//_mortarX setDir (getDir _truckX + 180);
 
-	if ((!activeGREF) and (_typeGroup == REBELstaticAA)) then
+	if ((!hasGREF) and (_typeGroup == REBELstaticAA)) then
 		{
 		_pos = _pos findEmptyPosition [1,30,REBELmortar];
 		_morty = _groupX createUnit [REBELstaticCREW, _pos, [],0, "NONE"];

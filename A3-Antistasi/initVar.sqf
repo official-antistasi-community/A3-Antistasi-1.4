@@ -126,9 +126,9 @@ diag_log format ["PBP: InitVar: RocketLauncher: %1",rlaunchers];
 diag_log format ["PBP: InitVar: Headgear: %1",helmets];
 //vests = vests select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
 //Mod detection
-activeAFRF = false;
-activeUSAF = false;
-activeGREF = false;
+hasAFRF = false;
+hasUSAF = false;
+hasGREF = false;
 hasFFAA = false;
 hasIFA = false;
 myCustomMod = false;
@@ -144,10 +144,10 @@ if (isClass(configFile/"CfgPatches"/"LIB_Core")) then
 else
 	{
  	if ("UK3CB_BAF_L1A1" in arifles) then {has3CB = true; diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.",servertime];};
-	if ("rhs_weap_akms" in arifles) then {activeAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS Detected.",servertime];};
+	if ("rhs_weap_akms" in arifles) then {hasAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS Detected.",servertime];};
 	if ("ffaa_armas_hkg36k_normal" in arifles) then {hasFFAA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | FFAA Detected.",servertime];};
-	if ("rhs_weap_m4a1_d" in arifles) then {activeUSAF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | USAF Patch for RHS Detected.",servertime];};
-	if ("rhs_weap_m92" in arifles) then {activeGREF = true; hasRHS = true} else {mguns pushBack "LMG_Mk200_BI_F"};
+	if ("rhs_weap_m4a1_d" in arifles) then {hasUSAF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | USAF Patch for RHS Detected.",servertime];};
+	if ("rhs_weap_m92" in arifles) then {hasGREF = true; hasRHS = true} else {mguns pushBack "LMG_Mk200_BI_F"};
 	helmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
 	smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
 	chemX = ["Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue"];
@@ -260,64 +260,97 @@ weaponsDEFENDER = [];
 ammoINVADER = [];
 weaponsINVADER = [];
 diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",servertime];
+
+//BEGIN TEMPLATE SELECTION
+//Templates for GREENFOR Rebels
 if (!hasIFA) then
 	{
-	if(has3CB) then {
-		call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBCCM.sqf";
-		call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
-		call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
-		}
-	else
-		{
-		if (!activeUSAF) then
+	//NON-IFA Templates for DEFENDER
+		if (!hasUSAF) then
 			{
+			//Vanilla DEFENDER Template
 			call compile preProcessFileLineNumbers "Templates\OccupantsVanilla.sqf";
 			}
-		else
+			else
 			{
-			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf"} else {call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSUSAF.sqf"};
+				if (has3CB) then
+					{
+					//3CB DEFENDER Template
+					call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
+					}
+					else
+					{
+						if (gameMode != 4) then
+							{
+							//RHS-USAF DEFENDER Template
+							call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf";
+							}
+							else
+							{
+							//RHS GREENFOR DEFENDER Template
+							call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf"}
+							};
+					};
 			};
-		if (!activeAFRF) then {call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf"} else {call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf"};
-
-		if (!activeGREF) then
+	//NON-IFA INVADER Templates
+		if (!hasAFRF) then
 			{
-			call compile preProcessFileLineNumbers "Templates\REBELtemplateVanilla.sqf"
+			//Vanilla INVADER Template
+			call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf";
 			}
-		else
+			else
 			{
-			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSGREF.sqf"} else {call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf"};
+				if (has3CB) then
+					{
+					//3CB INVADER Template
+					call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
+					}
+					else
+					{
+					//RHS INVADER Template
+					call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf";
+					};
 			};
-		}
-	}
-else
+		//NON-IFA REBEL Templates
+		if (!hasGREF) then
+			{
+			//Vanilla REBEL Template
+			call compile preProcessFileLineNumbers "Templates\REBELtemplateVANILLA.sqf";
+			}
+			else
+			{
+				if (has3CB) then
+					{
+					//3CB REBEL Template
+					call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBCCM.sqf";
+					}
+					else
+					{
+						if (gameMode != 4) then
+							{
+							//RHS REBEL Template
+							call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSGREF.sqf";
+							}
+							else
+							{
+							//RHS BLUFOR REBEL Template
+							call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSUSAF.sqf"
+							};
+					};
+			};
+	};
+	else
 	{
 	call compile preProcessFileLineNumbers "Templates\REBELtemplateIFA.sqf";
 	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
 	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
 	};
-diag_log format ["PBP: InitVar: ammoDEFENDER: %1",ammoDEFENDER];
-diag_log format ["PBP: InitVar: weaponsDEFENDER: %1",weaponsDEFENDER];
-diag_log format ["PBP: InitVar: ammoINVADER: %1",ammoINVADER];
-diag_log format ["PBP: InitVar: weaponsINVADER: %1",weaponsINVADER];
+
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
 
 squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
 medics = REBELmedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
 
-REBELuniforms = [];
-REBELuniformsPM = [];
-{
-_unit = _x select 0;
-_uniform = (getUnitLoadout _unit select 3) select 0;
-REBELuniforms pushBackUnique _uniform;
-REBELuniformsPM pushBackUnique _uniform;
-if (count _x > 1) then
-	{
-	_unit = _x select 1;
-	_uniform = (getUnitLoadout _unit select 3) select 0;
-	REBELuniformsPM pushBackUnique _uniform;
-	};
-} forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,REBELsoldierEXP,REBELsoldierGL,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
 _checked = [];
 {
 {
@@ -338,7 +371,7 @@ if !(_typeX in _checked) then
 } forEach _x;
 } forEach groupsCSATmid + [CSATSpecOp] + groupsCSATSquad;
 diag_log format ["PBP: InitVar: weaponsINVADER: %1",weaponsINVADER];
-_checked = [];
+
 {
 {
 _typeX = _x;
@@ -358,18 +391,21 @@ if !(_typeX in _checked) then
 } forEach _x;
 } forEach groupsNATOmid + [NATOSpecOp] + groupsNATOSquad;
 diag_log format ["PBP: InitVar: weaponsDEFENDER: %1",weaponsDEFENDER];
+
 {
 _nameX = [_x] call BIS_fnc_baseWeapon;
 _magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
 ammoDEFENDER pushBack (_magazines select 0);
 } forEach weaponsDEFENDER;
 diag_log format ["PBP: InitVar: ammoDEFENDER: %1",ammoDEFENDER];
+
 {
 _nameX = [_x] call BIS_fnc_baseWeapon;
 _magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
 ammoINVADER pushBack (_magazines select 0);
 } forEach weaponsINVADER;
 diag_log format ["PBP: InitVar: ammoINVADER: %1",ammoINVADER];
+
 //optic, pointer and flashlight automated detection
 opticsAAF = [];
 flashLights = [];

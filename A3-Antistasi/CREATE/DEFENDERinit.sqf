@@ -104,18 +104,25 @@ if (not(_typeX in sniperUnits)) then
 	};
 
 _hmd = hmd _unit;
+//If IFA was NOT detected
 if !(hasIFA) then
 	{
+	//If night
 	if (sunOrMoon < 1) then
 		{
+		//If RHS was NOT detected
 		if (!hasRHS) then
 			{
+			//If unit is not specops or a squad leader
 			if ((faction _unit != DEFENDERspecopsFACTION) and (faction _unit != INVADERspecopsFACTION) and (_unit != leader (group _unit))) then
 				{
+				//If the unit has NVG's
 				if (_hmd != "") then
 					{
+					//If War Level is no higher than 5 AND REBELS dont have NVG's
 					if ((random 5 > tierWar) and (!haveNV)) then
 						{
+						//Remove NVG's
 						_unit unassignItem _hmd;
 						_unit removeItem _hmd;
 						_hmd = "";
@@ -124,19 +131,26 @@ if !(hasIFA) then
 				};
 			}
 		else
+			//If RHS was detected
 			{
+			//Does unit have NVG's that match the NVG spawn array
 			_arr = (NVGoggles arrayIntersect (items _unit));
+			//If he does, or has something else on his head (pretty sure its only NVG's)
 			if (!(_arr isEqualTo []) or (_hmd != "")) then
 				{
+				//If war level is no higher than 5, rebels don't have NVG's AND the unit isnt a squad leader
 				if ((random 5 > tierWar) and (!haveNV) and (_unit != leader (group _unit))) then
 					{
+					//If unit isnt wearing NVG's
 					if (_hmd == "") then
 						{
+						//Remove any in their inventory
 						_hmd = _arr select 0;
 						_unit removeItem _hmd;
 						}
 					else
 						{
+						//Otherwise unequip it, then remove it
 						_unit unassignItem _hmd;
 						_unit removeItem _hmd;
 						};
@@ -144,36 +158,48 @@ if !(hasIFA) then
 					}
 				else
 					{
+					//If war level is high, REBELS have NVG's or the unit is a squad leader: Give them NVG's
 					_unit assignItem _hmd;
 					};
 				};
 			};
+		//STILL IF NIGHT
+		//Get unit primary weapon
 		_weaponItems = primaryWeaponItems _unit;
+		//Check for NVG's
 		if (_hmd != "") then
 			{
+			//If has NVG's check for a laser pointer
 			if (_weaponItems findIf {_x in pointers} != -1) then
 				{
+				//Turn it on if he has one
 				_unit action ["IRLaserOn", _unit];
 				_unit enableIRLasers true;
 				};
 			}
 		else
+			//If unit has no NVG's
 			{
+			//Check for laser pointers
 			_pointers = _weaponItems arrayIntersect pointers;
 			if !(_pointers isEqualTo []) then
 				{
+				//If he has one, then remove it
 				_unit removePrimaryWeaponItem (_pointers select 0);
 				};
 			_lamp = "";
+			//Look for a flashlight
 			_lamps = _weaponItems arrayIntersect flashlights;
 			if (_lamps isEqualTo []) then
 				{
+				//If not find a compatible one
 				_compatibleLamps = ((primaryWeapon _unit) call BIS_fnc_compatibleItems) arrayIntersect flashlights;
 				if !(_compatibleLamps isEqualTo []) then
 					{
+					//If we found one, attach it
 					_lamp = selectRandom _compatibleLamps;
 					_unit addPrimaryWeaponItem _lamp;
-				    _unit assignItem _lamp;
+				    	_unit assignItem _lamp;
 					};
 				}
 			else
@@ -182,6 +208,7 @@ if !(hasIFA) then
 				};
 			if (_lamp != "") then
 				{
+				//If we have a flashlight, turn it on and reduce spotDistance and time
 				_unit enableGunLights "AUTO";
 				_unit setskill ["spotDistance",_skill - 0.2];
 				_unit setskill ["spotTime",_skill - 0.2];
@@ -189,23 +216,31 @@ if !(hasIFA) then
 			};
 		}
 	else
+		//If DAYTIME
 		{
+		//If RHS was not detected
 		if (!hasRHS) then
 			{
+			//If unit isnt Specops
 			if ((faction _unit != DEFENDERspecopsFACTION) and (faction _unit != INVADERspecopsFACTION)) then
 				{
+				//And has NVG's
 				if (_hmd != "") then
 					{
+					//Remove them
 					_unit unassignItem _hmd;
 					_unit removeItem _hmd;
 					};
 				};
 			}
 		else
+			//If RHS was detected
 			{
+			//Check for NVG's in their inventory
 			_arr = (NVGoggles arrayIntersect (items _unit));
 			if (count _arr > 0) then
 				{
+				//Remove them
 				_hmd = _arr select 0;
 				_unit removeItem _hmd;
 				};
@@ -216,6 +251,7 @@ else
 	{
 	_unit unlinkItem "ItemRadio";
 	};
+// Reveal ANY airborne unit in spawning range to AI with launchers or manning statics
 _revealX = false;
 if (vehicle _unit != _unit) then
 	{

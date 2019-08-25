@@ -8,7 +8,7 @@ _unit setVariable ["spawner",true,true];
 _unit allowFleeing 0;																			// prevent unit surrender
 _typeX = typeOf _unit;																			// get unit type
 _skill = skillFIA * 0.05 * skillMult;																// current initial skill is [0.025,0.05,0.1] based on difficulty. at skillFIA = 10 [0.25,0.5,1] at 20 [0.5,1,2]
-if (!activeGREF) then {if (not((uniform _unit) in REBELuniformsPM)) then {[_unit] call A3A_fnc_reDress}};			// if RHS GREF isnt detected and unit isnt wearing a REBEL uniform from templates then redress him
+if (!hasGREF) then {if (not((uniform _unit) in REBELuniformsPM)) then {[_unit] call A3A_fnc_reDress}};			// if RHS GREF isnt detected and unit isnt wearing a REBEL uniform from templates then redress him
 
 if ((!isMultiplayer) and (leader _unit == theBoss)) then {_skill = _skill + 0.1};							// if SP and unit is in players squad then boost their skill by 0.1
 _unit setSkill _skill;																			// set the units skill

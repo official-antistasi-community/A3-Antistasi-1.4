@@ -98,7 +98,11 @@ if !(hasIFA) then
 		_avail = (_items - _unlocks);
 		_loot = selectRandom _avail;
 		if (isNil "_loot") then {} else {
-		};
+		if (!(_loot in itemCargo _crate)) then
+			{
+			_crate addItemCargoGlobal [_loot, _num];
+			};
+			};
 		};
 	if (round random 100 < 25) then
 		{

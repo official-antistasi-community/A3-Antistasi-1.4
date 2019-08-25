@@ -58,7 +58,7 @@ vehNATOMRLS = "I_Truck_02_MRL_F";
 vehNATOMRLSMags = "12Rnd_230mm_rockets";//[R Alpha 1-2:2 (Alberto),"rockets_230mm_GAT","rockets_230mm_GAT","Mode_1","R_230mm_HE","12Rnd_230mm_rockets",41: rocket_230mm_f.p3d,R Alpha 1-2:2 (Alberto)]
 vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "I_Truck_02_fuel_F", "I_Truck_02_medical_F", vehNATORepairTruck,"I_APC_tracked_03_cannon_F"];
 vehNATOBike = "I_Quadbike_01_F";
-NATOFlag = "Flag_AltisColonial_F";
+DEFENDERflag = "Flag_AltisColonial_F";
 NATOFlagTexture = "\A3\Data_F\Flags\Flag_AltisColonial_CO.paa";
 NATOAmmobox = "I_supplyCrate_F";
 //cfgNATOInf = (configfile >> "CfgGroups" >> "West" >> "BLU_T_F" >> "Infantry");///
@@ -84,7 +84,7 @@ supportStaticNATOB3 = "I_Mortar_01_support_F";
 
 weaponsDEFENDER append ["launch_NLAW_F","arifle_Mk20_F","arifle_Mk20C_F","LMG_Mk200_F","arifle_Mk20_GL_F","srifle_EBR_F","arifle_SDAR_F","srifle_GM6_F"];
 ammoDEFENDER append ["30Rnd_556x45_Stanag","200Rnd_65x39_cased_Box","20Rnd_556x45_UW_mag","20Rnd_762x51_Mag","5Rnd_127x108_Mag","1Rnd_HE_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","1Rnd_Smoke_Grenade_shell","3Rnd_HE_Grenade_shell","HandGrenade"];//possible ammo that spawn in NATO ammoboxes
-flagNATOmrk = "flag_AltisColonial";
+DEFENDERflag = "flag_AltisColonial";
 
 nameOccupants = "AAF";
 if (isServer) then {"NATO_carrier" setMarkerText "AAF Carrier"};

@@ -281,7 +281,7 @@ if (!_busy) then
 		};
 	};
 
-_typeVehX = if (_sideX == Occupants) then {NATOFlag} else {CSATFlag};
+_typeVehX = if (_sideX == Occupants) then {DEFENDERflag} else {CSATFlag};
 _flagX = createVehicle [_typeVehX, _positionX, [],0, "CAN_COLLIDE"];
 _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];

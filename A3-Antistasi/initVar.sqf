@@ -19,7 +19,7 @@ autoHeal = false;
 recruitCooldown = 0;
 savingClient = false;
 incomeRep = false;
-xUnits = 140;
+maxUnits = 140;
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Generating Players.",servertime];
 teamPlayer = side group petros;

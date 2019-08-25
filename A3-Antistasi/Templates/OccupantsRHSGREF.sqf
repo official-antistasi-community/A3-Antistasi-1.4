@@ -58,7 +58,7 @@ vehNATOMRLS = "rhsgref_cdf_reg_BM21";
 vehNATOMRLSMags = "rhs_mag_9m28f_1";//[R Alpha 1-1:1 (Alberto),"rhs_weap_grad","rhs_weap_grad","Close_salvo","rhs_ammo_m21OF_HE",,73: rocket_230mm_f.p3d,R Alpha 1-1:1 (Alberto)]
 vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "rhsgref_BRDM2_ATGM", vehNATORepairTruck];
 vehNATOBike = "I_Quadbike_01_F";
-NATOFlag = "Flag_AltisColonial_F";
+DEFENDERflag = "Flag_AltisColonial_F";
 NATOFlagTexture = "\A3\Data_F\Flags\Flag_AltisColonial_CO.paa";
 NATOAmmobox = "I_supplyCrate_F";
 
@@ -88,7 +88,7 @@ NVGoggles = NVGoggles + ["rhsusf_ANPVS_14"/*,"rhsusf_ANPVS_15"*/];
 itemsAAF = itemsAAF + ["rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_anpeq15side_bk","rhsusf_acc_anpeq15_bk_top","rhsusf_acc_anpeq15","rhsusf_acc_anpeq15_light","rhsusf_acc_anpeq15_bk","rhsusf_acc_anpeq15_bk_light","rhsusf_acc_anpeq15A","rhsusf_acc_ARDEC_M240","rhsusf_acc_nt4_black","rhsusf_acc_nt4_tan","rhsusf_acc_SFMB556"];
 
 
-flagNATOmrk = "rhs_flag_insurgents";//ok
+DEFENDERflag = "rhs_flag_insurgents";//ok
 
 lampOccupants = "rhs_acc_2dpZenit";
 nameOccupants = "CDF";

@@ -48,7 +48,7 @@ else
 		{
 		if (_markerX in airportsX) then
 			{_mrkD setMarkerText format ["%1 Airbase",nameOccupants];
-			_mrkD setMarkerType flagNATOmrk
+			_mrkD setMarkerType DEFENDERflag
 			}
 		else
 			{

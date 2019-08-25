@@ -42,7 +42,7 @@ vehNATOMRLS = "rhsusf_m109d_usarmy";
 vehNATOMRLSMags = "rhs_mag_155mm_m795_28";//["Sh_155mm_AMOS","rhs_mag_155mm_m795_28",<NULL-object>,B Alpha 1-1:3 (Alberto)]
 vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "UK3CB_BAF_MAN_HX60_Fuel_Green_Tropical_RM", "UK3CB_BAF_LandRover_Amb_FFR_Green_A_Tropical_RM", vehNATORepairTruck,"UK3CB_BAF_FV432_Mk3_RWS_Green_Tropical_RM"];
 vehNATOBike = "B_T_Quadbike_01_F";
-NATOFlag = "Flag_UK_F";
+DEFENDERflag = "Flag_UK_F";
 NATOFlagTexture = "\A3\Data_F\Flags\Flag_UK.paa";
 NATOAmmobox = "B_supplyCrate_F";
 
@@ -70,7 +70,7 @@ weaponsDEFENDER append ["UK3CB_BAF_L1A1","UK3CB_BAF_L1A1_Wood","UK3CB_BAF_L110A3
 smokeX = smokeX + ["UK3CB_BAF_SmokeShell","UK3CB_BAF_SmokeShellRed","UK3CB_BAF_SmokeShellGreen","UK3CB_BAF_SmokeShellYellow","UK3CB_BAF_SmokeShellPurple","UK3CB_BAF_SmokeShellBlue","UK3CB_BAF_SmokeShellOrange"];
 NVGoggles = NVGoggles + ["UK3CB_BAF_HMNVS"/*,"rhsusf_ANPVS_15"*/];
 itemsAAF = itemsAAF + ["rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_anpeq15side_bk","rhsusf_acc_anpeq15_bk_top","rhsusf_acc_anpeq15","rhsusf_acc_anpeq15_light","rhsusf_acc_anpeq15_bk","rhsusf_acc_anpeq15_bk_light","rhsusf_acc_anpeq15A","rhsusf_acc_ARDEC_M240","rhsusf_acc_nt4_black","rhsusf_acc_nt4_tan","rhsusf_acc_SFMB556","UK3CB_BAF_SUIT","UK3CB_BAF_SUSAT","UK3CB_BAF_SUSAT_3D","UK3CB_BAF_TA648","UK3CB_BAF_TA648_308","UK3CB_BAF_TA31F","UK3CB_BAF_TA31F_Hornbill","UK3CB_BAF_TA31F_3D","UK3CB_BAF_TA31F_Hornbill_3D","UK3CB_BAF_Eotech","UK3CB_BAF_SB31250","UK3CB_BAF_SB31250_Ghillie","UK3CB_BAF_SB31250_Desert","UK3CB_BAF_SB31250_Desert_Ghillie","UK3CB_BAF_SpecterLDS","UK3CB_BAF_SpecterLDS_3D","UK3CB_BAF_SpecterLDS_Dot","UK3CB_BAF_SpecterLDS_Dot_3D","UK3CB_BAF_LLM_IR_Tan","UK3CB_BAF_LLM_IR_Black","UK3CB_BAF_LLM_Flashlight_Tan","UK3CB_BAF_LLM_Flashlight_Black","UK3CB_BAF_Flashlight_L131A1","UK3CB_BAF_SFFH","UK3CB_BAF_BFA_L85","UK3CB_BAF_BFA_L110","UK3CB_BAF_BFA_L129","UK3CB_BAF_BFA_L7","UK3CB_BAF_Silencer_L85","UK3CB_BAF_Silencer_L110","UK3CB_BAF_Silencer_L115A3","UK3CB_BAF_Silencer_L91A1","RKSL_optic_PMII_312","RKSL_optic_PMII_312_sunshade","RKSL_optic_PMII_312_wdl","RKSL_optic_PMII_312_sunshade_wdl","RKSL_optic_PMII_312_des","RKSL_optic_PMII_312_sunshade_des","RKSL_optic_PMII_525","RKSL_optic_PMII_525_wdl","RKSL_optic_PMII_525_des"];
-flagNATOmrk = "flag_UK";//ok
+DEFENDERflag = "flag_UK";//ok
 
 lampOccupants = "acc_flashlight";
 nameOccupants = "BAF";

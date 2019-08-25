@@ -58,7 +58,7 @@ vehNATOMRLS = "rhsusf_m109_usarmy";
 vehNATOMRLSMags = "rhs_mag_155mm_m795_28";//["Sh_155mm_AMOS","rhs_mag_155mm_m795_28",<NULL-object>,B Alpha 1-1:3 (Alberto)]
 vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "rhsusf_M978A4_BKIT_usarmy_wd","rhsusf_m113_usarmy_medical", vehNATORepairTruck];
 vehNATOBike = "B_T_Quadbike_01_F";
-NATOFlag = "Flag_NATO_F";
+DEFENDERflag = "Flag_NATO_F";
 NATOFlagTexture = "\A3\Data_F\Flags\Flag_nato_CO.paa";
 NATOAmmobox = "B_supplyCrate_F";
 
@@ -86,7 +86,7 @@ weaponsDEFENDER append ["rhs_weap_hk416d10","rhs_weap_m16a4","rhs_weap_XM2010","
 smokeX = smokeX + ["rhs_mag_an_m8hc","rhs_mag_m18_purple","rhs_mag_m18_red","rhs_mag_m18_green","rhs_mag_m18_yellow"];
 NVGoggles = NVGoggles + ["rhsusf_ANPVS_14"/*,"rhsusf_ANPVS_15"*/];
 itemsAAF = itemsAAF + ["rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_anpeq15side_bk","rhsusf_acc_anpeq15_bk_top","rhsusf_acc_anpeq15","rhsusf_acc_anpeq15_light","rhsusf_acc_anpeq15_bk","rhsusf_acc_anpeq15_bk_light","rhsusf_acc_anpeq15A","rhsusf_acc_ARDEC_M240","rhsusf_acc_nt4_black","rhsusf_acc_nt4_tan","rhsusf_acc_SFMB556"];
-flagNATOmrk = "flag_USA";//ok
+DEFENDERflag = "flag_USA";//ok
 
 lampOccupants = "acc_flashlight";
 nameOccupants = "USAF";

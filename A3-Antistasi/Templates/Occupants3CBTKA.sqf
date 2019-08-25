@@ -60,7 +60,7 @@ vehNATOMRLS = "UK3CB_TKA_I_BM21";
 vehNATOMRLSMags = "rhs_mag_40Rnd_122mm_rockets";//["Sh_155mm_AMOS","rhs_mag_155mm_m795_28",<NULL-object>,B Alpha 1-1:3 (Alberto)]
 vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "UK3CB_TKA_I_V3S_Refuel", "UK3CB_TKA_I_Hilux_Open", vehNATORepairTruck,"UK3CB_TKA_I_UAZ_Closed"];
 vehNATOBike = "B_T_Quadbike_01_F";
-NATOFlag = "Flag_TKA_O_Army";
+DEFENDERflag = "Flag_TKA_O_Army";
 NATOFlagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_TKA\Flag\tka_o_army_co.paa";
 NATOAmmobox = "B_supplyCrate_F";
 
@@ -88,7 +88,7 @@ weaponsDEFENDER append ["UK3CB_FNFAL_FULL","UK3CB_FNFAL_PARA","UK3CB_Enfield_Rai
 smokeX = smokeX + ["UK3CB_BAF_SmokeShell","UK3CB_BAF_SmokeShellRed","UK3CB_BAF_SmokeShellGreen","UK3CB_BAF_SmokeShellYellow","UK3CB_BAF_SmokeShellPurple","UK3CB_BAF_SmokeShellBlue","UK3CB_BAF_SmokeShellOrange"];
 NVGoggles = NVGoggles + ["rhs_1PN138"/*,"rhsusf_ANPVS_15"*/];
 itemsAAF = itemsAAF + ["muzzle_snds_b","uk3cb_fnfal_suit","rhs_acc_dtk3","rhs_acc_dtk4long","rhs_acc_dtk4screws","rhs_acc_dtk4short","rhs_acc_pbs1","rhs_acc_pbs4","rhs_acc_tgpa","rhs_acc_tgpv","rhs_acc_ak5","rhs_acc_dtk","rhs_acc_dtk1","rhs_acc_dtk2","rhs_acc_dtkakm","rhs_acc_uuk","rhs_acc_1p29","rhs_acc_1p63","rhs_acc_1p78","rhs_acc_1p87","rhs_acc_1pn93_1","rhs_acc_1pn93_2","rhs_acc_rakursPM","rhs_acc_pgo7v","rhs_acc_pgo7v2","rhs_acc_pgo7v3","rhs_acc_pkas","rhs_acc_dh520x56","rhs_acc_pso1m2","rhs_acc_pso1m21","rhs_acc_ekp1","rhs_acc_ekp8_02","rhs_acc_ekp8_18","rhs_acc_nita"];
-flagNATOmrk = "UK3CB_MARKER_TKA_O_Army";//ok
+DEFENDERflag = "UK3CB_MARKER_TKA_O_Army";//ok
 
 lampOccupants = "acc_flashlight";
 nameOccupants = "TKA";

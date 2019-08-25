@@ -1,56 +1,50 @@
-private ["_hr","_resourcesFIA","_typeX","_costs","_markerX","_garrison","_positionX","_unit","_groupX","_veh","_pos"];
+private ["_REBELhr","_REBELmoney","_UNITtype","_UNITcost","_garrison","_garrison","_posGARR","_unit","_groupX","_veh","_pos"];
 
-_hr = server getVariable "hr";
+_REBELhr = server getVariable "hr";
 
-if (_hr < 1) exitWith {hint "You lack of HR to make a new recruitment"};
+if (_REBELhr < 1) exitWith {hint "You lack of HR to make a new recruitment"};
 
-_resourcesFIA = server getVariable "resourcesFIA";
+_REBELmoney = server getVariable "resourcesFIA";
 
-_typeX = _this select 0;
+_UNITtype = _this select 0;
 
-_costs = 0;
+_UNITcost = 0;
 
-if (_typeX isEqualType "") then
+if (_UNITtype isEqualType "") then
 	{
-	_costs = server getVariable _typeX;
-	_costs = _costs + ([REBELmortar] call A3A_fnc_vehiclePrice);
+	_UNITcost = server getVariable _UNITtype;
+	_UNITcost = _UNITcost + ([REBELmortar] call A3A_fnc_vehiclePrice);
 	}
 else
 	{
-	_typeX = if (random 20 <= skillFIA) then {_typeX select 1} else {_typeX select 0};  // Chance to be a military unit instead of guerilla
-	_costs = server getVariable _typeX;
+	_UNITtype = if (random 20 <= skillFIA) then {_UNITtype select 1} else {_UNITtype select 0};  // Chance to be a military unit instead of guerilla
+	_UNITcost = server getVariable _UNITtype;
 	};
 
-if (_costs > _resourcesFIA) exitWith {hint format ["You do not have enough money for this kind of unit (%1 € needed)",_costs]};
+if (_UNITcost > _REBELmoney) exitWith {hint format ["You do not have enough money for this kind of unit (%1 € needed)",_UNITcost]};
 
-_markerX = positionXGarr;
+_garrison = REBELgarrisonREINF;
 
-if ((_typeX == REBELstaticCREW) and (_markerX in outpostsFIA)) exitWith {hint "You cannot add mortars to a Roadblock garrison"};
+if ((_UNITtype == REBELstaticCREW) and (_garrison in outpostsFIA)) exitWith {hint "You cannot add mortars to a Roadblock garrison"};
 
-_positionX = getMarkerPos _markerX;
+_posGARR = getMarkerPos _garrison;
 
-if (surfaceIsWater _positionX) exitWith {hint "This Garrison is still updating, please try again in a few seconds"};
+if (surfaceIsWater _posGARR) exitWith {hint "This Garrison is still updating, please try again in a few seconds"};
 
-if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {Hint "You cannot Recruit Garrison Units with enemies near the zone"};
-_nul = [-1,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
-/*
-_garrison = [];
-_garrison = _garrison + (garrison getVariable [_markerX,[]]);
-_garrison pushBack _typeX;
-garrison setVariable [_markerX,_garrison,true];
-//[_markerX] call A3A_fnc_mrkUpdate;*/
-_countX = count (garrison getVariable _markerX);
-[_typeX,teamPlayer,_markerX,1] remoteExec ["A3A_fnc_garrisonUpdate",2];
-waitUntil {(_countX < count (garrison getVariable _markerX)) or (sidesX getVariable [_markerX,sideUnknown] != teamPlayer)};
+if ([_posGARR,500] call A3A_fnc_enemyNearCheck) exitWith {Hint "You cannot Recruit Garrison Units with enemies near the zone"};
+_nul = [-1,-_UNITcost] remoteExec ["A3A_fnc_REBELmoney",2];
 
-if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
+_countX = count (garrison getVariable _garrison);
+[_UNITtype,teamPlayer,_garrison,1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+waitUntil {(_countX < count (garrison getVariable _garrison)) or (sidesX getVariable [_garrison,sideUnknown] != teamPlayer)};
+
+if (sidesX getVariable [_garrison,sideUnknown] == teamPlayer) then
 	{
-	hint format ["Soldier recruited.%1",[_markerX] call A3A_fnc_garrisonInfo];
+	hint format ["Soldier recruited.%1",[_garrison] call A3A_fnc_garrisonInfo];
 
-	if (spawner getVariable _markerX != 2) then
+	if (spawner getVariable _garrison != 2) then
 		{
-		//[_markerX] remoteExec ["tempMoveMrk",2];
-		[_markerX,_typeX] remoteExec ["A3A_fnc_createSDKGarrisonsTemp",2];
+		[_garrison,_UNITtype] remoteExec ["A3A_fnc_createREBELgarrisonTEMP",2];
 		};
 	};
 

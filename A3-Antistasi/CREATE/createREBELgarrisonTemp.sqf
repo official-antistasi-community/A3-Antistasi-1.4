@@ -14,7 +14,7 @@ if (_typeX isEqualType "") then
 		};
 	_unit = _groupX createUnit [_typeX, _positionX, [], 0, "NONE"];
 	//if (_typeX in REBELsquadLeader) then {_groupX selectLeader _unit};
-	[_unit,_markerX] call A3A_fnc_FIAinitBases;
+	[_unit,_markerX] call A3A_fnc_REBELinit;
 	if (_typeX == REBELstaticCREW) then
 		{
 		private _veh = REBELmortar createVehicle _positionX;

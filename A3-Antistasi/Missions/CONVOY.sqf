@@ -162,7 +162,7 @@ _vehLead allowDamage false;
 [_vehLead,"Convoy Lead"] spawn A3A_fnc_inmuneConvoy;
 //_vehLead forceFollowRoad true;
 _vehCrew = _vehicle select 1;
-{[_x] call A3A_fnc_NATOinit;_x allowDamage false} forEach _vehCrew;
+{[_x] call A3A_fnc_DEFENDERinit;_x allowDamage false} forEach _vehCrew;
 //_groupVeh = _vehicle select 2;
 _soldiers = _soldiers + _vehCrew;
 //_groups pushBack _groupVeh;
@@ -219,7 +219,7 @@ for "_i" from 1 to _countX do
 	_veh allowDamage false;
 	[_veh,"Convoy Escort"] spawn A3A_fnc_inmuneConvoy;
 	_vehCrew = _vehicle select 1;
-	{[_x] call A3A_fnc_NATOinit;_x allowDamage false} forEach _vehCrew;
+	{[_x] call A3A_fnc_DEFENDERinit;_x allowDamage false} forEach _vehCrew;
 	_soldiers = _soldiers + _vehCrew;
 	_vehiclesX pushBack _veh;
 	[_veh] call A3A_fnc_AIvehINIT;
@@ -230,7 +230,7 @@ for "_i" from 1 to _countX do
 			{
 			_typeGroup = [_typeVehEsc,_sideX] call A3A_fnc_cargoSeats;
 			_groupEsc = [_posbase,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
-			{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;
+			{[_x] call A3A_fnc_DEFENDERinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;
 			deleteGroup _groupEsc;
 			};
 		}
@@ -244,7 +244,7 @@ for "_i" from 1 to _countX do
 				_typeGroup = selectRandom groupsFIAMid;
 				};
 			_groupEsc = [_posbase,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
-			{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;
+			{[_x] call A3A_fnc_DEFENDERinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;
 			deleteGroup _groupEsc;
 			};
 		};
@@ -269,7 +269,7 @@ _vehObj = _vehicle select 0;
 _vehObj allowDamage false;
 if (_difficultX) then {[_vehObj," Convoy Objective"] spawn A3A_fnc_inmuneConvoy} else {[_vehObj,"Convoy Objective"] spawn A3A_fnc_inmuneConvoy};
 _vehCrew = _vehicle select 1;
-{[_x] call A3A_fnc_NATOinit; _x allowDamage false} forEach _vehCrew;
+{[_x] call A3A_fnc_DEFENDERinit; _x allowDamage false} forEach _vehCrew;
 //_groupVeh = _vehicle select 2;
 _soldiers = _soldiers + _vehCrew;
 //_groups pushBack _groupVeh;
@@ -304,7 +304,7 @@ if (_typeConvoyX == "reinforcementsX") then
 	{
 	_typeGroup = [_typeVehObj,_sideX] call A3A_fnc_cargoSeats;
 	_groupEsc = [_posbase,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
-	{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX;_reinforcementsX pushBack _x} forEach units _groupEsc;
+	{[_x] call A3A_fnc_DEFENDERinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX;_reinforcementsX pushBack _x} forEach units _groupEsc;
 	deleteGroup _groupEsc;
 	};
 if ((_typeConvoyX == "Money") or (_typeConvoyX == "Supplies")) then
@@ -339,7 +339,7 @@ _veh = _vehicle select 0;
 _veh allowDamage false;
 [_veh,"Convoy Escort"] spawn A3A_fnc_inmuneConvoy;
 _vehCrew = _vehicle select 1;
-{[_x] call A3A_fnc_NATOinit; _x allowDamage false} forEach _vehCrew;
+{[_x] call A3A_fnc_DEFENDERinit; _x allowDamage false} forEach _vehCrew;
 _soldiers = _soldiers + _vehCrew;
 _vehiclesX pushBack _veh;
 [_veh] call A3A_fnc_AIvehINIT;
@@ -352,7 +352,7 @@ if (!_isFIA) then
 		{
 		_typeGroup = [_typeVehEsc,_sideX] call A3A_fnc_cargoSeats;
 		_groupEsc = [_posbase,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
-		{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;
+		{[_x] call A3A_fnc_DEFENDERinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;
 		deleteGroup _groupEsc;
 		};
 	}
@@ -366,7 +366,7 @@ else
 			_typeGroup = selectRandom groupsFIAMid;
 			};
 		_groupEsc = [_posbase,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
-		{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;
+		{[_x] call A3A_fnc_DEFENDERinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;
 		deleteGroup _groupEsc;
 		};
 	};

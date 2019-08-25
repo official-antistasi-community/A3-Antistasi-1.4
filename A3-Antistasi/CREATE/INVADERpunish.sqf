@@ -39,7 +39,7 @@ for "_i" from 1 to 3 do
 	private _spawnResult=[_pos, 0, _typeVehX, Invaders] call bis_fnc_spawnvehicle;
 	private _veh = _spawnResult select 0;
 	private _vehCrew = _spawnResult select 1;
-	{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
+	{[_x] call A3A_fnc_DEFENDERinit} forEach _vehCrew;
 	[_veh] call A3A_fnc_AIvehINIT;
 	_groupVeh = _spawnResult select 2;
 	_pilots = _pilots + _vehCrew;
@@ -65,7 +65,7 @@ for "_i" from 1 to 3 do
 		{_x setBehaviour "CARELESS";} forEach units _groupVeh;
 		_typeGroup = [_typeVehX,Invaders] call A3A_fnc_cargoSeats;
 		_groupX = [_posOrigin, Invaders, _typeGroup] call A3A_fnc_spawnGroup;
-		{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] call A3A_fnc_NATOinit; _x setVariable ["originX",_mrkOrigin]} forEach units _groupX;
+		{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] call A3A_fnc_DEFENDERinit; _x setVariable ["originX",_mrkOrigin]} forEach units _groupX;
 		_groups pushBack _groupX;
 		//[_veh,"CSAT Air Transport"] spawn A3A_fnc_inmuneConvoy;
 		

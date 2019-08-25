@@ -66,8 +66,8 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	sleep 1;
 	_nul = [leader _groupX1, _mrk, "SAFE","SPAWNED", "NOVEH2"] execVM "scripts\UPSMON.sqf";
 
-	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
-	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX1;
+	{[_x,""] call A3A_fnc_DEFENDERinit} forEach units _groupX;
+	{[_x,""] call A3A_fnc_DEFENDERinit} forEach units _groupX1;
 
 	waitUntil {sleep 1; (not alive _truckX) or (dateToNumber date > _dateLimitNum) or ({(_x getVariable ["spawner",false]) and (side group _x == teamPlayer)} count crew _truckX > 0)};
 

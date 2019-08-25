@@ -32,7 +32,7 @@ if (count _typesVeh > 0) then
 	_pilots = _pilots + _heliCrew;
 	_groups pushBack _groupHeli;
 	_vehiclesX pushBack _heli;
-	{[_x] call A3A_fnc_NATOinit} forEach _heliCrew;
+	{[_x] call A3A_fnc_DEFENDERinit} forEach _heliCrew;
 	[_heli] call A3A_fnc_AIvehINIT;
 	_wp1 = _groupHeli addWaypoint [_positionX, 0];
 	_wp1 setWaypointType "SAD";
@@ -57,7 +57,7 @@ for "_i" from 0 to (round random 2) do
 
 	{_x setBehaviour "CARELESS";} forEach units _groupHeli;
 	_groupX = [_posOrigin, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
-	{_x assignAsCargo _heli; _x moveInCargo _heli; _soldiers pushBack _x; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
+	{_x assignAsCargo _heli; _x moveInCargo _heli; _soldiers pushBack _x; [_x] call A3A_fnc_DEFENDERinit} forEach units _groupX;
 	_groups pushBack _groupX;
 	//[_heli,"Air Transport"] spawn A3A_fnc_inmuneConvoy;
 	if (_typeVehX isKindOf "Plane") then {

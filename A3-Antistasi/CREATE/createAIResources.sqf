@@ -57,7 +57,7 @@ if ((spawner getVariable _markerX != 2) and _frontierX) then
 			_veh setDir _dirVeh + 180;
 			_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
 			_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
-			[_unit,_markerX] call A3A_fnc_NATOinit;
+			[_unit,_markerX] call A3A_fnc_DEFENDERinit;
 			[_veh] call A3A_fnc_AIvehINIT;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
@@ -75,7 +75,7 @@ if ((spawner getVariable _markerX != 2) and _frontierX) then
 				sleep 1;
 				_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
 				_unit moveInGunner _veh;
-				{_soldiers pushBack _x; [_x,_markerX] call A3A_fnc_NATOinit} forEach units _groupX;
+				{_soldiers pushBack _x; [_x,_markerX] call A3A_fnc_DEFENDERinit} forEach units _groupX;
 				};
 			};
 		};
@@ -129,7 +129,7 @@ if (_patrol) then
 				};
 			_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM","NOVEH2"] execVM "scripts\UPSMON.sqf";
 			_groups pushBack _groupX;
-			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
+			{[_x,_markerX] call A3A_fnc_DEFENDERinit; _soldiers pushBack _x} forEach units _groupX;
 			};
 		_countX = _countX +1;
 		};
@@ -205,7 +205,7 @@ for "_i" from 0 to (count _array - 1) do
 	{
 	_groupX = if (_i == 0) then {[_positionX,_sideX, (_array select _i),true,false] call A3A_fnc_spawnGroup} else {[_positionX,_sideX, (_array select _i),false,true] call A3A_fnc_spawnGroup};
 	_groups pushBack _groupX;
-	{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
+	{[_x,_markerX] call A3A_fnc_DEFENDERinit; _soldiers pushBack _x} forEach units _groupX;
 	if (_i == 0) then {_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP","SPAWNED", "NOVEH2", "NOFOLLOW"] execVM "scripts\UPSMON.sqf"} else {_nul = [leader _groupX, _markerX, "SAFE","SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] execVM "scripts\UPSMON.sqf"};
 	};
 

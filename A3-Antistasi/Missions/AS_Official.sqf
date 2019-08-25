@@ -40,7 +40,7 @@ _grp selectLeader _official;
 sleep 1;
 _nul = [leader _grp, _markerX, "SAFE", "SPAWNED", "NOVEH", "NOFOLLOW"] execVM "scripts\UPSMON.sqf";
 
-{_nul = [_x,""] call A3A_fnc_NATOinit; _x allowFleeing 0} forEach units _grp;
+{_nul = [_x,""] call A3A_fnc_DEFENDERinit; _x allowFleeing 0} forEach units _grp;
 
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (not alive _official)};
 

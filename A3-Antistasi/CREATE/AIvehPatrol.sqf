@@ -122,7 +122,7 @@ _veh = _vehicle select 0;
 [_veh] call A3A_fnc_AIvehINIT;
 [_veh,"Patrol"] spawn A3A_fnc_inmuneConvoy;
 _vehCrew = _vehicle select 1;
-{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
+{[_x] call A3A_fnc_DEFENDERinit} forEach _vehCrew;
 _groupVeh = _vehicle select 2;
 _soldiers = _soldiers + _vehCrew;
 _groups = _groups + [_groupVeh];
@@ -133,14 +133,14 @@ if (_typeCar in vehNATOLightUnarmed) then
 	{
 	sleep 1;
 	_groupX = [_posbase, _sideX, groupsNATOSentry] call A3A_fnc_spawnGroup;
-	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
+	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x] call A3A_fnc_DEFENDERinit} forEach units _groupX;
 	deleteGroup _groupX;
 	};
 if (_typeCar in vehCSATLightUnarmed) then
 	{
 	sleep 1;
 	_groupX = [_posbase, _sideX, groupsCSATSentry] call A3A_fnc_spawnGroup;
-	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
+	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x] call A3A_fnc_DEFENDERinit} forEach units _groupX;
 	deleteGroup _groupX;
 	};
 

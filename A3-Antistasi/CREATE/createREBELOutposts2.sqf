@@ -41,7 +41,7 @@ if (_isRoad) then
 	_groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
 	//_unit = _groupX createUnit [REBELstaticCREW, _positionX, [], 0, "NONE"];
 	//_unit moveInGunner _veh;
-	{[_x,_markerX] spawn A3A_fnc_FIAinitBases; if (typeOf _x == REBELstaticCREW) then {_x moveInGunner _veh}} forEach units _groupX;
+	{[_x,_markerX] spawn A3A_fnc_REBELinit; if (typeOf _x == REBELstaticCREW) then {_x moveInGunner _veh}} forEach units _groupX;
 	}
 else
 	{
@@ -52,7 +52,7 @@ else
 	_groupX = [_positionX, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
 	_groupX setBehaviour "STEALTH";
 	_groupX setCombatMode "GREEN";
-	{[_x,_markerX] spawn A3A_fnc_FIAinitBases;} forEach units _groupX;
+	{[_x,_markerX] spawn A3A_fnc_REBELinit;} forEach units _groupX;
 	};
 
 waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({alive _x} count units _groupX == 0) or (not(_markerX in outpostsFIA))};

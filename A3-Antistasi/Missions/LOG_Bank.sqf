@@ -63,7 +63,7 @@ for "_i" from 1 to 4 do
 	_groupX = if (_difficultX) then {[_positionX,Occupants, groupsNATOSentry] call A3A_fnc_spawnGroup} else {[_positionX,Occupants, groupsNATOGen] call A3A_fnc_spawnGroup};
 	sleep 1;
 	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "FORTIFY"] execVM "scripts\UPSMON.sqf";
-	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
+	{[_x,""] call A3A_fnc_DEFENDERinit; _soldiers pushBack _x} forEach units _groupX;
 	_groups pushBack _groupX;
 	};
 

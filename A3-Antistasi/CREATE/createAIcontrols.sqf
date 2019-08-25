@@ -113,7 +113,7 @@ if (_isControl) then
 				[_dog,_groupX] spawn A3A_fnc_guardDog;
 				};
 			_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";
-			{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
+			{[_x,""] call A3A_fnc_DEFENDERinit; _soldiers pushBack _x} forEach units _groupX;
 			};
 		}
 	else
@@ -130,7 +130,7 @@ if (_isControl) then
 			{
 			_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
 			_unit moveInGunner _veh;
-			{_soldiers pushBack _x; [_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
+			{_soldiers pushBack _x; [_x,""] call A3A_fnc_DEFENDERinit} forEach units _groupX;
 			};
 		};
 	}
@@ -170,7 +170,7 @@ else
 			{[_x] joinSilent _groupX; _pilots pushBack _x} forEach units _groupUAV;
 			deleteGroup _groupUAV;
 			};
-		{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
+		{[_x,""] call A3A_fnc_DEFENDERinit} forEach units _groupX;
 		}
 	else
 		{

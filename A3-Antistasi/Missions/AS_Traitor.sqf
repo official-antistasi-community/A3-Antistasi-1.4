@@ -56,7 +56,7 @@ _posTsk = (position _houseX) getPos [random 100, random 360];
 [[teamPlayer,civilian],"AS",[format ["A traitor has scheduled a meeting with %4 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.",_nameDest,_displayTime,nameOccupants],"Kill the Traitor",_markerX],_posTsk,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 [[Occupants],"AS1",[format ["We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.",_nameDest,_displayTime,REBELfactionNAME],"Protect Contact",_markerX],getPos _houseX,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
-{_nul = [_x,""] call A3A_fnc_NATOinit; _x allowFleeing 0} forEach units _groupTraitor;
+{_nul = [_x,""] call A3A_fnc_DEFENDERinit; _x allowFleeing 0} forEach units _groupTraitor;
 _posVeh = [];
 _dirVeh = 0;
 _roads = [];
@@ -108,7 +108,7 @@ if (random 10 < 2.5) then
 	[_dog] spawn A3A_fnc_guardDog;
 	};
 _nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "NOFOLLOW"] execVM "scripts\UPSMON.sqf";
-{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
+{[_x,""] call A3A_fnc_DEFENDERinit} forEach units _groupX;
 
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (not alive _traitor) or ({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0)};
 

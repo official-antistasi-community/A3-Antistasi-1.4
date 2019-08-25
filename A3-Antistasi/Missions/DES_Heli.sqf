@@ -91,7 +91,7 @@ _veh = _vehicle select 0;
 [_veh] call A3A_fnc_AIvehINIT;
 //[_veh,"Escort"] spawn A3A_fnc_inmuneConvoy;
 _vehCrew = _vehicle select 1;
-{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
+{[_x] call A3A_fnc_DEFENDERinit} forEach _vehCrew;
 _groupVeh = _vehicle select 2;
 _soldiers = _soldiers + _vehCrew;
 _groups pushBack _groupVeh;
@@ -101,7 +101,7 @@ sleep 1;
 _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry};
 _groupX = [_positionX, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 
-{_x assignAsCargo _veh; _x moveInCargo _veh; _soldiers pushBack _x; [_x] join _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
+{_x assignAsCargo _veh; _x moveInCargo _veh; _soldiers pushBack _x; [_x] join _groupVeh; [_x] call A3A_fnc_DEFENDERinit} forEach units _groupX;
 deleteGroup _groupX;
 //[_veh] spawn smokeCover;
 
@@ -119,7 +119,7 @@ _vehT = _vehicleT select 0;
 [_vehT] call A3A_fnc_AIvehINIT;
 //[_vehT,"Recover Truck"] spawn A3A_fnc_inmuneConvoy;
 _vehCrewT = _vehicle select 1;
-{[_x] call A3A_fnc_NATOinit} forEach _vehCrewT;
+{[_x] call A3A_fnc_DEFENDERinit} forEach _vehCrewT;
 _groupVehT = _vehicleT select 2;
 _soldiers = _soldiers + _vehCrewT;
 _groups pushBack _groupVehT;

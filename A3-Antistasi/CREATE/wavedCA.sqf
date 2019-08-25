@@ -166,7 +166,7 @@ while {(_waves > 0)} do
 
 				_veh = _vehicle select 0;
 				_vehCrew = _vehicle select 1;
-				{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
+				{[_x] call A3A_fnc_DEFENDERinit} forEach _vehCrew;
 				[_veh] call A3A_fnc_AIvehINIT;
 				_groupVeh = _vehicle select 2;
 				_soldiers append _vehCrew;
@@ -187,7 +187,7 @@ while {(_waves > 0)} do
 						{
 						_soldiers pushBack _x;
 						_soldiersTotal pushBack _x;
-						[_x] call A3A_fnc_NATOinit;
+						[_x] call A3A_fnc_DEFENDERinit;
 						_x setVariable ["originX",_mrkOrigin];
 						}
 					else
@@ -320,7 +320,7 @@ while {(_waves > 0)} do
 					_pilots append _vehCrew;
 					_groups pushBack _groupVeh;
 					_vehiclesX pushBack _veh;
-					{[_x] call A3A_fnc_NATOinit} forEach units _groupVeh;
+					{[_x] call A3A_fnc_DEFENDERinit} forEach units _groupVeh;
 					[_veh] call A3A_fnc_AIvehINIT;
 					if ((_typeVehX == vehNATOBoat) or (_typeVehX == vehCSATBoat)) then
 						{
@@ -339,7 +339,7 @@ while {(_waves > 0)} do
 							{
 							_soldiers pushBack _x;
 							_soldiersTotal pushBack _x;
-							[_x] call A3A_fnc_NATOinit;
+							[_x] call A3A_fnc_DEFENDERinit;
 							_x setVariable ["originX",_mrkOrigin];
 							}
 						else
@@ -409,7 +409,7 @@ while {(_waves > 0)} do
 			_pilots append (crew _uav);
 			_groupUAV = group (crew _uav select 0);
 			_groups pushBack _groupUAV;
-			{[_x] call A3A_fnc_NATOinit} forEach units _groupUAV;
+			{[_x] call A3A_fnc_DEFENDERinit} forEach units _groupUAV;
 			[_uav] call A3A_fnc_AIvehINIT;
 			_uwp0 = _groupUAV addWayPoint [_posDestination,0];
 			_uwp0 setWaypointBehaviour "AWARE";
@@ -502,7 +502,7 @@ while {(_waves > 0)} do
 				_groupVeh = _vehicle select 2;
 				_pilots append _vehCrew;
 				_vehiclesX pushBack _veh;
-				{[_x] call A3A_fnc_NATOinit} forEach units _groupVeh;
+				{[_x] call A3A_fnc_DEFENDERinit} forEach units _groupVeh;
 				[_veh] call A3A_fnc_AIvehINIT;
 				if (not (_typeVehX in vehTransportAir)) then
 					{
@@ -524,7 +524,7 @@ while {(_waves > 0)} do
 						{
 						_soldiers pushBack _x;
 						_soldiersTotal pushBack _x;
-						[_x] call A3A_fnc_NATOinit;
+						[_x] call A3A_fnc_DEFENDERinit;
 						_x setVariable ["originX",_mrkOrigin];
 						}
 					else

@@ -14,7 +14,7 @@ onMapSingleClick "";
 if (!visibleMap) exitWith {};
 
 _positionTel = positionTel;
-positionXGarr = "";
+REBELgarrisonREINF = "";
 
 _nearX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
 _positionX = getMarkerPos _nearX;
@@ -60,8 +60,8 @@ if (_typeX == "rem") then
 	}
 else
 	{
-	positionXGarr = _nearX;
-	publicVariable "positionXGarr";
+	REBELgarrisonREINF = _nearX;
+	publicVariable "REBELgarrisonREINF";
 	hint format ["Info%1",[_nearX] call A3A_fnc_garrisonInfo];
 	closeDialog 0;
 	_nul=CreateDialog "garrison_recruit";

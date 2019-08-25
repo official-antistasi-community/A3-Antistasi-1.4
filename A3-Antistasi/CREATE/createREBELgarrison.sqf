@@ -89,7 +89,7 @@ else
 	_unit = _groupEst createUnit [(_garrison select _index), _positionX, [], 0, "NONE"];
 	_unit moveInGunner _x;
 	};
-[_unit,_markerX] call A3A_fnc_FIAinitBases;
+[_unit,_markerX] call A3A_fnc_REBELinit;
 _soldiers pushBack _unit;
 _garrison deleteAT _index;
 } forEach _staticsX;
@@ -118,7 +118,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _radiusX)} do
 	_typeX = _garrison select _countX;
 	_unit = _groupX createUnit [_typeX, _positionX, [], 0, "NONE"];
 	if (_typeX in REBELsquadLeader) then {_groupX selectLeader _unit};
-	[_unit,_markerX] call A3A_fnc_FIAinitBases;
+	[_unit,_markerX] call A3A_fnc_REBELinit;
 	_soldiers pushBack _unit;
 	_countX = _countX + 1;
 	sleep 0.5;

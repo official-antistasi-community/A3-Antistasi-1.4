@@ -137,7 +137,7 @@ else
 							if (({if ((isPlayer _x) and (_x distance2D _positionMRK < distanceSPWN)) exitWith {1};false} count allUnits > 0) or (_markerX in forcedSpawn)) then {[[_markerX],"A3A_fnc_createCIV"] call A3A_fnc_scheduler};
 							};
 						};
-					if (_markerX in outpostsFIA) then {[[_markerX],"A3A_fnc_createFIAOutposts2"] call A3A_fnc_scheduler} else {if (not(_markerX in controlsX)) then {[[_markerX],"A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler}};
+					if (_markerX in outpostsFIA) then {[[_markerX],"A3A_fnc_createFIAOutposts2"] call A3A_fnc_scheduler} else {if (not(_markerX in controlsX)) then {[[_markerX],"A3A_fnc_createREBELgarrison"] call A3A_fnc_scheduler}};
 					};
 				}
 			else

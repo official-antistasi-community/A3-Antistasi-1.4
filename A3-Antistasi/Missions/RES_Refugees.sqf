@@ -142,7 +142,7 @@ else
 		[_dog] spawn A3A_fnc_guardDog;
 		};
 	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2","RANDOM", "NOFOLLOW"] execVM "scripts\UPSMON.sqf";
-	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
+	{[_x,""] call A3A_fnc_DEFENDERinit} forEach units _groupX;
 	_groupX1 = [_houseX buildingExit 0, Occupants, groupsNATOGen] call A3A_fnc_spawnGroup;
 	};
 

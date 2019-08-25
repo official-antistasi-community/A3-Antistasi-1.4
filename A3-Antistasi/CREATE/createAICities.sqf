@@ -75,12 +75,12 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 if ((_esAAF) or (_markerX in destroyedCities)) then
 	{
 	{_grp = _x;
-	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
+	{[_x,""] call A3A_fnc_DEFENDERinit; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
 	}
 else
 	{
 	{_grp = _x;
-	{[_x] spawn A3A_fnc_FIAinitBases; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
+	{[_x] spawn A3A_fnc_REBELinit; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
 	};
 
 waitUntil {sleep 1;((spawner getVariable _markerX == 2)) or ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0)};

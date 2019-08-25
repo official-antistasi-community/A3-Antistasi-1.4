@@ -55,7 +55,7 @@ if (_land) then
 		}
 	else
 		{
-		[_x] call A3A_fnc_NATOinit;
+		[_x] call A3A_fnc_DEFENDERinit;
 		};
 	} forEach units _groupX;
 	[_veh] call A3A_fnc_AIvehINIT;
@@ -88,7 +88,7 @@ else
 	_vehCrew = _vehicle select 1;
 	_groupVeh = _vehicle select 2;
 	{
-	[_x] call A3A_fnc_NATOinit;
+	[_x] call A3A_fnc_DEFENDERinit;
 	_x addEventHandler ["Killed",{deleteVehicle (group (_this select 0) getVariable ["myPad",objNull])}];
 	} forEach units _groupVeh;
 	[_veh] call A3A_fnc_AIvehINIT;
@@ -103,7 +103,7 @@ else
 		}
 	else
 		{
-		[_x] call A3A_fnc_NATOinit;
+		[_x] call A3A_fnc_DEFENDERinit;
 		};
 	} forEach units _groupX;
 	_landPos = if (_typeVehX isKindOf "Helicopter") then {[_posDestination, 0, 300, 10, 0, 0.20, 0,[],[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos} else {[0,0,0]};

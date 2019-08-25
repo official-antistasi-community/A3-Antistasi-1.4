@@ -19,7 +19,7 @@ _pos = [_posOrigin, 50,100, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
 _vehicle=[_pos, random 360,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
 _veh = _vehicle select 0;
 _vehCrew = _vehicle select 1;
-{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
+{[_x] call A3A_fnc_DEFENDERinit} forEach _vehCrew;
 [_veh] call A3A_fnc_AIvehINIT;
 _groupVeh = _vehicle select 2;
 _size = [_mrkDestination] call A3A_fnc_sizeMarker;

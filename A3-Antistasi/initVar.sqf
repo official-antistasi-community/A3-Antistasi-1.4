@@ -334,7 +334,7 @@ if (!hasIFA) then
 							else
 							{
 							//RHS BLUFOR REBEL Template
-							call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSUSAF.sqf"
+							call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSUSAF.sqf";
 							};
 					};
 			};

@@ -153,13 +153,13 @@ else
 
 	//TFAR detection and config.
 	hasTFAR = false;//default setting to avoid errors when mod is not present
-	startLR = true;//default setting to avoid errors when mod is not present //// Temp activated until LRs are in loot.
+	startLR = false;//default setting to avoid errors when mod is not present
 	unlockedItems = [];
 	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
 	    {
 	    hasTFAR = true;
 	    haveRadio = true;
-			startLR = false;//set to true to start with LR radios unlocked.
+			startLR = true;//set to true to start with LR radios unlocked. //// Temp activated until LRs are in loot.
 	    //unlockedItems = unlockedItems;
 	    ["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
 	    if (hasIFA) then {

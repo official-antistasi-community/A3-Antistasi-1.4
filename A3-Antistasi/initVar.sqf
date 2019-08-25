@@ -288,7 +288,7 @@ if (!hasIFA) then
 							else
 							{
 							//RHS GREENFOR DEFENDER Template
-							call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf"}
+							call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf";
 							};
 					};
 			};

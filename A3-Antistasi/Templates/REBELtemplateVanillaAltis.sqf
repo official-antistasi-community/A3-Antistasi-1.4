@@ -149,7 +149,7 @@ if (count _x > 1) then
 //BEGIN MOD DETECTION UNLOCKS
 
 //TFAR Unlocks
-if (hasTFAR) then {unlockedItems  append ["tf_microdagr","tf_anprc148jem","ItemRadio"]};
+if (hasTFAR) then {unlockedItems  append ["tf_microdagr","tf_rf7800str","ItemRadio"]};
 if (startLR) then {unlockedBackpacks  pushBack "tf_anprc155"};
 
 // Declare all the public variables we have created

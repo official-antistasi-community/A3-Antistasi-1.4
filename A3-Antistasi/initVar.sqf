@@ -19,7 +19,7 @@ autoHeal = false;
 recruitCooldown = 0;
 savingClient = false;
 incomeRep = false;
-maxUnits = 140;
+xUnits = 140;
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Generating Players.",servertime];
 teamPlayer = side group petros;
@@ -164,7 +164,7 @@ diag_log format ["PBP: InitVar: Chemlights: %1",chemX];
 	    {
 	    hasTFAR = true;
 	    haveRadio = true;
-	    startLR = false;//set to true to start with LR radios unlocked.
+	    startLR = true;//set to true to start with LR radios unlocked.
 	    ["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
 	    if (hasIFA) then {
 	      ["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;

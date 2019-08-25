@@ -338,7 +338,7 @@ if (!hasIFA) then
 							};
 					};
 			};
-	};
+	}
 	else
 	{
 	call compile preProcessFileLineNumbers "Templates\REBELtemplateIFA.sqf";

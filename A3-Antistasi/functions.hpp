@@ -134,7 +134,7 @@ class A3A
         class AIvehINIT {file="CREATE\AIvehINIT.sqf";};
         class cargoSeats {file="CREATE\cargoSeats.sqf";};
         class CIVinit {file="CREATE\CIVinit.sqf";};
-        class civVEHinit {file="CREATE\civVEHinit.sqf";};
+        class CIVvehINIT {file="CREATE\CIVvehINIT.sqf";};
         class cleanserVeh {file="CREATE\cleanserVeh.sqf";};
         class createAIAirplane {file="CREATE\createAIAirplane.sqf";};
         class createAICities {file="CREATE\createAICities.sqf";};

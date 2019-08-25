@@ -22,7 +22,6 @@ incomeRep = false;
 //distanceMission = 2500;
 /*
 minMags = 20;
-
 minPacks = 20;
 minItems = 20;
 minOptics = 12;*/
@@ -150,7 +149,6 @@ else
 	smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
 	};
 
-
 	//TFAR detection and config.
 	hasTFAR = false;//default setting to avoid errors when mod is not present
 	startLR = false;//default setting to avoid errors when mod is not present
@@ -159,7 +157,7 @@ else
 	    {
 	    hasTFAR = true;
 	    haveRadio = true;
-			startLR = true;//set to true to start with LR radios unlocked. //// Temp activated until LRs are in loot.
+			startLR = true;//set to true to start with LR radios unlocked.
 	    //unlockedItems = unlockedItems;
 	    ["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
 	    if (hasIFA) then {
@@ -176,7 +174,6 @@ else
 
 //Launcher selection
 diag_log format ["%1: [Antistasi]: initVar | Building Launcher list.",servertime];
->>>>>>> Stashed changes
 titanLaunchers = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
 	["launch_B_Titan_F","launch_I_Titan_F","launch_O_Titan_ghex_F","launch_O_Titan_F","launch_B_Titan_tna_F"]
@@ -231,8 +228,9 @@ else
 		if (hasIFA and !myCustomMod) then {["FirstAidKit","Medikit","ToolKit","LIB_ToolKit"]} else {["FirstAidKit","Medikit","ToolKit"]};
 		}
 	};
+diag_log format ["%1: [Antistasi]: initVar | Building NightVision list.",servertime];
 NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
-
+diag_log format ["%1: [Antistasi]: initVar | Building Vehicle list.",servertime];
 arrayCivVeh = if !(hasIFA) then
 	{
 	["C_Hatchback_01_F","C_Hatchback_01_sport_F","C_Offroad_01_F","C_SUV_01_F","C_Van_01_box_F","C_Van_01_fuel_F","C_Van_01_transport_F","C_Truck_02_transport_F","C_Truck_02_covered_F","C_Offroad_02_unarmed_F"];
@@ -249,24 +247,32 @@ weaponsCSAT = [];
 diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",servertime];
 if (!hasIFA) then
 	{
-	if (!activeUSAF) then
-		{
-		call compile preProcessFileLineNumbers "Templates\OccupantsVanilla.sqf";
+	if(has3CB) then {
+		call compile preProcessFileLineNumbers "Templates\teamplayer3CBCCM.sqf";
+		call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
+		call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
 		}
 	else
 		{
-		if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf"} else {call compile preProcessFileLineNumbers "Templates\teamPlayerRHSUSAF.sqf"};
-		};
-	if (!activeAFRF) then {call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf"} else {call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf"};
+		if (!activeUSAF) then
+			{
+			call compile preProcessFileLineNumbers "Templates\OccupantsVanilla.sqf";
+			}
+		else
+			{
+			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf"} else {call compile preProcessFileLineNumbers "Templates\teamPlayerRHSUSAF.sqf"};
+			};
+		if (!activeAFRF) then {call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf"} else {call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf"};
 
-	if (!activeGREF) then
-		{
-		call compile preProcessFileLineNumbers "Templates\teamPlayerVanilla.sqf"
+		if (!activeGREF) then
+			{
+			call compile preProcessFileLineNumbers "Templates\teamPlayerVanilla.sqf"
+			}
+		else
+			{
+			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\teamPlayerRHSGREF.sqf"} else {call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf"};
+			};
 		}
-	else
-		{
-		if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\teamPlayerRHSGREF.sqf"} else {call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf"};
-		};
 	}
 else
 	{
@@ -414,7 +420,7 @@ else
 	{
 	if !(hasIFA) then
 		{
-		["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_hunter_1_F","C_man_p_beggar_F","C_man_p_beggar_F_afro","C_man_p_fugitive_F","C_man_p_shorts_1_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_shorts_1_F","C_man_shorts_2_F","C_man_shorts_3_F","C_man_shorts_4_F","C_scientist_F","C_Orestes","C_Nikos","C_Nikos_aged"]
+		["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_hunter_1_F","C_man_p_beggar_F","C_man_p_beggar_F_afro","C_man_p_fugitive_F","C_man_p_shorts_1_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_shorts_1_F","C_man_shorts_2_F","C_man_shorts_3_F","C_man_shorts_4_F","C_scientist_F","C_Orestes","C_Nikos","C_Nikos_aged"];
 		}
 	else
 		{
@@ -456,7 +462,7 @@ waitUntil
 	if (scriptDone _getMissionPath) then {true} else
 	{
 		hint "Stuck on compiling missionPath, re-launch the mission.";
-    false;
+		false;
 	}
 };
 hint "Done compiling missionPath";
@@ -655,7 +661,8 @@ hasACEMedical = false;
 		"ACE_ATragMX",
 		"ACE_acc_pointer_green",
 		"ACE_HandFlare_White",
-		"ACE_HandFlare_Red"
+		"ACE_HandFlare_Red",
+		"ACE_Spraypaintred"
 	];
 	if (hasIFA) then {aceItems append ["ACE_LIB_LadungPM","ACE_SpareBarrel"]};
 	publicVariable "aceItems";

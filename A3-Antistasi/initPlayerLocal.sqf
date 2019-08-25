@@ -216,7 +216,12 @@ stragglers = creategroup teamPlayer;
 player setUnitTrait ["camouflageCoef",0.8];
 player setUnitTrait ["audibleCoef",0.8];
 
+//Give the player the base loadout.
 [player] call A3A_fnc_dress;
+//Add a maplight if we're running ACE, because it can be really dark.
+if (hasACE) then {
+	player addItem "ACE_Flashlight_XL50";
+};
 player setvariable ["compromised",0];
 player addEventHandler 
 [

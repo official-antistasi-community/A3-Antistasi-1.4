@@ -459,7 +459,7 @@ while {(_waves > 0)} do
 		_pos = _posOrigin;
 		_ang = 0;
 		_size = [_mrkOrigin] call A3A_fnc_sizeMarker;
-		private _runwayTakeoff = [_mrkOrigin] call A3A_fnc_getRunwayTakeoffForAirportMarker
+		private _runwayTakeoff = [_mrkOrigin] call A3A_fnc_getRunwayTakeoffForAirportMarker;
 		if (count _runwayTakeoff > 0) then {
 			_pos = _runwayTakeoff select 0;
 			_ang = _runwayTakeoff select 1;

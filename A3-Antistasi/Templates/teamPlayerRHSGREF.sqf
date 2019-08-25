@@ -87,14 +87,13 @@ else
 		};
 	};
 
-vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
-policeOfficer = "B_GEN_Commander_F";
-policeGrunt = "B_GEN_Soldier_F";
+vehPoliceCar = "rhsusf_mrzr4_d";
+policeOfficer = "rhsusf_army_ucp_rifleman_m590";
+policeGrunt = "rhsusf_army_ucp_rifleman_82nd";
 groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = "NAPA";
 
 factionGEN = "BLU_GEN_F";
-<<<<<<< Updated upstream
 
 //Player spawn loadout
 teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];

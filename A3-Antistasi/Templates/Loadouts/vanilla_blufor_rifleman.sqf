@@ -50,7 +50,7 @@ private _loadout_vanilla_blufor_rifleman =
 
 	[//Vest
 		selectRandom										//Vest
-		["V_PlateCarrier1_TNA_F", "V_PlateCarrier2_TNA_F",],
+		["V_PlateCarrier1_TNA_F", "V_PlateCarrier2_TNA_F"],
 		[//Inventory
 			["NVGoggles_OpFor",1],
 			["ACE_Flashlight_XL50",1],

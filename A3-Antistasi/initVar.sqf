@@ -56,6 +56,7 @@ flashLights = [];
 pointers = [];
 civUniforms = [];
 helmets = [];
+armoredHelmets = [];
 vests = [];
 armoredVests = [];
 
@@ -76,7 +77,6 @@ ammoDEFENDER = [];
 weaponsDEFENDER = [];
 ammoINVADER = [];
 weaponsINVADER = [];
-
 
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
@@ -123,7 +123,7 @@ if (hasAFRF and hasUSAF and hasGREF) then {if ("UK3CB_BAF_L1A1" in arifles) then
 if ("ffaa_armas_hkg36k_normal" in arifles) then {hasFFAA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | FFAA Detected.",servertime];};
 
 ////////////////////////////////////
-//        BEGIN MOD CONFIG       ///
+//          MOD CONFIG           ///
 ////////////////////////////////////
 //TFAR config
 if (hasTFAR) then
@@ -142,7 +142,7 @@ if (hasTFAR) then
 };
 
 //////////////////////////////////////
-//   BEGIN TEMPLATE SELECTION      ///
+//         TEMPLATE SELECTION      ///
 //////////////////////////////////////
 //Templates for GREENFOR Rebels
 diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",servertime];
@@ -252,28 +252,7 @@ else
 if (has3CB) then {arrayCivs append ["UK3CB_CHC_C_BODYG","UK3CB_CHC_C_CAN","UK3CB_CHC_C_COACH","UK3CB_CHC_C_DOC","UK3CB_CHC_C_FUNC","UK3CB_CHC_C_HIKER","UK3CB_CHC_C_LABOUR","UK3CB_CHC_C_PILOT","UK3CB_CHC_C_POLITIC","UK3CB_CHC_C_PROF","UK3CB_CHC_C_VILL","UK3CB_CHC_C_WORKER"]};
 
 ////////////////////////////////////
-//     ID LIST FOR UNIT NAMES    ///
-////////////////////////////////////
-if !(hasIFA) then
-	{
-	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
-	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
-	};
-
-//////////////////////////////////////
-//   BEGIN GROUPS CLASSIFICATION   ///
-//////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
-squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
-medics = REBELmedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
-//Define Sniper Groups and Units
-sniperGroups = [groupsNATOSniper,groupsCSATSniper];
-sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + REBELsniper + [FIAMarksman,NATOMarksman,CSATMarksman];
-//Do we need this anymore? unit classes should be set by template, not here.....
-if (hasRHS) then {sniperUnits = sniperUnits + ["rhsusf_socom_marsoc_sniper","rhs_vdv_marksman_asval"]};
-
-////////////////////////////////////
-//   BEGIN VEH CLASSIFICATION    ///
+//      CIVILLIAN VEHICLES       ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi]: initVar | Building Vehicle list.",servertime];
 arrayCivVeh = if !(hasIFA) then
@@ -285,6 +264,27 @@ else
 	["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
 	};
 civBoats = if !(hasIFA) then {["C_Boat_Civil_01_F","C_Scooter_Transport_01_F","C_Boat_Transport_02_F","C_Rubberboat"]} else {[]};
+
+////////////////////////////////////
+//     ID LIST FOR UNIT NAMES    ///
+////////////////////////////////////
+if !(hasIFA) then
+	{
+	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
+	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
+	};
+
+//////////////////////////////////////
+//      GROUPS CLASSIFICATION      ///
+//////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
+squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
+medics = REBELmedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
+//Define Sniper Groups and Units
+sniperGroups = [groupsNATOSniper,groupsCSATSniper];
+sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + REBELsniper + [FIAMarksman,NATOMarksman,CSATMarksman];
+//Do we need this anymore? unit classes should be set by template, not here.....
+if (hasRHS) then {sniperUnits = sniperUnits + ["rhsusf_socom_marsoc_sniper","rhs_vdv_marksman_asval"]};
 
 ////////////////////////////////////
 //   CLASSING TEMPLATE VEHICLES  ///
@@ -427,13 +427,13 @@ if (not(_nameX in _alreadyChecked)) then
 //   ARMORED VESTS LIST          ///
 ////////////////////////////////////
 //WHY is there no clean list?
-vests = vests select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
+armoredVests = vests select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
 
 ////////////////////////////////////
 //   ARMORED HELMETS LIST        ///
 ////////////////////////////////////
 //WHY is there no clean list?
-helmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
+armoredHelmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
 
 ////////////////////////////////////
 //   SMOKE GRENADES LIST         ///
@@ -446,43 +446,10 @@ smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","Smoke
 chemX = ["Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue"];
 
 ////////////////////////////////////
-//   IND FACTION LAUNCHERS       ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi]: initVar | Building Launcher list.",servertime];
-antitankAAF = if (!hasRHS and !hasIFA) then
-	{
-	["launch_I_Titan_F","launch_I_Titan_short_F"]
-	}
-else
-	{//This might be an IFA missile, not the tube
-	if (hasIFA) then {["LIB_Shg24"]} else {[]};
-	};
-
-////////////////////////////////////
-//   PLACED EXPLOSIVES LIST      ///
-////////////////////////////////////
-minesAAF = if (!hasRHS and !hasIFA) then
-	{
-	["SLAMDirectionalMine_Wire_Mag","SatchelCharge_Remote_Mag","ClaymoreDirectionalMine_Remote_Mag", "ATMine_Range_Mag","APERSTripMine_Wire_Mag","APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag"]
-	}
-else
-	{
-	if (hasRHS) then
-		{
-		["rhsusf_m112_mag","rhsusf_mine_m14_mag","rhs_mine_M19_mag","rhs_mine_tm62m_mag","rhs_mine_pmn2_mag"]
-		}
-	else
-		{
-		if (hasIFA) then {["LIB_PMD6_MINE_mag","LIB_TM44_MINE_mag","LIB_US_TNT_4pound_mag"]} else {[]};
-		}
-	};
-
-////////////////////////////////////
 //      ACE ITEMS LIST           ///
 ////////////////////////////////////
 if (hasACE) then
 	{
-	
 	aceItems = [
 		"ACE_EarPlugs",
 		"ACE_RangeCard",
@@ -518,7 +485,6 @@ if (hasACE) then
 			"ACE_morphine",
 			"ACE_bodyBag"
 		];
-
 		aceAdvMedItems = [
 			"ACE_elasticBandage",
 			"ACE_quikclot",
@@ -536,10 +502,12 @@ if (hasACE) then
 			"ACE_atropine"
 		];
 		};
-	
 	publicVariable "aceItems";
-	publicVariable "aceBasicMedItems";
-	publicVariable "aceAdvMedItems";
+	if (hasACEMedical) then
+		{
+		publicVariable "aceBasicMedItems";
+		publicVariable "aceAdvMedItems";
+		};
 	};
 
 ////////////////////////////////////
@@ -559,6 +527,38 @@ else
 		{
 		if (hasIFA) then {["LIB_ToolKit"]} else {[]};
 		}
+	};
+
+////////////////////////////////////
+//   PLACED EXPLOSIVES LIST      ///
+////////////////////////////////////
+minesAAF = if (!hasRHS and !hasIFA) then
+	{
+	["SLAMDirectionalMine_Wire_Mag","SatchelCharge_Remote_Mag","ClaymoreDirectionalMine_Remote_Mag", "ATMine_Range_Mag","APERSTripMine_Wire_Mag","APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag"]
+	}
+else
+	{
+	if (hasRHS) then
+		{
+		["rhsusf_m112_mag","rhsusf_mine_m14_mag","rhs_mine_M19_mag","rhs_mine_tm62m_mag","rhs_mine_pmn2_mag"]
+		}
+	else
+		{
+		if (hasIFA) then {["LIB_PMD6_MINE_mag","LIB_TM44_MINE_mag","LIB_US_TNT_4pound_mag"]} else {[]};
+		}
+	};
+
+////////////////////////////////////
+//   REBEL FACTION LAUNCHERS     ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi]: initVar | Building Launcher list.",servertime];
+antitankAAF = if (!hasRHS and !hasIFA) then
+	{
+	["launch_I_Titan_F","launch_I_Titan_short_F"]
+	}
+else
+	{//This might be an IFA missile, not the tube
+	if (hasIFA) then {["LIB_Shg24"]} else {[]};
 	};
 
 ////////////////////////////////////

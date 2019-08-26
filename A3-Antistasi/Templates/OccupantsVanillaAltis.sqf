@@ -15,20 +15,27 @@ staticATOccupants = "B_static_AT_F";
 staticAAOccupants = "B_static_AA_F";
 NATOPilot = "B_Helipilot_F";
 
+#include "Loadouts\vanilla_blufor_teamLeader.sqf";
+#include "Loadouts\vanilla_blufor_medic.sqf";
+#include "Loadouts\vanilla_blufor_machineGunner.sqf";
+#include "Loadouts\vanilla_blufor_marksman.sqf";
+#include "Loadouts\vanilla_blufor_AT.sqf";
+#include "Loadouts\vanilla_blufor_rifleman.sqf";
+
 //NATO PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"B_recon_TL_F",
+	_loadout_vanilla_blufor_teamLeader,
 	//Medic
-	"B_recon_medic_F",
+	_loadout_vanilla_blufor_medic,
 	//Autorifleman
-	"B_Patrol_Soldier_MG_F",
+	_loadout_vanilla_blufor_machineGunner,
 	//Marksman
-	"B_recon_M_F",
+	_loadout_vanilla_blufor_marksman,
 	//Anti-tank Scout
-	"B_recon_LAT_F",
+	_loadout_vanilla_blufor_AT,
 	//Anti-tank Scout
-	"B_recon_LAT_F"
+	_loadout_vanilla_blufor_rifleman
 ];
 
 vehNATOPVP = ["B_T_MRAP_01_F","B_MRAP_01_hmg_F"];

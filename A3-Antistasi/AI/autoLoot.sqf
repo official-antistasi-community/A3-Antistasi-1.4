@@ -109,7 +109,7 @@ while {_continuar and ([_unit] call A3A_fnc_canFight) and (_unit getVariable "re
 				{if (!(_x in unlockedMagazines) and !(_x in unlockedItems)) then {_unit addItemToUniform _x}} forEach (uniformItems _target);
 				if (backPack _target != "") then
 					{
-					_unit addBackpack ((backpack _target) call BIS_fnc_basicBackpack);
+					_unit addBackpack ((backpack _target) call A3A_fnc_basicBackpack);
 					{if (!(_x in unlockedMagazines) and !(_x in unlockedItems)) then {_unit addItemToBackpack _x}} forEach backpackItems _target;
 					removeBackpack _target;
 					};

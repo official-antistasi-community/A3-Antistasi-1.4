@@ -326,6 +326,7 @@ fn_SetStat =
 				};
 			} forEach controlsX;
 			respawnTeamPlayer setMarkerPos _posHQ;
+			posHQ = getMarkerPos respawnTeamPlayer;
 			petros setPos _posHQ;
 			"Synd_HQ" setMarkerPos _posHQ;
 			if (chopForest) then

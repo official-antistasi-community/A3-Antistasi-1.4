@@ -57,7 +57,7 @@ _unloadContainer = {
 	//backpacks
 	_backpacks = backpackCargo _container_sub;
 	{
-		_item = _x call BIS_fnc_basicBackpack;
+		_item = _x call A3A_fnc_basicBackpack;
 		_index = IDC_RSCDISPLAYARSENAL_TAB_BACKPACK;
 		[_array,_index,_item,1]call _addToArray;
 	} forEach _backpacks;

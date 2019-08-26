@@ -15,7 +15,7 @@ _backpcks = [];
 if (count backpackCargo _originX > 0) then
 	{
 	{
-	_backpcks pushBack (_x call BIS_fnc_basicBackpack);
+	_backpcks pushBack (_x call A3A_fnc_basicBackpack);
 	} forEach backpackCargo _originX;
 	};
 _containers = everyContainer _originX;

@@ -13,20 +13,27 @@ staticATOccupants = "I_static_AT_F";
 staticAAOccupants = "I_static_AA_F";
 NATOPilot = "I_Helipilot_F";
 
+#include "Loadouts/rhs_gref_teamLeader.sqf";
+#include "Loadouts/rhs_gref_medic.sqf";
+#include "Loadouts/rhs_gref_breacher.sqf";
+#include "Loadouts/rhs_gref_sniper.sqf";
+#include "Loadouts/rhs_gref_demolition.sqf";
+#include "Loadouts/rhs_gref_demolition.sqf";
+
 //NATO PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"I_Soldier_SL_F",
+	_loadout_rhs_gref_teamLeader,
 	//Medic
-	"I_medic_F",
+	_loadout_rhs_gref_medic,
 	//Autorifleman
-	"I_Soldier_AR_F",
+	_loadout_rhs_gref_breacher,
 	//Marksman
-	"I_Soldier_M_F",
+	_loadout_rhs_gref_sniper,
 	//Anti-tank Scout
-	"I_Soldier_LAT_F",
+	_loadout_rhs_gref_demolition,
 	//Anti-tank Scout
-	"I_Soldier_LAT_F"
+	_loadout_rhs_gref_demolition
 ];
 
 vehNATOPVP = ["I_MRAP_03_F","I_MRAP_03_hmg_F"];//This array contains the vehicles Nato-PvP players can spawn near their flag.

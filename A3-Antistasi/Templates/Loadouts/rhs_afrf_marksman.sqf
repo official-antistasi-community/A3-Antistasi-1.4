@@ -30,7 +30,7 @@
 	[
 		"ItemMap",
 		"",
-		"tf_fadak_1",
+		["tf_fadak_1"] call _fnc_tfarRadio,
 		"ItemCompass",
 		"ItemWatch",
 		""

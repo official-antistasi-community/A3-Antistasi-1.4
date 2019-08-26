@@ -40,22 +40,21 @@
 		["RHSUSF_SPCS_OCP_Rifleman","RHSUSF_SPCS_OCP_Rifleman_Alt"],
 		[//Inventory
 			["RHSUSF_ANPVS_14",1],
-			["ACE_Flashlight_XL50",1],
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
 			["RHS_Mag_Mk84",1,1],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7],
 			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",4,30]
-		]
+		] +	_aceFlashlight
 	],
 
 	[//Backpack
 		"RHSUSF_Assault_EagleAIII_OCP",						//Backpack
 		[//Inventory
-			["ACE_Clacker",1],
 			["Democharge_Remote_Mag",1,1],
 			["RHS_Mag_SMAW_HEAA",1,1]
 		]
+		+ _aceClacker
 	],
 
 		"RHSGREF_Helmet_PASGT_Woodland_Rhino",				//Headgear
@@ -75,9 +74,9 @@
 	[//Item
 		"ItemMap",											//Map
 		"",													//Terminal
-		"TF_RF7800STR",										//Radio
+		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		"TF_MicroDAGR",										//Watch
+		_tfarMicroDAGR,										//Watch
 		""													//Goggles
 	]
 ];

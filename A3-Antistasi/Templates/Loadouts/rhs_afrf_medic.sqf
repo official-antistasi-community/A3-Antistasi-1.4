@@ -17,8 +17,6 @@
 	[
 		"rhs_6b23_6sh116_od",
 		[
-			["ACE_plasmaIV_250",5],
-			["ACE_quikclot",10],
 			["rhs_1PN138",1],
 			["rhs_30Rnd_545x39_7N22_AK",4,30],
 			["rhs_mag_rgo",1,1],
@@ -34,7 +32,7 @@
 	[
 		"ItemMap",
 		"",
-		"tf_fadak_1",
+		["tf_fadak_1"] call _fnc_tfarRadio,
 		"ItemCompass",
 		"ItemWatch",
 		""

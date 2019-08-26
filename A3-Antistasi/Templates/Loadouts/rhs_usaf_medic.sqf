@@ -40,14 +40,13 @@
 		"RHSUSF_SPCS_OCP_Medic",
 		[//Inventory
 			["RHSUSF_ANPVS_14",1],
-			["ACE_Flashlight_XL50",1],
-			["ACE_Surgicalkit",1],
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
 			["RHS_Mag_Mk84",2,1],
 			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",4,30],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7]
 		]
+		+ _aceFlashlight
 	],
 
 	[//Backpack
@@ -72,9 +71,9 @@
 	[//Item
 		"ItemMap",											//Map
 		"",													//Terminal
-		"TF_RF7800STR",										//Radio
+		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		"TF_MicroDAGR",										//Watch
+		_tfarMicroDAGR,										//Watch
 		""													//Goggles
 	]
 ];

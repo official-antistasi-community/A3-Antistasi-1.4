@@ -38,14 +38,14 @@
 		"V_PlateCarrier1_TNA_F",										//Vest
 		[//Inventory
 			["NVGoggles_OpFor",1],
-			["ACE_Flashlight_XL50",1],
-			["ACE_Rangecard",1],
-			["ACE_Kestrel4500",1],
 			["SmokeShell",3,1],
-			["ACE_M84",1,1],
 			["16Rnd_9x21_Mag",2,17],
 			["20Rnd_762x51_Mag",4,20]
 		]
+		+ _aceFlashlight
+		+ _aceKestrel
+		+ _aceRangecard
+		+ _aceM84
 	],
 
 	[],
@@ -66,7 +66,7 @@
 	[//Item
         "ItemMap",											//Map
         "ItemGPS",											//Terminal
-        "TF_ANPRC152",										//Radio
+		["TF_ANPRC152"] call _fnc_tfarRadio,				//Radio
         "ItemCompass",										//Compass
         "ItemWatch",										//Watch
         ""													//Goggles

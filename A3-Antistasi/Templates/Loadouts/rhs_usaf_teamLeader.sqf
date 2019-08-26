@@ -39,24 +39,24 @@
 		"RHSUSF_SPCS_OCP_SquadLeader",						//Vest
 		[//Inventory
 			["RHSUSF_ANPVS_14",1],
-			["ACE_Flashlight_XL50",1],
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
 			["RHS_Mag_Mk84",2,1],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7],
 			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",4,30]
 		]
+		+ _aceFlashlight
 	],
 
 	[//Backpack
-		"TF_RT1523G_RHS",
+		([hasTFAR, "TF_RT1523G_RHS", "RHSUSF_Assault_EagleAIII_OCP"] call _fnc_modItem),
 		[//Inventory
-			["ACE_Handflare_Red",2,1],
-			["ACE_Chemlight_IR",15,1],
 			["SmokeshellBlue",3,1],
 			["SmokeshellRed",3,1],
 			["SmokeshellYellow",3,1]
 		]
+		+ ([hasACE, ["ACE_Handflare_Red",2,1]] call _fnc_modItem)
+		+ ([hasACE, ["ACE_Chemlight_IR",15,1]] call _fnc_modItem)
 	],
 
 		"RHSGREF_Helmet_PASGT_Woodland_Rhino",				//Headgear
@@ -76,9 +76,9 @@
 	[//Item
 		"ItemMap",											//Map
 		"ItemGPS",											//Terminal
-		"TF_RF7800STR",										//Radio
+		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		"TF_MicroDAGR",										//Watch
+		_tfarMicroDAGR,										//Watch
 		""													//Goggles
 	]
 ];

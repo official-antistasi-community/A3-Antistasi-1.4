@@ -39,13 +39,12 @@
 		[//Inventory
 			["RHS_1PN138",1],
 			["H_Cap_Police",1],
-			["ACE_Flashlight_XL50",1],
-			["ACE_SurgicalKit",1],
 			["RHS_Mag_An_M8HC",1,1],
-			["ACE_M84",1,1],
 			["30Rnd_9x21_Mag_SMG_02",4,30],
 			["16Rnd_9x21_Mag",2,17]
-		]
+		] 
+		+ _aceFlashlight
+		+ _aceM84
 	],
 
 	[//Backpack
@@ -69,9 +68,9 @@
 	[//Item
 		"ItemMap",											//Map
 		"",													//Terminal
-		"TF_PNR1000A_26",									//Radio
+		["TF_PNR1000A_26"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		"TF_MicroDAGR",										//Watch
+		_tfarMicroDAGR,										//Watch
 		""													//Goggles
 	]
 ];

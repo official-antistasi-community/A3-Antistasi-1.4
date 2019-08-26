@@ -39,13 +39,13 @@
 		[//Inventory
 			["RHS_1PN138",1],
 			["H_Beret_Gen_F",1],
-			["ACE_Flashlight_XL50",1],
 			["RHS_Mag_An_M8HC",1,1],
 			["RHS_Mag_Mk3A2",1,1],
-			["ACE_M84",2,1],
 			["RHS_Mag_30Rnd_556x45_M855_PMag",3,30],
 			["16Rnd_9x21_Mag",2,17]
-		]
+		] 
+		+ _aceFlashlight
+		+ _aceM84
 	],
 
 	[//Backpack
@@ -72,9 +72,9 @@
 	[//Item
 		"ItemMap",											//Map
 		"ItemGPS",											//Terminal
-		"TF_PNR1000A_26",									//Radio
+		["TF_PNR1000A_26"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		"TF_MicroDAGR",										//Watch
+		_tfarMicroDAGR,										//Watch
 		""													//Goggles
 	]
 ];

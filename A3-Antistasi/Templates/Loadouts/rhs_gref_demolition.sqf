@@ -39,13 +39,13 @@
 		[//Inventory
 			["RHS_1PN138",1],
 			["H_Cap_Police",1],
-			["ACE_Flashlight_XL50",1],
 			["RHS_Mag_An_M8HC",1,1],
 			["RHS_Mag_Mk3A2",2,1],
-			["ACE_M84",1,1],
 			["30Rnd_9x21_Mag_SMG_02",4,30],
 			["16Rnd_9x21_Mag",2,17]
-		]
+		] 
+		+ _aceFlashlight
+		+ _aceM84
 	],
 
 	[//Backpack
@@ -53,9 +53,9 @@
 		[//Inventory
 			["RHS_RPG7_PG7V_Mag",1,1],
 			["DemoCharge_Remote_Mag",2,1],
-			["ACE_DefusalKit",1],
-			["ACE_Clacker",1]
 		]
+		+ _aceDefusalKit
+		+ _aceClacker
 	],
 
 		"H_PASGT_Basic_Blue_F",								//Headgear
@@ -74,9 +74,9 @@
 	[//Item
 		"ItemMap",											//Map
 		"",													//Terminal
-		"TF_PNR1000A_26",									//Radio
+		["TF_PNR1000A_26"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		"TF_MicroDAGR",										//Watch
+		_tfarMicroDAGR,									//Watch
 		""													//Goggles
 	]
 ];

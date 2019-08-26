@@ -38,15 +38,15 @@
 		"RHSUSF_SPCS_OCP_Sniper",							//Vest
 		[//Inventory
 			["RHSUSF_ANPVS_14",1],
-			["ACE_Flashlight_XL50",1],
-			["ACE_Rangecard",1],
-			["ACE_Kestrel4500",1],
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
 			["RHS_Mag_Mk84",1,1],
 			["RHSUSF_20Rnd_762x51_M993_Mag",5,30],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7]
 		]
+		+ _aceFlashlight
+		+ _aceKestrel
+		+ _aceRangecard
 	],
 
 	[//Backpack
@@ -69,9 +69,9 @@
 	[//Item
 		"ItemMap",											//Map
 		"",													//Terminal
-		"TF_RF7800STR",										//Radio
+		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		"TF_MicroDAGR",										//Watch
+		_tfarMicroDAGR,										//Watch
 		""													//Goggles
 	]
 ];

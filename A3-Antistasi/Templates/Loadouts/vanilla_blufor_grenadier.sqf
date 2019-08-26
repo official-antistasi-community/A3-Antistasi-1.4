@@ -40,14 +40,14 @@
 		["V_PlateCarrier1_TNA_F", "V_PlateCarrier2_TNA_F",],
 		[//Inventory
 			["NVGoggles_OpFor",1],
-			["ACE_Flashlight_XL50",1],
 			["SmokeShell",2,1],
 			["HandGrenade",1,1],
-			["ACE_M84",2,1],
 			["16Rnd_9x21_Mag",2,17],
 			["30Rnd_556x45_Stanag_Red",3,30],
 			["1Rnd_HE_Grenade_Shell",1,6]
 		]
+		+ _aceFlashlight
+		+ _aceM84
 	],
 
 	[],
@@ -69,7 +69,7 @@
 	[//Item
 		"ItemMap",											//Map
 		"ItemGPS",											//Terminal
-		"TF_ANPRC152",										//Radio
+		["TF_ANPRC152"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
 		"ItemWatch",										//Watch
 		""													//Goggles

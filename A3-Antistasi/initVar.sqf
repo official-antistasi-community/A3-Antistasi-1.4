@@ -71,7 +71,8 @@ ammoINVADER = [];
 weaponsINVADER = [];
 
 
-//Mod detection
+//MOD DETECTION SECTION
+//Faction MODs
 hasRHS = false;
 hasAFRF = false;
 hasUSAF = false;
@@ -79,11 +80,13 @@ hasGREF = false;
 hasFFAA = false;
 hasIFA = false;
 has3CB = false;
-hasACRE = false;
+//Systems Mods
 hasACE = false;
 hasACEHearing = false;
 hasACEMedical = false;
 hasADVMedical = false;
+//Radio Mods
+hasACRE = false;
 hasTFAR = false;
 startLR = false;
 
@@ -127,6 +130,93 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
 	//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";				//to make enemy vehicles usable as LR radio
 	//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";				//to make enemy vehicles usable as LR radio
 	};
+
+//BEGIN TEMPLATE SELECTION
+//Templates for GREENFOR Rebels
+if (!hasIFA) then
+	{
+	//NON-IFA Templates for DEFENDER
+		if (!hasUSAF) then
+			{
+			//Vanilla DEFENDER Template
+			call compile preProcessFileLineNumbers "Templates\OccupantsVanilla.sqf";
+			}
+			else
+			{
+				if (has3CB) then
+					{
+					//3CB DEFENDER Template
+					call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
+					}
+					else
+					{
+						if (gameMode != 4) then
+							{
+							//RHS-USAF DEFENDER Template
+							call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf";
+							}
+							else
+							{
+							//RHS GREENFOR DEFENDER Template
+							call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf";
+							};
+					};
+			};
+	//NON-IFA INVADER Templates
+		if (!hasAFRF) then
+			{
+			//Vanilla INVADER Template
+			call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf";
+			}
+			else
+			{
+				if (has3CB) then
+					{
+					//3CB INVADER Template
+					call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
+					}
+					else
+					{
+					//RHS INVADER Template
+					call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf";
+					};
+			};
+		//NON-IFA REBEL Templates
+		if (!hasGREF) then
+			{
+			//Vanilla REBEL Template
+			call compile preProcessFileLineNumbers "Templates\REBELtemplateVANILLA.sqf";
+			}
+			else
+			{
+				if (has3CB) then
+					{
+					//3CB REBEL Template
+					call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBCCM.sqf";
+					}
+					else
+					{
+						if (gameMode != 4) then
+							{
+							//RHS REBEL Template
+							call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSGREF.sqf";
+							}
+							else
+							{
+							//RHS BLUFOR REBEL Template
+							call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSUSAF.sqf";
+							};
+					};
+			};
+	}
+	else
+	{
+	call compile preProcessFileLineNumbers "Templates\REBELtemplateIFA.sqf";
+	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
+	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
+	};
+
+//BEGIN ITEM CLASSIFICATION
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Magazine Pool.",servertime];
 _cfgMagazines = configFile >> "cfgmagazines";
 for "_i" from 0 to ((count _cfgMagazines) -1) do
@@ -261,90 +351,7 @@ else
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",servertime];
 
-//BEGIN TEMPLATE SELECTION
-//Templates for GREENFOR Rebels
-if (!hasIFA) then
-	{
-	//NON-IFA Templates for DEFENDER
-		if (!hasUSAF) then
-			{
-			//Vanilla DEFENDER Template
-			call compile preProcessFileLineNumbers "Templates\OccupantsVanilla.sqf";
-			}
-			else
-			{
-				if (has3CB) then
-					{
-					//3CB DEFENDER Template
-					call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
-					}
-					else
-					{
-						if (gameMode != 4) then
-							{
-							//RHS-USAF DEFENDER Template
-							call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf";
-							}
-							else
-							{
-							//RHS GREENFOR DEFENDER Template
-							call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf";
-							};
-					};
-			};
-	//NON-IFA INVADER Templates
-		if (!hasAFRF) then
-			{
-			//Vanilla INVADER Template
-			call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf";
-			}
-			else
-			{
-				if (has3CB) then
-					{
-					//3CB INVADER Template
-					call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
-					}
-					else
-					{
-					//RHS INVADER Template
-					call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf";
-					};
-			};
-		//NON-IFA REBEL Templates
-		if (!hasGREF) then
-			{
-			//Vanilla REBEL Template
-			call compile preProcessFileLineNumbers "Templates\REBELtemplateVANILLA.sqf";
-			}
-			else
-			{
-				if (has3CB) then
-					{
-					//3CB REBEL Template
-					call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBCCM.sqf";
-					}
-					else
-					{
-						if (gameMode != 4) then
-							{
-							//RHS REBEL Template
-							call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSGREF.sqf";
-							}
-							else
-							{
-							//RHS BLUFOR REBEL Template
-							call compile preProcessFileLineNumbers "Templates\REBELtemplateRHSUSAF.sqf";
-							};
-					};
-			};
-	}
-	else
-	{
-	call compile preProcessFileLineNumbers "Templates\REBELtemplateIFA.sqf";
-	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
-	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
-	};
+
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
 squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];

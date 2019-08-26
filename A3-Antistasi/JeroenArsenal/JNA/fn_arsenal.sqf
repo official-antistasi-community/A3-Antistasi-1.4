@@ -464,7 +464,7 @@ switch _mode do {
     
     //for "_i" from 0 to (_itemCount - 1) do {
     //  diag_log format ["Item: %1 has value %2", _ctrlList lbText _i, _ctrlList lbValue _i];
-    //}; 
+    //};
     
     private _sortType = _ctrlSort lbValue _selectedIndex;
     
@@ -495,7 +495,7 @@ switch _mode do {
           if (!isNil "_data") then {
             private _displayName = _data select 2;
             _ctrlList lbSetValue [_i, _displayNameArray find _displayName];
-          };  
+          };
         };
         
         lbSortByValue _ctrlList;
@@ -521,8 +521,8 @@ switch _mode do {
           lbSortByValue _ctrlList;
         };
       };
-      case SORT_DEFAULT: { 
-        lbSort _ctrlList; 
+      case SORT_DEFAULT: {
+        lbSort _ctrlList;
       };
   };
   
@@ -565,7 +565,7 @@ switch _mode do {
 			_handgunweapon set [0,((_handgunweapon select 0) call BIS_fnc_baseWeapon)];
 			
 			if (count _backpack > 0) then {
-				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];	
+				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];
 			};
 
 			_uniformitems = [_unifrom,1,[]] call BIS_fnc_param;
@@ -2620,14 +2620,14 @@ switch _mode do {
 		if(hasACEMedical)then{
 
 			//ACE Basic medical system
-			if (ace_medical_level == 1) then{
+			if (!hasADVMedical) then{
 				_itemsUnifrom pushBack ["ACE_fieldDressing",4];
 				_itemsUnifrom pushBack ["ACE_morphine",2];
 				_itemsUnifrom pushBack ["ACE_epinephrine",1];
 			};
 
 			//ACE Advanced medical system
-			if (ace_medical_level == 2) then{
+			if (hasADVMedical) then{
 				_itemsUnifrom pushBack ["ACE_elasticBandage",2];
 				_itemsUnifrom pushBack ["ACE_packingBandage",2];
 				_itemsUnifrom pushBack ["ACE_morphine",1];
@@ -2677,13 +2677,13 @@ switch _mode do {
 
 			if(hasACEMedical) then { //Medic equipment
 
-				if (ace_medical_level == 1) then{ //ACE Basic medical system for medic
+				if (!hasADVMedical) then{ //ACE Basic medical system for medic
 					_itemsBackpack pushBack ["ACE_fieldDressing",20];
 					_itemsBackpack pushBack ["ACE_morphine",10];
 					_itemsBackpack pushBack ["ACE_epinephrine",10];
 					_itemsBackpack pushBack ["ACE_bloodIV",6];
 				};
-				if (ace_medical_level == 2) then{ //ACE Advanced medical system for medic
+				if (hasADVMedical) then{ //ACE Advanced medical system for medic
 					_itemsBackpack pushBack ["ACE_elasticBandage",15];
 					_itemsBackpack pushBack ["ACE_packingBandage",7];
 					_itemsBackpack pushBack ["ACE_tourniquet",5];
@@ -2695,12 +2695,12 @@ switch _mode do {
 			};
 		} else {
 		 		if(hasACEMedical) then {
-					if (ace_medical_level == 1) then{ //ACE Basic medical system for soldiers
+					if (!hasADVMedical) then{ //ACE Basic medical system for soldiers
 						_itemsBackpack pushBack ["ACE_fieldDressing",10];
 						_itemsBackpack pushBack ["ACE_morphine",3];
 						_itemsBackpack pushBack ["ACE_epinephrine",2];
 					};
-					if (ace_medical_level == 2) then{ //ACE Advanced medical system for soldiers
+					if (hasADVMedical) then{ //ACE Advanced medical system for soldiers
 						_itemsBackpack pushBack ["ACE_elasticBandage",10];
 						_itemsBackpack pushBack ["ACE_tourniquet",2];
 					};

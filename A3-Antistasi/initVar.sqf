@@ -70,6 +70,63 @@ weaponsDEFENDER = [];
 ammoINVADER = [];
 weaponsINVADER = [];
 
+
+//Mod detection
+hasRHS = false;
+hasAFRF = false;
+hasUSAF = false;
+hasGREF = false;
+hasFFAA = false;
+hasIFA = false;
+has3CB = false;
+hasACRE = false;
+hasACE = false;
+hasACEHearing = false;
+hasACEMedical = false;
+hasADVMedical = false;
+hasTFAR = false;
+startLR = false;
+
+diag_log format ["%1: [Antistasi] | INFO | initVar | Patching mod weapon support",servertime];
+if (!isNil "ace_common_fnc_isModLoaded") then
+	{
+	hasACE = true; diag_log format ["%1: [Antistasi] | INFO | initVar | ACE Detected.",servertime];
+	if (isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak")) then {hasACEHearing = true; diag_log format ["%1: [Antistasi] | INFO | initVar | ACE Hearing Detected.",servertime];};
+	if (isClass (ConfigFile >> "CfgSounds" >> "ACE_heartbeat_fast_3")) then {
+		if (ace_medical_level == 1) then {hasACEMedical = true; diag_log format ["%1: [Antistasi] | INFO | initVar | ACE Medical Detected.",servertime];};
+	if (isClass (ConfigFile >> "CfgSounds" >> "ACE_heartbeat_fast_3")) then {
+		if (hasADVMedical) then {hasADVMedical = true; diag_log format ["%1: [Antistasi] | INFO | initVar | ACE ADV Medical Detected.",servertime];};
+	};
+//ACRE Detection
+if (isClass(configFile >> "cfgPatches" >> "acre_main")) then {hasACRE = true; haveRadio = true; diag_log format ["%1: [Antistasi] | INFO | initVar | ACRE Detected.",servertime];};
+//IFA Detection
+if (isClass(configFile/"CfgPatches"/"LIB_Core")) then {hasIFA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | IFA Detected.",servertime];};
+//RHS AFRF Detection
+if ("rhs_weap_akms" in arifles) then {hasAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS AFRF Detected.",servertime];};
+if ("rhs_weap_m4a1_d" in arifles) then {hasUSAF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS USAF Detected.",servertime];};
+if ("rhs_weap_m92" in arifles) then {hasGREF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS GREF Detected.",servertime];};
+//3CB Detection
+if (hasAFRF and hasUSAF and hasGREF) then {if ("UK3CB_BAF_L1A1" in arifles) then {has3CB = true; diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.",servertime];};};
+//FFAA Detection
+if ("ffaa_armas_hkg36k_normal" in arifles) then {hasFFAA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | FFAA Detected.",servertime];};
+//TFAR detection and config.
+if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
+	{
+	diag_log format ["%1: [Antistasi] | INFO | initVar | TFAR Detected.",servertime];
+	hasTFAR = true;
+	haveRadio = true;
+	startLR = true;																		//set to true to start with LR radios unlocked.
+	["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;					//set to false and players will spawn with LR radio.
+	["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;					//synchronize SR default frequencies
+	["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;					//synchronize LR default frequencies
+	if (hasIFA) then {
+		["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;	//
+		["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;				//
+	    	};
+	//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";							//to make enemy vehicles usable as LR radio
+	//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";				//to make enemy vehicles usable as LR radio
+	//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";				//to make enemy vehicles usable as LR radio
+	};
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Magazine Pool.",servertime];
 _cfgMagazines = configFile >> "cfgmagazines";
 for "_i" from 0 to ((count _cfgMagazines) -1) do
@@ -147,52 +204,6 @@ helmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemIn
 smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
 chemX = ["Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue"];
 
-//Mod detection
-hasRHS = false;
-hasAFRF = false;
-hasUSAF = false;
-hasGREF = false;
-hasFFAA = false;
-hasIFA = false;
-myCustomMod = false;
-has3CB = false;
-diag_log format ["%1: [Antistasi] | INFO | initVar | Patching mod weapon support",servertime];
-
-//IFA Detection
-if (isClass(configFile/"CfgPatches"/"LIB_Core")) then {hasIFA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | IFA Detected.",servertime];};
-if (hasIFA) then {smokeX = ["LIB_RDG","LIB_NB39"]; helmets = [];};
-
-//RHS AFRF Detection
-if ("rhs_weap_akms" in arifles) then {hasAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS AFRF Detected.",servertime];};
-if ("rhs_weap_m4a1_d" in arifles) then {hasUSAF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS USAF Detected.",servertime];};
-if ("rhs_weap_m92" in arifles) then {hasGREF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS GREF Detected.",servertime];};
-
-//3CB Detection
-if (hasAFRF and hasUSAF and hasGREF) then {if ("UK3CB_BAF_L1A1" in arifles) then {has3CB = true; diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.",servertime];};};
-
-//FFAA Detection
-if ("ffaa_armas_hkg36k_normal" in arifles) then {hasFFAA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | FFAA Detected.",servertime];};
-
-//TFAR detection and config.
-hasTFAR = false;
-startLR = false;
-if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
-	{
-	hasTFAR = true;
-	haveRadio = true;
-	startLR = true;																		//set to true to start with LR radios unlocked.
-	["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;					//set to false and players will spawn with LR radio.
-	["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;					//synchronize SR default frequencies
-	["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;					//synchronize LR default frequencies
-	if (hasIFA) then {
-		["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;	//
-		["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;				//
-	    	};
-	//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";							//to make enemy vehicles usable as LR radio
-	//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";				//to make enemy vehicles usable as LR radio
-	//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";				//to make enemy vehicles usable as LR radio
-	};
-
 //Launcher selection (This came after mod selection because of IFA and RHS)
 diag_log format ["%1: [Antistasi]: initVar | Building Launcher list.",servertime];
 antitankAAF = if (!hasRHS and !hasIFA) then
@@ -222,7 +233,7 @@ else
 diag_log format ["%1: [Antistasi]: initVar | Building NightVision list.",servertime];
 NVGoggles = if (!hasIFA) then {["NVGoggles_OPFOR","NVGoggles_INDEP","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_tna_F","NVGoggles"]} else {[]};
 
-itemsAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+itemsAAF = if ((!hasRHS) and !hasIFA) then
 	{
 	["Laserbatteries","MineDetector","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"] + NVGoggles;
 	}
@@ -234,7 +245,7 @@ else
 		}
 	else
 		{
-		if (hasIFA and !myCustomMod) then {["LIB_ToolKit"]} else {[]};
+		if (hasIFA) then {["LIB_ToolKit"]} else {[]};
 		}
 	};
 
@@ -665,10 +676,6 @@ garageIsUsed = false;
 vehInGarage = [];
 destroyedBuildings = []; 						//publicVariable "destroyedBuildings";
 reportedVehs = [];
-hasACRE = false;
-hasACE = false;
-hasACEhearing = false;
-hasACEMedical = false;
 
 //ACE detection and ACE item availability in Arsenal
 	aceItems = [
@@ -692,7 +699,6 @@ hasACEMedical = false;
 		"ACE_Spraypaintred",
 		"ACE_IR_Strobe_Item"
 	];
-	if (hasIFA) then {aceItems append ["ACE_LIB_LadungPM","ACE_SpareBarrel"]};
 	publicVariable "aceItems";
 
 	aceBasicMedItems = [
@@ -724,48 +730,39 @@ hasACEMedical = false;
 		"adv_aceCPR_AED"
 	]; publicVariable "aceAdvMedItems";
 
+//ACE Items
+//unlockedItems = unlockedItems + aceItems;
+//ACE Medical items
+//unlockedItems = unlockedItems + aceBasicMedItems;
+//ACE ADV Medical Items
+//unlockedItems = unlockedItems + aceBasicMedItems + aceAdvMedItems;
+//ACRE Items
+//unlockedItems = unlockedItems + ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
 
-if (!isNil "ace_common_fnc_isModLoaded") then {
-	unlockedItems = unlockedItems + aceItems;
-	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
-	if !(hasIFA) then
-		{
-		weaponsDEFENDER pushBack "ACE_VMH3";
-		itemsAAF = itemsAAF + ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield"];
-		itemsAAF = itemsAAF - ["MineDetector"];
-		chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
-		smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow","ACE_M84"];
-		ammoDEFENDER = ammoDEFENDER - ["ACE_PreloadedMissileDummy"];
-		};
-	hasACE = true;
-	if (isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak")) then {
-		hasACEhearing = true;
-	};
-	if (isClass (ConfigFile >> "CfgSounds" >> "ACE_heartbeat_fast_3")) then {
-		if (ace_medical_level == 1) then {
-			hasACEMedical = true;
-			unlockedItems = unlockedItems + aceBasicMedItems;
-			diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
-		};
-	};
+//IFA items
+if (hasIFA) then {smokeX = ["LIB_RDG","LIB_NB39"]; helmets = [];};
 
-	if (isClass (ConfigFile >> "CfgSounds" >> "ACE_heartbeat_fast_3")) then {
-		if (ace_medical_level == 2) then {
-			hasACEMedical = true;
-			unlockedItems = unlockedItems + aceBasicMedItems + aceAdvMedItems;
-			diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
-		};
-	};
-};
-
-if (isClass(configFile >> "cfgPatches" >> "acre_main")) then
+if !(hasIFA) then
 	{
-	hasACRE = true;
-	haveRadio = true;
-	unlockedItems = unlockedItems + ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
-	diag_log format ["PBP: InitVar: unlockedItems: %1",unlockedItems];
+	weaponsDEFENDER pushBack "ACE_VMH3";
+	itemsAAF = itemsAAF + ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield"];
+	itemsAAF = itemsAAF - ["MineDetector"];
+	chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
+	smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow","ACE_M84"];
+	ammoDEFENDER = ammoDEFENDER - ["ACE_PreloadedMissileDummy"];
 	};
 
+//CAME FROM INSIDE ACE CHECK
+if (hasIFA) then {aceItems append ["ACE_LIB_LadungPM","ACE_SpareBarrel"]};
+
+if !(hasIFA) then
+	{
+	unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
+	unlockedWeapons pushBackUnique "ACE_VMH3";
+	itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
+	};
+
+//ROADS DB MAPCHECK
 if (worldName == "Tanoa") then
 	{
 	{server setVariable [_x select 0,_x select 1]} forEach [["Lami01",277],["Lifou01",350],["Lobaka01",64],["LaFoa01",38],["Savaka01",33],["Regina01",303],["Katkoula01",413],["Moddergat01",195],["Losi01",83],["Tanouka01",380],["Tobakoro01",45],["Georgetown01",347],["Kotomo01",160],["Rautake01",113],["Harcourt01",325],["Buawa01",44],["SaintJulien01",353],["Balavu01",189],["Namuvaka01",45],["Vagalala01",174],["Imone01",31],["Leqa01",45],["Blerick01",71],["Yanukka01",189],["OuaOue01",200],["Cerebu01",22],["Laikoro01",29],["Saioko01",46],["Belfort01",240],["Oumere01",333],["Muaceba01",18],["Nicolet01",224],["Lailai01",23],["Doodstil01",101],["Tavu01",178],["Lijnhaven01",610],["Nani01",19],["PetitNicolet01",135],["PortBoise01",28],["SaintPaul01",136],["Nasua01",60],["Savu01",184],["Murarua01",258],["Momea01",159],["LaRochelle01",532],["Koumac01",51],["Taga01",31],["Buabua01",27],["Penelo01",189],["Vatukoula01",15],["Nandai01",130],["Tuvanaka01",303],["Rereki01",43],["Ovau01",226],["IndPort01",420],["Ba01",106]];
@@ -796,7 +793,7 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Storing variables.",servert
 publicVariable "hasACE";
 publicVariable "hasTFAR";
 publicVariable "hasACRE";
-publicVariable "hasACEhearing";
+publicVariable "hasACEHearing";
 publicVariable "hasACEMedical";
 
 publicVariable "unlockedWeapons";

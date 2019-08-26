@@ -19,7 +19,7 @@ if (hasACEMedical) then
 			player addItemToUniform _item
 			};
 		} forEach [["ACE_fieldDressing",7],["ACE_morphine",2],["ACE_epinephrine",2]];
-		if (ace_medical_level == 2) then
+		if (hasADVMedical) then
 			{
 			{
 			_item = _x select 0;
@@ -39,7 +39,7 @@ if (hasACEMedical) then
 			player addItemToBackpack _item
 			};
 		} forEach [["ACE_morphine",15],["ACE_epinephrine",9],["ACE_bloodIV",8],["ACE_fieldDressing",30]];
-		if (ace_medical_level == 2) then
+		if (hasADVMedical) then
 			{
 			{
 			_item = _x select 0;

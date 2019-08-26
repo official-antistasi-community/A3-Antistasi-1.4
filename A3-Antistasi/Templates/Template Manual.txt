@@ -3,7 +3,6 @@ Hi! The following is a commented version of the templates samples from vanilla, 
 First: You have to build three files (you can do it in 2 or 1 but I think it's easier), which contain the three factions. Name them whatever.
 
 Second: Mod detection, Antistasi automatically detects the integrated mods, my suggestion is just to bypass that detection and load your templates. The script is initVar.sqf. Do the following:
-	- Set myCustomMod to true, this will ensure you wont find any vanilla item around like titan launchers etc.
 	- Comment the lines which load the templates (ATM 222 to 249) and call compile your template / templates
 Third: From there, most of the things are detected automatically from your mod or your templates, the only thing you may want to edit outside the templates is, in initVar.sqf, vehFastRope variable, adding classnames of helis you want
 to fast rope soldiers.

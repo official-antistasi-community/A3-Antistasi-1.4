@@ -124,7 +124,7 @@ if (!hasACE) then
 	}
 else
 	{
-	if (hasACEhearing) then {player addItem "ACE_EarPlugs"};
+	if (hasACEHearing) then {player addItem "ACE_EarPlugs"};
 	if (!hasACEMedical) then {[player] execVM "Revive\initRevive.sqf"};
 	};
 
@@ -178,7 +178,7 @@ if (player getVariable ["pvp",false]) exitWith
 		_handled = FALSE;
 		if (_this select 1 == 207) then
 			{
-			if (!hasACEhearing) then
+			if (!hasACEHearing) then
 				{
 				if (soundVolume <= 0.5) then
 					{

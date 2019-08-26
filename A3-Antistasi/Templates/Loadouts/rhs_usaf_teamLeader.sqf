@@ -63,7 +63,7 @@ private _loadout_rhs_usaf_teamLeader = [//Loadout
 		"TF_RT1523G_RHS",
 		[//Inventory
 			["ACE_Handflare_Red",2,1],
-			["Chemlight_IR",15,1],
+			["ACE_Chemlight_IR",15,1],
 			["SmokeshellBlue",3,1],
 			["SmokeshellRed",3,1],
 			["SmokeshellYellow",3,1]

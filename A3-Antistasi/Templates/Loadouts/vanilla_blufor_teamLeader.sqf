@@ -66,7 +66,7 @@ private _loadout_vanilla_blufor_teamLeader =
 		"B_RadioBag_01_Tropic_F",							//Backpack
 		[//Inventory
             ["ACE_Handflare_Red",2,1],
-            ["Chemlight_IR",15,1],
+            ["ACE_Chemlight_IR",15,1],
             ["SmokeshellBlue",3,1],
             ["SmokeshellRed",3,1],
             ["SmokeshellYellow",3,1]

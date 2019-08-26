@@ -13,20 +13,27 @@ NATOMortar = "RHS_M252_USMC_WD";
 staticATOccupants = "RHS_TOW_TriPod_USMC_WD";
 staticAAOccupants = "RHS_Stinger_AA_pod_D";
 
+#include "Loadouts\rhs_usaf_teamLeader.sqf";
+#include "Loadouts\rhs_usaf_medic.sqf";
+#include "Loadouts\rhs_usaf_machineGunner.sqf";
+#include "Loadouts\rhs_usaf_marksman.sqf";
+#include "Loadouts\rhs_usaf_AT.sqf";
+#include "Loadouts\rhs_usaf_rifleman.sqf";
+
 //NATO PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"rhsusf_socom_marsoc_teamleader",
+	_loadout_rhs_usaf_teamLeader,
 	//Medic
-	"rhsusf_socom_marsoc_sarc",
+	_loadout_rhs_usaf_medic,
 	//Autorifleman
-	"rhsusf_socom_marsoc_cso_mk17",
+	_loadout_rhs_usaf_machineGunner,
 	//Marksman
-	"rhsusf_socom_marsoc_marksman",
+	_loadout_rhs_usaf_marksman,
 	//Anti-tank Scout
-	"rhsusf_socom_marsoc_cso_grenadier",
+	_loadout_rhs_usaf_AT,
 	//Anti-tank Scout
-	"rhsusf_socom_marsoc_cso_grenadier"
+	_loadout_rhs_usaf_rifleman
 ];
 
 vehNATOPVP = ["rhsusf_m1025_w_s","rhsusf_m998_w_s_2dr","rhsusf_m998_w_s_2dr_fulltop","rhsusf_m998_w_s_4dr","rhsusf_m1025_w_s_m2"];//This array contains the vehicles Nato-PvP players can spawn near their flag.

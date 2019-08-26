@@ -113,5 +113,5 @@ if !(isMultiplayer) then
 	unlockedMagazines pushBack "RPG7_F";
   };
 //TFAR unlocks
-if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc148jem","ItemRadio"]};
+if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc154","ItemRadio"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_anprc155"]};

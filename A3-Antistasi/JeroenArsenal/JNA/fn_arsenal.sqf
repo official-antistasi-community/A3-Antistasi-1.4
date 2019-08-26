@@ -564,13 +564,8 @@ switch _mode do {
 			_secondaryweapon set [0,((_secondaryweapon select 0) call BIS_fnc_baseWeapon)];
 			_handgunweapon set [0,((_handgunweapon select 0) call BIS_fnc_baseWeapon)];
 			
-			//Some mod backpacks have no empty variant
 			if (count _backpack > 0) then {
-				private _basicBackpack = ((_backpack select 0) call BIS_fnc_basicBackpack);
-				if (_basicBackpack isEqualTo "") then {
-					_basicBackpack = _backpack select 0;
-				};	
-				_backpack set [0,_basicBackpack];	
+				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];	
 			};
 
 			_uniformitems = [_unifrom,1,[]] call BIS_fnc_param;

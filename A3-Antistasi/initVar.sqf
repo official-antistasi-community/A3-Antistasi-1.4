@@ -100,7 +100,7 @@ private ["_magazines", "_alreadyPlaced", "_weapon", "_weaponType"];
 	_nameX = [_nameX] call BIS_fnc_baseWeapon;
 
 	if (!(_nameX in _alreadyPlaced)) then {
-		_magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
+		_magazines = getArray (configFile >> "CfgWeapons" >> _nameX >> "magazines");
 		_alreadyPlaced pushBack _nameX;
 		_weapon = [_nameX] call BIS_fnc_itemType;
 		_weaponType = _weapon select 1;
@@ -510,9 +510,9 @@ vehBoats = [vehNATOBoat, vehCSATBoat, vehSDKBoat];
 vehAttack = vehNATOAttack + vehCSATAttack;
 vehPlanes = vehNATOAir + vehCSATAir + [vehSDKPlane];
 vehAttackHelis = vehCSATAttackHelis + vehNATOAttackHelis;
-vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
-vehUAVs = [vehNATOUAV,vehCSATUAV];
-vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
+vehFixedWing = [vehNATOPlane, vehNATOPlaneAA, vehCSATPlane, vehCSATPlaneAA, vehSDKPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
+vehUAVs = [vehNATOUAV, vehCSATUAV];
+vehAmmoTrucks = [vehNATOAmmoTruck, vehCSATAmmoTruck];
 vehAPCs = vehNATOAPC + vehCSATAPC;
 vehTanks = [vehNATOTank, vehCSATTank];
 vehTrucks = vehNATOTrucks + vehCSATTrucks + [vehSDKTruck, vehFIATruck];

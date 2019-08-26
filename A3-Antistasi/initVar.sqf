@@ -133,6 +133,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
 
 //BEGIN TEMPLATE SELECTION
 //Templates for GREENFOR Rebels
+diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",servertime];
 if (!hasIFA) then
 	{
 	//NON-IFA Templates for DEFENDER
@@ -348,10 +349,6 @@ else
 	{
 	["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
 	};
-
-diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",servertime];
-
-
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
 squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];

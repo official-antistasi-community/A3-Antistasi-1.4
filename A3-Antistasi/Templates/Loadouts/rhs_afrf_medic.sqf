@@ -1,4 +1,4 @@
-private _loadout_rhs_afrf_medic = [
+[
 	[
 		"rhs_weap_ak105",
 		"rhs_acc_pgs64",
@@ -12,17 +12,8 @@ private _loadout_rhs_afrf_medic = [
 	[],
 	[
 		"rhs_uniform_gorka_r_g",
-		[
-			["ACE_CableTie",3],
-			["ACE_EarPlugs",1],
-			["ACE_salineIV_500",1],
-			["ACE_tourniquet",1],
-			["ACE_Flashlight_XL50",1],
-			["ACE_epinephrine",2],
-			["ACE_morphine",2],
-			["ACE_packingBandage",5],
-			["ACE_quikclot",3],
-			["ACE_elasticBandage",3]]],
+		[] + _basicMedicalSupplies + _basicMiscItems
+	],
 	[
 		"rhs_6b23_6sh116_od",
 		[
@@ -35,16 +26,8 @@ private _loadout_rhs_afrf_medic = [
 			["rhs_mag_rdg2_white",2,1]]],
 	[
 		"rhs_medic_bag",
-		[
-			["adv_aceCPR_AED",1],
-			["ACE_surgicalKit",1],
-			["ACE_tourniquet",3],
-			["ACE_packingBandage",10],
-			["ACE_elasticBandage",10],
-			["ACE_morphine",4],
-			["ACE_epinephrine",4],
-			["ACE_bloodIV",1],
-			["ACE_salineIV_500",2]]],
+		[] + _medicSupplies
+	],
 	"rhs_altyn_novisor_ess_bala",
 	"",
 	[],

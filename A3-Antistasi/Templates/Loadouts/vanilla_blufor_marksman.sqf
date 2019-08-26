@@ -1,5 +1,3 @@
-private _loadout_vanilla_blufor_marksman =
-
 [//Loadout
 	[//Primary Weapon
 		"ARifle_SPAR_03_KHK_F",								//Weapon
@@ -33,18 +31,7 @@ private _loadout_vanilla_blufor_marksman =
 
 	[//Uniform
 		"U_B_T_Sniper_F",									//Uniform
-		[//Inventory
-			["ACE_Earplugs",1],
-			["ACE_Tourniquet",1],
-			["ACE_Cabletie",3],
-			["ACE_SalineIV_500",1],
-			["ACE_Morphine",1],
-			["ACE_Epinephrine",1],
-			["ACE_PackingBandage",5],
-			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3],
-			["ACE_Chemlight_Hiblue",5,1]
-		]
+		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest
@@ -61,12 +48,7 @@ private _loadout_vanilla_blufor_marksman =
 		]
 	],
 
-	[//Backpack
-		"",													//Backpack
-		[//Inventory
-			[]
-		]
-	],
+	[],
 
 		"",													//Headgear
 		"G_Balaclava_Oli",									//Facewear

@@ -1,5 +1,3 @@
-private _loadout_rhs_gref_medic =
-
 [//Loadout
 	[//Primary Weapon
 		"SMG_05_F",											//Weapon
@@ -33,17 +31,7 @@ private _loadout_rhs_gref_medic =
 
 	[//Uniform
 		"U_B_GEN_Soldier_F",								//Uniform
-		[//Inventory
-			["ACE_PackingBandage",5],
-			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3],
-			["ACE_Morphine",1],
-			["ACE_Epinephrine",1],
-			["ACE_SalineIV_500",1],
-			["ACE_Cabletie",3],
-			["ACE_Tourniquet",1],
-			["ACE_Chemlight_HiBlue",5,1]
-		]
+		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest
@@ -62,22 +50,11 @@ private _loadout_rhs_gref_medic =
 
 	[//Backpack
 		"B_Messenger_Black_F",								//Backpack
-		[//Inventory
-			["ACE_PackingBandage",15],
-			["ACE_ElasticBandage",10],
-			["ACE_QuikClot",10],
-			["ACE_Morphine",5],
-			["ACE_Epinephrine",5],
-			["ACE_PlasmaIV_250",5],
-			["ACE_SalineIV_500",3],
-			["ACE_BloodIV",1],
-			["ACE_PersonalAidKit",1],
-			["ACE_Tourniquet",3]
-		]
+		[] + _medicSupplies
 	],
 
-		"H_PASGT_Basic_Blue_F",								//Headgear
-		"G_Balaclava_Ti_Blk_F",								//Facewear
+	"H_PASGT_Basic_Blue_F",									//Headgear
+	"G_Balaclava_Ti_Blk_F",									//Facewear
 
 	[//Binocular
 		"",													//Binocular

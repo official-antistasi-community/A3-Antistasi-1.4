@@ -11,28 +11,20 @@ CSATMG = "rhs_KORD_high_VMF";
 staticATInvaders = "rhs_Kornet_9M133_2_vmf";
 staticAAInvaders = "RHS_ZU23_MSV";
 
-#include "Loadouts\rhs_afrf_teamLeader.sqf";
-#include "Loadouts\rhs_afrf_medic.sqf";
-#include "Loadouts\rhs_afrf_machineGunner.sqf";
-#include "Loadouts\rhs_afrf_marksman.sqf";
-#include "Loadouts\rhs_afrf_AT.sqf";
-#include "Loadouts\rhs_afrf_AT2.sqf";
-
-
 //CSAT PvP Loadouts
 CSATPlayerLoadouts = [
 	//Team Leader
-	_loadout_rhs_afrf_teamLeader,
+	["rhs_afrf_teamLeader"] call A3A_fnc_getLoadout,
 	//Medic
-	_loadout_rhs_afrf_medic,
+	["rhs_afrf_medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	_loadout_rhs_afrf_machineGunner,
+	["rhs_afrf_machineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	_loadout_rhs_afrf_marksman,
+	["rhs_afrf_marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	_loadout_rhs_afrf_AT,
+	["rhs_afrf_AT"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	_loadout_rhs_afrf_AT2
+	["rhs_afrf_AT2"] call A3A_fnc_getLoadout
 ];
 
 vehCSATPVP = ["rhs_tigr_vdv","rhs_uaz_vdv","rhsgref_ins_g_uaz_dshkm_chdkz"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.

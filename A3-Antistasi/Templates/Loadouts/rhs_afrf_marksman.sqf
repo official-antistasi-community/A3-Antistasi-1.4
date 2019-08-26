@@ -1,4 +1,4 @@
-private _loadout_rhs_afrf_marksman = [
+[
 	[
 		"rhs_weap_vss",
 		"",
@@ -12,17 +12,8 @@ private _loadout_rhs_afrf_marksman = [
 	[],
 	[
 		"rhs_uniform_gorka_r_g",
-		[
-			["ACE_CableTie",3],
-			["ACE_EarPlugs",1],
-			["ACE_salineIV_500",1],
-			["ACE_tourniquet",1],
-			["ACE_Flashlight_XL50",1],
-			["ACE_epinephrine",2],
-			["ACE_morphine",2],
-			["ACE_packingBandage",5],
-			["ACE_quikclot",3],
-			["ACE_elasticBandage",3]]],
+		[] + _basicMedicalSupplies + _basicMiscItems
+		],
 	[
 		"rhs_6b23_6sh116_od",
 		[

@@ -1,5 +1,3 @@
-private _loadout_rhs_gref_breacher =
-
 [//Loadout
 	[//Primary Weapon
 		"RHS_Weap_M590_8Rd",								//Weapon
@@ -33,17 +31,7 @@ private _loadout_rhs_gref_breacher =
 
 	[//Uniform
 		"U_B_GEN_Soldier_F",								//Uniform
-		[//Inventory
-			["ACE_PackingBandage",5],
-			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3],
-			["ACE_Morphine",1],
-			["ACE_Epinephrine",1],
-			["ACE_SalineIV_500",1],
-			["ACE_Cabletie",3],
-			["ACE_Tourniquet",1],
-			["ACE_Chemlight_HiBlue",5,1]
-		]
+		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest

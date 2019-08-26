@@ -707,10 +707,14 @@ reportedVehs = [];
 		"ACE_CableTie",
 		"ACE_SpottingScope",
 		"ACE_Tripod",
+		"ACE_Chemlight_HiWhite",
+		"ACE_Chemlight_HiRed",
 		"ACE_Kestrel4500",
 		"ACE_ATragMX",
-		"ACE_Spraypaintred",
-		"ACE_IR_Strobe_Item"
+		"ACE_acc_pointer_green",
+		"ACE_HandFlare_White",
+		"ACE_HandFlare_Red",
+		"ACE_Spraypaintred"
 	];
 	publicVariable "aceItems";
 
@@ -728,7 +732,6 @@ reportedVehs = [];
 		"ACE_quikclot",
 		"ACE_bloodIV_250",
 		"ACE_packingBandage",
-		"ACE_personalAidKit",
 		"ACE_plasmaIV",
 		"ACE_plasmaIV_500",
 		"ACE_plasmaIV_250",
@@ -738,9 +741,7 @@ reportedVehs = [];
 		"ACE_surgicalKit",
 		"ACE_tourniquet",
 		"ACE_adenosine",
-		"ACE_atropine",
-		"adv_aceSplint_splint",
-		"adv_aceCPR_AED"
+		"ACE_atropine"
 	]; publicVariable "aceAdvMedItems";
 
 //ACE Items
@@ -751,7 +752,28 @@ reportedVehs = [];
 //unlockedItems = unlockedItems + aceBasicMedItems + aceAdvMedItems;
 //ACRE Items
 //unlockedItems = unlockedItems + ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
+if (hasACE) then {
+	unlockedItems = unlockedItems + aceItems;
+	if !(hasIFA) then
+		{
+		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
+		unlockedWeapons pushBackUnique "ACE_VMH3";
+		itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
+		};
+};
 
+if (hasACEMedical) then {
+	switch (ace_medical_level) do {
+		case 1: {
+			unlockedItems = unlockedItems + aceBasicMedItems;
+		};
+		case 2: {
+			unlockedItems = unlockedItems + aceBasicMedItems + aceAdvMedItems;
+		};
+	};
+} else {
+	unlockedItems = unlockedItems + ["FirstAidKit","Medikit"];
+};
 //IFA items
 if (hasIFA) then {smokeX = ["LIB_RDG","LIB_NB39"]; helmets = [];};
 

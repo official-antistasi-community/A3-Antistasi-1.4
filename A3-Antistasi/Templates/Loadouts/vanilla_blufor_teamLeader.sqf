@@ -1,5 +1,3 @@
-private _loadout_vanilla_blufor_teamLeader =
-
 [//Loadout
 	[//Primary Weapon
 		"ARifle_SPAR_01_KHK_F",								//Weapon
@@ -34,18 +32,7 @@ private _loadout_vanilla_blufor_teamLeader =
 	[//Uniform
 		selectRandom										//Uniform
 		["U_B_T_Soldier_F", "U_B_T_Soldier_AR_F", "U_B_T_Soldier_SL_F"],
-		[//Inventory
-			["ACE_Earplugs",1],
-			["ACE_Tourniquet",1],
-			["ACE_Cabletie",3],
-			["ACE_SalineIV_500",1],
-			["ACE_Morphine",1],
-			["ACE_Epinephrine",1],
-			["ACE_PackingBandage",5],
-			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3],
-			["ACE_Chemlight_Hiblue",3,1]
-		]
+		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest

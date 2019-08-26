@@ -1,4 +1,4 @@
-private _loadout_rhs_usaf_teamLeader = [//Loadout
+[//Loadout
 	[//Primary Weapon
 		"RHS_Weap_M4A1",									//Weapon
 		"",													//Muzzle
@@ -32,18 +32,7 @@ private _loadout_rhs_usaf_teamLeader = [//Loadout
 
 	[//Uniform
 		"RHS_Uniform_G3_M81",								//Uniform
-		[//Inventory
-			["ACE_Earplugs",1],
-			["ACE_Tourniquet",1],
-			["ACE_Cabletie",3],
-			["ACE_SalineIV_500",1],
-			["ACE_Morphine",1],
-			["ACE_Epinephrine",1],
-			["ACE_PackingBandage",5],
-			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3],
-			["ACE_Chemlight_Hiblue",5,1]
-		]
+		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest

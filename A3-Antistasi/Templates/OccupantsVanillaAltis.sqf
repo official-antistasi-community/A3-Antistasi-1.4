@@ -68,7 +68,7 @@ vehNATOMRLSMags = "32Rnd_155mm_Mo_shells";
 vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "B_Truck_01_fuel_F", "B_Truck_01_medical_F", vehNATORepairTruck,"B_APC_Tracked_01_CRV_F"];
 vehNATOBike = "B_Quadbike_01_F";
 
-DEFENDERflag = "Flag_NATO";
+DEFENDERflag = "Flag_NATO_F";
 NATOFlagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
 NATOAmmobox = "B_supplyCrate_F";
 

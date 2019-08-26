@@ -69,7 +69,7 @@ if (_x in _mrkINVADER) then
     }
 else
     {
-    _dmrk setMarkerType DEFENDERflag;
+    _dmrk setMarkerType flagNATOmrk;
     _dmrk setMarkerText format ["%1 Airbase",nameOccupants];
     _dmrk setMarkerColor colorOccupants;
     for "_i" from 1 to _garrNum do

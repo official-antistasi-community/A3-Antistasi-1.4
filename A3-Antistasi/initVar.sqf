@@ -435,6 +435,9 @@ armoredVests = vests select {getNumber (configfile >> "CfgWeapons" >> _x >> "Ite
 //WHY is there no clean list?
 armoredHelmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
 
+
+//Begin Available Items
+
 ////////////////////////////////////
 //   SMOKE GRENADES LIST         ///
 ////////////////////////////////////
@@ -511,17 +514,37 @@ if (hasACE) then
 	};
 
 ////////////////////////////////////
-//   REBEL STARTING ITEMS        ///
+//   REBEL LOOT ITEMS        ///
 ////////////////////////////////////
-itemsAAF = if ((!hasRHS) and !hasIFA) then
-	{
-	["Laserbatteries","MineDetector","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"] + NVGoggles;
-	}
-else
-	{
-	if (hasRHS) then
+itemsAAF =
+	[
+	"Laserbatteries",
+	"MineDetector",
+	"muzzle_snds_H",
+	"muzzle_snds_L",
+	"muzzle_snds_M",
+	"muzzle_snds_B",
+	"muzzle_snds_H_MG",
+	"muzzle_snds_acp",
+	"muzzle_snds_338_green",
+	"muzzle_snds_93mmg_tan",
+	"bipod_03_F_oli",
+	"Rangefinder",
+	"Laserdesignator",
+	"ItemGPS",
+	"acc_pointer_IR",
+	"ItemRadio"
+	];
+
+if (hasRHS) then
 		{
-		["MineDetector","ItemGPS","acc_pointer_IR","ItemRadio"]
+		itemsAAF =
+			[
+			"MineDetector",
+			"ItemGPS",
+			"acc_pointer_IR",
+			"ItemRadio"
+			];
 		}
 	else
 		{

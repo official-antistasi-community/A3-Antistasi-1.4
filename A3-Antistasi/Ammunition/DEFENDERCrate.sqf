@@ -15,6 +15,7 @@ _var3 = 1 + floor random 4;
 _var4 = 1 + floor random 4;
 _var5 = 1 + floor random 4;
 _var6 = 1 + floor random 4;
+
 if (typeOf _crate == vehNATOAmmoTruck) then
 	{
 	_var1=_var1*2;
@@ -38,6 +39,7 @@ for "_i" from 0 to _var1 do
 		};
 		};
 	};
+
 for "_i" from 0 to _var2 do
 	{
 	_items = itemsAAF;
@@ -51,6 +53,7 @@ for "_i" from 0 to _var2 do
 		};
 		};
 	};
+
 for "_i" from 0 to _var3 do
 	{
 	_ammo = smokeX + chemX + ammoDEFENDER;
@@ -63,6 +66,7 @@ for "_i" from 0 to _var3 do
 		};
 		};
 	};
+
 for "_i" from 0 to _var4 do
 	{
 	_mines = minesAAF;
@@ -76,6 +80,7 @@ for "_i" from 0 to _var4 do
 		};
 		};
 	};
+
 if !(hasIFA) then
 	{
 	for "_i" from 0 to _var5 do

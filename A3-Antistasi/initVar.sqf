@@ -435,19 +435,6 @@ armoredVests = vests select {getNumber (configfile >> "CfgWeapons" >> _x >> "Ite
 //WHY is there no clean list?
 armoredHelmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
 
-
-//Begin Available Items
-
-////////////////////////////////////
-//   SMOKE GRENADES LIST         ///
-////////////////////////////////////
-smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
-
-////////////////////////////////////
-//   CHEMLIGHTS LIST             ///
-////////////////////////////////////
-chemX = ["Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue"];
-
 ////////////////////////////////////
 //      ACE ITEMS LIST           ///
 ////////////////////////////////////
@@ -513,9 +500,25 @@ if (hasACE) then
 		};
 	};
 
+//Begin Available Items
+
 ////////////////////////////////////
-//   REBEL LOOT ITEMS        ///
+//   SMOKE GRENADES LIST         ///
 ////////////////////////////////////
+//THIS LIST IS USED BY LOOT CRATES AND AI CURRENTLY
+smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
+
+////////////////////////////////////
+//   CHEMLIGHTS LIST             ///
+////////////////////////////////////
+//Chemlight loot for crates
+//this is an ugly list of vanilla chems I made myself - PBP
+chemX = ["Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue"];
+
+////////////////////////////////////
+//       REBEL LOOT ITEMS        ///
+////////////////////////////////////
+//These items occupy the general items slot of loot crates
 itemsAAF =
 	[
 	"Laserbatteries",
@@ -536,52 +539,85 @@ itemsAAF =
 	"ItemRadio"
 	];
 
-if (hasRHS) then
-		{
-		itemsAAF =
-			[
-			"MineDetector",
-			"ItemGPS",
-			"acc_pointer_IR",
-			"ItemRadio"
-			];
-		}
+if (hasRHS and !hasIFA) then
+	{
+	//RHS Loot Items
+	itemsAAF =
+		[
+		"MineDetector",
+		"ItemGPS",
+		"acc_pointer_IR",
+		"ItemRadio"
+		];
+	}
 	else
 		{
-		if (hasIFA) then {["LIB_ToolKit"]} else {[]};
-		}
-	};
+		if (hasIFA) then
+			{
+			//IFA Loot Items
+			itemsAAF =
+				[
+				"LIB_ToolKit"
+				];
+			};
+		};
 
 ////////////////////////////////////
-//   PLACED EXPLOSIVES LIST      ///
+//     PLACED EXPLOSIVES LOOT    ///
 ////////////////////////////////////
-minesAAF = if (!hasRHS and !hasIFA) then
+//This is the ONLY SOURCE of mines loot for crates
+minesAAF =
+	[
+	"SLAMDirectionalMine_Wire_Mag",
+	"SatchelCharge_Remote_Mag",
+	"ClaymoreDirectionalMine_Remote_Mag",
+	"ATMine_Range_Mag","APERSTripMine_Wire_Mag",
+	"APERSMine_Range_Mag",
+	"APERSBoundingMine_Range_Mag"
+	];
+
+if (hasRHS and !hasIFA) then
 	{
-	["SLAMDirectionalMine_Wire_Mag","SatchelCharge_Remote_Mag","ClaymoreDirectionalMine_Remote_Mag", "ATMine_Range_Mag","APERSTripMine_Wire_Mag","APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag"]
+	//RHS MINE LOOT
+	minesAAF =
+		["rhsusf_m112_mag",
+		"rhsusf_mine_m14_mag",
+		"rhs_mine_M19_mag",
+		"rhs_mine_tm62m_mag",
+		"rhs_mine_pmn2_mag"
+		];
 	}
-else
-	{
-	if (hasRHS) then
-		{
-		["rhsusf_m112_mag","rhsusf_mine_m14_mag","rhs_mine_M19_mag","rhs_mine_tm62m_mag","rhs_mine_pmn2_mag"]
-		}
 	else
 		{
-		if (hasIFA) then {["LIB_PMD6_MINE_mag","LIB_TM44_MINE_mag","LIB_US_TNT_4pound_mag"]} else {[]};
-		}
-	};
+		if (hasIFA) then
+			{
+			//IFA MINE LOOT
+			minesAAF =
+				["LIB_PMD6_MINE_mag",
+				"LIB_TM44_MINE_mag",
+				"LIB_US_TNT_4pound_mag"
+				];
+			};
+		};
 
 ////////////////////////////////////
 //   REBEL FACTION LAUNCHERS     ///
 ////////////////////////////////////
-diag_log format ["%1: [Antistasi]: initVar | Building Launcher list.",servertime];
-antitankAAF = if (!hasRHS and !hasIFA) then
+//These launcher will be IN ADDITION TO whatever launchers enemies carry
+antitankAAF =
+	[
+	"launch_I_Titan_F",
+	"launch_I_Titan_short_F"
+	];
+if (hasIFA) then
 	{
-	["launch_I_Titan_F","launch_I_Titan_short_F"]
-	}
-else
-	{//This might be an IFA missile, not the tube
-	if (hasIFA) then {["LIB_Shg24"]} else {[]};
+	antitankAAF =
+		["LIB_Shg24"];
+	};
+if (hasRHS) then
+	{
+	antitankAAF =
+		[];
 	};
 
 ////////////////////////////////////

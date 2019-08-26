@@ -216,8 +216,33 @@ if (!hasIFA) then
 	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
 	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
 	};
+//////////////////////////////////////
+//   BEGIN GROUPS CLASSIFICATION  ///
+/////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
+squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
+medics = REBELmedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
+//Define Sniper Groups and Units
+sniperGroups = [groupsNATOSniper,groupsCSATSniper];
+sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + REBELsniper + [FIAMarksman,NATOMarksman,CSATMarksman];
+if (hasRHS) then {sniperUnits = sniperUnits + ["rhsusf_socom_marsoc_sniper","rhs_vdv_marksman_asval"]};
 
-//BEGIN ITEM CLASSIFICATION
+////////////////////////////////////
+//   BEGIN VEH CLASSIFICATION   ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi]: initVar | Building Vehicle list.",servertime];
+arrayCivVeh = if !(hasIFA) then
+	{
+	["C_Hatchback_01_F","C_Hatchback_01_sport_F","C_Offroad_01_F","C_SUV_01_F","C_Van_01_box_F","C_Van_01_fuel_F","C_Van_01_transport_F","C_Truck_02_transport_F","C_Truck_02_covered_F","C_Offroad_02_unarmed_F"];
+	}
+else
+	{
+	["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
+	};
+
+////////////////////////////////////
+//   BEGIN ITEM CLASSIFICATION   ///
+////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Magazine Pool.",servertime];
 _cfgMagazines = configFile >> "cfgmagazines";
 for "_i" from 0 to ((count _cfgMagazines) -1) do
@@ -340,23 +365,7 @@ else
 		}
 	};
 
-diag_log format ["%1: [Antistasi]: initVar | Building Vehicle list.",servertime];
-arrayCivVeh = if !(hasIFA) then
-	{
-	["C_Hatchback_01_F","C_Hatchback_01_sport_F","C_Offroad_01_F","C_SUV_01_F","C_Van_01_box_F","C_Van_01_fuel_F","C_Van_01_transport_F","C_Truck_02_transport_F","C_Truck_02_covered_F","C_Offroad_02_unarmed_F"];
-	}
-else
-	{
-	["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
-	};
 
-diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
-squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
-medics = REBELmedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
-//Define Sniper Groups and Units
-sniperGroups = [groupsNATOSniper,groupsCSATSniper];
-sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + REBELsniper + [FIAMarksman,NATOMarksman,CSATMarksman];
-if (hasRHS) then {sniperUnits = sniperUnits + ["rhsusf_socom_marsoc_sniper","rhs_vdv_marksman_asval"]};
 
 //INVADER WEAPONS AND AMMO COMPILE (this method insures crate loot is only what the faction might have)
 //Grabbing base weapon of each unit in each INVADER squad to create weaponsINVADER array

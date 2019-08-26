@@ -60,7 +60,7 @@ armoredHelmets = [];
 vests = [];
 armoredVests = [];
 
-unlockedItems = [];
+itemsAAF = [];
 unlockedWeapons = [];
 unlockedRifles = [];
 unlockedMagazines = [];
@@ -458,8 +458,6 @@ if (hasACE) then
 		"ACE_Tripod",
 		"ACE_Chemlight_HiWhite",
 		"ACE_Chemlight_HiRed",
-		"ACE_Kestrel4500",
-		"ACE_ATragMX",
 		"ACE_acc_pointer_green",
 		"ACE_HandFlare_White",
 		"ACE_HandFlare_Red",
@@ -501,6 +499,105 @@ if (hasACE) then
 	};
 
 //Begin Available Items
+
+////////////////////////////////////
+//   INVADER WEAPONS AND AMMO    ///
+////////////////////////////////////
+//Creates the list of weapons and ammo for INVADER loot crates
+_checked = [];
+{
+{
+_typeX = _x;
+if !(_typeX in _checked) then
+	{
+	_checked pushBack _typeX;
+	_loadout = getUnitLoadout _typeX;
+	for "_i" from 0 to 2 do
+		{
+		if !(_loadout select _i isEqualTo []) then
+			{
+				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
+				if !(_weapon in weaponsINVADER) then {weaponsINVADER pushBack _weapon};
+			};
+		};
+	};
+} forEach _x;
+} forEach groupsCSATmid + [CSATSpecOp] + groupsCSATSquad;
+
+{
+_nameX = [_x] call BIS_fnc_baseWeapon;
+_magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
+ammoINVADER pushBack (_magazines select 0);
+} forEach weaponsINVADER;
+
+////////////////////////////////////
+//   DEFENDER WEAPONS AND AMMO   ///
+////////////////////////////////////
+//Creates the list of weapons and ammo for DEFENDER loot crates
+{
+{
+_typeX = _x;
+if !(_typeX in _checked) then
+	{
+	_checked pushBack _typeX;
+	_loadout = getUnitLoadout _typeX;
+	for "_i" from 0 to 2 do
+		{
+		if !(_loadout select _i isEqualTo []) then
+			{
+				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
+				if !(_weapon in weaponsDEFENDER) then {weaponsDEFENDER pushBack _weapon};
+			};
+		};
+	};
+} forEach _x;
+} forEach groupsNATOmid + [NATOSpecOp] + groupsNATOSquad;
+
+{
+_nameX = [_x] call BIS_fnc_baseWeapon;
+_magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
+ammoDEFENDER pushBack (_magazines select 0);
+} forEach weaponsDEFENDER;
+
+////////////////////////////////////
+//   WEAPON ATTACHMENTS LIST     ///
+////////////////////////////////////
+{
+{
+_item = _x;
+if !(_item in (opticsAAF + flashLights + pointers)) then
+	{
+	if (isCLass(configFile >> "CfgWeapons" >> _item >> "ItemInfo" >> "OpticsModes")) then
+		{
+		opticsAAF pushBack _item
+		}
+	else
+		{
+		if (isClass (configfile >> "CfgWeapons" >> _item >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then
+			{
+			flashLights pushBack _item;
+			}
+		else
+			{
+			if (isClass (configfile >> "CfgWeapons" >> _item >> "ItemInfo" >> "Pointer")) then
+				{
+				pointers pushBack _item;
+				};
+			};
+		};
+	};
+} forEach (_x call BIS_fnc_compatibleItems);
+} forEach (weaponsDEFENDER + weaponsINVADER);
+
+////////////////////////////////////
+//RHS WEAPON ATTACHMENTS REDUCER ///
+////////////////////////////////////
+if (hasRHS) then
+	{
+	opticsAAF = opticsAAF select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	flashlights = flashlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	pointers = pointers select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	};
 
 ////////////////////////////////////
 //   SMOKE GRENADES LIST         ///
@@ -603,7 +700,7 @@ if (hasRHS and !hasIFA) then
 ////////////////////////////////////
 //   REBEL FACTION LAUNCHERS     ///
 ////////////////////////////////////
-//These launcher will be IN ADDITION TO whatever launchers enemies carry
+//These launchers will be IN ADDITION TO whatever launchers enemies carry
 antitankAAF =
 	[
 	"launch_I_Titan_F",
@@ -621,159 +718,119 @@ if (hasRHS) then
 	};
 
 ////////////////////////////////////
-//   INVADER WEAPONS LIST        ///
+//      REBEL STARTING ITEMS     ///
 ////////////////////////////////////
-_checked = [];
-{
-{
-_typeX = _x;
-if !(_typeX in _checked) then
-	{
-	_checked pushBack _typeX;
-	_loadout = getUnitLoadout _typeX;
-	for "_i" from 0 to 2 do
-		{
-		if !(_loadout select _i isEqualTo []) then
-			{
-				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
-				if !(_weapon in weaponsINVADER) then {weaponsINVADER pushBack _weapon};
-			};
-		};
-	};
-} forEach _x;
-} forEach groupsCSATmid + [CSATSpecOp] + groupsCSATSquad;
-
-////////////////////////////////////
-//       INVADER AMMO LIST       ///
-////////////////////////////////////
-{
-_nameX = [_x] call BIS_fnc_baseWeapon;
-_magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
-ammoINVADER pushBack (_magazines select 0);
-} forEach weaponsINVADER;
-
-////////////////////////////////////
-//   DEFENDER WEAPONS LIST       ///
-////////////////////////////////////
-{
-{
-_typeX = _x;
-if !(_typeX in _checked) then
-	{
-	_checked pushBack _typeX;
-	_loadout = getUnitLoadout _typeX;
-	for "_i" from 0 to 2 do
-		{
-		if !(_loadout select _i isEqualTo []) then
-			{
-				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
-				if !(_weapon in weaponsDEFENDER) then {weaponsDEFENDER pushBack _weapon};
-			};
-		};
-	};
-} forEach _x;
-} forEach groupsNATOmid + [NATOSpecOp] + groupsNATOSquad;
-
-////////////////////////////////////
-//       DEFENDER AMMO LIST      ///
-////////////////////////////////////
-{
-_nameX = [_x] call BIS_fnc_baseWeapon;
-_magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
-ammoDEFENDER pushBack (_magazines select 0);
-} forEach weaponsDEFENDER;
-
-////////////////////////////////////
-//   WEAPON ATTACHMENTS LIST     ///
-////////////////////////////////////
-{
-{
-_item = _x;
-if !(_item in (opticsAAF + flashLights + pointers)) then
-	{
-	if (isCLass(configFile >> "CfgWeapons" >> _item >> "ItemInfo" >> "OpticsModes")) then
-		{
-		opticsAAF pushBack _item
-		}
-	else
-		{
-		if (isClass (configfile >> "CfgWeapons" >> _item >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then
-			{
-			flashLights pushBack _item;
-			}
-		else
-			{
-			if (isClass (configfile >> "CfgWeapons" >> _item >> "ItemInfo" >> "Pointer")) then
-				{
-				pointers pushBack _item;
-				};
-			};
-		};
-	};
-} forEach (_x call BIS_fnc_compatibleItems);
-} forEach (weaponsDEFENDER + weaponsINVADER);
-
-////////////////////////////////////
-//RHS WEAPON ATTACHMENTS REDUCER ///
-////////////////////////////////////
-if (hasRHS) then
-	{
-	opticsAAF = opticsAAF select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	flashlights = flashlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	pointers = pointers select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	};
-
-////////////////////////////////////
-//    IFA REBEL ITEMS REDUCER    ///
-////////////////////////////////////
-if !(hasIFA) then
-	{
-	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"];
+//These items will be unlocked when the mission starts
+unlockedItems =
+	[
+	"ItemMap",
+	"ItemWatch",
+	"ItemCompass",
+	"FirstAidKit",
+	"Medikit",
+	"ToolKit",
+	"H_Booniehat_khk",
+	"H_Booniehat_oli",
+	"H_Booniehat_grn",
+	"H_Booniehat_dirty",
+	"H_Cap_oli",
+	"H_Cap_blk",
+	"H_MilCap_rucamo",
+	"H_MilCap_gry",
+	"H_BandMask_blk",
+	"H_Bandanna_khk",
+	"H_Bandanna_gry",
+	"H_Bandanna_camo",
+	"H_Shemag_khk",
+	"H_Shemag_tan",
+	"H_Shemag_olive",
+	"H_ShemagOpen_tan",
+	"H_Beret_grn",
+	"H_Beret_grn_SF",
+	"H_Watchcap_camo",
+	"H_TurbanO_blk",
+	"H_Hat_camo",
+	"H_Hat_tan",
+	"H_Beret_blk",
+	"H_Beret_red",
+	"H_Watchcap_khk",
+	"G_Balaclava_blk",
+	"G_Balaclava_combat",
+	"G_Balaclava_lowprofile",
+	"G_Balaclava_oli",
+	"G_Bandanna_beast",
+	"G_Tactical_Black",
+	"G_Aviator",
+	"G_Shades_Black",
+	"acc_flashlight"
+	];
+	
 	unlockedItems append REBELuniformsPM;
 	unlockedItems append civUniforms;
 	unlockeditems append unlockedVEST;
-	}
-else
+
+//IFA Starting Unlocks
+if (hasIFA) then
 	{
-	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"];
+	unlockedItems =
+		[
+		"ItemMap",
+		"ItemWatch",
+		"ItemCompass",
+		"FirstAidKit",
+		"Medikit",
+		"ToolKit",
+		//do we need both tookits?
+		"LIB_ToolKit",
+		"H_LIB_CIV_Villager_Cap_1",
+		"H_LIB_CIV_Worker_Cap_2",
+		"G_LIB_Scarf2_B",
+		"G_LIB_Mohawk"
+		];
+
 	unlockedItems append REBELuniformsPM;
 	unlockedItems append civUniforms;
 	};
+
+//RHS STARTING UNLOCKS ???
 
 ////////////////////////////////////
 //   ACE ITEMS MODIFICATIONS     ///
 ////////////////////////////////////
-if (hasACE) then {
-	unlockedItems = unlockedItems + aceItems;
-	if !(hasIFA) then
-		{
-		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
-		unlockedWeapons pushBackUnique "ACE_VMH3";
-		itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
-		};
-};
+if (hasACE) then
+	{
+	//additional starting items
+	unlockedItems append aceItems;
+	//Fix for bad ammo types in loot crates
+	ammoDEFENDER = ammoDEFENDER - ["ACE_PreloadedMissileDummy"];
+	ammoINVADER = ammoINVADER - ["ACE_PreloadedMissileDummy"];
+	};
 
+//ACE medical starting items
 if (hasACEMedical) then {
 	switch (ace_medical_level) do {
 		case 1: {
-			unlockedItems = unlockedItems + aceBasicMedItems;
+			unlockedItems append aceBasicMedItems;
 		};
 		case 2: {
 			unlockedItems = unlockedItems + aceBasicMedItems + aceAdvMedItems;
 		};
 	};
-} else {
-	unlockedItems = unlockedItems + ["FirstAidKit","Medikit"];
 };
 
-if !(hasIFA) then
+if (hasACE and !hasIFA) then
 	{
-	weaponsDEFENDER pushBack "ACE_VMH3";
-	itemsAAF = itemsAAF + ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield"];
+	// add ace mine detectors to crates
+	weaponsDEFENDER pushBack ["ACE_VMH3","ACE_VMM3"];
+	weaponsINVADER pushBack ["ACE_VMH3","ACE_VMM3"];
+	itemsAAF append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield"];
+	//remove vanilla mine detector
 	itemsAAF = itemsAAF - ["MineDetector"];
-	chemX = chemX + ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
-	smokeX = smokeX + ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow","ACE_M84"];
-	ammoDEFENDER = ammoDEFENDER - ["ACE_PreloadedMissileDummy"];
+	weaponsINVADER = weaponsINVADER - ["MineDetector"];
+	weaponsDEFENDER = weaponsDEFENDER - ["MineDetector"];
+	//add ACE chem and smoke
+	chemX append ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
+	smokeX append ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
 	};
 
 ////////////////////////////////////
@@ -782,30 +839,29 @@ if !(hasIFA) then
 if (hasIFA) then
 	{
 	smokeX = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
-	helmets = [];					//Clears all Helmets from the mission
-	NVGoggles = [];				//Clears NVG's from the mission
+	chemX = [];					//Clears all chems
+	helmets = [];					//Clears all Helmets
+	NVGoggles = [];				//Clears NVG's
 	};
 
 ////////////////////////////////////
 // ACE + IFA ITEMS MODIFICATIONS ///
 ////////////////////////////////////
-if (hasIFA and hasACE) then {itemsAAF append ["ACE_LIB_LadungPM","ACE_SpareBarrel"]};
-if !(hasIFA) then
+//IF you have ACE but NOT IFA
+if (hasACE and !hasIFA) then
 	{
-	if (hasACE) then
-		{
-		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
-		unlockedWeapons pushBackUnique "ACE_VMH3";
-		itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
-		};
+	//additonal unlocks
+	unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
+	unlockedWeapons pushBackUnique "ACE_VMH3";
+	itemsAAF append ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
 	};
 
-//ACE Items
-//unlockedItems = unlockedItems + aceItems;
-//ACE Medical items
-//unlockedItems = unlockedItems + aceBasicMedItems;
-//ACE ADV Medical Items
-//unlockedItems = unlockedItems + aceBasicMedItems + aceAdvMedItems;
+//IF you have both ACE AND IFA
+if (hasACE and hasIFA) then
+	{
+	itemsAAF append ["ACE_LIB_LadungPM","ACE_SpareBarrel"];
+	};
+
 //ACRE Items
 //unlockedItems = unlockedItems + ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
 

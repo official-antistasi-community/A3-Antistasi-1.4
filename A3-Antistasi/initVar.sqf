@@ -694,7 +694,7 @@ if (worldName == "Tanoa") then {
 		];
 	} else {
 
-		[
+		arrayCivs = [
 			"C_man_1",
 			"C_man_1_1_F",
 			"C_man_1_2_F",

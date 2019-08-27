@@ -71,14 +71,13 @@ if (_unit == theBoss) then
 	};
 
 //Need to check the group's side, as player may be a civ. Unknown is in case they've been moved out of their group.
-if (side group _playerUnit == teamPlayer || side group _playerUnit == sideUnknown) then
+if (side group _unit == teamPlayer || side group _unit == sideUnknown) then
 	{
 	if ((_hr > 0) or (_resourcesX > 0)) then {[_hr,_resourcesX] spawn A3A_fnc_resourcesFIA};
 	if (membershipEnabled and pvpEnabled) then
 		{
 		if (_uid in membersX) then {playerHasBeenPvP pushBack [getPlayerUID _unit,time]};
 		};
-	//if ([_unit] call A3A_fnc_isMember) then {playerHasBeenPvP pushBack [getPlayerUID _unit,time]};
 	};
 	
 [_uid, _unit] call A3A_fnc_savePlayer;

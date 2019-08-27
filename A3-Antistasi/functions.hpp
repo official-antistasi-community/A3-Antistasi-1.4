@@ -51,6 +51,7 @@ class A3A
         class outpostDialog {file="outpostDialog.sqf";};
         class radioCheck {file="radioCheck.sqf";};
         class rebuildAssets {file="rebuildAssets.sqf";};
+        class repairRuinedBuilding {file="repairRuinedBuilding.sqf";};
         class relocateHQObjects {file="relocateHQObjects.sqf";};
         class resourceCheckSkipTime {file="resourcecheckSkipTime.sqf";};
         class resourcesFIA {file="resourcesFIA.sqf";};
@@ -276,6 +277,12 @@ class A3A
         class respawn {file="Revive\respawn.sqf";};
 	}
 	
+	class Runways 
+	{
+		class getRunwayTakeoffForAirportMarker {file="getRunwayTakeoffForAirportMarker.sqf";};	
+		class runwayInfo {file="runwayInfo.sqf";};
+	}
+	
 	class Save
 	{
         class playerHasSave {file="statSave\playerHasSave.sqf";};
@@ -284,8 +291,14 @@ class A3A
         class loadPreviousSession {file="statSave\loadPreviousSession.sqf";};
 	}
 	
+	class Templates
+	{
+        class getLoadout {file="Templates\Loadouts\getLoadout.sqf";};
+	}
+	
 	class Utility
 	{
+        class basicBackpack {file="Ammunition\basicBackpack.sqf";};
         class dateToTimeString {file="dateToTimeString.sqf";};
 	}
 }

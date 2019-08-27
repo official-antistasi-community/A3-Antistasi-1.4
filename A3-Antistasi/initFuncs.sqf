@@ -17,6 +17,7 @@ DES_Antenna = compile preprocessFileLineNumbers "Missions\DES_Antenna.sqf";
 CON_Outpost = compile preprocessFileLineNumbers "Missions\CON_Outpost.sqf";
 AS_Official = compile preprocessFileLineNumbers "Missions\AS_Official.sqf";
 AS_Traitor = compile preprocessFileLineNumbers "Missions\AS_Traitor.sqf";
+REP_Antenna = compile preprocessFileLineNumbers "Missions\REP_Antenna.sqf";
 
 call compile preprocessFileLineNumbers "statSave\saveFuncs.sqf";
 call jn_fnc_logistics_init;

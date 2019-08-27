@@ -239,7 +239,7 @@ if (_Sweapon != "") then
 			{
 			if ((backpack _unit == "") and (backPack _target != "")) then
 				{
-				_unit addBackPackGlobal ((backpack _target) call BIS_fnc_basicBackpack);
+				_unit addBackPackGlobal ((backpack _target) call A3A_fnc_basicBackpack);
 				_unit action ["rearm",_target];
 				sleep 3;
 				{_unit addItemToBackpack _x} forEach (backpackItems _target);
@@ -472,7 +472,7 @@ if (backpack _unit == "") then
 		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
 		if (_unit distance _target < 3) then
 			{
-			_unit addBackPackGlobal ((backpack _target) call BIS_fnc_basicBackpack);
+			_unit addBackPackGlobal ((backpack _target) call A3A_fnc_basicBackpack);
 			_unit action ["rearm",_target];
 			//{_unit addItemCargoGlobal [_x,1]} forEach ((backpackItems _target) + (backpackMagazines _target));
 			_things = nearestObjects [_target, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];

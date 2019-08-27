@@ -1,7 +1,9 @@
+
+A3DD/
+.vscode/
+.github/
+Arma 3 Dev Deploy.exe
 *.log
 *.pbo
 *.pbo.bak
 *.bat
-template.*.cfg
-.vscode
-.github

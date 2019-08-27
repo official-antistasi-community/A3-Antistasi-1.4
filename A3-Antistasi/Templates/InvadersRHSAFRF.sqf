@@ -14,17 +14,17 @@ staticAAInvaders = "RHS_ZU23_MSV";
 //CSAT PvP Loadouts
 CSATPlayerLoadouts = [
 	//Team Leader
-	"rhs_vmf_recon_sergeant",
+	["rhs_afrf_teamLeader"] call A3A_fnc_getLoadout,
 	//Medic
-	"rhs_vmf_recon_medic",
+	["rhs_afrf_medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"rhs_vmf_recon_arifleman",
+	["rhs_afrf_machineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	"rhs_vmf_recon_marksman",
+	["rhs_afrf_marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"rhs_vmf_recon_rifleman_lat",
+	["rhs_afrf_AT"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"rhs_vmf_recon_rifleman_lat"
+	["rhs_afrf_AT2"] call A3A_fnc_getLoadout
 ];
 
 vehCSATPVP = ["rhs_tigr_vdv","rhs_uaz_vdv","rhsgref_ins_g_uaz_dshkm_chdkz"];//This array contains the vehicles CSAT-PvP players can spawn near their flag.
@@ -43,10 +43,11 @@ vehCSATRBoat = "O_T_Boat_Transport_01_F";
 vehCSATBoats = [vehCSATBoat,vehCSATRBoat,"rhs_btr80a_vdv"];
 vehCSATPlane = "RHS_Su25SM_CAS_vvs";
 vehCSATPlaneAA = "RHS_mig29s_vvs";
+vehCSATTransportPlanes = [];
 vehCSATPatrolHeli = "rhs_ka60_c";
 vehCSATTransportHelis = ["RHS_Mi8AMT_vvsc","RHS_Mi8mt_vvsc","RHS_Mi8MTV3_vvsc",vehCSATPatrolHeli];
 vehCSATAttackHelis = ["RHS_Mi24P_vvsc","RHS_Mi8AMTSh_vvsc","RHS_Ka52_vvs","rhs_mi28n_vvs"];
-vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA];
+vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 vehCSATUAV = "rhs_pchela1t_vvsc";
 vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "rhs_2s3_tv";

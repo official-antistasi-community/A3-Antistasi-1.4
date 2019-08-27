@@ -18,17 +18,17 @@ NATOPilot = "B_T_Pilot_F";
 //NATO PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"B_recon_TL_F",
+	["vanilla_blufor_teamLeader"] call A3A_fnc_getLoadout,
 	//Medic
-	"B_recon_medic_F",
+	["vanilla_blufor_medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"B_Patrol_Soldier_MG_F",
+	["vanilla_blufor_machineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	"B_recon_M_F",
+	["vanilla_blufor_marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"B_recon_LAT_F",
+	["vanilla_blufor_AT"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"B_recon_LAT_F"
+	["vanilla_blufor_rifleman"] call A3A_fnc_getLoadout
 ];
 
 vehNATOPVP = ["B_T_MRAP_01_F","B_T_LSV_01_unarmed_F","B_T_LSV_01_armed_F"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
@@ -49,10 +49,11 @@ vehNATORBoat = "B_T_Boat_Transport_01_F";
 vehNATOBoats = [vehNATOBoat,vehNATORBoat,"B_T_APC_Wheeled_01_cannon_F"];
 vehNATOPlane = "B_Plane_CAS_01_F";
 vehNATOPlaneAA = "B_Plane_Fighter_01_F";
+vehNATOTransportPlanes = ["B_T_VTOL_01_infantry_F"];
 vehNATOPatrolHeli = "B_Heli_Light_01_F";
-vehNATOTransportHelis = ["B_T_VTOL_01_infantry_F","B_Heli_Transport_03_F",vehNATOPatrolHeli,"B_Heli_Transport_01_camo_F"];
+vehNATOTransportHelis = ["B_Heli_Transport_03_F",vehNATOPatrolHeli,"B_Heli_Transport_01_camo_F"];
 vehNATOAttackHelis = ["B_T_VTOL_01_armed_F","B_Heli_Light_01_armed_F","B_Heli_Attack_01_F"];
-vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA];
+vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
 vehNATOUAV = "B_UAV_02_F";
 vehNATOUAVSmall = "B_UAV_01_F";
 vehNATOMRLS = "B_T_MBT_01_arty_F";

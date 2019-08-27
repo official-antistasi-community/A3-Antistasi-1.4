@@ -42,7 +42,7 @@ if (count weaponsItemsCargo _truckX > 0) then
 if (count backpackCargo _boxX > 0) then
 	{
 	{
-	_backpcks pushBack (_x call BIS_fnc_basicBackpack);
+	_backpcks pushBack (_x call A3A_fnc_basicBackpack);
 	} forEach backpackCargo _boxX;
 	};
 _containers = everyContainer _boxX;

@@ -22,14 +22,16 @@ private _staticComponents = getArray (configFile >> "CfgVehicles" >> _staticClas
 
 deleteVehicle _staticX;
  
+//We need to create the ground weapon holder first, otherwise it won't spawn exactly where we tell it to.
+private _groundWeaponHolder = createVehicle ["GroundWeaponHolder", (getPosATL _playerX), [], 0, "CAN_COLLIDE"];
+ 
 for "_i" from 0 to ((count _staticComponents) - 1) do 
 	{
-		//We need to create the ground weapon holder first, otherwise it won't spawn exactly where we tell it to.
-		private _groundWeaponHolder = createVehicle ["GroundWeaponHolder", (getPosATL _playerX), [], 0, "CAN_COLLIDE"];
 		_groundWeaponHolder addBackpackCargoGlobal [(_staticComponents select _i), 1];
-		[_groundWeaponHolder] call A3A_fnc_AIVEHinit;
 	};
- 
+
+[_groundWeaponHolder] call A3A_fnc_AIVEHinit;
+
 /* [_bag1] call A3A_fnc_AIVEHinit;
 [_bag2] call A3A_fnc_AIVEHinit; */
 

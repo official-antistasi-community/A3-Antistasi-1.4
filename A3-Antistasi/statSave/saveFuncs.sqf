@@ -200,8 +200,7 @@ fn_SetStat =
 			destroyedBuildings= +_varValue;
 			//publicVariable "destroyedBuildings";
 			{
-			//(nearestBuilding _x) setDamage [1,false];
-			[nearestBuilding _x,[1,false]] remoteExec ["setDamage"];
+				(nearestObject [_x, "House"]) setDamage [1,false];
 			} forEach destroyedBuildings;
 			};
 		if(_varName == 'minesX') then
@@ -327,6 +326,7 @@ fn_SetStat =
 				};
 			} forEach controlsX;
 			respawnTeamPlayer setMarkerPos _posHQ;
+			posHQ = getMarkerPos respawnTeamPlayer;
 			petros setPos _posHQ;
 			"Synd_HQ" setMarkerPos _posHQ;
 			if (chopForest) then

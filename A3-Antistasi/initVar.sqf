@@ -60,6 +60,8 @@ armoredHelmets = [];
 vests = [];
 armoredVests = [];
 
+REBELuniforms = [];
+REBELuniformsPM = [];
 itemsAAF = [];
 unlockedWeapons = [];
 unlockedRifles = [];
@@ -234,22 +236,20 @@ if (!hasIFA) then
 ////////////////////////////////////
 arrayCivs = if (worldName == "Tanoa") then
 	{
-	["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_hunter_1_F","C_man_p_beggar_F","C_man_p_beggar_F_afro","C_man_p_fugitive_F","C_man_p_shorts_1_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_shorts_1_F","C_man_shorts_2_F","C_man_shorts_3_F","C_man_shorts_4_F","C_scientist_F","C_Orestes","C_Nikos","C_Nikos_aged","C_Man_casual_1_F_tanoan","C_Man_casual_2_F_tanoan","C_Man_casual_3_F_tanoan","C_man_sport_1_F_tanoan","C_man_sport_2_F_tanoan","C_man_sport_3_F_tanoan","C_Man_casual_4_F_tanoan","C_Man_casual_5_F_tanoan","C_Man_casual_6_F_tanoan"]
+	["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_hunter_1_F","C_man_p_beggar_F","C_man_p_beggar_F_afro","C_man_p_fugitive_F","C_man_p_shorts_1_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_shorts_1_F","C_man_shorts_2_F","C_man_shorts_3_F","C_man_shorts_4_F","C_scientist_F","C_Orestes","C_Nikos","C_Nikos_aged","C_Man_casual_1_F_tanoan","C_Man_casual_2_F_tanoan","C_Man_casual_3_F_tanoan","C_man_sport_1_F_tanoan","C_man_sport_2_F_tanoan","C_man_sport_3_F_tanoan","C_Man_casual_4_F_tanoan","C_Man_casual_5_F_tanoan","C_Man_casual_6_F_tanoan"];
 	}
 else
 	{
 	if !(hasIFA) then
 		{
 		["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_hunter_1_F","C_man_p_beggar_F","C_man_p_beggar_F_afro","C_man_p_fugitive_F","C_man_p_shorts_1_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_shorts_1_F","C_man_shorts_2_F","C_man_shorts_3_F","C_man_shorts_4_F","C_scientist_F","C_Orestes","C_Nikos","C_Nikos_aged"];
+		if (has3CB) then {arrayCivs append ["UK3CB_CHC_C_BODYG","UK3CB_CHC_C_CAN","UK3CB_CHC_C_COACH","UK3CB_CHC_C_DOC","UK3CB_CHC_C_FUNC","UK3CB_CHC_C_HIKER","UK3CB_CHC_C_LABOUR","UK3CB_CHC_C_PILOT","UK3CB_CHC_C_POLITIC","UK3CB_CHC_C_PROF","UK3CB_CHC_C_VILL","UK3CB_CHC_C_WORKER"]};
 		}
 	else
 		{
 		["LIB_CIV_Assistant","LIB_CIV_Assistant_2","LIB_CIV_Citizen_1","LIB_CIV_Citizen_2","LIB_CIV_Citizen_3","LIB_CIV_Citizen_4","LIB_CIV_Citizen_5","LIB_CIV_Citizen_6","LIB_CIV_Citizen_7","LIB_CIV_Citizen_8","LIB_CIV_Doctor","LIB_CIV_Functionary_3","LIB_CIV_Functionary_2","LIB_CIV_Functionary_4","LIB_CIV_Villager_4","LIB_CIV_Villager_1","LIB_CIV_Villager_2","LIB_CIV_Villager_3","LIB_CIV_Woodlander_1","LIB_CIV_Woodlander_3","LIB_CIV_Woodlander_2","LIB_CIV_Woodlander_4","LIB_CIV_SchoolTeacher","LIB_CIV_SchoolTeacher_2","LIB_CIV_Rocker","LIB_CIV_Worker_3","LIB_CIV_Worker_1","LIB_CIV_Worker_4","LIB_CIV_Worker_2"]
 		};
 	};
-
-//3CB Civ addition
-if (has3CB) then {arrayCivs append ["UK3CB_CHC_C_BODYG","UK3CB_CHC_C_CAN","UK3CB_CHC_C_COACH","UK3CB_CHC_C_DOC","UK3CB_CHC_C_FUNC","UK3CB_CHC_C_HIKER","UK3CB_CHC_C_LABOUR","UK3CB_CHC_C_PILOT","UK3CB_CHC_C_POLITIC","UK3CB_CHC_C_PROF","UK3CB_CHC_C_VILL","UK3CB_CHC_C_WORKER"]};
 
 ////////////////////////////////////
 //      CIVILLIAN VEHICLES       ///
@@ -290,12 +290,12 @@ if (hasRHS) then {sniperUnits = sniperUnits + ["rhsusf_socom_marsoc_sniper","rhs
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning vehicle Types",servertime];
-vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,REBELvehTRANSPORT,REBELvehARMEDlite,REBELvehQUAD,REBELvehREPAIR];
+vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,REBELvehTRANSPORT,REBELvehARMEDlite,REBELvehQUAD,rebelVehRepair];
 vehBoats = [vehNATOBoat,vehCSATBoat,REBELvehBOAT];
 vehAttack = vehNATOAttack + vehCSATAttack;
-vehPlanes = vehNATOAir + vehCSATAir + [REBELvehPLANE];
+vehPlanes = vehNATOAir + vehCSATAir + [rebelVehPlane];
 vehAttackHelis = vehCSATAttackHelis + vehNATOAttackHelis;
-vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,REBELvehPLANE] + vehNATOTransportPlanes + vehCSATTransportPlanes;
+vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,rebelVehPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
 vehUAVs = [vehNATOUAV,vehCSATUAV];
 vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
 vehAPCs = vehNATOAPC + vehCSATAPC;
@@ -328,7 +328,21 @@ injuredSounds =
 ];
 medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic0","AinvPknlMstpSnonWnonDnon_medic1","AinvPknlMstpSnonWnonDnon_medic2"];
 
-//Items
+////////////////////////////////////
+//     REBEL UNIFORMS LIST       ///
+////////////////////////////////////
+{
+_unit = _x select 0;
+_uniform = (getUnitLoadout _unit select 3) select 0;
+REBELuniforms pushBackUnique _uniform;
+REBELuniformsPM pushBackUnique _uniform;
+if (count _x > 1) then
+	{
+	_unit = _x select 1;
+	_uniform = (getUnitLoadout _unit select 3) select 0;
+	REBELuniformsPM pushBackUnique _uniform;
+	};
+} forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,rebelExpSpec,rebelGrenadier,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
 
 ////////////////////////////////////
 //      CIV UNIFORMS LIST        ///
@@ -339,7 +353,7 @@ civUniforms pushBackUnique _uniform;
 } forEach arrayCivs;
 
 ////////////////////////////////////
-//   ALL MAGAZINES LIT           ///
+//      ALL MAGAZINES LIST       ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Magazine Pool.",servertime];
 _cfgMagazines = configFile >> "cfgmagazines";
@@ -419,7 +433,6 @@ if (not(_nameX in _alreadyChecked)) then
 		case "AccessoryBipod": {attachmentBipod pushBack _nameX};
 		case "NVGoggles": {NVGoggles pushBack _nameX};
 		};
-
 	};
 } forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems;
 
@@ -498,7 +511,36 @@ if (hasACE) then
 		};
 	};
 
-//Begin Available Items
+//Begin Loot Lists
+
+////////////////////////////////////
+//   DEFENDER WEAPONS AND AMMO   ///
+////////////////////////////////////
+//Creates the list of weapons and ammo for DEFENDER loot crates
+{
+{
+_typeX = _x;
+if !(_typeX in _checked) then
+	{
+	_checked pushBack _typeX;
+	_loadout = getUnitLoadout _typeX;
+	for "_i" from 0 to 2 do
+		{
+		if !(_loadout select _i isEqualTo []) then
+			{
+				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
+				if !(_weapon in weaponsDEFENDER) then {weaponsDEFENDER pushBack _weapon};
+			};
+		};
+	};
+} forEach _x;
+} forEach groupsNATOmid + [NATOSpecOp] + groupsNATOSquad;
+
+{
+_nameX = [_x] call BIS_fnc_baseWeapon;
+_magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
+ammoDEFENDER pushBack (_magazines select 0);
+} forEach weaponsDEFENDER;
 
 ////////////////////////////////////
 //   INVADER WEAPONS AND AMMO    ///
@@ -531,35 +573,6 @@ ammoINVADER pushBack (_magazines select 0);
 } forEach weaponsINVADER;
 
 ////////////////////////////////////
-//   DEFENDER WEAPONS AND AMMO   ///
-////////////////////////////////////
-//Creates the list of weapons and ammo for DEFENDER loot crates
-{
-{
-_typeX = _x;
-if !(_typeX in _checked) then
-	{
-	_checked pushBack _typeX;
-	_loadout = getUnitLoadout _typeX;
-	for "_i" from 0 to 2 do
-		{
-		if !(_loadout select _i isEqualTo []) then
-			{
-				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
-				if !(_weapon in weaponsDEFENDER) then {weaponsDEFENDER pushBack _weapon};
-			};
-		};
-	};
-} forEach _x;
-} forEach groupsNATOmid + [NATOSpecOp] + groupsNATOSquad;
-
-{
-_nameX = [_x] call BIS_fnc_baseWeapon;
-_magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
-ammoDEFENDER pushBack (_magazines select 0);
-} forEach weaponsDEFENDER;
-
-////////////////////////////////////
 //   WEAPON ATTACHMENTS LIST     ///
 ////////////////////////////////////
 {
@@ -588,16 +601,6 @@ if !(_item in (opticsAAF + flashLights + pointers)) then
 	};
 } forEach (_x call BIS_fnc_compatibleItems);
 } forEach (weaponsDEFENDER + weaponsINVADER);
-
-////////////////////////////////////
-//RHS WEAPON ATTACHMENTS REDUCER ///
-////////////////////////////////////
-if (hasRHS) then
-	{
-	opticsAAF = opticsAAF select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	flashlights = flashlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	pointers = pointers select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	};
 
 ////////////////////////////////////
 //   SMOKE GRENADES LIST         ///
@@ -792,7 +795,15 @@ if (hasIFA) then
 	unlockedItems append civUniforms;
 	};
 
-//RHS STARTING UNLOCKS ???
+////////////////////////////////////
+//RHS WEAPON ATTACHMENTS REDUCER ///
+////////////////////////////////////
+if (hasRHS) then
+	{
+	opticsAAF = opticsAAF select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	flashlights = flashlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	pointers = pointers select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	};
 
 ////////////////////////////////////
 //   ACE ITEMS MODIFICATIONS     ///
@@ -817,7 +828,7 @@ if (hasACEMedical) then {
 		};
 	};
 };
-
+//ACE items when IFA isnt detected
 if (hasACE and !hasIFA) then
 	{
 	// add ace mine detectors to crates
@@ -862,8 +873,16 @@ if (hasACE and hasIFA) then
 	itemsAAF append ["ACE_LIB_LadungPM","ACE_SpareBarrel"];
 	};
 
-//ACRE Items
-//unlockedItems = unlockedItems + ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
+////////////////////////////////////
+//     ACRE ITEM MODIFICATIONS   ///
+////////////////////////////////////
+unlockedItems append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
+
+////////////////////////////////////
+//     TFAR ITEM MODIFICATIONS   ///
+////////////////////////////////////
+if (hasTFAR) then {unlockedItems append ["tf_microdagr","tf_rf7800str"];};
+if (startLR) then {unlockedBackpacks pushBack "tf_anprc155"};
 
 ////////////////////////////////////
 //     MISSION PATH WARNING      ///
@@ -984,8 +1003,8 @@ server setVariable [REBELvehQUAD,50,true];												//50
 server setVariable [REBELvehUNARMEDlite,200,true];										//200
 server setVariable [REBELvehTRANSPORT,300,true];											//300
 {server setVariable [_x,700,true]} forEach [REBELvehARMEDlite,REBELvehAT];
-{server setVariable [_x,400,true]} forEach [REBELstaticMG,REBELvehBOAT,REBELvehREPAIR];			//400
-{server setVariable [_x,800,true]} forEach [REBELmortar,REBELstaticAT,REBELstaticAA];			//800
+{server setVariable [_x,400,true]} forEach [rebelStaticMG,REBELvehBOAT,rebelVehRepair];			//400
+{server setVariable [_x,800,true]} forEach [rebelMortar,rebelStaticAT,rebelStaticAA];			//800
 
 ////////////////////////////////////
 //        SERVER VARIABLES       ///

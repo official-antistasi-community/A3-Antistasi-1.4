@@ -164,20 +164,24 @@ else
 	};
 
 //TFAR config
+startLR = false;
 if (hasTFAR) then
 {
 	startLR = true;//set to true to start with LR radios unlocked.
 	//unlockedItems = unlockedItems;
-	["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
-	if (hasIFA) then {
-	  ["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;//Set to false to stop TFAR equipping players with personal (5km) SR radio
-	  ["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;//Set to false to stop TFAR equipping players with MicroDAGR Radio Programmers.
+
+	if (isServer) then {
+		["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
+		if (hasIFA) then {
+		  ["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
+		  ["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
+		};
+		//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";//to make enemy vehicles usable as LR radio
+		//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code"; //to make enemy vehicles usable as LR radio
+		//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";//to make enemy vehicles usable as LR radio
+		["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize SR default frequencies
+		["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize LR default frequencies
 	};
-	//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";//to make enemy vehicles usable as LR radio
-	//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code"; //to make enemy vehicles usable as LR radio
-	//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";//to make enemy vehicles usable as LR radio
-	["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize SR default frequencies
-	["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize LR default frequencies
 };
 
 //ACRE config

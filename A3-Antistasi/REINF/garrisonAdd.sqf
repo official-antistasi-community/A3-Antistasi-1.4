@@ -13,7 +13,7 @@ _UNITcost = 0;
 if (_UNITtype isEqualType "") then
 	{
 	_UNITcost = server getVariable _UNITtype;
-	_UNITcost = _UNITcost + ([REBELmortar] call A3A_fnc_vehiclePrice);
+	_UNITcost = _UNITcost + ([SDKMortar] call A3A_fnc_vehiclePrice);
 	}
 else
 	{
@@ -25,7 +25,7 @@ if (_UNITcost > _REBELmoney) exitWith {hint format ["You do not have enough mone
 
 _garrison = REBELgarrisonREINF;
 
-if ((_UNITtype == REBELstaticCREW) and (_garrison in outpostsFIA)) exitWith {hint "You cannot add mortars to a Roadblock garrison"};
+if ((_UNITtype == staticCrewTeamPlayer) and (_garrison in outpostsFIA)) exitWith {hint "You cannot add mortars to a Roadblock garrison"};
 
 _posGARR = getMarkerPos _garrison;
 

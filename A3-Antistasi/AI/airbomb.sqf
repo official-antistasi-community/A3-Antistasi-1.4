@@ -12,7 +12,7 @@ if (_typeX != "HE") then
 	if (_this select 1 == "NAPALM") then {_countX = 24} else {_countX = 48; _carpet = true};
 	_cluster = true;
 	};
-if (typeOf _plane == REBELvehPLANE) then {_countX = round (_countX / 2)};
+if (typeOf _plane == vehSDKPlane) then {_countX = round (_countX / 2)};
 sleep random 5;
 _sleep = if (!_cluster) then {0.6} else {if (!_carpet) then {0.1} else {0.05}};
 

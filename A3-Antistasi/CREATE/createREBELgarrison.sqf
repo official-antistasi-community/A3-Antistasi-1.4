@@ -19,11 +19,11 @@ if (_markerX != "Synd_HQ") then
 	{
 	if (!(_markerX in citiesX)) then
 		{
-		_veh = createVehicle [REBELflag, _positionX, [],0, "CAN_COLLIDE"];
-		if (hasIFA) then {_veh setFlagTexture REBELflagTEX};
+		_veh = createVehicle [SDKFlag, _positionX, [],0, "CAN_COLLIDE"];
+		if (hasIFA) then {_veh setFlagTexture SDKFlagTexture};
 		_veh allowDamage false;
 		_vehiclesX pushBack _veh;
-		[_veh,"REBELflag"] remoteExec ["A3A_fnc_flagaction",0,_veh];
+		[_veh,"SDKFlag"] remoteExec ["A3A_fnc_flagaction",0,_veh];
 		//[_veh,"unit"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
 		//[_veh,"vehicle"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
 		//[_veh,"garage"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
@@ -76,9 +76,9 @@ _groupX = createGroup teamPlayer;
 _groupEst = createGroup teamPlayer;
 _groupMortar = createGroup teamPlayer;
 {
-_index = _garrison findIf {_x in REBELliteAT};
+_index = _garrison findIf {_x in SDKMil};
 if (_index == -1) exitWith {};
-if (typeOf _x == REBELmortar) then
+if (typeOf _x == SDKMortar) then
 	{
 	_unit = _groupMortar createUnit [(_garrison select _index), _positionX, [], 0, "NONE"];
 	_unit moveInGunner _x;
@@ -94,20 +94,20 @@ _soldiers pushBack _unit;
 _garrison deleteAT _index;
 } forEach _staticsX;
 
-if (REBELstaticCREW in _garrison) then
+if (staticCrewTeamPlayer in _garrison) then
 	{
 	{
-	_unit = _groupMortar createUnit [REBELstaticCREW, _positionX, [], 0, "NONE"];
+	_unit = _groupMortar createUnit [staticCrewTeamPlayer, _positionX, [], 0, "NONE"];
 	_pos = [_positionX] call A3A_fnc_mortarPos;
-	_veh = REBELmortar createVehicle _pos;
+	_veh = SDKMortar createVehicle _pos;
 	_vehiclesX pushBack _veh;
 	_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";
 	_unit assignAsGunner _veh;
 	_unit moveInGunner _veh;
 	[_veh] call A3A_fnc_AIvehINIT;
 	_soldiers pushBack _unit;
-	} forEach (_garrison select {_x == REBELstaticCREW});
-	_garrison = _garrison - [REBELstaticCREW];
+	} forEach (_garrison select {_x == staticCrewTeamPlayer});
+	_garrison = _garrison - [staticCrewTeamPlayer];
 	};
 _garrison = _garrison call A3A_fnc_garrisonReorg;
 _radiusX = count _garrison;
@@ -117,7 +117,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _radiusX)} do
 	{
 	_typeX = _garrison select _countX;
 	_unit = _groupX createUnit [_typeX, _positionX, [], 0, "NONE"];
-	if (_typeX in REBELsquadLeader) then {_groupX selectLeader _unit};
+	if (_typeX in SDKSL) then {_groupX selectLeader _unit};
 	[_unit,_markerX] call A3A_fnc_REBELinit;
 	_soldiers pushBack _unit;
 	_countX = _countX + 1;

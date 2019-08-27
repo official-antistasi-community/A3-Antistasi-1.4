@@ -30,7 +30,7 @@ _skill = 0.1 + (skillFIA * 0.05 * skillMult);													// current initial ski
 if ((_markerX == "Synd_HQ") and (isMultiplayer)) then {_skill = 1};									// HQ garrison units are always skill 1?
 _unit setSkill _skill;
 if (!hasGREF) then {if (not((uniform _unit) in REBELuniformsPM)) then {[_unit] call A3A_fnc_reDress}};		// if not using GREF and unit isnt weairng a guerilla uniform, give him one
-if (_typeX in REBELsniper) then
+if (_typeX in SDKSniper) then
 	{
 	if (count unlockedSN > 0) then
 		{
@@ -54,10 +54,10 @@ else
 		{
 		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom helmets)};
 		};
-	if (_typeX in REBELliteAT) then
+	if (_typeX in SDKMil) then
 		{
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		if ((loadAbs _unit < 340) and (_typeX in REBELliteAT)) then
+		if ((loadAbs _unit < 340) and (_typeX in SDKMil)) then
 			{
 			if ((random 20 < skillFIA) and (count unlockedAA > 0)) then
 				{
@@ -68,7 +68,7 @@ else
 		}
 	else
 		{
-		if (_typeX in REBELsoldierMG) then
+		if (_typeX in SDKMG) then
 			{
 			if (count unlockedMG > 0) then
 				{
@@ -81,7 +81,7 @@ else
 			}
 		else
 			{
-			if (_typeX in REBELsoldierGL) then
+			if (_typeX in SDKGL) then
 				{
 				if (count unlockedGL > 0) then
 					{
@@ -95,7 +95,7 @@ else
 			else
 				{
 				[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-				if (_typeX in REBELmedic) then
+				if (_typeX in SDKMedic) then
 					{
 					_unit setUnitTrait ["medic",true];
 					if ({_x == "FirstAidKit"} count (items _unit) < 10) then
@@ -105,7 +105,7 @@ else
 					}
 				else
 					{
-					if (_typeX in REBELsoldierAT) then
+					if (_typeX in SDKATman) then
 						{
 						if !(unlockedAT isEqualTo []) then
 							{

@@ -59,7 +59,7 @@ else
 	{
 	_countX = 120*_bonus;//120
 	[[_positionX,Occupants,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
-	["TaskFailed", ["", format ["%2 deploying supplies in %1",_nameDest,REBELfactionNAME]]] remoteExec ["BIS_fnc_showNotification",Occupants];
+	["TaskFailed", ["", format ["%2 deploying supplies in %1",_nameDest,nameTeamPlayer]]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	{_friendX = _x;
 	if (captive _friendX) then
 		{

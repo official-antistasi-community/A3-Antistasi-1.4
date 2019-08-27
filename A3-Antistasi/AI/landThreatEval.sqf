@@ -19,7 +19,7 @@ if (getMarkerPos _x distance _positionX < distanceSPWN) then
 	_staticsX = staticsToSave select {_x inArea _analyzed};
 	if (count _staticsX > 0) then
 		{
-		_threat = _threat + ({typeOf _x == REBELmortar} count _staticsX) + (2*({typeOf _x == REBELstaticAT} count _staticsX))
+		_threat = _threat + ({typeOf _x == SDKMortar} count _staticsX) + (2*({typeOf _x == staticATteamPlayer} count _staticsX))
 		};
 	};
 } forEach (markersX - citiesX - controlsX - outpostsFIA) select {sidesX getVariable [_x,sideUnknown] != _sideX};

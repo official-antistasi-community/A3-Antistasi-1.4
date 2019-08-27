@@ -18,14 +18,14 @@ _exit = false;
 if (_typeGroup isEqualType "") then
 	{
 	if (_typeGroup == "not_supported") then {_exit = true; hint "The group or vehicle type you request is not supported in your modset"};
-	if (hasIFA and ((_typeGroup == REBELmortar) or (_typeGroup == REBELstaticMG)) and !debug) then {_exit = true; hint "The group or vehicle type you request is not supported in your modset"};
+	if (hasIFA and ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) and !debug) then {_exit = true; hint "The group or vehicle type you request is not supported in your modset"};
 	};
 
 if (hasGREF) then
 	{
 	if (_typeGroup isEqualType objNull) then
 		{
-		if (_typeGroup == REBELstaticAT) then {hint "AT trucks are disabled in RHS - GREF"; _exit = true};
+		if (_typeGroup == staticATteamPlayer) then {hint "AT trucks are disabled in RHS - GREF"; _exit = true};
 		};
 	};
 if (_exit) exitWith {};
@@ -51,24 +51,24 @@ if (_typeGroup isEqualType []) then
 	if (count _this > 1) then
 		{
 		_withBackpck = _this select 1;
-		if (_withBackpck == "MG") then {_costs = _costs + ([REBELstaticMG] call A3A_fnc_vehiclePrice)};
-		if (_withBackpck == "Mortar") then {_costs = _costs + ([REBELmortar] call A3A_fnc_vehiclePrice)};
+		if (_withBackpck == "MG") then {_costs = _costs + ([SDKMGStatic] call A3A_fnc_vehiclePrice)};
+		if (_withBackpck == "Mortar") then {_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice)};
 		};
 	_esinf = true;
 	}
 else
 	{
-	_costs = _costs + (2*(server getVariable REBELstaticCREW)) + ([_typeGroup] call A3A_fnc_vehiclePrice);
+	_costs = _costs + (2*(server getVariable staticCrewTeamPlayer)) + ([_typeGroup] call A3A_fnc_vehiclePrice);
 	_costHR = 2;
-	//if (_typeGroup == REBELmortar) then {_costs = _costs + ([REBELvehQUAD] call A3A_fnc_vehiclePrice)} else {_costs = _costs + ([REBELvehTRANSPORT] call A3A_fnc_vehiclePrice)};
-	if ((_typeGroup == REBELmortar) or (_typeGroup == REBELstaticMG)) then
+	//if (_typeGroup == SDKMortar) then {_costs = _costs + ([vehSDKBike ] call A3A_fnc_vehiclePrice)} else {_costs = _costs + ([vehSDKTruck] call A3A_fnc_vehiclePrice)};
+	if ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) then
 		{
 		_esInf = true;
-		_formatX = [REBELstaticCREW,REBELstaticCREW];
+		_formatX = [staticCrewTeamPlayer,staticCrewTeamPlayer];
 		}
 	else
 		{
-		_costs = _costs + ([REBELvehTRANSPORT] call A3A_fnc_vehiclePrice)
+		_costs = _costs + ([vehSDKTruck] call A3A_fnc_vehiclePrice)
 		};
 	};
 if ((_withBackpck != "") and hasIFA) exitWith {hint "Your current modset does not support packing / unpacking static weapons";};
@@ -98,16 +98,16 @@ if (_esinf) then
 		if (_typeGroup isEqualTo REBELgroupSENTRY) then {_format = "Stry-"};
 		if (_withBackpck == "MG") then
 			{
-			((units _groupX) select ((count (units _groupX)) - 2)) addBackpackGlobal REBELstaticSUPPORTbagTALL2;
-			((units _groupX) select ((count (units _groupX)) - 1)) addBackpackGlobal REBELstaticSUPPORTbagTALL;
+			((units _groupX) select ((count (units _groupX)) - 2)) addBackpackGlobal supportStaticsSDKB2;
+			((units _groupX) select ((count (units _groupX)) - 1)) addBackpackGlobal MGStaticSDKB;
 			_format = "SqMG-";
 			}
 		else
 			{
 			if (_withBackpck == "Mortar") then
 				{
-				((units _groupX) select ((count (units _groupX)) - 2)) addBackpackGlobal REBELstaticSUPPORTbagMORTAR2;
-				((units _groupX) select ((count (units _groupX)) - 1)) addBackpackGlobal REBELstaticSUPPORTbagMORTAR;
+				((units _groupX) select ((count (units _groupX)) - 2)) addBackpackGlobal supportStaticsSDKB3;
+				((units _groupX) select ((count (units _groupX)) - 1)) addBackpackGlobal MortStaticSDKB;
 				_format = "SqMort-";
 				};
 			};
@@ -116,8 +116,8 @@ if (_esinf) then
 		{
 		_groupX = [_pos, teamPlayer, _formatX,true] call A3A_fnc_spawnGroup;
 		_groupX setVariable ["staticAutoT",false,true];
-		if (_typeGroup == REBELmortar) then {_format = "Mort-"};
-		if (_typeGroup == REBELstaticMG) then {_format = "MG-"};
+		if (_typeGroup == SDKMortar) then {_format = "Mort-"};
+		if (_typeGroup == SDKMGStatic) then {_format = "MG-"};
 		[_groupX,_typeGroup] spawn A3A_fnc_MortyAI;
 		_bypassAI = true;
 		};
@@ -126,10 +126,10 @@ if (_esinf) then
 	}
 else
 	{
-	_pos = position _road findEmptyPosition [1,30,REBELvehTRANSPORT];
-	_vehicle = if (_typeGroup == REBELstaticAA) then
+	_pos = position _road findEmptyPosition [1,30,vehSDKTruck];
+	_vehicle = if (_typeGroup == staticAAteamPlayer) then
 		{
-		if (hasGREF) then {[_pos, 0,"rhsgref_ins_g_ural_Zu23", teamPlayer] call bis_fnc_spawnvehicle} else {[_pos, 0,REBELvehTRANSPORT, teamPlayer] call bis_fnc_spawnvehicle};
+		if (hasGREF) then {[_pos, 0,"rhsgref_ins_g_ural_Zu23", teamPlayer] call bis_fnc_spawnvehicle} else {[_pos, 0,vehSDKTruck, teamPlayer] call bis_fnc_spawnvehicle};
 		}
 	else
 		{
@@ -140,18 +140,18 @@ else
 	//_mortarX attachTo [_truckX,[0,-1.5,0.2]];
 	//_mortarX setDir (getDir _truckX + 180);
 
-	if ((!hasGREF) and (_typeGroup == REBELstaticAA)) then
+	if ((!hasGREF) and (_typeGroup == staticAAteamPlayer)) then
 		{
-		_pos = _pos findEmptyPosition [1,30,REBELmortar];
-		_morty = _groupX createUnit [REBELstaticCREW, _pos, [],0, "NONE"];
+		_pos = _pos findEmptyPosition [1,30,SDKMortar];
+		_morty = _groupX createUnit [staticCrewTeamPlayer, _pos, [],0, "NONE"];
 		_mortarX = _typeGroup createVehicle _pos;
 		_nul = [_mortarX] call A3A_fnc_AIvehINIT;
 		_mortarX attachTo [_truckX,[0,-1.5,0.2]];
 		_mortarX setDir (getDir _truckX + 180);
 		_morty moveInGunner _mortarX;
 		};
-	if (_typeGroup == REBELvehAT) then {_groupX setGroupId [format ["M.AT-%1",{side (leader _x) == teamPlayer} count allGroups]]};
-	if (_typeGroup == REBELstaticAA) then {_groupX setGroupId [format ["M.AA-%1",{side (leader _x) == teamPlayer} count allGroups]]};
+	if (_typeGroup == vehSDKAT) then {_groupX setGroupId [format ["M.AT-%1",{side (leader _x) == teamPlayer} count allGroups]]};
+	if (_typeGroup == staticAAteamPlayer) then {_groupX setGroupId [format ["M.AA-%1",{side (leader _x) == teamPlayer} count allGroups]]};
 
 	driver _truckX action ["engineOn", vehicle driver _truckX];
 	_nul = [_truckX] call A3A_fnc_AIvehINIT;
@@ -169,17 +169,17 @@ if !(_bypassAI) then {_groupX spawn A3A_fnc_attackDrillAI};
 
 if (count _formatX == 2) then
 	{
-	_typeVehX = REBELvehQUAD;
+	_typeVehX = vehSDKBike ;
 	}
 else
 	{
 	if (count _formatX > 4) then
 		{
-		_typeVehX = REBELvehTRANSPORT;
+		_typeVehX = vehSDKTruck;
 		}
 	else
 		{
-		_typeVehX = REBELvehUNARMEDlite;
+		_typeVehX = vehSDKLightUnarmed;
 		};
 	};
 

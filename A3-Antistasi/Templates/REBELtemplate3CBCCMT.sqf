@@ -1,74 +1,74 @@
 //if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\REBELtemplate3CBCCMT.sqf"} else {
 
-REBELmortar = "rhsgref_ins_g_2b14";
-REBELmortarHEmag = "rhs_mag_3vo18_10";
-REBELmortarSMOKEmag = "rhs_mag_d832du_10";
-REBELstaticMG = "UK3CB_TKP_I_NSV";
-REBELstaticAT = "UK3CB_UN_I_SPG9";
-REBELstaticAA = "UK3CB_UN_I_ZU23";
+SDKMortar = "rhsgref_ins_g_2b14";
+SDKMortarHEMag = "rhs_mag_3vo18_10";
+SDKMortarSmokeMag = "rhs_mag_d832du_10";
+SDKMGStatic = "UK3CB_TKP_I_NSV";
+staticATteamPlayer = "UK3CB_UN_I_SPG9";
+staticAAteamPlayer = "UK3CB_UN_I_ZU23";
 
-REBELstaticCREW = "UK3CB_CCM_I_COM";
-REBELprisoner = "UK3CB_CHC_I_SPY";
-REBELsniper = ["UK3CB_CCM_I_MK","UK3CB_CCM_I_SNI"];
-REBELsoldierAT = ["UK3CB_CCM_I_AT","UK3CB_CCM_I_AT"];
-REBELmedic = ["UK3CB_CCM_I_MD","UK3CB_CCM_I_MD"];
-REBELsoldierMG = ["UK3CB_CCM_I_AR","UK3CB_CCM_I_AR"];
-REBELsoldierEXP = ["UK3CB_CCM_I_DEM","UK3CB_CCM_I_DEM"];
-REBELsoldierGL = ["UK3CB_CCM_I_RIF_LITE","UK3CB_CCM_I_RIF_LITE"];
-REBELliteAT = ["UK3CB_CCM_I_RIF_BOLT","UK3CB_CCM_I_RIF_1"];
-REBELsquadLeader = ["UK3CB_CCM_I_TL","UK3CB_CCM_I_OFF"];
-REBELengineer = ["UK3CB_CCM_I_ENG","UK3CB_CCM_I_ENG"];
+staticCrewTeamPlayer = "UK3CB_CCM_I_COM";
+SDKUnarmed = "UK3CB_CHC_I_SPY";
+SDKSniper = ["UK3CB_CCM_I_MK","UK3CB_CCM_I_SNI"];
+SDKATman = ["UK3CB_CCM_I_AT","UK3CB_CCM_I_AT"];
+SDKMedic = ["UK3CB_CCM_I_MD","UK3CB_CCM_I_MD"];
+SDKMG = ["UK3CB_CCM_I_AR","UK3CB_CCM_I_AR"];
+SDKExp = ["UK3CB_CCM_I_DEM","UK3CB_CCM_I_DEM"];
+SDKGL = ["UK3CB_CCM_I_RIF_LITE","UK3CB_CCM_I_RIF_LITE"];
+SDKMil = ["UK3CB_CCM_I_RIF_BOLT","UK3CB_CCM_I_RIF_1"];
+SDKSL = ["UK3CB_CCM_I_TL","UK3CB_CCM_I_OFF"];
+SDKEng = ["UK3CB_CCM_I_ENG","UK3CB_CCM_I_ENG"];
 
-REBELunitsTIER1 = REBELliteAT + [REBELstaticCREW] + REBELsoldierMG + REBELsoldierGL + REBELsoldierAT;
-REBELunitsTIER2 = REBELmedic + REBELsoldierEXP + REBELengineer;
-REBELunitsTIER3 = REBELsquadLeader + REBELsniper;
+REBELunitsTIER1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
+REBELunitsTIER2 = SDKMedic + SDKExp + SDKEng;
+REBELunitsTIER3 = SDKSL + SDKSniper;
 REBELunitsALL = REBELunitsTIER1 + REBELunitsTIER2 + REBELunitsTIER3;
 
-REBELgroupFIRETEAM = [REBELsquadLeader,REBELsoldierGL,REBELsoldierMG,REBELliteAT];
-REBELgroupAT = [REBELsquadLeader,REBELsoldierMG,REBELsoldierAT,REBELsoldierAT,REBELsoldierAT];
+REBELgroupFIRETEAM = [SDKSL,SDKGL,SDKMG,SDKMil];
+REBELgroupAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
 //["BanditShockTeam","ParaShockTeam"];
-REBELgroupSQUAD = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELliteAT,REBELsoldierAT,REBELliteAT,REBELmedic];
-REBELgroupSQUADengineer = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierEXP,REBELsoldierAT,REBELengineer,REBELmedic];
-REBELgroupSQUADsupport = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierAT,REBELmedic,[REBELstaticCREW,REBELstaticCREW],[REBELstaticCREW,REBELstaticCREW]];
-REBELgroupSNIPER = [REBELsniper,REBELsniper];
-REBELgroupSENTRY = [REBELsoldierGL,REBELliteAT];
+REBELgroupSQUAD = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
+REBELgroupSQUADengineer = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
+REBELgroupSQUADsupport = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
+REBELgroupSNIPER = [SDKSniper,SDKSniper];
+REBELgroupSENTRY = [SDKGL,SDKMil];
 
-REBELvehQUAD = "UK3CB_CCM_I_Golf";
-REBELvehARMEDlite = "UK3CB_CCM_I_Datsun_Pkm";
-REBELvehAT = "UK3CB_CCM_I_Hilux_Spg";
-REBELvehUNARMEDlite = "UK3CB_CCM_I_Datsun_Open";
-REBELvehTRANSPORT = "UK3CB_CCM_I_V3S_Closed";
-//REBELvehHELI = "rhsgref_ins_g_Mi8amt";
-REBELvehPLANE = "UK3CB_CHC_I_Antonov_AN2";
-REBELvehBOAT = "I_C_Boat_Transport_01_F";
-REBELvehREPAIR = "UK3CB_CCM_I_V3S_Repair";
+vehSDKBike  = "UK3CB_CCM_I_Golf";
+vehSDKLightArmed = "UK3CB_CCM_I_Datsun_Pkm";
+vehSDKAT = "UK3CB_CCM_I_Hilux_Spg";
+vehSDKLightUnarmed = "UK3CB_CCM_I_Datsun_Open";
+vehSDKTruck = "UK3CB_CCM_I_V3S_Closed";
+//vehSDKHeli = "rhsgref_ins_g_Mi8amt";
+vehSDKPlane = "UK3CB_CHC_I_Antonov_AN2";
+vehSDKBoat = "I_C_Boat_Transport_01_F";
+vehSDKRepair = "UK3CB_CCM_I_V3S_Repair";
 
-REBELvehALL = [REBELvehQUAD,REBELvehARMEDlite,REBELstaticMG,REBELvehUNARMEDlite,REBELvehTRANSPORT,REBELvehBOAT,REBELmortar,REBELstaticAT,REBELstaticAA,REBELvehREPAIR];
+REBELvehALL = [vehSDKBike ,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 
-REBELflag = "Flag_CCM_B";
-REBELflagTEX = "\UK3CB_Factions\addons\UK3CB_Factions_CCM\Flag\ccm_i_flag_co.paa";
+SDKFlag = "Flag_CCM_B";
+SDKFlagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_CCM\Flag\ccm_i_flag_co.paa";
 typePetros = "UK3CB_TKP_I_OFF";
 
-REBELstaticSUPPORTbag = "RHS_SPG9_Tripod_Bag";
-REBELstaticSUPPORTbagAT = "RHS_SPG9_Gun_Bag";
-REBELstaticSUPPORTbagTALL = "RHS_DShkM_Gun_Bag";
-REBELstaticSUPPORTbagTALL2 = "RHS_DShkM_TripodHigh_Bag";
-REBELstaticSUPPORTbagAA = "I_AA_01_weapon_F";
-REBELstaticSUPPORTbagMORTAR = "RHS_Podnos_Gun_Bag";
-REBELstaticSUPPORTbagMORTAR2 = "RHS_Podnos_Bipod_Bag";
+supportStaticSDKB = "RHS_SPG9_Tripod_Bag";
+ATStaticSDKB = "RHS_SPG9_Gun_Bag";
+MGStaticSDKB = "RHS_DShkM_Gun_Bag";
+supportStaticsSDKB2 = "RHS_DShkM_TripodHigh_Bag";
+AAStaticSDKB = "I_AA_01_weapon_F";
+MortStaticSDKB = "RHS_Podnos_Gun_Bag";
+supportStaticsSDKB3 = "RHS_Podnos_Bipod_Bag";
 
-CIVcar = "UK3CB_CHC_C_Ikarus";
-CIVtruck = "UK3CB_CHC_C_V3S_Recovery";
-CIVheli = "UK3CB_CHC_C_Mi8AMT";
-CIVboat = "C_Rubberboat";
+civCar = "UK3CB_CHC_C_Ikarus";
+civTruck = "UK3CB_CHC_C_V3S_Recovery";
+civHeli = "UK3CB_CHC_C_Mi8AMT";
+civBoat = "C_Rubberboat";
 
 arrayCivVeh = ["UK3CB_CHC_C_Datsun_Civ_Closed","UK3CB_CHC_C_Datsun_Civ_Open","UK3CB_CHC_C_Gaz24","UK3CB_CHC_C_Golf","UK3CB_CHC_C_Hatchback","UK3CB_CHC_C_Hilux_Civ_Open","UK3CB_CHC_C_Hilux_Civ_Closed","UK3CB_CHC_C_Ikarus","UK3CB_CHC_C_Kamaz_Covered","UK3CB_CHC_C_Kamaz_Fuel","UK3CB_CHC_C_Kamaz_Open","UK3CB_CHC_C_Kamaz_Repair","UK3CB_CHC_C_Lada","UK3CB_CHC_C_LR_Open","UK3CB_CHC_C_LR_Closed","UK3CB_CHC_C_S1203","UK3CB_CHC_C_S1203_Amb","UK3CB_CHC_C_Sedan","UK3CB_CHC_C_Skoda","UK3CB_CHC_C_Tractor","UK3CB_CHC_C_Tractor_Old","UK3CB_CHC_C_UAZ_Closed","UK3CB_CHC_C_UAZ_Open","UK3CB_CHC_C_Ural","UK3CB_CHC_C_Ural_Open","UK3CB_CHC_C_Ural_Fuel","UK3CB_CHC_C_Ural_Empty","UK3CB_CHC_C_Ural_Repair","UK3CB_CHC_C_V3S_Open","UK3CB_CHC_C_V3S_Closed","UK3CB_CHC_C_V3S_Recovery","UK3CB_CHC_C_V3S_Refuel","UK3CB_CHC_C_V3S_Repair"];
 
-petrosRifle = "UK3CB_BAF_L22";
+sniperRifle = "UK3CB_BAF_L22";
 REBELflashlight = ["rhs_acc_2dpZenit","acc_flashlight"];
 
-REBELmineAT = "rhs_mine_tm62m_mag";
-REBELmineAP = "rhs_mine_pmn2_mag";
+ATMineMag = "rhs_mine_tm62m_mag";
+APERSMineMag = "rhs_mine_pmn2_mag";
 
 if (hasFFAA) then
 	{
@@ -110,12 +110,12 @@ vehPoliceCar = "UK3CB_TKP_B_Lada_Police";
 policeOfficer = "UK3CB_ANP_B_TL";
 policeGrunt = "UK3CB_ANP_B_RIF_1";
 groupsNATOGen = [policeOfficer,policeGrunt];
-REBELfactionNAME = "CCM";//player faction
+nameTeamPlayer = "CCM";//player faction
 
-POLICE = "BLU_GEN_F";//police faction
+factionGEN = "BLU_GEN_F";//police faction
 
 //Player spawn loadout
-REBELloadoutDEFAULT = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
 
 //Arsenal and Initial AI weapon setup
 unlockedWeapons = ["UK3CB_Enfield","rhsusf_weap_m1911a1","Binocular","rhs_weap_panzerfaust60","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_pp2000_folded","UK3CB_M79","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
@@ -141,7 +141,7 @@ if (count _x > 1) then
 	_uniform = (getUnitLoadout _unit select 3) select 0;
 	REBELuniformsPM pushBackUnique _uniform;
 	};
-} forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,REBELsoldierEXP,REBELsoldierGL,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
+} forEach [SDKSniper,SDKATman,SDKMedic,SDKMG,SDKExp,SDKGL,SDKMil,SDKSL,SDKEng,[SDKUnarmed],[staticCrewTeamPlayer]];
 
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str","ItemRadio"]};

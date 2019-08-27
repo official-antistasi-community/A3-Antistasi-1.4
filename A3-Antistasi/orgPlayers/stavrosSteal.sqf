@@ -6,4 +6,4 @@ server setvariable ["resourcesFIA",_resourcesFIA - 100, true];
 [-2,theBoss] call A3A_fnc_playerScoreAdd;
 ["scorePlayer", player getVariable "score"] call fn_SaveStat;
 
-hint format ["You grabbed 100 € from the %1 Money Pool.\n\nThis will affect your prestige and status among %1 forces",REBELfactionNAME];
+hint format ["You grabbed 100 € from the %1 Money Pool.\n\nThis will affect your prestige and status among %1 forces",nameTeamPlayer];

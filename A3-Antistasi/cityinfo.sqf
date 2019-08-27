@@ -18,7 +18,7 @@ if (_x in destroyedCities) then {_popCSAT = _popCSAT + _numCIV};
 } forEach citiesX;
 _popFIA = round _popFIA;
 _popAAF = round _popAAF;
-hint format ["%7\n\nTotal pop: %1\n%6 Support: %2\n%5 Support: %3 \n\nMurdered Pop: %4\n\nClick on the zone",_pop, _popFIA, _popAAF, _popCSAT,nameOccupants,REBELfactionNAME,worldName];
+hint format ["%7\n\nTotal pop: %1\n%6 Support: %2\n%5 Support: %3 \n\nMurdered Pop: %4\n\nClick on the zone",_pop, _popFIA, _popAAF, _popCSAT,nameOccupants,nameTeamPlayer,worldName];
 
 if (!visibleMap) then {openMap true};
 
@@ -34,10 +34,10 @@ while {visibleMap} do
 		_positionTel = positionTel;
 		_siteX = [markersX, _positionTel] call BIS_Fnc_nearestPosition;
 		_textX = "Click on the zone";
-		_nameFaction = if (sidesX getVariable [_siteX,sideUnknown] == teamPlayer) then {REBELfactionNAME} else {if (sidesX getVariable [_siteX,sideUnknown] == Occupants) then {nameOccupants} else {nameInvaders}};
+		_nameFaction = if (sidesX getVariable [_siteX,sideUnknown] == teamPlayer) then {nameTeamPlayer} else {if (sidesX getVariable [_siteX,sideUnknown] == Occupants) then {nameOccupants} else {nameInvaders}};
 		if (_siteX == "Synd_HQ") then
 			{
-			_textX = format ["%2 HQ%1",[_siteX] call A3A_fnc_garrisonInfo,REBELfactionNAME];
+			_textX = format ["%2 HQ%1",[_siteX] call A3A_fnc_garrisonInfo,nameTeamPlayer];
 			};
 		if (_siteX in citiesX) then
 			{
@@ -47,12 +47,12 @@ while {visibleMap} do
 			_prestigeOPFOR = _dataX select 2;
 			_prestigeBLUFOR = _dataX select 3;
 			_power = [_siteX] call A3A_fnc_powerCheck;
-			_textX = format ["%1\n\nPop %2\n%6 Support: %3 %5\n%7 Support: %4 %5",[_siteX,false] call A3A_fnc_fn_location,_numCiv,_prestigeOPFOR,_prestigeBLUFOR,"%",nameOccupants,REBELfactionNAME];
+			_textX = format ["%1\n\nPop %2\n%6 Support: %3 %5\n%7 Support: %4 %5",[_siteX,false] call A3A_fnc_fn_location,_numCiv,_prestigeOPFOR,_prestigeBLUFOR,"%",nameOccupants,nameTeamPlayer];
 			_positionX = getMarkerPos _siteX;
 			_result = "NONE";
 			switch (_power) do
 				{
-				case teamPlayer: {_result = format ["%1",REBELfactionNAME]};
+				case teamPlayer: {_result = format ["%1",nameTeamPlayer]};
 				case Occupants: {_result = format ["%1",nameOccupants]};
 				case Invaders: {_result = format ["%1",nameInvaders]};
 				};
@@ -67,11 +67,11 @@ while {visibleMap} do
 				_outpost = [markersX,_ant1] call BIS_fnc_NearestPosition;
 				if (sidesX getVariable [_siteX,sideUnknown] == teamPlayer) then
 					{
-					if (sidesX getVariable [_outpost,sideUnknown] == teamPlayer) then {_result = format ["%1",REBELfactionNAME]} else {if (sidesX getVariable [_outpost,sideUnknown] == Invaders) then {_result = "NONE"}};
+					if (sidesX getVariable [_outpost,sideUnknown] == teamPlayer) then {_result = format ["%1",nameTeamPlayer]} else {if (sidesX getVariable [_outpost,sideUnknown] == Invaders) then {_result = "NONE"}};
 					}
 				else
 					{
-					if (sidesX getVariable [_outpost,sideUnknown] == teamPlayer) then {_result = format ["%1",REBELfactionNAME]} else {if (sidesX getVariable [_outpost,sideUnknown] == Invaders) then {_result = "NONE"}};
+					if (sidesX getVariable [_outpost,sideUnknown] == teamPlayer) then {_result = format ["%1",nameTeamPlayer]} else {if (sidesX getVariable [_outpost,sideUnknown] == Invaders) then {_result = "NONE"}};
 					};
 				};
 			*/

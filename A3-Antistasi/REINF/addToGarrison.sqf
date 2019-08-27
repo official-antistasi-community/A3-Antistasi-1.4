@@ -18,7 +18,7 @@ _nearX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
 
 if !(_positionTel inArea _nearX) exitWith {hint "You must click near a marked zone"};
 
-if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {hint format ["That zone does not belong to %1",REBELfactionNAME]};
+if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {hint format ["That zone does not belong to %1",nameTeamPlayer]};
 
 if ((_nearX in outpostsFIA) and !(isOnRoad getMarkerPos _nearX)) exitWith {hint "You cannot manage garrisons on this kind of zone"};
 
@@ -40,7 +40,7 @@ else
 _leave = false;
 
 {
-if ((typeOf _x == REBELstaticCREW) or (typeOf _x == REBELprisoner) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_leave = true}
+if ((typeOf _x == staticCrewTeamPlayer) or (typeOf _x == SDKUnarmed) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_leave = true}
 } forEach _unitsX;
 
 if (_leave) exitWith {hint "Static crewman, prisoners, refugees or dead units cannot be added to any garrison"};

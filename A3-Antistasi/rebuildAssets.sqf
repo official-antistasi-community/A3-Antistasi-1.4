@@ -35,7 +35,7 @@ if (_siteX in outposts) then
 		if (sidesX getVariable [_siteX, sideUnknown] != teamPlayer) then
 			{
 			_leave = true;
-			_textX = format ["You cannot rebuild a Radio Tower in an Outpost which does not belong to %1",REBELfactionNAME];
+			_textX = format ["You cannot rebuild a Radio Tower in an Outpost which does not belong to %1",nameTeamPlayer];
 			}
 		else
 			{

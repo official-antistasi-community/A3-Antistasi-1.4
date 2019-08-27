@@ -30,7 +30,7 @@ if (isNil "_flagX") then {_flagX = objNull};
 
 if (_looser == teamPlayer) then
 	{
-	_textX = format ["%1 ",REBELfactionNAME];
+	_textX = format ["%1 ",nameTeamPlayer];
 	[] call A3A_fnc_tierCheck;
 	}
 else
@@ -169,8 +169,8 @@ if (_winner == teamPlayer) then
 	if (!isNull _flagX) then
 		{
 		//[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
-		[_flagX,"REBELflag"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
-		[_flagX,REBELflagTEX] remoteExec ["setFlagTexture",_flagX];
+		[_flagX,"SDKFlag"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
+		[_flagX,SDKFlagTexture] remoteExec ["setFlagTexture",_flagX];
 		sleep 2;
 		//[_flagX,"unit"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 		//[_flagX,"vehicle"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];

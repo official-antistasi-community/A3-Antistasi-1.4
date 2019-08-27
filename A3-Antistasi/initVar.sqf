@@ -278,11 +278,25 @@ if !(hasIFA) then
 //      GROUPS CLASSIFICATION      ///
 //////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
-squadLeaders = REBELsquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
-medics = REBELmedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
+//Rebel Unit Tiers
+REBELunitsTIER1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
+REBELunitsTIER2 = SDKMedic + SDKExp + SDKEng;
+REBELunitsTIER3 = SDKSL + SDKSniper;
+REBELunitsALL = REBELunitsTIER1 + REBELunitsTIER2 + REBELunitsTIER3;
+//Rebel Groups
+REBELgroupFIRETEAM = [SDKSL,SDKGL,SDKMG,SDKMil];
+REBELgroupAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
+REBELgroupSQUAD = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
+REBELgroupSQUADengineer = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
+REBELgroupSQUADsupport = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
+REBELgroupSNIPER = [SDKSniper,SDKSniper];
+REBELgroupSENTRY = [SDKGL,SDKMil];
+
+squadLeaders = SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
+medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
 //Define Sniper Groups and Units
 sniperGroups = [groupsNATOSniper,groupsCSATSniper];
-sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + REBELsniper + [FIAMarksman,NATOMarksman,CSATMarksman];
+sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + SDKSniper + [FIAMarksman,NATOMarksman,CSATMarksman];
 //Do we need this anymore? unit classes should be set by template, not here.....
 if (hasRHS) then {sniperUnits = sniperUnits + ["rhsusf_socom_marsoc_sniper","rhs_vdv_marksman_asval"]};
 
@@ -290,8 +304,8 @@ if (hasRHS) then {sniperUnits = sniperUnits + ["rhsusf_socom_marsoc_sniper","rhs
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning vehicle Types",servertime];
-vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,REBELvehTRANSPORT,REBELvehARMEDlite,REBELvehQUAD,rebelVehRepair];
-vehBoats = [vehNATOBoat,vehCSATBoat,REBELvehBOAT];
+vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike ,rebelVehRepair];
+vehBoats = [vehNATOBoat,vehCSATBoat,vehSDKBoat];
 vehAttack = vehNATOAttack + vehCSATAttack;
 vehPlanes = vehNATOAir + vehCSATAir + [rebelVehPlane];
 vehAttackHelis = vehCSATAttackHelis + vehNATOAttackHelis;
@@ -300,12 +314,13 @@ vehUAVs = [vehNATOUAV,vehCSATUAV];
 vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
 vehAPCs = vehNATOAPC + vehCSATAPC;
 vehTanks = [vehNATOTank,vehCSATTank];
-vehTrucks = vehNATOTrucks + vehCSATTrucks + [REBELvehTRANSPORT,vehFIATruck];
+vehTrucks = vehNATOTrucks + vehCSATTrucks + [vehSDKTruck,vehFIATruck];
 vehAA = [vehNATOAA,vehCSATAA];
 vehMRLS = [vehCSATMRLS, vehNATOMRLS];
 vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis + vehNATOTransportPlanes + vehCSATTransportPlanes;
 vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
 vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
+REBELvehALL = [vehSDKBike ,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 
 ////////////////////////////////////
 //        BUILDINGS LISTS        ///
@@ -342,7 +357,7 @@ if (count _x > 1) then
 	_uniform = (getUnitLoadout _unit select 3) select 0;
 	REBELuniformsPM pushBackUnique _uniform;
 	};
-} forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,rebelExpSpec,rebelGrenadier,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
+} forEach [SDKSniper,SDKATman,SDKMedic,SDKMG,rebelExpSpec,rebelGrenadier,SDKMil,SDKSL,SDKEng,[SDKUnarmed],[staticCrewTeamPlayer]];
 
 ////////////////////////////////////
 //      CIV UNIFORMS LIST        ///
@@ -967,8 +982,8 @@ if (!isServer) exitWith {};
 //    UNIT AND VEHICLE PRICES    ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Pricelist.",servertime];
-{server setVariable [_x,50,true]} forEach REBELliteAT;
-{server setVariable [_x,75,true]} forEach (REBELunitsTIER1 - REBELliteAT);
+{server setVariable [_x,50,true]} forEach SDKMil;
+{server setVariable [_x,75,true]} forEach (REBELunitsTIER1 - SDKMil);
 {server setVariable [_x,100,true]} forEach  REBELunitsTIER2;
 {server setVariable [_x,150,true]} forEach REBELunitsTIER3;
 //{timer setVariable [_x,0,true]} forEach (vehAttack + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA] + vehCSATAttackHelis + vehAA + vehMRLS);
@@ -995,15 +1010,15 @@ timer setVariable [vehCSATPlaneAA,10,true];
 timer setVariable [vehNATOMRLS,0,true];
 timer setVariable [vehCSATMRLS,5,true];
 
-server setVariable [CIVcar,200,true];													//200
-server setVariable [CIVtruck,600,true];													//600
-server setVariable [CIVheli,5000,true];													//5000
-server setVariable [CIVboat,200,true];													//200
-server setVariable [REBELvehQUAD,50,true];												//50
-server setVariable [REBELvehUNARMEDlite,200,true];										//200
-server setVariable [REBELvehTRANSPORT,300,true];											//300
-{server setVariable [_x,700,true]} forEach [REBELvehARMEDlite,REBELvehAT];
-{server setVariable [_x,400,true]} forEach [rebelStaticMG,REBELvehBOAT,rebelVehRepair];			//400
+server setVariable [civCar,200,true];													//200
+server setVariable [civTruck,600,true];													//600
+server setVariable [civHeli,5000,true];													//5000
+server setVariable [civBoat,200,true];													//200
+server setVariable [vehSDKBike ,50,true];												//50
+server setVariable [vehSDKLightUnarmed,200,true];										//200
+server setVariable [vehSDKTruck,300,true];											//300
+{server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];
+{server setVariable [_x,400,true]} forEach [rebelStaticMG,vehSDKBoat,rebelVehRepair];			//400
 {server setVariable [_x,800,true]} forEach [rebelMortar,rebelStaticAT,rebelStaticAA];			//800
 
 ////////////////////////////////////

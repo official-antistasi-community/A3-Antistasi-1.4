@@ -22,7 +22,7 @@ if (not(_veh isKindOf "Air")) exitWith {hint "Only Air Vehicles can be used to i
 
 _typeX = typeOf _veh;
 
-//if (_typeX == REBELvehHELI) exitWith {hint "Syndikat Helicopters cannot be used to increase Airstrike points"};
+//if (_typeX == vehSDKHeli) exitWith {hint "Syndikat Helicopters cannot be used to increase Airstrike points"};
 
 _pointsX = 2;
 

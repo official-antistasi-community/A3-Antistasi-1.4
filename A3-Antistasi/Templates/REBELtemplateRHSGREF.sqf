@@ -1,72 +1,72 @@
-REBELmortar = "rhsgref_nat_2b14";
-REBELmortarHEmag = "rhs_mag_3vo18_10";
-REBELmortarSMOKEmag = "rhs_mag_d832du_10";
-REBELstaticMG = "rhsgref_nat_NSV_TriPod";
-REBELstaticAT = "rhsgref_nat_SPG9";
-REBELstaticAA = "rhsgref_nat_ZU23";
+SDKMortar = "rhsgref_nat_2b14";
+SDKMortarHEMag = "rhs_mag_3vo18_10";
+SDKMortarSmokeMag = "rhs_mag_d832du_10";
+SDKMGStatic = "rhsgref_nat_NSV_TriPod";
+staticATteamPlayer = "rhsgref_nat_SPG9";
+staticAAteamPlayer = "rhsgref_nat_ZU23";
 
-REBELstaticCREW = "rhsgref_nat_crew";
-REBELprisoner = "I_G_Survivor_F";
-REBELsniper = ["rhsgref_nat_hunter","rhsgref_nat_pmil_hunter"];
-REBELsoldierAT = ["rhsgref_nat_grenadier_rpg","rhsgref_nat_pmil_grenadier_rpg"];
-REBELmedic = ["rhsgref_nat_medic","rhsgref_nat_pmil_medic"];
-REBELsoldierMG = ["rhsgref_nat_machinegunner_mg42","rhsgref_nat_pmil_machinegunner"];
-REBELsoldierEXP = ["rhsgref_nat_saboteur","rhsgref_nat_pmil_saboteur"];
-REBELsoldierGL = ["rhsgref_nat_grenadier","rhsgref_nat_pmil_grenadier"];
-REBELliteAT = ["rhsgref_nat_rifleman_mp44","rhsgref_nat_pmil_rifleman"];
-REBELsquadLeader = ["rhsgref_nat_commander","rhsgref_nat_pmil_commander"];
-REBELengineer = ["rhsgref_cdf_ngd_engineer","rhsgref_cdf_reg_engineer"];
+staticCrewTeamPlayer = "rhsgref_nat_crew";
+SDKUnarmed = "I_G_Survivor_F";
+SDKSniper = ["rhsgref_nat_hunter","rhsgref_nat_pmil_hunter"];
+SDKATman = ["rhsgref_nat_grenadier_rpg","rhsgref_nat_pmil_grenadier_rpg"];
+SDKMedic = ["rhsgref_nat_medic","rhsgref_nat_pmil_medic"];
+SDKMG = ["rhsgref_nat_machinegunner_mg42","rhsgref_nat_pmil_machinegunner"];
+SDKExp = ["rhsgref_nat_saboteur","rhsgref_nat_pmil_saboteur"];
+SDKGL = ["rhsgref_nat_grenadier","rhsgref_nat_pmil_grenadier"];
+SDKMil = ["rhsgref_nat_rifleman_mp44","rhsgref_nat_pmil_rifleman"];
+SDKSL = ["rhsgref_nat_commander","rhsgref_nat_pmil_commander"];
+SDKEng = ["rhsgref_cdf_ngd_engineer","rhsgref_cdf_reg_engineer"];
 
-REBELunitsTIER1 = REBELliteAT + [REBELstaticCREW] + REBELsoldierMG + REBELsoldierGL + REBELsoldierAT;
-REBELunitsTIER2 = REBELmedic + REBELsoldierEXP + REBELengineer;
-REBELunitsTIER3 = REBELsquadLeader + REBELsniper;
+REBELunitsTIER1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
+REBELunitsTIER2 = SDKMedic + SDKExp + SDKEng;
+REBELunitsTIER3 = SDKSL + SDKSniper;
 REBELunitsALL = REBELunitsTIER1 + REBELunitsTIER2 + REBELunitsTIER3;
 
-REBELgroupFIRETEAM = [REBELsquadLeader,REBELsoldierGL,REBELsoldierMG,REBELliteAT];
-REBELgroupAT = [REBELsquadLeader,REBELsoldierMG,REBELsoldierAT,REBELsoldierAT,REBELsoldierAT];
+REBELgroupFIRETEAM = [SDKSL,SDKGL,SDKMG,SDKMil];
+REBELgroupAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
 //["BanditShockTeam","ParaShockTeam"];
-REBELgroupSQUAD = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELliteAT,REBELsoldierAT,REBELliteAT,REBELmedic];
-REBELgroupSQUADengineer = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierEXP,REBELsoldierAT,REBELengineer,REBELmedic];
-REBELgroupSQUADsupport = [REBELsquadLeader,REBELsoldierGL,REBELliteAT,REBELsoldierMG,REBELsoldierAT,REBELmedic,[REBELstaticCREW,REBELstaticCREW],[REBELstaticCREW,REBELstaticCREW]];
-REBELgroupSNIPER = [REBELsniper,REBELsniper];
-REBELgroupSENTRY = [REBELsoldierGL,REBELliteAT];
+REBELgroupSQUAD = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
+REBELgroupSQUADengineer = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
+REBELgroupSQUADsupport = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
+REBELgroupSNIPER = [SDKSniper,SDKSniper];
+REBELgroupSENTRY = [SDKGL,SDKMil];
 
-REBELvehQUAD = "I_G_Quadbike_01_F";
-REBELvehARMEDlite = "rhsgref_nat_uaz_dshkm";
-REBELvehAT = "rhsgref_nat_uaz_spg9";
-REBELvehUNARMEDlite = "rhsgref_cdf_reg_uaz_open";
-REBELvehTRANSPORT = "rhsgref_cdf_zil131";
-//REBELvehHELI = "rhsgref_ins_g_Mi8amt";
-REBELvehPLANE = "RHS_AN2";
-REBELvehBOAT = "I_C_Boat_Transport_01_F";
-REBELvehREPAIR = "rhsgref_cdf_gaz66_repair";
+vehSDKBike  = "I_G_Quadbike_01_F";
+vehSDKLightArmed = "rhsgref_nat_uaz_dshkm";
+vehSDKAT = "rhsgref_nat_uaz_spg9";
+vehSDKLightUnarmed = "rhsgref_cdf_reg_uaz_open";
+vehSDKTruck = "rhsgref_cdf_zil131";
+//vehSDKHeli = "rhsgref_ins_g_Mi8amt";
+vehSDKPlane = "RHS_AN2";
+vehSDKBoat = "I_C_Boat_Transport_01_F";
+vehSDKRepair = "rhsgref_cdf_gaz66_repair";
 
-REBELvehALL = [REBELvehQUAD,REBELvehARMEDlite,REBELstaticMG,REBELvehUNARMEDlite,REBELvehTRANSPORT,REBELvehBOAT,REBELmortar,REBELstaticAT,REBELstaticAA,REBELvehREPAIR];
+REBELvehALL = [vehSDKBike ,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 
-REBELflag = "Flag_Syndikat_F";
-REBELflagTEX = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
+SDKFlag = "Flag_Syndikat_F";
+SDKFlagTexture = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
 typePetros = "rhsgref_nat_warlord";
 
-REBELstaticSUPPORTbag = "RHS_SPG9_Tripod_Bag";
-REBELstaticSUPPORTbagAT = "RHS_SPG9_Gun_Bag";
-REBELstaticSUPPORTbagTALL = "RHS_DShkM_Gun_Bag";
-REBELstaticSUPPORTbagTALL2 = "RHS_DShkM_TripodHigh_Bag";
-REBELstaticSUPPORTbagAA = "I_AA_01_weapon_F";
-REBELstaticSUPPORTbagMORTAR = "RHS_Podnos_Gun_Bag";
-REBELstaticSUPPORTbagMORTAR2 = "RHS_Podnos_Bipod_Bag";
+supportStaticSDKB = "RHS_SPG9_Tripod_Bag";
+ATStaticSDKB = "RHS_SPG9_Gun_Bag";
+MGStaticSDKB = "RHS_DShkM_Gun_Bag";
+supportStaticsSDKB2 = "RHS_DShkM_TripodHigh_Bag";
+AAStaticSDKB = "I_AA_01_weapon_F";
+MortStaticSDKB = "RHS_Podnos_Gun_Bag";
+supportStaticsSDKB3 = "RHS_Podnos_Bipod_Bag";
 
-CIVcar = "C_Offroad_01_F";
-CIVtruck = "RHS_Ural_Open_Civ_03";
-CIVheli = "RHS_Mi8t_civilian";
-CIVboat = "C_Boat_Transport_02_F";
+civCar = "C_Offroad_01_F";
+civTruck = "RHS_Ural_Open_Civ_03";
+civHeli = "RHS_Mi8t_civilian";
+civBoat = "C_Boat_Transport_02_F";
 
 arrayCivVeh = arrayCivVeh + ["RHS_Ural_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_01","RHS_Ural_Open_Civ_02","RHS_Ural_Open_Civ_03"];
 
-petrosRifle = "rhs_weap_m76_pso";
+sniperRifle = "rhs_weap_m76_pso";
 REBELflashlight = ["rhs_acc_2dpZenit","acc_flashlight"];
 
-REBELmineAT = "rhs_mine_tm62m_mag";
-REBELmineAP = "rhs_mine_pmn2_mag";
+ATMineMag = "rhs_mine_tm62m_mag";
+APERSMineMag = "rhs_mine_pmn2_mag";
 
 if (hasFFAA) then
 	{
@@ -108,12 +108,12 @@ vehPoliceCar = "rhsusf_mrzr4_d";
 policeOfficer = "rhsusf_army_ucp_rifleman_m590";
 policeGrunt = "rhsusf_army_ucp_rifleman_82nd";
 groupsNATOGen = [policeOfficer,policeGrunt];
-REBELfactionNAME = "NAPA";
+nameTeamPlayer = "NAPA";
 
-POLICE = "BLU_GEN_F";
+factionGEN = "BLU_GEN_F";
 
 //Player spawn loadout
-REBELloadoutDEFAULT = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
 
 //Arsenal and Initial AI weapon setup
 unlockedVEST = ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
@@ -148,7 +148,7 @@ if (count _x > 1) then
 	_uniform = (getUnitLoadout _unit select 3) select 0;
 	REBELuniformsPM pushBackUnique _uniform;
 	};
-} forEach [REBELsniper,REBELsoldierAT,REBELmedic,REBELsoldierMG,REBELsoldierEXP,REBELsoldierGL,REBELliteAT,REBELsquadLeader,REBELengineer,[REBELprisoner],[REBELstaticCREW]];
+} forEach [SDKSniper,SDKATman,SDKMedic,SDKMG,SDKExp,SDKGL,SDKMil,SDKSL,SDKEng,[SDKUnarmed],[staticCrewTeamPlayer]];
 
 //TAFR Unlocks
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str","ItemRadio"]};

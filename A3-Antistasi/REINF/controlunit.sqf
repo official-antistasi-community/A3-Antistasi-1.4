@@ -10,7 +10,7 @@ if (player != leader group player) exitWith {hint "You cannot control AI if you 
 if (isPlayer _unit) exitWith {hint "You cannot control another player"};
 if (!(alive _unit) or (_unit getVariable ["INCAPACITATED",false]))  exitWith {hint "You cannot control an unconscious, a dead unit"};
 //if ((not(typeOf _unit in REBELunitsALL)) and (typeOf _unit != "b_g_survivor_F")) exitWith {hint "You cannot control a unit which does not belong to FIA"};
-if (side _unit != teamPlayer) exitWith {hint format ["You cannot control a unit which does not belong to %1",REBELfactionNAME]};
+if (side _unit != teamPlayer) exitWith {hint format ["You cannot control a unit which does not belong to %1",nameTeamPlayer]};
 
 
 _owner = player getVariable ["owner",player];

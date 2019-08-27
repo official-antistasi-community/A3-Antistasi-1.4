@@ -13,7 +13,7 @@ if (!hasGREF) then {if (not((uniform _unit) in REBELuniformsPM)) then {[_unit] c
 if ((!isMultiplayer) and (leader _unit == theBoss)) then {_skill = _skill + 0.1};							// if SP and unit is in players squad then boost their skill by 0.1
 _unit setSkill _skill;																			// set the units skill
 
-if (_typeX in REBELsniper) then																		// if unit is in the sniper list
+if (_typeX in SDKSniper) then																		// if unit is in the sniper list
 	{																						//
 	diag_log format ["%1: [Antistasi] | INFO | FIAinit.sqf | Equipping primary weapon of unit type %2",servertime,_typeX];
 	if (count unlockedSN > 0) then																// and we have unlocked sniper rifles
@@ -33,11 +33,11 @@ else 																		// if unit is not a sniper
 		{
 		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom helmets)};
 		};
-	if ((_typeX in REBELliteAT) or (_typeX == REBELstaticCREW)) then						// If unit is in the military or static crew troop lists
+	if ((_typeX in SDKMil) or (_typeX == staticCrewTeamPlayer)) then						// If unit is in the military or static crew troop lists
 		{																	//
 		diag_log format ["%1: [Antistasi] | INFO | FIAinit.sqf | Equipping primary weapon of unit type %2",servertime,_typeX];
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;								// Give them a Rifle
-		if ((loadAbs _unit < 340) and (_typeX in REBELliteAT)) then							//
+		if ((loadAbs _unit < 340) and (_typeX in SDKMil)) then							//
 			{																//
 			if ((random 20 < skillFIA) and (count unlockedAA > 0)) then					// if roll succeeds and there are unlocked AA launchers
 				{															//
@@ -50,7 +50,7 @@ else 																		// if unit is not a sniper
 		}																	//
 	else
 		{
-		if (_typeX in REBELsoldierMG) then												// if they meet the MG list
+		if (_typeX in SDKMG) then												// if they meet the MG list
 			{																//
 			diag_log format ["%1: [Antistasi] | INFO | FIAinit.sqf | Equipping primary weapon of unit type %2",servertime,_typeX];
 			if (count unlockedMG > 0) then										// and we have unlocked MG's
@@ -64,7 +64,7 @@ else 																		// if unit is not a sniper
 			}
 		else
 			{
-			if (_typeX in REBELsoldierGL) then											// if they meet the GL lists
+			if (_typeX in SDKGL) then											// if they meet the GL lists
 				{															//
 				diag_log format ["%1: [Antistasi] | INFO | FIAinit.sqf | Equipping primary weapon of unit type %2",servertime,_typeX];
 				if (count unlockedGL > 0) then									// and we have unlocked Gl Rifles
@@ -78,16 +78,16 @@ else 																		// if unit is not a sniper
 				}
 			else
 				{
-				if (_typeX != REBELprisoner) then {[_unit,unlockedRifles] call A3A_fnc_randomRifle};		// Otherwise as long as the unit is not a prisoner/refugee give them any random rifle
+				if (_typeX != SDKUnarmed) then {[_unit,unlockedRifles] call A3A_fnc_randomRifle};		// Otherwise as long as the unit is not a prisoner/refugee give them any random rifle
 				diag_log format ["%1: [Antistasi] | INFO | FIAinit.sqf | Equipping primary weapon of unit type %2",servertime,_typeX];
-				if (_typeX in REBELsoldierEXP) then													// if unit is explosive specialist
+				if (_typeX in SDKExp) then													// if unit is explosive specialist
 					{																	//
 					diag_log format ["%1: [Antistasi] | INFO | FIAinit.sqf | Setting Exp. Spec. trait to unit of type %2",servertime,_typeX];
 					_unit setUnitTrait ["explosiveSpecialist",true];								// give them the proper trait
 					}
 				else
 					{
-					if (_typeX in REBELmedic) then												// if unit is a medic
+					if (_typeX in SDKMedic) then												// if unit is a medic
 						{																//
 						if (debug) then {diag_log format ["%1: [Antistasi] | INFO | FIAinit.sqf | Setting Medic trait and gear to unit of type %2",servertime,_typeX];};
 						_unit setUnitTrait ["medic",true];										// give them the proper trait
@@ -98,7 +98,7 @@ else 																		// if unit is not a sniper
 						}
 					else
 						{
-						if (_typeX in REBELsoldierAT) then											// if unit is an AT soldier
+						if (_typeX in SDKATman) then											// if unit is an AT soldier
 							{															//
 							if !(unlockedAT isEqualTo []) then									// and we have unlockedAT
 								{														//
@@ -143,7 +143,7 @@ _unit selectWeapon (primaryWeapon _unit);														// make the unit draw his
 
 if (!haveRadio) then																		// if radio's are not unlocked
 	{																					//
-	if ((_unit != leader _unit) and (_typeX != REBELstaticCREW)) then {_unit unlinkItem "ItemRadio"};	// remove units radio if it is not the squad leader or a mortar crewman
+	if ((_unit != leader _unit) and (_typeX != staticCrewTeamPlayer)) then {_unit unlinkItem "ItemRadio"};	// remove units radio if it is not the squad leader or a mortar crewman
 	};
 
 if ({if (_x in smokeX) exitWith {1}} count unlockedMagazines > 0) then {_unit addMagazines [selectRandom smokeX,2]};	// give unit 2 random smoke grenades
@@ -151,7 +151,7 @@ if ({if (_x in chemX) exitWith {1}} count unlockedMagazines > 0) then {_unit add
 	
 if !(hasIFA) then																					// if we DONT detect IFA
 	{																							//
-	if ((sunOrMoon < 1) and (_typeX != REBELprisoner)) then													// if it is night and unit isnt a prisoner/refugee
+	if ((sunOrMoon < 1) and (_typeX != SDKUnarmed)) then													// if it is night and unit isnt a prisoner/refugee
 		{																						//
 		if (haveNV) then																			// and NVG's are unlocked
 			{																					//
@@ -231,7 +231,7 @@ if (player == leader _unit) then																		// if the leader of of this un
 			};
 		_victim setVariable ["spawner",nil,true];														// remove spawner flag from killed unit
 	}];																							// end of KilledEH
-	if ((typeOf _unit != REBELprisoner) and !hasIFA) then
+	if ((typeOf _unit != SDKUnarmed) and !hasIFA) then
 		{																						// if the unit isnt a refugee/prisoner and IFA isnt detected
 		_idUnit = arrayids call BIS_Fnc_selectRandom;													//
 		arrayids = arrayids - [_idunit];																// grab a free unit identity

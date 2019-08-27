@@ -244,7 +244,7 @@ fn_SetStat =
 				_mrk setMarkerShape "ICON";
 				_mrk setMarkerType "loc_bunker";
 				_mrk setMarkerColor colourTeamPlayer;
-				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",REBELfactionNAME]} else {_mrk setMarkerText format ["%1 Watchpost",REBELfactionNAME]};
+				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer]} else {_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer]};
 				spawner setVariable [_mrk,2,true];
 				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
 				outpostsFIA pushBack _mrk;

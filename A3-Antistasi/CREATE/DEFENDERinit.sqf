@@ -52,7 +52,7 @@ else
 	};
 
 _skill = (tierWar + difficultyCoef) * 0.1 * skillMult;
-if ((faction _unit != POLICE) and (faction _unit != factionFIA)) then
+if ((faction _unit != factionGEN) and (faction _unit != factionFIA)) then
 	{
 	if (side _unit == Occupants) then
 		{

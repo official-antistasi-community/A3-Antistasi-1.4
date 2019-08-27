@@ -116,7 +116,7 @@ switch (_typeConvoyX) do
 		};
 	case "Supplies":
 		{
-		_textX = format ["A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.",_nameOrigin,_displayTime,_nameDest,REBELfactionNAME];
+		_textX = format ["A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.",_nameOrigin,_displayTime,_nameDest,nameTeamPlayer];
 		_taskTitle = "Supply Convoy";
 		_taskIcon = "heal";
 		_typeVehObj = "C_Van_01_box_F";
@@ -285,7 +285,7 @@ if (_typeConvoyX == "Prisoners") then
 	_groups pushBack _grpPOW;
 	for "_i" from 1 to (1+ round (random 11)) do
 		{
-		_unit = _grpPOW createUnit [REBELprisoner, _posbase, [], 0, "NONE"];
+		_unit = _grpPOW createUnit [SDKUnarmed, _posbase, [], 0, "NONE"];
 		[_unit,true] remoteExec ["setCaptive",0,_unit];
 		_unit setCaptive true;
 		_unit disableAI "MOVE";

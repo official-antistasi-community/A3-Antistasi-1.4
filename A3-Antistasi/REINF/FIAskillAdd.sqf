@@ -8,7 +8,7 @@ if (_resourcesFIA < _costs) exitWith {hint format ["You do not have enough money
 
 _resourcesFIA = _resourcesFIA - _costs;
 skillFIA = skillFIA + 1;
-hint format ["%2 Skill Level has been Upgraded\nCurrent level is %1",skillFIA,REBELfactionNAME];
+hint format ["%2 Skill Level has been Upgraded\nCurrent level is %1",skillFIA,nameTeamPlayer];
 publicVariable "skillFIA";
 server setVariable ["resourcesFIA",_resourcesFIA,true];
 [] spawn A3A_fnc_statistics;

@@ -13,56 +13,56 @@ Fifth: VERY IMPORTANT: RESPECT THE VARIABLE FORMATS IN THE TEMPLATES, IF YOU SEE
 Now the templates:
 teamPlayerVanilla.sqf:
 
-REBELmortar = "I_G_Mortar_01_F";//rebel mortar
-REBELmortarHEmag = "8Rnd_82mm_Mo_shells";// the mortar shells, used in arty scripts
-REBELmortarSMOKEmag = "8Rnd_82mm_Mo_Smoke_white";// smoke shells, used in arty scripts
-REBELstaticMG = "I_HMG_01_high_F";//rebel static MG
-REBELstaticAT = "I_Static_AT_F";//rebel static AT
-REBELstaticAA = "I_Static_AA_F";//rebel static AA
+SDKMortar = "I_G_Mortar_01_F";//rebel mortar
+SDKMortarHEMag = "8Rnd_82mm_Mo_shells";// the mortar shells, used in arty scripts
+SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";// smoke shells, used in arty scripts
+SDKMGStatic = "I_HMG_01_high_F";//rebel static MG
+staticATteamPlayer = "I_Static_AT_F";//rebel static AT
+staticAAteamPlayer = "I_Static_AA_F";//rebel static AA
 
-REBELstaticCREW = "I_G_Soldier_unarmed_F";// static crew classname, has to be unique, if the mod does not have a cre model, use this and some script will replace his clothing
-REBELprisoner = "I_G_Survivor_F";//unarmed prisoner model, it has to be unique, if the mod does not have an unarmed model, use this and some script will replace his clothing
-REBELsniper = ["I_C_Soldier_Bandit_5_F","I_C_Soldier_Para_7_F"];//sniper, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
-REBELsoldierAT = ["I_C_Soldier_Bandit_2_F","I_C_Soldier_Para_5_F"];//AT soldier, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
-REBELmedic = ["I_C_Soldier_Bandit_1_F","I_C_Soldier_Para_3_F"];//Medic, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
-REBELsoldierMG = ["I_C_Soldier_Bandit_3_F","I_C_Soldier_Para_4_F"];//Machine gunner, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
-REBELsoldierEXP = ["I_C_Soldier_Bandit_8_F","I_C_Soldier_Para_8_F"];//Explosive specialist, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
-REBELsoldierGL = ["I_C_Soldier_Bandit_6_F","I_C_Soldier_Para_6_F"];//Grenade Launcher, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
-REBELliteAT = ["I_C_Soldier_Bandit_7_F","I_C_Soldier_Para_1_F"];//Basic militia grunt, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
-REBELsquadLeader = ["I_C_Soldier_Bandit_4_F","I_C_Soldier_Para_2_F"];//Squad Leader, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
-REBELengineer = ["I_G_engineer_F","I_G_engineer_F"];//Engineer, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+staticCrewTeamPlayer = "I_G_Soldier_unarmed_F";// static crew classname, has to be unique, if the mod does not have a cre model, use this and some script will replace his clothing
+SDKUnarmed = "I_G_Survivor_F";//unarmed prisoner model, it has to be unique, if the mod does not have an unarmed model, use this and some script will replace his clothing
+SDKSniper = ["I_C_Soldier_Bandit_5_F","I_C_Soldier_Para_7_F"];//sniper, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKATman = ["I_C_Soldier_Bandit_2_F","I_C_Soldier_Para_5_F"];//AT soldier, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKMedic = ["I_C_Soldier_Bandit_1_F","I_C_Soldier_Para_3_F"];//Medic, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKMG = ["I_C_Soldier_Bandit_3_F","I_C_Soldier_Para_4_F"];//Machine gunner, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKExp = ["I_C_Soldier_Bandit_8_F","I_C_Soldier_Para_8_F"];//Explosive specialist, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKGL = ["I_C_Soldier_Bandit_6_F","I_C_Soldier_Para_6_F"];//Grenade Launcher, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKMil = ["I_C_Soldier_Bandit_7_F","I_C_Soldier_Para_1_F"];//Basic militia grunt, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKSL = ["I_C_Soldier_Bandit_4_F","I_C_Soldier_Para_2_F"];//Squad Leader, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKEng = ["I_G_engineer_F","I_G_engineer_F"];//Engineer, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
 
-REBELvehQUAD = "I_G_Quadbike_01_F";//most of the mods dont have a bike model, replace it with the most basic militia car of your mod or just leave the quadbike
-REBELvehARMEDlite = "I_C_Offroad_02_LMG_F";//rebel MG car
-REBELvehAT = "I_C_Offroad_02_AT_F";//rebel self propelled cannon
-REBELvehUNARMEDlite = "I_C_Offroad_01_F";//rebel car
-REBELvehTRANSPORT = "I_C_Van_01_Transport_F";//rebel truck
-//REBELvehHELI = "I_C_Heli_Light_01_civil_F";//this no longer exists
-REBELvehPLANE = "I_C_Plane_civil_01_F";//rebel plane, pick the most basic plane
-REBELvehBOAT = "I_C_Boat_Transport_01_F";//rebel rudder boat
-REBELvehREPAIR = "B_G_Offroad_01_repair_F";//repair car or truck
-REBELflag = "Flag_Syndikat_F";//flag of the rebel faction
-REBELflagTEX = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";//texture of the flag, in case rebels take an enemy flag
+vehSDKBike  = "I_G_Quadbike_01_F";//most of the mods dont have a bike model, replace it with the most basic militia car of your mod or just leave the quadbike
+vehSDKLightArmed = "I_C_Offroad_02_LMG_F";//rebel MG car
+vehSDKAT = "I_C_Offroad_02_AT_F";//rebel self propelled cannon
+vehSDKLightUnarmed = "I_C_Offroad_01_F";//rebel car
+vehSDKTruck = "I_C_Van_01_Transport_F";//rebel truck
+//vehSDKHeli = "I_C_Heli_Light_01_civil_F";//this no longer exists
+vehSDKPlane = "I_C_Plane_civil_01_F";//rebel plane, pick the most basic plane
+vehSDKBoat = "I_C_Boat_Transport_01_F";//rebel rudder boat
+vehSDKRepair = "B_G_Offroad_01_repair_F";//repair car or truck
+SDKFlag = "Flag_Syndikat_F";//flag of the rebel faction
+SDKFlagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";//texture of the flag, in case rebels take an enemy flag
 typePetros = "I_C_Soldier_Camo_F";//petros or maru model
 
-REBELstaticSUPPORTbag = "I_HMG_01_support_F";//static support backpack, place "not_supported" if your mod lacks of it
-REBELstaticSUPPORTbagAT = "I_AT_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
-REBELstaticSUPPORTbagTALL = "I_HMG_01_high_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
-REBELstaticSUPPORTbagTALL2 = "I_HMG_01_support_high_F";//static support backpack, place "not_supported" if your mod lacks of it
-REBELstaticSUPPORTbagAA = "I_AA_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
-REBELstaticSUPPORTbagMORTAR = "I_Mortar_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
-REBELstaticSUPPORTbagMORTAR2 = "I_Mortar_01_support_F";//static support backpack, place "not_supported" if your mod lacks of it
+supportStaticSDKB = "I_HMG_01_support_F";//static support backpack, place "not_supported" if your mod lacks of it
+ATStaticSDKB = "I_AT_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
+MGStaticSDKB = "I_HMG_01_high_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
+supportStaticsSDKB2 = "I_HMG_01_support_high_F";//static support backpack, place "not_supported" if your mod lacks of it
+AAStaticSDKB = "I_AA_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
+MortStaticSDKB = "I_Mortar_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
+supportStaticsSDKB3 = "I_Mortar_01_support_F";//static support backpack, place "not_supported" if your mod lacks of it
 
-CIVcar = "C_Offroad_01_F";//purchaseable civ car
-CIVtruck = "C_Van_01_transport_F";//purchaseable civ truck
-CIVheli = "C_Heli_Light_01_civil_F";//purchaseable civ heli
-CIVboat = "C_Boat_Transport_02_F";//purchaseable civ boat
+civCar = "C_Offroad_01_F";//purchaseable civ car
+civTruck = "C_Van_01_transport_F";//purchaseable civ truck
+civHeli = "C_Heli_Light_01_civil_F";//purchaseable civ heli
+civBoat = "C_Boat_Transport_02_F";//purchaseable civ boat
 
-petrosRifle = "srifle_DMR_06_camo_F";//sniper rifle, mainly for metros / maru
+sniperRifle = "srifle_DMR_06_camo_F";//sniper rifle, mainly for metros / maru
 REBELflashlight = ["acc_flashlight"];//flashlight if available in your mod
 
-REBELmineAT = "ATMine_Range_Mag";//mines which will be deployed in the minefield scripts
-REBELmineAP = "APERSMine_Range_Mag";//mines which will be deployed in the minefield scripts
+ATMineMag = "ATMine_Range_Mag";//mines which will be deployed in the minefield scripts
+APERSMineMag = "APERSMine_Range_Mag";//mines which will be deployed in the minefield scripts
 
 //here comes the Tier 1 (police) and Tier 2 (PMC) enemy stuff. If your mod does not have enough classes in other sides, then just use the most basic classnames of those flactions.
 //the following is fot Tier 2. In the template, as we use Sindykat as rebels, we may use Blufor or Greenfor FIA as PMC.
@@ -105,6 +105,6 @@ vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
 policeOfficer = "B_GEN_Commander_F";
 policeGrunt = "B_GEN_Soldier_F";
 groupsNATOGen = [policeOfficer,policeGrunt];
-REBELfactionNAME = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
+nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
 
-POLICE = "BLU_GEN_F";
+factionGEN = "BLU_GEN_F";

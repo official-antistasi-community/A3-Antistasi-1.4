@@ -3,7 +3,7 @@ _typeX = _this select 1;
 _positionX = getMarkerPos _markerX;
 if (_typeX isEqualType "") then
 	{
-	_groups = if (_typeX == REBELstaticCREW) then {[]} else {allGroups select {(leader _x getVariable ["markerX",""] == _markerX) and (count units _x < 8) and (vehicle (leader _x) == leader _x)}};
+	_groups = if (_typeX == staticCrewTeamPlayer) then {[]} else {allGroups select {(leader _x getVariable ["markerX",""] == _markerX) and (count units _x < 8) and (vehicle (leader _x) == leader _x)}};
 	_groupX = if (_groups isEqualTo []) then
 		{
 		createGroup teamPlayer
@@ -13,11 +13,11 @@ if (_typeX isEqualType "") then
 		_groups select 0;
 		};
 	_unit = _groupX createUnit [_typeX, _positionX, [], 0, "NONE"];
-	//if (_typeX in REBELsquadLeader) then {_groupX selectLeader _unit};
+	//if (_typeX in SDKSL) then {_groupX selectLeader _unit};
 	[_unit,_markerX] call A3A_fnc_REBELinit;
-	if (_typeX == REBELstaticCREW) then
+	if (_typeX == staticCrewTeamPlayer) then
 		{
-		private _veh = REBELmortar createVehicle _positionX;
+		private _veh = SDKMortar createVehicle _positionX;
 		_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";
 		_unit assignAsGunner _veh;
 		_unit moveInGunner _veh;
@@ -35,7 +35,7 @@ if (_typeX isEqualType "") then
 		if (alive _unit) then
 			{
 			private _groupX = group _unit;
-			if (typeOf _unit == REBELstaticCREW) then {deleteVehicle (vehicle _unit)};
+			if (typeOf _unit == staticCrewTeamPlayer) then {deleteVehicle (vehicle _unit)};
 			deleteVehicle _unit;
 			if (count units _groupX == 0) then {deleteGroup _groupX};
 			};

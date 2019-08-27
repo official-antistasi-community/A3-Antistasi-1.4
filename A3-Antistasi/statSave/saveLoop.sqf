@@ -64,10 +64,10 @@ if ((_friendX getVariable ["spawner",false]) and (side group _friendX == teamPla
 				{
 				switch (_backpck) do
 					{
-					case REBELstaticSUPPORTbagMORTAR: {_resourcesBackground = _resourcesBackground + ([REBELmortar] call A3A_fnc_vehiclePrice)};
-					case REBELstaticSUPPORTbagAA: {_resourcesBackground = _resourcesBackground + ([REBELstaticAA] call A3A_fnc_vehiclePrice)};
-					case REBELstaticSUPPORTbagTALL: {_resourcesBackground = _resourcesBackground + ([REBELstaticMG] call A3A_fnc_vehiclePrice)};
-					case REBELstaticSUPPORTbagAT: {_resourcesBackground = _resourcesBackground + ([REBELstaticAT] call A3A_fnc_vehiclePrice)};
+					case MortStaticSDKB: {_resourcesBackground = _resourcesBackground + ([SDKMortar] call A3A_fnc_vehiclePrice)};
+					case AAStaticSDKB: {_resourcesBackground = _resourcesBackground + ([staticAAteamPlayer] call A3A_fnc_vehiclePrice)};
+					case MGStaticSDKB: {_resourcesBackground = _resourcesBackground + ([SDKMGStatic] call A3A_fnc_vehiclePrice)};
+					case ATStaticSDKB: {_resourcesBackground = _resourcesBackground + ([staticATteamPlayer] call A3A_fnc_vehiclePrice)};
 					};
 				};
 			if (vehicle _friendX != _friendX) then
@@ -238,5 +238,5 @@ _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlaye
 ["controlsSDK",_controlsX] call fn_SaveStat;
 
 savingServer = false;
-[[petros,"hint",format ["Savegame Done.\n\nYou won't lose your stats in the event of a game update.\n\nRemember: if you want to preserve any vehicle, it must be near the HQ Flag with no AI inside.\nIf AI are inside, you will save the funds you spent on it.\n\nAI will be refunded\n\nStolen and purchased Static Weapons need to be ASSEMBLED in order to be saved. You can save disassembled Static Weapons in the ammo box.\n\nMounted Statics (Mortar/AA/AT squads) won't get saved, but you will be able to recover the cost.\n\nSame for assigned vehicles more than 50m away from HQ.\n\n%1 fund count:\nHR: %2\nMoney: %3 €",REBELfactionNAME,_hrBackground,_resourcesBackground]],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+[[petros,"hint",format ["Savegame Done.\n\nYou won't lose your stats in the event of a game update.\n\nRemember: if you want to preserve any vehicle, it must be near the HQ Flag with no AI inside.\nIf AI are inside, you will save the funds you spent on it.\n\nAI will be refunded\n\nStolen and purchased Static Weapons need to be ASSEMBLED in order to be saved. You can save disassembled Static Weapons in the ammo box.\n\nMounted Statics (Mortar/AA/AT squads) won't get saved, but you will be able to recover the cost.\n\nSame for assigned vehicles more than 50m away from HQ.\n\n%1 fund count:\nHR: %2\nMoney: %3 €",nameTeamPlayer,_hrBackground,_resourcesBackground]],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 diag_log format ["%1: [Antistasi] | INFO | Persistent Save Completed.",servertime];

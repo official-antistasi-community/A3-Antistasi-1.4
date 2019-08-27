@@ -16,7 +16,7 @@ if (_isRoad) then
 
 	if (isNil "_garrison") then
 		{//this is for backward compatibility, remove after v12
-		_garrison = [REBELstaticCREW];
+		_garrison = [staticCrewTeamPlayer];
 		{
 		if (random 20 <= skillFIA) then {_garrison pushBack (_x select 1)} else {_garrison pushBack (_x select 0)};
 		} forEach REBELgroupAT;
@@ -28,20 +28,20 @@ if (_isRoad) then
 		if (count _road > 0) exitWith {};
 		_radiusX = _radiusX + 5;
 		};
-	if (REBELstaticCREW in _garrison) then
+	if (staticCrewTeamPlayer in _garrison) then
 		{
 		_roadcon = roadsConnectedto (_road select 0);
 		_dirveh = [_road select 0, _roadcon select 0] call BIS_fnc_DirTo;
-		_veh = REBELvehARMEDlite createVehicle getPos (_road select 0);
+		_veh = vehSDKLightArmed createVehicle getPos (_road select 0);
 		_veh setDir _dirveh + 90;
 		_veh lock 3;
 		_nul = [_veh] call A3A_fnc_AIvehINIT;
 		sleep 1;
 		};
 	_groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
-	//_unit = _groupX createUnit [REBELstaticCREW, _positionX, [], 0, "NONE"];
+	//_unit = _groupX createUnit [staticCrewTeamPlayer, _positionX, [], 0, "NONE"];
 	//_unit moveInGunner _veh;
-	{[_x,_markerX] spawn A3A_fnc_REBELinit; if (typeOf _x == REBELstaticCREW) then {_x moveInGunner _veh}} forEach units _groupX;
+	{[_x,_markerX] spawn A3A_fnc_REBELinit; if (typeOf _x == staticCrewTeamPlayer) then {_x moveInGunner _veh}} forEach units _groupX;
 	}
 else
 	{

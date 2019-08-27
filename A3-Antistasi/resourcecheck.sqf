@@ -62,7 +62,7 @@ while {true} do
 
 	if ((_supportDEFENDER < _supportREBELS) and (sidesX getVariable [_city,sideUnknown] == Occupants)) then
 		{
-		["TaskSucceeded", ["", format ["%1 joined %2.<br/> The police have fled.",[_city, false] call A3A_fnc_fn_location,REBELfactionNAME]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+		["TaskSucceeded", ["", format ["%1 joined %2.<br/> The police have fled.",[_city, false] call A3A_fnc_fn_location,nameTeamPlayer]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 		sidesX setVariable [_city,teamPlayer,true];
 		_nul = [5,0] remoteExec ["A3A_fnc_prestige",2];
 		_mrkD = format ["Dum%1",_city];

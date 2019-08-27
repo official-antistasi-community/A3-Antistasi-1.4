@@ -291,6 +291,11 @@ class A3A
         class loadPreviousSession {file="statSave\loadPreviousSession.sqf";};
 	}
 	
+	class Templates
+	{
+        class getLoadout {file="Templates\Loadouts\getLoadout.sqf";};
+	}
+	
 	class Utility
 	{
         class basicBackpack {file="Ammunition\basicBackpack.sqf";};

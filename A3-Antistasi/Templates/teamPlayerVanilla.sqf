@@ -20,9 +20,9 @@ SDKSL = ["I_C_Soldier_Bandit_4_F","I_C_Soldier_Para_2_F"];
 SDKEng = ["I_G_engineer_F","I_G_engineer_F"];
 
 vehSDKBike = "I_G_Quadbike_01_F";
-vehSDKLightArmed = "I_C_Offroad_02_LMG_F";
-vehSDKAT = "I_C_Offroad_02_AT_F";
-vehSDKLightUnarmed = "I_C_Offroad_01_F";
+vehSDKLightArmed = "I_G_Offroad_01_armed_F";
+vehSDKAT = "I_G_Offroad_02_AT_F";
+vehSDKLightUnarmed = "I_G_Offroad_01_F";
 vehSDKTruck = "I_C_Van_01_Transport_F";
 //vehSDKHeli = "I_C_Heli_Light_01_civil_F";
 vehSDKPlane = "I_C_Plane_civil_01_F";

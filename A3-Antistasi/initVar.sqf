@@ -62,6 +62,8 @@ rlaunchers = [];
 helmets = [];
 //vests = [];
 
+unlockedItems = [];
+
 hasRHS = false;
 
 //lockedWeapons = ["Rangefinder","Laserdesignator"];
@@ -123,18 +125,30 @@ if (not(_nameX in _alreadyPlaced)) then
 	};
 } forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems;
 //vests = vests select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
-//Mod detection
+//-------------
+//MOD DETECTION
+//-------------
 activeAFRF = false;
 activeUSAF = false;
 activeGREF = false;
 hasFFAA = false;
-hasIFA = false;
+hasIFA = (isClass(configFile/"CfgPatches"/"LIB_Core"));
 myCustomMod = false;
 has3CB = false;
+
+hasTFAR = (isClass (configFile >> "CfgPatches" >> "task_force_radio"));
+hasACRE = (isClass(configFile >> "cfgPatches" >> "acre_main"));
+haveRadio = hasTFAR || hasACRE;
+
+hasACE = (!isNil "ace_common_fnc_isModLoaded");
+hasACEhearing = (isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak"));
+hasACEMedical = (isClass (ConfigFile >> "CfgSounds" >> "ACE_heartbeat_fast_3"));
+hasADVCPR = isClass (configFile >> "CfgPatches" >> "adv_aceCPR");
+hasADVSplint = isClass (configFile >> "CfgPatches" >> "adv_aceSplint");
+
 diag_log format ["%1: [Antistasi] | INFO | initVar | Patching mod weapon support",servertime];
-if (isClass(configFile/"CfgPatches"/"LIB_Core")) then
+if (hasIFA) then
 	{
-	hasIFA = true;
 	helmets = [];
 	smokeX = ["LIB_RDG","LIB_NB39"];
 	}
@@ -149,28 +163,28 @@ else
 	smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
 	};
 
-	//TFAR detection and config.
-	hasTFAR = false;//default setting to avoid errors when mod is not present
-	startLR = false;//default setting to avoid errors when mod is not present
-	unlockedItems = [];
-	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
-	    {
-	    hasTFAR = true;
-	    haveRadio = true;
-			startLR = true;//set to true to start with LR radios unlocked.
-	    //unlockedItems = unlockedItems;
-	    ["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
-	    if (hasIFA) then {
-	      ["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
-	      ["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
-	    };
-	    //tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";//to make enemy vehicles usable as LR radio
-	    //tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code"; //to make enemy vehicles usable as LR radio
-	    //tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";//to make enemy vehicles usable as LR radio
-	    ["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize SR default frequencies
-	    ["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize LR default frequencies
+//TFAR config
+if (hasTFAR) then
+{
+	startLR = true;//set to true to start with LR radios unlocked.
+	//unlockedItems = unlockedItems;
+	["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;//set to false and players will spawn with LR radio.
+	if (hasIFA) then {
+	  ["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
+	  ["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
+	};
+	//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";//to make enemy vehicles usable as LR radio
+	//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code"; //to make enemy vehicles usable as LR radio
+	//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";//to make enemy vehicles usable as LR radio
+	["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize SR default frequencies
+	["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize LR default frequencies
+};
 
-	    };
+//ACRE config
+if (hasACRE) then
+{
+	unlockedItems = unlockedItems + ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
+};
 
 //Launcher selection
 diag_log format ["%1: [Antistasi]: initVar | Building Launcher list.",servertime];
@@ -601,14 +615,14 @@ missionsX = []; publicVariable "missionsX";
 movingMarker = false;
 if !(hasIFA) then
 	{
-	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"] + uniformsSDK + civUniforms;//Initial Arsenal available items
+	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"] + uniformsSDK + civUniforms;//Initial Arsenal available items
 	//Adds starting vests. THIS IS TEMPORARY and should be moved to the template files.
 	unlockedItems append ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
 	if (side group petros == independent) then {unlockedItems pushBack "I_UavTerminal"} else {unlockedItems pushBack "B_UavTerminal"};
 	}
 else
 	{
-	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","FirstAidKit","Medikit","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"] + uniformsSDK + civUniforms;
+	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"] + uniformsSDK + civUniforms;
 	};
 
 
@@ -633,71 +647,68 @@ garageIsUsed = false;
 vehInGarage = [];
 destroyedBuildings = []; //publicVariable "destroyedBuildings";
 reportedVehs = [];
-hasACRE = false;
-hasACE = false;
-hasACEhearing = false;
-hasACEMedical = false;
 
 //ACE detection and ACE item availability in Arsenal
-	aceItems = [
-		"ACE_EarPlugs",
-		"ACE_RangeCard",
-		"ACE_Clacker",
-		"ACE_M26_Clacker",
-		"ACE_DeadManSwitch",
-		"ACE_DefusalKit",
-		"ACE_MapTools",
-		"ACE_Flashlight_MX991",
-		"ACE_wirecutter",
-		"ACE_RangeTable_82mm",
-		"ACE_EntrenchingTool",
-		"ACE_Cellphone",
-		"ACE_CableTie",
-		"ACE_SpottingScope",
-		"ACE_Tripod",
-		"ACE_Chemlight_HiWhite",
-		"ACE_Chemlight_HiRed",
-		"ACE_Kestrel4500",
-		"ACE_ATragMX",
-		"ACE_acc_pointer_green",
-		"ACE_HandFlare_White",
-		"ACE_HandFlare_Red",
-		"ACE_Spraypaintred"
-	];
-	if (hasIFA) then {aceItems append ["ACE_LIB_LadungPM","ACE_SpareBarrel"]};
-	publicVariable "aceItems";
+aceItems = [
+	"ACE_EarPlugs",
+	"ACE_RangeCard",
+	"ACE_Clacker",
+	"ACE_M26_Clacker",
+	"ACE_DeadManSwitch",
+	"ACE_DefusalKit",
+	"ACE_MapTools",
+	"ACE_Flashlight_MX991",
+	"ACE_wirecutter",
+	"ACE_RangeTable_82mm",
+	"ACE_EntrenchingTool",
+	"ACE_Cellphone",
+	"ACE_CableTie",
+	"ACE_SpottingScope",
+	"ACE_Tripod",
+	"ACE_Chemlight_HiWhite",
+	"ACE_Chemlight_HiRed",
+	"ACE_Kestrel4500",
+	"ACE_ATragMX",
+	"ACE_acc_pointer_green",
+	"ACE_HandFlare_White",
+	"ACE_HandFlare_Red",
+	"ACE_Spraypaintred"
+];
+	
+if (hasIFA) then {aceItems append ["ACE_LIB_LadungPM","ACE_SpareBarrel"]};
+publicVariable "aceItems";
 
-	aceBasicMedItems = [
-		"ACE_fieldDressing",
-		"ACE_bloodIV_500",
-		"ACE_bloodIV",
-		"ACE_epinephrine",
-		"ACE_morphine",
-		"ACE_bodyBag"
-	]; publicVariable "aceBasicMedItems";
+aceBasicMedItems = [
+	"ACE_fieldDressing",
+	"ACE_bloodIV_500",
+	"ACE_bloodIV",
+	"ACE_epinephrine",
+	"ACE_morphine",
+	"ACE_bodyBag"
+]; publicVariable "aceBasicMedItems";
 
-	aceAdvMedItems = [
-		"ACE_elasticBandage",
-		"ACE_quikclot",
-		"ACE_bloodIV_250",
-		"ACE_packingBandage",
-		"ACE_personalAidKit",
-		"ACE_plasmaIV",
-		"ACE_plasmaIV_500",
-		"ACE_plasmaIV_250",
-		"ACE_salineIV",
-		"ACE_salineIV_500",
-		"ACE_salineIV_250",
-		"ACE_surgicalKit",
-		"ACE_tourniquet",
-		"ACE_adenosine",
-		"ACE_atropine",
-		"adv_aceSplint_splint",
-		"adv_aceCPR_AED"
-	]; publicVariable "aceAdvMedItems";
+aceAdvMedItems = [
+	"ACE_elasticBandage",
+	"ACE_quikclot",
+	"ACE_bloodIV_250",
+	"ACE_packingBandage",
+	"ACE_plasmaIV",
+	"ACE_plasmaIV_500",
+	"ACE_plasmaIV_250",
+	"ACE_salineIV",
+	"ACE_salineIV_500",
+	"ACE_salineIV_250",
+	"ACE_surgicalKit",
+	"ACE_tourniquet",
+	"ACE_adenosine",
+	"ACE_atropine"
+]
++ ([["ACE_PersonalAidKit"], ["adv_aceCPR_AED"]] select hasADVCPR)
++ ([[], ["adv_aceSplint_splint"]] select hasADVSplint); 
+publicVariable "aceAdvMedItems";
 
 
-if (!isNil "ace_common_fnc_isModLoaded") then {
+if (hasACE) then {
 	unlockedItems = unlockedItems + aceItems;
 	if !(hasIFA) then
 		{
@@ -705,30 +716,20 @@ if (!isNil "ace_common_fnc_isModLoaded") then {
 		unlockedWeapons pushBackUnique "ACE_VMH3";
 		itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
 		};
-	hasACE = true;
-	if (isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak")) then {
-		hasACEhearing = true;
-	};
-	if (isClass (ConfigFile >> "CfgSounds" >> "ACE_heartbeat_fast_3")) then {
-		if (ace_medical_level == 1) then {
-			hasACEMedical = true;
+};
+
+if (hasACEMedical) then {
+	switch (ace_medical_level) do {
+		case 1: {
 			unlockedItems = unlockedItems + aceBasicMedItems;
 		};
-	};
-
-	if (isClass (ConfigFile >> "CfgSounds" >> "ACE_heartbeat_fast_3")) then {
-		if (ace_medical_level == 2) then {
-			hasACEMedical = true;
+		case 2: {
 			unlockedItems = unlockedItems + aceBasicMedItems + aceAdvMedItems;
 		};
 	};
+} else {
+	unlockedItems = unlockedItems + ["FirstAidKit","Medikit"];
 };
-if (isClass(configFile >> "cfgPatches" >> "acre_main")) then
-	{
-	hasACRE = true;
-	haveRadio = true;
-	unlockedItems = unlockedItems + ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];
-	};
 
 //allItems = allItems + itemsAAF + opticsAAF + _vests + helmets + NVGoggles;
 
@@ -772,6 +773,8 @@ publicVariable "hasTFAR";
 publicVariable "hasACRE";
 publicVariable "hasACEhearing";
 publicVariable "hasACEMedical";
+publicVariable "hasADVCPR";
+publicVariable "hasADVSplint";
 publicVariable "revealX";
 publicVariable "prestigeNATO";
 publicVariable "prestigeCSAT";

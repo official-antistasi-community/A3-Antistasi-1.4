@@ -333,7 +333,7 @@
         <English>Be a Resistance leader, be a hero.</English>
       </Key>
       <Key ID="STR_antistasi_credits_generic_version_text">
-        <Original>1.4c2.0</Original>
+        <Original>1.4c2.01</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
@@ -476,12 +476,12 @@
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_text">
-        <Original>Liberation of Livonia</Original>
-        <English>Liberation of Livonia</English>
+        <Original>The Baltic Revolution</Original>
+        <English>The Baltic Revolution</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_blurp_text">
-        <Original>They are in the trees!</Original>
-        <English>They are in the trees!</English>
+        <Original>Stuck between two fronts</Original>
+        <English>Stuck between two fronts</English>
       </Key>
     </Container>
   </Package>

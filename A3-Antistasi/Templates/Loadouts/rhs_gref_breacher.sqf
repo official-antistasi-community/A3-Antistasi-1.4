@@ -1,5 +1,3 @@
-private _loadout_rhs_gref_breacher =
-
 [//Loadout
 	[//Primary Weapon
 		"RHS_Weap_M590_8Rd",								//Weapon
@@ -33,17 +31,7 @@ private _loadout_rhs_gref_breacher =
 
 	[//Uniform
 		"U_B_GEN_Soldier_F",								//Uniform
-		[//Inventory
-			["ACE_PackingBandage",5],
-			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3],
-			["ACE_Morphine",1],
-			["ACE_Epinephrine",1],
-			["ACE_SalineIV_500",1],
-			["ACE_Cabletie",3],
-			["ACE_Tourniquet",1],
-			["ACE_Chemlight_HiBlue",5,1]
-		]
+		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest
@@ -51,14 +39,14 @@ private _loadout_rhs_gref_breacher =
 		[//Inventory
 			["RHS_1PN138",1],
 			["H_Cap_Police",1],
-			["ACE_Flashlight_XL50",1],
 			["RHS_Mag_An_M8HC",1,1],
 			["RHS_Mag_Mk3A2",2,1],
-			["ACE_M84",2,1],
 			["RHSUSF_8Rnd_Slug",4,8],
 			["RHSUSF_8Rnd_00Buck",2,8],
 			["16Rnd_9x21_Mag",2,17]
-		]
+		] 
+		+ _aceFlashlight
+		+ _aceM84
 	],
 
 	[//Backpack
@@ -96,10 +84,10 @@ private _loadout_rhs_gref_breacher =
 
 	[//Item
 		"ItemMap",											//Map
-		"ItemGPS",													//Terminal
-		"TF_PNR1000A_26",									//Radio
+		"ItemGPS",											//Terminal
+		["TF_PNR1000A_26"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		"TF_MicroDAGR",										//Watch
+		_tfarMicroDAGR,										//Watch
 		""													//Goggles
 	]
 ];

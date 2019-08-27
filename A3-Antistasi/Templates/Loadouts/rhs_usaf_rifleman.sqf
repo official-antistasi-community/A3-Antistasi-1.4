@@ -1,5 +1,3 @@
-private _loadout_rhs_usaf_rifleman =
-
 [//Loadout
 	[//Primary Weapon
 		"RHS_Weap_M16A4",									//Weapon
@@ -33,42 +31,27 @@ private _loadout_rhs_usaf_rifleman =
 	],
 
 	[//Uniform
-		"RHSGREF_Uniform_OG107_ERDL",						//Uniform
-		[//Inventory
-			["ACE_Earplugs",1],
-			["ACE_Tourniquet",1],
-			["ACE_Cabletie",3],
-			["ACE_SalineIV_500",1],
-			["ACE_Morphine",1],
-			["ACE_Epinephrine",1],
-			["ACE_PackingBandage",5],
-			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3],
-			["ACE_Chemlight_Hiblue",5]
-		]
+		"RHS_Uniform_G3_M81",						//Uniform
+		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest
-		"RHSGREF_ALICE_Webbing",							//Vest
+		"RHSUSF_SPCS_OCP_rifleman_alt",							//Vest
 		[//Inventory
 			["RHSUSF_ANPVS_14",1],
-			["ACE_Flashlight_XL50",1],
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
 			["RHS_Mag_Mk84",1,1],
 			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",6,30],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7]
 		]
+		+ _aceFlashlight
 	],
 
-	[//Backpack
-		"",													//Backpack
-		[//Inventory
-			[]
-		]
-	],
+	//Backpack
+	[],
 
-		"RHSGREF_Helmet_PASGT_ERDL_Rhino",					//Headgear
+		"rhsusf_mich_bare_norotos_headset",					//Headgear
 		SelectRandom 										//Facewear
 		["RHSUSF_Shemagh_Grn", "RHSUSF_Shemagh2_Grn", "RHSUSF_Shemagh_Gogg_Grn", "RHSUSF_Shemagh2_Gogg_Grn", "RHSUSF_Oakley_Goggles_Blk"],
 
@@ -85,9 +68,9 @@ private _loadout_rhs_usaf_rifleman =
 	[//Item
 		"ItemMap",											//Map
 		"",													//Terminal
-		"TF_RF7800STR",										//Radio
+		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		"TF_MicroDAGR",										//Watch
+		_tfarMicroDAGR,										//Watch
 		""													//Goggles
 	]
 ];

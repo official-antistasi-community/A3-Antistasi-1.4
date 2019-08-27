@@ -165,86 +165,30 @@
       <Key ID="STR_antistasi_dialogs_minefield_frame_text">
         <Original>Build Minefield</Original>
         <English>Build Minefield</English>
-        <Czech />
-        <French />
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_text">
         <Original>APERS Mines</Original>
         <English>APERS Mines</English>
-        <Czech />
-        <French />
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_tooltip">
         <Original>Creates an APERS Minefield in the designated location</Original>
         <English>Creates an APERS Minefield in the designated location</English>
-        <Czech />
-        <French />
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_remove_text">
         <Original>Remove Minefield</Original>
         <English>Remove Minefield</English>
-        <Czech />
-        <French />
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_remove_tooltip">
         <Original>Spawn an AI Engineer which will clear any mine in it's surroundings</Original>
         <English>Spawn an AI Engineer which will clear any mine in it's surroundings</English>
-        <Czech />
-        <French />
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_text">
         <Original>AT Mines</Original>
         <English>AT Mines</English>
-        <Czech />
-        <French />
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_tooltip">
         <Original>Creates an Anti Tank minefield at designated location</Original>
         <English>Creates an Anti Tank minefield at designated location</English>
-        <Czech />
-        <French />
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
       </Key>
     </Container>
     <Container name="dialog_unit_recruit">
@@ -287,8 +231,8 @@
     </Container>
     <Container name="dialog_generic">
       <Key ID="STR_antistasi_dialogs_generic_box_text">
-        <Original />
-        <English />
+        <Original></Original>
+        <English></English>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_back_text">
         <Original>Back</Original>
@@ -307,12 +251,12 @@
         <English>No</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_yes_tooltip">
-        <Original />
-        <English />
+        <Original></Original>
+        <English></English>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_no_tooltip">
-        <Original />
-        <English />
+        <Original></Original>
+        <English></English>
       </Key>
     </Container>
     <Container name="credits_generic">

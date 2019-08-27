@@ -48,7 +48,7 @@ if (isMultiplayer) then
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if ((side player == teamPlayer) and tkPunish) then
 	{
-		private _firedHandlerTk = 
+		private _firedHandlerTk =
 		{
 			_typeX = _this select 1;
 			if ((_typeX == "Put") or (_typeX == "Throw")) then
@@ -64,7 +64,7 @@ if (isMultiplayer) then
 			};
 		};
 		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then 
+		if (hasACE) then
 		{
 			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
 		};
@@ -223,7 +223,7 @@ if (hasACE) then {
 	player addItem "ACE_Flashlight_XL50";
 };
 player setvariable ["compromised",0];
-player addEventHandler 
+player addEventHandler
 [
 	"FiredMan",
 	{
@@ -257,7 +257,7 @@ player addEventHandler
 		}
 	}
 ];
-player addEventHandler 
+player addEventHandler
 [
 	"HandleDamage",
 	{
@@ -271,7 +271,7 @@ player addEventHandler
 		};
 	}
 ];
-player addEventHandler 
+player addEventHandler
 [
 	"InventoryOpened",
 	{
@@ -432,26 +432,22 @@ player addEventHandler ["GetInMan",
 	}
 	];
 
-if (isMultiplayer) then
-	{
+if (isMultiplayer) then {
 	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;//Exec on client
-	["InitializeGroup", [player,teamPlayer,true]] call BIS_fnc_dynamicGroups;
+
 	membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	if (membershipEnabled) then
-		{
-		if !([player] call A3A_fnc_isMember) then
-			{
-			if (isServer) then
-				{
+	if (membershipEnabled) then {
+		if !([player] call A3A_fnc_isMember) then {
+			if (isServer) then {
 				membersX pushBack (getPlayerUID player);
 				publicVariable "membersX";
-				};
+			};
 			_nonMembers = {(side group _x == teamPlayer) and !([_x] call A3A_fnc_isMember)} count playableUnits;
 			if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
 			if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
-			};
 		};
 	};
+};
 
 waitUntil {scriptdone _introshot};
 if (_isJip) then

@@ -47,7 +47,7 @@ class Header
 {
 gameType = COOP;
 minplayers=1;
-maxplayers=32;
+maxplayers=78;
 };
 
 class CfgSounds

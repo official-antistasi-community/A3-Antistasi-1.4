@@ -8,26 +8,20 @@
 //only touch the commented arrays
 diag_log format ["%1: [Antistasi] | INFO | initZones Started.", servertime];
 
-_fnc_rw_mrkArray = {
-	params ["_mrkName"];
-	private _return = allMapMarkers select { ((_x splitString "_") select 0) == _mrkName };
-	_return
-};
-
 forcedSpawn = [];
 citiesX = [];
-airportsX = ["airport"] call _fnc_rw_mrkArray;
-spawnPoints = ["spawnPoint"] call _fnc_rw_mrkArray;
-resourcesX = ["resource"] call _fnc_rw_mrkArray;
-factories = ["factory"] call _fnc_rw_mrkArray;
-outposts = ["outpost"] call _fnc_rw_mrkArray;
-seaports = ["seaport"] call _fnc_rw_mrkArray;
-controlsX = ["control"] call _fnc_rw_mrkArray;
-seaMarkers = ["seaPatrol"] call _fnc_rw_mrkArray;
-seaSpawn = ["seaSpawn"] call _fnc_rw_mrkArray;
-seaAttackSpawn = ["seaAttackSpawn"] call _fnc_rw_mrkArray;
-detectionAreas = ["detectPlayer"] call _fnc_rw_mrkArray;
-islands = ["island"] call _fnc_rw_mrkArray;
+airportsX = ["airport"] call A3A_fnc_filterMrk;
+spawnPoints = ["spawnPoint"] call A3A_fnc_filterMrk;
+resourcesX = ["resource"] call A3A_fnc_filterMrk;
+factories = ["factory"] call A3A_fnc_filterMrk;
+outposts = ["outpost"] call A3A_fnc_filterMrk;
+seaports = ["seaport"] call A3A_fnc_filterMrk;
+controlsX = ["control"] call A3A_fnc_filterMrk;
+seaMarkers = ["seaPatrol"] call A3A_fnc_filterMrk;
+seaSpawn = ["seaSpawn"] call A3A_fnc_filterMrk;
+seaAttackSpawn = ["seaAttackSpawn"] call A3A_fnc_filterMrk;
+detectionAreas = ["detectPlayer"] call A3A_fnc_filterMrk;
+islands = ["island"] call A3A_fnc_filterMrk;
 
 private ["_name", "_sizeX", "_sizeY", "_size", "_pos", "_mrk"];
 

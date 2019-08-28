@@ -155,7 +155,7 @@ if (hasIFA) then {
 	smokeX = ["LIB_RDG", "LIB_NB39"];
 } else {
 
- 	if ("UK3CB_BAF_L1A1" in arifles) then {
+	if ("UK3CB_BAF_L1A1" in arifles) then {
 
 		has3CB = true;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.", servertime];
@@ -846,7 +846,7 @@ _getMissionPath = [] execVM "initGetMissionPath.sqf";
 
 waitUntil {
 
-	if (scriptDone _getMissionPath) exitWith { true};
+	if (scriptDone _getMissionPath) exitWith { true };
 
 	sleep 0.1;
 	hint "Stuck on compiling missionPath, re-launch the mission.";
@@ -926,7 +926,7 @@ listbld = [
 	"Land_Cargo_Tower_V3_F"
 ];
 
-if (!isServer && hasInterface) exitWith { };
+if (!isServer && hasInterface) exitWith {};
 
 AAFpatrols = 0;
 reinfPatrols = 0;
@@ -1181,7 +1181,7 @@ swoopShutUp = ["V_RebreatherIA", "G_Diving"];
 
 difficultyCoef = [
 	0,
-	floor ((({ side group _x == teamPlayer} count playableUnits) - ({ side group _x != teamPlayer} count playableUnits)) / 5)
+	floor ((({ side group _x == teamPlayer } count playableUnits) - ({ side group _x != teamPlayer } count playableUnits)) / 5)
 ] select isMultiplayer;
 
 if (side (group petros) == west) then {
@@ -1193,7 +1193,7 @@ if (side (group petros) == west) then {
 };
 
 //Pricing values for soldiers, vehicles
-if (!isServer) exitWith { };
+if (!isServer) exitWith {};
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Pricelist.", servertime];
 

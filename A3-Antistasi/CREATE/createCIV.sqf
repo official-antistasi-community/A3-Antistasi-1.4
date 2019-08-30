@@ -162,10 +162,11 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_civ moveInDriver _veh;
 					_groupP addVehicle _veh;
 					_groupP setBehaviour "CARELESS";
-					_posDestination = selectRandom (roadsX getVariable (_patrolCities select _countPatrol));
+					_veh limitSpeed 50;
+					_posDestination = selectRandom (roadsX getVariable (_patrolCities select _countPatrol));		
 					_wp = _groupP addWaypoint [_posDestination,0];
 					_wp setWaypointType "MOVE";
-					_wp setWaypointSpeed "FULL";
+					_wp setWaypointSpeed "LIMITED";
 					_wp setWaypointTimeout [30, 45, 60];
 					_wp = _groupP addWaypoint [_positionX,1];
 					_wp setWaypointType "MOVE";

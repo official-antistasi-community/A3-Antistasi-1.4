@@ -65,7 +65,8 @@ if (side group player == teamPlayer) then
 	removeBackpackGlobal _newUnit;
 	removeVest _newUnit;
 	if ((not("ItemGPS" in unlockedItems)) and ("ItemGPS" in (assignedItems _newUnit))) then {_newUnit unlinkItem "ItemGPS"};
-	if ((!hasTFAR) and (!hasACRE) and ("ItemRadio" in (assignedItems player)) and (!haveRadio)) then {player unlinkItem "ItemRadio"};
+	private _radio = player call A3A_fnc_getRadio;
+	if (!haveRadio && _radio != "") then {player unlinkItem _radio};
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{

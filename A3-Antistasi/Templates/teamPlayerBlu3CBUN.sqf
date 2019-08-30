@@ -103,5 +103,5 @@ unlockedItems = unlockedItems + ["rhs_acc_2dpZenit","rhs_acc_m852v"];
 unlockedAT = ["rhs_weap_panzerfaust60"];
 unlockedBackpacks = ["UK3CB_ANA_B_B_ASS","UK3CB_TKC_C_B_Sidor_MED","UK3CB_B_Hiker","UK3CB_B_Hiker_Camo"];
 //TAFR Unlocks
-if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str","ItemRadio"]};
+if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["UK3CB_BAF_B_Bergen_OLI_SL_A"]};

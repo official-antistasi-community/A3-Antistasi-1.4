@@ -18,7 +18,7 @@ if (isDedicated) exitWith {};
 
 if (!isMultiplayer) exitWith {};
 
-if (_foolish != player) exitWith {"Not Instigtor"};
+if (_foolish != player) exitWith {"Not Instigator"};
 
 _forgive = (_timeAdded < 0 || _offenceLevel < 0);
 _accumulatedTime = player getVariable ["punishment_accumulatedime",0];
@@ -29,9 +29,9 @@ if (player getVariable ["punishment_coolDown", false]) exitWith {"punishment_coo
 player setVariable ["punishment_coolDown", true, true];
 [player] spawn 
 {
-	Params ["player"];
+	params ["_player"];
 	sleep 1;
-	player setVariable ["punishment_coolDown", false, true];
+	_player setVariable ["punishment_coolDown", false, true];
 };
 
 _innocent = false;

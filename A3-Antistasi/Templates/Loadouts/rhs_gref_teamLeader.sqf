@@ -74,7 +74,7 @@
 		"ItemGPS",											//Terminal
 		["TF_PNR1000A_26"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		_tfarMicroDAGR,										//Watch
+		_tfarMicroDAGRNoArray,										//Watch
 		""													//Goggles
 	]
 ];

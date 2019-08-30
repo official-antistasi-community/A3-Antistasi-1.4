@@ -110,9 +110,7 @@ if (_x select 1 >= minWeaps) then
 
 if (_check) then
 	{
-	 publicVariable "unlockedItems";
-	 if (!haveRadio) then {if ("ItemRadio" in unlockedItems) then {haveRadio = true; publicVariable "haveRadio"}};
-	_check = false;
+	call A3A_fnc_checkRadiosUnlocked;
 	};
 {
 if (_x select 1 >= minWeaps) then

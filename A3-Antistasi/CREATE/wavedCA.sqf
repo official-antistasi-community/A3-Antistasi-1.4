@@ -475,7 +475,7 @@ while {(_waves > 0)} do
 					_vehPool = _vehPool select {_x in (vehCSATTransportHelis + vehCSATTransportPlanes)}
 				}
 			};
-			_typeVehX = if !(_vehPool isEqualTo []) then {selectRandom _vehPool} else {if (_sideX == Occupants) then {vehNATOPatrolHeli + vehNATOTransportPlanes} else {vehCSATPatrolHeli + vehCSATTransportPlanes}};
+			_typeVehX = if !(_vehPool isEqualTo []) then {selectRandom _vehPool} else {if (_sideX == Occupants) then {selectRandom ([vehNATOPatrolHeli] + vehNATOTransportPlanes)} else {selectRandom ([vehCSATPatrolHeli] + vehCSATTransportPlanes)}};
 			if ((_typeVehX in vehTransportAir) and !(_spawnedSquad)) then
 				{
 				_allUnits = {(local _x) and (alive _x)} count allUnits;

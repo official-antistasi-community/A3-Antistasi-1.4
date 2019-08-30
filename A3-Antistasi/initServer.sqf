@@ -34,6 +34,7 @@ civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic
 memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
 limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
 napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
+teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
 
 //Load Campaign ID if resuming game
 if(loadLastSave) then {

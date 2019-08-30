@@ -145,7 +145,7 @@ else
 
 _unit selectWeapon (primaryWeapon _unit);
 
-if (!haveRadio) then {_unit unlinkItem "ItemRadio"};
+if (!haveRadio) then {_unit unlinkItem (_unit call A3A_fnc_getRadio)};
 if !(hasIFA) then
 	{
 	if (sunOrMoon < 1) then

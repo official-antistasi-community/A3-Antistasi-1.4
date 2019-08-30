@@ -308,12 +308,11 @@ switch _mode do {
 			//Arsenal gives players base TFAR radio items. TFAR will, at some point, replace this with an 'instanced' version.
 			//This can cause freq to reset. To fix, check if we have a radio first, and wait around if we do, but TFAR isn't showing it.
 			//Spawn so we can sleep without bothering the arsenal.
-			private _hasRadio =	{_x isKindOf ["ItemRadio", configFile >> "CfgWeapons"];} count (assignedItems player) > 0;
+			private _hasRadio =	player call A3A_fnc_getRadio != "";
 			if (_hasRadio) then {
 				[] spawn {
-					private _checkHasRadio = {{_x isKindOf ["ItemRadio", configFile >> "CfgWeapons"];} count (assignedItems player) > 0};
 					//Wait around until TFAR has done its work. Frequent checks - we shouldn't have to wait more than a handful of seconds for TFAR;
-					waitUntil {sleep 1; call _checkHasRadio && call TFAR_fnc_haveSWRadio};
+					waitUntil {sleep 1; player call A3A_fnc_getRadio != "" && call TFAR_fnc_haveSWRadio};
 					private _swRadio = if (call TFAR_fnc_haveSWRadio) then { call TFAR_fnc_activeSwRadio } else { nil };
 					//Doesn't hurt to be careful!
 					if (!isNil "_swRadio") then {

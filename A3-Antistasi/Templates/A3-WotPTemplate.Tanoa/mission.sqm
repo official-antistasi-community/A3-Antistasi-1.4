@@ -8,7 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=716;
+		nextID=717;
 	};
 	class MarkerIDProvider
 	{
@@ -16,11 +16,11 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=300;
+		nextID=302;
 	};
 	class Camera
 	{
-		pos[]={9039.582,130.18916,10397.078};
+		pos[]={9033.1836,145.90244,10386.777};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
 		aside[]={0.99999994,0,0};
@@ -448,7 +448,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=194;
+		items=193;
 		class Item0
 		{
 			dataType="Group";
@@ -3559,7 +3559,7 @@ class Mission
 			colorName="ColorWEST";
 			a=164.80374;
 			b=79.520996;
-			angle=8.9005041;
+			angle=8.9005032;
 			id=192;
 			atlOffset=-2.3099999;
 		};
@@ -6130,77 +6130,57 @@ class Mission
 		class Item189
 		{
 			dataType="Marker";
-			position[]={9936.1191,67.852997,9819.3457};
-			name="island";
-			markerType="ELLIPSE";
-			type="ellipse";
-			fillName="Border";
-			a=6001.6802;
-			b=4303.625;
-			angle=9.1479988;
-			drawBorder=1;
-			id=711;
-			atlOffset=8.5822411;
-		};
-		class Item190
-		{
-			dataType="Marker";
-			position[]={2793.7029,106.892,12336.749};
+			position[]={1841.3149,102.9043,12046.82};
 			name="island_1";
 			markerType="RECTANGLE";
 			type="rectangle";
 			fillName="Border";
-			a=1598.84;
-			b=2464.8491;
+			a=9.4702606;
+			b=8.9108276;
 			angle=28.575001;
 			drawBorder=1;
 			id=712;
-			atlOffset=-48.817902;
+			atlOffset=98.114136;
 		};
-		class Item191
+		class Item190
 		{
 			dataType="Marker";
-			position[]={2546.2419,20.736,6914.4658};
+			position[]={5478.9111,3.6075108,4052.4224};
 			name="island_2";
 			markerType="RECTANGLE";
 			type="rectangle";
 			fillName="Border";
-			a=1127.043;
-			b=2056.644;
-			angle=315.12698;
+			a=24.489929;
+			b=20.66391;
+			angle=315.12692;
 			drawBorder=1;
 			id=713;
-			atlOffset=-9.9947166;
 		};
-		class Item192
+		class Item191
 		{
 			dataType="Marker";
-			position[]={4556.083,31.396999,3352.874};
-			name="island_3";
-			markerType="RECTANGLE";
-			type="rectangle";
-			fillName="Border";
-			a=3139.1221;
-			b=2187.9651;
-			angle=339.83398;
-			drawBorder=1;
-			id=714;
-			atlOffset=-19.757469;
-		};
-		class Item193
-		{
-			dataType="Marker";
-			position[]={11417.602,65.141998,3352.2219};
+			position[]={11311.72,65.052895,5980.4702};
 			name="island_4";
 			markerType="RECTANGLE";
 			type="rectangle";
 			fillName="Border";
-			a=2706.104;
-			b=2362.4451;
-			angle=344.492;
+			a=9.3255672;
+			b=9.510232;
+			angle=317.90918;
 			drawBorder=1;
 			id=715;
-			atlOffset=52.090424;
+			atlOffset=45.788303;
+		};
+		class Item192
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9204.4336,219.98885,8716.6611};
+			};
+			name="pathfinding";
+			id=716;
+			type="Logic";
 		};
 	};
 	class Connections

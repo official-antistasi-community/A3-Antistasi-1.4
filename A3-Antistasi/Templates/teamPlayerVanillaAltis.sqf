@@ -111,5 +111,5 @@ if !(isMultiplayer) then
 	unlockedMagazines pushBack "MRAWS_HEAT_F";
   };
 //TFAR Unlocks
-if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc154","ItemRadio"]};
+if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc154"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_anprc155"]};

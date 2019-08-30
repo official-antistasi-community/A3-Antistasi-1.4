@@ -37,7 +37,7 @@ if (isMultiplayer && side _unit == teamPlayer) then
 		
 		private _rank = [_playerId, "rankPlayer"] call fn_RetrievePlayerStat;
 		_rank = if (isNil "_rank" || {count _rank == 0}) then {"PRIVATE"} else {_rank};
-		_unit setRank _rank; 
+		[_unit, _rank] remoteExec ["A3A_fnc_ranksMP"]; 
 		_unit setVariable ["rankX",_rank,true];
 	};
 	

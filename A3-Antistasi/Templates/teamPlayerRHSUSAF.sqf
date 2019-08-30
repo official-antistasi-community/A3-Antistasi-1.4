@@ -98,5 +98,5 @@ unlockedItems = unlockedItems + ["rhs_acc_2dpZenit"];
 unlockedAT = ["rhs_weap_rpg7"];
 unlockedBackpacks = ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
 //TFAR Unlocks
-if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str","ItemRadio"]};
+if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_rt1523g_rhs"]};

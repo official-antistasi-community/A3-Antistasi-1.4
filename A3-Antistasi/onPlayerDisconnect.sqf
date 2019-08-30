@@ -76,7 +76,7 @@ if (side group _unit == teamPlayer || side group _unit == sideUnknown) then
 	if ((_hr > 0) or (_resourcesX > 0)) then {[_hr,_resourcesX] spawn A3A_fnc_resourcesFIA};
 	if (membershipEnabled and pvpEnabled) then
 		{
-		if (_uid in membersX) then {playerHasBeenPvP pushBack [getPlayerUID _unit,time]};
+		if (_uid in membersX) then {playerHasBeenPvP pushBack [_uid,time]};
 		};
 	};
 	

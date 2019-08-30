@@ -10,7 +10,7 @@ if (haveRadio) then
 	}
 else
 	{
-	if ("ItemRadio" in assignedItems _unit) then
+	if (_unit call A3A_fnc_getRadio != "") then
 		{
 		_result = true
 		}

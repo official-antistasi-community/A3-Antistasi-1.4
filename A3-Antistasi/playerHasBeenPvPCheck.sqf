@@ -5,7 +5,7 @@ if (playerHasBeenPvP isEqualTo []) exitWith {};
 _leave = false;
 _id = getPlayerUID _unit;
 {
-	if (_id == _x select 0 && _adminState != 2 && (time - 3600 <= _x select 1)) exitWith
+	if (_id == _x select 0 && _adminState != 2 && (time - teamSwitchDelay <= _x select 1)) exitWith
 	{
 		_leave = true
 	};

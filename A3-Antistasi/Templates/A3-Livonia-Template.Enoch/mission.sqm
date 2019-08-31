@@ -244,12 +244,14 @@ class AddonsMetaData
 randomSeed=228300;
 class ScenarioData
 {
-	author="Bob Murphy";
+	author=$STR_antistasi_credits_generic_author_text;
 };
 class Mission
 {
 	class Intel
 	{
+		briefingName=$STR_antistasi_mission_info_livonia_mapname_text;
+		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;

@@ -141,13 +141,14 @@ class AddonsMetaData
 randomSeed=16007350;
 class ScenarioData
 {
-	author="Barbolani & The Official AntiStasi Community";
+	author=$STR_antistasi_credits_generic_author_text;
 };
 class Mission
 {
 	class Intel
 	{
-		briefingName="A3-Antistasi Armia Krajowa Chernarus 1.4c2.0";
+		briefingName=$STR_antistasi_mission_info_cherna_mapname_text;
+		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.25;

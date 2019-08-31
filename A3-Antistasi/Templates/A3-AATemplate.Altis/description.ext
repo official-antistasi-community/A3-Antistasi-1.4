@@ -193,7 +193,7 @@ class Params
         values[] = {0,1};
         texts[] = {"No","Yes"};
         default = 0;
-    };	
+    };
 	class teamSwitchDelay
     {
         title = "Delay After Leaving Before a Player Can Join Another Team";

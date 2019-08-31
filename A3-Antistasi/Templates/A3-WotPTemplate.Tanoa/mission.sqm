@@ -137,7 +137,7 @@ class AddonsMetaData
 randomSeed=11834268;
 class ScenarioData
 {
-	author="Barbolani & The Official AntiStasi Community";
+	author=$STR_antistasi_credits_generic_author_text;
 	saving=0;
 	disabledAI=1;
 	respawn=3;
@@ -425,8 +425,8 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Antistasi - Warlords of the Pacific - 1.4c2.0";
-		overviewText="Build a  Syndikat Army from scratch and defeat NATO and CSAT forces in a persistent mission with Tanoa as AO.";
+		briefingName=$STR_antistasi_mission_info_tanoa_mapname_text;
+		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0;

@@ -147,14 +147,14 @@ class AddonsMetaData
 randomSeed=8109385;
 class ScenarioData
 {
-	author="Barbolani & The Official AntiStasi Community";
+	author=$STR_antistasi_credits_generic_author_text;
 };
 class Mission
 {
 	class Intel
 	{
-		briefingName="A3-Antistasi Altis BLUEFOR 1.4c2.0";
-		overviewText="Build FIA Army from scratch and defeat the AAF and CSAT forces in a whole map Dynamic Mission.";
+		briefingName=$STR_antistasi_credits_generic_missionname_text;
+		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
 		startWeather=0;
 		startWind=0;

@@ -152,7 +152,7 @@ if (_destinationX == boxX) then
 	if (_updated != "") then
 		{
 		_updated = format ["<t size='0.5' color='#C1C0BB'>Arsenal Updated<br/><br/>%1</t>",_updated];
-		[petros,"income",_updated] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+		[petros,"income",_updated] remoteExec ["A3A_fnc_commsMP",[rebelSide,civilian]];
 		};
 	}
 else

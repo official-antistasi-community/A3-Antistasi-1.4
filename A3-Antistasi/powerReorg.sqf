@@ -1,4 +1,4 @@
-private ["_markerX","_city","_pos","_power","_dataX","_powered","_numCiv","_numVeh","_roads","_prestigeOPFOR","_prestigeBLUFOR","_siteX"];
+private ["_markerX","_city","_pos","_power","_dataX","_powered","_numCiv","_numVeh","_roads","_prestigeOPFOR","_rebelCitySupport","_siteX"];
 
 _markerX = _this select 0;
 
@@ -18,9 +18,9 @@ if (_power == _markerX) then
 	else
 		{
 		//_powered = _dataX select 4;
-		if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
+		if (sidesX getVariable [_markerX,sideUnknown] == rebelSide) then
 			{
-			if (sidesX getVariable [_city,sideUnknown] == teamPlayer) then
+			if (sidesX getVariable [_city,sideUnknown] == rebelSide) then
 				{
 				//hint format ["You achieved to bring power to %1, more people there supports our cause",_city];
 				//[-10,10,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -36,7 +36,7 @@ if (_power == _markerX) then
 			}
 		else
 			{
-			if (sidesX getVariable [_city,sideUnknown] == teamPlayer) then
+			if (sidesX getVariable [_city,sideUnknown] == rebelSide) then
 				{
 				//hint format ["AAF has cut off power to %1, less people there supports our cause",_city];
 				//[0,-10,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -64,7 +64,7 @@ if (_power == _markerX) then
 		}
 	else
 		{
-		if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
+		if (sidesX getVariable [_markerX,sideUnknown] == rebelSide) then
 			{
 			if (sidesX getVariable [_siteX,sideUnknown] == Occupants) then
 				{
@@ -75,7 +75,7 @@ if (_power == _markerX) then
 			}
 		else
 			{
-			if (sidesX getVariable [_siteX,sideUnknown] == teamPlayer) then
+			if (sidesX getVariable [_siteX,sideUnknown] == rebelSide) then
 				{
 				//_city = [citiesX,_pos] call BIS_fnc_nearestPosition;
 				//hint format ["AAF cutted off power supply to our resources near %1. They will be less productive from now",_city];

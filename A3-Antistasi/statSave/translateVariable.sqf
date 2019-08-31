@@ -5,14 +5,14 @@ if (isNil "loadingTranslationTable" or {!(loadingTranslationTable getVariable ["
   private _translationTable = [
     ["miembros","membersX"],
     ["dinero","moneyX"],
-    ["puestosFIA", "outpostsFIA"],
+    ["puestosRebeldes", "rebelWatchpostsAndRoadblocks"],
     ["dificultad", "difficultyX"],
     ["minas", "minesX"],
     ["cuentaCA", "countCA"],
     ["antenas", "antennas"],
     ["fecha","dateX"],
     ["distanciaSPWN","distanceSPWN"],
-    ["controlesSDK","controlsSDK"],
+    ["controlesRebeldes","rebelControlPoints"],
     ["estaticas","staticsX"]
   ];
   

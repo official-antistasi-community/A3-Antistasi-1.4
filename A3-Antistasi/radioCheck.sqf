@@ -12,7 +12,7 @@ if (count antennas > 0) then
 		if ((alive _antenna) and (_positionX distance _antenna < 3500)) then
 			{
 			_nearX = [markersX,_antenna] call BIS_fnc_nearestPosition;
-			if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) then {_ok = true};
+			if (not(sidesX getVariable [_nearX,sideUnknown] == rebelSide)) then {_ok = true};
 			};
 		};
 	};

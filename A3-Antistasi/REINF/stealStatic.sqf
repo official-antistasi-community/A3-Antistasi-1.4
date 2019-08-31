@@ -9,11 +9,11 @@ if (alive gunner _staticX) exitWith {hint "You cannot steal a static weapon when
 
 if ((alive assignedGunner _staticX) and (!isPlayer (assignedGunner _staticX))) exitWith {hint "The gunner of this static weapon is still alive"};
 
-if (activeGREF and ((typeOf _staticX == staticATteamPlayer) or (typeOf _staticX == staticAAteamPlayer))) exitWith {hint "This weapon cannot be dissassembled"};
+if (activeGREF and ((typeOf _staticX == rebelStaticAT) or (typeOf _staticX == rebelStaticAA))) exitWith {hint "This weapon cannot be dissassembled"};
 
 _nearX = [markersX,_staticX] call BIS_fnc_nearestPosition;
 
-if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {hint "You have to conquer this zone in order to be able to steal this Static Weapon"};
+if (not(sidesX getVariable [_nearX,sideUnknown] == rebelSide)) exitWith {hint "You have to conquer this zone in order to be able to steal this Static Weapon"};
 
 _staticX setOwner (owner _playerX);
 

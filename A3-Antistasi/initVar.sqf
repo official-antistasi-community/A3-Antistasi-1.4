@@ -29,17 +29,17 @@ minOptics = 12;*/
 maxUnits = 140;
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Generating Players.",servertime];
-teamPlayer = side group petros;
-Occupants = if (teamPlayer == independent) then {west} else {independent};
+rebelSide = side group petros;
+Occupants = if (rebelSide == independent) then {west} else {independent};
 Invaders = east;
 
-colourTeamPlayer = if (teamPlayer == independent) then {"colorGUER"} else {"colorBLUFOR"};
-colorOccupants = if (teamPlayer == independent) then {"colorBLUFOR"} else {"colorGUER"};
+rebelColor = if (rebelSide == independent) then {"colorGUER"} else {"colorBLUFOR"};
+colorOccupants = if (rebelSide == independent) then {"colorBLUFOR"} else {"colorGUER"};
 colorInvaders = "colorOPFOR";
 
-respawnTeamPlayer = if (teamPlayer == independent) then {"respawn_guerrila"} else {"respawn_west"};
-respawnOccupants = if (teamPlayer == independent) then {"respawn_west"} else {"respawn_guerrila"};
-posHQ = getMarkerPos respawnTeamPlayer;
+rebelRespawn = if (rebelSide == independent) then {"respawn_guerrila"} else {"respawn_west"};
+respawnOccupants = if (rebelSide == independent) then {"respawn_west"} else {"respawn_guerrila"};
+posHQ = getMarkerPos rebelRespawn;
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Magazine Pool.",servertime];
 allMagazines = [];
@@ -179,9 +179,9 @@ if (hasTFAR) then
 			  ["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
 			  ["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
 			};
-			//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";//to make enemy vehicles usable as LR radio
-			//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code"; //to make enemy vehicles usable as LR radio
-			//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";//to make enemy vehicles usable as LR radio
+			//tf_rebel_radio_code = "";publicVariable "tf_rebel_radio_code";//to make enemy vehicles usable as LR radio
+			//tf_east_radio_code = tf_rebel_radio_code; publicVariable "tf_east_radio_code"; //to make enemy vehicles usable as LR radio
+			//tf_guer_radio_code = tf_rebel_radio_code; publicVariable "tf_guer_radio_code";//to make enemy vehicles usable as LR radio
 			["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize SR default frequencies
 			["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;//synchronize LR default frequencies
 		};
@@ -204,7 +204,7 @@ else
 	{
 	[]
 	};
-antitankAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+rebelLootMissileLauncher = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
 	["launch_I_Titan_F","launch_I_Titan_short_F"]
 	}
@@ -212,7 +212,7 @@ else
 	{
 	[];
 	};//possible Titan weapons that spawn in  ammoboxes
-MAntitankAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+rebelLootRocketLauncher = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
 	["Titan_AT", "Titan_AP", "Titan_AA"]
 	}
@@ -220,7 +220,7 @@ else
 	{
 	if (hasIFA) then {["LIB_Shg24"]} else {[]};
 	};//possible Titan rockets that spawn in  ammoboxes
-minesAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+rebelLootMines = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
 	["SLAMDirectionalMine_Wire_Mag","SatchelCharge_Remote_Mag","ClaymoreDirectionalMine_Remote_Mag", "ATMine_Range_Mag","APERSTripMine_Wire_Mag","APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag"]
 	}
@@ -235,7 +235,7 @@ else
 		if (hasIFA and !myCustomMod) then {["LIB_PMD6_MINE_mag","LIB_TM44_MINE_mag","LIB_US_TNT_4pound_mag"]} else {[]};
 		}
 	};//possible mines that spawn in AAF ammoboxescomment "Exported from Arsenal by Alberto";
-itemsAAF = if ((!hasRHS) and !hasIFA and !myCustomMod) then
+rebelLootItems = if ((!hasRHS) and !hasIFA and !myCustomMod) then
 	{
 	["FirstAidKit","Medikit","MineDetector","NVGoggles","ToolKit","muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_acp","bipod_03_F_oli","muzzle_snds_338_green","muzzle_snds_93mmg_tan","Rangefinder","Laserdesignator","ItemGPS","acc_pointer_IR","ItemRadio"]
 	}
@@ -270,7 +270,7 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Player Templates",s
 if (!hasIFA) then
 	{
 	if(has3CB) then {
-		call compile preProcessFileLineNumbers "Templates\teamplayer3CBCCM.sqf";
+		call compile preProcessFileLineNumbers "Templates\rebel3CBCCM.sqf";
 		call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
 		call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
 		}
@@ -282,57 +282,56 @@ if (!hasIFA) then
 			}
 		else
 			{
-			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf"} else {call compile preProcessFileLineNumbers "Templates\teamPlayerRHSUSAF.sqf"};
+			if (rebelSide == independent) then {call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf"} else {call compile preProcessFileLineNumbers "Templates\rebelRHSUSAF.sqf"};
 			};
 		if (!activeAFRF) then {call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf"} else {call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf"};
 
 		if (!activeGREF) then
 			{
-			call compile preProcessFileLineNumbers "Templates\teamPlayerVanilla.sqf"
+			call compile preProcessFileLineNumbers "Templates\rebelVanilla.sqf"
 			}
 		else
 			{
-			if (teamPlayer == independent) then {call compile preProcessFileLineNumbers "Templates\teamPlayerRHSGREF.sqf"} else {call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf"};
+			if (rebelSide == independent) then {call compile preProcessFileLineNumbers "Templates\rebelRHSGREF.sqf"} else {call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf"};
 			};
 		}
 	}
 else
 	{
-	call compile preProcessFileLineNumbers "Templates\teamPlayerIFA.sqf";
+	call compile preProcessFileLineNumbers "Templates\rebelIFA.sqf";
 	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
 	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
 	};
 
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
-squadLeaders = SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
-medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
-sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
-sdkTier2 = SDKMedic + SDKExp + SDKEng;
-sdkTier3 = SDKSL + SDKSniper;
-soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
-vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
-groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
-groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
-//["BanditShockTeam","ParaShockTeam"];
-groupsSDKSquad = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
-groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
-groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
-groupsSDKSniper = [SDKSniper,SDKSniper];
-groupsSDKSentry = [SDKGL,SDKMil];
-banditUniforms = [];
-uniformsSDK = [];
+squadLeaders = rebelSquadLeader + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(militiaGroupLarge select 0)];
+medics = rebelMedic + [(militiaGroupLarge select ((count militiaGroupLarge)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
+rebelUnitsTier1 = rebelLiteAT + [rebelStaticCrew] + rebelHeavyGunner + rebelGrenadier + rebelAT;
+rebelUnitsTier2 = rebelMedic + rebelExpSpec + rebelEngineer;
+rebelUnitsTier3 = rebelSquadLeader + rebelSniper;
+rebelUnitsAll = rebelUnitsTier1 + rebelUnitsTier2 + rebelUnitsTier3;
+rebelVehicles = [rebelVehQuadbike,rebelVehLiteArmed,rebelStaticMG,rebelVehLiteUnarmed,rebelVehTransport,rebelVehBoat,rebelMortar,rebelStaticAT,rebelStaticAA,rebelVehRepair];
+rebelGroupFireteam = [rebelSquadLeader,rebelGrenadier,rebelHeavyGunner,rebelLiteAT];
+rebelGroupAT = [rebelSquadLeader,rebelHeavyGunner,rebelAT,rebelAT,rebelAT];
+rebelGroupSquad = [rebelSquadLeader,rebelGrenadier,rebelLiteAT,rebelHeavyGunner,rebelLiteAT,rebelAT,rebelLiteAT,rebelMedic];
+rebelGroupSquadEng = [rebelSquadLeader,rebelGrenadier,rebelLiteAT,rebelHeavyGunner,rebelExpSpec,rebelAT,rebelEngineer,rebelMedic];
+rebelGroupSquadSupp = [rebelSquadLeader,rebelGrenadier,rebelLiteAT,rebelHeavyGunner,rebelAT,rebelMedic,[rebelStaticCrew,rebelStaticCrew],[rebelStaticCrew,rebelStaticCrew]];
+rebelGroupSniperTeam = [rebelSniper,rebelSniper];
+rebelGroupSentryTeam = [rebelGrenadier,rebelLiteAT];
+rebelUniforms = [];
+rebelUniformsParamilitary = [];
 {
 _unit = _x select 0;
 _uniform = (getUnitLoadout _unit select 3) select 0;
-banditUniforms pushBackUnique _uniform;
-uniformsSDK pushBackUnique _uniform;
+rebelUniforms pushBackUnique _uniform;
+rebelUniformsParamilitary pushBackUnique _uniform;
 if (count _x > 1) then
 	{
 	_unit = _x select 1;
 	_uniform = (getUnitLoadout _unit select 3) select 0;
-	uniformsSDK pushBackUnique _uniform;
+	rebelUniformsParamilitary pushBackUnique _uniform;
 	};
-} forEach [SDKSniper,SDKATman,SDKMedic,SDKMG,SDKExp,SDKGL,SDKMil,SDKSL,SDKEng,[SDKUnarmed],[staticCrewTeamPlayer]];
+} forEach [rebelSniper,rebelAT,rebelMedic,rebelHeavyGunner,rebelExpSpec,rebelGrenadier,rebelLiteAT,rebelSquadLeader,rebelEngineer,[rebelUnarmed],[rebelStaticCrew]];
 _checked = [];
 {
 {
@@ -377,29 +376,29 @@ _magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
 ammunitionCSAT pushBack (_magazines select 0);
 } forEach weaponsCSAT;
 //optic, pointer and flashlight automated detection
-opticsAAF = [];
-flashLights = [];
-pointers = [];
+rebelLootOptics = [];
+rebelLootFlashlight = [];
+rebelLootLaserPointer = [];
 {
 {
 _item = _x;
-if !(_item in (opticsAAF + flashLights + pointers)) then
+if !(_item in (rebelLootOptics + rebelLootFlashlight + rebelLootLaserPointer)) then
 	{
 	if (((_item call BIS_fnc_itemType) select 1) == "AccessorySights") then
 		{
-		opticsAAF pushBack _item
+		rebelLootOptics pushBack _item
 		}
 	else
 		{
 		if (isClass (configfile >> "CfgWeapons" >> _item >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then
 			{
-			flashLights pushBack _item;
+			rebelLootFlashlight pushBack _item;
 			}
 		else
 			{
 			if (isClass (configfile >> "CfgWeapons" >> "acc_pointer_IR" >> "ItemInfo" >> "Pointer")) then
 				{
-				pointers pushBack _item;
+				rebelLootLaserPointer pushBack _item;
 				};
 			};
 		};
@@ -409,29 +408,29 @@ if !(_item in (opticsAAF + flashLights + pointers)) then
 } forEach (weaponsNato + weaponsCSAT);
 if (hasRHS) then
 	{
-	opticsAAF = opticsAAF select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	flashlights = flashlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	pointers = pointers select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	rebelLootOptics = rebelLootOptics select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	rebelLootFlashlight = rebelLootFlashlight select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	rebelLootLaserPointer = rebelLootLaserPointer select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	};
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning vehicle Types",servertime];
-vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair];
-vehBoats = [vehNATOBoat,vehCSATBoat,vehSDKBoat];
+vehNormal = vehNATONormal + vehCSATNormal + [militiaVehTransport,rebelVehTransport,rebelVehLiteArmed,rebelVehQuadbike,rebelVehRepair];
+vehBoats = [vehNATOBoat,vehCSATBoat,rebelVehBoat];
 vehAttack = vehNATOAttack + vehCSATAttack;
-vehPlanes = vehNATOAir + vehCSATAir + [vehSDKPlane];
+vehPlanes = vehNATOAir + vehCSATAir + [rebelVehPlane];
 vehAttackHelis = vehCSATAttackHelis + vehNATOAttackHelis;
-vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
+vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,rebelVehPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
 vehUAVs = [vehNATOUAV,vehCSATUAV];
 vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
 vehAPCs = vehNATOAPC + vehCSATAPC;
 vehTanks = [vehNATOTank,vehCSATTank];
-vehTrucks = vehNATOTrucks + vehCSATTrucks + [vehSDKTruck,vehFIATruck];
+vehTrucks = vehNATOTrucks + vehCSATTrucks + [rebelVehTransport,militiaVehTransport];
 vehAA = [vehNATOAA,vehCSATAA];
 vehMRLS = [vehCSATMRLS, vehNATOMRLS];
 vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis + vehNATOTransportPlanes + vehCSATTransportPlanes;
 vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
 vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
 sniperGroups = [groupsNATOSniper,groupsCSATSniper];
-sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + SDKSniper + [FIAMarksman,NATOMarksman,CSATMarksman];
+sniperUnits = ["O_T_Soldier_M_F","O_T_Sniper_F","O_T_ghillie_tna_F","O_V_Soldier_M_ghex_F","B_CTRG_Soldier_M_tna_F","B_T_soldier_M_F","B_T_Sniper_F","B_T_ghillie_tna_F"] + rebelSniper + [militiaMarksman,NATOMarksman,CSATMarksman];
 if (hasRHS) then {sniperUnits = sniperUnits + ["rhsusf_socom_marsoc_sniper","rhs_vdv_marksman_asval"]};
 
 arrayCivs = if (worldName == "Tanoa") then
@@ -497,7 +496,7 @@ listbld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower
 
 if (!isServer and hasInterface) exitWith {};
 
-AAFpatrols = 0;//0
+aiVehiclePatrols = 0;//0
 reinfPatrols = 0;
 smallCAmrk = [];
 smallCApos = [];
@@ -551,16 +550,16 @@ else
 listMilBld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F","Land_Cargo_HQ_V1_F","Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F","Land_HelipadSquare_F"];
 listbld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F"];
 swoopShutUp = ["V_RebreatherIA","G_Diving"];
-difficultyCoef = if !(isMultiplayer) then {0} else {floor ((({side group _x == teamPlayer} count playableUnits) - ({side group _x != teamPlayer} count playableUnits)) / 5)};
+difficultyCoef = if !(isMultiplayer) then {0} else {floor ((({side group _x == rebelSide} count playableUnits) - ({side group _x != rebelSide} count playableUnits)) / 5)};
 if (side (group petros) == west) then {swoopShutUp pushBack "U_B_Wetsuit"} else {swoopShutUp pushBack "U_I_Wetsuit"};
 
 //Pricing values for soldiers, vehicles
 if (!isServer) exitWith {};
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Pricelist.",servertime];
-{server setVariable [_x,50,true]} forEach SDKMil;
-{server setVariable [_x,75,true]} forEach (sdkTier1 - SDKMil);
-{server setVariable [_x,100,true]} forEach  sdkTier2;
-{server setVariable [_x,150,true]} forEach sdkTier3;
+{server setVariable [_x,50,true]} forEach rebelLiteAT;
+{server setVariable [_x,75,true]} forEach (rebelUnitsTier1 - rebelLiteAT);
+{server setVariable [_x,100,true]} forEach  rebelUnitsTier2;
+{server setVariable [_x,150,true]} forEach rebelUnitsTier3;
 //{timer setVariable [_x,0,true]} forEach (vehAttack + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA] + vehCSATAttackHelis + vehAA + vehMRLS);
 {timer setVariable [_x,3,true]} forEach [staticATOccupants,staticAAOccupants];
 {timer setVariable [_x,6,true]} forEach [staticATInvaders,staticAAInvaders];
@@ -590,20 +589,20 @@ server setVariable [civCar,200,true];//200
 server setVariable [civTruck,600,true];//600
 server setVariable [civHeli,5000,true];//5000
 server setVariable [civBoat,200,true];//200
-server setVariable [vehSDKBike,50,true];//50
-server setVariable [vehSDKLightUnarmed,200,true];//200
-server setVariable [vehSDKTruck,300,true];//300
-{server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];
-{server setVariable [_x,400,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];//400
-{server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];//800
+server setVariable [rebelVehQuadbike,50,true];//50
+server setVariable [rebelVehLiteUnarmed,200,true];//200
+server setVariable [rebelVehTransport,300,true];//300
+{server setVariable [_x,700,true]} forEach [rebelVehLiteArmed,rebelVehLiteAT];
+{server setVariable [_x,400,true]} forEach [rebelStaticMG,rebelVehBoat,rebelVehRepair];//400
+{server setVariable [_x,800,true]} forEach [rebelMortar,rebelStaticAT,rebelStaticAA];//800
 server setVariable ["hr",8,true];//initial HR value
-server setVariable ["resourcesFIA",1000,true];//Initial FIA money pool value
-skillFIA = 0;//Initial skill level for FIA soldiers
+server setVariable ["rebelMoney",1000,true];//Initial Rebel money pool value
+rebelTrainingLevel = 0;//Initial skill level for Rebel soldiers
 prestigeNATO = 5;//Initial Prestige NATO
 prestigeCSAT = 5;//Initial Prestige CSAT
 prestigeOPFOR = 50;//Initial % support for NATO on each city
 if (not cadetMode) then {prestigeOPFOR = 75};//if you play on vet, this is the number
-prestigeBLUFOR = 0;//Initial % FIA support on each city
+rebelCitySupport = 0;//Initial % rebel support on each city
 countCA = 600;//600
 bombRuns = 0;
 cityIsSupportChanging = false;
@@ -623,14 +622,14 @@ missionsX = []; publicVariable "missionsX";
 movingMarker = false;
 if !(hasIFA) then
 	{
-	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"] + uniformsSDK + civUniforms;//Initial Arsenal available items
+	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","ToolKit","H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_grn","H_Booniehat_dirty","H_Cap_oli","H_Cap_blk","H_MilCap_rucamo","H_MilCap_gry","H_BandMask_blk","H_Bandanna_khk","H_Bandanna_gry","H_Bandanna_camo","H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_tan","H_Beret_grn","H_Beret_grn_SF","H_Watchcap_camo","H_TurbanO_blk","H_Hat_camo","H_Hat_tan","H_Beret_blk","H_Beret_red","H_Watchcap_khk","G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_oli","G_Bandanna_beast","G_Tactical_Black","G_Aviator","G_Shades_Black","acc_flashlight"] + rebelUniformsParamilitary + civUniforms;//Initial Arsenal available items
 	//Adds starting vests. THIS IS TEMPORARY and should be moved to the template files.
 	unlockedItems append ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
 	unlockedItems pushBack "ItemGPS";
 	}
 else
 	{
-	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"] + uniformsSDK + civUniforms;
+	unlockedItems = unlockedItems + ["ItemMap","ItemWatch","ItemCompass","ToolKit","LIB_ToolKit","H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Worker_Cap_2","G_LIB_Scarf2_B","G_LIB_Mohawk"] + rebelUniformsParamilitary + civUniforms;
 	};
 
 
@@ -722,7 +721,7 @@ if (hasACE) then {
 		{
 		unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
 		unlockedWeapons pushBackUnique "ACE_VMH3";
-		itemsAAF = itemsAAF + ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
+		rebelLootItems = rebelLootItems + ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
 		};
 };
 
@@ -739,7 +738,7 @@ if (hasACEMedical) then {
 	unlockedItems = unlockedItems + ["FirstAidKit","Medikit"];
 };
 
-//allItems = allItems + itemsAAF + opticsAAF + _vests + helmets + NVGoggles;
+//allItems = allItems + rebelLootItems + rebelLootOptics + _vests + helmets + NVGoggles;
 
 if (worldName == "Tanoa") then
 	{
@@ -786,7 +785,7 @@ publicVariable "hasADVSplint";
 publicVariable "revealX";
 publicVariable "prestigeNATO";
 publicVariable "prestigeCSAT";
-publicVariable "skillFIA";
+publicVariable "rebelTrainingLevel";
 publicVariable "staticsToSave";
 publicVariable "bombRuns";
 publicVariable "chopForest";

@@ -40,7 +40,7 @@ if (build_cost > 0) then
 	{
 	if (!isMultiPlayer) then
 		{
-		_nul = [0, - build_cost] remoteExec ["A3A_fnc_resourcesFIA",2];
+		_nul = [0, - build_cost] remoteExec ["A3A_fnc_rebelResources",2];
 		}
 	else
 		{
@@ -123,7 +123,7 @@ build_engineerSelected = nil;
 	
 while {alive _veh} do
 	{
-	if ((not([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) and (_veh distance getMarkerPos respawnTeamPlayer > 100)) then
+	if ((not([distanceSPWN,1,_veh,rebelSide] call A3A_fnc_distanceUnits)) and (_veh distance getMarkerPos rebelRespawn > 100)) then
 		{
 		deleteVehicle _veh
 		};

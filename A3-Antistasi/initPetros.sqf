@@ -6,7 +6,7 @@ petros setVariable ["respawning",false];
 petros allowDamage false;
 [petros, sniperRifle, 8, 0] call BIS_fnc_addWeapon;
 petros selectWeapon (primaryWeapon petros);
-petros addEventHandler 
+petros addEventHandler
 [
     "HandleDamage",
     {
@@ -16,7 +16,7 @@ petros addEventHandler
 
     _victim = _this select 0;
     _instigator = _this select 6;
-    if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.1) then
+    if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == rebelSide && _damage > 0.1) then
     {
         [_instigator, 60, 1] remoteExec ["A3A_fnc_punishment",_instigator];
     };
@@ -65,15 +65,15 @@ petros addMPEventHandler ["mpkilled",
             _nul = [] spawn
                 {
                 garrison setVariable ["Synd_HQ",[],true];
-                _hrT = server getVariable "hr";
-                _resourcesFIAT = server getVariable "resourcesFIA";
-                [-1*(round(_hrT*0.9)),-1*(round(_resourcesFIAT*0.9))] remoteExec ["A3A_fnc_resourcesFIA",2];
+                _rebelHrCurrent = server getVariable "hr";
+                _rebelMoneyCurrent = server getVariable "rebelMoney";
+                [-1*(round(_rebelHrCurrent*0.9)),-1*(round(_rebelMoneyCurrent*0.9))] remoteExec ["A3A_fnc_rebelResources",2];
                 waitUntil {sleep 6; isPlayer theBoss};
                 [] remoteExec ["A3A_fnc_placementSelection",theBoss];
                };
             if (!isPlayer theBoss) then
                 {
-                {["petrosDead",false,1,false,false] remoteExec ["BIS_fnc_endMission",_x]} forEach (playableUnits select {(side _x != teamPlayer) and (side _x != civilian)})
+                {["petrosDead",false,1,false,false] remoteExec ["BIS_fnc_endMission",_x]} forEach (playableUnits select {(side _x != rebelSide) and (side _x != civilian)})
                 }
             else
                 {

@@ -8,7 +8,7 @@ _injurer = _this select 1;
 _bleedOut = if (surfaceIsWater (position _unit)) then {time + 60} else {time + 300};//300
 _playersX = false;
 _sideX = side (group _unit);
-if ((side _injurer == teamPlayer) and (_sideX == Occupants)) then
+if ((side _injurer == rebelSide) and (_sideX == Occupants)) then
 	{
 	_markerX = _unit getVariable ["markerX",""];
 	if (_markerX != "") then
@@ -47,7 +47,7 @@ if (_playersX) then
 
 if (time >= _bleedOut) exitWith
 	{
-	if (side _injurer == teamPlayer) then
+	if (side _injurer == rebelSide) then
 		{
 		if (isPlayer _injurer) then
 			{

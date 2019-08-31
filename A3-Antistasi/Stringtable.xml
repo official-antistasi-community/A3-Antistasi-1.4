@@ -65,8 +65,8 @@
         <English>Cost: €5000</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_text">
-        <Original>Train FIA Troops</Original>
-        <English>Train FIA Troops</English>
+        <Original>Train Rebel Troops</Original>
+        <English>Train Rebel Troops</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_tooltip">
         <Original>Upgrades the AI skill level</Original>
@@ -321,8 +321,8 @@
         <English>AntiStasi Community</English>
       </Key>
       <Key ID="STR_antistasi_credits_generic_overview_text">
-        <Original>Build FIA Army from scratch and defeat the AAF and CSAT forces in a whole map Dynamic Mission.</Original>
-        <English>Build FIA Army from scratch and defeat the AAF and CSAT forces in a whole map Dynamic Mission.</English>
+        <Original>Build a rebellion and liberate yourself from the Government, while defending them against the Invasion Forces.</Original>
+        <English>Build a rebellion and liberate yourself from the Government, while defending them against the Invasion Forces.</English>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missionname_text">
         <Original>Antistasi Altis</Original>

@@ -1,10 +1,10 @@
 params ["_newPosition"];
 
-respawnTeamPlayer setMarkerPos _newPosition;
+rebelRespawn setMarkerPos _newPosition;
 posHQ = _newPosition; publicVariable "posHQ";
 
-[respawnTeamPlayer,1] remoteExec ["setMarkerAlphaLocal",[teamPlayer,civilian]];
-[respawnTeamPlayer,0] remoteExec ["setMarkerAlphaLocal",[Occupants,Invaders]];
+[rebelRespawn,1] remoteExec ["setMarkerAlphaLocal",[rebelSide,civilian]];
+[rebelRespawn,0] remoteExec ["setMarkerAlphaLocal",[Occupants,Invaders]];
 
 private _alignNormals = {
 	private _thing = _this;

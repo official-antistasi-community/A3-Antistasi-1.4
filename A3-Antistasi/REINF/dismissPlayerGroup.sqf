@@ -2,7 +2,7 @@
 
 if (player != leader group player) exitWith {hint "You cannot dismiss anyone if you are not the squad leader"};
 
-private ["_units","_hr","_resourcesFIA","_unit","_newGroup"];
+private ["_units","_hr","_rebelMoney","_unit","_newGroup"];
 
 _units = _this select 0;
 _units = _units - [player];
@@ -11,11 +11,11 @@ if (_units isEqualTo []) exitWith {};
 if (_units findIf {!([_x] call A3A_fnc_canFight)} != -1) exitWith {hint "You cannot disband supressed, undercover or unconscious units"};
 player globalChat "Get out of my sight you useless scum!";
 
-_newGroup = createGroup teamPlayer;
-//if ({isPlayer _x} count units group player == 1) then {_ai = true; _newGroup = createGroup teamPlayer};
+_newGroup = createGroup rebelSide;
+//if ({isPlayer _x} count units group player == 1) then {_ai = true; _newGroup = createGroup rebelSide};
 
 {
-if (typeOf _x != SDKUnarmed) then
+if (typeOf _x != rebelUnarmed) then
 	{
 	[_x] join _newGroup;
 	if !(hasIFA) then {arrayids = arrayids + [name _x]};
@@ -27,14 +27,14 @@ if (recruitCooldown < time) then {recruitCooldown = time + 60} else {recruitCool
 
 _LeaderX = leader _newGroup;
 
-{_x domove getMarkerPos respawnTeamPlayer} forEach units _newGroup;
+{_x domove getMarkerPos rebelRespawn} forEach units _newGroup;
 
 _timeX = time + 120;
 
-waitUntil {sleep 1; (time > _timeX) or ({(_x distance getMarkerPos respawnTeamPlayer < 50) and (alive _x)} count units _newGroup == {alive _x} count units _newGroup)};
+waitUntil {sleep 1; (time > _timeX) or ({(_x distance getMarkerPos rebelRespawn < 50) and (alive _x)} count units _newGroup == {alive _x} count units _newGroup)};
 
 _hr = 0;
-_resourcesFIA = 0;
+_rebelMoney = 0;
 _items = [];
 _ammunition = [];
 _weaponsX = [];
@@ -42,7 +42,7 @@ _weaponsX = [];
 {_unit = _x;
 if ([_unit] call A3A_fnc_canFight) then
 	{
-	_resourcesFIA = _resourcesFIA + (server getVariable (typeOf _unit));
+	_rebelMoney = _rebelMoney + (server getVariable (typeOf _unit));
 	_hr = _hr +1;
 	{if (not(([_x] call BIS_fnc_baseWeapon) in unlockedWeapons)) then {_weaponsX pushBack ([_x] call BIS_fnc_baseWeapon)}} forEach weapons _unit;
 	{if (not(_x in unlockedMagazines)) then {_ammunition pushBack _x}} forEach magazines _unit;
@@ -50,7 +50,7 @@ if ([_unit] call A3A_fnc_canFight) then
 	};
 deleteVehicle _x;
 } forEach units _newGroup;
-if (!isMultiplayer) then {_nul = [_hr,_resourcesFIA] remoteExec ["A3A_fnc_resourcesFIA",2];} else {_nul = [_hr,0] remoteExec ["A3A_fnc_resourcesFIA",2]; [_resourcesFIA] call A3A_fnc_resourcesPlayer};
+if (!isMultiplayer) then {_nul = [_hr,_rebelMoney] remoteExec ["A3A_fnc_rebelResources",2];} else {_nul = [_hr,0] remoteExec ["A3A_fnc_rebelResources",2]; [_rebelMoney] call A3A_fnc_resourcesPlayer};
 {boxX addWeaponCargoGlobal [_x,1]} forEach _weaponsX;
 {boxX addMagazineCargoGlobal [_x,1]} forEach _ammunition;
 {boxX addItemCargoGlobal [_x,1]} forEach _items;

@@ -34,11 +34,11 @@ if (_veh isKindOf "Truck") then {_typeX = "_motor_inf"}
 			};
 		};
 
-if ((_side == teamPlayer) or (_side == sideUnknown)) then
+if ((_side == rebelSide) or (_side == sideUnknown)) then
 	{
 	_enemyX = false;
 	_formatX = "n";
-	_color = colourTeamPlayer;
+	_color = rebelColor;
 	}
 else
 	{
@@ -58,7 +58,7 @@ else
 
 _typeX = format ["%1%2",_formatX,_typeX];
 
-if ((side group (driver _veh) != teamPlayer) and (side driver _veh != sideUnknown)) then {["TaskSucceeded", ["", format ["%1 Spotted",_text]]] spawn BIS_fnc_showNotification};
+if ((side group (driver _veh) != rebelSide) and (side driver _veh != sideUnknown)) then {["TaskSucceeded", ["", format ["%1 Spotted",_text]]] spawn BIS_fnc_showNotification};
 
 _mrkFinal = createMarkerLocal [format ["%2%1", random 100,_text], position _veh];
 _mrkFinal setMarkerShapeLocal "ICON";

@@ -8,12 +8,12 @@ _veh = cursorTarget;
 if (isNull _veh) exitWith {hint "You are not looking at a vehicle"};
 
 if (!alive _veh) exitWith {hint "You cannot add destroyed vehicles to your garage"};
-_closeX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+_closeX = markersX select {sidesX getVariable [_x,sideUnknown] == rebelSide};
 _closeX = _closeX select {(player inArea _x) and (_veh inArea _x)};
 
-if (_closeX isEqualTo []) exitWith {hint format ["You and the vehicle need to be in a %1 garrison surrounding in order to garage a it",nameTeamPlayer]};
+if (_closeX isEqualTo []) exitWith {hint format ["You and the vehicle need to be in a %1 garrison surrounding in order to garage a it",rebelFactionName]};
 
-//if (player distance2d getMarkerPos respawnTeamPlayer > 50) exitWith {hint "You must be closer than 50 meters to HQ"};
+//if (player distance2d getMarkerPos rebelRespawn > 50) exitWith {hint "You must be closer than 50 meters to HQ"};
 
 if ({alive _x} count (crew vehicle _veh) > 0) exitWith { hint "In order to store a vehicle, its crew must disembark."};
 
@@ -43,11 +43,11 @@ if (_exit) exitWith {hint "You are not owner of this vehicle therefore you canno
 
 if (_typeVehX isKindOf "Plane") then
 	{
-	_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (player inArea _x)};
+	_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == rebelSide) and (player inArea _x)};
 	if (count _airportsX == 0) then {_exit = true};
 	};
 
-if (_exit) exitWith {hint format ["You cannot garage an air vehicle while you are not near an Aiport which belongs to %1. Place your HQ near an airbase flag in order to be able to garage it",nameTeamPlayer]};
+if (_exit) exitWith {hint format ["You cannot garage an air vehicle while you are not near an Aiport which belongs to %1. Place your HQ near an airbase flag in order to be able to garage it",rebelFactionName]};
 
 if (_veh in staticsToSave) then {staticsToSave = staticsToSave - [_veh]; publicVariable "staticsToSave"};
 
@@ -58,7 +58,7 @@ if (_pool) then
 	{
 	vehInGarage = vehInGarage + [_typeVehX];
 	publicVariable "vehInGarage";
-	hint format ["Vehicle added to %1 Garage",nameTeamPlayer];
+	hint format ["Vehicle added to %1 Garage",rebelFactionName];
 	}
 else
 	{

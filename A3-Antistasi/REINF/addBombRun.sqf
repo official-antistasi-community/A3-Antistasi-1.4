@@ -2,7 +2,7 @@ _veh = cursortarget;
 
 if (isNull _veh) exitWith {hint "You are not looking to any vehicle"};
 
-if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {hint "Vehicle must be closer than 50 meters to the flag"};
+if (_veh distance getMarkerPos rebelRespawn > 50) exitWith {hint "Vehicle must be closer than 50 meters to the flag"};
 
 if ({isPlayer _x} count crew _veh > 0) exitWith {hint "In order to sell, vehicle must be empty."};
 
@@ -22,7 +22,7 @@ if (not(_veh isKindOf "Air")) exitWith {hint "Only Air Vehicles can be used to i
 
 _typeX = typeOf _veh;
 
-//if (_typeX == vehSDKHeli) exitWith {hint "Syndikat Helicopters cannot be used to increase Airstrike points"};
+//if (_typeX == rebelVehHeli) exitWith {hint "Syndikat Helicopters cannot be used to increase Airstrike points"};
 
 _pointsX = 2;
 

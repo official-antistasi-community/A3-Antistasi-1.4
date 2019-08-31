@@ -5,7 +5,7 @@ if (_resourcesPlayer < 100) exitWith {hint "You have less than 100 € to donate
 if (count _this == 0) exitWith
 	{
 	[-100] call A3A_fnc_resourcesPlayer;
-	[0,100] remoteExec ["A3A_fnc_resourcesFIA",2];
+	[0,100] remoteExec ["A3A_fnc_rebelResources",2];
 	_pointsXJ = (player getVariable "score") + 1;
 	player setVariable ["score",_pointsXJ,true];
 	hint "You have donated 100 € to the cause. This will raise your status among our forces";

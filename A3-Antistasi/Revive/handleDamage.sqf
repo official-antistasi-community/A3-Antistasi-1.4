@@ -59,7 +59,7 @@ if (_part == "") then
 			{
 				if (tkPunish) then
 				{
-					if ((_injurer != _unit) and (side _injurer == teamPlayer)/* and (_unit getVariable ["teamPlayer",false])*/ and (side group _unit == teamPlayer)) then
+					if ((_injurer != _unit) and (side _injurer == rebelSide)/* and (_unit getVariable ["rebelSide",false])*/ and (side group _unit == rebelSide)) then
 					{
 						_uniform = uniform _unit;
 						_typeSoldier = getText (configfile >> "CfgWeapons" >> _uniform >> "ItemInfo" >> "uniformClass");

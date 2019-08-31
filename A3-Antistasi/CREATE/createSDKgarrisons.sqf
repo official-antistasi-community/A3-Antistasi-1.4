@@ -19,14 +19,14 @@ if (_markerX != "Synd_HQ") then
 	{
 	if (!(_markerX in citiesX)) then
 		{
-		_veh = createVehicle [SDKFlag, _positionX, [],0, "CAN_COLLIDE"];
-		if (hasIFA) then {_veh setFlagTexture SDKFlagTexture};
+		_veh = createVehicle [rebelFlag, _positionX, [],0, "CAN_COLLIDE"];
+		if (hasIFA) then {_veh setFlagTexture rebelFlagTexture};
 		_veh allowDamage false;
 		_vehiclesX pushBack _veh;
-		[_veh,"SDKFlag"] remoteExec ["A3A_fnc_flagaction",0,_veh];
-		//[_veh,"unit"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
-		//[_veh,"vehicle"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
-		//[_veh,"garage"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
+		[_veh,"rebelFlag"] remoteExec ["A3A_fnc_flagaction",0,_veh];
+		//[_veh,"unit"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_veh];
+		//[_veh,"vehicle"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_veh];
+		//[_veh,"garage"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_veh];
 		};
 	if ((_markerX in resourcesX) or (_markerX in factories)) then
 		{
@@ -53,7 +53,7 @@ if (_markerX != "Synd_HQ") then
 								_nameX = [_markerX] call A3A_fnc_localizar;
 								destroyedCities pushBackUnique _markerX;
 								publicVariable "destroyedCities";
-								["TaskFailed", ["", format ["%1 Destroyed",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
+								["TaskFailed", ["", format ["%1 Destroyed",_nameX]]] remoteExec ["BIS_fnc_showNotification",[rebelSide,civilian]];
 								};
 							}];
 						};
@@ -65,20 +65,20 @@ if (_markerX != "Synd_HQ") then
 		};
 	if (_markerX in seaports) then
 		{
-		[_veh,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
+		[_veh,"seaport"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_veh];
 		};
 	};
 _staticsX = staticsToSave select {_x distance2D _positionX < _size};
 
 _garrison = [];
 _garrison = _garrison + (garrison getVariable [_markerX,[]]);
-_groupX = createGroup teamPlayer;
-_groupEst = createGroup teamPlayer;
-_groupMortar = createGroup teamPlayer;
+_groupX = createGroup rebelSide;
+_groupEst = createGroup rebelSide;
+_groupMortar = createGroup rebelSide;
 {
-_index = _garrison findIf {_x in SDKMil};
+_index = _garrison findIf {_x in rebelLiteAT};
 if (_index == -1) exitWith {};
-if (typeOf _x == SDKMortar) then
+if (typeOf _x == rebelMortar) then
 	{
 	_unit = _groupMortar createUnit [(_garrison select _index), _positionX, [], 0, "NONE"];
 	_unit moveInGunner _x;
@@ -89,25 +89,25 @@ else
 	_unit = _groupEst createUnit [(_garrison select _index), _positionX, [], 0, "NONE"];
 	_unit moveInGunner _x;
 	};
-[_unit,_markerX] call A3A_fnc_FIAinitBases;
+[_unit,_markerX] call A3A_fnc_rebelCreateBases;
 _soldiers pushBack _unit;
 _garrison deleteAT _index;
 } forEach _staticsX;
 
-if (staticCrewTeamPlayer in _garrison) then
+if (rebelStaticCrew in _garrison) then
 	{
 	{
-	_unit = _groupMortar createUnit [staticCrewTeamPlayer, _positionX, [], 0, "NONE"];
+	_unit = _groupMortar createUnit [rebelStaticCrew, _positionX, [], 0, "NONE"];
 	_pos = [_positionX] call A3A_fnc_mortarPos;
-	_veh = SDKMortar createVehicle _pos;
+	_veh = rebelMortar createVehicle _pos;
 	_vehiclesX pushBack _veh;
 	_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";
 	_unit assignAsGunner _veh;
 	_unit moveInGunner _veh;
 	[_veh] call A3A_fnc_AIVEHinit;
 	_soldiers pushBack _unit;
-	} forEach (_garrison select {_x == staticCrewTeamPlayer});
-	_garrison = _garrison - [staticCrewTeamPlayer];
+	} forEach (_garrison select {_x == rebelStaticCrew});
+	_garrison = _garrison - [rebelStaticCrew];
 	};
 _garrison = _garrison call A3A_fnc_garrisonReorg;
 _radiusX = count _garrison;
@@ -117,14 +117,14 @@ while {(spawner getVariable _markerX != 2) and (_countX < _radiusX)} do
 	{
 	_typeX = _garrison select _countX;
 	_unit = _groupX createUnit [_typeX, _positionX, [], 0, "NONE"];
-	if (_typeX in SDKSL) then {_groupX selectLeader _unit};
-	[_unit,_markerX] call A3A_fnc_FIAinitBases;
+	if (_typeX in rebelSquadLeader) then {_groupX selectLeader _unit};
+	[_unit,_markerX] call A3A_fnc_rebelCreateBases;
 	_soldiers pushBack _unit;
 	_countX = _countX + 1;
 	sleep 0.5;
 	if (_countGroup == 8) then
 		{
-		_groupX = createGroup teamPlayer;
+		_groupX = createGroup rebelSide;
 		_groups pushBack _groupX;
 		_countGroup = 0;
 		};
@@ -152,7 +152,6 @@ if (alive _soldierX) then
 	};
 } forEach _soldiers;
 {deleteVehicle _x} forEach _civs;
-//if (!isNull _periodista) then {deleteVehicle _periodista};
 {deleteGroup _x} forEach _groups;
 deleteGroup _groupEst;
 deleteGroup _groupMortar;

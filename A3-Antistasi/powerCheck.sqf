@@ -11,9 +11,9 @@ if (_ant1 distance _positionX > _ant2 distance _positionX) exitWith {sideUnknown
 
 _outpost = [markersX,_ant1] call BIS_fnc_NearestPosition;
 /*
-if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
+if (sidesX getVariable [_markerX,sideUnknown] == rebelSide) then
 	{
-	if (sidesX getVariable [_outpost,sideUnknown] == teamPlayer) then {_result = true};
+	if (sidesX getVariable [_outpost,sideUnknown] == rebelSide) then {_result = true};
 	}
 else
 	{

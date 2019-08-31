@@ -21,7 +21,7 @@ if (_csatT > 25*(tierWar + difficultyCoef)) then {_csatT = 25*tierWar};
 
 if (_nato != 0) then {prestigeNATO = _natoT; publicVariable "prestigeNATO"};
 if (_csat != 0) then {prestigeCSAT = _csatT; publicVariable "prestigeCSAT"};
-//if ((_natoT == floor _natoT) or (_csatT == floor _csatT)) then {[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]]};
+//if ((_natoT == floor _natoT) or (_csatT == floor _csatT)) then {[] remoteExec ["A3A_fnc_statistics",[rebelSide,civilian]]};
 prestigeIsChanging = false;
 _textX = "";
 _natoSim = "";

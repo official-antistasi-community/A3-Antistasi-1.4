@@ -3,23 +3,22 @@ private ["_markerX","_mrkD"];
 _markerX = _this select 0;
 
 _mrkD = format ["Dum%1",_markerX];
-if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
+if (sidesX getVariable [_markerX,sideUnknown] == rebelSide) then
 	{
 	_textX = if (count (garrison getVariable [_markerX,[]]) > 0) then {format [": %1", count (garrison getVariable [_markerX,[]])]} else {""};
-	_mrkD setMarkerColor colourTeamPlayer;
+	_mrkD setMarkerColor rebelColor;
 	if (_markerX in airportsX) then
 		{
-		_textX = format ["%2 Airbase%1",_textX,nameTeamPlayer];
-		[_mrkD,format ["%1 Airbase",nameTeamPlayer]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
-		//_mrkD setMarkerText format ["SDK Airbase%1",_textX];
+		_textX = format ["%2 Airbase%1",_textX,rebelFactionName];
+		[_mrkD,format ["%1 Airbase",rebelFactionName]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
 		if (markerType _mrkD != "flag_Syndicat") then {_mrkD setMarkerType "flag_Syndicat"};
 		}
 	else
 		{
 		if (_markerX in outposts) then
 			{
-			_textX = format ["%2 Outpost%1",_textX,nameTeamPlayer];
-			[_mrkD,format ["%1 Outpost",nameTeamPlayer]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
+			_textX = format ["%2 Outpost%1",_textX,rebelFactionName];
+			[_mrkD,format ["%1 Outpost",rebelFactionName]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
 			}
 		else
 			{
@@ -40,7 +39,7 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 			 	};
 			};
 		};
-	[_mrkD,_textX] remoteExec ["setMarkerTextLocal",[teamPlayer,civilian],true];
+	[_mrkD,_textX] remoteExec ["setMarkerTextLocal",[rebelSide,civilian],true];
 	}
 else
 	{

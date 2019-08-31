@@ -4,17 +4,17 @@ _presente = false;
 {
 if ((side _x == Occupants) or (side _x == Invaders)) then
 	{
-	if ([500,1,_x,teamPlayer] call A3A_fnc_distanceUnits) then {_presente = true};
+	if ([500,1,_x,rebelSide] call A3A_fnc_distanceUnits) then {_presente = true};
 	};
 } forEach allUnits;
 if (_presente) exitWith {hint "You cannot rest while enemies are near our units"};
-if (["AttackAAF"] call BIS_fnc_taskExists) exitWith {hint "You cannot rest while the enemy is counterattacking"};
+if (["aiAttack"] call BIS_fnc_taskExists) exitWith {hint "You cannot rest while the enemy is counterattacking"};
 if (["DEF_HQ"] call BIS_fnc_taskExists) exitWith {hint "You cannot rest while your HQ is under attack"};
 
 _checkX = false;
-_posHQ = getMarkerPos respawnTeamPlayer;
+_posHQ = getMarkerPos rebelRespawn;
 {
-if ((_x distance _posHQ > 100) and (side _x == teamPlayer)) then {_checkX = true};
+if ((_x distance _posHQ > 100) and (side _x == rebelSide)) then {_checkX = true};
 } forEach (allPlayers - (entities "HeadlessClient_F"));
 
 if (_checkX) exitWith {hint "All players must be in a 100m radius from HQ to be able to rest"};

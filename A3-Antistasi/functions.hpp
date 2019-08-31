@@ -6,7 +6,7 @@ class A3A
 		class addTimeForIdle {file="addTimeForIdle.sqf";};
 		class AILoadInfo {file="AILoadInfo.sqf";};
 		class blackout {file="blackout.sqf";};
-		class attackAAF {file="attackAAF.sqf";};
+		class aiAttackCreate {file="aiAttackCreate.sqf";};
 		class buildHQ {file="buildHQ.sqf";};
 		class ejectPvPPlayerIfInvalidVehicle {file="ejectPvPPlayerIfInvalidVehicle.sqf";};
 		class createPetros {file="createPetros.sqf";};
@@ -15,13 +15,13 @@ class A3A
 		class citySupportChange {file="citySupportChange.sqf";};
 		class commsMP {file="commsMP.sqf";};
 		class createControls {file="createControls.sqf";};
-		class createOutpostsFIA {file="createOutpostsFIA.sqf";};
+		class rebelRoadblockCreate {file="rebelRoadblockCreate.sqf";};
 		class deleteControls {file="deleteControls.sqf";};
 		class destroyCity {file="destroyCity.sqf";};
 		class distanceUnits {file="distanceUnits.sqf";};
 		class distances4 {file="distances5.sqf";};
 		class economicsAI {file="economicsAI.sqf";};
-		class FIAradio {file="FIAradio.sqf";};
+		class rebelRadio {file="rebelRadio.sqf";};
 		class findBasesForConvoy {file="findBasesForConvoy.sqf";};
 		class findNearestGoodRoad {file="findNearestGoodRoad.sqf";};
 		class flagaction {file="flagaction.sqf";};
@@ -54,7 +54,7 @@ class A3A
 		class repairRuinedBuilding {file="repairRuinedBuilding.sqf";};
 		class relocateHQObjects {file="relocateHQObjects.sqf";};
 		class resourceCheckSkipTime {file="resourcecheckSkipTime.sqf";};
-		class resourcesFIA {file="resourcesFIA.sqf";};
+		class rebelResources {file="rebelResources.sqf";};
 		class returnMuzzle {file="returnMuzzle.sqf";};
 		class revealToPlayer {file="revealToPlayer.sqf";};
 		class scheduler {file="scheduler.sqf";};
@@ -74,7 +74,7 @@ class A3A
 
 	class AI
 	{
-		class AAFKilledEH {file="AI\AAFKilledEH.sqf";};
+		class aiKilledEH {file="AI\aiKilledEH.sqf";};
 		class airdrop {file="AI\airdrop.sqf";};
 		class AIreactOnKill {file="AI\AIreactOnKill.sqf";};
 		class airstrike {file="AI\airstrike.sqf";};
@@ -129,7 +129,7 @@ class A3A
 
 	class CREATE
 	{
-		class AAFroadPatrol {file="CREATE\AAFroadpatrol.sqf";};
+		class aiVehiclePatrols {file="CREATE\aiVehiclePatrols.sqf";};
 		class airportCanAttack {file="CREATE\airportCanAttack.sqf";};
 		class AIVEHinit {file="CREATE\AIVEHinit.sqf";};
 		class cargoSeats {file="CREATE\cargoSeats.sqf";};
@@ -142,17 +142,17 @@ class A3A
 		class createAIOutposts {file="CREATE\createAIOutposts.sqf";};
 		class createAIResources {file="CREATE\createAIResources.sqf";};
 		class createCIV {file="CREATE\createCIV.sqf";};
-		class createFIAOutposts2 {file="CREATE\createFIAOutposts2.sqf";};
+		class rebelCreateWatchpostsAndRoadblocks {file="CREATE\rebelCreateWatchpostsAndRoadblocks.sqf";};
 		class createSDKGarrisons {file="CREATE\createSDKGarrisons.sqf";};
 		class createSDKgarrisonsTemp {file="CREATE\createSDKgarrisonsTemp.sqf";};
 		class CSATpunish {file="CREATE\CSATpunish.sqf";};
-		class FIAinitBases {file="CREATE\FIAinitBases.sqf";};
+		class rebelCreateBases {file="CREATE\rebelCreateBases.sqf";};
 		class garrisonReorg {file="CREATE\garrisonReorg.sqf";};
 		class garrisonSize {file="CREATE\garrisonSize.sqf";};
 		class garrisonUpdate {file="CREATE\garrisonUpdate.sqf";};
 		class groupDespawner {file="CREATE\groupDespawner.sqf";};
 		class milBuildings {file="CREATE\milBuildings.sqf";};
-		class minefieldAAF {file="CREATE\minefieldAAF.sqf";};
+		class rebelMinefieldCreate {file="CREATE\rebelMinefieldCreate.sqf";};
 		class mortarPos {file="CREATE\mortarPos.sqf";};
 		class NATOinit {file="CREATE\NATOinit.sqf";};
 		class patrolCA {file="CREATE\patrolCA.sqf";};
@@ -198,7 +198,6 @@ class A3A
 		class attemptPlaceVehicle {file="Garage\private\attemptPlaceVehicle.sqf";};
 		class displayVehiclePlacementMessage {file="Garage\private\displayVehiclePlacementMessage.sqf";};
 		class handleVehPlacementCancelled {file="Garage\private\handleVehPlacementCancelled.sqf";};
-
 		class vehPlacementCleanup {file="Garage\private\vehPlacementCleanup.sqf";};
 	}
 
@@ -245,17 +244,17 @@ class A3A
 	class REINF
 	{
 		class addBombRun {file="REINF\addBombRun.sqf";};
-		class addFIAsquadHC {file="REINF\addFIAsquadHC.sqf";};
-		class addFIAveh {file="REINF\addFIAveh.sqf";};
+		class rebelSquadAddHC {file="REINF\rebelSquadAddHC.sqf";};
+		class rebelVehCreate {file="REINF\rebelVehCreate.sqf";};
 		class addSquadVeh {file="REINF\addSquadVeh.sqf";};
 		class autoGarrison {file="REINF\autoGarrison.sqf";};
 		class build {file="REINF\Building\build.sqf";};
 		class buildCreateVehicleCallback {file="REINF\Building\buildCreateVehicleCallback.sqf";};
 		class buildMinefield {file="REINF\buildMinefield.sqf";};
 		class enemyNearCheck {file="REINF\enemyNearCheck.sqf";};
-		class FIAinit {file="REINF\FIAinit.sqf";};
-		class FIAskillAdd {file="REINF\FIAskillAdd.sqf";};
-		class garrisonAdd {file="REINF\garrisonAdd.sqf";};
+		class rebelCreateUnits {file="REINF\rebelCreateUnits.sqf";};
+		class rebelTrainingIncrease {file="REINF\rebelTrainingIncrease.sqf";};
+		class rebelGarrisonAddUnit {file="REINF\rebelGarrisonAddUnit.sqf";};
 		class garrisonDialog {file="REINF\garrisonDialog.sqf";};
 		class NATObomb {file="REINF\NATObomb.sqf";};
 		class NATOQuadbike {file="REINF\NATOQuadbike.sqf";};
@@ -271,9 +270,9 @@ class A3A
 		class actionRevive {file="Revive\actionRevive.sqf";};
 		class fatalWound {file="Revive\fatalWound.sqf";};
 		class handleDamage {file="Revive\handleDamage.sqf";};
-		class handleDamageAAF {file="Revive\handleDamageAAF.sqf";};
+		class aiHandleDamageEH {file="Revive\aiHandleDamageEH.sqf";};
 		class unconscious {file="Revive\unconscious.sqf";};
-		class unconsciousAAF {file="Revive\unconsciousAAF.sqf";};
+		class aiUnconscious {file="Revive\aiUnconscious.sqf";};
 		class initRevive {file="Revive\initRevive.sqf";};
 		class isMedic {file="Revive\isMedic.sqf";};
 		class respawn {file="Revive\respawn.sqf";};

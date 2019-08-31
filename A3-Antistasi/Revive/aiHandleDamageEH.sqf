@@ -1,7 +1,7 @@
 private ["_unit","_part","_dam","_injurer","_groupX"];
 _dam = _this select 2;
 _injurer = _this select 3;
-if (side _injurer == teamPlayer) then
+if (side _injurer == rebelSide) then
 	{
 	_unit = _this select 0;
 	_part = _this select 1;
@@ -23,7 +23,7 @@ if (side _injurer == teamPlayer) then
 				_unit setVariable ["INCAPACITATED",true,true];
 				_unit setUnconscious true;
 				_dam = 0.9;
-				[_unit,_injurer] spawn A3A_fnc_unconsciousAAF;
+				[_unit,_injurer] spawn A3A_fnc_aiUnconscious;
 				}
 			else
 				{
@@ -76,7 +76,7 @@ if (side _injurer == teamPlayer) then
 								moveOut _unit;
 								};
 							if (isPlayer _unit) then {_unit allowDamage false};
-							if (!isNull _injurer) then {[_unit,_injurer] spawn A3A_fnc_unconsciousAAF} else {[_unit,objNull] spawn A3A_fnc_unconsciousAAF};
+							if (!isNull _injurer) then {[_unit,_injurer] spawn A3A_fnc_aiUnconscious} else {[_unit,objNull] spawn A3A_fnc_aiUnconscious};
 							};
 						};
 					}
@@ -93,7 +93,7 @@ if (side _injurer == teamPlayer) then
 								moveOut _unit;
 								};
 							if (isPlayer _unit) then {_unit allowDamage false};
-							if (!isNull _injurer) then {[_unit,_injurer] spawn A3A_fnc_unconsciousAAF} else {[_unit,objNull] spawn A3A_fnc_unconsciousAAF};
+							if (!isNull _injurer) then {[_unit,_injurer] spawn A3A_fnc_aiUnconscious} else {[_unit,objNull] spawn A3A_fnc_aiUnconscious};
 							};
 						};
 					};

@@ -26,7 +26,7 @@ if (!isMultiPlayer) then
     "respawn_east" setMarkerAlpha 0;
     [] execVM "briefing.sqf";
     _nul = [] execVM "musica.sqf";
-    {if (/*(side _x == teamPlayer) and */(_x != commanderX) and (_x != Petros)) then {_grupete = group _x; deleteVehicle _x; deleteGroup _grupete}} forEach allUnits;
+    {if (/*(side _x == rebelSide) and */(_x != commanderX) and (_x != Petros)) then {_grupete = group _x; deleteVehicle _x; deleteGroup _grupete}} forEach allUnits;
     _serverHasID = profileNameSpace getVariable ["ss_ServerID",nil];
     if(isNil "_serverHasID") then
         {
@@ -80,6 +80,6 @@ if (!isMultiPlayer) then
             };
         }];
     deleteMarker "respawn_east";
-    if (teamPlayer == independent) then {deleteMarker "respawn_west"} else {deleteMarker "respawn_guerrila"};
+    if (rebelSide == independent) then {deleteMarker "respawn_west"} else {deleteMarker "respawn_guerrila"};
     };
     diag_log format ["%1: [Antistasi] | INFO | Init finished.",servertime];

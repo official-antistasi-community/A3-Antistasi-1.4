@@ -154,7 +154,7 @@ class Mission
 	class Intel
 	{
 		briefingName="A3-Antistasi Altis BLUEFOR 1.4c2.0";
-		overviewText="Build FIA Army from scratch and defeat the AAF and CSAT forces in a whole map Dynamic Mission.";
+		overviewText="Build a rebellion and liberate yourself from the Government, while defending them against the Invasion Forces.";
 		resistanceWest=0;
 		startWeather=0;
 		startWind=0;

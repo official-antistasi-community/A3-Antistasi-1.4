@@ -11,7 +11,7 @@ if (isNil "_costs") then
 	}
 else
 	{
-	_costs = round (_costs - (_costs * (0.1 * ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count seaports))));
+	_costs = round (_costs - (_costs * (0.1 * ({sidesX getVariable [_x,sideUnknown] == rebelSide} count seaports))));
 	};
 
 _costs

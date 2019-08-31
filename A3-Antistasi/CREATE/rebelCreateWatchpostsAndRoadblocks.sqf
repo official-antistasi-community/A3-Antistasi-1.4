@@ -16,10 +16,10 @@ if (_isRoad) then
 
 	if (isNil "_garrison") then
 		{//this is for backward compatibility, remove after v12
-		_garrison = [staticCrewTeamPlayer];
+		_garrison = [rebelStaticCrew];
 		{
-		if (random 20 <= skillFIA) then {_garrison pushBack (_x select 1)} else {_garrison pushBack (_x select 0)};
-		} forEach groupsSDKAT;
+		if (random 20 <= rebelTrainingLevel) then {_garrison pushBack (_x select 1)} else {_garrison pushBack (_x select 0)};
+		} forEach rebelGroupAT;
 		garrison setVariable [_markerX,_garrison,true];
 		};
 	while {true} do
@@ -28,39 +28,39 @@ if (_isRoad) then
 		if (count _road > 0) exitWith {};
 		_radiusX = _radiusX + 5;
 		};
-	if (staticCrewTeamPlayer in _garrison) then
+	if (rebelStaticCrew in _garrison) then
 		{
 		_roadcon = roadsConnectedto (_road select 0);
 		_dirveh = [_road select 0, _roadcon select 0] call BIS_fnc_DirTo;
-		_veh = vehSDKLightArmed createVehicle getPos (_road select 0);
+		_veh = rebelVehLiteArmed createVehicle getPos (_road select 0);
 		_veh setDir _dirveh + 90;
 		_veh lock 3;
 		_nul = [_veh] call A3A_fnc_AIVEHinit;
 		sleep 1;
 		};
-	_groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
-	//_unit = _groupX createUnit [staticCrewTeamPlayer, _positionX, [], 0, "NONE"];
+	_groupX = [_positionX, rebelSide, _garrison,true,false] call A3A_fnc_spawnGroup;
+	//_unit = _groupX createUnit [rebelStaticCrew, _positionX, [], 0, "NONE"];
 	//_unit moveInGunner _veh;
-	{[_x,_markerX] spawn A3A_fnc_FIAinitBases; if (typeOf _x == staticCrewTeamPlayer) then {_x moveInGunner _veh}} forEach units _groupX;
+	{[_x,_markerX] spawn A3A_fnc_rebelCreateBases; if (typeOf _x == rebelStaticCrew) then {_x moveInGunner _veh}} forEach units _groupX;
 	}
 else
 	{
 	_formatX = [];
 	{
-	if (random 20 <= skillFIA) then {_formatX pushBack (_x select 1)} else {_formatX pushBack (_x select 0)};
-	} forEach groupsSDKSniper;
-	_groupX = [_positionX, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
+	if (random 20 <= rebelTrainingLevel) then {_formatX pushBack (_x select 1)} else {_formatX pushBack (_x select 0)};
+	} forEach rebelGroupSniperTeam;
+	_groupX = [_positionX, rebelSide, _formatX] call A3A_fnc_spawnGroup;
 	_groupX setBehaviour "STEALTH";
 	_groupX setCombatMode "GREEN";
-	{[_x,_markerX] spawn A3A_fnc_FIAinitBases;} forEach units _groupX;
+	{[_x,_markerX] spawn A3A_fnc_rebelCreateBases;} forEach units _groupX;
 	};
 
-waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({alive _x} count units _groupX == 0) or (not(_markerX in outpostsFIA))};
+waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({alive _x} count units _groupX == 0) or (not(_markerX in rebelWatchpostsAndRoadblocks))};
 
 if ({alive _x} count units _groupX == 0) then
 //if ({alive _x} count units _groupX == 0) then
 	{
-	outpostsFIA = outpostsFIA - [_markerX]; publicVariable "outpostsFIA";
+	rebelWatchpostsAndRoadblocks = rebelWatchpostsAndRoadblocks - [_markerX]; publicVariable "rebelWatchpostsAndRoadblocks";
 	markersX = markersX - [_markerX]; publicVariable "markersX";
 	sidesX setVariable [_markerX,nil,true];
 	_nul = [5,-5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -75,7 +75,7 @@ if ({alive _x} count units _groupX == 0) then
 		};
 	};
 
-waitUntil {sleep 1; (spawner getVariable _markerX == 2) or (not(_markerX in outpostsFIA))};
+waitUntil {sleep 1; (spawner getVariable _markerX == 2) or (not(_markerX in rebelWatchpostsAndRoadblocks))};
 
 if (_isRoad) then {if (!isNull _veh) then {deleteVehicle _veh}};
 {deleteVehicle _x} forEach units _groupX;

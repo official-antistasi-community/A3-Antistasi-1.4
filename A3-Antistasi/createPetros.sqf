@@ -2,14 +2,14 @@ params [["_location", []]];
 
 _oldPetros = if (isNil "petros") then {objNull}	else {petros};
 
-groupPetros = if !(isNull _oldPetros && side group _oldPetros == teamPlayer) then {group _oldPetros} else {createGroup teamPlayer};
+groupPetros = if !(isNull _oldPetros && side group _oldPetros == rebelSide) then {group _oldPetros} else {createGroup rebelSide};
 publicVariable "groupPetros";
 
 private _position = if (count _location > 0) then {
 	_location
 } else {
 	if (getPos _oldPetros isEqualTo [0,0,0]) then {
-		getMarkerPos respawnTeamPlayer
+		getMarkerPos rebelRespawn
 	} else {
 		getPos _oldPetros
 	};
@@ -27,9 +27,9 @@ petros disableAI "MOVE";
 petros disableAI "AUTOTARGET";
 
 if (group _oldPetros == groupPetros) then {
-	[Petros,"mission"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],petros]
+	[Petros,"mission"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],petros]
 } else {
-	[Petros,"buildHQ"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],petros]
+	[Petros,"buildHQ"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],petros]
 };
 
 [] execVM "initPetros.sqf";

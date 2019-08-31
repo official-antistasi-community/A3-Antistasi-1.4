@@ -35,7 +35,7 @@ if (isPlayer _unit) then
 			};
 		_handled;
 		}];
-	//if (side _unit == teamPlayer) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
+	//if (side _unit == rebelSide) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
 	if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
 	openMap false;
 	{
@@ -66,7 +66,7 @@ else
 			_markerX = _unit getVariable ["markerX",""];
 			if (_markerX != "") then
 				{
-				if (!([_markerX] call BIS_fnc_taskExists) and (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) then {[_markerX,_injurer,teamPlayer] remoteExec ["A3A_fnc_underAttack",2]};
+				if (!([_markerX] call BIS_fnc_taskExists) and (sidesX getVariable [_markerX,sideUnknown] == rebelSide)) then {[_markerX,_injurer,rebelSide] remoteExec ["A3A_fnc_underAttack",2]};
 				};
 			};
 		};

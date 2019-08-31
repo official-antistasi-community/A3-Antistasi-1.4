@@ -76,12 +76,12 @@ if (random 100 < _chance) then
 		};
 	};
 
-_minesAAF = allmines - (detectedMines teamPlayer);
-if (_sideX == Occupants) then {_minesAAF = _minesAAF - (detectedMines Invaders)} else {_minesAAF = _minesAAF - (detectedMines Occupants)};
+_rebelLootMines = allmines - (detectedMines rebelSide);
+if (_sideX == Occupants) then {_rebelLootMines = _rebelLootMines - (detectedMines Invaders)} else {_rebelLootMines = _rebelLootMines - (detectedMines Occupants)};
 _revealMineX = false;
-if (count _minesAAF > 0) then
+if (count _rebelLootMines > 0) then
 	{
-	{if (random 100 < _chance) then {teamPlayer revealMine _x; _revealMineX = true}} forEach _minesAAF;
+	{if (random 100 < _chance) then {rebelSide revealMine _x; _revealMineX = true}} forEach _rebelLootMines;
 	};
 if (_revealMineX) then {_textX = format ["%1 New Mines marked on your map<br/>",_textX];};
 

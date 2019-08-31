@@ -32,7 +32,7 @@ if (_posroad distance _pos > 400) then
                         _mrk setMarkerSize [30,30];
                         _mrk setMarkerShape "RECTANGLE";
                         _mrk setMarkerBrush "SOLID";
-                        _mrk setMarkerColor colourTeamPlayer;
+                        _mrk setMarkerColor rebelColor;
                         _mrk setMarkerText _nameX;
                         if (not debug) then {_mrk setMarkerAlpha 0};
                         if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
@@ -41,7 +41,7 @@ if (_posroad distance _pos > 400) then
                                 }
                         else
                                 {
-                                if (sidesX getVariable [_markerX,sideUnknown] == Invaders) then {sidesX setVariable [_nameX,Invaders,true]} else {sidesX setVariable [_nameX,teamPlayer,true]};
+                                if (sidesX getVariable [_markerX,sideUnknown] == Invaders) then {sidesX setVariable [_nameX,Invaders,true]} else {sidesX setVariable [_nameX,rebelSide,true]};
                                 };
                         controlsX pushBackUnique _nameX;
                         markersX pushBackUnique _nameX;

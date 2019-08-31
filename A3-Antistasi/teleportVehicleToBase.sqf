@@ -4,7 +4,7 @@ private _boundingSphereDiameter = ((boundingBox _vehicle) select 2) + 1;
  
 private _possiblePosition = []; 
 private _newPosition = for "_i" from 1 to 20 do { 
- private _possiblePosition = [(getMarkerPos respawnTeamPlayer), 20, 60, _boundingSphereDiameter, 0, 0.3] call BIS_fnc_findSafePos; 
+ private _possiblePosition = [(getMarkerPos rebelRespawn), 20, 60, _boundingSphereDiameter, 0, 0.3] call BIS_fnc_findSafePos; 
  private _checkedPosition =  if (count _possiblePosition > 0) then { _possiblePosition findEmptyPosition [0,0, typeOf _vehicle]; } else {[]}; 
  if (count _checkedPosition > 0) exitWith {_checkedPosition}; 
 }; 

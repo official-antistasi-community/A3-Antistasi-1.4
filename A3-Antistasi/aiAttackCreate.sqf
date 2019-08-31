@@ -6,15 +6,13 @@ _markersX = [];
 _countXFacil = 0;
 _natoIsFull = false;
 _csatIsFull = false;
-_airportsX = airportsX select {([_x,false] call A3A_fnc_airportCanAttack) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
-_objectivesX = markersX - controlsX - outpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedCities;
-if (gameMode != 1) then {_objectivesX = _objectivesX select {sidesX getVariable [_x,sideUnknown] == teamPlayer}};
-//_objectivisSDK = _objectivesX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+_airportsX = airportsX select {([_x,false] call A3A_fnc_airportCanAttack) and (sidesX getVariable [_x,sideUnknown] != rebelSide)};
+_objectivesX = markersX - controlsX - rebelWatchpostsAndRoadblocks - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedCities;
+if (gameMode != 1) then {_objectivesX = _objectivesX select {sidesX getVariable [_x,sideUnknown] == rebelSide}};
 if ((tierWar < 2) and (gameMode <= 2)) then
 	{
 	_airportsX = _airportsX select {(sidesX getVariable [_x,sideUnknown] == Occupants)};
-	//_objectivesX = _objectivisSDK;
-	_objectivesX = _objectivesX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+	_objectivesX = _objectivesX select {sidesX getVariable [_x,sideUnknown] == rebelSide};
 	}
 else
 	{
@@ -47,7 +45,7 @@ _objectivesXProv = _objectivesX - airportsX - _nearestObjectives;
 {
 _posObj = getMarkerPos _x;
 _sideObjective = sidesX getVariable [_x,sideUnknown];
-if (((markersX - controlsX - citiesX - outpostsFIA) select {sidesX getVariable [_x,sideUnknown] != _sideObjective}) findIf {getMarkerPos _x distance2D _posObj < 2000} == -1) then {_objectivesX = _objectivesX - [_x]};
+if (((markersX - controlsX - citiesX - rebelWatchpostsAndRoadblocks) select {sidesX getVariable [_x,sideUnknown] != _sideObjective}) findIf {getMarkerPos _x distance2D _posObj < 2000} == -1) then {_objectivesX = _objectivesX - [_x]};
 } forEach _objectivesXProv;
 
 if (_objectivesX isEqualTo []) exitWith {};
@@ -70,7 +68,7 @@ _baseNATO = true;
 if (sidesX getVariable [_base,sideUnknown] == Occupants) then
 	{
 	_tmpObjectives = _objectivesX select {sidesX getVariable [_x,sideUnknown] != Occupants};
-	_tmpObjectives = _tmpObjectives - (citiesX select {([_x] call A3A_fnc_powerCheck) == teamPlayer});
+	_tmpObjectives = _tmpObjectives - (citiesX select {([_x] call A3A_fnc_powerCheck) == rebelSide});
 	}
 else
 	{
@@ -87,13 +85,13 @@ if !(_tmpObjectives isEqualTo []) then
 	_isCity = if (_x in citiesX) then {true} else {false};
 	_proceed = true;
 	_posSite = getMarkerPos _x;
-	_isSDK = false;
+	_isRebel = false;
 	_isTheSameIsland = [_x,_base] call A3A_fnc_isTheSameIsland;
 	if ([_x,true] call A3A_fnc_fogCheck >= 0.3) then
 		{
-		if (sidesX getVariable [_x,sideUnknown] == teamPlayer) then
+		if (sidesX getVariable [_x,sideUnknown] == rebelSide) then
 			{
-			_isSDK = true;
+			_isRebel = true;
 			/*
 			_valueX = if (_baseNATO) then {prestigeNATO} else {prestigeCSAT};
 			if (random 100 > _valueX) then
@@ -104,7 +102,7 @@ if !(_tmpObjectives isEqualTo []) then
 			};
 		if (!_isTheSameIsland and (not(_x in airportsX))) then
 			{
-			if (!_isSDK) then {_proceed = false};
+			if (!_isRebel) then {_proceed = false};
 			};
 		}
 	else
@@ -120,14 +118,14 @@ if !(_tmpObjectives isEqualTo []) then
 				if !(_x in _easyArray) then
 					{
 					_siteX = _x;
-					if (((!(_siteX in airportsX)) or (_isSDK)) and !(_base in ["NATO_carrier","CSAT_carrier"])) then
+					if (((!(_siteX in airportsX)) or (_isRebel)) and !(_base in ["NATO_carrier","CSAT_carrier"])) then
 						{
 						_sideEnemy = if (_baseNATO) then {Invaders} else {Occupants};
 						if ({(sidesX getVariable [_x,sideUnknown] == _sideEnemy) and (getMarkerPos _x distance _posSite < distanceSPWN)} count airportsX == 0) then
 							{
 							_garrison = garrison getVariable [_siteX,[]];
 							_staticsX = staticsToSave select {_x distance _posSite < distanceSPWN};
-							_outposts = outpostsFIA select {getMarkerPos _x distance _posSite < distanceSPWN};
+							_outposts = rebelWatchpostsAndRoadblocks select {getMarkerPos _x distance _posSite < distanceSPWN};
 							_countX = ((count _garrison) + (count _outposts) + (2*(count _staticsX)));
 							if (_countX <= 8) then
 								{
@@ -154,7 +152,7 @@ if !(_tmpObjectives isEqualTo []) then
 				{
 				if ((_x in outposts) or (_x in seaports)) then
 					{
-					if (!_isSDK) then
+					if (!_isRebel) then
 						{
 						if (({[_x] call A3A_fnc_vehAvailable} count vehNATOAttack > 0) or ({[_x] call A3A_fnc_vehAvailable} count vehNATOAttackHelis > 0)) then {_times = 2*_times} else {_times = 0};
 						}
@@ -167,7 +165,7 @@ if !(_tmpObjectives isEqualTo []) then
 					{
 					if (_x in airportsX) then
 						{
-						if (!_isSDK) then
+						if (!_isRebel) then
 							{
 							if (([vehNATOPlane] call A3A_fnc_vehAvailable) or (!([vehCSATAA] call A3A_fnc_vehAvailable))) then {_times = 5*_times} else {_times = 0};
 							}
@@ -178,7 +176,7 @@ if !(_tmpObjectives isEqualTo []) then
 						}
 					else
 						{
-						if ((!_isSDK) and _natoIsFull) then {_times = 0};
+						if ((!_isRebel) and _natoIsFull) then {_times = 0};
 						};
 					};
 				};
@@ -195,7 +193,7 @@ if !(_tmpObjectives isEqualTo []) then
 				{
 				if ((_x in outposts) or (_x in seaports)) then
 					{
-					if (!_isSDK) then
+					if (!_isRebel) then
 						{
 						if (({[_x] call A3A_fnc_vehAvailable} count vehCSATAttack > 0) or ({[_x] call A3A_fnc_vehAvailable} count vehCSATAttackHelis > 0)) then {_times = 2*_times} else {_times = 0};
 						}
@@ -208,7 +206,7 @@ if !(_tmpObjectives isEqualTo []) then
 					{
 					if (_x in airportsX) then
 						{
-						if (!_isSDK) then
+						if (!_isRebel) then
 							{
 							if (([vehCSATPlane] call A3A_fnc_vehAvailable) or (!([vehNATOAA] call A3A_fnc_vehAvailable))) then {_times = 5*_times} else {_times = 0};
 							}
@@ -219,7 +217,7 @@ if !(_tmpObjectives isEqualTo []) then
 						}
 					else
 						{
-						if ((!_isSDK) and _csatIsFull) then {_times = 0};
+						if ((!_isRebel) and _csatIsFull) then {_times = 0};
 						};
 					}
 				};
@@ -231,7 +229,7 @@ if !(_tmpObjectives isEqualTo []) then
 			};
 		if (_times > 0) then
 			{
-			if ((!_isSDK) and (!_isCity)) then
+			if ((!_isRebel) and (!_isCity)) then
 				{
 				//_times = _times + (floor((garrison getVariable [_x,0])/8))
 				_numGarr = [_x] call A3A_fnc_garrisonSize;
@@ -319,7 +317,7 @@ if ((count _objectivesFinal > 0) and (count _easyX < 3)) then
 	///This will always fire, as waves is always 1 at this point.
 	if (_waves == 1) then
 		{
-		if (sidesX getVariable [_destinationX,sideUnknown] == teamPlayer) then
+		if (sidesX getVariable [_destinationX,sideUnknown] == rebelSide) then
 			{
 			_waves = (round (random tierWar));
 			if (_waves == 0) then {_waves = 1};

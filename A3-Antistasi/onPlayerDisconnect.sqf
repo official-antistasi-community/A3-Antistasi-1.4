@@ -16,7 +16,7 @@ if (_unit == theBoss) then
 	{
 	if (!(_x getVariable ["esNATO",false])) then
 		{
-		if ((leader _x getVariable ["spawner",false]) and ({isPlayer _x} count (units _x) == 0) and (side _x == teamPlayer)) then
+		if ((leader _x getVariable ["spawner",false]) and ({isPlayer _x} count (units _x) == 0) and (side _x == rebelSide)) then
 			{
 			_uds = units _x;
 				{
@@ -37,14 +37,7 @@ if (_unit == theBoss) then
 						}
 					else
 						{
-						if (_typeVehX in vehFIA) then {_resourcesX = _resourcesX + ([_typeVehX] call A3A_fnc_vehiclePrice);};
-						/*
-						if (_typeVehX in vehAAFnormal) then {_resourcesX = _resourcesX + 300};
-						if (_typeVehX in vehAAFAT) then
-							{
-							if ((_typeVehX == "I_APC_tracked_03_cannon_F") or (_typeVehX == "I_APC_Wheeled_03_cannon_F")) then {_resourcesX = _resourcesX + 1000} else {_resourcesX = _resourcesX + 5000};
-							};
-						*/
+						if (_typeVehX in rebelVehicles) then {_resourcesX = _resourcesX + ([_typeVehX] call A3A_fnc_vehiclePrice);};
 						if (count attachedObjects _veh > 0) then
 							{
 							_subVeh = (attachedObjects _veh) select 0;
@@ -71,9 +64,9 @@ if (_unit == theBoss) then
 	};
 
 //Need to check the group's side, as player may be a civ. Unknown is in case they've been moved out of their group.
-if (side group _unit == teamPlayer || side group _unit == sideUnknown) then
+if (side group _unit == rebelSide || side group _unit == sideUnknown) then
 	{
-	if ((_hr > 0) or (_resourcesX > 0)) then {[_hr,_resourcesX] spawn A3A_fnc_resourcesFIA};
+	if ((_hr > 0) or (_resourcesX > 0)) then {[_hr,_resourcesX] spawn A3A_fnc_rebelResources};
 	if (membershipEnabled and pvpEnabled) then
 		{
 		if (_uid in membersX) then {playerHasBeenPvP pushBack [_uid,time]};

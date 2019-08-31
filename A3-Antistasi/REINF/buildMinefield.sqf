@@ -5,16 +5,16 @@ private ["_typeX","_quantity","_typeAmmunition","_groupX","_unit","_radiusX","_r
 _typeX = _this select 0;
 _positionTel = _this select 1;
 _quantity = _this select 2;
-_costs = (2*(server getVariable (SDKExp select 0))) + ([vehSDKTruck] call A3A_fnc_vehiclePrice);
-[-2,(-1*_costs)] remoteExecCall ["A3A_fnc_resourcesFIA",2];
+_costs = (2*(server getVariable (rebelExpSpec select 0))) + ([rebelVehTransport] call A3A_fnc_vehiclePrice);
+[-2,(-1*_costs)] remoteExecCall ["A3A_fnc_rebelResources",2];
 
 if (_typeX == "ATMine") then
 	{
-	_typeAmmunition = ATMineMag;
+	_typeAmmunition = rebelMineAT;
 	};
 if (_typeX == "APERSMine") then
 	{
-	_typeAmmunition = APERSMineMag;
+	_typeAmmunition = rebelMineAP;
 	};
 
 /*
@@ -60,24 +60,24 @@ _mrk setMarkerBrush "DiagGrid";
 _mrk setMarkerText _textX;
 [_mrk,0] remoteExec ["setMarkerAlpha",[Occupants,Invaders]];
 
-[[teamPlayer,civilian],"Mines",[format ["An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.",_quantity],"Minefield Deploy",_mrk],_positionTel,false,0,true,"map",true] call BIS_fnc_taskCreate;
-//_tsk = ["Mines",[teamPlayer,civilian],[format ["An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.",_quantity],"Minefield Deploy",_mrk],_positionTel,"CREATED",5,true,true,"map"] call BIS_fnc_setTask;
+[[rebelSide,civilian],"Mines",[format ["An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.",_quantity],"Minefield Deploy",_mrk],_positionTel,false,0,true,"map",true] call BIS_fnc_taskCreate;
+//_tsk = ["Mines",[rebelSide,civilian],[format ["An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.",_quantity],"Minefield Deploy",_mrk],_positionTel,"CREATED",5,true,true,"map"] call BIS_fnc_setTask;
 //missionsX pushBack _tsk; publicVariable "missionsX";
 
-_groupX = createGroup teamPlayer;
+_groupX = createGroup rebelSide;
 
-_unit = _groupX createUnit [(SDKExp select 0), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"];
+_unit = _groupX createUnit [(rebelExpSpec select 0), (getMarkerPos rebelRespawn), [], 0, "NONE"];
 sleep 1;
-_unit = _groupX createUnit [(SDKExp select 0), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"];
+_unit = _groupX createUnit [(rebelExpSpec select 0), (getMarkerPos rebelRespawn), [], 0, "NONE"];
 _groupX setGroupId ["MineF"];
 
-_road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
-_pos = position _road findEmptyPosition [1,30,vehSDKTruck];
+_road = [getMarkerPos rebelRespawn] call A3A_fnc_findNearestGoodRoad;
+_pos = position _road findEmptyPosition [1,30,rebelVehTransport];
 
-_truckX = vehSDKTruck createVehicle _pos;
+_truckX = rebelVehTransport createVehicle _pos;
 
 _groupX addVehicle _truckX;
-{[_x] spawn A3A_fnc_FIAinit; [_x] orderGetIn true} forEach units _groupX;
+{[_x] spawn A3A_fnc_rebelCreateUnit; [_x] orderGetIn true} forEach units _groupX;
 _nul = [_truckX] call A3A_fnc_AIVEHinit;
 leader _groupX setBehaviour "SAFE";
 theBoss hcSetGroup [_groupX];
@@ -101,7 +101,7 @@ if ((_truckX distance _positionTel < 50) and ({alive _x} count units _groupX > 0
 		waitUntil {!(isPlayer leader _groupX)};
 		};
 	theBoss hcRemoveGroup _groupX;
-	[petros,"hint","Engineer Team deploying mines."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[petros,"hint","Engineer Team deploying mines."] remoteExec ["A3A_fnc_commsMP",[rebelSide,civilian]];
 	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "SHOWMARKER"] execVM "scripts\UPSMON.sqf";
 	sleep 30*_quantity;
 	if ((alive _truckX) and ({alive _x} count units _groupX > 0)) then
@@ -112,13 +112,13 @@ if ((_truckX distance _positionTel < 50) and ({alive _x} count units _groupX > 0
 		for "_i" from 1 to _quantity do
 			{
 			_mineX = createMine [_typeX,_positionTel,[],100];
-			teamPlayer revealMine _mineX;
+			rebelSide revealMine _mineX;
 			};
 		["Mines",[format ["An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.",_quantity],"Minefield Deploy",_mrk],_positionTel,"SUCCEEDED","Map"] call A3A_fnc_taskUpdate;
 		sleep 15;
 		//_nul = [_tsk,true] call BIS_fnc_deleteTask;
 		_nul = [0,"Mines"] spawn A3A_fnc_deleteTask;
-		[2,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
+		[2,_costs] remoteExec ["A3A_fnc_rebelResources",2];
 		}
 	else
 		{

@@ -1,7 +1,7 @@
 _unit = _this select 0;
 _playerX = _this select 1;
 
-[_unit,"remove"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
+[_unit,"remove"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_unit];
 
 if (!alive _unit) exitWith {};
 

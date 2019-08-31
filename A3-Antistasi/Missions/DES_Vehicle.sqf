@@ -23,7 +23,7 @@ _nameDest = [_markerX] call A3A_fnc_localizar;
 
 _typeVehX = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 
-[[teamPlayer,civilian],"DES",[format ["We know an enemy armor (%3) is stationed in %1. It is a good chance to destroy or steal it before it causes more damage. Do it before %2.",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],"Steal or Destroy Armor",_markerX],_positionX,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+[[rebelSide,civilian],"DES",[format ["We know an enemy armor (%3) is stationed in %1. It is a good chance to destroy or steal it before it causes more damage. Do it before %2.",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],"Steal or Destroy Armor",_markerX],_positionX,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 _truckCreated = false;
 missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
 
@@ -58,21 +58,21 @@ if (spawner getVariable _markerX == 0) then
 		}
 	else
 		{
-		waitUntil {sleep 1;({leader _groupX knowsAbout _x > 1.4} count ([distanceSPWN,0,leader _groupX,teamPlayer] call A3A_fnc_distanceUnits) > 0) or (dateToNumber date > _dateLimitNum) or (not alive _veh) or ({(_x getVariable ["spawner",false]) and (side group _x == teamPlayer)} count crew _veh > 0)};
+		waitUntil {sleep 1;({leader _groupX knowsAbout _x > 1.4} count ([distanceSPWN,0,leader _groupX,rebelSide] call A3A_fnc_distanceUnits) > 0) or (dateToNumber date > _dateLimitNum) or (not alive _veh) or ({(_x getVariable ["spawner",false]) and (side group _x == rebelSide)} count crew _veh > 0)};
 
-		if ({leader _groupX knowsAbout _x > 1.4} count ([distanceSPWN,0,leader _groupX,teamPlayer] call A3A_fnc_distanceUnits) > 0) then {_groupX addVehicle _veh;};
+		if ({leader _groupX knowsAbout _x > 1.4} count ([distanceSPWN,0,leader _groupX,rebelSide] call A3A_fnc_distanceUnits) > 0) then {_groupX addVehicle _veh;};
 		};
 
-	waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or (not alive _veh) or ({(_x getVariable ["spawner",false]) and (side group _x == teamPlayer)} count crew _veh > 0)};
+	waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or (not alive _veh) or ({(_x getVariable ["spawner",false]) and (side group _x == rebelSide)} count crew _veh > 0)};
 
-	if ((not alive _veh) or ({(_x getVariable ["spawner",false]) and (side group _x == teamPlayer)} count crew _veh > 0)) then
+	if ((not alive _veh) or ({(_x getVariable ["spawner",false]) and (side group _x == rebelSide)} count crew _veh > 0)) then
 		{
 		["DES",[format ["We know an enemy armor (%3) is stationed in a %1. It is a good chance to steal or destroy it before it causes more damage. Do it before %2.",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],"Steal or Destroy Armor",_markerX],_positionX,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
-		if ({(_x getVariable ["spawner",false]) and (side group _x == teamPlayer)} count crew _veh > 0) then
+		if ({(_x getVariable ["spawner",false]) and (side group _x == rebelSide)} count crew _veh > 0) then
 			{
 			["TaskFailed", ["", format ["AA Stolen in %1",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 			};
-		[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
+		[0,300*_bonus] remoteExec ["A3A_fnc_rebelResources",2];
 		if (_sideX == Invaders) then {[0,3] remoteExec ["A3A_fnc_prestige",2]; [0,10*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]} else {[3,0] remoteExec ["A3A_fnc_prestige",2];[0,5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]};
 		[1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 		{if (_x distance _veh < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
@@ -82,7 +82,7 @@ if (spawner getVariable _markerX == 0) then
 else
 	{
 	["DES",[format ["We know an enemy armor (%3) is stationed in a %1. It is a good chance to steal or destroy it before it causes more damage. Do it before %2.",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],"Steal or Destroy Armor",_markerX],_positionX,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
-	[-5*_bonus,-100*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
+	[-5*_bonus,-100*_bonus] remoteExec ["A3A_fnc_rebelResources",2];
 	[5*_bonus,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	[-600*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
@@ -96,5 +96,5 @@ if (_truckCreated) then
 	{
 	{deleteVehicle _x} forEach units _groupX;
 	deleteGroup _groupX;
-	if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
+	if (!([distanceSPWN,1,_veh,rebelSide] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
 	};

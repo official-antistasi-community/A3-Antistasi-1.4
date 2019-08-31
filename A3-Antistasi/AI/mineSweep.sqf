@@ -2,23 +2,23 @@ if (!isServer and hasInterface) exitWith {};
 
 private ["_costs","_groupX","_unit","_minesX","_radiusX","_roads","_truckX","_mineX","_countX"];
 
-_costs = (server getVariable (SDKExp select 0)) + ([vehSDKRepair] call A3A_fnc_vehiclePrice);
+_costs = (server getVariable (rebelExpSpec select 0)) + ([rebelVehRepair] call A3A_fnc_vehiclePrice);
 
-[-1,-1*_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
+[-1,-1*_costs] remoteExec ["A3A_fnc_rebelResources",2];
 
-_groupX = createGroup teamPlayer;
+_groupX = createGroup rebelSide;
 
-_unit = _groupX createUnit [(SDKExp select 0), getMarkerPos respawnTeamPlayer, [], 0, "NONE"];
+_unit = _groupX createUnit [(rebelExpSpec select 0), getMarkerPos rebelRespawn, [], 0, "NONE"];
 _groupX setGroupId ["MineSw"];
 _minesX = [];
 sleep 1;
-_road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
+_road = [getMarkerPos rebelRespawn] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 
-_truckX = vehSDKRepair createVehicle _pos;
+_truckX = rebelVehRepair createVehicle _pos;
 
 [_truckX] call A3A_fnc_AIVEHinit;
-[_unit] spawn A3A_fnc_FIAinit;
+[_unit] spawn A3A_fnc_rebelCreateUnit;
 clearMagazineCargo unitBackpack _unit;
 _unit addItemToBackpack "MineDetector";
 
@@ -37,13 +37,13 @@ while {alive _unit} do
 		{
 		if (alive _truckX) then
 			{
-			if ((count magazineCargo _truckX > 0) and (_unit distance (getMarkerPos respawnTeamPlayer) < 50)) then
+			if ((count magazineCargo _truckX > 0) and (_unit distance (getMarkerPos rebelRespawn) < 50)) then
 				{
 				[_truckX,boxX] remoteExec ["A3A_fnc_ammunitionTransfer",2];
 				sleep 30;
 				};
 			};
-		_minesX = (detectedMines teamPlayer) select {(_x distance _unit) < 100};
+		_minesX = (detectedMines rebelSide) select {(_x distance _unit) < 100};
 		if (count _minesX == 0) then
 			{
 			waitUntil {sleep 1;(!alive _unit) or (!unitReady _unit)};

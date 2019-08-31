@@ -7,7 +7,7 @@ _threat = 0;
 _markerX = _this select 0;
 _sideX = _this select 1;
 if (_markerX isEqualType []) then {_positionX = _markerX} else {_positionX = getMarkerPos _markerX};
-_threat = _threat + 2 * ({(isOnRoad getMarkerPos _x) and (getMarkerPos _x distance _positionX < distanceSPWN)} count outpostsFIA);
+_threat = _threat + 2 * ({(isOnRoad getMarkerPos _x) and (getMarkerPos _x distance _positionX < distanceSPWN)} count rebelWatchpostsAndRoadblocks);
 
 {
 if (getMarkerPos _x distance _positionX < distanceSPWN) then
@@ -19,9 +19,9 @@ if (getMarkerPos _x distance _positionX < distanceSPWN) then
 	_staticsX = staticsToSave select {_x inArea _analyzed};
 	if (count _staticsX > 0) then
 		{
-		_threat = _threat + ({typeOf _x == SDKMortar} count _staticsX) + (2*({typeOf _x == staticATteamPlayer} count _staticsX))
+		_threat = _threat + ({typeOf _x == rebelMortar} count _staticsX) + (2*({typeOf _x == rebelStaticAT} count _staticsX))
 		};
 	};
-} forEach (markersX - citiesX - controlsX - outpostsFIA) select {sidesX getVariable [_x,sideUnknown] != _sideX};
+} forEach (markersX - citiesX - controlsX - rebelWatchpostsAndRoadblocks) select {sidesX getVariable [_x,sideUnknown] != _sideX};
 
 _threat

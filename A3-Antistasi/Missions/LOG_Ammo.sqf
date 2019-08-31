@@ -28,13 +28,13 @@ _pos = position _road;
 _pos = _pos findEmptyPosition [1,60,_typeVehX];
 if (count _pos == 0) then {_pos = position _road};
 
-[[teamPlayer,civilian],"LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_pos,false,0,true,"rearm",true] call BIS_fnc_taskCreate;
+[[rebelSide,civilian],"LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_pos,false,0,true,"rearm",true] call BIS_fnc_taskCreate;
 _truckCreated = false;
 missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";
 
-waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer))};
+waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == rebelSide))};
 _bonus = if (_difficultX) then {2} else {1};
-if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) then
+if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == rebelSide)) then
 	{
 	//sleep 10;
 
@@ -102,7 +102,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 		{
 			
 			["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_positionX,"SUCCEEDED","rearm"] call A3A_fnc_taskUpdate;
-			[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
+			[0,300*_bonus] remoteExec ["A3A_fnc_rebelResources",2];
 			[1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 			{if (_x distance _truckX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
@@ -123,6 +123,6 @@ if (_truckCreated) then
 	{deleteVehicle _x} forEach units _groupX1;
 	deleteGroup _groupX1;
 	deleteMarker _mrk;
-	waitUntil {sleep 1; !([300,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
+	waitUntil {sleep 1; !([300,1,_truckX,rebelSide] call A3A_fnc_distanceUnits)};
 	deleteVehicle _truckX;
 	};

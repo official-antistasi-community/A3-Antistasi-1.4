@@ -1,4 +1,4 @@
-private _posHQ = getMarkerPos respawnTeamPlayer;
+private _posHQ = getMarkerPos rebelRespawn;
 private _time = if (isMultiplayer) then {serverTime} else {time};
 
 
@@ -10,7 +10,7 @@ if ((_time - (boxX getVariable ["lastUsed", -30])) < 30) exitWith {
 
 boxX setVariable ["lastUsed", _time, true];
 
-{if ((side group _x == teamPlayer) and (_x distance _posHQ < 50)) then
+{if ((side group _x == rebelSide) and (_x distance _posHQ < 50)) then
 	{
 	if (hasACEMedical) then
 		{

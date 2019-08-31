@@ -19,7 +19,7 @@ hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",
 	}];
 
 private ["_positionTel","_markerX","_markersX"];
-_markersX = markersX select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+_markersX = markersX select {sidesX getVariable [_x,sideUnknown] != rebelSide};
 _positionTel = [];
 if (isNil "placementDone") then
 	{
@@ -74,7 +74,7 @@ if (visiblemap) then
 		{
 		if (getMarkerPos _x distance _positionTel < distanceSPWN) then
 			{
-			sidesX setVariable [_x,teamPlayer,true];
+			sidesX setVariable [_x,rebelSide,true];
 			};
 		} forEach controlsX;
 		petros setPos _positionTel;
@@ -85,18 +85,18 @@ if (visiblemap) then
 		{
 		if (getMarkerPos _x distance _positionTel < distanceSPWN) then
 			{
-			sidesX setVariable [_x,teamPlayer,true];
+			sidesX setVariable [_x,rebelSide,true];
 			};
 		} forEach _controlsX;
 		[_positionTel] call A3A_fnc_createPetros;
 		};
 	[_positionTel] call A3A_fnc_relocateHQObjects;
-	if (isNil "placementDone") then {if (isMultiplayer) then {{if ((side _x == teamPlayer) or (side _x == civilian)) then {_x setPos getPos petros}} forEach playableUnits} else {theBoss setPos (getMarkerPos respawnTeamPlayer)}};
+	if (isNil "placementDone") then {if (isMultiplayer) then {{if ((side _x == rebelSide) or (side _x == civilian)) then {_x setPos getPos petros}} forEach playableUnits} else {theBoss setPos (getMarkerPos rebelRespawn)}};
 	theBoss allowDamage true;
 	openmap [false,false];
 	};
 {deleteMarkerLocal _x} forEach _mrkDum;
-"Synd_HQ" setMarkerPos (getMarkerPos respawnTeamPlayer);
-posHQ = getMarkerPos respawnTeamPlayer; publicVariable "posHQ";
+"Synd_HQ" setMarkerPos (getMarkerPos rebelRespawn);
+posHQ = getMarkerPos rebelRespawn; publicVariable "posHQ";
 if (isNil "placementDone") then {placementDone = true; publicVariable "placementDone"};
 chopForest = false; publicVariable "chopForest";

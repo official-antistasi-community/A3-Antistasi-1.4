@@ -1,9 +1,9 @@
 //if (!isServer) exitWith{};
-private ["_groups","_hr","_resourcesFIA","_wp","_groupX","_veh","_leave"];
+private ["_groups","_hr","_rebelMoney","_wp","_groupX","_veh","_leave"];
 
 _groups = _this select 0;
 _hr = 0;
-_resourcesFIA = 0;
+_rebelMoney = 0;
 _leave = false;
 {
 if ((groupID _x == "MineF") or (groupID _x == "Watch") or (isPlayer(leader _x))) then {_leave = true};
@@ -17,7 +17,7 @@ if (_x getVariable ["esNATO",false]) then {_leave = true};
 
 if (_leave) exitWith {hint "You cannot dismiss NATO groups"};
 
-_pos = getMarkerPos respawnTeamPlayer;
+_pos = getMarkerPos rebelRespawn;
 
 {
 theBoss sideChat format ["%2, I'm sending %1 back to base", _x,name petros];
@@ -34,17 +34,17 @@ sleep 100;
 if (alive _x) then
 	{
 	_hr = _hr + 1;
-	_resourcesFIA = _resourcesFIA + (server getVariable [typeOf _x,0]);
+	_rebelMoney = _rebelMoney + (server getVariable [typeOf _x,0]);
 	if (!isNull (assignedVehicle _x)) then
 		{
 		_veh = assignedVehicle _x;
-		if ((typeOf _veh) in vehFIA) then
+		if ((typeOf _veh) in rebelVehicles) then
 			{
-			_resourcesFIA = _resourcesFIA + ([(typeOf _veh)] call A3A_fnc_vehiclePrice);
+			_rebelMoney = _rebelMoney + ([(typeOf _veh)] call A3A_fnc_vehiclePrice);
 			if (count attachedObjects _veh > 0) then
 				{
 				_subVeh = (attachedObjects _veh) select 0;
-				_resourcesFIA = _resourcesFIA + ([(typeOf _subVeh)] call A3A_fnc_vehiclePrice);
+				_rebelMoney = _rebelMoney + ([(typeOf _subVeh)] call A3A_fnc_vehiclePrice);
 				deleteVehicle _subVeh;
 				};
 			deleteVehicle _veh;
@@ -55,16 +55,16 @@ if (alive _x) then
 		{
 		switch (_backpck) do
 			{
-			case MortStaticSDKB: {_resourcesFIA = _resourcesFIA + ([SDKMortar] call A3A_fnc_vehiclePrice)};
-			case AAStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticAAteamPlayer] call A3A_fnc_vehiclePrice)};
-			case MGStaticSDKB: {_resourcesFIA = _resourcesFIA + ([SDKMGStatic] call A3A_fnc_vehiclePrice)};
-			case ATStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticATteamPlayer] call A3A_fnc_vehiclePrice)};
+			case rebelStaticMortarBag: {_rebelMoney = _rebelMoney + ([rebelMortar] call A3A_fnc_vehiclePrice)};
+			case rebelStaticSupportAA: {_rebelMoney = _rebelMoney + ([rebelStaticAA] call A3A_fnc_vehiclePrice)};
+			case rebelStaticTallMG: {_rebelMoney = _rebelMoney + ([rebelStaticMG] call A3A_fnc_vehiclePrice)};
+			case rebelStaticSupportAT: {_rebelMoney = _rebelMoney + ([rebelStaticAT] call A3A_fnc_vehiclePrice)};
 			};
 		};
 	};
 deleteVehicle _x;
 } forEach units _groupX;
 deleteGroup _groupX;} forEach _groups;
-_nul = [_hr,_resourcesFIA] remoteExec ["A3A_fnc_resourcesFIA",2];
+_nul = [_hr,_rebelMoney] remoteExec ["A3A_fnc_rebelResources",2];
 
 

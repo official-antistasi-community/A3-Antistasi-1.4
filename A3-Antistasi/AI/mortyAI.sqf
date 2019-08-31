@@ -4,12 +4,12 @@ _groupX = _this select 0;
 _morty0 = units _groupX select 0;
 _morty1 = units _groupX select 1;
 _typeX = _this select 1;
-_b0 = MortStaticSDKB;
-_b1 = supportStaticsSDKB3;
-if (_typeX == SDKMGStatic) then
+_b0 = rebelStaticMortarBag;
+_b1 = rebelStaticSupportMortar;
+if (_typeX == rebelStaticMG) then
 	{
-	_b0 = MGStaticSDKB;
-	_b1 = supportStaticsSDKB2;
+	_b0 = rebelStaticTallMG;
+	_b1 = rebelStaticSupportTallMG;
 	_morty0 setVariable ["typeOfSoldier","StaticGunner"];
 	}
 else

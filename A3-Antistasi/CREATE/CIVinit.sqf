@@ -58,7 +58,7 @@ _EHkilledIdx = _unit addEventHandler
 			_multiplier = 1;
 			if (typeOf _victim == "C_journalist_F") then {_multiplier = 10};
 			//Must be group, in case they're undercover.
-			if (side group _killer == teamPlayer) then
+			if (side group _killer == rebelSide) then
 			{
 				_nul = [1*_multiplier,0] remoteExec ["A3A_fnc_prestige",2];
 				_nul = [1,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];

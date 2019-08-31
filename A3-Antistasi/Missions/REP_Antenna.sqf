@@ -14,7 +14,7 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 
-[[teamPlayer,civilian],"REP",[format ["%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.",_nameDest,_displayTime,nameOccupants],"Tower Rebuild Disrupt",_markerX],_positionX,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+[[rebelSide,civilian],"REP",[format ["%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.",_nameDest,_displayTime,nameOccupants],"Tower Rebuild Disrupt",_markerX],_positionX,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["REP","CREATED"]; publicVariable "missionsX";
 _truckCreated = false;
 
@@ -56,7 +56,7 @@ if (spawner getVariable _markerX != 2) then
 	};
 if (dateToNumber date > _dateLimitNum) then
 	{
-	if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
+	if (sidesX getVariable [_markerX,sideUnknown] == rebelSide) then
 		{
 		["REP",[format ["%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2:%3.",_nameDest,_displayTime,nameOccupants],"Tower Rebuild Disrupt",_markerX],_positionX,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 		[2,0] remoteExec ["A3A_fnc_prestige",2];
@@ -90,7 +90,7 @@ if (dateToNumber date > _dateLimitNum) then
 		{if ([antennas,_x] call BIS_fnc_nearestPosition == _antenna) then {[_x,false] spawn A3A_fnc_blackout}} forEach citiesX;
 		_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
 		antennas = antennas - [_antenna]; antennasDead = antennasDead + [getPos _antenna]; deleteMarker _mrk;
-		["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+		["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",rebelSide];
 		["TaskFailed",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",Occupants];
 		publicVariable "antennas"; publicVariable "antennasDead";
 		}
@@ -105,5 +105,5 @@ if (_truckCreated) then
 	{
 	{deleteVehicle _x} forEach units _groupX;
 	deleteGroup _groupX;
-	if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
+	if (!([distanceSPWN,1,_veh,rebelSide] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
 	};

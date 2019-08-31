@@ -4,7 +4,7 @@ private ["_typeX","_posbase","_potentials","_sites","_exists","_siteX","_pos","_
 
 _typeX = _this select 0;
 
-_posbase = getMarkerPos respawnTeamPlayer;
+_posbase = getMarkerPos rebelRespawn;
 _potentials = [];
 _sites = [];
 _exists = false;
@@ -17,7 +17,7 @@ if ([_typeX] call BIS_fnc_taskExists) exitWith {if (!_silencio) then {[petros,"g
 if (_typeX == "AS") then
 	{
 	_sites = airportsX + citiesX + (controlsX select {!(isOnRoad getMarkerPos _x)});
-	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != rebelSide};
 	if ((count _sites > 0) and ({sidesX getVariable [_x,sideUnknown] == Occupants} count airportsX > 0)) then
 		{
 		//_potentials = _sites select {((getMarkerPos _x distance _posbase < distanceMission) and (not(spawner getVariable _x)))};
@@ -29,7 +29,7 @@ if (_typeX == "AS") then
 				{
 				if (_siteX in controlsX) then
 					{
-					_markersX = markersX select {(getMarkerPos _x distance _pos < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] == teamPlayer)};
+					_markersX = markersX select {(getMarkerPos _x distance _pos < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] == rebelSide)};
 					_markersX = _markersX - ["Synd_HQ"];
 					_frontierX = if (count _markersX > 0) then {true} else {false};
 					if (_frontierX) then
@@ -61,7 +61,7 @@ if (_typeX == "AS") then
 if (_typeX == "CON") then
 	{
 	_sites = (controlsX select {(isOnRoad (getMarkerPos _x))})+ outposts + resourcesX;
-	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != rebelSide};
 	if (count _sites > 0) then
 		{
 		_potentials = _sites select {(getMarkerPos _x distance _posbase < distanceMission)};
@@ -82,7 +82,7 @@ if (_typeX == "CON") then
 	};
 if (_typeX == "DES") then
 	{
-	_sites = airportsX select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+	_sites = airportsX select {sidesX getVariable [_x,sideUnknown] != rebelSide};
 	_sites = _sites + antennas;
 	if (count _sites > 0) then
 		{
@@ -122,7 +122,7 @@ if (_typeX == "DES") then
 if (_typeX == "LOG") then
 	{
 	_sites = outposts + citiesX - destroyedCities;
-	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != rebelSide};
 	if (random 100 < 20) then {_sites = _sites + banks};
 	if (count _sites > 0) then
 		{
@@ -143,8 +143,8 @@ if (_typeX == "LOG") then
 					{
 					_dataX = server getVariable _siteX;
 					_prestigeOPFOR = _dataX select 2;
-					_prestigeBLUFOR = _dataX select 3;
-					if (_prestigeOPFOR + _prestigeBLUFOR < 90) then
+					_rebelCitySupport = _dataX select 3;
+					if (_prestigeOPFOR + _rebelCitySupport < 90) then
 						{
 						_potentials pushBack _siteX;
 						};
@@ -157,7 +157,7 @@ if (_typeX == "LOG") then
 			if (_siteX in banks) then
 				{
 				_city = [citiesX, _pos] call BIS_fnc_nearestPosition;
-				if (sidesX getVariable [_city,sideUnknown] == teamPlayer) then {_potentials = _potentials - [_siteX]};
+				if (sidesX getVariable [_city,sideUnknown] == rebelSide) then {_potentials = _potentials - [_siteX]};
 				};
 			};
 		};
@@ -180,7 +180,7 @@ if (_typeX == "LOG") then
 if (_typeX == "RES") then
 	{
 	_sites = airportsX + outposts + citiesX;
-	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != rebelSide};
 	if (count _sites > 0) then
 		{
 		for "_i" from 0 to ((count _sites) - 1) do
@@ -209,7 +209,7 @@ if (_typeX == "CONVOY") then
 	if (!bigAttackInProgress) then
 		{
 		_sites = (airportsX + resourcesX + factories + seaports + outposts - blackListDest) + (citiesX select {count (garrison getVariable [_x,[]]) < 10});
-		_sites = _sites select {(sidesX getVariable [_x,sideUnknown] != teamPlayer) and !(_x in blackListDest)};
+		_sites = _sites select {(sidesX getVariable [_x,sideUnknown] != rebelSide) and !(_x in blackListDest)};
 		if (count _sites > 0) then
 			{
 			for "_i" from 0 to ((count _sites) - 1) do
@@ -219,14 +219,14 @@ if (_typeX == "CONVOY") then
 				_base = [_siteX] call A3A_fnc_findBasesForConvoy;
 				if ((_pos distance _posbase < (distanceMission*2)) and (_base !="")) then
 					{
-					if ((_siteX in citiesX) and (sidesX getVariable [_siteX,sideUnknown] == teamPlayer)) then
+					if ((_siteX in citiesX) and (sidesX getVariable [_siteX,sideUnknown] == rebelSide)) then
 						{
 						if (sidesX getVariable [_base,sideUnknown] == Occupants) then
 							{
 							_dataX = server getVariable _siteX;
 							_prestigeOPFOR = _dataX select 2;
-							_prestigeBLUFOR = _dataX select 3;
-							if (_prestigeOPFOR + _prestigeBLUFOR < 90) then
+							_rebelCitySupport = _dataX select 3;
+							if (_prestigeOPFOR + _rebelCitySupport < 90) then
 								{
 								_potentials pushBack _siteX;
 								};

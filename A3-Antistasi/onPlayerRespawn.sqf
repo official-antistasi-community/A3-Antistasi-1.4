@@ -13,7 +13,7 @@ if !(hasACEMedical) then
 	_oldUnit setVariable ["INCAPACITATED",false,true];
 	_newUnit setVariable ["INCAPACITATED",false,true];
 	};
-if (side group player == teamPlayer) then
+if (side group player == rebelSide) then
 	{
 	_owner = _oldUnit getVariable ["owner",_oldUnit];
 

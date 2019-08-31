@@ -4,7 +4,9 @@ _mrkNATO = [];
 _mrkCSAT = [];
 _controlsNATO = [];
 _controlsCSAT = [];
-
+if (debug) then {
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting Control Marks for Worldname: %2  .",servertime,worldName];
+};
 if (gameMode == 1) then
 	{
     _controlsNATO = controlsX;
@@ -31,6 +33,10 @@ if (gameMode == 1) then
             };
 	    };
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
+    if (debug) then {
+        diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | _mrkCSAT: %2.",servertime,_mrkCSAT];
+        diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | _mrkNATO: %2.",servertime,_mrkNATO];
+    };
 	}
 else
 	{
@@ -47,6 +53,9 @@ else
 	};
 {sidesX setVariable [_x,Occupants,true]} forEach _controlsNATO;
 {sidesX setVariable [_x,Invaders,true]} forEach _controlsCSAT;
+if (debug) then {
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Airbase stuff.",servertime];
+};
 {
 _pos = getMarkerPos _x;
 _dmrk = createMarker [format ["Dum%1",_x], _pos];
@@ -82,7 +91,9 @@ else
 _nul = [_x] call A3A_fnc_createControls;
 server setVariable [_x,0,true];//dateX en fomrato dateToNumber en la que estarán idle
 } forEach airportsX;
-
+if (debug) then {
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Resource stuff.",servertime];
+};
 {
 _pos = getMarkerPos _x;
 _dmrk = createMarker [format ["Dum%1",_x], _pos];
@@ -109,7 +120,9 @@ else
 garrison setVariable [_x,_garrison,true];
 _nul = [_x] call A3A_fnc_createControls;
 } forEach resourcesX;
-
+if (debug) then {
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Factory stuff.",servertime];
+};
 {
 _pos = getMarkerPos _x;
 _dmrk = createMarker [format ["Dum%1",_x], _pos];
@@ -136,13 +149,18 @@ else
 garrison setVariable [_x,_garrison,true];
 _nul = [_x] call A3A_fnc_createControls;
 } forEach factories;
-
+if (debug) then {
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Outpost stuff.",servertime];
+};
 {
 _pos = getMarkerPos _x;
 _dmrk = createMarker [format ["Dum%1",_x], _pos];
 _dmrk setMarkerShape "ICON";
 _garrNum = [_x] call A3A_fnc_garrisonSize;
 _garrNum = _garrNum / 8;
+if (debug) then {
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Outpost: %2 - Size: %3.",servertime,_x,_garrNum];
+};
 _garrison = [];
 killZones setVariable [_x,[],true];
 _dmrk setMarkerType "loc_bunker";
@@ -152,6 +170,9 @@ if !(_x in _mrkCSAT) then
     _dmrk setMarkerText format ["%1 Outpost",nameOccupants];
     for "_i" from 1 to _garrNum do
         {
+        if (debug) then {
+            diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Not in CSAT | Creating FIASquad: %2 in outpost: %3",servertime,_i,_X];
+        };
         _garrison append (selectRandom groupsFIASquad);
         };
     sidesX setVariable [_x,Occupants,true];
@@ -164,6 +185,9 @@ else
     	{
     	for "_i" from 1 to _garrNum do
 	       {
+            if (debug) then {
+                diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | CSAT & Gamemode 4 | Creating FIASquad: %2 in outpost: %3",servertime,_i,_X];
+            };
 	       _garrison append (selectRandom groupsFIASquad);
 	       };
     	}
@@ -171,6 +195,9 @@ else
     	{
 	    for "_i" from 1 to _garrNum do
 	        {
+            if (debug) then {
+                diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | CSAT & Not Gamemode 4 | Creating FIASquad: %2 in outpost: %3",servertime,_i,_X];
+            };
 	        _garrison append (selectRandom groupsCSATSquad);
 	        };
 	    };
@@ -180,7 +207,9 @@ garrison setVariable [_x,_garrison,true];
 server setVariable [_x,0,true];
 _nul = [_x] call A3A_fnc_createControls;
 } forEach outposts;
-
+if (debug) then {
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Seaport stuff.",servertime];
+};
 {
 _pos = getMarkerPos _x;
 _dmrk = createMarker [format ["Dum%1",_x], _pos];

@@ -47,9 +47,9 @@ if (worldName in ["Altis", "chernarus_summer"]) then {
 		controlsX pushBack _name;
 	};
 };  //this only for Altis and Cherno
-
-diag_log format ["%1: [Antistasi] | INFO | initZones | Setting Spawn Points for %2.", servertime, worldname];
-
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initZones | Setting Spawn Points for %2.", servertime, worldname];
+};
 //We're doing it this way, because Dedicated servers world name changes case, depending on how the file is named.
 //And weirdly, == is not case sensitive.
 //this comments has not an information about the code
@@ -60,9 +60,9 @@ outpostsFIA = [];
 destroyedCities = [];
 garrison setVariable ["Synd_HQ", [], true];
 markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
-
-diag_log format ["%1: [Antistasi] | INFO | initZones | Building roads for %2.",servertime,worldname];
-
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initZones | Building roads for %2.",servertime,worldname];
+};
 markersX apply {
 	_x setMarkerAlpha 0;
 	spawner setVariable [_x, 2, true];
@@ -89,7 +89,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 		_numCiv = server getVariable _nameX;
 
 		if (isNil "_numCiv") then {
-			diag_log format ["%1: [Antistasi] | INFO | initZones | No Civilian Limit Set %2.", servertime, _nameX];
+			diag_log format ["%1: [Antistasi] | ERROR | initZones | No Civilian Limit Set %2.", servertime, _nameX];
 			_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
 			_roadsProv = _pos nearRoads _size;
 
@@ -106,7 +106,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 		if (typeName _numCiv != typeName 0) then {
 			hint format ["Incorrect Data: %1. Data Type: %2",_nameX, typeName _numCiv];
-			diag_log format ["%1: [Antistasi] | INFO | initZones | Incorrect data type for %2, Type given %2",servertime,_nameX, typeName _numCiv];
+			diag_log format ["%1: [Antistasi] | ERROR | initZones | Incorrect data type for %2, Type given %2",servertime,_nameX, typeName _numCiv];
 		};
 	} else {
 		_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
@@ -147,9 +147,9 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	_info = [_numCiv, _numVeh, prestigeOPFOR, prestigeBLUFOR];
 	server setVariable [_nameX, _info, true];
 };	//find in congigs faster then find location in 25000 radius
-
-diag_log format ["%1: [Antistasi] | INFO | initZones | Roads built in %2.",servertime,worldname];
-
+if (debug) then {
+diag_log format ["%1: [Antistasi] | DEBUG | initZones | Roads built in %2.",servertime,worldname];
+};
 markersX = markersX + citiesX;
 sidesX setVariable ["Synd_HQ", teamPlayer, true];
 
@@ -160,9 +160,9 @@ private _posAntennas = [];
 private _blacklistPos = [];
 private _posBank = [];
 private ["_antenna", "_mrkFinal", "_antennaProv"];
-
-diag_log format ["%1: [Antistasi] | INFO | initZones | Setting up Radio Towers.",servertime];
-
+if (debug) then {
+diag_log format ["%1: [Antistasi] | DEBUG | initZones | Setting up Radio Towers.",servertime];
+};
 switch (worldName) do {
 	case "Tanoa": {
 		_posAntennas = [[6617.95,7853.57,0.200073], [7486.67,9651.9,1.52588e-005], [6005.47,10420.9,0.20298], [2437.25,7224.06,0.0264893], [4701.6,3165.23,0.0633469], [11008.8,4211.16,-0.00154114], [10114.3,11743.1,9.15527e-005], [10949.8,11517.3,0.14209], [11153.3,11435.2,0.210876], [12889.2,8578.86,0.228729], [2682.94,2592.64,-0.000686646], [2690.54,12323,0.0372467], [2965.33,13087.1,0.191544], [13775.8,10976.8,0.170441]];
@@ -218,10 +218,10 @@ switch (worldName) do {
 		};
 	};
 };
-
-diag_log format ["%1: [Antistasi] | INFO | initZones | Radio Tower built.", servertime];
-diag_log format ["%1: [Antistasi] | INFO | initZones | Finding broken Radio Towers.", servertime];
-
+if (debug) then {
+diag_log format ["%1: [Antistasi] | DEBUG | initZones | Radio Tower built.", servertime];
+diag_log format ["%1: [Antistasi] | DEBUG | initZones | Finding broken Radio Towers.", servertime];
+};
 if (count _posAntennas > 0) then {
 	for "_i" from 0 to (count _posAntennas - 1) do {
 		_antennaProv = nearestObjects [_posAntennas select _i, ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F", "Land_Vysilac_FM","Land_A_TVTower_base","Land_Telek1"], 35];
@@ -265,9 +265,9 @@ if (count _posAntennas > 0) then {
 		};
 	};
 };
-
-diag_log format ["%1: [Antistasi] | INFO | initZones | Broken Radio Towers identified.",servertime];
-
+if (debug) then {
+diag_log format ["%1: [Antistasi] | DEBUG | initZones | Broken Radio Towers identified.",servertime];
+};
 if (count _posBank > 0) then {
 	for "_i" from 0 to (count _posBank - 1) do {
 		_bankProv = nearestObjects [_posBank select _i, ["Land_Offices_01_V1_F"], 30];

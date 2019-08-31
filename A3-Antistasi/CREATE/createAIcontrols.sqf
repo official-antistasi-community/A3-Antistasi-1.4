@@ -1,6 +1,6 @@
 if (!isServer and hasInterface) exitWith{};
 
-private ["_pos","_roadscon","_veh","_roads","_conquered","_dirVeh","_markerX","_positionX","_vehiclesX","_soldiers","_radiusX","_bunker","_groupE","_unit","_typeGroup","_groupX","_timeLimit","_dateLimit","_dateLimitNum","_base","_dog","_sideX","_cfg","_isFIA","_leave","_isControl","_radiusX","_typeVehX","_typeUnit","_markersX","_frontierX","_uav","_groupUAV","_allUnits","_closest","_winner","_timeLimit","_dateLimit","_dateLimitNum","_size","_base","_mineX","_loser","_sideX"];
+private ["_pos","_roadscon","_veh","_roads","_conquered","_dirVeh","_markerX","_positionX","_vehiclesX","_soldiers","_radiusX","_bunker","_groupE","_unit","_typeGroup","_groupX","_timeLimit","_dateLimit","_dateLimitNum","_base","_dog","_sideX","_cfg","_isMilitia","_leave","_isControl","_radiusX","_typeVehX","_typeUnit","_markersX","_frontierX","_uav","_groupUAV","_allUnits","_closest","_winner","_timeLimit","_dateLimit","_dateLimitNum","_size","_base","_mineX","_loser","_sideX"];
 
 _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
@@ -8,14 +8,14 @@ _sideX = sidesX getVariable [_markerX,sideUnknown];
 
 diag_log format ["[Antistasi] Spawning Control Point %1 (createAIControls.sqf)", _markerX];
 
-if ((_sideX == teamPlayer) or (_sideX == sideUnknown)) exitWith {};
+if ((_sideX == rebelSide) or (_sideX == sideUnknown)) exitWith {};
 if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea _x)) exitWith {1}} count markersX >1) exitWith {};
 _vehiclesX = [];
 _soldiers = [];
 _pilots = [];
 _conquered = false;
 _groupX = grpNull;
-_isFIA = false;
+_isMilitia = false;
 _leave = false;
 
 _isControl = if (isOnRoad _positionX) then {true} else {false};
@@ -28,7 +28,7 @@ if (_isControl) then
 			{
 			if ((random 10 > (tierWar + difficultyCoef)) and (!([_markerX] call A3A_fnc_isFrontline))) then
 				{
-				_isFIA = true;
+				_isMilitia = true;
 				}
 			};
 		}
@@ -38,7 +38,7 @@ if (_isControl) then
 			{
 			if ((random 10 > (tierWar + difficultyCoef)) and (!([_markerX] call A3A_fnc_isFrontline))) then
 				{
-				_isFIA = true;
+				_isMilitia = true;
 				}
 			};
 		};
@@ -58,7 +58,7 @@ if (_isControl) then
 		diag_log format ["%1: [Antistasi] | ERROR | createAIcontrols.sqf | Roadblock error: %2 bad position.",servertime, _markerX];
 		};
 
-	if (!_isFIA) then
+	if (!_isMilitia) then
 		{
 		_groupE = grpNull;
 		if !(hasIFA) then
@@ -118,17 +118,17 @@ if (_isControl) then
 		}
 	else
 		{
-		_typeVehX = if !(hasIFA) then {vehFIAArmedCar} else {vehFIACar};
+		_typeVehX = if !(hasIFA) then {militiaVehArmed} else {militiaVehUnarmed};
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
 		_veh setDir _dirveh + 90;
 		_nul = [_veh] call A3A_fnc_AIVEHinit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
-		_typeGroup = selectRandom groupsFIAMid;
+		_typeGroup = selectRandom militiaGroupMid;
 		_groupX = if !(hasIFA) then {[_positionX, _sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup} else {[_positionX, _sideX, _typeGroup] call A3A_fnc_spawnGroup};
 		if !(isNull _groupX) then
 			{
-			_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
+			_unit = _groupX createUnit [militiaRifleman, _positionX, [], 0, "NONE"];
 			_unit moveInGunner _veh;
 			{_soldiers pushBack _x; [_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 			};
@@ -136,8 +136,8 @@ if (_isControl) then
 	}
 else
 	{
-	_markersX = markersX select {(getMarkerPos _x distance _positionX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] == teamPlayer)};
-	_markersX = _markersX - ["Synd_HQ"] - outpostsFIA;
+	_markersX = markersX select {(getMarkerPos _x distance _positionX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] == rebelSide)};
+	_markersX = _markersX - ["Synd_HQ"] - rebelWatchpostsAndRoadblocks;
 	_frontierX = if (count _markersX > 0) then {true} else {false};
 	if (_frontierX) then
 		{
@@ -237,7 +237,7 @@ if (spawner getVariable _markerX != 2) then
 			}
 		else
 			{
-			sidesX setVariable [_markerX,teamPlayer,true];
+			sidesX setVariable [_markerX,rebelSide,true];
 			};
 		}
 	else
@@ -250,11 +250,11 @@ if (spawner getVariable _markerX != 2) then
 			}
 		else
 			{
-			sidesX setVariable [_markerX,teamPlayer,true];
+			sidesX setVariable [_markerX,rebelSide,true];
 			_nul = [0,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 			};
 		};
-	if (_winner == teamPlayer) then {[[_positionX,_sideX,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+	if (_winner == rebelSide) then {[[_positionX,_sideX,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
 	};
 
 waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
@@ -262,7 +262,7 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 {_veh = _x;
 if (not(_veh in staticsToSave)) then
 	{
-	if ((!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits))) then {deleteVehicle _x}
+	if ((!([distanceSPWN,1,_x,rebelSide] call A3A_fnc_distanceUnits))) then {deleteVehicle _x}
 	};
 } forEach _vehiclesX;
 {
@@ -299,7 +299,7 @@ if (_conquered) then
 	else
 		{
 		/*
-		if ((!_isControl) and (_winner == teamPlayer)) then
+		if ((!_isControl) and (_winner == rebelSide)) then
 			{
 			_size = [_markerX] call A3A_fnc_sizeMarker;
 			for "_i" from 1 to 60 do

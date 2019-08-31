@@ -6,9 +6,9 @@ _typeX = typeOf _unit;
 if (typeOf _unit == "Fin_random_F") exitWith {};
 _sideX = side _unit;
 //_unit setVariable ["sideX",_sideX];
-_unit addEventHandler ["HandleDamage",A3A_fnc_handleDamageAAF];
+_unit addEventHandler ["HandleDamage",A3A_fnc_aiHandleDamageEH];
 
-_unit addEventHandler ["killed",A3A_fnc_AAFKilledEH];
+_unit addEventHandler ["killed",A3A_fnc_aiKilledEH];
 if (count _this > 1) then
 	{
 	_markerX = _this select 1;
@@ -33,7 +33,7 @@ else
 				_driver = driver _veh;
 				if (!isNull _driver) then
 					{
-					if (side group _driver != teamPlayer) then
+					if (side group _driver != rebelSide) then
 						{
 						if !(_unit getVariable ["spawner",false]) then
 							{
@@ -55,7 +55,7 @@ else
 	};
 
 _skill = (tierWar + difficultyCoef) * 0.1 * skillMult;
-if ((faction _unit != factionGEN) and (faction _unit != factionFIA)) then
+if ((faction _unit != factionGEN) and (faction _unit != militiaFactionName)) then
 	{
 	if (side _unit == Occupants) then
 		{
@@ -75,7 +75,7 @@ if ((faction _unit != factionGEN) and (faction _unit != factionFIA)) then
 	}
 else
 	{
-	if (faction _unit == factionFIA) then
+	if (faction _unit == militiaFactionName) then
 		{
 		_skill = _skill min 0.3;
 		}
@@ -154,7 +154,7 @@ if !(hasIFA) then
 		_weaponItems = primaryWeaponItems _unit;
 		if (_hmd != "") then
 			{
-			if (_weaponItems findIf {_x in pointers} != -1) then
+			if (_weaponItems findIf {_x in rebelLootLaserPointer} != -1) then
 				{
 				_unit action ["IRLaserOn", _unit];
 				_unit enableIRLasers true;
@@ -162,16 +162,16 @@ if !(hasIFA) then
 			}
 		else
 			{
-			_pointers = _weaponItems arrayIntersect pointers;
-			if !(_pointers isEqualTo []) then
+			_rebelLootLaserPointer = _weaponItems arrayIntersect rebelLootLaserPointer;
+			if !(_rebelLootLaserPointer isEqualTo []) then
 				{
-				_unit removePrimaryWeaponItem (_pointers select 0);
+				_unit removePrimaryWeaponItem (_rebelLootLaserPointer select 0);
 				};
 			_lamp = "";
-			_lamps = _weaponItems arrayIntersect flashlights;
+			_lamps = _weaponItems arrayIntersect rebelLootFlashlight;
 			if (_lamps isEqualTo []) then
 				{
-				_compatibleLamps = ((primaryWeapon _unit) call BIS_fnc_compatibleItems) arrayIntersect flashlights;
+				_compatibleLamps = ((primaryWeapon _unit) call BIS_fnc_compatibleItems) arrayIntersect rebelLootFlashlight;
 				if !(_compatibleLamps isEqualTo []) then
 					{
 					_lamp = selectRandom _compatibleLamps;

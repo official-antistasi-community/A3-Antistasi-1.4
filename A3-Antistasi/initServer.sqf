@@ -50,7 +50,7 @@ _nul = call compile preprocessFileLineNumbers "initVar.sqf";
 initVar = true; publicVariable "initVar";
 savingServer = true;
 diag_log format ["%1: [Antistasi] | INFO | MP Version: %2 loaded.",servertime, localize "STR_antistasi_credits_generic_version_text"];
-bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
+bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber rebelSide)); publicVariable "bookedSlots";
 _nul = call compile preprocessFileLineNumbers "initFuncs.sqf";
 _nul = call compile preprocessFileLineNumbers "initZones.sqf";
 if (gameMode != 1) then
@@ -109,7 +109,7 @@ if (loadLastSave) then
         };
     theBoss = objNull;
     {
-    if (([_x] call A3A_fnc_isMember) and (side _x == teamPlayer)) exitWith
+    if (([_x] call A3A_fnc_isMember) and (side _x == rebelSide)) exitWith
         {
         theBoss = _x;
         //_x setRank "CORPORAL";
@@ -127,7 +127,7 @@ else
         {
         {membersX pushBackUnique _x} forEach (call as_fnc_getExternalMemberListUIDs);
         {
-        if (([_x] call A3A_fnc_isMember) and (side _x == teamPlayer)) exitWith {theBoss = _x};
+        if (([_x] call A3A_fnc_isMember) and (side _x == rebelSide)) exitWith {theBoss = _x};
         } forEach playableUnits;
        }
     else

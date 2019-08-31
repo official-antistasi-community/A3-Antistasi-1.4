@@ -11,7 +11,7 @@ _leave = true;
 _enemy1 = "";
 _enemy2 = "";
 
-if ((_sideX == teamPlayer) and (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) then
+if ((_sideX == rebelSide) and (sidesX getVariable [_markerX,sideUnknown] == rebelSide)) then
 	{
 	_leave = false;
 	_enemy1 = Invaders;
@@ -23,7 +23,7 @@ else
 		{
 		_leave = false;
 		_enemy1 = Invaders;
-		_enemy2 = teamPlayer;
+		_enemy2 = rebelSide;
 		}
 	else
 		{
@@ -31,7 +31,7 @@ else
 			{
 			_leave = false;
 			_enemy1 = Occupants;
-			_enemy2 = teamPlayer;
+			_enemy2 = rebelSide;
 			};
 		};
 	};

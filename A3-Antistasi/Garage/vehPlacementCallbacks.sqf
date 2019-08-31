@@ -84,7 +84,7 @@ switch (_callbackTarget) do {
 		};
 	};
 	
-	case "BUYFIA": {
+	case "rebelPurchase": {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				garageIsOpen = false;
@@ -131,13 +131,13 @@ switch (_callbackTarget) do {
 				//Handle Money
 				if (!isMultiplayer) then
 					{
-					[0,(-1 * vehiclePurchase_cost)] spawn A3A_fnc_resourcesFIA;
+					[0,(-1 * vehiclePurchase_cost)] spawn A3A_fnc_rebelResources;
 					}
 				else
 					{
-					if (player ==	theBoss && ((_typeVehX == SDKMortar) or (_typeVehX == staticATteamPlayer) or (_typeVehX == staticAAteamPlayer) or (_typeVehX == SDKMGStatic))) then
+					if (player ==	theBoss && ((_typeVehX == rebelMortar) or (_typeVehX == rebelStaticAT) or (_typeVehX == rebelStaticAA) or (_typeVehX == rebelStaticMG))) then
 						{
-						_nul = [0,(-1 * vehiclePurchase_cost)] remoteExecCall ["A3A_fnc_resourcesFIA",2]
+						_nul = [0,(-1 * vehiclePurchase_cost)] remoteExecCall ["A3A_fnc_rebelResources",2]
 						}
 					else
 						{

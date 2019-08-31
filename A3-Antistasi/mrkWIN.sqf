@@ -5,7 +5,7 @@ _playerX = _this select 1;
 
 _pos = getPos _flagX;
 _markerX = [markersX,_pos] call BIS_fnc_nearestPosition;
-if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) exitWith {};
+if (sidesX getVariable [_markerX,sideUnknown] == rebelSide) exitWith {};
 _positionX = getMarkerPos _markerX;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 
@@ -29,7 +29,7 @@ if (!isNull _playerX) then
 		};
 	};
 
-if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x == teamPlayer)} count allUnits)) exitWith {hint "The enemy still outnumber us, check the map and clear the rest of the area"};
+if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x == rebelSide)} count allUnits)) exitWith {hint "The enemy still outnumber us, check the map and clear the rest of the area"};
 //if (!isServer) exitWith {};
 
 {
@@ -39,7 +39,7 @@ if (isPlayer _x) then
 	[_markerX] remoteExec ["A3A_fnc_intelFound",_x];
 	if (captive _x) then {[_x,false] remoteExec ["setCaptive",0,_x]; _x setCaptive false};
 	}
-} forEach ([_size,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
+} forEach ([_size,0,_positionX,rebelSide] call A3A_fnc_distanceUnits);
 
 //_sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
-[teamPlayer,_markerX] remoteExec ["A3A_fnc_markerChange",2];
+[rebelSide,_markerX] remoteExec ["A3A_fnc_markerChange",2];

@@ -148,15 +148,15 @@ private _textX = "";
 if ((build_type == "SB") or (build_type == "CB")) then
 	{
 	if (build_type == "SB") then {_playerDir = _playerDir + 180};
-	_resourcesFIA = if (!isMultiPlayer) then {server getVariable "resourcesFIA"} else {player getVariable "moneyX"};
-	if (build_cost > _resourcesFIA) then
+	_rebelMoney = if (!isMultiPlayer) then {server getVariable "rebelMoney"} else {player getVariable "moneyX"};
+	if (build_cost > _rebelMoney) then
 		{
 		_leave = true;
 		_textX = format ["You do not have enough money for this construction (%1 € needed)",build_cost]
 		}
 	else
 		{
-		_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+		_sites = markersX select {sidesX getVariable [_x,sideUnknown] == rebelSide};
 		build_nearestFriendlyMarker = [_sites,_playerPosition] call BIS_fnc_nearestPosition;
 		if (!(_playerPosition inArea build_nearestFriendlyMarker)) then
 			{

@@ -115,11 +115,11 @@ fn_RetrievePlayerStat = {
 	"magazinesPlayer",
 	"backpackPlayer",
 	"mrkNATO",
-	"mrkSDK",
-	"prestigeNATO","prestigeCSAT", "hr","planesAAFcurrent","helisAAFcurrent","APCAAFcurrent","tanksAAFcurrent","armas","items","backpcks","ammunition","dateX", "WitemsPlayer","prestigeOPFOR","prestigeBLUFOR","resourcesAAF","resourcesFIA","skillFIA"];
+	"rebelMarker",
+	"prestigeNATO","prestigeCSAT", "hr","planesAAFcurrent","helisAAFcurrent","APCAAFcurrent","tanksAAFcurrent","armas","items","backpcks","ammunition","dateX", "WitemsPlayer","prestigeOPFOR","rebelCitySupport","resourcesAAF","rebelMoney","rebelTrainingLevel"];
 */
 specialVarLoads =
-["outpostsFIA","minesX","staticsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO","prestigeCSAT","posHQ", "hr","armas","items","backpcks","ammunition","dateX", "prestigeOPFOR","prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedCities","garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases","idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick","bombRuns","difficultyX","gameMode"];
+["rebelWatchpostsAndRoadblocks","minesX","staticsX","countCA","antennas","mrkNATO","rebelMarker","prestigeNATO","prestigeCSAT","posHQ", "hr","armas","items","backpcks","ammunition","dateX", "prestigeOPFOR","rebelCitySupport","rebelMoney","rebelTrainingLevel","distanceSPWN","civPerc","maxUnits","destroyedCities","garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases","idleassets","chopForest","weather","killZones","jna_dataList","rebelControlPoints","mrkCSAT","nextTick","bombRuns","difficultyX","gameMode"];
 //THIS FUNCTIONS HANDLES HOW STATS ARE LOADED
 fn_SetStat =
 {
@@ -158,11 +158,11 @@ fn_SetStat =
 		if(_varName == 'smallCAmrk') then {smallCAmrk = +_varValue};
 		if(_varName == 'mrkNATO') then {{sidesX setVariable [_x,Occupants,true]} forEach _varValue;};
 		if(_varName == 'mrkCSAT') then {{sidesX setVariable [_x,Invaders,true]} forEach _varValue;};
-		if(_varName == 'mrkSDK') then {{sidesX setVariable [_x,teamPlayer,true]} forEach _varValue;};
-		if(_varName == 'controlsSDK') then
+		if(_varName == 'rebelMarker') then {{sidesX setVariable [_x,rebelSide,true]} forEach _varValue;};
+		if(_varName == 'rebelControlPoints') then
 			{
 			{
-			sidesX setVariable [_x,teamPlayer,true]
+			sidesX setVariable [_x,rebelSide,true]
 			} forEach _varValue;
 			};
 		if(_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
@@ -177,11 +177,11 @@ fn_SetStat =
 			0 setRain (_varValue select 1);
 			forceWeatherChange
 			};
-		if(_varName == 'resourcesFIA') then {server setVariable ["resourcesFIA",_varValue,true]};
+		if(_varName == 'rebelMoney') then {server setVariable ["rebelMoney",_varValue,true]};
 		if(_varName == 'destroyedCities') then {destroyedCities = +_varValue; publicVariable "destroyedCities"};
-		if(_varName == 'skillFIA') then
+		if(_varName == 'rebelTrainingLevel') then
 			{
-			skillFIA = _varValue; publicVariable "skillFIA";
+			rebelTrainingLevel = _varValue; publicVariable "rebelTrainingLevel";
 			{
 			_costs = server getVariable _x;
 			for "_i" from 1 to _varValue do
@@ -189,7 +189,7 @@ fn_SetStat =
 				_costs = round (_costs + (_costs * (_i/280)));
 				};
 			server setVariable [_x,_costs,true];
-			} forEach soldiersSDK;
+			} forEach rebelUnitsAll;
 			};
 		if(_varName == 'distanceSPWN') then {distanceSPWN = _varValue; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable "distanceSPWN";publicVariable "distanceSPWN1";publicVariable "distanceSPWN2"};
 		if(_varName == 'civPerc') then {civPerc = _varValue; if (civPerc < 1) then {civPerc = 35}; publicVariable "civPerc"};
@@ -230,25 +230,25 @@ fn_SetStat =
 			};
 		if(_varName == 'garrison') then
 			{
-			//_markersX = markersX - outpostsFIA - controlsX - citiesX;
+			//_markersX = markersX - rebelWatchpostsAndRoadblocks - controlsX - citiesX;
 			{garrison setVariable [_x select 0,_x select 1,true]} forEach _varvalue;
 			};
-		if(_varName == 'outpostsFIA') then
+		if(_varName == 'rebelWatchpostsAndRoadblocks') then
 			{
 			if (count (_varValue select 0) == 2) then
 				{
 				{
 				_positionX = _x select 0;
 				_garrison = _x select 1;
-				_mrk = createMarker [format ["FIApost%1", random 1000], _positionX];
+				_mrk = createMarker [format ["%2 post%1", random 1000], _positionX,rebelFactionName];
 				_mrk setMarkerShape "ICON";
 				_mrk setMarkerType "loc_bunker";
-				_mrk setMarkerColor colourTeamPlayer;
-				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer]} else {_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer]};
+				_mrk setMarkerColor rebelColor;
+				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",rebelFactionName]} else {_mrk setMarkerText format ["%1 Watchpost",rebelFactionName]};
 				spawner setVariable [_mrk,2,true];
 				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
-				outpostsFIA pushBack _mrk;
-				sidesX setVariable [_mrk,teamPlayer,true];
+				rebelWatchpostsAndRoadblocks pushBack _mrk;
+				sidesX setVariable [_mrk,rebelSide,true];
 				} forEach _varvalue;
 				};
 			};
@@ -280,12 +280,12 @@ fn_SetStat =
 				_numCiv = _dataX select 0;
 				_numVeh = _dataX select 1;
 				_prestigeOPFOR = _varvalue select _i;
-				_prestigeBLUFOR = _dataX select 3;
-				_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
+				_rebelCitySupport = _dataX select 3;
+				_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_rebelCitySupport];
 				server setVariable [_city,_dataX,true];
 				};
 			};
-		if(_varname == 'prestigeBLUFOR') then
+		if(_varname == 'rebelCitySupport') then
 			{
 			for "_i" from 0 to (count citiesX) - 1 do
 				{
@@ -294,8 +294,8 @@ fn_SetStat =
 				_numCiv = _dataX select 0;
 				_numVeh = _dataX select 1;
 				_prestigeOPFOR = _dataX select 2;
-				_prestigeBLUFOR = _varvalue select _i;
-				_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
+				_rebelCitySupport = _varvalue select _i;
+				_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_rebelCitySupport];
 				server setVariable [_city,_dataX,true];
 				};
 			};
@@ -322,11 +322,11 @@ fn_SetStat =
 			_posHQ = if (count _varValue >3) then {_varValue select 0} else {_varValue};
 			{if (getMarkerPos _x distance _posHQ < 1000) then
 				{
-				sidesX setVariable [_x,teamPlayer,true];
+				sidesX setVariable [_x,rebelSide,true];
 				};
 			} forEach controlsX;
-			respawnTeamPlayer setMarkerPos _posHQ;
-			posHQ = getMarkerPos respawnTeamPlayer;
+			rebelRespawn setMarkerPos _posHQ;
+			posHQ = getMarkerPos rebelRespawn;
 			petros setPos _posHQ;
 			"Synd_HQ" setMarkerPos _posHQ;
 			if (chopForest) then
@@ -348,7 +348,7 @@ fn_SetStat =
 				vehicleBox setDir ((_varValue select 5) select 0);
 				vehicleBox setPos ((_varValue select 5) select 1);
 				};
-			{_x setPos _posHQ} forEach (playableUnits select {side _x == teamPlayer});
+			{_x setPos _posHQ} forEach (playableUnits select {side _x == rebelSide});
 			};
 		if(_varname == 'staticsX') then
 			{
@@ -372,9 +372,9 @@ fn_SetStat =
 		if(_varname == 'tasks') then
 			{
 			{
-			if (_x == "AttackAAF") then
+			if (_x == "aiAttack") then
 				{
-				[] call A3A_fnc_attackAAF;
+				[] call A3A_fnc_aiAttackCreate;
 				}
 			else
 				{

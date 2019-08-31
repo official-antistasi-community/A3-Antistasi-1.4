@@ -29,7 +29,7 @@ else
 		{
 		_unit hcSetGroup [_x];
 		};
-	if ((leader _x getVariable ["spawner",false]) and (!isPlayer leader _x) and (side _x == teamPlayer)) then
+	if ((leader _x getVariable ["spawner",false]) and (!isPlayer leader _x) and (side _x == rebelSide)) then
 		{
 		_unit hcSetGroup [_x];
 		};
@@ -40,4 +40,4 @@ if (isNull _oldUnit) then
 	{
 	[_oldUnit,[group _oldUnit]] remoteExec ["hcSetGroup",_oldUnit];
 	};
-[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
+[] remoteExec ["A3A_fnc_statistics",[rebelSide,civilian]];

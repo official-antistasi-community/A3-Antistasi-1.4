@@ -18,9 +18,9 @@ _nearX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
 
 if !(_positionTel inArea _nearX) exitWith {hint "You must click near a marked zone"};
 
-if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {hint format ["That zone does not belong to %1",nameTeamPlayer]};
+if (not(sidesX getVariable [_nearX,sideUnknown] == rebelSide)) exitWith {hint format ["That zone does not belong to %1",rebelFactionName]};
 
-if ((_nearX in outpostsFIA) and !(isOnRoad getMarkerPos _nearX)) exitWith {hint "You cannot manage garrisons on this kind of zone"};
+if ((_nearX in rebelWatchpostsAndRoadblocks) and !(isOnRoad getMarkerPos _nearX)) exitWith {hint "You cannot manage garrisons on this kind of zone"};
 
 _thingX = _this select 0;
 
@@ -40,7 +40,7 @@ else
 _leave = false;
 
 {
-if ((typeOf _x == staticCrewTeamPlayer) or (typeOf _x == SDKUnarmed) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_leave = true}
+if ((typeOf _x == rebelStaticCrew) or (typeOf _x == rebelUnarmed) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_leave = true}
 } forEach _unitsX;
 
 if (_leave) exitWith {hint "Static crewman, prisoners, refugees or dead units cannot be added to any garrison"};
@@ -50,7 +50,7 @@ if ((groupID _groupX == "MineF") or (groupID _groupX == "Watch") or (isPlayer(le
 
 if (isNull _groupX) then
 	{
-	_groupX = createGroup teamPlayer;
+	_groupX = createGroup rebelSide;
 	_unitsX joinSilent _groupX;
 	//{arrayids = arrayids + [name _x]} forEach _unitsX;
 	hint "Adding units to garrison";
@@ -68,7 +68,7 @@ _garrison = _garrison + (garrison getVariable [_nearX,[]]);
 garrison setVariable [_nearX,_garrison,true];
 [_nearX] call A3A_fnc_mrkUpdate;
 */
-[_unitsX,teamPlayer,_nearX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
+[_unitsX,rebelSide,_nearX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 _noBorrar = false;
 
 if (spawner getVariable _nearX != 2) then
@@ -85,7 +85,7 @@ if (spawner getVariable _nearX != 2) then
 		_markerX = _victim getVariable "markerX";
 		if (!isNil "_markerX") then
 			{
-			if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
+			if (sidesX getVariable [_markerX,sideUnknown] == rebelSide) then
 				{
 				/*
 				_garrison = [];
@@ -100,15 +100,15 @@ if (spawner getVariable _nearX != 2) then
 					};
 				[_markerX] call A3A_fnc_mrkUpdate;
 				*/
-				[typeOf _victim,teamPlayer,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+				[typeOf _victim,rebelSide,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
 				_victim setVariable [_markerX,nil,true];
 				};
 			};
 		}];
 	} forEach _unitsX;
 
-	waitUntil {sleep 1; (spawner getVariable _nearX == 2 or !(sidesX getVariable [_nearX,sideUnknown] == teamPlayer))};
-	if (!(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) then {_noBorrar = true};
+	waitUntil {sleep 1; (spawner getVariable _nearX == 2 or !(sidesX getVariable [_nearX,sideUnknown] == rebelSide))};
+	if (!(sidesX getVariable [_nearX,sideUnknown] == rebelSide)) then {_noBorrar = true};
 	};
 
 if (!_noBorrar) then
@@ -133,11 +133,11 @@ else
 			_victim = _this select 0;
 			_killer = _this select 1;
 			[_victim] remoteExec ["A3A_fnc_postmortem",2];
-			if ((isPlayer _killer) and (side _killer == teamPlayer)) then
+			if ((isPlayer _killer) and (side _killer == rebelSide)) then
 				{
 				if (!isMultiPlayer) then
 					{
-					_nul = [0,20] remoteExec ["A3A_fnc_resourcesFIA",2];
+					_nul = [0,20] remoteExec ["A3A_fnc_rebelResources",2];
 					_killer addRating 1000;
 					};
 				}

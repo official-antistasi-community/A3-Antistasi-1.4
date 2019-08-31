@@ -1,4 +1,4 @@
-//usage: place on the map markers covering the areas where you want the AAF operate, and put names depending on if they are powerplants,resources, bases etc.. The marker must cover the whole operative area, it's buildings etc.. (for example in an airport, you must cover more than just the runway, you have to cover the service buildings etc..)
+//usage: place on the map markers covering the areas where you want the AI operate, and put names depending on if they are powerplants,resources, bases etc.. The marker must cover the whole operative area, it's buildings etc.. (for example in an airport, you must cover more than just the runway, you have to cover the service buildings etc..)
 //markers cannot have more than 500 mts size on any side or you may find "insta spawn in your nose" effects.
 //do not do it on cities and hills, as the mission will do it automatically
 //the naming convention must be as the following arrays, for example: first power plant is "power", second is "power_1" thir is "power_2" after you finish with whatever number.
@@ -56,7 +56,7 @@ diag_log format ["%1: [Antistasi] | INFO | initZones | Setting Spawn Points for 
 
 (seaMarkers + seaSpawn + seaAttackSpawn + spawnPoints + detectionAreas + islands) apply {_x setMarkerAlpha 0};
 defaultControlIndex = (count controlsX) - 1;
-outpostsFIA = [];
+rebelWatchpostsAndRoadblocks = [];
 destroyedCities = [];
 garrison setVariable ["Synd_HQ", [], true];
 markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
@@ -144,14 +144,14 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	if (_nroads < _numVeh) then {_numVeh = _nroads;};
 
 	sidesX setVariable [_mrk, Occupants, true];
-	_info = [_numCiv, _numVeh, prestigeOPFOR, prestigeBLUFOR];
+	_info = [_numCiv, _numVeh, prestigeOPFOR, rebelCitySupport];
 	server setVariable [_nameX, _info, true];
 };	//find in congigs faster then find location in 25000 radius
 
 diag_log format ["%1: [Antistasi] | INFO | initZones | Roads built in %2.",servertime,worldname];
 
 markersX = markersX + citiesX;
-sidesX setVariable ["Synd_HQ", teamPlayer, true];
+sidesX setVariable ["Synd_HQ", rebelSide, true];
 
 antennasDead = [];
 banks = [];
@@ -211,7 +211,7 @@ switch (worldName) do {
 					deleteMarker _mrk;
 					publicVariable "antennas";
 					publicVariable "antennasDead";
-					["TaskSucceeded", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+					["TaskSucceeded", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", rebelSide];
 					["TaskFailed", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", Occupants];
 				}
 			];
@@ -257,7 +257,7 @@ if (count _posAntennas > 0) then {
 						deleteMarker _mrk;
 						publicVariable "antennas";
 						publicVariable "antennasDead";
-						["TaskSucceeded", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+						["TaskSucceeded", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", rebelSide];
 						["TaskFailed", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", Occupants];
 					}
 				];
@@ -292,7 +292,7 @@ publicVariable "controlsX";
 publicVariable "seaports";
 publicVariable "destroyedCities";
 publicVariable "forcedSpawn";
-publicVariable "outpostsFIA";
+publicVariable "rebelWatchpostsAndRoadblocks";
 publicVariable "seaMarkers";
 publicVariable "spawnPoints";
 publicVariable "antennas";

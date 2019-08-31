@@ -21,7 +21,7 @@ if (isNil "_playerUnit" || { isNull _playerUnit }) exitWith {
 };
 
 //Only save rebel players.
-if (side group _playerUnit != teamPlayer && side group _playerUnit != sideUnknown) exitWith {
+if (side group _playerUnit != rebelSide && side group _playerUnit != sideUnknown) exitWith {
 	diag_log format ["[Antistasi] Not saving player %1 due to them being on the wrong team.", _playerId];
 };
 

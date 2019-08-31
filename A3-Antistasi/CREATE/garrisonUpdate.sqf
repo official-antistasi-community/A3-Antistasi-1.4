@@ -35,7 +35,7 @@ if (_exit) exitWith {
 garrisonIsChanging = true;
 if ((_sideX == Occupants) and (!(sidesX getVariable [_markerX,sideUnknown] == Occupants))) exitWith {garrisonIsChanging = false};
 if ((_sideX == Invaders) and (!(sidesX getVariable [_markerX,sideUnknown] == Invaders))) exitWith {garrisonIsChanging = false};
-if ((_sideX == teamPlayer) and (!(sidesX getVariable [_markerX,sideUnknown] == teamPlayer))) exitWith {garrisonIsChanging = false};
+if ((_sideX == rebelSide) and (!(sidesX getVariable [_markerX,sideUnknown] == rebelSide))) exitWith {garrisonIsChanging = false};
 _garrison = [];
 _garrison = _garrison + (garrison getVariable [_markerX,[]]);
 if (_modeX == -1) then
@@ -51,5 +51,5 @@ else
 	};
 if (isNil "_garrison") exitWith {garrisonIsChanging = false};
 garrison setVariable [_markerX,_garrison,true];
-if (_sideX == teamPlayer) then {[_markerX] call A3A_fnc_mrkUpdate};
+if (_sideX == rebelSide) then {[_markerX] call A3A_fnc_mrkUpdate};
 garrisonIsChanging = false;

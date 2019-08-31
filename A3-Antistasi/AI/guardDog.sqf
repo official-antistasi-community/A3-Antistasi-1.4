@@ -22,7 +22,7 @@ while {alive _dog} do
 			{
 			[_spotted,false] remoteExec ["setCaptive",0,_spotted]; _spotted setCaptive false;
 			};
-		} forEach ([20,0,position _dog,teamPlayer] call A3A_fnc_distanceUnits);
+		} forEach ([20,0,position _dog,rebelSide] call A3A_fnc_distanceUnits);
 
 		if ((random 10 < 1) and (isNull _spotted)) then
 			{

@@ -11,11 +11,11 @@ if (vehicle _x isKindOf "staticWeapon") then {_static = vehicle _x;}
 } forEach units _groupX;
 if (isNull _static) exitWith {hint "Selected squad is not a mounted static type"};
 
-if ((typeOf _static == SDKMortar) and (isMultiPlayer)) exitWith {hint "Static Auto Target is not available for Mortar Squads in Multiplayer"};
+if ((typeOf _static == rebelMortar) and (isMultiPlayer)) exitWith {hint "Static Auto Target is not available for Mortar Squads in Multiplayer"};
 if (_groupX getVariable "staticAutoT") exitWith
 	{
 	_groupX setVariable ["staticAutoT",false,true];
-	if (typeOf _static == SDKMortar) then {_groupX setvariable ["UPSMON_Removegroup",true]};
+	if (typeOf _static == rebelMortar) then {_groupX setvariable ["UPSMON_Removegroup",true]};
 	sleep 5;
 	hint format ["Mounted Static Squad %1 set to Auto Target Mode OFF", groupID _groupX];
 	};
@@ -23,7 +23,7 @@ if (_groupX getVariable "staticAutoT") exitWith
 hint format ["Mounted Static Squad %1 set to Auto Target Mode ON", groupID _groupX];
 _groupX setVariable ["staticAutoT",true,true];
 
-if (typeOf _static == SDKMortar) exitWith {_nul=[_static] execVM "scripts\UPSMON\MON_artillery_add.sqf";};
+if (typeOf _static == rebelMortar) exitWith {_nul=[_static] execVM "scripts\UPSMON\MON_artillery_add.sqf";};
 _LeaderX = leader _groupX;
 _truckX = vehicle _LeaderX;
 _boy = gunner _static;

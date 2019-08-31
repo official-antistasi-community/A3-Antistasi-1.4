@@ -6,7 +6,7 @@ _markerX = _this select 0;
 if (not(_markerX in smallCAmrk)) exitWith {};
 
 _destinationX = getMarkerPos _markerX;
-_originX = getMarkerPos respawnTeamPlayer;
+_originX = getMarkerPos rebelRespawn;
 
 _groups = [];
 _soldiers = [];
@@ -22,20 +22,20 @@ _size = round (_size / _divisor);
 
 if (_size == 0) then {_size = 1};
 
-_typesGroup = [groupsSDKmid,groupsSDKAT,groupsSDKSquad,groupsSDKSniper];
+_typesGroup = [rebelGroupFireteam,rebelGroupAT,rebelGroupSquad,rebelGroupSniperTeam];
 
 while {(_size > 0)} do
 	{
 	_typeGroup = selectRandom _typesGroup;
 	_formatX = [];
 	{
-	if (random 20 <= skillFIA) then {_formatX pushBack (_x select 1)} else {_formatX pushBack (_x select 0)};
+	if (random 20 <= rebelTrainingLevel) then {_formatX pushBack (_x select 1)} else {_formatX pushBack (_x select 0)};
 	} forEach _typeGroup;
-	_groupX = [_originX, teamPlayer, _formatX,false,true] call A3A_fnc_spawnGroup;
+	_groupX = [_originX, rebelSide, _formatX,false,true] call A3A_fnc_spawnGroup;
 	if !(isNull _groupX) then
 		{
 		_groups pushBack _groupX;
-		{[_x] spawn A3A_fnc_FIAinit; _soldiers pushBack _x} forEach units _groupX;
+		{[_x] spawn A3A_fnc_rebelCreateUnit; _soldiers pushBack _x} forEach units _groupX;
 		_Vwp1 = _groupX addWaypoint [_destinationX, 0];
 		_Vwp1 setWaypointType "MOVE";
 		_Vwp1 setWaypointBehaviour "AWARE";

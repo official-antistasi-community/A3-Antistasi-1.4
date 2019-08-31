@@ -9,7 +9,7 @@ private _countCiv = 0;
 {
 	_countGroups = _countGroups + 1;
 	switch(side _x) do {
-		case teamPlayer: 
+		case rebelSide: 
 			{
 				_countRebels = _countRebels + 1;
 			};

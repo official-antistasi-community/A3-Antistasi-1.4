@@ -68,7 +68,7 @@ if (count _mgs == 1) then
 
 _groupX setVariable ["movable",_movable];
 _groupX setVariable ["baseOfFire",_baseOfFire];
-if (side _groupX == teamPlayer) then {_groupX setVariable ["autoRearmed",time + 300]};
+if (side _groupX == rebelSide) then {_groupX setVariable ["autoRearmed",time + 300]};
 _buildingsX = nearestTerrainObjects [getMarkerPos _markerX, ["House"],true];
 _buildingsX = _buildingsX select {((_x buildingPos -1) isEqualTo []) and !((typeof _bld) in UPSMON_Bld_remove) and (_x inArea _markerX)};
 
@@ -143,7 +143,7 @@ while {true} do
 			{
 			if ({(_x call A3A_fnc_typeOfSoldier == "AAMan") or (_x call A3A_fnc_typeOfSoldier == "StaticGunner")} count _allNearFriends == 0) then
 				{
-				if (_sideX != teamPlayer) then {[[getPosASL _LeaderX,_sideX,"Air",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+				if (_sideX != rebelSide) then {[[getPosASL _LeaderX,_sideX,"Air",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
 				};
 			//_nuevataskX = ["Hide",_soldiers - (_soldiers select {(_x call A3A_fnc_typeOfSoldier == "AAMan") or (_x getVariable ["typeOfSoldier",""] == "StaticGunner")})];
 			_groupX setVariable ["taskX","Hide"];
@@ -160,7 +160,7 @@ while {true} do
 					}
 				else
 					{
-					if (_sideX != teamPlayer) then {[[getPosASL _LeaderX,_sideX,"Tank",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+					if (_sideX != rebelSide) then {[[getPosASL _LeaderX,_sideX,"Tank",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
 					};
 				};
 			//_nuevataskX = ["Hide",_soldiers - (_soldiers select {(_x getVariable ["typeOfSoldier",""] == "ATMan")})];
@@ -171,7 +171,7 @@ while {true} do
 			{
 			if !(isNull _nearX) then
 				{
-				if (_sideX != teamPlayer) then {[[getPosASL _LeaderX,_sideX,"Normal",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+				if (_sideX != rebelSide) then {[[getPosASL _LeaderX,_sideX,"Normal",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
 				_mortarX = _groupX getVariable ["mortarsX",objNull];
 				if (!(isNull _mortarX) and ([_mortarX] call A3A_fnc_canFight)) then
 					{
@@ -304,7 +304,7 @@ while {true} do
 			if (_groupX getVariable ["taskX","Patrol"] == "Hide") then {_groupX call A3A_fnc_recallGroup};
 			_groupX setVariable ["taskX","Patrol"];
 			};
-		if (side _groupX == teamPlayer) then
+		if (side _groupX == rebelSide) then
 			{
 			if (time >= _groupX getVariable ["autoRearm",time]) then
 				{

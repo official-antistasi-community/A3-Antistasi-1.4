@@ -3,7 +3,7 @@ _movedX = false;
 if (petros != (leader group petros)) then
 	{
 	_movedX = true;
-	groupPetros = createGroup teamPlayer;
+	groupPetros = createGroup rebelSide;
 	publicVariable "groupPetros";
 	[petros] join groupPetros;
 	};
@@ -18,5 +18,5 @@ petros disableAI "AUTOTARGET";
 petros setBehaviour "SAFE";
 if (isNil "placementDone") then {placementDone = true; publicVariable "placementDone"};
 sleep 5;
-[Petros,"mission"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],petros];
+[Petros,"mission"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],petros];
 

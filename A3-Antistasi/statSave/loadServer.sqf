@@ -4,8 +4,8 @@ if (isServer) then
 diag_log format ["%1: [Antistasi] | INFO | Starting Persistent Load.",servertime];
 petros allowdamage false;
 
-["outpostsFIA"] call fn_LoadStat; publicVariable "outpostsFIA";
-["mrkSDK"] call fn_LoadStat; /*if (isMultiplayer) then {sleep 5}*/;
+["rebelWatchpostsAndRoadblocks"] call fn_LoadStat; publicVariable "rebelWatchpostsAndRoadblocks";
+["rebelMarker"] call fn_LoadStat; /*if (isMultiplayer) then {sleep 5}*/;
 ["mrkCSAT"] call fn_LoadStat;
 ["difficultyX"] call fn_LoadStat;
 ["gameMode"] call fn_LoadStat;
@@ -19,10 +19,10 @@ petros allowdamage false;
 ["dateX"] call fn_LoadStat;
 ["weather"] call fn_LoadStat;
 ["prestigeOPFOR"] call fn_LoadStat;
-["prestigeBLUFOR"] call fn_LoadStat;
-["resourcesFIA"] call fn_LoadStat;
+["rebelCitySupport"] call fn_LoadStat;
+["rebelMoney"] call fn_LoadStat;
 ["garrison"] call fn_LoadStat;
-["skillFIA"] call fn_LoadStat;
+["rebelTrainingLevel"] call fn_LoadStat;
 ["distanceSPWN"] call fn_LoadStat;
 ["civPerc"] call fn_LoadStat;
 ["maxUnits"] call fn_LoadStat;
@@ -32,7 +32,7 @@ petros allowdamage false;
 ["idlebases"] call fn_LoadStat;
 ["idleassets"] call fn_LoadStat;
 ["killZones"] call fn_LoadStat;
-["controlsSDK"] call fn_LoadStat;
+["rebelControlPoints"] call fn_LoadStat;
 ["bombRuns"] call fn_LoadStat;
 waitUntil {!isNil "arsenalInit"};
 ["jna_dataList"] call fn_LoadStat;
@@ -113,10 +113,10 @@ if ("NVGoggles" in unlockedItems) then {haveNV = true; publicVariable "haveNV"};
 call A3A_fnc_checkRadiosUnlocked;
 
 {
-if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then
+if (sidesX getVariable [_x,sideUnknown] != rebelSide) then
 	{
 	_positionX = getMarkerPos _x;
-	_nearX = [(markersX - controlsX - outpostsFIA),_positionX] call BIS_fnc_nearestPosition;
+	_nearX = [(markersX - controlsX - rebelWatchpostsAndRoadblocks),_positionX] call BIS_fnc_nearestPosition;
 	_sideX = sidesX getVariable [_nearX,sideUnknown];
 	sidesX setVariable [_x,_sideX,true];
 	};
@@ -131,7 +131,7 @@ if (sidesX getVariable [_x,sideUnknown] == sideUnknown) then
 } forEach markersX;
 
 {[_x] call A3A_fnc_mrkUpdate} forEach (markersX - controlsX);
-if (count outpostsFIA > 0) then {markersX = markersX + outpostsFIA; publicVariable "markersX"};
+if (count rebelWatchpostsAndRoadblocks > 0) then {markersX = markersX + rebelWatchpostsAndRoadblocks; publicVariable "markersX"};
 
 {if (_x in destroyedCities) then {[_x] call A3A_fnc_destroyCity}} forEach citiesX;
 
@@ -148,8 +148,8 @@ _buildings = nearestObjects [_x, listMilBld, 25, true];
 ["staticsX"] call fn_LoadStat;//tiene que ser el último para que el sleep del borrado del contenido no haga que despawneen
 
 
-if (!isMultiPlayer) then {player setPos getMarkerPos respawnTeamPlayer} else {{_x setPos getMarkerPos respawnTeamPlayer} forEach (playableUnits select {side _x == teamPlayer})};
-_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+if (!isMultiPlayer) then {player setPos getMarkerPos rebelRespawn} else {{_x setPos getMarkerPos rebelRespawn} forEach (playableUnits select {side _x == rebelSide})};
+_sites = markersX select {sidesX getVariable [_x,sideUnknown] == rebelSide};
 tierWar = 1 + (floor (((5*({(_x in outposts) or (_x in resourcesX) or (_x in citiesX)} count _sites)) + (10*({_x in seaports} count _sites)) + (20*({_x in airportsX} count _sites)))/10));
 if (tierWar > 10) then {tierWar = 10};
 publicVariable "tierWar";
@@ -159,7 +159,7 @@ clearWeaponCargoGlobal boxX;
 clearItemCargoGlobal boxX;
 clearBackpackCargoGlobal boxX;
 
-[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
+[] remoteExec ["A3A_fnc_statistics",[rebelSide,civilian]];
 diag_log format ["%1: [Antistasi] | INFO | Persistent Load Completed.",servertime];
 diag_log format ["%1: [Antistasi] | INFO | Generating Map Markers.",servertime];
 ["tasks"] call fn_LoadStat;
@@ -170,7 +170,7 @@ if !(isMultiplayer) then
 	_dmrk = createMarker [format ["Dum%1",_x], _pos];
 	_dmrk setMarkerShape "ICON";
 	[_x] call A3A_fnc_mrkUpdate;
-	if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then
+	if (sidesX getVariable [_x,sideUnknown] != rebelSide) then
 		{
 		_nul = [_x] call A3A_fnc_createControls;
 		};
@@ -183,7 +183,7 @@ if !(isMultiplayer) then
 	_dmrk setMarkerType "loc_rock";
 	_dmrk setMarkerText "Resources";
 	[_x] call A3A_fnc_mrkUpdate;
-	if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then
+	if (sidesX getVariable [_x,sideUnknown] != rebelSide) then
 		{
 		_nul = [_x] call A3A_fnc_createControls;
 		};
@@ -196,7 +196,7 @@ if !(isMultiplayer) then
 	_dmrk setMarkerType "u_installation";
 	_dmrk setMarkerText "Factory";
 	[_x] call A3A_fnc_mrkUpdate;
-	if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then
+	if (sidesX getVariable [_x,sideUnknown] != rebelSide) then
 		{
 		_nul = [_x] call A3A_fnc_createControls;
 		};
@@ -208,7 +208,7 @@ if !(isMultiplayer) then
 	_dmrk setMarkerShape "ICON";
 	_dmrk setMarkerType "loc_bunker";
 	[_x] call A3A_fnc_mrkUpdate;
-	if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then
+	if (sidesX getVariable [_x,sideUnknown] != rebelSide) then
 		{
 		_nul = [_x] call A3A_fnc_createControls;
 		};
@@ -221,7 +221,7 @@ if !(isMultiplayer) then
 	_dmrk setMarkerType "b_naval";
 	_dmrk setMarkerText "Sea Port";
 	[_x] call A3A_fnc_mrkUpdate;
-	if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then
+	if (sidesX getVariable [_x,sideUnknown] != rebelSide) then
 		{
 		_nul = [_x] call A3A_fnc_createControls;
 		};

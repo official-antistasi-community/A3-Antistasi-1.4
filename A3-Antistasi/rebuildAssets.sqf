@@ -1,7 +1,7 @@
 
-_resourcesFIA = server getVariable "resourcesFIA";
+_rebelMoney = server getVariable "rebelMoney";
 
-if (_resourcesFIA < 5000) exitWith {hint "You do not have enough money to rebuild any Asset. You need 5.000 €"};
+if (_rebelMoney < 5000) exitWith {hint "You do not have enough money to rebuild any Asset. You need 5.000 €"};
 
 _destroyedCities = destroyedCities - citiesX;
 
@@ -32,10 +32,10 @@ if (_siteX in outposts) then
 	_antennasDead = antennasDead select {_x inArea _siteX};
 	if (count _antennasDead > 0) then
 		{
-		if (sidesX getVariable [_siteX, sideUnknown] != teamPlayer) then
+		if (sidesX getVariable [_siteX, sideUnknown] != rebelSide) then
 			{
 			_leave = true;
-			_textX = format ["You cannot rebuild a Radio Tower in an Outpost which does not belong to %1",nameTeamPlayer];
+			_textX = format ["You cannot rebuild a Radio Tower in an Outpost which does not belong to %1",rebelFactionName];
 			}
 		else
 			{
@@ -83,10 +83,10 @@ else
 		{if ([antennas,_x] call BIS_fnc_nearestPosition == _antenna) then {[_x,false] spawn A3A_fnc_blackout}} forEach citiesX;
 		_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
 		antennas = antennas - [_antenna]; antennasDead = antennasDead + [getPos _antenna]; deleteMarker _mrk;
-		["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+		["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",rebelSide];
 		["TaskFailed",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",Occupants];
 		publicVariable "antennas"; publicVariable "antennasDead";
 		}
 		];
 	};
-[0,-5000] remoteExec ["A3A_fnc_resourcesFIA",2];
+[0,-5000] remoteExec ["A3A_fnc_rebelResources",2];

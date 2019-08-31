@@ -37,15 +37,15 @@ _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber b
 _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time portion of the date array to a string for clarity in hints
 
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
-_textX = if (_sideX == Occupants) then {format ["A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2",_nameDest,_displayTime]} else {format ["A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ",_nameDest,nameInvaders,nameTeamPlayer]};
+_textX = if (_sideX == Occupants) then {format ["A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2",_nameDest,_displayTime]} else {format ["A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ",_nameDest,nameInvaders,rebelFactionName]};
 _posTsk = if (_sideX == Occupants) then {(position _houseX) getPos [random 100, random 360]} else {position _houseX};
 
-[[teamPlayer,civilian],"RES",[_textX,"Refugees Evac",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[rebelSide,civilian],"RES",[_textX,"Refugees Evac",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["RES","CREATED"]; publicVariable "missionsX";
-_groupPOW = createGroup teamPlayer;
+_groupPOW = createGroup rebelSide;
 for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	{
-	_unit = _groupPOW createUnit [SDKUnarmed, _posHouse select _i, [], 0, "NONE"];
+	_unit = _groupPOW createUnit [rebelUnarmed, _posHouse select _i, [], 0, "NONE"];
 	_unit allowdamage false;
 	_unit disableAI "MOVE";
 	_unit disableAI "AUTOTARGET";
@@ -54,7 +54,7 @@ for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	_unit allowFleeing 0;
 	_unit setSkill 0;
 	_POWs pushBack _unit;
-	[_unit,"refugee"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
+	[_unit,"refugee"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_unit];
 	if (_sideX == Occupants) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
 	[_unit] call A3A_fnc_reDress;
 	sleep 0.5;
@@ -150,17 +150,17 @@ _bonus = if (_difficultX) then {2} else {1};
 
 if (_sideX == Occupants) then
 	{
-	waitUntil {sleep 1; ({alive _x} count _POWs == 0) or ({(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 50)} count _POWs > 0) or (dateToNumber date > _dateLimitNum)};
-	if ({(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 50)} count _POWs > 0) then
+	waitUntil {sleep 1; ({alive _x} count _POWs == 0) or ({(alive _x) and (_x distance getMarkerPos rebelRespawn < 50)} count _POWs > 0) or (dateToNumber date > _dateLimitNum)};
+	if ({(alive _x) and (_x distance getMarkerPos rebelRespawn < 50)} count _POWs > 0) then
 		{
 		sleep 5;
 		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
-		_countX = {(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 150)} count _POWs;
+		_countX = {(alive _x) and (_x distance getMarkerPos rebelRespawn < 150)} count _POWs;
 		_hr = _countX;
-		_resourcesFIA = 100 * _countX;
-		[_hr,_resourcesFIA*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
+		_rebelMoney = 100 * _countX;
+		[_hr,_rebelMoney*_bonus] remoteExec ["A3A_fnc_rebelResources",2];
 		[3,0] remoteExec ["A3A_fnc_prestige",2];
-		{if (_x distance getMarkerPos respawnTeamPlayer < 500) then {[_countX*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
+		{if (_x distance getMarkerPos rebelRespawn < 500) then {[_countX*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[round (_countX*_bonus/2),theBoss] call A3A_fnc_playerScoreAdd;
 		{[_x] join _groupPOW; [_x] orderGetin false} forEach _POWs;
 		}
@@ -172,7 +172,7 @@ if (_sideX == Occupants) then
 	}
 else
 	{
-	waitUntil {sleep 1; ({alive _x} count _POWs == 0) or ({(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 50)} count _POWs > 0)};
+	waitUntil {sleep 1; ({alive _x} count _POWs == 0) or ({(alive _x) and (_x distance getMarkerPos rebelRespawn < 50)} count _POWs > 0)};
 	if ({alive _x} count _POWs == 0) then
 		{
 		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"FAILED","run"] call A3A_fnc_taskUpdate;
@@ -181,11 +181,11 @@ else
 	else
 		{
 		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
-		_countX = {(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 150)} count _POWs;
+		_countX = {(alive _x) and (_x distance getMarkerPos rebelRespawn < 150)} count _POWs;
 		_hr = _countX;
-		_resourcesFIA = 100 * _countX;
-		[_hr,_resourcesFIA*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-		{if (_x distance getMarkerPos respawnTeamPlayer < 500) then {[_countX*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
+		_rebelMoney = 100 * _countX;
+		[_hr,_rebelMoney*_bonus] remoteExec ["A3A_fnc_rebelResources",2];
+		{if (_x distance getMarkerPos rebelRespawn < 500) then {[_countX*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[round (_countX*_bonus/2),theBoss] call A3A_fnc_playerScoreAdd;
 		{[_x] join _groupPOW; [_x] orderGetin false} forEach _POWs;
 		};
@@ -197,7 +197,7 @@ _ammunition = [];
 _weaponsX = [];
 {
 _unit = _x;
-if (_unit distance getMarkerPos respawnTeamPlayer < 150) then
+if (_unit distance getMarkerPos rebelRespawn < 150) then
 	{
 	{if (not(([_x] call BIS_fnc_baseWeapon) in unlockedWeapons)) then {_weaponsX pushBack ([_x] call BIS_fnc_baseWeapon)}} forEach weapons _unit;
 	{if (not(_x in unlockedMagazines)) then {_ammunition pushBack _x}} forEach magazines _unit;
@@ -213,16 +213,16 @@ deleteGroup _groupPOW;
 if (_sideX == Occupants) then
 	{
 	deleteMarkerLocal _mrk;
-	if (!isNull _veh) then {if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh}};
+	if (!isNull _veh) then {if (!([distanceSPWN,1,_veh,rebelSide] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh}};
 	{
-	waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
+	waitUntil {sleep 1; !([distanceSPWN,1,_x,rebelSide] call A3A_fnc_distanceUnits)};
 	deleteVehicle _x;
 	} forEach units _groupX;
 	deleteGroup _groupX;
 	if (!isNull _groupX1) then
 		{
 		{
-		waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
+		waitUntil {sleep 1; !([distanceSPWN,1,_x,rebelSide] call A3A_fnc_distanceUnits)};
 		deleteVehicle _x;
 		} forEach units _groupX1;
 		deleteGroup _groupX1;

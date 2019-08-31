@@ -16,8 +16,7 @@ if (hasACE) then
 		_killer = _victim getVariable ["ace_medical_lastDamageSource", _killer];
 		};
 	};
-//if (_killer isEqualType "") then {diag_log format ["Antistasi error in A3A_fnc_AAFKilledEH, params: %1",_this]};
-if (side (group _killer) == teamPlayer) then
+if (side (group _killer) == rebelSide) then
 	{
 	if (isPlayer _killer) then
 		{

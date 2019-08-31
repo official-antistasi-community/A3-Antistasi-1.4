@@ -26,9 +26,9 @@ if (!isNil "_loadoutInfo") then {
 	_unit setUnitLoadout _loadoutInfo;
 };
 
-if (isMultiplayer && side _unit == teamPlayer) then
+if (isMultiplayer && side _unit == rebelSide) then
 {
-	//player setPos getMarkerPos respawnTeamPlayer;
+	//player setPos getMarkerPos rebelRespawn;
 	if ([_unit] call A3A_fnc_isMember) then
 	{
 		private _score = ([_playerId, "scorePlayer"] call fn_RetrievePlayerStat);

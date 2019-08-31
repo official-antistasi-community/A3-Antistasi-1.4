@@ -19,7 +19,7 @@ if (isMultiplayer) exitWith
 	_unit setDamage 1;
 	};
 private ["_positionX","_radiusX","_roads","_road","_pos"];
-_positionX = getMarkerPos respawnTeamPlayer;
+_positionX = getMarkerPos rebelRespawn;
 if (lifeState _unit == "INCAPACITATED") then {_unit setUnconscious false};
 _unit setVariable ["helped",objNull];
 _unit setVariable ["helping",false];
@@ -32,9 +32,9 @@ if (rating _unit < 0) then {_unit addRating (rating _unit * -1)};
 _nul = [0,-1,getPos _unit] remoteExec ["A3A_fnc_citySupportChange",2];
 
 _hr = round ((server getVariable "hr") * 0.1);
-_resourcesFIA = round ((server getVariable "resourcesFIA") * 0.05);
+_rebelMoney = round ((server getVariable "rebelMoney") * 0.05);
 
-[- _hr, - _resourcesFIA] remoteExec ["A3A_fnc_resourcesFIA",2];
+[- _hr, - _rebelMoney] remoteExec ["A3A_fnc_rebelResources",2];
 
 {
 //_x hideObject true;

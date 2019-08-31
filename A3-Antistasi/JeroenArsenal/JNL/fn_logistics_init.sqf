@@ -10,7 +10,7 @@ jnl_vehicleHardpoints = [
     	[1,		[-0.04,-1.7,-0.72],		[1,2,3,4]]		//cargo node
     ]],
 
-    //Civi and FIA green truck
+    //Civi and Rebel green truck
     ["\A3\soft_f_gamma\van_01\Van_01_transport_F.p3d", [
     	[0,		[0,-1.60422,-0.63],			[2,3,4,5,6,7,8,9]],
     	[1,		[0,-1.06937,-0.63],			[2,3,4,5]],

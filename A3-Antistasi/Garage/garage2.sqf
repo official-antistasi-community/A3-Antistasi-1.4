@@ -15,7 +15,7 @@ garage_vehiclesAvailable = [];
 
 //Build a list of the vehicles available to us at this location
 _hasAir = false;
-_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (player inArea _x)};
+_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == rebelSide) and (player inArea _x)};
 if (count _airportsX > 0) then {_hasAir = true};
 {
 	if (_x in vehPlanes) then
@@ -30,7 +30,7 @@ if (count _airportsX > 0) then {_hasAir = true};
 
 if (count garage_vehiclesAvailable == 0) exitWith {hintC "The Garage is empty or the vehicles you have are not suitable to recover in the place you are.\n\nAir vehicles need to be recovered near Airport flags."};
 
-garage_nearestMarker = [markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer},player] call BIS_fnc_nearestPosition;
+garage_nearestMarker = [markersX select {sidesX getVariable [_x,sideUnknown] == rebelSide},player] call BIS_fnc_nearestPosition;
 if !(player inArea garage_nearestMarker) exitWith {hint "You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage"};
 
 garage_vehicleIndex = 0;

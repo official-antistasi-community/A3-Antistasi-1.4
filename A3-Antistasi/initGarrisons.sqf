@@ -94,7 +94,7 @@ _dmrk setMarkerType "loc_rock";
 _dmrk setMarkerText "Resources";
 for "_i" from 1 to _garrNum do
    {
-   _garrison append (selectRandom groupsFIASquad);
+   _garrison append (selectRandom militiaGroupBest);
    };
 if (_x in _mrkCSAT) then
 	{
@@ -121,7 +121,7 @@ _dmrk setMarkerType "u_installation";
 _dmrk setMarkerText "Factory";
 for "_i" from 1 to _garrNum do
    {
-   _garrison append (selectRandom groupsFIASquad);
+   _garrison append (selectRandom militiaGroupBest);
    };
 if (_x in _mrkCSAT) then
 	{
@@ -152,7 +152,7 @@ if !(_x in _mrkCSAT) then
     _dmrk setMarkerText format ["%1 Outpost",nameOccupants];
     for "_i" from 1 to _garrNum do
         {
-        _garrison append (selectRandom groupsFIASquad);
+        _garrison append (selectRandom militiaGroupBest);
         };
     sidesX setVariable [_x,Occupants,true];
     }
@@ -164,7 +164,7 @@ else
     	{
     	for "_i" from 1 to _garrNum do
 	       {
-	       _garrison append (selectRandom groupsFIASquad);
+	       _garrison append (selectRandom militiaGroupBest);
 	       };
     	}
     else

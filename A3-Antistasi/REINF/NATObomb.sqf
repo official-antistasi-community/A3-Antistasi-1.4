@@ -1,7 +1,7 @@
 if (bombRuns < 1) exitWith {hint "You lack of enough Air Support to make this request"};
 //if (!allowPlayerRecruit) exitWith {hint "Server is very loaded. \nWait one minute or change FPS settings in order to fulfill this request"};
 	if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(hasIFA) then {hint "You need a radio in your inventory to be able to give orders to other squads"} else {hint "You need a Radio Man in your group to be able to give orders to other squads"}};
-if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {hint "You need to control an airport in order to fulfill this request"};
+if ({sidesX getVariable [_x,sideUnknown] == rebelSide} count airportsX == 0) exitWith {hint "You need to control an airport in order to fulfill this request"};
 _typeX = _this select 0;
 
 positionTel = [];
@@ -56,7 +56,7 @@ _angorig = _ang - 180;
 _origpos = [_pos1, 2500, _angorig] call BIS_fnc_relPos;
 _finpos = [_pos2, 2500, _ang] call BIS_fnc_relPos;
 
-_planefn = [_origpos, _ang, vehSDKPlane, teamPlayer] call bis_fnc_spawnvehicle;
+_planefn = [_origpos, _ang, rebelVehPlane, rebelSide] call bis_fnc_spawnvehicle;
 _plane = _planefn select 0;
 _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
 _plane disableAI "TARGET";

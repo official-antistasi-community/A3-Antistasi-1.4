@@ -3,7 +3,7 @@ _objectivesX = _groupX call A3A_fnc_enemyList;
 _groupX setVariable ["objectivesX",_objectivesX];
 _groupX setVariable ["taskX","Patrol"];
 private _sideX = side _groupX;
-private _friendlies = if ((_sideX == Occupants) or (_sideX == teamPlayer)) then {[_sideX,civilian]} else {[_sideX]};
+private _friendlies = if ((_sideX == Occupants) or (_sideX == rebelSide)) then {[_sideX,civilian]} else {[_sideX]};
 _mortarsX = [];
 _mgs = [];
 _movable = [leader _groupX];
@@ -70,7 +70,7 @@ if (count _mgs == 1) then
 _groupX setVariable ["movable",_movable];
 _groupX setVariable ["baseOfFire",_baseOfFire];
 _groupX setVariable ["flankers",_flankers];
-if (side _groupX == teamPlayer) then {_groupX setVariable ["autoRearmed",time + 300]};
+if (side _groupX == rebelSide) then {_groupX setVariable ["autoRearmed",time + 300]};
 {
 if (vehicle _x != _x) then
 	{
@@ -140,7 +140,7 @@ while {true} do
 				{
 				if (_allNearFriends findIf {(_x call A3A_fnc_typeOfSoldier == "AAMan") or (_x call A3A_fnc_typeOfSoldier == "StaticGunner")} == -1) then
 					{
-					if (_sideX != teamPlayer) then {[[getPosASL _LeaderX,_sideX,"Air",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+					if (_sideX != rebelSide) then {[[getPosASL _LeaderX,_sideX,"Air",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
 					};
 				//_nuevataskX = ["Hide",_soldiers - (_soldiers select {(_x call A3A_fnc_typeOfSoldier == "AAMan") or (_x getVariable ["typeOfSoldier",""] == "StaticGunner")})];
 				_groupX setVariable ["taskX","Hide"];
@@ -157,7 +157,7 @@ while {true} do
 						}
 					else
 						{
-						if (_sideX != teamPlayer) then {[[getPosASL _LeaderX,_sideX,"Tank",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+						if (_sideX != rebelSide) then {[[getPosASL _LeaderX,_sideX,"Tank",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
 						};
 					};
 				//_nuevataskX = ["Hide",_soldiers - (_soldiers select {(_x getVariable ["typeOfSoldier",""] == "ATMan")})];
@@ -168,7 +168,7 @@ while {true} do
 				{
 				if !(isNull _nearX) then
 					{
-					if (_sideX != teamPlayer) then {[[getPosASL _LeaderX,_sideX,"Normal",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+					if (_sideX != rebelSide) then {[[getPosASL _LeaderX,_sideX,"Normal",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
 					_mortarX = _groupX getVariable ["mortarsX",objNull];
 					if (!(isNull _mortarX) and ([_mortarX] call A3A_fnc_canFight)) then
 						{
@@ -349,7 +349,7 @@ while {true} do
 				if (_groupX getVariable ["taskX","Patrol"] == "Hide") then {_groupX call A3A_fnc_recallGroup};
 				_groupX setVariable ["taskX","Patrol"];
 				};
-			if (side _groupX == teamPlayer) then
+			if (side _groupX == rebelSide) then
 				{
 				if (time >= _groupX getVariable ["autoRearm",time]) then
 					{

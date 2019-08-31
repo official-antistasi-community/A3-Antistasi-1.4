@@ -56,7 +56,7 @@ if ({((side _x== Invaders) or (side _x== Occupants)) and (((_x knowsAbout _playe
 
 _base = [_airportsX,_player] call BIS_fnc_nearestPosition;
 _size = [_base] call A3A_fnc_sizeMarker;
-if ((_player distance getMarkerPos _base < _size*2) and (not(sidesX getVariable [_base,sideUnknown] == teamPlayer))) exitWith {hint "You cannot go Undercover near Airports, Outposts or Roadblocks"};
+if ((_player distance getMarkerPos _base < _size*2) and (not(sidesX getVariable [_base,sideUnknown] == rebelSide))) exitWith {hint "You cannot go Undercover near Airports, Outposts or Roadblocks"};
 
 ["Undercover ON",0,0,4,0,0,4] spawn bis_fnc_dynamicText;
 
@@ -139,7 +139,7 @@ _onDetectionMarker = (detectionAreas findIf {_player inArea _x } != -1);
 _onBaseMarker = (_player inArea _base);
 _airportSide = (sidesX getVariable [_base, sideUnknown]);
 _airport = [_airportsX1,_player] call BIS_fnc_nearestPosition;
-			if(_onBaseMarker  && {_baseSide != teamPlayer} || {_onDetectionMarker && {sidesX getVariable _airport != teamPlayer}}) then
+			if(_onBaseMarker  && {_baseSide != rebelSide} || {_onDetectionMarker && {sidesX getVariable _airport != rebelSide}}) then
 					{
 					if !(_isInControl) then
 						{

@@ -13,8 +13,8 @@ _loadout = switch _team do
 		if (count CSATPlayerLoadouts > _unitLoadoutNumber) then {CSATPlayerLoadouts select _unitLoadoutNumber} else { [] };
 	};
 	
-	case teamPlayer: {
-		teamPlayerDefaultLoadout;
+	case rebelSide: {
+		rebelDefaultLoadout;
 	};
 	
 	default {

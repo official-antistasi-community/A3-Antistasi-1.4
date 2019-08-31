@@ -1,5 +1,5 @@
 private ["_airportsX","_reinfPlaces","_airportX","_numberX","_numGarr","_numReal","_sideX","_potentials","_countX","_siteX","_positionX"];
-_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] != teamPlayer) and (spawner getVariable _x == 2)};
+_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] != rebelSide) and (spawner getVariable _x == 2)};
 if (count _airportsX == 0) exitWith {};
 _reinfPlaces = [];
 {
@@ -64,4 +64,4 @@ if ((_numberX >= 4) and (reinfPatrols <= 4)) then
 if (count _reinfPlaces > 3) exitWith {};
 } forEach _airportsX;
 
-if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFroadPatrol};
+if ((count _reinfPlaces == 0) and (aiVehiclePatrols <= 3)) then {[] spawn A3A_fnc_aiVehiclePatrols};

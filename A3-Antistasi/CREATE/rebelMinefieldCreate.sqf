@@ -5,7 +5,7 @@ _markerX = _this select 0;
 
 _base = _this select 1;
 
-diag_log format ["[Antistasi] Creating AAF Minefield at %1 (wavedCA.sqf)", _markerX];
+diag_log format ["[Antistasi] Creating Rebel Minefield at %1 (wavedCA.sqf)", _markerX];
 
 if (spawner getVariable _base != 2) exitWith {false};
 _posbase = getMarkerPos _base;
@@ -48,11 +48,10 @@ while {_attempts < 37} do
 
 if (_failure) exitWith {false};
 
-for "_i" from 1 to 60 do
+for "_i" from 0 to 60 do
 	{
 	_mineX = createMine ["APERSMine",_pos,[],100];
 	if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants revealMine _mineX} else {Invaders revealMine _mineX};
 	};
 
-//[-4000] remoteExec ["resourcesAAF",2];
 true

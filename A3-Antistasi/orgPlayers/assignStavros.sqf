@@ -30,7 +30,7 @@ _LeaderX = objNull;
 			};
 		};
 	};
-} forEach (playableUnits select {(side (group _x) == teamPlayer)});
+} forEach (playableUnits select {(side (group _x) == rebelSide)});
 
 if (isNull _LeaderX) then
 {

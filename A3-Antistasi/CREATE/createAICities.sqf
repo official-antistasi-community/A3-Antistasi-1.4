@@ -1,7 +1,7 @@
-//NOTA: TAMBIÉN LO USO PARA FIA
+//NOTe: I also use it for Rebels
 if (!isServer and hasInterface) exitWith{};
 
-private ["_markerX","_groups","_soldiers","_positionX","_num","_dataX","_prestigeOPFOR","_prestigeBLUFOR","_esAAF","_params","_frontierX","_array","_countX","_groupX","_dog","_grp","_sideX"];
+private ["_markerX","_groups","_soldiers","_positionX","_num","_dataX","_govtCitySupport","_rebelCitySupport","_isGovt","_params","_frontierX","_array","_countX","_groupX","_dog","_grp","_sideX"];
 _markerX = _this select 0;
 
 _groups = [];
@@ -17,21 +17,21 @@ _num = round (_num / 100);
 diag_log format ["[Antistasi] Spawning City Patrol in %1 (createAICities.sqf)", _markerX];
 
 _dataX = server getVariable _markerX;
-//_prestigeOPFOR = _dataX select 3;
-//_prestigeBLUFOR = _dataX select 4;
-_prestigeOPFOR = _dataX select 2;
-_prestigeBLUFOR = _dataX select 3;
-_esAAF = true;
+//_govtCitySupport = _dataX select 3;
+//_rebelCitySupport = _dataX select 4;
+_govtCitySupport = _dataX select 2;
+_rebelCitySupport = _dataX select 3;
+_isGovt = true;
 if (_markerX in destroyedCities) then
 	{
-	_esAAF = false;
+	_isGovt = false;
 	_params = [_positionX,Invaders,CSATSpecOp];
 	}
 else
 	{
 	if (_sideX == Occupants) then
 		{
-		_num = round (_num * (_prestigeOPFOR + _prestigeBLUFOR)/100);
+		_num = round (_num * (_govtCitySupport + _rebelCitySupport)/100);
 		_frontierX = [_markerX] call A3A_fnc_isFrontline;
 		if (_frontierX) then
 			{
@@ -45,11 +45,11 @@ else
 		}
 	else
 		{
-		_esAAF = false;
-		_num = round (_num * (_prestigeBLUFOR/100));
+		_isGovt = false;
+		_num = round (_num * (_rebelCitySupport/100));
 		_array = [];
-		{if (random 20 < skillFIA) then {_array pushBack (_x select 0)} else {_array pushBack (_x select 1)}} forEach groupsSDKSentry;
-		_params = [_positionX, teamPlayer, _array];
+		{if (random 20 < rebelTrainingLevel) then {_array pushBack (_x select 0)} else {_array pushBack (_x select 1)}} forEach rebelGroupSentryTeam;
+		_params = [_positionX, rebelSide, _array];
 		};
 	};
 if (_num < 1) then {_num = 1};
@@ -59,7 +59,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 	{
 	_groupX = _params call A3A_fnc_spawnGroup;
 	sleep 1;
-	if (_esAAF) then
+	if (_isGovt) then
 		{
 		if (random 10 < 2.5) then
 			{
@@ -72,7 +72,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 	_countX = _countX + 1;
 	};
 
-if ((_esAAF) or (_markerX in destroyedCities)) then
+if ((_isGovt) or (_markerX in destroyedCities)) then
 	{
 	{_grp = _x;
 	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
@@ -80,12 +80,12 @@ if ((_esAAF) or (_markerX in destroyedCities)) then
 else
 	{
 	{_grp = _x;
-	{[_x] spawn A3A_fnc_FIAinitBases; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
+	{[_x] spawn A3A_fnc_rebelCreateBases; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
 	};
 
 waitUntil {sleep 1;((spawner getVariable _markerX == 2)) or ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0)};
 
-if (({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0) and (_esAAF)) then
+if (({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0) and (_isGovt)) then
 	{
 	[[_positionX,Occupants,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
 	};

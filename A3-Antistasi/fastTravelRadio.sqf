@@ -1,6 +1,6 @@
 private ["_roads","_pos","_positionX","_groupX"];
 
-_markersX = markersX + [respawnTeamPlayer];
+_markersX = markersX + [rebelRespawn];
 
 _esHC = false;
 
@@ -50,7 +50,7 @@ if (count _positionTel > 0) then
 	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX))) exitWith {hint "Player groups are only allowed to Fast Travel to HQ or Airbases"};
 	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders)) exitWith {hint "You cannot Fast Travel to an enemy controlled zone"; openMap [false,false]};
 
-	//if (_base in outpostsFIA) exitWith {hint "You cannot Fast Travel to roadblocks and watchposts"; openMap [false,false]};
+	//if (_base in rebelWatchpostsAndRoadblocks) exitWith {hint "You cannot Fast Travel to roadblocks and watchposts"; openMap [false,false]};
 
 	if ([getMarkerPos _base,500] call A3A_fnc_enemyNearCheck) exitWith {Hint "You cannot Fast Travel to an area under attack or with enemies in the surrounding"; openMap [false,false]};
 

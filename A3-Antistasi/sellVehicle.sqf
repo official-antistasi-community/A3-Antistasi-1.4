@@ -3,7 +3,7 @@ _veh = cursortarget;
 
 if (isNull _veh) exitWith {hint "You are not looking to any vehicle"};
 
-if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {hint "Vehicle must be closer than 50 meters to the flag"};
+if (_veh distance getMarkerPos rebelRespawn > 50) exitWith {hint "Vehicle must be closer than 50 meters to the flag"};
 
 if ({isPlayer _x} count crew _veh > 0) exitWith {hint "In order to sell, vehicle must be empty."};
 
@@ -22,7 +22,7 @@ if (_exit) exitWith {hint "You are not owner of this vehicle and you cannot sell
 _typeX = typeOf _veh;
 _costs = 0;
 
-if (_typeX in vehFIA) then
+if (_typeX in rebelVehicles) then
 	{
 	_costs = round (([_typeX] call A3A_fnc_vehiclePrice)/2)
 	}
@@ -82,7 +82,7 @@ if (_costs == 0) exitWith {hint "The vehicle you are looking is not suitable in 
 
 _costs = round (_costs * (1-damage _veh));
 
-[0,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
+[0,_costs] remoteExec ["A3A_fnc_rebelResources",2];
 
 if (_veh in staticsToSave) then {staticsToSave = staticsToSave - [_veh]; publicVariable "staticsToSave"};
 if (_veh in reportedVehs) then {reportedVehs = reportedVehs - [_veh]; publicVariable "reportedVehs"};

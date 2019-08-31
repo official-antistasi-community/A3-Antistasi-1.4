@@ -1,6 +1,6 @@
 if (!isServer and hasInterface) exitWith{};
 
-private ["_pos","_markerX","_vehiclesX","_groups","_soldiers","_positionX","_busy","_buildings","_pos1","_pos2","_groupX","_countX","_typeVehX","_veh","_unit","_arrayVehAAF","_nVeh","_frontierX","_size","_ang","_mrk","_typeGroup","_flagX","_dog","_typeUnit","_garrison","_sideX","_cfg","_max","_vehicle","_vehCrew","_groupVeh","_roads","_dist","_road","_roadscon","_roadcon","_dirveh","_bunker","_typeGroup","_positionsX","_posMG","_posMort","_posTank"];
+private ["_pos","_markerX","_vehiclesX","_groups","_soldiers","_positionX","_busy","_buildings","_pos1","_pos2","_groupX","_countX","_typeVehX","_veh","_unit","_aiVehicle","_nVeh","_frontierX","_size","_ang","_mrk","_typeGroup","_flagX","_dog","_typeUnit","_garrison","_sideX","_cfg","_max","_vehicle","_vehCrew","_groupVeh","_roads","_dist","_road","_roadscon","_roadcon","_dirveh","_bunker","_typeGroup","_positionsX","_posMG","_posMort","_posTank"];
 _markerX = _this select 0;
 
 diag_log format ["[Antistasi] Spawning Airbase %1 (createAIAirplane.sqf)", _markerX];
@@ -264,9 +264,9 @@ if (!_busy) then
 			private _veh = objNull;
 			if (_typeVehX isKindOf "Helicopter") then {
 				_veh = createVehicle [_typeVehX, _heliPos, [],3, "NONE"];
-				_vehiclesX pushBack (createVehicle ["Land_HelipadCircle_F", getPosATL _veh, [],0, "CAN_COLLIDE"]);		
+				_vehiclesX pushBack (createVehicle ["Land_HelipadCircle_F", getPosATL _veh, [],0, "CAN_COLLIDE"]);
 				_veh setDir (_ang + 90);
-				_heliPos = [_heliPos, 50, _ang] call BIS_fnc_relPos;				
+				_heliPos = [_heliPos, 50, _ang] call BIS_fnc_relPos;
 			} else {
 				_veh = createVehicle [_typeVehX, _pos, [],3, "NONE"];
 				_veh setDir (_ang);
@@ -284,7 +284,7 @@ if (!_busy) then
 _typeVehX = if (_sideX == Occupants) then {NATOFlag} else {CSATFlag};
 _flagX = createVehicle [_typeVehX, _positionX, [],0, "CAN_COLLIDE"];
 _flagX allowDamage false;
-[_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
+[_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_flagX];
 _vehiclesX pushBack _flagX;
 if (_sideX == Occupants) then
 	{
@@ -304,10 +304,10 @@ else
 if (!_busy) then
 	{
 	{
-	_arrayVehAAF = if (_sideX == Occupants) then {vehNATOAttack select {[_x] call A3A_fnc_vehAvailable}} else {vehCSATAttack select {[_x] call A3A_fnc_vehAvailable}};
-	if ((spawner getVariable _markerX != 2) and (count _arrayVehAAF > 0)) then
+	_aiVehicle = if (_sideX == Occupants) then {vehNATOAttack select {[_x] call A3A_fnc_vehAvailable}} else {vehCSATAttack select {[_x] call A3A_fnc_vehAvailable}};
+	if ((spawner getVariable _markerX != 2) and (count _aiVehicle > 0)) then
 		{
-		_veh = createVehicle [selectRandom _arrayVehAAF, (_x select 0), [], 0, "NONE"];
+		_veh = createVehicle [selectRandom _aiVehicle, (_x select 0), [], 0, "NONE"];
 		_veh setDir (_x select 1);
 		_vehiclesX pushBack _veh;
 		_nul = [_veh] call A3A_fnc_AIVEHinit;
@@ -316,12 +316,12 @@ if (!_busy) then
 		};
 	} forEach _posTank;
 	};
-_arrayVehAAF = if (_sideX == Occupants) then {vehNATONormal} else {vehCSATNormal};
+_aiVehicle = if (_sideX == Occupants) then {vehNATONormal} else {vehCSATNormal};
 
 _countX = 0;
 while {(spawner getVariable _markerX != 2) and (_countX < _nVeh)} do
 	{
-	_typeVehX = selectRandom _arrayVehAAF;
+	_typeVehX = selectRandom _aiVehicle;
 	_pos = [_positionX, 10, _size/2, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
 	_veh = createVehicle [_typeVehX, _pos, [], 0, "NONE"];
 	_veh setDir random 360;
@@ -361,7 +361,7 @@ deleteMarker _mrk;
 {
 if (!(_x in staticsToSave)) then
 	{
-	if ((!([distanceSPWN-_size,1,_x,teamPlayer] call A3A_fnc_distanceUnits))) then {deleteVehicle _x}
+	if ((!([distanceSPWN-_size,1,_x,rebelSide] call A3A_fnc_distanceUnits))) then {deleteVehicle _x}
 	};
 } forEach _vehiclesX;
 

@@ -1,5 +1,5 @@
 if (not([player] call A3A_fnc_isMember)) exitWith {hint "Only Server Members can recruit AI units"};
-private ["_checkX","_hr","_typeUnit","_costs","_resourcesFIA","_unit"];
+private ["_checkX","_hr","_typeUnit","_costs","_rebelMoney","_unit"];
 
 //if (!allowPlayerRecruit) exitWith {hint "Server is very loaded. \nWait one minute or change FPS settings in order to fulfill this request"};
 
@@ -17,28 +17,28 @@ if (_hr < 1) exitWith {hint "You do not have enough HR for this request"};
 _arraytypeUnit = _this select 0;
 _typeUnit = _arraytypeUnit select 0;
 _costs = server getVariable _typeUnit;
-if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} else {_resourcesFIA = player getVariable "moneyX";};
+if (!isMultiPlayer) then {_rebelMoney = server getVariable "rebelMoney"} else {_rebelMoney = player getVariable "moneyX";};
 
-if (_costs > _resourcesFIA) exitWith {hint format ["You do not have enough money for this kind of unit (%1 € needed)",_costs]};
+if (_costs > _rebelMoney) exitWith {hint format ["You do not have enough money for this kind of unit (%1 € needed)",_costs]};
 
 
 if ((count units group player) + (count units stragglers) > 9) exitWith {hint "Your squad is full or you have too many scattered units with no radio contact"};
-if (random 20 <= skillFIA) then {_typeUnit = _arraytypeUnit select 1};
+if (random 20 <= rebelTrainingLevel) then {_typeUnit = _arraytypeUnit select 1};
 _unit = group player createUnit [_typeUnit, position player, [], 0, "NONE"];
 
 if (!isMultiPlayer) then
 	{
-	_nul = [-1, - _costs] remoteExec ["A3A_fnc_resourcesFIA",2];
+	_nul = [-1, - _costs] remoteExec ["A3A_fnc_rebelResources",2];
 	}
 else
 	{
-	_nul = [-1, 0] remoteExec ["A3A_fnc_resourcesFIA",2];
+	_nul = [-1, 0] remoteExec ["A3A_fnc_rebelResources",2];
 	[- _costs] call A3A_fnc_resourcesPlayer;
 	["moneyX",player getVariable ["moneyX",0]] call fn_SaveStat;
 	hint "Soldier Recruited.\n\nRemember: if you use the group menu to switch groups you will lose control of your recruited AI";
 	};
 
-[_unit] spawn A3A_fnc_FIAinit;
+[_unit] spawn A3A_fnc_rebelCreateUnit;
 _unit disableAI "AUTOCOMBAT";
 sleep 1;
 petros directSay "SentGenReinforcementsArrived";

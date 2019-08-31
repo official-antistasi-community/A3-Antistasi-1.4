@@ -10,9 +10,6 @@ _veh = cursortarget;
 
 _typeX = typeOf _veh;
 
-//if (cursortarget == "") exitWith {hint "You are not looking at anything"};
-//if ((not(_typeX in vehFIA)) and (not(_typeX in vehAAFland)) and (not(_typeX in arrayCivVeh))) exitWith {hint "You are not looking to a valid vehicle"};
-
 if ((!alive _veh) or (!canMove _veh)) exitWith {hint "The selected vehicle is destroyed or cannot move"};
 if ({(alive _x) and (_x in _veh)} count allUnits > 0) exitWith {hint "Selected vehicle is not empty"};
 if (_veh isKindOf "StaticWeapon") exitWith {hint "You cannot assign a Static Weapon to a Squad"};

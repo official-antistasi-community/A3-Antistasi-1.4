@@ -1,6 +1,6 @@
 if (!isServer and hasInterface) exitWith{};
 
-private ["_markerX","_dataX","_numCiv","_numVeh","_roads","_prestigeOPFOR","_prestigeBLUFOR","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_countX","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_patrolCities","_countPatrol","_burst","_groupP","_wp","_wp1"];
+private ["_markerX","_dataX","_numCiv","_numVeh","_roads","_prestigeOPFOR","_rebelCitySupport","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_countX","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_patrolCities","_countPatrol","_burst","_groupP","_wp","_wp1"];
 
 _markerX = _this select 0;
 
@@ -13,10 +13,10 @@ _numVeh = _dataX select 1;
 //_roads = _dataX select 2;
 _roads = roadsX getVariable _markerX;//
 //_prestigeOPFOR = _dataX select 3;
-//_prestigeBLUFOR = _dataX select 4;
+//_rebelCitySupport = _dataX select 4;
 
 _prestigeOPFOR = _dataX select 2;
-_prestigeBLUFOR = _dataX select 3;
+_rebelCitySupport = _dataX select 3;
 
 _civs = [];
 _groups = [];
@@ -51,7 +51,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _numVeh) and (_countX 
 	_road = roadAt _p1;
 	if (!isNull _road) then
 		{
-		if ((count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) and !([50,1,_road,teamPlayer] call A3A_fnc_distanceUnits)) then
+		if ((count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) and !([50,1,_road,rebelSide] call A3A_fnc_distanceUnits)) then
 			{
 			_roadcon = roadsConnectedto (_road);
 			_p2 = getPos (_roadcon select 0);
@@ -63,7 +63,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _numVeh) and (_countX 
 		    _mrk setMarkerSize [5, 5];
 		    _mrk setMarkerShape "RECTANGLE";
 		    _mrk setMarkerBrush "SOLID";
-		    _mrk setMarkerColor colourTeamPlayer;
+		    _mrk setMarkerColor rebelColor;
 		    //_mrk setMarkerText _nameX;
 		    */
 			_veh = _typeVehX createVehicle _pos;
@@ -146,7 +146,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_veh addEventHandler ["HandleDamage",
 						{
 						_veh = _this select 0;
-						if (side(_this select 3) == teamPlayer) then
+						if (side(_this select 3) == rebelSide) then
 							{
 							_driverX = driver _veh;
 							if (side _driverX == civilian) then {_driverX leaveVehicle _veh};
@@ -187,17 +187,17 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 {deleteVehicle _x} forEach _civs;
 {deleteGroup _x} forEach _groups;
 {
-if (!([distanceSPWN-_size,1,_x,teamPlayer] call A3A_fnc_distanceUnits)) then
+if (!([distanceSPWN-_size,1,_x,rebelSide] call A3A_fnc_distanceUnits)) then
 	{
 	if (_x in reportedVehs) then {reportedVehs = reportedVehs - [_x]; publicVariable "reportedVehs"};
 	deleteVehicle _x;
 	}
 } forEach _vehiclesX;
 {
-waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
+waitUntil {sleep 1; !([distanceSPWN,1,_x,rebelSide] call A3A_fnc_distanceUnits)};
 deleteVehicle _x} forEach _civsPatrol;
 {
-if (!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)) then
+if (!([distanceSPWN,1,_x,rebelSide] call A3A_fnc_distanceUnits)) then
 	{
 	if (_x in reportedVehs) then {reportedVehs = reportedVehs - [_x]; publicVariable "reportedVehs"};
 	deleteVehicle _x

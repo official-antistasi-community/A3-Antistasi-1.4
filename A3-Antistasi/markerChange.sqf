@@ -4,15 +4,15 @@ private ["_winner","_markerX","_looser","_positionX","_other","_flagX","_flagsX"
 
 _winner = _this select 0;
 _markerX = _this select 1;
-if ((_winner == teamPlayer) and (_markerX in airportsX) and (tierWar < 3)) exitWith {};
-if ((_winner == teamPlayer) and (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) exitWith {};
+if ((_winner == rebelSide) and (_markerX in airportsX) and (tierWar < 3)) exitWith {};
+if ((_winner == rebelSide) and (sidesX getVariable [_markerX,sideUnknown] == rebelSide)) exitWith {};
 if ((_winner == Occupants) and (sidesX getVariable [_markerX,sideUnknown] == Occupants)) exitWith {};
 if ((_winner == Invaders) and (sidesX getVariable [_markerX,sideUnknown] == Invaders)) exitWith {};
 if (_markerX in markersChanging) exitWith {};
 markersChanging pushBackUnique _markerX;
 _positionX = getMarkerPos _markerX;
 _looser = sidesX getVariable [_markerX,sideUnknown];
-_sides = [teamPlayer,Occupants,Invaders];
+_sides = [rebelSide,Occupants,Invaders];
 _other = "";
 _textX = "";
 _prestigeOccupants = 0;
@@ -28,9 +28,9 @@ if ((!(_markerX in citiesX)) and (spawner getVariable _markerX != 2)) then
 if (isNil "_flagX") then {_flagX = objNull};
 //[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
 
-if (_looser == teamPlayer) then
+if (_looser == rebelSide) then
 	{
-	_textX = format ["%1 ",nameTeamPlayer];
+	_textX = format ["%1 ",rebelFactionName];
 	[] call A3A_fnc_tierCheck;
 	}
 else
@@ -46,7 +46,7 @@ else
 	};
 garrison setVariable [_markerX,[],true];
 sidesX setVariable [_markerX,_winner,true];
-if (_winner == teamPlayer) then
+if (_winner == rebelSide) then
 	{
 	_super = if (_markerX in airportsX) then {true} else {false};
 	[[_markerX,_looser,"",_super],"A3A_fnc_patrolCA"] call A3A_fnc_scheduler;
@@ -65,7 +65,7 @@ _sides = _sides - [_winner,_looser];
 _other = _sides select 0;
 if (_markerX in airportsX) then
 	{
-	if (_winner == teamPlayer) then
+	if (_winner == rebelSide) then
 		{
 		[0,10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 		if (_looser == Occupants) then
@@ -91,7 +91,7 @@ if (_markerX in airportsX) then
 			{
 			[-10,-10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
 			};
-		if (_looser == teamPlayer) then
+		if (_looser == rebelSide) then
 			{
 			_prestigeOccupants = -10;
 			_prestigeInvaders = -10;
@@ -104,10 +104,10 @@ if (_markerX in airportsX) then
 	};
 if (_markerX in outposts) then
 	{
-	if !(_winner == teamPlayer) then
+	if !(_winner == rebelSide) then
 		{
 		server setVariable [_markerX,dateToNumber date,true];
-		if (_looser == teamPlayer) then
+		if (_looser == rebelSide) then
 			{
 			if (_winner == Occupants) then {_prestigeOccupants = -5} else {_prestigeInvaders = -5};
 			};
@@ -123,9 +123,9 @@ if (_markerX in outposts) then
 	};
 if (_markerX in seaports) then
 	{
-	if !(_winner == teamPlayer) then
+	if !(_winner == rebelSide) then
 		{
-		if (_looser == teamPlayer) then
+		if (_looser == rebelSide) then
 			{
 			if (_winner == Occupants) then {_prestigeOccupants = -5} else {_prestigeInvaders = -5};
 			};
@@ -152,11 +152,11 @@ if (_markerX in resourcesX) then
 	};
 
 {_nul = [_markerX,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
-if (_winner == teamPlayer) then
+if (_winner == rebelSide) then
 	{
 	[] call A3A_fnc_tierCheck;
 	
-	//Convert all of the static weapons to teamPlayer, essentially. Make them mannable by AI.
+	//Convert all of the static weapons to rebelSide, essentially. Make them mannable by AI.
 	//Make the size larger, as rarely does the marker cover the whole outpost.
 	private _staticWeapons = nearestObjects [_positionX, ["StaticWeapon"], _size * 1.5, true];
 	{
@@ -169,31 +169,31 @@ if (_winner == teamPlayer) then
 	if (!isNull _flagX) then
 		{
 		//[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
-		[_flagX,"SDKFlag"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
-		[_flagX,SDKFlagTexture] remoteExec ["setFlagTexture",_flagX];
+		[_flagX,"rebelFlag"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
+		[_flagX,rebelFlagTexture] remoteExec ["setFlagTexture",_flagX];
 		sleep 2;
-		//[_flagX,"unit"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
-		//[_flagX,"vehicle"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
-		//[_flagX,"garage"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
-		if (_markerX in seaports) then {[_flagX,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX]};
+		//[_flagX,"unit"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_flagX];
+		//[_flagX,"vehicle"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_flagX];
+		//[_flagX,"garage"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_flagX];
+		if (_markerX in seaports) then {[_flagX,"seaport"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_flagX]};
 		};
 	[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;
-	waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({((side group _x) in [_looser,_other]) and (_x getVariable ["spawner",false]) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits > 3*({(side _x == teamPlayer) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits))};
+	waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({((side group _x) in [_looser,_other]) and (_x getVariable ["spawner",false]) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits > 3*({(side _x == rebelSide) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits))};
 	if (spawner getVariable _markerX != 2) then
 		{
 		sleep 10;
-		[_markerX,teamPlayer] remoteExec ["A3A_fnc_zoneCheck",2];
+		[_markerX,rebelSide] remoteExec ["A3A_fnc_zoneCheck",2];
 		};
 	}
 else
 	{
 	if (!isNull _flagX) then
 		{
-		if (_looser == teamPlayer) then
+		if (_looser == rebelSide) then
 			{
 			[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
 			sleep 2;
-			[_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
+			[_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[rebelSide,civilian],_flagX];
 			};
 		if (_winner == Occupants) then
 			{
@@ -204,17 +204,17 @@ else
 			[_flagX,CSATFlagTexture] remoteExec ["setFlagTexture",_flagX];
 			};
 		};
-	if (_looser == teamPlayer) then
+	if (_looser == rebelSide) then
 		{
 		[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;
 		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !(["DEF_HQ"] call BIS_fnc_taskExists) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
-if ((_winner != teamPlayer) and (_looser != teamPlayer)) then
+if ((_winner != rebelSide) and (_looser != rebelSide)) then
 	{
 	if (_markerX in outposts) then
 		{
-		_closeX = (seaports + resourcesX + factories) select {((getMarkerPos _x) distance _positionX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
+		_closeX = (seaports + resourcesX + factories) select {((getMarkerPos _x) distance _positionX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] != rebelSide)};
 		if (_looser == Occupants) then  {_closeX = _closeX select {sidesX getVariable [_x,sideUnknown] == Occupants}} else {_closeX = _closeX select {sidesX getVariable [_x,sideUnknown] == Invaders}};
 		{[_winner,_x] spawn A3A_fnc_markerChange; sleep 5} forEach _closeX;
 		}
@@ -222,8 +222,8 @@ if ((_winner != teamPlayer) and (_looser != teamPlayer)) then
 		{
 		if (_markerX in airportsX) then
 			{
-			_closeX = (seaports + outposts) select {((getMarkerPos _x) distance _positionX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
-			_closeX append ((factories + resourcesX) select {(sidesX getVariable [_x,sideUnknown] != teamPlayer) and (sidesX getVariable [_x,sideUnknown] != _winner) and ([airportsX,_x] call BIS_fnc_nearestPosition == _markerX)});
+			_closeX = (seaports + outposts) select {((getMarkerPos _x) distance _positionX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] != rebelSide)};
+			_closeX append ((factories + resourcesX) select {(sidesX getVariable [_x,sideUnknown] != rebelSide) and (sidesX getVariable [_x,sideUnknown] != _winner) and ([airportsX,_x] call BIS_fnc_nearestPosition == _markerX)});
 			if (_looser == Occupants) then  {_closeX = _closeX select {sidesX getVariable [_x,sideUnknown] == Occupants}} else {_closeX = _closeX select {sidesX getVariable [_x,sideUnknown] == Invaders}};
 			{[_winner,_x] spawn A3A_fnc_markerChange; sleep 5} forEach _closeX;
 			};

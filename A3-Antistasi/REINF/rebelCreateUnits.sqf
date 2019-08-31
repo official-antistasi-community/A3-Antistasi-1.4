@@ -7,13 +7,13 @@ _unit setVariable ["spawner",true,true];
 
 _unit allowFleeing 0;
 _typeX = typeOf _unit;
-//_skill = if (_typeX in sdkTier1) then {(skillFIA * 0.2)} else {if (_typeX in sdkTier2) then {0.1 + (skillFIA * 0.2)} else {0.1 + (skillFIA * 0.2)}};
-_skill = skillFIA * 0.05 * skillMult;
-if (!activeGREF) then {if (not((uniform _unit) in uniformsSDK)) then {[_unit] call A3A_fnc_reDress}};
+//_skill = if (_typeX in rebelUnitsTier1) then {(rebelTrainingLevel * 0.2)} else {if (_typeX in rebelUnitsTier2) then {0.1 + (rebelTrainingLevel * 0.2)} else {0.1 + (rebelTrainingLevel * 0.2)}};
+_skill = rebelTrainingLevel * 0.05 * skillMult; //difficulty feature
+if (!activeGREF) then {if (not((uniform _unit) in rebelUniformsParamilitary)) then {[_unit] call A3A_fnc_reDress}};
 
 if ((!isMultiplayer) and (leader _unit == theBoss)) then {_skill = _skill + 0.1};
 _unit setSkill _skill;
-if (_typeX in SDKSniper) then
+if (_typeX in rebelSniper) then
 	{
 	if (count unlockedSN > 0) then
 		{
@@ -36,16 +36,16 @@ if (_typeX in SDKSniper) then
 else
 	{
 	if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]};
-	if (random 40 < skillFIA) then
+	if (random 40 < rebelTrainingLevel) then
 		{
 		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom helmets)};
 		};
-	if ((_typeX in SDKMil) or (_typeX == staticCrewTeamPlayer)) then
+	if ((_typeX in rebelLiteAT) or (_typeX == rebelStaticCrew)) then
 		{
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		if ((loadAbs _unit < 340) and (_typeX in SDKMil)) then
+		if ((loadAbs _unit < 340) and (_typeX in rebelLiteAT)) then
 			{
-			if ((random 20 < skillFIA) and (count unlockedAA > 0)) then
+			if ((random 20 < rebelTrainingLevel) and (count unlockedAA > 0)) then
 				{
 				_unit addbackpack (unlockedBackpacks select 0);
 				[_unit, selectRandom unlockedAA, 2, 0] call BIS_fnc_addWeapon;
@@ -55,7 +55,7 @@ else
 		}
 	else
 		{
-		if (_typeX in SDKMG) then
+		if (_typeX in rebelHeavyGunner) then
 			{
 			if (count unlockedMG > 0) then
 				{
@@ -68,7 +68,7 @@ else
 			}
 		else
 			{
-			if (_typeX in SDKGL) then
+			if (_typeX in rebelGrenadier) then
 				{
 				if (count unlockedGL > 0) then
 					{
@@ -81,14 +81,14 @@ else
 				}
 			else
 				{
-				if (_typeX != SDKUnarmed) then {[_unit,unlockedRifles] call A3A_fnc_randomRifle};
-				if (_typeX in SDKExp) then
+				if (_typeX != rebelUnarmed) then {[_unit,unlockedRifles] call A3A_fnc_randomRifle};
+				if (_typeX in rebelExpSpec) then
 					{
 					_unit setUnitTrait ["explosiveSpecialist",true];
 					}
 				else
 					{
-					if (_typeX in SDKMedic) then
+					if (_typeX in rebelMedic) then
 						{
 						_unit setUnitTrait ["medic",true];
 						if ({_x == "FirstAidKit"} count (items _unit) < 10) then
@@ -98,7 +98,7 @@ else
 						}
 					else
 						{
-						if (_typeX in SDKATman) then
+						if (_typeX in rebelAT) then
 							{
 							if !(unlockedAT isEqualTo []) then
 								{
@@ -141,24 +141,24 @@ _unit selectWeapon (primaryWeapon _unit);
 
 if (!haveRadio) then
 	{
-	if ((_unit != leader _unit) and (_typeX != staticCrewTeamPlayer)) then {_unit unlinkItem (_unit call A3A_fnc_getRadio)};
+	if ((_unit != leader _unit) and (_typeX != rebelStaticCrew)) then {_unit unlinkItem (_unit call A3A_fnc_getRadio)};
 	};
 
 if ({if (_x in smokeX) exitWith {1}} count unlockedMagazines > 0) then {_unit addMagazines [selectRandom smokeX,2]};
 if !(hasIFA) then
 	{
-	if ((sunOrMoon < 1) and (_typeX != SDKUnarmed)) then
+	if ((sunOrMoon < 1) and (_typeX != rebelUnarmed)) then
 		{
 		if (haveNV) then
 			{
 			if (hmd _unit == "") then {_unit linkItem (selectRandom NVGoggles)};
-			_pointers = pointers arrayIntersect unlockedItems;
-			if !(_pointers isEqualTo []) then
+			_rebelLootLaserPointer = rebelLootLaserPointer arrayIntersect unlockedItems;
+			if !(_rebelLootLaserPointer isEqualTo []) then
 				{
-				_pointers = _pointers arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
-				if !(_pointers isEqualTo []) then
+				_rebelLootLaserPointer = _rebelLootLaserPointer arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
+				if !(_rebelLootLaserPointer isEqualTo []) then
 					{
-					_pointer = selectRandom _pointers;
+					_pointer = selectRandom _rebelLootLaserPointer;
 					_unit addPrimaryWeaponItem _pointer;
 			        _unit assignItem _pointer;
 			        _unit enableIRLasers true;
@@ -173,13 +173,13 @@ if !(hasIFA) then
 				_unit unassignItem _hmd;
 				_unit removeItem _hmd;
 				};
-			_flashlights = flashlights arrayIntersect unlockedItems;
-			if !(_flashlights isEqualTo []) then
+			_rebelLootFlashlight = rebelLootFlashlight arrayIntersect unlockedItems;
+			if !(_rebelLootFlashlight isEqualTo []) then
 				{
-				_flashlights = _flashlights arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
-				if !(_flashlights isEqualTo []) then
+				_rebelLootFlashlight = _rebelLootFlashlight arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
+				if !(_rebelLootFlashlight isEqualTo []) then
 					{
-					_flashlight = selectRandom _flashlights;
+					_flashlight = selectRandom _rebelLootFlashlight;
 					_unit addPrimaryWeaponItem _flashlight;
 				    _unit assignItem _flashlight;
 				    _unit enableGunLights _flashlight;
@@ -238,7 +238,7 @@ if (player == leader _unit) then
 			};
 		_victim setVariable ["spawner",nil,true];
 		}];
-	if ((typeOf _unit != SDKUnarmed) and !hasIFA) then
+	if ((typeOf _unit != rebelUnarmed) and !hasIFA) then
 		{
 		_idUnit = arrayids call BIS_Fnc_selectRandom;
 		arrayids = arrayids - [_idunit];
@@ -255,7 +255,7 @@ if (player == leader _unit) then
 			if (([player] call A3A_fnc_hasRadio) && (_unit call A3A_fnc_getRadio != "")) exitWith {_unit groupChat format ["This is %1, radiocheck OK",name _unit]};
 			if (unitReady _unit) then
 				{
-				if ((alive _unit) and (_unit distance (getMarkerPos respawnTeamPlayer) > 50) and (_unit distance leader group _unit > 500) and ((vehicle _unit == _unit) or ((typeOf (vehicle _unit)) in arrayCivVeh))) then
+				if ((alive _unit) and (_unit distance (getMarkerPos rebelRespawn) > 50) and (_unit distance leader group _unit > 500) and ((vehicle _unit == _unit) or ((typeOf (vehicle _unit)) in arrayCivVeh))) then
 					{
 					hint format ["%1 lost communication, he will come back with you if possible", name _unit];
 					[_unit] join stragglers;
@@ -263,7 +263,7 @@ if (player == leader _unit) then
 					_unit doMove position player;
 					_timeX = time + 900;
 					waitUntil {sleep 1;(!alive _unit) or (_unit distance player < 500) or (time > _timeX)};
-					if ((_unit distance player >= 500) and (alive _unit)) then {_unit setPos (getMarkerPos respawnTeamPlayer)};
+					if ((_unit distance player >= 500) and (alive _unit)) then {_unit setPos (getMarkerPos rebelRespawn)};
 					[_unit] join group player;
 					};
 				};
@@ -276,11 +276,11 @@ else
 		_victim = _this select 0;
 		_killer = _this select 1;
 		[_victim] remoteExec ["A3A_fnc_postmortem",2];
-		if ((isPlayer _killer) and (side _killer == teamPlayer)) then
+		if ((isPlayer _killer) and (side _killer == rebelSide)) then
 			{
 			if (!isMultiPlayer) then
 				{
-				_nul = [0,20] remoteExec ["A3A_fnc_resourcesFIA",2];
+				_nul = [0,20] remoteExec ["A3A_fnc_rebelResources",2];
 				_killer addRating 1000;
 				};
 			}

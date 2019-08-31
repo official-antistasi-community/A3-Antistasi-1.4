@@ -2,7 +2,7 @@ _checkX = false;
 _sideX = side (group player);
 _enemyFaction = if (_sideX == Occupants) then {Invaders} else {Occupants};
 {_enemyX = _x;
-if (((side _enemyX == _enemyFaction) or (side _enemyX == teamPlayer)) and (_enemyX distance player < 500) and (not(captive _enemyX))) exitWith {_checkX = true};
+if (((side _enemyX == _enemyFaction) or (side _enemyX == rebelSide)) and (_enemyX distance player < 500) and (not(captive _enemyX))) exitWith {_checkX = true};
 } forEach allUnits;
 
 if (_checkX) exitWith {Hint "You cannot Fast Travel while enemies are nearby"};
@@ -38,12 +38,12 @@ if (count _positionTel > 0) then
 		};
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
 
-	if ((sidesX getVariable [_base,sideUnknown] == teamPlayer) or (_base in _mrkENY)) exitWith {hint "You cannot Fast Travel to an enemy controlled zone"; openMap [false,false]};
+	if ((sidesX getVariable [_base,sideUnknown] == rebelSide) or (_base in _mrkENY)) exitWith {hint "You cannot Fast Travel to an enemy controlled zone"; openMap [false,false]};
 
 	if ((!(_base in airportsX)) and (!(_base in seaports)) and (!(_base in outposts)) and (_base != _mrkRespawn)) exitWith {hint "You can only Fast Travel to Airbases, Outposts and Seaports"; openMap [false,false]};
 
 	{
-		if (((side (group _x) == teamPlayer) or (side (group _x) == _enemyFaction)) and (_x distance (getMarkerPos _base) < 500) and (not(captive _x))) then {_checkX = true};
+		if (((side (group _x) == rebelSide) or (side (group _x) == _enemyFaction)) and (_x distance (getMarkerPos _base) < 500) and (not(captive _x))) then {_checkX = true};
 	} forEach allUnits;
 
 	if (_checkX) exitWith {Hint "You cannot Fast Travel to an area under attack or with enemies in the surrounding area"; openMap [false,false]};

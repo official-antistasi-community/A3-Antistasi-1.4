@@ -3,10 +3,10 @@
 _countX = INITIAL_COUNT_TIME;
 while {!([player] call A3A_fnc_isMember)} do
 	{
-	_playerMembers = playableUnits select {([_x] call A3A_fnc_isMember) and (side group _x == teamPlayer)};
+	_playerMembers = playableUnits select {([_x] call A3A_fnc_isMember) and (side group _x == rebelSide)};
 	if !(_playerMembers isEqualTo []) then
 		{
-		if (player distance2D (getMarkerPos respawnTeamPlayer) > memberDistance) then
+		if (player distance2D (getMarkerPos rebelRespawn) > memberDistance) then
 			{
 			_closestMember = [_playerMembers,player] call BIS_fnc_nearestPosition;
 			if (player distance2d _closestMember > memberDistance) then
@@ -38,7 +38,7 @@ while {!([player] call A3A_fnc_isMember)} do
 				{
 				[_possibleVehicle] call A3A_fnc_teleportVehicleToBase;
 				};
-			player setPos (getMarkerPos respawnTeamPlayer);
+			player setPos (getMarkerPos rebelRespawn);
 			};
 		}
 	else

@@ -155,7 +155,7 @@ if ((_markerX in seaports) and (spawner getVariable _markerX!=2) and !hasIFA) th
 		_vehiclesX pushBack _veh;
 		sleep 1;
 		};
-	{_boxX addItemCargoGlobal [_x,2]} forEach swoopShutUp;
+	{_boxX addItemCargoGlobal [_x,2]} forEach diveGear;
 	}
 else
 	{

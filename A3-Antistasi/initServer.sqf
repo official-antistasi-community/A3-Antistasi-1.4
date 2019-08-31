@@ -63,8 +63,8 @@ if (gameMode != 1) then
 [] execVM "initPetros.sqf";
 ["Initialize"] call BIS_fnc_dynamicGroups;//Exec on Server
 hcArray = [];
-waitUntil {(count playableUnits) > 0};
-waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
+//waitUntil {(count playableUnits) > 0};
+//waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
 _nul = [] execVM "modBlacklist.sqf";
 
 {
@@ -162,11 +162,9 @@ addMissionEventHandler ["PlayerDisconnected",{_this call A3A_fnc_onHeadlessClien
 
 addMissionEventHandler ["BuildingChanged", {
 	params ["_oldBuilding", "_newBuilding", "_isRuin"];
-	
 	if (_isRuin) then {
 		_oldBuilding setVariable ["ruins", _newBuilding];
 		_newBuilding setVariable ["building", _oldBuilding];
-		
 		if !(_oldBuilding in antennas) then {
 			destroyedBuildings pushBack (getPosATL _oldBuilding);
 		};

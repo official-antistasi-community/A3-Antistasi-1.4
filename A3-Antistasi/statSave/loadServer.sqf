@@ -109,7 +109,8 @@ publicVariable "unlockedGL";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
 if ("NVGoggles" in unlockedItems) then {haveNV = true; publicVariable "haveNV"};
-if (!haveRadio) then {if ("ItemRadio" in unlockedItems) then {haveRadio = true; publicVariable "haveRadio"}};
+//Check if we have radios unlocked and update haveRadio.
+call A3A_fnc_checkRadiosUnlocked;
 
 {
 if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then

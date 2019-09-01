@@ -34,7 +34,9 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
     - [Steam Workshop: 1833668872](https://steamcommunity.com/sharedfiles/filedetails/?id=1833668872)
 - WW2 / Armia Krajowa
     - [Steam Workshop: 1833672629](https://steamcommunity.com/sharedfiles/filedetails/?id=1833672629)
-
+- 3CB Collection
+    - [Steam Workshop: 1834976313](https://steamcommunity.com/sharedfiles/filedetails/?id=1834976313)
+    
 ## Features:
 
 - Playable in SP, MP, and persistent open server MP.

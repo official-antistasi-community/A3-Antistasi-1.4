@@ -217,7 +217,7 @@ if !(hasIFA) then
 	}
 else
 	{
-	_unit unlinkItem "ItemRadio";
+	_unit unlinkItem (_unit call A3A_fnc_getRadio);
 	};
 _revealX = false;
 if (vehicle _unit != _unit) then

@@ -16,17 +16,17 @@ NATOPilot = "I_Helipilot_F";
 //NATO PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"I_Soldier_SL_F",
+	["rhs_gref_teamLeader"] call A3A_fnc_getLoadout,
 	//Medic
-	"I_medic_F",
+	["rhs_gref_medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"I_Soldier_AR_F",
+	["rhs_gref_breacher"] call A3A_fnc_getLoadout,
 	//Marksman
-	"I_Soldier_M_F",
+	["rhs_gref_sniper"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"I_Soldier_LAT_F",
+	["rhs_gref_demolition"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"I_Soldier_LAT_F"
+	["rhs_gref_demolition"] call A3A_fnc_getLoadout
 ];
 
 vehNATOPVP = ["I_MRAP_03_F","I_MRAP_03_hmg_F"];//This array contains the vehicles Nato-PvP players can spawn near their flag.

@@ -8,7 +8,7 @@ _pos = _this select 2;
 if (typeName _pos == typeName "") then {_city = _pos} else {_city = [citiesX, _pos] call BIS_fnc_nearestPosition};
 _dataX = server getVariable _city;
 if (!(_dataX isEqualType [])) exitWith {
-		citySupportChanging = true;
+		cityIsSupportChanging = false;
 		diag_log format ["%1: [Antistasi] | ERROR | citySupportChange.sqf | Passed %2 as Position.",servertime, _pos];
 		};
 _numCiv = _dataX select 0;

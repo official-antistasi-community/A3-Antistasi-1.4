@@ -1,16 +1,17 @@
 if !(isServer) exitWith {};
 _unit = _this select 0;
+_adminState = admin owner _unit;
 if (playerHasBeenPvP isEqualTo []) exitWith {};
 _leave = false;
 _id = getPlayerUID _unit;
 {
-if (_id == _x select 0) then
+	if (_id == _x select 0 && _adminState != 2 && (time - teamSwitchDelay <= _x select 1)) exitWith
 	{
-	if (time - 3600 <= _x select 1) then {_leave = true};
+		_leave = true
 	};
 } forEach playerHasBeenPvP;
 if (_leave) then
-	{
+{
 	["noPvP",false,1,false,false] remoteExec ["BIS_fnc_endMission",_unit];
-	"Antistasi: player kicked because he has been rebel recently" remoteExec ["diag_log",_unit];
-	};
+	diag_log format ["%1: [Antistasi]: Player kicked because he has been rebel recently: %2, %3", servertime, name _unit, _id];
+};

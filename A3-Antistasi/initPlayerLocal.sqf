@@ -29,7 +29,9 @@ if (!hasInterface) exitWith
 	if (worldName == "Tanoa") then {call compile preprocessFileLineNumbers "roadsDB.sqf"};
 	if (worldName == "Altis") then {call compile preprocessFileLineNumbers "roadsDBAltis.sqf"};
 	if (worldName == "chernarus_summer") then {call compile preprocessFileLineNumbers "roadsDBcherna.sqf"};
-	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
+	if (worldName == "enoch") then {call compile preprocessFileLineNumbers "roadsDBLivonia.sqf"};
+	if (worldName == "Malden") then {call compile preprocessFileLineNumbers "roadsDBMalden.sqf"};
+[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 	};
 _isJip = _this select 1;
 if (isMultiplayer) then
@@ -48,13 +50,15 @@ if (isMultiplayer) then
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if ((side player == teamPlayer) and tkPunish) then
 	{
-		private _firedHandlerTk = 
+		private _firedHandlerTk =
 		{
 			_typeX = _this select 1;
 			if ((_typeX == "Put") or (_typeX == "Throw")) then
 			{
-				if (player distance petros < 50) then
+				private _shieldDistance = 100;
+				if (player distance petros < _shieldDistance) then
 				{
+					hint format ["You cannot throw grenades or place explosives within %1m of base.", _shieldDistance];
 					deleteVehicle (_this select 6);
 					if (_typeX == "Put") then
 					{
@@ -64,7 +68,7 @@ if (isMultiplayer) then
 			};
 		};
 		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then 
+		if (hasACE) then
 		{
 			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
 		};
@@ -108,6 +112,9 @@ _introShot = [
 	waitUntil {!isNil "BIS_fnc_establishingShot_playing" && {BIS_fnc_establishingShot_playing}};
 	private _credits = [] execVM "credits.sqf";
 };
+
+//Initialise membershipEnabled so we can do isMember checks.
+membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
 disableUserInput false;
 player addWeaponGlobal "itemmap";
@@ -216,9 +223,14 @@ stragglers = creategroup teamPlayer;
 player setUnitTrait ["camouflageCoef",0.8];
 player setUnitTrait ["audibleCoef",0.8];
 
+//Give the player the base loadout.
 [player] call A3A_fnc_dress;
+//Add a maplight if we're running ACE, because it can be really dark.
+if (hasACE) then {
+	player addItem "ACE_Flashlight_XL50";
+};
 player setvariable ["compromised",0];
-player addEventHandler 
+player addEventHandler
 [
 	"FiredMan",
 	{
@@ -252,21 +264,28 @@ player addEventHandler
 		}
 	}
 ];
-player addEventHandler 
+player addEventHandler
 [
 	"HandleDamage",
 	{
-		_victim = _this select 0;
-		_damage = _this select 2;
-		_instigator = _this select 6;
+		private _victim = param [0];
+		private _damage = param [2];
+		private _instigator = param [6];
 		if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.9) then
 		{
-			[_instigator, 20, 0.34] remoteExec ["A3A_fnc_punishment",_instigator];
+			[_instigator, 20, 0.21] remoteExec ["A3A_fnc_punishment",_instigator];
 			hint format["%1 hurt you!",_instigator];
+			[format [
+				"%1: [Antistasi] | INFO | %1 injured by %2 (UID: %3) %4m from HQ",
+				name _victim,
+				name _instigator,
+				getPlayerUID _instigator,
+				_victim distance2D posHQ
+			]] remoteExec ["diag_log", 2];
 		};
 	}
 ];
-player addEventHandler 
+player addEventHandler
 [
 	"InventoryOpened",
 	{
@@ -431,7 +450,6 @@ if (isMultiplayer) then
 	{
 	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;//Exec on client
 	["InitializeGroup", [player,teamPlayer,true]] call BIS_fnc_dynamicGroups;
-	membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if (membershipEnabled) then
 		{
 		if !([player] call A3A_fnc_isMember) then
@@ -616,7 +634,6 @@ if ((!isServer) and (isMultiplayer)) then {boxX call jn_fnc_arsenal_init};
 boxX allowDamage false;
 boxX addAction ["Transfer Vehicle cargo to Ammobox", "[] call A3A_fnc_empty"];
 boxX addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
-flagX addAction ["HQ Management", {[] execVM "Dialogs\dialogHQ.sqf"},nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros)"];
 flagX allowDamage false;
 flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {hint "You cannot recruit units while there are enemies near you"} else {nul=[] execVM "Dialogs\unit_recruit.sqf"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 flagX addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {hint "You cannot buy vehicles while there are enemies near you"} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
@@ -651,7 +668,7 @@ petros setIdentity "friendlyX";
 petros setName "Petros";
 petros disableAI "MOVE";
 petros disableAI "AUTOTARGET";
-petros addAction ["Mission Request", {nul=CreateDialog "mission_menu";},nil,0,false,true,"","([player] call A3A_fnc_isMember)"];
+[petros,"mission"] call A3A_fnc_flagaction;
 
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];

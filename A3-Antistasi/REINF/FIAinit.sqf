@@ -141,7 +141,7 @@ _unit selectWeapon (primaryWeapon _unit);
 
 if (!haveRadio) then
 	{
-	if ((_unit != leader _unit) and (_typeX != staticCrewTeamPlayer)) then {_unit unlinkItem "ItemRadio"};
+	if ((_unit != leader _unit) and (_typeX != staticCrewTeamPlayer)) then {_unit unlinkItem (_unit call A3A_fnc_getRadio)};
 	};
 
 if ({if (_x in smokeX) exitWith {1}} count unlockedMagazines > 0) then {_unit addMagazines [selectRandom smokeX,2]};
@@ -247,12 +247,12 @@ if (player == leader _unit) then
 	if (captive player) then {[_unit] spawn A3A_fnc_undercoverAI};
 
 	_unit setVariable ["rearming",false];
-	if ((!haveRadio) and (!hasTFAR) and (!hasACRE) and !(hasIFA)) then
+	if ((!haveRadio) and !(hasIFA)) then
 		{
 		while {alive _unit} do
 			{
 			sleep 10;
-			if (("ItemRadio" in assignedItems _unit) and ([player] call A3A_fnc_hasRadio)) exitWith {_unit groupChat format ["This is %1, radiocheck OK",name _unit]};
+			if (([player] call A3A_fnc_hasRadio) && (_unit call A3A_fnc_getRadio != "")) exitWith {_unit groupChat format ["This is %1, radiocheck OK",name _unit]};
 			if (unitReady _unit) then
 				{
 				if ((alive _unit) and (_unit distance (getMarkerPos respawnTeamPlayer) > 50) and (_unit distance leader group _unit > 500) and ((vehicle _unit == _unit) or ((typeOf (vehicle _unit)) in arrayCivVeh))) then

@@ -239,7 +239,7 @@ if (_Sweapon != "") then
 			{
 			if ((backpack _unit == "") and (backPack _target != "")) then
 				{
-				_unit addBackPackGlobal ((backpack _target) call BIS_fnc_basicBackpack);
+				_unit addBackPackGlobal ((backpack _target) call A3A_fnc_basicBackpack);
 				_unit action ["rearm",_target];
 				sleep 3;
 				{_unit addItemToBackpack _x} forEach (backpackItems _target);
@@ -268,7 +268,7 @@ if (_Sweapon != "") then
 	sleep 3;
 	};
 _hasBox = false;
-if ((not("ItemRadio" in assignedItems _unit)) and !haveRadio) then
+if (!haveRadio && {_unit call A3A_fnc_getRadio == ""}) then
 	{
 	_needsRearm = true;
 	_hasBox = false;
@@ -276,7 +276,7 @@ if ((not("ItemRadio" in assignedItems _unit)) and !haveRadio) then
 	_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
 	{
 	_victim = _x;
-	if (("ItemRadio" in (assignedItems _victim)) and (_unit distance _victim < _distanceX)) then
+	if ((_victim call A3A_fnc_getRadio != "") and (_unit distance _victim < _distanceX)) then
 		{
 		_target = _victim;
 		_hasBox = true;
@@ -294,8 +294,9 @@ if ((not("ItemRadio" in assignedItems _unit)) and !haveRadio) then
 		if (_unit distance _target < 3) then
 			{
 			_unit action ["rearm",_target];
-			_unit linkItem "ItemRadio";
-			_target unlinkItem "ItemRadio";
+			private _radio = _target call A3A_fnc_getRadio;
+			_unit linkItem _radio;
+			_target unlinkItem _radio;
 			};
 		_target setVariable ["busy",false];
 		};
@@ -472,7 +473,7 @@ if (backpack _unit == "") then
 		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
 		if (_unit distance _target < 3) then
 			{
-			_unit addBackPackGlobal ((backpack _target) call BIS_fnc_basicBackpack);
+			_unit addBackPackGlobal ((backpack _target) call A3A_fnc_basicBackpack);
 			_unit action ["rearm",_target];
 			//{_unit addItemCargoGlobal [_x,1]} forEach ((backpackItems _target) + (backpackMagazines _target));
 			_things = nearestObjects [_target, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];

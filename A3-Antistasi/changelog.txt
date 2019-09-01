@@ -1243,7 +1243,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Solved bug in Destroy Heli missions.
 - Added RHS SPG9 as AT gun for rebel RHSGREF config, thanks to Mocksybren!!
 
-1.4c1.01 through to 1.4c1.05
+1.4c1.01 through to 1.4c2.0
 
 All Improvements
 - Support for 3CB - You can now play as the British Armed Forces

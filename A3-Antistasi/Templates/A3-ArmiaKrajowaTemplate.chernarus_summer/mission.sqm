@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=826;
+		nextID=827;
 	};
 	class MarkerIDProvider
 	{
@@ -19,7 +19,7 @@ class EditorData
 		pos[]={-16.408678,50.102848,1665.2761};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -141,13 +141,14 @@ class AddonsMetaData
 randomSeed=16007350;
 class ScenarioData
 {
-	author="Barbolani & The Official AntiStasi Community";
+	author=$STR_antistasi_credits_generic_author_text;
 };
 class Mission
 {
 	class Intel
 	{
-		briefingName="A3-Antistasi Armia Krajowa Chernarus 1.4c2.0";
+		briefingName=$STR_antistasi_mission_info_cherna_mapname_text;
+		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.25;
@@ -169,7 +170,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=161;
+		items=162;
 		class Item0
 		{
 			dataType="Marker";
@@ -207,7 +208,7 @@ class Mission
 			colorName="ColorEAST";
 			a=249.14926;
 			b=109.36142;
-			angle=28.489849;
+			angle=28.489847;
 			id=6;
 			atlOffset=-0.20903301;
 		};
@@ -746,7 +747,7 @@ class Mission
 			colorName="ColorBrown";
 			a=80;
 			b=47.947792;
-			angle=289.0188;
+			angle=289.01877;
 			id=50;
 			atlOffset=-0.045758247;
 		};
@@ -5541,7 +5542,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="[_this, _value] call CBA_fnc_setCallsign";
+					expression="_this setGroupID [_value];";
 					class Value
 					{
 						class data
@@ -5655,7 +5656,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="[_this, _value] call CBA_fnc_setCallsign";
+					expression="_this setGroupID [_value];";
 					class Value
 					{
 						class data
@@ -6834,6 +6835,17 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item161
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8405.2891,291.93295,5983.9502};
+			};
+			name="pathfinding";
+			id=826;
+			type="Logic";
 		};
 	};
 	class Connections

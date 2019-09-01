@@ -15,22 +15,6 @@ NATOMortar = "UK3CB_BAF_Static_L16_Deployed_Tropical_RM";
 staticATOccupants = "RHS_TOW_TriPod_USMC_WD";
 staticAAOccupants = "RHS_Stinger_AA_pod_WD";
 
-//NATO PvP Loadouts
-NATOPlayerLoadouts = [
-	//Team Leader
-	"UK3CB_BAF_SC_Tropical_REC",
-	//Medic
-	"UK3CB_BAF_Medic_Tropical_REC",
-	//Autorifleman
-	"UK3CB_BAF_MGLMG_Tropical_REC",
-	//Marksman
-	"UK3CB_BAF_Marksman_Tropical_REC",
-	//Anti-tank Scout
-	"UK3CB_BAF_Explosive_Tropical_REC",
-	//Anti-tank Scout
-	"UK3CB_BAF_FAC_Tropical_REC"
-];
-
 vehNATOLightArmed = ["UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_B_Tropical_RM","UK3CB_BAF_LandRover_WMIK_GMG_FFR_Green_B_Tropical_RM","UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_Tropical_RM","UK3CB_BAF_Jackal2_GMG_W_Tropical_RM","UK3CB_BAF_Jackal2_L2A1_W_Tropical_RM","UK3CB_BAF_Coyote_Logistics_L111A1_W_Tropical_RM","UK3CB_BAF_Coyote_Passenger_L111A1_W_Tropical_RM"];
 vehNATOLightUnarmed = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Green","UK3CB_BAF_LandRover_Hard_FFR_Green_B_Tropical","UK3CB_BAF_LandRover_Snatch_FFR_Green_A_Tropical","UK3CB_BAF_LandRover_Soft_FFR_Green_B_Tropical"];
 vehNATOTrucks = ["UK3CB_BAF_MAN_HX60_Transport_Green_Tropical","UK3CB_BAF_MAN_HX58_Transport_Green_Tropical"];

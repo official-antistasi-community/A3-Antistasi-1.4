@@ -28,8 +28,9 @@ else
 
 fireX inflame false;
 
-//respawnTeamPlayer setMarkerPos [0,0,0];
-respawnTeamPlayer setMarkerAlpha 0;
+[respawnTeamPlayer, 0, teamPlayer] call A3A_fnc_setMarkerAlphaForSide;
+[respawnTeamPlayer, 0, civilian] call A3A_fnc_setMarkerAlphaForSide;
+
 _garrison = garrison getVariable ["Synd_HQ", []];
 _positionX = getMarkerPos "Synd_HQ";
 if (count _garrison > 0) then

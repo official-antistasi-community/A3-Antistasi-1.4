@@ -102,7 +102,7 @@ class Params
         title = "Enable Commander Switch (highest ranked player)";
         values[] = {1,0};
         texts[] = {"Yes","No"};
-        default = 1;
+        default = 0;
         //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
     };
     class tkPunish
@@ -134,7 +134,7 @@ class Params
         title = "Allow Friendly Player Markers";
         values[] = {1,0};
         texts[] = {"Yes","No"};
-        default = 1;
+        default = 0;
         //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
     };
     class AISkill
@@ -142,21 +142,21 @@ class Params
         title = "AI Skill";
         values[] = {0.5,1,2};
         texts[] = {"Easy","Normal","Hard"};
-        default = 1;
+        default = 2;
         //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
     };
     class unlockItem
     {
         title = "Number of the same weapons required to unlock";
         values[] = {15,25,40};
-        default = 25;
+        default = 40;
         //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
     };
 		class memberOnlyMagLimit
     {
         title = "Number of magazines needed for guests to be able to use them";
         values[] = {10,20,30,40,50,60};
-        default = 40;
+        default = 60;
     };
     class civTraffic
     {
@@ -195,13 +195,13 @@ class Params
         values[] = {0,1};
         texts[] = {"No","Yes"};
         default = 0;
-    };	
+    };
 	class teamSwitchDelay
     {
         title = "Delay After Leaving Before a Player Can Join Another Team";
         values[] = {0, 900, 1800, 3600};
         texts[] = {"No delay","15 minutes","30 minutes","60 minutes"};
-        default = 3600;
+        default = 1800;
     };
 };
 

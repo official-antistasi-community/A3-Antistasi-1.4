@@ -59,6 +59,7 @@ class A3A
 		class revealToPlayer {file="revealToPlayer.sqf";};
 		class scheduler {file="scheduler.sqf";};
 		class sellVehicle {file="sellVehicle.sqf";};
+		class setMarkerAlphaForSide {file="setMarkerAlphaForSide.sqf";};
 		class sizeMarker {file="sizeMarker.sqf";};
 		class statistics {file="statistics.sqf";};
 		class stripGearFromLoadout {file="stripGearFromLoadout.sqf";};

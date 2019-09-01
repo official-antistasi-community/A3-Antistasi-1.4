@@ -25,7 +25,7 @@ islands = ["island"] call A3A_fnc_getArrayMrks;
 
 private ["_name", "_sizeX", "_sizeY", "_size", "_pos", "_mrk"];
 
-if (worldName in ["Altis", "chernarus_summer"]) then {
+if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
 
 	"((getText (_x >> ""type"")) == ""Hill"") &&
 	!((getText (_x >> ""name"")) isEqualTo """") &&
@@ -84,7 +84,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	_roads = [];
 	_numCiv = 0;
 
-	if ( worldName in ["Tanoa", "Altis", "chernarus_summer"] ) then {
+	if ( (toLower worldName) in ["tanoa", "altis", "chernarus_summer"] ) then {
 		_roads = roadsX getVariable _nameX;
 		_numCiv = server getVariable _nameX;
 
@@ -163,15 +163,15 @@ private ["_antenna", "_mrkFinal", "_antennaProv"];
 
 diag_log format ["%1: [Antistasi] | INFO | initZones | Setting up Radio Towers.",servertime];
 
-switch (worldName) do {
-	case "Tanoa": {
+switch (toLower worldName) do {
+	case "tanoa": {
 		_posAntennas = [[6617.95,7853.57,0.200073], [7486.67,9651.9,1.52588e-005], [6005.47,10420.9,0.20298], [2437.25,7224.06,0.0264893], [4701.6,3165.23,0.0633469], [11008.8,4211.16,-0.00154114], [10114.3,11743.1,9.15527e-005], [10949.8,11517.3,0.14209], [11153.3,11435.2,0.210876], [12889.2,8578.86,0.228729], [2682.94,2592.64,-0.000686646], [2690.54,12323,0.0372467], [2965.33,13087.1,0.191544], [13775.8,10976.8,0.170441]];
 		_blacklistPos = [8, 12];
 		_posBank = [[5893.41,10253.1,-0.687263], [9507.5,13572.9,0.133848]];//same as RT for Bank buildings, select the biggest buildings in your island, and make a DB with their positions.
 		antennas = [antenna];
 		_posAntennas pushBack (getPos antenna);
 	};
-	case "Altis": {
+	case "altis": {
 		_posAntennas = [[14451.5,16338,0.000354767], [15346.7,15894,-3.8147e-005], [16085.1,16998,7.08781], [17856.7,11734.1,0.863045], [9496.2,19318.5,0.601898], [9222.87,19249.1,0.0348206], [20944.9,19280.9,0.201118], [20642.7,20107.7,0.236603], [18709.3,10222.5,0.716034], [6840.97,16163.4,0.0137177], [19319.8,9717.04,0.215622], [19351.9,9693.04,0.639175], [10316.6,8703.94,0.0508652], [8268.76,10051.6,0.0100708], [4583.61,15401.1,0.262543],[4555.65,15383.2,0.0271606], [4263.82,20664.1,-0.0102234], [26274.6,22188.1,0.0139847], [26455.4,22166.3,0.0223694]];
 		_blacklistPos = [1, 4, 7, 8, 9, 10, 12, 15, 17];
 		_posBank = [[16586.6,12834.5,-0.638584], [16545.8,12784.5,-0.485485], [16633.3,12807,-0.635017], [3717.34,13391.2,-0.164862], [3692.49,13158.3,-0.0462074], [3664.31,12826.5,-0.379545], [3536.99,13006.6,-0.508585], [3266.42,12969.9,-0.549738]];

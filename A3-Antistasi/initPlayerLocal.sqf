@@ -114,7 +114,7 @@ _introShot = [
 };
 
 //Initialise membershipEnabled so we can do isMember checks.
-membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
+membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
 disableUserInput false;
 player addWeaponGlobal "itemmap";

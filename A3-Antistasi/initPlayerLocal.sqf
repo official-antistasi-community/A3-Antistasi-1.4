@@ -48,7 +48,7 @@ if (isMultiplayer) then
 	diag_log format ["%1: [Antistasi] | INFO | MP Client | JIP?: %2",servertime,_isJip];
 	if (hasTFAR) then {[] execVM "orgPlayers\radioJam.sqf"};//reestablecer cuando controle las variables
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	if ((side player == teamPlayer) and tkPunish) then
+	if (side player == teamPlayer) then
 	{
 		private _firedHandlerTk =
 		{
@@ -62,7 +62,7 @@ if (isMultiplayer) then
 					deleteVehicle (_this select 6);
 					if (_typeX == "Put") then
 					{
-						if (player distance petros < 10) then {[player, 20, 0.34] remoteExec ["A3A_fnc_punishment",player];};
+						if (player distance petros < 10) then {[player, 20, 0.34, petros]  remoteExec ["A3A_fnc_punishment",player];};
 					};
 				};
 			};
@@ -273,8 +273,7 @@ player addEventHandler
 		private _instigator = param [6];
 		if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.9) then
 		{
-			[_instigator, 20, 0.21] remoteExec ["A3A_fnc_punishment",_instigator];
-			hint format["%1 hurt you!",_instigator];
+			[_instigator, 20, 0.21, _victim] remoteExec ["A3A_fnc_punishment",_instigator];
 			[format [
 				"%1: [Antistasi] | INFO | %1 injured by %2 (UID: %3) %4m from HQ",
 				name _victim,

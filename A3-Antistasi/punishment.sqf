@@ -1,5 +1,6 @@
-Params ["_foolish","_timeAdded","_offenceLevel"]; 
-// EG: [_instigator, 20, 0.34] remoteExec ["A3A_fnc_punishment",_instigator];
+Params ["_foolish","_timeAdded","_offenceAdded",["_victim",objNull]]; 
+//MUST be executed on foolish for [BIS_fnc_admin, isServer] to work.
+// EG: [_instigator, 20, 0.34, _victim] remoteExec ["A3A_fnc_punishment",_instigator];
 /*
 	_foolish expects player object
 	_timeX expects time out
@@ -8,105 +9,142 @@ Params ["_foolish","_timeAdded","_offenceLevel"];
 /*
 	Some Debug Consol Interactions:
 
-	[cursorTarget, 0, 0] remoteExec ["A3A_fnc_punishment",cursorTarget];		//ping
-	[cursorTarget,120, 1] remoteExec ["A3A_fnc_punishment",cursorTarget];		//Insta Punish, 120 seconds
-	[cursorTarget,-99999, -1] remoteExec ["A3A_fnc_punishment",cursorTarget];	//Insta Forgive
+	[cursorTarget, 0, 0] call A3A_fnc_punishment;		//ping
+	[cursorTarget,120, 1] call A3A_fnc_punishment;		//Insta Punish, 120 seconds
+	[cursorTarget,-99999, -1] call A3A_fnc_punishment;	//Insta Forgive
 
 */
 
-if (isDedicated) exitWith {};
+if (!tkPunish) exitWith {"tkPunish is Disabled"};
 
-if (!isMultiplayer) exitWith {};
+if (isDedicated) exitWith {"Is a Dedicated Server"};
 
-if (_foolish != player) exitWith {"Not Instigator"};
+if (!isMultiplayer) exitWith {"Is not Multiplayer"};
 
-_forgive = (_timeAdded < 0 || _offenceLevel < 0);
-_accumulatedTime = player getVariable ["punishment_accumulatedime",0];
-_TKThreshold = player getVariable ["punishment_TKThreshold", 0];
-_playerStats = format["Player: %1 [%2], _accumulatedTime: %3, _TKThreshold: %4, _timeAdded: %5, _offenceLevel: %6", name player, getPlayerUID player, str _accumulatedTime, str _TKThreshold, str _timeAdded, str _offenceLevel];
+if (_foolish != player) exitWith {"Not Instigator"};	//Must be local for [BIS_fnc_admin, isServer]
 
-if (player getVariable ["punishment_coolDown", false]) exitWith {"punishment_coolDown active"};
-player setVariable ["punishment_coolDown", true, true];
-[player] spawn 
+_forgive = (_timeAdded < 0 || _offenceAdded < 0);
+
+if (_forgive) exitWith 
+{
+	["release",[_foolish]] call A3A_fnc_punishment_utills;
+	[format ["%1: [Antistasi] | INFO | PUNISHMENT | FORGIVE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+	["TK NOTIFICATION!\nAn admin looks with pitty upon your soul.\nYou have been partially forgiven."] remoteExec ["hint", _foolish, false];	
+
+	_punishment_vars = _foolish getVariable ["punishment_vars", [0,0,[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceTime,[wardenHandle,sentanceHandle]]
+	//_lastOffenceTime = serverTime;
+	_timeTotal = _punishment_vars select 0;
+	_offenceTotal = _punishment_vars select 1;
+	_timeTotal = _timeTotal + _timeAdded;					//Will be a function soon
+	_offenceTotal = _offenceTotal + _offenceAdded;
+	if (_timeTotal < 0) then {_timeTotal = 0}; 
+	if (_offenceTotal < 0) then {_offenceTotal = 0}; 
+	_punishment_vars set [0,_timeTotal];
+	_punishment_vars set [1,_offenceTotal];
+	_foolish setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,_lastOffenceTime,[wardenHandle,sentanceHandle]]
+};
+_coolDown = _foolish getVariable ["punishment_coolDown", 0];
+if (_coolDown > 0) exitWith {"punishment_coolDown active"};
+_foolish setVariable ["punishment_coolDown", 1, true]; 
+[_foolish] spawn 
 {
 	params ["_player"];
-	sleep 1;
-	_player setVariable ["punishment_coolDown", false, true];
+	sleep 1;	//Using raw sleep to help include lag spikes that may effect damage and shooting. 
+	
+	_coolDown = _player getVariable ["punishment_coolDown", 0];
+	if (_coolDown < 2) then {_player setVariable ["punishment_coolDown", 0, true]};
 };
 
+_punishment_vars = _foolish getVariable ["punishment_vars", [0,0,[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceTime,[wardenHandle,sentanceHandle]]
+_timeTotal = _punishment_vars select 0;
+_offenceTotal = _punishment_vars select 1;
+
+_timeTotal = _timeTotal + _timeAdded;
+
+_offenceTotal = _offenceTotal + _offenceAdded;
+///////////////////////// TODO: _offenceTotal Depreciation, For WIP see: https://1drv.ms/x/s!AhRKsW_EtNcbzgtdQ-eGglK7ej29
+// ADD ME
+//////////////////////////
+
+if (_timeTotal < 0) then {_timeTotal = 0}; 
+if (_offenceTotal < 0) then {_offenceTotal = 0}; 
+_victimListed = !isNull _victim;
+
+_playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %4, _lastOffenceTime: %5, _timeAdded: %6, _offenceAdded: %7", name player, getPlayerUID player, str _timeTotal, str _offenceTotal, "TODO", str _timeAdded, str _offenceAdded];
+//_lastOffenceTime = serverTime;
+
 _innocent = false;
-if (vehicle player != player && !_forgive) then 
+if (vehicle _foolish != _foolish && !_forgive) then 
 {
-	_vehicle = typeOf vehicle player;
+	_vehicle = typeOf vehicle _foolish;
 	if (isNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner")) then
 	{
 		_artilleryScanner = getNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner");
 		if (_artilleryScanner != 0) then 
 		{
 			_innocent = true;
-			[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXCEPTION, ARTY, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
+			[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, ARTY, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
+			["Team Damage!"] remoteExec ["hint", _foolish, false];
 		};
 	};
 	if (_vehicle isKindOf "Helicopter" || _vehicle isKindOf "Plane") then
 	{
-		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXCEPTION, AIRCRAFT, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
+		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, AIRCRAFT, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
+		["Team Damage!"] remoteExec ["hint", _foolish, false];
 		_innocent = true;
 	};
 };
 if (_innocent) exitWith {"Player is innocent inside a Arty or Aircraft"};
 
-if (call BIS_fnc_admin != 0) exitWith 
+//TODO: if( remoteControlling(_foolish) ) exitWith		//For the meantime do either one of the following: login for zues, use the memberlist addon, disable tkpunish `_player setVariable ["punishment_coolDown", 2, true];`
+//{														//Even then: your controls will be free, and you won't die or lose inventory. If you have debug consol you can self forgive.
+//	"Player is remote controlling AI";
+//};
+if (_foolish == theBoss) exitWith 
 {
-	_adminType = "Voted";
-	if (call BIS_fnc_admin == 2) then {_adminType = "Logged"};
-	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXCEPTION, ADMIN, %2 | %3", servertime, _adminType, _playerStats]] remoteExec ["diag_log", 2];
-	["TK NOTIFICATION!\nYou would be punished but it appears you remembered to #login before you started killing people.."] remoteExec ["hint", player, false];
+	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, COMMANDER | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+	["TK NOTIFICATION!\nYou would be punished but it appears you are the Supreme Commander."] remoteExec ["hint", _foolish, false];
+	"Player is  Commander";
+};
+if ([_foolish] call A3A_fnc_isMember) exitWith 
+{
+	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, MEMBER | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+	["TK NOTIFICATION!\nYou would be punished but it appears you're a trusted member."] remoteExec ["hint", _foolish, false];
+	"Player is  Member";
+};
+_adminType = ["Not","Voted","Logged"] select ([] call BIS_fnc_admin);
+if (_adminType != "Not" || isServer) exitWith
+{
+	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, ADMIN, %2 | %3", servertime, _adminType, _playerStats]] remoteExec ["diag_log", 2];
+	["TK NOTIFICATION!\nYou damaged a player as admin."] remoteExec ["hint", _foolish, false];
 	"Player is Voted or Logged Admin";
 };
-
-_accumulatedTime = _accumulatedTime + _timeAdded;
-_TKThreshold = _TKThreshold + _offenceLevel;
-if (_accumulatedTime < 0) then {_accumulatedTime = 0}; 
-if (_TKThreshold < 0) then {_TKThreshold = 0}; 
-player setVariable ["punishment_accumulatedime",_accumulatedTime,true];
-player setVariable ["punishment_TKThreshold", _TKThreshold,true];
-if (_forgive) then 
-{	
-	[format ["%1: [Antistasi] | INFO | PUNISHMENT | FORGIVE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-	["TK NOTIFICATION!\nAn admin looks with pitty upon you.\nYou have been partially forgiven."] remoteExec ["hint", player, false];	
-}
-else
-{	
-	[format ["%1: [Antistasi] | INFO | PUNISHMENT | WARNING | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-	["TK WARNING!\nWatch your fire!"] remoteExec ["hint", player, false];
+_pvpNearby = false;
+_pvpPerson = objNull;
+if (_victimListed) then 
+{
+	{
+		_enemyX = _x;
+		if ({((side _enemyX == Occupants) or (side _enemyX == Invaders))} and {(_enemyX distance _victim < 50)}) exitWith {_pvpNearby = true; _pvpPerson = _enemyX};
+	} forEach allPlayers;
+	if (_pvpNearby) exitWith 
+	{
+		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, PVP COMBAT, PVP: %2 | %3", servertime, name _pvpPerson, _playerStats]] remoteExec ["diag_log", 2];
+		["TK NOTIFICATION!\nYou would be punished but it appears there are PVP players near your victim."] remoteExec ["hint", _foolish, false];
+		"Victim is nearby PVP players";
+	};
 };
 
-if (_TKThreshold < 1) exitWith {"Strike"};
+[format ["%1: [Antistasi] | INFO | PUNISHMENT | WARNING | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+["TK WARNING!\nWatch your fire!"] remoteExec ["hint", _foolish, false];
+if (_victimListed) then {[format["%1 hurt you!",name _foolish]] remoteExec ["hint", _victim, false];};
+["forgive_addAction",[_foolish]] call A3A_fnc_punishment_utills;
+if (_offenceTotal < 1) exitWith {"Strike"};
 
 [format ["%1: [Antistasi] | INFO | PUNISHMENT | GUILTY | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-disableUserInput true;
-player removeMagazines (primaryWeapon player);
-removeAllItemsWithMagazines player;
-player removeMagazines (secondaryWeapon player);
-player removeWeaponGlobal (primaryWeapon player);
-player removeWeaponGlobal (secondaryWeapon player);
-player setPosASL [0,0,0];
 
-["Being an asshole is not a desired skill of the general Antistasi player."] remoteExec ["hint", player, false];
-sleep 5;
-["This is a COOP game and you are welcome to do so."] remoteExec ["hint", player, false];
-sleep 5;
-["If you are bored, I think there is a new episode on SpongeBob Square Pants today."] remoteExec ["hint", player, false];
-sleep 5;
-_countX = _accumulatedTime;
-while {_countX > 0} do
-{
-	[format ["Now enjoy the view for the following %1 seconds.\n\nPlease be thankful this is a game. In reality you could be sentenced to death by a firing squad, this little punishment is not that bad.", _countX]] remoteExec ["hint", player, false];
-	sleep 1;
-	_countX = _countX -1;
-};
-["Enough then."] remoteExec ["hint", player, false];
-disableUserInput false;
-player setVariable ["punishment_TKThreshold", 0.1,true];
-//punishment_accumulatedime accumulates until relog (or forgiveness)
-player setdamage 1;
+["warden",[_foolish,_timeTotal]] call A3A_fnc_punishment_utills;
+
+_punishment_vars set [0,_timeTotal];
+_punishment_vars set [1,_offenceTotal];
+_foolish setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,_lastOffenceTime,[wardenHandle,sentanceHandle]]

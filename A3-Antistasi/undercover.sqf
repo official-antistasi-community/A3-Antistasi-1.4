@@ -139,7 +139,7 @@ _onDetectionMarker = (detectionAreas findIf {_player inArea _x } != -1);
 _onBaseMarker = (_player inArea _base);
 _airportSide = (sidesX getVariable [_base, sideUnknown]);
 _airport = [_airportsX1,_player] call BIS_fnc_nearestPosition;
-			if(_onBaseMarker  && {_baseSide != teamPlayer} || {_onDetectionMarker && {sidesX getVariable _airport != teamPlayer}}) then
+			if(_onBaseMarker  && {_airportSide != teamPlayer} || {_onDetectionMarker && {sidesX getVariable _airport != teamPlayer}}) then
 					{
 					if !(_isInControl) then
 						{

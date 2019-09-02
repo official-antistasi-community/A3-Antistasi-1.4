@@ -449,7 +449,7 @@ player addEventHandler ["GetInMan",
 if (isMultiplayer) then
 	{
 	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;//Exec on client
-	["InitializeGroup", [player,teamPlayer,true]] call BIS_fnc_dynamicGroups;
+
 	if (membershipEnabled) then
 		{
 		if !([player] call A3A_fnc_isMember) then

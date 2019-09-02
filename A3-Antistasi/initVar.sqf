@@ -519,7 +519,7 @@ aceItems = [
 	"ACE_Tripod",
 	"ACE_Spraypaintred"
 ];
-	
+
 aceBasicMedItems = [
 	"ACE_fieldDressing",
 	"ACE_bloodIV_500",
@@ -554,8 +554,8 @@ publicVariable "aceAdvMedItems";
 
 //Begin Loot Lists
 //Not sure why we get these, but here it is....
-swoopShutUp = ["V_RebreatherIA","G_Diving"];
-if (side (group petros) == west) then {swoopShutUp pushBack "U_B_Wetsuit"} else {swoopShutUp pushBack "U_I_Wetsuit"};
+diveGear = ["V_RebreatherIA","G_Diving"];
+if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {diveGear pushBack "U_I_Wetsuit"};
 ////////////////////////////////////
 //   DEFENDER WEAPONS AND AMMO   ///
 ////////////////////////////////////
@@ -819,7 +819,7 @@ unlockedItems =
 	"G_Shades_Black",
 	"acc_flashlight"
 	];
-	
+
 //Temporary starting vests fix while I class items properly
 unlockedItems append ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
 
@@ -840,7 +840,7 @@ if (hasIFA) then
 		"G_LIB_Mohawk"
 		];
 	};
-	
+
 //Adds civ and geurilla clothes
 unlockedItems append banditUniforms;
 unlockedItems append civUniforms;

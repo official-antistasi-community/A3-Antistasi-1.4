@@ -1,13 +1,9 @@
-_markerX = _this select 0;
-_posMarker = getMarkerPos _markerX;
+//Original Author: Barbolani
+//Edited and updated by the Antstasi Community Development Team
 
-_arrayCities = (citiesX select {getMarkerPos _x distance _posMarker < 3000}) - [_markerX];
-/*
-for "_i" from 0 to (count citiesX - 1) do
-	{
-	if ((getMarkerPos (citiesX select _i)) distance _posMarker < 3000) then {_arrayCities set [count _arrayCities,citiesX select _i]};
-	};
+params ["_markerX"];
 
-_arrayCities = _arrayCities - [_markerX];
-*/
-_arrayCities
+private _posMarker = getMarkerPos _markerX;
+private _arrayCities = citiesX select {(getMarkerPos _x) distance _posMarker < 3000};
+
+_arrayCities - [_markerX]

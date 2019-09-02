@@ -106,7 +106,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 		if (typeName _numCiv != typeName 0) then {
 			hint format ["Incorrect Data: %1. Data Type: %2",_nameX, typeName _numCiv];
-			diag_log format ["%1: [Antistasi] | ERROR | initZones | Incorrect data type for %2, Type given %2",servertime,_nameX, typeName _numCiv];
+			diag_log format ["%1: [Antistasi] | ERROR | initZones | Incorrect data type for %2, Type given %3",servertime,_nameX, typeName _numCiv];
 		};
 	} else {
 		_numCiv = (count (nearestObjects [_pos, ["house"], _size]));

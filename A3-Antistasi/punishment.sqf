@@ -9,9 +9,9 @@ Params ["_foolish","_timeAdded","_offenceAdded",["_victim",objNull]];
 /*
 	Some Debug Consol Interactions:
 
-	[cursorTarget, 0, 0] call A3A_fnc_punishment;		//ping
-	[cursorTarget,120, 1] call A3A_fnc_punishment;		//Insta Punish, 120 seconds
-	[cursorTarget,-99999, -1] call A3A_fnc_punishment;	//Insta Forgive
+	[cursorObject, 0, 0] call A3A_fnc_punishment;		//ping
+	[cursorObject,120, 1] call A3A_fnc_punishment;		//Insta Punish, 120 seconds
+	[cursorObject,-99999, -1] call A3A_fnc_punishment;	//Insta Forgive
 
 */
 

@@ -1,18 +1,18 @@
-private ["_markerX","_damage","_lamps","_onoff","_positionX","_radiusX","_size"];
+//Original Author: Barbolani
+//Edited and updated by the Antstasi Community Development Team
 
-_markerX = _this select 0;
-_onoff = _this select 1;
+params ["_markerX", "_onoff"];
 
-_positionX = getMarkerPos _markerX;
-_damage = 0;
-if (not _onoff) then {_damage = 0.95;};
+private _positionX = getMarkerPos _markerX;
+private _damage = [0.95, 0] select _onoff;
+private _radiusX = markerSize _markerX;
+private _size = _radiusX select 0;
+private ["_lamps"];
 
-_radiusX = markerSize _markerX;
-_size = _radiusX select 0;
-
-for "_i" from 0 to ((count lamptypes) -1) do
-    {
-    _lamps = _positionX nearObjects [lamptypes select _i,_size];
-    {sleep 0.3; _x setDamage _damage} forEach _lamps;
-    };
-    //123
+{
+	_lamps = _positionX nearObjects [_x, _size];
+	{
+		sleep 0.3;
+		_x setDamage _damage;
+	} forEach _lamps;
+} forEach lamptypes;

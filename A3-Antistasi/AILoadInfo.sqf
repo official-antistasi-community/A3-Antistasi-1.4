@@ -14,7 +14,7 @@ private ["_west", "_east", "_indep", "_civ", "_total", "_client"];
 {
 	_client = _x;
 	_textX = format ["%1HC %2 AI\n\n", _textX, _forEachIndex];
-	_indep = 0; _west = 0;_east = 0; _civ = 0; _total = 0;
+	_indep = 0; _west = 0; _east = 0; _civ = 0; _total = 0;
 
 	{
 		if (owner _x == _client) then {

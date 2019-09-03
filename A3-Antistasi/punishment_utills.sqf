@@ -4,6 +4,8 @@ params["_utllity","_parameters"];
 ["release",[_detainee]] call A3A_fnc_punishment_utills;
 ["sentance",[_detainee]] call A3A_fnc_punishment_utills;
 ["forgive_addAction",[_detainee]] call A3A_fnc_punishment_utills;
+["notifyAdmin",[_detainee]] call A3A_fnc_punishment_utills;
+["notifyAdmin_find",[_detainee]] call A3A_fnc_punishment_utills;
 */
 
 punishment_sentance = {
@@ -36,10 +38,11 @@ punishment_sentance = {
 punishment_release = {
 	params["_detainee"];
 
-	_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,[wardenHandle,sentanceHandle]]
+	_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentanceHandle]]
 	_punishmentPlatform = _detainee getVariable ["punishment_platform",objNull];
-	_punishment_warden = (_punishment_vars select 2) select 0;
-	_punishment_sentance = (_punishment_vars select 2) select 1;
+	_lastOffenceData = _punishment_vars select 2;
+	_punishment_warden = (_punishment_vars select 3) select 0;
+	_punishment_sentance = (_punishment_vars select 3) select 1;
 
 	if !(scriptDone _punishment_warden || isNull _punishment_warden) then {terminate _punishment_warden;};
 	if !(scriptDone _punishment_sentance || isNull _punishment_sentance) then {terminate _punishment_sentance;};
@@ -50,25 +53,28 @@ punishment_release = {
 
 	_punishment_timeTotal = 0;
 	_punishment_offenceTotal = 0.1;
-	_punishment_vars = [_punishment_timeTotal,_punishment_offenceTotal,[scriptNull,scriptNull]];;		//[timeTotal,offenceTotal,[wardenHandle,sentanceHandle]]
+	_lastOffenceData set [1,0];		//[lastTime,overhead]
+	_punishment_vars = [_punishment_timeTotal,_punishment_offenceTotal,_lastOffenceData,[scriptNull,scriptNull]];;		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentanceHandle]]
 	_detainee setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,[wardenHandle,sentanceHandle]]
 	_detainee setVariable ["punishment_coolDown",0,true]; 
 };
 punishment_warden = {
 	params["_detainee","_sentence"];
 	_detainee setVariable ["punishment_coolDown", 2, true]; 
-	_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,[wardenHandle,sentanceHandle]]
+	_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentanceHandle]]
 	_punishment_warden_handle = _thisScript;
 	_punishment_sentance_handle = [_detainee] spawn punishment_sentance;
+	["forgive_addAction",[_detainee]] call A3A_fnc_punishment_utills;
+	["notifyAdmin_find",[_detainee]] call A3A_fnc_punishment_utills;
 	///////////////////////// TODO: PLAYER TEAM FORGIVE SCRIPT
 	// ADD ME
 	//////////////////////////
-	_punishment_vars set [2,[_punishment_warden_handle,_punishment_sentance_handle]];
-	_detainee setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,[wardenHandle,sentanceHandle]]
-	_countX = _sentence;
+	_punishment_vars set [3,[_punishment_warden_handle,_punishment_sentance_handle]];
+	_detainee setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentanceHandle]]
+	_countX = floor _sentence;
 	while {_countX > 0} do
 	{
-		[ format["Please do not teamkill. Play with the turtles for %1 more seconds.",_countX]] remoteExec ["hint", _detainee, false];
+		[ format["Please do not teamkill. Play with the turtles for %1 more seconds.",_countX]] remoteExec ["hintSilent", _detainee, false];
 		uiSleep 1;
 		_countX = _countX -1;
 	};
@@ -83,12 +89,25 @@ punishment_forgive_addAction = {
 		"[ADMIN] Forgive Player", 
 		{
 			params ["_detainee", "_caller", "_actionId", "_arguments"];
-			if ([] call BIS_fnc_admin == 0 && !isServer) exitWith {}; 
-			[_detainee,_actionId] remoteExec ["removeAction",0,false];
-			[_detainee,-99999, -1] call A3A_fnc_punishment;
+			if ([] call BIS_fnc_admin > 0 || isServer) then 
+			{
+				[_detainee,_actionId] remoteExec ["removeAction",0,false];
+				[_detainee,-99999, -1] call A3A_fnc_punishment;
+			};
 		}
 	];
 	[_detainee,_addAction_paramerters] remoteExec ["addAction",0,false];
+};
+punishment_notifyAdmin = {
+	params["_detainee"];
+	if ([] call BIS_fnc_admin > 0 || isServer) then 
+	{ 
+		hint format ["%1 has been found guilty of TK.\nIf you believe this is a mistake, you can forgive him with a scroll-menu action on hist body.\nHe is at the bottom left corner of the map.",name _detainee];
+	};
+};
+punishment_notifyAdmin_find = {
+	params["_detainee"];
+	["notifyAdmin_find",[_detainee]] remoteExec ["A3A_fnc_punishment_utills",0,false];
 };
 
 _return = switch (_utllity) do {
@@ -96,6 +115,8 @@ _return = switch (_utllity) do {
 	case "sentance": {_punishment_sentance_handle = _parameters spawn punishment_sentance; _punishment_sentance_handle;};
 	case "release": {_parameters call punishment_release; scriptNull;};
 	case "forgive_addAction": {_parameters call punishment_forgive_addAction; scriptNull;};
+	case "notifyAdmin": {_parameters call punishment_notifyAdmin; scriptNull;};
+	case "notifyAdmin_find": {_parameters call punishment_notifyAdmin_find; scriptNull;};
 	///////////////////////// TODO: PLAYER TEAM FORGIVE SCRIPT
 	default {scriptNull};
 };

@@ -50,7 +50,7 @@ private ["_sideX", "_airbases", "_outposts", "_seaports", "_accelerator", "_side
 
 		if (_random == 0) then {
 			_currentItems = timer getVariable [_typeX, 0];
-			if (_currentItems < compile _maxItems) then {
+			if (_currentItems < call compile _maxItems) then {
 				timer setVariable [_typeX, _currentItems + (_coefficient * _accelerator), true];
 			};
 		} else {
@@ -59,7 +59,7 @@ private ["_sideX", "_airbases", "_outposts", "_seaports", "_accelerator", "_side
 			{
 				_currentItems = _currentItems + (timer getVariable [_x, 0]);
 			} forEach _typeX;
-			if (_currentItems < compile _maxItems) then {
+			if (_currentItems < call compile _maxItems) then {
 				timer setVariable [selectRandom _typeX, _currentItems + (_coefficient * _accelerator), true];
 			};
 		};

@@ -933,12 +933,6 @@ if (hasACE and hasIFA) then
 if (hasACRE) then {unlockedItems append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];};
 
 ////////////////////////////////////
-//     TFAR ITEM MODIFICATIONS   ///
-////////////////////////////////////
-if (hasTFAR) then {unlockedItems append ["tf_microdagr","tf_rf7800str"];};
-if (startLR) then {unlockedBackpacks pushBack "tf_anprc155"};
-
-////////////////////////////////////
 //     MISSION PATH WARNING      ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Checking Mission Path",servertime];

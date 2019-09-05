@@ -70,3 +70,6 @@ if !(isMultiplayer) then
 	unlockedAT = ["launch_MRAWS_olive_rail_F"];
 	unlockedMagazines pushBack "MRAWS_HEAT_F";
   };
+//TFAR Unlocks
+if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc154"]};
+if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_anprc155"]};

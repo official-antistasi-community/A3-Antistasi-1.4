@@ -1,5 +1,3 @@
-//if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayer3CBBAFT.sqf"} else {
-
 NATOGrunt = "UK3CB_BAF_Rifleman_762_Tropical";
 NATOOfficer = "UK3CB_BAF_Officer_Tropical";
 NATOOfficer2 = "UK3CB_BAF_FAC_Tropical";
@@ -76,4 +74,30 @@ lampOccupants = "acc_flashlight";
 nameOccupants = "BAF";
 if (isServer) then {"NATO_carrier" setMarkerText "HMS Ark Royal"};
 
-//};
+if (hasFFAA) then
+	{
+	call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"
+	}
+else
+	{
+	if (gameMode != 4) then
+		{
+		FIARifleman = "UK3CB_BAF_Rifleman_Smock_DPMW";
+		FIAMarksman = "UK3CB_BAF_Pointman_Smock_DPMW";
+		vehFIAArmedCar = "UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_Tropical_RM";
+		vehFIATruck = "UK3CB_BAF_MAN_HX60_Cargo_Green_A_Tropical";
+		vehFIACar = "UK3CB_BAF_LandRover_Snatch_FFR_Green_A_Tropical";
+
+		groupsFIASmall = [["UK3CB_BAF_Grenadier_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],["UK3CB_BAF_LAT_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],["UK3CB_BAF_Sniper_Smock_DPMW_Ghillie","UK3CB_BAF_Spotter_Smock_DPMW_Ghillie"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+		groupsFIAMid = [["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_Pointman_Smock_DPMW","UK3CB_BAF_MGGPMG_Smock_DPMW","UK3CB_BAF_MGGPMGA_Smock_DPMW"],["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_GunnerM6_Smock_DPMW","UK3CB_BAF_Grenadier_Smock_DPMW","UK3CB_BAF_MAT_Smock_DPMW"],["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_MAT_Smock_DPMW","UK3CB_BAF_MATC_Smock_DPMW","UK3CB_BAF_Engineer_Smock_DPMW"]];
+		FIASquad = ["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW","UK3CB_BAF_LAT_Smock_DPMW","UK3CB_BAF_Medic_Smock_DPMW","UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_MGGPMG_Smock_DPMW","UK3CB_BAF_MGGPMGA_Smock_DPMW","UK3CB_BAF_Marksman_Smock_DPMW"];//"IRG_InfSquad";///
+		groupsFIASquad = [FIASquad];
+		factionFIA = "UK3CB_TKP_B";
+          };
+     };
+
+vehPoliceCar = "UK3CB_TKP_B_Lada_Police";
+policeOfficer = "UK3CB_ANP_B_TL";
+policeGrunt = "UK3CB_ANP_B_RIF_1";
+groupsNATOGen = [policeOfficer,policeGrunt];
+factionGEN = "BLU_GEN_F";

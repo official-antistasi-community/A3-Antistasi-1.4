@@ -230,7 +230,7 @@ if (!hasIFA) then
 					}
 					else
 					{
-						if (gameMode != 4) then
+						if (teamPlayer == independent) then
 							{
 							//RHS-USAF DEFENDER Template
 							call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf";
@@ -278,7 +278,7 @@ if (!hasIFA) then
 					}
 					else
 					{
-						if (gameMode != 4) then
+						if (teamPlayer == independent) then
 							{
 							//RHS REBEL Template
 							call compile preProcessFileLineNumbers "Templates\teamPlayerRHSGREF.sqf";

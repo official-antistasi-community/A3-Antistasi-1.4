@@ -14,7 +14,7 @@ _difficultX = if (random 10 < tierWar) then {true} else {false};
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 _posHQ = getMarkerPos respawnTeamPlayer;
-diag_log format ["%1: [Antistasi] | INFO | DES_Heli | creating %1 crash mission near %2",servertime,_sideX,_markerX];
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | creating %2 crash mission near %3",servertime,_sideX,_markerX];
 _timeLimit = 120;
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
@@ -23,8 +23,9 @@ _countX = 0;
 _dist = if (_difficultX) then {2000} else {3000};
 while {true} do
 	{
+	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | randomizing crash location from origin Airbase %2",servertime,_positionX];
 	_posCrashOrig = _positionX getPos [_dist,_ang];
-	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | checking potential crash location %1",servertime,_posCrashOrig];
+	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | checking potential crash location %2",servertime,_posCrashOrig];
 	if ((!surfaceIsWater _posCrashOrig) and (_posCrashOrig distance _posHQ < 4000)) exitWith {};
 	_ang = _ang + 1;
 	_countX = _countX + 1;
@@ -38,18 +39,12 @@ while {true} do
 _typeVehX = selectRandom (vehPlanes + vehAttackHelis + vehTransportAir);
 
 _posCrash = _posCrashOrig findEmptyPosition [0,100,_typeVehX];
-diag_log format ["%1: [Antistasi] | INFO | DES_Heli | trying location %1 for %2 positions",servertime,_posCrash,_typeVehX];
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | trying location %2 for %3 positions",servertime,_posCrash,_typeVehX];
 if (count _posCrash == 0) then
 	{
 	if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])} else {{[_x,true] remoteExec ["hideObjectGlobal",2]} foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])};
 	_posCrash = _posCrashOrig;
 	};
-_posCrashMrk = [_posCrash,random 500,random 360] call BIS_fnc_relPos;
-_mrkFinal = createMarker [format ["DES%1", random 100], _posCrashMrk];
-_mrkFinal setMarkerShape "ICON";
-//_mrkFinal setMarkerType "hd_destroy";
-//_mrkFinal setMarkerColor "ColorRed";
-//_mrkFinal setMarkerText "Destroy Downed Chopper";
 
 _nameXbase = [_markerX] call A3A_fnc_localizar;
 /*
@@ -76,6 +71,14 @@ _smokeX = "test_EmptyObjectForSmoke" createVehicle _posCrash; _smokeX attachTo[_
 _heli setDamage 0.9;
 _heli lock 2;
 _vehiclesX append [_heli,_effect];
+
+_posCrashMrk = _heli getRelPos [random 500,random 360];
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Creating Map marker at %2",servertime,_posCrashMrk];
+_mrkFinal = createMarker [format ["DES%1", random 100],_posCrashMrk];
+_mrkFinal setMarkerShape "ICON";
+//_mrkFinal setMarkerType "hd_destroy";
+//_mrkFinal setMarkerColor "ColorRed";
+//_mrkFinal setMarkerText "Destroy Downed Chopper";
 
 _radiusX = 100;
 

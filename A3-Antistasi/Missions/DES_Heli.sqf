@@ -11,6 +11,7 @@ _difficultX = if (random 10 < tierWar) then {true} else {false};
 //_groupContact = grpNull;
 //_tsk = "";
 //_tsk1 = "";
+private _posCrashOrig = [];
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 _posHQ = getMarkerPos respawnTeamPlayer;
@@ -43,7 +44,7 @@ _posCrash = _posCrashOrig findEmptyPosition [0,100,_typeVehX];
 if (count _posCrash == 0) then
 	{
 	if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])} else {{[_x,true] remoteExec ["hideObjectGlobal",2]} foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])};
-	_posCrash = _posCrashOrig;
+	_posCrash = _posCrashOrig; //why find a valid location just to overwrite it?
 	};
 
 _nameXbase = [_markerX] call A3A_fnc_localizar;
@@ -57,9 +58,7 @@ else
 	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,"CREATED","Destroy"] call A3A_fnc_taskUpdate;
 	};*/
 //missionsX pushBack _tsk; publicVariable "missionsX";
-[[teamPlayer,civilian],"DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
-[[teamPlayer,civilian],"DES1",[format ["The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation",_nameXbase],"Helicopter Down",_mrkFinal],_posCrash,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
-missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
+
 _vehiclesX = [];
 _soldiers = [];
 _groups = [];
@@ -67,7 +66,7 @@ _groups = [];
 _effect = createVehicle ["CraterLong", _posCrash, [], 0, "CAN_COLLIDE"];
 _heli = createVehicle [_typeVehX, _posCrash, [], 0, "CAN_COLLIDE"];
 _heli attachTo [_effect,[0,0,1.5]];
-_smokeX = "test_EmptyObjectForSmoke" createVehicle _posCrash; _smokeX attachTo[_heli,[0,1.5,-1]];
+_smokeX = "test_EmptyObjectForSmoke" createVehicle _posCrash; _smokeX attachTo [_heli,[0,1.5,-1]];
 _heli setDamage 0.9;
 _heli lock 2;
 _vehiclesX append [_heli,_effect];
@@ -79,6 +78,10 @@ _mrkFinal setMarkerShape "ICON";
 //_mrkFinal setMarkerType "hd_destroy";
 //_mrkFinal setMarkerColor "ColorRed";
 //_mrkFinal setMarkerText "Destroy Downed Chopper";
+
+[[teamPlayer,civilian],"DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+[[Occupants],"DES1",[format ["The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation",_nameXbase],"Helicopter Down",_mrkFinal],_posCrash,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
 
 _radiusX = 100;
 

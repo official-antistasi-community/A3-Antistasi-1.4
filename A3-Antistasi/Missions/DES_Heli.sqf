@@ -37,9 +37,9 @@ while {true} do
 	};
 
 _typeVehX = selectRandom (vehPlanes + vehAttackHelis + vehTransportAir);
-
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | trying location %2 for %3 positions",servertime,_posCrashOrig,_typeVehX];
 _posCrash = _posCrashOrig findEmptyPosition [0,100,_typeVehX];
-diag_log format ["%1: [Antistasi] | INFO | DES_Heli | trying location %2 for %3 positions",servertime,_posCrash,_typeVehX];
+
 if (count _posCrash == 0) then
 	{
 	if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])} else {{[_x,true] remoteExec ["hideObjectGlobal",2]} foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])};

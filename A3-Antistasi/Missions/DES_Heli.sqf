@@ -30,9 +30,9 @@ while {true} do
 		};
 	};
 
-typeVehX = if (_sideX == Occupants) then {selectRandom vehNATOTransportHelis + vehNATOAttackHelis} else {selectRandom vehCSATAttackHelis + vehCSATTransportHelis};
+typeVehX = if (_sideX == Occupants) then {selectRandom (vehNATOTransportHelis + vehNATOAttackHelis)} else {selectRandom (vehCSATAttackHelis + vehCSATTransportHelis)};
 
-_posCrashMrk = [_poscrash,random 500,random 360] call BIS_fnc_relPos;
+_posCrashMrk = [_posCrash,random 500,random 360] call BIS_fnc_relPos;
 _posCrash = _posCrashOrig findEmptyPosition [0,100,_typeVehX];
 
 if (count _posCrash == 0) then

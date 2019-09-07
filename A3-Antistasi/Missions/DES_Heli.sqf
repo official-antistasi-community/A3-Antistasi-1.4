@@ -30,7 +30,7 @@ while {true} do
 		};
 	};
 
-typeVehX = if (_sideX == Occupants) then {selectRandom (vehNATOTransportHelis + vehNATOAttackHelis)} else {selectRandom (vehCSATAttackHelis + vehCSATTransportHelis)};
+_typeVehX = if (_sideX == Occupants) then {selectRandom (vehNATOPatrolHeli + (vehNATOAttackHelis select 1)} else {selectRandom (vehCSATAttackHelis + vehCSATTransportHelis)};
 
 _posCrash = _posCrashOrig findEmptyPosition [0,100,_typeVehX];
 
@@ -102,7 +102,7 @@ diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Placed Group: %2 in Lite V
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Waiting for 15 seconds",servertime];
 
 sleep 15;
-_typeVehX = if (_sideX == Occupants) then {vehNATOCargoTrucks select 1} else {vehCSATTrucks select 0};
+_typeVehX = if (_sideX == Occupants) then {vehNATOCargoTrucks select 1} else {vehCSATTrucks select 0}; //invader template doesnt identify a flatbed yet!
 _vehicleT = [position _road, 0,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
 _vehT = _vehicleT select 0;
 [_vehT] call A3A_fnc_AIVEHinit;
@@ -110,7 +110,7 @@ _vehT = _vehicleT select 0;
 _vehCrewT = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrewT;
 _groupVehT = _vehicleT select 2;
-_soldiers = _soldiers + _vehCrewT;
+_soldiers append _vehCrewT;
 _groups pushBack _groupVehT;
 _vehiclesX pushBack _vehT;
 
@@ -130,7 +130,7 @@ if (_vehT distance _heli < 50) then
 	if (alive _heli) then
 		{
 		diag_log format ["%1: [Antistasi] | INFO | DES_Heli | %2 has loaded %3 onto %4 and is head back to %5",servertime,_sideX,_heli,_vehT,_positionX];
-		_heli attachTo [_vehT,[0,-3,2]];
+		_heli attachTo [_vehT,[0,-3,1.5]];
 		_emitterArray = _smokeX getVariable "effects";
 		{deleteVehicle _x} forEach _emitterArray;
 		deleteVehicle _smokeX;

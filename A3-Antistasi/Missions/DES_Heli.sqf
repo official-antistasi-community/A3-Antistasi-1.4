@@ -30,7 +30,9 @@ while {true} do
 		};
 	};
 
-_typeVehX = selectRandom (vehPlanes + vehAttackHelis + vehTransportAir);
+typeVehX = if (_sideX == Occupants) then {selectRandom vehNATOTransportHelis + vehNATOAttackHelis} else {selectRandom vehCSATAttackHelis + vehCSATTransportHelis};
+
+_posCrashMrk = [_poscrash,random 500,random 360] call BIS_fnc_relPos;
 _posCrash = _posCrashOrig findEmptyPosition [0,100,_typeVehX];
 
 if (count _posCrash == 0) then
@@ -101,7 +103,7 @@ diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Placed Group: %2 in Lite V
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Waiting for 15 seconds",servertime];
 
 sleep 15;
-_typeVehX = if (_sideX == Occupants) then {vehNATOTrucks select 0} else {vehCSATTrucks select 0};
+_typeVehX = if (_sideX == Occupants) then {vehNATOCargoTrucks select 1} else {vehCSATTrucks select 0};
 _vehicleT = [position _road, 0,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
 _vehT = _vehicleT select 0;
 [_vehT] call A3A_fnc_AIVEHinit;

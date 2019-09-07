@@ -6,27 +6,20 @@ private ["_posCrash","_markerX","_positionX","_mrkFinal","_typeVehX","_effect","
 _markerX = _this select 0;
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};
-//_leave = false;
-//_contactX = objNull;
-//_groupContact = grpNull;
-//_tsk = "";
-//_tsk1 = "";
 private _posCrashOrig = [];
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 _posHQ = getMarkerPos respawnTeamPlayer;
-diag_log format ["%1: [Antistasi] | INFO | DES_Heli | creating %2 crash mission near %3",servertime,_sideX,_markerX];
 _timeLimit = 120;
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
 _ang = random 360;
 _countX = 0;
 _dist = if (_difficultX) then {2000} else {3000};
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Location: %2, Hardmode: %3, Controlling Side: %4",servertime,_markerX,_difficultX,_sideX];
 while {true} do
 	{
-	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | randomizing crash location from origin Airbase %2",servertime,_positionX];
 	_posCrashOrig = _positionX getPos [_dist,_ang];
-	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | checking potential crash location %2",servertime,_posCrashOrig];
 	if ((!surfaceIsWater _posCrashOrig) and (_posCrashOrig distance _posHQ < 4000)) exitWith {};
 	_ang = _ang + 1;
 	_countX = _countX + 1;
@@ -38,7 +31,6 @@ while {true} do
 	};
 
 _typeVehX = selectRandom (vehPlanes + vehAttackHelis + vehTransportAir);
-diag_log format ["%1: [Antistasi] | INFO | DES_Heli | trying location %2 for %3 positions",servertime,_posCrashOrig,_typeVehX];
 _posCrash = _posCrashOrig findEmptyPosition [0,100,_typeVehX];
 
 if (count _posCrash == 0) then
@@ -46,18 +38,8 @@ if (count _posCrash == 0) then
 	if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])} else {{[_x,true] remoteExec ["hideObjectGlobal",2]} foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])};
 	_posCrash = _posCrashOrig; //why find a valid location just to overwrite it?
 	};
-
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Crash Location: %2, Air Vehicle: %3",servertime,_posCrash,_typeVehX];
 _nameXbase = [_markerX] call A3A_fnc_localizar;
-/*
-if (!_difficultX) then
-	{
-	[[teamPlayer,civilian],"DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate
-	}
-else
-	{
-	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,"CREATED","Destroy"] call A3A_fnc_taskUpdate;
-	};*/
-//missionsX pushBack _tsk; publicVariable "missionsX";
 
 _vehiclesX = [];
 _soldiers = [];
@@ -72,13 +54,10 @@ _heli lock 2;
 _vehiclesX append [_heli,_effect];
 
 _posCrashMrk = _heli getRelPos [random 500,random 360];
-diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Creating Map marker at %2",servertime,_posCrashMrk];
 _mrkFinal = createMarker [format ["DES%1", random 100],_posCrashMrk];
 _mrkFinal setMarkerShape "ICON";
-//_mrkFinal setMarkerType "hd_destroy";
-//_mrkFinal setMarkerColor "ColorRed";
-//_mrkFinal setMarkerText "Destroy Downed Chopper";
 
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Creating Tasks",servertime];
 [[teamPlayer,civilian],"DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 [[Occupants],"DES1",[format ["The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation",_nameXbase],"Helicopter Down",_mrkFinal],_posCrash,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
@@ -104,14 +83,13 @@ _groupVeh = _vehicle select 2;
 _soldiers append _vehCrew;
 _groups pushBack _groupVeh;
 _vehiclesX pushBack _veh;
-
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Crash Location: %2, Lite Vehicle: %3",servertime,_posCrash,_typeVehX];
 sleep 1;
 _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry};
 _groupX = [_positionX, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 
 {_x assignAsCargo _veh; _x moveInCargo _veh; _soldiers pushBack _x; [_x] join _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
 deleteGroup _groupX;
-//[_veh] spawn smokeCover;
 
 _Vwp0 = _groupVeh addWaypoint [_posCrash, 0];
 _Vwp0 setWaypointType "TR UNLOAD";
@@ -119,6 +97,8 @@ _Vwp0 setWaypointBehaviour "SAFE";
 _Gwp0 = _groupX addWaypoint [_posCrash, 0];
 _Gwp0 setWaypointType "GETOUT";
 _Vwp0 synchronizeWaypoint [_Gwp0];
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Placed Group: %2 in Lite Vehicle and set waypoint %3",servertime,_typeGroup,_posCrash];
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Waiting for 15 seconds",servertime];
 
 sleep 15;
 _typeVehX = if (_sideX == Occupants) then {vehNATOTrucks select 0} else {vehCSATTrucks select 0};
@@ -136,14 +116,19 @@ _vehiclesX pushBack _vehT;
 _Vwp0 = _groupVehT addWaypoint [_posCrash, 0];
 _Vwp0 setWaypointType "MOVE";
 _Vwp0 setWaypointBehaviour "SAFE";
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Transport Vehicle: %2, Crew: %3, Waypoint: %4",servertime,_typeVehX,_vehCrewT,_posCrash];
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Waiting until %2 is destroyed or has been recovered by %3, or mission expires at: %4",servertime,_heli,_vehT,_dateLimitNum];
+
 waitUntil {sleep 1; (not alive _heli) or (_vehT distance _heli < 50) or (dateToNumber date > _dateLimitNum)};
 
 if (_vehT distance _heli < 50) then
 	{
+	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Transport truck has reached the Air Asset, waiting 60 seconds...",servertime];
 	_vehT doMove position _heli;
 	sleep 60;
 	if (alive _heli) then
 		{
+		diag_log format ["%1: [Antistasi] | INFO | DES_Heli | %2 has loaded %3 onto %4 and is head back to %5",servertime,_sideX,_heli,_vehT,_positionX];
 		_heli attachTo [_vehT,[0,-3,2]];
 		_emitterArray = _smokeX getVariable "effects";
 		{deleteVehicle _x} forEach _emitterArray;
@@ -166,17 +151,17 @@ if (_vehT distance _heli < 50) then
 	_Vwp0 setWaypointBehaviour "SAFE";
 
 	};
-
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Waiting until transport reaches origin, gets destroyed or timer expires",servertime];
 waitUntil {sleep 1; (not alive _heli) or (_vehT distance _positionX < 100) or (dateToNumber date > _dateLimitNum)};
 
 _bonus = if (_difficultX) then {2} else {1};
 
 if (not alive _heli) then
 	{
+	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Air Vehicle was destroyed, mission completing",servertime];
 	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	if (typeOf _heli in vehCSATAir) then {[0,3] remoteExec ["A3A_fnc_prestige",2]} else {[3,0] remoteExec ["A3A_fnc_prestige",2]};
-	//[-3,3,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	[1800*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
@@ -184,9 +169,9 @@ if (not alive _heli) then
 	}
 else
 	{
+	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Air Vehicle was successfully recovered, mission completing",servertime];
 	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
 	["DES1",[format ["The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation",_nameXbase],"Helicopter Down",_mrkFinal],_posCrash,"SUCCEEDED","Defend"] call A3A_fnc_taskUpdate;
-	//[3,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	[-600*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};
@@ -206,7 +191,4 @@ waitUntil {sleep 1;(!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)
 deleteVehicle _x} forEach _vehiclesX;
 {deleteVehicle _x} forEach _soldiers;
 {deleteGroup _x} forEach _groups;
-
-//sleep (600 + random 1200);
-
-//_nul = [_tsk,true] call BIS_fnc_deleteTask;
+diag_log format ["%1: [Antistasi] | INFO | DES_Heli | HELI MISSION COMPLETE",servertime];

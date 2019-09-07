@@ -19,7 +19,7 @@ if (_markerX != "Synd_HQ") then
 	{
 	if (!(_markerX in citiesX)) then
 		{
-		_veh = createVehicle [SDKFlag, _positionX, [],0, "CAN_COLLIDE"];
+		_veh = createVehicle [SDKFlag, _positionX, [],0, "NONE"];
 		if (hasIFA) then {_veh setFlagTexture SDKFlagTexture};
 		_veh allowDamage false;
 		_vehiclesX pushBack _veh;

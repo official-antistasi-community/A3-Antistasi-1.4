@@ -264,9 +264,9 @@ if (!_busy) then
 			private _veh = objNull;
 			if (_typeVehX isKindOf "Helicopter") then {
 				_veh = createVehicle [_typeVehX, _heliPos, [],3, "NONE"];
-				_vehiclesX pushBack (createVehicle ["Land_HelipadCircle_F", getPosATL _veh, [],0, "CAN_COLLIDE"]);		
+				_vehiclesX pushBack (createVehicle ["Land_HelipadCircle_F", getPosATL _veh, [],0, "CAN_COLLIDE"]);
 				_veh setDir (_ang + 90);
-				_heliPos = [_heliPos, 50, _ang] call BIS_fnc_relPos;				
+				_heliPos = [_heliPos, 50, _ang] call BIS_fnc_relPos;
 			} else {
 				_veh = createVehicle [_typeVehX, _pos, [],3, "NONE"];
 				_veh setDir (_ang);
@@ -282,7 +282,7 @@ if (!_busy) then
 	};
 
 _typeVehX = if (_sideX == Occupants) then {NATOFlag} else {CSATFlag};
-_flagX = createVehicle [_typeVehX, _positionX, [],0, "CAN_COLLIDE"];
+_flagX = createVehicle [_typeVehX, _positionX, [],0, "NONE"];
 _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;

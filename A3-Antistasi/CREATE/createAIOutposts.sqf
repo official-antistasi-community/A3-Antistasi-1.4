@@ -116,7 +116,7 @@ _vehiclesX append (_ret select 1);
 _soldiers append (_ret select 2);
 
 _typeVehX = if (_sideX == Occupants) then {NATOFlag} else {CSATFlag};
-_flagX = createVehicle [_typeVehX, _positionX, [],0, "CAN_COLLIDE"];
+_flagX = createVehicle [_typeVehX, _positionX, [],0, "NONE"];
 _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;

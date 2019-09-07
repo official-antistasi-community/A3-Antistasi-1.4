@@ -87,7 +87,7 @@ if (_isControl) then
 			_pos = getPosATL _bunker;
 			_pos = [getPos _bunker, 6, getDir _bunker] call BIS_fnc_relPos;
 			_typeVehX = if (_sideX == Occupants) then {NATOFlag} else {CSATFlag};
-			_veh = createVehicle [_typeVehX, _pos, [],0, "CAN_COLLIDE"];
+			_veh = createVehicle [_typeVehX, _pos, [],0, "NONE"];
 			_vehiclesX pushBack _veh;
 			_veh setPosATL _pos;
 			_veh setDir _dirVeh;

@@ -254,13 +254,13 @@ class Params
     {
         title = "Minimum Weapon Quantity in Crates";
         values[] = {0,1,2,3,4,5};
-        default = 5;
+        default = 1;
     };
     class crateWepNumMax
     {
         title = "Maximum Weapon Quantity in Crates";
         values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
-        default = 10;
+        default = 13;
     };
     class Spacer1
     {
@@ -285,7 +285,7 @@ class Params
     {
         title = "Minimum Item Quantity in Crates";
         values[] = {0,1,2,3,4,5};
-        default = 1;
+        default = 0;
     };
     class crateItemNumMax
     {
@@ -310,7 +310,7 @@ class Params
     {
         title = "Maximum Ammo Types in Crates";
         values[] = {0,1,2,3,4,5,6,7,8,9,10};
-        default = 5;
+        default = 6;
     };
     class crateAmmoNumMin
     {
@@ -335,19 +335,19 @@ class Params
     {
         title = "Minimum Mine Types in Crates";
         values[] = {0,1,2,3,4,5};
-        default = 1;
+        default = 0;
     };
     class crateMineTypeMax
     {
         title = "Maximum Mine Types in Crates";
         values[] = {0,1,2,3,4,5,6,7,8,9,10};
-        default = 5;
+        default = 3;
     };
     class crateMineNumMin
     {
         title = "Minimum Mine Quantity in Crates";
         values[] = {0,1,2,3,4,5};
-        default = 1;
+        default = 0;
     };
     class crateMineNumMax
     {
@@ -366,13 +366,13 @@ class Params
     {
         title = "Minimum Optic Types in Crates";
         values[] = {0,1,2,3,4,5};
-        default = 1;
+        default = 0;
     };
     class crateOpticTypeMax
     {
         title = "Maximum Optic Types in Crates";
         values[] = {0,1,2,3,4,5,6,7,8,9,10};
-        default = 5;
+        default = 2;
     };
     class crateOpticNumMin
     {
@@ -384,7 +384,7 @@ class Params
     {
         title = "Maximum Optic Quantity in Crates";
         values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
-        default = 5;
+        default = 3;
     };
     class Spacer5
     {
@@ -409,13 +409,13 @@ class Params
     {
         title = "Minimum Backpack Quantity in Crates";
         values[] = {0,1,2,3,4,5};
-        default = 1;
+        default = 0;
     };
     class crateBackpackNumMax
     {
         title = "Maximum Backpack Quantity in Crates";
         values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
-        default = 5;
+        default = 2;
     };
 };
 

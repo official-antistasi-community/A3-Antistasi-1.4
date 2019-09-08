@@ -218,6 +218,7 @@ class A3A
 		class ACEpvpReDress {file="Ammunition\ACEpvpReDress.sqf";};
 		class arsenalManage {file="Ammunition\arsenalManage.sqf";};
 		class CSATCrate {file="Ammunition\CSATCrate.sqf";};
+		class crateLootParams {file="Ammunition\crateLootParams.sqf";};
 		class ammunitionTransfer {file="Ammunition\ammunitionTransfer.sqf";};
 		class NATOCrate {file="Ammunition\NATOCrate.sqf";};
 		class randomRifle {file="Ammunition\randomRifle.sqf";};

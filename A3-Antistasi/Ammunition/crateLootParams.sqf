@@ -3,6 +3,11 @@
 //Loot crates use to determing range of item types and quantity for each
 //category of items that crates spawn.
 
+//do weapons automatically unlock primary magazine when unlocked?
+unlockedUnlimitedAmmo = "unlockedUnlimitedAmmo" call BIS_fnc_getParamValue; publicVariable "unlockedUnlimitedAmmo";
+//can guided missilie launchers unlock? 
+unlockableMissileLaunchers = "unlockableMissileLaunchers" call BIS_fnc_getParamValue; publicVariable "unlockableMissileLaunchers";
+
 //weapons
 crateWepTypeMin = "crateWepTypeMin" call BIS_fnc_getParamValue; publicVariable "crateWepTypeMin";
 crateWepTypeMax = "crateWepTypeMax" call BIS_fnc_getParamValue; publicVariable "crateWepTypeMax";

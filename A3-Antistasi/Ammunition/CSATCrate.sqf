@@ -1,4 +1,4 @@
-private ["_loot","_guns","_ammo","_items","_avail","_num","_optics","_packs","_mines","_unlocks"];
+private ["_loot","_guns","_ammo","_items","_avail","_num","_optics","_packs","_mines"];
 
 private _unlocks = (unlockedItems + unlockedOptics + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
 private _crate = _this select 0;
@@ -27,7 +27,7 @@ if (typeOf _crate == vehCSATAmmoTruck) then
 
 for "_i" from 0 to _weaponTypes do
 	{
-	_guns = (weaponsCSAT + rebelLootMissileLauncher);
+	_guns = (weaponsCSAT + antitankAAF);
 	_avail = (_guns - _unlocks - itemCargo _crate);
 	_loot = selectRandom _avail;
 	if (isNil "_loot") then {} else
@@ -39,7 +39,7 @@ for "_i" from 0 to _weaponTypes do
 
 for "_i" from 0 to _itemTypes do
 	{
-	_items = rebelLootItems;
+	_items = itemsAAF;
 	_avail = (_items - _unlocks - itemCargo _crate);
 	_loot = selectRandom _avail;
 	if (isNil "_loot") then {} else
@@ -51,7 +51,7 @@ for "_i" from 0 to _itemTypes do
 
 for "_i" from 0 to _ammoTypes do
 	{
-	_ammo = smokeX + chemX + ammunitionCSAT;
+	_ammo = (smokeX + chemX + ammunitionCSAT);
 	_avail = (_ammo - _unlocks - itemCargo _crate);
 	_loot = selectRandom _avail;
 	if (isNil "_loot") then {} else
@@ -63,7 +63,7 @@ for "_i" from 0 to _ammoTypes do
 
 for "_i" from 0 to _mineTypes do
 	{
-	_mines = rebelLootMines;
+	_mines = minesAAF;
 	_avail = (_mines - _unlocks - itemCargo _crate);
 	_loot = selectRandom _avail;
 	if (isNil "_loot") then {} else
@@ -77,7 +77,7 @@ if !(hasIFA) then
 	{
 	for "_i" from 0 to _opticTypes do
 		{
-		_optics = rebelLootOptics;
+		_optics = opticsAAF;
 		_avail = (_optics - _unlocks - itemCargo _crate);
 		_loot = selectRandom _avail;
 		if (isNil "_loot") then {} else
@@ -110,16 +110,16 @@ if !(hasIFA) then
 			{
 			if (side group petros == independent) then
 				{
-				if !("O_Static_Designator_02_weapon_F" in _unlocks) then
+				if !("I_UAV_01_backpack_F" in _unlocks) then
 				{_crate addBackpackCargoGlobal ["I_UAV_01_backpack_F",1]};
-				if !("O_Static_Designator_02_weapon_F" in _unlocks) then
+				if !("I_UavTerminal" in _unlocks) then
 				{_crate addItemCargoGlobal ["I_UavTerminal",1]};
 				}
 			else
 				{
-				if !("O_Static_Designator_02_weapon_F" in _unlocks) then
+				if !("B_UAV_01_backpack_F" in _unlocks) then
 				{_crate addBackpackCargoGlobal ["B_UAV_01_backpack_F",1]};
-				if !("O_Static_Designator_02_weapon_F" in _unlocks) then
+				if !("B_UavTerminal" in _unlocks) then
 				{_crate addItemCargoGlobal ["B_UavTerminal",1]};
 				};
 			};

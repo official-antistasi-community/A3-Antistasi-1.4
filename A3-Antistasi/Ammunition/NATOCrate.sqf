@@ -21,7 +21,7 @@ diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Optic Types Roll: %2",ser
 private _backpackTypes = crateBackpackTypeMin + floor random (crateBackpackTypeMax - crateBackpackTypeMin);
 diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Backpack Types Roll: %2",servertime,(_backpackTypes + 1)];
 
-if (typeOf _crate in vehNATOAmmoTruck) then
+if (typeOf _crate == vehNATOAmmoTruck) then
 	{
 	diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Ammo Truck Detected: Doubling Types",servertime,_backpackTypes];
 	_weaponTypes=_weaponTypes*2;

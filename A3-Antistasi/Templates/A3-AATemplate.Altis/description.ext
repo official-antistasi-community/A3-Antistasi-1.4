@@ -140,7 +140,7 @@ class Params
         title = "Mission Difficulty";
         values[] = {1,2,3};
         texts[] = {"Easy","Normal","Hard"};
-        default = 1;
+        default = 2;
         //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
     };
     class unlockItem

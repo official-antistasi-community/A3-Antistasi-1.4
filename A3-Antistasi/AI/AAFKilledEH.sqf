@@ -31,12 +31,15 @@ if (side (group _killer) == teamPlayer) then
 				};
 			};
 		_killer addRating 1000;
-		}
+		};
+	//Killing someone does not make you a better soldier
+	/*
 	else
 		{
 		_skill = skill _killer;
 		[_killer,_skill + 0.05] remoteExec ["setSkill",_killer];
 		};
+	*/
 	if (vehicle _killer isKindOf "StaticMortar") then
 		{
 		if (isMultiplayer) then

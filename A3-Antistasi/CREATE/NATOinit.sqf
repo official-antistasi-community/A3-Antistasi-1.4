@@ -54,7 +54,8 @@ else
 		};
 	};
 
-_skill = (tierWar + difficultyCoef) * 0.1 * skillMult;
+_skill = (0.15 + (0.02 * difficultyCoef) + (0.01 * tierWar)) * skillMult;
+/* PBP - removed for my new difficulty math
 if ((faction _unit != factionGEN) and (faction _unit != factionFIA)) then
 	{
 	if (side _unit == Occupants) then
@@ -95,16 +96,20 @@ else
 	};
 
 if (_skill > 0.58) then {_skill = 0.58};
+*/
+
 _unit setSkill _skill;
+/* PBP - prevented non-sniper aim nerf
 if (not(_typeX in sniperUnits)) then
 	{
 	if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]};
+	*/
 	if (_typeX in squadLeaders) then
 		{
 		_unit setskill ["courage",_skill + 0.2];
 		_unit setskill ["commanding",_skill + 0.2];
 		};
-	};
+	//};
 
 _hmd = hmd _unit;
 if !(hasIFA) then
@@ -186,8 +191,8 @@ if !(hasIFA) then
 			if (_lamp != "") then
 				{
 				_unit enableGunLights "AUTO";
-				_unit setskill ["spotDistance",_skill - 0.2];
-				_unit setskill ["spotTime",_skill - 0.2];
+				//_unit setskill ["spotDistance",_skill - 0.2];
+				//_unit setskill ["spotTime",_skill - 0.2];
 				};
 			};
 		}

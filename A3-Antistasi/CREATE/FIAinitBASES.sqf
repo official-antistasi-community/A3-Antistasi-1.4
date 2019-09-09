@@ -26,9 +26,9 @@ if (count _this > 1) then
 
 _unit allowFleeing 0;
 _typeX = typeOf _unit;
-//_skill = if (_typeX in sdkTier1) then {0.1 + (skillFIA * 0.2)} else {if (_typeX in sdkTier2) then {0.2 + (skillFIA * 0.2)} else {0.3 + (skillFIA * 0.2)}};
-_skill = 0.1 + (skillFIA * 0.05 * skillMult);
-if ((_markerX == "Synd_HQ") and (isMultiplayer)) then {_skill = 1};
+
+_skill = (0.7 + (0.01 * skillFIA)) / skillMult;
+//if ((_markerX == "Synd_HQ") and (isMultiplayer)) then {_skill = 1}; //No Super soldiers just because its HQ - PBP
 _unit setSkill _skill;
 if (!activeGREF) then {if (not((uniform _unit) in uniformsSDK)) then {[_unit] call A3A_fnc_reDress}};
 if (_typeX in SDKSniper) then
@@ -50,7 +50,7 @@ if (_typeX in SDKSniper) then
 	}
 else
 	{
-	if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]};
+	//if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]};
 	if (random 40 < skillFIA) then
 		{
 		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom helmets)};

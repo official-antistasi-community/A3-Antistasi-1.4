@@ -1089,7 +1089,7 @@ server setVariable [vehSDKTruck,300,true];											//300
 diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Server Only Variables.",servertime];
 server setVariable ["hr",8,true];														//initial HR value
 server setVariable ["resourcesFIA",1000,true];											//Initial FIA money pool value
-skillFIA = 0;																		//Initial skill level for FIA soldiers
+skillFIA = 1;																		//Initial skill level for FIA soldiers
 prestigeNATO = 5;																	//Initial Prestige NATO
 prestigeCSAT = 5;																	//Initial Prestige CSAT
 prestigeOPFOR = [75, 50] select cadetMode;																	//Initial % support for NATO on each city

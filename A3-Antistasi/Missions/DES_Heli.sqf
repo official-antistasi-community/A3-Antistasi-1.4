@@ -37,7 +37,7 @@ _posCrash = _posCrashOrig findEmptyPosition [0,100,_typeVehX];
 if (count _posCrash == 0) then
 	{
 	if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])} else {{[_x,true] remoteExec ["hideObjectGlobal",2]} foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])};
-	_posCrash = _posCrashOrig; //why find a valid location just to overwrite it?
+	_posCrash = _posCrashOrig;
 	};
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Crash Location: %2, Air Vehicle: %3",servertime,_posCrash,_typeVehX];
 _nameXbase = [_markerX] call A3A_fnc_localizar;

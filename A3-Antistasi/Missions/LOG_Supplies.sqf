@@ -1,18 +1,17 @@
 //Mission: Logistic supplies
 if (!isServer and hasInterface) exitWith{};
-private ["_markerX","_difficultX","_leave","_contactX","_groupContact","_tsk","_posHQ","_citiesX","_city","_radiusX","_positionX","_posHouse","_nameDest","_timeLimit","_dateLimit","_dateLimitNum","_pos","_truckX","_countX"];
+private ["_markerX","_difficultX","_leave","_contactX","_groupContact","_tsk","_posHQ","_citiesX","_city","_radiusX","_positionX","_posHouse","_nameDest","_dateLimit","_dateLimitNum","_pos","_truckX"];
 
 _markerX = _this select 0;
 
-_difficultX = if (random 10 < tierWar) then {true} else {false};
+
 _leave = false;
 _contactX = objNull;
 _groupContact = grpNull;
 _tsk = "";
 _positionX = getMarkerPos _markerX;
-
-_timeLimit = if (_difficultX) then {30} else {60};
-if (hasIFA) then {_timeLimit = _timeLimit * 2};
+private _bonus = [1, 2] select (random 10 < tierWar);
+private _timeLimit = [120 * _bonus, 240 * _bonus] select (hasIFA);
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly
@@ -48,7 +47,7 @@ _truckX setVariable ["destinationX",_nameDest,true];
 [_truckX,"Supply Box"] spawn A3A_fnc_inmuneConvoy;
 
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _positionX < 40) and (isNull attachedTo _truckX)) or (isNull _truckX)};
-_bonus = if (_difficultX) then {2} else {1};
+
 if ((dateToNumber date > _dateLimitNum) or (isNull _truckX)) then
 	{
 	["LOG",[_taskDescription,"City Supplies",_markerX],_positionX,"FAILED","Heal"] call A3A_fnc_taskUpdate;
@@ -57,7 +56,7 @@ if ((dateToNumber date > _dateLimitNum) or (isNull _truckX)) then
 	}
 else
 	{
-	_countX = 120*_bonus;//120
+	private _countX = _timeLimit;
 	[[_positionX,Occupants,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
 	["TaskFailed", ["", format ["%2 deploying supplies in %1",_nameDest,nameTeamPlayer]]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	{_friendX = _x;
@@ -85,7 +84,7 @@ else
 			};
 		if (_countX > 0) then
 			{
-			_countX = 120*_bonus;//120
+			_countX = _timeLimit;
 			if (((_truckX distance _positionX > 40) or (not([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits != 0)) and (alive _truckX)) then {{[petros,"hint","Don't get the truck far from the city center, and stay close to it, and clean all BLUFOR presence in the surroundings or count will restart"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([100,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
 			waitUntil {sleep 1; ((_truckX distance _positionX < 40) and ([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits) and ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits == 0)) or (dateToNumber date > _dateLimitNum) or (isNull _truckX)};
 			};

@@ -139,7 +139,7 @@ class Params
     };
     class AISkill
     {
-        title = "AI Skill";
+        title = "Mission Difficulty";
         values[] = {1,2,3};
         texts[] = {"Easy","Normal","Hard"};
         default = 2;

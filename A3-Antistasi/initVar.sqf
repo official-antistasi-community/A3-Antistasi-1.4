@@ -74,10 +74,10 @@ armoredVests = [];
 uniformsSDK = [];
 banditUniforms = [];
 itemsAAF = [];
+initialRifles = [];
 unlockedWeapons = [];
 unlockedRifles = [];
 unlockedMagazines = [];
-unlockedRifles = [];
 unlockedItems = [];
 unlockedBackpacks = [];
 unlockedOptics = [];
@@ -184,6 +184,7 @@ else
 	};
 
 if (has3CB) then {arrayCivs append ["UK3CB_CHC_C_BODYG","UK3CB_CHC_C_CAN","UK3CB_CHC_C_COACH","UK3CB_CHC_C_DOC","UK3CB_CHC_C_FUNC","UK3CB_CHC_C_HIKER","UK3CB_CHC_C_LABOUR","UK3CB_CHC_C_PILOT","UK3CB_CHC_C_POLITIC","UK3CB_CHC_C_PROF","UK3CB_CHC_C_VILL","UK3CB_CHC_C_WORKER"];};
+
 ////////////////////////////////////
 //      CIVILLIAN VEHICLES       ///
 ////////////////////////////////////
@@ -196,6 +197,12 @@ else
 	{
 	["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
 	};
+//Add RHS Vehicles
+if (hasRHS and !has3CB) then {arrayCivVeh append ["RHS_Ural_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_01","RHS_Ural_Open_Civ_02","RHS_Ural_Open_Civ_03"]};
+//3CB Full Vehicle Replacer
+if (has3CB) then {arrayCivVeh = ["UK3CB_CHC_C_Datsun_Civ_Closed","UK3CB_CHC_C_Datsun_Civ_Open","UK3CB_CHC_C_Gaz24","UK3CB_CHC_C_Golf","UK3CB_CHC_C_Hatchback","UK3CB_CHC_C_Hilux_Civ_Open","UK3CB_CHC_C_Hilux_Civ_Closed","UK3CB_CHC_C_Ikarus","UK3CB_CHC_C_Kamaz_Covered","UK3CB_CHC_C_Kamaz_Fuel","UK3CB_CHC_C_Kamaz_Open","UK3CB_CHC_C_Kamaz_Repair","UK3CB_CHC_C_Lada","UK3CB_CHC_C_LR_Open","UK3CB_CHC_C_LR_Closed","UK3CB_CHC_C_S1203","UK3CB_CHC_C_S1203_Amb","UK3CB_CHC_C_Sedan","UK3CB_CHC_C_Skoda","UK3CB_CHC_C_Tractor","UK3CB_CHC_C_Tractor_Old","UK3CB_CHC_C_UAZ_Closed","UK3CB_CHC_C_UAZ_Open","UK3CB_CHC_C_Ural","UK3CB_CHC_C_Ural_Open","UK3CB_CHC_C_Ural_Fuel","UK3CB_CHC_C_Ural_Empty","UK3CB_CHC_C_Ural_Repair","UK3CB_CHC_C_V3S_Open","UK3CB_CHC_C_V3S_Closed","UK3CB_CHC_C_V3S_Recovery","UK3CB_CHC_C_V3S_Refuel","UK3CB_CHC_C_V3S_Repair"]};
+
+//Civillian Boats
 civBoats = if !(hasIFA) then {["C_Boat_Civil_01_F","C_Scooter_Transport_01_F","C_Boat_Transport_02_F","C_Rubberboat"]} else {[]};
 
 ////////////////////////////////////
@@ -304,21 +311,9 @@ if (!hasIFA) then
 //      GROUPS CLASSIFICATION      ///
 //////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
-//Rebel Unit Tiers
-sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
-sdkTier2 = SDKMedic + SDKExp + SDKEng;
-sdkTier3 = SDKSL + SDKSniper;
-soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
-//Rebel Groups
-groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
-groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
-groupsSDKSquad = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
-groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
-groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
-groupsSDKSniper = [SDKSniper,SDKSniper];
-groupsSDKSentry = [SDKGL,SDKMil];
-
+//Identify Squad Leader Units
 squadLeaders = SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
+//Identify Medic Units
 medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
 //Define Sniper Groups and Units
 sniperGroups = [groupsNATOSniper,groupsCSATSniper];

@@ -322,6 +322,7 @@ class A3A
 
 	class init
 	{
+		class initGarrisons {};
 		class getArrayMrks {};
 	};
 };

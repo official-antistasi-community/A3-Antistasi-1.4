@@ -87,7 +87,7 @@ if (_check) then
 if (_checkmag) then
 	{
 	 publicVariable "unlockedMagazines";
-	_check = false;
+	_checkmag = false;
 	};
 	
 {

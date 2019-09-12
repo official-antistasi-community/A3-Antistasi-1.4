@@ -173,7 +173,7 @@ while {true} do
 		if (count _potentials > 0) then
 			{
 			_potential = selectRandom _potentials;
-			[[_potential select 0,_potential select 1],"A#A_fnc_REP_Antenna"] call A3A_fnc_scheduler;
+			[[_potential select 0,_potential select 1],"A3A_fnc_REP_Antenna"] call A3A_fnc_scheduler;
 			};
 		}
 	else

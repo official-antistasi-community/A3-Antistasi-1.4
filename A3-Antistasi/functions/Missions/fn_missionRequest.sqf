@@ -173,7 +173,7 @@ if (_typeX == "LOG") then
 		{
 		_siteX = _potentials call BIS_fnc_selectRandom;
 		if (_siteX in citiesX) then {[[_siteX],"A3A_fnc_LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2]};
-		if (_siteX in outposts) then {[[_siteX],"A#A_fnc_LOG_Ammo"] remoteExec ["A3A_fnc_scheduler",2]};
+		if (_siteX in outposts) then {[[_siteX],"A3A_fnc_LOG_Ammo"] remoteExec ["A3A_fnc_scheduler",2]};
 		if (_siteX in banks) then {[[_siteX],"A3A_fnc_LOG_Bank"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};

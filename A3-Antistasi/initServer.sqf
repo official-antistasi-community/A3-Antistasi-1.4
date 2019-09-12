@@ -71,10 +71,7 @@ _nul = [] execVM "modBlacklist.sqf";
 private _index = _x call jn_fnc_arsenal_itemType;
 [_index,_x,-1] call jn_fnc_arsenal_addItem;
 }foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
-//["buttonInvToJNA"] call jn_fnc_arsenal;
-//waitUntil {!isNil "bis_fnc_preload_init"};
-//waitUntil {!isNil "BIS_fnc_preload_server"};
-_nul = call compile preprocessFileLineNumbers "initGarrisons.sqf";
+call A3A_fnc_initGarrisons;
 if (loadLastSave) then
     {
     diag_log format ["%1: [Antistasi] | INFO | Persitent Load selected.",servertime];

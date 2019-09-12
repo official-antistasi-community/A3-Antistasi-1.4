@@ -169,6 +169,7 @@ class A3A
 		class vehAvailable {};
 		class VEHdespawner {};
 		class wavedCA {};
+		class WPCreate {};
 	};
 
 	class Debugging
@@ -216,10 +217,24 @@ class A3A
 
 	class Missions
 	{
+		class AS_Official {};
+		class AS_specOP {};
+		class AS_Traitor {};
 		class attackHQ {};
+		class CON_Outpost {};
+		class convoy {};
 		class deleteTask {};
+		class DES_Antenna {};
+		class DES_Heli {};
+		class DES_Vehicle {};
+		class LOG_Ammo {};
+		class LOG_Bank {};
+		class LOG_Supplies {};
 		class missionRequest {};
 		class missionRequestAUTO {};
+		class REP_Antenna {};
+		class RES_Prisoners {};
+		class RES_Refugees {};
 		class taskUpdate {};
 		class underAttack {};
 	};

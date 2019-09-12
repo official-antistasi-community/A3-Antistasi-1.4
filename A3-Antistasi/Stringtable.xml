@@ -525,14 +525,17 @@
       <Key ID="STR_antistasi_mission_info_kunduz_description_text">
         <Original>Be the resistance leader and so on</Original>
         <English>Be the resistance leader and so on</English>
+        <Russian>Быть лидером сопротивления и т.д.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_text">
         <Original>Battle of Kunduz</Original>
         <English>Battle of Kunduz</English>
+        <Russian>Битва за Кундуз</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_blurb_text">
         <Original>Sand and blood</Original>
         <English>Sand and blood</English>
+        <Russian>Кровь и песок</Russian>
       </Key>
     </Container>
   </Package>

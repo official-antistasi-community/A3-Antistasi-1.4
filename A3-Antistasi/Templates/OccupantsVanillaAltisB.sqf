@@ -73,7 +73,6 @@ NATOSpecOp = ["I_soldier_SL_F",NATOGrunt,"I_soldier_LAT_F","I_Soldier_GL_F","I_s
 factionMaleOccupants = "";
 groupsNATOSquad = [NATOSquad,["B_soldier_SL_F",NATOGrunt,"I_soldier_TL_F","I_soldier_AR_F","I_soldier_A_F","I_support_Mort_F","I_support_AMort_F","I_medic_F"],["I_soldier_SL_F",NATOGrunt,"I_soldier_TL_F","I_soldier_AR_F","I_soldier_A_F","I_support_MG_F","I_support_AMG_F","I_medic_F"],["I_soldier_SL_F",NATOGrunt,"I_soldier_TL_F","I_soldier_AR_F","I_soldier_A_F","I_soldier_AA_F","I_soldier_AAA_F","I_medic_F"],["I_soldier_SL_F",NATOGrunt,"I_soldier_TL_F","I_soldier_AR_F","I_soldier_A_F","I_soldier_AT_F","I_soldier_AAT_F","I_medic_F"],["I_soldier_SL_F",NATOGrunt,"I_soldier_TL_F","I_soldier_AR_F","I_soldier_A_F","I_engineer_F","I_engineer_F","I_medic_F"]]; //[NATOSquad,"B_T_InfSquad_Weapons"];///"B_engineer_F"
 
-
 supportStaticNATOB = "I_HMG_01_support_F";
 ATStaticNATOB = "I_AT_01_weapon_F";
 MGStaticNATOB = "I_HMG_01_high_weapon_F";
@@ -88,3 +87,23 @@ flagNATOmrk = "flag_AltisColonial";
 
 nameOccupants = "AAF";
 if (isServer) then {"NATO_carrier" setMarkerText "AAF Carrier"};
+
+vehPoliceCar = vehFIACar;
+policeOfficer = FIARifleman;
+policeGrunt = FIARifleman;
+groupsNATOGen = [policeOfficer,policeGrunt];
+factionGEN = "IND_C_F";
+
+if (gameMode != 4) then
+	{
+	FIARifleman = "I_C_Soldier_Para_7_F";
+	FIAMarksman = "I_C_Soldier_Para_2_F";
+	vehFIAArmedCar = "I_C_Offroad_02_LMG_F";
+	vehFIATruck = "I_C_Van_01_transport_F";
+	vehFIACar = "I_C_Offroad_01_F";
+	groupsFIASmall = [["I_C_Soldier_Para_6_F",FIARifleman],[FIAMarksman,FIARifleman],[FIAMarksman,FIAMarksman]];
+	groupsFIAMid = [["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F"],["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_5_F"]];
+	FIASquad = ["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F","I_C_Soldier_Para_1_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_8_F","I_C_Soldier_Para_3_F"];
+	groupsFIASquad = [FIASquad];
+	factionFIA = "IND_C_F";
+	};

@@ -89,3 +89,18 @@ lampInvaders = "rhs_acc_2dpZenit";
 flagCSATmrk = "rhs_flag_vmf";
 nameInvaders = "AFRF";
 if (isServer) then {"CSAT_carrier" setMarkerText "Russian Carrier"};
+
+if (gameMode == 4) then
+	{
+	FIARifleman = "rhs_msv_emr_rifleman";
+	FIAMarksman = "rhs_msv_emr_marksman";
+	vehFIAArmedCar = "rhs_tigr_sts_3camo_msv";
+	vehFIATruck = "rhs_zil131_open_msv";
+	vehFIACar = "rhs_uaz_open_MSV_01";
+
+	groupsFIASmall = [["rhs_msv_emr_grenadier",FIARifleman],[FIAMarksman,FIARifleman]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+	groupsFIAMid = [["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_grenadier"],["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_at"],["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_engineer"]];//["IRG_InfAssault","IRG_InfTeam","IRG_InfTeam_AT"];///
+	FIASquad = ["rhs_msv_emr_officer","rhs_msv_emr_grenadier","rhs_msv_emr_machinegunner","rhs_msv_emr_rifleman","rhs_msv_emr_marksman","rhs_msv_emr_engineer","rhs_msv_emr_at","rhs_msv_emr_medic"];//"IRG_InfSquad";///
+	groupsFIASquad = [FIASquad];
+	factionFIA = "rhs_faction_msv";
+	};

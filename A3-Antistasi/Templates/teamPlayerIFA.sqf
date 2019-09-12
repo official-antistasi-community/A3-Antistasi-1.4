@@ -49,40 +49,7 @@ lampsSDK = ["not_supported"];
 ATMineMag = "LIB_TM44_MINE_mag";
 APERSMineMag = "LIB_PMD6_MINE_mag";
 
-if (gameMode != 4) then
-	{
-	FIARifleman = "LIB_DAK_Soldier";
-	FIAMarksman = "LIB_DAK_Sniper";
-	vehFIAArmedCar = "LIB_Kfz1_MG42_camo";
-	vehFIATruck = "LIB_OpelBlitz_Open_Y_Camo_w";
-	vehFIACar = "LIB_Kfz1_hood_w";
-	groupsFIASmall = [["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],[FIAMarksman,FIARifleman]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-	groupsFIAMid = [["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_2","LIB_DAK_Soldier"],["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_AT_soldier","LIB_DAK_AT_grenadier"],["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier","LIB_DAK_Sniper"]];
-	FIASquad = ["LIB_DAK_NCO_2","LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_3","LIB_DAK_AT_grenadier","LIB_DAK_AT_soldier","LIB_DAK_radioman","LIB_DAK_medic"];//"IRG_InfSquad";///
-	groupsFIASquad = [FIASquad,["LIB_DAK_NCO_2","LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_3","LIB_DAK_AT_grenadier","LIB_DAK_Sniper","LIB_DAK_radioman","LIB_DAK_medic"]];
-	factionFIA = "LIB_DAK";
-	}
-else
-	{
-	FIARifleman = "LIB_NKVD_rifleman";
-	FIAMarksman = "LIB_NKVD_LC_rifleman";
-	vehFIAArmedCar = "LIB_Scout_m3_w";
-	vehFIATruck = "LIB_Zis5v_w";
-	vehFIACar = "LIB_Willys_MB_w";
-	groupsFIASmall = [[FIARifleman,FIARifleman],[FIAMarksman,FIARifleman]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-	groupsFIAMid = [["LIB_NKVD_p_officer","LIB_NKVD_smgunner","LIB_NKVD_LC_rifleman","LIB_NKVD_rifleman"]];
-	FIASquad = ["LIB_NKVD_lieutenant","LIB_NKVD_smgunner","LIB_NKVD_smgunner","LIB_NKVD_p_officer","LIB_NKVD_p_officer","LIB_NKVD_LC_rifleman","LIB_NKVD_rifleman","LIB_SOV_medic"];//"IRG_InfSquad";///
-	groupsFIASquad = [FIASquad];
-	factionFIA = "LIB_NKVD";
-	};
-
-vehPoliceCar = "LIB_Kfz1_sernyt";
-policeOfficer = "SG_sturmpanzer_unterofficer";
-policeGrunt = "SG_sturmpanzer_crew";
-groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = "AK";
-
-factionGEN = "SG_STURMPANZER";
 
 //Player spawn loadout
 teamPlayerDefaultLoadout = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],["ItemMap","","","","",""]];

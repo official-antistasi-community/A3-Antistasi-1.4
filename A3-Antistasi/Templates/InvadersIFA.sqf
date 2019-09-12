@@ -85,3 +85,17 @@ nameInvaders = "Soviets";
 if (isServer) then {"CSAT_carrier" setMarkerText "Soviet Reinforcements"};
 
 {helmets pushBackUnique (getUnitLoadout _x select 6)} forEach CSATSquad;
+
+if (gameMode == 4) then
+	{
+	FIARifleman = "LIB_NKVD_rifleman";
+	FIAMarksman = "LIB_NKVD_LC_rifleman";
+	vehFIAArmedCar = "LIB_Scout_m3_w";
+	vehFIATruck = "LIB_Zis5v_w";
+	vehFIACar = "LIB_Willys_MB_w";
+	groupsFIASmall = [[FIARifleman,FIARifleman],[FIAMarksman,FIARifleman]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+	groupsFIAMid = [["LIB_NKVD_p_officer","LIB_NKVD_smgunner","LIB_NKVD_LC_rifleman","LIB_NKVD_rifleman"]];
+	FIASquad = ["LIB_NKVD_lieutenant","LIB_NKVD_smgunner","LIB_NKVD_smgunner","LIB_NKVD_p_officer","LIB_NKVD_p_officer","LIB_NKVD_LC_rifleman","LIB_NKVD_rifleman","LIB_SOV_medic"];//"IRG_InfSquad";///
+	groupsFIASquad = [FIASquad];
+	factionFIA = "LIB_NKVD";
+	};

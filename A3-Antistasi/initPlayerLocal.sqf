@@ -1,4 +1,4 @@
-#include "Garage\defineCommon.inc"
+#include "defineCommon.inc"
 diag_log format ["%1: [Antistasi] | INFO | initPlayerLocal Started.",servertime];
 if (hasInterface) then
 	{
@@ -86,7 +86,7 @@ else
 	waitUntil {/*(scriptdone _introshot) and */(!isNil "serverInitDone")};
 	//_nul = addMissionEventHandler ["Loaded", {_nul = [] execVM "statistics.sqf";_nul = [] execVM "reinitY.sqf";}];
 	};
-[] execVM "CREATE\ambientCivs.sqf";
+[] spawn A3A_fnc_ambientCivs;
 private ["_colourTeamPlayer", "_colorInvaders"];
 _colourTeamPlayer = teamPlayer call BIS_fnc_sideColor;
 _colorInvaders = Invaders call BIS_fnc_sideColor;
@@ -126,13 +126,13 @@ if (isMultiplayer) then
 	};
 if (!hasACE) then
 	{
-	[player] execVM "Revive\initRevive.sqf";
+	[player] spawn A3A_fnc_initRevive;
 	tags = [] execVM "tags.sqf";
 	}
 else
 	{
-	if (hasACEhearing) then {player addItem "ACE_EarPlugs"};
-	if (!hasACEMedical) then {[player] execVM "Revive\initRevive.sqf"};
+	if (hasACEhearing) then {player addItem "ACE_EarPlugs";};
+	if (!hasACEMedical) then {[player] spawn A3A_fnc_initRevive;};
 	};
 
 if (player getVariable ["pvp",false]) exitWith
@@ -535,7 +535,7 @@ if (_isJip) then
 		}
 	else
 		{
-		_nul = [] execVM "Dialogs\firstLoad.sqf";
+			[] spawn A3A_fnc_firstLoad;
 		};
 	diag_log format ["%1: [Antistasi] | INFO | MP Client | JIP Client Loaded.",servertime];
 	player setPos (getMarkerPos respawnTeamPlayer);
@@ -562,7 +562,7 @@ else
 		    		}
 		    	else
 		    		{
-		    		_nul = [true] execVM "Dialogs\firstLoad.sqf";
+		    			[true] spawn A3A_fnc_firstLoad;
 			    	};
 				diag_log format ["%1: [Antistasi] | INFO | MP Client | Client load finished.",servertime];
 		    	}
@@ -571,13 +571,13 @@ else
 		    	membersX = [];
 		    	player setUnitTrait ["medic",true];
 		    	player setUnitTrait ["engineer",true];
-		    	 _nul = [] execVM "Dialogs\firstLoad.sqf";
+		    	[] spawn A3A_fnc_firstLoad;
 		    	};
 		    }
 		else
 			{
 			player setVariable ["score", 0,true];
-			_nul = [true] execVM "Dialogs\firstLoad.sqf";
+			[true] spawn A3A_fnc_firstLoad;
 			player setPos (getMarkerPos respawnTeamPlayer);
 			};
 		}
@@ -585,7 +585,7 @@ else
 		{
 		if !(isServer) then
 			{
-			_nul = [] execVM "Dialogs\firstLoad.sqf";
+			[] spawn A3A_fnc_firstLoad;
 			player setPos (getMarkerPos respawnTeamPlayer);
 			};
 		};
@@ -633,12 +633,12 @@ if ((!isServer) and (isMultiplayer)) then {boxX call jn_fnc_arsenal_init};
 
 boxX allowDamage false;
 boxX addAction ["Transfer Vehicle cargo to Ammobox", "[] call A3A_fnc_empty"];
-boxX addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
+boxX addAction ["Move this asset", { _this spawn A3A_fnc_moveHQObject; },nil,0,false,true,"","(_this == theBoss)"];
 flagX allowDamage false;
-flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {hint "You cannot recruit units while there are enemies near you"} else {nul=[] execVM "Dialogs\unit_recruit.sqf"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
+flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {hint "You cannot recruit units while there are enemies near you"} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 flagX addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {hint "You cannot buy vehicles while there are enemies near you"} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 if (isMultiplayer) then {flagX addAction ["Personal Garage", {nul = [GARAGE_PERSONAL] spawn A3A_fnc_garage},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"]};
-flagX addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
+flagX addAction ["Move this asset", { _this spawn A3A_fnc_moveHQObject; },nil,0,false,true,"","(_this == theBoss)"];
 
 //Adds a light to the flag
 private _flagLight = "#lightpoint" createVehicle (getPos flagX);
@@ -651,7 +651,7 @@ _flagLight setLightAttenuation [7, 0, 0.5, 0.5];
 
 vehicleBox allowDamage false;
 vehicleBox addAction ["Heal, Repair and Rearm", "healandrepair.sqf",nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
-vehicleBox addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
+vehicleBox addAction ["Move this asset", { _this spawn A3A_fnc_moveHQObject; },nil,0,false,true,"","(_this == theBoss)"];
 
 fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
@@ -659,7 +659,7 @@ fireX allowDamage false;
 mapX allowDamage false;
 mapX addAction ["Game Options", {hint format ["Antistasi - %2\n\nVersion: %1\n\nDifficulty: %3\nUnlock Weapon Number: %4\nLimited Fast Travel: %5",antistasiVersion,worldName,if (skillMult == 1) then {"Normal"} else {if (skillMult == 0.5) then {"Easy"} else {"Hard"}},minWeaps,if (limitedFT) then {"Yes"} else {"No"}]; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 mapX addAction ["Map Info", {nul = [] execVM "cityinfo.sqf";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
-mapX addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
+mapX addAction ["Move this asset", { _this spawn A3A_fnc_moveHQObject; },nil,0,false,true,"","(_this == theBoss)"];
 if (isMultiplayer) then {mapX addAction ["AI Load Info", "[] remoteExec [""A3A_fnc_AILoadInfo"",2]",nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 _nul = [player] execVM "OrgPlayers\unitTraits.sqf";
 groupPetros = group petros;

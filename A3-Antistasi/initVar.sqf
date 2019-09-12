@@ -29,7 +29,7 @@ teamPlayer = side group petros;
 if (teamPlayer == independent) then
 	{
 	Occupants = west;
-	colourTeamPlayer = "colorGUER";
+	colorTeamPlayer = "colorGUER";
 	colorOccupants = "colorBLUFOR";
 	respawnTeamPlayer = "respawn_guerrila";
 	respawnOccupants = "respawn_west"
@@ -37,7 +37,7 @@ if (teamPlayer == independent) then
 else
 	{
 	Occupants = independent;
-	colourTeamPlayer = "colorBLUFOR";
+	colorTeamPlayer = "colorBLUFOR";
 	colorOccupants = "colorGUER";
 	respawnTeamPlayer = "respawn_west";
 	respawnOccupants = "respawn_guerrila";
@@ -957,6 +957,12 @@ AAFpatrols = 0;
 reinfPatrols = 0;
 smallCAmrk = [];
 smallCApos = [];
+
+attackPos = [];
+attackMrk = [];
+airstrike = [];
+convoyMarker = [];
+
 bigAttackInProgress = false;
 chopForest = false;
 distanceForAirAttack = 10000;

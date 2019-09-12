@@ -35,7 +35,7 @@ NATOPlayerLoadouts = [
 	"LIB_FSJ_Sniper",
 	//Anti-tank Scout
 	"LIB_FSJ_LAT_Soldier",
-	//Rifleman
+	//AT2
 	"LIB_FSJ_LAT_Soldier"
 ];
 
@@ -66,6 +66,58 @@ if (gameMode != 4) then
 //Police Units
 policeOfficer = "SG_sturmpanzer_unterofficer";
 policeGrunt = "SG_sturmpanzer_crew";
+
+////////////////////////////////////
+//            GROUPS             ///
+////////////////////////////////////
+//Military Groups
+//Teams
+groupsNATOSentry = ["LIB_GER_Soldier3_base","LIB_GER_ober_rifleman"];
+groupsNATOSniper = ["LIB_GER_scout_sniper","LIB_GER_soldier_camo5_base"];
+groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper];
+//Fireteams
+groupsNATOAA = ["LIB_GER_unterofficer","LIB_GER_stggunner","LIB_GER_stggunner","LIB_GER_mgunner"];
+groupsNATOAT = ["LIB_GER_unterofficer","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_mgunner"];
+groupsNATOmid = [["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_scout_ober_rifleman","LIB_GER_AT_grenadier"],groupsNATOAA,groupsNATOAT];
+//Squads
+NATOSquad = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_Soldier2_base","LIB_GER_scout_ober_rifleman","LIB_GER_stggunner","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_medic"];
+NATOSpecOp = ["LIB_FSJ_NCO","LIB_FSJ_Mgunner","LIB_FSJ_Soldier_2","LIB_FSJ_AT_soldier","LIB_FSJ_Soldier_2","LIB_FSJ_sapper","LIB_FSJ_Sniper","LIB_FSJ_medic"];
+groupsNATOSquad =
+	[
+	NATOSquad,
+	["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_smgunner","LIB_GER_AT_grenadier","LIB_GER_ober_rifleman","LIB_GER_sapper","LIB_GER_sapper_gefr","LIB_GER_medic"]
+	];
+
+//Militia Groups
+if (gameMode != 4) then
+	{
+	//Teams
+	groupsFIASmall =
+		[
+		["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
+		["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
+		["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
+		[FIAMarksman,FIARifleman]
+		];
+	//Fireteams
+	groupsFIAMid =
+		[
+		["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
+		["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_AT_soldier","LIB_DAK_AT_grenadier"],
+		["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier","LIB_DAK_Sniper"]
+		];
+	//Squads
+	FIASquad = ["LIB_DAK_NCO_2","LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_3","LIB_DAK_AT_grenadier","LIB_DAK_AT_soldier","LIB_DAK_radioman","LIB_DAK_medic"];
+	groupsFIASquad =
+		[
+		FIASquad,
+		["LIB_DAK_NCO_2","LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_3","LIB_DAK_AT_grenadier","LIB_DAK_Sniper","LIB_DAK_radioman","LIB_DAK_medic"]
+		];
+	};
+
+//Police Groups
+//Teams
+groupsNATOGen = [policeOfficer,policeGrunt];
 
 ////////////////////////////////////
 //           VEHICLES            ///
@@ -119,61 +171,9 @@ if (gameMode != 4) then
 vehPoliceCar = "LIB_Kfz1_sernyt";
 
 ////////////////////////////////////
-//            GROUPS             ///
-////////////////////////////////////
-//Military Groups
-//Teams
-groupsNATOSentry = ["LIB_GER_Soldier3_base","LIB_GER_ober_rifleman"];
-groupsNATOSniper = ["LIB_GER_scout_sniper","LIB_GER_soldier_camo5_base"];
-groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper];
-//Fireteams
-groupsNATOAA = ["LIB_GER_unterofficer","LIB_GER_stggunner","LIB_GER_stggunner","LIB_GER_mgunner"];
-groupsNATOAT = ["LIB_GER_unterofficer","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_mgunner"];
-groupsNATOmid = [["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_scout_ober_rifleman","LIB_GER_AT_grenadier"],groupsNATOAA,groupsNATOAT];
-//Squads
-NATOSquad = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_Soldier2_base","LIB_GER_scout_ober_rifleman","LIB_GER_stggunner","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_medic"];//"B_T_InfSquad";//
-NATOSpecOp = ["LIB_FSJ_NCO","LIB_FSJ_Mgunner","LIB_FSJ_Soldier_2","LIB_FSJ_AT_soldier","LIB_FSJ_Soldier_2","LIB_FSJ_sapper","LIB_FSJ_Sniper","LIB_FSJ_medic"];
-groupsNATOSquad =
-	[
-	NATOSquad,
-	["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_smgunner","LIB_GER_AT_grenadier","LIB_GER_ober_rifleman","LIB_GER_sapper","LIB_GER_sapper_gefr","LIB_GER_medic"]
-	];
-
-//Militia Groups
-if (gameMode != 4) then
-	{
-	//Teams
-	groupsFIASmall =
-		[
-		["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
-		["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
-		["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
-		[FIAMarksman,FIARifleman]
-		];
-	//Fireteams
-	groupsFIAMid =
-		[
-		["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
-		["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_AT_soldier","LIB_DAK_AT_grenadier"],
-		["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier","LIB_DAK_Sniper"]
-		];
-	//Squads
-	FIASquad = ["LIB_DAK_NCO_2","LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_3","LIB_DAK_AT_grenadier","LIB_DAK_AT_soldier","LIB_DAK_radioman","LIB_DAK_medic"];//"IRG_InfSquad";///
-	groupsFIASquad =
-		[
-		FIASquad,
-		["LIB_DAK_NCO_2","LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_3","LIB_DAK_AT_grenadier","LIB_DAK_Sniper","LIB_DAK_radioman","LIB_DAK_medic"]
-		];
-	};
-
-//Police Groups
-//Teams
-groupsNATOGen = [policeOfficer,policeGrunt];
-
-////////////////////////////////////
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
-//Assembled
+//Assembled Statics
 NATOMG = "LIB_MG42_Lafette_Deployed";
 staticATOccupants = "LIB_FlaK_36";
 staticAAOccupants = "LIB_Flakvierling_38";
@@ -184,13 +184,16 @@ MGStaticNATOB = "not_supported";
 ATStaticNATOB = "not_supported";
 AAStaticNATOB = "not_supported";
 MortStaticNATOB = "not_supported";
+//Short Support
 supportStaticNATOB = "not_supported";
+//Tall Support
 supportStaticNATOB2 = "not_supported";
+//Mortar Support
 supportStaticNATOB3 = "not_supported";
 
 ////////////////////////////////////
 //             ITEMS             ///
 ////////////////////////////////////
-weaponsNato append ["LIB_MP40","LIB_MP44","LIB_K98","LIB_G43","LIB_MG42","LIB_MP40","LIB_K98ZF39","LIB_RPzB","LIB_M1908"];//
-ammunitionNATO append ["LIB_32Rnd_9x19","LIB_NB39","LIB_30Rnd_792x33","LIB_Shg24","LIB_5Rnd_792x57","LIB_10Rnd_792x57","LIB_50Rnd_792x57","LIB_1Rnd_RPzB","LIB_8Rnd_9x19_P08","LIB_Pwm"];//possible ammo that spawn in NATO ammoboxes
+weaponsNato append ["LIB_MP40","LIB_MP44","LIB_K98","LIB_G43","LIB_MG42","LIB_MP40","LIB_K98ZF39","LIB_RPzB","LIB_M1908"];
+ammunitionNATO append ["LIB_32Rnd_9x19","LIB_NB39","LIB_30Rnd_792x33","LIB_Shg24","LIB_5Rnd_792x57","LIB_10Rnd_792x57","LIB_50Rnd_792x57","LIB_1Rnd_RPzB","LIB_8Rnd_9x19_P08","LIB_Pwm"];
 {helmets pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;

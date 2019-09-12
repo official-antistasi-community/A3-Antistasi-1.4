@@ -1,4 +1,6 @@
+//Call to Blufor Alits Template
 if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\OccupantsVanillaAltisB.sqf"};
+//Call to FFAA Template
 if ((gameMode != 4) and (hasFFAA)) then	{call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
@@ -37,7 +39,7 @@ NATOPlayerLoadouts = [
 	["vanilla_blufor_marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
 	["vanilla_blufor_AT"] call A3A_fnc_getLoadout,
-	//Rifleman
+	//AT2
 	["vanilla_blufor_rifleman"] call A3A_fnc_getLoadout
 ];
 
@@ -70,57 +72,6 @@ policeOfficer = "B_GEN_Commander_F";
 policeGrunt = "B_GEN_Soldier_F";
 
 ////////////////////////////////////
-//           VEHICLES            ///
-////////////////////////////////////
-//Military Vehicles
-//Lite
-vehNATOBike = "B_Quadbike_01_F";
-vehNATOLightArmed = ["B_MRAP_01_hmg_F"];
-vehNATOLightUnarmed = ["B_T_MRAP_01_F"];
-vehNATOTrucks = ["B_Truck_01_transport_F","B_Truck_01_covered_F"];
-vehNATOCargoTrucks = ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"];
-vehNATOAmmoTruck = "B_Truck_01_ammo_F";
-vehNATORepairTruck = "B_Truck_01_repair_F";
-vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
-//Armored
-vehNATOAPC = ["B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];//"B_T_APC_Tracked_01_CRV_F" has no cargo seats
-vehNATOTank = "B_MBT_01_cannon_F";
-vehNATOAA = "B_APC_Tracked_01_AA_F";
-vehNATOAttack = vehNATOAPC + [vehNATOTank];
-//Boats
-vehNATOBoat = "B_Boat_Armed_01_minigun_F";
-vehNATORBoat = "B_Boat_Transport_01_F";
-vehNATOBoats = [vehNATOBoat,vehNATORBoat,"B_APC_Wheeled_01_cannon_F"];
-//Planes
-vehNATOPlane = "B_Plane_CAS_01_F";
-vehNATOPlaneAA = "B_Plane_Fighter_01_F";
-vehNATOTransportPlanes = ["B_T_VTOL_01_infantry_F"];
-//Heli
-vehNATOPatrolHeli = "B_Heli_Light_01_F";
-vehNATOTransportHelis = ["B_Heli_Transport_03_F",vehNATOPatrolHeli,"B_Heli_Transport_01_camo_F"];
-vehNATOAttackHelis = ["B_T_VTOL_01_armed_F","B_Heli_Light_01_armed_F","B_Heli_Attack_01_F"];
-//UAV
-vehNATOUAV = "B_UAV_02_F";
-vehNATOUAVSmall = "B_UAV_01_F";
-//Artillery
-vehNATOMRLS = "B_MBT_01_arty_F";
-vehNATOMRLSMags = "32Rnd_155mm_Mo_shells";
-//Combined Arrays
-vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "B_Truck_01_fuel_F", "B_Truck_01_medical_F", vehNATORepairTruck,"B_APC_Tracked_01_CRV_F"];
-vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
-
-//Militia Vehicles
-if ((gameMode != 4) and (!hasFFAA)) then
-	{
-	vehFIAArmedCar = "B_LSV_01_armed_F";
-	vehFIATruck = "B_Truck_01_transport_F";
-	vehFIACar = "B_LSV_01_unarmed_F";
-	};
-
-//Police Vehicles
-vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
-
-////////////////////////////////////
 //            GROUPS             ///
 ////////////////////////////////////
 //Military Groups
@@ -134,7 +85,7 @@ groupsNATOAT = ["B_soldier_TL_F","B_soldier_AT_F","B_soldier_AT_F","B_soldier_AA
 groupsNATOmid = [["B_soldier_TL_F","B_soldier_AR_F","B_soldier_GL_F","B_soldier_LAT_F"],groupsNATOAA,groupsNATOAT];
 //Squads
 NATOSquad = ["B_soldier_SL_F",NATOGrunt,"B_soldier_LAT_F",NATOMarksman,"B_soldier_TL_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F"];
-NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F","B_CTRG_Soldier_Medic_tna_F",NATOBodyG,"B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F"];
+NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F",NATOBodyG,"B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F","B_CTRG_Soldier_Medic_tna_F"];
 groupsNATOSquad =
 	[
 	NATOSquad,
@@ -176,9 +127,60 @@ if ((gameMode != 4) and (!hasFFAA)) then
 groupsNATOGen = [policeOfficer,policeGrunt];
 
 ////////////////////////////////////
+//           VEHICLES            ///
+////////////////////////////////////
+//Military Vehicles
+//Lite
+vehNATOBike = "B_Quadbike_01_F";
+vehNATOLightArmed = ["B_MRAP_01_hmg_F"];
+vehNATOLightUnarmed = ["B_T_MRAP_01_F"];
+vehNATOTrucks = ["B_Truck_01_transport_F","B_Truck_01_covered_F"];
+vehNATOCargoTrucks = ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"];
+vehNATOAmmoTruck = "B_Truck_01_ammo_F";
+vehNATORepairTruck = "B_Truck_01_repair_F";
+vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
+//Armored
+vehNATOAPC = ["B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+vehNATOTank = "B_MBT_01_cannon_F";
+vehNATOAA = "B_APC_Tracked_01_AA_F";
+vehNATOAttack = vehNATOAPC + [vehNATOTank];
+//Boats
+vehNATOBoat = "B_Boat_Armed_01_minigun_F";
+vehNATORBoat = "B_Boat_Transport_01_F";
+vehNATOBoats = [vehNATOBoat,vehNATORBoat,"B_APC_Wheeled_01_cannon_F"];
+//Planes
+vehNATOPlane = "B_Plane_CAS_01_F";
+vehNATOPlaneAA = "B_Plane_Fighter_01_F";
+vehNATOTransportPlanes = ["B_T_VTOL_01_infantry_F"];
+//Heli
+vehNATOPatrolHeli = "B_Heli_Light_01_F";
+vehNATOTransportHelis = ["B_Heli_Transport_03_F",vehNATOPatrolHeli,"B_Heli_Transport_01_camo_F"];
+vehNATOAttackHelis = ["B_T_VTOL_01_armed_F","B_Heli_Light_01_armed_F","B_Heli_Attack_01_F"];
+//UAV
+vehNATOUAV = "B_UAV_02_F";
+vehNATOUAVSmall = "B_UAV_01_F";
+//Artillery
+vehNATOMRLS = "B_MBT_01_arty_F";
+vehNATOMRLSMags = "32Rnd_155mm_Mo_shells";
+//Combined Arrays
+vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "B_Truck_01_fuel_F", "B_Truck_01_medical_F", vehNATORepairTruck,"B_APC_Tracked_01_CRV_F"];
+vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
+
+//Militia Vehicles
+if ((gameMode != 4) and (!hasFFAA)) then
+	{
+	vehFIAArmedCar = "B_LSV_01_armed_F";
+	vehFIATruck = "B_Truck_01_transport_F";
+	vehFIACar = "B_LSV_01_unarmed_F";
+	};
+
+//Police Vehicles
+vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
+
+////////////////////////////////////
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
-//Assembled
+//Assembled Statics
 NATOMG = "B_HMG_01_high_F";
 staticATOccupants = "B_static_AT_F";
 staticAAOccupants = "B_static_AA_F";
@@ -189,12 +191,15 @@ MGStaticNATOB = "B_HMG_01_high_weapon_F";
 ATStaticNATOB = "B_AT_01_weapon_F";
 AAStaticNATOB = "B_AA_01_weapon_F";
 MortStaticNATOB = "B_Mortar_01_weapon_F";
+//Short Support
 supportStaticNATOB = "B_HMG_01_support_F";
+//Tall Support
 supportStaticNATOB2 = "B_HMG_01_support_high_F";
+//Mortar Support
 supportStaticNATOB3 = "B_Mortar_01_support_F";
 
 ////////////////////////////////////
 //             ITEMS             ///
 ////////////////////////////////////
-weaponsNato append ["launch_NLAW_F","srifle_GM6_F","srifle_LRR_F","srifle_EBR_F","arifle_MX_GL_F","arifle_MX_F","arifle_MX_SW_F","arifle_MXC_F","arifle_MXM_F","arifle_SPAR_02_snd_F","arifle_SPAR_03_snd_F","MMG_02_sand_F"];//possible weapons that spawn in NATO ammoboxes
-ammunitionNATO append ["30Rnd_65x39_Caseless_mag","30Rnd_65x39_caseless_mag_Tracer","100Rnd_65x39_Caseless_mag","100Rnd_65x39_caseless_mag_Tracer","20Rnd_762x51_Mag","7Rnd_408_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_tracer_green","11Rnd_45ACP_Mag","1Rnd_HE_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","1Rnd_Smoke_Grenade_shell","3Rnd_HE_Grenade_shell","HandGrenade","20Rnd_762x51_Mag","10Rnd_338_Mag","130Rnd_338_Mag"];//possible ammo that spawn in NATO ammoboxes
+weaponsNato append ["launch_NLAW_F","srifle_GM6_F","srifle_LRR_F","srifle_EBR_F","arifle_MX_GL_F","arifle_MX_F","arifle_MX_SW_F","arifle_MXC_F","arifle_MXM_F","arifle_SPAR_02_snd_F","arifle_SPAR_03_snd_F","MMG_02_sand_F"];
+ammunitionNATO append ["30Rnd_65x39_Caseless_mag","30Rnd_65x39_caseless_mag_Tracer","100Rnd_65x39_Caseless_mag","100Rnd_65x39_caseless_mag_Tracer","20Rnd_762x51_Mag","7Rnd_408_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_tracer_green","11Rnd_45ACP_Mag","1Rnd_HE_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","1Rnd_Smoke_Grenade_shell","3Rnd_HE_Grenade_shell","HandGrenade","20Rnd_762x51_Mag","10Rnd_338_Mag","130Rnd_338_Mag"];

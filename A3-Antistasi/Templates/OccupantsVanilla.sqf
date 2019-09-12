@@ -39,7 +39,7 @@ NATOPlayerLoadouts = [
 	["vanilla_blufor_marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
 	["vanilla_blufor_AT"] call A3A_fnc_getLoadout,
-	//Rifleman
+	//AT2
 	["vanilla_blufor_rifleman"] call A3A_fnc_getLoadout
 ];
 
@@ -72,6 +72,60 @@ policeOfficer = "B_GEN_Commander_F";
 policeGrunt = "B_GEN_Soldier_F";
 
 ////////////////////////////////////
+//            GROUPS             ///
+////////////////////////////////////
+//Military Groups
+//Teams
+groupsNATOSentry = ["B_T_soldier_GL_F",NATOGrunt];
+groupsNATOSniper = ["B_T_sniper_F","B_T_spotter_F"];
+groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper,["B_T_recon_M_F","B_T_recon_F"]];
+//Fireteams
+groupsNATOAA = ["B_T_soldier_TL_F","B_T_soldier_AA_F","B_T_soldier_AA_F","B_T_soldier_AAA_F"];
+groupsNATOAT = ["B_T_soldier_TL_F","B_T_soldier_AT_F","B_T_soldier_AT_F","B_T_soldier_AAT_F"];
+groupsNATOmid = [["B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_GL_F","B_T_soldier_LAT_F"],groupsNATOAA,groupsNATOAT];
+//Squads
+NATOSquad = ["B_T_soldier_SL_F",NATOGrunt,"B_T_soldier_LAT_F",NATOMarksman,"B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_medic_F"];
+NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F",NATOBodyG,"B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F","B_CTRG_Soldier_Medic_tna_F"];
+groupsNATOSquad =
+	[
+	NATOSquad,
+	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_soldier_AT_F","B_T_soldier_AAT_F","B_T_soldier_A_F","B_T_medic_F"],
+	["B_T_soldier_SL_F","B_T_soldier_LAT_F","B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_Support_Mort_F","B_support_AMort_F""B_T_medic_F",],
+	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_soldier_AA_F","B_T_soldier_AAA_F","B_T_soldier_A_F","B_T_medic_F"],
+	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_engineer_F","B_T_engineer_F","B_T_soldier_A_F","B_T_medic_F"]
+	];
+
+//Militia Groups
+if ((gameMode != 4) and (!hasFFAA)) then
+	{
+	//Teams
+	groupsFIASmall =
+		[
+		["B_G_Soldier_GL_F","B_G_Soldier_F"],
+		["B_G_Soldier_M_F","B_G_Soldier_F"],
+		["B_G_Sharpshooter_F","B_G_Soldier_M_F"]
+		];
+	//Fireteams
+	groupsFIAMid =
+		[
+		["B_G_Soldier_SL_F","B_G_Sharpshooter_F","B_G_Soldier_AR_F","B_G_Soldier_A_F"],
+		["B_G_Soldier_TL_F","B_G_Soldier_AR_F","B_G_Soldier_GL_F","B_G_Soldier_LAT_F"],
+		["B_G_Soldier_TL_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F"]
+		];
+	//Squads
+	FIASquad = ["B_G_soldier_SL_F","B_G_soldier_F","B_G_soldier_LAT_F","B_G_Soldier_M_F","B_G_soldier_TL_F","B_G_soldier_AR_F","B_G_Soldier_A_F","B_G_medic_F"];
+	groupsFIASquad =
+		[
+		FIASquad,
+		["B_G_soldier_SL_F","B_G_soldier_LAT_F","B_G_Soldier_M_F","B_G_soldier_TL_F","B_G_Soldier_A_F","B_support_MG_F","B_support_AMG_F","B_G_medic_F"];
+		];
+	};
+
+//Police Groups
+//Teams
+groupsNATOGen = [policeOfficer,policeGrunt];
+
+////////////////////////////////////
 //           VEHICLES            ///
 ////////////////////////////////////
 //Military Vehicles
@@ -85,7 +139,7 @@ vehNATOAmmoTruck = "B_T_Truck_01_ammo_F";
 vehNATORepairTruck = "B_T_Truck_01_repair_F";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
-vehNATOAPC = ["B_T_APC_Wheeled_01_cannon_F","B_T_APC_Tracked_01_rcws_F"];//"B_T_APC_Tracked_01_CRV_F" has no cargo seats
+vehNATOAPC = ["B_T_APC_Wheeled_01_cannon_F","B_T_APC_Tracked_01_rcws_F"];
 vehNATOTank = "B_T_MBT_01_cannon_F";
 vehNATOAA = "B_T_APC_Tracked_01_AA_F";
 vehNATOAttack = vehNATOAPC + [vehNATOTank];
@@ -123,63 +177,9 @@ if ((gameMode != 4) and (!hasFFAA)) then
 vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
 
 ////////////////////////////////////
-//            GROUPS             ///
-////////////////////////////////////
-//Military Groups
-//Teams
-groupsNATOSentry = ["B_T_soldier_GL_F",NATOGrunt];
-groupsNATOSniper = ["B_T_sniper_F","B_T_spotter_F"];
-groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper,["B_T_recon_M_F","B_T_recon_F"]];
-//Fireteams
-groupsNATOAA = ["B_T_soldier_TL_F","B_T_soldier_AA_F","B_T_soldier_AA_F","B_T_soldier_AAA_F"];
-groupsNATOAT = ["B_T_soldier_TL_F","B_T_soldier_AT_F","B_T_soldier_AT_F","B_T_soldier_AAT_F"];
-groupsNATOmid = [["B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_GL_F","B_T_soldier_LAT_F"],groupsNATOAA,groupsNATOAT];//["B_T_InfTeam","B_T_InfTeam_AA","B_T_InfTeam_AT"];///
-//Squads
-NATOSquad = ["B_T_soldier_SL_F",NATOGrunt,"B_T_soldier_LAT_F",NATOMarksman,"B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_medic_F"];//"B_T_InfSquad";//
-NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F","B_CTRG_Soldier_Medic_tna_F",NATOBodyG,"B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F"];
-groupsNATOSquad =
-	[
-	NATOSquad,
-	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_soldier_AT_F","B_T_soldier_AAT_F","B_T_soldier_A_F","B_T_medic_F"],
-	["B_T_soldier_SL_F","B_T_soldier_LAT_F","B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_medic_F","B_T_Support_Mort_F","B_support_AMort_F"],
-	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_soldier_AA_F","B_T_soldier_AAA_F","B_T_soldier_A_F","B_T_medic_F"],
-	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_engineer_F","B_T_engineer_F","B_T_soldier_A_F","B_T_medic_F"]
-	];
-
-//Militia Groups
-if ((gameMode != 4) and (!hasFFAA)) then
-	{
-	//Teams
-	groupsFIASmall =
-		[
-		["B_G_Soldier_GL_F","B_G_Soldier_F"],
-		["B_G_Soldier_M_F","B_G_Soldier_F"],
-		["B_G_Sharpshooter_F","B_G_Soldier_M_F"]
-		];
-	//Fireteams
-	groupsFIAMid =
-		[
-		["B_G_Soldier_SL_F","B_G_Sharpshooter_F","B_G_Soldier_AR_F","B_G_Soldier_A_F"],
-		["B_G_Soldier_TL_F","B_G_Soldier_AR_F","B_G_Soldier_GL_F","B_G_Soldier_LAT_F"],
-		["B_G_Soldier_TL_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F"]
-		];
-	//Squads
-	FIASquad = ["B_G_soldier_SL_F","B_G_soldier_F","B_G_soldier_LAT_F","B_G_Soldier_M_F","B_G_soldier_TL_F","B_G_soldier_AR_F","B_G_Soldier_A_F","B_G_medic_F"];//"IRG_InfSquad";///
-	groupsFIASquad =
-		[
-		FIASquad,
-		["B_G_soldier_SL_F","B_G_soldier_LAT_F","B_G_Soldier_M_F","B_G_soldier_TL_F","B_G_Soldier_A_F","B_G_medic_F","B_support_MG_F","B_support_AMG_F"];
-		];
-	};
-
-//Police Groups
-//Teams
-groupsNATOGen = [policeOfficer,policeGrunt];
-
-////////////////////////////////////
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
-//Assembled
+//Assembled Statics
 NATOMG = "B_HMG_01_high_F";
 staticATOccupants = "B_T_static_AT_F";
 staticAAOccupants = "B_static_AA_F";
@@ -190,12 +190,15 @@ MGStaticNATOB = "B_HMG_01_Weapon_grn_F";
 ATStaticNATOB = "B_AT_01_weapon_F";
 AAStaticNATOB = "B_AA_01_weapon_F";
 MortStaticNATOB = "B_Mortar_01_weapon_F";
+//Short Support
 supportStaticNATOB = "B_HMG_01_support_grn_F";
+//Tall Support
 supportStaticNATOB2 = "B_HMG_01_support_high_F";
+//Mortar Support
 supportStaticNATOB3 = "B_Mortar_01_support_grn_F";
 
 ////////////////////////////////////
 //             ITEMS             ///
 ////////////////////////////////////
-weaponsNato append ["arifle_MX_F","arifle_MX_GL_F","arifle_MX_SW_F","srifle_EBR_F","srifle_LRR_F","srifle_DMR_03_F","srifle_DMR_02_F","MMG_02_sand_F","arifle_MXM_F","SMG_01_F","arifle_AK12_F","arifle_AK12_GL_F"];//possible weapons that spawn in NATO ammoboxes
-ammunitionNATO append ["30Rnd_65x39_Caseless_mag","30Rnd_65x39_caseless_mag_Tracer","100Rnd_65x39_Caseless_mag","100Rnd_65x39_caseless_mag_Tracer","20Rnd_762x51_Mag","7Rnd_408_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_tracer_green","11Rnd_45ACP_Mag","1Rnd_HE_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","1Rnd_Smoke_Grenade_shell","3Rnd_HE_Grenade_shell","HandGrenade","20Rnd_762x51_Mag","10Rnd_338_Mag","130Rnd_338_Mag"];//possible ammo that spawn in NATO ammoboxes
+weaponsNato append ["arifle_MX_F","arifle_MX_GL_F","arifle_MX_SW_F","srifle_EBR_F","srifle_LRR_F","srifle_DMR_03_F","srifle_DMR_02_F","MMG_02_sand_F","arifle_MXM_F","SMG_01_F","arifle_AK12_F","arifle_AK12_GL_F"];
+ammunitionNATO append ["30Rnd_65x39_Caseless_mag","30Rnd_65x39_caseless_mag_Tracer","100Rnd_65x39_Caseless_mag","100Rnd_65x39_caseless_mag_Tracer","20Rnd_762x51_Mag","7Rnd_408_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_tracer_green","11Rnd_45ACP_Mag","1Rnd_HE_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","1Rnd_Smoke_Grenade_shell","3Rnd_HE_Grenade_shell","HandGrenade","20Rnd_762x51_Mag","10Rnd_338_Mag","130Rnd_338_Mag"];

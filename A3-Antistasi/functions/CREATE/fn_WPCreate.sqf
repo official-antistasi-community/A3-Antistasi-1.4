@@ -3,8 +3,21 @@
 
 params ["_mrkOrigin", "_mrkDestination", "_groupX"];
 
-private _posOrigin = [_mrkOrigin, getMarkerPos _mrkOrigin] select (_mrkOrigin isEqualType "");
-private _posDestination = [_mrkDestination, getMarkerPos _mrkDestination] select (_mrkDestination isEqualType "");
+private _posOrigin = [];
+private _posDestination = [];
+
+if (_mrkOrigin isEqualType "") then {
+	_posOrigin = getMarkerPos _mrkOrigin;
+} else {
+	_posOrigin = _mrkOrigin;
+};
+
+if (_mrkDestination isEqualType "") then {
+	_posDestination = getMarkerPos _mrkDestination;
+} else {
+	_posDestination = _mrkDestination;
+};
+
 private _finalArray = [];
 
 if (worldName == "Tanoa") then {

@@ -131,6 +131,16 @@ class A3A
 		class vehicleMarkers {};
 	};
 
+	class Convoy
+	{
+		class createAIAction {file="Convoy\createAIAction.sqf";};
+		class createConvoy {file="Convoy\createConvoy.sqf";};
+		class convoyMovement {file="Convoy\convoyMovement.sqf";};
+		class findAirportForAirstrike {file="Convoy\findAirportForAirstrike.sqf";};
+	
+		class SelectAndCreateVehicle {file="Convoy\selectAndCreateVehicle.sqf";};
+	}
+
 	class CREATE
 	{
 		class AAFroadPatrol {};
@@ -269,6 +279,22 @@ class A3A
 		class theBossSteal {};
 		class tierCheck {};
 	};
+
+	class Pathfinding
+	{
+		//Public API - Call these from anywhere
+		class loadNavGrid {file="Convoy\A-star-pathfinding\loadNavGrid.sqf";};
+		class findPath {file="Convoy\A-star-pathfinding\startPathfinding.sqf";};
+		
+		//Private API - Do NOT call these elsewhere
+		class getMainMarkers {file="Convoy\A-star-pathfinding\getMainMarkers.sqf";};
+		class getClosestMainMarker {file="Convoy\A-star-pathfinding\getClosestMainMarker.sqf";};
+		class getNavPos {file="Convoy\A-star-pathfinding\getNavPos.sqf";};
+		class calculateH {file="Convoy\A-star-pathfinding\calculateH.sqf";};
+		class setNavOnMarker {file="Convoy\A-star-pathfinding\setNavOnMarker.sqf";};
+		class getNavConnections {file="Convoy\A-star-pathfinding\getNavConnections.sqf";};
+		class findNearestNavPoint {file="Convoy\A-star-pathfinding\findNearestNavPoint.sqf";};
+	}
 
 	class REINF
 	{

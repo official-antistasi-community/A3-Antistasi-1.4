@@ -12,50 +12,50 @@ _land = if (_posOrigin distance _posDestination > distanceForLandAttack) then {f
 _typeGroup = if (_sideX == Occupants) then {if (_numberX == 4) then {selectRandom groupsNATOmid} else {selectRandom groupsNATOSquad}} else {if (_numberX == 4) then {selectRandom groupsCSATmid} else {selectRandom groupsCSATSquad}};
 _typeVehX = "";
 if (_land) then
-	{
+{
 	if (_sideX == Occupants) then {_typeVehX = selectRandom vehNATOTrucks} else {_typeVehX = selectRandom vehCSATTrucks};
-	}
+}
 else
-	{
+{
 	_vehPool = if (_sideX == Occupants) then {vehNATOTransportHelis + vehNATOTransportPlanes} else {vehCSATTransportHelis + vehNATOTransportPlanes};
 	if ((_numberX > 4) and (count _vehPool > 1) and !hasIFA) then {_vehPool = _vehPool - [vehNATOPatrolHeli,vehCSATPatrolHeli]};
 	//_vehPool = _vehPool select {(_x isKindOf "Helicopter") and (_x in vehFastRope)};
 	_typeVehX = selectRandom _vehPool;
-	};
+};
 
 _pos = [];
 _veh = objNull;
 _groupX = grpNull;
 
 if (_land) then
-	{
+{
 	_indexX = airportsX find _mrkOrigin;
 	_spawnPoint = spawnPoints select _indexX;
 	_pos = getMarkerPos _spawnPoint;
 	_timeOut = 0;
 	_pos = _pos findEmptyPosition [0,100,_typeVehX];
 	while {_timeOut < 60} do
-		{
+	{
 		if (count _pos > 0) exitWith {};
 		_timeOut = _timeOut + 1;
 		_pos = _pos findEmptyPosition [0,100,_typeVehX];
 		sleep 1;
-		};
+	};
 	if (count _pos == 0) then {_pos = getMarkerPos _spawnPoint};
 	_veh = _typeVehX createVehicle _pos;
 	_veh setDir (markerDir _spawnPoint);
 	_groupX = [_pos,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 	_groupX addVehicle _veh;
 	{
-	if (_x == leader _x) then {_x assignAsDriver _veh;_x moveInDriver _veh} else {_x assignAsCargo _veh;_x moveInCargo _veh};
+		if (_x == leader _x) then {_x assignAsDriver _veh;_x moveInDriver _veh} else {_x assignAsCargo _veh;_x moveInCargo _veh};
 
-	if (vehicle _x == _x) then
+		if (vehicle _x == _x) then
 		{
-		deleteVehicle _x;
+			deleteVehicle _x;
 		}
-	else
+		else
 		{
-		[_x] call A3A_fnc_NATOinit;
+			[_x] call A3A_fnc_NATOinit;
 		};
 	} forEach units _groupX;
 	[_veh] call A3A_fnc_AIVEHinit;
@@ -69,18 +69,18 @@ if (_land) then
 	_Vwp0 setWaypointStatements ["true","nul = [(thisList select {alive _x}),side this,(group this) getVariable [""reinfMarker"",""""],0] remoteExec [""A3A_fnc_garrisonUpdate"",2];[group this] spawn A3A_fnc_groupDespawner; reinfPatrols = reinfPatrols - 1; publicVariable ""reinfPatrols"";"];
 	}
 else
-	{
+{
 	_pos = _posOrigin;
 	_ang = 0;
 	_size = [_mrkOrigin] call A3A_fnc_sizeMarker;
 	_buildings = nearestObjects [_posOrigin, ["Land_LandMark_F","Land_runway_edgelight"], _size / 2];
 	if (count _buildings > 1) then
-		{
+	{
 		_pos1 = getPos (_buildings select 0);
 		_pos2 = getPos (_buildings select 1);
 		_ang = [_pos1, _pos2] call BIS_fnc_DirTo;
 		_pos = [_pos1, 5,_ang] call BIS_fnc_relPos;
-		};
+	};
 	if (count _pos == 0) then {_pos = _posOrigin};
 
 	_vehicle=[_pos, _ang + 90,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
@@ -88,27 +88,27 @@ else
 	_vehCrew = _vehicle select 1;
 	_groupVeh = _vehicle select 2;
 	{
-	[_x] call A3A_fnc_NATOinit;
-	_x addEventHandler ["Killed",{deleteVehicle (group (_this select 0) getVariable ["myPad",objNull])}];
+		[_x] call A3A_fnc_NATOinit;
+		_x addEventHandler ["Killed",{deleteVehicle (group (_this select 0) getVariable ["myPad",objNull])}];
 	} forEach units _groupVeh;
 	[_veh] call A3A_fnc_AIVEHinit;
 
 	_groupX = [_posOrigin,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
 	{
-	_x assignAsCargo _veh;
-	_x moveInCargo _veh;
-	if (vehicle _x == _x) then
+		_x assignAsCargo _veh;
+		_x moveInCargo _veh;
+		if (vehicle _x == _x) then
 		{
-		deleteVehicle _x;
+			deleteVehicle _x;
 		}
-	else
+		else
 		{
-		[_x] call A3A_fnc_NATOinit;
+			[_x] call A3A_fnc_NATOinit;
 		};
 	} forEach units _groupX;
 	_landPos = if (_typeVehX isKindOf "Helicopter") then {[_posDestination, 0, 300, 10, 0, 0.20, 0,[],[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos} else {[0,0,0]};
 	if !(_landPos isEqualTo [0,0,0]) then
-		{
+	{
 		_landPos set [2, 0];
 		_pad = createVehicle ["Land_HelipadEmpty_F", _landpos, [], 0, "NONE"];
 		_groupVeh setVariable ["myPad",_pad];
@@ -127,19 +127,19 @@ else
 		_wp2 setWaypointType "MOVE";
 		_wp2 setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
 		[_groupVeh,1] setWaypointBehaviour "AWARE";
-		}
+	}
 	else
-		{
+	{
 		if (_typeVehX in vehFastRope) then
-			{
+		{
 			[_veh,_groupX,_posDestination,_posOrigin,_groupVeh,true] spawn A3A_fnc_fastrope;
-			}
+		}
 		else
-			{
+		{
 			[_veh,_groupX,_posDestination,_mrkOrigin,true] spawn A3A_fnc_airdrop;
-			};
 		};
 	};
+};
 
 reinfPatrols = reinfPatrols + 1; publicVariable "reinfPatrols";
 _groupX setVariable ["reinfMarker",_mrkDestination];

@@ -71,6 +71,7 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 _nameDest = [_destinationX] call A3A_fnc_localizar;
 _nameOrigin = [_base] call A3A_fnc_localizar;
 [_base,30] call A3A_fnc_addTimeForIdle;
+
 _textX = "";
 _taskState = "CREATED";
 _taskTitle = "";
@@ -131,18 +132,18 @@ sleep (_timeLimit * 60);
 _posOrig = [];
 _dir = 0;
 if (_base in airportsX) then
-	{
+{
 	_indexX = airportsX find _base;
 	_spawnPoint = spawnPoints select _indexX;
 	_posOrig = getMarkerPos _spawnPoint;
 	_dir = markerDir _spawnPoint;
-	}
+}
 else
-	{
+{
 	_spawnPoint = [getMarkerPos _base] call A3A_fnc_findNearestGoodRoad;
 	_posOrig = position _spawnPoint;
 	_dir = getDir _spawnPoint;
-	};
+};
 _groupX = createGroup _sideX;
 _groups pushBack _groupX;
 _typeVehX = if (_sideX == Occupants) then {if (!_isFIA) then {selectRandom vehNATOLightArmed} else {vehPoliceCar}} else {selectRandom vehCSATLightArmed};
@@ -250,6 +251,8 @@ for "_i" from 1 to _countX do
 		};
 	};
 
+
+//Objective creation starts here ----------------------------------------------
 sleep 2;
 
 _timeOut = 0;

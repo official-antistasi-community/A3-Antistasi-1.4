@@ -9,9 +9,12 @@ if (_markerX in citiesX) then {_airportsAAF = _airportsAAF select {sidesX getVar
 _airportsX = [];
 _base = "";
 {
-_base = _x;
-_posbase = getMarkerPos _base;
-if ((_pos distance _posbase < distanceForLandAttack) and (({_x == _markerX} count (killZones getVariable [_base,[]])) < 3)) then {_airportsX pushBack _base}
+  _base = _x;
+  _posbase = getMarkerPos _base;
+  if ((_pos distance _posbase < distanceForLandAttack) and (({_x == _markerX} count (killZones getVariable [_base,[]])) < 3)) then
+  {
+    _airportsX pushBack _base
+  };
 } forEach _airportsAAF;
 if (count _airportsX > 0) then {_base = [_airportsX,_pos] call BIS_fnc_nearestPosition} else {_base = ""};
 _base

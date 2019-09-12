@@ -2373,7 +2373,7 @@ class garage_check 				{
 			y = 0.251941 * safezoneH + safezoneY;
 			w = 0.06 * safezoneW;//0.175015
 			h = 0.05 * safezoneH;
-			action = "closeDialog 0;_nul = createDialog ""garage_sell"";";
+			action = "closeDialog 0;_nul = createDialog ""radio_comm"";";
 		};
 		class HQ_button_Gsquad: RscButton
 		{

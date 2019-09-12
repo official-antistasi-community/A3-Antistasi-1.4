@@ -6,7 +6,7 @@ _mrkD = format ["Dum%1",_markerX];
 if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 	{
 	_textX = if (count (garrison getVariable [_markerX,[]]) > 0) then {format [": %1", count (garrison getVariable [_markerX,[]])]} else {""};
-	_mrkD setMarkerColor colourTeamPlayer;
+	_mrkD setMarkerColor colorTeamPlayer;
 	if (_markerX in airportsX) then
 		{
 		_textX = format ["%2 Airbase%1",_textX,nameTeamPlayer];

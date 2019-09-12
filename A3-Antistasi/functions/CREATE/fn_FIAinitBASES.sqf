@@ -1,9 +1,10 @@
 private ["_unit","_skill"];
-
 _unit = _this select 0;
-if (isNil "_unit") exitWith {};
-if (isNull _unit) exitWith {
-	diag_log format ["%1: [Antistasi] | ERROR | FIAinitBases.sqf | Error with Nato Parameter:%2",servertime,_this];
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2.",servertime,_unit];
+};
+if ((isNil "_unit") || (isNull _unit)) exitWith {
+	diag_log format ["%1: [Antistasi] | ERROR | FIAinitBases.sqf | Problem with NATO Param: %2",servertime,_this];
 	};
 _markerX = "";
 if (count _this > 1) then
@@ -31,117 +32,137 @@ _skill = 0.1 + (skillFIA * 0.05 * skillMult);
 if ((_markerX == "Synd_HQ") and (isMultiplayer)) then {_skill = 1};
 _unit setSkill _skill;
 if (!activeGREF) then {if (not((uniform _unit) in uniformsSDK)) then {[_unit] call A3A_fnc_reDress}};
-if (_typeX in SDKSniper) then
-	{
-	if (count unlockedSN > 0) then
-		{
-		[_unit, selectRandom unlockedSN, 8, 0] call BIS_fnc_addWeapon;
-		if (count unlockedOptics > 0) then
-			{
-			_compatibleX = [primaryWeapon _unit] call BIS_fnc_compatibleItems;
-			_potentials = unlockedOptics select {_x in _compatibleX};
-			if (count _potentials > 0) then {_unit addPrimaryWeaponItem (_potentials select 0)};
-			};
-		}
-	else
-		{
-		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		};
-	}
-else
-	{
-	if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]};
-	if (random 40 < skillFIA) then
+
+if (random 40 < skillFIA) then
 		{
 		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom helmets)};
 		};
-	if (_typeX in SDKMil) then
+
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is of type:%3.",servertime,_unit,_typeX];
+};
+
+_unitIsSniper = false; //This is used for accuracy calulations later.
+switch (true) do {
+	case (_typeX in SDKSniper): {
+		_unitIsSniper = true;
+		if (count unlockedSN > 0) then
 		{
-		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		if ((loadAbs _unit < 340) and (_typeX in SDKMil)) then
+			[_unit, selectRandom unlockedSN, 8, 0] call BIS_fnc_addWeapon;
+			if (count unlockedOptics > 0) then
 			{
-			if ((random 20 < skillFIA) and (count unlockedAA > 0)) then
-				{
-				_unit addbackpack (unlockedBackpacks select 0);
-				[_unit, selectRandom unlockedAA, 2, 0] call BIS_fnc_addWeapon;
-				//removeBackpack _unit;
-				};
+				_compatibleX = [primaryWeapon _unit] call BIS_fnc_compatibleItems;
+				_potentials = unlockedOptics select {_x in _compatibleX};
+				if (count _potentials > 0) then {_unit addPrimaryWeaponItem (_potentials select 0)};
 			};
 		}
-	else
+		else
 		{
-		if (_typeX in SDKMG) then
+			[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		};
+		if (debug) then {
+			diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is SDKSniper.",servertime,_unit];
+		};
+	};
+
+	case (_typeX in SDKMil): {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		if ((loadAbs _unit < 340) and (random 20 < skillFIA) and (count unlockedAA > 0)) then
 			{
-			if (count unlockedMG > 0) then
-				{
+				_unit addbackpack (unlockedBackpacks select 0);
+				[_unit, selectRandom unlockedAA, 2, 0] call BIS_fnc_addWeapon;
+			};
+		if (debug) then {
+			diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is SDKMil.",servertime,_unit];
+		};
+	};
+
+	case (_typeX in SDKMG): {
+		if (count unlockedMG > 0) then
+			{
 				[_unit,unlockedMG] call A3A_fnc_randomRifle;
-				}
-			else
-				{
+			}
+		else
+			{
 				[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+			};
+		if (debug) then {
+			diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is SDKMG.",servertime,_unit];
+		};
+	};
+
+	case (_typeX in SDKGL): {
+		if (count unlockedGL > 0) then
+			{
+				[_unit,unlockedGL] call A3A_fnc_randomRifle;
+			}
+		else
+			{
+				[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+			};
+		if (debug) then {
+			diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is SDKGL.",servertime,_unit];
+		};
+	};
+
+	case (_typeX in SDKMEDIC): {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		_unit setUnitTrait ["medic",true];
+		if ({_x == "FirstAidKit"} count (items _unit) < 10) then
+			{
+				for "_i" from 1 to 10 do {_unit addItemToBackpack "FirstAidKit"};
+			};
+		if (debug) then {
+			diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is SDKMEDIC.",servertime,_unit];
+		};
+	};
+
+	case (_typeX in SDKATman): {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		if !(unlockedAT isEqualTo []) then
+			{
+				_rlauncher = selectRandom unlockedAT;
+			if (_rlauncher != secondaryWeapon _unit) then
+				{
+					private _magazines = getArray (configFile / "CfgWeapons" / (secondaryWeapon _unit) / "magazines");
+					{_unit removeMagazines _x} forEach _magazines;
+					_unit removeWeaponGlobal (secondaryWeapon _unit);
+					[_unit, _rlauncher, 4, 0] call BIS_fnc_addWeapon;
 				};
 			}
 		else
 			{
-			if (_typeX in SDKGL) then
+			if (hasIFA) then
 				{
-				if (count unlockedGL > 0) then
-					{
-					[_unit,unlockedGL] call A3A_fnc_randomRifle;
-					}
-				else
-					{
-					[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-					};
-				}
-			else
-				{
-				[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-				if (_typeX in SDKMedic) then
-					{
-					_unit setUnitTrait ["medic",true];
-					if ({_x == "FirstAidKit"} count (items _unit) < 10) then
-						{
-						for "_i" from 1 to 10 do {_unit addItemToBackpack "FirstAidKit"};
-						};
-					}
-				else
-					{
-					if (_typeX in SDKATman) then
-						{
-						if !(unlockedAT isEqualTo []) then
-							{
-							_rlauncher = selectRandom unlockedAT;
-							if (_rlauncher != secondaryWeapon _unit) then
-								{
-								_magazines = getArray (configFile / "CfgWeapons" / (secondaryWeapon _unit) / "magazines");
-								{_unit removeMagazines _x} forEach _magazines;
-								_unit removeWeaponGlobal (secondaryWeapon _unit);
-								[_unit, _rlauncher, 4, 0] call BIS_fnc_addWeapon;
-								};
-							}
-						else
-							{
-							if (hasIFA) then
-								{
-								[_unit, "LIB_PTRD", 10, 0] call BIS_fnc_addWeapon;
-								};
-							};
-						}
-					else
-						{
-						if (_typeX in squadLeaders) then
-							{
-							_unit setskill ["courage",_skill + 0.2];
-							_unit setskill ["commanding",_skill + 0.2];
-							};
-						};
-					};
+					[_unit, "LIB_PTRD", 10, 0] call BIS_fnc_addWeapon;
 				};
 			};
+		if (debug) then {
+			diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is SDKATman.",servertime,_unit];
 		};
 	};
 
+	case (_typeX in squadLeaders): {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		_unit setskill ["courage",_skill + 0.2];
+		_unit setskill ["commanding",_skill + 0.2];
+		if (debug) then {
+			diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is SquadLeader.",servertime,_unit];
+		};
+	};
+
+	default {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | Could not identify type of _unit: %2 %3.",servertime,_unit,_typeX];
+	};
+
+};
+
+if (_unit skill "aimingAccuracy" > 0.35 && !(_unitIsSniper)) then {_unit setSkill ["aimingAccuracy",0.35]};
+
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | Is unit Sniper? : %2.",servertime,_unitIsSniper];
+};
 
 _unit selectWeapon (primaryWeapon _unit);
 
@@ -231,18 +252,28 @@ _EHkilledIdx = _unit addEventHandler ["killed", {
 			};
 		};
 	}];
+
 _revealX = false;
 if (vehicle _unit != _unit) then
 	{
 	if (_unit == gunner (vehicle _unit)) then
 		{
-		_revealX = true;
+			_revealX = true;
+			if (debug) then {
+				diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | Unit: %2 is mounted gunner.",servertime,_unit];
+			};
 		};
 	}
 else
 	{
-	if ((secondaryWeapon _unit) in mlaunchers) then {_revealX = true};
+	if ((secondaryWeapon _unit) in mlaunchers) then {
+			_revealX = true;
+			if (debug) then {
+				diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | Unit: %2 has launcher: %3.",servertime,_unit, (secondaryWeapon _unit)];
+			};
+		};
 	};
+
 if (_revealX) then
 	{
 	{

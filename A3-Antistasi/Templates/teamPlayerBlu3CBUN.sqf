@@ -75,8 +75,11 @@ MGStaticSDKB = "RHS_DShkM_Gun_Bag";
 ATStaticSDKB = "RHS_SPG9_Gun_Bag";
 AAStaticSDKB = "I_AA_01_weapon_F";
 MortStaticSDKB = "RHS_Podnos_Gun_Bag";
+//Short Support
 supportStaticSDKB = "RHS_SPG9_Tripod_Bag";
+//Tall Support
 supportStaticsSDKB2 = "RHS_DShkM_TripodHigh_Bag";
+//Mortar Support
 supportStaticsSDKB3 = "RHS_Podnos_Bipod_Bag";
 
 ////////////////////////////////////

@@ -75,8 +75,11 @@ MGStaticSDKB = "not_supported";
 ATStaticSDKB = "not_supported";
 AAStaticSDKB = "not_supported";
 MortStaticSDKB = "not_supported";
+//Short Support
 supportStaticSDKB = "not_supported";
+//Tall Support
 supportStaticsSDKB2 = "not_supported";
+//Mortar Support
 supportStaticsSDKB3 = "not_supported";
 
 ////////////////////////////////////

@@ -21,16 +21,16 @@ _fnc_initGarrisons = {
 
 			if (_x in _mrkCSAT) then {
 				_mrkText = format [_mrkText, nameInvaders];
-				_groupsRandom = [groupsCSATSquad, groupsFIASquad] select ((_target in outposts) && (gameMode == 4));
-				if(_x in airportsX) then
-				{
+				_groupsRandom = [groupsCSATSquad, groupsFIASquad] select ((_target == outposts) && (gameMode == 4));
+
+				if (_x == airportsX) then {
 					_mrkType = flagCSATmrk;
 				};
 			} else {
 				_mrkText = format [_mrkText, nameOccupants];
 				_groupsRandom = groupsNATOSquad;
-				if(_x in airportsX) then
-				{
+
+				if (_x == airportsX) then {
 					_mrkType = flagNATOmrk;
 				};
 			};

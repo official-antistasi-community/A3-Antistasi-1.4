@@ -10,7 +10,6 @@ params["_utility","_parameters"];
 
 punishment_sentence = {
 	params["_detainee"];
-	//_detainee switchMove "HubSpectator_standu"; //They should move on their little surf board.
 	_punishmentPlatform = createVehicle ["Land_Sun_chair_green_F", [0,0,0], [], 0, "CAN_COLLIDE"];
 	_punishmentPlatform enableSimulation false;
 	_detainee setVariable ["punishment_platform",_punishmentPlatform,true];
@@ -45,10 +44,11 @@ punishment_release = {
 };
 punishment_warden = {
 	params["_detainee","_sentence"];
+	
 	_detainee setVariable ["punishment_coolDown", 2, true]; 
 	_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
 	_punishment_warden_handle = _thisScript;
-	_punishment_sentence_handle = [_detainee] spawn punishment_sentence;
+	_punishment_sentence_handle = ["sentence",[_detainee]] call A3A_fnc_punishment_utils;
 	["forgive_addAction",[_detainee]] call A3A_fnc_punishment_utils;
 	["notifyAdmin_find",[_detainee]] call A3A_fnc_punishment_utils;
 	///////////////////////// TODO: PLAYER TEAM FORGIVE SCRIPT
@@ -57,7 +57,7 @@ punishment_warden = {
 	_countX = floor _sentence;
 	while {_countX > 0} do
 	{
-		[ format["Please do not team-kill. Play with the turtles for %1 more seconds.",_countX]] remoteExec ["hintSilent", _detainee, false];
+		[ format["Please do not teamkill. Play with the turtles for %1 more seconds.",_countX]] remoteExec ["hintSilent", _detainee, false];
 		uiSleep 1;
 		_countX = _countX -1;
 	};

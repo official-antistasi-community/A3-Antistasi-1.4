@@ -76,13 +76,13 @@ if (_offenceAdded < 0) then {_offenceAdded = 0};
 if (_offenceTotal < 0) then {_offenceTotal = 0};
 if (_timeAdded < 0) then {_timeAdded = 0}; 
 if (_timeTotal < 0) then {_timeTotal = 0}; 	
-if  (_periodDelta > 60*60) then				//Hour falloff
+if  (_periodDelta > 60*60) then				//Hourly falloff
 {								
 	_offenceTotal = 0;
 	_timeTotal = 0;
 	_overhead = 0;
 };
-_overhead = _overhead + _offenceAdded * _overheadPercent;
+_overhead = _overhead + _offenceAdded * _overheadPercent; 	
 _offenceTotal = _offenceTotal + _offenceAdded;
 _offenceTotal = (_offenceTotal)*((1-_depreciationCoef*(1-(_offenceTotal)))^(_periodDelta/300));
 _grandOffence = _offenceTotal + _overhead;
@@ -93,19 +93,14 @@ _lastOffenceData = [serverTime,_overhead];
 
 
 _forcePunish = false;
-if (_victim == "sudo") then {_victim = objNull; _forcePunish = true};
+if (_victim isEqualTo "sudo") then {_victim = objNull; _forcePunish = true};
 _victimListed = !isNull _victim;
 
 _playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %4, _offenceOverhead: %5, _timeAdded: %6, _offenceAdded: %7", name player, getPlayerUID player, str _timeTotal, str _offenceTotal, str _overhead, str _timeAdded, str _offenceAdded];
 
+_exitCode = "";
 if (!_forcePunish) then
-{
-	if (_victimListed) then
-	{
-		if (!alive _victim || (_victim getVariable ["ACE_isUnconscious", false])) exitWith {"Victim is a corpse";};
-		if (_victim == _foolish) exitWith {"Victim of Suicide";};
-	};
-	_innocent = false;
+{	
 	if (vehicle _foolish != _foolish && !_forgive) then 
 	{
 		_vehicle = typeOf vehicle _foolish;
@@ -114,7 +109,7 @@ if (!_forcePunish) then
 			_artilleryScanner = getNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner");
 			if (_artilleryScanner != 0) then 
 			{
-				_innocent = true;
+				_exitCode = "Inside Artillery";
 				[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, ARTY, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
 				["TK NOTIFICATION!\nArty Team Damage."] remoteExec ["hint", _foolish, false];
 			};
@@ -123,34 +118,40 @@ if (!_forcePunish) then
 		{
 			[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, AIRCRAFT, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
 			["TK NOTIFICATION!\nCAS Team Damage."] remoteExec ["hint", _foolish, false];
-			_innocent = true;
+			_exitCode = "Inside Aircraft";
 		};
 	};
-	if (_innocent) exitWith {"Player is innocent inside a Arty or Aircraft"};
+	if (
+		if (_victimListed) then
+		{
+			if (!alive _victim || (_victim getVariable ["ACE_isUnconscious", false])) exitWith {_exitCode = "Victim is a corpse"; true;};
+			if (_victim == _foolish) exitWith {_exitCode = "Victim of Suicide"; true;};
+			false;
+		}
+	) exitWith {_exitCode};
 
 	//TODO: if( remoteControlling(_foolish) ) exitWith		//For the meantime do either one of the following: login for Zeus, use the memberList addon, disable TKPunish `_player setVariable ["punishment_coolDown", 2, true]; or change your player side to enemy faction`
 	//														//Even then: your controls will be free, and you won't die or lose inventory. If you have debug consol you can self forgive.
-
 	_adminType = ["Not","Voted","Logged"] select ([] call BIS_fnc_admin);
 	if (_adminType != "Not" || isServer ) exitWith
 	{
 		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, ADMIN, %2 | %3", servertime, _adminType, _playerStats]] remoteExec ["diag_log", 2];
 		["TK NOTIFICATION!\nYou damaged a player as admin."] remoteExec ["hint", _foolish, false];
-		"Player is Voted or Logged Admin";
+		_exitCode = "Player is Voted or Logged Admin"; "Player is Voted or Logged Admin";
 	};
 	if (_foolish == theBoss) exitWith 
 	{
 		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, COMMANDER | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
 		["TK NOTIFICATION!\nYou damaged a player as the Supreme Commander."] remoteExec ["hint", _foolish, false];
 		if (_victimListed) then {[format["%1 hurt you!",name _foolish]] remoteExec ["hint", _victim, false];};
-		"Player is  Commander";
+		_exitCode = "Player is  Commander";
 	};
 	if ([_foolish] call A3A_fnc_isMember) exitWith 
 	{
 		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, MEMBER | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
 		["TK NOTIFICATION!\nYou damaged a player as a trusted member."] remoteExec ["hint", _foolish, false];
 		if (_victimListed) then {[format["%1 hurt you!",name _foolish]] remoteExec ["hint", _victim, false];};
-		"Player is  Member";
+		_exitCode = "Player is  Member";
 	};
 
 	_pvpNearby = false;
@@ -166,13 +167,14 @@ if (!_forcePunish) then
 	{
 		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, PVP COMBAT, PVP: %2 | %3", servertime, name _pvpPerson, _playerStats]] remoteExec ["diag_log", 2];
 		["TK NOTIFICATION!\nYou damaged a player around the PVP players."] remoteExec ["hint", _foolish, false];
-		"Victim is nearby PVP players";
+		_exitCode = "Victim is nearby PVP players";
 	};
 };
+if (_exitCode != "") exitWith {_exitCode; "da!";};
 
 [format ["%1: [Antistasi] | INFO | PUNISHMENT | WARNING | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-["TK WARNING!\nWatch your fire!"] remoteExec ["hint", _foolish, false];
-if (_victimListed) then {[format["%1 hurt you!",name _foolish]] remoteExec ["hint", _victim, false];};
+["TK WARNING!\nWatch your fire!"] remoteExec ["hint", _foolish, false]; 
+if (_victimListed) then {[format["%1 hurt you!",name _foolish]] remoteExec ["hint", _victim, false];}; 
 
 _punishment_vars set [0,_timeTotal];
 _punishment_vars set [1,_offenceTotal];
@@ -183,4 +185,5 @@ if (_grandOffence < 1) exitWith {"Strike"};
 
 [format ["%1: [Antistasi] | INFO | PUNISHMENT | GUILTY | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
 
-["warden",[_foolish,_timeTotal]] call A3A_fnc_punishment_utills;
+["warden",[_foolish,_timeTotal]] call A3A_fnc_punishment_utils;
+"Found Guilty";

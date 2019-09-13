@@ -127,7 +127,7 @@ if (isMultiplayer) then
 if (!hasACE) then
 	{
 	[player] spawn A3A_fnc_initRevive;
-	tags = [] execVM "tags.sqf";
+	[] spawn A3A_fnc_tags;
 	}
 else
 	{

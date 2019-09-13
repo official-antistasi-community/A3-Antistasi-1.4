@@ -370,6 +370,7 @@ class A3A
 		class healandrepair {};
 		class initGarrisons {};
 		class initGetMissionPath {};
+		class modBlacklist {};
 		class playerMarkers {};
 		class reinitY {};
 		class resourcecheck {};

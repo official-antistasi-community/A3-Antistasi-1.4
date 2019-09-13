@@ -55,7 +55,7 @@ if (!isMultiPlayer) then
     hcArray = [];
     serverInitDone = true;
     diag_log format ["%1: [Antistasi] | INFO | Arsenal Loaded.",servertime];
-    _nul = [] execVM "modBlacklist.sqf";
+    [] spawn A3A_fnc_modBlacklist;
 
     distanceMission = if (hasIFA) then {2000} else {4000};
 

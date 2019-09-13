@@ -468,7 +468,7 @@ if (isMultiplayer) then
 waitUntil {scriptdone _introshot};
 if (_isJip) then
 	{
-	_nul = [] execVM "modBlacklist.sqf";
+	[] spawn A3A_fnc_modBlacklist;
 	player setVariable ["punish",0,true];
 	waitUntil {!isNil "posHQ"};
 	player setPos posHQ;

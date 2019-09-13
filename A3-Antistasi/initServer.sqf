@@ -65,7 +65,7 @@ if (gameMode != 1) then
 hcArray = [];
 waitUntil {(count playableUnits) > 0};
 waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
-_nul = [] execVM "modBlacklist.sqf";
+[] spawn A3A_fnc_modBlacklist;
 
 {
 private _index = _x call jn_fnc_arsenal_itemType;

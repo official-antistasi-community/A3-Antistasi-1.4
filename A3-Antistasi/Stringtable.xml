@@ -19,7 +19,7 @@
       <Key ID="STR_antistasi_dialogs_hq_frame_text">
         <Original>HQ Options: Commander Only</Original>
         <English>HQ Options: Commander Only</English>
-        <Russian>Опции Штаба: Для Командира</Russian>
+        <Russian>Опции Штаба: Только для Командира</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_close_text">
         <Original>Close</Original>
@@ -34,17 +34,17 @@
       <Key ID="STR_antistasi_dialogs_hq_button_withdraw_tooltip">
         <Original>Take 100€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</Original>
         <English>Take $100 from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</English>
-        <Russian>Перевести 100$ из денег сопротивления себе на счет. Это вредит вашей репутации как командира</Russian>
+        <Russian>Перевести 100$ из фонда сопротивления себе на счёт. Это вредит вашей репутации как командира</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garrisons_text">
         <Original>Manage Garrisons</Original>
         <English>Manage Garrisons</English>
-        <Russian>Гарнизоны</Russian>
+        <Russian>Построение Обороны</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garrisons_tooltip">
         <Original>Add or remove units to garrisons</Original>
         <English>Add or remove units to garrisons</English>
-        <Russian>Добавить или удалить гарнизон</Russian>
+        <Russian>Организация и построение Обороны</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_text">
         <Original>Move HQ to another Zone</Original>
@@ -54,17 +54,17 @@
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
         <Original>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</Original>
         <English>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</English>
-        <Russian>Мару присоединится к вашей группе. Арсенал должен быть пуст. Чтобы установить Штаб, выберите на нём меню Построить</Russian>
+        <Russian>Петрос присоединится к вашей группе. Чтобы построить Штаб, выберите на нём пункт "Построить Штаб". Арсенал должен быть пуст.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_members_list_text">
         <Original>Ingame Member List</Original>
         <English>Ingame Member List</English>
-        <Russian>Список Игроков Сервера</Russian>
+        <Russian>Список Игроков</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_members_list_tooltip">
         <Original>Displays which server members are currently playing</Original>
         <English>Displays which server members are currently playing</English>
-        <Russian>Показывает кто из Игроков Сервера сейчас в игре</Russian>
+        <Russian>Показывает, кто из Игроков сейчас на сервере</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_text">
         <Original>Rebuild Assets</Original>
@@ -79,29 +79,29 @@
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_text">
         <Original>Train FIA Troops</Original>
         <English>Train FIA Troops</English>
-        <Russian>Тренировать бойцов FIA</Russian>
+        <Russian>Тренировать Войска</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_tooltip">
         <Original>Upgrades the AI skill level</Original>
         <English>Upgrades the AI skill level</English>
-        <Russian>Увеличивает уровень бойцов</Russian>
+        <Russian>Увеличивает уровень готовности войск</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garage_text">
         <Original>Garage Access</Original>
         <English>Garage Access</English>
-        <Russian>Доступ в Гараж</Russian>
+        <Russian>Гараж Сопротивления</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garage_tooltip">
         <Original>Check Faction garage</Original>
         <English>Check Faction garage</English>
-        <Russian>Проверить Гараж FIA</Russian>
+        <Russian>Проверить Гараж Сопротивления</Russian>
       </Key>
     </Container>
     <Container name="dialog_build_menu">
       <Key ID="STR_antistasi_dialogs_build_frame_text">
         <Original>Building - Garrison Options</Original>
         <English>Building - Garrison Options</English>
-        <Russian>Построить - Гарнизоны</Russian>
+        <Russian>Построение Обороны</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_button_no_text">
         <Original>Back</Original>
@@ -116,7 +116,7 @@
       <Key ID="STR_antistasi_dialogs_build_minefield_button_tooltip">
         <Original>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</Original>
         <English>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</English>
-        <Russian>AI установят или удалят мины на выбранной позиции, используя мины из арсенала</Russian>
+        <Russian>Инженеры установят или удалят мины на выбранной позиции, используя мины из арсенала</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_text">
         <Original>Outpost or Roadblock</Original>
@@ -131,7 +131,7 @@
       <Key ID="STR_antistasi_dialogs_build_recruit_units_button_text">
         <Original>Recruit Units</Original>
         <English>Recruit Units</English>
-        <Russian>Гарнизон</Russian>
+        <Russian>Добавить в Гарнизон</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_recruit_units_button_tooltip">
         <Original>Add units to an existing garrison.</Original>
@@ -141,59 +141,59 @@
       <Key ID="STR_antistasi_dialogs_build_disband_units_button_text">
         <Original>Disband Units or Posts</Original>
         <English>Disband Units or Posts</English>
-        <Russian>Распустить Гарнизон или Пост</Russian>
+        <Russian>Удалить Гарнизон или Пост</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_disband_units_button_tooltip">
         <Original>Remove whole garrisons or posts.</Original>
         <English>Remove whole garrisons or posts.</English>
-        <Russian>Распустить весь гарнизон или пост.</Russian>
+        <Russian>Распустить весь Гарнизон или Пост.</Russian>
       </Key>
     </Container>
     <Container name="dialog_garrison_recruit">
       <Key ID="STR_antistasi_dialogs_garrison_recruit_frame_text">
         <Original>Garrison Recruitment Options</Original>
         <English>Garrison Recruitment Options</English>
-        <Russian>Гарнизон</Russian>
+        <Russian>Добавить в Гарнизон</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_rifleman_text">
         <Original>Recruit Rifleman</Original>
         <English>Recruit Rifleman</English>
-        <Russian>+1 Стрелок</Russian>
+        <Russian>Стрелок</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_autorifleman_text">
         <Original>Recruit Autorifleman</Original>
         <English>Recruit Autorifleman</English>
-        <Russian>+1 Пулемётчик</Russian>
+        <Russian>Пулемётчик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_medic_text">
         <Original>Recruit Medic</Original>
         <English>Recruit Medic</English>
-        <Russian>+1 Медик</Russian>
+        <Russian>Медик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_squad_lead_text">
         <Original>Recruit Squad Leader</Original>
         <English>Recruit Squad Leader</English>
-        <Russian>+1 Сержант</Russian>
+        <Russian>Сержант</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
         <Original>Recruit Mortar</Original>
         <English>Recruit Mortar</English>
-        <Russian>+1 Миномётчик</Russian>
+        <Russian>Миномётчик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
         <Original>Recruit Grenadier</Original>
         <English>Recruit Grenadier</English>
-        <Russian>+1 Стрелок с ГП</Russian>
+        <Russian>Стрелок с ГП</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_marksman_text">
         <Original>Recruit Marksman</Original>
         <English>Recruit Marksman</English>
-        <Russian>+1 Снайпер</Russian>
+        <Russian>Снайпер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
         <Original>Recruit AT</Original>
         <English>Recruit AT</English>
-        <Russian>+1 Гранатомётчик</Russian>
+        <Russian>Гранатомётчик</Russian>
       </Key>
     </Container>
     <Container name="dialog_build_minefield">
@@ -210,7 +210,7 @@
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_tooltip">
         <Original>Creates an APERS Minefield in the designated location</Original>
         <English>Creates an APERS Minefield in the designated location</English>
-        <Russian>Создаёт Минное Поле с противопехотными минами на выбранном месте</Russian>
+        <Russian>Создаёт Минное Поле с противопехотными минами на выбранной позиции</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_remove_text">
         <Original>Remove Minefield</Original>
@@ -220,7 +220,7 @@
       <Key ID="STR_antistasi_dialogs_minefield_button_remove_tooltip">
         <Original>Spawn an AI Engineer which will clear any mine in it's surroundings</Original>
         <English>Spawn an AI Engineer which will clear any mine in it's surroundings</English>
-        <Russian>Создаёт AI Инженера который разминирует все мины вокруг себя</Russian>
+        <Russian>Создаёт Инженера, который разминирует все мины вокруг себя</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_text">
         <Original>AT Mines</Original>
@@ -230,60 +230,59 @@
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_tooltip">
         <Original>Creates an Anti Tank minefield at designated location</Original>
         <English>Creates an Anti Tank minefield at designated location</English>
-        <Russian>Создаёт Минное Поле с противотанковыми минами на выбранном месте</Russian>
+        <Russian>Создаёт Минное Поле с противотанковыми минами на выбранной позиции</Russian>
       </Key>
     </Container>
     <Container name="dialog_unit_recruit">
       <Key ID="STR_antistasi_dialogs_unit_recruit_frame_text">
         <Original>Recruitment Options</Original>
         <English>Recruitment Options</English>
-        <Russian>Обучить Добровольца</Russian>
+        <Russian>Призвать Добровольца по специальности</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_militiaman_text">
         <Original>Recruit Militiaman</Original>
         <English>Recruit Militiaman</English>
-        <Russian>+1 Новобранец</Russian>
+        <Russian>Новобранец</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_mg_text">
         <Original>Recruit Autorifleman</Original>
         <English>Recruit Autorifleman</English>
-        <Russian>+1 Пулемётчик</Russian>
+        <Russian>Пулемётчик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_medic_text">
         <Original>Recruit Medic</Original>
         <English>Recruit Medic</English>
-        <Russian>+1 Медик</Russian>
+        <Russian>Медик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_engineer_text">
         <Original>Recruit Engineer</Original>
         <English>Recruit Engineer</English>
-        <Russian>+1 Инженер</Russian>
+        <Russian>Инженер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_explosive_text">
         <Original>Recruit Bomb Specialist</Original>
         <English>Recruit Bomb Specialist</English>
-        <Russian>+1 Подрывник</Russian>
+        <Russian>Подрывник</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_grenadier_text">
         <Original>Recruit Grenadier</Original>
         <English>Recruit Grenadier</English>
-        <Russian>+1 Стрелок с ГП</Russian>
+        <Russian>Стрелок с ГП</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_marksman_text">
         <Original>Recruit Marksman</Original>
         <English>Recruit Marksman</English>
-        <Russian>+1 Снайпер</Russian>
+        <Russian>Снайпер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_antitank_text">
         <Original>Recruit Antitank Solider</Original>
         <English>Recruit Antitank Solider</English>
-        <Russian>+1 Гранатомётчик</Russian>
+        <Russian>Гранатомётчик</Russian>
       </Key>
     </Container>
     <Container name="dialog_generic">
       <Key ID="STR_antistasi_dialogs_generic_box_text">
-        <Original />
-        <English />
+        <Original/>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_back_text">
         <Original>Back</Original>
@@ -306,12 +305,10 @@
         <Russian>Нет</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_yes_tooltip">
-        <Original />
-        <English />
+        <Original/>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_no_tooltip">
-        <Original />
-        <English />
+        <Original/>
       </Key>
     </Container>
     <Container name="credits_generic">
@@ -337,7 +334,6 @@
       </Key>
       <Key ID="STR_antistasi_credits_generic_version_text">
         <Original>2.1.2</Original>
-        <Russian />
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
@@ -359,7 +355,7 @@
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_tooltip">
         <Original>Civilian vehicles will allow you to travel in Undercover mode, while you stay close to roads and not entering bases, outposts and roadblocks.</Original>
         <English>Civilian vehicles will allow you to travel in Undercover mode, while you stay close to roads and not entering bases, outposts and roadblocks.</English>
-        <Russian>Гражданская техникв позволяет Вам передвигаться как гражданскому лицу, пока Вы движетесь по дорогам, далеко от баз, опорных пунктов и блокпостов.</Russian>
+        <Russian>Гражданская техника позволяет Вам передвигаться как гражданскому лицу, пока Вы движетесь по дорогам вдалеке от баз, опорных пунктов и блокпостов.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_military_text">
         <Original>Military Vehicle</Original>
@@ -438,7 +434,7 @@
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_text">
         <Original>Buy Civilian Vehicle</Original>
         <English>Buy Civilian Vehicle</English>
-        <Russian>Купить Гражданскую Технику</Russian>
+        <Russian>Гражданская Техника</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_offroad_text">
         <Original>Offroad</Original>
@@ -505,7 +501,7 @@
       <Key ID="STR_antistasi_mission_info_malden_blurb_text">
         <Original>The island is small but packed with enemies. Look out!</Original>
         <English>The island is small but packed with enemies. Look out!</English>
-        <Russian>Остров небльшой, но полон врагов. Будь начеку!</Russian>
+        <Russian>Остров небольшой, но полон врагов. Будь начеку!</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>

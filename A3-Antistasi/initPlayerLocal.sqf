@@ -122,7 +122,7 @@ if !(hasIFA) then {player addWeaponGlobal "itemgps"};
 player setVariable ["spawner",true,true];
 if (isMultiplayer && playerMarkersEnabled) then
 	{
-	[] execVM "playerMarkers.sqf";
+	[] spawn A3A_fnc_playerMarkers;
 	};
 if (!hasACE) then
 	{

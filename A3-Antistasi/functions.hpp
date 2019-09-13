@@ -11,7 +11,7 @@ class A3A
 		class ejectPvPPlayerIfInvalidVehicle {file="ejectPvPPlayerIfInvalidVehicle.sqf";};
 		class createPetros {file="createPetros.sqf";};
 		class punishment {file="punishment.sqf";};
-		class punishment_utills {file="punishment_utills.sqf";};
+		class punishment_utils {file="punishment_utils.sqf";};
 		class citiesToCivPatrol {file="citiesToCivPatrol.sqf";};
 		class citySupportChange {file="citySupportChange.sqf";};
 		class commsMP {file="commsMP.sqf";};
@@ -304,7 +304,6 @@ class A3A
 	{
 		class basicBackpack {file="Ammunition\basicBackpack.sqf";};
 		class dateToTimeString {file="dateToTimeString.sqf";};
-		class getRemoteController {file="orgPlayers\getRemoteController.sqf";};
 	}
 
 	class init

@@ -16,8 +16,8 @@ Params ["_foolish","_timeAdded","_offenceAdded",["_victim",objNull]];
 
 */
 //////////////////SETTINGS//////////////////
-_depreciationCoef = 0.75;
-_overheadPercent = 0.3;
+_depreciationCoef = 0.75;							//Modifies the drop-off curve of the punishment value; a higher number drops off quicker, a lower number lingers longer.
+_overheadPercent = 0.3;								//Lowers the bar (1.0 - accumulated overhead) for getting punished
 /////////////////         //////////////////
 if (!tkPunish) exitWith {"tkPunish is Disabled"};
 
@@ -32,11 +32,11 @@ _forgive = (_timeAdded < 0 || _offenceAdded < 0);
 _coolDown = _foolish getVariable ["punishment_coolDown", 0];
 if (_forgive) exitWith 
 {
-	if (_coolDown > 1) then {["release",[_foolish]] call A3A_fnc_punishment_utills;};
-	["TK NOTIFICATION!\nAn admin looks with pitty upon your soul.\nYou have been partially forgiven."] remoteExec ["hint", _foolish, false];	
+	if (_coolDown > 1) then {["release",[_foolish]] call A3A_fnc_punishment_utils;};
+	["TK NOTIFICATION!\nAn admin looks with pity upon your soul.\nYou have been partially forgiven."] remoteExec ["hint", _foolish, false];	
 	if (_coolDown > 1) exitWith {"Admin Forgive"};
 
-	_punishment_vars = _foolish getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentanceHandle]]
+	_punishment_vars = _foolish getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
 	_timeTotal = _punishment_vars select 0;
 	_offenceTotal = _punishment_vars select 1;
 	_lastOffenceData = _punishment_vars select 2;
@@ -48,8 +48,8 @@ if (_forgive) exitWith
 	if (_timeTotal < 0) then {_timeTotal = 0}; 
 	if (_offenceTotal < 0) then {_offenceTotal = 0}; 
 
-	_punishment_vars = [_timeTotal,_offenceTotal,_lastOffenceData,[scriptNull,scriptNull]];;		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentanceHandle]]
-	_foolish setVariable ["punishment_vars", _punishment_vars, true];								//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentanceHandle]]
+	_punishment_vars = [_timeTotal,_offenceTotal,_lastOffenceData,[scriptNull,scriptNull]];;		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
+	_foolish setVariable ["punishment_vars", _punishment_vars, true];								//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
 	_playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %4, _offenceOverhead: %5, _timeAdded: %6, _offenceAdded: %7", name player, getPlayerUID player, str _timeTotal, str _offenceTotal, str 0, str _timeAdded, str _offenceAdded];
 	[format ["%1: [Antistasi] | INFO | PUNISHMENT | FORGIVE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
 };
@@ -64,7 +64,7 @@ _foolish setVariable ["punishment_coolDown", 1, true];
 	if (_coolDown < 2) then {_player setVariable ["punishment_coolDown", 0, true]};
 };
 
-_punishment_vars = _foolish getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentanceHandle]]
+_punishment_vars = _foolish getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
 _timeTotal = _punishment_vars select 0;
 _offenceTotal = _punishment_vars select 1;
 _lastTime = (_punishment_vars select 2) select 0;																//[lastTime,overhead]
@@ -128,10 +128,9 @@ if (!_forcePunish) then
 	};
 	if (_innocent) exitWith {"Player is innocent inside a Arty or Aircraft"};
 
-	//TODO: if( remoteControlling(_foolish) ) exitWith		//For the meantime do either one of the following: login for zues, use the memberlist addon, disable tkpunish `_player setVariable ["punishment_coolDown", 2, true];`
-	//{														//Even then: your controls will be free, and you won't die or lose inventory. If you have debug consol you can self forgive.
-	//	"Player is remote controlling AI";
-	//};
+	//TODO: if( remoteControlling(_foolish) ) exitWith		//For the meantime do either one of the following: login for Zeus, use the memberList addon, disable TKPunish `_player setVariable ["punishment_coolDown", 2, true]; or change your player side to enemy faction`
+	//														//Even then: your controls will be free, and you won't die or lose inventory. If you have debug consol you can self forgive.
+
 	_adminType = ["Not","Voted","Logged"] select ([] call BIS_fnc_admin);
 	if (_adminType != "Not" || isServer ) exitWith
 	{
@@ -178,7 +177,7 @@ if (_victimListed) then {[format["%1 hurt you!",name _foolish]] remoteExec ["hin
 _punishment_vars set [0,_timeTotal];
 _punishment_vars set [1,_offenceTotal];
 _punishment_vars set [2,_lastOffenceData];
-_foolish setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentanceHandle]]
+_foolish setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
 
 if (_grandOffence < 1) exitWith {"Strike"};
 

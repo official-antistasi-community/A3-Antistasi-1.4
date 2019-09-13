@@ -366,6 +366,7 @@ class A3A
 		class initGarrisons {};
 		class initGetMissionPath {};
 		class getArrayMrks {};
+		class reinitY {};
 		class tags {};
 	};
 };

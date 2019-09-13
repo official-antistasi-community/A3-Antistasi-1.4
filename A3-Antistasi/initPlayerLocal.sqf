@@ -84,7 +84,6 @@ else
 	player setUnitRank "COLONEL";
 	player hcSetGroup [group player];
 	waitUntil {/*(scriptdone _introshot) and */(!isNil "serverInitDone")};
-	//_nul = addMissionEventHandler ["Loaded", {_nul = [] execVM "statistics.sqf";_nul = [] execVM "reinitY.sqf";}];
 	};
 [] spawn A3A_fnc_ambientCivs;
 private ["_colourTeamPlayer", "_colorInvaders"];
@@ -473,7 +472,7 @@ if (_isJip) then
 	player setVariable ["punish",0,true];
 	waitUntil {!isNil "posHQ"};
 	player setPos posHQ;
-	[true] execVM "reinitY.sqf";
+	[true] spawn A3A_fnc_reinitY;
 	if (not([player] call A3A_fnc_isMember)) then
 		{
 		if ((serverCommandAvailable "#logout") or (isServer)) then

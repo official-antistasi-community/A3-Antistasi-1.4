@@ -370,7 +370,6 @@ class A3A
 		class initGarrisons {};
 		class initGetMissionPath {};
 		class modBlacklist {};
-		class playerMarkers {};
 		class reinitY {};
 		class resourcecheck {};
 		class tags {};

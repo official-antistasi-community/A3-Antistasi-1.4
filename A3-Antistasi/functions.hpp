@@ -195,6 +195,7 @@ class A3A
 		class clearForest {};
 		class dialogHQ {};
 		class difficultyMenu {};
+		class fastTravelRadio {};
 		class firstLoad {};
 		class mineDialog {};
 		class moveHQObject {};

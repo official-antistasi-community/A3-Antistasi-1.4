@@ -3,7 +3,7 @@
 2. [ ] Enhancement
 
 ### What have you changed and why?
-  
+Information:
     
 
 ### Please specify which Issue this PR Resolves.
@@ -17,3 +17,6 @@ closes #XXXX
 ### Is further testing or are further changes required?
 1. [ ] No
 2. [ ] Yes (Please provide further detail below.)
+
+********************************************************
+Notes:

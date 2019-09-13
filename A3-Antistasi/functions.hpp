@@ -363,9 +363,10 @@ class A3A
 
 	class init
 	{
+		class getArrayMrks {};
 		class initGarrisons {};
 		class initGetMissionPath {};
-		class getArrayMrks {};
+		class playerMarkers {};
 		class reinitY {};
 		class resourcecheck {};
 		class tags {};

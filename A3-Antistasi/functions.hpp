@@ -367,6 +367,7 @@ class A3A
 		class initGetMissionPath {};
 		class getArrayMrks {};
 		class reinitY {};
+		class resourcecheck {};
 		class tags {};
 	};
 };

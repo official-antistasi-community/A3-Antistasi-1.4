@@ -175,7 +175,7 @@ diag_log format ["%1: [Antistasi] | INFO | Marking serverInitDone : %2.",servert
 
 waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distance;
-resourcecheck = [] execVM "resourcecheck.sqf";
+[] spawn A3A_fnc_resourcecheck;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
 

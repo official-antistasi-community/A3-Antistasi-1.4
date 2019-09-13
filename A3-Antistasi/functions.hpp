@@ -364,6 +364,7 @@ class A3A
 	class init
 	{
 		class getArrayMrks {};
+		class healandrepair {};
 		class initGarrisons {};
 		class initGetMissionPath {};
 		class playerMarkers {};

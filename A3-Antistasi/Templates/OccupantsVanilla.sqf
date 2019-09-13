@@ -90,7 +90,7 @@ groupsNATOSquad =
 	[
 	NATOSquad,
 	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_soldier_AT_F","B_T_soldier_AAT_F","B_T_soldier_A_F","B_T_medic_F"],
-	["B_T_soldier_SL_F","B_T_soldier_LAT_F","B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_Support_Mort_F","B_support_AMort_F""B_T_medic_F",],
+	["B_T_soldier_SL_F","B_T_soldier_LAT_F","B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_Support_Mort_F","B_support_AMort_F","B_T_medic_F"],
 	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_soldier_AA_F","B_T_soldier_AAA_F","B_T_soldier_A_F","B_T_medic_F"],
 	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_engineer_F","B_T_engineer_F","B_T_soldier_A_F","B_T_medic_F"]
 	];

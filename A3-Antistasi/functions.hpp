@@ -367,7 +367,6 @@ class A3A
 		class cityinfo {};
 		class credits {};
 		class getArrayMrks {};
-		class healandrepair {};
 		class initGarrisons {};
 		class initGetMissionPath {};
 		class modBlacklist {};

@@ -7,7 +7,7 @@
     
 
 ### Please specify which Issue this PR Resolves.
-`closes #XXXX`
+closes #XXXX
 
 ### Please verify the following and ensure all checks are completed.
 

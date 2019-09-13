@@ -365,6 +365,7 @@ class A3A
 	class init
 	{
 		class cityinfo {};
+		class credits {};
 		class getArrayMrks {};
 		class healandrepair {};
 		class initGarrisons {};

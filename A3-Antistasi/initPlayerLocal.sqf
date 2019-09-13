@@ -109,7 +109,7 @@ _introShot = [
 //Trigger credits loading.
 [] spawn {
 	waitUntil {!isNil "BIS_fnc_establishingShot_playing" && {BIS_fnc_establishingShot_playing}};
-	private _credits = [] execVM "credits.sqf";
+	[] spawn A3A_fnc_credits;
 };
 
 //Initialise membershipEnabled so we can do isMember checks.

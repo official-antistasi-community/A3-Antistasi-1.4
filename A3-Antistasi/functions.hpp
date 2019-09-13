@@ -27,6 +27,7 @@ class A3A
 		class fogCheck {};
 		class garbageCleaner {};
 		class garrisonInfo {};
+		class healAndRepair {};
 		class initPetros {};
 		class intelFound {};
 		class isFrontline {};

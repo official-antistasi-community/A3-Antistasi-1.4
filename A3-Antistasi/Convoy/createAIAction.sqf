@@ -71,7 +71,7 @@ _maxUnitsSide = maxUnits;
 
 if (gameMode <3) then
 {
-	_allUnitsSide = {(local _x) and (alive _x) and (side group _x == _sideX)} count allUnits;
+	_allUnitsSide = {(local _x) and (alive _x) and (side group _x == _side)} count allUnits;
 	_maxUnitsSide = round (maxUnits * 0.7);
 };
 if ((_allUnits + 4 > maxUnits) or (_allUnitsSide + 4 > _maxUnitsSide)) then {_abort = true};

@@ -1,4 +1,4 @@
-#include "defineCommon.inc"
+#include "defineGarage.inc"
 
 //THIS SHOULDN'T BE CALLED OUTSIDE OF THE VEHICLE PLACEMENT SCRIPTS
 //CALL AT YOUR OWN RISK

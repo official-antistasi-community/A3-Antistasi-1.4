@@ -1,4 +1,4 @@
-#include "defineCommon.inc"
+#include "defineGarage.inc"
 
 // vehPlace_ variables SHOULD NOT BE USED OUTSIDE OF THE GARAGE SCRIPTS
 // THINGS MAY BREAK

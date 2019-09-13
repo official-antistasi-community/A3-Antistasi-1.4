@@ -95,7 +95,7 @@ unlockedWeapons append ["rhs_weap_akms","rhs_weap_makarov_pmm","Binocular","rhs_
 unlockedRifles append ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_savz61","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
 unlockedMagazines append ["rhs_30Rnd_762x39mm","rhs_mag_9x18_12_57N181S","rhs_rpg7_PG7VL_mag","rhsgref_5Rnd_762x54_m38","rhsgref_5Rnd_792x57_kar98k","rhs_mag_rgd5","rhs_mag_9x19mm_7n21_20","rhsgref_20rnd_765x17_vz61","rhsgref_30rnd_1143x23_M1911B_SMG","rhsgref_8Rnd_762x63_M2B_M1rifle"];
 initialRifles append ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_savz61"];
-unlockedItems = pushBack "rhs_acc_2dpZenit";
+unlockedItems pushBack "rhs_acc_2dpZenit";
 unlockedAT append ["rhs_weap_rpg7"];
 unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
 //TAFR Unlocks

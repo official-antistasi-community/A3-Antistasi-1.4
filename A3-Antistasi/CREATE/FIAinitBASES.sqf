@@ -27,7 +27,7 @@ if (count _this > 1) then
 
 _unit allowFleeing 0;
 _typeX = typeOf _unit;
-_skill = _skill = (0.7 + (0.01 * skillFIA)) / skillMult;
+_skill = (0.7 + (0.01 * skillFIA)) / skillMult;
 _unit setSkill _skill;
 if (!activeGREF) then {if (not((uniform _unit) in uniformsSDK)) then {[_unit] call A3A_fnc_reDress}};
 

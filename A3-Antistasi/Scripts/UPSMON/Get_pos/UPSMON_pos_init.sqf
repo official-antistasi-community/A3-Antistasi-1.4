@@ -88,12 +88,12 @@ UPSMON_pos = {
   _pos = [];
 
   // Only marker is given as parameter
-  if (typename _this == "STRING") then {
+  if (_this isEqualType "STRING") then {
     _pos = [_this] call UPSMON_pos_getPosMarker;
 
   // Parameter array
   } else {
-    if (typename (_this select 0) == "STRING") then {
+    if ((_this select 0) isEqualType "STRING") then {
       _pos = _this call UPSMON_pos_getPosMarker;
     } else {
       _pos = _this call UPSMON_pos_getPos;

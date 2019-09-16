@@ -48,40 +48,8 @@ lampsSDK = ["acc_flashlight"];
 
 ATMineMag = "ATMine_Range_Mag";
 APERSMineMag = "APERSMine_Range_Mag";
-if (gameMode != 4) then
-	{
-	FIARifleman = "I_C_Soldier_Para_7_F";
-	FIAMarksman = "I_C_Soldier_Para_2_F";
-	vehFIAArmedCar = "I_C_Offroad_02_LMG_F";
-	vehFIATruck = "I_C_Van_01_transport_F";
-	vehFIACar = "I_C_Offroad_01_F";
-	groupsFIASmall = [["I_C_Soldier_Para_6_F",FIARifleman],[FIAMarksman,FIARifleman],[FIAMarksman,FIAMarksman]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-	groupsFIAMid = [["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F"],["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_5_F"]];
-	FIASquad = ["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F","I_C_Soldier_Para_1_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_8_F","I_C_Soldier_Para_3_F"];//"IRG_InfSquad";///
-	groupsFIASquad = [FIASquad];
-	factionFIA = "IND_C_F";
-	}
-else
-	{
-	FIARifleman = "O_soldierU_F";
-	FIAMarksman = "O_soldierU_M_F";
-	vehFIAArmedCar = "O_MRAP_02_hmg_F";
-	vehFIATruck = "O_Truck_02_transport_F";
-	vehFIACar = "O_MRAP_02_F";
-	groupsFIASmall = [["O_SoldierU_GL_F",FIARifleman],[FIAMarksman,FIARifleman],["O_soldierU_M_F","O_SoldierU_GL_F"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-	groupsFIAMid = [["O_SoldierU_SL_F","O_SoldierU_GL_F","O_soldierU_AR_F",FIAMarksman],["O_SoldierU_SL_F","O_SoldierU_GL_F","O_soldierU_AR_F","O_soldierU_LAT_F"],["O_SoldierU_SL_F","O_SoldierU_GL_F","O_soldierU_AR_F","O_engineer_U_F"]];
-	FIASquad = ["O_SoldierU_SL_F","O_soldierU_AR_F","O_SoldierU_GL_F",FIARifleman,FIARifleman,FIAMarksman,"O_soldierU_LAT_F","O_soldierU_medic_F"];//"IRG_InfSquad";///
-	groupsFIASquad = [FIASquad,["O_SoldierU_SL_F","O_soldierU_AR_F","O_SoldierU_GL_F",FIARifleman,"O_soldierU_A_F","O_soldierU_exp_F","O_soldierU_LAT_F","O_soldierU_medic_F"]];
-	factionFIA = "";
-	};
 
-vehPoliceCar = vehFIACar;
-policeOfficer = FIARifleman;
-policeGrunt = FIARifleman;
-groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = "FIA";
-
-factionGEN = "IND_C_F";
 
 //Player spawn loadout
 teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla2_1", []],[],[],"","",[],["ItemMap","","","","",""]];
@@ -101,6 +69,6 @@ if !(isMultiplayer) then
 	unlockedAT = ["launch_MRAWS_olive_rail_F"];
 	unlockedMagazines pushBack "MRAWS_HEAT_F";
   };
-//TFAR Unlocks
+
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_rt1523g"]};

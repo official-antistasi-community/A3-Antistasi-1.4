@@ -68,7 +68,7 @@ _saveName = _this;
 _saveData = profilenamespace getvariable ["bis_fnc_saveInventory_data",[]];
 _inventory = [];
 {
-	if(typename _x  == "STRING" && {_x == _saveName})exitWith{
+	if(_x isEqualType "STRING" && {_x == _saveName})exitWith{
 		_inventory = _saveData select (_foreachindex + 1);
 	};
 } forEach _saveData;

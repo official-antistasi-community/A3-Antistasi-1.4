@@ -54,51 +54,7 @@ lampsSDK = ["rhs_acc_2dpZenit","acc_flashlight"];
 ATMineMag = "rhs_mine_tm62m_mag";
 APERSMineMag = "rhs_mine_pmn2_mag";
 
-//setting up low war level garrison units for the occupants.
-if (hasFFAA) then//checks if you have FFAA installed then uses their units
-	{
-	call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"
-	}
-else
-	{
-	if (gameMode != 4) then//if you have occupants on your map it uses these
-		{
-		FIARifleman = "UK3CB_BAF_Rifleman_Smock_DPMW";
-		FIAMarksman = "UK3CB_BAF_Pointman_Smock_DPMW";
-		vehFIAArmedCar = "UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_DPMW";
-		vehFIATruck = "UK3CB_BAF_MAN_HX60_Cargo_Sand_A_DDPM";
-		vehFIACar = "UK3CB_BAF_LandRover_Snatch_FFR_Green_A_DPMW";
-
-		groupsFIASmall = [["UK3CB_BAF_Grenadier_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],["UK3CB_BAF_LAT_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],["UK3CB_BAF_Sniper_Smock_DPMW_Ghillie","UK3CB_BAF_Spotter_Smock_DPMW_Ghillie"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-		groupsFIAMid = [["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_Pointman_Smock_DPMW","UK3CB_BAF_MGGPMG_Smock_DPMW","UK3CB_BAF_MGGPMGA_Smock_DPMW"],["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_GunnerM6_Smock_DPMW","UK3CB_BAF_Grenadier_Smock_DPMW","UK3CB_BAF_MAT_Smock_DPMW"],["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_MAT_Smock_DPMW","UK3CB_BAF_MATC_Smock_DPMW","UK3CB_BAF_Engineer_Smock_DPMW"]];
-		FIASquad = ["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW","UK3CB_BAF_LAT_Smock_DPMW","UK3CB_BAF_Medic_Smock_DPMW","UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_MGGPMG_Smock_DPMW","UK3CB_BAF_MGGPMGA_Smock_DPMW","UK3CB_BAF_Marksman_Smock_DPMW"];//"IRG_InfSquad";///
-		groupsFIASquad = [FIASquad];
-		factionFIA = "UK3CB_TKP_B";
-		}
-	else//if you have invaders only it uses these
-		{
-		FIARifleman = "UK3CB_TKP_O_RIF_1";
-		FIAMarksman = "UK3CB_TKP_O_MK";
-		vehFIAArmedCar = "UK3CB_TKP_O_Datsun_Pickup_PKM";
-		vehFIATruck = "UK3CB_TKP_O_Hilux_Open";
-		vehFIACar = "UK3CB_TKP_O_Lada_Police";
-
-		groupsFIASmall = [["UK3CB_TKP_O_STATIC_GUN_NSV","UK3CB_TKP_O_STATIC_TRI_NSV"],["UK3CB_TKP_O_AT","UK3CB_TKP_O_RIF_2"],["UK3CB_TKP_O_OFF","UK3CB_TKP_O_MK"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-		groupsFIAMid = [["UK3CB_TKP_O_QRF_SL","UK3CB_TKP_O_QRF_MK","UK3CB_TKP_O_QRF_AR","UK3CB_TKP_O_QRF_ENG"],["UK3CB_TKP_O_QRF_TL","UK3CB_TKP_O_QRF_AR","UK3CB_TKP_O_QRF_RIF_1","UK3CB_TKP_O_QRF_AT"],["UK3CB_TKP_O_QRF_TL","UK3CB_TKP_O_QRF_ENG","UK3CB_TKP_O_QRF_AR","UK3CB_TKP_O_QRF_AT"]];
-		FIASquad = ["UK3CB_TKP_O_CIB_SL","UUK3CB_TKP_O_CIB_RIF_2","UK3CB_TKP_O_CIB_AT","UK3CB_TKP_O_CIB_MD","UK3CB_TKP_O_CIB_TL","UK3CB_TKP_O_CIB_AR","UK3CB_TKP_O_CIB_RIF_1","UK3CB_TKP_O_CIB_ENG"];//"IRG_InfSquad";///
-		groupsFIASquad = [FIASquad];
-		factionFIA = "UK3CB_TKP_O";
-		};
-	};
-
-//Police vic and unit setting
-vehPoliceCar = "UK3CB_TKP_B_Lada_Police";
-policeOfficer = "UK3CB_ANP_B_TL";
-policeGrunt = "UK3CB_ANP_B_RIF_1";
-groupsNATOGen = [policeOfficer,policeGrunt];
-nameTeamPlayer = "CCM";//player faction
-
-factionGEN = "BLU_GEN_F";//police faction
+nameTeamPlayer = "CCM";
 
 //Player spawn loadout
 teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];

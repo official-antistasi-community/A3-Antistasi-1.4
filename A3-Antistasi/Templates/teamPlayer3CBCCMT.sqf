@@ -1,5 +1,3 @@
-//if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayer3CBCCMT.sqf"} else {
-
 SDKMortar = "rhsgref_ins_g_2b14";
 SDKMortarHEMag = "rhs_mag_3vo18_10";
 SDKMortarSmokeMag = "rhs_mag_d832du_10";
@@ -53,49 +51,7 @@ lampsSDK = ["rhs_acc_2dpZenit","acc_flashlight"];
 ATMineMag = "rhs_mine_tm62m_mag";
 APERSMineMag = "rhs_mine_pmn2_mag";
 
-if (hasFFAA) then
-	{
-	call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"
-	}
-else
-	{
-	if (gameMode != 4) then
-		{
-		FIARifleman = "UK3CB_BAF_Rifleman_Smock_DPMW";
-		FIAMarksman = "UK3CB_BAF_Pointman_Smock_DPMW";
-		vehFIAArmedCar = "UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_Tropical_RM";
-		vehFIATruck = "UK3CB_BAF_MAN_HX60_Cargo_Green_A_Tropical";
-		vehFIACar = "UK3CB_BAF_LandRover_Snatch_FFR_Green_A_Tropical";
-
-		groupsFIASmall = [["UK3CB_BAF_Grenadier_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],["UK3CB_BAF_LAT_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],["UK3CB_BAF_Sniper_Smock_DPMW_Ghillie","UK3CB_BAF_Spotter_Smock_DPMW_Ghillie"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-		groupsFIAMid = [["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_Pointman_Smock_DPMW","UK3CB_BAF_MGGPMG_Smock_DPMW","UK3CB_BAF_MGGPMGA_Smock_DPMW"],["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_GunnerM6_Smock_DPMW","UK3CB_BAF_Grenadier_Smock_DPMW","UK3CB_BAF_MAT_Smock_DPMW"],["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_MAT_Smock_DPMW","UK3CB_BAF_MATC_Smock_DPMW","UK3CB_BAF_Engineer_Smock_DPMW"]];
-		FIASquad = ["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW","UK3CB_BAF_LAT_Smock_DPMW","UK3CB_BAF_Medic_Smock_DPMW","UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_MGGPMG_Smock_DPMW","UK3CB_BAF_MGGPMGA_Smock_DPMW","UK3CB_BAF_Marksman_Smock_DPMW"];//"IRG_InfSquad";///
-		groupsFIASquad = [FIASquad];
-		factionFIA = "UK3CB_TKP_B";
-		}
-	else
-		{
-		FIARifleman = "rhs_vdv_izlom_rifleman_asval";
-		FIAMarksman = "rhs_vdv_izlom_marksman_vss";
-		vehFIAArmedCar = "UK3CB_O_G_T34";
-		vehFIATruck = "rhs_gaz66o_vv";
-		vehFIACar = "rhsgref_BRDM2_HQ_vmf";
-
-		groupsFIASmall = [["rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_rifleman_LAT"],["rhs_vdv_izlom_marksman","rhs_vdv_izlom_rifleman_LAT"],["rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_marksman_vss"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-		groupsFIAMid = [["rhs_vdv_izlom_efreitor","rhs_vdv_izlom_marksman_vss","rhs_vdv_izlom_arifleman","rhs_vdv_izlom_grenadier_rpg"],["rhs_vdv_izlom_efreitor","rhs_vdv_izlom_arifleman","rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_marksman"],["rhs_vdv_izlom_efreitor","rhs_vdv_izlom_grenadier_rpg","rhs_vdv_izlom_arifleman","rhs_vdv_izlom_marksman"]];
-		FIASquad = ["rhs_vdv_izlom_sergeant","rhs_vdv_izlom_rifleman_LAT","rhs_vdv_izlom_marksman","rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_efreitor","rhs_vdv_izlom_arifleman","rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_grenadier_rpg"];//"IRG_InfSquad";///
-		groupsFIASquad = [FIASquad];
-		factionFIA = "rhs_faction_vv";
-		};
-	};
-//police setup
-vehPoliceCar = "UK3CB_TKP_B_Lada_Police";
-policeOfficer = "UK3CB_ANP_B_TL";
-policeGrunt = "UK3CB_ANP_B_RIF_1";
-groupsNATOGen = [policeOfficer,policeGrunt];
-nameTeamPlayer = "CCM";//player faction
-
-factionGEN = "BLU_GEN_F";//police faction
+nameTeamPlayer = "CCM";
 
 //Player spawn loadout
 teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];

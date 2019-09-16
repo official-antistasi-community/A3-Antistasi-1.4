@@ -243,7 +243,7 @@ fn_SetStat =
 				_mrk = createMarker [format ["FIApost%1", random 1000], _positionX];
 				_mrk setMarkerShape "ICON";
 				_mrk setMarkerType "loc_bunker";
-				_mrk setMarkerColor colourTeamPlayer;
+				_mrk setMarkerColor colorTeamPlayer;
 				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer]} else {_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer]};
 				spawner setVariable [_mrk,2,true];
 				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};

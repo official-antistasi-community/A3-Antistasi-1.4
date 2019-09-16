@@ -150,6 +150,12 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 if (debug) then {
 diag_log format ["%1: [Antistasi] | DEBUG | initZones | Roads built in %2.",servertime,worldname];
 };
+
+diag_log format ["%1: [Antistasi] | INFO | initZones | Nav grid loading started.",servertime];
+[] call A3A_fnc_loadNavGrid;
+diag_log format ["%1: [Antistasi] | INFO | initZones | Nav grid loaded.",servertime];
+
+
 markersX = markersX + citiesX;
 sidesX setVariable ["Synd_HQ", teamPlayer, true];
 

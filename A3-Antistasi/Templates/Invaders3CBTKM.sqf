@@ -91,3 +91,18 @@ lampInvaders = "rhs_acc_2dpZenit";
 flagCSATmrk = "UK3CB_Marker_O_TKM";
 nameInvaders = "TKM";
 if (isServer) then {"CSAT_carrier" setMarkerText "Takistani Carrier"};
+
+if (gameMode == 4) then
+		{
+		FIARifleman = "UK3CB_TKP_O_RIF_1";
+		FIAMarksman = "UK3CB_TKP_O_MK";
+		vehFIAArmedCar = "UK3CB_TKP_O_Datsun_Pickup_PKM";
+		vehFIATruck = "UK3CB_TKP_O_Hilux_Open";
+		vehFIACar = "UK3CB_TKP_O_Lada_Police";
+
+		groupsFIASmall = [["UK3CB_TKP_O_STATIC_GUN_NSV","UK3CB_TKP_O_STATIC_TRI_NSV"],["UK3CB_TKP_O_AT","UK3CB_TKP_O_RIF_2"],["UK3CB_TKP_O_OFF","UK3CB_TKP_O_MK"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+		groupsFIAMid = [["UK3CB_TKP_O_QRF_SL","UK3CB_TKP_O_QRF_MK","UK3CB_TKP_O_QRF_AR","UK3CB_TKP_O_QRF_ENG"],["UK3CB_TKP_O_QRF_TL","UK3CB_TKP_O_QRF_AR","UK3CB_TKP_O_QRF_RIF_1","UK3CB_TKP_O_QRF_AT"],["UK3CB_TKP_O_QRF_TL","UK3CB_TKP_O_QRF_ENG","UK3CB_TKP_O_QRF_AR","UK3CB_TKP_O_QRF_AT"]];
+		FIASquad = ["UK3CB_TKP_O_CIB_SL","UUK3CB_TKP_O_CIB_RIF_2","UK3CB_TKP_O_CIB_AT","UK3CB_TKP_O_CIB_MD","UK3CB_TKP_O_CIB_TL","UK3CB_TKP_O_CIB_AR","UK3CB_TKP_O_CIB_RIF_1","UK3CB_TKP_O_CIB_ENG"];//"IRG_InfSquad";///
+		groupsFIASquad = [FIASquad];
+		factionFIA = "UK3CB_TKP_O";
+		};

@@ -45,7 +45,7 @@ vehCSATPlane = "O_Plane_CAS_02_dynamicLoadout_F";
 vehCSATPlaneAA = "O_Plane_Fighter_02_F";
 vehCSATTransportPlanes = ["O_T_VTOL_02_infantry_F"]; //VTOL isn't available without APEX nor there is a replacement, i'd leave it there regardles it's Altis
 vehCSATPatrolHeli = "O_Heli_Light_02_unarmed_F";
-vehCSATTransportHelis = ["O_Heli_Transport_04_bench_F",vehCSATPatrolHeli]; 
+vehCSATTransportHelis = ["O_Heli_Transport_04_bench_F",vehCSATPatrolHeli];
 vehCSATAttackHelis = ["O_Heli_Attack_02_dynamicLoadout_F","O_Heli_Attack_02_F"];
 vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 vehCSATUAV = "O_UAV_02_F";
@@ -53,7 +53,6 @@ vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "O_MBT_02_arty_F";
 vehCSATMRLSMags = "32Rnd_155mm_Mo_shells"; // I HOPE THEY ARE THE SAME!
 vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, "O_Truck_03_fuel_F", "O_Truck_03_medical_F", "O_Truck_03_repair_F"];
-
 
 vehCSATBike = "O_Quadbike_01_F";
 
@@ -83,3 +82,17 @@ ammunitionCSAT append ["30Rnd_65x39_caseless_green","10Rnd_762x54_Mag","150Rnd_7
 flagCSATmrk = "flag_CSAT";
 nameInvaders = "CSAT";
 if (isServer) then {"CSAT_carrier" setMarkerText "CSAT Carrier"};
+//Militia Units for Rebels Vs Invaders
+if (gameMode == 4) then
+	{
+	FIARifleman = "O_soldierU_F";
+	FIAMarksman = "O_soldierU_M_F";
+	vehFIAArmedCar = "O_MRAP_02_hmg_F";
+	vehFIATruck = "O_Truck_02_transport_F";
+	vehFIACar = "O_MRAP_02_F";
+	groupsFIASmall = [["O_SoldierU_GL_F",FIARifleman],[FIAMarksman,FIARifleman],["O_soldierU_M_F","O_SoldierU_GL_F"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+	groupsFIAMid = [["O_SoldierU_SL_F","O_SoldierU_GL_F","O_soldierU_AR_F",FIAMarksman],["O_SoldierU_SL_F","O_SoldierU_GL_F","O_soldierU_AR_F","O_soldierU_LAT_F"],["O_SoldierU_SL_F","O_SoldierU_GL_F","O_soldierU_AR_F","O_engineer_U_F"]];
+	FIASquad = ["O_SoldierU_SL_F","O_soldierU_AR_F","O_SoldierU_GL_F",FIARifleman,FIARifleman,FIAMarksman,"O_soldierU_LAT_F","O_soldierU_medic_F"];//"IRG_InfSquad";///
+	groupsFIASquad = [FIASquad,["O_SoldierU_SL_F","O_soldierU_AR_F","O_SoldierU_GL_F",FIARifleman,"O_soldierU_A_F","O_soldierU_exp_F","O_soldierU_LAT_F","O_soldierU_medic_F"]];
+	factionFIA = "";
+	};

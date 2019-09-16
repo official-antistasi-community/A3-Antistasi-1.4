@@ -1,4 +1,4 @@
-#include "defineCommon.inc"
+#include "defineGarage.inc"
 
 params ["_newType"];
 

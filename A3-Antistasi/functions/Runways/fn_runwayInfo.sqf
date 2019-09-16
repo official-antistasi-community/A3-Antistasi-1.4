@@ -32,7 +32,7 @@ private _runwayIlsPositions = _runways apply {
 	//Make sure we're grounded.
 	_position set [2, 0.1];
 	//Necessary because the map 'Enoch' has a damn typo in its IlsPosition, where one value is a string.
-	_position apply {if (typeName _x == typeName "") then {parseNumber _x} else {_x}};
+	_position apply {if (_x isEqualType "") then {parseNumber _x} else {_x}};
 };
 private _runwayTakeoffDirs = _runways apply {
 	private _ilsDir = getArray (_x >> "ilsDirection");

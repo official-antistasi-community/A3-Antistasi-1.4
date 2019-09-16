@@ -32,7 +32,7 @@ _groupX = group _unit;
 
 while {(time < _bleedOut) and (_unit getVariable ["INCAPACITATED",false]) and (alive _unit)} do
 	{
-	if (random 10 < 1) then {playSound3D [(injuredSounds call BIS_fnc_selectRandom),_unit,false, getPosASL _unit, 1, 1, 50];};
+	if (random 10 < 1) then {playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50];};
 	_helped = _unit getVariable ["helped",objNull];
 	if (isNull _helped) then {[_unit] call A3A_fnc_askHelp;};
 	sleep 3;

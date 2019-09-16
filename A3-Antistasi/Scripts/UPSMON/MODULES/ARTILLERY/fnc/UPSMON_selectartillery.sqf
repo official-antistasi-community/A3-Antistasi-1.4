@@ -42,7 +42,7 @@ _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "A
 					
 					If (count (_grp getvariable ["UPSMON_Mortarmun",[]]) > 0) then
 					{	
-						If (typename ((_grp getvariable ["UPSMON_Battery",[]])select 0) == "ARRAY") then
+						If (((_grp getvariable ["UPSMON_Battery",[]])select 0) isEqualType []) then
 						{
 							_backpack = backpack (_vehicledemo select 0);
 							_vehicledemo = ([_backpack] call UPSMON_checkbackpack) select 0;

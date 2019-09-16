@@ -8,7 +8,7 @@ if (!isPlayer _playerX) exitWith {};
 
 //if (rank _playerX == "COLONEL") exitWith {};
 _playerX = _playerX getVariable ["owner",_playerX];
-//if (typeName _playerX == typeName "") exitWith {diag_log format ["Antistasi Error: Intento de asignar pointsX a un %1 siendo en realidad %2",_playerX, _this select 1]};
+//if (_playerX isEqualType "") exitWith {diag_log format ["Antistasi Error: Intento de asignar pointsX a un %1 siendo en realidad %2",_playerX, _this select 1]};
 if (isMultiplayer) exitWith
 	{
 	_pointsXJ = _playerX getVariable ["score",0];

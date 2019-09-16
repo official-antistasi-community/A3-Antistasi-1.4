@@ -1,4 +1,4 @@
-#include "defineCommon.inc"
+#include "defineGarage.inc"
 
 if (!(isNil "placingVehicle") && {placingVehicle}) exitWith { hint "Unable to open garage, you are already placing something" };
 if (isNil "garageIsOpen") then {

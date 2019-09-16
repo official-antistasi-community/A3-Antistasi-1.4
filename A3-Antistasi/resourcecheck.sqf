@@ -68,7 +68,7 @@ while {true} do
 		sidesX setVariable [_city,teamPlayer,true];
 		_nul = [5,0] remoteExec ["A3A_fnc_prestige",2];
 		_mrkD = format ["Dum%1",_city];
-		_mrkD setMarkerColor colourTeamPlayer;
+		_mrkD setMarkerColor colorTeamPlayer;
 		garrison setVariable [_city,[],true];
 		sleep 5;
 		{_nul = [_city,_x] spawn A3A_fnc_deleteControls} forEach controlsX;

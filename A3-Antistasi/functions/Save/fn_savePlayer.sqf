@@ -64,7 +64,7 @@ if (isMultiplayer) then
 		{
 		private _valueOfFriend = (server getVariable (typeOf _friendX));
 		//If we don't get a number (which can happen if _friendX becomes null, for example) we lose the value of _resourcesBackground;
-		if (typeName _valueOfFriend == typeName _resourcesBackground) then {
+		if (_valueOfFriend isEqualType _resourcesBackground) then {
 			_resourcesBackground = _resourcesBackground + (server getVariable (typeOf _friendX));
 		};
 		if (vehicle _friendX != _friendX) then
@@ -76,13 +76,13 @@ if (isMultiplayer) then
 					if ((_veh isKindOf "StaticWeapon") or (driver _veh == _friendX)) then
 					{
 						private _vehPrice = ([_typeVehX] call A3A_fnc_vehiclePrice);
-						if (typeName _vehPrice == typeName _resourcesBackground) then {
+						if (_vehPrice isEqualType _resourcesBackground) then {
 							_resourcesBackground = _resourcesBackground + _vehPrice;
 						};
 						if (count attachedObjects _veh != 0) then {
 							{
 								private _attachmentPrice = ([typeOf _x] call A3A_fnc_vehiclePrice);
-								if (typeName _vehPrice == typeName _resourcesBackground) then {
+								if (_vehPrice isEqualType _resourcesBackground) then {
 									_resourcesBackground = _resourcesBackground + _attachmentPrice;
 								};
 							} 

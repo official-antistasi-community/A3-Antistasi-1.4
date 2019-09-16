@@ -1,4 +1,4 @@
-#include "defineCommon.inc"
+#include "..\Garage\defineGarage.inc"
 
 private ["_flag","_typeX"];
 

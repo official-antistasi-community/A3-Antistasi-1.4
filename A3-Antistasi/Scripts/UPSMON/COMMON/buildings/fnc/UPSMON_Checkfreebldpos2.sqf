@@ -19,7 +19,7 @@ _unitnear = [];
 
 {
 	_id = _id + 1;
-	If (_x isEqualType []) then
+	If (typename _x == "ARRAY") then
 	{
 		_altura = _x;
 		If (count _altura > 0) then

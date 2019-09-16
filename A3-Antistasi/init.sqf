@@ -25,7 +25,7 @@ if (!isMultiPlayer) then
     respawnOccupants setMarkerAlpha 0;
     "respawn_east" setMarkerAlpha 0;
     [] execVM "briefing.sqf";
-    [] execVM "musica.sqf";
+    _nul = [] execVM "musica.sqf";
     {if (/*(side _x == teamPlayer) and */(_x != commanderX) and (_x != Petros)) then {_grupete = group _x; deleteVehicle _x; deleteGroup _grupete}} forEach allUnits;
     _serverHasID = profileNameSpace getVariable ["ss_ServerID",nil];
     if(isNil "_serverHasID") then
@@ -50,7 +50,7 @@ if (!isMultiPlayer) then
     //diag_log "Antistasi SP. Funcs init finished";
     call compile preprocessFileLineNumbers "initZones.sqf";//this is the file where you can transport Antistasi to another island
     //diag_log "Antistasi SP. Zones init finished";
-    [] spawn A3A_fnc_initPetros;
+    [] execVM "initPetros.sqf";
 
     hcArray = [];
     serverInitDone = true;
@@ -63,9 +63,9 @@ if (!isMultiPlayer) then
     private _index = _x call jn_fnc_arsenal_itemType;
     [_index,_x,-1] call jn_fnc_arsenal_addItem;
     }foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
-    [] spawn A3A_fnc_boxAAF;
+    [] execVM "Ammunition\boxAAF.sqf";
     waitUntil {sleep 1;!(isNil "placementDone")};
-    distanceXs = [] spawn A3A_fnc_distance;
+    distanceXs = [] spawn A3A_fnc_distances4;
     resourcecheck = [] execVM "resourcecheck.sqf";
     [] execVM "Scripts\fn_advancedTowingInit.sqf";
     addMissionEventHandler ["BuildingChanged",

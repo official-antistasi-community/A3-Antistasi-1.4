@@ -47,7 +47,7 @@ If (count (_grp getvariable ["UPSMON_Battery",[]]) > 0) then
 	
 			[_grp,_pos,"HOLD","LINE","LIMITED","COMBAT","YELLOW",1] spawn UPSMON_DocreateWP;
 	
-			If (((_grp getvariable ["UPSMON_Battery",[]])select 0) isEqualType []) then
+			If (typename ((_grp getvariable ["UPSMON_Battery",[]])select 0) == "ARRAY") then
 			{
 				sleep 2;
 				_staticteam = (_grp getvariable ["UPSMON_Battery",[]])select 0;

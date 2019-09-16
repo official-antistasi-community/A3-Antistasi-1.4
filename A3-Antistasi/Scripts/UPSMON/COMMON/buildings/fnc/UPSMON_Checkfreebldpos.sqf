@@ -19,7 +19,7 @@ _altura = [];
 _id = -1;
 {
 	_id = _id + 1;
-	If (_x isEqualType []) then
+	If (typename _x == "ARRAY") then
 	{
 		If (count _x > 0) then
 		{

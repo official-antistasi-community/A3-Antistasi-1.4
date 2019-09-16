@@ -4,7 +4,7 @@
 #endif
 
 //Other Includes
-#include "functions\Garage\defineGarage.inc"
+#include "Garage\defineCommon.inc"
 
 // Control types
 #define CT_STATIC           0
@@ -254,3 +254,6 @@ class RscListBox
           shadow = 0;
      };
 };
+
+
+

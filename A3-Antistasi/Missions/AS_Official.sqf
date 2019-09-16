@@ -63,7 +63,7 @@ if (not alive _official) then
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,30] call A3A_fnc_addTimeForIdle;
 		};
-	["TaskFailed", ["", format ["Officer killed at %1",[_nameDest, false] call A3A_fnc_fn_location]]] remoteExec ["BIS_fnc_showNotification",_sideX];
+	["TaskFailed", ["", format ["Officer killed at %1",[_nameDest, false] call A3A_fnc_location]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 	}
 else
 	{

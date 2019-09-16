@@ -11,7 +11,7 @@ _samples = _this select 1;
 _rds = 100;
 if ((count _this) > 2) then {_rds = _this select 2};
 
-if !((typeName _position) == "ARRAY") then {_position = getPosATL _position};
+if !(_position isEqualType []) then {_position = getPosATL _position};
 
 _posX = _position select 0;
 _posY = _position select 1;

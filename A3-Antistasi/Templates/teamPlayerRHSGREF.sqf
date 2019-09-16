@@ -51,49 +51,7 @@ lampsSDK = ["rhs_acc_2dpZenit","acc_flashlight"];
 ATMineMag = "rhs_mine_tm62m_mag";
 APERSMineMag = "rhs_mine_pmn2_mag";
 
-if (hasFFAA) then
-	{
-	call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"
-	}
-else
-	{
-	if (gameMode != 4) then
-		{
-		FIARifleman = "rhsgref_hidf_rifleman";
-		FIAMarksman = "rhsgref_hidf_marksman";
-		vehFIAArmedCar = "rhsgref_hidf_m1025_m2";
-		vehFIATruck = "rhsgref_cdf_b_ural_open";
-		vehFIACar = "rhsgref_hidf_m998_4dr";
-
-		groupsFIASmall = [["rhsgref_hidf_grenadier","rhsgref_hidf_rifleman"],["rhsgref_hidf_marksman","rhsgref_hidf_rifleman"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-		groupsFIAMid = [["rhsgref_hidf_teamleader","rhsgref_hidf_machinegunner","rhsgref_hidf_machinegunner_assist","rhsgref_hidf_grenadier"],["rhsgref_hidf_teamleader","rhsgref_hidf_rifleman_m72","rhsgref_hidf_rifleman_m72","rhsgref_hidf_grenadier"]];//["IRG_InfAssault","IRG_InfTeam","IRG_InfTeam_AT"];///
-		FIASquad = ["rhsgref_hidf_squadleader","rhsgref_hidf_machinegunner","rhsgref_hidf_machinegunner_assist","rhsgref_hidf_rifleman","rhsgref_hidf_rifleman_m72","rhsgref_hidf_rifleman_m72","rhsgref_hidf_grenadier","rhsgref_hidf_medic"];//"IRG_InfSquad";///
-		groupsFIASquad = [FIASquad];
-		factionFIA = "rhsgref_faction_hidf";
-		}
-	else
-		{
-		FIARifleman = "rhs_msv_emr_rifleman";
-		FIAMarksman = "rhs_msv_emr_marksman";
-		vehFIAArmedCar = "rhs_tigr_sts_3camo_msv";
-		vehFIATruck = "rhs_zil131_open_msv";
-		vehFIACar = "rhs_uaz_open_MSV_01";
-
-		groupsFIASmall = [["rhs_msv_emr_grenadier",FIARifleman],[FIAMarksman,FIARifleman]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-		groupsFIAMid = [["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_grenadier"],["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_at"],["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_engineer"]];//["IRG_InfAssault","IRG_InfTeam","IRG_InfTeam_AT"];///
-		FIASquad = ["rhs_msv_emr_officer","rhs_msv_emr_grenadier","rhs_msv_emr_machinegunner","rhs_msv_emr_rifleman","rhs_msv_emr_marksman","rhs_msv_emr_engineer","rhs_msv_emr_at","rhs_msv_emr_medic"];//"IRG_InfSquad";///
-		groupsFIASquad = [FIASquad];
-		factionFIA = "rhs_faction_msv";
-		};
-	};
-
-vehPoliceCar = "rhsusf_mrzr4_d";
-policeOfficer = "rhsusf_army_ucp_rifleman_m590";
-policeGrunt = "rhsusf_army_ucp_rifleman_82nd";
-groupsNATOGen = [policeOfficer,policeGrunt];
 nameTeamPlayer = "NAPA";
-
-factionGEN = "BLU_GEN_F";
 
 //Player spawn loadout
 teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
@@ -106,6 +64,7 @@ initialRifles = ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap
 unlockedItems = unlockedItems + ["rhs_acc_2dpZenit"];
 unlockedAT = ["rhs_weap_rpg7"];
 unlockedBackpacks = ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
+
 //TAFR Unlocks
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_anprc154"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_anprc155_coyote"]};

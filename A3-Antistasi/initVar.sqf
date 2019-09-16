@@ -29,7 +29,7 @@ teamPlayer = side group petros;
 if (teamPlayer == independent) then
 	{
 	Occupants = west;
-	colourTeamPlayer = "colorGUER";
+	colorTeamPlayer = "colorGUER";
 	colorOccupants = "colorBLUFOR";
 	respawnTeamPlayer = "respawn_guerrila";
 	respawnOccupants = "respawn_west"
@@ -37,7 +37,7 @@ if (teamPlayer == independent) then
 else
 	{
 	Occupants = independent;
-	colourTeamPlayer = "colorBLUFOR";
+	colorTeamPlayer = "colorBLUFOR";
 	colorOccupants = "colorGUER";
 	respawnTeamPlayer = "respawn_west";
 	respawnOccupants = "respawn_guerrila";
@@ -230,7 +230,7 @@ if (!hasIFA) then
 					}
 					else
 					{
-						if (gameMode != 4) then
+						if (teamPlayer == independent) then
 							{
 							//RHS-USAF DEFENDER Template
 							call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf";
@@ -278,7 +278,7 @@ if (!hasIFA) then
 					}
 					else
 					{
-						if (gameMode != 4) then
+						if (teamPlayer == independent) then
 							{
 							//RHS REBEL Template
 							call compile preProcessFileLineNumbers "Templates\teamPlayerRHSGREF.sqf";
@@ -933,12 +933,6 @@ if (hasACE and hasIFA) then
 if (hasACRE) then {unlockedItems append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];};
 
 ////////////////////////////////////
-//     TFAR ITEM MODIFICATIONS   ///
-////////////////////////////////////
-if (hasTFAR) then {unlockedItems append ["tf_microdagr","tf_rf7800str"];};
-if (startLR) then {unlockedBackpacks pushBack "tf_anprc155"};
-
-////////////////////////////////////
 //     MISSION PATH WARNING      ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Checking Mission Path",servertime];
@@ -963,6 +957,12 @@ AAFpatrols = 0;
 reinfPatrols = 0;
 smallCAmrk = [];
 smallCApos = [];
+
+attackPos = [];
+attackMrk = [];
+airstrike = [];
+convoyMarker = [];
+
 bigAttackInProgress = false;
 chopForest = false;
 distanceForAirAttack = 10000;
@@ -1035,6 +1035,13 @@ case "enoch":
 		{_x setMarkerAlpha 0} forEach roadsMrk;
 		//Roads DB
 		call compile preprocessFileLineNumbers "roadsDBLivonia.sqf";
+		};
+case "kunduz":
+		{
+		roadsMrk = ["road"] call A3A_fnc_getArrayMrks;
+		{_x setMarkerAlpha 0} forEach roadsMrk;
+		//Roads DB
+		call compile preprocessFileLineNumbers "roadsDBKunduz.sqf";
 		};
 	};
 

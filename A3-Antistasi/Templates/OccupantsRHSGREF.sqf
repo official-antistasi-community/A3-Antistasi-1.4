@@ -93,3 +93,23 @@ flagNATOmrk = "rhs_flag_insurgents";//ok
 lampOccupants = "rhs_acc_2dpZenit";
 nameOccupants = "CDF";
 if (isServer) then {"NATO_carrier" setMarkerText "CDF Carrier"};
+
+if (gameMode != 4) then
+	{
+	FIARifleman = "rhsgref_nat_pmil_rifleman_m92";
+	FIAMarksman = "rhsgref_nat_pmil_hunter";
+	vehFIAArmedCar = "rhsgref_nat_uaz_dshkm";
+	vehFIATruck = "rhsgref_nat_van";
+	vehFIACar = "rhsgref_nat_uaz";
+	groupsFIASmall = [["rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_rifleman_m92"],["rhsgref_nat_pmil_scout","rhsgref_nat_pmil_rifleman_aksu"],["rhsgref_nat_pmil_hunter","rhsgref_nat_pmil_scout"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+	groupsFIAMid = [["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_grenadier"],["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_hunter","rhsgref_nat_pmil_hunter"],["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_grenadier_rpg"],["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_specialist_aa","rhsgref_nat_pmil_specialist_aa"]];
+	FIASquad = ["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_hunter","rhsgref_nat_pmil_medic"];//"IRG_InfSquad";///
+	groupsFIASquad = [FIASquad,["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_saboteur","rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_medic"]];
+	factionFIA = "rhsgref_faction_nationalist";
+	};
+
+vehPoliceCar = "rhsgref_un_uaz";
+policeOfficer = "rhsgref_cdf_un_squadleader";
+policeGrunt = "rhsgref_cdf_un_rifleman_lite";
+groupsNATOGen = [policeOfficer,policeGrunt];
+factionGEN = "rhsgref_faction_un";

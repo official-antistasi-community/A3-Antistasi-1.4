@@ -35,6 +35,7 @@ memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "me
 limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
 napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
 teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
+playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
 
 [] call A3A_fnc_crateLootParams;
 //Load Campaign ID if resuming game
@@ -61,11 +62,11 @@ if (gameMode != 1) then
     if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
     if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
     };
-[] execVM "initPetros.sqf";
+[] spawn A3A_fnc_initPetros;
 ["Initialize"] call BIS_fnc_dynamicGroups;//Exec on Server
 hcArray = [];
-//waitUntil {(count playableUnits) > 0};
-//waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
+waitUntil {(count playableUnits) > 0};
+waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
 _nul = [] execVM "modBlacklist.sqf";
 
 {
@@ -89,7 +90,7 @@ if (loadLastSave) then
 publicVariable "loadLastSave";
 if (loadLastSave) then
     {
-    _nul = [] execVM "statSave\loadServer.sqf";
+    [] spawn A3A_fnc_loadServer;
     waitUntil {!isNil"statsLoaded"};
     if (!isNil "as_fnc_getExternalMemberListUIDs") then
         {
@@ -143,7 +144,7 @@ else
         };
     publicVariable "theBoss";
     publicVariable "membersX";
-    [] execVM "Ammunition\boxAAF.sqf";
+    [] spawn A3A_fnc_boxAAF;
     };
 
 diag_log format ["%1: [Antistasi] | INFO | Accepting Players.",servertime];
@@ -163,9 +164,11 @@ addMissionEventHandler ["PlayerDisconnected",{_this call A3A_fnc_onHeadlessClien
 
 addMissionEventHandler ["BuildingChanged", {
 	params ["_oldBuilding", "_newBuilding", "_isRuin"];
+
 	if (_isRuin) then {
 		_oldBuilding setVariable ["ruins", _newBuilding];
 		_newBuilding setVariable ["building", _oldBuilding];
+
 		if !(_oldBuilding in antennas) then {
 			destroyedBuildings pushBack (getPosATL _oldBuilding);
 		};
@@ -176,7 +179,7 @@ serverInitDone = true; publicVariable "serverInitDone";
 diag_log format ["%1: [Antistasi] | INFO | Marking serverInitDone : %2.",servertime, serverInitDone];
 
 waitUntil {sleep 1;!(isNil "placementDone")};
-distanceXs = [] spawn A3A_fnc_distances4;
+distanceXs = [] spawn A3A_fnc_distance;
 resourcecheck = [] execVM "resourcecheck.sqf";
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;

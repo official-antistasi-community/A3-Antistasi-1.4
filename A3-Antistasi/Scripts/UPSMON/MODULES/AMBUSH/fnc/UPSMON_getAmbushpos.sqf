@@ -82,8 +82,8 @@ if ( UPSMON_useMines && _ambushType == 1 ) then
 		diag_log format["%1: Roads #:%2 Pos:%3 Dir:%4",_grp getvariable ["UPSMON_grpid",0], _roads,_positiontoambush,_npcdir]
 	}; 	
 
-	_minetype1 = UPSMON_Minestype1 call BIS_fnc_selectRandom;
-	_minetype2 = UPSMON_Minestype2 call BIS_fnc_selectRandom;
+	_minetype1 = selectRandom UPSMON_Minestype1;
+	_minetype2 = selectRandom UPSMON_Minestype2;
 				
 	switch (_Minestype) do 
 	{

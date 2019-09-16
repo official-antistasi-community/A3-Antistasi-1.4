@@ -1,5 +1,3 @@
-//if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayer3CBBAFT.sqf"} else {
-
 CSATGrunt = "rhs_msv_rifleman";
 CSATOfficer = "rhs_msv_officer";
 CSATBodyG = "rhs_msv_efreitor";
@@ -92,5 +90,16 @@ flagCSATmrk = "rhs_flag_Russia";
 nameInvaders = "AFRF";
 if (isServer) then {"CSAT_carrier" setMarkerText "RFS Minsk"};
 
-
-//};
+if (gameMode == 4) then
+	{
+	FIARifleman = "rhs_vdv_izlom_rifleman_asval";
+	FIAMarksman = "rhs_vdv_izlom_marksman_vss";
+	vehFIAArmedCar = "UK3CB_O_G_T34";
+	vehFIATruck = "rhs_gaz66o_vv";
+	vehFIACar = "rhsgref_BRDM2_HQ_vmf";
+	groupsFIASmall = [["rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_rifleman_LAT"],["rhs_vdv_izlom_marksman","rhs_vdv_izlom_rifleman_LAT"],["rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_marksman_vss"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+	groupsFIAMid = [["rhs_vdv_izlom_efreitor","rhs_vdv_izlom_marksman_vss","rhs_vdv_izlom_arifleman","rhs_vdv_izlom_grenadier_rpg"],["rhs_vdv_izlom_efreitor","rhs_vdv_izlom_arifleman","rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_marksman"],["rhs_vdv_izlom_efreitor","rhs_vdv_izlom_grenadier_rpg","rhs_vdv_izlom_arifleman","rhs_vdv_izlom_marksman"]];
+	FIASquad = ["rhs_vdv_izlom_sergeant","rhs_vdv_izlom_rifleman_LAT","rhs_vdv_izlom_marksman","rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_efreitor","rhs_vdv_izlom_arifleman","rhs_vdv_izlom_rifleman_asval","rhs_vdv_izlom_grenadier_rpg"];//"IRG_InfSquad";///
+	groupsFIASquad = [FIASquad];
+	factionFIA = "rhs_faction_vv";
+	};

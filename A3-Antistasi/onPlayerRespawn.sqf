@@ -64,9 +64,7 @@ if (side group player == teamPlayer) then
 	{_newUnit removeWeaponGlobal _x} forEach weapons _newUnit;
 	removeBackpackGlobal _newUnit;
 	removeVest _newUnit;
-	if ((not("ItemGPS" in unlockedItems)) and ("ItemGPS" in (assignedItems _newUnit))) then {_newUnit unlinkItem "ItemGPS"};
-	private _radio = player call A3A_fnc_getRadio;
-	if (!haveRadio && _radio != "") then {player unlinkItem _radio};
+	removeAllAssignedItems _newUnit;
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{
@@ -172,7 +170,7 @@ if (side group player == teamPlayer) then
 					deleteVehicle (_this select 6);
 					if (_typeX == "Put") then
 					{
-						if (player distance petros < 10) then 
+						if (player distance petros < 10) then
 						{
 							[player, 20, 0.34] remoteExec ["A3A_fnc_punishment",player];
 						};
@@ -181,7 +179,7 @@ if (side group player == teamPlayer) then
 			};
 		};
 		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then 
+		if (hasACE) then
 		{
 			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
 		};

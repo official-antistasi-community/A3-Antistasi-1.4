@@ -39,7 +39,7 @@ if (!isNil "_weaponsItemsCargo") then
 		for "_i" from 1 to (count _x) - 1 do
 			{
 			_thingX = _x select _i;
-			if (typeName _thingX == typeName "") then
+			if (_thingX isEqualType "") then
 				{
 				if (_thingX != "") then {_items pushBack _thingX};
 				};

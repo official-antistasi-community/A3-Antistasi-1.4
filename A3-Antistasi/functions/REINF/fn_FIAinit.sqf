@@ -240,7 +240,7 @@ if (player == leader _unit) then
 		}];
 	if ((typeOf _unit != SDKUnarmed) and !hasIFA) then
 		{
-		_idUnit = arrayids call BIS_Fnc_selectRandom;
+		_idUnit = selectRandom arrayids;
 		arrayids = arrayids - [_idunit];
 		_unit setIdentity _idUnit;
 		};

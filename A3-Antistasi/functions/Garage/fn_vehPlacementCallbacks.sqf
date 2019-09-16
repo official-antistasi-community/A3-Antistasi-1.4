@@ -1,4 +1,5 @@
-#include "defineCommon.inc"
+#include "defineGarage.inc"
+
 params ["_callbackTarget", "_callbackType", ["_callbackParams", []]];
 
 /* 

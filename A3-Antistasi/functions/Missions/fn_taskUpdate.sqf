@@ -12,7 +12,7 @@ if (((_descriptionOld select 1) select 0) != (_description select 1)) then
 	[_variable,_description] call BIS_fnc_taskSetDescription;
 	};
 private _destinationOld = _variable call BIS_fnc_taskDestination;
-if (typeName _destinationX != typeName _destinationOld) then
+if !(_destinationX isEqualType _destinationOld) then
 	{
 	[_variable,_destinationX] call BIS_fnc_taskSetDestination;
 	}

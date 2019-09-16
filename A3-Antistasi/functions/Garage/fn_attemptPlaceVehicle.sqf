@@ -1,4 +1,4 @@
-#include "defineCommon.inc"
+#include "defineGarage.inc"
 
 //vehPlace_lastPreviewPosition = nil;
 _pos = getPos vehPlace_previewVeh;

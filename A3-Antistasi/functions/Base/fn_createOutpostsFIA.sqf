@@ -68,7 +68,7 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 	//["outpostsFIA", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
 	_nul = [-5,5,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
 	_mrk setMarkerType "loc_bunker";
-	_mrk setMarkerColor colourTeamPlayer;
+	_mrk setMarkerColor colorTeamPlayer;
 	_mrk setMarkerText _textX;
 	if (_isRoad) then
 		{

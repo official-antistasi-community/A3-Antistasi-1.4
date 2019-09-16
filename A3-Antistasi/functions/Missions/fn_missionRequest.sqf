@@ -114,7 +114,7 @@ if (_typeX == "DES") then
 		}
 	else
 		{
-		_siteX = _potentials call BIS_fnc_selectRandom;
+		_siteX = selectRandom _potentials;
 		if (_siteX in airportsX) then {if (random 10 < 8) then {[[_siteX],"DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
 		if (_siteX in antennas) then {[[_siteX],"DES_antenna"] remoteExec ["A3A_fnc_scheduler",2]}
 		};
@@ -171,7 +171,7 @@ if (_typeX == "LOG") then
 		}
 	else
 		{
-		_siteX = _potentials call BIS_fnc_selectRandom;
+		_siteX = selectRandom _potentials;
 		if (_siteX in citiesX) then {[[_siteX],"LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2]};
 		if (_siteX in outposts) then {[[_siteX],"LOG_Ammo"] remoteExec ["A3A_fnc_scheduler",2]};
 		if (_siteX in banks) then {[[_siteX],"LOG_Bank"] remoteExec ["A3A_fnc_scheduler",2]};
@@ -200,7 +200,7 @@ if (_typeX == "RES") then
 		}
 	else
 		{
-		_siteX = _potentials call BIS_fnc_selectRandom;
+		_siteX = selectRandom _potentials;
 		if (_siteX in citiesX) then {[[_siteX],"RES_Refugees"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"RES_Prisoners"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
@@ -249,7 +249,7 @@ if (_typeX == "CONVOY") then
 			}
 		else
 			{
-			_siteX = _potentials call BIS_fnc_selectRandom;
+			_siteX = selectRandom _potentials;
 			_base = [_siteX] call A3A_fnc_findBasesForConvoy;
 			[[_siteX,_base],"CONVOY"] remoteExec ["A3A_fnc_scheduler",2];
 			};

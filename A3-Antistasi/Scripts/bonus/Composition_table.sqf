@@ -19,8 +19,8 @@ switch (_cas) do {
 		
 		case 1: {
 		// Composition pour QG insurgé
-			_file = ["Land_File1_F","Land_FilePhotos_F","Land_File2_F"] call BIS_fnc_selectRandom;
-			_pen = ["Land_PenRed_F","Land_PenBlack_F"] call BIS_fnc_selectRandom;
+			_file = selectRandom ["Land_File1_F","Land_FilePhotos_F","Land_File2_F"];
+			_pen = selectRandom ["Land_PenRed_F","Land_PenBlack_F"];
 			
 			_objects = [[_object,"TOP"],"Land_Map_altis_F",1,[0,0,0],(getdir _object)+ 180] call BIS_fnc_spawnObjects;
 			_objects = [[_object,"TOP"],"Land_PortableLongRangeRadio_F",1,[-0.4,(random 0.2)+0.3,0],(random 20)-20] call BIS_fnc_spawnObjects;
@@ -33,10 +33,10 @@ switch (_cas) do {
 		case 2: {
 		// Composition table argent
 		
-			_ordi = ["Land_Laptop_unfolded_F","Land_Laptop_F"] call BIS_fnc_selectRandom;
-			_file = ["Land_File1_F","Land_FilePhotos_F","Land_File2_F"] call BIS_fnc_selectRandom;
-			_pen = ["Land_PenRed_F","Land_PenBlack_F"] call BIS_fnc_selectRandom;
-			_can = ["Land_Can_V2_F","Land_Can_V3_F","Land_Can_Rusty_F","Land_Can_V1_F"] call BIS_fnc_selectRandom;
+			_ordi = selectRandom ["Land_Laptop_unfolded_F","Land_Laptop_F"];
+			_file = selectRandom ["Land_File1_F","Land_FilePhotos_F","Land_File2_F"];
+			_pen = selectRandom ["Land_PenRed_F","Land_PenBlack_F"];
+			_can = selectRandom ["Land_Can_V2_F","Land_Can_V3_F","Land_Can_Rusty_F","Land_Can_V1_F"];
 			
 			_objects = [[_object,"TOP"],_ordi,1,[0,0,0],(getdir _object) +270] call BIS_fnc_spawnObjects;
 			_objects = [[_object,"TOP"],"Land_MobilePhone_smart_F",1,[-0.4,(random 0.2)+0.3,-0.4],(random 20)-20] call BIS_fnc_spawnObjects;
@@ -48,9 +48,9 @@ switch (_cas) do {
 		
 		case 3: {
 		// Composition table d'operation
-			_object1 = ["Land_Bandage_F","Land_BloodBag_F","Land_Antibiotic_F","Land_Bandage_F","Land_Bandage_F","Land_PainKillers_F"] call BIS_fnc_selectRandom;
-			_object2 = ["Land_Bandage_F","Land_BloodBag_F","Land_Antibiotic_F","Land_Bandage_F","Land_Bandage_F","Land_PainKillers_F"] call BIS_fnc_selectRandom;
-			_object3 = ["Land_Bandage_F","Land_BloodBag_F","Land_Antibiotic_F","Land_Bandage_F","Land_Bandage_F","Land_PainKillers_F"] call BIS_fnc_selectRandom;
+			_object1 = selectRandom ["Land_Bandage_F","Land_BloodBag_F","Land_Antibiotic_F","Land_Bandage_F","Land_Bandage_F","Land_PainKillers_F"];
+			_object2 = selectRandom ["Land_Bandage_F","Land_BloodBag_F","Land_Antibiotic_F","Land_Bandage_F","Land_Bandage_F","Land_PainKillers_F"];
+			_object3 = selectRandom ["Land_Bandage_F","Land_BloodBag_F","Land_Antibiotic_F","Land_Bandage_F","Land_Bandage_F","Land_PainKillers_F"];
 			
 			_objects = [[_object,"TOP"],"Land_Defibrillator_F",1,[0,random -0.2,0],(getdir _object)+ 180] call BIS_fnc_spawnObjects;
 			_objects = [[_object,"TOP"],"Land_Bandage_F",1,[-0.4,(random 0.2)+0.3,0],(random 20)-20] call BIS_fnc_spawnObjects;
@@ -87,7 +87,7 @@ switch (_cas) do {
 		case 6: {
 		// Composition dépot munition
 		
-			_weapon = ["arifle_TRG21_F","arifle_TRG20_F","arifle_TRG21_GL_F","arifle_TRG20_ACO_Flash_F","launch_B_Titan_short_F"] call BIS_fnc_selectRandom;
+			_weapon = selectRandom ["arifle_TRG21_F","arifle_TRG20_F","arifle_TRG21_GL_F","arifle_TRG20_ACO_Flash_F","launch_B_Titan_short_F"];
 			_weaponspawn = createvehicle ["groundWeaponHolder", getposATL _object, [], 0, "can_collide"]; 
 			_weaponspawn addweaponcargo [_weapon,1]; 
 			_weaponspawn setVectorDirAndUp [[0,0,1],[0,0,0]];

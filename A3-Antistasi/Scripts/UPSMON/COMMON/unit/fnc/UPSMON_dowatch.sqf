@@ -17,7 +17,7 @@ _target = _this select 1;
 _height = 1;
 If (count _this > 2) then {_height = _this select 2};	
 
-If (typename _target == "ARRAY") then
+If (_target isEqualType []) then
 {
 	_target = [(_this select 1) select 0,(_this select 1) select 1,_height];
 }

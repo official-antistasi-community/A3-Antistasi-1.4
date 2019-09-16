@@ -63,7 +63,7 @@ while {time < _timeOut} do
 								{
 								_typeX = _this select 0;
 								sleep random 3;
-								playSound3D [(injuredSounds call BIS_fnc_selectRandom),_typeX];
+								playSound3D [(selectRandom injuredSounds),_typeX];
 								};
 							};
 						};

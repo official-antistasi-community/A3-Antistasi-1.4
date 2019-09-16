@@ -4,7 +4,7 @@
 #endif
 
 //Other Includes
-#include "defineCommon.inc"
+#include "functions\Garage\defineGarage.inc"
 
 // Control types
 #define CT_STATIC           0

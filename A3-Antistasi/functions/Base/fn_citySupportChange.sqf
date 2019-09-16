@@ -5,7 +5,7 @@ cityIsSupportChanging = true;
 _opfor = _this select 0;
 _blufor = _this select 1;
 _pos = _this select 2;
-if (typeName _pos == typeName "") then {_city = _pos} else {_city = [citiesX, _pos] call BIS_fnc_nearestPosition};
+if (_pos isEqualType "") then {_city = _pos} else {_city = [citiesX, _pos] call BIS_fnc_nearestPosition};
 _dataX = server getVariable _city;
 if (!(_dataX isEqualType [])) exitWith {
 		cityIsSupportChanging = false;

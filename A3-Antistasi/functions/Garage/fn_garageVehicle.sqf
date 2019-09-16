@@ -1,4 +1,4 @@
-#include "defineCommon.inc"
+#include "defineGarage.inc"
 
 private ["_pool","_veh","_typeVehX"];
 _pool = false;

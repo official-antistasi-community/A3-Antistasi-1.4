@@ -95,7 +95,7 @@ if (_isPlayer) then
 
 while {(time < _bleedOut) and (_unit getVariable ["INCAPACITATED",false]) and (alive _unit) and (!(_unit getVariable ["respawning",false]))} do
 	{
-	if (random 10 < 1) then {playSound3D [(injuredSounds call BIS_fnc_selectRandom),_unit,false, getPosASL _unit, 1, 1, 50];};
+	if (random 10 < 1) then {playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50];};
 	if (_isPlayer) then
 		{
 		_helped = _unit getVariable ["helped",objNull];

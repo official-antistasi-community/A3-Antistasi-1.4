@@ -25,7 +25,7 @@ _posHouse = [];
 _houseX = _houses select 0;
 while {count _posHouse < 3} do
 	{
-	_houseX = _houses call BIS_Fnc_selectRandom;
+	_houseX = selectRandom _houses;
 	_posHouse = _houseX buildingPos -1;
 	if (count _posHouse < 3) then {_houses = _houses - [_houseX]};
 	};

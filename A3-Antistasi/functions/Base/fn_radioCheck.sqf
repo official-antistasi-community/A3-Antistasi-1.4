@@ -2,7 +2,7 @@ private ["_markerX","_ok","_positionX","_antenna","_nearX"];
 
 _markerX = _this select 0;
 _positionX = _this select 0;
-if (typeName _markerX == typeName "") then {_positionX = getMarkerPos _markerX};
+if (_markerX isEqualType "") then {_positionX = getMarkerPos _markerX};
 _ok = false;
 if (count antennas > 0) then
 	{

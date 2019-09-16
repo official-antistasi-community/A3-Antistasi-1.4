@@ -38,7 +38,7 @@ if ((_side == teamPlayer) or (_side == sideUnknown)) then
 	{
 	_enemyX = false;
 	_formatX = "n";
-	_color = colourTeamPlayer;
+	_color = colorTeamPlayer;
 	}
 else
 	{

@@ -85,21 +85,21 @@ while {musicON} do
 		_stance = _newstance;
 		if (_newstance == "COMBAT") then
 			{
-			_song = _combat call BIS_Fnc_selectRandom;
+			_song = selectRandom _combat;
 			};
 		if (_newstance == "STEALTH") then
 			{
-			_song = _stealth call BIS_Fnc_selectRandom;
+			_song = selectRandom _stealth;
 			};
 		if ((_newstance == "AWARE") or (_newstance == "SAFE")) then
 			{
 			if ((daytime > 18) or (daytime < 6)) then
 				{
-				_song = _normalNight call BIS_Fnc_selectRandom;
+				_song = selectRandom _normalNight;
 				};
 			if ((daytime > 5) or (daytime < 19)) then
 				{
-				_song = _normalDay call BIS_Fnc_selectRandom;
+				_song = selectRandom _normalDay;
 				};
 			};
 		exchangeMUS = true;

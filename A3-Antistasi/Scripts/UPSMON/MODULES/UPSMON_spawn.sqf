@@ -44,7 +44,7 @@ _newpos=[];
 _vehicle=[];
 
 //Gets parameters of UPSMON
-for [{_i=0},{_i<count _params},{_i=_i+1}] do {_e=_params select _i; if (typeName _e=="STRING") then {_e=toUpper(_e)};_UCthis set [_i,_e]};
+for [{_i=0},{_i<count _params},{_i=_i+1}] do {_e=_params select _i; if (_e isEqualType "STRING") then {_e=toUpper(_e)};_UCthis set [_i,_e]};
 _initstr = ["INIT:","",_UCthis] call UPSMON_getArg;
 _initlstr = ["INITL:","",_UCthis] call UPSMON_getArg;
 _initlstr = _initlstr + _initstr;

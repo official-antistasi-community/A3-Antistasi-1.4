@@ -18,7 +18,7 @@ _UCthis = [];
 for [{_i=0},{_i<count _Params},{_i=_i+1}] do 
 {
 	_e=_Params select _i;
-	if (typeName _e=="STRING") then {_e=toUpper(_e)};
+	if (_e isEqualType "STRING") then {_e=toUpper(_e)};
 	_UCthis set [_i,_e]
 };
 

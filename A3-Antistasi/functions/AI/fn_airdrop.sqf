@@ -7,7 +7,7 @@ _originX = _this select 3;
 _reinf = if (count _this > 4) then {_this select 4} else {false};
 
 _positionX = _markerX;
-if (typeName _markerX == typeName "") then {_positionX = getMarkerPos _markerX};
+if (_markerX isEqualType "") then {_positionX = getMarkerPos _markerX};
 _groupPilot = group driver _veh;
 {_x disableAI "TARGET"; _x disableAI "AUTOTARGET"} foreach units _groupPilot;
 _dist = 500;

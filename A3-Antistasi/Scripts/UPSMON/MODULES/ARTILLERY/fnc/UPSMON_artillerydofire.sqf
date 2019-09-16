@@ -35,7 +35,7 @@ _result = [0,Objnull,0,0];
 
 If (count (_grp getvariable ["UPSMON_Mortarmun",[]]) > 0) then
 {	
-	If (typename ((_grp getvariable ["UPSMON_Battery",[]])select 0) == "ARRAY") then
+	If (((_grp getvariable ["UPSMON_Battery",[]])select 0) isEqualType []) then
 	{
 		_result = [_askmission,typeof (vehicle ((_batteryunits select 0) select 0))] call UPSMON_getmuninfosbackpack;
 		_batteryunits = [];

@@ -44,7 +44,7 @@ for "_i" from 0 to (count _houses) - 1 do
 
 if (count _potentials > 0) then
 	{
-	_houseX = _potentials call BIS_Fnc_selectRandom;
+	_houseX = selectRandom _potentials;
 	_posHouse = [_houseX] call BIS_fnc_buildingPositions;
 	_countX = (count _posHouse) - 1;
 	if (_countX > 10) then {_countX = 10};

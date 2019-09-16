@@ -30,7 +30,7 @@ if (isNil "loadingTranslationTable" or {!(loadingTranslationTable getVariable ["
 
 private _result = loadingTranslationTable getVariable [_englishNameToTranslate, ObjNull];
 
-if (typeName _result != "STRING") then {
+if !(_result isEqualType "") then {
   //diag_log ("Antistasi: No translation for " + _englishNameToTranslate);
   _result = _englishNameToTranslate;
 };

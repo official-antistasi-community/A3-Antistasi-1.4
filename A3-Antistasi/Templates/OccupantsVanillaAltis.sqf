@@ -89,3 +89,30 @@ flagNATOmrk = "flag_NATO";
 
 nameOccupants = "NATO";
 if (isServer) then {"NATO_carrier" setMarkerText "NATO Carrier"};
+	
+//Militia Units
+if (gameMode != 4) then {
+	if (hasFFAA) then
+		{
+		call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"
+		}
+	else
+		{
+		FIARifleman = "B_Soldier_lite_F";
+		FIAMarksman = "B_soldier_M_F";
+		vehFIAArmedCar = "B_LSV_01_armed_F";
+		vehFIATruck = "B_Truck_01_transport_F";
+		vehFIACar = "B_LSV_01_unarmed_F";
+		groupsFIASmall = [["B_Soldier_GL_F",FIARifleman],[FIAMarksman,FIARifleman],["B_Sharpshooter_F","B_soldier_M_F"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+		groupsFIAMid = [["B_Soldier_TL_F","B_Soldier_GL_F","B_soldier_AR_F","B_soldier_M_F"],["B_Soldier_TL_F","B_Soldier_GL_F","B_soldier_AR_F","B_soldier_LAT2_F"],["B_Soldier_TL_F","B_soldier_AR_F","B_soldier_AAA_F","B_soldier_AA_F"]];
+		FIASquad = ["B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_Soldier_lite_F","B_Soldier_lite_F","B_soldier_M_F","B_soldier_LAT2_F","B_medic_F"];//"IRG_InfSquad";///
+		groupsFIASquad = [FIASquad,["B_Soldier_TL_F","B_support_AMG_F","B_Soldier_GL_F","B_Soldier_lite_F","B_support_MG_F","B_soldier_M_F","B_soldier_LAT2_F","B_medic_F"]];
+		factionFIA = "";
+		};
+	};
+//Police Units
+vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
+policeOfficer = "B_GEN_Commander_F";
+policeGrunt = "B_GEN_Soldier_F";
+groupsNATOGen = [policeOfficer,policeGrunt];
+factionGEN = "BLU_GEN_F";

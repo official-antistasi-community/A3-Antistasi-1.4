@@ -29,7 +29,6 @@ NATOPlayerLoadouts = [
 	"LIB_FSJ_LAT_Soldier"
 ];
 
-
 vehNATOPVP = ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt","LIB_Kfz1_MG42_sernyt"];//This array contains the vehicles Nato-PvP players can spawn near their flag.
 
 vehNATOLightArmed = ["LIB_Kfz1_MG42_sernyt","LIB_SdKfz222"];
@@ -74,7 +73,6 @@ NATOSpecOp = ["LIB_FSJ_NCO","LIB_FSJ_Mgunner","LIB_FSJ_Soldier_2","LIB_FSJ_AT_so
 groupsNATOSquad = [NATOSquad,["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_smgunner","LIB_GER_AT_grenadier","LIB_GER_ober_rifleman","LIB_GER_sapper","LIB_GER_sapper_gefr","LIB_GER_medic"]]; //[NATOSquad,"B_T_InfSquad_Weapons"];///
 factionMaleOccupants = "LIB_FSJ";
 
-
 supportStaticNATOB = "not_supported";
 ATStaticNATOB = "not_supported";
 MGStaticNATOB = "not_supported";
@@ -91,3 +89,23 @@ nameOccupants = "Wehrmacht";
 if (isServer) then {"NATO_carrier" setMarkerText "Wehrmacht Reinforcements"};
 
 {helmets pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
+
+if (gameMode != 4) then
+	{
+	FIARifleman = "LIB_DAK_Soldier";
+	FIAMarksman = "LIB_DAK_Sniper";
+	vehFIAArmedCar = "LIB_Kfz1_MG42_camo";
+	vehFIATruck = "LIB_OpelBlitz_Open_Y_Camo_w";
+	vehFIACar = "LIB_Kfz1_hood_w";
+	groupsFIASmall = [["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],[FIAMarksman,FIARifleman]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+	groupsFIAMid = [["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_2","LIB_DAK_Soldier"],["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_AT_soldier","LIB_DAK_AT_grenadier"],["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier","LIB_DAK_Sniper"]];
+	FIASquad = ["LIB_DAK_NCO_2","LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_3","LIB_DAK_AT_grenadier","LIB_DAK_AT_soldier","LIB_DAK_radioman","LIB_DAK_medic"];//"IRG_InfSquad";///
+	groupsFIASquad = [FIASquad,["LIB_DAK_NCO_2","LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_3","LIB_DAK_AT_grenadier","LIB_DAK_Sniper","LIB_DAK_radioman","LIB_DAK_medic"]];
+	factionFIA = "LIB_DAK";
+	};
+
+factionGEN = "SG_STURMPANZER";
+vehPoliceCar = "LIB_Kfz1_sernyt";
+policeOfficer = "SG_sturmpanzer_unterofficer";
+policeGrunt = "SG_sturmpanzer_crew";
+groupsNATOGen = [policeOfficer,policeGrunt];

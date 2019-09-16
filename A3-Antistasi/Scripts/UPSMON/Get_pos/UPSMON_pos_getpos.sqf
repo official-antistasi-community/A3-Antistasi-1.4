@@ -14,7 +14,7 @@ _empty = if (count _this > 5) then {_this select 5} else {[]};
 if (typename _org == "OBJECT") then {_org = getpos _org};
 
 // Distance given as an array of min and max. Pick a random between them.
-if (typename _dst == "ARRAY") then {
+if (_dst isEqualType []) then {
   private ["_min","_max"];
   _min = _dst select 0;
   _max = _dst select 1;
@@ -22,7 +22,7 @@ if (typename _dst == "ARRAY") then {
 };
 
 // Direction given as an array of min and max. Pick a random dir between them.
-if (typename _dir == "ARRAY") then {
+if (_dir isEqualType []) then {
   private ["_min","_max","_ang"];
   _min = _dir select 0;
   _max = _dir select 1;
@@ -152,7 +152,7 @@ switch (typename _empty) do {
     if (count _empty > 0) then {
       _dst = _empty select 0;
       _veh = _empty select 1;
-      if (typename _veh == typename objNull) then { _veh = typeof _veh };
+      if (_veh isEqualType objNull) then { _veh = typeof _veh };
     };
   };
 };

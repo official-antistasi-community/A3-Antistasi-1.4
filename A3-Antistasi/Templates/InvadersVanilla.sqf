@@ -85,3 +85,17 @@ ammunitionCSAT append ["30Rnd_65x39_caseless_green","10Rnd_762x54_Mag","150Rnd_7
 flagCSATmrk = "flag_CSAT";
 nameInvaders = "CSAT";
 if (isServer) then {"CSAT_carrier" setMarkerText "CSAT Carrier"};
+	
+if (gameMode == 4) then
+	{
+	FIARifleman = "O_G_Soldier_F";
+	FIAMarksman = "O_G_Sharpshooter_F";
+	vehFIAArmedCar = "O_G_Offroad_01_armed_F";
+	vehFIATruck = "O_G_van_01_transport_F";
+	vehFIACar = "O_G_Offroad_01_F";
+	groupsFIASmall = [["O_G_Soldier_GL_F","O_G_Soldier_F"],["O_G_Soldier_M_F","O_G_Soldier_F"],["O_G_Sharpshooter_F","O_G_Soldier_M_F"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+	groupsFIAMid = [["O_G_Soldier_SL_F","O_G_Sharpshooter_F","O_G_Soldier_AR_F","O_G_Soldier_A_F"],["O_G_Soldier_TL_F","O_G_Soldier_AR_F","O_G_Soldier_GL_F","O_G_Soldier_LAT_F"],["O_G_Soldier_TL_F","O_G_Soldier_LAT_F","O_G_Soldier_LAT_F","O_G_Soldier_LAT_F"]];
+	FIASquad = ["O_G_soldier_SL_F","O_G_soldier_F","O_G_soldier_LAT_F","O_G_Soldier_M_F","O_G_soldier_TL_F","O_G_soldier_AR_F","O_G_Soldier_A_F","O_G_medic_F"];//"IRG_InfSquad";///
+	groupsFIASquad = [FIASquad,["O_G_soldier_SL_F","O_G_soldier_LAT_F","O_G_Soldier_M_F","O_G_soldier_TL_F","O_G_Soldier_A_F","O_G_medic_F","O_support_MG_F","O_support_AMG_F"]];
+	factionFIA = "OPF_G_F";
+	};

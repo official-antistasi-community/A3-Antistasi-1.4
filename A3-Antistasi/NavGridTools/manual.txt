@@ -1,0 +1,107 @@
+============ Manual for the NavGrid Creation Script ============================
+
+Antistasi Official Community
+Discord : https://discord.gg/dcwKf3h
+Website : https://a3antistasi.enjin.com/
+
+The usage of this script is fairly easy, with only a few rules to follow.
+
+There are three reason you are looking at this file. The instructions depends on
+why you are here. These three reasons are:
+
+- You are Spoffy and have to review this nightmare of a PR. I am sorry, I really
+  am. I am gonna review the next nightmare PR of yours, I promise.
+
+- You want to port Antistasi to another map. Great, we are always glad to see
+  people, who want to help us. Even if your doing it for yourself, then we are
+  glad, you are having enough fun with this mission to get yourself to port it.
+  We can't force you, but if you think the port you are doing haven't been done
+  before, we would like to have it (you will get the credits of course).
+  Send us a message on the official website or Discord, we will not waste your time.
+  You can just skip the next segment and jump direct to the instructions.
+
+- You want to do a pathfinding system for your own mission.Thats great but may
+  not be the think you really need. Nearly every moving object in Arma has a own
+  pathfinding algorithm and does not need help from the outside. Are you sure
+  you need a real pathfinding algorithm? If so, you can go to the instructions
+  and follow them. But for the pathfinding to work, you will have to send me a
+  message to get all the needed files. You could try to collect them out of the
+  files of the Antistasi code, but I guess, I would be the easier solution.
+  Getting in contact with me through the Official Antistasi Discord is the way
+  to go there.
+
+============================= Instructions =====================================
+
+  DO THIS ON AN EMPTY MAP, HAVING ANTISTASI OR OTHER SCRIPTS RUNNING IN THE
+  BACKGROUND WILL DRASTICALLY INCREASE RUNTIME !!!
+  This is no script to let run on the startup of a mission, an empty Altis
+  takes around five minutes to complete.
+
+  Preparing the map:
+
+    The script has to know where to start, so it needs a few markers.
+    Each map needs AT LEAST ONE marker. For maps with multiple island,
+    which are not connected with roads, it need a marker for every
+    island, which is not connected to an island with a marker. If you are
+    unsure, which island are connected or not, just set up marker for every
+    island.
+
+    The marker has to be positioned on road junctions. It does not has to
+    be exactly on the junction. Putting the marker somewhere near it will
+    work to. I would recommand using empty markers.
+
+    Last thing about the markers. Every marker has to be named with
+    'roadMarker' in it. As long as 'roadMarker' is in it the script will
+    detect it. 1_roadMarker is fine, roadMarker_1 is fine too, you get
+    the concept.
+
+    The map is prepared. Lets get the script running.
+
+  Running the script:
+
+    Start the preprared map in editor SP. Hit Esc to get the console open.
+    Put in the line
+    [] execVM "NavGridTools\createNavGrid.sqf"
+    and hit Local Execution. There will be a hint saying the setup started,
+    if not you will get an error. Double check the line in that case.
+
+    A large hint will pop up. Read it! If you have not already open the
+    file as stated in the hint. Double check the file name (its important
+    for the load of the grid) and keep the text editor open. Once you done
+    that, click on continue.
+
+    If there is an error with the markers, the script will tell you. Two
+    errors are possible. First is, you didn't place any marker or named
+    them wrong. Second, one or more marker are not placed on junctions.
+    The marker names are displayed, double check the marker. If you are
+    sure, that the marker is on a junction, but the script denies it,
+    choose a different junction. Some junctions can't be detected as such
+    in the start of the script.
+
+    If any error occurs, the script will abort once you hit continue on
+    the hint.
+
+    If no error occurs the game will switch to map view and you can have
+    a look how the algorithm is working. Oddly relaxing if you ask me.
+
+  Saving the data:
+
+    The script will tell you, once it has finished. All the collected
+    data is now saved in your clipboard. Switch over to the file we
+    opened earlier and hit Ctrl + V to paste the content. The content
+    already is correct sqf code. There is no need to add anything.
+    Save the file as "NavGrids/navGrid<worldName>.sqf" as the hint told
+    you. Antistasi can now load this file whenever needed.
+
+  Checking the map:
+
+    Last thing you should do is check the maps. If you missed any island
+    or something, you can see it now.
+
+=========================== Known Problems =====================================
+
+  There is no data regarding the type of road. If there is please tell me
+  and I will add this feature. So long all roads are equal.
+
+  Small paths through forest (mostly on Tanoa) are not recognized as roads.
+  These are rebels only paths :D

@@ -91,3 +91,31 @@ flagNATOmrk = "flag_USA";//ok
 lampOccupants = "acc_flashlight";
 nameOccupants = "USAF";
 if (isServer) then {"NATO_carrier" setMarkerText "USMC Carrier"};
+
+if (hasFFAA) then
+	{
+	call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"
+	}
+else
+	{
+	if (gameMode != 4) then
+		{
+		FIARifleman = "rhsgref_hidf_rifleman";
+		FIAMarksman = "rhsgref_hidf_marksman";
+		vehFIAArmedCar = "rhsgref_hidf_m1025_m2";
+		vehFIATruck = "rhsgref_cdf_b_ural_open";
+		vehFIACar = "rhsgref_hidf_m998_4dr";
+
+		groupsFIASmall = [["rhsgref_hidf_grenadier","rhsgref_hidf_rifleman"],["rhsgref_hidf_marksman","rhsgref_hidf_rifleman"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+		groupsFIAMid = [["rhsgref_hidf_teamleader","rhsgref_hidf_machinegunner","rhsgref_hidf_machinegunner_assist","rhsgref_hidf_grenadier"],["rhsgref_hidf_teamleader","rhsgref_hidf_rifleman_m72","rhsgref_hidf_rifleman_m72","rhsgref_hidf_grenadier"]];//["IRG_InfAssault","IRG_InfTeam","IRG_InfTeam_AT"];///
+		FIASquad = ["rhsgref_hidf_squadleader","rhsgref_hidf_machinegunner","rhsgref_hidf_machinegunner_assist","rhsgref_hidf_rifleman","rhsgref_hidf_rifleman_m72","rhsgref_hidf_rifleman_m72","rhsgref_hidf_grenadier","rhsgref_hidf_medic"];//"IRG_InfSquad";///
+		groupsFIASquad = [FIASquad];
+		factionFIA = "rhsgref_faction_hidf";
+		};
+	};
+
+vehPoliceCar = "rhsusf_mrzr4_d";
+policeOfficer = "rhsusf_army_ucp_rifleman_m590";
+policeGrunt = "rhsusf_army_ucp_rifleman_82nd";
+groupsNATOGen = [policeOfficer,policeGrunt];
+factionGEN = "BLU_GEN_F";

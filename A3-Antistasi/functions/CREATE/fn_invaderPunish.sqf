@@ -133,6 +133,7 @@ for "_i" from 0 to _numCiv do
 		};
 	_typeUnit = selectRandom arrayCivs;
 	_civ = _groupCivil createUnit [_typeUnit,_pos, [],0,"NONE"];
+	_civ forceAddUniform (selectRandom civUniforms);
 	_rnd = random 100;
 	if (_rnd < 90) then
 		{

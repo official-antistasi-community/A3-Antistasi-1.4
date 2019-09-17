@@ -242,6 +242,7 @@ class A3A
 		class arsenalManage {};
 		class boxAAF {};
 		class checkRadiosUnlocked {};
+		class crateLootParams {};
 		class CSATCrate {};
 		class dress {};
 		class empty {};

@@ -5,7 +5,7 @@ class A3A
 		class addHC {};
 		class addTimeForIdle {};
 		class AILoadInfo {};
-		class attackAAF {};
+		class rebelAttack {};
 		class blackout {};
 		class buildHQ {};
 		class citiesToCivPatrol {};

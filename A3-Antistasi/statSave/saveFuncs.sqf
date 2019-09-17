@@ -374,7 +374,7 @@ fn_SetStat =
 			{
 			if (_x == "rebelAttack") then
 				{
-				[] call A3A_fnc_attackAAF;
+				[] call A3A_fnc_rebelAttack;
 				}
 			else
 				{

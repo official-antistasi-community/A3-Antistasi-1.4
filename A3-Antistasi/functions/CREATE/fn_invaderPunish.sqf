@@ -18,7 +18,7 @@ _nameDestination = [_attackDestination] call A3A_fnc_localizar;
 [[teamPlayer,civilian,Occupants],"invaderPunish",[format ["%2 is attacking innocent civilians in %1! Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 
 _nul = [_attackOrigin,_attackDestination,Invaders] spawn A3A_fnc_artillery;
-_sideTarget = if (sidesX getVariable [_attackDestination,sideUnknown] == Occupants) then {Occupants} else {teamPlayer};
+private _sideTarget = if (sidesX getVariable [_attackDestination,sideUnknown] == Occupants) then {Occupants} else {teamPlayer};
 _missionExpireTime = time + 3600;
 
 private _invaderAirTransport = vehCSATTransportHelis + vehCSATTransportPlanes;
@@ -120,7 +120,7 @@ if (_numCiv < 8) then {_numCiv = 8};
 
 _size = [_attackDestination] call A3A_fnc_sizeMarker;
 //_groupCivil = if (_sideTarget == teamPlayer) then {createGroup teamPlayer} else {createGroup Occupants};
-_groupCivil = createGroup teamPlayer;
+_groupCivil = createGroup _sideTarget;
 _groups pushBack _groupCivil;
 //[Invaders,[civilian,0]] remoteExec ["setFriend",2];
 _typeUnit = if (_sideTarget == teamPlayer) then {SDKUnarmed} else {NATOUnarmed};
@@ -131,7 +131,6 @@ for "_i" from 0 to _numCiv do
 		_pos = _posDestination getPos [random _size,random 360];
 		if (!surfaceIsWater _pos) exitWith {};
 		};
-	_typeUnit = selectRandom arrayCivs;
 	_civ = _groupCivil createUnit [_typeUnit,_pos, [],0,"NONE"];
 	_civ forceAddUniform (selectRandom civUniforms);
 	_rnd = random 100;

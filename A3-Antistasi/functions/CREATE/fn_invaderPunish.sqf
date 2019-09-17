@@ -164,7 +164,7 @@ if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or (
 	{
 	{_x doMove [0,0,0]} forEach _soldiers;
 	//["invaderPunish", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
-	["invaderPunish",[format ["%2 is making a punishment expedition to %1. They will kill everybody there. Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	["invaderPunish",[format ["%2 is attacking innocent civilians in %1! Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	if ({(side _x == teamPlayer) and (_x distance _posDestination < _size * 2)} count allUnits >= {(side _x == Occupants) and (_x distance _posDestination < _size * 2)} count allUnits) then
 		{
 		if (sidesX getVariable [_attackDestination,sideUnknown] == Occupants) then {[-15,15,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2]} else {[-5,15,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2]};
@@ -181,7 +181,7 @@ if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or (
 	}
 else
 	{
-	["invaderPunish",[format ["%2 is making a punishment expedition to %1. They will kill everybody there. Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,"FAILED"] call A3A_fnc_taskUpdate;
+	["invaderPunish",[format ["%2 is attacking innocent civilians in %1! Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,"FAILED"] call A3A_fnc_taskUpdate;
 	//["invaderPunish", "FAILED",true] spawn BIS_fnc_taskSetState;
 	[-20,-20,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2];
 	{[-10,-10,_x] remoteExec ["A3A_fnc_citySupportChange",2]} forEach citiesX;

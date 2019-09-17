@@ -1,5 +1,5 @@
 if (!isServer and hasInterface) exitWith {};
-private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_attackVehicle","_vehicle","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_tanksX","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uav","_groupUAV","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_attackDestination","_posDestination","_prestigeCSAT","_base","_airportX","_nameDestination","_missionExpireTime","_solMax","_nul","_pos","_timeOut"];
+private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_attackVehicle","_vehicle","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_tanksX","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uav","_groupUAV","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_attackDestination","_posDestination","_prestigeCSAT","_base","_airportX","_nameDestination","_missionExpireTime","_soldiersSpawned","_nul","_pos","_timeOut"];
 _attackDestination = _this select 0;
 _attackOrigin = _this select 1;
 bigAttackInProgress = true;
@@ -10,7 +10,7 @@ _groups = [];
 _soldiers = [];
 _pilots = [];
 _vehiclesX = [];
-_civiles = [];
+_civilians = [];
 
 diag_log format ["[Antistasi] Launching CSAT Punish Against %1 from %2 (CSATpunish.sqf)", _attackDestination, _attackOrigin];
 
@@ -137,15 +137,15 @@ for "_i" from 0 to _numCiv do
 		{
 		if (_rnd < 25) then {[_civ, "hgun_PDW2000_F", 5, 0] call BIS_fnc_addWeapon;} else {[_civ, "hgun_Pistol_heavy_02_F", 5, 0] call BIS_fnc_addWeapon;};
 		};
-	_civiles pushBack _civ;
+	_civilians pushBack _civ;
 	[_civ] call A3A_fnc_civInit;
 	sleep 0.5;
 	};
 
 _nul = [leader _groupCivil, _attackDestination, "AWARE","SPAWNED","NOVEH2"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
 
-_civilMax = {alive _x} count _civiles;
-_solMax = count _soldiers;
+_civiliansSpawned = {alive _x} count _civilians;
+_soldiersSpawned = count _soldiers;
 
 for "_i" from 0 to round random 2 do
 	{
@@ -157,9 +157,9 @@ for "_i" from 0 to round random 2 do
 		};
 	};
 
-waitUntil {sleep 5; (({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or ({alive _x} count _soldiers < round (_solMax / 3)) or (({(_x distance _posDestination < _size*2) and (not(vehicle _x isKindOf "Air")) and (alive _x) and (!captive _x)} count _soldiers) > 4*({(alive _x) and (_x distance _posDestination < _size*2)} count _civiles)) or (time > _missionExpireTime)};
+waitUntil {sleep 5; (({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or ({alive _x} count _soldiers < round (_soldiersSpawned / 3)) or (({(_x distance _posDestination < _size*2) and (not(vehicle _x isKindOf "Air")) and (alive _x) and (!captive _x)} count _soldiers) > 4*({(alive _x) and (_x distance _posDestination < _size*2)} count _civilians)) or (time > _missionExpireTime)};
 
-if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or ({alive _x} count _soldiers < round (_solMax / 3)) or (time > _missionExpireTime)) then
+if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or ({alive _x} count _soldiers < round (_soldiersSpawned / 3)) or (time > _missionExpireTime)) then
 	{
 	{_x doMove [0,0,0]} forEach _soldiers;
 	//["invaderPunish", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
@@ -235,5 +235,5 @@ if (count _pilots > 0) then
 
 waitUntil {sleep 1; (spawner getVariable _attackDestination == 2)};
 
-{deleteVehicle _x} forEach _civiles;
+{deleteVehicle _x} forEach _civilians;
 deleteGroup _groupCivil;

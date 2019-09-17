@@ -161,12 +161,12 @@ class A3A
 		class createFIAOutposts2 {};
 		class createSDKGarrisons {};
 		class createSDKgarrisonsTemp {};
-		class CSATpunish {};
 		class FIAinitBases {};
 		class garrisonReorg {};
 		class garrisonSize {};
 		class garrisonUpdate {};
 		class groupDespawner {};
+		class invaderPunish {};
 		class milBuildings {};
 		class minefieldAAF {};
 		class mortarPos {};

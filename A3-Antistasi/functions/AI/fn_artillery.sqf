@@ -1,12 +1,12 @@
 if (!isServer and hasInterface) exitWith{};
 
-private ["_mrkOrigin","_pos","_sideX","_countX","_mrkDestination","_veh","_posOrigin","_sidesOccupants","_posDestination","_typeVehX","_typeAmmunition","_size","_vehicle","_vehCrew","_groupVeh","_roundsX","_objectiveX","_objectivesX","_timeX"];
+private ["_mrkOrigin","_pos","_sideX","_countX","_mrkDestination","_veh","_posOrigin","_sideTargets","_posDestination","_typeVehX","_typeAmmunition","_size","_vehicle","_vehCrew","_groupVeh","_roundsX","_objectiveX","_objectivesX","_timeX"];
 
 _mrkOrigin = _this select 0;
 _posOrigin = if (_mrkOrigin isEqualType "") then {getMarkerPos _mrkOrigin} else {_mrkOrigin};
 _mrkDestination = _this select 1;
 _sideX = _this select 2;
-_sidesOccupants = _sideX call BIS_fnc_enemySides;
+_sideTargets = _sideX call BIS_fnc_enemySides;
 _posDestination = getMarkerPos _mrkDestination;
 _typeVehX = if (_sideX == Occupants) then {vehNATOMRLS} else {vehCSATMRLS};
 
@@ -30,7 +30,7 @@ if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) selec
 		{
 		_objectiveX = objNull;
 		_roundsX = 1;
-		_objectivesX = vehicles select {(side (group driver _x) in _sidesOccupants) and (_x distance _posDestination <= _size * 2) and (_sideX knowsAbout _x >= 1.4) and (speed _x < 1)};
+		_objectivesX = vehicles select {(side (group driver _x) in _sideTargets) and (_x distance _posDestination <= _size * 2) and (_sideX knowsAbout _x >= 1.4) and (speed _x < 1)};
 		if (count _objectivesX > 0) then
 			{
 			{
@@ -40,7 +40,7 @@ if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) selec
 			}
 		else
 			{
-			_objectivesX = allUnits select {(side (group _x) in _sidesOccupants) and (_x distance _posDestination <= _size * 2) and (_sideX knowsAbout _x >= 1.4) and (_x == leader group _x)};
+			_objectivesX = allUnits select {(side (group _x) in _sideTargets) and (_x distance _posDestination <= _size * 2) and (_sideX knowsAbout _x >= 1.4) and (_x == leader group _x)};
 			if (count _objectivesX > 0) then
 				{
 				_countX = 0;

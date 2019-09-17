@@ -42,7 +42,7 @@ for "_i" from 1 to 3 do
 	{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
 	[_veh] call A3A_fnc_AIVEHinit;
 	_groupVeh = _spawnResult select 2;
-	_pilots = _pilots + _vehCrew;
+	_pilots append _vehCrew;
 	_groups pushBack _groupVeh;
 	_vehiclesX pushBack _veh;
 

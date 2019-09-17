@@ -15,7 +15,7 @@ _civiles = [];
 diag_log format ["[Antistasi] Launching CSAT Punish Against %1 from %2 (CSATpunish.sqf)", _mrkDestination, _mrkOrigin];
 
 _nameDest = [_mrkDestination] call A3A_fnc_localizar;
-[[teamPlayer,civilian,Occupants],"rebelAttack",[format ["%2 is making a punishment expedition to %1. They will kill everybody there. Defend the city at all costs",_nameDest,nameInvaders],format ["%1 Punishment",nameInvaders],_mrkDestination],getMarkerPos _mrkDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian,Occupants],"invaderPunish",[format ["%2 is making a punishment expedition to %1. They will kill everybody there. Defend the city at all costs",_nameDest,nameInvaders],format ["%1 Punishment",nameInvaders],_mrkDestination],getMarkerPos _mrkDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 
 _nul = [_mrkOrigin,_mrkDestination,Invaders] spawn A3A_fnc_artillery;
 _sideX = if (sidesX getVariable [_mrkDestination,sideUnknown] == Occupants) then {Occupants} else {teamPlayer};
@@ -164,8 +164,8 @@ waitUntil {sleep 5; (({not (captive _x)} count _soldiers) < ({captive _x} count 
 if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or ({alive _x} count _soldiers < round (_solMax / 3)) or (time > _timeX)) then
 	{
 	{_x doMove [0,0,0]} forEach _soldiers;
-	//["rebelAttack", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
-	["rebelAttack",[format ["%2 is making a punishment expedition to %1. They will kill everybody there. Defend the city at all costs",_nameDest,nameInvaders],format ["%1 Punishment",nameInvaders],_mrkDestination],getMarkerPos _mrkDestination,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	//["invaderPunish", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
+	["invaderPunish",[format ["%2 is making a punishment expedition to %1. They will kill everybody there. Defend the city at all costs",_nameDest,nameInvaders],format ["%1 Punishment",nameInvaders],_mrkDestination],getMarkerPos _mrkDestination,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	if ({(side _x == teamPlayer) and (_x distance _posDestination < _size * 2)} count allUnits >= {(side _x == Occupants) and (_x distance _posDestination < _size * 2)} count allUnits) then
 		{
 		if (sidesX getVariable [_mrkDestination,sideUnknown] == Occupants) then {[-15,15,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2]} else {[-5,15,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2]};
@@ -182,8 +182,8 @@ if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or (
 	}
 else
 	{
-	["rebelAttack",[format ["%2 is making a punishment expedition to %1. They will kill everybody there. Defend the city at all costs",_nameDest,nameInvaders],format ["%1 Punishment",nameInvaders],_mrkDestination],getMarkerPos _mrkDestination,"FAILED"] call A3A_fnc_taskUpdate;
-	//["rebelAttack", "FAILED",true] spawn BIS_fnc_taskSetState;
+	["invaderPunish",[format ["%2 is making a punishment expedition to %1. They will kill everybody there. Defend the city at all costs",_nameDest,nameInvaders],format ["%1 Punishment",nameInvaders],_mrkDestination],getMarkerPos _mrkDestination,"FAILED"] call A3A_fnc_taskUpdate;
+	//["invaderPunish", "FAILED",true] spawn BIS_fnc_taskSetState;
 	[-20,-20,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2];
 	{[-10,-10,_x] remoteExec ["A3A_fnc_citySupportChange",2]} forEach citiesX;
 	destroyedCities = destroyedCities + [_mrkDestination];
@@ -198,7 +198,7 @@ else
 
 sleep 15;
 //[Invaders,[civilian,1]] remoteExec ["setFriend",2];
-_nul = [0,"rebelAttack"] spawn A3A_fnc_deleteTask;
+_nul = [0,"invaderPunish"] spawn A3A_fnc_deleteTask;
 [7200] remoteExec ["A3A_fnc_timingCA",2];
 {
 _veh = _x;

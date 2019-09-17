@@ -148,17 +148,20 @@ _nul = [leader _groupCivil, _attackDestination, "AWARE","SPAWNED","NOVEH2"] exec
 
 _soldiersSpawned = count _soldiers;
 
-for "_i" from 0 to round random 2 do
+if (tierWar >= 5) then
 	{
-	if ([vehCSATPlane] call A3A_fnc_vehAvailable) then
+	for "_i" from 0 to floor random 1 do
 		{
-		private _bombType = if (napalmEnabled) then {"NAPALM"} else {"HE"};
-		_nul = [_attackDestination,Invaders,_bombType] spawn A3A_fnc_airstrike;
-		sleep 30;
+		if ([vehCSATPlane] call A3A_fnc_vehAvailable) then
+			{
+			private _bombType = if (napalmEnabled) then {"NAPALM"} else {"HE"};
+			_nul = [_attackDestination,Invaders,_bombType] spawn A3A_fnc_airstrike;
+			sleep 30;
+			};
 		};
 	};
 
-waitUntil {sleep 5; (({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or ({alive _x} count _soldiers < round (_soldiersSpawned / 3)) or (({(_x distance _posDestination < _size*2) and (not(vehicle _x isKindOf "Air")) and (alive _x) and (!captive _x)} count _soldiers) > 4*({(alive _x) and (_x distance _posDestination < _size*2)} count _civilians)) or (time > _missionExpireTime)};
+waitUntil {sleep 5; (({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or ({alive _x} count _soldiers < round (_soldiersSpawned / 3)) or (({(_x distance _posDestination < _size*2) and (not(vehicle _x isKindOf "Air")) and (alive _x) and (!captive _x)} count _soldiers) > 6*({(alive _x) and (_x distance _posDestination < _size*2)} count _civilians)) or (time > _missionExpireTime)};
 
 if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or ({alive _x} count _soldiers < round (_soldiersSpawned / 3)) or (time > _missionExpireTime)) then
 	{

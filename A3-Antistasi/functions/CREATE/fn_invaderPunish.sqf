@@ -123,6 +123,7 @@ _size = [_attackDestination] call A3A_fnc_sizeMarker;
 _groupCivil = createGroup teamPlayer;
 _groups pushBack _groupCivil;
 //[Invaders,[civilian,0]] remoteExec ["setFriend",2];
+_typeUnit = if (_sideTarget == teamPlayer) then {SDKUnarmed} else {NATOUnarmed};
 for "_i" from 0 to _numCiv do
 	{
 	while {true} do

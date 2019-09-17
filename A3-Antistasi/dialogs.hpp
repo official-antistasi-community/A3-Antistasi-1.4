@@ -2021,7 +2021,7 @@ class construction_menu 	{
 		class HQ_button_unlock: RscButton
 		{
 			idc = -1;
-			text = "Bunker Options"; //--- ToDo: Localize;
+			text = "Bunker and sandbags"; //--- ToDo: Localize;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -2077,6 +2077,68 @@ class bunker_menu 				{
 			tooltip = "Requires to be in a garrisoned zone. It will be permanent";
 			action = "closeDialog 0;nul = [""CB""] spawn A3A_fnc_build;";
 		};
+
+		class HQ_button_Gremove: RscButton
+		{
+			idc = -1;
+			text = "Cool shit"; //--- ToDo: Localize;
+			x = 0.37749 * safezoneW + safezoneX;
+			y = 0.415981 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Cool building shit, like sandbags and shit";
+			action = "closeDialog 0;nul = createDialog ""coolshit_menu""";
+		};
+
+	};
+};
+
+class coolshit_menu	{
+	idd=-1;
+	movingenable=false;
+
+	class controls {
+
+		class HQ_box: BOX
+		{
+			idc = -1;
+			text = $STR_antistasi_dialogs_generic_box_text;
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.20 * safezoneH;//30
+		};
+		class HQ_frame: RscFrame
+		{
+			idc = -1;
+			text = "Select type"; //--- ToDo: Localize;
+			x = 0.254979 * safezoneW + safezoneX;
+			y = 0.233941 * safezoneH + safezoneY;
+			w = 0.425038 * safezoneW;
+			h = 0.18 * safezoneH;//28
+		};
+		class HQ_button_Gsquad: RscButton
+		{
+			idc = -1;
+			text = "Sandbags"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Requires to be in a garrisoned zone. It will be permanent";
+			action = "closeDialog 0;nul = [""SBS""] spawn A3A_fnc_build;";
+		};
+		class HQ_button_Gstatic: RscButton
+		{
+			idc = -1;
+			text = "Other"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Requires to be in a garrisoned zone. It will be permanent";
+			action = "closeDialog 0;nul = [""OTHR""] spawn A3A_fnc_build;";
+		};
 		/*
 		class HQ_button_Gremove: RscButton
 		{
@@ -2091,6 +2153,8 @@ class bunker_menu 				{
 		*/
 	};
 };
+
+
 class squad_recruit 			{
 	idd=100;
 	movingenable=false;

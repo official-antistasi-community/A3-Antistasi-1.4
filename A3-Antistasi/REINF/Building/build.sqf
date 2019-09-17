@@ -141,6 +141,18 @@ switch build_type do
 		_classX = "Land_PillboxBunker_01_big_F";
 		build_cost = 300;
 		};
+		case "SBS":
+		{
+		build_time = 60;
+		_classX = "Vehicles_Land_HBarrier_1_F";
+		build_cost = 100;
+		};
+		case "OTHR":
+		{
+		build_time = 60;
+		_classX = "Vehicles_Land_Shed_Big_F";
+        build_cost = 100;
+		}
 	};
 
 private _leave = false;

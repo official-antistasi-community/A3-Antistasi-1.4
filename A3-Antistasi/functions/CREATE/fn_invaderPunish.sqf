@@ -139,6 +139,7 @@ for "_i" from 0 to _numCiv do
 		};
 	_civilians pushBack _civ;
 	[_civ] call A3A_fnc_civInit;
+	_civ setSkill 0.5;
 	sleep 0.5;
 	};
 

@@ -144,7 +144,6 @@ for "_i" from 0 to _numCiv do
 
 _nul = [leader _groupCivil, _attackDestination, "AWARE","SPAWNED","NOVEH2"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
 
-_civiliansSpawned = {alive _x} count _civilians;
 _soldiersSpawned = count _soldiers;
 
 for "_i" from 0 to round random 2 do

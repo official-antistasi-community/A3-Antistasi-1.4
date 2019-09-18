@@ -8,7 +8,7 @@ if (_victim getVariable ["spawner",false]) then
 
 [_victim] spawn A3A_fnc_postmortem;
 _victimGroup = group _victim;
-_sideX = side (group _victim);
+_victimSide = side (group _victim);
 if (hasACE) then
 	{
 	if ((isNull _killer) || (_killer == _victim)) then
@@ -52,7 +52,7 @@ if (side (group _killer) == teamPlayer) then
 		};
 	if (count weapons _victim < 1 && !(_victim getVariable ["isAnimal", false])) then
 		{
-		if (_sideX == Occupants) then
+		if (_victimSide == Occupants) then
 			{
 			[0,-2,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 			[1,0] remoteExec ["A3A_fnc_prestige",2];
@@ -65,7 +65,7 @@ if (side (group _killer) == teamPlayer) then
 	else
 		{
 		[-1,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-		if (_sideX == Occupants) then
+		if (_victimSide == Occupants) then
 			{
 			[0.1,0] remoteExec ["A3A_fnc_prestige",2];
 			}
@@ -77,7 +77,7 @@ if (side (group _killer) == teamPlayer) then
 	}
 else
 	{
-	if (_sideX == Occupants) then
+	if (_victimSide == Occupants) then
 		{
 		[-0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 		}
@@ -91,10 +91,10 @@ _garrisoned = true;
 if (isNil "_markerX") then {_markerX = _victim getVariable ["originX",""]; _garrisoned = false};
 if (_markerX != "") then
 	{
-	if (sidesX getVariable [_markerX,sideUnknown] == _sideX) then
+	if (sidesX getVariable [_markerX,sideUnknown] == _victimSide) then
 		{
-		[typeOf _victim,_sideX,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
-		if (_garrisoned) then {[_markerX,_sideX] remoteExec ["A3A_fnc_zoneCheck",2]};
+		[typeOf _victim,_victimSide,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+		if (_garrisoned) then {[_markerX,_victimSide] remoteExec ["A3A_fnc_zoneCheck",2]};
 		};
 	};
 [_victimGroup,_killer] spawn A3A_fnc_AIreactOnKill;

@@ -86,15 +86,15 @@ else
 		[0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 		};
 	};
-_markerX = _victim getVariable "markerX";
-_garrisoned = true;
-if (isNil "_markerX") then {_markerX = _victim getVariable ["originX",""]; _garrisoned = false};
-if (_markerX != "") then
+_victimLocation = _victim getVariable "markerX";
+_victimAssignedToGarrison = true;
+if (isNil "_victimLocation") then {_victimLocation = _victim getVariable ["originX",""]; _victimAssignedToGarrison = false};
+if (_victimLocation != "") then
 	{
-	if (sidesX getVariable [_markerX,sideUnknown] == _victimSide) then
+	if (sidesX getVariable [_victimLocation,sideUnknown] == _victimSide) then
 		{
-		[typeOf _victim,_victimSide,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
-		if (_garrisoned) then {[_markerX,_victimSide] remoteExec ["A3A_fnc_zoneCheck",2]};
+		[typeOf _victim,_victimSide,_victimLocation,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+		if (_victimAssignedToGarrison) then {[_victimLocation,_victimSide] remoteExec ["A3A_fnc_zoneCheck",2]};
 		};
 	};
 [_victimGroup,_killer] spawn A3A_fnc_AIreactOnKill;

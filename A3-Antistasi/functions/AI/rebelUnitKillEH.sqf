@@ -1,4 +1,4 @@
-private ["_victim","_killer","_costs","_enemy","_groupX"];
+private ["_victim","_killer","_costs","_enemy","_victimGroup"];
 _victim = _this select 0;
 _killer = _this select 1;
 if (_victim getVariable ["spawner",false]) then
@@ -7,7 +7,7 @@ if (_victim getVariable ["spawner",false]) then
 	};
 
 [_victim] spawn A3A_fnc_postmortem;
-_groupX = group _victim;
+_victimGroup = group _victim;
 _sideX = side (group _victim);
 if (hasACE) then
 	{
@@ -97,5 +97,5 @@ if (_markerX != "") then
 		if (_garrisoned) then {[_markerX,_sideX] remoteExec ["A3A_fnc_zoneCheck",2]};
 		};
 	};
-[_groupX,_killer] spawn A3A_fnc_AIreactOnKill;
+[_victimGroup,_killer] spawn A3A_fnc_AIreactOnKill;
 

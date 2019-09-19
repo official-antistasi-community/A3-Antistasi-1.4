@@ -20,7 +20,7 @@ if (_x select 1 >= minWeaps) then
 	_check = true;
 	_weaponX = _x select 0;
 	
-	if (unlockableMissileLauncher) then
+	if (unlockableMissileLaunchers) then
 		{
 		unlockedWeapons pushBack _weaponX;
 		}

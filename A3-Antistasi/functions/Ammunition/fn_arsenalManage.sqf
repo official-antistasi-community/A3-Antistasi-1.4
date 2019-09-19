@@ -19,6 +19,19 @@ if (_x select 1 >= minWeaps) then
 	{
 	_check = true;
 	_weaponX = _x select 0;
+	
+	if (unlockableMissileLauncher) then
+		{
+		unlockedWeapons pushBack _weaponX;
+		}
+		else
+		{
+		if !(_weaponX in ((rlaunchers + mlaunchers) select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 1)})) then
+			{
+			unlockedWeapons pushBack _weaponX;
+			};
+		};
+	
 	if (unlockedUnlimitedAmmo) then
 		{
 		_magazine = (getArray (configFile / "CfgWeapons" / _weaponX / "magazines") select 0);
@@ -34,7 +47,6 @@ if (_x select 1 >= minWeaps) then
 				};
 			};
 		};
-	unlockedWeapons pushBack _weaponX;
 	//lockedWeapons = lockedWeapons - [_weaponX];
 	if (_weaponX in arifles) then
 		{
@@ -64,10 +76,7 @@ if (_x select 1 >= minWeaps) then
 					}
 				else
 					{
-					if (unlockableMissileLaunchers) then
-						{
-						if (_weaponX in (mlaunchers select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 1)})) then {unlockedAA pushBack _weaponX; publicVariable "unlockedAA"};
-						};
+					if (_weaponX in (mlaunchers select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 1)})) then {unlockedAA pushBack _weaponX; publicVariable "unlockedAA"};
 					};
 				};
 			};

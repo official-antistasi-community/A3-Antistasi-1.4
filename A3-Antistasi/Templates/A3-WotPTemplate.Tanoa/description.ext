@@ -207,16 +207,16 @@ class Params
     class unlockedUnlimitedAmmo
     {
          title = "Do Unlocked Weapons Automatically Unlock Their Standard Magazine?";
-         values[] = {true,false};
+         values[] = {1,0};
          texts[] =  {"Yes","No"};
-         default = true;
+         default = 1;
     };
     class unlockableMissileLaunchers
     {
          title = "Can Guided Missile Launchers become Unlocked?";
-         values[] = {true,false};
+         values[] = {1,0};
          texts[] =  {"Yes","No"};
-         default = false;
+         default = 0;
     };
     class Spacer0
     {

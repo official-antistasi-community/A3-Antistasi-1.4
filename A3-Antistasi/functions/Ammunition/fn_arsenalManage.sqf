@@ -20,7 +20,7 @@ if (_x select 1 >= minWeaps) then
 	_check = true;
 	_weaponX = _x select 0;
 	
-	if (unlockableMissileLaunchers) then
+	if (unlockableMissileLaunchers == 1) then
 		{
 		unlockedWeapons pushBack _weaponX;
 		}
@@ -32,7 +32,7 @@ if (_x select 1 >= minWeaps) then
 			};
 		};
 	
-	if (unlockedUnlimitedAmmo) then
+	if (unlockedUnlimitedAmmo == 1) then
 		{
 		_magazine = (getArray (configFile / "CfgWeapons" / _weaponX / "magazines") select 0);
 		if (!isNil "_magazine") then

@@ -152,7 +152,7 @@ class Params
         default = 25;
         //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
     };
-		class memberOnlyMagLimit
+	class memberOnlyMagLimit
     {
         title = "Number of magazines needed for guests to be able to use them";
         values[] = {10,20,30,40,50,60};
@@ -207,16 +207,16 @@ class Params
     class unlockedUnlimitedAmmo
     {
          title = "Do Unlocked Weapons Automatically Unlock Their Standard Magazine?";
-         values[] = {true,false};
+         values[] = {1,0};
          texts[] =  {"Yes","No"};
-         default = true;
+         default = 1;
     };
     class unlockableMissileLaunchers
     {
          title = "Can Guided Missile Launchers become Unlocked?";
-         values[] = {true,false};
+         values[] = {1,0};
          texts[] =  {"Yes","No"};
-         default = false;
+         default = 0;
     };
     class Spacer0
     {

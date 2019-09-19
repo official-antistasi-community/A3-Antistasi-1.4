@@ -778,7 +778,7 @@ if (hasRHS) then
 ////////////////////////////////////
 //These items will be unlocked when the mission starts
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unlocked Items Lists",servertime];
-unlockedItems =
+unlockedItems append
 	[
 	"ItemMap",
 	"ItemWatch",

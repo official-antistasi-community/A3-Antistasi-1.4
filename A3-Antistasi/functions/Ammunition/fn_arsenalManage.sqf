@@ -24,16 +24,16 @@ if (_x select 1 >= minWeaps) then
 		{
 		if (unlockedUnlimitedAmmo == 1) then
 			{
-			_magazine = (getArray (configFile / "CfgWeapons" / _weaponX / "magazines") select 0);
-			if (!isNil "_magazine") then
+			_weaponMagazine = (getArray (configFile / "CfgWeapons" / _weaponX / "magazines") select 0);
+			if (!isNil "_weaponMagazine") then
 				{
-				if (not(_magazine in unlockedMagazines)) then
+				if (not(_weaponMagazine in unlockedMagazines)) then
 					{
-					unlockedMagazines pushBack _magazine;
+					unlockedMagazines pushBack _weaponMagazine;
 					_checkmag	= true;
-					_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _magazine >> "displayName")];
-					_index = _magazine call jn_fnc_arsenal_itemType;
-					[_index,_magazine,-1] call jn_fnc_arsenal_addItem;
+					_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")];
+					_index = _weaponMagazine call jn_fnc_arsenal_itemType;
+					[_index,_weaponMagazine,-1] call jn_fnc_arsenal_addItem;
 					};
 				};
 			};

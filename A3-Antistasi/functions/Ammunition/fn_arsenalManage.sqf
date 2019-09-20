@@ -94,7 +94,7 @@ if (_x select 1 >= minWeaps) then
 	[_index,_magazines,-1] call jn_fnc_arsenal_addItem;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _magazines >> "displayName")];
 	_checkmag = true;
-	unlockedBackpacks pushBack _magazines;
+	unlockedMagazines pushBack _magazines;
 	};
 } forEach _magazines;
 

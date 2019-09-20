@@ -20,7 +20,7 @@ _checkmag = false;
 if (_x select 1 >= minWeaps) then
 	{
 	_weaponX = _x select 0;
-	if (!(_weaponX in mlaunchers) or (unlockableMissileLaunchers == 1)) then
+	if !(_weaponX in mlaunchers) then
 		{
 		if (unlockedUnlimitedAmmo == 1) then
 			{
@@ -62,13 +62,13 @@ if (_x select 1 >= minWeaps) then
 					}
 				else
 					{
-					if (_weaponX in ((rlaunchers) + ((mlaunchers) select {(getText (configfile >> "CfgWeapons" >> _x >> "magazineWell") == "Titan_Short")}))) then
+					if (_weaponX in ((rlaunchers + mlaunchers) select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 0)})) then
 						{
 						unlockedAT pushBack _weaponX; publicVariable "unlockedAT";
 						}
 					else
 						{
-						if (_weaponX in (mlaunchers select {(getText (configfile >> "CfgWeapons" >> _x >> "magazineWell") == "Titan_Long")})) then {unlockedAA pushBack _weaponX; publicVariable "unlockedAA"};
+						if (_weaponX in (mlaunchers select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 1)})) then {unlockedAA pushBack _weaponX; publicVariable "unlockedAA"};
 						};
 					};
 				};

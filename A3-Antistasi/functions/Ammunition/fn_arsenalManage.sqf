@@ -15,8 +15,6 @@ _nv = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_NVGS) select {_x select 1 !
 private _check = false;
 private _checkmag = false;
 {
-_check = false;
-_checkmag = false;
 if (_x select 1 >= minWeaps) then
 	{
 	_weaponX = _x select 0;
@@ -85,7 +83,13 @@ if (_check) then
 	 publicVariable "unlockedWeapons";
 	_check = false;
 	};
-	
+
+if (_checkmag) then
+	{
+	 publicVariable "unlockedMagazines";
+	_checkmag = false;
+	};
+
 {
 if (_x select 1 >= minWeaps) then
 	{
@@ -93,15 +97,15 @@ if (_x select 1 >= minWeaps) then
 	_index = _magazines  call jn_fnc_arsenal_itemType;
 	[_index,_magazines,-1] call jn_fnc_arsenal_addItem;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _magazines >> "displayName")];
-	_checkmag = true;
+	_check = true;
 	unlockedMagazines pushBack _magazines;
 	};
 } forEach _magazines;
 
-if (_checkmag) then
+if (_check) then
 	{
 	 publicVariable "unlockedMagazines";
-	_checkmag = false;
+	_check = false;
 	};
 	
 {
@@ -111,11 +115,16 @@ if (_x select 1 >= minWeaps) then
 	_index = _backpck  call jn_fnc_arsenal_itemType;
 	[_index,_backpck,-1] call jn_fnc_arsenal_addItem;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgVehicles" >> _backpck >> "displayName")];
+	_check = true;
 	unlockedBackpacks pushBack _backpck;
-	publicVariable "unlockedBackpacks";
 	};
 } forEach _backpcks;
 
+if (_check) then
+	{
+	publicVariable "unlockedBackpacks";
+	_check = false;
+	};
 {
 if (_x select 1 >= minWeaps) then
 	{
@@ -131,6 +140,7 @@ if (_x select 1 >= minWeaps) then
 if (_check) then
 	{
 	call A3A_fnc_checkRadiosUnlocked;
+	_check = false;
 	};
 {
 if (_x select 1 >= minWeaps) then

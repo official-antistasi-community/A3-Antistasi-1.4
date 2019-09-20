@@ -18,7 +18,7 @@ private _checkmag = false;
 if (_x select 1 >= minWeaps) then
 	{
 	_weaponX = _x select 0;
-	if !((_weaponX in mlaunchers) || (unlockableMissileLaunchers == 1)) then
+	if (!(_weaponX in mlaunchers) or (unlockableMissileLaunchers == 1)) then
 		{
 		if (unlockedUnlimitedAmmo == 1) then
 			{

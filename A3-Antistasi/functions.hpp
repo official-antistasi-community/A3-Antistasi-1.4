@@ -76,7 +76,7 @@ class A3A
 
 	class AI
 	{
-		class rebelUnitKillEH {};
+		class occupantInvaderUnitKilledEH {};
 		class airbomb {};
 		class airdrop {};
 		class AIreactOnKill {};

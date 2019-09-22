@@ -150,7 +150,7 @@ _soldiersSpawned = count _soldiers;
 
 if (tierWar >= 5) then
 	{
-	for "_i" from 0 to floor random 1 do
+	for "_i" from 0 to round random 1 do
 		{
 		if ([vehCSATPlane] call A3A_fnc_vehAvailable) then
 			{

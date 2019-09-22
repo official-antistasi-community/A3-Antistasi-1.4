@@ -533,6 +533,18 @@
         <English>Sand and blood</English>
         <Russian>Кровь и песок</Russian>
       </Key>
+      <Key ID="STR_antistasi_mission_info_tembelan_mapname_text">
+        <Original>Liberation of Tembelan</Original>
+        <English>Liberation of Tembelan</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_tembelan_blurb_text">
+        <Original>blurb placeholder</Original>
+        <English>blurb placeholder</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_tembelan_description_text">
+        <Original>Tembelan description placeholder</Original>
+        <English>Tembelan description placeholder</English>
+      </Key>
     </Container>
   </Package>
 </Project>

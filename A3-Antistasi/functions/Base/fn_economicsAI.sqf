@@ -1,119 +1,61 @@
-{
-_sideX = _x;
-_accelerator = if (_sideX == Occupants) then {if (tierWar == 1) then {0} else {1+((tierWar + difficultyCoef)/20)}} else {1.2+((tierWar + difficultyCoef)/20)};
-_airbases = {sidesX getVariable [_x,sideUnknown] == _sideX} count airportsX;
-_outposts =  {sidesX getVariable [_x,sideUnknown] == _sideX} count outposts;
-_seaports = {sidesX getVariable [_x,sideUnknown] == _sideX} count seaports;
-//at
-_maxItems = (_outposts * 0.2) + (_airbases * 0.5);
-_typeX = if (_sideX == Occupants) then {staticATOccupants} else {staticATInvaders};
-_currentItems = timer getVariable [_typeX,0];
-if (_currentItems < _maxItems) then
-	{
-	timer setVariable [_typeX,_currentItems + (0.2 * _accelerator),true];
-	};
-//aa
-_maxItems = (_airbases * 2);
-_typeX = if (_sideX == Occupants) then {staticAAOccupants} else {staticAAInvaders};
-_currentItems = timer getVariable [_typeX,0];
-if (_currentItems < _maxItems) then
-	{
-	timer setVariable [_typeX,_currentItems + (0.1 * _accelerator),true];
-	};
-//apcs
-_maxItems = (_outposts * 0.3) + (_airbases * 2);
-_typeX = if (_sideX == Occupants) then {vehNATOAPC} else {vehCSATAPC};
-if !(_typeX isEqualTo []) then
-	{
-	_currentItems = 0;
-	{_currentItems = _currentItems + (timer getVariable [_x,0])} forEach _typeX;
-	if (_currentItems < _maxItems) then
+//Original Author: Barbolani
+//Edited and updated by the Antstasi Community Development Team
+
+_fnc_economics = {
+	params ["_coefficient", "_random", "_typeX", "_maxItems", "_accelerator"];
+	private ["_currentItems"];
+
+	if (_random == "random") then {
+		_currentItems = timer getVariable [_typeX, 0];
+		if (_currentItems < _maxItems) then {
+			timer setVariable [_typeX, _currentItems + _coefficient * _accelerator, true];
+		};
+	} else {
+		if (_typeX isEqualTo []) exitWith {};
+		_currentItems = 0;
 		{
-		timer setVariable [selectRandom _typeX,_currentItems + (0.2 * _accelerator),true];
+			_currentItems = _currentItems + (timer getVariable [_x, 0]);
+		} forEach _typeX;
+		if (_currentItems < _maxItems) then {
+			timer setVariable [selectRandom _typeX, _currentItems + _coefficient * _accelerator, true];
 		};
 	};
-//tanks
-_maxItems = (_outposts * 0.5) + (_airbases * 2);
-_typeX = if (_sideX == Occupants) then {vehNATOTank} else {vehCSATTank};
-_currentItems = timer getVariable [_typeX,0];
-if (_currentItems < _maxItems) then
-	{
-	timer setVariable [_typeX,_currentItems + (0.1 * _accelerator),true];
-	};
-//aaTANKS
-_maxItems = _airbases;
-_typeX = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
-_currentItems = timer getVariable [_typeX,0];
-if (_currentItems < _maxItems) then
-	{
-	timer setVariable [_typeX,_currentItems + (0.1 * _accelerator),true];
-	};
-//ATTACK BOATS
-_maxItems = _seaports;
-_typeX = if (_sideX == Occupants) then {vehNATOBoat} else {vehCSATBoat};
-_currentItems = timer getVariable [_typeX,0];
-if (_currentItems < _maxItems) then
-	{
-	timer setVariable [_typeX,_currentItems + (0.3 * _accelerator),true];
-	};
-//CAS PLANE
-_maxItems = _airbases * 4;
-_typeX = if (_sideX == Occupants) then {vehNATOPlane} else {vehCSATPlane};
-_currentItems = timer getVariable [_typeX,0];
-if (_currentItems < _maxItems) then
-	{
-	timer setVariable [_typeX,_currentItems + (0.2 * _accelerator),true];
-	};
-//AA PLANE
-_maxItems = _airbases * 4;
-_typeX = if (_sideX == Occupants) then {vehNATOPlaneAA} else {vehCSATPlaneAA};
-_currentItems = timer getVariable [_typeX,0];
-if (_currentItems < _maxItems) then
-	{
-	timer setVariable [_typeX,_currentItems + (0.2 * _accelerator),true];
-	};
-//TRANSPORT PLANES
-_maxItems = _airbases * 4;
-_typeX = if (_sideX == Occupants) then {vehNATOTransportPlanes} else {vehCSATTransportPlanes}; //{vehCSATTransportHelis - [vehCSATPatrolHeli]};
-if !(_typeX isEqualTo []) then
-	{
-	_currentItems = 0;
-	{_currentItems = _currentItems + (timer getVariable [_x,0])} forEach _typeX;
-	if (_currentItems < _maxItems) then
-		{
-		timer setVariable [selectRandom _typeX,_currentItems + (0.2 * _accelerator),true];
-		};
-	};
-//AIR TRANSPORTS
-_maxItems = _airbases * 4;
-_typeX = if (_sideX == Occupants) then {vehNATOTransportHelis - [vehNATOPatrolHeli]} else {vehCSATTransportHelis - [vehCSATPatrolHeli]};
-if !(_typeX isEqualTo []) then
-	{
-	_currentItems = 0;
-	{_currentItems = _currentItems + (timer getVariable [_x,0])} forEach _typeX;
-	if (_currentItems < _maxItems) then
-		{
-		timer setVariable [selectRandom _typeX,_currentItems + (0.2 * _accelerator),true];
-		};
-	};
-//ATTACK HELIS
-_maxItems = _airbases * 4;
-_typeX = if (_sideX == Occupants) then {vehNATOAttackHelis} else {vehCSATAttackHelis};
-if !(_typeX isEqualTo []) then
-	{
-	_currentItems = 0;
-	{_currentItems = _currentItems + (timer getVariable [_x,0])} forEach _typeX;
-	if (_currentItems < _maxItems) then
-		{
-		timer setVariable [selectRandom _typeX,_currentItems + (0.2 * _accelerator),true];
-		};
-	};
-//ARTY
-_maxItems = _airbases + (_outposts * 0.2);
-_typeX = if (_sideX == Occupants) then {vehNATOMRLS} else {vehCSATMRLS};
-_currentItems = timer getVariable [_typeX,0];
-if (_currentItems < _maxItems) then
-	{
-	timer setVariable [_typeX,_currentItems + (0.2 * _accelerator),true];
-	};
-} forEach [Occupants,Invaders];
+};
+
+//--------------------------------------Occupants--------------------------------------------------
+private _airbases = { sidesX getVariable [_x, sideUnknown] == Occupants } count airportsX;
+private _outposts = { sidesX getVariable [_x, sideUnknown] == Occupants } count outposts;
+private _seaports = { sidesX getVariable [_x, sideUnknown] == Occupants } count seaports;
+private _accelerator = [1 + (tierWar + difficultyCoef) / 20, 0] select (tierWar == 1);
+
+[0.2, "", staticATOccupants, _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
+[0.1, "", staticAAOccupants, _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.2, "random", vehNATOAPC, _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1, "", vehNATOTank, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1, "", vehNATOAA, _airbases, _accelerator] spawn _fnc_economics;
+[0.3, "", vehNATOBoat, _seaports, _accelerator] spawn _fnc_economics;
+[0.2, "", vehNATOPlane, _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "", vehNATOPlaneAA, _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "random", vehNATOTransportPlanes, _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "random", vehNATOTransportHelis - [vehNATOPatrolHeli], _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "random", vehNATOAttackHelis, _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "", vehNATOMRLS, _airbases + _outposts * 0.2, _accelerator] spawn _fnc_economics;
+
+//--------------------------------------Invaders---------------------------------------------------
+_airbases = { sidesX getVariable [_x, sideUnknown] == Invaders } count airportsX;
+_outposts = { sidesX getVariable [_x, sideUnknown] == Invaders } count outposts;
+_seaports = { sidesX getVariable [_x, sideUnknown] == Invaders } count seaports;
+_accelerator = 1.2 + (tierWar + difficultyCoef) / 20;
+
+[0.2, "", staticATInvaders, _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
+[0.1, "", staticAAInvaders, _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.2, "random", vehCSATAPC, _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1, "", vehCSATTank, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1, "", vehCSATAA, _airbases, _accelerator] spawn _fnc_economics;
+[0.3, "", vehCSATBoat, _seaports, _accelerator] spawn _fnc_economics;
+[0.2, "", vehCSATPlane, _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "", vehCSATPlaneAA, _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "random", vehCSATTransportPlanes, _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "random", vehCSATTransportHelis - [vehCSATPatrolHeli], _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "random", vehCSATAttackHelis, _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2, "", vehCSATMRLS, _airbases + _outposts * 0.2, _accelerator] spawn _fnc_economics;

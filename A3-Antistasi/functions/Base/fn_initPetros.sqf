@@ -4,9 +4,9 @@ removeGoggles petros;
 petros setSkill 1;
 petros setVariable ["respawning",false];
 petros allowDamage false;
-[petros, sniperRifle, 8, 0] call BIS_fnc_addWeapon;
+[petros,(selectRandom unlockedRifles), 8, 0] call BIS_fnc_addWeapon;
 petros selectWeapon (primaryWeapon petros);
-petros addEventHandler 
+petros addEventHandler
 [
     "HandleDamage",
     {

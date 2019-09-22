@@ -24,11 +24,10 @@ if (side group player == teamPlayer) then
 	_score = _oldUnit getVariable ["score",0];
 	_punish = _oldUnit getVariable ["punish",0];
 	_moneyX = _oldUnit getVariable ["moneyX",0];
-	_moneyX = round (_moneyX - (_moneyX * 0.1));
+	_moneyX = round (_moneyX - (_moneyX * 0.15));
 	_eligible = _oldUnit getVariable ["eligible",true];
 	_rankX = _oldUnit getVariable ["rankX","PRIVATE"];
 
-	_moneyX = round (_moneyX - (_moneyX * 0.05));
 	if (_moneyX < 0) then {_moneyX = 0};
 
 	_newUnit setVariable ["score",_score -1,true];
@@ -64,9 +63,7 @@ if (side group player == teamPlayer) then
 	{_newUnit removeWeaponGlobal _x} forEach weapons _newUnit;
 	removeBackpackGlobal _newUnit;
 	removeVest _newUnit;
-	if ((not("ItemGPS" in unlockedItems)) and ("ItemGPS" in (assignedItems _newUnit))) then {_newUnit unlinkItem "ItemGPS"};
-	private _radio = player call A3A_fnc_getRadio;
-	if (!haveRadio && _radio != "") then {player unlinkItem _radio};
+	removeAllAssignedItems _newUnit;
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{
@@ -172,7 +169,7 @@ if (side group player == teamPlayer) then
 					deleteVehicle (_this select 6);
 					if (_typeX == "Put") then
 					{
-						if (player distance petros < 10) then 
+						if (player distance petros < 10) then
 						{
 							[player, 20, 0.34] remoteExec ["A3A_fnc_punishment",player];
 						};
@@ -181,7 +178,7 @@ if (side group player == teamPlayer) then
 			};
 		};
 		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then 
+		if (hasACE) then
 		{
 			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
 		};

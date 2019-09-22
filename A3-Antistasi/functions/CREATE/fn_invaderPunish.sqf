@@ -1,5 +1,5 @@
 if (!isServer and hasInterface) exitWith {};
-private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_attackVehicle","_vehicle","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_tanksX","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uav","_groupUAV","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_attackDestination","_posDestination","_prestigeCSAT","_base","_airportX","_nameDestination","_missionExpireTime","_soldiersSpawned","_nul","_pos","_timeOut"];
+private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_typeAirVehicle","_vehicle","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_tanksX","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uav","_groupUAV","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_attackDestination","_posDestination","_prestigeCSAT","_base","_airportX","_nameDestination","_missionExpireTime","_soldiersSpawned","_nul","_pos","_timeOut"];
 _attackDestination = _this select 0;
 _attackOrigin = _this select 1;
 bigAttackInProgress = true;
@@ -25,18 +25,18 @@ private _invaderAirTransport = vehCSATTransportHelis + vehCSATTransportPlanes;
 
 for "_i" from 1 to 3 do
 	{
-	_attackVehicle = if (_i != 3) then {selectRandom (vehCSATAir select {[_x] call A3A_fnc_vehAvailable})} else {selectRandom (_invaderAirTransport select {[_x] call A3A_fnc_vehAvailable})};
+	_typeAirVehicle = if (_i != 3) then {selectRandom (vehCSATAir select {[_x] call A3A_fnc_vehAvailable})} else {selectRandom (_invaderAirTransport select {[_x] call A3A_fnc_vehAvailable})};
 	_timeOut = 0;
-	_pos = _posOrigin findEmptyPosition [0,100,_attackVehicle];
+	_pos = _posOrigin findEmptyPosition [0,100,_typeAirVehicle];
 	while {_timeOut < 60} do
 		{
 		if (count _pos > 0) exitWith {};
 		_timeOut = _timeOut + 1;
-		_pos = _posOrigin findEmptyPosition [0,100,_attackVehicle];
+		_pos = _posOrigin findEmptyPosition [0,100,_typeAirVehicle];
 		sleep 1;
 		};
 	if (count _pos == 0) then {_pos = _posOrigin};
-	private _spawnResult = [_pos, 0, _attackVehicle, Invaders] call bis_fnc_spawnvehicle;
+	private _spawnResult = [_pos, 0, _typeAirVehicle, Invaders] call bis_fnc_spawnvehicle;
 	private _veh = _spawnResult select 0;
 	private _vehCrew = _spawnResult select 1;
 	{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
@@ -47,14 +47,14 @@ for "_i" from 1 to 3 do
 	_vehiclesX pushBack _veh;
 
 	//If spawning a plane, it needs moving into the air.
-	if (_attackVehicle isKindOf "Plane") then {
+	if (_typeAirVehicle isKindOf "Plane") then {
 		_veh setDir ((getDir _veh) + (_veh getRelDir _posDestination));
 		_veh setPos (getPos _veh vectorAdd [0, 0, 300]);
 		_veh setVelocityModelSpace (velocityModelSpace _veh vectorAdd [0, 150, 10]);
 	};
 
 	//If we're an attack vehicle.
-	if (not(_attackVehicle in _invaderAirTransport)) then
+	if (not(_typeAirVehicle in _invaderAirTransport)) then
 		{
 		_wp1 = _groupVeh addWaypoint [_posDestination, 0];
 		_wp1 setWaypointType "SAD";
@@ -63,16 +63,16 @@ for "_i" from 1 to 3 do
 	else
 		{
 		{_x setBehaviour "CARELESS";} forEach units _groupVeh;
-		_typeGroup = [_attackVehicle,Invaders] call A3A_fnc_cargoSeats;
+		_typeGroup = [_typeAirVehicle,Invaders] call A3A_fnc_cargoSeats;
 		_groupX = [_posOrigin, Invaders, _typeGroup] call A3A_fnc_spawnGroup;
 		{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] call A3A_fnc_NATOinit; _x setVariable ["originX",_attackOrigin]} forEach units _groupX;
 		_groups pushBack _groupX;
 		//[_veh,"CSAT Air Transport"] spawn A3A_fnc_inmuneConvoy;
 
-		if (_attackVehicle isKindOf "Plane") then {
+		if (_typeAirVehicle isKindOf "Plane") then {
 			[_veh,_groupX,_attackDestination,_attackOrigin] spawn A3A_fnc_airdrop;
 		} else {
-			if (not(_attackVehicle in vehFastRope)) then
+			if (not(_typeAirVehicle in vehFastRope)) then
 				{
 
 				_landPos = _posDestination getPos [(random 500) + 300, random 360];

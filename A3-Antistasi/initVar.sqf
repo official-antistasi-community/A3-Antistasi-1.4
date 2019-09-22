@@ -453,7 +453,6 @@ _nameX = configName _x;
 _nameX = [_nameX] call BIS_fnc_baseWeapon;
 if (not(_nameX in _alreadyChecked)) then
 	{
-	_magazines = getArray (configFile >> "CfgWeapons" >> _nameX >> "magazines");
 	_alreadyChecked pushBack _nameX;
 	_item = [_nameX] call BIS_fnc_itemType;
 	_itemType = _item select 1;

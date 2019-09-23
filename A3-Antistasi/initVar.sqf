@@ -98,6 +98,7 @@ allMagGrenade = [];
 allMagLaser = [];
 allMagMissile = [];
 allMagRocket = [];
+allMagShell = [];
 allMagShotgun = [];
 allMagSmokeShell = [];
 allMagUnknown = [];
@@ -485,8 +486,54 @@ _allItems = "
     &&
     { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo (131072 || 4096) } } )
+    { getNumber ( _x >> ""type"" ) isEqualTo 131072 } } )
 " configClasses ( configFile >> "cfgWeapons" );
+
+_allOptics = "
+    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    &&
+    { getText ( _x >> ""simulation"" ) isEqualTo ""Binocular""
+    &&
+    { getNumber ( _x >> ""type"" ) isEqualTo 4096 } } )
+" configClasses ( configFile >> "cfgWeapons" );
+
+_allNVG = "
+    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    &&
+    { getText ( _x >> ""simulation"" ) isEqualTo ""NVGoggles""
+    &&
+    { getNumber ( _x >> ""type"" ) isEqualTo 4096 } } )
+" configClasses ( configFile >> "cfgWeapons" );
+
+_allMagazines = "
+    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    &&
+    { getNumber ( _x >> ""type"" ) isEqualTo 256 } )
+" configClasses ( configFile >> "cfgMagazines" );
+
+_allGrenades = "
+    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    &&
+    { getNumber ( _x >> ""type"" ) isEqualTo 16 } )
+" configClasses ( configFile >> "cfgMagazines" );
+
+_allExplosives = "
+    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    &&
+    { getNumber ( _x >> ""type"" ) isEqualTo 2 } )
+" configClasses ( configFile >> "cfgMagazines" );
+
+_allMissiles = "
+    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    &&
+    { getNumber ( _x >> ""type"" ) isEqualTo 6 } )
+" configClasses ( configFile >> "cfgMagazines" );
+
+_allBackpacks = "
+    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    &&
+    { getNumber ( _x >> ""type"" ) isEqualTo 1 } )
+" configClasses ( configFile >> "cfgVehicles" );
 
 ////////////////////////////////////
 //  ITEM/WEAPON CLASSIFICATION   ///
@@ -563,7 +610,7 @@ if (not(_nameX in _alreadyChecked)) then
 		case "MineDirectional": {allMineDirectional pushBack _nameX};
 		};
 	};
-} forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems + allMagazines;
+} forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems + _allOptics + _allNVG + _allMagazines + _allGrenades + _allExplosives + _allMissiles;
 
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///

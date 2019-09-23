@@ -49,31 +49,80 @@ colorInvaders = "colorOPFOR";
 //Declaring Items Arrays
 diag_log format ["%1: [Antistasi] | INFO | initVar | Declaring Empty Arrays",servertime];
 allMagazines = [];
+
 arifles = [];
-srifles = [];
-mguns = [];
+allWeaponGrenadeLauncher = [];
 hguns = [];
+allWeaponLauncher = [];
+mguns = [];
 mlaunchers = [];
+allWeaponMortar = [];
 rlaunchers = [];
-attachmentBipod = [];
-attachmentMuzzle = [];
-attachmentPointer = [];
-attachmentOptics = [];
+allWeaponShotgun = [];
+allWeaponThrow = [];
+allWeaponRifle = [];
+allWeaponSubmachineGun = [];
+srifles = [];
+
+allMagazine = [];
+
+allAttachmentBipod = [];
+allAttachmentMuzzle = [];
+allAttachmentPointer = [];
+allAttachmentOptics = [];
+allBinoculars = [];
+allCompass = [];
+allFirstAidKit = [];
+allGPS = [];
+allLaserDesignator = [];
+allMap = [];
+allMedikit = [];
+allMineDetector = [];
 NVGoggles = [];
+allRadio = [];
+allToolkit = [];
+allUAVTerminal = [];
+allUnknown = [];
+allWatch = [];
+
+allGlasses = [];
+helmets = [];
+allVest = [];
+allUniform = [];
+allBackpack = [];
+
+allMagArtillery = [];
+allMagBullet = [];
+allMagFlare = [];
+allMagGrenade = [];
+allMagLaser = [];
+allMagMissile = [];
+allMagRocket = [];
+allMagShotgun = [];
+allMagSmokeShell = [];
+allMagUnknown = [];
+
+allMine = [];
+allMineBounding = [];
+allMineDirectional = [];
+
 smokeX = [];
 chemX = [];
 opticsAAF = [];
+ammunitionNATO = [];
+weaponsNato = [];
+ammunitionCSAT = [];
+weaponsCSAT = [];
+itemsAAF = [];
+
 flashLights = [];
 pointers = [];
 civUniforms = [];
-helmets = [];
-armoredHelmets = [];
-vests = [];
-armoredVests = [];
 
+armoredHelmets = [];
+armoredVests = [];
 uniformsSDK = [];
 banditUniforms = [];
-itemsAAF = [];
 initialRifles = [];
 unlockedWeapons = [];
 unlockedRifles = [];
@@ -86,10 +135,6 @@ unlockedAA = [];
 unlockedMG = [];
 unlockedGL = [];
 unlockedSN = [];
-ammunitionNATO = [];
-weaponsNato = [];
-ammunitionCSAT = [];
-weaponsCSAT = [];
 
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
@@ -459,18 +504,63 @@ if (not(_nameX in _alreadyChecked)) then
 	switch (_itemType) do
 		{
 		case "AssaultRifle": {arifles pushBack _nameX};
-		case "MachineGun": {mguns pushBack _nameX};
-		case "SniperRifle": {srifles pushBack _nameX};
+		case "GrenadeLauncher": {allWeaponGrenadeLauncher pushBack _nameX};
 		case "Handgun": {hguns pushBack _nameX};
+		case "Launcher": {allWeaponLauncher pushBack _nameX};
+		case "MachineGun": {mguns pushBack _nameX};
 		case "MissileLauncher": {mlaunchers pushBack _nameX};
+		case "Mortar": {allWeaponMortar pushBack _nameX};
 		case "RocketLauncher": {rlaunchers pushBack _nameX};
-		case "Headgear": {helmets pushBack _nameX};
-		case "Vest": {vests pushBack _nameX};
-		case "AccessoryMuzzle": {attachmentMuzzle pushBack _nameX};
-		case "AccessoryPointer": {attachmentPointer pushBack _nameX};
-		case "AccessorySights": {attachmentOptics pushBack _nameX};
-		case "AccessoryBipod": {attachmentBipod pushBack _nameX};
+		case "Shotgun": {allWeaponShotgun pushBack _nameX};
+		case "Throw": {allWeaponThrow pushBack _nameX};
+		case "Rifle": {allWeaponRifle pushBack _nameX};
+		case "SubmachineGun": {allWeaponSubmachineGun pushBack _nameX};
+		case "SniperRifle": {srifles pushBack _nameX};
+
+		case "Magazine": {allMagazine pushBack _nameX};
+
+		case "AccessoryBipod": {allAttachmentBipod pushBack _nameX};
+		case "AccessoryMuzzle": {allAttachmentMuzzle pushBack _nameX};
+		case "AccessoryPointer": {allAttachmentPointer pushBack _nameX};
+		case "AccessorySights": {allAttachmentOptics pushBack _nameX};
+		case "Binocular": {allBinoculars pushBack _nameX};
+		case "Compass": {allCompass pushBack _nameX};
+		case "FirstAidKit": {allFirstAidKit pushBack _nameX};
+		case "GPS": {allGPS pushBack _nameX};
+		case "LaserDesignator": {allLaserDesignator pushBack _nameX};
+		case "Map": {allMap pushBack _nameX};
+		case "Medikit": {allMedikit pushBack _nameX};
+		case "MineDetector": {allMineDetector pushBack _nameX};
 		case "NVGoggles": {NVGoggles pushBack _nameX};
+		case "Radio": {allRadio pushBack _nameX};
+		case "Toolkit": {allToolkit pushBack _nameX};
+		case "UAVTerminal": {allUAVTerminal pushBack _nameX};
+		case "Unknown": {allUnknown pushBack _nameX};
+		case "UnknownEquipment": {allUnknown pushBack _nameX};
+		case "UnknownWeapon": {allUnknown pushBack _nameX};
+		case "Watch": {allWatch pushBack _nameX};
+
+		case "Glasses": {allGlasses pushBack _nameX};
+		case "Headgear": {helmets pushBack _nameX};
+		case "Vest": {allVest pushBack _nameX};
+		case "Uniform": {allUniform pushBack _nameX};
+		case "Backpack": {allBackpack pushBack _nameX};
+
+		case "Artillery": {allMagArtillery pushBack _nameX};
+		case "Bullet": {allMagBullet pushBack _nameX};
+		case "Flare": {allMagFlare pushBack _nameX};
+		case "Grenade": {allMagGrenade pushBack _nameX};
+		case "Laser": {allMagLaser pushBack _nameX};
+		case "Missile": {allMagMissile pushBack _nameX};
+		case "Rocket": {allMagRocket pushBack _nameX};
+		case "Shell": {allMagShell pushBack _nameX};
+		case "ShotgunShell": {allMagShotgun pushBack _nameX};
+		case "SmokeShell": {allMagSmokeShell pushBack _nameX};
+		case "UnknownMagazine": {allUnknown pushBack _nameX};
+
+		case "Mine": {allMine pushBack _nameX};
+		case "MineBounding": {allMineBounding pushBack _nameX};
+		case "MineDirectional": {allMineDirectional pushBack _nameX};
 		};
 	};
 } forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems;
@@ -479,7 +569,7 @@ if (not(_nameX in _alreadyChecked)) then
 //   ARMORED VESTS LIST          ///
 ////////////////////////////////////
 //WHY is there no clean list?
-vests = vests select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
+allVestArmored = allVest select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
 
 ////////////////////////////////////
 //   ARMORED HELMETS LIST        ///
@@ -815,7 +905,7 @@ unlockedItems append
 	"itemGPS"
 	];
 
-//Temporary starting vests fix while I class items properly
+//Temporary starting allVest fix while I class items properly
 unlockedItems append ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
 
 //IFA Starting Unlocks

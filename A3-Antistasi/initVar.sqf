@@ -485,7 +485,7 @@ _allItems = "
     &&
     { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 131072 } } )
+    { getNumber ( _x >> ""type"" ) isEqualTo (131072 || 4096) } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
 ////////////////////////////////////
@@ -563,7 +563,7 @@ if (not(_nameX in _alreadyChecked)) then
 		case "MineDirectional": {allMineDirectional pushBack _nameX};
 		};
 	};
-} forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems;
+} forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems + allMagazines;
 
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///

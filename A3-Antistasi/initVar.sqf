@@ -240,13 +240,23 @@ if (has3CB) then {arrayCivs append ["UK3CB_CHC_C_BODYG","UK3CB_CHC_C_CAN","UK3CB
 //      CIVILLIAN VEHICLES       ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Vehicle list.",servertime];
-arrayCivVeh = "(
+_arrayCivVeh = "(
 	getNumber (_x >> ""scope"") isEqualTo 2 && {
 		getNumber (_x >> 'side') isEqualTo 3 && {
 			getText (_x >> 'vehicleClass') in ['Car','Support']
 		}
 	}
 )" configClasses (configFile >> "CfgVehicles");
+
+for "_i" from 0 to ((count _arrayCivVeh) -1) do
+	{
+	_vehicle = _arrayCivVeh select _i;
+	if (isClass _vehicle) then
+		{
+		_vehicleName = configName (_vehicle);
+		arrayCivVeh pushBack _vehicleName;
+		};
+	};
 /*
 if !(hasIFA) then
 	{

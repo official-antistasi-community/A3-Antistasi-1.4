@@ -439,21 +439,6 @@ civUniforms pushBackUnique _uniform;
 } forEach arrayCivs;
 
 ////////////////////////////////////
-//      ALL MAGAZINES LIST       ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Magazine Pool.",servertime];
-_cfgMagazines = configFile >> "cfgmagazines";
-for "_i" from 0 to ((count _cfgMagazines) -1) do
-	{
-	_magazine = _cfgMagazines select _i;
-	if (isClass _magazine) then
-		{
-		_nameX = configName (_magazine);
-		allMagazines pushBack _nameX;
-		};
-	};
-
-////////////////////////////////////
 //   ALL WEAPONS/ITEMS LIST      ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Weapon list",servertime];
@@ -520,19 +505,21 @@ _allGrenades = "
 _allExplosives = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 2 } )
+    { getText ( _x >> ""type"" ) isEqualTo ""2*		256"" } )
 " configClasses ( configFile >> "cfgMagazines" );
 
 _allMissiles = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 6 } )
+    { getText ( _x >> ""type"" ) isEqualTo ""6 * 		256"" } )
 " configClasses ( configFile >> "cfgMagazines" );
 
 _allBackpacks = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
-    &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 1 } )
+	( getNumber ( _x >> ""scope"" ) isEqualTo 2
+	&&
+	{ getNumber ( _x >> ""type"" ) isEqualTo 1
+	&&
+	{ getText ( _x >> ""vehicleClass"" ) isEqualTo ""Backpacks"" } } )
 " configClasses ( configFile >> "cfgVehicles" );
 
 ////////////////////////////////////
@@ -542,7 +529,10 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Classing Items.",servertime
 _alreadyChecked = [];
 {
 _nameX = configName _x;
-_nameX = [_nameX] call BIS_fnc_baseWeapon;
+if (_nameX isClass (configFile >> "CfgWeapons") then
+	{
+	_nameX = [_nameX] call BIS_fnc_baseWeapon;
+	};
 if (not(_nameX in _alreadyChecked)) then
 	{
 	_alreadyChecked pushBack _nameX;

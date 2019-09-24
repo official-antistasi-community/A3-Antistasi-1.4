@@ -522,6 +522,14 @@ _allBackpack = "
 	{ getText ( _x >> ""vehicleClass"" ) isEqualTo ""Backpacks"" } } )
 " configClasses ( configFile >> "cfgVehicles" );
 
+_allStaticWeapon = "
+	( getNumber ( _x >> ""scope"" ) isEqualTo 2
+	&&
+	{ getNumber ( _x >> ""type"" ) isEqualTo 1
+	&&
+	{ getText ( _x >> ""vehicleClass"" ) isEqualTo ""Static"" } } )
+" configClasses ( configFile >> "cfgVehicles" );
+
 ////////////////////////////////////
 //  ITEM/WEAPON CLASSIFICATION   ///
 ////////////////////////////////////
@@ -600,7 +608,7 @@ if !(_nameX in _alreadyChecked) then
 		case "MineDirectional": {allMineDirectional pushBack _nameX};
 		};
 	};
-} forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack;
+} forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon;
 
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///

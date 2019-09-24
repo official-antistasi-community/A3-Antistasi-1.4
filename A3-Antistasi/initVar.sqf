@@ -46,15 +46,18 @@ posHQ = getMarkerPos respawnTeamPlayer;
 Invaders = east;
 colorInvaders = "colorOPFOR";
 
-//Declaring Items Arrays
+////////////////////////////////////
+//     DECLARING ITEM ARRAYS     ///
+////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Declaring Empty Arrays",servertime];
-allMagazines = [];
-
+//Weapons arrays
 arifles = [];
+allWeaponBombLauncher = [];
 allWeaponGrenadeLauncher = [];
 hguns = [];
 allWeaponLauncher = [];
 mguns = [];
+allMagazine = [];
 mlaunchers = [];
 allWeaponMortar = [];
 rlaunchers = [];
@@ -63,13 +66,11 @@ allWeaponThrow = [];
 allWeaponRifle = [];
 allWeaponSubmachineGun = [];
 srifles = [];
-
-allMagazine = [];
-
+//Items arrays
 allAttachmentBipod = [];
 allAttachmentMuzzle = [];
 allAttachmentPointer = [];
-allAttachmentOptics = [];
+allAttachmentOptic = [];
 allBinocular = [];
 allCompass = [];
 allFirstAidKit = [];
@@ -84,13 +85,13 @@ allToolkit = [];
 allUAVTerminal = [];
 allUnknown = [];
 allWatch = [];
-
+//Equipment arrays
 allGlasses = [];
 helmets = [];
 allVest = [];
 allUniform = [];
 allBackpack = [];
-
+//Ammunition arrays
 allMagArtillery = [];
 allMagBullet = [];
 allMagFlare = [];
@@ -102,13 +103,17 @@ allMagShell = [];
 allMagShotgun = [];
 allMagSmokeShell = [];
 allMagUnknown = [];
-
+//Explosives arrays
 allMine = [];
 allMineBounding = [];
 allMineDirectional = [];
 
+//Vehicles and Equipment Arrays
+allStaticWeapon = [];
+//Treated arrays
 allVestArmored = [];
 
+//-----------------------------Existing Used Arrays----------------------------//
 smokeX = [];
 chemX = [];
 opticsAAF = [];
@@ -549,6 +554,7 @@ if !(_nameX in _alreadyChecked) then
 	switch (_itemType) do
 		{
 		case "AssaultRifle": {arifles pushBack _nameX};
+		case "BombLauncher": {allWeaponBombLauncher pushBack _nameX};
 		case "GrenadeLauncher": {allWeaponGrenadeLauncher pushBack _nameX};
 		case "Handgun": {hguns pushBack _nameX};
 		case "Launcher": {allWeaponLauncher pushBack _nameX};
@@ -567,7 +573,7 @@ if !(_nameX in _alreadyChecked) then
 		case "AccessoryBipod": {allAttachmentBipod pushBack _nameX};
 		case "AccessoryMuzzle": {allAttachmentMuzzle pushBack _nameX};
 		case "AccessoryPointer": {allAttachmentPointer pushBack _nameX};
-		case "AccessorySights": {allAttachmentOptics pushBack _nameX};
+		case "AccessorySights": {allAttachmentOptic pushBack _nameX};
 		case "Binocular": {allBinocular pushBack _nameX};
 		case "Compass": {allCompass pushBack _nameX};
 		case "FirstAidKit": {allFirstAidKit pushBack _nameX};
@@ -606,10 +612,11 @@ if !(_nameX in _alreadyChecked) then
 		case "Mine": {allMine pushBack _nameX};
 		case "MineBounding": {allMineBounding pushBack _nameX};
 		case "MineDirectional": {allMineDirectional pushBack _nameX};
+
+		default {allUnknown pushBack _nameX};
 		};
 	};
 } forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon;
-
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///
 ////////////////////////////////////

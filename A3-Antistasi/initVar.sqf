@@ -529,11 +529,11 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Classing Items.",servertime
 _alreadyChecked = [];
 {
 _nameX = configName _x;
-if (_nameX isClass (configFile >> "CfgWeapons") then
+if (_nameX isClass (configFile >> "CfgWeapons")) then
 	{
 	_nameX = [_nameX] call BIS_fnc_baseWeapon;
 	};
-if (not(_nameX in _alreadyChecked)) then
+if !(_nameX in _alreadyChecked) then
 	{
 	_alreadyChecked pushBack _nameX;
 	_item = [_nameX] call BIS_fnc_itemType;

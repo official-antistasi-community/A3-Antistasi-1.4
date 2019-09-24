@@ -529,7 +529,7 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Classing Items.",servertime
 _alreadyChecked = [];
 {
 _nameX = configName _x;
-if (_nameX isClass (configFile >> "CfgWeapons")) then
+if (isClass (configFile >> "cfgWeapons" >> _nameX)) then
 	{
 	_nameX = [_nameX] call BIS_fnc_baseWeapon;
 	};

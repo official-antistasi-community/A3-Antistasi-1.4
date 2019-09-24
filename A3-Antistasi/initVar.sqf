@@ -716,6 +716,7 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Loot Mines Lists",
 minesAAF =
 	[
 	"SLAMDirectionalMine_Wire_Mag",
+	"DemoCharge_Remote_Mag",
 	"SatchelCharge_Remote_Mag",
 	"ClaymoreDirectionalMine_Remote_Mag",
 	"ATMine_Range_Mag","APERSTripMine_Wire_Mag",
@@ -727,11 +728,18 @@ if (hasRHS and !hasIFA) then
 	{
 	//RHS MINE LOOT
 	minesAAF =
-		["rhsusf_m112_mag",
+		[
+		"rhsusf_m112_mag",
 		"rhsusf_mine_m14_mag",
 		"rhs_mine_M19_mag",
 		"rhs_mine_tm62m_mag",
-		"rhs_mine_pmn2_mag"
+		"rhs_mine_pmn2_mag",
+
+		//These are needed for breaching vehicles
+		"rhs_ec200_mag",
+		"rhs_ec200_camo_mag",
+		"rhs_ec400_mag",
+		"rhs_ec400_camo_mag"
 		];
 	}
 	else
@@ -742,10 +750,29 @@ if (hasRHS and !hasIFA) then
 			minesAAF =
 				["LIB_PMD6_MINE_mag",
 				"LIB_TM44_MINE_mag",
-				"LIB_US_TNT_4pound_mag"
+				"LIB_US_TNT_4pound_mag",
+				//Add these for vehicle breaching
+				"LIB_Ladung_Small_MINE_mag",
+				"LIB_Ladung_Big_MINE_mag"
 				];
 			};
 		};
+
+breachExplosiveSmall = ["DemoCharge_Remote_Mag"];
+breachExplosiveLarge = ["SatchelCharge_Remote_Mag"];
+if(hasRHS && !hasIFA) then
+{
+	breachExplosiveSmall = ["rhs_ec200_mag", "rhs_ec200_camo_mag"];
+	breachExplosiveLarge = ["rhs_ec400_mag", "rhs_ec400_camo_mag"];
+}
+else
+{
+	if(hasIFA) then
+	{
+		breachExplosiveSmall = ["LIB_Ladung_Small_MINE_mag"];
+		breachExplosiveLarge = ["LIB_Ladung_Big_MINE_mag"];
+	};
+};
 
 ////////////////////////////////////
 //   REBEL FACTION LAUNCHERS     ///

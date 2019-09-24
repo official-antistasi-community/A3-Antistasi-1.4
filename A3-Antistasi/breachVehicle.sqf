@@ -148,11 +148,9 @@ if(((damage _vehicle) + _damageDealt) > 0.9) exitWith
   _bomb = "SatchelCharge_Remote_Ammo_Scripted" createVehicle (getPos _vehicle);
   _bomb setDamage 1;
   _vehicle setDamage 1;
-}
-else
-{
-  playSound3D [ "A3\Sounds_F\environment\ambient\battlefield\battlefield_explosions3.wss", _vehicle, false, (getPos _vehicle), 4, 1, 0 ];
 };
+
+playSound3D [ "A3\Sounds_F\environment\ambient\battlefield\battlefield_explosions3.wss", _vehicle, false, (getPos _vehicle), 4, 1, 0 ];
 
 
 

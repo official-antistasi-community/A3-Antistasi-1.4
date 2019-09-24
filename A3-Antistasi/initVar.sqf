@@ -70,7 +70,7 @@ allAttachmentBipod = [];
 allAttachmentMuzzle = [];
 allAttachmentPointer = [];
 allAttachmentOptics = [];
-allBinoculars = [];
+allBinocular = [];
 allCompass = [];
 allFirstAidKit = [];
 allGPS = [];
@@ -107,6 +107,8 @@ allMine = [];
 allMineBounding = [];
 allMineDirectional = [];
 
+allVestArmored = [];
+
 smokeX = [];
 chemX = [];
 opticsAAF = [];
@@ -120,8 +122,6 @@ flashLights = [];
 pointers = [];
 civUniforms = [];
 
-armoredHelmets = [];
-armoredVests = [];
 uniformsSDK = [];
 banditUniforms = [];
 initialRifles = [];
@@ -442,7 +442,7 @@ civUniforms pushBackUnique _uniform;
 //   ALL WEAPONS/ITEMS LIST      ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Weapon list",servertime];
-_allPrimaryWeapons = "
+_allPrimaryWeapon = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
     { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
@@ -450,7 +450,7 @@ _allPrimaryWeapons = "
     { getNumber ( _x >> ""type"" ) isEqualTo 1 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
-_allHandGuns = "
+_allHandGun = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
     { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
@@ -458,7 +458,7 @@ _allHandGuns = "
     { getNumber ( _x >> ""type"" ) isEqualTo 2 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
-_allLaunchers = "
+_allLauncher = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
     { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
@@ -466,7 +466,7 @@ _allLaunchers = "
     { getNumber ( _x >> ""type"" ) isEqualTo 4 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
-_allItems = "
+_allItem = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
     { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
@@ -474,7 +474,7 @@ _allItems = "
     { getNumber ( _x >> ""type"" ) isEqualTo 131072 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
-_allOptics = "
+_allOptic = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
     { getText ( _x >> ""simulation"" ) isEqualTo ""Binocular""
@@ -490,31 +490,31 @@ _allNVG = "
     { getNumber ( _x >> ""type"" ) isEqualTo 4096 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
-_allMagazines = "
+_allMagazine = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
     { getNumber ( _x >> ""type"" ) isEqualTo 256 } )
 " configClasses ( configFile >> "cfgMagazines" );
 
-_allGrenades = "
+_allGrenade = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
     { getNumber ( _x >> ""type"" ) isEqualTo 16 } )
 " configClasses ( configFile >> "cfgMagazines" );
 
-_allExplosives = "
+_allExplosive = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
     { getText ( _x >> ""type"" ) isEqualTo ""2*		256"" } )
 " configClasses ( configFile >> "cfgMagazines" );
 
-_allMissiles = "
+_allMissile = "
     ( getNumber ( _x >> ""scope"" ) isEqualTo 2
     &&
     { getText ( _x >> ""type"" ) isEqualTo ""6 * 		256"" } )
 " configClasses ( configFile >> "cfgMagazines" );
 
-_allBackpacks = "
+_allBackpack = "
 	( getNumber ( _x >> ""scope"" ) isEqualTo 2
 	&&
 	{ getNumber ( _x >> ""type"" ) isEqualTo 1
@@ -560,7 +560,7 @@ if !(_nameX in _alreadyChecked) then
 		case "AccessoryMuzzle": {allAttachmentMuzzle pushBack _nameX};
 		case "AccessoryPointer": {allAttachmentPointer pushBack _nameX};
 		case "AccessorySights": {allAttachmentOptics pushBack _nameX};
-		case "Binocular": {allBinoculars pushBack _nameX};
+		case "Binocular": {allBinocular pushBack _nameX};
 		case "Compass": {allCompass pushBack _nameX};
 		case "FirstAidKit": {allFirstAidKit pushBack _nameX};
 		case "GPS": {allGPS pushBack _nameX};
@@ -600,7 +600,7 @@ if !(_nameX in _alreadyChecked) then
 		case "MineDirectional": {allMineDirectional pushBack _nameX};
 		};
 	};
-} forEach _allPrimaryWeapons + _allHandGuns + _allLaunchers + _allItems + _allOptics + _allNVG + _allMagazines + _allGrenades + _allExplosives + _allMissiles;
+} forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack;
 
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///

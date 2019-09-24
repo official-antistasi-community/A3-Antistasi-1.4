@@ -2,6 +2,8 @@ params["_vehicle", "_caller", "_actionID"];
 
 if(!isPlayer _caller) exitWith {hint "Only players are currently able to breach vehicles!";};
 
+private ["_isEngineer", "_isAPC", "_isTank", "_magazines", "_explosive", "_abort", "_index"];
+
 //Only engineers should be able to breach a vehicle
 _isEngineer = _caller getUnitTrait "engineer";
 if(!_isEngineer) exitWith {hint "You have to be an engineer to breach open a vehicle!";};
@@ -11,8 +13,38 @@ if(!alive _vehicle) exitWith {hint "Why would you want to breach open a destroye
 _isAPC = (typeOf _vehicle) in vehAPCs;
 _isTank = (typeOf _vehicle) in vehTanks;
 
-if(_isAPC && !("DemoCharge_Remote_Mag" in (magazines _caller))) exitWith {hint "You need a explosive charge to breach an APCs open!"};
-if(_isTank && !("SatchelCharge_Remote_Mag" in (magazines _caller))) exitWith {hint "You need a explosive satchel to breach a tank open!"};
+_magazines = magazines _caller;
+_explosive = "";
+_abort = false;
+if(_isAPC) then
+{
+  _index = _magazines findIf {_x in breachExplosiveSmall};
+  if(_index == -1) then
+  {
+    _abort = true;
+    hint "You need a small explosive charge to breach an APC open!";
+  }
+  else
+  {
+    _explosive = _magazines select _index;
+  };
+};
+if(_isTank) then
+{
+  _index = _magazines findIf {_x in breachExplosiveLarge};
+  if(_index == -1) then
+  {
+    _abort = true;
+    hint "You need a large explosive charge to breach a tank open!";
+  }
+  else
+  {
+    _explosive = _magazines select _index;
+  };
+};
+if(_abort) exitWith {};
+
+private ["_time", "_action"];
 
 _time = 15 + (random 5);
 if(_isAPC) then
@@ -76,16 +108,18 @@ if
   if(alive _vehicle) then {_vehicle addAction ["Breach Vehicle", {[_this select 0, _this select 1, _this select 2] execVM "breachVehicle.sqf"},nil,4,false,true,"","(isPlayer _this)",5];};
 };
 
+private ["_damageDealt", "_currentDamage", "_result", "_bomb", "_crew", "_dropPos"];
+
 _damageDealt = 0;
 if(_isAPC) then
 {
-  _caller removeMagazine "DemoCharge_Remote_Mag";
+  _caller removeMagazine _explosive;
   _damageDealt = 0.15 + random 0.15;
 };
 
 if(_isTank) then
 {
-  _caller removeMagazine "SatchelCharge_Remote_Mag";
+  _caller removeMagazine _explosive;
   _damageDealt = 0.25 + random 0.25;
 };
 
@@ -114,9 +148,13 @@ if(((damage _vehicle) + _damageDealt) > 0.9) exitWith
   _bomb = "SatchelCharge_Remote_Ammo_Scripted" createVehicle (getPos _vehicle);
   _bomb setDamage 1;
   _vehicle setDamage 1;
+}
+else
+{
+  playSound3D [ "A3\Sounds_F\environment\ambient\battlefield\battlefield_explosions3.wss", _vehicle, false, (getPos _vehicle), 4, 1, 0 ];
 };
 
-playSound3D [ "A3\Sounds_F\environment\ambient\battlefield\battlefield_explosions3.wss", _vehicle, false, (getPos _vehicle), 4, 1, 0 ];
+
 
 sleep 0.5;
 _vehicle lock 0;
@@ -127,7 +165,7 @@ _crew = crew _vehicle;
     {
       _x setDamage 1;
     };
-    if(alive _X) then
+    if(alive _x) then
     {
       moveOut _x;
       _x setVariable ["surrendered",true,true];

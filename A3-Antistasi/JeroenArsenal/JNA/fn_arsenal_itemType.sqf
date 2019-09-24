@@ -122,7 +122,7 @@ private _itemCategory = switch true do {
 			case (_itemInfoType == TYPE_VEST): { "Vest" };
 			case (_simulationType == "NVGoggles"): { "NVGoggles" };
 			//Binos after NVGs to avoid accidentally catching them;
-			case (_simulationType == "Binocular" ||	_itemInfoType == TYPE_BINOCULAR_AND_NVG): { "Binocular" };
+			case (_simulationType == "Binocular" ||	{_simulationType == "Weapon" && _itemType == TYPE_BINOCULAR_AND_NVG}): { "Binocular" };
 			case (_simulationType == "ItemMap"): { "Map" };
 			case (_simulationType == "ItemCompass"): { "Compass" };
 			case (_simulationType == "ItemRadio"): { "Radio" };
@@ -150,13 +150,13 @@ private _itemCategory = switch true do {
 		// Lists to check against
 		private _grenadeList = [];
 		{
-			_grenadeList append getArray (_configCfgWeapons >> "Throw" >> _item >> "magazines");
+			_grenadeList append getArray (_configCfgWeapons >> "Throw" >> _x >> "magazines");
 			false
 		} count getArray (_configCfgWeapons >> "Throw" >> "muzzles");
 
 		private _putList = [];
 		{
-			_putList append getArray (_configCfgWeapons >> "Put" >> _item >> "magazines");
+			_putList append getArray (_configCfgWeapons >> "Put" >> _x >> "magazines");
 			false
 		} count getArray (_configCfgWeapons >> "Put" >> "muzzles");
 		

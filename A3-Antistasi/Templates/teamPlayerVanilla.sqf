@@ -1,12 +1,17 @@
+//Alits Template Call
 if (worldName == "Altis") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayerVanillaAltis.sqf"};
+////////////////////////////////////
+//       NAMES AND FLAGS         ///
+////////////////////////////////////
+nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
+SDKFlag = "Flag_Syndikat_F";
+SDKFlagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
+typePetros = "I_C_Soldier_Camo_F";
 
-SDKMortar = "I_G_Mortar_01_F";
-SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
-SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
-SDKMGStatic = "I_HMG_01_high_F";
-staticATteamPlayer = "I_Static_AT_F";
-staticAAteamPlayer = "I_Static_AA_F";
-
+////////////////////////////////////
+//             UNITS             ///
+////////////////////////////////////
+//First Entry is Guerilla, Second Entry is Para/Military
 staticCrewTeamPlayer = "I_G_Soldier_unarmed_F";
 SDKUnarmed = "I_G_Survivor_F";
 SDKSniper = ["I_C_Soldier_Bandit_5_F","I_C_Soldier_Para_7_F"];
@@ -19,76 +24,80 @@ SDKMil = ["I_C_Soldier_Bandit_7_F","I_C_Soldier_Para_1_F"];
 SDKSL = ["I_C_Soldier_Bandit_4_F","I_C_Soldier_Para_2_F"];
 SDKEng = ["I_G_engineer_F","I_G_engineer_F"];
 
+////////////////////////////////////
+//            GROUPS             ///
+////////////////////////////////////
+groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
+groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
+groupsSDKSquad = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
+groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
+groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
+groupsSDKSniper = [SDKSniper,SDKSniper];
+groupsSDKSentry = [SDKGL,SDKMil];
+
+//Rebel Unit Tiers (for costs)
+sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
+sdkTier2 = SDKMedic + SDKExp + SDKEng;
+sdkTier3 = SDKSL + SDKSniper;
+soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
+
+////////////////////////////////////
+//           VEHICLES            ///
+////////////////////////////////////
+//Military Vehicles
 vehSDKBike = "I_G_Quadbike_01_F";
-vehSDKLightArmed = "I_C_Offroad_02_LMG_F";
-vehSDKAT = "I_C_Offroad_02_AT_F";
-vehSDKLightUnarmed = "I_C_Offroad_02_unarmed_F";
+vehSDKLightArmed = "I_G_Offroad_01_armed_F";
+vehSDKAT = "I_G_Offroad_02_AT_F";
+vehSDKLightUnarmed = "I_G_Offroad_01_F";
 vehSDKTruck = "I_C_Van_01_Transport_F";
 //vehSDKHeli = "I_C_Heli_Light_01_civil_F";
 vehSDKPlane = "I_C_Plane_civil_01_F";
 vehSDKBoat = "I_C_Boat_Transport_01_F";
 vehSDKRepair = "B_G_Offroad_01_repair_F";
-SDKFlag = "Flag_Syndikat_F";
-SDKFlagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
-typePetros = "I_C_Soldier_Camo_F";
 
-supportStaticSDKB = "I_HMG_01_support_F";
-ATStaticSDKB = "I_AT_01_weapon_F";
-MGStaticSDKB = "I_HMG_01_high_weapon_F";
-supportStaticsSDKB2 = "I_HMG_01_support_high_F";
-AAStaticSDKB = "I_AA_01_weapon_F";
-MortStaticSDKB = "I_Mortar_01_weapon_F";
-supportStaticsSDKB3 = "I_Mortar_01_support_F";
-
-civCar = "C_Offroad_02_unarmed_F";
+//Civilian Vehicles
+civCar = "C_Offroad_01_F";
 civTruck = "C_Van_01_transport_F";
 civHeli = "C_Heli_Light_01_civil_F";
 civBoat = "C_Boat_Transport_02_F";
 
-sniperRifle = "srifle_DMR_06_camo_F";
-lampsSDK = ["acc_flashlight"];
+////////////////////////////////////
+//        STATIC WEAPONS         ///
+////////////////////////////////////
+//Assembled Static Weapons
+SDKMGStatic = "I_HMG_01_high_F";
+staticATteamPlayer = "I_Static_AT_F";
+staticAAteamPlayer = "I_Static_AA_F";
+SDKMortar = "I_G_Mortar_01_F";
+SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
+SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
 
+//Static Weapon Bags
+MGStaticSDKB = "I_HMG_01_high_weapon_F";
+ATStaticSDKB = "I_AT_01_weapon_F";
+AAStaticSDKB = "I_AA_01_weapon_F";
+MortStaticSDKB = "I_Mortar_01_weapon_F";
+//Short Support
+supportStaticSDKB = "I_HMG_01_support_F";
+//Tall Support
+supportStaticsSDKB2 = "I_HMG_01_support_high_F";
+//Mortar Support
+supportStaticsSDKB3 = "I_Mortar_01_support_F";
+
+////////////////////////////////////
+//             ITEMS             ///
+////////////////////////////////////
+//Player spawn loadout
+teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+//Mines
 ATMineMag = "ATMine_Range_Mag";
 APERSMineMag = "APERSMine_Range_Mag";
-
-if (hasFFAA) then
-	{
-	call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"
-	}
-else
-	{
-	if (gameMode != 4) then
-		{
-		FIARifleman = "B_G_Soldier_F";
-		FIAMarksman = "B_G_Sharpshooter_F";
-		vehFIAArmedCar = "B_G_Offroad_01_armed_F";
-		vehFIATruck = "B_G_van_01_transport_F";
-		vehFIACar = "B_G_Offroad_01_F";
-		groupsFIASmall = [["B_G_Soldier_GL_F","B_G_Soldier_F"],["B_G_Soldier_M_F","B_G_Soldier_F"],["B_G_Sharpshooter_F","B_G_Soldier_M_F"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-		groupsFIAMid = [["B_G_Soldier_SL_F","B_G_Sharpshooter_F","B_G_Soldier_AR_F","B_G_Soldier_A_F"],["B_G_Soldier_TL_F","B_G_Soldier_AR_F","B_G_Soldier_GL_F","B_G_Soldier_LAT_F"],["B_G_Soldier_TL_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F"]];
-		FIASquad = ["B_G_soldier_SL_F","B_G_soldier_F","B_G_soldier_LAT_F","B_G_Soldier_M_F","B_G_soldier_TL_F","B_G_soldier_AR_F","B_G_Soldier_A_F","B_G_medic_F"];//"IRG_InfSquad";///
-		groupsFIASquad = [FIASquad,["B_G_soldier_SL_F","B_G_soldier_LAT_F","B_G_Soldier_M_F","B_G_soldier_TL_F","B_G_Soldier_A_F","B_G_medic_F","B_support_MG_F","B_support_AMG_F"]];
-		factionFIA = "BLU_G_F";
-		}
-	else
-		{
-		FIARifleman = "O_G_Soldier_F";
-		FIAMarksman = "O_G_Sharpshooter_F";
-		vehFIAArmedCar = "O_G_Offroad_01_armed_F";
-		vehFIATruck = "O_G_van_01_transport_F";
-		vehFIACar = "O_G_Offroad_01_F";
-		groupsFIASmall = [["O_G_Soldier_GL_F","O_G_Soldier_F"],["O_G_Soldier_M_F","O_G_Soldier_F"],["O_G_Sharpshooter_F","O_G_Soldier_M_F"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
-		groupsFIAMid = [["O_G_Soldier_SL_F","O_G_Sharpshooter_F","O_G_Soldier_AR_F","O_G_Soldier_A_F"],["O_G_Soldier_TL_F","O_G_Soldier_AR_F","O_G_Soldier_GL_F","O_G_Soldier_LAT_F"],["O_G_Soldier_TL_F","O_G_Soldier_LAT_F","O_G_Soldier_LAT_F","O_G_Soldier_LAT_F"]];
-		FIASquad = ["O_G_soldier_SL_F","O_G_soldier_F","O_G_soldier_LAT_F","O_G_Soldier_M_F","O_G_soldier_TL_F","O_G_soldier_AR_F","O_G_Soldier_A_F","O_G_medic_F"];//"IRG_InfSquad";///
-		groupsFIASquad = [FIASquad,["O_G_soldier_SL_F","O_G_soldier_LAT_F","O_G_Soldier_M_F","O_G_soldier_TL_F","O_G_Soldier_A_F","O_G_medic_F","O_support_MG_F","O_support_AMG_F"]];
-		factionFIA = "OPF_G_F";
-		};
-	};
-
-vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
-policeOfficer = "B_GEN_Commander_F";
-policeGrunt = "B_GEN_Soldier_F";
-groupsNATOGen = [policeOfficer,policeGrunt];
-nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
-
-factionGEN = "BLU_GEN_F";
+//Starting Unlocks
+unlockedWeapons append ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F","Binocular","SMG_05_F","SMG_02_F"];
+unlockedRifles append ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];
+unlockedMagazines append ["9Rnd_45ACP_Mag","30Rnd_9x21_Mag","30Rnd_762x39_Mag_F","MiniGrenade","1Rnd_HE_Grenade_shell","30Rnd_545x39_Mag_F","30Rnd_9x21_Mag_SMG_02","10Rnd_9x21_Mag","200Rnd_556x45_Box_F","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
+initialRifles append ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];
+unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
+//TFAR unlocks
+if (hasTFAR) then {unlockedItems append ["tf_microdagr","tf_anprc154"]};
+if (startLR) then {unlockedBackpacks pushBack "tf_anprc155"};

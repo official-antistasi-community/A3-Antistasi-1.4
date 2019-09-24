@@ -1,6 +1,7 @@
 if (!isMultiplayer) exitWith {};
 if (!(isNil "serverInitDone")) exitWith {};
-diag_log "Antistasi MP Server init";
+diag_log format ["%1: [Antistasi] | INFO | Dedicated Server Detected.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initServer Started.",servertime];
 boxX allowDamage false;
 flagX allowDamage false;
 vehicleBox allowDamage false;
@@ -32,7 +33,9 @@ memberOnlyMagLimit = "MemberOnlyMagLimit" call BIS_fnc_getParamValue; publicVari
 civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
 memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
 limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
-
+napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
+teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
+playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
 
 //Load Campaign ID if resuming game
 if(loadLastSave) then {
@@ -41,18 +44,16 @@ if(loadLastSave) then {
 	campaignID = str(round((random(100000)) + random 10000));
 	profileNameSpace setVariable ["ss_CampaignID", campaignID];
 };
-	
+
 publicVariable "campaignID";
 
 _nul = call compile preprocessFileLineNumbers "initVar.sqf";
 initVar = true; publicVariable "initVar";
 savingServer = true;
-diag_log format ["Antistasi MP. InitVar done. Version: %1",antistasiVersion];
+diag_log format ["%1: [Antistasi] | INFO | MP Version: %2 loaded.",servertime, localize "STR_antistasi_credits_generic_version_text"];
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 _nul = call compile preprocessFileLineNumbers "initFuncs.sqf";
-diag_log "Antistasi MP Server. Funcs init finished";
 _nul = call compile preprocessFileLineNumbers "initZones.sqf";
-diag_log "Antistasi MP Server. Zones init finished";
 if (gameMode != 1) then
     {
     Occupants setFriend [Invaders,1];
@@ -60,7 +61,7 @@ if (gameMode != 1) then
     if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
     if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
     };
-[] execVM "initPetros.sqf";
+[] spawn A3A_fnc_initPetros;
 ["Initialize"] call BIS_fnc_dynamicGroups;//Exec on Server
 hcArray = [];
 waitUntil {(count playableUnits) > 0};
@@ -75,22 +76,20 @@ private _index = _x call jn_fnc_arsenal_itemType;
 //waitUntil {!isNil "bis_fnc_preload_init"};
 //waitUntil {!isNil "BIS_fnc_preload_server"};
 _nul = call compile preprocessFileLineNumbers "initGarrisons.sqf";
-diag_log "Antistasi MP Server. Garrisons init finished";
 if (loadLastSave) then
     {
-
-    diag_log "Antistasi: Persitent Load selected";
+    diag_log format ["%1: [Antistasi] | INFO | Persitent Load selected.",servertime];
     ["membersX"] call fn_LoadStat;
     if (isNil "membersX") then
         {
         loadLastSave = false;
-        diag_log "Antistasi: Persitent Load selected but there is no older session";
+         diag_log format ["%1: [Antistasi] | ERROR | initServer.sqf | No previous session detected.",servertime];
         };
     };
 publicVariable "loadLastSave";
 if (loadLastSave) then
     {
-    _nul = [] execVM "statSave\loadServer.sqf";
+    [] spawn A3A_fnc_loadServer;
     waitUntil {!isNil"statsLoaded"};
     if (!isNil "as_fnc_getExternalMemberListUIDs") then
         {
@@ -101,7 +100,8 @@ if (loadLastSave) then
     if (membershipEnabled and (membersX isEqualTo [])) then
         {
         [petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list"] remoteExec ["A3A_fnc_commsMP"];
-        diag_log "Antistasi: Persitent Load done but membership enabled with members array empty";
+        diag_log format ["%1: [Antistasi] | INFO | Session load completed.",servertime];
+        diag_log format ["%1: [Antistasi] | INFO | Membership enabled however there are no members.",servertime];
         membersX = [];
         {
         membersX pushBack (getPlayerUID _x);
@@ -133,7 +133,7 @@ else
        }
     else
         {
-        diag_log "Antistasi: New Game selected";
+        diag_log format ["%1: [Antistasi] | INFO | New Session Selected.",servertime];
         if (isNil "commanderX") then {commanderX = (playableUnits select 0)};
         if (isNull commanderX) then {commanderX = (playableUnits select 0)};
         theBoss = commanderX;
@@ -143,37 +143,42 @@ else
         };
     publicVariable "theBoss";
     publicVariable "membersX";
-    [] execVM "Ammunition\boxAAF.sqf";
+    [] spawn A3A_fnc_boxAAF;
     };
-diag_log "Antistasi MP Server. Players are in";
 
+diag_log format ["%1: [Antistasi] | INFO | Accepting Players.",servertime];
 {
 private _index = _x call jn_fnc_arsenal_itemType;
 [_index,_x,-1] call jn_fnc_arsenal_addItem;
 }foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
 
+diag_log format ["%1: [Antistasi] | INFO | Arsenal unlock finished.",servertime];
 
-diag_log "Antistasi MP Server. Arsenal config finished";
-[[petros,"hint","Server Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+[[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 
+//HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.
 addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnect;false}];
-addMissionEventHandler ["BuildingChanged",
-        {
-        _building = _this select 0;
-        if !(_building in antennas) then
-            {
-            if (_this select 2) then
-                {
-                destroyedBuildings pushBack (getPosATL _building);
-                };
-            };
-        }];
+//PlayerDisconnected doesn't get access to the unit, so we shouldn't use it to handle saving.
+addMissionEventHandler ["PlayerDisconnected",{_this call A3A_fnc_onHeadlessClientDisconnect;false}];
+
+addMissionEventHandler ["BuildingChanged", {
+	params ["_oldBuilding", "_newBuilding", "_isRuin"];
+
+	if (_isRuin) then {
+		_oldBuilding setVariable ["ruins", _newBuilding];
+		_newBuilding setVariable ["building", _oldBuilding];
+
+		if !(_oldBuilding in antennas) then {
+			destroyedBuildings pushBack (getPosATL _oldBuilding);
+		};
+	};
+}];
 
 serverInitDone = true; publicVariable "serverInitDone";
-diag_log "Antistasi MP Server. serverInitDone set to true.";
+diag_log format ["%1: [Antistasi] | INFO | Marking serverInitDone : %2.",servertime, serverInitDone];
 
 waitUntil {sleep 1;!(isNil "placementDone")};
-distanceXs = [] spawn A3A_fnc_distances4;
+distanceXs = [] spawn A3A_fnc_distance;
 resourcecheck = [] execVM "resourcecheck.sqf";
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
@@ -188,3 +193,4 @@ savingServer = false;
 			sleep 30;
 		};
 };
+diag_log format ["%1: [Antistasi] | INFO | initServer Completed.",servertime];

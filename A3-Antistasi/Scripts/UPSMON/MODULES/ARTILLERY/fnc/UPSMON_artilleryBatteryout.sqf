@@ -13,7 +13,7 @@ private ["_batteryunits","_staticteam"];
 
 _batteryunits = _this select 0;
 
-If (typename (_batteryunits select 0) == "ARRAY") then
+If ((_batteryunits select 0) isEqualType []) then
 {
 	_staticteam = _batteryunits select 0;
 	{

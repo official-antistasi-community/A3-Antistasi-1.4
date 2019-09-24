@@ -1,289 +1,354 @@
 class A3A
 {
-    class Base
-    {
-        class addHC {file="addHC.sqf";};
-        class addTimeForIdle {file="addTimeForIdle.sqf";};
-        class AILoadInfo {file="AILoadInfo.sqf";};
-        class blackout {file="blackout.sqf";};
-        class attackAAF {file="attackAAF.sqf";};
-        class buildHQ {file="buildHQ.sqf";};
-        class createPetros {file="createPetros.sqf";};
-        class punishment {file="punishment.sqf";};
-        class citiesToCivPatrol {file="citiesToCivPatrol.sqf";};
-        class citySupportChange {file="citySupportChange.sqf";};
-        class commsMP {file="commsMP.sqf";};
-        class createControls {file="createControls.sqf";};
-        class createOutpostsFIA {file="createOutpostsFIA.sqf";};
-        class deleteControls {file="deleteControls.sqf";};
-        class destroyCity {file="destroyCity.sqf";};
-        class distanceUnits {file="distanceUnits.sqf";};
-        class distances4 {file="distances5.sqf";};
-        class economicsAI {file="economicsAI.sqf";};
-        class FIAradio {file="FIAradio.sqf";};
-        class findBasesForConvoy {file="findBasesForConvoy.sqf";};
-        class findNearestGoodRoad {file="findNearestGoodRoad.sqf";};
-        class flagaction {file="flagaction.sqf";};
-        class fn_location {file="fn_location.sqf";};
-        class fogCheck {file="fogCheck.sqf";};
-        class garbageCleaner {file="garbageCleaner.sqf";};
-        class garrisonInfo {file="garrisonInfo.sqf";};
-        class intelFound {file="intelFound.sqf";};
-        class isFrontline {file="isFrontline.sqf";};
-        class isTheSameIsland {file="isTheSameIsland.sqf";};
-        class localizar {file="localizar.sqf";};
-        class logPerformance {file="logPerformance.sqf";};
-        class markerChange {file="markerChange.sqf";};
-        class moveHQ {file="moveHQ.sqf";};
-        class mrkUpdate {file="mrkUpdate.sqf";};
-        class mrkWIN {file="mrkWIN.sqf";};
-        class NATOFT {file="NATOFT.sqf";};
-        class numericRank {file="numericRank.sqf";};
-        class onPlayerDisconnect {file="onPlayerDisconnect.sqf";};
-        class patrolDestinations {file="patrolDestinations.sqf";};
-        class placementSelection {file="placementselection.sqf";};
-        class playerHasBeenPvPCheck {file="playerHasBeenPvPCheck.sqf";};
-        class powerCheck {file="powerCheck.sqf";};
-        class powerReorg {file="powerReorg.sqf";};
-        class prestige {file="prestige.sqf";};
-        class outpostDialog {file="outpostDialog.sqf";};
-        class radioCheck {file="radioCheck.sqf";};
-        class rebuildAssets {file="rebuildAssets.sqf";};
-        class relocateHQObjects {file="relocateHQObjects.sqf";};
-        class resourceCheckSkipTime {file="resourcecheckSkipTime.sqf";};
-        class resourcesFIA {file="resourcesFIA.sqf";};
-        class returnMuzzle {file="returnMuzzle.sqf";};
-        class revealToPlayer {file="revealToPlayer.sqf";};
-        class scheduler {file="scheduler.sqf";};
-        class sellVehicle {file="sellVehicle.sqf";};
-        class sizeMarker {file="sizeMarker.sqf";};
-        class statistics {file="statistics.sqf";};
-        class stripGearFromLoadout {file="stripGearFromLoadout.sqf"};
-        class teleportVehicleToBase {file="teleportVehicleToBase.sqf";};
-        class translateVariable {file="statSave\translateVariable.sqf";};
-        class keys {file="keys.sqf";};
-        class timingCA {file="timingCA.sqf";};
-        class undercover {file="undercover.sqf";};
-        class unlockVehicle {file="unlockVehicle.sqf";};
-        class zoneCheck {file="zoneCheck.sqf";};
-        //class tempMoveMrk {file="tempMoveMrk.sqf";};
-    }
+	class Base
+	{
+		class addHC {};
+		class addTimeForIdle {};
+		class AILoadInfo {};
+		class attackAAF {};
+		class blackout {};
+		class buildHQ {};
+		class citiesToCivPatrol {};
+		class citySupportChange {};
+		class commsMP {};
+		class createControls {};
+		class createOutpostsFIA {};
+		class createPetros {};
+		class deleteControls {};
+		class destroyCity {};
+		class distance {};
+		class distanceUnits {};
+		class economicsAI {};
+		class ejectPvPPlayerIfInvalidVehicle {};
+		class FIAradio {};
+		class findBasesForConvoy {};
+		class findNearestGoodRoad {};
+		class flagaction {};
+		class fogCheck {};
+		class garbageCleaner {};
+		class garrisonInfo {};
+		class healAndRepair {};
+		class initPetros {};
+		class intelFound {};
+		class isFrontline {};
+		class isTheSameIsland {};
+		class keys {};
+		class localizar {};
+		class location {};
+		class logPerformance {};
+		class markerChange {};
+		class moveHQ {};
+		class mrkUpdate {};
+		class mrkWIN {};
+		class NATOFT {};
+		class numericRank {};
+		class onHeadlessClientDisconnect {};
+		class onPlayerDisconnect {};
+		class outpostDialog {};
+		class patrolDestinations {};
+		class placementSelection {};
+		class playerHasBeenPvPCheck {};
+		class powerCheck {};
+		class powerReorg {};
+		class prestige {};
+		class punishment {};
+		class radioCheck {};
+		class rebuildAssets {};
+		class relocateHQObjects {};
+		class repairRuinedBuilding {};
+		class resourceCheckSkipTime {};
+		class resourcesFIA {};
+		class returnMuzzle {};
+		class revealToPlayer {};
+		class scheduler {};
+		class sellVehicle {};
+		class setMarkerAlphaForSide {};
+		class sizeMarker {};
+		class statistics {};
+		class stripGearFromLoadout {};
+		class teleportVehicleToBase {};
+		class timingCA {};
+		class translateVariable {};
+		class undercover {};
+		class unlockVehicle {};
+		class zoneCheck {};
+	};
 
 	class AI
 	{
-        class AAFKilledEH {file="AI\AAFKilledEH.sqf";};
-        class airdrop {file="AI\airdrop.sqf";};
-        class AIreactOnKill {file="AI\AIreactOnKill.sqf";};
-        class airstrike {file="AI\airstrike.sqf";};
-        class artillery {file="AI\artillery.sqf";};
-        class artySupport {file="AI\artySupport.sqf";};
-        class assaultBuilding {file="AI\assaultBuilding.sqf";};
-        class attackDrillAI {file="AI\attackDrillAI.sqf";};
-        class autoHealFnc {file="AI\autoHealFnc.sqf";};
-        class autoLoot {file="AI\autoLoot.sqf";};
-        class autoRearm {file="AI\autoRearm.sqf";};
-        class help {file="AI\help.sqf";};
-        class isBuildingPosition {file="AI\Buildings\isBuildingPosition.sqf";};
-        class canConquer {file="AI\canConquer.sqf";};
-        class canFight {file="AI\canFight.sqf";};
-        class coverage {file="AI\coverage.sqf";};
-        class chargeWithSmoke {file="AI\chargeWithSmoke.sqf";};
-        class destroyBuilding {file="AI\destroyBuilding.sqf";};
-        class doFlank {file="AI\doFlank.sqf";};
-        class nearEnemy {file="AI\nearEnemy.sqf";};
-        class enemyList {file="AI\enemyList.sqf";};
-        class fastrope {file="AI\fastrope.sqf";};
-        class findSafeRoadToUnload {file="AI\findSafeRoadToUnload.sqf";};
-        class suppressingFire {file="AI\suppressingFire.sqf";};
-        class guardDog {file="AI\guardDog.sqf";};
-        class hasRadio {file="AI\hasRadio.sqf";};
-        class hideInBuilding {file="AI\hideInBuilding.sqf";};
-        class inmuneConvoy {file="AI\inmuneConvoy.sqf";};
-        class landThreatEval {file="AI\landThreatEval.sqf";};
-        class mineSweep {file="AI\mineSweep.sqf";};
-        class mortarDrill {file="AI\mortarDrill.sqf";};
-        class mortarSupport {file="AI\mortarSupport.sqf";};
-        class mortyAI {file="AI\mortyAI.sqf";};
-        class napalm {file="AI\napalm.sqf";};
-        class napalmDamage {file="AI\napalmDamage.sqf";};
-        class askHelp {file="AI\askHelp.sqf";};
-        class entriesLand {file="AI\entriesLand.sqf";};
-        class rearmCall {file="AI\rearmCall.sqf";};
-        class recallGroup {file="AI\recallGroup.sqf";};
-        class smokeCoverAuto {file="AI\smokeCoverAuto.sqf";};
-        class staticAutoT {file="AI\staticAutoT.sqf";};
-        class staticMGDrill {file="AI\staticMGDrill.sqf";};
-        class surrenderAction {file="AI\surrenderAction.sqf";};
-        class typeOfSoldier {file="AI\typeOfSoldier.sqf";};
-        class undercoverAI {file="AI\undercoverAI.sqf";};
-        class unitGetToCover {file="AI\unitGetToCover.sqf";};
-        class useFlares {file="AI\useFlares.sqf";};
-        class VANTinfo {file="AI\VANTinfo.sqf";};
-        class vehicleMarkers {file="AI\vehicleMarkers.sqf";};
-        //class AAthreatEval {file="AI\AAthreatEval.sqf";};
-        //class hasLOS {file="AI\hasLOS.sqf";};
+		class AAFKilledEH {};
+		class airbomb {};
+		class airdrop {};
+		class AIreactOnKill {};
+		class airstrike {};
+		class artillery {};
+		class artySupport {};
+		class askHelp {};
+		class assaultBuilding {};
+		class attackDrillAI {};
+		class autoHealFnc {};
+		class autoLoot {};
+		class autoRearm {};
+		class canConquer {};
+		class canFight {};
+		class captureX {};
+		class chargeWithSmoke {};
+		class coverage {};
+		class destroyBuilding {};
+		class doFlank {};
+		class enemyList {};
+		class entriesLand {};
+		class fastrope {};
+		class findSafeRoadToUnload {};
+		class guardDog {};
+		class hasRadio {};
+		class help {};
+		class hideInBuilding {};
+		class inmuneConvoy {};
+		class interrogate {};
+		class isBuildingPosition {};
+		class landThreatEval {};
+		class liberaterefugee {};
+		class liberatePOW {};
+		class mineSweep {};
+		class mortarDrill {};
+		class mortarSupport {};
+		class mortyAI {};
+		class napalm {};
+		class napalmDamage {};
+		class nearEnemy {};
+		class rearmCall {};
+		class recallGroup {};
+		class smokeCoverAuto {};
+		class staticAutoT {};
+		class staticMGDrill {};
+		class suppressingFire {};
+		class surrenderAction {};
+		class typeOfSoldier {};
+		class undercoverAI {};
+		class unitGetToCover {};
+		class useFlares {};
+		class VANTinfo {};
+		class vehicleMarkers {};
+	};
+
+	class Convoy
+	{
+		class createAIAction {file="Convoy\createAIAction.sqf";};
+		class createConvoy {file="Convoy\createConvoy.sqf";};
+		class convoyMovement {file="Convoy\convoyMovement.sqf";};
+		class findAirportForAirstrike {file="Convoy\findAirportForAirstrike.sqf";};
+	
+		class SelectAndCreateVehicle {file="Convoy\selectAndCreateVehicle.sqf";};
 	}
 
 	class CREATE
 	{
-        class AAFroadPatrol {file="CREATE\AAFroadpatrol.sqf";};
-        class airportCanAttack {file="CREATE\airportCanAttack.sqf";};
-        class AIVEHinit {file="CREATE\AIVEHinit.sqf";};
-        class cargoSeats {file="CREATE\cargoSeats.sqf";};
-        class CIVinit {file="CREATE\CIVinit.sqf";};
-        class civVEHinit {file="CREATE\civVEHinit.sqf";};
-        class cleanserVeh {file="CREATE\cleanserVeh.sqf";};
-        class createAIAirplane {file="CREATE\createAIAirplane.sqf";};
-        class createAICities {file="CREATE\createAICities.sqf";};
-        class createAIcontrols {file="CREATE\createAIcontrols.sqf";};
-        class createAIOutposts {file="CREATE\createAIOutposts.sqf";};
-        class createAIResources {file="CREATE\createAIResources.sqf";};
-        class createCIV {file="CREATE\createCIV.sqf";};
-        class createFIAOutposts2 {file="CREATE\createFIAOutposts2.sqf";};
-        class createSDKGarrisons {file="CREATE\createSDKGarrisons.sqf";};
-        class createSDKgarrisonsTemp {file="CREATE\createSDKgarrisonsTemp.sqf";};
-        class CSATpunish {file="CREATE\CSATpunish.sqf";};
-        class FIAinitBases {file="CREATE\FIAinitBases.sqf";};
-        class garrisonReorg {file="CREATE\garrisonReorg.sqf";};
-        class garrisonSize {file="CREATE\garrisonSize.sqf";};
-        class garrisonUpdate {file="CREATE\garrisonUpdate.sqf";};
-        class groupDespawner {file="CREATE\groupDespawner.sqf";};
-        class milBuildings {file="CREATE\milBuildings.sqf";};
-        class minefieldAAF {file="CREATE\minefieldAAF.sqf";};
-        class mortarPos {file="CREATE\mortarPos.sqf";};
-        class NATOinit {file="CREATE\NATOinit.sqf";};
-        class patrolCA {file="CREATE\patrolCA.sqf";};
-        class patrolReinf {file="CREATE\patrolReinf.sqf";};
-        class reinforcementsAI {file="CREATE\reinforcementsAI.sqf";};
-        class remoteBattle {file="CREATE\remoteBattle.sqf";};
-        class removeVehFromPool {file="CREATE\removeVehFromPool.sqf";};
-        class spawnGroup {file="CREATE\spawnGroup.sqf";};
-        class vehAvailable {file="CREATE\vehAvailable.sqf";};
-        class VEHdespawner {file="CREATE\VEHdespawner.sqf";};
-        class wavedCA {file="CREATE\wavedCA.sqf";};
-	}
-	
+		class AAFroadPatrol {};
+		class airportCanAttack {};
+		class AIVEHinit {};
+		class ambientCivs {};
+		class cargoSeats {};
+		class CIVinit {};
+		class civVEHinit {};
+		class cleanserVeh {};
+		class createAIAirplane {};
+		class createAICities {};
+		class createAIcontrols {};
+		class createAIOutposts {};
+		class createAIResources {};
+		class createCIV {};
+		class createFIAOutposts2 {};
+		class createSDKGarrisons {};
+		class createSDKgarrisonsTemp {};
+		class CSATpunish {};
+		class FIAinitBases {};
+		class garrisonReorg {};
+		class garrisonSize {};
+		class garrisonUpdate {};
+		class groupDespawner {};
+		class milBuildings {};
+		class minefieldAAF {};
+		class mortarPos {};
+		class NATOinit {};
+		class patrolCA {};
+		class patrolReinf {};
+		class reinforcementsAI {};
+		class remoteBattle {};
+		class removeVehFromPool {};
+		class spawnGroup {};
+		class vehAvailable {};
+		class VEHdespawner {};
+		class wavedCA {};
+	};
+
 	class Debugging
 	{
-		class spawnDebuggingLoop {file="Debugging\spawnDebuggingLoop.sqf";};
-		class deleteEmptyGroupsOnSide {file="Debugging\deleteEmptyGroupsOnSide.sqf";};
-	}
+		class deleteEmptyGroupsOnSide {};
+		class spawnDebuggingLoop {};
+	};
 
 	class Dialogs
 	{
-		class mineDialog {file="Dialogs\mineDialog.sqf";};
-	}
-	
+		class buyVehicle {};
+		class buyVehicleCiv {};
+		class clearForest {};
+		class dialogHQ {};
+		class difficultyMenu {};
+		class firstLoad {};
+		class mineDialog {};
+		class moveHQObject {};
+		class skiptime {};
+		class squadOptions {};
+		class squadRecruit {};
+		class unit_recruit {};
+	};
+
 	class Garage
 	{
-		//Public API - Call these to do things
-		class garage {file="Garage\garage2.sqf";};
-		class garageVehicle {file="Garage\garageVehicle.sqf";};
-		class placeEmptyVehicle {file="Garage\placeEmptyVehicle.sqf";};
-		class vehPlacementBegin {file="Garage\vehPlacementBegin.sqf";};
-		class vehPlacementCallbacks {file="Garage\vehPlacementCallbacks.sqf";};
-		class vehPlacementCancel {file="Garage\vehPlacementCancel.sqf";};
-		class vehPlacementChangeVehicle {file="Garage\vehPlacementChangeVehicle.sqf";};
-		//Garage modifiers, public API
-		class addToPersonalGarage {file="Garage\personalGarage\addToPersonalGarage.sqf";};
-		class addToPersonalGarageLocal {file="Garage\personalGarage\addToPersonalGarageLocal.sqf";};
-		class getPersonalGarage {file="Garage\personalGarage\getPersonalGarage.sqf";};
-		class getPersonalGarageLocal {file="Garage\personalGarage\getPersonalGarageLocal.sqf";};
-		class setPersonalGarage {file="Garage\personalGarage\setPersonalGarage.sqf";};
-		class setPersonalGarageLocal {file="Garage\personalGarage\setPersonalGarageLocal.sqf";};
-		//Private - Do NOT call these elsewhere
-		class attemptPlaceVehicle {file="Garage\private\attemptPlaceVehicle.sqf";};
-		class displayVehiclePlacementMessage {file="Garage\private\displayVehiclePlacementMessage.sqf";};
-		class handleVehPlacementCancelled {file="Garage\private\handleVehPlacementCancelled.sqf";};
-		
-		class vehPlacementCleanup {file="Garage\private\vehPlacementCleanup.sqf";};
-	}
+		class addToPersonalGarage {};
+		class addToPersonalGarageLocal {};
+		class attemptPlaceVehicle {};
+		class displayVehiclePlacementMessage {};
+		class garage {};
+		class garageVehicle {};
+		class getPersonalGarage {};
+		class getPersonalGarageLocal {};
+		class handleVehPlacementCancelled {};
+		class placeEmptyVehicle {};
+		class setPersonalGarage {};
+		class setPersonalGarageLocal {};
+		class vehPlacementBegin {};
+		class vehPlacementCallbacks {};
+		class vehPlacementCancel {};
+		class vehPlacementChangeVehicle {};
+		class vehPlacementCleanup {};
+	};
 
 	class Missions
 	{
-        class attackHQ {file="Missions\attackHQ.sqf";};
-        class deleteTask {file="Missions\deleteTask.sqf";};
-        class missionRequest {file="Missions\missionrequest.sqf";};
-        class missionRequestAUTO {file="Missions\missionrequestAUTO.sqf";};
-        class taskUpdate {file="Missions\taskUpdate.sqf";};
-        class underAttack {file="Missions\underAttack.sqf";};
-	}
+		class attackHQ {};
+		class deleteTask {};
+		class missionRequest {};
+		class missionRequestAUTO {};
+		class taskUpdate {};
+		class underAttack {};
+	};
 
 	class Ammunition
 	{
-        class ACEpvpReDress {file="Ammunition\ACEpvpReDress.sqf";};
-        class arsenalManage {file="Ammunition\arsenalManage.sqf";};
-        class CSATCrate {file="Ammunition\CSATCrate.sqf";};
-        class ammunitionTransfer {file="Ammunition\ammunitionTransfer.sqf";};
-        class NATOCrate {file="Ammunition\NATOCrate.sqf";};
-        class randomRifle {file="Ammunition\randomRifle.sqf";};
-        class RHSdress {file="Ammunition\RHSdress.sqf";};
-        class empty {file="Ammunition\empty.sqf";};
-        //class boxAAF {file="Ammunition\boxAAF.sqf";};
-	}
+		class ACEpvpReDress {};
+		class ammunitionTransfer {};
+		class arsenalManage {};
+		class boxAAF {};
+		class checkRadiosUnlocked {};
+		class CSATCrate {};
+		class dress {};
+		class empty {};
+		class getRadio {};
+		class NATOCrate {};
+		class randomRifle {};
+		class transfer {};
+	};
 
 	class OrgPlayers
 	{
-        class assigntheBoss {file="orgPlayers\assignStavros.sqf";};
-        class donateMoney {file="orgPlayers\donateMoney.sqf";};
-        class isMember {file="orgPlayers\isMember.sqf";};
-        class memberAdd {file="orgPlayers\memberAdd.sqf";};
-        class membersList {file="orgPlayers\membersList.sqf";};
-        class playerScoreAdd {file="orgPlayers\playerScoreAdd.sqf";};
-        class ranksMP {file="orgPlayers\ranksMP.sqf";};
-        class resourcesPlayer {file="orgPlayers\resourcesPlayer.sqf";};
-        class theBossInit {file="orgPlayers\stavrosInit.sqf";};
-        class theBossSteal {file="orgPlayers\stavrosSteal.sqf";};
-        class tierCheck {file="orgPlayers\tierCheck.sqf";};
+		class assigntheBoss {};
+		class donateMoney {};
+		class isMember {};
+		class memberAdd {};
+		class membersList {};
+		class playerScoreAdd {};
+		class ranksMP {};
+		class resourcesPlayer {};
+		class theBossInit {};
+		class theBossSteal {};
+		class tierCheck {};
+	};
+
+	class Pathfinding
+	{
+		//Public API - Call these from anywhere
+		class loadNavGrid {file="Convoy\A-star-pathfinding\loadNavGrid.sqf";};
+		class findPath {file="Convoy\A-star-pathfinding\startPathfinding.sqf";};
+		
+		//Private API - Do NOT call these elsewhere
+		class getMainMarkers {file="Convoy\A-star-pathfinding\getMainMarkers.sqf";};
+		class getClosestMainMarker {file="Convoy\A-star-pathfinding\getClosestMainMarker.sqf";};
+		class getNavPos {file="Convoy\A-star-pathfinding\getNavPos.sqf";};
+		class calculateH {file="Convoy\A-star-pathfinding\calculateH.sqf";};
+		class setNavOnMarker {file="Convoy\A-star-pathfinding\setNavOnMarker.sqf";};
+		class getNavConnections {file="Convoy\A-star-pathfinding\getNavConnections.sqf";};
+		class findNearestNavPoint {file="Convoy\A-star-pathfinding\findNearestNavPoint.sqf";};
 	}
 
 	class REINF
 	{
-        class addBombRun {file="REINF\addBombRun.sqf";};
-        class addFIAsquadHC {file="REINF\addFIAsquadHC.sqf";};
-        class addFIAveh {file="REINF\addFIAveh.sqf";};
-        class addSquadVeh {file="REINF\addSquadVeh.sqf";};
-        class autoGarrison {file="REINF\autoGarrison.sqf";};
-        class build {file="REINF\Building\build.sqf";};
-        class buildCreateVehicleCallback {file="REINF\Building\buildCreateVehicleCallback.sqf";};
-        class buildMinefield {file="REINF\buildMinefield.sqf";};
-        class enemyNearCheck {file="REINF\enemyNearCheck.sqf";};
-        class FIAinit {file="REINF\FIAinit.sqf";};
-        class FIAskillAdd {file="REINF\FIAskillAdd.sqf";};
-        class garrisonAdd {file="REINF\garrisonAdd.sqf";};
-        class garrisonDialog {file="REINF\garrisonDialog.sqf";};
-        class NATObomb {file="REINF\NATObomb.sqf";};
-        class NATOQuadbike {file="REINF\NATOQuadbike.sqf";};
-        class postmortem {file="REINF\postmortem.sqf";};
-        class reDress {file="REINF\reDress.sqf";};
-        class reinfPlayer {file="REINF\reinfplayer.sqf";};
-        class vehiclePrice {file="REINF\vehiclePrice.sqf";};
-        class vehStats {file="REINF\vehStats.sqf";};
-	}
+		class addBombRun {};
+		class addFIAsquadHC {};
+		class addFIAveh {};
+		class addSquadVeh {};
+		class autoGarrison {};
+		class build {};
+		class buildCreateVehicleCallback {};
+		class buildMinefield {};
+		class enemyNearCheck {};
+		class FIAinit {};
+		class FIAskillAdd {};
+		class garrisonAdd {};
+		class garrisonDialog {};
+		class NATObomb {};
+		class NATOQuadbike {};
+		class postmortem {};
+		class reDress {};
+		class reinfPlayer {};
+		class stealStatic {};
+		class vehiclePrice {};
+		class vehStats {};
+	};
 
 	class Revive
 	{
-        class actionRevive {file="Revive\actionRevive.sqf";};
-        class fatalWound {file="Revive\fatalWound.sqf";};
-        class handleDamage {file="Revive\handleDamage.sqf";};
-        class handleDamageAAF {file="Revive\handleDamageAAF.sqf";};
-        class unconscious {file="Revive\unconscious.sqf";};
-        class unconsciousAAF {file="Revive\unconsciousAAF.sqf";};
-        class initRevive {file="Revive\initRevive.sqf";};
-        class isMedic {file="Revive\isMedic.sqf";};
-        class respawn {file="Revive\respawn.sqf";};
-	}
-	
+		class actionRevive {};
+		class carry {};
+		class fatalWound {};
+		class handleDamage {};
+		class handleDamageAAF {};
+		class initRevive {};
+		class isMedic {};
+		class respawn {};
+		class unconscious {};
+		class unconsciousAAF {};
+	};
+
+	class Runways
+	{
+		class getRunwayTakeoffForAirportMarker {};
+		class runwayInfo {};
+	};
+
 	class Save
 	{
-        class playerHasSave {file="statSave\playerHasSave.sqf";};
-        class loadPlayer {file="statSave\loadPlayer.sqf";};
-        class savePlayer {file="statSave\savePlayer.sqf";};
-        class loadPreviousSession {file="statSave\loadPreviousSession.sqf";};
-	}
-	
+		class loadPlayer {};
+		class loadPreviousSession {};
+		class loadServer {};
+		class playerHasSave {};
+		class savePlayer {};
+	};
+
+	class Templates
+	{
+		class getLoadout {};
+	};
+
 	class Utility
 	{
-        class dateToTimeString {file="dateToTimeString.sqf";};
-	}
-}
+		class basicBackpack {};
+		class dateToTimeString {};
+	};
+
+	class init
+	{
+		class getArrayMrks {};
+	};
+};

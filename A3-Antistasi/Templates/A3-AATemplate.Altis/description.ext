@@ -1,16 +1,16 @@
 #include "defines.hpp"
 #include "dialogs.hpp"
 
-author="Barbolani & The Official AntiStasi Community";
-OnLoadName = "Antistasi Altis";
-OnLoadMission = "Be a Resistance leader, be a hero";
-loadScreen = "pic.JPG";
+author = $STR_antistasi_credits_generic_author_text;
+OnLoadName = $STR_antistasi_credits_generic_missionname_text;
+OnLoadMission = $STR_antistasi_credits_generic_missiondesc_text;
+loadScreen = "pic.jpg";
 
-overviewText = "Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.";
+overviewText = $STR_antistasi_credits_generic_overview_text + " " + $STR_antistasi_credits_generic_version_text;
 overviewPicture = "pic.jpg";
 
 allowFunctionsLog = 1;
-enableDebugConsole[] = {"76561197979729653","76561198034977762","76561198127254055","76561197981991967","76561198274184887","76561198011383725","76561198304402577"};
+enableDebugConsole[] = {"76561197979729653","76561198034977762","76561198127254055","76561197981991967","76561198274184887","76561198011383725","76561198304402577","76561197993874267"};
 
 respawn = "BASE";
 respawnDelay = 15;
@@ -186,6 +186,20 @@ class Params
         values[] = {0,1};
         texts[] = {"No","Yes"};
         default = 1;
+    };
+    class napalmEnabled
+    {
+        title = "Enable Napalm Bombing for AI";
+        values[] = {0,1};
+        texts[] = {"No","Yes"};
+        default = 0;
+    };
+	class teamSwitchDelay
+    {
+        title = "Delay After Leaving Before a Player Can Join Another Team";
+        values[] = {0, 900, 1800, 3600};
+        texts[] = {"No delay","15 minutes","30 minutes","60 minutes"};
+        default = 3600;
     };
 };
 
@@ -366,7 +380,7 @@ class CfgDebriefing
 	{
 		title = "V I C T O R Y";
 		subtitle = "Altis is Ours!";
-		description = "The population of Altis loves you!<br/>The brave soldiers prooved their valour, and Petros, Altis new Prime Minister, could at last to have a nice holidays. A deserved rest in a Greek island with drinks and fine food.";
+		description = "The population of Altis loves you!<br/>The brave soldiers have proven their valour, and Petros, Altis new Prime Minister, could at last to have a nice holidays. A deserved rest in a Greek island with drinks and fine food.";
 		picture = "n_inf";
 		pictureColor[] = {0.0,0.5,0.0,1};
 	};
@@ -417,14 +431,4 @@ class CfgDebriefing
         picture = "b_unknown";
         pictureColor[] = {0.0,0.5,0.0,1};
     };
-    /*
-    class asshole
-    {
-        title = "Forbidden";
-        subtitle = "You are not allowed to run Antistasi";
-        description = "Sorry, but you cannot play Antistasi in your server. Please contact author to discuss your situation.";
-        picture = "b_unknown";
-        pictureColor[] = {0.0,0.5,0.0,1};
-    };
-    */
 };

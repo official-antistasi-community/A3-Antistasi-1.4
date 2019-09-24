@@ -16,7 +16,7 @@ _npc = _this ;
 _vehicle = vehicle _npc;
 
 //Si est� victim
-if (vehicle _npc == _npc || !alive _npc || !canmove _npc || !(_npc iskindof "Man")) exitwith{};
+if (vehicle _npc == _npc || !alive _npc || !canmove _npc || !(_npc iskindof "CAManBase")) exitwith{};
 	
 if (isnull(driver _vehicle) || !alive(driver _vehicle) || !canmove(driver _vehicle)) then 
 { 	

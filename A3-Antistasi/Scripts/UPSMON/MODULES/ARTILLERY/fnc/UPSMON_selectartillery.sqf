@@ -42,7 +42,7 @@ _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "A
 					
 					If (count (_grp getvariable ["UPSMON_Mortarmun",[]]) > 0) then
 					{	
-						If (typename ((_grp getvariable ["UPSMON_Battery",[]])select 0) == "ARRAY") then
+						If (((_grp getvariable ["UPSMON_Battery",[]])select 0) isEqualType []) then
 						{
 							_backpack = backpack (_vehicledemo select 0);
 							_vehicledemo = ([_backpack] call UPSMON_checkbackpack) select 0;
@@ -77,6 +77,8 @@ _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "A
 		};
 	};
 	
-	if (UPSMON_Debug>0) then {diag_log format ["Busy:%1 Distance:%2 RadioRange:%3 Rounds:%4",_artibusy,leader _x distance _npcpos,_RadioRange,_rounds];};
+	if (UPSMON_Debug > 0) then {
+		diag_log format ["Busy:%1 Distance:%2 RadioRange:%3 Rounds:%4",_artibusy,leader _x distance _npcpos,_RadioRange,_rounds];
+	};
 		
-} ForEach _artiarray;
+} forEach _artiarray;

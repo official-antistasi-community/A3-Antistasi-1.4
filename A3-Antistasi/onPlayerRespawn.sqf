@@ -24,11 +24,10 @@ if (side group player == teamPlayer) then
 	_score = _oldUnit getVariable ["score",0];
 	_punish = _oldUnit getVariable ["punish",0];
 	_moneyX = _oldUnit getVariable ["moneyX",0];
-	_moneyX = round (_moneyX - (_moneyX * 0.1));
+	_moneyX = round (_moneyX - (_moneyX * 0.15));
 	_eligible = _oldUnit getVariable ["eligible",true];
 	_rankX = _oldUnit getVariable ["rankX","PRIVATE"];
 
-	_moneyX = round (_moneyX - (_moneyX * 0.05));
 	if (_moneyX < 0) then {_moneyX = 0};
 
 	_newUnit setVariable ["score",_score -1,true];
@@ -64,8 +63,7 @@ if (side group player == teamPlayer) then
 	{_newUnit removeWeaponGlobal _x} forEach weapons _newUnit;
 	removeBackpackGlobal _newUnit;
 	removeVest _newUnit;
-	if ((not("ItemGPS" in unlockedItems)) and ("ItemGPS" in (assignedItems _newUnit))) then {_newUnit unlinkItem "ItemGPS"};
-	if ((!hasTFAR) and (!hasACRE) and ("ItemRadio" in (assignedItems player)) and (!haveRadio)) then {player unlinkItem "ItemRadio"};
+	removeAllAssignedItems _newUnit;
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{
@@ -108,7 +106,7 @@ if (side group player == teamPlayer) then
 			{
 			_containerX = _this select 1;
 			_typeX = typeOf _containerX;
-			if (((_containerX isKindOf "Man") and (!alive _containerX)) or (_typeX == NATOAmmoBox) or (_typeX == CSATAmmoBox)) then
+			if (((_containerX isKindOf "CAManBase") and (!alive _containerX)) or (_typeX == NATOAmmoBox) or (_typeX == CSATAmmoBox)) then
 				{
 				if ({if (((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout _playerX > 1.4)) exitWith {1}} count allUnits > 0) then
 					{
@@ -161,23 +159,30 @@ if (side group player == teamPlayer) then
 		}];
 		*/
 	if (tkPunish) then
-		{
-		player addEventHandler ["Fired",
+	{
+		private _firedHandlerTk = {
+			_typeX = _this select 1;
+			if ((_typeX == "Put") or (_typeX == "Throw")) then
+			{
+				if (player distance petros < 50) then
 				{
-				_typeX = _this select 1;
-				if ((_typeX == "Put") or (_typeX == "Throw")) then
+					deleteVehicle (_this select 6);
+					if (_typeX == "Put") then
 					{
-					if (player distance petros < 50) then
+						if (player distance petros < 10) then
 						{
-						deleteVehicle (_this select 6);
-						if (_typeX == "Put") then
-							{
-							if (player distance petros < 10) then {[player,60] spawn A3A_fnc_punishment};
-							};
+							[player, 20, 0.34] remoteExec ["A3A_fnc_punishment",player];
 						};
 					};
-				}];
+				};
+			};
 		};
+		player addEventHandler ["Fired", _firedHandlerTk];
+		if (hasACE) then
+		{
+			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
+		};
+	};
 	player addEventHandler ["HandleHeal",
 		{
 		_player = _this select 0;
@@ -241,6 +246,6 @@ else
 	{
 	_oldUnit setVariable ["spawner",nil,true];
 	_newUnit setVariable ["spawner",true,true];
-	if (hasRHS) then {[player] call A3A_fnc_RHSdress};
+	[player] call A3A_fnc_dress;
 	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	};

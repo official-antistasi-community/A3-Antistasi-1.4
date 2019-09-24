@@ -1,216 +1,139 @@
+//Original Author: Barbolani
+//Edited and updated by the Antstasi Community Development Team
 
+diag_log format ["%1: [Antistasi] | INFO | InitGarrisons Started.", servertime];
 
-_mrkNATO = [];
-_mrkCSAT = [];
-_controlsNATO = [];
-_controlsCSAT = [];
+_fnc_initGarrisons = {
+	params ["_mrkCSAT", "_target", "_mrkType", "_mrkText", ["_useSideName", false]];
+	private ["_pos", "_mrk", "_garrNum", "_garrison", "_groupsRandom"];
 
-if (gameMode == 1) then
 	{
-    _controlsNATO = controlsX;
-	if (worldName == "Tanoa") then
-	    {
-	    _mrkCSAT = ["airport_1","seaport_5","outpost_10","control_20"];
-	    _controlsNATO = _controlsNATO - ["control_20"];
-	    _controlsCSAT = ["control_20"];
-	    }
-	else
-	    {
-	    if (worldName == "Altis") then
-	        {
-	        _mrkCSAT = ["airport_2","seaport_4","outpost_5","control_52","control_33"];
-	        _controlsNATO = _controlsNATO - ["control_52","control_33"];
-	    	_controlsCSAT = ["control_52","control_33"];
-	        }
-        else
-            {
-            if (worldName == "chernarus_summer") then
-                {
-                _mrkCSAT = ["outpost_21"];
-                };
-            };
-	    };
-	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
-	}
-else
-	{
-	if (gameMode == 4) then
-		{
-		_mrkCSAT = markersX - ["Synd_HQ"];
-		_controlsCSAT = controlsX;
-		}
-	else
-		{
-		_mrkNATO = markersX - ["Synd_HQ"];
-		_controlsNATO = controlsX;
+		_pos = getMarkerPos _x;
+		_mrk = createMarker [format ["Dum%1", _x], _pos];
+		//TODO Multilanguage variable insted text
+		_mrk setMarkerShape "ICON";
+		_garrNum = ([_x] call A3A_fnc_garrisonSize) / 8;
+		_garrison = [];
+
+		if (_useSideName) then {
+			killZones setVariable [_x, [], true];
+			server setVariable [_x, 0, true];
+
+			if (_x in _mrkCSAT) then {
+				_mrkText = format [_mrkText, nameInvaders];
+				_groupsRandom = [groupsCSATSquad, groupsFIASquad] select ((_target in outposts) && (gameMode == 4));
+				if(_x in airportsX) then
+				{
+					_mrkType = flagCSATmrk;
+				};
+			} else {
+				_mrkText = format [_mrkText, nameOccupants];
+				_groupsRandom = groupsNATOSquad;
+				if(_x in airportsX) then
+				{
+					_mrkType = flagNATOmrk;
+				};
+			};
+		} else {
+			_groupsRandom = groupsFIASquad;
+		};
+
+		if (_x in _mrkCSAT) then {
+			_mrk setMarkerColor colorInvaders;
+			sidesX setVariable [_x, Invaders, true];
+		} else {
+			_mrk setMarkerColor colorOccupants;
+			sidesX setVariable [_x, Occupants, true];
+		};
+
+		for "_i" from 1 to _garrNum do {
+			_garrison append (selectRandom _groupsRandom);
+		};
+
+		_mrk setMarkerType _mrkType;
+		_mrk setMarkerText _mrkText;
+
+		garrison setVariable [_x, _garrison, true];
+		[_x] spawn A3A_fnc_createControls;
+	} forEach _target;
+};
+
+private _mrkNATO = [];
+private _mrkCSAT = [];
+private _controlsNATO = [];
+private _controlsCSAT = [];
+
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting Control Marks for Worldname: %2  .", servertime, worldName];
+};
+
+if (gameMode == 1) then {
+	_controlsNATO = controlsX;
+	switch (toLower worldName) do {
+		case "tanoa": {
+			_mrkCSAT = ["airport_1", "seaport_5", "outpost_10", "control_20"];
+			_controlsNATO = _controlsNATO - ["control_20"];
+			_controlsCSAT = ["control_20"];
+		};
+		case "altis": {
+			_mrkCSAT = ["airport_2", "seaport_4", "outpost_5", "control_52", "control_33"];
+			_controlsNATO = _controlsNATO - ["control_52", "control_33"];
+			_controlsCSAT = ["control_52", "control_33"];
+		};
+		case "chernarus_summer": {
+			_mrkCSAT = ["outpost_21"];
 		};
 	};
-{sidesX setVariable [_x,Occupants,true]} forEach _controlsNATO;
-{sidesX setVariable [_x,Invaders,true]} forEach _controlsCSAT;
-{
-_pos = getMarkerPos _x;
-_dmrk = createMarker [format ["Dum%1",_x], _pos];
-_dmrk setMarkerShape "ICON";
-_garrNum = [_x] call A3A_fnc_garrisonSize;
-_garrNum = _garrNum / 8;
-_garrison = [];
-killZones setVariable [_x,[],true];
-if (_x in _mrkCSAT) then
-    {
-    _dmrk setMarkerType flagCSATmrk;
-    _dmrk setMarkerText format ["%1 Airbase",nameInvaders];
-    _dmrk setMarkerColor colorInvaders;
-    for "_i" from 1 to _garrNum do
-        {
-        _garrison append (selectRandom groupsCSATSquad);
-        };
-    garrison setVariable [_x,_garrison,true];
-    sidesX setVariable [_x,Invaders,true];
-    }
-else
-    {
-    _dmrk setMarkerType flagNATOmrk;
-    _dmrk setMarkerText format ["%1 Airbase",nameOccupants];
-    _dmrk setMarkerColor colorOccupants;
-    for "_i" from 1 to _garrNum do
-        {
-        _garrison append (selectRandom groupsNATOSquad);
-        };
-    garrison setVariable [_x,_garrison,true];
-    sidesX setVariable [_x,Occupants,true];
-    };
-_nul = [_x] call A3A_fnc_createControls;
-server setVariable [_x,0,true];//dateX en fomrato dateToNumber en la que estarán idle
-} forEach airportsX;
+	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
 
-{
-_pos = getMarkerPos _x;
-_dmrk = createMarker [format ["Dum%1",_x], _pos];
-_dmrk setMarkerShape "ICON";
-_garrNum = [_x] call A3A_fnc_garrisonSize;
-_garrNum = _garrNum / 8;
-_garrison = [];
-_dmrk setMarkerType "loc_rock";
-_dmrk setMarkerText "Resources";
-for "_i" from 1 to _garrNum do
-   {
-   _garrison append (selectRandom groupsFIASquad);
-   };
-if (_x in _mrkCSAT) then
-	{
-	_dmrk setMarkerColor colorInvaders;
-	sidesX setVariable [_x,Invaders,true];
-	}
-else
-	{
-	_dmrk setMarkerColor colorOccupants;
-	sidesX setVariable [_x,Occupants,true];
+	if (debug) then {
+		diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | _mrkCSAT: %2.", servertime, _mrkCSAT];
+		diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | _mrkNATO: %2.", servertime, _mrkNATO];
 	};
-garrison setVariable [_x,_garrison,true];
-_nul = [_x] call A3A_fnc_createControls;
-} forEach resourcesX;
+} else {
+	if (gameMode == 4) then {
+		_mrkCSAT = markersX - ["Synd_HQ"];
+		_controlsCSAT = controlsX;
+	} else {
+		_mrkNATO = markersX - ["Synd_HQ"];
+		_controlsNATO = controlsX;
+	};
+};
 
-{
-_pos = getMarkerPos _x;
-_dmrk = createMarker [format ["Dum%1",_x], _pos];
-_dmrk setMarkerShape "ICON";
-_garrNum = [_x] call A3A_fnc_garrisonSize;
-_garrNum = _garrNum / 8;
-_garrison = [];
-_dmrk setMarkerType "u_installation";
-_dmrk setMarkerText "Factory";
-for "_i" from 1 to _garrNum do
-   {
-   _garrison append (selectRandom groupsFIASquad);
-   };
-if (_x in _mrkCSAT) then
-	{
-	_dmrk setMarkerColor colorInvaders;
-    sidesX setVariable [_x,Invaders,true];
-	}
-else
-	{
-	_dmrk setMarkerColor colorOccupants;
-    sidesX setVariable [_x,Occupants,true];
-    };
-garrison setVariable [_x,_garrison,true];
-_nul = [_x] call A3A_fnc_createControls;
-} forEach factories;
+{sidesX setVariable [_x, Occupants, true]} forEach _controlsNATO;
+{sidesX setVariable [_x, Invaders, true]} forEach _controlsCSAT;
 
-{
-_pos = getMarkerPos _x;
-_dmrk = createMarker [format ["Dum%1",_x], _pos];
-_dmrk setMarkerShape "ICON";
-_garrNum = [_x] call A3A_fnc_garrisonSize;
-_garrNum = _garrNum / 8;
-_garrison = [];
-killZones setVariable [_x,[],true];
-_dmrk setMarkerType "loc_bunker";
-if !(_x in _mrkCSAT) then
-    {
-    _dmrk setMarkerColor colorOccupants;
-    _dmrk setMarkerText format ["%1 Outpost",nameOccupants];
-    for "_i" from 1 to _garrNum do
-        {
-        _garrison append (selectRandom groupsFIASquad);
-        };
-    sidesX setVariable [_x,Occupants,true];
-    }
-else
-    {
-    _dmrk setMarkerText format ["%1 Outpost",nameInvaders];
-    _dmrk setMarkerColor colorInvaders;
-    if (gameMode == 4) then
-    	{
-    	for "_i" from 1 to _garrNum do
-	       {
-	       _garrison append (selectRandom groupsFIASquad);
-	       };
-    	}
-    else
-    	{
-	    for "_i" from 1 to _garrNum do
-	        {
-	        _garrison append (selectRandom groupsCSATSquad);
-	        };
-	    };
-    sidesX setVariable [_x,Invaders,true];
-    };
-garrison setVariable [_x,_garrison,true];
-server setVariable [_x,0,true];
-_nul = [_x] call A3A_fnc_createControls;
-} forEach outposts;
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Airbase stuff.", servertime];
+};
 
-{
-_pos = getMarkerPos _x;
-_dmrk = createMarker [format ["Dum%1",_x], _pos];
-_dmrk setMarkerShape "ICON";
-_garrNum = [_x] call A3A_fnc_garrisonSize;
-_garrNum = _garrNum / 8;
-_garrison = [];
-_dmrk setMarkerType "b_naval";
-_dmrk setMarkerText "Sea Port";
-if (_x in _mrkCSAT) then
-    {
-    _dmrk setMarkerColor colorInvaders;
-	for "_i" from 1 to _garrNum do
-	   {
-	   _garrison append (selectRandom groupsCSATSquad);
-	   };
-    sidesX setVariable [_x,Invaders,true];
-    }
-else
-    {
-    _dmrk setMarkerColor colorOccupants;
-    for "_i" from 1 to _garrNum do
-        {
-        _garrison append (selectRandom groupsNATOSquad);
-        };
-    sidesX setVariable [_x,Occupants,true];
-    };
-garrison setVariable [_x,_garrison,true];
-_nul = [_x] call A3A_fnc_createControls;
-} forEach seaports;
+[_mrkCSAT, airportsX, flagCSATmrk, "%1 Airbase", true] spawn _fnc_initGarrisons;
 
-sidesX setVariable ["NATO_carrier",Occupants,true];
-sidesX setVariable ["CSAT_carrier",Invaders,true];
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Resource stuff.", servertime];
+};
+
+[_mrkCSAT, resourcesX, "loc_rock", "Resources"] spawn _fnc_initGarrisons;
+
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Factory stuff.", servertime];
+};
+
+[_mrkCSAT, factories, "u_installation", "Factory"] spawn _fnc_initGarrisons;
+
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Outpost stuff.", servertime];
+};
+
+[_mrkCSAT, outposts, "loc_bunker", "%1 Outpost", true] spawn _fnc_initGarrisons;
+
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Seaport stuff.", servertime];
+};
+
+[_mrkCSAT, seaports, "b_naval", "Sea Port"] spawn _fnc_initGarrisons;
+
+sidesX setVariable ["NATO_carrier", Occupants, true];
+sidesX setVariable ["CSAT_carrier", Invaders, true];
+
+diag_log format ["%1: [Antistasi] | INFO | InitGarrison Completed.", servertime];

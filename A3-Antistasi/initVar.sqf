@@ -110,7 +110,9 @@ allMineDirectional = [];
 
 //Vehicles and Equipment Arrays
 allStaticWeapon = [];
+civBoats = [];
 arrayCivVeh = [];
+
 //Treated arrays
 allVestArmored = [];
 civilianUniform = [];
@@ -217,9 +219,13 @@ if (hasTFAR) then
 		};
 	};
 ////////////////////////////////////
-//     CIVILLIAN UNITS LIST      ///
+//      CIVILIAN UNITS LIST      ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Civillians",servertime];
+arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro"];
+if (allowDLCApex) then arrayCivs pushBack "C_man_sport_1_F_tanoan";
+
+/*
 arrayCivs = if (worldName == "Tanoa") then
 	{
 	["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_hunter_1_F","C_man_p_beggar_F","C_man_p_beggar_F_afro","C_man_p_fugitive_F","C_man_p_shorts_1_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_shorts_1_F","C_man_shorts_2_F","C_man_shorts_3_F","C_man_shorts_4_F","C_scientist_F","C_Orestes","C_Nikos","C_Nikos_aged","C_Man_casual_1_F_tanoan","C_Man_casual_2_F_tanoan","C_Man_casual_3_F_tanoan","C_man_sport_1_F_tanoan","C_man_sport_2_F_tanoan","C_man_sport_3_F_tanoan","C_Man_casual_4_F_tanoan","C_Man_casual_5_F_tanoan","C_Man_casual_6_F_tanoan"];
@@ -237,9 +243,10 @@ else
 	};
 
 if (has3CB) then {arrayCivs append ["UK3CB_CHC_C_BODYG","UK3CB_CHC_C_CAN","UK3CB_CHC_C_COACH","UK3CB_CHC_C_DOC","UK3CB_CHC_C_FUNC","UK3CB_CHC_C_HIKER","UK3CB_CHC_C_LABOUR","UK3CB_CHC_C_PILOT","UK3CB_CHC_C_POLITIC","UK3CB_CHC_C_PROF","UK3CB_CHC_C_VILL","UK3CB_CHC_C_WORKER"];};
+*/
 
 ////////////////////////////////////
-//      CIVILLIAN VEHICLES       ///
+//      CIVILIAN VEHICLES       ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Vehicle list.",servertime];
 _arrayCivVeh = "(
@@ -262,7 +269,7 @@ for "_i" from 0 to ((count _arrayCivVeh) -1) do
 		};
 	};
 
-//Civillian Boats
+//Civilian Boats
 _CivBoats = "(
 	getNumber (_x >> ""scope"") isEqualTo 2 && {
 		getNumber (_x >> 'side') isEqualTo 3 && {

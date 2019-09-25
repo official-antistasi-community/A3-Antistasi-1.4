@@ -110,8 +110,10 @@ allMineDirectional = [];
 
 //Vehicles and Equipment Arrays
 allStaticWeapon = [];
+arrayCivVeh = [];
 //Treated arrays
 allVestArmored = [];
+civilianUniform = [];
 
 //-----------------------------Existing Used Arrays----------------------------//
 smokeX = [];
@@ -243,7 +245,9 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Vehicle list.",ser
 _arrayCivVeh = "(
 	getNumber (_x >> ""scope"") isEqualTo 2 && {
 		getNumber (_x >> 'side') isEqualTo 3 && {
-			getText (_x >> 'vehicleClass') in ['Car','Support']
+			getText (_x >> 'vehicleClass') in ['Car','Support'] && {
+				getText (_x >> 'simulation') isEqualTo 'carx'
+			}
 		}
 	}
 )" configClasses (configFile >> "CfgVehicles");

@@ -263,7 +263,6 @@ for "_i" from 0 to ((count _arrayCivVeh) -1) do
 	};
 
 //Civillian Boats
-civBoats = if !(hasIFA) then {["C_Boat_Civil_01_F","C_Scooter_Transport_01_F","C_Boat_Transport_02_F","C_Rubberboat"]} else {[]};
 _CivBoats = "(
 	getNumber (_x >> ""scope"") isEqualTo 2 && {
 		getNumber (_x >> 'side') isEqualTo 3 && {

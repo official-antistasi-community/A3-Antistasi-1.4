@@ -2,24 +2,29 @@
 //Edited and updated by the Antstasi Community Development Team
 
 _fnc_economics = {
-	params ["_coefficient", "_random", "_typeX", "_maxItems", "_accelerator"];
-	private ["_currentItems"];
+    params ["_coefficient", "_random", "_typeX", "_maxItems", "_accelerator"];
+    private ["_currentItems"];
 
-	if (_random == "random") then {
-		_currentItems = timer getVariable [_typeX, 0];
-		if (_currentItems < _maxItems) then {
-			timer setVariable [_typeX, _currentItems + _coefficient * _accelerator, true];
-		};
-	} else {
-		if (_typeX isEqualTo []) exitWith {};
-		_currentItems = 0;
-		{
-			_currentItems = _currentItems + (timer getVariable [_x, 0]);
-		} forEach _typeX;
-		if (_currentItems < _maxItems) then {
-			timer setVariable [selectRandom _typeX, _currentItems + _coefficient * _accelerator, true];
-		};
-	};
+    if (_typeX isEqualType "") then {
+        _typeX  = [_typeX];
+    };
+
+    if (_random == "random") then {
+        private _selectedType = selectRandom _typeX;
+        _currentItems = timer getVariable [_selectedType, 0];
+        if (_currentItems < _maxItems) then {
+            timer setVariable [_selectedType, _currentItems + _coefficient * _accelerator, true];
+        };
+    } else {
+        if (_typeX isEqualTo []) exitWith {};
+        _currentItems = 0;
+        {
+            _currentItems = _currentItems + (timer getVariable [_x, 0]);
+        } forEach _typeX;
+        if (_currentItems < _maxItems) then {
+            timer setVariable [selectRandom _typeX, _currentItems + _coefficient * _accelerator, true];
+        };
+    };
 };
 
 //--------------------------------------Occupants--------------------------------------------------

@@ -1030,7 +1030,7 @@ if (hasIFA) then
 
 //Adds civ and geurilla clothes
 unlockedItems append banditUniforms;
-unlockedItems append civUniforms;
+unlockedItems append civilianUniform;
 
 ////////////////////////////////////
 //RHS WEAPON ATTACHMENTS REDUCER ///

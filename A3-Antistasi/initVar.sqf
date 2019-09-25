@@ -261,22 +261,26 @@ for "_i" from 0 to ((count _arrayCivVeh) -1) do
 		arrayCivVeh pushBack _vehicleName;
 		};
 	};
-/*
-if !(hasIFA) then
-	{
-	["C_Hatchback_01_F","C_Hatchback_01_sport_F","C_Offroad_01_F","C_SUV_01_F","C_Van_01_box_F","C_Van_01_fuel_F","C_Van_01_transport_F","C_Truck_02_transport_F","C_Truck_02_covered_F","C_Offroad_02_unarmed_F"];
-	}
-else
-	{
-	["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
-	};
-//Add RHS Vehicles
-if (hasRHS and !has3CB) then {arrayCivVeh append ["RHS_Ural_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_01","RHS_Ural_Open_Civ_02","RHS_Ural_Open_Civ_03"]};
-//3CB Full Vehicle Replacer
-if (has3CB) then {arrayCivVeh = ["UK3CB_CHC_C_Datsun_Civ_Closed","UK3CB_CHC_C_Datsun_Civ_Open","UK3CB_CHC_C_Gaz24","UK3CB_CHC_C_Golf","UK3CB_CHC_C_Hatchback","UK3CB_CHC_C_Hilux_Civ_Open","UK3CB_CHC_C_Hilux_Civ_Closed","UK3CB_CHC_C_Ikarus","UK3CB_CHC_C_Kamaz_Covered","UK3CB_CHC_C_Kamaz_Fuel","UK3CB_CHC_C_Kamaz_Open","UK3CB_CHC_C_Kamaz_Repair","UK3CB_CHC_C_Lada","UK3CB_CHC_C_LR_Open","UK3CB_CHC_C_LR_Closed","UK3CB_CHC_C_S1203","UK3CB_CHC_C_S1203_Amb","UK3CB_CHC_C_Sedan","UK3CB_CHC_C_Skoda","UK3CB_CHC_C_Tractor","UK3CB_CHC_C_Tractor_Old","UK3CB_CHC_C_UAZ_Closed","UK3CB_CHC_C_UAZ_Open","UK3CB_CHC_C_Ural","UK3CB_CHC_C_Ural_Open","UK3CB_CHC_C_Ural_Fuel","UK3CB_CHC_C_Ural_Empty","UK3CB_CHC_C_Ural_Repair","UK3CB_CHC_C_V3S_Open","UK3CB_CHC_C_V3S_Closed","UK3CB_CHC_C_V3S_Recovery","UK3CB_CHC_C_V3S_Refuel","UK3CB_CHC_C_V3S_Repair"]};
-*/
+
 //Civillian Boats
 civBoats = if !(hasIFA) then {["C_Boat_Civil_01_F","C_Scooter_Transport_01_F","C_Boat_Transport_02_F","C_Rubberboat"]} else {[]};
+_CivBoats = "(
+	getNumber (_x >> ""scope"") isEqualTo 2 && {
+		getNumber (_x >> 'side') isEqualTo 3 && {
+			getText (_x >> 'vehicleClass') isEqualTo 'Ship'
+		}
+	}
+)" configClasses (configFile >> "CfgVehicles");
+
+for "_i" from 0 to ((count _CivBoats) -1) do
+	{
+	_boat = _CivBoats select _i;
+	if (isClass _boat) then
+		{
+		_vehicleName = configName (_boat);
+		CivBoats pushBack _vehicleName;
+		};
+	};
 
 ////////////////////////////////////
 //     ID LIST FOR UNIT NAMES    ///

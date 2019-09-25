@@ -129,7 +129,6 @@ itemsAAF = [];
 
 flashLights = [];
 pointers = [];
-civUniforms = [];
 
 uniformsSDK = [];
 banditUniforms = [];
@@ -222,8 +221,7 @@ if (hasTFAR) then
 //      CIVILIAN UNITS LIST      ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Civillians",servertime];
-arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro"];
-if (allowDLCApex) then arrayCivs pushBack "C_man_sport_1_F_tanoan";
+arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
 
 /*
 arrayCivs = if (worldName == "Tanoa") then
@@ -465,15 +463,6 @@ if (count _x > 1) then
 	uniformsSDK pushBackUnique _uniform;
 	};
 } forEach [SDKSniper,SDKATman,SDKMedic,SDKMG,SDKExp,SDKGL,SDKMil,SDKSL,SDKEng,[SDKUnarmed],[staticCrewTeamPlayer]];
-
-////////////////////////////////////
-//      CIV UNIFORMS LIST        ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Civillian Uniforms",servertime];
-{
-_uniform = (getUnitLoadout _x select 3) select 0;
-civUniforms pushBackUnique _uniform;
-} forEach arrayCivs;
 
 ////////////////////////////////////
 //   ALL WEAPONS/ITEMS LIST      ///

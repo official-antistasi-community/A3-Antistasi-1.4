@@ -1,5 +1,3 @@
-//Call to FFAA Template
-if ((gameMode != 4) and (hasFFAA)) then	{call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

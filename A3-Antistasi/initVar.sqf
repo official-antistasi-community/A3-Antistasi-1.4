@@ -226,26 +226,26 @@ if (!hasIFA) then
 		if (!activeUSAF) then
 			{
 			//Vanilla DEFENDER Template
-			call compile preProcessFileLineNumbers "Templates\OccupantsVanilla.sqf";
+			call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf";
 			}
 			else
 			{
 				if (has3CB) then
 					{
 					//3CB DEFENDER Template
-					call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
+					call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf";
 					}
 					else
 					{
 						if (teamPlayer == independent) then
 							{
 							//RHS-USAF DEFENDER Template
-							call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf";
 							}
 							else
 							{
 							//RHS GREENFOR DEFENDER Template
-							call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf";
 							};
 					};
 			};
@@ -254,19 +254,19 @@ if (!hasIFA) then
 		if (!activeAFRF) then
 			{
 			//Vanilla INVADER Template
-			call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf";
+			call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";
 			}
 			else
 			{
 				if (has3CB) then
 					{
 					//3CB INVADER Template
-					call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
+					call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf";
 					}
 					else
 					{
 					//RHS INVADER Template
-					call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf";
+					call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf";
 					};
 			};
 		//NON-IFA REBEL Templates
@@ -274,26 +274,26 @@ if (!hasIFA) then
 		if (!activeGREF) then
 			{
 			//Vanilla REBEL Template
-			call compile preProcessFileLineNumbers "Templates\teamPlayerVanilla.sqf";
+			call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf";
 			}
 			else
 			{
 				if (has3CB) then
 					{
 					//3CB REBEL Template
-					call compile preProcessFileLineNumbers "Templates\teamPlayer3CBCCM.sqf";
+					call compile preProcessFileLineNumbers "Templates\3CB_Reb_CCM_Arid.sqf";
 					}
 					else
 					{
 						if (teamPlayer == independent) then
 							{
 							//RHS REBEL Template
-							call compile preProcessFileLineNumbers "Templates\teamPlayerRHSGREF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf";
 							}
 							else
 							{
 							//RHS BLUFOR REBEL Template
-							call compile preProcessFileLineNumbers "Templates\teamPlayerRHSUSAF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf";
 							};
 					};
 			};
@@ -302,9 +302,9 @@ if (!hasIFA) then
 	{
 	//IFA templates
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Reading IFA Templates",servertime];
-	call compile preProcessFileLineNumbers "Templates\teamPlayerIFA.sqf";
-	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
-	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Reb_POL_Temp.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 	};
 
 //////////////////////////////////////

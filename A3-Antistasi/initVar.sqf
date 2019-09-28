@@ -102,7 +102,6 @@ allMagRocket = [];
 allMagShell = [];
 allMagShotgun = [];
 allMagSmokeShell = [];
-allMagUnknown = [];
 //Explosives arrays
 allMine = [];
 allMineBounding = [];
@@ -110,14 +109,15 @@ allMineDirectional = [];
 
 //Vehicles and Equipment Arrays
 allStaticWeapon = [];
-civBoats = [];
-arrayCivVeh = [];
 
 //Treated arrays
 allVestArmored = [];
 civilianUniform = [];
 
 //-----------------------------Existing Used Arrays----------------------------//
+civBoats = [];
+arrayCivVeh = [];
+
 smokeX = [];
 chemX = [];
 opticsAAF = [];

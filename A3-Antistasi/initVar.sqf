@@ -22,7 +22,7 @@ incomeRep = false;												//
 maxUnits = 140;												//
 
 ////////////////////////////////////
-//   BEGIN SIDES AND COLORS      ///
+//     BEGIN SIDES AND COLORS    ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Generating Sides.",servertime];
 teamPlayer = side group petros;
@@ -51,21 +51,21 @@ colorInvaders = "colorOPFOR";
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Declaring Empty Arrays",servertime];
 //Weapons arrays
-arifles = [];
+arifles = [];					//Used
 allWeaponBombLauncher = [];
 allWeaponGrenadeLauncher = [];
-hguns = [];
+hguns = [];					//Used
 allWeaponLauncher = [];
-mguns = [];
+mguns = [];					//Used
 allMagazine = [];
-mlaunchers = [];
+mlaunchers = [];				//Used
 allWeaponMortar = [];
-rlaunchers = [];
+rlaunchers = [];				//Used
 allWeaponShotgun = [];
 allWeaponThrow = [];
 allWeaponRifle = [];
 allWeaponSubmachineGun = [];
-srifles = [];
+srifles = [];					//Used
 //Items arrays
 allAttachmentBipod = [];
 allAttachmentMuzzle = [];
@@ -79,7 +79,7 @@ allLaserDesignator = [];
 allMap = [];
 allMedikit = [];
 allMineDetector = [];
-NVGoggles = [];
+NVGoggles = [];				//Used
 allRadio = [];
 allToolkit = [];
 allUAVTerminal = [];
@@ -87,7 +87,7 @@ allUnknown = [];
 allWatch = [];
 //Equipment arrays
 allGlasses = [];
-helmets = [];
+helmets = [];					//Used
 allVest = [];
 allUniform = [];
 allBackpack = [];
@@ -219,63 +219,27 @@ if (hasTFAR) then
 	};
 
 ////////////////////////////////////
-//      CIVILIAN UNITS LIST      ///
+//        BUILDINGS LISTS        ///
 ////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Civillians",servertime];
-arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Building Arrays",servertime];
+listMilBld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F","Land_Cargo_HQ_V1_F","Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F","Land_HelipadSquare_F"];
+listbld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F"];
+UPSMON_Bld_remove = ["Bridge_PathLod_base_F","Land_Slum_House03_F","Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_Bridge_01_F","Land_Bridge_Asphalt_F","Land_Bridge_Concrete_F","Land_Bridge_HighWay_F","Land_Canal_Wall_Stairs_F","warehouse_02_f","cliff_wall_tall_f","cliff_wall_round_f","containerline_02_f","containerline_01_f","warehouse_01_f","quayconcrete_01_20m_f","airstripplatform_01_f","airport_02_terminal_f","cliff_wall_long_f","shop_town_05_f","Land_ContainerLine_01_F"];
+//Lights and Lamps array used for 'Blackout'
+lamptypes = ["Lamps_Base_F", "PowerLines_base_F","Land_LampDecor_F","Land_LampHalogen_F","Land_LampHarbour_F","Land_LampShabby_F","Land_NavigLight","Land_runway_edgelight","Land_PowerPoleWooden_L_F"];
 
 ////////////////////////////////////
-//      CIVILIAN VEHICLES       ///
+//     SOUNDS AND ANIMATIONS     ///
 ////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Vehicle list.",servertime];
-_arrayCivVeh = "(
-	getNumber (_x >> ""scope"") isEqualTo 2 && {
-		getNumber (_x >> 'side') isEqualTo 3 && {
-			getText (_x >> 'vehicleClass') in ['Car','Support'] && {
-				getText (_x >> 'simulation') isEqualTo 'carx'
-			}
-		}
-	}
-)" configClasses (configFile >> "CfgVehicles");
-
-for "_i" from 0 to ((count _arrayCivVeh) -1) do
-	{
-	_vehicle = _arrayCivVeh select _i;
-	if (isClass _vehicle) then
-		{
-		_vehicleName = configName (_vehicle);
-		arrayCivVeh pushBack _vehicleName;
-		};
-	};
-
-//Civilian Boats
-_CivBoats = "(
-	getNumber (_x >> ""scope"") isEqualTo 2 && {
-		getNumber (_x >> 'side') isEqualTo 3 && {
-			getText (_x >> 'vehicleClass') isEqualTo 'Ship'
-		}
-	}
-)" configClasses (configFile >> "CfgVehicles");
-
-for "_i" from 0 to ((count _CivBoats) -1) do
-	{
-	_boat = _CivBoats select _i;
-	if (isClass _boat) then
-		{
-		_vehicleName = configName (_boat);
-		CivBoats pushBack _vehicleName;
-		};
-	};
-
-////////////////////////////////////
-//     ID LIST FOR UNIT NAMES    ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unit ID's",servertime];
-if !(hasIFA) then
-	{
-	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
-	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
-	};
+diag_log format ["%1: [Antistasi] | INFO | initVar | Building Sounds and Animations",servertime];
+ladridos = ["Music\dog_bark01.wss", "Music\dog_bark02.wss", "Music\dog_bark03.wss", "Music\dog_bark04.wss", "Music\dog_bark05.wss","Music\dog_maul01.wss","Music\dog_yelp01.wss","Music\dog_yelp02.wss","Music\dog_yelp03.wss"];
+injuredSounds =
+[
+	"a3\sounds_f\characters\human-sfx\Person0\P0_moan_13_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_14_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_15_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_16_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_17_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_18_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_19_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_20_words.wss",
+	"a3\sounds_f\characters\human-sfx\Person1\P1_moan_19_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_20_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_21_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_22_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_23_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_24_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_25_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_26_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_27_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_28_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_29_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_30_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_31_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_32_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_33_words.wss",
+	"a3\sounds_f\characters\human-sfx\Person2\P2_moan_19_words.wss"
+];
+medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic0","AinvPknlMstpSnonWnonDnon_medic1","AinvPknlMstpSnonWnonDnon_medic2"];
 
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
@@ -369,6 +333,65 @@ if (!hasIFA) then
 	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
 	};
 
+////////////////////////////////////
+//      CIVILIAN UNITS LIST      ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Civillians",servertime];
+arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
+
+////////////////////////////////////
+//      CIVILIAN VEHICLES       ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Vehicle list.",servertime];
+_arrayCivVeh = "(
+	getNumber (_x >> ""scope"") isEqualTo 2 && {
+		getNumber (_x >> 'side') isEqualTo 3 && {
+			getText (_x >> 'vehicleClass') in ['Car','Support'] && {
+				getText (_x >> 'simulation') isEqualTo 'carx'
+			}
+		}
+	}
+)" configClasses (configFile >> "CfgVehicles");
+
+for "_i" from 0 to ((count _arrayCivVeh) -1) do
+	{
+	_vehicle = _arrayCivVeh select _i;
+	if (isClass _vehicle) then
+		{
+		_vehicleName = configName (_vehicle);
+		arrayCivVeh pushBack _vehicleName;
+		};
+	};
+
+//Civilian Boats
+_CivBoats = "(
+	getNumber (_x >> 'scope') isEqualTo 2 && {
+		getNumber (_x >> 'side') isEqualTo 3 && {
+			getText (_x >> 'vehicleClass') isEqualTo 'Ship'
+		}
+	}
+)" configClasses (configFile >> "CfgVehicles");
+
+for "_i" from 0 to ((count _CivBoats) -1) do
+	{
+	_boat = _CivBoats select _i;
+	if (isClass _boat) then
+		{
+		_vehicleName = configName (_boat);
+		CivBoats pushBack _vehicleName;
+		};
+	};
+
+////////////////////////////////////
+//     ID LIST FOR UNIT NAMES    ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unit ID's",servertime];
+if !(hasIFA) then
+	{
+	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
+	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
+	};
+
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///
 //////////////////////////////////////
@@ -404,29 +427,6 @@ vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis + vehNATOTranspo
 vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
 vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
 vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
-
-////////////////////////////////////
-//        BUILDINGS LISTS        ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Building Arrays",servertime];
-listMilBld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F","Land_Cargo_HQ_V1_F","Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F","Land_HelipadSquare_F"];
-listbld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F"];
-UPSMON_Bld_remove = ["Bridge_PathLod_base_F","Land_Slum_House03_F","Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_Bridge_01_F","Land_Bridge_Asphalt_F","Land_Bridge_Concrete_F","Land_Bridge_HighWay_F","Land_Canal_Wall_Stairs_F","warehouse_02_f","cliff_wall_tall_f","cliff_wall_round_f","containerline_02_f","containerline_01_f","warehouse_01_f","quayconcrete_01_20m_f","airstripplatform_01_f","airport_02_terminal_f","cliff_wall_long_f","shop_town_05_f","Land_ContainerLine_01_F"];
-//Lights and Lamps array used for 'Blackout'
-lamptypes = ["Lamps_Base_F", "PowerLines_base_F","Land_LampDecor_F","Land_LampHalogen_F","Land_LampHarbour_F","Land_LampShabby_F","Land_NavigLight","Land_runway_edgelight","Land_PowerPoleWooden_L_F"];
-
-////////////////////////////////////
-//     SOUNDS AND ANIMATIONS     ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Building Sounds and Animations",servertime];
-ladridos = ["Music\dog_bark01.wss", "Music\dog_bark02.wss", "Music\dog_bark03.wss", "Music\dog_bark04.wss", "Music\dog_bark05.wss","Music\dog_maul01.wss","Music\dog_yelp01.wss","Music\dog_yelp02.wss","Music\dog_yelp03.wss"];
-injuredSounds =
-[
-	"a3\sounds_f\characters\human-sfx\Person0\P0_moan_13_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_14_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_15_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_16_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_17_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_18_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_19_words.wss","a3\sounds_f\characters\human-sfx\Person0\P0_moan_20_words.wss",
-	"a3\sounds_f\characters\human-sfx\Person1\P1_moan_19_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_20_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_21_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_22_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_23_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_24_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_25_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_26_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_27_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_28_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_29_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_30_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_31_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_32_words.wss","a3\sounds_f\characters\human-sfx\Person1\P1_moan_33_words.wss",
-	"a3\sounds_f\characters\human-sfx\Person2\P2_moan_19_words.wss"
-];
-medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic0","AinvPknlMstpSnonWnonDnon_medic1","AinvPknlMstpSnonWnonDnon_medic2"];
 
 ////////////////////////////////////
 //     REBEL UNIFORMS LIST       ///

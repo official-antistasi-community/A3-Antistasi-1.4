@@ -188,11 +188,11 @@ if (_countX >= minWeaps) then
 };
 
 //fixes bad case issues
-if (("optic_Hamr") in unlockedOptics) then {unlockedOptics pushBack "optic_hamr"};
+/*if (("optic_Hamr") in unlockedOptics) then {unlockedOptics pushBack "optic_hamr"};
 if (("optic_Aco_smg") in unlockedOptics) then {unlockedOptics pushBack "optic_aco_smg"};
 if (("optic_Aco") in unlockedOptics) then {unlockedOptics pushBack "optic_aco"};
 if (("30Rnd_65x39_caseless_mag") in unlockedMagazines) then {unlockedMagazines pushBack "30Rnd_65x39_Caseless_mag"};
 if (("100Rnd_65x39_caseless_mag") in unlockedMagazines) then {unlockedMagazines pushBack "100Rnd_65x39_Caseless_mag"};
-if (("30Rnd_45ACP_Mag_SMG_01_Tracer_Green") in unlockedMagazines) then {unlockedMagazines pushBack "30Rnd_45ACP_Mag_SMG_01_tracer_green"};
+if (("30Rnd_45ACP_Mag_SMG_01_Tracer_Green") in unlockedMagazines) then {unlockedMagazines pushBack "30Rnd_45ACP_Mag_SMG_01_tracer_green"};*/
 
 _updated

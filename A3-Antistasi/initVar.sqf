@@ -344,7 +344,7 @@ arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Vehicle list.",servertime];
 _arrayCivVeh = "(
-	getNumber (_x >> ""scope"") isEqualTo 2 && {
+	getNumber (_x >> 'scope') isEqualTo 2 && {
 		getNumber (_x >> 'side') isEqualTo 3 && {
 			getText (_x >> 'vehicleClass') in ['Car','Support'] && {
 				getText (_x >> 'simulation') isEqualTo 'carx'
@@ -450,91 +450,91 @@ if (count _x > 1) then
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Weapon list",servertime];
 _allPrimaryWeapon = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
+    { getText ( _x >> 'simulation' ) isEqualTo 'Weapon'
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 1 } } )
+    { getNumber ( _x >> 'type' ) isEqualTo 1 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
 _allHandGun = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
+    { getText ( _x >> 'simulation' ) isEqualTo 'Weapon'
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 2 } } )
+    { getNumber ( _x >> 'type' ) isEqualTo 2 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
 _allLauncher = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
+    { getText ( _x >> 'simulation' ) isEqualTo 'Weapon'
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 4 } } )
+    { getNumber ( _x >> 'type' ) isEqualTo 4 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
 _allItem = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getText ( _x >> ""simulation"" ) isEqualTo ""Weapon""
+    { getText ( _x >> 'simulation' ) isEqualTo 'Weapon'
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 131072 } } )
+    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
 _allOptic = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getText ( _x >> ""simulation"" ) isEqualTo ""Binocular""
+    { getText ( _x >> 'simulation' ) isEqualTo 'Binocular'
     &&
     { getNumber ( _x >> ""type"" ) isEqualTo 4096 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
 _allNVG = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getText ( _x >> ""simulation"" ) isEqualTo ""NVGoggles""
+    { getText ( _x >> 'simulation' ) isEqualTo 'NVGoggles'
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 4096 } } )
+    { getNumber ( _x >> 'type' ) isEqualTo 4096 } } )
 " configClasses ( configFile >> "cfgWeapons" );
 
 _allMagazine = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 256 } )
+    { getNumber ( _x >> 'type' ) isEqualTo 256 } )
 " configClasses ( configFile >> "cfgMagazines" );
 
 _allGrenade = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 16 } )
+    { getNumber ( _x >> 'type' ) isEqualTo 16 } )
 " configClasses ( configFile >> "cfgMagazines" );
 
 _allExplosive = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getText ( _x >> ""type"" ) isEqualTo ""2*		256"" } )
+    { getText ( _x >> 'type' ) isEqualTo '2*		256' } )
 " configClasses ( configFile >> "cfgMagazines" );
 
 _allMissile = "
-    ( getNumber ( _x >> ""scope"" ) isEqualTo 2
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
-    { getText ( _x >> ""type"" ) isEqualTo ""6 * 		256"" } )
+    { getText ( _x >> 'type' ) isEqualTo '6 * 		256' } )
 " configClasses ( configFile >> "cfgMagazines" );
 
 _allBackpack = "
-	( getNumber ( _x >> ""scope"" ) isEqualTo 2
+	( getNumber ( _x >> 'scope' ) isEqualTo 2
 	&&
-	{ getNumber ( _x >> ""type"" ) isEqualTo 1
+	{ getNumber ( _x >> 'type' ) isEqualTo 1
 	&&
-	{ getText ( _x >> ""vehicleClass"" ) isEqualTo ""Backpacks"" } } )
+	{ getText ( _x >> 'vehicleClass' ) isEqualTo 'Backpacks' } } )
 " configClasses ( configFile >> "cfgVehicles" );
 
 _allStaticWeapon = "
-	( getNumber ( _x >> ""scope"" ) isEqualTo 2
+	( getNumber ( _x >> 'scope' ) isEqualTo 2
 	&&
-	{ getNumber ( _x >> ""type"" ) isEqualTo 1
+	{ getNumber ( _x >> 'type' ) isEqualTo 1
 	&&
-	{ getText ( _x >> ""vehicleClass"" ) isEqualTo ""Static"" } } )
+	{ getText ( _x >> 'vehicleClass' ) isEqualTo 'Static' } } )
 " configClasses ( configFile >> "cfgVehicles" );
 
 ////////////////////////////////////

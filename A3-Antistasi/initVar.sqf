@@ -111,7 +111,7 @@ allMineDirectional = [];
 allStaticWeapon = [];
 
 //Treated arrays
-allVestArmored = [];
+armoredVest = [];
 civilianUniform = [];
 
 //-----------------------------Existing Used Arrays----------------------------//
@@ -604,39 +604,6 @@ unlockedItems append
 	"ItemWatch",
 	"ItemCompass",
 	"ToolKit",
-	"H_Booniehat_khk",
-	"H_Booniehat_oli",
-	"H_Booniehat_grn",
-	"H_Booniehat_dirty",
-	"H_Cap_oli",
-	"H_Cap_blk",
-	"H_MilCap_rucamo",
-	"H_MilCap_gry",
-	"H_BandMask_blk",
-	"H_Bandanna_khk",
-	"H_Bandanna_gry",
-	"H_Bandanna_camo",
-	"H_Shemag_khk",
-	"H_Shemag_tan",
-	"H_Shemag_olive",
-	"H_ShemagOpen_tan",
-	"H_Beret_grn",
-	"H_Beret_grn_SF",
-	"H_Watchcap_camo",
-	"H_TurbanO_blk",
-	"H_Hat_camo",
-	"H_Hat_tan",
-	"H_Beret_blk",
-	"H_Beret_red",
-	"H_Watchcap_khk",
-	"G_Balaclava_blk",
-	"G_Balaclava_combat",
-	"G_Balaclava_lowprofile",
-	"G_Balaclava_oli",
-	"G_Bandanna_beast",
-	"G_Tactical_Black",
-	"G_Aviator",
-	"G_Shades_Black",
 	"acc_flashlight",
 	"itemGPS"
 	];
@@ -653,7 +620,6 @@ if (hasIFA) then
 		"ItemWatch",
 		"ItemCompass",
 		"ToolKit",
-		//do we need both tookits?
 		"LIB_ToolKit",
 		"H_LIB_CIV_Villager_Cap_1",
 		"H_LIB_CIV_Worker_Cap_2",
@@ -662,10 +628,8 @@ if (hasIFA) then
 		];
 	};
 
-//Adds civ and geurilla clothes
-unlockedItems append banditUniforms;
-unlockedItems append civilianUniform;
-
+//Adds Clothing Items
+unlockedItems append rebelUniform + civilianUniform + civilianHeadgear + allGlasses;
 ////////////////////////////////////
 //RHS WEAPON ATTACHMENTS REDUCER ///
 ////////////////////////////////////
@@ -726,7 +690,7 @@ if (hasIFA) then
 	{
 	smokeX = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
 	chemX = [];					//Clears all chems
-	armoredHelmet = [];				//Clears all Helmets
+	armoredHeadgear = [];				//Clears all Helmets
 	NVGoggles = [];				//Clears NVG's
 	};
 

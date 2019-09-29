@@ -152,7 +152,7 @@ if !(hasIFA) then
 		if (haveNV) then
 			{
 			if (hmd _unit == "") then {_unit linkItem (selectRandom NVGoggles)};
-			_pointers = pointers arrayIntersect unlockedItems;
+			_pointers = attachmentLaser arrayIntersect unlockedItems;
 			if !(_pointers isEqualTo []) then
 				{
 				_pointers = _pointers arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
@@ -173,7 +173,7 @@ if !(hasIFA) then
 				_unit unassignItem _hmd;
 				_unit removeItem _hmd;
 				};
-			_flashlights = flashlights arrayIntersect unlockedItems;
+			_flashlights = attachmentLight arrayIntersect unlockedItems;
 			if !(_flashlights isEqualTo []) then
 				{
 				_flashlights = _flashlights arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);

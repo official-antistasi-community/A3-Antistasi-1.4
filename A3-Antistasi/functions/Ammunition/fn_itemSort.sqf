@@ -64,36 +64,19 @@ _magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
 ammunitionCSAT pushBack (_magazines select 0);
 } forEach weaponsCSAT;
 
-////////////////////////////////////
-//   WEAPON ATTACHMENTS LIST     ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Weapon Attachment Lists",servertime];
+///////////////////
+//   Pointers   ///
+///////////////////
 {
-{
-_item = _x;
-if !(_item in (opticsAAF + flashLights + pointers)) then
-	{
-	if (isCLass(configFile >> "CfgWeapons" >> _item >> "ItemInfo" >> "OpticsModes")) then
-		{
-		opticsAAF pushBack _item
-		}
-	else
-		{
-		if (isClass (configfile >> "CfgWeapons" >> _item >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then
-			{
-			flashLights pushBack _item;
-			}
-		else
-			{
-			if (isClass (configfile >> "CfgWeapons" >> _item >> "ItemInfo" >> "Pointer")) then
-				{
-				pointers pushBack _item;
-				};
-			};
-		};
-	};
-} forEach (_x call BIS_fnc_compatibleItems);
-} forEach (weaponsNato + weaponsCSAT);
+if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "size")) then
+     {
+     attachmentLaser pushBack _x;
+     }
+     else
+     {
+     attachmentLight pushBack _x;
+     };
+} forEach allAttachmentPointer;
 
 ////////////////////////////////////
 //   SMOKE GRENADES LIST         ///

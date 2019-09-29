@@ -120,15 +120,14 @@ arrayCivVeh = [];
 
 smokeX = [];
 chemX = [];
-opticsAAF = [];
 ammunitionNATO = [];
 weaponsNato = [];
 ammunitionCSAT = [];
 weaponsCSAT = [];
 itemsAAF = [];
 
-flashLights = [];
-pointers = [];
+attachmentLight = [];
+attachmentLaser = [];
 
 initialRifles = [];
 unlockedWeapons = [];
@@ -490,21 +489,11 @@ itemsAAF =
 	[
 	"Laserbatteries",
 	"MineDetector",
-	"muzzle_snds_H",
-	"muzzle_snds_L",
-	"muzzle_snds_M",
-	"muzzle_snds_B",
-	"muzzle_snds_H_MG",
-	"muzzle_snds_acp",
-	"muzzle_snds_338_green",
-	"muzzle_snds_93mmg_tan",
-	"bipod_03_F_oli",
 	"Rangefinder",
 	"Laserdesignator",
-	"acc_pointer_IR",
 	"ItemRadio"
 	];
-
+itemsAAF append allAttachmentBipod + allAttachmentMuzzle + allAttachmentPointer;
 if (hasRHS and !hasIFA) then
 	{
 	//RHS Loot Items
@@ -627,9 +616,9 @@ if (hasIFA) then
 diag_log format ["%1: [Antistasi] | INFO | initVar | Modifying Item Lists for Mods",servertime];
 if (hasRHS) then
 	{
-	opticsAAF = opticsAAF select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	flashlights = flashlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	pointers = pointers select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	allAttachmentOptic = allAttachmentOptic select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	attachmentLight = flashLlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	attachmentLaser = attachmentLaser select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	};
 
 ////////////////////////////////////

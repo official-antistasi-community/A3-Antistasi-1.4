@@ -242,13 +242,18 @@ class A3A
 		class arsenalManage {};
 		class boxAAF {};
 		class checkRadiosUnlocked {};
+		class configSort {};
 		class CSATCrate {};
 		class dress {};
 		class empty {};
+		class equipmentSort {};
 		class getRadio {};
+		class itemSort {};
+		class loot {};
 		class NATOCrate {};
 		class randomRifle {};
 		class transfer {};
+		class vehicleSort {};
 	};
 
 	class OrgPlayers

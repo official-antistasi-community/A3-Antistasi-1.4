@@ -429,6 +429,7 @@ vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck
 [] call A3A_fnc_vehicleSort;
 [] call A3A_fnc_equipmentSort;
 [] call A3A_fnc_itemSort;
+[] call A3A_fnc_loot;
 
 ////////////////////////////////////
 //      ACE ITEMS LIST           ///

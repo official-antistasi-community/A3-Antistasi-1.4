@@ -621,21 +621,38 @@ if !(_nameX in _alreadyChecked) then
 } forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon;
 
 ////////////////////////////////////
-//     Civilian Uniforms        ///
+//      Uniforms Sorting        ///
 ////////////////////////////////////
 {
 _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
 _uniformSide = getNumber (configfile >> "CfgVehicles" >> _originUnit >> "side");
 switch (_uniformSide) do
 	{
-	//case 0: {eastUniform pushBack _x};
-	//case 1: {westUniform pushBack _x};
-	//case 2: {independentUniform pushBack _x};
 	case 3: {civilianUniform pushBack _x};
-	//default {allUnknown pushBack _x};
 	};
-
 } forEach allUniform;
+
+{
+_originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
+_uniformFaction = getNumber (configfile >> "CfgVehicles" >> _originUnit >> "side");
+switch (_uniformFaction) do
+	{
+	case "IND_C_F";
+	case "IND_G_F": {rebelUniform pushBack _x};
+	};
+} forEach allUniform;
+
+////////////////////////////////////
+//      Backpacks Sorting        ///
+////////////////////////////////////
+{
+_itemFaction = getText (configfile >> "CfgVehicles" >> _x >> "faction");
+switch (_itemFaction) do
+	{
+	case "Default": {allBackpackEmpty pushBack _x};
+	default {allBackpackTool pushBack _x};
+	};
+} forEach allBackpack;
 
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///
@@ -650,8 +667,20 @@ allVestArmored = allVest select {getNumber (configfile >> "CfgWeapons" >> _x >> 
 helmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
 
 ////////////////////////////////////
-//        SILENCERS List         ///
+//      Static Weapons List      ///
 ////////////////////////////////////
+{
+if (getText (configfile >> "CfgVehicles" >> "B_static_AA_F" >> "editorSubcategory") isEqualTo "EdSubcat_Turrets") then
+	{
+	_staticSide = getText (configfile >> "CfgVehicles" >> "B_static_AA_F" >> "side");
+	switch (_staticSide) do
+		{
+		case 0: {eastStaticWeapon pushBack _x};
+		case 1: {westStaticWeapon pushBack _x};
+		case 2: {independentStaticWeapon pushBack _x};
+		};
+	};
+} forEach allUnknown;
 
 ////////////////////////////////////
 //      ACE ITEMS LIST           ///

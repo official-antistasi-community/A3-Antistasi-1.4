@@ -591,7 +591,11 @@ unlockedItems append
 	"acc_flashlight",
 	];
 //Adds Clothing Items
-unlockedItems append rebelUniform + civilianUniform + civilianHeadgear + civilianVest + allGlasses;
+unlockedItems append rebelUniform;
+unlockedItems append civilianUniform;
+unlockedItems append civilianHeadgear;
+unlockedItems append civilianVest;
+unlockedItems append allGlasses;
 
 //IFA Starting Unlocks
 if (hasIFA) then

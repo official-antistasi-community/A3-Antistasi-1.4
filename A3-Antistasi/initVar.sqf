@@ -604,12 +604,11 @@ unlockedItems append
 	"ItemWatch",
 	"ItemCompass",
 	"ToolKit",
+	"ItemGPS",
 	"acc_flashlight",
-	"itemGPS"
 	];
-
-//Temporary starting allVest fix while I class items properly
-unlockedItems append ["V_Rangemaster_belt","V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F","V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F","V_HarnessOGL_ghex_F","V_HarnessOGL_gry","V_HarnessOGL_brn","V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
+//Adds Clothing Items
+unlockedItems append rebelUniform + civilianUniform + civilianHeadgear + civilianVest + allGlasses;
 
 //IFA Starting Unlocks
 if (hasIFA) then
@@ -628,8 +627,6 @@ if (hasIFA) then
 		];
 	};
 
-//Adds Clothing Items
-unlockedItems append rebelUniform + civilianUniform + civilianHeadgear + allGlasses;
 ////////////////////////////////////
 //RHS WEAPON ATTACHMENTS REDUCER ///
 ////////////////////////////////////

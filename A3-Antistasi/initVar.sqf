@@ -429,7 +429,6 @@ vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,v
 vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 
 ////////////////////////////////////
-<<<<<<< Updated upstream
 //     REBEL UNIFORMS LIST       ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Rebel Uniforms",servertime];
@@ -655,8 +654,6 @@ helmets = helmets select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemIn
 ////////////////////////////////////
 
 ////////////////////////////////////
-=======
->>>>>>> Stashed changes
 //      ACE ITEMS LIST           ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating ACE Items List",servertime];
@@ -1006,7 +1003,7 @@ unlockedItems append banditUniforms;
 unlockedItems append civilianUniform;
 
 ////////////////////////////////////
-///RHS WEAPON ATTACHMENTS FILTER ///
+//RHS WEAPON ATTACHMENTS REDUCER ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Modifying Item Lists for Mods",servertime];
 if (hasRHS) then

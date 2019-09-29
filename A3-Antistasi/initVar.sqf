@@ -499,8 +499,9 @@ unlockedItems append
 	"ItemCompass",
 	"ToolKit",
 	"ItemGPS",
-	"acc_flashlight",
+	"acc_flashlight"
 	];
+
 //Adds Clothing Items
 unlockedItems append rebelUniform;
 unlockedItems append civilianUniform;

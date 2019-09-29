@@ -56,7 +56,7 @@ if !(hasIFA) then
 	{
 	for "_i" from 1 to _var4 do
 		{
-		_thingX = selectRandom opticsAAF;
+		_thingX = selectRandom allAttachmentOptic;
 		if (not(_thingX in unlockedItems)) then
 			{
 			_crate addItemCargoGlobal [_thingX, 1 + (floor random 2)];

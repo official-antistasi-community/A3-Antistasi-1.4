@@ -1,21 +1,4 @@
 ////////////////////////////////////
-//     REBEL UNIFORMS LIST       ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Rebel Uniforms",servertime];
-{
-_unit = _x select 0;
-_uniform = (getUnitLoadout _unit select 3) select 0;
-uniformsSDK pushBackUnique _uniform;
-banditUniforms pushBackUnique _uniform;
-if (count _x > 1) then
-	{
-	_unit = _x select 1;
-	_uniform = (getUnitLoadout _unit select 3) select 0;
-	uniformsSDK pushBackUnique _uniform;
-	};
-} forEach [SDKSniper,SDKATman,SDKMedic,SDKMG,SDKExp,SDKGL,SDKMil,SDKSL,SDKEng,[SDKUnarmed],[staticCrewTeamPlayer]];
-
-////////////////////////////////////
 //      Uniforms Sorting        ///
 ////////////////////////////////////
 {

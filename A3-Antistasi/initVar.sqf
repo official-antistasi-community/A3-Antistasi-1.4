@@ -130,8 +130,6 @@ itemsAAF = [];
 flashLights = [];
 pointers = [];
 
-uniformsSDK = [];
-banditUniforms = [];
 initialRifles = [];
 unlockedWeapons = [];
 unlockedRifles = [];
@@ -503,10 +501,8 @@ itemsAAF =
 	"bipod_03_F_oli",
 	"Rangefinder",
 	"Laserdesignator",
-	"ItemGPS",
 	"acc_pointer_IR",
-	"ItemRadio",
-	"ToolKit"
+	"ItemRadio"
 	];
 
 if (hasRHS and !hasIFA) then
@@ -515,10 +511,8 @@ if (hasRHS and !hasIFA) then
 	itemsAAF =
 		[
 		"MineDetector",
-		"ItemGPS",
 		"acc_pointer_IR",
-		"ItemRadio",
-		"ToolKit"
+		"ItemRadio"
 		];
 	}
 	else

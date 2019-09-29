@@ -31,7 +31,7 @@ _typeX = typeOf _unit;
 _skill = 0.1 + (skillFIA * 0.05 * skillMult);
 if ((_markerX == "Synd_HQ") and (isMultiplayer)) then {_skill = 1};
 _unit setSkill _skill;
-if (!activeGREF) then {if (not((uniform _unit) in uniformsSDK)) then {[_unit] call A3A_fnc_reDress}};
+if (!activeGREF) then {if (not((uniform _unit) in rebelUniform)) then {[_unit] call A3A_fnc_reDress}};
 
 if (random 40 < skillFIA) then
 		{

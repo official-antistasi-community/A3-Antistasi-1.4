@@ -681,7 +681,8 @@ if (hasIFA) then
 	{
 	smokeX = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
 	chemX = [];					//Clears all chems
-	armoredHeadgear = [];				//Clears all Helmets
+	armoredHeadgear = [];			//Clears all Helmets
+	{armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
 	NVGoggles = [];				//Clears NVG's
 	};
 

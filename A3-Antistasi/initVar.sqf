@@ -87,7 +87,7 @@ allUnknown = [];
 allWatch = [];
 //Equipment arrays
 allGlasses = [];
-allHeadgear = [];					//Used
+allHeadgear = [];
 allVest = [];
 allUniform = [];
 allBackpack = [];
@@ -118,7 +118,7 @@ civilianUniform = [];
 civBoats = [];
 arrayCivVeh = [];
 
-smokeX = [];
+smokeGrenades = [];
 chemX = [];
 ammunitionNATO = [];
 weaponsNato = [];
@@ -660,7 +660,7 @@ if (hasACE and !hasIFA) then
 	weaponsNato = weaponsNato - ["MineDetector"];
 	//add ACE chem and smoke
 	chemX append ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
-	smokeX append ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
+	smokeGrenades append ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
 	};
 
 ////////////////////////////////////
@@ -668,7 +668,7 @@ if (hasACE and !hasIFA) then
 ////////////////////////////////////
 if (hasIFA) then
 	{
-	smokeX = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
+	smokeGrenades = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
 	chemX = [];					//Clears all chems
 	armoredHeadgear = [];			//Clears all Helmets
 	{armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;

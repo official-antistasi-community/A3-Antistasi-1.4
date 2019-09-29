@@ -20,7 +20,7 @@ if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "s
 ////////////////////////////////////
 //   SMOKE GRENADES LIST         ///
 ////////////////////////////////////
-smokeX = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
+smokeGrenades = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
 
 ////////////////////////////////////
 //   CHEMLIGHTS LIST             ///

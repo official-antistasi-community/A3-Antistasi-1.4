@@ -219,7 +219,7 @@ if !(hasIFA) then
 			};
 		};
 	};
-if ({if (_x in smokeX) exitWith {1}} count unlockedMagazines > 0) then {_unit addMagazines [selectRandom smokeX,2]};
+if ({if (_x in smokeGrenades) exitWith {1}} count unlockedMagazines > 0) then {_unit addMagazines [selectRandom smokeGrenades,2]};
 
 _EHkilledIdx = _unit addEventHandler ["killed", {
 	_victim = _this select 0;

@@ -27,11 +27,11 @@ for "_i" from 1 to (floor random 3) do
 	_num = 1 + (floor random 5);
 	boxX addMagazineCargoGlobal [_thingX, _num];
 	};
-if !(allAttachmentOptic isEqualTo []) then
+if !(lootOptic isEqualTo []) then
 	{
 	for "_i" from 1 to (floor random 2) do
 		{
-		_thingX = selectRandom allAttachmentOptic;
+		_thingX = selectRandom lootOptic;
 		boxX addItemCargoGlobal [_thingX, 1 + (floor random 2)];
 		};
 	};

@@ -3,6 +3,11 @@
 diveGear = ["V_RebreatherIA","G_Diving"];
 if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {diveGear pushBack "U_I_Wetsuit"};
 
+/////////////////
+//   Optics   ///
+/////////////////
+lootOptic = allAttachmentOptic;
+
 ///////////////////
 //   Pointers   ///
 ///////////////////
@@ -17,15 +22,21 @@ if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "s
      };
 } forEach allAttachmentPointer;
 
-////////////////////////////////////
-//   SMOKE GRENADES LIST         ///
-////////////////////////////////////
+/////////////////////////
+//   Smoke and Chem   ///
+/////////////////////////
 smokeGrenades = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
-
-////////////////////////////////////
-//   CHEMLIGHTS LIST             ///
-////////////////////////////////////
-//Chemlight loot for crates
-//this is an ugly list of vanilla chems I made myself - PBP
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Chemstick Lists",servertime];
-chemX = ["Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue"];
+{
+if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "Chemlight") then
+     {
+     chemX pushback _x;
+     };
+if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "smokeshell") then
+     {
+     smokeGrenades pushback _x;
+     };
+if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "") then
+     {
+     uglSmokeGrenade pushback _x;
+     };
+} forEach allMagSmokeShell;

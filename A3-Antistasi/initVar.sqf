@@ -113,21 +113,21 @@ allStaticWeapon = [];
 //Treated arrays
 armoredVest = [];
 civilianUniform = [];
+attachmentLight = [];
+attachmentLaser = [];
+smokeGrenades = [];
+chemX = [];
+uglSmokeGrenade = [];
 
 //-----------------------------Existing Used Arrays----------------------------//
 civBoats = [];
 arrayCivVeh = [];
 
-smokeGrenades = [];
-chemX = [];
 ammunitionNATO = [];
 weaponsNato = [];
 ammunitionCSAT = [];
 weaponsCSAT = [];
 itemsAAF = [];
-
-attachmentLight = [];
-attachmentLaser = [];
 
 initialRifles = [];
 unlockedWeapons = [];
@@ -532,7 +532,7 @@ if (hasIFA) then
 diag_log format ["%1: [Antistasi] | INFO | initVar | Modifying Item Lists for Mods",servertime];
 if (hasRHS) then
 	{
-	allAttachmentOptic = allAttachmentOptic select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	lootOptic = lootOptic select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	attachmentLight = flashLlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	attachmentLaser = attachmentLaser select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	};

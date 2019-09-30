@@ -3,7 +3,7 @@
 ////////////////////////////////////
 itemsAAF =
 	[
-	"Laserbatteries",
+	"Laserbatteries"
 	];
 
 itemsAAF append lootBipod + lootOptic + lootSilencer + lootPointer + lootNVG + lootBinocular;

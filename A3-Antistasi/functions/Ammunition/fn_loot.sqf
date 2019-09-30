@@ -44,7 +44,8 @@ minesAAF =
 	"SLAMDirectionalMine_Wire_Mag",
 	"SatchelCharge_Remote_Mag",
 	"ClaymoreDirectionalMine_Remote_Mag",
-	"ATMine_Range_Mag","APERSTripMine_Wire_Mag",
+	"ATMine_Range_Mag",
+	"APERSTripMine_Wire_Mag",
 	"APERSMine_Range_Mag",
 	"APERSBoundingMine_Range_Mag"
 	];
@@ -53,7 +54,8 @@ if (hasRHS and !hasIFA) then
 	{
 	//RHS MINE LOOT
 	minesAAF =
-		["rhsusf_m112_mag",
+		[
+		"rhsusf_m112_mag",
 		"rhsusf_mine_m14_mag",
 		"rhs_mine_M19_mag",
 		"rhs_mine_tm62m_mag",
@@ -66,7 +68,8 @@ if (hasRHS and !hasIFA) then
 			{
 			//IFA MINE LOOT
 			minesAAF =
-				["LIB_PMD6_MINE_mag",
+				[
+				"LIB_PMD6_MINE_mag",
 				"LIB_TM44_MINE_mag",
 				"LIB_US_TNT_4pound_mag"
 				];

@@ -61,9 +61,7 @@ if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "") the
 ///////////////////
 //  Explosives  ///
 ///////////////////
-lootExplosives append allMineBounding;
-lootExplosives append allMineDirectional;
-lootExplosives append allMine;
+lootExplosives append allMineBounding + allMineDirectional + allMineBounding;
 lootExplosives deleteAt (lootExplosives find "DemoCharge_Remote_Mag");
 lootExplosives deleteAt (lootExplosives find "APERSMineDispenser_Mag");
 lootExplosives deleteAt (lootExplosives find "TrainingMine_Mag");

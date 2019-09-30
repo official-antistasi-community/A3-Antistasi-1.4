@@ -12,7 +12,7 @@ switch (_uniformSide) do
 
 {
 _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
-_uniformFaction = getNumber (configfile >> "CfgVehicles" >> _originUnit >> "side");
+_uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
 switch (_uniformFaction) do
 	{
 	case "IND_C_F";

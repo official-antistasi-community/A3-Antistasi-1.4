@@ -16,7 +16,8 @@ _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "factio
 switch (_uniformFaction) do
 	{
 	case "IND_C_F": {rebelUniform pushBack _x};
-	case "IND_G_F": {rebelUniform pushBack _x};
+	//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1
+	case "BLU_G_F": {rebelUniform pushBack _x};
 	};
 } forEach allUniform;
 

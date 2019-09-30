@@ -7,23 +7,13 @@ itemsAAF =
 	];
 
 itemsAAF append lootBipod + lootOptic + lootSilencer + lootPointer + lootNVG + lootBinocular;
-
-if (hasRHS and !hasIFA) then
+if (hasIFA) then
 	{
 	itemsAAF =
 		[
+		"LIB_ToolKit"
 		];
-	}
-	else
-		{
-		if (hasIFA) then
-			{
-			itemsAAF =
-				[
-				"LIB_ToolKit"
-				];
-			};
-		};
+	};
 
 ////////////////////////////////////
 //     PLACED EXPLOSIVES LOOT    ///

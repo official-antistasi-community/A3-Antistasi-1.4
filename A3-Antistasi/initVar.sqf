@@ -125,6 +125,7 @@ armoredVest = [];
 
 armoredHeadgear = [];
 civilianHeadgear = [];
+civilianGlasses = [];
 
 //Items
 attachmentLight = [];
@@ -535,7 +536,7 @@ unlockedItems append rebelUniform;
 unlockedItems append civilianUniform;
 unlockedItems append civilianHeadgear;
 unlockedItems append civilianVest;
-unlockedItems append allGlasses;
+unlockedItems append civilianGlasses;
 
 //IFA Starting Unlocks
 if (hasIFA) then

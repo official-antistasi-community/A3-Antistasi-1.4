@@ -45,3 +45,8 @@ civilianVest = allVest - armoredVest;
 //WHY is there no clean list?
 armoredHeadgear = allHeadgear select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2};
 civilianHeadgear = allHeadgear - armoredHeadgear;
+
+//////////////////
+//   Glasses   ///
+//////////////////
+civilianGlasses append allGlasses;

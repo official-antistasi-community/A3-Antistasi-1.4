@@ -14,11 +14,11 @@ lootOptic = allAttachmentOptic;
 {
 if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "size")) then
      {
-     attachmentLaser pushBack _x;
+     attachmentLight pushBack _x;
      }
      else
      {
-     attachmentLight pushBack _x;
+     attachmentLaser pushBack _x;
      };
 } forEach allAttachmentPointer;
 

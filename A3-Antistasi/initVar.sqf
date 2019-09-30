@@ -854,7 +854,6 @@ publicVariable "hasADVCPR";
 publicVariable "hasADVSplint";
 
 publicVariable "unlockedWeapons";
-publicVariable "unlockedRifles";
 publicVariable "unlockedItems";
 publicVariable "unlockedOptics";
 publicVariable "unlockedBackpacks";

@@ -22,7 +22,7 @@ lootSilencer append allAttachmentMuzzle;
 lootPointer append allAttachmentPointer;
 
 {
-if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "size")) then
+if (isClass(configfile >> "CfgWeapons" >> "acc_flashlight" >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then
      {
      attachmentLight pushBack _x;
      }

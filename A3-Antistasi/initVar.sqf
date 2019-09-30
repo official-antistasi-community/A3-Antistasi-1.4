@@ -133,6 +133,7 @@ lootOptic = [];
 lootBipod = [];
 lootSilencer = [];
 lootNVG = [];
+lootBinocular = [];
 
 smokeGrenade = [];
 lootChemstick = [];

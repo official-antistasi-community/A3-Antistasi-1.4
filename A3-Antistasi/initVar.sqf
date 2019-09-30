@@ -117,7 +117,7 @@ civilianUniform = [];
 attachmentLight = [];
 attachmentLaser = [];
 smokeGrenades = [];
-chemX = [];
+lootChemstick = [];
 uglSmokeGrenade = [];
 
 //-----------------------------Existing Used Arrays----------------------------//
@@ -576,7 +576,7 @@ if (hasACE and !hasIFA) then
 	weaponsCSAT = weaponsCSAT - ["MineDetector"];
 	weaponsNato = weaponsNato - ["MineDetector"];
 	//add ACE chem and smoke
-	chemX append ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
+	lootChemstick append ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
 	smokeGrenades append ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
 	};
 
@@ -586,7 +586,7 @@ if (hasACE and !hasIFA) then
 if (hasIFA) then
 	{
 	smokeGrenades = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
-	chemX = [];					//Clears all chems
+	lootChemstick = [];					//Clears all chems
 	armoredHeadgear = [];			//Clears all Helmets
 	{armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
 	NVGoggles = [];				//Clears NVG's

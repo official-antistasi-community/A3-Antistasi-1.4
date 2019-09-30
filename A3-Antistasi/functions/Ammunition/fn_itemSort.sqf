@@ -29,7 +29,7 @@ smokeGrenades = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue"
 {
 if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "Chemlight") then
      {
-     chemX pushback _x;
+     lootChemstick pushback _x;
      };
 if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "smokeshell") then
      {

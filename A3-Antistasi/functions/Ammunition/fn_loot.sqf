@@ -35,16 +35,7 @@ if (hasRHS and !hasIFA) then
 ////////////////////////////////////
 //     PLACED EXPLOSIVES LOOT    ///
 ////////////////////////////////////
-minesAAF =
-	[
-	"SLAMDirectionalMine_Wire_Mag",
-	"SatchelCharge_Remote_Mag",
-	"ClaymoreDirectionalMine_Remote_Mag",
-	"ATMine_Range_Mag",
-	"APERSTripMine_Wire_Mag",
-	"APERSMine_Range_Mag",
-	"APERSBoundingMine_Range_Mag"
-	];
+minesAAF append lootExplosives;
 
 if (hasRHS and !hasIFA) then
 	{

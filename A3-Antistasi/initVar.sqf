@@ -147,6 +147,7 @@ weaponsNato = [];
 ammunitionCSAT = [];
 weaponsCSAT = [];
 itemsAAF = [];
+minesAAF = [];
 
 initialRifles = [];
 unlockedWeapons = [];

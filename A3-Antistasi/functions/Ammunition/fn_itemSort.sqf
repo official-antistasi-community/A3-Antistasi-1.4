@@ -36,6 +36,7 @@ if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "s
 // Assigned Items ///
 /////////////////////
 lootItems append allMineDetector + allGPS + allRadio;
+
 /////////////////
 // Binoculars ///
 /////////////////
@@ -83,6 +84,7 @@ if (_x in _uglMag) then
 //  Explosives  ///
 ///////////////////
 lootExplosives append allMineBounding + allMineDirectional + allMineBounding;
+
 lootExplosives deleteAt (lootExplosives find "DemoCharge_Remote_Mag");
 lootExplosives deleteAt (lootExplosives find "APERSMineDispenser_Mag");
 lootExplosives deleteAt (lootExplosives find "TrainingMine_Mag");

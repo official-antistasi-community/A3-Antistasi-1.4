@@ -112,6 +112,7 @@ allStaticWeapon = [];
 
 //Treated arrays
 armoredVest = [];
+rebelUniform = [];
 civilianUniform = [];
 attachmentLight = [];
 attachmentLaser = [];

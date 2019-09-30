@@ -1,4 +1,4 @@
-private [_allPrimaryWeapon,_allHandGun,_allLauncher,_allItem,_allOptic,_allNVG,_allMagazine,_allGrenade,_allExplosive,_allMissile,_allBackpack,_allStaticWeapon,_allGlasses,_allLaserOptic,_allMineDetector,_nameX,_alreadyChecked,_item,_itemType];
+private [_allPrimaryWeapon,_allHandGun,_allLauncher,_allItem,_allOptic,_allNVG,_allMagazine,_allGrenade,_allExplosive,_allMissile,_allBackpack,_allStaticWeapon,_allGlasses,_allLaserOptic,_allMineDetector,_allRadio,_nameX,_alreadyChecked,_item,_itemType];
 ////////////////////////////////////
 //  ITEM/WEAPON CLASSIFICATION   ///
 ////////////////////////////////////
@@ -39,6 +39,14 @@ _allMineDetector = "
     ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
     { getText ( _x >> 'simulation' ) isEqualTo 'ItemMineDetector'
+    &&
+    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
+" configClasses ( configFile >> "cfgWeapons" );
+
+_allRadio = "
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
+    &&
+    { getText ( _x >> 'simulation' ) isEqualTo 'ItemRadio'
     &&
     { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
 " configClasses ( configFile >> "cfgWeapons" );
@@ -192,4 +200,4 @@ if !(_nameX in _alreadyChecked) then
 		default {allUnknown pushBack _nameX};
 		};
 	};
-} forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon + _allGlasses + _allLaserOptic + _allMineDetector;
+} forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon + _allGlasses + _allLaserOptic + _allMineDetector + _allRadio;

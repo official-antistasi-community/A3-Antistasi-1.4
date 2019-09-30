@@ -1,4 +1,4 @@
-private ["_allPrimaryWeapon","_allHandGun","_allLauncher","_allItem","_allOptic","_allNVG","_allMagazine","_allGrenade","_allExplosive","_allMissile","_allBackpack","_allStaticWeapon","_allGlasses","_allLaserOptic","_allMineDetector","_allRadio","_nameX","_alreadyChecked","_item","_itemType"];
+private ["_allMap","_allCompass","_allGPS","_allWatch","_allPrimaryWeapon","_allHandGun","_allLauncher","_allItem","_allOptic","_allNVG","_allMagazine","_allGrenade","_allExplosive","_allMissile","_allBackpack","_allStaticWeapon","_allGlasses","_allLaserOptic","_allMineDetector","_allRadio","_nameX","_alreadyChecked","_item","_itemType"];
 ////////////////////////////////////
 //  ITEM/WEAPON CLASSIFICATION   ///
 ////////////////////////////////////
@@ -47,6 +47,38 @@ _allRadio = "
     ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
     { getText ( _x >> 'simulation' ) isEqualTo 'ItemRadio'
+    &&
+    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
+" configClasses ( configFile >> "cfgWeapons" );
+
+_allMap = "
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
+    &&
+    { getText ( _x >> 'simulation' ) isEqualTo 'ItemMap'
+    &&
+    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
+" configClasses ( configFile >> "cfgWeapons" );
+
+_allGPS = "
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
+    &&
+    { getText ( _x >> 'simulation' ) isEqualTo 'ItemGPS'
+    &&
+    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
+" configClasses ( configFile >> "cfgWeapons" );
+
+_allWatch = "
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
+    &&
+    { getText ( _x >> 'simulation' ) isEqualTo 'ItemWatch'
+    &&
+    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
+" configClasses ( configFile >> "cfgWeapons" );
+
+_allCompass = "
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
+    &&
+    { getText ( _x >> 'simulation' ) isEqualTo 'ItemCompass'
     &&
     { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
 " configClasses ( configFile >> "cfgWeapons" );
@@ -200,4 +232,4 @@ if !(_nameX in _alreadyChecked) then
 		default {allUnknown pushBack _nameX};
 		};
 	};
-} forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon + _allGlasses + _allLaserOptic + _allMineDetector + _allRadio;
+} forEach _allMap + _allCompass + _allGPS + _allWatch + _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon + _allGlasses + _allLaserOptic + _allMineDetector + _allRadio;

@@ -4,21 +4,14 @@
 itemsAAF =
 	[
 	"Laserbatteries",
-	"MineDetector",
-	"Rangefinder",
-	"Laserdesignator",
-	"ItemRadio"
 	];
 
-itemsAAF append lootBipod + lootOptic + lootSilencer + attachmentLight + attachmentLaser + lootNVG;
+itemsAAF append lootBipod + lootOptic + lootSilencer + lootPointer + lootNVG + lootBinocular;
 
 if (hasRHS and !hasIFA) then
 	{
 	itemsAAF =
 		[
-		"MineDetector",
-		"acc_pointer_IR",
-		"ItemRadio"
 		];
 	}
 	else

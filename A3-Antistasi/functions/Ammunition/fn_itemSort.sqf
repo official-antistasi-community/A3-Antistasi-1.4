@@ -2,16 +2,6 @@ diveGear = ["V_RebreatherIA","G_Diving"];
 if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {diveGear pushBack "U_I_Wetsuit"};
 
 /////////////////
-// Binoculars ///
-/////////////////
-lootBinocular append allLaserDesignator + allBinocular;
-
-/////////////////
-//    NVG'S   ///
-/////////////////
-lootNVG append allNVG;
-
-/////////////////
 //   Optics   ///
 /////////////////
 lootOptic append allAttachmentOptic;
@@ -29,6 +19,8 @@ lootSilencer append allAttachmentMuzzle;
 ///////////////////
 //   Pointers   ///
 ///////////////////
+lootPointer append allAttachmentPointer;
+
 {
 if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "size")) then
      {
@@ -40,13 +32,29 @@ if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "s
      };
 } forEach allAttachmentPointer;
 
-/////////////////////////
-//   Smoke and Chem   ///
-/////////////////////////
+/////////////////////
+// Assigned Items ///
+/////////////////////
+lootItems append allMineDetector + allGPS + allRadio + 
+/////////////////
+// Binoculars ///
+/////////////////
+lootBinocular append allLaserDesignator + allBinocular;
+
+/////////////////
+//    NVG'S   ///
+/////////////////
+lootNVG append allNVG;
+
+/////////////////////////////
+//   Smoke, Chem, Flare   ///
+/////////////////////////////
+lootSignalMag append allMagSmokeShell + allMagFlare;
+
 {
 if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "Chemlight") then
      {
-     lootChemstick pushback _x;
+     chemLight pushback _x;
      };
 if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "smokeshell") then
      {
@@ -57,6 +65,19 @@ if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "") the
      uglSmokeGrenade pushback _x;
      };
 } forEach allMagSmokeShell;
+
+private _uglMag = getArray (configfile >> "CfgMagazineWells" >> "UGL_40x36");
+_uglMag append (getArray(configfile >> "CfgMagazineWells" >> "3UGL_40x36"));
+{
+if (_x in _uglMag) then
+     {
+     uglFlareMag pushBack _x;
+     }
+     else
+     {
+     handFlare pushBack _x;
+     };
+} forEach allMagFlare;
 
 ///////////////////
 //  Explosives  ///

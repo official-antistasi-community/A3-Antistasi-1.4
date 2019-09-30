@@ -13,3 +13,8 @@ if (getText (configfile >> "CfgVehicles" >> _x >> "editorSubcategory") isEqualTo
 		};
 	};
 } forEach allUnknown;
+
+//Clean allUnknown of Statics
+{
+allUnknown deleteAt (allUnknown find _x);
+} forEach eastStaticWeapon + westStaticWeapon + independentStaticWeapon;

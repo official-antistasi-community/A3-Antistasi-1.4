@@ -4,7 +4,7 @@
 {
 if (getText (configfile >> "CfgVehicles" >> _x >> "editorSubcategory") isEqualTo "EdSubcat_Turrets") then
 	{
-	_staticSide = getText (configfile >> "CfgVehicles" >> _x >> "side");
+	_staticSide = getNumber (configfile >> "CfgVehicles" >> _x >> "side");
 	switch (_staticSide) do
 		{
 		case 0: {eastStaticWeapon pushBack _x};

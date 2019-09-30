@@ -173,7 +173,7 @@ if !(hasIFA) then
 		{
 		if (haveNV) then
 			{
-			if (hmd _unit == "") then {_unit linkItem (selectRandom allNVG)};
+			if (hmd _unit == "") then {_unit linkItem (selectRandom lootNVG)};
 			_pointers = attachmentLaser arrayIntersect unlockedItems;
 			if !(_pointers isEqualTo []) then
 				{

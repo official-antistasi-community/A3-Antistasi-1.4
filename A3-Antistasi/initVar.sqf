@@ -607,7 +607,7 @@ if (hasIFA) then
 	lootChemstick = [];					//Clears all chems
 	armoredHeadgear = [];				//Clears all Helmets
 	{armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
-	allNVG = [];						//Clears NVG's
+	lootNVG = [];						//Clears NVG's
 	};
 
 ////////////////////////////////////

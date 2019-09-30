@@ -10,7 +10,7 @@ itemsAAF =
 	"ItemRadio"
 	];
 
-itemsAAF append lootBipod + lootOptic + lootSilencer + attachmentLight + attachmentLaser;
+itemsAAF append lootBipod + lootOptic + lootSilencer + attachmentLight + attachmentLaser + lootNVG;
 
 if (hasRHS and !hasIFA) then
 	{

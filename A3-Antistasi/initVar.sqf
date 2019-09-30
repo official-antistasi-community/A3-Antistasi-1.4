@@ -107,12 +107,12 @@ allMine = [];
 allMineBounding = [];
 allMineDirectional = [];
 
+//Treated arrays
 //Vehicles and Equipment Arrays
 eastStaticWeapon = [];
 westStaticWeapon = [];
 independentStaticWeapon = [];
 
-//Treated arrays
 //Equipment
 rebelUniform = [];
 civilianUniform = [];
@@ -131,10 +131,12 @@ attachmentLight = [];
 attachmentLaser = [];
 lootOptic = [];
 lootBipod = [];
+lootSilencer = [];
 
 smokeGrenade = [];
 lootChemstick = [];
 uglSmokeGrenade = [];
+lootExplosives = [];
 
 //-----------------------------Existing Used Arrays----------------------------//
 civBoats = [];

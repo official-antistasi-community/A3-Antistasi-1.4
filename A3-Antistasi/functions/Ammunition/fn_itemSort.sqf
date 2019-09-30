@@ -11,6 +11,11 @@ lootOptic append allAttachmentOptic;
 /////////////////
 lootBipod append allAttachmentBipod;
 
+/////////////////
+//  Silencers ///
+/////////////////
+lootSilencer append allAttachmentMuzzle;
+
 ///////////////////
 //   Pointers   ///
 ///////////////////

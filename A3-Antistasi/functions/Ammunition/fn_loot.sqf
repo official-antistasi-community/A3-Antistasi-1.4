@@ -10,8 +10,7 @@ itemsAAF =
 	"ItemRadio"
 	];
 
-//PBP - DONT LEAVE THIS HERE STUPID
-itemsAAF append allAttachmentBipod + allAttachmentMuzzle + allAttachmentPointer;
+itemsAAF append lootBipod + lootOptic + lootSilencer + attachmentLight + attachmentLaser;
 
 if (hasRHS and !hasIFA) then
 	{

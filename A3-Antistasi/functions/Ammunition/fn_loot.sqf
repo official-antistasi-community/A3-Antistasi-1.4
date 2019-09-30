@@ -1,8 +1,6 @@
 ////////////////////////////////////
 //       REBEL LOOT ITEMS        ///
 ////////////////////////////////////
-//These items occupy the general items slot of loot crates
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Loot Items Lists",servertime];
 itemsAAF =
 	[
 	"Laserbatteries",
@@ -17,7 +15,6 @@ itemsAAF append allAttachmentBipod + allAttachmentMuzzle + allAttachmentPointer;
 
 if (hasRHS and !hasIFA) then
 	{
-	//RHS Loot Items
 	itemsAAF =
 		[
 		"MineDetector",
@@ -29,7 +26,6 @@ if (hasRHS and !hasIFA) then
 		{
 		if (hasIFA) then
 			{
-			//IFA Loot Items
 			itemsAAF =
 				[
 				"LIB_ToolKit"
@@ -40,8 +36,6 @@ if (hasRHS and !hasIFA) then
 ////////////////////////////////////
 //     PLACED EXPLOSIVES LOOT    ///
 ////////////////////////////////////
-//This is the ONLY SOURCE of mines loot for crates
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Loot Mines Lists",servertime];
 minesAAF =
 	[
 	"SLAMDirectionalMine_Wire_Mag",
@@ -55,7 +49,6 @@ minesAAF =
 
 if (hasRHS and !hasIFA) then
 	{
-	//RHS MINE LOOT
 	minesAAF =
 		[
 		"rhsusf_m112_mag",
@@ -69,7 +62,6 @@ if (hasRHS and !hasIFA) then
 		{
 		if (hasIFA) then
 			{
-			//IFA MINE LOOT
 			minesAAF =
 				[
 				"LIB_PMD6_MINE_mag",
@@ -82,8 +74,6 @@ if (hasRHS and !hasIFA) then
 ////////////////////////////////////
 //   REBEL FACTION LAUNCHERS     ///
 ////////////////////////////////////
-//These launchers will be IN ADDITION TO whatever launchers enemies carry
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Loot Launchers Lists",servertime];
 antitankAAF =
 	[
 	"launch_I_Titan_F",
@@ -103,7 +93,6 @@ if (hasRHS) then
 ////////////////////////////////////
 //   DEFENDER WEAPONS AND AMMO   ///
 ////////////////////////////////////
-//Creates the list of weapons and ammo for DEFENDER loot crates
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Occupant Crate Lists",servertime];
 _checked = [];
 {
@@ -134,7 +123,6 @@ ammunitionNATO pushBack (_magazines select 0);
 ////////////////////////////////////
 //   INVADER WEAPONS AND AMMO    ///
 ////////////////////////////////////
-//Creates the list of weapons and ammo for INVADER loot crates
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Invader Crate Lists",servertime];
 {
 {

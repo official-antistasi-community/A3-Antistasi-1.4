@@ -1,4 +1,4 @@
-private [_allPrimaryWeapon,_allHandGun,_allLauncher,_allItem,_allOptic,_allNVG,_allMagazine,_allGrenade,_allExplosive,_allMissile,_allBackpack,_allStaticWeapon,_allGlasses,_nameX,_alreadyChecked,_item,_itemType];
+private [_allPrimaryWeapon,_allHandGun,_allLauncher,_allItem,_allOptic,_allNVG,_allMagazine,_allGrenade,_allExplosive,_allMissile,_allBackpack,_allStaticWeapon,_allGlasses,_allLaserOptic,_nameX,_alreadyChecked,_item,_itemType];
 ////////////////////////////////////
 //  ITEM/WEAPON CLASSIFICATION   ///
 ////////////////////////////////////
@@ -39,6 +39,14 @@ _allOptic = "
     ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
     { getText ( _x >> 'simulation' ) isEqualTo 'Binocular'
+    &&
+    { getNumber ( _x >> ""type"" ) isEqualTo 4096 } } )
+" configClasses ( configFile >> "cfgWeapons" );
+
+_allLaserOptic = "
+    ( getNumber ( _x >> 'scope' ) isEqualTo 2
+    &&
+    { getText ( _x >> 'simulation' ) isEqualTo 'weapon'
     &&
     { getNumber ( _x >> ""type"" ) isEqualTo 4096 } } )
 " configClasses ( configFile >> "cfgWeapons" );
@@ -176,4 +184,4 @@ if !(_nameX in _alreadyChecked) then
 		default {allUnknown pushBack _nameX};
 		};
 	};
-} forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon + _allGlasses;
+} forEach _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon + _allGlasses + _allLaserOptic;

@@ -1,5 +1,3 @@
-//Begin Loot Lists
-//Not sure why we get these, but here it is....
 diveGear = ["V_RebreatherIA","G_Diving"];
 if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {diveGear pushBack "U_I_Wetsuit"};
 

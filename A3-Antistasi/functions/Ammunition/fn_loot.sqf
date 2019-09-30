@@ -72,25 +72,6 @@ if (hasRHS and !hasIFA) then
 		};
 
 ////////////////////////////////////
-//   REBEL FACTION LAUNCHERS     ///
-////////////////////////////////////
-antitankAAF =
-	[
-	"launch_I_Titan_F",
-	"launch_I_Titan_short_F"
-	];
-if (hasIFA) then
-	{
-	antitankAAF =
-		["LIB_Shg24"];
-	};
-if (hasRHS) then
-	{
-	antitankAAF =
-		[];
-	};
-
-////////////////////////////////////
 //   DEFENDER WEAPONS AND AMMO   ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Occupant Crate Lists",servertime];

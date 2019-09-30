@@ -23,7 +23,7 @@ if (typeOf _crate == vehNATOAmmoTruck) then
 
 for "_i" from 0 to _var1 do
 	{
-	_thingX = selectRandom (weaponsNato + antitankAAF);
+	_thingX = selectRandom (weaponsNato);
 	if (!(_thingX in unlockedWeapons)) then
 		{
 		_num = 1 + (floor random 12);

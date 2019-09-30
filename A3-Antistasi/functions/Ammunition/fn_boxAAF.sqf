@@ -9,7 +9,7 @@ clearBackpackCargoGlobal boxX;
 
 
 for "_i" from 0 to (1+ round random 4) do
-	{_thingX = if (random 2 < 1) then {selectRandom (weaponsNato + antitankAAF)} else {selectRandom (weaponsCSAT + antitankAAF)};
+	{_thingX = if (random 2 < 1) then {selectRandom (weaponsNato)} else {selectRandom (weaponsCSAT)};
 	_num = 1+ (floor random 4);
 	boxX addWeaponCargoGlobal [_thingX, _num];
 	_magazines = getArray (configFile / "CfgWeapons" / _thingX / "magazines");

@@ -35,7 +35,7 @@ if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "s
 /////////////////////
 // Assigned Items ///
 /////////////////////
-lootItems append allMineDetector + allGPS + allRadio + 
+lootItems append allMineDetector + allGPS + allRadio;
 /////////////////
 // Binoculars ///
 /////////////////

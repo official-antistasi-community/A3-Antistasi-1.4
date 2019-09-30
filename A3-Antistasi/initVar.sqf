@@ -144,6 +144,7 @@ lootBipod = [];
 lootSilencer = [];
 lootNVG = [];
 lootBinocular = [];
+lootItems = [];
 
 lootExplosives = [];
 

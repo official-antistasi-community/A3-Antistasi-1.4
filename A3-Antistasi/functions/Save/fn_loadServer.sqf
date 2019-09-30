@@ -108,6 +108,7 @@ publicVariable "unlockedSN";
 publicVariable "unlockedGL";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
+//PBP-Bad NVG Check!
 if ("NVGoggles" in unlockedItems) then {haveNV = true; publicVariable "haveNV"};
 //Check if we have radios unlocked and update haveRadio.
 call A3A_fnc_checkRadiosUnlocked;

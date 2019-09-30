@@ -79,7 +79,7 @@ allLaserDesignator = [];
 allMap = [];
 allMedikit = [];
 allMineDetector = [];
-NVGoggles = [];				//Used
+allNVG = [];				//Used
 allRadio = [];
 allToolkit = [];
 allUAVTerminal = [];
@@ -605,9 +605,9 @@ if (hasIFA) then
 	{
 	smokeGrenade = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
 	lootChemstick = [];					//Clears all chems
-	armoredHeadgear = [];			//Clears all Helmets
+	armoredHeadgear = [];				//Clears all Helmets
 	{armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
-	NVGoggles = [];				//Clears NVG's
+	allNVG = [];						//Clears NVG's
 	};
 
 ////////////////////////////////////

@@ -128,7 +128,7 @@ if !(hasIFA) then
 			}
 		else
 			{
-			_arr = (NVGoggles arrayIntersect (items _unit));
+			_arr = (allNVG arrayIntersect (items _unit));
 			if (!(_arr isEqualTo []) or (_hmd != "")) then
 				{
 				if ((random 5 > tierWar) and (!haveNV) and (_unit != leader (group _unit))) then
@@ -206,7 +206,7 @@ if !(hasIFA) then
 			}
 		else
 			{
-			_arr = (NVGoggles arrayIntersect (items _unit));
+			_arr = (allNVG arrayIntersect (items _unit));
 			if (count _arr > 0) then
 				{
 				_hmd = _arr select 0;

@@ -111,13 +111,25 @@ allMineDirectional = [];
 allStaticWeapon = [];
 
 //Treated arrays
-armoredVest = [];
+//Equipment
 rebelUniform = [];
 civilianUniform = [];
 
+allBackpackEmpty = [];
+allBackpackTool = [];
+
+civilianVest = [];
+armoredVest = [];
+
+armoredHeadgear = [];
+civilianHeadgear = [];
+
+//Items
 attachmentLight = [];
 attachmentLaser = [];
 lootOptic = [];
+lootBipod = [];
+
 smokeGrenades = [];
 lootChemstick = [];
 uglSmokeGrenade = [];

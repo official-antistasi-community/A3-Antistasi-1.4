@@ -2,9 +2,9 @@
 //      Static Weapons List      ///
 ////////////////////////////////////
 {
-if (getText (configfile >> "CfgVehicles" >> "B_static_AA_F" >> "editorSubcategory") isEqualTo "EdSubcat_Turrets") then
+if (getText (configfile >> "CfgVehicles" >> _x >> "editorSubcategory") isEqualTo "EdSubcat_Turrets") then
 	{
-	_staticSide = getText (configfile >> "CfgVehicles" >> "B_static_AA_F" >> "side");
+	_staticSide = getText (configfile >> "CfgVehicles" >> _x >> "side");
 	switch (_staticSide) do
 		{
 		case 0: {eastStaticWeapon pushBack _x};

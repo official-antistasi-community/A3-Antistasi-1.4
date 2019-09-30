@@ -6,7 +6,12 @@ if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {di
 /////////////////
 //   Optics   ///
 /////////////////
-lootOptic = allAttachmentOptic;
+lootOptic append allAttachmentOptic;
+
+/////////////////
+//   Bipods   ///
+/////////////////
+lootBipod append allAttachmentBipod;
 
 ///////////////////
 //   Pointers   ///

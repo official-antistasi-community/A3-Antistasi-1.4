@@ -11,7 +11,10 @@ itemsAAF =
 	"Laserdesignator",
 	"ItemRadio"
 	];
+
+//PBP - DONT LEAVE THIS HERE STUPID
 itemsAAF append allAttachmentBipod + allAttachmentMuzzle + allAttachmentPointer;
+
 if (hasRHS and !hasIFA) then
 	{
 	//RHS Loot Items

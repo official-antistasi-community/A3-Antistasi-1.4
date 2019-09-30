@@ -1,10 +1,7 @@
 ////////////////////////////////////
 //       REBEL LOOT ITEMS        ///
 ////////////////////////////////////
-itemsAAF =
-	[
-	"Laserbatteries"
-	];
+itemsAAF pushBack "Laserbatteries";
 
 itemsAAF append lootBipod + lootOptic + lootSilencer + lootPointer + lootNVG + lootBinocular;
 if (hasIFA) then

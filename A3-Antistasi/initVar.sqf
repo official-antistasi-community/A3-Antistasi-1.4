@@ -114,8 +114,10 @@ allStaticWeapon = [];
 armoredVest = [];
 rebelUniform = [];
 civilianUniform = [];
+
 attachmentLight = [];
 attachmentLaser = [];
+lootOptic = [];
 smokeGrenades = [];
 lootChemstick = [];
 uglSmokeGrenade = [];

@@ -42,3 +42,17 @@ if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "") the
      uglSmokeGrenade pushback _x;
      };
 } forEach allMagSmokeShell;
+
+///////////////////
+//  Explosives  ///
+///////////////////
+lootExplosives append allMineBounding;
+lootExplosives append allMineDirectional;
+lootExplosives append allMine;
+lootExplosives deleteAt (lootExplosives find "DemoCharge_Remote_Mag");
+lootExplosives deleteAt (lootExplosives find "APERSMineDispenser_Mag");
+lootExplosives deleteAt (lootExplosives find "TrainingMine_Mag");
+lootExplosives deleteAt (lootExplosives find "IEDLandSmall_Remote_Mag");
+lootExplosives deleteAt (lootExplosives find "IEDUrbanSmall_Remote_Mag");
+lootExplosives deleteAt (lootExplosives find "IEDLandBig_Remote_Mag");
+lootExplosives deleteAt (lootExplosives find "IEDUrbanBig_Remote_Mag");

@@ -108,7 +108,9 @@ allMineBounding = [];
 allMineDirectional = [];
 
 //Vehicles and Equipment Arrays
-allStaticWeapon = [];
+eastStaticWeapon = [];
+westStaticWeapon = [];
+independentStaticWeapon = [];
 
 //Treated arrays
 //Equipment
@@ -130,7 +132,7 @@ attachmentLaser = [];
 lootOptic = [];
 lootBipod = [];
 
-smokeGrenades = [];
+smokeGrenade = [];
 lootChemstick = [];
 uglSmokeGrenade = [];
 
@@ -591,7 +593,7 @@ if (hasACE and !hasIFA) then
 	weaponsNato = weaponsNato - ["MineDetector"];
 	//add ACE chem and smoke
 	lootChemstick append ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
-	smokeGrenades append ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
+	smokeGrenade append ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
 	};
 
 ////////////////////////////////////
@@ -599,7 +601,7 @@ if (hasACE and !hasIFA) then
 ////////////////////////////////////
 if (hasIFA) then
 	{
-	smokeGrenades = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
+	smokeGrenade = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
 	lootChemstick = [];					//Clears all chems
 	armoredHeadgear = [];			//Clears all Helmets
 	{armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;

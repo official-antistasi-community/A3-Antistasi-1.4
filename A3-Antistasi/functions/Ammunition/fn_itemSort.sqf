@@ -28,7 +28,6 @@ if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "s
 /////////////////////////
 //   Smoke and Chem   ///
 /////////////////////////
-smokeGrenades = ["SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellBlue","SmokeShellYellow","SmokeShellPurple","SmokeShellOrange"];
 {
 if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "Chemlight") then
      {
@@ -36,7 +35,7 @@ if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "Chemli
      };
 if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "smokeshell") then
      {
-     smokeGrenades pushback _x;
+     smokeGrenade pushback _x;
      };
 if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "") then
      {

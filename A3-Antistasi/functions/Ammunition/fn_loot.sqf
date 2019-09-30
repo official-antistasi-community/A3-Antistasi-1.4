@@ -4,13 +4,6 @@
 itemsAAF pushBack "Laserbatteries";
 
 itemsAAF append lootBipod + lootOptic + lootSilencer + lootPointer + lootNVG + lootBinocular;
-if (hasIFA) then
-	{
-	itemsAAF =
-		[
-		"LIB_ToolKit"
-		];
-	};
 
 ////////////////////////////////////
 //     PLACED EXPLOSIVES LOOT    ///

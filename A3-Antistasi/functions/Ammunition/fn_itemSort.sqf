@@ -1,26 +1,7 @@
 diveGear = ["V_RebreatherIA","G_Diving"];
 if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {diveGear pushBack "U_I_Wetsuit"};
 
-/////////////////
-//   Optics   ///
-/////////////////
-lootOptic append allAttachmentOptic;
-
-/////////////////
-//   Bipods   ///
-/////////////////
-lootBipod append allAttachmentBipod;
-
-/////////////////
-//  Silencers ///
-/////////////////
-lootSilencer append allAttachmentMuzzle;
-
-///////////////////
-//   Pointers   ///
-///////////////////
-lootPointer append allAttachmentPointer;
-
+//Lights Vs Laser ID
 {
 if (isClass(configfile >> "CfgWeapons" >> "acc_flashlight" >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then
      {
@@ -32,26 +13,7 @@ if (isClass(configfile >> "CfgWeapons" >> "acc_flashlight" >> "ItemInfo" >> "Fla
      };
 } forEach allAttachmentPointer;
 
-/////////////////////
-// Assigned Items ///
-/////////////////////
-lootItems append allMineDetector + allGPS + allRadio;
-
-/////////////////
-// Binoculars ///
-/////////////////
-lootBinocular append allLaserDesignator + allBinocular;
-
-/////////////////
-//    NVG'S   ///
-/////////////////
-lootNVG append allNVG;
-
-/////////////////////////////
-//   Smoke, Chem, Flare   ///
-/////////////////////////////
-lootSignalMag append allMagSmokeShell + allMagFlare;
-
+//Signal Mags ID
 {
 if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "Chemlight") then
      {
@@ -67,6 +29,8 @@ if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "") the
      };
 } forEach allMagSmokeShell;
 
+//Flares ID
+//PBP - NOT WORKING
 private _uglMag = getArray (configfile >> "CfgMagazineWells" >> "UGL_40x36");
 _uglMag append (getArray(configfile >> "CfgMagazineWells" >> "3UGL_40x36"));
 {
@@ -79,16 +43,3 @@ if (_x in _uglMag) then
      handFlare pushBack _x;
      };
 } forEach allMagFlare;
-
-///////////////////
-//  Explosives  ///
-///////////////////
-lootExplosives append allMineBounding + allMineDirectional + allMineBounding;
-
-lootExplosives deleteAt (lootExplosives find "DemoCharge_Remote_Mag");
-lootExplosives deleteAt (lootExplosives find "APERSMineDispenser_Mag");
-lootExplosives deleteAt (lootExplosives find "TrainingMine_Mag");
-lootExplosives deleteAt (lootExplosives find "IEDLandSmall_Remote_Mag");
-lootExplosives deleteAt (lootExplosives find "IEDUrbanSmall_Remote_Mag");
-lootExplosives deleteAt (lootExplosives find "IEDLandBig_Remote_Mag");
-lootExplosives deleteAt (lootExplosives find "IEDUrbanBig_Remote_Mag");

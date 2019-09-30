@@ -1,4 +1,4 @@
-private [_allPrimaryWeapon,_allHandGun,_allLauncher,_allItem,_allOptic,_allNVG,_allMagazine,_allGrenade,_allExplosive,_allMissile,_allBackpack,_allStaticWeapon,_allGlasses,_allLaserOptic,_allMineDetector,_allRadio,_nameX,_alreadyChecked,_item,_itemType];
+private ["_allPrimaryWeapon","_allHandGun","_allLauncher","_allItem","_allOptic","_allNVG","_allMagazine","_allGrenade","_allExplosive","_allMissile","_allBackpack","_allStaticWeapon","_allGlasses","_allLaserOptic","_allMineDetector","_allRadio","_nameX","_alreadyChecked","_item","_itemType"];
 ////////////////////////////////////
 //  ITEM/WEAPON CLASSIFICATION   ///
 ////////////////////////////////////

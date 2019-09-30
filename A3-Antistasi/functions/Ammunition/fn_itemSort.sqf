@@ -4,7 +4,7 @@ if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {di
 /////////////////
 //    NVG'S   ///
 /////////////////
-lootNVG = allNVG
+lootNVG = allNVG;
 
 /////////////////
 //   Optics   ///

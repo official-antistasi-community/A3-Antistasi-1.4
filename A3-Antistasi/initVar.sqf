@@ -533,7 +533,7 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Modifying Item Lists for Mo
 if (hasRHS) then
 	{
 	lootOptic = lootOptic select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	attachmentLight = flashLlights select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	attachmentLight = attachmentLight select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	attachmentLaser = attachmentLaser select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	};
 

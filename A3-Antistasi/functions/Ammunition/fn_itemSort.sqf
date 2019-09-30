@@ -2,9 +2,14 @@ diveGear = ["V_RebreatherIA","G_Diving"];
 if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {diveGear pushBack "U_I_Wetsuit"};
 
 /////////////////
+// Binoculars ///
+/////////////////
+lootBinocular append allLaserDesignator + allBinocular;
+
+/////////////////
 //    NVG'S   ///
 /////////////////
-lootNVG = allNVG;
+lootNVG append allNVG;
 
 /////////////////
 //   Optics   ///

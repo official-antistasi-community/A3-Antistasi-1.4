@@ -109,6 +109,17 @@ allMineBounding = [];
 allMineDirectional = [];
 
 //Treated arrays
+//Sorted Items
+attachmentLight = [];
+attachmentLaser = [];
+chemLight = [];
+smokeGrenade = [];
+uglSmokeGrenade = [];
+uglFlareMag = [];
+handFlare = [];
+irGrenade = [];
+laserBatteries = [];
+
 //Vehicles and Equipment Arrays
 eastStaticWeapon = [];
 westStaticWeapon = [];
@@ -124,17 +135,6 @@ armoredVest = [];
 armoredHeadgear = [];
 civilianHeadgear = [];
 civilianGlasses = [];
-
-//Sorted Items
-attachmentLight = [];
-attachmentLaser = [];
-chemLight = [];
-smokeGrenade = [];
-uglSmokeGrenade = [];
-uglFlareMag = [];
-handFlare = [];
-irGrenade = [];
-laserBatteries = [];
 
 //Loot Items
 lootBasicItem = [];
@@ -448,10 +448,15 @@ vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH6
 vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
 vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 
+diag_log format ["%1: [Antistasi] | INFO | initVar | Scanning config files",servertime];
 [] call A3A_fnc_configSort;
+diag_log format ["%1: [Antistasi] | INFO | initVar | Categorizing Vehicle Classes",servertime];
 [] call A3A_fnc_vehicleSort;
+diag_log format ["%1: [Antistasi] | INFO | initVar | Categorizing Equipment Classes",servertime];
 [] call A3A_fnc_equipmentSort;
+diag_log format ["%1: [Antistasi] | INFO | initVar | Identifying Objects for Mission Scripts",servertime];
 [] call A3A_fnc_itemSort;
+diag_log format ["%1: [Antistasi] | INFO | initVar | Building Loot Lists",servertime];
 [] call A3A_fnc_loot;
 
 ////////////////////////////////////
@@ -510,17 +515,6 @@ publicVariable "aceBasicMedItems";
 publicVariable "aceAdvMedItems";
 
 ////////////////////////////////////
-//RHS WEAPON ATTACHMENTS REDUCER ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Modifying Item Lists for Mods",servertime];
-if (hasRHS) then
-	{
-	lootOptic = lootOptic select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	attachmentLight = attachmentLight select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	attachmentLaser = attachmentLaser select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	};
-
-////////////////////////////////////
 //   ACE ITEMS MODIFICATIONS     ///
 ////////////////////////////////////
 if (hasACE) then
@@ -551,6 +545,17 @@ if (hasACE and !hasIFA) then
 	itemsAAF = itemsAAF - ["MineDetector"];
 	weaponsCSAT = weaponsCSAT - ["MineDetector"];
 	weaponsNato = weaponsNato - ["MineDetector"];
+	};
+
+////////////////////////////////////
+//RHS WEAPON ATTACHMENTS REDUCER ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Modifying Item Lists for Mods",servertime];
+if (hasRHS) then
+	{
+	lootOptic = lootOptic select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	attachmentLight = attachmentLight select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	attachmentLaser = attachmentLaser select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
 	};
 
 ////////////////////////////////////

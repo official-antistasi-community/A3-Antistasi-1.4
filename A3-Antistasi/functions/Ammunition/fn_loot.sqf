@@ -39,7 +39,7 @@ lootItems append allMineDetector + allGPS + allRadio;
 /////////////////
 // Binoculars ///
 /////////////////
-lootBinocular append allLaserDesignator + allBinocular;
+lootBinocular append allLaserDesignator + allBinocular + laserBatteries;
 
 /////////////////
 //    NVG'S   ///
@@ -49,7 +49,7 @@ lootNVG append allNVG;
 /////////////////////////////
 //   Smoke, Chem, Flare   ///
 /////////////////////////////
-lootSignalMag append allMagSmokeShell + allMagFlare + laserBatteries;
+lootSignalMag append allMagSmokeShell + allMagFlare;
 
 ////////////////////
 //   Magazines   ///
@@ -61,52 +61,10 @@ lootMagazine append allMagBullet + allMagShotgun + allMagMissile + allMagRocket;
 ////////////////////
 lootGrenades append allMagGrenade + allMagShell + irGrenade;
 
-////////////////////////////////////
-//   DEFENDER WEAPONS AND AMMO   ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Occupant Crate Lists",servertime];
-_checked = [];
-{
-{
-_typeX = _x;
-if !(_typeX in _checked) then
-	{
-	_checked pushBack _typeX;
-	_loadout = getUnitLoadout _typeX;
-	for "_i" from 0 to 2 do
-		{
-		if !(_loadout select _i isEqualTo []) then
-			{
-				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
-				if !(_weapon in weaponsNato) then {weaponsNato pushBack _weapon};
-			};
-		};
-	};
-} forEach _x;
-} forEach groupsNATOmid + [NATOSpecOp] + groupsNATOSquad;
-
-////////////////////////////////////
-//   INVADER WEAPONS AND AMMO    ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Invader Crate Lists",servertime];
-{
-{
-_typeX = _x;
-if !(_typeX in _checked) then
-	{
-	_checked pushBack _typeX;
-	_loadout = getUnitLoadout _typeX;
-	for "_i" from 0 to 2 do
-		{
-		if !(_loadout select _i isEqualTo []) then
-			{
-				_weapon = [((_loadout select _i) select 0)] call BIS_fnc_baseWeapon;
-				if !(_weapon in weaponsCSAT) then {weaponsCSAT pushBack _weapon};
-			};
-		};
-	};
-} forEach _x;
-} forEach groupsCSATmid + [CSATSpecOp] + groupsCSATSquad;
+////////////////////
+//    Weapons    ///
+////////////////////
+lootWeapons append arifles + srifles + hguns + mguns + mlaunchers + rlaunchers;
 
 ////////////////////////////////////
 //       REBEL LOOT ITEMS        ///

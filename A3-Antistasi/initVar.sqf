@@ -79,7 +79,7 @@ allLaserDesignator = [];
 allMap = [];
 allMedikit = [];
 allMineDetector = [];
-allNVG = [];				//Used
+allNVG = [];
 allRadio = [];
 allToolkit = [];
 allUAVTerminal = [];
@@ -137,6 +137,8 @@ handFlare = [];
 chemLight = [];
 irGrenade = [];
 laserBatteries = [];
+
+lootWeapons = [];
 
 lootSignalMag = [];
 lootMagazine = [];

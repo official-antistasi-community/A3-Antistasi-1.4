@@ -46,7 +46,7 @@ lootExplosive deleteAt (lootExplosive find "IEDUrbanSmall_Remote_Mag");
 lootExplosive deleteAt (lootExplosive find "IEDLandBig_Remote_Mag");
 lootExplosive deleteAt (lootExplosive find "IEDUrbanBig_Remote_Mag");
 
-if (hasRHS and !hasIFA) then
+/*if (hasRHS and !hasIFA) then
 	{
 	minesAAF =
 		[
@@ -68,7 +68,7 @@ if (hasRHS and !hasIFA) then
 				"LIB_US_TNT_4pound_mag"
 				];
 			};
-		};
+		};*/
 
 ///////////////////
 //   Backpacks  ///

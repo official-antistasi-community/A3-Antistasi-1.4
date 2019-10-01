@@ -27,9 +27,7 @@ if (count _this > 1) then
 
 _unit allowFleeing 0;
 _typeX = typeOf _unit;
-//_skill = if (_typeX in sdkTier1) then {0.1 + (skillFIA * 0.2)} else {if (_typeX in sdkTier2) then {0.2 + (skillFIA * 0.2)} else {0.3 + (skillFIA * 0.2)}};
-_skill = 0.1 + (skillFIA * 0.05 * skillMult);
-if ((_markerX == "Synd_HQ") and (isMultiplayer)) then {_skill = 1};
+_skill = (0.6 / skillMult + 0.015 * skillFIA);
 _unit setSkill _skill;
 if (!activeGREF) then {if (not((uniform _unit) in rebelUniform)) then {[_unit] call A3A_fnc_reDress}};
 
@@ -157,8 +155,6 @@ switch (true) do {
 	};
 
 };
-
-if (_unit skill "aimingAccuracy" > 0.35 && !(_unitIsSniper)) then {_unit setSkill ["aimingAccuracy",0.35]};
 
 if (debug) then {
 	diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | Is unit Sniper? : %2.",servertime,_unitIsSniper];

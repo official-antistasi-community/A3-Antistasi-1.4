@@ -1,7 +1,5 @@
 //Call to Blufor Alits Template
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\OccupantsVanillaAltisB.sqf"};
-//Call to FFAA Template
-if ((gameMode != 4) and (hasFFAA)) then	{call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"};
+if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_AAF_Altis.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -20,7 +18,7 @@ NATOFlag = "Flag_NATO_F";
 NATOFlagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
 flagNATOmrk = "flag_NATO";
 if (isServer) then {"NATO_carrier" setMarkerText "NATO Carrier"};
-	
+
 //Loot Crate
 NATOAmmobox = "B_supplyCrate_F";
 

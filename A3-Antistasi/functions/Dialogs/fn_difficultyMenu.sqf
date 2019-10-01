@@ -2,9 +2,10 @@ _nul=createDialog "diff_menu";
 waitUntil {dialog};
 hint "Choose a difficulty level";
 waitUntil {!dialog};
-if !(skillMult == 1) then
+if !(skillMult == 2) then
 	{
-	if (skillMult == 0.5) then
+	//Easy Difficulty Tweaks
+	if (skillMult == 1) then
 		{
 		server setVariable ["hr",25,true];
 		server setVariable ["resourcesFIA",5000,true];
@@ -20,6 +21,7 @@ if !(skillMult == 1) then
 		}
 	else
 		{
+		//Hard Difficulty Tweaks
 		server setVariable ["hr",0,true];
 		server setVariable ["resourcesFIA",200,true];
 		minWeaps = 40;

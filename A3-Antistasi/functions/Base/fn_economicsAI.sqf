@@ -8,6 +8,8 @@ _fnc_economics = {
     if (_typeX isEqualType "") then {
         _typeX  = [_typeX];
     };
+	
+	if (_typeX isEqualTo []) exitWith {};
 
     if (_random == "random") then {
         private _selectedType = selectRandom _typeX;
@@ -16,7 +18,6 @@ _fnc_economics = {
             timer setVariable [_selectedType, _currentItems + _coefficient * _accelerator, true];
         };
     } else {
-        if (_typeX isEqualTo []) exitWith {};
         _currentItems = 0;
         {
             _currentItems = _currentItems + (timer getVariable [_x, 0]);

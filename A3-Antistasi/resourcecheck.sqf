@@ -152,7 +152,7 @@ while {true} do
 		[1200] remoteExec ["A3A_fnc_timingCA",2];
 		if (!bigAttackInProgress) then
 			{
-			_script = [] spawn A3A_fnc_attackAAF;
+			_script = [] spawn A3A_fnc_rebelAttack;
 			waitUntil {sleep 5; scriptDone _script};
 			};
 		};

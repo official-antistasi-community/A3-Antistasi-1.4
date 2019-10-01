@@ -75,3 +75,47 @@ _reinfPlaces = [];
 } forEach _airportsX;
 
 if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFroadPatrol};
+
+
+{
+		//Setting the number of recruitable units per ticks per airport
+    garrison setVariable [format ["%1_recruit", _x], 12, true];
+} forEach airportsX;
+
+{
+    //Setting the number of recruitable units per ticks per outpost
+		garrison setVariable [format ["%1_recruit", _x], 8, true];
+} forEach outposts;
+
+//New reinf system (still reactive, so a bit shitty)
+{
+  _reinfMarker = if(_x == Occupants) then {reinforceMarkerOccupants} else {reinforceMarkerInvader};
+	_canReinf = if(_x == Occupants) then {canReinforceOccupants} else {canReinforceInvader};
+  diag_log format ["Side %1, needed %2, possible %3", _x, count _reinfMarker, count _canReinf];
+	_counter = 0;
+	_reinfMarker sort true;
+	{
+		_target = (_x select 1);
+		_possibleBases = _canReinf select {[_x, _target] call A3A_fnc_shouldReinforce};
+		if((count _possibleBases) != 0) then
+		{
+			_selectedBase = [_possibleBases, _target] call BIS_fnc_nearestPosition;
+			//Found base to reinforce, selecting units now
+			_units = [_selectedBase, _target] call A3A_fnc_selectReinfUnits;
+			//Create convoy with selected units ==> Merge into convoy stuff first
+
+			//For debug is direct placement
+			//diag_log format ["Reinforce %1 from %2 with %3", _target, _selectedBase, str _units];
+			//[_target, _units] call A3A_fnc_addGarrison;
+
+			_counter = _counter + 1;
+			if(_counter >= count _canReinf) exitWith {};
+		};
+	} forEach _reinfMarker;
+} forEach [Occupants, Invaders];
+//hint "Reinforce AI done!";
+
+//Replenish airports if possible (Currently not doing anything)
+{
+	[_x] call A3A_fnc_replenishGarrison;
+} forEach airportsX;

@@ -144,10 +144,7 @@ lootSignalMag = [];
 lootMagazine = [];
 lootGrenades = [];
 
-lootPointer = [];
-lootOptic = [];
-lootBipod = [];
-lootSilencer = [];
+lootAttachment = [];
 lootNVG = [];
 lootBinocular = [];
 lootItems = [];

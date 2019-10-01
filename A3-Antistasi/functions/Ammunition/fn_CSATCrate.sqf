@@ -77,7 +77,7 @@ if !(hasIFA) then
 	{
 	for "_i" from 0 to _opticTypes do
 		{
-		_optics = lootOptic;
+		_optics = lootAttachment;
 		_avail = (_optics - _unlocks - itemCargo _crate);
 		_loot = selectRandom _avail;
 		if (isNil "_loot") then {} else

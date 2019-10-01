@@ -33,7 +33,8 @@ for "_i" from 0 to _mineTypes do
 	_num = crateMineNumMin + floor random (crateMineNumMax - crateMineNumMin);
 	boxX addMagazineCargoGlobal [_thingX, _num];
 	};
-if !(lootOptic isEqualTo []) then
+
+if !(lootAttachment isEqualTo []) then
 	{
 	for "_i" from 0 to _opticTypes do
 		{

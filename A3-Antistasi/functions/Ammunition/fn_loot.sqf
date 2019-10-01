@@ -3,25 +3,10 @@
 //////////////////
 lootBasicItem append allMap + allToolkit + allWatch + allCompass + allMedikit + allFirstAidKit;
 
-/////////////////
-//   Optics   ///
-/////////////////
-lootOptic append allAttachmentOptic;
-
-/////////////////
-//   Bipods   ///
-/////////////////
-lootBipod append allAttachmentBipod;
-
-/////////////////
-//  Silencers ///
-/////////////////
-lootSilencer append allAttachmentMuzzle;
-
-///////////////////
-//   Pointers   ///
-///////////////////
-lootPointer append allAttachmentPointer;
+/////////////////////////////
+//   Weapon Attachments   ///
+/////////////////////////////
+lootAttachment append allAttachmentBipod + allAttachmentOptic + allAttachmentMuzzle + allAttachmentPointer;
 
 ///////////////////
 //  Explosives  ///

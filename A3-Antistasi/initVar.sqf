@@ -151,6 +151,7 @@ lootSilencer = [];
 lootNVG = [];
 lootBinocular = [];
 lootItems = [];
+lootBasicItem = [];
 
 lootExplosives = [];
 
@@ -521,46 +522,6 @@ aceAdvMedItems = [
 publicVariable "aceItems";
 publicVariable "aceBasicMedItems";
 publicVariable "aceAdvMedItems";
-
-
-////////////////////////////////////
-//      REBEL STARTING ITEMS     ///
-////////////////////////////////////
-//These items will be unlocked when the mission starts
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unlocked Items Lists",servertime];
-unlockedItems append
-	[
-	"ItemMap",
-	"ItemWatch",
-	"ItemCompass",
-	"ToolKit",
-	"ItemGPS",
-	"acc_flashlight"
-	];
-
-//Adds Clothing Items
-unlockedItems append rebelUniform;
-unlockedItems append civilianUniform;
-unlockedItems append civilianHeadgear;
-unlockedItems append civilianVest;
-unlockedItems append civilianGlasses;
-
-//IFA Starting Unlocks
-if (hasIFA) then
-	{
-	unlockedItems =
-		[
-		"ItemMap",
-		"ItemWatch",
-		"ItemCompass",
-		"ToolKit",
-		"LIB_ToolKit",
-		"H_LIB_CIV_Villager_Cap_1",
-		"H_LIB_CIV_Worker_Cap_2",
-		"G_LIB_Scarf2_B",
-		"G_LIB_Mohawk"
-		];
-	};
 
 ////////////////////////////////////
 //RHS WEAPON ATTACHMENTS REDUCER ///

@@ -69,8 +69,6 @@ lootWeapons append arifles + srifles + hguns + mguns + mlaunchers + rlaunchers;
 ////////////////////////////////////
 //       REBEL LOOT ITEMS        ///
 ////////////////////////////////////
-itemsAAF pushBack "Laserbatteries";
-
 itemsAAF append lootBipod + lootOptic + lootSilencer + lootPointer + lootNVG + lootBinocular;
 
 ////////////////////////////////////
@@ -101,3 +99,37 @@ if (hasRHS and !hasIFA) then
 				];
 			};
 		};
+
+////////////////////////////////////
+//      REBEL STARTING ITEMS     ///
+////////////////////////////////////
+//These items will be unlocked when the mission starts
+diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unlocked Items Lists",servertime];
+unlockedItems append
+	[
+	"ItemMap",
+	"ItemWatch",
+	"ItemCompass",
+	"ToolKit",
+	"ItemGPS",
+	];
+
+//IFA Starting Unlocks
+if (hasIFA) then
+	{
+	unlockedItems =
+		[
+		"ItemMap",
+		"ItemWatch",
+		"ItemCompass",
+		"ToolKit",
+		"LIB_ToolKit"
+		];
+	};
+
+//Adds Clothing Items
+unlockedItems append rebelUniform;
+unlockedItems append civilianUniform;
+unlockedItems append civilianHeadgear;
+unlockedItems append civilianVest;
+unlockedItems append civilianGlasses;

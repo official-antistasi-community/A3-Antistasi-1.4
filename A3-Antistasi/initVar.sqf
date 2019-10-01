@@ -151,8 +151,6 @@ lootBackpack = [];
 civBoats = [];
 arrayCivVeh = [];
 
-itemsAAF = [];
-
 initialRifles = [];
 unlockedWeapons = [];
 unlockedRifles = [];

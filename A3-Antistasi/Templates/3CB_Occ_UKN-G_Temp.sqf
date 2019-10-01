@@ -188,4 +188,3 @@ supportStaticNATOB = "RHS_Kornet_Tripod_Bag";
 supportStaticNATOB2 = "RHS_Kord_Tripod_Bag";
 //Mortar Support
 supportStaticNATOB3 = "RHS_Podnos_Tripod_Bag";
-//itemsAAF append ["muzzle_snds_b","uk3cb_fnfal_suit","rhs_acc_dtk3","rhs_acc_dtk4long","rhs_acc_dtk4screws","rhs_acc_dtk4short","rhs_acc_pbs1","rhs_acc_pbs4","rhs_acc_tgpa","rhs_acc_tgpv","rhs_acc_ak5","rhs_acc_dtk","rhs_acc_dtk1","rhs_acc_dtk2","rhs_acc_dtkakm","rhs_acc_uuk","rhs_acc_1p29","rhs_acc_1p63","rhs_acc_1p78","rhs_acc_1p87","rhs_acc_1pn93_1","rhs_acc_1pn93_2","rhs_acc_rakursPM","rhs_acc_pgo7v","rhs_acc_pgo7v2","rhs_acc_pgo7v3","rhs_acc_pkas","rhs_acc_dh520x56","rhs_acc_pso1m2","rhs_acc_pso1m21","rhs_acc_ekp1","rhs_acc_ekp8_02","rhs_acc_ekp8_18","rhs_acc_nita"];

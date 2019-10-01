@@ -192,5 +192,3 @@ supportStaticNATOB = "RHS_SPG9_Tripod_Bag";
 supportStaticNATOB2 = "RHS_DShkM_TripodHigh_Bag";
 //Mortar Support
 supportStaticNATOB3 = "RHS_Podnos_Bipod_Bag";
-
-//itemsAAF append ["rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_anpeq15side_bk","rhsusf_acc_anpeq15_bk_top","rhsusf_acc_anpeq15","rhsusf_acc_anpeq15_light","rhsusf_acc_anpeq15_bk","rhsusf_acc_anpeq15_bk_light","rhsusf_acc_anpeq15A","rhsusf_acc_ARDEC_M240","rhsusf_acc_nt4_black","rhsusf_acc_nt4_tan","rhsusf_acc_SFMB556"];

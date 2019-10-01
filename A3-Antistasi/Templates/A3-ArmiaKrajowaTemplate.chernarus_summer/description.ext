@@ -152,7 +152,7 @@ class Params
         default = 25;
         //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
     };
-		class memberOnlyMagLimit
+	class memberOnlyMagLimit
     {
         title = "Number of magazines needed for guests to be able to use them";
         values[] = {10,20,30,40,50,60};
@@ -202,6 +202,213 @@ class Params
         values[] = {0, 900, 1800, 3600};
         texts[] = {"No delay","15 minutes","30 minutes","60 minutes"};
         default = 3600;
+    };
+    class unlockedUnlimitedAmmo
+    {
+         title = "Do Unlocked Weapons Automatically Unlock Their Standard Magazine?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 1;
+    };
+    class Spacer0
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class AdvancedParams
+    {
+        title = "ADVANCED USERS ONLY";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class CrateOptions
+    {
+        title = "LOOT CRATE OPTIONS";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class crateWepTypeMin
+    {
+        title = "Minimum Weapon Types in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 1;
+    };
+    class crateWepTypeMax
+    {
+        title = "Maximum Weapon Types in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10};
+        default = 5;
+    };
+    class crateWepNumMin
+    {
+        title = "Minimum Weapon Quantity in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 1;
+    };
+    class crateWepNumMax
+    {
+        title = "Maximum Weapon Quantity in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        default = 13;
+    };
+    class Spacer1
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class crateItemTypeMin
+    {
+        title = "Minimum Item Types in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 1;
+    };
+    class crateItemTypeMax
+    {
+        title = "Maximum Item Types in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10};
+        default = 5;
+    };
+    class crateItemNumMin
+    {
+        title = "Minimum Item Quantity in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 0;
+    };
+    class crateItemNumMax
+    {
+        title = "Maximum Item Quantity in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        default = 5;
+    };
+    class Spacer2
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class crateAmmoTypeMin
+    {
+        title = "Minimum Ammo Types in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 1;
+    };
+    class crateAmmoTypeMax
+    {
+        title = "Maximum Ammo Types in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10};
+        default = 6;
+    };
+    class crateAmmoNumMin
+    {
+        title = "Minimum Ammo Quantity in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 5;
+    };
+    class crateAmmoNumMax
+    {
+        title = "Maximum Ammo Quantity in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        default = 10;
+    };
+    class Spacer3
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class crateMineTypeMin
+    {
+        title = "Minimum Mine Types in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 0;
+    };
+    class crateMineTypeMax
+    {
+        title = "Maximum Mine Types in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10};
+        default = 3;
+    };
+    class crateMineNumMin
+    {
+        title = "Minimum Mine Quantity in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 0;
+    };
+    class crateMineNumMax
+    {
+        title = "Maximum Mine Quantity in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        default = 5;
+    };
+    class Spacer4
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class crateOpticTypeMin
+    {
+        title = "Minimum Optic Types in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 0;
+    };
+    class crateOpticTypeMax
+    {
+        title = "Maximum Optic Types in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10};
+        default = 2;
+    };
+    class crateOpticNumMin
+    {
+        title = "Minimum Optic Quantity in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 1;
+    };
+    class crateOpticNumMax
+    {
+        title = "Maximum Optic Quantity in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        default = 3;
+    };
+    class Spacer5
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class crateBackpackTypeMin
+    {
+        title = "Minimum Backpack Types in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 1;
+    };
+    class crateBackpackTypeMax
+    {
+        title = "Maximum Backpack Types in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10};
+        default = 5;
+    };
+    class crateBackpackNumMin
+    {
+        title = "Minimum Backpack Quantity in Crates";
+        values[] = {0,1,2,3,4,5};
+        default = 0;
+    };
+    class crateBackpackNumMax
+    {
+        title = "Maximum Backpack Quantity in Crates";
+        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        default = 2;
     };
 };
 

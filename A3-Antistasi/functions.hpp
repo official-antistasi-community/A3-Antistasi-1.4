@@ -275,6 +275,7 @@ class A3A
 		class boxAAF {};
 		class checkRadiosUnlocked {};
 		class configSort {};
+		class crateLootParams {};
 		class CSATCrate {};
 		class dress {};
 		class empty {};

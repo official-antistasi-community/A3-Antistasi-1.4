@@ -55,7 +55,7 @@ if (_typeX == "AS") then
 	else
 		{
 		_siteX = selectRandom _potentials;
-		if (_siteX in airportsX) then {[[_siteX],"AS_Official"] remoteExec ["A3A_fnc_scheduler",2]} else {if (_siteX in citiesX) then {[[_siteX],"AS_Traitor"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"AS_SpecOP"] remoteExec ["A3A_fnc_scheduler",2]}};
+		if (_siteX in airportsX) then {[[_siteX],"A3A_fnc_AS_Official"] remoteExec ["A3A_fnc_scheduler",2]} else {if (_siteX in citiesX) then {[[_siteX],"A3A_fnc_AS_Traitor"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"A3A_fnc_AS_SpecOP"] remoteExec ["A3A_fnc_scheduler",2]}};
 		};
 	};
 if (_typeX == "CON") then
@@ -77,7 +77,7 @@ if (_typeX == "CON") then
 	else
 		{
 		_siteX = selectRandom _potentials;
-		[[_siteX],"CON_Outpost"] remoteExec ["A3A_fnc_scheduler",2];
+		[[_siteX],"A3A_fnc_CON_Outpost"] remoteExec ["A3A_fnc_scheduler",2];
 		};
 	};
 if (_typeX == "DES") then
@@ -115,7 +115,7 @@ if (_typeX == "DES") then
 	else
 		{
 		_siteX = selectRandom _potentials;
-		if (_siteX in airportsX) then {if (random 10 < 8) then {[[_siteX],"DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
+		if (_siteX in airportsX) then {if (random 10 < 8) then {[[_siteX],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
 		if (_siteX in antennas) then {[[_siteX],"DES_antenna"] remoteExec ["A3A_fnc_scheduler",2]}
 		};
 	};
@@ -172,9 +172,9 @@ if (_typeX == "LOG") then
 	else
 		{
 		_siteX = selectRandom _potentials;
-		if (_siteX in citiesX) then {[[_siteX],"LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2]};
-		if (_siteX in outposts) then {[[_siteX],"LOG_Ammo"] remoteExec ["A3A_fnc_scheduler",2]};
-		if (_siteX in banks) then {[[_siteX],"LOG_Bank"] remoteExec ["A3A_fnc_scheduler",2]};
+		if (_siteX in citiesX) then {[[_siteX],"A3A_fnc_LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2]};
+		if (_siteX in outposts) then {[[_siteX],"A3A_fnc_LOG_Ammo"] remoteExec ["A3A_fnc_scheduler",2]};
+		if (_siteX in banks) then {[[_siteX],"A3A_fnc_LOG_Bank"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
 if (_typeX == "RES") then
@@ -201,7 +201,7 @@ if (_typeX == "RES") then
 	else
 		{
 		_siteX = selectRandom _potentials;
-		if (_siteX in citiesX) then {[[_siteX],"RES_Refugees"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"RES_Prisoners"] remoteExec ["A3A_fnc_scheduler",2]};
+		if (_siteX in citiesX) then {[[_siteX],"A3A_fnc_RES_Refugees"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"A3A_fnc_RES_Prisoners"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
 if (_typeX == "CONVOY") then
@@ -251,7 +251,7 @@ if (_typeX == "CONVOY") then
 			{
 			_siteX = selectRandom _potentials;
 			_base = [_siteX] call A3A_fnc_findBasesForConvoy;
-			[[_siteX,_base],"CONVOY"] remoteExec ["A3A_fnc_scheduler",2];
+			[[_siteX,_base],"A3A_fnc_convoy"] remoteExec ["A3A_fnc_scheduler",2];
 			};
 		}
 	else

@@ -958,14 +958,12 @@ if (hasACRE) then {unlockedItems append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC15
 //     MISSION PATH WARNING      ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Checking Mission Path",servertime];
-_getMissionPath = [] execVM "initGetMissionPath.sqf";
+private _getMissionPath = [] spawn A3A_fnc_initGetMissionPath;
 waitUntil
 {
-	if (scriptDone _getMissionPath) then {true} else
-	{
-		hint "Stuck on compiling missionPath, re-launch the mission.";
-		false;
-	}
+	if (scriptDone _getMissionPath) exitWith {true};
+	hint "Stuck on compiling missionPath, re-launch the mission.";
+	false;
 };
 hint "Done compiling missionPath";
 

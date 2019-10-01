@@ -57,17 +57,14 @@ if (_part == "") then
 		{
 			if (isPlayer _injurer) then
 			{
-				if (tkPunish) then
+				if ((_injurer != _unit) and (side group _injurer == teamPlayer)/* and (_unit getVariable ["teamPlayer",false])*/ and (side group _unit == teamPlayer)) then
 				{
-					if ((_injurer != _unit) and (side _injurer == teamPlayer)/* and (_unit getVariable ["teamPlayer",false])*/ and (side group _unit == teamPlayer)) then
+					_uniform = uniform _unit;
+					_typeSoldier = getText (configfile >> "CfgWeapons" >> _uniform >> "ItemInfo" >> "uniformClass");
+					_sideType = getNumber (configfile >> "CfgVehicles" >> _typeSoldier >> "side");
+					if ((_sideType != 1) and (_sideType != 0)) then
 					{
-						_uniform = uniform _unit;
-						_typeSoldier = getText (configfile >> "CfgWeapons" >> _uniform >> "ItemInfo" >> "uniformClass");
-						_sideType = getNumber (configfile >> "CfgVehicles" >> _typeSoldier >> "side");
-						if ((_sideType != 1) and (_sideType != 0)) then
-						{
-							[_injurer, 20, 0.34] remoteExec ["A3A_fnc_punishment",_injurer];
-						};
+						[_injurer, 20, 0.34, _unit] remoteExec ["A3A_fnc_punishment",_injurer];
 					};
 				};
 			};

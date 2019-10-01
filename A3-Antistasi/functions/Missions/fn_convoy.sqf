@@ -386,7 +386,7 @@ _wp0 = _groupX addWaypoint [(position _vehLead),0];
 _wp0 setWaypointType "MOVE";
 _wp0 setWaypointFormation "COLUMN";
 _wp0 setWaypointBehaviour "SAFE";
-[_base,_posDestination,_groupX] call WPCreate;
+[_base,_posDestination,_groupX] call A3A_fnc_WPCreate;
 _wp0 = _groupX addWaypoint [_posDestination, count waypoints _groupX];
 _wp0 setWaypointType "MOVE";
 

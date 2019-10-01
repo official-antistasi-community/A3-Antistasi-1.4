@@ -187,9 +187,4 @@ if (_countX >= minWeaps) then
 	[_index,_nvToUnlock,-1] call jn_fnc_arsenal_addItem;
 };
 
-//fixes bad case issues
-/*if (("optic_Hamr") in unlockedOptics) then {unlockedOptics pushBack "optic_hamr"};
-if (("optic_Aco_smg") in unlockedOptics) then {unlockedOptics pushBack "optic_aco_smg"};
-if (("optic_Aco") in unlockedOptics) then {unlockedOptics pushBack "optic_aco"};*/
-
 _updated

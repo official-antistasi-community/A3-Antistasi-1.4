@@ -150,12 +150,7 @@ lootExplosive = [];
 civBoats = [];
 arrayCivVeh = [];
 
-ammunitionNATO = [];
-weaponsNato = [];
-ammunitionCSAT = [];
-weaponsCSAT = [];
 itemsAAF = [];
-minesAAF = [];
 
 initialRifles = [];
 unlockedWeapons = [];
@@ -164,6 +159,7 @@ unlockedMagazines = [];
 unlockedItems = [];
 unlockedBackpacks = [];
 unlockedOptics = [];
+unlockedNVG = [];			//New
 unlockedAT = [];
 unlockedAA = [];
 unlockedMG = [];
@@ -530,11 +526,7 @@ if (hasRHS) then
 ////////////////////////////////////
 if (hasACE) then
 	{
-	//additional starting items
 	unlockedItems append aceItems;
-	//Fix for bad ammo types in loot crates
-	ammunitionNATO = ammunitionNATO - ["ACE_PreloadedMissileDummy"];
-	ammunitionCSAT = ammunitionCSAT - ["ACE_PreloadedMissileDummy"];
 	};
 
 //ACE medical starting items
@@ -544,11 +536,9 @@ if (hasACEMedical) then {
 			unlockedItems append aceBasicMedItems;
 		};
 		case 2: {
-			unlockedItems = unlockedItems + aceBasicMedItems + aceAdvMedItems;
+			unlockedItems append aceBasicMedItems + aceAdvMedItems;
 		};
 	};
-} else {
-	unlockedItems = unlockedItems + ["FirstAidKit","Medikit"];
 };
 
 //ACE items when IFA isnt detected
@@ -562,9 +552,6 @@ if (hasACE and !hasIFA) then
 	itemsAAF = itemsAAF - ["MineDetector"];
 	weaponsCSAT = weaponsCSAT - ["MineDetector"];
 	weaponsNato = weaponsNato - ["MineDetector"];
-	//add ACE chem and smoke
-	chemLight append ["ACE_Chemlight_HiOrange","ACE_Chemlight_HiRed","ACE_Chemlight_HiYellow","ACE_Chemlight_HiWhite","ACE_Chemlight_Orange","ACE_Chemlight_White","ACE_Chemlight_IR"];
-	smokeGrenade append ["ACE_HandFlare_White","ACE_HandFlare_Red","ACE_HandFlare_Green","ACE_HandFlare_Yellow"];
 	};
 
 ////////////////////////////////////

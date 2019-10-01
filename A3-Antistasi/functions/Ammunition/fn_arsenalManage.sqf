@@ -179,7 +179,7 @@ private _lockedNvs = [];
 if (_countX >= minWeaps) then
 {
 	private _nvToUnlock = selectRandom _lockedNvs;
-	unlockedItems = unlockedItems + [_nvToUnlock];
+	unlockedNVG pushBack _nvToUnlock;
 	haveNV = true; publicVariable "haveNV";
 	publicVariable "unlockedItems";
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _nvToUnlock >> "displayName")];

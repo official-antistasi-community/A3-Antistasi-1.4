@@ -33,7 +33,6 @@ lootGrenade append allMagGrenade + allMagShell + irGrenade + allMagSmokeShell + 
 ////////////////////
 lootMagazine append allMagBullet + allMagShotgun + allMagMissile + allMagRocket + lootGrenade;
 
-
 ///////////////////
 //  Explosives  ///
 ///////////////////

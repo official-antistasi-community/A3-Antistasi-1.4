@@ -188,9 +188,3 @@ supportStaticNATOB = "I_HMG_01_support_F";
 supportStaticNATOB2 = "I_HMG_01_support_high_F";
 //Mortar Support
 supportStaticNATOB3 = "I_Mortar_01_support_F";
-
-////////////////////////////////////
-//             ITEMS             ///
-////////////////////////////////////
-weaponsNato append ["launch_NLAW_F","arifle_Mk20_F","arifle_Mk20C_F","LMG_Mk200_F","arifle_Mk20_GL_F","srifle_EBR_F","arifle_SDAR_F","srifle_GM6_F"];
-ammunitionNATO append ["30Rnd_556x45_Stanag","200Rnd_65x39_cased_Box","20Rnd_556x45_UW_mag","20Rnd_762x51_Mag","5Rnd_127x108_Mag","1Rnd_HE_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","1Rnd_Smoke_Grenade_shell","3Rnd_HE_Grenade_shell","HandGrenade"];

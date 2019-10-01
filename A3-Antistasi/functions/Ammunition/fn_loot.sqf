@@ -1,3 +1,8 @@
+//////////////////
+// Basic Items ///
+//////////////////
+lootBasicItem append allMap + allToolkit + allWatch + allCompass + allMedikit + allFirstAidKit;
+
 /////////////////
 //   Optics   ///
 /////////////////
@@ -105,29 +110,7 @@ if (hasRHS and !hasIFA) then
 ////////////////////////////////////
 //These items will be unlocked when the mission starts
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unlocked Items Lists",servertime];
-unlockedItems append
-	[
-	"ItemMap",
-	"ItemWatch",
-	"ItemCompass",
-	"ToolKit",
-	"ItemGPS",
-	];
-
-//IFA Starting Unlocks
-if (hasIFA) then
-	{
-	unlockedItems =
-		[
-		"ItemMap",
-		"ItemWatch",
-		"ItemCompass",
-		"ToolKit",
-		"LIB_ToolKit"
-		];
-	};
-
-//Adds Clothing Items
+unlockedItems append lootBasicItem;
 unlockedItems append rebelUniform;
 unlockedItems append civilianUniform;
 unlockedItems append civilianHeadgear;

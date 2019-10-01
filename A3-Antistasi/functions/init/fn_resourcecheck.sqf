@@ -77,7 +77,7 @@ while {true} do
 			_base = [_city] call A3A_fnc_findBasesForConvoy;
 			if (_base != "") then
 				{
-				[[_city,_base],"CONVOY"] call A3A_fnc_scheduler;
+				[[_city,_base],"A3A_fnc_convoy"] call A3A_fnc_scheduler;
 				};
 			};
 		[] call A3A_fnc_tierCheck;
@@ -173,7 +173,7 @@ while {true} do
 		if (count _potentials > 0) then
 			{
 			_potential = selectRandom _potentials;
-			[[_potential select 0,_potential select 1],"REP_Antenna"] call A3A_fnc_scheduler;
+			[[_potential select 0,_potential select 1],"A3A_fnc_REP_Antenna"] call A3A_fnc_scheduler;
 			};
 		}
 	else

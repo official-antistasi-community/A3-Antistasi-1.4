@@ -160,30 +160,28 @@ if (side group player == teamPlayer) then
 		_control
 		}];
 		*/
-	if (tkPunish) then
+	private _firedHandlerTk = 
 	{
-		private _firedHandlerTk = {
-			_typeX = _this select 1;
-			if ((_typeX == "Put") or (_typeX == "Throw")) then
+		_typeX = _this select 1;
+		if ((_typeX == "Put") or (_typeX == "Throw")) then
+		{
+			if (player distance petros < 50) then
 			{
-				if (player distance petros < 50) then
+				deleteVehicle (_this select 6);
+				if (_typeX == "Put") then
 				{
-					deleteVehicle (_this select 6);
-					if (_typeX == "Put") then
+					if (player distance petros < 10) then 
 					{
-						if (player distance petros < 10) then
-						{
-							[player, 20, 0.34] remoteExec ["A3A_fnc_punishment",player];
-						};
+						[player, 20, 0.34, petros] remoteExec ["A3A_fnc_punishment",player];
 					};
 				};
 			};
 		};
-		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then
-		{
-			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
-		};
+	};
+	player addEventHandler ["Fired", _firedHandlerTk];
+	if (hasACE) then 
+	{
+		["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
 	};
 	player addEventHandler ["HandleHeal",
 		{
@@ -240,7 +238,7 @@ if (side group player == teamPlayer) then
 			[_bag2] call A3A_fnc_AIVEHinit;
 			}
 		];
-	[true] execVM "reinitY.sqf";
+	[true] spawn A3A_fnc_reinitY;
 	[player] execVM "OrgPlayers\unitTraits.sqf";
 	[] spawn A3A_fnc_statistics;
 	}

@@ -201,7 +201,7 @@ while {(_waves > 0)} do
 						(units _grupo) joinSilent _groupVeh;
 						deleteGroup _grupo;
 						_groupVeh spawn A3A_fnc_attackDrillAI;
-						[_posOriginLand,_landPos,_groupVeh] call WPCreate;
+						[_posOriginLand,_landPos,_groupVeh] call A3A_fnc_WPCreate;
 						_Vwp0 = (wayPoints _groupVeh) select 0;
 						_Vwp0 setWaypointBehaviour "SAFE";
 						_Vwp0 = _groupVeh addWaypoint [_landPos, count (wayPoints _groupVeh)];
@@ -221,7 +221,7 @@ while {(_waves > 0)} do
 						deleteGroup _grupo;
 						_groupVeh selectLeader (units _groupVeh select 1);
 						_groupVeh spawn A3A_fnc_attackDrillAI;
-						[_posOriginLand,_landPos,_groupVeh] call WPCreate;
+						[_posOriginLand,_landPos,_groupVeh] call A3A_fnc_WPCreate;
 						_Vwp0 = (wayPoints _groupVeh) select 0;
 						_Vwp0 setWaypointBehaviour "SAFE";
 						_Vwp0 = _groupVeh addWaypoint [_landPos, count (wayPoints _groupVeh)];
@@ -235,7 +235,7 @@ while {(_waves > 0)} do
 				else
 					{
 					{_x disableAI "MINEDETECTION"} forEach (units _groupVeh);
-					[_posOriginLand,_posDestination,_groupVeh] call WPCreate;
+					[_posOriginLand,_posDestination,_groupVeh] call A3A_fnc_WPCreate;
 					_Vwp0 = (wayPoints _groupVeh) select 0;
 					_Vwp0 setWaypointBehaviour "SAFE";
 					_Vwp0 = _groupVeh addWaypoint [_posDestination, count (wayPoints _groupVeh)];

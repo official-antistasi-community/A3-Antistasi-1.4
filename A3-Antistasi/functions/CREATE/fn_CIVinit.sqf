@@ -53,7 +53,6 @@ _EHkilledIdx = _unit addEventHandler
 			{
 				if (typeOf _victim == "C_man_w_worker_F") then {_killer addRating 1000};
 				[-10,_killer] call A3A_fnc_playerScoreAdd;
-				//[_killer,20,0.34] remoteExec ["A3A_fnc_punishment",_killer];
 			};
 			_multiplier = 1;
 			if (typeOf _victim == "C_journalist_F") then {_multiplier = 10};

@@ -135,8 +135,11 @@ uglSmokeGrenade = [];
 uglFlareMag = [];
 handFlare = [];
 chemLight = [];
+irGrenade = [];
 
 lootSignalMag = [];
+lootMagazine = [];
+lootLauncherMag = [];
 
 lootPointer = [];
 lootOptic = [];

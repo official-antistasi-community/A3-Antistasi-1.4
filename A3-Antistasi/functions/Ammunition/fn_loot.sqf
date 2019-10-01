@@ -51,6 +51,11 @@ lootNVG append allNVG;
 /////////////////////////////
 lootSignalMag append allMagSmokeShell + allMagFlare;
 
+////////////////////
+//   Magazines   ///
+////////////////////
+lootMagazine append allMagBullet + allMagGrenade + allMagShell + allMagShotgun + allMagMissile + allMagRocket;
+
 ////////////////////////////////////
 //   DEFENDER WEAPONS AND AMMO   ///
 ////////////////////////////////////
@@ -75,12 +80,6 @@ if !(_typeX in _checked) then
 } forEach _x;
 } forEach groupsNATOmid + [NATOSpecOp] + groupsNATOSquad;
 
-{
-_nameX = [_x] call BIS_fnc_baseWeapon;
-_magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
-ammunitionNATO pushBack (_magazines select 0);
-} forEach weaponsNato;
-
 ////////////////////////////////////
 //   INVADER WEAPONS AND AMMO    ///
 ////////////////////////////////////
@@ -103,12 +102,6 @@ if !(_typeX in _checked) then
 	};
 } forEach _x;
 } forEach groupsCSATmid + [CSATSpecOp] + groupsCSATSquad;
-
-{
-_nameX = [_x] call BIS_fnc_baseWeapon;
-_magazines = getArray (configFile / "CfgWeapons" / _nameX / "magazines");
-ammunitionCSAT pushBack (_magazines select 0);
-} forEach weaponsCSAT;
 
 ////////////////////////////////////
 //       REBEL LOOT ITEMS        ///

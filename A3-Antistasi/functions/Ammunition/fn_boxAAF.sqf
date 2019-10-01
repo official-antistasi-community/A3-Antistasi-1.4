@@ -15,7 +15,8 @@ private _opticTypes = crateOpticTypeMin + floor random (crateOpticTypeMax - crat
 private _backpackTypes = crateBackpackTypeMin + floor random (crateBackpackTypeMax - crateBackpackTypeMin);
 
 for "_i" from 0 to _weaponTypes do
-	{_thingX = if (random 2 < 1) then {selectRandom weaponsNato} else {selectRandom weaponsCSAT};
+	{
+	_thingX = if (random 2 < 1) then {selectRandom weaponsNato} else {selectRandom weaponsCSAT};
 	_num = crateWepNumMin + floor random (crateWepNumMax - crateWepNumMin);
 	boxX addWeaponWithAttachmentsCargoGlobal [[_thingX, "", "", "", [], [], ""],_num];
 	_magazines = getArray (configFile / "CfgWeapons" / _thingX / "magazines");
@@ -23,13 +24,15 @@ for "_i" from 0 to _weaponTypes do
 	};
 
 for "_i" from 0 to _itemTypes do
-	{_thingX = selectRandom itemsAAF;
+	{
+	_thingX = selectRandom itemsAAF;
 	_num = crateItemNumMin + floor random (crateItemNumMax - crateItemNumMin);
 	boxX addItemCargoGlobal [_thingX, _num];
 	};
 
 for "_i" from 0 to _mineTypes do
-	{_thingX = selectRandom minesAAF;
+	{
+	_thingX = selectRandom lootExplosives;
 	_num = crateMineNumMin + floor random (crateMineNumMax - crateMineNumMin);
 	boxX addMagazineCargoGlobal [_thingX, _num];
 	};

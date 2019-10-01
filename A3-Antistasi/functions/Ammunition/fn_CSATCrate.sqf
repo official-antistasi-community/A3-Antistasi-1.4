@@ -63,7 +63,7 @@ for "_i" from 0 to _ammoTypes do
 
 for "_i" from 0 to _mineTypes do
 	{
-	_mines = minesAAF;
+	_mines = lootExplosives;
 	_avail = (_mines - _unlocks - itemCargo _crate);
 	_loot = selectRandom _avail;
 	if (isNil "_loot") then {} else

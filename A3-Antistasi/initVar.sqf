@@ -826,6 +826,7 @@ publicVariable "unlockedItems";
 publicVariable "unlockedOptics";
 publicVariable "unlockedBackpacks";
 publicVariable "unlockedMagazines";
+publicVariable "unlockedNVG";
 publicVariable "unlockedMG";
 publicVariable "unlockedGL";
 publicVariable "unlockedSN";

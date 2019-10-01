@@ -1,6 +1,6 @@
 private ["_loot","_guns","_ammo","_items","_avail","_num","_optics","_packs","_mines"];
 
-private _unlocks = (unlockedItems + unlockedOptics + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
+private _unlocks = (unlockedNVG + unlockedItems + unlockedOptics + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
 private _crate = _this select 0;
 
 clearMagazineCargoGlobal _crate;

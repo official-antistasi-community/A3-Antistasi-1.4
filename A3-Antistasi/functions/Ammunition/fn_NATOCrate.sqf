@@ -34,7 +34,7 @@ if (typeOf _crate == vehNATOAmmoTruck) then
 
 for "_i" from 0 to _weaponTypes do
 	{
-	_guns = weaponsNato;
+	_guns = lootWeapon;
 	_avail = (_guns - _unlocks - itemCargo _crate);
 	_loot = selectRandom _avail;
 	if (isNil "_loot") then
@@ -51,7 +51,7 @@ for "_i" from 0 to _weaponTypes do
 
 for "_i" from 0 to _itemTypes do
 	{
-	_items = itemsAAF;
+	_items = lootItem;
 	_avail = (_items - _unlocks - itemCargo _crate);
 	_loot = selectRandom _avail;
 	if (isNil "_loot") then
@@ -68,7 +68,7 @@ for "_i" from 0 to _itemTypes do
 
 for "_i" from 0 to _ammoTypes do
 	{
-	_ammo = (smokeX + chemX + ammunitionNATO);
+	_ammo = lootMagazine;
 	_avail = (_ammo - _unlocks - itemCargo _crate);
 	_loot = selectRandom _avail;
 	if (isNil "_loot") then
@@ -85,7 +85,7 @@ for "_i" from 0 to _ammoTypes do
 
 for "_i" from 0 to _mineTypes do
 	{
-	_mines = lootExplosives;
+	_mines = lootExplosive;
 	_avail = (_mines - _unlocks - itemCargo _crate);
 	_loot = selectRandom _avail;
 	if (isNil "_loot") then

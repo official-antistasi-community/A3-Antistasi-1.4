@@ -3,63 +3,49 @@
 //////////////////
 lootBasicItem append allMap + allToolkit + allWatch + allCompass + allMedikit + allFirstAidKit;
 
-/////////////////////////////
-//   Weapon Attachments   ///
-/////////////////////////////
-lootAttachment append allAttachmentBipod + allAttachmentOptic + allAttachmentMuzzle + allAttachmentPointer;
-
-///////////////////
-//  Explosives  ///
-///////////////////
-lootExplosives append allMineBounding + allMineDirectional + allMineBounding;
-
-lootExplosives deleteAt (lootExplosives find "DemoCharge_Remote_Mag");
-lootExplosives deleteAt (lootExplosives find "APERSMineDispenser_Mag");
-lootExplosives deleteAt (lootExplosives find "TrainingMine_Mag");
-lootExplosives deleteAt (lootExplosives find "IEDLandSmall_Remote_Mag");
-lootExplosives deleteAt (lootExplosives find "IEDUrbanSmall_Remote_Mag");
-lootExplosives deleteAt (lootExplosives find "IEDLandBig_Remote_Mag");
-lootExplosives deleteAt (lootExplosives find "IEDUrbanBig_Remote_Mag");
-
-/////////////////////
-// Assigned Items ///
-/////////////////////
-lootItems append allMineDetector + allGPS + allRadio + allLaserDesignator + allBinocular + laserBatteries
-
 /////////////////
 //    NVG'S   ///
 /////////////////
 lootNVG append allNVG;
 
-/////////////////////////////
-//   Smoke, Chem, Flare   ///
-/////////////////////////////
-lootSignalMag append allMagSmokeShell + allMagFlare;
-
-////////////////////
-//   Magazines   ///
-////////////////////
-lootMagazine append allMagBullet + allMagShotgun + allMagMissile + allMagRocket;
-
-////////////////////
-//    Grenades   ///
-////////////////////
-lootGrenades append allMagGrenade + allMagShell + irGrenade;
+/////////////////////
+// Assigned Items ///
+/////////////////////
+lootItem append allMineDetector + allGPS + allRadio + allLaserDesignator + allBinocular + laserBatteries + lootNVG;
 
 ////////////////////
 //    Weapons    ///
 ////////////////////
-lootWeapons append arifles + srifles + hguns + mguns + mlaunchers + rlaunchers;
+lootWeapon append arifles + srifles + hguns + mguns + mlaunchers + rlaunchers;
 
-////////////////////////////////////
-//       REBEL LOOT ITEMS        ///
-////////////////////////////////////
-itemsAAF append lootBipod + lootOptic + lootSilencer + lootPointer + lootNVG + lootBinocular;
+/////////////////////////////
+//   Weapon Attachments   ///
+/////////////////////////////
+lootAttachment append allAttachmentBipod + allAttachmentOptic + allAttachmentMuzzle + allAttachmentPointer;
 
-////////////////////////////////////
-//     PLACED EXPLOSIVES LOOT    ///
-////////////////////////////////////
-minesAAF append lootExplosives;
+////////////////////
+//    Grenades   ///
+////////////////////
+lootGrenade append allMagGrenade + allMagShell + irGrenade + allMagSmokeShell + allMagFlare;
+
+////////////////////
+//   Magazines   ///
+////////////////////
+lootMagazine append allMagBullet + allMagShotgun + allMagMissile + allMagRocket + lootGrenade;
+
+
+///////////////////
+//  Explosives  ///
+///////////////////
+lootExplosive append allMineBounding + allMineDirectional + allMineBounding;
+
+lootExplosive deleteAt (lootExplosive find "DemoCharge_Remote_Mag");
+lootExplosive deleteAt (lootExplosive find "APERSMineDispenser_Mag");
+lootExplosive deleteAt (lootExplosive find "TrainingMine_Mag");
+lootExplosive deleteAt (lootExplosive find "IEDLandSmall_Remote_Mag");
+lootExplosive deleteAt (lootExplosive find "IEDUrbanSmall_Remote_Mag");
+lootExplosive deleteAt (lootExplosive find "IEDLandBig_Remote_Mag");
+lootExplosive deleteAt (lootExplosive find "IEDUrbanBig_Remote_Mag");
 
 if (hasRHS and !hasIFA) then
 	{

@@ -50,6 +50,7 @@ colorInvaders = "colorOPFOR";
 //     DECLARING ITEM ARRAYS     ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Declaring Empty Arrays",servertime];
+//All Items Arrays
 //Weapons arrays
 arifles = [];					//Used
 allWeaponBombLauncher = [];
@@ -116,40 +117,34 @@ independentStaticWeapon = [];
 //Equipment
 rebelUniform = [];
 civilianUniform = [];
-
 allBackpackEmpty = [];
 allBackpackTool = [];
-
 civilianVest = [];
 armoredVest = [];
-
 armoredHeadgear = [];
 civilianHeadgear = [];
 civilianGlasses = [];
 
-//Items
+//Sorted Items
 attachmentLight = [];
 attachmentLaser = [];
+chemLight = [];
 smokeGrenade = [];
 uglSmokeGrenade = [];
 uglFlareMag = [];
 handFlare = [];
-chemLight = [];
 irGrenade = [];
 laserBatteries = [];
 
-lootWeapons = [];
-
-lootSignalMag = [];
-lootMagazine = [];
-lootGrenades = [];
-
-lootAttachment = [];
-lootNVG = [];
-lootItems = [];
+//Loot Items
 lootBasicItem = [];
-
-lootExplosives = [];
+lootNVG = [];
+lootItem = [];
+lootWeapon = [];
+lootAttachment = [];
+lootMagazine = [];
+lootGrenade = [];
+lootExplosive = [];
 
 //-----------------------------Existing Used Arrays----------------------------//
 civBoats = [];

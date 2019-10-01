@@ -2,7 +2,6 @@ private ["_allMap","_allCompass","_allGPS","_allWatch","_allPrimaryWeapon","_all
 ////////////////////////////////////
 //  ITEM/WEAPON CLASSIFICATION   ///
 ////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | configSort | Populating Object Lists",servertime];
 _allPrimaryWeapon = "
     ( getNumber ( _x >> 'scope' ) isEqualTo 2
     &&
@@ -154,7 +153,6 @@ _allGlasses = "
 //////////////////////////////
 //    Sorting Function     ///
 //////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | configSort | Sorting Objects.",servertime];
 _alreadyChecked = [];
 {
 _nameX = configName _x;

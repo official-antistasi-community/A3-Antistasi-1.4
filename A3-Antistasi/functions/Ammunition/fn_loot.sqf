@@ -78,8 +78,6 @@ lootBackpack append allBackpackEmpty;
 ////////////////////////////////////
 //      REBEL STARTING ITEMS     ///
 ////////////////////////////////////
-//These items will be unlocked when the mission starts
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unlocked Items Lists",servertime];
 unlockedItems append lootBasicItem;
 unlockedItems append rebelUniform;
 unlockedItems append civilianUniform;

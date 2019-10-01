@@ -1,4 +1,14 @@
-Hi! The following is a commented version of the templates samples from vanilla, explaining how to build your own template.
+Hi! And welcome to the template folder.
+This folder contains ALL of the units and vehicles that are recognized and used by the mission.
+The template names follow a common structure: Modset _ Side(mission logic [Rebel, Occupant, Invader]) _ Side(game logic [Blue, Green and Red]) _ Environment (or map for vanilla as each one will have dlc dependancies)
+
+BAF also needs RHSUSAF due to 3CB's lack of any AA assets.
+
+
+
+
+OLD information below, still somewhat useful for understanding variable names, though structure has been changed.
+The following is a commented version of the templates samples from vanilla, explaining how to build your own template.
 
 First: You have to build three files (you can do it in 2 or 1 but I think it's easier), which contain the three factions. Name them whatever.
 

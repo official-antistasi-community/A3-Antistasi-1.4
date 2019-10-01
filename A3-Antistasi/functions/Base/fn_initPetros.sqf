@@ -4,9 +4,9 @@ removeGoggles petros;
 petros setSkill 1;
 petros setVariable ["respawning",false];
 petros allowDamage false;
-[petros, sniperRifle, 8, 0] call BIS_fnc_addWeapon;
+[petros,(selectRandom unlockedRifles), 8, 0] call BIS_fnc_addWeapon;
 petros selectWeapon (primaryWeapon petros);
-petros addEventHandler 
+petros addEventHandler
 [
     "HandleDamage",
     {
@@ -18,7 +18,7 @@ petros addEventHandler
     _instigator = _this select 6;
     if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.1) then
     {
-        [_instigator, 60, 1] remoteExec ["A3A_fnc_punishment",_instigator];
+        [_instigator, 60, 1, _victim] remoteExec ["A3A_fnc_punishment",_instigator];
     };
     if (isPlayer _injurer) then
     {

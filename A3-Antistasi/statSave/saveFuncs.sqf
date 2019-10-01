@@ -134,8 +134,8 @@ fn_SetStat =
 			if !(isMultiplayer) then
 				{
 				skillMult = _varValue;
-				if (skillMult == 0.5) then {minWeaps = 15};
-				if (skillMult == 2) then {minWeaps = 40};
+				if (skillMult == 1) then {minWeaps = 15};
+				if (skillMult == 3) then {minWeaps = 40};
 				};
 			};
 		if(_varName == 'gameMode') then
@@ -372,9 +372,9 @@ fn_SetStat =
 		if(_varname == 'tasks') then
 			{
 			{
-			if (_x == "AttackAAF") then
+			if (_x == "rebelAttack") then
 				{
-				[] call A3A_fnc_attackAAF;
+				[] call A3A_fnc_rebelAttack;
 				}
 			else
 				{

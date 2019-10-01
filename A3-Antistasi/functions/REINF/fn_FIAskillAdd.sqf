@@ -1,7 +1,7 @@
 if (player != theBoss) exitWith {hint "Only our Commander has access to this function"};
 
-if (skillFIA > 19) exitWith {hint "Your troops have the maximum training"};
-if ((skillFIA + 1) > (tierWar*2)) exitWith {hint "You cannot upgrade training in the current War Level"};
+if (skillFIA > 20) exitWith {hint "Your troops have the maximum training"};
+if (skillFIA > (tierWar*2)) exitWith {hint "You cannot upgrade training in the current War Level"};
 _resourcesFIA = server getVariable "resourcesFIA";
 _costs = 1000 + (1.5*(skillFIA *750));
 if (_resourcesFIA < _costs) exitWith {hint format ["You do not have enough money to afford additional training. %1 € needed",_costs]};

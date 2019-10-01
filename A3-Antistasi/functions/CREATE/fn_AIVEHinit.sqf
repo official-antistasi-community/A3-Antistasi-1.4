@@ -8,7 +8,9 @@ if ((_veh isKindOf "FlagCarrier") or (_veh isKindOf "Building") or (_veh isKindO
 _typeX = typeOf _veh;
 
 if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
-	{
+{
+	_veh call A3A_fnc_addActionBreachVehicle;
+
 	_veh addEventHandler ["Killed",
 		{
 		private _veh = _this select 0;

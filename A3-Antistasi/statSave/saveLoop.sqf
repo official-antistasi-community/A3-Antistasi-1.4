@@ -208,7 +208,7 @@ if (!isDedicated) then
 			_typesX pushBackUnique _x;
 			};
 		};
-	} forEach ["AS","CON","DES","LOG","RES","CONVOY","DEF_HQ","AttackAAF"];
+	} forEach ["AS","CON","DES","LOG","RES","CONVOY","DEF_HQ","rebelAttack","invaderPunish"];
 
 	["tasks",_typesX] call fn_SaveStat;
 	};

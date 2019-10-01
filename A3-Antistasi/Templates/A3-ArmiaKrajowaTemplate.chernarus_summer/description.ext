@@ -139,10 +139,10 @@ class Params
     };
     class AISkill
     {
-        title = "AI Skill";
-        values[] = {0.5,1,2};
+        title = "Mission Difficulty";
+        values[] = {1,2,3};
         texts[] = {"Easy","Normal","Hard"};
-        default = 1;
+        default = 2;
         //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
     };
     class unlockItem
@@ -195,7 +195,7 @@ class Params
         values[] = {0,1};
         texts[] = {"No","Yes"};
         default = 0;
-    };	
+    };
 	class teamSwitchDelay
     {
         title = "Delay After Leaving Before a Player Can Join Another Team";

@@ -7,7 +7,7 @@ antistasiVersion = localize "STR_antistasi_credits_generic_version_text";
 // INITIAL SETTING AND VARIABLES ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Initial Variables",servertime];
-debug = false;													//debug variable, not useful for everything..
+debug = false;													//debug variable, useful for something..
 diagOn = false;												//Turn on Diag_log messaging (unused - PBP)
 cleantime = 3600;												//time to delete dead bodies, vehicles etc..
 distanceSPWN = 1000;											//initial spawn distance. Less than 1Km makes parked vehicles spawn in your nose while you approach.
@@ -74,10 +74,10 @@ armoredVests = [];
 uniformsSDK = [];
 banditUniforms = [];
 itemsAAF = [];
+initialRifles = [];
 unlockedWeapons = [];
 unlockedRifles = [];
 unlockedMagazines = [];
-unlockedRifles = [];
 unlockedItems = [];
 unlockedBackpacks = [];
 unlockedOptics = [];
@@ -184,6 +184,7 @@ else
 	};
 
 if (has3CB) then {arrayCivs append ["UK3CB_CHC_C_BODYG","UK3CB_CHC_C_CAN","UK3CB_CHC_C_COACH","UK3CB_CHC_C_DOC","UK3CB_CHC_C_FUNC","UK3CB_CHC_C_HIKER","UK3CB_CHC_C_LABOUR","UK3CB_CHC_C_PILOT","UK3CB_CHC_C_POLITIC","UK3CB_CHC_C_PROF","UK3CB_CHC_C_VILL","UK3CB_CHC_C_WORKER"];};
+
 ////////////////////////////////////
 //      CIVILLIAN VEHICLES       ///
 ////////////////////////////////////
@@ -196,6 +197,12 @@ else
 	{
 	["LIB_DAK_OpelBlitz_Open","LIB_GazM1","LIB_GazM1_dirty","LIB_DAK_Kfz1","LIB_DAK_Kfz1_hood"];
 	};
+//Add RHS Vehicles
+if (hasRHS and !has3CB) then {arrayCivVeh append ["RHS_Ural_Civ_01","RHS_Ural_Civ_02","RHS_Ural_Civ_03","RHS_Ural_Open_Civ_01","RHS_Ural_Open_Civ_02","RHS_Ural_Open_Civ_03"]};
+//3CB Full Vehicle Replacer
+if (has3CB) then {arrayCivVeh = ["UK3CB_CHC_C_Datsun_Civ_Closed","UK3CB_CHC_C_Datsun_Civ_Open","UK3CB_CHC_C_Gaz24","UK3CB_CHC_C_Golf","UK3CB_CHC_C_Hatchback","UK3CB_CHC_C_Hilux_Civ_Open","UK3CB_CHC_C_Hilux_Civ_Closed","UK3CB_CHC_C_Ikarus","UK3CB_CHC_C_Kamaz_Covered","UK3CB_CHC_C_Kamaz_Fuel","UK3CB_CHC_C_Kamaz_Open","UK3CB_CHC_C_Kamaz_Repair","UK3CB_CHC_C_Lada","UK3CB_CHC_C_LR_Open","UK3CB_CHC_C_LR_Closed","UK3CB_CHC_C_S1203","UK3CB_CHC_C_S1203_Amb","UK3CB_CHC_C_Sedan","UK3CB_CHC_C_Skoda","UK3CB_CHC_C_Tractor","UK3CB_CHC_C_Tractor_Old","UK3CB_CHC_C_UAZ_Closed","UK3CB_CHC_C_UAZ_Open","UK3CB_CHC_C_Ural","UK3CB_CHC_C_Ural_Open","UK3CB_CHC_C_Ural_Fuel","UK3CB_CHC_C_Ural_Empty","UK3CB_CHC_C_Ural_Repair","UK3CB_CHC_C_V3S_Open","UK3CB_CHC_C_V3S_Closed","UK3CB_CHC_C_V3S_Recovery","UK3CB_CHC_C_V3S_Refuel","UK3CB_CHC_C_V3S_Repair"]};
+
+//Civillian Boats
 civBoats = if !(hasIFA) then {["C_Boat_Civil_01_F","C_Scooter_Transport_01_F","C_Boat_Transport_02_F","C_Rubberboat"]} else {[]};
 
 ////////////////////////////////////
@@ -219,26 +226,26 @@ if (!hasIFA) then
 		if (!activeUSAF) then
 			{
 			//Vanilla DEFENDER Template
-			call compile preProcessFileLineNumbers "Templates\OccupantsVanilla.sqf";
+			call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf";
 			}
 			else
 			{
 				if (has3CB) then
 					{
 					//3CB DEFENDER Template
-					call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
+					call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf";
 					}
 					else
 					{
 						if (teamPlayer == independent) then
 							{
 							//RHS-USAF DEFENDER Template
-							call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf";
 							}
 							else
 							{
 							//RHS GREENFOR DEFENDER Template
-							call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf";
 							};
 					};
 			};
@@ -247,19 +254,19 @@ if (!hasIFA) then
 		if (!activeAFRF) then
 			{
 			//Vanilla INVADER Template
-			call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf";
+			call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";
 			}
 			else
 			{
 				if (has3CB) then
 					{
 					//3CB INVADER Template
-					call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
+					call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf";
 					}
 					else
 					{
 					//RHS INVADER Template
-					call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf";
+					call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf";
 					};
 			};
 		//NON-IFA REBEL Templates
@@ -267,26 +274,26 @@ if (!hasIFA) then
 		if (!activeGREF) then
 			{
 			//Vanilla REBEL Template
-			call compile preProcessFileLineNumbers "Templates\teamPlayerVanilla.sqf";
+			call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf";
 			}
 			else
 			{
 				if (has3CB) then
 					{
 					//3CB REBEL Template
-					call compile preProcessFileLineNumbers "Templates\teamPlayer3CBCCM.sqf";
+					call compile preProcessFileLineNumbers "Templates\3CB_Reb_CCM_Arid.sqf";
 					}
 					else
 					{
 						if (teamPlayer == independent) then
 							{
 							//RHS REBEL Template
-							call compile preProcessFileLineNumbers "Templates\teamPlayerRHSGREF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf";
 							}
 							else
 							{
 							//RHS BLUFOR REBEL Template
-							call compile preProcessFileLineNumbers "Templates\teamPlayerRHSUSAF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf";
 							};
 					};
 			};
@@ -295,30 +302,18 @@ if (!hasIFA) then
 	{
 	//IFA templates
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Reading IFA Templates",servertime];
-	call compile preProcessFileLineNumbers "Templates\teamPlayerIFA.sqf";
-	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
-	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Reb_POL_Temp.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 	};
 
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///
 //////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",servertime];
-//Rebel Unit Tiers
-sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
-sdkTier2 = SDKMedic + SDKExp + SDKEng;
-sdkTier3 = SDKSL + SDKSniper;
-soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
-//Rebel Groups
-groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
-groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
-groupsSDKSquad = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
-groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
-groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
-groupsSDKSniper = [SDKSniper,SDKSniper];
-groupsSDKSentry = [SDKGL,SDKMil];
-
+//Identify Squad Leader Units
 squadLeaders = SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
+//Identify Medic Units
 medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
 //Define Sniper Groups and Units
 sniperGroups = [groupsNATOSniper,groupsCSATSniper];
@@ -721,6 +716,7 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Loot Mines Lists",
 minesAAF =
 	[
 	"SLAMDirectionalMine_Wire_Mag",
+	"DemoCharge_Remote_Mag",
 	"SatchelCharge_Remote_Mag",
 	"ClaymoreDirectionalMine_Remote_Mag",
 	"ATMine_Range_Mag","APERSTripMine_Wire_Mag",
@@ -732,11 +728,18 @@ if (hasRHS and !hasIFA) then
 	{
 	//RHS MINE LOOT
 	minesAAF =
-		["rhsusf_m112_mag",
+		[
+		"rhsusf_m112_mag",
 		"rhsusf_mine_m14_mag",
 		"rhs_mine_M19_mag",
 		"rhs_mine_tm62m_mag",
-		"rhs_mine_pmn2_mag"
+		"rhs_mine_pmn2_mag",
+
+		//These are needed for breaching vehicles
+		"rhs_ec200_mag",
+		"rhs_ec200_sand_mag",
+		"rhs_ec400_mag",
+		"rhs_ec400_sand_mag"
 		];
 	}
 	else
@@ -747,10 +750,29 @@ if (hasRHS and !hasIFA) then
 			minesAAF =
 				["LIB_PMD6_MINE_mag",
 				"LIB_TM44_MINE_mag",
-				"LIB_US_TNT_4pound_mag"
+				"LIB_US_TNT_4pound_mag",
+				//Add these for vehicle breaching
+				"LIB_Ladung_Small_MINE_mag",
+				"LIB_Ladung_Big_MINE_mag"
 				];
 			};
 		};
+
+breachExplosiveSmall = ["DemoCharge_Remote_Mag"];
+breachExplosiveLarge = ["SatchelCharge_Remote_Mag"];
+if(hasRHS && !hasIFA) then
+{
+	breachExplosiveSmall = ["rhs_ec200_mag", "rhs_ec200_sand_mag"];
+	breachExplosiveLarge = ["rhs_ec400_mag", "rhs_ec400_sand_mag", "rhsusf_m112_mag"];
+}
+else
+{
+	if(hasIFA) then
+	{
+		breachExplosiveSmall = ["LIB_Ladung_Small_MINE_mag"];
+		breachExplosiveLarge = ["LIB_Ladung_Big_MINE_mag"];
+	};
+};
 
 ////////////////////////////////////
 //   REBEL FACTION LAUNCHERS     ///
@@ -778,12 +800,13 @@ if (hasRHS) then
 ////////////////////////////////////
 //These items will be unlocked when the mission starts
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unlocked Items Lists",servertime];
-unlockedItems =
+unlockedItems append
 	[
 	"ItemMap",
 	"ItemWatch",
 	"ItemCompass",
 	"ToolKit",
+	"ItemGPS",
 	"H_Booniehat_khk",
 	"H_Booniehat_oli",
 	"H_Booniehat_grn",
@@ -817,8 +840,7 @@ unlockedItems =
 	"G_Tactical_Black",
 	"G_Aviator",
 	"G_Shades_Black",
-	"acc_flashlight",
-	"itemGPS"
+	"acc_flashlight"
 	];
 
 //Temporary starting vests fix while I class items properly
@@ -936,14 +958,12 @@ if (hasACRE) then {unlockedItems append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC15
 //     MISSION PATH WARNING      ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Checking Mission Path",servertime];
-_getMissionPath = [] execVM "initGetMissionPath.sqf";
+private _getMissionPath = [] spawn A3A_fnc_initGetMissionPath;
 waitUntil
 {
-	if (scriptDone _getMissionPath) then {true} else
-	{
-		hint "Stuck on compiling missionPath, re-launch the mission.";
-		false;
-	}
+	if (scriptDone _getMissionPath) exitWith {true};
+	hint "Stuck on compiling missionPath, re-launch the mission.";
+	false;
 };
 hint "Done compiling missionPath";
 
@@ -1043,6 +1063,13 @@ case "kunduz":
 		//Roads DB
 		call compile preprocessFileLineNumbers "roadsDBKunduz.sqf";
 		};
+case "tembelan":
+		{
+		roadsMrk = ["road"] call A3A_fnc_getArrayMrks;
+		{_x setMarkerAlpha 0} forEach roadsMrk;
+		//Roads DB
+		call compile preprocessFileLineNumbers "roadsDBTembelan.sqf";
+		};
 	};
 
 ////////////////////////////////////
@@ -1095,7 +1122,7 @@ server setVariable [vehSDKTruck,300,true];											//300
 diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Server Only Variables.",servertime];
 server setVariable ["hr",8,true];														//initial HR value
 server setVariable ["resourcesFIA",1000,true];											//Initial FIA money pool value
-skillFIA = 0;																		//Initial skill level for FIA soldiers
+skillFIA = 1;																		//Initial skill level for FIA soldiers
 prestigeNATO = 5;																	//Initial Prestige NATO
 prestigeCSAT = 5;																	//Initial Prestige CSAT
 prestigeOPFOR = [75, 50] select cadetMode;																	//Initial % support for NATO on each city
@@ -1109,6 +1136,7 @@ revealX = false;
 prestigeIsChanging = false;
 napalmCurrent = false;
 tierWar = 1;
+
 haveNV = false;
 zoneCheckInProgress = false;
 garrisonIsChanging = false;
@@ -1121,6 +1149,24 @@ vehInGarage = [];
 destroyedBuildings = [];
 reportedVehs = [];
 playerHasBeenPvP = [];
+
+//Reinforcement logic
+reinforceMarkerOccupants = [];
+reinforceMarkerInvader = [];
+canReinforceOccupants = [];
+canReinforceInvader = [];
+
+//Garrison logic
+tierPreference = 1;
+cityUpdateTiers = [4, 8];
+cityStaticsTiers = [0.2, 1];
+airportUpdateTiers = [3, 6, 8];
+airportStaticsTiers = [0.5, 0.75, 1];
+outpostUpdateTiers = [4, 7, 9];
+outpostStaticsTiers = [0.4, 0.7, 1];
+otherUpdateTiers = [3, 7];
+otherStaticsTiers = [0.3, 1];
+[] call A3A_fnc_initPreference;
 
 ////////////////////////////////////
 // DECLARE VARIBALES FOR CLIENTS ///

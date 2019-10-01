@@ -2,10 +2,11 @@ class A3A
 {
 	class Base
 	{
+		class addActionBreachVehicle {};
 		class addHC {};
 		class addTimeForIdle {};
 		class AILoadInfo {};
-		class attackAAF {};
+		class rebelAttack {};
 		class blackout {};
 		class buildHQ {};
 		class citiesToCivPatrol {};
@@ -51,7 +52,6 @@ class A3A
 		class powerCheck {};
 		class powerReorg {};
 		class prestige {};
-		class punishment {};
 		class radioCheck {};
 		class rebuildAssets {};
 		class relocateHQObjects {};
@@ -64,6 +64,7 @@ class A3A
 		class sellVehicle {};
 		class setMarkerAlphaForSide {};
 		class sizeMarker {};
+		class startBreachVehicle {};
 		class statistics {};
 		class stripGearFromLoadout {};
 		class teleportVehicleToBase {};
@@ -76,7 +77,7 @@ class A3A
 
 	class AI
 	{
-		class AAFKilledEH {};
+		class occupantInvaderUnitKilledEH {};
 		class airbomb {};
 		class airdrop {};
 		class AIreactOnKill {};
@@ -138,7 +139,7 @@ class A3A
 		class createConvoy {file="Convoy\createConvoy.sqf";};
 		class convoyMovement {file="Convoy\convoyMovement.sqf";};
 		class findAirportForAirstrike {file="Convoy\findAirportForAirstrike.sqf";};
-	
+
 		class SelectAndCreateVehicle {file="Convoy\selectAndCreateVehicle.sqf";};
 	}
 
@@ -161,12 +162,15 @@ class A3A
 		class createFIAOutposts2 {};
 		class createSDKGarrisons {};
 		class createSDKgarrisonsTemp {};
-		class CSATpunish {};
+		class cycleSpawn {};
 		class FIAinitBases {};
+		class findSpawnPosition {};
+		class freeSpawnPositions {};
 		class garrisonReorg {};
 		class garrisonSize {};
 		class garrisonUpdate {};
 		class groupDespawner {};
+		class invaderPunish {};
 		class milBuildings {};
 		class minefieldAAF {};
 		class mortarPos {};
@@ -180,6 +184,7 @@ class A3A
 		class vehAvailable {};
 		class VEHdespawner {};
 		class wavedCA {};
+		class WPCreate {};
 	};
 
 	class Debugging
@@ -195,6 +200,7 @@ class A3A
 		class clearForest {};
 		class dialogHQ {};
 		class difficultyMenu {};
+		class fastTravelRadio {};
 		class firstLoad {};
 		class mineDialog {};
 		class moveHQObject {};
@@ -225,12 +231,53 @@ class A3A
 		class vehPlacementCleanup {};
 	};
 
+	class Garrison
+	{
+		class addGarrison {};
+		class addRequested {};
+		class checkGroupType {};
+		class checkVehicleType {};
+		class countGarrison {};
+		class createGarrison {};
+		class createGarrisonLine {};
+		class getGarrison {};
+		class getGarrisonRatio {};
+		class getGarrisonStatus {};
+		class getRequested {};
+		class getVehicleCrew {};
+		class initPreference {};
+		class logArray {};
+		class replenishGarrison {};
+		class selectGroupType {};
+		class selectReinfUnits {};
+		class selectVehicleType {};
+		class shouldReinforce {};
+		class updateGarrison {};
+		class updatePreference {};
+		class updateReinfState {};
+		class updateVehicles {};
+	};
+
 	class Missions
 	{
+		class AS_Official {};
+		class AS_specOP {};
+		class AS_Traitor {};
 		class attackHQ {};
+		class CON_Outpost {};
+		class convoy {};
 		class deleteTask {};
+		class DES_Antenna {};
+		class DES_Heli {};
+		class DES_Vehicle {};
+		class LOG_Ammo {};
+		class LOG_Bank {};
+		class LOG_Supplies {};
 		class missionRequest {};
 		class missionRequestAUTO {};
+		class REP_Antenna {};
+		class RES_Prisoners {};
+		class RES_Refugees {};
 		class taskUpdate {};
 		class underAttack {};
 	};
@@ -271,7 +318,7 @@ class A3A
 		//Public API - Call these from anywhere
 		class loadNavGrid {file="Convoy\A-star-pathfinding\loadNavGrid.sqf";};
 		class findPath {file="Convoy\A-star-pathfinding\startPathfinding.sqf";};
-		
+
 		//Private API - Do NOT call these elsewhere
 		class getMainMarkers {file="Convoy\A-star-pathfinding\getMainMarkers.sqf";};
 		class getClosestMainMarker {file="Convoy\A-star-pathfinding\getClosestMainMarker.sqf";};
@@ -280,7 +327,18 @@ class A3A
 		class setNavOnMarker {file="Convoy\A-star-pathfinding\setNavOnMarker.sqf";};
 		class getNavConnections {file="Convoy\A-star-pathfinding\getNavConnections.sqf";};
 		class findNearestNavPoint {file="Convoy\A-star-pathfinding\findNearestNavPoint.sqf";};
-	}
+	};
+	
+	class Punishment
+	{
+		class punishment {};
+		class punishment_addActionForgive {};
+		class punishment_notifyAdmin {};
+		class punishment_notifyAllAdmins {};
+		class punishment_release {};
+		class punishment_sentence {};
+		class punishment_warden {};
+	};
 
 	class REINF
 	{
@@ -349,6 +407,17 @@ class A3A
 
 	class init
 	{
+		class cityinfo {};
+		class credits {};
 		class getArrayMrks {};
+		class initGarrisons {};
+		class initGetMissionPath {};
+		class initSpawnPlaces {};
+		class modBlacklist {};
+		class playerMarkers {};
+		class prepareMarkerArrays {};
+		class reinitY {};
+		class resourcecheck {};
+		class tags {};
 	};
 };

@@ -61,7 +61,7 @@ if (_land) then
 	[_veh] call A3A_fnc_AIVEHinit;
 	[_veh,"Inf Truck."] spawn A3A_fnc_inmuneConvoy;
 	_groupX spawn A3A_fnc_attackDrillAI;
-	[_mrkOrigin,_posDestination,_groupX] call WPCreate;
+	[_mrkOrigin,_posDestination,_groupX] call A3A_fnc_WPCreate;
 	_Vwp0 = (wayPoints _groupX) select 0;
 	_Vwp0 setWaypointBehaviour "SAFE";
 	_Vwp0 = _groupX addWaypoint [_posDestination, count (wayPoints _groupX)];

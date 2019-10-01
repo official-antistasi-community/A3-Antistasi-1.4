@@ -136,6 +136,7 @@ uglFlareMag = [];
 handFlare = [];
 chemLight = [];
 irGrenade = [];
+laserBatteries = [];
 
 lootSignalMag = [];
 lootMagazine = [];

@@ -24,12 +24,7 @@ lootExplosives deleteAt (lootExplosives find "IEDUrbanBig_Remote_Mag");
 /////////////////////
 // Assigned Items ///
 /////////////////////
-lootItems append allMineDetector + allGPS + allRadio;
-
-/////////////////
-// Binoculars ///
-/////////////////
-lootBinocular append allLaserDesignator + allBinocular + laserBatteries;
+lootItems append allMineDetector + allGPS + allRadio + allLaserDesignator + allBinocular + laserBatteries
 
 /////////////////
 //    NVG'S   ///

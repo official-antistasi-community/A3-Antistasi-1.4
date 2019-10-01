@@ -146,7 +146,6 @@ lootGrenades = [];
 
 lootAttachment = [];
 lootNVG = [];
-lootBinocular = [];
 lootItems = [];
 lootBasicItem = [];
 

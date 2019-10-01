@@ -4,7 +4,7 @@ if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {di
 //Lights Vs Laser ID
 //PBP - NOT WORKING
 {
-if (isClass(configfile >> "CfgWeapons" >> "acc_flashlight" >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then
+if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then
      {
      attachmentLight pushBack _x;
      }

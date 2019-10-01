@@ -36,7 +36,7 @@ lootMagazine append allMagBullet + allMagShotgun + allMagMissile + allMagRocket 
 ///////////////////
 //  Explosives  ///
 ///////////////////
-lootExplosive append allMineBounding + allMineDirectional + allMineBounding;
+lootExplosive append allMine + allMineDirectional + allMineBounding;
 
 lootExplosive deleteAt (lootExplosive find "DemoCharge_Remote_Mag");
 lootExplosive deleteAt (lootExplosive find "APERSMineDispenser_Mag");
@@ -69,6 +69,11 @@ if (hasRHS and !hasIFA) then
 				];
 			};
 		};
+
+///////////////////
+//   Backpacks  ///
+///////////////////
+lootBackpack append allBackpackEmpty;
 
 ////////////////////////////////////
 //      REBEL STARTING ITEMS     ///

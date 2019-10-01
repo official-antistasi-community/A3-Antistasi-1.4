@@ -145,6 +145,7 @@ lootAttachment = [];
 lootMagazine = [];
 lootGrenade = [];
 lootExplosive = [];
+lootBackpack = [];
 
 //-----------------------------Existing Used Arrays----------------------------//
 civBoats = [];

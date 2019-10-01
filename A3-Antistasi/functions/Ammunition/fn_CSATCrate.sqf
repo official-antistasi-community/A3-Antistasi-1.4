@@ -89,7 +89,7 @@ if !(hasIFA) then
 
 	for "_i" from 0 to _backpackTypes do
 		{
-		_packs = backpacksCSAT;
+		_packs = lootBackpack;
 		_avail = (_packs - _unlocks - itemCargo _crate);
 		_loot = selectRandom _avail;
 		if (isNil "_loot") then {} else

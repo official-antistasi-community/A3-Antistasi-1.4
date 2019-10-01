@@ -1,7 +1,3 @@
-//3CB Blufor ALtis Template Call
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayerBlu3CBUN.sqf"};
-//Tanoa Template Call
-if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\teamPlayer3CBCCMT.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

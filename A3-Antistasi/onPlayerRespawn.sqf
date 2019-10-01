@@ -64,6 +64,8 @@ if (side group player == teamPlayer) then
 	removeBackpackGlobal _newUnit;
 	removeVest _newUnit;
 	removeAllAssignedItems _newUnit;
+	//Give them a map, in case they're commander and need to replace petros.
+	_newUnit linkItem "ItemMap";
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{

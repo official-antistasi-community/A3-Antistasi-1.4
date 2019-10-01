@@ -14,7 +14,7 @@ if (!isMultiPlayer) then
     memberOnlyMagLimit = 0;
     switchCom = false;
     tkPunish = false;
-    skillMult = 1;
+    skillMult = 2;
     minWeaps = 24;
     civTraffic = 1;
     limitedFT = false;

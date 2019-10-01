@@ -1,5 +1,3 @@
-//Call to FFAA Template
-if (hasFFAA) then {call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -18,7 +16,7 @@ NATOFlag = "Flag_AltisColonial_F";
 NATOFlagTexture = "\A3\Data_F\Flags\Flag_AltisColonial_CO.paa";
 flagNATOmrk = "rhs_flag_insurgents";
 if (isServer) then {"NATO_carrier" setMarkerText "CDF Carrier"};
-	
+
 //Loot Crate
 NATOAmmobox = "I_supplyCrate_F";
 

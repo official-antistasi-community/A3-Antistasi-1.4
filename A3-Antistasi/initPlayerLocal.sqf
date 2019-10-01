@@ -658,7 +658,7 @@ fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 
 mapX allowDamage false;
-mapX addAction ["Game Options", {hint format ["Antistasi - %2\n\nVersion: %1\n\nDifficulty: %3\nUnlock Weapon Number: %4\nLimited Fast Travel: %5",antistasiVersion,worldName,if (skillMult == 1) then {"Normal"} else {if (skillMult == 0.5) then {"Easy"} else {"Hard"}},minWeaps,if (limitedFT) then {"Yes"} else {"No"}]; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
+mapX addAction ["Game Options", {hint format ["Antistasi - %2\n\nVersion: %1\n\nDifficulty: %3\nUnlock Weapon Number: %4\nLimited Fast Travel: %5",antistasiVersion,worldName,if (skillMult == 2) then {"Normal"} else {if (skillMult == 1) then {"Easy"} else {"Hard"}},minWeaps,if (limitedFT) then {"Yes"} else {"No"}]; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 mapX addAction ["Map Info", {nul = [] execVM "cityinfo.sqf";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 mapX addAction ["Move this asset", { _this spawn A3A_fnc_moveHQObject; },nil,0,false,true,"","(_this == theBoss)"];
 if (isMultiplayer) then {mapX addAction ["AI Load Info", "[] remoteExec [""A3A_fnc_AILoadInfo"",2]",nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};

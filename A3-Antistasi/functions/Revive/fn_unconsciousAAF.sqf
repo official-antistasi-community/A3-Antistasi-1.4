@@ -52,12 +52,15 @@ if (time >= _bleedOut) exitWith
 		if (isPlayer _injurer) then
 			{
 			[1,_injurer] call A3A_fnc_playerScoreAdd;
-			}
+			};
+		//Again, No artificial boosting of skill because you killed someone
+		/*
 		else
 			{
 			_skill = skill _injurer;
 			[_injurer,_skill + 0.05] remoteExec ["setSkill",_injurer];
 			};
+			*/
 		[-1,1,getPos _unit] remoteExec ["A3A_fnc_citySupportChange",2];
 		switch (_sideX) do
 			{

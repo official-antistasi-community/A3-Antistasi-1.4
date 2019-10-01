@@ -2,10 +2,11 @@ class A3A
 {
 	class Base
 	{
+		class addActionBreachVehicle {};
 		class addHC {};
 		class addTimeForIdle {};
 		class AILoadInfo {};
-		class attackAAF {};
+		class rebelAttack {};
 		class blackout {};
 		class buildHQ {};
 		class citiesToCivPatrol {};
@@ -64,6 +65,7 @@ class A3A
 		class sellVehicle {};
 		class setMarkerAlphaForSide {};
 		class sizeMarker {};
+		class startBreachVehicle {};
 		class statistics {};
 		class stripGearFromLoadout {};
 		class teleportVehicleToBase {};
@@ -161,12 +163,15 @@ class A3A
 		class createFIAOutposts2 {};
 		class createSDKGarrisons {};
 		class createSDKgarrisonsTemp {};
-		class CSATpunish {};
+		class cycleSpawn {};
 		class FIAinitBases {};
+		class findSpawnPosition {};
+		class freeSpawnPositions {};
 		class garrisonReorg {};
 		class garrisonSize {};
 		class garrisonUpdate {};
 		class groupDespawner {};
+		class invaderPunish {};
 		class milBuildings {};
 		class minefieldAAF {};
 		class mortarPos {};
@@ -223,6 +228,33 @@ class A3A
 		class vehPlacementCancel {};
 		class vehPlacementChangeVehicle {};
 		class vehPlacementCleanup {};
+	};
+
+	class Garrison
+	{
+		class addGarrison {};
+		class addRequested {};
+		class checkGroupType {};
+		class checkVehicleType {};
+		class countGarrison {};
+		class createGarrison {};
+		class createGarrisonLine {};
+		class getGarrison {};
+		class getGarrisonRatio {};
+		class getGarrisonStatus {};
+		class getRequested {};
+		class getVehicleCrew {};
+		class initPreference {};
+		class logArray {};
+		class replenishGarrison {};
+		class selectGroupType {};
+		class selectReinfUnits {};
+		class selectVehicleType {};
+		class shouldReinforce {};
+		class updateGarrison {};
+		class updatePreference {};
+		class updateReinfState {};
+		class updateVehicles {};
 	};
 
 	class Missions
@@ -351,5 +383,7 @@ class A3A
 	class init
 	{
 		class getArrayMrks {};
+		class initSpawnPlaces {};
+		class prepareMarkerArrays {};
 	};
 };

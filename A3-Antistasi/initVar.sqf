@@ -7,7 +7,7 @@ antistasiVersion = localize "STR_antistasi_credits_generic_version_text";
 // INITIAL SETTING AND VARIABLES ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Initial Variables",servertime];
-debug = false;													//debug variable, not useful for everything..
+debug = false;													//debug variable, useful for something..
 diagOn = false;												//Turn on Diag_log messaging (unused - PBP)
 cleantime = 3600;												//time to delete dead bodies, vehicles etc..
 distanceSPWN = 1000;											//initial spawn distance. Less than 1Km makes parked vehicles spawn in your nose while you approach.
@@ -226,26 +226,26 @@ if (!hasIFA) then
 		if (!activeUSAF) then
 			{
 			//Vanilla DEFENDER Template
-			call compile preProcessFileLineNumbers "Templates\OccupantsVanilla.sqf";
+			call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf";
 			}
 			else
 			{
 				if (has3CB) then
 					{
 					//3CB DEFENDER Template
-					call compile preProcessFileLineNumbers "Templates\Occupants3CBBAF.sqf";
+					call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf";
 					}
 					else
 					{
 						if (teamPlayer == independent) then
 							{
 							//RHS-USAF DEFENDER Template
-							call compile preProcessFileLineNumbers "Templates\OccupantsRHSUSAF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf";
 							}
 							else
 							{
 							//RHS GREENFOR DEFENDER Template
-							call compile preProcessFileLineNumbers "Templates\OccupantsRHSGREF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf";
 							};
 					};
 			};
@@ -254,19 +254,19 @@ if (!hasIFA) then
 		if (!activeAFRF) then
 			{
 			//Vanilla INVADER Template
-			call compile preProcessFileLineNumbers "Templates\InvadersVanilla.sqf";
+			call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";
 			}
 			else
 			{
 				if (has3CB) then
 					{
 					//3CB INVADER Template
-					call compile preProcessFileLineNumbers "Templates\Invaders3CBTKM.sqf";
+					call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf";
 					}
 					else
 					{
 					//RHS INVADER Template
-					call compile preProcessFileLineNumbers "Templates\InvadersRHSAFRF.sqf";
+					call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf";
 					};
 			};
 		//NON-IFA REBEL Templates
@@ -274,26 +274,26 @@ if (!hasIFA) then
 		if (!activeGREF) then
 			{
 			//Vanilla REBEL Template
-			call compile preProcessFileLineNumbers "Templates\teamPlayerVanilla.sqf";
+			call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf";
 			}
 			else
 			{
 				if (has3CB) then
 					{
 					//3CB REBEL Template
-					call compile preProcessFileLineNumbers "Templates\teamPlayer3CBCCM.sqf";
+					call compile preProcessFileLineNumbers "Templates\3CB_Reb_CCM_Arid.sqf";
 					}
 					else
 					{
 						if (teamPlayer == independent) then
 							{
 							//RHS REBEL Template
-							call compile preProcessFileLineNumbers "Templates\teamPlayerRHSGREF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf";
 							}
 							else
 							{
 							//RHS BLUFOR REBEL Template
-							call compile preProcessFileLineNumbers "Templates\teamPlayerRHSUSAF.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf";
 							};
 					};
 			};
@@ -302,9 +302,9 @@ if (!hasIFA) then
 	{
 	//IFA templates
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Reading IFA Templates",servertime];
-	call compile preProcessFileLineNumbers "Templates\teamPlayerIFA.sqf";
-	call compile preProcessFileLineNumbers "Templates\InvadersIFA.sqf";
-	call compile preProcessFileLineNumbers "Templates\OccupantsIFA.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Reb_POL_Temp.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 	};
 
 //////////////////////////////////////
@@ -716,6 +716,7 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Loot Mines Lists",
 minesAAF =
 	[
 	"SLAMDirectionalMine_Wire_Mag",
+	"DemoCharge_Remote_Mag",
 	"SatchelCharge_Remote_Mag",
 	"ClaymoreDirectionalMine_Remote_Mag",
 	"ATMine_Range_Mag","APERSTripMine_Wire_Mag",
@@ -727,11 +728,18 @@ if (hasRHS and !hasIFA) then
 	{
 	//RHS MINE LOOT
 	minesAAF =
-		["rhsusf_m112_mag",
+		[
+		"rhsusf_m112_mag",
 		"rhsusf_mine_m14_mag",
 		"rhs_mine_M19_mag",
 		"rhs_mine_tm62m_mag",
-		"rhs_mine_pmn2_mag"
+		"rhs_mine_pmn2_mag",
+
+		//These are needed for breaching vehicles
+		"rhs_ec200_mag",
+		"rhs_ec200_sand_mag",
+		"rhs_ec400_mag",
+		"rhs_ec400_sand_mag"
 		];
 	}
 	else
@@ -742,10 +750,29 @@ if (hasRHS and !hasIFA) then
 			minesAAF =
 				["LIB_PMD6_MINE_mag",
 				"LIB_TM44_MINE_mag",
-				"LIB_US_TNT_4pound_mag"
+				"LIB_US_TNT_4pound_mag",
+				//Add these for vehicle breaching
+				"LIB_Ladung_Small_MINE_mag",
+				"LIB_Ladung_Big_MINE_mag"
 				];
 			};
 		};
+
+breachExplosiveSmall = ["DemoCharge_Remote_Mag"];
+breachExplosiveLarge = ["SatchelCharge_Remote_Mag"];
+if(hasRHS && !hasIFA) then
+{
+	breachExplosiveSmall = ["rhs_ec200_mag", "rhs_ec200_sand_mag"];
+	breachExplosiveLarge = ["rhs_ec400_mag", "rhs_ec400_sand_mag", "rhsusf_m112_mag"];
+}
+else
+{
+	if(hasIFA) then
+	{
+		breachExplosiveSmall = ["LIB_Ladung_Small_MINE_mag"];
+		breachExplosiveLarge = ["LIB_Ladung_Big_MINE_mag"];
+	};
+};
 
 ////////////////////////////////////
 //   REBEL FACTION LAUNCHERS     ///
@@ -779,6 +806,7 @@ unlockedItems append
 	"ItemWatch",
 	"ItemCompass",
 	"ToolKit",
+	"ItemGPS",
 	"H_Booniehat_khk",
 	"H_Booniehat_oli",
 	"H_Booniehat_grn",
@@ -812,8 +840,7 @@ unlockedItems append
 	"G_Tactical_Black",
 	"G_Aviator",
 	"G_Shades_Black",
-	"acc_flashlight",
-	"itemGPS"
+	"acc_flashlight"
 	];
 
 //Temporary starting vests fix while I class items properly
@@ -1097,7 +1124,7 @@ server setVariable [vehSDKTruck,300,true];											//300
 diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Server Only Variables.",servertime];
 server setVariable ["hr",8,true];														//initial HR value
 server setVariable ["resourcesFIA",1000,true];											//Initial FIA money pool value
-skillFIA = 0;																		//Initial skill level for FIA soldiers
+skillFIA = 1;																		//Initial skill level for FIA soldiers
 prestigeNATO = 5;																	//Initial Prestige NATO
 prestigeCSAT = 5;																	//Initial Prestige CSAT
 prestigeOPFOR = [75, 50] select cadetMode;																	//Initial % support for NATO on each city
@@ -1111,6 +1138,7 @@ revealX = false;
 prestigeIsChanging = false;
 napalmCurrent = false;
 tierWar = 1;
+
 haveNV = false;
 zoneCheckInProgress = false;
 garrisonIsChanging = false;
@@ -1123,6 +1151,24 @@ vehInGarage = [];
 destroyedBuildings = [];
 reportedVehs = [];
 playerHasBeenPvP = [];
+
+//Reinforcement logic
+reinforceMarkerOccupants = [];
+reinforceMarkerInvader = [];
+canReinforceOccupants = [];
+canReinforceInvader = [];
+
+//Garrison logic
+tierPreference = 1;
+cityUpdateTiers = [4, 8];
+cityStaticsTiers = [0.2, 1];
+airportUpdateTiers = [3, 6, 8];
+airportStaticsTiers = [0.5, 0.75, 1];
+outpostUpdateTiers = [4, 7, 9];
+outpostStaticsTiers = [0.4, 0.7, 1];
+otherUpdateTiers = [3, 7];
+otherStaticsTiers = [0.3, 1];
+[] call A3A_fnc_initPreference;
 
 ////////////////////////////////////
 // DECLARE VARIBALES FOR CLIENTS ///

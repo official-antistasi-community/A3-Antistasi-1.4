@@ -1,5 +1,3 @@
-//Call to FFAA Template
-if ((gameMode != 4) and (hasFFAA)) then	{call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -18,7 +16,7 @@ NATOFlag = "Flag_UK_F";
 NATOFlagTexture = "\A3\Data_F\Flags\Flag_UK.paa";
 flagNATOmrk = "flag_UK";
 if (isServer) then {"NATO_carrier" setMarkerText "HMS Ark Royal"};
-	
+
 //Loot Crate
 NATOAmmobox = "B_supplyCrate_F";
 

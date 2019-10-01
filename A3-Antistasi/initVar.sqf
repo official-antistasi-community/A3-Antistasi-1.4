@@ -140,7 +140,7 @@ laserBatteries = [];
 
 lootSignalMag = [];
 lootMagazine = [];
-lootLauncherMag = [];
+lootGrenades = [];
 
 lootPointer = [];
 lootOptic = [];

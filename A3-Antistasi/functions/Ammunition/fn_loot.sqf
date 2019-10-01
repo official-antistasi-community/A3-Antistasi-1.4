@@ -49,12 +49,17 @@ lootNVG append allNVG;
 /////////////////////////////
 //   Smoke, Chem, Flare   ///
 /////////////////////////////
-lootSignalMag append allMagSmokeShell + allMagFlare;
+lootSignalMag append allMagSmokeShell + allMagFlare + laserBatteries;
 
 ////////////////////
 //   Magazines   ///
 ////////////////////
-lootMagazine append allMagBullet + allMagGrenade + allMagShell + allMagShotgun + allMagMissile + allMagRocket;
+lootMagazine append allMagBullet + allMagShotgun + allMagMissile + allMagRocket;
+
+////////////////////
+//    Grenades   ///
+////////////////////
+lootGrenades append allMagGrenade + allMagShell + irGrenade;
 
 ////////////////////////////////////
 //   DEFENDER WEAPONS AND AMMO   ///

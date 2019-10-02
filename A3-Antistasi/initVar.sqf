@@ -462,6 +462,16 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Filtering Loot Lists",serve
 [] call A3A_fnc_filter;
 
 ////////////////////////////////////
+//      REBEL STARTING ITEMS     ///
+////////////////////////////////////
+unlockedItems append lootBasicItem;
+unlockedItems append rebelUniform;
+unlockedItems append civilianUniform;
+unlockedItems append civilianHeadgear;
+unlockedItems append civilianVest;
+unlockedItems append civilianGlasses;
+
+////////////////////////////////////
 //      ACE ITEMS LIST           ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating ACE Items List",servertime];

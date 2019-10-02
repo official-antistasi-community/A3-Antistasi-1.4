@@ -49,13 +49,3 @@ lootExplosive deleteAt (lootExplosive find "IEDUrbanBig_Remote_Mag");
 //   Backpacks  ///
 ///////////////////
 lootBackpack append allBackpackEmpty;
-
-////////////////////////////////////
-//      REBEL STARTING ITEMS     ///
-////////////////////////////////////
-unlockedItems append lootBasicItem;
-unlockedItems append rebelUniform;
-unlockedItems append civilianUniform;
-unlockedItems append civilianHeadgear;
-unlockedItems append civilianVest;
-unlockedItems append civilianGlasses;

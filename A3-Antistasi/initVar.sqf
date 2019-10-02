@@ -458,6 +458,8 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Identifying Objects for Mis
 [] call A3A_fnc_itemSort;
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Loot Lists",servertime];
 [] call A3A_fnc_loot;
+diag_log format ["%1: [Antistasi] | INFO | initVar | Filtering Loot Lists",servertime];
+[] call A3A_fnc_filter;
 
 ////////////////////////////////////
 //      ACE ITEMS LIST           ///

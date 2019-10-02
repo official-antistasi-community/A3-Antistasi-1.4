@@ -295,6 +295,7 @@ class A3A
 		class dress {};
 		class empty {};
 		class equipmentSort {};
+		class filter {};
 		class getRadio {};
 		class itemSort {};
 		class loot {};

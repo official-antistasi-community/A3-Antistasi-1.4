@@ -53,35 +53,47 @@ switch (true) do
      case (isclass (configfile >> "cfgWeapons" >> _x)):
           {
           _DLC = getText (configFile >> "cfgWeapons" >> _x >> "DLC");
-          diag_log format ["%1: [Antistasi] | INFO | Filter | Detected DLC flag: %2",servertime,_DLC];
-          if !(_DLC in _allowedDLC) then
+          if !(isNil _DLC) then
                {
-               _badItem pushBack _x;
-               diag_log format ["%1: [Antistasi] | INFO | Filter | Adding %2 to removal list.",servertime,_x];
+               diag_log format ["%1: [Antistasi] | INFO | Filter | Detected DLC flag: %2",servertime,_DLC];
+               if !(_DLC in _allowedDLC) then
+                    {
+                    _badItem pushBack _x;
+                    diag_log format ["%1: [Antistasi] | INFO | Filter | Adding %2 to removal list.",servertime,_x];
+                    };
                };
           };
      case (isclass (configfile >> "cfgMagazines" >> _x)):
           {
           _DLC = getText (configFile >> "cfgMagazines" >> _x >> "DLC");
-          if !(_DLC in _allowedDLC) then
+          if !(isNil _DLC) then
                {
-               _badItem pushBack _x;
+               if !(_DLC in _allowedDLC) then
+                    {
+                    _badItem pushBack _x;
+                    };
                };
           };
      case (isclass (configfile >> "cfgVehicles" >> _x)):
           {
           _DLC = getText (configFile >> "cfgVehicles" >> _x >> "DLC");
-          if !(_DLC in _allowedDLC) then
+          if !(isNil _DLC) then
                {
-               _badItem pushBack _x;
+               if !(_DLC in _allowedDLC) then
+                    {
+                    _badItem pushBack _x;
+                    };
                };
           };
      case (isclass (configfile >> "cfgGlasses" >> _x)):
           {
           _DLC = getText (configFile >> "cfgGlasses" >> _x >> "DLC");
-          if !(_DLC in _allowedDLC) then
+          if !(isNil _DLC) then
                {
-               _badItem pushBack _x;
+               if !(_DLC in _allowedDLC) then
+                    {
+                    _badItem pushBack _x;
+                    };
                };
           };
      };

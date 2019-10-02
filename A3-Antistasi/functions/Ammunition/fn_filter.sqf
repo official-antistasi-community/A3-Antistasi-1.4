@@ -53,7 +53,7 @@ switch (true) do
      case (isClass (configfile >> "cfgWeapons" >> _x)):
           {
           diag_log format ["%1: [Antistasi] | INFO | Filter | Checking if %2 is DLC Content",servertime,_x];
-          if (isClass (configfile >> "cfgWeapons" >> _x >> "DLC")) then
+          if (isText (configfile >> "cfgWeapons" >> _x >> "DLC")) then
                {
                _DLC = getText (configfile >> "cfgWeapons" >> _x >> "DLC");
                diag_log format ["%1: [Antistasi] | INFO | Filter | Detected DLC flag: %2",servertime,_DLC];
@@ -66,7 +66,7 @@ switch (true) do
           };
      case (isClass (configfile >> "cfgMagazines" >> _x)):
           {
-          if (isClass (configfile >> "cfgMagazines" >> _x >> "DLC")) then
+          if (isText (configfile >> "cfgMagazines" >> _x >> "DLC")) then
                {
                _DLC = getText (configfile >> "cfgMagazines" >> _x >> "DLC");
                if !(_DLC in _allowedDLC) then
@@ -77,7 +77,7 @@ switch (true) do
           };
      case (isClass (configfile >> "cfgVehicles" >> _x)):
           {
-          if (isClass (configfile >> "cfgVehicles" >> _x >> "DLC")) then
+          if (isText (configfile >> "cfgVehicles" >> _x >> "DLC")) then
                {
                _DLC = getText (configfile >> "cfgVehicles" >> _x >> "DLC");
                if !(_DLC in _allowedDLC) then
@@ -88,7 +88,7 @@ switch (true) do
           };
      case (isClass (configfile >> "cfgGlasses" >> _x)):
           {
-          if (isClass (configfile >> "cfgGlasses" >> _x >> "DLC")) then
+          if (isText (configfile >> "cfgGlasses" >> _x >> "DLC")) then
                {
                _DLC = getText (configfile >> "cfgGlasses" >> _x >> "DLC");
                if !(_DLC in _allowedDLC) then
@@ -99,6 +99,7 @@ switch (true) do
           };
      };
 } forEach eastStaticWeapon + westStaticWeapon + independentStaticWeapon + attachmentLight + attachmentLaser + chemLight + smokeGrenade + uglSmokeGrenade + uglFlareMag + handFlare + irGrenade + lootNVG + LootItem + LootWeapon + LootAttachment + LootGrenade + lootMagazine + lootExplosive + lootBackpack + rebelUniform + civilianVest + civilianUniform + civilianGlasses + civilianHeadgear;
+diag_log format ["%1: [Antistasi] | INFO | Filter | Items flagged for Removal: %2",servertime,(count _badItem)];
 
 eastStaticWeapon = eastStaticWeapon - _badItem;
 westStaticWeapon = westStaticWeapon - _badItem;

@@ -50,11 +50,12 @@ diag_log format ["%1: [Antistasi] | INFO | Filter | Allowed DLC: %2",servertime,
 {
 switch (true) do
      {
-     case (isclass (configfile >> "cfgWeapons" >> _x)):
+     case (isClass (configfile >> "cfgWeapons" >> _x)):
           {
-          _DLC = getText (configFile >> "cfgWeapons" >> _x >> "DLC");
-          if !(isNil _DLC) then
+          diag_log format ["%1: [Antistasi] | INFO | Filter | Checking if %2 is DLC Content",servertime,_x];
+          if (isClass (configfile >> "cfgWeapons" >> _x >> "DLC")) then
                {
+               _DLC = getText (configfile >> "cfgWeapons" >> _x >> "DLC");
                diag_log format ["%1: [Antistasi] | INFO | Filter | Detected DLC flag: %2",servertime,_DLC];
                if !(_DLC in _allowedDLC) then
                     {
@@ -63,33 +64,33 @@ switch (true) do
                     };
                };
           };
-     case (isclass (configfile >> "cfgMagazines" >> _x)):
+     case (isClass (configfile >> "cfgMagazines" >> _x)):
           {
-          _DLC = getText (configFile >> "cfgMagazines" >> _x >> "DLC");
-          if !(isNil _DLC) then
+          if (isClass (configfile >> "cfgMagazines" >> _x >> "DLC")) then
                {
+               _DLC = getText (configfile >> "cfgMagazines" >> _x >> "DLC");
                if !(_DLC in _allowedDLC) then
                     {
                     _badItem pushBack _x;
                     };
                };
           };
-     case (isclass (configfile >> "cfgVehicles" >> _x)):
+     case (isClass (configfile >> "cfgVehicles" >> _x)):
           {
-          _DLC = getText (configFile >> "cfgVehicles" >> _x >> "DLC");
-          if !(isNil _DLC) then
+          if (isClass (configfile >> "cfgVehicles" >> _x >> "DLC")) then
                {
+               _DLC = getText (configfile >> "cfgVehicles" >> _x >> "DLC");
                if !(_DLC in _allowedDLC) then
                     {
                     _badItem pushBack _x;
                     };
                };
           };
-     case (isclass (configfile >> "cfgGlasses" >> _x)):
+     case (isClass (configfile >> "cfgGlasses" >> _x)):
           {
-          _DLC = getText (configFile >> "cfgGlasses" >> _x >> "DLC");
-          if !(isNil _DLC) then
+          if (isClass (configfile >> "cfgGlasses" >> _x >> "DLC")) then
                {
+               _DLC = getText (configfile >> "cfgGlasses" >> _x >> "DLC");
                if !(_DLC in _allowedDLC) then
                     {
                     _badItem pushBack _x;

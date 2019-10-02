@@ -38,37 +38,12 @@ lootMagazine append allMagBullet + allMagShotgun + allMagMissile + allMagRocket 
 ///////////////////
 lootExplosive append allMine + allMineDirectional + allMineBounding;
 
-lootExplosive deleteAt (lootExplosive find "DemoCharge_Remote_Mag");
 lootExplosive deleteAt (lootExplosive find "APERSMineDispenser_Mag");
 lootExplosive deleteAt (lootExplosive find "TrainingMine_Mag");
 lootExplosive deleteAt (lootExplosive find "IEDLandSmall_Remote_Mag");
 lootExplosive deleteAt (lootExplosive find "IEDUrbanSmall_Remote_Mag");
 lootExplosive deleteAt (lootExplosive find "IEDLandBig_Remote_Mag");
 lootExplosive deleteAt (lootExplosive find "IEDUrbanBig_Remote_Mag");
-
-/*if (hasRHS and !hasIFA) then
-	{
-	minesAAF =
-		[
-		"rhsusf_m112_mag",
-		"rhsusf_mine_m14_mag",
-		"rhs_mine_M19_mag",
-		"rhs_mine_tm62m_mag",
-		"rhs_mine_pmn2_mag"
-		];
-	}
-	else
-		{
-		if (hasIFA) then
-			{
-			minesAAF =
-				[
-				"LIB_PMD6_MINE_mag",
-				"LIB_TM44_MINE_mag",
-				"LIB_US_TNT_4pound_mag"
-				];
-			};
-		};*/
 
 ///////////////////
 //   Backpacks  ///

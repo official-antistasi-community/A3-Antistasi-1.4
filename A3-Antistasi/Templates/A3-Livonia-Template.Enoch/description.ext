@@ -211,6 +211,76 @@ class Params
          texts[] =  {"Yes","No"};
          default = 1;
     };
+    class Spacer10
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class Kart
+    {
+         title = "Allow Items and Vehicles from Karts DLC?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
+    class Mark
+    {
+         title = "Allow Items and Vehicles from Marksman DLC?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
+    class Heli
+    {
+         title = "Allow Items and Vehicles from Heli DLC?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
+    class Expansion
+    {
+         title = "Allow Items and Vehicles from Apex DLC?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
+    class Jets
+    {
+         title = "Allow Items and Vehicles from Jets DLC?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
+    class Orange
+    {
+         title = "Allow Items and Vehicles from Laws of War DLC?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
+    class Tanks
+    {
+         title = "Allow Items and Vehicles from Tanks DLC?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
+    class GlobMob
+    {
+         title = "Allow Items and Vehicles from GlobMob DLC?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
+    class Enoch
+    {
+         title = "Allow Items and Vehicles from Enoch DLC?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
     class Spacer0
     {
         title = "";

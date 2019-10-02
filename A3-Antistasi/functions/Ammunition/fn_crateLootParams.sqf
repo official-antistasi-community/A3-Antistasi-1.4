@@ -5,8 +5,6 @@
 
 //do weapons automatically unlock primary magazine when unlocked?
 unlockedUnlimitedAmmo = "unlockedUnlimitedAmmo" call BIS_fnc_getParamValue; publicVariable "unlockedUnlimitedAmmo";
-//can guided missilie launchers unlock?
-unlockableMissileLaunchers = "unlockableMissileLaunchers" call BIS_fnc_getParamValue; publicVariable "unlockableMissileLaunchers";
 
 //weapons
 crateWepTypeMin = "crateWepTypeMin" call BIS_fnc_getParamValue; publicVariable "crateWepTypeMin";

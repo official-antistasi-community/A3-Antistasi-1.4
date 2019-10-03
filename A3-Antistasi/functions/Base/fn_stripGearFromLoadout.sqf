@@ -18,7 +18,7 @@ private _newLoadout = [
 private _oldSpecialItems = _originalLoadout select 9;
 private _newSpecialItems = _newLoadout select 9;
 
-//If Map/GPS/Compass/Watch is unlocked, keep it.
+//If Map/GPS/Radio/Compass/Watch is unlocked, keep it.
 {
 	if ((_oldSpecialItems select _x) in unlockedItems) then {
 		_newSpecialItems set [_x, (_oldSpecialItems select _x)];

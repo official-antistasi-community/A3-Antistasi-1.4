@@ -71,11 +71,8 @@ if (hasACEMedical) then {
 	};
 };
 
-//ACE items when IFA isnt detected
-weaponsNato append ["ACE_VMH3","ACE_VMM3"];
-weaponsCSAT append ["ACE_VMH3","ACE_VMM3"];
-itemsAAF append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield"];
-//remove vanilla mine detector
-itemsAAF = itemsAAF - ["MineDetector"];
-weaponsCSAT = weaponsCSAT - ["MineDetector"];
-weaponsNato = weaponsNato - ["MineDetector"];
+lootItem append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield","ACE_VMH3","ACE_VMM3"];
+
+lootItem = lootItem - ["MineDetector"];
+
+attachmentLight = attachmentLight - ["ACE_acc_pointer_green"];

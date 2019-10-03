@@ -119,8 +119,12 @@ while {_changeX == ""} do
 			}
 		else
 			{
-			if ((primaryWeapon _player == "ACE_FakePrimaryWeapon") and (((side cursorTarget != "CIV") || !(captive cursorTarget)) && !((side cursorTarget != "CIV") && !(captive cursorTarget))))) then {
-				_changeX = "BadMedic";
+			if (primaryWeapon _player == "ACE_FakePrimaryWeapon") then {
+				if (side cursorTarget != "CIV") then {
+					if (!(captive cursorTarget)) then {
+						_changeX = "BadMedic";
+					};
+				};
 			};
 			if (((primaryWeapon _player != "") and (primaryWeapon _player != "ACE_FakePrimaryWeapon")) or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or (vest _player != "") or (getNumber (configfile >> "CfgWeapons" >> headgear _player >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2) or (hmd _player != "") or (not(uniform _player in civUniforms))) then
 				{

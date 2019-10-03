@@ -46,7 +46,7 @@ aceAdvMedItems = [
 	"ACE_adenosine",
 	"ACE_atropine"
 ]
-+ ([["ACE_PersonalAidKit"], ["adv_aceCPR_AED"]] select hasADVCPR)
++ ([["ACE_personalAidKit"], ["adv_aceCPR_AED"]] select hasADVCPR)
 + ([[], ["adv_aceSplint_splint"]] select hasADVSplint);
 
 publicVariable "aceItems";

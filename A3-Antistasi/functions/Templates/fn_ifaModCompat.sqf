@@ -9,5 +9,5 @@ armoredHeadgear = [];				//Clears all Helmets
 
 if (hasIFA) then
 	{
-	itemsAAF append ["ACE_LIB_LadungPM","ACE_SpareBarrel"];
+	lootItem append ["ACE_LIB_LadungPM","ACE_SpareBarrel"];
 	};

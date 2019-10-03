@@ -68,10 +68,6 @@ waitUntil {(count playableUnits) > 0};
 waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
 [] spawn A3A_fnc_modBlacklist;
 
-{
-private _index = _x call jn_fnc_arsenal_itemType;
-[_index,_x,-1] call jn_fnc_arsenal_addItem;
-}foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
 call A3A_fnc_initGarrisons;
 if (loadLastSave) then
     {
@@ -144,6 +140,7 @@ else
     };
 
 diag_log format ["%1: [Antistasi] | INFO | Accepting Players.",servertime];
+
 {
 private _index = _x call jn_fnc_arsenal_itemType;
 [_index,_x,-1] call jn_fnc_arsenal_addItem;

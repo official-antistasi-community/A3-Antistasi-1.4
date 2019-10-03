@@ -3,13 +3,13 @@ private ["_unit","_enemiesX"];
 _unit = _this select 0;
 
 _unit setSkill 0;
-
+_unit forceAddUniform (selectRandom civilianUniform);
 _unit disableAI "TARGET";
 _unit disableAI "AUTOTARGET";
 //Stops civilians from shouting out commands.
 [_unit, "NoVoice"] remoteExec ["setSpeaker", 0, _unit];
 
-_unit addEventHandler 
+_unit addEventHandler
 [
 	"HandleDamage",
 	{
@@ -17,7 +17,7 @@ _unit addEventHandler
 		_dam = _this select 2;
 		_proy = _this select 4;
 		_injurer = _this select 3;
-		if(!isNil "_injurer" && isPlayer _injurer) then 
+		if(!isNil "_injurer" && isPlayer _injurer) then
 		{
 			_unit setVariable ["injuredByPlayer", _injurer, true];
 			_unit setVariable ["lastInjuredByPlayer", time, true];
@@ -29,17 +29,17 @@ _unit addEventHandler
 		_dam
 	}
 ];
-_EHkilledIdx = _unit addEventHandler 
+_EHkilledIdx = _unit addEventHandler
 [
 	"killed",
 	{
 		_victim = _this select 0;
 		_killer = _this select 1;
-		if (time - (_victim getVariable ["lastInjuredByPlayer", 0]) < 120) then 
+		if (time - (_victim getVariable ["lastInjuredByPlayer", 0]) < 120) then
 		{
 			_killer = _victim getVariable ["injuredByPlayer", _killer];
 		};
-		if (isNull _killer) then 
+		if (isNull _killer) then
 		{
 			_killer	= _victim;
 		};
@@ -53,7 +53,6 @@ _EHkilledIdx = _unit addEventHandler
 			{
 				if (typeOf _victim == "C_man_w_worker_F") then {_killer addRating 1000};
 				[-10,_killer] call A3A_fnc_playerScoreAdd;
-				//[_killer,20,0.34] remoteExec ["A3A_fnc_punishment",_killer];
 			};
 			_multiplier = 1;
 			if (typeOf _victim == "C_journalist_F") then {_multiplier = 10};

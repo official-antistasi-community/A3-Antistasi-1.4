@@ -9,7 +9,6 @@ _mrk setMarkerAlphaLocal 0;
 private _groupX = grpNull;
 private _reset = true;
 private _civs = [];
-
 while {true} do
 	{
 	if (player distance getMarkerPos _mrk > 300) then
@@ -53,11 +52,13 @@ while {true} do
 						if (count units _groupX > 2) then {_groupX = createGroup civilian};
 						};
 					_posHouse = selectRandom (_houseX buildingPos -1);
-					_civ = _groupX createUnit [selectRandom arrayCivs, _posHouse, [],0, "NONE"];
+					_unit = selectRandom arrayCivs;
+					_civ = _groupX createUnit [_unit, _posHouse, [],0, "NONE"];
 					_civ setPosATL _posHouse;
 					[_civ] spawn A3A_fnc_CIVinit;
 					_civs pushBack _civ;
 					if (_civ == leader _civ) then {_nul = [_civ, "ambientCiv", "SAFE", "SPAWNED","NOFOLLOW", "NOVEH2","NOSHARE","DoRelax"] execVM "scripts\UPSMON.sqf"};
+					//TODO delete UPSMON
 					};
 				};
 			};

@@ -337,7 +337,7 @@ if (hmd _unit == "") then
 		};
 	};
 _hasBox = false;
-if (not(headgear _unit in helmets)) then
+if (not(headgear _unit in armoredHeadgear)) then
 	{
 	_needsRearm = true;
 	_hasBox = false;
@@ -345,7 +345,7 @@ if (not(headgear _unit in helmets)) then
 	_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
 	{
 	_victim = _x;
-	if (((headgear _victim) in helmets) and (_unit distance _victim < _distanceX)) then
+	if (((headgear _victim) in armoredHeadgear) and (_unit distance _victim < _distanceX)) then
 		{
 		_target = _victim;
 		_hasBox = true;

@@ -8,7 +8,7 @@ _sideX = side _unit;
 //_unit setVariable ["sideX",_sideX];
 _unit addEventHandler ["HandleDamage",A3A_fnc_handleDamageAAF];
 
-_unit addEventHandler ["killed",A3A_fnc_AAFKilledEH];
+_unit addEventHandler ["killed",A3A_fnc_occupantInvaderUnitKilledEH];
 if (count _this > 1) then
 	{
 	_markerX = _this select 1;
@@ -54,7 +54,8 @@ else
 		};
 	};
 
-_skill = (tierWar + difficultyCoef) * 0.1 * skillMult;
+_skill = (0.15 + (0.02 * difficultyCoef) + (0.01 * tierWar)) * skillMult;
+/* PBP - removed for my new difficulty math
 if ((faction _unit != factionGEN) and (faction _unit != factionFIA)) then
 	{
 	if (side _unit == Occupants) then
@@ -95,16 +96,20 @@ else
 	};
 
 if (_skill > 0.58) then {_skill = 0.58};
+*/
+
 _unit setSkill _skill;
+/* PBP - prevented non-sniper aim nerf
 if (not(_typeX in sniperUnits)) then
 	{
 	if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]};
+	*/
 	if (_typeX in squadLeaders) then
 		{
 		_unit setskill ["courage",_skill + 0.2];
 		_unit setskill ["commanding",_skill + 0.2];
 		};
-	};
+	//};
 
 _hmd = hmd _unit;
 if !(hasIFA) then
@@ -128,7 +133,7 @@ if !(hasIFA) then
 			}
 		else
 			{
-			_arr = (NVGoggles arrayIntersect (items _unit));
+			_arr = (allNVG arrayIntersect (items _unit));
 			if (!(_arr isEqualTo []) or (_hmd != "")) then
 				{
 				if ((random 5 > tierWar) and (!haveNV) and (_unit != leader (group _unit))) then
@@ -154,7 +159,7 @@ if !(hasIFA) then
 		_weaponItems = primaryWeaponItems _unit;
 		if (_hmd != "") then
 			{
-			if (_weaponItems findIf {_x in pointers} != -1) then
+			if (_weaponItems findIf {_x in attachmentLaser} != -1) then
 				{
 				_unit action ["IRLaserOn", _unit];
 				_unit enableIRLasers true;
@@ -162,16 +167,16 @@ if !(hasIFA) then
 			}
 		else
 			{
-			_pointers = _weaponItems arrayIntersect pointers;
+			_pointers = _weaponItems arrayIntersect attachmentLaser;
 			if !(_pointers isEqualTo []) then
 				{
 				_unit removePrimaryWeaponItem (_pointers select 0);
 				};
 			_lamp = "";
-			_lamps = _weaponItems arrayIntersect flashlights;
+			_lamps = _weaponItems arrayIntersect attachmentLight;
 			if (_lamps isEqualTo []) then
 				{
-				_compatibleLamps = ((primaryWeapon _unit) call BIS_fnc_compatibleItems) arrayIntersect flashlights;
+				_compatibleLamps = ((primaryWeapon _unit) call BIS_fnc_compatibleItems) arrayIntersect attachmentLight;
 				if !(_compatibleLamps isEqualTo []) then
 					{
 					_lamp = selectRandom _compatibleLamps;
@@ -186,9 +191,10 @@ if !(hasIFA) then
 			if (_lamp != "") then
 				{
 				_unit enableGunLights "AUTO";
-				_unit setskill ["spotDistance",_skill - 0.2];
-				_unit setskill ["spotTime",_skill - 0.2];
 				};
+			//Reduce their magical night-time spotting powers.
+			_unit setskill ["spotDistance", _skill * 0.7];
+			_unit setskill ["spotTime", _skill * 0.5];
 			};
 		}
 	else
@@ -206,7 +212,7 @@ if !(hasIFA) then
 			}
 		else
 			{
-			_arr = (NVGoggles arrayIntersect (items _unit));
+			_arr = (allNVG arrayIntersect (items _unit));
 			if (count _arr > 0) then
 				{
 				_hmd = _arr select 0;

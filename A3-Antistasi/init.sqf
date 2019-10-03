@@ -14,7 +14,7 @@ if (!isMultiPlayer) then
     memberOnlyMagLimit = 0;
     switchCom = false;
     tkPunish = false;
-    skillMult = 1;
+    skillMult = 2;
     minWeaps = 24;
     civTraffic = 1;
     limitedFT = false;
@@ -55,7 +55,7 @@ if (!isMultiPlayer) then
     hcArray = [];
     serverInitDone = true;
     diag_log format ["%1: [Antistasi] | INFO | Arsenal Loaded.",servertime];
-    _nul = [] execVM "modBlacklist.sqf";
+    [] spawn A3A_fnc_modBlacklist;
 
     distanceMission = if (hasIFA) then {2000} else {4000};
 
@@ -66,7 +66,7 @@ if (!isMultiPlayer) then
     [] spawn A3A_fnc_boxAAF;
     waitUntil {sleep 1;!(isNil "placementDone")};
     distanceXs = [] spawn A3A_fnc_distance;
-    resourcecheck = [] execVM "resourcecheck.sqf";
+    [] spawn A3A_fnc_resourcecheck;
     [] execVM "Scripts\fn_advancedTowingInit.sqf";
     addMissionEventHandler ["BuildingChanged",
         {

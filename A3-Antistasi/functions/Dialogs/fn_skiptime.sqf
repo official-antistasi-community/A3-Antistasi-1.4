@@ -8,7 +8,8 @@ if ((side _x == Occupants) or (side _x == Invaders)) then
 	};
 } forEach allUnits;
 if (_presente) exitWith {hint "You cannot rest while enemies are near our units"};
-if (["AttackAAF"] call BIS_fnc_taskExists) exitWith {hint "You cannot rest while the enemy is counterattacking"};
+if (["rebelAttack"] call BIS_fnc_taskExists) exitWith {hint "You cannot rest while the enemy is counterattacking"};
+if (["invaderPunish"] call BIS_fnc_taskExists) exitWith {hint "You cannot rest while citizens are under attack"};
 if (["DEF_HQ"] call BIS_fnc_taskExists) exitWith {hint "You cannot rest while your HQ is under attack"};
 
 _checkX = false;

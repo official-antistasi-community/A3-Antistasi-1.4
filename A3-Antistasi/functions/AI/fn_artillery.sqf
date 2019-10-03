@@ -1,22 +1,22 @@
 if (!isServer and hasInterface) exitWith{};
 
-private ["_mrkOrigin","_pos","_sideX","_countX","_mrkDestination","_veh","_posOrigin","_sidesOccupants","_posDestination","_typeVehX","_typeAmmunition","_size","_vehicle","_vehCrew","_groupVeh","_roundsX","_objectiveX","_objectivesX","_timeX"];
+private ["_mrkOrigin","_pos","_attackingSide","_countX","_mrkDestination","_veh","_posOrigin","_sideTargets","_posDestination","_typeVehX","_typeAmmunition","_size","_vehicle","_vehCrew","_groupVeh","_roundsX","_objectiveX","_objectivesX","_timeX"];
 
 _mrkOrigin = _this select 0;
 _posOrigin = if (_mrkOrigin isEqualType "") then {getMarkerPos _mrkOrigin} else {_mrkOrigin};
 _mrkDestination = _this select 1;
-_sideX = _this select 2;
-_sidesOccupants = _sideX call BIS_fnc_enemySides;
+_attackingSide = _this select 2;
+_sideTargets = _attackingSide call BIS_fnc_enemySides;
 _posDestination = getMarkerPos _mrkDestination;
-_typeVehX = if (_sideX == Occupants) then {vehNATOMRLS} else {vehCSATMRLS};
+_typeVehX = if (_attackingSide == Occupants) then {vehNATOMRLS} else {vehCSATMRLS};
 
 if !([_typeVehX] call A3A_fnc_vehAvailable) exitWith {};
 
-_typeAmmunition = if (_sideX == Occupants) then {vehNATOMRLSMags} else {vehCSATMRLSMags};
+_typeAmmunition = if (_attackingSide == Occupants) then {vehNATOMRLSMags} else {vehCSATMRLSMags};
 
 _pos = [_posOrigin, 50,100, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
 
-_vehicle=[_pos, random 360,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
+_vehicle=[_pos, random 360,_typeVehX, _attackingSide] call bis_fnc_spawnvehicle;
 _veh = _vehicle select 0;
 _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
@@ -30,7 +30,7 @@ if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) selec
 		{
 		_objectiveX = objNull;
 		_roundsX = 1;
-		_objectivesX = vehicles select {(side (group driver _x) in _sidesOccupants) and (_x distance _posDestination <= _size * 2) and (_sideX knowsAbout _x >= 1.4) and (speed _x < 1)};
+		_objectivesX = vehicles select {(side (group driver _x) in _sideTargets) and (_x distance _posDestination <= _size * 2) and (_attackingSide knowsAbout _x >= 1.4) and (speed _x < 1)};
 		if (count _objectivesX > 0) then
 			{
 			{
@@ -40,7 +40,7 @@ if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) selec
 			}
 		else
 			{
-			_objectivesX = allUnits select {(side (group _x) in _sidesOccupants) and (_x distance _posDestination <= _size * 2) and (_sideX knowsAbout _x >= 1.4) and (_x == leader group _x)};
+			_objectivesX = allUnits select {(side (group _x) in _sideTargets) and (_x distance _posDestination <= _size * 2) and (_attackingSide knowsAbout _x >= 1.4) and (_x == leader group _x)};
 			if (count _objectivesX > 0) then
 				{
 				_countX = 0;
@@ -49,7 +49,7 @@ if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) selec
 				_countGroup = {(alive _x) and (!captive _x)} count units group _potential;
 				if (_countGroup > _countX) then
 					{
-					if ((_sideX == Invaders) or ({(side (group _x) == civilian) and (_x distance _potential < 50)} count allUnits == 0)) then
+					if ((_attackingSide == Invaders) or ({(side (group _x) == civilian) and (_x distance _potential < 50)} count allUnits == 0)) then
 						{
 						_objectiveX = _potential;
 						if (_countGroup > 6) then {_roundsX = 2};

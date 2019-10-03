@@ -86,9 +86,9 @@ params ["_item"];
 _return = -1;
 
 private ["_weaponType","_weaponTypeCategory"];
-/* 
-  We're gonna use ACE's item detection code, but modified. 
-  Thanks ACE! 
+/*
+  We're gonna use ACE's item detection code, but modified.
+  Thanks ACE!
 	(https://github.com/acemod/ACE3, this code was authored by Alganthe and Dedmen)
 */
 
@@ -130,13 +130,13 @@ private _itemCategory = switch true do {
 			case (_simulationType == "ItemGPS"): { "GPS" };
 			case (_itemInfoType == TYPE_UAV_TERMINAL): { "UAVTerminal" };
 			//Weapon, at the bottom to avoid adding binoculars
-			case (isClass (_weaponConfig >> "WeaponSlotsInfo") && _itemType != TYPE_BINOCULAR_AND_NVG): { 
+			case (isClass (_weaponConfig >> "WeaponSlotsInfo") && _itemType != TYPE_BINOCULAR_AND_NVG): {
 				(_item call BIS_fnc_itemType) select 1;
 			};
 			//Community Base Addon Misc Items
 			case (_itemInfoType in [TYPE_MUZZLE, TYPE_OPTICS, TYPE_FLASHLIGHT, TYPE_BIPOD] && _item isKindOf ["CBA_MiscItem", (_configCfgWeapons)]);
 			//Base game misc items
-			case (_itemType in [TYPE_FIRST_AID_KIT, TYPE_MEDIKIT, TYPE_TOOLKIT] ||	_simulationType == "ItemMineDetector"): {
+			case (_itemInfoType in [TYPE_FIRST_AID_KIT, TYPE_MEDIKIT, TYPE_TOOLKIT] ||	_simulationType == "ItemMineDetector"): {
 				"MiscItem";
 			};
 			default {
@@ -178,7 +178,7 @@ private _itemCategory = switch true do {
 				case (_item in _putList): {
 						"Placeable";
 				};
-		};	
+		};
 	};
 
 	case (isClass (configFile >> "CfgVehicles" >> _item)): {

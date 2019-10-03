@@ -1,20 +1,31 @@
 //example: _result = [distanceSPWN,0,posHQ,Invaders] call A3A_fnc_distanceUnits: devuelve un array con todas las que estén a menos de distanceSPWN
 //example: _result = [distanceSPWN,1,posHQ,teamPlayer] call A3A_fnc_distanceUnits: devuelve un boolean si hay una que esté a menos de distanceSPWN
-params ["_distanceX","_modeX","_reference","_variable"];
+/**
+	Finds units capable of spawning in a given range belonging to a target side.
 
-_distanceX = _this select 0;//la distanceX requisito, normalmente distanceSPWN)
-_modeX = _this select 1;//lo que devuelve la función, 0 un array, un número mayor un boolean cuando la countX llegue a ese número.
-_reference = _this select 2; // posición en formatX array u objectX
-_variable = _this select 3;//side
+	Params:
+		_distanceX: number - The distance to search in.
+		_modeX: 0 or 1 - Whether an array of units should be returned, or a boolean if a unit belonging to that side is in range.
+		_center: Position or Object - The center to search around.
+		_targetSide: Side - Search for units belonging to this side
+		
+	Returns:
+		Array of units found in range, or a boolean if a unit was found (depending on mode)
+**/
+
+params ["_distanceX","_modeX","_center","_targetSide"];
+
 private _result = false;
+
+//All units capable of triggering a marker to spawn.
 private _allUnits = allUnits select {_x getVariable ["spawner",false]};
 if (_modeX == 0) then
 	{
 	_result = [];
 	{
-	if (side group _x == _variable) then
+	if (side group _x == _targetSide) then
 		{
-		if (_x distance2D _reference < _distanceX) then
+		if (_x distance2D _center < _distanceX) then
 			{
 			_result pushBack _x;
 			};
@@ -23,7 +34,7 @@ if (_modeX == 0) then
 	}
 else
 	{
-	{if ((side group _x == _variable) and (_x distance2D _reference < _distanceX)) exitWith {_result = true}} count _allUnits;
+	{if ((side group _x == _targetSide) and (_x distance2D _center < _distanceX)) exitWith {_result = true}} count _allUnits;
 	};
 
 _result

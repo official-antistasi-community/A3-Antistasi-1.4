@@ -117,7 +117,7 @@ while {_continuar and ([_unit] call A3A_fnc_canFight) and (_unit getVariable "re
 				{if (!(_x in unlockedMagazines) and !(_x in unlockedItems)) then {_unit addItemToVest _x}} forEach vestItems _target;
 				_unit action ["rearm",_target];
 				removeVest _target;
-				if (((headgear _target) in helmets) and !((headgear _target) in unlockedItems)) then
+				if (((headgear _target) in armoredHeadgear) and !((headgear _target) in unlockedItems)) then
 					{
 					_unit addHeadgear (headGear _target);
 					removeHeadgear _target;

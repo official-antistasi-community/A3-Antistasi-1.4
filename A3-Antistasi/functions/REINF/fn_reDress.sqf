@@ -3,6 +3,6 @@ private ["_unit"];
 
 _unit = _this select 0;
 
-_unit addUniform (selectRandom banditUniforms);
+_unit addUniform (selectRandom rebelUniform);
 
 _unit addItemToUniform "FirstAidKit";

@@ -16,7 +16,10 @@ _oldBehaviour = behaviour _unit;
 _unit setBehaviour "CARELESS";
 _unit setUnitPos "UP";
 _loadOut = getUnitLoadout _unit;
-_unit setUnitLoadout (selectRandom arrayCivs);
+removeAllItems _unit;
+removeAllAssignedItems _unit;
+removeAllWeapons _unit;
+_unit forceAddUniform (selectRandom civilianUniform);
 
 //_airportsX = airportsX + outposts;// + (controlsX select {isOnRoad getMarkerPos _x});
 while {(captive _LeaderX) and (captive _unit)} do

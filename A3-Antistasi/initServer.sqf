@@ -36,7 +36,7 @@ limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {fal
 napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
 teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
 playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
-
+[] call A3A_fnc_crateLootParams;
 //Load Campaign ID if resuming game
 if(loadLastSave) then {
 	campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
@@ -66,16 +66,13 @@ if (gameMode != 1) then
 hcArray = [];
 waitUntil {(count playableUnits) > 0};
 waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
-_nul = [] execVM "modBlacklist.sqf";
+[] spawn A3A_fnc_modBlacklist;
 
 {
 private _index = _x call jn_fnc_arsenal_itemType;
 [_index,_x,-1] call jn_fnc_arsenal_addItem;
 }foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
-//["buttonInvToJNA"] call jn_fnc_arsenal;
-//waitUntil {!isNil "bis_fnc_preload_init"};
-//waitUntil {!isNil "BIS_fnc_preload_server"};
-_nul = call compile preprocessFileLineNumbers "initGarrisons.sqf";
+call A3A_fnc_initGarrisons;
 if (loadLastSave) then
     {
     diag_log format ["%1: [Antistasi] | INFO | Persitent Load selected.",servertime];
@@ -179,7 +176,7 @@ diag_log format ["%1: [Antistasi] | INFO | Marking serverInitDone : %2.",servert
 
 waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distance;
-resourcecheck = [] execVM "resourcecheck.sqf";
+[] spawn A3A_fnc_resourcecheck;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
 
@@ -193,4 +190,5 @@ savingServer = false;
 			sleep 30;
 		};
 };
+[] call A3A_fnc_arsenalManage;
 diag_log format ["%1: [Antistasi] | INFO | initServer Completed.",servertime];

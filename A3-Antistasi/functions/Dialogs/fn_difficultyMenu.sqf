@@ -2,9 +2,10 @@ _nul=createDialog "diff_menu";
 waitUntil {dialog};
 hint "Choose a difficulty level";
 waitUntil {!dialog};
-if !(skillMult == 1) then
+if !(skillMult == 2) then
 	{
-	if (skillMult == 0.5) then
+	//Easy Difficulty Tweaks
+	if (skillMult == 1) then
 		{
 		server setVariable ["hr",25,true];
 		server setVariable ["resourcesFIA",5000,true];
@@ -20,6 +21,7 @@ if !(skillMult == 1) then
 		}
 	else
 		{
+		//Hard Difficulty Tweaks
 		server setVariable ["hr",0,true];
 		server setVariable ["resourcesFIA",200,true];
 		minWeaps = 40;
@@ -38,6 +40,6 @@ if (gameMode != 1) then
     if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
 	};
 hint "Map Init in progress";
-call compile preprocessFileLineNumbers "initGarrisons.sqf";
+[] call A3A_fnc_initGarrisons;
 hint "Map Init Done";
-_nul = [] spawn A3A_fnc_placementselection;
+[] spawn A3A_fnc_placementselection;

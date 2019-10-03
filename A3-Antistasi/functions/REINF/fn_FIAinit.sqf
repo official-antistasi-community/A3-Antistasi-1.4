@@ -7,11 +7,11 @@ _unit setVariable ["spawner",true,true];
 
 _unit allowFleeing 0;
 _typeX = typeOf _unit;
-//_skill = if (_typeX in sdkTier1) then {(skillFIA * 0.2)} else {if (_typeX in sdkTier2) then {0.1 + (skillFIA * 0.2)} else {0.1 + (skillFIA * 0.2)}};
-_skill = skillFIA * 0.05 * skillMult;
+
+_skill = (0.6 / skillMult + 0.015 * skillFIA);
 if (!activeGREF) then {if (not((uniform _unit) in uniformsSDK)) then {[_unit] call A3A_fnc_reDress}};
 
-if ((!isMultiplayer) and (leader _unit == theBoss)) then {_skill = _skill + 0.1};
+//if ((!isMultiplayer) and (leader _unit == theBoss)) then {_skill = _skill + 0.1};
 _unit setSkill _skill;
 if (_typeX in SDKSniper) then
 	{
@@ -35,10 +35,10 @@ if (_typeX in SDKSniper) then
 	}
 else
 	{
-	if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]};
 	if (random 40 < skillFIA) then
 		{
-		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom helmets)};
+		//PBP - Horrible Helmets set
+		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom armoredHeadgear)};
 		};
 	if ((_typeX in SDKMil) or (_typeX == staticCrewTeamPlayer)) then
 		{
@@ -144,15 +144,15 @@ if (!haveRadio) then
 	if ((_unit != leader _unit) and (_typeX != staticCrewTeamPlayer)) then {_unit unlinkItem (_unit call A3A_fnc_getRadio)};
 	};
 
-if ({if (_x in smokeX) exitWith {1}} count unlockedMagazines > 0) then {_unit addMagazines [selectRandom smokeX,2]};
+if ({if (_x in smokeGrenade) exitWith {1}} count unlockedMagazines > 0) then {_unit addMagazines [selectRandom smokeGrenade,2]};
 if !(hasIFA) then
 	{
 	if ((sunOrMoon < 1) and (_typeX != SDKUnarmed)) then
 		{
 		if (haveNV) then
 			{
-			if (hmd _unit == "") then {_unit linkItem (selectRandom NVGoggles)};
-			_pointers = pointers arrayIntersect unlockedItems;
+			if (hmd _unit == "") then {_unit linkItem (selectRandom unlockedNVG)};
+			_pointers = attachmentLaser arrayIntersect unlockedItems;
 			if !(_pointers isEqualTo []) then
 				{
 				_pointers = _pointers arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
@@ -173,7 +173,7 @@ if !(hasIFA) then
 				_unit unassignItem _hmd;
 				_unit removeItem _hmd;
 				};
-			_flashlights = flashlights arrayIntersect unlockedItems;
+			_flashlights = attachmentLight arrayIntersect unlockedItems;
 			if !(_flashlights isEqualTo []) then
 				{
 				_flashlights = _flashlights arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
@@ -197,18 +197,7 @@ if !(hasIFA) then
 			};
 		};
 	};
-/*
-if ((_typeX != "B_G_Soldier_M_F") and (_typeX != "B_G_Sharpshooter_F")) then {if (_aiming > 0.35) then {_aiming = 0.35}};
 
-_unit setskill ["aimingAccuracy",_aiming];
-_unit setskill ["spotDistance",_spotD];
-_unit setskill ["spotTime",_spotT];
-_unit setskill ["courage",_cour];
-_unit setskill ["commanding",_comm];
-_unit setskill ["aimingShake",_aimingSh];
-_unit setskill ["aimingSpeed",_aimingSp];
-_unit setskill ["reloadSpeed",_reload];
-*/
 if (player == leader _unit) then
 	{
 	_unit setVariable ["owner",player];

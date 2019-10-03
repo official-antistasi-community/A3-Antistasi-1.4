@@ -1257,7 +1257,7 @@ class radio_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Teleport your squad or a HC selected squad to a friendly zone depending on several factors";
-			action = "closeDialog 0;nul = [] execVM ""fastTravelRadio.sqf"";";
+			action = "closeDialog 0; [] spawn A3A_fnc_fastTravelRadio;";
 		};
 		class 8slots_R1: RscButton
 		{
@@ -2977,7 +2977,7 @@ class diff_menu 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;skillMult = 0.5";
+			action = "closeDialog 0;skillMult = 1";
 		};
 		class HQ_button_MG: RscButton
 		{
@@ -2997,7 +2997,7 @@ class diff_menu 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; skillMult = 2";
+			action = "closeDialog 0; skillMult = 3";
 		};
 	};
 };

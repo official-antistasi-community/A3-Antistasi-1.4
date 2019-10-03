@@ -119,6 +119,9 @@ while {_changeX == ""} do
 			}
 		else
 			{
+			if ((primaryWeapon _player == "ACE_FakePrimaryWeapon") and ((side cursorTarget != "CIV") or !(captive cursorTarget))) then {
+				_changeX = "BadMedic";
+			};
 			if (((primaryWeapon _player != "") and (primaryWeapon _player != "ACE_FakePrimaryWeapon")) or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or (vest _player != "") or (getNumber (configfile >> "CfgWeapons" >> headgear _player >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2) or (hmd _player != "") or (not(uniform _player in civUniforms))) then
 				{
 				if ({((side _x== Invaders) or (side _x== Occupants)) and ((_x knowsAbout _player > 1.4) or (_x distance _player < 350))} count allUnits > 0) then {_changeX = "clothes2"} else {_changeX = "clothes"};
@@ -225,6 +228,11 @@ switch _changeX do
 	case "clothes2":
 		{
 		hint "You cannot stay Undercover while showing:\n\nA weapon is visible\nWearing a vest\nWearing a helmet\nWearing NVGs\nWearing a mil uniform\n\nThe enemy added you to their Wanted List";
+		_player setVariable ["compromised",dateToNumber [date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
+		};
+	case "BadMedic":
+		{
+		hint "You cannot stay Undercover while healing a compromised resistance member";
 		_player setVariable ["compromised",dateToNumber [date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
 		};
 	case "Compromised": {hint "You left your vehicle and you are still on the Wanted List"};

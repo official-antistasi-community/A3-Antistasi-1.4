@@ -56,10 +56,8 @@ publicVariable "aceAdvMedItems";
 ////////////////////////////////////
 //   ACE ITEMS MODIFICATIONS     ///
 ////////////////////////////////////
-if (hasACE) then
-	{
-	unlockedItems append aceItems;
-	};
+unlockedItems append aceItems;
+
 
 //ACE medical starting items
 if (hasACEMedical) then {
@@ -74,14 +72,10 @@ if (hasACEMedical) then {
 };
 
 //ACE items when IFA isnt detected
-if (hasACE and !hasIFA) then
-	{
-	// add ace mine detectors to crates
-	weaponsNato append ["ACE_VMH3","ACE_VMM3"];
-	weaponsCSAT append ["ACE_VMH3","ACE_VMM3"];
-	itemsAAF append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield"];
-	//remove vanilla mine detector
-	itemsAAF = itemsAAF - ["MineDetector"];
-	weaponsCSAT = weaponsCSAT - ["MineDetector"];
-	weaponsNato = weaponsNato - ["MineDetector"];
-	};
+weaponsNato append ["ACE_VMH3","ACE_VMM3"];
+weaponsCSAT append ["ACE_VMH3","ACE_VMM3"];
+itemsAAF append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield"];
+//remove vanilla mine detector
+itemsAAF = itemsAAF - ["MineDetector"];
+weaponsCSAT = weaponsCSAT - ["MineDetector"];
+weaponsNato = weaponsNato - ["MineDetector"];

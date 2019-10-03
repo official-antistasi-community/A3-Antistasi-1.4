@@ -37,6 +37,7 @@ else
 	{
 	if (random 40 < skillFIA) then
 		{
+		//PBP - Horrible Helmets set
 		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom armoredHeadgear)};
 		};
 	if ((_typeX in SDKMil) or (_typeX == staticCrewTeamPlayer)) then

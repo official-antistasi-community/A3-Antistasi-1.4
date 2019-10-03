@@ -417,6 +417,8 @@ class A3A
 	{
 		class aceModTemplate {};
 		class getLoadout {};
+		class ifaModCompat {};
+		class rhsModCompat {};
 	};
 
 	class Utility

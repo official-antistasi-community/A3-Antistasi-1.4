@@ -481,45 +481,13 @@ if (hasACE) then
 	{
 	[] call A3A_fnc_aceModTemplate;
 	};
-
-////////////////////////////////////
-//RHS WEAPON ATTACHMENTS REDUCER ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Modifying Item Lists for Mods",servertime];
 if (hasRHS) then
 	{
-	lootOptic = lootOptic select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	attachmentLight = attachmentLight select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
-	attachmentLaser = attachmentLaser select {getText (configfile >> "CfgWeapons" >> _x >> "author") == "Red Hammer Studios"};
+	[] call A3A_fnc_rhsModCompat;
 	};
-
-////////////////////////////////////
-//   IFA ITEMS MODIFICATIONS     ///
-////////////////////////////////////
 if (hasIFA) then
 	{
-	smokeGrenade = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
-	chemLight = [];					//Clears all chems
-	armoredHeadgear = [];				//Clears all Helmets
-	{armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
-	lootNVG = [];						//Clears NVG's
-	};
-
-////////////////////////////////////
-// ACE + IFA ITEMS MODIFICATIONS ///
-////////////////////////////////////
-//IF you have ACE but NOT IFA
-if (hasACE and !hasIFA) then
-	{
-	//additonal unlocks
-	unlockedBackpacks pushBackUnique "ACE_TacticalLadder_Pack";
-	itemsAAF append ["ACE_Kestrel4500","ACE_ATragMX","ACE_M84"];
-	};
-
-//IF you have both ACE AND IFA
-if (hasACE and hasIFA) then
-	{
-	itemsAAF append ["ACE_LIB_LadungPM","ACE_SpareBarrel"];
+	[] call A3A_fnc_ifaModCompat;
 	};
 
 ////////////////////////////////////

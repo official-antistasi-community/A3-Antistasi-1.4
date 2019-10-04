@@ -127,7 +127,7 @@ do {
 		else {
 			if (primaryWeapon _player == "ACE_FakePrimaryWeapon") then {
 				// TODO Get Ace interaction target rather than cursorTarget
-				if (str side cursorTarget != "CIV") then {
+				if ((str side cursorTarget != "CIV") and (cursorTarget isKindOf "Man")) then {
 					if ({((side _x == Invaders) or(side _x == Occupants)) and((_x knowsAbout _player > 1.4) or(_x distance _player < 350))} count allUnits > 0) then {
 						_changeX = "BadMedic2"
 					} else {

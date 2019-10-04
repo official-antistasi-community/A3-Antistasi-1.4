@@ -136,10 +136,7 @@ do {
 				};
 			};
 			if (((primaryWeapon _player != "") and(primaryWeapon _player != "ACE_FakePrimaryWeapon")) or(secondaryWeapon _player != "") or(handgunWeapon _player != "") or(vest _player != "") or(getNumber(configfile >> "CfgWeapons" >> headgear _player >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2) or(hmd _player != "") or(not(uniform _player in civUniforms))) then {
-				if ({
-						((side _x == Invaders) or(side _x == Occupants)) and((_x knowsAbout _player > 1.4) or(_x distance _player < 350))
-					}
-					count allUnits > 0) then {
+				if ({((side _x == Invaders) or (side _x == Occupants)) and ((_x knowsAbout _player > 1.4) or (_x distance _player < 350))} count allUnits > 0) then {
 					_changeX = "clothes2"
 				} else {
 					_changeX = "clothes"

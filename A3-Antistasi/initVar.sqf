@@ -168,7 +168,7 @@ unlockedSN = [];
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
 ////////////////////////////////////
-call A3A_fnc_initDisabledMods; 
+call A3A_fnc_initDisabledMods;
 diag_log format ["%1: [Antistasi] | INFO | initVar | Starting Mod Detection",servertime];
 //Faction MODs
 hasRHS = false;
@@ -468,6 +468,7 @@ unlockedItems append civilianUniform;
 unlockedItems append civilianHeadgear;
 unlockedItems append civilianVest;
 unlockedItems append civilianGlasses;
+unlockedItems append initGrenades;
 
 ////////////////////////////////////
 //      ACE ITEMS LIST           ///

@@ -522,7 +522,7 @@ class CfgDebriefing
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };
-    class destroyedCities
+    class destroyedSites
     {
         title = "Chernarus is Destroyed";
         subtitle = "Chernarus got Destroyed by Soviets";

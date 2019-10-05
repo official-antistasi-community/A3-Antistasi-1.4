@@ -14,7 +14,7 @@ _prestigeBLUFOR = _dataX select 3;
 _popFIA = _popFIA + (_numCiv * (_prestigeBLUFOR / 100));
 _popAAF = _popAAF + (_numCiv * (_prestigeOPFOR / 100));
 _pop = _pop + _numCiv;
-if (_x in destroyedCities) then {_popCSAT = _popCSAT + _numCIV};
+if (_x in destroyedSites) then {_popCSAT = _popCSAT + _numCIV};
 } forEach citiesX;
 _popFIA = round _popFIA;
 _popAAF = round _popAAF;
@@ -76,7 +76,7 @@ while {visibleMap} do
 				};
 			*/
 			_textX = format ["%1\nInfluence: %2",_textX,_result];
-			if (_siteX in destroyedCities) then {_textX = format ["%1\nDESTROYED",_textX]};
+			if (_siteX in destroyedSites) then {_textX = format ["%1\nDESTROYED",_textX]};
 			if (sidesX getVariable [_siteX,sideUnknown] == teamPlayer) then {_textX = format ["%1\n%2",_textX,[_siteX] call A3A_fnc_garrisonInfo]};
 			};
 		if (_siteX in airportsX) then
@@ -106,7 +106,7 @@ while {visibleMap} do
 				{
 				_textX = format ["%2 Resources%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
 				};
-			if (_siteX in destroyedCities) then {_textX = format ["%1\nDESTROYED",_textX]};
+			if (_siteX in destroyedSites) then {_textX = format ["%1\nDESTROYED",_textX]};
 			};
 		if (_siteX in factories) then
 			{
@@ -120,7 +120,7 @@ while {visibleMap} do
 				{
 				_textX = format ["%2 Factory%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
 				};
-			if (_siteX in destroyedCities) then {_textX = format ["%1\nDESTROYED",_textX]};
+			if (_siteX in destroyedSites) then {_textX = format ["%1\nDESTROYED",_textX]};
 			};
 		if (_siteX in outposts) then
 			{

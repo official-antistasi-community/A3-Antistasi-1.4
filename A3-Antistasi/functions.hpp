@@ -28,6 +28,7 @@ class A3A
 		class fogCheck {};
 		class garbageCleaner {};
 		class garrisonInfo {};
+		class getModOfConfigClass {};
 		class healAndRepair {};
 		class initPetros {};
 		class intelFound {};
@@ -306,9 +307,9 @@ class A3A
 		class dress {};
 		class empty {};
 		class equipmentSort {};
-		class filter {};
 		class getRadio {};
 		class itemSort {};
+		class itemType {};
 		class loot {};
 		class NATOCrate {};
 		class randomRifle {};
@@ -432,6 +433,7 @@ class A3A
 		class cityinfo {};
 		class credits {};
 		class getArrayMrks {};
+		class initDisabledMods {};
 		class initGarrisons {};
 		class initGetMissionPath {};
 		class initSpawnPlaces {};

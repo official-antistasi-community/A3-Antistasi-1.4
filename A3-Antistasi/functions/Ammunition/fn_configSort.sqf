@@ -1,172 +1,60 @@
-private ["_allMap","_allCompass","_allGPS","_allWatch","_allPrimaryWeapon","_allHandGun","_allLauncher","_allItem","_allOptic","_allNVG","_allMagazine","_allGrenade","_allExplosive","_allMissile","_allBackpack","_allStaticWeapon","_allGlasses","_allLaserOptic","_allMineDetector","_allRadio","_nameX","_alreadyChecked","_item","_itemType"];
 ////////////////////////////////////
 //  ITEM/WEAPON CLASSIFICATION   ///
 ////////////////////////////////////
-_allPrimaryWeapon = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'Weapon'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 1 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allHandGun = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'Weapon'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 2 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allLauncher = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'Weapon'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 4 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allItem = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'Weapon'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allMineDetector = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'ItemMineDetector'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allRadio = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'ItemRadio'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allMap = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'ItemMap'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allGPS = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'ItemGPS'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allWatch = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'ItemWatch'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allCompass = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'ItemCompass'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 131072 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allOptic = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'Binocular'
-    &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 4096 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allLaserOptic = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'weapon'
-    &&
-    { getNumber ( _x >> ""type"" ) isEqualTo 4096 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allNVG = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'simulation' ) isEqualTo 'NVGoggles'
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 4096 } } )
-" configClasses ( configFile >> "cfgWeapons" );
-
-_allMagazine = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 256 } )
-" configClasses ( configFile >> "cfgMagazines" );
-
-_allGrenade = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getNumber ( _x >> 'type' ) isEqualTo 16 } )
-" configClasses ( configFile >> "cfgMagazines" );
-
-_allExplosive = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'type' ) isEqualTo '2*		256' } )
-" configClasses ( configFile >> "cfgMagazines" );
-
-_allMissile = "
-    ( getNumber ( _x >> 'scope' ) isEqualTo 2
-    &&
-    { getText ( _x >> 'type' ) isEqualTo '6 * 		256' } )
-" configClasses ( configFile >> "cfgMagazines" );
-
-_allBackpack = "
-	( getNumber ( _x >> 'scope' ) isEqualTo 2
+//Ignore type 65536, we don't want Vehicle Weapons.
+private _allWeaponConfigs = "
+	getNumber (_x >> 'scope') == 2
 	&&
-	{ getNumber ( _x >> 'type' ) isEqualTo 1
-	&&
-	{ getText ( _x >> 'vehicleClass' ) isEqualTo 'Backpacks' } } )
-" configClasses ( configFile >> "cfgVehicles" );
+	getNumber (_x >> 'type') != 65536
+" configClasses (configFile >> "CfgWeapons");
 
-_allStaticWeapon = "
-	( getNumber ( _x >> 'scope' ) isEqualTo 2
-	&&
-	{ getNumber ( _x >> 'type' ) isEqualTo 1
-	&&
-	{ getText ( _x >> 'vehicleClass' ) isEqualTo 'Static' } } )
-" configClasses ( configFile >> "cfgVehicles" );
+//Ignore anything with type 0. They're generally vehicle magazines.
+//Type 16 is generally throwables, type 256 or above normal magazines.
+private _allMagazineConfigs = "
+	getNumber (_x >> 'scope') == 2 
+	&& 
+	getNumber (_x >> 'type') > 0
+" configClasses (configFile >> "CfgMagazines");
 
-_allGlasses = "
+private _allBackpackConfigs = "
+	getNumber ( _x >> 'scope' ) isEqualTo 2
+	&&
+	{ getText ( _x >> 'vehicleClass' ) isEqualTo 'Backpacks' }
+" configClasses ( configFile >> "CfgVehicles" );
+
+private _allStaticWeaponConfigs = "
+	getNumber ( _x >> 'scope' ) isEqualTo 2
+	&&
+	{ getText ( _x >> 'vehicleClass' ) isEqualTo 'StaticWeapon' }
+" configClasses ( configFile >> "CfgVehicles" );
+
+private _allGlassesConfigs = "
 	( getNumber ( _x >> 'scope' ) isEqualTo 2 )
-" configClasses ( configFile >> "cfgGlasses" );
+" configClasses ( configFile >> "CfgGlasses" );
+
+private _allConfigs = _allWeaponConfigs + _allMagazineConfigs + _allBackpackConfigs + _allStaticWeaponConfigs + _allGlassesConfigs;
+
+////////////////////////////////////////////////////
+//    Filter out content from disabled mods.     ///
+////////////////////////////////////////////////////
+
+_allConfigs = _allConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)};
 
 //////////////////////////////
 //    Sorting Function     ///
 //////////////////////////////
-_alreadyChecked = [];
+private _nameX = "";
 {
-_nameX = configName _x;
-if (isClass (configFile >> "cfgWeapons" >> _nameX)) then
+	_nameX = configName _x;
+	if (isClass (configFile >> "CfgWeapons" >> _nameX)) then
 	{
-	_nameX = [_nameX] call BIS_fnc_baseWeapon;
+		_nameX = [_nameX] call BIS_fnc_baseWeapon;
 	};
-if !(_nameX in _alreadyChecked) then
-	{
-	_alreadyChecked pushBack _nameX;
-	_item = [_nameX] call BIS_fnc_itemType;
-	_itemType = _item select 1;
+	
+	private _item = [_nameX] call A3A_fnc_itemType;
+	private _itemType = _item select 1;
 	switch (_itemType) do
-		{
+	{
 		case "AssaultRifle": {arifles pushBack _nameX};
 		case "BombLauncher": {allWeaponBombLauncher pushBack _nameX};
 		case "GrenadeLauncher": {allWeaponGrenadeLauncher pushBack _nameX};
@@ -228,6 +116,5 @@ if !(_nameX in _alreadyChecked) then
 		case "MineDirectional": {allMineDirectional pushBack _nameX};
 
 		default {allUnknown pushBack _nameX};
-		};
 	};
-} forEach _allMap + _allCompass + _allGPS + _allWatch + _allPrimaryWeapon + _allHandGun + _allLauncher + _allItem + _allOptic + _allNVG + _allMagazine + _allGrenade + _allExplosive + _allMissile + _allBackpack + _allStaticWeapon + _allGlasses + _allLaserOptic + _allMineDetector + _allRadio;
+} forEach _allConfigs;

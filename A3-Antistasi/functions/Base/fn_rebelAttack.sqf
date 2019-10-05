@@ -7,7 +7,7 @@ _countXFacil = 0;
 _natoIsFull = false;
 _csatIsFull = false;
 _airportsX = airportsX select {([_x,false] call A3A_fnc_airportCanAttack) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
-_objectivesX = markersX - controlsX - outpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedCities;
+_objectivesX = markersX - controlsX - outpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedSites;
 if (gameMode != 1) then {_objectivesX = _objectivesX select {sidesX getVariable [_x,sideUnknown] == teamPlayer}};
 //_objectivisSDK = _objectivesX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 if ((tierWar < 2) and (gameMode <= 2)) then

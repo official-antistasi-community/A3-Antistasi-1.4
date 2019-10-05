@@ -22,7 +22,7 @@ _dataX = server getVariable _markerX;
 _prestigeOPFOR = _dataX select 2;
 _prestigeBLUFOR = _dataX select 3;
 _esAAF = true;
-if (_markerX in destroyedCities) then
+if (_markerX in destroyedSites) then
 	{
 	_esAAF = false;
 	_params = [_positionX,Invaders,CSATSpecOp];
@@ -72,7 +72,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 	_countX = _countX + 1;
 	};
 
-if ((_esAAF) or (_markerX in destroyedCities)) then
+if ((_esAAF) or (_markerX in destroyedSites)) then
 	{
 	{_grp = _x;
 	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _grp;} forEach _groups;

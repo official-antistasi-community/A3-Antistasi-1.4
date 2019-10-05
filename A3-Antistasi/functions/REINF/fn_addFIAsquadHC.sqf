@@ -126,7 +126,7 @@ if (_esinf) then
 	}
 else
 	{
-	_pos = position _road findEmptyPosition [1,30,vehSDKTruck];
+	_pos = position _road findEmptyPosition [1,40,vehSDKTruck];
 	_vehicle = if (_typeGroup == staticAAteamPlayer) then
 		{
 		if (activeGREF) then {[_pos, 0,"rhsgref_ins_g_ural_Zu23", teamPlayer] call bis_fnc_spawnvehicle} else {[_pos, 0,vehSDKTruck, teamPlayer] call bis_fnc_spawnvehicle};
@@ -142,7 +142,7 @@ else
 
 	if ((!activeGREF) and (_typeGroup == staticAAteamPlayer)) then
 		{
-		_pos = _pos findEmptyPosition [1,30,SDKMortar];
+		_pos = _pos findEmptyPosition [10,40,SDKMortar];
 		_morty = _groupX createUnit [staticCrewTeamPlayer, _pos, [],0, "NONE"];
 		_mortarX = _typeGroup createVehicle _pos;
 		_nul = [_mortarX] call A3A_fnc_AIVEHinit;

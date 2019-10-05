@@ -188,8 +188,8 @@ else
 	//["invaderPunish", "FAILED",true] spawn BIS_fnc_taskSetState;
 	[-20,-20,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2];
 	{[-10,-10,_x] remoteExec ["A3A_fnc_citySupportChange",2]} forEach citiesX;
-	destroyedCities = destroyedCities + [_attackDestination];
-	publicVariable "destroyedCities";
+	destroyedSites = destroyedSites + [_attackDestination];
+	publicVariable "destroyedSites";
 	for "_i" from 1 to 60 do
 		{
 		_mineX = createMine ["APERSMine",_posDestination,[],_size];

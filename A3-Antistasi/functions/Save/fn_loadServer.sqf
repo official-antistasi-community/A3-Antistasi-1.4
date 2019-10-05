@@ -9,7 +9,7 @@ petros allowdamage false;
 ["mrkCSAT"] call fn_LoadStat;
 ["difficultyX"] call fn_LoadStat;
 ["gameMode"] call fn_LoadStat;
-["destroyedCities"] call fn_LoadStat;
+["destroyedSites"] call fn_LoadStat;
 ["minesX"] call fn_LoadStat;
 ["countCA"] call fn_LoadStat;
 ["antennas"] call fn_LoadStat;
@@ -135,7 +135,7 @@ if (sidesX getVariable [_x,sideUnknown] == sideUnknown) then
 {[_x] call A3A_fnc_mrkUpdate} forEach (markersX - controlsX);
 if (count outpostsFIA > 0) then {markersX = markersX + outpostsFIA; publicVariable "markersX"};
 
-{if (_x in destroyedCities) then {[_x] call A3A_fnc_destroyCity}} forEach citiesX;
+{if (_x in destroyedSites) then {[_x] call A3A_fnc_destroyCity}} forEach citiesX;
 
 ["chopForest"] call fn_LoadStat;
 ["destroyedBuildings"] call fn_LoadStat;

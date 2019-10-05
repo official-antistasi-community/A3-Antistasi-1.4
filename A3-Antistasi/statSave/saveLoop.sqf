@@ -24,7 +24,7 @@ private ["_garrison"];
 ["prestigeCSAT", prestigeCSAT] call fn_SaveStat;
 ["dateX", date] call fn_SaveStat;
 ["skillFIA", skillFIA] call fn_SaveStat;
-["destroyedCities", destroyedCities] call fn_SaveStat;
+["destroyedSites", destroyedSites] call fn_SaveStat;
 ["distanceSPWN", distanceSPWN] call fn_SaveStat;
 ["civPerc", civPerc] call fn_SaveStat;
 ["chopForest", chopForest] call fn_SaveStat;

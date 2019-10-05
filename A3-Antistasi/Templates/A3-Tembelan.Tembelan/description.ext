@@ -664,7 +664,7 @@ class CfgDebriefing
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };
-    class destroyedCities
+    class destroyedSites
     {
         title = "Tembelan is Destroyed";
         subtitle = "Tembelan got Destroyed by CSAT";

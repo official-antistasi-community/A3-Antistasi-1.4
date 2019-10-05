@@ -19,7 +19,7 @@ while {true} do
 	_popAAF = 0;
 	_popCSAT = 0;
 	_popTotal = 0;
-	_bonusFIA = 1 + (0.25*({(sidesX getVariable [_x,sideUnknown] == teamPlayer) and !(_x in destroyedCities)} count factories));
+	_bonusFIA = 1 + (0.25*({(sidesX getVariable [_x,sideUnknown] == teamPlayer) and !(_x in destroyedSites)} count factories));
 	{
 	_city = _x;
 	_resourcesAddCitySDK = 0;
@@ -37,7 +37,7 @@ while {true} do
 	_multiplyingRec = if (_power != teamPlayer) then {0.5} else {1};
 	//if (not _power) then {_multiplyingRec = 0.5};
 
-	if (_city in destroyedCities) then
+	if (_city in destroyedSites) then
 		{
 		_resourcesAddCitySDK = 0;
 		_hrAddCity = 0;
@@ -94,14 +94,14 @@ while {true} do
 		[] call A3A_fnc_tierCheck;
 		};
 	} forEach citiesX;
-	if (_popCSAT > (_popTotal / 3)) then {["destroyedCities",false,true] remoteExec ["BIS_fnc_endMission"]};
+	if (_popCSAT > (_popTotal / 3)) then {["destroyedSites",false,true] remoteExec ["BIS_fnc_endMission"]};
 	if ((_popFIA > _popAAF) and ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == count airportsX)) then {["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0]};
 	/*
 	{
 	_fabrica = _x;
 	if (sidesX getVariable [_fabrica,sideUnknown] == teamPlayer) then
 		{
-		if (not(_fabrica in destroyedCities)) then {_bonusFIA = _bonusFIA + 0.25};
+		if (not(_fabrica in destroyedSites)) then {_bonusFIA = _bonusFIA + 0.25};
 		};
 	} forEach factories;
 	*/
@@ -109,7 +109,7 @@ while {true} do
 	_recurso = _x;
 	if (sidesX getVariable [_recurso,sideUnknown] == teamPlayer) then
 		{
-		if (not(_recurso in destroyedCities)) then {_recAddSDK = _recAddSDK + (300 * _bonusFIA)};
+		if (not(_recurso in destroyedSites)) then {_recAddSDK = _recAddSDK + (300 * _bonusFIA)};
 		};
 	} forEach resourcesX;
 	_hrAddBLUFOR = (round _hrAddBLUFOR);
@@ -185,13 +185,13 @@ while {true} do
 		if (random 100 < _chance) then
 			{
 			_changingX = true;
-			destroyedCities = destroyedCities - [_x];
+			destroyedSites = destroyedSites - [_x];
 			_nameX = [_x] call A3A_fnc_localizar;
 			["TaskSucceeded", ["", format ["%1 Rebuilt",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
 			sleep 2;
 			};
-		} forEach (destroyedCities - citiesX) select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
-		if (_changingX) then {publicVariable "destroyedCities"};
+		} forEach (destroyedSites - citiesX) select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+		if (_changingX) then {publicVariable "destroyedSites"};
 		};
 	if (isDedicated) then
 		{

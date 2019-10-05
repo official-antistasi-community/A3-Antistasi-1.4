@@ -8,6 +8,11 @@ if(!isnil "_loadActionID") then
 	_object removeAction _loadActionID;
 };
 
+//We can be remote exec'd with this before JNL has initialised. If that's the case, initialise!
+if (isNil "jnl_initCompleted") then {
+	[] call JN_fnc_logistics_init;
+};
+
 //Check if this vehicle can be loaded with JNL
 if((_object call jn_fnc_logistics_getCargoType) == -1) exitWith {};
 

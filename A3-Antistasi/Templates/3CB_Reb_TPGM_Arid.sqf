@@ -96,7 +96,7 @@ unlockedRifles append ["UK3CB_Enfield","UK3CB_Enfield_rail"];
 unlockedMagazines append ["UK3CB_BAF_9_13rnd","UK3CB_BAF_9_15rnd","UK3CB_Enfield_mag"];
 initialRifles append ["UK3CB_Enfield","UK3CB_Enfield_rail"];
 unlockedItems append ["rhs_acc_2dpZenit"];
-initGrenades = ["rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_grenade_nbhgr39b_mag","rhs_grenade_m15_mag"]//Frag, Flare, Smoke, Smoke
+initGrenades = ["rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_grenade_nbhgr39b_mag","rhs_grenade_m15_mag"];//Frag, Flare, Smoke, Smoke
 unlockedAT append ["rhs_weap_rpg75"];
 unlockedBackpacks append ["UK3CB_CHC_C_B_MED","UK3CB_B_Bedroll_Backpack","UK3CB_TKC_C_B_Sidor_MED","UK3CB_CW_SOV_O_LATE_B_Sidor_RIF","UK3CB_CW_SOV_O_EARLY_B_Sidor_RIF"];
 initVest = ["UK3CB_V_CW_Chestrig","UK3CB_V_CW_Chestrig_2_Small","UK3CB_V_Belt_KHK","UK3CB_V_Belt_Rig_KHK","UK3CB_V_Belt_Rig_Lite_KHK","UK3CB_V_Pouch","UK3CB_V_Chestrig_TKA_OLI","UK3CB_V_Chestrig_2_small_OLI","UK3CB_V_Chestrig_TKA_BRUSH","UK3CB_V_Chestrig_Lite_KHK","UK3CB_V_Chestrig_Lite_2_Small_KHK"];

@@ -1,5 +1,6 @@
 //Blufor Altis Template Call
 if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_B_Altis.sqf"};
+if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_SDK_Tanoa.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -95,9 +96,9 @@ APERSMineMag = "APERSMine_Range_Mag";
 //Starting Unlocks
 unlockedWeapons append ["hgun_Pistol_heavy_02_F","hgun_P07_F","SMG_01_F","SMG_03_TR_black","Binocular"];
 unlockedRifles append ["SMG_01_F","SMG_03_TR_black"];
-unlockedMagazines append ["6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","30Rnd_45ACP_Mag","50Rnd_570x28_SMG_03","MiniGrenade","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
+unlockedMagazines append ["6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","30Rnd_45ACP_Mag_SMG_01","50Rnd_570x28_SMG_03","MiniGrenade","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
 initialRifles append ["SMG_01_F","SMG_03_TR_black"];
-initGrenades = ["MiniGrenade","SmokeShell","HandGrenade_Stone"]//Frag, Smoke, Stone
+initGrenades = ["MiniGrenade","SmokeShell","HandGrenade_Stone"];//Frag, Smoke, Stone
 unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk"];
 initVest = ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandolierB_blk","V_BandolierB_cbr","V_BandolierB_rgr","V_BandolierB_khk","V_BandolierB_oli","V_Rangemaster_belt"];
 //TFAR Unlocks

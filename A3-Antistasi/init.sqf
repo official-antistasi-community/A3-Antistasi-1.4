@@ -15,7 +15,7 @@ if (!isMultiPlayer) then
     switchCom = false;
     tkPunish = false;
     skillMult = 2;
-    minWeaps = 24;
+    minWeaps = 25;
     civTraffic = 1;
     limitedFT = false;
 	diag_log format ["%1: [Antistasi] | INFO | Singleplayer Starting.",servertime];
@@ -54,7 +54,6 @@ if (!isMultiPlayer) then
 
     hcArray = [];
     serverInitDone = true;
-    diag_log format ["%1: [Antistasi] | INFO | Arsenal Loaded.",servertime];
     [] spawn A3A_fnc_modBlacklist;
 
     distanceMission = if (hasIFA) then {2000} else {4000};
@@ -63,6 +62,7 @@ if (!isMultiPlayer) then
     private _index = _x call jn_fnc_arsenal_itemType;
     [_index,_x,-1] call jn_fnc_arsenal_addItem;
     }foreach (unlockedItems + unlockedWeapons + unlockedMagazines + unlockedBackpacks + unlockedNVG + unlockedOptics + unlockedVest + unlockedHelmet);
+    diag_log format ["%1: [Antistasi] | INFO | Arsenal Loaded.",servertime];
 
     waitUntil {sleep 1;!(isNil "placementDone")};
     distanceXs = [] spawn A3A_fnc_distance;

@@ -22,11 +22,11 @@
 	],
 
 	[//Secondary Weapon
-		"RHSUSF_Weap_M1911A1",								//Weapon
+		"RHS_Weap_M320",								//Weapon
 		"",													//Muzzle
 		"",													//Rail
 		"",													//Sight
-		["RHSUSF_Mag_7x45ACP_MHP",7],						//Primary Magazine
+		["RHS_Mag_M714_White",1],						//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
@@ -44,7 +44,7 @@
 			["RHS_Mag_M67",1,1],
 			["RHS_Mag_Mk84",2,1],
 			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",4,30],
-			["RHSUSF_Mag_7x45ACP_MHP",2,7]
+			["RHS_Mag_M714_White",3,1]
 		]
 		+ _aceFlashlight
 	],
@@ -70,7 +70,7 @@
 
 	[//Item
 		"ItemMap",											//Map
-		"",													//Terminal
+		"ItemGPS",													//Terminal
 		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
 		_tfarMicroDAGRNoArray,										//Watch

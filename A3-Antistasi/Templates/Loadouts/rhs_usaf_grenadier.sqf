@@ -2,9 +2,9 @@
 	[//Primary Weapon
 		"RHS_Weap_M4A1_M203S",								//Weapon
 		"",													//Muzzle
-		"RHSUSF_Acc_WMX_Bk",								//Rail
+		"RHSUSF_Acc_Anpeq15a",								//Rail
 		selectRandom										//Sight
-		["RHSUSF_Acc_CompM4", "RHSUSF_Acc_Eotech_552"],
+		["RHSUSF_Acc_Acog", "RHSUSF_Acc_Eotech_552"],
 		["RHS_Mag_30Rnd_556x45_M855A1_Stanag",30],			//Primary Magazine
 		["RHS_Mag_M441_HE",1],								//Secondary Magazine
 		""													//Bipod
@@ -42,10 +42,11 @@
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",2,1],
 			["RHS_Mag_Mk84",1,1],
-			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",4,30],
+			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",5,30],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7],
-			["RHS_Mag_M441_HE",6,1],
-			["RHS_Mag_M714_White",4,1]
+			["RHS_Mag_M441_HE",5,1],
+			["RHS_Mag_M585_White",2,1],
+			["RHS_Mag_M714_White",2,1]
 		] + _aceFlashlight
 	],
 

@@ -351,3 +351,5 @@ _defaultCrew = gettext (configfile >> "cfgvehicles" >> "all" >> "crew");
 		};
 	};
 } foreach ("isclass _x && {getnumber (_x >> 'scope') == 2} && {gettext (_x >> 'crew') != _defaultCrew}" configclasses (configfile >> "cfgvehicles"));
+
+jnl_initCompleted = true;

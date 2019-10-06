@@ -43,7 +43,7 @@ class first_load 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			//action = "closeDialog 0;if ((player == theBoss) and (isNil ""placementDone"") and !(isMultiplayer)) then {_nul = [] spawn A3A_fnc_placementselection};";
-			action = "closeDialog 0;if ((player == theBoss) and (isNil ""placementDone"") and !(isMultiplayer)) then {closeDialog 0;[] execVM ""dialogs\difficultyMenu.sqf""};";
+			action = "closeDialog 0;if ((player == theBoss) and (isNil ""placementDone"") and !(isMultiplayer)) then { closeDialog 0; [] spawn A3A_fnc_difficultyMenu; };";
 		};
 	};
 };
@@ -587,7 +587,7 @@ class vehicle_option 	{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul=[] execVM ""Dialogs\buy_vehicle_civ.sqf"";";
+			action = "closeDialog 0; [] spawn A3A_fnc_buyVehicleCiv;";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -598,7 +598,7 @@ class vehicle_option 	{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; nul=[] execVM ""Dialogs\buy_vehicle.sqf"";";
+			action = "closeDialog 0; [] spawn A3A_fnc_buyVehicle;";
 		};
 	};
 };
@@ -1257,7 +1257,7 @@ class radio_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Teleport your squad or a HC selected squad to a friendly zone depending on several factors";
-			action = "closeDialog 0;nul = [] execVM ""fastTravelRadio.sqf"";";
+			action = "closeDialog 0; [] spawn A3A_fnc_fastTravelRadio;";
 		};
 		class 8slots_R1: RscButton
 		{
@@ -1449,7 +1449,7 @@ class veh_query 				{
 			y = 0.251941 * safezoneH + safezoneY;
 			w = 0.06 * safezoneW;//0.175015
 			h = 0.05 * safezoneH;
-			action = "closeDialog 0;vehQuery = nil; if (player == theBoss) then {nul= [] execVM ""Dialogs\squad_recruit.sqf""} else {hint ""Only Player Commander has access to this function""};";
+			action = "closeDialog 0;vehQuery = nil; if (player == theBoss) then { [] spawn A3A_fnc_squadRecruit; } else {hint ""Only Player Commander has access to this function""};";
 		};
 		class HQ_button_Gsquad: RscButton
 		{
@@ -1719,7 +1719,7 @@ class commander_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Recruit new squads and manage them with the HC Module (CTRL + SPACE)";
-			action = "closeDialog 0;if (player == theBoss) then {nul= [] execVM ""Dialogs\squad_recruit.sqf""} else {hint ""Only Player Commander has access to this function""};";
+			action = "closeDialog 0;if (player == theBoss) then { [] spawn A3A_fnc_squadRecruit; } else {hint ""Only Player Commander has access to this function""};";
 		};
 		class 8slots_R1: RscButton
 		{
@@ -2121,7 +2121,7 @@ class squad_recruit 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;[] execVM ""Dialogs\squadOptions.sqf"";";
+			action = "closeDialog 0; [] spawn A3A_fnc_squadOptions;";
 		};
 		class HQ_button_infteam: RscButton
 		{
@@ -2373,7 +2373,7 @@ class garage_check 				{
 			y = 0.251941 * safezoneH + safezoneY;
 			w = 0.06 * safezoneW;//0.175015
 			h = 0.05 * safezoneH;
-			action = "closeDialog 0;_nul = createDialog ""garage_sell"";";
+			action = "closeDialog 0;_nul = createDialog ""radio_comm"";";
 		};
 		class HQ_button_Gsquad: RscButton
 		{
@@ -2977,7 +2977,7 @@ class diff_menu 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;skillMult = 0.5";
+			action = "closeDialog 0;skillMult = 1";
 		};
 		class HQ_button_MG: RscButton
 		{
@@ -2997,7 +2997,7 @@ class diff_menu 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; skillMult = 2";
+			action = "closeDialog 0; skillMult = 3";
 		};
 	};
 };

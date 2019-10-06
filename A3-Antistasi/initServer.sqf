@@ -35,7 +35,8 @@ memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "me
 limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
 napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
 teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
-
+playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
+[] call A3A_fnc_crateLootParams;
 //Load Campaign ID if resuming game
 if(loadLastSave) then {
 	campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
@@ -60,21 +61,18 @@ if (gameMode != 1) then
     if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
     if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
     };
-[] execVM "initPetros.sqf";
+[] spawn A3A_fnc_initPetros;
 ["Initialize"] call BIS_fnc_dynamicGroups;//Exec on Server
 hcArray = [];
 waitUntil {(count playableUnits) > 0};
 waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
-_nul = [] execVM "modBlacklist.sqf";
+[] spawn A3A_fnc_modBlacklist;
 
 {
 private _index = _x call jn_fnc_arsenal_itemType;
 [_index,_x,-1] call jn_fnc_arsenal_addItem;
 }foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
-//["buttonInvToJNA"] call jn_fnc_arsenal;
-//waitUntil {!isNil "bis_fnc_preload_init"};
-//waitUntil {!isNil "BIS_fnc_preload_server"};
-_nul = call compile preprocessFileLineNumbers "initGarrisons.sqf";
+call A3A_fnc_initGarrisons;
 if (loadLastSave) then
     {
     diag_log format ["%1: [Antistasi] | INFO | Persitent Load selected.",servertime];
@@ -88,7 +86,7 @@ if (loadLastSave) then
 publicVariable "loadLastSave";
 if (loadLastSave) then
     {
-    _nul = [] execVM "statSave\loadServer.sqf";
+    [] spawn A3A_fnc_loadServer;
     waitUntil {!isNil"statsLoaded"};
     if (!isNil "as_fnc_getExternalMemberListUIDs") then
         {
@@ -142,7 +140,7 @@ else
         };
     publicVariable "theBoss";
     publicVariable "membersX";
-    [] execVM "Ammunition\boxAAF.sqf";
+    [] spawn A3A_fnc_boxAAF;
     };
 
 diag_log format ["%1: [Antistasi] | INFO | Accepting Players.",servertime];
@@ -162,11 +160,11 @@ addMissionEventHandler ["PlayerDisconnected",{_this call A3A_fnc_onHeadlessClien
 
 addMissionEventHandler ["BuildingChanged", {
 	params ["_oldBuilding", "_newBuilding", "_isRuin"];
-	
+
 	if (_isRuin) then {
 		_oldBuilding setVariable ["ruins", _newBuilding];
 		_newBuilding setVariable ["building", _oldBuilding];
-		
+
 		if !(_oldBuilding in antennas) then {
 			destroyedBuildings pushBack (getPosATL _oldBuilding);
 		};
@@ -177,8 +175,8 @@ serverInitDone = true; publicVariable "serverInitDone";
 diag_log format ["%1: [Antistasi] | INFO | Marking serverInitDone : %2.",servertime, serverInitDone];
 
 waitUntil {sleep 1;!(isNil "placementDone")};
-distanceXs = [] spawn A3A_fnc_distances4;
-resourcecheck = [] execVM "resourcecheck.sqf";
+distanceXs = [] spawn A3A_fnc_distance;
+[] spawn A3A_fnc_resourcecheck;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
 
@@ -192,4 +190,5 @@ savingServer = false;
 			sleep 30;
 		};
 };
+[] call A3A_fnc_arsenalManage;
 diag_log format ["%1: [Antistasi] | INFO | initServer Completed.",servertime];

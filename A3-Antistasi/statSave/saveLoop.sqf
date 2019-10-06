@@ -24,7 +24,7 @@ private ["_garrison"];
 ["prestigeCSAT", prestigeCSAT] call fn_SaveStat;
 ["dateX", date] call fn_SaveStat;
 ["skillFIA", skillFIA] call fn_SaveStat;
-["destroyedCities", destroyedCities] call fn_SaveStat;
+["destroyedSites", destroyedSites] call fn_SaveStat;
 ["distanceSPWN", distanceSPWN] call fn_SaveStat;
 ["civPerc", civPerc] call fn_SaveStat;
 ["chopForest", chopForest] call fn_SaveStat;
@@ -149,11 +149,22 @@ _prestigeBLUFOR = _prestigeBLUFOR + [_dataX select 3];
 
 _markersX = markersX - outpostsFIA - controlsX;
 _garrison = [];
+_wurzelGarrison = [];
+
 {
 _garrison pushBack [_x,garrison getVariable [_x,[]]];
+_wurzelGarrison pushBack
+[
+	_x,
+	garrison getVariable [format ["%1_garrison",_x], []],
+ 	garrison getVariable [format ["%1_requested",_x], []],
+	garrison getVariable [format ["%1_over", _x], []]
+];
 } forEach _markersX;
 
 ["garrison",_garrison] call fn_SaveStat;
+["wurzelGarrison", _wurzelGarrison] call fn_SaveStat;
+["usesWurzelGarrison", true] call fn_SaveStat;
 /*
 _arrayMrkMF = [];
 
@@ -208,7 +219,7 @@ if (!isDedicated) then
 			_typesX pushBackUnique _x;
 			};
 		};
-	} forEach ["AS","CON","DES","LOG","RES","CONVOY","DEF_HQ","AttackAAF"];
+	} forEach ["AS","CON","DES","LOG","RES","CONVOY","DEF_HQ","rebelAttack","invaderPunish"];
 
 	["tasks",_typesX] call fn_SaveStat;
 	};

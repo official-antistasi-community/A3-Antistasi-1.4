@@ -119,7 +119,14 @@ fn_RetrievePlayerStat = {
 	"prestigeNATO","prestigeCSAT", "hr","planesAAFcurrent","helisAAFcurrent","APCAAFcurrent","tanksAAFcurrent","armas","items","backpcks","ammunition","dateX", "WitemsPlayer","prestigeOPFOR","prestigeBLUFOR","resourcesAAF","resourcesFIA","skillFIA"];
 */
 specialVarLoads =
-["outpostsFIA","minesX","staticsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO","prestigeCSAT","posHQ", "hr","armas","items","backpcks","ammunition","dateX", "prestigeOPFOR","prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedCities","garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases","idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick","bombRuns","difficultyX","gameMode"];
+[
+	"outpostsFIA","minesX","staticsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO",
+	"prestigeCSAT","posHQ", "hr","armas","items","backpcks","ammunition","dateX", "prestigeOPFOR",
+	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
+	"garrison" ,"tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
+	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
+	"bombRuns","difficultyX","gameMode","wurzelGarrison"
+];
 //THIS FUNCTIONS HANDLES HOW STATS ARE LOADED
 fn_SetStat =
 {
@@ -134,8 +141,8 @@ fn_SetStat =
 			if !(isMultiplayer) then
 				{
 				skillMult = _varValue;
-				if (skillMult == 0.5) then {minWeaps = 15};
-				if (skillMult == 2) then {minWeaps = 40};
+				if (skillMult == 1) then {minWeaps = 15};
+				if (skillMult == 3) then {minWeaps = 40};
 				};
 			};
 		if(_varName == 'gameMode') then
@@ -178,7 +185,7 @@ fn_SetStat =
 			forceWeatherChange
 			};
 		if(_varName == 'resourcesFIA') then {server setVariable ["resourcesFIA",_varValue,true]};
-		if(_varName == 'destroyedCities') then {destroyedCities = +_varValue; publicVariable "destroyedCities"};
+		if(_varName == 'destroyedSites') then {destroyedSites = +_varValue; publicVariable "destroyedSites"};
 		if(_varName == 'skillFIA') then
 			{
 			skillFIA = _varValue; publicVariable "skillFIA";
@@ -233,6 +240,15 @@ fn_SetStat =
 			//_markersX = markersX - outpostsFIA - controlsX - citiesX;
 			{garrison setVariable [_x select 0,_x select 1,true]} forEach _varvalue;
 			};
+		if(_varName == 'wurzelGarrison') then
+		{
+			{
+			    garrison setVariable [format ["%1_garrison", (_x select 0)], _x select 1, true];
+					garrison setVariable [format ["%1_requested", (_x select 0)], _x select 2, true];
+					garrison setVariable [format ["%1_over", (_x select 0)], _x select 3, true];
+					[(_x select 0)] call A3A_fnc_updateReinfState;
+			} forEach _varvalue;
+		};
 		if(_varName == 'outpostsFIA') then
 			{
 			if (count (_varValue select 0) == 2) then
@@ -243,7 +259,7 @@ fn_SetStat =
 				_mrk = createMarker [format ["FIApost%1", random 1000], _positionX];
 				_mrk setMarkerShape "ICON";
 				_mrk setMarkerType "loc_bunker";
-				_mrk setMarkerColor colourTeamPlayer;
+				_mrk setMarkerColor colorTeamPlayer;
 				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer]} else {_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer]};
 				spawner setVariable [_mrk,2,true];
 				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
@@ -359,8 +375,8 @@ fn_SetStat =
 				_dirVeh = _varvalue select _i select 2;
 				_veh = createVehicle [_typeVehX,[0,0,1000],[],0,"NONE"];
 				_veh setDir _dirVeh;_veh setDir _dirVeh;
+				_veh setVectorUp surfaceNormal (_posVeh);
 				_veh setPos _posVeh;
-				_veh setVectorUp surfaceNormal (getPos _veh);
 				if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then
 					{
 					staticsToSave pushBack _veh;
@@ -372,9 +388,9 @@ fn_SetStat =
 		if(_varname == 'tasks') then
 			{
 			{
-			if (_x == "AttackAAF") then
+			if (_x == "rebelAttack") then
 				{
-				[] call A3A_fnc_attackAAF;
+				[] call A3A_fnc_rebelAttack;
 				}
 			else
 				{

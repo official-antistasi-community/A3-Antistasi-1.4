@@ -24,11 +24,10 @@ if (side group player == teamPlayer) then
 	_score = _oldUnit getVariable ["score",0];
 	_punish = _oldUnit getVariable ["punish",0];
 	_moneyX = _oldUnit getVariable ["moneyX",0];
-	_moneyX = round (_moneyX - (_moneyX * 0.1));
+	_moneyX = round (_moneyX - (_moneyX * 0.15));
 	_eligible = _oldUnit getVariable ["eligible",true];
 	_rankX = _oldUnit getVariable ["rankX","PRIVATE"];
 
-	_moneyX = round (_moneyX - (_moneyX * 0.05));
 	if (_moneyX < 0) then {_moneyX = 0};
 
 	_newUnit setVariable ["score",_score -1,true];
@@ -64,9 +63,9 @@ if (side group player == teamPlayer) then
 	{_newUnit removeWeaponGlobal _x} forEach weapons _newUnit;
 	removeBackpackGlobal _newUnit;
 	removeVest _newUnit;
-	if ((not("ItemGPS" in unlockedItems)) and ("ItemGPS" in (assignedItems _newUnit))) then {_newUnit unlinkItem "ItemGPS"};
-	private _radio = player call A3A_fnc_getRadio;
-	if (!haveRadio && _radio != "") then {player unlinkItem _radio};
+	removeAllAssignedItems _newUnit;
+	//Give them a map, in case they're commander and need to replace petros.
+	_newUnit linkItem "ItemMap";
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{
@@ -239,7 +238,7 @@ if (side group player == teamPlayer) then
 			[_bag2] call A3A_fnc_AIVEHinit;
 			}
 		];
-	[true] execVM "reinitY.sqf";
+	[true] spawn A3A_fnc_reinitY;
 	[player] execVM "OrgPlayers\unitTraits.sqf";
 	[] spawn A3A_fnc_statistics;
 	}

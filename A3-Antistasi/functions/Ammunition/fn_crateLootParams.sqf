@@ -22,7 +22,7 @@ crateAmmoNumMax = "crateAmmoNumMax" call BIS_fnc_getParamValue; publicVariable "
 crateExlposiveTypeMax = "crateExlposiveTypeMax" call BIS_fnc_getParamValue; publicVariable "crateExlposiveTypeMax";
 crateExlposiveNumMax = "crateExlposiveNumMax" call BIS_fnc_getParamValue; publicVariable "crateExlposiveNumMax";
 
-//Optics
+//Attachments
 crateAttachmentTypeMax = "crateAttachmentTypeMax" call BIS_fnc_getParamValue; publicVariable "crateAttachmentTypeMax";
 crateAttachmentNumMax = "crateAttachmentNumMax" call BIS_fnc_getParamValue; publicVariable "crateAttachmentNumMax";
 

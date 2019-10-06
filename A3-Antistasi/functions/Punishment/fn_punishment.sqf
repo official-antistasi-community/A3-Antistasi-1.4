@@ -170,7 +170,7 @@ if (!_forcePunish) then
 		_exitCode = "Victim is nearby PVP players";
 	};
 };
-if (_exitCode != "") exitWith {_exitCode; "da!";};
+if (_exitCode != "") exitWith {_exitCode;};
 
 [format ["%1: [Antistasi] | INFO | PUNISHMENT | WARNING | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
 ["TK WARNING!\nWatch your fire!"] remoteExec ["hint", _foolish, false]; 

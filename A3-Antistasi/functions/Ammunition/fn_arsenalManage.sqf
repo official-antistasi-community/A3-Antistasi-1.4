@@ -1,28 +1,33 @@
 if (!isServer) exitWith {};
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
-private ["_weaponsX","_backpcks","_items","_magazines","_weaponX","_magazine","_index","_backpck","_item","_optics","_nv"];
 
-_updated = "";
+private _updated = "";
+private _item = objNull;
+private _cateogry = objNull;
 
 ["buttonInvToJNA"] call jn_fnc_arsenal;
-_weaponsX = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HANDGUN) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW) /*+ (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT)*/ + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON)) select {_x select 1 != -1};
-_magazines = /*(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG) +*/ (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 != -1};
-_backpcks = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BACKPACK) select {_x select 1 != -1};
-_items = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_VEST) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GOGGLES) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_MAP) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GPS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_RADIO) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_COMPASS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_WATCH) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMACC) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_UNIFORM)) select {_x select 1 != -1};
-_optics = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC) select {_x select 1 != -1};
-_nv = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_NVGS) select {_x select 1 != -1};
+
+private _weapons = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HANDGUN) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW) /*+ (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT)*/ + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON)) select {_x select 1 != -1};
+private _magazines = /*(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG) +*/ (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 != -1};
+private _backpacks = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BACKPACK) select {_x select 1 != -1};
+private _items = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GOGGLES) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_MAP) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GPS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_RADIO) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_COMPASS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_WATCH) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMACC) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_UNIFORM)) select {_x select 1 != -1};
+private _optics = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC) select {_x select 1 != -1};
+private _nv = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_NVGS) select {_x select 1 != -1};
+private _helmets = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR) select {_x select 1 != -1};
+private _vests = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_VEST) select {_x select 1 != -1};
 
 private _check = false;
 private _checkmag = false;
+
 {
 if (_x select 1 >= minWeaps) then
 	{
-	_weaponX = _x select 0;
-	if !(_weaponX in mlaunchers) then
+	_item = _x select 0;
+	if !(_item in mlaunchers) then
 		{
 		if (unlockedUnlimitedAmmo == 1) then
 			{
-			_weaponMagazine = (getArray (configFile / "CfgWeapons" / _weaponX / "magazines") select 0);
+			_weaponMagazine = (getArray (configFile / "CfgWeapons" / _item / "magazines") select 0);
 			if (!isNil "_weaponMagazine") then
 				{
 				if (not(_weaponMagazine in unlockedMagazines)) then
@@ -30,53 +35,59 @@ if (_x select 1 >= minWeaps) then
 					unlockedMagazines pushBack _weaponMagazine;
 					_checkmag	= true;
 					_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")];
-					_index = _weaponMagazine call jn_fnc_arsenal_itemType;
-					[_index,_weaponMagazine,-1] call jn_fnc_arsenal_addItem;
+					_category = _weaponMagazine call jn_fnc_arsenal_itemType;
+					[_category,_weaponMagazine,-1] call jn_fnc_arsenal_addItem;
 					};
 				};
 			};
-		unlockedWeapons pushBack _weaponX;
+		unlockedWeapons pushBack _item;
 		_check = true;
-		//lockedWeapons = lockedWeapons - [_weaponX];
-		if (_weaponX in arifles) then
+		if (_item in arifles) then
 			{
-			unlockedRifles pushBack _weaponX; publicVariable "unlockedRifles";
-			if (count (getArray (configfile >> "CfgWeapons" >> _weaponX >> "muzzles")) == 2) then
+			unlockedRifles pushBack _item; publicVariable "unlockedRifles";
+			if (count (getArray (configfile >> "CfgWeapons" >> _item >> "muzzles")) == 2) then
 				{
-				unlockedGL pushBack _weaponX; publicVariable "unlockedGL";
+				unlockedGL pushBack _item; publicVariable "unlockedGL";
 				};
 			}
 		else
 			{
-			if (_weaponX in mguns) then
+			if (_item in mguns) then
 				{
-				unlockedMG pushBack _weaponX; publicVariable "unlockedMG";
+				unlockedMG pushBack _item; publicVariable "unlockedMG";
 				}
 			else
 				{
-				if (_weaponX in srifles) then
+				if (_item in srifles) then
 					{
-					unlockedSN pushBack _weaponX; publicVariable "unlockedSN";
+					unlockedSN pushBack _item; publicVariable "unlockedSN";
 					}
 				else
 					{
-					if (_weaponX in ((rlaunchers + mlaunchers) select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 0)})) then
+					if (_item in allWeaponSubmachineGun) then
 						{
-						unlockedAT pushBack _weaponX; publicVariable "unlockedAT";
+						unlockedSMG pushBack _item; publicVariable "unlockedSMG";
 						}
 					else
 						{
-						if (_weaponX in (mlaunchers select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 1)})) then {unlockedAA pushBack _weaponX; publicVariable "unlockedAA"};
+						if (_item in ((rlaunchers + mlaunchers) select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 0)})) then
+							{
+							unlockedAT pushBack _item; publicVariable "unlockedAT";
+							}
+						else
+							{
+							if (_item in (mlaunchers select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 1)})) then {unlockedAA pushBack _item; publicVariable "unlockedAA"};
+							};
 						};
 					};
 				};
 			};
-		_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _weaponX >> "displayName")];
-		_index = _weaponX call jn_fnc_arsenal_itemType;
-		[_index,_weaponX,-1] call jn_fnc_arsenal_addItem;
+		_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
+		_category = _item call jn_fnc_arsenal_itemType;
+		[_category,_item,-1] call jn_fnc_arsenal_addItem;
 		};
 	};
-} forEach _weaponsX;
+} forEach _weapons;
 
 if (_check) then
 	{
@@ -93,12 +104,12 @@ if (_checkmag) then
 {
 if (_x select 1 >= minWeaps) then
 	{
-	_magazines = _x select 0;
-	_index = _magazines  call jn_fnc_arsenal_itemType;
-	[_index,_magazines,-1] call jn_fnc_arsenal_addItem;
-	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _magazines >> "displayName")];
+	_item = _x select 0;
+	_category = _item  call jn_fnc_arsenal_itemType;
+	[_category,_item,-1] call jn_fnc_arsenal_addItem;
+	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _item >> "displayName")];
 	_check = true;
-	unlockedMagazines pushBack _magazines;
+	unlockedMagazines pushBack _item;
 	};
 } forEach _magazines;
 
@@ -111,20 +122,21 @@ if (_check) then
 {
 if (_x select 1 >= minWeaps) then
 	{
-	_backpck = _x select 0;
-	_index = _backpck  call jn_fnc_arsenal_itemType;
-	[_index,_backpck,-1] call jn_fnc_arsenal_addItem;
-	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgVehicles" >> _backpck >> "displayName")];
+	_item = _x select 0;
+	_category = _item  call jn_fnc_arsenal_itemType;
+	[_category,_item,-1] call jn_fnc_arsenal_addItem;
+	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgVehicles" >> _item >> "displayName")];
 	_check = true;
-	unlockedBackpacks pushBack _backpck;
+	unlockedBackpacks pushBack _item;
 	};
-} forEach _backpcks;
+} forEach _backpacks;
 
 if (_check) then
 	{
 	publicVariable "unlockedBackpacks";
 	_check = false;
 	};
+
 {
 if (_x select 1 >= minWeaps) then
 	{
@@ -132,8 +144,8 @@ if (_x select 1 >= minWeaps) then
 	unlockedItems pushBack _item;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 	_check = true;
-	_index = _item call jn_fnc_arsenal_itemType;
-	[_index,_item,-1] call jn_fnc_arsenal_addItem;
+	_category = _item call jn_fnc_arsenal_itemType;
+	[_category,_item,-1] call jn_fnc_arsenal_addItem;
 	};
 } forEach _items;
 
@@ -142,6 +154,7 @@ if (_check) then
 	call A3A_fnc_checkRadiosUnlocked;
 	_check = false;
 	};
+
 {
 if (_x select 1 >= minWeaps) then
 	{
@@ -150,8 +163,8 @@ if (_x select 1 >= minWeaps) then
 	unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 	_check = true;
-	_index = _item call jn_fnc_arsenal_itemType;
-	[_index,_item,-1] call jn_fnc_arsenal_addItem;
+	_category = _item call jn_fnc_arsenal_itemType;
+	[_category,_item,-1] call jn_fnc_arsenal_addItem;
 	};
 } forEach _optics;
 
@@ -181,15 +194,52 @@ if (_countX >= minWeaps) then
 	private _nvToUnlock = selectRandom _lockedNvs;
 	unlockedNVG pushBack _nvToUnlock;
 	haveNV = true; publicVariable "haveNV";
-	publicVariable "unlockedItems";
+	check = true;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _nvToUnlock >> "displayName")];
-	_index = _nvToUnlock call jn_fnc_arsenal_itemType;
-	[_index,_nvToUnlock,-1] call jn_fnc_arsenal_addItem;
+	_category = _nvToUnlock call jn_fnc_arsenal_itemType;
+	[_category,_nvToUnlock,-1] call jn_fnc_arsenal_addItem;
 };
 
-//fixes bad case issues
-/*if (("optic_Hamr") in unlockedOptics) then {unlockedOptics pushBack "optic_hamr"};
-if (("optic_Aco_smg") in unlockedOptics) then {unlockedOptics pushBack "optic_aco_smg"};
-if (("optic_Aco") in unlockedOptics) then {unlockedOptics pushBack "optic_aco"};*/
+if (_check) then
+	{
+	publicVariable "unlockedNVG";
+	_check = false;
+	};
+
+{
+if (_x select 1 >= minWeaps) then
+	{
+	_item = _x select 0;
+	unlockedHelmet pushBack _item;
+	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
+	_check = true;
+	_category = _item call jn_fnc_arsenal_itemType;
+	[_category,_item,-1] call jn_fnc_arsenal_addItem;
+	};
+} forEach _helmets;
+
+if (_check) then
+	{
+	publicVariable "unlockedHelmet";
+	_check = false;
+	};
+
+{
+if (_x select 1 >= minWeaps) then
+	{
+	_item = _x select 0;
+	unlockedVest pushBack _item;
+	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
+	_check = true;
+	_category = _item call jn_fnc_arsenal_itemType;
+	[_category,_item,-1] call jn_fnc_arsenal_addItem;
+	};
+} forEach _vests;
+
+if (_check) then
+	{
+	publicVariable "unlockedVest";
+	_check = false;
+	};
 
 _updated

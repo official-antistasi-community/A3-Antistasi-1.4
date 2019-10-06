@@ -62,8 +62,8 @@ if (!isMultiPlayer) then
     {
     private _index = _x call jn_fnc_arsenal_itemType;
     [_index,_x,-1] call jn_fnc_arsenal_addItem;
-    }foreach (unlockeditems + unlockedweapons + unlockedMagazines + unlockedBackpacks);
-    [] spawn A3A_fnc_boxAAF;
+    }foreach (unlockedItems + unlockedWeapons + unlockedMagazines + unlockedBackpacks + unlockedNVG + unlockedOptics + unlockedVest + unlockedHelmet);
+
     waitUntil {sleep 1;!(isNil "placementDone")};
     distanceXs = [] spawn A3A_fnc_distance;
     [] spawn A3A_fnc_resourcecheck;

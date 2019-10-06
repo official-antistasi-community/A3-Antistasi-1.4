@@ -30,12 +30,6 @@ private ["_garrison"];
 ["chopForest", chopForest] call fn_SaveStat;
 ["maxUnits", maxUnits] call fn_SaveStat;
 ["nextTick", nextTick - time] call fn_SaveStat;
-/*
-["unlockedWeapons", unlockedWeapons] call fn_SaveStat;
-["unlockedItems", unlockedItems] call fn_SaveStat;
-["unlockedMagazines", unlockedMagazines] call fn_SaveStat;
-["unlockedBackpacks", unlockedBackpacks] call fn_SaveStat;
-*/
 ["weather",[fogParams,rain]] call fn_SaveStat;
 ["destroyedBuildings",destroyedBuildings] call fn_SaveStat;
 //["firstLoad",false] call fn_SaveStat;

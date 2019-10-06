@@ -1,10 +1,14 @@
 ////////////////////////////////////
 //   IFA ITEMS MODIFICATIONS     ///
 ////////////////////////////////////
-smokeGrenade = ["LIB_RDG","LIB_NB39"];	//Resets Smoke Greandes
-chemLight = [];					//Clears all chems
-lootNVG = [];						//Clears NVG's
-armoredHeadgear = [];				//Clears all Helmets
+smokeGrenade = ["LIB_RDG","LIB_NB39"];
+chemLight = [];
+lootNVG = [];
+lootAttachment = [];
+lootBackpack = [];
+lootHelmet = [];
+lootVest = [];
+armoredHeadgear = [];
 {armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
 
 if (hasIFA) then

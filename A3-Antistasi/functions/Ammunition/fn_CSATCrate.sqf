@@ -1,108 +1,170 @@
-private ["_loot","_guns","_ammo","_items","_avail","_num","_optics","_packs","_mines"];
-
-private _unlocks = (unlockedNVG + unlockedItems + unlockedOptics + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
+private _unlocks = (unlockedHelmet + unlockedVest + unlockedNVG + unlockedOptics + unlockedItems + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
 private _crate = _this select 0;
-
+private _available = objNull;
+private _loot = objNull;
+private _amount = objNull;
+//Empty the crate
 clearMagazineCargoGlobal _crate;
 clearWeaponCargoGlobal _crate;
 clearItemCargoGlobal _crate;
 clearBackpackCargoGlobal _crate;
-
-private _weaponTypes = crateWepTypeMin + floor random (crateWepTypeMax - crateWepTypeMin);
-private _itemTypes = crateItemTypeMin + floor random (crateItemTypeMax - crateItemTypeMin);
-private _ammoTypes = crateAmmoTypeMin + floor random (crateAmmoTypeMax - crateAmmoTypeMin);
-private _mineTypes = crateMineTypeMin + floor random (crateMineTypeMax - crateMineTypeMin);
-private _opticTypes = crateOpticTypeMin + floor random (crateOpticTypeMax - crateOpticTypeMin);
-private _backpackTypes = crateBackpackTypeMin + floor random (crateBackpackTypeMax - crateBackpackTypeMin);
-
+//Double max types if the crate is an ammo truck
 if (typeOf _crate == vehCSATAmmoTruck) then
 	{
-	_weaponTypes=_weaponTypes*2;
-	_itemTypes=_itemTypes*2;
-	_ammoTypes=_ammoTypes*2;
-	_mineTypes=_mineTypes*2;
-	_opticTypes=_opticTypes*2;
-	_backpackTypes=_backpackTypes*2;
+	if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Ammo Truck Detected: Doubling Types",servertime,_backpackTypes]};
+	crateWepTypeMax=crateWepTypeMax*2;
+	crateItemTypeMax=crateItemTypeMax*2;
+	crateAmmoTypeMax=crateAmmoTypeMax*2;
+	crateMineTypeMax=crateMineTypeMax*2;
+	crateOpticTypeMax=crateOpticTypeMax*2;
+	crateBackpackTypeMax=crateBackpackTypeMax*2;
 	};
-
-for "_i" from 0 to _weaponTypes do
+//Weapons Loot
+for "_i" from 0 to floor random crateWepTypeMax do
 	{
-	_guns = lootWeapon;
-	_avail = (_guns - _unlocks - itemCargo _crate);
-	_loot = selectRandom _avail;
-	if (isNil "_loot") then {} else
+	_available = (lootWeapon - _unlocks - itemCargo _crate);
+	_loot = selectRandom _available;
+	if (isNil "_loot") then
 		{
-		_num = crateWepNumMin + floor random (crateWepNumMax - crateWepNumMin);
-		_crate addWeaponWithAttachmentsCargoGlobal [[ _loot, "", "", "", [], [], ""], _num];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Weapons Left in Loot List",servertime]};
+		exitWith {};
+		}
+		else
+		{
+		_amount = floor random crateWepNumMax;
+		_crate addWeaponWithAttachmentsCargoGlobal [[ _loot, "", "", "", [], [], ""], _amount];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount, _loot]};
 		};
 	};
-
-for "_i" from 0 to _itemTypes do
+//Items Loot
+for "_i" from 0 to floor random crateItemTypeMax do
 	{
-	_items = lootItem;
-	_avail = (_items - _unlocks - itemCargo _crate);
-	_loot = selectRandom _avail;
-	if (isNil "_loot") then {} else
+	_available = (lootItem - _unlocks - itemCargo _crate);
+	_loot = selectRandom _available;
+	if (isNil "_loot") then
 		{
-		_num = crateItemNumMin + floor random (crateItemNumMax - crateItemNumMin);
-		_crate addItemCargoGlobal [_loot,_num];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Items Left in Loot List",servertime]};
+		exitWith {};
+		}
+		else
+		{
+		_amount = floor random crateItemNumMax;
+		_crate addItemCargoGlobal [_loot,_amount];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 		};
 	};
-
-for "_i" from 0 to _ammoTypes do
+//Ammo Loot
+for "_i" from 0 to floor random crateAmmoTypeMax do
 	{
-	_ammo = lootMagazine;
-	_avail = (_ammo - _unlocks - itemCargo _crate);
-	_loot = selectRandom _avail;
-	if (isNil "_loot") then {} else
+	_available = (lootMagazine - _unlocks - itemCargo _crate);
+	_loot = selectRandom _available;
+	if (isNil "_loot") then
 		{
-		_num = crateAmmoNumMin + floor random (crateAmmoNumMax - crateAmmoNumMin);
-		_crate addMagazineCargoGlobal [_loot,_num];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Ammo Left in Loot List",servertime]};
+		exitWith {};
+		}
+		else
+		{
+		_amount = floor random crateAmmoNumMax;
+		_crate addMagazineCargoGlobal [_loot,_amount];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 		};
 	};
-
-for "_i" from 0 to _mineTypes do
+//Explosives Loot
+for "_i" from 0 to floor random crateMineTypeMax do
 	{
-	_mines = lootExplosive;
-	_avail = (_mines - _unlocks - itemCargo _crate);
-	_loot = selectRandom _avail;
-	if (isNil "_loot") then {} else
+	_available = (lootExplosive - _unlocks - itemCargo _crate);
+	_loot = selectRandom _available;
+	if (isNil "_loot") then
 		{
-		_num = crateMineNumMin + floor random (crateMineNumMax - crateMineNumMin);
-		_crate addMagazineCargoGlobal [_loot,_num];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Mines Left in Loot List",servertime]};
+		exitWith {};
+		}
+		else
+		{
+		_amount = floor random crateMineNumMax;
+		_crate addMagazineCargoGlobal [_loot,_amount];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
+	};
+//Attachments Loot
+for "_i" from 0 to floor random crateOpticTypeMax do
+	{
+	_available = (lootAttachment - _unlocks - itemCargo _crate);
+	_loot = selectRandom _available;
+	if (isNil "_loot") then
+		{
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Optics Left in Loot List",servertime]};
+		exitWith {};
+		}
+		else
+		{
+		_amount = floor random crateOpticNumMax;
+		_crate addItemCargoGlobal [_loot,_amount];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
+	};
+//Backpacks Loot
+for "_i" from 0 to floor random crateBackpackTypeMax do
+	{
+	_available = (lootBackpack - _unlocks - itemCargo _crate);
+	_loot = selectRandom _available;
+	if (isNil "_loot") then
+		{
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Optics Left in Loot List",servertime]};
+		exitWith {};
+		}
+		else
+		{
+		_amount = floor random crateBackpackNumMax;
+		_crate addBackpackCargoGlobal [_loot,_amount];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
+	};
+//Helmets Loot
+for "_i" from 0 to floor random crateItemTypeMax do
+	{
+	_available = (lootHelmet - _unlocks - itemCargo _crate);
+	_loot = selectRandom _available;
+	if (isNil "_loot") then
+		{
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Helmets Left in Loot List",servertime]};
+		exitWith {};
+		}
+		else
+		{
+		_amount = floor random crateItemNumMax;
+		_crate addItemCargoGlobal [_loot,_amount];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
+	};
+//Vests Loot
+for "_i" from 0 to floor random crateItemTypeMax do
+	{
+	_available = (lootVest - _unlocks - itemCargo _crate);
+	_loot = selectRandom _available;
+	if (isNil "_loot") then
+		{
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Vests Left in Loot List",servertime]};
+		exitWith {};
+		}
+		else
+		{
+		_amount = floor random crateItemNumMax;
+		_crate addItemCargoGlobal [_loot,_amount];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 		};
 	};
 
 if !(hasIFA) then
 	{
-	for "_i" from 0 to _opticTypes do
-		{
-		_optics = lootAttachment;
-		_avail = (_optics - _unlocks - itemCargo _crate);
-		_loot = selectRandom _avail;
-		if (isNil "_loot") then {} else
-			{
-			_num = crateOpticNumMin + floor random (crateOpticNumMax - crateOpticNumMin);
-			_crate addItemCargoGlobal [_loot,_num];
-			};
-		};
-
-	for "_i" from 0 to _backpackTypes do
-		{
-		_packs = lootBackpack;
-		_avail = (_packs - _unlocks - itemCargo _crate);
-		_loot = selectRandom _avail;
-		if (isNil "_loot") then {} else
-			{
-			_num = crateBackpackNumMin + floor random (crateBackpackNumMax - crateBackpackNumMin);
-			_crate addBackpackCargoGlobal [_loot,_num];
-			};
-		};
-
 	if (round random 100 < 25) then
 		{
-		if !("O_Static_Designator_02_weapon_F" in _unlocks) then
-		{_crate addBackpackCargoGlobal ["O_Static_Designator_02_weapon_F",1]};
+		if !("O_Static_Designator_01_weapon_F" in _unlocks) then
+		{
+		_crate addBackpackCargoGlobal ["O_Static_Designator_01_weapon_F",1];
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning 1 Laser Designator",servertime]};
+		};
 		}
 	else
 		{
@@ -114,6 +176,7 @@ if !(hasIFA) then
 				{_crate addBackpackCargoGlobal ["I_UAV_01_backpack_F",1]};
 				if !("I_UavTerminal" in _unlocks) then
 				{_crate addItemCargoGlobal ["I_UavTerminal",1]};
+				if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning 1 UAV Terminal And Bag",servertime]};
 				}
 			else
 				{
@@ -121,6 +184,7 @@ if !(hasIFA) then
 				{_crate addBackpackCargoGlobal ["B_UAV_01_backpack_F",1]};
 				if !("B_UavTerminal" in _unlocks) then
 				{_crate addItemCargoGlobal ["B_UavTerminal",1]};
+				if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning 1 UAV Terminal And Bag",servertime]};
 				};
 			};
 		};
@@ -130,5 +194,6 @@ if !(hasIFA) then
 		{_crate addMagazineCargoGlobal ["ACE_HuntIR_M203", 3]};
 			if !("ACE_HuntIR_monitor" in _unlocks) then
 		{_crate addItemCargoGlobal ["ACE_HuntIR_monitor", 1]};
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning 1 HuntIR Monitor And 3 Rounds",servertime]};
 		};
 	};

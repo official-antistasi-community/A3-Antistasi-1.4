@@ -11,8 +11,8 @@ private _allWeaponConfigs = "
 //Ignore anything with type 0. They're generally vehicle magazines.
 //Type 16 is generally throwables, type 256 or above normal magazines.
 private _allMagazineConfigs = "
-	getNumber (_x >> 'scope') == 2 
-	&& 
+	getNumber (_x >> 'scope') == 2
+	&&
 	getNumber (_x >> 'type') > 0
 " configClasses (configFile >> "CfgMagazines");
 
@@ -37,7 +37,6 @@ private _allConfigs = _allWeaponConfigs + _allMagazineConfigs + _allBackpackConf
 ////////////////////////////////////////////////////
 //    Filter out content from disabled mods.     ///
 ////////////////////////////////////////////////////
-
 _allConfigs = _allConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)};
 
 //////////////////////////////

@@ -50,23 +50,23 @@ colorInvaders = "colorOPFOR";
 //     DECLARING ITEM ARRAYS     ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Declaring Empty Arrays",servertime];
-//All Items Arrays
+//Config Arrays
 //Weapons arrays
-arifles = [];					//Used
+arifles = [];					//Pre-Rewrite Variable
 allWeaponBombLauncher = [];
 allWeaponGrenadeLauncher = [];
-hguns = [];					//Used
+hguns = [];					//Pre-Rewrite Variable
 allWeaponLauncher = [];
-mguns = [];					//Used
+mguns = [];					//Pre-Rewrite Variable
 allMagazine = [];
-mlaunchers = [];				//Used
+mlaunchers = [];				//Pre-Rewrite Variable
 allWeaponMortar = [];
-rlaunchers = [];				//Used
+rlaunchers = [];				//Pre-Rewrite Variable
 allWeaponShotgun = [];
 allWeaponThrow = [];
 allWeaponRifle = [];
 allWeaponSubmachineGun = [];
-srifles = [];					//Used
+srifles = [];					//Pre-Rewrite Variable
 //Items arrays
 allAttachmentBipod = [];
 allAttachmentMuzzle = [];
@@ -108,7 +108,7 @@ allMine = [];
 allMineBounding = [];
 allMineDirectional = [];
 
-//Treated arrays
+//Treated Arrays
 //Sorted Items
 attachmentLight = [];
 attachmentLaser = [];
@@ -119,12 +119,6 @@ uglFlareMag = [];
 handFlare = [];
 irGrenade = [];
 laserBatteries = [];
-
-//Vehicles and Equipment Arrays
-eastStaticWeapon = [];
-westStaticWeapon = [];
-independentStaticWeapon = [];
-
 //Equipment
 rebelUniform = [];
 civilianUniform = [];
@@ -135,7 +129,6 @@ armoredVest = [];
 armoredHeadgear = [];
 civilianHeadgear = [];
 civilianGlasses = [];
-
 //Loot Items
 lootBasicItem = [];
 lootNVG = [];
@@ -146,24 +139,33 @@ lootMagazine = [];
 lootGrenade = [];
 lootExplosive = [];
 lootBackpack = [];
+lootHelmet = [];
+lootVest = [];
+//Vehicles and Equipment Arrays
+eastStaticWeapon = [];
+westStaticWeapon = [];
+independentStaticWeapon = [];
 
-//-----------------------------Existing Used Arrays----------------------------//
-civBoats = [];
-arrayCivVeh = [];
-
-initialRifles = [];
+//Unlocks Arrays
+//Unlocked Item Categories
 unlockedWeapons = [];
-unlockedRifles = [];
 unlockedMagazines = [];
 unlockedItems = [];
 unlockedBackpacks = [];
 unlockedOptics = [];
-unlockedNVG = [];			//New
+unlockedNVG = [];
+unlockedVest = [];
+unlockedHelmet = [];
+//Unlocked Weapons By Type
+unlockedRifles = [];
 unlockedAT = [];
 unlockedAA = [];
 unlockedMG = [];
+unlockedSMG = [];
 unlockedGL = [];
 unlockedSN = [];
+//Used for AI-Rearm (poor implementation)
+initialRifles = [];
 
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
@@ -373,7 +375,7 @@ private _civVehConfigs = "(
 	}
 )" configClasses (configFile >> "CfgVehicles");
 
-arrayCivVeh append (_civVehConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
+arrayCivVeh = (_civVehConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
 
 
 //Civilian Boats
@@ -385,7 +387,7 @@ _civBoatConfigs = "(
 	}
 )" configClasses (configFile >> "CfgVehicles");
 
-CivBoats append (_civBoatConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
+CivBoats = (_civBoatConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
 
 ////////////////////////////////////
 //     ID LIST FOR UNIT NAMES    ///
@@ -447,22 +449,14 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Identifying Objects for Mis
 diag_log format ["%1: [Antistasi] | INFO | initVar | Building Loot Lists",servertime];
 [] call A3A_fnc_loot;
 
-////////////////////////////////////
-//      REBEL STARTING ITEMS     ///
-////////////////////////////////////
-unlockedItems append lootBasicItem;
-unlockedItems append rebelUniform;
-unlockedItems append civilianUniform;
-unlockedItems append civilianHeadgear;
-unlockedItems append civilianVest;
-unlockedItems append civilianGlasses;
-
 ///////////////////////////
 //     MOD TEMPLATES    ///
 ///////////////////////////
+//Please respect the order in which these are called,
+//and add new entries to the bottom of the list.
 if (hasACE) then
 	{
-	[] call A3A_fnc_aceModTemplate;
+	[] call A3A_fnc_aceModCompat;
 	};
 if (hasRHS) then
 	{
@@ -649,7 +643,7 @@ server setVariable ["resourcesFIA",1000,true];											//Initial FIA money poo
 skillFIA = 1;																		//Initial skill level for FIA soldiers
 prestigeNATO = 5;																	//Initial Prestige NATO
 prestigeCSAT = 5;																	//Initial Prestige CSAT
-prestigeOPFOR = [75, 50] select cadetMode;																	//Initial % support for NATO on each city
+prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
 countCA = 600;																		//600
 bombRuns = 0;
@@ -711,12 +705,12 @@ publicVariable "unlockedOptics";
 publicVariable "unlockedBackpacks";
 publicVariable "unlockedMagazines";
 publicVariable "unlockedNVG";
+publicVariable "unlockedRifles";
 publicVariable "unlockedMG";
 publicVariable "unlockedGL";
 publicVariable "unlockedSN";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
-publicVariable "unlockedRifles";
 
 publicVariable "civPerc";
 publicVariable "garageIsUsed";

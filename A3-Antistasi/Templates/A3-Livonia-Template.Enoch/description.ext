@@ -302,29 +302,19 @@ class Params
         texts[] = {""};
         default = "";
     };
-    class crateWepTypeMin
-    {
-        title = "Minimum Weapon Types in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 1;
-    };
     class crateWepTypeMax
     {
         title = "Maximum Weapon Types in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10};
-        default = 5;
-    };
-    class crateWepNumMin
-    {
-        title = "Minimum Weapon Quantity in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 1;
+        values[] = {0,2,4,9};
+        texts[] = {"1","3","5","10"};
+        default = 4;
     };
     class crateWepNumMax
     {
         title = "Maximum Weapon Quantity in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
-        default = 13;
+        values[] = {0,1,3,5,10,15};
+        texts[] = {"None","1","3","5","10","15"};
+        default = 15;
     };
     class Spacer1
     {
@@ -333,28 +323,18 @@ class Params
         texts[] = {""};
         default = "";
     };
-    class crateItemTypeMin
-    {
-        title = "Minimum Item Types in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 1;
-    };
     class crateItemTypeMax
     {
         title = "Maximum Item Types in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10};
-        default = 5;
-    };
-    class crateItemNumMin
-    {
-        title = "Minimum Item Quantity in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 0;
+        values[] = {0,2,4,9};
+        texts[] = {"1","3","5","10"};
+        default = 4;
     };
     class crateItemNumMax
     {
         title = "Maximum Item Quantity in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        values[] = {0,1,3,5,10,15};
+        texts[] = {"None","1","3","5","10","15"};
         default = 5;
     };
     class Spacer2
@@ -364,28 +344,18 @@ class Params
         texts[] = {""};
         default = "";
     };
-    class crateAmmoTypeMin
-    {
-        title = "Minimum Ammo Types in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 1;
-    };
     class crateAmmoTypeMax
     {
         title = "Maximum Ammo Types in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10};
-        default = 6;
-    };
-    class crateAmmoNumMin
-    {
-        title = "Minimum Ammo Quantity in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 5;
+        values[] = {0,2,4,9};
+        texts[] = {"1","3","5","10"};
+        default = 4;
     };
     class crateAmmoNumMax
     {
         title = "Maximum Ammo Quantity in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        values[] = {0,1,3,5,10,15};
+        texts[] = {"None","1","3","5","10","15"};
         default = 10;
     };
     class Spacer3
@@ -395,28 +365,18 @@ class Params
         texts[] = {""};
         default = "";
     };
-    class crateMineTypeMin
+    class crateExlposiveTypeMax
     {
-        title = "Minimum Mine Types in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 0;
+        title = "Maximum Exlposives Types in Crates";
+        values[] = {0,2,4,9};
+        texts[] = {"1","3","5","10"};
+        default = 2;
     };
-    class crateMineTypeMax
+    class crateExlposiveNumMax
     {
-        title = "Maximum Mine Types in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10};
-        default = 3;
-    };
-    class crateMineNumMin
-    {
-        title = "Minimum Mine Quantity in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 0;
-    };
-    class crateMineNumMax
-    {
-        title = "Maximum Mine Quantity in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        title = "Maximum Exlposives Quantity in Crates";
+        values[] = {0,1,3,5,10,15};
+        texts[] = {"None","1","3","5","10","15"};
         default = 5;
     };
     class Spacer4
@@ -426,28 +386,18 @@ class Params
         texts[] = {""};
         default = "";
     };
-    class crateOpticTypeMin
+    class crateAttachmentTypeMax
     {
-        title = "Minimum Optic Types in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 0;
-    };
-    class crateOpticTypeMax
-    {
-        title = "Maximum Optic Types in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10};
+        title = "Maximum Attachment Types in Crates";
+        values[] = {0,2,4,9};
+        texts[] = {"1","3","5","10"};
         default = 2;
     };
-    class crateOpticNumMin
+    class crateAttachmentNumMax
     {
-        title = "Minimum Optic Quantity in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 1;
-    };
-    class crateOpticNumMax
-    {
-        title = "Maximum Optic Quantity in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        title = "Maximum Attachment Quantity in Crates";
+        values[] = {0,1,3,5,10,15};
+        texts[] = {"None","1","3","5","10","15"};
         default = 3;
     };
     class Spacer5
@@ -457,29 +407,61 @@ class Params
         texts[] = {""};
         default = "";
     };
-    class crateBackpackTypeMin
-    {
-        title = "Minimum Backpack Types in Crates";
-        values[] = {0,1,2,3,4,5};
-        default = 1;
-    };
     class crateBackpackTypeMax
     {
         title = "Maximum Backpack Types in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10};
-        default = 5;
-    };
-    class crateBackpackNumMin
-    {
-        title = "Minimum Backpack Quantity in Crates";
-        values[] = {0,1,2,3,4,5};
+        values[] = {0,2,4,9};
+        texts[] = {"1","3","5","10"};
         default = 0;
     };
     class crateBackpackNumMax
     {
         title = "Maximum Backpack Quantity in Crates";
-        values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
-        default = 2;
+        values[] = {0,1,3,5,10,15};
+        texts[] = {"None","1","3","5","10","15"};
+        default = 3;
+    };
+    class Spacer6
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class crateVestTypeMax
+    {
+        title = "Maximum Vest Types in Crates";
+        values[] = {0,2,4,9};
+        texts[] = {"1","3","5","10"};
+        default = 0;
+    };
+    class crateVestNumMax
+    {
+        title = "Maximum Vest Quantity in Crates";
+        values[] = {0,1,3,5,10,15};
+        texts[] = {"None","1","3","5","10","15"};
+        default = 0;
+    };
+    class Spacer7
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class crateHelmetTypeMax
+    {
+        title = "Maximum Helmet Types in Crates";
+        values[] = {0,2,4,9};
+        texts[] = {"1","3","5","10"};
+        default = 0;
+    };
+    class crateHelmetNumMax
+    {
+        title = "Maximum Helmet Quantity in Crates";
+        values[] = {0,1,3,5,10,15};
+        texts[] = {"None","1","3","5","10","15"};
+        default = 0;
     };
 };
 

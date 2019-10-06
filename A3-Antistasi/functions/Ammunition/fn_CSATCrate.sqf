@@ -27,7 +27,6 @@ for "_i" from 0 to floor random crateWepTypeMax do
 	if (isNil "_loot") then
 		{
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Weapons Left in Loot List",servertime]};
-		exitWith {};
 		}
 		else
 		{
@@ -44,7 +43,6 @@ for "_i" from 0 to floor random crateItemTypeMax do
 	if (isNil "_loot") then
 		{
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Items Left in Loot List",servertime]};
-		exitWith {};
 		}
 		else
 		{
@@ -61,7 +59,6 @@ for "_i" from 0 to floor random crateAmmoTypeMax do
 	if (isNil "_loot") then
 		{
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Ammo Left in Loot List",servertime]};
-		exitWith {};
 		}
 		else
 		{
@@ -78,7 +75,6 @@ for "_i" from 0 to floor random crateMineTypeMax do
 	if (isNil "_loot") then
 		{
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Mines Left in Loot List",servertime]};
-		exitWith {};
 		}
 		else
 		{
@@ -95,7 +91,6 @@ for "_i" from 0 to floor random crateOpticTypeMax do
 	if (isNil "_loot") then
 		{
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Optics Left in Loot List",servertime]};
-		exitWith {};
 		}
 		else
 		{
@@ -112,7 +107,6 @@ for "_i" from 0 to floor random crateBackpackTypeMax do
 	if (isNil "_loot") then
 		{
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Optics Left in Loot List",servertime]};
-		exitWith {};
 		}
 		else
 		{
@@ -129,7 +123,6 @@ for "_i" from 0 to floor random crateItemTypeMax do
 	if (isNil "_loot") then
 		{
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Helmets Left in Loot List",servertime]};
-		exitWith {};
 		}
 		else
 		{
@@ -146,7 +139,6 @@ for "_i" from 0 to floor random crateItemTypeMax do
 	if (isNil "_loot") then
 		{
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Vests Left in Loot List",servertime]};
-		exitWith {};
 		}
 		else
 		{

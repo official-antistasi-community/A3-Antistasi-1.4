@@ -97,6 +97,6 @@ unlockedMagazines append ["LIB_1Rnd_145x114","LIB_5Rnd_762x54","LIB_6Rnd_455","L
 initialRifles append ["LIB_M38"];
 initGrenades = ["LIB_US_TNT_4pound_mag","LIB_Shg24","LIB_Shg24x7","LIB_No77"]; //Demo charge, Frag, AT, Smoke
 unlockedBackpacks append ["B_LIB_SOV_RA_Gasbag"];
-civilianVest = ["V_LIB_WP_OfficerVest","V_LIB_WP_SniperBela","V_LIB_WP_Kar98Vest","V_LIB_SOV_RA_Belt"];
+initVest = ["V_LIB_WP_OfficerVest","V_LIB_WP_SniperBela","V_LIB_WP_Kar98Vest","V_LIB_SOV_RA_Belt"];
 //TFAR Unlocks
 if (startLR) then {unlockedBackpacks pushBack "B_LIB_US_Radio"};

@@ -164,6 +164,8 @@ unlockedAA = [];
 unlockedMG = [];
 unlockedGL = [];
 unlockedSN = [];
+initVest = [];
+initGrenades = [];
 
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
@@ -468,7 +470,8 @@ unlockedItems append civilianUniform;
 unlockedItems append civilianHeadgear;
 unlockedItems append civilianVest;
 unlockedItems append civilianGlasses;
-unlockedItems append initGrenades;
+unlockedItems append initVest;
+unlockedMagazines append initGrenades;
 
 ////////////////////////////////////
 //      ACE ITEMS LIST           ///

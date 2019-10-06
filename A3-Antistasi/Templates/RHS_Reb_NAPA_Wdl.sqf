@@ -99,7 +99,7 @@ unlockedItems append ["rhs_acc_2dpZenit"];
 initGrenades = ["rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_grenade_nbhgr39b_mag","rhs_grenade_m15_mag"]//Frag, Flare, Smoke, Smoke
 unlockedAT append ["rhs_weap_m72a7"];
 unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
-civilianVest = ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra3m","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","rhsgref_alice_webbing"];
+initVest = ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra3m","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","rhsgref_alice_webbing"];
 //TAFR Unlocks
 if (hasTFAR) then {unlockedItems append ["tf_microdagr","tf_anprc154"]};
 if (startLR) then {unlockedBackpacks pushBack "tf_anprc155_coyote"};

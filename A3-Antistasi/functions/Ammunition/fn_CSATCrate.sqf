@@ -15,7 +15,7 @@ if (typeOf _crate == vehCSATAmmoTruck) then
 	crateWepTypeMax=crateWepTypeMax*2;
 	crateItemTypeMax=crateItemTypeMax*2;
 	crateAmmoTypeMax=crateAmmoTypeMax*2;
-	crateMineTypeMax=crateMineTypeMax*2;
+	crateExplosiveTypeMax=crateExplosiveTypeMax*2;
 	crateOpticTypeMax=crateOpticTypeMax*2;
 	crateBackpackTypeMax=crateBackpackTypeMax*2;
 	};
@@ -68,17 +68,17 @@ for "_i" from 0 to floor random crateAmmoTypeMax do
 		};
 	};
 //Explosives Loot
-for "_i" from 0 to floor random crateMineTypeMax do
+for "_i" from 0 to floor random crateExplosiveTypeMax do
 	{
 	_available = (lootExplosive - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then
 		{
-		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Mines Left in Loot List",servertime]};
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Explosives Left in Loot List",servertime]};
 		}
 		else
 		{
-		_amount = floor random crateMineNumMax;
+		_amount = floor random crateExplosiveNumMax;
 		_crate addMagazineCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 		};

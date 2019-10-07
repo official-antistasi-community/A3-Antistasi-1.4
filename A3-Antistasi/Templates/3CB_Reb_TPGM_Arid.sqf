@@ -91,7 +91,7 @@ teamPlayerDefaultLoadout = [[],[],[],["UK3CB_TKM_I_U_01", []],[],[],"UK3CB_TKM_I
 ATMineMag = "rhs_mine_smine35_press_mag";
 APERSMineMag = "rhs_mine_pmn2_mag";
 //Starting Unlocks
-unlockedWeapons append ["UK3CB_L9A1","UK3CB_L107A1","UK3CB_Enfield","UK3CB_Enfield_rail","Binocular","rhs_weap_rpg75"];
+unlockedWeapons append ["UK3CB_BAF_L9A1","UK3CB_BAF_L107A1","UK3CB_Enfield","UK3CB_Enfield_rail","Binocular","rhs_weap_rpg75"];
 unlockedRifles append ["UK3CB_Enfield","UK3CB_Enfield_rail"];
 unlockedMagazines append ["UK3CB_BAF_9_13rnd","UK3CB_BAF_9_15rnd","UK3CB_Enfield_mag"];
 initialRifles append ["UK3CB_Enfield","UK3CB_Enfield_rail"];

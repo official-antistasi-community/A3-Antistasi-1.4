@@ -91,7 +91,7 @@ teamPlayerDefaultLoadout = [[],[],[],["rhsgref_uniform_3color_desert", []],[],[]
 ATMineMag = "rhs_mine_M19_mag";
 APERSMineMag = "rhsusf_mine_m7a2_mag";
 //Starting Unlocks
-unlockedWeapons append ["rhs_weap_m1911a1","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_m1garand_sa43","Binocular","rhs_weap_m72a7"];
+unlockedWeapons append ["rhsusf_weap_m1911a1","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_m1garand_sa43","Binocular","rhs_weap_m72a7"];
 unlockedRifles append ["rhs_weap_Izh18","rhs_weap_m1garand_sa43"];
 unlockedMagazines append ["rhsusf_mag_7x45acp_MHP","rhs_mag_762x25_8","rhs_gref_1Rnd_00Buck","rhs_gref_1Rnd_Slug","rhsgref_8Rnd_762x63_M2B_M1rifle"];
 initialRifles append ["rhs_weap_Izh18","rhs_weap_m1garand_sa43"];

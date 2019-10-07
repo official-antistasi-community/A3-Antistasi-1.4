@@ -1,12 +1,12 @@
 [//Loadout
 	[//Primary Weapon
-		"RHS_Weap_M14EBRRI",								//Weapon
+		"RHS_Weap_Sr25",								//Weapon
 		"",													//Muzzle
 		"RHSUSF_Acc_ANPEQ15A",								//Rail
-		"RHSUSF_Acc_M8541_Low",								//Sight
-		["RHSUSF_20Rnd_762x51_M993_Mag",20],				//Primary Magazine
+		"RHSUSF_Acc_leupoldmk4_2_mrds",								//Sight
+		["RHSUSF_20Rnd_762x51_SR25_M118_Special_Mag",20],				//Primary Magazine
 		[],													//Secondary Magazine
-		"RHS_Acc_Harris_Swivel"								//Bipod
+		"RHS_Acc_Harris_Bipod"								//Bipod
 	],
 
 	[//Launcher
@@ -41,7 +41,7 @@
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
 			["RHS_Mag_Mk84",1,1],
-			["RHSUSF_20Rnd_762x51_M993_Mag",5,30],
+			["RHSUSF_20Rnd_762x51_SR25_M118_Special_Mag",5,30],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7]
 		]
 		+ _aceFlashlight
@@ -57,7 +57,7 @@
 		["RHSUSF_Shemagh_Grn", "RHSUSF_Shemagh2_Grn", "RHSUSF_Shemagh_Gogg_Grn", "RHSUSF_Shemagh2_Gogg_Grn", "RHSUSF_Oakley_Goggles_Blk"],
 
 	[//Binocular
-		"Binocular",										//Binocular
+		"RHSUSF_Bino_Lerca_1200_Black",							//Binocular
 		"",
 		"",
 		"",
@@ -68,7 +68,7 @@
 
 	[//Item
 		"ItemMap",											//Map
-		"",													//Terminal
+		"ItemGPS",													//Terminal
 		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
 		_tfarMicroDAGRNoArray,										//Watch

@@ -14,7 +14,7 @@ CSATFlag = "LIB_FlagCarrier_SU";
 CSATFlagTexture = "ww2\core_t\if_decals_t\ussr\flag_su_co.paa";
 flagCSATmrk = "LIB_faction_RKKA";
 if (isServer) then {"CSAT_carrier" setMarkerText "Soviet Reinforcements"};
-	
+
 //Loot Crate
 CSATAmmoBox = "O_supplyCrate_F";
 
@@ -165,12 +165,3 @@ supportStaticCSATB = "not_supported";
 supportStaticCSATB2 = "not_supported";
 //Mortar Support
 supportStaticCSATB3 = "not_supported";
-<<<<<<< HEAD
-
-////////////////////////////////////
-//             ITEMS             ///
-////////////////////////////////////
-weaponsCSAT append ["LIB_SVT_40","LIB_M9130","LIB_DP28","LIB_PPSh41_m","LIB_PPSh41_d","LIB_M9130PU","LIB_RPzB","LIB_FLARE_PISTOL","LIB_TT33"];
-ammunitionCSAT append ["LIB_10Rnd_762x54","LIB_5Rnd_762x54","LIB_1Rnd_flare_red","LIB_F1","LIB_1Rnd_flare_green","LIB_1Rnd_flare_yellow","LIB_Rg42","LIB_47Rnd_762x54","LIB_35Rnd_762x25","LIB_8Rnd_762x25","LIB_71Rnd_762x25","LIB_1Rnd_RPzB","LIB_Rpg6","LIB_RDG"];
-=======
->>>>>>> unstable

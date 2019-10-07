@@ -132,6 +132,7 @@ else
 		theBoss = commanderX;
 		theBoss setRank "CORPORAL";
 		[theBoss,"CORPORAL"] remoteExec ["A3A_fnc_ranksMP"];
+		waitUntil {(getPlayerUID theBoss) != ""};
 		if (membershipEnabled) then {membersX pushBackUnique (getPlayerUID theBoss)};
 		};
     publicVariable "theBoss";

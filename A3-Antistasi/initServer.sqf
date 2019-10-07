@@ -186,5 +186,4 @@ savingServer = false;
 			sleep 30;
 		};
 };
-[] call A3A_fnc_arsenalManage;
 diag_log format ["%1: [Antistasi] | INFO | initServer Completed.",servertime];

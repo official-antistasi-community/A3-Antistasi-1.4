@@ -114,26 +114,26 @@ if (loadLastSave) then
     publicVariable "theBoss";
     }
 else
-    {
-    theBoss = objNull;
-    membersX = [];
-    if (!isNil "as_fnc_getExternalMemberListUIDs") then
-        {
-        {membersX pushBackUnique _x} forEach (call as_fnc_getExternalMemberListUIDs);
-        {
-        if (([_x] call A3A_fnc_isMember) and (side _x == teamPlayer)) exitWith {theBoss = _x};
-        } forEach playableUnits;
-       }
-    else
-        {
-        diag_log format ["%1: [Antistasi] | INFO | New Session Selected.",servertime];
-        if (isNil "commanderX") then {commanderX = (playableUnits select 0)};
-        if (isNull commanderX) then {commanderX = (playableUnits select 0)};
-        theBoss = commanderX;
-        theBoss setRank "CORPORAL";
-        [theBoss,"CORPORAL"] remoteExec ["A3A_fnc_ranksMP"];
-        if (membershipEnabled) then {membersX = [(getPlayerUID theBoss)]} else {membersX = []};
-        };
+	{
+	theBoss = objNull;
+	membersX = [];
+	if (!isNil "as_fnc_getExternalMemberListUIDs") then
+		{
+		{membersX pushBackUnique _x} forEach (call as_fnc_getExternalMemberListUIDs);
+			{
+			if (([_x] call A3A_fnc_isMember) and (side _x == teamPlayer)) exitWith {theBoss = _x};
+			} forEach playableUnits;
+		}
+	else
+		{
+		diag_log format ["%1: [Antistasi] | INFO | New Session Selected.",servertime];
+		if (isNil "commanderX") then {commanderX = (playableUnits select 0)};
+		if (isNull commanderX) then {commanderX = (playableUnits select 0)};
+		theBoss = commanderX;
+		theBoss setRank "CORPORAL";
+		[theBoss,"CORPORAL"] remoteExec ["A3A_fnc_ranksMP"];
+		if (membershipEnabled) then {membersX pushBackUnique (getPlayerUID theBoss)};
+		};
     publicVariable "theBoss";
     publicVariable "membersX";
     };

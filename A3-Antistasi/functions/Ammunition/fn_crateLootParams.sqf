@@ -19,8 +19,8 @@ crateAmmoTypeMax = "crateAmmoTypeMax" call BIS_fnc_getParamValue; publicVariable
 crateAmmoNumMax = "crateAmmoNumMax" call BIS_fnc_getParamValue; publicVariable "crateAmmoNumMax";
 
 //Exlposives
-crateExlposiveTypeMax = "crateExlposiveTypeMax" call BIS_fnc_getParamValue; publicVariable "crateExlposiveTypeMax";
-crateExlposiveNumMax = "crateExlposiveNumMax" call BIS_fnc_getParamValue; publicVariable "crateExlposiveNumMax";
+crateExplosiveTypeMax = "crateExplosiveTypeMax" call BIS_fnc_getParamValue; publicVariable "crateExplosiveTypeMax";
+crateExplosiveNumMax = "crateExplosiveNumMax" call BIS_fnc_getParamValue; publicVariable "crateExplosiveNumMax";
 
 //Attachments
 crateAttachmentTypeMax = "crateAttachmentTypeMax" call BIS_fnc_getParamValue; publicVariable "crateAttachmentTypeMax";

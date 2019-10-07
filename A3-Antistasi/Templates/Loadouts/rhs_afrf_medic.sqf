@@ -11,7 +11,7 @@
 	[],
 	[],
 	[
-		"rhs_uniform_gorka_r_g",
+		"rhs_uniform_vfv_flora",
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 	[
@@ -31,7 +31,7 @@
 	[],
 	[
 		"ItemMap",
-		"",
+		"ItemGPS",
 		["tf_fadak_1"] call _fnc_tfarRadio,
 		"ItemCompass",
 		"ItemWatch",

@@ -31,10 +31,9 @@ _skill = (0.6 / skillMult + 0.015 * skillFIA);
 _unit setSkill _skill;
 if (!activeGREF) then {if (not((uniform _unit) in rebelUniform)) then {[_unit] call A3A_fnc_reDress}};
 
-if (random 40 < skillFIA) then
-		{
-		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom armoredHeadgear)};
-		};
+if !(unlockedHelmet isEqualTo []) then {removeHeadgear _unit; _unit addHeadgear (selectRandom unlockedHelmet)} else {removeHeadgear _unit};
+if !(unlockedVest isEqualTo []) then {removeVest _unit; _unit addHeadgear (selectRandom unlockedVest)} else {removeVest _unit};
+
 
 if (debug) then {
 	diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is of type:%3.",servertime,_unit,_typeX];
@@ -103,7 +102,7 @@ switch (true) do {
 		};
 	};
 
-	case (_typeX in SDKMEDIC): {
+	case (_typeX in SDKMedic): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		_unit setUnitTrait ["medic",true];
 		if ({_x == "FirstAidKit"} count (items _unit) < 10) then
@@ -111,7 +110,7 @@ switch (true) do {
 				for "_i" from 1 to 10 do {_unit addItemToBackpack "FirstAidKit"};
 			};
 		if (debug) then {
-			diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is SDKMEDIC.",servertime,_unit];
+			diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is SDKMedic.",servertime,_unit];
 		};
 	};
 

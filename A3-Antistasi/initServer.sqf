@@ -141,11 +141,14 @@ else
 
 diag_log format ["%1: [Antistasi] | INFO | Accepting Players.",servertime];
 
+if !(loadLastSave) then
 {
-private _index = _x call jn_fnc_arsenal_itemType;
-[_index,_x,-1] call jn_fnc_arsenal_addItem;
-}foreach (unlockedItems + unlockedWeapons + unlockedMagazines + unlockedBackpacks + unlockedNVG + unlockedOptics + unlockedVest + unlockedHelmet);
-diag_log format ["%1: [Antistasi] | INFO | Arsenal unlock finished.",servertime];
+	{
+		private _index = _x call jn_fnc_arsenal_itemType;
+		[_index,_x,-1] call jn_fnc_arsenal_addItem;
+	} foreach (unlockedItems + unlockedWeapons + unlockedMagazines + unlockedBackpacks + unlockedNVG + unlockedOptics + unlockedVest + unlockedHelmet);
+	diag_log format ["%1: [Antistasi] | INFO | Arsenal unlock finished.",servertime];
+};
 
 [[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 

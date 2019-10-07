@@ -31,9 +31,10 @@ _skill = (0.6 / skillMult + 0.015 * skillFIA);
 _unit setSkill _skill;
 if (!activeGREF) then {if (not((uniform _unit) in rebelUniform)) then {[_unit] call A3A_fnc_reDress}};
 
-
+removeAllWeapons _unit;
 if (unlockedHelmet isEqualTo []) then {removeHeadgear _unit} else {removeHeadgear _unit; _unit addHeadgear (selectRandom unlockedHelmet)};
 if (unlockedVest isEqualTo []) then {removeVest _unit} else {removeVest _unit; _unit addVest (selectRandom unlockedVest)};
+if (unlockedBackpacks isEqualTo []) then {removeBackpack _unit} else {removeBackpack _unit; _unit addBackpack (selectRandom unlockedBackpacks)};
 
 
 if (debug) then {
@@ -67,7 +68,6 @@ switch (true) do {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		if ((loadAbs _unit < 340) and (random 20 < skillFIA) and (count unlockedAA > 0)) then
 			{
-				_unit addbackpack (unlockedBackpacks select 0);
 				[_unit, selectRandom unlockedAA, 2, 0] call BIS_fnc_addWeapon;
 			};
 		if (debug) then {

@@ -268,7 +268,6 @@ medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
 //////////////////////////////////////
-if (isServer) then {
 //Templates for GREENFOR Rebels
 diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Occupant Templates",servertime];
 if (!hasIFA) then
@@ -357,7 +356,6 @@ if (!hasIFA) then
 	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 	};
-};
 
 ////////////////////////////////////
 //      CIVILIAN UNITS LIST      ///

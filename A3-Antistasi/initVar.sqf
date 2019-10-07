@@ -263,6 +263,64 @@ injuredSounds =
 ];
 medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic0","AinvPknlMstpSnonWnonDnon_medic1","AinvPknlMstpSnonWnonDnon_medic2"];
 
+////////////////////////////////////
+//      CIVILIAN UNITS LIST      ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Civillians",servertime];
+arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
+
+////////////////////////////////////
+//      CIVILIAN VEHICLES       ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Vehicle list.",servertime];
+private _civVehConfigs = "(
+	getNumber (_x >> 'scope') isEqualTo 2 && {
+		getNumber (_x >> 'side') isEqualTo 3 && {
+			getText (_x >> 'vehicleClass') in ['Car','Support'] && {
+				getText (_x >> 'simulation') isEqualTo 'carx'
+			}
+		}
+	}
+)" configClasses (configFile >> "CfgVehicles");
+
+arrayCivVeh = (_civVehConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
+
+
+//Civilian Boats
+_civBoatConfigs = "(
+	getNumber (_x >> 'scope') isEqualTo 2 && {
+		getNumber (_x >> 'side') isEqualTo 3 && {
+			getText (_x >> 'vehicleClass') isEqualTo 'Ship'
+		}
+	}
+)" configClasses (configFile >> "CfgVehicles");
+
+CivBoats = (_civBoatConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
+
+////////////////////////////////////
+//     ID LIST FOR UNIT NAMES    ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unit ID's",servertime];
+if !(hasIFA) then
+	{
+	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
+	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
+	};
+
+////////////////////////////////////
+//     MISSION PATH WARNING      ///
+////////////////////////////////////
+diag_log format ["%1: [Antistasi] | INFO | initVar | Checking Mission Path",servertime];
+private _getMissionPath = [] spawn A3A_fnc_initGetMissionPath;
+waitUntil
+{
+	if (scriptDone _getMissionPath) exitWith {true};
+	hint "Stuck on compiling missionPath, re-launch the mission.";
+	false;
+};
+hint "Done compiling missionPath";
+
+if (!isServer and hasInterface) exitWith {};
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
 //////////////////////////////////////
@@ -355,50 +413,6 @@ if (!hasIFA) then
 	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 	};
 
-////////////////////////////////////
-//      CIVILIAN UNITS LIST      ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Civillians",servertime];
-arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
-
-////////////////////////////////////
-//      CIVILIAN VEHICLES       ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Vehicle list.",servertime];
-private _civVehConfigs = "(
-	getNumber (_x >> 'scope') isEqualTo 2 && {
-		getNumber (_x >> 'side') isEqualTo 3 && {
-			getText (_x >> 'vehicleClass') in ['Car','Support'] && {
-				getText (_x >> 'simulation') isEqualTo 'carx'
-			}
-		}
-	}
-)" configClasses (configFile >> "CfgVehicles");
-
-arrayCivVeh = (_civVehConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
-
-
-//Civilian Boats
-_civBoatConfigs = "(
-	getNumber (_x >> 'scope') isEqualTo 2 && {
-		getNumber (_x >> 'side') isEqualTo 3 && {
-			getText (_x >> 'vehicleClass') isEqualTo 'Ship'
-		}
-	}
-)" configClasses (configFile >> "CfgVehicles");
-
-CivBoats = (_civBoatConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
-
-////////////////////////////////////
-//     ID LIST FOR UNIT NAMES    ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Unit ID's",servertime];
-if !(hasIFA) then
-	{
-	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
-	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
-	};
-
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///
 //////////////////////////////////////
@@ -473,23 +487,9 @@ if (hasIFA) then
 if (hasACRE) then {unlockedItems append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];};
 
 ////////////////////////////////////
-//     MISSION PATH WARNING      ///
-////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Checking Mission Path",servertime];
-private _getMissionPath = [] spawn A3A_fnc_initGetMissionPath;
-waitUntil
-{
-	if (scriptDone _getMissionPath) exitWith {true};
-	hint "Stuck on compiling missionPath, re-launch the mission.";
-	false;
-};
-hint "Done compiling missionPath";
-
-////////////////////////////////////
 // SERVER AND HEADLESS VARIABLES ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Server/Host Variables",servertime];
-if (!isServer and hasInterface) exitWith {};
 difficultyCoef = if !(isMultiplayer) then {0} else {floor ((({side group _x == teamPlayer} count playableUnits) - ({side group _x != teamPlayer} count playableUnits)) / 5)};
 AAFpatrols = 0;
 reinfPatrols = 0;

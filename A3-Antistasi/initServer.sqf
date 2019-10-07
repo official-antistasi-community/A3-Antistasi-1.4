@@ -68,7 +68,6 @@ waitUntil {(count playableUnits) > 0};
 waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
 [] spawn A3A_fnc_modBlacklist;
 
-diag_log format ["%1: [Antistasi] | DEBUG | unlockedHelmet: %2.",servertime,unlockedHelmet];
 call A3A_fnc_initGarrisons;
 if (loadLastSave) then
     {
@@ -83,9 +82,7 @@ if (loadLastSave) then
 publicVariable "loadLastSave";
 if (loadLastSave) then
     {
-	diag_log format ["%1: [Antistasi] | DEBUG | unlockedHelmet: %2.",servertime,unlockedHelmet];
     [] spawn A3A_fnc_loadServer;
-    diag_log format ["%1: [Antistasi] | DEBUG | unlockedHelmet: %2.",servertime,unlockedHelmet];
     waitUntil {!isNil"statsLoaded"};
     if (!isNil "as_fnc_getExternalMemberListUIDs") then
         {
@@ -143,7 +140,6 @@ else
     };
 
 diag_log format ["%1: [Antistasi] | INFO | Accepting Players.",servertime];
-diag_log format ["%1: [Antistasi] | DEBUG | unlockedHelmet: %2.",servertime,unlockedHelmet];
 if !(loadLastSave) then
 {
 	{
@@ -153,7 +149,6 @@ if !(loadLastSave) then
 	diag_log format ["%1: [Antistasi] | INFO | Arsenal unlock finished.",servertime];
 };
 
-diag_log format ["%1: [Antistasi] | DEBUG | unlockedHelmet: %2.",servertime,unlockedHelmet];
 [[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 
 //HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.

@@ -132,7 +132,7 @@ else
         theBoss = commanderX;
         theBoss setRank "CORPORAL";
         [theBoss,"CORPORAL"] remoteExec ["A3A_fnc_ranksMP"];
-        if (membershipEnabled) then {membersX = [getPlayerUID theBoss]} else {membersX = []};
+        if (membershipEnabled) then {membersX = [(getPlayerUID theBoss)]} else {membersX = []};
         };
     publicVariable "theBoss";
     publicVariable "membersX";

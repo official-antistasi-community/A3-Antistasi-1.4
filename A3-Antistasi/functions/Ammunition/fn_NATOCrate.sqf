@@ -84,17 +84,17 @@ for "_i" from 0 to floor random crateExplosiveTypeMax do
 		};
 	};
 //Attachments Loot
-for "_i" from 0 to floor random crateOpticTypeMax do
+for "_i" from 0 to floor random crateAttachmentTypeMax do
 	{
 	_available = (lootAttachment - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then
 		{
-		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Optics Left in Loot List",servertime]};
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Attachment Left in Loot List",servertime]};
 		}
 		else
 		{
-		_amount = floor random crateOpticNumMax;
+		_amount = floor random crateAttachmentNumMax;
 		_crate addItemCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 		};

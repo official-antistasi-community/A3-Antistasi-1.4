@@ -15,7 +15,7 @@ if (isMultiplayer) then
 	if (!isServer) then
 		{
 		call compile preprocessFileLineNumbers "initFuncs.sqf";
-		//call compile preprocessFileLineNumbers "initVar.sqf";
+		call compile preprocessFileLineNumbers "initVar.sqf";
 		waitUntil {!isNil "initVar"};
 		diag_log format ["%1: [Antistasi] | INFO | MP Client | Version : %2.",servertime, antistasiVersion];
 		}

@@ -11,6 +11,9 @@ _typeX = typeOf _unit;
 _skill = (0.6 / skillMult + 0.015 * skillFIA);
 if (!activeGREF) then {if (not((uniform _unit) in uniformsSDK)) then {[_unit] call A3A_fnc_reDress}};
 
+if !(unlockedHelmet isEqualTo []) then {removeHeadgear _unit; _unit addHeadgear (selectRandom unlockedHelmet)} else {removeHeadgear _unit};
+if !(unlockedVest isEqualTo []) then {removeVest _unit; _unit addHeadgear (selectRandom unlockedVest)} else {removeVest _unit};
+
 //if ((!isMultiplayer) and (leader _unit == theBoss)) then {_skill = _skill + 0.1};
 _unit setSkill _skill;
 if (_typeX in SDKSniper) then

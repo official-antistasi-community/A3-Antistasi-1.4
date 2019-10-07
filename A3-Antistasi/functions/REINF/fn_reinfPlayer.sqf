@@ -23,7 +23,7 @@ if (_costs > _resourcesFIA) exitWith {hint format ["You do not have enough money
 
 
 if ((count units group player) + (count units stragglers) > 9) exitWith {hint "Your squad is full or you have too many scattered units with no radio contact"};
-if (random 20 <= skillFIA) then {_typeUnit = _arraytypeUnit select 1};
+//if (random 20 <= skillFIA) then {_typeUnit = _arraytypeUnit select 1};
 _unit = group player createUnit [_typeUnit, position player, [], 0, "NONE"];
 
 if (!isMultiPlayer) then

@@ -2,13 +2,13 @@ if (player != theBoss) exitWith {hint "Only our Commander has access to this fun
 
 if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {hint "You must first empty your Ammobox in order to move the HQ"};
 
-petros enableAI "MOVE";
-petros enableAI "AUTOTARGET";
+(call A3A_fnc_getPetros) enableAI "MOVE";
+(call A3A_fnc_getPetros) enableAI "AUTOTARGET";
 
-[petros,"remove"] remoteExec ["A3A_fnc_flagaction",0,petros];
-//removeAllActions petros;
-[petros] join theBoss;
-petros setBehaviour "AWARE";
+[(call A3A_fnc_getPetros),"remove"] remoteExec ["A3A_fnc_flagaction",0,(call A3A_fnc_getPetros)];
+//removeAllActions (call A3A_fnc_getPetros);
+[(call A3A_fnc_getPetros)] join theBoss;
+(call A3A_fnc_getPetros) setBehaviour "AWARE";
 if (isMultiplayer) then
 	{
 	boxX hideObjectGlobal true;
@@ -45,7 +45,7 @@ if (count _garrison > 0) then
 		{
 		_size = ["Synd_HQ"] call A3A_fnc_sizeMarker;
 		{
-		if ((side group _x == teamPlayer) and (not(_x getVariable ["spawner",false])) and (_x distance _positionX < _size) and (_x != petros)) then
+		if ((side group _x == teamPlayer) and (not(_x getVariable ["spawner",false])) and (_x distance _positionX < _size) and (_x != (call A3A_fnc_getPetros))) then
 			{
 			if (!alive _x) then
 				{
@@ -73,4 +73,4 @@ if (count _garrison > 0) then
 
 sleep 5;
 
-petros addAction ["Build HQ here", A3A_fnc_buildHQ,nil,0,false,true];
+(call A3A_fnc_getPetros) addAction ["Build HQ here", A3A_fnc_buildHQ,nil,0,false,true];

@@ -120,13 +120,13 @@ while {true} do
 	//_updated = false;
 	_updated = [] call A3A_fnc_arsenalManage;
 	if (_updated != "") then {_textX = format ["%1<br/>Arsenal Updated<br/><br/>%2",_textX,_updated]};
-	[petros,"taxRep",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[(call A3A_fnc_getPetros),"taxRep",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	_hrAddBLUFOR = _hrAddBLUFOR + (server getVariable "hr");
 	_recAddSDK = _recAddSDK + (server getVariable "resourcesFIA");
 	server setVariable ["hr",_hrAddBLUFOR,true];
 	server setVariable ["resourcesFIA",_recAddSDK,true];
 	bombRuns = bombRuns + (({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX) * 0.25);
-	[petros,"taxRep",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[(call A3A_fnc_getPetros),"taxRep",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	[] call A3A_fnc_economicsAI;
 	if (isMultiplayer) then
 		{

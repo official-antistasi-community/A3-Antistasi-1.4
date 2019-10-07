@@ -1,12 +1,12 @@
 diag_log format ["%1: [Antistasi] | INFO | initPetros Started.",servertime];
-removeHeadgear petros;
-removeGoggles petros;
-petros setSkill 1;
-petros setVariable ["respawning",false];
-petros allowDamage false;
-[petros,(selectRandom unlockedRifles), 8, 0] call BIS_fnc_addWeapon;
-petros selectWeapon (primaryWeapon petros);
-petros addEventHandler
+removeHeadgear (call A3A_fnc_getPetros);
+removeGoggles (call A3A_fnc_getPetros);
+(call A3A_fnc_getPetros) setSkill 1;
+(call A3A_fnc_getPetros) setVariable ["respawning",false];
+(call A3A_fnc_getPetros) allowDamage false;
+[(call A3A_fnc_getPetros),(selectRandom unlockedRifles), 8, 0] call BIS_fnc_addWeapon;
+(call A3A_fnc_getPetros) selectWeapon (primaryWeapon (call A3A_fnc_getPetros));
+(call A3A_fnc_getPetros) addEventHandler
 [
     "HandleDamage",
     {
@@ -24,27 +24,27 @@ petros addEventHandler
     {
         _damage = (_this select 0) getHitPointDamage (_this select 7);
     };
-    if ((isNull _injurer) or (_injurer == petros)) then {_damage = 0};
+    if ((isNull _injurer) or (_injurer == (call A3A_fnc_getPetros))) then {_damage = 0};
         if (_part == "") then
         {
             if (_damage > 1) then
             {
-                if (!(petros getVariable ["INCAPACITATED",false])) then
+                if (!((call A3A_fnc_getPetros) getVariable ["INCAPACITATED",false])) then
                 {
-                    petros setVariable ["INCAPACITATED",true,true];
+                    (call A3A_fnc_getPetros) setVariable ["INCAPACITATED",true,true];
                     _damage = 0.9;
-                    if (!isNull _injurer) then {[petros,side _injurer] spawn A3A_fnc_unconscious} else {[petros,sideUnknown] spawn A3A_fnc_unconscious};
+                    if (!isNull _injurer) then {[(call A3A_fnc_getPetros),side _injurer] spawn A3A_fnc_unconscious} else {[(call A3A_fnc_getPetros),sideUnknown] spawn A3A_fnc_unconscious};
                 }
                 else
                 {
-                    _overall = (petros getVariable ["overallDamage",0]) + (_damage - 1);
+                    _overall = ((call A3A_fnc_getPetros) getVariable ["overallDamage",0]) + (_damage - 1);
                     if (_overall > 1) then
                     {
-                        petros removeAllEventHandlers "HandleDamage";
+                        (call A3A_fnc_getPetros) removeAllEventHandlers "HandleDamage";
                     }
                     else
                     {
-                        petros setVariable ["overallDamage",_overall];
+                        (call A3A_fnc_getPetros) setVariable ["overallDamage",_overall];
                         _damage = 0.9;
                     };
                 };
@@ -54,9 +54,9 @@ petros addEventHandler
     }
 ];
 
-petros addMPEventHandler ["mpkilled",
+(call A3A_fnc_getPetros) addMPEventHandler ["mpkilled",
 {
-    removeAllActions petros;
+    removeAllActions (call A3A_fnc_getPetros);
     _killer = _this select 1;
     if (isServer) then
 	{
@@ -90,5 +90,5 @@ petros addMPEventHandler ["mpkilled",
 		};
 	};
 }];
-[] spawn {sleep 120; petros allowDamage true;};
+[] spawn {sleep 120; (call A3A_fnc_getPetros) allowDamage true;};
 diag_log format ["%1: [Antistasi] | INFO | initPetros Completed.",servertime];

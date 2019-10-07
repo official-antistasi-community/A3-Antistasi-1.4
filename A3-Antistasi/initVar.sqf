@@ -25,7 +25,7 @@ maxUnits = 140;												//
 //     BEGIN SIDES AND COLORS    ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Generating Sides.",servertime];
-teamPlayer = side group petros;
+teamPlayer = side group (call A3A_fnc_getPetros);
 if (teamPlayer == independent) then
 	{
 	Occupants = west;
@@ -845,5 +845,5 @@ publicVariable "haveRadio";
 publicVariable "haveNV";
 publicVariable "missionsX";
 
-if (isMultiplayer) then {[[petros,"hint","Variables Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;};
+if (isMultiplayer) then {[[(call A3A_fnc_getPetros),"hint","Variables Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;};
 diag_log format ["%1: [Antistasi] | INFO | initVar Completed.",servertime];

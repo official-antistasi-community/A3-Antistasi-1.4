@@ -165,14 +165,14 @@ if (side group player == teamPlayer) then
 		_typeX = _this select 1;
 		if ((_typeX == "Put") or (_typeX == "Throw")) then
 		{
-			if (player distance petros < 50) then
+			if (player distance (call A3A_fnc_getPetros) < 50) then
 			{
 				deleteVehicle (_this select 6);
 				if (_typeX == "Put") then
 				{
-					if (player distance petros < 10) then 
+					if (player distance (call A3A_fnc_getPetros) < 10) then 
 					{
-						[player, 20, 0.34, petros] remoteExec ["A3A_fnc_punishment",player];
+						[player, 20, 0.34, (call A3A_fnc_getPetros)] remoteExec ["A3A_fnc_punishment",player];
 					};
 				};
 			};

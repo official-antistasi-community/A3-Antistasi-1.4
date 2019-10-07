@@ -59,7 +59,7 @@ else
 			{
 			_playersX = true;
 			[_unit,"heal"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-			if (_unit != petros) then {if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true}};
+			if (_unit != (call A3A_fnc_getPetros)) then {if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true}};
 			};
 		if ((_injurer  == Occupants) or (_injurer  == Invaders)) then
 			{

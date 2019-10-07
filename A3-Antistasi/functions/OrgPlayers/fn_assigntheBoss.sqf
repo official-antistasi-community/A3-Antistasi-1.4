@@ -63,7 +63,7 @@ _promoted = false;
 if (_promoted) then
 {
 	_textX = format ["%1\n\nCONGRATULATIONS!!",_textX];
-	[petros,"hint",_textX] remoteExec ["A3A_fnc_commsMP"];
+	[(call A3A_fnc_getPetros),"hint",_textX] remoteExec ["A3A_fnc_commsMP"];
 };
 
 _proceed = false;
@@ -107,5 +107,5 @@ if (!isNull _selectable) then
 	if (_disconnected) then {_textX = format ["Player Commander disconnected or renounced. %1 is our new leader. Greet him!", name _selectable]} else {_textX = format ["%1 is no longer leader of the our Forces.\n\n %2 is our new leader. Greet him!", name theBoss, name _selectable]};
 	[_selectable] call A3A_fnc_theBossInit;
 	sleep 5;
-	[[petros,"hint",_textX],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+	[[(call A3A_fnc_getPetros),"hint",_textX],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 };

@@ -20,7 +20,7 @@ if (_leave) exitWith {hint "You cannot dismiss NATO groups"};
 _pos = getMarkerPos respawnTeamPlayer;
 
 {
-	theBoss sideChat format ["%2, I'm sending %1 back to base", _x,name petros];
+	theBoss sideChat format ["%2, I'm sending %1 back to base", _x,name (call A3A_fnc_getPetros)];
 	theBoss hcRemoveGroup _x;
 	_wp = _x addWaypoint [_pos, 0];
 	_wp setWaypointType "MOVE";

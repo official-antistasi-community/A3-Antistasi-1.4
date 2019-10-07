@@ -96,7 +96,7 @@ if (loadLastSave) then
         };
     if (membershipEnabled and (membersX isEqualTo [])) then
         {
-        [petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list"] remoteExec ["A3A_fnc_commsMP"];
+        [(call A3A_fnc_getPetros),"hint","Membership is enabled but members list is empty. Current players will be added to the member list"] remoteExec ["A3A_fnc_commsMP"];
         diag_log format ["%1: [Antistasi] | INFO | Session load completed.",servertime];
         diag_log format ["%1: [Antistasi] | INFO | Membership enabled however there are no members.",servertime];
         membersX = [];
@@ -151,7 +151,7 @@ private _index = _x call jn_fnc_arsenal_itemType;
 
 diag_log format ["%1: [Antistasi] | INFO | Arsenal unlock finished.",servertime];
 
-[[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+[[(call A3A_fnc_getPetros),"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 
 //HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.
 addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnect;false}];

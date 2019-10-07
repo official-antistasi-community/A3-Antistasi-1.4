@@ -29,6 +29,7 @@ class A3A
 		class garbageCleaner {};
 		class garrisonInfo {};
 		class getModOfConfigClass {};
+		class getPetros {};
 		class healAndRepair {};
 		class initPetros {};
 		class intelFound {};

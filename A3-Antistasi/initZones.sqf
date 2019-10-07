@@ -3,7 +3,7 @@
 //do not do it on cities and hills, as the mission will do it automatically
 //the naming convention must be as the following arrays, for example: first power plant is "power", second is "power_1" thir is "power_2" after you finish with whatever number.
 //to test automatic zone creation, init the mission with debug = true in init.sqf
-//of course all the editor placed objects (petros, flag, respawn marker etc..) have to be ported to the new island
+//of course all the editor placed objects ((call A3A_fnc_getPetros), flag, respawn marker etc..) have to be ported to the new island
 //deletion of a marker in the array will require deletion of the corresponding marker in the editor
 //only touch the commented arrays
 diag_log format ["%1: [Antistasi] | INFO | initZones Started.", servertime];
@@ -315,7 +315,7 @@ publicVariable "detectionAreas";
 publicVariable "islands";
 
 if (isMultiplayer) then {
-	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]
+	[(call A3A_fnc_getPetros), "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]
 };
 
 diag_log format ["%1: [Antistasi] | INFO | initZones Completed.",servertime];

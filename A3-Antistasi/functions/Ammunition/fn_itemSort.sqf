@@ -1,5 +1,5 @@
 diveGear = ["V_RebreatherIA","G_Diving"];
-if (side (group petros) == west) then {diveGear pushBack "U_B_Wetsuit"} else {diveGear pushBack "U_I_Wetsuit"};
+if (side (group (call A3A_fnc_getPetros)) == west) then {diveGear pushBack "U_B_Wetsuit"} else {diveGear pushBack "U_I_Wetsuit"};
 
 //Lights Vs Laser ID
 //PBP - NOT WORKING

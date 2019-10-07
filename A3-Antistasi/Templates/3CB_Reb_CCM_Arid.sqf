@@ -1,5 +1,5 @@
 //3CB Blufor ALtis Template Call
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\3CB_Reb_UN_Arid.sqf"};
+if (side (call A3A_fnc_getPetros) == west) exitWith {call compile preProcessFileLineNumbers "Templates\3CB_Reb_UN_Arid.sqf"};
 //Tanoa Template Call
 if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\3CB_Reb_CCM_Trop.sqf"};
 ////////////////////////////////////

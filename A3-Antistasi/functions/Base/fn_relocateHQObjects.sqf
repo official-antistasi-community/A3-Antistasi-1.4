@@ -11,10 +11,10 @@ private _alignNormals = {
 	_thing setVectorUp surfaceNormal getPos _thing;
 };
 
-private _firePos = [_newPosition, 3, getDir petros] call BIS_Fnc_relPos;
+private _firePos = [_newPosition, 3, getDir (call A3A_fnc_getPetros)] call BIS_Fnc_relPos;
 //Extra height on the fire to avoid it clipping into the ground
 fireX setPos (_firePos vectorAdd [0,0,0.1]);
-_rnd = getdir petros;
+_rnd = getdir (call A3A_fnc_getPetros);
 _pos = [_firePos, 3, _rnd] call BIS_Fnc_relPos;
 boxX setPos _pos;
 _rnd = _rnd + 45;

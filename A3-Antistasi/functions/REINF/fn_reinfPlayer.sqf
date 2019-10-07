@@ -41,7 +41,7 @@ else
 [_unit] spawn A3A_fnc_FIAinit;
 _unit disableAI "AUTOCOMBAT";
 sleep 1;
-petros directSay "SentGenReinforcementsArrived";
+(call A3A_fnc_getPetros) directSay "SentGenReinforcementsArrived";
 
 
 

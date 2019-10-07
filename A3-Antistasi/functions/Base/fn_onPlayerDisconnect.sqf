@@ -67,7 +67,7 @@ if (_unit == theBoss) then
 		{
 		[] spawn A3A_fnc_assigntheBoss;
 		};
-	if (group petros == group _unit) then {[] spawn A3A_fnc_buildHQ};
+	if (group (call A3A_fnc_getPetros) == group _unit) then {[] spawn A3A_fnc_buildHQ};
 	};
 
 //Need to check the group's side, as player may be a civ. Unknown is in case they've been moved out of their group.

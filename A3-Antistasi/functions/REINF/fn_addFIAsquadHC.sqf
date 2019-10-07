@@ -5,7 +5,7 @@ if (markerAlpha respawnTeamPlayer == 0) exitWith {hint "You cant recruit a new s
 if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(hasIFA) then {hint "You need a radio in your inventory to be able to give orders to other squads"} else {hint "You need a Radio Man in your group to be able to give orders to other squads"}};
 _checkX = false;
 {
-	if (((side _x == Invaders) or (side _x == Occupants)) and (_x distance petros < 500) and ([_x] call A3A_fnc_canFight) and !(isPlayer _x)) exitWith {_checkX = true};
+	if (((side _x == Invaders) or (side _x == Occupants)) and (_x distance (call A3A_fnc_getPetros) < 500) and ([_x] call A3A_fnc_canFight) and !(isPlayer _x)) exitWith {_checkX = true};
 } forEach allUnits;
 
 if (_checkX) exitWith {Hint "You cannot Recruit Squads with enemies near your HQ"};
@@ -161,7 +161,7 @@ else
 {[_x] call A3A_fnc_FIAinit} forEach units _groupX;
 //leader _groupX setBehaviour "SAFE";
 theBoss hcSetGroup [_groupX];
-petros directSay "SentGenReinforcementsArrived";
+(call A3A_fnc_getPetros) directSay "SentGenReinforcementsArrived";
 hint format ["Group %1 at your command.\n\nGroups are managed from the High Command bar (Default: CTRL+SPACE)\n\nIf the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)\n\nTo assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu", groupID _groupX];
 
 if (!_esinf) exitWith {};
@@ -219,4 +219,4 @@ _nul = [0, - _costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 leader _groupX assignAsDriver _mortarX;
 {[_x] orderGetIn true; [_x] allowGetIn true} forEach units _groupX;
 hint "Vehicle Purchased";
-petros directSay "SentGenBaseUnlockVehicle";
+(call A3A_fnc_getPetros) directSay "SentGenBaseUnlockVehicle";

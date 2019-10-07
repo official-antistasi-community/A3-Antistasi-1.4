@@ -10,7 +10,7 @@ else
 {
 	player allowDamage false;
 	_disabledPlayerDamage = true;
-	format ["%1 is Dead",name petros] hintC format ["%1 has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.",name petros];
+	format ["%1 is Dead",name (call A3A_fnc_getPetros)] hintC format ["%1 has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.",name (call A3A_fnc_getPetros)];
 };
 
 hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",
@@ -97,7 +97,7 @@ if (visiblemap) then
 				sidesX setVariable [_x,teamPlayer,true];
 			};
 		} forEach controlsX;
-		petros setPos _positionClicked;
+		(call A3A_fnc_getPetros) setPos _positionClicked;
 	}
 	else
 	{
@@ -117,7 +117,7 @@ if (visiblemap) then
 		{
 			if ((side _x == teamPlayer) or (side _x == civilian)) then 
 			{
-				_x setPos getPos petros;
+				_x setPos getPos (call A3A_fnc_getPetros);
 			};
 		} forEach playableUnits;
 	};

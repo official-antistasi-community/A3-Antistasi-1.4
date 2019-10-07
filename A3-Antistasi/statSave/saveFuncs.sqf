@@ -7,7 +7,7 @@ fn_varNameToSaveName = {
 		}
 	else
 		{
-		if (side group petros == independent) then
+		if (side group (call A3A_fnc_getPetros) == independent) then
 			{
 			_varName + serverID + campaignID + "Antistasi" + worldName;
 			}
@@ -343,11 +343,11 @@ fn_SetStat =
 			} forEach controlsX;
 			respawnTeamPlayer setMarkerPos _posHQ;
 			posHQ = getMarkerPos respawnTeamPlayer;
-			petros setPos _posHQ;
+			(call A3A_fnc_getPetros) setPos _posHQ;
 			"Synd_HQ" setMarkerPos _posHQ;
 			if (chopForest) then
 				{
-				if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [position petros,["tree","bush"],70])} else {{ _x hideObjectGlobal true } foreach (nearestTerrainObjects [position petros,["tree","bush"],70])};
+				if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [position (call A3A_fnc_getPetros),["tree","bush"],70])} else {{ _x hideObjectGlobal true } foreach (nearestTerrainObjects [position (call A3A_fnc_getPetros),["tree","bush"],70])};
 				};
 			if (count _varValue == 3) then
 				{

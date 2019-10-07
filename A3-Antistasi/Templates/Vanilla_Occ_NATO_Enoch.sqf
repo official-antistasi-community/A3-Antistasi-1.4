@@ -1,5 +1,5 @@
 //Call to Blufor Alits Template
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_AAF_Altis.sqf"};
+if (side (call A3A_fnc_getPetros) == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_AAF_Altis.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

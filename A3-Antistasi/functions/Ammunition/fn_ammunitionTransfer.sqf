@@ -146,16 +146,16 @@ else
 
 if (_destinationX == boxX) then
 	{
-	if (isMultiplayer) then {{if (_x distance boxX < 10) then {[petros,"hint","Ammobox Loaded"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach playableUnits} else {hint "Ammobox Loaded"};
+	if (isMultiplayer) then {{if (_x distance boxX < 10) then {[(call A3A_fnc_getPetros),"hint","Ammobox Loaded"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach playableUnits} else {hint "Ammobox Loaded"};
 	if ((_originX isKindOf "ReammoBox_F") and (_originX != vehicleBox)) then {deleteVehicle _originX};
 	_updated = [] call A3A_fnc_arsenalManage;
 	if (_updated != "") then
 		{
 		_updated = format ["<t size='0.5' color='#C1C0BB'>Arsenal Updated<br/><br/>%1</t>",_updated];
-		[petros,"income",_updated] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+		[(call A3A_fnc_getPetros),"income",_updated] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 		};
 	}
 else
 	{
-	[petros,"hint","Truck Loaded"] remoteExec ["A3A_fnc_commsMP",driver _destinationX];
+	[(call A3A_fnc_getPetros),"hint","Truck Loaded"] remoteExec ["A3A_fnc_commsMP",driver _destinationX];
 	};

@@ -15,8 +15,8 @@ if (count _airportsX == 0) exitWith {};
 _airportX = [_airportsX,_positionX] call BIS_fnc_nearestPosition;
 _posOrigin = getMarkerPos _airportX;
 _sideX = if (sidesX getVariable [_airportX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
-[[teamPlayer,civilian],"DEF_HQ",[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_positionX,true,10,true,"Defend",true] call BIS_fnc_taskCreate;
-[[_sideX],"DEF_HQ1",[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name petros, nameTeamPlayer],format ["Kill %1",name petros],respawnTeamPlayer],_positionX,true,10,true,"Attack",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"DEF_HQ",[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name (call A3A_fnc_getPetros)],format ["Defend %1",name (call A3A_fnc_getPetros)],respawnTeamPlayer],_positionX,true,10,true,"Defend",true] call BIS_fnc_taskCreate;
+[[_sideX],"DEF_HQ1",[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name (call A3A_fnc_getPetros), nameTeamPlayer],format ["Kill %1",name (call A3A_fnc_getPetros)],respawnTeamPlayer],_positionX,true,10,true,"Attack",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["DEF_HQ","CREATED"]; publicVariable "missionsX";
 _typesVeh = if (_sideX == Occupants) then {vehNATOAttackHelis} else {vehCSATAttackHelis};
 _typesVeh = _typesVeh select {[_x] call A3A_fnc_vehAvailable};
@@ -70,24 +70,24 @@ for "_i" from 0 to (round random 2) do
 	sleep 10;
 	};
 
-waitUntil {sleep 1;({[_x] call A3A_fnc_canFight} count _soldiers < {!([_x] call A3A_fnc_canFight)} count _soldiers) or (_positionX distance getMarkerPos respawnTeamPlayer > 999) or (!alive petros)};
+waitUntil {sleep 1;({[_x] call A3A_fnc_canFight} count _soldiers < {!([_x] call A3A_fnc_canFight)} count _soldiers) or (_positionX distance getMarkerPos respawnTeamPlayer > 999) or (!alive (call A3A_fnc_getPetros))};
 
-if (!alive petros) then
+if (!alive (call A3A_fnc_getPetros)) then
 	{
-	["DEF_HQ",[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
-	["DEF_HQ1",[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name petros,nameTeamPlayer],format ["Kill %1",name petros],respawnTeamPlayer],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	["DEF_HQ",[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name (call A3A_fnc_getPetros)],format ["Defend %1",name (call A3A_fnc_getPetros)],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
+	["DEF_HQ1",[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name (call A3A_fnc_getPetros),nameTeamPlayer],format ["Kill %1",name (call A3A_fnc_getPetros)],respawnTeamPlayer],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	}
 else
 	{
 	if (_positionX distance getMarkerPos respawnTeamPlayer > 999) then
 		{
-		["DEF_HQ",[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill Maru. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
-		["DEF_HQ1",[_sideX],[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name petros,nameTeamPlayer],format ["Kill %1",name petros],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
+		["DEF_HQ",[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill Maru. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name (call A3A_fnc_getPetros)],format ["Defend %1",name (call A3A_fnc_getPetros)],respawnTeamPlayer],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+		["DEF_HQ1",[_sideX],[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name (call A3A_fnc_getPetros),nameTeamPlayer],format ["Kill %1",name (call A3A_fnc_getPetros)],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
 		}
 	else
 		{
-		["DEF_HQ",[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
-		["DEF_HQ1",[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name petros,nameTeamPlayer],format ["Kill %1",name petros],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
+		["DEF_HQ",[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name (call A3A_fnc_getPetros)],format ["Defend %1",name (call A3A_fnc_getPetros)],respawnTeamPlayer],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+		["DEF_HQ1",[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name (call A3A_fnc_getPetros),nameTeamPlayer],format ["Kill %1",name (call A3A_fnc_getPetros)],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
 		[0,3] remoteExec ["A3A_fnc_prestige",2];
 		[0,300] remoteExec ["A3A_fnc_resourcesFIA",2];
 		//[-5,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];

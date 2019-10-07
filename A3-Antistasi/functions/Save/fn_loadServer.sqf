@@ -2,7 +2,7 @@ diag_log format ["%1: [Antistasi] | INFO | loadServer Starting.",servertime];
 if (isServer) then
 {
 diag_log format ["%1: [Antistasi] | INFO | Starting Persistent Load.",servertime];
-petros allowdamage false;
+(call A3A_fnc_getPetros) allowdamage false;
 
 ["outpostsFIA"] call fn_LoadStat; publicVariable "outpostsFIA";
 ["mrkSDK"] call fn_LoadStat; /*if (isMultiplayer) then {sleep 5}*/;
@@ -262,6 +262,6 @@ if !(isMultiplayer) then
 	};
 statsLoaded = 0; publicVariable "statsLoaded";
 placementDone = true; publicVariable "placementDone";
-petros allowdamage true;
+(call A3A_fnc_getPetros) allowdamage true;
 };
 diag_log format ["%1: [Antistasi] | INFO | loadServer Completed.",servertime];

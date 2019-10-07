@@ -38,4 +38,4 @@ else
 	if (_nato > 0.25) then {_textX = format ["<t size='0.6' color='#C1C0BB'>Prestige Change.<br/> <t size='0.5' color='#C1C0BB'><br/>%2: %3%1",_nato,nameOccupants,_natoSim]} else {if (_csat > 0.25) then {_textX = format ["<t size='0.6' color='#C1C0BB'>Prestige Change.<br/> <t size='0.5' color='#C1C0BB'><br/>%1: %4%2",nameInvaders,_csat,_natoSim,_csatSim]}};
 	};
 
-if (_textX != "") then {[petros,"income",_textX] remoteExec ["A3A_fnc_commsMP",theBoss]};
+if (_textX != "") then {[(call A3A_fnc_getPetros),"income",_textX] remoteExec ["A3A_fnc_commsMP",theBoss]};

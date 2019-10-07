@@ -57,13 +57,13 @@ if (isMultiplayer) then
 			if ((_typeX == "Put") or (_typeX == "Throw")) then
 			{
 				private _shieldDistance = 100;
-				if (player distance petros < _shieldDistance) then
+				if (player distance (call A3A_fnc_getPetros) < _shieldDistance) then
 				{
 					hint format ["You cannot throw grenades or place explosives within %1m of base.", _shieldDistance];
 					deleteVehicle (_this select 6);
 					if (_typeX == "Put") then
 					{
-						if (player distance petros < 10) then {[player, 20, 0.34, petros] call A3A_fnc_punishment;};
+						if (player distance (call A3A_fnc_getPetros) < 10) then {[player, 20, 0.34, (call A3A_fnc_getPetros)] call A3A_fnc_punishment;};
 					};
 				};
 			};
@@ -90,7 +90,7 @@ else
 private ["_colourTeamPlayer", "_colorInvaders"];
 _colourTeamPlayer = teamPlayer call BIS_fnc_sideColor;
 _colorInvaders = Invaders call BIS_fnc_sideColor;
-_positionX = if (side player == side (group petros)) then {position petros} else {getMarkerPos "respawn_west"};
+_positionX = if (side player == side (group (call A3A_fnc_getPetros))) then {position (call A3A_fnc_getPetros)} else {getMarkerPos "respawn_west"};
 {
 _x set [3, 0.33]
 } forEach [_colourTeamPlayer, _colorInvaders];
@@ -665,13 +665,13 @@ mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _thi
 mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",4];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 _nul = [player] execVM "OrgPlayers\unitTraits.sqf";
-groupPetros = group petros;
+groupPetros = group (call A3A_fnc_getPetros);
 groupPetros setGroupIdGlobal ["Petros","GroupColor4"];
-petros setIdentity "friendlyX";
-petros setName "Petros";
-petros disableAI "MOVE";
-petros disableAI "AUTOTARGET";
-[petros,"mission"] call A3A_fnc_flagaction;
+(call A3A_fnc_getPetros) setIdentity "friendlyX";
+(call A3A_fnc_getPetros) setName "Petros";
+(call A3A_fnc_getPetros) disableAI "MOVE";
+(call A3A_fnc_getPetros) disableAI "AUTOTARGET";
+[(call A3A_fnc_getPetros),"mission"] call A3A_fnc_flagaction;
 
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];

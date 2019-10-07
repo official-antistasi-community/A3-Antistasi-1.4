@@ -151,7 +151,7 @@ switch (_callbackTarget) do {
 
 				//hint "Vehicle Purchased";
 				player reveal _purchasedVeh;
-				petros directSay "SentGenBaseUnlockVehicle";
+				(call A3A_fnc_getPetros) directSay "SentGenBaseUnlockVehicle";
 			};
 			
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {

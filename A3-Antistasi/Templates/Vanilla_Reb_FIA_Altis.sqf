@@ -1,5 +1,5 @@
 //Blufor Altis Template Call
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_B_Altis.sqf"};
+if (side (call A3A_fnc_getPetros) == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_B_Altis.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

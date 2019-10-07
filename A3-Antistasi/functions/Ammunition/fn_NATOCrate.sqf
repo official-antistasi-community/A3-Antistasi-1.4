@@ -148,7 +148,7 @@ if !(hasIFA) then
 		{
 		if (round random 100 < 25) then
 			{
-			if (side group petros == independent) then
+			if (side group (call A3A_fnc_getPetros) == independent) then
 				{
 				if !("I_UAV_01_backpack_F" in _unlocks) then
 				{_crate addBackpackCargoGlobal ["I_UAV_01_backpack_F",1]};

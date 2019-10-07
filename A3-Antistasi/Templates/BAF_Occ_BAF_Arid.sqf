@@ -1,4 +1,4 @@
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\3CB_Occ_TKA_Arid.sqf"};
+if (side (call A3A_fnc_getPetros) == west) exitWith {call compile preProcessFileLineNumbers "Templates\3CB_Occ_TKA_Arid.sqf"};
 if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\3CB_Occ_BAF_Trop.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///

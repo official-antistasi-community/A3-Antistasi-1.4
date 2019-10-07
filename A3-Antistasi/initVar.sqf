@@ -49,6 +49,7 @@ colorInvaders = "colorOPFOR";
 ////////////////////////////////////
 //     DECLARING ITEM ARRAYS     ///
 ////////////////////////////////////
+if (isServer) then {
 diag_log format ["%1: [Antistasi] | INFO | initVar | Declaring Empty Arrays",servertime];
 //Config Arrays
 //Weapons arrays
@@ -166,6 +167,7 @@ unlockedGL = [];
 unlockedSN = [];
 //Used for AI-Rearm (poor implementation)
 initialRifles = [];
+};
 
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
@@ -266,6 +268,7 @@ medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
 //////////////////////////////////////
+if (isServer) then {
 //Templates for GREENFOR Rebels
 diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Occupant Templates",servertime];
 if (!hasIFA) then
@@ -354,6 +357,7 @@ if (!hasIFA) then
 	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 	};
+};
 
 ////////////////////////////////////
 //      CIVILIAN UNITS LIST      ///
@@ -435,6 +439,7 @@ vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH6
 vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
 vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 
+if (isServer) then {
 ////////////////////////////////////
 //        CRATE LOOT ITEMS       ///
 ////////////////////////////////////
@@ -471,6 +476,7 @@ if (hasIFA) then
 //     ACRE ITEM MODIFICATIONS   ///
 ////////////////////////////////////
 if (hasACRE) then {unlockedItems append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];};
+};
 
 ////////////////////////////////////
 //     MISSION PATH WARNING      ///

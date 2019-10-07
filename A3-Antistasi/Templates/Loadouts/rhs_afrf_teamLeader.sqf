@@ -1,7 +1,7 @@
 [
 	[
 		"rhs_weap_ak74m_gp25",
-		"rhs_acc_dtk",
+		"rhs_acc_tgpa",
 		"",
 		"rhs_acc_ekp8_02",
 		["rhs_30Rnd_545x39_7N22_AK",30],
@@ -19,7 +19,7 @@
 	],
 	[],
 	[
-		"rhs_uniform_gorka_r_g",
+		"rhs_uniform_vfv_flora",
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 	[
@@ -47,7 +47,7 @@
 	],
 	[
 		"ItemMap",
-		"",
+		"ItemGPS",
 		["tf_fadak_1"] call _fnc_tfarRadio,
 		"ItemCompass",
 		"ItemWatch",

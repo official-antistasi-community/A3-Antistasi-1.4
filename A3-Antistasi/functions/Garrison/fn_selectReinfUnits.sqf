@@ -89,7 +89,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
 		}
 		else
 		{
-		  if(_neededSpace <= 5) then
+		  if(_neededCargoSpace <= 5) then
 		  {
 			//Select light unarmed vehicle (as the armed uses three crew)
 			_currentSelected = if(_side == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};

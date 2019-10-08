@@ -21,7 +21,7 @@ private _capacity = objNull;
 private _count = objNull;
 {
 _type = _x select 0;
-_capacity = getNumber (configFile (CfgMagazines >> _type >> "count"));
+_capacity = getNumber (configFile >> CfgMagazines >> _type >> "count"));
 _bullets = _x select 1;
 _count = floor (_bullets/_capacity);
 _magazine append [_type,_count];
@@ -35,7 +35,7 @@ if (_x select 1 >= minWeaps) then
 		{
 		if (unlockedUnlimitedAmmo == 1) then
 			{
-			_weaponMagazine = (getArray (configFile / "CfgWeapons" / _item / "magazines") select 0);
+			_weaponMagazine = (getArray (configFile >> "CfgWeapons" >> _item >> "magazines") select 0);
 			if (!isNil "_weaponMagazine") then
 				{
 				if (not(_weaponMagazine in unlockedMagazines)) then

@@ -31,8 +31,8 @@ if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "") the
 
 //Flares ID
 //PBP - NOT WORKING
-private _uglMag = getArray (configfile >> "CfgMagazineWells" >> "UGL_40x36");
-_uglMag append (getArray(configfile >> "CfgMagazineWells" >> "3UGL_40x36"));
+private _uglMag = getArray (configfile >> "CfgMagazineWells" >> "UGL_40x36" >> "BI_Magazines");
+_uglMag append (getArray(configfile >> "CfgMagazineWells" >> "3UGL_40x36" >> "BI_Magazines"));
 {
 if (_x in _uglMag) then
      {

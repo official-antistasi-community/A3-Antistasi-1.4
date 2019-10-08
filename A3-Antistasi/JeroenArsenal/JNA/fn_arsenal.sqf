@@ -100,7 +100,7 @@
 		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL,[]];\
 		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW,[/*"Grenade","SmokeShell"*/]];\
 		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT,[/*"Mine","MineBounding","MineDirectional"*/]];\
-		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC,["FirstAidKit","Medikit","MineDetector","Toolkit"]];
+		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC,["FirstAidKit","Medikit","MineDetector","ToolKit"]];
 
 #define STATS_WEAPONS\
 	["reloadtime","dispersion","maxzeroing","hit","mass","initSpeed"],\
@@ -463,7 +463,7 @@ switch _mode do {
     
     //for "_i" from 0 to (_itemCount - 1) do {
     //  diag_log format ["Item: %1 has value %2", _ctrlList lbText _i, _ctrlList lbValue _i];
-    //}; 
+    //};
     
     private _sortType = _ctrlSort lbValue _selectedIndex;
     
@@ -494,7 +494,7 @@ switch _mode do {
           if (!isNil "_data") then {
             private _displayName = _data select 2;
             _ctrlList lbSetValue [_i, _displayNameArray find _displayName];
-          };  
+          };
         };
         
         lbSortByValue _ctrlList;
@@ -520,8 +520,8 @@ switch _mode do {
           lbSortByValue _ctrlList;
         };
       };
-      case SORT_DEFAULT: { 
-        lbSort _ctrlList; 
+      case SORT_DEFAULT: {
+        lbSort _ctrlList;
       };
   };
   
@@ -564,7 +564,7 @@ switch _mode do {
 			_handgunweapon set [0,((_handgunweapon select 0) call BIS_fnc_baseWeapon)];
 			
 			if (count _backpack > 0) then {
-				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];	
+				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];
 			};
 
 			_uniformitems = [_unifrom,1,[]] call BIS_fnc_param;
@@ -712,7 +712,7 @@ switch _mode do {
 				_ctrlList ctrlenable _showCargo;
 				_ctrlList ctrlsetfade _fadeCargo;
 				_ctrlList ctrlcommit FADE_DELAY;
-			} foreach [IDC_RSCDISPLAYARSENAL_LIST,IDC_RSCDISPLAYARSENAL_LISTDISABLED];
+			} foreach [IDC_RSCDISPLAYARSENAL_LIST,IDC_RSCDISPLAYARSENAL_LISTDISABLED,IDC_RSCDISPLAYARSENAL_SORT];
 		} foreach [
 			IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,
 			IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL,

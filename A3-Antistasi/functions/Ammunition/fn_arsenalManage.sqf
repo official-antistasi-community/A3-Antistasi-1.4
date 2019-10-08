@@ -4,17 +4,28 @@ if (!isServer) exitWith {};
 private _updated = "";
 private _item = objNull;
 private _cateogry = objNull;
-private _check = false;
 ["buttonInvToJNA"] call jn_fnc_arsenal;
 
 private _weapons = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HANDGUN) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW) /*+ (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT)*/ + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON)) select {_x select 1 != -1};
-private _magazines = /*(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG) +*/ (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 != -1};
+private _magazines = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) select {_x select 1 != -1};
 private _backpacks = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BACKPACK) select {_x select 1 != -1};
 private _items = ((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GOGGLES) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_MAP) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GPS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_RADIO) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_COMPASS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_WATCH) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMACC) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_UNIFORM)) select {_x select 1 != -1};
 private _optics = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC) select {_x select 1 != -1};
 private _nv = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_NVGS) select {_x select 1 != -1};
 private _helmets = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR) select {_x select 1 != -1};
 private _vests = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_VEST) select {_x select 1 != -1};
+
+private _type = objNull;
+private _magazine = [];
+private _capacity = objNull;
+private _count = objNull;
+{
+_type = _x select 0;
+_capacity = getNumber (configFile (CfgMagazines >> _type >> "count"));
+_bullets = _x select 1;
+_count = floor (_bullets/_capacity);
+_magazine append [_type,_count];
+} forEach _magazines;
 
 {
 if (_x select 1 >= minWeaps) then
@@ -93,7 +104,7 @@ if (_x select 1 >= minWeaps) then
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _item >> "displayName")];
 	unlockedMagazines pushBack _item; publicVariable "unlockedMagazines";
 	};
-} forEach _magazines;
+} forEach _magazine;
 	
 {
 if (_x select 1 >= minWeaps) then
@@ -106,6 +117,7 @@ if (_x select 1 >= minWeaps) then
 	};
 } forEach _backpacks;
 
+private _check = false;
 {
 if (_x select 1 >= minWeaps) then
 	{

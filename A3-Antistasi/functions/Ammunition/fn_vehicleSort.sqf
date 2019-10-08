@@ -18,3 +18,8 @@ if (getText (configfile >> "CfgVehicles" >> _x >> "editorSubcategory") isEqualTo
 {
 allUnknown deleteAt (allUnknown find _x);
 } forEach eastStaticWeapon + westStaticWeapon + independentStaticWeapon;
+
+///////////////////////////////////
+//      Civilian Vehicles       ///
+///////////////////////////////////
+arrayCivVeh deleteAt (arrayCivVeh find "C_Quadbike_01_F");

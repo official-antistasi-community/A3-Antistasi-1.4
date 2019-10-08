@@ -88,8 +88,8 @@ supportStaticsSDKB3 = "RHS_Podnos_Bipod_Bag";
 //Player spawn loadout
 teamPlayerDefaultLoadout = [[],[],[],["rhsgref_uniform_tigerstripe", []],[],[],"","",[],["ItemMap","","","","",""]];
 //Mines
-ATMineMag = "rhs_mine_tm62m_mag";
-APERSMineMag = "rhs_mine_pmn2_mag";
+ATMineMag = "rhs_mine_ptm1_mag";
+APERSMineMag = "rhs_mine_ozm72_b_mag";
 //Starting Unlocks
 unlockedWeapons append ["rhs_weap_type94_new","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_kar98k","Binocular","rhs_weap_panzerfaust60"];
 unlockedRifles append ["rhs_weap_Izh18","rhs_weap_m1garand_sa43"];

@@ -21,7 +21,7 @@ private _capacity = objNull;
 private _count = objNull;
 {
 _type = _x select 0;
-_capacity = getNumber (configFile >> CfgMagazines >> _type >> "count");
+_capacity = getNumber (configFile >> "CfgMagazines" >> _type >> "count");
 _bullets = _x select 1;
 _count = floor (_bullets/_capacity);
 _magazine append [_type,_count];

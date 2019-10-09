@@ -211,6 +211,13 @@ class Params
          texts[] =  {"Yes","No"};
          default = 1;
     };
+    class allowGuidedLanchers
+    {
+         title = "Should Guided Launchers become unlocked?";
+         values[] = {1,0};
+         texts[] =  {"Yes","No"};
+         default = 0;
+    };
     class Spacer10
     {
         title = "";

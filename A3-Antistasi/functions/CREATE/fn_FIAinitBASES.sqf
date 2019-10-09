@@ -104,7 +104,7 @@ switch (true) do {
 	};
 
 	case (_typeX in SDKMedic): {
-		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		[_unit,unlockedSMG] call A3A_fnc_randomRifle;
 		_unit setUnitTrait ["medic",true];
 		if ({_x == "FirstAidKit"} count (items _unit) < 10) then
 			{

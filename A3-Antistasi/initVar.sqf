@@ -126,7 +126,6 @@ civilianUniform = [];
 allBackpackEmpty = [];
 allBackpackTool = [];
 allBackpackStatic = [];
-allBackpackDevince = [];
 civilianVest = [];
 armoredVest = [];
 armoredHeadgear = [];
@@ -145,9 +144,13 @@ lootBackpack = [];
 lootHelmet = [];
 lootVest = [];
 //Vehicles Arrays
-eastStaticWeapon = [];
-westStaticWeapon = [];
-independentStaticWeapon = [];
+invaderStaticWeapon = [];
+occupantStaticWeapon = [];
+rebelStaticWeapon = [];
+invaderBackpackDevice = [];
+occupantBackpackDevice = [];
+rebelBackpackDevice = [];
+civilianBackpackDevice = [];
 
 //Unlocks Arrays
 //Unlocked Item Categories

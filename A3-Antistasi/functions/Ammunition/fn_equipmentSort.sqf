@@ -2,8 +2,8 @@
 //      Uniforms Sorting        ///
 ////////////////////////////////////
 {
-_originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
-_uniformSide = getNumber (configfile >> "CfgVehicles" >> _originUnit >> "side");
+private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
+private _uniformSide = getNumber (configfile >> "CfgVehicles" >> _originUnit >> "side");
 switch (_uniformSide) do
 	{
 	case 3: {civilianUniform pushBack _x};
@@ -11,8 +11,8 @@ switch (_uniformSide) do
 } forEach allUniform;
 
 {
-_originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
-_uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
+private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
+private _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
 switch (_uniformFaction) do
 	{
 	case "IND_C_F";
@@ -29,7 +29,7 @@ rebelUniform deleteAt (rebelUniform find "U_I_G_resistanceLeader_F");
 //      Backpacks Sorting        ///
 ////////////////////////////////////
 {
-_itemFaction = getText (configfile >> "CfgVehicles" >> _x >> "faction");
+private _itemFaction = getText (configfile >> "CfgVehicles" >> _x >> "faction");
 switch (_itemFaction) do
 	{
 	case "Default": {allBackpackEmpty pushBack _x};
@@ -47,7 +47,17 @@ allBackpackEmpty deleteAt (allBackpackEmpty find "B_AssaultPack_Kerry");
 	};
 } forEach allBackpackTool;
 
-allBackpackDevice = allBackpackTool - allBackpackStatic;
+private _allBackpackDevice = allBackpackTool - allBackpackStatic;
+
+{
+	private _side = getNumber (configfile >> "CfgVehicles" >> _x >> "side");
+	switch (_side) do {
+		case 0: {invaderBackpackDevice pushBack _x};
+		case 1: {occupantBackpackDevice pushBack _x};
+		case 2: {rebelBackpackDevice pushBack _x};
+		case 3: {civilianBackpackDevice pushBack _x};
+	}
+} forEach allBackpackDevice;
 
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///

@@ -1,13 +1,13 @@
 [//Loadout
 	[//Primary Weapon
-		"RHS_Weap_M4A1",									//Weapon
+		"RHS_Weap_M4A1_M203S",								//Weapon
 		"",													//Muzzle
-		"RHSUSF_Acc_ANPEQ15A",								//Rail
+		"RHSUSF_Acc_Anpeq15a",								//Rail
 		selectRandom										//Sight
-		["RHSUSF_Acc_Acog", "RHSUSF_Acc_Elcan"],
+		["RHSUSF_Acc_Acog", "RHSUSF_Acc_Eotech_552"],
 		["RHS_Mag_30Rnd_556x45_M855A1_Stanag",30],			//Primary Magazine
-		[],													//Secondary Magazine
-		"RHSUSF_Acc_Grip3"									//Bipod
+		["RHS_Mag_M441_HE",1],								//Secondary Magazine
+		""													//Bipod
 	],
 
 	[//Launcher
@@ -36,27 +36,21 @@
 	],
 
 	[//Vest
-		"RHSUSF_SPCS_OCP_SquadLeader",						//Vest
+		"RHSUSF_SPCS_OCP_Grenadier",
 		[//Inventory
 			["RHSUSF_ANPVS_14",1],
 			["RHS_Mag_An_M8HC",2,1],
-			["RHS_Mag_M67",1,1],
-			["RHS_Mag_Mk84",2,1],
+			["RHS_Mag_M67",2,1],
+			["RHS_Mag_Mk84",1,1],
+			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",5,30],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7],
-			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",4,30]
-		]
-		+ _aceFlashlight
+			["RHS_Mag_M441_HE",5,1],
+			["RHS_Mag_M585_White",2,1],
+			["RHS_Mag_M714_White",2,1]
+		] + _aceFlashlight
 	],
 
 	[//Backpack
-		([hasTFAR, "TF_RT1523G_RHS", "RHSUSF_Assault_EagleAIII_OCP"] call _fnc_modItemNoArray),
-		[//Inventory
-			["SmokeshellBlue",3,1],
-			["SmokeshellRed",3,1],
-			["SmokeshellYellow",3,1]
-		]
-		+ ([hasACE, ["ACE_Handflare_Red",2,1]] call _fnc_modItem)
-		+ ([hasACE, ["ACE_Chemlight_IR",15,1]] call _fnc_modItem)
 	],
 
 		"rhsusf_mich_bare_norotos_headset",				//Headgear
@@ -64,7 +58,7 @@
 		["RHSUSF_Shemagh_Grn", "RHSUSF_Shemagh2_Grn", "RHSUSF_Shemagh_Gogg_Grn", "RHSUSF_Shemagh2_Gogg_Grn", "RHSUSF_Oakley_Goggles_Blk"],
 
 	[//Binocular
-		"RHSUSF_Bino_Lerca_1200_Black",						//Binocular
+		"Binocular",										//Binocular
 		"",
 		"",
 		"",
@@ -75,7 +69,7 @@
 
 	[//Item
 		"ItemMap",											//Map
-		"ItemGPS",											//Terminal
+		"",													//Terminal
 		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
 		_tfarMicroDAGRNoArray,										//Watch

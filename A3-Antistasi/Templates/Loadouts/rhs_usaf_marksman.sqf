@@ -6,7 +6,7 @@
 		"RHSUSF_Acc_leupoldmk4_2_mrds",								//Sight
 		["RHSUSF_20Rnd_762x51_SR25_M118_Special_Mag",20],				//Primary Magazine
 		[],													//Secondary Magazine
-		"RHS_Acc_Harris_Bipod"								//Bipod
+		"RHSUSF_Acc_Harris_Bipod"								//Bipod
 	],
 
 	[//Launcher
@@ -38,7 +38,7 @@
 		"RHSUSF_SPCS_OCP_Sniper",							//Vest
 		[//Inventory
 			["RHSUSF_ANPVS_14",1],
-			["RHS_Mag_An_M8HC",2,1],
+			["RHS_Mag_An_M8HC",1,1],
 			["RHS_Mag_M67",1,1],
 			["RHS_Mag_Mk84",1,1],
 			["RHSUSF_20Rnd_762x51_SR25_M118_Special_Mag",5,30],

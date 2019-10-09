@@ -180,6 +180,8 @@ if !(hasIFA) then
 				};
 			};
 		};
+	};
+	/*
 	if (hasACE) then
 		{
 			if !("ACE_HuntIR_M203" in _unlocks) then

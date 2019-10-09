@@ -181,13 +181,3 @@ if !(hasIFA) then
 			};
 		};
 	};
-	/*
-	if (hasACE) then
-		{
-			if !("ACE_HuntIR_M203" in _unlocks) then
-		{_crate addMagazineCargoGlobal ["ACE_HuntIR_M203", 3]};
-			if !("ACE_HuntIR_monitor" in _unlocks) then
-		{_crate addItemCargoGlobal ["ACE_HuntIR_monitor", 1]};
-		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning 1 HuntIR Monitor And 3 Rounds",servertime]};
-		};
-	};

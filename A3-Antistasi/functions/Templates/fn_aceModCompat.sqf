@@ -71,7 +71,7 @@ if (hasACEMedical) then {
 	};
 };
 
-lootItem append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield","ACE_VMH3","ACE_VMM3"];
+lootItem append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield","ACE_VMH3","ACE_VMM3","ACE_HuntIR_monitor"];
 
 lootItem = lootItem - ["MineDetector"];
 

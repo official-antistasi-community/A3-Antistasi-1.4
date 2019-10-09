@@ -30,54 +30,66 @@ _magazine pushBack [_type,_count];
 {
 if (_x select 1 >= minWeaps) then {
 	_item = _x select 0;
-	if !(_item in mlaunchers) then {
-		if (unlockedUnlimitedAmmo == 1) then {
-			_weaponMagazine = (getArray (configFile >> "CfgWeapons" >> _item >> "magazines") select 0);
-			if (!isNil "_weaponMagazine") then {
-				if (not(_weaponMagazine in unlockedMagazines)) then {
-					unlockedMagazines pushBack _weaponMagazine; publicVariable "unlockedMagazines";
-					_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")];
-					_category = _weaponMagazine call jn_fnc_arsenal_itemType;
-					[_category,_weaponMagazine,-1] call jn_fnc_arsenal_addItem;
-				};
+	if (unlockedUnlimitedAmmo == 1) then {
+		_weaponMagazine = (getArray (configFile >> "CfgWeapons" >> _item >> "magazines") select 0);
+		if (!isNil "_weaponMagazine") then {
+			if (not(_weaponMagazine in unlockedMagazines)) then {
+				unlockedMagazines pushBack _weaponMagazine; publicVariable "unlockedMagazines";
+				_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")];
+				_category = _weaponMagazine call jn_fnc_arsenal_itemType;
+				[_category,_weaponMagazine,-1] call jn_fnc_arsenal_addItem;
 			};
 		};
-		unlockedWeapons pushBack _item; publicVariable "unlockedWeapons";
-		if (_item in arifles) then {
-			unlockedRifles pushBack _item; publicVariable "unlockedRifles";
-			if (count (getArray (configfile >> "CfgWeapons" >> _item >> "muzzles")) == 2) then {
-				unlockedGL pushBack _item; publicVariable "unlockedGL";
-			};
+	};
+	unlockedWeapons pushBack _item; publicVariable "unlockedWeapons";
+	if (_item in arifles) then {
+		unlockedRifles pushBack _item; publicVariable "unlockedRifles";
+		if (count (getArray (configfile >> "CfgWeapons" >> _item >> "muzzles")) == 2) then {
+			unlockedGL pushBack _item; publicVariable "unlockedGL";
+		};
+	}
+	else {
+		if (_item in mguns) then {
+			unlockedMG pushBack _item; publicVariable "unlockedMG";
 		}
 		else {
-			if (_item in mguns) then {
-				unlockedMG pushBack _item; publicVariable "unlockedMG";
+			if (_item in srifles) then {
+				unlockedSN pushBack _item; publicVariable "unlockedSN";
 			}
 			else {
-				if (_item in srifles) then {
-					unlockedSN pushBack _item; publicVariable "unlockedSN";
+				if (_item in allWeaponSubmachineGun) then {
+					unlockedSMG pushBack _item; publicVariable "unlockedSMG";
 				}
 				else {
-					if (_item in allWeaponSubmachineGun) then {
-						unlockedSMG pushBack _item; publicVariable "unlockedSMG";
-					}
-					else {
-						if (_item in ((rlaunchers + mlaunchers) select {(getText (configfile >> "CfgWeapons" >> _x >> "nameSound") == "atlauncher")})) then {
+					if (_item in rlaunchers) then {
+						if ((getNumber (configfile >> "CfgWeapons" >> _item >> "canLock")) isEqualTo 0) then {
 							unlockedAT pushBack _item; publicVariable "unlockedAT";
 						}
 						else {
-							if (_item in (mlaunchers select {(getText (configfile >> "CfgWeapons" >> _x >> "namesSound") == "aalauncher")})) then {
-								unlockedAA pushBack _item; publicVariable "unlockedAA";
+							if (allowGuidedLanchers isEqualTo 1) then {
+								unlockedAT pushBack _item; publicVariable "unlockedAT";
+							}
+						}
+					}
+					else {
+						if (_item in mlaunchers) then {
+							if (allowGuidedLanchers isEqualTo 1) then {
+								if (getText (configfile >> "CfgWeapons" >> _item >> "nameSound") == "aalauncher") then {
+									unlockedAA pushBack _item; publicVariable "unlockedAA";
+								};
+								if (getText (configfile >> "CfgWeapons" >> _item >> "nameSound") == "atlauncher") then {
+									unlockedAT pushBack _item; publicVariable "unlockedAT";
+								};
 							};
 						};
 					};
 				};
 			};
 		};
-		_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
-		_category = _item call jn_fnc_arsenal_itemType;
-		[_category,_item,-1] call jn_fnc_arsenal_addItem;
 	};
+	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
+	_category = _item call jn_fnc_arsenal_itemType;
+	[_category,_item,-1] call jn_fnc_arsenal_addItem;
 };
 } forEach _weapons;
 

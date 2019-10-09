@@ -38,6 +38,17 @@ switch (_itemFaction) do
 } forEach allBackpack;
 
 allBackpackEmpty deleteAt (allBackpackEmpty find "B_AssaultPack_Kerry");
+
+{
+	if ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "assembleTo")) != "") then {
+		if ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) != "") then {
+			allBackpackStatic pushBack _x;
+		};
+	};
+} forEach allBackpackTool;
+
+allBackpackDevice = allBackpackTool - allBackpackStatic;
+
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///
 ////////////////////////////////////

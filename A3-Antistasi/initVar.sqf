@@ -125,6 +125,8 @@ rebelUniform = [];
 civilianUniform = [];
 allBackpackEmpty = [];
 allBackpackTool = [];
+allBackpackStatic = [];
+allBackpackDevince = [];
 civilianVest = [];
 armoredVest = [];
 armoredHeadgear = [];
@@ -142,7 +144,7 @@ lootExplosive = [];
 lootBackpack = [];
 lootHelmet = [];
 lootVest = [];
-//Vehicles and Equipment Arrays
+//Vehicles Arrays
 eastStaticWeapon = [];
 westStaticWeapon = [];
 independentStaticWeapon = [];

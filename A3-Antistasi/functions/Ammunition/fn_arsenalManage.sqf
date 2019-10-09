@@ -62,11 +62,11 @@ if (_x select 1 >= minWeaps) then {
 						unlockedSMG pushBack _item; publicVariable "unlockedSMG";
 					}
 					else {
-						if (_item in ((rlaunchers + mlaunchers) select {getNumber (configfile >> "CfgWeapons" >> _x >> "nameSound") == "atlauncher"})) then {
+						if (_item in ((rlaunchers + mlaunchers) select {(getNumber (configfile >> "CfgWeapons" >> _x >> "nameSound") == "atlauncher")})) then {
 							unlockedAT pushBack _item; publicVariable "unlockedAT";
 						}
 						else {
-							if (_item in (mlaunchers select {getNumber (configfile >> "CfgWeapons" >> _x >> "namesSound") == "aalauncher"})) then {
+							if (_item in (mlaunchers select {(getNumber (configfile >> "CfgWeapons" >> _x >> "namesSound") == "aalauncher")})) then {
 								unlockedAA pushBack _item; publicVariable "unlockedAA";
 							};
 						};

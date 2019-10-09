@@ -60,6 +60,17 @@ lootHelmet append armoredHeadgear;
 ///////////////
 lootVest append armoredVest;
 
+/////////////////////
+//   Device Bags  ///
+/////////////////////
+private _lootDeviceBag = objNull;
+
+switch (teamPlayer) do {
+     case "independent": {_lootDeviceBag append rebelBackpackDevice};
+     default {_lootDeviceBag append occupantBackpackDevice};
+};
+lootDevice append _lootDeviceBag;
+
 ////////////////////////////////////
 //      REBEL STARTING ITEMS     ///
 ////////////////////////////////////

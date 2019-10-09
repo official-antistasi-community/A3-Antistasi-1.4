@@ -37,3 +37,7 @@ crateVestNumMax = "crateBackpackNumMax" call BIS_fnc_getParamValue; publicVariab
 //Helmets
 crateHelmetTypeMax = "crateBackpackTypeMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackTypeMax";
 crateHelmetNumMax = "crateBackpackNumMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackNumMax";
+
+//Device Bags
+crateDeviceTypeMax = "crateBackpackTypeMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackTypeMax";
+crateDeviceNumMax = "crateBackpackNumMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackNumMax";

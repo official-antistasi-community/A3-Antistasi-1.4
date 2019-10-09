@@ -143,6 +143,7 @@ lootExplosive = [];
 lootBackpack = [];
 lootHelmet = [];
 lootVest = [];
+lootDevice = [];
 //Vehicles Arrays
 invaderStaticWeapon = [];
 occupantStaticWeapon = [];

@@ -58,7 +58,7 @@ lootHelmet append armoredHeadgear;
 ///////////////
 //   Vests  ///
 ///////////////
-lootVest append armoredVest;
+lootVest append armoredVest + civilianVest;
 
 /////////////////////
 //   Device Bags  ///
@@ -79,5 +79,4 @@ unlockedItems append lootBasicItem;
 unlockedItems append rebelUniform;
 unlockedItems append civilianUniform;
 unlockedItems append civilianHeadgear;
-unlockedItems append civilianVest;
 unlockedItems append civilianGlasses;

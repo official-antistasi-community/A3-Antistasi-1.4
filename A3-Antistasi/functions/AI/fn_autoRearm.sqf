@@ -25,7 +25,7 @@ if (boxX in _objectsX) then {_objectsX = _objectsX - [boxX]};
 
 _needsRearm = false;
 
-if ((_Pweapon in initialRifles) or (_Pweapon == "")) then
+if ((_Pweapon in initialWeapons) or (_Pweapon == "")) then
 	{
 	_needsRearm = true;
 	if (count _objectsX > 0) then

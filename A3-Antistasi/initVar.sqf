@@ -172,7 +172,7 @@ unlockedSMG = [];
 unlockedGL = [];
 unlockedSN = [];
 //Used for AI-Rearm (poor implementation)
-initialRifles = [];
+initialWeapons = [];
 };
 
 ////////////////////////////////////

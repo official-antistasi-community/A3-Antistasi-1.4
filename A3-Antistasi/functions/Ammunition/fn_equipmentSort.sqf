@@ -45,6 +45,11 @@ allBackpackEmpty deleteAt (allBackpackEmpty find "B_AssaultPack_Kerry");
 			allBackpackStatic pushBack _x;
 		};
 	};
+	if ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "assembleTo")) == "") then {
+		if ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) == "") then {
+			allBackpackStatic pushBack _x;
+		};
+	};
 } forEach allBackpackTool;
 
 private _allBackpackDevice = allBackpackTool - allBackpackStatic;

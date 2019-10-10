@@ -31,7 +31,7 @@ if (vehicle _player != _player) then {
 	};
 }
 else {
-	if ((primaryWeapon _player != "") or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or (vest _player != "") or (headgear _player in armoredHeadgear) or (hmd _player != "") or !(uniform _player in civilianUniform)) then {
+	if ((primaryWeapon _player != "") or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or (vest _player != "") or (headgear _player in armoredHeadgear) or (hmd _player != "") or (not(uniform _player in civilianUniform))) then {
 		hint "You cannot go Undercover while:\n\nA weapon is visible\nWearing a vest\nWearing a helmet\nWearing NVGs\nWearing a mil uniform";
 		_changeX = "Init";
 	};

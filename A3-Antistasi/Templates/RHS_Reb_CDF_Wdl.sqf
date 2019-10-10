@@ -96,7 +96,7 @@ unlockedRifles append ["rhs_weap_Izh18","rhs_weap_m1garand_sa43"];
 initialRifles append ["rhs_weap_Izh18","rhs_weap_m1garand_sa43"];
 unlockedAT append ["rhs_weap_m72a7"];
 unlockedMagazines append ["rhsusf_mag_7x45acp_MHP","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_8Rnd_762x63_M2B_M1rifle","rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_mag_rdg2_black","rhs_grenade_m15_mag"];
-unlockedItems append ["rhs_acc_2dpZenit"];
+unlockedItems append ["rhs_acc_2dpZenit","Binocular"];
 unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
 unlockedVest append ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra3m","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","rhsgref_alice_webbing"];
 //TFAR Unlocks

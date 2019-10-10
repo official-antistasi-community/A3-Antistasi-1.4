@@ -91,11 +91,10 @@ teamPlayerDefaultLoadout = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"",""
 ATMineMag = "LIB_TMI_42_MINE_mag";
 APERSMineMag = "LIB_shumine_42_MINE_mag";
 //Starting Unlocks
-unlockedWeapons append ["LIB_PTRD","LIB_M38","LIB_Webley_Mk6","LIB_Webley_Flare","LIB_Binocular_GER"];
+unlockedWeapons append ["LIB_PTRD","LIB_M38","LIB_Webley_Mk6","LIB_Webley_Flare"];
 unlockedRifles append ["LIB_M38"];
-unlockedMagazines append ["LIB_1Rnd_145x114","LIB_5Rnd_762x54","LIB_6Rnd_455","LIB_1Rnd_flare_red","LIB_1Rnd_flare_green","LIB_1Rnd_flare_white","LIB_1Rnd_flare_yellow"];
 initialRifles append ["LIB_M38"];
-initGrenades = ["LIB_US_TNT_4pound_mag","LIB_Shg24","LIB_Shg24x7","LIB_No77"]; //Demo charge, Frag, AT, Smoke
+unlockedMagazines append ["LIB_1Rnd_145x114","LIB_5Rnd_762x54","LIB_6Rnd_455","LIB_1Rnd_flare_red","LIB_1Rnd_flare_green","LIB_1Rnd_flare_white","LIB_1Rnd_flare_yellow","LIB_US_TNT_4pound_mag","LIB_Shg24","LIB_Shg24x7","LIB_No77"];
 unlockedBackpacks append ["B_LIB_SOV_RA_Gasbag"];
 initVest = ["V_LIB_WP_OfficerVest","V_LIB_WP_SniperBela","V_LIB_WP_Kar98Vest","V_LIB_SOV_RA_Belt"];
 //TFAR Unlocks

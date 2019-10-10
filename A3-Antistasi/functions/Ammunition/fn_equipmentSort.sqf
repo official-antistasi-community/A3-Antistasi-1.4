@@ -57,7 +57,7 @@ private _allBackpackDevice = allBackpackTool - allBackpackStatic;
 		case 2: {rebelBackpackDevice pushBack _x};
 		case 3: {civilianBackpackDevice pushBack _x};
 	}
-} forEach allBackpackDevice;
+} forEach _allBackpackDevice;
 
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///

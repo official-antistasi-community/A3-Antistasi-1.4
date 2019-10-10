@@ -274,8 +274,36 @@ medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
 //////////////////////////////////////
-//Templates for GREENFOR Rebels
-diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Occupant Templates",servertime];
+diag_log format ["%1: [Antistasi] | INFO | initVar | Reading Templates",servertime];
+if !(hasIFA) then {
+	//Rebel Templates
+	switch (true) do {
+		case (!activeGREF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf"};
+		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf"};
+		case (activeGREF): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf"};
+		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf"};
+	};
+	//Occupant Templates
+	switch (true) do {
+		case (!activeUSAF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf"};
+		case (has3CB): {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf"};
+		case (activeUSAF): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf"};
+		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf"};
+	};
+	//Invader Templates
+	switch (true) do {
+		case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";};
+		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf"};
+		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf"};
+	};
+}
+else {
+//IFA Templates
+call compile preProcessFileLineNumbers "Templates\IFA_Reb_POL_Temp.sqf";
+call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
+call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
+};
+/*
 if (!hasIFA) then
 	{
 	//NON-IFA Templates for DEFENDER
@@ -361,7 +389,7 @@ if (!hasIFA) then
 	call compile preProcessFileLineNumbers "Templates\IFA_Reb_POL_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
-	};
+	};*/
 
 ////////////////////////////////////
 //      CIVILIAN UNITS LIST      ///

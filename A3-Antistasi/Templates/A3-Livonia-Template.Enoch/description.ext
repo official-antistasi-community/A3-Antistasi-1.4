@@ -477,6 +477,27 @@ class Params
         texts[] = {"None","1","3","5","10","15"};
         default = 0;
     };
+    class Spacer8
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class crateDeviceTypeMax
+    {
+        title = "Maximum Helmet Types in Crates";
+        values[] = {0,2,4,9};
+        texts[] = {"1","3","5","10"};
+        default = 9;
+    };
+    class crateDeviceNumMax
+    {
+        title = "Maximum Helmet Quantity in Crates";
+        values[] = {0,1,3,5,10,15};
+        texts[] = {"None","1","3","5","10","15"};
+        default = 15;
+    };
 };
 
 class CfgIdentities

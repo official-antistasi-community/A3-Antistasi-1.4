@@ -86,18 +86,20 @@ supportStaticsSDKB3 = "rhs_M252_Bipod_Bag";
 //             ITEMS             ///
 ////////////////////////////////////
 //Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla2_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+teamPlayerDefaultLoadout = [[],[],[],["rhsgref_uniform_ERDL", []],[],[],"","",[],["ItemMap","","","","",""]];
 //Mines
-ATMineMag = "rhs_mine_tm62m_mag";
-APERSMineMag = "rhs_mine_pmn2_mag";
+ATMineMag = "rhs_mine_M19_mag";
+APERSMineMag = "rhsusf_mine_m7a2_mag";
 //Starting Unlocks
-unlockedWeapons append ["rhs_weap_akms","rhs_weap_makarov_pmm","Binocular","rhs_weap_rpg7","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_pp2000_folded","rhs_weap_savz61","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
-unlockedRifles append ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_savz61","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
-unlockedMagazines append ["rhs_30Rnd_762x39mm","rhs_mag_9x18_12_57N181S","rhs_rpg7_PG7VL_mag","rhsgref_5Rnd_762x54_m38","rhsgref_5Rnd_792x57_kar98k","rhs_mag_rgd5","rhs_mag_9x19mm_7n21_20","rhsgref_20rnd_765x17_vz61","rhsgref_30rnd_1143x23_M1911B_SMG","rhsgref_8Rnd_762x63_M2B_M1rifle"];
-initialRifles append ["rhs_weap_akms","rhs_weap_m38_rail","rhs_weap_kar98k","rhs_weap_savz61"];
-unlockedItems pushBack "rhs_acc_2dpZenit";
-unlockedAT append ["rhs_weap_rpg7"];
+unlockedWeapons append ["rhsusf_weap_m1911a1","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_m1garand_sa43","Binocular","rhs_weap_m72a7"];
+unlockedRifles append ["rhs_weap_Izh18","rhs_weap_m1garand_sa43"];
+unlockedMagazines append ["rhsusf_mag_7x45acp_MHP","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_8Rnd_762x63_M2B_M1rifle"];
+initialRifles append ["rhs_weap_Izh18","rhs_weap_m1garand_sa43"];
+unlockedItems append ["rhs_acc_2dpZenit"];
+initGrenades = ["rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_mag_rdg2_black","rhs_grenade_m15_mag"];//Frag, Flare, Smoke, Smoke
+unlockedAT append ["rhs_weap_m72a7"];
 unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
+initVest = ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra3m","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","rhsgref_alice_webbing"];
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems append ["tf_microdagr","tf_rf7800str"]};
 if (startLR) then {unlockedBackpacks pushBack "tf_rt1523g_rhs"};

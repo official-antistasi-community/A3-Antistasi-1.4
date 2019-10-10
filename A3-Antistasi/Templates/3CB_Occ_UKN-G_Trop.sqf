@@ -16,7 +16,7 @@ NATOFlag = "Flag_TKA_O_Army";
 NATOFlagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_TKA\Flag\tka_o_army_co.paa";
 flagNATOmrk = "UK3CB_MARKER_TKA_O_Army";
 if (isServer) then {"NATO_carrier" setMarkerText "Takistani Carrier"};
-	
+
 //Loot Crate
 NATOAmmobox = "B_supplyCrate_F";
 

@@ -178,4 +178,3 @@ supportStaticCSATB = "O_HMG_01_support_F";
 supportStaticCSATB2 = "O_HMG_01_support_high_F";
 //Mortar Support
 supportStaticCSATB3 = "O_Mortar_01_support_F";
-

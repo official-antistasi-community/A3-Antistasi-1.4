@@ -337,7 +337,7 @@ if (!hasIFA) then
 				if (has3CB) then
 					{
 					//3CB REBEL Template
-					call compile preProcessFileLineNumbers "Templates\3CB_Reb_CCM_Arid.sqf";
+					call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf";
 					}
 					else
 					{

@@ -65,7 +65,7 @@ civBoat = "C_Boat_Transport_02_F";
 //Assembled Static Weapons
 SDKMGStatic = "LIB_M1919_M2";
 staticATteamPlayer = "LIB_Pak40";
-staticAAteamPlayer = "LIB_FlaK_30";
+staticAAteamPlayer = "LIB_FlaK_38";
 SDKMortar = "LIB_M2_60";
 SDKMortarHEMag = "LIB_8Rnd_60mmHE_M2";
 SDKMortarSmokeMag = "not_supported";
@@ -88,13 +88,15 @@ supportStaticsSDKB3 = "not_supported";
 //Player spawn loadout
 teamPlayerDefaultLoadout = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],["ItemMap","","","","",""]];
 //Mines
-ATMineMag = "LIB_TM44_MINE_mag";
-APERSMineMag = "LIB_PMD6_MINE_mag";
+ATMineMag = "LIB_TMI_42_MINE_mag";
+APERSMineMag = "LIB_shumine_42_MINE_mag";
 //Starting Unlocks
-unlockedWeapons append ["LIB_PTRD","LIB_M2_Flamethrower","LIB_Binocular_GER","LIB_K98","LIB_M1895","LIB_FLARE_PISTOL"];
-unlockedRifles append ["LIB_K98"];
-unlockedMagazines append ["LIB_1Rnd_145x114","LIB_M2_Flamethrower_Mag","LIB_5Rnd_792x57","LIB_Pwm","LIB_Rg42","LIB_US_TNT_4pound_mag","LIB_7Rnd_762x38","LIB_1Rnd_flare_red","LIB_1Rnd_flare_green","LIB_1Rnd_flare_white","LIB_1Rnd_flare_yellow"];
-initialRifles append ["LIB_K98"];
-unlockedBackpacks append ["B_LIB_US_M2Flamethrower","B_LIB_SOV_RA_MGAmmoBag_Empty"];
+unlockedWeapons append ["LIB_PTRD","LIB_M38","LIB_Webley_Mk6","LIB_Webley_Flare","LIB_Binocular_GER"];
+unlockedRifles append ["LIB_M38"];
+unlockedMagazines append ["LIB_1Rnd_145x114","LIB_5Rnd_762x54","LIB_6Rnd_455","LIB_1Rnd_flare_red","LIB_1Rnd_flare_green","LIB_1Rnd_flare_white","LIB_1Rnd_flare_yellow"];
+initialRifles append ["LIB_M38"];
+initGrenades = ["LIB_US_TNT_4pound_mag","LIB_Shg24","LIB_Shg24x7","LIB_No77"]; //Demo charge, Frag, AT, Smoke
+unlockedBackpacks append ["B_LIB_SOV_RA_Gasbag"];
+initVest = ["V_LIB_WP_OfficerVest","V_LIB_WP_SniperBela","V_LIB_WP_Kar98Vest","V_LIB_SOV_RA_Belt"];
 //TFAR Unlocks
 if (startLR) then {unlockedBackpacks pushBack "B_LIB_US_Radio"};

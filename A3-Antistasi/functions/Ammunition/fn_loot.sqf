@@ -63,7 +63,7 @@ lootVest append armoredVest;
 /////////////////////
 //   Device Bags  ///
 /////////////////////
-private _lootDeviceBag = objNull;
+private _lootDeviceBag = [];
 
 switch (teamPlayer) do {
      case "independent": {_lootDeviceBag append rebelBackpackDevice};

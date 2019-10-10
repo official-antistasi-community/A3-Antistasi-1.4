@@ -6,7 +6,7 @@ OnLoadName = $STR_antistasi_mission_info_kunduz_mapname_text;
 OnLoadMission = $STR_antistasi_mission_info_kunduz_blurb_text;
 loadScreen = "pic.jpg";
 
-overviewText = $STR_antistasi_mission_info_kunduz_description_text + " " + $STR_antistasi_credits_generic_version_text;;
+overviewText = $STR_antistasi_mission_info_kunduz_description_text + " " + $STR_antistasi_credits_generic_version_text;
 overviewPicture = "pic.jpg";
 
 allowFunctionsLog = 1;

@@ -489,19 +489,19 @@ class CfgIdentities
      {
           name = "Stavros";
           nameSound = "Stavrou";
-          face="GreekHead_A3_01";
-          glasses="None";
-          speaker="Male01GRE";
-          pitch=1.1;
+          face = "GreekHead_A3_01";
+          glasses = "None";
+          speaker = "Male01GRE";
+          pitch = 1.1;
      };
      class friendlyX
      {
           name = "Petros";
           nameSound = "Petros";
-          face="GreekHead_A3_01";
-          glasses="None";
-          speaker="Male01GRE";
-          pitch=1.1;
+          face = "GreekHead_A3_01";
+          glasses = "None";
+          speaker = "Male01GRE";
+          pitch = 1.1;
      };
 };
 

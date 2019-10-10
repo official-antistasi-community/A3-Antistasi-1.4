@@ -488,156 +488,156 @@ class CfgIdentities
 {
      class protagonista
      {
-          name = "Pulu";
-          nameSound = "Warlock";
-          face="TanoanBossHead";
-          glasses="None";
-          speaker="Male01ENGFRE";
-          pitch=1.1;
+          name = "Stavros";
+          nameSound = "Stavrou";
+          face = "GreekHead_A3_01";
+          glasses = "None";
+          speaker = "Male01GRE";
+          pitch = 1.1;
      };
      class friendlyX
      {
-          name = "Maru";
-          nameSound = "Warlock";
-          face="TanoanBossHead";
-          glasses="None";
-          speaker="Male01ENGFRE";
-          pitch=1.1;
+          name = "Petros";
+          nameSound = "Petros";
+          face = "GreekHead_A3_01";
+          glasses = "None";
+          speaker = "Male01GRE";
+          pitch = 1.1;
      };
      class Anthis
      {
           name = "Anthis";
           nameSound = "Anthis";
-          face="TanoanHead_A3_01";
-          glasses="None";
-          speaker="Male02CHI";
-          pitch=1.1;
+          face = "GreekHead_A3_02";
+          glasses = "None";
+          speaker = "Male01GRE";
+          pitch = 1.1;
      };
      class Costa
      {
           name = "Costa";
           nameSound = "Costa";
-          face="TanoanHead_A3_02";
-          glasses="None";
-          speaker="Male03CHI";
-          pitch=1.1;
+          face = "GreekHead_A3_03";
+          glasses = "None";
+          speaker = "Male02GRE";
+          pitch = 1.1;
      };
      class Dimitirou
      {
           name = "Dimitirou";
           nameSound = "Dimitirou";
-          face="TanoanHead_A3_03";
-          glasses="None";
-          speaker="Male01FRE";
-          pitch=1.1;
+          face = "GreekHead_A3_04";
+          glasses = "None";
+          speaker = "Male03GRE";
+          pitch = 1.1;
      };
      class Elias
      {
           name = "Elias";
           nameSound = "Elias";
-          face="TanoanHead_A3_04";
-          glasses="None";
-          speaker="Male02FRE";
-          pitch=1.1;
+          face = "GreekHead_A3_05";
+          glasses = "None";
+          speaker = "Male04GRE";
+          pitch = 1.1;
      };
      class Gekas
      {
           name = "Gekas";
           nameSound = "Gekas";
-          face="TanoanHead_A3_05";
-          glasses="None";
-          speaker="Male03FRE";
-          pitch=1.1;
+          face = "GreekHead_A3_06";
+          glasses = "None";
+          speaker = "Male01GRE";
+          pitch = 1.1;
      };
      class Kouris
      {
           name = "Kouris";
           nameSound = "Kouris";
-          face="TanoanHead_A3_06";
-          glasses="None";
-          speaker="Male01CHI";
-          pitch=1.1;
+          face = "GreekHead_A3_07";
+          glasses = "None";
+          speaker = "Male02GRE";
+          pitch = 1.1;
      };
      class Leventis
      {
           name = "Leventis";
           nameSound = "Leventis";
-          face="TanoanHead_A3_07";
-          glasses="None";
-          speaker="Male02CHI";
-          pitch=1.1;
+          face = "GreekHead_A3_08";
+          glasses = "None";
+          speaker = "Male03GRE";
+          pitch = 1.1;
      };
      class Markos
      {
           name = "Markos";
           nameSound = "Markos";
-          face="TanoanHead_A3_08";
-          glasses="None";
-          speaker="Male03CHI";
-          pitch=1.1;
+          face = "GreekHead_A3_09";
+          glasses = "None";
+          speaker = "Male04GRE";
+          pitch = 1.1;
      };
      class Nikas
      {
           name = "Nikas";
           nameSound = "Nikas";
-          face="CamoHead_Asian_03_F";
-          glasses="None";
-          speaker="Male03FRE";
-          pitch=1.1;
+          face = "WhiteHead_02";
+          glasses = "None";
+          speaker = "Male01GRE";
+          pitch = 1.1;
      };
      class Nicolo
      {
           name = "Nicolo";
           nameSound = "Nicolo";
-          face="CamoHead_Asian_02_F";
-          glasses="None";
-          speaker="Male02FRE";
-          pitch=1.1;
+          face = "WhiteHead_03";
+          glasses = "None";
+          speaker = "Male02GRE";
+          pitch = 1.1;
      };
      class Panas
      {
           name = "Panas";
           nameSound = "Panas";
-          face="CamoHead_Asian_01_F";
-          glasses="None";
-          speaker="Male01FRE";
-          pitch=1.1;
+          face = "WhiteHead_04";
+          glasses = "None";
+          speaker = "Male03GRE";
+          pitch = 1.1;
      };
      class Rosi
      {
           name = "Rosi";
           nameSound = "Rosi";
-          face="AsianHead_A3_01";
-          glasses="None";
-          speaker="Male01CHI";
-          pitch=1.1;
+          face = "WhiteHead_05";
+          glasses = "None";
+          speaker = "Male04GRE";
+          pitch = 1.1;
      };
      class Samaras
      {
           name = "Samaras";
           nameSound = "Samaras";
-          face="WhiteHead_06";
-          glasses="None";
-          speaker="AsianHead_A3_02";
-          pitch=1.1;
+          face = "WhiteHead_06";
+          glasses = "None";
+          speaker = "Male01GRE";
+          pitch = 1.1;
      };
      class Thanos
      {
           name = "Thanos";
           nameSound = "Thanos";
-          face="AsianHead_A3_03";
-          glasses="None";
-          speaker="Male02ENGFRE";
-          pitch=1.1;
+          face = "WhiteHead_07";
+          glasses = "None";
+          speaker = "Male02GRE";
+          pitch = 1.1;
      };
      class Vega
      {
           name = "Vega";
           nameSound = "Vega";
-          face="AsianHead_A3_04";
-          glasses="None";
-          speaker="Male02ENGFRE";
-          pitch=1.1;
+          face = "WhiteHead_08";
+          glasses = "None";
+          speaker = "Male03GRE";
+          pitch = 1.1;
      };
 };
 

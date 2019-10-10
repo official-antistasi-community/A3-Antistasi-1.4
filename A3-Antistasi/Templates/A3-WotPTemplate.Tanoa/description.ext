@@ -45,20 +45,21 @@ class CfgFunctions {
     #include "JeroenArsenal\functions.hpp"
 };
 
+
 class Header
 {
      gameType = COOP;
-     minplayers=1;
-     maxplayers=32;
+     minplayers = 1;
+     maxplayers = 32;
 };
 
 class CfgSounds
 {
      class fire
      {
-          name="fire";
-          sound[]={"Music\fire.ogg",db+12,1.0};
-          titles[]={};
+          name = "fire";
+          sound[] = {"Music\fire.ogg",db+12,1.0};
+          titles[] = {};
      };
 };
 
@@ -66,27 +67,24 @@ class Params
 {
      class loadSave
      {
-          title = "Load last Persistent Save"; // Param name visible in the list
-          values[] = {1,0}; // Values; must be integers; has to have the same number of elements as 'texts'
-          texts[] = {"Yes","No"}; // Description of each selectable item
-          default = 1; // Default value; must be listed in 'values' array, otherwise 0 is used
-          // Default values that are not whole numbers do not work. Param will default to 0 (or 1 if defined)
+          title = "Load last Persistent Save";
+          values[] = {1,0};
+          texts[] = {"Yes","No"};
+          default = 1;
      };
      class gameMode
      {
-          title = "Game Mode"; // Param name visible in the list
-          values[] = {1,2,3,4}; // Values; must be integers; has to have the same number of elements as 'texts'
-          texts[] = {"Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov","Reb vs Inv"}; // Description of each selectable item
-          default = 1; // Default value; must be listed in 'values' array, otherwise 0 is used
-          // Default values that are not whole numbers do not work. Param will default to 0 (or 1 if defined)
+          title = "Game Mode";
+          values[] = {1,2,3,4};
+          texts[] = {"Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov","Reb vs Inv"};
+          default = 1;
      };
      class autoSave
      {
-          title = "Enable Autosave (every hour)"; // Param name visible in the list
-          values[] = {1,0}; // Values; must be integers; has to have the same number of elements as 'texts'
-          texts[] = {"Yes","No"}; // Description of each selectable item
-          default = 1; // Default value; must be listed in 'values' array, otherwise 0 is used
-          // Default values that are not whole numbers do not work. Param will default to 0 (or 1 if defined)
+          title = "Enable Autosave (every hour)";
+          values[] = {1,0};
+          texts[] = {"Yes","No"};
+          default = 1;
      };
      class membership
      {
@@ -94,8 +92,6 @@ class Params
           texts[] = {"Yes","No"};
           values[] = {1,0};
           default = 1;
-          //function = "BIS_fnc_paramDaytime"; // (Optional) [[Functions_Library_(Arma_3)|Function]] [[call]]ed when player joins, selected value is passed as an argument
-          //isGlobal = 1; // (Optional) 1 to execute script / function locally for every player who joins, 0 to do it only on server
      };
      class switchComm
      {
@@ -103,7 +99,6 @@ class Params
           values[] = {1,0};
           texts[] = {"Yes","No"};
           default = 1;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class tkPunish
      {
@@ -111,15 +106,12 @@ class Params
           values[] = {1,0};
           texts[] = {"Yes","No"};
           default = 1;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class mRadius
      {
           title = "Distance from HQ for Sidemissions";
-          values[] = {2500,5000,10000};
-          // When 'texts' are missing, values will be displayed directly instead
-          default = 2500;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
+          values[] = {4000,8000,12000};
+          default = 4000;
      };
      class allowPvP
      {
@@ -127,7 +119,6 @@ class Params
           values[] = {1,0};
           texts[] = {"Yes","No"};
           default = 1;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class pMarkers
      {
@@ -135,7 +126,6 @@ class Params
           values[] = {1,0};
           texts[] = {"Yes","No"};
           default = 1;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class AISkill
      {
@@ -143,14 +133,12 @@ class Params
           values[] = {1,2,3};
           texts[] = {"Easy","Normal","Hard"};
           default = 2;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class unlockItem
      {
           title = "Number of the same weapons required to unlock";
           values[] = {15,25,40};
           default = 25;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class memberOnlyMagLimit
      {
@@ -164,7 +152,6 @@ class Params
           values[] = {0.5,1,3};
           texts[] = {"Low","Medium","JAM"};
           default = 1;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class memberSlots
      {
@@ -172,7 +159,6 @@ class Params
           values[] = {0,20,40,60,80,100};
           texts[] = {"None","20%","40%","60%","80%","All"};
           default = 20;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class memberDistance
      {
@@ -180,7 +166,6 @@ class Params
           values[] = {4000,5000,6000,7000,8000,16000};
           texts[] = {"4 Kmts","5 Kmts","6 Kmts","7 Kmts","8 Kmts","Unlimited"};
           default = 5000;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class allowFT
      {
@@ -188,7 +173,6 @@ class Params
           values[] = {0,1};
           texts[] = {"No","Yes"};
           default = 1;
-          //file = "setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
      };
      class napalmEnabled
      {

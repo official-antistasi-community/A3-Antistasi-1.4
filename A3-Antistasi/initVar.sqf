@@ -663,6 +663,9 @@ publicVariable "unlockedSN";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
 
+publicVariable "civilianUniform";
+publicVariable "armoredHeadgear";
+
 publicVariable "civPerc";
 publicVariable "garageIsUsed";
 publicVariable "vehInGarage";

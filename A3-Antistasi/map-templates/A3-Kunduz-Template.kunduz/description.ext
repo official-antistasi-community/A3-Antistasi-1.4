@@ -278,6 +278,13 @@ class Params
           texts[] =  {"Yes","No"};
           default = 0;
      };
+     class OfficialMod
+     {
+          title = "Allow ADR-97 DLC?";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 0;
+     };
      class Spacer0
      {
           title = "";

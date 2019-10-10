@@ -40,6 +40,11 @@ if ("Enoch" call BIS_fnc_getParamValue isEqualTo 0) then
 	disabledMods pushBack "enoch";
 };
 
+if ("OfficialMod" call BIS_fnc_getParamValue isEqualTo 0) then
+{
+	disabledMods pushBack "officialmod";
+};
+
 if ("RHS" call BIS_fnc_getParamValue isEqualTo 0) then
 {
 	disabledMods pushBack "rhsafrf";

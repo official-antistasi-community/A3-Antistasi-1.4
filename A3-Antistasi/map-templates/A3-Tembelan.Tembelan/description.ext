@@ -45,7 +45,6 @@ class CfgFunctions {
     #include "JeroenArsenal\functions.hpp"
 };
 
-
 class Header
 {
      gameType = COOP;
@@ -268,6 +267,13 @@ class Params
      class Enoch
      {
           title = "Allow Items and Vehicles from Contact DLC?";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 0;
+     };
+     class OfficialMod
+     {
+          title = "Allow ADR-97 DLC?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
           default = 0;

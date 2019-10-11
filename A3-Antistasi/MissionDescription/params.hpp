@@ -130,7 +130,7 @@ class Params
           texts[] =  {"Yes","No"};
           default = 1;
      };
-     class allowGuidedLanchers
+     class allowGuidedLaunchers
      {
           title = "Should Guided Launchers become unlocked?";
           values[] = {1,0};

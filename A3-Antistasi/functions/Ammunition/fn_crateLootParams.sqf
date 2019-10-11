@@ -6,7 +6,7 @@
 //do weapons automatically unlock primary magazine when unlocked?
 unlockedUnlimitedAmmo = "unlockedUnlimitedAmmo" call BIS_fnc_getParamValue; publicVariable "unlockedUnlimitedAmmo";
 allowUnlockedExplosives = "allowUnlockedExplosives" call BIS_fnc_getParamValue; publicVariable "allowUnlockedExplosives";
-allowGuidedLanchers = "allowGuidedLanchers" call BIS_fnc_getParamValue; publicVariable "allowGuidedLanchers";
+allowGuidedLaunchers = "allowGuidedLaunchers" call BIS_fnc_getParamValue; publicVariable "allowGuidedLaunchers";
 
 //Weapons
 crateWepTypeMax = "crateWepTypeMax" call BIS_fnc_getParamValue; publicVariable "crateWepTypeMax";
@@ -33,13 +33,13 @@ crateBackpackTypeMax = "crateBackpackTypeMax" call BIS_fnc_getParamValue; public
 crateBackpackNumMax = "crateBackpackNumMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackNumMax";
 
 //Vests
-crateVestTypeMax = "crateBackpackTypeMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackTypeMax";
-crateVestNumMax = "crateBackpackNumMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackNumMax";
+crateVestTypeMax = "crateVestTypeMax" call BIS_fnc_getParamValue; publicVariable "crateVestTypeMax";
+crateVestNumMax = "crateVestNumMax" call BIS_fnc_getParamValue; publicVariable "crateVestNumMax";
 
 //Helmets
-crateHelmetTypeMax = "crateBackpackTypeMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackTypeMax";
-crateHelmetNumMax = "crateBackpackNumMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackNumMax";
+crateHelmetTypeMax = "crateHelmetTypeMax" call BIS_fnc_getParamValue; publicVariable "crateHelmetTypeMax";
+crateHelmetNumMax = "crateHelmetNumMax" call BIS_fnc_getParamValue; publicVariable "crateHelmetNumMax";
 
 //Device Bags
-crateDeviceTypeMax = "crateBackpackTypeMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackTypeMax";
-crateDeviceNumMax = "crateBackpackNumMax" call BIS_fnc_getParamValue; publicVariable "crateBackpackNumMax";
+crateDeviceTypeMax = "crateDeviceTypeMax" call BIS_fnc_getParamValue; publicVariable "crateDeviceTypeMax";
+crateDeviceNumMax = "crateDeviceNumMax" call BIS_fnc_getParamValue; publicVariable "crateDeviceNumMax";

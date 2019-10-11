@@ -74,7 +74,7 @@ if (_x select 1 >= minWeaps) then {
 					}
 					else {
 						if (_item in mlaunchers) then {
-							if (allowGuidedLanchers isEqualTo 1) then {
+							if (allowGuidedLaunchers isEqualTo 1) then {
 								if (getText (configfile >> "CfgWeapons" >> _item >> "nameSound") == "aalauncher") then {
 									unlockedAA pushBack _item; publicVariable "unlockedAA";
 								};

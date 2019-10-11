@@ -1,5 +1,8 @@
 params ["_base", "_target"];
 
+//Bases cannot reinforce themselves
+if(_base isEqualTo _target) exitWith {false};
+
 private ["_isAirport", "_side", "_targetIsBase", "_reinfMarker", "_targetReinforcements", "_reinfCount", "_maxSend"];
 
 _isAirport = _base in airportsX;

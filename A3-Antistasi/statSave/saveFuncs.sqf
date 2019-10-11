@@ -206,8 +206,12 @@ fn_SetStat =
 			{
 			destroyedBuildings= +_varValue;
 			//publicVariable "destroyedBuildings";
+			private _building = objNull;
 			{
-				(nearestObject [_x, "House"]) setDamage [1,false];
+				_building = nearestObject [_x, "House"];
+				private _ruin = [_building] call BIS_fnc_createRuin;
+				//JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
+				[_building, true] remoteExec ["hideObject", 0, _ruin];
 			} forEach destroyedBuildings;
 			};
 		if(_varName == 'minesX') then

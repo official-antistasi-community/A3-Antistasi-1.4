@@ -107,12 +107,6 @@ _introShot = [
 		]
 	] spawn BIS_fnc_establishingShot;
 
-//Trigger credits loading.
-[] spawn {
-	waitUntil {!isNil "BIS_fnc_establishingShot_playing" && {BIS_fnc_establishingShot_playing}};
-	[] spawn A3A_fnc_credits;
-};
-
 //Initialise membershipEnabled so we can do isMember checks.
 membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
@@ -438,12 +432,14 @@ player addEventHandler ["GetInMan",
 			{
 			if (!(_veh in reportedVehs)) then
 				{
-				[] spawn A3A_fnc_undercover;
+				[] spawn A3A_fnc_goUndercover;
 				};
 			};
 		};
 	}
 	];
+
+call A3A_fnc_initUndercover;
 
 if (isMultiplayer) then
 	{

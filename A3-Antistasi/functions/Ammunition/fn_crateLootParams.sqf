@@ -5,6 +5,8 @@
 
 //do weapons automatically unlock primary magazine when unlocked?
 unlockedUnlimitedAmmo = "unlockedUnlimitedAmmo" call BIS_fnc_getParamValue; publicVariable "unlockedUnlimitedAmmo";
+allowUnlockedExplosives = "allowUnlockedExplosives" call BIS_fnc_getParamValue; publicVariable "allowUnlockedExplosives";
+allowGuidedLanchers = "allowGuidedLanchers" call BIS_fnc_getParamValue; publicVariable "allowGuidedLanchers";
 
 //Weapons
 crateWepTypeMax = "crateWepTypeMax" call BIS_fnc_getParamValue; publicVariable "crateWepTypeMax";

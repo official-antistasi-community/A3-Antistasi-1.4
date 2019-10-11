@@ -70,7 +70,7 @@ if (_x select 1 >= minWeaps) then {
 							if (allowGuidedLanchers isEqualTo 1) then {
 								unlockedAT pushBack _item; publicVariable "unlockedAT";
 							}
-						}
+						};
 					}
 					else {
 						if (_item in mlaunchers) then {

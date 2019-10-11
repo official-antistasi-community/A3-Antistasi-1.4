@@ -17,7 +17,7 @@ if (hasACE) then {
 
 private _libStaticParts = [];
 {
-	if ((getText (configFile >> CfgWeapons >> _x >> "LIB_WeaponType")) isEqualTo "ROCKET") then {
+	if ((getText (configFile >> "CfgWeapons" >> _x >> "LIB_WeaponType")) isEqualTo "ROCKET") then {
 		_libStaticParts pushBack _x;
 	};
 } forEach rlaunchers;

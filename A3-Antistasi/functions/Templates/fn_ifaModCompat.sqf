@@ -11,7 +11,17 @@ lootVest = [];
 armoredHeadgear = [];
 {armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
 
-if (hasIFA) then
-	{
+if (hasACE) then {
 	lootItem append ["ACE_LIB_LadungPM","ACE_SpareBarrel"];
+};
+
+private _libStaticParts = [];
+{
+	if ((getText (configFile >> CfgWeapons >> _x >> "LIB_WeaponType")) isEqualTo "ROCKET") then {
+		_libStaticParts pushBack _x;
 	};
+} forEach rlaunchers;
+
+{
+lootWeapon deleteAt (lootWeapon find _x);
+} forEach _libStaticParts;

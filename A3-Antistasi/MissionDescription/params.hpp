@@ -45,8 +45,8 @@ class Params
      class mRadius
      {
           title = "Distance from HQ for Sidemissions";
-          values[] = {2500,5000,10000};
-          default = 2500;
+          values[] = {2000,4000,6000,8000,10000,12000};
+          default = 4000;
      };
      class allowPvP
      {

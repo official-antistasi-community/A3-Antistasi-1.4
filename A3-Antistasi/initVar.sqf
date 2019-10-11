@@ -666,6 +666,7 @@ publicVariable "unlockedAA";
 publicVariable "civilianUniform";
 publicVariable "armoredHeadgear";
 
+publicVariable "teamPlayer";
 publicVariable "civPerc";
 publicVariable "garageIsUsed";
 publicVariable "vehInGarage";

@@ -100,7 +100,7 @@ _assignedItems_old = assignedItems player + [headgear player] + [goggles player]
 	_index = _item call jn_fnc_arsenal_itemType;
 
 	if (_item call _isItemBino) then {
-		player removeWeapon _item;
+		player removeWeaponGlobal _item;
 	} else {
 		player unlinkItem _item;
 	};
@@ -123,7 +123,7 @@ _weapons = [primaryWeapon player, secondaryWeapon player, handgunWeapon player];
 	_item = _x;
 	_amount = 1;
 	_index = _foreachindex;
-	player removeWeapon _item;
+	player removeWeaponGlobal _item;
 	[_arrayPlaced,_index,_item,_amount]call _addToArray;
 } forEach _weapons;
 
@@ -312,7 +312,7 @@ _backpackItems = _inventory select 2 select 1;
 
 //add containers
 _containers = [_uniform,_vest,_backpack];
-private _removeContainerFuncs = [{removeUniform player;},{removeVest player;},{removeBackpackGlobal player;}];										
+private _removeContainerFuncs = [{removeUniform player;},{removeVest player;},{removeBackpackGlobal player;}];
 private _addContainerFuncs = [
                               {player forceAddUniform (_this select 0);},
                               {player addVest (_this select 0);},

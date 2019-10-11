@@ -5,8 +5,8 @@ if (hasInterface) then
 	{
 	waitUntil {!isNull player};
 	waitUntil {player == player};
-	player removeweaponGlobal "itemmap";
-	player removeweaponGlobal "itemgps";
+	player removeweaponGlobal "itemMap";
+	player removeweaponGlobal "itemGPS";
 	//Disable player saving until they're fully ready, and have chosen whether to load their save.
 	player setVariable ["canSave", false, true];
 	};

@@ -169,6 +169,8 @@ unlockedAT = [];
 unlockedAA = [];
 unlockedMG = [];
 unlockedSMG = [];
+unlockedHandgun = [];
+unlockedShotgun = [];
 unlockedGL = [];
 unlockedSN = [];
 //Used for AI-Rearm (poor implementation)

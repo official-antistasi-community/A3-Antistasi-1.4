@@ -51,6 +51,8 @@ unlockedNVG = [];
 
 unlockedRifles = [];
 unlockedSMG = [];
+unlockedHandgun = [];
+unlockedShotgun = [];
 unlockedMG = [];
 unlockedGL = [];
 unlockedSN = [];
@@ -67,43 +69,45 @@ unlockedAT = [];
 {unlockedItems pushBack (_x select 0)} forEach ((((jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GOGGLES) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_MAP) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GPS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_RADIO) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_COMPASS) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_WATCH) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMACC) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD) + (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS)) select {_x select 1 == -1}));
 
 {
-_weaponX = _x;
-if (_weaponX in arifles) then
-	{
-	unlockedRifles pushBack _weaponX;
-	if (count (getArray (configfile >> "CfgWeapons" >> _weaponX >> "muzzles")) == 2) then
-		{
-		unlockedGL pushBack _weaponX;
+	switch (true) do {
+		case (_x in arifles): {
+			unlockedRifles pushBack _x;
+			if (count (getArray (configfile >> "CfgWeapons" >> _x >> "muzzles")) == 2) then {
+				unlockedGL pushBack _x;
+			};
 		};
-	}
-else
-	{
-	if (_weaponX in mguns) then
-		{
-		unlockedMG pushBack _weaponX;
-		}
-	else
-		{
-		if (_weaponX in srifles) then
-			{
-			unlockedSN pushBack _weaponX;
+		case (_x in mguns): {
+			unlockedMG pushBack _x;
+		};
+		case (_x in srifles): {
+			unlockedSN pushBack _x;
+		};
+		case (_x in allWeaponSubmachineGun): {
+			unlockedSMG pushBack _x; publicVariable "unlockedSMG";
+		};
+		case (_x in hguns): {
+			unlockedHandgun pushBack _x; publicVariable "unlockedSMG";
+		};
+		case (_x in allWeaponShotgun): {
+			unlockedShotgun pushBack _x; publicVariable "unlockedSMG";
+		};
+		case (_x in rlaunchers): {
+			if ((getNumber (configfile >> "CfgWeapons" >> _x >> "canLock")) isEqualTo 0) then {
+				unlockedAT pushBack _x; publicVariable "unlockedAT";
 			}
-		else
-			{
-			if (_weaponX in allWeaponSubmachineGun) then
-				{
-				unlockedSMG pushBack _weaponX; publicVariable "unlockedSMG";
-				}
-			else
-				{
-				if (_weaponX in ((rlaunchers + mlaunchers) select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 0)})) then
-					{
-					unlockedAT pushBack _weaponX; publicVariable "unlockedAT";
-					}
-				else
-					{
-					if (_weaponX in (mlaunchers select {(getNumber (configfile >> "CfgWeapons" >> _x >> "lockAcquire") == 1)})) then {unlockedAA pushBack _weaponX; publicVariable "unlockedAA"};
-					};
+			else {
+				if (allowGuidedLanchers isEqualTo 1) then {
+					unlockedAT pushBack _x; publicVariable "unlockedAT";
+				};
+			};
+		};
+		case (_x in mlaunchers): {
+			if (allowGuidedLaunchers isEqualTo 1) then {
+				if (getText (configfile >> "CfgWeapons" >> _item >> "nameSound") == "aalauncher") then {
+					unlockedAA pushBack _x; publicVariable "unlockedAA";
+				};
+				if (getText (configfile >> "CfgWeapons" >> _item >> "nameSound") == "atlauncher") then {
+					unlockedAT pushBack _x; publicVariable "unlockedAT";
 				};
 			};
 		};
@@ -119,6 +123,8 @@ publicVariable "unlockedGL";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
 publicVariable "unlockedSMG";
+publicVariable "unlockedHandgun";
+publicVariable "unlockedShotgun";
 
 if !(unlockedNVG isEqualTo []) then {haveNV = true; publicVariable "haveNV"};
 

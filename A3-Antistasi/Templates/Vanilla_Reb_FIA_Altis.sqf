@@ -100,7 +100,7 @@ unlockedMagazines append ["6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","30Rnd_45ACP_Ma
 initialRifles append ["SMG_01_F","hgun_PDW2000_F"];
 initGrenades = ["MiniGrenade","SmokeShell"];//Frag, Smoke
 unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk"];
-initVest = ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandolierB_blk","V_BandolierB_cbr","V_BandolierB_rgr","V_BandolierB_khk","V_BandolierB_oli","V_Rangemaster_belt"];
+initVest = ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt"];
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems append ["tf_microdagr","tf_anprc154"]};
 if (startLR) then {unlockedBackpacks pushBack "tf_anprc155"};

@@ -66,7 +66,7 @@ lootVest append armoredVest + civilianVest;
 private _lootDeviceBag = [];
 
 switch (teamPlayer) do {
-     case "independent": {_lootDeviceBag append rebelBackpackDevice};
+     case independent: {_lootDeviceBag append rebelBackpackDevice};
      default {_lootDeviceBag append occupantBackpackDevice};
 };
 lootDevice append _lootDeviceBag;

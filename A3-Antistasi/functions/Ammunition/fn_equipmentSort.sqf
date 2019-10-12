@@ -30,39 +30,42 @@ rebelUniform deleteAt (rebelUniform find "U_I_G_resistanceLeader_F");
 ////////////////////////////////////
 {
 private _itemFaction = getText (configfile >> "CfgVehicles" >> _x >> "faction");
-switch (_itemFaction) do
-	{
+switch (_itemFaction) do {
 	case "Default": {allBackpackEmpty pushBack _x};
 	default {allBackpackTool pushBack _x};
-	};
+};
 } forEach allBackpack;
 
 allBackpackEmpty deleteAt (allBackpackEmpty find "B_AssaultPack_Kerry");
 
 {
-	if ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "assembleTo")) != "") then {
-		if ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) != "") then {
-			allBackpackStatic pushBack _x;
+	switch (true) do {
+		case ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "assembleTo")) != ""): {
+			if !((getArray (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) isEqualTo []) then {
+				allBackpackStatic pushBack _x;
+			}
+			else {
+				allBackpackDevice pushback _x;
+			};
 		};
-	};
-	if ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "assembleTo")) == "") then {
-		if ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) == "") then {
-			allBackpackStatic pushBack _x;
+		case ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "assembleTo")) == ""): {
+			if ((getText (configfile >> "CfgVehicles" >> _x >> "assembleInfo" >> "base")) == "") then {
+				allBackpackStatic pushBack _x;
+			};
 		};
 	};
 } forEach allBackpackTool;
 
-private _allBackpackDevice = allBackpackTool - allBackpackStatic;
-
 {
-	private _side = getNumber (configfile >> "CfgVehicles" >> _x >> "side");
+	private _faction = getText (configfile >> "CfgVehicles" >> _x >> "faction");
+	private _side = getNumber (configfile >> "CfgFactionClasses" >> _faction >> "side");
 	switch (_side) do {
 		case 0: {invaderBackpackDevice pushBack _x};
 		case 1: {occupantBackpackDevice pushBack _x};
 		case 2: {rebelBackpackDevice pushBack _x};
 		case 3: {civilianBackpackDevice pushBack _x};
-	}
-} forEach _allBackpackDevice;
+	};
+} forEach allBackpackDevice;
 
 ////////////////////////////////////
 //   ARMORED VESTS LIST          ///

@@ -126,6 +126,7 @@ civilianUniform = [];
 allBackpackEmpty = [];
 allBackpackTool = [];
 allBackpackStatic = [];
+allBackpackDevice = [];
 civilianVest = [];
 armoredVest = [];
 armoredHeadgear = [];

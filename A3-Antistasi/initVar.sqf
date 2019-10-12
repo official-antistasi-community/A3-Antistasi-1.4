@@ -668,6 +668,7 @@ publicVariable "unlockedAA";
 
 publicVariable "civilianUniform";
 publicVariable "armoredHeadgear";
+publicVariable "initialWeapons";
 
 publicVariable "teamPlayer";
 publicVariable "civPerc";

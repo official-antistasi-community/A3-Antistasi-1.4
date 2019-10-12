@@ -131,7 +131,7 @@ for "_i" from 0 to floor random crateDeviceTypeMax do {
 	}
 	else {
 		_amount = floor random crateDeviceNumMax;
-		_crate addItemCargoGlobal [_loot,_amount];
+		_crate addBackpackCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 	};
 };

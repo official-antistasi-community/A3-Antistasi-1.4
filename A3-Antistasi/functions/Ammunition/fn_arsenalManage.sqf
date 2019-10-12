@@ -94,7 +94,7 @@ private _count = objNull;
 					_flag = true;
 				}
 				else {
-					if (allowGuidedLanchers isEqualTo 1) then {
+					if (allowGuidedLaunchers isEqualTo 1) then {
 						unlockedWeapons pushBack _item; publicVariable "unlockedWeapons";
 						unlockedAT pushBack _item; publicVariable "unlockedAT";
 						_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];

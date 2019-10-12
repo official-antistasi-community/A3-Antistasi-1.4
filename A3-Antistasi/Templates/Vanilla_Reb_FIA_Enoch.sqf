@@ -97,7 +97,7 @@ unlockedWeapons append ["hgun_Pistol_heavy_02_F","hgun_Pistol_heavy_01_green_F",
 unlockedRifles append ["sgun_HunterShotgun_01_F","SMG_02_F"];
 unlockedMagazines append ["6Rnd_45ACP_Cylinder","9Rnd_45ACP_Mag","2Rnd_12Guage_Pellets","2Rnd_12Guage_Slug","30Rnd_9x21_Mag_SMG_02","MiniGrenade","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
 initialRifles append ["sgun_HunterShotgun_01_F","SMG_02_F"];
-initGrenades = ["MiniGrenade","SmokeShell","HandGrenade_Stone"];//Frag, Smoke, Stone
+initGrenades = ["MiniGrenade","SmokeShell"];//Frag, Smoke
 unlockedBackpacks append ["B_FieldPack_blk","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_oli","B_FieldPack_green_F","B_FieldPack_taiga_F"];
 initVest = ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandolierB_blk","V_SmershVest_01_F","V_BandolierB_rgr","V_SmershVest_01_radio_F","V_BandolierB_oli","V_Rangemaster_belt"];
 //TFAR Unlocks

@@ -98,27 +98,27 @@ for "_i" from 0 to floor random crateBackpackTypeMax do {
 	};
 };
 //Helmets Loot
-for "_i" from 0 to floor random crateItemTypeMax do {
+for "_i" from 0 to floor random crateHelmetTypeMax do {
 	_available = (lootHelmet - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Helmets Left in Loot List",servertime]};
 	}
 	else {
-		_amount = floor random crateItemNumMax;
+		_amount = floor random crateHelmetNumMax;
 		_crate addItemCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 	};
 };
 //Vests Loot
-for "_i" from 0 to floor random crateItemTypeMax do {
+for "_i" from 0 to floor random crateVestTypeMax do {
 	_available = (lootVest - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Vests Left in Loot List",servertime]};
 	}
 	else {
-		_amount = floor random crateItemNumMax;
+		_amount = floor random crateVestNumMax;
 		_crate addItemCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 	};
@@ -128,7 +128,7 @@ for "_i" from 0 to floor random crateDeviceTypeMax do {
 	_available = (lootDevice - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
-		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Vests Left in Loot List",servertime]};
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Device Bags Left in Loot List",servertime]};
 	}
 	else {
 		_amount = floor random crateDeviceNumMax;

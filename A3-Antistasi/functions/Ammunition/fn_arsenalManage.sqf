@@ -39,7 +39,7 @@ private _count = objNull;
 				_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 				_category = _item call jn_fnc_arsenal_itemType;
 				[_category,_item,-1] call jn_fnc_arsenal_addItem;
-				_flag - true;
+				_flag = true;
 				if (count (getArray (configfile >> "CfgWeapons" >> _item >> "muzzles")) == 2) then {
 					unlockedGL pushBack _item; publicVariable "unlockedGL";
 				};
@@ -50,7 +50,7 @@ private _count = objNull;
 				_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 				_category = _item call jn_fnc_arsenal_itemType;
 				[_category,_item,-1] call jn_fnc_arsenal_addItem;
-				_flag - true;
+				_flag = true;
 			};
 			case (_item in srifles): {
 				unlockedWeapons pushBack _item; publicVariable "unlockedWeapons";
@@ -58,7 +58,7 @@ private _count = objNull;
 				_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 				_category = _item call jn_fnc_arsenal_itemType;
 				[_category,_item,-1] call jn_fnc_arsenal_addItem;
-				_flag - true;
+				_flag = true;
 			};
 			case (_item in allWeaponSubmachineGun): {
 				unlockedWeapons pushBack _item; publicVariable "unlockedWeapons";
@@ -66,7 +66,7 @@ private _count = objNull;
 				_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 				_category = _item call jn_fnc_arsenal_itemType;
 				[_category,_item,-1] call jn_fnc_arsenal_addItem;
-				_flag - true;
+				_flag = true;
 			};
 			case (_item in hguns): {
 				unlockedWeapons pushBack _item; publicVariable "unlockedWeapons";
@@ -74,7 +74,7 @@ private _count = objNull;
 				_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 				_category = _item call jn_fnc_arsenal_itemType;
 				[_category,_item,-1] call jn_fnc_arsenal_addItem;
-				_flag - true;
+				_flag = true;
 			};
 			case (_item in allWeaponShotgun): {
 				unlockedWeapons pushBack _item; publicVariable "unlockedWeapons";
@@ -82,7 +82,7 @@ private _count = objNull;
 				_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 				_category = _item call jn_fnc_arsenal_itemType;
 				[_category,_item,-1] call jn_fnc_arsenal_addItem;
-				_flag - true;
+				_flag = true;
 			};
 			case (_item in rlaunchers): {
 				if ((getNumber (configfile >> "CfgWeapons" >> _item >> "canLock")) isEqualTo 0) then {
@@ -91,7 +91,7 @@ private _count = objNull;
 					_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 					_category = _item call jn_fnc_arsenal_itemType;
 					[_category,_item,-1] call jn_fnc_arsenal_addItem;
-					_flag - true;
+					_flag = true;
 				}
 				else {
 					if (allowGuidedLanchers isEqualTo 1) then {
@@ -100,7 +100,7 @@ private _count = objNull;
 						_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 						_category = _item call jn_fnc_arsenal_itemType;
 						[_category,_item,-1] call jn_fnc_arsenal_addItem;
-						_flag - true;
+						_flag = true;
 					};
 				};
 			};
@@ -112,7 +112,7 @@ private _count = objNull;
 						_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 						_category = _item call jn_fnc_arsenal_itemType;
 						[_category,_item,-1] call jn_fnc_arsenal_addItem;
-						_flag - true;
+						_flag = true;
 					};
 					if (getText (configfile >> "CfgWeapons" >> _item >> "nameSound") == "atlauncher") then {
 						unlockedWeapons pushBack _item; publicVariable "unlockedWeapons";
@@ -120,7 +120,7 @@ private _count = objNull;
 						_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _item >> "displayName")];
 						_category = _item call jn_fnc_arsenal_itemType;
 						[_category,_item,-1] call jn_fnc_arsenal_addItem;
-						_flag - true;
+						_flag = true;
 					};
 				};
 			};

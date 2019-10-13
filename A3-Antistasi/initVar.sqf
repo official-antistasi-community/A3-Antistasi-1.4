@@ -414,7 +414,7 @@ private _equipmentFilter = {
 			case "Equipment": {
 				switch (_categories select 1) do {
 					case "Headgear": {
-						if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2) then {
+						if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0) then {
 							_remove = true;
 						};
 					};

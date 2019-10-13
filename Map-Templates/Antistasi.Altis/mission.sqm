@@ -8,15 +8,15 @@ class EditorData
 	toggles=1538;
 	class ItemIDProvider
 	{
-		nextID=1842;
+		nextID=1848;
 	};
 	class MarkerIDProvider
 	{
-		nextID=203;
+		nextID=204;
 	};
 	class LayerIndexProvider
 	{
-		nextID=483;
+		nextID=488;
 	};
 	class Camera
 	{
@@ -154,16 +154,37 @@ class AddonsMetaData
 	};
 };
 randomSeed=8109385;
-class ScenarioData
+class CustomAttributes
 {
-	author=$STR_antistasi_credits_generic_author_text;
+	class Category0
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="cba_settings_hasSettingsFile";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"BOOL"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
 };
 class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_credits_generic_missionname_text;
-		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
 		startWeather=0;
 		startWind=0;
@@ -181,7 +202,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=353;
+		items=359;
 		class Item0
 		{
 			dataType="Marker";
@@ -4329,7 +4350,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -4443,7 +4464,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -4508,7 +4529,7 @@ class Mission
 			position[]={21332.971,18.858,7321.6831};
 			name="spawnPoint";
 			type="hd_start";
-			angle=28.146929;
+			angle=28.146927;
 			id=1099;
 			atlOffset=0.00024414063;
 		};
@@ -5425,7 +5446,7 @@ class Mission
 			name="seaSpawn_8";
 			type="mil_objective";
 			id=1186;
-			atlOffset=4.5166793;
+			atlOffset=5.0577831;
 		};
 		class Item128
 		{
@@ -8301,7 +8322,7 @@ class Mission
 					colorName="ColorGreen";
 					a=35.460999;
 					b=6;
-					angle=225.25769;
+					angle=225.25768;
 					id=1626;
 				};
 				class Item11
@@ -8710,7 +8731,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.529018;
 					b=5.5;
-					angle=56.906216;
+					angle=56.906212;
 					id=1646;
 					atlOffset=-0.15297318;
 				};
@@ -9064,7 +9085,7 @@ class Mission
 					colorName="ColorGreen";
 					a=19.902;
 					b=5.5;
-					angle=56.79493;
+					angle=56.794926;
 					id=1668;
 					atlOffset=-0.00017929077;
 				};
@@ -12274,6 +12295,84 @@ class Mission
 			};
 			id=1838;
 			atlOffset=18.407139;
+		};
+		class Item353
+		{
+			dataType="Marker";
+			position[]={14253.315,17.788271,15837.864};
+			name="detectPlayer";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=167.41121;
+			b=126.42507;
+			angle=44.982632;
+			id=1842;
+			atlOffset=-0.11751556;
+		};
+		class Item354
+		{
+			dataType="Marker";
+			position[]={15347.249,17.269489,17057.338};
+			name="detectPlayer_1";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=232.08978;
+			b=221.01483;
+			angle=44.982628;
+			id=1843;
+			atlOffset=-0.64051056;
+		};
+		class Item355
+		{
+			dataType="Marker";
+			position[]={14630.354,16.922852,16663.969};
+			name="detectPlayer_2";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=157.70596;
+			b=747.32251;
+			angle=44.982628;
+			id=1844;
+			atlOffset=-0.98714828;
+		};
+		class Item356
+		{
+			dataType="Marker";
+			position[]={21150.047,21.595703,7171.021};
+			name="detectPlayer_3";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=49.782391;
+			b=184.25052;
+			angle=41.68185;
+			id=1845;
+			atlOffset=-1.137167;
+		};
+		class Item357
+		{
+			dataType="Marker";
+			position[]={21180.377,18.380419,7536.7598};
+			name="detectPlayer_4";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=78.340714;
+			b=112.18743;
+			angle=4.9869037;
+			id=1846;
+			atlOffset=-0.41155434;
+		};
+		class Item358
+		{
+			dataType="Marker";
+			position[]={26809.674,20.055626,24839.627};
+			name="detectPlayer_5";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=28.420944;
+			b=258.4447;
+			angle=41.144039;
+			id=1847;
+			atlOffset=-1.4739056;
 		};
 	};
 	class Connections

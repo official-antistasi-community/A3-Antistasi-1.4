@@ -28,6 +28,8 @@ for "_i" from 0 to floor random crateWepTypeMax do {
 	else {
 		_amount = floor random crateWepNumMax;
 		_crate addWeaponWithAttachmentsCargoGlobal [[ _loot, "", "", "", [], [], ""], _amount];
+		_magazines = getArray (configFile / "CfgWeapons" / _loot / "magazines");
+		_crate addMagazineCargoGlobal [_magazines select 0, _num * 1];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount, _loot]};
 	};
 };

@@ -128,7 +128,7 @@ class Params
           title = "Do Unlocked Weapons Automatically Unlock Their Standard Magazine?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 1;
+          default = 0;
      };
      class allowGuidedLaunchers
      {

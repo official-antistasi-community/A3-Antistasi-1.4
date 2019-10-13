@@ -3,7 +3,7 @@ _resourcesFIA = server getVariable "resourcesFIA";
 
 if (_resourcesFIA < 5000) exitWith {hint "You do not have enough money to rebuild any Asset. You need 5.000 €"};
 
-_destroyedCities = destroyedCities - citiesX;
+_destroyedSites = destroyedSites - citiesX;
 
 if (!visibleMap) then {openMap true};
 positionTel = [];
@@ -22,7 +22,7 @@ _siteX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
 
 if (getMarkerPos _siteX distance _positionTel > 50) exitWith {hint "You must click near a map marker"};
 
-if ((not(_siteX in _destroyedCities)) and (!(_siteX in outposts))) exitWith {hint "You cannot rebuild that"};
+if ((not(_siteX in _destroyedSites)) and (!(_siteX in outposts))) exitWith {hint "You cannot rebuild that"};
 
 _leave = false;
 _antennaDead = [];
@@ -58,8 +58,8 @@ if (count _antennaDead == 0) then
 
 	[0,10,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
 	[5,0] remoteExec ["A3A_fnc_prestige",2];
-	destroyedCities = destroyedCities - [_siteX];
-	publicVariable "destroyedCities";
+	destroyedSites = destroyedSites - [_siteX];
+	publicVariable "destroyedSites";
 	}
 else
 	{

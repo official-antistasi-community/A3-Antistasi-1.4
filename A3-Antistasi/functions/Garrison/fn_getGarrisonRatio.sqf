@@ -31,7 +31,7 @@ if(_debug) then
   diag_log format ["GetGarrisonRatio: Found %1 units in total, %2 of them are alive", _allUnitsCount, _preferredUnitsCount];
 };
 
-_ratio = 0;
+_ratio = 1;
 if(_allUnitsCount > 0) then
 {
   _ratio = _preferredUnitsCount / _allUnitsCount;

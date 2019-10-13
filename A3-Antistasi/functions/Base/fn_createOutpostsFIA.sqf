@@ -94,14 +94,3 @@ deleteGroup _groupX;
 sleep 15;
 
 _nul = [0,"outpostsFIA"] spawn A3A_fnc_deleteTask;
-
-
-
-
-
-
-
-
-
-
-

@@ -7,6 +7,7 @@ class JN {
 		class arsenal_addToArray {};
 		class arsenal_cargoToArray {};
 		class arsenal_cargoToArsenal {};
+		class arsenal_handleAction {};
 		class arsenal_init {};
 		class arsenal_inList {};
 		class arsenal_itemCount {};

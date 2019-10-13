@@ -75,7 +75,7 @@ if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 				if (_markerX in citiesX) then
 					{
 					if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if ((isPlayer _x) and (_x distance2D _positionMRK < distanceSPWN2)) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then {[[_markerX],"A3A_fnc_createAICities"] call A3A_fnc_scheduler};
-					if (not(_markerX in destroyedCities)) then
+					if (not(_markerX in destroyedSites)) then
 						{
 						if (({if ((isPlayer _x) and (_x distance2D _positionMRK < distanceSPWN)) exitWith {1};false} count allUnits > 0) or (_markerX in forcedSpawn)) then {[[_markerX],"A3A_fnc_createCIV"] call A3A_fnc_scheduler};
 						};
@@ -142,7 +142,7 @@ else
 					if (_markerX in citiesX) then
 						{
 						//[_markerX] remoteExec ["A3A_fnc_createAICities",HCGarrisons];
-						if (not(_markerX in destroyedCities)) then
+						if (not(_markerX in destroyedSites)) then
 							{
 							if (({if ((isPlayer _x) and (_x distance2D _positionMRK < distanceSPWN)) exitWith {1};false} count allUnits > 0) or (_markerX in forcedSpawn)) then {[[_markerX],"A3A_fnc_createCIV"] call A3A_fnc_scheduler};
 							};

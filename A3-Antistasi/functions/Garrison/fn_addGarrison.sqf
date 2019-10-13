@@ -15,12 +15,12 @@ if (isNil "_units") exitWith {diag_log "AddGarrison: No units given!"};
 private [];
 
 _garrison = [_marker] call A3A_fnc_getGarrison;
-_reinforcements = [_marker] call A3A_fnc_getNeededReinforcements;
+_requested = [_marker] call A3A_fnc_getRequested;
 _nonReinfUnits = [["", [], []]];
 
 //_random = random 1000;
 //diag_log format ["AddGarrison %1: Before alive is %2", _random, _garrison];
-//diag_log format ["AddGarrison %1: Before dead is %2", _random, _reinforcements];
+//diag_log format ["AddGarrison %1: Before dead is %2", _random, _requested];
 
 {
   //Selecting the data
@@ -31,7 +31,7 @@ _nonReinfUnits = [["", [], []]];
 
   if(_vehicle != "") then
   {
-    _index = _reinforcements findIf {(_x select 0) == _vehicle};
+    _index = _requested findIf {(_x select 0) == _vehicle};
     if(_index == -1) then
     {
       //Vehicle is new, will still be added with crew
@@ -58,7 +58,7 @@ _nonReinfUnits = [["", [], []]];
 
       //Replace vehicle
       (_garrison select _index) set [0, _vehicle];
-      (_reinforcements select _index) set [0, ""];
+      (_requested select _index) set [0, ""];
     };
   };
   if(!_isNew) then
@@ -66,7 +66,7 @@ _nonReinfUnits = [["", [], []]];
     //Add crew to existing vehicles
     {
       _crewUnit = _x;
-      _index = _reinforcements findIf {count (_x select 1) > 0};
+      _index = _requested findIf {count (_x select 1) > 0};
       if(_index == -1) then
       {
         //Search for vehicle with open crew space
@@ -92,7 +92,7 @@ _nonReinfUnits = [["", [], []]];
 
         //Replace crew unit
         ((_garrison select _index) select 1) pushBack _crewUnit;
-        ((_reinforcements select _index) select 1) deleteAt 0; //Can simple deleted first, all crew units are the same !!! RASISM ALERT !!!
+        ((_requested select _index) select 1) deleteAt 0; //Can simple deleted first, all crew units are the same !!! RASISM ALERT !!!
       };
     } forEach _crew;
   };
@@ -103,7 +103,7 @@ _nonReinfUnits = [["", [], []]];
       if(_cargoUnit == NATOCrew || _cargoUnit == CSATCrew) then
       {
         //Unit is crew member, check crew section
-        _index = _reinforcements findIf {count (_x select 1) > 0};
+        _index = _requested findIf {count (_x select 1) > 0};
         if(_index == -1) then
         {
           //Search for vehicle with open crew space
@@ -129,13 +129,13 @@ _nonReinfUnits = [["", [], []]];
 
           //Replace crew unit
           ((_garrison select _index) select 1) pushBack _cargoUnit;
-          ((_reinforcements select _index) select 1) deleteAt 0; //Can simple deleted first, all crew units are the same !!! RASISM ALERT !!!
+          ((_requested select _index) select 1) deleteAt 0; //Can simple deleted first, all crew units are the same !!! RASISM ALERT !!!
         };
       }
       else
       {
         //Unit is combat unit, add as suited
-        _index = _reinforcements findIf {count (_x select 2) > 0 && {_cargoUnit in (_x select 2)}};
+        _index = _requested findIf {count (_x select 2) > 0 && {_cargoUnit in (_x select 2)}};
         if(_index == -1) then
         {
           _index = _nonReinfUnits findIf {(count (_x select 2)) < 8};
@@ -160,10 +160,10 @@ _nonReinfUnits = [["", [], []]];
 
           //Place combat unit
           ((_garrison select _index) select 2) pushBack _cargoUnit;
-          private _temp = +((_reinforcements select _index) select 2);
+          private _temp = +((_requested select _index) select 2);
           private _subIndex = _temp findIf {_x == _cargoUnit};
           _temp deleteAt _subIndex;
-          (_reinforcements select _index) set [2, _temp];
+          (_requested select _index) set [2, _temp];
         };
       };
     } forEach _cargo;
@@ -176,9 +176,9 @@ _nonReinfUnits = [["", [], []]];
 
 //TODO test if that is needed (call by reference)
 garrison setVariable [format ["%1_garrison", _marker], _garrison];
-garrison setVariable [format ["%1_requested", _marker], _reinforcements];
+garrison setVariable [format ["%1_requested", _marker], _requested];
 
 //diag_log format ["AddGarrison %1: After alive is %2", _random, _garrison];
-//diag_log format ["AddGarrison %1: After dead is %2", _random, _reinforcements];
+//diag_log format ["AddGarrison %1: After dead is %2", _random, _requested];
 
 [_marker] call A3A_fnc_updateReinfState;

@@ -4,7 +4,7 @@ private ["_markerX","_dataX","_numCiv","_numVeh","_roads","_prestigeOPFOR","_pre
 
 _markerX = _this select 0;
 
-if (_markerX in destroyedCities) exitWith {};
+if (_markerX in destroyedSites) exitWith {};
 
 _dataX = server getVariable _markerX;
 

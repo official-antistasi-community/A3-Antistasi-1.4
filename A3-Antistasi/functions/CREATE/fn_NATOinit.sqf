@@ -133,7 +133,7 @@ if !(hasIFA) then
 			}
 		else
 			{
-			_arr = (NVGoggles arrayIntersect (items _unit));
+			_arr = (allNVG arrayIntersect (items _unit));
 			if (!(_arr isEqualTo []) or (_hmd != "")) then
 				{
 				if ((random 5 > tierWar) and (!haveNV) and (_unit != leader (group _unit))) then
@@ -159,7 +159,7 @@ if !(hasIFA) then
 		_weaponItems = primaryWeaponItems _unit;
 		if (_hmd != "") then
 			{
-			if (_weaponItems findIf {_x in pointers} != -1) then
+			if (_weaponItems findIf {_x in attachmentLaser} != -1) then
 				{
 				_unit action ["IRLaserOn", _unit];
 				_unit enableIRLasers true;
@@ -167,16 +167,16 @@ if !(hasIFA) then
 			}
 		else
 			{
-			_pointers = _weaponItems arrayIntersect pointers;
+			_pointers = _weaponItems arrayIntersect attachmentLaser;
 			if !(_pointers isEqualTo []) then
 				{
 				_unit removePrimaryWeaponItem (_pointers select 0);
 				};
 			_lamp = "";
-			_lamps = _weaponItems arrayIntersect flashlights;
+			_lamps = _weaponItems arrayIntersect attachmentLight;
 			if (_lamps isEqualTo []) then
 				{
-				_compatibleLamps = ((primaryWeapon _unit) call BIS_fnc_compatibleItems) arrayIntersect flashlights;
+				_compatibleLamps = ((primaryWeapon _unit) call BIS_fnc_compatibleItems) arrayIntersect attachmentLight;
 				if !(_compatibleLamps isEqualTo []) then
 					{
 					_lamp = selectRandom _compatibleLamps;
@@ -212,7 +212,7 @@ if !(hasIFA) then
 			}
 		else
 			{
-			_arr = (NVGoggles arrayIntersect (items _unit));
+			_arr = (allNVG arrayIntersect (items _unit));
 			if (count _arr > 0) then
 				{
 				_hmd = _arr select 0;

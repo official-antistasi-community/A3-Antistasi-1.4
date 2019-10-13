@@ -185,11 +185,3 @@ supportStaticNATOB = "rhs_TOW_Tripod_Bag";
 supportStaticNATOB2 = "RHS_M2_Tripod_Bag";
 //Mortar Support
 supportStaticNATOB3 = "rhs_M252_Bipod_Bag";
-
-////////////////////////////////////
-//             ITEMS             ///
-////////////////////////////////////
-weaponsNato append ["rhs_weap_hk416d10","rhs_weap_m16a4","rhs_weap_XM2010","rhs_weap_m24sws","rhs_weap_m27iar","rhs_weap_m4","rhs_weap_m40a5","rhs_weap_m4a1_carryhandle","rhs_weap_m4a1_blockII","rhs_weap_m4a1","rhs_weap_M590_8RD","rhs_weap_mk18","rhsusf_weap_MP7A2","hgun_Pistol_heavy_01_F","rhs_weap_fgm148","rhs_weap_fim92","rhsusf_weap_glock17g4","rhs_weap_M107","rhs_weap_M136","rhs_weap_M136_hedp","rhs_weap_M136_hp","rhs_weap_m14ebrri","rhs_weap_m72a7","rhsusf_weap_m9","rhs_weap_sr25","lerca_1200_black","lerca_1200_tan","Leupold_Mk4","rhs_weap_m240B","rhs_weap_m249","rhs_weap_smaw","rhs_weap_m39","rhs_weap_mk17_CQC","rhs_weap_mk17_LB","rhs_weap_mk17_STD","rhs_weap_SCARH_USA_STD","rhs_weap_maaws","rhs_weap_mk17_CQC","rhs_weap_m32"];//possible weapons that spawn in NATO ammoboxes
-smokeX append ["rhs_mag_an_m8hc","rhs_mag_m18_purple","rhs_mag_m18_red","rhs_mag_m18_green","rhs_mag_m18_yellow"];
-NVGoggles append ["rhsusf_ANPVS_14"];
-itemsAAF append ["rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_anpeq15side_bk","rhsusf_acc_anpeq15_bk_top","rhsusf_acc_anpeq15","rhsusf_acc_anpeq15_light","rhsusf_acc_anpeq15_bk","rhsusf_acc_anpeq15_bk_light","rhsusf_acc_anpeq15A","rhsusf_acc_ARDEC_M240","rhsusf_acc_nt4_black","rhsusf_acc_nt4_tan","rhsusf_acc_SFMB556"];

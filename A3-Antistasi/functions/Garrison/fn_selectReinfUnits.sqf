@@ -1,4 +1,4 @@
-params ["_base", "_target", ["_isAir", false]];
+params ["_base", "_target", ["_isAir", false], ["_bypass", false]];
 
 /*  Selects the units to send, given on the targets reinf needs (and what the base has (not yet))
 *   Params:
@@ -10,23 +10,31 @@ params ["_base", "_target", ["_isAir", false]];
 *     _unitsSend : ARRAY : The units in the correct format
 */
 
-private ["_maxUnitSend", "_currentUnitCount", "_unitsSend", "_reinf", "_side", "_currentSelected", "_seatCount", "_vehicle", "_allSeats", "_crewSeats", "_neededSpace", "_crewMember", "_crew", "_cargo", "_openSpace", "_abort", "_data", "_dataCrew", "_dataCargo", "_vehicleIsNeeded"];
+private ["_maxUnitSend", "_unitsSend", "_reinf", "_side", "_currentSelected", "_seatCount", "_vehicle", "_allSeats", "_crewSeats", "_neededSpace", "_crewMember", "_crew", "_cargo", "_openSpace", "_abort", "_data", "_dataCrew", "_dataCargo", "_vehicleIsNeeded"];
 
 _maxUnitSend = garrison getVariable [format ["%1_recruit", _base], 0];
-if(_maxUnitSend < 3) exitWith
+if(_maxUnitSend < 3 && {!_bypass}) exitWith
 {
   diag_log "Can't select units with less than 3 slots, would be an vehicle only with crew!";
-  objNull;
+  [];
 };
-_currentUnitCount = 0;
+
 _unitsSend = [];
 
 //Hard copy, need to work on this
 _reinf = +([_target] call A3A_fnc_getRequested);
 _side = sidesX getVariable [_base, sideUnknown];
 
+private _maxRequested = [_reinf, false] call A3A_fnc_countGarrison;
+private _maxCrewSpaceNeeded = _maxRequested select 1;
+private _maxCargoSpaceNeeded = _maxRequested select 2;
+
+private _currentUnitCount = 0;
+private _numberCargoUnitsSent = 0;
+
 while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_countGarrison != 0}} do
 {
+  private _remainingUnitsAvailable = _maxUnitSend - _currentUnitCount;
   //Find vehicle to send
   _currentSelected = "";
   _seatCount = 0;
@@ -40,7 +48,11 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
       _crewSeats = [_vehicle, false] call BIS_fnc_crewCount;
 
       //TODO available check on the base, currently it is bypassing the economy
-      if(((_currentUnitCount + _crewSeats) <= _maxUnitSend) && {_allSeats > _seatCount}) then
+
+	  //Check we don't overflow the max units we can send, if we get this vehicle and crew it.
+	  //Also, only select if bigger (we want the biggest first)
+	  //Also, if it should be air, only select air vehicles.
+      if(((_currentUnitCount + _crewSeats) <= _maxUnitSend) && {_allSeats > _seatCount} && {!_isAir ||	_vehicle isKindOf "Air"}) then
       {
         _currentSelected = _vehicle;
         _seatCount = _allSeats;
@@ -59,25 +71,36 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
   //No suitable vehicle found, usign different vehicle to reinforce
   if(_currentSelected == "") then
   {
-    _neededSpace = _maxUnitSend - _currentUnitCount;
-    if(_neededSpace <= 3) then
-    {
-      //Vehicle, crew and one person, selecting quad
-      _currentSelected = if(_side == Occupants) then {vehNATOBike} else {vehCSATBike};
-    }
-    else
-    {
-      if(_neededSpace <= 6) then
-      {
-        //Select light unarmed vehicle (as the armed uses three crew)
-        _currentSelected = if(_side == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};
-      }
-      else
-      {
-        //Select truck as it is the best option (what about helicopter???)
-        _currentSelected = if(_side == Occupants) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
-      };
-    };
+	//We can guarantee we have enough units for crew (at least 2), plus 1 point for the vehicles, otherwise the while loop would exit.
+	//So just check how much space we need for cargo, OR the maximum number we can send that exhausts the supply, after taking crew into account.
+	private _neededCargoSpace = (_maxCargoSpaceNeeded - _numberCargoUnitsSent) min (_remainingUnitsAvailable - 3);
+
+	if (_isAir) then {
+		if (_neededCargoSpace <= 4) then {
+			_currentSelected = if (_side ==	Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli};
+		} else {
+			_currentSelected = if (_side ==	Occupants) then {selectRandom vehNATOTransportHelis} else {selectRandom vehCSATTransportHelis};
+		};
+	} else {
+		if(_neededCargoSpace <= 1) then
+		{
+		  //Vehicle, crew and one person, selecting quad
+		  _currentSelected = if(_side == Occupants) then {vehNATOBike} else {vehCSATBike};
+		}
+		else
+		{
+		  if(_neededCargoSpace <= 5) then
+		  {
+			//Select light unarmed vehicle (as the armed uses three crew)
+			_currentSelected = if(_side == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};
+		  }
+		  else
+		  {
+			//Select truck as it is the best option (what about helicopter???)
+			_currentSelected = if(_side == Occupants) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
+		  };
+		};
+	};
     _seatCount = [_currentSelected, true] call BIS_fnc_crewCount;
   };
 
@@ -127,6 +150,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
       {
         _cargo pushBack (_dataCargo deleteAt 0);
         _currentUnitCount = _currentUnitCount + 1;
+		_numberCargoUnitsSent = _numberCargoUnitsSent + 1;
         _openSpace = _openSpace - 1;
       }
       else

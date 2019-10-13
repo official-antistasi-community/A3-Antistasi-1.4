@@ -43,11 +43,11 @@ else
     }
     else
     {
-      _result = "SQUAD";
+      _result = _preference;
       if(debug) then
       {
         diag_log format ["SelectGroupType: Vehicle %1 cannot transport four or more people, reconsider using another vehicle or make smaller groups possible!", _vehicle];
-        diag_log "SelectGroupType: Assuming squad as a solution, may be changed in the future!";
+        diag_log "SelectGroupType: Assuming preference as a solution, may be changed in the future!";
       };
     };
   };

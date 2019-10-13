@@ -7,14 +7,14 @@ params ["_marker", "_type"];
 
 _result = getMarkerPos _marker;
 
-diag_log format ["Searching spawn position on %1 for %2", _marker, _type];
+//diag_log format ["Searching spawn position on %1 for %2", _marker, _type];
 _spawns = spawner getVariable [format ["%1_spawns", _marker], -1];
 if(_spawns isEqualType -1) exitWith
 {
   diag_log format ["%1 does not have any spawn positions set!", _marker];
   -1;
 };
-[_spawns, "Spawnpoints"] call A3A_fnc_logArray;
+//[_spawns, "Spawnpoints"] call A3A_fnc_logArray;
 
 _selection = -1;
 switch (_type) do

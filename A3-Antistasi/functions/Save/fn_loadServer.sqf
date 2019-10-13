@@ -9,7 +9,7 @@ petros allowdamage false;
 ["mrkCSAT"] call fn_LoadStat;
 ["difficultyX"] call fn_LoadStat;
 ["gameMode"] call fn_LoadStat;
-["destroyedCities"] call fn_LoadStat;
+["destroyedSites"] call fn_LoadStat;
 ["minesX"] call fn_LoadStat;
 ["countCA"] call fn_LoadStat;
 ["antennas"] call fn_LoadStat;
@@ -22,6 +22,7 @@ petros allowdamage false;
 ["prestigeBLUFOR"] call fn_LoadStat;
 ["resourcesFIA"] call fn_LoadStat;
 ["garrison"] call fn_LoadStat;
+["usesWurzelGarrison"] call fn_LoadStat;
 ["skillFIA"] call fn_LoadStat;
 ["distanceSPWN"] call fn_LoadStat;
 ["civPerc"] call fn_LoadStat;
@@ -108,6 +109,7 @@ publicVariable "unlockedSN";
 publicVariable "unlockedGL";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
+//PBP-Bad NVG Check!
 if ("NVGoggles" in unlockedItems) then {haveNV = true; publicVariable "haveNV"};
 //Check if we have radios unlocked and update haveRadio.
 call A3A_fnc_checkRadiosUnlocked;
@@ -133,7 +135,7 @@ if (sidesX getVariable [_x,sideUnknown] == sideUnknown) then
 {[_x] call A3A_fnc_mrkUpdate} forEach (markersX - controlsX);
 if (count outpostsFIA > 0) then {markersX = markersX + outpostsFIA; publicVariable "markersX"};
 
-{if (_x in destroyedCities) then {[_x] call A3A_fnc_destroyCity}} forEach citiesX;
+{if (_x in destroyedSites) then {[_x] call A3A_fnc_destroyCity}} forEach citiesX;
 
 ["chopForest"] call fn_LoadStat;
 ["destroyedBuildings"] call fn_LoadStat;
@@ -150,9 +152,37 @@ _buildings = nearestObjects [_x, listMilBld, 25, true];
 
 if (!isMultiPlayer) then {player setPos getMarkerPos respawnTeamPlayer} else {{_x setPos getMarkerPos respawnTeamPlayer} forEach (playableUnits select {side _x == teamPlayer})};
 _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+
+//Isn't that just tierCheck.sqf?
 tierWar = 1 + (floor (((5*({(_x in outposts) or (_x in resourcesX) or (_x in citiesX)} count _sites)) + (10*({_x in seaports} count _sites)) + (20*({_x in airportsX} count _sites)))/10));
 if (tierWar > 10) then {tierWar = 10};
 publicVariable "tierWar";
+
+tierPreference = 1;
+publicVariable "tierPreference";
+//Updating the preferences based on war level
+for "_i" from 1 to tierWar do
+{
+	[] call A3A_fnc_updatePreference;
+};
+
+if(isNil "usesWurzelGarrison") then
+{
+	//Create the garrison new
+	diag_log "No WurzelGarrison found, creating new!";
+	[airportsX, "Airport", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
+	[resourcesX, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
+	[factories, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;
+	[outposts, "Outpost", [1,1,0]] spawn A3A_fnc_createGarrison;
+	[seaports, "Other", [1,0,0]] spawn A3A_fnc_createGarrison;
+
+}
+else
+{
+	//Garrison save in wurzelformat, load it
+	diag_log "WurzelGarrison found, loading it!";
+	["wurzelGarrison"] call fn_LoadStat;
+};
 
 clearMagazineCargoGlobal boxX;
 clearWeaponCargoGlobal boxX;
@@ -165,6 +195,7 @@ diag_log format ["%1: [Antistasi] | INFO | Generating Map Markers.",servertime];
 ["tasks"] call fn_LoadStat;
 if !(isMultiplayer) then
 	{
+		//Can't we go around this using the initMarker? And only switching marker?
 	{
 	_pos = getMarkerPos _x;
 	_dmrk = createMarker [format ["Dum%1",_x], _pos];

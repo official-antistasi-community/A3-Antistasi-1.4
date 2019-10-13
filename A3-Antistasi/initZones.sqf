@@ -60,7 +60,7 @@ if (debug) then {
 (seaMarkers + seaSpawn + seaAttackSpawn + spawnPoints + detectionAreas + islands) apply {_x setMarkerAlpha 0};
 defaultControlIndex = (count controlsX) - 1;
 outpostsFIA = [];
-destroyedCities = [];
+destroyedSites = [];
 garrison setVariable ["Synd_HQ", [], true];
 markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
 if (debug) then {
@@ -299,7 +299,7 @@ publicVariable "factories";
 publicVariable "outposts";
 publicVariable "controlsX";
 publicVariable "seaports";
-publicVariable "destroyedCities";
+publicVariable "destroyedSites";
 publicVariable "forcedSpawn";
 publicVariable "outpostsFIA";
 publicVariable "seaMarkers";

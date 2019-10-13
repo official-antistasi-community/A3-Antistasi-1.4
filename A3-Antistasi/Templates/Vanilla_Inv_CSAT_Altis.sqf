@@ -176,9 +176,3 @@ supportStaticCSATB = "O_HMG_01_support_F";
 supportStaticCSATB2 = "O_HMG_01_support_high_F";
 //Mortar Support
 supportStaticCSATB3 = "O_Mortar_01_support_F";
-
-////////////////////////////////////
-//             ITEMS             ///
-////////////////////////////////////
-weaponsCSAT append ["srifle_DMR_04_F","arifle_CTAR_ghex_F","arifle_CTAR_GL_blk_F","arifle_Katiba_C_F","srifle_DMR_05_tan_f","arifle_Katiba_F","arifle_Katiba_GL_F","srifle_DMR_02_sniper_F","MMG_01_tan_F","srifle_DMR_01_F","launch_RPG32_F","LMG_Zafir_F"];
-ammunitionCSAT append ["30Rnd_65x39_caseless_green","10Rnd_762x54_Mag","150Rnd_762x54_Box","6Rnd_45ACP_Cylinder","150Rnd_93x64_Mag","10Rnd_127x54_Mag","30Rnd_9x21_Mag","5Rnd_127x108_Mag","10Rnd_93x64_DMR_05_Mag"];

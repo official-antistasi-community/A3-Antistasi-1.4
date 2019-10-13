@@ -1279,7 +1279,7 @@ class radio_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you";
-			action = "closeDialog 0;nul = [] spawn A3A_fnc_undercover";
+			action = "closeDialog 0;nul = [] spawn A3A_fnc_goUndercover";
 		};
 		class 8slots_R2: RscButton
 		{

@@ -168,12 +168,3 @@ supportStaticCSATB = "RHS_Kord_Tripod_Bag";
 supportStaticCSATB2 = "RHS_Kornet_Tripod_Bag";
 //Mortar Support
 supportStaticCSATB3 = "RHS_Podnos_Bipod_Bag";
-
-////////////////////////////////////
-//             ITEMS             ///
-////////////////////////////////////
-weaponsCSAT append ["rhs_weap_ak103","rhs_weap_ak104_npz","rhs_weap_ak105_npz","rhs_weap_ak105","rhs_weap_akmn","rhs_weap_ak74_2","rhs_weap_ak74_gp25","rhs_weap_ak74m_2mag","rhs_weap_ak74m_gp25_1p29","rhs_weap_ak74n_gp25","rhs_weap_akm","rhs_weap_akm_gp25","rhs_weap_asval","rhs_weap_svdp","rhs_weap_svds","rhs_weap_t5000","rhs_weap_vss","rhs_weap_aks74u","rhs_weap_rpg26","rhs_weap_rpg7","rhs_weap_pb_6p9","rhs_weap_igla","rhs_weap_pya","rhs_weap_pkm","rhs_weap_pkp","rhs_weap_makarov_pm","rhs_weap_rpg7_pgo","rhs_weap_rshg2"];
-ammunitionCSAT append ["rhs_mag_nspn_yellow","rhs_mag_nspn_red","rhs_mag_nspn_green","rhs_mag_nspd"];
-smokeX append ["rhs_mag_nspd","rhs_mag_rdg2_white","rhs_mag_rdg2_black","rhs_mag_zarya2","rhs_mag_rgo","rhs_mag_rgn","rhs_mag_plamyam","rhs_mag_fakels","rhs_mag_fakel"];
-NVGoggles pushBack"rhs_1PN138";
-itemsAAF append ["rhs_acc_2dpZenit","rhs_acc_2dpZenit_ris","rhs_acc_uuk","rhs_acc_dtk1l","rhs_acc_ak5","rhs_acc_dtk","rhs_acc_dtk1983","rhs_acc_dtk1","rhs_acc_dtk1p","rhs_acc_dtk2","rhs_acc_dtk3","rhs_acc_dtk4short","rhs_acc_dtk4screws","rhs_acc_dtk4long","rhs_75Rnd_762x39mm_tracer","rhs_acc_pbs1","rhs_acc_pbs4","rhs_acc_perst1ik","rhs_acc_perst1ik_ris","rhs_acc_perst3","rhs_acc_perst3_top","rhs_acc_perst3_2dp_h","rhs_acc_perst3_2dp_light_h","rhs_acc_pgs64","rhs_acc_pgs64_74u","rhs_acc_pgs64_74un","rhs_acc_grip_rk2","rhs_acc_grip_rk6","rhs_acc_tgpa","rhs_acc_tgpv","rhs_pdu4","rhs_tr8_periscope","rhs_tr8_periscope_pip"];

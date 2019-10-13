@@ -132,7 +132,7 @@ for "_i" from 0 to _numCiv do
 		if (!surfaceIsWater _pos) exitWith {};
 		};
 	_civ = _groupCivil createUnit [_typeUnit,_pos, [],0,"NONE"];
-	_civ forceAddUniform (selectRandom civUniforms);
+	_civ forceAddUniform (selectRandom civilianUniform);
 	_rnd = random 100;
 	if (_rnd < 90) then
 		{
@@ -188,8 +188,8 @@ else
 	//["invaderPunish", "FAILED",true] spawn BIS_fnc_taskSetState;
 	[-20,-20,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2];
 	{[-10,-10,_x] remoteExec ["A3A_fnc_citySupportChange",2]} forEach citiesX;
-	destroyedCities = destroyedCities + [_attackDestination];
-	publicVariable "destroyedCities";
+	destroyedSites = destroyedSites + [_attackDestination];
+	publicVariable "destroyedSites";
 	for "_i" from 1 to 60 do
 		{
 		_mineX = createMine ["APERSMine",_posDestination,[],_size];

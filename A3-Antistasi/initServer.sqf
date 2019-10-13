@@ -36,7 +36,7 @@ limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {fal
 napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
 teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
 playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
-
+[] call A3A_fnc_crateLootParams;
 //Load Campaign ID if resuming game
 if(loadLastSave) then {
 	campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
@@ -190,4 +190,5 @@ savingServer = false;
 			sleep 30;
 		};
 };
+[] call A3A_fnc_arsenalManage;
 diag_log format ["%1: [Antistasi] | INFO | initServer Completed.",servertime];

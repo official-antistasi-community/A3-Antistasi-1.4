@@ -37,7 +37,8 @@ else
 	{
 	if (random 40 < skillFIA) then
 		{
-		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom helmets)};
+		//PBP - Horrible Helmets set
+		if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 2) then {removeHeadgear _unit;_unit addHeadgear (selectRandom armoredHeadgear)};
 		};
 	if ((_typeX in SDKMil) or (_typeX == staticCrewTeamPlayer)) then
 		{
@@ -143,15 +144,15 @@ if (!haveRadio) then
 	if ((_unit != leader _unit) and (_typeX != staticCrewTeamPlayer)) then {_unit unlinkItem (_unit call A3A_fnc_getRadio)};
 	};
 
-if ({if (_x in smokeX) exitWith {1}} count unlockedMagazines > 0) then {_unit addMagazines [selectRandom smokeX,2]};
+if ({if (_x in smokeGrenade) exitWith {1}} count unlockedMagazines > 0) then {_unit addMagazines [selectRandom smokeGrenade,2]};
 if !(hasIFA) then
 	{
 	if ((sunOrMoon < 1) and (_typeX != SDKUnarmed)) then
 		{
 		if (haveNV) then
 			{
-			if (hmd _unit == "") then {_unit linkItem (selectRandom NVGoggles)};
-			_pointers = pointers arrayIntersect unlockedItems;
+			if (hmd _unit == "") then {_unit linkItem (selectRandom unlockedNVG)};
+			_pointers = attachmentLaser arrayIntersect unlockedItems;
 			if !(_pointers isEqualTo []) then
 				{
 				_pointers = _pointers arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
@@ -172,7 +173,7 @@ if !(hasIFA) then
 				_unit unassignItem _hmd;
 				_unit removeItem _hmd;
 				};
-			_flashlights = flashlights arrayIntersect unlockedItems;
+			_flashlights = attachmentLight arrayIntersect unlockedItems;
 			if !(_flashlights isEqualTo []) then
 				{
 				_flashlights = _flashlights arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);

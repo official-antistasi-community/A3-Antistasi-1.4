@@ -31,6 +31,8 @@ if(!_stockUp) then
   _reinforcements = [_marker] call A3A_fnc_getRequested;
   _reinfCount = count _reinforcements;
 
+  _garrison = [_marker] call A3A_fnc_getGarrison;
+
   //Check if element is already there
   if((_reinfCount - 1) < _groupID) then
   {
@@ -43,30 +45,30 @@ if(!_stockUp) then
 
   //Adding unit to element
   _element = _reinforcements select _groupID;
-  hint (str _element);
+  _garElement = _garrison select _groupID;
   if(_unitType != 0) then
   {
     //Adding unit
     (_element select _unitType) pushBack _unit;
+    _index = (_garElement select _unitType) findIf {_x == _unit};
+    (_garElement select _unitType) deleteAt _index;
   }
   else
   {
     //Setting vehicle
     _element set [0, _unit];
+    _garElement set [0, ""];
   };
   _reinforcements set [_groupID, _element];
 
-  _garrison = [_marker] call A3A_fnc_getGarrison;
-  //Remove unit from garrison
+  //diag_log "Unit killed, reinforcement are now!";
+  //[_reinforcements, "Reinf"] call A3A_fnc_logArray;
 
-  _element = _garrison select _groupID;
-  if(_unitType == 0) then
-  {
-    
-  };
+  //diag_log "Garrison is now!";
+  //[_garrison, "Garrison"] call A3A_fnc_logArray;
 
-  //Setting new reinforcements
-  garrison setVariable [format ["%1_requested", _marker], _reinforcements, true];
+  //Setting new reinforcements Pretty sure this is not needed
+  //garrison setVariable [format ["%1_requested", _marker], _reinforcements, true];
 }
 else
 {

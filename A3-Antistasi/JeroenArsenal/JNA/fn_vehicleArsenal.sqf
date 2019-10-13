@@ -100,7 +100,7 @@
 		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL,[]];\
 		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW,[/*"Grenade","SmokeShell"*/]];\
 		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT,[/*"Mine","MineBounding","MineDirectional"*/]];\
-		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC,["FirstAidKit","Medikit","MineDetector","Toolkit"]];
+		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC,["FirstAidKit","Medikit","MineDetector","ToolKit"]];
 
 #define STATS_WEAPONS\
 	["reloadtime","dispersion","maxzeroing","hit","mass","initSpeed"],\

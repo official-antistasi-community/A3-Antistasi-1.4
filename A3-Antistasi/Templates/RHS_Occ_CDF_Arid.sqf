@@ -192,11 +192,3 @@ supportStaticNATOB = "RHS_SPG9_Tripod_Bag";
 supportStaticNATOB2 = "RHS_DShkM_TripodHigh_Bag";
 //Mortar Support
 supportStaticNATOB3 = "RHS_Podnos_Bipod_Bag";
-
-////////////////////////////////////
-//             ITEMS             ///
-////////////////////////////////////
-weaponsNato append ["rhs_weap_akm_gp25","rhs_weap_pkm","rhs_weap_akms","rhs_weap_ak103","rhs_weap_akm","rhs_weap_aks74_2","rhs_weap_aks74u"];
-smokeX append ["rhs_mag_an_m8hc","rhs_mag_m18_purple","rhs_mag_m18_red","rhs_mag_m18_green","rhs_mag_m18_yellow","rhs_mag_rdg2_white"];
-NVGoggles append ["rhsusf_ANPVS_14"];
-itemsAAF append ["rhsusf_acc_grip2","rhsusf_acc_grip2_tan","rhsusf_acc_anpeq15side_bk","rhsusf_acc_anpeq15_bk_top","rhsusf_acc_anpeq15","rhsusf_acc_anpeq15_light","rhsusf_acc_anpeq15_bk","rhsusf_acc_anpeq15_bk_light","rhsusf_acc_anpeq15A","rhsusf_acc_ARDEC_M240","rhsusf_acc_nt4_black","rhsusf_acc_nt4_tan","rhsusf_acc_SFMB556"];

@@ -10,7 +10,7 @@ _powered = true;
 if (_power == _markerX) then
 	{
 	//_dataX = server getVariable _city;
-	if (_markerX in destroyedCities) then
+	if (_markerX in destroyedSites) then
 		{
 		_powered = false;
 		//[-10,-10,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -57,7 +57,7 @@ _power = [power,_pos] call BIS_fnc_nearestPosition;
 _powered = true;
 if (_power == _markerX) then
 	{
-	if (_markerX in destroyedCities) then
+	if (_markerX in destroyedSites) then
 		{
 		_powered = false;
 		//[-10,-10,_pos] remoteExec ["A3A_fnc_citySupportChange",2];

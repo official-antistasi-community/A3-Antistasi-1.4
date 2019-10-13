@@ -149,7 +149,7 @@ _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;
 
-if (not(_markerX in destroyedCities)) then
+if (not(_markerX in destroyedSites)) then
 {
 	if ((daytime > 8) and (daytime < 18)) then
 	{
@@ -168,8 +168,8 @@ if (not(_markerX in destroyedCities)) then
 					{
 						_markerX = (_this select 0) getVariable "markerX";
 						_nameX = [_markerX] call A3A_fnc_localizar;
-						destroyedCities pushBackUnique _markerX;
-						publicVariable "destroyedCities";
+						destroyedSites pushBackUnique _markerX;
+						publicVariable "destroyedSites";
 						["TaskFailed", ["", format ["%1 Destroyed",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
 					};
 				}];

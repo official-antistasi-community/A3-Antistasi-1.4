@@ -46,19 +46,46 @@ else
 	};
 garrison setVariable [_markerX,[],true];
 sidesX setVariable [_markerX,_winner,true];
+
+//New garrison update ==========================================================
+garrison setVariable [format ["%1_garrison", _markerX], [], true];
+garrison setVariable [format ["%1_other", _markerX], [], true];
+garrison setVariable [format ["%1_requested", _markerX], [], true];
+//This system is not yet implemented
+//garrison setVariable [format ["%1_available", _markerX], [], true];
+//New system end ===============================================================
+
 if (_winner == teamPlayer) then
-	{
+{
 	_super = if (_markerX in airportsX) then {true} else {false};
 	[[_markerX,_looser,"",_super],"A3A_fnc_patrolCA"] call A3A_fnc_scheduler;
 	//sleep 15;
 	[[_markerX],"A3A_fnc_autoGarrison"] call A3A_fnc_scheduler;
-	}
+}
 else
-	{
+{
 	_soldiers = [];
 	{_soldiers pushBack (typeOf _x)} forEach (allUnits select {(_x distance _positionX < (_size*3)) and (_x getVariable ["spawner",false]) and (side group _x == _winner) and (vehicle _x == _x) and (alive _x)});
 	[_soldiers,_winner,_markerX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
+
+	//New system =================================================================
+	private _type = "Other";
+	switch (true) do
+	{
+	    case (_markerX in airportsX): {_type = "Airport"};
+			case (_markerX in outposts): {_type = "Outpost"};
+			case (_markerX in citiesX): {_type = "City"};
 	};
+	private _preference = garrison getVariable (format ["%1_preference", _type]);
+	private _request = [];
+	for "_i" from 0 to ((count _preference) - 1) do
+	{
+		_request pushBack ([_preference select _i, _winner] call A3A_fnc_createGarrisonLine);
+	};
+	garrison setVariable [format ["%1_requested", _markerX], _request, true];
+	[_markerX] call A3A_fnc_updateReinfState;
+	//End ========================================================================
+};
 
 _nul = [_markerX] call A3A_fnc_mrkUpdate;
 _sides = _sides - [_winner,_looser];
@@ -155,7 +182,7 @@ if (_markerX in resourcesX) then
 if (_winner == teamPlayer) then
 	{
 	[] call A3A_fnc_tierCheck;
-	
+
 	//Convert all of the static weapons to teamPlayer, essentially. Make them mannable by AI.
 	//Make the size larger, as rarely does the marker cover the whole outpost.
 	private _staticWeapons = nearestObjects [_positionX, ["StaticWeapon"], _size * 1.5, true];
@@ -165,7 +192,7 @@ if (_winner == teamPlayer) then
 		};
 	} forEach _staticWeapons;
 	publicVariable "staticsToSave";
-	
+
 	if (!isNull _flagX) then
 		{
 		//[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];

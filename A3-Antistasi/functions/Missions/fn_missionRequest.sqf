@@ -121,7 +121,7 @@ if (_typeX == "DES") then
 	};
 if (_typeX == "LOG") then
 	{
-	_sites = outposts + citiesX - destroyedCities;
+	_sites = outposts + citiesX - destroyedSites;
 	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
 	if (random 100 < 20) then {_sites = _sites + banks};
 	if (count _sites > 0) then

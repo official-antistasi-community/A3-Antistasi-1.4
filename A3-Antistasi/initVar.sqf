@@ -666,9 +666,20 @@ publicVariable "unlockedSN";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
 
+publicVariable "arifles";
+publicVariable "hguns";
+publicVariable "mguns";
+publicVariable "mlaunchers";
+publicVariable "rlaunchers";
+publicVariable "allWeaponShotgun";
+publicVariable "allWeaponSubmachineGun";
+publicVariable "srifles";
+
 publicVariable "civilianUniform";
+publicVariable "rebelUniform";
 publicVariable "armoredHeadgear";
 publicVariable "initialWeapons";
+publicVariable "smokeGrenade";
 
 publicVariable "teamPlayer";
 publicVariable "civPerc";

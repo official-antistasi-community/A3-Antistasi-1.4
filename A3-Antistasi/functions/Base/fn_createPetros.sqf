@@ -2,7 +2,7 @@ params [["_location", []]];
 
 _oldPetros = if (isNil "petros") then {objNull}	else {petros};
 
-groupPetros = if !(isNull _oldPetros && side group _oldPetros == teamPlayer) then {group _oldPetros} else {createGroup teamPlayer};
+groupPetros = if (! isNull _oldPetros && {side group _oldPetros == teamPlayer}) then {group _oldPetros} else {createGroup teamPlayer};
 publicVariable "groupPetros";
 
 private _position = if (count _location > 0) then {

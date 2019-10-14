@@ -4,7 +4,7 @@
 		"",													//Muzzle
 		"",													//Rail
 		selectRandom										//Sight
-		["RHSUSF_Acc_CompM4", "RHSUSF_Acc_Eotech_552"],
+		["RHSUSF_Acc_Acog", "RHSUSF_Acc_Eotech_552"],
 		["RHSUSF_200Rnd_556x45_Box",200],					//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod

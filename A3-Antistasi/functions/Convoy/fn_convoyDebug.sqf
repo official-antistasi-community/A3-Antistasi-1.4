@@ -5,6 +5,12 @@
 *       Nothing
 */
 
+//Fixes users are not able to follow instructions
+if(!canSuspend) exitWith
+{
+  [] spawn A3A_fnc_convoyDebug;
+};
+
 if(isDedicated) exitWith {};
 
 if(isMultiplayer && {!isServer} && {!(call BIS_fnc_admin > 0)}) exitWith {hint "Only server admins can execute the convoy debug!"};

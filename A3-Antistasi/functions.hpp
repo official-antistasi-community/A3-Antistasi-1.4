@@ -34,6 +34,7 @@ class A3A
 		class intelFound {};
 		class isFrontline {};
 		class isTheSameIsland {};
+		class joinMultipleGroups {};
 		class keys {};
 		class localizar {};
 		class location {};
@@ -65,13 +66,13 @@ class A3A
 		class sellVehicle {};
 		class setMarkerAlphaForSide {};
 		class sizeMarker {};
+		class splitVehicleCrewIntoOwnGroups {};
 		class startBreachVehicle {};
 		class statistics {};
 		class stripGearFromLoadout {};
 		class teleportVehicleToBase {};
 		class timingCA {};
 		class translateVariable {};
-		class undercover {};
 		class unlockVehicle {};
 		class zoneCheck {};
 	};
@@ -417,6 +418,12 @@ class A3A
 	class Templates
 	{
 		class getLoadout {};
+	};
+	
+	class Undercover
+	{
+		class initUndercover {};
+		class goUndercover {};
 	};
 
 	class Utility

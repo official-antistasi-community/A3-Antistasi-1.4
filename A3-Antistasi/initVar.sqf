@@ -334,12 +334,12 @@ if (!hasIFA) then
 						if (teamPlayer == independent) then
 							{
 							//RHS REBEL Template
-							call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf";
 							}
 							else
 							{
 							//RHS BLUFOR REBEL Template
-							call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf";
+							call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf";
 							};
 					};
 			};

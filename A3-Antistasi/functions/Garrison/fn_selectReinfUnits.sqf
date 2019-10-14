@@ -48,7 +48,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
       _crewSeats = [_vehicle, false] call BIS_fnc_crewCount;
 
       //TODO available check on the base, currently it is bypassing the economy
-	  
+
 	  //Check we don't overflow the max units we can send, if we get this vehicle and crew it.
 	  //Also, only select if bigger (we want the biggest first)
 	  //Also, if it should be air, only select air vehicles.
@@ -74,7 +74,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
 	//We can guarantee we have enough units for crew (at least 2), plus 1 point for the vehicles, otherwise the while loop would exit.
 	//So just check how much space we need for cargo, OR the maximum number we can send that exhausts the supply, after taking crew into account.
 	private _neededCargoSpace = (_maxCargoSpaceNeeded - _numberCargoUnitsSent) min (_remainingUnitsAvailable - 3);
-	
+
 	if (_isAir) then {
 		if (_neededCargoSpace <= 4) then {
 			_currentSelected = if (_side ==	Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli};
@@ -89,7 +89,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
 		}
 		else
 		{
-		  if(_neededSpace <= 5) then
+		  if(_neededCargoSpace <= 5) then
 		  {
 			//Select light unarmed vehicle (as the armed uses three crew)
 			_currentSelected = if(_side == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};

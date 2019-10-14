@@ -400,7 +400,7 @@ private _equipmentFilter = {
 			case "Item": {
 				switch (_categories select 1) do {
 					case "AccessoryMuzzle";
-					case "AccessoryPointer"; 
+					case "AccessoryPointer";
 					case "AccessorySights";
 					case "AccessoryBipod";
 					case "NVGoggles": {
@@ -420,6 +420,11 @@ private _equipmentFilter = {
 					};
 					case "Vest": {
 						if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5) then {
+							_remove = true;
+						};
+					};
+					case "Uniform": {
+						if (hasIFA) then {
 							_remove = true;
 						};
 					};

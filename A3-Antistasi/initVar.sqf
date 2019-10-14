@@ -432,6 +432,16 @@ private _equipmentFilter = {
 			};
 			case "Equipment": {
 				switch (_categories select 1) do {
+					case "Backpack": {
+						if (hasIFA) then {
+							_remove = true;
+						};
+					};
+					case "Glasses": {
+						if (hasIFA) then {
+							_remove = true;
+						};
+					};
 					case "Headgear": {
 						if (hasIFA) then {
 							_remove = true;
@@ -442,18 +452,13 @@ private _equipmentFilter = {
 							};
 						};
 					};
-					case "Vest": {
-						if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5) then {
-							_remove = true;
-						};
-					};
 					case "Uniform": {
 						if (hasIFA) then {
 							_remove = true;
 						};
 					};
-					case "Glasses": {
-						if (hasIFA) then {
+					case "Vest": {
+						if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5) then {
 							_remove = true;
 						};
 					};

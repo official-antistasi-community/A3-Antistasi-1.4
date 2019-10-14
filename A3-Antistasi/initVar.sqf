@@ -398,13 +398,31 @@ private _equipmentFilter = {
 	if (_itemIsVanilla && {hasIFA || has3CB || {activeAFRF && activeGREF && activeUSAF}}) then {
 		switch (_categories select 0) do {
 			case "Item": {
-				switch (_categories select 1) do {
-					case "AccessoryMuzzle";
-					case "AccessoryPointer";
-					case "AccessorySights";
-					case "AccessoryBipod";
-					case "NVGoggles": {
-						_remove = true;
+				if (hasIFA) then {
+					switch (_categories select 1) do {
+						case "AccessoryMuzzle";
+						case "AccessoryPointer";
+						case "AccessorySights";
+						case "AccessoryBipod";
+						case "Binocular";
+						case "Compass";
+						case "LaserDesignator";
+						case "NVGoggles";
+						case "UAVTerminal";
+						case "Watch": {
+							_remove = true;
+						};
+					};
+				}
+				else {
+					switch (_categories select 1) do {
+						case "AccessoryMuzzle";
+						case "AccessoryPointer";
+						case "AccessorySights";
+						case "AccessoryBipod";
+						case "NVGoggles": {
+							_remove = true;
+						};
 					};
 				};
 			};

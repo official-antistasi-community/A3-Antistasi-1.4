@@ -171,7 +171,7 @@ if (_vehT distance _heli < 50) then
 				diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Truck was captured by player, mission completing",servertime];
 				["DES", "SUCCEEDED"] call BIS_fnc_taskSetState
 			};
-		};
+		}
 	];
 
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Waiting until transport reaches origin, gets destroyed or timer expires",servertime];
@@ -187,7 +187,7 @@ waitUntil
 
 _bonus = if (_difficultX) then {2} else {1};
 
-if ((not alive _heli) || {(taskState "DES") == "SUCCEEDED") || {count (_vehicle getVariable ["SA_Tow_Ropes",[]]) > 0}}) then
+if ((not alive _heli) || {((taskState "DES") == "SUCCEEDED") || {(count (_vehicle getVariable ["SA_Tow_Ropes",[]]) > 0)}}) then
 	{
 	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Air Vehicle was destroyed or truck captured, mission completing",servertime];
 	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;

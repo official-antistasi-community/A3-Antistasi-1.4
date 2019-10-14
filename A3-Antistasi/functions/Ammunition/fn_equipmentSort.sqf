@@ -15,6 +15,7 @@ private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >>
 private _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
 switch (_uniformFaction) do
 	{
+	case "LIB_GUER";
 	case "IND_C_F";
 	//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1
 	case "BLU_G_F": {rebelUniform pushBack _x};

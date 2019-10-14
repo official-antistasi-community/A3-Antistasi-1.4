@@ -44,7 +44,7 @@ if ("OfficialMod" call BIS_fnc_getParamValue isEqualTo 0) then
 {
 	disabledMods pushBack "officialmod";
 };
-
+/*
 if ("RHS" call BIS_fnc_getParamValue isEqualTo 0) then
 {
 	disabledMods pushBack "rhsafrf";
@@ -65,5 +65,5 @@ if ("3CB" call BIS_fnc_getParamValue isEqualTo 0) then
 if ("IFA" call BIS_fnc_getParamValue isEqualTo 0) then
 {
 	disabledMods pushBack "ifa3_aio_lite";
-};
+};*/
 diag_log format ["%1: [Antistasi] | INFO | Filter | Disabled DLC: %2", servertime, disabledMods];

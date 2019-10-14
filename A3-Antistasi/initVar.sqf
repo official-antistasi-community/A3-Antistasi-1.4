@@ -406,6 +406,7 @@ private _equipmentFilter = {
 						case "AccessoryBipod";
 						case "Binocular";
 						case "Compass";
+						case "GPS";
 						case "LaserDesignator";
 						case "NVGoggles";
 						case "UAVTerminal";

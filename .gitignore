@@ -1,8 +1,6 @@
-
-A3DD/
 .vscode/
 .github/
-Arma 3 Dev Deploy.exe
+Antistasi Dev Deploy.exe
 *.log
 *.pbo
 *.pbo.bak

@@ -23,6 +23,7 @@ switch (_uniformFaction) do
 } forEach allUniform;
 
 civilianUniform deleteAt (civilianUniform find "U_C_Protagonist_VR");
+civilianUniform deleteAt (civilianUniform find "U_LIB_CIV_Priest");
 rebelUniform deleteAt (rebelUniform find "U_I_G_Story_Protagonist_F");
 rebelUniform deleteAt (rebelUniform find "U_I_G_resistanceLeader_F");
 
@@ -96,3 +97,4 @@ civilianGlasses deleteAt (civilianGlasses find "G_Goggles_VR");
 civilianGlasses deleteAt (civilianGlasses find "G_I_Diving");
 civilianGlasses deleteAt (civilianGlasses find "G_O_Diving");
 civilianGlasses deleteAt (civilianGlasses find "G_B_Diving");
+civilianGlasses deleteAt (civilianGlasses find "LIB_Glasses");

@@ -1,6 +1,7 @@
 ////////////////////////////////////
 //   IFA ITEMS MODIFICATIONS     ///
 ////////////////////////////////////
+/*
 smokeGrenade = ["LIB_RDG","LIB_NB39"];
 chemLight = [];
 lootNVG = [];
@@ -10,7 +11,7 @@ lootHelmet = [];
 lootVest = [];
 armoredHeadgear = [];
 {armoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
-
+*/
 if (hasACE) then {
 	lootItem append ["ACE_LIB_LadungPM","ACE_SpareBarrel"];
 };

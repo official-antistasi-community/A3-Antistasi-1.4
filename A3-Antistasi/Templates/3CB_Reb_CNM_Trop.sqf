@@ -1,7 +1,3 @@
-//3CB Blufor ALtis Template Call
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\3CB_Reb_UN_Arid.sqf"};
-//Tanoa Template Call
-if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\3CB_Reb_CCM_Trop.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -90,18 +86,20 @@ supportStaticsSDKB3 = "RHS_Podnos_Bipod_Bag";
 //             ITEMS             ///
 ////////////////////////////////////
 //Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+teamPlayerDefaultLoadout = [[],[],[],["UK3CB_CHC_C_U_COACH_04", []],[],[],"UK3CB_H_Villager_Cap_01","",[],["ItemMap","","","","",""]];
 //Mines
-ATMineMag = "rhs_mine_tm62m_mag";
+ATMineMag = "rhs_mine_smine35_press_mag";
 APERSMineMag = "rhs_mine_pmn2_mag";
 //Starting Unlocks
-unlockedWeapons append ["UK3CB_Enfield","rhsusf_weap_m1911a1","Binocular","rhs_weap_panzerfaust60","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_pp2000_folded","UK3CB_M79","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
-unlockedRifles append ["UK3CB_Enfield","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_m3a1","rhs_weap_m1garand_sa43"];
-unlockedMagazines append ["UK3CB_Enfield_Mag","rhsusf_mag_7x45acp_MHP","rhsgref_1Rnd_Slug","rhs_mag_rgd5","rhs_mag_9x19mm_7n31_44","rhs_mag_m576","rhs_mag_m713_red","rhs_mag_m4009","rhsgref_30rnd_1143x23_M1T_SMG","rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle"];
-initialRifles append ["UK3CB_Enfield","UK3CB_Enfield_Rail","rhs_weap_Izh18","rhs_weap_savz61"];
-unlockedItems append ["rhs_acc_2dpZenit","rhs_acc_m852v"];
-unlockedAT append ["rhs_weap_panzerfaust60"];
-unlockedBackpacks append ["UK3CB_ANA_B_B_ASS","UK3CB_TKC_C_B_Sidor_MED","UK3CB_B_Hiker","UK3CB_B_Hiker_Camo"];
+unlockedWeapons append ["UK3CB_BAF_L9A1","UK3CB_BAF_L107A1","UK3CB_Enfield","UK3CB_Enfield_rail","Binocular","rhs_weap_rpg75"];
+unlockedRifles append ["UK3CB_Enfield","UK3CB_Enfield_rail"];
+unlockedMagazines append ["UK3CB_BAF_9_13rnd","UK3CB_BAF_9_15rnd","UK3CB_Enfield_mag"];
+initialRifles append ["UK3CB_Enfield","UK3CB_Enfield_rail"];
+unlockedItems append ["rhs_acc_2dpZenit"];
+initGrenades = ["rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_mag_rdg2_black","rhs_grenade_m15_mag"];//Frag, Flare, Smoke, Smoke
+unlockedAT append ["rhs_weap_rpg75"];
+unlockedBackpacks append ["UK3CB_CHC_C_B_MED","UK3CB_B_Bedroll_Backpack","UK3CB_TKC_C_B_Sidor_MED","UK3CB_CW_SOV_O_LATE_B_Sidor_RIF","UK3CB_CW_SOV_O_EARLY_B_Sidor_RIF"];
+initVest = ["UK3CB_V_CW_Chestrig","UK3CB_V_CW_Chestrig_2_Small","UK3CB_V_Belt_KHK","UK3CB_V_Belt_Rig_KHK","UK3CB_V_Belt_Rig_Lite_KHK","UK3CB_V_Pouch","UK3CB_V_Chestrig_TKA_OLI","UK3CB_V_Chestrig_2_small_OLI","UK3CB_V_Chestrig_TKA_BRUSH","UK3CB_V_Chestrig_Lite_KHK","UK3CB_V_Chestrig_Lite_2_Small_KHK"];
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems append ["tf_microdagr","tf_anprc154"]};
-if (startLR) then {unlockedBackpacks pushBack "tf_anprc155_coyote"};
+if (startLR) then {unlockedBackpacks pushBack "UK3CB_B_O_Radio_Backpack"};

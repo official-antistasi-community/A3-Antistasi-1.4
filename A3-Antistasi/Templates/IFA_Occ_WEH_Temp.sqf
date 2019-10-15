@@ -16,7 +16,7 @@ NATOFlag = "LIB_FlagCarrier_GER";
 NATOFlagTexture = "ww2\core_t\if_decals_t\german\flag_ger_co.paa";
 flagNATOmrk = "LIB_faction_WEHRMACHT";
 if (isServer) then {"NATO_carrier" setMarkerText "Wehrmacht Reinforcements"};
-	
+
 //Loot Crate
 NATOAmmobox = "B_supplyCrate_F";
 

@@ -32,26 +32,23 @@ _posAA = _positionsX select {(_x select 2) == "AA"};
 _posAT = _positionsX select {(_x select 2) == "AT"};
 
 _typeVehX = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
-if ([_typeVehX] call A3A_fnc_vehAvailable) then
+_max = if (_frontierX && {[_typeVehX] call A3A_fnc_vehAvailable}) then {2} else {1};
+for "_i" from 1 to _max do
 {
-	_max = if (_sideX == Occupants) then {1} else {2};
-	for "_i" from 1 to _max do
-	{
-		//_pos = [_positionX, 50, _size, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
-		//_pos = _positionX findEmptyPosition [_size - 200,_size+50,_typeVehX];
-		_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
+	//_pos = [_positionX, 50, _size, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
+	//_pos = _positionX findEmptyPosition [_size - 200,_size+50,_typeVehX];
+	_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 
-		_vehicle=[_spawnParameter select 0, _spawnParameter select 1,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
-		_veh = _vehicle select 0;
-		_vehCrew = _vehicle select 1;
-		{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
-		[_veh] call A3A_fnc_AIVEHinit;
-		_groupVeh = _vehicle select 2;
-		_soldiers = _soldiers + _vehCrew;
-		_groups pushBack _groupVeh;
-		_vehiclesX pushBack _veh;
-		sleep 1;
-	};
+	_vehicle=[_spawnParameter select 0, _spawnParameter select 1,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
+	_veh = _vehicle select 0;
+	_vehCrew = _vehicle select 1;
+	{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
+	[_veh] call A3A_fnc_AIVEHinit;
+	_groupVeh = _vehicle select 2;
+	_soldiers = _soldiers + _vehCrew;
+	_groups pushBack _groupVeh;
+	_vehiclesX pushBack _veh;
+	sleep 1;
 };
 
 if (_frontierX) then
@@ -264,7 +261,7 @@ if (!_busy) then
 		private _veh = objNull;
 		if(_spawnParameter isEqualType []) then
 		{
-			_typeVehX = if (_sideX == Occupants) then {selectRandom ([vehNATOPlane, vehNATOPlaneAA, vehNATOUAV] select {[_x] call A3A_fnc_vehAvailable})} else {selectRandom ([vehCSATPlane, vehCSATPlaneAA, vehCSATUAV] select {[_x] call A3A_fnc_vehAvailable})};
+			_typeVehX = if (_sideX == Occupants) then {selectRandom ([vehNATOPlane, vehNATOPlaneAA] select {[_x] call A3A_fnc_vehAvailable})} else {selectRandom ([vehCSATPlane, vehCSATPlaneAA] select {[_x] call A3A_fnc_vehAvailable})};
 			_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [],3, "CAN_COLLIDE"];
 			_veh setDir (_spawnParameter select 1);
 			_vehiclesX pushBack _veh;

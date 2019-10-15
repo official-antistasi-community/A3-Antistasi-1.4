@@ -9,11 +9,12 @@ CHANGELOG 2.2
   - Changed the way resource points and factories become destroyed. You see something unusual, shoot it, a industrial building is blocking your way, mortar it, strange civis running around, sho.. You get the point. And watch the barrels.
   - Complete overhaul of starting weapons and equipment for all variations of rebel side. Guerilla fighters don't start with high-end weaponary, they start with sandals.
   - Rebel AI now appropriately gear from unlocked equipment. Can't win a rebellion with fishing vests, you know.
+  - Overhaul of the loot tables. A much wider variety of gear should spawn.
   - Complete re-balance of AI Skill. Cut the brains of the enemies in half and implanted the other half into your AI units. They should be a lot less useless while fighting worse enemies.
 
   PARAMETER CHANGES
-  - Created parameters to allow DLC gear. We heard your call for it. Just make sure you use it with caution.
-  - Created parameters to modify or prohibit crate loot. You don't want to get a specific item, you don't get it (PBP What exactly is meant by this)
+  - Created parameters to allow DLC gear. Currently, this affects items in crates and civilian vehicles. We heard your call for it. Just make sure you use it with caution.
+  - Created parameters to customise the variety and amount of loot that gets spawned in crates.
   - Created parameters to allow unlocked guided launchers and explosives. So please stop asking for cheats in the help channel.
   - Created a parameter to stop an unlocked weapon from unlocking its first valid magazine. For the ones, who really love looting.
   - Added an option to disable civilian traffic. The group state they are driving in is careless, and it is a fitting descripting of their driving skills. You can now turn off random death by driving civilians.
@@ -31,7 +32,7 @@ CHANGELOG 2.2
   - All items now get removed when player respawn. No more stolen radios from the afterlive.
   - Readd maps when player respawn. Yeah, that wasn't considered enough.
   - Regular players are now allowed to place the HQ if Petros died and there is no boss.
-  - Moved vehicle-specific actions to VehicleBox. You know, the repair box.
+  - Moved vehicle-specific actions to VehicleBox. You know, the repair box. Vehicles can now access the arsenal from there too!
   - Increased spawn distance on HC vehicles. You may have to search a bit, but the spawning should be better now.
   - Every airfield has at least one manned AA vehicle in every case
 
@@ -45,6 +46,8 @@ CHANGELOG 2.2
 
 ================ Bugfixes ========================
 
+  - Fixed schrodingers' buildings - they should no longer be both destroyed and not. Maybe. We won't know until we check!
+  - Fixed convoys not moving or stopping moving when attacked (i.e - Convoy missions work again!)
   - Dialog back buttons now work correctly. No struggling with dialogs anymore.
   - ACRE radios are now recognized correctly
   - Fixed an error relating to toolkits being added to the arsenal incorrectly
@@ -71,6 +74,8 @@ CHANGELOG 2.2
 
 =================  Code  =========================
 
+*DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while! 
+
   - Arsenal can now be setup in multiple objects
   - Rebuilt items detection system completely
   - Items system now scans config for defines instead of relying on manual input
@@ -92,6 +97,7 @@ CHANGELOG 2.2
   - Replaced type checks with isEqualType
   - Renamed AAFKilledEH to invaderOccupantUnitKilledEH
   - Changed the way dlc items get detected
+  - Map templates have been moved to the top level of the mission.
 
 
 =================  Known issues  ==========================

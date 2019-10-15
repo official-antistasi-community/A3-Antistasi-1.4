@@ -1,5 +1,6 @@
 //Blufor Altis Template Call
 if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_B_Altis.sqf"};
+if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_SDK_Tanoa.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -88,16 +89,18 @@ supportStaticsSDKB3 = "I_Mortar_01_support_F";
 //             ITEMS             ///
 ////////////////////////////////////
 //Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla1_1", []],[],[],"","",[],["ItemMap","","","","",""]];
+teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla3_1", []],[],[],"","",[],["ItemMap","","","","",""]];
 //Mines
 ATMineMag = "ATMine_Range_Mag";
 APERSMineMag = "APERSMine_Range_Mag";
 //Starting Unlocks
-unlockedWeapons append ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F","Binocular","SMG_05_F","SMG_02_F"];
-unlockedRifles append ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];
-unlockedMagazines append ["9Rnd_45ACP_Mag","30Rnd_9x21_Mag","30Rnd_762x39_Mag_F","MiniGrenade","1Rnd_HE_Grenade_shell","30Rnd_545x39_Mag_F","30Rnd_9x21_Mag_SMG_02","10Rnd_9x21_Mag","200Rnd_556x45_Box_F","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
-initialRifles append ["hgun_PDW2000_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","SMG_02_F"];
-unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
+unlockedWeapons append ["hgun_Pistol_heavy_02_F","hgun_P07_F","SMG_01_F","hgun_PDW2000_F","Binocular"];
+unlockedRifles append ["SMG_01_F","hgun_PDW2000_F"];
+unlockedMagazines append ["6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","30Rnd_45ACP_Mag_SMG_01","50Rnd_570x28_SMG_03","MiniGrenade","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
+initialRifles append ["SMG_01_F","hgun_PDW2000_F"];
+initGrenades = ["MiniGrenade","SmokeShell"];//Frag, Smoke
+unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk"];
+initVest = ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt"];
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems append ["tf_microdagr","tf_anprc154"]};
 if (startLR) then {unlockedBackpacks pushBack "tf_anprc155"};

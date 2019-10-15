@@ -164,11 +164,13 @@ unlockedAA = [];
 unlockedMG = [];
 unlockedGL = [];
 unlockedSN = [];
+initVest = [];
+initGrenades = [];
 
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
 ////////////////////////////////////
-call A3A_fnc_initDisabledMods; 
+call A3A_fnc_initDisabledMods;
 diag_log format ["%1: [Antistasi] | INFO | initVar | Starting Mod Detection",servertime];
 //Faction MODs
 hasRHS = false;
@@ -327,7 +329,7 @@ if (!hasIFA) then
 				if (has3CB) then
 					{
 					//3CB REBEL Template
-					call compile preProcessFileLineNumbers "Templates\3CB_Reb_CCM_Arid.sqf";
+					call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf";
 					}
 					else
 					{
@@ -453,6 +455,8 @@ unlockedItems append civilianUniform;
 unlockedItems append civilianHeadgear;
 unlockedItems append civilianVest;
 unlockedItems append civilianGlasses;
+unlockedItems append initVest;
+unlockedMagazines append initGrenades;
 
 ////////////////////////////////////
 //      ACE ITEMS LIST           ///

@@ -91,7 +91,7 @@ _helipads = [];
   _markerX = _x;
   _markerSize = markerSize _x;
   _distance = sqrt ((_markerSize select 0) * (_markerSize select 0) + (_markerSize select 1) * (_markerSize select 1));
-  _buildings = nearestObjects [getMarkerPos _x, ["Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F", "Land_ServiceHangar_01_L_F", "Land_ServiceHangar_01_R_F"], _distance, true];
+  _buildings = nearestObjects [getMarkerPos _x, ["Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F"/*, "Land_ServiceHangar_01_L_F", "Land_ServiceHangar_01_R_F"*/], _distance, true];
   {
     if((getPos _x) inArea _markerX) then
     {
@@ -183,7 +183,7 @@ _planeSpawns = [];
     _pos = getPos _x;
     _pos set [2, (_pos select 2) + 0.1];
     _dir = direction _x;
-    if(_x isKindOf "Land_Hangar_F" || {_x isKindOf "Land_Airport_01_hangar_F" || {_x isKindOf "Land_ServiceHangar_01_R_F"}}) then
+    if(_x isKindOf "Land_Hangar_F" || {_x isKindOf "Land_Airport_01_hangar_F" /*|| {_x isKindOf "Land_ServiceHangar_01_R_F"}*/}) then
     {
       //This hangar is facing the wrong way...
       _dir = _dir + 180;

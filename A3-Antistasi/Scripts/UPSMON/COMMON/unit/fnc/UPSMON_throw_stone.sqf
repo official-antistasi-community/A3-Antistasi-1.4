@@ -23,7 +23,7 @@ _npc switchmove "AwopPercMstpSgthWnonDnon_end";
 _npc addmagazine "HandGrenade_Stone";
 _npc selectWeapon "throw";
 sleep .1;
-_npc forceWeaponFire ["HandGrenade_Stone","HandGrenade_Stone"];
+_npc forceWeaponFire ["HandGrenade_Stone"];
 _time = time + 5;
 _npc setvariable ["UPSMON_ThrowStone",_time];
 sleep 1;

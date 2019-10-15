@@ -1,42 +1,40 @@
 #include "functions\Garage\defineGarage.inc"
 
 diag_log format ["%1: [Antistasi] | INFO | initPlayerLocal Started.",servertime];
-if (hasInterface) then
-	{
+if (hasInterface) then {
 	waitUntil {!isNull player};
 	waitUntil {player == player};
 	player removeweaponGlobal "ItemMap";
 	player removeweaponGlobal "ItemGPS";
 	//Disable player saving until they're fully ready, and have chosen whether to load their save.
 	player setVariable ["canSave", false, true];
-	};
-if (isMultiplayer) then
-	{
-	if (!isServer) then
-		{
+};
+
+if (isMultiplayer) then {
+	if (!isServer) then {
 		call compile preprocessFileLineNumbers "initFuncs.sqf";
 		call compile preprocessFileLineNumbers "initVar.sqf";
 		waitUntil {!isNil "initVar"};
 		diag_log format ["%1: [Antistasi] | INFO | MP Client | Version : %2.",servertime, antistasiVersion];
-		}
-	else
-		{
+	}
+	else {
 		waitUntil {sleep 0.5;(!isNil "serverInitDone")};
-		};
-	[] execVM "briefing.sqf";
 	};
-if (!hasInterface) exitWith
-	{
+	[] execVM "briefing.sqf";
+};
+
+if (!hasInterface) exitWith {
 	if (worldName == "Tanoa") then {call compile preprocessFileLineNumbers "roadsDB.sqf"};
 	if (worldName == "Altis") then {call compile preprocessFileLineNumbers "roadsDBAltis.sqf"};
 	if (worldName == "chernarus_summer") then {call compile preprocessFileLineNumbers "roadsDBcherna.sqf"};
 	if (worldName == "enoch") then {call compile preprocessFileLineNumbers "roadsDBLivonia.sqf"};
 	if (worldName == "Malden") then {call compile preprocessFileLineNumbers "roadsDBMalden.sqf"};
-[clientOwner] remoteExec ["A3A_fnc_addHC",2];
-	};
+	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
+};
+
 _isJip = _this select 1;
 if (isMultiplayer) then
-	{
+{
 	if (side player == teamPlayer) then {player setVariable ["eligible",true,true]};
 	musicON = false;
 	//waitUntil {scriptdone _introshot};

@@ -111,8 +111,8 @@ _introShot = [
 membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
 disableUserInput false;
-player addWeaponGlobal "itemmap";
-if !(hasIFA) then {player addWeaponGlobal "itemgps"};
+player addWeaponGlobal "ItemMap";
+if !(hasIFA) then {player addWeaponGlobal "ItemGPS"};
 player setVariable ["spawner",true,true];
 if (isMultiplayer && playerMarkersEnabled) then
 	{
@@ -125,7 +125,7 @@ if (!hasACE) then
 	}
 else
 	{
-	if (hasACEhearing) then {player addItem "ACE_EarPlugs";};
+	if (hasACEhearing) then {player addItem "ACE_EarPlugs"};
 	if (!hasACEMedical) then {[player] spawn A3A_fnc_initRevive;};
 	};
 

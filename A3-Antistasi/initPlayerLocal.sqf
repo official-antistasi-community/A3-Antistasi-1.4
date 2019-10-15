@@ -4,8 +4,6 @@ diag_log format ["%1: [Antistasi] | INFO | initPlayerLocal Started.",servertime]
 if (hasInterface) then {
 	waitUntil {!isNull player};
 	waitUntil {player == player};
-	player removeweaponGlobal "ItemMap";
-	player removeweaponGlobal "ItemGPS";
 	//Disable player saving until they're fully ready, and have chosen whether to load their save.
 	player setVariable ["canSave", false, true];
 };
@@ -110,8 +108,6 @@ _introShot = [
 membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
 disableUserInput false;
-player addWeaponGlobal "ItemMap";
-if !(hasIFA) then {player addWeaponGlobal "ItemGPS"};
 player setVariable ["spawner",true,true];
 
 if (isMultiplayer && playerMarkersEnabled) then {
@@ -123,7 +119,6 @@ if (!hasACE) then {
 	[] spawn A3A_fnc_tags;
 }
 else	{
-	if (hasACEhearing) then {player addItem "ACE_EarPlugs"};
 	if (!hasACEMedical) then {[player] spawn A3A_fnc_initRevive;};
 };
 
@@ -202,10 +197,7 @@ player setUnitTrait ["audibleCoef",0.8];
 
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;
-//Add a maplight if we're running ACE, because it can be really dark.
-if (hasACE) then {
-	player addItem "ACE_Flashlight_XL50";
-};
+
 player setvariable ["compromised",0];
 player addEventHandler ["FiredMan", {
 	_player = _this select 0;

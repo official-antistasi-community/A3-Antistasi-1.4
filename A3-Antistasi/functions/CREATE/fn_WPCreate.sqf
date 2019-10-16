@@ -136,6 +136,8 @@ if (worldName == "Tanoa") then {
 	};
 };
 
-{
-	_groupX addWaypoint [getMarkerPos (_x), 0, _forEachIndex]
-} forEach _finalArray;
+private _waypoints = _finalArray apply {_groupX addWaypoint [getMarkerPos (_x), 0]};
+
+_groupX setCurrentWaypoint (_waypoints select 0);
+
+_waypoints;

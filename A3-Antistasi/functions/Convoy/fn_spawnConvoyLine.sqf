@@ -1,4 +1,4 @@
-params ["_data", "_side", "_pos", "_dir", ["_landVehicleGroup", grpNull]];
+params ["_data", "_side", "_pos", "_dir"];
 
 private _vehicleType = _data select 0;
 private _crewData = _data select 1;
@@ -6,7 +6,7 @@ private _cargoData = _data select 2;
 
 private _slowConvoy = false;
 
-private _vehicleGroup = if (!isNull _landVehicleGroup && {!(_vehicleType isKindOf "Air")}) then {_landVehicleGroup} else {createGroup _side};
+private _vehicleGroup = createGroup _side;
 private _vehicleObj = objNull;
 
 if(_vehicleType != "") then
@@ -51,6 +51,8 @@ private _crewObjs = [];
 	  if (isNull driver _vehicleObj) then {
 		_unit assignAsDriver _vehicleObj;
 		_unit moveInDriver _vehicleObj;
+		//Take away the AI driver's will. They shall do as they're commanded.
+
 	  } else {
 		if (_nextTurretIndex < _turretCount) then {
 			private _turretData = [_vehicleObj, _turrets select _nextTurretIndex];

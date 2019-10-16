@@ -34,6 +34,7 @@ class A3A
 		class intelFound {};
 		class isFrontline {};
 		class isTheSameIsland {};
+		class joinMultipleGroups {};
 		class keys {};
 		class localizar {};
 		class location {};
@@ -65,6 +66,7 @@ class A3A
 		class sellVehicle {};
 		class setMarkerAlphaForSide {};
 		class sizeMarker {};
+		class splitVehicleCrewIntoOwnGroups {};
 		class startBreachVehicle {};
 		class statistics {};
 		class stripGearFromLoadout {};

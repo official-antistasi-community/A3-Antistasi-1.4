@@ -16,9 +16,10 @@ private _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >>
 switch (_uniformFaction) do
 	{
 	//RHS
-	case "rhsgref_faction_nationalist": {if !(has3CB) then {rebelUniform pushBack _x};};
+	case "rhsgref_faction_nationalist": {if ((!has3CB) and nameTeamPlayer isEqualTo "NAPA") then {rebelUniform pushBack _x};};
+	case "rhsgref_faction_cdf_ng_b": {if ((!has3CB) and teamPlayer isEqualTo west) then {rebelUniform pushBack _x};};
 	//IFA
-	case "LIB_GUER";
+	case "LIB_GUER": {if (hasIFA) then {rebelUniform pushBack _x};};
 	//Vanilla
 	case "IND_C_F";
 	//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1

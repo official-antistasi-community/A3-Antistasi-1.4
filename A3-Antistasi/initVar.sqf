@@ -453,7 +453,7 @@ private _equipmentFilter = {
 						};
 					};
 					case "Uniform": {
-						if (hasIFA) then {
+						if (hasIFA || has3CB) then {
 							_remove = true;
 						};
 					};

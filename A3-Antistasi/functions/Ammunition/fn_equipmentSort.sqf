@@ -16,6 +16,8 @@
 		//RHS
 		case "rhsgref_faction_nationalist": {if ((!has3CB) and nameTeamPlayer isEqualTo "NAPA") then {rebelUniform pushBack _x};};
 		case "rhsgref_faction_cdf_ng_b": {if ((!has3CB) and teamPlayer isEqualTo west) then {rebelUniform pushBack _x};};
+		//3CB
+		//case "IND_F": {if ((has3CB) and nameTeamPlayer isEqualTo "TTF") then {rebelUniform pushBack _x};};
 		//IFA
 		case "LIB_GUER": {if (hasIFA) then {rebelUniform pushBack _x};};
 		//Vanilla
@@ -29,6 +31,8 @@ civilianUniform deleteAt (civilianUniform find "U_C_Protagonist_VR");
 civilianUniform deleteAt (civilianUniform find "U_LIB_CIV_Priest");
 rebelUniform deleteAt (rebelUniform find "U_I_G_Story_Protagonist_F");
 rebelUniform deleteAt (rebelUniform find "U_I_G_resistanceLeader_F");
+rebelUniform deleteAt (rebelUniform find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_01_BLK");
+rebelUniform deleteAt (rebelUniform find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_02_BLK");
 
 ////////////////////////////////////
 //      Backpacks Sorting        ///

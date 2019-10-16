@@ -2,28 +2,26 @@
 //      Uniforms Sorting        ///
 ////////////////////////////////////
 {
-private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
-private _uniformSide = getNumber (configfile >> "CfgVehicles" >> _originUnit >> "side");
-switch (_uniformSide) do
-	{
-	case 3: {civilianUniform pushBack _x};
+	private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
+	private _uniformSide = getNumber (configfile >> "CfgVehicles" >> _originUnit >> "side");
+	switch (_uniformSide) do {
+		case 3: {civilianUniform pushBack _x};
 	};
 } forEach allUniform;
 
 {
-private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
-private _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
-switch (_uniformFaction) do
-	{
-	//RHS
-	case "rhsgref_faction_nationalist": {if ((!has3CB) and nameTeamPlayer isEqualTo "NAPA") then {rebelUniform pushBack _x};};
-	case "rhsgref_faction_cdf_ng_b": {if ((!has3CB) and teamPlayer isEqualTo west) then {rebelUniform pushBack _x};};
-	//IFA
-	case "LIB_GUER": {if (hasIFA) then {rebelUniform pushBack _x};};
-	//Vanilla
-	case "IND_C_F";
-	//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1
-	case "BLU_G_F": {rebelUniform pushBack _x};
+	private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
+	private _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
+	switch (_uniformFaction) do {
+		//RHS
+		case "rhsgref_faction_nationalist": {if ((!has3CB) and nameTeamPlayer isEqualTo "NAPA") then {rebelUniform pushBack _x};};
+		case "rhsgref_faction_cdf_ng_b": {if ((!has3CB) and teamPlayer isEqualTo west) then {rebelUniform pushBack _x};};
+		//IFA
+		case "LIB_GUER": {if (hasIFA) then {rebelUniform pushBack _x};};
+		//Vanilla
+		case "IND_C_F";
+		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1
+		case "BLU_G_F": {rebelUniform pushBack _x};
 	};
 } forEach allUniform;
 
@@ -36,11 +34,11 @@ rebelUniform deleteAt (rebelUniform find "U_I_G_resistanceLeader_F");
 //      Backpacks Sorting        ///
 ////////////////////////////////////
 {
-private _itemFaction = getText (configfile >> "CfgVehicles" >> _x >> "faction");
-switch (_itemFaction) do {
-	case "Default": {allBackpackEmpty pushBack _x};
-	default {allBackpackTool pushBack _x};
-};
+	private _itemFaction = getText (configfile >> "CfgVehicles" >> _x >> "faction");
+	switch (_itemFaction) do {
+		case "Default": {allBackpackEmpty pushBack _x};
+		default {allBackpackTool pushBack _x};
+	};
 } forEach allBackpack;
 
 allBackpackEmpty deleteAt (allBackpackEmpty find "B_AssaultPack_Kerry");

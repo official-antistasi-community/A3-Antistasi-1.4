@@ -54,7 +54,7 @@ if (faction _unit isEqualTo factionGEN) then {
 		_magazines = getArray (configFile / "CfgWeapons" / _rifleFinal / "magazines");
 		{_unit removeMagazines _x} forEach _magazines;
 		_unit removeWeaponGlobal (_rifleFinal);
-		if (tierWar < 5) then {[_unit, "SMG_05_F", 6, 0] call BIS_fnc_addWeapon} else {[_unit, "arifle_MXC_Black_F", 6, 0] call BIS_fnc_addWeapon};
+		if (tierWar < 5) then {[_unit, (selectRandom allWeaponSubmachineGun), 6, 0] call BIS_fnc_addWeapon} else {[_unit, (selectRandom arifles), 6, 0] call BIS_fnc_addWeapon};
 		_unit selectWeapon (primaryWeapon _unit);
 	};
 };

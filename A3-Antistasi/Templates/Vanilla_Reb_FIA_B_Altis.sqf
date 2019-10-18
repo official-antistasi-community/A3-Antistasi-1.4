@@ -91,9 +91,9 @@ teamPlayerDefaultLoadout = [[],[],[],["U_BG_Guerilla2_1", []],[],[],"","",[],["I
 ATMineMag = "ATMine_Range_Mag";
 APERSMineMag = "APERSMine_Range_Mag";
 //Starting Unlocks
-unlockedWeapons append ["hgun_Pistol_heavy_02_F","hgun_ACPC2_F","hgun_PDW2000_F","SMG_02_F"];
-unlockedSMG append ["SMG_01_F","SMG_02_F"];
-initialWeapons append ["SMG_01_F","SMG_02_F"];
+unlockedWeapons append ["hgun_Pistol_heavy_02_F","hgun_ACPC2_F","hgun_PDW2000_F","SMG_01_F"];
+unlockedSMG append ["SMG_01_F","hgun_PDW2000_F"];
+initialWeapons append ["SMG_01_F","hgun_PDW2000_F"];
 unlockedMagazines append ["6Rnd_45ACP_Cylinder","9Rnd_45_Mag","30Rnd_9x21_Mag","30Rnd_9x21_Mag_SMG_02","MiniGrenade","SmokeShell","IEDLandBig_Remote_Mag","IEDUrbanBig_Remote_Mag","IEDLandSmall_Remote_Mag","IEDUrbanSmall_Remote_Mag"];
 unlockedBackpacks append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk"];
 unlockedVest append ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt"];

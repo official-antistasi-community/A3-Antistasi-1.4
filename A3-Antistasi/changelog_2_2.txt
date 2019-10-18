@@ -71,6 +71,8 @@ CHANGELOG 2.2
   - Fixed arsenal being called before it could init
   - Fixed Petros not respawning. Well, at least in theory.
   - Fixed statics at base sneaking away. We got you, sneaky bastards.
+  - Fixed the player being able to take Petros as a prisoner.
+  - Fixed the player being able to join Petros' group.
 
 =================  Code  =========================
 

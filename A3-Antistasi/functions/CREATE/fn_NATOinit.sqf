@@ -44,20 +44,18 @@ else {
 
 _skill = (0.15 + (0.02 * difficultyCoef) + (0.01 * tierWar)) * skillMult;
 
-if ((faction _unit != factionGEN) and (faction _unit != factionFIA)) then {
-	if (faction _unit == factionFIA) then {
-			_skill = _skill min (0.2 * skillMult);
-	}
-	else {
-		_skill = _skill min (0.12 * skillMult);
-		if ((tierWar > 1) and !hasIFA) then {
-			_rifleFinal = primaryWeapon _unit;
-			_magazines = getArray (configFile / "CfgWeapons" / _rifleFinal / "magazines");
-			{_unit removeMagazines _x} forEach _magazines;
-			_unit removeWeaponGlobal (_rifleFinal);
-			if (tierWar < 5) then {[_unit, "SMG_05_F", 6, 0] call BIS_fnc_addWeapon} else {[_unit, "arifle_MXC_Black_F", 6, 0] call BIS_fnc_addWeapon};
-			_unit selectWeapon (primaryWeapon _unit);
-		};
+if (faction _unit isEqualTo factionFIA) then {
+		_skill = _skill min (0.2 * skillMult);
+};
+if (faction _unit isEqualTo factionGEN) then {
+	_skill = _skill min (0.12 * skillMult);
+	if (!hasIFA) then {
+		_rifleFinal = primaryWeapon _unit;
+		_magazines = getArray (configFile / "CfgWeapons" / _rifleFinal / "magazines");
+		{_unit removeMagazines _x} forEach _magazines;
+		_unit removeWeaponGlobal (_rifleFinal);
+		if (tierWar < 5) then {[_unit, "SMG_05_F", 6, 0] call BIS_fnc_addWeapon} else {[_unit, "arifle_MXC_Black_F", 6, 0] call BIS_fnc_addWeapon};
+		_unit selectWeapon (primaryWeapon _unit);
 	};
 };
 

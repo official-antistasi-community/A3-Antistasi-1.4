@@ -91,7 +91,7 @@ for "_i" from 0 to floor random crateBackpackTypeMax do {
 	_available = (lootBackpack - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
-		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Optics Left in Loot List",servertime]};
+		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | No Backpacks Left in Loot List",servertime]};
 	}
 	else {
 		_amount = floor random crateBackpackNumMax;

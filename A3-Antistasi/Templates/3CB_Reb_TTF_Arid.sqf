@@ -97,7 +97,6 @@ APERSMineMag = "rhs_mine_pmn2_mag";
 //Starting Unlocks
 initialRebelEquipment append ["UK3CB_BAF_L9A1","UK3CB_BAF_L107A1","UK3CB_Enfield","UK3CB_Enfield_rail","rhs_weap_rpg75"];
 initialRebelEquipment append ["UK3CB_Enfield","UK3CB_Enfield_rail"];
-initialWeapons append ["UK3CB_Enfield","UK3CB_Enfield_rail"];
 initialRebelEquipment append ["rhs_weap_rpg75"];
 initialRebelEquipment append ["UK3CB_BAF_9_13rnd","UK3CB_BAF_9_15rnd","UK3CB_Enfield_mag","rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_mag_rdg2_black","rhs_grenade_m15_mag"];
 initialRebelEquipment append ["UK3CB_CHC_C_B_MED","UK3CB_B_Bedroll_Backpack","UK3CB_TKC_C_B_Sidor_MED","UK3CB_CW_SOV_O_LATE_B_Sidor_RIF","UK3CB_CW_SOV_O_EARLY_B_Sidor_RIF"];

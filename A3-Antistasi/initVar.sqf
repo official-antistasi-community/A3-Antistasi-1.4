@@ -53,7 +53,7 @@ if (isServer) then {
 diag_log format ["%1: [Antistasi] | INFO | initVar | Declaring Empty Arrays",servertime];
 
 weaponCategories = ["Rifles", "Handguns", "MachineGuns", "MissileLaunchers", "Mortars", "RocketLaunchers", "Shotguns", "SMGs", "SniperRifles"];
-itemCategories = ["Bipods", "MuzzleAttachments", "PointerAttachments", "Optics", "Binoculars", "Compasses", "FirstAidKits", "GPS", "LaserDesignators", 
+itemCategories = ["Bipods", "MuzzleAttachments", "PointerAttachments", "Optics", "Binoculars", "Compasses", "FirstAidKits", "GPS", "LaserDesignators",
 	"Maps", "Medikits", "MineDetectors", "NVGs", "Radios", "Toolkits", "UAVTerminals", "Watches", "Glasses", "Headgear", "Vests", "Uniforms", "Backpacks"];
 				  
 magazineCategories = ["MagArtillery", "MagBullet", "MagFlare", "Grenades", "MagLaser", "MagMissile", "MagRocket", "MagShell", "MagShotgun", "MagSmokeShell"];
@@ -71,7 +71,7 @@ aggregateCategories = ["Weapons", "Items", "Magazines", "Explosives"];
 //These are here because it's non-trivial to identify items in them. They might be a very specific subset of items, or the logic that identifies them might not be perfect.
 //It's recommended that these categories be used with caution.
 specialCategories = ["AA", "AT", "GrenadeLaunchers", "LightAttachments", "LaserAttachments", "Chemlights", "SmokeGrenades", "LaunchedSmokeGrenades", "LaunchedFlares", "HandFlares", "IRGrenades","LaserBatteries",
-	"RebelUniforms", "CivilianUniforms", "BackpacksEmpty", "BackpacksTool", "BackpacksStatic", "BackpacksDevice", "CivilianVests", "ArmoredVests", "ArmoredHeadgear", "CivilianHeadgear", 
+	"RebelUniforms", "CivilianUniforms", "BackpacksEmpty", "BackpacksTool", "BackpacksStatic", "BackpacksDevice", "CivilianVests", "ArmoredVests", "ArmoredHeadgear", "CivilianHeadgear",
 	"CivilianGlasses"];
 
 
@@ -88,8 +88,6 @@ allCategories = allCategoriesExceptSpecial + specialCategories;
 	missionNamespace setVariable ["unlocked" + _x, []];
 } forEach allCategoriesExceptSpecial + ["AA", "AT", "GrenadeLaunchers"]; //TODO: Implement all of the special categories.
 
-//Used for AI-Rearm (poor implementation)
-initialWeapons = [];
 //Used for initial unlocks.
 initialRebelEquipment = [];
 
@@ -687,6 +685,7 @@ publicVariable "unlockedGrenadeLaunchers";
 publicVariable "unlockedSniperRifles";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
+publicVariable "initialRebelEquipment";
 
 publicVariable "allRifles";
 publicVariable "allHandguns";
@@ -700,7 +699,6 @@ publicVariable "allSniperRifles";
 publicVariable "allCivilianUniforms";
 publicVariable "allRebelUniforms";
 publicVariable "allArmoredHeadgear";
-publicVariable "initialWeapons";
 publicVariable "allSmokeGrenades";
 
 publicVariable "teamPlayer";

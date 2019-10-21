@@ -275,7 +275,7 @@ if (hmd _unit == "") then {
 	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
 		_selectedContainer setVariable ["busy",true];
-		_hmd = hmd _selectedContainer;
+		private _hmd = hmd _selectedContainer;
 		_unit doMove (getPosATL _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Picking NV Googles"};
 		_timeOut = time + 60;
@@ -305,7 +305,7 @@ if (!(headgear _unit in allArmoredHeadgear)) then {
 	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
 		_selectedContainer setVariable ["busy",true];
-		_helmet = headgear _selectedContainer;
+		private _helmet = headgear _selectedContainer;
 		_unit doMove (getPosATL _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Picking a Helmet"};
 		_timeOut = time + 60;
@@ -321,8 +321,8 @@ if (!(headgear _unit in allArmoredHeadgear)) then {
 };
 
 _foundItem = false;
-_minFA = if ([_unit] call A3A_fnc_isMedic) then {10} else {1};
-if ({_x == "FirstAidKit"} count (items _unit) < _minFA) then {
+private _targetFAKs = if ([_unit] call A3A_fnc_isMedic) then {10} else {1};
+if ({_x == "FirstAidKit"} count (items _unit) < _targetFAKs) then {
 	_needsRearm = true;
 	_foundItem = false;
 	_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
@@ -342,7 +342,7 @@ if ({_x == "FirstAidKit"} count (items _unit) < _minFA) then {
 		sleep 1;
 		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
 		if (_unit distance _selectedContainer < 3) then {
-			while {{_x == "FirstAidKit"} count (items _unit) < _minFA} do {
+			while {{_x == "FirstAidKit"} count (items _unit) < _targetFAKs} do {
 				_unit action ["rearm",_selectedContainer];
 				_unit addItem "FirstAidKit";
 				_selectedContainer removeItem "FirstAidKit";

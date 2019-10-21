@@ -27,12 +27,14 @@ private _deadBodies = [];
 private _selectedBody = objNull;
 private _targetMagazines = 4;
 private _primaryMagazines = [];
+private _bodyEquipment = [];
+private _selectedEquipment = objNull;
 
 _nearbyContainers = nearestObjects [_unit, ["ReammoBox_F","LandVehicle","WeaponHolderSimulated","GroundWeaponHolder","WeaponHolder"], _maxDistance];
 if (boxX in _nearbyContainers) then {_nearbyContainers = _nearbyContainers - [boxX]};
 
 
-if ((_primaryWeapon in initialRebelEquipment) || (_primaryWeapon == "")) then {
+if ((_primaryWeapon in initialRebelEquipment) || (_primaryWeapon isEqualTo "")) then {
 	_needsRearm = true;
 	if (count _nearbyContainers > 0) then {
 		{
@@ -374,10 +376,10 @@ if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit addVest (vest _selectedContainer);
 		{_unit addItemToVest _x} forEach _itemsUnit;
 		_unit action ["rearm",_selectedContainer];
-		_things = nearestObjects [_selectedContainer, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
-		if (count _things > 0) then {
-			_thingX = _things select 0;
-			{_thingX addItemCargoGlobal [_x,1]} forEach (vestItems _selectedContainer);
+		_bodyEquipment = nearestObjects [_selectedContainer, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
+		if (count _bodyEquipment > 0) then {
+			_selectedEquipment = _bodyEquipment select 0;
+			{_selectedEquipment addItemCargoGlobal [_x,1]} forEach (vestItems _selectedContainer);
 		};
 		removeVest _selectedContainer;
 	};
@@ -406,10 +408,10 @@ if (backpack _unit == "") then {
 		if (_unit distance _selectedContainer < 3) then {
 			_unit addBackPackGlobal ((backpack _selectedContainer) call A3A_fnc_basicBackpack);
 			_unit action ["rearm",_selectedContainer];
-			_things = nearestObjects [_selectedContainer, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
-			if (count _things > 0) then {
-				_thingX = _things select 0;
-				{_thingX addItemCargoGlobal [_x,1]} forEach (backpackItems _selectedContainer);
+			_bodyEquipment = nearestObjects [_selectedContainer, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
+			if (count _bodyEquipment > 0) then {
+				_selectedEquipment = _bodyEquipment select 0;
+				{_selectedEquipment addItemCargoGlobal [_x,1]} forEach (backpackItems _selectedContainer);
 			};
 			removeBackpackGlobal _selectedContainer;
 		};

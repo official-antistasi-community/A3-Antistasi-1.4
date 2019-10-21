@@ -293,7 +293,7 @@ switch _changeX do {
 			publicVariable "reportedVehs";
 		};
 	case "Control":{
-			hint "The Roadblock Garrison has recognised you";
+			hint "The Installation Garrison has recognised you";
 			//_compromised = _player getVariable "compromised";
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";

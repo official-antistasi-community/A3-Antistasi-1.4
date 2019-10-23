@@ -15,8 +15,11 @@ if (typeOf _crate == vehCSATAmmoTruck) then {
 	crateItemTypeMax=crateItemTypeMax*2;
 	crateAmmoTypeMax=crateAmmoTypeMax*2;
 	crateExplosiveTypeMax=crateExplosiveTypeMax*2;
-	crateOpticTypeMax=crateOpticTypeMax*2;
+	crateAttachmentTypeMax=crateAttachmentTypeMax*2;
 	crateBackpackTypeMax=crateBackpackTypeMax*2;
+	crateHelmetTypeMax=crateHelmetTypeMax*2;
+	crateVestTypeMax=crateVestTypeMax*2;
+	crateDeviceTypeMax=crateDeviceTypeMax*2;
 };
 //Weapons Loot
 for "_i" from 0 to floor random crateWepTypeMax do {

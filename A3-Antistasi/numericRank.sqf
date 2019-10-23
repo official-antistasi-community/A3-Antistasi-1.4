@@ -1,8 +1,8 @@
 private ["_unit","_idRank","_newRank","_result"];
 _unit = _this select 0;
 //_idRank = rankId _unit + 1;
-_rankX = _unit getVariable ["rankX","PRIVATE"];
-switch (_rankX) do
+_rango = _unit getVariable ["rango","PRIVATE"];
+switch (_rango) do
 	{
 	case "PRIVATE": {_idRank= 1; _newRank = "CORPORAL"};
 	case "CORPORAL": {_idRank = 2; _newRank = "SERGEANT"};

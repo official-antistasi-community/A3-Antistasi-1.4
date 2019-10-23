@@ -1,8 +1,10 @@
+if (player != theBoss) exitWith {hint "Only Player Commander has access to this function"};
+
 if (!(serverCommandAvailable "#logout") and (!isServer)) exitWith {hint "Only Server Admins or hosters can add a new member"};
 
 if !(membershipEnabled) exitWith {hint "Server Member feature is disabled"};
 
-if (isNil "membersX") exitWith {hint "Membership feature not yet initialised. Please try again later"};
+if (isNil "miembros") exitWith {hint "Membership feature not yet initialised. Please try again later"};
 
 _target = cursortarget;
 
@@ -13,14 +15,12 @@ if ((_this select 0 == "remove") and  !([_target] call A3A_fnc_isMember)) exitWi
 
 if (_this select 0 == "add") then
 	{
-	membersX pushBackUnique _uid;
+	miembros pushBackUnique _uid;
 	hint format ["%1 has been added to the Server Members List",name _target];
-	["You have been added to the Server Members list"] remoteExec ["hint", _target];
 	}
 else
 	{
-	membersX = membersX - [_uid];
+	miembros = miembros - [_uid];
 	hint format ["%1 has been removed from the Server Members List",name _target];
-	["You have been removed from the Server Members list"] remoteExec ["hint", _target];
 	};
-publicVariable "membersX";
+publicVariable "miembros";

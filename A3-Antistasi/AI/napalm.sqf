@@ -48,10 +48,10 @@ if (hasInterface) then
 	_ps4 setDropInterval 0.022;
 	_nul = [_ps4] spawn
 		{
-		_fireX = _this select 0;
-		while {alive _fireX} do
+		_fuego = _this select 0;
+		while {alive _fuego} do
 			{
-			_fireX say3D "fire";
+			_fuego say3D "fire";
 			sleep 13;
 			};
 		};

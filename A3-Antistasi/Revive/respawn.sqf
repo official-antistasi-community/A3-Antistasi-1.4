@@ -18,14 +18,14 @@ if (isMultiplayer) exitWith
 	//if (captive _unit) then {[_unit,false] remoteExec ["setCaptive"]};
 	_unit setDamage 1;
 	};
-private ["_positionX","_radiusX","_roads","_road","_pos"];
-_positionX = getMarkerPos respawnTeamPlayer;
+private ["_posicion","_tam","_roads","_road","_pos"];
+_posicion = getMarkerPos respawnBuenos;
 if (lifeState _unit == "INCAPACITATED") then {_unit setUnconscious false};
-_unit setVariable ["helped",objNull];
-_unit setVariable ["helping",false];
+_unit setVariable ["ayudado",objNull];
+_unit setVariable ["ayudando",false];
 _unit setDamage 0;
 _unit setVariable ["compromised",0];
-_unit setVariable ["disguised",false];
+_unit setVariable ["disfrazado",false];
 _unit setVariable ["INCAPACITATED",false];
 
 if (rating _unit < 0) then {_unit addRating (rating _unit * -1)};
@@ -41,12 +41,12 @@ _resourcesFIA = round ((server getVariable "resourcesFIA") * 0.05);
 if ((_x != vehicle _x) and (driver vehicle _x == _x)) then
 	{
 	sleep 3;
-	_radiusX = 10;
+	_tam = 10;
 	while {true} do
 		{
-		_roads = _positionX nearRoads _radiusX;
+		_roads = _posicion nearRoads _tam;
 		if (count _roads > 0) exitWith {};
-		_radiusX = _radiusX + 10;
+		_tam = _tam + 10;
 		};
 	_road = _roads select 0;
 	_pos = position _road findEmptyPosition [1,50,typeOf (vehicle _unit)];
@@ -56,7 +56,7 @@ else
 	{
 	if ([_x] call A3A_fnc_canFight) then
 		{
-		_x setPosATL _positionX;
+		_x setPosATL _posicion;
 		_x setVariable ["rearming",false];
 		_x doWatch objNull;
 		_x doFollow leader _x;
@@ -67,7 +67,7 @@ else
 		};
 	};
 //_x hideObject false;
-} forEach (units group _unit) + (units stragglers) - [_unit];
+} forEach (units group _unit) + (units rezagados) - [_unit];
 removeAllItemsWithMagazines _unit;
 _hmd = hmd _unit;
 if (_hmd != "") then
@@ -78,7 +78,7 @@ if (_hmd != "") then
 {_unit removeWeaponGlobal _x} forEach weapons _unit;
 removeBackpack _unit;
 removeVest _unit;
-_unit setPosATL _positionX;
+_unit setPosATL _posicion;
 _unit setCaptive false;
 _unit setUnconscious false;
 _unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";

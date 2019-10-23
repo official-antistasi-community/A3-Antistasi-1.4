@@ -10,13 +10,13 @@ if (haveRadio) then
 	}
 else
 	{
-	if (_unit call A3A_fnc_getRadio != "") then
+	if ("ItemRadio" in assignedItems _unit) then
 		{
 		_result = true
 		}
 	else
 		{
-		if (hasIFA) then
+		if (hayIFA) then
 			{
 			{if (typeOf _x in SDKGL) exitWith {_result = true}} forEach (units (group _unit));
 			};

@@ -1,21 +1,22 @@
-private ["_unit","_veh","_sideX","_typeX","_skill","_riflefinal","_magazines","_hmd","_markerX","_revealX"];
+private ["_unit","_veh","_lado","_tipo","_skill","_riflefinal","_magazines","_hmd","_marcador","_revelar"];
 
 _unit = _this select 0;
-if ((isNil "_unit") || (isNull _unit)) exitWith {diag_log format ["%1: [Antistasi] | ERROR | NATOinit.sqf | Error with Nato Parameter:%2",servertime,_this];};
-_typeX = typeOf _unit;
+if (isNil "_unit") exitWith {diag_log format ["Antistasi: Error enviando a NATOinit los parámetros:%1",_this]};
+if (isNull _unit) exitWith {diag_log format ["Antistasi: Error enviando a NATOinit los parámetros:%1",_this]};
+_tipo = typeOf _unit;
 if (typeOf _unit == "Fin_random_F") exitWith {};
-_sideX = side _unit;
-//_unit setVariable ["sideX",_sideX];
+_lado = side _unit;
+//_unit setVariable ["lado",_lado];
 _unit addEventHandler ["HandleDamage",A3A_fnc_handleDamageAAF];
 
 _unit addEventHandler ["killed",A3A_fnc_AAFKilledEH];
 if (count _this > 1) then
 	{
-	_markerX = _this select 1;
-	if (_markerX != "") then
+	_marcador = _this select 1;
+	if (_marcador != "") then
 		{
-		_unit setVariable ["markerX",_markerX,true];
-		if ((spawner getVariable _markerX != 0) and (vehicle _unit != _unit)) then {if (!isMultiplayer) then {_unit enableSimulation false} else {[_unit,false] remoteExec ["enableSimulationGlobal",2]}};
+		_unit setVariable ["marcador",_marcador,true];
+		if ((spawner getVariable _marcador != 0) and (vehicle _unit != _unit)) then {if (!isMultiplayer) then {_unit enableSimulation false} else {[_unit,false] remoteExec ["enableSimulationGlobal",2]}};
 		};
 	}
 else
@@ -33,11 +34,13 @@ else
 				_driver = driver _veh;
 				if (!isNull _driver) then
 					{
-					if (side group _driver != teamPlayer) then
+					if ((_driver getVariable ["BLUFORSpawn",false]) or (_driver getVariable ["OPFORSpawn",false])) then
 						{
-						if !(_unit getVariable ["spawner",false]) then
+						if ((not(_unit getVariable ["BLUFORSpawn",false])) or ((not(_unit getVariable ["OPFORSpawn",false])))) then
 							{
-							_unit setVariable ["spawner",true,true]
+							_lado = side (group _unit);
+							if (_lado == malos) then {_unit setVariable ["BLUFORSpawn",true,true]} else {_unit setVariable ["OPFORSpawn",true,true]};
+							//if (!simulationEnabled _unit) then {if (isMultiplayer) then {[_unit,true] remoteExec ["enableSimulationGlobal",2]} else {_unit enableSimulation true}};
 							};
 						};
 					};
@@ -45,19 +48,19 @@ else
 			}
 		else
 			{
-			_unit setVariable ["spawner",true,true]
+			if (_lado == malos) then {_unit setVariable ["BLUFORSpawn",true,true]} else {_unit setVariable ["OPFORSpawn",true,true]};
 			};
 		}
 	else
 		{
-		_unit setVariable ["spawner",true,true]
+		if (_lado == malos) then {_unit setVariable ["BLUFORSpawn",true,true]} else {_unit setVariable ["OPFORSpawn",true,true]};
 		};
 	};
 
 _skill = (tierWar + difficultyCoef) * 0.1 * skillMult;
 if ((faction _unit != factionGEN) and (faction _unit != factionFIA)) then
 	{
-	if (side _unit == Occupants) then
+	if (side _unit == malos) then
 		{
 		_skill = _skill + 0.1;
 		}
@@ -82,7 +85,7 @@ else
 	else
 		{
 		_skill = _skill min 0.2;
-		if ((tierWar > 1) and !hasIFA) then
+		if ((tierWar > 1) and !hayIFA) then
 			{
 			_rifleFinal = primaryWeapon _unit;
 			_magazines = getArray (configFile / "CfgWeapons" / _rifleFinal / "magazines");
@@ -96,10 +99,10 @@ else
 
 if (_skill > 0.58) then {_skill = 0.58};
 _unit setSkill _skill;
-if (not(_typeX in sniperUnits)) then
+if (not(_tipo in sniperUnits)) then
 	{
 	if (_unit skill "aimingAccuracy" > 0.35) then {_unit setSkill ["aimingAccuracy",0.35]};
-	if (_typeX in squadLeaders) then
+	if (_tipo in squadLeaders) then
 		{
 		_unit setskill ["courage",_skill + 0.2];
 		_unit setskill ["commanding",_skill + 0.2];
@@ -107,13 +110,13 @@ if (not(_typeX in sniperUnits)) then
 	};
 
 _hmd = hmd _unit;
-if !(hasIFA) then
+if !(hayIFA) then
 	{
 	if (sunOrMoon < 1) then
 		{
-		if (!hasRHS) then
+		if (!hayRHS) then
 			{
-			if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders) and (_unit != leader (group _unit))) then
+			if ((faction _unit != factionMachoMalos) and (faction _unit != factionMachoMuyMalos) and (_unit != leader (group _unit))) then
 				{
 				if (_hmd != "") then
 					{
@@ -193,9 +196,9 @@ if !(hasIFA) then
 		}
 	else
 		{
-		if (!hasRHS) then
+		if (!hayRHS) then
 			{
-			if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders)) then
+			if ((faction _unit != factionMachoMalos) and (faction _unit != factionMachoMuyMalos)) then
 				{
 				if (_hmd != "") then
 					{
@@ -217,23 +220,23 @@ if !(hasIFA) then
 	}
 else
 	{
-	_unit unlinkItem (_unit call A3A_fnc_getRadio);
+	_unit unlinkItem "ItemRadio";
 	};
-_revealX = false;
+_revelar = false;
 if (vehicle _unit != _unit) then
 	{
 	if (_unit == gunner (vehicle _unit)) then
 		{
-		_revealX = true;
+		_revelar = true;
 		};
 	}
 else
 	{
-	if ((secondaryWeapon _unit) in mlaunchers) then {_revealX = true};
+	if ((secondaryWeapon _unit) in mlaunchers) then {_revelar = true};
 	};
-if (_revealX) then
+if (_revelar) then
 	{
 	{
 	_unit reveal [_x,1.5];
-	} forEach allUnits select {(vehicle _x isKindOf "Air") and (_x distance _unit <= distanceSPWN)}
+	} forEach allUnits select {(vehicle _x isKindOf "Air") and (_x distance _unit <= distanciaSPWN)}
 	};

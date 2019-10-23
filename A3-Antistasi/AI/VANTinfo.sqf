@@ -1,25 +1,31 @@
-private ["_veh","_markerX","_positionX","_groups","_knownX","_groupX","_LeaderX"];
+private ["_veh","_marcador","_posicion","_grupos","_conocidos","_grupo","_lider"];
 
 _veh = _this select 0;
-_markerX = _this select 1;
-_sideX = _this select 2;
+_marcador = _this select 1;
+_lado = _this select 2;
 
-_positionX = getMarkerPos _markerX;
+_posicion = getMarkerPos _marcador;
 
-_enemiesS = if (_sideX == Invaders) then {Occupants} else {Invaders};
+_amigos = "BLUFORSpawn";
+_enemigosS = muyMalos;
+if (_lado == muyMalos) then
+	{
+	_amigos == "OPFORSpawn";
+	_enemigosS = malos;
+	};
 
 while {alive _veh} do
 	{
-	_knownX = [];
-	_groups = [];
-	_enemiesX = [distanceSPWN,0,_positionX,_sideX] call A3A_fnc_distanceUnits;
+	_conocidos = [];
+	_grupos = [];
+	_enemigos = [distanciaSPWN,0,_posicion,_amigos] call A3A_fnc_distanceUnits;
 	sleep 60;
-	_groups = allGroups select {(leader _x in _enemiesX) and ((vehicle leader _x) != (leader _x))};
-	_knownX = allUnits select {((side _x == teamPlayer) or (side _x == _enemiesS)) and (alive _x) and (_x distance _positionX < 500)};
+	_grupos = allGroups select {(leader _x in _enemigos) and ((vehicle leader _x) != (leader _x))};
+	_conocidos = allUnits select {((side _x == buenos) or (side _x == _enemigosS)) and (alive _x) and (_x distance _posicion < 500)};
 	{
-	_groupX = _x;
+	_grupo = _x;
 		{
-		_groupX reveal [_x,1.4];
-		} forEach _knownX;
-	} forEach _groups;
+		_grupo reveal [_x,4];
+		} forEach _conocidos;
+	} forEach _grupos;
 	};

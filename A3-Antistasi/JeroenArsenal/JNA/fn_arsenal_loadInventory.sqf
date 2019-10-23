@@ -59,10 +59,6 @@ _subtractArrays = {
 	_array1;
 };
 
-_isItemBino = {
-	getNumber(configFile >> "CfgWeapons" >> _this >> "type") == 4096;
-};
-
 //name that needed to be loaded
 _saveName = _this;
 _saveData = profilenamespace getvariable ["bis_fnc_saveInventory_data",[]];
@@ -98,12 +94,7 @@ _assignedItems_old = assignedItems player + [headgear player] + [goggles player]
 	_item = _x;
 	_amount = 1;
 	_index = _item call jn_fnc_arsenal_itemType;
-
-	if (_item call _isItemBino) then {
-		player removeWeapon _item;
-	} else {
-		player unlinkItem _item;
-	};
+	player unlinkItem _item;
 
 	[_arrayPlaced,_index,_item,_amount]call _addToArray;
 } forEach _assignedItems_old - [""];
@@ -185,22 +176,12 @@ _assignedItems = ((_inventory select 9) + [_inventory select 3] + [_inventory se
 			_item =_radioName;
 		};
 
-		_isBino = _item call _isItemBino;
-
 		call {
 			if ([_itemCounts select _index, _item] call jn_fnc_arsenal_itemCount == -1) exitWith {
-				if (_isBino) then {
-					player addWeapon _item;
-				} else {
-					player linkItem _item;
-				};
+				player linkItem _item;
 			};
 			if ([_availableItems select _index, _item] call jn_fnc_arsenal_itemCount > 0) then {
-				if (_isBino) then {
-					player addWeapon _item;
-				} else {
-					player linkItem _item;
-				};
+				player linkItem _item;
 				[_arrayTaken,_index,_item,_amount]call _addToArray;
 				[_availableItems,_index,_item,_amount]call _removeFromArray;
 			} else {
@@ -312,12 +293,9 @@ _backpackItems = _inventory select 2 select 1;
 
 //add containers
 _containers = [_uniform,_vest,_backpack];
-private _removeContainerFuncs = [{removeUniform player;},{removeVest player;},{removeBackpackGlobal player;}];										
-private _addContainerFuncs = [
-                              {player forceAddUniform (_this select 0);},
-                              {player addVest (_this select 0);},
-                              {player addBackpack (_this select 0);}
-														 ];
+private _invCallArray = [{removeUniform player;player forceAddUniform _uniform;},//todo remove
+                      {removeVest player;player addVest _vest;},
+                      {removeBackpackGlobal player;player addBackpack _backpack;}];
 {
 	_item = _x;
 	if!(_item isEqualTo "")then{
@@ -327,22 +305,20 @@ private _addContainerFuncs = [
 			IDC_RSCDISPLAYARSENAL_TAB_VEST,
 			IDC_RSCDISPLAYARSENAL_TAB_BACKPACK
 		] select _foreachindex;
-		
-		_addContainerFunc = (_addContainerFuncs select _foreachindex);
-		
+
 		call {
 			if ([_itemCounts select _index, _item] call jn_fnc_arsenal_itemCount == -1) exitWith {
-				[_item] call _addContainerFunc;
+				call (_invCallArray select _foreachindex);
 			};
 
 			if ([_availableItems select _index, _item] call jn_fnc_arsenal_itemCount > 0) then {
-				[_item] call _addContainerFunc;
+				call (_invCallArray select _foreachindex);
 				[_arrayTaken,_index,_item,_amount] call _addToArray;
 				[_availableItems,_index,_item,_amount] call _removeFromArray;
 			} else {
 				_oldItem = [_uniform_old,_vest_old,_backpack_old] select _foreachindex;
 				if !(_oldItem isEqualTo "") then {
-					[_oldItem] call _addContainerFunc;
+					call (_invCallArray select _foreachindex);
 					_arrayReplaced = [_arrayReplaced,[_item,_oldItem]] call jn_fnc_arsenal_addToArray;
 					[_arrayTaken,_index,_oldItem,1] call _addToArray;
 				} else {
@@ -412,23 +388,11 @@ private _addContainerFuncs = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Update global
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private _lookupConfigName = {
-	private _class = param [0];
-	private _configs = "configName _x == _class" configClasses (configFile >> "CfgWeapons");
-	if (count _configs > 0) exitWith {
-		[_configs select 0] call BIS_fnc_displayName;
-	};
-	private _configs = "configName _x == _class" configClasses (configFile >> "CfgMagazines");
-	if (count _configs > 0) exitWith {
-		[_configs select 0] call BIS_fnc_displayName;
-	};
-	_class;
-};
-
 _arrayAdd = [_arrayPlaced, _arrayTaken] call _subtractArrays; //remove items that where not added
 _arrayRemove = [_arrayTaken, _arrayPlaced] call _subtractArrays;
 
 _arrayAdd call jn_fnc_arsenal_addItem;
+diag_log "adadadadada";
 diag_log _arrayTaken;
 diag_log _arrayPlaced;
 _arrayRemove call jn_fnc_arsenal_removeItem;
@@ -439,24 +403,24 @@ _arrayRemove call jn_fnc_arsenal_removeItem;
 _reportTotal = "";
 _reportReplaced = "";
 {
-	_nameNew = [_x select 0] call _lookupConfigName;
-	_nameOld = [_x select 1] call _lookupConfigName;
-	_reportReplaced = _reportReplaced + _nameOld + " has been kept, because there is no " + _nameNew + "\n";
+	_nameNew = _x select 0;
+	_nameOld = _x select 1;
+	_reportReplaced = _reportReplaced + _nameOld + " instead of " + _nameNew + "\n";
 } forEach _arrayReplaced;
 
 if!(_reportReplaced isEqualTo "")then{
-	_reportTotal = ("These items were not in the Arsenal, so the originals have been kept:\n" + _reportReplaced+"\n");
+	_reportTotal = ("I keep this items because i couldn't find the other ones:\n" + _reportReplaced+"\n");
 };
 
 _reportMissing = "";
 {
-	_name = [_x select 0] call _lookupConfigName;
+	_name = _x select 0;
 	_amount = _x select 1;
 	_reportMissing = _reportMissing + _name + " (" + (str _amount) + "x)\n";
 }forEach _arrayMissing;
 
 if!(_reportMissing isEqualTo "")then{
-	_reportTotal = (_reportTotal+"These items were not in the Arsenal:\n" + _reportMissing+"\n");
+	_reportTotal = (_reportTotal+"I couldn't find the following items:\n" + _reportMissing+"\n");
 };
 
 if!(_reportTotal isEqualTo "")then{
@@ -483,7 +447,6 @@ if!(_reportTotal isEqualTo "")then{
 	]
 ]
 */
-
 
 
 

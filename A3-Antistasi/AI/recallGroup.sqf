@@ -1,8 +1,8 @@
-private _groupX = _this;
-private _array = if (_groupX isEqualType grpNull) then {((units _groupX) - [_groupX getVariable ["mortarX",objNull]])} else {[_groupX]};
+private _grupo = _this;
+private _array = if (_grupo isEqualType grpNull) then {((units _grupo) - [_grupo getVariable ["mortero",objNull]])} else {[_grupo]};
 {
 _x forceSpeed -1;
-_x setVariable ["maneuvering",false];
+_x setVariable ["maniobrando",false];
 if (_x == leader _x) then
 	{
 	_wp = currentWaypoint group _x;
@@ -14,4 +14,4 @@ else
 	_x doFollow leader _x;
 	};
 } forEach _array;
-(group (_array select 0)) setVariable ["occupiedX",[]];
+(group (_array select 0)) setVariable ["ocupadas",[]];

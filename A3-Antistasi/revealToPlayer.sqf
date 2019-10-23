@@ -1,18 +1,18 @@
 if (isDedicated) exitWith {};
-private ["_LeaderX"];
+private ["_lider"];
 if (count _this == 0) then
 	{
-	while {revealX} do
+	while {revelar} do
 		{
 		if (player == leader group player) then
 			{
 			if ([player] call A3A_fnc_hasRadio) then
 				{
 				{
-				_LeaderX = leader _x;
-				if (((side _LeaderX == Invaders) or (side _LeaderX == Occupants)) and (vehicle _LeaderX != _LeaderX) and (player knowsAbout _LeaderX < 1.5)) then
+				_lider = leader _x;
+				if (((side _lider == muyMalos) or (side _lider == malos)) and (vehicle _lider != _lider) and (player knowsAbout _lider < 1.5)) then
 					{
-					player reveal [_LeaderX,4];
+					player reveal [_lider,4];
 					sleep 1;
 					};
 				} forEach allGroups;
@@ -23,11 +23,11 @@ if (count _this == 0) then
 	}
 else
 	{
-	private ["_groupX"];
+	private ["_grupo"];
 	if (player == leader group player) then
 		{
-		_groupX = _this select 0;
-		_LeaderX = leader _groupX;
-		player reveal [_LeaderX,4];
+		_grupo = _this select 0;
+		_lider = leader _grupo;
+		player reveal [_lider,4];
 		};
 	};

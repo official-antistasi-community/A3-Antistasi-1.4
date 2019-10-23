@@ -1,4 +1,4 @@
-private ["_unit","_enemiesX"];
+private ["_unit","_enemigos"];
 
 _unit = _this select 0;
 
@@ -6,79 +6,64 @@ _unit setSkill 0;
 
 _unit disableAI "TARGET";
 _unit disableAI "AUTOTARGET";
-//Stops civilians from shouting out commands.
-[_unit, "NoVoice"] remoteExec ["setSpeaker", 0, _unit];
-
-_unit addEventHandler 
-[
-	"HandleDamage",
+_unit addEventHandler ["HandleDamage",
 	{
-		private _unit = _this select 0;
-		_dam = _this select 2;
-		_proy = _this select 4;
+	_dam = _this select 2;
+	_proy = _this select 4;
+	if (_proy == "") then
+		{
 		_injurer = _this select 3;
-		if(!isNil "_injurer" && isPlayer _injurer) then 
-		{
-			_unit setVariable ["injuredByPlayer", _injurer, true];
-			_unit setVariable ["lastInjuredByPlayer", time, true];
+		if ((_dam > 0.95) and (!isPlayer _injurer)) then {_dam = 0.9};
 		};
-		if (_proy == "") then
-		{
-			if ((_dam > 0.95) and (!isPlayer _injurer)) then {_dam = 0.9};
-		};
-		_dam
+	_dam
 	}
-];
-_EHkilledIdx = _unit addEventHandler 
-[
-	"killed",
+	];
+_EHkilledIdx = _unit addEventHandler ["killed",
 	{
-		_victim = _this select 0;
-		_killer = _this select 1;
-		if (time - (_victim getVariable ["lastInjuredByPlayer", 0]) < 120) then 
+	_muerto = _this select 0;
+	_killer = _this select 1;
+	if (_muerto == _killer) then
 		{
-			_killer = _victim getVariable ["injuredByPlayer", _killer];
-		};
-		if (isNull _killer) then 
-		{
-			_killer	= _victim;
-		};
-		if (_victim == _killer) then
-		{
-			_nul = [-1,-1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
+		_nul = [-1,-1,getPos _muerto] remoteExec ["A3A_fnc_citySupportChange",2];
 		}
-		else
+	else
 		{
-			if (isPlayer _killer) then
+		if (isPlayer _killer) then
 			{
-				if (typeOf _victim == "C_man_w_worker_F") then {_killer addRating 1000};
-				[-10,_killer] call A3A_fnc_playerScoreAdd;
-				//[_killer,20,0.34] remoteExec ["A3A_fnc_punishment",_killer];
-			};
-			_multiplier = 1;
-			if (typeOf _victim == "C_journalist_F") then {_multiplier = 10};
-			//Must be group, in case they're undercover.
-			if (side group _killer == teamPlayer) then
-			{
-				_nul = [1*_multiplier,0] remoteExec ["A3A_fnc_prestige",2];
-				_nul = [1,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-			}
-			else
-			{
-				if (side group _killer == Occupants) then
+			if (!isMultiPlayer) then
 				{
-					//_nul = [-1*_multiplier,0] remoteExec ["A3A_fnc_prestige",2];
-					_nul = [0,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
+				_nul = [0,20] remoteExec ["A3A_fnc_resourcesFIA",2];
+				_killer addRating 1000;
 				}
-				else
+			else
 				{
-					if (side group _killer == Invaders) then
+				if (typeOf _muerto == "C_man_w_worker_F") then {_killer addRating 1000};
+				[-10,_killer] call A3A_fnc_playerScoreAdd
+				}
+			};
+		_multiplicador = 1;
+		if (typeOf _muerto == "C_journalist_F") then {_multiplicador = 10};
+		if (side _killer == buenos) then
+			{
+			_nul = [1*_multiplicador,0] remoteExec ["A3A_fnc_prestige",2];
+			_nul = [1,0,getPos _muerto] remoteExec ["A3A_fnc_citySupportChange",2];
+			}
+		else
+			{
+			if (side _killer == malos) then
+				{
+				//_nul = [-1*_multiplicador,0] remoteExec ["A3A_fnc_prestige",2];
+				_nul = [0,1,getPos _muerto] remoteExec ["A3A_fnc_citySupportChange",2];
+				}
+			else
+				{
+				if (side _killer == muyMalos) then
 					{
-						//_nul = [2*_multiplier,0] remoteExec ["A3A_fnc_prestige",2];
-						_nul = [-1,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
+					//_nul = [2*_multiplicador,0] remoteExec ["A3A_fnc_prestige",2];
+					_nul = [-1,1,getPos _muerto] remoteExec ["A3A_fnc_citySupportChange",2];
 					};
 				};
 			};
 		};
 	}
-];
+	];

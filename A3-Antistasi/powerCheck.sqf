@@ -1,24 +1,24 @@
-private ["_markerX","_result","_positionX"];
-_markerX = _this select 0;
-//if (!(_markerX in citiesX)) exitWith {true; diag_log format ["Error en cálculo de antenna para %1",_markerX]};
-if (count antennas == 0) exitWith {sideUnknown};
+private ["_marcador","_result","_posicion"];
+_marcador = _this select 0;
+//if (!(_marcador in ciudades)) exitWith {true; diag_log format ["Error en cálculo de Antena para %1",_marcador]};
+if (count antenas == 0) exitWith {sideUnknown};
 //_result = false;
-_positionX = getMarkerPos _markerX;
-_ant1 = [antennas,_positionX] call BIS_fnc_nearestPosition;
-_ant2 = [antennasDead, _positionX] call BIS_fnc_nearestPosition;
+_posicion = getMarkerPos _marcador;
+_ant1 = [antenas,_posicion] call BIS_fnc_nearestPosition;
+_ant2 = [antenasMuertas, _posicion] call BIS_fnc_nearestPosition;
 
-if (_ant1 distance _positionX > _ant2 distance _positionX) exitWith {sideUnknown};
+if (_ant1 distance _posicion > _ant2 distance _posicion) exitWith {sideUnknown};
 
-_outpost = [markersX,_ant1] call BIS_fnc_NearestPosition;
+_puesto = [marcadores,_ant1] call BIS_fnc_NearestPosition;
 /*
-if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
+if (lados getVariable [_marcador,sideUnknown] == buenos) then
 	{
-	if (sidesX getVariable [_outpost,sideUnknown] == teamPlayer) then {_result = true};
+	if (lados getVariable [_puesto,sideUnknown] == buenos) then {_result = true};
 	}
 else
 	{
-	if (sidesX getVariable [_outpost,sideUnknown] == Occupants) then {_result = true};
+	if (lados getVariable [_puesto,sideUnknown] == malos) then {_result = true};
 	};*/
-private _sideX = sidesX getVariable [_outpost,sideUnknown];
+private _lado = lados getVariable [_puesto,sideUnknown];
 //_result
-_sideX
+_lado

@@ -1,6 +1,8 @@
 
 A3DD/
 .vscode/
+.vs/
+.git/
 .github/
 Arma 3 Dev Deploy.exe
 *.log

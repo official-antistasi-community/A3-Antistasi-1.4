@@ -1,58 +1,38 @@
 if (player != theBoss) exitWith {hint "Only Player Commander is allowed to move HQ assets"};
-private ["_thingX","_playerX","_id","_sites","_markerX","_size","_positionX"];
+private ["_cosa","_jugador","_id","_sitios","_marcador","_size","_posicion"];
 
-_thingX = _this select 0;
-_playerX = _this select 1;
+_cosa = _this select 0;
+_jugador = _this select 1;
 _id = _this select 2;
 
-if (!(isNull attachedTo _thingX)) exitWith {hint "The asset you want to move is being moved by another player"};
-if (vehicle _playerX != _playerX) exitWith {hint "You cannot move HQ assets while in a vehicle"};
+if (!(isNull attachedTo _cosa)) exitWith {hint "The asset you want to move is being moved by another player"};
+if (vehicle _jugador != _jugador) exitWith {hint "You cannot move HQ assets while in a vehicle"};
 
-if ({!(isNull _x)} count (attachedObjects _playerX) != 0) exitWith {hint "You have other things attached, you cannot move this"};
-_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
-_markerX = [_sites,_playerX] call BIS_fnc_nearestPosition;
-_size = [_markerX] call A3A_fnc_sizeMarker;
-_positionX = getMarkerPos _markerX;
-if (_playerX distance2D _positionX > _size) exitWith {hint "This asset needs to be closer to it relative zone center to be able to be moved"};
+if ({!(isNull _x)} count (attachedObjects _jugador) != 0) exitWith {hint "You have other things attached, you cannot move this"};
+_sitios = marcadores select {lados getVariable [_x,sideUnknown] == buenos};
+_marcador = [_sitios,_jugador] call BIS_fnc_nearestPosition;
+_size = [_marcador] call A3A_fnc_sizeMarker;
+_posicion = getMarkerPos _marcador;
+if (_jugador distance2D _posicion > _size) exitWith {hint "This asset needs to be closer to it relative zone center to be able to be moved"};
 
-_thingX setVariable ["objectBeingMoved", true];
+_cosa removeAction _id;
+_cosa attachTo [_jugador,[0,2,1]];
+accion = _jugador addAction ["Drop Here", {{detach _x} forEach attachedObjects player; player removeAction accion},nil,0,false,true,"",""];
 
-_thingX removeAction _id;
-_thingX attachTo [_playerX,[0,2,1]];
+waitUntil {sleep 1; (count attachedObjects _jugador == 0) or (vehicle _jugador != _jugador) or (_jugador distance2D _posicion > (_size-3)) or !([_jugador] call A3A_fnc_canFight) or (!isPlayer _jugador)};
 
-private _fnc_placeObject = {
-	params [["_thingX", objNull], ["_playerX", objNull], ["_dropObjectActionIndex", -1]];
-	
-	if (isNull _thingX) exitWith {diag_log "[Antistasi] Error, trying to place invalid HQ object"};
-	if (isNull _playerX) exitWith {diag_log "[Antistasi] Error, trying to place HQ object with invalid player"};
-	
-	if (!(_thingX getVariable ["objectBeingMoved", false])) exitWith {};
-	
-	if (_playerX == attachedTo _thingX) then {
-		detach _thingX;
+{detach _x} forEach attachedObjects _jugador;
+player removeAction accion;
+/*
+for "_i" from 0 to (_jugador addAction ["",""]) do
+	{
+	_jugador removeAction _i;
 	};
-	
-	if (_dropObjectActionIndex != -1) then {
-		_playerX removeAction _dropObjectActionIndex;
-	};
-	
-	_thingX setVectorUp surfaceNormal position _thingX;
-	_thingX setPosATL [getPosATL _thingX select 0,getPosATL _thingX select 1,0.1];
-	
-	_thingX setVariable ["objectBeingMoved", false];
-	_thingX addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
-};
+*/
+_cosa addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
 
-private _actionX = _playerX addAction ["Drop Here", {
-	(_this select 3) params ["_thingX", "_fnc_placeObject"];
-	
-	[_thingX, player, (_this select 2)] call _fnc_placeObject;
-}, [_thingX, _fnc_placeObject],0,false,true,"",""];
+_cosa setPosATL [getPosATL _cosa select 0,getPosATL _cosa select 1,0];
 
-waitUntil {sleep 1; (_playerX != attachedTo _thingX) or (vehicle _playerX != _playerX) or (_playerX distance2D _positionX > (_size-3)) or !([_playerX] call A3A_fnc_canFight) or (!isPlayer _playerX)};
+if (vehicle _jugador != _jugador) exitWith {hint "You cannot move HQ assets while in a vehicle"};
 
-[_thingX, _playerX, _actionX] call _fnc_placeObject;
-
-if (vehicle _playerX != _playerX) exitWith {hint "You cannot move HQ assets while in a vehicle"};
-
-if  (_playerX distance2D _positionX > _size) exitWith {hint "This asset cannot be moved more far away for its zone center"};
+if  (_jugador distance2D _posicion > _size) exitWith {hint "This asset cannot be moved more far away for its zone center"};

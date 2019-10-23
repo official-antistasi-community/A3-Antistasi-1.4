@@ -1,91 +1,90 @@
 if (isDedicated) exitWith {};
-private ["_newUnit","_oldUnit"];
-_newUnit = _this select 0;
-_oldUnit = _this select 1;
+private ["_nuevo","_viejo"];
+_nuevo = _this select 0;
+_viejo = _this select 1;
 
-if (isNull _oldUnit) exitWith {};
+if (isNull _viejo) exitWith {};
 
 waitUntil {alive player};
 
-_nul = [_oldUnit] spawn A3A_fnc_postmortem;
-if !(hasACEMedical) then
+_nul = [_viejo] spawn A3A_fnc_postmortem;
+if !(hayACEMedical) then
 	{
-	_oldUnit setVariable ["INCAPACITATED",false,true];
-	_newUnit setVariable ["INCAPACITATED",false,true];
+	_viejo setVariable ["INCAPACITATED",false,true];
+	_nuevo setVariable ["INCAPACITATED",false,true];
 	};
-if (side group player == teamPlayer) then
+if ((side player == buenos) or (side player == civilian)) then
 	{
-	_owner = _oldUnit getVariable ["owner",_oldUnit];
+	_owner = _viejo getVariable ["owner",_viejo];
 
-	if (_owner != _oldUnit) exitWith {hint "Died while remote controlling AI"; selectPlayer _owner; disableUserInput false; deleteVehicle _newUnit};
+	if (_owner != _viejo) exitWith {hint "Died while remote controlling AI"; selectPlayer _owner; disableUserInput false; deleteVehicle _nuevo};
 
-	_nul = [0,-1,getPos _oldUnit] remoteExec ["A3A_fnc_citySupportChange",2];
+	_nul = [0,-1,getPos _viejo] remoteExec ["A3A_fnc_citySupportChange",2];
 
-	_score = _oldUnit getVariable ["score",0];
-	_punish = _oldUnit getVariable ["punish",0];
-	_moneyX = _oldUnit getVariable ["moneyX",0];
-	_moneyX = round (_moneyX - (_moneyX * 0.1));
-	_eligible = _oldUnit getVariable ["eligible",true];
-	_rankX = _oldUnit getVariable ["rankX","PRIVATE"];
+	_score = _viejo getVariable ["score",0];
+	_punish = _viejo getVariable ["punish",0];
+	_dinero = _viejo getVariable ["dinero",0];
+	_dinero = round (_dinero - (_dinero * 0.1));
+	_elegible = _viejo getVariable ["elegible",true];
+	_rango = _viejo getVariable ["rango","PRIVATE"];
 
-	_moneyX = round (_moneyX - (_moneyX * 0.05));
-	if (_moneyX < 0) then {_moneyX = 0};
+	_dinero = round (_dinero - (_dinero * 0.05));
+	if (_dinero < 0) then {_dinero = 0};
 
-	_newUnit setVariable ["score",_score -1,true];
-	_newUnit setVariable ["owner",_newUnit,true];
-	_newUnit setVariable ["punish",_punish,true];
-	_newUnit setVariable ["respawning",false];
-	_newUnit setVariable ["moneyX",_moneyX,true];
-	//_newUnit setUnitRank (rank _oldUnit);
-	_newUnit setVariable ["compromised",0];
-	_newUnit setVariable ["eligible",_eligible,true];
-	_newUnit setVariable ["spawner",true,true];
-	_oldUnit setVariable ["spawner",nil,true];
-	[_newUnit,false] remoteExec ["setCaptive",0,_newUnit];
-	_newUnit setCaptive false;
-	_newUnit setRank (_rankX);
-	_newUnit setVariable ["rankX",_rankX,true];
-	_newUnit setUnitTrait ["camouflageCoef",0.8];
-	_newUnit setUnitTrait ["audibleCoef",0.8];
+	_nuevo setVariable ["score",_score -1,true];
+	_nuevo setVariable ["owner",_nuevo,true];
+	_nuevo setVariable ["punish",_punish,true];
+	_nuevo setVariable ["respawning",false];
+	_nuevo setVariable ["dinero",_dinero,true];
+	//_nuevo setUnitRank (rank _viejo);
+	_nuevo setVariable ["compromised",0];
+	_nuevo setVariable ["elegible",_elegible,true];
+	_nuevo setVariable ["GREENFORSpawn",true,true];
+	_viejo setVariable ["GREENFORSpawn",nil,true];
+	[_nuevo,false] remoteExec ["setCaptive",0,_nuevo];
+	_nuevo setCaptive false;
+	_nuevo setRank (_rango);
+	_nuevo setVariable ["rango",_rango,true];
+	_nuevo setUnitTrait ["camouflageCoef",0.8];
+	_nuevo setUnitTrait ["audibleCoef",0.8];
 	{
-    _newUnit addOwnedMine _x;
-    } count (getAllOwnedMines (_oldUnit));
+    _nuevo addOwnedMine _x;
+    } count (getAllOwnedMines (_viejo));
 
-	//if (!hasACEMedical) then {[_newUnit] call A3A_fnc_initRevive};
+	//if (!hayACEMedical) then {[_nuevo] call A3A_fnc_initRevive};
 	disableUserInput false;
-	//_newUnit enableSimulation true;
-	if (_oldUnit == theBoss) then
+	//_nuevo enableSimulation true;
+	if (_viejo == theBoss) then
 		{
-		[_newUnit] call A3A_fnc_theBossInit;
+		[_nuevo] call A3A_fnc_theBossInit;
 		};
 
 
-	removeAllItemsWithMagazines _newUnit;
-	{_newUnit removeWeaponGlobal _x} forEach weapons _newUnit;
-	removeBackpackGlobal _newUnit;
-	removeVest _newUnit;
-	if ((not("ItemGPS" in unlockedItems)) and ("ItemGPS" in (assignedItems _newUnit))) then {_newUnit unlinkItem "ItemGPS"};
-	private _radio = player call A3A_fnc_getRadio;
-	if (!haveRadio && _radio != "") then {player unlinkItem _radio};
+	removeAllItemsWithMagazines _nuevo;
+	{_nuevo removeWeaponGlobal _x} forEach weapons _nuevo;
+	removeBackpackGlobal _nuevo;
+	removeVest _nuevo;
+	if ((not("ItemGPS" in unlockedItems)) and ("ItemGPS" in (assignedItems _nuevo))) then {_nuevo unlinkItem "ItemGPS"};
+	if ((!hayTFAR) and (!hayACRE) and ("ItemRadio" in (assignedItems player)) and (!haveRadio)) then {player unlinkItem "ItemRadio"};
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{
 		_player = _this select 0;
 		if (captive _player) then
 			{
-			if ({if (((side _x == Occupants) or (side _x == Invaders)) and (_x distance player < 300)) exitWith {1}} count allUnits > 0) then
+			if ({if (((side _x == malos) or (side _x == muyMalos)) and (_x distance player < 300)) exitWith {1}} count allUnits > 0) then
 				{
 				[_player,false] remoteExec ["setCaptive",0,_player];
 				_player setCaptive false;
 				}
 			else
 				{
-				_city = [citiesX,_player] call BIS_fnc_nearestPosition;
-				_size = [_city] call A3A_fnc_sizeMarker;
-				_dataX = server getVariable _city;
-				if (random 100 < _dataX select 2) then
+				_ciudad = [ciudades,_player] call BIS_fnc_nearestPosition;
+				_size = [_ciudad] call A3A_fnc_sizeMarker;
+				_datos = server getVariable _ciudad;
+				if (random 100 < _datos select 2) then
 					{
-					if (_player distance getMarkerPos _city < _size * 1.5) then
+					if (_player distance getMarkerPos _ciudad < _size * 1.5) then
 						{
 						[_player,false] remoteExec ["setCaptive",0,_player];
 						_player setCaptive false;
@@ -102,31 +101,31 @@ if (side group player == teamPlayer) then
 
 	player addEventHandler ["InventoryOpened",
 		{
-		private ["_playerX","_containerX","_typeX"];
+		private ["_jugador","_contenedor","_tipo"];
 		_control = false;
-		_playerX = _this select 0;
-		if (captive _playerX) then
+		_jugador = _this select 0;
+		if (captive _jugador) then
 			{
-			_containerX = _this select 1;
-			_typeX = typeOf _containerX;
-			if (((_containerX isKindOf "CAManBase") and (!alive _containerX)) or (_typeX == NATOAmmoBox) or (_typeX == CSATAmmoBox)) then
+			_contenedor = _this select 1;
+			_tipo = typeOf _contenedor;
+			if (((_contenedor isKindOf "Man") and (!alive _contenedor)) or (_tipo == NATOAmmoBox) or (_tipo == CSATAmmoBox)) then
 				{
-				if ({if (((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout _playerX > 1.4)) exitWith {1}} count allUnits > 0) then
+				if ({if (((side _x== muyMalos) or (side _x== malos)) and (_x knowsAbout _jugador > 1.4)) exitWith {1}} count allUnits > 0) then
 					{
-					[_playerX,false] remoteExec ["setCaptive",0,_playerX];
-					_playerX setCaptive false;
+					[_jugador,false] remoteExec ["setCaptive",0,_jugador];
+					_jugador setCaptive false;
 					}
 				else
 					{
-					_city = [citiesX,_playerX] call BIS_fnc_nearestPosition;
-					_size = [_city] call A3A_fnc_sizeMarker;
-					_dataX = server getVariable _city;
-					if (random 100 < _dataX select 2) then
+					_ciudad = [ciudades,_jugador] call BIS_fnc_nearestPosition;
+					_size = [_ciudad] call A3A_fnc_sizeMarker;
+					_datos = server getVariable _ciudad;
+					if (random 100 < _datos select 2) then
 						{
-						if (_playerX distance getMarkerPos _city < _size * 1.5) then
+						if (_jugador distance getMarkerPos _ciudad < _size * 1.5) then
 							{
-							[_playerX,false] remoteExec ["setCaptive",0,_playerX];
-							_playerX setCaptive false;
+							[_jugador,false] remoteExec ["setCaptive",0,_jugador];
+							_jugador setCaptive false;
 							};
 						};
 					};
@@ -143,16 +142,16 @@ if (side group player == teamPlayer) then
 		_sideType = getNumber (configfile >> "CfgVehicles" >> _typeSoldier >> "side");
 		if ((_sideType == 1) or (_sideType == 0) and (_uniform != "")) then
 			{
-			if !(player getVariable ["disguised",false]) then
+			if !(player getVariable ["disfrazado",false]) then
 				{
 				hint "You are wearing an enemy uniform, this will make the AI attack you. Beware!";
-				player setVariable ["disguised",true];
+				player setVariable ["disfrazado",true];
 				player addRating (-1*(2001 + rating player));
 				};
 			}
 		else
 			{
-			if (player getVariable ["disguised",false]) then
+			if (player getVariable ["disfrazado",false]) then
 				{
 				hint "You removed your enemy uniform";
 				player addRating (rating player * -1);
@@ -162,48 +161,41 @@ if (side group player == teamPlayer) then
 		}];
 		*/
 	if (tkPunish) then
-	{
-		private _firedHandlerTk = {
-			_typeX = _this select 1;
-			if ((_typeX == "Put") or (_typeX == "Throw")) then
-			{
-				if (player distance petros < 50) then
+		{
+		player addEventHandler ["Fired",
 				{
-					deleteVehicle (_this select 6);
-					if (_typeX == "Put") then
+				_tipo = _this select 1;
+				if ((_tipo == "Put") or (_tipo == "Throw")) then
 					{
-						if (player distance petros < 10) then 
+					if (player distance petros < 50) then
 						{
-							[player, 20, 0.34] remoteExec ["A3A_fnc_punishment",player];
+						deleteVehicle (_this select 6);
+						if (_tipo == "Put") then
+							{
+							if (player distance petros < 10) then {[player,60] spawn A3A_fnc_castigo};
+							};
 						};
 					};
-				};
-			};
+				}];
 		};
-		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then 
-		{
-			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
-		};
-	};
 	player addEventHandler ["HandleHeal",
 		{
 		_player = _this select 0;
 		if (captive _player) then
 			{
-			if ({((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout player > 1.4)} count allUnits > 0) then
+			if ({((side _x== muyMalos) or (side _x== malos)) and (_x knowsAbout player > 1.4)} count allUnits > 0) then
 				{
 				[_player,false] remoteExec ["setCaptive",0,_player];
 				_player setCaptive false;
 				}
 			else
 				{
-				_city = [citiesX,_player] call BIS_fnc_nearestPosition;
-				_size = [_city] call A3A_fnc_sizeMarker;
-				_dataX = server getVariable _city;
-				if (random 100 < _dataX select 2) then
+				_ciudad = [ciudades,_player] call BIS_fnc_nearestPosition;
+				_size = [_ciudad] call A3A_fnc_sizeMarker;
+				_datos = server getVariable _ciudad;
+				if (random 100 < _datos select 2) then
 					{
-					if (_player distance getMarkerPos _city < _size * 1.5) then
+					if (_player distance getMarkerPos _ciudad < _size * 1.5) then
 						{
 						[_player,false] remoteExec ["setCaptive",0,_player];
 						_player setCaptive false;
@@ -247,8 +239,7 @@ if (side group player == teamPlayer) then
 	}
 else
 	{
-	_oldUnit setVariable ["spawner",nil,true];
-	_newUnit setVariable ["spawner",true,true];
-	[player] call A3A_fnc_dress;
-	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
+	if (side player == malos) then {_viejo setVariable ["BLUFORSpawn",nil,true];_nuevo setVariable ["BLUFORSpawn",true,true]};
+	if (activeUSAF) then {[player] call A3A_fnc_RHSdress};
+	if (hayACE) then {[] call A3A_fnc_ACEpvpReDress};
 	};

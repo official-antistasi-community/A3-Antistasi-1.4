@@ -1141,8 +1141,8 @@ switch _mode do {
 				} forEach _currentMagazine;
 
 				_amountStr = _amount call AMOUTTOTEXT;
-				_currentAmountStr = _currentAmount call AMOUTTOTEXT;
-				_maxAmountStr = _maxAmount call AMOUTTOTEXT;
+				_currentAmountStr = _currentAmount call AMOUTTOTEXT
+				_maxAmountStr = _maxAmount call AMOUTTOTEXT
 
 				_displayName = getText(_cfg >> "displayName");
 				_text1 = "";//not used, picture;
@@ -1644,7 +1644,7 @@ switch _mode do {
 			_center setpos _pos;
 
 			//lock the vehicle
-			//_center setVariable ["ownerX",getPlayerUID player];
+			//_center setVariable ["duenyo",getPlayerUID player];
 
 			//remove items inside vehicle
 			clearWeaponCargo _center;
@@ -1686,7 +1686,7 @@ switch _mode do {
 		//_center setpos _pos;
 
 		//lock vehicle
-		//_center setVariable ["ownerX",getPlayerUID player];
+		//_center setVariable ["duenyo",getPlayerUID player];
 
 		_center setVariable ["jng_name",_name];
 
@@ -1782,8 +1782,8 @@ switch _mode do {
 		if(_currentAmount>_maxAmount)then{_currentAmount=_maxAmount;};
 
 		_amountStr = _amount call AMOUTTOTEXT;
-		_currentAmountStr = _currentAmount call AMOUTTOTEXT;
-		_maxAmountStr = _maxAmount call AMOUTTOTEXT;
+		_currentAmountStr = _currentAmount call AMOUTTOTEXT
+		_maxAmountStr = _maxAmount call AMOUTTOTEXT
 
 		_text1 = "";//not used, picture;
 		_text2 = "[" + _amountStr + "] " + _displayName;//amount in garage + name

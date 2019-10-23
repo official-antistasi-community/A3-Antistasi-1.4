@@ -10,32 +10,32 @@ if ((_text == "Convoy Objective") or (_text == "Mission Vehicle") or (_text == "
 
 waitUntil {sleep 1; (not(isNull driver _veh)) or _convoy};
 
-if (debug) then {revealX = true};
+if (debug) then {revelar = true};
 
-_veh setVariable ["revealed",false];
+_veh setVariable ["revelado",false];
 while {alive _veh} do
 	{
-	if (!(_veh getVariable ["revealed",false])) then
+	if (!(_veh getVariable ["revelado",false])) then
 		{
-		if ((teamPlayer knowsAbout _veh > 1.4) or revealX or _convoy) then
+		if ((buenos knowsAbout _veh > 1.4) or revelar or _convoy) then
 			{
-			_veh setVariable ["revealed",true,true];
-			[_veh,_text] remoteExec  ["A3A_fnc_vehicleMarkers",[teamPlayer,civilian]];
+			_veh setVariable ["revelado",true,true];
+			[_veh,_text] remoteExec  ["A3A_fnc_vehicleMarkers",[buenos,civilian]];
 			};
 		}
 	else
 		{
-		if ((teamPlayer knowsAbout _veh <= 1.4) and !(revealX) and !(_convoy)) then
+		if ((buenos knowsAbout _veh <= 1.4) and !(revelar) and !(_convoy)) then
 			{
-			_veh setVariable ["revealed",false,true];
+			_veh setVariable ["revelado",false,true];
 			};
 		};
 	_pos = getPos _veh;
 	sleep 60;
 	_newPos = getPos _veh;
 
-	_driverX = driver _veh;
-	if ((_newPos distance _pos < 5) and (_text != "Supply Box") and !(isNull _driverX)) then
+	_condu = driver _veh;
+	if ((_newPos distance _pos < 5) and (_text != "Supply Box") and !(isNull _condu)) then
 		{
 		if (_veh isKindOf "Air") then
 			{
@@ -57,8 +57,8 @@ while {alive _veh} do
 					_puentes = nearestObjects [_newPos, ["Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_BridgeSea_01_pillar_F","Land_BridgeWooden_01_pillar_F"], 50];
 					if !(_puentes isEqualTo []) then
 						{
-						_nextWaypoint = currentWaypoint (group _driverX);
-						_wpPos = waypointPosition ((waypoints (group _driverX)) select _nextWaypoint);
+						_nextWaypoint = currentWaypoint (group _condu);
+						_wpPos = waypointPosition ((waypoints (group _condu)) select _nextWaypoint);
 						_ang = [_newPos, _wpPos] call BIS_fnc_DirTo;
 						_newPos = _newPos getPos [100,_ang];
 						};

@@ -3,7 +3,7 @@ File: UPSMON_GetNearestCombat.sqf
 Author: Azroul13
 
 Description:
-	Funciï¿½n que busca vehiclesX closeX y hace entrar a las unitsX del lider
+	Función que busca vehiculos cercanos y hace entrar a las unidades del lider
 Parameter(s):
 	<--- leader
 	<--- Vehicle types
@@ -11,14 +11,14 @@ Parameter(s):
 Returns:
 	Array vehicles [[vehicles,emptypositions]]
 ****************************************************************/
-private["_npc","_vehtypes","_distance","_types","_marker","_OcloseX","_emptypositions","_vehicles","_Cargocount","_Gunnercount","_Commandercount","_Drivercount","_isuav","_inzone"];	
+private["_npc","_vehtypes","_distance","_types","_marker","_OCercanos","_emptypositions","_vehicles","_Cargocount","_Gunnercount","_Commandercount","_Drivercount","_isuav","_inzone"];	
 					
 _npc = _this select 0;	
 _types = _this select 1;
 _distance = _this select 2;	
 _marker = _this select 3;		
 
-_OcloseX = [];
+_OCercanos = [];
 _emptypositions = 0;
 _vehicles = [];
 _Cargocount = 0;
@@ -26,8 +26,8 @@ _Gunnercount = 0;
 _Commandercount = 0;
 _Drivercount = 0;
 	
-//Buscamos objectsX closeX
-_OcloseX = _npc nearentities [["CAR","TANK","SHIP","HELICOPTER"], _distance];
+//Buscamos objetos cercanos
+_OCercanos = _npc nearentities [["CAR","TANK","SHIP","HELICOPTER"], _distance];
 		
 {
 	_isuav = getnumber (configFile >> "cfgVehicles" >> (typeOf (_x)) >> "isUav");
@@ -77,7 +77,7 @@ _OcloseX = _npc nearentities [["CAR","TANK","SHIP","HELICOPTER"], _distance];
 			};
 		};
 	};
-}foreach _OcloseX;
+}foreach _OCercanos;
 
 _vehicles = [_vehicles, [], {_x select 2}, "DESCEND"] call BIS_fnc_sortBy;	
 _vehicles;

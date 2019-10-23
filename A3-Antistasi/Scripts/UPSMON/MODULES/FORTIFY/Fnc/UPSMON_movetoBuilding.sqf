@@ -29,10 +29,10 @@ if ((count _this) > 3) then {_wait = _this select 3;};
 if ((count _this) > 4) then {_blds = _this select 4;};
 if ((count _this) > 5) then {_retrytime = _this select 5;};
 
-//Si estï¿½ en un vehicle ignoramos la orden
+//Si está en un vehiculo ignoramos la orden
 if (vehicle _npc != _npc || !alive _npc || !canmove _npc) exitwith{};
 	
-//Si ya estï¿½ en un edificio ignoramos la orden
+//Si ya está en un edificio ignoramos la orden
 _inbuilding = _npc getvariable ["UPSMON_inbuilding",false];	
 if (_inbuilding || _retrytime >= 3)  exitwith{};
 	

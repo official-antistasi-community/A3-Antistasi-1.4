@@ -1,110 +1,35 @@
-fn_varNameToSaveName = {
-	params ["_varName", ""];
-	//Return the name of the save slot for the variable.
-	if (worldName == "Tanoa") then
-		{
-		_varName + serverID + campaignID + "WotP";
-		}
-	else
-		{
-		if (side group petros == independent) then
-			{
-			_varName + serverID + campaignID + "Antistasi" + worldName;
-			}
-		else
-			{
-			_varName + serverID + campaignID + "AntistasiB" + worldName;
-			};
-		};
-};
-
 fn_SaveStat =
 {
 	_varName = _this select 0;
 	_varValue = _this select 1;
 	if (!isNil "_varValue") then
 		{
-		_varSaveName = [_varName] call fn_varNameToSaveName;
-		profileNameSpace setVariable [_varSaveName, _varValue];
+		if (worldName == "Tanoa") then
+			{
+			profileNameSpace setVariable [_varName + serverID + "WotP",_varValue]
+			}
+		else
+			{
+			if (side group petros == independent) then {profileNameSpace setVariable [_varName + serverID + "Antistasi" + worldName,_varValue]} else {profileNameSpace setVariable [_varName + serverID + "AntistasiB" + worldName,_varValue]};
+			};
 		if (isDedicated) then {saveProfileNamespace};
 		};
 };
 
-fn_ReturnSavedStat =
-{
-	private _varName = _this select 0;
-
-  _loadVariable = {
-    private ["_varName","_varValue"];
-    _varName = _this select 0;
-		_varSaveName = [_varName] call fn_varNameToSaveName;
-
-    //Return the value of this statement
-		profileNameSpace getVariable (_varSaveName);
-  };
-
-  private _varValue = [_varName] call _loadVariable;
-
-  if(isNil "_varValue") then
-  {
-    _spanishVarName = [_varName] call A3A_fnc_translateVariable;
-    _varValue = [_spanishVarName] call _loadVariable;
-  };
-
-	if(isNil "_varValue") exitWith {
-		diag_log format ["%1: [Antistasi] | ERROR | saveFuncs.sqf | Variable %2 does not exist.",servertime, _varName];
-		};
-	_varValue;
-};
-
 fn_LoadStat =
 {
-	private ["_varName","_varValue"];
+	private ["_varName","_varvalue"];
 	_varName = _this select 0;
-
-	_varValue = [_varName] call fn_ReturnSavedStat;
-	if (isNil "_varValue") exitWith {};
+	if (worldName == "Tanoa") then
+		{
+		_varValue = profileNameSpace getVariable (_varName + serverID + "WotP")
+		}
+	else
+		{
+		if (side group petros == independent) then {_varValue = profileNameSpace getVariable (_varName + serverID + "Antistasi" + worldName)} else {_varValue = profileNameSpace getVariable (_varName + serverID + "AntistasiB" + worldName)};
+		};
+	if(isNil "_varValue") exitWith {diag_log format ["Antistasi: Error en Persistent Load. La variable %1 no existe",_varname]};
 	[_varName,_varValue] call fn_SetStat;
-};
-
-fn_SavePlayerStat = {
-	private _playerUID = _this select 0;
-	private _varName = _this select 1;
-	private _varValue = _this select 2;
-
-	private _abort = false;
-
-	if (isNil "_playerUID") then {
-		_playerUID = "";
-		_abort = true;
-	};
-
-	if (isNil "_varName") then {
-		_varName = "";
-		_abort = true;
-	};
-
-	if (isNil "_varValue") then {
-		_varValue = "";
-		_abort = true;
-	};
-
-	if (_abort) exitWith {
-		diag_log format ["[Antistiasi] Save invalid for %1, saving %3 as %2", _playerUID, _varName, _varValue];
-	};
-
-	private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
-	[_playerVarName, _varValue] call fn_SaveStat;
-};
-
-fn_RetrievePlayerStat = {
-	private _playerUID = _this select 0;
-	private _varName = _this select 1;
-
-	if (isNil "_playerUID" || isNil "_varName") exitWith {diag_log ["[Antistiasi] Load invalid for player %1 var %2", _playerUID, _varName]};
-
-	private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
-	[_playerVarName] call fn_ReturnSavedStat;
 };
 
 //===========================================================================
@@ -116,10 +41,10 @@ fn_RetrievePlayerStat = {
 	"backpackPlayer",
 	"mrkNATO",
 	"mrkSDK",
-	"prestigeNATO","prestigeCSAT", "hr","planesAAFcurrent","helisAAFcurrent","APCAAFcurrent","tanksAAFcurrent","armas","items","backpcks","ammunition","dateX", "WitemsPlayer","prestigeOPFOR","prestigeBLUFOR","resourcesAAF","resourcesFIA","skillFIA"];
+	"prestigeNATO","prestigeCSAT", "hr","planesAAFcurrent","helisAAFcurrent","APCAAFcurrent","tanksAAFcurrent","armas","items","mochis","municion","fecha", "WitemsPlayer","prestigeOPFOR","prestigeBLUFOR","resourcesAAF","resourcesFIA","skillFIA"];
 */
 specialVarLoads =
-["outpostsFIA","minesX","staticsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO","prestigeCSAT","posHQ", "hr","armas","items","backpcks","ammunition","dateX", "prestigeOPFOR","prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedCities","garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases","idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick","bombRuns","difficultyX","gameMode"];
+["puestosFIA","minas","estaticas","cuentaCA","antenas","mrkNATO","mrkSDK","prestigeNATO","prestigeCSAT","posHQ", "hr","armas","items","mochis","municion","fecha", "prestigeOPFOR","prestigeBLUFOR","resourcesFIA","skillFIA","distanciaSPWN","civPerc","maxUnits","destroyedCities","garrison","tasks","scorePlayer","rankPlayer","smallCAmrk","dinero","miembros","vehInGarage","destroyedBuildings","personalGarage","idlebases","idleassets","chopForest","weather","killZones","jna_dataList","controlesSDK","loadoutPlayer","mrkCSAT","nextTick","bombRuns","dificultad","gameMode"];
 //THIS FUNCTIONS HANDLES HOW STATS ARE LOADED
 fn_SetStat =
 {
@@ -128,8 +53,8 @@ fn_SetStat =
 	if(isNil '_varValue') exitWith {};
 	if(_varName in specialVarLoads) then
 	{
-		if(_varName == 'countCA') then {countCA = _varValue; publicVariable "countCA"};
-		if(_varName == 'difficultyX') then
+		if(_varName == 'cuentaCA') then {cuentaCA = _varValue; publicVariable "cuentaCA"};
+		if(_varName == 'dificultad') then
 			{
 			if !(isMultiplayer) then
 				{
@@ -145,8 +70,8 @@ fn_SetStat =
 				gameMode = _varValue;
 				if (gameMode != 1) then
 					{
-					Occupants setFriend [Invaders,1];
-				    Invaders setFriend [Occupants,1];
+					malos setFriend [muyMalos,1];
+				    muyMalos setFriend [malos,1];
 				    if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
 				    if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
 					};
@@ -154,23 +79,42 @@ fn_SetStat =
 			};
 		if(_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
 		if(_varName == 'nextTick') then {nextTick = time + _varValue};
-		if(_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
+		if(_varName == 'miembros') then {miembros = +_varValue; publicVariable "miembros"};
 		if(_varName == 'smallCAmrk') then {smallCAmrk = +_varValue};
-		if(_varName == 'mrkNATO') then {{sidesX setVariable [_x,Occupants,true]} forEach _varValue;};
-		if(_varName == 'mrkCSAT') then {{sidesX setVariable [_x,Invaders,true]} forEach _varValue;};
-		if(_varName == 'mrkSDK') then {{sidesX setVariable [_x,teamPlayer,true]} forEach _varValue;};
-		if(_varName == 'controlsSDK') then
+		if(_varName == 'mrkNATO') then {{lados setVariable [_x,malos,true]} forEach _varValue;};
+		if(_varName == 'mrkCSAT') then {{lados setVariable [_x,muyMalos,true]} forEach _varValue;};
+		if(_varName == 'mrkSDK') then {{lados setVariable [_x,buenos,true]} forEach _varValue;};
+		if(_varName == 'controlesSDK') then
 			{
 			{
-			sidesX setVariable [_x,teamPlayer,true]
+			lados setVariable [_x,buenos,true]
 			} forEach _varValue;
 			};
 		if(_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
+		if(_varName == 'dinero') then {player setVariable ["dinero",_varValue,true];};
+		if(_varName == 'loadoutPlayer') then
+			{
+			_pepe = + _varValue;
+			if (isMultiplayer) then
+				{
+				removeAllItemsWithMagazines player;
+				{player removeWeaponGlobal _x} forEach weapons player;
+				removeBackpackGlobal player;
+				removeVest player;
+				if ((not("ItemGPS" in unlockedItems)) and ("ItemGPS" in (assignedItems player))) then {player unlinkItem "ItemGPS"};
+				if ((!hayTFAR) and (!hayACRE) and ("ItemRadio" in (assignedItems player)) and (not("ItemRadio" in unlockedItems))) then {player unlinkItem "ItemRadio"};
+				["loadoutPlayer", getUnitLoadout player] call fn_SaveStat;
+				};
+			player setUnitLoadout _pepe;
+			};
+		if(_varName == 'scorePlayer') then {player setVariable ["score",_varValue,true];};
+		if(_varName == 'rankPlayer') then {player setRank _varValue; player setVariable ["rango",_varValue,true]};
+		if(_varName == 'personalGarage') then {personalGarage = +_varValue};
 		if(_varName == 'jna_dataList') then {jna_dataList = +_varValue};
 		if(_varName == 'prestigeNATO') then {prestigeNATO = _varValue; publicVariable "prestigeNATO"};
 		if(_varName == 'prestigeCSAT') then {prestigeCSAT = _varValue; publicVariable "prestigeCSAT"};
 		if(_varName == 'hr') then {server setVariable ["HR",_varValue,true]};
-		if(_varName == 'dateX') then {setDate _varValue};
+		if(_varName == 'fecha') then {setDate _varValue};
 		if(_varName == 'weather') then
 			{
 			0 setFog (_varValue select 0);
@@ -183,15 +127,15 @@ fn_SetStat =
 			{
 			skillFIA = _varValue; publicVariable "skillFIA";
 			{
-			_costs = server getVariable _x;
+			_coste = server getVariable _x;
 			for "_i" from 1 to _varValue do
 				{
-				_costs = round (_costs + (_costs * (_i/280)));
+				_coste = round (_coste + (_coste * (_i/280)));
 				};
-			server setVariable [_x,_costs,true];
-			} forEach soldiersSDK;
+			server setVariable [_x,_coste,true];
+			} forEach soldadosSDK;
 			};
-		if(_varName == 'distanceSPWN') then {distanceSPWN = _varValue; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable "distanceSPWN";publicVariable "distanceSPWN1";publicVariable "distanceSPWN2"};
+		if(_varName == 'distanciaSPWN') then {distanciaSPWN = _varValue; distanciaSPWN1 = distanciaSPWN * 1.3; distanciaSPWN2 = distanciaSPWN /2; publicVariable "distanciaSPWN";publicVariable "distanciaSPWN1";publicVariable "distanciaSPWN2"};
 		if(_varName == 'civPerc') then {civPerc = _varValue; if (civPerc < 1) then {civPerc = 35}; publicVariable "civPerc"};
 		if(_varName == 'maxUnits') then {maxUnits=_varValue; publicVariable "maxUnits"};
 		if(_varName == 'vehInGarage') then {vehInGarage= +_varValue; publicVariable "vehInGarage"};
@@ -200,103 +144,104 @@ fn_SetStat =
 			destroyedBuildings= +_varValue;
 			//publicVariable "destroyedBuildings";
 			{
-				(nearestObject [_x, "House"]) setDamage [1,false];
+			//(nearestBuilding _x) setDamage [1,false];
+			[nearestBuilding _x,[1,false]] remoteExec ["setDamage"];
 			} forEach destroyedBuildings;
 			};
-		if(_varName == 'minesX') then
+		if(_varName == 'minas') then
 			{
 			for "_i" from 0 to (count _varvalue) - 1 do
 				{
-				_typeMine = _varvalue select _i select 0;
-				switch _typeMine do
+				_tipoMina = _varvalue select _i select 0;
+				switch _tipoMina do
 					{
-					case "APERSMine_Range_Ammo": {_typeMine = "APERSMine"};
-					case "ATMine_Range_Ammo": {_typeMine = "ATMine"};
-					case "APERSBoundingMine_Range_Ammo": {_typeMine = "APERSBoundingMine"};
-					case "SLAMDirectionalMine_Wire_Ammo": {_typeMine = "SLAMDirectionalMine"};
-					case "APERSTripMine_Wire_Ammo": {_typeMine = "APERSTripMine"};
-					case "ClaymoreDirectionalMine_Remote_Ammo": {_typeMine = "Claymore_F"};
+					case "APERSMine_Range_Ammo": {_tipoMina = "APERSMine"};
+					case "ATMine_Range_Ammo": {_tipoMina = "ATMine"};
+					case "APERSBoundingMine_Range_Ammo": {_tipoMina = "APERSBoundingMine"};
+					case "SLAMDirectionalMine_Wire_Ammo": {_tipoMina = "SLAMDirectionalMine"};
+					case "APERSTripMine_Wire_Ammo": {_tipoMina = "APERSTripMine"};
+					case "ClaymoreDirectionalMine_Remote_Ammo": {_tipoMina = "Claymore_F"};
 					};
-				_posMine = _varvalue select _i select 1;
-				_mineX = createMine [_typeMine, _posMine, [], 0];
-				_detected = _varvalue select _i select 2;
-				{_x revealMine _mineX} forEach _detected;
+				_posMina = _varvalue select _i select 1;
+				_mina = createMine [_tipoMina, _posMina, [], 0];
+				_detectada = _varvalue select _i select 2;
+				{_x revealMine _mina} forEach _detectada;
 				if (count (_varvalue select _i) > 3) then//borrar esto en febrero
 					{
-					_dirMine = _varvalue select _i select 3;
-					_mineX setDir _dirMine;
+					_dirMina = _varvalue select _i select 3;
+					_mina setDir _dirMina;
 					};
 				};
 			};
 		if(_varName == 'garrison') then
 			{
-			//_markersX = markersX - outpostsFIA - controlsX - citiesX;
+			//_marcadores = marcadores - puestosFIA - controles - ciudades;
 			{garrison setVariable [_x select 0,_x select 1,true]} forEach _varvalue;
 			};
-		if(_varName == 'outpostsFIA') then
+		if(_varName == 'puestosFIA') then
 			{
 			if (count (_varValue select 0) == 2) then
 				{
 				{
-				_positionX = _x select 0;
+				_posicion = _x select 0;
 				_garrison = _x select 1;
-				_mrk = createMarker [format ["FIApost%1", random 1000], _positionX];
+				_mrk = createMarker [format ["FIApost%1", random 1000], _posicion];
 				_mrk setMarkerShape "ICON";
 				_mrk setMarkerType "loc_bunker";
-				_mrk setMarkerColor colourTeamPlayer;
-				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer]} else {_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer]};
+				_mrk setMarkerColor colorBuenos;
+				if (isOnRoad _posicion) then {_mrk setMarkerText format ["%1 Roadblock",nameBuenos]} else {_mrk setMarkerText format ["%1 Watchpost",nameBuenos]};
 				spawner setVariable [_mrk,2,true];
 				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
-				outpostsFIA pushBack _mrk;
-				sidesX setVariable [_mrk,teamPlayer,true];
+				puestosFIA pushBack _mrk;
+				lados setVariable [_mrk,buenos,true];
 				} forEach _varvalue;
 				};
 			};
 
-		if(_varName == 'antennas') then
+		if(_varName == 'antenas') then
 			{
-			antennasDead = +_varvalue;
+			antenasmuertas = +_varvalue;
 			for "_i" from 0 to (count _varvalue - 1) do
 			    {
 			    _posAnt = _varvalue select _i;
-			    _mrk = [mrkAntennas, _posAnt] call BIS_fnc_nearestPosition;
-			    _antenna = [antennas,_mrk] call BIS_fnc_nearestPosition;
-			    {if ([antennas,_x] call BIS_fnc_nearestPosition == _antenna) then {[_x,false] spawn A3A_fnc_blackout}} forEach citiesX;
-			    antennas = antennas - [_antenna];
-			    _antenna removeAllEventHandlers "Killed";
-			    _antenna setDamage [1,false];
+			    _mrk = [mrkAntenas, _posAnt] call BIS_fnc_nearestPosition;
+			    _antena = [antenas,_mrk] call BIS_fnc_nearestPosition;
+			    {if ([antenas,_x] call BIS_fnc_nearestPosition == _antena) then {[_x,false] spawn A3A_fnc_apagon}} forEach ciudades;
+			    antenas = antenas - [_antena];
+			    _antena removeAllEventHandlers "Killed";
+			    _antena setDamage [1,false];
 			    deleteMarker _mrk;
 			    };
-			antennasDead = _varvalue;
-			publicVariable "antennas";
-			publicVariable "antennasDead";
+			antenasmuertas = _varvalue;
+			publicVariable "antenas";
+			publicVariable "antenasMuertas";
 			};
 		if(_varname == 'prestigeOPFOR') then
 			{
-			for "_i" from 0 to (count citiesX) - 1 do
+			for "_i" from 0 to (count ciudades) - 1 do
 				{
-				_city = citiesX select _i;
-				_dataX = server getVariable _city;
-				_numCiv = _dataX select 0;
-				_numVeh = _dataX select 1;
+				_ciudad = ciudades select _i;
+				_datos = server getVariable _ciudad;
+				_numCiv = _datos select 0;
+				_numVeh = _datos select 1;
 				_prestigeOPFOR = _varvalue select _i;
-				_prestigeBLUFOR = _dataX select 3;
-				_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
-				server setVariable [_city,_dataX,true];
+				_prestigeBLUFOR = _datos select 3;
+				_datos = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
+				server setVariable [_ciudad,_datos,true];
 				};
 			};
 		if(_varname == 'prestigeBLUFOR') then
 			{
-			for "_i" from 0 to (count citiesX) - 1 do
+			for "_i" from 0 to (count ciudades) - 1 do
 				{
-				_city = citiesX select _i;
-				_dataX = server getVariable _city;
-				_numCiv = _dataX select 0;
-				_numVeh = _dataX select 1;
-				_prestigeOPFOR = _dataX select 2;
+				_ciudad = ciudades select _i;
+				_datos = server getVariable _ciudad;
+				_numCiv = _datos select 0;
+				_numVeh = _datos select 1;
+				_prestigeOPFOR = _datos select 2;
 				_prestigeBLUFOR = _varvalue select _i;
-				_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
-				server setVariable [_city,_dataX,true];
+				_datos = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
+				server setVariable [_ciudad,_datos,true];
 				};
 			};
 		if(_varname == 'idlebases') then
@@ -322,11 +267,10 @@ fn_SetStat =
 			_posHQ = if (count _varValue >3) then {_varValue select 0} else {_varValue};
 			{if (getMarkerPos _x distance _posHQ < 1000) then
 				{
-				sidesX setVariable [_x,teamPlayer,true];
+				lados setVariable [_x,buenos,true];
 				};
-			} forEach controlsX;
-			respawnTeamPlayer setMarkerPos _posHQ;
-			posHQ = getMarkerPos respawnTeamPlayer;
+			} forEach controles;
+			respawnBuenos setMarkerPos _posHQ;
 			petros setPos _posHQ;
 			"Synd_HQ" setMarkerPos _posHQ;
 			if (chopForest) then
@@ -339,27 +283,27 @@ fn_SetStat =
 				}
 			else
 				{
-				fireX setPos (_varValue select 1);
-				boxX setDir ((_varValue select 2) select 0);
-				boxX setPos ((_varValue select 2) select 1);
-				mapX setDir ((_varValue select 3) select 0);
-				mapX setPos ((_varValue select 3) select 1);
-				flagX setPos (_varValue select 4);
-				vehicleBox setDir ((_varValue select 5) select 0);
-				vehicleBox setPos ((_varValue select 5) select 1);
+				fuego setPos (_varValue select 1);
+				caja setDir ((_varValue select 2) select 0);
+				caja setPos ((_varValue select 2) select 1);
+				mapa setDir ((_varValue select 3) select 0);
+				mapa setPos ((_varValue select 3) select 1);
+				bandera setPos (_varValue select 4);
+				cajaVeh setDir ((_varValue select 5) select 0);
+				cajaVeh setPos ((_varValue select 5) select 1);
 				};
-			{_x setPos _posHQ} forEach (playableUnits select {side _x == teamPlayer});
+			{_x setPos _posHQ} forEach (playableUnits select {side _x == buenos});
 			};
-		if(_varname == 'staticsX') then
+		if(_varname == 'estaticas') then
 			{
 			for "_i" from 0 to (count _varvalue) - 1 do
 				{
-				_typeVehX = _varvalue select _i select 0;
+				_tipoVeh = _varvalue select _i select 0;
 				_posVeh = _varvalue select _i select 1;
 				_dirVeh = _varvalue select _i select 2;
-				_veh = createVehicle [_typeVehX,[0,0,1000],[],0,"NONE"];
-				_veh setDir _dirVeh;_veh setDir _dirVeh;
+				_veh = createVehicle [_tipoVeh,[0,0,1000],[],0,"NONE"];
 				_veh setPos _posVeh;
+				_veh setDir _dirVeh;
 				_veh setVectorUp surfaceNormal (getPos _veh);
 				if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then
 					{
@@ -372,15 +316,15 @@ fn_SetStat =
 		if(_varname == 'tasks') then
 			{
 			{
-			if (_x == "AttackAAF") then
+			if (_x == "AtaqueAAF") then
 				{
-				[] call A3A_fnc_attackAAF;
+				[] call A3A_fnc_ataqueAAF;
 				}
 			else
 				{
 				if (_x == "DEF_HQ") then
 					{
-					[] spawn A3A_fnc_attackHQ;
+					[] spawn A3A_fnc_ataqueHQ;
 					}
 				else
 					{

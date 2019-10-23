@@ -1,114 +1,114 @@
-private ["_positionTel","_nearX","_thingX","_groupX","_unitsX","_leave"];
+private ["_posicionTel","_cercano","_cosa","_grupo","_unidades","_salir"];
 if (!visibleMap) then {openMap true};
-positionTel = [];
-_thingX = _this select 0;
+posicionTel = [];
+_cosa = _this select 0;
 
-onMapSingleClick "positionTel = _pos";
+onMapSingleClick "posicionTel = _pos";
 
 hint "Select the zone on which sending the selected troops as garrison";
 
-waitUntil {sleep 0.5; (count positionTel > 0) or (not visiblemap)};
+waitUntil {sleep 0.5; (count posicionTel > 0) or (not visiblemap)};
 onMapSingleClick "";
 
 if (!visibleMap) exitWith {};
 
-_positionTel = positionTel;
+_posicionTel = posicionTel;
 
-_nearX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
+_cercano = [marcadores,_posicionTel] call BIS_fnc_nearestPosition;
 
-if !(_positionTel inArea _nearX) exitWith {hint "You must click near a marked zone"};
+if !(_posicionTel inArea _cercano) exitWith {hint "You must click near a marked zone"};
 
-if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {hint format ["That zone does not belong to %1",nameTeamPlayer]};
+if (not(lados getVariable [_cercano,sideUnknown] == buenos)) exitWith {hint format ["That zone does not belong to %1",nameBuenos]};
 
-if ((_nearX in outpostsFIA) and !(isOnRoad getMarkerPos _nearX)) exitWith {hint "You cannot manage garrisons on this kind of zone"};
+if ((_cercano in puestosFIA) and !(isOnRoad getMarkerPos _cercano)) exitWith {hint "You cannot manage garrisons on this kind of zone"};
 
-_thingX = _this select 0;
+_cosa = _this select 0;
 
-_groupX = grpNull;
-_unitsX = objNull;
+_grupo = grpNull;
+_unidades = objNull;
 
-if ((_thingX select 0) isEqualType grpNull) then
+if ((_cosa select 0) isEqualType grpNull) then
 	{
-	_groupX = _thingX select 0;
-	_unitsX = units _groupX;
+	_grupo = _cosa select 0;
+	_unidades = units _grupo;
 	}
 else
 	{
-	_unitsX = _thingX;
+	_unidades = _cosa;
 	};
 
-_leave = false;
+_salir = false;
 
 {
-if ((typeOf _x == staticCrewTeamPlayer) or (typeOf _x == SDKUnarmed) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_leave = true}
-} forEach _unitsX;
+if ((typeOf _x == staticCrewBuenos) or (typeOf _x == SDKUnarmed) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_salir = true}
+} forEach _unidades;
 
-if (_leave) exitWith {hint "Static crewman, prisoners, refugees or dead units cannot be added to any garrison"};
+if (_salir) exitWith {hint "Static crewman, prisoners, refugees or dead units cannot be added to any garrison"};
 
-if ((groupID _groupX == "MineF") or (groupID _groupX == "Watch") or (isPlayer(leader _groupX))) exitWith {hint "You cannot garrison player led, Watchpost, Roadblocks or Minefield building squads"};
+if ((groupID _grupo == "MineF") or (groupID _grupo == "Watch") or (isPlayer(leader _grupo))) exitWith {hint "You cannot garrison player led, Watchpost, Roadblocks or Minefield building squads"};
 
 
-if (isNull _groupX) then
+if (isNull _grupo) then
 	{
-	_groupX = createGroup teamPlayer;
-	_unitsX joinSilent _groupX;
-	//{arrayids = arrayids + [name _x]} forEach _unitsX;
+	_grupo = createGroup buenos;
+	_unidades joinSilent _grupo;
+	//{arrayids = arrayids + [name _x]} forEach _unidades;
 	hint "Adding units to garrison";
-	if !(hasIFA) then {{arrayids pushBackUnique (name _x)} forEach _unitsX};
+	if !(hayIFA) then {{arrayids pushBackUnique (name _x)} forEach _unidades};
 	}
 else
 	{
-	hint format ["Adding %1 squad to garrison", groupID _groupX];
-	theBoss hcRemoveGroup _groupX;
+	hint format ["Adding %1 squad to garrison", groupID _grupo];
+	theBoss hcRemoveGroup _grupo;
 	};
 /*
 _garrison = [];
-_garrison = _garrison + (garrison getVariable [_nearX,[]]);
-{_garrison pushBack (typeOf _x)} forEach _unitsX;
-garrison setVariable [_nearX,_garrison,true];
-[_nearX] call A3A_fnc_mrkUpdate;
+_garrison = _garrison + (garrison getVariable [_cercano,[]]);
+{_garrison pushBack (typeOf _x)} forEach _unidades;
+garrison setVariable [_cercano,_garrison,true];
+[_cercano] call A3A_fnc_mrkUpdate;
 */
-[_unitsX,teamPlayer,_nearX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
+[_unidades,buenos,_cercano,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 _noBorrar = false;
 
-if (spawner getVariable _nearX != 2) then
+if (spawner getVariable _cercano != 2) then
 	{
 
-	{deleteWaypoint _x} forEach waypoints _groupX;
-	_wp = _groupX addWaypoint [(getMarkerPos _nearX), 0];
+	{deleteWaypoint _x} forEach waypoints _grupo;
+	_wp = _grupo addWaypoint [(getMarkerPos _cercano), 0];
 	_wp setWaypointType "MOVE";
 	{
-	_x setVariable ["markerX",_nearX,true];
+	_x setVariable ["marcador",_cercano,true];
 	_x addEventHandler ["killed",
 		{
-		_victim = _this select 0;
-		_markerX = _victim getVariable "markerX";
-		if (!isNil "_markerX") then
+		_muerto = _this select 0;
+		_marcador = _muerto getVariable "marcador";
+		if (!isNil "_marcador") then
 			{
-			if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
+			if (lados getVariable [_marcador,sideUnknown] == buenos) then
 				{
 				/*
 				_garrison = [];
-				_garrison = _garrison + (garrison getVariable [_markerX,[]]);
+				_garrison = _garrison + (garrison getVariable [_marcador,[]]);
 				if (_garrison isEqualType []) then
 					{
 					for "_i" from 0 to (count _garrison -1) do
 						{
-						if (typeOf _victim == (_garrison select _i)) exitWith {_garrison deleteAt _i};
+						if (typeOf _muerto == (_garrison select _i)) exitWith {_garrison deleteAt _i};
 						};
-					garrison setVariable [_markerX,_garrison,true];
+					garrison setVariable [_marcador,_garrison,true];
 					};
-				[_markerX] call A3A_fnc_mrkUpdate;
+				[_marcador] call A3A_fnc_mrkUpdate;
 				*/
-				[typeOf _victim,teamPlayer,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
-				_victim setVariable [_markerX,nil,true];
+				[typeOf _muerto,buenos,_marcador,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+				_muerto setVariable [_marcador,nil,true];
 				};
 			};
 		}];
-	} forEach _unitsX;
+	} forEach _unidades;
 
-	waitUntil {sleep 1; (spawner getVariable _nearX == 2 or !(sidesX getVariable [_nearX,sideUnknown] == teamPlayer))};
-	if (!(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) then {_noBorrar = true};
+	waitUntil {sleep 1; (spawner getVariable _cercano == 2 or !(lados getVariable [_cercano,sideUnknown] == buenos))};
+	if (!(lados getVariable [_cercano,sideUnknown] == buenos)) then {_noBorrar = true};
 	};
 
 if (!_noBorrar) then
@@ -118,22 +118,22 @@ if (!_noBorrar) then
 		{
 		deleteVehicle _x
 		};
-	} forEach _unitsX;
-	deleteGroup _groupX;
+	} forEach _unidades;
+	deleteGroup _grupo;
 	}
 else
 	{
-	//añadir el groupX al HC y quitarles variables
+	//añadir el grupo al HC y quitarles variables
 	{
 	if (alive _x) then
 		{
-		_x setVariable ["markerX",nil,true];
+		_x setVariable ["marcador",nil,true];
 		_x removeAllEventHandlers "killed";
 		_x addEventHandler ["killed", {
-			_victim = _this select 0;
+			_muerto = _this select 0;
 			_killer = _this select 1;
-			[_victim] remoteExec ["A3A_fnc_postmortem",2];
-			if ((isPlayer _killer) and (side _killer == teamPlayer)) then
+			[_muerto] remoteExec ["A3A_fnc_postmortem",2];
+			if ((isPlayer _killer) and (side _killer == buenos)) then
 				{
 				if (!isMultiPlayer) then
 					{
@@ -143,21 +143,21 @@ else
 				}
 			else
 				{
-				if (side _killer == Occupants) then
+				if (side _killer == malos) then
 					{
-					_nul = [0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
+					_nul = [0.25,0,getPos _muerto] remoteExec ["A3A_fnc_citySupportChange",2];
 					[-0.25,0] remoteExec ["A3A_fnc_prestige",2];
 					}
 				else
 					{
-					if (side _killer == Invaders) then {[0,-0.25] remoteExec ["A3A_fnc_prestige",2]};
+					if (side _killer == muyMalos) then {[0,-0.25] remoteExec ["A3A_fnc_prestige",2]};
 					};
 				};
-			_victim setVariable ["spawner",nil,true];
+			_muerto setVariable ["GREENFORSpawn",nil,true];
 			}];
 		};
-	} forEach _unitsX;
-	theBoss hcSetGroup [_groupX];
-	hint format ["Group %1 is back to HC control because the zone which was pointed to garrison has been lost",groupID _groupX];
+	} forEach _unidades;
+	theBoss hcSetGroup [_grupo];
+	hint format ["Group %1 is back to HC control because the zone which was pointed to garrison has been lost",groupID _grupo];
 	};
 

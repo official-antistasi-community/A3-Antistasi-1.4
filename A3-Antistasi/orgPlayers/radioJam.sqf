@@ -1,5 +1,5 @@
 private _jammed = false;
-private _sideX = side player;
+private _lado = side player;
 _rad = 1000;
 _strength = 49;
 _isJammed = false;
@@ -7,15 +7,15 @@ _interference = 1;
 _sendInterference = 1;
 while {true} do
 	{
-	private _antennas = [];
+	private _antenas = [];
 	{
-	_outpost = [outposts,_x] call BIS_fnc_nearestPosition;
-	if (sidesX getVariable [_outpost,sideUnknown] != _sideX) then {_antennas pushBack _x};
-	} forEach antennas;
-	if (_sideX != teamPlayer) then {_antennas pushBack [vehicleBox]};
-	if !(_antennas isEqualTo []) then
+	_puesto = [puestos,_x] call BIS_fnc_nearestPosition;
+	if (lados getVariable [_puesto,sideUnknown] != _lado) then {_antenas pushBack _x};
+	} forEach antenas;
+	if (_lado != buenos) then {_antenas pushBack [cajaVeh]};
+	if !(_antenas isEqualTo []) then
 		{
-		_jammer = [_antennas,player] call BIS_fnc_nearestPosition;
+		_jammer = [_antenas,player] call BIS_fnc_nearestPosition;
 		_dist = player distance _jammer;
 	    _distPercent = _dist / _rad;
 

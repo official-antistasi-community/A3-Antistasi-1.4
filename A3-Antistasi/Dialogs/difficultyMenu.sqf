@@ -8,7 +8,7 @@ if !(skillMult == 1) then
 		{
 		server setVariable ["hr",25,true];
 		server setVariable ["resourcesFIA",5000,true];
-		vehInGarage = [vehSDKTruck,vehSDKTruck,SDKMortar,SDKMGStatic,staticAAteamPlayer];
+		vehInGarage = [vehSDKTruck,vehSDKTruck,SDKMortar,SDKMGStatic,staticAABuenos];
 		minWeaps = 15;
 		_index = sniperRifle call jn_fnc_arsenal_itemType;
 		[_index,sniperRifle,-1] call jn_fnc_arsenal_addItem;
@@ -21,7 +21,7 @@ if !(skillMult == 1) then
 			[_index,_magazine,-1] call jn_fnc_arsenal_addItem;
 			};
 		unlockedWeapons pushBack sniperRifle;
-		if !(hasTFAR) then
+		if !(hayTFAR) then
 			{
 			_index = "ItemRadio" call jn_fnc_arsenal_itemType;
 			[_index,"ItemRadio",-1] call jn_fnc_arsenal_addItem;
@@ -43,8 +43,8 @@ hint "Choose a Game Mode";
 waitUntil {!dialog};
 if (gameMode != 1) then
 	{
-	Occupants setFriend [Invaders,1];
-    Invaders setFriend [Occupants,1];
+	malos setFriend [muyMalos,1];
+    muyMalos setFriend [malos,1];
     if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
     if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
 	};

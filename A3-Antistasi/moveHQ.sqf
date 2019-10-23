@@ -1,6 +1,6 @@
 if (player != theBoss) exitWith {hint "Only our Commander has access to this function"};
 
-if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {hint "You must first empty your Ammobox in order to move the HQ"};
+if ((count weaponCargo caja >0) or (count magazineCargo caja >0) or (count itemCargo caja >0) or (count backpackCargo caja >0)) exitWith {hint "You must first empty your Ammobox in order to move the HQ"};
 
 petros enableAI "MOVE";
 petros enableAI "AUTOTARGET";
@@ -11,33 +11,32 @@ petros enableAI "AUTOTARGET";
 petros setBehaviour "AWARE";
 if (isMultiplayer) then
 	{
-	boxX hideObjectGlobal true;
-	vehicleBox hideObjectGlobal true;
-	mapX hideObjectGlobal true;
-	fireX hideObjectGlobal true;
-	flagX hideObjectGlobal true;
+	caja hideObjectGlobal true;
+	cajaVeh hideObjectGlobal true;
+	mapa hideObjectGlobal true;
+	fuego hideObjectGlobal true;
+	bandera hideObjectGlobal true;
 	}
 else
 	{
-	boxX hideObject true;
-	vehicleBox hideObject true;
-	mapX hideObject true;
-	fireX hideObject true;
-	flagX hideObject true;
+	caja hideObject true;
+	cajaVeh hideObject true;
+	mapa hideObject true;
+	fuego hideObject true;
+	bandera hideObject true;
 	};
 
-fireX inflame false;
+fuego inflame false;
 
-[respawnTeamPlayer, 0, teamPlayer] call A3A_fnc_setMarkerAlphaForSide;
-[respawnTeamPlayer, 0, civilian] call A3A_fnc_setMarkerAlphaForSide;
-
+//respawnBuenos setMarkerPos [0,0,0];
+respawnBuenos setMarkerAlpha 0;
 _garrison = garrison getVariable ["Synd_HQ", []];
-_positionX = getMarkerPos "Synd_HQ";
+_posicion = getMarkerPos "Synd_HQ";
 if (count _garrison > 0) then
 	{
-	_costs = 0;
+	_coste = 0;
 	_hr = 0;
-	if ({(alive _x) and (!captive _x) and ((side _x == Occupants) or (side _x == Invaders)) and (_x distance _positionX < 500)} count allUnits > 0) then
+	if ({(alive _x) and (!captive _x) and ((side _x == malos) or (side _x == muyMalos)) and (_x distance _posicion < 500)} count allUnits > 0) then
 		{
 		hint "HQ Garrison will stay here and hold the enemy";
 		}
@@ -45,15 +44,15 @@ if (count _garrison > 0) then
 		{
 		_size = ["Synd_HQ"] call A3A_fnc_sizeMarker;
 		{
-		if ((side group _x == teamPlayer) and (not(_x getVariable ["spawner",false])) and (_x distance _positionX < _size) and (_x != petros)) then
+		if ((side _x == buenos) and (not(_x getVariable ["GREENFORSpawn",false])) and (_x distance _posicion < _size) and (_x != petros)) then
 			{
 			if (!alive _x) then
 				{
-				if (typeOf _x in soldiersSDK) then
+				if (typeOf _x in soldadosSDK) then
 					{
-					if (typeOf _x == staticCrewTeamPlayer) then {_costs = _costs - ([SDKMortar] call A3A_fnc_vehiclePrice)};
+					if (typeOf _x == staticCrewBuenos) then {_coste = _coste - ([SDKMortar] call A3A_fnc_vehiclePrice)};
 					_hr = _hr - 1;
-					_costs = _costs - (server getVariable (typeOf _x));
+					_coste = _coste - (server getVariable (typeOf _x));
 					};
 				};
 			if (typeOf (vehicle _x) == SDKMortar) then {deleteVehicle vehicle _x};
@@ -62,13 +61,13 @@ if (count _garrison > 0) then
 		} forEach allUnits;
 		};
 	{
-	if (_x == staticCrewTeamPlayer) then {_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice)};
+	if (_x == staticCrewBuenos) then {_coste = _coste + ([SDKMortar] call A3A_fnc_vehiclePrice)};
 	_hr = _hr + 1;
-	_costs = _costs + (server getVariable _x);
+	_coste = _coste + (server getVariable _x);
 	} forEach _garrison;
-	[_hr,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
+	[_hr,_coste] remoteExec ["A3A_fnc_resourcesFIA",2];
 	garrison setVariable ["Synd_HQ",[],true];
-	hint format ["Garrison removed\n\nRecovered Money: %1 €\nRecovered HR: %2",_costs,_hr];
+	hint format ["Garrison removed\n\nRecovered Money: %1 €\nRecovered HR: %2",_coste,_hr];
 	};
 
 sleep 5;

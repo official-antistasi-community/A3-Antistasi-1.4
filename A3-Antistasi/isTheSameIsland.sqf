@@ -1,15 +1,42 @@
-//This code detects if QRFs which are sent are within the same island and prevents vehicles wanting to drive through water to reinforce a position.
-//Before this code was changed it was only functioning for Tanoa - now the code can be used with every map containing multipe island when the correct markers are placed.
+if (worldName != "Tanoa") exitWith {true};
 
-if (count islands == 0) exitwith {true};
+_sitio1 = _this select 0;
+_posSitio1 = if (_sitio1 isEqualType "") then {getMarkerPos _sitio1} else {_this select 0};
 
-private _site1 = _this select 0;
-private _posSite1 = if (_site1 isEqualType "") then {getMarkerPos _site1} else {_this select 0};
+_sitio2 = _this select 1;
+_posSitio2 = if (_sitio2 isEqualType "") then {getMarkerPos _sitio2} else {_this select 1};
 
-private _site2 = _this select 1;
-private _posSite2 = if (_site2 isEqualType "") then {getMarkerPos _site2} else {_this select 1};
-
-private _return = false;
-
-{if(_posSite1 inArea _x) then {if(_posSite2 inArea _x) then {_return = true}}} forEach islands;
+_return = false;
+if (_posSitio1 distance getMarkerPos "isla" <= 5500) then
+	{
+	if (_posSitio2 distance getMarkerPos "isla" <= 5500) then {_return = true};
+	}
+else
+	{
+	if (_posSitio1 distance getMarkerPos "isla_1" <= 2000) then
+		{
+		if (_posSitio2 distance getMarkerPos "isla_1" <= 2000) then {_return = true}
+		}
+	else
+		{
+		if (_posSitio1 distance getMarkerPos "isla_2" <= 2000) then
+			{
+			if (_posSitio2 distance getMarkerPos "isla_2" <= 2000) then {_return = true}
+			}
+		else
+			{
+			if (_posSitio1 distance getMarkerPos "isla_3" <= 3000) then
+				{
+				if (_posSitio2 distance getMarkerPos "isla_3" <= 3000) then {_return = true}
+				}
+			else
+				{
+				if (_posSitio1 distance getMarkerPos "isla_4" <= 2500) then
+					{
+					if (_posSitio2 distance getMarkerPos "isla_4" <= 2500) then {_return = true};
+					};
+				};
+			};
+		};
+	};
 _return

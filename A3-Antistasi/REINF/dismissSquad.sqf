@@ -1,23 +1,23 @@
 //if (!isServer) exitWith{};
-private ["_groups","_hr","_resourcesFIA","_wp","_groupX","_veh","_leave"];
+private ["_groups","_hr","_resourcesFIA","_wp","_grupo","_veh","_salir"];
 
 _groups = _this select 0;
 _hr = 0;
 _resourcesFIA = 0;
-_leave = false;
+_salir = false;
 {
-if ((groupID _x == "MineF") or (groupID _x == "Watch") or (isPlayer(leader _x))) then {_leave = true};
+if ((groupID _x == "MineF") or (groupID _x == "Watch") or (isPlayer(leader _x))) then {_salir = true};
 } forEach _groups;
 
-if (_leave) exitWith {hint "You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads"};
+if (_salir) exitWith {hint "You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads"};
 
 {
-if (_x getVariable ["esNATO",false]) then {_leave = true};
+if (_x getVariable ["esNATO",false]) then {_salir = true};
 } forEach _groups;
 
-if (_leave) exitWith {hint "You cannot dismiss NATO groups"};
+if (_salir) exitWith {hint "You cannot dismiss NATO groups"};
 
-_pos = getMarkerPos respawnTeamPlayer;
+_pos = getMarkerPos respawnBuenos;
 
 {
 theBoss sideChat format ["%2, I'm sending %1 back to base", _x,name petros];
@@ -28,7 +28,7 @@ sleep 3} forEach _groups;
 
 sleep 100;
 
-{_groupX = _x;
+{_grupo = _x;
 {
 
 if (alive _x) then
@@ -50,21 +50,21 @@ if (alive _x) then
 			deleteVehicle _veh;
 			};
 		};
-	_backpck = backpack _x;
-	if (_backpck != "") then
+	_mochi = backpack _x;
+	if (_mochi != "") then
 		{
-		switch (_backpck) do
+		switch (_mochi) do
 			{
 			case MortStaticSDKB: {_resourcesFIA = _resourcesFIA + ([SDKMortar] call A3A_fnc_vehiclePrice)};
-			case AAStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticAAteamPlayer] call A3A_fnc_vehiclePrice)};
+			case AAStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticAABuenos] call A3A_fnc_vehiclePrice)};
 			case MGStaticSDKB: {_resourcesFIA = _resourcesFIA + ([SDKMGStatic] call A3A_fnc_vehiclePrice)};
-			case ATStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticATteamPlayer] call A3A_fnc_vehiclePrice)};
+			case ATStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticATBuenos] call A3A_fnc_vehiclePrice)};
 			};
 		};
 	};
 deleteVehicle _x;
-} forEach units _groupX;
-deleteGroup _groupX;} forEach _groups;
+} forEach units _grupo;
+deleteGroup _grupo;} forEach _groups;
 _nul = [_hr,_resourcesFIA] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 

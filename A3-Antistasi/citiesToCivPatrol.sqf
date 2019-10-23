@@ -1,13 +1,13 @@
-_markerX = _this select 0;
-_posMarker = getMarkerPos _markerX;
+_marcador = _this select 0;
+_posMarcador = getMarkerPos _marcador;
 
-_arrayCities = (citiesX select {getMarkerPos _x distance _posMarker < 3000}) - [_markerX];
+_arrayCiudades = (ciudades select {getMarkerPos _x distance _posMarcador < 3000}) - [_marcador];
 /*
-for "_i" from 0 to (count citiesX - 1) do
+for "_i" from 0 to (count ciudades - 1) do
 	{
-	if ((getMarkerPos (citiesX select _i)) distance _posMarker < 3000) then {_arrayCities set [count _arrayCities,citiesX select _i]};
+	if ((getMarkerPos (ciudades select _i)) distance _posMarcador < 3000) then {_arrayCiudades set [count _arrayCiudades,ciudades select _i]};
 	};
 
-_arrayCities = _arrayCities - [_markerX];
+_arrayCiudades = _arrayCiudades - [_marcador];
 */
-_arrayCities
+_arrayCiudades

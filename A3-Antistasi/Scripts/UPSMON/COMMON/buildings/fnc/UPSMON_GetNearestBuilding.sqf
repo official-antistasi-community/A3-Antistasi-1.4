@@ -12,7 +12,7 @@ Parameter(s):
 Returns:
 	 [_bld,_bldpos] 
 ****************************************************************/
-private ["_distance","_minfloors","_marker","_shuffle","_position","_bldaltura","_nbbldpos","_bldpositions","_OcloseX","_allpos"];
+private ["_distance","_minfloors","_marker","_shuffle","_position","_bldaltura","_nbbldpos","_bldpositions","_OCercanos","_allpos"];
 	
 _distance = 25;
 _minfloors = 2;
@@ -27,14 +27,14 @@ if ((count _this) > 4) then {_shuffle = _this select 4;};
  
 _bldposition = [];
 											
-_OcloseX = [ (nearestObjects [_position, ["house","building"], _distance]), { [_x,_marker] call UPSMON_filterbuilding } ] call BIS_fnc_conditionalSelect;
+_OCercanos = [ (nearestObjects [_position, ["house","building"], _distance]), { [_x,_marker] call UPSMON_filterbuilding } ] call BIS_fnc_conditionalSelect;
 
-if (_shuffle && count _OcloseX > 0) then {_OcloseX = _OcloseX call UPSMON_arrayShufflePlus;};
+if (_shuffle && count _OCercanos > 0) then {_OCercanos = _OCercanos call UPSMON_arrayShufflePlus;};
 
 {
 	_allpos = [_x,_bldaltura] call UPSMON_SortOutBldpos; 
 	_nbbldpos = count (_allpos select 0);
 	if (damage _x == 0 && _nbbldpos > 0) exitwith {_bldposition = [_x,_allpos];};
-} foreach _OcloseX;
+} foreach _OCercanos;
 	
 _bldposition;

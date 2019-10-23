@@ -1,12 +1,12 @@
 waitUntil {!isNull player};
 
-if (side player == teamPlayer) then
+if (side player == buenos) then
 {
 _index =player createDiarySubject ["Tutorial","Begin Tutorial"];
 player createDiaryRecord ["Tutorial",["Undercover","In the early stages, especially when accomplishing certain missions, being undercover can be extremely helpful. Just as for real resistance fighters, your ability to disappear is something the enemy cannot counter. See Features section for a deep explanation of Undercover Mode."]];
 player createDiaryRecord ["Tutorial",["Start Position","Find a good spot to begin the mission. Your experience is very different from one start spot to another. Study the surrounding markers and roads between them well. If you start near a road between enemy zones, a patrol may appear and kill Petros"]];
 player createDiaryRecord ["Tutorial",["Resources","Having a good amount of resources for bigger operations is mandatory, especially weapons and ammo. In the initial stages, your main source of resources is accomplishing side-missions."]];
-player createDiaryRecord ["Tutorial",["Conquer and Hold","Don't expect a light counter-attack when you conquer strategic zones such as resources or airportsX. The enemy will send everything they can, if available. If you conquer a zone and expect a counter-attack, fleeing is a nice option."]];
+player createDiaryRecord ["Tutorial",["Conquer and Hold","Don't expect a light counter-attack when you conquer strategic zones such as resources or aeropuertos. The enemy will send everything they can, if available. If you conquer a zone and expect a counter-attack, fleeing is a nice option."]];
 player createDiaryRecord ["Tutorial",["Strategy","Once you have a nice amount of resources, focus on enemy communications. If you disturb them enough, you won't have to face big counter-attacks."]];
 player createDiaryRecord ["Tutorial",["Aggro Effects","Keep an eye on those. If it's too high, you will have to face more attacks with better troops."]];
 player createDiaryRecord ["Tutorial",["Early Beginning","Don't expect to be able to conquer anything in the early stages. First you have to gather enough resources (HR and Money) in order to be able to conquer and hold your positions. This mission tries to simulate real life guerilla situations. If in doubt, ask yourself what would you do in real life. Don't expect to win every time. Hit and Run is the basic manoeuvre here. Earn every resource, weapon and ammunition to gather enough assets in order to be a real challenge for the enemy. In the meantime, disturb its operations and gain support from the population."]];
@@ -42,8 +42,8 @@ player createDiaryRecord ["Features",["Server Members","For MP only. If enabled,
 player createDiaryRecord ["Features",["Base Static Emplacement","Purchased static weapons won't despawn if you leave them in a base or zone, AI garrison will man them. Reinforce places as you desire."]];
 player createDiaryRecord ["Features",["Fast Travel","When there are no enemies nearby, fast travel to Faction controlled places. The Commander also has the ability to use this option on HC groups, selecting the group on HC bar and clicking on this button"]];
 player createDiaryRecord ["Features",["Ammobox Transfer","When you mount a truck, you may use the Transfer action in the action menu. It will search for nearby ammoboxes and load the contents of the nearest one into the truck's cargo space. You may then unload the truck in your ammobox at HQ for future use. Before transferring, make sure to unload backpack/vest contents into the Truck cargo space and then transfer. TIP: If your HQ Ammobox is full, use this functionality from a nearby truck to add more content to the ammobox as it will then accept everything :)"]];
-player createDiaryRecord ["Features",["Conquer","Some zones, like airportsX or airports require you to use the ""Take the Flag"" action on their respective flags in order to conquer them. Some others, like roadblocks and some outposts, simply require you to defeat the garrison."]];
-player createDiaryRecord ["Features",["Static Weapons","You may steal static weapons found in enemy airportsX. You must use the 'Steal Static' action to do so. DO NOT disassemble them before using the 'Steal Static' action!"]];
+player createDiaryRecord ["Features",["Conquer","Some zones, like aeropuertos or airports require you to use the ""Take the Flag"" action on their respective flags in order to conquer them. Some others, like roadblocks and some outposts, simply require you to defeat the garrison."]];
+player createDiaryRecord ["Features",["Static Weapons","You may steal static weapons found in enemy aeropuertos. You must use the 'Steal Static' action to do so. DO NOT disassemble them before using the 'Steal Static' action!"]];
 player createDiaryRecord ["Features",["Vehicles","You may buy vehicles for your squad at Faction flags."]];
 player createDiaryRecord ["Features",["Radio Towers",format ["Destroy or capture Radio Towers in order to build trust on %1 cityzens.",worldName]]];
 player createDiaryRecord ["Features",["Politics","This is a civil war. People are not conquered if you cannot conquer their hearts. In game mechanics, this means you cannot conquer cities. The citizens of each town support the enemy or Faction to some amount. The dominant faction is the one who owns the city and benefits from their support in terms of money and human resources (HR). Your actions may lower enemy Support or raise yours, or both. Killing enemies, accomplishing missions, conquering resources, and power-stations, affect the amount of citizen support."]];
@@ -79,30 +79,30 @@ player createDiaryRecord ["Diary",["Resources","Every 10 minutes each faction re
 player createDiaryRecord ["Diary",["Money","Money comes from a combination of citizens support on each city, resources conquered, factories conquered (which boost the economy) and power provided to all of them with a nearby friendly power plant (you may also conquer them to cut off Money supply to the enemy). Money is used to purchase vehicles, units and squads"]];
 player createDiaryRecord ["Diary",["Money - MP","In MP games there are two money pools. Faction Money -which is for Commander use only- and personal money. Personal money can be used by any player to recruit AI or buy vehicles. Faction earns money by taxes and accomplishing missions. Personal money comes from killing enemies and accomplishing missions. Options to transfer or donate money are found in the Y menu. Commander can grab money from the Faction Pool to his own account"]];
 player createDiaryRecord ["Diary",["HR","HR or Manpower comes from citizen support on each city. Manpower is needed to recruit more units (1 HR Points = 1 Soldier)"]];
-player createDiaryRecord ["Diary",[format ["%1 and %2 Aggro",nameOccupants,nameInvaders],format ["There is an All vs All war in %4. %1 and %2 are constantly attacking each other, but that does not mean they don't shoot at %3 on first sight. %1 and %2 Aggro points represent how much threat they see in %3 faction. Generally speaking those points will low or raise depending on your actions against them and civilians.",nameOccupants,nameInvaders,nameTeamPlayer,worldName]]];
+player createDiaryRecord ["Diary",[format ["%1 and %2 Aggro",nameMalos,nameMuyMalos],format ["There is an All vs All war in %4. %1 and %2 are constantly attacking each other, but that does not mean they don't shoot at %3 on first sight. %1 and %2 Aggro points represent how much threat they see in %3 faction. Generally speaking those points will low or raise depending on your actions against them and civilians.",nameMalos,nameMuyMalos,nameBuenos,worldName]]];
 switch (gameMode) do
 	{
-	case 1: {player createDiaryRecord ["Diary",["AI RoE",format ["All vs All war.<br/><br/>%1 and %2 will attack each other and both to %3.",nameOccupants,nameInvaders,nameTeamPlayer]]]};
-	case 2: {player createDiaryRecord ["Diary",["AI RoE",format ["%3 vs All war.<br/><br/>%1 and %2 will attack only %3 and act independently. Both can conquer.",nameOccupants,nameInvaders,nameTeamPlayer]]]};
-	case 3: {player createDiaryRecord ["Diary",["AI RoE",format ["%2 vs %1 war.",nameOccupants,nameTeamPlayer]]]};
-	case 4: {player createDiaryRecord ["Diary",["AI RoE",format ["%2 vs %1 war.",nameInvaders,nameTeamPlayer]]]};
+	case 1: {player createDiaryRecord ["Diary",["AI RoE",format ["All vs All war.<br/><br/>%1 and %2 will attack each other and both to %3.",nameMalos,nameMuyMalos,nameBuenos]]]};
+	case 2: {player createDiaryRecord ["Diary",["AI RoE",format ["%3 vs All war.<br/><br/>%1 and %2 will attack only %3 and act independently. Both can conquer.",nameMalos,nameMuyMalos,nameBuenos]]]};
+	case 3: {player createDiaryRecord ["Diary",["AI RoE",format ["%2 vs %1 war.",nameMalos,nameBuenos]]]};
+	case 4: {player createDiaryRecord ["Diary",["AI RoE",format ["%2 vs %1 war.",nameMuyMalos,nameBuenos]]]};
 	};
-player createDiaryRecord ["Diary",["Loose",format ["You will loose the game if %1 has murdered 1/3 of the total population.",nameInvaders]]];
+player createDiaryRecord ["Diary",["Loose",format ["You will loose the game if %1 has murdered 1/3 of the total population.",nameMuyMalos]]];
 player createDiaryRecord ["Diary",["Win","You will win the game when most of the population supports Faction and you have conquered all the Airbases"]];
 
-_nameXMiss = if (hasIFA) then {"Armia Krajowa"} else {if (worldName == "Tanoa") then {"Warlords of the Pacific"} else {"Antistasi"}};
+_nombreMiss = if (hayIFA) then {"Armia Krajowa"} else {if (worldName == "Tanoa") then {"Warlords of the Pacific"} else {"Antistasi"}};
 
-player createDiaryRecord ["Diary",["Welcome",format ["Welcome to Arma 3 - %1. This mission aims to simulate guerilla combat, tactics and strategic situations. It is not a quick and easy mod, it is long term, step-by-step mission with LOTS of features and enhanced AI.",_nameXMiss]]];
+player createDiaryRecord ["Diary",["Welcome",format ["Welcome to Arma 3 - %1. This mission aims to simulate guerilla combat, tactics and strategic situations. It is not a quick and easy mod, it is long term, step-by-step mission with LOTS of features and enhanced AI.",_nombreMiss]]];
 }
 else
 {
 player createDiaryRecord ["Diary",["Thanks","<br/>LanCommi for his artwork.<br/>Goon and jw custom: Part of the code for the NAPALM script.<br/>rebel12340: Radio Jam script<br/>Manko: Earplug snippet<br/>bobchaos: Managing the community despite all difficulties.<br/>And all those players who spend their time on making comments, suggestions and reports on Steam and BIS forums"]];
 player createDiaryRecord ["Diary",["Mods","Integrated (optional) Mods:<br/>TFAR: Radio integrated in Arsenal. Sound disabled when player is unconscious.<br/>ACE Medical: Will disable Antistasi revive system.<br/><br/>CAUTION: The use of Persistent Save system with TFAR and any weapon mod activated will make them mandatory in future.<br/><br/>Any client sided Mod, such as JSRS, Blastcore, UI Mod should work.<br/><br/>Units and vehicles mods won't work. AI Mods may cause malfunctions (in any case Antistasi has heavy AI tweaking)."]];
 player createDiaryRecord ["Diary",["Script Credits","UPSMon by Monsada, Kronzy and Cool=Azroul13 <br/>Persistent Save by zooloo75.<br/>Tags by Marker and Melbo."]];
-player createDiaryRecord ["Diary",["Requirements",format ["%1 and %2 player slot requirements:<br/>Human %3 Commander in game.<br/>JIP players.<br/>Server Members.<br/>Same or equal player number than %3",nameOccupants,nameInvaders,nameTeamPlayer]]];
+player createDiaryRecord ["Diary",["Requirements",format ["%1 and %2 player slot requirements:<br/>Human %3 Commander in game.<br/>JIP players.<br/>Server Members.<br/>Same or equal player number than %3",nameMalos,nameMuyMalos,nameBuenos]]];
 player createDiaryRecord ["Diary",["Intel","You will receive notifications and tasks related to major activities or enemy intel reports."]];
 player createDiaryRecord ["Diary",["Special Keys","Press Y to Fast Travel and purchase a Quadbike for your own use. Press END to use Earplugs."]];
-player createDiaryRecord ["Diary",["Kill Maru",format ["Find the %1 Commander and kill him is the best option to damage their weaponary and assets.",nameTeamPlayer]]];
-player createDiaryRecord ["Diary",[format ["%1 and %2 players",nameOccupants,nameInvaders],format ["You are a %1 or %2 player. You main task is to perform counterinsurgency actions against Faction players.",nameOccupants,nameInvaders]]];
+player createDiaryRecord ["Diary",["Kill Maru",format ["Find the %1 Commander and kill him is the best option to damage their weaponary and assets.",nameBuenos]]];
+player createDiaryRecord ["Diary",[format ["%1 and %2 players",nameMalos,nameMuyMalos],format ["You are a %1 or %2 player. You main task is to perform counterinsurgency actions against Faction players.",nameMalos,nameMuyMalos]]];
 player createDiaryRecord ["Diary",["Welcome","Welcome to Arma 3 - Warlords of the Pacific. This mission aims to simulate guerilla combat, tactics and strategic situations. It is not a quick and easy mod, it is long term, step-by-step mission with LOTS of features and enhanced AI."]];
 };

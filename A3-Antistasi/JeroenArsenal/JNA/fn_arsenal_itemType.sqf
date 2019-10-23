@@ -36,46 +36,12 @@
 		_types set [IDC_RSCDISPLAYARSENAL_TAB_ITEMACC,["AccessoryPointer"]];\
 		_types set [IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD,["AccessoryBipod"]];\
 		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,[]];\
-		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL,["Magazine"]];\
-		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW,["Throwable"]];\
-		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT,["Placeable"]];\
-		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC,["MiscItem"]];
+		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL,["Bullet","Missile","Rocket","Shell","ShotgunShell","SmokeShell","Laser"]];\
+		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW,["Grenade","SmokeShell","Flare"]];\
+		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT,["Mine","MineBounding","MineDirectional"]];\
+		_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC,["FirstAidKit","Medikit","MineDetector","Toolkit","UnknownWeapon","UnknownMagazine"]];
 
-// weapon types
-#define TYPE_WEAPON_PRIMARY 1
-#define TYPE_WEAPON_HANDGUN 2
-#define TYPE_WEAPON_SECONDARY 4
-// magazine types
-#define TYPE_MAGAZINE_HANDGUN_AND_GL 16 // mainly
-#define TYPE_MAGAZINE_PRIMARY_AND_THROW 256
-#define TYPE_MAGAZINE_SECONDARY_AND_PUT 512 // mainly
-// more types
-#define TYPE_BINOCULAR_AND_NVG 4096
-#define TYPE_WEAPON_VEHICLE 65536
-#define TYPE_ITEM 131072
-// item types
-#define TYPE_DEFAULT 0
-#define TYPE_MUZZLE 101
-#define TYPE_OPTICS 201
-#define TYPE_FLASHLIGHT 301
-#define TYPE_BIPOD 302
-#define TYPE_FIRST_AID_KIT 401
-#define TYPE_FINS 501 // not implemented
-#define TYPE_BREATHING_BOMB 601 // not implemented
-#define TYPE_NVG 602
-#define TYPE_GOGGLE 603
-#define TYPE_SCUBA 604 // not implemented
-#define TYPE_HEADGEAR 605
-#define TYPE_FACTOR 607
-#define TYPE_RADIO 611
-#define TYPE_HMD 616
-#define TYPE_BINOCULAR 617
-#define TYPE_MEDIKIT 619
-#define TYPE_TOOLKIT 620
-#define TYPE_UAV_TERMINAL 621
-#define TYPE_VEST 701
-#define TYPE_UNIFORM 801
-#define TYPE_BACKPACK 901
+
 
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
@@ -86,115 +52,31 @@ params ["_item"];
 _return = -1;
 
 private ["_weaponType","_weaponTypeCategory"];
-/* 
-  We're gonna use ACE's item detection code, but modified. 
-  Thanks ACE! 
-	(https://github.com/acemod/ACE3, this code was authored by Alganthe and Dedmen)
-*/
+_weaponType = (_item call bis_fnc_itemType);
+_weaponTypeCategory = _weaponType select 0;
 
-private _configCfgWeapons = configFile >> "CfgWeapons";
-private _weaponConfig = configFile >> "CfgWeapons" >> _item;
-private _itemInfoConfig = _weaponConfig >> "ItemInfo";
-private _magazineConfig = configFile >> "CfgMagazines" >> _item;
-private _itemType = switch true do {
-	case (isClass _weaponConfig): {getNumber (_weaponConfig >> "type")};
-	case (isClass _magazineConfig): {getNumber (_magazineConfig >> "type")};
-	default {-1};
-};
-private _itemInfoType =	if (isClass _itemInfoConfig) then {(getNumber (_itemInfoConfig >> "type"))} else {-1};
-private _simulationType = getText (_weaponConfig >> "simulation");
-
-private _itemCategory = switch true do {
-	case (isClass _weaponConfig): {
-		switch true do {
-			//Weapon accessories
-			case (_itemInfoType in [TYPE_MUZZLE, TYPE_OPTICS, TYPE_FLASHLIGHT, TYPE_BIPOD]
-			      && {!(_item isKindOf ["CBA_MiscItem", (_configCfgWeapons)])}): {
-				switch (_itemInfoType) do {
-					case TYPE_OPTICS: { "AccessorySights" };
-					case TYPE_FLASHLIGHT: { "AccessoryPointer" };
-					case TYPE_MUZZLE: { "AccessoryMuzzle" };
-					case TYPE_BIPOD: { "AccessoryBipod" };
-				};
-			};
-			case (_itemInfoType == TYPE_HEADGEAR): { "Headgear" };
-			case (_itemInfoType == TYPE_UNIFORM): { "Uniform" };
-			case (_itemInfoType == TYPE_VEST): { "Vest" };
-			case (_simulationType == "NVGoggles"): { "NVGoggles" };
-			//Binos after NVGs to avoid accidentally catching them;
-			case (_simulationType == "Binocular" ||	{_simulationType == "Weapon" && _itemType == TYPE_BINOCULAR_AND_NVG}): { "Binocular" };
-			case (_simulationType == "ItemMap"): { "Map" };
-			case (_simulationType == "ItemCompass"): { "Compass" };
-			case (_simulationType == "ItemRadio"): { "Radio" };
-			case (_simulationType == "ItemWatch"): { "Watch" };
-			case (_simulationType == "ItemGPS"): { "GPS" };
-			case (_itemInfoType == TYPE_UAV_TERMINAL): { "UAVTerminal" };
-			//Weapon, at the bottom to avoid adding binoculars
-			case (isClass (_weaponConfig >> "WeaponSlotsInfo") && _itemType != TYPE_BINOCULAR_AND_NVG): { 
-				(_item call BIS_fnc_itemType) select 1;
-			};
-			//Community Base Addon Misc Items
-			case (_itemInfoType in [TYPE_MUZZLE, TYPE_OPTICS, TYPE_FLASHLIGHT, TYPE_BIPOD] && _item isKindOf ["CBA_MiscItem", (_configCfgWeapons)]);
-			//Base game misc items
-			case (_itemType in [TYPE_FIRST_AID_KIT, TYPE_MEDIKIT, TYPE_TOOLKIT] ||	_simulationType == "ItemMineDetector"): {
-				"MiscItem";
-			};
-			default {
-				diag_log format ["[Arsenal] Unknown item in item type script: %1", _item];
-				"MiscItem";
-			};
+private ["_weaponTypeSpecific"];
+_weaponTypeSpecific = _weaponType select 1;
+//workaround for ACE/ACRE bugs related to bis_fnc_itemType
+if (_weaponTypeSpecific == "AccessoryBipod") then
+	{
+	if (hayACEMedical) then
+		{
+		if (_item in (aceBasicMedItems + aceAdvMedItems)) then {_weaponTypeSpecific = "FirstAidKit"};
+		};
+	if (hayACE) then
+		{
+		if (_item in aceItems) then {_weaponTypeSpecific = "FirstAidKit"};
+		};
+	if (hayACRE) then
+		{
+		if (_item in ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"]) then {_weaponTypeSpecific = "FirstAidKit"};
 		};
 	};
-	
-	case (isClass _magazineConfig): {
-		// Lists to check against
-		private _grenadeList = [];
-		{
-			_grenadeList append getArray (_configCfgWeapons >> "Throw" >> _x >> "magazines");
-			false
-		} count getArray (_configCfgWeapons >> "Throw" >> "muzzles");
-
-		private _putList = [];
-		{
-			_putList append getArray (_configCfgWeapons >> "Put" >> _x >> "magazines");
-			false
-		} count getArray (_configCfgWeapons >> "Put" >> "muzzles");
-		
-		// Check what the magazine actually is
-		switch true do {
-			// Rifle, handgun, secondary weapons mags
-			case (
-			       (getNumber (configFile >> "CfgMagazines" >> _item >> "type") in [TYPE_MAGAZINE_PRIMARY_AND_THROW,TYPE_MAGAZINE_SECONDARY_AND_PUT,1536,TYPE_MAGAZINE_HANDGUN_AND_GL]) &&
-			       {!(_item in _grenadeList)} &&
-			       {!(_item in _putList)}
-			     ): {
-						"Magazine";
-				};
-				// Grenades
-				case (_item in _grenadeList): {
-						"Throwable";
-				};
-				// Put
-				case (_item in _putList): {
-						"Placeable";
-				};
-		};	
-	};
-
-	case (isClass (configFile >> "CfgVehicles" >> _item)): {
-		if (getNumber (configFile >> "CfgVehicles" >> _item >> "isBackpack") == 1) then {
-			"Backpack";
-		};
-	};
-	case (isClass (configFile >> "CfgGlasses" >> _item)): {
-		"Glasses";
-	};
-};
-
 INITTYPES
 
 {
-	if (_itemCategory in _x) exitwith {_return = _foreachindex;};
+	if (_weaponTypeSpecific in _x) exitwith {_return = _foreachindex;};
 } foreach _types;
 
 

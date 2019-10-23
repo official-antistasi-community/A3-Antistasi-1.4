@@ -1,17 +1,17 @@
-private ["_unit","_part","_dam","_injurer","_groupX"];
+private ["_unit","_part","_dam","_injurer","_grupo"];
 _dam = _this select 2;
 _injurer = _this select 3;
-if (side _injurer == teamPlayer) then
+if (side _injurer == buenos) then
 	{
 	_unit = _this select 0;
 	_part = _this select 1;
-	_groupX = group _unit;
-	if (time > _groupX getVariable ["movedToCover",0]) then
+	_grupo = group _unit;
+	if (time > _grupo getVariable ["movedToCover",0]) then
 		{
-		if ((behaviour leader _groupX != "COMBAT") and (behaviour leader _groupX != "STEALTH")) then
+		if ((behaviour leader _grupo != "COMBAT") and (behaviour leader _grupo != "STEALTH")) then
 			{
-			_groupX setVariable ["movedToCover",time + 120];
-			{[_x,_injurer] call A3A_fnc_unitGetToCover} forEach units _groupX;
+			_grupo setVariable ["movedToCover",time + 120];
+			{[_x,_injurer] call A3A_fnc_unitGetToCover} forEach units _grupo;
 			};
 		};
 	if (_part == "") then
@@ -23,7 +23,7 @@ if (side _injurer == teamPlayer) then
 				_unit setVariable ["INCAPACITATED",true,true];
 				_unit setUnconscious true;
 				_dam = 0.9;
-				[_unit,_injurer] spawn A3A_fnc_unconsciousAAF;
+				[_unit,_injurer] spawn A3A_fnc_inconscienteAAF;
 				}
 			else
 				{
@@ -43,7 +43,7 @@ if (side _injurer == teamPlayer) then
 			{
 			if (_dam > 0.25) then
 				{
-				if (_unit getVariable ["helping",false]) then
+				if (_unit getVariable ["ayudando",false]) then
 					{
 					_unit setVariable ["cancelRevive",true];
 					};
@@ -76,7 +76,7 @@ if (side _injurer == teamPlayer) then
 								moveOut _unit;
 								};
 							if (isPlayer _unit) then {_unit allowDamage false};
-							if (!isNull _injurer) then {[_unit,_injurer] spawn A3A_fnc_unconsciousAAF} else {[_unit,objNull] spawn A3A_fnc_unconsciousAAF};
+							if (!isNull _injurer) then {[_unit,_injurer] spawn A3A_fnc_inconscienteAAF} else {[_unit,objNull] spawn A3A_fnc_inconscienteAAF};
 							};
 						};
 					}
@@ -93,7 +93,7 @@ if (side _injurer == teamPlayer) then
 								moveOut _unit;
 								};
 							if (isPlayer _unit) then {_unit allowDamage false};
-							if (!isNull _injurer) then {[_unit,_injurer] spawn A3A_fnc_unconsciousAAF} else {[_unit,objNull] spawn A3A_fnc_unconsciousAAF};
+							if (!isNull _injurer) then {[_unit,_injurer] spawn A3A_fnc_inconscienteAAF} else {[_unit,objNull] spawn A3A_fnc_inconscienteAAF};
 							};
 						};
 					};

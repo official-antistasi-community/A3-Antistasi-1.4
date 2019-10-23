@@ -3,7 +3,7 @@ File: UPSMON_GetPos2D.sqf
 Author: MONSADA
 
 Description:
-	Funciï¿½n que devuelve una posiciï¿½n en 2D a partir de otra, una direcciï¿½n y una distanceX
+	Función que devuelve una posición en 2D a partir de otra, una dirección y una distancia
 Parameter(s):
 	<--- Position
 	<--- Direction
@@ -20,7 +20,7 @@ _dist = _this select 2;
 if (isnil "_pos") exitWith {}; 
 _targetX = _pos select 0; _targetY = _pos select 1; 
 			
-//Calculamos posiciï¿½n 	
+//Calculamos posición 	
 _cosU = [_dir] call UPSMON_GetCOS;		_sinU = [_dir] call UPSMON_GetSIN;			
 _cosT = abs cos(_dir);				_sinT = abs sin(_dir);
 _relTX = _sinT * _dist * _cosU;  	_relTY = _cosT * _dist * _sinU;

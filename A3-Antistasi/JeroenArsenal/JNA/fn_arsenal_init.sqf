@@ -2,7 +2,8 @@
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | JNA Init Started.",servertime];
+
+diag_log "Init JNA: Start";
 
 params [["_object",objNull,[objNull]]];
 
@@ -12,45 +13,15 @@ if(isNull _object)exitWith{["Error: wrong input given '%1'",_object] call BIS_fn
 missionnamespace setVariable ["jna_object",_object];
 
 //change this for items that members can only take
-/* Indexes in the array correspond to these tabs:
-DO NOT UNCOMMENT THIS BIT. THESE ARE ALREADY DEFINED
-IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON		0
-IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON	1
-IDC_RSCDISPLAYARSENAL_TAB_HANDGUN		2
-IDC_RSCDISPLAYARSENAL_TAB_UNIFORM		3
-IDC_RSCDISPLAYARSENAL_TAB_VEST			4
-IDC_RSCDISPLAYARSENAL_TAB_BACKPACK		5
-IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR		6
-IDC_RSCDISPLAYARSENAL_TAB_GOGGLES		7
-IDC_RSCDISPLAYARSENAL_TAB_NVGS			8
-IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS		9
-IDC_RSCDISPLAYARSENAL_TAB_MAP			10
-IDC_RSCDISPLAYARSENAL_TAB_GPS			11
-IDC_RSCDISPLAYARSENAL_TAB_RADIO			12
-IDC_RSCDISPLAYARSENAL_TAB_COMPASS		13
-IDC_RSCDISPLAYARSENAL_TAB_WATCH			14
-IDC_RSCDISPLAYARSENAL_TAB_FACE			15
-IDC_RSCDISPLAYARSENAL_TAB_VOICE			16
-IDC_RSCDISPLAYARSENAL_TAB_INSIGNIA		17
-IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC		18
-IDC_RSCDISPLAYARSENAL_TAB_ITEMACC		19
-IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE		20
-IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD		25
-IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG		21
-IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW		22
-IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT		23
-IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC		24
-IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL		26
-*/
 //jna_minItemMember = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
-jna_minItemMember = [24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,memberOnlyMagLimit,24,24,24,24,memberOnlyMagLimit];
+jna_minItemMember = [24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,500,24,24,24,24,500];
 
 //preload the ammobox so you dont need to wait the first time
 ["Preload"] call jn_fnc_arsenal;
 
 //server
 if(isServer)then{
-    diag_log format ["%1: [Antistasi] | INFO | JNA Server Detected.",servertime];
+	diag_log "Init JNA: server";
 
     //load default if it was not loaded from savegame
     if(isnil "jna_dataList" )then{jna_dataList = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];};
@@ -58,33 +29,13 @@ if(isServer)then{
 
 //player
 if(hasInterface)then{
-    diag_log format ["%1: [Antistasi] | INFO | JNA Loading Player Data.",servertime];
+    diag_log "Init JNA: player";
 
     //add arsenal button
     _object addaction [
         localize "STR_A3_Arsenal",
         {
-            //start loading screen
-	    ["jn_fnc_arsenal", "Loading Nutz™ Arsenal"] call bis_fnc_startloadingscreen;
-	    [] spawn {
-	        uisleep 5;
-          private _ids = missionnamespace getvariable ["BIS_fnc_startLoadingScreen_ids",[]];
-		      if("jn_fnc_arsenal" in _ids)then{
-		        private _display =  uiNamespace getVariable ["arsanalDisplay","No display"];
-		        titleText["ERROR DURING LOADING ARSENAL", "PLAIN"];
-		        _display closedisplay 2;
-		        ["jn_fnc_arsenal"] call BIS_fnc_endLoadingScreen;
-		      };
-
-		      //TODO this is a temp fix for rhs because it freezes the loading screen if no primaryWeapon was equiped. This will be fix in rhs 0.4.9
-	      	if("bis_fnc_arsenal" in _ids)then{
-		        private _display =  uiNamespace getVariable ["arsanalDisplay","No display"];
-		        titleText["Non Fatal Error, RHS?", "PLAIN"];
-		        diag_log "JNA: Non Fatal Error, RHS?";
-		        ["bis_fnc_arsenal"] call BIS_fnc_endLoadingScreen;
-	       	};
-	    };
-
+            //["jn_fnc_arsenal"] call bis_fnc_startloadingscreen;
             //save proper ammo because BIS arsenal rearms it, and I will over write it back again
             missionNamespace setVariable ["jna_magazines_init",  [
                 magazinesAmmoCargo (uniformContainer player),
@@ -166,5 +117,6 @@ if(hasInterface)then{
         };
     }] call BIS_fnc_addScriptedEventHandler;
 };
-diag_log format ["%1: [Antistasi] | INFO | JNA Completed.",servertime];
+
+diag_log "Init JNA: done";
 arsenalInit = true;

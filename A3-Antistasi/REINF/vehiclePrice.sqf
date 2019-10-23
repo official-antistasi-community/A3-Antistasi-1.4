@@ -1,17 +1,17 @@
-private ["_typeX","_costs"];
+private ["_tipo","_coste"];
 
-_typeX = _this select 0;
+_tipo = _this select 0;
 
-_costs = server getVariable _typeX;
+_coste = server getVariable _tipo;
 
-if (isNil "_costs") then
+if (isNil "_coste") then
 	{
-	diag_log format ["%1: [Antistasi] | ERROR | vehiclePrice.sqf | Invalid vehicle price :%2.",servertime,_typeX];
-	_costs = 0;
+	diag_log format ["Antistasi Error en vehicleprice: %!",_tipo];
+	_coste = 0;
 	}
 else
 	{
-	_costs = round (_costs - (_costs * (0.1 * ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count seaports))));
+	_coste = round (_coste - (_coste * (0.1 * ({lados getVariable [_x,sideUnknown] == buenos} count puertos))));
 	};
 
-_costs
+_coste

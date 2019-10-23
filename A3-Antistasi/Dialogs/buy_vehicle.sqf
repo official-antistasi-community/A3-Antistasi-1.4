@@ -27,9 +27,9 @@ if (str (_display) != "no display") then
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[SDKMortar] call A3A_fnc_vehiclePrice];
 	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> SDKMortar >> "displayName")];
 	_ChildControl = _display displayCtrl 110;
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[staticATteamPlayer] call A3A_fnc_vehiclePrice];
-	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> staticATteamPlayer >> "displayName")];
+	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[staticATBuenos] call A3A_fnc_vehiclePrice];
+	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> staticATBuenos >> "displayName")];
 	_ChildControl = _display displayCtrl 111;
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[staticAAteamPlayer] call A3A_fnc_vehiclePrice];
-	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> staticAAteamPlayer >> "displayName")];
+	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[staticAABuenos] call A3A_fnc_vehiclePrice];
+	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> staticAABuenos >> "displayName")];
 };

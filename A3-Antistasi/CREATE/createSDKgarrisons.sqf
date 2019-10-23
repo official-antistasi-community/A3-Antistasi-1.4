@@ -1,159 +1,158 @@
 if (!isServer and hasInterface) exitWith{};
 
-private ["_markerX","_vehiclesX","_groups","_soldiers","_positionX","_pos","_size","_veh","_staticsX","_garrison","_radiusX","_countX","_groupX","_groupMortar","_typeX","_unit"];
+private ["_marcador","_vehiculos","_grupos","_soldados","_posicion","_pos","_size","_veh","_estaticas","_garrison","_tam","_cuenta","_grupo","_grupoMort","_tipo","_unit"];
 
-_markerX = _this select 0;
+_marcador = _this select 0;
 
-_vehiclesX = [];
-_groups = [];
-_soldiers = [];
+_vehiculos = [];
+_grupos = [];
+_soldados = [];
 _civs = [];
-//_typeCiv = "";
-_positionX = getMarkerPos (_markerX);
+//_tipoCiv = "";
+_posicion = getMarkerPos (_marcador);
 _pos = [];
 _unit = objNull;
 _veh = objNull;
-_size = [_markerX] call A3A_fnc_sizeMarker;
+_size = [_marcador] call A3A_fnc_sizeMarker;
 
-if (_markerX != "Synd_HQ") then
+if (_marcador != "Synd_HQ") then
 	{
-	if (!(_markerX in citiesX)) then
+	if (!(_marcador in ciudades)) then
 		{
-		_veh = createVehicle [SDKFlag, _positionX, [],0, "CAN_COLLIDE"];
-		if (hasIFA) then {_veh setFlagTexture SDKFlagTexture};
+		_veh = createVehicle [SDKFlag, _posicion, [],0, "CAN_COLLIDE"];
+		if (hayIFA) then {_veh setFlagTexture SDKFlagTexture};
 		_veh allowDamage false;
-		_vehiclesX pushBack _veh;
+		_vehiculos pushBack _veh;
 		[_veh,"SDKFlag"] remoteExec ["A3A_fnc_flagaction",0,_veh];
-		//[_veh,"unit"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
-		//[_veh,"vehicle"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
-		//[_veh,"garage"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
+		//[_veh,"unit"] remoteExec ["A3A_fnc_flagaction",[buenos,civilian],_veh];
+		//[_veh,"vehicle"] remoteExec ["A3A_fnc_flagaction",[buenos,civilian],_veh];
+		//[_veh,"garage"] remoteExec ["A3A_fnc_flagaction",[buenos,civilian],_veh];
 		};
-	if ((_markerX in resourcesX) or (_markerX in factories)) then
+	if ((_marcador in recursos) or (_marcador in fabricas)) then
 		{
-		if (not(_markerX in destroyedCities)) then
+		if (not(_marcador in destroyedCities)) then
 			{
 			if ((daytime > 8) and (daytime < 18)) then
 				{
-				_groupX = createGroup civilian;
-				_groups pushBack _groupX;
+				_grupo = createGroup civilian;
+				_grupos pushBack _grupo;
 				for "_i" from 1 to 4 do
 					{
-					if (spawner getVariable _markerX != 2) then
+					if (spawner getVariable _marcador != 2) then
 						{
-						_civ = _groupX createUnit ["C_man_w_worker_F", _positionX, [],0, "NONE"];
+						_civ = _grupo createUnit ["C_man_w_worker_F", _posicion, [],0, "NONE"];
 						_nul = [_civ] spawn A3A_fnc_CIVinit;
 						_civs pushBack _civ;
-						_civ setVariable ["markerX",_markerX,true];
+						_civ setVariable ["marcador",_marcador,true];
 						sleep 0.5;
 						_civ addEventHandler ["Killed",
 							{
 							if (({alive _x} count units group (_this select 0)) == 0) then
 								{
-								_markerX = (_this select 0) getVariable "markerX";
-								_nameX = [_markerX] call A3A_fnc_localizar;
-								destroyedCities pushBackUnique _markerX;
+								_marcador = (_this select 0) getVariable "marcador";
+								_nombre = [_marcador] call A3A_fnc_localizar;
+								destroyedCities pushBackUnique _marcador;
 								publicVariable "destroyedCities";
-								["TaskFailed", ["", format ["%1 Destroyed",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
+								["TaskFailed", ["", format ["%1 Destroyed",_nombre]]] remoteExec ["BIS_fnc_showNotification",[buenos,civilian]];
 								};
 							}];
 						};
 					};
-				//_nul = [_markerX,_civs] spawn destroyCheck;
-				_nul = [leader _groupX, _markerX, "SAFE", "SPAWNED","NOFOLLOW", "NOSHARE","DORELAX","NOVEH2"] execVM "scripts\UPSMON.sqf";
+				//_nul = [_marcador,_civs] spawn destroyCheck;
+				_nul = [leader _grupo, _marcador, "SAFE", "SPAWNED","NOFOLLOW", "NOSHARE","DORELAX","NOVEH2"] execVM "scripts\UPSMON.sqf";
 				};
 			};
 		};
-	if (_markerX in seaports) then
+	if (_marcador in puertos) then
 		{
-		[_veh,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
+		[_veh,"seaport"] remoteExec ["A3A_fnc_flagaction",[buenos,civilian],_veh];
 		};
 	};
-_staticsX = staticsToSave select {_x distance2D _positionX < _size};
+_estaticas = staticsToSave select {_x distance _posicion < _size};
 
 _garrison = [];
-_garrison = _garrison + (garrison getVariable [_markerX,[]]);
-_groupX = createGroup teamPlayer;
-_groupEst = createGroup teamPlayer;
-_groupMortar = createGroup teamPlayer;
+_garrison = _garrison + (garrison getVariable [_marcador,[]]);
+_grupo = createGroup buenos;
+_grupoEst = createGroup buenos;
+_grupoMort = createGroup buenos;
 {
 _index = _garrison findIf {_x in SDKMil};
 if (_index == -1) exitWith {};
 if (typeOf _x == SDKMortar) then
 	{
-	_unit = _groupMortar createUnit [(_garrison select _index), _positionX, [], 0, "NONE"];
+	_unit = _grupoMort createUnit [(_garrison select _index), _posicion, [], 0, "NONE"];
 	_unit moveInGunner _x;
 	_nul=[_x] execVM "scripts\UPSMON\MON_artillery_add.sqf";
 	}
 else
 	{
-	_unit = _groupEst createUnit [(_garrison select _index), _positionX, [], 0, "NONE"];
+	_unit = _grupoEst createUnit [(_garrison select _index), _posicion, [], 0, "NONE"];
 	_unit moveInGunner _x;
 	};
-[_unit,_markerX] call A3A_fnc_FIAinitBases;
-_soldiers pushBack _unit;
+[_unit,_marcador] call A3A_fnc_FIAinitBases;
+_soldados pushBack _unit;
 _garrison deleteAT _index;
-} forEach _staticsX;
+} forEach _estaticas;
 
-if (staticCrewTeamPlayer in _garrison) then
+if (staticCrewBuenos in _garrison) then
 	{
 	{
-	_unit = _groupMortar createUnit [staticCrewTeamPlayer, _positionX, [], 0, "NONE"];
-	_pos = [_positionX] call A3A_fnc_mortarPos;
+	_unit = _grupoMort createUnit [staticCrewBuenos, _posicion, [], 0, "NONE"];
+	_pos = [_posicion] call A3A_fnc_mortarPos;
 	_veh = SDKMortar createVehicle _pos;
-	_vehiclesX pushBack _veh;
+	_vehiculos pushBack _veh;
 	_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";
 	_unit assignAsGunner _veh;
 	_unit moveInGunner _veh;
 	[_veh] call A3A_fnc_AIVEHinit;
-	_soldiers pushBack _unit;
-	} forEach (_garrison select {_x == staticCrewTeamPlayer});
-	_garrison = _garrison - [staticCrewTeamPlayer];
+	_soldados pushBack _unit;
+	} forEach (_garrison select {_x == staticCrewBuenos});
+	_garrison = _garrison - [staticCrewBuenos];
 	};
 _garrison = _garrison call A3A_fnc_garrisonReorg;
-_radiusX = count _garrison;
-_countX = 0;
-_countGroup = 0;
-while {(spawner getVariable _markerX != 2) and (_countX < _radiusX)} do
+_tam = count _garrison;
+_cuenta = 0;
+
+while {(spawner getVariable _marcador != 2) and (_cuenta < _tam)} do
 	{
-	_typeX = _garrison select _countX;
-	_unit = _groupX createUnit [_typeX, _positionX, [], 0, "NONE"];
-	if (_typeX in SDKSL) then {_groupX selectLeader _unit};
-	[_unit,_markerX] call A3A_fnc_FIAinitBases;
-	_soldiers pushBack _unit;
-	_countX = _countX + 1;
+	_tipo = _garrison select _cuenta;
+	_unit = _grupo createUnit [_tipo, _posicion, [], 0, "NONE"];
+	if (_tipo in SDKSL) then {_grupo selectLeader _unit};
+	[_unit,_marcador] call A3A_fnc_FIAinitBases;
+	_soldados pushBack _unit;
+	_cuenta = _cuenta + 1;
 	sleep 0.5;
-	if (_countGroup == 8) then
+	if (count units _grupo == 8) then
 		{
-		_groupX = createGroup teamPlayer;
-		_groups pushBack _groupX;
-		_countGroup = 0;
+		_grupo = createGroup buenos;
+		_grupos pushBack _grupo;
 		};
 	};
 
-for "_i" from 0 to (count _groups) - 1 do
+for "_i" from 0 to (count _grupos) - 1 do
 	{
-	_groupX = _groups select _i;
+	_grupo = _grupos select _i;
 	if (_i == 0) then
 		{
-		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOMUP","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";
+		_nul = [leader _grupo, _marcador, "SAFE","SPAWNED","RANDOMUP","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";
 		}
 	else
 		{
-		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";
+		_nul = [leader _grupo, _marcador, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";
 		};
 	};
-waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
+waitUntil {sleep 1; (spawner getVariable _marcador == 2)};
 
 {
-_soldierX = _x;
-if (alive _soldierX) then
+_soldado = _x;
+if (alive _soldado) then
 	{
 	deleteVehicle _x
 	};
-} forEach _soldiers;
+} forEach _soldados;
 {deleteVehicle _x} forEach _civs;
 //if (!isNull _periodista) then {deleteVehicle _periodista};
-{deleteGroup _x} forEach _groups;
-deleteGroup _groupEst;
-deleteGroup _groupMortar;
-{if (!(_x in staticsToSave)) then {deleteVehicle _x}} forEach _vehiclesX;
+{deleteGroup _x} forEach _grupos;
+deleteGroup _grupoEst;
+deleteGroup _grupoMort;
+{if (!(_x in staticsToSave)) then {deleteVehicle _x}} forEach _vehiculos;

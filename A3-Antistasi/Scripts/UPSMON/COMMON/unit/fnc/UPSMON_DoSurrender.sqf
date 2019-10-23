@@ -21,7 +21,7 @@ sleep 0.5;
 	
 _vehicle = vehicle _npc;
 	
-if ( _npc != _vehicle || !(_npc iskindof "CAManBase" )) then 
+if ( _npc != _vehicle || !(_npc iskindof "Man" )) then 
 {		
 	_vehicle setcaptive true;	
 		

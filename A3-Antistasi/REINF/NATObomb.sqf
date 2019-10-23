@@ -1,23 +1,23 @@
 if (bombRuns < 1) exitWith {hint "You lack of enough Air Support to make this request"};
 //if (!allowPlayerRecruit) exitWith {hint "Server is very loaded. \nWait one minute or change FPS settings in order to fulfill this request"};
-	if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(hasIFA) then {hint "You need a radio in your inventory to be able to give orders to other squads"} else {hint "You need a Radio Man in your group to be able to give orders to other squads"}};
-if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {hint "You need to control an airport in order to fulfill this request"};
-_typeX = _this select 0;
+	if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(hayIFA) then {hint "You need a radio in your inventory to be able to give orders to other squads"} else {hint "You need a Radio Man in your group to be able to give orders to other squads"}};
+if ({lados getVariable [_x,sideUnknown] == buenos} count aeropuertos == 0) exitWith {hint "You need to control an airport in order to fulfill this request"};
+_tipo = _this select 0;
 
-positionTel = [];
+posicionTel = [];
 
 hint "Select the spot from which the plane will start to drop the bombs";
 
 if (!visibleMap) then {openMap true};
-onMapSingleClick "positionTel = _pos;";
+onMapSingleClick "posicionTel = _pos;";
 
-waitUntil {sleep 1; (count positionTel > 0) or (!visibleMap)};
+waitUntil {sleep 1; (count posicionTel > 0) or (!visibleMap)};
 onMapSingleClick "";
 
 if (!visibleMap) exitWith {};
 
-_pos1 = positionTel;
-positionTel = [];
+_pos1 = posicionTel;
+posicionTel = [];
 
 _mrkorig = createMarkerLocal [format ["BRStart%1",random 1000], _pos1];
 _mrkorig setMarkerShapeLocal "ICON";
@@ -27,15 +27,15 @@ _mrkOrig setMarkerTextLocal "Bomb Run Init";
 
 hint "Select the map position to which the plane will exit to calculate plane's route vector";
 
-onMapSingleClick "positionTel = _pos;";
+onMapSingleClick "posicionTel = _pos;";
 
-waitUntil {sleep 1; (count positionTel > 0) or (!visibleMap)};
+waitUntil {sleep 1; (count posicionTel > 0) or (!visibleMap)};
 onMapSingleClick "";
 
 if (!visibleMap) exitWith {deleteMarker _mrkOrig};
 
-_pos2 = positionTel;
-positionTel = [];
+_pos2 = posicionTel;
+posicionTel = [];
 
 _ang = [_pos1,_pos2] call BIS_fnc_dirTo;
 
@@ -56,7 +56,7 @@ _angorig = _ang - 180;
 _origpos = [_pos1, 2500, _angorig] call BIS_fnc_relPos;
 _finpos = [_pos2, 2500, _ang] call BIS_fnc_relPos;
 
-_planefn = [_origpos, _ang, vehSDKPlane, teamPlayer] call bis_fnc_spawnvehicle;
+_planefn = [_origpos, _ang, vehSDKPlane, buenos] call bis_fnc_spawnvehicle;
 _plane = _planefn select 0;
 _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
 _plane disableAI "TARGET";
@@ -68,11 +68,9 @@ _wp1 = group _plane addWaypoint [_pos1, 0];
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "LIMITED";
 _wp1 setWaypointBehaviour "CARELESS";
-
-if (_typeX == "NAPALM" && napalmEnabled) then {_wp1 setWaypointStatements ["true", "[this,""NAPALM""] execVM 'AI\airbomb.sqf'"]} else {_typeX = "HE"};
-if (_typeX == "CARPET") then {_wp1 setWaypointStatements ["true", "[this,""CARPET""] execVM 'AI\airbomb.sqf'"]};
-if (_typeX == "HE") then {_wp1 setWaypointStatements ["true", "[this] execVM 'AI\airbomb.sqf'"]};
-
+if (_tipo == "CARPET") then {_wp1 setWaypointStatements ["true", "[this,""CARPET""] execVM 'AI\airbomb.sqf'"]};
+if (_tipo == "NAPALM") then {_wp1 setWaypointStatements ["true", "[this,""NAPALM""] execVM 'AI\airbomb.sqf'"]};
+if (_tipo == "HE") then {_wp1 setWaypointStatements ["true", "[this] execVM 'AI\airbomb.sqf'"]};
 
 
 _wp2 = group _plane addWaypoint [_pos2, 1];

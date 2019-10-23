@@ -1,12 +1,12 @@
-_victim = _this select 0;
+_muerto = _this select 0;
 sleep cleantime;
-deleteVehicle _victim;
-_groupX = group _victim;
-if (!isNull _groupX) then
+deleteVehicle _muerto;
+_grupo = group _muerto;
+if (!isNull _grupo) then
 	{
-	if ({alive _x} count units _groupX == 0) then {deleteGroup _groupX};
+	if ({alive _x} count units _grupo == 0) then {deleteGroup _grupo};
 	}
 else
 	{
-	if (_victim in staticsToSave) then {staticsToSave = staticsToSave - [_victim]; publicVariable "staticsToSave";};
+	if (_muerto in staticsToSave) then {staticsToSave = staticsToSave - [_muerto]; publicVariable "staticsToSave";};
 	};

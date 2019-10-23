@@ -2,10 +2,10 @@
 //  Autor: Monsada (SMM) 27.11.2009
 //		(smirall@hotmail.com)
 //		http://www.simulacion-esp.com/
-//		Comunidad Hispana de Simulaciï¿½n
+//		Comunidad Hispana de Simulación
 // ---------------------------------------------------------------------------------------------------------
-Para mï¿½s informaciï¿½n y descarga de las ï¿½ltimas versiones o si quieres aportarme alguna idea, visita la pï¿½gina de la
-comunidad hispana de simulaciï¿½n:
+Para más información y descarga de las últimas versiones o si quieres aportarme alguna idea, visita la página de la
+comunidad hispana de simulación:
 
 
 http://www.simulacion-esp.com/v3/topic/18360-urban-patrol-script-version-monsada/
@@ -36,7 +36,7 @@ Historial de modificaciones:
 //		Improved AI response under Supress fire in combat situation
 //		Avoid hurt soldiers than can not stand to get in vehicles and buildings
 //		Avoid to patrol in damaged buildings
-//		avoid bugged classXs such as "BIS_alice_emptydoor";
+//		avoid bugged clases such as "BIS_alice_emptydoor";
 //		AI try to get in combat vehicles
 //		Performance optimization.
 //		Realistic reaction of squads depending on distance to target
@@ -135,82 +135,82 @@ Historial de modificaciones:
 //-------------------------------------------------------------------------------------------------------------
 //Version: 4.2.2
 //    	Added
-//		Se ha aï¿½adido ataque frontal
-//		Formaciones de combate en funciï¿½n de la situaciï¿½n
-//		La IA puede entrar en los buildingsX a tomar positionsX de defensa y en ataque puede patrullarlos en busca de enemiesX o positionsX de fireX.
+//		Se ha añadido ataque frontal
+//		Formaciones de combate en función de la situación
+//		La IA puede entrar en los edificios a tomar posiciones de defensa y en ataque puede patrullarlos en busca de enemigos o posiciones de fuego.
 // 	Modificaciones:
-//		Mejorado el sistema para localizar, asignar y entrar en vehiclesX,.
+//		Mejorado el sistema para localizar, asignar y entrar en vehiculos,.
 //		Optimizado el rendimiento. Se ha mejorado para que se pueda ejecutar cada 20s.
-//		Modificada la parametrizaciï¿½n, sharedist incrementado, react reducido, cycle aumentado.
-//		Modificada la actitud e la IA en combate, se ha dado mï¿½s especializaciï¿½n en funciï¿½n de la situaciï¿½n.
-//		Corregido bug que al enviar reinforcementsX hacï¿½a que dejaran de patrullar si no tenian ningï¿½n target
-//		positionsX de flanqueo mï¿½s dinï¿½micas.
-//		Las escuadras con rol "NOMOVE" tienden a asegurar la posiciï¿½n y a hacer mayor uso de los buildingsX del entorno.
+//		Modificada la parametrización, sharedist incrementado, react reducido, cycle aumentado.
+//		Modificada la actitud e la IA en combate, se ha dado más especialización en función de la situación.
+//		Corregido bug que al enviar refuerzos hacía que dejaran de patrullar si no tenian ningún target
+//		Posiciones de flanqueo más dinámicas.
+//		Las escuadras con rol "NOMOVE" tienden a asegurar la posición y a hacer mayor uso de los edificios del entorno.
 //-------------------------------------------------------------------------------------------------------------
 //Version: 4.1.3
 //		
 // 	Modificaciones:
-//		corregidos los problemas al entrar en vehiclesX, que hacï¿½a que casi siempre alguno se quedara fuera
+//		corregidos los problemas al entrar en vehiculos, que hacía que casi siempre alguno se quedara fuera
 //		Optimizado el rendimiento.
-//		Modificada la actitud e la IA en combate, se ha dado mï¿½s especializaciï¿½n en funciï¿½n de la situaciï¿½n.
+//		Modificada la actitud e la IA en combate, se ha dado más especialización en función de la situación.
 //		
 //-------------------------------------------------------------------------------------------------------------
 //Version: 4.1.2
 //		
 // 	Modificaciones:
-//		KRON_UPS_Maxwaiting pasa a ser una variable excluvia para patrullas, indica el timeX mï¿½ximo a esperar
-//		para llegar al destinationX y buscar otro
+//		KRON_UPS_Maxwaiting pasa a ser una variable excluvia para patrullas, indica el tiempo máximo a esperar
+//		para llegar al destino y buscar otro
 //-------------------------------------------------------------------------------------------------------------
 //Version: 4.1.0
 //    	Added
-//             Habilitado bï¿½squeda y uso de vehï¿½culos de transporte, cuando la IA estï¿½ lejos del objectiveX busca vehiclesX con capacidad cerca, ahora ya puedes definir tu base con vehiclesX, que si la IA los needsRearm los coge.
+//             Habilitado búsqueda y uso de vehículos de transporte, cuando la IA está lejos del objetivo busca vehiculos con capacidad cerca, ahora ya puedes definir tu base con vehiculos, que si la IA los necesita los coge.
 //		
 // 	Modificaciones:
-//		Adaptadas ciertas partes de cï¿½digo para ser usadas en modeX multihilo, mejorando los resultados y el rendimiento en general.
+//		Adaptadas ciertas partes de código para ser usadas en modo multihilo, mejorando los resultados y el rendimiento en general.
 //-------------------------------------------------------------------------------------------------------------
 //Version: 4.0.0
 // 	Added
-// 		Control de movimiento de la IA, ahora gestionan mejor los timeXs, hacen coverturas de movimiento, avanzan con mï¿½s precauciï¿½n cuando estï¿½n cerca del enemyX.
-// 		Aï¿½adidas algunas animaciones para darle pinceladas de dramatismo a los movimientos de la IA
+// 		Control de movimiento de la IA, ahora gestionan mejor los tiempos, hacen coverturas de movimiento, avanzan con más precaución cuando están cerca del enemigo.
+// 		Añadidas algunas animaciones para darle pinceladas de dramatismo a los movimientos de la IA
 // 
 // 	Modificaciones:
-// 		Modificaciï¿½n control de detecciï¿½n de movimientos de otros groups ahora no requiere la lectura de objectsX, con lo que mejora el rendimiento.
-// 		Adaptado sistema de scripts para poder controlar los groups de IA y aï¿½adir mejoras que requieran la interacciï¿½n de los groups.
+// 		Modificación control de detección de movimientos de otros grupos ahora no requiere la lectura de objetos, con lo que mejora el rendimiento.
+// 		Adaptado sistema de scripts para poder controlar los grupos de IA y añadir mejoras que requieran la interacción de los grupos.
 //-------------------------------------------------------------------------------
 //Version: 3.0.8
 // 	Modificaciones:
-//		Corregido el bug de los buildings, se ha vuelto a implementar el uso de buildingsX
-//		Mejorada la velocidad de iniciaciï¿½n del script.
+//		Corregido el bug de los buildings, se ha vuelto a implementar el uso de edificios
+//		Mejorada la velocidad de iniciación del script.
 //-------------------------------------------------------------------------------------------------------------
 //Version: 3.0.7
 //    	Added
 //             
 // 	Modificaciones:
-//		Corregido bud que en dedicado fijaba el objectiveX siempre en lugar de los flancos		
+//		Corregido bud que en dedicado fijaba el objetivo siempre en lugar de los flancos		
 //-------------------------------------------------------------------------------------------------------------
 //Version: 3.0.6
 //    	Added
 //             
 // 	Modificaciones
-//		Corregidos bugs varios, entre ellos uno que ralentizaba la acciï¿½n de los groups
-//		Set de parï¿½metros modificados para un comportamiento mï¿½s ï¿½ptimo y realista
-//		deshabilitado KRON_UPS_intowndist por comportamientos extraï¿½os con algunos objectsX builiding
-//		Ahora la IA selecciona los caminos con mï¿½s coverX, a ser potential
+//		Corregidos bugs varios, entre ellos uno que ralentizaba la acción de los grupos
+//		Set de parámetros modificados para un comportamiento más óptimo y realista
+//		deshabilitado KRON_UPS_intowndist por comportamientos extraños con algunos objetos builiding
+//		Ahora la IA selecciona los caminos con más cobertura, a ser posible
 //-------------------------------------------------------------------------------------------------------------
 //Version: 3.0.5
 //    	Added
 //             
 // 	Modificaciones
-//		Corregido bug que evitaba enviar los reinforcementsX
-//		La distanceX de comunicaciï¿½n de objectivesX aumenta en funciï¿½n del rol, los nomove * 1.5
+//		Corregido bug que evitaba enviar los refuerzos
+//		La distancia de comunicación de objetivos aumenta en función del rol, los nomove * 1.5
 //	
 //-------------------------------------------------------------------------------------------------------------
 //Version: 3.0.4
 //    	Added
-//   		Aï¿½adidos parï¿½metros para asignar enemiesX y aliados a la resistencia
-//             Aï¿½adido control anti snipers, si la IA se ve atacada y no sabe de donde se mueve de sitio
+//   		Añadidos parámetros para asignar enemigos y aliados a la resistencia
+//             Añadido control anti snipers, si la IA se ve atacada y no sabe de donde se mueve de sitio
 // 	Modificaciones
-//		Se ajusta el ï¿½ngulo de flanqueo en funciï¿½n de la distanceX al objectiveX
+//		Se ajusta el ángulo de flanqueo en función de la distancia al objetivo
 //	
 //-------------------------------------------------------------------------------------------------------------
 //
@@ -218,19 +218,19 @@ Historial de modificaciones:
 //Version: 3.0.3
 //    	Added
 //   		Multiple targets, now IA can have multiple open targets
-//		La IA ahora usa tamien los buildingsX para buscar enemiesX, protegerse within o atacar desde allï¿½.
+//		La IA ahora usa tamien los edificios para buscar enemigos, protegerse dentro o atacar desde allí.
 // 	Modificaciones
-//		La IA pierde el objectiveX si lo pierde de vista y estï¿½ a mï¿½s de la distanceX KRON_UPS_sharedist
+//		La IA pierde el objetivo si lo pierde de vista y está a más de la distancia KRON_UPS_sharedist
 //
 //-------------------------------------------------------------------------------------------------------------
 //Version: 3.0.2
 //    	Added
-//		Se ha aï¿½adido la opciï¿½n de reinforcementsX, ahora se pueden definir unas unitsX de reinforcementsX alejados de la zona que se enviarï¿½n al detectar enemiesX enemiesX 
-//		si KRON_UPS_reinforcement es true, se puede usar un markerX a modeX de alarma para alimentar esta variable cuando se desee.
-//		Las unitsX tendrï¿½n una predisposiciï¿½n a mantener la posiciï¿½n si tienen el rol NOMOVE
+//		Se ha añadido la opción de Refuerzos, ahora se pueden definir unas unidades de refuerzos alejados de la zona que se enviarán al detectar enemigos enemigos 
+//		si KRON_UPS_reinforcement es true, se puede usar un marcador a modo de alarma para alimentar esta variable cuando se desee.
+//		Las unidades tendrán una predisposición a mantener la posición si tienen el rol NOMOVE
 // 	Modificaciones
-//		Se ha corregido la formula par definir los pointsX de flanqueo tx = sin x * dist * (signo cos x).
-//		Las unitsX con rol NOMOVE tienden a mantener la posiciï¿½n cuanto mï¿½s alejados estï¿½n del enemyX
+//		Se ha corregido la formula par definir los puntos de flanqueo tx = sin x * dist * (signo cos x).
+//		Las unidades con rol NOMOVE tienden a mantener la posición cuanto más alejados estén del enemigo
 //		Se ha mejorado el rendimiento.
 //
 //-------------------------------------------------------------------------------------------------------------
@@ -239,8 +239,8 @@ Historial de modificaciones:
 //		Sistema de combate urbano.  La Ia ajusta el flanjeo y sus movimientos al tipo de superficie.
 //	Modificaciones
 //		Ahora los pelotones verifican la presencia de aliados para determinar otras rutas de flanqueo.
-//		Se ha substituido el algoritmo de determinaciï¿½n de positionsX de flanqueo por un bug con las funciones cos y sin 
-//		que retornan aleatoriamente values positivos o negativos con el mismo ï¿½ngulo.
+//		Se ha substituido el algoritmo de determinación de posiciones de flanqueo por un bug con las funciones cos y sin 
+//		que retornan aleatoriamente valores positivos o negativos con el mismo ángulo.
 //
 //-------------------------------------------------------------------------------------------------------------
 // Version: 3.0.0
@@ -252,8 +252,8 @@ Historial de modificaciones:
 // 		Improved performance (this script now runs every 15s and do not need to stress to 1 second)
 // 		Implemented comunications simulating radio to know enemy position
 //Errores corregidos y modificaciones
-//	Corregida la funciï¿½n KRON_distancePosSqr que no devolvia la distanceX correcta entre dos pointsX
-//	Corregido bug que no alimentaba correctamente el objectiveXcompartido cuando este fallecia
-//	Corregido control de la distanceX al objectiveX que hacia que la IA no flanquera
-//    Algoritmo de control de acciï¿½n y movimiento modificado
+//	Corregida la función KRON_distancePosSqr que no devolvia la distancia correcta entre dos puntos
+//	Corregido bug que no alimentaba correctamente el objetivocompartido cuando este fallecia
+//	Corregido control de la distancia al objetivo que hacia que la IA no flanquera
+//    Algoritmo de control de acción y movimiento modificado
 // =========================================================================================================

@@ -12,7 +12,7 @@ Returns:
 ****************************************************************/
 
 private ["_onRoof","_Roof","_pos","_Down"];
-_pos = ATLToASL (_this select 0);//recuerda que tiene que ser positionX ATL
+_pos = ATLToASL (_this select 0);//recuerda que tiene que ser posicion ATL
 //if ((_pos select 2) == 0) then {_pos = ATLtoASL _pos};
 _onRoof = true;
 _Roof = lineIntersectsWith [_pos, [(_pos select 0), (_pos select 1), (_pos select 2) + 20]];

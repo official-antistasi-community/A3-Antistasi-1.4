@@ -1,38 +1,36 @@
 //params [["_pos0", [0,0,0], [[]], 3], ["_pos1", [0,0,0], [[]], 3]];
-private ["_thing0","_typeX","_error","_pos0","_pos1"];
+private ["_cosa0","_tipo","_error","_pos0","_pos1"];
 
-_thing0 = _this select 0;
-_typeX = _this select 1;//false : tierra, misma altura, true: aire, 300 metros más arriba
+_cosa0 = _this select 0;
+_tipo = _this select 1;//false : tierra, misma altura, true: aire, 300 metros más arriba
 _error = false;
 _pos0 = [];
-if (_thing0 isEqualType []) then
+if (_cosa0 isEqualType []) then
 	{
-	if ((_thing0 select 2) < 3) then
+	if ((_cosa0 select 2) < 3) then
 		{
-		_pos0 = ATLToASL _thing0;
+		_pos0 = ATLToASL _cosa0;
 		}
 	else
 		{
-		_pos0 = _thing0;
+		_pos0 = _cosa0;
 		};
 	}
 else
 	{
-	if (_thing0 isEqualType "") then
+	if (_cosa0 isEqualType "") then
 		{
-		_pos0 = ATLToASL (getMarkerPos _thing0);
+		_pos0 = ATLToASL (getMarkerPos _cosa0);
 		}
 	else
 		{
-		if (_thing0 isEqualType objNull) then {_pos0 = getPosASL _thing0} else {_error = true};
+		if (_cosa0 isEqualType objNull) then {_pos0 = getPosASL _cosa0} else {_error = true};
 		};
 	};
-if (_error) exitWith {
-	diag_log format ["%1: [Antistasi] | ERROR | fogCheck.sqf | Unknown height:%2.",servertime,_thing0];
-	};
+if (_error) exitWith {diag_log format ["Antistasi error en fogcheck. Buscando altura a %1",_cosa0]};
 
 _pos1 = [(_pos0 select 0) + 300,_pos0 select 1,_pos0 select 2];
-if (_typeX) then {_pos1 = [(_pos0 select 0) + 300,_pos0 select 1,(_pos0 select 2)+300]};
+if (_tipo) then {_pos1 = [(_pos0 select 0) + 300,_pos0 select 1,(_pos0 select 2)+300]};
 private _MaxViewDistance = 10000;
 private _ViewDistanceDecayRate = 120;
 private _z0 = _pos0 param [2, 0, [0]];
@@ -64,3 +62,4 @@ if (_dz !=0 && _fogDecay != 0) then
 private _fogAverage = _fogValue * _fogCoeff;
 private _fogViewDistance = 0.9 * _MaxViewDistance * exp (- _fogAverage * ln(_ViewDistanceDecayRate));
 0 max (1.0 - _l/_fogViewDistance)
+

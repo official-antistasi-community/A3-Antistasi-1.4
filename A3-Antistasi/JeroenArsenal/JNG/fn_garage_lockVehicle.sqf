@@ -7,7 +7,7 @@ with missionNamespace do{
 		_data  = _x;
 		_name2 = _x select 0;
 		if(_name2 isEqualTo _name)exitWith{
-			_data set [2,_locked];
+			_data set [2,_locked]
 			_array set [_foreachindex,_data];
 		};
 	} forEach _array;

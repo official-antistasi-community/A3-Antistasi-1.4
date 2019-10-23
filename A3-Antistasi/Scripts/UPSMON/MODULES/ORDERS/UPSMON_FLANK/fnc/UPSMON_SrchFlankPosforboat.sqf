@@ -27,10 +27,10 @@ _grpid = _this select 4;
 _dist = [_npcpos,_targetpos] call UPSMON_distancePosSqr; 
 	
 _flankAngle = 45;
-//Establecemos una distanceX de flanqueo	
+//Establecemos una distancia de flanqueo	
 _flankdist = ((random 0.3)+0.5)*(_dist/2);
 						
-//La distanceX de flanqueo no puede ser superior a la distanceX del objectiveX o nos pordría pillar por la espalda
+//La distancia de flanqueo no puede ser superior a la distancia del objetivo o nos pordría pillar por la espalda
 _flankdist = if ((_flankdist) >= _dist) then {_dist*.65} else {_flankdist};
 
 _pool = [];

@@ -139,7 +139,7 @@ switch _mode do {
 		["ColorTabs",[_display]] call jn_fnc_vehicleArsenal;
 
 		['showMessage',[_display,"Vehicle inventory"]] call jn_fnc_arsenal;
-		["jn_fnc_arsenal"] call BIS_fnc_endLoadingScreen;
+		//["jn_fnc_arsenal"] call BIS_fnc_endLoadingScreen;
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -367,7 +367,6 @@ switch _mode do {
 			];
 
 			//loop all magazines and find usable
-			//First, search mags in Arsenal
 			_magazines = [];
 			{
 				_itemAvailable = _x select 0;
@@ -377,16 +376,6 @@ switch _mode do {
 					_magazines set [count _magazines,[_itemAvailable, _amountAvailable]];
 				};
 			} forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
-			
-			//Then add mags in the car, but say we have none available - we'll add available number later
-			{
-				_itemAvailable = _x select 0;
-
-				if(_itemAvailable in _usableMagazines)then{
-					//Use addToArray to avoid duplicating the type if they're already in the arsenal
-					_magazines = [_magazines, [_itemAvailable,0]] call jn_fnc_arsenal_addToArray
-				};
-			} forEach (jnva_loadout select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
 			//return
 			_magazines;
 		}else{
@@ -425,14 +414,12 @@ switch _mode do {
 				IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON,
 				IDC_RSCDISPLAYARSENAL_TAB_HANDGUN
 			];
-			
-			private _magazineItemsInTab = [];
+
 			{
 				_item = _x;
 				_amount = [_items, _item] call jn_fnc_arsenal_itemCount;
-				_magazineItemsInTab	= [_magazineItemsInTab, [_item,_amount]] call jn_fnc_arsenal_addToArray;
+				jnva_loadout set [_index,[jnva_loadout select _index,[_item,_amount]] call jn_fnc_arsenal_addToArray];
 			} forEach _itemsUnique2;
-			jnva_loadout set [_index,_magazineItemsInTab];
 
 		}else{
 			{

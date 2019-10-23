@@ -1,30 +1,30 @@
-private ["_gunner","_helperX"];
-private _isMortar = false;
-{if (_x getVariable ["typeOfSoldier",""] == "StaticGunner") then {_gunner = _x} else {_helperX = _x}} forEach _this;
-{if (_x getVariable ["typeOfSoldier",""] == "StaticMortar") then {_gunner = _x;_isMortar = true} else {_helperX = _x}} forEach _this;
-private _groupX = group _gunner;
+private ["_gunner","_ayudante"];
+private _esMortero = false;
+{if (_x getVariable ["typeOfSoldier",""] == "StaticGunner") then {_gunner = _x} else {_ayudante = _x}} forEach _this;
+{if (_x getVariable ["typeOfSoldier",""] == "StaticMortar") then {_gunner = _x;_esMortero = true} else {_ayudante = _x}} forEach _this;
+private _grupo = group _gunner;
 private _mounted = false;
 private _veh = objNull;
-private _sideX = side _groupX;
-private _typeVehX = 	if !(_isMortar) then
+private _lado = side _grupo;
+private _tipoVeh = 	if !(_esMortero) then
 						{
-						if (_sideX == Occupants) then {NATOMG} else {if (_sideX == Invaders) then {CSATMG} else {SDKMGStatic}};
+						if (_lado == malos) then {NATOMG} else {if (_lado == muyMalos) then {CSATMG} else {SDKMGStatic}};
 						}
 					else
 						{
-						if (_sideX == Occupants) then {NATOMortar} else {if (_sideX == Invaders) then {CSATMortar} else {SDKMortar}};
+						if (_lado == malos) then {NATOMortar} else {if (_lado == muyMalos) then {CSATMortar} else {SDKMortar}};
 						};
-private _backpckG = backPack _gunner;
-private _backpckA = backpack _helperX;
+private _mochiG = backPack _gunner;
+private _mochiA = backpack _ayudante;
 while {(alive _gunner)} do
 	{
-	if (!(alive _helperX) and !(_mounted)) exitWith {};
+	if (!(alive _ayudante) and !(_mounted)) exitWith {};
 	if (!(isNull _veh) and !(alive _veh)) exitWith {};
-	_objectivesX = _groupX getVariable ["objectivesX",[]];
-	_enemyX = objNull;
-	if (!(_objectivesX isEqualTo []) and (((_objectivesX select 0) select 4) distance _gunner > 150))  then
+	_objetivos = _grupo getVariable ["objetivos",[]];
+	_enemigo = objNull;
+	if (!(_objetivos isEqualTo []) and (((_objetivos select 0) select 4) distance _gunner > 150))  then
 		{
-		if !(_isMortar) then
+		if !(_esMortero) then
 			{
 			{
 			_eny = _x select 4;
@@ -32,26 +32,26 @@ while {(alive _gunner)} do
 				{
 				if  (([objNull, "VIEW"] checkVisibility [eyePos _eny, eyePos _gunner]) > 0) then
 					{
-					_enemyX = _eny;
+					_enemigo = _eny;
 					};
 				};
-			if !(isNull _enemyX) exitWith {};
-			} forEach _objectivesX;
+			if !(isNull _enemigo) exitWith {};
+			} forEach _objetivos;
 			}
 		else
 			{
-			_enemyX = ((_objectivesX select 0) select 4);
+			_enemigo = ((_objetivos select 0) select 4);
 			};
 		};
-	if !(isNull _enemyX) then
+	if !(isNull _enemigo) then
 		{
 		if !(_mounted) then
 			{
-			if !(_gunner getVariable ["maneuvering",false]) then
+			if !(_gunner getVariable ["maniobrando",false]) then
 				{
-				if (([_gunner] call A3A_fnc_canFight) and ([_helperX] call A3A_fnc_canFight)) then
+				if (([_gunner] call A3A_fnc_canFight) and ([_ayudante] call A3A_fnc_canFight)) then
 					{
-					_gunner setVariable ["maneuvering",true];
+					_gunner setVariable ["maniobrando",true];
 					_gunner playMoveNow selectRandom medicAnims;
 					_gunner setVariable ["timeToBuild",time + 30];
 					_gunner addEventHandler ["AnimDone",
@@ -60,29 +60,29 @@ while {(alive _gunner)} do
 						if ((time > _gunner getVariable ["timeToBuild",0]) or !([_gunner] call A3A_fnc_canFight)) then
 							{
 							_gunner removeEventHandler ["AnimDone",_thisEventHandler];
-							_gunner setVariable ["maneuvering",false];
+							_gunner setVariable ["maniobrando",false];
 							}
 						else
 							{
 							_gunner playMoveNow selectRandom medicAnims;
 							};
 						}];
-					waitUntil {sleep 0.5; !(_gunner getVariable ["maneuvering",false])};
+					waitUntil {sleep 0.5; !(_gunner getVariable ["maniobrando",false])};
 					_gunner setVariable ["timeToBuild",nil];
 					if ([_gunner] call A3A_fnc_canFight) then
 						{
-						private _veh = _typeVehX createVehicle [0,0,1000];
+						private _veh = _tipoVeh createVehicle [0,0,1000];
 						_veh setPos position (_gunner);
 						removeBackpackGlobal _gunner;
-						removeBackpackGlobal _helperX;
-						_groupX addVehicle _veh;
+						removeBackpackGlobal _ayudante;
+						_grupo addVehicle _veh;
 						_gunner assignAsGunner _veh;
 						[_gunner] orderGetIn true;
 						[_gunner] allowGetIn true;
 						_gunner moveInGunner _veh;
 						[_veh] call A3A_fnc_AIVEHinit;
 						_mounted = true;
-						if (_isMortar) then {_groupX setVariable ["mortarsX",_gunner]};
+						if (_esMortero) then {_grupo setVariable ["morteros",_gunner]};
 						sleep 60;
 						};
 					};
@@ -90,9 +90,9 @@ while {(alive _gunner)} do
 			}
 		else
 			{
-			if (_gunner getVariable ["maneuvering",false]) then
+			if (_gunner getVariable ["maniobrando",false]) then
 				{
-				if (([_gunner] call A3A_fnc_canFight) and ([_helperX] call A3A_fnc_canFight)) then
+				if (([_gunner] call A3A_fnc_canFight) and ([_ayudante] call A3A_fnc_canFight)) then
 					{
 					[_gunner] orderGetIn false;
 					[_gunner] allowGetIn false;
@@ -100,11 +100,11 @@ while {(alive _gunner)} do
 					if (alive _gunner) then
 						{
 						_mounted = false;
-						_gunner addBackpackGlobal _backpckG;
-						_helperX addBackpackGlobal _backpckA;
+						_gunner addBackpackGlobal _mochiG;
+						_ayudante addBackpackGlobal _mochiA;
 						deleteVehicle _veh;
 						_gunner call A3A_fnc_recallGroup;
-						if (_isMortar) then {_groupX setVariable ["mortarsX",objNull]};
+						if (_esMortero) then {_grupo setVariable ["morteros",objNull]};
 						};
 					};
 				};
@@ -114,18 +114,18 @@ while {(alive _gunner)} do
 		{
 		if (_mounted) then
 			{
-			if (([_gunner] call A3A_fnc_canFight) and ([_helperX] call A3A_fnc_canFight)) then
+			if (([_gunner] call A3A_fnc_canFight) and ([_ayudante] call A3A_fnc_canFight)) then
 				{
 				[_gunner] orderGetIn false;
 				[_gunner] allowGetIn false;
 				_veh = vehicle _gunner;
 				moveOut _gunner;
 				_mounted = false;
-				_gunner addBackpackGlobal _backpckG;
-				_helperX addBackpackGlobal _backpckA;
+				_gunner addBackpackGlobal _mochiG;
+				_ayudante addBackpackGlobal _mochiA;
 				deleteVehicle _veh;
 				_gunner call A3A_fnc_recallGroup;
-				if (_isMortar) then {_groupX setVariable ["mortarsX",objNull]};
+				if (_esMortero) then {_grupo setVariable ["morteros",objNull]};
 				};
 			};
 		};
@@ -137,17 +137,17 @@ if (alive _gunner) then
 	[_gunner] orderGetIn false;
 	[_gunner] allowGetIn false;
 	moveOut _gunner;
-	_gunner setVariable ["maneuvering",false];
-	_flankers = _groupX getVariable ["flankers",[]];
+	_gunner setVariable ["maniobrando",false];
+	_flankers = _grupo getVariable ["flankers",[]];
 	_flankers pushBack _gunner;
-	_groupX setVariable ["flankers",_flankers];
+	_grupo setVariable ["flankers",_flankers];
 	_gunner call A3A_fnc_recallGroup;
 	};
-if (alive _helperX) then
+if (alive _ayudante) then
 	{
-	_helperX setVariable ["maneuvering",false];
-	_flankers = _groupX getVariable ["flankers",[]];
-	_flankers pushBack _helperX;
-	_groupX setVariable ["flankers",_flankers];
-	_helperX call A3A_fnc_recallGroup;
+	_ayudante setVariable ["maniobrando",false];
+	_flankers = _grupo getVariable ["flankers",[]];
+	_flankers pushBack _ayudante;
+	_grupo setVariable ["flankers",_flankers];
+	_ayudante call A3A_fnc_recallGroup;
 	};

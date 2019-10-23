@@ -1,4 +1,4 @@
-private ["_unit","_costs","_weaponsX","_ammunition","_boxX","_items"];
+private ["_unit","_coste","_armas","_municion","_caja","_items"];
 
 _unit = _this select 0;
 
@@ -6,7 +6,7 @@ if (typeOf _unit == "Fin_random_F") exitWith {};
 
 _unit setVariable ["surrendered",true];
 
-if (side _unit == Occupants) then
+if (side _unit == malos) then
 	{
 	_nul = [-2,0,getPos _unit] remoteExec ["A3A_fnc_citySupportChange",2];
 	}
@@ -14,8 +14,8 @@ else
 	{
 	_nul = [1,0,getPos _unit] remoteExec ["A3A_fnc_citySupportChange",2];
 	};
-_weaponsX = [];
-_ammunition = [];
+_armas = [];
+_municion = [];
 _items = [];
 _unit allowDamage false;
 [_unit] orderGetin false;
@@ -27,19 +27,19 @@ _unit disableAI "ANIM";
 //_unit disableAI "FSM";
 _unit setSkill 0;
 _unit setUnitPos "UP";
-_boxX = "Box_IND_Wps_F" createVehicle position _unit;
-_boxX allowDamage false;
-clearMagazineCargoGlobal _boxX;
-clearWeaponCargoGlobal _boxX;
-clearItemCargoGlobal _boxX;
-clearBackpackCargoGlobal _boxX;
-_weaponsX = weapons _unit;
-{_boxX addWeaponCargoGlobal [[_x] call BIS_fnc_baseWeapon,1]} forEach _weaponsX;
-_ammunition = magazines _unit;
-{_boxX addMagazineCargoGlobal [_x,1]} forEach _ammunition;
+_caja = "Box_IND_Wps_F" createVehicle position _unit;
+_caja allowDamage false;
+clearMagazineCargoGlobal _caja;
+clearWeaponCargoGlobal _caja;
+clearItemCargoGlobal _caja;
+clearBackpackCargoGlobal _caja;
+_armas = weapons _unit;
+{_caja addWeaponCargoGlobal [[_x] call BIS_fnc_baseWeapon,1]} forEach _armas;
+_municion = magazines _unit;
+{_caja addMagazineCargoGlobal [_x,1]} forEach _municion;
 _items = assignedItems _unit + items _unit + primaryWeaponItems _unit;
-{_boxX addItemCargoGlobal [_x,1]} forEach _items;
-_boxX call jn_fnc_logistics_addAction;
+{_caja addItemCargoGlobal [_x,1]} forEach _items;
+_caja call jn_fnc_logistics_addAction;
 removeAllWeapons _unit;
 removeAllAssignedItems _unit;
 [_unit,true] remoteExec ["setCaptive",0,_unit];
@@ -57,22 +57,29 @@ _unit addEventHandler ["HandleDamage",
 	if (!simulationEnabled _unit) then {if (isMultiplayer) then {[_unit,true] remoteExec ["enableSimulationGlobal",2]} else {_unit enableSimulation true}};
 	}
 	];
-if (_unit getVariable ["spawner",false]) then
+if (_unit getVariable ["OPFORSpawn",false]) then
 	{
-	_unit setVariable ["spawner",nil,true]
+	_unit setVariable ["OPFORSpawn",nil,true]
+	}
+else
+	{
+	if (_unit getVariable ["BLUFORSpawn",false]) then
+		{
+		_unit setVariable ["BLUFORSpawn",nil,true]
+		};
 	};
 
-_markerX = _unit getVariable "markerX";
+_marcador = _unit getVariable "marcador";
 
-if (!isNil "_markerX") then
+if (!isNil "_marcador") then
 	{
-	_sideX = side (group _unit);
-	[_markerX,_sideX] remoteExec ["A3A_fnc_zoneCheck",2];
+	_lado = side (group _unit);
+	[_marcador,_lado] remoteExec ["A3A_fnc_zoneCheck",2];
 	};
+[_unit,"interrogar"] remoteExec ["A3A_fnc_flagaction",[buenos,civilian],_unit];
+[_unit,"capturar"]remoteExec ["A3A_fnc_flagaction",[buenos,civilian],_unit];
 [_unit] spawn A3A_fnc_postmortem;
-[_boxX] spawn A3A_fnc_postmortem;
+[_caja] spawn A3A_fnc_postmortem;
 sleep 10;
 _unit allowDamage true;
 if (isMultiplayer) then {[_unit,false] remoteExec ["enableSimulationGlobal",2]} else {_unit enableSimulation false};
-[_unit,"interrogate"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
-[_unit,"captureX"]remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];

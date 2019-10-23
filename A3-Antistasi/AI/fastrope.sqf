@@ -1,9 +1,9 @@
-private ["_veh","_groupX","_positionX","_posOrigin","_heli","_landpos","_wp","_d","_wp2","_wp3","_xRef","_yRef","_reinf","_dist"];
+private ["_veh","_grupo","_posicion","_posorigen","_heli","_landpos","_wp","_d","_wp2","_wp3","_xRef","_yRef","_reinf","_dist"];
 
 _veh = _this select 0;
-_groupX = _this select 1;
-_positionX = _this select 2;
-_posOrigin = _this select 3;
+_grupo = _this select 1;
+_posicion = _this select 2;
+_posorigen = _this select 3;
 _heli = _this select 4;
 _reinf = if (count _this > 5) then {_this select 5} else {false};
 
@@ -23,7 +23,7 @@ _dist = if (_reinf) then {30} else {300 + random 200};
 {_x disableAI "TARGET"; _x disableAI "AUTOTARGET"} foreach units _heli;
 while {true} do
 	{
- 	_landpos = _positionX getPos [_dist,random 360];
+ 	_landpos = _posicion getPos [_dist,random 360];
  	if (!surfaceIsWater _landpos) exitWith {};
 	};
 _landpos set [2,0];
@@ -72,7 +72,7 @@ if (alive _veh) then
 		sleep 0.5;
 		};
 	sleep 5 + random 2;
-	} forEach units _groupX;
+	} forEach units _grupo;
 	};
 
 waitUntil {sleep 1; (not alive _veh) or ((count assignedCargo _veh == 0) and (count attachedObjects _veh == 0))};
@@ -84,22 +84,22 @@ _veh flyInHeight 150;
 
 if !(_reinf) then
 	{
-	_wp2 = _groupX addWaypoint [(position (leader _groupX)), 0];
+	_wp2 = _grupo addWaypoint [(position (leader _grupo)), 0];
 	_wp2 setWaypointType "MOVE";
 	_wp2 setWaypointStatements ["true", "(group this) spawn A3A_fnc_attackDrillAI"];
-	_wp2 = _groupX addWaypoint [_positionX, 1];
+	_wp2 = _grupo addWaypoint [_posicion, 1];
 	_wp2 setWaypointType "MOVE";
 	_wp2 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
-	_wp2 = _groupX addWaypoint [_positionX, 2];
+	_wp2 = _grupo addWaypoint [_posicion, 2];
 	_wp2 setWaypointType "SAD";
 	}
 else
 	{
-	_wp2 = _groupX addWaypoint [_positionX, 0];
+	_wp2 = _grupo addWaypoint [_posicion, 0];
 	_wp2 setWaypointType "MOVE";
 	_wp2 setWaypointStatements ["true","nul = [(thisList select {alive _x}),side this,(group this) getVariable [""reinfMarker"",""""],0] remoteExec [""A3A_fnc_garrisonUpdate"",2];[group this] spawn A3A_fnc_groupDespawner; reinfPatrols = reinfPatrols - 1; publicVariable ""reinfPatrols"";"];
 	};
-_wp3 = _heli addWaypoint [_posOrigin, 1];
+_wp3 = _heli addWaypoint [_posorigen, 1];
 _wp3 setWaypointType "MOVE";
 _wp3 setWaypointSpeed "NORMAL";
 _wp3 setWaypointBehaviour "AWARE";

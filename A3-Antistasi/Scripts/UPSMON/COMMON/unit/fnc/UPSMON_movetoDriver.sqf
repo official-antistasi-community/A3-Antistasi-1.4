@@ -3,7 +3,7 @@ File: UPSMON_movetoDriver.sqf
 Author: MONSADA
 
 Description:
-	Funciï¿½n que mueve al soldierX a la posiciï¿½n de conductor
+	Función que mueve al soldado a la posición de conductor
 Parameter(s):
 	<--- unit
 	<--- Vehicle to mount
@@ -15,8 +15,8 @@ private["_vehicle","_npc"];
 _npc = _this ;
 _vehicle = vehicle _npc;
 
-//Si estï¿½ victim
-if (vehicle _npc == _npc || !alive _npc || !canmove _npc || !(_npc iskindof "CAManBase")) exitwith{};
+//Si está muerto
+if (vehicle _npc == _npc || !alive _npc || !canmove _npc || !(_npc iskindof "Man")) exitwith{};
 	
 if (isnull(driver _vehicle) || !alive(driver _vehicle) || !canmove(driver _vehicle)) then 
 { 	
@@ -24,7 +24,7 @@ if (isnull(driver _vehicle) || !alive(driver _vehicle) || !canmove(driver _vehic
 	_npc action ["getOut", _vehicle];
 	doGetOut _npc;
 	WaitUntil {vehicle _npc==_npc || !alive _npc || !canmove _npc};
-	//Si estï¿½ victim
+	//Si está muerto
 	if (!alive _npc || !canmove _npc) exitwith{};		
 	unassignVehicle _npc;
 	_npc assignasdriver _vehicle;

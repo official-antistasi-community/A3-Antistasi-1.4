@@ -20,18 +20,18 @@ private _result = [];
 while {!(_pool isEqualTo [])} do
 	{
 	_squad = [];
-	_countX = 8;
+	_cuenta = 8;
 	if (_slCount > 0) then
 		{
 		_squad pushBack _slClass;
 		_slCount = _slCount - 1;
-		_countX = _countX - 1;
+		_cuenta = _cuenta - 1;
 		};
 	if (_medCount > 0) then
 		{
-		_countX = _countX - 1;
-		if (_countX > (count _pool)) then {_countX = count _pool};
-		for "_i" from 1 to _countX do
+		_cuenta = _cuenta - 1;
+		if (_cuenta > (count _pool)) then {_cuenta = count _pool};
+		for "_i" from 1 to _cuenta do
 			{
 			_squad pushBack (_pool select 0);
 			_pool deleteAt 0;
@@ -41,8 +41,8 @@ while {!(_pool isEqualTo [])} do
 		}
 	else
 		{
-		if (_countX > (count _pool)) then {_countX = count _pool};
-		for "_i" from 1 to _countX do
+		if (_cuenta > (count _pool)) then {_cuenta = count _pool};
+		for "_i" from 1 to _cuenta do
 			{
 			_squad pushBack (_pool select 0);
 			_pool deleteAt 0;

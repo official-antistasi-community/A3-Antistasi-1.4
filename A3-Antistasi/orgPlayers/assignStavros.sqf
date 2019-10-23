@@ -1,111 +1,97 @@
-params [["_suggestedLeader",objNull]];
-private ["_puntMax","_textX","_multiplier","_newRank","_selectable","_disconnected","_owner","_pointsX","_dataX"];
+private ["_puntMax","_texto","_multiplicador","_newRank","_selectable","_disconnected","_owner","_puntos","_datos"];
 _puntMax = 0;
-_textX = "";
-_multiplier = 1;
+_texto = "";
+_multiplicador = 1;
 //_newRank = "CORPORAL";
 _disconnected = false;
 
-_playersX = [];
-_membersX = [];
-_eligibles = [];
+_jugadores = [];
+_miembros = [];
+_elegibles = [];
 
-_LeaderX = objNull;
+_lider = objNull;
 
 {
-	_playersX pushBack (_x getVariable ["owner",_x]);
-	if (_x == _x getVariable ["owner", _x] && isPlayer _x) then {
-		if ([_x] call A3A_fnc_isMember) then
+_jugadores pushBack (_x getVariable ["owner",_x]);
+if (_x != _x getVariable ["owner",_x]) then {waitUntil {_x == _x getVariable ["owner",_x]}};
+if ([_x] call A3A_fnc_isMember) then
+	{
+	_miembros pushBack _x;
+	if (_x getVariable ["elegible",true]) then
 		{
-			_membersX pushBack _x;
-			if (_x getVariable ["eligible",true]) then
+		_elegibles pushBack _x;
+		if (_x == theBoss) then
 			{
-				_eligibles pushBack _x;
-				if (_x == theBoss) then
-				{
-					_LeaderX = _x;
-					_dataX = [_LeaderX] call A3A_fnc_numericRank;
-					_puntMax = _dataX select 0;
-				};
+			_lider = _x;
+			_datos = [_lider] call A3A_fnc_numericRank;
+			_puntMax = _datos select 0;
 			};
 		};
 	};
-} forEach (playableUnits select {(side (group _x) == teamPlayer)});
+} forEach (playableUnits select {(side (group _x) == buenos)});
 
-if (isNull _LeaderX) then
-{
+if (isNull _lider) then
+	{
 	_puntMax = 0;
 	_disconnected = true;
-};
-_textX = "Promoted Players:\n\n";
+	};
+_texto = "Promoted Players:\n\n";
 _promoted = false;
 {
-	_pointsX = _x getVariable ["score",0];
-	_dataX = [_x] call A3A_fnc_numericRank;
-	_multiplier = _dataX select 0;
-	_newRank = _dataX select 1;
-	_rank = _x getVariable ["rankX","PRIVATE"];
-	if (_rank != "COLONEL") then
+_puntos = _x getVariable ["score",0];
+_datos = [_x] call A3A_fnc_numericRank;
+_multiplicador = _datos select 0;
+_newRank = _datos select 1;
+_rank = _x getVariable ["rango","PRIVATE"];
+if (_rank != "COLONEL") then
 	{
-		if (_pointsX >= 50*_multiplier) then
+	if (_puntos >= 50*_multiplicador) then
 		{
-			_promoted = true;
-			[_x,_newRank] remoteExec ["A3A_fnc_ranksMP"];
-			_x setVariable ["rankX",_newRank,true];
-			_textX = format ["%3%1: %2.\n",name _x,_newRank,_textX];
-			[-1*(50*_multiplier),_x] call A3A_fnc_playerScoreAdd;
-			_multiplier = _multiplier + 1;
-			sleep 5;
+		_promoted = true;
+		[_x,_newRank] remoteExec ["A3A_fnc_ranksMP"];
+		_x setVariable ["rango",_newRank,true];
+		_texto = format ["%3%1: %2.\n",name _x,_newRank,_texto];
+		[-1*(50*_multiplicador),_x] call A3A_fnc_playerScoreAdd;
+		_multiplicador = _multiplicador + 1;
+		sleep 5;
 		};
 	};
-} forEach _playersX;
+} forEach _jugadores;
 
 if (_promoted) then
-{
-	_textX = format ["%1\n\nCONGRATULATIONS!!",_textX];
-	[petros,"hint",_textX] remoteExec ["A3A_fnc_commsMP"];
-};
-
-_proceed = false;
-
-if ((isNull _LeaderX) or switchCom) then
-{
-	if (count _membersX > 0) then
 	{
-		_proceed = true;
-		if (count _eligibles == 0) then {_eligibles = _membersX};
+	_texto = format ["%1\n\nCONGATULATIONS!!",_texto];
+	[petros,"hint",_texto] remoteExec ["A3A_fnc_commsMP"];
 	};
-};
 
-if (!_proceed) exitWith {};
+_proceder = false;
+
+if ((isNull _lider) or switchCom) then
+	{
+	if (count _miembros > 0) then
+		{
+		_proceder = true;
+		if (count _elegibles == 0) then {_elegibles = _miembros};
+		};
+	};
+
+if (!_proceder) exitWith {};
 
 _selectable = objNull;
-if (!isNull _suggestedLeader && {_suggestedLeader in _eligibles}) then 
 {
-	if (_suggestedLeader != _LeaderX) then
+_datos = [_x] call A3A_fnc_numericRank;
+_multiplicador = _datos select 0;
+if ((_multiplicador > _puntMax) and (_x!=_lider)) then
 	{
-		_dataX = [_suggestedLeader] call A3A_fnc_numericRank;
-		_selectable = _suggestedLeader;
-		_puntMax = _dataX select 0;
+	_selectable = _x;
+	_puntMax = _multiplicador;
 	};
-}
-else
-{
-	{
-		_dataX = [_x] call A3A_fnc_numericRank;
-		_multiplier = _dataX select 0;
-		if ((_multiplier > _puntMax) and (_x!=_LeaderX)) then
-		{
-			_selectable = _x;
-			_puntMax = _multiplier;
-		};
-	} forEach _eligibles;
-};
+} forEach _elegibles;
 
 if (!isNull _selectable) then
-{
-	if (_disconnected) then {_textX = format ["Player Commander disconnected or renounced. %1 is our new leader. Greet him!", name _selectable]} else {_textX = format ["%1 is no longer leader of the our Forces.\n\n %2 is our new leader. Greet him!", name theBoss, name _selectable]};
+	{
+	if (_disconnected) then {_texto = format ["Player Commander disconnected or renounced. %1 is our new leader. Greet him!", name _selectable]} else {_texto = format ["%1 is no longer leader of the our Forces.\n\n %2 is our new leader. Greet him!", name theBoss, name _selectable]};
 	[_selectable] call A3A_fnc_theBossInit;
 	sleep 5;
-	[[petros,"hint",_textX],"A3A_fnc_commsMP"] call BIS_fnc_MP;
-};
+	[[petros,"hint",_texto],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+	};

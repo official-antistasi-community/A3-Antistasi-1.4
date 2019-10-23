@@ -1,18 +1,18 @@
 private ["_pos"];
 _pos = _this select 0;
 
-_argumentX = ["Car","Truck","CAManBase","Air"];
+_argumentos = ["Car","Truck","Man","Air"];
 
-if (isServer) then {_argumentX = ["All", "", "House", "Wall"]};
+if (isServer) then {_argumentos = ["All", "", "House", "Wall"]};
 
 _timeOut = time + 70;
-_lightsX = [];
-_fires = [];
+_luces = [];
+_fuegos = [];
 
 while {time < _timeOut} do
 	{
-	_units = nearestobjects [_pos, _argumentX, 70];
-	if (isServer) then {_units = _units - [mapX,flagX,vehicleBox,boxX]};
+	_units = nearestobjects [_pos, _argumentos, 70];
+	if (isServer) then {_units = _units - [mapa,bandera,cajaVeh,caja]};
 	{
 	if (local _x) then
 		{
@@ -21,7 +21,7 @@ while {time < _timeOut} do
 			if (alive _x) then
 				{
 				_distMult = (1-((_x distance _pos)/70))/2;
-				if (_x isKindOf "CAManBase") then
+				if (_x isKindOf "Man") then
 					{
 					_dam = damage _x + _distMult;
 					if ((_dam >= 1) and (isPlayer _x)) then
@@ -35,7 +35,7 @@ while {time < _timeOut} do
 						if (_dam >= 1) then
 							{
 							_l1 = "#lightpoint" createVehicleLocal getpos _x;
-							_lightsX pushBack _l1;
+							_luces pushBack _l1;
 							_l1 setLightDayLight true;
 							_l1 setLightColor [5, 2.5, 0];
 							_l1 setLightBrightness 0.1;
@@ -43,7 +43,7 @@ while {time < _timeOut} do
 							_l1 lightAttachObject [_x, [0, 0, 0]];
 							_l1 setLightAttenuation [3, 0, 0, 0.6];
 							_source01 = "#particlesource" createVehicleLocal getpos _x;
-							_fires pushBack _source01;
+							_fuegos pushBack _source01;
 							_source01 setParticleClass "ObjectDestructionFire1Tiny";
 							_l1 attachTo [_x, [0,0,0], "Spine3"];
 							_source01 attachTo [_x, [0,0,0], "Spine3"];
@@ -61,9 +61,9 @@ while {time < _timeOut} do
 							{
 							if (random 100 < 50) then
 								{
-								_typeX = _this select 0;
+								_tipo = _this select 0;
 								sleep random 3;
-								playSound3D [(injuredSounds call BIS_fnc_selectRandom),_typeX];
+								playSound3D [(injuredSounds call BIS_fnc_selectRandom),_tipo];
 								};
 							};
 						};
@@ -100,10 +100,10 @@ while {time < _timeOut} do
 	sleep 5;
 	};
 if (!isMultiplayer) then {{_x hideObject true } foreach (nearestTerrainObjects [_pos,["tree","bush"],20])} else {if (isServer) then {{ _x hideObjectGlobal true } foreach (nearestTerrainObjects [_pos,["tree","bush"],20])}};
-for "_i" from 0 to (count _fires) do
+for "_i" from 0 to (count _fuegos) do
 	{
 	sleep random 5;
-	deleteVehicle (_fires select _i);
+	deleteVehicle (_fuegos select _i);
 	sleep random 3;
-	deleteVehicle (_lightsX select _i);
+	deleteVehicle (_luces select _i);
 	};

@@ -3,7 +3,7 @@ File: UPSMON_domove.sqf
 Author: MONSADA
 
 Description:
-	Mueve al soldierX adelante
+	Mueve al soldado adelante
 Parameter(s):
 	<--- unit
 	<--- Distance

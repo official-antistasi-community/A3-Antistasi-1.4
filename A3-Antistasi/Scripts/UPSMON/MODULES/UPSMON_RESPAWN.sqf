@@ -28,7 +28,7 @@ _respawnmax = 0;
 
 
 if (UPSMON_Debug>0) then {hint format["%1 exiting mainloop",_grpid]; diag_log format ["exit: %1 %2 %3 %4",_grp,units _grp,alive leader _grp,_removeunit];};
-//Limpiamos variables globales de este groupX
+//Limpiamos variables globales de este grupo
 //UPSMON_targetsPos set [_grpid,[0,0]];
 if (_side == civilian) then
 {

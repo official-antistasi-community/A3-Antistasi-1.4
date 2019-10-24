@@ -1,14 +1,14 @@
-private ["_unit","_victim","_killer","_skill","_nameX","_typeX"];
+private ["_victim","_killer","_nameX"];
 
-_unit = _this select 0;
+private _unit = _this select 0;
 
 [_unit] call A3A_fnc_initRevive;
 _unit setVariable ["spawner",true,true];
 
 _unit allowFleeing 0;
-_typeX = typeOf _unit;
+private _typeX = typeOf _unit;
 
-_skill = (0.6 / skillMult + 0.015 * skillFIA);
+private _skill = (0.6 / skillMult + 0.015 * skillFIA);
 if (!activeGREF) then {if (not((uniform _unit) in allRebelUniforms)) then {[_unit] call A3A_fnc_reDress}};
 
 removeAllWeapons _unit;
@@ -17,121 +17,74 @@ if (unlockedVests isEqualTo []) then {removeVest _unit} else {removeVest _unit; 
 if (unlockedBackpacks isEqualTo []) then {removeBackpack _unit} else {removeBackpack _unit; _unit addBackpack (selectRandom unlockedBackpacks)};
 
 _unit setSkill _skill;
-if (_typeX in SDKSniper) then
-	{
-	if (count unlockedSniperRifles > 0) then
-		{
-		_magazines = getArray (configFile / "CfgWeapons" / (primaryWeapon _unit) / "magazines");
-		{_unit removeMagazines _x} forEach _magazines;
-		_unit removeWeaponGlobal (primaryWeapon _unit);
-		[_unit, selectRandom unlockedSniperRifles, 8, 0] call BIS_fnc_addWeapon;
-		if (count unlockedOptics > 0) then
-			{
-			_compatibleX = [primaryWeapon _unit] call BIS_fnc_compatibleItems;
-			_potentials = unlockedOptics select {_x in _compatibleX};
-			if (count _potentials > 0) then {_unit addPrimaryWeaponItem (_potentials select 0)};
+switch (true) do {
+	case (_typeX in SKDSniper): {
+		if (count unlockedSniperRifles > 0) then {
+			_magazines = getArray (configFile / "CfgWeapons" / (primaryWeapon _unit) / "magazines");
+			{_unit removeMagazines _x} forEach _magazines;
+			_unit removeWeaponGlobal (primaryWeapon _unit);
+			[_unit, selectRandom unlockedSniperRifles, 8, 0] call BIS_fnc_addWeapon;
+			if (count unlockedOptics > 0) then {
+				_compatibleX = [primaryWeapon _unit] call BIS_fnc_compatibleItems;
+				_potentials = unlockedOptics select {_x in _compatibleX};
+				if (count _potentials > 0) then {_unit addPrimaryWeaponItem (_potentials select 0)};
 			};
-		}
-	else
-		{
-		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		} else {
+			[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		};
-	}
-else
-	{
-	if ((_typeX in SDKMil) or (_typeX == staticCrewTeamPlayer)) then
-		{
+	};
+	case ((_typeX in SDKMil) || (_typeX == staticCrewTeamPlayer)): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		if ((loadAbs _unit < 340) and (_typeX in SDKMil)) then
-			{
-			if ((random 20 < skillFIA) and (count unlockedAA > 0)) then
-				{
+		if ((loadAbs _unit < 340) and (_typeX in SDKMil)) then {
+			if ((random 20 < skillFIA) and (count unlockedAA > 0)) then {
 				_unit addbackpack (unlockedBackpacks select 0);
 				[_unit, selectRandom unlockedAA, 2, 0] call BIS_fnc_addWeapon;
-				};
-			};
-		}
-	else
-		{
-		if (_typeX in SDKMG) then
-			{
-			if (count unlockedMachineGuns > 0) then
-				{
-				[_unit,unlockedMachineGuns] call A3A_fnc_randomRifle;
-				}
-			else
-				{
-				[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-				};
-			}
-		else
-			{
-			if (_typeX in SDKGL) then
-				{
-				if (count unlockedGrenadeLaunchers > 0) then
-					{
-					[_unit,unlockedGrenadeLaunchers] call A3A_fnc_randomRifle;
-					}
-				else
-					{
-					[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-					};
-				}
-			else
-				{
-				if (_typeX != SDKUnarmed) then {[_unit,unlockedRifles] call A3A_fnc_randomRifle};
-				if (_typeX in SDKExp) then
-					{
-					_unit setUnitTrait ["explosiveSpecialist",true];
-					}
-				else
-					{
-					if (_typeX in SDKMedic) then
-						{
-						_unit setUnitTrait ["medic",true];
-						if ({_x == "FirstAidKit"} count (items _unit) < 10) then
-							{
-							for "_i" from 1 to 10 do {_unit addItemToBackpack "FirstAidKit"};
-							};
-						}
-					else
-						{
-						if (_typeX in SDKATman) then
-							{
-							if !(unlockedAT isEqualTo []) then
-								{
-								_rlauncher = selectRandom unlockedAT;
-								if (_rlauncher != secondaryWeapon _unit) then
-									{
-									_magazines = getArray (configFile / "CfgWeapons" / (secondaryWeapon _unit) / "magazines");
-									{_unit removeMagazines _x} forEach _magazines;
-									_unit removeWeaponGlobal (secondaryWeapon _unit);
-									[_unit, _rlauncher, 4, 0] call BIS_fnc_addWeapon;
-									};
-								}
-							else
-								{
-								if (hasIFA) then
-									{
-									[_unit, "LIB_PTRD", 10, 0] call BIS_fnc_addWeapon;
-									};
-								};
-							}
-						else
-							{
-							if (_typeX in squadLeaders) then
-								{
-								_unit setskill ["courage",_skill + 0.2];
-								_unit setskill ["commanding",_skill + 0.2];
-								};
-							};
-						};
-					};
-				};
 			};
 		};
 	};
-
+	case (_typeX in SDKMG): {
+		if (count unlockedMachineGuns > 0) then {
+			[_unit,unlockedMachineGuns] call A3A_fnc_randomRifle;
+		} else {
+			[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		};
+	};
+	case (_typeX in SDKGL): {
+		if (count unlockedGrenadeLaunchers > 0) then {
+			[_unit,unlockedGrenadeLaunchers] call A3A_fnc_randomRifle;
+		} else {
+			[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		};
+	};
+	case (_typeX in SDKExp): {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+	};
+	case (_typeX in SDKMedic): {
+		_unit setUnitTrait ["medic",true];
+		if ({_x == "FirstAidKit"} count (items _unit) < 10) then {
+			for "_i" from 1 to 10 do {_unit addItemToBackpack "FirstAidKit"};
+		};
+	};
+	case (_typeX in SDKATman): {
+		if !(unlockedAT isEqualTo []) then {
+			_rlauncher = selectRandom unlockedAT;
+			if (_rlauncher != secondaryWeapon _unit) then {
+				_magazines = getArray (configFile / "CfgWeapons" / (secondaryWeapon _unit) / "magazines");
+				{_unit removeMagazines _x} forEach _magazines;
+				_unit removeWeaponGlobal (secondaryWeapon _unit);
+				[_unit, _rlauncher, 4, 0] call BIS_fnc_addWeapon;
+			};
+		} else {
+			if (hasIFA) then {
+				[_unit, "LIB_PTRD", 10, 0] call BIS_fnc_addWeapon;
+			};
+		};
+	};
+	case (_typeX in squadLeaders): {
+		_unit setskill ["courage",_skill + 0.2];
+		_unit setskill ["commanding",_skill + 0.2];
+	};
+};
 _unit setUnitTrait ["camouflageCoef",0.8];
 _unit setUnitTrait ["audibleCoef",0.8];
 

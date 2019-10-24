@@ -40,10 +40,8 @@ if (debug) then {
 	diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2 is of type:%3.",servertime,_unit,_typeX];
 };
 
-_unitIsSniper = false; //This is used for accuracy calulations later.
 switch (true) do {
 	case (_typeX in SDKSniper): {
-		_unitIsSniper = true;
 		if (count unlockedSniperRifles > 0) then {
 			[_unit, selectRandom unlockedSniperRifles, 8, 0] call BIS_fnc_addWeapon;
 			if (count unlockedOptics > 0) then {
@@ -129,10 +127,6 @@ switch (true) do {
 		diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | Could not identify type of _unit: %2 %3.",servertime,_unit,_typeX];
 	};
 
-};
-
-if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | Is unit Sniper? : %2.",servertime,_unitIsSniper];
 };
 
 _unit selectWeapon (primaryWeapon _unit);

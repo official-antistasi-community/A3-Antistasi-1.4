@@ -132,6 +132,12 @@ jnl_vehicleHardpoints = [
     	[1,		[0,-1.78506,-0.19277],	[6,7,8,9,11,10]]
     ]],
 
+	//RHS Zil131 plain (eg. rhsgref_cdf_zil131) and open (eg. rhsgref_cdf_zil131_open)
+	["rhsafrf\addons\rhs_zil131\rhs_zil131", [
+		[1, [0,-0.1,-0.45], [10,11,2,3,4,5]],
+		[1, [0,-1.8,-0.45], [6,7,8,9]]			// only 10 seats
+	]],
+
     //USAF Truck seats covered
     ["\rhsusf\addons\rhsusf_fmtv\M1078A1P2",[
     [1,[-0.0065918,0.0195313,-0.48801],[12,3,13,4,5,2]],

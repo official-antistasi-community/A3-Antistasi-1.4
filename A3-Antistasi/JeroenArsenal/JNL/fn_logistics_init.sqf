@@ -110,8 +110,8 @@ jnl_vehicleHardpoints = [
     //RHS Gaz-66 truck  "rhs_gaz66_vdv"
     ["\rhsafrf\addons\rhs_gaz66\rhs_gaz66.p3d", [
     	[0,		[0,-0.88974,-0.610707],		[]], //Weapon node
-    	[1,		[0,-0.135376,-0.610707],	[]], //Cargo node
-    	[1,		[0,-1.73634,-0.610707],		[]]
+    	[1,		[0,-0.135376,-0.610707],	[12,3,13,4,5,2]], //Cargo node
+    	[1,		[0,-1.73634,-0.610707],		[6,7,8,9,11,10]]
     ]],
 
     //RHS truck "rhsgref_nat_ural_open"

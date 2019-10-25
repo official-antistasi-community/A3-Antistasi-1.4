@@ -84,6 +84,10 @@ switch (true) do {
 		_unit setskill ["courage",_skill + 0.2];
 		_unit setskill ["commanding",_skill + 0.2];
 	};
+	default {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		diag_log format ["%1: [Antistasi] | DEBUG | FIAinit.sqf | Could not identify type of _unit: %2 %3.",servertime,_unit,_typeX];
+	};
 };
 _unit setUnitTrait ["camouflageCoef",0.8];
 _unit setUnitTrait ["audibleCoef",0.8];

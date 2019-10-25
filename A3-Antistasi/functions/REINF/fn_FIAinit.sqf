@@ -62,6 +62,7 @@ switch (true) do {
 	};
 	case (_typeX in SDKMedic): {
 		_unit setUnitTrait ["medic",true];
+		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;
 		if ({_x == "FirstAidKit"} count (items _unit) < 10) then {
 			for "_i" from 1 to 10 do {_unit addItemToBackpack "FirstAidKit"};
 		};

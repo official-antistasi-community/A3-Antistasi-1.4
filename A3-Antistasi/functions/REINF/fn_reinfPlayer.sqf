@@ -23,17 +23,14 @@ if ((count units group player) + (count units stragglers) > 9) exitWith {hint "Y
 
 private _unit = group player createUnit [_typeUnit, position player, [], 0, "NONE"];
 
-if (!isMultiPlayer) then
-	{
+if (!isMultiPlayer) then {
 	_nul = [-1, - _costs] remoteExec ["A3A_fnc_resourcesFIA",2];
-	}
-else
-	{
+} else {
 	_nul = [-1, 0] remoteExec ["A3A_fnc_resourcesFIA",2];
 	[- _costs] call A3A_fnc_resourcesPlayer;
 	["moneyX",player getVariable ["moneyX",0]] call fn_SaveStat;
 	hint "Soldier Recruited.\n\nRemember: if you use the group menu to switch groups you will lose control of your recruited AI";
-	};
+};
 
 [_unit] spawn A3A_fnc_FIAinit;
 _unit disableAI "AUTOCOMBAT";

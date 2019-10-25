@@ -8,21 +8,31 @@ clearMagazineCargoGlobal _crate;
 clearWeaponCargoGlobal _crate;
 clearItemCargoGlobal _crate;
 clearBackpackCargoGlobal _crate;
+//protecting global max parameters
+private _crateWepTypeMax = crateWepTypeMax;
+private _crateItemTypeMax = crateItemTypeMax;
+private _crateAmmoTypeMax = crateAmmoTypeMax;
+private _crateExplosiveTypeMax = crateExplosiveTypeMax;
+private _crateAttachmentTypeMax = crateAttachmentTypeMax;
+private _crateBackpackTypeMax = crateBackpackTypeMax;
+private _crateHelmetTypeMax = crateHelmetTypeMax;
+private _crateVestTypeMax = crateVestTypeMax;
+private _crateDeviceTypeMax = crateDeviceTypeMax;
 //Double max types if the crate is an ammo truck
 if (typeOf _crate == vehCSATAmmoTruck) then {
 	if (debug) then {diag_log format ["%1: [Antistasi] | INFO | CSATCrate | Ammo Truck Detected: Doubling Types",servertime,_backpackTypes]};
-	crateWepTypeMax=crateWepTypeMax*2;
-	crateItemTypeMax=crateItemTypeMax*2;
-	crateAmmoTypeMax=crateAmmoTypeMax*2;
-	crateExplosiveTypeMax=crateExplosiveTypeMax*2;
-	crateAttachmentTypeMax=crateAttachmentTypeMax*2;
-	crateBackpackTypeMax=crateBackpackTypeMax*2;
-	crateHelmetTypeMax=crateHelmetTypeMax*2;
-	crateVestTypeMax=crateVestTypeMax*2;
-	crateDeviceTypeMax=crateDeviceTypeMax*2;
+	_crateWepTypeMax = _crateWepTypeMax * 2;
+	_crateItemTypeMax = _crateItemTypeMax * 2;
+	_crateAmmoTypeMax = _crateAmmoTypeMax * 2;
+	_crateExplosiveTypeMax = _crateExplosiveTypeMax * 2;
+	_crateAttachmentTypeMax = _crateAttachmentTypeMax * 2;
+	_crateBackpackTypeMax = _crateBackpackTypeMax * 2;
+	_crateHelmetTypeMax = _crateHelmetTypeMax * 2;
+	_crateVestTypeMax = _crateVestTypeMax * 2;
+	_crateDeviceTypeMax = _crateDeviceTypeMax * 2;
 };
 //Weapons Loot
-for "_i" from 0 to floor random crateWepTypeMax do {
+for "_i" from 0 to floor random _crateWepTypeMax do {
 	_available = (lootWeapon - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
@@ -37,7 +47,7 @@ for "_i" from 0 to floor random crateWepTypeMax do {
 	};
 };
 //Items Loot
-for "_i" from 0 to floor random crateItemTypeMax do {
+for "_i" from 0 to floor random _crateItemTypeMax do {
 	_available = (lootItem - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
@@ -50,7 +60,7 @@ for "_i" from 0 to floor random crateItemTypeMax do {
 	};
 };
 //Ammo Loot
-for "_i" from 0 to floor random crateAmmoTypeMax do {
+for "_i" from 0 to floor random _crateAmmoTypeMax do {
 	_available = (lootMagazine - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
@@ -63,7 +73,7 @@ for "_i" from 0 to floor random crateAmmoTypeMax do {
 	};
 };
 //Explosives Loot
-for "_i" from 0 to floor random crateExplosiveTypeMax do
+for "_i" from 0 to floor random _crateExplosiveTypeMax do
 	{
 	_available = (lootExplosive - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
@@ -77,7 +87,7 @@ for "_i" from 0 to floor random crateExplosiveTypeMax do
 	};
 };
 //Attachments Loot
-for "_i" from 0 to floor random crateAttachmentTypeMax do {
+for "_i" from 0 to floor random _crateAttachmentTypeMax do {
 	_available = (lootAttachment - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
@@ -90,7 +100,7 @@ for "_i" from 0 to floor random crateAttachmentTypeMax do {
 	};
 };
 //Backpacks Loot
-for "_i" from 0 to floor random crateBackpackTypeMax do {
+for "_i" from 0 to floor random _crateBackpackTypeMax do {
 	_available = (lootBackpack - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
@@ -103,7 +113,7 @@ for "_i" from 0 to floor random crateBackpackTypeMax do {
 	};
 };
 //Helmets Loot
-for "_i" from 0 to floor random crateHelmetTypeMax do {
+for "_i" from 0 to floor random _crateHelmetTypeMax do {
 	_available = (lootHelmet - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
@@ -116,7 +126,7 @@ for "_i" from 0 to floor random crateHelmetTypeMax do {
 	};
 };
 //Vests Loot
-for "_i" from 0 to floor random crateVestTypeMax do {
+for "_i" from 0 to floor random _crateVestTypeMax do {
 	_available = (lootVest - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {
@@ -129,7 +139,7 @@ for "_i" from 0 to floor random crateVestTypeMax do {
 	};
 };
 //Device Loot
-for "_i" from 0 to floor random crateDeviceTypeMax do {
+for "_i" from 0 to floor random _crateDeviceTypeMax do {
 	_available = (lootDevice - _unlocks - itemCargo _crate);
 	_loot = selectRandom _available;
 	if (isNil "_loot") then {

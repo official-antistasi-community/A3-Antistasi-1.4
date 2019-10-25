@@ -55,13 +55,13 @@ private _nameX = "";
 	private _item = [_nameX] call A3A_fnc_itemType;
 	private _itemType = _item select 1;
 	
-	if !([_x, _item] call _filter) then 
+	if !([_x, _item] call _filter) then
 	{
 		private _categories = _nameX call A3A_fnc_equipmentClassToCategories;
 		{
 			//We're not returning a default value with getVariable, becuase it *must* be instantiated before now. If it isn't, we *need* it to error.
 			private _categoryName = _x;
-			(missionNamespace getVariable ("all" + _categoryName)) pushBack _nameX;
+			(missionNamespace getVariable ("all" + _categoryName)) pushBackUnique _nameX;
 		} forEach _categories;
 	};
 

@@ -1,6 +1,14 @@
 private _unit = _this select 0;
 private _pool = _this select 1;
-if (_pool isEqualTo []) exitWith {};
+if (_pool isEqualTo []) then {
+	if !(unlockedRifles isEqualTo []) then {
+		_pool = unlockedRifles;
+	} else {
+		if !(unlockedSMGs isEqualTo []) then {
+			_pool = unlockedSMGs;
+		};
+	};
+};
 private _rifleFinal = selectRandom _pool;
 if (_rifleFinal == primaryWeapon _unit) exitWith {};
 

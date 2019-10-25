@@ -87,8 +87,6 @@ supportStaticsSDKB3 = "I_Mortar_01_support_F";
 ////////////////////////////////////
 //             ITEMS             ///
 ////////////////////////////////////
-//Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["U_I_C_Soldier_Camo_F", []],[],[],"","",[],["ItemMap","","","","",""]];
 //Mines
 ATMineMag = "ATMine_Range_Mag";
 APERSMineMag = "APERSMine_Range_Mag";

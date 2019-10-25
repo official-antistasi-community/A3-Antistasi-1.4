@@ -85,8 +85,6 @@ supportStaticsSDKB3 = "not_supported";
 ////////////////////////////////////
 //             ITEMS             ///
 ////////////////////////////////////
-//Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],["ItemMap","","","","",""]];
 //Mines
 ATMineMag = "LIB_TMI_42_MINE_mag";
 APERSMineMag = "LIB_shumine_42_MINE_mag";

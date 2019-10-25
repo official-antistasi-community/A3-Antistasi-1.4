@@ -85,8 +85,6 @@ supportStaticsSDKB3 = "rhs_M252_Bipod_Bag";
 ////////////////////////////////////
 //             ITEMS             ///
 ////////////////////////////////////
-//Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["rhsgref_uniform_3color_desert", []],[],[],"","",[],["ItemMap","","","","",""]];
 //Mines
 ATMineMag = "rhs_mine_M19_mag";
 APERSMineMag = "rhsusf_mine_m7a2_mag";

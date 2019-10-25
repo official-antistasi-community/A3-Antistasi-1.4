@@ -85,8 +85,6 @@ supportStaticsSDKB3 = "RHS_Podnos_Bipod_Bag";
 ////////////////////////////////////
 //             ITEMS             ///
 ////////////////////////////////////
-//Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["UK3CB_CHC_C_U_COACH_04", []],[],[],"UK3CB_H_Villager_Cap_01","",[],["ItemMap","","","","",""]];
 //Mines
 ATMineMag = "rhs_mine_smine35_press_mag";
 APERSMineMag = "rhs_mine_pmn2_mag";

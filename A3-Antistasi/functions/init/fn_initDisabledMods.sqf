@@ -35,6 +35,11 @@ if ("Tanks" call BIS_fnc_getParamValue isEqualTo 0) then
 	disabledMods pushBack "tank";
 };
 
+if ("GlobMob" call BIS_fnc_getParamValue isEqualTo 0) then
+{
+	disabledMods pushBack "globmob";
+};
+
 if ("Enoch" call BIS_fnc_getParamValue isEqualTo 0) then
 {
 	disabledMods pushBack "enoch";

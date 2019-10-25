@@ -1,4 +1,4 @@
-private ["_victim","_killer","_nameX"];
+private ["_victim","_killer"];
 
 private _unit = _this select 0;
 
@@ -17,16 +17,17 @@ if (unlockedVests isEqualTo []) then {removeVest _unit} else {removeVest _unit; 
 if (unlockedBackpacks isEqualTo []) then {removeBackpack _unit} else {removeBackpack _unit; _unit addBackpack (selectRandom unlockedBackpacks)};
 
 _unit setSkill _skill;
+
 switch (true) do {
 	case (_typeX in SKDSniper): {
 		if (count unlockedSniperRifles > 0) then {
-			_magazines = getArray (configFile / "CfgWeapons" / (primaryWeapon _unit) / "magazines");
+			private _magazines = getArray (configFile / "CfgWeapons" / (primaryWeapon _unit) / "magazines");
 			{_unit removeMagazines _x} forEach _magazines;
 			_unit removeWeaponGlobal (primaryWeapon _unit);
 			[_unit, selectRandom unlockedSniperRifles, 8, 0] call BIS_fnc_addWeapon;
 			if (count unlockedOptics > 0) then {
-				_compatibleX = [primaryWeapon _unit] call BIS_fnc_compatibleItems;
-				_potentials = unlockedOptics select {_x in _compatibleX};
+				private _compatibleX = [primaryWeapon _unit] call BIS_fnc_compatibleItems;
+				private _potentials = unlockedOptics select {_x in _compatibleX};
 				if (count _potentials > 0) then {_unit addPrimaryWeaponItem (_potentials select 0)};
 			};
 		} else {
@@ -67,9 +68,9 @@ switch (true) do {
 	};
 	case (_typeX in SDKATman): {
 		if !(unlockedAT isEqualTo []) then {
-			_rlauncher = selectRandom unlockedAT;
+			private _rlauncher = selectRandom unlockedAT;
 			if (_rlauncher != secondaryWeapon _unit) then {
-				_magazines = getArray (configFile / "CfgWeapons" / (secondaryWeapon _unit) / "magazines");
+				private _magazines = getArray (configFile / "CfgWeapons" / (secondaryWeapon _unit) / "magazines");
 				{_unit removeMagazines _x} forEach _magazines;
 				_unit removeWeaponGlobal (secondaryWeapon _unit);
 				[_unit, _rlauncher, 4, 0] call BIS_fnc_addWeapon;
@@ -103,7 +104,7 @@ if !(hasIFA) then {
 	if ((sunOrMoon < 1) and (_typeX != SDKUnarmed)) then {
 		if (haveNV) then {
 			if (hmd _unit == "") then {_unit linkItem (selectRandom unlockedNVGs)};
-			_pointers = allLaserAttachments arrayIntersect unlockedItems;
+			private _pointers = allLaserAttachments arrayIntersect unlockedItems;
 			if !(_pointers isEqualTo []) then {
 				_pointers = _pointers arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
 				if !(_pointers isEqualTo []) then {
@@ -114,16 +115,16 @@ if !(hasIFA) then {
 				};
 			};
 		} else {
-			_hmd = hmd _unit;
+			private _hmd = hmd _unit;
 			if (_hmd != "") then {
 				_unit unassignItem _hmd;
 				_unit removeItem _hmd;
 			};
-			_flashlights = allLightAttachments arrayIntersect unlockedItems;
+			private _flashlights = allLightAttachments arrayIntersect unlockedItems;
 			if !(_flashlights isEqualTo []) then {
 				_flashlights = _flashlights arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
 				if !(_flashlights isEqualTo []) then {
-					_flashlight = selectRandom _flashlights;
+					private _flashlight = selectRandom _flashlights;
 					_unit addPrimaryWeaponItem _flashlight;
 					_unit assignItem _flashlight;
 					_unit enableGunLights _flashlight;
@@ -139,9 +140,12 @@ if !(hasIFA) then {
 	};
 };
 
+Private _victim = objNull;
+private _killer = objNull;
+
 if (player == leader _unit) then {
 	_unit setVariable ["owner",player];
-	_EHkilledIdx = _unit addEventHandler ["killed", {
+	_unit addEventHandler ["killed", {
 		_victim = _this select 0;
 		[_victim] spawn A3A_fnc_postmortem;
 		_killer = _this select 1;
@@ -161,7 +165,7 @@ if (player == leader _unit) then {
 		_victim setVariable ["spawner",nil,true];
 	}];
 	if ((typeOf _unit != SDKUnarmed) and !hasIFA) then {
-		_idUnit = selectRandom arrayids;
+		private _idUnit = selectRandom arrayids;
 		arrayids = arrayids - [_idunit];
 		_unit setIdentity _idUnit;
 	};
@@ -178,7 +182,7 @@ if (player == leader _unit) then {
 					[_unit] join stragglers;
 					if ((vehicle _unit isKindOf "StaticWeapon") or (isNull (driver (vehicle _unit)))) then {unassignVehicle _unit; [_unit] orderGetIn false};
 					_unit doMove position player;
-					_timeX = time + 900;
+					private _timeX = time + 900;
 					waitUntil {sleep 1;(!alive _unit) or (_unit distance player < 500) or (time > _timeX)};
 					if ((_unit distance player >= 500) and (alive _unit)) then {_unit setPos (getMarkerPos respawnTeamPlayer)};
 					[_unit] join group player;
@@ -187,7 +191,7 @@ if (player == leader _unit) then {
 		};
 	};
 } else {
-	_EHkilledIdx = _unit addEventHandler ["killed", {
+	_unit addEventHandler ["killed", {
 		_victim = _this select 0;
 		_killer = _this select 1;
 		[_victim] remoteExec ["A3A_fnc_postmortem",2];

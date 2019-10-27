@@ -7,7 +7,6 @@ aceItems = [
 	"ACE_RangeCard",
 	"ACE_Clacker",
 	"ACE_M26_Clacker",
-	"ACE_DeadManSwitch",
 	"ACE_DefusalKit",
 	"ACE_MapTools",
 	"ACE_Flashlight_MX991",

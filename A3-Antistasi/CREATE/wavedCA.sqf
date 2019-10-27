@@ -66,7 +66,10 @@ _timeX = time + 3600;
 while {(_waves > 0)} do
 	{
 	_soldiers = [];
-	_nVeh = 3 + (round random 1);
+	//_nVeh = 2 + (round random 2);
+	if (_mrkDestination in citiesX) then {_nVeh = round (3 + (random 2) * skillmult)};
+	if (_mrkDestination in airportsX or seaports) then {_nVeh = round (5 + (random 1) * skillmult)}
+	else {_nVeh = round (3 + ( random 1) * skillmult)};
 	_posOriginLand = [];
 	_pos = [];
 	_dir = 0;
@@ -99,7 +102,7 @@ while {(_waves > 0)} do
 		};
 	if !(_pos isEqualTo []) then
 		{
-		if ([_mrkDestination,true] call A3A_fnc_fogCheck < 0.3) then {_nveh = round (1.5*_nveh)};
+		if ([_mrkDestination,true] call A3A_fnc_fogCheck < 0.3) then {_nveh = round (1*_nveh)};
 		_vehPool = if (_sideX == Occupants) then {vehNATOAttack} else {vehCSATAttack};
 		_vehPool = _vehPool select {[_x] call A3A_fnc_vehAvailable};
 		if (_isSDK) then
@@ -254,7 +257,7 @@ while {(_waves > 0)} do
 		}
 	else
 		{
-		_nVeh = 2*_nVeh;
+		_nVeh = 1*_nVeh;
 		};
 
 	_isSea = false;

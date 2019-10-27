@@ -100,3 +100,21 @@ unlockedBackpacks = ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_rt1523g_rhs"]};
+
+//import stuff
+import_UAV = "rhs_pchela1t_vvs";
+import_UGV = "rhsgref_ins_g_gaz66_zu23";
+import_MRAP = "rhsgref_BRDM2_HQ_ins_g";
+import_arty = "rhsgref_ins_g_BM21";
+import_wheel_apc = "rhsgref_nat_btr70";
+import_track_apc = "rhsgref_ins_g_bmp2";
+import_heli = "RHS_Mi24P_vdv";
+import_tank = "rhsgref_ins_g_t72ba";
+import_e_ammo = "rhs_mags_crate";
+import_w_ammo = "rhsusf_mags_crate";
+import_e_weaps = "rhs_weapon_crate";
+import_w_weaps = "rhsusf_weapon_crate";
+import_e_spec = "rhs_spec_weapons_crate";
+import_w_spec = "rhsusf_spec_weapons_crate";
+import_launchers = "rhs_launcher_crate";
+

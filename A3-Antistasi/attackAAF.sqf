@@ -330,13 +330,13 @@ if ((count _objectivesFinal > 0) and (count _easyX < 3)) then
 				{
 				if (_destinationX in airportsX) then
 					{
-					_waves = 2 + round (random tierWar);
+					_waves = 1;
 					}
 				else
 					{
 					if (!(_destinationX in citiesX)) then
 						{
-						_waves = 1 + round (random (tierWar)/2);
+						_waves = 1;
 						};
 					};
 				}
@@ -344,7 +344,7 @@ if ((count _objectivesFinal > 0) and (count _easyX < 3)) then
 				{
 				if (!(_destinationX in citiesX)) then
 					{
-					_waves = 1 + round (random ((tierWar - 3)/2));
+					_waves = 1;
 					};
 				};
 			};

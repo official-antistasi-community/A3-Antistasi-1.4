@@ -14,7 +14,7 @@ distanceSPWN = 1000;											//initial spawn distance. Less than 1Km makes par
 distanceSPWN1 = 1300;											//
 distanceSPWN2 = 500;											//
 musicON = false;												//Extra BGM
-if (isServer and isDedicated) then {civPerc = 70;} else {civPerc = 35};	//
+if (isServer and isDedicated) then {civPerc = 70;} else {civPerc = 25};	//
 autoHeal = false;												//
 recruitCooldown = 0;											//
 savingClient = false;											//
@@ -1086,12 +1086,12 @@ server setVariable [vehSDKTruck,300,true];											//300
 //     SERVER ONLY VARIABLES     ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Server Only Variables.",servertime];
-server setVariable ["hr",8,true];														//initial HR value
-server setVariable ["resourcesFIA",1000,true];											//Initial FIA money pool value
+server setVariable ["hr",10,true];														//initial HR value
+server setVariable ["resourcesFIA",5000,true];											//Initial FIA money pool value
 skillFIA = 0;																		//Initial skill level for FIA soldiers
 prestigeNATO = 5;																	//Initial Prestige NATO
 prestigeCSAT = 5;																	//Initial Prestige CSAT
-prestigeOPFOR = [75, 50] select cadetMode;																	//Initial % support for NATO on each city
+prestigeOPFOR = [50, 30] select cadetMode;																	//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
 countCA = 600;																		//600
 bombRuns = 0;

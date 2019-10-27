@@ -104,3 +104,20 @@ if !(isMultiplayer) then
 //TFAR Unlocks
 if (hasTFAR) then {unlockedItems = unlockedItems + ["tf_microdagr","tf_rf7800str"]};
 if (startLR) then {unlockedBackpacks = unlockedBackpacks + ["tf_rt1523g"]};
+
+//import stuff
+import_UAV = "I_UAV_01_F";
+import_UGV = "I_UGV_01_rcws_F";
+import_MRAP = "I_MRAP_03_gmg_F";
+import_arty = "I_Truck_02_MRL_F";
+import_wheel_apc = "I_APC_Wheeled_03_cannon_F";
+import_track_apc = "I_APC_tracked_03_cannon_F";
+import_heli = "I_Heli_light_03_dynamicLoadout_F";
+import_tank = "I_MBT_03_cannon_F";
+import_e_ammo = "Box_East_Ammo_F";
+import_w_ammo = "Box_NATO_Ammo_F";
+import_e_weaps = "Box_East_Wps_F";
+import_w_weaps = "Box_NATO_Wps_F";
+import_e_spec = "Box_East_WpsSpecial_F";
+import_w_spec = "Box_NATO_WpsSpecial_F";
+import_launchers = "Box_NATO_WpsLaunch_F";

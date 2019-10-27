@@ -15,7 +15,7 @@ if (!isMultiPlayer) then
     switchCom = false;
     tkPunish = false;
     skillMult = 1;
-    minWeaps = 24;
+    minWeaps = 9;
     civTraffic = 1;
     limitedFT = false;
 	diag_log format ["%1: [Antistasi] | INFO | Singleplayer Starting.",servertime];

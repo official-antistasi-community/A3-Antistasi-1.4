@@ -3116,3 +3116,307 @@ class RscTitles {
 		};
 	};
 };
+class portshop_option 	{
+	idd=-1;
+	movingenable=false;
+
+	class controls {
+
+		class HQ_box: BOX
+		{
+			idc = -1;
+			text = ""; //--- ToDo: Localize;
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.20 * safezoneH;//30
+		};
+		class HQ_frame: RscFrame
+		{
+			idc = -1;
+			text = "Import Material"; //--- ToDo: Localize;
+			x = 0.254979 * safezoneW + safezoneX;
+			y = 0.233941 * safezoneH + safezoneY;
+			w = 0.425038 * safezoneW;
+			h = 0.18 * safezoneH;//28
+		};
+		class HQ_button_back: RscButton
+		{
+			idc = -1;
+			text = "Back"; //--- ToDo: Localize;
+			x = 0.61 * safezoneW + safezoneX;
+			y = 0.251941 * safezoneH + safezoneY;
+			w = 0.06 * safezoneW;//0.175015
+			h = 0.05 * safezoneH;
+			action = "closeDialog 0";
+		};
+		class HQ_button_Gsquad: RscButton
+		{
+			idc = -1;
+			text = "Supplies"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Import Weapons, Ammo, and other military gear";
+			action = "closeDialog 0; nul = createDialog ""import_supplies"";";
+		};
+		class HQ_button_Gstatic: RscButton
+		{
+			idc = -1;
+			text = "Military Vehicle"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Import some heavy metal";
+			action = "closeDialog 0; nul = createDialog ""heavy_metal"";";
+		};
+	};
+};
+class heavy_metal 		{
+	idd= 100;
+	movingenable=false;
+	class controls {
+		class HQ_box: BOX
+		{
+			idc = 101;
+			text = ""; //--- ToDo: Localize;
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.492103 * safezoneH;
+		};
+		class HQ_frame: RscFrame
+		{
+			idc = 102;
+			text = "Recruitment Options"; //--- ToDo: Localize;
+			x = 0.254979 * safezoneW + safezoneX;
+			y = 0.233941 * safezoneH + safezoneY;
+			w = 0.425038 * safezoneW;
+			h = 0.462103 * safezoneH;
+		};
+		class HQ_button_back: RscButton
+		{
+			idc = 103;
+			text = "Back"; //--- ToDo: Localize;
+			x = 0.61 * safezoneW + safezoneX;
+			y = 0.251941 * safezoneH + safezoneY;
+			w = 0.06 * safezoneW;//0.175015
+			h = 0.05 * safezoneH;
+			action = "closeDialog 0";
+		};
+		class HQ_button_rifleman: RscButton
+		{
+			idc = 104;
+			text = "Buy UAV"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Standard UAV, small, unarmed, and inconspicuous. Good for peeping toms like you. Costs about $500";
+			action = "closeDialog 0;nul = [import_UAV] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_autorifleman: RscButton
+		{
+			idc = 105;
+			text = "Buy UGV"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.415981 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Small UGV, armed and dangerous. (With RHS this is a truck-mounted autocannon) Costs about $1,200";
+			action = "closeDialog 0;nul = [import_UGV] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_medic: RscButton
+		{
+			idc = 126;
+			text = "Buy MRAP"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.514003 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Good against bullets, but rockets...not so much. Comes with a GMG for shooting back, and costs about $2,000";
+			action = "closeDialog 0;nul = [import_MRAP] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_engineer: RscButton
+		{
+			idc = 107;
+			text = "Buy Artillery"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Nothing says screw you quite like a rocket barrege. Costs roughly $5,000";
+			action = "closeDialog 0;nul = [import_arty] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_explosive: RscButton
+		{
+			idc = 108;
+			text = "Buy Wheeled APC"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.514003 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Roll up to the battle in style. This thing eats enemy infantry and vehicles for breakfast. Costs around $5,000";
+			action = "closeDialog 0;nul = [import_wheel_apc] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_grenadier: RscButton
+		{
+			idc = 109;
+			text = "Buy Tracked APC"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.415981 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Tired of getting the wheels popped on your apc's? Tracks are the answer, though they come at a price. Expect to pay about $6,500";
+			action = "closeDialog 0;nul = [import_track_apc] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_marksman: RscButton
+		{
+			idc = 110;
+			text = "Buy Attack Helicopter"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.612025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Relive your favorite scenes from apocalypse now! If you have the cash...about $10,000";
+			action = "closeDialog 0;nul = [import_heli] spawn A3A_fnc_addFIAveh;";
+		};
+
+		class HQ_button_AT: RscButton
+		{
+			idc = 111;
+			text = "Buy Tank"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.612025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "God mode...Engaged! $15,000";
+			action = "closeDialog 0;nul = [import_tank] spawn A3A_fnc_addFIAveh;";
+		};
+	};
+};
+class import_supplies 		{
+	idd= 100;
+	movingenable=false;
+	class controls {
+		class HQ_box: BOX
+		{
+			idc = 101;
+			text = ""; //--- ToDo: Localize;
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.492103 * safezoneH;
+		};
+		class HQ_frame: RscFrame
+		{
+			idc = 102;
+			text = "Recruitment Options"; //--- ToDo: Localize;
+			x = 0.254979 * safezoneW + safezoneX;
+			y = 0.233941 * safezoneH + safezoneY;
+			w = 0.425038 * safezoneW;
+			h = 0.462103 * safezoneH;
+		};
+		class HQ_button_back: RscButton
+		{
+			idc = 103;
+			text = "Back"; //--- ToDo: Localize;
+			x = 0.61 * safezoneW + safezoneX;
+			y = 0.251941 * safezoneH + safezoneY;
+			w = 0.06 * safezoneW;//0.175015
+			h = 0.05 * safezoneH;
+			action = "closeDialog 0";
+		};
+		class HQ_button_rifleman: RscButton
+		{
+			idc = 104;
+			text = "Buy Eastern Ammo"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Standard russian/csat ammo. Pairs well with the Eastern Weapons box. $500";
+			action = "closeDialog 0;nul = [import_e_ammo] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_autorifleman: RscButton
+		{
+			idc = 105;
+			text = "Buy Western Ammo"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.415981 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Ammo with a more capitalist flair. You don't have to share it with the others, YOU earned it. $550";
+			action = "closeDialog 0;nul = [import_w_ammo] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_medic: RscButton
+		{
+			idc = 126;
+			text = "Buy Eastern Weapons"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.514003 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Cheap, reliable, and clever. This shipment is full of glorious Russian hardware. $700";
+			action = "closeDialog 0;nul = [import_e_weaps] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_engineer: RscButton
+		{
+			idc = 107;
+			text = "Buy Western Weapons"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "No one makes guns quite like America makes guns. The finest precision machined tools of death, yours for $750";
+			action = "closeDialog 0;nul = [import_w_weaps] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_explosive: RscButton
+		{
+			idc = 108;
+			text = "Buy Eastern Special Weapons"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.514003 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "DMRs, heavy MGs, and more goodies imported from the eastern parts of the world. $1,200";
+			action = "closeDialog 0;nul = [import_e_spec] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_grenadier: RscButton
+		{
+			idc = 109;
+			text = "Buy Western Special Weapons"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.415981 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "An assortment of the most tacticool shit in all of NATO. Be an operator, for $1,500";
+			action = "closeDialog 0;nul = [import_w_spec] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_marksman: RscButton
+		{
+			idc = 110;
+			text = "Buy Body Armor"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.612025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Protect your investments! Enought body armor for you and your friends! $5,000";
+			action = "closeDialog 0;nul=[] execVM ""Dialogs\buy_armor.sqf"";";
+		};
+
+		class HQ_button_AT: RscButton
+		{
+			idc = 111;
+			text = "Buy Launchers"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.612025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "I hear there's guided launchers in this shipment. There better be considering how expensive it is. $6,000";
+			action = "closeDialog 0;nul = [import_launchers] spawn A3A_fnc_addFIAveh;";
+		};
+	};
+};

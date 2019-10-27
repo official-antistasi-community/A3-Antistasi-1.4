@@ -130,10 +130,8 @@ else
 						}
 					else
 						{
-						if (_typeX in squadLeaders) then
-							{
-							_unit setskill ["courage",_skill + 0.2];
-							_unit setskill ["commanding",_skill + 0.2];
+						if (_typeX in SDKAA) then {
+						    _unit forceAddUniform "U_IG_Guerilla2_1"
 							};
 						};
 					};

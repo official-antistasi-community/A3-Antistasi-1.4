@@ -7969,7 +7969,7 @@ class Mission
 			position[]={26493.066,20.179955,21324.83};
 			name="road_40";
 			type="hd_arrow";
-			angle=113.11616;
+			angle=113.11613;
 			id=1483;
 		};
 		class Item286

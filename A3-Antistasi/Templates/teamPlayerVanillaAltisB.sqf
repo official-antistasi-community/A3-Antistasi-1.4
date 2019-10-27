@@ -16,6 +16,8 @@ SDKGL = ["B_G_Soldier_GL_F","B_G_Soldier_GL_F"];
 SDKMil = ["B_G_Soldier_lite_F","B_G_Soldier_lite_F"];
 SDKSL = ["B_G_Soldier_SL_F","B_G_Soldier_SL_F"];
 SDKEng = ["B_G_engineer_F","B_G_engineer_F"];
+//add aa guy
+SDKAA = ["B_Soldier_AA_F"];
 
 vehSDKBike = "B_G_Quadbike_01_F";
 vehSDKLightArmed = "B_G_Offroad_01_armed_F";

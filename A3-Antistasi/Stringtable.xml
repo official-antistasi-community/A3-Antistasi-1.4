@@ -171,9 +171,9 @@
         <Russian>Медик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_squad_lead_text">
-        <Original>Recruit Squad Leader</Original>
-        <English>Recruit Squad Leader</English>
-        <Russian>Сержант</Russian>
+        <Original>Recruit AA Specialist</Original>
+        <English>Recruit AA Specialist</English>
+        <Russian>ПЗРК</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
         <Original>Recruit Mortar</Original>

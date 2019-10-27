@@ -307,7 +307,7 @@ diag_log format ["%1: [Antistasi] | INFO | initVar | Assigning Squad Types.",ser
 //Rebel Unit Tiers
 sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
 sdkTier2 = SDKMedic + SDKExp + SDKEng;
-sdkTier3 = SDKSL + SDKSniper;
+sdkTier3 = SDKSL + SDKAA + SDKSniper;
 soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 //Rebel Groups
 groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
@@ -317,6 +317,8 @@ groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
 groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
 groupsSDKSniper = [SDKSniper,SDKSniper];
 groupsSDKSentry = [SDKGL,SDKMil];
+//create aa team
+groupsSDKAA = [SDKAA, SDKMil];
 
 squadLeaders = SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
 medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
@@ -1081,6 +1083,23 @@ server setVariable [vehSDKTruck,300,true];											//300
 {server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];
 {server setVariable [_x,400,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];			//400
 {server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];			//800
+
+//cost of imports
+server setVariable [import_UAV,500,true];
+server setVariable [import_UGV,1200,true];
+server setVariable [import_MRAP,2000,true];
+server setVariable [import_arty,5000,true];
+server setVariable [import_wheel_apc,5000,true];
+server setVariable [import_track_apc,6500,true];
+server setVariable [import_heli,10000,true];
+server setVariable [import_tank,15000,true];
+server setVariable [import_e_ammo,500,true]; 
+server setVariable [import_w_ammo,550,true];
+server setVariable [import_e_weaps,700,true];
+server setVariable [import_w_weaps,750,true];
+server setVariable [import_e_spec,1200,true];
+server setVariable [import_w_spec,1500,true];
+server setVariable [import_launchers,3000,true];
 
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///

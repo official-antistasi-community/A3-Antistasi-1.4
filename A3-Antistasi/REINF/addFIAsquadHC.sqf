@@ -42,7 +42,7 @@ _resourcesFIA = server getVariable "resourcesFIA";
 private ["_groupX","_roads","_truckX","_withBackpck"];
 _withBackpck = "";
 if (_typeGroup isEqualType []) then
-	{
+  {
 	{
 	_typeUnit = if (random 20 <= skillFIA) then {_x select 1} else {_x select 0};
 	_formatX pushBack _typeUnit;

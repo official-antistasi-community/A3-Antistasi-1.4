@@ -81,6 +81,7 @@ else
 			else
 				{
 				if (_typeX != SDKUnarmed) then {[_unit,unlockedRifles] call A3A_fnc_randomRifle};
+				if (_typeX in SDKAA) then {_unit forceAddUniform "U_IG_Guerilla2_1"};
 				if (_typeX in SDKExp) then
 					{
 					_unit setUnitTrait ["explosiveSpecialist",true];

@@ -16,6 +16,8 @@ SDKGL = ["rhsgref_cdf_b_ngd_grenadier","rhsgref_cdf_b_reg_grenadier"];
 SDKMil = ["rhsgref_cdf_b_ngd_rifleman_lite","rhsgref_cdf_b_para_rifleman_lite"];
 SDKSL = ["rhsgref_cdf_b_ngd_squadleader","rhsgref_cdf_b_reg_squadleader"];
 SDKEng = ["rhsgref_cdf_b_ngd_engineer","rhsgref_cdf_b_reg_engineer"];
+//add aa guy
+SDKAA = ["rhsgref_cdf_reg_specialist_aa"];
 
 vehSDKBike = "B_G_Quadbike_01_F";
 vehSDKLightArmed = "rhsgref_cdf_b_reg_uaz_dshkm";

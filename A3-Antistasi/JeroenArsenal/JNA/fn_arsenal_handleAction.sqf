@@ -12,7 +12,7 @@ if (!arsenalInit) exitWith {};
 //start loading screen
 ["jn_fnc_arsenal", "Loading Nutz™ Arsenal"] call bis_fnc_startloadingscreen;
 [] spawn {
-uisleep 5;
+uisleep 10;
 private _ids = missionnamespace getvariable ["BIS_fnc_startLoadingScreen_ids",[]];
   if("jn_fnc_arsenal" in _ids)then{
 	private _display =  uiNamespace getVariable ["arsanalDisplay","No display"];

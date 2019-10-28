@@ -13,9 +13,7 @@ if !(skillMult == 2) then
 		minWeaps = 15;
 		if !(hasTFAR) then
 			{
-			_index = "ItemRadio" call jn_fnc_arsenal_itemType;
-			[_index,"ItemRadio",-1] call jn_fnc_arsenal_addItem;
-			unlockedItems pushBack "ItemRadio";
+			"ItemRadio" call A3A_fnc_unlockEquipment;
 			haveRadio = true;
 			};
 		}

@@ -1,67 +1,50 @@
 fn_varNameToSaveName = {
 	params ["_varName", ""];
 	//Return the name of the save slot for the variable.
-	if (worldName == "Tanoa") then
-		{
+	if (worldName == "Tanoa") then {
 		_varName + serverID + campaignID + "WotP";
-		}
-	else
-		{
-		if (side group petros == independent) then
-			{
+	} else {
+		if (side group petros == independent) then {
 			_varName + serverID + campaignID + "Antistasi" + worldName;
-			}
-		else
-			{
+		} else {
 			_varName + serverID + campaignID + "AntistasiB" + worldName;
-			};
 		};
+	};
 };
 
-fn_SaveStat =
-{
+fn_SaveStat = {
 	_varName = _this select 0;
 	_varValue = _this select 1;
-	if (!isNil "_varValue") then
-		{
+	if (!isNil "_varValue") then {
 		_varSaveName = [_varName] call fn_varNameToSaveName;
 		profileNameSpace setVariable [_varSaveName, _varValue];
 		if (isDedicated) then {saveProfileNamespace};
-		};
+	};
 };
 
-fn_ReturnSavedStat =
-{
+fn_ReturnSavedStat = {
 	private _varName = _this select 0;
-
-  _loadVariable = {
-    private ["_varName","_varValue"];
-    _varName = _this select 0;
+	_loadVariable = {
+		private ["_varName","_varValue"];
+		_varName = _this select 0;
 		_varSaveName = [_varName] call fn_varNameToSaveName;
-
-    //Return the value of this statement
+		//Return the value of this statement
 		profileNameSpace getVariable (_varSaveName);
-  };
-
-  private _varValue = [_varName] call _loadVariable;
-
-  if(isNil "_varValue") then
-  {
-    _spanishVarName = [_varName] call A3A_fnc_translateVariable;
-    _varValue = [_spanishVarName] call _loadVariable;
-  };
-
-	if(isNil "_varValue") exitWith {
+	};
+	private _varValue = [_varName] call _loadVariable;
+	if (isNil "_varValue") then {
+		_spanishVarName = [_varName] call A3A_fnc_translateVariable;
+		_varValue = [_spanishVarName] call _loadVariable;
+	};
+	if (isNil "_varValue") exitWith {
 		diag_log format ["%1: [Antistasi] | ERROR | saveFuncs.sqf | Variable %2 does not exist.",servertime, _varName];
-		};
+	};
 	_varValue;
 };
 
-fn_LoadStat =
-{
+fn_LoadStat = {
 	private ["_varName","_varValue"];
 	_varName = _this select 0;
-
 	_varValue = [_varName] call fn_ReturnSavedStat;
 	if (isNil "_varValue") exitWith {};
 	[_varName,_varValue] call fn_SetStat;
@@ -71,28 +54,22 @@ fn_SavePlayerStat = {
 	private _playerUID = _this select 0;
 	private _varName = _this select 1;
 	private _varValue = _this select 2;
-
 	private _abort = false;
-
 	if (isNil "_playerUID") then {
 		_playerUID = "";
 		_abort = true;
 	};
-
 	if (isNil "_varName") then {
 		_varName = "";
 		_abort = true;
 	};
-
 	if (isNil "_varValue") then {
 		_varValue = "";
 		_abort = true;
 	};
-
 	if (_abort) exitWith {
 		diag_log format ["[Antistiasi] Save invalid for %1, saving %3 as %2", _playerUID, _varName, _varValue];
 	};
-
 	private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
 	[_playerVarName, _varValue] call fn_SaveStat;
 };
@@ -100,9 +77,7 @@ fn_SavePlayerStat = {
 fn_RetrievePlayerStat = {
 	private _playerUID = _this select 0;
 	private _varName = _this select 1;
-
 	if (isNil "_playerUID" || isNil "_varName") exitWith {diag_log ["[Antistiasi] Load invalid for player %1 var %2", _playerUID, _varName]};
-
 	private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
 	[_playerVarName] call fn_ReturnSavedStat;
 };
@@ -118,92 +93,80 @@ fn_RetrievePlayerStat = {
 	"mrkSDK",
 	"prestigeNATO","prestigeCSAT", "hr","planesAAFcurrent","helisAAFcurrent","APCAAFcurrent","tanksAAFcurrent","armas","items","backpcks","ammunition","dateX", "WitemsPlayer","prestigeOPFOR","prestigeBLUFOR","resourcesAAF","resourcesFIA","skillFIA"];
 */
-specialVarLoads =
-[
+specialVarLoads = [
 	"outpostsFIA","minesX","staticsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO",
-	"prestigeCSAT","posHQ", "hr","armas","items","backpcks","ammunition","dateX", "prestigeOPFOR",
+	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
 	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
-	"garrison" ,"tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
+	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
 	"bombRuns","difficultyX","gameMode","wurzelGarrison"
 ];
+
 //THIS FUNCTIONS HANDLES HOW STATS ARE LOADED
-fn_SetStat =
-{
+fn_SetStat = {
 	_varName = _this select 0;
 	_varValue = _this select 1;
-	if(isNil '_varValue') exitWith {};
-	if(_varName in specialVarLoads) then
-	{
-		if(_varName == 'countCA') then {countCA = _varValue; publicVariable "countCA"};
-		if(_varName == 'difficultyX') then
-			{
-			if !(isMultiplayer) then
-				{
+	if (isNil '_varValue') exitWith {};
+	if (_varName in specialVarLoads) then {
+		if (_varName == 'countCA') then {countCA = _varValue; publicVariable "countCA"};
+		if (_varName == 'difficultyX') then {
+			if !(isMultiplayer) then {
 				skillMult = _varValue;
 				if (skillMult == 1) then {minWeaps = 15};
 				if (skillMult == 3) then {minWeaps = 40};
-				};
 			};
-		if(_varName == 'gameMode') then
-			{
-			if !(isMultiplayer) then
-				{
+		};
+		if(_varName == 'gameMode') then {
+			if !(isMultiplayer) then {
 				gameMode = _varValue;
-				if (gameMode != 1) then
-					{
+				if (gameMode != 1) then {
 					Occupants setFriend [Invaders,1];
-				    Invaders setFriend [Occupants,1];
-				    if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
-				    if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
-					};
+					Invaders setFriend [Occupants,1];
+					if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
+					if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
 				};
 			};
-		if(_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
-		if(_varName == 'nextTick') then {nextTick = time + _varValue};
-		if(_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
-		if(_varName == 'smallCAmrk') then {smallCAmrk = +_varValue};
-		if(_varName == 'mrkNATO') then {{sidesX setVariable [_x,Occupants,true]} forEach _varValue;};
-		if(_varName == 'mrkCSAT') then {{sidesX setVariable [_x,Invaders,true]} forEach _varValue;};
-		if(_varName == 'mrkSDK') then {{sidesX setVariable [_x,teamPlayer,true]} forEach _varValue;};
-		if(_varName == 'controlsSDK') then
+		};
+		if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
+		if (_varName == 'nextTick') then {nextTick = time + _varValue};
+		if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
+		if (_varName == 'smallCAmrk') then {smallCAmrk = +_varValue};
+		if (_varName == 'mrkNATO') then {{sidesX setVariable [_x,Occupants,true]} forEach _varValue;};
+		if (_varName == 'mrkCSAT') then {{sidesX setVariable [_x,Invaders,true]} forEach _varValue;};
+		if (_varName == 'mrkSDK') then {{sidesX setVariable [_x,teamPlayer,true]} forEach _varValue;};
+		if (_varName == 'controlsSDK') then {
 			{
-			{
-			sidesX setVariable [_x,teamPlayer,true]
+				sidesX setVariable [_x,teamPlayer,true]
 			} forEach _varValue;
-			};
-		if(_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
-		if(_varName == 'jna_dataList') then {jna_dataList = +_varValue};
-		if(_varName == 'prestigeNATO') then {prestigeNATO = _varValue; publicVariable "prestigeNATO"};
-		if(_varName == 'prestigeCSAT') then {prestigeCSAT = _varValue; publicVariable "prestigeCSAT"};
-		if(_varName == 'hr') then {server setVariable ["HR",_varValue,true]};
-		if(_varName == 'dateX') then {setDate _varValue};
-		if(_varName == 'weather') then
-			{
+		};
+		if (_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
+		if (_varName == 'jna_dataList') then {jna_dataList = +_varValue};
+		if (_varName == 'prestigeNATO') then {prestigeNATO = _varValue; publicVariable "prestigeNATO"};
+		if (_varName == 'prestigeCSAT') then {prestigeCSAT = _varValue; publicVariable "prestigeCSAT"};
+		if (_varName == 'hr') then {server setVariable ["HR",_varValue,true]};
+		if (_varName == 'dateX') then {setDate _varValue};
+		if (_varName == 'weather') then {
 			0 setFog (_varValue select 0);
 			0 setRain (_varValue select 1);
 			forceWeatherChange
-			};
-		if(_varName == 'resourcesFIA') then {server setVariable ["resourcesFIA",_varValue,true]};
-		if(_varName == 'destroyedSites') then {destroyedSites = +_varValue; publicVariable "destroyedSites"};
-		if(_varName == 'skillFIA') then
-			{
+		};
+		if (_varName == 'resourcesFIA') then {server setVariable ["resourcesFIA",_varValue,true]};
+		if (_varName == 'destroyedSites') then {destroyedSites = +_varValue; publicVariable "destroyedSites"};
+		if (_varName == 'skillFIA') then {
 			skillFIA = _varValue; publicVariable "skillFIA";
 			{
-			_costs = server getVariable _x;
-			for "_i" from 1 to _varValue do
-				{
-				_costs = round (_costs + (_costs * (_i/280)));
+				_costs = server getVariable _x;
+				for "_i" from 1 to _varValue do {
+					_costs = round (_costs + (_costs * (_i/280)));
 				};
-			server setVariable [_x,_costs,true];
+				server setVariable [_x,_costs,true];
 			} forEach soldiersSDK;
-			};
-		if(_varName == 'distanceSPWN') then {distanceSPWN = _varValue; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable "distanceSPWN";publicVariable "distanceSPWN1";publicVariable "distanceSPWN2"};
-		if(_varName == 'civPerc') then {civPerc = _varValue; if (civPerc < 1) then {civPerc = 35}; publicVariable "civPerc"};
-		if(_varName == 'maxUnits') then {maxUnits=_varValue; publicVariable "maxUnits"};
-		if(_varName == 'vehInGarage') then {vehInGarage= +_varValue; publicVariable "vehInGarage"};
-		if(_varName == 'destroyedBuildings') then
-			{
+		};
+		if (_varName == 'distanceSPWN') then {distanceSPWN = _varValue; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable "distanceSPWN";publicVariable "distanceSPWN1";publicVariable "distanceSPWN2"};
+		if (_varName == 'civPerc') then {civPerc = _varValue; if (civPerc < 1) then {civPerc = 35}; publicVariable "civPerc"};
+		if (_varName == 'maxUnits') then {maxUnits=_varValue; publicVariable "maxUnits"};
+		if (_varName == 'vehInGarage') then {vehInGarage= +_varValue; publicVariable "vehInGarage"};
+		if (_varName == 'destroyedBuildings') then {
 			destroyedBuildings= +_varValue;
 			//publicVariable "destroyedBuildings";
 			private _building = objNull;
@@ -213,71 +176,60 @@ fn_SetStat =
 				//JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
 				[_building, true] remoteExec ["hideObject", 0, _ruin];
 			} forEach destroyedBuildings;
-			};
-		if(_varName == 'minesX') then
-			{
-			for "_i" from 0 to (count _varvalue) - 1 do
-				{
+		};
+		if (_varName == 'minesX') then {
+			for "_i" from 0 to (count _varvalue) - 1 do {
 				_typeMine = _varvalue select _i select 0;
-				switch _typeMine do
-					{
+				switch _typeMine do {
 					case "APERSMine_Range_Ammo": {_typeMine = "APERSMine"};
 					case "ATMine_Range_Ammo": {_typeMine = "ATMine"};
 					case "APERSBoundingMine_Range_Ammo": {_typeMine = "APERSBoundingMine"};
 					case "SLAMDirectionalMine_Wire_Ammo": {_typeMine = "SLAMDirectionalMine"};
 					case "APERSTripMine_Wire_Ammo": {_typeMine = "APERSTripMine"};
 					case "ClaymoreDirectionalMine_Remote_Ammo": {_typeMine = "Claymore_F"};
-					};
+				};
 				_posMine = _varvalue select _i select 1;
 				_mineX = createMine [_typeMine, _posMine, [], 0];
 				_detected = _varvalue select _i select 2;
 				{_x revealMine _mineX} forEach _detected;
-				if (count (_varvalue select _i) > 3) then//borrar esto en febrero
-					{
+				if (count (_varvalue select _i) > 3) then {
 					_dirMine = _varvalue select _i select 3;
 					_mineX setDir _dirMine;
-					};
 				};
 			};
-		if(_varName == 'garrison') then
-			{
+		};
+		if (_varName == 'garrison') then {
 			//_markersX = markersX - outpostsFIA - controlsX - citiesX;
 			{garrison setVariable [_x select 0,_x select 1,true]} forEach _varvalue;
-			};
-		if(_varName == 'wurzelGarrison') then
-		{
+		};
+		if (_varName == 'wurzelGarrison') then {
 			{
-			    garrison setVariable [format ["%1_garrison", (_x select 0)], _x select 1, true];
-					garrison setVariable [format ["%1_requested", (_x select 0)], _x select 2, true];
-					garrison setVariable [format ["%1_over", (_x select 0)], _x select 3, true];
-					[(_x select 0)] call A3A_fnc_updateReinfState;
+				garrison setVariable [format ["%1_garrison", (_x select 0)], _x select 1, true];
+				garrison setVariable [format ["%1_requested", (_x select 0)], _x select 2, true];
+				garrison setVariable [format ["%1_over", (_x select 0)], _x select 3, true];
+				[(_x select 0)] call A3A_fnc_updateReinfState;
 			} forEach _varvalue;
 		};
-		if(_varName == 'outpostsFIA') then
-			{
-			if (count (_varValue select 0) == 2) then
+		if (_varName == 'outpostsFIA') then {
+			if (count (_varValue select 0) == 2) then {
 				{
-				{
-				_positionX = _x select 0;
-				_garrison = _x select 1;
-				_mrk = createMarker [format ["FIApost%1", random 1000], _positionX];
-				_mrk setMarkerShape "ICON";
-				_mrk setMarkerType "loc_bunker";
-				_mrk setMarkerColor colorTeamPlayer;
-				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer]} else {_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer]};
-				spawner setVariable [_mrk,2,true];
-				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
-				outpostsFIA pushBack _mrk;
-				sidesX setVariable [_mrk,teamPlayer,true];
+					_positionX = _x select 0;
+					_garrison = _x select 1;
+					_mrk = createMarker [format ["FIApost%1", random 1000], _positionX];
+					_mrk setMarkerShape "ICON";
+					_mrk setMarkerType "loc_bunker";
+					_mrk setMarkerColor colorTeamPlayer;
+					if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer]} else {_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer]};
+					spawner setVariable [_mrk,2,true];
+					if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
+					outpostsFIA pushBack _mrk;
+					sidesX setVariable [_mrk,teamPlayer,true];
 				} forEach _varvalue;
-				};
 			};
-
-		if(_varName == 'antennas') then
-			{
+		};
+		if (_varName == 'antennas') then {
 			antennasDead = +_varvalue;
-			for "_i" from 0 to (count _varvalue - 1) do
-			    {
+			for "_i" from 0 to (count _varvalue - 1) do {
 			    _posAnt = _varvalue select _i;
 			    _mrk = [mrkAntennas, _posAnt] call BIS_fnc_nearestPosition;
 			    _antenna = [antennas,_mrk] call BIS_fnc_nearestPosition;
@@ -286,15 +238,13 @@ fn_SetStat =
 			    _antenna removeAllEventHandlers "Killed";
 			    _antenna setDamage [1,false];
 			    deleteMarker _mrk;
-			    };
+			};
 			antennasDead = _varvalue;
 			publicVariable "antennas";
 			publicVariable "antennasDead";
-			};
-		if(_varname == 'prestigeOPFOR') then
-			{
-			for "_i" from 0 to (count citiesX) - 1 do
-				{
+		};
+		if (_varname == 'prestigeOPFOR') then {
+			for "_i" from 0 to (count citiesX) - 1 do {
 				_city = citiesX select _i;
 				_dataX = server getVariable _city;
 				_numCiv = _dataX select 0;
@@ -303,12 +253,10 @@ fn_SetStat =
 				_prestigeBLUFOR = _dataX select 3;
 				_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
 				server setVariable [_city,_dataX,true];
-				};
 			};
-		if(_varname == 'prestigeBLUFOR') then
-			{
-			for "_i" from 0 to (count citiesX) - 1 do
-				{
+		};
+		if (_varname == 'prestigeBLUFOR') then {
+			for "_i" from 0 to (count citiesX) - 1 do {
 				_city = citiesX select _i;
 				_dataX = server getVariable _city;
 				_numCiv = _dataX select 0;
@@ -317,48 +265,40 @@ fn_SetStat =
 				_prestigeBLUFOR = _varvalue select _i;
 				_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
 				server setVariable [_city,_dataX,true];
-				};
 			};
-		if(_varname == 'idlebases') then
+		};
+		if (_varname == 'idlebases') then {
 			{
-			{
-			server setVariable [(_x select 0),(_x select 1),true];
+				server setVariable [(_x select 0),(_x select 1),true];
 			} forEach _varValue;
-			};
-		if(_varname == 'idleassets') then
+		};
+		if (_varname == 'idleassets') then {
 			{
-			{
-			timer setVariable [(_x select 0),(_x select 1),true];
+				timer setVariable [(_x select 0),(_x select 1),true];
 			} forEach _varValue;
-			};
-		if(_varname == 'killZones') then
+		};
+		if (_varname == 'killZones') then {
 			{
-			{
-			killZones setVariable [(_x select 0),(_x select 1),true];
+				killZones setVariable [(_x select 0),(_x select 1),true];
 			} forEach _varValue;
-			};
-		if(_varName == 'posHQ') then
-			{
+		};
+		if (_varName == 'posHQ') then {
 			_posHQ = if (count _varValue >3) then {_varValue select 0} else {_varValue};
-			{if (getMarkerPos _x distance _posHQ < 1000) then
-				{
-				sidesX setVariable [_x,teamPlayer,true];
+			{
+				if (getMarkerPos _x distance _posHQ < 1000) then {
+					sidesX setVariable [_x,teamPlayer,true];
 				};
 			} forEach controlsX;
 			respawnTeamPlayer setMarkerPos _posHQ;
 			posHQ = getMarkerPos respawnTeamPlayer;
 			petros setPos _posHQ;
 			"Synd_HQ" setMarkerPos _posHQ;
-			if (chopForest) then
-				{
+			if (chopForest) then {
 				if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [position petros,["tree","bush"],70])} else {{ _x hideObjectGlobal true } foreach (nearestTerrainObjects [position petros,["tree","bush"],70])};
-				};
-			if (count _varValue == 3) then
-				{
+			};
+			if (count _varValue == 3) then {
 				[] spawn A3A_fnc_buildHQ;
-				}
-			else
-				{
+			} else {
 				fireX setPos (_varValue select 1);
 				boxX setDir ((_varValue select 2) select 0);
 				boxX setPos ((_varValue select 2) select 1);
@@ -367,13 +307,11 @@ fn_SetStat =
 				flagX setPos (_varValue select 4);
 				vehicleBox setDir ((_varValue select 5) select 0);
 				vehicleBox setPos ((_varValue select 5) select 1);
-				};
-			{_x setPos _posHQ} forEach (playableUnits select {side _x == teamPlayer});
 			};
-		if(_varname == 'staticsX') then
-			{
-			for "_i" from 0 to (count _varvalue) - 1 do
-				{
+			{_x setPos _posHQ} forEach (playableUnits select {side _x == teamPlayer});
+		};
+		if (_varname == 'staticsX') then {
+			for "_i" from 0 to (count _varvalue) - 1 do {
 				_typeVehX = _varvalue select _i select 0;
 				_posVeh = _varvalue select _i select 1;
 				_dirVeh = _varvalue select _i select 2;
@@ -381,37 +319,27 @@ fn_SetStat =
 				_veh setDir _dirVeh;_veh setDir _dirVeh;
 				_veh setVectorUp surfaceNormal (_posVeh);
 				_veh setPos _posVeh;
-				if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then
-					{
+				if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then {
 					staticsToSave pushBack _veh;
-					};
-				[_veh] call A3A_fnc_AIVEHinit;
 				};
-			publicVariable "staticsToSave";
+				[_veh] call A3A_fnc_AIVEHinit;
 			};
-		if(_varname == 'tasks') then
+			publicVariable "staticsToSave";
+		};
+		if (_varname == 'tasks') then {
 			{
-			{
-			if (_x == "rebelAttack") then
-				{
-				[] call A3A_fnc_rebelAttack;
-				}
-			else
-				{
-				if (_x == "DEF_HQ") then
-					{
-					[] spawn A3A_fnc_attackHQ;
-					}
-				else
-					{
-					[_x,true] call A3A_fnc_missionRequest;
+				if (_x == "rebelAttack") then {
+					[] call A3A_fnc_rebelAttack;
+				} else {
+					if (_x == "DEF_HQ") then {
+						[] spawn A3A_fnc_attackHQ;
+					} else {
+						[_x,true] call A3A_fnc_missionRequest;
 					};
 				};
 			} forEach _varvalue;
-			};
-	}
-	else
-	{
+		};
+	} else {
 		call compile format ["%1 = %2",_varName,_varValue];
 	};
 };

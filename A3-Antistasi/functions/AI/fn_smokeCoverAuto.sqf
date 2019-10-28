@@ -21,7 +21,7 @@ else
 	if !(hasIFA) then
 		{
 		private ["_pos","_smokeX"];
-		_typeSmoke = selectRandom smokeGrenade;
+		_typeSmoke = selectRandom allSmokeGrenades;
 		for "_i" from 0 to 8 do
 			{
 			_pos = position _veh getPos [(28 + random 2),_i*40];

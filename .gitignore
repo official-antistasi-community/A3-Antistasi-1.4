@@ -1,8 +1,5 @@
-
-A3DD/
 .vscode/
 .github/
-Arma 3 Dev Deploy.exe
 *.log
 *.pbo
 *.pbo.bak
@@ -14,3 +11,6 @@ A3-Antistasi/mission.sqm
 A3-Antistasi/roadsDB*.sqf
 A3-Antistasi/PIC.jpg
 A3-Antistasi/ak.jpg
+
+#Ignore packaged missions
+PreparedMissions/

@@ -1,5 +1,6 @@
 params ["_convoyID", "_startPos", "_endPos", "_units", "_sideConvoy", "_convoyType"];
 
+server setVariable [str _convoyID, nil, true];
 switch (_convoyType) do
 {
   case ("attack"):

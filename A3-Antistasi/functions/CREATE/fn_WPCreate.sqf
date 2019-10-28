@@ -40,6 +40,12 @@ if (worldName == "Tanoa") then {
 
 	if (_exit) exitWith {};
 
+	waitUntil
+	{
+		sleep 1;
+		diag_log "WPCreate cannot get the roadsMrk, sleeping 1 second to await marker init!";
+		!(isNil "roadsMrk" || {isNull roadsMrk})
+	};
 
 	private _arr2 = [];
 	private _final = [roadsMrk, _posDestination] call BIS_fnc_nearestPosition;
@@ -136,6 +142,8 @@ if (worldName == "Tanoa") then {
 	};
 };
 
-{
-	_groupX addWaypoint [getMarkerPos (_x), 0, _forEachIndex]
-} forEach _finalArray;
+private _waypoints = _finalArray apply {_groupX addWaypoint [getMarkerPos (_x), 0]};
+
+_groupX setCurrentWaypoint (_waypoints select 0);
+
+_waypoints;

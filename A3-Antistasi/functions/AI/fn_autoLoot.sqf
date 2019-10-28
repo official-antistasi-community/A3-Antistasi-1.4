@@ -31,8 +31,8 @@ if (_unit distance _objectX < _distanceX) then
 			{
 			_potential = _weaponsX select _i;
 			_basePossible = [_potential] call BIS_fnc_baseWeapon;
-			//if ((not(_basePossible in unlockedWeapons)) and ((_basePossible in arifles) or (_basePossible in srifles) or (_basePossible in mguns) or (_potential in mlaunchers) or (_potential in rlaunchers))) then
-			if ((_basePossible in arifles) or (_basePossible in srifles) or (_basePossible in mguns) or (_potential in mlaunchers) or (_potential in rlaunchers)) then
+			//if ((not(_basePossible in unlockedWeapons)) and ((_basePossible in allRifles) or (_basePossible in allSniperRifles) or (_basePossible in allMachineGuns) or (_potential in allMissileLaunchers) or (_potential in allRocketLaunchers))) then
+			if ((_basePossible in allRifles) or (_basePossible in allSniperRifles) or (_basePossible in allMachineGuns) or (_potential in allMissileLaunchers) or (_potential in allRocketLaunchers)) then
 				{
 				_target = _objectX;
 				_distanceX = _unit distance _objectX;
@@ -117,7 +117,7 @@ while {_continuar and ([_unit] call A3A_fnc_canFight) and (_unit getVariable "re
 				{if (!(_x in unlockedMagazines) and !(_x in unlockedItems)) then {_unit addItemToVest _x}} forEach vestItems _target;
 				_unit action ["rearm",_target];
 				removeVest _target;
-				if (((headgear _target) in armoredHeadgear) and !((headgear _target) in unlockedItems)) then
+				if (((headgear _target) in allArmoredHeadgear) and !((headgear _target) in unlockedItems)) then
 					{
 					_unit addHeadgear (headGear _target);
 					removeHeadgear _target;
@@ -170,7 +170,7 @@ while {_continuar and ([_unit] call A3A_fnc_canFight) and (_unit getVariable "re
 				{
 				_potential = _weaponsX select _i;
 				_basePossible = [_potential] call BIS_fnc_baseWeapon;
-				if ((not(_basePossible in unlockedWeapons)) and ((_basePossible in arifles) or (_basePossible in srifles) or (_basePossible in mguns) or (_potential in mlaunchers) or (_potential in rlaunchers))) then
+				if ((not(_basePossible in unlockedWeapons)) and ((_basePossible in allRifles) or (_basePossible in allSniperRifles) or (_basePossible in allMachineGuns) or (_potential in allMissileLaunchers) or (_potential in allRocketLaunchers))) then
 					{
 					_target = _objectX;
 					_distanceX = _unit distance _objectX;

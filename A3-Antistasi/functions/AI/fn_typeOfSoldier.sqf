@@ -35,13 +35,13 @@ if ((_var isEqualTo "") or (_var isEqualTo "ATMan") or (_var isEqualTo "AAMan") 
 			else
 				{
 				_weaponX = [primaryWeapon _unit] call BIS_fnc_baseWeapon;
-				if (_weaponX in mguns) then
+				if (_weaponX in allMachineGuns) then
 					{
 					_result = "MGMan"
 					}
 				else
 					{
-					if (_weaponX in srifles) then
+					if (_weaponX in allSniperRifles) then
 						{
 						_result = "Sniper";
 						}

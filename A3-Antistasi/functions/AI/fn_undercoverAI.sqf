@@ -19,7 +19,7 @@ _loadOut = getUnitLoadout _unit;
 removeAllItems _unit;
 removeAllAssignedItems _unit;
 removeAllWeapons _unit;
-_unit forceAddUniform (selectRandom civilianUniform);
+_unit forceAddUniform (selectRandom allCivilianUniforms);
 
 //_airportsX = airportsX + outposts;// + (controlsX select {isOnRoad getMarkerPos _x});
 while {(captive _LeaderX) and (captive _unit)} do

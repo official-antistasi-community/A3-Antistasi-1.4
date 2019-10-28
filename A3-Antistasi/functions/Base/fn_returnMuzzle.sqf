@@ -4,7 +4,7 @@ _unit = _this select 0;
 
 _muzzles = [];
 _muzzle = "";
-_magazines = magazines _unit select {_x in smokeGrenade};
+_magazines = magazines _unit select {_x in allSmokeGrenades};
 
 {
 switch (_x) do

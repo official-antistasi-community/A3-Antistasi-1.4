@@ -14,7 +14,7 @@ CSATFlag = "rhs_Flag_Russia_F";
 CSATFlagTexture = "rhsafrf\addons\rhs_main\data\flag_rus_co.paa";
 flagCSATmrk = "rhs_flag_vmf";
 if (isServer) then {"CSAT_carrier" setMarkerText "Russian Carrier"};
-	
+
 //Loot Crate
 CSATAmmoBox = "O_supplyCrate_F";
 

@@ -106,6 +106,7 @@ _typeVehX = if (_sideX == Occupants) then {vehNATOCargoTrucks select 1} else {ve
 _vehicleT = [position _road, 0,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
 _vehT = _vehicleT select 0;
 [_vehT] call A3A_fnc_AIVEHinit;
+
 //[_vehT,"Recover Truck"] spawn A3A_fnc_inmuneConvoy;
 _vehCrewT = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrewT;
@@ -120,7 +121,13 @@ _Vwp0 setWaypointBehaviour "SAFE";
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Transport Vehicle: %2, Crew: %3, Waypoint: %4",servertime,_typeVehX,_vehCrewT,_posCrash];
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Waiting until %2 is destroyed or has been recovered by %3, or mission expires at: %4",servertime,_heli,_vehT,_dateLimitNum];
 
-waitUntil {sleep 1; (not alive _heli) or (_vehT distance _heli < 50) or (dateToNumber date > _dateLimitNum)};
+waitUntil
+{
+	sleep 1;
+	(not alive _heli) ||
+	{(_vehT distance _heli < 50) ||
+	{(dateToNumber date > _dateLimitNum)}}
+};
 
 if (_vehT distance _heli < 50) then
 	{
@@ -152,14 +159,37 @@ if (_vehT distance _heli < 50) then
 	_Vwp0 setWaypointBehaviour "SAFE";
 
 	};
+
+	_vehT addEventHandler
+	[
+		"GetIn",
+		{
+			params ["_vehicle", "_role", "_unit", "_turret"];
+			if((side _unit) == teamPlayer) then
+			{
+				//Player entered the vehicle, mission won
+				diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Truck was captured by player, mission completing",servertime];
+				["DES", "SUCCEEDED"] call BIS_fnc_taskSetState
+			};
+		}
+	];
+
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Waiting until transport reaches origin, gets destroyed or timer expires",servertime];
-waitUntil {sleep 1; (not alive _heli) or (_vehT distance _positionX < 100) or (dateToNumber date > _dateLimitNum)};
+waitUntil
+{
+	sleep 1;
+	(not alive _heli) ||
+	{(_vehT distance _positionX < 100) ||
+	{((taskState "DES") == "SUCCEEDED") ||
+	{(count (_vehicle getVariable ["SA_Tow_Ropes",[]]) > 0) ||
+	{(dateToNumber date > _dateLimitNum)}}}}
+};
 
 _bonus = if (_difficultX) then {2} else {1};
 
-if (not alive _heli) then
+if ((not alive _heli) || {((taskState "DES") == "SUCCEEDED") || {(count (_vehicle getVariable ["SA_Tow_Ropes",[]]) > 0)}}) then
 	{
-	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Air Vehicle was destroyed, mission completing",servertime];
+	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Air Vehicle was destroyed or truck captured, mission completing",servertime];
 	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	if (typeOf _heli in vehCSATAir) then {[0,3] remoteExec ["A3A_fnc_prestige",2]} else {[3,0] remoteExec ["A3A_fnc_prestige",2]};

@@ -10,7 +10,8 @@ private _basicMedicalSupplies =
 			["ACE_PackingBandage",5],
 			["ACE_ElasticBandage",3],
 			["ACE_Quikclot",3]
-		];
+		]
+		+ ([[], [["adv_aceSplint_splint", 2]]] select hasADVSplint);
 	} else {
 		[
 			["FirstAidKit",3]
@@ -49,7 +50,7 @@ private _medicSupplies =
 			["ACE_Tourniquet",3]
 		]
 		+ ([[["ACE_PersonalAidKit", 2]], [["adv_aceCPR_AED", 1]]] select hasADVCPR)
-		+ ([[], [["adv_aceSplint_splint", 4]]] select hasADVSplint);
+		+ ([[], [["adv_aceSplint_splint", 7]]] select hasADVSplint);
 	} else {
 		[
 			["Medikit", 1]

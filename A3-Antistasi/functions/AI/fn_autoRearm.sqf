@@ -1,492 +1,424 @@
-private ["_unit","_Pweapon","_Sweapon","_countX","_magazines","_hasBox","_distanceX","_objectsX","_target","_victim","_check","_timeOut","_weaponX","_weaponsX","_rearming","_basePossible","_hmd","_helmet","_truckX","_autoLoot","_itemsUnit"];
-
-_unit = _this select 0;
-
+private _unit = _this select 0;
 if (isPlayer _unit) exitWith {};
 if !([_unit] call A3A_fnc_canFight) exitWith {};
-_inPlayerGroup = (isPlayer (leader _unit));
-//_helping = _unit getVariable "helping";
+
+private _inPlayerGroup = (isPlayer (leader _unit));
 if (_unit getVariable ["helping",false]) exitWith {if (_inPlayerGroup) then {_unit groupChat "I cannot rearm right now. I'm healing a comrade"}};
-_rearming = _unit getVariable ["rearming",false];
+
+private _rearming = _unit getVariable ["rearming",false];
 if (_rearming) exitWith {if (_inPlayerGroup) then {_unit groupChat "I am currently rearming. Cancelling."; _unit setVariable ["rearming",false]}};
 if (vehicle _unit != _unit) exitWith {};
 _unit setVariable ["rearming",true];
 
-_Pweapon = primaryWeapon _unit;
-_Sweapon = secondaryWeapon _unit;
+private _primaryWeapon = primaryWeapon _unit;
+private _secondaryWeapon = secondaryWeapon _unit;
+private _nearbyContainers = [];
+private _foundItem = false;
+private _selectedWeapon = objNull;
+private _potentialWeapon = objNull;
+private _baseWeapon = objNull;
+private _potentialContainer = objNull;
+private _selectedContainer = objNull;
+private _containerWeapons = [];
+private _maxDistance = 51;
+private _needsRearm = false;
+private _timeOut = 0;
+private _deadBodies = [];
+private _selectedBody = objNull;
+private _targetMagazines = 4;
+private _primaryMagazines = [];
+private _bodyEquipment = [];
+private _selectedEquipment = objNull;
 
-_objectsX = [];
-_hasBox = false;
-_weaponX = "";
-_weaponsX = [];
-_distanceX = 51;
-_objectsX = nearestObjects [_unit, ["ReammoBox_F","LandVehicle","WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 50];
-if (boxX in _objectsX) then {_objectsX = _objectsX - [boxX]};
+_nearbyContainers = nearestObjects [_unit, ["ReammoBox_F","LandVehicle","WeaponHolderSimulated","GroundWeaponHolder","WeaponHolder"], _maxDistance];
+if (boxX in _nearbyContainers) then {_nearbyContainers = _nearbyContainers - [boxX]};
 
-_needsRearm = false;
 
-if ((_Pweapon in initialRifles) or (_Pweapon == "")) then
-	{
+if ((_primaryWeapon in initialRebelEquipment) || (_primaryWeapon isEqualTo "")) then {
 	_needsRearm = true;
-	if (count _objectsX > 0) then
+	if (count _nearbyContainers > 0) then {
 		{
-		{
-		_objectX = _x;
-		if (_unit distance _objectX < _distanceX) then
-			{
-			if ((count weaponCargo _objectX > 0) and !(_objectX getVariable ["busy",false])) then
-				{
-				_weaponsX = weaponCargo _objectX;
-				for "_i" from 0 to (count _weaponsX - 1) do
-					{
-					_potential = _weaponsX select _i;
-					_basePossible = [_potential] call BIS_fnc_baseWeapon;
-					if ((not(_basePossible in ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F","arifle_AKM_F","arifle_AKS_F","SMG_05_F","LMG_03_F"])) and ((_basePossible in arifles) or (_basePossible in srifles) or (_basePossible in mguns))) then
-						{
-						_target = _objectX;
-						_hasBox = true;
-						_distanceX = _unit distance _objectX;
-						_weaponX = _potential;
+			_potentialContainer = _x;
+			if (_unit distance _potentialContainer < _maxDistance) then {
+				if ((count weaponCargo _potentialContainer > 0) && !(_potentialContainer getVariable ["busy",false])) then {
+					_containerWeapons = weaponCargo _potentialContainer;
+					for "_i" from 0 to (count _containerWeapons - 1) do {
+						_potentialWeapon = _containerWeapons select _i;
+						_baseWeapon = [_potentialWeapon] call BIS_fnc_baseWeapon;
+						if (!(_baseWeapon in ["hgun_PDW2000_F","hgun_Pistol_01_F","hgun_ACPC2_F"]) && ((_baseWeapon in allRifles) || (_baseWeapon in allSniperRifles) || (_baseWeapon in allMachineGuns) || (_baseWeapon in allSMGs) || (_baseWeapon in allShotguns))) then {
+							_selectedContainer = _potentialContainer;
+							_foundItem = true;
+							_selectedWeapon = _potentialWeapon;
+							};
 						};
 					};
 				};
-			};
-		} forEach _objectsX;
-		};
-	if ((_hasBox) and (_unit getVariable "rearming")) then
-		{
+		} forEach _nearbyContainers;
+	};
+	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
-		if ((!alive _target) or (not(_target isKindOf "ReammoBox_F"))) then {_target setVariable ["busy",true]};
-		_unit doMove (getPosATL _target);
+		if (!((alive _selectedContainer) || (_selectedContainer isKindOf "ReammoBox_F"))) then {_selectedContainer setVariable ["busy",true]};
+		_unit doMove (getPosATL _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Picking a better weapon"};
 		_timeOut = time + 60;
-		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-		if ((unitReady _unit) and ([_unit] call A3A_fnc_canFight) and (_unit distance _target > 3) and (_target isKindOf "ReammoBox_F") and (!isNull _target)) then {_unit setPos position _target};
-		if (_unit distance _target < 3) then
-			{
-			_unit action ["TakeWeapon",_target,_weaponX];
+		sleep 1;
+		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+		if ((unitReady _unit) && ([_unit] call A3A_fnc_canFight) && (_unit distance _selectedContainer > 3) && (_selectedContainer isKindOf "ReammoBox_F") && (!isNull _selectedContainer)) then {_unit setPos position _selectedContainer};
+		if (_unit distance _selectedContainer < 3) then {
+			_unit action ["TakeWeapon",_selectedContainer,_selectedWeapon];
 			sleep 5;
-			if (primaryWeapon _unit == _weaponX) then
-				{
+			if (primaryWeapon _unit isEqualTo _selectedWeapon) then {
 				if (_inPlayerGroup) then {_unit groupChat "I have a better weapon now"};
-				if (_target isKindOf "ReammoBox_F") then {_unit action ["rearm",_target]};
-				};
+				if (_selectedContainer isKindOf "ReammoBox_F") then {_unit action ["rearm",_selectedContainer]};
 			};
-		_target setVariable ["busy",false];
 		};
-	_distanceX = 51;
-	_Pweapon = primaryWeapon _unit;
+		_selectedContainer setVariable ["busy",false];
+	};
+	_primaryWeapon = primaryWeapon _unit;
 	sleep 3;
-	};
-_hasBox = false;
-_countX = 4;
-if (_Pweapon in mguns) then {_countX = 2};
-_magazines = getArray (configFile / "CfgWeapons" / _Pweapon / "magazines");
-if ({_x in _magazines} count (magazines _unit) < _countX) then
-	{
+};
+
+_foundItem = false;
+_targetMagazines = 4;
+if (_primaryWeapon in allMachineGuns) then {_targetMagazines = 2};
+_primaryMagazines = getArray (configFile / "CfgWeapons" / _primaryWeapon / "magazines");
+if ({_x in _primaryMagazines} count (magazines _unit) < _targetMagazines) then {
 	_needsRearm = true;
-	_hasBox = false;
-	if (count _objectsX > 0) then
+	_foundItem = false;
+	if (count _nearbyContainers > 0) then {
 		{
-		{
-		_objectX = _x;
-		if (({_x in _magazines} count magazineCargo _objectX) > 0) then
-			{
-			if (_unit distance _objectX < _distanceX) then
-				{
-				_target = _objectX;
-				_hasBox = true;
-				_distanceX = _unit distance _objectX;
+			_potentialContainer = _x;
+			if (({_x in _primaryMagazines} count magazineCargo _potentialContainer) > 0) then {
+				if (_unit distance _potentialContainer < _maxDistance) then {
+					_selectedContainer = _potentialContainer;
+					_foundItem = true;
 				};
 			};
-		} forEach _objectsX;
-		};
-	_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
-	{
-	_victim = _x;
-	if (({_x in _magazines} count (magazines _victim) > 0) and (_unit distance _victim < _distanceX)) then
-		{
-		_target = _victim;
-		_hasBox = true;
-		_distanceX = _victim distance _unit;
-		};
-	} forEach _victims;
+		} forEach _nearbyContainers;
 	};
-if ((_hasBox) and (_unit getVariable "rearming")) then
+	_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
 	{
+		_selectedBody = _x;
+		if (({_x in _primaryMagazines} count (magazines _selectedBody) > 0) && (_unit distance _selectedBody < _maxDistance)) then {
+			_selectedContainer = _selectedBody;
+			_foundItem = true;
+		};
+	} forEach _deadBodies;
+};
+
+if ((_foundItem) && (_unit getVariable "rearming")) then {
 	_unit stop false;
-	if ((!alive _target) or (not(_target isKindOf "ReammoBox_F"))) then {_target setVariable ["busy",true]};
-	_unit doMove (getPosATL _target);
+	if (!((alive _selectedContainer) || (_selectedContainer isKindOf "ReammoBox_F"))) then {_selectedContainer setVariable ["busy",true]};
+	_unit doMove (getPosATL _selectedContainer);
 	if (_inPlayerGroup) then {_unit groupChat "Rearming"};
 	_timeOut = time + 60;
-	waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-	if ((unitReady _unit) and ([_unit] call A3A_fnc_canFight) and (_unit distance _target > 3) and (_target isKindOf "ReammoBox_F") and (!isNull _target)) then {_unit setPos position _target};
-	if (_unit distance _target < 3) then
-		{
-		_unit action ["rearm",_target];
-		if ({_x in _magazines} count (magazines _unit) >= _countX) then
-			{
+	sleep 1;
+	waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+	if ((unitReady _unit) && ([_unit] call A3A_fnc_canFight) && (_unit distance _selectedContainer > 3) && (_selectedContainer isKindOf "ReammoBox_F") && (!isNull _selectedContainer)) then {_unit setPos position _selectedContainer};
+	if (_unit distance _selectedContainer < 3) then {
+		_unit action ["rearm",_selectedContainer];
+		if ({_x in _primaryMagazines} count (magazines _unit) >= _targetMagazines) then {
 			if (_inPlayerGroup) then {_unit groupChat "Rearmed"};
-			}
-		else
-			{
+		} else {
 			if (_inPlayerGroup) then {_unit groupChat "Partially Rearmed"};
-			};
 		};
-	_target setVariable ["busy",false];
-	}
-else
-	{
-	if (_inPlayerGroup) then {_unit groupChat "No source to rearm my primary weapon"};
 	};
-_hasBox = false;
-if ((_Sweapon == "") and (loadAbs _unit < 340)) then
-	{
-	if (count _objectsX > 0) then
+	_selectedContainer setVariable ["busy",false];
+} else {
+	if (_inPlayerGroup) then {_unit groupChat "No source to rearm my primary weapon"};
+};
+
+_foundItem = false;
+if ((_secondaryWeapon == "") && (loadAbs _unit < 340)) then {
+	if (count _nearbyContainers > 0) then {
 		{
-		{
-		_objectX = _x;
-		if (_unit distance _objectX < _distanceX) then
-			{
-			if ((count weaponCargo _objectX > 0) and !(_objectX getVariable ["busy",false])) then
-				{
-				_weaponsX = weaponCargo _objectX;
-				for "_i" from 0 to (count _weaponsX - 1) do
-					{
-					_potential = _weaponsX select _i;
-					if ((_potential in mlaunchers) or (_potential in rlaunchers)) then
-						{
-						_target = _objectX;
-						_hasBox = true;
-						_distanceX = _unit distance _objectX;
-						_weaponX = _potential;
+			_potentialContainer = _x;
+			if (_unit distance _potentialContainer < _maxDistance) then {
+				if ((count weaponCargo _potentialContainer > 0) && !(_potentialContainer getVariable ["busy",false])) then {
+					_containerWeapons = weaponCargo _potentialContainer;
+					for "_i" from 0 to (count _containerWeapons - 1) do {
+						_potentialWeapon = _containerWeapons select _i;
+						if ((_potentialWeapon in allMissileLaunchers) || (_potentialWeapon in allRocketLaunchers)) then {
+							_selectedContainer = _potentialContainer;
+							_foundItem = true;
+							_selectedWeapon = _potentialWeapon;
 						};
 					};
 				};
 			};
-		} forEach _objectsX;
-		};
-	if ((_hasBox) and (_unit getVariable "rearming")) then
-		{
+		} forEach _nearbyContainers;
+	};
+	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
-		if ((!alive _target) or (not(_target isKindOf "ReammoBox_F"))) then {_target setVariable ["busy",true]};
-		_unit doMove (getPosATL _target);
+		if ((!alive _selectedContainer) || (!(_selectedContainer isKindOf "ReammoBox_F"))) then {_selectedContainer setVariable ["busy",true]};
+		_unit doMove (getPosATL _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Picking a secondary weapon"};
 		_timeOut = time + 60;
-		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-		if ((unitReady _unit) and ([_unit] call A3A_fnc_canFight) and (_unit distance _target > 3) and (_target isKindOf "ReammoBox_F") and (!isNull _target)) then {_unit setPos position _target};
-		if (_unit distance _target < 3) then
-			{
-			_unit action ["TakeWeapon",_target,_weaponX];
+		sleep 1;
+		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+		if ((unitReady _unit) && ([_unit] call A3A_fnc_canFight) && (_unit distance _selectedContainer > 3) && (_selectedContainer isKindOf "ReammoBox_F") && (!isNull _selectedContainer)) then {_unit setPos position _selectedContainer};
+		if (_unit distance _selectedContainer < 3) then {
+			_unit action ["TakeWeapon",_selectedContainer,_selectedWeapon];
 			sleep 3;
-			if (secondaryWeapon _unit == _weaponX) then
-				{
+			if (secondaryWeapon _unit == _selectedWeapon) then {
 				if (_inPlayerGroup) then {_unit groupChat "I have a secondary weapon now"};
-				if (_target isKindOf "ReammoBox_F") then {sleep 3;_unit action ["rearm",_target]};
-				};
+				if (_selectedContainer isKindOf "ReammoBox_F") then {sleep 3;_unit action ["rearm",_selectedContainer]};
 			};
-		_target setVariable ["busy",false];
 		};
-	_Sweapon = secondaryWeapon _unit;
-	_distanceX = 51;
-	sleep 3;
+		_selectedContainer setVariable ["busy",false];
 	};
-_hasBox = false;
-if (_Sweapon != "") then
-	{
-	_magazines = getArray (configFile / "CfgWeapons" / _Sweapon / "magazines");
-	if ({_x in _magazines} count (magazines _unit) < 2) then
-		{
+	_secondaryWeapon = secondaryWeapon _unit;
+	sleep 3;
+};
+
+_foundItem = false;
+if (_secondaryWeapon != "") then {
+	_primaryMagazines = getArray (configFile / "CfgWeapons" / _secondaryWeapon / "magazines");
+	if ({_x in _primaryMagazines} count (magazines _unit) < 2) then {
 		_needsRearm = true;
-		_hasBox = false;
-		_distanceX = 50;
-		if (count _objectsX > 0) then
+		_foundItem = false;
+		if (count _nearbyContainers > 0) then {
 			{
-			{
-			_objectX = _x;
-			if ({_x in _magazines} count magazineCargo _objectX > 0) then
-				{
-				if (_unit distance _objectX < _distanceX) then
-					{
-					_target = _objectX;
-					_hasBox = true;
-					_distanceX = _unit distance _objectX;
+				_potentialContainer = _x;
+				if ({_x in _primaryMagazines} count magazineCargo _potentialContainer > 0) then {
+					if (_unit distance _potentialContainer < _maxDistance) then {
+						_selectedContainer = _potentialContainer;
+						_foundItem = true;
 					};
 				};
-			} forEach _objectsX;
-			};
-		_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
-		{
-		_victim = _x;
-		if (({_x in _magazines} count (magazines _victim) > 0) and (_unit distance _victim < _distanceX)) then
-			{
-			_target = _victim;
-			_hasBox = true;
-			_distanceX = _victim distance _unit;
-			};
-		} forEach _victims;
+			} forEach _nearbyContainers;
 		};
-	if ((_hasBox) and (_unit getVariable "rearming")) then
+		_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
 		{
+			_selectedBody = _x;
+			if (({_x in _primaryMagazines} count (magazines _selectedBody) > 0) && (_unit distance _selectedBody < _maxDistance)) then {
+				_selectedContainer = _selectedBody;
+				_foundItem = true;
+			};
+		} forEach _deadBodies;
+	};
+	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
-		if (!alive _target) then {_target setVariable ["busy",true]};
-		_unit doMove (position _target);
+		if (!alive _selectedContainer) then {_selectedContainer setVariable ["busy",true]};
+		_unit doMove (position _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Rearming"};
 		_timeOut = time + 60;
-		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-		if ((unitReady _unit) and ([_unit] call A3A_fnc_canFight) and (_unit distance _target > 3) and (_target isKindOf "ReammoBox_F") and (!isNull _target)) then {_unit setPos position _target};
-		if (_unit distance _target < 3) then
-			{
-			if ((backpack _unit == "") and (backPack _target != "")) then
-				{
-				_unit addBackPackGlobal ((backpack _target) call A3A_fnc_basicBackpack);
-				_unit action ["rearm",_target];
+		sleep 1;
+		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+		if ((unitReady _unit) && ([_unit] call A3A_fnc_canFight) && (_unit distance _selectedContainer > 3) && (_selectedContainer isKindOf "ReammoBox_F") && (!isNull _selectedContainer)) then {_unit setPos position _selectedContainer};
+		if (_unit distance _selectedContainer < 3) then {
+			if ((backpack _unit == "") && (backPack _selectedContainer != "")) then {
+				_unit addBackPackGlobal ((backpack _selectedContainer) call A3A_fnc_basicBackpack);
+				_unit action ["rearm",_selectedContainer];
 				sleep 3;
-				{_unit addItemToBackpack _x} forEach (backpackItems _target);
-				removeBackpackGlobal _target;
-				}
-			else
-				{
-				_unit action ["rearm",_target];
-				};
-
-			if ({_x in _magazines} count (magazines _unit) >= 2) then
-				{
-				if (_inPlayerGroup) then {_unit groupChat "Rearmed"};
-				}
-			else
-				{
-				if (_inPlayerGroup) then {_unit groupChat "Partially Rearmed"};
-				};
+				{_unit addItemToBackpack _x} forEach (backpackItems _selectedContainer);
+				removeBackpackGlobal _selectedContainer;
+			} else {
+				_unit action ["rearm",_selectedContainer];
 			};
-		_target setVariable ["busy",false];
-		}
-	else
-		{
+
+			if ({_x in _primaryMagazines} count (magazines _unit) >= 2) then {
+				if (_inPlayerGroup) then {_unit groupChat "Rearmed"};
+			} else {
+				if (_inPlayerGroup) then {_unit groupChat "Partially Rearmed"};
+			};
+		};
+		_selectedContainer setVariable ["busy",false];
+	} else {
 		if (_inPlayerGroup) then {_unit groupChat "No source to rearm my secondary weapon"};
-		};
-	sleep 3;
 	};
-_hasBox = false;
-if (!haveRadio && {_unit call A3A_fnc_getRadio == ""}) then
-	{
+	sleep 3;
+};
+
+_foundItem = false;
+if (!haveRadio && {_unit call A3A_fnc_getRadio == ""}) then {
 	_needsRearm = true;
-	_hasBox = false;
-	_distanceX = 50;
-	_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
+	_foundItem = false;
+	_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
 	{
-	_victim = _x;
-	if ((_victim call A3A_fnc_getRadio != "") and (_unit distance _victim < _distanceX)) then
-		{
-		_target = _victim;
-		_hasBox = true;
-		_distanceX = _victim distance _unit;
+		_selectedBody = _x;
+		if ((_selectedBody call A3A_fnc_getRadio != "") && (_unit distance _selectedBody < _maxDistance)) then {
+			_selectedContainer = _selectedBody;
+			_foundItem = true;
 		};
-	} forEach _victims;
-	if ((_hasBox) and (_unit getVariable "rearming")) then
-		{
+	} forEach _deadBodies;
+	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
-		_target setVariable ["busy",true];
-		_unit doMove (getPosATL _target);
+		_selectedContainer setVariable ["busy",true];
+		_unit doMove (getPosATL _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Picking a Radio"};
 		_timeOut = time + 60;
-		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-		if (_unit distance _target < 3) then
-			{
-			_unit action ["rearm",_target];
-			private _radio = _target call A3A_fnc_getRadio;
+		sleep 1;
+		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+		if (_unit distance _selectedContainer < 3) then {
+			_unit action ["rearm",_selectedContainer];
+			private _radio = _selectedContainer call A3A_fnc_getRadio;
 			_unit linkItem _radio;
-			_target unlinkItem _radio;
-			};
-		_target setVariable ["busy",false];
+			_selectedContainer unlinkItem _radio;
 		};
+		_selectedContainer setVariable ["busy",false];
 	};
-_hasBox = false;
-if (hmd _unit == "") then
-	{
-	_needsRearm = true;
-	_hasBox = false;
-	_distanceX = 50;
-	_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
-	{
-	_victim = _x;
-	if ((hmd _victim != "") and (_unit distance _victim < _distanceX)) then
-		{
-		_target = _victim;
-		_hasBox = true;
-		_distanceX = _victim distance _unit;
-		};
-	} forEach _victims;
+};
 
-	if ((_hasBox) and (_unit getVariable "rearming")) then
-		{
+_foundItem = false;
+if (hmd _unit == "") then {
+	_needsRearm = true;
+	_foundItem = false;
+	_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
+	{
+		_selectedBody = _x;
+		if ((hmd _selectedBody != "") && (_unit distance _selectedBody < _maxDistance)) then {
+			_selectedContainer = _selectedBody;
+			_foundItem = true;
+		};
+	} forEach _deadBodies;
+	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
-		_target setVariable ["busy",true];
-		_hmd = hmd _target;
-		_unit doMove (getPosATL _target);
+		_selectedContainer setVariable ["busy",true];
+		private _hmd = hmd _selectedContainer;
+		_unit doMove (getPosATL _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Picking NV Googles"};
 		_timeOut = time + 60;
-		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-		if (_unit distance _target < 3) then
-			{
-			_unit action ["rearm",_target];
+		sleep 1;
+		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+		if (_unit distance _selectedContainer < 3) then {
+			_unit action ["rearm",_selectedContainer];
 			_unit linkItem _hmd;
-			_target unlinkItem _hmd;
-			};
-		_target setVariable ["busy",false];
+			_selectedContainer unlinkItem _hmd;
 		};
+		_selectedContainer setVariable ["busy",false];
 	};
-_hasBox = false;
-if (not(headgear _unit in armoredHeadgear)) then
-	{
+};
+
+_foundItem = false;
+if (!(headgear _unit in allArmoredHeadgear)) then {
 	_needsRearm = true;
-	_hasBox = false;
-	_distanceX = 50;
-	_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
+	_foundItem = false;
+	_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
 	{
-	_victim = _x;
-	if (((headgear _victim) in armoredHeadgear) and (_unit distance _victim < _distanceX)) then
-		{
-		_target = _victim;
-		_hasBox = true;
-		_distanceX = _victim distance _unit;
+		_selectedBody = _x;
+		if (((headgear _selectedBody) in allArmoredHeadgear) && (_unit distance _selectedBody < _maxDistance)) then {
+			_selectedContainer = _selectedBody;
+			_foundItem = true;
 		};
-	} forEach _victims;
-	if ((_hasBox) and (_unit getVariable "rearming")) then
-		{
+	} forEach _deadBodies;
+	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
-		_target setVariable ["busy",true];
-		_helmet = headgear _target;
-		_unit doMove (getPosATL _target);
+		_selectedContainer setVariable ["busy",true];
+		private _helmet = headgear _selectedContainer;
+		_unit doMove (getPosATL _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Picking a Helmet"};
 		_timeOut = time + 60;
-		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-		if (_unit distance _target < 3) then
-			{
-			_unit action ["rearm",_target];
+		sleep 1;
+		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+		if (_unit distance _selectedContainer < 3) then {
+			_unit action ["rearm",_selectedContainer];
 			_unit addHeadgear _helmet;
-			removeHeadgear _target;
-			};
-		_target setVariable ["busy",false];
+			removeHeadgear _selectedContainer;
 		};
+		_selectedContainer setVariable ["busy",false];
 	};
-_hasBox = false;
-_minFA = if ([_unit] call A3A_fnc_isMedic) then {10} else {1};
+};
 
-if ({_x == "FirstAidKit"} count (items _unit) < _minFA) then
-	{
+_foundItem = false;
+private _targetFAKs = if ([_unit] call A3A_fnc_isMedic) then {10} else {1};
+if ({_x == "FirstAidKit"} count (items _unit) < _targetFAKs) then {
 	_needsRearm = true;
-	_hasBox = false;
-	_distanceX = 50;
-	_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
+	_foundItem = false;
+	_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
 	{
-	_victim = _x;
-	if (("FirstAidKit" in items _victim) and (_unit distance _victim < _distanceX)) then
-		{
-		_target = _victim;
-		_hasBox = true;
-		_distanceX = _victim distance _unit;
+		_selectedBody = _x;
+		if (("FirstAidKit" in items _selectedBody) && (_unit distance _selectedBody < _maxDistance)) then {
+			_selectedContainer = _selectedBody;
+			_foundItem = true;
 		};
-	} forEach _victims;
-	if ((_hasBox) and (_unit getVariable "rearming")) then
-		{
+	} forEach _deadBodies;
+	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
-		_target setVariable ["busy",true];
-		_unit doMove (getPosATL _target);
+		_selectedContainer setVariable ["busy",true];
+		_unit doMove (getPosATL _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Picking a First Aid Kit"};
 		_timeOut = time + 60;
-		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-		if (_unit distance _target < 3) then
-			{
-			while {{_x == "FirstAidKit"} count (items _unit) < _minFA} do
-				{
-				_unit action ["rearm",_target];
+		sleep 1;
+		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+		if (_unit distance _selectedContainer < 3) then {
+			while {{_x == "FirstAidKit"} count (items _unit) < _targetFAKs} do {
+				_unit action ["rearm",_selectedContainer];
 				_unit addItem "FirstAidKit";
-				_target removeItem "FirstAidKit";
-				if ("FirstAidKit" in items _victim) then {sleep 3};
-				};
+				_selectedContainer removeItem "FirstAidKit";
+				if ("FirstAidKit" in items _selectedBody) then {sleep 3};
 			};
-		_target setVariable ["busy",false];
 		};
+		_selectedContainer setVariable ["busy",false];
 	};
-_hasBox = false;
+};
+
+_foundItem = false;
 _numberX = getNumber (configfile >> "CfgWeapons" >> vest cursortarget >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor");
-_distanceX = 50;
-_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
+_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
 {
-_victim = _x;
-if ((getNumber (configfile >> "CfgWeapons" >> vest _victim >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > _numberX) and (_unit distance _victim < _distanceX)) then
-	{
-	_target = _victim;
-	_hasBox = true;
-	_distanceX = _victim distance _unit;
+	_selectedBody = _x;
+	if ((getNumber (configfile >> "CfgWeapons" >> vest _selectedBody >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > _numberX) && (_unit distance _selectedBody < _maxDistance)) then {
+		_selectedContainer = _selectedBody;
+		_foundItem = true;
 	};
-} forEach _victims;
-if ((_hasBox) and (_unit getVariable "rearming")) then
-	{
+} forEach _deadBodies;
+if ((_foundItem) && (_unit getVariable "rearming")) then {
 	_unit stop false;
-	_target setVariable ["busy",true];
-	_unit doMove (getPosATL _target);
+	_selectedContainer setVariable ["busy",true];
+	_unit doMove (getPosATL _selectedContainer);
 	if (_inPlayerGroup) then {_unit groupChat "Picking a a better vest"};
 	_timeOut = time + 60;
-	waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-	if (_unit distance _target < 3) then
-		{
+	sleep 1;
+	waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+	if (_unit distance _selectedContainer < 3) then {
 		_itemsUnit = vestItems _unit;
-		_unit addVest (vest _target);
+		_unit addVest (vest _selectedContainer);
 		{_unit addItemToVest _x} forEach _itemsUnit;
-		_unit action ["rearm",_target];
-		//{_unit addItemCargoGlobal [_x,1]} forEach ((backpackItems _target) + (backpackMagazines _target));
-		_things = nearestObjects [_target, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
-		if (count _things > 0) then
-			{
-			_thingX = _things select 0;
-			{_thingX addItemCargoGlobal [_x,1]} forEach (vestItems _target);
-			};
-		removeVest _target;
+		_unit action ["rearm",_selectedContainer];
+		_bodyEquipment = nearestObjects [_selectedContainer, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
+		if (count _bodyEquipment > 0) then {
+			_selectedEquipment = _bodyEquipment select 0;
+			{_selectedEquipment addItemCargoGlobal [_x,1]} forEach (vestItems _selectedContainer);
 		};
-	_target setVariable ["busy",false];
+		removeVest _selectedContainer;
 	};
+	_selectedContainer setVariable ["busy",false];
+};
 
-if (backpack _unit == "") then
-	{
+if (backpack _unit == "") then {
 	_needsRearm = true;
-	_hasBox = false;
-	_distanceX = 50;
-	_victims = allDead select {(_x distance _unit < 51) and (!(_x getVariable ["busy",false]))};
+	_foundItem = false;
+	_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};
 	{
-	_victim = _x;
-	if ((backpack _victim != "") and (_unit distance _victim < _distanceX)) then
-		{
-		_target = _victim;
-		_hasBox = true;
-		_distanceX = _victim distance _unit;
+		_selectedBody = _x;
+		if ((backpack _selectedBody != "") && (_unit distance _selectedBody < _maxDistance)) then {
+			_selectedContainer = _selectedBody;
+			_foundItem = true;
 		};
-	} forEach _victims;
-	if ((_hasBox) and (_unit getVariable "rearming")) then
-		{
+	} forEach _deadBodies;
+	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
-		_target setVariable ["busy",true];
-		_unit doMove (getPosATL _target);
+		_selectedContainer setVariable ["busy",true];
+		_unit doMove (getPosATL _selectedContainer);
 		if (_inPlayerGroup) then {_unit groupChat "Picking a Backpack"};
 		_timeOut = time + 60;
-		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) or (isNull _target) or (_unit distance _target < 3) or (_timeOut < time) or (unitReady _unit)};
-		if (_unit distance _target < 3) then
-			{
-			_unit addBackPackGlobal ((backpack _target) call A3A_fnc_basicBackpack);
-			_unit action ["rearm",_target];
-			//{_unit addItemCargoGlobal [_x,1]} forEach ((backpackItems _target) + (backpackMagazines _target));
-			_things = nearestObjects [_target, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
-			if (count _things > 0) then
-				{
-				_thingX = _things select 0;
-				{_thingX addItemCargoGlobal [_x,1]} forEach (backpackItems _target);
-				};
-			removeBackpackGlobal _target;
+		sleep 1;
+		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
+		if (_unit distance _selectedContainer < 3) then {
+			_unit addBackPackGlobal ((backpack _selectedContainer) call A3A_fnc_basicBackpack);
+			_unit action ["rearm",_selectedContainer];
+			_bodyEquipment = nearestObjects [_selectedContainer, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 5];
+			if (count _bodyEquipment > 0) then {
+				_selectedEquipment = _bodyEquipment select 0;
+				{_selectedEquipment addItemCargoGlobal [_x,1]} forEach (backpackItems _selectedContainer);
 			};
-		_target setVariable ["busy",false];
+			removeBackpackGlobal _selectedContainer;
 		};
+		_selectedContainer setVariable ["busy",false];
 	};
+};
+
 _unit doFollow (leader _unit);
 if (!_needsRearm) then {if (_inPlayerGroup) then {_unit groupChat "No need to rearm"}} else {if (_inPlayerGroup) then {_unit groupChat "Rearming Done"}};
 _unit setVariable ["rearming",false];

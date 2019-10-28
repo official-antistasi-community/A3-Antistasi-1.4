@@ -10,20 +10,7 @@ diag_log format ["%1: [Antistasi] | INFO | initZones Started.", servertime];
 
 forcedSpawn = [];
 citiesX = [];
-/*
-airportsX = ["airport"] call A3A_fnc_getArrayMrks;
-spawnPoints = ["spawnPoint"] call A3A_fnc_getArrayMrks;
-resourcesX = ["resource"] call A3A_fnc_getArrayMrks;
-factories = ["factory"] call A3A_fnc_getArrayMrks;
-outposts = ["outpost"] call A3A_fnc_getArrayMrks;
-seaports = ["seaport"] call A3A_fnc_getArrayMrks;
-controlsX = ["control"] call A3A_fnc_getArrayMrks;
-seaMarkers = ["seaPatrol"] call A3A_fnc_getArrayMrks;
-seaSpawn = ["seaSpawn"] call A3A_fnc_getArrayMrks;
-seaAttackSpawn = ["seaAttackSpawn"] call A3A_fnc_getArrayMrks;
-detectionAreas = ["detectPlayer"] call A3A_fnc_getArrayMrks;
-islands = ["island"] call A3A_fnc_getArrayMrks;
-*/
+
 [] call A3A_fnc_prepareMarkerArrays;
 
 private ["_name", "_sizeX", "_sizeY", "_size", "_pos", "_mrk"];

@@ -1735,7 +1735,7 @@ switch _mode do {
 			case IDC_RSCDISPLAYARSENAL_TAB_NVGS:{
 				_oldItem = hmd player;
 				if (_oldItem != _item) then {
-					player removeweapon _oldItem;
+					player removeWeaponGlobal _oldItem;
 					[_index, _oldItem] call jn_fnc_arsenal_addItem;
 					if (_item != "") then{
 						player addweapon _item;
@@ -1746,7 +1746,7 @@ switch _mode do {
 			case IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS: {
 				_oldItem = binocular player;
 				if (_oldItem != _item) then {
-					player removeweapon _oldItem;
+					player removeWeaponGlobal _oldItem;
 					[_index,_oldItem] call jn_fnc_arsenal_addItem;
 					if (_item != "") then{
 						player addweapon _item;
@@ -1794,7 +1794,7 @@ switch _mode do {
 
 
 					//remove weapon
-					player removeweapon _oldItem;
+					player removeWeaponGlobal _oldItem;
 					[_index, _oldItem] call jn_fnc_arsenal_addItem;
 
 					//add new weapon

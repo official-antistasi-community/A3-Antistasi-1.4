@@ -85,16 +85,15 @@ supportStaticsSDKB3 = "not_supported";
 ////////////////////////////////////
 //             ITEMS             ///
 ////////////////////////////////////
-//Player spawn loadout
-teamPlayerDefaultLoadout = [[],[],[],["U_LIB_WP_Soldier_camo_3", []],[],[],"","",[],["ItemMap","","","","",""]];
 //Mines
-ATMineMag = "LIB_TM44_MINE_mag";
-APERSMineMag = "LIB_PMD6_MINE_mag";
+ATMineMag = "LIB_TMI_42_MINE_mag";
+APERSMineMag = "LIB_shumine_42_MINE_mag";
 //Starting Unlocks
-unlockedWeapons append ["LIB_PTRD","LIB_M2_Flamethrower","LIB_Binocular_GER","LIB_K98","LIB_M1895","LIB_FLARE_PISTOL"];
-unlockedRifles append ["LIB_K98"];
-unlockedMagazines append ["LIB_1Rnd_145x114","LIB_M2_Flamethrower_Mag","LIB_5Rnd_792x57","LIB_Pwm","LIB_Rg42","LIB_US_TNT_4pound_mag","LIB_7Rnd_762x38","LIB_1Rnd_flare_red","LIB_1Rnd_flare_green","LIB_1Rnd_flare_white","LIB_1Rnd_flare_yellow"];
-initialRifles append ["LIB_K98"];
-unlockedBackpacks append ["B_LIB_US_M2Flamethrower","B_LIB_SOV_RA_MGAmmoBag_Empty"];
+initialRebelEquipment append ["LIB_PTRD","LIB_M38","LIB_Webley_Mk6","LIB_Webley_Flare"];
+initialRebelEquipment append ["LIB_M38"];
+initialRebelEquipment append ["LIB_1Rnd_145x114","LIB_5Rnd_762x54","LIB_6Rnd_455","LIB_1Rnd_flare_red","LIB_1Rnd_flare_green","LIB_1Rnd_flare_white","LIB_1Rnd_flare_yellow","LIB_US_TNT_4pound_mag","LIB_Shg24","LIB_Shg24x7","LIB_No77"];
+initialRebelEquipment append ["B_LIB_SOV_RA_Gasbag"];
+initialRebelEquipment append ["V_LIB_WP_OfficerVest","V_LIB_WP_SniperBela","V_LIB_WP_Kar98Vest","V_LIB_SOV_RA_Belt"];
+initialRebelEquipment append ["LIB_Binocular_PL"];
 //TFAR Unlocks
-if (startLR) then {unlockedBackpacks pushBack "B_LIB_US_Radio"};
+if (startLR) then {initialRebelEquipment pushBack "B_LIB_US_Radio"};

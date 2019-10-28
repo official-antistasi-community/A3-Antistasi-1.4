@@ -15,6 +15,7 @@ seaSpawn = [];
 seaAttackSpawn = [];
 detectionAreas = [];
 islands = [];
+roadsMrk = [];
 
 fnc_sortPlacementMarker =
 {
@@ -63,29 +64,33 @@ fnc_sortPlacementMarker =
 {
   _split = _x splitString "_";
   _start = _split select 0;
-  switch (_start) do
+  switch (toLower _start) do
   {
     //Detect main marker
     case ("airport"): {airportsX pushBack _x;};
-    case ("spawnPoint"): {spawnPoints pushBack _x;};
+    case ("spawnpoint"): {spawnPoints pushBack _x;};
     case ("resource"): {resourcesX pushBack _x;};
     case ("factory"): {factories pushBack _x;};
     case ("outpost"): {outposts pushBack _x;};
     case ("seaport"): {seaports pushBack _x;};
     case ("control"): {controlsX pushBack _x;};
-    case ("seaPatrol"): {seaMarkers pushBack _x;};
-    case ("seaSpawn"): {seaSpawn pushBack _x;};
-    case ("seaAttackSpawn"): {seaAttackSpawn pushBack _x;};
-    case ("detectPlayer"): {detectionAreas pushBack _x;};
+    case ("seapatrol"): {seaMarkers pushBack _x;};
+    case ("seaspawn"): {seaSpawn pushBack _x;};
+    case ("seaattackspawn"): {seaAttackSpawn pushBack _x;};
+    case ("detectplayer"): {detectionAreas pushBack _x;};
     case ("island"): {islands pushBack _x;};
+    case ("road"):
+    {
+      _x setMarkerAlpha 0;
+      roadsMrk pushBack _x;
+    };
 
     //Following marker are handled elsewhere
-    case ("road");
     case ("respawn");
-    case ("DummyUPSMONMarker");
-    case ("NATO");
-    case ("CSAT");
-    case ("Synd"): {};
+    case ("dummyupsmonmarker");
+    case ("nato");
+    case ("csat");
+    case ("synd"): {};
 
     //Detect placement marker
     case ("airp");

@@ -91,4 +91,9 @@ petros addMPEventHandler ["mpkilled",
 	};
 }];
 [] spawn {sleep 120; petros allowDamage true;};
+//Disable ACE Interactions
+if (hasACE) then {
+    [typeOf petros, 0,["ACE_ApplyHandcuffs"]] call ace_interact_menu_fnc_removeActionFromClass;
+    [typeOf petros, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
+};
 diag_log format ["%1: [Antistasi] | INFO | initPetros Completed.",servertime];

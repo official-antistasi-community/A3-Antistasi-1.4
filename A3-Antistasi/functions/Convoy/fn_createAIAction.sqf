@@ -38,7 +38,11 @@ _targetString = if(_isMarker) then {_destination} else {str _destination};
 diag_log format ["CreateAIAction[%1]: Started creation of %2 action to %3", _convoyID, _type, _targetString];
 
 _nearestMarker = if(_isMarker) then {_destination} else {[markersX,_destination] call BIS_fnc_nearestPosition};
-if ([_nearestMarker,false] call A3A_fnc_fogCheck < 0.3) exitWith {diag_log format ["CreateAIAction[%1]: AI Action on %2 cancelled because of heavy fog", _convoyID, _targetString]};
+if ([_nearestMarker,false] call A3A_fnc_fogCheck < 0.3) exitWith
+{
+  diag_log format ["CreateAIAction[%1]: AI Action on %2 cancelled because of heavy fog", _convoyID, _targetString];
+  server setVariable [str _convoyID, nil, true];
+};
 
 _abort = false;
 _attackDistance = distanceSPWN2;
@@ -62,9 +66,14 @@ else
     };
   };
 };
-if(_abort) exitWith {diag_log format ["CreateAIAction[%1]: Aborting creation of AI action because, there is already a action close by!", _convoyID]};
+if(_abort) exitWith
+{
+  diag_log format ["CreateAIAction[%1]: Aborting creation of AI action because, there is already a action close by!", _convoyID];
+  server setVariable [str _convoyID, nil, true];
+};
 
 //TODO rebalance that somehow
+/*
 _allUnits = {(local _x) and (alive _x)} count allUnits;
 _allUnitsSide = 0;
 _maxUnitsSide = maxUnits;
@@ -77,6 +86,7 @@ if (gameMode <3) then
 if ((_allUnits + 4 > maxUnits) or (_allUnitsSide + 4 > _maxUnitsSide)) then {_abort = true};
 
 if (_abort) exitWith {diag_log format ["CreateAIAction[%1]: AI action cancelled because of reaching the maximum of units on attacking %2", _convoyID, _destination]};
+*/
 
 
 _destinationPos = if(_isMarker) then {getMarkerPos _destination} else {_destination};
@@ -585,7 +595,11 @@ if(_type == "convoy") then
   };
 };
 
-if(_abort) exitWith {false};
+if(_abort) exitWith
+{
+  server setVariable [str _convoyID, nil, true];
+  false
+};
 
 _target = if(_destination isEqualType "") then {_destination} else {str _destination};
 diag_log format ["CreateAIAction[%1]: Created AI action to %2 from %3 to %4 with %5 vehicles and %6 units", _convoyID, _type, _origin, _targetString, _vehicleCount , _cargoCount];

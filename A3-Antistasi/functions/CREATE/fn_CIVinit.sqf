@@ -3,7 +3,7 @@ private ["_unit","_enemiesX"];
 _unit = _this select 0;
 
 _unit setSkill 0;
-_unit forceAddUniform (selectRandom civilianUniform);
+_unit forceAddUniform (selectRandom allCivilianUniforms);
 _unit disableAI "TARGET";
 _unit disableAI "AUTOTARGET";
 //Stops civilians from shouting out commands.

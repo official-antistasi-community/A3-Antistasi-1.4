@@ -84,7 +84,7 @@ if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFr
 
 {
     //Setting the number of recruitable units per ticks per outpost
-		garrison setVariable [format ["%1_recruit", _x], 8, true];
+		garrison setVariable [format ["%1_recruit", _x], 0, true];
 } forEach outposts;
 
 //New reinf system (still reactive, so a bit shitty)

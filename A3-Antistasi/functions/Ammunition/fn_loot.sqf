@@ -1,32 +1,32 @@
 //////////////////
 // Basic Items ///
 //////////////////
-lootBasicItem append allMap + allToolkit + allWatch + allCompass + allMedikit + allFirstAidKit;
+lootBasicItem append allMaps + allToolkits + allWatches + allCompasses + allMedikits + allFirstAidKits;
 
 /////////////////
 //    NVG'S   ///
 /////////////////
-lootNVG append allNVG;
+lootNVG append allNVGs;
 
 /////////////////////
 // Assigned Items ///
 /////////////////////
-lootItem append allUAVTerminal + allMineDetector + allGPS + allRadio + allLaserDesignator + allBinocular + laserBatteries + lootNVG;
+lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG;
 
 ////////////////////
 //    Weapons    ///
 ////////////////////
-lootWeapon append arifles + srifles + hguns + mguns + mlaunchers + rlaunchers;
+lootWeapon append allRifles + allSniperRifles + allHandguns + allMachineGuns + allMissileLaunchers + allRocketLaunchers + allSMGs + allShotguns;
 
 /////////////////////////////
 //   Weapon Attachments   ///
 /////////////////////////////
-lootAttachment append allAttachmentBipod + allAttachmentOptic + allAttachmentMuzzle + allAttachmentPointer;
+lootAttachment append allBipods + allOptics + allMuzzleAttachments + allPointerAttachments;
 
 ////////////////////
 //    Grenades   ///
 ////////////////////
-lootGrenade append allMagGrenade + allMagShell + irGrenade + allMagSmokeShell + allMagFlare;
+lootGrenade append allGrenades + allMagShell + allIRGrenades + allMagSmokeShell + allMagFlare;
 
 ////////////////////
 //   Magazines   ///
@@ -48,4 +48,35 @@ lootExplosive deleteAt (lootExplosive find "IEDUrbanBig_Remote_Mag");
 ///////////////////
 //   Backpacks  ///
 ///////////////////
-lootBackpack append allBackpackEmpty;
+lootBackpack append allBackpacksEmpty;
+
+/////////////////
+//   Helmets  ///
+/////////////////
+lootHelmet append allArmoredHeadgear;
+
+///////////////
+//   Vests  ///
+///////////////
+lootVest append allArmoredVests + allCivilianVests;
+
+/////////////////////
+//   Device Bags  ///
+/////////////////////
+private _lootDeviceBag = [];
+
+switch (teamPlayer) do {
+     case independent: {_lootDeviceBag append rebelBackpackDevice};
+     default {_lootDeviceBag append occupantBackpackDevice};
+};
+lootDevice append _lootDeviceBag;
+
+////////////////////////////////////
+//      REBEL STARTING ITEMS     ///
+////////////////////////////////////
+//KEEP AT BOTTOM!!!
+initialRebelEquipment append lootBasicItem;
+initialRebelEquipment append allRebelUniforms;
+initialRebelEquipment append allCivilianUniforms;
+initialRebelEquipment append allCivilianHeadgear;
+initialRebelEquipment append allCivilianGlasses;

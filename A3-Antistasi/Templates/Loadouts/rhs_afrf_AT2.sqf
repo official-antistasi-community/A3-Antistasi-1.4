@@ -10,11 +10,11 @@
 	],
 
 	[//Launcher
-		"rhs_weap_igla",									//Weapon
+		"rhs_weap_rpg7",									//Weapon
 		"",													//Muzzle
 		"",													//Rail
 		"",								//Sight
-		["rhs_mag_9k38_rocket",1],							//Primary Magazine
+		["rhs_rpg7_PG7VL_mag",1],							//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
@@ -50,7 +50,8 @@
 	[//Backpack
 		"rhs_rpg_empty",						//Backpack
 		[//Inventory
-			["rhs_mag_9k38_rocket",3,1]
+			["rhs_rpg7_PG7VL_mag",2,1],
+			["rhs_rpg7_type69_airburst_mag",2,1]
 		]
 		+ _aceClacker
 	],

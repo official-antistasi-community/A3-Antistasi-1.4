@@ -1,7 +1,4 @@
-if (not([player] call A3A_fnc_isMember)) exitWith {hint "Only Server Members can recruit AI units"};
-private ["_checkX","_hr","_typeUnit","_costs","_resourcesFIA","_unit"];
-
-//if (!allowPlayerRecruit) exitWith {hint "Server is very loaded. \nWait one minute or change FPS settings in order to fulfill this request"};
+if !([player] call A3A_fnc_isMember) exitWith {hint "Only Server Members can recruit AI units"};
 
 if (recruitCooldown > time) exitWith {hint format ["You need to wait %1 seconds to be able to recruit units again",round (recruitCooldown - time)]};
 
@@ -11,37 +8,31 @@ if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {Hint "You cannot Recruit
 
 if (player != leader group player) exitWith {hint "You cannot recruit units as you are not your group leader"};
 
-_hr = server getVariable "hr";
+private _hr = server getVariable "hr";
 
 if (_hr < 1) exitWith {hint "You do not have enough HR for this request"};
-_arraytypeUnit = _this select 0;
-_typeUnit = _arraytypeUnit select 0;
-_costs = server getVariable _typeUnit;
+private _arraytypeUnit = _this select 0;
+private _typeUnit = _arraytypeUnit select 0;
+private _costs = server getVariable _typeUnit;
+private _resourcesFIA = 0;
 if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} else {_resourcesFIA = player getVariable "moneyX";};
 
 if (_costs > _resourcesFIA) exitWith {hint format ["You do not have enough money for this kind of unit (%1 € needed)",_costs]};
 
-
 if ((count units group player) + (count units stragglers) > 9) exitWith {hint "Your squad is full or you have too many scattered units with no radio contact"};
-if (random 20 <= skillFIA) then {_typeUnit = _arraytypeUnit select 1};
-_unit = group player createUnit [_typeUnit, position player, [], 0, "NONE"];
 
-if (!isMultiPlayer) then
-	{
+private _unit = group player createUnit [_typeUnit, position player, [], 0, "NONE"];
+
+if (!isMultiPlayer) then {
 	_nul = [-1, - _costs] remoteExec ["A3A_fnc_resourcesFIA",2];
-	}
-else
-	{
+} else {
 	_nul = [-1, 0] remoteExec ["A3A_fnc_resourcesFIA",2];
 	[- _costs] call A3A_fnc_resourcesPlayer;
 	["moneyX",player getVariable ["moneyX",0]] call fn_SaveStat;
 	hint "Soldier Recruited.\n\nRemember: if you use the group menu to switch groups you will lose control of your recruited AI";
-	};
+};
 
 [_unit] spawn A3A_fnc_FIAinit;
 _unit disableAI "AUTOCOMBAT";
 sleep 1;
 petros directSay "SentGenReinforcementsArrived";
-
-
-

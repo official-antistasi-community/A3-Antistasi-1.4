@@ -3,8 +3,7 @@ private _loadoutOverride = param [1];
 private _team = side group _unit;
 private _unitLoadoutNumber = if (!isNil "_loadoutOverride") then {_loadoutOverride} else {_unit getVariable ["pvpPlayerUnitNumber", 0]};
 
-_loadout = switch _team do
-{
+_loadout = switch _team do {
 	case Occupants: {
 		if (count NATOPlayerLoadouts > _unitLoadoutNumber) then {NATOPlayerLoadouts select _unitLoadoutNumber} else { [] };
 	};
@@ -14,7 +13,11 @@ _loadout = switch _team do
 	};
 	
 	case teamPlayer: {
-		teamPlayerDefaultLoadout;
+		if (toLower worldName isEqualTo "enoch") then {
+			[[],[],[],[(selectRandom allRebelUniforms), []],[],[],"H_Hat_Tinfoil_F","",[],["ItemMap","","","","",""]];
+		} else {
+			[[],[],[],[(selectRandom allRebelUniforms), []],[],[],(selectRandom allCivilianHeadgear),"",[],["ItemMap","","","","",""]];
+		};
 	};
 	
 	default {

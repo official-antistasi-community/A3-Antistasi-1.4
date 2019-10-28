@@ -141,7 +141,7 @@ if !(hasIFA) then {
 	};
 };
 
-Private _victim = objNull;
+private _victim = objNull;
 private _killer = objNull;
 
 if (player == leader _unit) then {

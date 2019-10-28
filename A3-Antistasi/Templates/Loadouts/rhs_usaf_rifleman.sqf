@@ -1,11 +1,11 @@
 [//Loadout
 	[//Primary Weapon
-		"RHS_Weap_Mk17_STD",									//Weapon
+		"RHS_Weap_M16A4",									//Weapon
 		"",													//Muzzle
-		"RHSUSF_Acc_Anpeq15a",								//Rail
+		"RHSUSF_Acc_WMX_Bk",								//Rail
 		selectRandom										//Sight
-		["RHSUSF_Acc_Acog", "RHSUSF_Acc_Eotech_552"],
-		["RHS_Mag_20Rnd_SCAR_762x51_m61_AP",20],			//Primary Magazine
+		["RHSUSF_Acc_CompM4", "RHSUSF_Acc_Eotech_552"],
+		["RHS_Mag_30Rnd_556x45_M855A1_Stanag",30],			//Primary Magazine
 		[],													//Secondary Magazine
 		"RHSUSF_Acc_Grip3"									//Bipod
 	],
@@ -42,7 +42,7 @@
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
 			["RHS_Mag_Mk84",1,1],
-			["RHS_Mag_20Rnd_SCAR_762x51_m61_AP",6,20],
+			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",6,30],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7]
 		]
 		+ _aceFlashlight
@@ -67,7 +67,7 @@
 
 	[//Item
 		"ItemMap",											//Map
-		"itemGPS",											//Terminal
+		"",													//Terminal
 		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
 		_tfarMicroDAGRNoArray,										//Watch

@@ -67,9 +67,17 @@ while {(_waves > 0)} do
 	{
 	_soldiers = [];
 	//_nVeh = 2 + (round random 2);
-	if (_mrkDestination in citiesX) then {_nVeh = round (3 + (random 2) * skillmult)};
-	if (_mrkDestination in airportsX or seaports) then {_nVeh = round (5 + (random 1) * skillmult)}
-	else {_nVeh = round (3 + ( random 1) * skillmult)};
+	if (_mrkDestination in airportsX or seaports) then {
+	_nVeh = round (5 + (random 2) * skillmult)
+	}
+	else {
+	    if (_mrkDestination in citiesX) then {
+	     _nVeh = round (3 + (random 2) * skillmult)
+		}
+	    else {
+	        _nVeh = round (3 + ( random 1) * skillmult)
+	    };
+	};
 	_posOriginLand = [];
 	_pos = [];
 	_dir = 0;

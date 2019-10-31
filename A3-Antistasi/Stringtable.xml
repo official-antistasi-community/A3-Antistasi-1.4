@@ -171,16 +171,21 @@
         <Russian>Медик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_squad_lead_text">
-        <Original>Recruit AA Specialist</Original>
-        <English>Recruit AA Specialist</English>
-        <Russian>ПЗРК</Russian>
+        <Original>Recruit Squad Leader</Original>
+        <English>Recruit Squad Leader</English>
+        <Russian>Сержант</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
         <Original>Recruit Mortar</Original>
         <English>Recruit Mortar</English>
         <Russian>Миномётчик</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_aa_specialist_text">
+        <Original>Recruit AA Specialist</Original>
+        <English>Recruit AA Specialistr</English>
+        <Russian>ПЗРК</Russian>
+      </Key>
+	  <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
         <Original>Recruit Grenadier</Original>
         <English>Recruit Grenadier</English>
         <Russian>Стрелок с ГП</Russian>

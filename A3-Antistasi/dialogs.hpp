@@ -316,7 +316,7 @@ class garrison_recruit 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "nul = [SDKAA] spawn A3A_fnc_garrisonAdd";
+			action = "nul = [SDKSL] spawn A3A_fnc_garrisonAdd";
 		};
 		class HQ_button_explosive: RscButton
 		{
@@ -331,12 +331,12 @@ class garrison_recruit 			{
 		class HQ_button_grenadier: RscButton
 		{
 			idc = 109;
-			text = $STR_antistasi_dialogs_garrison_spawn_grenadier_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_aa_specialist_text;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "nul = [SDKGL] spawn A3A_fnc_garrisonAdd";
+			action = "nul = [SDKAA] spawn A3A_fnc_garrisonAdd";
 		};
 		class HQ_button_marksman: RscButton
 		{
@@ -3338,7 +3338,7 @@ class import_supplies 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Standard russian/csat ammo. Pairs well with the Eastern Weapons box. $500";
-			action = "closeDialog 0;nul = [import_e_ammo] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [import_e_ammo] spawn A3A_fnc_buySupplies;";
 		};
 		class HQ_button_autorifleman: RscButton
 		{
@@ -3349,7 +3349,7 @@ class import_supplies 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Ammo with a more capitalist flair. You don't have to share it with the others, YOU earned it. $550";
-			action = "closeDialog 0;nul = [import_w_ammo] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [import_w_ammo] spawn A3A_fnc_buySupplies;";
 		};
 		class HQ_button_medic: RscButton
 		{
@@ -3360,7 +3360,7 @@ class import_supplies 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Cheap, reliable, and clever. This shipment is full of glorious Russian hardware. $700";
-			action = "closeDialog 0;nul = [import_e_weaps] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [import_e_weaps] spawn A3A_fnc_buySupplies;";
 		};
 		class HQ_button_engineer: RscButton
 		{
@@ -3371,7 +3371,7 @@ class import_supplies 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "No one makes guns quite like America makes guns. The finest precision machined tools of death, yours for $750";
-			action = "closeDialog 0;nul = [import_w_weaps] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [import_w_weaps] spawn A3A_fnc_buySupplies;";
 		};
 		class HQ_button_explosive: RscButton
 		{
@@ -3382,7 +3382,7 @@ class import_supplies 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "DMRs, heavy MGs, and more goodies imported from the eastern parts of the world. $1,200";
-			action = "closeDialog 0;nul = [import_e_spec] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [import_e_spec] spawn A3A_fnc_buySupplies;";
 		};
 		class HQ_button_grenadier: RscButton
 		{
@@ -3393,7 +3393,7 @@ class import_supplies 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "An assortment of the most tacticool shit in all of NATO. Be an operator, for $1,500";
-			action = "closeDialog 0;nul = [import_w_spec] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [import_w_spec] spawn A3A_fnc_buySupplies;";
 		};
 		class HQ_button_marksman: RscButton
 		{
@@ -3403,7 +3403,7 @@ class import_supplies 		{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Protect your investments! Enought body armor for you and your friends! $5,000";
+			tooltip = "Protect your investments! Enought body armor for you and your friends! $2,500";
 			action = "closeDialog 0;nul=[] execVM ""Dialogs\buy_armor.sqf"";";
 		};
 
@@ -3415,8 +3415,8 @@ class import_supplies 		{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "I hear there's guided launchers in this shipment. There better be considering how expensive it is. $6,000";
-			action = "closeDialog 0;nul = [import_launchers] spawn A3A_fnc_addFIAveh;";
+			tooltip = "I hear there's guided launchers in this shipment. There better be considering how expensive it is. $3,000";
+			action = "closeDialog 0;nul = [import_launchers] spawn A3A_fnc_buySupplies;";
 		};
 	};
 };

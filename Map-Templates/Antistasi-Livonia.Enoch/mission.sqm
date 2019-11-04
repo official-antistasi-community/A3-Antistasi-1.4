@@ -220,7 +220,7 @@ class AddonsMetaData
 	};
 };
 randomSeed=228300;
-class CustomAttributes
+class ScenarioData
 {
 	author=$STR_antistasi_credits_generic_author_text;
 };

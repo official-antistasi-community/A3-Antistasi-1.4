@@ -181,6 +181,7 @@ class Mission
 		{
 			type="rectangle";
 			colorName="ColorEAST";
+		{
 			dataType="Marker";
 			position[]={11716.97,168.66901,12767.416};
 			name="spawnPoint";

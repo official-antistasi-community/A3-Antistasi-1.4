@@ -216,10 +216,10 @@ class AddonsMetaData
 	};
 };
 randomSeed=13388897;
-/*class CustomAttributes
+class ScenarioData
 {
 	author=$STR_antistasi_credits_generic_author_text;
-};*/
+};
 class Mission
 {
 	class Intel

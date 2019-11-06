@@ -19,13 +19,15 @@ _typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewIn
 private _helicopterTypes = [];
 _helicopterTypes pushBack (if (_sideX == Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli});
 private _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
-while {_spawnParameter isEqualType []} do
+private _count = 3 + round (random 2); //Change these numbers as you want, first number is minimum, max is first plus second number
+while {_spawnParameter isEqualType [] && {_count > 0}} do
 {
 	_typeVehX = selectRandom _helicopterTypes;
 	_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [],0, "CAN_COLLIDE"];
 	_veh setDir (_spawnParameter select 1);
 	_vehiclesX pushBack _veh;
 	_spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
+	_count = _count - 1;
 };
 
 for "_i" from 0 to (count _buildings) - 1 do

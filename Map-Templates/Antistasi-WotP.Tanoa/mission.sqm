@@ -161,6 +161,7 @@ class ScenarioData
 		minPlayers=1;
 		maxPlayers=64;
 	};
+	author=$STR_antistasi_credits_generic_author_text;
 };
 class CustomAttributes
 {
@@ -433,10 +434,6 @@ class CustomAttributes
 		};
 		nAttributes=1;
 	};
-};
-class ScenarioData
-{
-	author=$STR_antistasi_credits_generic_author_text;
 };
 class Mission
 {

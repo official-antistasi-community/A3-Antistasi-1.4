@@ -644,5 +644,450 @@
         <English>Tembelan description placeholder</English>
       </Key>
     </Container>
+    <Container name="journal_entries">
+      <Key ID="STR_antistasi_journal_entry_header_tutorial_1">
+        <Original>Early Beginning</Original>
+        <English>Early Beginning</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_tutorial_1">
+        <Original>Don't expect to be able to conquer anything in the early stages. First you have to gather enough resources (HR and Money) in order to be able to conquer and hold your positions. This mission tries to simulate real life guerilla situations. If in doubt, ask yourself what would you do in real life. Don't expect to win every time. Hit and Run is the basic manoeuvre here. Earn every resource, weapon and ammunition to gather enough assets in order to be a real challenge for the enemy. In the meantime, disturb its operations and gain support from the population.</Original>
+        <English>Don't expect to be able to conquer anything in the early stages. First you have to gather enough resources (HR and Money) in order to be able to conquer and hold your positions. This mission tries to simulate real life guerilla situations. If in doubt, ask yourself what would you do in real life. Don't expect to win every time. Hit and Run is the basic manoeuvre here. Earn every resource, weapon and ammunition to gather enough assets in order to be a real challenge for the enemy. In the meantime, disturb its operations and gain support from the population.</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_tutorial_2">
+        <Original>Aggro Effects</Original>
+        <English>Aggro Effects</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_tutorial_2">
+        <Original>Keep an eye on those. If it's too high, you will have to face more attacks with better troops.</Original>
+        <English>Keep an eye on those. If it's too high, you will have to face more attacks with better troops.</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_tutorial_3">
+        <Original>Strategy</Original>
+        <English>Strategy</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_tutorial_3">
+        <Original>Once you have a nice amount of resources, focus on enemy communications. If you disturb them enough, you won't have to face big counter-attacks.</Original>
+        <English>Once you have a nice amount of resources, focus on enemy communications. If you disturb them enough, you won't have to face big counter-attacks.</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_tutorial_4">
+        <Original>Conquer and Hold</Original>
+        <English>Conquer and Hold</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_tutorial_4">
+        <Original>Don't expect a light counter-attack when you conquer strategic zones such as resources or airportsX. The enemy will send everything they can, if available. If you conquer a zone and expect a counter-attack, fleeing is a nice option.</Original>
+        <English>Don't expect a light counter-attack when you conquer strategic zones such as resources or airportsX. The enemy will send everything they can, if available. If you conquer a zone and expect a counter-attack, fleeing is a nice option.</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_tutorial_5">
+        <Original>Resources</Original>
+        <English>Resources</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_tutorial_5">
+        <Original>Having a good amount of resources for bigger operations is mandatory, especially weapons and ammo. In the initial stages, your main source of resources is accomplishing side-missions.</Original>
+        <English>Having a good amount of resources for bigger operations is mandatory, especially weapons and ammo. In the initial stages, your main source of resources is accomplishing side-missions.</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_tutorial_6">
+        <Original>Starting Position</Original>
+        <English>Starting Position</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_tutorial_6">
+        <Original>Find a good spot to begin the mission. Your experience is very different from one start spot to another. Study the surrounding markers and roads between them well. If you start near a road between enemy zones, a patrol may appear and kill Petros.</Original>
+        <English>Find a good spot to begin the mission. Your experience is very different from one start spot to another. Study the surrounding markers and roads between them well. If you start near a road between enemy zones, a patrol may appear and kill Petros.</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_tutorial_7">
+        <Original>Undercover</Original>
+        <English>Undercover</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_tutorial_7">
+        <Original>In the early stages, especially when accomplishing certain missions, being undercover can be extremely helpful. Just as for real resistance fighters, your ability to disappear is something the enemy cannot counter. See Features section for a deep explanation of Undercover Mode.</Original>
+        <English>In the early stages, especially when accomplishing certain missions, being undercover can be extremely helpful. Just as for real resistance fighters, your ability to disappear is something the enemy cannot counter. See Features section for a deep explanation of Undercover Mode.</English>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_1">
+        <Original>General</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_1">
+        <Original>Having a commander is necessary because he is the commander of the Faction attacking ground forces. Many options are available only to the commander and, depending on your settings, if you play MP, the most experienced player will usually occupy this position.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_2">
+        <Original>Garrisons</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_2">
+        <Original>The Commander is responsible for assigning units as garrisons in  conquered areas. Use the Garrison Management option in the HQ flag in order to add or remove garrison troops at each zone. Check Map Info screen for a quick overview of how many soldiers are assigned to each zone.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_3">
+        <Original>Faction Skill Upgrade</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_3">
+        <Original>For a price, you can upgrade Faction training so that future recruits will have better skills.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_4">
+        <Original>Side Missions - Petros</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_4">
+        <Original>Ask Petros for any type of mission you want. Mission availability is subject to HQ positioning, current allocated tasks and ownership of the surrounding areas.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_5">
+        <Original>Move HQ</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_5">
+        <Original>The Commander may select this option on the HQ Flag in order to move the HQ emplacement to another spot. This will allow you to move your HQ to a safer location or move closer to the front-lines. The closer your HQ is to the enemy, the greater the number of possibile side-missions you will have available. Remember! Keep Petros Safe or you will lose the game!</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_6">
+        <Original>Rest - Camp-fire</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_6">
+        <Original>Use the action menu on your HQ Camp-fire to rest for 8 hours.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_7">
+        <Original>Bomb Run</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_7">
+        <Original>Use your Airstrike points to perform a bombing run of the specified type.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_8">
+        <Original>Artillery</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_8">
+        <Original>Mounted mortar teams may be used as artillery support. Select a mortar team using the High Command bar, and press SHIFT + Y in-game to call in a mortar fire mission.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_9">
+        <Original>Recruit Squad</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_9">
+        <Original>The Commander may recruit an AI manned squad at base camp flags. Use the High Command module (CTRL + SPACE) to give orders to your squads. Also you may temporally control and dismiss the squad leader in the same way you do with squad-mates.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_10">
+        <Original>Minefields</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_10">
+        <Original>Take the engineers truck to the desired position to build a minefield. Cover them while they deploy mines. From then on, no one will be able to pass the area safely (even your own units - so use with caution). Mines (AT and AP) are taken from your Ammobox. The quantity of mines in the field will depend on the contents of your ammobox, up to a max. number depending on the type of minefield. Delete those minefields to recover the mines.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_11">
+        <Original>Sell Vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_11">
+        <Original>Use this option to sell captured vehicles and increase Faction funds.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_12">
+        <Original>Observation Post</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_12">
+        <Original>Use the radio and select a spot on the map with good field of vision. A group of snipers will join you. Send them to the selected place and they will spot for you, attempting to remain hidden and not engaging enemies upon contact.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_13">
+        <Original>Roadblocks</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_13">
+        <Original>Use the menu and select a spot on the map. Click where a road is. A group of AT soldiers will join you. Send them to the selected place and they will establish a roadblock there.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_14">
+        <Original>Grab Faction Funds</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_14">
+        <Original>Use this option to grab money from the Faction pool to your personal account. Please note this will have an impact on your score and future promotion chances. Corrupt Commanders may find themselves loosing their command.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_15">
+        <Original>In-game Members</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_commander_15">
+        <Original>In the HQ Flag, if the Server Member feature is enabled, you may check which of the Server Members are in game and the total number of non members.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_SpecialK_1">
+        <Original>Battle Options</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_SpecialK_1">
+        <Original>Press Y in-game to have access any time to several options. Most of them are explained in the Commander or Features sections.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_SpecialK_2">
+        <Original>High Command</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_SpecialK_2">
+        <Original>When you are the Commander, hit CTRL + SPACE to give way-points and other orders to your AI squads using the HC mode. Non commanders may use it to check enemy contacts reported by the Faction communications network.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_SpecialK_3">
+        <Original>Artillery</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_SpecialK_3">
+        <Original>Press SHIFT + Y in-game while having an artillery squad selected on the HC bar.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_SpecialK_4">
+        <Original>Group Manager</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_SpecialK_4">
+        <Original>MP Only: Press U in-game to join another player's group</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_SpecialK_5">
+        <Original>Earplugs</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_SpecialK_5">
+        <Original>Press END to enable / disable earplugs. Disabled with ACE.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_1">
+        <Original>Faction Leader</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_1">
+        <Original>Just as with any resistance movement, leadership is not as stable as in organised states. Any player can take the role of Faction Force Commander if the current one is not very popular... Demonstrate your skill while accomplishing missions and killing enemies and maybe you will become the next leader.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_2">
+        <Original>Garage</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_2">
+        <Original>Add any vehicle near your personal Virtual Garage (or factions garage if you are the commander) and keep it safe for future use. Vehicle add option is under the Y menu. Garage management is in HQ options (Flag). Garage recovery capacities may depend on where you are: Air Units can be recovered only near Airbases, boats, near the shore etc.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_3">
+        <Original>Undercover</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_3">
+        <Original>Click on this button to go undercover. If you meet the requirements, the enemy won't attack you on sight. On foot, to go undercover you must have no weapons or military equipment visible.&lt;br/&gt;You will lose undercover status when you change load-out, get spotted by enemy guard-dogs, plant mines, and can also be reported by some civilians to the enemy. If you are discovered you won't be able to go undercover on foot again for 30 minutes. You can also go undercover by getting into any civilian vehicle. You will lose undercover status by firing any weapon or being spotted far from a road. If you are discovered you won't be able to go undercover in that vehicle again. Getting close to enemy Airbases, outposts and roadblocks will also make you lose undercover status.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_4">
+        <Original>Arsenal</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_4">
+        <Original>Scavenge for items, weapons and magazines and put them in your HQ Ammobox. Once you have a specific amount of an them, they will be unlocked and added to the Arsenal for personal use (and for your Faction squads).&lt;br/&gt;The amount required to unlock depends on how many assets the Faction has unlocked and the number of factories owned. Unlocked weapons, optics and night-vision Googles may also change AI load-out. Basic militiamen are especially affected by this: their load-out will start from small SMGs and progress to having an extra AA / AT launcher. Please note this will not affect their dress, which will depend on the current Faction Skill Level (helmets and uniform). Arsenal is the standard BIS Arsenal, check their documentation for interaction and use.&lt;br/&gt;&lt;br/&gt;To see the amounts required to unlock each group of items, open the HQ Ammobox and you will receive a detailed report on the right.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_5">
+        <Original>Politics</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_5">
+        <Original>This is a civil war. People are not conquered if you cannot conquer their hearts. In game mechanics, this means you cannot conquer cities. The citizens of each town support the enemy or Faction to some amount.&lt;br/&gt;The dominant faction is the one who owns the city and benefits from their support in terms of money and human resources (HR). Your actions may lower enemy Support or raise yours, or both. Killing enemies, accomplishing missions, conquering resources, and power-stations, affect the amount of citizen support.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_6">
+        <Original>Radio Towers</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_6">
+        <Original>Destroy or capture Radio Towers in order to build trust with %1 citizens.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_7">
+        <Original>Vehicles</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_7">
+        <Original>You may buy vehicles for your squad at Faction flags.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_8">
+        <Original>Static Weapons</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_8">
+        <Original>You may steal static weapons found in enemy airports. You must use the 'Steal Static' action to do so. DO NOT disassemble them before using the 'Steal Static' action!</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_9">
+        <Original>Conquer</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_9">
+        <Original>Some zones, like airports require you to use the ""Take the Flag"" action on their respective flags in order to conquer them. Some others, like roadblocks and some outposts, simply require you to defeat the garrison.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_10">
+        <Original>Ammobox Transfer</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_10">
+        <Original>When you mount a truck, you may use the Transfer action in the action menu. It will search for nearby ammoboxes and load the contents of the nearest one into the truck's cargo space. You may then unload the truck in your ammobox at HQ for future use. Before transferring, make sure to unload backpack/vest contents into the Truck cargo space and then transfer. TIP: If your HQ Ammobox is full, use this functionality from a nearby truck to add more content to the ammobox as it will then accept everything :)</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_11">
+        <Original>Fast Travel</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_11">
+        <Original>When there are no enemies nearby, fast travel to Faction controlled places. The Commander also has the ability to use this option on HC groups, selecting the group on HC bar and clicking on this button.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_12">
+        <Original>Base Static Emplacement</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_12">
+        <Original>Purchased static weapons won't despawn if you leave them in a base or zone, AI garrison will man them. Reinforce places as you desire.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_13">
+        <Original>Group Selection</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_13">
+        <Original>You can build groups with up to 10 human players. Commander is excluded of this function.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_14">
+        <Original>Server Members</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_14">
+        <Original>If enabled, this feature will exclude all non-members from using the HQ Ammobox and become Commander. This feature is intended to avoid having your game ruined by the casual troll in open server environments.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Features_15">
+        <Original>Player and Money</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Features_15">
+        <Original>Use this option to donate money to other players or your faction funds. Commanders may add or remove players from the Server Members List if the feature is enabled.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_AI_1">
+        <Original>Recruit</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_AI_1">
+        <Original>You may recruit up to 9 AI squad-mates at some Faction flags and the HQ flag.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_AI_2">
+        <Original>AI Control</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_AI_2">
+        <Original>Select a squad-mate or HC Group to gain direct control over them for a limited time. Selecting this option for a HC squad will give you control over the squad's leader.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_AI_3">
+        <Original>AI Radio</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_AI_3">
+        <Original>This feature aims to simulate the lack of radio communications with AI fighters. Your AI squad-mates won't have a radio until you unlock it from the Arsenal. Without a radio, if an AI squad-mate gets too far away, they will get lost and return to the leader's position after completing the last order they received. To avoid this, you may scavenge some radios from enemy (AutoRearm feature will do) or let the AI use a military vehicle which has long range radios. If it takes too long to find their leader, they will automatically return to the HQ.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_AI_4">
+        <Original>Auto Heal</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_AI_4">
+        <Original>AI Medic squad-mates will heal other AI’s automatically without the need to give any orders. If in combat, your AI will use smoke grenades for cover. If there is no medic in the group, the AI will use their own medikits.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_AI_5">
+        <Original>Auto Rearm \ Loot</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_AI_5">
+        <Original>Your AI squad-mates will automatically look for and scavenge any ammunition from nearby corpses, vehicles and ammoboxes if needed. Also they will try to renew their weapons with more powerful ones. If AI is inside a vehicle, they will loot weapons and launchers, and drop them in their truck until there is nothing in the area. Use this instead of the vanilla Rearm radio option.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_AI_6">
+        <Original>Vehicle Squad</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_AI_6">
+        <Original>Commander Only. Use this option to assign the vehicle you are looking at to any HC squad. Check vehicle status, order them to mount or disembark, and automate mounted static squads.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_AI_7">
+        <Original>Dismiss Squad-mate</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_AI_7">
+        <Original>Select the unit and use the 'Dismiss Squad-mate' option to send them back to HQ. You will recover some of the money you spent on them.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_1">
+        <Original>Map Info</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Options_1">
+        <Original>Click on a city to learn the strength of their support for the enemy or Faction. Click on other zones to know relevant info about them.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_2">
+        <Original>AI Limiter</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Options_2">
+        <Original>Commander Only. Sets the the maximum amount of AI in map per server or HC. Up to 200 AI may behave decently.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_3">
+        <Original>Persistent Save-game</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Options_3">
+        <Original>Commander Only. You may save the game at your HQ Map. This will allow you to continue playing upon mission update or server restart, preserving stats, player's equipment, conquered zones, enemy asset availability and many more things. WARNING: Normal save and load runs badly in this mission. This system is your only guarantee of saving the game properly</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_4">
+        <Original>Music ON/OFF</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Options_4">
+        <Original>Antistasi has a situational music script, depending on a player's stance and time of day. The default in MP is OFF, and ON in Singleplayer</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_5">
+        <Original>Civ Spawn</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Options_5">
+        <Original>Increase or decrease the percentage of city civilian population that spawn. At 0% only one civilian will spawn in each city.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_6">
+        <Original>Spawn Distance</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Options_6">
+        <Original>Commander only. Increase or decrease general spawn and despawn distance. Use it carefully combined with other options.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_7">
+        <Original>Garbage Cleaner</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Options_7">
+        <Original>Commander only. Will delete things like dropped weapons, magazines, clothing etc.&lt;br/&gt;&lt;br/&gt; Beware, it freezes the game for some time.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_8">
+        <Original>Reinit UI</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Options_8">
+        <Original>Select this option when the Y key or Statistics bar are not working.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Diary_1">
+        <Original>%1 and %2 Aggro</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Diary_1">
+        <Original>There is an All vs All war in %4. %1 and %2 are constantly attacking each other, but that does not mean they don't shoot at %3 on first sight.&lt;br/&gt;&lt;br/&gt;%1 and %2 Aggro points represent how much threat they see in %3 faction.&lt;br/&gt;&lt;br/&gt;Generally speaking those points will low or raise depending on your actions against them and civilians.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Diary_2">
+        <Original>HR</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Diary_2">
+        <Original>HR or Manpower comes from citizen support on each city. Manpower is needed to recruit more units (1 HR Points = 1 Soldier)</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Diary_3">
+        <Original>Money - MP</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Diary_3">
+        <Original>In MP games there are two money pools. Faction Money -which is for Commander use only- and personal money. Personal money can be used by any player to recruit AI or buy vehicles. Faction earns money by taxes and accomplishing missions. Personal money comes from killing enemies and accomplishing missions. Options to transfer or donate money are found in the Y menu. Commander can grab money from the Faction Pool to his own account.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Diary_4">
+        <Original>Money</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Diary_4">
+        <Original>Money comes from a combination of citizens support on each city, resources conquered, factories conquered (which boost the economy) and power provided to all of them with a nearby friendly power plant (you may also conquer them to cut off Money supply to the enemy). Money is used to purchase vehicles, units and squads.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Diary_5">
+        <Original>Resources</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Diary_5">
+        <Original>Every 10 minutes each faction receives Money and Manpower according to the zones they own, and the state they are in. Having a good amount of resource zones and some factories is the way of getting enough resources to win this war.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Diary_6">
+        <Original>HQ - Basics</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Diary_6">
+        <Original>Flag: Vehicle and Squad Unit Recruitment. Commander Options.&lt;br/&gt;Maru: Side-missions (Commander Only).&lt;br/&gt;Map: Game Options.&lt;br/&gt;Camp-fire: Rest for 8 hours and Clear Forest (Commander Only).</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_gamemode">
+        <Original>AI Rules of Engagement</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_gamemode_1">
+        <Original>%2 vs %1 war.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_gamemode_2">
+        <Original>%2 vs %1 war.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_gamemode_3">
+        <Original>%3 vs All war.&lt;br/&gt;&lt;br/&gt;%1 and %2 will attack only %3 and act independently. Both can conquer.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_gamemode_4">
+        <Original>All vs All war.&lt;br/&gt;&lt;br/&gt;%1 and %2 will attack each other and both to %3.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Default_1">
+        <Original>Welcome</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Default_1">
+        <Original>Welcome to Arma 3 - %1. This mission aims to simulate guerilla combat, tactics and strategic situations. It is not a quick and easy mod, it is long term, step-by-step mission with LOTS of features and enhanced AI.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Default_2">
+        <Original>Win</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Default_2">
+        <Original>You will win the game when most of the population supports Faction and you have conquered all the Airbases.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Default_3">
+        <Original>Lose</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Default_3">
+        <Original>You will loose the game if %1 has murdered 1/3 of the total population.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Credits_1">
+        <Original>Script Credits</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Credits_1">
+        <Original>UPSMon by Monsada, Kronzy and Cool=Azroul13 &lt;br/&gt;Persistent Save by zooloo75.&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;JAS by Jeroen (sorry for including you that late)&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;Advanced Towing by Seth Duda.</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Credits_2">
+        <Original>Mods</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Credits_2">
+        <Original>Integrated (optional) Mods:&lt;br/&gt;TFAR: Radio integrated in Arsenal. Sound disabled when player is unconscious.&lt;br/&gt;ACE Medical: Will disable Antistasi revive system.&lt;br/&gt;&lt;br/&gt;CAUTION: The use of Persistent Save system with TFAR and any weapon mod activated will make them mandatory in future.&lt;br/&gt;&lt;br/&gt;Any client sided Mod, such as JSRS, Blastcore, UI Mod should work.&lt;br/&gt;&lt;br/&gt;Units and vehicles mods won't work. AI Mods may cause malfunctions (in any case Antistasi has heavy AI tweaking).</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Credits_3">
+        <Original>Thanks</Original>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_Credits_3">
+        <Original>LanCommi for his artwork.&lt;br/&gt;Goon and jw custom: Part of the code for the NAPALM script.&lt;br/&gt;rebel12340: Radio Jam script&lt;br/&gt;Manko: Earplug snippet&lt;br/&gt;bobchaos: Managing the community despite all difficulties.&lt;br/&gt;And all those players who spend their time on making comments, suggestions and reports on Steam, Github and BIS forums</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

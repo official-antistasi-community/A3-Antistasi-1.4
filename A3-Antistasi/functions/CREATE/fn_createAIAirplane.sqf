@@ -341,7 +341,7 @@ if (!_busy) then
 _arrayVehAAF = if (_sideX == Occupants) then {vehNATONormal} else {vehCSATNormal};
 _countX = 0;
 
-while {_countX < _nVeh} do
+while {_countX < _nVeh && {_countX < 3}} do
 {
 	_typeVehX = selectRandom _arrayVehAAF;
 	_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;

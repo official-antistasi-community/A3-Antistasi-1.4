@@ -26,17 +26,17 @@ NATOAmmobox = "I_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	["rhs_gref_teamLeader"] call A3A_fnc_getLoadout,
+	"I_soldier_SL_F",
 	//Medic
-	["rhs_gref_medic"] call A3A_fnc_getLoadout,
+	"I_medic_F",
 	//Autorifleman
-	["rhs_gref_breacher"] call A3A_fnc_getLoadout,
+	"I_Soldier_AR_F",
 	//Marksman
-	["rhs_gref_sniper"] call A3A_fnc_getLoadout,
+	"I_Soldier_M_F",
 	//Anti-tank Scout
-	["rhs_gref_demolition"] call A3A_fnc_getLoadout,
+	"I_soldier_LAT_F",
 	//AT2
-	["rhs_gref_demolition"] call A3A_fnc_getLoadout
+	"I_soldier_LAT_F"
 ];
 
 //PVP Player Vehicles
@@ -80,8 +80,8 @@ groupsNATOAA = ["I_Soldier_TL_F","I_Soldier_AA_F","I_Soldier_AA_F","I_Soldier_AA
 groupsNATOAT = ["I_soldier_TL_F","I_soldier_AT_F","I_soldier_AT_F","I_soldier_AAT_F"];
 groupsNATOmid = [["I_Soldier_TL_F","I_Soldier_GL_F","I_Soldier_AR_F","I_Soldier_LAT_F"],groupsNATOAA,groupsNATOAT];
 //Squads
-NATOSquad = ["I_soldier_SL_F",NATOGrunt,"I_soldier_LAT_F","I_Soldier_GL_F","I_Soldier_M_F","B_soldier_AR_F","I_soldier_A_F","I_medic_F"];
-NATOSpecOp = ["I_soldier_SL_F",NATOGrunt,"I_soldier_LAT_F","I_Soldier_GL_F","I_soldier_TL_F","B_soldier_AR_F","I_soldier_A_F","I_medic_F"];
+NATOSquad = ["I_soldier_SL_F",NATOGrunt,"I_soldier_LAT_F","I_Soldier_GL_F","I_Soldier_M_F","I_Soldier_AR_F","I_soldier_A_F","I_medic_F"];
+NATOSpecOp = ["I_soldier_SL_F",NATOGrunt,"I_soldier_LAT_F","I_Soldier_GL_F","I_soldier_TL_F","I_soldier_AR_F","I_soldier_A_F","I_medic_F"];
 groupsNATOSquad =
 	[
 	NATOSquad,

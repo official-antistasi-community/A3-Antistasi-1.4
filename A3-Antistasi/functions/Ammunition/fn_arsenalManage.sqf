@@ -41,7 +41,7 @@ private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics +
 			_item call A3A_fnc_unlockEquipment;
 			
 			private _name = switch (true) do {
-				case ("Magazines" in _categories): {getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")};
+				case ("Magazines" in _categories): {getText (configFile >> "CfgMagazines" >> _item >> "displayName")};
 				case ("Backpacks" in _categories): {getText (configFile >> "CfgVehicles" >> _item >> "displayName")};
 				default {getText (configFile >> "CfgWeapons" >> _item >> "displayName")};
 			};

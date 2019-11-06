@@ -311,6 +311,7 @@ class A3A
 		class getRadio {};
 		class itemSort {};
 		class itemType {};
+		class launcherInfo {};
 		class loot {};
 		class NATOCrate {};
 		class randomRifle {};
@@ -435,6 +436,7 @@ class A3A
 		class basicBackpack {};
 		class createDataObject {};
 		class dateToTimeString {};
+		class log {};
 	};
 
 	class init

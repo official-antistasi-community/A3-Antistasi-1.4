@@ -18,7 +18,7 @@ params ["_vehicleType", ["_callbackTarget", ""], ["_displayMessage", ""]];
 vehPlace_callbackTarget = _callbackTarget;
 vehPlace_extraMessage = _displayMessage;
 
-vehPlace_previewVeh = _vehicleType createVehicleLocal [0,0,1000];
+vehPlace_previewVeh = createSimpleObject [_vehicleType ,[0,0,1000], true];
 vehPlace_previewVeh allowDamage false;
 vehPlace_previewVeh enableSimulation false;
 
@@ -103,7 +103,7 @@ addMissionEventHandler ["EachFrame",
 					
 					hideObject vehPlace_previewVeh;
 					deleteVehicle vehPlace_previewVeh;				
-					vehPlace_previewVeh = _typeX createVehicleLocal [0,0,1000];
+					vehPlace_previewVeh = createSimpleObject [_typeX, [0,0,1000], true];
 					vehPlace_previewVeh allowDamage false;
 					vehPlace_previewVeh enableSimulation false;
 					[_typeX] call A3A_fnc_displayVehiclePlacementMessage;

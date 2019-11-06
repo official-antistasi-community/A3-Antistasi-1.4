@@ -5,7 +5,6 @@ diag_log format ["%1: [Antistasi] | INFO | InitGarrisons Started.", servertime];
 
 _fnc_initMarker =
 {
-	if(loadLastSave) exitWith {};
 	params ["_mrkCSAT", "_target", "_mrkType", "_mrkText", ["_useSideName", false]];
 	private ["_pos", "_mrk", "_garrNum", "_garrison", "_groupsRandom"];
 
@@ -59,7 +58,7 @@ _fnc_initMarker =
 
 _fnc_initGarrison =
 {
-	if(loadLastSave) exitWith {};
+	if((!(isNil "loadLastSave")) && {loadLastSave}) exitWith {};
 	params ["_markerArray", "_type"];
 	private ["_side", "_groupsRandom", "_garrNum", "_garrisonOld", "_marker"];
 	{

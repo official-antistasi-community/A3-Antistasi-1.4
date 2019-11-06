@@ -110,7 +110,7 @@ membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue
 disableUserInput false;
 player setVariable ["spawner",true,true];
 
-if (isMultiplayer && playerMarkersEnabled) then {
+if (isMultiplayer && {playerMarkersEnabled}) then {
 	[] spawn A3A_fnc_playerMarkers;
 };
 

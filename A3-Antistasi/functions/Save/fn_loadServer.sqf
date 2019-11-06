@@ -108,9 +108,7 @@ if (isServer) then {
 	tierPreference = 1;
 	publicVariable "tierPreference";
 	//Updating the preferences based on war level
-	for "_i" from 1 to tierWar do {
-		[] call A3A_fnc_updatePreference;
-	};
+	[] call A3A_fnc_updatePreference;
 
 	if (isNil "usesWurzelGarrison") then {
 		//Create the garrison new

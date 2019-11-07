@@ -3,7 +3,6 @@ diag_log format ["%1: [Antistasi] | INFO | Init Started.",servertime];
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.
 enableSaving [false,false];
 mapX setObjectTexture [0,"pic.jpg"];
-if (isServer and (isNil "serverInitDone")) then {skipTime random 24};
      
 if (!isMultiPlayer) then {
      //Init server parameters

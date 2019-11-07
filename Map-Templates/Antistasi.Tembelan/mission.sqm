@@ -194,23 +194,12 @@ class Mission
 {
 	class Intel
 	{
-		timeOfChanges=1800.0002;
-		startWeather=0.2;
-		startWind=0.1;
-		startWaves=0.1;
-		forecastWeather=0.60000002;
-		forecastWind=0.1;
-		forecastWaves=0.1;
-		forecastLightnings=0.1;
-		year=2015;
-		month=3;
-		day=5;
-		hour=11;
+		resistanceWest=0;
+		year=2035;
+		month=6;
+		day=1;
+		hour=10;
 		minute=0;
-		startFogBase=250;
-		forecastFogBase=250;
-		startFogDecay=0.014;
-		forecastFogDecay=0.014;
 	};
 	class Entities
 	{

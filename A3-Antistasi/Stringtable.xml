@@ -550,9 +550,17 @@
       <Original>Antistasi - Uprising In Altis</Original>
       <English>Antistasi - Uprising In Altis</English>
     </Key>
+    <Key ID="STR_antistasi_mission_info_altis_mapname_short_text">
+      <Original>Antistasi Altis</Original>
+      <English>Antistasi Altis</English>
+    </Key>
     <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
       <Original>Antistasi - Uprising In Altis (BLUFOR)</Original>
       <English>Antistasi - Uprising In Altis (BLUFOR)</English>
+    </Key>
+    <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
+      <Original>Antistasi Altis (BLUFOR)</Original>
+      <English>Antistasi Altis (BLUFOR)</English>
     </Key>
     <Key ID="STR_antistasi_mission_info_altis_blurb_text">
       <Original>Because nothing is more important than Freedom.</Original>
@@ -569,6 +577,10 @@
         <English>Antistasi - Warlords of the Pacific</English>
         <French>Antistasi - Les Seigneurs de Guerre du Pacifique</French>
         <Russian>Antistasi - Хозяева Тихого Океана</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_tanoa_mapname_short_text">
+        <Original>Antistasi Tanoa</Original>
+        <English>Antistasi Tanoa</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_blurb_text">
         <Original>Business and War...</Original>
@@ -588,6 +600,10 @@
         <French>Antistasi - Armia Krajowa</French>
         <Russian>Antistasi - Армия Крайова</Russian>
       </Key>
+      <Key ID="STR_antistasi_mission_info_cherna_mapname_short_text">
+        <Original>Antistasi Chernarus</Original>
+        <English>Antistasi Chernarus</English>
+      </Key>
       <Key ID="STR_antistasi_mission_info_cherna_blurb_text">
         <Original>Between the anvil and a steamroller.</Original>
         <English>Between the anvil and a steamroller.</English>
@@ -605,6 +621,12 @@
         <English>Antistasi - Liberation of Malden</English>
         <French>Antistasi - La Libération de Malden</French>
         <Russian>Antistasi - Освобождение Мальдена</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_malden_mapname_short_text">
+        <Original>Antistasi Malden</Original>
+        <English>Antistasi Malden</English>
+        <French>Antistasi Malden</French>
+        <Russian>Antistasi Мальдена</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_blurb_text">
         <Original>The island is small but packed with enemies. Look out!</Original>
@@ -624,6 +646,10 @@
         <French>Antistasi - La Révolution Baltique</French>
         <Russian>Antistasi - Балтийская Революция</Russian>
       </Key>
+      <Key ID="STR_antistasi_mission_info_livonia_mapname_short_text">
+        <Original>Antistasi Livonia</Original>
+        <English>Antistasi Livonia</English>
+      </Key>
       <Key ID="STR_antistasi_mission_info_livonia_blurb_text">
         <Original>Stuck between two fronts</Original>
         <English>Stuck between two fronts</English>
@@ -642,6 +668,12 @@
         <French>Antistasi - La Bataille de Kanduz</French>
         <Russian>Antistasi - Битва за Кундуз</Russian>
       </Key>
+      <Key ID="STR_antistasi_mission_info_kunduz_mapname_short_text">
+        <Original>Antistasi Kunduz</Original>
+        <English>Antistasi Kunduz</English>
+        <French>Antistasi Kanduz</French>
+        <Russian>Antistasi Кундуз</Russian>
+      </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_blurb_text">
         <Original>Sand and blood</Original>
         <English>Sand and blood</English>
@@ -652,6 +684,11 @@
         <Original>Antistasi - Liberation of Tembelan</Original>
         <English>Antistasi - Liberation of Tembelan</English>
         <French>Antistasi - La Libération de Tembelan</French>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_tembelan_mapname_short_text">
+        <Original>Antistasi Tembelan</Original>
+        <English>Antistasi Tembelan</English>
+        <French>Antistasi Tembelan</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_blurb_text">
         <Original>blurb placeholder</Original>

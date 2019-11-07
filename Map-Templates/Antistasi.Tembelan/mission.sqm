@@ -190,16 +190,10 @@ class AddonsMetaData
 	};
 };
 randomSeed=14599179;
-class ScenarioData
-{
-	author=$STR_antistasi_credits_generic_author_text;
-};
 class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_tembelan_mapname_text;
-		overviewText=$STR_antistasi_credits_generic_version_text;
 		timeOfChanges=1800.0002;
 		startWeather=0.2;
 		startWind=0.1;

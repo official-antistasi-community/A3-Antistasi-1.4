@@ -16,11 +16,11 @@ class Header
 
 class CfgTaskEnhancements
 {
-    enable       = 1;
-    3d           = 1;
-    3dDrawDist   = 3500;
-    share        = 1;
-    propagate    = 1;
+  enable       = 1;
+  3d           = 1;
+  3dDrawDist   = 3500;
+  share        = 1;
+  propagate    = 1;
 };
 
 //If we have CBA for TFAR, then load the mission's settings.

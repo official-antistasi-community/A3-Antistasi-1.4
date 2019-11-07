@@ -368,9 +368,9 @@
     </Container>
     <Container name="credits_generic">
       <Key ID="STR_antistasi_credits_generic_author_text">
-        <Original>The Official AntiStasi Community</Original>
-        <English>AntiStasi Community</English>
-        <French>La Communauté Officielle d'AntiStasi</French>
+        <Original>The Official Antistasi Community</Original>
+        <English>Antistasi Community</English>
+        <French>La Communauté Officielle d'Antistasi</French>
         <Russian>Сообщество Antistasi</Russian>
       </Key>
       <Key ID="STR_antistasi_credits_generic_overview_text">
@@ -540,6 +540,20 @@
       </Key>
     </Container>
     <Container name="mission_info">
+    <Key ID="STR_antistasi_mission_info_altis_description_text">
+      <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+      <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+      <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+      <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
+    </Key>
+    <Key ID="STR_antistasi_mission_info_altis_mapname_text">
+      <Original>Uprising In Altis</Original>
+      <English>Uprising In Altis</English>
+    </Key>
+    <Key ID="STR_antistasi_mission_info_altis_blurb_text">
+      <Original>Because nothing is more important than Freedom.</Original>
+      <English>Because nothing is more important than Freedom.</English>
+    </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>

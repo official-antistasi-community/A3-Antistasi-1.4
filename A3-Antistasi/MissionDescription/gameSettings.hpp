@@ -5,8 +5,6 @@ aiKills = 0;
 disabledAI = 1;
 Saving = 0;
 
-showMap = 0;
-
 class Header
 {
 	gameType = CTI;

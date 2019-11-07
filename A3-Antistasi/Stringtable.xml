@@ -547,8 +547,12 @@
       <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
     </Key>
     <Key ID="STR_antistasi_mission_info_altis_mapname_text">
-      <Original>Uprising In Altis</Original>
-      <English>Uprising In Altis</English>
+      <Original>Antistasi - Uprising In Altis</Original>
+      <English>Antistasi - Uprising In Altis</English>
+    </Key>
+    <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
+      <Original>Antistasi - Uprising In Altis (BLUFOR)</Original>
+      <English>Antistasi - Uprising In Altis (BLUFOR)</English>
     </Key>
     <Key ID="STR_antistasi_mission_info_altis_blurb_text">
       <Original>Because nothing is more important than Freedom.</Original>
@@ -561,10 +565,10 @@
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_mapname_text">
-        <Original>Warlords of the Pacific</Original>
-        <English>Warlords of the Pacific</English>
-        <French>Les Seigneurs de Guerre du Pacifique</French>
-        <Russian>Хозяева Тихого Океана</Russian>
+        <Original>Antistasi - Warlords of the Pacific</Original>
+        <English>Antistasi - Warlords of the Pacific</English>
+        <French>Antistasi - Les Seigneurs de Guerre du Pacifique</French>
+        <Russian>Antistasi - Хозяева Тихого Океана</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_blurb_text">
         <Original>Business and War...</Original>
@@ -579,10 +583,10 @@
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_mapname_text">
-        <Original>Armia Krajowa</Original>
-        <English>Armia Krajowa</English>
-        <French>Armia Krajowa</French>
-        <Russian>Армия Крайова</Russian>
+        <Original>Antistasi - Armia Krajowa</Original>
+        <English>Antistasi - Armia Krajowa</English>
+        <French>Antistasi - Armia Krajowa</French>
+        <Russian>Antistasi - Армия Крайова</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_blurb_text">
         <Original>Between the anvil and a steamroller.</Original>
@@ -597,10 +601,10 @@
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_mapname_text">
-        <Original>Liberation of Malden</Original>
-        <English>Liberation of Malden</English>
-        <French>La Libération de Malden</French>
-        <Russian>Освобождение Мальдена</Russian>
+        <Original>Antistasi - Liberation of Malden</Original>
+        <English>Antistasi - Liberation of Malden</English>
+        <French>Antistasi - La Libération de Malden</French>
+        <Russian>Antistasi - Освобождение Мальдена</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_blurb_text">
         <Original>The island is small but packed with enemies. Look out!</Original>
@@ -615,10 +619,10 @@
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_text">
-        <Original>The Baltic Revolution</Original>
-        <English>The Baltic Revolution</English>
-        <French>La Révolution Baltique</French>
-        <Russian>Балтийская Революция</Russian>
+        <Original>Antistasi - The Baltic Revolution</Original>
+        <English>Antistasi - The Baltic Revolution</English>
+        <French>Antistasi - La Révolution Baltique</French>
+        <Russian>Antistasi - Балтийская Революция</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_blurb_text">
         <Original>Stuck between two fronts</Original>
@@ -633,10 +637,10 @@
         <Russian>Быть лидером сопротивления и т.д.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_text">
-        <Original>Battle of Kunduz</Original>
-        <English>Battle of Kunduz</English>
-        <French>La Bataille de Kanduz</French>
-        <Russian>Битва за Кундуз</Russian>
+        <Original>Antistasi - Battle of Kunduz</Original>
+        <English>Antistasi - Battle of Kunduz</English>
+        <French>Antistasi - La Bataille de Kanduz</French>
+        <Russian>Antistasi - Битва за Кундуз</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_blurb_text">
         <Original>Sand and blood</Original>
@@ -645,9 +649,9 @@
         <Russian>Кровь и песок</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_mapname_text">
-        <Original>Liberation of Tembelan</Original>
-        <English>Liberation of Tembelan</English>
-        <French>La Libération de Tembelan</French>
+        <Original>Antistasi - Liberation of Tembelan</Original>
+        <English>Antistasi - Liberation of Tembelan</English>
+        <French>Antistasi - La Libération de Tembelan</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_blurb_text">
         <Original>blurb placeholder</Original>

@@ -9,7 +9,7 @@ class Header
 {
 	gameType = CTI;
 	minplayers = 1;
-	maxplayers = 74;
+	maxplayers = 75;
 };
 
 class CfgTaskEnhancements

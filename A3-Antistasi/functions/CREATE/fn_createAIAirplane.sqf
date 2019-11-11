@@ -39,16 +39,23 @@ for "_i" from 1 to _max do
 	//_pos = _positionX findEmptyPosition [_size - 200,_size+50,_typeVehX];
 	_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 
-	_vehicle=[_spawnParameter select 0, _spawnParameter select 1,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
-	_veh = _vehicle select 0;
-	_vehCrew = _vehicle select 1;
-	{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
-	[_veh] call A3A_fnc_AIVEHinit;
-	_groupVeh = _vehicle select 2;
-	_soldiers = _soldiers + _vehCrew;
-	_groups pushBack _groupVeh;
-	_vehiclesX pushBack _veh;
-	sleep 1;
+	if (_spawnParameter isEqualType []) then
+	{
+		_vehicle=[_spawnParameter select 0, _spawnParameter select 1,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
+		_veh = _vehicle select 0;
+		_vehCrew = _vehicle select 1;
+		{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
+		[_veh] call A3A_fnc_AIVEHinit;
+		_groupVeh = _vehicle select 2;
+		_soldiers = _soldiers + _vehCrew;
+		_groups pushBack _groupVeh;
+		_vehiclesX pushBack _veh;
+		sleep 1;
+	}
+	else
+	{
+		_i = _max;
+	};
 };
 
 if (_frontierX) then

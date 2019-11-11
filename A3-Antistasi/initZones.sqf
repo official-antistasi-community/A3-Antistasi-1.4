@@ -118,8 +118,12 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 	_numVeh = round (_numCiv / 3);
 	_nroads = count _roads;
-	_nearRoadsFinalSorted = [_roads, [], { _pos distance _x }, "ASCEND"] call BIS_fnc_sortBy;
-	_pos = _nearRoadsFinalSorted select 0;
+	if(_nroads > 0) then
+	{
+		//Fixed issue with a town on tembledan having no roads
+		_nearRoadsFinalSorted = [_roads, [], { _pos distance _x }, "ASCEND"] call BIS_fnc_sortBy;
+		_pos = _nearRoadsFinalSorted select 0;
+	};
 	_mrk = createmarker [format ["%1", _nameX], _pos];
 	_mrk setMarkerSize [_size, _size];
 	_mrk setMarkerShape "RECTANGLE";

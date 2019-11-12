@@ -7,6 +7,7 @@ antistasiVersion = localize "STR_antistasi_credits_generic_version_text";
 // INITIAL SETTING AND VARIABLES ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Setting Initial Variables",servertime];
+logLevel = 2;												//Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
 debug = false;													//debug variable, useful for something..
 diagOn = false;												//Turn on Diag_log messaging (unused - PBP)
 cleantime = 3600;												//time to delete dead bodies, vehicles etc..
@@ -117,6 +118,7 @@ civilianBackpackDevice = [];
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
 ////////////////////////////////////
+allDLCMods = ["kart", "mark", "heli", "expansion", "jets", "orange", "tank", "globmob", "enoch", "officialmod", "tacops", "argo", "warlords", "enyo"];
 call A3A_fnc_initDisabledMods;
 diag_log format ["%1: [Antistasi] | INFO | initVar | Starting Mod Detection",servertime];
 //Faction MODs
@@ -219,15 +221,15 @@ if !(hasIFA) then {
 	switch (true) do {
 		case (!activeGREF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf"};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf"};
-		case (activeGREF): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf"};
 		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf"};
+		case (activeGREF): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf"};
 	};
 	//Occupant Templates
 	switch (true) do {
 		case (!activeUSAF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf"};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf"};
-		case (activeUSAF): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf"};
 		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf"};
+		case (activeUSAF): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf"};
 	};
 	//Invader Templates
 	switch (true) do {
@@ -253,17 +255,32 @@ arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man
 //      CIVILIAN VEHICLES       ///
 ////////////////////////////////////
 diag_log format ["%1: [Antistasi] | INFO | initVar | Creating Vehicle list.",servertime];
+
 private _civVehConfigs = "(
 	getNumber (_x >> 'scope') isEqualTo 2 && {
 		getNumber (_x >> 'side') isEqualTo 3 && {
 			getText (_x >> 'vehicleClass') in ['Car','Support'] && {
-				getText (_x >> 'simulation') isEqualTo 'carx'
+				getText (_x >> 'simulation') == 'carx'
 			}
 		}
 	}
 )" configClasses (configFile >> "CfgVehicles");
 
-arrayCivVeh = (_civVehConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
+private _vehIsValid = {
+	params ["_vehConfig"];
+	
+	private _mod = _vehConfig call A3A_fnc_getModOfConfigClass;
+	
+	//If we have IFA and vehicle is vanilla
+	if(hasIFA && {_mod == ""}) exitWith {
+		false;
+	};
+	
+	//Check if mod is disabled
+	!(_vehConfig call A3A_fnc_getModOfConfigClass in disabledMods);
+};
+
+arrayCivVeh = (_civVehConfigs select {_x call _vehIsValid} apply {configName _x});
 
 
 //Civilian Boats
@@ -275,7 +292,7 @@ _civBoatConfigs = "(
 	}
 )" configClasses (configFile >> "CfgVehicles");
 
-CivBoats = (_civBoatConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)} apply {configName _x});
+CivBoats = (_civBoatConfigs select {_x call _vehIsValid} apply {configName _x});
 
 ////////////////////////////////////
 //     ID LIST FOR UNIT NAMES    ///
@@ -329,37 +346,25 @@ private _equipmentFilter = {
 
 	private _remove = false;
 
-	private _itemIsVanilla = (_configClass call A3A_fnc_getModOfConfigClass) isEqualTo "";
+	private _itemMod = (_configClass call A3A_fnc_getModOfConfigClass);
+	private _itemIsVanilla = [_itemMod] call A3A_fnc_isModNameVanilla;
+	
+	//Mod is disabled, remove item.
+	if (_itemMod in disabledMods) exitWith {
+		true;
+	};
 
-	if (_itemIsVanilla && {hasIFA || has3CB || {activeAFRF && activeGREF && activeUSAF}}) then {
+	//Remove vanilla items if no vanilla sides (IFA handled seperately)
+	if (_itemIsVanilla && {has3CB || {activeAFRF && activeGREF && activeUSAF}}) then {
 		switch (_categories select 0) do {
 			case "Item": {
-				if (hasIFA) then {
-					switch (_categories select 1) do {
-						case "AccessoryMuzzle";
-						case "AccessoryPointer";
-						case "AccessorySights";
-						case "AccessoryBipod";
-						case "Binocular";
-						case "Compass";
-						case "GPS";
-						case "LaserDesignator";
-						case "NVGoggles";
-						case "UAVTerminal";
-						case "Watch": {
-							_remove = true;
-						};
-					};
-				}
-				else {
-					switch (_categories select 1) do {
-						case "AccessoryMuzzle";
-						case "AccessoryPointer";
-						case "AccessorySights";
-						case "AccessoryBipod";
-						case "NVGoggles": {
-							_remove = true;
-						};
+				switch (_categories select 1) do {
+					case "AccessoryMuzzle";
+					case "AccessoryPointer";
+					case "AccessorySights";
+					case "AccessoryBipod";
+					case "NVGoggles": {
+						_remove = true;
 					};
 				};
 			};
@@ -368,28 +373,13 @@ private _equipmentFilter = {
 			};
 			case "Equipment": {
 				switch (_categories select 1) do {
-					case "Backpack": {
-						if (hasIFA) then {
-							_remove = true;
-						};
-					};
-					case "Glasses": {
-						if (hasIFA) then {
-							_remove = true;
-						};
-					};
 					case "Headgear": {
-						if (hasIFA) then {
+						if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0) then {
 							_remove = true;
-						}
-						else {
-							if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0) then {
-								_remove = true;
-							};
 						};
 					};
 					case "Uniform": {
-						if (hasIFA || has3CB) then {
+						if (has3CB) then {
 							_remove = true;
 						};
 					};
@@ -399,11 +389,50 @@ private _equipmentFilter = {
 						};
 					};
 				};
-
 			};
 		};
 	};
 
+	//IFA is stricter, remove all modern day stuff unless necessary (some ACE items)
+	//Avoid listing all of the mods here.
+	if (hasIFA && !_remove && {(_itemIsVanilla || _itemMod == "@ace" || _itemMod ==	"@task_force_radio")}) then {
+		switch (_categories select 0) do {
+			case "Item": {
+				switch (_categories select 1) do {
+					case "AccessoryMuzzle";
+					case "AccessoryPointer";
+					case "AccessorySights";
+					case "AccessoryBipod";
+					case "Binocular";
+					case "Compass";
+					case "GPS";
+					case "LaserDesignator";
+					case "MineDetector";
+					case "NVGoggles";
+					case "Radio";
+					case "UAVTerminal";
+					case "Unknown";
+					case "Watch": {
+						_remove = true;
+					};
+				};
+			};
+			case "Weapon": {
+				_remove = true;
+			};
+			case "Equipment": {
+				_remove = true;
+			};
+			case "Magazine": {
+				_remove = true;
+			};
+			case "Mine": {
+				_remove = true;
+			};
+		};
+	
+	};
+	
 	_remove;
 };
 
@@ -683,6 +712,7 @@ publicVariable "allSMGs";
 publicVariable "allSniperRifles";
 
 publicVariable "allCivilianUniforms";
+publicVariable "allCivilianHeadgear";
 publicVariable "allRebelUniforms";
 publicVariable "allArmoredHeadgear";
 publicVariable "allSmokeGrenades";

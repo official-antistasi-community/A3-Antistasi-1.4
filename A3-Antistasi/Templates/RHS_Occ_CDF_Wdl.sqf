@@ -26,15 +26,15 @@ NATOAmmobox = "I_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"rhsgref_cdf_para_squadleader"
+	"rhsgref_cdf_para_squadleader",
 	//Medic
-	"rhsgref_cdf_para_medic"
+	"rhsgref_cdf_para_medic",
 	//Autorifleman
-	"rhsgref_cdf_para_autorifleman"
+	"rhsgref_cdf_para_autorifleman",
 	//Marksman
-	"rhsgref_cdf_para_marksman"
+	"rhsgref_cdf_para_marksman",
 	//Anti-tank Scout
-	"rhsgref_cdf_para_grenadier"
+	"rhsgref_cdf_para_grenadier",
 	//AT2
 	"rhsgref_cdf_para_grenadier"
 ];

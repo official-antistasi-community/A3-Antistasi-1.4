@@ -1,7 +1,7 @@
 #include "defineGarage.inc"
 
 //vehPlace_lastPreviewPosition = nil;
-_pos = getPos vehPlace_previewVeh;
+_pos = getPosASL vehPlace_previewVeh;
 _dir = getDir vehPlace_previewVeh;
 _vehicleType = typeOf vehPlace_previewVeh;
 deleteVehicle vehPlace_previewVeh;

@@ -3,7 +3,7 @@ private ["_roads","_pos","_positionX","_groupX"];
 _markersX = markersX + [respawnTeamPlayer];
 
 _esHC = false;
-
+if !((vehicle player getVariable "SA_Tow_Ropes") isEqualTo objNull) exitWith {hint "You cannot Fast Travel with your Tow Rope out or a Vehicle attached"};
 if (count hcSelected player > 1) exitWith {hint "You can select one group only to Fast Travel"};
 if (count hcSelected player == 1) then {_groupX = hcSelected player select 0; _esHC = true} else {_groupX = group player};
 _checkForPlayer = false;

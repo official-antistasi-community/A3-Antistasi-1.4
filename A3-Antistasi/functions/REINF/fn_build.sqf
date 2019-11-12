@@ -169,10 +169,6 @@ if ((build_type == "SB") or (build_type == "CB")) then
 
 if (_leave) exitWith {hint format ["%1",_textX]};
 
-//hint "Select a place to build the required asset and press SPACE to start the construction.\n\nHit ESC to exit";
-//garageVeh = _classX createVehicleLocal [0,0,0];
-//bought = 0;
-
 build_handleDamageHandler = player addEventHandler ["HandleDamage",{[] call A3A_fnc_vehPlacementCancel;}];
 
 //START PLACEMENT HERE

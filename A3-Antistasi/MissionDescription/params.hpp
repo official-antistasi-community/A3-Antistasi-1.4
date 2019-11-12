@@ -331,14 +331,14 @@ class Params
           title = "Maximum Attachment Types in Crates";
           values[] = {0,2,4,9};
           texts[] = {"1","3","5","10"};
-          default = 2;
+          default = 4;
      };
      class crateAttachmentNumMax
      {
           title = "Maximum Attachment Quantity in Crates";
-          values[] = {0,1,3,5,10,15};
-          texts[] = {"None","1","3","5","10","15"};
-          default = 3;
+          values[] = {0,1,3,5,7,10,15,20,30};
+          texts[] = {"None","1","3","5","7","10","15","20","30"};
+          default = 10;
      };
      class Spacer5
      {

@@ -104,9 +104,15 @@ if (_baseCategory == "RocketLaunchers") then {
 };
 
 if (_baseCategory == "MissileLaunchers") then {
-	if (getText (configfile >> "CfgWeapons" >> _className >> "nameSound") == "aalauncher") then {
+	private _launcherInfo = [_className] call A3A_fnc_launcherInfo;
+	
+	//If we can lock air, it's AA.
+	if (_launcherInfo select 1) then {
 		_categories pushBack "AA";
-	} else {
+	};
+	
+	//If we can lock ground, or can't lock either air or ground, it's AT.
+	if (_launcherInfo select 0 || !(_launcherInfo select 0 || _launcherInfo select 1)) then {
 		_categories pushBack "AT";
 	};
 };

@@ -74,49 +74,56 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	_roads = [];
 	_numCiv = 0;
 
-	if ( (toLower worldName) in ["tanoa", "altis", "chernarus_summer"] ) then {
+	if ( (toLower worldName) in ["tanoa", "altis", "chernarus_summer"] ) then
+	{
 		_roads = roadsX getVariable _nameX;
 		_numCiv = server getVariable _nameX;
-
-		if (isNil "_numCiv") then {
+		if (isNil "_numCiv") then
+		{
 			diag_log format ["%1: [Antistasi] | ERROR | initZones | No Civilian Limit Set %2.", servertime, _nameX];
 			_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
 			_roadsProv = _pos nearRoads _size;
 
-			_roadsProv apply {
+			_roadsProv apply
+			{
 				_roadcon = roadsConnectedto _x;
-
-				if (count _roadcon == 2) then {
+				if (count _roadcon == 2) then
+				{
 					_roads pushBack (getPosATL _x);
 				};
 			};
-
 			roadsX setVariable [_nameX, _roads];
 		};
 
-		if (typeName _numCiv != typeName 0) then {
+		if (!(_numCiv isEqualType 0)) then
+		{
 			hint format ["Incorrect Data: %1. Data Type: %2",_nameX, typeName _numCiv];
 			diag_log format ["%1: [Antistasi] | ERROR | initZones | Incorrect data type for %2, Type given %3",servertime,_nameX, typeName _numCiv];
 		};
-	} else {
+	}
+	else
+	{
 		_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
 		_roadsProv = _pos nearRoads _size;
-
-		_roadsProv apply {
+		_roadsProv apply
+		{
 			_roadcon = roadsConnectedto _x;
-
-			if (count _roadcon == 2) then {
+			if (count _roadcon == 2) then
+			{
 				_roads pushBack (getPosATL _x);
 			};
 		};
-
 		roadsX setVariable [_nameX,_roads];
 	};	//swap then and else, for better view
 
 	_numVeh = round (_numCiv / 3);
 	_nroads = count _roads;
-	_nearRoadsFinalSorted = [_roads, [], { _pos distance _x }, "ASCEND"] call BIS_fnc_sortBy;
-	_pos = _nearRoadsFinalSorted select 0;
+	if(_nroads > 0) then
+	{
+		//Fixed issue with a town on tembledan having no roads
+		_nearRoadsFinalSorted = [_roads, [], { _pos distance _x }, "ASCEND"] call BIS_fnc_sortBy;
+		_pos = _nearRoadsFinalSorted select 0;
+	};
 	_mrk = createmarker [format ["%1", _nameX], _pos];
 	_mrk setMarkerSize [_size, _size];
 	_mrk setMarkerShape "RECTANGLE";

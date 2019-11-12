@@ -32,6 +32,12 @@ while {_IDinUse} do
 };
 server setVariable [str _convoyID, true, true];
 
+_convoyID spawn
+{
+  sleep (30 * 60);
+  server setVariable [str _this, nil, true];
+};
+
 _type = toLower _type;
 _isMarker = _destination isEqualType "";
 _targetString = if(_isMarker) then {_destination} else {str _destination};

@@ -35,6 +35,7 @@ limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {fal
 napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
 teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
 playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
+logLevel = "logLevel" call BIS_fnc_getParamValue; publicVariable "logLevel";
 [] call A3A_fnc_crateLootParams;
 
 //Load Campaign ID if resuming game
@@ -67,7 +68,6 @@ waitUntil {(count playableUnits) > 0};
 waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count playableUnits)};//ya estamos todos
 [] spawn A3A_fnc_modBlacklist;
 
-call A3A_fnc_initGarrisons;
 if (loadLastSave) then {
 	diag_log format ["%1: [Antistasi] | INFO | Persitent Load selected.",servertime];
 	["membersX"] call fn_LoadStat;
@@ -77,6 +77,9 @@ if (loadLastSave) then {
 	};
 };
 publicVariable "loadLastSave";
+
+call A3A_fnc_initGarrisons;
+
 if (loadLastSave) then {
 	[] spawn A3A_fnc_loadServer;
 	waitUntil {!isNil"statsLoaded"};

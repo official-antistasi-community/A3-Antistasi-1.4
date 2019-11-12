@@ -2,10 +2,10 @@
 #include "dialogs.hpp"
 
 author = $STR_antistasi_credits_generic_author_text;
-OnLoadName = $STR_antistasi_mission_info_kunduz_mapname_text;
+OnLoadName = $STR_antistasi_mission_info_kunduz_mapname_short_text;
 OnLoadMission = $STR_antistasi_mission_info_kunduz_blurb_text;
 loadScreen = "pic.jpg";
-
+briefingName = $STR_antistasi_mission_info_kunduz_mapname_text;
 overviewText = $STR_antistasi_mission_info_kunduz_description_text;
 overviewPicture = "pic.jpg";
 

@@ -216,32 +216,16 @@ class AddonsMetaData
 	};
 };
 randomSeed=13388897;
-class CustomAttributes
-{
-	author=$STR_antistasi_credits_generic_author_text;
-};
 class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_malden_mapname_text;
-		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
-		timeOfChanges=1800.0002;
-		startWeather=0.30000001;
-		startWind=0.1;
-		startWaves=0.1;
-		forecastWeather=0.30000001;
-		forecastWind=0.1;
-		forecastWaves=0.1;
-		forecastLightnings=0.1;
 		year=2035;
 		month=6;
-		day=24;
-		hour=12;
+		day=1;
+		hour=10;
 		minute=0;
-		startFogDecay=0.014;
-		forecastFogDecay=0.014;
 	};
 	class Entities
 	{

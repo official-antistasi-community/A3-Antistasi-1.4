@@ -158,29 +158,16 @@ class AddonsMetaData
 	};
 };
 randomSeed=8109385;
-class ScenarioData
-{
-	author=$STR_antistasi_credits_generic_author_text;
-};
 class Mission
 {
 	class Intel
 	{
-		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
-		startWeather=0;
-		startWind=0;
-		forecastWeather=0.16536765;
-		forecastWind=0;
-		forecastWaves=0.34750906;
-		forecastLightnings=0.099999994;
 		year=2035;
 		month=6;
 		day=1;
-		hour=6;
+		hour=10;
 		minute=0;
-		startFogDecay=0.013;
-		forecastFogDecay=0.013;
 	};
 	class Entities
 	{

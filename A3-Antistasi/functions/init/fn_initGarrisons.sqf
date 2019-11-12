@@ -58,6 +58,7 @@ _fnc_initMarker =
 
 _fnc_initGarrison =
 {
+	if((!(isNil "loadLastSave")) && {loadLastSave}) exitWith {};
 	params ["_markerArray", "_type"];
 	private ["_side", "_groupsRandom", "_garrNum", "_garrisonOld", "_marker"];
 	{
@@ -155,7 +156,7 @@ if (debug) then {
 };
 
 [_mrkCSAT, airportsX, flagCSATmrk, "%1 Airbase", true] spawn _fnc_initMarker;
-[airportsX, "Airport"] spawn _fnc_initGarrison;								//Old system
+[airportsX, "Airport"] call _fnc_initGarrison;								//Old system
 [airportsX, "Airport", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
 
 
@@ -164,7 +165,7 @@ if (debug) then {
 };
 
 [_mrkCSAT, resourcesX, "loc_rock", "Resources"] spawn _fnc_initMarker;
-[resourcesX, "Resource"] spawn _fnc_initGarrison;							//Old system
+[resourcesX, "Resource"] call _fnc_initGarrison;							//Old system
 [resourcesX, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
 
 if (debug) then {
@@ -172,7 +173,7 @@ if (debug) then {
 };
 
 [_mrkCSAT, factories, "u_installation", "Factory"] spawn _fnc_initMarker;
-[factories, "Factory"] spawn _fnc_initGarrison;
+[factories, "Factory"] call _fnc_initGarrison;
 [factories, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;
 
 if (debug) then {
@@ -180,7 +181,7 @@ if (debug) then {
 };
 
 [_mrkCSAT, outposts, "loc_bunker", "%1 Outpost", true] spawn _fnc_initMarker;
-[outposts, "Outpost"] spawn _fnc_initGarrison;
+[outposts, "Outpost"] call _fnc_initGarrison;
 [outposts, "Outpost", [1,1,0]] spawn A3A_fnc_createGarrison;
 
 if (debug) then {
@@ -188,7 +189,7 @@ if (debug) then {
 };
 
 [_mrkCSAT, seaports, "b_naval", "Sea Port"] spawn _fnc_initMarker;
-[seaports, "Seaport"] spawn _fnc_initGarrison;
+[seaports, "Seaport"] call _fnc_initGarrison;
 [seaports, "Other", [1,0,0]] spawn A3A_fnc_createGarrison;
 
 //New system, adding cities

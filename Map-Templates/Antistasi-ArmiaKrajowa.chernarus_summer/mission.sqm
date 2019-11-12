@@ -145,42 +145,21 @@ class AddonsMetaData
 	};
 };
 randomSeed=16007350;
-class ScenarioData
-{
-	author=$STR_antistasi_credits_generic_author_text;
-};
 class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_cherna_mapname_text;
-		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
-		timeOfChanges=1800.0002;
-		startWeather=0.25;
-		startWind=0.1;
-		startWaves=0.1;
-		forecastWeather=0.25;
-		forecastWind=0.1;
-		forecastWaves=0.1;
-		forecastLightnings=0.1;
-		wavesForced=1;
-		windForced=1;
-		year=2008;
-		month=10;
-		day=11;
-		hour=9;
-		minute=20;
-		startFogDecay=0.014;
-		forecastFogDecay=0.014;
+		year=1942;
+		month=6;
+		day=1;
+		hour=10;
+		minute=0;
 	};
 	class Entities
 	{
-		items=159;
+		items=56;
 		class Item0
-		{
-			type="rectangle";
-			colorName="ColorEAST";
 		{
 			dataType="Marker";
 			position[]={11716.97,168.66901,12767.416};

@@ -228,30 +228,16 @@ class AddonsMetaData
 	};
 };
 randomSeed=2288247;
-class ScenarioData
-{
-	author=$STR_antistasi_credits_generic_author_text;
-};
 class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_kunduz_mapname_text;
-		overviewText=$STR_antistasi_credits_generic_version_text;
 		resistanceWest=0;
-		timeOfChanges=1800.0002;
-		startWeather=0.30000001;
-		startWind=0.1;
-		startWaves=0.1;
-		forecastWeather=0.30000001;
-		forecastWind=0.1;
-		forecastWaves=0.1;
-		forecastLightnings=0.1;
-		year=2009;
-		month=7;
-		day=6;
-		startFogDecay=0.014;
-		forecastFogDecay=0.014;
+		year=2035;
+		month=6;
+		day=1;
+		hour=10;
+		minute=0;
 	};
 	class Entities
 	{

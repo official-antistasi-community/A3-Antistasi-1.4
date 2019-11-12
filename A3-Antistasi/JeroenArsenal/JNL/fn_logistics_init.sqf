@@ -110,8 +110,8 @@ jnl_vehicleHardpoints = [
     //RHS Gaz-66 truck  "rhs_gaz66_vdv"
     ["\rhsafrf\addons\rhs_gaz66\rhs_gaz66.p3d", [
     	[0,		[0,-0.88974,-0.610707],		[]], //Weapon node
-    	[1,		[0,-0.135376,-0.610707],	[]], //Cargo node
-    	[1,		[0,-1.73634,-0.610707],		[]]
+    	[1,		[0,-0.135376,-0.610707],	[12,3,13,4,5,2]], //Cargo node
+    	[1,		[0,-1.73634,-0.610707],		[6,7,8,9,11,10]]
     ]],
 
     //RHS truck "rhsgref_nat_ural_open"
@@ -131,6 +131,12 @@ jnl_vehicleHardpoints = [
     	[1,		[0,-0.207184,-0.19277],	[12,3,13,4,5,2]], //Cargo
     	[1,		[0,-1.78506,-0.19277],	[6,7,8,9,11,10]]
     ]],
+
+	//RHS Zil131 plain (eg. rhsgref_cdf_zil131) and open (eg. rhsgref_cdf_zil131_open)
+	["rhsafrf\addons\rhs_zil131\rhs_zil131", [
+		[1, [0,-0.1,-0.45], [10,11,2,3,4,5]],
+		[1, [0,-1.8,-0.45], [6,7,8,9]]			// only 10 seats
+	]],
 
     //USAF Truck seats covered
     ["\rhsusf\addons\rhsusf_fmtv\M1078A1P2",[

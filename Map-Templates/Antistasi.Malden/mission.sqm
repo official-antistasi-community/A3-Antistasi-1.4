@@ -216,10 +216,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=13388897;
-class ScenarioData
-{
-	author="Bob Murphy";
-};
 class Mission
 {
 	class Intel

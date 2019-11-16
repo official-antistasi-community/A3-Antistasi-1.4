@@ -56,12 +56,10 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 ### How to build from GIT  
 - Download ZIP file
 - Extract ZIP
-- Copy the following files from the Template `A3-Antistasi/Templates/A3-*` for your mission of choice
-  - mission.sqm
-  - description.ext
-  - pic.jpg
-- Paste them into the root of `A3-Antistasi/`
-- Use a PBO Packager to Pack `A3-Antistasi/`
+- Right click on `PrepareMissionsForPacking.ps1` and select 'Open with PowerShell'
+- The script will create a new folder called `PreparedMissions/`
+- Inside this folder you will find multiple subfolders, labeled `Antistasi-VersionNumber.MapName`
+- Use a PBO Packager to pack the any of these mission folders
 
 ### Known Issues:
 For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi-1.4/issues).

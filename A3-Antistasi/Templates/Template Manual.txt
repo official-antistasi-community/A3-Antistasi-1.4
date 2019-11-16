@@ -1,0 +1,121 @@
+Hi! And welcome to the template folder.
+This folder contains ALL of the units and vehicles that are recognized and used by the mission.
+The template names follow a common structure: Modset _ Side(mission logic [Rebel, Occupant, Invader]) _ Side(game logic [Blue, Green and Red]) _ Environment (or map for vanilla as each one will have dlc dependancies)
+
+BAF also needs RHSUSAF due to 3CB's lack of any AA assets.
+
+
+
+
+OLD information below, still somewhat useful for understanding variable names, though structure has been changed.
+The following is a commented version of the templates samples from vanilla, explaining how to build your own template.
+
+First: You have to build three files (you can do it in 2 or 1 but I think it's easier), which contain the three factions. Name them whatever.
+
+Second: Mod detection, Antistasi automatically detects the integrated mods, my suggestion is just to bypass that detection and load your templates. The script is initVar.sqf. Do the following:
+	- Set myCustomMod to true, this will ensure you wont find any vanilla item around like titan launchers etc.
+	- Comment the lines which load the templates (ATM 222 to 249) and call compile your template / templates
+Third: From there, most of the things are detected automatically from your mod or your templates, the only thing you may want to edit outside the templates is, in initVar.sqf, vehFastRope variable, adding classnames of helis you want
+to fast rope soldiers.
+Fourth: This document is made for the rebel as GREENFOR version. Versions are detected checking Petros side. Obviously if you plan to build a version on which rebels are BLUFOR or REDFOR, templates will have to contain proper side
+classnames.
+Fifth: VERY IMPORTANT: RESPECT THE VARIABLE FORMATS IN THE TEMPLATES, IF YOU SEE AN ARRAY, IT HAS TO BE AN ARRAY, IF YOU SEE A STRING, IT HAS TO BE A STRING!!!!!
+
+Now the templates:
+teamPlayerVanilla.sqf:
+
+SDKMortar = "I_G_Mortar_01_F";//rebel mortar
+SDKMortarHEMag = "8Rnd_82mm_Mo_shells";// the mortar shells, used in arty scripts
+SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";// smoke shells, used in arty scripts
+SDKMGStatic = "I_HMG_01_high_F";//rebel static MG
+staticATteamPlayer = "I_Static_AT_F";//rebel static AT
+staticAAteamPlayer = "I_Static_AA_F";//rebel static AA
+
+staticCrewTeamPlayer = "I_G_Soldier_unarmed_F";// static crew classname, has to be unique, if the mod does not have a cre model, use this and some script will replace his clothing
+SDKUnarmed = "I_G_Survivor_F";//unarmed prisoner model, it has to be unique, if the mod does not have an unarmed model, use this and some script will replace his clothing
+SDKSniper = ["I_C_Soldier_Bandit_5_F","I_C_Soldier_Para_7_F"];//sniper, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKATman = ["I_C_Soldier_Bandit_2_F","I_C_Soldier_Para_5_F"];//AT soldier, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKMedic = ["I_C_Soldier_Bandit_1_F","I_C_Soldier_Para_3_F"];//Medic, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKMG = ["I_C_Soldier_Bandit_3_F","I_C_Soldier_Para_4_F"];//Machine gunner, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKExp = ["I_C_Soldier_Bandit_8_F","I_C_Soldier_Para_8_F"];//Explosive specialist, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKGL = ["I_C_Soldier_Bandit_6_F","I_C_Soldier_Para_6_F"];//Grenade Launcher, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKMil = ["I_C_Soldier_Bandit_7_F","I_C_Soldier_Para_1_F"];//Basic militia grunt, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKSL = ["I_C_Soldier_Bandit_4_F","I_C_Soldier_Para_2_F"];//Squad Leader, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+SDKEng = ["I_G_engineer_F","I_G_engineer_F"];//Engineer, with two tiers, both have to be unique, if your mod has not two tiers, place the same classname
+
+vehSDKBike = "I_G_Quadbike_01_F";//most of the mods dont have a bike model, replace it with the most basic militia car of your mod or just leave the quadbike
+vehSDKLightArmed = "I_C_Offroad_02_LMG_F";//rebel MG car
+vehSDKAT = "I_C_Offroad_02_AT_F";//rebel self propelled cannon
+vehSDKLightUnarmed = "I_C_Offroad_01_F";//rebel car
+vehSDKTruck = "I_C_Van_01_Transport_F";//rebel truck
+//vehSDKHeli = "I_C_Heli_Light_01_civil_F";//this no longer exists
+vehSDKPlane = "I_C_Plane_civil_01_F";//rebel plane, pick the most basic plane
+vehSDKBoat = "I_C_Boat_Transport_01_F";//rebel rudder boat
+vehSDKRepair = "B_G_Offroad_01_repair_F";//repair car or truck
+SDKFlag = "Flag_Syndikat_F";//flag of the rebel faction
+SDKFlagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";//texture of the flag, in case rebels take an enemy flag
+typePetros = "I_C_Soldier_Camo_F";//petros or maru model
+
+supportStaticSDKB = "I_HMG_01_support_F";//static support backpack, place "not_supported" if your mod lacks of it
+ATStaticSDKB = "I_AT_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
+MGStaticSDKB = "I_HMG_01_high_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
+supportStaticsSDKB2 = "I_HMG_01_support_high_F";//static support backpack, place "not_supported" if your mod lacks of it
+AAStaticSDKB = "I_AA_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
+MortStaticSDKB = "I_Mortar_01_weapon_F";//static support backpack, place "not_supported" if your mod lacks of it
+supportStaticsSDKB3 = "I_Mortar_01_support_F";//static support backpack, place "not_supported" if your mod lacks of it
+
+civCar = "C_Offroad_01_F";//purchaseable civ car
+civTruck = "C_Van_01_transport_F";//purchaseable civ truck
+civHeli = "C_Heli_Light_01_civil_F";//purchaseable civ heli
+civBoat = "C_Boat_Transport_02_F";//purchaseable civ boat
+
+sniperRifle = "srifle_DMR_06_camo_F";//sniper rifle, mainly for metros / maru
+lampsSDK = ["acc_flashlight"];//flashlight if available in your mod
+
+ATMineMag = "ATMine_Range_Mag";//mines which will be deployed in the minefield scripts
+APERSMineMag = "APERSMine_Range_Mag";//mines which will be deployed in the minefield scripts
+
+//here comes the Tier 1 (police) and Tier 2 (PMC) enemy stuff. If your mod does not have enough classes in other sides, then just use the most basic classnames of those flactions.
+//the following is fot Tier 2. In the template, as we use Sindykat as rebels, we may use Blufor or Greenfor FIA as PMC.
+
+if (hasFFAA) then//FFAA mod template loading, ignore it.
+	{
+	call compile preProcessFileLineNumbers "Templates\OccupantsFFAA.sqf"
+	}
+else
+	{
+	if (gameMode != 4) then//this is tricky, if you play on the version which the invaders have the whole island, then you need REDFOR rebels, but by defualt, this is the setting
+		{
+		FIARifleman = "B_G_Soldier_F";//PMC grunt
+		FIAMarksman = "B_G_Sharpshooter_F";//PMC maksman
+		vehFIAArmedCar = "B_G_Offroad_01_armed_F";//PMC MG car (mainly for convoys and roadblocks)
+		vehFIATruck = "B_G_van_01_transport_F";//PMC truck
+		vehFIACar = "B_G_Offroad_01_F";//PMC car
+		groupsFIASmall = [["B_G_Soldier_GL_F","B_G_Soldier_F"],["B_G_Soldier_M_F","B_G_Soldier_F"],["B_G_Sharpshooter_F","B_G_Soldier_M_F"]];//those are the ones you find patrolling outside garrisons. You may put several times the same config so those will have more chance to spawn
+		groupsFIAMid = [["B_G_Soldier_SL_F","B_G_Sharpshooter_F","B_G_Soldier_AR_F","B_G_Soldier_A_F"],["B_G_Soldier_TL_F","B_G_Soldier_AR_F","B_G_Soldier_GL_F","B_G_Soldier_LAT_F"],["B_G_Soldier_TL_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F"]];
+		FIASquad = ["B_G_soldier_SL_F","B_G_soldier_F","B_G_soldier_LAT_F","B_G_Soldier_M_F","B_G_soldier_TL_F","B_G_soldier_AR_F","B_G_Soldier_A_F","B_G_medic_F"];//"IRG_InfSquad";///
+		groupsFIASquad = [FIASquad,["B_G_soldier_SL_F","B_G_soldier_LAT_F","B_G_Soldier_M_F","B_G_soldier_TL_F","B_G_Soldier_A_F","B_G_medic_F","B_support_MG_F","B_support_AMG_F"]];
+		factionFIA = "BLU_G_F";
+		}
+	else
+		{
+		FIARifleman = "O_G_Soldier_F";
+		FIAMarksman = "O_G_Sharpshooter_F";
+		vehFIAArmedCar = "O_G_Offroad_01_armed_F";
+		vehFIATruck = "O_G_van_01_transport_F";
+		vehFIACar = "O_G_Offroad_01_F";
+		groupsFIASmall = [["O_G_Soldier_GL_F","O_G_Soldier_F"],["O_G_Soldier_M_F","O_G_Soldier_F"],["O_G_Sharpshooter_F","O_G_Soldier_M_F"]];//["IRG_InfSentry","IRG_ReconSentry","IRG_SniperTeam_M"];///
+		groupsFIAMid = [["O_G_Soldier_SL_F","O_G_Sharpshooter_F","O_G_Soldier_AR_F","O_G_Soldier_A_F"],["O_G_Soldier_TL_F","O_G_Soldier_AR_F","O_G_Soldier_GL_F","O_G_Soldier_LAT_F"],["O_G_Soldier_TL_F","O_G_Soldier_LAT_F","O_G_Soldier_LAT_F","O_G_Soldier_LAT_F"]];
+		FIASquad = ["O_G_soldier_SL_F","O_G_soldier_F","O_G_soldier_LAT_F","O_G_Soldier_M_F","O_G_soldier_TL_F","O_G_soldier_AR_F","O_G_Soldier_A_F","O_G_medic_F"];//"IRG_InfSquad";///
+		groupsFIASquad = [FIASquad,["O_G_soldier_SL_F","O_G_soldier_LAT_F","O_G_Soldier_M_F","O_G_soldier_TL_F","O_G_Soldier_A_F","O_G_medic_F","O_support_MG_F","O_support_AMG_F"]];
+		factionFIA = "OPF_G_F";
+		};
+	};
+
+vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
+policeOfficer = "B_GEN_Commander_F";
+policeGrunt = "B_GEN_Soldier_F";
+groupsNATOGen = [policeOfficer,policeGrunt];
+nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
+
+factionGEN = "BLU_GEN_F";

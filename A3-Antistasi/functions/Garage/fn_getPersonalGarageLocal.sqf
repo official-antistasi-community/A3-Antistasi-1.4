@@ -1,0 +1,1 @@
+[player] call A3A_fnc_getPersonalGarage;

@@ -1,0 +1,12 @@
+Many thanks to:
+-Kronzky who create the UPS script which is the base of UPSMON
+-Monsada who's the one that create this master piece.
+-Rafalsky who made several improvements to the script.
+-Beerkan,Ollem,Shaygman who made improvements and port the script to ArmaIII
+-Mando for his "mando_check_los" script.
+-Carl Gustav for his "sun_angle" script.
+-Das Attornay for helping me with the fortify module.
+-Shuko for his "shkpos" that help me a lot...
+-Grumpy old man for taking time to test this new version of UPSMON and for all his support.
+-Gienkov and Kord who test all pieces of the script ...
+

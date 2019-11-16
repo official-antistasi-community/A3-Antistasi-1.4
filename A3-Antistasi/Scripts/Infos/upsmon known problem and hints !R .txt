@@ -1,0 +1,85 @@
+===============================================================================================
+KNOWN PROBLEMS:
+1) Pilots are very stupid if they have to land, sometimes they crash the helicopter (trees).
+2) Sometimes a vehicle stops and wait for something (driver switches off the engine)? In the end (~2min) stuck control makes it move but I do not know if the problem is UPSMON or Arma.
+Difficult to reproduce cause it happens at random times and very rarely. Expecialy when reinforcement AI use combat vehicle. Possible explanation: targetpos in the forest, AI lost the way, no radio contact etc :)
+3) Too much smoke might cause drop in Fps. (change parameters: R_USE_SMOKE_wounded = 13; R_USE_SMOKE_killed = 35;)
+
+
+===============================================================================================
+HINTS & TIPS :
+
+-------------------
+0) To get rid of the debug information set (in Init_UPSMON.sqf) KRON_UPS_Debug = 0;
+
+-------------------
+1) note for MissionMakers : UPSMON patrol vehicles after some time use up all fuel and stop. 
+Use a script to refuel the vehicles.
+
+------------------
+2)	- Hide area markers before briefing. -
+	
+	create Game Logic Object
+	put in initialization field:
+	
+		nul = call compile preprocessFile "scripts\UPSMON\!R\markerAlpha.sqf";
+
+	(all markers area must be named area0, area1...area13)
+	
+
+------------------	
+3) If you use civilians, always set their skill to 0 (save CPU).	
+
+------------------
+4) in init.sqf do not use:
+
+		if (isServer) then
+		{
+			//Init UPSMON scritp
+			call compile preprocessFileLineNumbers "scripts\Init_UPSMON.sqf";    
+		};
+
+use:
+
+		//Init UPSMON scritp
+		call compile preprocessFileLineNumbers "scripts\Init_UPSMON.sqf";    
+
+as Init_UPSMON.sqf has got part of the code which should be run on all clients.
+
+----------------
+5) If you fight on the small area think about lowering the "KRON_UPS_sharedist".
+example: If the fight area is a town (600x600) and "KRON_UPS_sharedist = 700;", in the moment you are spotted at the edge of the town
+all AI units in the 700m from you gets info about your position, and if they are not busy you can expect attack of all units.
+
+6) Only one init per Group, if you init in the unit INIT (make sure this unit is 100% possibility of present)
+
+7) if the leader is vehicle -> the group follows the vehicle (fast), if the leader is outside vehicle -> the vehicle follow the foot leader. (slow)
+
+8) to count civilians killed by players use (array): KILLED_CIV_COUNTER [Total,by West,by East,by Resistance, the Killer] 
+            example: total_number_civilians_killed_by_any_players = KILLED_CIV_COUNTER select 0;
+                     number_civilians_killed_by_any_east_players =	KILLED_CIV_COUNTER select 2;
+					 the_killer	= KILLED_CIV_COUNTER select 4;
+                    (Note: if the player becomes ENEMY to all is not side anymore. Kills by ENEMY are only counted in Total)  	  
+
+
+================================================================================================	
+Hello UPSMON users,
+
+I'm currently run the project but I'm not very good at creating new function to the UPSMON as I'm not good script writer.
+I feel much better as a person who can adjust existing code to work with UPSMON well.
+95% of the functions in UPSMON were there (created by Kronzky or Monsada). 
+I just make some of them work more smooth, and fixed some bugs. 
+The aim is reliability, performance and make all end user friendly.
+
+So if you found a bug or had improved part of the code... let me know.
+Any new code that could make UPSMON runs better or add new functions is very welcome. :)
+
+forum: 			http://forums.bistudio.com/showthread.php?t=91696
+
+report bug: 	http://dev-heaven.net/projects/upsmon/issues
+(do not forget to attach simple mission to reproduce problem)
+
+
+Thank you
+
+!R

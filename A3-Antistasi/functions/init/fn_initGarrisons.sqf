@@ -1,7 +1,7 @@
 //Original Author: Barbolani
 //Edited and updated by the Antistasi Community Development Team
 
-diag_log format ["%1: [Antistasi] | INFO | InitGarrisons Started.", servertime];
+[2,"InitGarrisons started","initGarrisons.sqf"] call A3A_fnc_log;
 
 _fnc_initMarker =
 {
@@ -192,4 +192,4 @@ if (debug) then {
 //New system, adding cities
 [citiesX, "City", [0,0,0]] call A3A_fnc_createGarrison;
 
-diag_log format ["%1: [Antistasi] | INFO | InitGarrison Completed.", servertime];
+[2,"InitGarrisons complete","initGarrisons.sqf"] call A3A_fnc_log;

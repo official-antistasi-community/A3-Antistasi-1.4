@@ -49,4 +49,4 @@ if ("OfficialMod" call BIS_fnc_getParamValue isEqualTo 0) then
 {
 	disabledMods pushBack "officialmod";
 };
-diag_log format ["%1: [Antistasi] | INFO | Filter | Disabled DLC: %2", servertime, disabledMods];
+[2,format ["Disabled DLC: %2",disabledMods],"initDisabledMods.sqf"] call A3A_fnc_log;

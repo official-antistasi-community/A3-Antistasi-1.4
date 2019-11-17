@@ -1,11 +1,11 @@
-[2,"Init SQF Started","init.sqf"] spawn A3A_fnc_log;
+[2,"Init SQF started","init.sqf"] spawn A3A_fnc_log;
 //Arma 3 - Antistasi - Warlords of the Pacific by Barbolani & The Official AntiStasi Community
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.
 enableSaving [false,false];
 mapX setObjectTexture [0,"pic.jpg"];
      
 if (!isMultiPlayer) then {
-     [2,"Singleplayer Environment Detected","init.sqf"] spawn A3A_fnc_log;
+     [2,"Singleplayer environment detected","init.sqf"] spawn A3A_fnc_log;
      //Init server parameters
      gameMode = 1;
      autoSave = false;
@@ -18,7 +18,7 @@ if (!isMultiPlayer) then {
      civTraffic = 1;
      limitedFT = false;
      call compile preprocessFileLineNumbers "initVar.sqf";
-     [2,format ["SP Version: %1 loaded",antistasiVersion],"init.sqf"] spawn A3A_fnc_log;
+     [2,format ["SP version: %1 loaded",antistasiVersion],"init.sqf"] spawn A3A_fnc_log;
      initVar = true;
      respawnOccupants setMarkerAlpha 0;
      "respawn_east" setMarkerAlpha 0;
@@ -74,4 +74,4 @@ if (!isMultiPlayer) then {
      deleteMarker "respawn_east";
      if (teamPlayer == independent) then {deleteMarker "respawn_west"} else {deleteMarker "respawn_guerrila"};
 };
-[2,"Init Finished","init.sqf"] spawn A3A_fnc_log;
+[2,"Init finished","init.sqf"] spawn A3A_fnc_log;

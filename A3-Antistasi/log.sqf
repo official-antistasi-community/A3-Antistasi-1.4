@@ -33,7 +33,7 @@ switch (_errLevel) do {
     };
 
     case 2: {
-        _typex = format ["%1: [Antistasi] | INFO | %2",servertime, _errMsg];
+        _typex = format ["%1: [Antistasi] | INFO | %2 | %3",servertime, _errFile, _errMsg];
     };
 
     case 3: {

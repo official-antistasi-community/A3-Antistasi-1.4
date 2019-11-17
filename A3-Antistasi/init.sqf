@@ -18,7 +18,7 @@ if (!isMultiPlayer) then {
      civTraffic = 1;
      limitedFT = false;
      call compile preprocessFileLineNumbers "initVar.sqf";
-     [2,format ["SP version: %1 loaded",antistasiVersion],"init.sqf"] spawn A3A_fnc_log;
+     [2,format ["SP version: %1 loaded",localize "STR_antistasi_credits_generic_version_text"],"init.sqf"] spawn A3A_fnc_log;
      initVar = true;
      respawnOccupants setMarkerAlpha 0;
      "respawn_east" setMarkerAlpha 0;

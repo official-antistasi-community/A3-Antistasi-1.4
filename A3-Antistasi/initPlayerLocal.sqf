@@ -1,6 +1,6 @@
 #include "functions\Garage\defineGarage.inc"
 
-diag_log format ["%1: [Antistasi] | INFO | initPlayerLocal Started.",servertime];
+[2,"initPlayerLocal started","initPlayerLocal.sqf"] spawn A3A_fnc_log;
 if (hasInterface) then {
 	waitUntil {!isNull player};
 	waitUntil {player == player};
@@ -13,7 +13,7 @@ if (isMultiplayer) then {
 		call compile preprocessFileLineNumbers "initFuncs.sqf";
 		call compile preprocessFileLineNumbers "initVar.sqf";
 		waitUntil {!isNil "initVar"};
-		diag_log format ["%1: [Antistasi] | INFO | MP Client | Version : %2.",servertime, antistasiVersion];
+		[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],"initPlayerLocal.sqf"] spawn A3A_fnc_log;
 	}
 	else {
 		waitUntil {sleep 0.5;(!isNil "serverInitDone")};
@@ -41,11 +41,11 @@ if (isMultiplayer) then {
 	//waitUntil {scriptdone _introshot};
 	disableUserInput true;
 	cutText ["Waiting for Players and Server Init","BLACK",0];
-	diag_log format ["%1: [Antistasi] | INFO | MP Client | Waiting for Server...",servertime];
+	[2,"Waiting for server...","initPlayerLocal.sqf"] spawn A3A_fnc_log;
 	waitUntil {(!isNil "serverInitDone")};
 	cutText ["Starting Mission","BLACK IN",0];
-	diag_log format ["%1: [Antistasi] | INFO | MP Client | Server loaded..",servertime];
-	diag_log format ["%1: [Antistasi] | INFO | MP Client | JIP?: %2",servertime,_isJip];
+	[2,"Server loaded!","initPlayerLocal.sqf"] spawn A3A_fnc_log;
+	[2,format ["JIP client: %1",_isJIP],"initPlayerLocal.sqf"] spawn A3A_fnc_log;
 	if (hasTFAR) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
@@ -129,21 +129,21 @@ if (player getVariable ["pvp",false]) exitWith {
 	pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if ((!_isJIP) or !pvpEnabled) then {
 		["noPvP",false,1,false,false] call BIS_fnc_endMission;
-		diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because he is not jipping or PvP slots are disabled.",servertime];
+		[2,"PvP player kicked: not JIP or disabled","initPlayerLocal.sqf"] spawn A3A_fnc_log;
 	}
 	else {
 		if (not([player] call A3A_fnc_isMember)) then {
 			["noPvP",false,1,false,false] call BIS_fnc_endMission;
-			diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because he is not member.",servertime];
+			[2,"PvP player kicked: not member","initPlayerLocal.sqf"] spawn A3A_fnc_log;
 		}
 		else {
 			if ({(side group _x != teamPlayer)} count playableUnits > {(side group _x == teamPlayer)} count playableUnits) then {
 				["noPvP",false,1,false,false] call BIS_fnc_endMission;
-				diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because PvP players number is equal to non PvP.",servertime];
+				[2,"PvP player kicked: PvP players equal to Rebel players","initPlayerLocal.sqf"] spawn A3A_fnc_log;
 			}
 			else {
 				[player] remoteExec ["A3A_fnc_playerHasBeenPvPCheck",2];
-				diag_log format ["%1: [Antistasi] | INFO | PvP player logged in, doing server side checks if the player has been rebel recently.",servertime];
+				[2,"PvP player logged in, running teamswitch check","initPlayerLocal.sqf"] spawn A3A_fnc_log;
 			};
 		};
 	};
@@ -430,7 +430,7 @@ if (_isJip) then {
 	else {
 		[] spawn A3A_fnc_firstLoad;
 	};
-	diag_log format ["%1: [Antistasi] | INFO | MP Client | JIP Client Loaded.",servertime];
+	[2,"JIP client loaded","initPlayerLocal.sqf"] spawn A3A_fnc_log;
 	player setPos (getMarkerPos respawnTeamPlayer);
 }
 else {
@@ -451,7 +451,7 @@ else {
 		    	else {
 		    		[true] spawn A3A_fnc_firstLoad;
 			};
-			diag_log format ["%1: [Antistasi] | INFO | MP Client | Client load finished.",servertime];
+			[2,"Client load complete","initPlayerLocal.sqf"] spawn A3A_fnc_log;
 		    	}
 			else {
 				membersX = [];
@@ -561,4 +561,4 @@ _layer cutRsc ["H8erHUD","PLAIN",0,false];
 //Can re-enable them if we find the source of the bug.
 enableEnvironment [false, true];
 
-diag_log format ["%1: [Antistasi]: initPlayerLocal Completed.",servertime];
+[2,"initPlayerLocal complete","initPlayerLocal.sqf"] spawn A3A_fnc_log;

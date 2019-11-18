@@ -18,14 +18,22 @@ private _vests = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_VEST) select {_x
 
 private _type = objNull;
 private _magazine = [];
+private _magConfig = objNull;
 private _capacity = objNull;
+private _bullets = objNull;
 private _count = objNull;
 {
 	_type = _x select 0;
-	_capacity = getNumber (configFile >> "CfgMagazines" >> _type >> "count");
-	_bullets = _x select 1;
-	_count = floor (_bullets/_capacity);
-	_magazine pushBack [_type,_count];
+	_magConfig = configFile >> "CfgMagazines" >> _type;
+	_capacity = getNumber (_magConfig >> "count");
+
+	// control unlocking missile launcher magazines
+	if (_capacity != 1 || allowGuidedLaunchers isEqualTo 1 ||
+		{!(getText (_magConfig >> "ammo") isKindOf "MissileBase")}) then {
+		_bullets = _x select 1;
+		_count = floor (_bullets/_capacity);
+		_magazine pushBack [_type,_count];
+	};
 } forEach _magazines;
 
 private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics + _helmets + _vests + _magazine;

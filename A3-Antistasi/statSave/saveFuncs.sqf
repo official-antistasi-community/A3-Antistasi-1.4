@@ -37,7 +37,7 @@ fn_ReturnSavedStat = {
 		_varValue = [_spanishVarName] call _loadVariable;
 	};
 	if (isNil "_varValue") exitWith {
-		[2,format ["Variable %1 does not exist",_varName],"saveFuncs.sqf"] call A3A_fnc_log;
+		diag_log format ["%1: [Antistasi] | ERROR | saveFuncs.sqf | Variable %2 does not exist.",servertime, _varName];
 	};
 	_varValue;
 };
@@ -68,7 +68,7 @@ fn_SavePlayerStat = {
 		_abort = true;
 	};
 	if (_abort) exitWith {
-		[2,format ["Save invalid for player: %1, saving %2 as %3",_playerUID,_varValue,_varName],"saveFuncs.sqf"] call A3A_fnc_log;
+		diag_log format ["[Antistiasi] Save invalid for %1, saving %3 as %2", _playerUID, _varName, _varValue];
 	};
 	private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
 	[_playerVarName, _varValue] call fn_SaveStat;
@@ -77,7 +77,7 @@ fn_SavePlayerStat = {
 fn_RetrievePlayerStat = {
 	private _playerUID = _this select 0;
 	private _varName = _this select 1;
-	if (isNil "_playerUID" || isNil "_varName") exitWith {[2,format ["Load invalid for player: %1, variable %2",_playerUID,_varName],"saveFuncs.sqf"] call A3A_fnc_log};
+	if (isNil "_playerUID" || isNil "_varName") exitWith {diag_log ["[Antistiasi] Load invalid for player %1 var %2", _playerUID, _varName]};
 	private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
 	[_playerVarName] call fn_ReturnSavedStat;
 };

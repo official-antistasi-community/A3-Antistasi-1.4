@@ -192,4 +192,4 @@ if (debug) then {
 //New system, adding cities
 [citiesX, "City", [0,0,0]] call A3A_fnc_createGarrison;
 
-[2,"InitGarrisons complete","initGarrisons.sqf"] call A3A_fnc_log;
+[2,"InitGarrisons completed","initGarrisons.sqf"] call A3A_fnc_log;

@@ -5,4 +5,4 @@
 [] call jn_fnc_logistics_init;
 boxX call jn_fnc_arsenal_init;
 
-[2,"initFuncs complete","initFuncs.sqf"] call A3A_fnc_log;
+[2,"initFuncs completed","initFuncs.sqf"] call A3A_fnc_log;

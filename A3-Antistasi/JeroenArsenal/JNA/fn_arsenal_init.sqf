@@ -2,8 +2,7 @@
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | JNA Init Started.",servertime];
-
+[2,"JNA init started","fn_arsenal_init.sqf"] call A3A_fnc_log;
 params [["_object",objNull,[objNull]]];
 
 //check if it was already initialised
@@ -50,7 +49,7 @@ jna_minItemMember = [24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24
 
 //server
 if(isServer)then{
-    diag_log format ["%1: [Antistasi] | INFO | JNA Server Detected.",servertime];
+    [2,"JNA server detected","fn_arsenal_init.sqf"] call A3A_fnc_log;
 
     //load default if it was not loaded from savegame
     if(isnil "jna_dataList" )then{jna_dataList = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];};
@@ -58,7 +57,7 @@ if(isServer)then{
 
 //player
 if(hasInterface)then{
-    diag_log format ["%1: [Antistasi] | INFO | JNA Loading Player Data.",servertime];
+    [2,"JNA loading player data","fn_arsenal_init.sqf"] call A3A_fnc_log;
 
     //add arsenal button
     _object addaction [
@@ -113,5 +112,5 @@ if(hasInterface)then{
         };
     }] call BIS_fnc_addScriptedEventHandler;
 };
-diag_log format ["%1: [Antistasi] | INFO | JNA Completed.",servertime];
+[2,"JNA init completed","fn_arsenal_init.sqf"] call A3A_fnc_log;
 arsenalInit = true;

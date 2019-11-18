@@ -451,7 +451,7 @@ else {
 		    	else {
 		    		[true] spawn A3A_fnc_firstLoad;
 			};
-			[2,"Client load complete","initPlayerLocal.sqf"] call A3A_fnc_log;
+			[2,"Client load completed","initPlayerLocal.sqf"] call A3A_fnc_log;
 		    	}
 			else {
 				membersX = [];
@@ -561,4 +561,4 @@ _layer cutRsc ["H8erHUD","PLAIN",0,false];
 //Can re-enable them if we find the source of the bug.
 enableEnvironment [false, true];
 
-[2,"initPlayerLocal complete","initPlayerLocal.sqf"] call A3A_fnc_log;
+[2,"initPlayerLocal completed","initPlayerLocal.sqf"] call A3A_fnc_log;

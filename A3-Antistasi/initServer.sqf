@@ -138,7 +138,7 @@ if !(loadLastSave) then {
 	{
 		_x call A3A_fnc_unlockEquipment;
 	} foreach initialRebelEquipment;
-	[2,"Initial arsenal unlocks complete","initServer.sqf"] call A3A_fnc_log;
+	[2,"Initial arsenal unlocks completed","initServer.sqf"] call A3A_fnc_log;
 };
 
 [[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;

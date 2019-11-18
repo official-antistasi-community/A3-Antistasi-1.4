@@ -55,7 +55,7 @@ SA_Advanced_Towing_Install = {
 if(!isNil "SA_TOW_INIT") exitWith {};
 SA_TOW_INIT = true;
 
-[2,"Loading advanced towing","advancedTowingInit.sqf"] call A3A_fnc_log;
+[2,"Loading advanced towing","fn_advancedTowingInit.sqf"] call A3A_fnc_log;
 
 SA_Simulate_Towing_Speed = {
 
@@ -865,7 +865,7 @@ if (isServer) then {
 
 };
 
-[2,"Loaded advanced towing","advancedTowingInit.sqf"] call A3A_fnc_log;
+[2,"Loaded advanced towing","fn_advancedTowingInit.sqf"] call A3A_fnc_log;
 
 };
 

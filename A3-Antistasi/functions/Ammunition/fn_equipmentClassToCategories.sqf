@@ -121,7 +121,7 @@ if (_baseCategory == "Rifles") then {
 	private _config = configfile >> "CfgWeapons" >> _className;
 	private _muzzles = getArray (_config >> "muzzles");
 	// workaround for RHS having an extra muzzle for "SAFE"
-	if (count _muzzles >= 2 && {"gl" == getText (_config >> (_muzzles # 1) >> "cursorAim")}) then {
+	if (count _muzzles >= 2 && {"gl" == getText (_config >> (_muzzles select 1) >> "cursorAim")}) then {
 		_categories pushBack "GrenadeLaunchers";
 	};
 };

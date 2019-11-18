@@ -68,6 +68,7 @@ switch (true) do {
 		};
 	};
 	case (_typeX in SDKATman): {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		if !(unlockedAT isEqualTo []) then {
 			private _rlauncher = selectRandom unlockedAT;
 			if (_rlauncher != secondaryWeapon _unit) then {
@@ -83,6 +84,7 @@ switch (true) do {
 		};
 	};
 	case (_typeX in squadLeaders): {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		_unit setskill ["courage",_skill + 0.2];
 		_unit setskill ["commanding",_skill + 0.2];
 	};

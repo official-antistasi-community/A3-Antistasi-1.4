@@ -39,7 +39,7 @@ if (isMultiplayer) then {
 	};
 	musicON = false;
 	//waitUntil {scriptdone _introshot};
-	disableUserInput true;
+	//disableUserInput true;
 	cutText ["Waiting for Players and Server Init","BLACK",0];
 	[2,"Waiting for server...","initPlayerLocal.sqf"] call A3A_fnc_log;
 	waitUntil {(!isNil "serverInitDone")};
@@ -109,7 +109,7 @@ _introShot = [
 //Initialise membershipEnabled so we can do isMember checks.
 membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
-disableUserInput false;
+//disableUserInput false;
 player setVariable ["spawner",true,true];
 
 if (isMultiplayer && {playerMarkersEnabled}) then {

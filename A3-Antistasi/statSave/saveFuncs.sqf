@@ -68,7 +68,6 @@ fn_SavePlayerStat = {
 		_abort = true;
 	};
 	if (_abort) exitWith {
-		diag_log format ["[Antistiasi] Save invalid for %1, saving %3 as %2", _playerUID, _varName, _varValue];
 		[2,format ["Save invalid for player: %1, saving %2 as %3",_playerUID,_varValue,_varName],"saveFuncs.sqf"] call A3A_fnc_log;
 	};
 	private _playerVarName = format ["player_%1_%2", _playerUID, _varName];

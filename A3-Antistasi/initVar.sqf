@@ -173,7 +173,7 @@ if (hasTFAR) then
 		{
 		[] spawn {
 				waitUntil {sleep 1; !isNil "TF_server_addon_version"};
-				diag_log format ["%1: [Antistasi] | INFO | initVar | Initialising TFAR settings.",servertime];
+				[2,"Initializing TFAR settings","initVar.sqf"] call A3A_fnc_log;
 				["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;						//set to false and players will spawn with LR radio.
 				if (hasIFA) then
 					{
@@ -299,11 +299,10 @@ CivBoats = (_civBoatConfigs select {_x call _vehIsValid} apply {configName _x});
 //     ID LIST FOR UNIT NAMES    ///
 ////////////////////////////////////
 [2,"Creating unit identities","initVar.sqf"] call A3A_fnc_log;
-if !(hasIFA) then
-	{
+if !(hasIFA) then {
 	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
 	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
-	};
+};
 
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///

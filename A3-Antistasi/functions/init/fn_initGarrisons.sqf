@@ -1,7 +1,7 @@
 //Original Author: Barbolani
 //Edited and updated by the Antistasi Community Development Team
 
-[2,"InitGarrisons started","initGarrisons.sqf"] call A3A_fnc_log;
+[2,"InitGarrisons started","fn_initGarrisons.sqf"] call A3A_fnc_log;
 
 _fnc_initMarker =
 {
@@ -192,4 +192,4 @@ if (debug) then {
 //New system, adding cities
 [citiesX, "City", [0,0,0]] call A3A_fnc_createGarrison;
 
-[2,"InitGarrisons completed","initGarrisons.sqf"] call A3A_fnc_log;
+[2,"InitGarrisons completed","fn_initGarrisons.sqf"] call A3A_fnc_log;

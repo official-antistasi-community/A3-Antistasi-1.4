@@ -191,9 +191,6 @@ if (isServer) then {
 				_nul = [_x] call A3A_fnc_createControls;
 			};
 		} forEach seaports;
-
-		sidesX setVariable ["NATO_carrier",Occupants,true];
-		sidesX setVariable ["CSAT_carrier",Invaders,true];
 	};
 	statsLoaded = 0; publicVariable "statsLoaded";
 	placementDone = true; publicVariable "placementDone";

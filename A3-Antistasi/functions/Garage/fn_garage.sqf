@@ -7,7 +7,8 @@ if (isNil "garageIsOpen") then {
 
 garage_mode = _this select 0;
 
-if (garage_mode == GARAGE_FACTION and (not([player] call A3A_fnc_isMember))) exitWith {hint "You cannot access the Garage as you are guest in this server"};
+if (garage_mode == GARAGE_FACTION && (not([player] call A3A_fnc_isMember))) exitWith {hint "You cannot access the Garage as you are guest in this server"};
+if (garage_mode == GARAGE_FACTION && !allowMembersFactionGarageAccess && player != theBoss) exitWith {hint "Member access to the faction garage is disabled. You must be the commander.";};
 if (player != player getVariable "owner") exitWith {hint "You cannot access the Garage while you are controlling AI"};
 if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {Hint "You cannot manage the Garage with enemies nearby"};
 
@@ -67,6 +68,15 @@ if (isNil "garage_keyDownHandler") then {
 	}];
 };
 private _extraMessage = "Arrow Up-Down to Switch Vehicles<br/>";
+
+//Only allow access to the faction garage if someone else isn't already accessing it. 
+//Try to find the player to make sure they're still online - aim to avoid a situation where players are locked out of the garage.
+if (garage_mode == GARAGE_FACTION && !isNil "garageLocked" && {(allPlayers findIf { getPlayerUID _x == (garageLocked select 1)}) > -1}) exitWith {
+	hint format ["%1 is accessing the garage right now. Please try again later. If this is broken, ask the player to log out.", garageLocked select 0];
+};
+//Define this last-thing, as we need to vehPlacement cleanup code to unset it.
+garageLocked = [name player, getPlayerUID player];
+publicVariable "garageLocked";
 
 garageIsOpen = true;
 [_initialType, "GARAGE", _extraMessage] call A3A_fnc_vehPlacementBegin;

@@ -137,7 +137,7 @@ _dir = 0;
 if (_base in airportsX) then
 {
 	_indexX = airportsX find _base;
-	_spawnPoint = spawnPoints select _indexX;
+	_spawnPoint = server getVariable (format ["spawn_%1", _base]);
 	_posOrig = getMarkerPos _spawnPoint;
 	_dir = markerDir _spawnPoint;
 }

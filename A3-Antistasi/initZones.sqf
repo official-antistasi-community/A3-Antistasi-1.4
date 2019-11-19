@@ -155,6 +155,8 @@ diag_log format ["%1: [Antistasi] | INFO | initZones | Nav grid loaded.",servert
 
 markersX = markersX + citiesX;
 sidesX setVariable ["Synd_HQ", teamPlayer, true];
+sidesX setVariable ["NATO_carrier", Occupants, true];
+sidesX setVariable ["CSAT_carrier", Invaders, true];
 
 antennasDead = [];
 banks = [];

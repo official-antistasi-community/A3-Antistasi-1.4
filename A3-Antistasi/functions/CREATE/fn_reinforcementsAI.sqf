@@ -60,7 +60,7 @@ _reinfPlaces = [];
 						//This line send a virtual convoy, execute [] execVM "Convoy\convoyDebug.sqf" as admin to see it
 						//If it breaks, it doesn't change anything
 						//If it works, it will not add any troups
-						[_siteX, "Reinforce", _sideX, [(_numberX == 4)]] remoteExec ["A3A_fnc_createAIAction", 2];
+						//[_siteX, "Reinforce", _sideX, [(_numberX == 4)]] remoteExec ["A3A_fnc_createAIAction", 2];
 					}
 					else
 					{

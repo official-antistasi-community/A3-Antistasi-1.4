@@ -30,7 +30,7 @@ _groupX = grpNull;
 if (_land) then
 {
 	_indexX = airportsX find _mrkOrigin;
-	_spawnPoint = spawnPoints select _indexX;
+	_spawnPoint = server getVariable (format ["spawn_%1", _mrkOrigin]);
 	_pos = getMarkerPos _spawnPoint;
 	_timeOut = 0;
 	_pos = _pos findEmptyPosition [0,100,_typeVehX];

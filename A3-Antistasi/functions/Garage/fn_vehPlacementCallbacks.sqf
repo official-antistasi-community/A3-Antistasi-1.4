@@ -17,6 +17,8 @@ switch (_callbackTarget) do {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				garageIsOpen = false;
+				garageLocked = nil;
+				publicVariable "garageLocked";
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {

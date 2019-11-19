@@ -318,7 +318,7 @@ fn_SetStat = {
 				_veh = createVehicle [_typeVehX,[0,0,1000],[],0,"NONE"];
 				_veh setDir _dirVeh;_veh setDir _dirVeh;
 				_veh setVectorUp surfaceNormal (_posVeh);
-				_veh setPos _posVeh;
+				_veh setPosATL _posVeh;
 				if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then {
 					staticsToSave pushBack _veh;
 				};

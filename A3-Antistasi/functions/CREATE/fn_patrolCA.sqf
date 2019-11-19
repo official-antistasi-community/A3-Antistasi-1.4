@@ -209,7 +209,7 @@ if (_base != "") then
 	_dir = 0;
 	if (_indexX > -1) then
 		{
-		_spawnPoint = spawnPoints select _indexX;
+		_spawnPoint = server getVariable (format ["spawn_%1", _base]);
 		_pos = getMarkerPos _spawnPoint;
 		_dir = markerDir _spawnPoint;
 		}

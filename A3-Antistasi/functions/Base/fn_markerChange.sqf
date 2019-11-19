@@ -215,6 +215,11 @@ if (_winner == teamPlayer) then
 	}
 else
 	{
+	//Remove static weapons near the marker from the saved statics array
+	private _staticWeapons = nearestObjects [_positionX, ["StaticWeapon"], _size * 1.5, true];
+	staticsToSave = staticsToSave - _staticWeapons;
+	publicVariable "staticsToSave";
+
 	if (!isNull _flagX) then
 		{
 		//_flagX setVariable ["isGettingCaptured", nil, true];

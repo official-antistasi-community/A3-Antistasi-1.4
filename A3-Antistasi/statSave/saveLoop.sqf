@@ -93,7 +93,7 @@ _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 {
 	_positionX = position _x;
 	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
-		_arrayEst pushBack [typeOf _x,getPos _x,getDir _x];
+		_arrayEst pushBack [typeOf _x,getPosATL _x,getDir _x];
 	};
 } forEach staticsToSave;
 

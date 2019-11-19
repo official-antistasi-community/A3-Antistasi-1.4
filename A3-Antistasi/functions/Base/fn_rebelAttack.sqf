@@ -316,39 +316,16 @@ if ((count _objectivesFinal > 0) and (count _easyX < 3)) then
 	_objectiveFinal = _arrayFinal selectRandomWeighted _countFinal;
 	_destinationX = _objectiveFinal select 0;
 	_originX = _objectiveFinal select 1;
-	///This will always fire, as waves is always 1 at this point.
-	if (_waves == 1) then
-		{
-		if (sidesX getVariable [_destinationX,sideUnknown] == teamPlayer) then
-			{
-			_waves = (round (random tierWar));
-			if (_waves == 0) then {_waves = 1};
-			}
-		else
-			{
-			if (sidesX getVariable [_originX,sideUnknown] == Invaders) then
-				{
-				if (_destinationX in airportsX) then
-					{
-					_waves = 2 + round (random tierWar);
-					}
-				else
-					{
-					if (!(_destinationX in citiesX)) then
-						{
-						_waves = 1 + round (random (tierWar)/2);
-						};
-					};
-				}
-			else
-				{
-				if (!(_destinationX in citiesX)) then
-					{
-					_waves = 1 + round (random ((tierWar - 3)/2));
-					};
-				};
-			};
-		};
+	
+	private _isInvaderAttack = sidesX getVariable [_originX,sideUnknown] == Invaders;
+
+	_waves = 
+		1 
+		+ ([0, 1] select (_destinationX in airportsX)) 
+		+ (count allPlayers / 40)
+		+ (tierWar / 10)
+		+ ([0, 0.5] select _isInvaderAttack);
+		
 	if (not(_destinationX in citiesX)) then
 		{
 		///[[_destinationX,_originX,_waves],"A3A_fnc_wavedCA"] call A3A_fnc_scheduler;

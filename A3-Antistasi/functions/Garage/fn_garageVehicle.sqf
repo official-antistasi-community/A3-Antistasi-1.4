@@ -3,6 +3,10 @@
 private ["_pool","_veh","_typeVehX"];
 _pool = false;
 if (_this select 0) then {_pool = true};
+
+if (side player != teamPlayer) exitWith {hint "Only rebels can add vehicles to the garage."};
+if (!([player] call A3A_fnc_isMember)) exitWith {hint "Only server members have the garage feature enabled"};
+
 _veh = cursorTarget;
 
 if (isNull _veh) exitWith {hint "You are not looking at a vehicle"};
@@ -22,7 +26,7 @@ _typeVehX = typeOf _veh;
 if (_veh isKindOf "Man") exitWith {hint "Are you kidding?"};
 
 if !(_veh isKindOf "AllVehicles") exitWith {hint "The vehicle you are looking cannot be stored in our Garage"};
-if (!_pool and !([player] call A3A_fnc_isMember)) exitWith {hint "Only server members have the garage feature enabled"};
+
 
 if (_pool and (count vehInGarage >= (tierWar *3))) exitWith {hint "You cannot garage more vehicles at your current War Level"};
 

@@ -106,14 +106,14 @@ if (_typePatrol != "AIR") then
 		{
 		_indexX = airportsX find _base;
 		if (_indexX != -1) then
-			{
-			_spawnPoint = spawnPoints select _indexX;
+		{
+			_spawnPoint = server getVariable (format ["spawn_%1", _base]);
 			_posBase = getMarkerPos _spawnPoint;
-			}
+		}
 		else
-			{
+		{
 			_posbase = position ([_posbase] call A3A_fnc_findNearestGoodRoad);
-			};
+		};
 		};
 	};
 

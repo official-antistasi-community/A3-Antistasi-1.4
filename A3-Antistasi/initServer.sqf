@@ -29,6 +29,7 @@ pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {f
 skillMult = "AISkill" call BIS_fnc_getParamValue; publicVariable "skillMult";
 minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
 memberOnlyMagLimit = "MemberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
+allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
 civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
 memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
 limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";

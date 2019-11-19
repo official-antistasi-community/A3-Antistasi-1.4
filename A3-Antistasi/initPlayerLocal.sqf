@@ -231,7 +231,7 @@ player addEventHandler ["HandleDamage", {
 	private _instigator = param [6];
 	if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.9) then {
 		[_instigator, 20, 0.21, _victim] remoteExec ["A3A_fnc_punishment",_instigator];
-		[2,format ["%1 was injured by %2 (UID: %3), %4m from HQ",name _victim,name _instigator,getPlayerUID _instigator,_victim distance2D posHQ],"initPlayerLocal.sqf"] call A3A_fnc_log;
+		[format ["%1 was injured by %2 (UID: %3), %4m from HQ",name _victim,name _instigator,getPlayerUID _instigator,_victim distance2D posHQ]] remoteExec ["diag_log",2];
 	};
 }];
 player addEventHandler ["InventoryOpened", {

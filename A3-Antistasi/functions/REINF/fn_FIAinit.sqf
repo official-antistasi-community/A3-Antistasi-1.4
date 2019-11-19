@@ -88,6 +88,15 @@ switch (true) do {
 		_unit setskill ["courage",_skill + 0.2];
 		_unit setskill ["commanding",_skill + 0.2];
 	};
+	case (_typeX in SDKAA): {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		removeBackpack _unit;
+		_unit addBackpack "B_AssaultPack_blk";
+		private _launcher = selectRandom AA;
+		_unit removeWeaponGlobal (secondaryWeapon _unit);
+	        [_unit, _rlauncher, 4, 0] call BIS_fnc_addWeapon;
+		
+	};
 	default {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;
 		diag_log format ["%1: [Antistasi] | DEBUG | FIAinit.sqf | Could not identify type of _unit: %2 %3.",servertime,_unit,_typeX];

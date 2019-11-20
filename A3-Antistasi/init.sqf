@@ -1,12 +1,14 @@
-logLevel = 2;
-[2,"Init SQF started","init.sqf"] call A3A_fnc_log;
+
 //Arma 3 - Antistasi - Warlords of the Pacific by Barbolani & The Official AntiStasi Community
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.
+scriptName "init.sqf";
+logLevel = 2;
+[2,"Init SQF started",_FILE_] call A3A_fnc_log;
 enableSaving [false,false];
 mapX setObjectTexture [0,"pic.jpg"];
      
 if (!isMultiPlayer) then {
-     [2,"Singleplayer environment detected","init.sqf"] call A3A_fnc_log;
+     [2,"Singleplayer environment detected",_FILE_] call A3A_fnc_log;
      //Init server parameters
      gameMode = 1;
      autoSave = false;
@@ -19,7 +21,7 @@ if (!isMultiPlayer) then {
      civTraffic = 1;
      limitedFT = false;
      call compile preprocessFileLineNumbers "initVar.sqf";
-     [2,format ["SP version: %1 loaded",localize "STR_antistasi_credits_generic_version_text"],"init.sqf"] call A3A_fnc_log;
+     [2,format ["SP version: %1 loaded",localize "STR_antistasi_credits_generic_version_text"],_FILE_] call A3A_fnc_log;
      initVar = true;
      respawnOccupants setMarkerAlpha 0;
      "respawn_east" setMarkerAlpha 0;
@@ -58,7 +60,7 @@ if (!isMultiPlayer) then {
      {
           _x call A3A_fnc_unlockEquipment;
      } foreach initialRebelEquipment;
-     [2,"Arsenal Loaded","init.sqf"] call A3A_fnc_log;
+     [2,"Arsenal Loaded",_FILE_] call A3A_fnc_log;
      
      waitUntil {sleep 1;!(isNil "placementDone")};
      distanceXs = [] spawn A3A_fnc_distance;
@@ -75,4 +77,4 @@ if (!isMultiPlayer) then {
      deleteMarker "respawn_east";
      if (teamPlayer == independent) then {deleteMarker "respawn_west"} else {deleteMarker "respawn_guerrila"};
 };
-[2,"Init finished","init.sqf"] call A3A_fnc_log;
+[2,"Init finished",_FILE_] call A3A_fnc_log;

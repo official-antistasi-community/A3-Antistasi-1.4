@@ -1,3 +1,4 @@
+scriptName = "fn_initDisabledMods.sqf";
 disabledMods = [];
 
 if ("Kart" call BIS_fnc_getParamValue isEqualTo 0) then
@@ -49,4 +50,4 @@ if ("OfficialMod" call BIS_fnc_getParamValue isEqualTo 0) then
 {
 	disabledMods pushBack "officialmod";
 };
-[2,format ["Disabled DLC: %1",disabledMods],"fn_initDisabledMods.sqf"] call A3A_fnc_log;
+[2,format ["Disabled DLC: %1",disabledMods],_FILE_] call A3A_fnc_log;

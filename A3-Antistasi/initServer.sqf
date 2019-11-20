@@ -1,7 +1,8 @@
 if (!isMultiplayer) exitWith {};
 if (!(isNil "serverInitDone")) exitWith {};
-[2,"Dedicated server detected","initServer.sqf"] call A3A_fnc_log;
-[2,"Server init started","initServer.sqf"] call A3A_fnc_log;
+scriptName "initServer.sqf";
+[2,"Dedicated server detected",_FILE_] call A3A_fnc_log;
+[2,"Server init started",_FILE_] call A3A_fnc_log;
 boxX allowDamage false;
 flagX allowDamage false;
 vehicleBox allowDamage false;
@@ -52,7 +53,7 @@ publicVariable "campaignID";
 _nul = call compile preprocessFileLineNumbers "initVar.sqf";
 initVar = true; publicVariable "initVar";
 savingServer = true;
-[2,format ["MP server version: %1",localize "STR_antistasi_credits_generic_version_text"],"initServer.sqf"] call A3A_fnc_log;
+[2,format ["MP server version: %1",localize "STR_antistasi_credits_generic_version_text"],_FILE_] call A3A_fnc_log;
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 _nul = call compile preprocessFileLineNumbers "initFuncs.sqf";
 _nul = call compile preprocessFileLineNumbers "initZones.sqf";
@@ -70,11 +71,11 @@ waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (
 [] spawn A3A_fnc_modBlacklist;
 
 if (loadLastSave) then {
-	[2,"Loading saved data","initServer.sqf"] call A3A_fnc_log;
+	[2,"Loading saved data",_FILE_] call A3A_fnc_log;
 	["membersX"] call fn_LoadStat;
 	if (isNil "membersX") then {
 		loadLastSave = false;
-		[2,"No member data found, skipping load","initServer.sqf"] call A3A_fnc_log;
+		[2,"No member data found, skipping load",_FILE_] call A3A_fnc_log;
 	};
 };
 publicVariable "loadLastSave";
@@ -91,8 +92,8 @@ if (loadLastSave) then {
 	};
 	if (membershipEnabled and (membersX isEqualTo [])) then {
 		[petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list"] remoteExec ["A3A_fnc_commsMP"];
-		[2,"Previous data loaded","initServer.sqf"] call A3A_fnc_log;
-		[2,"Membership enabled, adding current players to list","initServer.sqf"] call A3A_fnc_log;
+		[2,"Previous data loaded",_FILE_] call A3A_fnc_log;
+		[2,"Membership enabled, adding current players to list",_FILE_] call A3A_fnc_log;
 		membersX = [];
 		{
 			membersX pushBack (getPlayerUID _x);
@@ -120,7 +121,7 @@ else {
 			} forEach playableUnits;
 	}
 	else {
-		[2,"New session selected","initServer.sqf"] call A3A_fnc_log;
+		[2,"New session selected",_FILE_] call A3A_fnc_log;
 		if (isNil "commanderX") then {commanderX = (playableUnits select 0)};
 		if (isNull commanderX) then {commanderX = (playableUnits select 0)};
 		theBoss = commanderX;
@@ -133,12 +134,12 @@ else {
 	publicVariable "membersX";
 };
 
-[2,"Accepting players","initServer.sqf"] call A3A_fnc_log;
+[2,"Accepting players",_FILE_] call A3A_fnc_log;
 if !(loadLastSave) then {
 	{
 		_x call A3A_fnc_unlockEquipment;
 	} foreach initialRebelEquipment;
-	[2,"Initial arsenal unlocks completed","initServer.sqf"] call A3A_fnc_log;
+	[2,"Initial arsenal unlocks completed",_FILE_] call A3A_fnc_log;
 };
 
 [[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
@@ -162,7 +163,7 @@ addMissionEventHandler ["BuildingChanged", {
 }];
 
 serverInitDone = true; publicVariable "serverInitDone";
-[2,"Setting serverInitDone as true","initServer.sqf"] call A3A_fnc_log;
+[2,"Setting serverInitDone as true",_FILE_] call A3A_fnc_log;
 
 waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distance;
@@ -179,4 +180,4 @@ savingServer = false;
 		sleep 30;
 	};
 };
-[2,"initServer completed","initServer.sqf"] call A3A_fnc_log;
+[2,"initServer completed",_FILE_] call A3A_fnc_log;

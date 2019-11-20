@@ -6,7 +6,8 @@
 //of course all the editor placed objects (petros, flag, respawn marker etc..) have to be ported to the new island
 //deletion of a marker in the array will require deletion of the corresponding marker in the editor
 //only touch the commented arrays
-[2,"initZones started","initZones.sqf"] call A3A_fnc_log;
+scriptName "initZones.sqf";
+[2,"initZones started",_FILE_] call A3A_fnc_log;
 
 forcedSpawn = [];
 citiesX = [];
@@ -148,9 +149,9 @@ if (debug) then {
 diag_log format ["%1: [Antistasi] | DEBUG | initZones | Roads built in %2.",servertime,worldname];
 };
 
-[2,"Loading nav grid","initZones.sqf"] call A3A_fnc_log;
+[2,"Loading nav grid",_FILE_] call A3A_fnc_log;
 [] call A3A_fnc_loadNavGrid;
-[2,"Loaded nav grid","initZones.sqf"] call A3A_fnc_log;
+[2,"Loaded nav grid",_FILE_] call A3A_fnc_log;
 
 
 markersX = markersX + citiesX;
@@ -314,4 +315,4 @@ if (isMultiplayer) then {
 	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]
 };
 
-[2,"initZones completed","initZones.sqf"] call A3A_fnc_log;
+[2,"initZones completed",_FILE_] call A3A_fnc_log;

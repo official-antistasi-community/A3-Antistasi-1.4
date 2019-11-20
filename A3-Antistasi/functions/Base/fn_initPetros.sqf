@@ -1,4 +1,5 @@
-[2,"initPetros started","fn_initPetros.sqf"] call A3A_fnc_log;
+[2,"initPetros started",_FILE_] call A3A_fnc_log;
+scriptName "fn_initPetros";
 removeHeadgear petros;
 removeGoggles petros;
 petros setSkill 1;
@@ -96,4 +97,4 @@ if (hasACE) then {
     [typeOf petros, 0,["ACE_ApplyHandcuffs"]] call ace_interact_menu_fnc_removeActionFromClass;
     [typeOf petros, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
 };
-[2,"initPetros completed","fn_initPetros.sqf"] call A3A_fnc_log;
+[2,"initPetros completed",_FILE_] call A3A_fnc_log;

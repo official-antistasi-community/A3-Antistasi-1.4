@@ -89,12 +89,18 @@ switch (true) do {
 		_unit setskill ["commanding",_skill + 0.2];
 	};
 	case (_typeX in SDKAA): {
+		hint "init aa guy"
+		if (haveRHS) then {
+		    private _aa = "igla_classname"
+		    }
+		else {
+		    private _aa = "launch_Titan_F"
+		    };
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		removeBackpack _unit;
 		_unit addBackpack "B_AssaultPack_blk";
-		private _launcher = selectRandom AA;
 		_unit removeWeaponGlobal (secondaryWeapon _unit);
-	        [_unit, _rlauncher, 4, 0] call BIS_fnc_addWeapon;
+	        [_unit, _aa, 4, 0] call BIS_fnc_addWeapon;
 		
 	};
 	default {

@@ -2,7 +2,7 @@
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-scriptName = "fn_arsenal_init.sqf";
+scriptName "fn_arsenal_init.sqf";
 private _fileName = "fn_arsenal_init.sqf";
 [2,"JNA init started",_fileName] call A3A_fnc_log;
 params [["_object",objNull,[objNull]]];

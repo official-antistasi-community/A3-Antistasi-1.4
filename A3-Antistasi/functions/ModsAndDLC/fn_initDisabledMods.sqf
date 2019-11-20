@@ -1,4 +1,4 @@
-scriptName = "fn_initDisabledMods.sqf";
+scriptName "fn_initDisabledMods.sqf";
 private _fileName = "fn_initDisabledMods.sqf";
 disabledMods = [];
 

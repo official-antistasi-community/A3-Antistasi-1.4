@@ -218,6 +218,11 @@
         <French>Recruter un Grenadier</French>
         <Russian>Стрелок с ГП</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_AA_text">
+        <Original>Recruit AA specialist</Original>
+        <English>Recruit AA specialist</English>
+        <French>Recruter un AA specialiste</French>
+        <Russian>ПЗРК</Russian>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_marksman_text">
         <Original>Recruit Marksman</Original>
         <English>Recruit Marksman</English>

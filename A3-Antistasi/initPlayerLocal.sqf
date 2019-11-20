@@ -399,7 +399,7 @@ if (_isJip) then {
 	};
 
 	//Adding Boss check... Goes after the Member check so they're definitely in the list of eligible.
-	[] spawn A3A_fnc_theBossloop;
+	[] remoteExec ["A3A_fnc_theBossloop", 2];
 
 	waitUntil {!(isNil "missionsX")};
 	if (count missionsX > 0) then {

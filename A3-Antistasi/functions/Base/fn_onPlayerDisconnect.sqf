@@ -63,9 +63,8 @@ if (_unit == theBoss) then
 	theBoss = objNull;
 	//Broadcast as a public variable, otherwise new players joining will have theBoss assigned to the dead body still.
 	publicVariable "theBoss";
-	[] spawn A3A_fnc_theBossloop;
-	if (group petros == group _unit) then {[] spawn A3A_fnc_buildHQ};
-	};
+	[] remoteExec ["A3A_fnc_theBossloop", 2];
+	if (group petros == group _unit) then { [] spawn A3A_fnc_buildHQ}; };
 
 //Need to check the group's side, as player may be a civ. Unknown is in case they've been moved out of their group.
 if (side group _unit == teamPlayer || side group _unit == sideUnknown) then

@@ -1,13 +1,14 @@
 //Original Author: Barbolani
 //Edited and updated by the Antstasi Community Development Team
 scriptName "initVar.sqf";
-[2,"initVar started",_FILE_] call A3A_fnc_log;
+private _fileName = "initVar.sqf";
+[2,"initVar started",_fileName] call A3A_fnc_log;
 antistasiVersion = localize "STR_antistasi_credits_generic_version_text";
 
 ////////////////////////////////////
 // INITIAL SETTING AND VARIABLES ///
 ////////////////////////////////////
-[2,"Setting initial variables",_FILE_] call A3A_fnc_log;
+[2,"Setting initial variables",_fileName] call A3A_fnc_log;
 logLevel = 2;													//Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
 debug = false;													//debug variable, useful for something..
 diagOn = false;												//Turn on Diag_log messaging (unused - PBP)
@@ -26,7 +27,7 @@ maxUnits = 140;												//
 ////////////////////////////////////
 //     BEGIN SIDES AND COLORS    ///
 ////////////////////////////////////
-[2,"Generating sides",_FILE_] call A3A_fnc_log;
+[2,"Generating sides",_fileName] call A3A_fnc_log;
 teamPlayer = side group petros;
 if (teamPlayer == independent) then
 	{
@@ -52,7 +53,7 @@ colorInvaders = "colorOPFOR";
 //     DECLARING ITEM ARRAYS     ///
 ////////////////////////////////////
 if (isServer) then {
-[2,"Declaring empty item arrays",_FILE_] call A3A_fnc_log;
+[2,"Declaring empty item arrays",_fileName] call A3A_fnc_log;
 
 weaponCategories = ["Rifles", "Handguns", "MachineGuns", "MissileLaunchers", "Mortars", "RocketLaunchers", "Shotguns", "SMGs", "SniperRifles"];
 itemCategories = ["Bipods", "MuzzleAttachments", "PointerAttachments", "Optics", "Binoculars", "Compasses", "FirstAidKits", "GPS", "LaserDesignators",
@@ -119,7 +120,7 @@ civilianBackpackDevice = [];
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
 ////////////////////////////////////
-[2,"Starting mod detection",_FILE_] call A3A_fnc_log;
+[2,"Starting mod detection",_fileName] call A3A_fnc_log;
 allDLCMods = ["kart", "mark", "heli", "expansion", "jets", "orange", "tank", "globmob", "enoch", "officialmod", "tacops", "argo", "warlords"];
 call A3A_fnc_initDisabledMods;
 //Faction MODs
@@ -163,7 +164,7 @@ if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {hasFFAA = true; 
 ////////////////////////////////////
 //          MOD CONFIG           ///
 ////////////////////////////////////
-[2,"Setting mod configs",_FILE_] call A3A_fnc_log;
+[2,"Setting mod configs",_fileName] call A3A_fnc_log;
 
 //TFAR config
 startLR = false;
@@ -174,7 +175,7 @@ if (hasTFAR) then
 		{
 		[] spawn {
 				waitUntil {sleep 1; !isNil "TF_server_addon_version"};
-				[2,"Initializing TFAR settings",_FILE_] call A3A_fnc_log;
+				[2,"Initializing TFAR settings",_fileName] call A3A_fnc_log;
 				["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;						//set to false and players will spawn with LR radio.
 				if (hasIFA) then
 					{
@@ -193,7 +194,7 @@ if (hasTFAR) then
 ////////////////////////////////////
 //        BUILDINGS LISTS        ///
 ////////////////////////////////////
-[2,"Creating building arrays",_FILE_] call A3A_fnc_log;
+[2,"Creating building arrays",_fileName] call A3A_fnc_log;
 
 listMilBld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F","Land_Cargo_HQ_V1_F","Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F","Land_HelipadSquare_F"];
 listbld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F"];
@@ -204,7 +205,7 @@ lamptypes = ["Lamps_Base_F", "PowerLines_base_F","Land_LampDecor_F","Land_LampHa
 ////////////////////////////////////
 //     SOUNDS AND ANIMATIONS     ///
 ////////////////////////////////////
-[2,"Compiling sounds and animations",_FILE_] call A3A_fnc_log;
+[2,"Compiling sounds and animations",_fileName] call A3A_fnc_log;
 ladridos = ["Music\dog_bark01.wss", "Music\dog_bark02.wss", "Music\dog_bark03.wss", "Music\dog_bark04.wss", "Music\dog_bark05.wss","Music\dog_maul01.wss","Music\dog_yelp01.wss","Music\dog_yelp02.wss","Music\dog_yelp03.wss"];
 injuredSounds =
 [
@@ -217,7 +218,7 @@ medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
 //////////////////////////////////////
-[2,"Reading templates",_FILE_] call A3A_fnc_log;
+[2,"Reading templates",_fileName] call A3A_fnc_log;
 if !(hasIFA) then {
 	//Rebel Templates
 	switch (true) do {
@@ -250,13 +251,13 @@ call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 ////////////////////////////////////
 //      CIVILIAN UNITS LIST      ///
 ////////////////////////////////////
-[2,"Creating civilians",_FILE_] call A3A_fnc_log;
+[2,"Creating civilians",_fileName] call A3A_fnc_log;
 arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
 
 ////////////////////////////////////
 //      CIVILIAN VEHICLES       ///
 ////////////////////////////////////
-[2,"Creating vehicles list",_FILE_] call A3A_fnc_log;
+[2,"Creating vehicles list",_fileName] call A3A_fnc_log;
 
 private _civVehConfigs = "(
 	getNumber (_x >> 'scope') isEqualTo 2 && {
@@ -299,7 +300,7 @@ CivBoats = (_civBoatConfigs select {_x call _vehIsValid} apply {configName _x});
 ////////////////////////////////////
 //     ID LIST FOR UNIT NAMES    ///
 ////////////////////////////////////
-[2,"Creating unit identities",_FILE_] call A3A_fnc_log;
+[2,"Creating unit identities",_fileName] call A3A_fnc_log;
 if !(hasIFA) then {
 	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
 	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
@@ -308,7 +309,7 @@ if !(hasIFA) then {
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///
 //////////////////////////////////////
-[2,"Identifying unit types",_FILE_] call A3A_fnc_log;
+[2,"Identifying unit types",_fileName] call A3A_fnc_log;
 //Identify Squad Leader Units
 squadLeaders = SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)];
 //Identify Medic Units
@@ -319,7 +320,7 @@ sniperGroups = [groupsNATOSniper,groupsCSATSniper];
 ////////////////////////////////////
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////
-[2,"Identifying vehicle types",_FILE_] call A3A_fnc_log;
+[2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
 vehNormal = vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair];
 vehBoats = [vehNATOBoat,vehCSATBoat,vehSDKBoat];
 vehAttack = vehNATOAttack + vehCSATAttack;
@@ -342,7 +343,7 @@ if (isServer) then {
 ////////////////////////////////////
 //        CRATE LOOT ITEMS       ///
 ////////////////////////////////////
-[2,"Filtering item categories",_FILE_] call A3A_fnc_log;
+[2,"Filtering item categories",_fileName] call A3A_fnc_log;
 private _equipmentFilter = {
 	params ["_configClass", "_categories"];
 
@@ -439,15 +440,15 @@ private _equipmentFilter = {
 };
 
 
-[2,"Scanning config entries for items",_FILE_] call A3A_fnc_log;
+[2,"Scanning config entries for items",_fileName] call A3A_fnc_log;
 [_equipmentFilter] call A3A_fnc_configSort;
-[2,"Categorizing vehicle classes",_FILE_] call A3A_fnc_log;
+[2,"Categorizing vehicle classes",_fileName] call A3A_fnc_log;
 [] call A3A_fnc_vehicleSort;
-[2,"Categorizing equipment classes",_FILE_] call A3A_fnc_log;
+[2,"Categorizing equipment classes",_fileName] call A3A_fnc_log;
 [] call A3A_fnc_equipmentSort;
-[2,"Sorting grouped class categories",_FILE_] call A3A_fnc_log;
+[2,"Sorting grouped class categories",_fileName] call A3A_fnc_log;
 [] call A3A_fnc_itemSort;
-[2,"Building loot lists",_FILE_] call A3A_fnc_log;
+[2,"Building loot lists",_fileName] call A3A_fnc_log;
 [] call A3A_fnc_loot;
 
 ///////////////////////////
@@ -474,7 +475,7 @@ if (hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","AC
 ////////////////////////////////////
 //     MISSION PATH WARNING      ///
 ////////////////////////////////////
-[2,"Checking mission path",_FILE_] call A3A_fnc_log;
+[2,"Checking mission path",_fileName] call A3A_fnc_log;
 private _getMissionPath = [] spawn A3A_fnc_initGetMissionPath;
 waitUntil
 {
@@ -487,7 +488,7 @@ hint "Done compiling missionPath";
 ////////////////////////////////////
 // SERVER AND HEADLESS VARIABLES ///
 ////////////////////////////////////
-[2,"Creating server and host variables",_FILE_] call A3A_fnc_log;
+[2,"Creating server and host variables",_fileName] call A3A_fnc_log;
 if (!isServer and hasInterface) exitWith {};
 difficultyCoef = if !(isMultiplayer) then {0} else {floor ((({side group _x == teamPlayer} count playableUnits) - ({side group _x != teamPlayer} count playableUnits)) / 5)};
 AAFpatrols = 0;
@@ -508,7 +509,7 @@ distanceForLandAttack = if (hasIFA) then {5000} else {3000};
 ////////////////////////////////////
 //   MAP SETTINGS AND MARKERS    ///
 ////////////////////////////////////
-[2,"Setting map configuration",_FILE_] call A3A_fnc_log;
+[2,"Setting map configuration",_fileName] call A3A_fnc_log;
 switch (toLower worldName) do {
 case "tanoa":
 	{
@@ -579,7 +580,7 @@ case "tembelan":
 //    UNIT AND VEHICLE PRICES    ///
 ////////////////////////////////////
 if (!isServer) exitWith {};
-[2,"Creating pricelist",_FILE_] call A3A_fnc_log;
+[2,"Creating pricelist",_fileName] call A3A_fnc_log;
 {server setVariable [_x,50,true]} forEach SDKMil;
 {server setVariable [_x,75,true]} forEach (sdkTier1 - SDKMil);
 {server setVariable [_x,100,true]} forEach  sdkTier2;
@@ -622,7 +623,7 @@ server setVariable [vehSDKTruck,300,true];											//300
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///
 ////////////////////////////////////
-[2,"Setting server only variables",_FILE_] call A3A_fnc_log;
+[2,"Setting server only variables",_fileName] call A3A_fnc_log;
 server setVariable ["hr",8,true];														//initial HR value
 server setVariable ["resourcesFIA",1000,true];											//Initial FIA money pool value
 skillFIA = 1;																		//Initial skill level for FIA soldiers
@@ -674,7 +675,7 @@ otherStaticsTiers = [0.3, 1];
 ////////////////////////////////////
 // DECLARE VARIBALES FOR CLIENTS ///
 ////////////////////////////////////
-[2,"Declaring variables for clients",_FILE_] call A3A_fnc_log;
+[2,"Declaring variables for clients",_fileName] call A3A_fnc_log;
 
 publicVariable "hasACE";
 publicVariable "hasTFAR";
@@ -735,4 +736,4 @@ publicVariable "haveNV";
 publicVariable "missionsX";
 
 if (isMultiplayer) then {[[petros,"hint","Variables Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;};
-[2,"initVar completed",_FILE_] call A3A_fnc_log;
+[2,"initVar completed",_fileName] call A3A_fnc_log;

@@ -1,6 +1,7 @@
 #include "functions\Garage\defineGarage.inc"
+private _fileName = "initPlayerLocal.sqf";
 scriptName "initPlayerLocal.sqf";
-[2,"initPlayerLocal started",_FILE_] call A3A_fnc_log;
+[2,"initPlayerLocal started",_fileName] call A3A_fnc_log;
 if (hasInterface) then {
 	waitUntil {!isNull player};
 	waitUntil {player == player};
@@ -13,7 +14,7 @@ if (isMultiplayer) then {
 		call compile preprocessFileLineNumbers "initFuncs.sqf";
 		call compile preprocessFileLineNumbers "initVar.sqf";
 		waitUntil {!isNil "initVar"};
-		[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_FILE_] call A3A_fnc_log;
+		[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 	}
 	else {
 		waitUntil {sleep 0.5;(!isNil "serverInitDone")};
@@ -41,11 +42,11 @@ if (isMultiplayer) then {
 	//waitUntil {scriptdone _introshot};
 	//disableUserInput true;
 	cutText ["Waiting for Players and Server Init","BLACK",0];
-	[2,"Waiting for server...",_FILE_] call A3A_fnc_log;
+	[2,"Waiting for server...",_fileName] call A3A_fnc_log;
 	waitUntil {(!isNil "serverInitDone")};
 	cutText ["Starting Mission","BLACK IN",0];
-	[2,"Server loaded!",_FILE_] call A3A_fnc_log;
-	[2,format ["JIP client: %1",_isJIP],_FILE_] call A3A_fnc_log;
+	[2,"Server loaded!",_fileName] call A3A_fnc_log;
+	[2,format ["JIP client: %1",_isJIP],_fileName] call A3A_fnc_log;
 	if (hasTFAR) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
@@ -129,21 +130,21 @@ if (player getVariable ["pvp",false]) exitWith {
 	pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if ((!_isJIP) or !pvpEnabled) then {
 		["noPvP",false,1,false,false] call BIS_fnc_endMission;
-		[2,"PvP player kicked: not JIP or disabled",_FILE_] call A3A_fnc_log;
+		[2,"PvP player kicked: not JIP or disabled",_fileName] call A3A_fnc_log;
 	}
 	else {
 		if (not([player] call A3A_fnc_isMember)) then {
 			["noPvP",false,1,false,false] call BIS_fnc_endMission;
-			[2,"PvP player kicked: not member",_FILE_] call A3A_fnc_log;
+			[2,"PvP player kicked: not member",_fileName] call A3A_fnc_log;
 		}
 		else {
 			if ({(side group _x != teamPlayer)} count playableUnits > {(side group _x == teamPlayer)} count playableUnits) then {
 				["noPvP",false,1,false,false] call BIS_fnc_endMission;
-				[2,"PvP player kicked: PvP players equal to Rebel players",_FILE_] call A3A_fnc_log;
+				[2,"PvP player kicked: PvP players equal to Rebel players",_fileName] call A3A_fnc_log;
 			}
 			else {
 				[player] remoteExec ["A3A_fnc_playerHasBeenPvPCheck",2];
-				[2,"PvP player logged in, running teamswitch check",_FILE_] call A3A_fnc_log;
+				[2,"PvP player logged in, running teamswitch check",_fileName] call A3A_fnc_log;
 			};
 		};
 	};
@@ -430,7 +431,7 @@ if (_isJip) then {
 	else {
 		[] spawn A3A_fnc_firstLoad;
 	};
-	[2,"JIP client loaded",_FILE_] call A3A_fnc_log;
+	[2,"JIP client loaded",_fileName] call A3A_fnc_log;
 	player setPos (getMarkerPos respawnTeamPlayer);
 }
 else {
@@ -451,7 +452,7 @@ else {
 		    	else {
 		    		[true] spawn A3A_fnc_firstLoad;
 			};
-			[2,"Client load completed",_FILE_] call A3A_fnc_log;
+			[2,"Client load completed",_fileName] call A3A_fnc_log;
 		    	}
 			else {
 				membersX = [];
@@ -561,4 +562,4 @@ _layer cutRsc ["H8erHUD","PLAIN",0,false];
 //Can re-enable them if we find the source of the bug.
 enableEnvironment [false, true];
 
-[2,"initPlayerLocal completed",_FILE_] call A3A_fnc_log;
+[2,"initPlayerLocal completed",_fileName] call A3A_fnc_log;

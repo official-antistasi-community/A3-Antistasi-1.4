@@ -54,9 +54,10 @@ SA_Advanced_Towing_Install = {
 // Prevent advanced towing from installing twice
 if(!isNil "SA_TOW_INIT") exitWith {};
 scriptName "fn_advancedTowingInit.sqf";
+private _fileName = "fn_advancedTowingInit.sqf";
 SA_TOW_INIT = true;
 
-[2,"Loading advanced towing",_FILE_] call A3A_fnc_log;
+[2,"Loading advanced towing",_fileName] call A3A_fnc_log;
 
 SA_Simulate_Towing_Speed = {
 
@@ -866,7 +867,7 @@ if (isServer) then {
 
 };
 
-[2,"Loaded advanced towing",_FILE_] call A3A_fnc_log;
+[2,"Loaded advanced towing",_fileName] call A3A_fnc_log;
 
 };
 

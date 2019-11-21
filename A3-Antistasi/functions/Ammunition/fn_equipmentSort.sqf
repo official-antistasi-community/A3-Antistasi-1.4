@@ -80,7 +80,7 @@ allBackpacksEmpty deleteAt (allBackpacksEmpty find "B_AssaultPack_Kerry");
 //   ARMORED VESTS LIST          ///
 ////////////////////////////////////
 //WHY is there no clean list?
-allArmoredVests = allVests select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
+//allArmoredVests = allVests select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5};
 allCivilianVests = allVests - allArmoredVests;
 
 allCivilianVests deleteAt (allCivilianVests find "V_RebreatherB");
@@ -91,7 +91,7 @@ allCivilianVests deleteAt (allCivilianVests find "V_RebreatherIA");
 //   ARMORED HELMETS LIST        ///
 ////////////////////////////////////
 //WHY is there no clean list?
-allArmoredHeadgear = allHeadgear select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0};
+//allArmoredHeadgear = allHeadgear select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0};
 allCivilianHeadgear = allHeadgear - allArmoredHeadgear;
 
 //////////////////

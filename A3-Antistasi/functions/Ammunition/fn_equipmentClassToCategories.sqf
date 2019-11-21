@@ -126,4 +126,16 @@ if (_baseCategory == "Rifles") then {
 	};
 };
 
+if (_basecategory == "Vests") then {
+	if (getNumber (configfile >> "CfgWeapons" >> _className >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5) then {
+		_categories pushBack "ArmoredVests";
+	};
+};
+
+if (_basecategory == "Headgear") then {
+	if (getNumber (configfile >> "CfgWeapons" >> _className >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0) then {
+		_categories pushBack "ArmoredHeadgear";
+	};
+};
+
 _categories;

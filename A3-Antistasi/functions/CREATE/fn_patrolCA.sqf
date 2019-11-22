@@ -620,7 +620,7 @@ if (_isMarker) then
 		if  ((({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits)) and (not(sidesX getVariable [_markerX,sideUnknown] == Occupants))) then
 			{
 			[Occupants,_markerX] remoteExec ["A3A_fnc_markerChange",2];
-			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 succesful. Retaken.",_airportX,_base,_markerX];
+			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 has outnumbered the enemy, changing marker!",_airportX,_base,_markerX];
 			};
 		sleep 10;
 		if (!(sidesX getVariable [_markerX,sideUnknown] == Occupants)) then
@@ -632,7 +632,7 @@ if (_isMarker) then
 				_killZones = _killZones + [_markerX,_markerX];
 				killZones setVariable [_airportX,_killZones,true];
 				};
-			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 failed",_airportX,_base,_markerX];
+			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 has failed as the marker is not changed!",_airportX,_base,_markerX];
 			}
 		}
 	else
@@ -641,7 +641,7 @@ if (_isMarker) then
 		if  ((({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits)) and (not(sidesX getVariable [_markerX,sideUnknown] == Invaders))) then
 			{
 			[Invaders,_markerX] remoteExec ["A3A_fnc_markerChange",2];
-			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 succesful. Retaken.",_airportX,_base,_markerX];
+			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 has outnumbered the enemy, changing marker!",_airportX,_base,_markerX];
 			};
 		sleep 10;
 		if (!(sidesX getVariable [_markerX,sideUnknown] == Invaders)) then
@@ -653,7 +653,7 @@ if (_isMarker) then
 				_killZones = _killZones + [_markerX,_markerX];
 				killZones setVariable [_airportX,_killZones,true];
 				};
-			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 failed",_airportX,_base,_markerX];
+			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 has failed as the marker is not changed!",_airportX,_base,_markerX];
 			}
 		};
 	}

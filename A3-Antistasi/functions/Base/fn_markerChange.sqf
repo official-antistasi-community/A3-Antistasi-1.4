@@ -83,9 +83,10 @@ else
 		_request pushBack ([_preference select _i, _winner] call A3A_fnc_createGarrisonLine);
 	};
 	garrison setVariable [format ["%1_requested", _markerX], _request, true];
-	[_markerX] call A3A_fnc_updateReinfState;
 	//End ========================================================================
 };
+
+[_markerX] call A3A_fnc_updateReinfState;
 
 _nul = [_markerX] call A3A_fnc_mrkUpdate;
 _sides = _sides - [_winner,_looser];

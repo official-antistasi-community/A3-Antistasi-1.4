@@ -17,7 +17,7 @@ if(!_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > dist
 //To far away for air convoy
 if(_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > distanceForAirAttack}) exitWith {false};
 
-_targetIsBase = _target in outpots;
+_targetIsBase = _target in outposts;
 _reinfMarker = if(_side == Occupants) then {reinforceMarkerOccupants} else {reinforceMarkerInvader};
 
 _targetReinforcements = [_target] call A3A_fnc_getRequested;

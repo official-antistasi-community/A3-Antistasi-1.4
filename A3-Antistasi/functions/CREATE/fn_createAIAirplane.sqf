@@ -280,8 +280,9 @@ if (!_busy) then
 			if(count _vehPool > 0) then
 			{
 				_typeVehX = selectRandom _vehPool;
-				_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [],3, "CAN_COLLIDE"];
+				_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [], 0, "CAN_COLLIDE"];
 				_veh setDir (_spawnParameter select 1);
+				_veh setPos (_spawnParameter select 0);
 				_vehiclesX pushBack _veh;
 				_nul = [_veh] call A3A_fnc_AIVEHinit;
 			};

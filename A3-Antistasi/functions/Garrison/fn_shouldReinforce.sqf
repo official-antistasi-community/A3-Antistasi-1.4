@@ -9,7 +9,7 @@ _isAirport = _base in airportsX;
 _side = sidesX getVariable [_base, sideUnknown];
 
 //Spawned airports are not yet ready to send reinforcements
-if (spawner getVariable _base != 2) exitWith {false};
+if (spawner getVariable _base != 2 || {_base in forcedSpawn}) exitWith {false};
 
 //To far away for land convoy or not the same island
 if(!_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > distanceForLandAttack || {!([_base, _target] call A3A_fnc_isTheSameIsland)}}) exitWith {false};

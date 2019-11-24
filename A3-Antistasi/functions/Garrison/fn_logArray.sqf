@@ -9,6 +9,7 @@ params ["_array", ["_arrayName", "array"]];
 *     Nothing
 */
 
+//TODO add Tads new log function
 diag_log format ["Logging %1:", _arrayName];
 for "_i" from 0 to ((count _array) - 1) do
 {

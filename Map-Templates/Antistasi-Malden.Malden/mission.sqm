@@ -13907,40 +13907,48 @@ class Mission
 		};
 		class Item550
 		{
-			dataType="Marker";
-			position[]={4711,451.25,6649.625};
+			ataType="Marker";
+			position[]={5411.4707,451.25,5968.7446};
 			name="island";
 			markerType="RECTANGLE";
 			type="ellipse";
 			fillName="Border";
+			a=7260.3525;
+			b=3881.4094;
 			angle=281.49884;
 			drawBorder=1;
 			id=7946;
-			atlOffset=39.145111;
+			atlOffset=80.688202;
 		};
 		class Item551
 		{
 			dataType="Marker";
-			position[]={9766,38.889198,3987.75};
+			position[]={10685.275,38.889198,3810.7349};
 			name="island_1";
 			markerType="RECTANGLE";
 			type="rectangle";
 			fillName="Border";
-			angle=11.204995;
+			a=1628.6877;
+			b=1110.517;
+			angle=351.11893;
 			drawBorder=1;
 			id=7947;
+			atlOffset=15.959801;
 		};
 		class Item552
 		{
 			dataType="Marker";
-			position[]={843.125,16.64209,11940.75};
+			position[]={1119.0909,16.625,11948.07};
 			name="island_2";
 			markerType="RECTANGLE";
 			type="rectangle";
 			fillName="Border";
+			a=911.43744;
+			b=688.78528;
 			angle=11.204995;
 			drawBorder=1;
 			id=7948;
+			atlOffset=-13.964973;
 		};
 		class Item553
 		{

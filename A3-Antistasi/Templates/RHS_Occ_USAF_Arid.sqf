@@ -48,8 +48,8 @@ vehNATOPVP = ["rhsusf_m1025_w_s","rhsusf_m998_w_s_2dr","rhsusf_m998_w_s_2dr_full
 //Military Units
 NATOGrunt = "rhsusf_usmc_marpat_wd_rifleman_light";
 NATOOfficer = "rhsusf_usmc_marpat_wd_officer";
-NATOOfficer2 = "rhsgref_cdf_b_para_officer";
-NATOBodyG = "rhsgref_cdf_b_para_squadleader";
+NATOOfficer2 = "rhsusf_army_ucp_rifleman_101st";
+NATOBodyG = "rhsusf_army_ucp_rifleman_1stcav";
 NATOCrew = "rhsusf_usmc_marpat_wd_crewman";
 NATOUnarmed = "B_G_Survivor_F";
 NATOMarksman = "rhsusf_usmc_marpat_wd_marksman";

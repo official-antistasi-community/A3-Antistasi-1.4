@@ -200,7 +200,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
   };
 
   _unitsSend pushBack [_currentSelected, _crew, _cargo];
-  [3, format ["Units selected, crew is %2, cargo is %3", _crew, _cargo], _fileName] call A3A_fnc_log;
+  [3, format ["Units selected, crew is %1, cargo is %2", _crew, _cargo], _fileName] call A3A_fnc_log;
 };
 
 garrison setVariable [format ["%1_recruit", _base], (_maxUnitSend - _currentUnitCount), true];

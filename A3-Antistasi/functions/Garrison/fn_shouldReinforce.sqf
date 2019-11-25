@@ -26,7 +26,7 @@ _reinfCount = [_targetReinforcements, true] call A3A_fnc_countGarrison;
 _maxSend = garrison getVariable [format ["%1_recruit", _base], 0];
 
 //Can't send enough troups
-if(_maxSend < (_reinfCount * 2/3)) exitWith {false};
+if((_reinfCount < 18) && {_maxSend < (_reinfCount * 2/3)}) exitWith {false};
 
 //Bases should not send more than 8 troops at a time
 if((_reinfCount > 8) && {!_isAirport}) exitWith {false};

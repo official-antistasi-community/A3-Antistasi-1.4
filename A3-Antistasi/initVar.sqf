@@ -260,7 +260,7 @@ arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man
 
 private _vehicleIsSpecial = {
 	params ["_vehConfig"];
-	
+
 	   (getNumber (_vehConfig >> "transportRepair") > 0)
 	|| (getNumber (_vehConfig >> "transportAmmo") > 0)
 	|| (getNumber (_vehConfig >> "transportFuel") > 0)
@@ -284,18 +284,18 @@ private _civVehConfigs = "(
 
 private _vehIsValid = {
 	params ["_vehConfig"];
-	
+
 	private _mod = _vehConfig call A3A_fnc_getModOfConfigClass;
-	
+
 	//If we have IFA and vehicle is vanilla
 	if(hasIFA && {_mod == ""}) exitWith {
 		false;
 	};
-	
+
 	if (_vehConfig call _vehicleIsSpecial) exitWith {
 		false;
 	};
-	
+
 	//Check if mod is disabled
 	!(_vehConfig call A3A_fnc_getModOfConfigClass in disabledMods);
 };
@@ -368,7 +368,7 @@ private _equipmentFilter = {
 
 	private _itemMod = (_configClass call A3A_fnc_getModOfConfigClass);
 	private _itemIsVanilla = [_itemMod] call A3A_fnc_isModNameVanilla;
-	
+
 	//Mod is disabled, remove item.
 	if (_itemMod in disabledMods) exitWith {
 		true;
@@ -688,6 +688,23 @@ outpostStaticsTiers = [0.4, 0.7, 1];
 otherUpdateTiers = [3, 7];
 otherStaticsTiers = [0.3, 1];
 [] call A3A_fnc_initPreference;
+
+//Breaching logic
+breachExplosiveSmall = ["DemoCharge_Remote_Mag"];
+breachExplosiveLarge = ["SatchelCharge_Remote_Mag"];
+if(hasRHS && !hasIFA) then
+{
+	breachExplosiveSmall = ["rhs_ec200_mag", "rhs_ec200_camo_mag"];
+	breachExplosiveLarge = ["rhs_ec400_mag", "rhs_ec400_camo_mag"];
+}
+else
+{
+	if(hasIFA) then
+	{
+		breachExplosiveSmall = ["LIB_Ladung_Small_MINE_mag"];
+		breachExplosiveLarge = ["LIB_Ladung_Big_MINE_mag"];
+	};
+};
 
 ////////////////////////////////////
 // DECLARE VARIBALES FOR CLIENTS ///

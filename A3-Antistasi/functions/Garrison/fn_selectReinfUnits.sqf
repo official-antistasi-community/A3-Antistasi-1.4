@@ -102,7 +102,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
     };
 
     [3, format ["No reinf vehicle found, selecting not needed transport vehicle, needs space for %1 passengers", _neededCargoSpace], _fileName] call A3A_fnc_log;
-	  if (_isAir) then
+    if (_isAir) then
     {
 		  if (_neededCargoSpace <= 4) then
       {

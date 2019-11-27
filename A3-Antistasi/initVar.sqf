@@ -591,6 +591,11 @@ case "tembelan":
 		//Roads DB
 		call compile preprocessFileLineNumbers "roadsDBTembelan.sqf";
 		};
+case "tem_anizay":
+		{
+		//Roads DB
+		call compile preprocessFileLineNumbers "roadsDBanizay.sqf";
+		};
 	};
 
 ////////////////////////////////////

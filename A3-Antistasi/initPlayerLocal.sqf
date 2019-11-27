@@ -34,6 +34,7 @@ if (!hasInterface) exitWith {
 	if (worldName == "Malden") then {call compile preprocessFileLineNumbers "roadsDBMalden.sqf"};
 	if (worldName == "Kunduz") then {call compile preprocessFileLineNumbers "roadsDBKunduz.sqf"};
 	if (worldName == "Tembelan") then {call compile preprocessFileLineNumbers "roadsDBTembelan.sqf"};
+	if (worldName == "tem_anizay") then {call compile preprocessFileLineNumbers "roadsDBanizay.sqf"};
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 };
 

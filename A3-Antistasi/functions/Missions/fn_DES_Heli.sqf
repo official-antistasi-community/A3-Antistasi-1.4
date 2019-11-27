@@ -30,7 +30,7 @@ while {true} do
 		};
 	};
 
-typeVehX = if (_sideX == Occupants) then {selectRandom (vehNATOTransportHelis + vehNATOAttackHelis)} else {selectRandom (vehCSATAttackHelis + vehCSATTransportHelis)};
+_typeVehX = if (_sideX == Occupants) then {selectRandom (vehNATOTransportHelis + vehNATOAttackHelis)} else {selectRandom (vehCSATAttackHelis + vehCSATTransportHelis)};
 
 _posCrash = _posCrashOrig findEmptyPosition [0,100,_typeVehX];
 
@@ -59,7 +59,7 @@ _mrkFinal = createMarker [format ["DES%1", random 100],_posCrashMrk];
 _mrkFinal setMarkerShape "ICON";
 
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Creating Tasks",servertime];
-[[teamPlayer,civilian],"DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"DES",[format ["We have downed air vehicle. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 [[Occupants],"DES1",[format ["The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation",_nameXbase],"Helicopter Down",_mrkFinal],_posCrash,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
 
@@ -180,7 +180,7 @@ waitUntil
 	sleep 1;
 	(not alive _heli) ||
 	{(_vehT distance _positionX < 100) ||
-	{((taskState "DES") == "SUCCEEDED") ||
+	{("DES" call BIS_fnc_taskState == "SUCCEEDED") ||
 	{(count (_vehicle getVariable ["SA_Tow_Ropes",[]]) > 0) ||
 	{(dateToNumber date > _dateLimitNum)}}}}
 };

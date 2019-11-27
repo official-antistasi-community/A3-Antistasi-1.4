@@ -99,7 +99,7 @@ if (_isControl) then
 			{_nul = [_x] call A3A_fnc_AIVEHinit} forEach _vehiclesX;
 			};
 		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsNATOmid} else {selectRandom groupsCSATmid};
-		_groupX = [_positionX,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
+		_groupX = [_positionX,_sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
 			if !(hasIFA) then
@@ -125,7 +125,7 @@ if (_isControl) then
 		_vehiclesX pushBack _veh;
 		sleep 1;
 		_typeGroup = selectRandom groupsFIAMid;
-		_groupX = [_positionX, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
+		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
 			_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];

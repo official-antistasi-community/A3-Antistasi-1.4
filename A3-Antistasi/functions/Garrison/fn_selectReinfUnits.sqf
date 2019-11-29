@@ -98,45 +98,47 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {[_reinf, true] call A3A_fnc_co
         if(_neededCargoSpace == 0) then
         {
             [1, "_neededCargoSpace is 0, something went really wrong!", _fileName] call A3A_fnc_log;
-        };
-
-        [3, format ["No reinf vehicle found, selecting not needed transport vehicle, needs space for %1 passengers", _neededCargoSpace], _fileName] call A3A_fnc_log;
-        if (_isAir) then
-        {
-            if (_neededCargoSpace <= 4) then
-            {
-                _currentSelected = if (_side ==	Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli};
-            }
-            else
-            {
-                _currentSelected = if (_side ==	Occupants) then {selectRandom vehNATOTransportHelis} else {selectRandom vehCSATTransportHelis};
-            };
-            [3, format ["Selected %1 as an air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
         }
         else
         {
-            if(_neededCargoSpace == 1) then
+            [3, format ["No reinf vehicle found, selecting not needed transport vehicle, needs space for %1 passengers", _neededCargoSpace], _fileName] call A3A_fnc_log;
+            if (_isAir) then
             {
-                //Vehicle, crew and one person, selecting quad
-                _currentSelected = if(_side == Occupants) then {vehNATOBike} else {vehCSATBike};
-            }
-            else
-            {
-                if(_neededCargoSpace <= 5) then
+                if (_neededCargoSpace <= 4) then
                 {
-                    //Select light unarmed vehicle (as the armed uses three crew)
-                    _currentSelected = if(_side == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};
+                    _currentSelected = if (_side ==	Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli};
                 }
                 else
                 {
-                    //Select random truck or helicopter
-                    _currentSelected = if(_side == Occupants) then {selectRandom (vehNATOTrucks + vehNATOTransportHelis)} else {selectRandom (vehCSATTrucks + vehCSATTransportHelis)};
+                    _currentSelected = if (_side ==	Occupants) then {selectRandom vehNATOTransportHelis} else {selectRandom vehCSATTransportHelis};
                 };
+                [3, format ["Selected %1 as an air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
+            }
+            else
+            {
+                if(_neededCargoSpace == 1) then
+                {
+                    //Vehicle, crew and one person, selecting quad
+                    _currentSelected = if(_side == Occupants) then {vehNATOBike} else {vehCSATBike};
+                }
+                else
+                {
+                    if(_neededCargoSpace <= 5) then
+                    {
+                        //Select light unarmed vehicle (as the armed uses three crew)
+                        _currentSelected = if(_side == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};
+                    }
+                    else
+                    {
+                        //Select random truck or helicopter
+                        _currentSelected = if(_side == Occupants) then {selectRandom (vehNATOTrucks + vehNATOTransportHelis)} else {selectRandom (vehCSATTrucks + vehCSATTransportHelis)};
+                    };
+                };
+                [3, format ["Selected %1 as an ground or air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
             };
-            [3, format ["Selected %1 as an ground or air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
-        };
-        _seatCount = [_currentSelected, true] call BIS_fnc_crewCount;
-        _crewSeats = [_currentSelected, false] call BIS_fnc_crewCount;
+            _seatCount = [_currentSelected, true] call BIS_fnc_crewCount;
+            _crewSeats = [_currentSelected, false] call BIS_fnc_crewCount;
+        };    
     };
 
 

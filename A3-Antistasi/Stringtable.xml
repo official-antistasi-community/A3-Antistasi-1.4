@@ -540,32 +540,32 @@
       </Key>
     </Container>
     <Container name="mission_info">
-    <Key ID="STR_antistasi_mission_info_altis_description_text">
-      <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-      <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
-      <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
-      <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
-    </Key>
-    <Key ID="STR_antistasi_mission_info_altis_mapname_text">
-      <Original>Antistasi - Uprising In Altis</Original>
-      <English>Antistasi - Uprising In Altis</English>
-    </Key>
-    <Key ID="STR_antistasi_mission_info_altis_mapname_short_text">
-      <Original>Antistasi Altis</Original>
-      <English>Antistasi Altis</English>
-    </Key>
-    <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
-      <Original>Antistasi - Uprising In Altis (BLUFOR)</Original>
-      <English>Antistasi - Uprising In Altis (BLUFOR)</English>
-    </Key>
-    <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
-      <Original>Antistasi Altis (BLUFOR)</Original>
-      <English>Antistasi Altis (BLUFOR)</English>
-    </Key>
-    <Key ID="STR_antistasi_mission_info_altis_blurb_text">
-      <Original>Because nothing is more important than Freedom.</Original>
-      <English>Because nothing is more important than Freedom.</English>
-    </Key>
+      <Key ID="STR_antistasi_mission_info_altis_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+        <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_altis_mapname_text">
+        <Original>Antistasi - Uprising In Altis</Original>
+        <English>Antistasi - Uprising In Altis</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_altis_mapname_short_text">
+        <Original>Antistasi Altis</Original>
+        <English>Antistasi Altis</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
+        <Original>Antistasi - Uprising In Altis (BLUFOR)</Original>
+        <English>Antistasi - Uprising In Altis (BLUFOR)</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
+        <Original>Antistasi Altis (BLUFOR)</Original>
+        <English>Antistasi Altis (BLUFOR)</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_altis_blurb_text">
+        <Original>Because nothing is more important than Freedom.</Original>
+        <English>Because nothing is more important than Freedom.</English>
+      </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
@@ -697,6 +697,22 @@
       <Key ID="STR_antistasi_mission_info_tembelan_description_text">
         <Original>Tembelan description placeholder</Original>
         <English>Tembelan description placeholder</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_anizay_mapname_short_text">
+        <Original>Test</Original>
+        <English>Test</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_anizay_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_anizay_mapname_text">
+        <Original>placeholder</Original>
+        <English>placeholder</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_anizay_blurb_text">
+        <Original>placeholder</Original>
+        <English>placeholder</English>
       </Key>
     </Container>
     <Container name="journal_entries">

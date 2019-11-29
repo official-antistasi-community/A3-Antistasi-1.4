@@ -63,12 +63,8 @@ if (_unit == theBoss) then
 	theBoss = objNull;
 	//Broadcast as a public variable, otherwise new players joining will have theBoss assigned to the dead body still.
 	publicVariable "theBoss";
-	if (((count playableUnits > 0) and (!membershipEnabled)) or ({(getPlayerUID _x) in membersX} count playableUnits > 0)) then
-		{
-		[] spawn A3A_fnc_assigntheBoss;
-		};
-	if (group petros == group _unit) then {[] spawn A3A_fnc_buildHQ};
-	};
+	[] remoteExec ["A3A_fnc_assignBossIfNone", 2];
+	if (group petros == group _unit) then { [] spawn A3A_fnc_buildHQ}; };
 
 //Need to check the group's side, as player may be a civ. Unknown is in case they've been moved out of their group.
 if (side group _unit == teamPlayer || side group _unit == sideUnknown) then
@@ -79,7 +75,7 @@ if (side group _unit == teamPlayer || side group _unit == sideUnknown) then
 		if (_uid in membersX) then {playerHasBeenPvP pushBack [_uid,time]};
 		};
 	};
-	
+
 [_uid, _unit] call A3A_fnc_savePlayer;
 
 _pos = getPosATL _unit;

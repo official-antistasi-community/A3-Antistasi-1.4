@@ -13,7 +13,7 @@ private ["_vehicleType", "_vehicle", "_crew", "_crewMember", "_cargoGroup", "_li
 
 _vehicleType = _data select 0;
 _vehicle = [_vehicleType, _side] call A3A_fnc_selectVehicleType;
-_crew = ["","","",""];
+_crew = [];
 if((_data select 1) != 0) then
 {
   _crewMember = if(_side == Occupants) then {NATOCrew} else {CSATCrew};

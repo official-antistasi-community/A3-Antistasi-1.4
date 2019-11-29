@@ -1,6 +1,10 @@
 diag_log format ["%1: [Antistasi] | INFO | Init Started.",servertime];
 //Arma 3 - Antistasi - Warlords of the Pacific by Barbolani & The Official AntiStasi Community
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.
+private _fileName = "init.sqf";
+scriptName "init.sqf";
+if (isNil "logLevel") then {logLevel = 2};
+[2,"Init SQF started",_fileName] call A3A_fnc_log;
 enableSaving [false,false];
 mapX setObjectTexture [0,"pic.jpg"];
      
@@ -16,9 +20,8 @@ if (!isMultiPlayer) then {
      minWeaps = 25;
      civTraffic = 1;
      limitedFT = false;
-     diag_log format ["%1: [Antistasi] | INFO | Singleplayer Starting.",servertime];
-     call compile preprocessFileLineNumbers "initVar.sqf";//this is the file where you can modify a few things.
-     diag_log format ["%1: [Antistasi] | INFO | SP Version: %2 loaded.",servertime,antistasiVersion];
+     call compile preprocessFileLineNumbers "initVar.sqf";
+     [2,format ["SP version: %1 loaded",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
      initVar = true;
      respawnOccupants setMarkerAlpha 0;
      "respawn_east" setMarkerAlpha 0;
@@ -57,22 +60,23 @@ if (!isMultiPlayer) then {
      {
           _x call A3A_fnc_unlockEquipment;
      } foreach initialRebelEquipment;
-     diag_log format ["%1: [Antistasi] | INFO | Arsenal Loaded.",servertime];
+     [2,"Arsenal Loaded",_fileName] call A3A_fnc_log;
      
      waitUntil {sleep 1;!(isNil "placementDone")};
      distanceXs = [] spawn A3A_fnc_distance;
      [] spawn A3A_fnc_resourcecheck;
      [] execVM "Scripts\fn_advancedTowingInit.sqf";
      addMissionEventHandler ["BuildingChanged", {
-          _building = _this select 0;
-          if !(_building in antennas) then {
-               if (_this select 2) then {
-                    destroyedBuildings pushBack (getPosATL _building);
-               };
+          params ["_oldBuilding", "_newBuilding", "_isRuin"];
+
+          if (_isRuin) then {
+               _oldBuilding setVariable ["ruins", _newBuilding];
+               _newBuilding setVariable ["building", _oldBuilding];
+
+               destroyedBuildings pushBack (getPosATL _oldBuilding);
           };
      }];
      deleteMarker "respawn_east";
      if (teamPlayer == independent) then {deleteMarker "respawn_west"} else {deleteMarker "respawn_guerrila"};
 };
-
-diag_log format ["%1: [Antistasi] | INFO | Init finished.",servertime];
+[2,"Init finished",_fileName] call A3A_fnc_log;

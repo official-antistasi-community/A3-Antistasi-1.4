@@ -1,4 +1,6 @@
-diag_log format ["%1: [Antistasi] | INFO | initPetros Started.",servertime];
+private _fileName = "fn_initPetros";
+[2,"initPetros started",_fileName] call A3A_fnc_log;
+scriptName "fn_initPetros";
 removeHeadgear petros;
 removeGoggles petros;
 petros setSkill 1;
@@ -71,9 +73,9 @@ petros addMPEventHandler ["mpkilled",
 				if (!isNull theBoss) then {
 					[] remoteExec ["A3A_fnc_placementSelection",theBoss];
 				} else {
-					private _playersWithRank = 
+					private _playersWithRank =
 						playableUnits
-						select {(side (group _x) == teamPlayer) && isPlayer _x && _x == _x getVariable ["owner", _x]} 
+						select {(side (group _x) == teamPlayer) && isPlayer _x && _x == _x getVariable ["owner", _x]}
 						apply {[([_x] call A3A_fnc_numericRank) select 0, _x]};
 					_playersWithRank sort false;
 					
@@ -96,4 +98,4 @@ if (hasACE) then {
     [typeOf petros, 0,["ACE_ApplyHandcuffs"]] call ace_interact_menu_fnc_removeActionFromClass;
     [typeOf petros, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
 };
-diag_log format ["%1: [Antistasi] | INFO | initPetros Completed.",servertime];
+[2,"initPetros completed",_fileName] call A3A_fnc_log;

@@ -1,3 +1,5 @@
+scriptName "fn_initDisabledMods.sqf";
+private _fileName = "fn_initDisabledMods.sqf";
 disabledMods = [];
 
 if ("Kart" call BIS_fnc_getParamValue isEqualTo 0) then
@@ -49,4 +51,4 @@ if ("OfficialMod" call BIS_fnc_getParamValue isEqualTo 0) then
 {
 	disabledMods pushBack "officialmod";
 };
-diag_log format ["%1: [Antistasi] | INFO | Filter | Disabled DLC: %2", servertime, disabledMods];
+[2,format ["Disabled DLC: %1",disabledMods],_fileName] call A3A_fnc_log;

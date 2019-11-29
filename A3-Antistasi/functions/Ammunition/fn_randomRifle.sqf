@@ -10,14 +10,20 @@ if (_pool isEqualTo []) then {
 	};
 };
 private _rifleFinal = selectRandom _pool;
-if (_rifleFinal == primaryWeapon _unit) exitWith {};
 
-private _magazines = getArray (configFile / "CfgWeapons" / (primaryWeapon _unit) / "magazines");
-{_unit removeMagazines _x} forEach _magazines;
-_unit removeWeaponGlobal (primaryWeapon _unit);
+if !(primaryWeapon _unit isEqualTo "") then {
+	if (_rifleFinal == primaryWeapon _unit) exitWith {};
+	private _magazines = getArray (configFile / "CfgWeapons" / (primaryWeapon _unit) / "magazines");
+	{_unit removeMagazines _x} forEach _magazines;
+	_unit removeWeapon (primaryWeapon _unit);
+};
 
 if (_rifleFinal in unlockedGrenadeLaunchers) then {
-	_unit addMagazine ["1Rnd_HE_Grenade_shell", 3];
+	// lookup real underbarrel GL magazine, because not everything is 40mm
+	private _config = configFile >> "CfgWeapons" >> _rifleFinal;
+	private _glmuzzle = getArray (_config >> "muzzles") select 1;		// guaranteed by category
+	private _glmag = getArray (_config >> _glmuzzle >> "magazines") select 0;
+	_unit addMagazines [_glmag, 5];
 };
 
 [_unit, _rifleFinal, 5, 0] call BIS_fnc_addWeapon;

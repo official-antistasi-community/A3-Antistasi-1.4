@@ -1,6 +1,14 @@
 #include "functions\Garage\defineGarage.inc"
-private _filename = "initPlayerLocal";
-diag_log format ["%1: [Antistasi] | INFO | initPlayerLocal Started.",servertime];
+private _fileName = "initPlayerLocal.sqf";
+
+//Make sure logLevel is always initialised.
+//This should be overridden by the server, as appropriate. Hence the nil check.
+if (isNil "logLevel") then { logLevel = 2 };scriptName "initPlayerLocal.sqf";
+
+[2,"initPlayerLocal started",_fileName] call A3A_fnc_log;
+
+call A3A_fnc_installSchrodingersBuildingFix;
+
 if (hasInterface) then {
 	waitUntil {!isNull player};
 	waitUntil {player == player};
@@ -13,7 +21,7 @@ if (isMultiplayer) then {
 		call compile preprocessFileLineNumbers "initFuncs.sqf";
 		call compile preprocessFileLineNumbers "initVar.sqf";
 		waitUntil {!isNil "initVar"};
-		diag_log format ["%1: [Antistasi] | INFO | MP Client | Version : %2.",servertime, antistasiVersion];
+		[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 	}
 	else {
 		waitUntil {sleep 0.5;(!isNil "serverInitDone")};
@@ -29,6 +37,7 @@ if (!hasInterface) exitWith {
 	if (worldName == "Malden") then {call compile preprocessFileLineNumbers "roadsDBMalden.sqf"};
 	if (worldName == "Kunduz") then {call compile preprocessFileLineNumbers "roadsDBKunduz.sqf"};
 	if (worldName == "Tembelan") then {call compile preprocessFileLineNumbers "roadsDBTembelan.sqf"};
+	if (worldName == "tem_anizay") then {call compile preprocessFileLineNumbers "roadsDBanizay.sqf"};
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 };
 
@@ -41,11 +50,11 @@ if (isMultiplayer) then {
 	//waitUntil {scriptdone _introshot};
 	disableUserInput true;
 	cutText ["Waiting for Players and Server Init","BLACK",0];
-	diag_log format ["%1: [Antistasi] | INFO | MP Client | Waiting for Server...",servertime];
+	[2,"Waiting for server...",_fileName] call A3A_fnc_log;
 	waitUntil {(!isNil "serverInitDone")};
 	cutText ["Starting Mission","BLACK IN",0];
-	diag_log format ["%1: [Antistasi] | INFO | MP Client | Server loaded..",servertime];
-	diag_log format ["%1: [Antistasi] | INFO | MP Client | JIP?: %2",servertime,_isJip];
+	[2,"Server loaded!",_fileName] call A3A_fnc_log;
+	[2,format ["JIP client: %1",_isJIP],_fileName] call A3A_fnc_log;
 	if (hasTFAR) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
@@ -126,27 +135,7 @@ else	{
 
 if (player getVariable ["pvp",false]) exitWith {
 	lastVehicleSpawned = objNull;
-	pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	if ((!_isJIP) or !pvpEnabled) then {
-		["noPvP",false,1,false,false] call BIS_fnc_endMission;
-		diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because he is not jipping or PvP slots are disabled.",servertime];
-	}
-	else {
-		if (not([player] call A3A_fnc_isMember)) then {
-			["noPvP",false,1,false,false] call BIS_fnc_endMission;
-			diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because he is not member.",servertime];
-		}
-		else {
-			if ({(side group _x != teamPlayer)} count playableUnits > {(side group _x == teamPlayer)} count playableUnits) then {
-				["noPvP",false,1,false,false] call BIS_fnc_endMission;
-				diag_log format ["%1: [Antistasi] | INFO | PvP player kicked because PvP players number is equal to non PvP.",servertime];
-			}
-			else {
-				[player] remoteExec ["A3A_fnc_playerHasBeenPvPCheck",2];
-				diag_log format ["%1: [Antistasi] | INFO | PvP player logged in, doing server side checks if the player has been rebel recently.",servertime];
-			};
-		};
-	};
+	[player] call A3A_fnc_pvpCheck;
 	[player] call A3A_fnc_dress;
 	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	respawnTeamPlayer setMarkerAlphaLocal 0;
@@ -231,7 +220,7 @@ player addEventHandler ["HandleDamage", {
 	private _instigator = param [6];
 	if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.9) then {
 		[_instigator, 20, 0.21, _victim] remoteExec ["A3A_fnc_punishment",_instigator];
-		[format ["%1: [Antistasi] | INFO | %1 injured by %2 (UID: %3) %4m from HQ",name _victim,name _instigator,getPlayerUID _instigator,_victim distance2D posHQ]] remoteExec ["diag_log", 2];
+		[format ["%1 was injured by %2 (UID: %3), %4m from HQ",name _victim,name _instigator,getPlayerUID _instigator,_victim distance2D posHQ]] remoteExec ["diag_log",2];
 	};
 }];
 player addEventHandler ["InventoryOpened", {
@@ -374,26 +363,15 @@ if (isMultiplayer) then {
 	};
 };
 
-waitUntil {scriptdone _introshot};
+waitUntil { scriptDone _introshot };
+
 if (_isJip) then {
+	[2,"Joining In Progress (JIP)",_filename] call A3A_fnc_log;
 	[] spawn A3A_fnc_modBlacklist;
 	player setVariable ["punish",0,true];
 	waitUntil {!isNil "posHQ"};
 	player setPos posHQ;
 	[true] spawn A3A_fnc_reinitY;
-
-	//Adding Boss check...
-	private _BossAssigned = false;
-	if (isnil "theBoss" || {isNull theBoss}) then {
-		_BossAssigned = false;
-		[3, format ["No Boss found, Checking for next available boss."],_filename] call A3A_fnc_log;
-		[] remoteExec ["A3A_fnc_assigntheBoss",2];
-	}
-	else
-	{
-		[3, format ["Player %1 is the boss", theBoss],_filename] call A3A_fnc_log;
-		_BossAssigned = True;
-	};
 
 	if (not([player] call A3A_fnc_isMember)) then {
 		if ((serverCommandAvailable "#logout") or (isServer)) then {
@@ -408,10 +386,8 @@ if (_isJip) then {
 	}
 	else {
 		hint format ["Welcome back %1", name player];
-		if (!(_BossAssigned) && {{([_x] call A3A_fnc_isMember) and (side (group _x) == teamPlayer)} count playableUnits == 1}) then {
-			[3, format ["No boss detected, calling theBossInit"],_filename] call A3A_fnc_log;
-			[player] call A3A_fnc_theBossInit;
-		};
+		//Adding Boss check... Goes after the Member check so they're definitely in the list of eligible.
+		[] remoteExec ["A3A_fnc_assignBossIfNone", 2];
 	};
 
 	waitUntil {!(isNil "missionsX")};
@@ -443,10 +419,11 @@ if (_isJip) then {
 	else {
 		[] spawn A3A_fnc_firstLoad;
 	};
-	diag_log format ["%1: [Antistasi] | INFO | MP Client | JIP Client Loaded.",servertime];
+	[2,"JIP client loaded",_fileName] call A3A_fnc_log;
 	player setPos (getMarkerPos respawnTeamPlayer);
 }
 else {
+	[2,"Not Joining in Progress (JIP)",_filename] call A3A_fnc_log;
 	if (isNil "placementDone") then {
 		waitUntil {!isNil "theBoss"};
 		if (player == theBoss) then {
@@ -464,7 +441,7 @@ else {
 		    	else {
 		    		[true] spawn A3A_fnc_firstLoad;
 			};
-			diag_log format ["%1: [Antistasi] | INFO | MP Client | Client load finished.",servertime];
+			[2,"Client load completed",_fileName] call A3A_fnc_log;
 		    	}
 			else {
 				membersX = [];
@@ -574,4 +551,4 @@ _layer cutRsc ["H8erHUD","PLAIN",0,false];
 //Can re-enable them if we find the source of the bug.
 enableEnvironment [false, true];
 
-diag_log format ["%1: [Antistasi]: initPlayerLocal Completed.",servertime];
+[2,"initPlayerLocal completed",_fileName] call A3A_fnc_log;

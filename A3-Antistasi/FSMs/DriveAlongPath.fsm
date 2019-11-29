@@ -1,7 +1,7 @@
-/*%FSM<COMPILE "F:\Steam\SteamApps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, MoveAndGun">*/
+/*%FSM<COMPILE "F:\Steam\SteamApps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, DriveAlongPath">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,4346,-258.071289,-342.907776,-168.071396,-292.907776,0.000000,"Start"};
+item0[] = {"Start",0,250,-258.071289,-342.907776,-168.071396,-292.907776,0.000000,"Start"};
 item1[] = {"_",-1,250,-162.790146,-180.814117,-73.255249,-177.907150,0.000000,""};
 item2[] = {"End_and_Rejoin",1,250,121.673431,-203.263062,211.673462,-153.263077,0.000000,"End and Rejoin"};
 item3[] = {"HasArrived",4,218,-87.535736,-114.861282,2.464264,-64.861282,10.000000,"HasArrived"};
@@ -11,6 +11,8 @@ item6[] = {"True",8,218,-257.487732,-253.817780,-167.487717,-203.817780,0.000000
 item7[] = {"At_Next_Pos",4,218,-256.300751,-66.920471,-166.300781,-16.920471,5.000000,"At Next Pos"};
 item8[] = {"Fucked_Waypoint",4,218,-398.105469,-164.819061,-308.105469,-114.819061,0.000000,"Fucked" \n "Waypoint"};
 item9[] = {"Veh_or_Crew_Dead",4,218,-87.208313,-167.915009,2.791687,-117.915009,20.000000,"Veh or Crew" \n "Dead"};
+item10[] = {"Abort",1,250,116.100433,-342.075500,206.100464,-292.075500,0.000000,"Abort"};
+item11[] = {"Hard_Abort_",4,218,-86.479492,-341.346832,3.520508,-291.346832,100.000000,"Hard Abort?"};
 version=1;
 class LayoutItems
 {
@@ -25,23 +27,25 @@ class LayoutItems
 	};
 };
 link0[] = {0,6};
-link1[] = {3,2};
-link2[] = {4,2};
-link3[] = {5,3};
-link4[] = {5,4};
-link5[] = {5,7};
-link6[] = {5,8};
-link7[] = {5,9};
-link8[] = {6,5};
-link9[] = {7,5};
-link10[] = {8,5};
-link11[] = {9,2};
-globals[] = {0.000000,0,0,0,0,640,480,1,32,6316128,1,-559.409241,250.910950,151.986633,-492.188782,1112,884,1};
-window[] = {2,-1,-1,-32000,-32000,889,130,1570,130,3,1130};
+link1[] = {0,11};
+link2[] = {3,2};
+link3[] = {4,2};
+link4[] = {5,3};
+link5[] = {5,4};
+link6[] = {5,7};
+link7[] = {5,8};
+link8[] = {5,9};
+link9[] = {6,5};
+link10[] = {7,5};
+link11[] = {8,5};
+link12[] = {9,2};
+link13[] = {11,10};
+globals[] = {0.000000,0,0,0,0,640,480,1,36,6316128,1,-559.409241,250.910950,151.986633,-492.188782,1112,884,1};
+window[] = {2,-1,-1,-1,-1,785,-1894,-454,26,3,1130};
 *//*%FSM</HEAD>*/
 class FSM
 {
-        fsmName = "MoveAndGun";
+        fsmName = "DriveAlongPath";
         class States
         {
                 /*%FSM<STATE "Start">*/
@@ -51,6 +55,7 @@ class FSM
                         itemno = 0;
                         init = /*%FSM<STATEINIT""">*/"params [""_vehicle"", ""_route""];" \n
                          "" \n
+                         "private _hardAbort = false;" \n
                          "private _state = ""START"";" \n
                          "" \n
                          "if (isNull _vehicle || count _route == 0) exitWith {};" \n
@@ -59,6 +64,9 @@ class FSM
                          "private _accuracy = 20;" \n
                          "" \n
                          "private _splitCrew = [_vehicle] call A3A_fnc_splitVehicleCrewIntoOwnGroups;" \n
+                         "if (_splitCrew select 0 isEqualTo []) exitWith {" \n
+                         "	_hardAbort = true;" \n
+                         "};" \n
                          "" \n
                          "//Make sure our driver doesn't give a shit about the whole 'being shot' thing" \n
                          "(group driver _vehicle) setBehaviour ""CARELESS"";" \n
@@ -68,6 +76,17 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "Hard_Abort_">*/
+                                class Hard_Abort_
+                                {
+                                        itemno = 11;
+                                        priority = 100.000000;
+                                        to="Abort";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_hardAbort;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "True">*/
                                 class True
                                 {
@@ -193,11 +212,24 @@ class FSM
                         };
                 };
                 /*%FSM</STATE>*/
+                /*%FSM<STATE "Abort">*/
+                class Abort
+                {
+                        name = "Abort";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"_state = ""END"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
         };
         initState="Start";
         finalStates[] =
         {
                 "End_and_Rejoin",
+                "Abort",
         };
 };
 /*%FSM</COMPILE>*/

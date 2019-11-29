@@ -172,9 +172,11 @@ fn_SetStat = {
 			private _building = objNull;
 			{
 				_building = nearestObject [_x, "House"];
-				private _ruin = [_building] call BIS_fnc_createRuin;
-				//JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
-				[_building, true] remoteExec ["hideObject", 0, _ruin];
+				if !(_building in antennas) then {
+					private _ruin = [_building] call BIS_fnc_createRuin;
+					//JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
+					[_building, true] remoteExec ["hideObject", 0, _ruin];
+				};
 			} forEach destroyedBuildings;
 		};
 		if (_varName == 'minesX') then {
@@ -228,18 +230,22 @@ fn_SetStat = {
 			};
 		};
 		if (_varName == 'antennas') then {
-			antennasDead = +_varvalue;
+			antennasDead = [];
 			for "_i" from 0 to (count _varvalue - 1) do {
 			    _posAnt = _varvalue select _i;
 			    _mrk = [mrkAntennas, _posAnt] call BIS_fnc_nearestPosition;
 			    _antenna = [antennas,_mrk] call BIS_fnc_nearestPosition;
 			    {if ([antennas,_x] call BIS_fnc_nearestPosition == _antenna) then {[_x,false] spawn A3A_fnc_blackout}} forEach citiesX;
 			    antennas = antennas - [_antenna];
+				antennasDead pushBack _antenna;
 			    _antenna removeAllEventHandlers "Killed";
-			    _antenna setDamage [1,false];
+
+				private _ruin = [_antenna] call BIS_fnc_createRuin;
+				//JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
+				[_antenna, true] remoteExec ["hideObject", 0, _ruin];
+
 			    deleteMarker _mrk;
 			};
-			antennasDead = _varvalue;
 			publicVariable "antennas";
 			publicVariable "antennasDead";
 		};

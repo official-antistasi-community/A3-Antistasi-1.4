@@ -1785,7 +1785,7 @@ class commander_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Step down from commander or toggle eligibility";
-			action = "if (isMultiplayer) then {closedialog 0;execVM ""orgPlayers\commResign.sqf""} else {hint ""This feature is MP Only""};";
+			action = "if (isMultiplayer) then {closedialog 0;[player] remoteExec [""A3A_fnc_theBossToggleEligibility"", 2]} else {hint ""This feature is MP Only""};";
 		};
 		class 8slots_R4: RscButton
 		{

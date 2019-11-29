@@ -8,7 +8,7 @@ switch (_convoyType) do
     {
       _vehicle = _x select 0;
       _vehicleGroup = _vehicle getVariable "vehGroup";
-      _cargoGroup = _vehicle getVariable "cargoGroup";
+      _cargoGroup = _vehicle getVariable ["cargoGroup", grpNull];
       if(_vehicle isKindOf "Air") then
       {
         if (_vehicle isKindOf "Helicopter") then

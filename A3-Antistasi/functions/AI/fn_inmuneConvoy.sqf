@@ -54,8 +54,8 @@ while {alive _veh} do
 				{
 				if ({_x distance _newPos < 500} count (allPlayers - (entities "HeadlessClient_F")) == 0) then
 					{
-					_puentes = nearestObjects [_newPos, ["Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_BridgeSea_01_pillar_F","Land_BridgeWooden_01_pillar_F"], 50];
-					if !(_puentes isEqualTo []) then
+					_bridges = nearestObjects [_newPos, ["Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_BridgeSea_01_pillar_F","Land_BridgeWooden_01_pillar_F"], 50];
+					if !(_bridges isEqualTo []) then
 						{
 						_nextWaypoint = currentWaypoint (group _driverX);
 						_wpPos = waypointPosition ((waypoints (group _driverX)) select _nextWaypoint);

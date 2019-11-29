@@ -149,6 +149,7 @@ class Mission
 {
 	class Intel
 	{
+		briefingName=$STR_antistasi_mission_info_cherna_mapname_text;
 		resistanceWest=0;
 		year=1942;
 		month=6;

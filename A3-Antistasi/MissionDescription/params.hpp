@@ -242,6 +242,13 @@ class Params
           texts[] = {""};
           default = "";
      };
+	 class LogLevel
+	 {
+		  title = "Logging Level (Amount of detail in .rpt file)";
+		  values[] = {1,2,3};
+		  texts[] = {"Error", "Info", "Debug"};
+		  default = 2;
+	 };
      class CrateOptions
      {
           title = "LOOT CRATE OPTIONS";

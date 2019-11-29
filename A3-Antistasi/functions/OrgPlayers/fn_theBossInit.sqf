@@ -4,8 +4,8 @@ _unit = _this select 0;
 _groups = hcAllGroups theBoss;
 _oldUnit = theBoss;
 
-[3, format ["Player %1 has been selected for Boss position.", _unit],_filename] call A3A_fnc_log;
-[3, format ["Removing %1 from Boss roles.", theBoss],_filename] call A3A_fnc_log;
+[3, format ["Player %1 has been selected for Boss position.",name _unit],_filename] call A3A_fnc_log;
+[3, format ["Removing %1 from Boss roles.",name theBoss],_filename] call A3A_fnc_log;
 
 if (!isNil "_groups") then
   {
@@ -17,7 +17,7 @@ _oldUnit synchronizeObjectsRemove [HC_commanderX];
 //apoyo synchronizeObjectsRemove [_oldUnit];
 HC_commanderX synchronizeObjectsRemove [_oldUnit];
 
-[3, format ["New boss being set."],_filename] call A3A_fnc_log;
+[3, format ["New boss %1 being set.", _unit],_filename] call A3A_fnc_log;
 theBoss = _unit;
 publicVariable "theBoss";
 
@@ -26,7 +26,7 @@ theBoss synchronizeObjectsAdd [HC_commanderX];
 HC_commanderX synchronizeObjectsAdd [theBoss];
 //apoyo synchronizeObjectsAdd [theBoss];
 
-[3, format ["Player %1 should now be boss: %2.", _unit, theBoss],_filename] call A3A_fnc_log;
+[3, format ["Player %1 should now be boss: %2.", name _unit, name theBoss],_filename] call A3A_fnc_log;
 
 if (!isNil "_groups") then
 	{

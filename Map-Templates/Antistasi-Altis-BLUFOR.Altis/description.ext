@@ -76,9 +76,41 @@ class CfgDebriefing
     };
     class noPvP
     {
-        title = "Slot Unavailable";
+        title = "PVP Disabled";
         subtitle = "This slot is unavailable";
-        description = "Sorry, but this slot is unavailable for some reason: player not member, match not initialized, lack of rebel commander or recent role as rebel.";
+        description = "PvP is not enabled on this server.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class noJip
+    {
+        title = "JIP Unavailable";
+        subtitle = "This slot is unavailable";
+        description = "You need to have JIP enabled.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class pvpMem
+    {
+        title = "You are not a Member";
+        subtitle = "This slot is unavailable";
+        description = "You need to be a Member to use PvP.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class pvpCount
+    {
+        title = "PvP Player Overflow";
+        subtitle = "This slot is unavailable";
+        description = "PvP is not available as there are too many PvP slots in use, or not enough Rebels online.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class BossMiss
+    {
+        title = "MIA Rebel Commander";
+        subtitle = "This slot is unavailable";
+        description = "PvP is not available as there is no Commander for the Rebels.";
         picture = "b_unknown";
         pictureColor[] = {0.0,0.5,0.0,1};
     };

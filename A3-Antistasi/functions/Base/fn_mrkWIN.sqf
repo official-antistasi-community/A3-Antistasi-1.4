@@ -29,6 +29,9 @@ _flagX spawn
 	_this setVariable ["isGettingCaptured", nil, true];
 };
 
+private _filename = "fn_mrkWIN";
+[2, format ["Flag capture at %1 initiated by %2", _markerX, str _playerX], _filename, true] call A3A_fnc_log;
+
 if (!isNull _playerX) then
 {
 	if (_size > 300) then
@@ -56,11 +59,12 @@ if (!isNull _playerX) then
 
 if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x == teamPlayer)} count allUnits)) exitWith
 {
+	[2, format ["Flag capture by %1 abandoned due to outnumbering", str _playerX], _filename, true] call A3A_fnc_log;
 	hint "The enemy still outnumber us, check the map and clear the rest of the area";
 };
 //if (!isServer) exitWith {};
 
-
+[2, format ["Flag capture by %1 rewarded", str _playerX], _filename, true] call A3A_fnc_log;
 
 {
 	if (isPlayer _x) then

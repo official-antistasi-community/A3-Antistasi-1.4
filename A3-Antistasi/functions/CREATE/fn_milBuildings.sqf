@@ -19,7 +19,7 @@ _typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewIn
 private _helicopterTypes = [];
 _helicopterTypes pushBack (if (_sideX == Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli});
 private _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
-private _count = 3 + round (random 2); //Change these numbers as you want, first number is minimum, max is first plus second number
+private _count = 1 + round (random 3); //Change these numbers as you want, first number is minimum, max is first plus second number
 while {_spawnParameter isEqualType [] && {_count > 0}} do
 {
 	_typeVehX = selectRandom _helicopterTypes;

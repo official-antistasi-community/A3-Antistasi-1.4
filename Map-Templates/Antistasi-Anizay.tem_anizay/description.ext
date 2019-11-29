@@ -2,11 +2,11 @@
 #include "dialogs.hpp"
 
 author = $STR_antistasi_credits_generic_author_text;
-OnLoadName = $STR_antistasi_mission_info_cherna_mapname_short_text;
-OnLoadMission = $STR_antistasi_mission_info_cherna_blurb_text;
+OnLoadName = $STR_antistasi_mission_info_anizay_mapname_short_text;
+OnLoadMission = $STR_antistasi_mission_info_anizay_blurb_text;
 loadScreen = "pic.jpg";
-briefingName = $STR_antistasi_mission_info_cherna_mapname_text;
-overviewText = $STR_antistasi_mission_info_cherna_description_text;
+briefingName = $STR_antistasi_mission_info_anizay_mapname_text;
+overviewText = $STR_antistasi_mission_info_anizay_description_text;
 overviewPicture = "pic.jpg";
 
 #include "MissionDescription\debug.hpp"
@@ -37,24 +37,24 @@ class CfgDebriefing
 	class End1
 	{
 		title = "V I C T O R Y";
-		subtitle = "Chernarus is Ours!";
-		description = "The population of Chernarus loves you!<br/>The SDK brave soldiers have proven their valour, and Petros, Chernarus new Prime Minister, could at last to have a nice holiday. A deserved rest in a Greek island with drinks and fine food.";
+		subtitle = "Anizay is Ours!";
+		description = "The population of Anizay loves you!<br/>The SDK brave soldiers have proven their valour, and Petros, Anizays new Prime Minister, could at last to have a nice holiday. A deserved rest in a Greek island with drinks and fine food.";
 		picture = "n_inf";
 		pictureColor[] = {0.0,0.5,0.0,1};
 	};
     class petrosDead
     {
-        title = "Petros is Dead";
-        subtitle = "Petros is Dead";
-        description = "Congratulations!: Petros is Dead. Now with Syndikat without a leader, you may think about joining them, and free Chernarus";
+        title = "Maru is Dead";
+        subtitle = "Maru is Dead";
+        description = "Congratulations!: Maru is Dead. Now with Syndikat without a leader, you may think about joining them, and free Anizay";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };
     class destroyedSites
     {
-        title = "Chernarus is Destroyed";
-        subtitle = "Chernarus got Destroyed by Soviets";
-        description = "One third of the population in Chernarus has been murdered by the Soviets.<br/>Chernarus no longer exists, nobody wants to live here.";
+        title = "Anizay is Destroyed";
+        subtitle = "Anizay got Destroyed by CSAT";
+        description = "One third of the population in Anizay has been murdered by CSAT.<br/>Anizay no longer exists, nobody wants to live here.";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };

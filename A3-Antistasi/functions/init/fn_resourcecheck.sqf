@@ -130,7 +130,8 @@ while {true} do
 	[] call A3A_fnc_economicsAI;
 	if (isMultiplayer) then
 		{
-		[] spawn A3A_fnc_assigntheBoss;
+		[] spawn A3A_fnc_promotePlayer;
+		[] call A3A_fnc_assignBossIfNone;
 		difficultyCoef = floor ((({side group _x == teamPlayer} count playableUnits) - ({side group _x != teamPlayer} count playableUnits)) / 5);
 		publicVariable "difficultyCoef";
 		};

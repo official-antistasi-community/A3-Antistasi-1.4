@@ -325,6 +325,8 @@ if ((count _objectivesFinal > 0) and (count _easyX < 3)) then
 		+ (count allPlayers / 40)
 		+ (tierWar / 10)
 		+ ([0, 0.5] select _isInvaderAttack);
+	
+	_waves = floor _waves;
 		
 	if (not(_destinationX in citiesX)) then
 		{

@@ -803,7 +803,7 @@ switch _mode do {
 
 		jnva_loadout_mass = 0;
 		diag_log jnva_loadout;
-        [jnva_loadout] remoteExecCall ["jn_fnc_arsenal_addItem",2];
+        jnva_loadout remoteExecCall ["jn_fnc_arsenal_addItem",2];
        	jnva_loadout = ((vehicle player) call jn_fnc_arsenal_cargoToArray);
        	diag_log jnva_loadout;
 

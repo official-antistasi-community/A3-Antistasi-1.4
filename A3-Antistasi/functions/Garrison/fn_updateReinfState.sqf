@@ -13,6 +13,25 @@ private ["_ratio", "_side", "_reinfMarker", "_canReinf", "_index", "_isAirport",
 _ratio = [_marker] call A3A_fnc_getGarrisonRatio;
 _side = sidesX getVariable [_marker, sideUnknown];
 
+if(_side == teamPlayer) exitWith
+{
+  private _index = reinforceMarkerOccupants findIf {(_x select 1) == _marker};
+  if(_index == -1) then
+  {
+    _index = reinforceMarkerInvader findIf {(_x select 1) == _marker};
+    if(_index != -1) then
+    {
+      reinforceMarkerInvader deleteAt _index;
+    };
+  }
+  else
+  {
+    reinforceMarkerOccupants deleteAt _index;
+  };
+  canReinforceOccupants = canReinforceOccupants - [_marker];
+  canReinforceInvader = canReinforceInvader - [_marker];
+};
+
 //diag_log format ["Marker %1 has a ratio of %2", _marker, _ratio];
 
 _reinfMarker = if(_side == Occupants) then {reinforceMarkerOccupants} else {reinforceMarkerInvader};

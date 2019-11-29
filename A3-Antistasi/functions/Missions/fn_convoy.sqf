@@ -376,7 +376,7 @@ else
 
 private _route = [getPos _vehLead, _posDestination] call A3A_fnc_findPath;
 if (_route isEqualTo []) then {
-	_route = [getPos _vehLead, getPos _posDestination]
+	_route = [getPos _vehLead, _posDestination]
 } else {
 	_route pushBack _posDestination;
 };

@@ -6,7 +6,9 @@
 //of course all the editor placed objects (petros, flag, respawn marker etc..) have to be ported to the new island
 //deletion of a marker in the array will require deletion of the corresponding marker in the editor
 //only touch the commented arrays
-diag_log format ["%1: [Antistasi] | INFO | initZones Started.", servertime];
+scriptName "initZones.sqf";
+private _fileName = "initZones.sqf";
+[2,"initZones started",_fileName] call A3A_fnc_log;
 
 forcedSpawn = [];
 citiesX = [];
@@ -148,9 +150,9 @@ if (debug) then {
 diag_log format ["%1: [Antistasi] | DEBUG | initZones | Roads built in %2.",servertime,worldname];
 };
 
-diag_log format ["%1: [Antistasi] | INFO | initZones | Nav grid loading started.",servertime];
+[2,"Loading nav grid",_fileName] call A3A_fnc_log;
 [] call A3A_fnc_loadNavGrid;
-diag_log format ["%1: [Antistasi] | INFO | initZones | Nav grid loaded.",servertime];
+[2,"Loaded nav grid",_fileName] call A3A_fnc_log;
 
 
 markersX = markersX + citiesX;
@@ -168,6 +170,26 @@ private ["_antenna", "_mrkFinal", "_antennaProv"];
 if (debug) then {
 diag_log format ["%1: [Antistasi] | DEBUG | initZones | Setting up Radio Towers.",servertime];
 };
+
+// Land_A_TVTower_base can't be destroyed, Land_Communication_F and Land_Vysilac_FM are not replaced with "Ruins" when destroyed.
+// This causes issues with persistent load and rebuild scripts, so we replace those with antennas that work properly.
+private _replaceBadAntenna = {
+	params ["_antenna"];
+	if ((typeof _antenna) in ["Land_Communication_F", "Land_Vysilac_FM", "Land_A_TVTower_Base"]) then {
+		hideObjectGlobal _antenna;
+		if (typeof _antenna == "Land_A_TVTower_Base") then {
+			// The TV tower is composed of 3 sections - need to hide them all
+			private _otherSections = nearestObjects [_antenna, ["Land_A_TVTower_Mid", "Land_A_TVTower_Top"], 200];
+			{ hideObjectGlobal _x; } forEach _otherSections;
+		};
+		private _antennaPos = getPos _antenna;
+		_antennaPos set [2, 0];
+		private _antennaClass = if (worldName == "chernarus_summer") then { "Land_Telek1" } else { "Land_TTowerBig_2_F" };
+		_antenna = createVehicle [_antennaClass, _antennaPos, [], 0, "NONE"];
+	};
+	_antenna;
+};
+
 switch (worldName) do {
 	case "tanoa": {
 		_posAntennas = [[6617.95,7853.57,0.200073], [7486.67,9651.9,1.52588e-005], [6005.47,10420.9,0.20298], [2437.25,7224.06,0.0264893], [4701.6,3165.23,0.0633469], [11008.8,4211.16,-0.00154114], [10114.3,11743.1,9.15527e-005], [10949.8,11517.3,0.14209], [11153.3,11435.2,0.210876], [12889.2,8578.86,0.228729], [2682.94,2592.64,-0.000686646], [2690.54,12323,0.0372467], [2965.33,13087.1,0.191544], [13775.8,10976.8,0.170441]];
@@ -192,6 +214,10 @@ switch (worldName) do {
 
 		banks = nearestObjects [[worldSize /2, worldSize/2], ["Land_Offices_01_V1_F"], worldSize];
 
+		private _replacedAntennas = [];
+		{ _replacedAntennas pushBack ([_x] call _replaceBadAntenna); } forEach antennas;
+		antennas = _replacedAntennas;
+
 		antennas apply {
 			_mrkFinal = createMarker [format ["Ant%1", mapGridPosition _x], position _x];
 			_mrkFinal setMarkerShape "ICON";
@@ -203,6 +229,7 @@ switch (worldName) do {
 				"Killed",
 				{
 					_antenna = _this select 0;
+					_antenna removeAllEventHandlers "Killed";
 
 					citiesX apply {
 						if ([antennas,_x] call BIS_fnc_nearestPosition == _antenna) then {
@@ -212,7 +239,7 @@ switch (worldName) do {
 
 					_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
 					antennas = antennas - [_antenna];
-					antennasDead pushBack (getPos _antenna);
+					antennasDead pushBack _antenna;
 					deleteMarker _mrk;
 					publicVariable "antennas";
 					publicVariable "antennasDead";
@@ -235,8 +262,9 @@ if (count _posAntennas > 0) then {
 			_antenna = _antennaProv select 0;
 
 			if (_i in _blacklistPos) then {
-				_antenna setdamage 1;
+				_antenna setdamage 1;	
 			} else {
+				_antenna = ([_antenna] call _replaceBadAntenna);
 				antennas pushBack _antenna;
 				_mrkFinal = createMarker [format ["Ant%1", mapGridPosition _antenna], _posAntennas select _i];
 				_mrkFinal setMarkerShape "ICON";
@@ -249,6 +277,7 @@ if (count _posAntennas > 0) then {
 					"Killed",
 					{
 						_antenna = _this select 0;
+						_antenna removeAllEventHandlers "Killed";
 
 						citiesX apply {
 							if ([antennas, _x] call BIS_fnc_nearestPosition == _antenna) then {
@@ -258,7 +287,7 @@ if (count _posAntennas > 0) then {
 
 						_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
 						antennas = antennas - [_antenna];
-						antennasDead pushBack (getPos _antenna);
+						antennasDead pushBack  _antenna;
 						deleteMarker _mrk;
 						publicVariable "antennas";
 						publicVariable "antennasDead";
@@ -314,4 +343,4 @@ if (isMultiplayer) then {
 	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]
 };
 
-diag_log format ["%1: [Antistasi] | INFO | initZones Completed.",servertime];
+[2,"initZones completed",_fileName] call A3A_fnc_log;

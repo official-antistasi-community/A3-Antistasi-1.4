@@ -54,8 +54,9 @@ else {
 };
 publicVariable "campaignID";
 
+//Initialise variables needed by the mission.
 _nul = call compile preprocessFileLineNumbers "initVar.sqf";
-initVar = true; publicVariable "initVar";
+
 savingServer = true;
 [2,format ["MP server version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";

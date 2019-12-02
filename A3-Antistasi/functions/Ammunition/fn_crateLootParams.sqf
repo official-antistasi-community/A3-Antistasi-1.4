@@ -3,7 +3,7 @@
 //Loot crates use to determing range of item types and quantity for each
 //category of items that crates spawn.
 
-bobChaosCrates = "truelyRandomCrates" call BIS_fnc_getParamValue == 1;
+bobChaosCrates = "truelyRandomCrates" call BIS_fnc_getParamValue == 1; publicVariable "bobChaosCrates";
 
 //do weapons automatically unlock primary magazine when unlocked?
 unlockedUnlimitedAmmo = "unlockedUnlimitedAmmo" call BIS_fnc_getParamValue; publicVariable "unlockedUnlimitedAmmo";

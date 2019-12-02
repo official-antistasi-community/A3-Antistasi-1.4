@@ -20,7 +20,6 @@ if (isMultiplayer) then {
 	if (!isServer) then {
 		call compile preprocessFileLineNumbers "initFuncs.sqf";
 		call compile preprocessFileLineNumbers "initVar.sqf";
-		waitUntil {!isNil "initVar"};
 		[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 	}
 	else {
@@ -30,15 +29,10 @@ if (isMultiplayer) then {
 };
 
 if (!hasInterface) exitWith {
-	if (worldName == "Tanoa") then {call compile preprocessFileLineNumbers "roadsDB.sqf"};
-	if (worldName == "Altis") then {call compile preprocessFileLineNumbers "roadsDBAltis.sqf"};
-	if (worldName == "chernarus_summer") then {call compile preprocessFileLineNumbers "roadsDBcherna.sqf"};
-	if (worldName == "enoch") then {call compile preprocessFileLineNumbers "roadsDBLivonia.sqf"};
-	if (worldName == "Malden") then {call compile preprocessFileLineNumbers "roadsDBMalden.sqf"};
-	if (worldName == "Kunduz") then {call compile preprocessFileLineNumbers "roadsDBKunduz.sqf"};
-	if (worldName == "Tembelan") then {call compile preprocessFileLineNumbers "roadsDBTembelan.sqf"};
-	if (worldName == "tem_anizay") then {call compile preprocessFileLineNumbers "roadsDBanizay.sqf"};
+	[2,format ["Headless client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
+	call compile preprocessFileLineNumbers "initFuncs.sqf";
+	call compile preprocessFileLineNumbers "initVar.sqf";
 };
 
 _isJip = _this select 1;

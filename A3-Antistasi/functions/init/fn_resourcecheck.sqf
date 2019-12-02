@@ -136,7 +136,9 @@ while {true} do
 		publicVariable "difficultyCoef";
 		};
 	if ((!bigAttackInProgress) and (random 100 < 50)) then {[] call A3A_fnc_missionRequestAUTO};
-	[[],"A3A_fnc_reinforcementsAI"] call A3A_fnc_scheduler;
+	//Removed from scheduler for now, as it errors on Headless Clients.
+	//[[],"A3A_fnc_reinforcementsAI"] call A3A_fnc_scheduler;
+	[] spawn A3A_fnc_reinforcementsAI;
 	{
 	_veh = _x;
 	if ((_veh isKindOf "StaticWeapon") and ({isPlayer _x} count crew _veh == 0) and (alive _veh)) then

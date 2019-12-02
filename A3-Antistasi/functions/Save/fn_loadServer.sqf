@@ -55,6 +55,9 @@ if (isServer) then {
 	//Check if we have radios unlocked and update haveRadio.
 	call A3A_fnc_checkRadiosUnlocked;
 
+	//Sort optics list so that snipers pick the right sight
+	unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
+
 	{
 		if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
 			_positionX = getMarkerPos _x;

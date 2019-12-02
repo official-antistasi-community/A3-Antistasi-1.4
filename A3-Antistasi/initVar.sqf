@@ -88,7 +88,7 @@ allCategories = allCategoriesExceptSpecial + specialCategories;
 {
 	//Initialise 'unlocked' variables, which contain all of the items the players have unlocked.
 	missionNamespace setVariable ["unlocked" + _x, []];
-} forEach allCategoriesExceptSpecial + ["AA", "AT", "GrenadeLaunchers"]; //TODO: Implement all of the special categories.
+} forEach allCategoriesExceptSpecial + ["AA", "AT", "GrenadeLaunchers", "ArmoredHeadgear", "ArmoredVests"]; //TODO: Implement all of the special categories.
 
 //Used for initial unlocks.
 initialRebelEquipment = [];
@@ -739,6 +739,8 @@ publicVariable "unlockedGrenadeLaunchers";
 publicVariable "unlockedSniperRifles";
 publicVariable "unlockedAT";
 publicVariable "unlockedAA";
+publicVariable "unlockedArmoredHeadgear";
+publicVariable "unlockedArmoredVests";
 publicVariable "initialRebelEquipment";
 
 publicVariable "allRifles";

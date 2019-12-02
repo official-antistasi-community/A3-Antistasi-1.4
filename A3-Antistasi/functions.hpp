@@ -388,6 +388,7 @@ class A3A
 		class buildCreateVehicleCallback {};
 		class buildMinefield {};
 		class enemyNearCheck {};
+		class equipRebel {};
 		class FIAinit {};
 		class FIAskillAdd {};
 		class garrisonAdd {};

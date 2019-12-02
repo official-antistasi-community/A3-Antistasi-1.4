@@ -120,7 +120,7 @@ switch (true) do {
 	};
 };
 
-if !(hasIFA && sunOrMoon < 1) then {
+if (!hasIFA && sunOrMoon < 1) then {
 	if !(haveNV) then {
 		// horrible, although at least it stops once you unlock NV
 		private _flashlights = allLightAttachments arrayIntersect unlockedItems;

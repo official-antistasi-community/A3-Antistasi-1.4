@@ -634,8 +634,8 @@ DECLARE_SERVER_VAR(breachExplosiveLarge, ["SatchelCharge_Remote_Mag"]);
 
 if(hasRHS && !hasIFA) then
 {
-	breachExplosiveSmall = ["rhs_ec200_mag", "rhs_ec200_camo_mag"];
-	breachExplosiveLarge = ["rhs_ec400_mag", "rhs_ec400_camo_mag"];
+	breachExplosiveSmall = ["rhs_ec200_mag", "rhs_ec200_camo_mag", "rhsusf_m112_mag"];
+	breachExplosiveLarge = ["rhs_ec400_mag", "rhs_ec400_camo_mag", "rhsusf_m112x4_mag", "rhs_charge_M2tet_x2_mag"];
 }
 else
 {

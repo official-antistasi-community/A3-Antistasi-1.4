@@ -17,6 +17,7 @@ _convoyMarker setMarkerText (format ["%1 Convoy [%2]: Spawned", _convoyType, _co
 
 //Find near road segments
 // Should already be on or near a road
+// Shouldn't do this for all-air convoys
 _road = roadAt _pos;
 if(isNull _road) then
 {
@@ -93,7 +94,7 @@ for "_i" from 0 to ((count _units) - 1) do
     _vehicle setVariable ["vehGroup", _vehicleGroup];
     _vehicle setVariable ["cargoGroup", _cargoGroup];
 
-    // Removed because spawning looks visually weird anyway due to spawn lag prevention delays
+    // Removed (for ground) because spawning looks visually weird anyway due to spawn lag prevention delays
     // plus extra logic is necessary to avoid throwing vehicles off corners
 	// Consider adding back in if vehicles are moved into position after spawning is complete
     //    _vehicle setVelocity ((vectorDir _vehicle) vectorMultiply (_maxSpeed / 3.6));
@@ -106,6 +107,7 @@ for "_i" from 0 to ((count _units) - 1) do
       _wp0 = (group _vehicle) addWaypoint [(_targetPos vectorAdd [0,0,30]), -1, 0];
       _wp0 setWaypointBehaviour "SAFE";
       (group _vehicle) setCurrentWaypoint _wp0;
+	  _vehicle setVelocity ((vectorDir _vehicle) vectorMultiply (_maxSpeed / 3.6));
     }
     else
     {
@@ -119,7 +121,7 @@ for "_i" from 0 to ((count _units) - 1) do
 
 	// lastSpawn time check will try anyway if a vehicle gets stuck
 	private _lastSpawn = time;
-    waituntil {sleep 1; ((_vehicle distance _pos) > 15) or ((time - _lastSpawn) > 20)};
+    waituntil {sleep 1; ((_vehicle distance2d _pos) > 15) or ((time - _lastSpawn) > 20)};
   };
 };
 

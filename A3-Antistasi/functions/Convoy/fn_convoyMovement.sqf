@@ -13,7 +13,7 @@ params ["_convoyID" ,"_route", "_markerArray", "_maxSpeed", "_units", "_convoySi
 *   Returns:
       Nothing
 */
-_convoyMarker = format ["convoy%1", _convoyID];
+private _convoyMarker = format ["convoy%1", _convoyID];
 
 if(!(_maxSpeed > 0)) exitWith
 {
@@ -24,26 +24,28 @@ if(!(_maxSpeed > 0)) exitWith
 _maxSpeed = _maxSpeed * 0.8; //Only drive with 80% of max speed
 
 
-_isDebug = !(isNil "_debugObject");
+private _isDebug = !(isNil "_debugObject");
 
-_pointsCount = count _route;
-_currentPos = _route select 0;
+private _pointsCount = count _route;
+private _currentPos = _route select 0;
+private _remainingRoute = +_route;
+_remainingRoute deleteAt 0;
 
-_isSimulated = true;
-_isDestroyed = false;
-_roadBlockCountdown = 0;
-_currentRoadBlock = "";
+private _isSimulated = true;
+private _isDestroyed = false;
+private _roadBlockCountdown = 0;
+private _currentRoadBlock = "";
 
 if(_isDebug) then {_debugObject setPos _currentPos;};
 
 for "_i" from 1 to (_pointsCount - 1) do
 {
-  _lastPoint = _route select (_i - 1);
-  _nextPoint = _route select (_i);
+  private _lastPoint = _route select (_i - 1);
+  private _nextPoint = _route select (_i);
 
-  _movementVector = (_lastPoint vectorFromTo _nextPoint) vectorMultiply _maxSpeed;
-  _movementLength = _lastPoint vectorDistance _nextPoint;
-  _currentLength = 0;
+  private _movementVector = (_lastPoint vectorFromTo _nextPoint) vectorMultiply _maxSpeed;
+  private _movementLength = _lastPoint vectorDistance _nextPoint;
+  private _currentLength = 0;
 
   while {_isSimulated && {_currentLength < _movementLength}} do
   {
@@ -62,12 +64,14 @@ for "_i" from 1 to (_pointsCount - 1) do
     {
       _currentPos = _currentPos vectorAdd _movementVector;
       _currentLength = _currentLength + _maxSpeed;
-      if(_currentLength < _movementLength) then
+      if(_currentLength > _movementLength) then
       {
-        _convoyMarker setMarkerPos _currentPos;
+         // Moved here so spawnConvoy gets an accurate position
+         _remainingRoute deleteAt 0;
+         _currentPos = _nextPoint;
       };
-
-      if(_isDebug && {_currentLength < _movementLength}) then {_debugObject setPos _currentPos;};
+      _convoyMarker setMarkerPos _currentPos;
+      if(_isDebug) then {_debugObject setPos _currentPos;};
 
       //Search for nearby roadblocks
       _roadBlocks = outpostsFIA select {(getMarkerPos _x distance _currentPos < 250) && {isOnRoad (getMarkerPos _x)}};
@@ -77,8 +81,7 @@ for "_i" from 1 to (_pointsCount - 1) do
         if(spawner getVariable _currentRoadBlock == 2) then
         {
           _isSimulated = false;
-          private _posArray = [_currentPos, _nextPoint, (_route select (_pointsCount - 1))];
-          [_convoyID, _units, _posArray, _markerArray, _convoySide, _convoyType, _maxSpeed] call A3A_fnc_spawnConvoy;
+          [_convoyID, _units, _currentPos, _remainingRoute, _markerArray, _convoySide, _convoyType, _maxSpeed] call A3A_fnc_spawnConvoy;
         }
         else
         {
@@ -107,17 +110,10 @@ for "_i" from 1 to (_pointsCount - 1) do
     if([distanceSPWN, 1, _currentPos, teamPlayer] call A3A_fnc_distanceUnits) then
     {
       _isSimulated = false;
-
-      //deleteMarker _convoyMarker;
-      // - 2 as it is the last point on a street (or maybe not needs testing) _currentPos, _nextPoint,
-      private _posArray = [_currentPos, _nextPoint, (_route select (_pointsCount - 1))];
-      [_convoyID, _units, _posArray, _markerArray, _convoySide, _convoyType, _maxSpeed] call A3A_fnc_spawnConvoy;
+      [_convoyID, _units, _currentPos, _remainingRoute, _markerArray, _convoySide, _convoyType, _maxSpeed] call A3A_fnc_spawnConvoy;
     };
   };
 
-  _currentPos = _nextPoint;
-  _convoyMarker setMarkerPos _currentPos;
-  if(_isDebug) then {_debugObject setPos _currentPos;};
 };
 
 if(_isDestroyed) exitWith {deleteMarker _convoyMarker};

@@ -9,7 +9,9 @@ private _addWeaponAndMags = {
 
 	if !(isClass (configFile / "CfgWeapons" / _weapon)) exitwith {
 		[1, format ["Bad weapon class: %1", _weapon], "fn_equipRebel"] call A3A_log;			// should probably log server-side
-	};	_unit addWeapon _weapon;
+	};
+	
+	_unit addWeapon _weapon;
 	private _magazine = getArray (configFile / "CfgWeapons" / _weapon / "magazines") select 0;
 	_unit addSecondaryWeaponItem _magazine;
 	_unit addMagazines [_magazine, _magCount-1];

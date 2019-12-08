@@ -105,4 +105,4 @@ initialRebelEquipment append ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra_3m"
 initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular"];
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_rf7800str"]};
-if (startLR) then {initialRebelEquipment pushBack "tf_rt1523g_rhs"};
+if (startLR) then {initialRebelEquipment pushBack "tf_rt1523g_big_rhs"};

@@ -16,8 +16,8 @@ _convoyMarker = format ["convoy%1", _convoyID];
 _convoyMarker setMarkerText (format ["%1 Convoy [%2]: Spawned", _convoyType, _convoyID]);
 
 //Find near road segments
-// Should already be on or near a road
-// Shouldn't do this for all-air convoys
+// Usually already on or near a road
+// Shouldn't do this for all-air convoys...
 _road = roadAt _pos;
 if(isNull _road) then
 {
@@ -102,18 +102,26 @@ for "_i" from 0 to ((count _units) - 1) do
     if(_vehicle isKindOf "Air") then
     {
       _airVehicles pushBack _vehicle;
+	  _vehicle setVelocity ((vectorDir _vehicle) vectorMultiply (30));
+
+private _curwp = currentWaypoint _vehicleGroup; private _nwp = count waypoints _vehicleGroup;
+[2, format["Waypoint %1 of %2, position %3", str _curwp, str _nwp, str (waypointPosition [_vehicleGroup, _curwp]) ], "fn_spawnConvoy"] call A3A_fnc_log;
 
       // Just direct it above the target for now
-      _wp0 = (group _vehicle) addWaypoint [(_targetPos vectorAdd [0,0,30]), -1, 0];
+      _wp0 = (group _vehicle) addWaypoint [(_targetPos vectorAdd [0,0,30]), -1];
       _wp0 setWaypointBehaviour "SAFE";
       (group _vehicle) setCurrentWaypoint _wp0;
-	  _vehicle setVelocity ((vectorDir _vehicle) vectorMultiply (_maxSpeed / 3.6));
+
+private _curwp = currentWaypoint _vehicleGroup; private _nwp = count waypoints _vehicleGroup;
+[2, format["Waypoint %1 of %2, position %3", str _curwp, str _nwp, str (waypointPosition [_vehicleGroup, _curwp]) ], "fn_spawnConvoy"] call A3A_fnc_log;
+
     }
     else
     {
       _landVehicles pushBack _vehicle;
       _vehicle limitSpeed _maxSpeed;
-      [_vehicle, _route] execFSM "FSMs\DriveAlongPath.fsm";
+      private _fsmhandle = [_vehicle, _route, _markers, _convoyType] execFSM "FSMs\ConvoyTravel.fsm";
+      _vehicle setVariable ["fsmhandle", _fsmhandle];
     };
 
     // This probably does nothing with the FSM?
@@ -163,6 +171,11 @@ waitUntil
   {!([distanceSPWN * 1.2, 1, _checkPos, teamPlayer] call A3A_fnc_distanceUnits)}
 };
 
+{
+private _curwp = currentWaypoint (group _x); private _nwp = count waypoints (group _x);
+[2, format["Waypoint %1 of %2, position %3", str _curwp, str _nwp, str (waypointPosition [group _x, _curwp]) ], "fn_spawnConvoy"] call A3A_fnc_log;
+} forEach _airVehicles;
+
 deleteMarker _convoyMarker;
 
 if (_convoyDead) exitWith
@@ -176,6 +189,14 @@ if (_convoyDead) exitWith
 
 if(_checkPos distance2D _targetPos < 100) then
 {
+  // not ideal, because the other convoy units may be miles behind
+  // plus they'll fight rather than forced-moving
+//  {
+//   private _fsm = (_x select 0) getVariable "fsmhandle";
+//   if !(isNil "_fsm") then { _fsm setFSMVariable["_abort", true] };
+//  } forEach _createdUnits;
+//  sleep 5;		// should be enough for the FSM to bail out
+
   [_convoyID, _createdUnits, _checkPos, _targetPos, _markerArray, _convoyType, _convoySide] call A3A_fnc_onSpawnedArrival;
 }
 else

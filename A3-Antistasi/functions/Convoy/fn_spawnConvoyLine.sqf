@@ -72,9 +72,11 @@ private _crewObjs = [];
 
 sleep 0.5;
 
-private _cargoGroup = grpNull;
+// Removed same-group case because split/join is broken for it
+private _cargoGroup = createGroup _side;
 private _cargoObjs = [];
 
+/*
 //Put cargo into a seperate group if they are cargo of a plane or large
 if(_vehicleObj isKindOf "Air" || {count _cargoData >= 6}) then
 {
@@ -84,6 +86,7 @@ else
 {
   _cargoGroup = _vehicleGroup;
 };
+*/
 
 private _unit = objNull;
 //Spawning in cargo

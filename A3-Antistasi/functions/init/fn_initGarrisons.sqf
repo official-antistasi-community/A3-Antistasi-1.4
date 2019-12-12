@@ -121,6 +121,30 @@ if (gameMode == 1) then
 		case "chernarus_summer": {
 			_mrkCSAT = ["outpost_21"];
 		};
+		case "tem_anizay": {
+			_mrkCSAT = ["outpost_8", "control_19", "control_44", "control_45"];
+			_controlsNATO = _controlsNATO - ["control_19", "control_44", "control_45"];
+			_controlsCSAT = ["control_19", "control_44", "control_45"];
+		};
+		case "chernarus_winter": {
+			_mrkCSAT = ["outpost_21", "control_30"];
+			_controlsNATO = _controlsNATO - ["control_30"];
+			_controlsCSAT = ["control_30"];
+		};
+		case "Kunduz": {
+			_mrkCSAT = ["outpost"];
+		};
+		case "Enoch": {
+			_mrkCSAT = ["airport_3", "control_14"];
+			_controlsNATO = _controlsNATO - ["control_14"];
+			_controlsCSAT = ["control_14"];
+		};
+		case "Tembelan": {
+			_mrkCSAT = ["airport_4"];
+		};
+		case "Malden": {
+			_mrkCSAT = ["airport", "seaport_7"];
+		};
 	};
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
 

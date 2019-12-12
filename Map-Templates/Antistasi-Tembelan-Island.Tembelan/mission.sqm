@@ -214,7 +214,7 @@ class Mission
 		class Item0
 		{
 			dataType="Marker";
-			position[]={9877.6777,0,10008.068};
+			position[]={348.789,0,-231.932};
 			name="CSAT_carrier";
 			type="flag_CSAT";
 			id=5;

@@ -81,7 +81,7 @@ for "_i" from 1 to (_pointsCount - 1) do
         if(spawner getVariable _currentRoadBlock == 2) then
         {
           _isSimulated = false;
-          [_convoyID, _units, _currentPos, _remainingRoute, _markerArray, _convoySide, _convoyType, _maxSpeed] call A3A_fnc_spawnConvoy;
+          [_convoyID, _units, _currentPos, _remainingRoute, _markerArray, _convoySide, _convoyType, _maxSpeed, _isAir] call A3A_fnc_spawnConvoy;
         }
         else
         {
@@ -110,7 +110,7 @@ for "_i" from 1 to (_pointsCount - 1) do
     if([distanceSPWN, 1, _currentPos, teamPlayer] call A3A_fnc_distanceUnits) then
     {
       _isSimulated = false;
-      [_convoyID, _units, _currentPos, _remainingRoute, _markerArray, _convoySide, _convoyType, _maxSpeed] call A3A_fnc_spawnConvoy;
+      [_convoyID, _units, _currentPos, _remainingRoute, _markerArray, _convoySide, _convoyType, _maxSpeed, _isAir] call A3A_fnc_spawnConvoy;
     };
   };
 

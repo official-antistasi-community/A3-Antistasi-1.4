@@ -15,6 +15,8 @@ if(_vehicleType != "") then
   if(!(_vehicleType isKindOf "Air")) then
   {
     _vehicleObj = createVehicle [_vehicleType, _pos, [], 0 , "CAN_COLLIDE"];
+    // Hopefully doesn't make vehicles drive backwards unless they'd explode otherwise
+//    _vehicleObj = [_vehicleType, _pos, 10, 3, true] call A3A_fnc_safeVehicleSpawn;
   }
   else
   {

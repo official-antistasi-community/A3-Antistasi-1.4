@@ -97,6 +97,7 @@ if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFr
 	{
 		_target = (_x select 1);
 		[_target, "Reinforce", _side, [_canReinf]] remoteExec ["A3A_fnc_createAIAction", 2];
+		sleep 10;		// prevents convoys spawning on top of each other
 		//TODO add a feedback if something was send or not
 	} forEach _reinfMarker;
 } forEach [Occupants, Invaders];

@@ -134,6 +134,8 @@ else
 {
 	{
 		private _category = selectRandomWeighted _weaponLootWeighting;
+		if (isNil "_category") exitWith {};
+
 		[3, format ["Selected Weapon Category: %1", _category],"fn_CSATCrate"] call A3A_fnc_log;
 		//Category is in format [allX, unlockedX];
 		[_category select 0, _category select 1] call _fnc_pickRandomFromAProbablyNotInB;
@@ -160,13 +162,13 @@ else
 [3, "Generating Weapons", "fn_CSATOCrate"] call A3A_fnc_log;
 for "_i" from 0 to floor random _crateWepTypeMax do {
 	private _loot = call _fnc_pickWeapon;
-	[3, format ["Adding weapon: %1", _loot],"fn_CSATCrate"] call A3A_fnc_log;
 
 	if (isNil "_loot") then {
 		[3, "No Weapons Left in Loot List Or Pick Random Failed","fn_CSATCrate"] call A3A_fnc_log;
 	}
 	else
 	{
+		[3, format ["Adding weapon: %1", _loot],"fn_CSATCrate"] call A3A_fnc_log;
 		_amount = crateWepNumMax call _fnc_pickAmount;
 		_crate addWeaponWithAttachmentsCargoGlobal [[ _loot, "", "", "", [], [], ""], _amount];
 		for "_i" from 0 to _amount do {
@@ -187,11 +189,11 @@ for "_i" from 0 to floor random _crateItemTypeMax do {
 	[3, format ["Breakdown: %1, %2, %3", lootItem, _unlocks, itemCargo _crate],"fn_CSATCrate"] call A3A_fnc_log;
 	[3, format ["Items available: %1", _available],"fn_CSATCrate"] call A3A_fnc_log;
 	_loot = selectRandom _available;
-	[3, format ["Item chosen: %1", _loot],"fn_CSATCrate"] call A3A_fnc_log;
 	if (isNil "_loot") then {
 		[3, "No Items Left in Loot List","fn_CSATCrate"] call A3A_fnc_log;
 	}
 	else {
+		[3, format ["Item chosen: %1", _loot],"fn_CSATCrate"] call A3A_fnc_log;
 		_amount = floor random crateItemNumMax;
 		_crate addItemCargoGlobal [_loot,_amount];
 		[3, format ["Spawning %2 of %3", _amount,_loot],"fn_CSATCrate"] call A3A_fnc_log;

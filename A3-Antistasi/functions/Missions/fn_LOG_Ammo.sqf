@@ -41,7 +41,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	_truckX = _typeVehX createVehicle _pos;
 	_truckX setDir (getDir _road);
 	_truckCreated = true;
-	if (_sideX == Occupants) then {[_truckX] call A3A_fnc_NATOcrate} else {[_truckX] call A3A_fnc_CSATcrate};
+	if (_sideX == Occupants) then {[_truckX] spawn A3A_fnc_NATOcrate} else {[_truckX] spawn A3A_fnc_CSATcrate};
 
 	_mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], _pos];
 	_mrk setMarkerShapeLocal "RECTANGLE";

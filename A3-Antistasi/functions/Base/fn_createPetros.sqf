@@ -32,6 +32,6 @@ if (petros == leader groupPetros) then {
 	[Petros,"buildHQ"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],petros]
 };
 
-[] spawn A3A_fnc_initPetros;
+call A3A_fnc_initPetros;
 
 deleteVehicle _oldPetros;

@@ -93,7 +93,6 @@ if (gameMode != 1) then {
 	if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
 	if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
 };
-[] spawn A3A_fnc_initPetros;
 ["Initialize"] call BIS_fnc_dynamicGroups;//Exec on Server
 hcArray = [];
 
@@ -168,6 +167,7 @@ if !(loadLastSave) then {
 	} foreach initialRebelEquipment;
 	[2,"Initial arsenal unlocks completed",_fileName] call A3A_fnc_log;
 };
+call A3A_fnc_createPetros;
 
 [[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 

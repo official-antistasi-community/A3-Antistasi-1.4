@@ -2,7 +2,8 @@
 	Unlocks the specified item of equipment for use in the arsenal.
 	
 	Updates the appropriate global arrays for quick reference.
-	
+	You can also find unlockedRifles and other variables constructed here. - FrostsBite.
+
 	Params:
 		_className - Class of the equipment to unlock.
 		

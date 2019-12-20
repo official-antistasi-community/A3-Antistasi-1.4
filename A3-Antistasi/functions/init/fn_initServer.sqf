@@ -98,7 +98,7 @@ if (gameMode != 1) then {
 hcArray = [];
 
 waitUntil {count (call A3A_fnc_playableUnits) > 0};
-waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count (call A3A_fnc_playableUnits))};//ya estamos todos
+waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count (call A3A_fnc_playableUnits))};
 [] spawn A3A_fnc_modBlacklist;
 
 if (loadLastSave) then {

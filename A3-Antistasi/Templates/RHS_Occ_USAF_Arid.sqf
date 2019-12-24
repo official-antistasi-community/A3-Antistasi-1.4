@@ -1,3 +1,8 @@
+//Call for Woodland Templates
+if (worldName == "Enoch") exitWith {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Wdl.sqf"};
+if (worldName == "vt7") exitWith {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Wdl.sqff"};
+if (worldName == "chernarus_summer") exitWith {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Wdl.sqf"};
+if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Wdl.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

@@ -131,18 +131,18 @@ if (gameMode == 1) then
 			_controlsNATO = _controlsNATO - ["control_30"];
 			_controlsCSAT = ["control_30"];
 		};
-		case "Kunduz": {
+		case "kunduz": {
 			_mrkCSAT = ["outpost"];
 		};
-		case "Enoch": {
+		case "enoch": {
 			_mrkCSAT = ["airport_3", "control_14"];
 			_controlsNATO = _controlsNATO - ["control_14"];
 			_controlsCSAT = ["control_14"];
 		};
-		case "Tembelan": {
+		case "tembelan": {
 			_mrkCSAT = ["airport_4"];
 		};
-		case "Malden": {
+		case "malden": {
 			_mrkCSAT = ["airport", "seaport_7"];
 		};
 	};

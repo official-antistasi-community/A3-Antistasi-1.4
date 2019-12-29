@@ -568,7 +568,7 @@ DECLARE_SERVER_VAR(vehBoats, _vehBoats);
 private _vehAttack = vehNATOAttack + vehCSATAttack;
 DECLARE_SERVER_VAR(vehAttack, _vehAttack);
 
-private _vehPlanes = (vehNATOAir + vehCSATAir + [vehSDKPlane]);
+private _vehPlanes = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPlane];
 DECLARE_SERVER_VAR(vehPlanes, _vehPlanes);
 
 private _vehAttackHelis = vehCSATAttackHelis + vehNATOAttackHelis;

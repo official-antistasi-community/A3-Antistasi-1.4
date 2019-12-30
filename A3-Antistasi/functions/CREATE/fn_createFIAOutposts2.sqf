@@ -11,7 +11,7 @@ if (isOnRoad _positionX) then {_isRoad = true};
 if (_isRoad) then
 	{
 	_radiusX = 1;
-	_garrison = garrison getVariable _markerX;
+	_garrison = garrison getVariable [_markerX, []];
 	_veh = objNull;
 
 	if (isNil "_garrison") then

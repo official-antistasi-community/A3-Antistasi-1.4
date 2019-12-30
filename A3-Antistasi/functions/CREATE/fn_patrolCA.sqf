@@ -379,7 +379,7 @@ if (_base != "") then
 				if (_isMarker) then
 					{
 
-					if ((count (garrison getVariable _markerX)) < 4) then
+					if ((count (garrison getVariable [_markerX, []])) < 4) then
 						{
 						_Vwp1 setWaypointType "MOVE";
 						_Vwp1 setWaypointBehaviour "AWARE";

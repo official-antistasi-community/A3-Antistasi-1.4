@@ -460,8 +460,8 @@ while {(_waves > 0)} do
 		_ang = _runwayTakeoff select 1;
 	};
 	_spawnedSquad = false;
-	
-	private _transportAircraft = 
+
+	private _transportAircraft =
 		if (_sideX == Occupants) then {
 			vehNATOTransportHelis + vehNATOTransportPlanes;
 		} else {
@@ -471,16 +471,16 @@ while {(_waves > 0)} do
 	while {(_countX <= _nVeh) and (count _soldiers <= 80)} do
 		{
 		_proceed = true;
-		
+
 		private _availableTransportAircraft = _transportAircraft select {[_x] call A3A_fnc_vehAvailable};
-		
+
 		if (_vehPool isEqualTo []) then {
 			_vehPool = _availableTransportAircraft;
 		};
-		
+
 		//Give us a rough 20% baseline of transport aircraft, with a bit of randomness for added flair.
 		_typeVehX = [selectRandom _vehPool, selectRandom _availableTransportAircraft] select (random 1 < 0.20);
-		
+
 		_typeVehX = if !(_vehPool isEqualTo []) then {selectRandom _vehPool} else {if (_sideX == Occupants) then {selectRandom ([vehNATOPatrolHeli] + vehNATOTransportPlanes)} else {selectRandom ([vehCSATPatrolHeli] + vehCSATTransportPlanes)}};
 		if ((_typeVehX in vehTransportAir) and !(_spawnedSquad)) then
 			{
@@ -575,7 +575,7 @@ while {(_waves > 0)} do
 					else
 						{
 						{_x disableAI "TARGET"; _x disableAI "AUTOTARGET"} foreach units _groupVeh;
-						if ((_typeVehX in vehFastRope) and ((count(garrison getVariable _mrkDestination)) < 10)) then
+						if ((_typeVehX in vehFastRope) and ((count(garrison getVariable [_mrkDestination, []])) < 10)) then
 							{
 							//_grupo setVariable ["mrkAttack",_mrkDestination];
 							[_veh,_grupo,_posDestination,_posOrigin,_groupVeh] spawn A3A_fnc_fastrope;

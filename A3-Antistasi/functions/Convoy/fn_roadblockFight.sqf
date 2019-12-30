@@ -5,7 +5,7 @@ _nightTimeBonus = if (daytime < 6 || {daytime > 22}) then {0.25} else {0};
 _defenderBonus = 1 + _nightTimeBonus + (random 0.5);
 _attackerBonus = 1;
 
-_garrison = garrison getVariable _roadblockMarker;
+_garrison = garrison getVariable [_roadblockMarker, []];
 
 _roadblockCount = 0;
 {

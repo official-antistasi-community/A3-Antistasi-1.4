@@ -119,7 +119,7 @@ if !(_tmpObjectives isEqualTo []) then
 				{
 				if !(_x in _easyArray) then
 					{
-					_siteX = _x;
+					private _siteX = _x;
 					if (((!(_siteX in airportsX)) or (_isSDK)) and !(_base in ["NATO_carrier","CSAT_carrier"])) then
 						{
 						_sideEnemy = if (_baseNATO) then {Invaders} else {Occupants};
@@ -263,10 +263,11 @@ if !(_tmpObjectives isEqualTo []) then
 			if (_x == _nearX) then {_times = _times * 5};
 			if (_x in _killZones) then
 				{
-				_siteX = _x;
+				private _siteX = _x;
 				_times = _times / (({_x == _siteX} count _killZones) + 1);
 				};
-			_times = round (_times);
+// don't do this because it may round down to zero, breaking selectRandomWeighted
+//			_times = round (_times);
 			_index = _objectivesFinal find _x;
 			if (_index == -1) then
 				{

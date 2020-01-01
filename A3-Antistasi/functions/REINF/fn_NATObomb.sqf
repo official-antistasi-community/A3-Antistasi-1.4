@@ -71,7 +71,7 @@ _wp1 setWaypointBehaviour "CARELESS";
 
 if (_typeX == "NAPALM" && napalmEnabled) then {_wp1 setWaypointStatements ["true", "[this,""NAPALM""] spawn A3A_fnc_airbomb"]} else {_typeX = "HE"};
 if (_typeX == "CARPET") then {_wp1 setWaypointStatements ["true", "[this,""CARPET""] spawn A3A_fnc_airbomb"]};
-if (_typeX == "HE") then {_wp1 setWaypointStatements ["true", "[this] spawn A3A_fnc_airbomb"]};
+if (_typeX == "HE") then {_wp1 setWaypointStatements ["true", "[this,""HE""] spawn A3A_fnc_airbomb"]};
 
 
 

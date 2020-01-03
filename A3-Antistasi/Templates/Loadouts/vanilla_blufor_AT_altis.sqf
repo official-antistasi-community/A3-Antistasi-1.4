@@ -53,7 +53,7 @@
     [//Backpack
 		"B_AssaultPack_mcamo",								//Backpack
 		[//Inventory
-			["MRAWS_HEAT55_F",1]
+			["MRAWS_HEAT55_F",1,1]
 		]
 	],
 

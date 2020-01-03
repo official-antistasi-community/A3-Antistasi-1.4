@@ -85,9 +85,9 @@ NATOSpecOp = ["rhsusf_socom_marsoc_teamleader","rhsusf_socom_marsoc_teamchief","
 groupsNATOSquad =
 	[
 	NATOSquad,
-	["rhsusf_usmc_marpat_wd_squadleader","rhsusf_usmc_marpat_wd_machinegunner","rhsusf_usmc_marpat_wd_riflemanat","rhsusf_usmc_marpat_wd_riflemanat","rhsusf_usmc_marpat_wd_grenadier","rhsusf_usmc_marpat_wd_javelin","rhsusf_usmc_marpat_wd_javelin_assistant","rhsusf_navy_marpat_wd_medic"],
-	["rhsusf_usmc_marpat_wd_squadleader","rhsusf_usmc_marpat_wd_machinegunner","rhsusf_usmc_marpat_wd_riflemanat","rhsusf_usmc_marpat_wd_grenadier","rhsusf_usmc_marpat_wd_grenadier","rhsusf_usmc_marpat_wd_stinger","rhsusf_usmc_marpat_wd_rifleman_light","rhsusf_navy_marpat_wd_medic"],
-	["rhsusf_usmc_marpat_wd_squadleader","rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman_m249","rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_wd_autorifleman_m249","rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_wd_explosives","rhsusf_navy_marpat_wd_medic"]
+	["rhsusf_usmc_marpat_d_squadleader","rhsusf_usmc_marpat_d_machinegunner","rhsusf_usmc_marpat_d_riflemanat","rhsusf_usmc_marpat_d_riflemanat","rhsusf_usmc_marpat_d_grenadier","rhsusf_usmc_marpat_d_javelin","rhsusf_usmc_marpat_d_javelin_assistant","rhsusf_navy_sarc_d"],
+	["rhsusf_usmc_marpat_d_squadleader","rhsusf_usmc_marpat_d_machinegunner","rhsusf_usmc_marpat_d_riflemanat","rhsusf_usmc_marpat_d_grenadier","rhsusf_usmc_marpat_d_grenadier","rhsusf_usmc_marpat_d_stinger","rhsusf_usmc_marpat_d_rifleman_light","rhsusf_navy_sarc_d"],
+	["rhsusf_usmc_marpat_wd_squadleader","rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman_m249","rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_wd_autorifleman_m249","rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_d_explosives","rhsusf_navy_marpat_wd_medic"]
 	];
 
 //Militia Groups
@@ -120,7 +120,7 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 //Military Vehicles
 //Lite
 vehNATOBike = "B_T_Quadbike_01_F";
-vehNATOLightArmed = ["rhsusf_m1025_w_s_m2","rhsusf_CGRCAT1A2_M2_usmc_wd","rhsusf_CGRCAT1A2_Mk19_usmc_wd","rhsusf_M1117_W","rhsusf_M1220_M2_usarmy_wd","rhsusf_M1237_M2_usarmy_wd","rhsusf_m1045_w_s"];
+vehNATOLightArmed = ["rhsusf_m1025_w_s_m2","rhsusf_CGRCAT1A2_M2_usmc_wd","rhsusf_CGRCAT1A2_Mk19_usmc_wd","rhsusf_M1117_W","rhsusf_M1220_M2_usarmy_wd","rhsusf_M1237_M2_usarmy_wd","rhsusf_M1238A1_M2_socom_d","rhsusf_m1045_w_s"];
 vehNATOLightUnarmed = ["rhsusf_m1025_w_s","rhsusf_m998_w_s_2dr","rhsusf_m998_w_s_2dr_fulltop","rhsusf_m998_w_s_4dr","rhsusf_CGRCAT1A2_usmc_wd","rhsusf_M1232_usarmy_wd"];
 vehNATOTrucks = ["rhsusf_M1078A1P2_wd_open_fmtv_usarmy","rhsusf_M1078A1P2_B_wd_fmtv_usarmy","rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy","rhsusf_M1083A1P2_wd_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy"];
 vehNATOCargoTrucks = [];
@@ -130,11 +130,11 @@ vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
 vehNATOAPC = ["rhsusf_stryker_m1126_m2_wd","RHS_M2A3_BUSKIII_wd","RHS_M2A3_BUSKI_wd","rhsusf_M1237_MK19_usarmy_wd","RHS_M2A2_BUSKI_WD","rhsusf_m113_usarmy","rhsusf_m113_usarmy_MK19","rhsusf_m113_usarmy"];
 vehNATOTank = "rhsusf_m1a1fep_wd";
-vehNATOAA = "RHS_M6_wd";
+vehNATOAA = "RHS_M6";
 vehNATOAttack = vehNATOAPC + [vehNATOTank];
 //Boats
 vehNATOBoat = "rhsusf_mkvsoc";
-vehNATORBoat = "rhsgref_hidf_rhib";
+vehNATORBoat = "B_T_Boat_Transport_01_F";
 vehNATOBoats = [vehNATOBoat,vehNATORBoat,"rhsusf_m113_usarmy_MK19","rhsusf_m113_usarmy"];
 //Planes
 vehNATOPlane = "RHS_A10_AT";
@@ -158,7 +158,7 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 if ((gameMode != 4) and (!hasFFAA)) then
 	{
 	vehFIAArmedCar = "rhsgref_hidf_m1025_m2";
-	vehFIATruck = "rhsusf_M1078A1P2_WD_flatbed_fmtv_usarmy";
+	vehFIATruck = "rhsgref_cdf_b_ural_open";
 	vehFIACar = "rhsgref_hidf_m998_4dr";
 	};
 
@@ -171,7 +171,7 @@ vehPoliceCar = "rhsusf_mrzr4_d";
 //Assembled Statics
 NATOMG = "RHS_M2StaticMG_USMC_WD";
 staticATOccupants = "RHS_TOW_TriPod_USMC_WD";
-staticAAOccupants = "RHS_Stinger_AA_pod_WD";
+staticAAOccupants = "RHS_Stinger_AA_pod_D";
 NATOMortar = "RHS_M252_USMC_WD";
 
 //Static Weapon Bags

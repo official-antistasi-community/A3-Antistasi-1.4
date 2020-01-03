@@ -14,7 +14,7 @@ boxX setVariable ["lastUsed", _time, true];
 	{
 	if (hasACEMedical) then
 		{
-		[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHeal;
+		[_x, _x] call ace_medical_treatment_fnc_fullHeal;
 		}
 	else
 		{

@@ -18,17 +18,7 @@ if (hasACEMedical) then
 			{
 			player addItemToUniform _item
 			};
-		} forEach [["ACE_fieldDressing",7],["ACE_morphine",2],["ACE_epinephrine",2]];
-		if (ace_medical_level == 2) then
-			{
-			{
-			_item = _x select 0;
-			for "_i" from 1 to (_x select 1) do
-				{
-				player addItemToUniform _item
-				};
-			} forEach [["ACE_elasticBandage",7],["ACE_tourniquet",5]];
-			};
+		} forEach [["ACE_fieldDressing",7],["ACE_morphine",2],["ACE_epinephrine",2],["ACE_elasticBandage",7],["ACE_tourniquet",5],["ACE_splint",2]];
 		}
 	else
 		{
@@ -38,17 +28,7 @@ if (hasACEMedical) then
 			{
 			player addItemToBackpack _item
 			};
-		} forEach [["ACE_morphine",15],["ACE_epinephrine",9],["ACE_bloodIV",8],["ACE_fieldDressing",30]];
-		if (ace_medical_level == 2) then
-			{
-			{
-			_item = _x select 0;
-			for "_i" from 1 to (_x select 1) do
-				{
-				player addItemToBackpack _item
-				};
-			} forEach [["ACE_elasticBandage",20],["ACE_packingBandage",10],["ACE_epinephrine",5],["ACE_morphine",5],["ACE_adenosine",5],["ACE_tourniquet",10],["ACE_salineIV_250",2],["ACE_surgicalKit",1],["ACE_personalAidKit",2]];
-			};
+		} forEach [["ACE_morphine",15],["ACE_epinephrine",9],["ACE_bloodIV",8],["ACE_fieldDressing",30],["ACE_elasticBandage",20],["ACE_packingBandage",10],["ACE_epinephrine",5],["ACE_morphine",5],["ACE_adenosine",5],["ACE_tourniquet",10],["ACE_salineIV_250",2],["ACE_surgicalKit",1],["ACE_personalAidKit",2],["ACE_splint", 8]];
 		};
 	};
 if ((player getUnitTrait "explosiveSpecialist") or (player getUnitTrait "engineer")) then

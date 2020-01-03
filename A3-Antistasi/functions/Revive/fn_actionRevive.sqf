@@ -18,12 +18,16 @@ if !(alive _cured) exitWith
 	_healed
 	};
 if !([_medicX] call A3A_fnc_canFight) exitWith {if (_player) then {hint "You are not able to revive anyone"};_healed};
-if ((not("FirstAidKit" in (items _medicX))) and (not("FirstAidKit" in (items _cured)))) exitWith
-	{
-	if (_player) then {hint format ["You or %1 need a First Aid Kit to be able to revive",name _cured]};
-	if (_inPlayerGroup) then {_medicX groupChat "I'm out of FA kits!"};
+if  (
+        (!([_medicX] call A3A_fnc_isMedic && "Medikit" in (items _medicX))) &&
+        {(!("FirstAidKit" in (items _medicX))) &&
+        {(!("FirstAidKit" in (items _cured)))}}
+    ) exitWith
+{
+	if (_player) then {hint format ["You or %1 need a First Aid Kit or Medikit to be able to revive",name _cured]};
+	if (_inPlayerGroup) then {_medicX groupChat "I'm out of FA kits and I have no Medikit!"};
 	_healed
-	};
+};
 if ((not("FirstAidKit" in (items _medicX))) and !(_medicX canAdd "FirstAidKit")) exitWith
 	{
 	if (_player) then {hint format ["%1 has a First Aid Kit but you do not have enough space in your inventory to use it",name _cured]};
@@ -54,11 +58,14 @@ if (_player) then
 	_cured setVariable ["helped",_medicX,true];
 	};
 _medicX setVariable ["helping",true];
-if (not("FirstAidKit" in (items _medicX))) then
-	{
+if  (
+        (!("FirstAidKit" in (items _medicX))) &&
+        {!("Medikit" in (items _medicX))}
+    ) then
+{
 	_medicX addItem "FirstAidKit";
 	_cured removeItem "FirstAidKit";
-	};
+};
 _timer = if ([_cured] call A3A_fnc_fatalWound) then
 			{
 			time + 35 + (random 20)
@@ -91,30 +98,33 @@ else
 	_actionX = _medicX addAction ["Cancel Revive", {(_this select 1) setVariable ["cancelRevive",true]},nil,6,true,true,"","(_this getVariable [""helping"",false]) and (isPlayer _this)"];
 	};
 _medicX addEventHandler ["AnimDone",
-	{
+{
 	private _medicX = _this select 0;
 	private _cured = _medicX getVariable ["cured",objNull];
 	if (([_medicX] call A3A_fnc_canFight) and (time <= (_medicX getVariable ["timeToHeal",time])) and !(_medicX getVariable ["cancelRevive",false]) and (alive _cured) and (_cured getVariable ["INCAPACITATED",false]) and (_medicX == vehicle _medicX)) then
-		{
+	{
 		_medicX playMoveNow selectRandom medicAnims;
-		}
+	}
 	else
-		{
+	{
 		_medicX removeEventHandler ["AnimDone",_thisEventHandler];
 		_medicX setVariable ["animsDone",true];
 		if (([_medicX] call A3A_fnc_canFight) and !(_medicX getVariable ["cancelRevive",false]) and (_medicX == vehicle _medicX) and (alive _cured)) then
-			{
+		{
 			if (_cured getVariable ["INCAPACITATED",false]) then
-				{
+			{
 				_medicX setVariable ["success",true];
 				//_cured setVariable ["INCAPACITATED",false,true];
 				//_medicX action ["HealSoldier",_cured];
 				if ([_medicX] call A3A_fnc_isMedic) then {_cured setDamage 0.25} else {_cured setDamage 0.5};
-				_medicX removeItem "FirstAidKit";
-				};
+                if(!("Medikit" in (items _medicX))) then
+                {
+                    _medicX removeItem "FirstAidKit";
+                };
 			};
 		};
-	}];
+	};
+}];
 waitUntil {sleep 0.5; (_medicX getVariable ["animsDone",true])};
 _medicX setVariable ["animsDone",nil];
 _medicX setVariable ["timeToHeal",nil];

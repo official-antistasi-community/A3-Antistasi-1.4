@@ -31,7 +31,7 @@ for "_i" from (tierPreference + 1) to tierWar do
     else
     {
       _preference pushBack ["LAND_AIR", -1, "AA"];
-      _preference pushBack ["PLANE_GENERIC", -1, "EMPTY"];
+      _preference pushBack ["AIR_GENERIC", -1, "EMPTY"];
     };
 
     if(true || debug) then

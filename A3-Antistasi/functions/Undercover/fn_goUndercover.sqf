@@ -86,12 +86,8 @@ while {
 }
 do {
 	private _healingTarget = objNull;
-	if (primaryWeapon _player != "ACE_FakePrimaryWeapon") then {
-		player setVariable ["ace_medical_selectedWeaponOnTreatment", nil];
-	} else {
-		if !(isNil {player getVariable "ace_medical_selectedWeaponOnTreatment"}) then {
-			_healingTarget = currentAceTarget;
-		};
+	if !(isNil {player getVariable "ace_medical_treatment_endInAnim"}) then {
+		_healingTarget = currentAceTarget;
 	};
 
 	sleep 1;
@@ -143,7 +139,7 @@ do {
 					};
 				};
 			};
-			if (((primaryWeapon _player != "") and !(primaryWeapon _player == "ACE_FakePrimaryWeapon" and _healingTarget != objNull)) or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or(vest _player != "") or(getNumber(configfile >> "CfgWeapons" >> headgear _player >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2) or(hmd _player != "") or(not(uniform _player in allCivilianUniforms))) then {
+			if ((primaryWeapon _player != "") or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or(vest _player != "") or(getNumber(configfile >> "CfgWeapons" >> headgear _player >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2) or(hmd _player != "") or(not(uniform _player in allCivilianUniforms))) then {
 				if ({((side _x == Invaders) or (side _x == Occupants)) and ((_x knowsAbout _player > 1.4) or (_x distance _player < 350))} count allUnits > 0) then {
 					_changeX = "clothes2"
 				} else {

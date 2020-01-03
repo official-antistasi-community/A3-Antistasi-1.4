@@ -11,7 +11,7 @@ params ["_vehicleType", "_crewType"];
 
 private ["_seatCount", "_result"];
 
-if(_vehicleType == "") exitWith {[]};
+if(_vehicleType == "" || _vehicleType == "Empty") exitWith {[]};
 
 _seatCount = [_vehicleType, false] call BIS_fnc_crewCount;
 _result = [];

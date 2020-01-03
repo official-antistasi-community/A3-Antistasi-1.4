@@ -20,6 +20,7 @@ private _magazineWells = getArray (configFile >> "CfgWeapons" >> _launcherClassN
 	} forEach getArray (configFile >> "CfgMagazineWells" >> _x >> "BI_Magazines");
 } forEach _magazineWells;
 
+//Ace has since moved to the CBA system - leaving these in for legacy reasons, but they can be deleted in the future. (2020/01/02)
 private _isACEDisposable = getText (configFile >> "CfgWeapons" >> _launcherClassName >> "ACE_UsedTube") !=	"";
 private _isACEUsedLauncher = getNumber (configFile >> "CfgWeapons" >> _launcherClassName >> "ACE_isUsedLauncher") == 1;
 private _fakeLauncher =	"CBA_FakeLauncherMagazine" in _rawMagazines;

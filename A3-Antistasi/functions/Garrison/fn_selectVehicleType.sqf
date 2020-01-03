@@ -9,14 +9,9 @@ params ["_preference", "_side"];
 *     _result : STRING : The typename of the selected vehicle
 */
 
+private _fileName = "SelectVehicleType";
 
-private ["_debug", "_possibleVehicles", "_result"];
-
-_debug = debug;
-if(_debug) then
-{
-  diag_log format ["SelectVehicleType: Selecting vehicle now, preferred is %1, side is %2", _preference, _side];
-};
+[3, format ["SelectVehicleType: Selecting vehicle now, preferred is %1, side is %2", _preference, _side], _fileName] call A3A_fnc_log;
 
 if(_preference == "LAND_AIR") exitWith
 {
@@ -27,7 +22,7 @@ if(_preference == "LAND_TANK") exitWith
   if(_side == Occupants) then {vehNATOTank} else {vehCSATTank};
 };
 
-_possibleVehicles = [];
+private _possibleVehicles = [];
 if(_preference in ["EMPTY", "LAND_START", "HELI_PATROL", "AIR_DRONE"]) then
 {
   _possibleVehicles pushBack "";
@@ -121,10 +116,13 @@ if(_preference in ["AIR_GENERIC", "AIR_DEFAULT"]) then
   };
 };
 
-if(_debug) then
+if(count _possibleVehicles == 0) exitWith
 {
-  diag_log format ["SelectVehicleType: Preselection done, possible vehicles are %1", str _possibleVehicles];
+    [1, format ["No result for %1, assuming bad parameter!", _preference], _fileName] call A3A_fnc_log;
+    "Empty";
 };
 
-_result = selectRandom _possibleVehicles;
+[3, format ["SelectVehicleType: Preselection done, possible vehicles are %1", str _possibleVehicles], _fileName] call A3A_fnc_log;
+
+private _result = selectRandom _possibleVehicles;
 _result;

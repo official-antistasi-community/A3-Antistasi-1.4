@@ -344,42 +344,35 @@ if (isMultiplayer) then {
 	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;//Exec on client
 	if (membershipEnabled) then {
 		if !([player] call A3A_fnc_isMember) then {
+			private _isMember = false;
 			if (isServer) then {
+				_isMember = true;
+			};
+			if (serverCommandAvailable "#logout") then {
+				_isMember = true;
+				hint "You are not in the member's list, but as you are Server Admin, you have been added. Welcome!";
+			};
+			
+			if (_isMember) then {
 				membersX pushBack (getPlayerUID player);
 				publicVariable "membersX";
+			} else {
+				_nonMembers = {(side group _x == teamPlayer) and !([_x] call A3A_fnc_isMember)} count (call A3A_fnc_playableUnits);
+				if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
+				if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
+				
+				hint "Welcome Guest\n\nYou have joined this server as guest";
 			};
-		_nonMembers = {(side group _x == teamPlayer) and !([_x] call A3A_fnc_isMember)} count (call A3A_fnc_playableUnits);
-		if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
-		if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
 		};
 	};
 };
+
+[] remoteExec ["A3A_fnc_assignBossIfNone", 2];
 
 waitUntil { scriptDone _introshot };
 
 if (_isJip) then {
 	[2,"Joining In Progress (JIP)",_filename] call A3A_fnc_log;
-	[] spawn A3A_fnc_modBlacklist;
-	player setVariable ["punish",0,true];
-	waitUntil {!isNil "posHQ"};
-	player setPos posHQ;
-	[true] spawn A3A_fnc_reinitY;
-
-	if (not([player] call A3A_fnc_isMember)) then {
-		if ((serverCommandAvailable "#logout") or (isServer)) then {
-			membersX pushBack (getPlayerUID player);
-			publicVariable "membersX";
-			hint "You are not in the member's list, but as you are Server Admin, you have been added up. Welcome!"
-		}
-		else {
-			hint "Welcome Guest\n\nYou have joined this server as guest";
-		};
-	}
-	else {
-		hint format ["Welcome back %1", name player];
-		//Adding Boss check... Goes after the Member check so they're definitely in the list of eligible.
-		[] remoteExec ["A3A_fnc_assignBossIfNone", 2];
-	};
 
 	waitUntil {!(isNil "missionsX")};
 	if (count missionsX > 0) then {
@@ -397,68 +390,17 @@ if (_isJip) then {
 			};
 		} forEach missionsX;
 	};
-	if (isNil "placementDone") then {
-		waitUntil {!isNil "theBoss"};
-		if (player == theBoss) then {
-		    waitUntil {!(isNil"loadLastSave")};
-		    if !(loadLastSave) then {
-		    		_nul = [] spawn A3A_fnc_placementSelection;
-				player setVariable ['canSave', true, true];
-	    		};
-		};
-	}
-	else {
-		[] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
-	};
-	[2,"JIP client loaded",_fileName] call A3A_fnc_log;
-	player setPos (getMarkerPos respawnTeamPlayer);
 }
 else 
 {
 	[2,"Not Joining in Progress (JIP)",_filename] call A3A_fnc_log;
-	if (isNil "placementDone") then {
-		waitUntil {!isNil "theBoss"};
-		if (player == theBoss) then 
-		{
-			player setVariable ["score", 25,true];
-			if (isMultiplayer) then {
-				HC_commanderX synchronizeObjectsAdd [player];
-				player synchronizeObjectsAdd [HC_commanderX];
-		    	if !(loadLastSave) then 
-				{
-					_nul = [] spawn A3A_fnc_placementSelection;
-					//This shouldn't really be here, but it's triggered on every other path through the code.
-					//This big if statement needs tidying, really.
-					player setVariable ['canSave', true, true];
-		    	}
-		    	else {
-		    		[] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
-				};
-				[2,"Client load completed",_fileName] call A3A_fnc_log;
-			}
-			else 
-			{
-				membersX = [];
-				player setUnitTrait ["medic",true];
-				player setUnitTrait ["engineer",true];
-				[] spawn A3A_fnc_loadPlayer;
-			};
-		}
-		else 
-		{
-				player setVariable ["score", 0,true];
-				[] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
-				player setPos (getMarkerPos respawnTeamPlayer);
-		};
-	}
-	else 
-	{
-		if !(isServer) then {
-			[] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
-			player setPos (getMarkerPos respawnTeamPlayer);
-		};
-	};
 };
+
+[] spawn A3A_fnc_modBlacklist;
+
+//Move this
+//HC_commanderX synchronizeObjectsAdd [player];
+//player synchronizeObjectsAdd [HC_commanderX];
 
 _textX = [];
 
@@ -542,6 +484,29 @@ disableSerialization;
 _layer = ["statisticsX"] call bis_fnc_rscLayer;
 _layer cutRsc ["H8erHUD","PLAIN",0,false];
 [] spawn A3A_fnc_statistics;
+
+//Check if we need to relocate HQ
+if (isNil "placementDone") then {
+	if (isNil "playerPlacingHQ" || {!(playerPlacingHQ in (call A3A_fnc_playableUnits))}) then {
+		playerPlacingHQ = player;
+		publicVariable "playerPlacingHQ";
+		call A3A_fnc_placementSelection;
+	};
+};
+
+//Load the player's personal save.
+if (isMultiplayer) then {
+	[] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
+}
+else 
+{
+	if (loadLastSave) then {
+		[] spawn A3A_fnc_loadPlayer;
+	};
+};
+
+//Move the player to HQ now they're initialised.
+player setPos (getMarkerPos respawnTeamPlayer);
 
 //Disables rabbits and snakes, because they cause the log to be filled with "20:06:39 Ref to nonnetwork object Agent 0xf3b4a0c0"
 //Can re-enable them if we find the source of the bug.

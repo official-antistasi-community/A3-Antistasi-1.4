@@ -7772,7 +7772,6 @@ class Mission
 			};
 			id=1563;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.9073486e-006;
 		};
 		class Item221
 		{
@@ -8082,7 +8081,6 @@ class Mission
 			};
 			id=1600;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.9073486e-005;
 		};
 		class Item240
 		{
@@ -8115,7 +8113,6 @@ class Mission
 			};
 			id=1610;
 			type="Land_HelipadSquare_F";
-			atlOffset=-0.00021743774;
 		};
 		class Item242
 		{
@@ -8325,7 +8322,6 @@ class Mission
 			};
 			id=1633;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.9073486e-006;
 		};
 		class Item255
 		{
@@ -8682,7 +8678,6 @@ class Mission
 			};
 			id=1652;
 			type="Land_HelipadCircle_F";
-			atlOffset=-3.0517578e-005;
 		};
 		class Item258
 		{
@@ -9442,7 +9437,6 @@ class Mission
 			};
 			id=1677;
 			type="Land_HelipadCircle_F";
-			atlOffset=-0.66293097;
 		};
 		class Item265
 		{
@@ -9626,7 +9620,6 @@ class Mission
 			};
 			id=1685;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.9073486e-005;
 		};
 		class Item268
 		{
@@ -9708,7 +9701,6 @@ class Mission
 			};
 			id=1692;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.1444092e-005;
 		};
 		class Item273
 		{
@@ -9741,7 +9733,6 @@ class Mission
 			};
 			id=1698;
 			type="Land_HelipadCircle_F";
-			atlOffset=-3.0517578e-005;
 		};
 		class Item275
 		{
@@ -9856,7 +9847,6 @@ class Mission
 			};
 			id=1715;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.5258789e-005;
 		};
 		class Item282
 		{
@@ -9873,7 +9863,6 @@ class Mission
 			};
 			id=1716;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.5258789e-005;
 		};
 		class Item283
 		{
@@ -9923,7 +9912,6 @@ class Mission
 			};
 			id=1721;
 			type="Land_HelipadCircle_F";
-			atlOffset=-3.8146973e-005;
 		};
 		class Item286
 		{
@@ -9940,7 +9928,6 @@ class Mission
 			};
 			id=1722;
 			type="Land_HelipadCircle_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item287
 		{
@@ -9957,7 +9944,6 @@ class Mission
 			};
 			id=1724;
 			type="Land_HelipadCircle_F";
-			atlOffset=-0.00043487549;
 		};
 		class Item288
 		{
@@ -9991,7 +9977,6 @@ class Mission
 			};
 			id=1728;
 			type="Land_HelipadCircle_F";
-			atlOffset=-2.8610229e-005;
 		};
 		class Item290
 		{
@@ -10185,7 +10170,6 @@ class Mission
 			};
 			id=1753;
 			type="Land_HelipadCircle_F";
-			atlOffset=-3.8146973e-006;
 		};
 		class Item302
 		{
@@ -10218,7 +10202,6 @@ class Mission
 			};
 			id=1760;
 			type="Land_HelipadSquare_F";
-			atlOffset=-1.3689947;
 		};
 		class Item304
 		{
@@ -10412,7 +10395,6 @@ class Mission
 			};
 			id=1787;
 			type="Land_HelipadSquare_F";
-			atlOffset=-3.8146973e-005;
 		};
 		class Item316
 		{
@@ -10445,7 +10427,6 @@ class Mission
 			};
 			id=1789;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.5258789e-005;
 		};
 		class Item318
 		{
@@ -10576,7 +10557,6 @@ class Mission
 			};
 			id=1802;
 			type="Land_HelipadCircle_F";
-			atlOffset=-5.7220459e-006;
 		};
 		class Item326
 		{
@@ -10593,7 +10573,6 @@ class Mission
 			};
 			id=1803;
 			type="Land_HelipadCircle_F";
-			atlOffset=-5.7220459e-006;
 		};
 		class Item327
 		{
@@ -10610,7 +10589,6 @@ class Mission
 			};
 			id=1809;
 			type="Land_HelipadCircle_F";
-			atlOffset=-3.4332275e-005;
 		};
 		class Item328
 		{
@@ -10627,7 +10605,6 @@ class Mission
 			};
 			id=1810;
 			type="Land_HelipadCircle_F";
-			atlOffset=-0.58641291;
 		};
 		class Item329
 		{
@@ -10661,7 +10638,6 @@ class Mission
 			};
 			id=1813;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.5258789e-005;
 		};
 		class Item331
 		{
@@ -10727,7 +10703,6 @@ class Mission
 			};
 			id=1819;
 			type="Land_HelipadSquare_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item335
 		{
@@ -10744,7 +10719,6 @@ class Mission
 			};
 			id=1821;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.7666759;
 		};
 		class Item336
 		{
@@ -10825,7 +10799,6 @@ class Mission
 			};
 			id=1828;
 			type="Land_HelipadCircle_F";
-			atlOffset=-0.00016021729;
 		};
 		class Item341
 		{
@@ -13287,7 +13260,6 @@ class Mission
 			};
 			id=2068;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.4862022;
 		};
 		class Item400
 		{

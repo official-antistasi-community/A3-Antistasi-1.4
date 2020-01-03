@@ -190,7 +190,10 @@ addMissionEventHandler ["BuildingChanged", {
 serverInitDone = true; publicVariable "serverInitDone";
 [2,"Setting serverInitDone as true",_fileName] call A3A_fnc_log;
 
+
+[2, "Waiting for HQ placement", _fileName] call A3A_fnc_log;
 waitUntil {sleep 1;!(isNil "placementDone")};
+[2, "HQ Placed, continuing init", _fileName] call A3A_fnc_log;
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
@@ -205,4 +208,5 @@ savingServer = false;
 		sleep 30;
 	};
 };
+execvm "functions\init\fn_initSnowFall.sqf";
 [2,"initServer completed",_fileName] call A3A_fnc_log;

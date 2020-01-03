@@ -1249,7 +1249,6 @@ class Mission
 					a=15;
 					b=15;
 					id=912;
-					atlOffset=-0.00022888184;
 				};
 				class Item11
 				{

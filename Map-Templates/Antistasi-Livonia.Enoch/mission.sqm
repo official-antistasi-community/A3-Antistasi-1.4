@@ -22976,7 +22976,6 @@ class Mission
 			};
 			id=3229;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.0154114;
 		};
 		class Item793
 		{
@@ -23106,7 +23105,6 @@ class Mission
 			};
 			id=3239;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.5735626e-005;
 		};
 		class Item801
 		{

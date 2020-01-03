@@ -151,7 +151,7 @@ _vehicleSpawns = [];
         {
           _dis = (_realSpace + 2 + ((_i - 1) * (4 + _realSpace))) - (_length / 2);
           _pos = [getMarkerPos _markerX, _dis, (_markerDir + 90)] call BIS_fnc_relPos;
-          _pos set [2, (_pos select 2) + 0.1];
+          _pos set [2, ((_pos select 2) + 0.1) max 0.1];
           _vehicleSpawns pushBack [[_pos, _markerDir], false];
         };
       };
@@ -161,7 +161,7 @@ _vehicleSpawns = [];
 _heliSpawns = [];
 {
     _pos = getPos _x;
-    _pos set [2, (_pos select 2) + 0.1];
+    _pos set [2, 0.1];
     if (!isMultiplayer) then
     {
       {
@@ -181,7 +181,7 @@ _heliSpawns = [];
 _planeSpawns = [];
 {
     _pos = getPos _x;
-    _pos set [2, (_pos select 2) + 0.1];
+    _pos set [2, ((_pos select 2) + 0.1) max 0.1];
     _dir = direction _x;
     if(_x isKindOf "Land_Hangar_F" || {_x isKindOf "Land_Airport_01_hangar_F" /*|| {_x isKindOf "Land_ServiceHangar_01_R_F"}*/}) then
     {
@@ -194,7 +194,7 @@ _planeSpawns = [];
 _mortarSpawns = [];
 {
   _pos = getMarkerPos _x;
-  _pos set [2, (_pos select 2) + 0.1];
+  _pos set [2, ((_pos select 2) + 0.1) max 0.1];
   _mortarSpawns pushBack [[_pos, 0], false];
 } forEach _mortarMarker;
 

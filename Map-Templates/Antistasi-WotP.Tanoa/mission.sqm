@@ -5687,7 +5687,6 @@ class Mission
 			};
 			id=723;
 			type="Land_HelipadSquare_F";
-			atlOffset=-1.6450882e-005;
 		};
 		class Item158
 		{
@@ -6438,7 +6437,6 @@ class Mission
 			};
 			id=773;
 			type="Land_HelipadCircle_F";
-			atlOffset=-3.361702e-005;
 		};
 		class Item186
 		{
@@ -6455,7 +6453,6 @@ class Mission
 			};
 			id=774;
 			type="Land_HelipadCircle_F";
-			atlOffset=-3.361702e-005;
 		};
 		class Item187
 		{
@@ -6774,7 +6771,6 @@ class Mission
 			};
 			id=792;
 			type="Land_HelipadCircle_F";
-			atlOffset=-1.5258789e-005;
 		};
 		class Item193
 		{
@@ -6891,7 +6887,6 @@ class Mission
 			};
 			id=803;
 			type="Land_HelipadSquare_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item200
 		{
@@ -7326,7 +7321,6 @@ class Mission
 			};
 			id=811;
 			type="Land_HelipadCircle_F";
-			atlOffset=-0.0001449585;
 		};
 		class Item203
 		{
@@ -7441,7 +7435,6 @@ class Mission
 			};
 			id=826;
 			type="Land_HelipadCircle_F";
-			atlOffset=-2.0027161e-005;
 		};
 		class Item210
 		{
@@ -7474,7 +7467,6 @@ class Mission
 			};
 			id=829;
 			type="Land_HelipadSquare_F";
-			atlOffset=-3.8146973e-006;
 		};
 		class Item212
 		{
@@ -7491,7 +7483,6 @@ class Mission
 			};
 			id=832;
 			type="Land_HelipadSquare_F";
-			atlOffset=-3.3378601e-006;
 		};
 		class Item213
 		{

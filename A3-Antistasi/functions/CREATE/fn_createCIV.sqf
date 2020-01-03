@@ -1,5 +1,7 @@
 if (!isServer and hasInterface) exitWith{};
 
+private _fileName = "fn_createCIV.sqf";
+
 private ["_markerX","_dataX","_numCiv","_numVeh","_roads","_prestigeOPFOR","_prestigeBLUFOR","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_countX","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_patrolCities","_countPatrol","_burst","_groupP","_wp","_wp1"];
 
 _markerX = _this select 0;
@@ -11,9 +13,10 @@ _dataX = server getVariable _markerX;
 _numCiv = _dataX select 0;
 _numVeh = _dataX select 1;
 //_roads = _dataX select 2;
-_roads = roadsX getVariable _markerX;//
-//_prestigeOPFOR = _dataX select 3;
-//_prestigeBLUFOR = _dataX select 4;
+_roads = roadsX getVariable [_markerX, []];
+if (count _roads == 0) then {
+	[1, format ["Roads not found for marker %1", _markerX], _fileName] call A3A_fnc_log;
+};
 
 _prestigeOPFOR = _dataX select 2;
 _prestigeBLUFOR = _dataX select 3;

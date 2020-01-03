@@ -17,23 +17,18 @@ aceItems = [
 	"ACE_CableTie",
 	"ACE_SpottingScope",
 	"ACE_Tripod",
-	"ACE_Spraypaintred"
+	"ACE_Spraypaintred",
+	"ACE_UAVBattery"
 ];
 
-aceBasicMedItems = [
+aceMedItems = [
 	"ACE_fieldDressing",
-	"ACE_bloodIV_500",
-	"ACE_bloodIV",
-	"ACE_epinephrine",
-	"ACE_morphine",
-	"ACE_bodyBag"
-];
-
-aceAdvMedItems = [
 	"ACE_elasticBandage",
-	"ACE_quikclot",
-	"ACE_bloodIV_250",
 	"ACE_packingBandage",
+	"ACE_quikclot",
+	"ACE_bloodIV",
+	"ACE_bloodIV_250",
+	"ACE_bloodIV_500",
 	"ACE_plasmaIV",
 	"ACE_plasmaIV_500",
 	"ACE_plasmaIV_250",
@@ -42,15 +37,17 @@ aceAdvMedItems = [
 	"ACE_salineIV_250",
 	"ACE_surgicalKit",
 	"ACE_tourniquet",
+	"ACE_epinephrine",
+	"ACE_morphine",
 	"ACE_adenosine",
-	"ACE_atropine"
+	"ACE_splint",
+	"ACE_bodyBag"
 ]
 + ([["ACE_personalAidKit"], ["adv_aceCPR_AED"]] select hasADVCPR)
 + ([[], ["adv_aceSplint_splint"]] select hasADVSplint);
 
 publicVariable "aceItems";
-publicVariable "aceBasicMedItems";
-publicVariable "aceAdvMedItems";
+publicVariable "aceMedItems";
 
 ////////////////////////////////////
 //   ACE ITEMS MODIFICATIONS     ///
@@ -60,14 +57,7 @@ initialRebelEquipment append aceItems;
 
 //ACE medical starting items
 if (hasACEMedical) then {
-	switch (ace_medical_level) do {
-		case 1: {
-			initialRebelEquipment append aceBasicMedItems;
-		};
-		case 2: {
-			initialRebelEquipment append aceBasicMedItems + aceAdvMedItems;
-		};
-	};
+	initialRebelEquipment append aceMedItems;
 };
 
 lootItem append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield","ACE_VMH3","ACE_VMM3","ACE_HuntIR_monitor"];

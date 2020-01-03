@@ -5,11 +5,13 @@ private _basicMedicalSupplies =
 		[
 			["ACE_Tourniquet",1],
 			["ACE_SalineIV_500",1],
-			["ACE_Morphine",1],
-			["ACE_Epinephrine",1],
+			["ACE_Morphine",2],
+			["ACE_Epinephrine",2],
+			["ACE_Adenosine",2],
 			["ACE_PackingBandage",5],
 			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3]
+			["ACE_Quikclot",3],
+			["ACE_splint", 2]
 		]
 		+ ([[], [["adv_aceSplint_splint", 2]]] select hasADVSplint);
 	} else {
@@ -42,12 +44,14 @@ private _medicSupplies =
 
 			["ACE_Morphine",5],
 			["ACE_Epinephrine",5],
+			["ACE_Adenosine",5],
 
 			["ACE_PlasmaIV_250",5],
 			["ACE_SalineIV_500",3],
 			["ACE_BloodIV",1],
 
-			["ACE_Tourniquet",3]
+			["ACE_Tourniquet",3],
+			["ACE_Splint",4]
 		]
 		+ ([[["ACE_PersonalAidKit", 2]], [["adv_aceCPR_AED", 1]]] select hasADVCPR)
 		+ ([[], [["adv_aceSplint_splint", 7]]] select hasADVSplint);

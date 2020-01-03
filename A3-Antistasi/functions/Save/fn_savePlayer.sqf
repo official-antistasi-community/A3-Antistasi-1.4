@@ -35,7 +35,7 @@ savingClient = true;
 diag_log format ["[Antistasi] Saving player %1 on side %2", _playerId, side group _playerUnit];
 
 private _shouldStripLoadout = false;
-if (hasACEMedical && {[_playerUnit] call ace_medical_fnc_getUnconsciousCondition}) then 
+if (hasACEMedical && {_playerUnit getVariable ["ACE_isUnconscious", false]}) then 
 {
 	_shouldStripLoadout = true;
 	diag_log format ["[Antistasi] Stripping saved loadout of player %1 due to saving while being ACE unconscious", _playerId];

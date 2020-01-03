@@ -1,3 +1,5 @@
+//Call to Tanoa Invader Template
+if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Tanoa.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -14,7 +16,7 @@ CSATFlag = "Flag_CSAT_F";
 CSATFlagTexture = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 flagCSATmrk = "flag_CSAT";
 if (isServer) then {"CSAT_carrier" setMarkerText "CSAT Carrier"};
-	
+
 //Loot Crate
 CSATAmmoBox = "O_supplyCrate_F";
 

@@ -1,9 +1,5 @@
 //Call to Blufor Alits Template
 if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_AAF_Altis.sqf"};
-//Call for Woodland Templates
-if (worldName == "Enoch") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Woodland.sqf"};
-if (worldName == "vt7") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Woodland.sqf"};
-if (worldName == "chernarus_summer") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Woodland.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

@@ -42,7 +42,6 @@
 			["NVGoggles",1],
 			["SmokeShell",2,1],
 			["HandGrenade",1,1],
-			["ACE_M84",2,1],
 			["16Rnd_9x21_Mag",2,17],
 			["30Rnd_65x39_caseless_black_mag",3,30]
 		]

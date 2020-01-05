@@ -37,7 +37,7 @@
 
 	[//Vest
 		selectRandom										//Vest
-		["V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrierSpec_mtp"],
+		["V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrierSpec_rgr"],
 		[//Inventory
 			["NVGoggles",1],
 			["SmokeShell",2,1],

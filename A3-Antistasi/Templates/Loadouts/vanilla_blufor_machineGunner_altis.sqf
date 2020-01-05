@@ -44,7 +44,7 @@
 			["HandGrenade",1,1],
 			["16Rnd_9x21_Mag",2,17],
 			["200Rnd_65x39_cased_Box",2,200],
-
+			[]
 		]
 		+ _aceFlashlight
 		+ _aceM84

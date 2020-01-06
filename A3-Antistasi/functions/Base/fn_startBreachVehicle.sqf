@@ -15,6 +15,22 @@ if(!alive _vehicle) exitWith
     _vehicle removeAction _actionID;
 };
 
+private _vehCrew = crew _vehicle;
+private _aliveCrew = _vehCrew select {alive _x};
+if(count _aliveCrew == 0) exitWith
+{
+    hint "There is no living crew left, no need for breaching!";
+    _vehicle lock false;
+    _vehicle removeAction _actionID;
+};
+
+if(side (_aliveCrew select 0) == teamPlayer) exitWith
+{
+    hint "You cannot breach a vehicle which is controlled by the rebels!";
+    _vehicle removeAction _actionID;
+};
+
+
 private _isAPC = (typeOf _vehicle) in vehAPCs;
 private _isTank = (typeOf _vehicle) in vehTanks;
 

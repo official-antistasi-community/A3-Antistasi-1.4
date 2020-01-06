@@ -18,7 +18,8 @@ aceItems = [
 	"ACE_SpottingScope",
 	"ACE_Tripod",
 	"ACE_Spraypaintred",
-	"ACE_UAVBattery"
+	"ACE_UAVBattery",
+	"ACE_SpareBarrel"
 ];
 
 aceMedItems = [

@@ -1,0 +1,124 @@
+#include "defines.hpp"
+#include "dialogs.hpp"
+
+author = $STR_antistasi_credits_generic_author_text;
+OnLoadName = $STR_antistasi_mission_info_altis_mapname_short_text;
+OnLoadMission = $STR_antistasi_mission_info_altis_blurb_text;
+loadScreen = "pic.jpg";
+briefingName = $STR_antistasi_mission_info_altis_mapname_text;
+overviewText = $STR_antistasi_mission_info_altis_description_text;
+overviewPicture = "pic.jpg";
+
+#include "MissionDescription\debug.hpp"
+
+#include "MissionDescription\gameSettings.hpp"
+
+class CfgFunctions {
+    #include "functions.hpp"
+    #include "JeroenArsenal\functions.hpp"
+};
+
+class CfgSounds
+{
+    class fire
+    {
+        name="fire";
+        sound[]={"Music\fire.ogg",db+12,1.0};
+        titles[]={};
+    };
+};
+
+#include "MissionDescription\params.hpp"
+
+#include "MissionDescription\CfgIdentities.hpp"
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "V I C T O R Y";
+		subtitle = "Altis is Ours!";
+		description = "The population of Altis loves you!<br/>The brave soldiers have proven their valour, and Petros, Altis new Prime Minister, could at last to have a nice holidays. A deserved rest in a Greek island with drinks and fine food.";
+		picture = "n_inf";
+		pictureColor[] = {0.0,0.5,0.0,1};
+	};
+    class petrosDead
+    {
+        title = "Petros is Dead";
+        subtitle = "Petros is Dead";
+        description = "Congratulations!: Petros is Dead. Now with rebels without a leader, you may think about joining them, and free Altis";
+        picture = "b_unknown";
+        pictureColor[] = {0.5,0.0,0.0,1};
+    };
+    class destroyedSites
+    {
+        title = "Altis is Destroyed";
+        subtitle = "Altis got Destroyed by OPFOR";
+        description = "One third of the population in Altis has been murdered by the OPFOR.<br/>Altis no longer exists, nobody wants to live here.";
+        picture = "b_unknown";
+        pictureColor[] = {0.5,0.0,0.0,1};
+    };
+    class modUnautorized
+    {
+        title = "Incompatible Mods";
+        subtitle = "Incompatible Mods detected";
+        description = "An incompatible mod installed on the server or your PC has been detected. To avoid support problems the mission is finished. Please uninstall unsupported (ASR AI, aLIVE, MCC or any AI behaviour) mods from your computer or server to be able to play Antistasi.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class serverFull
+    {
+        title = "Reserved Slot";
+        subtitle = "This slot is reserved";
+        description = "Sorry, but this slot is reserved for a Server Member. To become member, please contact to the server admin or clan.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class noPvP
+    {
+        title = "PVP Disabled";
+        subtitle = "This slot is unavailable";
+        description = "PvP is not enabled on this server.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class noJip
+    {
+        title = "JIP Unavailable";
+        subtitle = "This slot is unavailable";
+        description = "You need to have JIP enabled.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class pvpMem
+    {
+        title = "You are not a Member";
+        subtitle = "This slot is unavailable";
+        description = "You need to be a Member to use PvP.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class pvpCount
+    {
+        title = "PvP Player Overflow";
+        subtitle = "This slot is unavailable";
+        description = "PvP is not available as there are too many PvP slots in use, or not enough Rebels online.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class BossMiss
+    {
+        title = "MIA Rebel Commander";
+        subtitle = "This slot is unavailable";
+        description = "PvP is not available as there is no Commander for the Rebels.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+    class hcDown
+    {
+        title = "HC Disconnected";
+        subtitle = "Some Headless Client has been disconnected and mission has to stop to avoid malfunctions.";
+        picture = "b_unknown";
+        pictureColor[] = {0.0,0.5,0.0,1};
+    };
+};

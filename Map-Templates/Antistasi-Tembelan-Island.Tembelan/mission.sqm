@@ -188,7 +188,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_tembelan_mapname_text;											 
+		briefingName=$STR_antistasi_mission_info_tembelan_mapname_text;
 		resistanceWest=0;
 		year=2035;
 		month=6;
@@ -1550,7 +1550,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=2;
+							value=3;
 						};
 					};
 				};

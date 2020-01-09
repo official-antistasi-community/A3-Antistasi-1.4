@@ -3,7 +3,11 @@
 the last element is the list of seats to disable for specific node
 
 Points are laid out at follows: Type, location, locked seats
-[0/1 = hardpoint/crate, [ L/R, F/B, U/D], [#,#,#,#]]
+Type: 0 for weapon hardpoint, 1 for crate loading position
+Location: set of 3 numbers(*) for offset. Left / Right, Forwards / Backwards, Up / Down. Negative / Positive numbers respectively
+Locked seats: ID numbers for seats to be disabled when cargo/hardpoint is present.
+
+*Positions only need up to 2 decimal places for accuracy, you can have more but they aren't neccessary for getting the box in place.
 */
 jnl_vehicleHardpoints = [
 

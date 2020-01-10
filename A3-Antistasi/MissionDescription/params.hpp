@@ -443,13 +443,13 @@ class Params
           title = "Maximum Device Backpack Types in Crates";
           values[] = {0,2,4,9};
           texts[] = {"1","3","5","10"};
-          default = 0;
+          default = 2;
      };
      class crateDeviceNumMax
      {
           title = "Maximum Device Backpack Quantity in Crates";
           values[] = {0,1,3,5,10,15};
           texts[] = {"None","1","3","5","10","15"};
-          default = 1;
+          default = 3;
      };
 };

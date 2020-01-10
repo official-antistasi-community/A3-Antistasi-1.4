@@ -3847,7 +3847,7 @@ class Mission
 					class Attributes
 					{
 						name="commanderX";
-						description="Default Commaner";
+						description="Default Commander";
 						isPlayer=1;
 						isPlayable=1;
 						class Inventory
@@ -3856,7 +3856,7 @@ class Mission
 						};
 					};
 					id=303;
-					type="I_G_officer_F";
+					type="I_G_Soldier_TL_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3918,7 +3918,7 @@ class Mission
 						};
 					};
 					id=304;
-					type="I_G_officer_F";
+					type="I_G_Soldier_TL_F";
 				};
 				class Item2
 				{
@@ -3938,7 +3938,7 @@ class Mission
 						};
 					};
 					id=305;
-					type="I_G_officer_F";
+					type="I_G_Soldier_TL_F";
 				};
 				class Item3
 				{
@@ -3958,7 +3958,7 @@ class Mission
 						};
 					};
 					id=306;
-					type="I_G_officer_F";
+					type="I_G_Soldier_TL_F";
 				};
 				class Item4
 				{
@@ -3978,7 +3978,7 @@ class Mission
 						};
 					};
 					id=307;
-					type="I_G_officer_F";
+					type="I_G_Soldier_TL_F";
 					atlOffset=-3.0517578e-005;
 				};
 				class Item5
@@ -3999,7 +3999,7 @@ class Mission
 						};
 					};
 					id=308;
-					type="I_G_officer_F";
+					type="I_G_Soldier_TL_F";
 				};
 				class Item6
 				{
@@ -4019,7 +4019,7 @@ class Mission
 						};
 					};
 					id=309;
-					type="I_G_officer_F";
+					type="I_G_Soldier_TL_F";
 				};
 				class Item7
 				{
@@ -4039,7 +4039,7 @@ class Mission
 						};
 					};
 					id=310;
-					type="I_G_officer_F";
+					type="I_G_Soldier_TL_F";
 				};
 				class Item8
 				{

@@ -153,11 +153,11 @@ jnl_vehicleHardpoints = [
   ]],
 
 //Zils
-//Zil 131
-  ["rhsafrf\addons\rhs_zil131\rhs_zil131", [
-    [1, [0,-0.1,-0.45], [10,11,2,3,4,5]],
-    [1, [0,-1.8,-0.45], [6,7,8,9]]
-  ]],
+//Zil 131 ----- ZIL Disabled due to broken/clipping seats. DO NOT USE IN MISSION
+/*  ["rhsafrf\addons\rhs_zil131\rhs_zil131", [
+    [1, [0,-0.1,-0.45], [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]],
+    [1, [0,-1.8,-0.45], []]
+  ]],*/
 
 //Gaz
   ["\rhsafrf\addons\rhs_gaz66\rhs_gaz66.p3d", [

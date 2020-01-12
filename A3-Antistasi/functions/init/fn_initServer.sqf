@@ -183,7 +183,10 @@ addMissionEventHandler ["BuildingChanged", {
 		_oldBuilding setVariable ["ruins", _newBuilding];
 		_newBuilding setVariable ["building", _oldBuilding];
 
-		destroyedBuildings pushBack (getPosATL _oldBuilding);
+		// Antenna dead/alive status is handled separately
+		if !(_oldBuilding in antennas || _oldBuilding in antennasDead) then {
+			destroyedBuildings pushBack (getPosATL _oldBuilding);
+		};
 	};
 }];
 

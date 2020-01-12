@@ -105,30 +105,7 @@ if (dateToNumber date > _dateLimitNum) then
 		[-600] remoteExec ["A3A_fnc_timingCA",2];
 		[-10,theBoss] call A3A_fnc_playerScoreAdd;
 		};
-	antennasDead = antennasDead - [_antennaDead]; publicVariable "antennasDead";
-	diag_log format ["%1: [Antistasi] | DEBUG | Repairing Antenna %2.",servertime, typeOf _antennaDead];
-	[_antennaDead] call A3A_fnc_repairRuinedBuilding;
-	antennas pushBack _antennaDead; publicVariable "antennas";
-	{if ([antennas,_x] call BIS_fnc_nearestPosition == _antennaDead) then {[_x,true] spawn A3A_fnc_blackout}} forEach citiesX;
-	_mrkFinal = createMarker [format ["Ant%1", mapGridPosition _antennaDead], getPos _antennaDead];
-	_mrkFinal setMarkerShape "ICON";
-	_mrkFinal setMarkerType "loc_Transmitter";
-	_mrkFinal setMarkerColor "ColorBlack";
-	_mrkFinal setMarkerText "Radio Tower";
-	mrkAntennas pushBack _mrkFinal;
-	publicVariable "mrkAntennas";
-	_antennaDead addEventHandler ["Killed",
-		{
-		_antenna = _this select 0;
-		_antenna removeAllEventHandlers "Killed";
-		{if ([antennas,_x] call BIS_fnc_nearestPosition == _antenna) then {[_x,false] spawn A3A_fnc_blackout}} forEach citiesX;
-		_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
-		antennas = antennas - [_antenna]; antennasDead = antennasDead + [_antenna]; deleteMarker _mrk;
-		["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
-		["TaskFailed",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",Occupants];
-		publicVariable "antennas"; publicVariable "antennasDead";
-		}
-		];
+	[_antennaDead] remoteExec ["A3A_fnc_rebuildRadioTower", 2];
 	};
 
 _nul = [30,"REP"] spawn A3A_fnc_deleteTask;

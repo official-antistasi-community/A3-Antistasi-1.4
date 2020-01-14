@@ -78,9 +78,9 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 	if ( (toLower worldName) in ["tanoa", "altis", "chernarus_summer"] ) then
 	{
-		_roads = roadsX getVariable [_name, []];
+		_roads = roadsX getVariable [_nameX, []];
 		if (count _roads == 0) then {
-			[2, format ["No roads found for marker %1", _name], _fileName] call A3A_fnc_log;
+			[2, format ["No roads found for marker %1", _nameX], _fileName] call A3A_fnc_log;
 		};
 		_numCiv = server getVariable _nameX;
 		if (isNil "_numCiv") then

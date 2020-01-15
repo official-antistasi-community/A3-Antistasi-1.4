@@ -412,6 +412,7 @@ SA_Pickup_Tow_Ropes = {
 			{
 				_attachedObj ropeDetach _x;
 			} forEach (_vehicle getVariable ["SA_Tow_Ropes",[]]);
+			detach _attachedObj;
 			deleteVehicle _attachedObj;
 		} forEach ropeAttachedObjects _vehicle;
 		_helper = "Land_Can_V2_F" createVehicle position _player;

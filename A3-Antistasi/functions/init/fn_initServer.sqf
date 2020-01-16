@@ -169,7 +169,7 @@ if !(loadLastSave) then {
 };
 call A3A_fnc_createPetros;
 
-[petros,"hint","Server load finished"] remoteExecCall ["A3A_fnc_commsMP", 0];
+[petros,"hint","Server load finished"] remoteExec ["A3A_fnc_commsMP", 0];
 
 //HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.
 addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnect;false}];

@@ -90,7 +90,7 @@ if (UPSMON_Debug>0) then {diag_log format["Spawning %3 copies of template %1 on 
 					
 			if (isMultiplayer) then 
 			{
-				[netid _newunit, _initstr] remoteExecCall ["UPSMON_fnc_setVehicleInit", 0,true];
+				[netid _newunit, _initstr] remoteExec ["UPSMON_fnc_setVehicleInit", 0,true];
 			} else 
 			{
 				_unitstr = "_newunit";

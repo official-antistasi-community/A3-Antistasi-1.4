@@ -140,7 +140,7 @@ switch (_callbackTarget) do {
 					{
 					if (player ==	theBoss && ((_typeVehX == SDKMortar) or (_typeVehX == staticATteamPlayer) or (_typeVehX == staticAAteamPlayer) or (_typeVehX == SDKMGStatic))) then
 						{
-						_nul = [0,(-1 * vehiclePurchase_cost)] remoteExecCall ["A3A_fnc_resourcesFIA",2]
+						_nul = [0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2]
 						}
 					else
 						{

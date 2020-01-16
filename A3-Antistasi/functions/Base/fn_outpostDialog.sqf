@@ -60,4 +60,4 @@ if (_typeX != "delete") then
 	[-_hr,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 	};
 
- [_typeX,_positionTel] remoteExecCall ["A3A_fnc_createOutpostsFIA", 2];
+ [_typeX,_positionTel] remoteExec ["A3A_fnc_createOutpostsFIA", 2];

@@ -81,6 +81,8 @@ else {
 	player setIdentity "protagonista";
 	player setUnitRank "COLONEL";
 	player hcSetGroup [group player];
+	player setUnitTrait ["medic", true];
+	player setUnitTrait ["engineer", true];
 	waitUntil {/*(scriptdone _introshot) and */(!isNil "serverInitDone")};
 };
 

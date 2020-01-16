@@ -2,7 +2,7 @@
 
 private ["_pool","_veh","_typeVehX"];
 _pool = false;
-if (_this select 0) then {_pool = true};
+if (_this select 0 || !isMultiplayer) then {_pool = true};
 
 if (side player != teamPlayer) exitWith {hint "Only rebels can add vehicles to the garage."};
 if (!([player] call A3A_fnc_isMember)) exitWith {hint "Only server members have the garage feature enabled"};

@@ -183,7 +183,7 @@ everyEquipmentRelatedArrayName = allEquipmentArrayNames + unlockedEquipmentArray
 DECLARE_SERVER_VAR(startLR, false);
 if (hasTFAR) then
 {
-	startLR = true;																			//set to true to start with LR radios unlocked.
+	startLR = false;																			//set to true to start with LR radios unlocked.
 	if (isServer) then
 	{
 		[] spawn {

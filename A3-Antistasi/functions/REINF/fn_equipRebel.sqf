@@ -38,8 +38,7 @@ if !(unlockedVests isEqualTo []) then {
 	if (count unlockedArmoredVests * 20 < random(100)) then { _unit addVest (selectRandom unlockedVests) }
 	else { _unit addVest (selectRandom unlockedArmoredVests); };
 };
-if !(unlockedBackpacks isEqualTo []) then { _unit addBackpack (selectRandom unlockedBackpacks) };
-
+if !(unlockedBackpacksCargo isEqualTo []) then { _unit addBackpack (selectRandom unlockedBackpacksCargo) };
 
 _unit addItemToUniform "FirstAidKit";
 _unit addItemToUniform "FirstAidKit";

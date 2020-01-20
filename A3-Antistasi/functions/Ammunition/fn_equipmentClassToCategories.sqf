@@ -138,4 +138,11 @@ if (_basecategory == "Headgear") then {
 	};
 };
 
+if (_basecategory == "Backpacks") then {
+	// 160 = assault pack. Just a way to limit which backpacks friendly AI are using.
+	if (getNumber (configFile >> "CfgVehicles" >> _className >> "maximumLoad") >= 160) then {
+		_categories pushBack "BackpacksCargo";
+	};
+};
+
 _categories;

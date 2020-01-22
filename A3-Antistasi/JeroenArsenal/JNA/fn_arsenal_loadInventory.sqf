@@ -238,7 +238,7 @@ _weapons = [_inventory select 6,_inventory select 7,_inventory select 8];
 			if (_amountMagAvailable > 0) then {
 				if (_amountMagAvailable < _amountMag) then {
 					_arrayMissing = [_arrayMissing,[_itemMag,_amountMag]] call jn_fnc_arsenal_addToArray;
-					_amountMag = _amountMagAvailable;
+					_amountMag = _amountMagAvailable max 0;
 				};
 			[_arrayTaken,_indexMag,_itemMag,_amountMag] call _addToArray;
 			[_availableItems,_indexMag,_itemMag,_amountMag] call _removeFromArray;
@@ -283,7 +283,7 @@ _weapons = [_inventory select 6,_inventory select 7,_inventory select 8];
 						};
 					};
 
-					if ((_indexAcc != -1) AND {[_availableItems select _indexAcc, _itemAcc] call jn_fnc_arsenal_itemCount != 0}) then {
+					if ((_indexAcc != -1) AND {[_availableItems select _indexAcc, _itemAcc] call jn_fnc_arsenal_itemCount > 0}) then {
 						switch _index do{
 							case IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON:{player addPrimaryWeaponItem _itemAcc;};
 							case IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON:{player addSecondaryWeaponItem _itemAcc;};
@@ -374,14 +374,12 @@ private _addContainerFuncs = [
 					};
 
 					if(_amountAvailable < _amount) then {
-						_amount = _amountAvailable;
 						_arrayMissing = [_arrayMissing,[_item,(_amount - _amountAvailable)]] call jn_fnc_arsenal_addToArray;
+						_amount = _amountAvailable max 0;
 					};
 					[_arrayTaken,_index,_item,_amount] call _addToArray;
 					[_availableItems,_index,_item,_amount] call _removeFromArray;
-					if (_amount>0) then {//prevent empty mags
-						_container addMagazineAmmoCargo  [_item,1, _amount];
-					};
+					_container addMagazineAmmoCargo  [_item,1, _amount];
 				};
 			} else {
 				_amount = 1;
@@ -390,7 +388,7 @@ private _addContainerFuncs = [
 						_container addItemCargo [_item, 1];
 					};
 
-					if (_amountAvailable > _amount) then {
+					if (_amountAvailable >= _amount) then {
 						_container addItemCargo [_item,_amount];
 						[_arrayTaken,_index,_item,_amount] call _addToArray;
 						[_availableItems,_index,_item,_amount] call _removeFromArray;

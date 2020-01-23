@@ -165,16 +165,23 @@ removebackpack player;
 _isMember = [player] call A3A_fnc_isMember;
 _availableItems = [jna_dataList, _arrayPlaced] call _addArrays;
 _itemCounts =+ _availableItems;
+// reduce available items by guest limits for non-members
 {
 	_index = _foreachindex;
 	_subArray = _x;
+	_isMagArray = (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG) || (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
 	{
 		_item = _x select 0;
 		_amount = (_x select 1);
-		if (_amount != -1) then {
-			_amount = [(_x select 1) - (jna_minItemMember select _index),(_x select 1)] select _isMember;
+		if (_amount != -1 && !_isMember) then {
+			if !(_isMagArray) then { _amount = _amount - minWeaps }
+			else {
+				// Magazines are counted in bullets
+				_ammoCount = getNumber (configfile >> "CfgMagazines" >> _item >> "count");
+				_amount = _amount - memberOnlyMagLimit * _ammoCount;
+			};
+			_subArray set [_foreachindex, [_item,_amount]];
 		};
-		_subArray set [_foreachindex, [_item,_amount]];
 	} forEach _subArray;
 	_availableItems set [_index, _subArray];
 } forEach _availableItems;

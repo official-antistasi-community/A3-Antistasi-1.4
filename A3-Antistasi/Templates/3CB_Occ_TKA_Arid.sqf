@@ -18,7 +18,7 @@ flagNATOmrk = "UK3CB_MARKER_TKA_O_Army";
 if (isServer) then {"NATO_carrier" setMarkerText "Takistani Carrier"};
 	
 //Loot Crate
-NATOAmmobox = "B_supplyCrate_F";
+NATOAmmobox = "I_supplyCrate_F";
 
 ////////////////////////////////////
 //   PVP LOADOUTS AND VEHICLES   ///
@@ -40,7 +40,7 @@ NATOPlayerLoadouts = [
 ];
 
 //PVP Player Vehicles
-vehNATOPVP = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Green","UK3CB_BAF_LandRover_Hard_FFR_Green_B_Tropical","UK3CB_BAF_LandRover_Snatch_FFR_Green_A_Tropical","UK3CB_BAF_LandRover_Soft_FFR_Green_B_Tropical","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_B_Tropical_RM"];
+vehNATOPVP = ["UK3CB_TKA_I_Hilux_Open","UK3CB_TKA_I_LR_Closed","UK3CB_TKA_I_UAZ_MG"];
 
 ////////////////////////////////////
 //             UNITS             ///
@@ -49,9 +49,9 @@ vehNATOPVP = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Green","UK3CB_BAF_Land
 NATOGrunt = "UK3CB_TKA_I_RIF_1";
 NATOOfficer = "UK3CB_TKA_I_OFF";
 NATOOfficer2 = "UK3CB_TKA_I_CREW_COMM";
-NATOBodyG = "UK3CB_BAF_Crewman_RTR_DDPM";
+NATOBodyG = "UK3CB_TKA_I_CREW";
 NATOCrew = "UK3CB_TKA_I_CREW";
-NATOUnarmed = "B_G_Survivor_F";
+NATOUnarmed = "I_G_Survivor_F";
 NATOMarksman = "UK3CB_TKA_I_MK";
 staticCrewOccupants = "UK3CB_TKA_I_NAVY_CREW";
 NATOPilot = "UK3CB_TKA_I_JET_PILOT";

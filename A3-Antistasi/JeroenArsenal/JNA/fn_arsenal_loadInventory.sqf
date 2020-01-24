@@ -63,17 +63,6 @@ _isItemBino = {
 	getNumber(configFile >> "CfgWeapons" >> _this >> "type") == 4096;
 };
 
-// because addItemCargo doesn't enable grenades
-_addItemToContainer = {
-	params ["_container", "_item"];
-	switch (_container) do {
-		case 0: { player addItemToUniform _item };
-		case 1: { player addItemToVest _item };
-		default { player addItemToBackpack _item };
-	};
-};
-
-
 //name that needed to be loaded
 _saveName = _this;
 _saveData = profilenamespace getvariable ["bis_fnc_saveInventory_data",[]];
@@ -371,7 +360,15 @@ private _addContainerFuncs = [
 	};
 } forEach _containers;
 
-
+// because addItemCargo doesn't enable grenades
+_addItemToContainer = {
+	params ["_containerIndex", "_item"];
+	switch (_containerIndex) do {
+		case 0: { player addItemToUniform _item };
+		case 1: { player addItemToVest _item };
+		default { player addItemToBackpack _item };
+	};
+};
 
 //add items to containers
 {

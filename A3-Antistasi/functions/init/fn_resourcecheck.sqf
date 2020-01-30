@@ -229,7 +229,7 @@ while {true} do
 			_countSave = _countSave - 600;
 			if (_countSave <= 0) then
 				{
-				_countSave = 3600;
+				_countSave = autoSaveInterval;
 				_nul = [] execVM "statSave\saveLoop.sqf";
 				};
 			};

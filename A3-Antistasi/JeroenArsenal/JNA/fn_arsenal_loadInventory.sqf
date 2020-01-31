@@ -374,6 +374,7 @@ _addItemToContainer = {
 {
 	_container = call (_x select 0);
 	_items = _x select 1;
+	_containerIndex = _forEachIndex;
 
 	{
 		_item = _x;
@@ -402,11 +403,11 @@ _addItemToContainer = {
 				_amount = 1;
 				call {
 					if ([_itemCounts select _index, _item] call jn_fnc_arsenal_itemCount == -1) exitWith {
-						[_forEachIndex, _item] call _addItemToContainer;
+						[_containerIndex, _item] call _addItemToContainer;
 					};
 
 					if (_amountAvailable >= _amount) then {
-						[_forEachIndex, _item] call _addItemToContainer;
+						[_containerIndex, _item] call _addItemToContainer;
 						[_arrayTaken,_index,_item,_amount] call _addToArray;
 						[_availableItems,_index,_item,_amount] call _removeFromArray;
 					} else {

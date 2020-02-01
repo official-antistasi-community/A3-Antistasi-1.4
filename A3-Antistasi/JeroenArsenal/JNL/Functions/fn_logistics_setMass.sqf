@@ -70,7 +70,10 @@ _adjustVehicleMassFunction =
 	{
 		if (isNil {_vehicle getVariable "default_mass"}) then
 		{
-			Player globalChat Format ["Default mass wasn't set on unloading, this is an error"];
+			private _vehicleFix =  (typeOf _vehicle) createVehicle [0,0,-1000];
+			_default_mass = getMass _vehicleFix;
+			_vehicleFix setVariable["default_mass", _default_mass, true];
+			deleteVehicle _vehicleFix;
 		}
 		else
 		{

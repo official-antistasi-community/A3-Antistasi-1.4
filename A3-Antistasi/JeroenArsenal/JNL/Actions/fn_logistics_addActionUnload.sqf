@@ -9,13 +9,13 @@ if(!isnil "_unloadActionID") then
 };
 
 //add action
-_unloadActionID = _vehicle addAction [
-	"Unload",
-	{
-		//(_this select 0) call jn_fnc_logistics_unLoad
-		[_this select 0] remoteexec ["jn_fnc_logistics_unload", 2];
-	}, Nil, 1, true, false, "", "vehicle player == player && !(_target getVariable ['jnl_isUnloading',false]);", 5, false, ""
-];
+_unloadActionID = [_vehicle, "Unload Cargo", "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloaddevice_ca.paa", "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloaddevice_ca.paa", "_this distance _target < 5 && vehicle player == player && !(_target getVariable ['jnl_isUnloading',false])", "_caller distance _target < 5", {}, {}, 
+{
+	//(_this select 0) call jn_fnc_logistics_unLoad
+	[_this select 0] remoteexec ["jn_fnc_logistics_unload", 2];
+}, 	
+{}, [_vehicle], 7, nil, false, false] call BIS_fnc_holdActionAdd; 
+
 _vehicle setUserActionText [
 	_unloadActionID,
 	"Unload Cargo",

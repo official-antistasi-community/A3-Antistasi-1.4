@@ -6,7 +6,7 @@ _typeX = _this select 0;
 _positionTel = _this select 1;
 _quantity = _this select 2;
 _costs = (2*(server getVariable (SDKExp select 0))) + ([vehSDKTruck] call A3A_fnc_vehiclePrice);
-[-2,(-1*_costs)] remoteExecCall ["A3A_fnc_resourcesFIA",2];
+[-2,(-1*_costs)] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 if (_typeX == "ATMine") then
 	{

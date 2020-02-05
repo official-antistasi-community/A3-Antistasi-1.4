@@ -29,7 +29,7 @@ while {true} do
 				_mrk setMarkerAlphaLocal 1;
 				_mrk setMarkerPosLocal position _playerX;
 				_mrk setMarkerDirLocal getDir _playerX;
-				if (_playerX getVariable ["INCAPACITATED",false]) then
+				if (_playerX getVariable ["INCAPACITATED",false] || _playerX getVariable ["ACE_isUnconscious",false]) then
 					{
 					_mrk setMarkerTextLocal format ["%1 Injured",name _playerX];
 					_mrk setMarkerColorLocal "ColorRed";
@@ -43,7 +43,7 @@ while {true} do
 			else
 				{
 				_veh = vehicle _playerX;
-				if ((isNull driver _veh) or (driver _veh == _playerX)) then
+				if ((!isPlayer driver _veh) or (driver _veh == _playerX)) then
 					{
 					_mrk setMarkerAlphaLocal 1;
 					_mrk setMarkerPosLocal position _veh;

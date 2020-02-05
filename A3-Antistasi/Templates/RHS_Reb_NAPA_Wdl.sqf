@@ -104,4 +104,4 @@ initialRebelEquipment append ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra_3m"
 initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular"];
 //TAFR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
-if (startLR) then {initialRebelEquipment pushBack "tf_anprc155_coyote"};
+if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_anprc155_coyote"};

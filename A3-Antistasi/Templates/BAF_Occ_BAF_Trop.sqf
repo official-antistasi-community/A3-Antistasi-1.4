@@ -13,7 +13,7 @@ if ((gameMode != 4) and (!hasFFAA)) then {factionFIA = "UK3CB_TKP_B"};
 
 //Flag Images
 NATOFlag = "Flag_UK_F";
-NATOFlagTexture = "\A3\Data_F\Flags\Flag_UK.paa";
+NATOFlagTexture = "\A3\Data_F\Flags\flag_uk_co.paa";
 flagNATOmrk = "flag_UK";
 if (isServer) then {"NATO_carrier" setMarkerText "HMS Ark Royal"};
 

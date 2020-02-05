@@ -13,7 +13,7 @@ private ["_preferred", "_side", "_garCount", "_preCount", "_line"];
 
 _preferred = garrison getVariable (format ["%1_preference", _type]);
 _garrison = garrison getVariable (format ["%1_garrison", _marker]);
-_side = garrison getVariable [_marker, sideUnknown];
+_side = sidesX getVariable [_marker, sideUnknown];
 
 if(_side == sideUnknown) exitWith
 {

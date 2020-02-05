@@ -105,4 +105,4 @@ initialRebelEquipment append ["UK3CB_V_CW_Chestrig","UK3CB_V_CW_Chestrig_2_Small
 initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular"];
 //TAFR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_rf7800str"]};
-if (startLR) then {initialRebelEquipment pushBack "UK3CB_B_B_Radio_Backpack"};
+if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "UK3CB_B_B_Radio_Backpack"};

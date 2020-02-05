@@ -20,6 +20,6 @@ if ((_x distance _posHQ > 100) and (side _x == teamPlayer)) then {_checkX = true
 
 if (_checkX) exitWith {hint "All players must be in a 100m radius from HQ to be able to rest"};
 
-[[],"A3A_fnc_resourcecheckSkipTime"] call BIS_fnc_MP;
+remoteExec ["A3A_fnc_resourcecheckSkipTime", 0];
 
 

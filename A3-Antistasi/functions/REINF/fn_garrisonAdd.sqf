@@ -39,9 +39,9 @@ _garrison = _garrison + (garrison getVariable [_markerX,[]]);
 _garrison pushBack _typeX;
 garrison setVariable [_markerX,_garrison,true];
 //[_markerX] call A3A_fnc_mrkUpdate;*/
-_countX = count (garrison getVariable _markerX);
+_countX = count (garrison getVariable [_markerX,[]]);
 [_typeX,teamPlayer,_markerX,1] remoteExec ["A3A_fnc_garrisonUpdate",2];
-waitUntil {(_countX < count (garrison getVariable _markerX)) or (sidesX getVariable [_markerX,sideUnknown] != teamPlayer)};
+waitUntil {(_countX < count (garrison getVariable [_markerX, []])) or (sidesX getVariable [_markerX,sideUnknown] != teamPlayer)};
 
 if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 	{
@@ -53,4 +53,3 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 		[_markerX,_typeX] remoteExec ["A3A_fnc_createSDKGarrisonsTemp",2];
 		};
 	};
-

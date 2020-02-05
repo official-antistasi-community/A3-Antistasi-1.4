@@ -68,7 +68,7 @@ if(!isnull _object)then{
 
 		//re-enable seats
 		//need to call the function here, since it gets data from jnl_cargo!
-		[_vehicle] remoteExec ["jn_fnc_logistics_lockSeats",[0, -2] select isDedicated,_vehicle];
+		[_vehicle] remoteExec ["jn_fnc_logistics_lockSeats",0,_vehicle];
 	};
 
 	_return = true;
@@ -76,9 +76,9 @@ if(!isnull _object)then{
 
 //remove action if it was the last peace of cargo on the vehicle
 if(_nodeLast == 0)then{
-	[_vehicle] remoteExec ["jn_fnc_logistics_removeActionUnload",[0, -2] select isDedicated, _vehicle];
-	[_vehicle] remoteExec ["jn_fnc_logistics_removeActionGetInWeapon", [0, -2] select isDedicated, _vehicle];
-	[_object] remoteExec ["jn_fnc_logistics_removeEventGetOut", [0, -2] select isDedicated, _object];
+	[_vehicle] remoteExec ["jn_fnc_logistics_removeActionUnload",0, _vehicle];
+	[_vehicle] remoteExec ["jn_fnc_logistics_removeActionGetInWeapon", 0, _vehicle];
+	[_object] remoteExec ["jn_fnc_logistics_removeEventGetOut", 0, _object];
 };
 
 //reset ACE carry if there was one

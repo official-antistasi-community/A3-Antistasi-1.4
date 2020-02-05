@@ -103,4 +103,4 @@ initialRebelEquipment append ["B_LIB_SOV_RA_Gasbag"];
 initialRebelEquipment append ["V_LIB_WP_OfficerVest","V_LIB_WP_SniperBela","V_LIB_WP_Kar98Vest","V_LIB_SOV_RA_Belt"];
 initialRebelEquipment append ["LIB_Binocular_PL"];
 //TFAR Unlocks
-if (startLR) then {initialRebelEquipment pushBack "B_LIB_US_Radio"};
+if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "B_LIB_US_Radio"};

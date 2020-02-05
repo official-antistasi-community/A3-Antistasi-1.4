@@ -110,18 +110,45 @@ if (gameMode == 1) then
 	switch (toLower worldName) do {
 		case "tanoa": {
 			_mrkCSAT = ["airport_1", "seaport_5", "outpost_10", "control_20"];
-			_controlsNATO = _controlsNATO - ["control_20"];
 			_controlsCSAT = ["control_20"];
 		};
 		case "altis": {
 			_mrkCSAT = ["airport_2", "seaport_4", "outpost_5", "control_52", "control_33"];
-			_controlsNATO = _controlsNATO - ["control_52", "control_33"];
 			_controlsCSAT = ["control_52", "control_33"];
 		};
 		case "chernarus_summer": {
 			_mrkCSAT = ["outpost_21"];
 		};
+		case "tem_anizay": {
+			_mrkCSAT = ["outpost_8", "control_19", "control_44", "control_45"];
+			_controlsCSAT = ["control_19", "control_44", "control_45"];
+		};
+		case "chernarus_winter": {
+			_mrkCSAT = ["outpost_21", "control_30"];
+			_controlsCSAT = ["control_30"];
+		};
+		case "kunduz": {
+			_mrkCSAT = ["outpost"];
+		};
+		case "enoch": {
+			_mrkCSAT = ["airport_3", "control_14"];
+			_controlsCSAT = ["control_14"];
+		};
+		case "tembelan": {
+			_mrkCSAT = ["airport_4"];
+		};
+		case "malden": {
+			_mrkCSAT = ["airport", "seaport_7"];
+		};
+		case "tem_kujari": {
+			_mrkCSAT = [];
+		};
+		case "vt7": {
+			_mrkCSAT = ["airport_2", "control_25", "control_29", "control_30", "control_31", "control_32", "Seaport_1", "Outpost_3"];
+			_controlsCSAT = ["control_25", "control_29", "control_30", "control_31", "control_32"];
+		};
 	};
+    _controlsNATO = _controlsNATO - _controlsCSAT;
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
 
 	if (debug) then {

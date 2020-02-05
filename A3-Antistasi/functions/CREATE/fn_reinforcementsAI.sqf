@@ -6,7 +6,7 @@ _reinfPlaces = [];
 	_airportX = _x;
 	_numberX = 8;
 	_numGarr = [_airportX] call A3A_fnc_garrisonSize;
-	_numReal = count (garrison getVariable _airportX);
+	_numReal = count (garrison getVariable [_airportX, []]);
 	_sideX = sidesX getVariable [_airportX,sideUnknown];
 
 	//Self reinforce the airport if needed
@@ -41,7 +41,7 @@ _reinfPlaces = [];
 			_siteX = "";
 			{
 				_numGarr = [_x] call A3A_fnc_garrisonSize;
-				_numReal = count (garrison getVariable _x);
+				_numReal = count (garrison getVariable [_x, []]);
 				if (_numGarr - _numReal > _countX) then
 				{
 					_countX = _numGarr - _numReal;

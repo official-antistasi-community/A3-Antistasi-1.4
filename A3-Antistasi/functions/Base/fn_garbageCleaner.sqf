@@ -1,6 +1,6 @@
 private ["_toDelete"];
 
-[[petros,"hint","Deleting Garbage. Please wait"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+[petros,"hint","Deleting Garbage. Please wait"] remoteExec ["A3A_fnc_commsMP", 0];
 
 /*
 _toDelete = nearestObjects [markerPos "base_4", ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 16000];
@@ -13,4 +13,4 @@ for "_i" from 0 to ((count _toDelete) - 1) do
 {deleteVehicle _x} forEach (allMissionObjects "WeaponHolder");
 {deleteVehicle _x} forEach (allMissionObjects "WeaponHolderSimulated");
 
-[[petros,"hint","Garbage deleted"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+[petros,"hint","Garbage deleted"] remoteExec ["A3A_fnc_commsMP", 0];

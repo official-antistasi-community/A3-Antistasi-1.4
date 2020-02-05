@@ -1,5 +1,12 @@
 params ["_base", "_target"];
 
+private _fileName = "shouldReinforce";
+[
+    3,
+    format ["Checking if %1 should reinforce %2", _base, _target],
+    _fileName
+] call A3A_fnc_log;
+
 //Bases cannot reinforce themselves
 if(_base isEqualTo _target) exitWith {false};
 

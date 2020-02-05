@@ -42,7 +42,7 @@ if (!isNull _nextBoss) then
 	_textX = format ["%1 is the new leader of our forces. Greet them!", name _nextBoss];
 	[_nextBoss] call A3A_fnc_theBossInit;
 	sleep 5;
-	[[petros,"hint",_textX],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+	[petros,"hint",_textX] remoteExec ["A3A_fnc_commsMP", 0];
 }
 else
 {

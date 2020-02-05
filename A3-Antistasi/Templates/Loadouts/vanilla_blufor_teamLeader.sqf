@@ -50,7 +50,7 @@
 	],
 
 	[//Backpack
-		"B_RadioBag_01_Tropic_F",							//Backpack
+		"B_AssaultPack_TNA_F",							//Backpack
 		[//Inventory
             ["SmokeshellBlue",3,1],
             ["SmokeshellRed",3,1],

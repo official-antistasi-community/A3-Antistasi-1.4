@@ -86,7 +86,7 @@ while {visibleMap} do
 				_textX = format ["%1 Airport",_nameFaction];
 				_busy = [_siteX,true] call A3A_fnc_airportCanAttack;
 				if (_busy) then {_textX = format ["%1\nStatus: Idle",_textX]} else {_textX = format ["%1\nStatus: Busy",_textX]};
-				_garrison = count (garrison getVariable _siteX);
+				_garrison = count (garrison getVariable [_siteX, []]);
 				if (_garrison >= 40) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 20) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
 				}
 			else
@@ -99,7 +99,7 @@ while {visibleMap} do
 			if (not(sidesX getVariable [_siteX,sideUnknown] == teamPlayer)) then
 				{
 				_textX = format ["%1 Resources",_nameFaction];
-				_garrison = count (garrison getVariable _siteX);
+				_garrison = count (garrison getVariable [_siteX, []]);
 				if (_garrison >= 30) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 10) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
 				}
 			else
@@ -113,7 +113,7 @@ while {visibleMap} do
 			if (not(sidesX getVariable [_siteX,sideUnknown] == teamPlayer)) then
 				{
 				_textX = format ["%1 Factory",_nameFaction];
-				_garrison = count (garrison getVariable _siteX);
+				_garrison = count (garrison getVariable [_siteX, []]);
 				if (_garrison >= 16) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 8) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
 				}
 			else
@@ -129,7 +129,7 @@ while {visibleMap} do
 				_textX = format ["%1 Grand Outpost",_nameFaction];
 				_busy = [_siteX,true] call A3A_fnc_airportCanAttack;
 				if (_busy) then {_textX = format ["%1\nStatus: Idle",_textX]} else {_textX = format ["%1\nStatus: Busy",_textX]};
-				_garrison = count (garrison getVariable _siteX);
+				_garrison = count (garrison getVariable [_siteX, []]);
 				if (_garrison >= 16) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 8) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
 				}
 			else
@@ -142,7 +142,7 @@ while {visibleMap} do
 			if (not(sidesX getVariable [_siteX,sideUnknown] == teamPlayer)) then
 				{
 				_textX = format ["%1 Seaport",_nameFaction];
-				_garrison = count (garrison getVariable _siteX);
+				_garrison = count (garrison getVariable [_siteX, []]);
 				if (_garrison >= 20) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 8) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
 				}
 			else

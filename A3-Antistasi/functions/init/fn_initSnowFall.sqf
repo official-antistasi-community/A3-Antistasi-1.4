@@ -9,7 +9,7 @@ while {true} do
     sleep _waitTime;
     // Call Snow Storm Script
     //"_snowfall","_duration_storm","_ambient_sounds_al","_breath_vapors","_snow_burst","_effect_on_objects","_vanilla_fog","_local_fog","_intensifywind","_unitsneeze"
-    [true,           _snowTime,                15,                true,        _sbursts,             false, 			true,         true,        false,          true] execvm "AL_snowstorm\al_snow.sqf";
+    [true,           _snowTime,                -1,                true,        _sbursts,             false, 			true,         true,        false,          true] execvm "AL_snowstorm\al_snow.sqf";
     sleep _snowTime;
     //End snow script here if needed
 }

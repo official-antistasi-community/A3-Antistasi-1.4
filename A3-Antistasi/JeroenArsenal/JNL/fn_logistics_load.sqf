@@ -56,7 +56,7 @@ if _playAnimation then{
 		//lock seats
 		//Need to call the function here, because it gets data from objects attached to the vehicle
 		sleep 0.1;
-		[_vehicle] remoteExec ["jn_fnc_logistics_lockSeats",[0, -2] select isDedicated,_vehicle];
+		[_vehicle] remoteExec ["jn_fnc_logistics_lockSeats",0,_vehicle];
 
 		//Push it in till it's in place!
 		while {_locStart select 1 < _locEnd select 1}do{
@@ -84,15 +84,15 @@ if _playAnimation then{
 //Add action to unload
 if(_allowUnload) then
 {
-	[_vehicle] remoteExec ["jn_fnc_logistics_addActionUnload",[0, -2] select isDedicated,_vehicle];
+	[_vehicle] remoteExec ["jn_fnc_logistics_addActionUnload",0,_vehicle];
 };
 
 //Add getOut event hanldler and getin Action
 if(_objectType == 0) then
 {
-	[_object] remoteExec ["jn_fnc_logistics_addEventGetoutWeapon",[0, -2] select isDedicated,_object];
+	[_object] remoteExec ["jn_fnc_logistics_addEventGetoutWeapon",0,_object];
 
-	[_vehicle,_object] remoteExec ["jn_fnc_logistics_addActionGetinWeapon",[0, -2] select isDedicated,_vehicle];
+	[_vehicle,_object] remoteExec ["jn_fnc_logistics_addActionGetinWeapon",0,_vehicle];
 };
 [_object] spawn A3A_fnc_VEHdespawner;
 //save ACE settings to we can reset them when we unload

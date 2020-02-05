@@ -87,7 +87,7 @@ private _fnc_tfarRadio = {
 private _tfarMicroDAGRNoArray = [hasTFAR, "TF_MicroDagr", "ItemWatch"] call _fnc_modItemNoArray;
 
 private _aceFlashlight = [hasACE, ["ACE_Flashlight_XL50", 1]] call _fnc_modItem;
-private _aceM84 = [hasACE, ["ACE_M84", 1], ["HandGrenade", 1]] call _fnc_modItem;
+private _aceM84 = [hasACE, ["ACE_M84",2,1]] call _fnc_modItem;
 private _aceDefusalKit = [hasACE, ["ACE_DefusalKit", 1]] call _fnc_modItem;
 private _aceClacker = [hasACE, ["ACE_Clacker", 1]] call _fnc_modItem;
 private _aceRangecard = [hasACE, ["ACE_Rangecard", 1]] call _fnc_modItem;

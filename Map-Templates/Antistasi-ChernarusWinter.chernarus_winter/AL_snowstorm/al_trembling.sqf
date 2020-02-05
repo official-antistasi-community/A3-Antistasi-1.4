@@ -1,6 +1,6 @@
 // by ALIAS
 
-if ((!hasInterface)or(pos_p!="open")) exitWith {};
+if ((!hasInterface)or{pos_p!="open"}) exitWith {};
 params ["_pozitie_x","_pozitie_y"];
 
 drop [["\A3\data_f\cl_basic",1,0,1],"","Billboard",0.5,(snow_gust#1)/2,[_pozitie_x,_pozitie_y,0],[vit_x,vit_y,0],13,1.3,1,0.1,[1,10,15],[[1,1,1,0],[1,1,1,.1],[1,1,1,0]],[1],1,0,"AL_snowstorm\rotocol_drop.sqf","",hunt_alias,0,true,0.1];

@@ -1,232 +1,424 @@
 //The list of hardpoints for vehicles
 /*
 the last element is the list of seats to disable for specific node
+
+Points are laid out at follows: Type, location, locked seats
+Type: 0 for weapon hardpoint, 1 for crate loading position
+Location: set of 3 numbers(*) for offset. Left / Right, Forwards / Backwards, Up / Down. Negative / Positive numbers respectively
+Locked seats: ID numbers for seats to be disabled when cargo/hardpoint is present.
+
+*Positions only need up to 2 decimal places for accuracy, you can have more but they aren't neccessary for getting the box in place.
 */
 jnl_vehicleHardpoints = [
-	//Offroad
-    ["\A3\soft_f\Offroad_01\Offroad_01_unarmed_F", [
-    	//type, location				locked seats
-    	[0,		[-0.04,-1.7,-0.72],		[1,2,3,4]],		//weapon node
-    	[1,		[-0.04,-1.7,-0.72],		[1,2,3,4]]		//cargo node
-    ]],
 
-    //Civi and FIA green truck
-    ["\A3\soft_f_gamma\van_01\Van_01_transport_F.p3d", [
-    	[0,		[0,-1.60422,-0.63],			[2,3,4,5,6,7,8,9]],
-    	[1,		[0,-1.06937,-0.63],			[2,3,4,5]],
-    	[1,		[0,-2.61185,-0.63],			[6,7,8,9,10,11]]
-    ]],
+// ---------- Vanilla ----------
+//4x4s
+//Offroad
+  ["\A3\soft_f\Offroad_01\Offroad_01_unarmed_F", [
+    //type, location				locked seats
+    [0,		[0,-1.7,-0.72],		[1,2,3,4]],		//weapon node
+    [1,		[0,-1.7,-0.72],		[1,2,3,4]]		//cargo node
+  ]],
 
-	//Motorboat civilian
-    	["\A3\boat_f_gamma\Boat_Civil_01\Boat_Civil_01_F", [
-    	[1,		[0,-1.697,-0.874],	[]]
-    ]],
+//Van Cargo
+  ["\a3\Soft_F_Orange\Van_02\Van_02_vehicle_F.p3d", [
+    [1,		[0,0,-1],		[1,2,3,4,5,6,7]],
+    [1,		[0,-2,-1],	[8,9]]
+]],
 
-    //rebel IFA truck done by Barbolani: Jeroen / Sparker I need your help!
-    ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Gmc353Truck.p3d",[
-    	[0,		[-0.000671387,-1.31882,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
-    	[1,		[0,0.374054,-0.0936584],					[2,3,4,5,6,7,8]]
-    ]],
+//Van Transport
+  ["\a3\Soft_F_Orange\Van_02\Van_02_transport_F.p3d", [
+    [1,		[0,-1.7,-1],		[9,10]]
+  ]],
 
-    //"civ" and GER IFA truck done by Barbolani: Jeroen / Sparker I need your help![,[]]
-    ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Opelblitz.p3d",[
-    	[0,		[-0.000671387,-1.31882,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
-    	[1,		[0,-0.275879,-0.105191],					[2,3,4,5,6,7,8]]
-    ]],
+//Small Truck
+  ["\A3\soft_f_gamma\van_01\Van_01_transport_F.p3d", [
+    [0,		[0,-1.6,-0.63],			[2,3,4,5,6,7,8,9]],
+    [1,		[0,-1.06,-0.63],			[2,3,4,5]],
+    [1,		[0,-2.61,-0.63],			[6,7,8,9,10,11]]
+  ]],
 
-    //GER IFA truck done by Barbolani: Jeroen / Sparker I need your help!
-    ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Opelblitz_Tent.p3d",[
-    	[0,		[-0.000671387,-1.31882,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
-    	[1,		[0,-0.275391,-0.105209],					[2,3,4,5,6,7,8]]
-    ]],
+//6x6s
+//Zamak Open
+  ["\A3\soft_f_beta\Truck_02\Truck_02_transport_F", [
+    [0,		[0,-1.31,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
+    [1,		[0,0,-0.81],					[2,3,4,5,6,7,8]],
+    [1,		[0,-2.1,-0.81],					[9,10,11,12,13]]
+  ]],
 
-    //Sov IFA truck done by Barbolani: Jeroen / Sparker I need your help!
-    ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Us6.p3d",[
-    	[0,		[-0.000671387,-1.31882,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
-    	[1,		[0,-0.829102,0.173984],					[2,3,4,5,6,7,8]]
-    ]],
-
-	//another Sov IFA truck done by Barbolani: Jeroen / Sparker I need your help!
-    ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Us6.p3d",[
-    	[0,		[-0.000671387,-1.31882,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
-    	[1,		[0,-0.919434,0.174015],					[2,3,4,5,6,7,8]]
-    ]],
-
-    //another one Sov IFA truck done by Barbolani: Jeroen / Sparker I need your help!
-    ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Zis5v.p3d",[
-    	[0,		[-0.000671387,-1.31882,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
-    	[1,		[0,-0.657227,-0.817673],					[2,3,4,5,6,7,8]]
-    ]],
-
-    //AAF Zamak open
-    ["\A3\soft_f_beta\Truck_02\Truck_02_transport_F", [
-    	[0,		[-0.000671387,-1.31882,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
-    	[1,		[0,0,-0.81],					[2,3,4,5,6,7,8]],
-		[1,		[0,-2.1,-0.81],					[9,10,11,12,13]]
-    ]],
-
-	//AAF Zamak closed STEF 27/10
+//Zamak Covered
 	["\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d", [
-	    [1,		[0,0,-0.81],					[2,3,4,5,6,7,8]],
+	  [1,		[0,0,-0.81],					[2,3,4,5,6,7,8]],
 		[1,		[0,-2.1,-0.81],					[9,10,11,12,13]]
 	]],
 
-     //AFRF Zamak open rhs_kamaz5350_vdv
-    ["rhsafrf\addons\rhs_kamaz\rhs_kamaz5350", [
-    	[0,		[-0.000671387,-1.31882,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
-    	[1,		[0,0,-0.81],					[2,3,4,5,6,7,8]],
-		[1,		[0,-2.1,-0.81],					[9,10,11,12,13]]
-    ]],
-
-
-	//NATO HEMTT open "B_Truck_01_covered_F"  seats not checked! boxes are slighlty floating, difficult to see anyway
-  ["\A3\soft_f_beta\Truck_01\Truck_01_transport_F.p3d",[
-    [1,[0.0419922,-0.222656,-0.282602],[3,4,10,11,2]],
-    [1,[0.106445,-2.16602,-0.282602],[1,16,8,9]],
-    [1,[0.129883,-4.11816,-0.282602],[5,6,12,13,15,7]]
-  ]],
-
-  //NATO HEMMT closed "B_Truck_01_covered_F"  seats not checked
-  ["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d",[
-    [1,[0.0383301,-0.224609,-0.437691],[1,16,8,9,2]],
-    [1,[0.0856934,-2.16016,-0.437691],[3,4,10,11]],
-    [1,[0.0893555,-4.10547,-0.437691],[5,6,12,13,15]]
-  ]],
-
-	//CSAT Tempest open
+//CSAT Tempest open
 	["\A3\Soft_F_EPC\Truck_03\Truck_03_transport_F.p3d",[
-		[1,	[0.0541992,-0.788692,0.41213],		[1,7,6,9]],
-		[1,	[0.0561523,-2.33265,0.423543],		[2,3,8,12]],
-		[1,	[0.0625,-3.89461,0.435087],			[4,5,11,10]]
+		[1,	[0.0,-0.9,-0.4],		[1,7,6,9]],
+		[1,	[0.0,-2.5,-0.4],		[2,3,8,12]],
+		[1,	[0.0,-4.1,-0.4],			[4,5,11,10]]
 	]],
 
-	//CSAT Tempest closed
+//CSAT Tempest closed
 	["\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d",[
-		[1,	[0.0541992,-0.788692,0.41213],		[1,7,6,9]],
-		[1,	[0.0561523,-2.33265,0.423543],		[2,3,8,12]],
-		[1,	[0.0625,-3.89461,0.435087],			[4,5,11,10]]
+    [1,	[0.0,-0.9,-0.4],		[1,7,6,9]],
+    [1,	[0.0,-2.5,-0.4],		[2,3,8,12]],
+    [1,	[0.0,-4.1,-0.4],		[4,5,11,10]]
 	]],
 
-    //RHS Gaz-66 truck  "rhs_gaz66_vdv"
-    ["\rhsafrf\addons\rhs_gaz66\rhs_gaz66.p3d", [
-    	[0,		[0,-0.88974,-0.610707],		[]], //Weapon node
-    	[1,		[0,-0.135376,-0.610707],	[12,3,13,4,5,2]], //Cargo node
-    	[1,		[0,-1.73634,-0.610707],		[6,7,8,9,11,10]]
-    ]],
+//8x8s
+//HEMTT open
+  ["\A3\soft_f_beta\Truck_01\Truck_01_transport_F.p3d",[
+    [1,[0,-0.222656,-0.5],[3,4,10,11,2]],
+    [1,[0,-2.16602,-0.5],[1,16,8,9]],
+    [1,[0,-4.11816,-0.5],[5,6,12,13,15,7]]
+  ]],
 
-    //RHS truck "rhsgref_nat_ural_open"
-    ["\rhsafrf\addons\rhs_a2port_car\Ural\Ural_open.p3d",[
-        [1,         [-0.0100098,-0.335236,-0.438269],    [12,3,13,4,5,2]  ],
-        [1,         [-0.00830078,-2.19262,-0.433578],    [6,7,8,9,11,10]  ]
-    ]],
+//HEMMT closed
+  ["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d",[
+    [1,[0,-0.224609,-0.5],[1,16,8,9,2]],
+    [1,[0,-2.16016,-0.5],[3,4,10,11]],
+    [1,[0,-4.10547,-0.5],[5,6,12,13,15]]
+  ]],
 
-    //RHS Russian Ural open truck
-    ["\rhsafrf\addons\rhs_a2port_car\Ural\Ural_open2.p3d",[
-      [1,         [-0.0100098,-0.335236,-0.438269],    [12,3,13,4,5,2]  ],
-      [1,         [-0.00830078,-2.19262,-0.433578],    [6,7,8,9,11,10]  ]
-    ]],
+//Vanilla HEMTT Flatbed
+  ["a3\Soft_F_Gamma\Truck_01\Truck_01_flatbed_F.p3d",[
+      [0,[0.0,-0.29,-0.79],[]],
+      [0,[0.0,-2.97,-0.79],[]],
+      [1,[0.0,0,-0.8],[]],
+      [1,[0.0,-1.75,-0.8],[]],
+      [1,[0.0,-3.5,-0.8],[]]
+  ]],
 
-    //RHS Ural closed with seats VV, Nationalist
-    ["\vsmafrf\addons\rhs_a2port_car\Ural\Ural.p3d", [
-    	[1,		[0,-0.207184,-0.19277],	[12,3,13,4,5,2]], //Cargo
-    	[1,		[0,-1.78506,-0.19277],	[6,7,8,9,11,10]]
-    ]],
+//Vanilla HEMTT Cargo
+  ["a3\Soft_F_Gamma\Truck_01\Truck_01_cargo_F.p3d",[
+      [0,[0.0,-0.29,-0.51],[]],
+      [0,[0.0,-2.97,-0.51],[]],
+      [1,[0.0,0.5,-0.51],[]],
+      [1,[0.0,-1.25,-0.51],[]],
+      [1,[0.0,-2.97,-0.51],[]]
+  ]],
 
-	//RHS Zil131 plain (eg. rhsgref_cdf_zil131) and open (eg. rhsgref_cdf_zil131_open)
-	["rhsafrf\addons\rhs_zil131\rhs_zil131", [
-		[1, [0,-0.1,-0.45], [10,11,2,3,4,5]],
-		[1, [0,-1.8,-0.45], [6,7,8,9]]			// only 10 seats
-	]],
+//Boats
+//Motorboat civilian
+  ["\A3\boat_f_gamma\Boat_Civil_01\Boat_Civil_01_F", [
+    [1,		[0,-1.697,-0.874],	[]]
+  ]],
 
-    //USAF Truck seats covered
-    ["\rhsusf\addons\rhsusf_fmtv\M1078A1P2",[
-    [1,[-0.0065918,0.0195313,-0.48801],[12,3,13,4,5,2]],
-    [1,[0.0373535,-1.80859,-0.433626],[6,7,8,9,11,10]]
-    ]],
+//Speedboat minigun
+  ["\A3\Boat_F\Boat_Armed_01\Boat_Armed_01_minigun_F.p3d", [
+    [1,		[0,2.63701,-2.16123],	[]]
+  ]],
 
-    //USAF Truck "rhsusf_M1078A1P2_B_WD_fmtv_usarmy" and "rhsusf_M1078A1P2_B_WD_open_fmtv_usarmy"
-    ["\rhsusf\addons\rhsusf_fmtv\M1078A1P2_B",[
+//Transport rubber boat
+  ["\A3\boat_f\Boat_Transport_01\Boat_Transport_01_F.p3d", [
+    [1,		[0,0.0189972,-1.04965],	[]]
+  ]],
+
+//Civilian transport boat
+  ["\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d", [
+    [1, [0,1.233,-0.72029],			[]]
+  ]],
+
+//Tanoa boat
+  ["\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d",[
+      [1,[-0.0615234,0.492443,0.322869],[5,6,2]]
+  ]],
+
+// ---------- RHS ----------
+//Urals
+//Ural Open
+  ["\rhsafrf\addons\rhs_a2port_car\Ural\Ural_open.p3d",[
+    [1,         [0,-0.3,-0.2],    [12,3,13,4,5,2]  ],
+    [1,         [0,-2.2,-0.2],    [6,7,8,9,11,10]  ]
+  ]],
+
+//Ural Open 2
+  ["\rhsafrf\addons\rhs_a2port_car\Ural\Ural_open2.p3d",[
+    [1,         [0,-0.3,-0.2],    [12,3,13,4,5,2]  ],
+    [1,         [0,-2.2,-0.2],    [6,7,8,9,11,10]  ]
+  ]],
+
+//Ural Closed
+  ["rhsafrf\addons\rhs_a2port_car\Ural\Ural.p3d", [
+    [1,         [0,-0.3,-0.2],    [12,3,13,4,5,2]  ],
+    [1,         [0,-2.2,-0.2],    [6,7,8,9,11,10]  ]
+  ]],
+
+//Kamazs
+  ["rhsafrf\addons\rhs_kamaz\rhs_kamaz5350", [
+    [0,		[-0.000671387,-1.31882,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
+    [1,		[0,0,-0.81],					[2,3,4,5,6,7,8]],
+    [1,		[0,-2.1,-0.81],					[9,10,11,12,13]]
+  ]],
+
+//Zils
+//Zil 131 ----- ZIL Disabled due to broken/clipping seats. DO NOT USE IN MISSION
+/*  ["rhsafrf\addons\rhs_zil131\rhs_zil131", [
+    [1, [0,-0.1,-0.45], [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]],
+    [1, [0,-1.8,-0.45], []]
+  ]],*/
+
+//Gaz
+  ["\rhsafrf\addons\rhs_gaz66\rhs_gaz66.p3d", [
+    [0,		[0,-0.88974,-0.610707],		[]], //Weapon node
+    [1,		[0,-0.135376,-0.610707],	[12,3,1,4,5,2]], //Cargo node
+    [1,		[0,-1.73634,-0.610707],		[6,7,8,9,11,10]]
+  ]],
+
+//USAF 4x4 Trucks
+//Standard
+  ["\rhsusf\addons\rhsusf_fmtv\M1078A1P2",[
+    [1,[0.0,0.0,-0.48],[12,3,13,4,5,2]],
+    [1,[0.0,-1.8,-0.48],[6,7,8,9,11,10]]//
+  ]],
+
+//uparmoured
+  ["\rhsusf\addons\rhsusf_fmtv\M1078A1P2_B",[
     [1,[-0.00732422,0.0195313,-0.487986],[12,3,13,4,5,2]],
     [1,[0.0366211,-1.80859,-0.435032],[6,7,8,9,11,10]]
-    ]],
+  ]],
 
-    //USAF Truck "rhsusf_M1083A1P2_WD_fmtv_usarmy"
-    ["\rhsusf\addons\rhsusf_fmtv\M1083A1P2",[
-      [1,[-0.00610352,0.0175781,-0.504599], [12,3,13,4,5,2]],
-      [1,[0.0383301,-1.81055,-0.450647], [6,7,8,9,11,10]]
-    ]],
+//uparmoured - armed
+  ["\rhsusf\addons\rhsusf_fmtv\M1078A1P2_B_M2",[
+    [1,[-0.00732422,0.0195313,-0.487986],[12,3,13,4,5,2]],
+    [1,[0.0366211,-1.80859,-0.435032],[6,7,8,9,11,10]]
+  ]],
 
-    //Speedboat minigun
-    ["\A3\Boat_F\Boat_Armed_01\Boat_Armed_01_minigun_F.p3d", [
-    	[1,		[0,2.63701,-2.16123],	[]]
-    ]],
+//USAF 6x6 Trucks
+//Standard
+  ["\rhsusf\addons\rhsusf_fmtv\M1083A1P2",[
+    [1,[0.0,0.0,-0.45], [12,3,13,4,5,2]],
+    [1,[0.0,-1.8,-0.45], [6,7,8,9,11,10]]
+  ]],
 
-    //Transport rubber boat
-    ["\A3\boat_f\Boat_Transport_01\Boat_Transport_01_F.p3d", [
-    	[1,		[0,0.0189972,-1.04965],	[]]
-    ]],
+//uparmoured
+  ["\rhsusf\addons\rhsusf_fmtv\M1083A1P2_B",[
+    [1,[0.0,0.0,-0.45], [12,3,13,4,5,2]],
+    [1,[0.0,-1.8,-0.45], [6,7,8,9,11,10]]
+  ]],
 
-    //Civilian transport boat
-    ["\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d", [
-    	[1, [0,1.233,-0.72029],			[]]
-    ]],
+//Armed
+  ["\rhsusf\addons\rhsusf_fmtv\M1083A1P2_B_M2",[
+    [1,[0.0,0.0,-0.45], [12,3,13,4,5,2]],
+    [1,[0.0,-1.8,-0.45], [6,7,8,9,11,10]]
+  ]],
 
-    //Tanoa boat
-    ["\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d",[
-        [1,[-0.0615234,0.492443,0.322869],[5,6,2]]
-    ]],
+//standard crane
+  ["\rhsusf\addons\rhsusf_fmtv\M1084A1P2",[
+    [1,[0.0,0.0,-0.45], [12,3,13,4,5,2]],
+    [1,[0.0,-1.8,-0.45], [6,7,8,9,11,10]]
+  ]],
 
-    //Vanilla HEMTT Flatbed
-    ["a3\Soft_F_Gamma\Truck_01\Truck_01_flatbed_F.p3d",[
-        [0,[0.0283203,-0.29126,-0.799927],[]],
-        [0,[0.0771484,-2.97998,-0.799805],[]],
-        [1,[0.0283203,-0.29126,-0.799927],[]],
-        [1,[0.0771484,-2.97998,-0.799805],[]]
-    ]],
-	
-    //Vanilla HEMTT Cargo
-    ["a3\Soft_F_Gamma\Truck_01\Truck_01_cargo_F.p3d",[
-        [0,[0.0283203,-0.29126,-0.51],[]],
-        [0,[0.0771484,-2.97998,-0.51],[]],
-        [1,[0.0283203,-0.29126,-0.51],[]],
-        [1,[0.0771484,-2.97998,-0.51],[]]
-    ]],
+//uparmoured crane
+  ["\rhsusf\addons\rhsusf_fmtv\M1084A1P2_B",[
+    [1,[0.0,0.0,-0.45], [12,3,13,4,5,2]],
+    [1,[0.0,-1.8,-0.45], [6,7,8,9,11,10]]
+  ]],
 
-    //3CB MAN 6x6 flatbed
-    ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_man\uk3cb_man_6x6_cargo.p3d",[
-    //TYPE, [left/right,   for/aft,  up/down], seat disabler
-        [1,[-0.00610352,4.5175781,-1.254599],[]],
-        [1,[-0.00610352,2.5175781,-1.254599],[]],
-        [1,[0.0383301,0.51055,-1.254599],[]]
-    ]],
+//Armed crane
+  ["\rhsusf\addons\rhsusf_fmtv\M1084A1P2_B_M2",[
+    [1,[0.0,0.0,-1.1], [12,3,13,4,5,2]],
+    [1,[0.0,-1.8,-1.1], [6,7,8,9,11,10]]
+  ]],
 
-    //3CB MAN 4x4 flatbed
-    ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_man\uk3cb_man_4x4_cargo.p3d",[
-    //TYPE, [left/right,   for/aft,  up/down], seat disabler
-        [1,[-0.00610352,2.5175781,-1.254599],[]],
-        [1,[0.0383301,0.51055,-1.254599],[]]
-    ]],
+//SOCOM Stripped
+["\rhsusf\addons\rhsusf_fmtv\M1084A1R_SOV_M2",[
+  [1,[0.0,0.0,-1.1], [12,3,13,4,5,2]],
+  [1,[0.0,-1.8,-1.1], [6,7,8,9,11,10]]
+]],
 
-    //3CB v3s Recovery
-    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_recovery.p3d",[
-    //TYPE, [left/right,   for/aft,  up/down], seat disabler
-        [1,[-0.00610352,-0.5175781,-0.504599],[]],
-        [1,[0.0383301,-2.51055,-0.504599],[]]
-    ]],
+//SOCOM MRAP
+["\rhsusf\addons\rhsusf_SOCOMAUV\M1239",[
+  [1,[0.0,-2.5,-1.2], []]
+]],
 
-    //3CB v3s closed
-    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_transport.p3d",[
-    //TYPE, [left/right,   for/aft,  up/down], seat disabler
-        [1,[-0.00610352,-0.5175781,-0.504599],[10,3,11,4,5,2]],
-        [1,[0.0383301,-2.51055,-0.504599],[6,7,8,9,12,13]]
-    ]],
+//USAF 8x8 Trucks
+//Standard
+  ["\rhsusf\addons\rhsusf_HEMTT_A4\M977A4_wd",[
+    [1,[0.0,0.5,0], [12,3,13,4,5,2]],
+    [1,[0.0,-1.3,0], [6,7,8,9,11,10]],
+    [1,[0.0,-3,0], [6,7,8,9,11,10]]
+  ]],
 
-    //3CB v3s open
-    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_open.p3d",[
-    //TYPE, [left/right,   for/aft,  up/down], seat disabler
-        [1,[-0.00610352,-0.5175781,-0.504599],[10,3,11,4,5,2]],
-        [1,[0.0383301,-2.51055,-0.504599],[6,7,8,9,12,13]]
-    ]]
+//uparmoured
+  ["\rhsusf\addons\rhsusf_hemtt_a4\M977A4_WD_APK",[
+    [1,[0.0,0.5,-0.1], [12,3,13,4,5,2]],
+    [1,[0.0,-1.3,-0.1], [6,7,8,9,11,10]],
+    [1,[0.0,-3,-0.1], [6,7,8,9,11,10]]
+  ]],
+
+//Armed
+  ["\rhsusf\addons\rhsusf_hemtt_a4\M977A4_WD_APK_M2",[
+    [1,[0.0,0.5,-0.8], [12,3,13,4,5,2]],
+    [1,[0.0,-1.3,-0.8], [6,7,8,9,11,10]],
+    [1,[0.0,-3,-0.8], [6,7,8,9,11,10]]
+  ]],
+
+//Humvee 2D
+//Covered
+  ["\rhsusf\addons\rhsusf_hmmwv\rhsusf_m998_2dr", [
+    [1,		[0,-1.4,-1], [1,2,3,4,5,6]]		//cargo node
+  ]],
+
+// ---------- IFA ----------
+//Allies
+//GMC
+  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Gmc353Truck.p3d",[
+    [1,		[0,-2,-0.6],	[1,2,3,4,5,6,7,8,9,10]]
+  ]],
+
+//Austin
+  ["\WW2\Assets_m\Vehicles\Trucks_m\DD_AustinK5.p3d",[
+    [1,		[0,-1,-0.9],	[1,2,3,4,5,6,7,8,9,10]]
+  ]],
+
+//Axis
+//Opel Blitz
+  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Opelblitz.p3d",[
+    [1,		[0,-1.5,-0.10],	[1,2,3,4,5,6,7,8,9,10]]
+  ]],
+
+//Opel Blitz Covered
+  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Opelblitz_Tent.p3d",[
+    [1,		[0,-1.5,-0.10],					[1,2,3,4,5,6,7,8,9,10]]
+  ]],
+
+//Sd. Kfz. 7/1
+  ["\WW2\Assets_m\Vehicles\WheeledAPC_m\IF_SdKfz_7.p3d",[
+    [1,		[0,-1.7,-0.8],		[5,6,7,8,9,10,11]]
+  ]],
+
+//Commintern
+//Studebaker
+  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Us6.p3d",[
+    [1,		[0,-0.82,0.17],					[2,3,4,5,6,7,8]]
+  ]],
+
+//Zis - Disabled due to benches -
+/*  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Zis5v.p3d",[
+    [1,		[0,-0.65,-0.81],					[2,3,4,5,6,7,8]]
+  ]],*/
+
+// ---------- 3CB ----------
+//Datsun
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_datsun\uk3cb_datsun_civ_open.p3d", [
+    [0,		[0,-1.2,-0.72],		[1,2,3,4]],
+    [1,		[0,-1.2,-0.72],		[1,2,3,4]]
+  ]],
+
+//Hilux
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_hilux\uk3cb_hilux.p3d", [
+    [0,		[0,-1.2,-0.72],		[1,2,3,4]],
+    [1,		[0,-1.2,-0.72],		[1,2,3,4]]
+  ]],
+
+//M939s
+//open
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_m939\uk3cb_m939_open.p3d",[
+    [1,[0,-0.5,-0.5],[1,2,3,4,5,6]],
+    [1,[0,-2.5,-0.5],[7,8,9,10,11,12]]
+  ]],
+
+//Covered
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_m939\uk3cb_m939_closed.p3d",[
+    [1,[0,-0.5,-0.5],[1,2,3,4,5,6]],
+    [1,[0,-2.5,-0.5],[7,8,9,10,11,12]]
+  ]],
+
+//Guntruck
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_m939\uk3cb_m939_guntruck.p3d",[
+    [1,[0,-0.5,-1.25],[0,1,2,3,4,5]],
+    [1,[0,-2.5,-1.25],[6,7,8,9,10,11]]
+  ]],
+
+//Recovery
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_m939\uk3cb_m939_recovery.p3d",[
+    [1,[0,-0.5,-0.5],[]],
+    [1,[0,-2.5,-0.5],[]]
+  ]],
+
+//Coyote P
+  ["\UK3CB_BAF_Vehicles\addons\UK3CB_BAF_Vehicles_Coyote_Jackal\uk3cb_coyote_L134A1_passenger.p3d",[
+    [1,[0,-2,-1.6],[2,3,4,5,6,7,8]]
+  ]],
+
+//Husky P !!! Disabled due to one of the seats not being disableable. !!!
+/*  ["\UK3CB_BAF_Vehicles\addons\uk3cb_baf_vehicles_husky\uk3cb_husky_gmg.p3d",[
+    [1,[0,-1.9,-1.2],[2,5,4]]
+  ]],*/
+
+//MTVRs
+//open
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_mtvr\uk3cb_mtvr_open.p3d",[
+    [1,[0,-0.5,-0.7],[0,1,2,3,4,5,6]],
+    [1,[0,-2.5,-0.7],[7,8,9,10,11,12]]
+  ]],
+
+//Covered
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_mtvr\uk3cb_mtvr_closed.p3d",[
+    [1,[0,-0.5,-0.7],[0,1,2,3,4,5,6]],
+    [1,[0,-2.5,-0.7],[7,8,9,10,11,12]]
+  ]],
+
+//Recovery
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_mtvr\uk3cb_mtvr_recovery.p3d",[
+    [1,[0,0,-0.7],[]],
+    [1,[0,-1.7,-0.7],[]],
+    [1,[0,-3.5,-0.7],[]]
+  ]],
+
+//MAN Trucks
+//4x4s
+//Flatbed
+  ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_man\uk3cb_man_4x4_cargo.p3d",[
+    [1,[0,2.5,-1.25],[]],
+    [1,[0,0.5,-1.25],[]]
+  ]],
+
+//6x6s
+//Flatbed
+  ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_man\uk3cb_man_6x6_cargo.p3d",[
+    [1,[0,4.5175781,-1.254599],[]],
+    [1,[0,2.5175781,-1.254599],[]],
+    [1,[0,0.51055,-1.254599],[]]
+  ]],
+
+//v3s
+//Recovery
+["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_recovery.p3d",[
+//TYPE, [left/right,   for/aft,  up/down], seat disabler
+    [1,[0,0.6,-0.65],[]],
+    [1,[0,-1,-0.65],[]],
+    [1,[0,-2.6,-0.65],[]]
+]],
+
+//Closed
+["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_transport.p3d",[
+//TYPE, [left/right,   for/aft,  up/down], seat disabler
+    [1,[0,-0.3,-0.75],[10,3,11,4,5,2]],
+    [1,[0,-2.3,-0.75],[6,7,8,9,12,13]]
+]],
+
+//Open
+["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_open.p3d",[
+//TYPE, [left/right,   for/aft,  up/down], seat disabler
+    [1,[0,-0.3,-0.75],[10,3,11,4,5,2]],
+    [1,[0,-2.3,-0.75],[6,7,8,9,12,13]]
+]],
+
+//Other Recovery Trucks
+//Ural
+//Recovery
+  ["UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_ural\uk3cb_ural_recovery.p3d",[
+      [1,[0,-0.2,-0.5],[]],
+      [1,[0,-1.9,-0.5],[]],
+      [1,[0,-3.6,-0.5],[]]
+  ]]
+
+//Boats
+
+// ---------- MODNAME ----------
 
 ];
 

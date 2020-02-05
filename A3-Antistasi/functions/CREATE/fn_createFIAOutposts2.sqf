@@ -11,7 +11,7 @@ if (isOnRoad _positionX) then {_isRoad = true};
 if (_isRoad) then
 	{
 	_radiusX = 1;
-	_garrison = garrison getVariable _markerX;
+	_garrison = garrison getVariable [_markerX, []];
 	_veh = objNull;
 
 	if (isNil "_garrison") then
@@ -67,11 +67,11 @@ if ({alive _x} count units _groupX == 0) then
 	deleteMarker _markerX;
 	if (_isRoad) then
 		{
-		[["TaskFailed", ["", "Roadblock Lost"]],"BIS_fnc_showNotification"] call BIS_fnc_MP;
+		["TaskFailed", ["", "Roadblock Lost"]] remoteExec ["BIS_fnc_showNotification", 0];
 		}
 	else
 		{
-		[["TaskFailed", ["", "Watchpost Lost"]],"BIS_fnc_showNotification"] call BIS_fnc_MP;
+		["TaskFailed", ["", "Watchpost Lost"]] remoteExec ["BIS_fnc_showNotification", 0];
 		};
 	};
 

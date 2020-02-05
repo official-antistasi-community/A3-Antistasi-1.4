@@ -1,5 +1,7 @@
 //Call to Blufor Alits Template
 if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_AAF_Altis.sqf"};
+//Call For Tanoa
+if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Tanoa.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -28,21 +30,21 @@ NATOAmmobox = "B_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	["vanilla_blufor_teamLeader"] call A3A_fnc_getLoadout,
+	["vanilla_blufor_teamLeader_altis"] call A3A_fnc_getLoadout,
 	//Medic
-	["vanilla_blufor_medic"] call A3A_fnc_getLoadout,
+	["vanilla_blufor_medic_altis"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	["vanilla_blufor_machineGunner"] call A3A_fnc_getLoadout,
+	["vanilla_blufor_machineGunner_altis"] call A3A_fnc_getLoadout,
 	//Marksman
-	["vanilla_blufor_marksman"] call A3A_fnc_getLoadout,
+	["vanilla_blufor_marksman_altis"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	["vanilla_blufor_AT"] call A3A_fnc_getLoadout,
+	["vanilla_blufor_AT_altis"] call A3A_fnc_getLoadout,
 	//AT2
-	["vanilla_blufor_rifleman"] call A3A_fnc_getLoadout
+	["vanilla_blufor_rifleman_altis"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles
-vehNATOPVP = ["B_T_MRAP_01_F","B_MRAP_01_hmg_F"];
+vehNATOPVP = ["B_MRAP_01_F","B_MRAP_01_hmg_F"];
 
 ////////////////////////////////////
 //             UNITS             ///
@@ -131,7 +133,7 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 //Lite
 vehNATOBike = "B_Quadbike_01_F";
 vehNATOLightArmed = ["B_MRAP_01_hmg_F"];
-vehNATOLightUnarmed = ["B_T_MRAP_01_F"];
+vehNATOLightUnarmed = ["B_MRAP_01_F"];
 vehNATOTrucks = ["B_Truck_01_transport_F","B_Truck_01_covered_F"];
 vehNATOCargoTrucks = ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"];
 vehNATOAmmoTruck = "B_Truck_01_ammo_F";

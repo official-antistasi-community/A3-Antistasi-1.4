@@ -392,7 +392,7 @@
         <Russian>Быть Лидером Сопротивления значит быть героем. </Russian>
       </Key>
       <Key ID="STR_antistasi_credits_generic_version_text">
-        <Original>2.2</Original>
+        <Original>2.2.1</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
@@ -704,9 +704,8 @@
         <Russian>Кровь и песок</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_mapname_text">
-        <Original>Antistasi - Liberation of Tembelan</Original>
-        <English>Antistasi - Liberation of Tembelan</English>
-        <French>Antistasi - La Libération de Tembelan</French>
+        <Original>Antistasi - Liberation of Tembelan Island</Original>
+        <English>Antistasi - Liberation of Tembelan Island</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_mapname_short_text">
         <Original>Antistasi Tembelan</Original>

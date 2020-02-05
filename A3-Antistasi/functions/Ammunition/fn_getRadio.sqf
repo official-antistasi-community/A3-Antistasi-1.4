@@ -14,7 +14,7 @@ params ["_unit"];
  
 private _items = assignedItems _unit; 
 
-private _radioPosition = _items findIf {_x == "ItemRadio" || {_x find "tf_" > -1} || {_x find "ACRE_" > -1} || {_x find "Acre" > -1}}; 
+private _radioPosition = _items findIf {_x == "ItemRadio" || {_x find "tf_" > -1} || {_x find "acre_" > -1}}; 
  
 if (_radioPosition > -1) then {
 	_items select _radioPosition;

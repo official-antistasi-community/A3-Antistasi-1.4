@@ -233,7 +233,7 @@ private _vehicleIsSpecial = {
 private _civVehConfigs = "(
 	getNumber (_x >> 'scope') isEqualTo 2 && {
 		getNumber (_x >> 'side') isEqualTo 3 && {
-			getText (_x >> 'vehicleClass') in ['Car','Support'] && {
+			getText (_x >> 'vehicleClass') in ['Car','Support','rhs_vehclass_truck'] && {
 				getText (_x >> 'simulation') == 'carx'
 			}
 		}

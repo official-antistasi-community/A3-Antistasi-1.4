@@ -126,14 +126,14 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 //Lite
 vehNATOBike = "B_T_Quadbike_01_F";
 vehNATOLightArmed = ["UK3CB_BAF_LandRover_WMIK_HMG_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_GMG_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_Milan_FFR_Sand_A_DDPM","UK3CB_BAF_Jackal2_L2A1_D_DDPM","UK3CB_BAF_Coyote_Logistics_L111A1_D_DDPM","UK3CB_BAF_Coyote_Passenger_L111A1_D_DDPM"];
-vehNATOLightUnarmed = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Sand","UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Snatch_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Soft_FFR_Sand_A_DDPM"];
+vehNATOLightUnarmed = ["UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Snatch_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Soft_FFR_Sand_A_DDPM"];
 vehNATOTrucks = ["UK3CB_BAF_MAN_HX58_Transport_Sand_DDPM","UK3CB_BAF_MAN_HX60_Transport_Sand_DDPM"];
 vehNATOCargoTrucks = ["UK3CB_BAF_MAN_HX58_Cargo_Sand_A_DDPM","UK3CB_BAF_MAN_HX60_Cargo_Sand_A_DDPM"];
 vehNATOAmmoTruck = "rhsusf_M977A4_AMMO_usarmy_d";
 vehNATORepairTruck = "UK3CB_BAF_MAN_HX58_Repair_Sand_DDPM";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
-vehNATOAPC = ["RHS_M2A3_BUSKIII_d","RHS_M2A3_BUSKI_d","RHS_M2A3_d","RHS_M2A3_d","UK3CB_BAF_FV432_Mk3_GPMG_Sand_DDPM","UK3CB_BAF_FV432_Mk3_RWS_Sand_DDPM"];
+vehNATOAPC = ["RHS_M2A3_BUSKIII","RHS_M2A3_BUSKI","RHS_M2A3","RHS_M2A3","UK3CB_BAF_FV432_Mk3_GPMG_Sand_DDPM","UK3CB_BAF_FV432_Mk3_RWS_Sand_DDPM"];
 vehNATOTank = "rhsusf_m1a2sep1d_usarmy";
 vehNATOAA = "RHS_M6";
 vehNATOAttack = vehNATOAPC + [vehNATOTank];
@@ -156,7 +156,7 @@ vehNATOUAVSmall = "B_UAV_01_F";
 vehNATOMRLS = "rhsusf_m109d_usarmy";
 vehNATOMRLSMags = "rhs_mag_155mm_m795_28";
 //Combined Arrays
-vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "UK3CB_BAF_MAN_HX58_Fuel_Green_DDPM", "UK3CB_BAF_LandRover_Amb_FFR_Sand_A_DDPM", vehNATORepairTruck,"UK3CB_BAF_FV432_Mk3_RWS_Sand_DDPM"];
+vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "UK3CB_BAF_MAN_HX58_Fuel_Sand_DDPM", "UK3CB_BAF_LandRover_Amb_FFR_Sand_A_DDPM", vehNATORepairTruck,"UK3CB_BAF_FV432_Mk3_RWS_Sand_DDPM"];
 vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
 
 //Militia Vehicles

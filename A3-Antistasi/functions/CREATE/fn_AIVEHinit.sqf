@@ -19,10 +19,6 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
 		}];
 	if !(_typeX in vehAttack) then
 		{
-		if (_typeX in vehAmmoTrucks) then
-			{
-			if (_veh distance getMarkerPos respawnTeamPlayer > 50) then {if (_typeX == vehNatoAmmoTruck) then {_nul = [_veh] call A3A_fnc_NATOcrate} else {_nul = [_veh] call A3A_fnc_CSATcrate}};
-			};
 		if (_veh isKindOf "Car") then
 			{
 			_veh addEventHandler ["HandleDamage",{if (((_this select 1) find "wheel" != -1) and ((_this select 4=="") or (side (_this select 3) != teamPlayer)) and (!isPlayer driver (_this select 0))) then {0} else {(_this select 2)}}];

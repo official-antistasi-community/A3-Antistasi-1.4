@@ -173,17 +173,20 @@ addMissionEventHandler ["EachFrame",
 	};
 	
 	// If vehicle is a boat, make sure it spawns at sea level?
-	_shipX = false;
-	if (vehPlace_previewVeh isKindOf "Ship") then {_placementPos set [2,0]; _shipX = true};
-	
-	// Do nothing if destination too far
-	if (_placementPos distance2d player > 100)exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
-	// Ships only spawn on water, and cars can't spawn on water
+
 	_water = surfaceIsWater _placementPos;
-	if (_shipX and {!_water}) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
-	if (!_shipX and {_water}) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
-	// If all checks pass, set position of preview and orient it to the ground
-	vehPlace_updatedLookPosition =	_pos;
-	vehPlace_previewVeh setPosATL _placementPos;
-	vehPlace_previewVeh setVectorUp (_chosenIntersection select 1);
+	if (vehPlace_previewVeh isKindOf "Ship") then
+	{
+		_placementPos set [2,0];
+		if (!water || _placementPos distance2d player > 200) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
+		vehPlace_updatedLookPosition = _pos;
+		vehPlace_previewVeh setPosASL _placementPos;
+		vehPlace_previewVeh setVectorUp [0,0,1];
+	}
+	else {
+		if (_water || _placementPos distance2d player > 100) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
+		vehPlace_updatedLookPosition = _pos;
+		vehPlace_previewVeh setPosATL _placementPos;
+		vehPlace_previewVeh setVectorUp (_chosenIntersection select 1);
+	};
 	}];

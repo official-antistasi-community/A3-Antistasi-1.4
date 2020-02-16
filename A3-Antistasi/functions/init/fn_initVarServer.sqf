@@ -221,8 +221,8 @@ private _vehicleIsSpecial = {
 
 	   (getNumber (_vehConfig >> "transportRepair") > 0)
 	|| (getNumber (_vehConfig >> "transportAmmo") > 0)
-	|| (getNumber (_vehConfig >> "transportFuel") > 0)
-	|| (getNumber (_vehConfig >> "ace_refuel_fuelCargo") > 0)
+//	|| (getNumber (_vehConfig >> "transportFuel") > 0)
+//	|| (getNumber (_vehConfig >> "ace_refuel_fuelCargo") > 0)
 	|| (getNumber (_vehConfig >> "ace_repair_canRepair") > 0)
 	|| (getNumber (_vehConfig >> "ace_rearm_defaultSupply") > 0)
 		//Medical vehicle

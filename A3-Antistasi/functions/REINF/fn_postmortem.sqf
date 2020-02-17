@@ -9,14 +9,7 @@ params ["_victim"];
 */
 
 private _group = group _victim;
-if (!isNull _group) then
-{
-	if (((units _group) findIf {alive _x}) == -1) then
-    {
-        deleteGroup _group;
-    };
-}
-else
+if (isNull _group) then
 {
 	if (_victim in staticsToSave) then
     {
@@ -27,3 +20,4 @@ else
 
 sleep cleantime;
 deleteVehicle _victim;
+deleteGroup _group;

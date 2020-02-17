@@ -144,7 +144,6 @@ else
 reinfPatrols = reinfPatrols + 1; publicVariable "reinfPatrols";
 _groupX setVariable ["reinfMarker",_mrkDestination];
 _groupX setVariable ["originX",_mrkOrigin];
-_groupX setVariable ["patrolArray", [_sideX, _mrkDestination]];
 {
 _x addEventHandler ["Killed",
 	{
@@ -155,8 +154,6 @@ _x addEventHandler ["Killed",
 		reinfPatrols = reinfPatrols - 1; publicVariable "reinfPatrols";
 		_originX = _groupX getVariable "originX";
 		_destinationX = _groupX getVariable "reinfMarker";
-		_patrol = _groupX getVariable "patrolArray";
-
 		if (((sidesX getVariable [_originX,sideUnknown] == Occupants) and (sidesX getVariable [_destinationX,sideUnknown] == Occupants)) or ((sidesX getVariable [_originX,sideUnknown] == Invaders) and (sidesX getVariable [_destinationX,sideUnknown] == Invaders))) then
 			{
 			_killzones = killZones getVariable [_originX,[]];

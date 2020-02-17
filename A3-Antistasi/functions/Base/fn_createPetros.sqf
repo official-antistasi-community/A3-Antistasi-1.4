@@ -1,9 +1,10 @@
 params [["_location", []]];
 
-_oldPetros = if (isNil "petros") then {objNull}	else {petros};
+private _oldPetros = if (isNil "petros") then {objNull} else {petros};
+private _groupPetros = if (!isNull _oldPetros && {side group _oldPetros == teamPlayer}) then {group _oldPetros} else {createGroup teamPlayer};
 
-groupPetros = if (! isNull _oldPetros && {side group _oldPetros == teamPlayer}) then {group _oldPetros} else {createGroup teamPlayer};
-publicVariable "groupPetros";
+// Hack-fix for bugged case where petros is killed by enemy while being moved
+if (count _location > 0 && count units _groupPetros > 1) then { _groupPetros = createGroup teamPlayer };
 
 private _position = if (count _location > 0) then {
 	_location
@@ -18,20 +19,20 @@ private _position = if (count _location > 0) then {
 petros = groupPetros createUnit [typePetros, _position, [], 10, "NONE"];
 publicVariable "petros";
 
-groupPetros setGroupIdGlobal ["Petros","GroupColor4"];
-petros setIdentity "friendlyX";
+deleteVehicle _oldPetros;		// Petros should now be leader unless there's a player in the group
 
-if (worldName == "Tanoa") then {petros setName "Maru"} else {petros setName "Petros"};
+private _name = if (worldName == "Tanoa") then {"Maru"} else {"Petros"};
+[petros, "friendlyX"] remoteExec ["setIdentity", 0];
+[petros, _name] remoteExec ["setName", 0];
 
-petros disableAI "MOVE";
-petros disableAI "AUTOTARGET";
-
-if (petros == leader groupPetros) then {
-	[Petros,"mission"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],petros]
+if (petros == leader _groupPetros) then {
+	_groupPetros setGroupIdGlobal ["Petros","GroupColor4"];
+	petros disableAI "MOVE";
+	petros disableAI "AUTOTARGET";
+	petros setBehaviour "SAFE";
+	[Petros,"mission"] remoteExec ["A3A_fnc_flagaction",0]
 } else {
-	[Petros,"buildHQ"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],petros]
+	[Petros,"buildHQ"] remoteExec ["A3A_fnc_flagaction",0]
 };
 
 call A3A_fnc_initPetros;
-
-deleteVehicle _oldPetros;

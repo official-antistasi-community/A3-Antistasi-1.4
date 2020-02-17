@@ -473,13 +473,15 @@ mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _thi
 mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",4];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 _nul = [player] execVM "OrgPlayers\unitTraits.sqf";
-groupPetros = group petros;
-groupPetros setGroupIdGlobal ["Petros","GroupColor4"];
+
+// only add petros actions if he's static
+if (petros == leader group petros) then {
+	group petros setGroupId ["Petros","GroupColor4"];
+	[petros,"remove"] call A3A_fnc_flagaction;		// in case we already created them in initserver
+	[petros,"mission"] call A3A_fnc_flagaction;
+};
 petros setIdentity "friendlyX";
-petros setName "Petros";
-petros disableAI "MOVE";
-petros disableAI "AUTOTARGET";
-[petros,"mission"] call A3A_fnc_flagaction;
+if (worldName == "Tanoa") then {petros setName "Maru"} else {petros setName "Petros"};
 
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];

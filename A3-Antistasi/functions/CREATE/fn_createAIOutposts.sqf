@@ -111,6 +111,7 @@ if ((_frontierX) and (_markerX in outposts)) then
 		_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		_unit moveInGunner _veh;
+		_groups pushBack _groupX;
 		_soldiers pushBack _unit;
 		_vehiclesX pushBack _veh;
 		sleep 1;

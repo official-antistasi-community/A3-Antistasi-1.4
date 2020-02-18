@@ -1,22 +1,18 @@
-params ["_unit", "_player"];
+params ["_unit", "_player", "_unused", "_actionID"];
 
 /*  The action of interrogating a surrendered unit.
 *   Params:
 *       _unit : OBJECT : The unit which will be interrogated
 *       _player : OBJECT : The unit which is interrogating
+*       _unused : NOT USED
+*       _actionID : NUMBER : The ID of the interrogate action
 *
 *   Returns:
 *       Nothing
 */
 
-// Remove interrogate action but leave release/recruit actions
-{
-	private _actparams = _unit actionParams _x;
-	if (_actparams select 0 == "Interrogate") then
-    {
-        _unit removeAction _x
-    };
-} forEach (actionIDs _unit);
+//Removing action
+_unit removeAction _actionID;
 
 if (!alive _unit) exitWith {};
 if (_unit getVariable ["interrogated", false]) exitWith {};
@@ -55,7 +51,7 @@ if ((round (random 100)) < _chance) then
     }
     else
     {
-        _unit globalChat "I would, but I am no squadleader, so I don't know anything";
+        _unit globalChat "I would, but only our squadleader may knows something";
     };
 }
 else

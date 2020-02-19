@@ -154,12 +154,16 @@ switch _typeX do
             _flag addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
         };
     };
+    case "Intel_Small":
+    {
+        _flag addAction ["Search for Intel", A3A_fnc_retrieveIntel, "Small", 4, true, false, "", "isPlayer _this", 4];
+    };
     case "Intel_Medium":
     {
-        _flag addAction ["Take Intel", {["Medium", _this select 0] spawn A3A_fnc_retrieveIntel;},nil,4,true,false,"","isPlayer _this",4];
+        _flag addAction ["Take Intel", A3A_fnc_retrieveIntel, "Medium", 4, true, false, "", "isPlayer _this", 4];
     };
     case "Intel_Large":
     {
-        _flag addAction ["Download Intel", {["Large", _this select 0, _this select 3, _this select 2] spawn A3A_fnc_retrieveIntel;},nil,4,true,false,"","isPlayer _this",4];
+        _flag addAction ["Download Intel", A3A_fnc_retrieveIntel, "Large", 4, true, false, "", "isPlayer _this", 4];
     };
 };

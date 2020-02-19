@@ -110,6 +110,7 @@ if(_isLarge) then
         _bomb = [_bomb] call BIS_fnc_replaceWithSimpleObject;
         _intel setVariable ["trapBomb", _bomb, true];
     };
+    _intel setVariable ["marker", _marker, true];
     [_intel, "Intel_Large"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian], _intel];
 }
 else

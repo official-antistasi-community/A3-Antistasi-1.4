@@ -1,9 +1,8 @@
-params ["_intel", "_marker", "_searchAction"];
+params ["_intel", "_searchAction"];
 
 /*  Handles the action which downloads large intel
 *   Params:
 *       _intel : OBJECT : The object which is holding the intel
-*       _marker : STRING : The string of the marker where the intel is
 *       _searchAction : NUMBER : The ID of the action which started this script
 *
 *   Returns:
@@ -30,6 +29,7 @@ if(_isTrap) exitWith
     deleteVehicle _intel;
 };
 
+private _marker = _intel getVariable "marker";
 private _side = sidesX getVariable _marker;
 private _isAirport = (_marker in airportsX);
 

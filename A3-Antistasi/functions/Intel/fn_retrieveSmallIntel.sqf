@@ -10,7 +10,7 @@ params ["_caller", "_squadLeader", "_hasIntel", "_searchAction"];
 *       Nothing
 */
 
-_squadLeader removeAction _searchAction;
+[_squadLeader, _searchAction] remoteExec ["removeAction", [teamPlayer, civilian], _squadLeader];
 private _timeForSearch = 10 + random 15;
 private _side = _squadLeader getVariable "side";
 
@@ -84,5 +84,5 @@ if(_caller getVariable ["success", false]) then
 }
 else
 {
-    _squadLeader addAction ["Search for Intel", {["Small", _this select 1, _this select 0, _this select 2] call A3A_fnc_retrieveIntel}, nil,4,true,false,"","(isPlayer _this)",4];
+    [_squadLeader, "Small_Intel"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
 };

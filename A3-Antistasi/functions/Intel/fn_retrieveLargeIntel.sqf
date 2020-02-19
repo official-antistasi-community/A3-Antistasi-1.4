@@ -180,15 +180,17 @@ while {_pointSum <= _neededPoints} do
             };
             _picturePath = format ["Pictures\laptop_%1.jpg", _picturePath];
             _intel setObjectTextureGlobal [0, _picturePath];
-            _intel addAction
             [
-                _actionText,
-                {
-                    (_this select 0) setVariable ["ActionNeeded", false];
-                    (_this select 0) removeAction (_this select 2);
-                    (_this select 0) setObjectTextureGlobal [0, "Pictures\laptop_downloading.jpg"];
-                },nil,4,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4
-            ];
+                _intel,
+                [
+                    _actionText,
+                    {
+                        (_this select 0) setVariable ["ActionNeeded", false];
+                        (_this select 0) removeAction (_this select 2);
+                        (_this select 0) setObjectTextureGlobal [0, "Pictures\laptop_downloading.jpg"];
+                    },nil,4,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4
+                ]
+            ] remoteExec ["addAction", [teamPlayer, civilian], _intel];
             _pointSum = _pointSum - _penalty;
             if(_pointSum < 0) then {_pointSum = 0};
             _errorChance = 0;
@@ -250,6 +252,5 @@ else
 {
     //Players failed to retrieve the intel
     removeAllActions _intel;
-    _intel addAction ["Retrieve Intel", {["Large", _this select 0, _this select 3, false, _this select 2] call A3A_fnc_retrieveIntel}, _marker,4,true,false,"","(isPlayer _this)",4];
-
+    [_intel, "Intel_Large"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian], _intel];
 };

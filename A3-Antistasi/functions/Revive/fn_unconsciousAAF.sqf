@@ -58,7 +58,7 @@ if (_playerNear) then
         [_unit] spawn
         {
             sleep 1;
-            (_this select 0) addAction ["Search for Intel", {["Small", _this select 1, _this select 0, _this select 2] call A3A_fnc_retrieveIntel}, nil,4,false,true,"","(isPlayer _this)",4];
+            [_unit, "Intel_Small"] remoteExec ["A3A_fnc_flagaction", [teamPlayer,civilian], _unit];
         };
     };
 };

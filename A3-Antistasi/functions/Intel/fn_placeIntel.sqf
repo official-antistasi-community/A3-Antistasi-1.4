@@ -65,7 +65,7 @@ else
 
 private _desk = createVehicle ["Land_CampingTable_F", [0, 0, 0], [], 0, "CAN_COLLIDE"];
 _desk setDir (getDir _building + (_spawnParameters select 1));
-_desk setPos (_spawnParameters select 0);
+_desk setPosATL (_spawnParameters select 0);
 _desk setVelocity [0, 0, -1];
 
 //Await until desk have hit the group, it tend to stuck in the air otherwise
@@ -84,11 +84,8 @@ else
     _spawnParameters = -155;
 };
 
-private _deskPos = getPosATL _desk;
-private _intelPos = ([_deskPos, 0.5, (getDir _desk) + 80] call BIS_fnc_relPos) vectorAdd [0, 0, 0.82];
 private _intel = createVehicle [_intelType, [0,0,0], [], 0, "CAN_COLLIDE"];
-_intel setDir ((getDir _desk) + _spawnParameters);
-_intel setPosATL _intelPos;
+[_desk, _intel, [0.5, 0, 0.82], _spawnParameters] call BIS_fnc_relPosObject;
 _intel enableSimulation false;
 _intel allowDamage false;
 _intel setVariable ["side", _side, true];

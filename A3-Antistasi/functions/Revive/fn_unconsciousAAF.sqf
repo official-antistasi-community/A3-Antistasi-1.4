@@ -55,10 +55,10 @@ if (_playerNear) then
 	[_unit,"remove"] remoteExec ["A3A_fnc_flagaction",0,_unit];
     if((typeOf _unit) in squadLeaders) then
     {
-        [_unit] spawn
+        _unit spawn
         {
             sleep 1;
-            [_unit, "Intel_Small"] remoteExec ["A3A_fnc_flagaction", [teamPlayer,civilian], _unit];
+            [_this, "Intel_Small"] remoteExec ["A3A_fnc_flagaction", [teamPlayer,civilian], _this];
         };
     };
 };

@@ -1,4 +1,4 @@
-params ["_caller", "_squadLeader", "_hasIntel", "_searchAction"];
+params ["_caller", "_squadLeader", "_searchAction"];
 
 /*  Searches a squadleader for intel
 *   Params:
@@ -11,6 +11,7 @@ params ["_caller", "_squadLeader", "_hasIntel", "_searchAction"];
 */
 
 [_squadLeader, _searchAction] remoteExec ["removeAction", [teamPlayer, civilian], _squadLeader];
+
 private _timeForSearch = 10 + random 15;
 private _side = _squadLeader getVariable "side";
 

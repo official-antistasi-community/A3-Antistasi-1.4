@@ -37,7 +37,7 @@ switch (_preCheck) do
     case ("Large"):
     {
         private _intel = _this select 0;
-        private _searchAction = this select 2;
+        private _searchAction = _this select 2;
         [_intel, _searchAction] spawn A3A_fnc_retrieveLargeIntel;
     };
 };

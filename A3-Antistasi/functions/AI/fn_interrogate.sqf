@@ -1,4 +1,4 @@
-params ["_unit", "_player", "_unused", "_actionID"];
+params ["_unit", "_player", "_actionID"];
 
 /*  The action of interrogating a surrendered unit.
 *   Params:
@@ -12,7 +12,7 @@ params ["_unit", "_player", "_unused", "_actionID"];
 */
 
 //Removing action
-_unit removeAction _actionID;
+[_unit, _actionID] remoteExec ["removeAction", [teamPlayer, civilian], _unit];
 
 if (!alive _unit) exitWith {};
 if (_unit getVariable ["interrogated", false]) exitWith {};

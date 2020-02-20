@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=518;
+		nextID=523;
 	};
 	class Camera
 	{
-		pos[]={14079.244,59.815231,22944.676};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={14126.167,227.36882,22820.379};
+		dir[]={0.77972132,-0.58176541,-0.23148948};
+		up[]={0.55770612,0.81335694,-0.16557592};
+		aside[]={-0.28461054,2.9988587e-007,-0.95864594};
 	};
 };
 binarizationWanted=0;
@@ -4613,7 +4613,7 @@ class Mission
 					colorName="ColorGreen";
 					a=35.460999;
 					b=6;
-					angle=225.25757;
+					angle=225.25755;
 					id=1626;
 				};
 				class Item11
@@ -5027,7 +5027,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.529018;
 					b=5.5;
-					angle=56.906185;
+					angle=56.906181;
 					id=1646;
 					atlOffset=-0.15297318;
 				};
@@ -5381,7 +5381,7 @@ class Mission
 					colorName="ColorGreen";
 					a=19.902;
 					b=5.5;
-					angle=56.794899;
+					angle=56.794895;
 					id=1668;
 					atlOffset=-0.00017929077;
 				};
@@ -9614,7 +9614,7 @@ class Mission
 		class Item403
 		{
 			dataType="Marker";
-				position[]={9083.5059,16.686979,21513.898};
+			position[]={9083.5059,16.686979,21513.898};
 			name="detectPlayer_8";
 			markerType="RECTANGLE";
 			type="rectangle";
@@ -9865,7 +9865,7 @@ class Mission
 					};
 					id=2084;
 					type="I_G_Soldier_F";
-					atlOffset=-0.69289207;
+					atlOffset=-0.69289303;
 				};
 				class Item8
 				{
@@ -10264,7 +10264,7 @@ class Mission
 					};
 					id=2103;
 					type="I_G_medic_F";
-					atlOffset=1.1882639;
+					atlOffset=1.1882629;
 				};
 				class Item27
 				{

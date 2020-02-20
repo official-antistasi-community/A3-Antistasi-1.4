@@ -4,7 +4,7 @@ if (isMultiplayer) then {waitUntil {!isNil "switchCom"}};
 
 private ["_textX"];
 scriptName "resourcecheck";
-_countSave = 3600;
+_countSave = autoSaveInterval;
 
 while {true} do
 	{
@@ -224,16 +224,16 @@ while {true} do
 				};
 			};
 		} forEach allUnits;
-		if (autoSave) then
-			{
-			_countSave = _countSave - 600;
-			if (_countSave <= 0) then
-				{
-				_countSave = 3600;
-				_nul = [] execVM "statSave\saveLoop.sqf";
-				};
-			};
 		};
+	if (autoSave) then
+	{
+		_countSave = _countSave - 600;
+		if (_countSave <= 0) then
+		{
+			_countSave = autoSaveInterval;
+			_nul = [] execVM "statSave\saveLoop.sqf";
+		};
+	};
 
 	sleep 4;
 	};

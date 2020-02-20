@@ -25,6 +25,7 @@ if (isMultiplayer) then {
 	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	gameMode = "gameMode" call BIS_fnc_getParamValue; publicVariable "gameMode";
 	autoSave = if ("autoSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
+	autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
 	membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	switchCom = if ("switchComm" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
@@ -49,6 +50,7 @@ if (isMultiplayer) then {
 	loadLastSave = if (isNil "loadLastSave") then {[1, "No loadLastSave setting", _fileName] call A3A_fnc_log; true} else {loadLastSave};
 	gameMode = if (isNil "gameMode") then {[1, "No gameMode setting", _fileName] call A3A_fnc_log; 1} else {gameMode};
 	autoSave = false;
+	autoSaveInterval = 3600;
 	membershipEnabled = false;
 	switchCom = false;
 	tkPunish = false;

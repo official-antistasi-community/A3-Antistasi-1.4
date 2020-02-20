@@ -31,7 +31,7 @@
 
 	[//Uniform
 
-		["U_O_CombatUniform_ocamo"],
+		"U_O_CombatUniform_ocamo",
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 

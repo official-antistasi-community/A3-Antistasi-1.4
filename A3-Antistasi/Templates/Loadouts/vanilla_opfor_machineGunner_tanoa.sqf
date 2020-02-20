@@ -31,7 +31,7 @@
 
 	[//Uniform
 
-		["U_O_T_Soldier_F"],
+		"U_O_T_Soldier_F",
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 

@@ -31,7 +31,7 @@
 
 	[//Uniform
 
-		["U_O_R_Gorka_01_camo_F"],
+		"U_O_R_Gorka_01_camo_F",
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 

@@ -51,7 +51,9 @@
 
 	[],
 
-		"",													//Headgear
+	selectRandom										//Headgear
+	["H_Booniehat_wdl", "H_MilCap_wdl", "H_HelmetB_plain_wdl", "H_HelmetB_light_wdl", "H_HelmetSpecB_wdl", "H_Cap_usblack"],
+	
 		"G_Balaclava_Oli",									//Facewear
 
 	[//Binocular

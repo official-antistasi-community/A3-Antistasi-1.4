@@ -100,8 +100,8 @@ private _removeProblematicAceInteractions = {
         waitUntil {!isNil "initVar"};
         //Disable ACE Interactions
         if (hasInterface && hasACE) then {
-            [typeOf _this, 0,["ACE_ApplyHandcuffs"]] call ace_interact_menu_fnc_removeActionFromClass;
-            [typeOf _this, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
+            [_this, 0,["ACE_ApplyHandcuffs"]] call ace_interact_menu_fnc_removeActionFromObject;
+            [_this, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromObject;
         };
     };
 };

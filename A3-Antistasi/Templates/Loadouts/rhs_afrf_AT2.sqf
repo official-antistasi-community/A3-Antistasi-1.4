@@ -1,7 +1,8 @@
 		[//Loadout
-		["rhs_weap_ak103_zenitco01",				//Weapon
+		[//Primary Weapon
+		"rhs_weap_ak103_zenitco01",				//Weapon
 		"rhs_acc_dtk3",											//Muzzel
-		"rhs_acc_2dpZenit",									//Rail
+		"rhs_acc_perst3_2dp_light_h",									//Rail
 		"",																	//Sight
 		["rhs_30Rnd_762x39mm_polymer",30],	//Primary Magazine
 		[],										//Secondary Magazine
@@ -11,26 +12,26 @@
 
 		[//Launcher
 		"rhs_weap_rpg26",									//Weapon
-		"",													//Muzzle
-		"",													//Rail
-		"",								//Sight
+		"",																//Muzzle
+		"",																//Rail
+		"",																//Sight
 		["rhs_rpg26_mag",1],							//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
+		[],																//Secondary Magazine
+		""																//Bipod
 		],
 
 		[//Secondary Weapon
 		"rhs_weap_pb_6p9",								//Weapon
-		"rhs_acc_6p9_suppressor",													//Muzzle
-		"",													//Rail
-		"",													//Sight
-		["rhs_mag_9x18_8_57n181S",8],						//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
+		"rhs_acc_6p9_suppressor",					//Muzzle
+		"",																//Rail
+		"",																//Sight
+		["rhs_mag_9x18_8_57n181S",8],			//Primary Magazine
+		[],																//Secondary Magazine
+		""																//Bipod
 		],
 
 		[//Uniform
-		"rhs_uniform_gorka_r_g",								//Uniform
+		"rhs_uniform_gorka_r_g",					//Uniform
 		[//Inventory
 		 + _basicMedicalSupplies
 		 + _basicMiscItems
@@ -52,7 +53,7 @@
 		[//Backpack
 		"rhs_rpg_empty",						//Backpack
 		[//Inventory
-		["rhs_rpg7_PG7VR_mag",1,1],
+		["rhs_rpg7_PG7VR_mag",1,1]
 		]
 
 		],

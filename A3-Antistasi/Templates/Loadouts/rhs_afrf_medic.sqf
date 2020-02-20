@@ -2,7 +2,7 @@
 		[//Primary Weapon
 		"rhs_weap_ak105_zenitco01",					//Weapon
 		"rhs_acc_dtk3",											//Muzzel
-		"rhs_acc_2dpZenit",									//Rail
+		"rhs_acc_perst3_2dp_light_h",									//Rail
 		"",																	//Sight
 		["rhs_30Rnd_545x39_7N10_AK",30],	//Primary Magazine
 		[],										//Secondary Magazine

@@ -1,7 +1,8 @@
 		[//Loadout
-		["rhs_weap_ak104_zenitco01",				//Weapon
+		[//Primary Weapon
+		"rhs_weap_ak104_zenitco01",				//Weapon
 		"rhs_acc_dtk3",											//Muzzel
-		"rhs_acc_2dpZenit_ris",							//Rail
+		"rhs_acc_perst3_2dp_light_h",							//Rail
 		"",																	//Sight
 		["rhs_30Rnd_762x39mm_polymer",30],	//Primary Magazine
 		[],										//Secondary Magazine

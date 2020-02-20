@@ -106,9 +106,14 @@ _intel setVariable ["ActionNeeded", false, true];
 ["", 0, 0] params ["_errorText", "_errorChance", "_enemyCounter"];
 
 _intel setObjectTextureGlobal [0, "Pictures\laptop_downloading.jpg"];
+private _lastTime = time;
+private _timeDiff = 0;
 while {_pointSum <= _neededPoints} do
 {
+    _lastTime = time;
     sleep 1;
+    _timeDiff = (_lastTime - time);
+
 
     //Checking for players in range
     private _playerList = [20, 0, _intel, teamPlayer] call A3A_fnc_distanceUnits;
@@ -124,12 +129,12 @@ while {_pointSum <= _neededPoints} do
     private _actionNeeded = _intel getVariable ["ActionNeeded", false];
     if(!_actionNeeded) then
     {
-        _errorChance = _errorChance + 1 + (0.1 * tierWar);
+        _errorChance = _errorChance + ((1 + (0.1 * tierWar)) * _timeDiff);
         if(random 1000 < _errorChance) then
         {
             //"Something went wrong, oopsie", generating error message to force player to move to the intel laptop
             _actionNeeded = true;
-            _intel setVariable ["ActionNeeded", true];
+            _intel setVariable ["ActionNeeded", true, true];
             private _error = selectRandomWeighted ["Err_Sml_01", 0.25, "Err_Sml_02", 0.2, "Err_Sml_03", 0.15, "Err_Med_01", 0.15, "Err_Med_02", 0.15, "Err_Lar_01", 0.1];
             private _actionText = "";
             private _penalty = 0;
@@ -225,11 +230,11 @@ while {_pointSum <= _neededPoints} do
         _UAVHacker = (_playerList findIf {_x getUnitTrait "UAVHacker"} != -1);
         if(_UAVHacker) then
         {
-            _pointSum = _pointSum + (_pointsPerSecond * 2);
+            _pointSum = _pointSum + ((_pointsPerSecond * 2) * _timeDiff);
         }
         else
         {
-            _pointSum = _pointSum + _pointsPerSecond;
+            _pointSum = _pointSum + (_pointsPerSecond * _timeDiff);
         };
         {
             [petros,"hintS", format ["Download at %1%2",((round ((_pointSum/_neededPoints) * 10000))/ 100), "%"]] remoteExec ["A3A_fnc_commsMP",_x]

@@ -1,4 +1,5 @@
-params ["_intel", "_searchAction"];
+private _intel = _this select 0;
+private _searchAction = _this select 2;
 
 /*  Handles the action which downloads large intel
 *   Params:
@@ -10,7 +11,7 @@ params ["_intel", "_searchAction"];
 */
 
 //Remove so no double calls
-_intel removeAction _searchAction;
+[_intel, _searchAction] remoteExec ["removeAction", [teamPlayer, civilian], _intel];
 
 private _bomb = _intel getVariable ["trapBomb", objNull];
 private _isTrap = !(isNull _bomb);
@@ -48,14 +49,12 @@ else
 };
 
 private _pointSum = 0;
-//Currently DEBUG up to 1000 after testing
 private _neededPoints = 1000 + random 1000;
 //Min war tier (40 sec - 80 sec) with UAV Hacker (20 sec - 40 sec)
 //Max war tier (200 sec - 400 sec) with UAV Hacker (100 sec - 200 sec)
 
 {
     private _friendly = _x;
-    diag_log format ["Current object : %1", _friendly];
     if (captive _friendly) then
     {
         [_friendly,false] remoteExec ["setCaptive",0,_friendly];
@@ -103,7 +102,7 @@ if(!(_attack == "No")) then
     [[_marker, _side, _attackType, _isLargeAttack],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
 };
 
-_intel setVariable ["ActionNeeded", false];
+_intel setVariable ["ActionNeeded", false, true];
 ["", 0, 0] params ["_errorText", "_errorChance", "_enemyCounter"];
 
 _intel setObjectTextureGlobal [0, "Pictures\laptop_downloading.jpg"];
@@ -116,7 +115,9 @@ while {_pointSum <= _neededPoints} do
     if({[_x] call A3A_fnc_canFight} count _playerList == 0) exitWith
     {
         _pointSum = 0;
-        {[petros,"hint","No one in range of the intel, reseting download!"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
+        {
+            [petros,"hint","No one in range of the intel, reseting download!"] remoteExec ["A3A_fnc_commsMP",_x]
+        } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     };
 
     //Checking if the terminal should throw some error
@@ -185,7 +186,7 @@ while {_pointSum <= _neededPoints} do
                 [
                     _actionText,
                     {
-                        (_this select 0) setVariable ["ActionNeeded", false];
+                        (_this select 0) setVariable ["ActionNeeded", false, true];
                         (_this select 0) removeAction (_this select 2);
                         (_this select 0) setObjectTextureGlobal [0, "Pictures\laptop_downloading.jpg"];
                     },nil,4,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4
@@ -236,7 +237,7 @@ while {_pointSum <= _neededPoints} do
     };
 };
 
-_intel setVariable ["ActionNeeded", nil];
+_intel setVariable ["ActionNeeded", nil, true];
 
 if(_pointSum >= _neededPoints) then
 {
@@ -251,6 +252,6 @@ if(_pointSum >= _neededPoints) then
 else
 {
     //Players failed to retrieve the intel
-    removeAllActions _intel;
+    _intel remoteExec ["removeAllActions", [teamPlayer, civilian], _intel];
     [_intel, "Intel_Large"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian], _intel];
 };

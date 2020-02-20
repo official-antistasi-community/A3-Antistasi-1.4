@@ -156,14 +156,14 @@ switch _typeX do
     };
     case "Intel_Small":
     {
-        _flag addAction ["Search for Intel", A3A_fnc_retrieveIntel, "Small", 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction ["Search for Intel", A3A_fnc_searchIntelOnLeader, nil, 4, true, false, "", "isPlayer _this", 4];
     };
     case "Intel_Medium":
     {
-        _flag addAction ["Take Intel", A3A_fnc_retrieveIntel, "Medium", 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction ["Take Intel", A3A_fnc_searchIntelOnDocument, nil, 4, true, false, "", "isPlayer _this", 4];
     };
     case "Intel_Large":
     {
-        _flag addAction ["Download Intel", A3A_fnc_retrieveIntel, "Large", 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction ["Download Intel", A3A_fnc_searchIntelOnLaptop, nil, 4, true, false, "", "isPlayer _this", 4];
     };
 };

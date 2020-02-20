@@ -73,7 +73,7 @@ for "_i" from 1 to _revealCount do
     private _vehicleName = getText (configFile >> "CfgVehicles" >> _vehicle >> "displayName");
     if([_vehicle] call A3A_fnc_vehAvailable) then
     {
-        private _amount = timer getVariable [_vehicle, -1];
+        private _amount = round (timer getVariable [_vehicle, -1]);
         if(_amount == -1) then
         {
             _amount = "∞";

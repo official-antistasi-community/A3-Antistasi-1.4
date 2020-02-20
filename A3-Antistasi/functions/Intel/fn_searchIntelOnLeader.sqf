@@ -1,9 +1,9 @@
-params ["_caller", "_squadLeader", "_searchAction"];
+params ["_squadLeader", "_caller", "_searchAction"];
 
-/*  Searches a squadleader for intel
+/*  Searches a squadleader for small intel
 *   Params:
-*       _caller : OBJECT : The unit which is searching
 *       _squadLeader : OBJECT : The unit (or body) which holds the intel
+*       _caller : OBJECT : The unit which is searching
 *       _searchAction : NUMBER : The ID of the action which started this script
 *
 *   Returns:
@@ -15,13 +15,13 @@ params ["_caller", "_squadLeader", "_searchAction"];
 private _timeForSearch = 10 + random 15;
 private _side = _squadLeader getVariable "side";
 
-_caller setVariable ["searchTime",time + _timeForSearch];
-_caller setVariable ["animsDone",false];
-_caller setVariable ["success",false];
-_caller setVariable ["cancelSearch",false];
+_caller setVariable ["intelSearchTime",time + _timeForSearch];
+_caller setVariable ["intelAnimsDone",false];
+_caller setVariable ["intelFound",false];
+_caller setVariable ["cancelIntelSearch",false];
 
 _caller playMoveNow selectRandom medicAnims;
-private _cancelAction = _caller addAction ["Cancel Search", {(_this select 1) setVariable ["cancelSearch",true]},nil,6,true,true,"","(isPlayer _this)"];
+private _cancelAction = _caller addAction ["Cancel Search", {(_this select 1) setVariable ["cancelIntelSearch",true]},nil,6,true,true,"","(isPlayer _this)"];
 
 _caller addEventHandler
 [
@@ -31,8 +31,8 @@ _caller addEventHandler
         if
         (
             ([_caller] call A3A_fnc_canFight) &&                        //Caller is still able to fight
-            {(time <= (_caller getVariable ["searchTime",time])) &&     //Time is not yet finished
-            {!(_caller getVariable ["cancelSearch",false]) &&           //Search hasn't been cancelled
+            {(time <= (_caller getVariable ["intelSearchTime",time])) &&     //Time is not yet finished
+            {!(_caller getVariable ["cancelIntelSearch",false]) &&           //Search hasn't been cancelled
             {(isNull objectParent _caller)}}}                           //Caller has not entered a vehicle
         ) then
         {
@@ -41,37 +41,37 @@ _caller addEventHandler
         else
         {
             _caller removeEventHandler ["AnimDone", _thisEventHandler];
-            _caller setVariable ["animsDone",true];
+            _caller setVariable ["intelAnimsDone",true];
             if
             (
                 ([_caller] call A3A_fnc_canFight) &&                //Can fight
-                {!(_caller getVariable ["cancelSearch",false]) &&   //Not cancelled
+                {!(_caller getVariable ["cancelIntelSearch",false]) &&   //Not cancelled
                 {(isNull objectParent _caller)}}                     //Not in vehicle
             ) then
             {
-                _caller setVariable ["success",true];
+                _caller setVariable ["intelFound",true];
             };
         };
     }
 ];
 
-waitUntil {sleep 0.5; _caller getVariable ["animsDone", false]};
+waitUntil {sleep 0.5; _caller getVariable ["intelAnimsDone", false]};
 
-_caller setVariable ["searchTime",nil];
-_caller setVariable ["animsDone",nil];
+_caller setVariable ["intelSearchTime",nil];
+_caller setVariable ["intelAnimsDone",nil];
 _caller removeAction _cancelAction;
 
-private _wasCancelled = _caller getVariable ["cancelSearch", false];
-_caller setVariable ["cancelSearch", nil];
+private _wasCancelled = _caller getVariable ["cancelIntelSearch", false];
+_caller setVariable ["cancelIntelSearch", nil];
 
 if(_wasCancelled) exitWith
 {
     hint "Search cancelled";
+    _caller setVariable ["intelFound", nil];
 };
 
-if(_caller getVariable ["success", false]) then
+if(_caller getVariable ["intelFound", false]) then
 {
-    _caller setVariable ["success", nil];
     private _hasIntel = _squadLeader getVariable ["hasIntel", false];
     if(_hasIntel) then
     {
@@ -87,3 +87,4 @@ else
 {
     [_squadLeader, "Small_Intel"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
 };
+_caller setVariable ["intelFound", nil];

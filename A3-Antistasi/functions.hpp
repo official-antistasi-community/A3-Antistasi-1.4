@@ -305,9 +305,9 @@ class A3A
     {
         class getVehicleIntel {};
         class placeIntel {};
-        class retrieveIntel {};
-        class retrieveLargeIntel {};
-        class retrieveSmallIntel {};
+        class searchIntelOnDocument {};
+        class searchIntelOnLaptop {};
+        class searchIntelOnLeader {};
         class selectIntel {};
         class showIntel {};
     };

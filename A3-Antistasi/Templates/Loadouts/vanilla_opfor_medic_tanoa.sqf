@@ -50,7 +50,6 @@
 
     [//Backpack
 		"B_FieldPack_ghex_F",								//Backpack
-		[//Inventory
 		[] + _medicSupplies
 	],
 

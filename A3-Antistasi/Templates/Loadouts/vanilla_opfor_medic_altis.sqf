@@ -30,27 +30,25 @@
 	],
 
 	[//Uniform
-
-		"U_O_CombatUniform_ocamo",
+		"U_O_CombatUniform_ocamo",									//Uniform
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest
 		"V_TacVest_khk",										//Vest
 		[//Inventory
-			["NVGoggles_OPFOR",1],
-			["SmokeShell",2,1],
-			["HandGrenade",1,1],
-			["16Rnd_9x21_Mag",2,17],
-			["30Rnd_65x39_caseless_green",4,30]
+		["NVGoggles_OPFOR",1],
+		["SmokeShell",2,1],
+		["HandGrenade",1,1],
+		["16Rnd_9x21_Mag",2,17],
+		["30Rnd_65x39_caseless_green",4,30]
 		]
 		+ _aceFlashlight
 		+ _aceM84
 	],
 
-    [//Backpack
+	[//Backpack
 		"B_AssaultPack_ocamo",								//Backpack
-		[//Inventory
 		[] + _medicSupplies
 	],
 

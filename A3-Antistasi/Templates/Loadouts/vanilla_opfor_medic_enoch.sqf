@@ -50,7 +50,7 @@
 
     [//Backpack
 		"B_FieldPack_taiga_F",								//Backpack
-		[//Inventory
+		
 		[] + _medicSupplies
 	],
 

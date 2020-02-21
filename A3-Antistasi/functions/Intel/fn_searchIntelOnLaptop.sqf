@@ -110,10 +110,10 @@ private _lastTime = time;
 private _timeDiff = 0;
 while {_pointSum <= _neededPoints} do
 {
-    _lastTime = time;
+
     sleep 1;
     _timeDiff = (_lastTime - time);
-
+    _lastTime = time;
 
     //Checking for players in range
     private _playerList = [20, 0, _intel, teamPlayer] call A3A_fnc_distanceUnits;

@@ -16,7 +16,7 @@ private _position = if (count _location > 0) then {
 	};
 };
 
-petros = groupPetros createUnit [typePetros, _position, [], 10, "NONE"];
+petros = _groupPetros createUnit [typePetros, _position, [], 10, "NONE"];
 publicVariable "petros";
 
 deleteVehicle _oldPetros;		// Petros should now be leader unless there's a player in the group

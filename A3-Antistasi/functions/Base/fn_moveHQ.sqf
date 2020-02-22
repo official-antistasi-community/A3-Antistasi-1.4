@@ -9,7 +9,9 @@ petros enableAI "AUTOTARGET";
 
 [petros,"remove"] remoteExec ["A3A_fnc_flagaction",0,petros];
 //removeAllActions petros;
+private _groupPetros = group petros;
 [petros] join theBoss;
+deleteGroup _groupPetros;
 petros setBehaviour "AWARE";
 if (isMultiplayer) then
 	{

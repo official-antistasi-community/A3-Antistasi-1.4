@@ -112,7 +112,7 @@ while {_pointSum <= _neededPoints} do
 {
 
     sleep 1;
-    _timeDiff = (_lastTime - time);
+    _timeDiff = (time - _lastTime) max 1;		// unclear whether time is monotonic, so cap to minimum 1
     _lastTime = time;
 
     //Checking for players in range

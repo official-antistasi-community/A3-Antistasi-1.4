@@ -246,7 +246,7 @@ _intel setVariable ["ActionNeeded", nil, true];
 
 if(_pointSum >= _neededPoints) then
 {
-    _intel setObjectTextureGlobal [0, "Pictures\laptop_completed.paa"];
+    _intel setObjectTextureGlobal [0, "Pictures\laptop_complete.paa"];
     {
         [petros,"hint","You managed to download the intel!"] remoteExec ["A3A_fnc_commsMP",_x];
         [10,_x] call A3A_fnc_playerScoreAdd;
@@ -257,6 +257,7 @@ if(_pointSum >= _neededPoints) then
 else
 {
     //Players failed to retrieve the intel
+    _intel setObjectTextureGlobal [0, "a3\structures_f\items\electronics\data\electronics_screens_laptop_co.paa"];
     _intel remoteExec ["removeAllActions", [teamPlayer, civilian], _intel];
     [_intel, "Intel_Large"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian], _intel];
 };

@@ -79,7 +79,7 @@ if (_exit) exitWith {};
 _pos = getMarkerPos respawnTeamPlayer;
 
 _road = [_pos] call A3A_fnc_findNearestGoodRoad;
-_roadDirection = [_road] call A3A_fnc_getRoadDirection;
+_roadDirection = _road call A3A_fnc_getRoadDirection;
 
 _bypassAI = false;
 if (_esinf) then {

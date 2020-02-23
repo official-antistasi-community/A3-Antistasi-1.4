@@ -474,6 +474,13 @@ class A3A
 		class loadServer {};
 		class playerHasSave {};
 		class savePlayer {};
+		class getStatVariable {};
+		class loadStat {};
+		class retrievePlayerStat {};
+		class returnSavedStat {};
+		class savePlayerStat {};
+		class setStatVariable {};
+		class varNameToSaveName {};
 	};
 
 	class Templates

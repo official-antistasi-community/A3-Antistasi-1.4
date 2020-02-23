@@ -481,6 +481,7 @@ class A3A
 		class savePlayerStat {};
 		class setStatVariable {};
 		class varNameToSaveName {};
+		class saveLoop {};
 	};
 
 	class Templates

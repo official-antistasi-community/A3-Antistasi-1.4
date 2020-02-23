@@ -53,7 +53,6 @@ class A3A
 		class FIAradio {};
 		class findBasesForConvoy {};
 		class findNearestGoodRoad {};
-		class getRoadDirection {};
 		class flagaction {};
 		class fogCheck {};
 		class garbageCleaner {};
@@ -499,5 +498,6 @@ class A3A
 		class generateRoadsDB {};
 		class log {};
 		class vehicleWillCollideAtPosition {};
+		class getRoadDirection {};
 	};
 };

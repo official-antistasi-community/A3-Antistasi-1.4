@@ -14,6 +14,6 @@ if (isNil "_varValue") then {
 	_varValue = [_spanishVarName] call _loadVariable;
 };
 if (isNil "_varValue") exitWith {
-	diag_log format ["%1: [Antistasi] | ERROR | saveFuncs.sqf | Variable %2 does not exist.",servertime, _varName];
+	diag_log format ["%1: [Antistasi] | ERROR | A3A_fnc_returnSavedStat | Variable %2 does not exist.",servertime, _varName];
 };
 _varValue;

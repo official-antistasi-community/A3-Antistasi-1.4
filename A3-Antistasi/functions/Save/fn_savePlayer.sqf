@@ -47,16 +47,16 @@ if !(lifeState _playerUnit == "HEALTHY" || lifeState _playerUnit == "INJURED") t
 };
 
 if (_shouldStripLoadout) then {
-	[_playerId, "loadoutPlayer", (getUnitLoadout _playerUnit) call A3A_fnc_stripGearFromLoadout] call fn_SavePlayerStat;
+	[_playerId, "loadoutPlayer", (getUnitLoadout _playerUnit) call A3A_fnc_stripGearFromLoadout] call A3A_fnc_savePlayerStat;
 } else {
-	[_playerId, "loadoutPlayer", getUnitLoadout _playerUnit] call fn_SavePlayerStat;
+	[_playerId, "loadoutPlayer", getUnitLoadout _playerUnit] call A3A_fnc_savePlayerStat;
 };
 
 if (isMultiplayer) then
 	{
-	[_playerId, "scorePlayer", _playerUnit getVariable "score"] call fn_SavePlayerStat;
-	[_playerId, "rankPlayer", rank _playerUnit] call fn_SavePlayerStat;
-	[_playerId, "personalGarage",[_playerUnit] call A3A_fnc_getPersonalGarage] call fn_SavePlayerStat;
+	[_playerId, "scorePlayer", _playerUnit getVariable "score"] call A3A_fnc_savePlayerStat;
+	[_playerId, "rankPlayer", rank _playerUnit] call A3A_fnc_savePlayerStat;
+	[_playerId, "personalGarage",[_playerUnit] call A3A_fnc_getPersonalGarage] call A3A_fnc_savePlayerStat;
 	_resourcesBackground = _playerUnit getVariable ["moneyX", 0];
 	{
 	_friendX = _x;
@@ -93,7 +93,7 @@ if (isMultiplayer) then
 			};
 		};
 	} forEach (units group _playerUnit) - [_playerUnit]; //Can't have player unit in here, as it'll get nulled out if called on disconnect.
-	[_playerId, "moneyX",_resourcesBackground] call fn_SavePlayerStat;
+	[_playerId, "moneyX",_resourcesBackground] call A3A_fnc_savePlayerStat;
 	};
 	
 savingClient = false;

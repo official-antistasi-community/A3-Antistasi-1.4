@@ -10,7 +10,7 @@ if (count _this == 0) exitWith
 	player setVariable ["score",_pointsXJ,true];
 	hint "You have donated 100 € to the cause. This will raise your status among our forces";
 	[] spawn A3A_fnc_statistics;
-	["moneyX",player getVariable ["moneyX",0]] call fn_SaveStat;
+	["moneyX",player getVariable ["moneyX",0]] call A3A_fnc_setStatVariable;
 	};
 _target = cursortarget;
 
@@ -18,7 +18,7 @@ if (!isPlayer _target) exitWith {hint "You must be looking to a player in order 
 
 [-100] call A3A_fnc_resourcesPlayer;
 _money = player getVariable "moneyX";
-["moneyX",_money] call fn_SaveStat;
+["moneyX",_money] call A3A_fnc_setStatVariable;
 _moneyX = _target getVariable "moneyX";
 _target setVariable ["moneyX",_moneyX + 100, true];
 hint format ["You have donated 100 € to %1", name _target];

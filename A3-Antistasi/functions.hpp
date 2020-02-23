@@ -53,6 +53,7 @@ class A3A
 		class FIAradio {};
 		class findBasesForConvoy {};
 		class findNearestGoodRoad {};
+		class getRoadDirection {};
 		class flagaction {};
 		class fogCheck {};
 		class garbageCleaner {};

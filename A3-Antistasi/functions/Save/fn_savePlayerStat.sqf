@@ -19,4 +19,4 @@ if (_abort) exitWith {
 	diag_log format ["[Antistiasi] Save invalid for %1, saving %3 as %2", _playerUID, _varName, _varValue];
 };
 private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
-[_playerVarName, _varValue] call A3A_fnc_loadStat;
+[_playerVarName, _varValue] call A3A_fnc_setStatVariable;

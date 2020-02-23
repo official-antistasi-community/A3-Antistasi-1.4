@@ -1,4 +1,3 @@
-// Not sure how you guys want to handle this. Generally, you don't need to add all the privates like this. Sometimes it's better to go inline -Hazey
 private ["_typeGroup","_esinf","_typeVehX","_costs","_costHR","_exit","_formatX","_pos","_hr","_resourcesFIA","_groupX","_roads","_road","_truckX","_vehicle","_mortarX","_morty"];
 
 if (player != theBoss) exitWith {hint "Only the Commander has access to this function"};
@@ -122,7 +121,6 @@ if (_esinf) then {
 	_truckX = _vehicle select 0;
 	_groupX = _vehicle select 2;
 
-    // I am going to leave this here for now, but I am confused why we are checking typeGroup == staticAATeamPlayer for a Mortar Team. -Hazey
 	if ((!activeGREF) and (_typeGroup == staticAAteamPlayer)) then {
 		_pos = position _road findEmptyPosition [10, 40, SDKMortar];
 		_morty = _groupX createUnit [staticCrewTeamPlayer, _pos, [],0, "NONE"];

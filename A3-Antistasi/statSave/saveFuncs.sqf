@@ -329,11 +329,19 @@ fn_SetStat = {
 			for "_i" from 0 to (count _varvalue) - 1 do {
 				_typeVehX = _varvalue select _i select 0;
 				_posVeh = _varvalue select _i select 1;
-				_dirVeh = _varvalue select _i select 2;
-				_veh = createVehicle [_typeVehX,[0,0,1000],[],0,"NONE"];
-				_veh setDir _dirVeh;_veh setDir _dirVeh;
-				_veh setVectorUp surfaceNormal (_posVeh);
-				_veh setPosATL _posVeh;
+				_xVectorUp = _varvalue select _i select 2;
+				_xVectorDir = _varvalue select _i select 3;
+				private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"NONE"];
+				// This is only here to handle old save states. Could be removed after a few version itterations. -Hazey
+				if ((_varvalue select _i select 2) isEqualType 0) then { // We have to check number because old save state might still be using getDir. -Hazey
+					_dirVeh = _varvalue select _i select 2;
+					_veh setDir _dirVeh;
+					_veh setVectorUp surfaceNormal (_posVeh);
+					_veh setPosATL _posVeh;
+				} else {
+					_veh setPosATL _posVeh;
+					_veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
+				};
 				if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then {
 					staticsToSave pushBack _veh;
 				};

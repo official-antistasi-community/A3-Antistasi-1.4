@@ -231,7 +231,7 @@ while {true} do
 		if (_countSave <= 0) then
 		{
 			_countSave = autoSaveInterval;
-			_nul = [] execVM "statSave\saveLoop.sqf";
+			[] remoteExecCall ["A3A_fnc_saveLoop", 0, false];
 		};
 	};
 

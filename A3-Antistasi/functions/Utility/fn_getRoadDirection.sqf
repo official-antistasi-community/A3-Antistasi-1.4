@@ -1,10 +1,8 @@
-private ["_road","_roadConnectedTo","_connectedRoad","_direction"];
+params ["_road"];
 
-_road = _this select 0;
+if (isNull _road) exitWith {private _direction = random 360; _direction};
 
-if (isNull _road) exitWith {_direction = random 360;_direction};
-
-_roadConnectedTo = roadsConnectedTo _road;
-_connectedRoad = _roadConnectedTo select 0;
-_direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
+private _roadConnectedTo = roadsConnectedTo _road;
+private _connectedRoad = _roadConnectedTo select 0;
+private _direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
 _direction;

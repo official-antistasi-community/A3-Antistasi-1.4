@@ -103,5 +103,7 @@ initialRebelEquipment append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_o
 initialRebelEquipment append ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt"];
 initialRebelEquipment append ["Binocular","acc_flashlight"];
 //TFAR Unlocks
-if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_rf7800str"]};
-if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_rt1523g_big_rhs"};
+if (isMultiplayer) then {
+	if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_rf7800str"]};
+	if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_rt1523g_big_rhs"};
+};

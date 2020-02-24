@@ -1199,5 +1199,21 @@
         <Original>LanCommi for his artwork.&lt;br/&gt;Goon and jw custom: Part of the code for the NAPALM script.&lt;br/&gt;rebel12340: Radio Jam script&lt;br/&gt;Manko: Earplug snippet&lt;br/&gt;bobchaos: Managing the community despite all difficulties.&lt;br/&gt;And all those players who spend their time on making comments, suggestions and reports on Steam, Github and BIS forums</Original>
       </Key>
     </Container>
+    <Container name="tasks">
+      <Key ID="STR_antistasi_task_title_FND_Dealer">
+        <Original>Find the Crazy Irishman</Original>
+        <English>Find the Crazy Irishman</English>
+      </Key>
+      <Key ID="STR_antistasi_task_desc_FND_Dealer">
+        <Original>Black Market dealer Devin Connell has been spotted near %1. He's scheduled for a flight to Metavira or Arulco at %2, so you better hurry up if you wish to acquire some of his fine products. From our recent meetings with him, he has agreed to meet with FIA overt soldiers only, apparently he doesnt like civilians all that much. </Original>
+        <English>Black Market dealer Devin Connell has been spotted near %1. He's scheduled for a flight to Metavira or Arulco at %2, so you better hurry up if you wish to acquire some of his fine products. From our recent meetings with him, he has agreed to meet with FIA overt soldiers only, apparently he doesnt like civilians all that much. </English>
+      </Key>
+    </Container>
+    <Container name="actions">
+      <Key ID="STR_antistasi_action_buy_exp">
+        <Original>&lt;img size='1.2' image='\A3\ui_f\data\IGUI\Cfg\Actions\talk_ca.paa' /&gt; Buy</Original>
+        <English>&lt;img size='1.2' image='\A3\ui_f\data\IGUI\Cfg\Actions\talk_ca.paa' /&gt; Buy</English>
+      </Key>
+    </Container>
   </Package>
 </Project>

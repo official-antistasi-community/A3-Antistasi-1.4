@@ -2,6 +2,8 @@
 if (!isServer and hasInterface) exitWith{};
 private ["_markerX"]; // TODO: Fill privates
 
+// TODO: Create dialog dealer_menu
+
 _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
 _difficultX = if (random 10 < tierWar) then {true} else {false};
@@ -47,7 +49,7 @@ waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) || !(alive _dealer) || (
 
 if ({((side _x isEqualTo Occupants) || (side _x isEqualTo civilian)) && (_x distance _dealer < 10)} count allPlayers > 0) then {
 	["FND",[format [_tskDesc,_nameDest,_displayTime],"Find the Crazy Irishman",_markerX],_posTsk,"SUCCEEDED"] call A3A_fnc_taskUpdate;
-	_addActionParams = [localize "STR_antistasi_action_buy_exp", {nul=CreateDialog "exp_menu";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])"];
+	_addActionParams = [localize "STR_antistasi_action_buy_dealer", {nul=CreateDialog "dealer_menu";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])"];
 	_addActionID = _dealer addAction _addActionParams; // We need the ID of the action to remove it later, we can't get this from `remoteExec`
 	([_dealer] append _addActionParams) remoteExec ["addAction", -2, true];
 	// TODO: Players undercover should not be able to buy stuff

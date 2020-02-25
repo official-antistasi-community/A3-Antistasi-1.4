@@ -11,5 +11,5 @@ params ["_intel"];
 //Take intel from desk
 private _side = _intel getVariable "side";
 deleteVehicle _intel;
-hint "Medium intel taken";
+["Intel", "Medium intel taken"] call A3A_fnc_customHint;
 ["Medium", _side] spawn A3A_fnc_selectIntel;

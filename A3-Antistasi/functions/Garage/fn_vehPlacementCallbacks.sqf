@@ -172,7 +172,7 @@ switch (_callbackTarget) do {
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
-				hint "Construction cancelled";
+				["Construction", "Construction cancelled"] call A3A_fnc_customHint;
 			};
 		
 			case CALLBACK_SHOULD_CANCEL_PLACEMENT: {

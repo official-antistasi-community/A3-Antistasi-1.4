@@ -33,7 +33,7 @@ _coolDown = _foolish getVariable ["punishment_coolDown", 0];
 if (_forgive) exitWith 
 {
 	if (_coolDown > 1) then {[_foolish] call A3A_fnc_punishment_release;};
-	["TK NOTIFICATION!\nAn admin looks with pity upon your soul.\nYou have been partially forgiven."] remoteExec ["hint", _foolish, false];	
+	["TK Notification", "An admin looks with pity upon your soul.<br/>You have been partially forgiven."] remoteExec ["A3A_fnc_customHint", _foolish, false];	
 	if (_coolDown > 1) exitWith {"Admin Forgive"};
 
 	_punishment_vars = _foolish getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
@@ -111,13 +111,13 @@ if (!_forcePunish) then
 			{
 				_exitCode = "Inside Artillery";
 				[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, ARTY, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
-				["TK NOTIFICATION!\nArty Team Damage."] remoteExec ["hint", _foolish, false];
+				["TK Notification", "Arty Team Damage."] remoteExec ["A3A_fnc_customHint", _foolish, false];
 			};
 		};
 		if (_vehicle isKindOf "Helicopter" || _vehicle isKindOf "Plane") then
 		{
 			[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, AIRCRAFT, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
-			["TK NOTIFICATION!\nCAS Team Damage."] remoteExec ["hint", _foolish, false];
+			["TK Notification", "CAS Team Damage."] remoteExec ["A3A_fnc_customHint", _foolish, false];
 			_exitCode = "Inside Aircraft";
 		};
 	};
@@ -136,21 +136,21 @@ if (!_forcePunish) then
 	if (_adminType != "Not" || isServer ) exitWith
 	{
 		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, ADMIN, %2 | %3", servertime, _adminType, _playerStats]] remoteExec ["diag_log", 2];
-		["TK NOTIFICATION!\nYou damaged a player as admin."] remoteExec ["hint", _foolish, false];
+		["TK Notification", "You damaged a player as admin."] remoteExec ["A3A_fnc_customHint", _foolish, false];
 		_exitCode = "Player is Voted or Logged Admin"; "Player is Voted or Logged Admin";
 	};
 	if (_foolish == theBoss) exitWith 
 	{
 		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, COMMANDER | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-		["TK NOTIFICATION!\nYou damaged a player as the Supreme Commander."] remoteExec ["hint", _foolish, false];
-		if (_victimListed) then {[format["%1 hurt you!",name _foolish]] remoteExec ["hint", _victim, false];};
+		["TK Notification", "You damaged a player as the Commander."] remoteExec ["A3A_fnc_customHint", _foolish, false];
+		if (_victimListed) then {["TK Notification", format["%1 hurt you!",name _foolish]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 		_exitCode = "Player is  Commander";
 	};
 	if ([_foolish] call A3A_fnc_isMember) exitWith 
 	{
 		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, MEMBER | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-		["TK NOTIFICATION!\nYou damaged a player as a trusted member."] remoteExec ["hint", _foolish, false];
-		if (_victimListed) then {[format["%1 hurt you!",name _foolish]] remoteExec ["hint", _victim, false];};
+		["TK Notification", "You damaged a player as a trusted member."] remoteExec ["A3A_fnc_customHint", _foolish, false];
+		if (_victimListed) then {["TK Notification", format["%1 hurt you!",name _foolish]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 		_exitCode = "Player is  Member";
 	};
 
@@ -166,15 +166,15 @@ if (!_forcePunish) then
 	if (_pvpNearby) exitWith 
 	{
 		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, PVP COMBAT, PVP: %2 | %3", servertime, name _pvpPerson, _playerStats]] remoteExec ["diag_log", 2];
-		["TK NOTIFICATION!\nYou damaged a player around the PVP players."] remoteExec ["hint", _foolish, false];
+		["TK Notification", "You damaged a player around the PVP players."] remoteExec ["A3A_fnc_customHint", _foolish, false];
 		_exitCode = "Victim is nearby PVP players";
 	};
 };
 if (_exitCode != "") exitWith {_exitCode;};
 
 [format ["%1: [Antistasi] | INFO | PUNISHMENT | WARNING | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-["TK WARNING!\nWatch your fire!"] remoteExec ["hint", _foolish, false]; 
-if (_victimListed) then {[format["%1 hurt you!",name _foolish]] remoteExec ["hint", _victim, false];}; 
+["TK Warning", "Watch your fire!"] remoteExec ["A3A_fnc_customHint", _foolish, false]; 
+if (_victimListed) then {["TK Notification", format["%1 hurt you!",name _foolish]] remoteExec ["A3A_fnc_customHint", _victim, false];}; 
 
 _punishment_vars set [0,_timeTotal];
 _punishment_vars set [1,_offenceTotal];

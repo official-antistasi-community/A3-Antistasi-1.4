@@ -66,7 +66,7 @@ _caller setVariable ["cancelIntelSearch", nil];
 
 if(_wasCancelled) exitWith
 {
-    hint "Search cancelled";
+    ["Search Intel", "Search cancelled"] call A3A_fnc_customHint;
     _caller setVariable ["intelFound", nil];
 };
 
@@ -75,12 +75,12 @@ if(_caller getVariable ["intelFound", false]) then
     private _hasIntel = _squadLeader getVariable ["hasIntel", false];
     if(_hasIntel) then
     {
-        hint "Search completed, intel found!";
+        ["Search Intel", "Search completed, intel found!"] call A3A_fnc_customHint;
         ["Small", _side] spawn A3A_fnc_selectIntel;
     }
     else
     {
-        hint "Search completed, but you found nothing!";
+        ["Search Intel", "Search completed, but you found nothing!"] call A3A_fnc_customHint;
     };
 }
 else

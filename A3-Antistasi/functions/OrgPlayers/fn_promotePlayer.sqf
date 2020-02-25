@@ -34,6 +34,6 @@ _promoted = false;
 
 if (_promoted) then
 {
-	_textX = format ["%1\n\nCONGRATULATIONS!!",_textX];
-	[petros,"hint",_textX] remoteExec ["A3A_fnc_commsMP"];
+	_textX = format ["%1<br/><br/>CONGRATULATIONS!!",_textX];
+	[petros,"hint",_textX, "Promotion"] remoteExec ["A3A_fnc_commsMP"];
 };

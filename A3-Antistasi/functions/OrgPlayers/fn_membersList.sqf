@@ -1,4 +1,4 @@
-if !(membershipEnabled) exitWith {hint "Server Member feature is disabled"};
+if !(membershipEnabled) exitWith {["Membership", "Server Member feature is disabled"] call A3A_fnc_customHint;};
 private ["_countX"];
 _textX = "In Game Members\n\n";
 _countN = 0;
@@ -12,6 +12,6 @@ if (!isNull _playerX) then
 	};
 } forEach (call A3A_fnc_playableUnits);
 
-_textX = format ["%1\nNo members:\n%2",_textX,_countN];
+_textX = format ["%1<br/>No members:<br/>%2",_textX,_countN];
 
-hint format ["%1",_textX];
+["Membership", format ["%1",_textX]] call A3A_fnc_customHint;

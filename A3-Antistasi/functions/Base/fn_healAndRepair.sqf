@@ -4,7 +4,7 @@ private _time = if (isMultiplayer) then {serverTime} else {time};
 
 if ((_time - (boxX getVariable ["lastUsed", -30])) < 30) exitWith {
 	if (hasInterface) then {
-		hint "The repair box has been used in the last 30 seconds! Please wait for a bit.";
+		["Heal And Repair", "The repair box has been used in the last 30 seconds! Please wait for a bit."] call A3A_fnc_customHint;
 	};
 };
 
@@ -40,4 +40,4 @@ boxX setVariable ["lastUsed", _time, true];
 	};
 } forEach vehicles;
 
-hint "Nearby units have been healed and can go undercover. Nearby vehicles have been repaired, rearmed and are no longer reported."
+["Heal And Repair", "Nearby units have been healed, refreshed, and can go undercover again.<br/><br/> Nearby vehicles have been repaired, rearmed, and are no longer reported."] call A3A_fnc_customHint;

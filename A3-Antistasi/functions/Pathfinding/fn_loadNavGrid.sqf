@@ -67,5 +67,5 @@
   };
 
   _deltaTime = time - _deltaTime;
-  hint format ["Nav grid load and prepared in %1 seconds", _deltaTime];
+  ["Nav Grid", format ["Nav grid load and prepared in %1 seconds", _deltaTime]] call A3A_fnc_customHint;
 };

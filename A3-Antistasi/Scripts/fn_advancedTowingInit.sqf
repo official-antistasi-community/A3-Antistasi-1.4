@@ -721,6 +721,7 @@ SA_Hint = {
 		};
     } else {
         hint _msg;
+		["Advanced Towing", _msg] call A3A_fnc_customHint;
     };
 };
 

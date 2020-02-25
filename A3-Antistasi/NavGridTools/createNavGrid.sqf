@@ -13,7 +13,7 @@ if(isNil "_showText") then
 
 [_showText] spawn
 {
-  hint "Starting setup, please stand by!";
+  ["Nav Grid", "Starting setup, please stand by!"] call A3A_fnc_customHint;
 
   findConnection = compile preprocessFileLineNumbers "NavGridTools\findRoadConnections.sqf";
   publicVariable "findConnection";
@@ -100,7 +100,7 @@ not every junction is suitable, the script will tell you, if that case happens.<
     _abort = true;
   };
   if(_abort) exitWith {};
-  hint format ["Found %1 marker as start points!", count _roadMarker];
+  ["Nav Grid", format ["Found %1 marker as start points!", count _roadMarker]] call A3A_fnc_customHint;
 
   openSearchSegments = [];
   _notOnAJunction = [];
@@ -149,7 +149,7 @@ not every junction is suitable, the script will tell you, if that case happens.<
   };
   if(_abort) exitWith {};
 
-  hint "Setup completed, starting script now!";
+  ["Nav Grid", "Setup completed, starting script now!"] call A3A_fnc_customHint;
   sleep 2;
   openMap true;
 
@@ -291,7 +291,7 @@ not every junction is suitable, the script will tell you, if that case happens.<
         private _result = [_lastSegment, _currentSegment] call createJunction;
         if(_result isEqualTo []) exitWith
         {
-          hint "Something went wrong, result is empty, please tell Wurzel that case happened!";
+          ["Nav Grid", "Something went wrong, result is empty, please tell Wurzel that case happened!"] call A3A_fnc_customHint;
           sleep 15;
         };
 
@@ -300,7 +300,7 @@ not every junction is suitable, the script will tell you, if that case happens.<
         _linkPoints = _result select LINK_POINTS;
         _debug = time - _debug;
 
-        hintSilent format ["Junction data\nExits: %1\nLinks: %2\nTime: %3", count _exitPoints, count _linkPoints, _debug];
+        ["Nav Grid", format ["Junction data<br/>Exits: %1<br/>Links: %2<br/>Time: %3", count _exitPoints, count _linkPoints, _debug], true] call A3A_fnc_customHint;
         //sleep 1;
 
 
@@ -392,11 +392,11 @@ not every junction is suitable, the script will tell you, if that case happens.<
           _currentSegment = objNull;
         };
       };
-      hintSilent format ["Open segments: %1\n Inner Loop: %2\n Outer Loop: %3\n", str (count openSearchSegments), _innerLoop, _outerLoop];
+      ["Nav Grid", format ["Open segments: %1<br/> Inner Loop: %2<br/> Outer Loop: %3<br/>", str (count openSearchSegments), _innerLoop, _outerLoop], true] call A3A_fnc_customHint;
       //sleep 0.1;
     };
   };
-  hint "Roads finished, writing data array now and deleting marker!";
+  ["Nav Grid", "Roads finished, writing data array now and deleting marker!"] call A3A_fnc_customHint;
   {
       deleteMarker _x;
   } forEach allMarker;
@@ -432,7 +432,7 @@ not every junction is suitable, the script will tell you, if that case happens.<
           _conNav = missionNamespace getVariable _x;
           if(!(_conNav isEqualType [])) then
           {
-            hint (str _conNav);
+            ["Nav Grid", (str _conNav)] call A3A_fnc_customHint;
             sleep 10;
           }
           else
@@ -460,7 +460,7 @@ not every junction is suitable, the script will tell you, if that case happens.<
     };
   } forEach navPointNames;
 
-  hint "Data prepared, setting up finished nav grid";
+  ["Nav Grid", "Data prepared, setting up finished nav grid"] call A3A_fnc_customHint;
 
   {
       _data = _x;

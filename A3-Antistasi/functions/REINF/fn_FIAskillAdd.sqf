@@ -8,7 +8,7 @@ if (_resourcesFIA < _costs) exitWith {["Skill Add", format ["You do not have eno
 
 _resourcesFIA = _resourcesFIA - _costs;
 skillFIA = skillFIA + 1;
-["Skill Add", format ["%2 Skill Level has been Upgraded\nCurrent level is %1",skillFIA,nameTeamPlayer]] call A3A_fnc_customHint;
+["Skill Add", format ["%2 Skill Level has been Upgraded<br/>Current level is %1",skillFIA,nameTeamPlayer]] call A3A_fnc_customHint;
 publicVariable "skillFIA";
 server setVariable ["resourcesFIA",_resourcesFIA,true];
 [] spawn A3A_fnc_statistics;

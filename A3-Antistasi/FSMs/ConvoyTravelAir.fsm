@@ -2,19 +2,19 @@
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,-298.857239,-326.554596,-208.857346,-276.554596,0.000000,"Start"};
-item1[] = {"End_and_Cleanup",1,250,-520.181091,90.358856,-430.181274,140.358841,0.000000,"End and" \n "Cleanup"};
+item1[] = {"End_and_Cleanup",1,250,-520.181091,90.358856,-430.181274,140.358841,0.000000,"End and" <br/> "Cleanup"};
 item2[] = {"HasArrived",4,218,-291.937164,-33.624756,-201.937164,16.375183,10.000000,"HasArrived"};
 item3[] = {"Abort",4,218,-153.526245,-30.271576,-63.526245,19.728432,100.000000,"Abort"};
-item4[] = {"Head_to__Target",2,250,-207.354156,-154.398788,-117.354134,-104.398773,0.000000,"Head to " \n "Target"};
-item5[] = {"Veh_Incapacitate",4,218,-436.459442,-36.922272,-346.459381,13.077728,20.000000,"Veh" \n "Incapacitated"};
-item6[] = {"Land_and_Unload",2,250,-290.550201,82.651550,-200.550171,132.651550,0.000000,"Land and" \n "Unload"};
+item4[] = {"Head_to__Target",2,250,-207.354156,-154.398788,-117.354134,-104.398773,0.000000,"Head to " <br/> "Target"};
+item5[] = {"Veh_Incapacitate",4,218,-436.459442,-36.922272,-346.459381,13.077728,20.000000,"Veh" <br/> "Incapacitated"};
+item6[] = {"Land_and_Unload",2,250,-290.550201,82.651550,-200.550171,132.651550,0.000000,"Land and" <br/> "Unload"};
 item7[] = {"Hard_Abort",4,218,-155.373779,-324.019623,-65.373779,-274.019623,100.000000,"Hard Abort"};
 item8[] = {"End_and_Abort",1,250,-38.607544,-190.627563,51.392487,-140.627609,0.000000,"End and Abort"};
 item9[] = {"HasUnloaded",4,218,-287.743927,178.504852,-197.743927,228.504852,0.000000,"HasUnloaded"};
-item10[] = {"Return__to_Base",1,4346,-286.589111,265.751678,-196.589081,315.751648,0.000000,"Return " \n "to Base"};
-item11[] = {"Follow_position",2,250,-380.936310,-148.474747,-290.936279,-98.474747,0.000000,"Follow" \n "position"};
-item12[] = {"Nothing_to_follo",4,218,-259.165253,-237.241608,-169.165253,-187.241623,5.000000,"Nothing to" \n "follow"};
-item13[] = {"Timed_position_u",4,218,-526.917358,-147.361725,-436.917297,-97.361679,1.000000,"Timed position" \n "update"};
+item10[] = {"Return__to_Base",1,4346,-286.589111,265.751678,-196.589081,315.751648,0.000000,"Return " <br/> "to Base"};
+item11[] = {"Follow_position",2,250,-380.936310,-148.474747,-290.936279,-98.474747,0.000000,"Follow" <br/> "position"};
+item12[] = {"Nothing_to_follo",4,218,-259.165253,-237.241608,-169.165253,-187.241623,5.000000,"Nothing to" <br/> "follow"};
+item13[] = {"Timed_position_u",4,218,-526.917358,-147.361725,-436.917297,-97.361679,1.000000,"Timed position" <br/> "update"};
 item14[] = {"True",8,218,-404.879303,-242.822372,-314.879303,-192.822388,0.000000,"True"};
 link0[] = {0,7};
 link1[] = {0,12};
@@ -51,25 +51,25 @@ class FSM
                 {
                         name = "Start";
                         itemno = 0;
-                        init = /*%FSM<STATEINIT""">*/"// _offset is this vehicle's target offset from followpos" \n
-                         "// _markers is [origin, destination]" \n
-                         "params [""_vehicle"", ""_offset"", ""_markers"", ""_convoyType""];" \n
-                         "" \n
-                         "private _state = ""START"";" \n
-                         "private _abort = false;" \n
-                         "" \n
-                         "// log some broken input errors" \n
-                         "if (isNull _vehicle) exitWith { _abort = true; [1, ""Null vehicle input"", ""ConvoyTravelAir""] call A3A_fnc_log };" \n
-                         "if (driver _vehicle == objNull) exitWith { _abort = true; [1, ""No driver in vehicle"", ""ConvoyTravelAir""] call A3A_fnc_log };" \n
-                         "" \n
-                         "//private _cargoGroup = getVariable [""cargoGroup"", grpNull];" \n
-                         "private _cargo = assignedCargo _vehicle;" \n
-                         "private _cargoGroup = if (_cargo isEqualTo []) then { grpNull } else { group (_cargo # 0) };" \n
-                         "private _crewGroup = group driver _vehicle;" \n
-                         "" \n
-                         "private _destPos = getMarkerPos (_markers # 1);" \n
-                         "private _originPos = getMarkerPos (_markers # 0);" \n
-                         "" \n
+                        init = /*%FSM<STATEINIT""">*/"// _offset is this vehicle's target offset from followpos" <br/>
+                         "// _markers is [origin, destination]" <br/>
+                         "params [""_vehicle"", ""_offset"", ""_markers"", ""_convoyType""];" <br/>
+                         "" <br/>
+                         "private _state = ""START"";" <br/>
+                         "private _abort = false;" <br/>
+                         "" <br/>
+                         "// log some broken input errors" <br/>
+                         "if (isNull _vehicle) exitWith { _abort = true; [1, ""Null vehicle input"", ""ConvoyTravelAir""] call A3A_fnc_log };" <br/>
+                         "if (driver _vehicle == objNull) exitWith { _abort = true; [1, ""No driver in vehicle"", ""ConvoyTravelAir""] call A3A_fnc_log };" <br/>
+                         "" <br/>
+                         "//private _cargoGroup = getVariable [""cargoGroup"", grpNull];" <br/>
+                         "private _cargo = assignedCargo _vehicle;" <br/>
+                         "private _cargoGroup = if (_cargo isEqualTo []) then { grpNull } else { group (_cargo # 0) };" <br/>
+                         "private _crewGroup = group driver _vehicle;" <br/>
+                         "" <br/>
+                         "private _destPos = getMarkerPos (_markers # 1);" <br/>
+                         "private _originPos = getMarkerPos (_markers # 0);" <br/>
+                         "" <br/>
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -115,24 +115,24 @@ class FSM
                 {
                         name = "End_and_Cleanup";
                         itemno = 1;
-                        init = /*%FSM<STATEINIT""">*/"_state = ""END"";" \n
-                         "" \n
-                         "if !(isNull _vehicle) then { _vehicle setVariable[""fsmresult"", -1] };" \n
-                         "" \n
-                         "if !(isNil ""_landPad"") then { deleteVehicle _landPad };" \n
-                         "" \n
-                         "// Might be soft-landed somewhere, so clean up" \n
-                         "{ unassignVehicle _x } forEach (crew _vehicle);" \n
-                         "if (_cargoGroup != grpNull) then {" \n
-                         "	(units _cargoGroup) joinSilent _crewGroup;" \n
-                         "	deleteGroup _cargoGroup;" \n
-                         "};" \n
-                         "[_crewGroup] spawn A3A_fnc_groupDespawner;" \n
-                         "" \n
-                         "// Send back to base" \n
-                         "private _wp3 = _crewGroup addWaypoint [_originPos, 100];" \n
-                         "_wp3 setWaypointType ""MOVE"";" \n
-                         "_wp3 setWaypointBehaviour ""SAFE"";" \n
+                        init = /*%FSM<STATEINIT""">*/"_state = ""END"";" <br/>
+                         "" <br/>
+                         "if !(isNull _vehicle) then { _vehicle setVariable[""fsmresult"", -1] };" <br/>
+                         "" <br/>
+                         "if !(isNil ""_landPad"") then { deleteVehicle _landPad };" <br/>
+                         "" <br/>
+                         "// Might be soft-landed somewhere, so clean up" <br/>
+                         "{ unassignVehicle _x } forEach (crew _vehicle);" <br/>
+                         "if (_cargoGroup != grpNull) then {" <br/>
+                         "	(units _cargoGroup) joinSilent _crewGroup;" <br/>
+                         "	deleteGroup _cargoGroup;" <br/>
+                         "};" <br/>
+                         "[_crewGroup] spawn A3A_fnc_groupDespawner;" <br/>
+                         "" <br/>
+                         "// Send back to base" <br/>
+                         "private _wp3 = _crewGroup addWaypoint [_originPos, 100];" <br/>
+                         "_wp3 setWaypointType ""MOVE"";" <br/>
+                         "_wp3 setWaypointBehaviour ""SAFE"";" <br/>
                          "_crewGroup setCurrentWaypoint _wp3;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -145,11 +145,11 @@ class FSM
                 {
                         name = "Head_to__Target";
                         itemno = 4;
-                        init = /*%FSM<STATEINIT""">*/"_state = ""FLYTO"";" \n
-                         "" \n
-                         "private _wp0 = _crewGroup addWaypoint [_destPos vectorAdd [0,0,50], 100];" \n
-                         "_wp0 setWaypointType ""MOVE"";" \n
-                         "_crewGroup setCurrentWaypoint _wp0;" \n
+                        init = /*%FSM<STATEINIT""">*/"_state = ""FLYTO"";" <br/>
+                         "" <br/>
+                         "private _wp0 = _crewGroup addWaypoint [_destPos vectorAdd [0,0,50], 100];" <br/>
+                         "_wp0 setWaypointType ""MOVE"";" <br/>
+                         "_crewGroup setCurrentWaypoint _wp0;" <br/>
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -195,30 +195,30 @@ class FSM
                 {
                         name = "Land_and_Unload";
                         itemno = 6;
-                        init = /*%FSM<STATEINIT""">*/"_state = ""LAND"";" \n
-                         "" \n
-                         "// trying this because of weird behaviour" \n
-                         "//while {count (waypoints _crewGroup) > 0} do {" \n
-                         "//	deleteWaypoint ((waypoints _crewGroup) select 0);" \n
-                         "//};" \n
-                         "" \n
-                         "private _landPos = [_destPos, 0, 300, 10, 0, 0.20, 0,[],[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;" \n
-                         "_landPos set [2, 0];" \n
-                         "private _landPad = createVehicle [""Land_HelipadEmpty_F"", _landpos, [], 0, ""NONE""];	// cancollide?" \n
-                         "" \n
-                         "private _wp1 = _crewGroup addWaypoint [_landpos, 0];" \n
-                         "_wp1 setWaypointType ""TR UNLOAD"";" \n
-                         "_wp1 setWaypointStatements [""true"", ""(vehicle this) land 'GET OUT';""];" \n
-                         "_wp1 setWaypointBehaviour ""CARELESS"";" \n
-                         "_crewGroup setCurrentWaypoint _wp1;		// otherwise it's still on the previous waypoint" \n
-                         "" \n
-                         "// Move cargo group towards centre of outpost" \n
-                         "if (_cargoGroup != grpNull) then {" \n
-                         "	{ unassignVehicle _x } forEach units _cargoGroup;" \n
-                         "	private _wp2 = _cargoGroup addWaypoint [_destPos, 10];" \n
-                         "	_wp2 setWaypointType ""MOVE"";" \n
-                         "	_wp2 setWaypointStatements [""true"", ""(group this) spawn A3A_fnc_attackDrillAI;""];" \n
-                         "	_cargoGroup setCurrentWaypoint _wp2;" \n
+                        init = /*%FSM<STATEINIT""">*/"_state = ""LAND"";" <br/>
+                         "" <br/>
+                         "// trying this because of weird behaviour" <br/>
+                         "//while {count (waypoints _crewGroup) > 0} do {" <br/>
+                         "//	deleteWaypoint ((waypoints _crewGroup) select 0);" <br/>
+                         "//};" <br/>
+                         "" <br/>
+                         "private _landPos = [_destPos, 0, 300, 10, 0, 0.20, 0,[],[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;" <br/>
+                         "_landPos set [2, 0];" <br/>
+                         "private _landPad = createVehicle [""Land_HelipadEmpty_F"", _landpos, [], 0, ""NONE""];	// cancollide?" <br/>
+                         "" <br/>
+                         "private _wp1 = _crewGroup addWaypoint [_landpos, 0];" <br/>
+                         "_wp1 setWaypointType ""TR UNLOAD"";" <br/>
+                         "_wp1 setWaypointStatements [""true"", ""(vehicle this) land 'GET OUT';""];" <br/>
+                         "_wp1 setWaypointBehaviour ""CARELESS"";" <br/>
+                         "_crewGroup setCurrentWaypoint _wp1;		// otherwise it's still on the previous waypoint" <br/>
+                         "" <br/>
+                         "// Move cargo group towards centre of outpost" <br/>
+                         "if (_cargoGroup != grpNull) then {" <br/>
+                         "	{ unassignVehicle _x } forEach units _cargoGroup;" <br/>
+                         "	private _wp2 = _cargoGroup addWaypoint [_destPos, 10];" <br/>
+                         "	_wp2 setWaypointType ""MOVE"";" <br/>
+                         "	_wp2 setWaypointStatements [""true"", ""(group this) spawn A3A_fnc_attackDrillAI;""];" <br/>
+                         "	_cargoGroup setCurrentWaypoint _wp2;" <br/>
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -252,7 +252,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Return__to_Base";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"{ vehicle _x != _x } count units _cargoGroup == 0;" \n
+                                        condition=/*%FSM<CONDITION""">*/"{ vehicle _x != _x } count units _cargoGroup == 0;" <br/>
                                          ""/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"[3, ""Helicopter has unloaded cargo"", ""ConvoyTravelAir""] call A3A_fnc_log;"/*%FSM</ACTION""">*/;
                                 };
@@ -265,12 +265,12 @@ class FSM
                 {
                         name = "End_and_Abort";
                         itemno = 8;
-                        init = /*%FSM<STATEINIT""">*/"_state = ""END"";" \n
-                         "" \n
-                         "if !(isNull _vehicle) then { _vehicle setVariable[""fsmresult"", -2] };" \n
-                         "" \n
-                         "if !(isNil ""_landPad"") then { deleteVehicle _landPad };" \n
-                         "" \n
+                        init = /*%FSM<STATEINIT""">*/"_state = ""END"";" <br/>
+                         "" <br/>
+                         "if !(isNull _vehicle) then { _vehicle setVariable[""fsmresult"", -2] };" <br/>
+                         "" <br/>
+                         "if !(isNil ""_landPad"") then { deleteVehicle _landPad };" <br/>
+                         "" <br/>
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -283,43 +283,43 @@ class FSM
                 {
                         name = "Return__to_Base";
                         itemno = 10;
-                        init = /*%FSM<STATEINIT""">*/"_state = ""END"";" \n
-                         "" \n
-                         "if !(isNull _vehicle) then { _vehicle setVariable[""fsmresult"", 1] };" \n
-                         "" \n
-                         "if !(isNil ""_landPad"") then { deleteVehicle _landPad };" \n
-                         "" \n
-                         "// Transport vehicle returns home" \n
-                         "_crewGroup deleteGroupWhenEmpty true;" \n
-                         "private _wp3 = _crewGroup addWaypoint [_originPos vectorAdd [0,0,50], 100];" \n
-                         "_wp3 setWaypointType ""MOVE"";" \n
-                         "_wp3 setWaypointStatements [""true"", ""[3, """"heli return completed"""", """"ConvoyTravelAir""""] call A3A_fnc_log; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList""];" \n
-                         "_wp3 setWaypointBehaviour ""SAFE"";" \n
-                         "" \n
-                         "//_wp3 setWaypointCompletionRadius 200;			// bugged, often causes waypoint non-termination" \n
-                         "//_crewGroup setCurrentWaypoint _wp3;			// bugged, prevents takeoff" \n
-                         "" \n
-                         "if (_cargoGroup == grpNull) exitWith {};" \n
-                         "" \n
-                         "if (_convoyType isEqualTo ""reinforce"") then {" \n
-                         "" \n
-                         "	// add units to garrison immediately, otherwise it'll keep sending them" \n
-                         "	private _unitTypes = [];" \n
-                         "	{ _unitTypes pushBack (typeOf _x) } foreach units _cargoGroup;" \n
-                         "	[_markers # 1, [["""", [], _unitTypes]]] call A3A_fnc_addGarrison;" \n
-                         "" \n
-                         "	// synchronize despawning with the target marker" \n
-                         "	// remove this once addGarrison takes control of the units" \n
-                         "	[_cargoGroup, _markers # 1] spawn {" \n
-                         "		params[""_cargo"", ""_marker""];" \n
-                         "		[3, ""Entering garrison reinf despawn loop"", ""ConvoyTravelAir""] call A3A_fnc_log;" \n
-                         "		waitUntil {sleep 5; (spawner getVariable _marker == 2)};" \n
-                         "		{ deleteVehicle _x } forEach units _cargo;" \n
-                         "		deleteGroup _cargo;" \n
-                         "	};" \n
-                         "}" \n
-                         "else { [_cargoGroup] spawn A3A_fnc_groupDespawner; };" \n
-                         "" \n
+                        init = /*%FSM<STATEINIT""">*/"_state = ""END"";" <br/>
+                         "" <br/>
+                         "if !(isNull _vehicle) then { _vehicle setVariable[""fsmresult"", 1] };" <br/>
+                         "" <br/>
+                         "if !(isNil ""_landPad"") then { deleteVehicle _landPad };" <br/>
+                         "" <br/>
+                         "// Transport vehicle returns home" <br/>
+                         "_crewGroup deleteGroupWhenEmpty true;" <br/>
+                         "private _wp3 = _crewGroup addWaypoint [_originPos vectorAdd [0,0,50], 100];" <br/>
+                         "_wp3 setWaypointType ""MOVE"";" <br/>
+                         "_wp3 setWaypointStatements [""true"", ""[3, """"heli return completed"""", """"ConvoyTravelAir""""] call A3A_fnc_log; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList""];" <br/>
+                         "_wp3 setWaypointBehaviour ""SAFE"";" <br/>
+                         "" <br/>
+                         "//_wp3 setWaypointCompletionRadius 200;			// bugged, often causes waypoint non-termination" <br/>
+                         "//_crewGroup setCurrentWaypoint _wp3;			// bugged, prevents takeoff" <br/>
+                         "" <br/>
+                         "if (_cargoGroup == grpNull) exitWith {};" <br/>
+                         "" <br/>
+                         "if (_convoyType isEqualTo ""reinforce"") then {" <br/>
+                         "" <br/>
+                         "	// add units to garrison immediately, otherwise it'll keep sending them" <br/>
+                         "	private _unitTypes = [];" <br/>
+                         "	{ _unitTypes pushBack (typeOf _x) } foreach units _cargoGroup;" <br/>
+                         "	[_markers # 1, [["""", [], _unitTypes]]] call A3A_fnc_addGarrison;" <br/>
+                         "" <br/>
+                         "	// synchronize despawning with the target marker" <br/>
+                         "	// remove this once addGarrison takes control of the units" <br/>
+                         "	[_cargoGroup, _markers # 1] spawn {" <br/>
+                         "		params[""_cargo"", ""_marker""];" <br/>
+                         "		[3, ""Entering garrison reinf despawn loop"", ""ConvoyTravelAir""] call A3A_fnc_log;" <br/>
+                         "		waitUntil {sleep 5; (spawner getVariable _marker == 2)};" <br/>
+                         "		{ deleteVehicle _x } forEach units _cargo;" <br/>
+                         "		deleteGroup _cargo;" <br/>
+                         "	};" <br/>
+                         "}" <br/>
+                         "else { [_cargoGroup] spawn A3A_fnc_groupDespawner; };" <br/>
+                         "" <br/>
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -332,10 +332,10 @@ class FSM
                 {
                         name = "Follow_position";
                         itemno = 11;
-                        init = /*%FSM<STATEINIT""">*/"private _followPos = _vehicle getVariable ""followpos"";" \n
-                         "" \n
-                         "_vehicle move (_followPos vectorAdd _offset);" \n
-                         "" \n
+                        init = /*%FSM<STATEINIT""">*/"private _followPos = _vehicle getVariable ""followpos"";" <br/>
+                         "" <br/>
+                         "_vehicle move (_followPos vectorAdd _offset);" <br/>
+                         "" <br/>
                          "private _timeout = time + 2;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

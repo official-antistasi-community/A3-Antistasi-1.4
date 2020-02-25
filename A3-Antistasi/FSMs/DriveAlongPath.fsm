@@ -6,11 +6,11 @@ item1[] = {"_",-1,250,-162.790146,-180.814117,-73.255249,-177.907150,0.000000,""
 item2[] = {"End_and_Rejoin",1,250,121.673431,-203.263062,211.673462,-153.263077,0.000000,"End and Rejoin"};
 item3[] = {"HasArrived",4,218,-87.535736,-114.861282,2.464264,-64.861282,10.000000,"HasArrived"};
 item4[] = {"Abort",4,218,-87.177856,-219.679779,2.822144,-169.679764,100.000000,"Abort"};
-item5[] = {"Head_to__Next_Po",2,250,-256.894318,-166.599014,-166.894302,-116.599007,0.000000,"Head to " \n "Next Pos"};
+item5[] = {"Head_to__Next_Po",2,250,-256.894318,-166.599014,-166.894302,-116.599007,0.000000,"Head to " <br/> "Next Pos"};
 item6[] = {"True",8,218,-257.487732,-253.817780,-167.487717,-203.817780,0.000000,"True"};
 item7[] = {"At_Next_Pos",4,218,-256.300751,-66.920471,-166.300781,-16.920471,5.000000,"At Next Pos"};
-item8[] = {"Fucked_Waypoint",4,218,-398.105469,-164.819061,-308.105469,-114.819061,0.000000,"Fucked" \n "Waypoint"};
-item9[] = {"Veh_or_Crew_Dead",4,218,-87.208313,-167.915009,2.791687,-117.915009,20.000000,"Veh or Crew" \n "Dead"};
+item8[] = {"Fucked_Waypoint",4,218,-398.105469,-164.819061,-308.105469,-114.819061,0.000000,"Fucked" <br/> "Waypoint"};
+item9[] = {"Veh_or_Crew_Dead",4,218,-87.208313,-167.915009,2.791687,-117.915009,20.000000,"Veh or Crew" <br/> "Dead"};
 item10[] = {"Abort",1,250,116.100433,-342.075500,206.100464,-292.075500,0.000000,"Abort"};
 item11[] = {"Hard_Abort_",4,218,-86.479492,-341.346832,3.520508,-291.346832,100.000000,"Hard Abort?"};
 version=1;
@@ -53,25 +53,25 @@ class FSM
                 {
                         name = "Start";
                         itemno = 0;
-                        init = /*%FSM<STATEINIT""">*/"params [""_vehicle"", ""_route""];" \n
-                         "" \n
-                         "private _hardAbort = false;" \n
-                         "private _state = ""START"";" \n
-                         "" \n
-                         "if (isNull _vehicle || count _route == 0) exitWith {};" \n
-                         "" \n
-                         "private _destination = _route select (count _route - 1);" \n
-                         "private _accuracy = 20;" \n
-                         "" \n
-                         "private _splitCrew = [_vehicle] call A3A_fnc_splitVehicleCrewIntoOwnGroups;" \n
-                         "if (_splitCrew select 0 isEqualTo []) exitWith {" \n
-                         "	_hardAbort = true;" \n
-                         "};" \n
-                         "" \n
-                         "//Make sure our driver doesn't give a shit about the whole 'being shot' thing" \n
-                         "(group driver _vehicle) setBehaviour ""CARELESS"";" \n
-                         "(group driver _vehicle) setCombatMode ""BLUE"";" \n
-                         "" \n
+                        init = /*%FSM<STATEINIT""">*/"params [""_vehicle"", ""_route""];" <br/>
+                         "" <br/>
+                         "private _hardAbort = false;" <br/>
+                         "private _state = ""START"";" <br/>
+                         "" <br/>
+                         "if (isNull _vehicle || count _route == 0) exitWith {};" <br/>
+                         "" <br/>
+                         "private _destination = _route select (count _route - 1);" <br/>
+                         "private _accuracy = 20;" <br/>
+                         "" <br/>
+                         "private _splitCrew = [_vehicle] call A3A_fnc_splitVehicleCrewIntoOwnGroups;" <br/>
+                         "if (_splitCrew select 0 isEqualTo []) exitWith {" <br/>
+                         "	_hardAbort = true;" <br/>
+                         "};" <br/>
+                         "" <br/>
+                         "//Make sure our driver doesn't give a shit about the whole 'being shot' thing" <br/>
+                         "(group driver _vehicle) setBehaviour ""CARELESS"";" <br/>
+                         "(group driver _vehicle) setCombatMode ""BLUE"";" <br/>
+                         "" <br/>
                          "private _currentNode = 0;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -106,9 +106,9 @@ class FSM
                 {
                         name = "End_and_Rejoin";
                         itemno = 2;
-                        init = /*%FSM<STATEINIT""">*/"_state = ""END"";" \n
-                         "" \n
-                         "//Fresh group, to wipe out any lingering orders." \n
+                        init = /*%FSM<STATEINIT""">*/"_state = ""END"";" <br/>
+                         "" <br/>
+                         "//Fresh group, to wipe out any lingering orders." <br/>
                          "_splitCrew call A3A_fnc_joinMultipleGroups;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -121,23 +121,23 @@ class FSM
                 {
                         name = "Head_to__Next_Po";
                         itemno = 5;
-                        init = /*%FSM<STATEINIT""">*/"_state = ""FOLLOW"";" \n
-                         "" \n
-                         "private _nextPos = _route # _currentNode;" \n
-                         "" \n
-                         "//Move all of the groups, as we don't know who is in command." \n
-                         "{" \n
-                         "	//while {count waypoints _x > 0} do {" \n
-                         "	//	deleteWaypoint (waypoints _x select 0);" \n
-                         "	//};" \n
-                         "" \n
-                         "	//_x addWaypoint [getPosASL _vehicle, -1];" \n
-                         "	private _nextWaypoint = _x addWaypoint [AGLToASL _nextPos, -1];" \n
-                         "" \n
-                         "" \n
-                         "	_x setCurrentWaypoint _nextWaypoint;" \n
-                         "" \n
-                         "	//_x move _nextPos;" \n
+                        init = /*%FSM<STATEINIT""">*/"_state = ""FOLLOW"";" <br/>
+                         "" <br/>
+                         "private _nextPos = _route # _currentNode;" <br/>
+                         "" <br/>
+                         "//Move all of the groups, as we don't know who is in command." <br/>
+                         "{" <br/>
+                         "	//while {count waypoints _x > 0} do {" <br/>
+                         "	//	deleteWaypoint (waypoints _x select 0);" <br/>
+                         "	//};" <br/>
+                         "" <br/>
+                         "	//_x addWaypoint [getPosASL _vehicle, -1];" <br/>
+                         "	private _nextWaypoint = _x addWaypoint [AGLToASL _nextPos, -1];" <br/>
+                         "" <br/>
+                         "" <br/>
+                         "	_x setCurrentWaypoint _nextWaypoint;" <br/>
+                         "" <br/>
+                         "	//_x move _nextPos;" <br/>
                          "} forEach (_splitCrew # 0);"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -183,10 +183,10 @@ class FSM
                                         to="Head_to__Next_Po";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"_vehicle distance _nextPos < _accuracy;"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (_currentNode < count _route) then {" \n
-                                         "	_currentNode =	_currentNode + 1;" \n
-                                         "};" \n
-                                         "" \n
+                                        action=/*%FSM<ACTION""">*/"if (_currentNode < count _route) then {" <br/>
+                                         "	_currentNode =	_currentNode + 1;" <br/>
+                                         "};" <br/>
+                                         "" <br/>
                                          ""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -197,14 +197,14 @@ class FSM
                                         priority = 0.000000;
                                         to="Head_to__Next_Po";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"private _result = false;" \n
-                                         "" \n
-                                         "{" \n
-                                         "	if (currentWaypoint _x + 1 > count waypoints _x) then {" \n
-                                         "		_result = true;" \n
-                                         "	};" \n
-                                         "} forEach (_splitCrew # 0);" \n
-                                         "" \n
+                                        condition=/*%FSM<CONDITION""">*/"private _result = false;" <br/>
+                                         "" <br/>
+                                         "{" <br/>
+                                         "	if (currentWaypoint _x + 1 > count waypoints _x) then {" <br/>
+                                         "		_result = true;" <br/>
+                                         "	};" <br/>
+                                         "} forEach (_splitCrew # 0);" <br/>
+                                         "" <br/>
                                          "_result;"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };

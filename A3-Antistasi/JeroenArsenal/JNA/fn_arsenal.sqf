@@ -2068,7 +2068,7 @@ switch _mode do {
 			_ctrlList lnbsetcolor [[_r,1],_color];
 			_ctrlList lnbsetcolor [[_r,2],_color];
 			_text = _ctrlList lnbtext [_r,1];
-			_ctrlList lbsettooltip [_r * _columns,[_text,_text + "\n(Not compatible with currently equipped weapons)"] select _isIncompatible];
+			_ctrlList lbsettooltip [_r * _columns,[_text,_text + "<br/>(Not compatible with currently equipped weapons)"] select _isIncompatible];
 		};
 	};
 

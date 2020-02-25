@@ -78,7 +78,7 @@ if (_countX > 0) then
 	if (_countX < 1) then {_countX = 1};
 	while {(_truckX == vehicle player) and (speed _truckX == 0) and (_countX > 0)} do
 		{
-		["Cargo", format ["Truck loading. \n\nTime remaining: %1 secs", _countX]] call A3A_fnc_customHint;
+		["Cargo", format ["Truck loading. <br/><br/>Time remaining: %1 secs", _countX]] call A3A_fnc_customHint;
 		_countX = _countX -1;
 		sleep 1;
 		if (_countX == 0) then

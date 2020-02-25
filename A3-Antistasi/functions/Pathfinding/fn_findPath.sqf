@@ -45,7 +45,7 @@ while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
 {
     //Select node with lowest score
     _next = objNull;
-    //private _debug = "List is\n";
+    //private _debug = "List is<br/>";
     if((count _openList) == 1) then
     {
       _next = _openList deleteAt 0;
@@ -55,7 +55,7 @@ while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
       private _nextValue = 0;
       {
         _xValue = ((_x select 1) + (_x select 2));
-        //_debug = format ["%1Object: %2 Value: %3\n", _debug, (_x select 0), _xValue];
+        //_debug = format ["%1Object: %2 Value: %3<br/>", _debug, (_x select 0), _xValue];
 
         if((!(_next isEqualType [])) || {_xValue < _nextValue}) then
         {

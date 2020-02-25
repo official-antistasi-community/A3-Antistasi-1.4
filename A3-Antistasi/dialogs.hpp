@@ -2887,17 +2887,17 @@ class dealer_menu {
 			action = A_CLOSE;
 		};
 
-		#define STR_DEALER_SCH "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""expLight"", 300] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_MCH "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""expLight"", 800] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_SCH "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""expLight"", ""some""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_MCH "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""expLight"", ""many""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
 
 		#define STR_DEALER_SWP "closeDialog 0; createDialog ""dealer_menu_weapons_small"";"
 		#define STR_DEALER_MWP "closeDialog 0; createDialog ""dealer_menu_weapons_large"";"
 
-		#define STR_DEALER_SMS "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""expHeavy"", 300] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_MMS "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""expHeavy"", 800] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_SMS "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""expHeavy"", ""some""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_MMS "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""expHeavy"", ""many""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
 
-		#define STR_DEALER_SAC "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""aCache"", 500] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_MAC "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""aCache"", 5000] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_SAC "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""aCache"", ""some""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_MAC "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""aCache"", ""many""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
 
 		class DEALER_button_L1: RscButton
 		{
@@ -3033,12 +3033,12 @@ class dealer_menu_weapons_small {
 			action = "closeDialog 0; createDialog ""dealer_menu"";";
 		};
 
-		#define STR_DEALER_ASS_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""ASRifles"", 1000] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_PIS_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Pistols"", 1000] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_MGS_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Machineguns"", 1000] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_SNP_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Sniper Rifles"", 1000] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_LCH_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Launchers"", 1000] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_RND_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Random"", 1000] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_ASS_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""ASRifles"", ""some""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_PIS_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Pistols"", ""some""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_MGS_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Machineguns"", ""some""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_SNP_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Sniper Rifles"", ""some""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_LCH_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Launchers"", ""some""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_RND_S "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Random"", ""some""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
 
 		class DEALER_button_L1: RscButton
 		{
@@ -3150,12 +3150,12 @@ class dealer_menu_weapons_large {
 			action = "closeDialog 0; createDialog ""dealer_menu"";";
 		};
 
-		#define STR_DEALER_ASS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""ASRifles"", 2500] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_PIS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Pistols"", 2500] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_MGS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Machineguns"", 2500] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_SNP_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Sniper Rifles"", 2500] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_LCH_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Launchers"", 2500] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_RND_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Random"", 2500] remoteExec [""buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_ASS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""ASRifles"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_PIS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Pistols"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_MGS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Machineguns"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_SNP_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Sniper Rifles"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_LCH_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Launchers"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_RND_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Random"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
 
 		class DEALER_button_L1: RscButton
 		{

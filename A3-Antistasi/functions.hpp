@@ -328,6 +328,7 @@ class A3A
 		class LOG_Ammo {};
 		class LOG_Bank {};
 		class FND_Dealer {};
+		class buyGear {};
 		class LOG_Supplies {};
 		class missionRequest {};
 		class missionRequestAUTO {};

@@ -308,19 +308,15 @@ if (_typeX == "FND") then {
 				};
 
 				_distance = (getMarkerPos _siteX) distance (getMarkerPos _x);
-				
-				diag_log format ["Distance between %1 -> %2 = %3", _siteX, _x, _distance]; // DEBUG
 
 				if (_distance < 500) exitWith {
 					_potentials = _potentials - [_siteX]; // Don't want to process sites multiple times
 					_foundNearbyOutpost = true;
-					diag_log "Distance was less than 500, so it is removed from _potentials"; // DEBUG
 				};		
 			} forEach outposts;
 
 			if (!_foundNearbyOutpost) exitWith {
 				_siteValid = true; // "safe" city found (city with no outpost in a X meter radius)
-				diag_log format ["Site %1 has no nearby Outposts and thus is valid", _siteX]; // DEBUG
 			};
 		};
 

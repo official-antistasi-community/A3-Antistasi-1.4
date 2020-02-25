@@ -457,22 +457,22 @@ _reportReplaced = "";
 {
 	_nameNew = [_x select 0] call _lookupConfigName;
 	_nameOld = [_x select 1] call _lookupConfigName;
-	_reportReplaced = _reportReplaced + _nameOld + " has been kept, because there is no " + _nameNew + "<br/>";
+	_reportReplaced = _reportReplaced + _nameOld + " has been kept, because there is no " + _nameNew + "\n";
 } forEach _arrayReplaced;
 
 if!(_reportReplaced isEqualTo "")then{
-	_reportTotal = ("These items were not in the Arsenal, so the originals have been kept:<br/>" + _reportReplaced+"<br/>");
+	_reportTotal = ("These items were not in the Arsenal, so the originals have been kept:\n" + _reportReplaced+"\n");
 };
 
 _reportMissing = "";
 {
 	_name = [_x select 0] call _lookupConfigName;
 	_amount = _x select 1;
-	_reportMissing = _reportMissing + _name + " (" + (str _amount) + "x)<br/>";
+	_reportMissing = _reportMissing + _name + " (" + (str _amount) + "x)\n";
 }forEach _arrayMissing;
 
 if!(_reportMissing isEqualTo "")then{
-	_reportTotal = (_reportTotal+"These items were not in the Arsenal:<br/>" + _reportMissing+"<br/>");
+	_reportTotal = (_reportTotal+"These items were not in the Arsenal:\n" + _reportMissing+"\n");
 };
 
 if!(_reportTotal isEqualTo "")then{

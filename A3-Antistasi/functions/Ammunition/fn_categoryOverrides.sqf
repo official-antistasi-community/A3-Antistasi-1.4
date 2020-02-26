@@ -97,7 +97,34 @@ private _categoryOverrideTable = [
 ["ace_compat_rhs_gref3_dshkm_carry" , ["StaticWeaponParts","Items"]],
 
 ["ace_dragon_super", ["MissileLaunchers","Weapons","AT"]],
-["ace_dragon_sight", ["Binoculars","Items"]]	];
+["ace_dragon_sight", ["Binoculars","Items"]],
+
+["LIB_PTRD", ["Unknown", "Weapons"]],
+["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
+["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat
+
+["LIB_M2_Tripod", ["StaticWeaponParts","Items"]],
+["LIB_Laffete_Tripod", ["StaticWeaponParts","Items"]],
+["LIB_BM37_Tripod", ["StaticWeaponParts","Items"]],
+["LIB_BM37_Barrel", ["StaticWeaponParts","Items"]],
+["LIB_GrWr34_Tripod", ["StaticWeaponParts","Items"]],
+["LIB_GrWr34_Tripod_g", ["StaticWeaponParts","Items"]],
+["LIB_GrWr34_Barrel", ["StaticWeaponParts","Items"]],
+["LIB_GrWr34_Barrel_g", ["StaticWeaponParts","Items"]],
+["LIB_M2_60_Tripod", ["StaticWeaponParts","Items"]],
+["LIB_M2_60_Barrel", ["StaticWeaponParts","Items"]]   ];
+
+/* Not sure if these are a problem
+["LIB_GER_Headset",["NVGs","Items"]],
+["LIB_Headwrap",["NVGs","Items"]],
+["LIB_Headwrap_gloves",["NVGs","Items"]],
+["LIB_Mohawk",["NVGs","Items"]],
+["LIB_GER_Gloves1",["NVGs","Items"]],
+["LIB_GER_Gloves2",["NVGs","Items"]],
+["LIB_GER_Gloves3",["NVGs","Items"]],
+["LIB_GER_Gloves4",["NVGs","Items"]],
+["LIB_GER_Gloves5",["NVGs","Items"]],
+*/
 
 categoryOverrides = (group timer) createUnit ["logic", [0, 0], [], 0, "NONE"];
 {

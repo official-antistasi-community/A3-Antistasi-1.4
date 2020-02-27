@@ -3150,12 +3150,12 @@ class dealer_menu_weapons_large {
 			action = "closeDialog 0; createDialog ""dealer_menu"";";
 		};
 
-		#define STR_DEALER_ASS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""ASRifles"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_PIS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Pistols"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_MGS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Machineguns"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_SNP_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Sniper Rifles"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_LCH_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Launchers"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
-		#define STR_DEALER_RND_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Random"", 2500] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_ASS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""ASRifles"", ""many""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_PIS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Pistols"", ""many""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_MGS_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Machineguns"", ""many""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_SNP_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Sniper Rifles"", ""many""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_LCH_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Launchers"", ""many""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
+		#define STR_DEALER_RND_L "closeDialog 0; if ([player] call A3A_fnc_isMember) then {[dealerCrate, ""Random"", ""many""] remoteExec [""A3A_fnc_buyGear"", 2];} else {hint ""Only server members have access to this function""};"
 
 		class DEALER_button_L1: RscButton
 		{
@@ -3166,7 +3166,7 @@ class dealer_menu_weapons_large {
 			w = 0.175015 * safezoneW;
   			h = 0.0560125 * safezoneH;
 			toolTip = "";
-			action = STR_DEALER_ASS_S;
+			action = STR_DEALER_ASS_L;
 		};
 
 		class DEALER_button_L2: RscButton
@@ -3178,7 +3178,7 @@ class dealer_menu_weapons_large {
 			w = 0.175015 * safezoneW;
   			h = 0.0560125 * safezoneH;
 			toolTip = "";
-			action = STR_DEALER_MGS_S;
+			action = STR_DEALER_MGS_L;
 		};
 
 		class DEALER_button_L3: RscButton
@@ -3190,7 +3190,7 @@ class dealer_menu_weapons_large {
 			w = 0.175015 * safezoneW;
   			h = 0.0560125 * safezoneH;
 			toolTip = "";
-			action = STR_DEALER_LCH_S;
+			action = STR_DEALER_LCH_L;
 		};
 
 		class DEALER_button_R1: RscButton
@@ -3202,7 +3202,7 @@ class dealer_menu_weapons_large {
 			w = 0.175015 * safezoneW;
   			h = 0.0560125 * safezoneH;
 			toolTip = "";
-			action = STR_DEALER_PIS_S;
+			action = STR_DEALER_PIS_L;
 		};
 
 		class DEALER_button_R2: RscButton
@@ -3214,7 +3214,7 @@ class dealer_menu_weapons_large {
 			w = 0.175015 * safezoneW;
   			h = 0.0560125 * safezoneH;
 			toolTip = "";
-			action = STR_DEALER_SNP_S;
+			action = STR_DEALER_SNP_L;
 		};
 
 		class DEALER_button_R3: RscButton
@@ -3226,7 +3226,7 @@ class dealer_menu_weapons_large {
 			w = 0.175015 * safezoneW;
   			h = 0.0560125 * safezoneH;
 			toolTip = "";
-			action = STR_DEALER_RND_S;
+			action = STR_DEALER_RND_L;
 		};
 	};
 };

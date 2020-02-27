@@ -1,295 +1,142 @@
-_crate = _this select 0;
-_gearType = _this select 1;
-_amount = _this select 2;
+private _crate = _this select 0;
+private _gearType = _this select 1;
+private _amount = _this select 2;
 
-_costMap = [
-	["expLight", 300, 800], // [_gearType, cost for "some", cost for "many"]
-	["expHeavy", 300, 800],
-	["aCache", 500, 5000],
-	["aCache", 500, 5000],
-	["ASRifles", 1000, 2500],
-	["Pistols", 1000, 2500],
-	["Machineguns", 1000, 2500],
-	["Sniper Rifles", 1000, 2500],
-	["Launchers", 1000, 2500],
-	["Random", 1000, 2500]
+/** Names as variables */
+private _expLight = "expLight";
+private _expHeavy = "expHeavy";
+private _aCache = "aCache";
+private _aSRifles = "ASRifles";
+private _pistols = "Pistols";
+private _machineguns = "Machineguns";
+private _sniperRifles = "Sniper Rifles";
+private _launchers = "Launchers";
+private _random = "Random";
+/** END */
+
+private _costMap = [
+	[_expLight, 300, 800], // [_gearType, cost for "some", cost for "many", [amount of item (for "some"), amount of 2nd item, ...],[amount of item (for "many"), amount of 2nd item, ...], amount of magazine]
+	[_expHeavy, 300, 800],
+	[_aCache, 500, 5000],
+	[_aSRifles, 1000, 2500],
+	[_pistols, 1000, 2500],
+	[_machineguns, 1000, 2500],
+	[_sniperRifles, 1000, 2500],
+	[_launchers, 1000, 2500],
+	[_random, 1000, 2500]
 ];
-_amountSelect = [2, 1] select (_amount == "some"); // Indexes of 'cost for "some"' and 'cost for "many"' inside the _costMap array
-_costMapIndex = _costMap findIf { _x select 0 == _gearType; };
-_cost = (_costMap select _costMapIndex) select _amountSelect;
+private _costMapIndex = _costMap findIf { _x select 0 == _gearType; };
+private _amountSelect = [2, 1] select (_amount == "some"); // Indexes of 'cost for "some"' and 'cost for "many"' inside the _costMap array
+private _cost = (_costMap select _costMapIndex) select _amountSelect; // This gives us the price for "some" or "many" for the selected gearType
 
-_resourcesFIA = server getVariable "resourcesFIA";
+private _dealer = player; // TODO: This should be the dealer NPC
+private _resourcesFIA = server getVariable "resourcesFIA";
 if (_resourcesFIA < _cost) exitWith {
-	_dealer = player; // TODO: This should be the dealer NPC
-	[_dealer,"sideChat","Get lost ya cheap wanker!"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer?
+	[_dealer,"sideChat","Get lost ya cheap wanker!"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
 };
 
-// TODO: If crate is full, exit
-
-// TODO: If crate cant fit all requested stuff, exit
+// TODO: Find a more stable solution for this
+// If crate is completely full, exit
+if (!(dealerCrate canAdd "H_Hat_Tinfoil_F")) exitWith { // Item has a `mass` of 1, so if that doesn't fit nothing will
+	[_dealer,"sideChat","There is no room in the crate, take some stuff out and try again."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
+};
 
 /** Create item lists */
-_lockedWeapons = ((missionNamespace getVariable "allweapons") - (missionNamespace getVariable "unlockedweapons"));
-_lockedAttachments = [];
-{
-	_unlockedAttachments = (missionNamespace getVariable format ["unlocked%1", _x]);
-	if(isNil "_unlockedAttachments") then { _unlockedAttachments = []; }; // Sometimes var is nil?
-	_allAttachments = (missionNamespace getVariable format ["all%1", _x]);
-	_lockedAttachments append (_allAttachments - _unlockedAttachments);
-} forEach ["pointerattachments", "muzzleattachments", "lightattachments", "laserattachments"];
 // TODO: These should actually be categorized in "mines" or "charges"
 // TODO: If that is hard, you should edit the UI to reflect these categories
-_lockedLightMines = [];
-_lockedHeavyMines = [];
+private _lockedLightMines = [];
+private _lockedHeavyMines = [];
 {
-	_ammoClassName = getText (configFile >> "CfgMagazines" >> _x >> "ammo");
-	_hitValue = getNumber (configFile >> "CfgAmmo" >> _ammoClassName >> "hit");
+	private _ammoClassName = getText (configFile >> "CfgMagazines" >> _x >> "ammo");
+	private _hitValue = getNumber (configFile >> "CfgAmmo" >> _ammoClassName >> "hit");
 	if (_hitValue > 200) then {
 		_lockedHeavyMines pushBack _x;
 	} else {
 		_lockedLightMines pushBack _x;
 	};
 } forEach ((missionNamespace getVariable "allexplosives") - (missionNamespace getVariable "unlockedexplosives"));
-_lockedASRifles = ((missionNamespace getVariable "allrifles") - (missionNamespace getVariable "unlockedrifles"));
-_lockedPistols = ((missionNamespace getVariable "allhandguns") - (missionNamespace getVariable "unlockedhandguns"));
-_lockedMachineguns = ((missionNamespace getVariable "allmachineguns") - (missionNamespace getVariable "unlockedmachineguns"));
-_lockedSniperRifles = ((missionNamespace getVariable "allsniperrifles") - (missionNamespace getVariable "unlockedsniperrifles"));
-_lockedLaunchers = ((missionNamespace getVariable "allmissilelaunchers") - (missionNamespace getVariable "unlockedmissilelaunchers")) + ((missionNamespace getVariable "allrocketlaunchers") - (missionNamespace getVariable "unlockedrocketlaunchers"));
+private _lockedAttachments = [];
+{
+	private _unlockedAttachments = (missionNamespace getVariable format ["unlocked%1", _x]);
+	if(isNil "_unlockedAttachments") then { _unlockedAttachments = []; }; // Sometimes var is nil?
+	private _allAttachments = (missionNamespace getVariable format ["all%1", _x]);
+	_lockedAttachments append (_allAttachments - _unlockedAttachments);
+} forEach ["pointerattachments", "muzzleattachments", "lightattachments", "laserattachments"];
+private _lockedASRifles = ((missionNamespace getVariable "allrifles") - (missionNamespace getVariable "unlockedrifles"));
+private _lockedPistols = ((missionNamespace getVariable "allhandguns") - (missionNamespace getVariable "unlockedhandguns"));
+private _lockedMachineguns = ((missionNamespace getVariable "allmachineguns") - (missionNamespace getVariable "unlockedmachineguns"));
+private _lockedSniperRifles = ((missionNamespace getVariable "allsniperrifles") - (missionNamespace getVariable "unlockedsniperrifles"));
+private _lockedLaunchers = ((missionNamespace getVariable "allmissilelaunchers") - (missionNamespace getVariable "unlockedmissilelaunchers")) + ((missionNamespace getVariable "allrocketlaunchers") - (missionNamespace getVariable "unlockedrocketlaunchers"));
 /** END */
 
-// TODO: We can make this switch a lot shorter if we abstract it
-switch(_gearType) do {
-	case "expLight": {
-		if (_amount == "some") exitWith {
-			{
-				_item = selectRandom _lockedLightMines;
-				dealerCrate addItemCargoGlobal [_item, _x];
-			} forEach [2, 3];
-		};
-		if (_amount == "many") exitWith {
-			{
-				_item = selectRandom _lockedLightMines;
-				dealerCrate addItemCargoGlobal [_item, _x];
-			} forEach [3, 8, 8];
+/** Prepare the order */
+private _stuffToAddToCrate = [
+	[], // items
+	[]  // magazines
+];
+private _stuffItemIndex = 0;
+private _stuffMagazineIndex = 1;
+private _itemMap = [
+	[_expLight, _lockedLightMines, [2,3], [3,8,8], 0], // [_gearType, item list, amounts for "some" items, amounts for "many" items, amount of magazines (for weapons)]
+	[_expHeavy, _lockedHeavyMines, [2,3], [3,8,8], 0],
+	[_aCache, _lockedAttachments, [2,3], [3,8,8], 0],
+	[_aSRifles, _lockedASRifles, [2,3], [3,8,8], 4],
+	[_pistols, _lockedPistols, [2,3], [3,8,8], 4],
+	[_machineguns, _lockedMachineguns, [2,3], [3,8,8], 4],
+	[_sniperRifles, _lockedSniperRifles, [2,3], [3,8,8], 4],
+	[_launchers, _lockedLaunchers, [2,3], [3,8,8], 4],
+	[_random, (_lockedASRifles+_lockedPistols+_lockedMachineguns+_lockedSniperRifles+_lockedLaunchers), [2,3], [3,8,8], 4]
+];
+private _itemMapIndex = _itemMap findIf { _x select 0 == _gearType; };
+private _itemList = (_itemMap select _itemMapIndex) select 1;
+private _itemAmountSelect = [3, 2] select (_amount == "some");
+private _itemAmounts = (_itemMap select _itemMapIndex) select _itemAmountSelect;
+private _magazineAmount = (_itemMap select _itemMapIndex) select 4;
+
+{
+	private _item = selectRandom _itemList;
+	for "_i" from 1 to _x do {
+		(_stuffToAddToCrate select _stuffItemIndex) pushBack _item;
+	};
+
+	if (_magazineAmount > 0) then {
+		private _magazineTypes = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
+		if (count _magazineTypes > 0) then {
+			private _magazine = (selectRandom _magazineTypes);
+			for "_i" from 1 to _magazineAmount do {
+				(_stuffToAddToCrate select _stuffMagazineIndex) pushBack _magazine;
+			};
 		};
 	};
-	case "expHeavy": {
-		if (_amount == "some") exitWith {
-			{
-				_item = selectRandom _lockedHeavyMines;
-				dealerCrate addItemCargoGlobal [_item, _x];
-			} forEach [2, 3];
-		};
-		if (_amount == "many") exitWith {
-			{
-				_item = selectRandom _lockedHeavyMines;
-				dealerCrate addItemCargoGlobal [_item, _x];
-			} forEach [3, 8, 8];
-		};
-	};
-	case "aCache": {
-		if (_amount == "some") exitWith {
-			{
-				_item = selectRandom _lockedAttachments;
-				dealerCrate addItemCargoGlobal [_item, _x];
-			} forEach [2, 3];
-		};
-		if (_amount == "many") exitWith {
-			{
-				_item = selectRandom _lockedAttachments;
-				dealerCrate addItemCargoGlobal [_item, _x];
-			} forEach [3, 8, 8];
-		};
-	};
-	case "ASRifles": {
-		if (_amount == "some") exitWith {
-			{
-				_item = selectRandom _lockedASRifles;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4];
-			} forEach [2, 3];
-		};
-		if (_amount == "many") exitWith {
-			{
-				_item = selectRandom _lockedASRifles;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4 * 3];
-			} forEach [3, 8, 8];
-		};
-	};
-	case "Pistols": {
-		if (_amount == "some") exitWith {
-			{
-				_item = selectRandom _lockedPistols;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4];
-			} forEach [2, 3];
-		};
-		if (_amount == "many") exitWith {
-			{
-				_item = selectRandom _lockedPistols;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4 * 3];
-			} forEach [3, 8, 8];
-		};
-	};
-	case "Machineguns": {
-		if (_amount == "some") exitWith {
-			{
-				_item = selectRandom _lockedMachineguns;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4];
-			} forEach [2, 3];
-		};
-		if (_amount == "many") exitWith {
-			{
-				_item = selectRandom _lockedMachineguns;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4 * 3];
-			} forEach [3, 8, 8];
-		};
-	};
-	case "Sniper Rifles": {
-		if (_amount == "some") exitWith {
-			{
-				_item = selectRandom _lockedSniperRifles;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4];
-			} forEach [2, 3];
-		};
-		if (_amount == "many") exitWith {
-			{
-				_item = selectRandom _lockedSniperRifles;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4 * 3];
-			} forEach [3, 8, 8];
-		};
-	};
-	case "Launchers": {
-		if (_amount == "some") exitWith {
-			{
-				_item = selectRandom _lockedLaunchers;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4];
-			} forEach [2, 3];
-		};
-		if (_amount == "many") exitWith {
-			{
-				_item = selectRandom _lockedLaunchers;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4 * 3];
-			} forEach [3, 8, 8];
-		};
-	};
-	case "Random": {
-		if (_amount == "some") exitWith {
-			{
-				_item = selectRandom _lockedWeapons;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4];
-			} forEach [2, 3];
-		};
-		if (_amount == "many") exitWith {
-			{
-				_item = selectRandom _lockedWeapons;
-				_magazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
-				dealerCrate addItemCargoGlobal [_item, _x];
-				dealerCrate addMagazineCargoGlobal [selectRandom _magazines, 4 * 3];
-			} forEach [3, 8, 8];
-		};
-	};
+} forEach _itemAmounts;
+/** END */
+
+/** Check if the order didn't turn op empty */
+private _amountOfStuff = count _stuffToAddToCrate;
+if (_amountOfStuff == 0) exitWith {
+	[_dealer,"sideChat","Sorry, lad. Don't have any of that stuff right now. Check back later."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
 };
+/** END */
 
-_magazineCargo = count ((getMagazineCargo dealerCrate) select 1);
-_itemCargo = count ((getItemCargo dealerCrate) select 1);
+/** Check if we can fit all requested stuff in the crate */
+private _canAdd = true;
+{
+	_canAdd = dealerCrate canAdd _x;
+	if (!_canAdd) exitWith {};
+} forEach ((_stuffToAddToCrate select _stuffItemIndex) + (_stuffToAddToCrate select _stuffMagazineIndex));
 
-if (_magazineCargo + _itemCargo == 0) exitWith {
-	_dealer = player; // TODO: This should be the dealer NPC
-	[_dealer,"sideChat","Sorry, lad. Don't have any stuff right now. Check back later."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer?
+if (!_canAdd) exitWith {
+	[_dealer,"sideChat","There is no room in the crate, take some stuff out and try again."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
 };
+/** END */
 
-dealerCrate addBackpackCargoGlobal ["B_Carryall_oli", 1]; // Free backpack with every purchase
+/** Add requested stuff to the crate */
+_stuffToAddToCrate pushBack "B_Carryall_oli"; // Free backpack with every purchase
+{ dealerCrate addItemCargoGlobal [_x, 1]; } forEach (_stuffToAddToCrate select 0);
+{ dealerCrate addMagazineCargoGlobal [_x, 1]; } forEach (_stuffToAddToCrate select 1);
 
-_dealer = player; // TODO: This should be the dealer NPC
-[_dealer,"sideChat","Aye, the market for explosives is boomin'. They be hard to get a hold of, don't ya know."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer?
-[_dealer,"sideChat","You can find yer stuff in the crates."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer?
+[_dealer,"sideChat","Aye, the market for explosives is boomin'. They be hard to get a hold of, don't ya know."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
+[_dealer,"sideChat","You can find yer stuff in the crates."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
+/** END */
 
 [0, (-1 * _cost)] remoteExec ["A3A_fnc_resourcesFIA",2];
-
-
-/** All categories (except special)
-["allrifles","allhandguns","allmachineguns","allmissilelaunchers","allmortars","allrocketlaunchers","allshotguns","allsmgs","allsniperrifles","allbipods","allmuzzleattachments","allpointerattachments","alloptics","allbinoculars","allcompasses","allfirstaidkits","allgps","alllaserdesignators","allmaps","allmedikits","allminedetectors","allnvgs","allradios","alltoolkits","alluavterminals","allwatches","allglasses","allheadgear","allvests","alluniforms","allbackpacks","allmagartillery","allmagbullet","allmagflare","allgrenades","allmaglaser","allmagmissile","allmagrocket","allmagshell","allmagshotgun","allmagsmokeshell","allmine","allminebounding","allminedirectional","allunknown","allweapons","allitems","allmagazines","allexplosives"]
-*/
-
-/** All unlocks
-unlockedunknown
-unlockedunlimitedammo
-unlockedrifles
-unlockedminedetectors
-unlockedmissilelaunchers
-unlockedminebounding
-unlockedfirstaidkits
-unlockedmaps
-unlockedgps
-unlockedwatches
-unlocked_meta
-unlockedbipods
-unlockeditems
-unlockedminedirectional
-unlockedglasses
-unlockedbackpackscargo
-unlockednvgs
-unlockedmagbullet
-unlockedheadgear
-unlockedmuzzleattachments
-unlockeduavterminals
-unlockedsmgs
-unlockedhandguns
-unlockedlaserdesignators
-unlockedbackpacks
-unlockedequipmentarraynames
-unlockedrocketlaunchers
-unlockedshotguns
-unlockedpointerattachments
-unlockedgrenadelaunchers
-unlockedmagshotgun
-unlockedmine
-unlockedmagsmokeshell
-unlockedexplosives
-unlockedmagmissile
-unlockedaa
-unlockedat
-unlockedtoolkits
-unlockedgrenades
-unlockedmedikits
-unlockedexplosives
-unlockedmachineguns
-unlockedmaglaser
-unlockedmortars
-unlockedsniperrifles
-unlockedbinoculars
-unlockedvests
-unlockedarmoredheadgear
-unlockedweapons
-unlockedmagshell
-unlockedcompasses
-unlockedmagrocket
-unlockedarmoredvests
-unlockedradios
-unlockedoptics
-unlockedmagazines
-unlockeduniforms
-unlockedmagflare
-unlockedmagartillery
-*/

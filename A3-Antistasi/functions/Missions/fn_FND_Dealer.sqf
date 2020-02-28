@@ -73,6 +73,7 @@ _dealer setDir _directionToRoad;
 _dealer removeWeaponGlobal (primaryWeapon _dealer);
 _dealer disableAI "move";
 _dealer setunitpos "up";
+// TODO: Name isn't set in-game
 _dealer setIdentity "Devin"; // Devin, as known from JA2 -- bow down to the masters at Sir-Tech!
 _dealerGroup setBehaviour "CARELESS";
 _dealerGroup setSpeedMode "LIMITED";

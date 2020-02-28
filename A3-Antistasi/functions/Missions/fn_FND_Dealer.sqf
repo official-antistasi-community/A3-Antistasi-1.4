@@ -2,7 +2,7 @@
 if (!isServer and hasInterface) exitWith{};
 
 private _markerX = _this select 0;
-private _positionX = getMarkerPos _markerX;
+private _positionX = (getMarkerPos _markerX) getPos [random 100, random 360];
 private _difficultX = if (random 10 < tierWar) then {true} else {false};
 
 private _timeLimit = if (_difficultX) then {30} else {60};
@@ -11,12 +11,19 @@ private _dateLimit = [date select 0, date select 1, date select 2, date select 3
 private _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly
 private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time portion of the date array to a string for clarity in hints
-
 private _nameDest = [_markerX] call A3A_fnc_localizar;
 
-/** Spawn Objects */
-private _direction = 0; // TODO: Should be directed towards the road
-private _objects = [_positionX, _direction, [
+// TODO: The object placement could use some work
+/** Spawn Objects (next to the road) */
+private _positionCamp = _positionX;
+private _directionToRoad = 0;
+private _nearRoads = _positionX nearRoads 50;
+if (_nearRoads isEqualType [] && count _nearRoads > 0) then {
+	private _road = selectRandom _nearRoads;
+	_positionCamp = [(getPos _road), 8, 0] call BIS_fnc_relPos;
+	_directionToRoad = [_positionCamp, (getPos _road)] call BIS_fnc_dirTo;
+};
+private _objects = [_positionCamp, _directionToRoad, [
 	["Land_Money_F",[0.636719,0.349609,-9.53674e-007],360,1,0,[],"","",true,false],
 	["Box_IED_Exp_F",[-0.973633,0.149414,0.0162439],260.747,1,0.00984005,[],"","",true,false],
 	["Land_Suitcase_F",[0.755859,0.780273,0.000113964],291.007,1,0,[],"","",true,false],
@@ -55,15 +62,20 @@ private _objects = [_positionX, _direction, [
 /** END */
 
 /** Spawn Dealer */
+// TODO: Should killing dealer result in prestige punish?
 private _dealerGroup = createGroup [civilian, true];
-// TODO: Make sure he doesn't spawn right on the road, but preferrably next to it
-private _dealer = _dealerGroup createUnit ["C_Nikos", _positionX, [], 0.9, "NONE"];
+private _dealer = _dealerGroup createUnit ["C_Nikos", _positionCamp, [], 0.9, "NONE"];
+Dealer = _dealer;
+publicVariable "Dealer";
 _dealer allowDamage false;
 sleep 2;
-_dealer setDir _direction;
+_dealer setDir _directionToRoad;
 _dealer removeWeaponGlobal (primaryWeapon _dealer);
 _dealer disableAI "move";
 _dealer setunitpos "up";
+_dealer setIdentity "Devin"; // Devin, as known from JA2 -- bow down to the masters at Sir-Tech!
+_dealerGroup setBehaviour "CARELESS";
+_dealerGroup setSpeedMode "LIMITED";
 /** END */
 
 /** Create task */
@@ -85,10 +97,17 @@ waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) || !(alive _dealer) || (
 
 if ({((side _x isEqualTo Occupants) || (side _x isEqualTo civilian)) && (_x distance _dealer < 10)} count allPlayers > 0) then {
 	["FND",[format [_tskDesc,_nameDest,_displayTime],"Find the Crazy Irishman",_markerX],_posTsk,"SUCCEEDED"] call A3A_fnc_taskUpdate;
-	private _addActionParams = [localize "STR_antistasi_action_buy_dealer", {nul=CreateDialog "dealer_menu";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (_originalTarget getVariable ['showBuyOption',false])"];
+	private _addActionParams = [localize "STR_antistasi_action_buy_dealer", {
+		_target = _this select 0;
+		_caller = _this select 1;
+		if (side _caller == civilian) then { // TODO: Should we also deny opfor/blufor?
+			[_target,"localChat","I have no interest in dealing with civilians"] remoteExec ["A3A_fnc_commsMP",[0, -2] select isDedicated]; // TODO: LOCALIZE
+		} else {
+			_nul = CreateDialog "dealer_menu";
+			[_target,"localChat","Top of the day to ya. Haven't made yer acquaintance."] remoteExec ["A3A_fnc_commsMP",[0, -2] select isDedicated]; // TODO: LOCALIZE
+		};
+	},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (_originalTarget getVariable ['showBuyOption',false])"];
 	[_dealer, _addActionParams] remoteExec ["addAction", [0, -2] select isDedicated, true];
-
-	// TODO: Players undercover should not be able to buy stuff (+ some dialog from the dealer)
 
 	private _dealerMarker = createMarker ["Dealer", _positionX];
 	_dealerMarker setMarkerShape "ICON";
@@ -137,6 +156,9 @@ sleep 20; // Make him able to walk away, into the distance, for X seconds
 
 deleteVehicle _dealer;
 deleteGroup _dealerGroup;
+
+Dealer = nil;
+publicVariable "Dealer";
 
 // TODO: Show some sort of notification that the dealer has left?
 /** END */

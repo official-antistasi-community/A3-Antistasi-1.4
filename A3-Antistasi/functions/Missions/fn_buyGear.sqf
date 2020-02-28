@@ -29,16 +29,15 @@ private _costMapIndex = _costMap findIf { _x select 0 == _gearType; };
 private _amountSelect = [2, 1] select (_amount == "some"); // Indexes of 'cost for "some"' and 'cost for "many"' inside the _costMap array
 private _cost = (_costMap select _costMapIndex) select _amountSelect; // This gives us the price for "some" or "many" for the selected gearType
 
-private _dealer = player; // TODO: This should be the dealer NPC
 private _resourcesFIA = server getVariable "resourcesFIA";
 if (_resourcesFIA < _cost) exitWith {
-	[_dealer,"sideChat","Get lost ya cheap wanker!"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
+	[Dealer,"localChat","Get lost ya cheap wanker!"] remoteExec ["A3A_fnc_commsMP",[0, -2] select isDedicated]; // TODO: LOCALIZE
 };
 
 // TODO: Find a more stable solution for this
 // If crate is completely full, exit
 if (!(dealerCrate canAdd "H_Hat_Tinfoil_F")) exitWith { // Item has a `mass` of 1, so if that doesn't fit nothing will
-	[_dealer,"sideChat","There is no room in the crate, take some stuff out and try again."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
+	[Dealer,"localChat","There is no room in the crate, take some stuff out and try again."] remoteExec ["A3A_fnc_commsMP",[0, -2] select isDedicated]; // TODO: LOCALIZE
 };
 
 /** Create item lists */
@@ -114,7 +113,7 @@ private _magazineAmount = (_itemMap select _itemMapIndex) select 4;
 /** Check if the order didn't turn op empty */
 private _amountOfStuff = count _stuffToAddToCrate;
 if (_amountOfStuff == 0) exitWith {
-	[_dealer,"sideChat","Sorry, lad. Don't have any of that stuff right now. Check back later."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
+	[Dealer,"localChat","Sorry, lad. Don't have any of that stuff right now. Check back later."] remoteExec ["A3A_fnc_commsMP",[0, -2] select isDedicated]; // TODO: LOCALIZE
 };
 /** END */
 
@@ -126,7 +125,7 @@ private _canAdd = true;
 } forEach ((_stuffToAddToCrate select _stuffItemIndex) + (_stuffToAddToCrate select _stuffMagazineIndex));
 
 if (!_canAdd) exitWith {
-	[_dealer,"sideChat","There is no room in the crate, take some stuff out and try again."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
+	[Dealer,"localChat","There is no room in the crate, take some stuff out and try again."] remoteExec ["A3A_fnc_commsMP",[0, -2] select isDedicated]; // TODO: LOCALIZE
 };
 /** END */
 
@@ -135,8 +134,8 @@ _stuffToAddToCrate pushBack "B_Carryall_oli"; // Free backpack with every purcha
 { dealerCrate addItemCargoGlobal [_x, 1]; } forEach (_stuffToAddToCrate select 0);
 { dealerCrate addMagazineCargoGlobal [_x, 1]; } forEach (_stuffToAddToCrate select 1);
 
-[_dealer,"sideChat","Aye, the market for explosives is boomin'. They be hard to get a hold of, don't ya know."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
-[_dealer,"sideChat","You can find yer stuff in the crates."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]]; // TODO: Only exec on targets near the dealer? Also LOCALIZE
+[Dealer,"localChat","Aye, the market for explosives is boomin'. They be hard to get a hold of, don't ya know."] remoteExec ["A3A_fnc_commsMP",[0, -2] select isDedicated]; // TODO: LOCALIZE
+[Dealer,"localChat","You can find yer stuff in the crates."] remoteExec ["A3A_fnc_commsMP",[0, -2] select isDedicated]; // TODO: LOCALIZE
 /** END */
 
 [0, (-1 * _cost)] remoteExec ["A3A_fnc_resourcesFIA",2];

@@ -3,7 +3,7 @@
 "UK3CB_BAF_L129A1",									//Weapon
 "",													//Muzzle
 "UK3CB_BAF_LLM_Flashlight_Black",													//Rail
-"UK3CB_BAF_SpecterLDS",													//Sight
+"UK3CB_BAF_TA648_308",													//Sight
 ["UK3CB_BAF_762_L42A1_20Rnd",20],		//Primary Magazine
 [],													//Secondary Magazine
 "UK3CB_underbarrel_acc_bipod"													//Bipod

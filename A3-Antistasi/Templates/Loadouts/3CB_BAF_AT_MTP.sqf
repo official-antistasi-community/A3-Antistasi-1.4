@@ -10,11 +10,11 @@
 ],
 
 [//Launcher
-"UK3CB_BAF_AT4_CS_AP_Launcher",									//Weapon
+"UK3CB_BAF_NLAW_Launcher",									//Weapon
 "",													//Muzzle
 "",													//Rail
 "",													//Sight
-["UK3CB_BAF_AT4_CS_AP_Mag",1],		//Primary Magazine
+[],		//Primary Magazine
 [],													//Secondary Magazine
 ""													//Bipod
 ],

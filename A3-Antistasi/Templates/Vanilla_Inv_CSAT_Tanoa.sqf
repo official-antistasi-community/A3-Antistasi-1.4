@@ -22,7 +22,7 @@ CSATAmmoBox = "O_supplyCrate_F";
 //   PVP LOADOUTS AND VEHICLES   ///
 ////////////////////////////////////
 //PvP Loadouts
-CSATlayerLoadouts = [
+CSATPlayerLoadouts = [
 	//Team Leader
 	["vanilla_opfor_teamLeader_tanoa"] call A3A_fnc_getLoadout,
 	//Medic

@@ -382,7 +382,6 @@ class Mission
 					b=127.31008;
 					angle=353.3689;
 					id=790;
-
 				};
 				class Item8
 				{
@@ -4732,7 +4731,6 @@ class Mission
 			};
 			id=1100;
 			type="Land_HBarrier_1_F";
-
 		};
 		class Item149
 		{
@@ -23136,7 +23134,6 @@ class Mission
 				angles[]={0,5.9639554,0};
 			};
 			side="Empty";
-
 			class Attributes
 			{
 			};

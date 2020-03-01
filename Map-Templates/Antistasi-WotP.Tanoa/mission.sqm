@@ -32,8 +32,6 @@ addons[]=
 	"A3_Ui_F",
 	"A3_Weapons_F_Ammoboxes",
 	"A3_Structures_F_EPC_Civ_InfoBoards",
-
-
 	"A3_Characters_F",
 	"A3_Modules_F",
 	"A3_Structures_F_Exp_Military_Flags",
@@ -94,13 +92,6 @@ class AddonsMetaData
 		};
 		class Item5
 		{
-
-
-
-
-
-
-
 			className="A3_Structures_F_Exp";
 			name="Arma 3 Apex - Buildings and Structures";
 			author="Bohemia Interactive";

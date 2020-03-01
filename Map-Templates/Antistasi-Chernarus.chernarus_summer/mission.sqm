@@ -9,10 +9,6 @@ class EditorData
 	class ItemIDProvider
 	{
 		nextID=2642;
-
-
-
-
 	};
 	class LayerIndexProvider
 	{
@@ -30,13 +26,10 @@ binarizationWanted=0;
 addons[]=
 {
 	"A3_Ui_F",
-
 	"A3_Modules_F",
 	"A3_Characters_F",
-
 	"A3_Structures_F_EPC_Civ_InfoBoards",
 	"A3_Structures_F_Mil_Flags",
-
 	"A3_Props_F_Enoch_Military_Camps",
 	"A3_Ui_F_Exp",
 	"A3_Characters_F_Patrol",
@@ -71,13 +64,6 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-
-
-
-
-
-
-
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
@@ -104,13 +90,6 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-
-
-
-
-
-
-
 		class Item5
 		{
 			className="A3_Props_F_Enoch";
@@ -248,7 +227,6 @@ class Mission
 			type="hd_start";
 			angle=123.45325;
 			id=2;
-
 		};
 		class Item3
 		{
@@ -257,7 +235,6 @@ class Mission
 			name="NATO_carrier";
 			type="flag_NATO";
 			id=3;
-
 		};
 		class Item4
 		{
@@ -294,64 +271,6 @@ class Mission
 		};
 		class Item7
 		{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			dataType="Logic";
 			class PositionInfo
 			{
@@ -412,31 +331,7 @@ class Mission
 			id=12;
 			type="Logic";
 		};
-
-
-
-
-
-
-
-
-
-
-
-
 		class Item12
-
-
-
-
-
-
-
-
-
-
-
-
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -560,30 +455,6 @@ class Mission
 			};
 			class Attributes
 			{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			};
 			id=79;
 		};
@@ -694,97 +565,6 @@ class Mission
 			id=84;
 			type="HeadlessClient_F";
 		};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		class Item20
 		{
 			dataType="Object";
@@ -850,7 +630,6 @@ class Mission
 			name="respawn_west";
 			type="flag_CTRG";
 			id=88;
-
 		};
 		class Item23
 		{
@@ -1660,65 +1439,6 @@ class Mission
 			type="flag_Viper";
 			id=104;
 			atlOffset=18.415283;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		};
 		class Item27
 		{
@@ -1751,7 +1471,6 @@ class Mission
 					b=150;
 					angle=19.882999;
 					id=108;
-
 				};
 				class Item1
 				{
@@ -1778,7 +1497,6 @@ class Mission
 					b=109.36142;
 					angle=28.48983;
 					id=110;
-
 				};
 				class Item3
 				{
@@ -1866,7 +1584,6 @@ class Mission
 					a=14.473;
 					b=13.825;
 					id=117;
-
 				};
 				class Item10
 				{
@@ -1993,7 +1710,6 @@ class Mission
 					b=197.88884;
 					angle=19.954416;
 					id=127;
-
 				};
 			};
 			id=107;
@@ -2018,7 +1734,6 @@ class Mission
 					b=108.29008;
 					angle=210.03189;
 					id=129;
-
 				};
 				class Item1
 				{
@@ -2093,20 +1808,6 @@ class Mission
 				{
 					dataType="Marker";
 					position[]={4408.9414,235.15474,4650.5894};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					name="outpost_15";
 					markerType="RECTANGLE";
 					type="rectangle";
@@ -2197,7 +1898,6 @@ class Mission
 					b=221.91978;
 					angle=239.93896;
 					id=142;
-
 				};
 				class Item13
 				{
@@ -2211,7 +1911,6 @@ class Mission
 					b=57.456215;
 					angle=121.37388;
 					id=143;
-
 				};
 				class Item14
 				{
@@ -2383,7 +2082,6 @@ class Mission
 					b=5.0040002;
 					angle=257.76401;
 					id=156;
-
 				};
 				class Item27
 				{
@@ -2599,7 +2297,6 @@ class Mission
 					b=107.57551;
 					angle=188.34593;
 					id=170;
-
 				};
 				class Item1
 				{
@@ -2626,7 +2323,6 @@ class Mission
 					b=69.702164;
 					angle=9.8703756;
 					id=172;
-
 				};
 				class Item3
 				{
@@ -2666,7 +2362,6 @@ class Mission
 					b=9.4980001;
 					angle=281.59299;
 					id=175;
-
 				};
 			};
 			id=169;
@@ -2749,19 +2444,6 @@ class Mission
 				class Item5
 				{
 					dataType="Marker";
-
-
-
-
-
-
-
-
-
-
-
-
-
 					position[]={13273.874,10.050711,6096.3906};
 					name="resource_6";
 					markerType="RECTANGLE";
@@ -2963,7 +2645,6 @@ class Mission
 					a=300;
 					b=300;
 					id=198;
-
 				};
 				class Item10
 				{
@@ -2987,7 +2668,6 @@ class Mission
 					a=300;
 					b=300;
 					id=200;
-
 				};
 				class Item12
 				{
@@ -3000,7 +2680,6 @@ class Mission
 					b=20;
 					angle=159.709;
 					id=201;
-
 				};
 				class Item13
 				{
@@ -3012,7 +2691,6 @@ class Mission
 					a=300;
 					b=300;
 					id=202;
-
 				};
 				class Item14
 				{
@@ -3048,7 +2726,6 @@ class Mission
 					a=300;
 					b=300;
 					id=205;
-
 				};
 				class Item17
 				{
@@ -3060,7 +2737,6 @@ class Mission
 					a=300;
 					b=300;
 					id=206;
-
 				};
 				class Item18
 				{
@@ -3072,7 +2748,6 @@ class Mission
 					a=300;
 					b=300;
 					id=207;
-
 				};
 				class Item19
 				{
@@ -3096,7 +2771,6 @@ class Mission
 					a=300;
 					b=300;
 					id=209;
-
 				};
 				class Item21
 				{
@@ -3108,7 +2782,6 @@ class Mission
 					a=300;
 					b=300;
 					id=210;
-
 				};
 				class Item22
 				{
@@ -3120,7 +2793,6 @@ class Mission
 					a=300;
 					b=300;
 					id=211;
-
 				};
 				class Item23
 				{
@@ -3133,7 +2805,6 @@ class Mission
 					b=20;
 					angle=159.709;
 					id=212;
-
 				};
 				class Item24
 				{
@@ -3145,7 +2816,6 @@ class Mission
 					a=300;
 					b=300;
 					id=213;
-
 				};
 				class Item25
 				{
@@ -3157,7 +2827,6 @@ class Mission
 					a=300;
 					b=300;
 					id=214;
-
 				};
 				class Item26
 				{
@@ -3204,7 +2873,6 @@ class Mission
 					a=300;
 					b=300;
 					id=218;
-
 				};
 				class Item30
 				{
@@ -3216,7 +2884,6 @@ class Mission
 					a=300;
 					b=300;
 					id=219;
-
 				};
 				class Item31
 				{
@@ -3252,7 +2919,6 @@ class Mission
 					a=300;
 					b=300;
 					id=222;
-
 				};
 				class Item34
 				{
@@ -3340,7 +3006,6 @@ class Mission
 					b=105.96222;
 					angle=159.709;
 					id=229;
-
 				};
 			};
 			id=188;

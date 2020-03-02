@@ -597,7 +597,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
 						name="pvp_green_2";
-						description="Teamleader";
+						description="Medic";
 						isPlayable=1;
 					};
 					id=1563;

@@ -7,6 +7,16 @@ if (isNull _oldUnit) exitWith {};
 
 waitUntil {alive player};
 
+if (isServer) then {
+	// workaround for BIS bug where zeus link is broken in MP hosted when old corpse is deleted
+	_oldUnit addEventHandler ["Deleted", {
+		[] spawn {
+			sleep 1;		// should ensure that the bug unassigns first
+			{ player assignCurator _x } forEach allCurators;
+		}
+	} ];
+};
+
 _nul = [_oldUnit] spawn A3A_fnc_postmortem;
 
 _oldUnit setVariable ["incapacitated",false,true];

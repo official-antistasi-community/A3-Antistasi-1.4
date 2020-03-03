@@ -24,7 +24,7 @@ mapX setObjectTexture [0,"pic.jpg"];
 _action = 
 ["LootToVehicle", "Loot To Vehicle", "",
  {[_target] execVM "fn_LootToVehicle.sqf"},//code to execute
- {((count (player nearEntities ["Car", 25]) > 0) && (!alive _target))} //condition to show action
+ {((count (_player nearEntities ["Car", 25]) > 0) && (!alive _target))} //condition to show action
  ] call ace_interact_menu_fnc_createAction;
 
 ["CAManBase", 0, ["ACE_MainActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;

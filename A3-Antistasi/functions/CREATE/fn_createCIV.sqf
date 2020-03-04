@@ -40,8 +40,8 @@ _area = [_markerX] call A3A_fnc_sizeMarker;
 _roads = _roads call BIS_fnc_arrayShuffle;
 private _maxRoads = count _roads;
 
-private _numParked = _numCiv * (1/20) * civTraffic;		// civTraffic is 0,1,2,3
-private _numTraffic = _numCiv * (1/100) * civTraffic;
+private _numParked = _numCiv * (1/60) * civTraffic;		// civTraffic is 0,1,2(default),3,4,6,8
+private _numTraffic = _numCiv * (1/300) * civTraffic;
 
 if ((daytime < 8) or (daytime > 21)) then {_numParked = _numParked * 1.5; _numTraffic = _numTraffic / 4 };
 _numParked = 1 max (round _numParked) min _maxRoads;

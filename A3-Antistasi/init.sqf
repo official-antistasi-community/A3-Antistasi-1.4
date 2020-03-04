@@ -23,7 +23,7 @@ mapX setObjectTexture [0,"pic.jpg"];
 //Loot to vehicle start
 _action = 
 ["LootToVehicle", "Loot To Vehicle", "",
- {[_target] execVM "fn_LootToVehicle.sqf"},//code to execute
+ {[_target, _player] execVM "fn_LootToVehicle.sqf"},//code to execute, passes ace variables _target & _player
  {((count (_player nearEntities ["Car", 25]) > 0) && (!alive _target))} //condition to show action
  ] call ace_interact_menu_fnc_createAction;
 

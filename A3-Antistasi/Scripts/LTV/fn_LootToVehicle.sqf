@@ -1,9 +1,7 @@
-private _unit = (_this select 0); //gets object from ace interaction menu
-private _player = (_this select 0); //gets player from ace interaction menu
-private _sorted_vic = [((position _unit) nearEntities [["Air", "Car", "Motorcycle", "Tank"], 25]),
-[], { _unit distance _x }, "ASCEND"] call BIS_fnc_sortBy; //pulls all vics in 25m radius and sorts them acording to distance to player, closest to farthest
+private _unit = (_this select 0); //gets object from ace interaction menu (AIM)
+private _player = (_this select 1); //gets player from AIM
+private _vehicle = (_this select 2); // gets vehicle to loot to from AIM
 private _unsorted_obj = (position _unit) nearObjects 2; //gets objects in a small radius around target body
-private _vehicle = (_sorted_vic select 0); //selects the closest vehicle
 private _vicFull = 0; // defines vehicle as not full
 private _weaponsArray = []; //defines array for later
 private _cfgWeapons = "true" configClasses (configFile >> "cfgWeapons"); //gets cfgWeapons classes
@@ -71,7 +69,8 @@ if (_vicFull == 0) then {
 } forEach _backpacks;
 
 if (_vicFull == 0) then{
-systemchat "Gear Looted to closest vehicle";
+private _displayName = getText(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
+systemchat format ["Gear Looted to %1", _displayName];
 } else {
 systemchat "There is not enough space for all the gear";
 }; //outcome depends on if the vehicle could add _weaponsOnGround to _vehicle

@@ -10,7 +10,7 @@ factionMaleInvaders = "UK3CB_TKM_B";
 if (gameMode == 4) then {factionFIA = "UK3CB_TKP_O"};
 
 //Flag Images
-CSATFlag = "Flag_TKM_O_Army";
+CSATFlag = "Flag_TKM_O";
 CSATFlagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_TKM\Flag\tkm_o_flag_co.paa";
 flagCSATmrk = "UK3CB_Marker_O_TKM";
 if (isServer) then {"CSAT_carrier" setMarkerText "Takistani Carrier"};

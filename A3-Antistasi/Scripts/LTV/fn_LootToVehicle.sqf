@@ -45,20 +45,32 @@ if (_vicFull == 0) then {
 	
     
     private _vest = vest _unit;
-    if (!(_vest isEqualTo "") && (_vehicle canAdd (vest _unit))) then {
+    if !(_vest isEqualTo "") then {if (_vehicle canAdd (vest _unit)) then {
         _items pushBack _vest;
         removeVest _unit;
-    };
+    } else {
+	_vicFull = 1;
+	}};
     private _headgear = headgear _unit;
-    if (!(_headgear isEqualTo "") && (_vehicle canAdd (headgear _unit))) then {
+    if !(_headgear isEqualTo "") then {if (_vehicle canAdd (headgear _unit)) then {
         _items pushBack _headgear;
         removeHeadgear _unit;
-    };
+    } else {
+	_vicFull = 1;
+	}};
     private _nvg = hmd _unit;
-    if (!(_nvg isEqualTo "") && (_vehicle canAdd (hmd _unit))) then {
+    if !(_nvg isEqualTo "") then {if (_vehicle canAdd (hmd _unit)) then {
         _items pushBack _nvg;
         _unit unlinkItem _nvg;
-    };
+    } else {
+	_vicFull = 1;
+	}};
+    if ("ItemGPS" in (assignedItems _unit)) then {if (_vehicle canAdd "ItemGPS") then {
+        _items pushBack "ItemGPS";
+        _unit unlinkItem "ItemGPS";
+    } else {
+	_vicFull = 1;
+	}};
 };
 {
     _vehicle addItemCargoGlobal [_x, 1];
@@ -72,5 +84,5 @@ if (_vicFull == 0) then{
 private _displayName = getText(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
 systemchat format ["Gear Looted to %1", _displayName];
 } else {
-systemchat "There is not enough space for all the gear";
+systemchat format ["There is not enough space for all the gear, some gear has been looted to %1", _displayName];
 }; //outcome depends on if the vehicle could add _weaponsOnGround to _vehicle

@@ -73,7 +73,7 @@ if _playAnimation then{
 
 		_vehicle setVariable ["jnl_isUnloading",false, true];
 		
-		[_vehicle, _object, false] call jn_fnc_logistics_setMass;  											   
+		[_vehicle, _object, false] call jn_fnc_logistics_addOrRemoveObjectMass;  											   
 	};
 }else{
 	private _offsetAndDir = [_vehicle,_object,_nodeID] call jn_fnc_logistics_getCargoOffsetAndDir;
@@ -82,7 +82,7 @@ if _playAnimation then{
 	_object SetVectorDirAndUp [_offsetAndDir select 1, [0, 0, 1]];
 	_object hideObject false;
 	
-	[_vehicle, _object, false] call jn_fnc_logistics_setMass;
+	[_vehicle, _object, false] call jn_fnc_logistics_addOrRemoveObjectMass;
 };
 
 //Add action to unload

@@ -14,4 +14,4 @@ if (!isNull _playerX) then
 
 _textX = format ["%1<br/>No members:<br/>%2",_textX,_countN];
 
-["Membership", format ["%1",_textX]] call A3A_fnc_customHint;
+["Membership", _textX] call A3A_fnc_customHint;

@@ -11,7 +11,6 @@ waitUntil {alive player};
 //This is a workaround that re-assigns curator to the player if their body is deleted.
 //It will only run on LAN hosted MP, where the hoster is *always* admin, so we shouldn't run into any issues.
 if (isServer) then {
-	// workaround for BIS bug where zeus link is broken in MP hosted when old corpse is deleted
 	_oldUnit addEventHandler ["Deleted", {
 		[] spawn {
 			sleep 1;		// should ensure that the bug unassigns first

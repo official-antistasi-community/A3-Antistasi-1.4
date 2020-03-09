@@ -6,6 +6,8 @@ if (_pool isEqualTo []) then {
 	} else {
 		if !(unlockedSMGs isEqualTo []) then {
 			_pool = unlockedSMGs;
+		} else {
+			_pool = unlockedShotguns + unlockedSniperRifles;
 		};
 	};
 };

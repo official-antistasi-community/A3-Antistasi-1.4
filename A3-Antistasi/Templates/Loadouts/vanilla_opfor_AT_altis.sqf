@@ -1,26 +1,26 @@
 [//Loadout
 	[//Primary Weapon
-		"ARifle_SPAR_03_KHK_F",								//Weapon
-		"Muzzle_SNDS_B",									//Muzzle
+		"arifle_Katiba_F",								//Weapon
+		"",													//Muzzle
 		"Acc_Pointer_IR",									//Rail
-		"Optic_AMS_KHK",									//Sight
-		["20Rnd_762x51_Mag",20],							//Primary Magazine
+		"optic_Holosight",						    			//Sight
+		["30Rnd_65x39_caseless_green",30],						//Primary Magazine
 		[],													//Secondary Magazine
-		"Bipod_01_F_BLK"									//Bipod
+		""													//Bipod
 	],
 
 	[//Launcher
-		"",													//Weapon
+		"launch_RPG32_F",													//Weapon
 		"",													//Muzzle
 		"",													//Rail
 		"",													//Sight
-		[],													//Primary Magazine
+		["RPG32_F",1],													//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
 
 	[//Secondary Weapon
-		"HGun_P07_KHK_F",									//Weapon
+		"hgun_Rook40_F",									//Weapon
 		"Muzzle_SNDS_L",									//Muzzle
 		"",													//Rail
 		"",													//Sight
@@ -30,28 +30,34 @@
 	],
 
 	[//Uniform
-		"U_B_T_Sniper_F",									//Uniform
+
+		"U_O_CombatUniform_ocamo",
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest
-		"V_PlateCarrier1_TNA_F",										//Vest
+		"V_TacVest_khk",										//Vest
 		[//Inventory
-			["NVGoggles_OpFor",1],
-			["SmokeShell",3,1],
+			["NVGoggles_OPFOR",1],
+			["SmokeShell",2,1],
+			["HandGrenade",1,1],
 			["16Rnd_9x21_Mag",2,17],
-			["20Rnd_762x51_Mag",4,20]
+			["30Rnd_65x39_caseless_green",4,30]
 		]
 		+ _aceFlashlight
-		+ _aceKestrel
-		+ _aceRangecard
 		+ _aceM84
 	],
 
-	[],
+    [//Backpack
+		"B_AssaultPack_ocamo",								//Backpack
+		[//Inventory
+			["RPG32_F",1,1]
+		]
+	],
 
-		"",													//Headgear
-		"G_Balaclava_Oli",									//Facewear
+		selectRandom										//Headgear
+		["H_Booniehat_khk", "H_MilCap_ocamo", "H_HelmetLeaderO_ocamo", "H_HelmetSpecO_ocamo", "H_HelmetO_ocamo", "H_Cap_brn_SPECOPS"],
+		"",													//Facewear
 
 	[//Binocular
 		"Binocular",										//Binocular
@@ -66,7 +72,7 @@
 	[//Item
         "ItemMap",											//Map
         "ItemGPS",											//Terminal
-		["TF_ANPRC152"] call _fnc_tfarRadio,				//Radio
+		["tf_fadak"] call _fnc_tfarRadio,				//Radio
         "ItemCompass",										//Compass
         "ItemWatch",										//Watch
         ""													//Goggles

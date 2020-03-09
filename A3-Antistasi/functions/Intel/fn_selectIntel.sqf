@@ -18,13 +18,13 @@
 
 params ["_intelType", "_side"];
 
-/*  Selects, creates and shows the intel text of the given type and side
+/*  Selects, creates and executes the intel of the given type and side
 *   Params:
 *       _intelType : STRING : One of "Small", "Medium" or "Large"
 *       _side : SIDE : The enemy side, which the intel belongs to
 *
 *   Returns:
-*       Nothing
+*       _text : STRING : The text of the selected intel
 */
 
 private _fileName = "selectIntel";
@@ -79,17 +79,18 @@ if(_intelType == "Small") then
         case (CONVOY):
         {
             private _convoyMarker = "";
+            [] call A3A_fnc_cleanConvoyMarker;
             if(_side == Occupants) then
             {
-                _convoyMarker = selectRandom (server getVariable ["convoyMarker_Occupants", [""]]);
+                _convoyMarker = (server getVariable ["convoyMarker_Occupants", []]);
             }
             else
             {
-                _convoyMarker = selectRandom (server getVariable ["convoyMarker_Occupants", [""]]);
+                _convoyMarker = (server getVariable ["convoyMarker_Invaders", []]);
             };
-            if(_convoyMarker != "") then
+            if(count _convoyMarker != 0) then
             {
-                _convoyMarker setMarkerAlpha 1;
+                (selectRandom _convoyMarker) setMarkerAlpha 1;
                 _text = format ["We found the tracking data for a %1 convoy.<br/>Convoy position marked on map!", _sideName];
             }
             else
@@ -118,6 +119,7 @@ if(_intelType == "Medium") then
         };
         case (CONVOYS):
         {
+            [] call A3A_fnc_cleanConvoyMarker;
             private _convoyMarkers = [];
             if(_side == Occupants) then
             {
@@ -172,4 +174,5 @@ if(_intelType == "Large") then
         };
     };
 };
-[_text] call A3A_fnc_showIntel;
+
+_text;

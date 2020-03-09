@@ -36,6 +36,7 @@ private _fnc_placeObject = {
 		_playerX removeAction _dropObjectActionIndex;
 	};
 
+	_thingX setVelocity [0,0,0];		// some objects never lose their velocity when detached, becoming lethal
 	_thingX setVectorUp surfaceNormal position _thingX;
 	_thingX setPosATL [getPosATL _thingX select 0,getPosATL _thingX select 1,0.1];
 

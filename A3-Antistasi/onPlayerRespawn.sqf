@@ -7,6 +7,18 @@ if (isNull _oldUnit) exitWith {};
 
 waitUntil {alive player};
 
+//When LAN hosting, Bohemia's Zeus module code will cause the player lose Zeus access if the body is deleted after respawning.
+//This is a workaround that re-assigns curator to the player if their body is deleted.
+//It will only run on LAN hosted MP, where the hoster is *always* admin, so we shouldn't run into any issues.
+if (isServer) then {
+	_oldUnit addEventHandler ["Deleted", {
+		[] spawn {
+			sleep 1;		// should ensure that the bug unassigns first
+			{ player assignCurator _x } forEach allCurators;
+		}
+	} ];
+};
+
 _nul = [_oldUnit] spawn A3A_fnc_postmortem;
 
 _oldUnit setVariable ["incapacitated",false,true];

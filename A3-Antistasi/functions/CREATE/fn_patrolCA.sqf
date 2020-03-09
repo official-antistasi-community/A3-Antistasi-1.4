@@ -421,7 +421,11 @@ else
 	_vehPool = [];
 	_countX = if (!_super) then {if (_isMarker) then {2} else {1}} else {round ((tierWar + difficultyCoef) / 2) + 1};
 	_typeVehX = "";
-	_vehPool = if (_sideX == Occupants) then {(vehNATOAir - [vehNATOPlane]) select {[_x] call A3A_fnc_vehAvailable}} else {(vehCSATAir - [vehCSATPlane]) select {[_x] call A3A_fnc_vehAvailable}};
+	_vehPool = if (_sideX == Occupants) then {
+		(vehNATOAir - [vehNATOPlane,vehNATOPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}
+	} else {
+		(vehCSATAir - [vehCSATPlane,vehCSATPlaneAA]) select {[_x] call A3A_fnc_vehAvailable}
+	};
 	if (_isSDK) then
 		{
 		_rnd = random 100;

@@ -47,7 +47,7 @@ if (build_cost > 0) then
 	else
 		{
 		[-build_cost] call A3A_fnc_resourcesPlayer;
-		["moneyX",player getVariable ["moneyX",0]] call fn_SaveStat;
+		["moneyX",player getVariable ["moneyX",0]] call A3A_fnc_setStatVariable;
 		};
 	};
 

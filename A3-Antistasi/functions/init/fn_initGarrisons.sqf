@@ -147,6 +147,9 @@ if (gameMode == 1) then
 			_mrkCSAT = ["airport_2", "control_25", "control_29", "control_30", "control_31", "control_32", "Seaport_1", "Outpost_3"];
 			_controlsCSAT = ["control_25", "control_29", "control_30", "control_31", "control_32"];
 		};
+		case "stratis": {
+			_mrkCSAT = ["outpost_3"];
+		};
 	};
     _controlsNATO = _controlsNATO - _controlsCSAT;
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];

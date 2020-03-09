@@ -541,6 +541,8 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 //This is all very tightly coupled.
 //Beware when changing these, or doing anything with them, really.
 
+[2,"Initializing hardcoded categories",_fileName] call A3A_fnc_log;
+[] call A3A_fnc_categoryOverrides;
 [2,"Scanning config entries for items",_fileName] call A3A_fnc_log;
 [A3A_fnc_equipmentIsValidForCurrentModset] call A3A_fnc_configSort;
 [2,"Categorizing vehicle classes",_fileName] call A3A_fnc_log;

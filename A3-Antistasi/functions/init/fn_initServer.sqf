@@ -106,7 +106,7 @@ waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (
 
 if (loadLastSave) then {
 	[2,"Loading saved data",_fileName] call A3A_fnc_log;
-	["membersX"] call fn_LoadStat;
+	["membersX"] call A3A_fnc_getStatVariable;
 	if (isNil "membersX") then {
 		loadLastSave = false;
 		[2,"No member data found, skipping load",_fileName] call A3A_fnc_log;

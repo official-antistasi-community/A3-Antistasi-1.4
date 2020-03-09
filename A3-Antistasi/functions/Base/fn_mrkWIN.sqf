@@ -53,7 +53,6 @@ if (!isNull _playerX) then
 		{
 			player reveal _x
 		} forEach _revealX;
-		//[_markerX] call A3A_fnc_intelFound;
 	};
 };
 
@@ -70,7 +69,6 @@ if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x 
 	if (isPlayer _x) then
 	{
 		[5,_x] remoteExec ["A3A_fnc_playerScoreAdd",_x];
-		[_markerX] remoteExec ["A3A_fnc_intelFound",_x];
 		if (captive _x) then
 		{
 			[_x,false] remoteExec ["setCaptive",0,_x];

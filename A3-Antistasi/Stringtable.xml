@@ -546,13 +546,27 @@
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
+      <Key ID="STR_antistasi_mission_info_stratis_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+        <French />
+        <Russian />
+      </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_text">
         <Original>Antistasi - Liberation of Altis</Original>
         <English>Antistasi - Liberation of Altis</English>
       </Key>
+      <Key ID="STR_antistasi_mission_info_stratis_mapname_text">
+        <Original>Antistasi - Liberation of Stratis</Original>
+        <English>Antistasi - Liberation of Stratis</English>
+      </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_short_text">
         <Original>Antistasi Altis</Original>
         <English>Antistasi Altis</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_stratis_mapname_short_text">
+        <Original>Antistasi Stratis</Original>
+        <English>Antistasi Stratis</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
         <Original>Antistasi - Liberation of Altis (BLUFOR)</Original>
@@ -563,6 +577,10 @@
         <English>Antistasi Altis (BLUFOR)</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_blurb_text">
+        <Original>Because nothing is more important than Freedom.</Original>
+        <English>Because nothing is more important than Freedom.</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_stratis_blurb_text">
         <Original>Because nothing is more important than Freedom.</Original>
         <English>Because nothing is more important than Freedom.</English>
       </Key>

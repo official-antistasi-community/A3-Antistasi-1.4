@@ -1,26 +1,26 @@
 [//Loadout
 	[//Primary Weapon
-		"ARifle_SPAR_02_KHK_F",								//Weapon
+		"arifle_AK12_F",								//Weapon
 		"",													//Muzzle
-		"",													//Rail
-		"Optic_HAMR_KHK_F",									//Sight
-		["30Rnd_556x45_Stanag_Red",30],						//Primary Magazine
+		"Acc_Pointer_IR",									//Rail
+		"optic_Holosight",						    			//Sight
+		["30Rnd_762x39_AK12_Mag_F",30],						//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
 
 	[//Launcher
-		"",													//Weapon
+		"launch_RPG32_green_F",													//Weapon
 		"",													//Muzzle
 		"",													//Rail
 		"",													//Sight
-		[],													//Primary Magazine
+		["RPG32_F",1],													//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
 
 	[//Secondary Weapon
-		"HGun_P07_KHK_F",									//Weapon
+		"hgun_Rook40_F",									//Weapon
 		"Muzzle_SNDS_L",									//Muzzle
 		"",													//Rail
 		"",													//Sight
@@ -30,29 +30,33 @@
 	],
 
 	[//Uniform
-		selectRandom										//Uniform
-		["U_B_T_Soldier_F", "U_B_T_Soldier_AR_F", "U_B_T_Soldier_SL_F"],
+
+		"U_O_R_Gorka_01_camo_F",
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
 	[//Vest
-		selectRandom										//Vest
-		["V_PlateCarrier1_TNA_F", "V_PlateCarrier2_TNA_F"],
+		"V_TacVest_oli",										//Vest
 		[//Inventory
-			["NVGoggles_OpFor",1],
+			["NVGoggles_OPFOR",1],
 			["SmokeShell",2,1],
 			["HandGrenade",1,1],
 			["16Rnd_9x21_Mag",2,17],
-			["30Rnd_556x45_Stanag_Red",6,30]
+			["30Rnd_762x39_AK12_Mag_F",4,30]
 		]
 		+ _aceFlashlight
 		+ _aceM84
 	],
 
-	[],
+    [//Backpack
+		"B_FieldPack_taiga_F",								//Backpack
+		[//Inventory
+			["RPG32_F",1,1]
+		]
+	],
 
 		selectRandom										//Headgear
-		["H_BoonieHat_TNA_F", "H_MilCap_TNA_F", "H_HelmetB_Light_TNA_F", "H_HelmetB_TNA_F", "H_HelmetB_Enh_TNA_F"],
+		["H_Booniehat_taiga", "H_MilCap_taiga", "H_HelmetLeaderO_ocamo", "H_HelmetAggressor_cover_taiga_F","H_HelmetAggressor_F"],
 		"",													//Facewear
 
 	[//Binocular
@@ -66,11 +70,11 @@
 	],
 
 	[//Item
-		"ItemMap",											//Map
-		"ItemGPS",											//Terminal
-		["TF_ANPRC152"] call _fnc_tfarRadio,				//Radio
-		"ItemCompass",										//Compass
-		"ItemWatch",										//Watch
-		""													//Goggles
+        "ItemMap",											//Map
+        "ItemGPS",											//Terminal
+		["tf_fadak"] call _fnc_tfarRadio,				//Radio
+        "ItemCompass",										//Compass
+        "ItemWatch",										//Watch
+        ""													//Goggles
 	]
 ];

@@ -26,21 +26,21 @@ NATOAmmobox = "B_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	["vanilla_blufor_teamLeader"] call A3A_fnc_getLoadout,
+	["3CB_BAF_Teamleader_MTP"] call A3A_fnc_getLoadout,
 	//Medic
-	["vanilla_blufor_medic"] call A3A_fnc_getLoadout,
+	["3CB_BAF_Medic_MTP"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	["vanilla_blufor_machineGunner"] call A3A_fnc_getLoadout,
+	["3CB_BAF_MachineGunner_MTP"] call A3A_fnc_getLoadout,
 	//Marksman
-	["vanilla_blufor_marksman"] call A3A_fnc_getLoadout,
+	["3CB_BAF_Marksman_MTP"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	["vanilla_blufor_AT"] call A3A_fnc_getLoadout,
+	["3CB_BAF_AT_MTP"] call A3A_fnc_getLoadout,
 	//AT2
-	["vanilla_blufor_rifleman"] call A3A_fnc_getLoadout
+	["3CB_BAF_AT2_MTP"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles
-vehNATOPVP = ["B_T_MRAP_01_F","B_MRAP_01_hmg_F"];
+vehNATOPVP = ["UK3CB_BAF_LandRover_Hard_FFR_Green_A_MTP","UK3CB_BAF_LandRover_Snatch_FFR_Green_A_MTP","UK3CB_BAF_LandRover_Soft_FFR_Green_A_MTP","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_A_MTP"];
 
 ////////////////////////////////////
 //             UNITS             ///

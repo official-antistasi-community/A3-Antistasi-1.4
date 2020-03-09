@@ -535,6 +535,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
 						name="pvp_green_1";
+						description="Teamleader";
 						isPlayable=1;
 					};
 					id=1562;
@@ -596,6 +597,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
 						name="pvp_green_2";
+						description="Medic";
 						isPlayable=1;
 					};
 					id=1563;
@@ -657,6 +659,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
 						name="pvp_green_4";
+						description="Marksman";
 						isPlayable=1;
 					};
 					id=1564;
@@ -718,6 +721,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
 						name="pvp_green_3";
+						description="Machinegunner";
 						isPlayable=1;
 					};
 					id=1649;
@@ -778,6 +782,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
 						name="pvp_green_6";
+						description="AT2";
 						isPlayable=1;
 					};
 					id=1650;
@@ -838,6 +843,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
 						name="pvp_green_5";
+						description="AT1";
 						isPlayable=1;
 					};
 					id=1651;
@@ -921,6 +927,7 @@ class Mission
 					{
 						init="groupPlayersCSAT = group this; this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
 						name="pvp_red_1";
+						description="Teamleader";
 						isPlayable=1;
 					};
 					id=1573;
@@ -981,6 +988,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
 						name="pvp_red_2";
+						description="Medic";
 						isPlayable=1;
 					};
 					id=1574;
@@ -1041,6 +1049,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
 						name="pvp_red_4";
+						description="Marksman";
 						isPlayable=1;
 					};
 					id=1575;
@@ -1101,6 +1110,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
 						name="pvp_red_5";
+						description="AT1";
 						isPlayable=1;
 					};
 					id=1576;
@@ -1162,6 +1172,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
 						name="pvp_red_3";
+						description="Machinegunner";
 						isPlayable=1;
 					};
 					id=1644;
@@ -1222,6 +1233,7 @@ class Mission
 					{
 						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
 						name="pvp_red_6";
+						description="AT2";
 						isPlayable=1;
 					};
 					id=1646;

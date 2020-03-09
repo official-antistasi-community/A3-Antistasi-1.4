@@ -66,8 +66,9 @@ _caller setVariable ["cancelIntelSearch", nil];
 
 if(_wasCancelled) exitWith
 {
-    ["Search Intel", "Search cancelled"] call A3A_fnc_customHint;
+    ["Intel", "Search cancelled"] call A3A_fnc_customHint;
     _caller setVariable ["intelFound", nil];
+    [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
 };
 
 if(_caller getVariable ["intelFound", false]) then
@@ -75,16 +76,20 @@ if(_caller getVariable ["intelFound", false]) then
     private _hasIntel = _squadLeader getVariable ["hasIntel", false];
     if(_hasIntel) then
     {
-        ["Search Intel", "Search completed, intel found!"] call A3A_fnc_customHint;
-        ["Small", _side] spawn A3A_fnc_selectIntel;
+        ["Intel", "Search completed, intel found!"] call A3A_fnc_customHint;
+        private _intelText = ["Small", _side] call A3A_fnc_selectIntel;
+        [_intelText] remoteExec ["A3A_fnc_showIntel", [teamPlayer, civilian]];
+        {
+            [5,_x] call A3A_fnc_playerScoreAdd;
+        } forEach ([50,0,_caller,teamPlayer] call A3A_fnc_distanceUnits);
     }
     else
     {
-        ["Search Intel", "Search completed, but you found nothing!"] call A3A_fnc_customHint;
+        ["Intel", "Search completed, but you found nothing!"] call A3A_fnc_customHint;
     };
 }
 else
 {
-    [_squadLeader, "Small_Intel"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
+    [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
 };
 _caller setVariable ["intelFound", nil];

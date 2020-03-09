@@ -720,7 +720,6 @@ SA_Hint = {
 			["Whoops", [_msg]] call ExileClient_gui_notification_event_addNotification;
 		};
     } else {
-        hint _msg;
 		["Advanced Towing", _msg] call A3A_fnc_customHint;
     };
 };

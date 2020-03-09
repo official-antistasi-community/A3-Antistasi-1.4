@@ -1,12 +1,12 @@
 if (hasInterface) then {
-	if (!isNil "savingClient" && {savingClient}) exitWith {hint "Your personal stats are being saved"};
+	if (!isNil "savingClient" && {savingClient}) exitWith {["Save", "Your personal stats are being saved"] call A3A_fnc_customHint;};
 	[] call A3A_fnc_savePlayer;
 };
 
 //Server only from here on out.
 if (!isServer) exitWith {};
 
-if (savingServer) exitWith {"Server data save is still in progress" remoteExecCall ["hint",theBoss]};
+if (savingServer) exitWith {["Save Game", "Server data save is still in progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 private ["_garrison"];
 ["countCA", countCA] call A3A_fnc_setStatVariable;
@@ -207,5 +207,5 @@ _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlaye
 
 savingServer = false;
 _saveHintText = format ["Savegame Done.\n\nYou won't lose your stats in the event of a game update.\n\nRemember: if you want to preserve any vehicle, it must be near the HQ Flag with no AI inside.\nIf AI are inside, you will save the funds you spent on it.\n\nAI will be refunded\n\nStolen and purchased Static Weapons need to be ASSEMBLED in order to be saved. You can save disassembled Static Weapons in the ammo box.\n\nMounted Statics (Mortar/AA/AT squads) won't get saved, but you will be able to recover the cost.\n\nSame for assigned vehicles more than 50m away from HQ.\n\n%1 fund count:\nHR: %2\nMoney: %3 €",nameTeamPlayer,_hrBackground,_resourcesBackground];
-[petros,"hint",_saveHintText] remoteExec ["A3A_fnc_commsMP", 0];
+[petros,"hint",_saveHintText, "Save"] remoteExec ["A3A_fnc_commsMP", 0];
 diag_log format ["%1: [Antistasi] | INFO | Persistent Save Completed.",servertime];

@@ -494,6 +494,11 @@ class A3A
 		class rhsModCompat {};
 	};
 
+	class UI 
+	{
+		class customHint {};
+	};
+
 	class Undercover
 	{
 		class initUndercover {};

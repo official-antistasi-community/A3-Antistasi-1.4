@@ -9,14 +9,14 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) exitWith {};
 _positionX = getMarkerPos _markerX;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 
-if ((!isNull _playerX) and (captive _playerX)) exitWith {hint "You cannot Capture the Flag while Undercover"};
-if ((_markerX in airportsX) and (tierWar < 3)) exitWith {hint "You cannot capture Airports until you reach War Level 3"};
+if ((!isNull _playerX) and (captive _playerX)) exitWith {["Capture", "You cannot Capture the Flag while Undercover"] call A3A_fnc_customHint;};
+if ((_markerX in airportsX) and (tierWar < 3)) exitWith {["Capture", "You cannot capture Airports until you reach War Level 3"] call A3A_fnc_customHint;};
 _revealX = [];
 
 //Check if the flag is locked
 if(_flagX getVariable ["isGettingCaptured", false]) exitWith
 {
-	hint "This flag pole is locked, try again in 30 seconds!";
+	["Capture", "This flag pole is locked, try again in 30 seconds!"] call A3A_fnc_customHint;
 };
 
 //Lock the flag
@@ -59,7 +59,7 @@ if (!isNull _playerX) then
 if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x == teamPlayer)} count allUnits)) exitWith
 {
 	[2, format ["Flag capture by %1 abandoned due to outnumbering", str _playerX], _filename, true] call A3A_fnc_log;
-	hint "The enemy still outnumber us, check the map and clear the rest of the area";
+	["Capture", "The enemy still outnumber us, check the map and clear the rest of the area"] call A3A_fnc_customHint;
 };
 //if (!isServer) exitWith {};
 

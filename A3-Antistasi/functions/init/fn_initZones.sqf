@@ -119,7 +119,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 		if (!(_numCiv isEqualType 0)) then
 		{
-			hint format ["Incorrect Data: %1. Data Type: %2",_nameX, typeName _numCiv];
+			["ERROR", format ["Incorrect Data: %1. Data Type: %2",_nameX, typeName _numCiv]] call A3A_fnc_customHint;
 			diag_log format ["%1: [Antistasi] | ERROR | initZones | Incorrect data type for %2, Type given %3",servertime,_nameX, typeName _numCiv];
 		};
 	}
@@ -361,7 +361,7 @@ publicVariable "islands";
 publicVariable "roadsMrk";
 
 if (isMultiplayer) then {
-	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]
+	[petros, "hint","Zones Init Completed", "Server Information"] remoteExec ["A3A_fnc_commsMP", -2]
 };
 
 [2,"initZones completed",_fileName] call A3A_fnc_log;

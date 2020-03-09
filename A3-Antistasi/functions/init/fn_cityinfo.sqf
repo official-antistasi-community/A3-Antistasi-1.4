@@ -18,7 +18,7 @@ if (_x in destroyedSites) then {_popCSAT = _popCSAT + _numCIV};
 } forEach citiesX;
 _popFIA = round _popFIA;
 _popAAF = round _popAAF;
-hint format ["%7\n\nTotal pop: %1\n%6 Support: %2\n%5 Support: %3 \n\nMurdered Pop: %4\n\nClick on the zone",_pop, _popFIA, _popAAF, _popCSAT,nameOccupants,nameTeamPlayer,worldName];
+["City Information", format ["%7<br/><br/>Total pop: %1<br/>%6 Support: %2<br/>%5 Support: %3 <br/><br/>Murdered Pop: %4<br/><br/>Click on the zone",_pop, _popFIA, _popAAF, _popCSAT,nameOccupants,nameTeamPlayer,worldName]] call A3A_fnc_customHint;
 
 if (!visibleMap) then {openMap true};
 
@@ -47,7 +47,7 @@ while {visibleMap} do
 			_prestigeOPFOR = _dataX select 2;
 			_prestigeBLUFOR = _dataX select 3;
 			_power = [_siteX] call A3A_fnc_powerCheck;
-			_textX = format ["%1\n\nPop %2\n%6 Support: %3 %5\n%7 Support: %4 %5",[_siteX,false] call A3A_fnc_location,_numCiv,_prestigeOPFOR,_prestigeBLUFOR,"%",nameOccupants,nameTeamPlayer];
+			_textX = format ["%1<br/><br/>Pop %2<br/>%6 Support: %3 %5<br/>%7 Support: %4 %5",[_siteX,false] call A3A_fnc_location,_numCiv,_prestigeOPFOR,_prestigeBLUFOR,"%",nameOccupants,nameTeamPlayer];
 			_positionX = getMarkerPos _siteX;
 			_result = "NONE";
 			switch (_power) do
@@ -75,9 +75,9 @@ while {visibleMap} do
 					};
 				};
 			*/
-			_textX = format ["%1\nInfluence: %2",_textX,_result];
-			if (_siteX in destroyedSites) then {_textX = format ["%1\nDESTROYED",_textX]};
-			if (sidesX getVariable [_siteX,sideUnknown] == teamPlayer) then {_textX = format ["%1\n%2",_textX,[_siteX] call A3A_fnc_garrisonInfo]};
+			_textX = format ["%1<br/>Influence: %2",_textX,_result];
+			if (_siteX in destroyedSites) then {_textX = format ["%1<br/>DESTROYED",_textX]};
+			if (sidesX getVariable [_siteX,sideUnknown] == teamPlayer) then {_textX = format ["%1<br/>%2",_textX,[_siteX] call A3A_fnc_garrisonInfo]};
 			};
 		if (_siteX in airportsX) then
 			{
@@ -85,9 +85,9 @@ while {visibleMap} do
 				{
 				_textX = format ["%1 Airport",_nameFaction];
 				_busy = [_siteX,true] call A3A_fnc_airportCanAttack;
-				if (_busy) then {_textX = format ["%1\nStatus: Idle",_textX]} else {_textX = format ["%1\nStatus: Busy",_textX]};
+				if (_busy) then {_textX = format ["%1<br/>Status: Idle",_textX]} else {_textX = format ["%1<br/>Status: Busy",_textX]};
 				_garrison = count (garrison getVariable [_siteX, []]);
-				if (_garrison >= 40) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 20) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
+				if (_garrison >= 40) then {_textX = format ["%1<br/>Garrison: Good",_textX]} else {if (_garrison >= 20) then {_textX = format ["%1<br/>Garrison: Weakened",_textX]} else {_textX = format ["%1<br/>Garrison: Decimated",_textX]}};
 				}
 			else
 				{
@@ -100,13 +100,13 @@ while {visibleMap} do
 				{
 				_textX = format ["%1 Resources",_nameFaction];
 				_garrison = count (garrison getVariable [_siteX, []]);
-				if (_garrison >= 30) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 10) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
+				if (_garrison >= 30) then {_textX = format ["%1<br/>Garrison: Good",_textX]} else {if (_garrison >= 10) then {_textX = format ["%1<br/>Garrison: Weakened",_textX]} else {_textX = format ["%1<br/>Garrison: Decimated",_textX]}};
 				}
 			else
 				{
 				_textX = format ["%2 Resources%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
 				};
-			if (_siteX in destroyedSites) then {_textX = format ["%1\nDESTROYED",_textX]};
+			if (_siteX in destroyedSites) then {_textX = format ["%1<br/>DESTROYED",_textX]};
 			};
 		if (_siteX in factories) then
 			{
@@ -114,13 +114,13 @@ while {visibleMap} do
 				{
 				_textX = format ["%1 Factory",_nameFaction];
 				_garrison = count (garrison getVariable [_siteX, []]);
-				if (_garrison >= 16) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 8) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
+				if (_garrison >= 16) then {_textX = format ["%1<br/>Garrison: Good",_textX]} else {if (_garrison >= 8) then {_textX = format ["%1<br/>Garrison: Weakened",_textX]} else {_textX = format ["%1<br/>Garrison: Decimated",_textX]}};
 				}
 			else
 				{
 				_textX = format ["%2 Factory%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
 				};
-			if (_siteX in destroyedSites) then {_textX = format ["%1\nDESTROYED",_textX]};
+			if (_siteX in destroyedSites) then {_textX = format ["%1<br/>DESTROYED",_textX]};
 			};
 		if (_siteX in outposts) then
 			{
@@ -128,9 +128,9 @@ while {visibleMap} do
 				{
 				_textX = format ["%1 Grand Outpost",_nameFaction];
 				_busy = [_siteX,true] call A3A_fnc_airportCanAttack;
-				if (_busy) then {_textX = format ["%1\nStatus: Idle",_textX]} else {_textX = format ["%1\nStatus: Busy",_textX]};
+				if (_busy) then {_textX = format ["%1<br/>Status: Idle",_textX]} else {_textX = format ["%1<br/>Status: Busy",_textX]};
 				_garrison = count (garrison getVariable [_siteX, []]);
-				if (_garrison >= 16) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 8) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
+				if (_garrison >= 16) then {_textX = format ["%1<br/>Garrison: Good",_textX]} else {if (_garrison >= 8) then {_textX = format ["%1<br/>Garrison: Weakened",_textX]} else {_textX = format ["%1<br/>Garrison: Decimated",_textX]}};
 				}
 			else
 				{
@@ -143,7 +143,7 @@ while {visibleMap} do
 				{
 				_textX = format ["%1 Seaport",_nameFaction];
 				_garrison = count (garrison getVariable [_siteX, []]);
-				if (_garrison >= 20) then {_textX = format ["%1\nGarrison: Good",_textX]} else {if (_garrison >= 8) then {_textX = format ["%1\nGarrison: Weakened",_textX]} else {_textX = format ["%1\nGarrison: Decimated",_textX]}};
+				if (_garrison >= 20) then {_textX = format ["%1<br/>Garrison: Good",_textX]} else {if (_garrison >= 8) then {_textX = format ["%1<br/>Garrison: Weakened",_textX]} else {_textX = format ["%1<br/>Garrison: Decimated",_textX]}};
 				}
 			else
 				{
@@ -161,7 +161,7 @@ while {visibleMap} do
 				_textX = format ["%1 Watchpost",_nameFaction];
 				};
 			};
-		hint format ["%1",_textX];
+		["City Information", format ["%1",_textX]] call A3A_fnc_customHint;
 		};
 	positionTel = [];
 	};

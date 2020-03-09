@@ -67,7 +67,7 @@ if (player == leader _unit) then {
 			if (([player] call A3A_fnc_hasRadio) && (_unit call A3A_fnc_getRadio != "")) exitWith {_unit groupChat format ["This is %1, radiocheck OK",name _unit]};
 			if (unitReady _unit) then {
 				if ((alive _unit) and (_unit distance (getMarkerPos respawnTeamPlayer) > 50) and (_unit distance leader group _unit > 500) and ((vehicle _unit == _unit) or ((typeOf (vehicle _unit)) in arrayCivVeh))) then {
-					hint format ["%1 lost communication, he will come back with you if possible", name _unit];
+					["", format ["%1 lost communication, he will come back with you if possible", name _unit]] call A3A_fnc_customHint;
 					[_unit] join stragglers;
 					if ((vehicle _unit isKindOf "StaticWeapon") or (isNull (driver (vehicle _unit)))) then {unassignVehicle _unit; [_unit] orderGetIn false};
 					_unit doMove position player;

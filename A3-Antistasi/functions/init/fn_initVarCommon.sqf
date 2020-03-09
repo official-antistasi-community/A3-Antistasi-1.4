@@ -157,14 +157,14 @@ waitUntil
 {
 	if (scriptDone _getMissionPath) exitWith {true};
 	if (hasInterface) then {
-		hint "Stuck on compiling missionPath, re-launch the mission.";
+		["ERROR", "Stuck on compiling missionPath, re-launch the mission."] call A3A_fnc_customHint;
 	};
 	[1,"Stuck on compiling missionPath, re-launch the mission.",_fileName] call A3A_fnc_log;
 	false;
 };
 
 if (hasInterface) then {
-	hint "Done compiling missionPath";
+	["Server Information", "Done compiling missionPath"] call A3A_fnc_customHint;
 };
 [2,"Done compiling missionPath",_fileName] call A3A_fnc_log;
 

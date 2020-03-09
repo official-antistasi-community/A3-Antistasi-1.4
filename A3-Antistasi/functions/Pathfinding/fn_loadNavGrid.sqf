@@ -21,7 +21,7 @@
   catch
   {
     //Stop launch of mission, road database is missing
-    diag_log format ["Road database could not be loaded, there is no file called\n %1\n\n Aborting mission start!", _path];
+    diag_log format ["Road database could not be loaded, there is no file called<br/> %1<br/><br/> Aborting mission start!", _path];
     _abort = true;
   };
 
@@ -67,5 +67,5 @@
   };
 
   _deltaTime = time - _deltaTime;
-  hint format ["Nav grid load and prepared in %1 seconds", _deltaTime];
+  ["Nav Grid", format ["Nav grid load and prepared in %1 seconds", _deltaTime]] call A3A_fnc_customHint;
 };

@@ -1,13 +1,13 @@
 _nul=createDialog "set_params";
 
 waitUntil {dialog};
-hint "W A R N I N G\n\nREAD THIS!!!\n\n\nAntistasi does NOT support vanilla save. Do not expect 100% of functionalities if you Save&Exit and after you come back with Resume option. Both on SP and MP.\n\n\nAntistasi has an in built save system, GTA alike, which is the system you have to use in order to have full functionalities.\n\nTo Save: Go to the Map Board, select ""Game Options"" and hit on ""Persistent Save"" button.\n\nTo load: RESTART the game and click YES on this window";
+["W A R N I N G", "READ THIS!!!<br/><br/><br/>Antistasi does NOT support vanilla save. Do not expect 100% of functionalities if you Save and Exit and after you come back with Resume option. Both on SP and MP.<br/><br/><br/>Antistasi has an in built save system, GTA alike, which is the system you have to use in order to have full functionalities.<br/><br/>To Save: Go to the Map Board, select ""Game Options"" and hit on ""Persistent Save"" button.<br/><br/>To load: RESTART the game and click YES on this window"] call A3A_fnc_customHint;
 waitUntil {!dialog};
 
 if (!isNil "loadLastSave" && {!loadLastSave}) then {
 	_nul=createDialog "diff_menu";
 	waitUntil {dialog};
-	hint "Choose a difficulty level";
+	["Load Save", "Choose a difficulty level"] call A3A_fnc_customHint;
 	waitUntil {!dialog};
 
 	[] spawn {
@@ -37,7 +37,7 @@ if (!isNil "loadLastSave" && {!loadLastSave}) then {
 		};
 	_nul= createDialog "gameMode_menu";
 	waitUntil {dialog};
-	hint "Choose a Game Mode";
+	["Load Save", "Choose a Game Mode"] call A3A_fnc_customHint;
 	waitUntil {!dialog};
 };
 

@@ -29,12 +29,12 @@ else
 			if (soundVolume <= 0.5) then
 				{
 				0.5 fadeSound 1;
-				hintSilent "You've taken out your ear plugs.";
+				["Ear Plugs", "You've taken out your ear plugs.", true] call A3A_fnc_customHint;
 				}
 			else
 				{
 				0.5 fadeSound 0.1;
-				hintSilent "You've inserted your ear plugs.";
+				["Ear Plugs", "You've inserted your ear plugs.", true] call A3A_fnc_customHint;
 				};
 			};
 		};

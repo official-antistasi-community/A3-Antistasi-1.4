@@ -19,7 +19,7 @@ if(_isTrap) exitWith
 {
     _intel setObjectTextureGlobal [0, "Pictures\laptop_die.paa"];
     {
-        [petros,"hint","The screen says:\nPrepare to die!"] remoteExec ["A3A_fnc_commsMP",_x];
+        [petros,"hint","The screen says:<br/><br/>Prepare to die!", "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x];
     } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     sleep (2 + (random 3));
     private _bombPos = getPosWorld _bomb;
@@ -121,7 +121,7 @@ while {_pointSum <= _neededPoints} do
     {
         _pointSum = 0;
         {
-            [petros,"hint","No one in range of the intel, reseting download!"] remoteExec ["A3A_fnc_commsMP",_x]
+            [petros,"hint","No one in range of the intel, reseting download!", "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x]
         } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     };
 
@@ -237,7 +237,7 @@ while {_pointSum <= _neededPoints} do
             _pointSum = _pointSum + (_pointsPerSecond * _timeDiff);
         };
         {
-            [petros,"hintS", format ["Download at %1%2",((round ((_pointSum/_neededPoints) * 10000))/ 100), "%"]] remoteExec ["A3A_fnc_commsMP",_x]
+            [petros,"hintS", format ["Download at %1%2",((round ((_pointSum/_neededPoints) * 10000))/ 100), "%"], "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x]
         } forEach _playerList;
     };
 };
@@ -250,7 +250,7 @@ if(_pointSum >= _neededPoints) then
     private _intelText = ["Large", _side] call A3A_fnc_selectIntel;
     [_intelText] remoteExec ["A3A_fnc_showIntel", [teamPlayer, civilian]];
     {
-        [petros,"hint","You managed to download the intel!"] remoteExec ["A3A_fnc_commsMP",_x];
+        [petros,"hint","You managed to download the intel!", "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x];
         [10,_x] call A3A_fnc_playerScoreAdd;
     } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     [5, theBoss] call A3A_fnc_playerScoreAdd;

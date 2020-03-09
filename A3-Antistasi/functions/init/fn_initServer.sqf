@@ -125,7 +125,7 @@ if (loadLastSave) then {
 		publicVariable "membersX";
 	};
 	if (membershipEnabled and (membersX isEqualTo [])) then {
-		[petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list"] remoteExec ["A3A_fnc_commsMP"];
+		[petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list", "Membership"] remoteExec ["A3A_fnc_commsMP"];
 		[2,"Previous data loaded",_fileName] call A3A_fnc_log;
 		[2,"Membership enabled, adding current players to list",_fileName] call A3A_fnc_log;
 		membersX = [];
@@ -173,7 +173,7 @@ if !(loadLastSave) then {
 };
 call A3A_fnc_createPetros;
 
-[petros,"hint","Server load finished"] remoteExec ["A3A_fnc_commsMP", 0];
+[petros,"hint","Server load finished", "Server Information"] remoteExec ["A3A_fnc_commsMP", 0];
 
 //HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.
 addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnect;false}];

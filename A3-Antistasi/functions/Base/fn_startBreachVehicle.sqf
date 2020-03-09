@@ -1,17 +1,17 @@
 params["_vehicle", "_caller", "_actionID"];
 
-if(!isPlayer _caller) exitWith {hint "Only players are currently able to breach vehicles!";};
+if(!isPlayer _caller) exitWith {["Breach Vehicle", "Only players are currently able to breach vehicles!"] call A3A_fnc_customHint;};
 
 //Only engineers should be able to breach a vehicle
 private _isEngineer = _caller getUnitTrait "engineer";
 if(!_isEngineer) exitWith
 {
-    hint "You have to be an engineer to breach a vehicle!";
+    ["Breach Vehicle", "You have to be an engineer to breach a vehicle!"] call A3A_fnc_customHint;;
 };
 
 if(!alive _vehicle) exitWith
 {
-    hint "Why would you want to breach a destroyed vehicle?";
+    ["Breach Vehicle", "Why would you want to breach a destroyed vehicle?"] call A3A_fnc_customHint;
     _vehicle removeAction _actionID;
 };
 
@@ -19,14 +19,14 @@ private _vehCrew = crew _vehicle;
 private _aliveCrew = _vehCrew select {alive _x};
 if(count _aliveCrew == 0) exitWith
 {
-    hint "There is no living crew left, no need for breaching!";
+    ["Breach Vehicle", "There is no living crew left, no need for breaching!"] call A3A_fnc_customHint;
     _vehicle lock false;
     _vehicle removeAction _actionID;
 };
 
 if(side (_aliveCrew select 0) == teamPlayer) exitWith
 {
-    hint "You cannot breach a vehicle which is controlled by the rebels!";
+    ["Breach Vehicle", "You cannot breach a vehicle which is controlled by the rebels!"] call A3A_fnc_customHint;
     _vehicle removeAction _actionID;
 };
 
@@ -36,7 +36,7 @@ private _isTank = (typeOf _vehicle) in vehTanks;
 
 if(!_isAPC && !_isTank) exitWith
 {
-    hint "You can only breach APCs and Tanks.";
+    ["Breach Vehicle", "You can only breach APCs and Tanks."] call A3A_fnc_customHint;
 };
 
 private _magazines = magazines _caller;
@@ -61,7 +61,7 @@ private _index = -1;
 //Abort if no explosives found
 if(_magazineArray isEqualTo []) exitWith
 {
-    hint "You carry no explosives. You will need some to breach vehicles!";
+    ["Breach Vehicle", "You carry no explosives. You will need some to breach vehicles!"] call A3A_fnc_customHint;
 };
 
 private _explosive = "";
@@ -98,7 +98,7 @@ if(!(_explo isEqualTo [])) then
 
 if(_explosiveCount == 0) exitWith
 {
-    hint "You don't have the right explosives, check the briefing notes to see what you need!";
+    ["Breach Vehicle", "You don't have the right explosives, check the briefing notes to see what you need!"] call A3A_fnc_customHint;
 };
 
 private _time = 15 + (random 5);
@@ -161,7 +161,7 @@ if
   {_caller getVariable ["cancelBreach",false]}}}}
 ) exitWith
 {
-	hint "Breaching cancelled";
+  ["Breach Vehicle", "Breaching cancelled"] call A3A_fnc_customHint;
   _caller setVariable ["cancelBreach",nil];
   if(alive _vehicle) then {
 	_vehicle call A3A_fnc_addActionBreachVehicle;
@@ -176,7 +176,7 @@ for "_count" from 1 to _explosiveCount do
 
 //Added as the vehicle might blow up. Best not to blow up in the player's face.
 //Pause AFTER removing the explosive in case they decide to drop it or something.
-hint "Breaching in 10 seconds.";
+["Breach Vehicle", "Breaching in 10 seconds."] call A3A_fnc_customHint;
 sleep 10;
 
 private _hitPointsConfigPath = configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "HitPoints";

@@ -204,6 +204,7 @@ waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
+[] call A3A_fnc_initLTV;
 savingServer = false;
 
 [] spawn A3A_fnc_spawnDebuggingLoop;

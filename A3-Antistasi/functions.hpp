@@ -511,4 +511,9 @@ class A3A
 		class vehicleWillCollideAtPosition {};
 		class getRoadDirection {};
 	};
+	class LTV
+	{
+		class initLTV {};
+		class LootToVehicle {};
+	};
 };

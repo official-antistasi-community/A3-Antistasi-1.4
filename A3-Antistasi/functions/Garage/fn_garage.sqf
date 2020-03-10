@@ -29,7 +29,7 @@ if (count _airportsX > 0) then {_hasAir = true};
 		};
 } forEach (if (garage_mode == GARAGE_FACTION) then {vehInGarage} else {[] call A3A_fnc_getPersonalGarageLocal});
 
-if (count garage_vehiclesAvailable == 0) exitWith {hintC "The Garage is empty or the vehicles you have are not suitable to recover in the place you are.<br/><br/>Air vehicles need to be recovered near Airport flags."};
+if (count garage_vehiclesAvailable == 0) exitWith {hintC "The Garage is empty or the vehicles you have are not suitable to recover in the place you are.\n\nAir vehicles need to be recovered near Airport flags."};
 
 garage_nearestMarker = [markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer},player] call BIS_fnc_nearestPosition;
 if !(player inArea garage_nearestMarker) exitWith {["Garage", "You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage"] call A3A_fnc_customHint;};

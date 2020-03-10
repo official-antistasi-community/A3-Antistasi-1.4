@@ -1,5 +1,4 @@
 if (("LTV" call BIS_fnc_getParamValue) == 1) then {
-	fn_LootToVehicle = compile preprocessFileLineNumbers "functions\LTV\fn_LootToVehicle.sqf";
 	_action = 
 	["LootToVehicle", "Loot To Vehicle", "functions\LTV\Load.paa",
 		{

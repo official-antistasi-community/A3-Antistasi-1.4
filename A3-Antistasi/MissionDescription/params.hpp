@@ -466,4 +466,19 @@ class Params
           texts[] = {"None","1","3","5","10","15"};
           default = 3;
      };
+	 class Spacer11
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+
+	 class LTV
+	 {
+		 title = "Loot to vehicle";
+		 values[] = {1,0};
+		 texts[] = {"Enabled", "Disabled"};
+		 default = 1;
+	 };
 };

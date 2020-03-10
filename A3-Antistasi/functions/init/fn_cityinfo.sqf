@@ -161,7 +161,7 @@ while {visibleMap} do
 				_textX = format ["%1 Watchpost",_nameFaction];
 				};
 			};
-		["City Information", format ["%1",_textX]] call A3A_fnc_customHint;
+		["City Information", _textX] call A3A_fnc_customHint;
 		};
 	positionTel = [];
 	};

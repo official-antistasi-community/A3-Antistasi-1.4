@@ -5,7 +5,7 @@ private _disabledPlayerDamage = false;
 
 if (_newGame) then {
 	[2,"New session selected",_fileName] call A3A_fnc_log;
-	"Initial HQ Placement Selection" hintC ["Click on the Map Position you want to start the Game.","Close the map with M to start in the default position.","Don't select areas with enemies nearby!!<br/><br/>Game experience changes a lot on different starting positions."];
+	"Initial HQ Placement Selection" hintC ["Click on the Map Position you want to start the Game.","Close the map with M to start in the default position.","Don't select areas with enemies nearby!!\n\nGame experience changes a lot on different starting positions."];
 } else {
 	player allowDamage false;
 	_disabledPlayerDamage = true;

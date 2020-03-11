@@ -43,7 +43,7 @@
 			["SmokeShell",2,1],
 			["HandGrenade",1,1],
 			["16Rnd_9x21_Mag",2,17],
-			["150Rnd_762x54_Box",2,150],
+			["150Rnd_762x54_Box",2,150]
 
 		]
 		+ _aceFlashlight

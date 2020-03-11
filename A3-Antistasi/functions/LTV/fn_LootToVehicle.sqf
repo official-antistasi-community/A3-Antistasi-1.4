@@ -1,77 +1,56 @@
-private _unit = (_this select 0); //gets object from ace interaction menu (AIM)
-private _player = (_this select 1); //gets player from AIM
-private _vehicle = (_this select 2); // gets vehicle to loot to from AIM
-private _unsorted_obj = (position _unit) nearObjects 2; //gets objects in a small radius around target body
+params ["_unit","_player","_vehicle"];
+private _unsorted_obj = (position _unit) nearObjects ["weaponHolderSimulated", 2]; //gets objects in a small radius around target body
 private _vicFull = 0; // defines vehicle as not full
-private _weaponsArray = []; //defines array for later
-private _cfgWeapons = "true" configClasses (configFile >> "cfgWeapons"); //gets cfgWeapons classes
-{
-	private _weaponString = configName (_x);
-	private _parents = [_x,true] call BIS_fnc_returnParents;
-	
-	if (("Rifle" in _parents) || ("Launcher" in _parents) || ("arifle" in _parents)) then {
-		_weaponsArray pushBack [_weaponString];
-	};
-} forEach _cfgWeapons; //gets array of weapon strings for comparison
-
 private _weaponsOnGround = [];
+
 {
-if ((weaponCargo _x) in _weaponsArray) then {
-	_weaponsOnGround pushBack ((weaponCargo _x) select 0);
+    if (((weaponCargo _x)select 0) in allWeapons) then{
+        _weaponsOnGround pushback ((weaponCargo _x)select 0);
+    }
+}forEach _unsorted_obj; //finds all weapons on ground
 
-}}forEach _unsorted_obj; //sorts out weapons from _unsorted_obj
-
-if ({(_vehicle canAdd _x)}forEach _weaponsOnGround) then{
-{
-    _vehicle addItemCargoGlobal [_x, 1];
-} forEach _weaponsOnGround;
-{
-if ((weaponCargo _x) in _weaponsArray) then {
-	clearWeaponCargoGlobal _x;
-}}forEach _unsorted_obj;
-} else {
-_vicFull = 1;
-}; //checks if can add weapons on the ground to vehicle then adds them and removes them from ground if it can, else sets variable _vicFull to 1
-
-
+if (!isNil "_weaponsOnGround") then {
+    {
+        if (_vehicle canAdd _x) then {
+                _vehicle addItemCargoGlobal [_x, 1];
+                {clearWeaponCargoGlobal _x;}forEach _unsorted_obj; 
+        } else {
+                _vicFull = 1;
+        }
+    }forEach _weaponsOnGround;
+}; //if there are weapons on ground, then check if can add to vehicle. if it can then adds it and clears weapons from ground.
 
 private _items = [];
 private _backpacks = [];
 if (_vicFull == 0) then {
-	
     _items = magazines _unit;
     _items pushBack (weapons _unit);
     removeAllWeapons _unit;
-	
-    
+ 
     private _vest = vest _unit;
     if !(_vest isEqualTo "") then {if (_vehicle canAdd (vest _unit)) then {
         _items pushBack _vest;
         removeVest _unit;
-    } else {
-	_vicFull = 1;
-	}};
+    } else {_vicfull = 1}};
+
     private _headgear = headgear _unit;
     if !(_headgear isEqualTo "") then {if (_vehicle canAdd (headgear _unit)) then {
         _items pushBack _headgear;
         removeHeadgear _unit;
-    } else {
-	_vicFull = 1;
-	}};
+    } else {_vicfull = 1}};
+
     private _nvg = hmd _unit;
     if !(_nvg isEqualTo "") then {if (_vehicle canAdd (hmd _unit)) then {
         _items pushBack _nvg;
         _unit unlinkItem _nvg;
-    } else {
-	_vicFull = 1;
-	}};
+    } else {_vicfull = 1}};
+
     if ("ItemGPS" in (assignedItems _unit)) then {if (_vehicle canAdd "ItemGPS") then {
         _items pushBack "ItemGPS";
         _unit unlinkItem "ItemGPS";
-    } else {
-	_vicFull = 1;
-	}};
+    } else {_vicFull = 1;}};
 };
+
 {
     _vehicle addItemCargoGlobal [_x, 1];
 } forEach _items;
@@ -80,9 +59,10 @@ if (_vicFull == 0) then {
     _vehicle addBackpackCargoGlobal [_x, 1];
 } forEach _backpacks;
 
-if (_vicFull == 0) then{
 private _displayName = getText(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
+if (_vicFull == 0) then{
 systemchat format ["Gear Looted to %1", _displayName];
 } else {
-systemchat format ["There is not enough space for all the gear, some gear has been looted to %1", _displayName];
+systemchat format ["There is not enough space for all the gear, some gear may have been looted to %1", _displayName];
 }; //outcome depends on if the vehicle could add _weaponsOnGround to _vehicle
+*/

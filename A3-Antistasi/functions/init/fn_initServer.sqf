@@ -43,6 +43,7 @@ if (isMultiplayer) then {
 	teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
 	playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
 	minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
+	lootToVehicleEnabled = if ("LTV" BIS_fnc_getParamValue == 1) then {true} else {false};
 } else {
 	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
 	//These should be set in the set parameters dialog.
@@ -68,6 +69,7 @@ if (isMultiplayer) then {
 	teamSwitchDelay = 0;
 	playerMarkersEnabled = true;
 	minPlayersRequiredforPVP = 2;
+	lootToVehicleEnabled = true;
 };
 
 [] call A3A_fnc_crateLootParams;
@@ -84,7 +86,7 @@ publicVariable "campaignID";
 
 //Initialise variables needed by the mission.
 _nul = call A3A_fnc_initVar;
-
+aceLTVrun = 0; //needed to prevent ace menu spam (functions\LTV\fn_initLTV.sqf)
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";

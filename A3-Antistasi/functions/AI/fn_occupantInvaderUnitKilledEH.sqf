@@ -100,5 +100,5 @@ if (_victimLocation != "") then
         };
 	};
 };
-
+[_victim] spawn A3A_fnc_initLTV;
 [_victimGroup,_killer] spawn A3A_fnc_AIreactOnKill;

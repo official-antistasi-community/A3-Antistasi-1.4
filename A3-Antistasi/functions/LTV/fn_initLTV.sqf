@@ -23,4 +23,4 @@ if (("LTV" call BIS_fnc_getParamValue) == 1) then {
 	] call ace_interact_menu_fnc_createAction;
 	
 	["CAManBase", 0, ["ACE_MainActions"], _action, true] call ace_interact_menu_fnc_addActionToClass; //ads _action to AIM main menu
-} else {hint "LTV Disabled"};
+};

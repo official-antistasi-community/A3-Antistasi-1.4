@@ -20,11 +20,6 @@ class JN {
 		class vehicleArsenal {};
 
 	};
-	class JND {
-		file = "JeroenArsenal\JND";
-		class debugv2 {postinit = 1;};
-	};
-
 	class JNG {
 		file = "JeroenArsenal\JNG";
 		class garage {};

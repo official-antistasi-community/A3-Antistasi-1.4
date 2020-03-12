@@ -29,8 +29,8 @@ if (lootToVehicleEnabled) then {
 		["CAManBase", 0, ["ACE_MainActions"], _action, true] call ace_interact_menu_fnc_addActionToClass; //ads _action to AIM main menu
 		aceLTVrun = 1; //to stop it from repeating the code
 	} else {
-		if (!hasACE) then { // if ACE is not enabled the run this instead
+		if (aceLTVrun == 1) then { // if ACE is not enabled the run this instead
 			_killed addAction ["Loot to nearest vehicle", {call A3A_fnc_LootToVehicle}, [], 6, true, true, "", "", 5, false, "", ""];
-		};
+		} else {aceLTVrun = 1};
 	};
 };

@@ -11,7 +11,8 @@ if ((typeName _passedVehicle) == "SCALAR") then {
 };
 
 {
-    if (((weaponCargo _x)select 0) in allWeapons) then{
+    private _baseWeapon = [(weaponCargo _x)select 0] call BIS_fnc_baseWeapon;
+    if (_baseWeapon in allWeapons) then{
         _weaponsOnGround pushback ((weaponCargo _x)select 0);
     }
 }forEach _unsorted_obj; //finds all weapons on ground

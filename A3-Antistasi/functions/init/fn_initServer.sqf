@@ -210,9 +210,10 @@ savingServer = false;
 
 //Enable performance logging
 [] spawn {
+	private _logPeriod = [30, 10] select (logLevel == 3);
 	while {true} do {
 		[] call A3A_fnc_logPerformance;
-		sleep 30;
+		sleep _logPeriod;
 	};
 };
 execvm "functions\init\fn_initSnowFall.sqf";

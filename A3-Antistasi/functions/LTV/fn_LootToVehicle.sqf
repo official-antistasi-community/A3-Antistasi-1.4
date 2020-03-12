@@ -1,4 +1,5 @@
 params ["_unit","_player","_passedVehicle"];
+{if (isNil "_passedVehicle") exitWith {};//stops script if no vehicle nearby
 private _unsorted_obj = (position _unit) nearObjects ["weaponHolderSimulated", 2]; //gets objects in a small radius around target body
 private _vehicle = 0;
 private _vicFull = 0; // defines vehicle as not full
@@ -80,4 +81,4 @@ if (_vicFull == 0) then{
 systemchat format ["Gear Looted to %1", _displayName];
 } else {
 systemchat format ["There is not enough space for all the gear, some gear may have been looted to %1", _displayName];
-}; //outcome depends on if the vehicle could add _weaponsOnGround to _vehicle
+}}; //outcome depends on if the vehicle could add _weaponsOnGround to _vehicle

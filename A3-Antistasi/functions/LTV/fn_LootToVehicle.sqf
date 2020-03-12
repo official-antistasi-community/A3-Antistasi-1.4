@@ -1,8 +1,14 @@
-params ["_unit","_player","_vehicle"];
+params ["_unit","_player","_passedVehicle"];
 private _unsorted_obj = (position _unit) nearObjects ["weaponHolderSimulated", 2]; //gets objects in a small radius around target body
 private _vicFull = 0; // defines vehicle as not full
 private _weaponsOnGround = [];
-
+if (_passedVehicle == false) then {
+    private _temp = [((position _player) nearEntities [["Car", "Motorcycle", "Tank"], 25]), [], { _player distance _x }, "ASCEND"] call BIS_fnc_sortBy;
+    _vehicle = _temp select 0;
+} else {
+    _vehicle = _passedVehicle;
+};
+hint str _vehicle;
 {
     if (((weaponCargo _x)select 0) in allWeapons) then{
         _weaponsOnGround pushback ((weaponCargo _x)select 0);
@@ -28,27 +34,35 @@ if (_vicFull == 0) then {
     removeAllWeapons _unit;
  
     private _vest = vest _unit;
-    if !(_vest isEqualTo "") then {if (_vehicle canAdd (vest _unit)) then {
-        _items pushBack _vest;
-        removeVest _unit;
-    } else {_vicfull = 1}};
+    if !(_vest isEqualTo "") then {
+        if (_vehicle canAdd (vest _unit)) then {
+            _items pushBack _vest;
+            removeVest _unit;
+        } else {_vicfull = 1}
+    };
 
     private _headgear = headgear _unit;
-    if !(_headgear isEqualTo "") then {if (_vehicle canAdd (headgear _unit)) then {
-        _items pushBack _headgear;
-        removeHeadgear _unit;
-    } else {_vicfull = 1}};
+    if !(_headgear isEqualTo "") then {
+        if (_vehicle canAdd (headgear _unit)) then {
+            _items pushBack _headgear;
+            removeHeadgear _unit;
+        } else {_vicfull = 1}
+    };
 
     private _nvg = hmd _unit;
-    if !(_nvg isEqualTo "") then {if (_vehicle canAdd (hmd _unit)) then {
-        _items pushBack _nvg;
-        _unit unlinkItem _nvg;
-    } else {_vicfull = 1}};
+    if !(_nvg isEqualTo "") then {
+        if (_vehicle canAdd (hmd _unit)) then {
+            _items pushBack _nvg;
+            _unit unlinkItem _nvg;
+        } else {_vicfull = 1}
+    };
 
-    if ("ItemGPS" in (assignedItems _unit)) then {if (_vehicle canAdd "ItemGPS") then {
-        _items pushBack "ItemGPS";
-        _unit unlinkItem "ItemGPS";
-    } else {_vicFull = 1;}};
+    if ("ItemGPS" in (assignedItems _unit)) then {
+        if (_vehicle canAdd "ItemGPS") then {
+            _items pushBack "ItemGPS";
+         _unit unlinkItem "ItemGPS";
+        } else {_vicFull = 1}
+    };
 };
 
 {
@@ -65,4 +79,3 @@ systemchat format ["Gear Looted to %1", _displayName];
 } else {
 systemchat format ["There is not enough space for all the gear, some gear may have been looted to %1", _displayName];
 }; //outcome depends on if the vehicle could add _weaponsOnGround to _vehicle
-*/

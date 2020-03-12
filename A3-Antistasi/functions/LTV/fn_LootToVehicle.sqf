@@ -1,14 +1,15 @@
 params ["_unit","_player","_passedVehicle"];
 private _unsorted_obj = (position _unit) nearObjects ["weaponHolderSimulated", 2]; //gets objects in a small radius around target body
+private _vehicle = 0;
 private _vicFull = 0; // defines vehicle as not full
 private _weaponsOnGround = [];
-if (_passedVehicle == false) then {
-    private _temp = [((position _player) nearEntities [["Car", "Motorcycle", "Tank"], 25]), [], { _player distance _x }, "ASCEND"] call BIS_fnc_sortBy;
-    _vehicle = _temp select 0;
+private _allVicsNearby = [((position _unit) nearEntities [["Car", "Motorcycle", "Tank"], 25]), [], { _unit distance _x }, "ASCEND"] call BIS_fnc_sortBy;
+if ((typeName _passedVehicle) == "SCALAR") then {
+    _vehicle = _allVicsNearby select 0;
 } else {
     _vehicle = _passedVehicle;
 };
-hint str _vehicle;
+
 {
     if (((weaponCargo _x)select 0) in allWeapons) then{
         _weaponsOnGround pushback ((weaponCargo _x)select 0);

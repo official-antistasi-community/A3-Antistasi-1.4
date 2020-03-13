@@ -92,7 +92,7 @@ else
 	//End ========================================================================
 };
 
-[_markerX, [_winner, _looser]] call A3A_fnc_updateReinfState;
+[_markerX, [_looser, _winner]] call A3A_fnc_updateReinfState;
 [3, format ["Garrison set for %1", _markerX], _fileName] call A3A_fnc_log;
 
 

@@ -61,6 +61,13 @@ if (_playerNear) then
             [_this, "Intel_Small"] remoteExec ["A3A_fnc_flagaction", [teamPlayer,civilian], _this];
         };
     };
+	if ((!hasACE) && (LootToVehicleEnabled)) then {
+		_unit spawn
+		{
+			sleep 1;
+			[_this, "LTV"] remoteExec ["A3A_fnc_flagaction", [teamPlayer, civilian], _this];
+		};
+	};
 };
 
 

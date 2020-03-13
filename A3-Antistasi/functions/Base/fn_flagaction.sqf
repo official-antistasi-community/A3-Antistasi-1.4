@@ -167,4 +167,8 @@ switch _typeX do
     {
         _flag addAction ["Download Intel", A3A_fnc_searchIntelOnLaptop, nil, 4, true, false, "", "isPlayer _this", 4];
     };
+    case "LTV":
+    {
+        _flag addAction ["Loot to Vehicle", A3A_fnc_LootToVehicle, nil, 3.5, true, true, "", "isPlayer _this", 4];
+    };
 };

@@ -1,5 +1,4 @@
 params ["_unit","_player","_passedVehicle"];
-{if (isNil "_passedVehicle") exitWith {};//stops script if no vehicle nearby
 private _unsorted_obj = (position _unit) nearObjects ["weaponHolderSimulated", 2]; //gets objects in a small radius around target body
 private _vehicle = 0;
 private _vicFull = 0; // defines vehicle as not full
@@ -10,75 +9,76 @@ if ((typeName _passedVehicle) == "SCALAR") then {
 } else {
     _vehicle = _passedVehicle;
 };
-
-{
-    private _baseWeapon = [(weaponCargo _x)select 0] call BIS_fnc_baseWeapon;
-    if (_baseWeapon in allWeapons) then{
-        _weaponsOnGround pushback ((weaponCargo _x)select 0);
-    }
-}forEach _unsorted_obj; //finds all weapons on ground
-
-if (!isNil "_weaponsOnGround") then {
+if (!isNil "_vehicle") then {
     {
-        if (_vehicle canAdd _x) then {
-                _vehicle addItemCargoGlobal [_x, 1];
-                {clearWeaponCargoGlobal _x;}forEach _unsorted_obj; 
-        } else {
-                _vicFull = 1;
+        private _baseWeapon = [(weaponCargo _x)select 0] call BIS_fnc_baseWeapon;
+        if (_baseWeapon in allWeapons) then{
+            _weaponsOnGround pushback ((weaponCargo _x)select 0);
         }
-    }forEach _weaponsOnGround;
-}; //if there are weapons on ground, then check if can add to vehicle. if it can then adds it and clears weapons from ground.
+    }forEach _unsorted_obj; //finds all weapons on ground
 
-private _items = [];
-private _backpacks = [];
-if (_vicFull == 0) then {
-    _items = magazines _unit;
-    _items pushBack (weapons _unit);
-    removeAllWeapons _unit;
- 
-    private _vest = vest _unit;
-    if !(_vest isEqualTo "") then {
-        if (_vehicle canAdd (vest _unit)) then {
-            _items pushBack _vest;
-            removeVest _unit;
-        } else {_vicfull = 1}
+    if (!isNil "_weaponsOnGround") then {
+        {
+            if (_vehicle canAdd _x) then {
+                    _vehicle addItemCargoGlobal [_x, 1];
+                    {clearWeaponCargoGlobal _x;}forEach _unsorted_obj; 
+            } else {
+                    _vicFull = 1;
+            }
+        }forEach _weaponsOnGround;
+    }; //if there are weapons on ground, then check if can add to vehicle. if it can then adds it and clears weapons from ground.
+
+    private _items = [];
+    private _backpacks = [];
+    if (_vicFull == 0) then {
+        _items = magazines _unit;
+        _items pushBack (weapons _unit);
+        removeAllWeapons _unit;
+    
+        private _vest = vest _unit;
+        if !(_vest isEqualTo "") then {
+            if (_vehicle canAdd (vest _unit)) then {
+                _items pushBack _vest;
+                removeVest _unit;
+            } else {_vicfull = 1}
+        };
+
+        private _headgear = headgear _unit;
+        if !(_headgear isEqualTo "") then {
+            if (_vehicle canAdd (headgear _unit)) then {
+                _items pushBack _headgear;
+                removeHeadgear _unit;
+            } else {_vicfull = 1}
+        };
+
+        private _nvg = hmd _unit;
+        if !(_nvg isEqualTo "") then {
+            if (_vehicle canAdd (hmd _unit)) then {
+                _items pushBack _nvg;
+                _unit unlinkItem _nvg;
+            } else {_vicfull = 1}
+        };
+
+        if ("ItemGPS" in (assignedItems _unit)) then {
+            if (_vehicle canAdd "ItemGPS") then {
+                _items pushBack "ItemGPS";
+            _unit unlinkItem "ItemGPS";
+            } else {_vicFull = 1}
+        };
     };
 
-    private _headgear = headgear _unit;
-    if !(_headgear isEqualTo "") then {
-        if (_vehicle canAdd (headgear _unit)) then {
-            _items pushBack _headgear;
-            removeHeadgear _unit;
-        } else {_vicfull = 1}
-    };
+    {
+        _vehicle addItemCargoGlobal [_x, 1];
+    } forEach _items;
 
-    private _nvg = hmd _unit;
-    if !(_nvg isEqualTo "") then {
-        if (_vehicle canAdd (hmd _unit)) then {
-            _items pushBack _nvg;
-            _unit unlinkItem _nvg;
-        } else {_vicfull = 1}
-    };
+    {
+        _vehicle addBackpackCargoGlobal [_x, 1];
+    } forEach _backpacks;
 
-    if ("ItemGPS" in (assignedItems _unit)) then {
-        if (_vehicle canAdd "ItemGPS") then {
-            _items pushBack "ItemGPS";
-         _unit unlinkItem "ItemGPS";
-        } else {_vicFull = 1}
-    };
-};
-
-{
-    _vehicle addItemCargoGlobal [_x, 1];
-} forEach _items;
-
-{
-    _vehicle addBackpackCargoGlobal [_x, 1];
-} forEach _backpacks;
-
-private _displayName = getText(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
-if (_vicFull == 0) then{
-systemchat format ["Gear Looted to %1", _displayName];
-} else {
-systemchat format ["There is not enough space for all the gear, some gear may have been looted to %1", _displayName];
-}}; //outcome depends on if the vehicle could add _weaponsOnGround to _vehicle
+    private _displayName = getText(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
+    if (_vicFull == 0) then{
+    systemchat format ["Gear Looted to %1", _displayName];
+    } else {
+    systemchat format ["There is not enough space for all the gear, some gear may have been looted to %1", _displayName];
+    }; //outcome depends on if the vehicle could add _weaponsOnGround to _vehicle
+} else {systemChat "No vehicle nearby"};

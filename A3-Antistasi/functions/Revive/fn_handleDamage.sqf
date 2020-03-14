@@ -6,7 +6,7 @@ params ["_unit","_part","_damage","_injurer","_projectile","_hitIndex","_instiga
 // Helmet popping: use _hitpoint rather than _part to work around ACE calling its fake hitpoint "head"
 if (_damage >= 1 && {_hitPoint == "hithead"}) then
 {
-	if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0) then
+	if (random 100 < helmetLossChance) then
 	{
 		removeHeadgear _unit;
 	};

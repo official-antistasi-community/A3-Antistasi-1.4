@@ -165,6 +165,13 @@ class Params
           texts[] =  {"Yes","No"};
           default = 1;
      };
+     class helmetLossChance
+     {
+          title = "Chance of helmet loss on headshots";
+          values[] = {0,33,66,100};
+          texts[] = {"Never","Sometimes","Often","Always"};
+          default = 33;
+     };
      class Spacer10
      {
           title = "";

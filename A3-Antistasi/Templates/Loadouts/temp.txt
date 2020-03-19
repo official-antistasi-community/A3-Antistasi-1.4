@@ -1,6 +1,0 @@
-[["UK3CB_RPK","","","",["UK3CB_RPK_75Rnd_Drum_T",75],[],""],
-[],
-["rhs_weap_6p53","","","",["rhs_18rnd_9x21mm_7BT3",18],
-[],""],
-["UK3CB_TKM_O_U_01",[]],["UK3CB_V_Pouch",[]],[],"UK3CB_TKM_O_H_Turban_01_1","",[],
-["ItemMap","","ItemRadio","ItemCompass","ItemWatch",""]]

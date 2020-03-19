@@ -24,18 +24,19 @@ CSATAmmoBox = "O_supplyCrate_F";
 //PvP Loadouts
 CSATPlayerLoadouts = [
 	//Team Leader
-	"UK3CB_TKM_O_SL",
+	["3CB_TKM_Teamleader"] call A3A_fnc_getLoadout,
 	//Medic
-	"UK3CB_TKM_O_MD",
+	["3CB_TKM_Medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"UK3CB_TKM_O_AR",
+	["3CB_TKM_MachineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	"UK3CB_TKM_O_MK",
+	["3CB_TKM_Marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"UK3CB_TKM_O_LAT",
+	["3CB_TKM_AT"] call A3A_fnc_getLoadout,
 	//AT2
-	"UK3CB_TKM_O_LAT"
+	["3CB_TKM_AT2"] call A3A_fnc_getLoadout
 ];
+
 
 //PVP Player Vehicles
 vehCSATPVP = ["UK3CB_TKM_O_BTR40","UK3CB_TKM_O_Hilux_Open","UK3CB_TKM_O_UAZ_Closed","UK3CB_TKM_O_Datsun_Pkm","UK3CB_TKM_O_Hilux_Dshkm"];

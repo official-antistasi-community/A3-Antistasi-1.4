@@ -15,6 +15,6 @@ if (!isMultiplayer) then {
 };
 
 enableSaving [false,false];
-mapX setObjectTexture [0,"whiteboard.jpg"];
+mapX setObjectTexture [0,"Pictures\Mission\whiteboard.jpg"];
 
 [2,"Init finished",_fileName] call A3A_fnc_log;

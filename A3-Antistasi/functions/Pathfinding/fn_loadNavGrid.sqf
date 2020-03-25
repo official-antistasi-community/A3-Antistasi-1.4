@@ -11,7 +11,7 @@
   _remaining = toLower _remaining;
   _worldName = format ["%1%2", _firstLetter, _remaining];
 
-  _path = format ["NavGrids\navGrid%1.sqf", _worldName];
+  _path = format ["Navigation\navGrid%1.sqf", _worldName];
 
   try
   {

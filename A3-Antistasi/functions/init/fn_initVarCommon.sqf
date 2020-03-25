@@ -190,7 +190,7 @@ switch (toLower worldName) do {
 		roadsX setVariable ["airport_3",[[[11658,3055.02,0.036881],360,"Mort"],[[11662.6,3060.14,0.0368819],0.000294881,"Mort"],[[11664.8,3049.94,0.0368805],360,"Mort"],[[11668.9,3055.64,0.0368805],2.08056e-005,"Mort"],[[11747.8,2982.95,18.1513],249.505,"MG"],[[11784.1,3132.77,0.183631],214.7,"Tank"],[[11720.3,3176.15,0.112019],215.055,"Tank"]]];
 		roadsX setVariable ["airport_4",[[[2092.87,3412.98,0.0372648],0.00414928,"Mort"],[[2091.5,3420.69,0.0369596],360,"Mort"],[[2099.93,3422.53,0.0373936],0.00215797,"Mort"],[[2100.13,3416.28,0.0394554],0.0043371,"Mort"],[[2198.24,3471.03,18.0123],0.00187816,"MG"],[[2133.01,3405.88,-0.0156536],315.528,"Tank"],[[2145.82,3416.83,-0.00544548],316.441,"Tank"],[[2163.9,3432.18,-0.0256157],318.777,"Tank"]]];
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBTanoa.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBTanoa.sqf";
 	};
 	case "altis":
 	{
@@ -201,7 +201,7 @@ switch (toLower worldName) do {
 		roadsX setVariable ["airport_4",[[[11577.4,11953.6,0.241838],122.274,"Tank"],[[11577.8,11964.3,0.258125],124.324,"Tank"],[[11633.3,11762,0.0372791],359.996,"Mort"],[[11637.3,11768.1,0.043232],0.0110098,"Mort"],[[11637.1,11763.1,0.0394402],0.00529677,"Mort"]],true];
 		roadsX setVariable ["airport_5",[[[9064.02,21531.3,0.00117016],138.075,"Tank"],[[9095.12,21552.8,0.614614],157.935,"Tank"],[[9030.28,21531.1,0.261349],157.935,"Mort"],[[9033.91,21534.7,0.295588],157.935,"Mort"]]];
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBAltis.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBAltis.sqf";
 	};
 	case "chernarus_summer":
 	{
@@ -209,7 +209,7 @@ switch (toLower worldName) do {
 		roadsX setVariable ["airport_1",[[[4782.75,10251.4,18],0,"AA"],[[4716.17,10215.3,13.1149],278.308,"AA"],[[4713.94,10209.3,9.12177],188.973,"MG"],[[4787.34,10248.9,4.99982],188.303,"MG"],[[4740.75,10333.2,20.3206],232.414,"MG"],[[4818.39,10200.1,0.00982666],239.625,"Tank"],[[4765.22,10330.8,0],0,"Mort"],[[4758.21,10328.1,0],0,"Mort"],[[4751.45,10324.4,0],0,"Mort"],[[4745.39,10320.6,0],0,"Mort"],[[4739.97,10283.2,0.00567627],291.41,"AT"],[[4814.19,10245.1,0.00567627],211.414,"AT"],[[4841.34,10158.9,0.0102844],240.137,"Tank"],[[4865.7,10116.7,0.00970459],239.499,"Tank"],[[4888.33,10074.2,0.00982666],235.077,"Tank"]]];
 		roadsX setVariable ["airport_2",[[[4717.95,2595.24,12.9766],0,"AA"],[[4714.27,2590.97,8.97349],176.197,"MG"],[[4743.55,2567.69,0.0130215],207.155,"Tank"],[[4775.62,2547.37,0.00691605],210.579,"Tank"],[[4719.88,2582.34,0.00566483],261.79,"AT"],[[4826.5,2558.35,0.00150108],0,"Mort"],[[4821.12,2550.32,0.00147152],0,"Mort"],[[4816.59,2543.65,0.00147247],0,"Mort"],[[4812.77,2518.77,0.00566483],150.397,"AT"]]];
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBcherna.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBcherna.sqf";
 	};
 	case "chernarus_winter":
 	{
@@ -217,47 +217,47 @@ switch (toLower worldName) do {
 		roadsX setVariable ["airport_1",[[[4782.75,10251.4,18],0,"AA"],[[4716.17,10215.3,13.1149],278.308,"AA"],[[4713.94,10209.3,9.12177],188.973,"MG"],[[4787.34,10248.9,4.99982],188.303,"MG"],[[4740.75,10333.2,20.3206],232.414,"MG"],[[4818.39,10200.1,0.00982666],239.625,"Tank"],[[4765.22,10330.8,0],0,"Mort"],[[4758.21,10328.1,0],0,"Mort"],[[4751.45,10324.4,0],0,"Mort"],[[4745.39,10320.6,0],0,"Mort"],[[4739.97,10283.2,0.00567627],291.41,"AT"],[[4814.19,10245.1,0.00567627],211.414,"AT"],[[4841.34,10158.9,0.0102844],240.137,"Tank"],[[4865.7,10116.7,0.00970459],239.499,"Tank"],[[4888.33,10074.2,0.00982666],235.077,"Tank"]]];
 		roadsX setVariable ["airport_2",[[[4717.95,2595.24,12.9766],0,"AA"],[[4714.27,2590.97,8.97349],176.197,"MG"],[[4743.55,2567.69,0.0130215],207.155,"Tank"],[[4775.62,2547.37,0.00691605],210.579,"Tank"],[[4719.88,2582.34,0.00566483],261.79,"AT"],[[4826.5,2558.35,0.00150108],0,"Mort"],[[4821.12,2550.32,0.00147152],0,"Mort"],[[4816.59,2543.65,0.00147247],0,"Mort"],[[4812.77,2518.77,0.00566483],150.397,"AT"]]];
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBcherna.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBcherna.sqf";
 	};
 	case "malden":
 	{
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBmalden.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBmalden.sqf";
 	};
 	case "enoch":
 	{
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBLivonia.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBLivonia.sqf";
 	};
 	case "kunduz":
 	{
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBKunduz.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBKunduz.sqf";
 	};
 	case "tembelan":
 	{
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBTembelan.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBTembelan.sqf";
 	};
 	case "tem_anizay":
 	{
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBanizay.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBanizay.sqf";
 	};
 	case "tem_kujari":
 	{
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBkujari.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBkujari.sqf";
 	};
 	case "vt7":
 	{
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBvirolahti.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBvirolahti.sqf";
 	};
 	case "stratis":
 	{
 		//Roads DB
-		call compile preprocessFileLineNumbers "roadsDBstratis.sqf";
+		call compile preprocessFileLineNumbers "Navigation\roadsDBstratis.sqf";
 	};
 };
 

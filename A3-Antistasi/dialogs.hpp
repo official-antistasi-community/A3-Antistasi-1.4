@@ -1092,7 +1092,7 @@ class spawn_config 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "if (player == theBoss) then {if (distanceSPWN > 600) then {distanceSPWN = distanceSPWN - 100; if (distanceSPWN < 600) then {distanceSPWN = 600}; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; if (distanceSPWN < 600) then {distanceSPWN = 600};publicVariable ""distanceSPWN"";publicVariable ""distanceSPWN1"";publicVariable ""distanceSPWN2"";}; [""Spawn Distance"", ""format [""Spawn Distance Set to %1 meters"",distanceSPWN]""] call A3A_fnc_customHint;} else {[""Spawn Distance"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {if (distanceSPWN > 600) then {distanceSPWN = distanceSPWN - 100; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable ""distanceSPWN"";publicVariable ""distanceSPWN1"";publicVariable ""distanceSPWN2"";}; [""Spawn Distance"", format [""Spawn Distance Set to %1 meters"",distanceSPWN]] call A3A_fnc_customHint;} else {[""Spawn Distance"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 	};
 };

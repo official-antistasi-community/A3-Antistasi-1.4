@@ -1,17 +1,19 @@
 private ["_flagX","_pos","_markerX","_positionX","_size","_powerpl","_revealX"];
+private _filename = "fn_mrkWIN";
 
+//Variable Setup.
 _flagX = _this select 0;
 _playerX = _this select 1;
-
+_revealX = [];
 _pos = getPos _flagX;
 _markerX = [markersX,_pos] call BIS_fnc_nearestPosition;
+
 if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) exitWith {};
 _positionX = getMarkerPos _markerX;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 
 if ((!isNull _playerX) and (captive _playerX)) exitWith {["Capture", "You cannot Capture the Flag while Undercover"] call A3A_fnc_customHint;};
 if ((_markerX in airportsX) and (tierWar < 3)) exitWith {["Capture", "You cannot capture Airports until you reach War Level 3"] call A3A_fnc_customHint;};
-_revealX = [];
 
 //Check if the flag is locked
 if(_flagX getVariable ["isGettingCaptured", false]) exitWith
@@ -29,16 +31,13 @@ _flagX spawn
 	_this setVariable ["isGettingCaptured", nil, true];
 };
 
-private _filename = "fn_mrkWIN";
-[2, format ["Flag capture at %1 initiated by %2", _markerX, str _playerX], _filename, true] call A3A_fnc_log;
-
 if (!isNull _playerX) then
 {
+	[2, format ["Flag capture at %1 initiated by %2", _markerX, str _playerX], _filename, true] call A3A_fnc_log;
 	if (_size > 300) then
 	{
 		_size = 300
 	};
-	_revealX = [];
 	{
 		if (((side _x == Occupants) or (side _x == Invaders)) and ([_x,_markerX] call A3A_fnc_canConquer)) then
 		{
@@ -58,12 +57,10 @@ if (!isNull _playerX) then
 
 if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x == teamPlayer)} count allUnits)) exitWith
 {
+	[3, format ["Markers left to be conquered: %1 ", _revealX], _filename, true] call A3A_fnc_log;
 	[2, format ["Flag capture by %1 abandoned due to outnumbering", str _playerX], _filename, true] call A3A_fnc_log;
 	["Capture", "The enemy still outnumber us, check the map and clear the rest of the area"] call A3A_fnc_customHint;
 };
-//if (!isServer) exitWith {};
-
-[2, format ["Flag capture by %1 rewarded", str _playerX], _filename, true] call A3A_fnc_log;
 
 {
 	if (isPlayer _x) then
@@ -77,5 +74,5 @@ if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x 
 	}
 } forEach ([_size,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
 
-//_sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+[2, format ["Flag capture by %1 rewarded", str _playerX], _filename, true] call A3A_fnc_log;
 [teamPlayer,_markerX] remoteExec ["A3A_fnc_markerChange",2];

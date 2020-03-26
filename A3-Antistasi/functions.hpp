@@ -328,6 +328,7 @@ class A3A
 		class LOG_Ammo {};
 		class LOG_Bank {};
 		class LOG_Supplies {};
+		class LOG_Salvage {};
 		class missionRequest {};
 		class missionRequestAUTO {};
 		class REP_Antenna {};
@@ -467,6 +468,12 @@ class A3A
 	{
 		class getRunwayTakeoffForAirportMarker {};
 		class runwayInfo {};
+	};
+
+	class SalvageRope
+	{
+		class SalvageRope {};
+		class SalvageCargo {};
 	};
 
 	class Save

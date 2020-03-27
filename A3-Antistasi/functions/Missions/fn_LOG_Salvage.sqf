@@ -71,10 +71,11 @@ while {_missionActive} do {
 	_boxX = _boxType createVehicle _boxPos;
 	_boxCreated = true;
 	_boxX addAction ["Atach rope", {params ["_target", "_caller", "_iD"]; [_target, _caller, _iD] call A3A_fnc_SalvageCargo;}, [], 1.5, true, true, "", "", 3];
+	_loot = selectRandom [[_boxX, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 10, 5, 10, 0, 0], [_boxX, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0], [_boxX, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 	if (_sideX == Occupants) then {
-		[_boxX] spawn A3A_fnc_NATOcrate;
+		_loot call A3A_fnc_NATOcrate;
 	} else {
-		[_boxX] spawn A3A_fnc_CSATcrate;
+		_loot call A3A_fnc_CSATcrate;
 	};
 	//boat spawn
 	_vehicle=[(getMarkerPos _boatmrk), 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
@@ -87,6 +88,11 @@ while {_missionActive} do {
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _vehCrew;
 	_boatCreated = true;
 	//boat spawn ended
+	//adds salvageRope to other nearby boats
+	waitUntil {count (_positionX nearEntities [["ship"], 300]) != 0};
+	sleep 5;// to let stuff spawn in
+	_civBoat = _positionX nearEntities [["ship"], 300];
+	{if ([_x, _boxX] call jn_fnc_logistics_canLoad != -3) then {[_x] call A3A_fnc_SalvageRope};}forEach _civBoat; //adds salvageRope to all boats that can load the crate
 	sleep 5;//to stop spamming spawn and despawn
 	waitUntil {!(allPlayers findIf {getPos _x distance2D _boxPos < 1000}!= -1)};//all players left spawning range
 	//code to despawn stuff here

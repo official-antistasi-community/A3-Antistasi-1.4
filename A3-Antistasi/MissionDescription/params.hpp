@@ -120,7 +120,7 @@ class Params
      {
           title = "Fast Travel Targets Allowed";
           values[] = {0,1};
-          texts[] = {"Anywhere","Airports & HQ"};
+          texts[] = {"Any friendly position","Only Airports & HQ"};
           default = 1;
      };
      class napalmEnabled

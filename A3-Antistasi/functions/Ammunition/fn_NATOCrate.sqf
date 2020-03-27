@@ -1,7 +1,15 @@
-private _filename = "fn_NATOCrate";
-
+params ["_crate", 
+["_crateWepTypeMax", crateWepTypeMax], "_crateWepNumMax", 
+["_crateItemTypeMax", crateItemTypeMax], "_crateItemNumMax", 
+["_crateAmmoTypeMax", crateAmmoTypeMax], "_crateAmmoNumMax", 
+["_crateExplosiveTypeMax", crateExplosiveTypeMax], "_crateExplosiveNumMax", 
+["_crateAttachmentTypeMax", crateAttachmentTypeMax], "_crateAttachmentNumMax", 
+["_crateBackpackTypeMax", crateBackpackTypeMax], "_crateBackpackNumMax", 
+["_crateHelmetTypeMax", crateHelmetTypeMax], "_crateHelmetNumMax", 
+["_crateVestTypeMax", crateVestTypeMax], "_crateVestNumMax", 
+["_crateDeviceTypeMax", crateDeviceTypeMax], "_crateDeviceNumMax"
+];
 private _unlocks = (unlockedHeadgear + unlockedVests + unlockedNVGs + unlockedOptics + unlockedItems + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
-private _crate = _this select 0;
 private _available = objNull;
 private _amount = objNull;
 //Empty the crate
@@ -9,19 +17,9 @@ clearMagazineCargoGlobal _crate;
 clearWeaponCargoGlobal _crate;
 clearItemCargoGlobal _crate;
 clearBackpackCargoGlobal _crate;
-//protecting global max parameters
-private _crateWepTypeMax = crateWepTypeMax;
-private _crateItemTypeMax = crateItemTypeMax;
-private _crateAmmoTypeMax = crateAmmoTypeMax;
-private _crateExplosiveTypeMax = crateExplosiveTypeMax;
-private _crateAttachmentTypeMax = crateAttachmentTypeMax;
-private _crateBackpackTypeMax = crateBackpackTypeMax;
-private _crateHelmetTypeMax = crateHelmetTypeMax;
-private _crateVestTypeMax = crateVestTypeMax;
-private _crateDeviceTypeMax = crateDeviceTypeMax;
 //Double max types if the crate is an ammo truck
 if (typeOf _crate == vehNATOAmmoTruck) then {
-	[4, "Ammo Truck Detected: Doubling Types", _filename] call A3A_fnc_log;
+	if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Ammo Truck Detected: Doubling Types",servertime,_backpackTypes]};
 	_crateWepTypeMax = _crateWepTypeMax * 2;
 	_crateItemTypeMax = _crateItemTypeMax * 2;
 	_crateAmmoTypeMax = _crateAmmoTypeMax * 2;
@@ -41,7 +39,7 @@ private _quantityScalingFactor = if (!cratePlayerScaling) then {1} else {
 };
 
 
-//Format [allWeapons, unlockedWeapons, Weighting].
+//Format [allWeapons, unlockedWeapons, Weighting]. 
 //We need to know the corresponding unlockedWeapons array, so we can check if they're all unlocked.
 private _weaponLootInfo = [
 	[allRifles, unlockedRifles, 3],
@@ -102,7 +100,7 @@ private _fnc_pickRandomFromAProbablyNotInB = {
 		selectRandom (_arrayA - _arrayB);
 	};
 
-	//Calculate what % of arrayB is likely in arrayA.
+	//Calculate what % of arrayB is likely in arrayA. 
 	//Let's never go over 100% loaded. It's theoretically possible if arrayB ever is somehow larger than arrayA/
 	//There's not a lot of value in running more than 10 iterations on a 90%+ loading anyway.
 	private _percentageLoaded = (count _arrayB / count _arrayA) min 1;
@@ -110,11 +108,11 @@ private _fnc_pickRandomFromAProbablyNotInB = {
 	private _iterations = floor (10 * _percentageLoaded);
 
 	private _choice = selectRandom _arrayA;
-	[3, format ["Function check for: %1", _choice], _filename] call A3A_fnc_log;
+	[3, format ["Function check for: %1", _choice],"fn_NATOCrate"] call A3A_fnc_log;
 	private _foundValid = true;
 	if (_choice in _arrayB) then {
 		_foundValid = false;
-		[3, format ["Item already unlocked, rolling again."], _filename] call A3A_fnc_log;
+		[3, format ["Item already unlocked, rolling again."],"fn_NATOCrate"] call A3A_fnc_log;
 		for "_i" from 0 to _iterations do {
 			_choice = selectRandom _arrayA;
 			//We did it!
@@ -133,34 +131,34 @@ private _fnc_pickRandomFromAProbablyNotInB = {
 };
 
 //Pick a weapon for the crate. Pick carefully, unless in CHAOS MODE, in which case, we just pick totally at random.
-private _fnc_pickWeapon = if (bobChaosCrates) then
+private _fnc_pickWeapon = if (bobChaosCrates) then 
 {
 	{
 		private _category = (selectRandom _weaponLootInfo) select 0;
 		selectRandom _category;
 	}
-}
-else
+} 
+else 
 {
 	{
 		private _category = selectRandomWeighted _weaponLootWeighting;
 		if (isNil "_category") exitWith {};
 
-		[4, format ["Selected Weapon Category: %1", _category], _filename] call A3A_fnc_log;
+		[3, format ["Selected Weapon Category: %1", _category],"fn_NATOCrate"] call A3A_fnc_log;
 		//Category is in format [allX, unlockedX];
 		[_category select 0, _category select 1] call _fnc_pickRandomFromAProbablyNotInB;
 	}
 };
 
 //Pick the amount of X to spawn. Use gaussian distribution, unless we're in CHAOS MODE.
-private _fnc_pickAmount = if (bobChaosCrates) then
+private _fnc_pickAmount = if (bobChaosCrates) then 
 {
 	{
 		params ["_max"];
 		round random _max;
 	}
-}
-else
+} 
+else 
 {
 	{
 		params ["_max"];
@@ -179,8 +177,8 @@ private _fnc_pickNumberOfTypes = if (bobChaosCrates) then
 		params ["_max"];
 		floor random _max;
 	}
-}
-else
+} 
+else 
 {
 	{
 		params ["_max"];
@@ -189,139 +187,157 @@ else
 };
 
 //Weapons Loot
-[3, "Generating Weapons", _filename] call A3A_fnc_log;
-for "_i" from 0 to (_crateWepTypeMax call _fnc_pickNumberOfTypes) do {
-	private _loot = call _fnc_pickWeapon;
+if (_crateWepTypeMax != 0) then {
+	[3, "Generating Weapons", "fn_NATOCrate"] call A3A_fnc_log;
+	for "_i" from 0 to (_crateWepTypeMax call _fnc_pickNumberOfTypes) do {
+		private _loot = call _fnc_pickWeapon;
 
-	if (isNil "_loot") then {
-		[3, "No Weapons Left in Loot List Or Pick Random Failed", _filename] call A3A_fnc_log;
-	}
-	else
-	{
-		[4, format ["Adding weapon: %1", _loot], _filename] call A3A_fnc_log;
-		_amount = crateWepNumMax call _fnc_pickAmount;
-		_crate addWeaponWithAttachmentsCargoGlobal [[ _loot, "", "", "", [], [], ""], _amount];
-		for "_i" from 0 to _amount do {
-			_magazine = selectRandom getArray (configFile / "CfgWeapons" / _loot / "magazines");
-			//Abort if the gun has no magazines.
-			if (isNil "_magazine") exitWith {};
-			_magAmount = if ((getText (configFile >> "CfgMagazines" >> _magazine >> "ammo") isKindOf "MissileBase")) then {
-				floor random 3;
-			} else {
-				floor random [1,6,1]
+		if (isNil "_loot") then {
+			[3, "No Weapons Left in Loot List Or Pick Random Failed","fn_NATOCrate"] call A3A_fnc_log;
+		}
+		else 
+		{
+			[3, format ["Adding weapon: %1", _loot],"fn_NATOCrate"] call A3A_fnc_log;
+			_amount = if (isNil "_crateWepNumMax") then {crateWepNumMax call _fnc_pickAmount;} else {_crateWepNumMax};
+			_crate addWeaponWithAttachmentsCargoGlobal [[ _loot, "", "", "", [], [], ""], _amount];
+			for "_i" from 0 to _amount do {
+				_magazine = selectRandom getArray (configFile / "CfgWeapons" / _loot / "magazines");
+				//Abort if the gun has no magazines.
+				if (isNil "_magazine") exitWith {};
+				_magAmount = if ((getText (configFile >> "CfgMagazines" >> _magazine >> "ammo") isKindOf "MissileBase")) then {
+					floor random 3;
+				} else {
+					floor random [1,6,1]
+				};
+				[3, format ["Spawning %1 magazines of %2 for %3", _magAmount, _magazine, _loot],"fn_NATOCrate"] call A3A_fnc_log;
+				_crate addMagazineCargoGlobal [_magazine, _magAmount];
+				[3, format ["Spawning %1 of %2", _amount, _loot],"fn_NATOCrate"] call A3A_fnc_log;
 			};
-			[4, format ["Spawning %1 magazines of %2 for %3", _magAmount, _magazine, _loot], _filename] call A3A_fnc_log;
-			_crate addMagazineCargoGlobal [_magazine, _magAmount];
-			[4, format ["Spawning %1 of %2", _amount, _loot], _filename] call A3A_fnc_log;
 		};
 	};
 };
 
 //Items Loot
-[3, "Generating Items", _filename] call A3A_fnc_log;
-for "_i" from 0 to floor random _crateItemTypeMax do {
-	_available = (lootItem - _unlocks - itemCargo _crate);
-	[4, format ["Breakdown: %1, %2, %3", lootItem, _unlocks, itemCargo _crate], _filename] call A3A_fnc_log;
-	[4, format ["Items available: %1", _available], _filename] call A3A_fnc_log;
-	_loot = selectRandom _available;
-	if (isNil "_loot") then {
-		[3, "No Items Left in Loot List", _filename] call A3A_fnc_log;
-	}
-	else {
-		[4, format ["Item chosen: %1", _loot], _filename] call A3A_fnc_log;
-		_amount = round random crateItemNumMax;
-		_crate addItemCargoGlobal [_loot,_amount];
-		[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+if (_crateItemTypeMax != 0) then {
+	[3, "Generating Items", "fn_NATOCrate"] call A3A_fnc_log;
+	for "_i" from 0 to floor random _crateItemTypeMax do {
+		_available = (lootItem - _unlocks - itemCargo _crate);
+		[3, format ["Breakdown: %1, %2, %3", lootItem, _unlocks, itemCargo _crate],"fn_NATOCrate"] call A3A_fnc_log;
+		[3, format ["Items available: %1", _available],"fn_NATOCrate"] call A3A_fnc_log;
+		_loot = selectRandom _available;
+		if (isNil "_loot") then {
+			[3, "No Items Left in Loot List","fn_NATOCrate"] call A3A_fnc_log;
+		}
+		else {
+			[3, format ["Item chosen: %1", _loot],"fn_NATOCrate"] call A3A_fnc_log;
+			_amount = if (isNil "_crateItemNumMax") then { round random crateItemNumMax;} else {_crateItemNumMax};
+			_crate addItemCargoGlobal [_loot,_amount];
+			[3, format ["Spawning %2 of %3", _amount,_loot],"fn_NATOCrate"] call A3A_fnc_log;
+		};
 	};
 };
 //Ammo Loot
-for "_i" from 0 to floor random _crateAmmoTypeMax do {
-	_available = (lootMagazine - _unlocks - itemCargo _crate);
-	_loot = selectRandom _available;
-	if (isNil "_loot") then {
-		[3, "No Ammo Left in Loot List", _filename] call A3A_fnc_log;
-	}
-	else {
-		_amount = crateAmmoNumMax call _fnc_pickAmount;
-		_crate addMagazineCargoGlobal [_loot,_amount];
-		[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+if (_crateAmmoTypeMax != 0) then {
+	for "_i" from 0 to floor random _crateAmmoTypeMax do {
+		_available = (lootMagazine - _unlocks - itemCargo _crate);
+		_loot = selectRandom _available;
+		if (isNil "_loot") then {
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Ammo Left in Loot List",servertime]};
+		}
+		else {
+			_amount = if (isNil "_crateAmmoNumMax") then {crateAmmoNumMax call _fnc_pickAmount;} else {_crateAmmoNumMax};
+			_crate addMagazineCargoGlobal [_loot,_amount];
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
 	};
 };
 //Explosives Loot
-for "_i" from 0 to floor random _crateExplosiveTypeMax do {
-	_available = (lootExplosive - _unlocks - itemCargo _crate);
-	_loot = selectRandom _available;
-	if (isNil "_loot") then {
-		[3, "No Explosives Left in Loot List", _filename] call A3A_fnc_log;
-	}
-	else {
-		_amount = round random crateExplosiveNumMax;
-		_crate addMagazineCargoGlobal [_loot,_amount];
-		[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+if (_crateExplosiveTypeMax != 0) then {
+	for "_i" from 0 to floor random _crateExplosiveTypeMax do {
+		_available = (lootExplosive - _unlocks - itemCargo _crate);
+		_loot = selectRandom _available;
+		if (isNil "_loot") then {
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Explosives Left in Loot List",servertime]};
+		}
+		else {
+			_amount = if (isNil "_crateExplosiveNumMax") then { round random crateExplosiveNumMax;} else {_crateExplosiveNumMax};
+			_crate addMagazineCargoGlobal [_loot,_amount];
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
 	};
 };
 //Attachments Loot
-for "_i" from 0 to (_crateAttachmentTypeMax call _fnc_pickNumberOfTypes) do {
-	_available = (lootAttachment - _unlocks - itemCargo _crate);
-	_loot = selectRandom _available;
-	if (isNil "_loot") then {
-		[3, "No Attachment Left in Loot List", _filename] call A3A_fnc_log;
-	}
-	else {
-		_amount = crateAttachmentNumMax  call _fnc_pickAmount;
-		_crate addItemCargoGlobal [_loot,_amount];
-		[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+if (_crateAttachmentTypeMax != 0) then {
+	for "_i" from 0 to (_crateAttachmentTypeMax call _fnc_pickNumberOfTypes) do {
+		_available = (lootAttachment - _unlocks - itemCargo _crate);
+		_loot = selectRandom _available;
+		if (isNil "_loot") then {
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Attachment Left in Loot List",servertime]};
+		}
+		else {
+			_amount = if (isNil "_crateAttachmentNumMax") then { crateAttachmentNumMax  call _fnc_pickAmount;} else {_crateAttachmentNumMax};
+			_crate addItemCargoGlobal [_loot,_amount];
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
 	};
 };
 //Backpacks Loot
-for "_i" from 0 to floor random _crateBackpackTypeMax do {
-	_available = (lootBackpack - _unlocks - itemCargo _crate);
-	_loot = selectRandom _available;
-	if (isNil "_loot") then {
-		[3, "No Backpacks Left in Loot List", _filename] call A3A_fnc_log;
-	}
-	else {
-		_amount = round random crateBackpackNumMax;
-		_crate addBackpackCargoGlobal [_loot,_amount];
-		[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+if (_crateBackpackTypeMax != 0) then {
+	for "_i" from 0 to floor random _crateBackpackTypeMax do {
+		_available = (lootBackpack - _unlocks - itemCargo _crate);
+		_loot = selectRandom _available;
+		if (isNil "_loot") then {
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Backpacks Left in Loot List",servertime]};
+		}
+		else {
+			_amount = if (isNil "_crateBackpackNumMax") then {round random crateBackpackNumMax;} else {_crateBackpackNumMax};
+			_crate addBackpackCargoGlobal [_loot,_amount];
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
 	};
 };
 //Helmets Loot
-for "_i" from 0 to floor random _crateHelmetTypeMax do {
-	_available = (lootHelmet - _unlocks - itemCargo _crate);
-	_loot = selectRandom _available;
-	if (isNil "_loot") then {
-		[3, "No Helmets Left in Loot List", _filename] call A3A_fnc_log;
-	}
-	else {
-		_amount = round random crateHelmetNumMax;
-		_crate addItemCargoGlobal [_loot,_amount];
-		[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+if (_crateHelmetTypeMax != 0) then {
+	for "_i" from 0 to floor random _crateHelmetTypeMax do {
+		_available = (lootHelmet - _unlocks - itemCargo _crate);
+		_loot = selectRandom _available;
+		if (isNil "_loot") then {
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Helmets Left in Loot List",servertime]};
+		}
+		else {
+			_amount = if (isNil "_crateHelmetNumMax") then { round random crateHelmetNumMax;} else {_crateHelmetNumMax};
+			_crate addItemCargoGlobal [_loot,_amount];
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
 	};
 };
 //Vests Loot
-for "_i" from 0 to floor random _crateVestTypeMax do {
-	_available = (lootVest - _unlocks - itemCargo _crate);
-	_loot = selectRandom _available;
-	if (isNil "_loot") then {
-		[3, "No Vests Left in Loot List", _filename] call A3A_fnc_log;
-	}
-	else {
-		_amount = round random crateVestNumMax;
-		_crate addItemCargoGlobal [_loot,_amount];
-		[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+if (_crateVestTypeMax != 0) then {
+	for "_i" from 0 to floor random _crateVestTypeMax do {
+		_available = (lootVest - _unlocks - itemCargo _crate);
+		_loot = selectRandom _available;
+		if (isNil "_loot") then {
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Vests Left in Loot List",servertime]};
+		}
+		else {
+			_amount = if (isNil "_crateVestNumMax") then { round random crateVestNumMax;} else {_crateVestNumMax};
+			_crate addItemCargoGlobal [_loot,_amount];
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
 	};
 };
 //Device Loot
-for "_i" from 0 to floor random _crateDeviceTypeMax do {
-	_available = (lootDevice - _unlocks - itemCargo _crate);
-	_loot = selectRandom _available;
-	if (isNil "_loot") then {
-		[3, "No Device Bags Left in Loot List", _filename] call A3A_fnc_log;
-	}
-	else {
-		_amount = round random crateDeviceNumMax;
-		_crate addBackpackCargoGlobal [_loot,_amount];
-		[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+if (_crateDeviceTypeMax != 0) then {
+	for "_i" from 0 to floor random _crateDeviceTypeMax do {
+		_available = (lootDevice - _unlocks - itemCargo _crate);
+		_loot = selectRandom _available;
+		if (isNil "_loot") then {
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Device Bags Left in Loot List",servertime]};
+		}
+		else {
+			_amount = if (isNil "_crateDeviceNumMax") then { round random crateDeviceNumMax;} else {_crateDeviceNumMax};
+			_crate addBackpackCargoGlobal [_loot,_amount];
+			if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
+		};
 	};
 };

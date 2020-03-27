@@ -12,9 +12,9 @@ if (gameMode == 4) then {factionFIA = "rhs_faction_msv"};
 //Flag Images
 CSATFlag = "rhs_Flag_Russia_F";
 CSATFlagTexture = "rhsafrf\addons\rhs_main\data\flag_rus_co.paa";
-flagCSATmrk = "rhs_flag_vmf";
+flagCSATmrk = "flag_russia";
 if (isServer) then {"CSAT_carrier" setMarkerText "Russian Carrier"};
-	
+
 //Loot Crate
 CSATAmmoBox = "O_supplyCrate_F";
 
@@ -93,9 +93,9 @@ if (gameMode == 4) then
 	//Fireteams
 	groupsFIAMid =
 		[
-		["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_grenadier"],
-		["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_at"],
-		["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_engineer"]
+		["rhs_msv_emr_sergeant","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_grenadier"],
+		["rhs_msv_emr_sergeant","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_at"],
+		["rhs_msv_emr_sergeant","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_engineer"]
 		];
 	//Squads
 	FIASquad = ["rhs_msv_emr_officer","rhs_msv_emr_grenadier","rhs_msv_emr_machinegunner","rhs_msv_emr_rifleman","rhs_msv_emr_marksman","rhs_msv_emr_engineer","rhs_msv_emr_at","rhs_msv_emr_medic"];

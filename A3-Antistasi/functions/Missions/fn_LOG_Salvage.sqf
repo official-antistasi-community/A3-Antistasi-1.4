@@ -72,11 +72,7 @@ while {_missionActive} do {
 	_boxCreated = true;
 	_boxX addAction ["Atach rope", {params ["_target", "_caller", "_iD"]; [_target, _caller, _iD] call A3A_fnc_SalvageCargo;}, [], 1.5, true, true, "", "", 3];
 	_loot = selectRandom [[_boxX, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 10, 5, 10, 0, 0], [_boxX, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0], [_boxX, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
-	if (_sideX == Occupants) then {
-		_loot call A3A_fnc_NATOcrate;
-	} else {
-		_loot call A3A_fnc_CSATcrate;
-	};
+	_loot call A3A_fnc_NATOcrate;
 	//boat spawn
 	_vehicle=[(getMarkerPos _boatmrk), 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
 	_veh = _vehicle select 0;

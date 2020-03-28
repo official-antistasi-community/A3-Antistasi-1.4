@@ -62,11 +62,9 @@ if (isMultiplayer) then
 	_friendX = _x;
 	if ((!isNull _friendX) and (!isPlayer _friendX) and (alive _friendX)) then
 		{
-		private _valueOfFriend = (server getVariable (typeOf _friendX));
-		//If we don't get a number (which can happen if _friendX becomes null, for example) we lose the value of _resourcesBackground;
-		if (_valueOfFriend isEqualType _resourcesBackground) then {
-			_resourcesBackground = _resourcesBackground + (server getVariable (typeOf _friendX));
-		};
+		private _valueOfFriend = server getVariable [typeOf _friendX, 0];
+		_resourcesBackground = _resourcesBackground + _valueOfFriend;
+
 		if (vehicle _friendX != _friendX) then
 			{
 			_veh = vehicle _friendX;

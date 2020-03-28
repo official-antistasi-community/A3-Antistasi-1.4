@@ -61,14 +61,6 @@ else
 			[_unit,"heal"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 			if (_unit != petros) then {if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true}};
 			};
-		if ((_injurer  == Occupants) or (_injurer  == Invaders)) then
-			{
-			_markerX = _unit getVariable ["markerX",""];
-			if (_markerX != "") then
-				{
-				if (!([_markerX] call BIS_fnc_taskExists) and (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) then {[_markerX,_injurer,teamPlayer] remoteExec ["A3A_fnc_underAttack",2]};
-				};
-			};
 		};
 	};
 

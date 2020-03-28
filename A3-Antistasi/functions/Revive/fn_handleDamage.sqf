@@ -31,7 +31,24 @@ if (_part == "" && _damage > 0.1) then
 		//if (_damage > 0.6) then {[_unit,_unit,_injurer] spawn A3A_fnc_chargeWithSmoke};
 		if (_damage > 0.6) then {[_unit,_injurer] spawn A3A_fnc_unitGetToCover};
 	};
+
+	// Contact report generation for rebels
+	if (side group _injurer == Occupants or side group _injurer == Invaders) then
+	{
+		// Check if unit is part of a rebel garrison
+		private _marker = _unit getVariable ["markerX",""];
+		if (_marker != "" && {sidesX getVariable [_marker,sideUnknown] == teamPlayer}) then
+		{
+			// Limit last attack var changes and task updates to once per 30 seconds
+			private _lastAttackTime = garrison getVariable [_marker + "_lastAttack", -30];
+			if (_lastAttackTime + 30 < serverTime) then {
+				garrison setVariable [_marker + "_lastAttack", serverTime, true];
+				[_marker, side group _injurer, side group _unit] remoteExec ["A3A_fnc_underAttack", 2];
+			};
+		};
+	};
 };
+
 
 // Let ACE medical handle the rest (inc return value) if it's running 
 if (hasACEMedical) exitWith {};

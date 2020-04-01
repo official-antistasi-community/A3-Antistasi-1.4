@@ -13,6 +13,7 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 		[_mrkD,format ["%1 Airbase",nameTeamPlayer]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
 		//_mrkD setMarkerText format ["SDK Airbase%1",_textX];
 		if (markerType _mrkD != "flag_Syndicat") then {_mrkD setMarkerType "flag_Syndicat"};
+		_mrkD setMarkerColor "Default";
 		}
 	else
 		{
@@ -48,7 +49,8 @@ else
 		{
 		if (_markerX in airportsX) then
 			{_mrkD setMarkerText format ["%1 Airbase",nameOccupants];
-			_mrkD setMarkerType flagNATOmrk
+			_mrkD setMarkerType flagNATOmrk;
+			_mrkD setMarkerColor "Default";
 			}
 		else
 			{
@@ -63,7 +65,7 @@ else
 		{
 		if (_markerX in airportsX) then {_mrkD setMarkerText format ["%1 Airbase",nameInvaders];_mrkD setMarkerType flagCSATmrk} else {
 		if (_markerX in outposts) then {_mrkD setMarkerText format ["%1 Outpost",nameInvaders]}};
-		_mrkD setMarkerColor colorInvaders;
+		if !(_markerX in airportsX) then {__mrkD setMarkerColor colorInvaders;} else {_mrkD setMarkerColor "Default"};
 		};
 	if (_markerX in resourcesX) then
 	 	{

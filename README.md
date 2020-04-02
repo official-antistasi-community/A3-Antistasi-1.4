@@ -7,7 +7,7 @@
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases/latest">
         <img src="https://img.shields.io/badge/Latest_Version-2.2.1-blue.svg?style=flat-square" alt="Antistasi Version">
     </a>
-    <a href="https://github.com/official-antistasi-community/A3-Antistasi/Issues">
+    <a href="https://github.com/official-antistasi-community/A3-Antistasi/issues">
         <img src="https://img.shields.io/github/issues/official-antistasi-community/A3-Antistasi?style=flat-square" alt="Issues">
     </a>
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases">

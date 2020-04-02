@@ -80,7 +80,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - AI Garrisons that use static weapon you add .
 - Forests get destroyed as long as the war evolves.
 - Up to 3 Headless Client supported.
-- Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892&searchtext=acre), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [FFAA](https://steamcommunity.com/sharedfiles/filedetails/?id=820994401&searchtext=FFAA), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=1316471790). None of them mandatory.
+- Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [FFAA](https://steamcommunity.com/sharedfiles/filedetails/?id=820994401), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=1316471790). None of them mandatory.
 
 ### How to build from GIT
 - Download ZIP file

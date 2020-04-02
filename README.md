@@ -77,7 +77,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Persistent Stat Save System: You won't lose game or server progress upon a game update.
 - Enhanced AI Squadmate control.
 - AI friendlies and enemy can drag/carry and heal injured soldiers, not working with ACE3 mod.
-- AI Garrisons that use static weapon you add .
+- AI Garrisons that use static weapon you add.
 - Forests get destroyed as long as the war evolves.
 - Up to 3 Headless Client supported.
 - Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [FFAA](https://steamcommunity.com/sharedfiles/filedetails/?id=820994401), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=1316471790). None of them mandatory.

@@ -20,7 +20,7 @@
 
 
 <p align="center">
-    <a href="https://discord.gg/t7JD7eT">Discord</a> | <a href="http://a3antistasi.enjin.com/">Forums</a> | <a href="https://docs.google.com/document/d/1cCptf8Uo-mBHRhIqx1BPznECzgRqwJuj70AGjiI6KOI/">Guide</a> | <a href="https://www.youtube.com/watch?v=nebLG3Jhrbk">Video Tutorial</a>
+    <a href="https://discord.gg/t7JD7eT">Discord</a> | <a href="https://a3antistasi.enjin.com/">Forums</a> | <a href="https://docs.google.com/document/d/1cCptf8Uo-mBHRhIqx1BPznECzgRqwJuj70AGjiI6KOI/">Guide</a> | <a href="https://www.youtube.com/watch?v=nebLG3Jhrbk">Video Tutorial</a>
 </p>
 </div>
 
@@ -91,4 +91,4 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Use a PBO Packager to pack the any of these mission folders
 
 ### Known Issues:
-For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi-1.4/issues).
+For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi/issues).

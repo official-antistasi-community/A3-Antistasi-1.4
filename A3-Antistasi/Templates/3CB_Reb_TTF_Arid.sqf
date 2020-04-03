@@ -47,7 +47,7 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 //           VEHICLES            ///
 ////////////////////////////////////
 //Military Vehicles
-vehSDKBike = "UK3CB_CCM_I_Golf";
+vehSDKBike = "I_G_Quadbike_01_F";
 vehSDKLightArmed = "UK3CB_CCM_I_Datsun_Pkm";
 vehSDKAT = "UK3CB_CCM_I_Hilux_Spg";
 vehSDKLightUnarmed = "UK3CB_CCM_I_Datsun_Open";
@@ -58,7 +58,7 @@ vehSDKBoat = "I_C_Boat_Transport_01_F";
 vehSDKRepair = "UK3CB_CCM_I_V3S_Repair";
 
 //Civilian Vehicles
-civCar = "UK3CB_CHC_C_Ikarus";
+civCar = "UK3CB_C_Hilux_Open";
 civTruck = "UK3CB_CHC_C_V3S_Recovery";
 civHeli = "UK3CB_CHC_C_Mi8AMT";
 civBoat = "C_Rubberboat";

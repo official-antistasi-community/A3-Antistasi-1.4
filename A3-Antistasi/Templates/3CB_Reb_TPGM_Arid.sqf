@@ -3,7 +3,7 @@
 ////////////////////////////////////
 nameTeamPlayer = "UN";
 SDKFlag = "Flag_CCM_B";
-SDKFlagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_CCM\Flag\ccm_i_flag_co.paa";
+SDKFlagTexture = "uk3cb_factions\addons\uk3cb_factions_ccm\flag\ccm_b_flag_co.paa";
 typePetros = "UK3CB_UN_B_OFF";
 
 ////////////////////////////////////
@@ -46,7 +46,7 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 vehSDKBike = "UK3CB_UN_B_UAZ_Closed";
 vehSDKLightArmed = "UK3CB_UN_B_Hilux_Pkm";
 vehSDKAT = "UK3CB_UN_B_LR_SPG9";
-vehSDKLightUnarmed = "UK3CB_CCM_I_Hilux_Closed";
+vehSDKLightUnarmed = "UK3CB_UN_B_Hilux_Closed";
 vehSDKTruck = "UK3CB_UN_B_V3S_Closed";
 //vehSDKHeli = "rhsgref_ins_g_Mi8amt";
 vehSDKPlane = "UK3CB_UN_B_C130J";
@@ -66,7 +66,7 @@ civBoat = "C_Rubberboat";
 SDKMGStatic = "UK3CB_UN_B_NSV";
 staticATteamPlayer = "UK3CB_UN_B_SPG9";
 staticAAteamPlayer = "UK3CB_UN_B_ZU23";
-SDKMortar = "rhsgref_UN_B_2b14_82mm";
+SDKMortar = "UK3CB_UN_B_2b14_82mm";
 SDKMortarHEMag = "rhs_mag_3vo18_10";
 SDKMortarSmokeMag = "rhs_mag_d832du_10";
 

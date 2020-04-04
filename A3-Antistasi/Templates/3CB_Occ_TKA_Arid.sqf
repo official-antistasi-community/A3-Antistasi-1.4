@@ -148,7 +148,7 @@ vehNATOPatrolHeli = "UK3CB_TKA_I_UH1H_M240";
 vehNATOTransportHelis = ["UK3CB_TKA_I_Mi8","UK3CB_TKA_I_Mi8AMT",vehNATOPatrolHeli,"UK3CB_TKA_I_UH1H"];
 vehNATOAttackHelis = ["UK3CB_TKA_I_Mi_24P","UK3CB_TKA_I_Mi_24V","UK3CB_TKA_I_Mi8AMTSh"];
 //UAV
-vehNATOUAV = "I_UAV_02_dynamicLoadout_F";
+vehNATOUAV = "I_UAV_02_F";
 vehNATOUAVSmall = "I_UAV_01_F";
 //Artillery
 vehNATOMRLS = "UK3CB_TKA_I_BM21";

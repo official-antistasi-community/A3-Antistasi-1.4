@@ -114,7 +114,11 @@ if (_esinf) then {
 } else {
 	_truckX = objNull;
 	_groupX = grpNull;
+
+	// workaround for weird bug where AI vehicles with attachments refuse to drive when placed close to road objects
+	_pos = position _road vectorAdd [4 * (sin _roadDirection), 4 * (cos _roadDirection), 0];
 	_pos = _pos findEmptyPosition [0, 40, vehSDKTruck];
+
 	if (_typeGroup == staticAAteamPlayer) then
 	{
 		private _vehType = if (activeGREF) then {"rhsgref_ins_g_ural_Zu23"} else {vehSDKTruck};

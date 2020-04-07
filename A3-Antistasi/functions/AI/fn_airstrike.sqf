@@ -12,9 +12,6 @@ if (_markerX isEqualType "") then
 	_isMarker = true;
 	_positionX = getMarkerPos _markerX;
 	};
-_temp = "#lightpoint" createVehicleLocal _positionX;
-_posmrk = (getPosASL _temp);
-deleteVehicle _temp;
 _typeX = _this select 2;
 
 _typePlane = if (_sideX == Occupants) then {vehNATOPlane} else {vehCSATPlane};
@@ -102,7 +99,10 @@ _plane setVelocityModelSpace (velocityModelSpace _plane vectorAdd [0, 150, 50]);
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
 _plane flyInHeight 150;
-_plane flyInHeightASL [(_posmrk select 2) +150, (_posmrk select 2) +150, (_posmrk select 2) +150];
+_temp = "#lightpoint" createVehicleLocal _positionX;
+private _minAltASL = (getPosASL _temp);
+deleteVehicle _temp;
+_plane flyInHeightASL [(_minAltASL select 2) +150, (_minAltASL select 2) +150, (_minAltASL select 2) +150];
 
 
 _wp1 = _groupPlane addWaypoint [_pos1, 0];

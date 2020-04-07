@@ -25,10 +25,6 @@ _mrkorig setMarkerTypeLocal "hd_destroy";
 _mrkorig setMarkerColorLocal "ColorRed";
 _mrkOrig setMarkerTextLocal "Bomb Run Init";
 
-_temp = "#lightpoint" createVehicleLocal getMarkerPos _mrkorig;
-_posmrk = (getPosASL _temp);
-deleteVehicle _temp;
-
 hint "Select the map position to which the plane will exit to calculate plane's route vector";
 
 onMapSingleClick "positionTel = _pos;";
@@ -66,7 +62,10 @@ _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
 _plane flyInHeight 100;
-_plane flyInHeightASL [(_posmrk select 2) +100, (_posmrk select 2) +100, (_posmrk select 2) +100];
+_temp = "#lightpoint" createVehicleLocal _positionX;
+private _minAltASL = (getPosASL _temp);
+deleteVehicle _temp;
+_plane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (_minAltASL select 2) +100];
 
 driver _plane sideChat "Starting Bomb Run. ETA 30 seconds.";
 _wp1 = group _plane addWaypoint [_pos1, 0];

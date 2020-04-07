@@ -99,9 +99,7 @@ _plane setVelocityModelSpace (velocityModelSpace _plane vectorAdd [0, 150, 50]);
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
 _plane flyInHeight 150;
-_temp = "#lightpoint" createVehicleLocal _positionX;
-private _minAltASL = (getPosASL _temp);
-deleteVehicle _temp;
+private _minAltASL = ATLToASL [_positionX select 0, _positionX select 1, 0];
 _plane flyInHeightASL [(_minAltASL select 2) +150, (_minAltASL select 2) +150, (_minAltASL select 2) +150];
 
 

@@ -37,7 +37,7 @@
 
 	[//Vest
 		selectRandom										//Vest
-		["V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr"],
+		["V_PlateCarrierIA1_dgtl", "V_PlateCarrierIA2_dgtl"],
 		[//Inventory
 			["NVGoggles_INDEP",1],
 			["SmokeShell",2,1],
@@ -75,5 +75,5 @@
 			"ItemCompass",										//Compass
 			"ItemWatch",										//Watch
 			""													//Goggles
-			]
-		];
+	]
+];

@@ -5,14 +5,8 @@
       <Key ID="STR_antistasi_dialogs_lps_frame_text">
         <Original>Load previous session?</Original>
         <English>Load previous session?</English>
-        <Czech />
         <French>Charger votre ancienne session ?</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
         <Russian>Загрузить предыдущее сохранение?</Russian>
-        <German />
       </Key>
     </Container>
     <Container name="dialog_headquarters">

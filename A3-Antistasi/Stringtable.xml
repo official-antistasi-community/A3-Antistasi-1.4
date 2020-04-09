@@ -6,6 +6,7 @@
         <Original>Load previous session?</Original>
         <English>Load previous session?</English>
         <French>Charger votre ancienne session ?</French>
+        <German>Letzten Spielstand laden?</German>
         <Russian>Загрузить предыдущее сохранение?</Russian>
       </Key>
     </Container>
@@ -14,96 +15,112 @@
         <Original>HQ Options: Commander Only</Original>
         <English>HQ Options: Commander Only</English>
         <French>Options du QG : Commandants Uniquement</French>
+        <German>HQ Optionen: Nur Kommandant</German>
         <Russian>Опции Штаба: Только для Командира</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_close_text">
         <Original>Close</Original>
         <English>Close</English>
         <French>Fermer</French>
+        <German>Schließen</German>
         <Russian>Закрыть</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_withdraw_text">
         <Original>Grab 100€ from Pool</Original>
         <English>Grab $100 from Pool</English>
         <French>Prendre 100€ de la cagnotte</French>
+        <German>Entehme 100€ aus der Kasse</German>
         <Russian>Взять 100$ из общака</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_withdraw_tooltip">
         <Original>Take 100€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</Original>
         <English>Take $100 from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</English>
         <French>Prendre 100€ de la cagnotte de la faction pour l'ajouter sur votre compte. Cela va nuire à votre réputation au sein de la faction et ralentir votre progression des rangs.</French>
+        <German>Transferiere 100€ aus der Fraktionskasse zu deinem persönlichen Konto. Dies wird deiner Reputation bezüglich deiner Karriere innerhalb der Fraktion schaden.</German>
         <Russian>Перевести 100$ из фонда сопротивления себе на счёт. Это вредит вашей репутации как командира</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garrisons_text">
         <Original>Manage Garrisons</Original>
         <English>Manage Garrisons</English>
         <French>Gérer Garnisons</French>
+        <German>Garnisonsverwaltung</German>
         <Russian>Построение Обороны</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garrisons_tooltip">
         <Original>Add or remove units to garrisons</Original>
         <English>Add or remove units to garrisons</English>
         <French>Ajouter ou Supprimer une garnison</French>
+        <German>Einheiten der Garnison hinzufügen oder entfernen.</German>
         <Russian>Организация и построение Обороны</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_text">
         <Original>Move HQ to another Zone</Original>
         <English>Move HQ to another Zone</English>
         <French>Déplacer le QG vers une autre Zone</French>
+        <German>HQ verlegen</German>
         <Russian>Переместить Штаб</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
         <Original>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</Original>
         <English>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</English>
         <French>Petros va rejoindre votre groupe. L'Arsenal doit être vide. Pour reconstruire, sélectionnez l'action "Construire" à côté de Petros.</French>
+        <German>Maru/Petros tritt deiner Gruppe bei. Munitionskiste muss leer sein. Zur Neuerrichtung die Bauaktion in der Nähe von Maru/Petros auswählen.</German>
         <Russian>Петрос присоединится к вашей группе. Чтобы построить Штаб, выберите на нём пункт "Построить Штаб". Арсенал должен быть пуст.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_members_list_text">
         <Original>Ingame Member List</Original>
         <English>Ingame Member List</English>
         <French>Liste des membres en ligne</French>
+        <German>Mitgliederliste</German>
         <Russian>Список Игроков</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_members_list_tooltip">
         <Original>Displays which server members are currently playing</Original>
         <English>Displays which server members are currently playing</English>
         <French>Affiche quels membres du serveur sont actuellement en jeu</French>
+        <German>Zeigt, welche Servermitglieder momentan im Spiel sind.</German>
         <Russian>Показывает, кто из Игроков сейчас на сервере</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_text">
         <Original>Rebuild Assets</Original>
         <English>Rebuild Assets</English>
         <French>Reconstruire les (biens)</French>
+        <German>Anlagen wiederherstellen</German>
         <Russian>Восстановление Объектов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_tooltip">
         <Original>Cost: €5000</Original>
         <English>Cost: €5000</English>
         <French>Coût : 5000€</French>
+        <German>Kosten: 5.000€</German>
         <Russian>Цена: 5000$</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_text">
         <Original>Train FIA Troops</Original>
         <English>Train FIA Troops</English>
         <French>Entrainer les troupes de la FIA</French>
+        <German>FIA Truppen ausbilden</German>
         <Russian>Тренировать Войска</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_tooltip">
         <Original>Upgrades the AI skill level</Original>
         <English>Upgrades the AI skill level</English>
         <French>Améliorer le niveau de l'IA</French>
+        <German>Erhöht den KI Fähigkeitslevel.</German>
         <Russian>Увеличивает уровень готовности войск</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garage_text">
         <Original>Garage Access</Original>
         <English>Garage Access</English>
         <French>Accès au garage</French>
+        <German>Fuhrparkzugriff</German>
         <Russian>Гараж Сопротивления</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garage_tooltip">
         <Original>Check Faction garage</Original>
         <English>Check Faction garage</English>
         <French>Examiner le garage de la faction</French>
+        <German>Fuhrpark der Fraktion einsehen.</German>
         <Russian>Проверить Гараж Сопротивления</Russian>
       </Key>
     </Container>
@@ -112,60 +129,70 @@
         <Original>Building - Garrison Options</Original>
         <English>Building - Garrison Options</English>
         <French>Construction - Options de Garnison</French>
+        <German>Bauen - Garnisonsoptionen</German>
         <Russian>Построение Обороны</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_button_no_text">
         <Original>Back</Original>
         <English>Back</English>
         <French>Retour</French>
+        <German>Zurück</German>
         <Russian>Назад</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_minefield_button_text">
         <Original>Minefield Options</Original>
         <English>Minefield Options</English>
         <French>Options de Champ de Mines</French>
+        <German>Minenfeldoptionen</German>
         <Russian>Минные поля</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_minefield_button_tooltip">
         <Original>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</Original>
         <English>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</English>
         <French>L'IA va déployer ou retirer des mines sur les objectifs désirés, en utilisant le stock disponible dans l'arsenal</French>
+        <German>Die KI wird Minen um die ausgewählten Ziele legen oder räumen. Sie nutzt dabei den aktuellen Minenvorrat.</German>
         <Russian>Инженеры установят или удалят мины на выбранной позиции, используя мины из арсенала</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_text">
         <Original>Outpost or Roadblock</Original>
         <English>Outpost or Roadblock</English>
         <French>Avant-Poste ou Barrage Routier</French>
+        <German>Außenposten oder Straßensperre</German>
         <Russian>БП или НП</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_tooltip">
         <Original>Establish a new watchpost or roadblock depending on the type of terrain you select.</Original>
         <English>Establish a new watchpost or roadblock depending on the type of terrain you select.</English>
         <French>Créer un nouvel avant-poste ou barrage routier en fonction du type de terrain sélectionné</French>
+        <German>Errichte, abhängig vom gewählten Gelände, einen neuen Außenposten oder eine neue Straßensperre.</German>
         <Russian>Установить Наблюдательный Пост или Блок Пост в зависимости от выбранного места.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_recruit_units_button_text">
         <Original>Recruit Units</Original>
         <English>Recruit Units</English>
         <French>Recruter des unités</French>
+        <German>Rekrutierung</German>
         <Russian>Добавить в Гарнизон</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_recruit_units_button_tooltip">
         <Original>Add units to an existing garrison.</Original>
         <English>Add units to an existing garrison.</English>
         <French>Ajouter des unités à une garnison existante</French>
+        <German>Füge Einheiten einer existierenden Garnison hinzu.</German>
         <Russian>Добавить добровольца в гарнизон.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_disband_units_button_text">
         <Original>Disband Units or Posts</Original>
         <English>Disband Units or Posts</English>
         <French>Dissoudre des unités ou rôles</French>
+        <German>Einheiten/Posten auflösen</German>
         <Russian>Удалить Гарнизон или Пост</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_disband_units_button_tooltip">
         <Original>Remove whole garrisons or posts.</Original>
         <English>Remove whole garrisons or posts.</English>
         <French>Supprimer des garnisons ou rôles entiers</French>
+        <German>Löse komplette Garnisonen oder Posten auf.</German>
         <Russian>Распустить весь Гарнизон или Пост.</Russian>
       </Key>
     </Container>
@@ -174,54 +201,63 @@
         <Original>Garrison Recruitment Options</Original>
         <English>Garrison Recruitment Options</English>
         <French>Options de recrutement de la Garnison</French>
+        <German>Garnisonsrekrutierungsoptionen</German>
         <Russian>Добавить в Гарнизон</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_rifleman_text">
         <Original>Recruit Rifleman</Original>
         <English>Recruit Rifleman</English>
         <French>Recruter un Fusillier</French>
+        <German>Schütze rekrutieren</German>
         <Russian>Стрелок</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_autorifleman_text">
         <Original>Recruit Autorifleman</Original>
         <English>Recruit Autorifleman</English>
         <French>Recruter un Mitrailleur</French>
+        <German>Maschinengewehrschütze rekrutieren</German>
         <Russian>Пулемётчик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_medic_text">
         <Original>Recruit Medic</Original>
         <English>Recruit Medic</English>
         <French>Recruter un Médecin</French>
+        <German>Sanitäter rekrutieren</German>
         <Russian>Медик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_squad_lead_text">
         <Original>Recruit Squad Leader</Original>
         <English>Recruit Squad Leader</English>
         <French>Recruter un Chef d'Escouade</French>
+        <German>Gruppenführer rekrutieren</German>
         <Russian>Сержант</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
         <Original>Recruit Mortar</Original>
         <English>Recruit Mortar</English>
         <French>Recruter un Mortier</French>
+        <German>Mörser rekrutieren</German>
         <Russian>Миномётчик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
         <Original>Recruit Grenadier</Original>
         <English>Recruit Grenadier</English>
         <French>Recruter un Grenadier</French>
+        <German>Grenadier rekrutieren</German>
         <Russian>Стрелок с ГП</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_marksman_text">
         <Original>Recruit Marksman</Original>
         <English>Recruit Marksman</English>
         <French>Recruter un Tireur d'Elite</French>
+        <German>Scharfschütze rekrutieren</German>
         <Russian>Снайпер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
         <Original>Recruit AT</Original>
         <English>Recruit AT</English>
         <French>Recruter un AT</French>
+        <German>Panzerabwehr rekrutieren</German>
         <Russian>Гранатомётчик</Russian>
       </Key>
     </Container>
@@ -230,42 +266,49 @@
         <Original>Build Minefield</Original>
         <English>Build Minefield</English>
         <French>Construire un Champ de Mines</French>
+        <German>Minenfeld legen</German>
         <Russian>Минное Поле</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_text">
         <Original>APERS Mines</Original>
         <English>APERS Mines</English>
         <French>APERS Mines</French>
+        <German>APERS Minen</German>
         <Russian>ПП Мины</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_tooltip">
         <Original>Creates an APERS Minefield in the designated location</Original>
         <English>Creates an APERS Minefield in the designated location</English>
         <French>Créer un Champ de Mines APERS sur le lieu indiqué</French>
+        <German>Legt ein APERS-Minenfeld an der ausgewählten Position.</German>
         <Russian>Создаёт Минное Поле с противопехотными минами на выбранной позиции</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_remove_text">
         <Original>Remove Minefield</Original>
         <English>Remove Minefield</English>
         <French>Supprimer un Champ de Mines</French>
+        <German>Minenfeld räumen</German>
         <Russian>Удалить Минное Поле</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_remove_tooltip">
         <Original>Spawn an AI Engineer which will clear any mine in it's surroundings</Original>
         <English>Spawn an AI Engineer which will clear any mine in it's surroundings</English>
         <French>Fait apparaître un Ingénieur contrôllé par l'IA qui va retirer toutes les mines dans ses alentours</French>
+        <German>Ein KI Sprengstoffspezialist wird alle Minen in der Umgebung räumen.</German>
         <Russian>Создаёт Инженера, который разминирует все мины вокруг себя</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_text">
         <Original>AT Mines</Original>
         <English>AT Mines</English>
         <French>Mines AT</French>
+        <German>Panzerabwehrminen</German>
         <Russian>ПТ Мины</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_tooltip">
         <Original>Creates an Anti Tank minefield at designated location</Original>
         <English>Creates an Anti Tank minefield at designated location</English>
         <French>Créer un Champ de Mines AT sur le lieu indiqué</French>
+        <German>Legt ein Panzerabwehrminenfeld an der ausgewählten Position.</German>
         <Russian>Создаёт Минное Поле с противотанковыми минами на выбранной позиции</Russian>
       </Key>
     </Container>
@@ -274,54 +317,63 @@
         <Original>Recruitment Options</Original>
         <English>Recruitment Options</English>
         <French>Options de Recrutement</French>
+        <German>Rekrutierungsoptionen</German>
         <Russian>Призвать Добровольца по специальности</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_militiaman_text">
         <Original>Recruit Militiaman</Original>
         <English>Recruit Militiaman</English>
         <French>Recruter un Milicien</French>
+        <German>Miliz rekrutieren</German>
         <Russian>Новобранец</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_mg_text">
         <Original>Recruit Autorifleman</Original>
         <English>Recruit Autorifleman</English>
         <French>Recruter un Fusilier</French>
+        <German>Maschinengewehrschütze rekrutieren</German>
         <Russian>Пулемётчик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_medic_text">
         <Original>Recruit Medic</Original>
         <English>Recruit Medic</English>
         <French>Recruter un Médecin</French>
+        <German>Sanitäter rekrutieren</German>
         <Russian>Медик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_engineer_text">
         <Original>Recruit Engineer</Original>
         <English>Recruit Engineer</English>
         <French>Recruter un Ingénieur</French>
+        <German>Ingenieur rekrutieren</German>
         <Russian>Инженер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_explosive_text">
         <Original>Recruit Bomb Specialist</Original>
         <English>Recruit Bomb Specialist</English>
         <French>Recruter un Expert en Démolition</French>
+        <German>Sprengstoffspezialist rekrutieren</German>
         <Russian>Подрывник</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_grenadier_text">
         <Original>Recruit Grenadier</Original>
         <English>Recruit Grenadier</English>
         <French>Recruter un Grenadier</French>
+        <German>Grenadier rekrutieren</German>
         <Russian>Стрелок с ГП</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_marksman_text">
         <Original>Recruit Marksman</Original>
         <English>Recruit Marksman</English>
         <French>Recruter un Tireur d'élite</French>
+        <German>Scharfschütze rekrutieren</German>
         <Russian>Снайпер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_antitank_text">
         <Original>Recruit Antitank Solider</Original>
         <English>Recruit Antitank Solider</English>
         <French>Recruter un Soldat Antichar</French>
+        <German>Panzerabwehrsoldat rekrutieren</German>
         <Russian>Гранатомётчик</Russian>
       </Key>
     </Container>
@@ -333,24 +385,28 @@
         <Original>Back</Original>
         <English>Back</English>
         <French>Retour</French>
+        <German>Zurück</German>
         <Russian>Назад</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_back_tooltip">
         <Original>Back</Original>
         <English>Back</English>
         <French>Retour</French>
+        <German>Zurück</German>
         <Russian>Назад</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_yes_text">
         <Original>Yes</Original>
         <English>Yes</English>
         <French>Oui</French>
+        <German>Ja</German>
         <Russian>Да</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_no_text">
         <Original>No</Original>
         <English>No</English>
         <French>Non</French>
+        <German>Nein</German>
         <Russian>Нет</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_yes_tooltip">
@@ -365,24 +421,28 @@
         <Original>The Official Antistasi Community and Barbolani</Original>
         <English>The Official Antistasi Community and Barbolani</English>
         <French>La Communauté Officielle d'Antistasi et Barbolani</French>
+        <German>Die offizielle Antistasi Community und Barbolani</German>
         <Russian>Сообщество Antistasi</Russian>
       </Key>
       <Key ID="STR_antistasi_credits_generic_overview_text">
         <Original>Build FIA Army from scratch and defeat the AAF and CSAT forces in a whole map Dynamic Mission.</Original>
         <English>Build FIA Army from scratch and defeat the AAF and CSAT forces in a whole map Dynamic Mission.</English>
         <French>Recrutez une armée de la FIA à partir de rien et vainquez les forces de l'AAF et CSAT à travers toute la carte dans une Mission Dynamique</French>
+        <German>Formiere eine FIA Armee und bezwinge die AAF und CSAT Kräfte in einer dynamischen Mission auf der gesamten Karte.</German>
         <Russian>Создайте свою армию с нуля и заставьте силы AAF и CSAT отступить в Динамической Миссии на всей карте.</Russian>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missionname_text">
         <Original>Antistasi Altis</Original>
         <English>Antistasi Altis</English>
         <French>Antistasi Altis</French>
+        <German>Antistasi Altis</German>
         <Russian>Antistasi Альтис</Russian>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missiondesc_text">
         <Original>Be a Resistance leader, be a hero.</Original>
         <English>Be a Resistance leader, be a hero.</English>
         <French>Devenez un chef de la résistance, soyez un héros.</French>
+        <German>Sei ein Anführer des Widerstands, sei ein Held.</German>
         <Russian>Быть Лидером Сопротивления значит быть героем. </Russian>
       </Key>
       <Key ID="STR_antistasi_credits_generic_version_text">
@@ -394,36 +454,42 @@
         <Original>Buy Vehicle</Original>
         <English>Buy Vehicle</English>
         <French>Acheter un véhicule</French>
+        <German>Fahrzeug kaufen</German>
         <Russian>Купить Технику</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_tooltip">
         <Original>Allows you to buy a vehicle</Original>
         <English>Allows you to buy a vehicle</English>
         <French>Vous permet d'acheter un véhicule</French>
+        <German>Ermöglicht dir den Kauf von Fahrzeugen.</German>
         <Russian>Позволяет Вам купить технику</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_text">
         <Original>Civilian Vehicle</Original>
         <English>Civilian Vehicle</English>
         <French>Véhicule civil</French>
+        <German>Zivilfahrzeuge</German>
         <Russian>Гражданская техника</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_tooltip">
         <Original>Civilian vehicles will allow you to travel in Undercover mode, while you stay close to roads and not entering bases, outposts and roadblocks.</Original>
         <English>Civilian vehicles will allow you to travel in Undercover mode, while you stay close to roads and not entering bases, outposts and roadblocks.</English>
         <French>Les véhicules civils vous permettent de vous déplacer "Sous Couverture", tant que vous restez près des routes et ne pénétrez pas les bases, avant-postes et barrages routiers.</French>
+        <German>Zivilfahrzeuge erlaube dir unentdeckt zu reisen, sofern du nahe der Straßen bleibst und in keine Basen, Außenposten oder Straßensperren einfährst.</German>
         <Russian>Гражданская техника позволяет Вам передвигаться как гражданскому лицу, пока Вы движетесь по дорогам вдалеке от баз, опорных пунктов и блокпостов.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_military_text">
         <Original>Military Vehicle</Original>
         <English>Military Vehicle</English>
         <French>Véhicule Militaire</French>
+        <German>Militärfahrzeuge</German>
         <Russian>Военная Техника</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_military_tooltip">
         <Original>Wide variety of available faction vehicles</Original>
         <English>Wide variety of available faction vehicles</English>
         <French>Une large variété de véhicules de faction disponibles</French>
+        <German>Eine große Auswahl an verfügbaren Fraktionsfahrzeugen.</German>
         <Russian>Широкий выбор доступной техники вашей стороны</Russian>
       </Key>
     </Container>
@@ -432,72 +498,84 @@
         <Original>ATV</Original>
         <English>Quadbike</English>
         <French>Quad</French>
+        <German>Quad</German>
         <Russian>Квадроцикл</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mg_text">
         <Original>Machine Gun</Original>
         <English>Machine Gun</English>
         <French>Mitrailleuse</French>
+        <German>Maschinengewehr</German>
         <Russian>Станковый Пулемёт</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mg_tooltip">
         <Original>Buy Static Machinegun Emplacement</Original>
         <English>Buy Static Machinegun Emplacement</English>
         <French>Acheter un emplacement de mitrailleuse fixe</French>
+        <German>Kaufe ein ein statisches Maschinengewehr.</German>
         <Russian>Купить Станковый Пулемёт</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_text">
         <Original>Mortar</Original>
         <English>Mortar</English>
         <French>Mortier</French>
+        <German>Mörser</German>
         <Russian>Миномёт</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_tooltip">
         <Original>Buy Static Mortar Emplacement</Original>
         <English>Buy Static Mortar Emplacement</English>
         <French>Acheter un emplacement de mortier fixe</French>
+        <German>Kaufe ein statisches Mörsergeschütz.</German>
         <Russian>Купить Станковый Миномёт</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_aa_text">
         <Original>Static AA</Original>
         <English>Static AA</English>
         <French>DCA fixe</French>
+        <German>Flugabwehr</German>
         <Russian>Установка ПВО</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_aa_tooltip">
         <Original>Buy Static Anti-Air emplacement</Original>
         <English>Buy Static Anti-Air emplacement</English>
         <French>Acheter un emplacement de DCA fixe</French>
+        <German>Kaufe ein statisches Flugabwehrgeschütz.</German>
         <Russian>Купить Станковую Установку ПВО</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_text">
         <Original>Static AT</Original>
         <English>Static AT</English>
         <French>AT Fixe</French>
+        <German>Panzerabwehr</German>
         <Russian>Станковый ПТРК</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_tooltip">
         <Original>Buy Static Anti-Tank emplacement</Original>
         <English>Buy Static Anti-Tank emplacement</English>
         <French>Acheter un emplacement antichar fixe</French>
+        <German>Kaufe ein statisches Panzerabwehrgeschütz.</German>
         <Russian>Купить Станковую Установку ПТРК</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_truck_text">
         <Original>Pickup Truck</Original>
         <English>Pickup Truck</English>
         <French>4x4</French>
+        <German>Pickup</German>
         <Russian>Пикап</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_offroad_text">
         <Original>Offroad Truck</Original>
         <English>Offroad Truck</English>
         <French>Camion Tout-Terrain</French>
+        <German>Geländewagen</German>
         <Russian>Грузовик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_a_offroad_text">
         <Original>Armed Pickup Truck</Original>
         <English>Armed Pickup Truck</English>
         <French>4x4 Armé</French>
+        <German>Bewaffneter Pickup</German>
         <Russian>Вооружённый Пикап</Russian>
       </Key>
     </Container>
@@ -506,30 +584,35 @@
         <Original>Buy Civilian Vehicle</Original>
         <English>Buy Civilian Vehicle</English>
         <French>Acheter un Véhicule Civil</French>
+        <German>Kaufe Zivilfahrzeuge</German>
         <Russian>Гражданская Техника</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_offroad_text">
         <Original>Offroad</Original>
         <English>Offroad</English>
         <French>Tout-Terrain</French>
+        <German>Geländewagen</German>
         <Russian>Пикап</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_truck_text">
         <Original>Truck</Original>
         <English>Truck</English>
         <French>Camion</French>
+        <German>Lastwagen</German>
         <Russian>Грузовик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_boat_text">
         <Original>Boat</Original>
         <English>Boat</English>
         <French>Bateau</French>
+        <German>Boot</German>
         <Russian>Лодка</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_heli_text">
         <Original>Helicopter</Original>
         <English>Helicopter</English>
         <French>Hélicoptère</French>
+        <German>Helikopter</German>
         <Russian>Вертолёт</Russian>
       </Key>
     </Container>
@@ -538,13 +621,15 @@
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
-        <French />
-        <Russian />
+        <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
+        <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_text">
         <Original>Antistasi - Liberation of Altis</Original>
@@ -573,21 +658,25 @@
       <Key ID="STR_antistasi_mission_info_altis_blurb_text">
         <Original>Because nothing is more important than Freedom.</Original>
         <English>Because nothing is more important than Freedom.</English>
+        <German>Weil nichts wichtiger ist als die Freiheit.</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_blurb_text">
         <Original>Because nothing is more important than Freedom.</Original>
         <English>Because nothing is more important than Freedom.</English>
+        <German>Weil nichts wichtiger ist als die Freiheit.</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_mapname_text">
         <Original>Antistasi - Warlords of the Pacific</Original>
         <English>Antistasi - Warlords of the Pacific</English>
         <French>Antistasi - Les Seigneurs de Guerre du Pacifique</French>
+        <German>Antistasi - Warlords of the Pacific</German>
         <Russian>Antistasi - Хозяева Тихого Океана</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_mapname_short_text">
@@ -598,31 +687,30 @@
         <Original>Business and War...</Original>
         <English>Business and War...</English>
         <French>Les Affaires et la Guerre...</French>
+        <German>Geschäft und Krieg...</German>
         <Russian>Бизнес и Война ...</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernawinter_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_mapname_text">
         <Original>Antistasi - Kolkhoz in revolt</Original>
         <English>Antistasi - Kolkhoz in revolt</English>
-        <French />
-        <Russian />
       </Key>
       <Key ID="STR_antistasi_mission_info_chernawinter_mapname_text">
         <Original>Antistasi - Chilled revolt</Original>
         <English>Antistasi - Chilled revolt</English>
-        <French />
-        <Russian />
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_mapname_short_text">
         <Original>Antistasi Chernarus</Original>
@@ -636,48 +724,54 @@
         <Original>Between the anvil and a steamroller.</Original>
         <English>Between the anvil and a steamroller.</English>
         <French>Entre l'enclume et un rouleau compresseur</French>
+        <German>Zwischen einem Amboss und einer Dampfwalze.</German>
         <Russian>Между катком и наковальней.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernawinter_blurb_text">
         <Original>Beware: Santa Claus is hunting you!</Original>
         <English>Beware: Santa Claus is hunting you!</English>
-        <French />
-        <Russian />
+        <German>Vorsicht: Der Weihnachtsmann jagd dich!</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_mapname_text">
         <Original>Antistasi - Liberation of Malden</Original>
         <English>Antistasi - Liberation of Malden</English>
         <French>Antistasi - La Libération de Malden</French>
+        <German>Antistasi - Liberation of Malden</German>
         <Russian>Antistasi - Освобождение Мальдена</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_mapname_short_text">
         <Original>Antistasi Malden</Original>
         <English>Antistasi Malden</English>
         <French>Antistasi Malden</French>
+        <German>Antistasi Malden</German>
         <Russian>Antistasi Мальдена</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_blurb_text">
         <Original>The island is small but packed with enemies. Look out!</Original>
         <English>The island is small but packed with enemies. Look out!</English>
         <French>L'île est petite mais remplie d'ennemis. Attention!</French>
+        <German>Diese Insel ist klein aber voller Feinde. Sei auf der Hut!</German>
         <Russian>Остров небольшой, но полон врагов. Будь начеку!</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_text">
         <Original>Antistasi - The Baltic Revolution</Original>
         <English>Antistasi - The Baltic Revolution</English>
         <French>Antistasi - La Révolution Baltique</French>
+        <German>Antistasi - The Baltic Revolution</German>
         <Russian>Antistasi - Балтийская Революция</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_short_text">
@@ -689,49 +783,58 @@
         <Original>Stuck between two fronts.</Original>
         <English>Stuck between two fronts.</English>
         <French>Pris entre deux feux.</French>
+        <German>Gefangen zwischen zwei Fronten.</German>
         <Russian>Между двух фронтов.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_text">
         <Original>Antistasi - Battle of Kunduz</Original>
         <English>Antistasi - Battle of Kunduz</English>
         <French>Antistasi - La Bataille de Kanduz</French>
+        <German>Antistasi - Battle of Kunduz</German>
         <Russian>Antistasi - Битва за Кундуз</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_short_text">
         <Original>Antistasi Kunduz</Original>
         <English>Antistasi Kunduz</English>
         <French>Antistasi Kanduz</French>
+        <German>Antistasi Kunduz</German>
         <Russian>Antistasi Кундуз</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_blurb_text">
         <Original>Sand and blood</Original>
         <English>Sand and blood</English>
         <French>Du Sable et du Sang</French>
+        <German>Sand und Blut</German>
         <Russian>Кровь и песок</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_mapname_text">
         <Original>Antistasi - Liberation of Tembelan Island</Original>
         <English>Antistasi - Liberation of Tembelan Island</English>
+        <German>Antistasi - Liberation of Tembelan Island</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_mapname_short_text">
         <Original>Antistasi Tembelan</Original>
         <English>Antistasi Tembelan</English>
         <French>Antistasi Tembelan</French>
+        <German>Antistasi Tembelan</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_blurb_text">
         <Original>Beauty and destruction</Original>
         <English>Beauty and destruction</English>
+        <German>Schönheit und Zerstörung</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_mapname_short_text">
@@ -743,473 +846,623 @@
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_mapname_text">
         <Original>Antistasi - Liberation of Anizay</Original>
         <English>Antistasi - Liberation of Anizay</English>
+        <German>Antistasi - Liberation of Anizay</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_blurb_text">
         <Original>Fought on the camel's back</Original>
         <English>Fought on the camel's back</English>
+        <German>Kampf auf dem Kamelrücken</German>
       </Key>
     </Container>
     <Container name="journal_entries">
       <Key ID="STR_antistasi_journal_entry_header_tutorial_1">
         <Original>Early Beginning</Original>
         <English>Early Beginning</English>
+        <German>Der Anfang</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_1">
         <Original>Don't expect to be able to conquer anything in the early stages. First you have to gather enough resources (HR and Money) in order to be able to conquer and hold your positions. This mission tries to simulate real life guerilla situations. If in doubt, ask yourself what would you do in real life. Don't expect to win every time. Hit and Run is the basic manoeuvre here. Earn every resource, weapon and ammunition to gather enough assets in order to be a real challenge for the enemy. In the meantime, disturb its operations and gain support from the population.</Original>
         <English>Don't expect to be able to conquer anything in the early stages. First you have to gather enough resources (HR and Money) in order to be able to conquer and hold your positions. This mission tries to simulate real life guerilla situations. If in doubt, ask yourself what would you do in real life. Don't expect to win every time. Hit and Run is the basic manoeuvre here. Earn every resource, weapon and ammunition to gather enough assets in order to be a real challenge for the enemy. In the meantime, disturb its operations and gain support from the population.</English>
+        <German>Erwarte nicht, dass du in der Lage sein wirst alles bereits zu Beginn erobern zu können. Zuallererst musst du genügend Ressourcen (Mannstärke und Geld) auftreiben müssen, um in der Lage zu sein etwas zu erobern und auch halten zu können. Diese Mission versucht reale Guerilla Situationen und Vorgehen zu simulieren. Wenn du unschlüssig bist, dann frage dich selbst, was du im echten Leben tun würdest. Erwarte nicht, dass du jedes Mal gewinnst. "Hit and Run" ist hier das übliche Vorgehen. Erbeute Ressourcen, Waffen und Munition, um letztlich genug Ausrüstung zusammen zu haben, damit du zu einer echten Bedrohung für den Feind werden kannst. Währenddessen störe die Bestrebungen des Feindes und verdiene dir die Unterstützung der Zivilbevölkerung.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_2">
         <Original>Aggro Effects</Original>
         <English>Aggro Effects</English>
+        <German>Aggression</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_2">
         <Original>Keep an eye on those. If it's too high, you will have to face more attacks with better troops.</Original>
         <English>Keep an eye on those. If it's too high, you will have to face more attacks with better troops.</English>
+        <German>Behalte dies im Auge. Wenn sie zu hoch wird, wirst du dich deutlich mehr Angriffen und besseren Einheiten entgegenstellen müssen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_3">
         <Original>Strategy</Original>
         <English>Strategy</English>
+        <German>Strategie</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_3">
         <Original>Once you have a nice amount of resources, focus on enemy communications. If you disturb them enough, you won't have to face big counter-attacks.</Original>
         <English>Once you have a nice amount of resources, focus on enemy communications. If you disturb them enough, you won't have to face big counter-attacks.</English>
+        <German>Sobald du eine solide Menge and Ressourcen zusammen hast, konzentriere dich auf ihre Kommunikation. Störst du sie ausreichend, wirst du dich keinen größeren Gegenangriffen mehr stellen müssen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_4">
         <Original>Conquer and Hold</Original>
         <English>Conquer and Hold</English>
+        <German>Erobern und halten</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_4">
-        <Original>Don't expect a light counter-attack when you conquer strategic zones such as resources or airportsX. The enemy will send everything they can, if available. If you conquer a zone and expect a counter-attack, fleeing is a nice option.</Original>
-        <English>Don't expect a light counter-attack when you conquer strategic zones such as resources or airportsX. The enemy will send everything they can, if available. If you conquer a zone and expect a counter-attack, fleeing is a nice option.</English>
+        <Original>Don't expect a light counter-attack when you conquer strategic zones such as resources or airports. The enemy will send everything they can, if available. If you conquer a zone and expect a counter-attack, fleeing is a nice option.</Original>
+        <English>Don't expect a light counter-attack when you conquer strategic zones such as resources or airports. The enemy will send everything they can, if available. If you conquer a zone and expect a counter-attack, fleeing is a nice option.</English>
+        <German>Erwarte keine einfachen Gegenangriffe, wenn du eine strategische Zone, wie Ressourcen oder Flugplätze, einnimmst. Der Feind wird dir alles was er zur Verfügung hat entgegenwerfen. Eroberst du eine Zone und erwartest einen Gegenangriff ist Rückzug immer eine gute Option.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_5">
         <Original>Resources</Original>
         <English>Resources</English>
+        <German>Ressourcen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_5">
         <Original>Having a good amount of resources for bigger operations is mandatory, especially weapons and ammo. In the initial stages, your main source of resources is accomplishing side-missions.</Original>
         <English>Having a good amount of resources for bigger operations is mandatory, especially weapons and ammo. In the initial stages, your main source of resources is accomplishing side-missions.</English>
+        <German>Ein solides Polster an Ressourcen ist unverzichtbar für größere Operationen. Vor allem Waffen und Munition. In der Anfangsphase ist deine Hauptquelle für Ressourcen das Abschließen von Sekundärmissionen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_6">
         <Original>Starting Position</Original>
         <English>Starting Position</English>
+        <German>Startposition</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_6">
         <Original>Find a good spot to begin the mission. Your experience is very different from one start spot to another. Study the surrounding markers and roads between them well. If you start near a road between enemy zones, a patrol may appear and kill Petros.</Original>
         <English>Find a good spot to begin the mission. Your experience is very different from one start spot to another. Study the surrounding markers and roads between them well. If you start near a road between enemy zones, a patrol may appear and kill Petros.</English>
+        <German>Wähle einen vielversprechenden Ort, um deine Mission zu beginnen. Die Spielerfahrung ist je nach Startpunkt sehr unterschiedlich. Betrachte genau die umgebenen Zonen und die dazwischenliegenden Straßenverbindungen. Startest du an einer Straße zwischen zwei feindlichen Zonen, könnte eine Patrouille auf das Lager stoßen und Maru/Petros töten.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_7">
         <Original>Undercover</Original>
         <English>Undercover</English>
+        <German>Verdecktes Vorgehen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_7">
         <Original>In the early stages, especially when accomplishing certain missions, being undercover can be extremely helpful. Just as for real resistance fighters, your ability to disappear is something the enemy cannot counter. See Features section for a deep explanation of Undercover Mode.</Original>
         <English>In the early stages, especially when accomplishing certain missions, being undercover can be extremely helpful. Just as for real resistance fighters, your ability to disappear is something the enemy cannot counter. See Features section for a deep explanation of Undercover Mode.</English>
+        <German>In der Anfangsphase, vor allem bei der Erfülling bestimmter Missionen, kann ein verdecktes Vorgehen sehr hilfreich sein. Genau wie für reale Widerstandskämpfer ist deine Fähigkeit zu verschwinden etwas, dem der Feind nahezu nichts entgegenbringen kann. Weitere Informationen zum verdeckten Vorgehen findest du in dem Features Bereich.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_1">
         <Original>General</Original>
+        <German>Allgemein</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_1">
         <Original>Having a commander is necessary because he is the commander of the Faction attacking ground forces. Many options are available only to the commander and, depending on your settings, if you play MP, the most experienced player will usually occupy this position.</Original>
+        <German>Einen Kommandanten zu haben ist unumgänglich, da er die Bodentruppen der Fraktion befehligt. Viele Optionen und Möglichkeiten stehen nur dem Kommandanten zur Verfügung. Je nach deinen gewählten Einstellungen, wenn du im Multiplayer spielst, wird der Spieler mit der meisten Erfahrung den Platz des Kommandanten einnehmen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_2">
         <Original>Garrisons</Original>
+        <German>Garnisonen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_2">
-        <Original>The Commander is responsible for assigning units as garrisons in  conquered areas. Use the Garrison Management option in the HQ flag in order to add or remove garrison troops at each zone. Check Map Info screen for a quick overview of how many soldiers are assigned to each zone.</Original>
+        <Original>The Commander is responsible for assigning units as garrisons in conquered areas. Use the Garrison Management option in the HQ flag in order to add or remove garrison troops at each zone. Check Map Info screen for a quick overview of how many soldiers are assigned to each zone.</Original>
+        <German>Der Kommandant ist verantwortlich den Garnisonen der eroberten Bereiche Einheiten zuzuweisen. Mit der Garnisonsverwaltung am Flaggenmast im HQ kannst du Einheiten einer Garnison hinzufügen oder entfernen. Über den Kartenbildschirm kannst du dir einen schnellen Überblick über die Größe der jeweiligen Garnisonen verschaffen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_3">
         <Original>Faction Skill Upgrade</Original>
+        <German>Fähigkeiten der Fraktion erhöhen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_3">
         <Original>For a price, you can upgrade Faction training so that future recruits will have better skills.</Original>
+        <German>Du kannst, für einen gewissen Preis, die Trainingsmethoden deiner Fraktion verbessern. Dadurch werden neue Rekruten bessere Fähigkeiten haben.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_4">
         <Original>Side Missions - Petros</Original>
+        <German>Sekundärmissionen - Maru/Petros</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_4">
         <Original>Ask Petros for any type of mission you want. Mission availability is subject to HQ positioning, current allocated tasks and ownership of the surrounding areas.</Original>
+        <German>Befrage Maru/Petros nach einer gewünschten Mission. Die Verfügbarkeit der Missionen ist abhängig von der Position des HQs, der momentan zugewiesenen Aufgaben und der Zugehörigkeit der umgebenen Bereiche.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_5">
         <Original>Move HQ</Original>
+        <German>HQ verlegen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_5">
         <Original>The Commander may select this option on the HQ Flag in order to move the HQ emplacement to another spot. This will allow you to move your HQ to a safer location or move closer to the front-lines. The closer your HQ is to the enemy, the greater the number of possibile side-missions you will have available. Remember! Keep Petros Safe or you will lose the game!</Original>
+        <German>Der Kommandant kann über eine Option am Flaggenmast das HQ zu einem anderen Ort verlegen lassen. Dies gibt dir die Möglichkeit dein HQ zu einer sichereren Position oder näher an die Frontlinie zu verlegen. Umso näher dein HQ am feindlichen Gebiet ist, umso größer ist die Anzahl an möglichen Sekundärmissionen. Vorsicht! Beschütze Petros oder du verlierst das Spiel!</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_6">
         <Original>Rest - Camp-fire</Original>
+        <German>Ausruhen - Lagerfeuer</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_6">
         <Original>Use the action menu on your HQ Camp-fire to rest for 8 hours.</Original>
+        <German>Mit dieser Aktion kannst du dich am Lagerfeuer des HQs für 8 Stunden ausruhen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_7">
         <Original>Bomb Run</Original>
+        <German>Bombardierung</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_7">
         <Original>Use your Airstrike points to perform a bombing run of the specified type.</Original>
+        <German>Benutze deine Luftschlagpunkte, um eine Bombardierung durchführen zu lassen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_8">
         <Original>Artillery</Original>
+        <German>Artillerie</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_8">
         <Original>Mounted mortar teams may be used as artillery support. Select a mortar team using the High Command bar, and press SHIFT + Y in-game to call in a mortar fire mission.</Original>
+        <German>Stationierte Mörserteams können als Artillerieunterstützung eingesetzt werden. Wähle ein Mörserteam über die Oberbefehlsleiste und drücke Shift + Z, um einen Artillerieschlag anzufordern.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_9">
         <Original>Recruit Squad</Original>
+        <German>Gruppen rekrutieren</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_9">
         <Original>The Commander may recruit an AI manned squad at base camp flags. Use the High Command module (CTRL + SPACE) to give orders to your squads. Also you may temporally control and dismiss the squad leader in the same way you do with squad-mates.</Original>
+        <German>Als Kommandant kannst du KI Gruppen im HQ rekrutieren. Nutze das Oberbefehlsmodul (Strg + Leertaste), um deinen Gruppen Befehle zu erteilen. Außerdem kannst du temporär Gruppenführer, auf die gleiche Art wie deine Gruppenmitglieder, kontrollieren.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_10">
         <Original>Minefields</Original>
+        <German>Minenfelder</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_10">
         <Original>Take the engineers truck to the desired position to build a minefield. Cover them while they deploy mines. From then on, no one will be able to pass the area safely (even your own units - so use with caution). Mines (AT and AP) are taken from your Ammobox. The quantity of mines in the field will depend on the contents of your ammobox, up to a max. number depending on the type of minefield. Delete those minefields to recover the mines.</Original>
+        <German>Bringe einen Ingenieurs-LKW zu der gewünschten Position, um ein Minenfeld zu errichten. Beschütze die Ingenieure, während sie die Minen legen. Von diesem Zeitpunkt an wird niemand mehr in der Lage sein, dieses Gebiet sicher zu durchqueren (auch nicht deine eigenen Einheiten). Minen (Panzerabwehr und Anti-Personen) werden aus deinem Munitionslager genommen. Die Anzahl an Minen im Bereich ist abhängig von der Menge in deinem Munitionslager. Räume Minenfelder, um die Minen wieder zu bergen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_11">
         <Original>Sell Vehicle</Original>
+        <German>Fahrzeuge verkaufen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_11">
         <Original>Use this option to sell captured vehicles and increase Faction funds.</Original>
+        <German>Nutze diese Möglichkeit, um erbeutete Fahrzeuge zu verkaufen und damit die Fraktionskasse aufzufüllen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_12">
         <Original>Observation Post</Original>
+        <German>Beobachtungsposten</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_12">
         <Original>Use the radio and select a spot on the map with good field of vision. A group of snipers will join you. Send them to the selected place and they will spot for you, attempting to remain hidden and not engaging enemies upon contact.</Original>
+        <German>Benutze dein Funkgerät und wähle einen Ort auf der Karte mit einer guten Übersicht. Eine Gruppe Scharfschützen wird sich dir anschließen. Schicke diese zu dem gewählten Ort und sie werden dort einen Beobachtungsposten einrichten. Dabei versuchen sie verdeckt zu bleiben und Feinde bei Kontakt nicht anzugreifen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_13">
         <Original>Roadblocks</Original>
+        <German>Straßensperren</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_13">
         <Original>Use the menu and select a spot on the map. Click where a road is. A group of AT soldiers will join you. Send them to the selected place and they will establish a roadblock there.</Original>
+        <German>Benutze das Menü und wähle einen Ort auf der Karte nahe einer Straße. Eine Gruppe Panzerabwehrsoldaten wird sich dir anschließen. Schicke diese zu dem gewählten Ort und sie werden dort eine Straßensperre errichten.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_14">
         <Original>Grab Faction Funds</Original>
+        <German>Geld der Fraktionskasse entnehmen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_14">
         <Original>Use this option to grab money from the Faction pool to your personal account. Please note this will have an impact on your score and future promotion chances. Corrupt Commanders may find themselves loosing their command.</Original>
+        <German>Benutze diese Option, um Gelder aus der Fraktionskasse zu entnehmen. Beachte dabei, dass dies Auswirkungen auf deine Reputation und zukünftige Beförderungschancen hat. Korrupte Kommandanten könnten plötzlich ihr Kommando verlieren.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_15">
         <Original>In-game Members</Original>
+        <German>Servermitglieder</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_15">
         <Original>In the HQ Flag, if the Server Member feature is enabled, you may check which of the Server Members are in game and the total number of non members.</Original>
+        <German>Am Flaggenmast im HQ kannst du, wenn das Servermitglieder Feature aktiviert ist, überprüfen, welche Servermitglieder und wie viele Nicht-Servermitglieder im Spiel sind.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_1">
         <Original>Battle Options</Original>
+        <German>Schlachtoptionen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_1">
         <Original>Press Y in-game to have access any time to several options. Most of them are explained in the Commander or Features sections.</Original>
+        <German>Drücke im Spiel Z, um jederzeit Zugriff auf verschiedene Optionen zu erhalten. Die meisten davon sind im Kommandanten oder Features Bereich erklärt.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_2">
         <Original>High Command</Original>
+        <German>Oberbefehl</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_2">
         <Original>When you are the Commander, hit CTRL + SPACE to give way-points and other orders to your AI squads using the HC mode. Non commanders may use it to check enemy contacts reported by the Faction communications network.</Original>
+        <German>Wenn du der Kommandant bist, kannst du über Strg + Leertaste in den Oberbefehlsmodus wechseln und somit KI Gruppen Befehle geben. Nicht-Kommandanten können dies nutzen, um Berichte über feindliche Kontakte zu überprüfen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_3">
         <Original>Artillery</Original>
+        <German>Artillerie</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_3">
         <Original>Press SHIFT + Y in-game while having an artillery squad selected on the HC bar.</Original>
+        <German>Drücke im Spiel Shift + Z während du eine Artilleriegruppe in der Oberbefehlsleiste ausgewählt hast.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_4">
         <Original>Group Manager</Original>
+        <German>Gruppenverwaltung</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_4">
         <Original>MP Only: Press U in-game to join another player's group</Original>
+        <German>Nur im Mehrspieler: Drücke im Spiel U, um einer Gruppe eines anderen Spielers beizutreten.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_5">
         <Original>Earplugs</Original>
+        <German>Ohrstöpsel</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_5">
         <Original>Press END to enable / disable earplugs. Disabled with ACE.</Original>
+        <German>Drücke ENDE, um Öhrstöpsel einzusetzen oder zu entfernen. Wird mit ACE automatisch deaktiviert.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_1">
         <Original>Faction Leader</Original>
+        <German>Fraktionsanführer</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_1">
         <Original>Just as with any resistance movement, leadership is not as stable as in organised states. Any player can take the role of Faction Force Commander if the current one is not very popular... Demonstrate your skill while accomplishing missions and killing enemies and maybe you will become the next leader.</Original>
+        <German>Wie üblich in Widerstandsbewegungen, ist die Führung nicht so stabil wie in organisierten Streitkräften. Jeder Spieler kann die Rolle des Fraktionsanführers übernehmen, wenn die Reputation des aktuellen Anführers niedrig ist. Erhöhe deine eigene Reputation durch die Erfüllung von Sekundärmissionen und dem Ausschalten von feindlichen Einheiten und du kannst der nächste Anführer werden.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_2">
         <Original>Garage</Original>
+        <German>Fuhrpark</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_2">
         <Original>Add any vehicle near your personal Virtual Garage (or factions garage if you are the commander) and keep it safe for future use. Vehicle add option is under the Y menu. Garage management is in HQ options (Flag). Garage recovery capacities may depend on where you are: Air Units can be recovered only near Airbases, boats, near the shore etc.</Original>
+        <German>Du kannst jedes Fahrzeug in deinen persönlichen virtuellen Fuhrpark (oder dem der Fraktion, wenn du der Kommandant bist) hinzufügen, um es sicher zu verwahren. Diese Option findest du im Z-Menü. Die Verwaltung des Fuhrparks kann am Flaggenmast im HQ aufgerufen werden. Die Möglichkeit zur Bereitstellung eines Fahrzeugs aus dem Fuhrpark hängt dabei von deiner Umgebung ab: Luftfahrzeuge können nur in der Nähe von Flugplätzen bereitgestellt werden, Boote nur in der Nähe der Küste, usw. </German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_3">
         <Original>Undercover</Original>
+        <German>Verdecktes Vorgehen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_3">
         <Original>Click on this button to go undercover. If you meet the requirements, the enemy won't attack you on sight. On foot, to go undercover you must have no weapons or military equipment visible.&lt;br/&gt;You will lose undercover status when you change load-out, get spotted by enemy guard-dogs, plant mines, and can also be reported by some civilians to the enemy. If you are discovered you won't be able to go undercover on foot again for 30 minutes. You can also go undercover by getting into any civilian vehicle. You will lose undercover status by firing any weapon or being spotted far from a road. If you are discovered you won't be able to go undercover in that vehicle again. Getting close to enemy Airbases, outposts and roadblocks will also make you lose undercover status.</Original>
+        <German>Drücke diese Schaltfläche, um verdeckt zu agieren. Wenn du die Anforderungen hierfür erfüllst, werden Feinde dich nicht mehr bei Kontakt angreifen. Während du zu Fuß unterwegs bist, darfst du keine Waffen oder andere militärische Ausrüstung sichtbar tragen.&lt;br/&gt;Du wirst aufgedeckt, wenn du deine Ausrüstung änderst, von feindlichen Wachhunden enteckt wirst, Minen platzierst oder ein Zivilist dich möglicherweise dem Feind meldet. Einmal aufgedeckt, kannst du für 30 Minuten nicht mehr verdeckt agieren. Eine weitere Möglichkeit diesen Modus zu aktivieren ist die Nutzung eines Zivilfahrzeugs. Hierbei wirst du aufgedeckt, sobald du eine Waffe abfeuerst oder dabei gesehen wirst, wenn du zu weit von einer Straße entfernt bist. Wirst du mit einem Zivilfahrzeug aufgedeckt, ist es dir nicht mehr möglich, dieses Fahrzeug für verdecktes Vorgehen zu nutzen. Näherst du dich einem feindlichen Flugplatz, Außenposten oder einer feindlichen Straßensperre, wirst du ebenso aufgedeckt.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_4">
         <Original>Arsenal</Original>
+        <German>Arsenal</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_4">
         <Original>Scavenge for items, weapons and magazines and put them in your HQ Ammobox. Once you have a specific amount of an them, they will be unlocked and added to the Arsenal for personal use (and for your Faction squads).&lt;br/&gt;The amount required to unlock depends on how many assets the Faction has unlocked and the number of factories owned. Unlocked weapons, optics and night-vision Googles may also change AI load-out. Basic militiamen are especially affected by this: their load-out will start from small SMGs and progress to having an extra AA / AT launcher. Please note this will not affect their dress, which will depend on the current Faction Skill Level (helmets and uniform). Arsenal is the standard BIS Arsenal, check their documentation for interaction and use.&lt;br/&gt;&lt;br/&gt;To see the amounts required to unlock each group of items, open the HQ Ammobox and you will receive a detailed report on the right.</Original>
+        <German>Sammle Gegenstände, Waffen und Magazine, um sie in das Munitionslager deines HQs abzulegen. Sobald du eine bestimmte Anzahl eines Gegenstands vorrätig hast, wird er im Arsenal für den persönlichen Gebrauch durch dich und den Gruppen deiner Fraktion freigeschaltet.&lt;br/&gt;Die benötigte Anzahl zur Freischaltung hängt davon ab, wie viele Gegenstände die Fraktion bereits freigeschaltet hat und wie viele Fabriken im Besitz der Fraktion sind. Freigeschaltete Waffen, Visiere und Nachtsichtgeräte können auch die Ausrüstung deiner KI Einheiten verändern. Einfache Milizen sind davon im speziellen betroffen: Ihre Ausrüstung ist zu Beginn ein einfaches SMG und erweitert sich auf zusätzliche Luft- und Panzerabwehrwaffen. Beachte, dass dies nicht ihre Kleidung (Uniform und Helm) beeinflusst, da dies von dem Fertigkeitslevel der Fraktion abhängt. Das Arsenal ist das standard BI Arsenal, also nutze die darüber verfügbare Dokumentation für Bedienungshinweise.&lt;br/&gt;&lt;br/&gt;Um die notwendige Anzahl zum Freischalten von Gegenständen einzusehen, öffne das Munitionslager im HQ und du erhälst eine Auflistung am rechten Bildschirmrand.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_5">
         <Original>Politics</Original>
+        <German>Politik</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_5">
         <Original>This is a civil war. People are not conquered if you cannot conquer their hearts. In game mechanics, this means you cannot conquer cities. The citizens of each town support the enemy or Faction to some amount.&lt;br/&gt;The dominant faction is the one who owns the city and benefits from their support in terms of money and human resources (HR). Your actions may lower enemy Support or raise yours, or both. Killing enemies, accomplishing missions, conquering resources, and power-stations, affect the amount of citizen support.</Original>
+        <German>Dies ist ein Bürgerkrieg. Menschen können nicht erobert werden, wenn du nicht ihre Herzen erobern kannst. Bezogen auf die Spielmechanik bedeutet dies, dass du keine Städte erobern kannst. Die Bevölkerung jeder Stadt unterstützt die Fraktionen zu gewissen Graden.&lt;br/&gt;Die beliebteste Fraktion ist dann diejenige, welche die Stadt besitzt und von ihrer Unterstützung (Geld und Mannstärke) profitieren kann. Deine Unternehmungen können dazu führen, dass die Unterstützung für den Feind sinkt oder er für dich steigt. Das Ausschalten von feindlichen Einheiten, die Erledigung von Sekundärmissionen und das Erobern von Ressourcen und Kraftwerken beeinflusst die Unterstützung der Zivilbevölkerung.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_6">
         <Original>Radio Towers</Original>
+        <German>Funkmasten</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_6">
         <Original>Destroy or capture Radio Towers in order to build trust with %1 citizens.</Original>
+        <German>Zerstöre oder erobere Funkmaster, um das Vertrauen der Zivilbevölkerung von %1 zu erhöhen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_7">
         <Original>Vehicles</Original>
+        <German>Fahrzeuge</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_7">
         <Original>You may buy vehicles for your squad at Faction flags.</Original>
+        <German>Du kannst Fahrzeuge für deine Gruppe am Flaggenmast kaufen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_8">
         <Original>Static Weapons</Original>
+        <German>Statische Geschütze</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_8">
         <Original>You may steal static weapons found in enemy airports. You must use the 'Steal Static' action to do so. DO NOT disassemble them before using the 'Steal Static' action!</Original>
+        <German>Du kannst statische Geschütze von feindlichen Flugplätzen stehlen. Hierzu nutze die "Stehle Geschütz" Aktion. BEACHTE die Geschütze NICHT zu demontieren, bevor du nicht die "Stehle Geschütz" Aktion genutzt hast.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_9">
         <Original>Conquer</Original>
+        <German>Erobern</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_9">
         <Original>Some zones, like airports require you to use the ""Take the Flag"" action on their respective flags in order to conquer them. Some others, like roadblocks and some outposts, simply require you to defeat the garrison.</Original>
+        <German>Um eine Zone, wie z.B. einen Flugplatz, einzunehmen, musst du die "Nimm die Flagge" Aktion an dem entsprechenden Flaggenmast vor Ort nutzen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_10">
         <Original>Ammobox Transfer</Original>
+        <German>Munitionskiste transferieren</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_10">
         <Original>When you mount a truck, you may use the Transfer action in the action menu. It will search for nearby ammoboxes and load the contents of the nearest one into the truck's cargo space. You may then unload the truck in your ammobox at HQ for future use. Before transferring, make sure to unload backpack/vest contents into the Truck cargo space and then transfer. TIP: If your HQ Ammobox is full, use this functionality from a nearby truck to add more content to the ammobox as it will then accept everything :)</Original>
+        <German>Befindest du dich in einem LKW, kannst du die Transfer-Aktion im Aktionsmenü nutzen. Dadurch wird der Inhalt der nähsten Munitionskiste in das Inventar deines LKWs transferiert. Anschließend kannst du deinen LKW bei deinem Munitionslager im HQ entladen, um die erbeuteten Gegenstände sicher einzulagern. Bevor du das Inventar des LKWs in dein Munitionslager transferierst, solltest du alle Gegenstände aus dem Inventar von Rucksäcken und Westen in das Grundinventar deines LKWs verschieben. TIPP: Wenn dein Munitionslager im HQ voll ist, kannst du über diese Funktion dennoch Gegenstände aus einem LKW einlagern :)</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_11">
         <Original>Fast Travel</Original>
+        <German>Schnellreise</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_11">
         <Original>When there are no enemies nearby, fast travel to Faction controlled places. The Commander also has the ability to use this option on HC groups, selecting the group on HC bar and clicking on this button.</Original>
+        <German>Sind keine Feinde in der Nähe, kannst du schnell zu von deiner Fraktion kontrollierten Orte reisen. Der Kommandant hat außerdem die Möglichkeit, diese Funktion für KI Gruppen zu nutzen, indem diese in der Oberbefehlsleiste ausgewählt und anschließend die Schaltfläche angeklickt wird.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_12">
         <Original>Base Static Emplacement</Original>
+        <German>Geschützstellungen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_12">
         <Original>Purchased static weapons won't despawn if you leave them in a base or zone, AI garrison will man them. Reinforce places as you desire.</Original>
+        <German>Gekaufte statische Geschütze werden werden nicht entfernt, wenn du sie in der Nähe einer Basis oder Zone stehen lässt. Die KI Garnison wird sie dann bemannen. Verstärke somit Orte ganz nach deinem Geschmack.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_13">
         <Original>Group Selection</Original>
+        <German>Gruppenauswahl</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_13">
         <Original>You can build groups with up to 10 human players. Commander is excluded of this function.</Original>
+        <German>Eine Gruppe kann aus bis zu 10 Spielern bestehen. Der Kommandant ist hiervon ausgenommen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_14">
         <Original>Server Members</Original>
+        <German>Servermitglieder</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_14">
-        <Original>If enabled, this feature will exclude all non-members from using the HQ Ammobox and become Commander. This feature is intended to avoid having your game ruined by the casual troll in open server environments.</Original>
+        <Original>If enabled, this feature will exclude all non-members from using the HQ Ammobox and become Commander. This feature is intended to avoid having your game ruined by the casual troll in open server environments. Commanders may add or remove players from the Server Members List if the feature is enabled.</Original>
+        <German>Wenn aktiviert, können ausschließlich festgelegte Servermitglieder das Munitionslager im HQ benutzen oder Kommandant werden. Dieses Feature ist dafür gedacht, dass die üblichen Trolle dein Spiel auf einem öffentlichen Server nicht ruinieren können. Kommandanten können Spieler zu der Liste der Servermitglieder hinzufügen oder davon entfernen, wenn das Feature aktiviert ist.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_15">
         <Original>Player and Money</Original>
+        <German>Spieler und Geld</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_15">
-        <Original>Use this option to donate money to other players or your faction funds. Commanders may add or remove players from the Server Members List if the feature is enabled.</Original>
+        <Original>Use this option to donate money to other players or your faction funds.</Original>
+        <German>Mit dieser Funktion kannst du Geld an andere Spieler oder der Fraktionskasse spenden.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_16">
         <Original>Breach Vehicles</Original>
+        <German>Fahrzeuge aufbrechen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_16">
         <Original>Tanks and APC can be breached by engineers with explosives to open them and get their crew out. Check 'Breaching charges' for the charges needed. Breaching vehicles applies damage, so take care when breaching heavily damaged vehicles. To breach a vehicle, get close to it and select the breaching option!</Original>
+        <German>Panzer und Truppentransporter können von Ingenieuren mit Sprengstoff aufgebrochen werden, um die Besatzung absitzen zu lassen. Unter "Aufspengladungen" findest du die benötigten Sprengstoffe. Ein Fahrzeug derart aufzubrechen verursacht Schaden. Sei also vorsichtig, wenn du dies an einem bereits schwer beschädigten Fahrzeug durchführst. Um ein Fahrzeug aufzubrechen, gehe nah an es heran und wähle die "Aufbrechen" Aktion.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_17">
         <Original>Breaching charges</Original>
+        <German>Aufsprengladungen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_17">
         <Original>To breach an APC you need %1 %2To breach a tank you need %3</Original>
+        <German>Um einen Truppentransporter aufzusprengen benötigst du %1 %2.&lt;br/&gt;Für einen Panzer benötigst du %3.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_1">
         <Original>Recruit</Original>
+        <German>Rekrutieren</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_1">
         <Original>You may recruit up to 9 AI squad-mates at some Faction flags and the HQ flag.</Original>
+        <German>Am Flaggenmast im HQ kannst du bis zu 9 KI Einheiten für deine Gruppe rekrutieren.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_2">
         <Original>AI Control</Original>
+        <German>KI Kontrolle übernehmen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_2">
         <Original>Select a squad-mate or HC Group to gain direct control over them for a limited time. Selecting this option for a HC squad will give you control over the squad's leader.</Original>
+        <German>Wähle ein Gruppenmitglied oder eine Oberbefehl-Gruppe, um für eine bestimmte Zeit direkte Kontrolle zu erhalten. Bei der Wahl einer Oberbefehl-Gruppe erhälst du Kontrolle über den Gruppenführer.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_3">
         <Original>AI Radio</Original>
+        <German>KI Funkgeräte</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_3">
         <Original>This feature aims to simulate the lack of radio communications with AI fighters. Your AI squad-mates won't have a radio until you unlock it from the Arsenal. Without a radio, if an AI squad-mate gets too far away, they will get lost and return to the leader's position after completing the last order they received. To avoid this, you may scavenge some radios from enemy (AutoRearm feature will do) or let the AI use a military vehicle which has long range radios. If it takes too long to find their leader, they will automatically return to the HQ.</Original>
+        <German>Dieses Feature ist dazu gedacht die fehlende Funkkommunikation mit KI Widerständskämpfern zu simulieren. Deine KI Gruppenmitglieder werden keine Funkgeräte haben, solange du sie nicht im Arsenal freischaltest. Ohne ein Funkgerät kann die Verbindung der KI Widerstandskämpfer abbrechen, wenn sie sich zu weit entfernen. Sie werden dann, nachdem sie ihren letzten Befehl erfüllt haben, zur letzten Position des Anführers zurückkehren. Um dies zu verhindern, erbeute einige Funkgeräte von feindlichen Einheiten oder lasse die KI militärische Fahrzeuge mit Langstreckenfunkgeräten nutzen. Sollte es zu lange dauern, bis die KI Widerstandskämpfer ihren Anführer finden, kehren sie automatisch zum HQ zurück.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_4">
         <Original>Auto Heal</Original>
+        <German>Automatische Heilung</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_4">
         <Original>AI Medic squad-mates will heal other AI’s automatically without the need to give any orders. If in combat, your AI will use smoke grenades for cover. If there is no medic in the group, the AI will use their own medikits.</Original>
+        <German>KI Sanitäter heilen andere KI Einheiten in der gleichen Gruppe automatisch, ohne dass ein gesonderter Befehl gegeben werden muss. Im Feuergefecht nutzt die KI Rauchgranaten zur Deckung. Sollte kein Sanitäter in der Gruppe sein, wird die KI eigene Erste-Hilfe Ausrüstung nutzen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_5">
         <Original>Auto Rearm \ Loot</Original>
+        <German>Automatisches Aufmunitionieren/Plündern</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_5">
         <Original>Your AI squad-mates will automatically look for and scavenge any ammunition from nearby corpses, vehicles and ammoboxes if needed. Also they will try to renew their weapons with more powerful ones. If AI is inside a vehicle, they will loot weapons and launchers, and drop them in their truck until there is nothing in the area. Use this instead of the vanilla Rearm radio option.</Original>
+        <German>Deine KI Gruppenmitglieder werden automatisch versuchen Munition von ausgeschalteten Feinden, Fahrzeugen oder Munitionskisten zu erbeuten. Außerdem versuchen sie ihre Waffen gegen durchschlagskräftigere auszutauschen. Sind die KI Einheiten in einem Fahrzeug, werden sie Waffen und Werfer plünern und sie in ihrem Fahrzeug verstauen, bis der Bereich komplett geplündert ist. Dies sollte statt des Vanilla Funkbefehls genutzt werden.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_6">
         <Original>Vehicle Squad</Original>
+        <German>Gruppenfahrzeuge</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_6">
         <Original>Commander Only. Use this option to assign the vehicle you are looking at to any HC squad. Check vehicle status, order them to mount or disembark, and automate mounted static squads.</Original>
+        <German>Nur Kommandant. Hiermit kannst du ein Fahrzeug, dass du gerade anschaust, einer Oberbefehl-Gruppe zuweisen. Außerdem kannst du den Status des Fahrzeugs prüfen, der Gruppe befehlen auf- oder abzusitzen oder statische Geschütze bemannen lassen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_7">
         <Original>Dismiss Squad-mate</Original>
+        <German>Gruppenmitglied entlassen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_7">
         <Original>Select the unit and use the 'Dismiss Squad-mate' option to send them back to HQ. You will recover some of the money you spent on them.</Original>
+        <German>Wähle die gewünschte Einheit und nutze die "Gruppenmitglied entlassen" Option, um sie zurück zum HQ zu schicken. Dabei wirst du einen Anteil des Geldes zurückerhalten, welches du vorher für es ausgegeben hast.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Options_1">
         <Original>Map Info</Original>
+        <German>Karteninformationen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_1">
         <Original>Click on a city to learn the strength of their support for the enemy or Faction. Click on other zones to know relevant info about them.</Original>
+        <German>Klicke auf eine Stadt auf der Karte, um ihre Stärke und Unterstützung für die freindliche Fraktion einzusehen. Klicke auf andere Zonen, um ähnlich relevante Informationen zu erhalten.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Options_2">
         <Original>AI Limiter</Original>
+        <German>KI Begrenzung</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_2">
         <Original>Commander Only. Sets the the maximum amount of AI in map per server or HC. Up to 200 AI may behave decently.</Original>
+        <German>Nur Kommandant. Legt die maximale Anzahl an KI Einheiten pro Server/HC auf der Karte fest. Bis zu 200 KI Einheiten sollten keine Probleme bereiten.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Options_3">
         <Original>Persistent Save-game</Original>
+        <German>Persistenter Spielstand</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_3">
         <Original>Commander Only. You may save the game at your HQ Map. This will allow you to continue playing upon mission update or server restart, preserving stats, player's equipment, conquered zones, enemy asset availability and many more things. WARNING: Normal save and load runs badly in this mission. This system is your only guarantee of saving the game properly</Original>
       </Key>
+      <German>Nur Kommandant. Du kannst deinen Spielstand an der Karte im HQ speichern. Dies ermöglicht dir die Mission nach einem Update oder Neustart des Servers fortzusetzen. Dabei werden Statistiken, Spielerausrüstung, eroberte Zonen, verfügbare feindliche Fahrzeuge und weiteres gespeichert. WARNUNG: Normales Speichern/Laden durch Arma ist nicht sehr zuverlässig in dieser Mission. Der Spielstand über die Karte ist der einzig sichere und verlässliche Weg deinen Spielstand zu speichern.</German>
       <Key ID="STR_antistasi_journal_entry_header_Options_4">
         <Original>Music ON/OFF</Original>
+        <German>Musik An/Aus</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_4">
         <Original>Antistasi has a situational music script, depending on a player's stance and time of day. The default in MP is OFF, and ON in Singleplayer</Original>
+        <German>Antistasi nutzt situationsabhängige Musik, abhängig von der Tageszeit und des Spielerverhaltens. Es ist standardmäßig im Mehrspielermodus deaktiviert und im Einzelspielermodus aktiviert.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Options_5">
         <Original>Civ Spawn</Original>
+        <German>Zivilbevölkerung</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_5">
         <Original>Increase or decrease the percentage of city civilian population that spawn. At 0% only one civilian will spawn in each city.</Original>
+        <German>Erhöhe oder verringere den Prozentsatz der zu spawnenden Stadtbevölkerung. Bei 0% wird nur ein einzelner Zivilist pro Stadt gespawnt.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Options_6">
         <Original>Spawn Distance</Original>
+        <German>Spawnentfernung</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_6">
         <Original>Commander only. Increase or decrease general spawn and despawn distance. Use it carefully combined with other options.</Original>
+        <German>Nur Kommandant. ERhöhe oder verringere die allgemeine Spawn/Despawn Entfernung. Beachte das Zusammenspiel mit den anderen Optionen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Options_7">
         <Original>Garbage Cleaner</Original>
+        <German>Aufräumen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_7">
-        <Original>Commander only. Will delete things like dropped weapons, magazines, clothing etc.&lt;br/&gt;&lt;br/&gt; Beware, it freezes the game for some time.</Original>
+        <Original>Commander only. Will delete things like dropped weapons, magazines, clothing etc.&lt;br/&gt;&lt;br/&gt;Beware, it freezes the game for some time.</Original>
+        <German>Nur Kommandant. Dies löscht Dinge wie fallengelassene Waffen, Magazine, Kleidung, etc.&lt;br/&gt;&lt;br/&gt;Beachte, dass dies das Spiel für eine kurze Zeit einfrieren kann.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Options_8">
         <Original>Reinit UI</Original>
+        <German>UI reinitializieren</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_8">
         <Original>Select this option when the Y key or Statistics bar are not working.</Original>
+        <German>Wähle diese Option, wenn das Z-Menü oder die Statusleise nicht funktionieren.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Diary_1">
         <Original>%1 and %2 Aggro</Original>
+        <German>%1 und %2 Aggressivität</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_1">
         <Original>There is an All vs All war in %4. %1 and %2 are constantly attacking each other, but that does not mean they don't shoot at %3 on first sight.&lt;br/&gt;&lt;br/&gt;%1 and %2 Aggro points represent how much threat they see in %3 faction.&lt;br/&gt;&lt;br/&gt;Generally speaking those points will low or raise depending on your actions against them and civilians.</Original>
+        <German>Es ist ein Jeder gegen Jeden Krieg in %4. %1 und %2 greifen sind ununterbrochen gegenseitig an. Dies bedeutet aber nicht, dass sie nicht bei Kontakt direkt %3 angreifen.&lt;br/&gt;&lt;br/&gt;%1 und %2 Aggressivitätspunkte zeigen an, wie hoch diese die Bedrohung der %3 Fraktion einschätzen.&lt;br/&gt;&lt;br/&gt;Grundsätzlich erhöhen und verringern sich diese Werte gemäß deinen Unternehmungen gegen die jeweilige Fraktion oder die Zivilbevölkerung.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Diary_2">
         <Original>HR</Original>
+        <German>Mannstärke</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_2">
         <Original>HR or Manpower comes from citizen support on each city. Manpower is needed to recruit more units (1 HR Points = 1 Soldier)</Original>
+        <German>Mannstärke wird durch die zivile Unterstützung aus jeder Stadt generiert. Sie ist notwendig, um mehr Einheiten zu rekrutieren. 1 Punkt entspricht dabei einem Soldaten.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Diary_3">
         <Original>Money - MP</Original>
+        <German>Geld - Mehrspieler</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_3">
         <Original>In MP games there are two money pools. Faction Money -which is for Commander use only- and personal money. Personal money can be used by any player to recruit AI or buy vehicles. Faction earns money by taxes and accomplishing missions. Personal money comes from killing enemies and accomplishing missions. Options to transfer or donate money are found in the Y menu. Commander can grab money from the Faction Pool to his own account.</Original>
+        <German>In Mehrspielerspielen gibt es zwei Kassen. Die Fraktionskasse, welche nur vom Kommandanten genutzt werden kann, und das persönliche Geld. Das persönliche Geld kann von jedem Spieler selbst genutzt werden, um KI Einheiten oder Fahrzeuge zu kaufen. Die Fraktion erhält Gelder durch Abgaben und der Erfüllung von Sekundärmissionen. Persönliche Gelder erhält ein Spieler durch das Ausschalten von feindlichen Einheiten und der Erfüllung von Sekundärmissionen. Möglichkeiten Gelder zu transferieren sind im Z-Menü zu finden. Der Kommandant kann Geld aus der Fraktionskasse für seinen persönlichen Gebrauch entnehmen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Diary_4">
         <Original>Money</Original>
+        <German>Geld</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_4">
         <Original>Money comes from a combination of citizens support on each city, resources conquered, factories conquered (which boost the economy) and power provided to all of them with a nearby friendly power plant (you may also conquer them to cut off Money supply to the enemy). Money is used to purchase vehicles, units and squads.</Original>
+        <German>Geld wird verdient durch die Unterstützung der Zivilbevölkerung in jeder Stadt, den eroberten Ressourcen und Fabriken (welche die Wirtschaft ankurbeln) und gelieferten Strom zu allen diesen Zonen von einem nahen eroberten Kraftwerk. Es ist auch möglich durch die Eroberung von Kraftwerken den Geldfluss des Feindes zu beeinflussen. Geld wird für den Kauf von Fahrzeugen, Einheiten und Gruppen genutzt.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Diary_5">
         <Original>Resources</Original>
+        <German>Ressourcen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_5">
         <Original>Every 10 minutes each faction receives Money and Manpower according to the zones they own, and the state they are in. Having a good amount of resource zones and some factories is the way of getting enough resources to win this war.</Original>
+        <German>Alle 10 Minuten erhält jede Fraktion Geld und Mannstärke abhängig von den gehaltenen Zonen und deren Status. Eine große Anzahl and Ressourcen-Zonen und Fabriken zu besitzen ist der beste Weg, um genug Ressourcen für den Sieg in diesem Krieg zu erhalten.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Diary_6">
         <Original>HQ - Basics</Original>
+        <German>HQ - Grundlagen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_6">
         <Original>Flag: Vehicle and Squad Unit Recruitment. Commander Options.&lt;br/&gt;Maru: Side-missions (Commander Only).&lt;br/&gt;Map: Game Options.&lt;br/&gt;Camp-fire: Rest for 8 hours and Clear Forest (Commander Only).</Original>
+        <German>Flaggenmast: Fahrzeug und Gruppen kaufen/rekrutieren, Kommandantenoptionen.&lt;br/&gt;Maru/Petros: Sekundärmissionen (nur Kommandant).&lt;br/&gt;Karte: Spieloptionen.&lt;br/&gt;Lagerfeuer: 8 Stunden ausruhen und Wald abholzen (nur Kommandant).</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_gamemode">
         <Original>AI Rules of Engagement</Original>
+        <German>KI Spielregeln</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_gamemode_1">
         <Original>%2 vs %1 war.</Original>
+        <German>Krieg %2 gegen %1</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_gamemode_2">
         <Original>%2 vs %1 war.</Original>
+        <German>Krieg %2 gegen %1</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_gamemode_3">
         <Original>%3 vs All war.&lt;br/&gt;&lt;br/&gt;%1 and %2 will attack only %3 and act independently. Both can conquer.</Original>
+        <German>Krieg %3 gegen alle.&lt;br/&gt;&lt;br/&gt;%1 und %2 werden selbständig nur %3 angreifen. Beide können erobern.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_gamemode_4">
         <Original>All vs All war.&lt;br/&gt;&lt;br/&gt;%1 and %2 will attack each other and both to %3.</Original>
+        <German>Krieger jeder gegen jeden.&lt;br/&gt;%1 und %2 werden einander und %3 bekämpfen.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Default_1">
         <Original>Welcome</Original>
+        <German>Willkommen</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_1">
         <Original>Welcome to Arma 3 - %1. This mission aims to simulate guerilla combat, tactics and strategic situations. It is not a quick and easy mod, it is long term, step-by-step mission with LOTS of features and enhanced AI.</Original>
+        <German>Willkommen zu Arma 3 - %1. Diese Mission zielt darauf ab Guerillakrieg, -taktiken und -strategien zu simulieren. Es ist kein schneller und einfacher Spielmodus. Es ist eine Mission ausgelegt auf eine lange Spielzeit mit einer MENGE an Features und erweiterter KI.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Default_2">
         <Original>Win</Original>
+        <German>Sieg</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_2">
         <Original>You will win the game when most of the population supports Faction and you have conquered all the Airbases.</Original>
+        <German>Du erringst den Sieg, wenn der Großteil der Zivilbevölkerung deine Fraktion unterstützt und sich alle Flugplätze in deiner Hand befinden.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Default_3">
         <Original>Lose</Original>
+        <German>Niederlage</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_3">
         <Original>You will loose the game if %1 has murdered 1/3 of the total population.</Original>
+        <German>Du verlierst das Spiel, wenn %1 1/3 der gesamten Bevölkerung ermordet hat.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Credits_1">
         <Original>Script Credits</Original>
+        <German>Genutzte Scripts</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Credits_1">
-        <Original>UPSMon by Monsada, Kronzy and Cool=Azroul13 &lt;br/&gt;Persistent Save by zooloo75.&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;JAS by Jeroen (sorry for including you that late)&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;Advanced Towing by Seth Duda.</Original>
+        <Original>UPSMon by Monsada, Kronzy and Cool=Azroul13.&lt;br/&gt;Persistent Save by zooloo75.&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;JAS by Jeroen (sorry for including you that late)&lt;br/&gt;Advanced Towing by Seth Duda.</Original>
+        <German>UPSMon von Monsada, Kronzy und Cool=Azroul13.&lt;br/&gt;Persistent Save von zooloo75.&lt;br/&gt;Tags von Marker und Melbo.&lt;br/&gt;JAS von Jeroen (Entschuldige, dass es so lange gedauert hat dich hinzuzufügen)&lt;br/&gt;Advanced Towing von Seth Duda.</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Credits_2">
         <Original>Mods</Original>
+        <German>Mods</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Credits_2">
         <Original>Integrated (optional) Mods:&lt;br/&gt;TFAR: Radio integrated in Arsenal. Sound disabled when player is unconscious.&lt;br/&gt;ACE Medical: Will disable Antistasi revive system.&lt;br/&gt;&lt;br/&gt;CAUTION: The use of Persistent Save system with TFAR and any weapon mod activated will make them mandatory in future.&lt;br/&gt;&lt;br/&gt;Any client sided Mod, such as JSRS, Blastcore, UI Mod should work.&lt;br/&gt;&lt;br/&gt;Units and vehicles mods won't work. AI Mods may cause malfunctions (in any case Antistasi has heavy AI tweaking).</Original>
+        <German>Integrierte (optionale) Mods:&lt;br/&gt;TFAR: Funkgerät in Arsenal integriert. Sound deaktiviert, wenn der Spieler bewusstlos ist.&lt;br/&gt;ACE Medical: Deaktiviert das Antistasi Revive System.&lt;br/&gt;VORSICHT: Die Speicherung des Spielstands mit TFAR oder jedglicher Mod für Waffen führt dazu, dass diese Mods bis zum Ende notwendig sind.&lt;br/&gt;&lt;br/&gt;Jeder clientseitige Mod, wie z.B. JSRS, Blastcore oder UI Mod sollte funktionieren.&lt;br/&gt;Einheiten und Fahrzeuge aus Mods funktionieren nicht. KI Mods können zu Fehlern führen. (Antistasi hat in jedem Fall viel am KI Verhalten geändert)</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Credits_3">
         <Original>Thanks</Original>
+        <German>Danksagung</German>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Credits_3">
-        <Original>LanCommi for his artwork.&lt;br/&gt;Goon and jw custom: Part of the code for the NAPALM script.&lt;br/&gt;rebel12340: Radio Jam script&lt;br/&gt;Manko: Earplug snippet&lt;br/&gt;bobchaos: Managing the community despite all difficulties.&lt;br/&gt;And all those players who spend their time on making comments, suggestions and reports on Steam, Github and BIS forums</Original>
+        <Original>LanCommi for his artwork.&lt;br/&gt;Goon and jw custom: Part of the code for the NAPALM script.&lt;br/&gt;rebel12340: Radio Jam script&lt;br/&gt;Manko: Earplug snippet&lt;br/&gt;bobchaos: Managing the community despite all difficulties.&lt;br/&gt;And all those players who spend their time on making comments, suggestions and reports on Steam, Github and BIS forums.</Original>
       </Key>
+      <German>LanCommi für sein Artwork&lt;br/&gt;Goon und jw cutom: Teile des Codes für das NAPALM Script.&lt;br/&gt;rebel12340: Radio Jam Script&lt;br/&gt;Manko: Earplug Codeteile&lt;br/&gt;bobchaos: Verwaltung der Community trotz aller Widrigkeiten.&lt;br/&gt;Und an alle Spieler, welche sich die Zeit genommen haben, um Kommentare, Vorschläge und Fehlerberichte auf Steam, GitHub und dem BIS Forum zu verfassen.</German>
     </Container>
   </Package>
 </Project>

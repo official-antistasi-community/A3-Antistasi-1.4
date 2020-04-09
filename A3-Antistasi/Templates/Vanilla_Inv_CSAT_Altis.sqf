@@ -26,17 +26,17 @@ CSATAmmoBox = "O_supplyCrate_F";
 //PvP Loadouts
 CSATPlayerLoadouts = [
 	//Team Leader
-	"O_T_Recon_TL_F",
+	["vanilla_opfor_teamLeader_altis"] call A3A_fnc_getLoadout,
 	//Medic
-	"O_T_Recon_Medic_F",
+	["vanilla_opfor_medic_altis"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"O_Soldier_AR_F",
+	["vanilla_opfor_machineGunner_altis"] call A3A_fnc_getLoadout,
 	//Marksman
-	"O_T_Recon_M_F",
+	["vanilla_opfor_marksman_altis"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"O_T_Recon_LAT_F",
+	["vanilla_opfor_AT_altis"] call A3A_fnc_getLoadout,
 	//AT2
-	"O_T_Recon_LAT_F"
+	["vanilla_opfor_AT2_altis"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles

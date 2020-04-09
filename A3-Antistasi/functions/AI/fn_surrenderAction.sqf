@@ -1,3 +1,4 @@
+private _filename = "fn_surrenderAction";
 params ["_unit"];
 
 if (typeOf _unit == "Fin_random_F") exitWith {};		// dogs do not surrender?
@@ -85,7 +86,10 @@ if (!isNil "_markerX") then
 	};
 
 // timed cleanup functions
+[3,format["Cleanup called for unit:%1",_unit],_filename] call A3A_fnc_log;
 [_unit] spawn A3A_fnc_postmortem;
+
+[3,format["Cleanup called for boxx:%1",_boxX],_filename] call A3A_fnc_log;
 [_boxX] spawn A3A_fnc_postmortem;
 
 sleep 3;

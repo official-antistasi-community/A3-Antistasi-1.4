@@ -13,7 +13,7 @@ if(!canSuspend) exitWith
 
 if(isDedicated) exitWith {};
 
-if(isMultiplayer && {!isServer} && {!(call BIS_fnc_admin > 0)}) exitWith {hint "Only server admins can execute the convoy debug!"};
+if(isMultiplayer && {!isServer} && {!(call BIS_fnc_admin > 0)}) exitWith {["Convoy Debug", "Only server admins can execute the convoy debug!"] call A3A_fnc_customHint;};
 
 player setVariable ["convoyDebug", true];
 sleep 1;

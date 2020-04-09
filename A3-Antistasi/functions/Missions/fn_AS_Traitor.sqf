@@ -134,15 +134,15 @@ if (not alive _traitor || traitorIntel) then
 	["AS",[format ["A traitor has scheduled a meeting with %3 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.",_nameDest,_displayTime,nameOccupants],"Kill the Traitor",_markerX],_traitor,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	["AS1",[format ["We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.",_nameDest,_displayTime,nameTeamPlayer],"Protect Contact",_markerX],getPos _houseX,"FAILED"] call A3A_fnc_taskUpdate;
 
-	if(traitorIntel && (not alive _traitor)) then
+	if(traitorIntel && (alive _traitor)) then
 	{
 		{[petros,"hint","Someone found some intel on the traitors family, he will not cause any problems any more!"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits);
 		doStop _groupTraitor;
 		doGetOut _traitor;
+		_traitor join grpNull;
 		[_traitor] call A3A_fnc_surrenderAction;
 		sleep 1;
 		[_traitor, "remove"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_traitor];
-		_traitor join grpNull;
 		_wp1 = _groupTraitor addWaypoint [_posBase];
 		_wp1 setWaypointType "MOVE";
 		_wp1 setWaypointBehaviour "CARELESS";
@@ -203,10 +203,11 @@ _nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
 _nul = [10,"AS1"] spawn A3A_fnc_deleteTask;
 if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
 
+// Surrender routine will (eventually) despawn the traitor, if separated
 {
 waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
 deleteVehicle _x
-} forEach ((units _groupTraitor) pushBack _traitor);
+} forEach units _groupTraitor;
 deleteGroup _groupTraitor;
 
 {

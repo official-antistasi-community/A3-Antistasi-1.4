@@ -6,7 +6,7 @@ params ["_unit","_part","_damage","_injurer","_projectile","_hitIndex","_instiga
 // Helmet popping: use _hitpoint rather than _part to work around ACE calling its fake hitpoint "head"
 if (_damage >= 1 && {_hitPoint == "hithead"}) then
 {
-	if (getNumber (configfile >> "CfgWeapons" >> headgear _unit >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0) then
+	if (random 100 < helmetLossChance) then
 	{
 		removeHeadgear _unit;
 	};
@@ -17,12 +17,13 @@ if (_part == "" && _damage > 0.1) then
 	// Player vs rebel TK check
 	if (isPlayer _instigator && _unit != _instigator && {side group _instigator == teamPlayer && side group _unit == teamPlayer}) then
 	{
-		_uniform = uniform _unit;
-		if (_uniform in allRebelUniforms || {_uniform in allCivilianUniforms}) then
-		{
+// Removed uniform check because neither allRebelUniforms or uniform side is currently sufficient
+//		_uniform = uniform _unit;
+//		if (_uniform in allRebelUniforms || {_uniform in allCivilianUniforms}) then
+//		{
 			[_instigator, 20, (_damage min 0.34), _unit] remoteExec ["A3A_fnc_punishment",_instigator];
 			[format ["%1 was injured by %2 (UID: %3), %4m from HQ",name _unit,name _instigator,getPlayerUID _instigator,_unit distance2D posHQ]] remoteExec ["diag_log",2];
-		};
+//		};
 	};
 
 	// this will not work the same with ACE, as damage isn't accumulated

@@ -10,7 +10,7 @@ factionMaleInvaders = "UK3CB_TKM_B";
 if (gameMode == 4) then {factionFIA = "UK3CB_TKP_O"};
 
 //Flag Images
-CSATFlag = "Flag_TKM_O_Army";
+CSATFlag = "Flag_TKM_O";
 CSATFlagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_TKM\Flag\tkm_o_flag_co.paa";
 flagCSATmrk = "UK3CB_Marker_O_TKM";
 if (isServer) then {"CSAT_carrier" setMarkerText "Takistani Carrier"};
@@ -24,17 +24,17 @@ CSATAmmoBox = "O_supplyCrate_F";
 //PvP Loadouts
 CSATPlayerLoadouts = [
 	//Team Leader
-	"UK3CB_TKM_O_SL",
+	["3CB_TKM_Teamleader"] call A3A_fnc_getLoadout,
 	//Medic
-	"UK3CB_TKM_O_MD",
+	["3CB_TKM_Medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"UK3CB_TKM_O_AR",
+	["3CB_TKM_MachineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	"UK3CB_TKM_O_MK",
+	["3CB_TKM_Marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"UK3CB_TKM_O_LAT",
+	["3CB_TKM_AT"] call A3A_fnc_getLoadout,
 	//AT2
-	"UK3CB_TKM_O_LAT"
+	["3CB_TKM_AT2"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles

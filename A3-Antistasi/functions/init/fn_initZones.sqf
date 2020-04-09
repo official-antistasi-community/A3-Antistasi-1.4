@@ -348,7 +348,7 @@ publicVariable "islands";
 publicVariable "roadsMrk";
 
 if (isMultiplayer) then {
-	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]
+	[petros, "hint","Zones Init Completed", "Server Information"] remoteExec ["A3A_fnc_commsMP", -2]
 };
 
 [2,"initZones completed",_fileName] call A3A_fnc_log;

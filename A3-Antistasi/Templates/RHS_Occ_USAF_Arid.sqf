@@ -12,8 +12,8 @@ factionMaleOccupants = "rhs_faction_socom";
 if ((gameMode != 4) and (!hasFFAA)) then {factionFIA = "rhsgref_faction_hidf"};
 
 //Flag Images
-NATOFlag = "Flag_NATO_F";
-NATOFlagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
+NATOFlag = "Flag_US_F";
+NATOFlagTexture = "a3\data_f\flags\flag_us_co.paa";
 flagNATOmrk = "flag_USA";
 if (isServer) then {"NATO_carrier" setMarkerText "USMC Carrier"};
 

@@ -17,5 +17,5 @@ call A3A_fnc_initVarClient;
 
 //Marks initVar as finished.
 initVar = true;
-hint "Variables Init Completed";
+["Server Information", "Variables Init Completed"] call A3A_fnc_customHint;
 [2,"initVar completed",_fileName] call A3A_fnc_log;

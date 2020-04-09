@@ -26,7 +26,7 @@ try
 }
 catch
 {
-  hint "Error while loading the roadslib!";
+  ["Roads Lib", "Error while loading the roadslib!"] call A3A_fnc_customHint;
   _abort = true;
 };
 
@@ -71,14 +71,14 @@ while {_nextClass != -1} do
   missionNamespace setVariable [format ["type_%1", _number], _roadType];
 
   //Set debug string
-  _debugString = format ["%1Set road class %2 to type %3\n",_debugString, _number, _roadType];
+  _debugString = format ["%1Set road class %2 to type %3<br/>",_debugString, _number, _roadType];
 
   //Cut class out of string
   _contentString = _contentString select [_endIndex + 1];
   _nextClass = _contentString find "class";
 };
 
-hint _debugString;
+["Roads Lib", _debugString] call A3A_fnc_customHint;
 sleep 15;
 
 true;

@@ -78,7 +78,7 @@ class Params
      };
      class unlockItem
      {
-          title = "Number of the same weapons required to unlock";
+          title = "Number of the same item required to unlock";
           values[] = {15,25,40};
           default = 25;
      };
@@ -118,9 +118,9 @@ class Params
      };
      class allowFT
      {
-          title = "Limited Fast Travel";
+          title = "Fast Travel Targets Allowed";
           values[] = {0,1};
-          texts[] = {"No","Yes"};
+          texts[] = {"Any friendly position","Only Airports & HQ"};
           default = 1;
      };
      class napalmEnabled
@@ -164,6 +164,13 @@ class Params
           values[] = {1,0};
           texts[] =  {"Yes","No"};
           default = 1;
+     };
+     class helmetLossChance
+     {
+          title = "Chance of helmet loss on headshots";
+          values[] = {0,33,66,100};
+          texts[] = {"Never","Sometimes","Often","Always"};
+          default = 33;
      };
      class Spacer10
      {

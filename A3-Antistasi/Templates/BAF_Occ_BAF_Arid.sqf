@@ -28,21 +28,21 @@ NATOAmmobox = "B_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"UK3CB_BAF_SC_DDPM_REC",
+	["3CB_BAF_Teamleader_MTP"] call A3A_fnc_getLoadout,
 	//Medic
-	"UK3CB_BAF_Medic_DDPM_REC",
+	["3CB_BAF_Medic_MTP"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"UK3CB_BAF_MGLMG_DDPM_REC",
+	["3CB_BAF_MachineGunner_MTP"] call A3A_fnc_getLoadout,
 	//Marksman
-	"UK3CB_BAF_Marksman_DDPM_REC",
+	["3CB_BAF_Marksman_MTP"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"UK3CB_BAF_Explosive_DDPM_REC",
+	["3CB_BAF_AT_MTP"] call A3A_fnc_getLoadout,
 	//AT2
-	"UK3CB_BAF_FAC_DDPM_REC"
+	["3CB_BAF_AT2_MTP"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles
-vehNATOPVP = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Sand","UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Snatch_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Soft_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Sand_A_DDPM"];
+vehNATOPVP = ["UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Snatch_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Soft_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_WMIK_HMG_FFR_Sand_A_DDPM"];
 
 ////////////////////////////////////
 //             UNITS             ///

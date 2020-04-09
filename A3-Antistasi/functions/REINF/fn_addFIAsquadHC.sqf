@@ -1,10 +1,10 @@
 private ["_typeGroup","_esinf","_typeVehX","_costs","_costHR","_exit","_formatX","_pos","_hr","_resourcesFIA","_groupX","_roads","_road","_truckX","_vehicle","_mortarX","_morty"];
 
-if (player != theBoss) exitWith {hint "Only the Commander has access to this function"};
+if (player != theBoss) exitWith {["Recruit Squad", "Only the Commander has access to this function"] call A3A_fnc_customHint;};
 
-if (markerAlpha respawnTeamPlayer == 0) exitWith {hint "You cannot recruit a new squad while you are moving your HQ"};
+if (markerAlpha respawnTeamPlayer == 0) exitWith {["Recruit Squad", "You cannot recruit a new squad while you are moving your HQ"] call A3A_fnc_customHint;};
 
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(hasIFA) then {hint "You need a radio in your inventory to be able to give orders to other squads"} else {hint "You need a Radio Man in your group to be able to give orders to other squads"}};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(hasIFA) then {["Recruit Squad", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;} else {["Recruit Squad", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
 
 private _enemyNear = false;
 
@@ -12,19 +12,19 @@ private _enemyNear = false;
 	if (((side _x == Invaders) or (side _x == Occupants)) and (_x distance petros < 500) and ([_x] call A3A_fnc_canFight) and !(isPlayer _x)) exitWith {_enemyNear = true};
 } forEach allUnits;
 
-if (_enemyNear) exitWith {Hint "You cannot recruit squads with enemies near your HQ"};
+if (_enemyNear) exitWith {["Recruit Squad", "You cannot recruit squads with enemies near your HQ"] call A3A_fnc_customHint;};
 
 _typeGroup = _this select 0;
 _exit = false;
 
 if (_typeGroup isEqualType "") then {
-	if (_typeGroup == "not_supported") then {_exit = true; hint "The group or vehicle type you requested is not supported in your modset"};
-	if (hasIFA and ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) and !debug) then {_exit = true; hint "The group or vehicle type you requested is not supported in your modset"};
+	if (_typeGroup == "not_supported") then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset"] call A3A_fnc_customHint;};
+	if (hasIFA and ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) and !debug) then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset"] call A3A_fnc_customHint;};
 };
 
 if (activeGREF) then {
 	if (_typeGroup isEqualType objNull) then {
-		if (_typeGroup == staticATteamPlayer) then {hint "AT Trucks are disabled in RHS - GREF"; _exit = true};
+		if (_typeGroup == staticATteamPlayer) then {["Recruit Squad", "AT Trucks are disabled in RHS - GREF"] call A3A_fnc_customHint; _exit = true};
 	};
 };
 
@@ -66,11 +66,11 @@ if (_typeGroup isEqualType []) then {
 	};
 };
 
-if ((_withBackpck != "") and hasIFA) exitWith {hint "Your current modset doesn't support packing/unpacking static weapons";};
+if ((_withBackpck != "") and hasIFA) exitWith {["Recruit Squad", "Your current modset doesn't support packing/unpacking static weapons"] call A3A_fnc_customHint;};
 
-if (_hr < _costHR) then {_exit = true;hint format ["You do not have enough HR for this request (%1 required)",_costHR]};
+if (_hr < _costHR) then {_exit = true; ["Recruit Squad", format ["You do not have enough HR for this request (%1 required)",_costHR]] call A3A_fnc_customHint;};
 
-if (_resourcesFIA < _costs) then {_exit = true;hint format ["You do not have enough money for this request (%1 € required)",_costs]};
+if (_resourcesFIA < _costs) then {_exit = true; ["Recruit Squad", format ["You do not have enough money for this request (%1 € required)",_costs]] call A3A_fnc_customHint;};
 
 if (_exit) exitWith {};
 
@@ -142,8 +142,7 @@ if (_esinf) then {
 {[_x] call A3A_fnc_FIAinit} forEach units _groupX;
 theBoss hcSetGroup [_groupX];
 petros directSay "SentGenReinforcementsArrived";
-hint format ["Group %1 at your command.\n\nGroups are managed from the High Command bar (Default: CTRL+SPACE)\n\nIf the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)\n\nTo assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu", groupID _groupX];
-
+["Recruit Squad", format ["Group %1 at your command.<br/><br/>Groups are managed from the High Command bar (Default: CTRL+SPACE)<br/><br/>If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)<br/><br/>To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu", groupID _groupX]] call A3A_fnc_customHint;
 if (!_esinf) exitWith {};
 if !(_bypassAI) then {_groupX spawn A3A_fnc_attackDrillAI};
 
@@ -188,5 +187,5 @@ _purchasedVehicle setVariable ["owner",_groupX,true];
 [0, - _costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 leader _groupX assignAsDriver _purchasedVehicle;
 {[_x] orderGetIn true; [_x] allowGetIn true} forEach units _groupX;
-hint "Vehicle Purchased";
+["Recruit Squad", "Vehicle Purchased"] call A3A_fnc_customHint;
 petros directSay "SentGenBaseUnlockVehicle";

@@ -23,7 +23,7 @@ _intelType = "Big";
 
 _allBuildings = nearestObjects [(getPos player),["House"], 200, true];
 
-if(count _allBuildings == 0) exitWith {hint "IntelPlacement: No buildings found around marker!"};
+if(count _allBuildings == 0) exitWith {["Intel Placement", "No buildings found around marker!"] call A3A_fnc_customHint;};
 
 _index = -1;
 _index = _allBuildings findIf {(typeOf _x) in (intelBuidings select 0)};
@@ -34,7 +34,7 @@ if(_index == -1) then
   _isTower = false;
 };
 
-if(_index == -1) exitWith {hint "IntelPlacement: No suitable buildings found to place intel in!"};
+if(_index == -1) exitWith {["Intel Placement", "No suitable buildings found to place intel in!"] call A3A_fnc_customHint;};
 _building = _allBuildings select _index;
 
 _relValues = nil;
@@ -63,7 +63,7 @@ _offsetVector = [_offsetVector, (getDir _desk)] call BIS_fnc_rotateVector2D;
 _intel setDir (getDir _desk + (_relValues select 1));
 _intel setPosWorld ((getPosWorld _desk) vectorAdd _offsetVector);
 
-_intel addAction ["Retrieve Intel", {hint "You got the intel"},nil,4,false,true,"","(isPlayer _this)",4];
+_intel addAction ["Retrieve Intel", {["Search Intel", "You got the intel"] call A3A_fnc_customHint;},nil,4,false,true,"","(isPlayer _this)",4];
 
 ==================================================================================
 this setVariable ["side", WEST, true];

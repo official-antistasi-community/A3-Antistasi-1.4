@@ -2,8 +2,8 @@
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
 nameTeamPlayer = "AK";
-SDKFlag = "Flag_Syndikat_F";
-SDKFlagTexture = "ak.jpg"; if (isServer) then {flagX setFlagTexture SDKFlagTexture};
+SDKFlag = "Flag_FIA_F";
+SDKFlagTexture = "\A3\Data_F\Flags\Flag_FIA_CO.paa";
 typePetros = "LIB_WP_Sierzant";
 
 ////////////////////////////////////

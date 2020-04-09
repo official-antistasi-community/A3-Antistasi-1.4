@@ -29,7 +29,7 @@ if (_medicX != _unit) then
 			_medicX groupChat format ["Wait a minute comrade %1, I will patch you up",name _unit]
 			};
 		};
-	if (hasInterface) then {if (player == _unit) then {hint format ["%1 is on the way to help you",name _medicX]}};
+	if (hasInterface) then {if (player == _unit) then {["Medical", format ["%1 is on the way to help you",name _medicX]] call A3A_fnc_customHint;}};
 	_enemy = _medicX findNearestEnemy _unit;
 	_smoked = [_medicX,_unit,_enemy] call A3A_fnc_chargeWithSmoke;
 	_medicX stop false;

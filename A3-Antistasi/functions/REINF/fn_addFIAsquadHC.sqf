@@ -148,8 +148,8 @@ if (_esinf) then {
 	}
 	else {
 		private _veh = [_pos, _roadDirection,_typeGroup, teamPlayer] call bis_fnc_spawnvehicle;
-		_truckX = _vehicle select 0;
-		_groupX = _vehicle select 2;
+		_truckX = _veh select 0;
+		_groupX = _veh select 2;
 	};
 
 	if (_typeGroup == vehSDKAT) then {_groupX setGroupId [format ["M.AT-%1",{side (leader _x) == teamPlayer} count allGroups]]};

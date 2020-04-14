@@ -39,10 +39,10 @@ private _BossRank = 0;
 if (!isNull _nextBoss) then
 {
 	[2, format ["Player chosen for Boss: %1", name _nextBoss],_filename] call A3A_fnc_log;
-	_textX = format ["%1 is the new leader of our forces. Greet them!", name _nextBoss];
+	_textX = format ["%1 is the new commander of our forces. Greet them!", name _nextBoss];
 	[_nextBoss] call A3A_fnc_theBossInit;
 	sleep 5;
-	[petros,"hint",_textX] remoteExec ["A3A_fnc_commsMP", 0];
+	[petros,"hint",_textX, "New Commander"] remoteExec ["A3A_fnc_commsMP", 0];
 }
 else
 {

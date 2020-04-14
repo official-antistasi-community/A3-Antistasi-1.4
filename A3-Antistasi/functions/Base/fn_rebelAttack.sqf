@@ -72,13 +72,13 @@ _baseNATO = true;
 if (sidesX getVariable [_base,sideUnknown] == Occupants) then
 	{
 	_tmpObjectives = _objectivesX select {sidesX getVariable [_x,sideUnknown] != Occupants};
-	_tmpObjectives = _tmpObjectives - (citiesX select {([_x] call A3A_fnc_powerCheck) == teamPlayer});
+	_tmpObjectives = _tmpObjectives - (citiesX select {([_x] call A3A_fnc_getSideRadioTowerInfluence) == teamPlayer});
 	}
 else
 	{
 	_baseNATO = false;
 	_tmpObjectives = _objectivesX select {sidesX getVariable [_x,sideUnknown] != Invaders};
-	_tmpObjectives = _tmpObjectives - (citiesX select {(((server getVariable _x) select 2) + ((server getVariable _x) select 3) < 90) and ([_x] call A3A_fnc_powerCheck != Occupants)});
+	_tmpObjectives = _tmpObjectives - (citiesX select {(((server getVariable _x) select 2) + ((server getVariable _x) select 3) < 90) and ([_x] call A3A_fnc_getSideRadioTowerInfluence != Occupants)});
 	};
 
 _tmpObjectives = _tmpObjectives select {getMarkerPos _x distance2D _posBase < distanceForAirAttack};

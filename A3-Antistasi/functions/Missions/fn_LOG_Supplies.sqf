@@ -33,7 +33,7 @@ _truckX call jn_fnc_logistics_addAction;
 _truckX addAction ["Delivery infos",
 	{
 		_text = format ["Deliver this box to %1, unload it to start distributing to people",(_this select 0) getVariable "destinationX"]; //This need a rework
-		_text remoteExecCall ["hint",_this select 2];	//This need a rework
+		["Logistics Mission", _text] remoteExecCall ["A3A_fnc_customHint",_this select 2];	//This need a rework
 	},
 	nil,
 	0,
@@ -87,14 +87,14 @@ else
 		if (_countX > 0) then
 			{
 			_countX = 120*_bonus;//120
-			if (((_truckX distance _positionX > 40) or (not([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits != 0)) and (alive _truckX)) then {{[petros,"hint","Stay close to the crate, and clean all BLUFOR presence in the surroundings or count will restart"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([100,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
+			if (((_truckX distance _positionX > 40) or (not([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits != 0)) and (alive _truckX)) then {{[petros,"hint","Stay close to the crate, and clean all BLUFOR presence in the surroundings or count will restart", "Logistics Mission"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([100,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
 			waitUntil {sleep 1; ((_truckX distance _positionX < 40) and ([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits) and ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits == 0)) or (dateToNumber date > _dateLimitNum) or (isNull _truckX)};
 			};
 		if (_countX < 1) exitWith {};
 		};
 		if ((dateToNumber date < _dateLimitNum) and !(isNull _truckX)) then
 			{
-			[petros,"hint","Supplies Delivered"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+			[petros,"hint","Supplies Delivered", "Logistics Mission"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 			["LOG",[_taskDescription,"City Supplies",_markerX],_positionX,"SUCCEEDED","Heal"] call A3A_fnc_taskUpdate;
 			{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

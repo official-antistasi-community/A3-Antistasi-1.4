@@ -79,7 +79,7 @@ class A3A
 		class patrolDestinations {};
 		class placementSelection {};
 		class playableUnits {};
-		class powerCheck {};
+		class getSideRadioTowerInfluence {};
 		class powerReorg {};
 		class prestige {};
 		class radioCheck {};
@@ -203,6 +203,7 @@ class A3A
 		class createFIAOutposts2 {};
 		class createSDKGarrisons {};
 		class createSDKgarrisonsTemp {};
+		class createUnit {};
 		class cycleSpawn {};
 		class FIAinitBases {};
 		class findSpawnPosition {};
@@ -492,6 +493,11 @@ class A3A
 		class getLoadout {};
 		class ifaModCompat {};
 		class rhsModCompat {};
+	};
+
+	class UI
+	{
+		class customHint {};
 	};
 
 	class Undercover

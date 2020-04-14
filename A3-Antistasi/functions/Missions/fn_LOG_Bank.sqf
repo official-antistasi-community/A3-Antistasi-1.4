@@ -40,7 +40,7 @@ _truckX addEventHandler ["GetIn",
 	if (_this select 1 == "driver") then
 		{
 		_textX = format ["Bring this truck to %1 Bank and park it in the main entrance",(_this select 0) getVariable "destinationX"];
-		_textX remoteExecCall ["hint",_this select 2];
+		["Bank Mission", _textX] remoteExecCall ["A3A_fnc_customHint", _this select 2];
 		};
 	}];
 
@@ -104,14 +104,14 @@ else
 		if (_countX > 0) then
 			{
 			_countX = 120*_bonus;//120
-			if (_truckX distance _positionX > 6) then {{[petros,"hint","Don't get the truck far from the bank or count will restart"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([200,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
+			if (_truckX distance _positionX > 6) then {{[petros,"hint","Don't get the truck far from the bank or count will restart", "Bank Mission"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([200,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
 			waitUntil {sleep 1; (!alive _truckX) or (_truckX distance _positionX < 7) or (dateToNumber date < _dateLimitNum)};
 			}
 		else
 			{
 			if (alive _truckX) then
 				{
-				{if (isPlayer _x) then {[petros,"hint","Drive the Truck back to base to finish this mission"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
+				{if (isPlayer _x) then {[petros,"hint","Drive the Truck back to base to finish this mission", "Bank Mission"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
 				_exit = true;
 				};
 			//waitUntil {sleep 1; (!alive _truckX) or (_truckX distance _positionX > 7) or (dateToNumber date < _dateLimitNum)};

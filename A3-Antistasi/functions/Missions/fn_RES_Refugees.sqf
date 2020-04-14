@@ -45,7 +45,7 @@ missionsX pushBack ["RES","CREATED"]; publicVariable "missionsX";
 _groupPOW = createGroup teamPlayer;
 for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	{
-	_unit = _groupPOW createUnit [SDKUnarmed, _posHouse select _i, [], 0, "NONE"];
+	_unit = [_groupPOW, SDKUnarmed, _posHouse select _i, [], 0, "NONE"] call A3A_fnc_createUnit;
 	_unit allowdamage false;
 	_unit disableAI "MOVE";
 	_unit disableAI "AUTOTARGET";
@@ -138,7 +138,7 @@ else
 		};
 	if (random 10 < 2.5) then
 		{
-		_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+		_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 		[_dog] spawn A3A_fnc_guardDog;
 		};
 	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2","RANDOM", "NOFOLLOW"] execVM "scripts\UPSMON.sqf";

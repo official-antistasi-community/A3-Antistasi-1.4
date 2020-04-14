@@ -1,6 +1,6 @@
-if (player != theBoss) exitWith {hint "Only our Commander has access to this function"};
+if (player != theBoss) exitWith {["Move HQ", "Only our Commander has access to this function"] call A3A_fnc_customHint;};
 
-if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {hint "You must first empty your Ammobox in order to move the HQ"};
+if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {["Move HQ", "You must first empty your Ammobox in order to move the HQ"] call A3A_fnc_customHint;};
 
 if !(isNull attachedTo petros) then { detach petros };		// in case someone is moving him
 
@@ -43,7 +43,7 @@ if (count _garrison > 0) then
 	_hr = 0;
 	if ({(alive _x) and (!captive _x) and ((side _x == Occupants) or (side _x == Invaders)) and (_x distance _positionX < 500)} count allUnits > 0) then
 		{
-		hint "HQ Garrison will stay here and hold the enemy";
+		["Garrison", "HQ Garrison will stay here and hold the enemy"] call A3A_fnc_customHint;
 		}
 	else
 		{
@@ -72,7 +72,7 @@ if (count _garrison > 0) then
 	} forEach _garrison;
 	[_hr,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 	garrison setVariable ["Synd_HQ",[],true];
-	hint format ["Garrison removed\n\nRecovered Money: %1 €\nRecovered HR: %2",_costs,_hr];
+	["Garrison", format ["Garrison removed<br/><br/>Recovered Money: %1 €<br/>Recovered HR: %2",_costs,_hr]] call A3A_fnc_customHint;
 	};
 
 sleep 5;

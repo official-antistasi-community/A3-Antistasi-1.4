@@ -61,15 +61,14 @@ if(_intelType == "Small") then
         };
         case (TIME_LEFT):
         {
-            private _nextTick = nextTick - time;
-            _nextTick = _nextTick * (0.9 + random 0.2);
-            if(_nextTick < 60) then
+            private _nextAttack = countCA + (random 600) - 300;
+            if(_nextAttack < 300) then
             {
-                _text = format ["%1 will send their next reinforcements shortly!", _sideName];
+                _text = format ["Next enemy attack is imminent!"];
             }
             else
             {
-                _text = format ["%1 is able to send reinforcements in %2 minutes", _sideName, round (_nextTick / 60)];
+                _text = format ["Next enemy attack expected in %1 minutes", round (_nextAttack / 60)];
             };
         };
         case (ACCESS_CAR):

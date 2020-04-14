@@ -20,7 +20,7 @@ if !(primaryWeapon _unit isEqualTo "") then {
 	_unit removeWeapon (primaryWeapon _unit);
 };
 
-if (_rifleFinal in unlockedGrenadeLaunchers) then {
+if (_rifleFinal in unlockedGrenadeLaunchers && {_rifleFinal in unlockedRifles} ) then {
 	// lookup real underbarrel GL magazine, because not everything is 40mm
 	private _config = configFile >> "CfgWeapons" >> _rifleFinal;
 	private _glmuzzle = getArray (_config >> "muzzles") select 1;		// guaranteed by category

@@ -1,7 +1,7 @@
 [//Loadout
 	[//Primary Weapon
 		"ARifle_SPAR_03_KHK_F",								//Weapon
-		"Muzzle_SNDS_B",									//Muzzle
+		"",									//Muzzle
 		"Acc_Pointer_IR",									//Rail
 		"Optic_AMS_KHK",									//Sight
 		["20Rnd_762x51_Mag",20],							//Primary Magazine

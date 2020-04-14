@@ -10,7 +10,7 @@
 // - Name of target callback in callbacks.sqf: STRING
 // - Extra message to display in menu prompt
 
-if (!(isNil "placingVehicle") && {placingVehicle}) exitWith { hint "Unable to place vehicle, already placing a vehicle" };
+if (!(isNil "placingVehicle") && {placingVehicle}) exitWith {["Garage", "Unable to place vehicle, already placing a vehicle"] call A3A_fnc_customHint;};
 placingVehicle = true;
 
 params ["_vehicleType", ["_callbackTarget", ""], ["_displayMessage", ""]];
@@ -23,7 +23,7 @@ vehPlace_previewVeh allowDamage false;
 vehPlace_previewVeh enableSimulation false;
 
 [_vehicleType] call A3A_fnc_displayVehiclePlacementMessage;
-hint "Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle";
+["Garage", "Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle"] call A3A_fnc_customHint;
 
 //Control flow is weird here. KeyDown tells onEachFrame it can stop running, and which action to do.
 //This guarantees us no race conditions between keyDown, onEachFrame and the rest of the code.
@@ -124,7 +124,7 @@ addMissionEventHandler ["EachFrame",
 	if (!_shouldExitHandler) then {
 		private _shouldCancelArray = [vehPlace_callbackTarget, CALLBACK_SHOULD_CANCEL_PLACEMENT, [vehPlace_previewVeh]] call A3A_fnc_vehPlacementCallbacks;
 		if (_shouldCancelArray select 0) then {
-			hint (_shouldCancelArray select 1);
+			["Garage", (_shouldCancelArray select 1)] call A3A_fnc_customHint;
 			[] spawn A3A_fnc_handleVehPlacementCancelled;
 			_shouldExitHandler = true;
 		};

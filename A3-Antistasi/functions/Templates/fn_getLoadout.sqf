@@ -3,14 +3,14 @@ params ["_loadoutName"];
 private _basicMedicalSupplies =
 	if (hasACE) then {
 		[
-			["ACE_Tourniquet",1],
+			["ACE_Tourniquet",3],
 			["ACE_SalineIV_500",1],
 			["ACE_Morphine",2],
 			["ACE_Epinephrine",2],
 			["ACE_Adenosine",2],
-			["ACE_PackingBandage",5],
-			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3],
+			["ACE_PackingBandage",10],
+			["ACE_ElasticBandage",10],
+			["ACE_Quikclot",10],
 			["ACE_splint", 2]
 		]
 		+ ([[], [["adv_aceSplint_splint", 2]]] select hasADVSplint);
@@ -24,8 +24,7 @@ private _basicMiscItems =
 	if (hasACE) then {
 		[
 			["ACE_Earplugs",1],
-			["ACE_Cabletie",3],
-			["ACE_Chemlight_Hiblue",5,1]
+			["ACE_Cabletie",3]
 		];
 	} else {
 		[
@@ -38,8 +37,8 @@ private _medicSupplies =
 		[
 			["ACE_surgicalKit",1],
 
-			["ACE_PackingBandage",15],
-			["ACE_ElasticBandage",10],
+			["ACE_PackingBandage",5],
+			["ACE_ElasticBandage",20],
 			["ACE_QuikClot",10],
 
 			["ACE_Morphine",5],

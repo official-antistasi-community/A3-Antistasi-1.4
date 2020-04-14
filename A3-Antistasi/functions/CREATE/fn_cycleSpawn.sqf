@@ -88,7 +88,7 @@ _lineIndex = 0;
     _spawnParameter = [getMarkerPos _marker, objNull];
     //_spawnParameter = [_marker, NATOCrew] call A3A_fnc_findSpawnPosition;
     {
-      _unitX = _groupX createUnit [_x, (_spawnParameter select 0), [], 5, "NONE"];
+      _unitX = [_groupX, _x, (_spawnParameter select 0), [], 5, "NONE"] call A3A_fnc_createUnit;
       _allSoldiers pushBack _unitX;
         //Should work as a local variable needs testing
       _unitX setVariable ["UnitIndex", (_lineIndex * 10 + 1)];
@@ -114,7 +114,7 @@ _lineIndex = 0;
     _allGroups pushBack _groupSoldier;
     _stayGroups pushBack _groupSoldier;
     {
-      _unitX = _groupSoldier createUnit [_x, (_spawnParameter select 0), [], 5, "NONE"];
+      _unitX = [_groupSoldier, _x, (_spawnParameter select 0), [], 5, "NONE"] call A3A_fnc_createUnit;
       _allSoldiers pushBack _unitX;
 
       //Should work as a local variable needs testing

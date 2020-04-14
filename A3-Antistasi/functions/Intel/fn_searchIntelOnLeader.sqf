@@ -66,7 +66,7 @@ _caller setVariable ["cancelIntelSearch", nil];
 
 if(_wasCancelled) exitWith
 {
-    hint "Search cancelled";
+    ["Intel", "Search cancelled"] call A3A_fnc_customHint;
     _caller setVariable ["intelFound", nil];
     [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
 };
@@ -76,7 +76,7 @@ if(_caller getVariable ["intelFound", false]) then
     private _hasIntel = _squadLeader getVariable ["hasIntel", false];
     if(_hasIntel) then
     {
-        hint "Search completed, intel found!";
+        ["Intel", "Search completed, intel found!"] call A3A_fnc_customHint;
         private _intelText = ["Small", _side] call A3A_fnc_selectIntel;
         [_intelText] remoteExec ["A3A_fnc_showIntel", [teamPlayer, civilian]];
         {
@@ -85,7 +85,7 @@ if(_caller getVariable ["intelFound", false]) then
     }
     else
     {
-        hint "Search completed, but you found nothing!";
+        ["Intel", "Search completed, but you found nothing!"] call A3A_fnc_customHint;
     };
 }
 else

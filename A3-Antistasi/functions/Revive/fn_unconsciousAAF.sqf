@@ -5,18 +5,6 @@ private _playerNear = false;
 private _group = group _unit;
 private _side = side _group;
 
-if ((side _injurer == teamPlayer) and (_side == Occupants)) then
-{
-	_marker = _unit getVariable ["markerX",""];
-	if (_marker != "") then
-	{
-		if (!([_marker] call BIS_fnc_taskExists) and (sidesX getVariable [_marker,sideUnknown] == Occupants)) then
-        {
-            [_marker, teamPlayer,_side] remoteExec ["A3A_fnc_underAttack",2]
-        };
-	};
-};
-
 if ({if ((isPlayer _x) and (_x distance _unit < distanceSPWN2)) exitWith {1}} count allUnits != 0) then
 {
 	_playerNear = true;

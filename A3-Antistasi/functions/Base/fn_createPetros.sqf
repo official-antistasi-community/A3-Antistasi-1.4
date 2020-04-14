@@ -16,7 +16,7 @@ private _position = if (count _location > 0) then {
 	};
 };
 
-petros = _groupPetros createUnit [typePetros, _position, [], 10, "NONE"];
+petros = [_groupPetros, typePetros, _position, [], 10, "NONE"] call A3A_fnc_createUnit;
 publicVariable "petros";
 
 deleteVehicle _oldPetros;		// Petros should now be leader unless there's a player in the group

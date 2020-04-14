@@ -30,12 +30,12 @@ while {true} do
 	//_roads = _dataX select 2;
 	_prestigeNATO = _dataX select 2;
 	_prestigeSDK = _dataX select 3;
-	_power = [_city] call A3A_fnc_powerCheck;
+	_radioTowerSide = [_city] call A3A_fnc_getSideRadioTowerInfluence;
 	_popTotal = _popTotal + _numCiv;
 	_popFIA = _popFIA + (_numCiv * (_prestigeSDK / 100));
 	_popAAF = _popAAF + (_numCiv * (_prestigeNATO / 100));
-	_multiplyingRec = if (_power != teamPlayer) then {0.5} else {1};
-	//if (not _power) then {_multiplyingRec = 0.5};
+	_multiplyingRec = if (_radioTowerSide != teamPlayer) then {0.5} else {1};
+	//if (not _radioTowerSide) then {_multiplyingRec = 0.5};
 
 	if (_city in destroyedSites) then
 		{
@@ -47,7 +47,7 @@ while {true} do
 		{
 		_resourcesAddCitySDK = ((_numciv * _multiplyingRec*(_prestigeSDK / 100))/3);
 		_hrAddCity = (_numciv * (_prestigeSDK / 10000));///20000 originalmente
-		switch (_power) do
+		switch (_radioTowerSide) do
 			{
 			case teamPlayer: {[-1,_suppBoost,_city] spawn A3A_fnc_citySupportChange};
 			case Occupants: {[1,-1,_city] spawn A3A_fnc_citySupportChange};

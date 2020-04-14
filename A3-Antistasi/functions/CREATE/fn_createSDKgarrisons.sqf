@@ -37,7 +37,7 @@ if (_markerX != "Synd_HQ") then
 				{
 					if (spawner getVariable _markerX != 2) then
 					{
-						private _civ = _groupCiv createUnit ["C_man_w_worker_F", _positionX, [],0, "NONE"];
+						private _civ = [_groupCiv, "C_man_w_worker_F", _positionX, [],0, "NONE"] call A3A_fnc_createUnit;
 						_nul = [_civ] spawn A3A_fnc_CIVinit;
 						_civs pushBack _civ;
 						_civ setVariable ["markerX",_markerX,true];
@@ -77,7 +77,7 @@ if (staticCrewTeamPlayer in _garrison) then
 {
 	_groupMortars = createGroup teamPlayer;
 	{
-		private _unit = _groupMortars createUnit [staticCrewTeamPlayer, _positionX, [], 0, "NONE"];
+		private _unit = [_groupMortars, staticCrewTeamPlayer, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		private _pos = [_positionX] call A3A_fnc_mortarPos;
 		private _veh = SDKMortar createVehicle _pos;
 		_vehiclesX pushBack _veh;
@@ -98,14 +98,14 @@ if (staticCrewTeamPlayer in _garrison) then
 	if (typeOf _x == SDKMortar) then
 	{
 		if (isNull _groupMortars) then { _groupMortars = createGroup teamPlayer };
-		_unit = _groupMortars createUnit [(_garrison select _index), _positionX, [], 0, "NONE"];
+		_unit = [_groupMortars, (_garrison select _index), _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _x;
 		_nul=[_x] execVM "scripts\UPSMON\MON_artillery_add.sqf";//TODO need delete UPSMON link
 	}
 	else
 	{
 		if (isNull _groupStatics) then { _groupStatics = createGroup teamPlayer };
-		_unit = _groupStatics createUnit [(_garrison select _index), _positionX, [], 0, "NONE"];
+		_unit = [_groupStatics, (_garrison select _index), _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _x;
 	};
 	[_unit,_markerX] call A3A_fnc_FIAinitBases;
@@ -131,7 +131,7 @@ while {(spawner getVariable _markerX != 2) and (_countUnits < _totalUnits)} do
 		_countGroup = 0;
 	};
 	private _typeX = _garrison select _countUnits;
-	private _unit = _groupX createUnit [_typeX, _positionX, [], 0, "NONE"];
+	private _unit = [_groupX, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 	if (_typeX in SDKSL) then {_groupX selectLeader _unit};
 	[_unit,_markerX] call A3A_fnc_FIAinitBases;
 	_soldiers pushBack _unit;

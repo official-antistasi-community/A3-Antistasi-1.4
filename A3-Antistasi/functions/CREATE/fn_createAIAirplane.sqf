@@ -83,7 +83,7 @@ if (_frontierX) then
 		_veh setDir _dirVeh + 180;
 		_veh setPos _pos;
 		_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
-		_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		[_veh] call A3A_fnc_AIVEHinit;
 		_unit moveInGunner _veh;
@@ -128,7 +128,7 @@ if (_patrol) then
 			sleep 1;
 			if ((random 10 < 2.5) and (not(_typeGroup in sniperGroups))) then
 			{
-				_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
@@ -153,7 +153,7 @@ while {_spawnParameter isEqualType []} do
 	_veh setDir (_spawnParameter select 1);
 	//_veh setPosATL (_spawnParameter select 0);
 	_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";//TODO need delete UPSMON link
-	_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "CAN_COLLIDE"];
+	_unit = [_groupX, _typeUnit, _positionX, [], 0, "CAN_COLLIDE"] call A3A_fnc_createUnit;
 	[_unit,_markerX] call A3A_fnc_NATOinit;
 	_unit moveInGunner _veh;
 	_soldiers pushBack _unit;
@@ -178,7 +178,7 @@ if (spawner getVariable _markerX != 2) then
 		_veh = _typeVehX createVehicle [0,0,1000];
 		_veh setDir (_x select 1);
 		_veh setPosATL (_x select 0);
-		_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		_unit moveInGunner _veh;
 		_soldiers pushBack _unit;
@@ -204,7 +204,7 @@ if (spawner getVariable _markerX != 2) then
 		_veh = _typeVehX createVehicle [0,0,1000];
 		_veh setDir (_x select 1);
 		_veh setPosATL (_x select 0);
-		_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		_unit moveInGunner _veh;
 		_soldiers pushBack _unit;
@@ -230,7 +230,7 @@ if (spawner getVariable _markerX != 2) then
 		_veh = _typeVehX createVehicle [0,0,1000];
 		_veh setDir (_x select 1);
 		_veh setPosATL (_x select 0);
-		_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		_unit moveInGunner _veh;
 		_soldiers pushBack _unit;

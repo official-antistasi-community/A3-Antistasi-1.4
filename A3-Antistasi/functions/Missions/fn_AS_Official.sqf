@@ -25,14 +25,14 @@ missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
 _grp = createGroup _sideX;
 
 _typeX = if (_sideX == Occupants) then {NATOOfficer} else {CSATOfficer};
-_official = _grp createUnit [_typeX, _positionX, [], 0, "NONE"];
+_official = [_grp, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 _typeX = if (_sideX == Occupants) then {NATOBodyG} else {CSATBodyG};
-_pilot = _grp createUnit [_typeX, _positionX, [], 0, "NONE"];
+_pilot = [_grp, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 if (_difficultX) then
 	{
 	for "_i" from 1 to 4 do
 		{
-		_pilot = _grp createUnit [_typeX, _positionX, [], 0, "NONE"];
+		_pilot = [_grp, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		};
 	};
 

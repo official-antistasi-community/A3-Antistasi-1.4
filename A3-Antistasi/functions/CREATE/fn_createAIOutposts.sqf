@@ -86,7 +86,7 @@ if (_patrol) then
 			sleep 1;
 			if ((random 10 < 2.5) and (!(_typeGroup in sniperGroups))) then
 			{
-				_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
@@ -108,7 +108,7 @@ if ((_frontierX) and (_markerX in outposts)) then
 		_groupX = createGroup _sideX;
 		_veh = _typeVehX createVehicle (_spawnParameter select 0);
 		_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";//TODO need delete UPSMON link
-		_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		_unit moveInGunner _veh;
 		_groups pushBack _groupX;
@@ -221,7 +221,7 @@ else
 			_veh setPos _pos;
 			_veh setDir _dirVeh + 180;
 			_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
-			_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+			_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			[_unit,_markerX] call A3A_fnc_NATOinit;
 			[_veh] call A3A_fnc_AIVEHinit;
 			_unit moveInGunner _veh;
@@ -240,7 +240,7 @@ else
 			// 		_nul = [_veh] call A3A_fnc_AIVEHinit;
 			// 		_vehiclesX pushBack _veh;
 			// 		sleep 1;
-			// 		_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
+			// 		_unit = [_groupX, FIARifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			// 		_unit moveInGunner _veh;
 			// 		{_soldiers pushBack _x; [_x,_markerX] call A3A_fnc_NATOinit} forEach units _groupX;
 			// 	};
@@ -289,7 +289,7 @@ if (!isNull _antenna) then
 			_posF set [2,24.3];
 		};
 		_typeUnit = if (_sideX == Occupants) then {if (!_isFIA) then {NATOMarksman} else {FIAMarksman}} else {CSATMarksman};
-		_unit = _groupX createUnit [_typeUnit, _positionX, [], _dir, "NONE"];
+		_unit = [_groupX, _typeUnit, _positionX, [], _dir, "NONE"] call A3A_fnc_createUnit;
 		_unit setPosATL _posF;
 		_unit forceSpeed 0;
 		//_unit disableAI "MOVE";

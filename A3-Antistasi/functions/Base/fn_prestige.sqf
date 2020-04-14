@@ -28,7 +28,7 @@ _natoSim = "";
 if (_nato > 0.25) then {_natoSim = "+"};
 
 _csatSim = "";
-if (_csat > 0.25) then {_castSim = "+"};
+if (_csat > 0.25) then {_csatSim = "+"};
 if ((_nato > 0.25) and (_csat > 0.25)) then
 	{
 	_textX = format ["<t size='0.6' color='#C1C0BB'>Prestige Change.<br/> <t size='0.5' color='#C1C0BB'><br/>%5: %3%1<br/>%6: %4%2",_nato,_csat,_natoSim,_csatSim,nameOccupants,nameInvaders]

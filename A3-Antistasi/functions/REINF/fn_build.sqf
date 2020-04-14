@@ -1,5 +1,5 @@
-if (!(isNil "placingVehicle") && {placingVehicle}) exitWith { hint "You can't build while placing something." };
-if (player != player getVariable ["owner",objNull]) exitWith {hint "You cannot construct anything while controlling AI"};
+if (!(isNil "placingVehicle") && {placingVehicle}) exitWith {["Build Info", "You can't build while placing something."] call A3A_fnc_customHint;};
+if (player != player getVariable ["owner",objNull]) exitWith {["Build Info", "You cannot construct anything while controlling AI"] call A3A_fnc_customHint;};
 
 build_engineerSelected = objNull;
 
@@ -37,16 +37,16 @@ if (_playerIsEngineer) then {
 	if ([player] call A3A_fnc_canFight && !([player] call _engineerIsBusy)) then {
 		build_engineerSelected = player;
 	} else {
-		_abortMessage = _abortMessage + "You are an engineer, but not in a state to build: you may be unconscious or undercover.\n";
+		_abortMessage = _abortMessage + "You are an engineer, but not in a state to build: you may be unconscious or undercover.<br/>";
 	};
 } else {
-	_abortMessage =	_abortMessage + "You are not an engineer.\n";
+	_abortMessage =	_abortMessage + "You are not an engineer.<br/>";
 };
 
 //Check if an engineer can build.
 if (isNull build_engineerSelected && count _otherPlayerEngineers > 0) then {
 	build_engineerSelected = _otherPlayerEngineers select 0;
-	_abortMessage = _abortMessage + "There is a human engineer in your squad. Ask them to build.\n";
+	_abortMessage = _abortMessage + "There is a human engineer in your squad. Ask them to build.<br/>";
 };
 
 if (isNull build_engineerSelected) then {
@@ -69,7 +69,7 @@ if (isNull build_engineerSelected) then {
 if (isNull build_engineerSelected ||
    ((player != build_engineerSelected) and (isPlayer build_engineerSelected))) exitWith 
 {
-	hint _abortMessage;
+	["Build Info", _abortMessage] call A3A_fnc_customHint;
 };
 
 build_type = _this select 0;
@@ -167,7 +167,7 @@ if ((build_type == "SB") or (build_type == "CB")) then
 		};
 	};
 
-if (_leave) exitWith {hint format ["%1",_textX]};
+if (_leave) exitWith {["Build Info", format ["%1",_textX]] call A3A_fnc_customHint;};
 
 build_handleDamageHandler = player addEventHandler ["HandleDamage",{[] call A3A_fnc_vehPlacementCancel;}];
 

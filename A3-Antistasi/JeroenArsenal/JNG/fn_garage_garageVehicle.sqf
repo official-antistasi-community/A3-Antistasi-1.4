@@ -7,7 +7,7 @@ if !(isnull (attachedto _vehicle))then{_vehicle = attachedto _vehicle};
 
 //close if it couldnt save
 _message = _vehicle call jn_fnc_garage_canGarageVehicle;
-if!(_message isEqualTo "")exitWith {hint _message};
+if!(_message isEqualTo "")exitWith {["Garage", _message] call A3A_fnc_customHint;};
 
 //save it on server
 _dataAndIndex = _vehicle call jn_fnc_garage_getVehicleData;
@@ -29,4 +29,4 @@ deleteVehicle _vehicle;
 //set message it was saved
 _data = _dataAndIndex select 0;
 SPLIT_SAVE
-hint (_name + " stored in garage");
+["Garage", (_name + " stored in garage")] call A3A_fnc_customHint;

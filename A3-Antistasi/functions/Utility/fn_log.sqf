@@ -1,15 +1,21 @@
 /**
 	Logs to the Arma log file.
-	
+
 	Params:
 		Log level: number - Error, Info or Debug. Levels 1, 2 and 3 respectively.
 		Log Message: string - Message to log
 		File (optional): string - File in which the log message originated
 		Log to server (optional): bool - true for logging to server RPT instead of client
+		The example below would output an error to the console.
+
+		private _filename = "fn_log";
+		[1, "Message", _filename] call A3A_fnc_log;
 **/
 
 params ["_level", "_message", ["_file", "No File Specified"], ["_toServer", false]];
+private _filename = "fn_log";
 
+//This ignores the log event if it's above the
 if (_level > LogLevel) exitwith {};
 
 // Sets up the actual log event.
@@ -24,6 +30,9 @@ switch (_level) do {
 	case 3: {
 		_logLine = format ["%1: [Antistasi] | DEBUG | %2 | %3", servertime, _file, _message];
 	};
+	case 4: {
+		_logLine = format ["%1: [Antistasi] | VERBOSE | %2 | %3", servertime, _file, _message];
+	};
 	default {
 		_logLine = format ["%1: [Antistasi] | Unknown Log Level Specified, please use 1= Errors, 2= Info, 3= Debug | %2 | %3", servertime, _file, _message];
 	};
@@ -35,4 +44,3 @@ if (_toServer && {!isServer}) then {
 } else {
 	diag_log _logLine;
 };
-

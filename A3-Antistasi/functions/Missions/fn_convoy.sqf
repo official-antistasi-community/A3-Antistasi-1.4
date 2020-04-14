@@ -284,7 +284,7 @@ if (_typeConvoyX == "Prisoners") then
 	_groups pushBack _grpPOW;
 	for "_i" from 1 to (1+ round (random 11)) do
 	{
-		_unit = _grpPOW createUnit [SDKUnarmed, _posbase, [], 0, "NONE"];
+		_unit = [_grpPOW, SDKUnarmed, _posbase, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,true] remoteExec ["setCaptive",0,_unit];
 		_unit setCaptive true;
 		_unit disableAI "MOVE";

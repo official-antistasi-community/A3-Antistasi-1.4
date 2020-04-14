@@ -56,7 +56,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	sleep 1;
 	if (random 10 < 33) then
 		{
-		_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+		_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 		[_dog] spawn A3A_fnc_guardDog;
 		};
 

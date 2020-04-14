@@ -12,9 +12,9 @@ _detainee setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal
 _countX = floor _sentence;
 while {_countX > 0} do
 {
-	[ format["Please do not teamkill. Play with the turtles for %1 more seconds.",_countX]] remoteExec ["hintSilent", _detainee, false];
+	["Punishment", format ["Please do not teamkill. Play with the turtles for %1 more seconds.",_countX], true] remoteExec ["A3A_fnc_customHint", _detainee, false];
 	uiSleep 1;
 	_countX = _countX -1;
 };
-["Enough then."] remoteExec ["hint", _detainee, false];
+["Punishment", "Enough then."] remoteExec ["A3A_fnc_customHint", _detainee, false];
 [_detainee] call A3A_fnc_punishment_release;

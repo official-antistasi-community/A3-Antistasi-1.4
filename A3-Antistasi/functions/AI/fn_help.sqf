@@ -29,7 +29,7 @@ if (_medicX != _unit) then
 			_medicX groupChat format ["Wait a minute comrade %1, I will patch you up",name _unit]
 			};
 		};
-	if (hasInterface) then {if (player == _unit) then {hint format ["%1 is on the way to help you",name _medicX]}};
+	if (hasInterface) then {if (player == _unit) then {["Medical", format ["%1 is on the way to help you",name _medicX]] call A3A_fnc_customHint;}};
 	_enemy = _medicX findNearestEnemy _unit;
 	_smoked = [_medicX,_unit,_enemy] call A3A_fnc_chargeWithSmoke;
 	_medicX stop false;
@@ -67,7 +67,7 @@ if (_medicX != _unit) then
 					//_medicX playMoveNow "AcinPknlMstpSrasWrflDnon";
 					_medicX stop false;
 					_dummyGrp = createGroup civilian;
-					_dummy = _dummyGrp createUnit ["C_man_polo_1_F", [0,0,20], [], 0, "FORM"];
+					_dummy = [_dummyGrp, "C_man_polo_1_F", [0,0,20], [], 0, "FORM"] call A3A_fnc_createUnit;
 					_dummy setUnitPos "MIDDLE";
 					_dummy forceWalk true;
 					_dummy setSkill 0;

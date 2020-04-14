@@ -76,7 +76,7 @@ if (_isControl) then
 
 			_groupE = createGroup _sideX;
 			_typeUnit = if (_sideX == Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
-			_unit = _groupE createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+			_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 			sleep 1;
@@ -92,7 +92,7 @@ if (_isControl) then
 			_veh setPosATL _pos;
 			_veh setDir _dirVeh;
 			sleep 1;
-			_unit = _groupE createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+			_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 			sleep 1;
@@ -109,7 +109,7 @@ if (_isControl) then
 				};
 			if (random 10 < 2.5) then
 				{
-				_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				[_dog,_groupX] spawn A3A_fnc_guardDog;
 				};
 			_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
@@ -128,7 +128,7 @@ if (_isControl) then
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
-			_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
+			_unit = [_groupX, FIARifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			{_soldiers pushBack _x; [_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 			};

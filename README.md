@@ -1,5 +1,5 @@
 <div>
-<p  align="center">
+<p align="center">
     <img src="https://avatars0.githubusercontent.com/u/53788409?s=200&v=4" width="240">
 </p>
 
@@ -7,7 +7,7 @@
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases/latest">
         <img src="https://img.shields.io/badge/Latest_Version-2.2.1-blue.svg?style=flat-square" alt="Antistasi Version">
     </a>
-    <a href="https://github.com/official-antistasi-community/A3-Antistasi/Issues">
+    <a href="https://github.com/official-antistasi-community/A3-Antistasi/issues">
         <img src="https://img.shields.io/github/issues/official-antistasi-community/A3-Antistasi?style=flat-square" alt="Issues">
     </a>
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases">
@@ -20,7 +20,7 @@
 
 
 <p align="center">
-    <a href="https://discord.gg/t7JD7eT">Discord</a> | <a href="http://a3antistasi.enjin.com/">Forums</a> | <a href="https://docs.google.com/document/d/1cCptf8Uo-mBHRhIqx1BPznECzgRqwJuj70AGjiI6KOI/">Guide</a> | <a href="https://www.youtube.com/watch?v=nebLG3Jhrbk">Video Tutorial</a>
+    <a href="https://discord.gg/t7JD7eT">Discord</a> | <a href="https://a3antistasi.enjin.com/">Forums</a> | <a href="https://docs.google.com/document/d/1cCptf8Uo-mBHRhIqx1BPznECzgRqwJuj70AGjiI6KOI/">Guide</a> | <a href="https://www.youtube.com/watch?v=nebLG3Jhrbk">Video Tutorial</a>
 </p>
 </div>
 
@@ -28,31 +28,31 @@
 A Persistent Whole Map Mission, for SP or MP co-op, focused on Resistance, Infantry and Guerrilla Tactics.
 
 ## Project Status
-Master Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=master)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)  
+Master Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=master)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)
 Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=unstable)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)
 
-## Grab our latest release on Steam!  
+## Grab our latest release on Steam!
 ### [Mission Files](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/)
 - Altis
-    - [Steam Workshop: 1832638103](https://steamcommunity.com/sharedfiles/filedetails/?id=1832638103)  
-- Altis Blufor 
-    - [Steam Workshop: 1832665647](https://steamcommunity.com/sharedfiles/filedetails/?id=1832665647)  
-- Tanoa 
-    - [Steam Workshop: 1832685459](https://steamcommunity.com/sharedfiles/filedetails/?id=1832685459)  
+    - [Steam Workshop: 1832638103](https://steamcommunity.com/sharedfiles/filedetails/?id=1832638103)
+- Altis Blufor
+    - [Steam Workshop: 1832665647](https://steamcommunity.com/sharedfiles/filedetails/?id=1832665647)
+- Tanoa
+    - [Steam Workshop: 1832685459](https://steamcommunity.com/sharedfiles/filedetails/?id=1832685459)
 - Malden
-    - [Steam Workshop: 1850103246](https://steamcommunity.com/sharedfiles/filedetails/?id=1850103246)  
+    - [Steam Workshop: 1850103246](https://steamcommunity.com/sharedfiles/filedetails/?id=1850103246)
 - Livonia
-    - [Steam Workshop: 1850107049](https://steamcommunity.com/sharedfiles/filedetails/?id=1850107049)  
+    - [Steam Workshop: 1850107049](https://steamcommunity.com/sharedfiles/filedetails/?id=1850107049)
 - Chernarus Summer
-    - [Steam Workshop: 1833035777](https://steamcommunity.com/sharedfiles/filedetails/?id=1833035777)  
+    - [Steam Workshop: 1833035777](https://steamcommunity.com/sharedfiles/filedetails/?id=1833035777)
 - Chernarus Winter
-    - [Steam Workshop: 1959942769](https://steamcommunity.com/sharedfiles/filedetails/?id=1959942769)  
+    - [Steam Workshop: 1959942769](https://steamcommunity.com/sharedfiles/filedetails/?id=1959942769)
 - Anizay
-    - [Steam Workshop: 1959965492](https://steamcommunity.com/sharedfiles/filedetails/?id=1959965492)  
+    - [Steam Workshop: 1959965492](https://steamcommunity.com/sharedfiles/filedetails/?id=1959965492)
 - Kunduz
-    - [Steam Workshop: 1959971214](https://steamcommunity.com/sharedfiles/filedetails/?id=1959971214)  
+    - [Steam Workshop: 1959971214](https://steamcommunity.com/sharedfiles/filedetails/?id=1959971214)
 - Tembelan Island
-    - [Steam Workshop: 1959976706](https://steamcommunity.com/sharedfiles/filedetails/?id=1959976706)  
+    - [Steam Workshop: 1959976706](https://steamcommunity.com/sharedfiles/filedetails/?id=1959976706)
 - Altis 1.9 Community Version
     - [Steam Workshop: 1832910657](https://steamcommunity.com/sharedfiles/filedetails/?id=1832910657)
 
@@ -65,7 +65,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
     - [Steam Workshop: 1833672629](https://steamcommunity.com/sharedfiles/filedetails/?id=1833672629)
 - 3CB Collection
     - [Steam Workshop: 1834976313](https://steamcommunity.com/sharedfiles/filedetails/?id=1834976313)
-    
+
 ## Features:
 
 - Playable in SP, MP, and persistent open server MP.
@@ -77,12 +77,12 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Persistent Stat Save System: You won't lose game or server progress upon a game update.
 - Enhanced AI Squadmate control.
 - AI friendlies and enemy can drag/carry and heal injured soldiers, not working with ACE3 mod.
-- AI Garrisons that use static weapon you add .
+- AI Garrisons that use static weapon you add.
 - Forests get destroyed as long as the war evolves.
 - Up to 3 Headless Client supported.
-- Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892&searchtext=acre), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [FFAA](https://steamcommunity.com/sharedfiles/filedetails/?id=820994401&searchtext=FFAA), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=1316471790). None of them mandatory.
+- Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [FFAA](https://steamcommunity.com/sharedfiles/filedetails/?id=820994401), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=1316471790). None of them mandatory.
 
-### How to build from GIT  
+### How to build from GIT
 - Download ZIP file
 - Extract ZIP
 - Right click on `PrepareMissionsForPacking.ps1` and select 'Open with PowerShell'
@@ -91,4 +91,4 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Use a PBO Packager to pack the any of these mission folders
 
 ### Known Issues:
-For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi-1.4/issues).
+For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi/issues).

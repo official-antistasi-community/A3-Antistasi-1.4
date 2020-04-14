@@ -53,7 +53,6 @@
 		[//Inventory
 			["RHS_Mag_SMAW_HEAA",1,1]
 		]
-		+ _aceClacker
 	],
 
 		"rhsusf_mich_bare_norotos_headset",				//Headgear

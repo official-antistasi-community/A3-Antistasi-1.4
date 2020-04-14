@@ -60,7 +60,7 @@ if (_frontierX) then
 		_veh setPos _pos;
 		_veh setDir _dirVeh + 180;
 		_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
-		_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		[_veh] call A3A_fnc_AIVEHinit;
 		_unit moveInGunner _veh;
@@ -79,7 +79,7 @@ if (_frontierX) then
 		// 		_nul = [_veh] call A3A_fnc_AIVEHinit;
 		// 		_vehiclesX pushBack _veh;
 		// 		sleep 1;
-		// 		_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
+		// 		_unit = [_groupX, FIARifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		// 		_unit moveInGunner _veh;
 		// 		{_soldiers pushBack _x; [_x,_markerX] call A3A_fnc_NATOinit} forEach units _groupX;
 		// 	};
@@ -131,7 +131,7 @@ if (_patrol) then
 			sleep 1;
 			if ((random 10 < 2.5) and (not(_typeGroup in sniperGroups))) then
 			{
-				_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
@@ -157,7 +157,7 @@ if (not(_markerX in destroyedSites)) then
 		_groups pushBack _groupX;
 		for "_i" from 1 to 4 do
 		{
-			_civ = _groupX createUnit ["C_man_w_worker_F", _positionX, [],0, "NONE"];
+			_civ = [_groupX, "C_man_w_worker_F", _positionX, [],0, "NONE"] call A3A_fnc_createUnit;
 			_nul = [_civ] spawn A3A_fnc_CIVinit;
 			_civs pushBack _civ;
 			_civ setVariable ["markerX",_markerX,true];

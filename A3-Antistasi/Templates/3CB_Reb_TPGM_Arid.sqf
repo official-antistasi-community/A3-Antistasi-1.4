@@ -91,9 +91,9 @@ APERSMineMag = "rhs_mine_pmn2_mag";
 
 //Breaching explosives
 //Breaching APCs needs one demo charge
-breachingExplosivesAPC = [["rhs_ec200_mag", 1], ["rhs_ec200_camo_mag", 1], ["rhsusf_m112_mag", 1]]; 
+breachingExplosivesAPC = [["rhs_ec200_mag", 1], ["rhs_ec200_sand_mag", 1], ["rhsusf_m112_mag", 1]];
 //Breaching tanks needs one satchel charge or two demo charges
-breachingExplosivesTank = [["rhs_ec400_mag", 1], ["rhs_ec400_camo_mag", 1], ["rhs_ec200_mag", 2], ["rhs_ec200_camo_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1]];
+breachingExplosivesTank = [["rhs_ec400_mag", 1], ["rhs_ec400_sand_mag", 1], ["rhs_ec200_mag", 2], ["rhs_ec200_sand_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1]];
 
 //Starting Unlocks
 initialRebelEquipment append ["UK3CB_BAF_L9A1","UK3CB_BAF_L107A1","UK3CB_Enfield","UK3CB_Enfield_rail","rhs_weap_rpg75"];

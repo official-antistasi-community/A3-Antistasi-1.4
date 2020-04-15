@@ -319,7 +319,7 @@ player addEventHandler ["GetInMan", {
 		};
 	};
 	if (!_exit) then {
-		if (((typeOf _veh) in arrayCivVeh) or ((typeOf _veh) in civBoats)) then {
+		if ((typeOf _veh) in undercoverVehicles) then {
 			if (!(_veh in reportedVehs)) then {
 				[] spawn A3A_fnc_goUndercover;
 			};

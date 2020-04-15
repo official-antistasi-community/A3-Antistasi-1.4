@@ -214,7 +214,7 @@ DECLARE_SERVER_VAR(arrayCivs, _arrayCivs);
 //      CIVILIAN VEHICLES       ///
 ////////////////////////////////////
 [2,"Creating vehicles list",_fileName] call A3A_fnc_log;
-
+/*
 private _vehicleIsSpecial = {
 	params ["_vehConfig"];
 
@@ -269,6 +269,7 @@ _civBoatConfigs = "(
 )" configClasses (configFile >> "CfgVehicles");
 
 DECLARE_SERVER_VAR(CivBoats, (_civBoatConfigs select {_x call _vehIsValid} apply {configName _x}));
+*/
 
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
@@ -492,6 +493,44 @@ private _templateVariables = [
 	ONLY_DECLARE_SERVER_VAR_FROM_VARIABLE(_x);
 } forEach _templateVariables;
 
+call {
+	if (hasIFA) exitWith {
+		[2, "Loading IFA modset templates", _fileName] call A3A_fnc_log;
+		call compile preProcessFileLineNumbers "Templates\IFA_Reb_POL_Temp.sqf";
+		call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
+		call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
+		call compile preProcessFileLineNumbers "Templates\IFA_Civ.sqf";
+	};
+	if (has3CB) exitWith {
+		[2, "Loading 3CB modset templates", _fileName] call A3A_fnc_log;
+		call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf";
+		call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf";
+		call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf";
+		call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf";
+	};
+	if (activeGREF) exitWith {
+		[2, "Loading RHS modset templates", _fileName] call A3A_fnc_log;
+		if (teamPlayer != independent) then {
+			call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf";
+			call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf";
+		} else {
+			call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf";
+			call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf";
+		};
+		call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf";
+		call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf";
+	};
+	
+	[2, "Loading vanilla modset templates", _fileName] call A3A_fnc_log;
+	call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf";
+	call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf";
+	call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";
+	call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";
+};
+
+// could add auxiliary civ vehicle templates at this point
+
+/*
 if !(hasIFA) then {
 	//Rebel Templates
 	switch (true) do {
@@ -513,13 +552,126 @@ if !(hasIFA) then {
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf"};
 		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf"};
 	};
+	//Civilian Templates
+	switch (true) do {
+		case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";};
+		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf"};
+		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf"};
+	};
 }
 else {
 	//IFA Templates
 	call compile preProcessFileLineNumbers "Templates\IFA_Reb_POL_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
+	call compile preProcessFileLineNumbers "Templates\IFA_Civ.sqf";
 };
+*/
+
+/*
+private _civVehicles = [];
+private _civVehiclesWeighted = [];
+private _carWeightTotal = 0;
+private _truckWeightTotal = 0;
+
+// zero weights for vehicles from disabled mods, count total weights
+// build unweighted array for identifying civ vehicles for undercover etc.
+{
+	if ((_x select 0) call A3A_fnc_getModOfConfigClass in disabledMods) then { _x set [1, 0] }; 
+	_carWeightTotal = _carWeightTotal + (_x select 1);
+	if (_x select 1 > 0) then { _civVehicles pushBack (_x select 0) };
+} forEach civCarData;
+{
+	if ((_x select 0) call A3A_fnc_getModOfConfigClass in disabledMods) then { _x set [1, 0] };
+	_truckWeightTotal = _truckWeightTotal + (_x select 1);
+	if (_x select 1 > 0) then { _civVehicles pushBack (_x select 0) };
+} forEach civTruckData;
+
+// create final array for selectRandomWeighted
+{ 
+	_civVehiclesWeighted pushBack (_x select 0);
+	_civVehiclesWeighted pushBack ((_x select 1) * 4 / _carWeightTotal);
+} forEach civCarData;
+{
+	_civVehicles pushBack (_x select 0);
+	_civVehicles pushBack ((_x select 1) * 1 / _truckWeightTotal);
+} forEach civTruckData;
+*/
+
+
+// ok, better way of doing this...
+// make a little function that re-weights a weighted array
+
+private _fnc_vehicleIsValid = {
+	params ["_type"];
+	private _configClass = configFile >> "CfgVehicles" >> _type;
+	if !(isClass _configClass) exitWith {
+		[1, format ["Vehicle class %1 not found", _type], _filename] call A3A_fnc_Log;	
+		false;
+	};
+	if (_configClass call A3A_fnc_getModOfConfigClass in disabledMods) then {false} else {true};
+};
+
+private _fnc_filterAndWeightArray = {
+
+	params ["_array", "_targWeight"];
+	private _output = [];
+	private _curWeight = 0;
+
+	// first pass, filter and find total weight
+	for "_i" from 0 to (count _array - 2) step 2 do {
+		if ((_array select _i) call _fnc_vehicleIsValid) then {
+			_output pushBack (_array select _i);
+			_output pushBack (_array select (_i+1));
+			_curWeight = _curWeight + (_array select (_i+1));
+		};
+	};
+	if (_curWeight == 0) exitWith {_output};
+
+	// second pass, re-weight
+	private _weightMod = _targWeight / _curWeight;
+	for "_i" from 0 to (count _output - 2) step 2 do {
+		_output set [_i+1, _weightMod * (_output select (_i+1))]; 
+	};
+	_output;
+};
+
+private _civVehicles = [];
+private _civVehiclesWeighted = [];
+
+_civVehiclesWeighted append ([civVehCommonData, 4] call _fnc_filterAndWeightArray);
+_civVehiclesWeighted append ([civVehIndustrialData, 1] call _fnc_filterAndWeightArray);
+_civVehiclesWeighted append ([civVehMedicalData, 0.1] call _fnc_filterAndWeightArray);
+_civVehiclesWeighted append ([civVehRepairData, 0.1] call _fnc_filterAndWeightArray);
+_civVehiclesWeighted append ([civVehRefuelData, 0.1] call _fnc_filterAndWeightArray);
+
+for "_i" from 0 to (count _civVehiclesWeighted - 2) step 2 do {
+	_civVehicles pushBack (_civVehiclesWeighted select _i);
+};
+
+DECLARE_SERVER_VAR(arrayCivVeh, _civVehicles);
+DECLARE_SERVER_VAR(civVehiclesWeighted, _civVehiclesWeighted);
+
+
+private _civBoats = [];
+private _civBoatsWeighted = [];
+
+// Boats don't need any re-weighting, so just copy the data
+
+for "_i" from 0 to (count civBoatData - 2) step 2 do {
+	private _boat = civBoatData select _i;
+	if (_boat call _fnc_vehicleIsValid) then {
+		_civBoats pushBack _boat;
+		_civBoatsWeighted pushBack _boat;
+		_civBoatsWeighted pushBack (civBoatData select (_i+1));
+	};
+};
+
+DECLARE_SERVER_VAR(civBoats, _civBoats);
+DECLARE_SERVER_VAR(civBoatsWeighted, _civBoatsWeighted);
+
+private _undercoverVehicles = (arrayCivVeh - ["C_Quadbike_01_F"]) + civBoats + [civHeli];
+DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///

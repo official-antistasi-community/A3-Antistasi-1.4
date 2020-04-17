@@ -44,6 +44,7 @@
 			["rhs_mag_30Rnd_556x45_Mk318_Stanag",4,30]
 		]
 		+	_aceFlashlight
+		+ _aceClacker
 	],
 
 	[																						//Backpack

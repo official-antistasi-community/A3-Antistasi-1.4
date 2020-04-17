@@ -1,66 +1,63 @@
-[//Loadout
-	[//Primary Weapon
-		"RHS_Weap_M4A1",									//Weapon
-		"",													//Muzzle
-		"RHSUSF_Acc_WMX_Bk",								//Rail
-		selectRandom										//Sight
-		["RHSUSF_Acc_CompM4", "RHSUSF_Acc_Eotech_552"],
-		["RHS_Mag_30Rnd_556x45_M855A1_Stanag",30],			//Primary Magazine
-		[],													//Secondary Magazine
-		""
+[																					//Loadout
+	[																						//Primary Weapon
+		"rhs_weap_m4a1_carryhandle",									//Weapon
+		"",																						//Muzzle
+		"rhsusf_acc_anpeq16a",												//Rail
+		["RHSUSF_Acc_CompM4"],												//Sight
+		["rhs_mag_30Rnd_556x45_Mk318_Stanag",30],			//Primary Magazine
+		[],																						//Secondary Magazine
+		"rhsusf_acc_kac_grip"													//Bipod
 	],
 
-	[//Launcher
-		"RHS_Weap_SMAW",									//Weapon
-		"",													//Muzzle
-		"",													//Rail
-		"RHS_Weap_Optic_SMAW",								//Sight
-		["RHS_Mag_SMAW_HEDP",1],							//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
+	[																						//Launcher
+		"RHS_Weap_MAAWS",															//Weapon
+		"",																						//Muzzle
+			"",																					//Rail
+		"RHS_Optic_MAAWS",														//Sight
+		["RHS_Mag_MAAWS_HEAT",1],											//Primary Magazine
+		[],																						//Secondary Magazine
+		""																						//Bipod
 	],
 
-	[//Secondary Weapon
-		"RHSUSF_Weap_M1911A1",								//Weapon
-		"",													//Muzzle
-		"",													//Rail
-		"",													//Sight
-		["RHSUSF_Mag_7x45ACP_MHP",7],						//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
+	[																						//Secondary Weapon
+		"rhsusf_weap_m9",															//Weapon
+		"",																						//Muzzle
+		"",																						//Rail
+		"",																						//Sight
+		["rhsusf_mag_15Rnd_9x19_FMJ",15],							//Primary Magazine
+		[],																						//Secondary Magazine
+		""																						//Bipod
 	],
 
-	[//Uniform
-		"RHS_Uniform_G3_M81",								//Uniform
+	[																						//Uniform
+		"RHS_Uniform_G3_M81",													//Uniform
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
-	[//Vest
-		selectRandom										//vest
-		["RHSUSF_SPCS_OCP_Rifleman","RHSUSF_SPCS_OCP_Rifleman_Alt"],
-		[//Inventory
-			["RHSUSF_ANPVS_14",1],
+	[																						//Vest
+		["rhsusf_mbav_rifleman"],											//Vest
+		[																									//Inventory
 			["RHS_Mag_An_M8HC",2,1],
-			["RHS_Mag_M67",1,1],
+			["RHS_Mag_M67",2,1],
 			["RHS_Mag_Mk84",1,1],
-			["RHSUSF_Mag_7x45ACP_MHP",2,7],
-			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",4,30]
-		] +	_aceFlashlight
+			["rhsusf_mag_15Rnd_9x19_FMJ",2,15],
+			["rhs_mag_30Rnd_556x45_Mk318_Stanag",4,30]
+		]
+		+	_aceFlashlight
 	],
 
-	[//Backpack
-		"RHSUSF_Assault_EagleAIII_OCP",						//Backpack
-		[//Inventory
-			["RHS_Mag_SMAW_HEAA",1,1]
+	[																						//Backpack
+		"rhsusf_falconii",														//Backpack
+		[																									//Inventory
+			["RHS_Mag_MAAWS_HEAT",1,1]
 		]
 	],
 
-		"rhsusf_mich_bare_norotos_headset",				//Headgear
-		SelectRandom 										//Facewear
-		["RHSUSF_Shemagh_Grn", "RHSUSF_Shemagh2_Grn", "RHSUSF_Shemagh_Gogg_Grn", "RHSUSF_Shemagh2_Gogg_Grn", "RHSUSF_Oakley_Goggles_Blk"],
+		"rhsusf_mich_bare_norotos_alt",						//Headgear
+				 																			//Facewear
 
 	[//Binocular
-		"Binocular",										//Binocular
+		"Binocular",															//Binocular
 		"",
 		"",
 		"",
@@ -69,12 +66,12 @@
 		""
 	],
 
-	[//Item
-		"ItemMap",											//Map
-		"",													//Terminal
-		["TF_RF7800STR"] call _fnc_tfarRadio,				//Radio
-		"ItemCompass",										//Compass
-		_tfarMicroDAGRNoArray,										//Watch
-		""													//Goggles
+	[																						//Item
+		"ItemMap",																		//Map
+		"",																						//Terminal
+		["TF_anprc152"] call _fnc_tfarRadio,					//Radio
+		"ItemCompass",																//Compass
+		_tfarMicroDAGRNoArray,												//Watch
+		"RHSUSF_ANPVS_15"															//Goggles
 	]
 ];

@@ -1,4 +1,4 @@
-		[//Loadout
+[//Loadout
 		[//Primary Weapon
 		"rhs_weap_ak104_zenitco01",				//Weapon
 		"rhs_acc_dtk3",											//Muzzel
@@ -11,11 +11,11 @@
 		],
 
 		[//Launcher
-		"rhs_weap_rpg26",									//Weapon
+		"",									//Weapon
 		"",													//Muzzle
 		"",													//Rail
 		"",								//Sight
-		["rhs_rpg26_mag",1],							//Primary Magazine
+		["",],							//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 		],
@@ -31,11 +31,8 @@
 		],
 
 		[//Uniform
-		"rhs_uniform_gorka_r_g",								//Uniform
-		[//Inventory
-		 + _basicMedicalSupplies
-		 + _basicMiscItems
-		]
+			"rhs_uniform_gorka_r_g",
+			[] + _basicMedicalSupplies + _basicMiscItems
 		],
 
 		[//Vest
@@ -51,15 +48,13 @@
 		],
 
 		[//Backpack
-		"",
 		[//Inventory
 		[]
 		]
-
 		],
 
 		"rhs_altyn_novisor_ess",				//Headgear
-		[""],       									  //Facewear
+		"",       									  //Facewear
 
 		[//Binocular
 		"rhs_pdu4",											//Rangefinder
@@ -79,4 +74,4 @@
 		_tfarMicroDAGRNoArray,							//Watch
 		"rhs_1PN138"												//Goggles
 		]
-		];
+];

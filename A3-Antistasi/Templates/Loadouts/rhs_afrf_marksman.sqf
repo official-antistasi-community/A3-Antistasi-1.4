@@ -53,7 +53,7 @@
 		[																							//Backpack
 		],
 
-		"rhs_beanie_green",														//Headgear
+		"rhs_6b27m_digi_ess_bala",														//Headgear
 		"",																						//Facewear
 
 		[																							//Binocular

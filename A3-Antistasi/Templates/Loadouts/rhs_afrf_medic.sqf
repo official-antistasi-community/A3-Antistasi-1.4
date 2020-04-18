@@ -32,7 +32,7 @@
 
 		[																							//Uniform
 		"rhs_uniform_emr_patchless",											//Uniform
-		[																									//Inventory
+		[																											//Inventory
 		 + _basicMedicalSupplies
 		 + _basicMiscItems
 		]
@@ -40,7 +40,7 @@
 
 		[																							//Vest
 		"rhs_6b23_digi_6sh92_headset_spetsnaz",						//Vest
-		[																									//Inventory
+		[																											//Inventory
 		["rhs_mag_9x19_17",1,17],
 		["rhs_30Rnd_545x39mm_7n22_ak",4,30],
 		["rhs_mag_rdg2_white",2,1],
@@ -52,7 +52,7 @@
 
 		[																							//Backpack
 		"rhs_medic_bag",																	//Backpack
-		[																									//Inventory
+		[																											//Inventory
 	 	+ _medicSupplies
 		]
 		],

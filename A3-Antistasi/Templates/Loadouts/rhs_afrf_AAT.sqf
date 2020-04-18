@@ -11,7 +11,7 @@
 ],
 
 [																							//Launcher
-"",																								//Weapon
+"rhs_weap_rpg26",															  	//Weapon
 "",																								//Muzzle
 "",																								//Rail
 "",																								//Sight

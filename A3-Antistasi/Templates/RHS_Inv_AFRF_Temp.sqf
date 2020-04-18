@@ -34,7 +34,7 @@ CSATPlayerLoadouts = [
 	//Anti-tank Scout
 	["rhs_afrf_AT"] call A3A_fnc_getLoadout,
 	//AT2
-	["rhs_afrf_AT2"] call A3A_fnc_getLoadout
+	["rhs_afrf_aat"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles

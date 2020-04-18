@@ -48,11 +48,10 @@
     ],
 
     [//Backpack
-    "",						//Backpack
-    [//Inventory
-    []
-    ]
-    ],
+		[//Inventory
+		[]
+		]
+		],
 
     "UK3CB_BAF_H_Boonie_MTP_PRR",				//Headgear
     "UK3CB_BAF_G_Tactical_Grey",       						  //Facewear

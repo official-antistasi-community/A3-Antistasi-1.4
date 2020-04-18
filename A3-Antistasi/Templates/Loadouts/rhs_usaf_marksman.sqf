@@ -49,10 +49,13 @@
 	],
 
 	[																						//Backpack
+		""																						//Backpack
+			[																								//Inventory
+			]
 	],
 
 		"rhsusf_mich_bare_norotos_alt",						//Headgear
-		[""],																			//Facewear
+		"",																				//Facewear
 
 	[																						//Binocular
 		"RHSUSF_Bino_Lerca_1200_tan",									//Binocular

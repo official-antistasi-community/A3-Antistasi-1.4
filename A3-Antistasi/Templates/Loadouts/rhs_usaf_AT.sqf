@@ -57,8 +57,8 @@
 		"rhsusf_mich_bare_norotos_alt",						//Headgear
 				 																			//Facewear
 
-	[//Binocular
-		"Binocular",															//Binocular
+	[																						//Binocular
+		"Binocular",																	//Binocular
 		"",
 		"",
 		"",

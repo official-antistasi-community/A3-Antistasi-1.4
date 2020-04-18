@@ -10,9 +10,9 @@
 	],
 
 	[																						//Launcher
-		"rhs_weap_m136",															//Weapon
+		"RHS_Weap_m136",															//Weapon
 		"",																						//Muzzle
-		"",																						//Rail
+			"",																					//Rail
 		"",																						//Sight
 		[],																						//Primary Magazine
 		[],																						//Secondary Magazine
@@ -57,8 +57,8 @@
 		"rhsusf_mich_bare_norotos_alt",						//Headgear
 				 																			//Facewear
 
-	[//Binocular
-		"Binocular",															//Binocular
+	[																						//Binocular
+		"Binocular",																	//Binocular
 		"",
 		"",
 		"",

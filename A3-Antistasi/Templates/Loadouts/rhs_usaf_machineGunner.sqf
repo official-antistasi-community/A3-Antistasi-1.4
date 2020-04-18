@@ -47,10 +47,13 @@
 	],
 
 	[																								//Backpack
+		""																								//Backpack
+		[																											//Inventory
+		]
 	],
 
 		"rhsusf_mich_bare_norotos_alt",								//Headgear
-		[""],																					//Facewear
+		"",																					  //Facewear
 
 	[																								//Binocular
 		"Binocular",																			//Binocular

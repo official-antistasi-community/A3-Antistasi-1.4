@@ -31,11 +31,8 @@
 
 		[																							//Uniform
 		"rhs_uniform_emr_patchless",											//Uniform
-		[																									//Inventory
-		 + _basicMedicalSupplies
-		 + _basicMiscItems
-		]
-		],
+		[] + _basicMedicalSupplies + _basicMiscItems
+	],
 
 		[																							//Vest
 		"rhs_6b23_digi_6sh92_headset_spetsnaz",						//Vest

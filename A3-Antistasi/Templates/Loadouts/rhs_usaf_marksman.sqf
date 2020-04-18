@@ -70,6 +70,6 @@
 		["TF_anprc152"] call _fnc_tfarRadio,					//Radio
 		"ItemCompass",																//Compass
 		_tfarMicroDAGRNoArray,												//Watch
-		"RHSUSF_ANPVS_15"															//Goggles
+		"RHSUSF_ANPVS_14"															//Goggles
 	]
 ];

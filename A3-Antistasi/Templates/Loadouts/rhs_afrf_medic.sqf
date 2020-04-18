@@ -3,7 +3,7 @@
 		"rhs_weap_ak74m",																	//Weapon
 		"rhs_acc_dtk3",																		//Muzzel
 		"rhs_acc_perst1ik",																//Rail
-		"rhs_acc_pkas",																				//Sight
+		"rhs_acc_pkas",																		//Sight
 		["rhs_30Rnd_545x39mm_7n22_ak",30],								//Primary Magazine
 		[],																								//Secondary Magazine
 		"" 																								//Grip

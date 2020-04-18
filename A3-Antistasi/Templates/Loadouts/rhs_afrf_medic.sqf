@@ -1,66 +1,67 @@
-		[//Loadout
-		[//Primary Weapon
-		"rhs_weap_ak105_zenitco01",					//Weapon
-		"rhs_acc_dtk3",											//Muzzel
-		"rhs_acc_perst3_2dp_light_h",									//Rail
-		"",																	//Sight
-		["rhs_30Rnd_545x39_7N10_AK",30],	//Primary Magazine
-		[],										//Secondary Magazine
-		"rhsusf_acc_rvg_blk" 	//Grip
+		[																					//Loadout
+		[																							//Primary Weapon
+		"rhs_weap_ak74m",																	//Weapon
+		"rhs_acc_dtk3",																		//Muzzel
+		"rhs_acc_perst1ik",																//Rail
+		"rhs_acc_pkas",																				//Sight
+		["rhs_30Rnd_545x39mm_7n22_ak",30],								//Primary Magazine
+		[],																								//Secondary Magazine
+		"" 																								//Grip
 
 		],
 
-		[//Launcher
-		"",													//Weapon
-		"",													//Muzzle
-		"",													//Rail
-		"",													//Sight
-		[],													//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
+		[																							//Launcher
+		"",																								//Weapon
+		"",																								//Muzzle
+		"",																								//Rail
+		"",																								//Sight
+		[],																								//Primary Magazine
+		[],																								//Secondary Magazine
+		""																								//Bipod
 		],
 
-		[//Secondary Weapon
-		"rhs_weap_pb_6p9",								//Weapon
-		"rhs_acc_6p9_suppressor",					//Muzzle
-		"",																//Rail
-		"",																//Sight
-		["rhs_mag_9x18_8_57n181S",8],			//Primary Magazine
-		[],																//Secondary Magazine
-		""																//Bipod
+		[																							//Secondary Weapon
+		"rhs_weap_pya",																		//Weapon
+		"",																								//Muzzle
+		"",																								//Rail
+		"",																								//Sight
+		["rhs_mag_9x19_17",17],														//Primary Magazine
+		[],																								//Secondary Magazine
+		""																								//Bipod
 		],
 
-		[//Uniform
-		"rhs_uniform_gorka_r_g",								//Uniform
-		[//Inventory
+		[																							//Uniform
+		"rhs_uniform_emr_patchless",											//Uniform
+		[																									//Inventory
 		 + _basicMedicalSupplies
 		 + _basicMiscItems
 		]
 		],
 
-		[//Vest
-		"rhs_6b23_digi_medic",
-		[//Inventory
-		["rhs_30Rnd_545x39_7N10_AK",4,30],
+		[																							//Vest
+		"rhs_6b23_digi_6sh92_headset_spetsnaz",						//Vest
+		[																									//Inventory
+		["rhs_mag_9x19_17",1,17],
+		["rhs_30Rnd_545x39mm_7n22_ak",4,30],
 		["rhs_mag_rdg2_white",2,1],
-		["rhs_mag_rgn",1,1]
+		["rhs_mag_rgo",1,1]
 		+ _aceM84
 		+	_aceFlashlight
 		]
 		],
-		[//Backpack
-		"rhs_medic_bag",
-		[//Inventory
+
+		[																							//Backpack
+		"rhs_medic_bag",																	//Backpack
+		[																									//Inventory
 	 	+ _medicSupplies
 		]
 		],
 
-		"rhs_beanie_green",				//Headgear
+		"rhs_6b27m_digi_ess_bala",										//Headgear
+		"",																						//Facewear
 
-		"",		//Facewear
-
-		[//Binocular
-		"Binocular",										//Binocular
+		[																							//Binocular
+		"Binocular",																			//Binocular
 		"",
 		"",
 		"",
@@ -69,12 +70,12 @@
 		""
 		],
 
-		[//Item
-		"ItemMap",											//Map
-		"",													//Terminal
-		["tf_pnr1000a"] call _fnc_tfarRadio,				//Radio
-		"ItemCompass",										//Compass
-		_tfarMicroDAGRNoArray,										//Watch
-		"rhs_1PN138"													//Goggles
+		[																							//Item
+		"ItemMap",																				//Map
+		"",																								//Terminal
+		["tf_fadak"] call _fnc_tfarRadio,									//Radio
+		"ItemCompass",																		//Compass
+		_tfarMicroDAGRNoArray,														//Watch
+		"rhs_1PN138"																			//Goggles
 		]
 		];

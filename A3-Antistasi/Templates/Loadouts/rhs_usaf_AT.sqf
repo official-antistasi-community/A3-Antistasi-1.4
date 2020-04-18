@@ -13,7 +13,7 @@
 		"RHS_Weap_MAAWS",															//Weapon
 		"",																						//Muzzle
 			"",																					//Rail
-		"RHS_Optic_MAAWS",														//Sight
+		"",																						//Sight
 		["RHS_Mag_MAAWS_HEAT",1],											//Primary Magazine
 		[],																						//Secondary Magazine
 		""																						//Bipod

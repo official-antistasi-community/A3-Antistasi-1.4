@@ -42,9 +42,9 @@
 		["rhs_30Rnd_762x39mm_polymer",4,30],
 		["rhs_mag_rdg2_white",1,1],
 		["rhs_mag_rgo",1,1]
+		]
 		+ _aceM84
 		+	_aceFlashlight
-		]
 		],
 
 		[//Backpack

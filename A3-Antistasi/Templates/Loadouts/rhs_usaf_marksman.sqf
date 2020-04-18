@@ -39,12 +39,11 @@
 		[																									//Inventory
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
-			["RHS_Mag_Mk84",1,1],
 			["RHSUSF_20Rnd_762x51_SR25_M993_Mag",5,30],
 			["rhsusf_mag_15Rnd_9x19_FMJ",1,15]
 		]
 		+ _aceFlashlight
-		+ _aceKestrel
+		+ _aceM84
 		+ _aceRangecard
 	],
 

@@ -39,11 +39,11 @@
 		[																											//Inventory
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",2,1],
-			["RHS_Mag_Mk84",1,1],
 			["RHSUSF_100Rnd_556x45_soft_pouch",2,100],
 			["rhsusf_mag_15Rnd_9x19_FMJ",1,15]
 		]
 		+ _aceFlashlight
+		+ _aceM84
 	],
 
 	[																								//Backpack

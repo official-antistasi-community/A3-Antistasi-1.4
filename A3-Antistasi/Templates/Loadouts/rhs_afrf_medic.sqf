@@ -7,7 +7,6 @@
 		["rhs_30Rnd_545x39mm_7n22_ak",30],								//Primary Magazine
 		[],																								//Secondary Magazine
 		"" 																								//Grip
-
 		],
 
 		[																							//Launcher

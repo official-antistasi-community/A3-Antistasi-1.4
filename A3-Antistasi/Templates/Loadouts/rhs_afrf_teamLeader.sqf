@@ -1,37 +1,36 @@
-[																					//Loadout
- [																							//Primary Weapon
-	"rhs_weap_ak103_zenitco01",																	//Weapon
-	"rhs_acc_dtk3",																		//Muzzel
-	"rhs_acc_perst3_2dp_h",																//Rail
-	"rhs_acc_pkas",																				//Sight
-	["rhs_30Rnd_762x39mm_polymer",30],								//Primary Magazine
-	[],																								//Secondary Magazine
-		"" 																								//Grip
-
+[																					  //Loadout
+  [																			        //Primary Weapon
+	 "rhs_weap_ak103_zenitco01",					            //Weapon
+	 "rhs_acc_dtk3",																  //Muzzel
+	 "rhs_acc_perst3_2dp_h",										  	  //Rail
+	 "rhs_acc_pkas",														    	//Sight
+	 ["rhs_30Rnd_762x39mm_polymer",30],		          	//Primary Magazine
+	 [],																			        //Secondary Magazine
+	 "" 																			        //Grip
 	],
 
 	[																							//Launcher
-		"",																								//Weapon
-		"",																								//Muzzle
-		"",																								//Rail
-		"",																								//Sight
-		[],																								//Primary Magazine
-		[],																								//Secondary Magazine
-		""																								//Bipod
+		"",																						  //Weapon
+		"",																							//Muzzle
+		"",																							//Rail
+		"",																							//Sight
+		[],																							//Primary Magazine
+		[],																							//Secondary Magazine
+		""																							//Bipod
 	],
 
 	[																							//Secondary Weapon
-		"rhs_weap_pya",																		//Weapon
-		"",																								//Muzzle
-		"",																								//Rail
-		"",																								//Sight
-		["rhs_mag_9x19_17",17],														//Primary Magazine
-		[],																								//Secondary Magazine
-		""																								//Bipod
+		"rhs_weap_pya",																	//Weapon
+		"",																							//Muzzle
+		"",																							//Rail
+		"",																							//Sight
+		["rhs_mag_9x19_17",17],													//Primary Magazine
+		[],																							//Secondary Magazine
+		""																							//Bipod
 	],
 
 	[																							//Uniform
-		"rhs_uniform_emr_patchless",											//Uniform
+		"rhs_uniform_emr_patchless",										//Uniform
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
@@ -53,7 +52,7 @@
 	],
 
 		"rhs_6b27m_digi_ess_bala",									//Headgear
-		[""],       									  						//Facewear
+		"",       									  						//Facewear
 
 	[																							//Binocular
 		"rhs_pdu4",																			//Binocular

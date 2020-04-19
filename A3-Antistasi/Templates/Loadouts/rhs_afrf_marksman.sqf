@@ -4,7 +4,7 @@
    "",																								//Muzzle
 	 "",																								//Rail
 	 "rhs_acc_pso1m21",																	//Sight
-	 ["rhs_10Rnd_762x54mmR_7N14",10],										//Primary Magazine
+	 ["rhs_10Rnd_762x54mmR_7n1",10],										//Primary Magazine
 	 [],																								//Secondary Magazine
 	 ""																									//Bipod
 	],
@@ -38,7 +38,7 @@
 	    "rhs_6b23_digi_6sh92_headset_spetsnaz",					//Vest
 		  [																										//Inventory
  		  ["rhs_mag_9x19_17",1,17],
-		  ["rhs_10Rnd_762x54mmR_7N14",9,10],
+		  ["rhs_10Rnd_762x54mmR_7n1",9,10],
 		  ["rhs_mag_rdg2_white",2,1],
 		  ["rhs_mag_rgo",1,1]
 		]

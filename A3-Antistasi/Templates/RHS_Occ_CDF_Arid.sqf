@@ -32,11 +32,11 @@ NATOPlayerLoadouts = [
 	//Autorifleman
 	["rhs_gref_machineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	"rhsgref_cdf_para_marksman",
 	//Anti-tank Scout
 	"rhsgref_cdf_para_grenadier",
 	//AT2
 	"rhsgref_cdf_para_grenadier"
+	["rhs_gref_marksman"] call A3A_fnc_getLoadout,
 ];
 
 //PVP Player Vehicles

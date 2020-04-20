@@ -34,9 +34,9 @@ NATOPlayerLoadouts = [
 	//Marksman
 	//Anti-tank Scout
 	//AT2
-	"rhsgref_cdf_para_grenadier"
 	["rhs_gref_marksman"] call A3A_fnc_getLoadout,
 	["rhs_gref_AT"] call A3A_fnc_getLoadout,
+	["rhs_gref_AAT"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles

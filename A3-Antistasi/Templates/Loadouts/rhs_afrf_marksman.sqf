@@ -27,7 +27,7 @@
 		["rhs_mag_9x19_17",17],														//Primary Magazine
 		[],																								//Secondary Magazine
 		""																								//Bipod
-	 ]
+	 ],
 
 	 [																							//Uniform
 	   "rhs_uniform_emr_patchless",											//Uniform

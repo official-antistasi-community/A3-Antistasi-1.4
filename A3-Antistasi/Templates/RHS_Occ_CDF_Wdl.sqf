@@ -28,7 +28,7 @@ NATOPlayerLoadouts = [
 	//Team Leader
 	["rhs_gref_teamLeader"] call A3A_fnc_getLoadout,
 	//Medic
-	"rhsgref_cdf_para_medic",
+	["rhs_gref_medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
 	"rhsgref_cdf_para_autorifleman",
 	//Marksman

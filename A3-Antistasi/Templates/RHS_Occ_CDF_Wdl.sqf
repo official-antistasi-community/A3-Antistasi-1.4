@@ -32,10 +32,10 @@ NATOPlayerLoadouts = [
 	//Autorifleman
 	["rhs_gref_machineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	//Anti-tank Scout
-	//AT2
 	["rhs_gref_marksman"] call A3A_fnc_getLoadout,
+	//Anti Tank
 	["rhs_gref_AT"] call A3A_fnc_getLoadout,
+	//Assistant Anti Tank
 	["rhs_gref_AAT"] call A3A_fnc_getLoadout
 ];
 

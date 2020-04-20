@@ -3,7 +3,7 @@
 		"RHS_Weap_M249_PIP",													  //Weapon
 		"",																						  //Muzzle
 		"",																					    //Rail
-		["RHSUSF_Acc_Eotech_xps3"],									    //Sight
+		"RHSUSF_Acc_Eotech_xps3",									    	//Sight
 		["RHSUSF_100Rnd_556x45_soft_pouch",100],		    //Primary Magazine
 		[],																						  //Secondary Magazine
 		"rhsusf_acc_saw_bipod"												  //Bipod
@@ -38,7 +38,7 @@
 		"rhsgref_6b23_ttsko_mountain_rifleman",					//Vest
 		[																					    			//Inventory
 			["RHS_Mag_rgd5",2,1],
-			["RHS_mag_rdg2_white",2,1]
+			["RHS_mag_rdg2_white",2,1],
 			["RHSUSF_100Rnd_556x45_soft_pouch",2,100],
 			["rhs_mag_9x18_8_57n181s",1,8]
 		]
@@ -52,7 +52,7 @@
 		]
 	],
 
-		"kaska_6b27m_ttsko_mountain",								//Headgear
+		"rhsgref_6b27m_ttsko_mountain",								//Headgear
 		"",																					//Facewear
 
 	[																					    //Binocular

@@ -47,10 +47,10 @@
 		+ _aceRangecard
 	],
 
-	[																					    //Backpack
-		"",																					    //Backpack
-		[																					    			//Inventory
-		]
+	[																							//Backpack
+		[																			          //Backpack
+    []																				          //Inventory
+    ]
 	],
 
 		"rhsgref_6b27m_ttsko_mountain",								//Headgear

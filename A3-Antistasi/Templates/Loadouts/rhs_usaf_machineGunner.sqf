@@ -47,7 +47,7 @@
 	],
 
 	[																								//Backpack
-		""																								//Backpack
+		"",																								//Backpack
 		[																											//Inventory
 		]
 	],

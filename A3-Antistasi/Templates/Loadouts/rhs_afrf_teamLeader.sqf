@@ -47,12 +47,13 @@
 	],
 
 	[																							//Backpack
-		"",																							//Backpack
-		[]																									//Inventory
+		[																			          //Backpack
+    []																				          //Inventory
+    ]
 	],
 
 		"rhs_6b27m_digi_ess_bala",									//Headgear
-		"",       									  						//Facewear
+		"",       									  						  //Facewear
 
 	[																							//Binocular
 		"rhs_pdu4",																			//Binocular

@@ -26,7 +26,7 @@ NATOAmmobox = "I_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"rhsgref_cdf_para_squadleader",
+	["rhs_gref_teamLeader"] call A3A_fnc_getLoadout,
 	//Medic
 	"rhsgref_cdf_para_medic",
 	//Autorifleman

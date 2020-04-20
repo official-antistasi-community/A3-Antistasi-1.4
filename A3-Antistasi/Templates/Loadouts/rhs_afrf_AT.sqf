@@ -1,4 +1,4 @@
-[//Loadout
+		[//Loadout
 		[//Primary Weapon
 		"rhs_weap_ak103_zenitco01",				//Weapon
 		"rhs_acc_dtk3",											//Muzzel
@@ -31,8 +31,11 @@
 		],
 
 		[//Uniform
-		"rhs_uniform_gorka_r_g",
-		[] + _basicMedicalSupplies + _basicMiscItems
+		"rhs_uniform_gorka_r_g",								//Uniform
+		[//Inventory
+		 + _basicMedicalSupplies
+		 + _basicMiscItems
+		]
 		],
 
 		[//Vest
@@ -71,9 +74,9 @@
 		[//Item
 		"ItemMap",											//Map
 		"",													//Terminal
-		["tf_fadak"] call _fnc_tfarRadio,				//Radio
+		["tf_pnr1000a"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
 		_tfarMicroDAGRNoArray,										//Watch
 		"rhs_1PN138"													//Goggles
 		]
-];
+		];

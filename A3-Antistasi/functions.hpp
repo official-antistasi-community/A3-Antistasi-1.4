@@ -382,8 +382,8 @@ class A3A
 		class promotePlayer {};
 		class ranksMP {};
 		class resourcesPlayer {};
-		class theBossInit {};
 		class theBossToggleEligibility {};
+		class theBossTransfer {};
 		class theBossSteal {};
 		class assignBossIfNone {};
 		class tierCheck {};

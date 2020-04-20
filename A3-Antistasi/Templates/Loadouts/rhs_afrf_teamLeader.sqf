@@ -15,7 +15,7 @@
 		"",													//Muzzle
 		"",													//Rail
 		"",								//Sight
-		[],							//Primary Magazine
+		["",],							//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 		],

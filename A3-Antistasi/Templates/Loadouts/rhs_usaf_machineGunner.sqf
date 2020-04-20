@@ -3,7 +3,7 @@
 		"RHS_Weap_M249_PIP",													//Weapon
 		"",																						//Muzzle
 		"",																						//Rail
-		["RHSUSF_Acc_Eotech_552"],										//Sight
+		"RHSUSF_Acc_Eotech_552",										//Sight
 		["RHSUSF_100Rnd_556x45_soft_pouch",100],			//Primary Magazine
 		[],																						//Secondary Magazine
 		"rhsusf_acc_saw_bipod"												//Bipod

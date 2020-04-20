@@ -14,7 +14,7 @@
 		"",																							//Muzzle
 		"",																							//Rail
 		"",																							//Sight
-		["rhs_rpg7_PG7VL_mag",1],												//Primary Magazine
+		[],																							//Primary Magazine
 		[],																							//Secondary Magazine
 		""																							//Bipod
 	],

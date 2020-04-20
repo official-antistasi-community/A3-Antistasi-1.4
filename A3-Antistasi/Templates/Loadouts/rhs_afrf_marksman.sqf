@@ -49,7 +49,8 @@
 
 	[																							//Backpack
 		"",																							//Backpack
-		[]																									//Inventory
+		[																										//Inventory
+		]
 	],
 
 	"rhs_6b27m_digi_ess_bala",									//Headgear

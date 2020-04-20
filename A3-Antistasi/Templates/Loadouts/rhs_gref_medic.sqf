@@ -3,8 +3,8 @@
 		"rhs_weap_ak105_zenitco01",								    	//Weapon
 		"rhs_acc_dtk3",																	//Muzzle
 		"rhs_acc_perst3_2dp_h",													//Rail
-		"rhsusf_acc_pkas",															//Sight
-		["rhsgref_30rnd_545x39_7n10_ak",30],						//Primary Magazine
+		"rhs_acc_pkas",															//Sight
+		["rhs_30rnd_545x39_7n10_ak",30],						//Primary Magazine
 		[],																							//Secondary Magazine
 		""																							//Bipod
 	],
@@ -38,8 +38,8 @@
 		"rhsgref_6b23_ttsko_mountain_rifleman",					//Vest
 		[																					    			//Inventory
 			["RHS_Mag_rgd5",2,1],
-			["RHS_mag_rdg2_white",2,1]
-			["rhsgref_30rnd_545x39_7n10_ak",4,30],
+			["RHS_mag_rdg2_white",2,1],
+			["rhs_30rnd_545x39_7n10_ak",4,30],
 			["rhs_mag_9x18_8_57n181s",1,8]
 		]
 		+ _aceFlashlight
@@ -51,7 +51,7 @@
 		[] + _medicSupplies
 	],
 
-		"kaska_6b27m_ttsko_mountain",								//Headgear
+		"rhsgref_6b27m_ttsko_mountain",								//Headgear
 		"",																					//Facewear
 
 	[																					    //Binocular

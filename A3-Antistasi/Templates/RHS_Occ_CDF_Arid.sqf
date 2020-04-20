@@ -30,7 +30,7 @@ NATOPlayerLoadouts = [
 	//Medic
 	["rhs_gref_medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"rhsgref_cdf_para_autorifleman",
+	["rhs_gref_machineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
 	"rhsgref_cdf_para_marksman",
 	//Anti-tank Scout

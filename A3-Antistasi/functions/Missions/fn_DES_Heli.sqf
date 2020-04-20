@@ -96,9 +96,6 @@ deleteGroup _groupX;
 _Vwp0 = _groupVeh addWaypoint [_posCrash, 0];
 _Vwp0 setWaypointType "GETOUT";
 _Vwp0 setWaypointBehaviour "SAFE";
-_Gwp0 = _groupX addWaypoint [_posCrash, 0];
-_Gwp0 setWaypointType "GETOUT";
-_Vwp0 synchronizeWaypoint [_Gwp0];
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Placed Group: %2 in Lite Vehicle and set waypoint %3",servertime,_typeGroup,_posCrash];
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Waiting for 5 seconds",servertime];
 
@@ -223,29 +220,28 @@ if (_vehT distance _heli < 50) then
 	deleteVehicle _gp;
 	deleteWaypoint [_pilots, 1];
 	_Vwp1 = _pilots addWaypoint [getPos _heli, 0];
-	_Vwp1 setWaypointType "MOVE";
-	_Vwp1 setWaypointBehaviour "Aware";
-	_Vwp1 = _pilots addWaypoint [getPos _heli, 1];
 	_Vwp1 setWaypointType "GETIN NEAREST";
-	_Vwp1 setWaypointBehaviour "SAFE";
+	_Vwp1 setWaypointBehaviour "Aware";
 
 	if ((_typeVehH in vehNATOTransportHelis)||(_typeVehH in vehCSATTransportHelis)) then {
 		if !(_typeVehH == vehNATOPatrolHeli) then {
-		_i = (count (waypoints _groupHT));
-		for [0, _i, 1] do {
-			deleteWaypoint [_groupHT, (_i - 1)];
+		for "_i" from count waypoints _groupHT - 1 to 0 step -1 do
+		{
+			deleteWaypoint [_groupHT, _i];
 		};
-		_Gwp2 = _groupHT addWaypoint [getPos _heli, 0];
-		_Gwp2 setWaypointType "GETIN NEAREST";
-		[_pilots, 1] synchronizeWaypoint [[_groupHT, 0]];
+		{_x moveTo (getPos _heli);
+		_x moveInCargo _heli} forEach units _groupHT;
 		};
 	} else {
-	_i = (count (waypoints _groupVehHT));
-	for [0, _i, 1] do {
-		deleteWaypoint [_groupVehHT, (_i - 1)];
+		for "_i" from count waypoints _groupVehHT - 1 to 0 step -1 do
+	{
+		deleteWaypoint [_groupVehHT, _i];
 	};
-	_Gwp1 = _groupHT addWaypoint [getPos _vehHT, 0];
+	
+
+	_Gwp1 = _groupVehHT addWaypoint [getPos _vehHT, 0];
 	_Gwp1 setWaypointType "GETIN NEAREST";
+	_Gwp1 setWaypointBehaviour "SAFE";
 
 
 	_Gwp1 = _groupVehHT addWaypoint [_positionX, 1];
@@ -253,7 +249,7 @@ if (_vehT distance _heli < 50) then
 	_Gwp1 setWaypointBehaviour "SAFE";
 	};
 
-	_Vwp1 = _pilots addWaypoint [_positionX, 2];
+	_Vwp1 = _pilots addWaypoint [_positionX, 3];
 	_Vwp1 setWaypointType "MOVE";
 	_Vwp1 setWaypointBehaviour "SAFE";
 };

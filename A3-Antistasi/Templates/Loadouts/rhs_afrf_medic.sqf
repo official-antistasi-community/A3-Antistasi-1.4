@@ -41,9 +41,9 @@
 		["rhs_30Rnd_545x39_7N10_AK",4,30],
 		["rhs_mag_rdg2_white",2,1],
 		["rhs_mag_rgn",1,1]
-		]
 		+ _aceM84
 		+	_aceFlashlight
+		]
 		],
 		[//Backpack
 		"rhs_assault_umbts",

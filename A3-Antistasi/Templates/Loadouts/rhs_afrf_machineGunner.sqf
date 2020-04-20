@@ -41,9 +41,9 @@
 		["rhs_100Rnd_762x54mmR_green",1,100],
 		["rhs_mag_rdg2_white",2,1],
 		["rhs_mag_rgo",1,1]
-		]
 		+ _aceM84
 		+	_aceFlashlight
+		]
 		],
 
 		[//Backpack

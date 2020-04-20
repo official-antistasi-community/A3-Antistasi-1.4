@@ -41,9 +41,10 @@
 		["rhs_10Rnd_762x54mmR_7N14",6,10],
 		["rhs_mag_rdg2_white",2,1],
 		["rhs_mag_rgo",1,1]
-		]
 		+ _aceM84
 		+	_aceFlashlight
+		+ _aceRangecard
+		]
 		],
 
 		[//Backpack

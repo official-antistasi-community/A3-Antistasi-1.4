@@ -323,14 +323,14 @@ _vehiclesX pushBack _flagX;
 if (_sideX == Occupants) then
 {
 	_veh = NATOAmmoBox createVehicle _positionX;
-	[_veh] spawn A3A_fnc_NATOcrate;
+	[_veh] spawn A3A_fnc_fillLootCrate;
 	_vehiclesX pushBack _veh;
 	_veh call jn_fnc_logistics_addAction;
 }
 else
 {
 	_veh = CSATAmmoBox createVehicle _positionX;
-	[_veh] spawn A3A_fnc_CSATcrate;
+	[_veh] spawn A3A_fnc_fillLootCrate;
 	_vehiclesX pushBack _veh;
 	_veh call jn_fnc_logistics_addAction;
 };

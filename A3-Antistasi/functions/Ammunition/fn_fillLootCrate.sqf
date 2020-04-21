@@ -1,4 +1,4 @@
-private _filename = "fn_NATOCrate";
+private _filename = "fn_fillLootCrate";
 params ["_crate", 
 ["_crateWepTypeMax", crateWepTypeMax], "_crateWepNum", 
 ["_crateItemTypeMax", crateItemTypeMax], "_crateItemNum", 
@@ -19,7 +19,7 @@ clearWeaponCargoGlobal _crate;
 clearItemCargoGlobal _crate;
 clearBackpackCargoGlobal _crate;
 //Double max types if the crate is an ammo truck
-if (typeOf _crate == vehNATOAmmoTruck) then {
+if (typeOf _crate in vehAmmoTrucks) then {
 	[4, "Ammo Truck Detected: Doubling Types", _filename] call A3A_fnc_log;
 	_crateWepTypeMax = _crateWepTypeMax * 2;
 	_crateItemTypeMax = _crateItemTypeMax * 2;

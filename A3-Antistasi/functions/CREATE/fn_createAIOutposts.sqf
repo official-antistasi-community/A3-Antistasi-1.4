@@ -139,12 +139,12 @@ _boxX = objNull;
 if (_sideX == Occupants) then
 {
 	_boxX = NATOAmmoBox createVehicle _positionX;
-	[_boxX] spawn A3A_fnc_NATOcrate;
+	[_boxX] spawn A3A_fnc_fillLootCrate;
 }
 else
 {
 	_boxX = CSATAmmoBox createVehicle _positionX;
-	[_boxX] spawn A3A_fnc_CSATcrate;
+	[_boxX] spawn A3A_fnc_fillLootCrate;
 };
 _vehiclesX pushBack _boxX;
 _boxX call jn_fnc_logistics_addAction;

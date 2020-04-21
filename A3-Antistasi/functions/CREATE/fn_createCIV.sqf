@@ -91,6 +91,7 @@ if (count _mrkMar > 0) then
 			_veh = _typeVehX createVehicle _pos;
 			_veh setDir (random 360);
 			_vehiclesX pushBack _veh;
+			if ([_veh, boxX] call jn_fnc_logistics_canLoad != -3) then {[_veh] call A3A_fnc_SalvageRope};
 			[_veh] spawn A3A_fnc_civVEHinit;
 			sleep 0.5;
 			};

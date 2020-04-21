@@ -43,7 +43,7 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 _title = "Salvage supplies";
-_text = format ["A supply shipment was sunk outside of %1. Go there and recover the supplies before %2.",_nameDest,_displayTime];
+_text = format ["A supply shipment was sunk outside of %2. Go there and recover the supplies before %3. %1 you will need to get a hold of a boat with a winch to recover the shipment, %1 check beaches for civilian boats you can commandeer.",lineBreak , _nameDest,_displayTime];
 [[teamPlayer, civilian], "LOG",[ _text, _title, [_mrk1, _mrk2, _mrk3]], _pos, false, 0, true, "rearm", true] call BIS_fnc_taskCreate;
 _truckCreated = false;
 missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";
@@ -72,12 +72,12 @@ _loot = selectRandom [[_boxX, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 10, 5, 10, 
 _loot call A3A_fnc_NATOcrate;
 [4, format ["Box spawned"], _filename] call A3A_fnc_log;
 sleep 10;
-
+private ["_veh", "_vehCrew", "_boatCreated"];
 private _spawnLoop = {
 	params ["_boxX", "_boxPos", "_typeVeh", "_sideX", "_pos", "_typeGroup", "_positionX"];
 	_missionComplete = "LOG" call BIS_fnc_taskCompleted;
 	while {!_missionComplete} do {
-		waitUntil {(allPlayers findIf {getPos _x distance2D _boxPos < 1000}!= -1)};//players in spawning range
+		waitUntil {(allPlayers findIf {getPos _x distance2D _boxPos < distanceSPWN}!= -1)};//players in spawning range
 		//boat spawn
 		_vehicle=[(getMarkerPos "boatmrk"), 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
 		_veh = _vehicle select 0;
@@ -88,18 +88,14 @@ private _spawnLoop = {
 		{_x moveInAny _veh} forEach (units _vehCrew);
 		{[_x,""] call A3A_fnc_NATOinit} forEach units _vehCrew;
 		_boatCreated = true;
-
-		waitUntil {count (_positionX nearEntities [["ship"], 300]) != 0};
-		sleep 5;// to let stuff spawn in
-		_civBoat = _positionX nearEntities [["ship"], 300];
-		{if ([_x, _boxX] call jn_fnc_logistics_canLoad != -3) then {[_x] call A3A_fnc_SalvageRope};}forEach _civBoat; //adds salvageRope to all boats that can load the crate
 		sleep 5;//to stop spamming spawn and despawn
 
-		waitUntil {!(allPlayers findIf {getPos _x distance2D _boxPos < 1000}!= -1)};//all players left spawning range
+		waitUntil {!(allPlayers findIf {getPos _x distance2D _boxPos < distanceSPWN}!= -1)};//all players left spawning range
 		//code to despawn stuff here
 		if (_boatCreated) then {
 		{deleteVehicle _x}forEach units _vehCrew;
 		deleteVehicle _veh;
+		_boatCreated = false;
 		_missionComplete = "LOG" call BIS_fnc_taskCompleted;// stops loop if on mission end
 		};
 	};
@@ -133,8 +129,8 @@ if (dateToNumber date > _dateLimitNum) then {
 	deleteMarker _mrk3;
 	[-1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-	waitUntil {sleep 1; !([300,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)};
 	if (_boatCreated) then {
+	waitUntil {sleep 1; !([300,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)};
 	{deleteVehicle _x} forEach units _vehCrew;
 	deleteVehicle _veh;
 	};
@@ -153,9 +149,9 @@ if (dateToNumber date > _dateLimitNum) then {
 	{if (_x distance _boxX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	if (_boatCreated) then {
-	waitUntil {sleep 1; !([300,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)};
-	{deleteVehicle _x} forEach units _vehCrew;
-	deleteVehicle _veh;
+		waitUntil {sleep 1; !([300,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)};
+		{deleteVehicle _x} forEach units _vehCrew;
+		deleteVehicle _veh;
 	};
 	deleteVehicle _ship;
 	[2, format ["Mission Succeeded"], _filename] call A3A_fnc_log;

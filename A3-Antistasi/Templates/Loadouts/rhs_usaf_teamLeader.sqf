@@ -3,7 +3,7 @@
 		"rhs_weap_m4a1_carryhandle",									//Weapon
 		"",																						//Muzzle
 		"rhsusf_acc_anpeq16a",												//Rail
-		"rhsusf_acc_compm4",												//Sight
+		"rhsusf_acc_compm4",													//Sight
 		["rhs_mag_30Rnd_556x45_Mk318_Stanag",30],			//Primary Magazine
 		[],																						//Secondary Magazine
 		"rhsusf_acc_kac_grip"													//Bipod
@@ -46,7 +46,10 @@
 		+ _aceM84
 	],
 
-	[																						//Backpack
+	[																								//Backpack
+		[																								//Backpack
+		[]																											//Inventory
+		]
 	],
 
 		"rhsusf_mich_bare_norotos_alt",						//Headgear

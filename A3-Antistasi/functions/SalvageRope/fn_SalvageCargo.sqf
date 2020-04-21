@@ -17,6 +17,7 @@ if (_boat getVariable "ropeActive") then {
 	sleep _time;
 	ropeDestroy (_boat getVariable "Rope2");
 	[_boat, _target] call jn_fnc_logistics_load;
+	_target call jn_fnc_logistics_addAction;
 	[_boat] call A3A_fnc_SalvageRope; 
 	_boat setVariable ["ropeActive", nil, true];
 };

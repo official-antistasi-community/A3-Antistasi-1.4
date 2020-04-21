@@ -3,7 +3,7 @@ if !(isNil "_caller") then {
 	if (isNil {_target getVariable "ropeActive"}) then {
 		//deploys rope
 		_target setVariable ["ropeActive", true, true];
-		_target setVariable ["Rope", (ropeCreate [_target, [0,-2.8,-0.8], _caller, [0,0,0], 15]), true];
+		_target setVariable ["Rope", (ropeCreate [_target, [0,-2.8,-0.8], _caller, [0,0,0], 50]), true];
 		_target addAction [
 			"Put away winch", 
 			{

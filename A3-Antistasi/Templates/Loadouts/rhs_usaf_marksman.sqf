@@ -47,10 +47,10 @@
 		+ _aceRangecard
 	],
 
-	[																						//Backpack
-		"",																						//Backpack
-			[																								//Inventory
-			]
+	[																								//Backpack
+		[																								//Backpack
+		[]																											//Inventory
+		]
 	],
 
 		"rhsusf_mich_bare_norotos_alt",						//Headgear

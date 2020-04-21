@@ -202,10 +202,12 @@ if (_crateWepTypeMax != 0) then {
 			_crate addWeaponWithAttachmentsCargoGlobal [[ _loot, "", "", "", [], [], ""], _amount];
 			[4, format ["Adding %1 weapons of type %2", _amount, _loot], _filename] call A3A_fnc_log;
 
+			private _magazines = getArray (configFile / "CfgWeapons" / _loot / "magazines");
+			if (count _magazines < 1) exitWith {};
+			if (_loot in allShotguns) then { _magazines = [_magazines select 0] };		// prevent doomsday
+
 			for "_i" from 0 to _amount do {
-				_magazine = selectRandom getArray (configFile / "CfgWeapons" / _loot / "magazines");
-				//Abort if the gun has no magazines.
-				if (isNil "_magazine") exitWith {};
+				_magazine = selectRandom _magazines;
 				_magAmount = if ((getText (configFile >> "CfgMagazines" >> _magazine >> "ammo") isKindOf "MissileBase")) then {
 					floor random 3;
 				} else {

@@ -4,7 +4,7 @@
 		"",																						//Muzzle
 		"rhsusf_acc_anpeq16a",												//Rail
 		"RHSUSF_Acc_CompM4",												//Sight
-		["rhs_mag_30Rnd_556x45_Mk318_Stanag",30],			//Primary Magazine
+		["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],			//Primary Magazine
 		[],																						//Secondary Magazine
 		"rhsusf_acc_kac_grip"													//Bipod
 	],
@@ -40,7 +40,7 @@
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",2,1],
 			["rhsusf_mag_15Rnd_9x19_FMJ",2,15],
-			["rhs_mag_30Rnd_556x45_Mk318_Stanag",4,30]
+			["rhs_mag_30Rnd_556x45_M855A1_Stanag",4,30]
 		]
 		+	_aceFlashlight
 		+ _aceM84

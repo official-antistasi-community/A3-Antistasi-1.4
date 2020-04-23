@@ -20,11 +20,11 @@
 	],
 
 	[																							//Secondary Weapon
-		"rhs_weap_pya",																	//Weapon
+		"rhs_weap_6p53",																//Weapon
 		"",																							//Muzzle
 		"",																							//Rail
 		"",																							//Sight
-		["rhs_mag_9x19_17",17],													//Primary Magazine
+		["rhs_18rnd_9x21mm_7N28",17],										//Primary Magazine
 		[],																							//Secondary Magazine
 		""																							//Bipod
 	],
@@ -37,7 +37,7 @@
 	[																							//Vest
 		"rhs_6b23_digi_6sh92_headset_spetsnaz",					//Vest
 		[																										//Inventory
-			["rhs_mag_9x19_17",1,17],
+			["rhs_18rnd_9x21mm_7N28",1,17],
 			["rhs_mag_rdg2_white",2,1],
 			["rhs_mag_rgo",1,1]
 			]

@@ -1,12 +1,12 @@
 [																					//Loadout
 	[																						//Primary Weapon
-    "UK3CB_BAF_L119A1_FG",							         //Weapon
-    "",																				   //Muzzle
-    "UK3CB_BAF_LLM_IR_Black",									   //Rail
-    "RKSL_optic_EOT552",  										   //Sight
-    ["UK3CB_BAF_556_30Rnd",30],                  //Primary Magazine
-    [],                                          //Secondary Magazine
-    "" 																				   //Bipod
+    "UK3CB_BAF_L119A1_FG",							          //Weapon
+    "",																				    //Muzzle
+    "UK3CB_BAF_LLM_IR_Black",									    //Rail
+    "RKSL_optic_EOT552",  										    //Sight
+    ["UK3CB_BAF_556_30Rnd",30],                   //Primary Magazine
+    [],                                           //Secondary Magazine
+    "" 																				    //Bipod
   ],
 
   [																						//Launcher

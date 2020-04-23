@@ -3,7 +3,7 @@
 	 "rhs_weap_svds",																		//Weapon
    "",																								//Muzzle
 	 "",																								//Rail
-	 "rhs_acc_pso1m2",																	//Sight
+	 "rhs_acc_pso1m21",																	//Sight
 	 ["rhs_10Rnd_762x54mmR_7n1",10],										//Primary Magazine
 	 [],																								//Secondary Magazine
 	 ""																									//Bipod

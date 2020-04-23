@@ -57,7 +57,7 @@
 	"",       									  							//Facewear
 
 	[																							//Binocular
-		"rhs_pdu4",																			//Binocular
+    "Binocular",							    								//Binocular
 		"",
 		"",
 		"",

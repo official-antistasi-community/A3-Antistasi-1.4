@@ -57,7 +57,7 @@
 		"",																				//Facewear
 
 	[																						//Binocular
-		"RHSUSF_Bino_Lerca_1200_tan",									//Binocular
+    "Binocular",							    								//Binocular
 		"",
 		"",
 		"",

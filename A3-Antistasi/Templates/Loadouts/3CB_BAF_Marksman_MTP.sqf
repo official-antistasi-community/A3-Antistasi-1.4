@@ -57,7 +57,7 @@
 "UK3CB_BAF_G_Tactical_Clear",       					//Facewear
 
   [																						//Binocular
-    "RHSUSF_Bino_Lerca_1200_tan",							    //Binocular
+    "Binocular",							    								//Binocular
     "",
     "",
     "",

@@ -2,7 +2,7 @@
 private _fileName = "fn_LOG_Salvage";
 if (!isServer and hasInterface) exitWith{};
 params ["_markerX"];
-[2, format ["Deffining variables, and creating markers"], _filename] call A3A_fnc_log;
+[3, format ["Deffining variables, and creating markers"], _filename] call A3A_fnc_log;
 _positionX = getMarkerPos _markerX;
 private _boxType = "Box_NATO_Equip_F";
 private _shipType = "Land_UWreck_FishingBoat_F";
@@ -52,9 +52,9 @@ _typeVeh = if (_difficultX) then {if (_sideX == Occupants) then {vehNATOBoat} el
 _typeGroupX = if (_difficultX) then {if (_sideX == Occupants) then {NATOSquad} else {CSATSquad}} else {if (_sideX == Occupants) then {groupsNATOmid select 0} else {groupsCSATmid select 0}};
 _typeGroup = _typeGroupX;
 
-[2, format ["Mission created, waiting for players to get near"], _filename] call A3A_fnc_log;
+[3, format ["Mission created, waiting for players to get near"], _filename] call A3A_fnc_log;
 waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer))};
-[2, format ["players in spawning range, starting spawning"], _filename] call A3A_fnc_log;
+[3, format ["players in spawning range, starting spawning"], _filename] call A3A_fnc_log;
 
 _boatmrk = createMarkerLocal ["boatmrk", selectRandom [((_mrk1Pos select 0) select 0), ((_mrk2Pos select 0) select 0), ((_mrk3Pos select 0) select 0)]];
 _boatmrk setMarkerShape "ELLIPSE";
@@ -63,48 +63,51 @@ if (!debug) then {_boatmrk setMarkerAlphaLocal 0};
 _boxmrk = selectRandom ["Posible 1", "Posible 2", "Posible 3"];
 _boxPos = getmarkerPos _boxmrk;
 _shipPos = [(_boxPos select 0) + 4, (_boxPos select 1) + -5, (_boxPos select 2)];
-[2, format ["starting obj spawning and despawning loop"], _filename] call A3A_fnc_log;
+[3, format ["starting obj spawning and despawning loop"], _filename] call A3A_fnc_log;
 
 _ship = _shipType createVehicle _shipPos;
 _boxX = _boxType createVehicle _boxPos;
 _boxX addAction ["Atach rope", {params ["_target", "_caller", "_iD"]; [_target, _caller, _iD] call A3A_fnc_SalvageCargo;}, [], 1.5, true, true, "", "", 3];
 _loot = selectRandom [[_boxX, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 10, 5, 10, 0, 0], [_boxX, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0], [_boxX, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 _loot call A3A_fnc_NATOcrate;
-[4, format ["Box spawned"], _filename] call A3A_fnc_log;
+[3, format ["Box spawned"], _filename] call A3A_fnc_log;
 sleep 10;
-private ["_veh", "_vehCrew", "_boatCreated"];
 private _spawnLoop = {
-	params ["_boxX", "_boxPos", "_typeVeh", "_sideX", "_pos", "_typeGroup", "_positionX"];
+	params ["_boxX", "_boxPos", "_typeVeh", "_sideX", "_pos", "_typeGroup", "_positionX", "_boatCreated", "_filename"];
+	private ["_veh", "_vehCrew"];
 	_missionComplete = "LOG" call BIS_fnc_taskCompleted;
 	while {!_missionComplete} do {
 		waitUntil {(allPlayers findIf {getPos _x distance2D _boxPos < distanceSPWN}!= -1)};//players in spawning range
-		//boat spawn
-		_vehicle=[(getMarkerPos "boatmrk"), 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
-		_veh = _vehicle select 0;
-		[_veh] call A3A_fnc_AIVEHinit;
-		[_veh] call A3A_fnc_SalvageRope;
-		{deleteVehicle _x} forEach (crew _veh);
-		_vehCrew = [_pos,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
-		{_x moveInAny _veh} forEach (units _vehCrew);
-		{[_x,""] call A3A_fnc_NATOinit} forEach units _vehCrew;
-		_boatCreated = true;
+		if !(_boatCreated) then {
+			[3, format ["Spawning patrol boat and crew"], _filename] call A3A_fnc_log;
+			_vehicle=[(getMarkerPos "boatmrk"), 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
+			_veh = _vehicle select 0;
+			[_veh] call A3A_fnc_AIVEHinit;
+			[_veh] call A3A_fnc_SalvageRope;
+			{deleteVehicle _x} forEach (crew _veh);
+			_vehCrew = [_pos,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
+			{_x moveInAny _veh} forEach (units _vehCrew);
+			{[_x,""] call A3A_fnc_NATOinit} forEach units _vehCrew;
+			_boatCreated = true;
+		};
 		sleep 5;//to stop spamming spawn and despawn
 
-		waitUntil {!(allPlayers findIf {getPos _x distance2D _boxPos < distanceSPWN}!= -1)};//all players left spawning range
+		waitUntil {!(allPlayers findIf {getPos _x distance2D (getPos _veh) < distanceSPWN}!= -1)};//all players left spawning range
 		//code to despawn stuff here
 		if (_boatCreated) then {
-		{deleteVehicle _x}forEach units _vehCrew;
-		deleteVehicle _veh;
-		_boatCreated = false;
-		_missionComplete = "LOG" call BIS_fnc_taskCompleted;// stops loop if on mission end
+			[3, format ["Despawning patrol boat and crew"], _filename] call A3A_fnc_log;
+			{deleteVehicle _x}forEach units _vehCrew;
+			deleteVehicle _veh;
+			_boatCreated = false;
+			_missionComplete = "LOG" call BIS_fnc_taskCompleted;// stops loop if on mission end
 		};
 	};
 };
-[_boxX, _boxPos, _typeVeh, _sideX, _pos, _typeGroup, _positionX] spawn _spawnLoop;
+[_boxX, _boxPos, _typeVeh, _sideX, _pos, _typeGroup, _positionX, _boatCreated, _filename] spawn _spawnLoop;
 
-[2, format ["start detect player loop"], _filename] call A3A_fnc_log;
+[3, format ["start detect player loop"], _filename] call A3A_fnc_log;
 private _detect = {
-	params ["_boatmrk"];
+	params ["_boatmrk", "_filename"];
 	_missionComplete = "LOG" call BIS_fnc_taskCompleted;
 	while {!_missionComplete} do {
 		sleep 5;
@@ -116,10 +119,11 @@ private _detect = {
 		}forEach allPlayers;
 		_missionComplete = "LOG" call BIS_fnc_taskCompleted;
 	};
+	[3, format ["detect player loop ended"], _filename] call A3A_fnc_log;
 };
-[_boatmrk] spawn _detect;
+[_boatmrk, _filename] spawn _detect;
 //end check
-[2, format ["Wait for mission end"], _filename] call A3A_fnc_log;
+[3, format ["Waiting for mission end"], _filename] call A3A_fnc_log;
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_boxX distanceSqr posHQ) < 10000)};
 if (dateToNumber date > _dateLimitNum) then {
 	["LOG",[ _text, _title,[_mrk1, _mrk2, _mrk3]],_positionX,"FAILED","rearm"] call A3A_fnc_taskUpdate;
@@ -129,11 +133,6 @@ if (dateToNumber date > _dateLimitNum) then {
 	deleteMarker _mrk3;
 	[-1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-	if (_boatCreated) then {
-	waitUntil {sleep 1; !([300,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)};
-	{deleteVehicle _x} forEach units _vehCrew;
-	deleteVehicle _veh;
-	};
 	deleteVehicle _boxX;
 	deleteVehicle _ship;
 	[2, format ["Mission Failed"], _filename] call A3A_fnc_log;
@@ -148,13 +147,8 @@ if (dateToNumber date > _dateLimitNum) then {
 	[1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _boxX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-	if (_boatCreated) then {
-		waitUntil {sleep 1; !([300,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)};
-		{deleteVehicle _x} forEach units _vehCrew;
-		deleteVehicle _veh;
-	};
 	deleteVehicle _ship;
 	[2, format ["Mission Succeeded"], _filename] call A3A_fnc_log;
 };
 _nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
-[2, format ["set delete task timer"], _filename] call A3A_fnc_log;
+[3, format ["set delete task timer"], _filename] call A3A_fnc_log;

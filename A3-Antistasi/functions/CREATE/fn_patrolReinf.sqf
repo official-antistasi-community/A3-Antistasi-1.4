@@ -1,10 +1,11 @@
+_filename = "fn_patrolReinf";
 private ["_mrkDestination","_mrkOrigin","_numberX","_sideX","_typeGroup","_typeVehX","_indexX","_spawnPoint","_pos","_timeOut","_veh","_groupX","_landPos","_Vwp0","_posOrigin","_land","_pos1","_pos2"];
 
 _mrkDestination = _this select 0;
 _mrkOrigin = _this select 1;
 _numberX = _this select 2;
 _sideX = _this select 3;
-diag_log format ["[Antistasi] Spawning PatrolReinforcement. Dest:%1, Orig:%2, Size:%3, Side: %4",_mrkDestination,_mrkOrigin,_numberX,_sideX];
+[2, format ["Spawning PatrolReinf. Dest:%1, Orig:%2, Size:%3, Side: %4",_mrkDestination,_mrkOrigin,_numberX,_sideX], _filename] call A3A_fnc_log;
 _posDestination = getMarkerPos _mrkDestination;
 _posOrigin = getMarkerPos _mrkOrigin;
 
@@ -22,6 +23,8 @@ else
 	//_vehPool = _vehPool select {(_x isKindOf "Helicopter") and (_x in vehFastRope)};
 	_typeVehX = selectRandom _vehPool;
 };
+
+[3, format ["PatrolReinf vehicle %1 selected", _typeVehX], _filename] call A3A_fnc_log;
 
 _pos = [];
 _veh = objNull;

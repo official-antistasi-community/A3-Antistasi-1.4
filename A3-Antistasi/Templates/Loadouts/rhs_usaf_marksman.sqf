@@ -4,7 +4,7 @@
 		"",																						//Muzzle
 		"",																						//Rail
 		"RHSUSF_Acc_leupoldmk4",											//Sight
-		["RHSUSF_20Rnd_762x51_SR25_M993_Mag",20],			//Primary Magazine
+		["RHSUSF_20Rnd_762x51_SR25_M118_special_Mag",20],			//Primary Magazine
 		[],																						//Secondary Magazine
 		"RHS_Acc_Harris_bipod"												//Bipod
 	],
@@ -39,7 +39,7 @@
 		[																									//Inventory
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
-			["RHSUSF_20Rnd_762x51_SR25_M993_Mag",5,30],
+			["RHSUSF_20Rnd_762x51_SR25_M118_special_Mag",4,30],
 			["rhsusf_mag_15Rnd_9x19_FMJ",1,15]
 		]
 		+ _aceFlashlight

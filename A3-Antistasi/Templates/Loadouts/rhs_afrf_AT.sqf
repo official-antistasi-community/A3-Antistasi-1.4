@@ -20,11 +20,11 @@
 	],
 
 	[																							//Secondary Weapon
-		"rhs_weap_6p53",																//Weapon
+		"rhs_weap_pya",																	//Weapon
 		"",																							//Muzzle
 		"",																							//Rail
 		"",																							//Sight
-		["rhs_18rnd_9x21mm_7N28",18],										//Primary Magazine
+		["rhs_mag_9x19_17",17],													//Primary Magazine
 		[],																							//Secondary Magazine
 		""																							//Bipod
 	],

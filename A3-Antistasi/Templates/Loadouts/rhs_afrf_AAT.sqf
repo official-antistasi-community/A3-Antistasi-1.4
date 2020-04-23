@@ -49,7 +49,7 @@
 	[																							//Backpack
 		"rhs_rpg_empty",																//Backpack
 		[																										//Inventory
-			["rhs_rpg7_PG7VL_mag",1,1]
+			["rhs_rpg7_PG7VR_mag",2,1]
 		]
 	],
 

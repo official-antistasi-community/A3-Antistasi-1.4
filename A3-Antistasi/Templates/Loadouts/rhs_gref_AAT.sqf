@@ -49,11 +49,11 @@
 	[																							//Backpack
 		"rhs_rpg_empty",																//Backpack
 		[																										//Inventory
-			["rhs_rpg7_PG7VL_mag",1,1]
+			["rhs_rpg7_PG7VR_mag",2,1]
 		]
 	],
 
-		"rhsgref_6b27m_ttsko_mountain",								//Headgear
+		"rhsgref_6b27m_ttsko_mountain",							//Headgear
 		"",																					//Facewear
 
 	[																					    //Binocular
@@ -68,8 +68,8 @@
 
 	[																					    //Item
 		"ItemMap",																			//Map
-		"",																			//Terminal
-		["TF_anprc148jem"] call _fnc_tfarRadio,				//Radio
+		"",																							//Terminal
+		["TF_anprc148jem"] call _fnc_tfarRadio,					//Radio
 		"ItemCompass",																	//Compass
 		_tfarMicroDAGRNoArray,													//Watch
 		"rhs_1pn138"																		//Goggles

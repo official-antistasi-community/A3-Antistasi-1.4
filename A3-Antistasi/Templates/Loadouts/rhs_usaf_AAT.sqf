@@ -47,14 +47,14 @@
 	],
 
 	[																						//Backpack
-		"rhsusf_falconii",														//Backpack
+		"B_Kitbag_rgr",																//Backpack
 		[																									//Inventory
-			["RHS_Mag_MAAWS_HEAT",1,1]
+			["RHS_Mag_MAAWS_HEAT",2,1]
 		]
 	],
 
 		"rhsusf_mich_bare_norotos_alt",						//Headgear
-		"",		 																			//Facewear
+		"",		 																		//Facewear
 
 	[																						//Binocular
 		"Binocular",																	//Binocular

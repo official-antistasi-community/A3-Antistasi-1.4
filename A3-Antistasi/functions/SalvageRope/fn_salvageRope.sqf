@@ -16,7 +16,7 @@ if !(isNil "_caller") then {
 			true,  
 			"", 
 			"!(_this in _target)", 
-			3
+			4
 		];
 		_target removeAction _actionId;
 	} else {
@@ -38,7 +38,7 @@ if !(isNil "_caller") then {
 			true,  
 			"", 
 			"!(_this in _target)", 
-			3
+			4
 		];
 	};
 } else {
@@ -55,6 +55,6 @@ if !(isNil "_caller") then {
 			true,  
 			"", 
 			"!(_this in _target)", 
-			3
+			4
 		];
 };

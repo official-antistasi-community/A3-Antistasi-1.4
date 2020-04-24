@@ -54,7 +54,7 @@ if(_newOccupantsValue < (_levelBoundsOccupants select 0)) then
 {
     aggressionLevelOccupants = ((ceil (_newOccupantsValue / 20)) min 5) max 1;
     publicVariable "aggressionLevelOccupants";
-    _notificationText = format ["%1 aggression level reduced to %2<br/><br/>", nameOccupants, [aggressionLevelOccupants] call _fn_getAggroLevelString];
+    _notificationText = format ["%1 aggression level reduced to %2<br/>", nameOccupants, [aggressionLevelOccupants] call _fn_getAggroLevelString];
     _levelsChanged = true;
 }
 else
@@ -63,7 +63,7 @@ else
     {
         aggressionLevelOccupants = ((ceil (_newOccupantsValue / 20)) min 5) max 1;
         publicVariable "aggressionLevelOccupants";
-        _notificationText = format ["%1 aggression level increased to %2<br/><br/>", nameOccupants, [aggressionLevelOccupants] call _fn_getAggroLevelString];
+        _notificationText = format ["%1 aggression level increased to %2<br/>", nameOccupants, [aggressionLevelOccupants] call _fn_getAggroLevelString];
         _levelsChanged = true;
     };
 };

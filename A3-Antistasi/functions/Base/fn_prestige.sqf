@@ -27,6 +27,8 @@ if(_occupantsChanged != 0) then
     //The current formula is not that punishing, for really punishing results use
     // ((0.4/(100000000)) * (aggro - 100) * (aggro - 100) * (aggro - 100) * (aggro - 100)) + 0.1
     private _decayRate = ((1/25000) * (aggressionOccupants - 100) * (aggressionOccupants - 100)) + 0.1;
+    //Round to four digit behind the point
+    _decayRate = (round (10000 * _decayRate)) / 10000;
     if (_occupantsChanged > 0) then {_decayRate = _decayRate * -1};
     aggressionStackOccupants pushBack [_occupantsChanged, _decayRate];
 };
@@ -36,6 +38,8 @@ if(_invadersChanged != 0) then
     //The current formula is not that punishing, for really punishing results use
     // ((0.4/(100000000)) * (aggro - 100) * (aggro - 100) * (aggro - 100) * (aggro - 100)) + 0.1
     private _decayRate = ((1/25000) * (aggressionInvaders - 100) * (aggressionInvaders - 100)) + 0.1;
+    //Round to four digit behind the point
+    _decayRate = (round (10000 * _decayRate)) / 10000;
     if (_invadersChanged > 0) then {_decayRate = _decayRate * -1};
     aggressionStackInvaders pushBack [_invadersChanged, _decayRate];
 };

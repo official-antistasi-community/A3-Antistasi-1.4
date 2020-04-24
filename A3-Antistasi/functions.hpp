@@ -34,6 +34,7 @@ class A3A
 		class addActionBreachVehicle {};
 		class addHC {};
 		class addTimeForIdle {};
+        class aggressionUpdateLoop {};
 		class AILoadInfo {};
 		class rebelAttack {};
 		class blackout {};

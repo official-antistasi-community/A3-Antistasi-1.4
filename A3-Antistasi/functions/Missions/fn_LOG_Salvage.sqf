@@ -52,13 +52,17 @@ _typeVeh = if (_difficultX) then {if (_sideX == Occupants) then {vehNATOBoat} el
 _typeGroupX = if (_difficultX) then {if (_sideX == Occupants) then {NATOSquad} else {CSATSquad}} else {if (_sideX == Occupants) then {groupsNATOmid select 0} else {groupsCSATmid select 0}};
 _typeGroup = _typeGroupX;
 
+
+//salvageRope action
+[] remoteExec ["A3A_fnc_SalvageRope", 0, true];
+
 [3, format ["Mission created, waiting for players to get near"], _filename] call A3A_fnc_log;
 waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer))};
 [3, format ["players in spawning range, starting spawning"], _filename] call A3A_fnc_log;
 
 _boatmrk = createMarkerLocal ["boatmrk", selectRandom [((_mrk1Pos select 0) select 0), ((_mrk2Pos select 0) select 0), ((_mrk3Pos select 0) select 0)]];
-_boatmrk setMarkerShape "ELLIPSE";
-_boatmrk setMarkerSize [150, 150];
+_boatmrk setMarkerShapeLocal "ELLIPSE";
+_boatmrk setMarkerSizeLocal [150, 150];
 if (!debug) then {_boatmrk setMarkerAlphaLocal 0};
 _boxmrk = selectRandom ["Posible 1", "Posible 2", "Posible 3"];
 _boxPos = getmarkerPos _boxmrk;
@@ -67,10 +71,11 @@ _shipPos = [(_boxPos select 0) + 4, (_boxPos select 1) + -5, (_boxPos select 2)]
 
 _ship = _shipType createVehicle _shipPos;
 _boxX = _boxType createVehicle _boxPos;
-_boxX addAction ["Atach rope", {params ["_target", "_caller", "_iD"]; [_target, _caller, _iD] call A3A_fnc_SalvageCargo;}, [], 1.5, true, true, "", "", 3];
+_boxX setVariable ["SalvageCrate", true, true];
 _loot = selectRandom [[_boxX, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 10, 5, 10, 0, 0], [_boxX, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0], [_boxX, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 _loot call A3A_fnc_NATOcrate;
 [3, format ["Box spawned"], _filename] call A3A_fnc_log;
+
 sleep 10;
 private _spawnLoop = {
 	params ["_boxX", "_boxPos", "_typeVeh", "_sideX", "_pos", "_typeGroup", "_positionX", "_boatCreated", "_filename"];
@@ -83,7 +88,6 @@ private _spawnLoop = {
 			_vehicle=[(getMarkerPos "boatmrk"), 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
 			_veh = _vehicle select 0;
 			[_veh] call A3A_fnc_AIVEHinit;
-			[_veh] call A3A_fnc_SalvageRope;
 			{deleteVehicle _x} forEach (crew _veh);
 			_vehCrew = [_pos,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 			{_x moveInAny _veh} forEach (units _vehCrew);

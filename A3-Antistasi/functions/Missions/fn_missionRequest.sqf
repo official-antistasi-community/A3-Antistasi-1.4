@@ -132,7 +132,7 @@ if (_typeX == "LOG") then
 		for "_i" from 0 to ((count _sites) - 1) do
 			{
 			_siteX = _sites select _i;
-			if ((_siteX in markersX) || (_siteX in seaSpawn)) then
+			if (_siteX in markersX) then
 				{
 				_pos = getMarkerPos _siteX;
 				}
@@ -165,12 +165,10 @@ if (_typeX == "LOG") then
 			if (_siteX in Seaports) then {
 				if (_pos distance _posbase < distanceMission) then {
 					_potentials pushBack _siteX;
-					_test pushBack _siteX;
 					};
 				};
 			};
 		};
-	_potentials = _test; // remove before merge, forces salvage mission
 	if (count _potentials == 0) then
 		{
 		if (!_silencio) then

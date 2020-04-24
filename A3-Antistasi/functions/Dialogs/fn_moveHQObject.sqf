@@ -16,9 +16,11 @@ _positionX = getMarkerPos _markerX;
 if (_playerX distance2D _positionX > _size) exitWith {["Move HQ", "This asset needs to be closer to it relative zone center to be able to be moved"] call A3A_fnc_customHint;};
 
 _thingX setVariable ["objectBeingMoved", true];
-
 _thingX removeAction _id;
-_thingX attachTo [_playerX,[0,2,1]];
+
+private _spacing = 2 max (1 - (boundingBoxReal _thingX select 0 select 1));
+private _height = 0.1 - (boundingBoxReal _thingX select 0 select 2);
+_thingX attachTo [_playerX, [0, _spacing, _height]];
 
 private _fnc_placeObject = {
 	params [["_thingX", objNull], ["_playerX", objNull], ["_dropObjectActionIndex", -1]];
@@ -29,6 +31,8 @@ private _fnc_placeObject = {
 	if (!(_thingX getVariable ["objectBeingMoved", false])) exitWith {};
 
 	if (_playerX == attachedTo _thingX) then {
+		_playerX setVelocity [0,0,0];
+		_thingX setVelocity [0,0,0];
 		detach _thingX;
 	};
 
@@ -36,8 +40,10 @@ private _fnc_placeObject = {
 		_playerX removeAction _dropObjectActionIndex;
 	};
 
-	_thingX setVelocity [0,0,0];		// some objects never lose their velocity when detached, becoming lethal
-	_thingX setVectorUp surfaceNormal position _thingX;
+	// some objects never lose (and even regain) their velocity when detached, becoming lethal
+	// on a DS, object locality changes when detached, so we have to remoteexec
+	[_thingX, [0,0,0]] remoteExec ["setVelocity", _thingX];
+	[_thingX, surfaceNormal position _thingX] remoteExec ["setVectorUp", _thingX];
 	_thingX setPosATL [getPosATL _thingX select 0,getPosATL _thingX select 1,0.1];
 
 	_thingX setVariable ["objectBeingMoved", false];

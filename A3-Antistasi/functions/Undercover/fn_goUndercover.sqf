@@ -171,9 +171,9 @@ do {
 					if !(_isInControl) then {
 						_aggro =
 							if (sidesX getVariable[_base, sideUnknown] == Occupants) then {
-								prestigeNATO + (tierWar * 10)
+								aggressionOccupants + (tierWar * 10)
 							} else {
-								prestigeCSAT + (tierWar * 10)
+								aggressionInvaders + (tierWar * 10)
 							};
 							//Probability	of being spotted. Unless we're in an airfield - then we're always spotted.
 						if (_base in _airportsX1 || _onDetectionMarker || random 100 < _aggro) then {

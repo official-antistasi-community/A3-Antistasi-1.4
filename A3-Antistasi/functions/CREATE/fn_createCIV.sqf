@@ -98,7 +98,7 @@ if (count _mrkMar > 0) then
 		};
 	};
 
-if ((random 100 < ((prestigeNATO) + (prestigeCSAT))) and (spawner getVariable _markerX != 2)) then
+if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _markerX != 2)) then
 	{
 	_pos = [];
 	while {true} do

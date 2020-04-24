@@ -38,7 +38,7 @@ if (sidesX getVariable [_base,sideUnknown] == Occupants) then
 		}
 	else
 		{
-		if (random 100 < prestigeNATO) then
+		if (random 100 < aggressionOccupants) then
 			{
 			_typeCar = if (_base in airportsX) then {selectRandom (vehNATOLight + [vehNATOPatrolHeli])} else {selectRandom vehNATOLight};
 			if (_typeCar == vehNATOPatrolHeli) then {_typePatrol = "AIR"};

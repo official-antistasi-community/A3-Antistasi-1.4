@@ -38,6 +38,7 @@ class A3A
 		class rebelAttack {};
 		class blackout {};
 		class buildHQ {};
+        class calculateAggression {};
 		class citiesToCivPatrol {};
 		class citySupportChange {};
 		class commsMP {};

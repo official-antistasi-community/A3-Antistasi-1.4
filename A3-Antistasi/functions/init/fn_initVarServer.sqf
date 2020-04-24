@@ -74,9 +74,9 @@ DECLARE_SERVER_VAR(chopForest, false);
 
 DECLARE_SERVER_VAR(skillFIA, 1);																		//Initial skill level for FIA soldiers
 //Initial Occupant Aggression
-DECLARE_SERVER_VAR(prestigeNATO, 5);
+DECLARE_SERVER_VAR(aggressionOccupants, 5);
 //Initial Invader Aggression
-DECLARE_SERVER_VAR(prestigeCSAT, 5);
+DECLARE_SERVER_VAR(aggressionInvaders, 5);
 //Initial war tier.
 DECLARE_SERVER_VAR(tierWar, 1);
 DECLARE_SERVER_VAR(bombRuns, 0);

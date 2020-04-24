@@ -56,8 +56,9 @@ if (_varName in specialVarLoads) then {
 	};
 	if (_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
 	if (_varName == 'jna_dataList') then {jna_dataList = +_varValue};
-	if (_varName == 'prestigeNATO') then {prestigeNATO = _varValue; publicVariable "prestigeNATO"};
-	if (_varName == 'prestigeCSAT') then {prestigeCSAT = _varValue; publicVariable "prestigeCSAT"};
+    //Keeping these for older saves
+	if (_varName == 'prestigeNATO') then {[_varValue, 0] call A3A_fnc_prestige};
+	if (_varName == 'prestigeCSAT') then {[0, _varValue] call A3A_fnc_prestige};
 	if (_varName == 'hr') then {server setVariable ["HR",_varValue,true]};
 	if (_varName == 'dateX') then {setDate _varValue};
 	if (_varName == 'weather') then {

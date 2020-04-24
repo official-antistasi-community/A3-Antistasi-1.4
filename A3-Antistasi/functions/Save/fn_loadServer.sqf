@@ -12,8 +12,8 @@ if (isServer) then {
 	["minesX"] call A3A_fnc_getStatVariable;
 	["countCA"] call A3A_fnc_getStatVariable;
 	["antennas"] call A3A_fnc_getStatVariable;
-	["prestigeNATO"] call A3A_fnc_getStatVariable;
-	["prestigeCSAT"] call A3A_fnc_getStatVariable;
+	["aggressionOccupants"] call A3A_fnc_getStatVariable;
+	["aggressionInvaders"] call A3A_fnc_getStatVariable;
 	["hr"] call A3A_fnc_getStatVariable;
 	["dateX"] call A3A_fnc_getStatVariable;
 	["weather"] call A3A_fnc_getStatVariable;

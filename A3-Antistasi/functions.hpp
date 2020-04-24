@@ -473,7 +473,6 @@ class A3A
 	class SalvageRope
 	{
 		class SalvageRope {};
-		class SalvageCargo {};
 	};
 
 	class Save

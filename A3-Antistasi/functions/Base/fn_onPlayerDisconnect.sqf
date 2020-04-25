@@ -20,59 +20,6 @@ private _realUnit = _unit getVariable ["owner", _unit];
 
 if (_realUnit == theBoss) then
 {
-
-	// this should be done on persistent save, if anything, not commander disconnection. Removing for now.
-	/*
-	{
-	if (!(_x getVariable ["esNATO",false])) then
-		{
-		if ((leader _x getVariable ["spawner",false]) and ({isPlayer _x} count (units _x) == 0) and (side _x == teamPlayer)) then
-			{
-			_uds = units _x;
-				{
-				//Once a player has disconnected, they no longer count as a player - so isPlayer doesn't filter them out.
-				if (_x isEqualTo _unit)	exitWith {};
-				if (alive _x) then
-					{
-					_resourcesX = _resourcesX + (server getVariable (typeOf _x));
-					_hr = _hr + 1;
-					};
-				if (!isNull (assignedVehicle _x)) then
-					{
-					_veh = assignedVehicle _x;
-					_typeVehX = typeOf _veh;
-					if ((_veh isKindOf "StaticWeapon") and (not(_veh in staticsToSave))) then
-						{
-						_resourcesX = _resourcesX + ([_typeVehX] call A3A_fnc_vehiclePrice) + ([typeOf (vehicle leader _x)] call A3A_fnc_vehiclePrice);
-						}
-					else
-						{
-						if (_typeVehX in vehFIA) then {_resourcesX = _resourcesX + ([_typeVehX] call A3A_fnc_vehiclePrice);};
-
-						//if (_typeVehX in vehAAFnormal) then {_resourcesX = _resourcesX + 300};
-						//if (_typeVehX in vehAAFAT) then
-						//	{
-						//	if ((_typeVehX == "I_APC_tracked_03_cannon_F") or (_typeVehX == "I_APC_Wheeled_03_cannon_F")) then {_resourcesX = _resourcesX + 1000} else {_resourcesX = _resourcesX + 5000};
-						//	};
-
-						if (count attachedObjects _veh > 0) then
-							{
-							_subVeh = (attachedObjects _veh) select 0;
-							_resourcesX = _resourcesX + ([(typeOf _subVeh)] call A3A_fnc_vehiclePrice);
-							deleteVehicle _subVeh;
-							};
-						};
-					if (!(_veh in staticsToSave)) then {deleteVehicle _veh};
-					};
-				deleteVehicle _x;
-				} forEach _uds;
-			};
-		};
-	} forEach allGroups;
-
-	if ((_hr > 0) or (_resourcesX > 0)) then {[_hr,_resourcesX] spawn A3A_fnc_resourcesFIA};
-	*/
-
 	if (group petros == group _realUnit) then { [] spawn A3A_fnc_buildHQ}; 
 
 	// Remove our real unit from boss

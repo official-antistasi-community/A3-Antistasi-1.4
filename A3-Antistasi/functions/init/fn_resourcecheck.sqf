@@ -150,18 +150,6 @@ while {true} do
 		[_veh,1] remoteExec ["setVehicleAmmo",_veh];
 		};
 	} forEach vehicles;
-	countCA = countCA - 600;
-	if (countCA < 0) then {countCA = 0};
-	publicVariable "countCA";
-	if ((countCA == 0)/* and (diag_fps > minimoFPS)*/) then
-		{
-		[1200] remoteExec ["A3A_fnc_timingCA",2];
-		if (!bigAttackInProgress) then
-			{
-			_script = [] spawn A3A_fnc_rebelAttack;
-			waitUntil {sleep 5; scriptDone _script};
-			};
-		};
 	sleep 3;
     _numWreckedAntennas = count antennasDead;
 	//Probability of spawning a mission in.

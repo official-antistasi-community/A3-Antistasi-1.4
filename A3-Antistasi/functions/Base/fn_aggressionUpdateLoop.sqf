@@ -49,5 +49,18 @@ while {true} do
     };
 
     prestigeIsChanging = false;
-    [] spawn A3A_fnc_calculateAggression;
+    [] call A3A_fnc_calculateAggression;
+
+    //Update attackCountdown
+    attackCountdown = attackCountdown - (60 * (0.5 + ((aggressionOccupants + aggressionInvaders)/200)));
+	if (attackCountdown < 0) then {attackCountdown = 0};
+	publicVariable "attackCountdown";
+	if (attackCountdown == 0) then
+	{
+		[1200] remoteExec ["A3A_fnc_timingCA",2];
+		if (!bigAttackInProgress) then
+		{
+			[] spawn A3A_fnc_rebelAttack;
+		};
+	};
 };

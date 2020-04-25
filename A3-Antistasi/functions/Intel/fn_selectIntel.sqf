@@ -61,7 +61,7 @@ if(_intelType == "Small") then
         };
         case (TIME_LEFT):
         {
-            private _nextAttack = countCA + (random 600) - 300;
+            private _nextAttack = attackCountdown + (random 600) - 300;
             if(_nextAttack < 300) then
             {
                 _text = format ["Next enemy attack is imminent!"];

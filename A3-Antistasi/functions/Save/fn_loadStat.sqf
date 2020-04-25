@@ -11,19 +11,22 @@
 */
 
 specialVarLoads = [
-	"outpostsFIA","minesX","staticsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO",
+	"outpostsFIA","minesX","staticsX","attackCountdown","antennas","mrkNATO","mrkSDK","prestigeNATO",
 	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
 	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders"
+	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
+    "countCA"
 ];
 
 _varName = _this select 0;
 _varValue = _this select 1;
 if (isNil '_varValue') exitWith {};
 if (_varName in specialVarLoads) then {
-	if (_varName == 'countCA') then {countCA = _varValue; publicVariable "countCA"};
+	if (_varName == 'attackCountdown') then {attackCountdown = _varValue; publicVariable "attackCountdown"};
+    //Keep this for backwards compatiblity
+    if (_varName == 'countCA') then {attackCountdown = _varValue; publicVariable "attackCountdown"};
 	if (_varName == 'difficultyX') then {
 		if !(isMultiplayer) then {
 			skillMult = _varValue;

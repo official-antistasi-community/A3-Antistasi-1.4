@@ -113,7 +113,7 @@ server setVariable ["resourcesFIA",1000,true];
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
 // Indicates time in seconds before next counter attack.
-countCA = 600;																		
+attackCountdown = 600;																		
 
 cityIsSupportChanging = false;
 resourcesIsChanging = false;

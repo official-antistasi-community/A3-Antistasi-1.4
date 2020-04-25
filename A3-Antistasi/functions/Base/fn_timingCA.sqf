@@ -1,16 +1,16 @@
-_timeX = _this select 0;
-if (isNil "_timeX") exitWith {};
-if !(_timeX isEqualType 0) exitWith {};
-_mayor = if (_timeX >= 3600) then {true} else {false};
-_timeX = _timeX - (((tierWar + difficultyCoef)-1)*400);
+/*  Adds a random amount of the given one to the attack counter (Why tho?)
+*/
 
-if (_timeX < 0) then {_timeX = 0};
+params ["_timeToAdd"];
 
-countCA = countCA + round (random _timeX);
+if (isNil "_timeToAdd") exitWith {};
+if !(_timeToAdd isEqualType 0) exitWith {};
 
-if (_mayor and (countCA < 1200)) then {countCA = 1200};
-publicVariable "countCA";
+private _mayor = if (_timeToAdd >= 3600) then {true} else {false};
+_timeToAdd = _timeToAdd - (((tierWar + difficultyCoef) - 1) * 400);
 
+if (_timeToAdd < 0) exitWith {};
 
-
-
+attackCountdown = attackCountdown + round (random _timeToAdd);
+if (_mayor and (attackCountdown < 1200)) then {attackCountdown = 1200};
+publicVariable "attackCountdown";

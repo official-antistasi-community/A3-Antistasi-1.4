@@ -9,7 +9,7 @@ if (!isServer) exitWith {};
 if (savingServer) exitWith {["Save Game", "Server data save is still in progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 private ["_garrison"];
-["countCA", countCA] call A3A_fnc_setStatVariable;
+["attackCountdown", attackCountdown] call A3A_fnc_setStatVariable;
 ["gameMode", gameMode] call A3A_fnc_setStatVariable;
 ["difficultyX", skillMult] call A3A_fnc_setStatVariable;
 ["bombRuns", bombRuns] call A3A_fnc_setStatVariable;

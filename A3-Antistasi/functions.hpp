@@ -60,6 +60,7 @@ class A3A
 		class fogCheck {};
 		class garbageCleaner {};
 		class garrisonInfo {};
+        class getAggroLevelString {};
 		class healAndRepair {};
 		class initPetros {};
 		class isFrontline {};

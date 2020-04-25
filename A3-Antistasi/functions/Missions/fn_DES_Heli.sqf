@@ -195,8 +195,8 @@ if ((not alive _heli) || {((taskState "DES") == "SUCCEEDED") || {(count (_vehicl
 	if (typeOf _heli in vehCSATAir) then
     {
         [0, 15] remoteExec ["A3A_fnc_prestige",2]
-    }
-    else
+    };
+    if (typeOf _heli in vehNATOAir) then
     {
         [15, 0] remoteExec ["A3A_fnc_prestige",2]
     };

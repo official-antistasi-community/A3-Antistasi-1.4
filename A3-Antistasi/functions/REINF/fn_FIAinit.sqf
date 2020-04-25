@@ -92,10 +92,10 @@ if (player == leader _unit) then {
 		} else {
 			if (side _killer == Occupants) then {
 				_nul = [0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-				[-0.25,0] remoteExec ["A3A_fnc_prestige",2];
+				[-0.05,0] remoteExec ["A3A_fnc_prestige",2];
 			} else {
 				if (side _killer == Invaders) then {
-					[0,-0.25] remoteExec ["A3A_fnc_prestige",2]
+					[0,-0.05] remoteExec ["A3A_fnc_prestige",2]
 				} else {
 					if (isPlayer _killer) then {
 						_killer addRating 1000;

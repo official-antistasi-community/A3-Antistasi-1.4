@@ -65,11 +65,11 @@ if (time >= _bleedOutTime) exitWith
 		{
 			case Occupants:
 			{
-				[0.1,0] remoteExec ["A3A_fnc_prestige",2];
+				[0.15,0] remoteExec ["A3A_fnc_prestige",2];
 			};
 			case Invaders:
 			{
-				[0,0.25] remoteExec ["A3A_fnc_prestige",2];
+				[0,0.15] remoteExec ["A3A_fnc_prestige",2];
 			};
 		};
 	};

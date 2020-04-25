@@ -210,66 +210,6 @@ if (hasTFAR) then
 private _arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
 DECLARE_SERVER_VAR(arrayCivs, _arrayCivs);
 
-////////////////////////////////////
-//      CIVILIAN VEHICLES       ///
-////////////////////////////////////
-[2,"Creating vehicles list",_fileName] call A3A_fnc_log;
-/*
-private _vehicleIsSpecial = {
-	params ["_vehConfig"];
-
-	   (getNumber (_vehConfig >> "transportRepair") > 0)
-	|| (getNumber (_vehConfig >> "transportAmmo") > 0)
-//	|| (getNumber (_vehConfig >> "transportFuel") > 0)
-//	|| (getNumber (_vehConfig >> "ace_refuel_fuelCargo") > 0)
-	|| (getNumber (_vehConfig >> "ace_repair_canRepair") > 0)
-	|| (getNumber (_vehConfig >> "ace_rearm_defaultSupply") > 0)
-		//Medical vehicle
-	|| (getNumber (_vehConfig >> "attendant") > 0)
-
-};
-
-private _civVehConfigs = "(
-	getNumber (_x >> 'scope') isEqualTo 2 && {
-		getNumber (_x >> 'side') isEqualTo 3 && {
-			getText (_x >> 'vehicleClass') in ['Car','Support'] && {
-				getText (_x >> 'simulation') == 'carx'
-			}
-		}
-	}
-)" configClasses (configFile >> "CfgVehicles");
-
-private _vehIsValid = {
-	params ["_vehConfig"];
-
-	private _mod = _vehConfig call A3A_fnc_getModOfConfigClass;
-
-	//If we have IFA and vehicle is vanilla
-	if(hasIFA && {_mod == ""}) exitWith {
-		false;
-	};
-
-	if (_vehConfig call _vehicleIsSpecial) exitWith {
-		false;
-	};
-
-	//Check if mod is disabled
-	!(_vehConfig call A3A_fnc_getModOfConfigClass in disabledMods);
-};
-
-DECLARE_SERVER_VAR(arrayCivVeh, (_civVehConfigs select {_x call _vehIsValid} apply {configName _x}));
-
-//Civilian Boats
-_civBoatConfigs = "(
-	getNumber (_x >> 'scope') isEqualTo 2 && {
-		getNumber (_x >> 'side') isEqualTo 3 && {
-			getText (_x >> 'vehicleClass') isEqualTo 'Ship'
-		}
-	}
-)" configClasses (configFile >> "CfgVehicles");
-
-DECLARE_SERVER_VAR(CivBoats, (_civBoatConfigs select {_x call _vehIsValid} apply {configName _x}));
-*/
 
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
@@ -493,44 +433,7 @@ private _templateVariables = [
 	ONLY_DECLARE_SERVER_VAR_FROM_VARIABLE(_x);
 } forEach _templateVariables;
 
-call {
-	if (hasIFA) exitWith {
-		[2, "Loading IFA modset templates", _fileName] call A3A_fnc_log;
-		call compile preProcessFileLineNumbers "Templates\IFA_Reb_POL_Temp.sqf";
-		call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
-		call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
-		call compile preProcessFileLineNumbers "Templates\IFA_Civ.sqf";
-	};
-	if (has3CB) exitWith {
-		[2, "Loading 3CB modset templates", _fileName] call A3A_fnc_log;
-		call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf";
-		call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf";
-		call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf";
-		call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf";
-	};
-	if (activeGREF) exitWith {
-		[2, "Loading RHS modset templates", _fileName] call A3A_fnc_log;
-		if (teamPlayer != independent) then {
-			call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf";
-			call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf";
-		} else {
-			call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf";
-			call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf";
-		};
-		call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf";
-		call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf";
-	};
-	
-	[2, "Loading vanilla modset templates", _fileName] call A3A_fnc_log;
-	call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf";
-	call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf";
-	call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";
-	call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";
-};
 
-// could add auxiliary civ vehicle templates at this point
-
-/*
 if !(hasIFA) then {
 	//Rebel Templates
 	switch (true) do {
@@ -566,41 +469,11 @@ else {
 	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Civ.sqf";
 };
-*/
 
-/*
-private _civVehicles = [];
-private _civVehiclesWeighted = [];
-private _carWeightTotal = 0;
-private _truckWeightTotal = 0;
-
-// zero weights for vehicles from disabled mods, count total weights
-// build unweighted array for identifying civ vehicles for undercover etc.
-{
-	if ((_x select 0) call A3A_fnc_getModOfConfigClass in disabledMods) then { _x set [1, 0] }; 
-	_carWeightTotal = _carWeightTotal + (_x select 1);
-	if (_x select 1 > 0) then { _civVehicles pushBack (_x select 0) };
-} forEach civCarData;
-{
-	if ((_x select 0) call A3A_fnc_getModOfConfigClass in disabledMods) then { _x set [1, 0] };
-	_truckWeightTotal = _truckWeightTotal + (_x select 1);
-	if (_x select 1 > 0) then { _civVehicles pushBack (_x select 0) };
-} forEach civTruckData;
-
-// create final array for selectRandomWeighted
-{ 
-	_civVehiclesWeighted pushBack (_x select 0);
-	_civVehiclesWeighted pushBack ((_x select 1) * 4 / _carWeightTotal);
-} forEach civCarData;
-{
-	_civVehicles pushBack (_x select 0);
-	_civVehicles pushBack ((_x select 1) * 1 / _truckWeightTotal);
-} forEach civTruckData;
-*/
-
-
-// ok, better way of doing this...
-// make a little function that re-weights a weighted array
+////////////////////////////////////
+//      CIVILIAN VEHICLES       ///
+////////////////////////////////////
+[2,"Creating civilian vehicles lists",_fileName] call A3A_fnc_log;
 
 private _fnc_vehicleIsValid = {
 	params ["_type"];

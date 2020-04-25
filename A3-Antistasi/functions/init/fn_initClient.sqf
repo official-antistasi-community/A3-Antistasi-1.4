@@ -125,7 +125,7 @@ if (!hasACE) then {
 
 if (player getVariable ["pvp",false]) exitWith {
 	lastVehicleSpawned = objNull;
-	//[player] call A3A_fnc_pvpCheck;
+	[player] call A3A_fnc_pvpCheck;
 	[player] call A3A_fnc_dress;
 	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	respawnTeamPlayer setMarkerAlphaLocal 0;
@@ -341,7 +341,7 @@ if (isMultiplayer) then {
 				_isMember = true;
 				["General Info", "You are not in the member's list, but as you are Server Admin, you have been added. Welcome!"] call A3A_fnc_customHint;
 			};
-
+			
 			if (_isMember) then {
 				membersX pushBack (getPlayerUID player);
 				publicVariable "membersX";
@@ -349,7 +349,7 @@ if (isMultiplayer) then {
 				_nonMembers = {(side group _x == teamPlayer) and !([_x] call A3A_fnc_isMember)} count (call A3A_fnc_playableUnits);
 				if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
 				if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
-
+				
 				["General Info", "Welcome Guest<br/><br/>You have joined this server as guest"] call A3A_fnc_customHint;
 			};
 		};
@@ -380,7 +380,7 @@ if (_isJip) then {
 		} forEach missionsX;
 	};
 }
-else
+else 
 {
 	[2,"Not Joining in Progress (JIP)",_filename] call A3A_fnc_log;
 };
@@ -489,7 +489,7 @@ if (isNil "placementDone") then {
 if (isMultiplayer) then {
 	[] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 }
-else
+else 
 {
 	if (loadLastSave) then {
 		[] spawn A3A_fnc_loadPlayer;

@@ -68,7 +68,7 @@ if (isMultiplayer) then {
 	napalmEnabled = false;
 	teamSwitchDelay = 0;
 	playerMarkersEnabled = true;
-	minPlayersRequiredforPVP = 1;
+	minPlayersRequiredforPVP = 2;
 	helmetLossChance = 33;
     startWithLongRangeRadio = true;
 };

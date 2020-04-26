@@ -59,14 +59,14 @@ _EHkilledIdx = _unit addEventHandler
 			//Must be group, in case they're undercover.
 			if (side group _killer == teamPlayer) then
 			{
-				[5 * _multiplier, 0] remoteExec ["A3A_fnc_prestige",2];
+				[[10 * _multiplier, 20], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 				[1,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 			}
 			else
 			{
 				if (side group _killer == Occupants) then
 				{
-					[-3 * _multiplier, 0] remoteExec ["A3A_fnc_prestige",2];
+					[[-5 * _multiplier, 20], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 					[0,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 				}
 				else

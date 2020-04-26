@@ -19,8 +19,8 @@ _looser = sidesX getVariable [_markerX,sideUnknown];
 _sides = [teamPlayer,Occupants,Invaders];
 _other = "";
 _textX = "";
-_prestigeOccupants = 0;
-_prestigeInvaders = 0;
+_prestigeOccupants = [0, 0];
+_prestigeInvaders = [0, 0];
 _flagX = objNull;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 
@@ -107,13 +107,13 @@ if (_markerX in airportsX) then
 		[0,10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 		if (_looser == Occupants) then
 		{
-			_prestigeOccupants = 35;
-			_prestigeInvaders = -5;
+			_prestigeOccupants = [50, 60];
+			_prestigeInvaders = [-25, 60];
 		}
 		else
 		{
-			_prestigeOccupants = -5;
-			_prestigeInvaders = 35;
+			_prestigeOccupants = [-25, 60];
+			_prestigeInvaders = [50, 60];
 		};
 	}
 	else
@@ -132,13 +132,13 @@ if (_markerX in airportsX) then
 		{
             if(_winner == Occupant) then
             {
-                _prestigeOccupants = -15;
-                _prestigeInvaders = -5;
+                _prestigeOccupants = [-40, 60];
+                _prestigeInvaders = [-20, 60];
             }
             else
             {
-                _prestigeOccupants = -5;
-                _prestigeInvaders = -15;
+                _prestigeOccupants = [-20, 60];
+                _prestigeInvaders = [-40, 60];
             };
 		};
 	};
@@ -156,11 +156,11 @@ if (_markerX in outposts) then
 		{
 			if (_winner == Occupants) then
             {
-                _prestigeOccupants = -5;
+                _prestigeOccupants = [-10, 30];
             }
             else
             {
-                _prestigeInvaders = -5;
+                _prestigeInvaders = [-10, 30];
             };
 		};
 	}
@@ -168,13 +168,13 @@ if (_markerX in outposts) then
 	{
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = 25;
-            _prestigeInvaders = -5;
+            _prestigeOccupants = [30, 30];
+            _prestigeInvaders = [-15, 30];
         }
         else
         {
-            _prestigeOccupants = -5;
-            _prestigeInvaders = 25;
+            _prestigeOccupants = [-15, 30];
+            _prestigeInvaders = [30, 30];
         };
 	};
 	["TaskSucceeded", ["", "Outpost Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -188,11 +188,11 @@ if (_markerX in seaports) then
 	{
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = 10;
+            _prestigeOccupants = [20, 30];
         }
         else
         {
-            _prestigeInvaders = 10;
+            _prestigeInvaders = [20, 30];
         };
 	};
 	["TaskSucceeded", ["", "Seaport Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -205,11 +205,11 @@ if (_markerX in factories) then
 	{
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = 10;
+            _prestigeOccupants = [20, 30];
         }
         else
         {
-            _prestigeInvaders = 10;
+            _prestigeInvaders = [20, 30];
         };
 	};
 	["TaskSucceeded", ["", "Factory Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -222,11 +222,11 @@ if (_markerX in resourcesX) then
 	{
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = 10;
+            _prestigeOccupants = [20, 30];
         }
         else
         {
-            _prestigeInvaders = 10;
+            _prestigeInvaders = [20, 30];
         };
 	};
 	["TaskSucceeded", ["", "Resource Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];

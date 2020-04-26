@@ -24,13 +24,13 @@ if (_power == _markerX) then
 				{
 				//hint format ["You achieved to bring power to %1, more people there supports our cause",_city];
 				//[-10,10,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
-				_nul = [5,0] remoteExec ["A3A_fnc_prestige",2];
+				_nul = [[5, 10],[0,0]] remoteExec ["A3A_fnc_prestige",2];
 				}
 			else
 				{
 				//hint format ["You cutted off power to %1, less people support AAF there",_city];
 				//[-10,0,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
-				_nul = [-5,0] remoteExec ["A3A_fnc_prestige",2];
+				_nul = [[-5, 10],[0,0]] remoteExec ["A3A_fnc_prestige",2];
 				_powered = false;
 				};
 			}
@@ -40,7 +40,7 @@ if (_power == _markerX) then
 				{
 				//hint format ["AAF has cut off power to %1, less people there supports our cause",_city];
 				//[0,-10,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
-				_nul = [5,0] remoteExec ["A3A_fnc_prestige",2];
+				_nul = [[5, 10],[0,0]] remoteExec ["A3A_fnc_prestige",2];
 				_powered = false;
 				};
 			};

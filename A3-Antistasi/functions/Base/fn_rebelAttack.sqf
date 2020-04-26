@@ -16,7 +16,7 @@ params [["_side", sideEnemy]];
 private _fileName = "rebelAttack";
 [
     2,
-    "Starting large attack script, gathering targets now",
+    format ["Starting large attack script for side %1", _side],
     _fileName,
     true
 ] call A3A_fnc_log;
@@ -60,14 +60,6 @@ else
     };
 };
 
-
-
-private _markersX = [];
-private _countXFacil = 0;
-private _natoIsFull = false;
-private _csatIsFull = false;
-
-
 //No AI vs AI, possible targets are only bases held by rebels
 if (gameMode != 1) then
 {
@@ -82,62 +74,148 @@ if ((tierWar < 2) and (gameMode <= 2)) then
 {
 	_possibleStartBases = _possibleStartBases select {(sidesX getVariable [_x,sideUnknown] == Occupants)};
 	_possibleTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
-}
-else
-{
-    //If available and no airport is available, add the carriers
-	if (gameMode != 4) then
-    {
-        if ({sidesX getVariable [_x,sideUnknown] == Occupants} count _possibleStartBases == 0) then
-        {
-
-        };
-    };
-	if (gameMode != 3) then
-    {
-        if ({sidesX getVariable [_x,sideUnknown] == Invaders} count _possibleStartBases == 0) then
-        {
-            _possibleStartBases pushBack "CSAT_carrier"
-        };
-    };
-	if (([vehNATOPlane] call A3A_fnc_vehAvailable) and ([vehNATOMRLS] call A3A_fnc_vehAvailable) and ([vehNATOTank] call A3A_fnc_vehAvailable)) then
-    {
-        _natoIsFull = true
-    };
-	if (([vehCSATPlane] call A3A_fnc_vehAvailable) and ([vehCSATMRLS] call A3A_fnc_vehAvailable) and ([vehCSATTank] call A3A_fnc_vehAvailable)) then
-    {
-        _csatIsFull = true
-    };
 };
 
 //On low level remove cities from target list
 if (gameMode != 4) then
 {
-	if (tierWar < 3) then
-    {
-        _possibleTargets = _possibleTargets - citiesX;
-    };
+	if (tierWar < 3) then {_possibleTargets = _possibleTargets - citiesX;};
 }
 else
 {
-	if (tierWar < 5) then
-    {
-        _possibleTargets = _possibleTargets - citiesX;
-    };
+	if (tierWar < 5) then {_possibleTargets = _possibleTargets - citiesX;};
 };
 
-//lets keep the nearest targets for each AI airbase in the target list, so we ensure even when they are surrounded of friendly zones, they remain as target
-private _nearestObjectives = [];
+//Attacks on rebels should be closer than mission range * 1.5
+_possibleTargets = _possibleTargets select {sidesX getVariable [_x, sideUnknown] != teamPlayer || {(getMarkerPos _x) distance2D (getMarkerPos "Synd_HQ") < (1.5 * distanceMission)}};
+
+[
+    3,
+    format ["Possible targets for attack are %1, possible start points are %2", _possibleTargets, _possibleStartBases],
+    _fileName,
+    true
+] call A3A_fnc_log;
+
+private _availableTargets = [];
 {
-    private _airportSide = sidesX getVariable [_x,sideUnknown];
-    private _airportTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] != _airportSide};
-    if !(_airportTargets isEqualTo []) then
+    private _startAirport = _x
+    private _airportSide = sidesX getVariable [_startAirport, sideUnknown];
+    private _airportTargets = [];
+
+    //Find suitable targets for this airport
+    if(_side == sideEnemy) then
     {
-        _nearestTarget = [_airportTargets, getMarkerPos _x] call BIS_fnc_nearestPosition;
-        _nearestObjectives pushBack _nearestTarget;
+        _airportTargets = _possibleTargets select {sidesX getVariable [_x, sideUnknown] != _airportSide};
+    }
+    else
+    {
+        _airportTargets = _possibleTargets select {sidesX getVariable [_x, sideUnknown] != _side};
     };
+
+    //Gather position and killzones of airport
+    private _killZones = killZones getVariable [_startAirport, []];
+    private _startAirportPos = getMarkerPos _startAirport;
+    {
+        //For each target, calculate the distance to the airport
+        private _target = _x;
+        private _distance = (getMarkerPos _target) distance2D _startAirportPos;
+        //In air range, add to target list
+        if(_distance < distanceForAirAttack) then
+        {
+            //If in land range, half the distance
+            if(_distance < distanceForLandAttack && {[_startAirport, _target] call A3A_fnc_isTheSameIsland}) then
+            {
+                _distance = _distance * 0.5;
+            };
+
+            //If in killzones, double the distance
+            if (_target in _killZones) then
+            {
+                _distance = _distance * 2;
+            };
+
+            //Add airport to the possible start bases for attack to this target, use distance as points (the lower the better)
+            private _index = _availableTargets findIf {(_x select 0) == _target};
+            if(_index == -1) then
+            {
+                _availableTargets pushBack [_target, [[_startAirport, _distance]]];
+            }
+            else
+            {
+                private _targetArray = _availableTargets select _index;
+                (_targetArray select 1) pushBack [_startAirport, _distance];
+            };
+        };
+    } forEach _airportTargets;
 } forEach _possibleStartBases;
 
+[3, "Logging available targets for attack", _fileName] call A3A_fnc_log;
+[_availableTargets, "Available targets"] call A3A_fnc_logArray;
+
+private _easyTargets = [];
+{
+    _x params ["_target", "_baseArray"];
+
+    private _targetMultiplier = 1;
+    private _targetPoints = 0;
+
+    //Selecting a multiplier based on target type (lowest is best)
+    switch (true) do
+    {
+        case (_target in airportsX): {_targetMultiplier = 0.1};
+        case (_target in outposts): {_targetMultiplier = 0.35};
+        case (_target in resourcesX): {_targetMultiplier = 0.5};
+        case (_target in factories): {_targetMultiplier = 0.6};
+        case (_target in seaports): {_targetMultiplier = 0.7};
+        case (_target in citiesX): {_targetMultiplier = 0.9};
+        //If I have missed something, multiplier stays the same
+        default {_targetMultiplier = 1};
+    };
+
+    //Adding points based on nearby friendly locations
+    private _nearbyFriendlyMarkers = (markersX - controlsX - citiesX - outpostsFIA) select
+    {
+        (sidesX getVariable [_x,sideUnknown] == _targetSide) &&
+        {(getMarkerPos _x) distance2D (getMarkerPos _target) < 1500}
+    };
+    _targetPoints = 500 * (count _nearbyFriendlyMarkers);
+
+    if(count _nearbyFriendlyMarkers <= 3) then
+    {
+        //Only a few friendly markers nearby, consider it an easy target
+        _easyTargets pushBack _target;
+    };
+
+    //Adding points based on garrison and statics
+    private _garrison = garrison getVariable [_target,[]];
+    private _nearbyStatics = staticsToSave select {(_x distance2D (getMarkerPos _target)) < distanceSPWN};
+    _targetPoints = _targetPoints + (50 * (count _garrison) + (200 * (count _nearbyStatics)));
+
+    if((count _garrison) <= 8 && {count _nearbyStatics <= 2}) then
+    {
+        //Only minimal garrison, consider it an easy target
+        _easyTargets pushBack _target;
+    };
+
+    //Apply the new points to the base array
+    {
+        _baseArray = _baseArray apply {_x select 0, ((_x select 1) + _targetPoints) * _targetMultiplier};
+    } forEach _baseArray;
+} forEach _availableTargets;
+
+[3, "Logging final target values for attack", _fileName] call A3A_fnc_log;
+[_availableTargets, "Target values"] call A3A_fnc_logArray;
+
+
+
+
+
+
+
+
+
+
+/*
 //the following discards targets which are surrounded by friendly zones, excluding airbases and the nearest targets
 //If one of the targets has only friendly locations arounds it (or none of our locations), the target gets discarded as it would be too strong
 private _targetsForAreaCheck = _possibleTargets - airportsX - _nearestObjectives;
@@ -160,12 +238,7 @@ if (_possibleTargets isEqualTo []) exitWith
     ] call A3A_fnc_log;
 };
 
-[
-    3,
-    format ["Possible targets for attack are %1", _possibleTargets],
-    _fileName,
-    true
-] call A3A_fnc_log;
+
 
 private _finalTargets = [];
 private _basesFinal = [];
@@ -470,3 +543,5 @@ if (_waves == 1) then
 	{
 	{[[_x select 0,_x select 1,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]} forEach _easyAttacks;
 	};
+
+    */

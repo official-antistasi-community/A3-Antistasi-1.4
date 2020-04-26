@@ -38,7 +38,7 @@ NATOPlayerLoadouts = [
 	//Anti-tank Scout
 	["3CB_BAF_AT_MTP"] call A3A_fnc_getLoadout,
 	//AT2
-	["3CB_BAF_AAT_MTP"] call A3A_fnc_getLoadout
+	["3CB_BAF_AT2_MTP"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles

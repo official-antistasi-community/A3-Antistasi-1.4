@@ -18,35 +18,15 @@ while {true} do
     waitUntil {!prestigeIsChanging};
     prestigeIsChanging = true;
 
-    private _counter = 0;
-    while {_counter < (count aggressionStackOccupants)} do
-    {
-        private _element = aggressionStackOccupants select _counter;
-        _element set [0, (_element select 0) + (_element select 1)];
+    //Calculate new values for each element
+    aggressionStackOccupants = aggressionStackOccupants apply {[(_x select 0) + (_x select 1), (_x select 1)]};
+    //Filter out all elements which have passed the 0 value
+    aggressionStackOccupants = aggressionStackOccupants select {(_x select 0) * (_x select 1) < 0};
 
-        //Quick check if the signs of the values are equal, if so delete
-        if((_element select 0) * (_element select 1) >= 0) then
-        {
-            aggressionStackOccupants deleteAt _counter;
-            _counter = _counter - 1;
-        };
-        _counter = _counter + 1;
-    };
-
-    _counter = 0;
-    while {_counter < (count aggressionStackInvaders)} do
-    {
-        private _element = aggressionStackInvaders select _counter;
-        _element set [0, (_element select 0) + (_element select 1)];
-
-        //Quick check if the signs of the values are equal, if so delete
-        if((_element select 0) * (_element select 1) >= 0) then
-        {
-            aggressionStackInvaders deleteAt _counter;
-            _counter = _counter - 1;
-        };
-        _counter = _counter + 1;
-    };
+    //Calculate new values for each element
+    aggressionStackInvaders = aggressionStackInvaders apply {[(_x select 0) + (_x select 1), (_x select 1)]};
+    //Filter out all elements which have passed the 0 value
+    aggressionStackInvaders = aggressionStackInvaders select {(_x select 0) * (_x select 1) < 0};
 
     prestigeIsChanging = false;
     [] spawn A3A_fnc_calculateAggression;

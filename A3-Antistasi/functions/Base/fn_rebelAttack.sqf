@@ -192,7 +192,9 @@ if (count _availableTargets == 0) exitWith
     _x params ["_target", "_baseArray"];
     //[3, format ["T: %1, A: %2", _target, _baseArray], _fileName] call A3A_fnc_log;
 
+    //Multiplier is used as an overall multiplier based on types
     private _targetMultiplier = 1;
+    //Additional points based on marker specific traits
     private _targetPoints = 0;
     private _targetSide = sidesX getVariable [_target, sideUnknown];
 
@@ -262,6 +264,7 @@ if(count _easyTargets >= 4) then
         private _index = _availableTargets findIf {(_x select 0) == _target};
         private _startArray = (_availableTargets select _index) select 1;
 
+        //Search for the best option for attacking this target (lowest number is best)
         private _attackParams = objNull;
         {
             if(!(_attackParams isEqualType []) || {(_attackParams select 1) > (_x select 1)}) then
@@ -271,6 +274,7 @@ if(count _easyTargets >= 4) then
         } forEach _startArray;
         _attackParams pushBack _target;
 
+        //Check if the attack is better than one of the current selected ones
         private _insertIndex = _attackList findIf {(!(_x isEqualType [])) || {(_x select 1) > (_attackParams select 1)}};
         if(_insertIndex != -1) then
         {
@@ -280,10 +284,12 @@ if(count _easyTargets >= 4) then
             }
             else
             {
+                //Sort in and push all worse option down by one
                 for "_i" from 3 to _insertIndex step -1 do
                 {
                     _attackList set [_i + 1, _attackList select _i];
                 };
+                //Set attack and then cut of the last option
                 _attackList set [_insertIndex, _attackParams];
                 _attackList resize 4;
             };
@@ -293,12 +299,12 @@ if(count _easyTargets >= 4) then
     [3, "Found four targets to attack, these are:", _fileName] call A3A_fnc_log;
     [_attackList, "Target params"] call A3A_fnc_logArray;
 
-    /*
+    //Execute the attacks from the given bases to the targets
     {
         [[_x select 2, _x select 0, "", false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
+        //[sidesX getVariable (_x select 0), (_x select 2)] call A3A_fnc_markerChange;
         sleep 30;
     } forEach _attackList;
-    */
 }
 else
 {
@@ -308,7 +314,7 @@ else
     {
         _x params ["_target", "_startArray"];
 
-        //Calculate priority for targets
+        //Select the best attack option for the target
         private _attackParams = objNull;
         {
             if(!(_attackParams isEqualType []) || {(_attackParams select 1) > (_x select 1)}) then
@@ -318,6 +324,7 @@ else
         } forEach _startArray;
         _attackParams pushBack _target;
 
+        //It makes less sense to hit a weak target with a strong waved attack, save it seperated
         if (_target in _easyTargets) then
         {
             if (!(_easyTarget isEqualType []) || {(_easyTarget select 1) > (_attackParams select 1)}) then
@@ -336,6 +343,7 @@ else
 
     [3, format ["Main target is %1, easy target is %2", _mainTarget, _easyTarget], _fileName] call A3A_fnc_log;
 
+    //If one if the target is not set, use the other one
     private _finalTarget = objNull;
     if(!(_mainTarget isEqualType [])) then
     {
@@ -351,6 +359,7 @@ else
         }
         else
         {
+            //If both are set, select easy target only if it is 2 times better than the main target
             if(((_easyTarget select 1) * 2) < (_mainTarget select 1)) then
             {
                 _finalTarget = _easyTarget;
@@ -367,6 +376,7 @@ else
     _finalTarget params ["_attackOrigin", "_attackPoints", "_attackTarget"];
 
     //Maybe have aggro play a role here?
+    //Select the number of ways based on the points as higher points mean higher difficulty
     private _waves =
 		_attackPoints / 2500
 		+ ([0, 1] select (_attackTarget in airportsX))
@@ -376,6 +386,7 @@ else
 	_waves = round _waves;
     if(_waves < 1) then {_waves = 1};
 
+    //Send the actual attacks
     if (sidesX getVariable [_attackOrigin, sideUnknown] == Occupants || {!(_attackTarget in citiesX)}) then
     {
         [
@@ -383,8 +394,10 @@ else
             format ["Starting waved attack with %1 waves from %2 to %3", _waves, _attackOrigin, _attackTarget],
             _fileName
         ] call A3A_fnc_log;
+        //For debug reasons
+        //[sidesX getVariable _attackOrigin, _attackTarget] call A3A_fnc_markerChange;
         //Why not using the scheduler here?
-		//[_attackTarget, _attackOrigin, _waves] spawn A3A_fnc_wavedCA;
+		[_attackTarget, _attackOrigin, _waves] spawn A3A_fnc_wavedCA;
     }
     else
     {
@@ -394,6 +407,6 @@ else
             _fileName
         ] call A3A_fnc_log;
         //Why not using the scheduler here?
-        //[_attackTarget, _attackOrigin] spawn A3A_fnc_invaderPunish;
+        [_attackTarget, _attackOrigin] spawn A3A_fnc_invaderPunish;
     };
 };

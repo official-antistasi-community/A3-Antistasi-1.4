@@ -8,6 +8,7 @@ _posbase = getMarkerPos respawnTeamPlayer;
 _potentials = [];
 _sites = [];
 _exists = false;
+_test = [];
 
 _silencio = false;
 if (count _this > 1) then {_silencio = true};
@@ -124,6 +125,7 @@ if (_typeX == "LOG") then
 	{
 	_sites = outposts + citiesX - destroyedSites;
 	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+	_sites = _sites + Seaports;
 	if (random 100 < 20) then {_sites = _sites + banks};
 	if (count _sites > 0) then
 		{
@@ -160,6 +162,11 @@ if (_typeX == "LOG") then
 				_city = [citiesX, _pos] call BIS_fnc_nearestPosition;
 				if (sidesX getVariable [_city,sideUnknown] == teamPlayer) then {_potentials = _potentials - [_siteX]};
 				};
+			if (_siteX in Seaports) then {
+				if (_pos distance _posbase < distanceMission) then {
+					_potentials pushBack _siteX;
+					};
+				};
 			};
 		};
 	if (count _potentials == 0) then
@@ -176,6 +183,7 @@ if (_typeX == "LOG") then
 		if (_siteX in citiesX) then {[[_siteX],"A3A_fnc_LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2]};
 		if (_siteX in outposts) then {[[_siteX],"A3A_fnc_LOG_Ammo"] remoteExec ["A3A_fnc_scheduler",2]};
 		if (_siteX in banks) then {[[_siteX],"A3A_fnc_LOG_Bank"] remoteExec ["A3A_fnc_scheduler",2]};
+		if (_siteX in Seaports) then {[[_siteX],"A3A_fnc_LOG_Salvage"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
 if (_typeX == "RES") then

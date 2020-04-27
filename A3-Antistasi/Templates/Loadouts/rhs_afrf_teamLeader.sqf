@@ -11,11 +11,11 @@
 		],
 
 		[//Launcher
-		"rhs_weap_rpg26",									//Weapon
+		"",									//Weapon
 		"",													//Muzzle
 		"",													//Rail
 		"",								//Sight
-		["rhs_rpg26_mag",1],							//Primary Magazine
+		[],							//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 		],
@@ -51,7 +51,6 @@
 		],
 
 		[//Backpack
-		"",
 		[//Inventory
 		[]
 		]

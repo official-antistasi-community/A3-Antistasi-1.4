@@ -1,4 +1,4 @@
-private _filename = "fn_NATOCrate";
+private _filename = "fn_fillLootCrate";
 params ["_crate", 
 ["_crateWepTypeMax", crateWepTypeMax], "_crateWepNum", 
 ["_crateItemTypeMax", crateItemTypeMax], "_crateItemNum", 
@@ -19,7 +19,7 @@ clearWeaponCargoGlobal _crate;
 clearItemCargoGlobal _crate;
 clearBackpackCargoGlobal _crate;
 //Double max types if the crate is an ammo truck
-if (typeOf _crate == vehNATOAmmoTruck) then {
+if (typeOf _crate in vehAmmoTrucks) then {
 	[4, "Ammo Truck Detected: Doubling Types", _filename] call A3A_fnc_log;
 	_crateWepTypeMax = _crateWepTypeMax * 2;
 	_crateItemTypeMax = _crateItemTypeMax * 2;
@@ -198,13 +198,16 @@ if (_crateWepTypeMax != 0) then {
 		}
 		else 
 		{
-			[4, format ["Adding weapon: %1", _loot], _filename] call A3A_fnc_log;
 			_amount = if (isNil "_crateWepNum") then {crateWepNumMax call _fnc_pickAmount;} else {_crateWepNum};
 			_crate addWeaponWithAttachmentsCargoGlobal [[ _loot, "", "", "", [], [], ""], _amount];
+			[4, format ["Adding %1 weapons of type %2", _amount, _loot], _filename] call A3A_fnc_log;
+
+			private _magazines = getArray (configFile / "CfgWeapons" / _loot / "magazines");
+			if (count _magazines < 1) exitWith {};
+			if (_loot in allShotguns) then { _magazines = [_magazines select 0] };		// prevent doomsday
+
 			for "_i" from 0 to _amount do {
-				_magazine = selectRandom getArray (configFile / "CfgWeapons" / _loot / "magazines");
-				//Abort if the gun has no magazines.
-				if (isNil "_magazine") exitWith {};
+				_magazine = selectRandom _magazines;
 				_magAmount = if ((getText (configFile >> "CfgMagazines" >> _magazine >> "ammo") isKindOf "MissileBase")) then {
 					floor random 3;
 				} else {
@@ -212,7 +215,6 @@ if (_crateWepTypeMax != 0) then {
 				};
 				[4, format ["Spawning %1 magazines of %2 for %3", _magAmount, _magazine, _loot], _filename] call A3A_fnc_log;
 				_crate addMagazineCargoGlobal [_magazine, _magAmount];
-				[4, format ["Spawning %1 of %2", _amount, _loot], _filename] call A3A_fnc_log;
 			};
 		};
 	};
@@ -230,10 +232,9 @@ if (_crateItemTypeMax != 0) then {
 			[3, "No Items Left in Loot List", _filename] call A3A_fnc_log;
 		}
 		else {
-			[4, format ["Item chosen: %1", _loot], _filename] call A3A_fnc_log;
 			_amount = if (isNil "_crateItemNum") then { round random crateItemNumMax;} else {_crateItemNum};
 			_crate addItemCargoGlobal [_loot,_amount];
-			[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+			[4, format ["Spawning %1 of %2", _amount,_loot], _filename] call A3A_fnc_log;
 		};
 	};
 };
@@ -248,7 +249,7 @@ if (_crateAmmoTypeMax != 0) then {
 		else {
 			_amount = if (isNil "_crateAmmoNum") then {crateAmmoNumMax call _fnc_pickAmount;} else {_crateAmmoNum};
 			_crate addMagazineCargoGlobal [_loot,_amount];
-			[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+			[4, format ["Spawning %1 of %2", _amount,_loot], _filename] call A3A_fnc_log;
 		};
 	};
 };
@@ -263,7 +264,7 @@ if (_crateExplosiveTypeMax != 0) then {
 		else {
 			_amount = if (isNil "_crateExplosiveNum") then { round random crateExplosiveNumMax;} else {_crateExplosiveNum};
 			_crate addMagazineCargoGlobal [_loot,_amount];
-			[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+			[4, format ["Spawning %1 of %2", _amount,_loot], _filename] call A3A_fnc_log;
 		};
 	};
 };
@@ -278,7 +279,7 @@ if (_crateAttachmentTypeMax != 0) then {
 		else {
 			_amount = if (isNil "_crateAttachmentNum") then { crateAttachmentNumMax  call _fnc_pickAmount;} else {_crateAttachmentNum};
 			_crate addItemCargoGlobal [_loot,_amount];
-			[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+			[4, format ["Spawning %1 of %2", _amount,_loot], _filename] call A3A_fnc_log;
 		};
 	};
 };
@@ -293,7 +294,7 @@ if (_crateBackpackTypeMax != 0) then {
 		else {
 			_amount = if (isNil "_crateBackpackNum") then {round random crateBackpackNumMax;} else {_crateBackpackNum};
 			_crate addBackpackCargoGlobal [_loot,_amount];
-			[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+			[4, format ["Spawning %1 of %2", _amount,_loot], _filename] call A3A_fnc_log;
 		};
 	};
 };
@@ -308,7 +309,7 @@ if (_crateHelmetTypeMax != 0) then {
 		else {
 			_amount = if (isNil "_crateHelmetNum") then { round random crateHelmetNumMax;} else {_crateHelmetNum};
 			_crate addItemCargoGlobal [_loot,_amount];
-			[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+			[4, format ["Spawning %1 of %2", _amount,_loot], _filename] call A3A_fnc_log;
 		};
 	};
 };
@@ -323,7 +324,7 @@ if (_crateVestTypeMax != 0) then {
 		else {
 			_amount = if (isNil "_crateVestNum") then { round random crateVestNumMax;} else {_crateVestNum};
 			_crate addItemCargoGlobal [_loot,_amount];
-			[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+			[4, format ["Spawning %1 of %2", _amount,_loot], _filename] call A3A_fnc_log;
 		};
 	};
 };
@@ -338,7 +339,7 @@ if (_crateDeviceTypeMax != 0) then {
 		else {
 			_amount = if (isNil "_crateDeviceNum") then { round random crateDeviceNumMax;} else {_crateDeviceNum};
 			_crate addBackpackCargoGlobal [_loot,_amount];
-			[4, format ["Spawning %2 of %3", _amount,_loot], _filename] call A3A_fnc_log;
+			[4, format ["Spawning %1 of %2", _amount,_loot], _filename] call A3A_fnc_log;
 		};
 	};
 };

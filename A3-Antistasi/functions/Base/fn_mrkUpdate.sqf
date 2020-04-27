@@ -65,7 +65,7 @@ else
 		{
 		if (_markerX in airportsX) then {_mrkD setMarkerText format ["%1 Airbase",nameInvaders];_mrkD setMarkerType flagCSATmrk} else {
 		if (_markerX in outposts) then {_mrkD setMarkerText format ["%1 Outpost",nameInvaders]}};
-		if !(_markerX in airportsX) then {__mrkD setMarkerColor colorInvaders;} else {_mrkD setMarkerColor "Default"};
+		if !(_markerX in airportsX) then {_mrkD setMarkerColor colorInvaders;} else {_mrkD setMarkerColor "Default"};
 		};
 	if (_markerX in resourcesX) then
 	 	{

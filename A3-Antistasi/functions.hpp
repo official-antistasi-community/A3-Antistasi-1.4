@@ -332,6 +332,7 @@ class A3A
 		class LOG_Ammo {};
 		class LOG_Bank {};
 		class LOG_Supplies {};
+		class LOG_Salvage {};
 		class missionRequest {};
 		class missionRequestAUTO {};
 		class REP_Antenna {};
@@ -356,18 +357,17 @@ class A3A
 		class checkRadiosUnlocked {};
 		class configSort {};
 		class crateLootParams {};
-		class CSATCrate {};
 		class dress {};
 		class empty {};
 		class equipmentClassToCategories {};
 		class equipmentIsValidForCurrentModset {};
 		class equipmentSort {};
+		class fillLootCrate {};
 		class getRadio {};
 		class itemSort {};
 		class itemType {};
 		class launcherInfo {};
 		class loot {};
-		class NATOCrate {};
 		class randomRifle {};
 		class transfer {};
 		class unlockEquipment {};
@@ -471,6 +471,11 @@ class A3A
 	{
 		class getRunwayTakeoffForAirportMarker {};
 		class runwayInfo {};
+	};
+
+	class SalvageRope
+	{
+		class SalvageRope {};
 	};
 
 	class Save

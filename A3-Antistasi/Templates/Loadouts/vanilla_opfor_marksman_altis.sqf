@@ -1,60 +1,64 @@
-[//Loadout
-	[//Primary Weapon
-		"srifle_DMR_01_F",								//Weapon
-		"",									//Muzzle
-		"acc_pointer_IR",									//Rail
-		"optic_SOS",									//Sight
-		["10Rnd_762x54_Mag",10],							//Primary Magazine
-		[],													//Secondary Magazine
-		"bipod_02_F_blk"									//Bipod
+[																					  //Loadout
+	[																							//Primary Weapon
+		"srifle_DMR_01_F",														//Weapon
+		"",																							//Muzzle
+		"Acc_Pointer_IR",																//Rail
+		"optic_SOS",																		//Sight
+		["10Rnd_762x54_Mag",10],												//Primary Magazine
+		[],																							//Secondary Magazine
+		"bipod_02_F_hex"																//Bipod
 	],
 
-	[//Launcher
-		"",													//Weapon
-		"",													//Muzzle
-		"",													//Rail
-		"",													//Sight
-		[],													//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
+	[																						  //Launcher
+		"",																							//Weapon
+		"",																							//Muzzle
+		"",																							//Rail
+		"",																							//Sight
+		[],																							//Primary Magazine
+		[],																							//Secondary Magazine
+		""																							//Bipod
 	],
 
-	[//Secondary Weapon
-		"hgun_Rook40_F",									//Weapon
-		"Muzzle_SNDS_L",									//Muzzle
-		"",													//Rail
-		"",													//Sight
-		["16Rnd_9x21_Mag", 17],								//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
+	[																							//Secondary Weapon
+		"hgun_Rook40_F",																//Weapon
+		"",																							//Muzzle
+		"",																							//Rail
+		"",																							//Sight
+		["16Rnd_9x21_Mag", 17],													//Primary Magazine
+		[],																							//Secondary Magazine
+		""																							//Bipod
 	],
 
-	[//Uniform
-		"U_O_GhillieSuit",									//Uniform
+	[																							//Uniform
+
+		"U_O_SpecopsUniform_ocamo",
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
-	[//Vest
-		"V_TacVest_khk",										//Vest
-		[//Inventory
-			["NVGoggles_OPFOR",1],
-			["SmokeShell",3,1],
-			["16Rnd_9x21_Mag",2,17],
-			["10Rnd_762x54_Mag",8,10]
+	[																							//Vest
+		"V_TacVest_khk",																//Vest
+		[																										//Inventory
+			["SmokeShell",2,1],
+			["HandGrenade",1,1],
+			["16Rnd_9x21_Mag",1,17],
+			["10Rnd_762x54_Mag",9,10]
 		]
 		+ _aceFlashlight
-		+ _aceKestrel
-		+ _aceRangecard
 		+ _aceM84
+		+ _aceRangecard
 	],
 
-	[],
+	[																							//Backpack
+		[																								//Backpack
+		[]																									//Inventory	
+		]
+	],
+																								//Headgear
+		["H_HelmetSpecO_ocamo"],
+		"",																					//Facewear
 
-		"",													//Headgear
-		"",									//Facewear
-
-	[//Binocular
-		"Binocular",										//Binocular
+	[																							//Binocular
+		"Binocular",																		//Binocular
 		"",
 		"",
 		"",

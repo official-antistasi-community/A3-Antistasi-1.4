@@ -67,12 +67,12 @@
 		""
 	],
 
-	[//Item
-        "ItemMap",											//Map
-        "ItemGPS",											//Terminal
-		["tf_fadak"] call _fnc_tfarRadio,				//Radio
-        "ItemCompass",										//Compass
-        "ItemWatch",										//Watch
-        ""													//Goggles
+	[																							//Item
+		"ItemMap",																			//Map
+		"",																							//Terminal
+		["tf_fadak"] call _fnc_tfarRadio,								//Radio
+		"ItemCompass",																	//Compass
+		"ItemWatch",																		//Watch
+		"NVGoggles_OPFOR"																//Goggles
 	]
 ];

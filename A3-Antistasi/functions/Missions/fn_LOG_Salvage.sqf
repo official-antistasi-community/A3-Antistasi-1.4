@@ -71,7 +71,7 @@ private _crateContents = selectRandom [
 	[_box, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0], 
 	[_box, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-_crateContents call A3A_fnc_NATOcrate;
+_crateContents call A3A_fnc_fillLootCrate;
 [3, format ["Box spawned"], _filename] call A3A_fnc_log;
 
 //Create boat and initialise crew members

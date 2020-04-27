@@ -69,11 +69,11 @@ if (gameMode != 1) then
     };
 };
 
-//For low level attacks only occupants are able to attack
+//For low level attacks only occupants are able to attack only rebels
 if ((tierWar < 2) and (gameMode <= 2)) then
 {
-	_possibleStartBases = _possibleStartBases select {(sidesX getVariable [_x,sideUnknown] == Occupants)};
-	_possibleTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+	//_possibleStartBases = _possibleStartBases select {(sidesX getVariable [_x,sideUnknown] == Occupants)};
+	//_possibleTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 };
 
 //On low level remove cities from target list
@@ -86,21 +86,31 @@ else
 	if (tierWar < 5) then {_possibleTargets = _possibleTargets - citiesX;};
 };
 
-//Attacks on rebels should be closer than mission range * 1.5
-_possibleTargets = _possibleTargets select {sidesX getVariable [_x, sideUnknown] != teamPlayer || {(getMarkerPos _x) distance2D (getMarkerPos "Synd_HQ") < (1.5 * distanceMission)}};
+//Attacks on rebels or cities should be closer than mission range
+_possibleTargets = _possibleTargets select {(sidesX getVariable [_x, sideUnknown] != teamPlayer && (!(_x in citiesX))) || {(getMarkerPos _x) distance2D (getMarkerPos "Synd_HQ") < distanceMission}};
+
+if(count _possibleTargets == 0) exitWith
+{
+    [
+        2,
+        "Attack found no suitable targets, aborting!",
+        _fileName
+    ] call A3A_fnc_log;
+};
 
 [
     3,
-    format ["Possible targets for attack are %1, possible start points are %2", _possibleTargets, _possibleStartBases],
+    format ["%1 possible targets for attack found, possible start points are %2",count _possibleTargets, _possibleStartBases],
     _fileName,
     true
 ] call A3A_fnc_log;
+
 
 private _easyTargets = [];
 private _availableTargets = [];
 
 {
-    private _startAirport = _x
+    private _startAirport = _x;
     private _airportSide = sidesX getVariable [_startAirport, sideUnknown];
     private _airportTargets = [];
 
@@ -134,13 +144,14 @@ private _availableTargets = [];
             private _nearbyFriendlyMarkers = (markersX - controlsX - citiesX - outpostsFIA) select
             {
                 (sidesX getVariable [_x,sideUnknown] == _airportSide) &&
-                {_startAirportPos distance2D (getMarkerPos _target) < 1500}
+                {(getMarkerPos _x) distance2D (getMarkerPos _target) < 1500}
             };
             _distance = _distance - (300 * (count _nearbyFriendlyMarkers));
             if (_distance < 0) then {_distance = 0};
 
             if(count _nearbyFriendlyMarkers >= 5) then
             {
+                [3, format ["%1 is surrounded by us, considering easy target", _target], _fileName] call A3A_fnc_log;
                 _easyTargets pushBack _target;
             };
 
@@ -165,14 +176,25 @@ private _availableTargets = [];
     } forEach _airportTargets;
 } forEach _possibleStartBases;
 
+if (count _availableTargets == 0) exitWith
+{
+    [
+        2,
+        "Attack could not find available targets, aborting!",
+        _fileName
+    ] call A3A_fnc_log;
+};
+
 [3, "Logging available targets for attack", _fileName] call A3A_fnc_log;
 [_availableTargets, "Available targets"] call A3A_fnc_logArray;
 
 {
     _x params ["_target", "_baseArray"];
+    //[3, format ["T: %1, A: %2", _target, _baseArray], _fileName] call A3A_fnc_log;
 
     private _targetMultiplier = 1;
     private _targetPoints = 0;
+    private _targetSide = sidesX getVariable [_target, sideUnknown];
 
     //Selecting a multiplier based on target type (lowest is best)
     switch (true) do
@@ -197,8 +219,10 @@ private _availableTargets = [];
 
     if(count _nearbyFriendlyMarkers <= 3) then
     {
+        //Thats a shitty method, it is better without it as airports are considered easy cause they are in the open ...
         //Only a few of their friendly markers nearby, consider it an easy target
-        _easyTargets pushBackUnique _target;
+        //[3, format ["%1 has only minimal friendly location around it, considering easy target", _target], _fileName] call A3A_fnc_log;
+        //_easyTargets pushBackUnique _target;
     };
 
     //Adding points based on garrison and statics
@@ -209,12 +233,13 @@ private _availableTargets = [];
     if((count _garrison) <= 8 && {count _nearbyStatics <= 2}) then
     {
         //Only minimal garrison, consider it an easy target
+        [3, format ["%1 has only minimal garrison, considering easy target", _target], _fileName] call A3A_fnc_log;
         _easyTargets pushBackUnique _target;
     };
 
     //Apply the new points to the base array
     {
-        _baseArray = _baseArray apply {_x select 0, ((_x select 1) + _targetPoints) * _targetMultiplier};
+        _baseArray = _baseArray apply {[_x select 0, ((_x select 1) + _targetPoints) * _targetMultiplier]};
     } forEach _baseArray;
 } forEach _availableTargets;
 
@@ -231,355 +256,144 @@ to attack from which airport
 if(count _easyTargets >= 4) then
 {
     //We got four easy targets, attacking them now
-    private _attackList = [];
+    private _attackList = [objNull, objNull, objNull, objNull];
     {
-        private _target = _x select 0;
-        private _index = _availableTargets find {_x select 0 == _target};
-        private _startArray = (_availableTargets select _index) select
+        private _target = _x;
+        private _index = _availableTargets findIf {(_x select 0) == _target};
+        private _startArray = (_availableTargets select _index) select 1;
+
+        private _attackParams = objNull;
+        {
+            if(!(_attackParams isEqualType []) || {(_attackParams select 1) > (_x select 1)}) then
+            {
+                _attackParams = _x;
+            };
+        } forEach _startArray;
+        _attackParams pushBack _target;
+
+        private _insertIndex = _attackList findIf {(!(_x isEqualType [])) || {(_x select 1) > (_attackParams select 1)}};
+        if(_insertIndex != -1) then
+        {
+            if(_insertIndex == 3) then
+            {
+                _attackList set [3, _attackParams];
+            }
+            else
+            {
+                for "_i" from 3 to _insertIndex step -1 do
+                {
+                    _attackList set [_i + 1, _attackList select _i];
+                };
+                _attackList set [_insertIndex, _attackParams];
+                _attackList resize 4;
+            };
+        };
     } forEach _easyTargets;
+
+    [3, "Found four targets to attack, these are:", _fileName] call A3A_fnc_log;
+    [_attackList, "Target params"] call A3A_fnc_logArray;
+
+    /*
+    {
+        [[_x select 2, _x select 0, "", false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
+        sleep 30;
+    } forEach _attackList;
+    */
 }
 else
 {
     //Not enough easy targets, attack the best non easy target if available
-
-};
-
-
-
-
-
-
-
-
-
-
-/*
-//the following discards targets which are surrounded by friendly zones, excluding airbases and the nearest targets
-//If one of the targets has only friendly locations arounds it (or none of our locations), the target gets discarded as it would be too strong
-private _targetsForAreaCheck = _possibleTargets - airportsX - _nearestObjectives;
-{
-    private _targetPos = getMarkerPos _x;
-    private _targetSide = sidesX getVariable [_x, sideUnknown];
-    if (((markersX - controlsX - citiesX - outpostsFIA) select {sidesX getVariable [_x,sideUnknown] != _targetSide}) findIf {getMarkerPos _x distance2D _targetPos < 2000} == -1) then
+    private _mainTarget = objNull;
+    private _easyTarget = objNull;
     {
-        _possibleTargets = _possibleTargets - [_x];
-    };
-} forEach _targetsForAreaCheck;
+        _x params ["_target", "_startArray"];
 
-if (_possibleTargets isEqualTo []) exitWith
-{
-    [
-        2,
-        "No targets available for attack, aborting",
-        _fileName,
-        true
-    ] call A3A_fnc_log;
-};
-
-
-
-private _finalTargets = [];
-private _basesFinal = [];
-private _countFinal = [];
-private _objectiveFinal = [];
-private _easyAttacks = [];
-private _easyTargets = [];
-private _invadersHaveSeaport = if ({(sidesX getVariable [_x,sideUnknown] == Invaders)} count seaports > 0) then {true} else {false};
-private _occupantsHaveSeaport = if ({(sidesX getVariable [_x,sideUnknown] == Occupants)} count seaports > 0) then {true} else {false};
-private _waves = 1;
-
-{
-    private _startAirport = _x;
-    private _startAirportPos = getMarkerPos _startAirport;
-    private _killZones = killZones getVariable [_startAirport, []];
-    private _tmpTargets = [];
-    private _airportIsOccupants = true;
-    if (sidesX getVariable [_startAirport,sideUnknown] == Occupants) then
-	{
-        _tmpTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] != Occupants};
-        _tmpTargets = _tmpTargets - (citiesX select {([_x] call A3A_fnc_getSideRadioTowerInfluence) == teamPlayer});
-	}
-    else
-	{
-        _airportIsOccupants = false;
-        _tmpTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] != Invaders};
-        //Why would the invaders care about support and radio tower influence?
-        _tmpTargets = _tmpTargets - (citiesX select {(((server getVariable _x) select 2) + ((server getVariable _x) select 3) < 90) and ([_x] call A3A_fnc_getSideRadioTowerInfluence != Occupants)});
-	};
-
-    //Filter out everything that isn't in airport range
-    _tmpTargets = _tmpTargets select {getMarkerPos _x distance2D _startAirportPos < distanceForAirAttack};
-    if !(_tmpTargets isEqualTo []) then
-	{
-        //Isn't that just the nearest target? We already saved that
-        private _nearestTmpTarget = [_tmpTargets,_startAirport] call BIS_fnc_nearestPosition;
+        //Calculate priority for targets
+        private _attackParams = objNull;
         {
-            private _target = _x;
-            private _isCity = if (_target in citiesX) then {true} else {false};
-            private _targetPos = getMarkerPos _target;
-            private _rebelsHoldTarget = sidesX getVariable [_target, sideUnknown] == teamPlayer;
-            private _isTheSameIsland = [_target,_startAirport] call A3A_fnc_isTheSameIsland;
-            private _targetIsAirport = _x in airportsX;
-
-            //Check for fog values, if no fog go on
-            if ([_target, true] call A3A_fnc_fogCheck >= 0.3) then
+            if(!(_attackParams isEqualType []) || {(_attackParams select 1) > (_x select 1)}) then
             {
-                //Check if the target is an easy to grab target
-                if (_isTheSameIsland || {_rebelsHoldTarget || {!_targetIsAirport}}) then
-                {
-                    if ((!_isCity) && {!(_x in _killZones)) && {!(_x in _easyTargets) && {!(_startAirport in ["NATO_carrier","CSAT_carrier"])}}}) then
-                    {
-                        //This whole section here makes no sense at all
-                		private _sideEnemy = if (_airportIsOccupants) then {Invaders} else {Occupants};
-                		if ({(sidesX getVariable [_x,sideUnknown] == _sideEnemy) && {((getMarkerPos _x) distance2D _targetPos) < distanceSPWN}} count airportsX == 0) then
-                		{
-                			private _garrison = garrison getVariable [_target,[]];
-                			private _nearbyStatics = staticsToSave select {_x distance _targetPos < distanceSPWN};
-                			private _nearbyOutposts = outpostsFIA select {getMarkerPos _x distance2D _targetPos < distanceSPWN};
-                			private _garrisonStrength = ((count _garrison) + (4 * (count _nearbyOutposts)) + (2 * (count _nearbyStatics)));
-                			if (_garrisonStrength <= 8) then
-                			{
-                				if (!hasIFA || (_targetPos distance _startAirportPos < distanceForLandAttack)) then
-                				{
-                					_easyAttacks pushBack [_target,_startAirport];
-                					_easyTargets pushBackUnique _target;
-                				};
-                			};
-                		};
-                	};
-                    if !(_target in _easyTargets) then
-                    {
-                    	private _times = 1;
-                    	if (_airportIsOccupants) then
-                    	{
-                    		if ({sidesX getVariable [_x,sideUnknown] == Occupants} count airportsX <= 1) then
-                            {
-                                _times = 2
-                            };
-                    		if (!_isCity) then
-                    		{
-                    			if ((_target in outposts) || (_target in seaports)) then
-                    			{
-                    				if (!_rebelsHoldTarget) then
-                    				{
-                                        //Isn't that like _natoIsFull?
-                    					if (({[_x] call A3A_fnc_vehAvailable} count vehNATOAttack > 0) || ({[_x] call A3A_fnc_vehAvailable} count vehNATOAttackHelis > 0)) then
-                                        {
-                                            _times = 2*_times
-                                        }
-                                        else
-                                        {
-                                            _times = 0
-                                        };
-                    				}
-                    				else
-                    				{
-                    					_times = 2*_times;
-                    				};
-                    			}
-                    			else
-                    			{
-                    				if (_targetIsAirport) then
-                    				{
-                    					if (!_rebelsHoldTarget) then
-                    					{
-                    						if (([vehNATOPlane] call A3A_fnc_vehAvailable) or (!([vehCSATAA] call A3A_fnc_vehAvailable))) then {_times = 5*_times} else {_times = 0};
-                    					}
-                    					else
-                    					{
-                    						if (!_isTheSameIsland) then
-                                            {
-                                                _times = 5*_times
-                                            }
-                                            else
-                                            {
-                                                _times = 2*_times
-                                            };
-                    					};
-                    				}
-                    				else
-                    				{
-                    					if ((!_rebelsHoldTarget) && _natoIsFull) then
-                                        {
-                                            _times = 0
-                                        };
-                    				};
-                                };
-                    		};
-                            if (_times > 0) then
-                            {
-                                _airportNear = [airportsX, _targetPos] call bis_fnc_nearestPosition;
-                                if ((sidesX getVariable [_airportNear, sideUnknown] == Invaders) && (_x != _airportNear)) then
-                                {
-                                    _times = 0
-                                };
-                    		};
-                    	}
-                    	else
-                    	{
-                            _times = 2;
-                    		if (!_isCity) then
-                    		{
-                    			if ((_target in outposts) || (_target in seaports)) then
-                    			{
-                    				if (!_rebelsHoldTarget) then
-                    				{
-                    					if (({[_x] call A3A_fnc_vehAvailable} count vehCSATAttack > 0) or ({[_x] call A3A_fnc_vehAvailable} count vehCSATAttackHelis > 0)) then {_times = 2*_times} else {_times = 0};
-                    				}
-                    				else
-                    				{
-                    					_times = 2*_times;
-                    				};
-                    			}
-                    			else
-                    			{
-                    				if (_x in airportsX) then
-                    				{
-                    					if (!_rebelsHoldTarget) then
-                    					{
-                    						if (([vehCSATPlane] call A3A_fnc_vehAvailable) or (!([vehNATOAA] call A3A_fnc_vehAvailable))) then {_times = 5*_times} else {_times = 0};
-                    					}
-                    					else
-                    					{
-                                            if (!_isTheSameIsland) then {_times = 5*_times} else {_times = 2*_times};
-                                        };
-                    				}
-                                    else
-                                    {
-                                        if ((!_rebelsHoldTarget) and _csatIsFull) then {_times = 0};
-                                    };
-                                };
-                    			if (_times > 0) then
-                    			{
-                    				_airportNear = [airportsX,_targetPos] call bis_fnc_nearestPosition;
-                    				if ((sidesX getVariable [_airportNear,sideUnknown] == Occupants) and (_x != _airportNear)) then {_times = 0};
-                    			};
-                    		};
-                    		if (_times > 0) then
-                    			{
-                    			if ((!_rebelsHoldTarget) and (!_isCity)) then
-                    				{
-                    				//_times = _times + (floor((garrison getVariable [_x,0])/8))
-                    				_numGarr = [_x] call A3A_fnc_garrisonSize;
-                    				if ((_numGarr/2) < count (garrison getVariable [_x,[]])) then {if ((_numGarr/3) < count (garrison getVariable [_x,[]])) then {_times = _times + 6} else {_times = _times +2}};
-                    				};
-                    			if (_isTheSameIsland) then
-                    				{
-                    				if (_targetPos distance _startAirportPos < distanceForLandAttack) then
-                    					{
-                    					if  (!_isCity) then
-                    						{
-                    						_times = _times * 4
-                    						};
-                    					};
-                    				};
-                    			if (!_isCity) then
-                    				{
-                    				_isSea = false;
-                    				if ((_airportIsOccupants and _occupantsHaveSeaport) or (!_airportIsOccupants and _invadersHaveSeaport)) then
-                    					{
-                    					for "_i" from 0 to 3 do
-                    						{
-                    						_pos = _targetPos getPos [1000,(_i*90)];
-                    						if (surfaceIsWater _pos) exitWith {_isSea = true};
-                    						};
-                    					};
-                    				if (_isSea) then {_times = _times * 2};
-                    				};
-                    			if (_x == _nearestTmpTarget) then {_times = _times * 5};
-                    			if (_x in _killZones) then
-                    				{
-                    				private _target = _x;
-                    				_times = _times / (({_x == _target} count _killZones) + 1);
-                    				};
-                    // don't do this because it may round down to zero, breaking selectRandomWeighted
-                    //			_times = round (_times);
-                    			_index = _finalTargets find _x;
-                    			if (_index == -1) then
-                    				{
-                    				_finalTargets pushBack _x;
-                    				_basesFinal pushBack _startAirport;
-                    				_countFinal pushBack _times;
-                    				}
-                    			else
-                    				{
-                    				if ((_times > (_countFinal select _index)) or ((_times == (_countFinal select _index)) and (random 1 < 0.5))) then
-                    					{
-                    					_finalTargets deleteAt _index;
-                    					_basesFinal deleteAt _index;
-                    					_countFinal deleteAt _index;
-                    					_finalTargets pushBack _x;
-                    					_basesFinal pushBack _startAirport;
-                    					_countFinal pushBack _times;
-                    					};
-                    				};
-                    			};
-                    		};
-                    };
-
-                };
-
+                _attackParams = _x;
             };
+        } forEach _startArray;
+        _attackParams pushBack _target;
 
-                    if (count _easyAttacks == 4) exitWith {};
-                } forEach _tmpTargets;
-        	};
-            if (count _easyAttacks == 4) exitWith {};
-} forEach _possibleStartBases;
+        if (_target in _easyTargets) then
+        {
+            if (!(_easyTarget isEqualType []) || {(_easyTarget select 1) > (_attackParams select 1)}) then
+            {
+                _easyTarget = _attackParams;
+            };
+        }
+        else
+        {
+            if(!(_mainTarget isEqualType []) || {(_mainTarget select 1) > (_attackParams select 1)}) then
+            {
+                _mainTarget = _attackParams;
+            };
+        };
+    } forEach _availableTargets;
 
-//If we found four easy targets send four attacks to them
-if (count _easyAttacks == 4) exitWith
-{
-    [
-        2,
-        format ["Found four easy targets instead of a single hard one, sending patrols to %1", _easyAttacks],
-        _fileName,
-        true
-    ] call A3A_fnc_log;
-	{
-        [[_x select 0,_x select 1,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
-        sleep 30;
-    } forEach _easyAttacks;
-};
+    [3, format ["Main target is %1, easy target is %2", _mainTarget, _easyTarget], _fileName] call A3A_fnc_log;
 
-if ((count _finalTargets > 0) and (count _easyAttacks < 3)) then
-{
-	private _arrayFinal = [];
-	for "_i" from 0 to (count _finalTargets) - 1 do
-	{
-		_arrayFinal pushBack [_finalTargets select _i,_basesFinal select _i];
-	};
-	//_objectiveFinal = selectRandom _arrayFinal;
-	_objectiveFinal = _arrayFinal selectRandomWeighted _countFinal;
-	_destinationX = _objectiveFinal select 0;
-	_originX = _objectiveFinal select 1;
+    private _finalTarget = objNull;
+    if(!(_mainTarget isEqualType [])) then
+    {
+        [3, "Main target not set, selecting easy target", _fileName] call A3A_fnc_log;
+        _finalTarget = _easyTarget;
+    }
+    else
+    {
+        if(!(_easyTarget isEqualType [])) then
+        {
+            [3, "Easy target not set, selecting main target", _fileName] call A3A_fnc_log;
+            _finalTarget = _mainTarget;
+        }
+        else
+        {
+            if(((_easyTarget select 1) * 2) < (_mainTarget select 1)) then
+            {
+                _finalTarget = _easyTarget;
+            }
+            else
+            {
+                _finalTarget = _mainTarget;
+            };
+        };
+    };
 
-	private _isInvaderAttack = sidesX getVariable [_originX,sideUnknown] == Invaders;
+    [3, format ["Selected target is %1!", _finalTarget], _fileName] call A3A_fnc_log;
 
-	_waves =
-		1
-		+ ([0, 1] select (_destinationX in airportsX))
+    _finalTarget params ["_attackOrigin", "_attackPoints", "_attackTarget"];
+
+    //Maybe have aggro play a role here?
+    private _waves =
+		_attackPoints / 2500
+		+ ([0, 1] select (_attackTarget in airportsX))
 		+ (count allPlayers / 40)
-		+ (tierWar / 10)
-		+ ([0, 0.5] select _isInvaderAttack);
+		+ (tierWar / 10);
 
-	_waves = floor _waves;
+	_waves = round _waves;
+    if(_waves < 1) then {_waves = 1};
 
-	if (not(_destinationX in citiesX)) then
-		{
-		///[[_destinationX,_originX,_waves],"A3A_fnc_wavedCA"] call A3A_fnc_scheduler;
-		[_destinationX,_originX,_waves] spawn A3A_fnc_wavedCA;
-		}
-	else
-		{
-		//if (sidesX getVariable [_originX,sideUnknown] == Occupants) then {[[_destinationX,_originX,_waves],"A3A_fnc_wavedCA"] call A3A_fnc_scheduler} else {[[_destinationX,_originX],"A3A_fnc_invaderPunish"] call A3A_fnc_scheduler};
-		if (sidesX getVariable [_originX,sideUnknown] == Occupants) then {[_destinationX,_originX,_waves] spawn A3A_fnc_wavedCA} else {[_destinationX,_originX] spawn A3A_fnc_invaderPunish};
-		};
-	};
-
-if (_waves == 1) then
-	{
-	{[[_x select 0,_x select 1,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]} forEach _easyAttacks;
-	};
-
-    */
+    if (sidesX getVariable [_attackOrigin, sideUnknown] == Occupants || {!(_attackTarget in citiesX)}) then
+    {
+        [
+            2,
+            format ["Starting waved attack with %1 waves from %2 to %3", _waves, _attackOrigin, _attackTarget],
+            _fileName
+        ] call A3A_fnc_log;
+        //Why not using the scheduler here?
+		//[_attackTarget, _attackOrigin, _waves] spawn A3A_fnc_wavedCA;
+    }
+    else
+    {
+        [
+            2,
+            format ["Starting punishment mission from %1 to %2", _attackOrigin, _attackTarget],
+            _fileName
+        ] call A3A_fnc_log;
+        //Why not using the scheduler here?
+        //[_attackTarget, _attackOrigin] spawn A3A_fnc_invaderPunish;
+    };
+};

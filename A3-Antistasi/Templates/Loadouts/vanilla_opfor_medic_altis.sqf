@@ -49,7 +49,7 @@
 
 	[																							//Backpack
 		"B_AssaultPack_ocamo",													//Backpack
-		[]																									//Inventory
+		[] + _medicSupplies																	//Inventory
 	],
 																								//Headgear
 		["H_HelmetSpecO_ocamo"],

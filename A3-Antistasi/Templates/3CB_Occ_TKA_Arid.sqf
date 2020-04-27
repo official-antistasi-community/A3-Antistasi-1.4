@@ -16,7 +16,7 @@ NATOFlag = "Flag_TKA_O_Army";
 NATOFlagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_TKA\Flag\tka_o_army_co.paa";
 flagNATOmrk = "UK3CB_MARKER_TKA_O_Army";
 if (isServer) then {"NATO_carrier" setMarkerText "Takistani Carrier"};
-	
+
 //Loot Crate
 NATOAmmobox = "I_supplyCrate_F";
 
@@ -26,17 +26,17 @@ NATOAmmobox = "I_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"UK3CB_TKA_B_SF_SL",
+	["3CB_TKM_Teamleader"] call A3A_fnc_getLoadout,
 	//Medic
-	"UK3CB_TKA_B_SF_MD",
+	["3CB_TKM_Medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"UK3CB_TKA_B_SF_AR",
+	["3CB_TKM_MachineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	"UK3CB_TKA_B_SF_MK",
+	["3CB_TKM_Marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"UK3CB_TKA_B_SF_LAT",
+	["3CB_TKM_AT"] call A3A_fnc_getLoadout,
 	//AT2
-	"UK3CB_TKA_B_SF_LAT"
+	["3CB_TKM_AT2"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles
@@ -122,7 +122,7 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 ////////////////////////////////////
 //Military Vehicles
 //Lite
-vehNATOBike = "B_T_Quadbike_01_F";
+vehNATOBike = "I_G_Quadbike_01_F";
 vehNATOLightArmed = ["UK3CB_TKA_I_LR_M2","UK3CB_TKA_I_LR_AGS30","UK3CB_TKA_I_LR_SPG9","UK3CB_TKA_I_GAZ_Vodnik_PKT","UK3CB_TKA_I_LR_SF_M2","UK3CB_TKA_I_LR_SF_AGS30","UK3CB_TKA_I_BTR40_MG","UK3CB_TKA_I_BRDM2","UK3CB_TKA_I_BRDM2_ATGM"];
 vehNATOLightUnarmed = ["UK3CB_TKA_I_BTR40","UK3CB_TKA_I_GAZ_Vodnik","UK3CB_TKA_I_LR_Open","UK3CB_TKA_I_Hilux_Closed","UK3CB_TKA_I_BRDM2_HQ"];
 vehNATOTrucks = ["UK3CB_TKA_I_V3S_Closed","UK3CB_TKA_I_V3S_Open","UK3CB_TKA_I_V3S_Recovery"];
@@ -148,8 +148,8 @@ vehNATOPatrolHeli = "UK3CB_TKA_I_UH1H_M240";
 vehNATOTransportHelis = ["UK3CB_TKA_I_Mi8","UK3CB_TKA_I_Mi8AMT",vehNATOPatrolHeli,"UK3CB_TKA_I_UH1H"];
 vehNATOAttackHelis = ["UK3CB_TKA_I_Mi_24P","UK3CB_TKA_I_Mi_24V","UK3CB_TKA_I_Mi8AMTSh"];
 //UAV
-vehNATOUAV = "B_UAV_02_F";
-vehNATOUAVSmall = "B_UAV_01_F";
+vehNATOUAV = "I_UAV_02_F";
+vehNATOUAVSmall = "I_UAV_01_F";
 //Artillery
 vehNATOMRLS = "UK3CB_TKA_I_BM21";
 vehNATOMRLSMags = "rhs_mag_40Rnd_122mm_rockets";

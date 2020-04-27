@@ -40,12 +40,12 @@ _fnc_initMarker =
 
 		if (_x in _mrkCSAT) then
 		{
-			_mrk setMarkerColor colorInvaders;
+			if !(_x in airportsX) then {_mrk setMarkerColor colorInvaders;} else {_mrk setMarkerColor "Default"};
 			sidesX setVariable [_x, Invaders, true];
 		}
 		else
 		{
-			_mrk setMarkerColor colorOccupants;
+			if !(_x in airportsX) then {_mrk setMarkerColor colorOccupants;} else {_mrk setMarkerColor "Default"};
 			sidesX setVariable [_x, Occupants, true];
 		};
 

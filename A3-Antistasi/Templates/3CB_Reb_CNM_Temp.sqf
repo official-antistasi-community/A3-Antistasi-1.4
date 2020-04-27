@@ -43,7 +43,7 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 //           VEHICLES            ///
 ////////////////////////////////////
 //Military Vehicles
-vehSDKBike = "UK3CB_CCM_I_Golf";
+vehSDKBike = "I_G_Quadbike_01_F";
 vehSDKLightArmed = "UK3CB_CCM_I_Datsun_Pkm";
 vehSDKAT = "UK3CB_CCM_I_Hilux_Spg";
 vehSDKLightUnarmed = "UK3CB_CCM_I_Datsun_Open";
@@ -54,7 +54,7 @@ vehSDKBoat = "I_C_Boat_Transport_01_F";
 vehSDKRepair = "UK3CB_CCM_I_V3S_Repair";
 
 //Civilian Vehicles
-civCar = "UK3CB_CHC_C_Ikarus";
+civCar = "UK3CB_C_Hilux_Open";
 civTruck = "UK3CB_CHC_C_V3S_Recovery";
 civHeli = "UK3CB_CHC_C_Mi8AMT";
 civBoat = "C_Rubberboat";
@@ -91,9 +91,9 @@ APERSMineMag = "rhs_mine_pmn2_mag";
 
 //Breaching explosives
 //Breaching APCs needs one demo charge
-breachingExplosivesAPC = [["rhs_ec200_mag", 1], ["rhs_ec200_camo_mag", 1], ["rhsusf_m112_mag", 1]]; 
+breachingExplosivesAPC = [["rhs_ec200_mag", 1], ["rhs_ec200_sand_mag", 1], ["rhsusf_m112_mag", 1]];
 //Breaching tanks needs one satchel charge or two demo charges
-breachingExplosivesTank = [["rhs_ec400_mag", 1], ["rhs_ec400_camo_mag", 1], ["rhs_ec200_mag", 2], ["rhs_ec200_camo_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1]];
+breachingExplosivesTank = [["rhs_ec400_mag", 1], ["rhs_ec400_sand_mag", 1], ["rhs_ec200_mag", 2], ["rhs_ec200_sand_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1]];
 
 //Starting Unlocks
 initialRebelEquipment append ["UK3CB_BAF_L9A1","UK3CB_BAF_L107A1","UK3CB_Enfield","UK3CB_Enfield_rail","rhs_weap_rpg75"];

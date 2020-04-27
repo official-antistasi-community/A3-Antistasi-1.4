@@ -75,12 +75,12 @@ if(_marker in airportsX || {_marker in seaports || {_marker in outposts}}) then
   if (_side == Occupants) then
   {
   	_box = NATOAmmoBox createVehicle _markerPos;
-    [_box] spawn A3A_fnc_NATOcrate;
+    [_box] spawn A3A_fnc_fillLootCrate;
   }
   else
   {
   	_box = CSATAmmoBox createVehicle _markerPos;
-    [_box] spawn A3A_fnc_CSATcrate;
+    [_box] spawn A3A_fnc_fillLootCrate;
   };
   _box call jn_fnc_logistics_addAction;
 

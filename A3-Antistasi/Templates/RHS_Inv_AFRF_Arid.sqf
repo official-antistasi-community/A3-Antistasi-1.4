@@ -124,7 +124,7 @@ vehCSATRBoat = "O_T_Boat_Transport_01_F";
 vehCSATBoats = [vehCSATBoat,vehCSATRBoat,"rhs_btr80a_vdv"];
 //Planes
 vehCSATPlane = "RHS_Su25SM_CAS_vvs";
-vehCSATPlaneAA = "RHS_mig29s_vvs";
+vehCSATPlaneAA = "rhs_mig29s_vvs";
 vehCSATTransportPlanes = [];
 //Heli
 vehCSATPatrolHeli = "rhs_ka60_c";

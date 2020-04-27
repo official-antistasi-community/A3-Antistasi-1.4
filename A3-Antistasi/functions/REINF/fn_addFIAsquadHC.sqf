@@ -112,29 +112,50 @@ if (_esinf) then {
 	_format = format ["%1%2",_format,{side (leader _x) == teamPlayer} count allGroups];
 	_groupX setGroupId [_format];
 } else {
-	_pos = position _road findEmptyPosition [1, 40, vehSDKTruck];
-	_vehicle = if (_typeGroup == staticAAteamPlayer) then {
-		if (activeGREF) then {[_pos, _roadDirection,"rhsgref_ins_g_ural_Zu23", teamPlayer] call bis_fnc_spawnvehicle} else {[_pos, _roadDirection,vehSDKTruck, teamPlayer] call bis_fnc_spawnvehicle};
-	} else {
-		[_pos, _roadDirection,_typeGroup, teamPlayer] call bis_fnc_spawnvehicle
-	};
-	_truckX = _vehicle select 0;
-	_groupX = _vehicle select 2;
+	_truckX = objNull;
+	_groupX = grpNull;
 
-	if ((!activeGREF) and (_typeGroup == staticAAteamPlayer)) then {
-		_pos = position _road findEmptyPosition [10, 40, SDKMortar];
-		_morty = [_groupX, staticCrewTeamPlayer, _pos, [],0, "NONE"] call A3A_fnc_createUnit;
-		_mortarX = _typeGroup createVehicle _pos;
-		[_mortarX] call A3A_fnc_AIVEHinit;
-		_mortarX attachTo [_truckX,[0,-1.5,0.2]];
-		_mortarX setDir (getDir _truckX + 180);
-		_morty moveInGunner _mortarX;
+	// workaround for weird bug where AI vehicles with attachments refuse to drive when placed close to road objects
+	_pos = position _road vectorAdd [4 * (sin _roadDirection), 4 * (cos _roadDirection), 0];
+	_pos = _pos findEmptyPosition [0, 40, vehSDKTruck];
+
+	if (_typeGroup == staticAAteamPlayer) then
+	{
+		private _vehType = if (activeGREF) then {"rhsgref_ins_g_ural_Zu23"} else {vehSDKTruck};
+		_truckX = createVehicle [_vehType, _pos, [], 0, "NONE"];
+		_truckX setDir _roadDirection;
+
+		_groupX = createGroup teamPlayer;
+		private _driver = [_groupX, staticCrewTeamPlayer, _pos, [], 5, "NONE"] call A3A_fnc_createUnit;
+		private _gunner = [_groupX, staticCrewTeamPlayer, _pos, [], 5, "NONE"] call A3A_fnc_createUnit;
+		_driver moveInDriver _truckX;
+		_driver assignAsDriver _truckX;
+
+		if (!activeGREF) then
+		{
+			private _lpos = _pos vectorAdd [0,0,1000];
+			private _launcher = createVehicle [staticAAteamPlayer, _lpos, [], 0, "CAN_COLLIDE"];
+			_launcher attachTo [_truckX, [0,-2.2,0.3]];
+			_launcher setVectorDirAndUp [[0,-1,0], [0,0,1]];
+			_gunner moveInGunner _launcher;
+			_gunner assignAsGunner _launcher;
+//			[_launcher] call A3A_fnc_AIVEHinit;			// don't need separate despawn/killed handlers
+		}
+		else {
+			_gunner moveInGunner _truckX;
+			_gunner assignAsGunner _truckX;
+		};
+	}
+	else {
+		private _veh = [_pos, _roadDirection,_typeGroup, teamPlayer] call bis_fnc_spawnvehicle;
+		_truckX = _veh select 0;
+		_groupX = _veh select 2;
 	};
 
 	if (_typeGroup == vehSDKAT) then {_groupX setGroupId [format ["M.AT-%1",{side (leader _x) == teamPlayer} count allGroups]]};
 	if (_typeGroup == staticAAteamPlayer) then {_groupX setGroupId [format ["M.AA-%1",{side (leader _x) == teamPlayer} count allGroups]]};
 
-	driver _truckX action ["engineOn", vehicle driver _truckX];
+	driver _truckX action ["engineOn", _truckX];
 	[_truckX] call A3A_fnc_AIVEHinit;
 	_bypassAI = true;
 };

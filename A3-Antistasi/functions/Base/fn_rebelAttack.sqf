@@ -96,7 +96,9 @@ _possibleTargets = _possibleTargets select {sidesX getVariable [_x, sideUnknown]
     true
 ] call A3A_fnc_log;
 
+private _easyTargets = [];
 private _availableTargets = [];
+
 {
     private _startAirport = _x
     private _airportSide = sidesX getVariable [_startAirport, sideUnknown];
@@ -128,6 +130,20 @@ private _availableTargets = [];
                 _distance = _distance * 0.5;
             };
 
+            //If the target is surrounded by our friendly markers, remove points
+            private _nearbyFriendlyMarkers = (markersX - controlsX - citiesX - outpostsFIA) select
+            {
+                (sidesX getVariable [_x,sideUnknown] == _airportSide) &&
+                {_startAirportPos distance2D (getMarkerPos _target) < 1500}
+            };
+            _distance = _distance - (300 * (count _nearbyFriendlyMarkers));
+            if (_distance < 0) then {_distance = 0};
+
+            if(count _nearbyFriendlyMarkers >= 5) then
+            {
+                _easyTargets pushBack _target;
+            };
+
             //If in killzones, double the distance
             if (_target in _killZones) then
             {
@@ -152,7 +168,6 @@ private _availableTargets = [];
 [3, "Logging available targets for attack", _fileName] call A3A_fnc_log;
 [_availableTargets, "Available targets"] call A3A_fnc_logArray;
 
-private _easyTargets = [];
 {
     _x params ["_target", "_baseArray"];
 
@@ -182,8 +197,8 @@ private _easyTargets = [];
 
     if(count _nearbyFriendlyMarkers <= 3) then
     {
-        //Only a few friendly markers nearby, consider it an easy target
-        _easyTargets pushBack _target;
+        //Only a few of their friendly markers nearby, consider it an easy target
+        _easyTargets pushBackUnique _target;
     };
 
     //Adding points based on garrison and statics
@@ -194,7 +209,7 @@ private _easyTargets = [];
     if((count _garrison) <= 8 && {count _nearbyStatics <= 2}) then
     {
         //Only minimal garrison, consider it an easy target
-        _easyTargets pushBack _target;
+        _easyTargets pushBackUnique _target;
     };
 
     //Apply the new points to the base array
@@ -205,6 +220,29 @@ private _easyTargets = [];
 
 [3, "Logging final target values for attack", _fileName] call A3A_fnc_log;
 [_availableTargets, "Target values"] call A3A_fnc_logArray;
+
+/*
+All targets are now having values which airport can attack them how efficient
+We will check for easy targets first, if we have four of them we will attack them
+instead of starting one large attack. In both cases we check which are the most efficient ones
+to attack from which airport
+*/
+
+if(count _easyTargets >= 4) then
+{
+    //We got four easy targets, attacking them now
+    private _attackList = [];
+    {
+        private _target = _x select 0;
+        private _index = _availableTargets find {_x select 0 == _target};
+        private _startArray = (_availableTargets select _index) select
+    } forEach _easyTargets;
+}
+else
+{
+    //Not enough easy targets, attack the best non easy target if available
+
+};
 
 
 

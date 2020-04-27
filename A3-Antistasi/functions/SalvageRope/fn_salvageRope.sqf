@@ -38,14 +38,11 @@ adjustRope = {
 //Stow action
 canStow = {
 	private _vehicle = cursorTarget;
+	if (isNull _vehicle) exitWith {false};
 	private _ropeExist = if (!isNil {_vehicle getVariable "Rope"}) then {true} else {false};
 	private _ropeOwner = if ((_vehicle getVariable "RopeUnit") == player) then {true} else {false};
 	if ((_vehicle getVariable "RopeUnit") isEqualTo []) then {_ropeOwner = true}; //overide if none is on the rope end
-	if(!isNull _vehicle) then {
-		vehicle player == player && player distance _vehicle < 10 && _ropeExist && _ropeOwner;
-	} else {
-		false;
-	};
+	vehicle player == player && player distance _vehicle < 10 && _ropeExist && _ropeOwner;
 };
 
 stowRope = {

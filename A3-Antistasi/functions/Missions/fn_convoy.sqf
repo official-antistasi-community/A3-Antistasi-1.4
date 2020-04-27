@@ -578,11 +578,11 @@ if (_typeConvoyX == "reinforcementsX") then
 		[0,10*_bonus,_posbase] remoteExec ["A3A_fnc_citySupportChange",2];
         if (_sideX == Occupants) then
         {
-            [[10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
+            [[10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
         }
         else
         {
-            [[0, 0], [10 45]] remoteExec ["A3A_fnc_prestige",2]
+            [[0, 0], [10, 45]] remoteExec ["A3A_fnc_prestige",2];
         };
 		{if (_x distance _vehObj < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

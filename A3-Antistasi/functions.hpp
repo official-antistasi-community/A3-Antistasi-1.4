@@ -61,6 +61,7 @@ class A3A
 		class garbageCleaner {};
 		class garrisonInfo {};
         class getAggroLevelString {};
+        class getVehiclePoolForQRFs {};
 		class healAndRepair {};
 		class initPetros {};
 		class isFrontline {};

@@ -36,7 +36,7 @@ switch (tierWar) do
             _vehicleSelection =
             [
                 [vehCSATLightUnarmed, 50],
-                [vehCSATTruck, 30],
+                [vehCSATTrucks, 30],
                 [vehCSATLight, 20]
             ];
         };
@@ -61,7 +61,7 @@ switch (tierWar) do
             _vehicleSelection =
             [
                 [vehCSATLight, 30],
-                [vehCSATTruck, 30],
+                [vehCSATTrucks, 30],
                 [vehCSATLightArmed, 10],
                 [vehCSATPatrolHeli, 30]
             ];
@@ -86,7 +86,7 @@ switch (tierWar) do
             _vehicleSelection =
             [
                 [vehCSATLight, 5],
-                [vehCSATTruck, 20],
+                [vehCSATTrucks, 20],
                 [vehCSATLightArmed, 25],
                 [vehCSATPatrolHeli, 35],
                 [vehCSATAPC, 15]
@@ -111,7 +111,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehCSATTruck, 5],
+                [vehCSATTrucks, 5],
                 [vehCSATLightArmed, 15],
                 [vehCSATPatrolHeli, 25],
                 [vehCSATAPC, 30],
@@ -295,4 +295,54 @@ switch (tierWar) do
     };
 };
 
+_fn_checkElementAgainstFilter =
+{
+    params ["_element", "_filter"];
+
+    private _passed = true;
+    {
+        if(_element isKindOf _x) exitWith
+        {
+            _passed = false;
+            [
+                3,
+                format ["%1 didnt passed filter %2", _element, _x],
+                "getVehiclePoolForQRFs"
+            ] call A3A_fnc_log;
+        };
+    } forEach _filter;
+
+    _passed;
+};
+
 //Break unit arrays down to single vehicles
+private _vehiclePool = [];
+{
+    if((_x select 0) isEqualType []) then
+    {
+        private _points = (_x select 1)/(count (_x select 0));
+        {
+            if([_x, _filter] call _fn_checkElementAgainstFilter) then
+            {
+                _vehiclePool pushBack _x;
+                _vehiclePool pushBack _points;
+            };
+        } forEach (_x select 0);
+    }
+    else
+    {
+        if([_x select 0, _filter] call _fn_checkElementAgainstFilter) then
+        {
+            _vehiclePool pushBack (_x select 0);
+            _vehiclePool pushBack (_x select 1);
+        };
+    };
+} forEach _vehicleSelection;
+
+[
+    3,
+    format ["For %1 and war level %2 selected units are %3, filter was %4", _side, tierWar, _vehiclePool, _filter],
+    "getVehiclePoolForQRFs"
+] call A3A_fnc_log;
+
+_vehiclePool;

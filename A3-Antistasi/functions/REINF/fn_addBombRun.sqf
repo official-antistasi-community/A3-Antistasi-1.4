@@ -22,6 +22,14 @@ if (not(_veh isKindOf "Air")) exitWith {["Airstrike", "Only Air Vehicles can be 
 
 _typeX = typeOf _veh;
 
+if (isClass (configfile >> "CfgVehicles" >> _typeX >> "assembleInfo")) then {
+	if (count getArray (configfile >> "CfgVehicles" >> _typeX >> "assembleInfo" >> "dissasembleTo") > 0) then {
+		_exit = true;
+	};
+};
+if (_exit) exitWith {["Airstrike", "Backpack drones cannot be used to increase Airstrike points"] call A3A_fnc_customHint;};
+
+
 //if (_typeX == vehSDKHeli) exitWith {hint "Syndikat Helicopters cannot be used to increase Airstrike points"};
 
 _pointsX = 2;

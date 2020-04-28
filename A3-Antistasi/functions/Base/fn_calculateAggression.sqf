@@ -13,18 +13,6 @@ params [["_silent", false]];
         Nothing
 */
 
-_fn_getAggroLevelString =
-{
-    params ["_level"];
-    if(_level == 1) exitWith {"Low"};
-    if(_level == 2) exitWith {"Medium"};
-    if(_level == 3) exitWith {"High"};
-    if(_level == 4) exitWith {"Very High"};
-    if(_level == 5) exitWith {"Extreme"};
-    [1, format ["Bad level recieved, cannot generate string, was %1", _level], "calculateAggression", true] call A3A_fnc_log;
-    "None"
-};
-
 //Calculate the new values from the stacks
 private _newOccupantsValue = 0;
 {
@@ -54,7 +42,7 @@ if(_newOccupantsValue < (_levelBoundsOccupants select 0)) then
 {
     aggressionLevelOccupants = ((ceil (_newOccupantsValue / 20)) min 5) max 1;
     publicVariable "aggressionLevelOccupants";
-    _notificationText = format ["%1 aggression level reduced to %2<br/>", nameOccupants, [aggressionLevelOccupants] call _fn_getAggroLevelString];
+    _notificationText = format ["%1 aggression level reduced to %2<br/>", nameOccupants, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString];
     _levelsChanged = true;
 }
 else
@@ -63,7 +51,7 @@ else
     {
         aggressionLevelOccupants = ((ceil (_newOccupantsValue / 20)) min 5) max 1;
         publicVariable "aggressionLevelOccupants";
-        _notificationText = format ["%1 aggression level increased to %2<br/>", nameOccupants, [aggressionLevelOccupants] call _fn_getAggroLevelString];
+        _notificationText = format ["%1 aggression level increased to %2<br/>", nameOccupants, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString];
         _levelsChanged = true;
     };
 };
@@ -72,7 +60,7 @@ if(_newInvadersValue < (_levelBoundsInvaders select 0)) then
 {
     aggressionLevelInvaders = ((ceil (_newInvadersValue / 20)) min 5) max 1;
     publicVariable "aggressionLevelInvaders";
-    _notificationText = format ["%1%2 aggression level reduced to %3", _notificationText, nameInvaders, [aggressionLevelInvaders] call _fn_getAggroLevelString];
+    _notificationText = format ["%1%2 aggression level reduced to %3", _notificationText, nameInvaders, [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString];
     _levelsChanged = true;
 }
 else
@@ -81,7 +69,7 @@ else
     {
         aggressionLevelInvaders = ((ceil (_newInvadersValue / 20)) min 5) max 1;
         publicVariable "aggressionLevelInvaders";
-        _notificationText = format ["%1%2 aggression level increased to %3", _notificationText, nameInvaders, [aggressionLevelInvaders] call _fn_getAggroLevelString];
+        _notificationText = format ["%1%2 aggression level increased to %3", _notificationText, nameInvaders, [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString];
         _levelsChanged = true;
     };
 };

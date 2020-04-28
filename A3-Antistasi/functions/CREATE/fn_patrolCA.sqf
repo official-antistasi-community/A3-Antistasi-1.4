@@ -1,4 +1,5 @@
 if (!isServer and hasInterface) exitWith {};
+_filename = "fn_patrolCA";
 
 private ["_markerX","_isMarker","_exit","_radio","_base","_airportX","_posDestination","_soldiers","_vehiclesX","_groups","_roads","_posOrigin","_radiusX","_typeVehX","_vehicle","_veh","_vehCrew","_groupVeh","_landPos","_typeGroup","_groupX","_soldierX","_threatEval","_pos","_timeOut","_sideX","_countX","_isMarker","_inWaves","_typeOfAttack","_nearX","_airportsX","_siteX","_enemiesX","_plane","_friendlies","_typeX","_isSDK","_weapons","_nameDest","_vehPool","_super","_spawnPoint","_pos1","_pos2"];
 
@@ -11,9 +12,9 @@ _sideX = Occupants;
 _posOrigin = [];
 _posDestination = [];
 
-diag_log format ["[Antistasi] Spawning PatrolCA at %1 from %2 of type %3 (patrolCA.sqf)", _markerX, _airportX, _typeOfAttack];
+[2, format ["Spawning PatrolCA. Target:%1, Origin:%2, Type:%3, IsSuper:%4",_markerX,_airportX,_typeOfAttack,_super], _filename] call A3A_fnc_log;
 
-if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) exitWith {diag_log format ["Antistasi PatrolCA: Attack on %1 exit because of heavy fog",_markerX]};
+if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) exitWith {[2, format ["PatrolCA on %1 cancelled due to heavy fog",_markerX], _filename] call A3A_fnc_log};
 if (_airportX isEqualType "") then
 	{
 	_inWaves = true;
@@ -53,7 +54,7 @@ else
 		};
 	};
 
-if (_exit) exitWith {diag_log format ["Antistasi PatrolCA: CA cancelled because of other CA in vincity of %1",_markerX]};
+if (_exit) exitWith {[2, format ["PatrolCA on %1 cancelled due to other CA in vicinity",_markerX], _filename] call A3A_fnc_log};
 
 _enemiesX = allUnits select {_x distance _posDestination < distanceSPWN2 and (side (group _x) != _sideX) and (side (group _x) != civilian) and (alive _x)};
 
@@ -83,13 +84,12 @@ if ((!_isMarker) and (_typeOfAttack != "Air") and (!_super) and ({sidesX getVari
 			_exit = true;
 			if (!_isMarker) then {smallCApos pushBack _posDestination};
 			[_posDestination,_sideX,_typeX] spawn A3A_fnc_airstrike;
-			diag_log format ["Antistasi PatrolCA: Airstrike of type %1 sent to %2",_typeX,_markerX];
+			[2, format ["PatrolCA airstrike of type %1 sent to %2",_typeX,_markerX], _filename] call A3A_fnc_log;
 			if (!_isMarker) then
 				{
 				sleep 120;
 				smallCApos = smallCApos - [_posDestination];
 				};
-			diag_log format ["Antistasi PatrolCA: CA resolved on airstrike %1",_markerX]
 			};
 		};
 	};
@@ -130,7 +130,7 @@ if (!_inWaves) then
 		};
 	};
 
-if (_exit) exitWith {diag_log format ["Antistasi PatrolCA: CA cancelled because no available base (distance, not spawned, busy, killzone) to attack %1",_markerX]};
+if (_exit) exitWith {[2, format ["PatrolCA on %1 cancelled because no usable bases in vicinity",_markerX], _filename] call A3A_fnc_log};
 
 
 _allUnits = {(local _x) and (alive _x)} count allUnits;
@@ -144,7 +144,7 @@ if (gameMode <3) then
 	};
 if ((_allUnits + 4 > maxUnits) or (_allUnitsSide + 4 > _maxUnitsSide)) then {_exit = true};
 
-if (_exit) exitWith {diag_log format ["Antistasi PatrolCA: CA cancelled because of reaching the maximum of units on attacking %1",_markerX]};
+if (_exit) exitWith {[2, format ["PatrolCA on %1 cancelled because maximum unit count reached",_markerX], _filename] call A3A_fnc_log};
 
 _base = if ((_posOrigin distance _posDestination < distanceForLandAttack) and ([_posDestination,_posOrigin] call A3A_fnc_isTheSameIsland) and (_threatEvalLand <= 15)) then {_airportX} else {""};
 
@@ -191,7 +191,7 @@ else
 	};
 
 //if (debug) then {hint format ["Nos contraatacan desde %1 o desde el airportX %2 hacia %3", _base, _airportX,_markerX]; sleep 5};
-diag_log format ["Antistasi PatrolCA: CA performed from %1 to %2.Is waved:%3.Is super:%4",_airportX,_markerX,_inWaves,_super];
+//diag_log format ["Antistasi PatrolCA: CA performed from %1 to %2.Is waved:%3.Is super:%4",_airportX,_markerX,_inWaves,_super];
 //_config = if (_sideX == Occupants) then {cfgNATOInf} else {cfgCSATInf};
 
 _soldiers = [];
@@ -411,9 +411,10 @@ if (_base != "") then
 			_Vwp0 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
 			_veh allowCrewInImmobile true;
 			};
-		_vehPool = _vehPool select {[_x] call A3A_fnc_vehAvailable}
+		_vehPool = _vehPool select {[_x] call A3A_fnc_vehAvailable};
+		[3, format ["PatrolCA vehicle %1 sent with %2 soldiers", typeof _veh, count crew _veh], _filename] call A3A_fnc_log;
 		};
-	diag_log format ["Antistasi PatrolCA: Land CA performed on %1, Type is %2, Vehicle count: %3, Soldier count: %4",_markerX,_typeOfAttack,count _vehiclesX,count _soldiers];
+	[2, format ["Land patrolCA performed on %1, type %2, veh count %3, troop count %4", _markerX,_typeOfAttack,count _vehiclesX,count _soldiers], _filename] call A3A_fnc_log;
 	}
 else
 	{
@@ -610,8 +611,9 @@ else
 			};
 		sleep 30;
 		_vehPool = _vehPool select {[_x] call A3A_fnc_vehAvailable};
+		[3, format ["PatrolCA vehicle %1 sent with %2 soldiers", typeof _veh, count crew _veh], _filename] call A3A_fnc_log;
 		};
-	diag_log format ["Antistasi PatrolCA: Air CA performed on %1, Type is %2, Vehicle count: %3, Soldier count: %4",_markerX,_typeOfAttack,count _vehiclesX,count _soldiers];
+	[2, format ["Air patrolCA performed on %1, type %2, veh count %3, troop count %4", _markerX,_typeOfAttack,count _vehiclesX,count _soldiers], _filename] call A3A_fnc_log;
 	};
 
 if (_isMarker) then
@@ -624,7 +626,7 @@ if (_isMarker) then
 		if  ((({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits)) and (not(sidesX getVariable [_markerX,sideUnknown] == Occupants))) then
 			{
 			[Occupants,_markerX] remoteExec ["A3A_fnc_markerChange",2];
-			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 has outnumbered the enemy, changing marker!",_airportX,_base,_markerX];
+			[3, format ["PatrolCA from %1 or %2 to retake %3 has outnumbered the enemy, changing marker!", _airportX,_base,_markerX], _filename] call A3A_fnc_log;
 			};
 		sleep 10;
 		if (!(sidesX getVariable [_markerX,sideUnknown] == Occupants)) then
@@ -636,7 +638,7 @@ if (_isMarker) then
 				_killZones = _killZones + [_markerX,_markerX];
 				killZones setVariable [_airportX,_killZones,true];
 				};
-			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 has failed as the marker is not changed!",_airportX,_base,_markerX];
+			[3, format ["PatrolCA from %1 or %2 to retake %3 has failed as the marker is not changed!", _airportX,_base,_markerX], _filename] call A3A_fnc_log;
 			}
 		}
 	else
@@ -645,7 +647,7 @@ if (_isMarker) then
 		if  ((({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits)) and (not(sidesX getVariable [_markerX,sideUnknown] == Invaders))) then
 			{
 			[Invaders,_markerX] remoteExec ["A3A_fnc_markerChange",2];
-			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 has outnumbered the enemy, changing marker!",_airportX,_base,_markerX];
+			[3, format ["PatrolCA from %1 or %2 to retake %3 has outnumbered the enemy, changing marker!", _airportX,_base,_markerX], _filename] call A3A_fnc_log;
 			};
 		sleep 10;
 		if (!(sidesX getVariable [_markerX,sideUnknown] == Invaders)) then
@@ -657,7 +659,7 @@ if (_isMarker) then
 				_killZones = _killZones + [_markerX,_markerX];
 				killZones setVariable [_airportX,_killZones,true];
 				};
-			diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to retake %3 has failed as the marker is not changed!",_airportX,_base,_markerX];
+			[3, format ["PatrolCA from %1 or %2 to retake %3 has failed as the marker is not changed!", _airportX,_base,_markerX], _filename] call A3A_fnc_log;
 			}
 		};
 	}
@@ -672,11 +674,13 @@ else
 		_killZones = killZones getVariable [_siteX,[]];
 		_killZones append _markersX;
 		killZones setVariable [_siteX,_killZones,true];
-		diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to %3 failed",_airportX,_base,_markerX];
+		[3, format ["PatrolCA from %1 or %2 on position %3 defeated", _airportX,_base,_markerX], _filename] call A3A_fnc_log;
+		}
+	else {
+		[3, format ["PatrolCA from %1 or %2 on position %3 despawned", _airportX,_base,_markerX], _filename] call A3A_fnc_log;
 		};
-	diag_log format ["Antistasi Debug patrolCA: Attack from %1 or %2 to %3 despawned",_airportX,_base,_markerX];
 	};
-diag_log format ["Antistasi PatrolCA: CA on %1 finished",_markerX];
+[2, format ["PatrolCA on %1 finished",_markerX], _filename] call A3A_fnc_log;
 
 //if (_markerX in forcedSpawn) then {forcedSpawn = forcedSpawn - [_markerX]; publicVariable "forcedSpawn"};
 

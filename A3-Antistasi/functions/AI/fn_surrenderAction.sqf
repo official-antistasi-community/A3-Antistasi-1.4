@@ -38,7 +38,7 @@ _unit addEventHandler ["HandleDamage",
 // create surrender box
 private _boxX = "Box_IND_Wps_F" createVehicle position _unit;
 _boxX allowDamage false;
-_boxX call jn_fnc_logistics_addAction;
+//_boxX call jn_fnc_logistics_addAction;
 clearMagazineCargoGlobal _boxX;
 clearWeaponCargoGlobal _boxX;
 clearItemCargoGlobal _boxX;

@@ -1,12 +1,12 @@
 [//Loadout
     [//Primary Weapon
-    "UK3CB_BAF_L129A1",									//Weapon
+    "rhs_weap_svdp_wd",									//Weapon
     "",													//Muzzle
-    "UK3CB_BAF_LLM_Flashlight_Black",													//Rail
-    "UK3CB_BAF_TA648_308",													//Sight
-    ["UK3CB_BAF_762_L42A1_20Rnd",20],		//Primary Magazine
+    "",													//Rail
+    "rhs_acc_pso1m2",													//Sight
+    ["rhs_10Rnd_762x54mmR_7N1",10],		//Primary Magazine
     [],													//Secondary Magazine
-    "UK3CB_underbarrel_acc_bipod"													//Bipod
+    ""													//Bipod
     ],
 
     [//Launcher
@@ -20,28 +20,29 @@
     ],
 
     [//Secondary Weapon
-    "UK3CB_BAF_L131A1",								//Weapon
+    "rhs_weap_savz61_folded",								//Weapon
     "",					//Muzzle
-    "UK3CB_BAF_Flashlight_L131A1",																//Rail
+    "",																//Rail
     "",																//Sight
-    ["UK3CB_BAF_9_17Rnd",17],			//Primary Magazine
+    ["rhsgref_10rnd_765x17_vz61",10],			//Primary Magazine
     [],																//Secondary Magazine
     ""																//Bipod
     ],
 
     [//Uniform
-    "UK3CB_BAF_U_CombatUniform_MTP_RM",								//Uniform
-    [] + _basicMedicalSupplies + _basicMiscItems
-    ],
+  	selectRandom										//Uniform
+  	["UK3CB_TKA_I_U_CombatUniform_01_TKA_Brush", "UK3CB_TKA_I_U_CombatUniform_02_TKA_Brush", "UK3CB_TKA_I_U_CombatUniform_03_TKA_Brush"],
+  	[] + _basicMedicalSupplies + _basicMiscItems
+  	],
 
     [//Vest
-    "UK3CB_BAF_V_Osprey_Rifleman_D",
+    selectrandom
+    ["UK3CB_TKA_I_V_6Sh92_TKA_Brush", "UK3CB_TKA_I_V_6Sh92_Radio_TKA_Brush", "UK3CB_TKA_I_V_6Sh92_vog_TKA_Brush"],
     [//Inventory
-    ["UK3CB_BAF_HMNVS",1],
     ["UK3CB_BAF_SmokeShell",2,1],
     ["HandGrenade",1,1],
-    ["UK3CB_BAF_9_17Rnd",1,17],
-    ["UK3CB_BAF_762_L42A1_20Rnd",5,20]
+    ["rhs_10Rnd_762x54mmR_7N1",6,10],
+    ["rhs_mine_msk40p_blue_mag",2,1]    //Flaremine
     ]
     + _aceFlashlight
     + _aceM84
@@ -53,8 +54,10 @@
 		]
 		],
 
-    "UK3CB_BAF_H_Boonie_MTP_PRR",				//Headgear
-    "UK3CB_BAF_G_Tactical_Grey",       						  //Facewear
+    "UK3CB_TKA_I_H_Shemag_Des",				//Headgear
+
+    selectrandom
+    ["G_Bandanna_khk","UK3CB_G_Neck_Shemag_Tan"],       						  //Facewear
 
     [//Binocular
     "Binocular",					//Binocular
@@ -69,7 +72,7 @@
     [//Item
     "ItemMap",											//Map
     "",													//Terminal
-    ["TF_ANPRC152"] call _fnc_tfarRadio,				//Radio
+    ["tf_anprc148jem"] call _fnc_tfarRadio,				//Radio
     "ItemCompass",										//Compass
     _tfarMicroDAGRNoArray,										//Watch
     ""													//Goggles

@@ -194,11 +194,11 @@ if ((not alive _heli) || {((taskState "DES") == "SUCCEEDED") || {(count (_vehicl
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	if (typeOf _heli in vehCSATAir) then
     {
-        [0, 15] remoteExec ["A3A_fnc_prestige",2]
-    }
-    else
+        [[0, 0], [15, 30]] remoteExec ["A3A_fnc_prestige",2]
+    };
+    if (typeOf _heli in vehNATOAir) then
     {
-        [15, 0] remoteExec ["A3A_fnc_prestige",2]
+        [[15, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
     };
 	[1800*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));

@@ -33,7 +33,7 @@ while {true} do
 
     [
         3,
-        format ["AggroLog | Occupants:%1 Invaders:%2", aggressionOccupants, aggressionInvaders],
+        format ["AggroLog | Occupants:%1 Invaders:%2 Warlevel:%3", aggressionOccupants, aggressionInvaders, tierWar],
         "aggressionUpdateLoop"
     ] call A3A_fnc_log;
 

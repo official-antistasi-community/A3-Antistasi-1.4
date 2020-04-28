@@ -8,12 +8,18 @@
         None
 
     Returns:
-        Nothing
+        Nothing#
 */
 
 while {true} do
 {
     sleep 60;
+
+    //Sleep if no player is online
+    if (isMultiplayer && (count allPlayers == 0)) then
+    {
+        waitUntil {sleep 10; (count allPlayers > 0)};
+    };
 
     waitUntil {!prestigeIsChanging};
     prestigeIsChanging = true;
@@ -33,7 +39,7 @@ while {true} do
 
     [
         3,
-        format ["AggroLog | Occupants:%1 Invaders:%2 Warlevel:%3", aggressionOccupants, aggressionInvaders, tierWar],
+        format ["Occupants:%1 Invaders:%2 Warlevel:%3", aggressionOccupants, aggressionInvaders, tierWar],
         "aggressionUpdateLoop"
     ] call A3A_fnc_log;
 

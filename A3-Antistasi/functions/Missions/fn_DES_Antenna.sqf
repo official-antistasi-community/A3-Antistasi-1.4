@@ -60,7 +60,7 @@ else
     {
         [[0, 0], [15, 30]] remoteExec ["A3A_fnc_prestige",2];
     };
-	[600*_bonus] remoteExec ["A3A_fnc_timingCA",2];
+	[600*_bonus, _side] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};

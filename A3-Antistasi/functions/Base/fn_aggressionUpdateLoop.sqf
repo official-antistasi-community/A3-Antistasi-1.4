@@ -31,16 +31,40 @@ while {true} do
     prestigeIsChanging = false;
     [] call A3A_fnc_calculateAggression;
 
-    //Update attackCountdown
-    attackCountdown = attackCountdown - (60 * (0.5 + ((aggressionOccupants + aggressionInvaders)/200)));
-	if (attackCountdown < 0) then {attackCountdown = 0};
-	publicVariable "attackCountdown";
-	if (attackCountdown == 0) then
-	{
-		[1200] remoteExec ["A3A_fnc_timingCA",2];
-		if (!bigAttackInProgress) then
-		{
-			[] spawn A3A_fnc_rebelAttack;
-		};
-	};
+    //Update attack countdown for occupants and execute attack if needed
+    attackCountdownOccupants = attackCountdownOccupants - (60 * (0.5 + (aggressionOccupants/100)));
+	if (attackCountdownOccupants < 0) then
+    {
+        [3600, Occupants] call A3A_fnc_timingCA;
+        if (!bigAttackInProgress) then
+        {
+            [Occupants] spawn A3A_fnc_rebelAttack;
+        };
+    }
+    else
+    {
+        //timingCA broadcasts the value in the if case
+        publicVariable "attackCountdownOccupants";
+    };
+
+
+    if ((tierWar > 1) || (gameMode == 4)) then
+    {
+        //Update attack countdown for invaders and execute attack if needed
+        attackCountdownInvaders = attackCountdownInvaders - (60 * (0.5 + (attackCountdownInvaders/100)));
+    	if (attackCountdownInvaders < 0) then
+        {
+            attackCountdownInvaders = 0;
+            [3600, Invaders] call A3A_fnc_timingCA;
+            if (!bigAttackInProgress) then
+            {
+                [Invaders] spawn A3A_fnc_rebelAttack;
+            };
+        }
+        else
+        {
+            //timingCA broadcasts the value in the if case
+            publicVariable "attackCountdownOccupants";
+        };
+    };
 };

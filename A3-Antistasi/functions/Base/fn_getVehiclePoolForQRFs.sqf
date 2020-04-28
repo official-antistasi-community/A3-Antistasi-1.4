@@ -322,7 +322,7 @@ private _vehiclePool = [];
     {
         private _points = (_x select 1)/(count (_x select 0));
         {
-            if([_x, _filter] call _fn_checkElementAgainstFilter) then
+            if(([_x, _filter] call _fn_checkElementAgainstFilter) && {[_x] call A3A_fnc_vehAvailable}) then
             {
                 _vehiclePool pushBack _x;
                 _vehiclePool pushBack _points;
@@ -331,7 +331,7 @@ private _vehiclePool = [];
     }
     else
     {
-        if([_x select 0, _filter] call _fn_checkElementAgainstFilter) then
+        if(([_x select 0, _filter] call _fn_checkElementAgainstFilter) && {[_x select 0] call A3A_fnc_vehAvailable}) then
         {
             _vehiclePool pushBack (_x select 0);
             _vehiclePool pushBack (_x select 1);

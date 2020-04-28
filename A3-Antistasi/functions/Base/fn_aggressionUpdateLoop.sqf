@@ -31,6 +31,12 @@ while {true} do
     prestigeIsChanging = false;
     [] call A3A_fnc_calculateAggression;
 
+    [
+        3,
+        format ["AggroLog | Occupants:%1 Invaders:%2", aggressionOccupants, aggressionInvaders],
+        "aggressionUpdateLoop"
+    ] call A3A_fnc_log;
+
     //Update attack countdown for occupants and execute attack if needed
     attackCountdownOccupants = attackCountdownOccupants - (60 * (0.5 + (aggressionOccupants/100)));
 	if (attackCountdownOccupants < 0) then
@@ -51,7 +57,7 @@ while {true} do
     if ((tierWar > 1) || (gameMode == 4)) then
     {
         //Update attack countdown for invaders and execute attack if needed
-        attackCountdownInvaders = attackCountdownInvaders - (60 * (0.5 + (attackCountdownInvaders/100)));
+        attackCountdownInvaders = attackCountdownInvaders - (60 * (0.5 + (aggressionInvaders/100)));
     	if (attackCountdownInvaders < 0) then
         {
             attackCountdownInvaders = 0;

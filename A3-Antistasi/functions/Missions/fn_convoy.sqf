@@ -175,37 +175,12 @@ _vehLead limitSpeed _speedLimit;
 
 _countX = 1;
 if (_difficultX) then {_countX =3} else {if ([_destinationX] call A3A_fnc_isFrontline) then {_countX = (round random 2) + 1}};
-_vehPool = if (_sideX == Occupants) then {if (!_isFIA) then {vehNATOAttack} else {[vehFIAArmedCar,vehFIATruck,vehFIACar]}} else {vehCSATAttack};
-if (!_isFIA) then
-{
-	_rnd = random 100;
-	if (_sideX == Occupants) then
-	{
-		if (_rnd > aggressionOccupants) then
-		{
-			_vehPool = _vehPool - [vehNATOTank];
-		};
-	}
-	else
-	{
-		if (_rnd > aggressionInvaders) then
-		{
-			_vehPool = _vehPool - [vehCSATTank];
-		};
-	};
-	if (count _vehPool == 0) then {if (_sideX == Occupants) then {_vehPool = vehNATOTrucks} else {_vehPool = vehCSATTrucks}};
-};
+_vehPool = [_sideX, ["Air"]] call A3A_fnc_getVehiclePoolForQRFs;
 
 for "_i" from 1 to _countX do
 {
 	sleep 2;
-	_typeVehEsc = selectRandom _vehPool;
-	if (not([_typeVehEsc] call A3A_fnc_vehAvailable)) then
-	{
-		_vehPool = _vehPool - [_typeVehEsc];
-		_typeVehEsc = if (_sideX == Occupants) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
-		if (count _vehPool == 0) then {if (_sideX == Occupants) then {_vehPool = vehNATOTrucks} else {_vehPool = vehCSATTrucks}};
-	};
+	_typeVehEsc = selectRandomWeighted _vehPool;
 	_timeOut = 0;
 	_pos = _posOrig findEmptyPosition [10,100,_typeVehEsc];
 	while {_timeOut < 60} do

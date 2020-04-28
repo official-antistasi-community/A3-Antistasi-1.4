@@ -18,83 +18,7 @@ private _vehicleSelection = [];
 //In general is Invaders always a bit less chill than the occupants, they will use heavier vehicles more often and earlier
 switch (tierWar) do
 {
-    //General idea: Send only ground units as players should be able to loot and grab the crate before the enemy arrives with a QRF
     case (1):
-    {
-        if(_side == Occupants) then
-        {
-            _vehicleSelection =
-            [
-                [vehPoliceCar, 50],
-                [vehFIACar, 30],
-                [vehFIATruck, 15],
-                [vehFIAArmedCar, 5]
-            ];
-        };
-        if(_side == Invaders) then
-        {
-            _vehicleSelection =
-            [
-                [vehCSATLightUnarmed, 50],
-                [vehCSATTrucks, 30],
-                [vehCSATLight, 20]
-            ];
-        };
-    };
-    //General idea: Enemies get airborne, police units are reduced and replaced by military units
-    case (2):
-    {
-        if(_side == Occupants) then
-        {
-            _vehicleSelection =
-            [
-                [vehPoliceCar, 20],
-                [vehFIAArmedCar, 20],
-                [vehNATOLightUnarmed, 20],
-                [vehNATOTrucks, 20],
-                [vehNATOLightArmed, 10],
-                [vehNATOPatrolHeli, 10]
-            ];
-        };
-        if(_side == Invaders) then
-        {
-            _vehicleSelection =
-            [
-                [vehCSATLight, 30],
-                [vehCSATTrucks, 30],
-                [vehCSATLightArmed, 10],
-                [vehCSATPatrolHeli, 30]
-            ];
-        };
-    };
-    //General idea: No police units any more, armed vehicles and first sightings of APCs
-    case (3):
-    {
-        if(_side == Occupants) then
-        {
-            _vehicleSelection =
-            [
-                [vehNATOLightUnarmed, 10],
-                [vehNATOLightArmed, 30],
-                [vehNATOTrucks, 20],
-                [vehNATOPatrolHeli, 35],
-                [vehNATOAPC, 5]
-            ];
-        };
-        if(_side == Invaders) then
-        {
-            _vehicleSelection =
-            [
-                [vehCSATLight, 5],
-                [vehCSATTrucks, 20],
-                [vehCSATLightArmed, 25],
-                [vehCSATPatrolHeli, 35],
-                [vehCSATAPC, 15]
-            ];
-        };
-    };
-    //General idea: Unarmed vehicles vanish, trucks start to get replaced by APCs, first sighting of transport helicopters
-    case (4):
     {
         if(_side == Occupants) then
         {
@@ -119,8 +43,7 @@ switch (tierWar) do
             ];
         };
     };
-    //General idea: Get rid of any unarmed vehicle, Invaders start to bring the big guns
-    case (5):
+    case (2):
     {
         if(_side == Occupants) then
         {
@@ -145,8 +68,7 @@ switch (tierWar) do
             ];
         };
     };
-    //General idea: No light vehicles any more, Invaders start to bring attack helicopter
-    case (6):
+    case (3):
     {
         if(_side == Occupants) then
         {
@@ -172,8 +94,7 @@ switch (tierWar) do
             ];
         };
     };
-    //General idea: Getting rid of light helis, Invaders start the endgame
-    case (7):
+    case (4):
     {
         if(_side == Occupants) then
         {
@@ -200,8 +121,7 @@ switch (tierWar) do
             ];
         };
     };
-    //General idea, Occupants start to throw in everything, Invaders upgrade to maximum
-    case (8):
+    case (5):
     {
         if(_side == Occupants) then
         {
@@ -230,8 +150,7 @@ switch (tierWar) do
             ];
         };
     };
-    //General idea: Occupants get access to all, invaders start to heavily rely on tanks and attack helis
-    case (9):
+    case (6):
     {
         if(_side == Occupants) then
         {
@@ -262,7 +181,96 @@ switch (tierWar) do
             ];
         };
     };
-    //General idea: Occupants finish with a focus on infantry units supported by combat vehicles, while Invaders tend to use heavy armor
+    case (7):
+    {
+        if(_side == Occupants) then
+        {
+            _vehicleSelection =
+            [
+                [vehNATOAPC, 10],
+                [vehNATOTransportHelis, 10],
+                [vehNATOAA, 5],
+                [vehNATOAttackHelis, 20],
+                [vehNATOTank, 20],
+                [vehNATOTransportPlanes, 15],
+                [vehNATOPlane, 10],
+                [vehNATOPlaneAA, 10]
+            ];
+        };
+        if(_side == Invaders) then
+        {
+            _vehicleSelection =
+            [
+                [vehCSATAPC, 10],
+                [vehCSATAA, 10],
+                [vehCSATAttackHelis, 25],
+                [vehCSATTank, 25],
+                [vehCSATTransportPlanes, 15],
+                [vehCSATPlane, 5],
+                [vehCSATPlaneAA, 10]
+            ];
+        };
+    };
+    case (8):
+    {
+        if(_side == Occupants) then
+        {
+            _vehicleSelection =
+            [
+                [vehNATOAPC, 10],
+                [vehNATOTransportHelis, 10],
+                [vehNATOAA, 5],
+                [vehNATOAttackHelis, 20],
+                [vehNATOTank, 20],
+                [vehNATOTransportPlanes, 15],
+                [vehNATOPlane, 10],
+                [vehNATOPlaneAA, 10]
+            ];
+        };
+        if(_side == Invaders) then
+        {
+            _vehicleSelection =
+            [
+                [vehCSATAPC, 10],
+                [vehCSATAA, 10],
+                [vehCSATAttackHelis, 25],
+                [vehCSATTank, 25],
+                [vehCSATTransportPlanes, 15],
+                [vehCSATPlane, 5],
+                [vehCSATPlaneAA, 10]
+            ];
+        };
+    };
+    case (9):
+    {
+        if(_side == Occupants) then
+        {
+            _vehicleSelection =
+            [
+                [vehNATOAPC, 10],
+                [vehNATOTransportHelis, 10],
+                [vehNATOAA, 5],
+                [vehNATOAttackHelis, 20],
+                [vehNATOTank, 20],
+                [vehNATOTransportPlanes, 15],
+                [vehNATOPlane, 10],
+                [vehNATOPlaneAA, 10]
+            ];
+        };
+        if(_side == Invaders) then
+        {
+            _vehicleSelection =
+            [
+                [vehCSATAPC, 10],
+                [vehCSATAA, 10],
+                [vehCSATAttackHelis, 25],
+                [vehCSATTank, 25],
+                [vehCSATTransportPlanes, 15],
+                [vehCSATPlane, 5],
+                [vehCSATPlaneAA, 10]
+            ];
+        };
+    };
     case (10):
     {
         if(_side == Occupants) then
@@ -308,7 +316,7 @@ _fn_checkElementAgainstFilter =
             [
                 3,
                 format ["%1 didnt passed filter %2", _element, _x],
-                "getVehiclePoolForQRFs"
+                "getVehiclePoolForAttacks"
             ] call A3A_fnc_log;
         };
     } forEach _filter;
@@ -343,7 +351,7 @@ private _vehiclePool = [];
 [
     3,
     format ["For %1 and war level %2 selected units are %3, filter was %4", _side, tierWar, _vehiclePool, _filter],
-    "getVehiclePoolForQRFs"
+    "getVehiclePoolForAttacks"
 ] call A3A_fnc_log;
 
 _vehiclePool;

@@ -64,7 +64,7 @@ _nameDest = [_mrkDestination] call A3A_fnc_localizar;
 _timeX = time + 3600;
 
 while {(_waves > 0)} do
-	{
+{
 	_soldiers = [];
 	_nVeh = 3 + (round random 1);
 	_posOriginLand = [];
@@ -72,33 +72,33 @@ while {(_waves > 0)} do
 	_dir = 0;
 	_spawnPoint = "";
 	if !(_mrkDestination in blackListDest) then
-		{
+	{
 		//Attempt land attack if origin is an airport in range
 		_airportIndex = airportsX find _mrkOrigin;
 		if (_airportIndex >= 0 and (_posOrigin distance _posDestination < distanceForLandAttack)) then
-			{
+		{
 			_spawnPoint = server getVariable (format ["spawn_%1", _mrkOrigin]);
 			_pos = getMarkerPos _spawnPoint;
 			_posOriginLand = _posOrigin;
 			_dir = markerDir _spawnPoint;
-			}
+		}
 		else
 		//Find an outpost we can attack from
-			{
+		{
 			_outposts = outposts select {(sidesX getVariable [_x,sideUnknown] == _sideX) and (getMarkerPos _x distance _posDestination < distanceForLandAttack)  and ([_x,false] call A3A_fnc_airportCanAttack)};
 			if !(_outposts isEqualTo []) then
-				{
+			{
 				_outpost = selectRandom _outposts;
 				_posOriginLand = getMarkerPos _outpost;
 				//[_outpost,60] call A3A_fnc_addTimeForIdle;
 				_spawnPoint = [_posOriginLand] call A3A_fnc_findNearestGoodRoad;
 				_pos = position _spawnPoint;
 				_dir = getDir _spawnPoint;
-				};
 			};
 		};
+	};
 	if !(_pos isEqualTo []) then
-		{
+	{
 		_vehPool = if (_sideX == Occupants) then {vehNATOAttack} else {vehCSATAttack};
 		_vehPool = _vehPool select {[_x] call A3A_fnc_vehAvailable};
 		if (_isSDK) then

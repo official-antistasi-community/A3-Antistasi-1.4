@@ -218,9 +218,10 @@ if(skillMult == 3) then
     _vehicleCount = _vehicleCount + 0.5;
 };
 _vehicleCount = (round (_vehicleCount)) max 1;
+
 [
-    3
-    format ["Due to %1 aggression, sending %2 vehicles", if(_sideX == Occupants) then {aggressionOccupants} else {aggressionInvaders}, _vehicleCount],
+    3,
+    format ["Due to %1 aggression, sending %2 vehicles", (if(_sideX == Occupants) then {aggressionOccupants} else {aggressionInvaders}), _vehicleCount],
     _fileName
 ] call A3A_fnc_log;
 

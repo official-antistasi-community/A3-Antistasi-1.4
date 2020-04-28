@@ -16,16 +16,32 @@ params ["_timeToAdd", "_side"];
 
 if (isNil "_timeToAdd") exitWith {};
 if !(_timeToAdd isEqualType 0) exitWith {};
-if (_timeToAdd < 0) exitWith {};
 
-//Easy difficulty
-if(skillMult == 1) then
+if (_timeToAdd < 0) then
 {
-    _timeToAdd = round (_timeToAdd * 1.5);
-};
-if(skillMult == 2) then
+    //Easy difficulty
+    if(skillMult == 1) then
+    {
+        _timeToAdd = round (_timeToAdd * 0.75);
+    };
+    //Hard difficulty
+    if(skillMult == 3) then
+    {
+        _timeToAdd = round (_timeToAdd * 1.25);
+    };
+}
+else
 {
-    _timeToAdd = round (_timeToAdd * 1.25);
+    //Easy difficulty
+    if(skillMult == 1) then
+    {
+        _timeToAdd = round (_timeToAdd * 1.25);
+    };
+    //Hard difficulty
+    if(skillMult == 3) then
+    {
+        _timeToAdd = round (_timeToAdd * 0.75);
+    };
 };
 
 if(_side == Occupants) then

@@ -16,9 +16,9 @@ while {true} do
     sleep 60;
 
     //Sleep if no player is online
-    if (isMultiplayer && (count allPlayers == 0)) then
+    if (isMultiplayer && (count (allPlayers - (entities "HeadlessClient_F")) == 0)) then
     {
-        waitUntil {sleep 10; (count allPlayers > 0)};
+        waitUntil {sleep 10; (count (allPlayers - (entities "HeadlessClient_F")) > 0)};
     };
 
     waitUntil {!prestigeIsChanging};

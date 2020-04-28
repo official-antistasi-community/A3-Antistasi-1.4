@@ -388,7 +388,7 @@ else
 	[_airportX,20] call A3A_fnc_addTimeForIdle;
 	_vehPool = [];
 	_typeVehX = "";
-	_vehPool = [_sideX, "LandVehicle"] call A3A_fnc_getVehiclePoolForQRFs;
+	_vehPool = [_sideX, ["LandVehicle"]] call A3A_fnc_getVehiclePoolForQRFs;
 	for "_i" from 1 to _vehicleCount do
 	{
 		_typeVehX = selectRandomWeighted _vehPool;

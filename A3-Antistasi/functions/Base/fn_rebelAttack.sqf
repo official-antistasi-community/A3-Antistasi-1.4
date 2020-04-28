@@ -72,8 +72,8 @@ if (gameMode != 1) then
 //For low level attacks only occupants are able to attack only rebels
 if ((tierWar < 2) and (gameMode <= 2)) then
 {
-	//_possibleStartBases = _possibleStartBases select {(sidesX getVariable [_x,sideUnknown] == Occupants)};
-	//_possibleTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+	_possibleStartBases = _possibleStartBases select {(sidesX getVariable [_x,sideUnknown] == Occupants)};
+	_possibleTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 };
 
 //On low level remove cities from target list
@@ -89,11 +89,11 @@ else
 //Attacks on rebels or cities should be closer than mission range
 _possibleTargets = _possibleTargets select {(sidesX getVariable [_x, sideUnknown] != teamPlayer && (!(_x in citiesX))) || {(getMarkerPos _x) distance2D (getMarkerPos "Synd_HQ") < distanceMission}};
 
-if(count _possibleTargets == 0) exitWith
+if((count _possibleTargets == 0) || (count _possibleStartBases == 0)) exitWith
 {
     [
         2,
-        "Attack found no suitable targets, aborting!",
+        "Attack found no suitable targets or no suitable start bases, aborting!",
         _fileName
     ] call A3A_fnc_log;
 };

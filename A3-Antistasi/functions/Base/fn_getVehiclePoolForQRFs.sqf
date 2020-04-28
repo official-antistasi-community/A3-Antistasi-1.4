@@ -294,3 +294,5 @@ switch (tierWar) do
         };
     };
 };
+
+//Break unit arrays down to single vehicles

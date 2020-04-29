@@ -53,7 +53,7 @@
 		]
 	],
 																								//Headgear
-		["H_HelmetSpecO_ocamo"],
+		"H_HelmetSpecO_ocamo",
 		"",																					//Facewear
 
 	[																							//Binocular

@@ -3,7 +3,7 @@
 		"LMG_Zafir_F",																	//Weapon
 		"",																							//Muzzle
 		"Acc_Pointer_IR",																//Rail
-		"optic_holosight"																//Sight
+		"optic_holosight",															//Sight
 		["150rnd_762x54_Box",150],											//Primary Magazine
 		[],																							//Secondary Magazine
 		"Bipod_01_F_BLK"																//Bipod
@@ -53,7 +53,7 @@
 		]
 	],
 																								//Headgear
-		["H_HelmetSpecO_ghex_F"],
+		"H_HelmetSpecO_ghex_F",
 		"",																					//Facewear
 
 	[																							//Binocular

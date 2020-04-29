@@ -52,7 +52,7 @@
 		[] + _medicSupplies																	//Inventory
 	],
 																								//Headgear
-		["H_HelmetSpecO_ocamo"],
+		"H_HelmetSpecO_ocamo",
 		"",																					//Facewear
 
 	[																							//Binocular

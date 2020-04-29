@@ -48,8 +48,10 @@
 	],
 
 	[																							//Backpack
-		"B_FieldPack_ghex_F",													//Backpack
-		["RPG32_F",1,1] 																		//Inventory
+		"B_FieldPack_ghex_F",														//Backpack
+		[ 																									//Inventory
+			["RPG32_F",1,1]
+		]
 	],
 																								//Headgear
 		"H_HelmetSpecO_ghex_F",

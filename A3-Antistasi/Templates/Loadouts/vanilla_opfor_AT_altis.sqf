@@ -49,7 +49,9 @@
 
 	[																							//Backpack
 		"B_AssaultPack_ocamo",													//Backpack
-		["RPG32_F",1,1] 																		//Inventory
+		[ 																									//Inventory
+			["RPG32_F",1,1]
+		]
 	],
 																								//Headgear
 		"H_HelmetSpecO_ocamo",

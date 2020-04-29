@@ -3,7 +3,7 @@
 		"srifle_DMR_01_F",														//Weapon
 		"",																							//Muzzle
 		"Acc_Pointer_IR",																//Rail
-		"optic_SOS",																		//Sight
+		"optic_dms",																		//Sight
 		["10Rnd_762x54_Mag",10],												//Primary Magazine
 		[],																							//Secondary Magazine
 		"bipod_02_F_hex"																//Bipod

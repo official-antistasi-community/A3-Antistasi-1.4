@@ -3,7 +3,7 @@
 		"srifle_DMR_07_ghex_F",													//Weapon
 		"",																							//Muzzle
 		"Acc_Pointer_IR",																//Rail
-		"optic_SOS",																		//Sight
+		"optic_dms_ghex_F",															//Sight
 		["20Rnd_650x39_Cased_Mag_F",20],								//Primary Magazine
 		[],																							//Secondary Magazine
 		""																							//Bipod

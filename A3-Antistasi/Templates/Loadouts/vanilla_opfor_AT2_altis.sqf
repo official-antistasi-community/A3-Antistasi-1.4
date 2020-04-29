@@ -10,11 +10,11 @@
 	],
 
 	[																						  //Launcher
-		"launch_RPG32_F",																//Weapon
+		"",																							//Weapon
 		"",																							//Muzzle
 		"",																							//Rail
 		"",																							//Sight
-		["RPG32_F",1],																	//Primary Magazine
+		[],																							//Primary Magazine
 		[],																							//Secondary Magazine
 		""																							//Bipod
 	],
@@ -49,7 +49,7 @@
 
 	[																							//Backpack
 		"B_AssaultPack_ocamo",													//Backpack
-		["RPG32_F",1,1] 																		//Inventory
+		["RPG32_F",2,1] 																		//Inventory
 	],
 																								//Headgear
 		["H_HelmetSpecO_ocamo"],

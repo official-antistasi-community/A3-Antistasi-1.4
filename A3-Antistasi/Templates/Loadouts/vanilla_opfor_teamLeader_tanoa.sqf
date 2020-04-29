@@ -1,6 +1,6 @@
 [																					  //Loadout
 	[																							//Primary Weapon
-		"arifle_Katiba_C_F",														//Weapon
+		"arifle_ARX_ghex_F",														//Weapon
 		"",																							//Muzzle
 		"Acc_Pointer_IR",																//Rail
 		"optic_ACO_grn",																//Sight
@@ -9,7 +9,7 @@
 		""																							//Bipod
 	],
 
-	[																						  //Launcher
+	[																						  // Launcher
 		"",																							//Weapon
 		"",																							//Muzzle
 		"",																							//Rail

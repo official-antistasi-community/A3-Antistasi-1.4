@@ -52,7 +52,7 @@
 		]
 	],
 																								//Headgear
-		"H_HelmetSpecO_ghex_F",
+		["H_HelmetSpecO_ghex_F"],
 		"",																					//Facewear
 
 	[																							//Binocular

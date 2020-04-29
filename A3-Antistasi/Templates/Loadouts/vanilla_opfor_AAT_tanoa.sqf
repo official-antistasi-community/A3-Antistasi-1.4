@@ -52,7 +52,7 @@
 		["RPG32_F",2,1] 																		//Inventory
 	],
 																								//Headgear
-		"H_HelmetSpecO_ghex_F",
+		["H_HelmetSpecO_ghex_F"],
 		"",																					//Facewear
 
 	[																							//Binocular

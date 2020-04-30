@@ -49,6 +49,7 @@ if (side group player == teamPlayer) then
 	//_newUnit setUnitRank (rank _oldUnit);
 	_newUnit setVariable ["compromised",0];
 	_newUnit setVariable ["eligible",_eligible,true];
+	_oldUnit setVariable ["eligible",false,true];
 	_newUnit setVariable ["spawner",true,true];
 	_oldUnit setVariable ["spawner",nil,true];
 	[_newUnit,false] remoteExec ["setCaptive",0,_newUnit];
@@ -67,7 +68,7 @@ if (side group player == teamPlayer) then
 	//_newUnit enableSimulation true;
 	if (_oldUnit == theBoss) then
 		{
-		[_newUnit] call A3A_fnc_theBossInit;
+		[_newUnit] call A3A_fnc_theBossTransfer;
 		};
 
 

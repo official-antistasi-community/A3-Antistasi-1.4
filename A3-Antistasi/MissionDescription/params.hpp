@@ -51,7 +51,7 @@ class Params
      };
      class mRadius
      {
-          title = "Distance from HQ for Sidemissions";
+          title = "Max distance from HQ for tasks";
           values[] = {2000,4000,6000,8000,10000,12000};
           default = 4000;
      };

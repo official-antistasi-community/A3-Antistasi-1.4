@@ -8,7 +8,7 @@
         None
 
     Returns:
-        Nothing#
+        Nothing
 */
 
 while {true} do

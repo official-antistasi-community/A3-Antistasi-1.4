@@ -61,7 +61,7 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 			_p2 = getPos (_roadcon select 0);
 			_dirveh = [_p1,_p2] call BIS_fnc_DirTo;
 			_pos = [_p1, 3, _dirveh + 90] call BIS_Fnc_relPos;
-			_typeVehX = selectRandom arrayCivVeh;
+			_typeVehX = selectRandomWeighted civVehiclesWeighted;
 			/*
 			_mrk = createmarker [format ["%1", count vehicles], _p1];
 		    _mrk setMarkerSize [5, 5];
@@ -87,7 +87,7 @@ if (count _mrkMar > 0) then
 		{
 		if (spawner getVariable _markerX != 2) then
 			{
-			_typeVehX = selectRandom civBoats;
+			_typeVehX = selectRandomWeighted civBoatsWeighted;
 			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
 			_veh = _typeVehX createVehicle _pos;
 			_veh setDir (random 360);
@@ -136,7 +136,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					//_p1 = getPos (_roads select _countX);
 					_p2 = getPos (_roadcon select 0);
 					_dirveh = [_p1,_p2] call BIS_fnc_DirTo;
-					_typeVehX = selectRandom arrayCivVeh;
+					_typeVehX = selectRandomWeighted civVehiclesWeighted;
 					_veh = _typeVehX createVehicle _p1;
 					_veh setDir _dirveh;
 					_veh addEventHandler ["HandleDamage",{if (((_this select 1) find "wheel" != -1) and (_this select 4=="") and (!isPlayer driver (_this select 0))) then {0;} else {(_this select 2);};}];

@@ -22,7 +22,7 @@ private _basicMiscItems =
 		[
 			["ACE_Earplugs",1],
 			["ACE_Cabletie",3],
-			["ACE_MapTools"]
+			["ACE_MapTools",1]
 
 		];
 	} else {

@@ -57,7 +57,7 @@ if (isNull _antennaDead) then
 	["Rebuild Assets", format ["%1 Rebuilt"]] call A3A_fnc_customHint;
 
 	[0,10,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
-	[5,0] remoteExec ["A3A_fnc_prestige",2];
+	[[10, 30], [10, 30]] remoteExec ["A3A_fnc_prestige",2];
 	destroyedSites = destroyedSites - [_siteX];
 	publicVariable "destroyedSites";
 	}

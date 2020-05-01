@@ -61,17 +61,6 @@ if (time >= _bleedOutTime) exitWith
 			[1,_injurer] call A3A_fnc_playerScoreAdd;
 		};
 		[-1,1,getPos _unit] remoteExec ["A3A_fnc_citySupportChange",2];
-		switch (_side) do
-		{
-			case Occupants:
-			{
-				[0.1,0] remoteExec ["A3A_fnc_prestige",2];
-			};
-			case Invaders:
-			{
-				[0,0.25] remoteExec ["A3A_fnc_prestige",2];
-			};
-		};
 	};
     _unit setDamage 1;
 };

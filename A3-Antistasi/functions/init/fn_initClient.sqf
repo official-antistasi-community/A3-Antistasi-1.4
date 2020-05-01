@@ -73,12 +73,13 @@ if (isMultiplayer) then {
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {
+	player setVariable ["eligible",true];
 	theBoss = player;
 	groupX = group player;
 	if (worldName == "Tanoa") then {groupX setGroupId ["Pulu","GroupColor4"]} else {groupX setGroupId ["Stavros","GroupColor4"]};
 	player setIdentity "protagonista";
 	player setUnitRank "COLONEL";
-	player hcSetGroup [group player];
+	player hcSetGroup [group player];		// why?
 	player setUnitTrait ["medic", true];
 	player setUnitTrait ["engineer", true];
 	waitUntil {/*(scriptdone _introshot) and */(!isNil "serverInitDone")};
@@ -319,7 +320,7 @@ player addEventHandler ["GetInMan", {
 		};
 	};
 	if (!_exit) then {
-		if (((typeOf _veh) in arrayCivVeh) or ((typeOf _veh) in civBoats)) then {
+		if ((typeOf _veh) in undercoverVehicles) then {
 			if (!(_veh in reportedVehs)) then {
 				[] spawn A3A_fnc_goUndercover;
 			};
@@ -354,6 +355,12 @@ if (isMultiplayer) then {
 			};
 		};
 	};
+};
+
+// Make player group leader, because if they disconnected with AI squadmates, they may not be
+// In this case, the group will also no longer be local, so we need the remoteExec
+if !(isPlayer leader group player) then {
+	[group player, player] remoteExec ["selectLeader", groupOwner group player];
 };
 
 [] remoteExec ["A3A_fnc_assignBossIfNone", 2];
@@ -495,6 +502,7 @@ else
 		[] spawn A3A_fnc_loadPlayer;
 	};
 };
+
 
 //Move the player to HQ now they're initialised.
 player setPos (getMarkerPos respawnTeamPlayer);

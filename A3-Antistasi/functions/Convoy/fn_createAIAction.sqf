@@ -533,14 +533,14 @@ if(_type == "convoy") then
         	_rnd = random 100;
         	if (_side == Occupants) then
         	{
-        		if (_rnd > prestigeNATO) then
+        		if (_rnd > aggressionOccupants) then
         		{
         			_vehPool = _vehPool - [vehNATOTank];
         		};
         	}
         	else
         	{
-        		if (_rnd > prestigeCSAT) then
+        		if (_rnd > aggressionInvaders) then
         		{
         			_vehPool = _vehPool - [vehCSATTank];
         		};

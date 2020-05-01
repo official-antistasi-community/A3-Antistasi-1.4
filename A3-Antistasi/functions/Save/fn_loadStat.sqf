@@ -16,7 +16,7 @@ specialVarLoads = [
 	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","difficultyX","gameMode","wurzelGarrison"
+	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders"
 ];
 
 _varName = _this select 0;
@@ -56,8 +56,19 @@ if (_varName in specialVarLoads) then {
 	};
 	if (_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
 	if (_varName == 'jna_dataList') then {jna_dataList = +_varValue};
-	if (_varName == 'prestigeNATO') then {prestigeNATO = _varValue; publicVariable "prestigeNATO"};
-	if (_varName == 'prestigeCSAT') then {prestigeCSAT = _varValue; publicVariable "prestigeCSAT"};
+    //Keeping these for older saves
+	if (_varName == 'prestigeNATO') then {[[_varValue, 60], [0, 0]] call A3A_fnc_prestige};
+	if (_varName == 'prestigeCSAT') then {[[0, 0], [_varValue, 60]] call A3A_fnc_prestige};
+    if (_varName == 'aggressionOccupants') then
+    {
+        aggressionLevelOccupants = _varValue select 0;
+        aggressionStackOccupants = +(_varValue select 1);
+    };
+    if (_varName == 'aggressionInvaders') then
+    {
+        aggressionLevelInvaders = _varValue select 0;
+        aggressionStackInvaders = +(_varValue select 1);
+    };
 	if (_varName == 'hr') then {server setVariable ["HR",_varValue,true]};
 	if (_varName == 'dateX') then {setDate _varValue};
 	if (_varName == 'weather') then {

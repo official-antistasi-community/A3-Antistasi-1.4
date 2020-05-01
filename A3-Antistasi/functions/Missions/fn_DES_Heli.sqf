@@ -192,7 +192,14 @@ if ((not alive _heli) || {((taskState "DES") == "SUCCEEDED") || {(count (_vehicl
 	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Air Vehicle was destroyed or truck captured, mission completing",servertime];
 	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-	if (typeOf _heli in vehCSATAir) then {[0,3] remoteExec ["A3A_fnc_prestige",2]} else {[3,0] remoteExec ["A3A_fnc_prestige",2]};
+	if (typeOf _heli in vehCSATAir) then
+    {
+        [[0, 0], [15, 30]] remoteExec ["A3A_fnc_prestige",2]
+    };
+    if (typeOf _heli in vehNATOAir) then
+    {
+        [[15, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
+    };
 	[1800*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

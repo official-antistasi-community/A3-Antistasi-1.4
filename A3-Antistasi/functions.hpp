@@ -34,10 +34,12 @@ class A3A
 		class addActionBreachVehicle {};
 		class addHC {};
 		class addTimeForIdle {};
+        class aggressionUpdateLoop {};
 		class AILoadInfo {};
 		class rebelAttack {};
 		class blackout {};
 		class buildHQ {};
+        class calculateAggression {};
 		class citiesToCivPatrol {};
 		class citySupportChange {};
 		class commsMP {};
@@ -58,6 +60,7 @@ class A3A
 		class fogCheck {};
 		class garbageCleaner {};
 		class garrisonInfo {};
+        class getAggroLevelString {};
 		class healAndRepair {};
 		class initPetros {};
 		class isFrontline {};
@@ -382,8 +385,8 @@ class A3A
 		class promotePlayer {};
 		class ranksMP {};
 		class resourcesPlayer {};
-		class theBossInit {};
 		class theBossToggleEligibility {};
+		class theBossTransfer {};
 		class theBossSteal {};
 		class assignBossIfNone {};
 		class tierCheck {};

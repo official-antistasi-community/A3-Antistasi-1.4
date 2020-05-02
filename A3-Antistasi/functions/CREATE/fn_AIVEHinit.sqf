@@ -108,6 +108,12 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
 					_typeX = typeOf _veh;
 					if (side (_this select 1) == teamPlayer) then
 						{
+                            [
+                                3,
+                                "Rebels killed a tank",
+                                "aggroEvent",
+                                true
+                            ] call A3A_fnc_log;
 						if (_typeX == vehNATOTank) then
                         {
                             [-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -303,6 +309,12 @@ else
 					_typeX = typeOf _veh;
 					if (side (_this select 1) == teamPlayer) then
 					{
+                        [
+                            3,
+                            "Rebels killed a special vehicle",
+                            "aggroEvent",
+                            true
+                        ] call A3A_fnc_log;
 						if (_typeX == vehNATOAA || _typeX == vehNATOMRLS) then
                         {
                             [-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];

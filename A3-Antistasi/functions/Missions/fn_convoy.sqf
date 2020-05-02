@@ -413,6 +413,12 @@ if (_typeConvoyX == "ammunition") then
 		{if (isPlayer _x) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_vehObj,teamPlayer] call A3A_fnc_distanceUnits);
 		[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		[getPosASL _vehObj,_sideX,"",false] spawn A3A_fnc_patrolCA;
+        [
+            3,
+            "Rebels won a ammo convoy mission",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
 		if (_sideX == Occupants) then
         {
             [[25, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
@@ -458,6 +464,12 @@ if (_typeConvoyX == "Armor") then
 		{if (isPlayer _x) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_vehObj,teamPlayer] call A3A_fnc_distanceUnits);
 		[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		[getPosASL _vehObj,_sideX,"",false] spawn A3A_fnc_patrolCA;
+        [
+            3,
+            "Rebels won a armor convoy mission",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
         if (_sideX == Occupants) then
         {
             [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
@@ -507,6 +519,12 @@ if (_typeConvoyX == "Prisoners") then
 			_countX = 2 * (count _POWs);
 			//[0,- _countX, _posDestination] remoteExec ["A3A_fnc_citySupportChange",2];
 			[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+            [
+                3,
+                "Rebels killed a prisoner convoy",
+                "aggroEvent",
+                true
+            ] call A3A_fnc_log;
             if (_sideX == Occupants) then
             {
                 [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
@@ -641,6 +659,12 @@ if (_typeConvoyX == "Money") then
 			_taskState = "SUCCEEDED";
 			_taskState1 = "FAILED";
 			[10*_bonus,-20*_bonus,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2];
+            [
+                3,
+                "Rebels won a money convoy mission",
+                "aggroEvent",
+                true
+            ] call A3A_fnc_log;
             if (_sideX == Occupants) then
             {
                 [[25, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
@@ -670,6 +694,12 @@ if (_typeConvoyX == "Supplies") then
 		[getPosASL _vehObj,_sideX,"",false] spawn A3A_fnc_patrolCA;
 		_taskState = "FAILED";
 		_taskState1 = "FAILED";
+        [
+            3,
+            "Rebels destroyed a supply convoy",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
         if (_sideX == Occupants) then
         {
             [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2]

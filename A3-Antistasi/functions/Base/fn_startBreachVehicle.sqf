@@ -244,6 +244,12 @@ if((_isAPC && {(typeOf _vehicle) in vehNATOAPC}) || {_isTank && {(typeOf _vehicl
     }
     else
     {
+        [
+            3,
+            "Rebels breached a tank",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
         [[20, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
     };
 
@@ -260,6 +266,12 @@ else
     }
     else
     {
+        [
+            3,
+            "Rebels breached a tank",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
         [[0, 0], [20, 15]] remoteExec ["A3A_fnc_prestige",2];
     };
 };

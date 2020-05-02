@@ -105,6 +105,12 @@ if (_markerX in airportsX) then
 	if (_winner == teamPlayer) then
 	{
 		[0,10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
+        [
+            3,
+            "Rebels took an airport",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
 		if (_looser == Occupants) then
 		{
 			_prestigeOccupants = [50, 60];
@@ -130,6 +136,12 @@ if (_markerX in airportsX) then
 		};
 		if (_looser == teamPlayer) then
 		{
+            [
+                3,
+                "Rebels lost an airport",
+                "aggroEvent",
+                true
+            ] call A3A_fnc_log;
             if(_winner == Occupants) then
             {
                 _prestigeOccupants = [-40, 60];
@@ -154,6 +166,12 @@ if (_markerX in outposts) then
 		server setVariable [_markerX,dateToNumber date,true];
 		if (_looser == teamPlayer) then
 		{
+            [
+                3,
+                "Rebels lost an outpost",
+                "aggroEvent",
+                true
+            ] call A3A_fnc_log;
 			if (_winner == Occupants) then
             {
                 _prestigeOccupants = [-10, 30];
@@ -166,6 +184,12 @@ if (_markerX in outposts) then
 	}
 	else
 	{
+        [
+            3,
+            "Rebels took an outpost",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
 		if (_looser == Occupants) then
         {
             _prestigeOccupants = [30, 30];
@@ -186,6 +210,12 @@ if (_markerX in seaports) then
 {
 	if (_winner == teamPlayer) then
 	{
+        [
+            3,
+            "Rebels took a seaport",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
 		if (_looser == Occupants) then
         {
             _prestigeOccupants = [20, 30];
@@ -203,6 +233,12 @@ if (_markerX in factories) then
 {
     if (_winner == teamPlayer) then
 	{
+        [
+            3,
+            "Rebels took a factory",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
 		if (_looser == Occupants) then
         {
             _prestigeOccupants = [20, 30];
@@ -220,6 +256,12 @@ if (_markerX in resourcesX) then
 {
     if (_winner == teamPlayer) then
 	{
+        [
+            3,
+            "Rebels took a resource",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
 		if (_looser == Occupants) then
         {
             _prestigeOccupants = [20, 30];

@@ -83,7 +83,7 @@ while {(_waves > 0)} do
     _nVeh = (round (_nVeh)) max 1;
     [
         3,
-        format ["Selected %1 for this wave", _nVeh],
+        format ["Wave will contain %1 vehicles", _nVeh],
         _fileName
     ] call A3A_fnc_log;
 
@@ -119,7 +119,7 @@ while {(_waves > 0)} do
 	};
 	if !(_pos isEqualTo []) then
 	{
-		_vehPool = [_sideX] call A3A_fnc_getVehiclePoolForAttacks;
+		_vehPool = [_sideX, ["Air"]] call A3A_fnc_getVehiclePoolForAttacks;
 		_road = [_posDestination] call A3A_fnc_findNearestGoodRoad;
 		_countX = 1;
 		_landPosBlacklist = [];
@@ -411,7 +411,12 @@ while {(_waves > 0)} do
 		_uwp0 setWaypointBehaviour "AWARE";
 		_uwp0 setWaypointType "SAD";
 	};
-	_vehPool = [_sideX, ["LandVehicle"]] call A3A_fnc_getVehiclePoolForAttacks;
+    _vehPool = [_sideX, ["LandVehicle"]] call A3A_fnc_getVehiclePoolForAttacks;
+    if(count _vehPool == 0) then
+    {
+        _vehPool = if (_sideX == Occupants) then {vehNATOTransportHelis + vehNATOTransportPlanes} else {vehCSATTransportHelis + vehCSATTransportPlanes};
+        _vehPool = _vehPool select {[_x] call A3A_fnc_vehAvailable};
+    };
 	_countX = 1;
 	_pos = _posOrigin;
 	_ang = 0;
@@ -423,11 +428,10 @@ while {(_waves > 0)} do
 	};
 	_spawnedSquad = false;
 
-	while {(_countX <= _nVeh) and (count _soldiers <= 80)} do
+	while {(_countX <= _nVeh) && (count _soldiers <= 80)} do
 		{
 		_proceed = true;
 
-		//Give us a rough 20% baseline of transport aircraft, with a bit of randomness for added flair.
 		_typeVehX = selectRandomWeighted _vehPool;
 
 		if ((_typeVehX in vehTransportAir) and !(_spawnedSquad)) then

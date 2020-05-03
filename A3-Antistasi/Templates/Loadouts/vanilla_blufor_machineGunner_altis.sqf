@@ -3,7 +3,7 @@
 		"LMG_Mk200_F",																	//Weapon
 		"",																							//Muzzle
 		"Acc_Pointer_IR",																//Rail
-		"optic_aco",																		//Sight
+		"optic_holosight",															//Sight
 		["200Rnd_65x39_cased_Box",200],									//Primary Magazine
 		[],																							//Secondary Magazine
 		"bipod_01_F_snd"																//Bipod

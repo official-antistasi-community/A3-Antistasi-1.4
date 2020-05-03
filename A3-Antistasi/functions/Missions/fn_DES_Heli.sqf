@@ -110,11 +110,10 @@ sleep 1;
 private _vehicleDataE = [position _roadE, 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
 private _vehE = _vehicleDataE select 0;
 _vehE limitSpeed 50;
-//[_vehE] call A3A_fnc_AIVEHinit; //for some reson deletes escort vehicle, left out untill i can figure out why and fix it
-sleep 1;
 [_vehE,"Escort"] spawn A3A_fnc_inmuneConvoy;
 private _vehCrew = crew _vehE;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
+[_vehE] call A3A_fnc_AIVEHinit;
 private _groupVeh = _vehicleDataE select 2;
 _soldiers append _vehCrew;
 _groups pushBack _groupVeh;

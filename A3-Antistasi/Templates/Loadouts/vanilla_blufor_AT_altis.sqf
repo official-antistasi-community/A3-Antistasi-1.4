@@ -14,7 +14,7 @@
 		"",																							//Muzzle
 		"",																							//Rail
 		"",																							//Sight
-		["MRAWS_HEAT_F",1],															//Primary Magazine
+		["MRAWS_HEAT55_F",1],														//Primary Magazine
 		[],																							//Secondary Magazine
 		""																							//Bipod
 	],
@@ -49,7 +49,7 @@
 	[																							//Backpack
 		"B_AssaultPack_rgr",														//Backpack
 		[																										//Inventory
-			["MRAWS_HEAT_F",1,1]
+			["MRAWS_HEAT55_F",1,1]
 		]
 	],
 

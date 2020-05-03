@@ -1,6 +1,6 @@
 [																							//Loadout
 	[																								//Primary Weapon
-	 "rhs_weap_svds",																		//Weapon
+	 "rhs_weap_svdp",																		//Weapon
    "",																								//Muzzle
 	 "",																								//Rail
 	 "rhs_acc_pso1m2",																	//Sight

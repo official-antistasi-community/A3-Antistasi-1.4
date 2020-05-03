@@ -19,10 +19,6 @@
 		""																							//Bipod
 	],
 
-	[//Secondary Weapon
-		"hgun_P07_F",									//Weapon
-		"Muzzle_SNDS_L",									//Muzzle
-		"",													//Rail
 	[																							//Secondary Weapon
 		"hgun_Pistol_heavy_01_F",												//Weapon
 		"",																							//Muzzle

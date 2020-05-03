@@ -328,6 +328,7 @@ deleteMarker _mrkCrash;
 //delete units, vehicles and groups
 {
 	waitUntil {sleep 1;(!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits))};
+	{deleteVehicle _x}forEach crew _x;
 	deleteVehicle _x;
 } forEach _vehicles;
 {deleteVehicle _x} forEach (_soldiers);

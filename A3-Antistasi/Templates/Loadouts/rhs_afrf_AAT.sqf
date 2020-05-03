@@ -1,10 +1,10 @@
 [																					  //Loadout
 	[																							//Primary Weapon
-		"rhs_weap_ak103_zenitco01",											//Weapon
+		"rhs_weap_ak105_zenitco01",											//Weapon
 		"rhs_acc_dtk3",																	//Muzzel
 		"rhs_acc_perst3_2dp_h",													//Rail
 		"rhs_acc_pkas",																	//Sight
-		["rhs_30Rnd_762x39mm_polymer",30],							//Primary Magazine
+		["rhs_30Rnd_545x39_7N10_AK",30],								//Primary Magazine
 		[],																							//Secondary Magazine
 		"" 																							//Grip
 	],
@@ -38,7 +38,7 @@
 		"rhs_6b23_digi_6sh92_headset_spetsnaz",					//Vest
 		[																										//Inventory
 			["rhs_18rnd_9x21mm_7N28",1,17],
-			["rhs_30Rnd_762x39mm_polymer",4,30],
+			["rhs_30Rnd_545x39_7N10_AK",4,30],
 			["rhs_mag_rdg2_white",2,1],
 			["rhs_mag_rgo",1,1]
 		]

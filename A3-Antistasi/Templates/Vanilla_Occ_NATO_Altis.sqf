@@ -45,7 +45,7 @@ NATOPlayerLoadouts = [
 	//Anti-tank Scout
 	["vanilla_blufor_AT_altis"] call A3A_fnc_getLoadout,
 	//AT2
-	["vanilla_blufor_rifleman_altis"] call A3A_fnc_getLoadout
+	["vanilla_blufor_AT2_altis"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles

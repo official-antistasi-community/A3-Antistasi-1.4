@@ -27,12 +27,22 @@ while {true} do {
 
 // selecting Aircraft
 private _typeVehH = if (_sideX == Occupants) then {selectRandom (vehNATOTransportHelis + vehNATOAttackHelis)} else {selectRandom (vehCSATAttackHelis + vehCSATTransportHelis)};
+if (isNil "_typeVehH") exitWith {
+	["DES"] remoteExecCall ["A3A_fnc_missionRequest",2];
+	[1, format ["No aircrafts in arrays VehNatoTransportHelis, VehNatoAttackHelis or VehCSATTransportHelis, VehCSATAttackHelis. Reselecting DES mission"], _filename] call A3A_fnc_log;
+};
+_vtol = [configfile >> "CfgVehicles" >> _typeVehH >> "vtol"] call BIS_fnc_getCfgData;
+while {!isNil "_vtol"} do {
+	_typeVehH = if (_sideX == Occupants) then {selectRandom (vehNATOTransportHelis + vehNATOAttackHelis)} else {selectRandom (vehCSATAttackHelis + vehCSATTransportHelis)};
+};
+
+
 //refining crash spawn position, to avoid exploding on spawn or "Armaing" during mission
 private _flatPos = [_posCrashOrigin, 0, 1000, 0, 0, 0.1] call BIS_fnc_findSafePos;
 private _posCrash = _flatPos findEmptyPosition [0,100,_typeVehH];
 if (count _posCrash == 0) then {_posCrash = _posCrashOrigin};//if no pos use _posCrashOrigin
 if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [_posCrash,["tree","bush", "ROCKS"],50])} else {{[_x,true] remoteExec ["hideObjectGlobal",2]} foreach (nearestTerrainObjects [_posCrash,["tree","bush", "ROCKS"],50])};//clears area of trees and bushes
-diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Crash Location: %2, Air Vehicle: %3",servertime,_posCrash,_typeVehH];
+[3, format ["Crash Location: %1, Air Vehicle: %2", _posCrash, _typeVehH], _filename] call A3A_fnc_log;
 
 //creating array for cleanup
 private _vehicles = [];

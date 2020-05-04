@@ -44,6 +44,7 @@
 		]
 		+ _aceFlashlight
 		+ _aceM84
+		+ _aceRangecard
 	],
 
 	[																							//Backpack

@@ -38,7 +38,7 @@
 		"V_PlateCarrier2_TNA_F",												//Vest
 		[																										//Inventory
 			["SmokeShell",2,1],
-			["HandGrenade",2,1],
+			["HandGrenade",1,1],
 			["11Rnd_45ACP_Mag",1,11],
 			["30Rnd_65x39_caseless_khaki_mag",4,30]
 		]
@@ -48,7 +48,9 @@
 
 	[																							//Backpack
 		"B_AssaultPack_tna_F",													//Backpack
-		[] + _medicSupplies																	//Inventory
+		[																										//Inventory
+			["MRAWS_HEAT_F",2,1]
+		]
 	],
 
 		"H_HelmetB_TNA_F",													//Headgear

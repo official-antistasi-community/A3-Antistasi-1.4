@@ -95,11 +95,11 @@ if (_varName in specialVarLoads) then {
 	if (_varName == 'destroyedBuildings') then {
 		destroyedBuildings= +_varValue;
 		//publicVariable "destroyedBuildings";
-		private _building = objNull;
 		{
 			// nearestObject sometimes picks the wrong building and is several times slower
-			_building = nearestObjects [_x, ["House"], 1, true] select 0;
-			if !(_building in antennas) then {
+			// Example: Livonia Land_Cargo_Tower_V2_F at [6366.63,3880.88,0] ATL
+			private _building = nearestObjects [_x, ["House"], 1, true] select 0;
+			if (!isNil "_building" && {!(_building in antennas)} ) then {
 				private _ruin = [_building] call BIS_fnc_createRuin;
 				//JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
 				if !(isNull _ruin) then {

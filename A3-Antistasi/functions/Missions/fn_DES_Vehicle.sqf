@@ -73,7 +73,16 @@ if (spawner getVariable _markerX == 0) then
 			["TaskFailed", ["", format ["AA Stolen in %1",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 			};
 		[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-		if (_sideX == Invaders) then {[0,3] remoteExec ["A3A_fnc_prestige",2]; [0,10*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]} else {[3,0] remoteExec ["A3A_fnc_prestige",2];[0,5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]};
+		if (_sideX == Invaders) then
+        {
+            [[0, 0], [10, 30]] remoteExec ["A3A_fnc_prestige",2];
+            [0,10*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
+        }
+        else
+        {
+            [[10, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+            [0,5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
+        };
 		[1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 		{if (_x distance _veh < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

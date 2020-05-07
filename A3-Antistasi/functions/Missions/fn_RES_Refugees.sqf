@@ -126,7 +126,7 @@ else
 	_mrk setMarkerColorLocal "ColorRed";
 	_mrk setMarkerBrushLocal "DiagGrid";
 	_mrk setMarkerAlphaLocal 0;
-	if ((random 100 < prestigeNATO) or (_difficultX)) then
+	if ((random 100 < aggressionOccupants) or (_difficultX)) then
 		{
 		_groupX = [getPos _houseX,Occupants, NATOSquad] call A3A_fnc_spawnGroup;
 		sleep 1;
@@ -159,7 +159,7 @@ if (_sideX == Occupants) then
 		_hr = _countX;
 		_resourcesFIA = 100 * _countX;
 		[_hr,_resourcesFIA*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-		[3,0] remoteExec ["A3A_fnc_prestige",2];
+		[[-10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 		{if (_x distance getMarkerPos respawnTeamPlayer < 500) then {[_countX*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[round (_countX*_bonus/2),theBoss] call A3A_fnc_playerScoreAdd;
 		{[_x] join _groupPOW; [_x] orderGetin false} forEach _POWs;

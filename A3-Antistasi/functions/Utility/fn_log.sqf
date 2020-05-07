@@ -41,6 +41,8 @@ switch (_level) do {
 };
 
 if (isNil "blockServerLogging" && _toServer && !isServer) then {
+	// Tag remote log lines with player. HCs return hc, hc_1, hc_2 etc
+	_logLine = format ["%1 | (R) %2", _logLine, str player];
 	_logLine remoteExec ["diag_log", 2];
 } else {
 	diag_log _logLine;

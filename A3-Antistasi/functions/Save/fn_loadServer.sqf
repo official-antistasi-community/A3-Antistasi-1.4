@@ -12,8 +12,6 @@ if (isServer) then {
 	["minesX"] call A3A_fnc_getStatVariable;
 	["countCA"] call A3A_fnc_getStatVariable;
 	["antennas"] call A3A_fnc_getStatVariable;
-	["prestigeNATO"] call A3A_fnc_getStatVariable;
-	["prestigeCSAT"] call A3A_fnc_getStatVariable;
 	["hr"] call A3A_fnc_getStatVariable;
 	["dateX"] call A3A_fnc_getStatVariable;
 	["weather"] call A3A_fnc_getStatVariable;
@@ -87,6 +85,11 @@ if (isServer) then {
 			[_x] call A3A_fnc_destroyCity
 		};
 	} forEach citiesX;
+
+    //Load aggro stacks and level and calculate current level
+    ["aggressionOccupants"] call A3A_fnc_getStatVariable;
+	["aggressionInvaders"] call A3A_fnc_getStatVariable;
+    [true] call A3A_fnc_calculateAggression;
 
 	["chopForest"] call A3A_fnc_getStatVariable;
 	["destroyedBuildings"] call A3A_fnc_getStatVariable;

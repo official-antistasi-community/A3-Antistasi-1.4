@@ -228,14 +228,14 @@ if (_base != "") then
 		_rnd = random 100;
 		if (_sideX == Occupants) then
 			{
-			if (_rnd > prestigeNATO) then
+			if (_rnd > aggressionOccupants) then
 				{
 				_vehPool = _vehPool - [vehNATOTank];
 				};
 			}
 		else
 			{
-			if (_rnd > prestigeCSAT) then
+			if (_rnd > aggressionInvaders) then
 				{
 				_vehPool = _vehPool - [vehCSATTank];
 				};
@@ -432,14 +432,14 @@ else
 		_rnd = random 100;
 		if (_sideX == Occupants) then
 			{
-			if (_rnd > prestigeNATO) then
+			if (_rnd > aggressionOccupants) then
 				{
 				_vehPool = _vehPool - vehNATOAttackHelis;
 				};
 			}
 		else
 			{
-			if (_rnd > prestigeCSAT) then
+			if (_rnd > aggressionInvaders) then
 				{
 				_vehPool = _vehPool - vehCSATAttackHelis;
 				};

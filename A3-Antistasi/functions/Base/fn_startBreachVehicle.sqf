@@ -238,13 +238,28 @@ private _crew = crew _vehicle;
 
 if((_isAPC && {(typeOf _vehicle) in vehNATOAPC}) || {_isTank && {(typeOf _vehicle) in vehNATOTank}}) then
 {
-  [1,0] remoteExec ["A3A_fnc_prestige",2];
-  if(citiesX findIf {(getMarkerPos _x) distance _vehicle < 300} != -1) then
-  {
-    [-1, 1, getPos _vehicle] remoteExec ["A3A_fnc_citySupportChange",2];
-  };
+    if(_isAPC) then
+    {
+        [[10, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+    }
+    else
+    {
+        [[20, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+    };
+
+    if(citiesX findIf {(getMarkerPos _x) distance _vehicle < 300} != -1) then
+    {
+        [-1, 1, getPos _vehicle] remoteExec ["A3A_fnc_citySupportChange",2];
+    };
 }
 else
 {
-  [0,1] remoteExec ["A3A_fnc_prestige",2];
+    if(_isAPC) then
+    {
+        [[0, 0], [10, 15]] remoteExec ["A3A_fnc_prestige",2];
+    }
+    else
+    {
+        [[0, 0], [20, 15]] remoteExec ["A3A_fnc_prestige",2];
+    };
 };

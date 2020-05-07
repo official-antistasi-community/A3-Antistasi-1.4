@@ -19,8 +19,8 @@ _looser = sidesX getVariable [_markerX,sideUnknown];
 _sides = [teamPlayer,Occupants,Invaders];
 _other = "";
 _textX = "";
-_prestigeOccupants = 0;
-_prestigeInvaders = 0;
+_prestigeOccupants = [0, 0];
+_prestigeInvaders = [0, 0];
 _flagX = objNull;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 
@@ -99,99 +99,146 @@ else
 _nul = [_markerX] call A3A_fnc_mrkUpdate;
 _sides = _sides - [_winner,_looser];
 _other = _sides select 0;
+
 if (_markerX in airportsX) then
-	{
+{
 	if (_winner == teamPlayer) then
-		{
+	{
 		[0,10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 		if (_looser == Occupants) then
-			{
-			_prestigeOccupants = 20;
-			_prestigeInvaders = 10;
-			}
-		else
-			{
-			_prestigeOccupants = 10;
-			_prestigeInvaders = 20;
-			};
-		}
-	else
 		{
+			_prestigeOccupants = [50, 60];
+			_prestigeInvaders = [-25, 60];
+		}
+		else
+		{
+			_prestigeOccupants = [-25, 60];
+			_prestigeInvaders = [50, 60];
+		};
+	}
+	else
+	{
 		server setVariable [_markerX,dateToNumber date,true];
 		[_markerX,60] call A3A_fnc_addTimeForIdle;
 		if (_winner == Occupants) then
-			{
-			[10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
-			}
+		{
+			[10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
+		}
 		else
-			{
+		{
 			[-10,-10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
-			};
-		if (_looser == teamPlayer) then
-			{
-			_prestigeOccupants = -10;
-			_prestigeInvaders = -10;
-			};
 		};
+		if (_looser == teamPlayer) then
+		{
+            if(_winner == Occupant) then
+            {
+                _prestigeOccupants = [-40, 60];
+                _prestigeInvaders = [-20, 60];
+            }
+            else
+            {
+                _prestigeOccupants = [-20, 60];
+                _prestigeInvaders = [-40, 60];
+            };
+		};
+	};
 	["TaskSucceeded", ["", "Airbase Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
 	["TaskFailed", ["", "Airbase Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
 	["TaskUpdated",["",format ["%1 lost an Airbase",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 	killZones setVariable [_markerX,[],true];
-	};
+};
 if (_markerX in outposts) then
+{
+	if (_winner != teamPlayer) then
 	{
-	if !(_winner == teamPlayer) then
-		{
 		server setVariable [_markerX,dateToNumber date,true];
 		if (_looser == teamPlayer) then
-			{
-			if (_winner == Occupants) then {_prestigeOccupants = -5} else {_prestigeInvaders = -5};
-			};
-		}
-	else
 		{
-		if (_looser == Occupants) then {_prestigeOccupants = 5;_prestigeInvaders = 2} else {_prestigeOccupants = 2;_prestigeInvaders = 5};
+			if (_winner == Occupants) then
+            {
+                _prestigeOccupants = [-10, 30];
+            }
+            else
+            {
+                _prestigeInvaders = [-10, 30];
+            };
 		};
+	}
+	else
+	{
+		if (_looser == Occupants) then
+        {
+            _prestigeOccupants = [30, 30];
+            _prestigeInvaders = [-15, 30];
+        }
+        else
+        {
+            _prestigeOccupants = [-15, 30];
+            _prestigeInvaders = [30, 30];
+        };
+	};
 	["TaskSucceeded", ["", "Outpost Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
 	["TaskFailed", ["", "Outpost Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
 	["TaskUpdated",["",format ["%1 lost an Outpost",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 	killZones setVariable [_markerX,[],true];
 	};
 if (_markerX in seaports) then
+{
+	if (_winner == teamPlayer) then
 	{
-	if !(_winner == teamPlayer) then
-		{
-		if (_looser == teamPlayer) then
-			{
-			if (_winner == Occupants) then {_prestigeOccupants = -5} else {_prestigeInvaders = -5};
-			};
-		}
-	else
-		{
-		if (_looser == Occupants) then {_prestigeOccupants = 5;_prestigeInvaders = 2} else {_prestigeOccupants = 2;_prestigeInvaders = 5};
-		};
+		if (_looser == Occupants) then
+        {
+            _prestigeOccupants = [20, 30];
+        }
+        else
+        {
+            _prestigeInvaders = [20, 30];
+        };
+	};
 	["TaskSucceeded", ["", "Seaport Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
 	["TaskFailed", ["", "Seaport Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
 	["TaskUpdated",["",format ["%1 lost a Seaport",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 	};
 if (_markerX in factories) then
+{
+    if (_winner == teamPlayer) then
 	{
+		if (_looser == Occupants) then
+        {
+            _prestigeOccupants = [20, 30];
+        }
+        else
+        {
+            _prestigeInvaders = [20, 30];
+        };
+	};
 	["TaskSucceeded", ["", "Factory Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
 	["TaskFailed", ["", "Factory Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
 	["TaskUpdated",["",format ["%1 lost a Factory",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
-	};
+};
 if (_markerX in resourcesX) then
+{
+    if (_winner == teamPlayer) then
 	{
+		if (_looser == Occupants) then
+        {
+            _prestigeOccupants = [20, 30];
+        }
+        else
+        {
+            _prestigeInvaders = [20, 30];
+        };
+	};
 	["TaskSucceeded", ["", "Resource Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
 	["TaskFailed", ["", "Resource Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
 	["TaskUpdated",["",format ["%1 lost a Resource",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
-	};
+};
 
 [3, format ["Notification and points done for marker change at %1", _markerX], _fileName] call A3A_fnc_log;
 
 {_nul = [_markerX,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
 if (_winner == teamPlayer) then
-	{
+{
 	[] call A3A_fnc_tierCheck;
 
 	//Convert all of the static weapons to teamPlayer, essentially. Make them mannable by AI.
@@ -205,7 +252,7 @@ if (_winner == teamPlayer) then
 	publicVariable "staticsToSave";
 
 	if (!isNull _flagX) then
-		{
+	{
 		//[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
 		//_flagX setVariable ["isGettingCaptured", nil, true];
 		[_flagX,"SDKFlag"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
@@ -215,15 +262,15 @@ if (_winner == teamPlayer) then
 		//[_flagX,"vehicle"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 		//[_flagX,"garage"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 		if (_markerX in seaports) then {[_flagX,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX]};
-		};
+	};
 	[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;
 	waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({((side group _x) in [_looser,_other]) and (_x getVariable ["spawner",false]) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits > 3*({(side _x == teamPlayer) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits))};
 	if (spawner getVariable _markerX != 2) then
-		{
+	{
 		sleep 10;
 		[_markerX,teamPlayer] remoteExec ["A3A_fnc_zoneCheck",2];
-		};
-	}
+	};
+}
 else
 	{
 	//Remove static weapons near the marker from the saved statics array
@@ -232,23 +279,23 @@ else
 	publicVariable "staticsToSave";
 
 	if (!isNull _flagX) then
-		{
+	{
 		//_flagX setVariable ["isGettingCaptured", nil, true];
 		if (_looser == teamPlayer) then
-			{
+		{
 			[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
 			sleep 2;
 			[_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
-			};
-		if (_winner == Occupants) then
-			{
-			[_flagX,NATOFlagTexture] remoteExec ["setFlagTexture",_flagX];
-			}
-		else
-			{
-			[_flagX,CSATFlagTexture] remoteExec ["setFlagTexture",_flagX];
-			};
 		};
+		if (_winner == Occupants) then
+		{
+			[_flagX,NATOFlagTexture] remoteExec ["setFlagTexture",_flagX];
+		}
+		else
+		{
+			[_flagX,CSATFlagTexture] remoteExec ["setFlagTexture",_flagX];
+		};
+	};
 	if (_looser == teamPlayer) then
 		{
 		[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;

@@ -106,7 +106,13 @@ hasADVCPR = isClass (configFile >> "CfgPatches" >> "adv_aceCPR");
 hasADVSplint = isClass (configFile >> "CfgPatches" >> "adv_aceSplint");
 //IFA Detection
 //Deactivated for now, as IFA is having some IP problems (08.05.2020 european format)
-if isClass (configFile >> "CfgPatches" >> "LIB_Core") then {/*hasIFA = true;*/ [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;};
+if isClass (configFile >> "CfgPatches" >> "LIB_Core") then
+{
+    //hasIFA = true;
+    //[2, "IFA Detected", _fileName] call A3A_fnc_log;
+    [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
+    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+};
 //RHS AFRF Detection
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") then {activeAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS AFRF Detected.",servertime];};
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") then {activeUSAF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS USAF Detected.",servertime];};

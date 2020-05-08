@@ -31,7 +31,8 @@ private _antennasDeadPositions = [];
 ["maxUnits", maxUnits] call A3A_fnc_setStatVariable;
 ["nextTick", nextTick - time] call A3A_fnc_setStatVariable;
 ["weather",[fogParams,rain]] call A3A_fnc_setStatVariable;
-["destroyedBuildings",destroyedBuildings] call A3A_fnc_setStatVariable;
+private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
+["destroyedBuildings",_destroyedPositions] call A3A_fnc_setStatVariable;
 
 //Save aggression values
 ["aggressionOccupants", [aggressionLevelOccupants, aggressionStackOccupants]] call A3A_fnc_setStatVariable;

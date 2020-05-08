@@ -90,12 +90,14 @@ class A3A
 		class rebuildRadioTower {};
 		class relocateHQObjects {};
 		class repairRuinedBuilding {};
+		class requestDataFromServer {};
 		class resourceCheckSkipTime {};
 		class resourcesFIA {};
 		class returnMuzzle {};
 		class revealToPlayer {};
 		class scheduler {};
 		class sellVehicle {};
+		class setDataOnClient {};
 		class setMarkerAlphaForSide {};
 		class sizeMarker {};
 		class splitVehicleCrewIntoOwnGroups {};

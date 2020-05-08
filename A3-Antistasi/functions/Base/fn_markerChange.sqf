@@ -130,7 +130,7 @@ if (_markerX in airportsX) then
 		};
 		if (_looser == teamPlayer) then
 		{
-            if(_winner == Occupant) then
+            if(_winner == Occupants) then
             {
                 _prestigeOccupants = [-40, 60];
                 _prestigeInvaders = [-20, 60];

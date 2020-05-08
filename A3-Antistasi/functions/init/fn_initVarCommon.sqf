@@ -105,7 +105,8 @@ hasACEMedical = isClass (configFile >> "CfgSounds" >> "ACE_heartbeat_fast_3");
 hasADVCPR = isClass (configFile >> "CfgPatches" >> "adv_aceCPR");
 hasADVSplint = isClass (configFile >> "CfgPatches" >> "adv_aceSplint");
 //IFA Detection
-if isClass (configFile >> "CfgPatches" >> "LIB_Core") then {hasIFA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | IFA Detected.",servertime];};
+//Deactivated for now, as IFA is having some IP problems (08.05.2020 european format)
+if isClass (configFile >> "CfgPatches" >> "LIB_Core") then {/*hasIFA = true;*/ [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;};
 //RHS AFRF Detection
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") then {activeAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS AFRF Detected.",servertime];};
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") then {activeUSAF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS USAF Detected.",servertime];};

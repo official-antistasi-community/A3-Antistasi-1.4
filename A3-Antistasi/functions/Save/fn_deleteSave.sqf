@@ -40,7 +40,7 @@ private _savedPlayers = profileNamespace getVariable ["savedPlayers" + postfix, 
 private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
 private _saveIndex = -1;
 {
-	if (_x select 0 == _campaignID) exitWith { _saveIndex = forEachIndex };
+	if (_x select 0 == _campaignID) exitWith { _saveIndex = _forEachIndex };
 } forEach _saveList;
 
 _saveList deleteAt _saveIndex;

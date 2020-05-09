@@ -128,6 +128,8 @@ markersChanging = [];
 
 playerHasBeenPvP = [];
 
+savedPlayers = [];
+
 ///////////////////////////////////////////
 //     INITIALISING ITEM CATEGORIES     ///
 ///////////////////////////////////////////

@@ -14,11 +14,10 @@ mapX allowDamage false;
 //Load server id
 serverID = profileNameSpace getVariable ["ss_ServerID",nil];
 if(isNil "serverID") then {
-	serverID = str(round((random(100000)) + random 10000));
+	serverID = str(floor(random(90000) + 10000));
 	profileNameSpace setVariable ["ss_ServerID",serverID];
 };
 publicVariable "serverID";
-waitUntil {!isNil "serverID"};
 
 if (isMultiplayer) then {
 	//Load server parameters
@@ -75,17 +74,22 @@ if (isMultiplayer) then {
 
 [] call A3A_fnc_crateLootParams;
 
-// create a profilenamespace array called antistasiSavedGames
-// each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
-// search them for matching entries, select the last (most recent)
 
-campaignID = "";
-private _existingIDs = [""];
-if (loadLastSave) then
+// Maintain a profilenamespace array called antistasiSavedGames
+// Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
+
+campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
+call
 {
-	// First check through the saved game list for matches
+	// If the legacy campaign ID is valid for this map/mode, just use that
+	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
+		[2, "Loading last campaign, ID " + campaignID, _filename] call A3A_fnc_log;
+	};
+
+	// Otherwise, check through the saved game list for matches and build existing ID list
 	private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
 	private _gametype = if (side petros == independent) then {"Greenfor"} else {"Blufor"};
+	private _existingIDs = [campaignID];
 	{
 		if (_x isEqualType [] && {count _x >= 2}) then
 		{
@@ -96,30 +100,19 @@ if (loadLastSave) then
 		};
 	} forEach _saveList;
 
-	// Then check the legacy save ID
-	if (campaignID == "") then {
-		campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
+	// If valid save found, exit with that
+	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
+		[2, "Loading campaign from saved list, ID " + campaignID, _filename] call A3A_fnc_log;
 	};
 
-	// No save game found, treat as if we'd asked for a new game
-	if (campaignID == "") exitWith { loadLastSave = false };
-
-	[2, format ["Checking for save data with campaignID %1", campaignID],_fileName] call A3A_fnc_log;
-	["membersX"] call A3A_fnc_getStatVariable;
-	if (isNil "membersX") then {
-		loadLastSave = false;
-		[2,"No member data found, skipping load",_fileName] call A3A_fnc_log;
-	};
-};
-publicVariable "loadLastSave";
-
-if (!loadLastSave) then
-{
+	// Otherwise start a new campaign
+	loadLastSave = false;
 	while {campaignID in _existingIDs} do {
 		campaignID = str(floor(random(90000) + 10000));		// guaranteed five digits
 	};
-	[2, format ["Creating new campaign with ID %1", campaignID], _fileName] call A3A_fnc_log;
+	[2, "Creating new campaign with ID " + campaignID, _fileName] call A3A_fnc_log;
 };
+publicVariable "loadLastSave";
 publicVariable "campaignID";
 
 

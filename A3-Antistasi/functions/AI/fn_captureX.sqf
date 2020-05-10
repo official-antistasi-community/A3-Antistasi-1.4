@@ -21,13 +21,13 @@ if (_recruiting) then {
 	private _chance = 0;
 	if (_sideX == Occupants) then
     {
-        _modAggroOcc = [0.25, 15];
+        _modAggroOcc = [0.25, 30];
 		if (faction _unit == factionFIA) then { _chance = 60;}
 		else { _chance = 20;};
 	}
 	else
     {
-        _modAggroInv = [0.25, 15];
+        _modAggroInv = [0.25, 30];
 		if (faction _unit == factionFIA) then { _chance = 60;}
 		else { _chance = 40;};
 	};
@@ -56,11 +56,11 @@ else {
 
 	if (_sideX == Occupants) then
     {
-        _modAggroOcc = [-0.25, 15];
+        _modAggroOcc = [-0.25, 30];
 	}
 	else
     {
-        _modAggroInv = [-0.25, 15];
+        _modAggroInv = [-0.25, 30];
 	};
 };
 

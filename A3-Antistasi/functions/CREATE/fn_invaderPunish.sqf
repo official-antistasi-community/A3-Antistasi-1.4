@@ -156,7 +156,7 @@ if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or (
             "aggroEvent",
             true
         ] call A3A_fnc_log;
-        [[-10, 30], [40, 30]] remoteExec ["A3A_fnc_prestige",2];
+        [[-10, 90], [40, 150]] remoteExec ["A3A_fnc_prestige",2];
 		{[-10,10,_x] remoteExec ["A3A_fnc_citySupportChange",2]} forEach citiesX;
 		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_posDestination,teamPlayer] call A3A_fnc_distanceUnits);
 		[10,theBoss] call A3A_fnc_playerScoreAdd;

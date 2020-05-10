@@ -106,7 +106,7 @@ else
                 "aggroEvent",
                 true
             ] call A3A_fnc_log;
-			[[-25, 60], [-10, 60]] remoteExec ["A3A_fnc_prestige",2];
+			[[-25, 90], [-10, 60]] remoteExec ["A3A_fnc_prestige",2];
 			}
 		else
 			{

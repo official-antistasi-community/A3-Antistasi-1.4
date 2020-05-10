@@ -61,11 +61,11 @@ else
 		};
 	if (_sideX == Occupants) then
     {
-        [[10, 10], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
+        [[10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
     }
     else
     {
-        [[0, 0], [10, 10]] remoteExec ["A3A_fnc_prestige",2]
+        [[0, 0], [10, 60]] remoteExec ["A3A_fnc_prestige",2]
     };
 	["TaskFailed", ["", format ["SpecOp Team decimated at a %1",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 	};

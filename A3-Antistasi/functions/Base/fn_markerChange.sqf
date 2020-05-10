@@ -113,13 +113,13 @@ if (_markerX in airportsX) then
         ] call A3A_fnc_log;
 		if (_looser == Occupants) then
 		{
-			_prestigeOccupants = [50, 60];
-			_prestigeInvaders = [-25, 60];
+			_prestigeOccupants = [50, 150];
+			_prestigeInvaders = [-25, 90];
 		}
 		else
 		{
-			_prestigeOccupants = [-25, 60];
-			_prestigeInvaders = [50, 60];
+			_prestigeOccupants = [-25, 90];
+			_prestigeInvaders = [50, 150];
 		};
 	}
 	else
@@ -144,13 +144,13 @@ if (_markerX in airportsX) then
             ] call A3A_fnc_log;
             if(_winner == Occupants) then
             {
-                _prestigeOccupants = [-40, 60];
-                _prestigeInvaders = [-20, 60];
+                _prestigeOccupants = [-40, 90];
+                _prestigeInvaders = [-20, 90];
             }
             else
             {
-                _prestigeOccupants = [-20, 60];
-                _prestigeInvaders = [-40, 60];
+                _prestigeOccupants = [-20, 90];
+                _prestigeInvaders = [-40, 90];
             };
 		};
 	};
@@ -174,11 +174,11 @@ if (_markerX in outposts) then
             ] call A3A_fnc_log;
 			if (_winner == Occupants) then
             {
-                _prestigeOccupants = [-10, 30];
+                _prestigeOccupants = [-10, 90];
             }
             else
             {
-                _prestigeInvaders = [-10, 30];
+                _prestigeInvaders = [-10, 90];
             };
 		};
 	}
@@ -192,13 +192,13 @@ if (_markerX in outposts) then
         ] call A3A_fnc_log;
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = [30, 30];
-            _prestigeInvaders = [-15, 30];
+            _prestigeOccupants = [30, 150];
+            _prestigeInvaders = [-15, 90];
         }
         else
         {
-            _prestigeOccupants = [-15, 30];
-            _prestigeInvaders = [30, 30];
+            _prestigeOccupants = [-15, 90];
+            _prestigeInvaders = [30, 150];
         };
 	};
 	["TaskSucceeded", ["", "Outpost Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -218,11 +218,11 @@ if (_markerX in seaports) then
         ] call A3A_fnc_log;
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = [20, 30];
+            _prestigeOccupants = [20, 120];
         }
         else
         {
-            _prestigeInvaders = [20, 30];
+            _prestigeInvaders = [20, 120];
         };
 	};
 	["TaskSucceeded", ["", "Seaport Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -241,11 +241,11 @@ if (_markerX in factories) then
         ] call A3A_fnc_log;
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = [20, 30];
+            _prestigeOccupants = [20, 120];
         }
         else
         {
-            _prestigeInvaders = [20, 30];
+            _prestigeInvaders = [20, 120];
         };
 	};
 	["TaskSucceeded", ["", "Factory Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -264,11 +264,11 @@ if (_markerX in resourcesX) then
         ] call A3A_fnc_log;
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = [20, 30];
+            _prestigeOccupants = [20, 120];
         }
         else
         {
-            _prestigeInvaders = [20, 30];
+            _prestigeInvaders = [20, 120];
         };
 	};
 	["TaskSucceeded", ["", "Resource Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];

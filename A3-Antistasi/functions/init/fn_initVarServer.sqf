@@ -113,7 +113,7 @@ server setVariable ["resourcesFIA",1000,true];
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
 // Indicates time in seconds before next counter attack.
-countCA = 600;																		
+countCA = 600;
 
 cityIsSupportChanging = false;
 resourcesIsChanging = false;
@@ -444,6 +444,7 @@ if !(hasIFA) then {
 	switch (true) do {
 		case (!activeGREF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf"};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf"};
+		case (hasRDS): {call compile preProcessFileLineNumbers "Templates\RDS_Reb_NAPA_Arid.sqf"};
 		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf"};
 		case (activeGREF): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf"};
 	};
@@ -465,6 +466,7 @@ if !(hasIFA) then {
 		case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf"};
 		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf"};
+		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf"};
 	};
 }
 else {
@@ -484,7 +486,7 @@ private _fnc_vehicleIsValid = {
 	params ["_type"];
 	private _configClass = configFile >> "CfgVehicles" >> _type;
 	if !(isClass _configClass) exitWith {
-		[1, format ["Vehicle class %1 not found", _type], _filename] call A3A_fnc_Log;	
+		[1, format ["Vehicle class %1 not found", _type], _filename] call A3A_fnc_Log;
 		false;
 	};
 	if (_configClass call A3A_fnc_getModOfConfigClass in disabledMods) then {false} else {true};
@@ -509,7 +511,7 @@ private _fnc_filterAndWeightArray = {
 	// second pass, re-weight
 	private _weightMod = _targWeight / _curWeight;
 	for "_i" from 0 to (count _output - 2) step 2 do {
-		_output set [_i+1, _weightMod * (_output select (_i+1))]; 
+		_output set [_i+1, _weightMod * (_output select (_i+1))];
 	};
 	_output;
 };
@@ -641,7 +643,7 @@ DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
 // sanity check the lists to catch some serious problems early
 private _badVehs = [];
-{  
+{
     if !(isClass (configFile >> "CfgVehicles" >> _x)) then {
         _badVehs pushBackUnique _x;
     };

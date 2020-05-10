@@ -465,6 +465,7 @@ if !(hasIFA) then {
 	switch (true) do {
 		case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf"};
+		case (hasRDS): {call compile preProcessFileLineNumbers "Templates\RDS_Civ.sqf"};
 		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf"};
 		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf"};
 	};

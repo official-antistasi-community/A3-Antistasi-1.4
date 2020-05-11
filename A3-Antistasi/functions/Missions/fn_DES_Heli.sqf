@@ -85,10 +85,10 @@ private _dateLimit = [date select 0, date select 1, date select 2, date select 3
 private _dateLimitNum = dateToNumber _dateLimit;
 
 //creating mission
-private _location = [_missionOrigin] call A3A_fnc_localizar;
-diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Creating Tasks",servertime];
 [2, format ["Creating Helicopter Down mission"], _filename] call A3A_fnc_log;
-[[teamPlayer,civilian],"DES",[format ["We have downed air vehicle. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the place. MOVE QUICKLY",_location],"Destroy Air",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+private _location = [_missionOrigin] call A3A_fnc_localizar;
+private _text = format ["We have downed a helicopter. There is a good chance to destroy it before it is recovered. Do it before a recovery team from %1 the crash site. MOVE QUICKLY",_location];
+[[teamPlayer,civilian],"DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
 
 ////////////////
@@ -306,15 +306,15 @@ waitUntil
 _bonus = if (_difficult) then {2} else {1};
 if ((not alive _heli) || (_heli distance _posHQ < 100) ) then {
 	[3, format ["%1 was destroyed or captured", _heli], _filename] call A3A_fnc_log;
-	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_location],"Destroy Air",_taskMrk],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
+	["DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	if (typeOf _heli in vehCSATAir) then {[0,3] remoteExec ["A3A_fnc_prestige",2]} else {[3,0] remoteExec ["A3A_fnc_prestige",2]};
 	{if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {[600*_bonus] remoteExec ["A3A_fnc_timingCA",2]};
 } else {
-	[3, format ["%1 was successfully recovered, mission completing", _heli], _filename] call A3A_fnc_log;
-	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_location],"Destroy Air",_taskMrk],_posCrashMrk,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
+	[3, format ["%1 was successfully recovered by %2, mission failed", _heli, _sideX], _filename] call A3A_fnc_log;
+	["DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {[-600*_bonus] remoteExec ["A3A_fnc_timingCA",2]};
 };

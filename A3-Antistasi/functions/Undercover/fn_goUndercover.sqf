@@ -7,7 +7,7 @@ if (captive _player) exitWith {
 	["Undercover", "You are Undercover already"] call A3A_fnc_customHint;
 };
 
-private["_compromised", "_changeX", "_airportsX", "_roadblocks", "_arrayCivVeh", "_player", "_size", "_base", "_onDetectionMarker", "_onBaseMarker", "_airportSide"];
+private["_compromised", "_changeX", "_airportsX", "_roadblocks", "_player", "_size", "_base", "_onDetectionMarker", "_onBaseMarker", "_airportSide"];
 
 _changeX = "";
 _roadblocks = (controlsX select {
@@ -15,13 +15,12 @@ _roadblocks = (controlsX select {
 });
 _airportsX = airportsX + outposts + _roadblocks;
 _airportsX1 = airportsX;
-_arrayCivVeh = arrayCivVeh + [civHeli] + civBoats;
 _compromised = _player getVariable "compromised";
 
 
 
 if (vehicle _player != _player) then {
-	if (not(typeOf(vehicle _player) in _arrayCivVeh)) then {
+	if (not(typeOf(vehicle _player) in undercoverVehicles)) then {
 		["Undercover", "You are not in a civilian vehicle"] call A3A_fnc_customHint;
 		_changeX = "Init"
 	};
@@ -98,7 +97,7 @@ do {
 		_veh = vehicle _player;
 		_typeX = typeOf _veh;
 		if (_veh != _player) then {
-			if (not(_typeX in _arrayCivVeh)) then {
+			if (not(_typeX in undercoverVehicles)) then {
 				_changeX = "VNoCivil"
 			}
 			else {
@@ -171,9 +170,9 @@ do {
 					if !(_isInControl) then {
 						_aggro =
 							if (sidesX getVariable[_base, sideUnknown] == Occupants) then {
-								prestigeNATO + (tierWar * 10)
+								aggressionOccupants + (tierWar * 10)
 							} else {
-								prestigeCSAT + (tierWar * 10)
+								aggressionInvaders + (tierWar * 10)
 							};
 							//Probability	of being spotted. Unless we're in an airfield - then we're always spotted.
 						if (_base in _airportsX1 || _onDetectionMarker || random 100 < _aggro) then {

@@ -65,8 +65,8 @@ for "_i" from 0 to (round random 2) do
 	} else {
 		[_heli,_groupX,_positionX,_posOrigin,_groupHeli] spawn A3A_fnc_fastrope;
 	};
-	
-	
+
+
 	sleep 10;
 	};
 
@@ -88,7 +88,14 @@ else
 		{
 		["DEF_HQ",[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 		["DEF_HQ1",[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name petros,nameTeamPlayer],format ["Kill %1",name petros],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
-		[0,3] remoteExec ["A3A_fnc_prestige",2];
+        if(_sideX == Occupants) then
+        {
+            [[10, 30], [5, 30]] remoteExec ["A3A_fnc_prestige",2];
+        }
+        else
+        {
+            [[5, 30], [10, 30]] remoteExec ["A3A_fnc_prestige",2];
+        };
 		[0,300] remoteExec ["A3A_fnc_resourcesFIA",2];
 		//[-5,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);

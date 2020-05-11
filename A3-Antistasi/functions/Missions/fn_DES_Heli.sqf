@@ -308,7 +308,15 @@ if ((not alive _heli) || (_heli distance _posHQ < 100) ) then {
 	[3, format ["%1 was destroyed or captured", _heli], _filename] call A3A_fnc_log;
 	["DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-	if (typeOf _heli in vehCSATAir) then {[0,3] remoteExec ["A3A_fnc_prestige",2]} else {[3,0] remoteExec ["A3A_fnc_prestige",2]};
+	if (typeOf _heli in vehCSATAir) then
+    {
+        [[0, 0], [15, 30]] remoteExec ["A3A_fnc_prestige",2]
+    };
+    if (typeOf _heli in vehNATOAir) then
+    {
+        [[15, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
+    };
+	[1800*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {[600*_bonus] remoteExec ["A3A_fnc_timingCA",2]};

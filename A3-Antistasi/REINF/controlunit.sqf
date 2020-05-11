@@ -23,7 +23,7 @@ if (_x != vehicle _x) then
 	};
 } forEach units group player;
 
-_unit setVariable ["owner",player];
+_unit setVariable ["owner",player,true];
 _eh1 = player addEventHandler ["HandleDamage",
 	{
 	_unit = _this select 0;

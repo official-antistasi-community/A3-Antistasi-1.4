@@ -23,11 +23,11 @@ private _chance = 0;
 private _side = side (group _unit);
 if (_side == Occupants) then
 {
-	_chance = 100 - prestigeNATO;
+	_chance = 100 - aggressionOccupants;
 }
 else
 {
-	_chance = 100 - prestigeCSAT;
+	_chance = 100 - aggressionInvaders;
 };
 
 _chance = _chance + 20;

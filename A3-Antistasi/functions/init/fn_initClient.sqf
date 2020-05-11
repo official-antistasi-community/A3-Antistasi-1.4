@@ -73,12 +73,13 @@ if (isMultiplayer) then {
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {
+	player setVariable ["eligible",true];
 	theBoss = player;
 	groupX = group player;
 	if (worldName == "Tanoa") then {groupX setGroupId ["Pulu","GroupColor4"]} else {groupX setGroupId ["Stavros","GroupColor4"]};
 	player setIdentity "protagonista";
 	player setUnitRank "COLONEL";
-	player hcSetGroup [group player];
+	player hcSetGroup [group player];		// why?
 	player setUnitTrait ["medic", true];
 	player setUnitTrait ["engineer", true];
 	waitUntil {/*(scriptdone _introshot) and */(!isNil "serverInitDone")};
@@ -319,7 +320,7 @@ player addEventHandler ["GetInMan", {
 		};
 	};
 	if (!_exit) then {
-		if (((typeOf _veh) in arrayCivVeh) or ((typeOf _veh) in civBoats)) then {
+		if ((typeOf _veh) in undercoverVehicles) then {
 			if (!(_veh in reportedVehs)) then {
 				[] spawn A3A_fnc_goUndercover;
 			};
@@ -341,7 +342,7 @@ if (isMultiplayer) then {
 				_isMember = true;
 				["General Info", "You are not in the member's list, but as you are Server Admin, you have been added. Welcome!"] call A3A_fnc_customHint;
 			};
-			
+
 			if (_isMember) then {
 				membersX pushBack (getPlayerUID player);
 				publicVariable "membersX";
@@ -349,11 +350,17 @@ if (isMultiplayer) then {
 				_nonMembers = {(side group _x == teamPlayer) and !([_x] call A3A_fnc_isMember)} count (call A3A_fnc_playableUnits);
 				if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
 				if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
-				
+
 				["General Info", "Welcome Guest<br/><br/>You have joined this server as guest"] call A3A_fnc_customHint;
 			};
 		};
 	};
+};
+
+// Make player group leader, because if they disconnected with AI squadmates, they may not be
+// In this case, the group will also no longer be local, so we need the remoteExec
+if !(isPlayer leader group player) then {
+	[group player, player] remoteExec ["selectLeader", groupOwner group player];
 };
 
 [] remoteExec ["A3A_fnc_assignBossIfNone", 2];
@@ -380,7 +387,7 @@ if (_isJip) then {
 		} forEach missionsX;
 	};
 }
-else 
+else
 {
 	[2,"Not Joining in Progress (JIP)",_filename] call A3A_fnc_log;
 };
@@ -444,6 +451,7 @@ _flagLight setLightAttenuation [7, 0, 0.5, 0.5];
 vehicleBox allowDamage false;
 vehicleBox addAction ["Heal, Repair and Rearm", A3A_fnc_healAndRepair,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
+if (hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 if (isMultiplayer) then {
 	vehicleBox addAction ["Personal Garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 };
@@ -489,12 +497,13 @@ if (isNil "placementDone") then {
 if (isMultiplayer) then {
 	[] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 }
-else 
+else
 {
 	if (loadLastSave) then {
 		[] spawn A3A_fnc_loadPlayer;
 	};
 };
+
 
 //Move the player to HQ now they're initialised.
 player setPos (getMarkerPos respawnTeamPlayer);

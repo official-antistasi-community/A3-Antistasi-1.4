@@ -1,4 +1,4 @@
-//Deploy
+//Deploy action
 canDeployWinch = {
 	private _vehicle = cursorTarget;
 	if(_vehicle isKindOf "Ship") then {	
@@ -12,12 +12,9 @@ DeployWinch = {
 	if (captive player) then {player setCaptive false};
 	params ["_player"];
 	private _vehicle = cursorTarget;
-	if(local _vehicle) then {
-		_vehicle setVariable ["Rope", (ropeCreate [_vehicle, [0,-2.8,-0.8], _player, [0,0,0], 10]), true];
-		[_player, _vehicle] spawn adjustRope;
-	} else {
-		[_this,"DeployWinch",_vehicle,true] call _remoteExec;
-	};
+	_vehicle setVariable ["Rope", (ropeCreate [_vehicle, [0,-2.8,-0.8], _player, [0,0,0], 10]), true];
+	_vehicle setVariable ["RopeUnit", _player, true];
+	[_player, _vehicle] spawn adjustRope;
 };
 
 adjustRope = {
@@ -38,35 +35,30 @@ adjustRope = {
 	};
 }; 
 
-//Stow
+//Stow action
 canStow = {
 	private _vehicle = cursorTarget;
-	private _existingRopes = ropes _vehicle;
-	private _ropeOwner = ropeAttachedTo player;
-	if(!isNull _vehicle) then {
-		vehicle player == player && player distance _vehicle < 10 && (count _existingRopes) > 0;
-	} else {
-		false;
-	};
-
+	if (isNull _vehicle) exitWith {false};
+	private _ropeExist = if (!isNil {_vehicle getVariable "Rope"}) then {true} else {false};
+	private _ropeOwner = if ((_vehicle getVariable "RopeUnit") == player) then {true} else {false};
+	if ((_vehicle getVariable "RopeUnit") isEqualTo []) then {_ropeOwner = true}; //overide if none is on the rope end
+	vehicle player == player && player distance _vehicle < 10 && _ropeExist && _ropeOwner;
 };
 
 stowRope = {
 	params ["_player"];
 	private _vehicle = cursorTarget;
-	if(local _vehicle) then {
-			ropeDestroy (_vehicle getVariable "Rope");
-			_vehicle setVariable ["Rope",nil,true];
-	} else {
-		[_this,"_stowRope",_vehicle,true] call _remoteExec;
-	};
+	ropeDestroy (_vehicle getVariable "Rope");
+	_vehicle setVariable ["Rope",nil,true];
+	_vehicle setVariable ["RopeUnit",nil,true];
+	
 };
 
-//Attach
+//Attach action
 canAttach = {
 	_cargo = cursorTarget;
 	if(!isNull _cargo) then {
-		player != _cargo && _cargo getVariable ["SalvageCrate", false];
+		player != _cargo && _cargo getVariable ["SalvageCrate", false] && player distance _cargo <= 10 && ((ropeAttachedTo player) getVariable "RopeUnit") == player;
 	} else {
 		false;
 	};
@@ -76,39 +68,29 @@ attachRope = {
 	private _cargo = cursorTarget;
 	private ["_vehicle"];
 	_vehicle = ropeAttachedTo player;
-	if(local _vehicle) then {
-		[player, false] remoteExec ["setCaptive"];
-		[] spawn A3A_fnc_statistics;
-		private _distance = _vehicle distance _cargo;
-		private _unwind = _distance - 0.5;
-		private _time = 5 + (_unwind*2);
-		ropeDestroy (_vehicle getVariable "Rope");
-		_vehicle setVariable ["Rope2", (ropeCreate [_vehicle, [0,-2.8,-0.8], _cargo, [0,0,0], _distance]), true];
-		sleep 1;
-		ropeUnwind [ropes _vehicle select 0, 0.5, -(_unwind), true];
-		_vehicle lockCargo true;
-		sleep _time;
-		ropeDestroy (_vehicle getVariable "Rope2");
-		[_vehicle, _cargo] call jn_fnc_logistics_load;
-		_cargo call jn_fnc_logistics_addAction;
-		_cargo setVariable ["SalvageCrate", nil, true];
-		_vehicle setVariable ["Rope2", nil, true];
-		_vehicle setVariable ["Rope", nil, true];
-	} else {
-		[_this,"attachRope",_vehicle,false] call _remoteExec;
-	};
+	_vehicle setVariable ["RopeUnit",_vehicle,true]; //to stop stow action from showing while recovering crate
+	[player, false] remoteExec ["setCaptive"];
+	[] spawn A3A_fnc_statistics;
+	private _distance = _vehicle distance _cargo;
+	private _unwind = _distance - 0.5;
+	private _time = 5 + (_unwind*2);
+	ropeDestroy (_vehicle getVariable "Rope");
+	_vehicle setVariable ["Rope2", (ropeCreate [_vehicle, [0,-2.8,-0.8], _cargo, [0,0,0], _distance]), true];
+	sleep 1;
+	ropeUnwind [ropes _vehicle select 0, 0.5, -(_unwind), true];
+	_vehicle lockCargo true;
+	sleep _time;
+	ropeDestroy (_vehicle getVariable "Rope2");
+	[_vehicle, _cargo] call jn_fnc_logistics_load;
+	_cargo call jn_fnc_logistics_addAction;
+	_cargo setVariable ["SalvageCrate",nil,true];
+	_vehicle setVariable ["Rope2",nil,true];
+	_vehicle setVariable ["Rope",nil,true];
+	_vehicle setVariable ["RopeUnit",nil,true];
 };
 
-//General
-_remoteExec = {
-	params ["_params","_functionName","_cargo",["_isCall",false]];
-	if (_isCall) then {
-		_params remoteExecCall [_functionName, _cargo];
-	} else {
-		_params remoteExec [_functionName, _cargo];
-	};
-};
 
+//adding of actions
 addplayerWinchActions = {
 	player addAction ["Deploy Winch", {
 		[player] call DeployWinch;
@@ -130,8 +112,7 @@ addplayerWinchActions = {
 	};
 };
 
-[addplayerWinchActions] spawn {
-	params ["_addplayerActions"];
+[] spawn {
 	private _missionComplete = "LOG" call BIS_fnc_taskCompleted;
 	while {!_missionComplete} do {
 			if (!isNull player && isplayer player) then {

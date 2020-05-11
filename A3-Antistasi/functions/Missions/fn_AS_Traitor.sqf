@@ -151,7 +151,7 @@ if (not alive _traitor || traitorIntel) then
 
 	_factor = 1;
 	if(_difficultX) then {_factor = 2;};
-	[2 * _factor,0] remoteExec ["A3A_fnc_prestige",2];
+	[[15 * _factor, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 	[0,300 * _factor] remoteExec ["A3A_fnc_resourcesFIA",2];
 	{
 		if (!isPlayer _x) then

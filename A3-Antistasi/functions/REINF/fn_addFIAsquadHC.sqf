@@ -110,7 +110,7 @@ if (_esinf) then {
 		_bypassAI = true;
 	};
 	_format = format ["%1%2",_format,{side (leader _x) == teamPlayer} count allGroups];
-	_groupX setGroupId [_format];
+	_groupX setGroupIdGlobal [_format];
 } else {
 	_truckX = objNull;
 	_groupX = grpNull;
@@ -152,8 +152,8 @@ if (_esinf) then {
 		_groupX = _veh select 2;
 	};
 
-	if (_typeGroup == vehSDKAT) then {_groupX setGroupId [format ["M.AT-%1",{side (leader _x) == teamPlayer} count allGroups]]};
-	if (_typeGroup == staticAAteamPlayer) then {_groupX setGroupId [format ["M.AA-%1",{side (leader _x) == teamPlayer} count allGroups]]};
+	if (_typeGroup == vehSDKAT) then {_groupX setGroupIdGlobal [format ["M.AT-%1",{side (leader _x) == teamPlayer} count allGroups]]};
+	if (_typeGroup == staticAAteamPlayer) then {_groupX setGroupIdGlobal [format ["M.AA-%1",{side (leader _x) == teamPlayer} count allGroups]]};
 
 	driver _truckX action ["engineOn", _truckX];
 	[_truckX] call A3A_fnc_AIVEHinit;

@@ -18,7 +18,7 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
 		_veh removeAllEventHandlers "HandleDamage";
 		}];
 	if !(_typeX in vehAttack) then
-		{
+	{
 		if (_veh isKindOf "Car") then
 			{
 			_veh addEventHandler ["HandleDamage",{if (((_this select 1) find "wheel" != -1) and ((_this select 4=="") or (side (_this select 3) != teamPlayer)) and (!isPlayer driver (_this select 0))) then {0} else {(_this select 2)}}];
@@ -29,7 +29,47 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
 				_veh addEventHandler ["GetIn", {private ["_veh"]; _veh = _this select 0; if (side (_this select 2) != teamPlayer) then {_veh setVariable ["within",true]}}];
 				};
 			};
-		}
+        if(_typeX in vehTrucks) then
+        {
+            _veh addEventHandler ["killed",
+            {
+                private ["_veh","_typeX"];
+                _veh = _this select 0;
+                _typeX = typeOf _veh;
+                if (side (_this select 1) == teamPlayer) then
+                {
+                    if (_typeX in vehNATOTrucks) then
+                    {
+                        [[2, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                    }
+                    else
+                    {
+                        [[0, 0], [2, 15]] remoteExec ["A3A_fnc_prestige",2];
+                    };
+                };
+            }];
+        }
+        else
+        {
+            _veh addEventHandler ["killed",
+            {
+                private ["_veh","_typeX"];
+                _veh = _this select 0;
+                _typeX = typeOf _veh;
+                if (side (_this select 1) == teamPlayer) then
+                {
+                    if (_typeX in vehNATOLight) then
+                    {
+                        [[5, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                    }
+                    else
+                    {
+                        [[0, 0], [5, 15]] remoteExec ["A3A_fnc_prestige",2];
+                    };
+                };
+            }];
+        };
+	}
 	else
 		{
 		if (_typeX in vehAPCs) then
@@ -40,9 +80,17 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
 				_veh = _this select 0;
 				_typeX = typeOf _veh;
 				if (side (_this select 1) == teamPlayer) then
-					{
-					if (_typeX in vehNATOAPC) then {[-2,2,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2]};
-					};
+				{
+					if (_typeX in vehNATOAPC) then
+                    {
+                        [-2,2,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
+                        [[10, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                    }
+                    else
+                    {
+                        [[0, 0], [10, 15]] remoteExec ["A3A_fnc_prestige",2];
+                    };
+				};
 				}];
 			_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto; _veh removeEventHandler ["HandleDamage",_thisEventHandler]};if (((_this select 1) find "wheel" != -1) and (_this select 4=="") and (!isPlayer driver (_veh))) then {0;} else {(_this select 2);}}];
 			_veh setVariable ["within",true];
@@ -60,7 +108,15 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
 					_typeX = typeOf _veh;
 					if (side (_this select 1) == teamPlayer) then
 						{
-						if (_typeX == vehNATOTank) then {[-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2]};
+						if (_typeX == vehNATOTank) then
+                        {
+                            [-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
+                            [[20, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                        }
+                        else
+                        {
+                            [[0, 0], [20, 15]] remoteExec ["A3A_fnc_prestige",2];
+                        };
 						};
 					}];
 				_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto;  _veh removeEventHandler ["HandleDamage",_thisEventHandler]}}];
@@ -96,41 +152,74 @@ else
 				};
 			}];
 		if (_veh isKindOf "Helicopter") then
-			{
+		{
 			if (_typeX in vehTransportAir) then
-				{
+			{
 				_veh setVariable ["within",true];
 				_veh addEventHandler ["GetOut", {private ["_veh"];_veh = _this select 0; if ((isTouchingGround _veh) and (isEngineOn _veh)) then {if (side (_this select 2) != teamPlayer) then {if (_veh getVariable "within") then {_veh setVariable ["within",false]; [_veh] call A3A_fnc_smokeCoverAuto}}}}];
 				_veh addEventHandler ["GetIn", {private ["_veh"];_veh = _this select 0; if (side (_this select 2) != teamPlayer) then {_veh setVariable ["within",true]}}];
-				}
-			else
+                _veh addEventHandler ["killed",
 				{
-				_veh addEventHandler ["killed",
-					{
 					private ["_veh","_typeX"];
 					_veh = _this select 0;
 					_typeX = typeOf _veh;
 					if (side (_this select 1) == teamPlayer) then
-						{
-						if (_typeX in vehNATOAttackHelis) then {[-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2]};
-						};
-					}];
-				};
-			};
-		if (_veh isKindOf "Plane") then
+					{
+						if (_typeX in vehNATOTransportHelis) then
+                        {
+                            [[5, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                        }
+                        else
+                        {
+                            [[0, 0], [5, 15]] remoteExec ["A3A_fnc_prestige",2];
+                        };
+					};
+				}];
+			}
+			else
 			{
-			_veh addEventHandler ["killed",
+				_veh addEventHandler ["killed",
 				{
+					private ["_veh","_typeX"];
+					_veh = _this select 0;
+					_typeX = typeOf _veh;
+					if (side (_this select 1) == teamPlayer) then
+					{
+						if (_typeX in vehNATOAttackHelis) then
+                        {
+                            [-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
+                            [[15, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                        }
+                        else
+                        {
+                            [[0, 0], [15, 15]] remoteExec ["A3A_fnc_prestige",2];
+                        };
+					};
+				}];
+			};
+		};
+		if (_veh isKindOf "Plane") then
+		{
+			_veh addEventHandler ["killed",
+			{
 				private ["_veh","_typeX"];
 				_veh = _this select 0;
 				_typeX = typeOf _veh;
 				if (side (_this select 1) == teamPlayer) then
-					{
-					if ((_typeX == vehNATOPlane) or (_typeX == vehNATOPlaneAA)) then {[-8,8,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2]};
-					};
-				}];
-			};
-		}
+				{
+					if ((_typeX == vehNATOPlane) or (_typeX == vehNATOPlaneAA)) then
+                    {
+                        [-8,8,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
+                        [[10, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                    }
+                    else
+                    {
+                        [[0, 0], [10, 15]] remoteExec ["A3A_fnc_prestige",2];
+                    };
+				};
+			}];
+		};
+	}
 	else
 		{
 		if (_veh isKindOf "StaticWeapon") then
@@ -193,15 +282,16 @@ else
 					}];
 				}
 			else
-				{
+			{
 				_veh addEventHandler ["killed",
-					{
+				{
 					private ["_veh","_typeX"];
 					_veh = _this select 0;
-					(typeOf _veh) call A3A_fnc_removeVehFromPool;
-					}];
-				};
-			}
+                    _typeX = typeOf _veh;
+					_typeX call A3A_fnc_removeVehFromPool;
+				}];
+			};
+		}
 		else
 			{
 			if ((_typeX in vehAA) or (_typeX in vehMRLS)) then
@@ -212,9 +302,17 @@ else
 					_veh = _this select 0;
 					_typeX = typeOf _veh;
 					if (side (_this select 1) == teamPlayer) then
-						{
-						if (_typeX == vehNATOAA) then {[-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2]};
-						};
+					{
+						if (_typeX == vehNATOAA || _typeX == vehNATOMRLS) then
+                        {
+                            [-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
+                            [[20, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                        }
+                        else
+                        {
+                            [[0, 0], [20, 15]] remoteExec ["A3A_fnc_prestige",2];
+                        };
+					};
 					_typeX call A3A_fnc_removeVehFromPool;
 					}];
 				};

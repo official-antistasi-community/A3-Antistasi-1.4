@@ -399,6 +399,7 @@ private _templateVariables = [
 	"vehCSATLightUnarmed",
 	"vehCSATTrucks",
 	"vehCSATAmmoTruck",
+	"vehCSATRepairTruck",
 	"vehCSATLight",
 	"vehCSATAPC",
 	"vehCSATTank",

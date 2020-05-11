@@ -68,7 +68,7 @@ if (side group player == teamPlayer) then
 	//_newUnit enableSimulation true;
 	if (_oldUnit == theBoss) then
 		{
-		[_newUnit] call A3A_fnc_theBossTransfer;
+		[_newUnit, true] remoteExec ["A3A_fnc_theBossTransfer", 2];
 		};
 
 

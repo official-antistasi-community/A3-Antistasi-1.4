@@ -181,9 +181,7 @@ if !(_typeVehH == vehNATOPatrolHeli) then {
 	_groups pushBack _guard;
 
 	//tell guard group to guard heli
-	_guardWP = _guard addWaypoint [_posCrash, 1];
-	_guardWP setWaypointType "GUARD";
-	_guardWP setWaypointBehaviour "SAFE";
+	_guardWP = [_guard, _posCrash, 10] call BIS_fnc_taskPatrol;
 
 	[3, format ["Location: %1, Guard Squad spawned", _posCrash], _filename] call A3A_fnc_log;
 	if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {
@@ -204,9 +202,7 @@ _pilots = [_posCrash,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
 _groups pushBack _pilots;
 
 //tell pilots to guard heli
-private _pilotsWP = _pilots addWaypoint [_posCrash, 1];
-_pilotsWP setWaypointType "GUARD";
-_pilotsWP setWaypointBehaviour "SAFE";
+private _pilotsWP = [_pilots, _posCrash, 50] call BIS_fnc_taskPatrol;
 
 
 [3, format ["Waiting until %1 reaches origin or rebel base, gets destroyed, timer expires or %2 reaches %1", _heli, _vehR], _filename] call A3A_fnc_log;
@@ -237,6 +233,14 @@ if (_vehR distance _heli < 50) then
 		deleteVehicle _crater;
 
 		[3, format ["%1 has repaired %2, %3 is heading back to %4", _sideX,_heli,_vehR,_missionOriginPos], _filename] call A3A_fnc_log;
+
+		//Guards & pilots stop patrolling
+		for "_i" from (count (waypoints _guard)) to 0 step -1 do {
+		deleteWaypoint [_guard, _i];
+		};
+		for "_i" from (count (waypoints _pilots)) to 0 step -1 do {
+		deleteWaypoint [_pilots, _i];
+		};
 
 		//Repair truck & escort RTB
 		_reapirTruckWP = _groupVehR addWaypoint [_missionOriginPos, 1];
@@ -273,13 +277,15 @@ if (_vehR distance _heli < 50) then
 			sleep 1;
 			_guardWP = _guard addWaypoint [_missionOriginPos, 1];
 			_guardWP setWaypointType "MOVE";
-			_guardWP setWaypointBehaviour "SAFE";
+			_guardWP setWaypointBehaviour "AWARE";
+			_guardWP setWaypointSpeed "FULL";
 			_guard setCurrentWaypoint [_guard, 1];
 		};
 		//pilots RTB
 		_pilotsWP = _pilots addWaypoint [_missionOriginPos, 3];
 		_pilotsWP setWaypointType "MOVE";
-		_pilotsWP setWaypointBehaviour "SAFE";
+		_pilotsWP setWaypointBehaviour "AWARE";
+		_pilotsWP setWaypointSpeed "FULL";
 	};
 };
 

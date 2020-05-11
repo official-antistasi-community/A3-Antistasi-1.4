@@ -222,7 +222,7 @@ if (_vehR distance _heli < 50) then
 	{
 	[3, format ["Repair %1 has reached %2, starting repair...", _vehR, _heli], _filename] call A3A_fnc_log;
 	_vehR doMove position _heli;
-	sleep 10; //time to repair
+	sleep 300; //time to repair
 	if (alive _heli && alive _vehR && _vehR distance2D _heli < 50) then {
 		//repair complete remove crater and fix helicopter
 		_heli setDamage 0.2;

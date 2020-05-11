@@ -43,7 +43,7 @@ private _flatPos = [_posCrashOrigin, 0, 1000, 0, 0, 0.1] call BIS_fnc_findSafePo
 private _posCrash = _flatPos findEmptyPosition [0,100,_typeVehH];
 if (count _posCrash == 0) then {_posCrash = _posCrashOrigin};//if no pos use _posCrashOrigin
 if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [_posCrash,["tree","bush", "ROCKS"],50])} else {{[_x,true] remoteExec ["hideObjectGlobal",2]} foreach (nearestTerrainObjects [_posCrash,["tree","bush", "ROCKS"],50])};//clears area of trees and bushes
-[3, format ["Crash Location: %1, Air Vehicle: %2", _posCrash, _typeVehH], _filename] call A3A_fnc_log;
+[3, format ["Crash Location: %1, Aircraft: %2", _posCrash, _typeVehH], _filename] call A3A_fnc_log;
 
 //creating array for cleanup
 private _vehicles = [];
@@ -155,7 +155,7 @@ _reapirTruckWP = _groupVehR addWaypoint [_posCrash, 0];
 _reapirTruckWP setWaypointType "MOVE";
 _reapirTruckWP setWaypointBehaviour "SAFE";
 [3, format ["Transport Vehicle: %1, Crew: %2, Waypoint: %3", _typeVeh, _vehCrewR, _posCrash], _filename] call A3A_fnc_log;
-[3, format ["Waiting until %1 is destroyed or %2 has reached %1, or mission expires at: %3"], _filename, _heli, _vehR, _dateLimitNum] call A3A_fnc_log;
+[3, format ["Waiting until %1 is destroyed or %2 has reached %1, or mission expires at: %3", _filename, _heli, _vehR], _dateLimitNum] call A3A_fnc_log;
 
 ///////////////////////////
 //Helicopter Crew & Guard//
@@ -286,7 +286,7 @@ if (_vehR distance _heli < 50) then
 ////////////////
 //Mission done//
 ////////////////
-[3, format ["Waiting until %1 reaches origin or rebel base, gets destroyed or timer expires", _heli], _filename] call A3A_fnc_log;
+[3, format ["Waiting until %1 reaches origin or rebel base, gets destroyed or timer expires at %2", _heli, _dateLimit], _filename] call A3A_fnc_log;
 waitUntil
 {
 	sleep 1;
@@ -312,7 +312,7 @@ if ((not alive _heli) || (_heli distance _posHQ < 100) ) then {
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {[-600*_bonus] remoteExec ["A3A_fnc_timingCA",2]};
 };
-
+[2, format ["Downed Heli mission completed"], _filename] call A3A_fnc_log;
 ////////////
 //Clean up//
 ////////////
@@ -336,4 +336,4 @@ deleteMarker _mrkCrash;
 } forEach _vehicles;
 {deleteVehicle _x} forEach (_soldiers);
 {deleteGroup _x} forEach _groups;
-[2, format ["Helicopter Down mission completed"], _filename] call A3A_fnc_log;
+[3, format ["Downed Heli clean up complete"], _filename] call A3A_fnc_log;

@@ -146,11 +146,11 @@ else
 				if (side _killer == Occupants) then
 					{
 					_nul = [0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-					[-0.25,0] remoteExec ["A3A_fnc_prestige",2];
+					[[-1, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 					}
 				else
 					{
-					if (side _killer == Invaders) then {[0,-0.25] remoteExec ["A3A_fnc_prestige",2]};
+					if (side _killer == Invaders) then {[[0, 0], [-1, 15]] remoteExec ["A3A_fnc_prestige",2]};
 					};
 				};
 			_victim setVariable ["spawner",nil,true];
@@ -160,4 +160,3 @@ else
 	theBoss hcSetGroup [_groupX];
 	["Garrison", format ["Group %1 is back to HC control because the zone which was pointed to garrison has been lost",groupID _groupX]] call A3A_fnc_customHint;
 	};
-

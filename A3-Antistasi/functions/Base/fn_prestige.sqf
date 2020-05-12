@@ -1,41 +1,46 @@
-private ["_nato","_csat"];
+params ["_occupantsChanged","_invadersChanged"];
 
+/*  Adds a new aggro spike to the current stack
+
+    Execution on: Server
+
+    Scope: External
+
+    Params:
+        _occupantsChanged: ARRAY : [change, time in minutes]
+        _invadersChanged: ARRAY : [change, time in minutes]
+
+    Returns:
+        Nothing
+*/
+
+_fn_convertMinutesToDecayRate =
+{
+    params ["_points", "_minutes"];
+    if(_minutes == 0) then
+    {
+        [1, "Minute parameter is 0, assuming 1", "prestige"] call A3A_fnc_log;
+        _minutes = 1;
+    };
+    private _decayRate = (-1) * (_points / _minutes);
+    _decayRate;
+};
+
+//Wait until all other aggro change operations are done
 waitUntil {!prestigeIsChanging};
 prestigeIsChanging = true;
-_nato = _this select 0;
-_csat = _this select 1;
 
-_natoT = prestigeNATO;
-_csatT = prestigeCSAT;
+if(gameMode != 4 && ((_occupantsChanged select 0) != 0)) then
+{
+    private _decayRate = _occupantsChanged call _fn_convertMinutesToDecayRate;
+    aggressionStackOccupants pushBack [_occupantsChanged select 0, _decayRate];
+};
 
-_natoT = _natoT + _nato;
-_csatT = _csatT + _csat;
+if(gameMode != 3 && ((_invadersChanged select 0) != 0)) then
+{
+    private _decayRate = _invadersChanged call _fn_convertMinutesToDecayRate;
+    aggressionStackInvaders pushBack [_invadersChanged select 0, _decayRate];
+};
 
-if (_natoT < 0) then {_natoT = 0};
-if (_natoT > 100) then {_natoT = 100};
-if (_csatT < 0) then {_csatT = 0};
-if (_csatT > 100) then {_csatT = 100};
-if (_natoT > 25*(tierWar + difficultyCoef)) then {_natoT = 25*tierWar};
-if (_csatT > 25*(tierWar + difficultyCoef)) then {_csatT = 25*tierWar};
-
-
-if (_nato != 0) then {prestigeNATO = _natoT; publicVariable "prestigeNATO"};
-if (_csat != 0) then {prestigeCSAT = _csatT; publicVariable "prestigeCSAT"};
-//if ((_natoT == floor _natoT) or (_csatT == floor _csatT)) then {[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]]};
+[] call A3A_fnc_calculateAggression;
 prestigeIsChanging = false;
-_textX = "";
-_natoSim = "";
-if (_nato > 0.25) then {_natoSim = "+"};
-
-_csatSim = "";
-if (_csat > 0.25) then {_csatSim = "+"};
-if ((_nato > 0.25) and (_csat > 0.25)) then
-	{
-	_textX = format ["<t size='0.6' color='#C1C0BB'>Prestige Change.<br/> <t size='0.5' color='#C1C0BB'><br/>%5: %3%1<br/>%6: %4%2",_nato,_csat,_natoSim,_csatSim,nameOccupants,nameInvaders]
-	}
-else
-	{
-	if (_nato > 0.25) then {_textX = format ["<t size='0.6' color='#C1C0BB'>Prestige Change.<br/> <t size='0.5' color='#C1C0BB'><br/>%2: %3%1",_nato,nameOccupants,_natoSim]} else {if (_csat > 0.25) then {_textX = format ["<t size='0.6' color='#C1C0BB'>Prestige Change.<br/> <t size='0.5' color='#C1C0BB'><br/>%1: %4%2",nameInvaders,_csat,_natoSim,_csatSim]}};
-	};
-
-if (_textX != "") then {[petros,"income",_textX] remoteExec ["A3A_fnc_commsMP",theBoss]};

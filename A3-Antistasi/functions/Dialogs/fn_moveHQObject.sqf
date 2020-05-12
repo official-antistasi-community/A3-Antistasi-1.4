@@ -16,9 +16,11 @@ _positionX = getMarkerPos _markerX;
 if (_playerX distance2D _positionX > _size) exitWith {["Move HQ", "This asset needs to be closer to it relative zone center to be able to be moved"] call A3A_fnc_customHint;};
 
 _thingX setVariable ["objectBeingMoved", true];
-
 _thingX removeAction _id;
-_thingX attachTo [_playerX,[0,2,1]];
+
+private _spacing = 2 max (1 - (boundingBoxReal _thingX select 0 select 1));
+private _height = 0.1 - (boundingBoxReal _thingX select 0 select 2);
+_thingX attachTo [_playerX, [0, _spacing, _height]];
 
 private _fnc_placeObject = {
 	params [["_thingX", objNull], ["_playerX", objNull], ["_dropObjectActionIndex", -1]];
@@ -29,6 +31,8 @@ private _fnc_placeObject = {
 	if (!(_thingX getVariable ["objectBeingMoved", false])) exitWith {};
 
 	if (_playerX == attachedTo _thingX) then {
+		_playerX setVelocity [0,0,0];
+		_thingX setVelocity [0,0,0];
 		detach _thingX;
 	};
 
@@ -36,9 +40,27 @@ private _fnc_placeObject = {
 		_playerX removeAction _dropObjectActionIndex;
 	};
 
-	_thingX setVelocity [0,0,0];		// some objects never lose their velocity when detached, becoming lethal
-	_thingX setVectorUp surfaceNormal position _thingX;
-	_thingX setPosATL [getPosATL _thingX select 0,getPosATL _thingX select 1,0.1];
+	// Can't find a case where this is ever true, but we'll make sure
+	if (local _thingX) then {
+		if (isNull group _thingX) then { [_thingX, 2] remoteExec ["setOwner", 2] }
+		else { [group _thingX, 2] remoteExec ["setGroupOwner", 2] };
+	};
+
+	// Some objects never lose (and even regain) their velocity when detached, becoming lethal
+	// On a DS, object locality changes when detached, so we have to remoteexec
+	[_thingX, [0,0,0]] remoteExec ["setVelocity", _thingX];
+
+	// Without this, non-unit objects often hang in mid-air
+	[_thingX, surfaceNormal position _thingX] remoteExec ["setVectorUp", _thingX];
+
+	// Place on closest surface
+	private _pos = getPosASL _thingX;
+	private _intersects = lineIntersectsSurfaces [_pos, _pos vectorAdd [0,0,-100], _thingX];
+	if (count _intersects > 0) then {
+		_thingX setPosASL (_intersects select 0 select 0);
+	};
+
+	// _thingX setPosATL [getPosATL _thingX select 0,getPosATL _thingX select 1,0.1];
 
 	_thingX setVariable ["objectBeingMoved", false];
 	_thingX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"];

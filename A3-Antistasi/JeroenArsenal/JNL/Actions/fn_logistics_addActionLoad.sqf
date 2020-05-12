@@ -76,6 +76,7 @@ _loadActionID = _object addAction [
 		    };
 		    default
 		    {
+			_player setCaptive false;			// break undercover
 		   	[_nearestVehicle, _cargo, true, true] remoteexec ["jn_fnc_logistics_load", 2];
 		    };
 			};

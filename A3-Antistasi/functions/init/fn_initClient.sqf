@@ -168,7 +168,7 @@ if (player getVariable ["pvp",false]) exitWith {
 player setVariable ["score",0,true];
 player setVariable ["owner",player,true];
 player setVariable ["punish",0,true];
-player setVariable ["moneyX",100,true];
+player setVariable ["moneyX",95,true];
 player setUnitRank "PRIVATE";
 player setVariable ["rankX",rank player,true];
 

@@ -85,6 +85,7 @@ activeGREF = false;
 hasFFAA = false;
 hasIFA = false;
 has3CB = false;
+hasRDS = false;
 //Systems Mods
 hasACE = false;
 hasACEHearing = false;
@@ -119,6 +120,8 @@ if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") then {act
 if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "rhsgref_faction_tla")) then {activeGREF = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS GREF Detected.",servertime];};
 //3CB Detection
 if (activeAFRF && activeUSAF && activeGREF && isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons")) then {has3CB = true; diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.",servertime];};
+//RDS Detection
+if (activeAFRF && activeUSAF && activeGREF && isClass (configfile >> "CfgVehicles" >> "RDS_Gaz24_Civ_03")) then {hasRDS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RDS Detected.",servertime];};
 //FFAA Detection
 if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {hasFFAA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | FFAA Detected.",servertime];};
 

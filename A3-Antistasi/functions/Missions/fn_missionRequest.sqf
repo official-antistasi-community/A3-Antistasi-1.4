@@ -116,8 +116,7 @@ if (_typeX == "DES") then
 	else
 		{
 		_siteX = selectRandom _potentials;
-//		if (_siteX in airportsX) then {if (random 10 < 8) then {[[_siteX],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
-		if (_siteX in airportsX) then {[[_siteX],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]};
+		if (_siteX in airportsX) then {if (random 10 < 5) then {[[_siteX],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
 		if (_siteX in antennas) then {[[_siteX],"DES_antenna"] remoteExec ["A3A_fnc_scheduler",2]}
 		};
 	};

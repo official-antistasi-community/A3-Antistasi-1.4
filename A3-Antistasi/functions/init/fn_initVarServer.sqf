@@ -446,6 +446,7 @@ if !(hasIFA) then {
 	switch (true) do {
 		case (!activeGREF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf"};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf"};
+		case (hasRDS): {call compile preProcessFileLineNumbers "Templates\RDS_Reb_NAPA_Arid.sqf"};
 		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf"};
 		case (activeGREF): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf"};
 	};
@@ -466,6 +467,7 @@ if !(hasIFA) then {
 	switch (true) do {
 		case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf"};
+		case (hasRDS): {call compile preProcessFileLineNumbers "Templates\RDS_Civ.sqf"};
 		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf"};
 	};
 }

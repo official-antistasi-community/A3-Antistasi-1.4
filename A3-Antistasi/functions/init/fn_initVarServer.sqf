@@ -113,7 +113,8 @@ server setVariable ["resourcesFIA",1000,true];
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
 // Indicates time in seconds before next counter attack.
-countCA = 600;																		
+attackCountdownOccupants = 600;
+attackCountdownInvaders = 600;																	
 
 cityIsSupportChanging = false;
 resourcesIsChanging = false;
@@ -642,7 +643,7 @@ DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
 // sanity check the lists to catch some serious problems early
 private _badVehs = [];
-{  
+{
     if !(isClass (configFile >> "CfgVehicles" >> _x)) then {
         _badVehs pushBackUnique _x;
     };

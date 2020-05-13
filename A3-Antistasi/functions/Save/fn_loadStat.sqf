@@ -11,19 +11,23 @@
 */
 
 specialVarLoads = [
-	"outpostsFIA","minesX","staticsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO",
+	"outpostsFIA","minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
 	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
 	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders"
+	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
+    "countCA", "attackCountdownInvaders"
 ];
 
 _varName = _this select 0;
 _varValue = _this select 1;
 if (isNil '_varValue') exitWith {};
 if (_varName in specialVarLoads) then {
-	if (_varName == 'countCA') then {countCA = _varValue; publicVariable "countCA"};
+	if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
+    if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
+    //Keep this for backwards compatiblity
+    if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
 	if (_varName == 'difficultyX') then {
 		if !(isMultiplayer) then {
 			skillMult = _varValue;
@@ -57,8 +61,8 @@ if (_varName in specialVarLoads) then {
 	if (_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
 	if (_varName == 'jna_dataList') then {jna_dataList = +_varValue};
     //Keeping these for older saves
-	if (_varName == 'prestigeNATO') then {[[_varValue, 60], [0, 0]] call A3A_fnc_prestige};
-	if (_varName == 'prestigeCSAT') then {[[0, 0], [_varValue, 60]] call A3A_fnc_prestige};
+	if (_varName == 'prestigeNATO') then {[[_varValue, 120], [0, 0]] call A3A_fnc_prestige};
+	if (_varName == 'prestigeCSAT') then {[[0, 0], [_varValue, 120]] call A3A_fnc_prestige};
     if (_varName == 'aggressionOccupants') then
     {
         aggressionLevelOccupants = _varValue select 0;

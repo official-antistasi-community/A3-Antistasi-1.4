@@ -149,7 +149,7 @@ private _availableTargets = [];
             _distance = _distance - (300 * (count _nearbyFriendlyMarkers));
             if (_distance < 0) then {_distance = 0};
 
-            if(count _nearbyFriendlyMarkers >= 5) then
+            if(count _nearbyFriendlyMarkers >= 5 && {!(_target in citiesX)}) then
             {
                 [3, format ["%1 is surrounded by us, considering easy target", _target], _fileName] call A3A_fnc_log;
                 _easyTargets pushBack _target;
@@ -232,7 +232,7 @@ if (count _availableTargets == 0) exitWith
     private _nearbyStatics = staticsToSave select {(_x distance2D (getMarkerPos _target)) < distanceSPWN};
     _targetPoints = _targetPoints + (50 * (count _garrison) + (200 * (count _nearbyStatics)));
 
-    if((count _garrison) <= 8 && {count _nearbyStatics <= 2}) then
+    if((count _garrison <= 8) && {(count _nearbyStatics <= 2) && {!(_target in citiesX)}}) then
     {
         //Only minimal garrison, consider it an easy target
         [3, format ["%1 has only minimal garrison, considering easy target", _target], _fileName] call A3A_fnc_log;

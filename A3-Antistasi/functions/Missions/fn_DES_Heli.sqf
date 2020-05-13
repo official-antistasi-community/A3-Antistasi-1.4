@@ -155,7 +155,7 @@ _reapirTruckWP = _groupVehR addWaypoint [_posCrash, 0];
 _reapirTruckWP setWaypointType "MOVE";
 _reapirTruckWP setWaypointBehaviour "SAFE";
 [3, format ["Transport Vehicle: %1, Crew: %2, Waypoint: %3", _typeVeh, _vehCrewR, _posCrash], _filename] call A3A_fnc_log;
-[3, format ["Waiting until %1 is destroyed or %2 has reached %1, or mission expires at: %3", _filename, _heli, _vehR], _dateLimitNum] call A3A_fnc_log;
+[3, format ["Waiting until %1 is destroyed or %2 has reached %1, or mission expires at: %3", _heli, _vehR, _dateLimitNum], _filename] call A3A_fnc_log;
 
 ///////////////////////////
 //Helicopter Crew & Guard//
@@ -305,7 +305,12 @@ waitUntil
 //Reward & completing task
 _bonus = if (_difficult) then {2} else {1};
 if ((not alive _heli) || (_heli distance _posHQ < 100) ) then {
-	[3, format ["%1 was destroyed or captured", _heli], _filename] call A3A_fnc_log;
+	if (alive _heli) then {
+		[3, format ["%1 was captured", _heli], _filename] call A3A_fnc_log;
+		_vehicles = _vehicles - _heli;
+	} else {
+		[3, format ["%1 was destroyed", _heli], _filename] call A3A_fnc_log;
+	};
 	["DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	if (typeOf _heli in vehCSATAir) then
@@ -345,6 +350,7 @@ deleteMarker _mrkCrash;
 //delete units, vehicles and groups
 {
 	waitUntil {sleep 1;(!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits))};
+	[3, format ["Clean up | Deleted: %1", _x], _filename] call A3A_fnc_log;
 	{deleteVehicle _x}forEach crew _x;
 	deleteVehicle _x;
 } forEach _vehicles;

@@ -87,7 +87,7 @@ private _dateLimitNum = dateToNumber _dateLimit;
 //creating mission
 [2, format ["Creating Helicopter Down mission"], _filename] call A3A_fnc_log;
 private _location = [_missionOrigin] call A3A_fnc_localizar;
-private _text = format ["We have downed a helicopter. There is a good chance to destroy it before it is recovered. Do it before a recovery team from %1 the crash site. MOVE QUICKLY",_location];
+private _text = format ["We have downed a helicopter. There is a good chance to destroy it before it is recovered. Do it before a recovery team from %1 reaches the crash site. MOVE QUICKLY",_location];
 [[teamPlayer,civilian],"DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
 

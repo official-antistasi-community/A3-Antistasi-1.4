@@ -46,7 +46,7 @@ aceMedItems = [
 	"ACE_splint",
 	"ACE_bodyBag",
 	"ACE_personalAidKit"
-]
+];
 
 publicVariable "aceItems";
 publicVariable "aceMedItems";

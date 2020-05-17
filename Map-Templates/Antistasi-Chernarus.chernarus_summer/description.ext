@@ -55,8 +55,8 @@ class CfgDebriefing
     class destroyedSites
     {
         title = "Chernarus is Destroyed";
-        subtitle = "Chernarus got Destroyed by Soviets";
-        description = "One third of the population in Chernarus has been murdered by the Soviets.<br/>Chernarus no longer exists, nobody wants to live here.";
+        subtitle = "Chernarus got Destroyed by OPFOR";
+        description = "One third of the population in Chernarus has been murdered by the OPFOR.<br/>Chernarus no longer exists, nobody wants to live here.";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };

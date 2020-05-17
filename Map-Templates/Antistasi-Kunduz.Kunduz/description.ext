@@ -55,8 +55,8 @@ class CfgDebriefing
     class destroyedSites
     {
         title = "Kunduz is Destroyed";
-        subtitle = "Kunduz got Destroyed by CSAT";
-        description = "One third of the population in Livonia has been murdered by CSAT.<br/>Kunduz no longer exists, nobody wants to live here.";
+        subtitle = "Kunduz got Destroyed by OPFOR";
+        description = "One third of the population in Kunduz has been murdered by OPFOR.<br/>Kunduz no longer exists, nobody wants to live here.";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };

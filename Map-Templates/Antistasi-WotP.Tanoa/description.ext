@@ -55,8 +55,8 @@ class CfgDebriefing
     class destroyedSites
     {
         title = "Tanoa is Destroyed";
-        subtitle = "Tanoa got Destroyed by CSAT";
-        description = "One third of the population in Tanoa has been murdered by CSAT.<br/>Tanoa no longer exists, nobody wants to live here.";
+        subtitle = "Tanoa got Destroyed by OPFOR";
+        description = "One third of the population in Tanoa has been murdered by OPFOR.<br/>Tanoa no longer exists, nobody wants to live here.";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };

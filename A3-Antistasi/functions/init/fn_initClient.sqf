@@ -165,12 +165,13 @@ if (player getVariable ["pvp",false]) exitWith {
 	}];
 };
 
-player setVariable ["score",0,true];
+// keep these local for the moment to avoid fights with the server
+player setVariable ["score",0];
 player setVariable ["owner",player,true];
 player setVariable ["punish",0,true];
-player setVariable ["moneyX",95,true];
-player setUnitRank "PRIVATE";
-player setVariable ["rankX",rank player,true];
+player setVariable ["moneyX",95];
+//player setUnitRank "PRIVATE";
+player setVariable ["rankX",rank player];
 
 stragglers = creategroup teamPlayer;
 (group player) enableAttack false;

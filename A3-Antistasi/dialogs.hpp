@@ -79,7 +79,7 @@ class should_load_personal_save {
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; nul = [] spawn A3A_fnc_loadPreviousSession;";
+			action = "closeDialog 0; [true] spawn A3A_fnc_loadPreviousSession;";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -90,7 +90,7 @@ class should_load_personal_save {
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;";
+			action = "closeDialog 0; [false] spawn A3A_fnc_loadPreviousSession;";
 		};
 	};
 };

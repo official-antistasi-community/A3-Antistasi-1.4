@@ -46,7 +46,7 @@ private _nextTurretIndex = 0;
 //Spawning in crew
 private _crewObjs = [];
 {
-    private _unit = _vehicleGroup createUnit [_x, _pos, [], 0, "NONE"];
+    private _unit = [_vehicleGroup, _x, _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
 	diag_log format ["Convoy: Moving %1 into %2 of type %3 with %4 crew turrets", _unit, _vehicleObj, _vehicleType, _turretCount];
     if(!isNull _vehicleObj) then
     {
@@ -93,7 +93,7 @@ else
 private _unit = objNull;
 //Spawning in cargo
 {
-    _unit = _cargoGroup createUnit [_x, _pos, [], 0, "NONE"];
+    _unit = [_cargoGroup, _x, _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
     if (!isNull _vehicleObj) then
     {
       _unit assignAsCargo _vehicleObj;

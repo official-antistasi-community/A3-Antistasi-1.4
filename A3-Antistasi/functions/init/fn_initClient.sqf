@@ -19,19 +19,17 @@ if (hasInterface) then {
 if (!isServer) then {
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
+	if (!hasInterface) exitWith {
+		[2,format ["Headless client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
+		[clientOwner] remoteExec ["A3A_fnc_addHC",2];
+	};
 	[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 }
 else {
+	// SP or hosted, initFuncs/var run in serverInit
 	waitUntil {sleep 0.5;(!isNil "serverInitDone")};
 };
 [] execVM "briefing.sqf";
-
-if (!hasInterface) exitWith {
-	[2,format ["Headless client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
-	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
-	call A3A_fnc_initFuncs;
-	call A3A_fnc_initVar;
-};
 
 _isJip = _this select 1;
 if (isMultiplayer) then {
@@ -57,7 +55,7 @@ if (isMultiplayer) then {
 			if ((_typeX == "Put") or (_typeX == "Throw")) then {
 				private _shieldDistance = 100;
 				if (player distance petros < _shieldDistance) then {
-					hint format ["You cannot throw grenades or place explosives within %1m of base.", _shieldDistance];
+					["Warning", format ["You cannot throw grenades or place explosives within %1m of base.", _shieldDistance]] call A3A_fnc_customHint;
 					deleteVehicle (_this select 6);
 					if (_typeX == "Put") then {
 						if (player distance petros < 10) then {
@@ -75,12 +73,13 @@ if (isMultiplayer) then {
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {
+	player setVariable ["eligible",true];
 	theBoss = player;
 	groupX = group player;
 	if (worldName == "Tanoa") then {groupX setGroupId ["Pulu","GroupColor4"]} else {groupX setGroupId ["Stavros","GroupColor4"]};
 	player setIdentity "protagonista";
 	player setUnitRank "COLONEL";
-	player hcSetGroup [group player];
+	player hcSetGroup [group player];		// why?
 	player setUnitTrait ["medic", true];
 	player setUnitTrait ["engineer", true];
 	waitUntil {/*(scriptdone _introshot) and */(!isNil "serverInitDone")};
@@ -104,8 +103,8 @@ _introShot = [
 	90, //  degrees viewing angle
 	0, // clockwise movement
 	[
-		["\a3\ui_f\data\map\markers\nato\o_inf.paa", _colourTeamPlayer, markerPos "insertMrk", 1, 1, 0, "Insertion Point", 0],
-		["\a3\ui_f\data\map\markers\nato\o_inf.paa", _colorInvaders, markerPos "towerBaseMrk", 1, 1, 0, "Radio Towers", 0]
+		["\a3\ui_f\data\map\markers\Nato\o_inf.paa", _colourTeamPlayer, markerPos "insertMrk", 1, 1, 0, "Insertion Point", 0],
+		["\a3\ui_f\data\map\markers\Nato\o_inf.paa", _colorInvaders, markerPos "towerBaseMrk", 1, 1, 0, "Radio Towers", 0]
 	]
 ] spawn BIS_fnc_establishingShot;
 
@@ -119,12 +118,10 @@ if (isMultiplayer && {playerMarkersEnabled}) then {
 	[] spawn A3A_fnc_playerMarkers;
 };
 
+[player] spawn A3A_fnc_initRevive;		// with ACE medical, only used for helmet popping & TK checks
+
 if (!hasACE) then {
-	[player] spawn A3A_fnc_initRevive;
 	[] spawn A3A_fnc_tags;
-}
-else	{
-	if (!hasACEMedical) then {[player] spawn A3A_fnc_initRevive;};
 };
 
 if (player getVariable ["pvp",false]) exitWith {
@@ -150,11 +147,11 @@ if (player getVariable ["pvp",false]) exitWith {
 			if (!hasACEhearing) then {
 				if (soundVolume <= 0.5) then {
 					0.5 fadeSound 1;
-					hintSilent "You've taken out your ear plugs.";
+					["Ear Plugs", "You've taken out your ear plugs.", true] call A3A_fnc_customHint;
 				}
 				else {
 					0.5 fadeSound 0.1;
-					hintSilent "You've inserted your ear plugs.";
+					["Ear Plugs", "You've inserted your ear plugs.", true] call A3A_fnc_customHint;
 				};
 			};
 		}
@@ -206,15 +203,6 @@ player addEventHandler ["FiredMan", {
 				};
 			};
 		};
-	};
-}];
-player addEventHandler ["HandleDamage", {
-	private _victim = param [0];
-	private _damage = param [2];
-	private _instigator = param [6];
-	if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.9) then {
-		[_instigator, 20, 0.21, _victim] remoteExec ["A3A_fnc_punishment",_instigator];
-		[format ["%1 was injured by %2 (UID: %3), %4m from HQ",name _victim,name _instigator,getPlayerUID _instigator,_victim distance2D posHQ]] remoteExec ["diag_log",2];
 	};
 }];
 player addEventHandler ["InventoryOpened", {
@@ -297,7 +285,7 @@ player addEventHandler ["WeaponAssembled", {
 		};
 	_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 	_pos = position _veh;
-	if (_markersX findIf {_pos inArea _x} != -1) then {hint "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns"};
+	if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns"] call A3A_fnc_customHint;};
 	}
 	else {
 		_veh addEventHandler ["Killed",{[_this select 0] remoteExec ["A3A_fnc_postmortem",2]}];
@@ -323,7 +311,7 @@ player addEventHandler ["GetInMan", {
 			if (!isNil "_owner") then {
 				if (_owner isEqualType "") then {
 					if ({getPlayerUID _x == _owner} count (units group player) == 0) then {
-						hint "You cannot board other player vehicle if you are not in the same group";
+						["Warning", "You cannot board other player vehicle if you are not in the same group"] call A3A_fnc_customHint;
 						moveOut _unit;
 						_exit = true;
 					};
@@ -332,7 +320,7 @@ player addEventHandler ["GetInMan", {
 		};
 	};
 	if (!_exit) then {
-		if (((typeOf _veh) in arrayCivVeh) or ((typeOf _veh) in civBoats)) then {
+		if ((typeOf _veh) in undercoverVehicles) then {
 			if (!(_veh in reportedVehs)) then {
 				[] spawn A3A_fnc_goUndercover;
 			};
@@ -352,7 +340,7 @@ if (isMultiplayer) then {
 			};
 			if (serverCommandAvailable "#logout") then {
 				_isMember = true;
-				hint "You are not in the member's list, but as you are Server Admin, you have been added. Welcome!";
+				["General Info", "You are not in the member's list, but as you are Server Admin, you have been added. Welcome!"] call A3A_fnc_customHint;
 			};
 			
 			if (_isMember) then {
@@ -363,10 +351,16 @@ if (isMultiplayer) then {
 				if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
 				if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
 				
-				hint "Welcome Guest\n\nYou have joined this server as guest";
+				["General Info", "Welcome Guest<br/><br/>You have joined this server as guest"] call A3A_fnc_customHint;
 			};
 		};
 	};
+};
+
+// Make player group leader, because if they disconnected with AI squadmates, they may not be
+// In this case, the group will also no longer be local, so we need the remoteExec
+if !(isPlayer leader group player) then {
+	[group player, player] remoteExec ["selectLeader", groupOwner group player];
 };
 
 [] remoteExec ["A3A_fnc_assignBossIfNone", 2];
@@ -442,7 +436,7 @@ boxX allowDamage false;
 boxX addAction ["Transfer Vehicle cargo to Ammobox", {[] spawn A3A_fnc_empty;}, 4];
 boxX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 flagX allowDamage false;
-flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {hint "You cannot recruit units while there are enemies near you"} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
+flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Recruit Unit", "You cannot recruit units while there are enemies near you"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 flagX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 //Adds a light to the flag
@@ -461,25 +455,27 @@ if (isMultiplayer) then {
 	vehicleBox addAction ["Personal Garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 };
 vehicleBox addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {hint "You cannot buy vehicles while there are enemies near you"} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 
 mapX allowDamage false;
-mapX addAction ["Game Options", {hint format ["Antistasi - %2\n\nVersion: %1\n\nDifficulty: %3\nUnlock Weapon Number: %4\nLimited Fast Travel: %5",antistasiVersion,worldName,if (skillMult == 2) then {"Normal"} else {if (skillMult == 1) then {"Easy"} else {"Hard"}},minWeaps,if (limitedFT) then {"Yes"} else {"No"}]; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+mapX addAction ["Game Options", {["Game Options", format ["Antistasi - %2<br/><br/>Version: %1<br/><br/>Difficulty: %3<br/>Unlock Weapon Number: %4<br/>Limited Fast Travel: %5",antistasiVersion,worldName,if (skillMult == 2) then {"Normal"} else {if (skillMult == 1) then {"Easy"} else {"Hard"}},minWeaps,if (limitedFT) then {"Yes"} else {"No"}]] call A3A_fnc_customHint; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",4];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
+if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 _nul = [player] execVM "OrgPlayers\unitTraits.sqf";
-groupPetros = group petros;
-groupPetros setGroupIdGlobal ["Petros","GroupColor4"];
+
+// only add petros actions if he's static
+if (petros == leader group petros) then {
+	group petros setGroupId ["Petros","GroupColor4"];
+	[petros,"remove"] call A3A_fnc_flagaction;		// in case we already created them in initserver
+	[petros,"mission"] call A3A_fnc_flagaction;
+};
 petros setIdentity "friendlyX";
-petros setName "Petros";
-petros disableAI "MOVE";
-petros disableAI "AUTOTARGET";
-[petros,"mission"] call A3A_fnc_flagaction;
+if (worldName == "Tanoa") then {petros setName "Maru"} else {petros setName "Petros"};
 
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];
@@ -506,6 +502,7 @@ else
 		[] spawn A3A_fnc_loadPlayer;
 	};
 };
+
 
 //Move the player to HQ now they're initialised.
 player setPos (getMarkerPos respawnTeamPlayer);

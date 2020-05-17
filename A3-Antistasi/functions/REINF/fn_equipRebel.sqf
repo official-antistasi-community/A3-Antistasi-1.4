@@ -2,15 +2,16 @@
 // _recruitType param allows some variation based on recruiting method: 0 recruit, 1 HC squad, 2 garrison
 
 params ["_unit", "_recruitType"];
+private _filename = "fn_equipRebel";
 
 // Mostly exists because BIS_fnc_addWeapon won't use backpack space properly with AT launchers
 private _addWeaponAndMags = {
 	params["_unit", "_weapon", "_magCount"];
 
 	if !(isClass (configFile / "CfgWeapons" / _weapon)) exitwith {
-		[1, format ["Bad weapon class: %1", _weapon], "fn_equipRebel"] call A3A_log;			// should probably log server-side
+		[1, format ["Bad weapon class: %1", _weapon], _filename, true] call A3A_log;
 	};
-	
+
 	_unit addWeapon _weapon;
 	private _magazine = getArray (configFile / "CfgWeapons" / _weapon / "magazines") select 0;
 	_unit addSecondaryWeaponItem _magazine;
@@ -106,7 +107,7 @@ switch (true) do {
 			};
 		};
 	};
-	// squad leaders and 
+	// squad leaders and
 	case (_unitClass in squadLeaders): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		if (_recruitType == 1) then {_unit linkItem "ItemRadio"};
@@ -117,7 +118,7 @@ switch (true) do {
 	};
 	default {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;
-		[1, format["Unknown unit class: %1", _unitClass], "fn_equipRebel"] call A3A_fnc_log;
+		[1, format["Unknown unit class: %1", _unitClass], _filename] call A3A_fnc_log;
 	};
 };
 
@@ -156,5 +157,4 @@ if (!hasIFA && sunOrMoon < 1) then {
 // remove backpack if empty, otherwise squad troops will throw it on the ground
 if (backpackItems _unit isEqualTo []) then { removeBackpack _unit };
 
-[3, format["Class %1, type %2, loadout %3", _unitClass, _recruitType, str (getUnitLoadout _unit)], "fn_equipRebel"] call A3A_fnc_log;
-
+[4, format["Class %1, type %2, loadout %3", _unitClass, _recruitType, str (getUnitLoadout _unit)], _filename] call A3A_fnc_log;

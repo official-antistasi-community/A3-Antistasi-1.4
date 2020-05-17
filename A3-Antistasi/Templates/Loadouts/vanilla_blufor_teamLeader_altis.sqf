@@ -56,8 +56,6 @@
             ["SmokeshellRed",3,1],
             ["SmokeshellYellow",3,1]
 		]
-		+ ([hasACE, ["ACE_Handflare_Red",2,1]] call _fnc_modItem)
-		+ ([hasACE, ["ACE_Chemlight_IR",15,1]] call _fnc_modItem)
 	],
 
 		selectRandom										//Headgear

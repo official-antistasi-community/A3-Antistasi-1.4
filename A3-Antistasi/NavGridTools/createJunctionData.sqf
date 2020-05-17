@@ -121,7 +121,7 @@ if(_exitCount > 0) then
   _result = [_exitPoints, _midOfJunction, _ignoredSegments, _midSegment, _links];
 };
 
-//hint format ["Entry point was %1\nLast was %2\nResults are %3", _entryPoint, _lastSegment, str _exitPoints];
+//hint format ["Entry point was %1<br/>Last was %2<br/>Results are %3", _entryPoint, _lastSegment, str _exitPoints];
 //sleep 15;
 
 _result;

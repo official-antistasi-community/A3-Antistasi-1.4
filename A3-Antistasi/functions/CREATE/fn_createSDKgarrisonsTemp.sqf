@@ -12,7 +12,7 @@ if (_typeX isEqualType "") then
 		{
 		_groups select 0;
 		};
-	_unit = _groupX createUnit [_typeX, _positionX, [], 0, "NONE"];
+	_unit = [_groupX, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 	//if (_typeX in SDKSL) then {_groupX selectLeader _unit};
 	[_unit,_markerX] call A3A_fnc_FIAinitBases;
 	if (_typeX == staticCrewTeamPlayer) then

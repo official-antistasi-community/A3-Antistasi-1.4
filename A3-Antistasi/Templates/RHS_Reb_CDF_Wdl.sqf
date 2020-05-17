@@ -87,13 +87,13 @@ supportStaticsSDKB3 = "rhs_M252_Bipod_Bag";
 ////////////////////////////////////
 //Mines
 ATMineMag = "rhs_mine_M19_mag";
-APERSMineMag = "rhsusf_mine_m7a2_mag";
+APERSMineMag = "rhs_mine_M7A2_mag";
 
 //Breaching explosives
 //Breaching APCs needs one demo charge
-breachingExplosivesAPC = [["rhs_ec200_mag", 1], ["rhs_ec200_camo_mag", 1], ["rhsusf_m112_mag", 1]]; 
+breachingExplosivesAPC = [["rhs_ec200_mag", 1], ["rhs_ec200_sand_mag", 1], ["rhsusf_m112_mag", 1]];
 //Breaching tanks needs one satchel charge or two demo charges
-breachingExplosivesTank = [["rhs_ec400_mag", 1], ["rhs_ec400_camo_mag", 1], ["rhs_ec200_mag", 2], ["rhs_ec200_camo_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1]];
+breachingExplosivesTank = [["rhs_ec400_mag", 1], ["rhs_ec400_sand_mag", 1], ["rhs_ec200_mag", 2], ["rhs_ec200_sand_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1]];
 
 //Starting Unlocks
 initialRebelEquipment append ["rhsusf_weap_m1911a1","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_m1garand_sa43","rhs_weap_m72a7"];

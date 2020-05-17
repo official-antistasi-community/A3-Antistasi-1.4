@@ -10,7 +10,7 @@
 // - Name of target callback in callbacks.sqf: STRING
 // - Extra message to display in menu prompt
 
-if (!(isNil "placingVehicle") && {placingVehicle}) exitWith { hint "Unable to place vehicle, already placing a vehicle" };
+if (!(isNil "placingVehicle") && {placingVehicle}) exitWith {["Garage", "Unable to place vehicle, already placing a vehicle"] call A3A_fnc_customHint;};
 placingVehicle = true;
 
 params ["_vehicleType", ["_callbackTarget", ""], ["_displayMessage", ""]];
@@ -23,7 +23,7 @@ vehPlace_previewVeh allowDamage false;
 vehPlace_previewVeh enableSimulation false;
 
 [_vehicleType] call A3A_fnc_displayVehiclePlacementMessage;
-hint "Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle";
+["Garage", "Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle"] call A3A_fnc_customHint;
 
 //Control flow is weird here. KeyDown tells onEachFrame it can stop running, and which action to do.
 //This guarantees us no race conditions between keyDown, onEachFrame and the rest of the code.
@@ -124,7 +124,7 @@ addMissionEventHandler ["EachFrame",
 	if (!_shouldExitHandler) then {
 		private _shouldCancelArray = [vehPlace_callbackTarget, CALLBACK_SHOULD_CANCEL_PLACEMENT, [vehPlace_previewVeh]] call A3A_fnc_vehPlacementCallbacks;
 		if (_shouldCancelArray select 0) then {
-			hint (_shouldCancelArray select 1);
+			["Garage", (_shouldCancelArray select 1)] call A3A_fnc_customHint;
 			[] spawn A3A_fnc_handleVehPlacementCancelled;
 			_shouldExitHandler = true;
 		};
@@ -173,17 +173,20 @@ addMissionEventHandler ["EachFrame",
 	};
 	
 	// If vehicle is a boat, make sure it spawns at sea level?
-	_shipX = false;
-	if (vehPlace_previewVeh isKindOf "Ship") then {_placementPos set [2,0]; _shipX = true};
-	
-	// Do nothing if destination too far
-	if (_placementPos distance2d player > 100)exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
-	// Ships only spawn on water, and cars can't spawn on water
+
 	_water = surfaceIsWater _placementPos;
-	if (_shipX and {!_water}) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
-	if (!_shipX and {_water}) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
-	// If all checks pass, set position of preview and orient it to the ground
-	vehPlace_updatedLookPosition =	_pos;
-	vehPlace_previewVeh setPosATL _placementPos;
-	vehPlace_previewVeh setVectorUp (_chosenIntersection select 1);
+	if (vehPlace_previewVeh isKindOf "Ship") then
+	{
+		_placementPos set [2,0];
+		if (!water || _placementPos distance2d player > 200) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
+		vehPlace_updatedLookPosition = _pos;
+		vehPlace_previewVeh setPosASL _placementPos;
+		vehPlace_previewVeh setVectorUp [0,0,1];
+	}
+	else {
+		if (_water || _placementPos distance2d player > 100) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
+		vehPlace_updatedLookPosition = _pos;
+		vehPlace_previewVeh setPosATL _placementPos;
+		vehPlace_previewVeh setVectorUp (_chosenIntersection select 1);
+	};
 	}];

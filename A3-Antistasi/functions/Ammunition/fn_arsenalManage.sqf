@@ -79,27 +79,28 @@ call A3A_fnc_checkRadiosUnlocked;
 unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
 
 //NVG Unlocking is special
-//Unlock a random NVG per X non-unlocked NVG we have, from the list we've collected.
-private _countX = 0;
-private _lockedNvs = [];
+//Unlock the non-thermal NVG with the highest count if the total is greater than minWeaps
 
-//Add up how many non-unlocked NVGs we have.
+private _totalNV = 0;
+private _sortedNVs = [];
 {
 	private _amount = (_x select 1);
-	if (_amount > 0) then {
-		_countX = _countX + _amount;
-		_lockedNvs pushBack (_x select 0);
+	private _thermal = getArray (configFile >> "CfgWeapons" >> (_x select 0) >> "thermalMode");	// only exists for ENVGs
+	if (_amount > 0 && _thermal isEqualTo []) then {
+		_totalNV = _totalNV + _amount;
+		_sortedNVs pushBack [_amount, _x select 0];		// sort param in the first element
 	};
 } forEach _nv;
 
-//Implicitly, we have locked NVGs if we've counted more than 0 locked NVGs in the box.
-//Might need to unlock several NVGs at once, hence the while loop.
-while {_countX >= minWeaps} do {
-	private _nvToUnlock = selectRandom _lockedNvs;
+_sortedNVs sort true;		// sort by count, ascending
+
+while {_totalNV >= minWeaps} do {
+	private _nvToUnlock = (_sortedNVs deleteAt (count _sortedNVs - 1)) select 1;
 	haveNV = true; publicVariable "haveNV";
 	[_nvToUnlock] call A3A_fnc_unlockEquipment;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _nvToUnlock >> "displayName")];
-	_countX =_countX - minWeaps;
+	_totalNV =_totalNV - minWeaps;		// arguably wrong but doesn't matter in practice
 };
+
 
 _updated

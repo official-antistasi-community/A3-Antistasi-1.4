@@ -63,7 +63,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 		{
 		if (random 10 < 2.5) then
 			{
-			_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+			_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 			[_dog] spawn A3A_fnc_guardDog;
 			};
 		};

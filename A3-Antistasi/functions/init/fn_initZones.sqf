@@ -61,7 +61,9 @@ markersX apply {
 	spawner setVariable [_x, 2, true];
 };	//apply faster then forEach and look better
 
+
 // setup hardcoded population counts for towns
+private _hardcodedPop = true;
 switch (toLower worldName) do {
 	case "tanoa": {
 		{server setVariable [_x select 0,_x select 1]} forEach [["Lami01",277],["Lifou01",350],["Lobaka01",64],["LaFoa01",38],["Savaka01",33],["Regina01",303],["Katkoula01",413],["Moddergat01",195],["Losi01",83],["Tanouka01",380],["Tobakoro01",45],["Georgetown01",347],["Kotomo01",160],["Rautake01",113],["Harcourt01",325],["Buawa01",44],["SaintJulien01",353],["Balavu01",189],["Namuvaka01",45],["Vagalala01",174],["Imone01",31],["Leqa01",45],["Blerick01",71],["Yanukka01",189],["OuaOue01",200],["Cerebu01",22],["Laikoro01",29],["Saioko01",46],["Belfort01",240],["Oumere01",333],["Muaceba01",18],["Nicolet01",224],["Lailai01",23],["Doodstil01",101],["Tavu01",178],["Lijnhaven01",610],["Nani01",19],["PetitNicolet01",135],["PortBoise01",28],["SaintPaul01",136],["Nasua01",60],["Savu01",184],["Murarua01",258],["Momea01",159],["LaRochelle01",532],["Koumac01",51],["Taga01",31],["Buabua01",27],["Penelo01",189],["Vatukoula01",15],["Nandai01",130],["Tuvanaka01",303],["Rereki01",43],["Ovau01",226],["IndPort01",420],["Ba01",106]];
@@ -75,6 +77,7 @@ switch (toLower worldName) do {
 	case "chernarus_winter": {
 		{server setVariable [_x select 0,_x select 1]} forEach [["vill_NovySobor",129],["city_StarySobor",149],["vill_Guglovo",26],["vill_Vyshnoye",41],["vill_Kabanino",86],["vill_Rogovo",66],["vill_Mogilevka",104],["city_Gorka",115],["vill_Grishino",168],["vill_Shakhovka",55],["vill_Pogorevka",57],["vill_Pulkovo",26],["vill_Nadezhdino",109],["city_Vybor",180],["vill_Polana",118],["vill_Staroye",115],["vill_Dubrovka",86],["vill_Pustoshka",163],["vill_Kozlovka",100],["vill_Pusta",52],["vill_Dolina",83],["vill_Gvozdno",78],["vill_Prigorodki",145],["vill_Drozhino",58],["vill_Sosnovka",54],["vill_Msta",96],["vill_Lopatino",159],["city_Zelenogorsk",280],["vill_Orlovets",65],["city_Berezino",340],["vill_Myshkino",49],["vill_Petrovka",45],["city_Chernogorsk",761],["vill_Bor",46],["vill_Nizhnoye",146],["vill_Balota",147],["vill_Khelm",110],["city_Krasnostav",194],["vill_Komarovo",127],["city_Elektrozavodsk",745],["city_Solnychniy",224],["vill_Kamyshovo",196],["vill_Tulga",35],["vill_Pavlovo",99],["vill_Kamenka",127],["hill_Olsha",20]];
 	};
+	default { _hardcodedPop = false };
 };
 
 private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_info"];
@@ -89,43 +92,14 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	_sizeY = getNumber (_x >> "radiusB");
 	_size = [_sizeY, _sizeX] select (_sizeX > _sizeY);
 	_pos = getArray (_x >> "position");
-	_size = [_size, 400] select (_size < 400);
+	_size = [_size, 400] select (_size < 400);		// Different from generateRoadsDB. Maybe not good.
 	_roads = [];
 	_numCiv = 0;
 
-	if ( (toLower worldName) in ["tanoa", "altis", "chernarus_summer", "chernarus_winter"] ) then
+	_roads = roadsX getVariable [_nameX, []];
+	if (count _roads == 0) then
 	{
-		_roads = roadsX getVariable [_nameX, []];
-		if (count _roads == 0) then {
-			[2, format ["No roads found for marker %1", _nameX], _fileName] call A3A_fnc_log;
-		};
-		_numCiv = server getVariable _nameX;
-		if (isNil "_numCiv") then
-		{
-			diag_log format ["%1: [Antistasi] | ERROR | initZones | No Civilian Limit Set %2.", servertime, _nameX];
-			_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
-			_roadsProv = _pos nearRoads _size;
-
-			_roadsProv apply
-			{
-				_roadcon = roadsConnectedto _x;
-				if (count _roadcon == 2) then
-				{
-					_roads pushBack (getPosATL _x);
-				};
-			};
-			roadsX setVariable [_nameX, _roads];
-		};
-
-		if (!(_numCiv isEqualType 0)) then
-		{
-			hint format ["Incorrect Data: %1. Data Type: %2",_nameX, typeName _numCiv];
-			diag_log format ["%1: [Antistasi] | ERROR | initZones | Incorrect data type for %2, Type given %3",servertime,_nameX, typeName _numCiv];
-		};
-	}
-	else
-	{
-		_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
+		[2, format ["No roads found for marker %1, generating...", _nameX], _fileName] call A3A_fnc_log;
 		_roadsProv = _pos nearRoads _size;
 		_roadsProv apply
 		{
@@ -135,8 +109,21 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 				_roads pushBack (getPosATL _x);
 			};
 		};
-		roadsX setVariable [_nameX,_roads];
-	};	//swap then and else, for better view
+		roadsX setVariable [_nameX, _roads, true];
+	};
+
+	if (_hardcodedPop) then
+	{
+		_numCiv = server getVariable _nameX;
+		if (isNil "_numCiv" || {!(_numCiv isEqualType 0)}) then
+		{
+			[1, format ["Bad population count data for %1", _nameX], _fileName] call A3A_fnc_log;
+			_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
+		};
+	}
+	else {
+		_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
+	};
 
 	_numVeh = round (_numCiv / 3);
 	_nroads = count _roads;
@@ -146,6 +133,8 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 		_nearRoadsFinalSorted = [_roads, [], { _pos distance _x }, "ASCEND"] call BIS_fnc_sortBy;
 		_pos = _nearRoadsFinalSorted select 0;
 	};
+	if (_nroads < _numVeh) then {_numVeh = _nroads};
+
 	_mrk = createmarker [format ["%1", _nameX], _pos];
 	_mrk setMarkerSize [_size, _size];
 	_mrk setMarkerShape "RECTANGLE";
@@ -159,8 +148,6 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	_dmrk setMarkerShape "ICON";
 	_dmrk setMarkerType "loc_Ruin";
 	_dmrk setMarkerColor colorOccupants;
-
-	if (_nroads < _numVeh) then {_numVeh = _nroads;};
 
 	sidesX setVariable [_mrk, Occupants, true];
 	_info = [_numCiv, _numVeh, prestigeOPFOR, prestigeBLUFOR];
@@ -358,6 +345,7 @@ publicVariable "seaAttackSpawn";
 publicVariable "defaultControlIndex";
 publicVariable "detectionAreas";
 publicVariable "islands";
+publicVariable "roadsMrk";
 
 if (isMultiplayer) then {
 	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]

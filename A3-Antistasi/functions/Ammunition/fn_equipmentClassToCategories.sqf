@@ -10,6 +10,10 @@
 
 params ["_className"];
 
+// First check if the item has hardcoded categories
+private _categories = categoryOverrides getVariable [_className, []];
+if (count _categories > 0) exitWith { _categories };
+
 private _itemType = [_className] call A3A_fnc_itemType;
 
 private _baseCategory =	switch (_itemType select 1) do
@@ -76,8 +80,6 @@ private _baseCategory =	switch (_itemType select 1) do
 
 		default {"Unknown"};
 	};
-
-private _categories = [];
 
 if (_baseCategory != "") then { _categories pushBack _baseCategory};
 

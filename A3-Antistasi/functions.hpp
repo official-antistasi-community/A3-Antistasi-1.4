@@ -5,20 +5,21 @@ class A3A
 		//Main initialisation functions.
 		class initServer {};
 		class initClient {};
-		
+
 		//Other initialisation functions (generally called by the above)
 		class cityinfo {};
 		class credits {};
+		class initACEUnconsciousHandler {};
 		class initFuncs {};
 		class initGarrisons {};
 		class initGetMissionPath {};
 		class initSpawnPlaces {};
-		
+
 		class initVar {};
 		class initVarClient {};
 		class initVarCommon {};
 		class initVarServer {};
-		
+
 		class initZones {};
 		class modBlacklist {};
 		class playerMarkers {};
@@ -27,16 +28,18 @@ class A3A
 		class resourcecheck {};
 		class tags {};
 	};
-	
+
 	class Base
 	{
 		class addActionBreachVehicle {};
 		class addHC {};
 		class addTimeForIdle {};
+        class aggressionUpdateLoop {};
 		class AILoadInfo {};
 		class rebelAttack {};
 		class blackout {};
 		class buildHQ {};
+        class calculateAggression {};
 		class citiesToCivPatrol {};
 		class citySupportChange {};
 		class commsMP {};
@@ -57,9 +60,9 @@ class A3A
 		class fogCheck {};
 		class garbageCleaner {};
 		class garrisonInfo {};
+        class getAggroLevelString {};
 		class healAndRepair {};
 		class initPetros {};
-		class intelFound {};
 		class isFrontline {};
 		class isTheSameIsland {};
 		class joinMultipleGroups {};
@@ -79,7 +82,7 @@ class A3A
 		class patrolDestinations {};
 		class placementSelection {};
 		class playableUnits {};
-		class powerCheck {};
+		class getSideRadioTowerInfluence {};
 		class powerReorg {};
 		class prestige {};
 		class radioCheck {};
@@ -105,8 +108,6 @@ class A3A
 		class unlockVehicle {};
 		class zoneCheck {};
 	};
-
-
 
 	class AI
 	{
@@ -168,6 +169,7 @@ class A3A
 
 	class Convoy
 	{
+        class cleanConvoyMarker {};
 		class convoyDebug {};
 		class convoyMovement {};
 		class createAIAction {};
@@ -204,6 +206,7 @@ class A3A
 		class createFIAOutposts2 {};
 		class createSDKGarrisons {};
 		class createSDKgarrisonsTemp {};
+		class createUnit {};
 		class cycleSpawn {};
 		class FIAinitBases {};
 		class findSpawnPosition {};
@@ -239,6 +242,7 @@ class A3A
 
 	class Dialogs
 	{
+
 		class buyVehicle {};
 		class buyVehicleCiv {};
 		class clearForest {};
@@ -302,6 +306,17 @@ class A3A
 		class updateVehicles {};
 	};
 
+    class Intel
+    {
+        class getVehicleIntel {};
+        class placeIntel {};
+        class searchIntelOnDocument {};
+        class searchIntelOnLaptop {};
+        class searchIntelOnLeader {};
+        class selectIntel {};
+        class showIntel {};
+    };
+
 	class Missions
 	{
 		class AS_Official {};
@@ -317,6 +332,7 @@ class A3A
 		class LOG_Ammo {};
 		class LOG_Bank {};
 		class LOG_Supplies {};
+		class LOG_Salvage {};
 		class missionRequest {};
 		class missionRequestAUTO {};
 		class REP_Antenna {};
@@ -337,21 +353,21 @@ class A3A
 		class ACEpvpReDress {};
 		class ammunitionTransfer {};
 		class arsenalManage {};
+		class categoryOverrides {};
 		class checkRadiosUnlocked {};
 		class configSort {};
 		class crateLootParams {};
-		class CSATCrate {};
 		class dress {};
 		class empty {};
 		class equipmentClassToCategories {};
 		class equipmentIsValidForCurrentModset {};
 		class equipmentSort {};
+		class fillLootCrate {};
 		class getRadio {};
 		class itemSort {};
 		class itemType {};
 		class launcherInfo {};
 		class loot {};
-		class NATOCrate {};
 		class randomRifle {};
 		class transfer {};
 		class unlockEquipment {};
@@ -369,8 +385,8 @@ class A3A
 		class promotePlayer {};
 		class ranksMP {};
 		class resourcesPlayer {};
-		class theBossInit {};
 		class theBossToggleEligibility {};
+		class theBossTransfer {};
 		class theBossSteal {};
 		class assignBossIfNone {};
 		class tierCheck {};
@@ -438,6 +454,7 @@ class A3A
 
 	class Revive
 	{
+
 		class actionRevive {};
 		class carry {};
 		class fatalWound {};
@@ -456,6 +473,11 @@ class A3A
 		class runwayInfo {};
 	};
 
+	class SalvageRope
+	{
+		class SalvageRope {};
+	};
+
 	class Save
 	{
 		class loadPlayer {};
@@ -463,6 +485,14 @@ class A3A
 		class loadServer {};
 		class playerHasSave {};
 		class savePlayer {};
+		class getStatVariable {};
+		class loadStat {};
+		class retrievePlayerStat {};
+		class returnSavedStat {};
+		class savePlayerStat {};
+		class setStatVariable {};
+		class varNameToSaveName {};
+		class saveLoop {};
 	};
 
 	class Templates
@@ -471,6 +501,11 @@ class A3A
 		class getLoadout {};
 		class ifaModCompat {};
 		class rhsModCompat {};
+	};
+
+	class UI
+	{
+		class customHint {};
 	};
 
 	class Undercover
@@ -483,8 +518,11 @@ class A3A
 	{
 		class basicBackpack {};
 		class createDataObject {};
+		class createNamespace {};
 		class dateToTimeString {};
+		class generateRoadsDB {};
 		class log {};
 		class vehicleWillCollideAtPosition {};
+		class getRoadDirection {};
 	};
 };

@@ -16,7 +16,7 @@ NATOFlag = "Flag_AltisColonial_F";
 NATOFlagTexture = "\A3\Data_F\Flags\Flag_AltisColonial_CO.paa";
 flagNATOmrk = "flag_AltisColonial";
 if (isServer) then {"NATO_carrier" setMarkerText "AAF Carrier"};
-	
+
 //Loot Crate
 NATOAmmobox = "I_supplyCrate_F";
 
@@ -26,17 +26,17 @@ NATOAmmobox = "I_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	"I_soldier_SL_F",
+	["Vanilla_AAF_TeamLeader_Altis"] call A3A_fnc_getLoadout,
 	//Medic
-	"I_medic_F",
+	["Vanilla_AAF_Medic_Altis"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"I_Soldier_AR_F",
+	["Vanilla_AAF_MachineGunner_Altis"] call A3A_fnc_getLoadout,
 	//Marksman
-	"I_Soldier_M_F",
+	["Vanilla_AAF_Marksman_Altis"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"I_soldier_LAT_F",
+	["Vanilla_AAF_AT1_Altis"] call A3A_fnc_getLoadout,
 	//AT2
-	"I_soldier_LAT_F"
+	["Vanilla_AAF_AT2_Altis"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles

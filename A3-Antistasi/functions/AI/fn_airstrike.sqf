@@ -1,4 +1,4 @@
-// usage: Activate via radio trigger, on act: [] spawn A3A_fnc_airstrike;
+// usage: Activate via radio trigger, on act: ["control", Occupants] spawn A3A_fnc_airstrike;
 if (!isServer and hasInterface) exitWith{};
 
 private ["_markerX","_positionX","_ang","_angorig","_pos1","_origpos","_pos2","_finpos","_plane","_wp1","_wp2","_wp3","_sideX","_isMarker","_typePlane","_exit","_timeOut","_friendlies","_enemiesX","_mediaX","_mediaY","_pos","_countX","_distantNum","_distantX","_planefn","_planeCrew","_groupPlane","_typeX"];
@@ -99,6 +99,8 @@ _plane setVelocityModelSpace (velocityModelSpace _plane vectorAdd [0, 150, 50]);
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
 _plane flyInHeight 150;
+private _minAltASL = ATLToASL [_positionX select 0, _positionX select 1, 0];
+_plane flyInHeightASL [(_minAltASL select 2) +150, (_minAltASL select 2) +150, (_minAltASL select 2) +150];
 
 
 _wp1 = _groupPlane addWaypoint [_pos1, 0];

@@ -40,12 +40,12 @@ _fnc_initMarker =
 
 		if (_x in _mrkCSAT) then
 		{
-			_mrk setMarkerColor colorInvaders;
+			if !(_x in airportsX) then {_mrk setMarkerColor colorInvaders;} else {_mrk setMarkerColor "Default"};
 			sidesX setVariable [_x, Invaders, true];
 		}
 		else
 		{
-			_mrk setMarkerColor colorOccupants;
+			if !(_x in airportsX) then {_mrk setMarkerColor colorOccupants;} else {_mrk setMarkerColor "Default"};
 			sidesX setVariable [_x, Occupants, true];
 		};
 
@@ -146,6 +146,9 @@ if (gameMode == 1) then
 		case "vt7": {
 			_mrkCSAT = ["airport_2", "control_25", "control_29", "control_30", "control_31", "control_32", "Seaport_1", "Outpost_3"];
 			_controlsCSAT = ["control_25", "control_29", "control_30", "control_31", "control_32"];
+		};
+		case "stratis": {
+			_mrkCSAT = ["outpost_3"];
 		};
 	};
     _controlsNATO = _controlsNATO - _controlsCSAT;

@@ -106,14 +106,14 @@ while {(_waves > 0)} do
 			_rnd = random 100;
 			if (_sideX == Occupants) then
 				{
-				if (_rnd > prestigeNATO) then
+				if (_rnd > aggressionOccupants) then
 					{
 					_vehPool = _vehPool - [vehNATOTank];
 					};
 				}
 			else
 				{
-				if (_rnd > prestigeCSAT) then
+				if (_rnd > aggressionInvaders) then
 					{
 					_vehPool = _vehPool - [vehCSATTank];
 					};
@@ -433,14 +433,14 @@ while {(_waves > 0)} do
 		_rnd = random 100;
 		if (_sideX == Occupants) then
 			{
-			if (_rnd > prestigeNATO) then
+			if (_rnd > aggressionOccupants) then
 				{
 				_vehPool = _vehPool - [vehNATOPlane];
 				};
 			}
 		else
 			{
-			if (_rnd > prestigeCSAT) then
+			if (_rnd > aggressionInvaders) then
 				{
 				_vehPool = _vehPool - [vehCSATPlane];
 				};
@@ -681,7 +681,7 @@ while {(_waves > 0)} do
 				[0,-100,_mrkDestination] remoteExec ["A3A_fnc_citySupportChange",2];
 				["TaskFailed", ["", format ["%1 joined %2",[_mrkDestination, false] call A3A_fnc_location,nameOccupants]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 				sidesX setVariable [_mrkDestination,Occupants,true];
-				_nul = [-5,0] remoteExec ["A3A_fnc_prestige",2];
+				[[-10, 10], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 				_mrkD = format ["Dum%1",_mrkDestination];
 				_mrkD setMarkerColor colorOccupants;
 				garrison setVariable [_mrkDestination,[],true];

@@ -8,7 +8,7 @@ _costs = (server getVariable (SDKExp select 0)) + ([vehSDKRepair] call A3A_fnc_v
 
 _groupX = createGroup teamPlayer;
 
-_unit = _groupX createUnit [(SDKExp select 0), getMarkerPos respawnTeamPlayer, [], 0, "NONE"];
+_unit = [_groupX, (SDKExp select 0), getMarkerPos respawnTeamPlayer, [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupX setGroupId ["MineSw"];
 _minesX = [];
 sleep 1;

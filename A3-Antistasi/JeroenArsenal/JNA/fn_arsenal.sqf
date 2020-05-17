@@ -143,7 +143,7 @@ switch _mode do {
 		private ["_data"];
 
 		INITTYPES
-		
+
 		_data = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
 
 		_configArray = (
@@ -274,7 +274,7 @@ switch _mode do {
 		["jn_fnc_arsenal"] call BIS_fnc_endLoadingScreen;
 	};
 	///////////////////////////////////////////////////////////////////////////////////////////
-	
+
 	case "SaveTFAR": {
 		jna_backpackRadioSettings = nil;
 		jna_swRadioSettings = nil;
@@ -289,7 +289,7 @@ switch _mode do {
 			};
 		};
 	};
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Restore TFAR radio settings
 
@@ -425,20 +425,20 @@ switch _mode do {
 			_ctrlSort = _display displayctrl (IDC_RSCDISPLAYARSENAL_SORT + _idc);
 			_ctrlSort ctrlRemoveAllEventHandlers "lbselchanged";
 			_ctrlSort ctrladdeventhandler ["lbselchanged",format ["['SortBy',[_this,%1]] call jn_fnc_arsenal;",_idc]];
-      
+
       //Delete "Sort by mod" as it doesn't work currently.
       if (lbSize _ctrlSort > 1) then {
         _ctrlSort lbDelete 1;
       };
-      
-      
+
+
 			private _sortByAmountIndex =  _ctrlSort lbadd "Sort by amount";
       private _sortDefaultIndex = _ctrlSort lbadd "Default";
-      
+
       _ctrlSort lbSetValue [0, SORT_ALPHABETICAL];
       _ctrlSort lbSetValue [_sortByAmountIndex, SORT_AMOUNT];
       _ctrlSort lbSetValue [_sortDefaultIndex, SORT_DEFAULT];
-  
+
       lbSortByValue _ctrlSort;
 
 			_ctrlSort lbsetcursel _sort;
@@ -447,84 +447,84 @@ switch _mode do {
 		} foreach IDCS;
 		uinamespace setvariable ["jn_fnc_arsenal_sort",_sortValues];
 	};
-  
+
   case "SortBy":{
     _this params ["_eventParams", "_currentTabIdc"];
     _eventParams params ["_ctrlSort", "_selectedIndex"];
-    
+
     private _display = ctrlParent _ctrlSort;
     private _ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _currentTabIdc);
     private _type = (ctrltype _ctrlList == 102);
-    
+
     private _itemCount = lbSize _ctrlList;
-    
+
     //diag_log format ["Name: %1, Value: %2, Data: %3", _ctrlSort lbText _selectedIndex, _ctrlSort lbValue _selectedIndex, _ctrlSort lbData _selectedIndex];
     //diag_log format ["Number of items: %1", _itemCount];
-    
+
     //for "_i" from 0 to (_itemCount - 1) do {
     //  diag_log format ["Item: %1 has value %2", _ctrlList lbText _i, _ctrlList lbValue _i];
-    //}; 
-    
+    //};
+
     private _sortType = _ctrlSort lbValue _selectedIndex;
-    
+
     switch (_sortType) do {
       case SORT_ALPHABETICAL: {
         private _displayNameArray = [];
         private _dataArray = [];
-        
+
         //Iterate in reverse order to avoid a lot of array resizes in _dataArray;
         for "_i" from (_itemCount - 1) to 0 step -1 do {
           private _dataStr = if _type then{_ctrlList lnbdata [_i,0]}else{_ctrlList lbdata _i};
-          
+
           if (_dataStr != "") then {
             private _data = call compile _dataStr;
             private _item = _data select 0;
             private _amount = _data select 1;
             private _displayName = _data select 2;
-            
+
             _displayNameArray pushBack _displayName;
             _dataArray set [_i, _data];
           };
         };
-        
+
         _displayNameArray sort true;
-      
+
         for "_i" from 0 to (_itemCount - 1) do {
           private _data = _dataArray select _i;
           if (!isNil "_data") then {
             private _displayName = _data select 2;
             _ctrlList lbSetValue [_i, _displayNameArray find _displayName];
-          };  
+          };
         };
-        
+
         lbSortByValue _ctrlList;
       };
       case SORT_AMOUNT: {
         for "_i" from 0 to (_itemCount - 1) do {
            private _dataStr = if _type then {_ctrlList lnbdata [_i,0]} else {_ctrlList lbdata _i};
-          
+
           if (_dataStr != "") then {
             private _data = call compile _dataStr;
             private _item = _data select 0;
             private _amount = _data select 1;
             private _displayName = _data select 2;
-            
+
             //If it's the description string, then make sure it's first.
             if (_item == "") then {
               _amount = -100;
             };
-            
+
             _ctrlList lbSetValue [_i, _amount];
           };
-          
+
           lbSortByValue _ctrlList;
         };
       };
-      case SORT_DEFAULT: { 
-        lbSort _ctrlList; 
+      case SORT_DEFAULT: {
+        lbSort _ctrlList;
       };
   };
-  
+
   };
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -562,9 +562,10 @@ switch _mode do {
 			_primaryweapon set [0,((_primaryweapon select 0) call BIS_fnc_baseWeapon)];
 			_secondaryweapon set [0,((_secondaryweapon select 0) call BIS_fnc_baseWeapon)];
 			_handgunweapon set [0,((_handgunweapon select 0) call BIS_fnc_baseWeapon)];
-			
+
+			//Some mod backpacks have no empty variant
 			if (count _backpack > 0) then {
-				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];	
+				_backpack set [0,((_backpack select 0) call A3A_fnc_basicBackpack)];
 			};
 
 			_uniformitems = [_unifrom,1,[]] call BIS_fnc_param;
@@ -1145,7 +1146,8 @@ switch _mode do {
 		params ["_index","_item","_amount",["_updateDataList",false]];
 
 		//update datalist
-		if(_updateDataList)then{
+		if(_updateDataList)then
+		{
 			jna_dataList set [_index, [jna_dataList select _index, [_item, _amount]] call jn_fnc_arsenal_addToArray];
 		};
 
@@ -1648,8 +1650,8 @@ switch _mode do {
 								clearAllItemsFromBackpack player;
 							};
 						};
-						
-						
+
+
 
 						//container changed
 						_container = switch _index do{
@@ -1802,7 +1804,7 @@ switch _mode do {
 						//give player new weapon
 						[player,_item,0] call bis_fnc_addweapon;
 						[_index, _item]call jn_fnc_arsenal_removeItem;
-						
+
 						//Remove any attachments that spawn *with* the weapon.
 						switch _index do {
 							case IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON: {removeAllPrimaryWeaponItems player};
@@ -2051,7 +2053,7 @@ switch _mode do {
 			_item = _data select 0;
 			_amount = _data select 1;
 			_grayout = false;
-	
+
 			if (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG || _index ==	IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL && _amount > 0) then {
 				_amount = [_item, _amount] call _ammoCountToMags;
 			};
@@ -2599,7 +2601,7 @@ switch _mode do {
 	/////////////////////////////////////////////////////////////////////////////////////////// event
 	case "buttonClose": {
 		_display = _this select 0;
-		
+
 		["RestoreTFAR"] call jn_fnc_arsenal;
 
 		//remove missing item message

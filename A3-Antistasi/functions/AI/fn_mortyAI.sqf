@@ -23,7 +23,11 @@ while {(alive _morty0) and (alive _morty1)} do
 	_mortarX = _typeX createVehicle _pos;
 	removeBackpackGlobal _morty0;
 	removeBackpackGlobal _morty1;
-	_groupX addVehicle _mortarX;
+
+// Removed as workaround for probable Arma AI bug with Podnos mortar + long distance (~200m) moves
+// After a long move, non-gunner will attempt to move into the second mortar seat unless this is removed
+//	_groupX addVehicle _mortarX;
+
 	_morty1 assignAsGunner _mortarX;
 	[_morty1] orderGetIn true;
 	[_morty1] allowGetIn true;

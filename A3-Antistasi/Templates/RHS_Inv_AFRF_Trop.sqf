@@ -12,7 +12,7 @@ if (gameMode == 4) then {factionFIA = "rhs_faction_msv"};
 //Flag Images
 CSATFlag = "rhs_Flag_Russia_F";
 CSATFlagTexture = "rhsafrf\addons\rhs_main\data\flag_rus_co.paa";
-flagCSATmrk = "rhs_flag_vmf";
+flagCSATmrk = "flag_russia";
 if (isServer) then {"CSAT_carrier" setMarkerText "Russian Carrier"};
 
 //Loot Crate
@@ -93,9 +93,9 @@ if (gameMode == 4) then
 	//Fireteams
 	groupsFIAMid =
 		[
-		["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_grenadier"],
-		["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_at"],
-		["rhsgref_hidf_teamleader","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_engineer"]
+		["rhs_msv_emr_sergeant","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_grenadier"],
+		["rhs_msv_emr_sergeant","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_at"],
+		["rhs_msv_emr_sergeant","rhs_msv_emr_machinegunner",FIARifleman,"rhs_msv_emr_engineer"]
 		];
 	//Squads
 	FIASquad = ["rhs_msv_emr_officer","rhs_msv_emr_grenadier","rhs_msv_emr_machinegunner","rhs_msv_emr_rifleman","rhs_msv_emr_marksman","rhs_msv_emr_engineer","rhs_msv_emr_at","rhs_msv_emr_medic"];
@@ -112,9 +112,10 @@ vehCSATLightArmed = ["rhsgref_BRDM2_vdv","rhsgref_BRDM2_HQ_vdv","rhsgref_BRDM2_A
 vehCSATLightUnarmed = ["rhs_tigr_vdv","rhs_uaz_vdv","rhs_tigr_m_msv"];
 vehCSATTrucks = ["rhs_kamaz5350_vdv","rhs_kamaz5350_open_vdv","RHS_Ural_Open_VDV_01","rhs_zil131_vdv","RHS_Ural_VDV_01"];
 vehCSATAmmoTruck = "rhs_gaz66_ammo_vmf";
+vehCSATRepairTruck = "rhs_gaz66_repair_vdv";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
-vehCSATAPC = ["rhs_bmd1r","rhs_bmp1p_vdv","rhs_bmd1p","rhs_bmd2m","rhs_bmp1p_vdv","rhs_bmp2k_vdv","rhs_btr80a_vdv","rhsbmp3mera_msv","rhs_bmd1PK"];
+vehCSATAPC = ["rhs_bmd1r","rhs_bmp1p_vdv","rhs_bmd1p","rhs_bmd2m","rhs_bmp1p_vdv","rhs_bmp2k_vdv","rhs_btr80a_vdv","rhs_bmp3mera_msv","rhs_bmd1PK"];
 vehCSATTank = "rhs_t90sab_tv";
 vehCSATAA = "rhs_zsu234_aa";
 vehCSATAttack = vehCSATAPC + [vehCSATTank];
@@ -124,7 +125,7 @@ vehCSATRBoat = "O_T_Boat_Transport_01_F";
 vehCSATBoats = [vehCSATBoat,vehCSATRBoat,"rhs_btr80a_vdv"];
 //Planes
 vehCSATPlane = "RHS_Su25SM_CAS_vvs";
-vehCSATPlaneAA = "RHS_mig29s_vvs";
+vehCSATPlaneAA = "rhs_mig29s_vvs";
 vehCSATTransportPlanes = [];
 //Heli
 vehCSATPatrolHeli = "rhs_ka60_c";
@@ -137,7 +138,7 @@ vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "rhs_2s3_tv";
 vehCSATMRLSMags = "rhs_mag_HE_2a33";
 //Combined Arrays
-vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, "rhs_gaz66_repair_vdv","RHS_Ural_Fuel_VDV_01"];
+vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, vehCSATRepairTruck, "RHS_Ural_Fuel_VDV_01"];
 vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 
 //Militia Vehicles

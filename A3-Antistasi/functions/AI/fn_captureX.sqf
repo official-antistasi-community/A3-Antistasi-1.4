@@ -9,8 +9,8 @@ if (!alive _unit) exitWith {};
 private _sideX = side (group _unit);
 private _interrogated = _unit getVariable ["interrogated", false];
 
-private _modAggroOcc = 0;
-private _modAggroInv = 0;
+private _modAggroOcc = [0, 0];
+private _modAggroInv = [0, 0];
 private _modHR = false;
 private _response = "";
 private _targetMarker = respawnOccupants;
@@ -19,25 +19,31 @@ if (_recruiting) then {
 	_playerX globalChat "How about joining the good guys?";
 
 	private _chance = 0;
-	if (_sideX == Occupants) then {
-		if (faction _unit == factionFIA) then { _chance = 60; _modAggroOcc = 0.1; }
-		else { _chance = 20; _modAggroOcc = 0.5; };
+	if (_sideX == Occupants) then
+    {
+        _modAggroOcc = [0.25, 15];
+		if (faction _unit == factionFIA) then { _chance = 60;}
+		else { _chance = 20;};
 	}
-	else {
-		if (faction _unit == factionFIA) then { _chance = 60; _modAggroInv = 0.1; }
-		else { _chance = 40; _modAggroInv = 0.5; };
+	else
+    {
+        _modAggroInv = [0.25, 15];
+		if (faction _unit == factionFIA) then { _chance = 60;}
+		else { _chance = 40;};
 	};
 	if (_interrogated) then { _chance = _chance / 2 };
 
-	if (random 100 < _chance) then {
+	if (random 100 < _chance) then
+    {
 		_response = "Why not? It can't be any worse.";
 		_modHR = true;
 		_targetMarker = respawnTeamPlayer;
 	}
-	else {
+	else
+    {
 		_response =  "Screw you!";
-		_modAggroOcc = 0;
-		_modAggroInv = 0;
+		_modAggroOcc = [0, 0];
+		_modAggroInv = [0, 0];
 	};
 }
 else {
@@ -48,14 +54,13 @@ else {
 		"Thank you, I won't forget this!"
 	];
 
-	private _mult = if (_interrogated) then { 0.5 } else { 1.0 };
-	if (_sideX == Occupants) then {
-		if (faction _unit == factionFIA) then { _modAggroOcc = -0.3*_mult }
-		else { _modAggroOcc = -0.6*_mult };
+	if (_sideX == Occupants) then
+    {
+        _modAggroOcc = [-0.25, 15];
 	}
-	else {
-		if (faction _unit == factionFIA) then { _modAggroInv = -0.05*_mult }
-		else { _modAggroInv = -0.1*_mult };
+	else
+    {
+        _modAggroInv = [-0.25, 15];
 	};
 };
 

@@ -2,19 +2,19 @@
 	[//Primary Weapon
 		"arifle_MX_Black_F",								//Weapon
 		"",													//Muzzle
-		"",													//Rail
-		"optic_Hamr",									//Sight
+		"Acc_Pointer_IR",									//Rail
+		"Optic_ACO",						    			//Sight
 		["30Rnd_65x39_caseless_black_mag",30],						//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
 
 	[//Launcher
-		"",													//Weapon
+		"launch_MRAWS_sand_rail_F",													//Weapon
 		"",													//Muzzle
 		"",													//Rail
 		"",													//Sight
-		[],													//Primary Magazine
+		["MRAWS_HEAT55_F",1],													//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
@@ -43,13 +43,18 @@
 			["SmokeShell",2,1],
 			["HandGrenade",1,1],
 			["16Rnd_9x21_Mag",2,17],
-			["30Rnd_65x39_caseless_black_mag",6,30]
+			["30Rnd_65x39_caseless_black_mag",3,30]
 		]
 		+ _aceFlashlight
 		+ _aceM84
 	],
 
-	[],
+    [//Backpack
+		"B_AssaultPack_mcamo",								//Backpack
+		[//Inventory
+			["MRAWS_HEAT55_F",1,1]
+		]
+	],
 
 		selectRandom										//Headgear
 		["H_Booniehat_mcamo", "H_MilCap_mcamo", "H_HelmetB_desert", "H_HelmetB_light_desert", "H_HelmetSpecB", "H_Cap_tan_specops_US"],
@@ -66,11 +71,11 @@
 	],
 
 	[//Item
-		"ItemMap",											//Map
-		"ItemGPS",											//Terminal
+        "ItemMap",											//Map
+        "ItemGPS",											//Terminal
 		["TF_ANPRC152"] call _fnc_tfarRadio,				//Radio
-		"ItemCompass",										//Compass
-		"ItemWatch",										//Watch
-		""													//Goggles
+        "ItemCompass",										//Compass
+        "ItemWatch",										//Watch
+        ""													//Goggles
 	]
 ];

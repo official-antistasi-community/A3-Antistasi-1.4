@@ -38,7 +38,7 @@ for "_i" from 0 to (_countX - 1) do
 	{
 	if ((_i == 0) or (((_allUnits + 1) < maxUnits) and ((_allUnitsSide + 1) < _maxUnitsSide)) or _override) then
 		{
-		_unit = _groupX createUnit [(_typesX select _i), _positionX, [], 0, "NONE"];
+		_unit = [_groupX, (_typesX select _i), _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit allowDamage false;
 		_allUnits = _allUnits + 1;
 		_allUnitsSide = _allUnitsSide + 1;

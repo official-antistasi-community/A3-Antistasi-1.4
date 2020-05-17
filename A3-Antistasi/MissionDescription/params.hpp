@@ -16,10 +16,17 @@ class Params
      };
      class autoSave
      {
-          title = "Enable Autosave (every hour)";
+          title = "Enable Autosave (every X minutes)";
           values[] = {1,0};
           texts[] = {"Yes","No"};
           default = 1;
+     };
+     class autoSaveInterval
+     {
+          title = "Time between autosaves (in minutes)";
+          values[] = {600,1200,1800,3600,5400};
+          texts[] = {"10","20","30","60","90"};
+          default = 3600;
      };
      class membership
      {
@@ -44,7 +51,7 @@ class Params
      };
      class mRadius
      {
-          title = "Distance from HQ for Sidemissions";
+          title = "Max distance from HQ for tasks";
           values[] = {2000,4000,6000,8000,10000,12000};
           default = 4000;
      };
@@ -71,7 +78,7 @@ class Params
      };
      class unlockItem
      {
-          title = "Number of the same weapons required to unlock";
+          title = "Number of the same item required to unlock";
           values[] = {15,25,40};
           default = 25;
      };
@@ -84,9 +91,9 @@ class Params
      class civTraffic
      {
           title = "Rate of Civ Traffic";
-          values[] = {0,1,2,3};
-          texts[] = {"None","Low","Medium","JAM"};
-          default = 1;
+          values[] = {0,1,2,3,4,6,8};
+          texts[] = {"None","Very low","Low","Medium","High","Very high","JAM"};
+          default = 2;
      };
      class memberSlots
      {
@@ -111,9 +118,9 @@ class Params
      };
      class allowFT
      {
-          title = "Limited Fast Travel";
+          title = "Fast Travel Targets Allowed";
           values[] = {0,1};
-          texts[] = {"No","Yes"};
+          texts[] = {"Any friendly position","Only Airports & HQ"};
           default = 1;
      };
      class napalmEnabled
@@ -156,7 +163,14 @@ class Params
           title = "[TFAR] Start with Long Range Radio?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
+     };
+     class helmetLossChance
+     {
+          title = "Chance of helmet loss on headshots";
+          values[] = {0,33,66,100};
+          texts[] = {"Never","Sometimes","Often","Always"};
+          default = 33;
      };
      class Spacer10
      {

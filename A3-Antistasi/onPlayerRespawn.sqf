@@ -7,17 +7,28 @@ if (isNull _oldUnit) exitWith {};
 
 waitUntil {alive player};
 
+//When LAN hosting, Bohemia's Zeus module code will cause the player lose Zeus access if the body is deleted after respawning.
+//This is a workaround that re-assigns curator to the player if their body is deleted.
+//It will only run on LAN hosted MP, where the hoster is *always* admin, so we shouldn't run into any issues.
+if (isServer) then {
+	_oldUnit addEventHandler ["Deleted", {
+		[] spawn {
+			sleep 1;		// should ensure that the bug unassigns first
+			{ player assignCurator _x } forEach allCurators;
+		}
+	} ];
+};
+
 _nul = [_oldUnit] spawn A3A_fnc_postmortem;
-if !(hasACEMedical) then
-	{
-	_oldUnit setVariable ["INCAPACITATED",false,true];
-	_newUnit setVariable ["INCAPACITATED",false,true];
-	};
+
+_oldUnit setVariable ["incapacitated",false,true];
+_newUnit setVariable ["incapacitated",false,true];
+
 if (side group player == teamPlayer) then
 	{
 	_owner = _oldUnit getVariable ["owner",_oldUnit];
 
-	if (_owner != _oldUnit) exitWith {hint "Died while remote controlling AI"; selectPlayer _owner; disableUserInput false; deleteVehicle _newUnit};
+	if (_owner != _oldUnit) exitWith {["Remote AI", "Died while remote controlling AI"] call A3A_fnc_customHint; selectPlayer _owner; disableUserInput false; deleteVehicle _newUnit};
 
 	_nul = [0,-1,getPos _oldUnit] remoteExec ["A3A_fnc_citySupportChange",2];
 
@@ -38,6 +49,7 @@ if (side group player == teamPlayer) then
 	//_newUnit setUnitRank (rank _oldUnit);
 	_newUnit setVariable ["compromised",0];
 	_newUnit setVariable ["eligible",_eligible,true];
+	_oldUnit setVariable ["eligible",false,true];
 	_newUnit setVariable ["spawner",true,true];
 	_oldUnit setVariable ["spawner",nil,true];
 	[_newUnit,false] remoteExec ["setCaptive",0,_newUnit];
@@ -50,12 +62,13 @@ if (side group player == teamPlayer) then
     _newUnit addOwnedMine _x;
     } count (getAllOwnedMines (_oldUnit));
 
+	// don't reinit revive because damage handlers are respawn-persistent
 	//if (!hasACEMedical) then {[_newUnit] call A3A_fnc_initRevive};
 	disableUserInput false;
 	//_newUnit enableSimulation true;
 	if (_oldUnit == theBoss) then
 		{
-		[_newUnit] call A3A_fnc_theBossInit;
+		[_newUnit, true] remoteExec ["A3A_fnc_theBossTransfer", 2];
 		};
 
 

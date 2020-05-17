@@ -13,7 +13,7 @@ _smoked = false;
 
 if (_medicX != _unit) then
 	{
-	if !(_unit getVariable ["INCAPACITATED",false]) then
+	if !(_unit getVariable ["incapacitated",false]) then
 		{
 		if (_isPlayer) then {_unit groupChat format ["Comrades, this is %1. I'm hurt",name _unit]};
 		playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50];
@@ -29,7 +29,7 @@ if (_medicX != _unit) then
 			_medicX groupChat format ["Wait a minute comrade %1, I will patch you up",name _unit]
 			};
 		};
-	if (hasInterface) then {if (player == _unit) then {hint format ["%1 is on the way to help you",name _medicX]}};
+	if (hasInterface) then {if (player == _unit) then {["Medical", format ["%1 is on the way to help you",name _medicX]] call A3A_fnc_customHint;}};
 	_enemy = _medicX findNearestEnemy _unit;
 	_smoked = [_medicX,_unit,_enemy] call A3A_fnc_chargeWithSmoke;
 	_medicX stop false;
@@ -48,7 +48,7 @@ if (_medicX != _unit) then
 		};
 	if ((_unit distance _medicX <= 3) and (alive _unit) and ([_medicX] call A3A_fnc_canFight) and (_medicX == vehicle _medicX) and (_medicX == _unit getVariable ["helped",objNull]) and (isNull attachedTo _unit) and !(_medicX getVariable ["cancelRevive",false])) then
 		{
-		if ((_unit getVariable ["INCAPACITATED",false]) and (!isNull _enemy) and (_timeOut >= time) and (_medicX != _unit)) then
+		if ((_unit getVariable ["incapacitated",false]) and (!isNull _enemy) and (_timeOut >= time) and (_medicX != _unit)) then
 			{
 			_coverX = [_unit,_enemy] call A3A_fnc_coverage;
 			{if (([_x] call A3A_fnc_canFight) and (_x distance _medicX < 50) and !(_x getVariable ["helping",false]) and (!isPlayer _x)) then {[_x,_enemy] call A3A_fnc_suppressingFire}} forEach units (group _medicX);
@@ -67,7 +67,7 @@ if (_medicX != _unit) then
 					//_medicX playMoveNow "AcinPknlMstpSrasWrflDnon";
 					_medicX stop false;
 					_dummyGrp = createGroup civilian;
-					_dummy = _dummyGrp createUnit ["C_man_polo_1_F", [0,0,20], [], 0, "FORM"];
+					_dummy = [_dummyGrp, "C_man_polo_1_F", [0,0,20], [], 0, "FORM"] call A3A_fnc_createUnit;
 					_dummy setUnitPos "MIDDLE";
 					_dummy forceWalk true;
 					_dummy setSkill 0;
@@ -134,12 +134,12 @@ if (_medicX != _unit) then
 					{
 					//if ([_medicX] call A3A_fnc_canFight) then {_medicX switchMove ""};
 					[_medicX,""] remoteExec ["switchMove"];
-					if ((alive _unit) and (_unit getVariable ["INCAPACITATED",false])) then
+					if ((alive _unit) and (_unit getVariable ["incapacitated",false])) then
 						{
 						_unit playMoveNow "";
 						_unit setUnconscious false;
 						_timeOut = time + 3;
-						waitUntil {sleep 0.3; (lifeState _unit != "INCAPACITATED") or (_timeOut < time)};
+						waitUntil {sleep 0.3; (lifeState _unit != "incapacitated") or (_timeOut < time)};
 						_unit setUnconscious true;
 						};
 					};
@@ -168,7 +168,7 @@ if (_medicX != _unit) then
 			_medicX stop true;
 			//if (!_smoked) then {[_medicX,_unit] call A3A_fnc_chargeWithSmoke};
 			_unit stop true;
-			if (_unit getVariable ["INCAPACITATED",false]) then {_cured = [_unit,_medicX] call A3A_fnc_actionRevive} else {_medicX action ["HealSoldier",_unit]; _cured = true};
+			if (_unit getVariable ["incapacitated",false]) then {_cured = [_unit,_medicX] call A3A_fnc_actionRevive} else {_medicX action ["HealSoldier",_unit]; _cured = true};
 			if (_cured) then
 				{
 				if (_medicX != _unit) then {if (_isPlayer) then {_medicX groupChat format ["You are ready %1",name _unit]}};

@@ -1,7 +1,7 @@
 [//Loadout
 	[//Primary Weapon
 		"srifle_EBR_F",								//Weapon
-		"Muzzle_SNDS_B",									//Muzzle
+		"",									//Muzzle
 		"acc_pointer_IR",									//Rail
 		"optic_SOS",									//Sight
 		["20Rnd_762x51_Mag",20],							//Primary Magazine

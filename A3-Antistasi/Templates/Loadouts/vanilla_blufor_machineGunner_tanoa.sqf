@@ -57,7 +57,7 @@
 		"",													//Facewear
 
 	[//Binocular
-		"",													//Binocular
+		"Binocular",													//Binocular
 		"",
 		"",
 		"",
@@ -68,7 +68,7 @@
 
 	[//Item
 		"ItemMap",											//Map
-		"",													//Terminal
+		"ItemGPS",											//Terminal
 		["TF_ANPRC152"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
 		"ItemWatch",										//Watch

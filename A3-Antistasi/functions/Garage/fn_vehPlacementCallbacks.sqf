@@ -33,9 +33,10 @@ switch (_callbackTarget) do {
 			
 			case CALLBACK_VEH_IS_VALID_LOCATION: {
 				private _pos = _callbackParams select 0;
-				if (_pos distance2d (getMarkerPos garage_nearestMarker) > 50) exitWith 
+				private _maxDist = [50,150] select ((_callbackParams select 2) isKindOf "Ship");
+				if (_pos distance2d (getMarkerPos garage_nearestMarker) > _maxDist) exitWith
 				{
-					[false, "Vehicles must be placed within 50m of the flag"];
+					[false, format ["This vehicle must be placed within %1m of the flag", _maxDist]];
 				};
 				[true];
 			};
@@ -105,9 +106,10 @@ switch (_callbackTarget) do {
 			
 			case CALLBACK_VEH_IS_VALID_LOCATION: {
 				private _pos = _callbackParams select 0;
-				if (_pos distance2d (getMarkerPos vehiclePurchase_nearestMarker) > 50) exitWith 
+				private _maxDist = [50,150] select ((_callbackParams select 2) isKindOf "Ship");
+				if (_pos distance2d (getMarkerPos vehiclePurchase_nearestMarker) > _maxDist) exitWith
 				{
-					[false, "Vehicles must be placed within 50m of the flag"];
+					[false, format ["This vehicle must be placed within %1m of the flag", _maxDist]];
 				};
 				[true];
 			};
@@ -145,7 +147,7 @@ switch (_callbackTarget) do {
 					else
 						{
 						[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
-						["moneyX",player getVariable ["moneyX",0]] call fn_SaveStat;
+						["moneyX",player getVariable ["moneyX",0]] call A3A_fnc_setStatVariable;
 						_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
 						};
 					};
@@ -170,7 +172,7 @@ switch (_callbackTarget) do {
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
-				hint "Construction cancelled";
+				["Construction", "Construction cancelled"] call A3A_fnc_customHint;
 			};
 		
 			case CALLBACK_SHOULD_CANCEL_PLACEMENT: {

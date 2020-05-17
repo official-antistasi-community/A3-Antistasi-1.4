@@ -18,7 +18,6 @@ params["_vehicle","_object", ["_removeObject", false]];
 private _displayVehicleMessage =
 {
 	params ["_veh", "_msg", "_cargoMass"];
-	private[ "_mass_info", "_text","_v_def_mass"];
 
 	_veh vehicleChat _msg;
 	private _vehDefaultMass = _vehicle getVariable "default_mass";
@@ -58,17 +57,10 @@ if (isNil {_vehicle getVariable "default_mass"}) then {
 
 private _defaultMass = _vehicle getVariable "default_mass";
 
-//Calculate total mass of everything attached to the vehicle.
-private _attachedMass = 0;
-if (count (attachedObjects _vehicle) > 0) then
-{
-	{
-		_attachedMass = _attachedMass + getMass _x; 
-	} forEach attachedObjects _vehicle;
-};
 
 private _objectMass = getMass _object;
 private _currentMass = getMass _vehicle;
+
 private _newMass = _currentMass;
 
 //Figure out our new mass value
@@ -82,36 +74,38 @@ if (_removeObject) then {
 [_vehicle, _newMass] remoteExec ["setMass", _vehicle];
 
 //Pull data on available nodes, so we can display it to the user.
-private _typeLoaded = -1;
 private _nodesLoaded = 0;
 {
 	private _cargoInfo = _x getVariable "jnl_cargo";
 	if !(isNil "_cargoInfo") then {
 		_cargoInfo params ["_type", "_nodeIndex"];
-		_typeLoaded = _type;
 		//Number of nodes loaded is equal to the attached object with the highest node index.
 		_nodesLoaded = (_nodeIndex + 1) max _nodesLoaded;
 	};
 } forEach attachedObjects _vehicle;
 
 private _typeObject  = _object call jn_fnc_logistics_getCargoType; //get _object type
-
 private _nodeTotal = count ((_vehicle call jn_fnc_logistics_getNodes) select {(_x select 0) == _typeObject});
 private _availableNodes = _nodeTotal - _nodesLoaded;
+
+private _objectName = getText (configFile >> "cfgVehicles" >> typeOf _object >> "displayName");
+private _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName");
+//Mass of all cargo attached to the vehicle.
+private _cargoMass = _newMass - _defaultMass;
 
 //Output the final message.
 if (!_removeObject) then
 {
 	if (_availableNodes == 0) then
 	{
-		[_vehicle, Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"" There is no more space.</t>", getText(configFile >> "cfgVehicles" >> typeOf _object >> "displayName"), getText(configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName"), _availableNodes], _attachedMass] call _displayVehicleMessage;
+		[_vehicle, Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"" There is no more space.</t>", _objectName, _vehicleName, _availableNodes], _cargoMass] call _displayVehicleMessage;
 	}
 	else
 	{
-		[_vehicle, Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"". Free slots: ""%3"".</t>", getText(configFile >> "cfgVehicles" >> typeOf _object >> "displayName"), getText(configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName"), _availableNodes], _attachedMass] call _displayVehicleMessage;
+		[_vehicle, Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"". Free slots: ""%3"".</t>", _objectName, _vehicleName, _availableNodes], _cargoMass] call _displayVehicleMessage;
 	};
 }
 else
 {
-	[_vehicle, Format ["<t color='#00fff3'>""%1"" was unloaded from ""%2"". Free slots: ""%3"".</t>", getText(configFile >> "cfgVehicles" >> typeOf _object >> "displayName"), getText(configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName"), _availableNodes], _attachedMass] call _displayVehicleMessage;
+	[_vehicle, Format ["<t color='#00fff3'>""%1"" was unloaded from ""%2"". Free slots: ""%3"".</t>", _objectName, _vehicleName, _availableNodes], _cargoMass] call _displayVehicleMessage;
 };

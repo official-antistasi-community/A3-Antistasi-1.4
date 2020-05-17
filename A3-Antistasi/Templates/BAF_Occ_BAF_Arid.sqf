@@ -140,7 +140,7 @@ vehNATOAmmoTruck = "rhsusf_M977A4_AMMO_usarmy_d";
 vehNATORepairTruck = "UK3CB_BAF_MAN_HX58_Repair_Sand_DDPM";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
-vehNATOAPC = ["RHS_M2A3_BUSKIII","RHS_M2A3_BUSKI","RHS_M2A3","RHS_M2A3","UK3CB_BAF_FV432_Mk3_GPMG_Sand_DDPM","UK3CB_BAF_FV432_Mk3_RWS_Sand_DDPM","UK3CB_BAF_Warrior_A3_D_MTP_RM","UK3CB_BAF_Warrior_A3_D_Cage_MTP_RM","UK3CB_BAF_Warrior_A3_D_Cage_Camo_MTP_RM","UK3CB_BAF_Warrior_A3_D_Camo_MTP_RM"];
+vehNATOAPC = ["UK3CB_BAF_FV432_Mk3_GPMG_Sand_DDPM","UK3CB_BAF_FV432_Mk3_RWS_Sand_DDPM","UK3CB_BAF_Warrior_A3_D_MTP_RM","UK3CB_BAF_Warrior_A3_D_Cage_MTP_RM","UK3CB_BAF_Warrior_A3_D_Cage_Camo_MTP_RM","UK3CB_BAF_Warrior_A3_D_Camo_MTP_RM"];
 vehNATOTank = "rhsusf_m1a2sep1d_usarmy";
 vehNATOAA = "RHS_M6";
 vehNATOAttack = vehNATOAPC + [vehNATOTank];

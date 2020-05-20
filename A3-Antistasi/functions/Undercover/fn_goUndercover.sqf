@@ -112,7 +112,7 @@ do {
 										((side _x == Invaders) or(side _x == Occupants)) and((_x knowsAbout _player > 1.4) or(_x distance _player < 350))
 									}
 									count allUnits > 0) then {
-									_changeX = "Carretera"
+									_changeX = "Highway"
 								};
 							};
 						};
@@ -247,7 +247,7 @@ switch _changeX do {
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";
 		};
-	case "Carretera":{
+	case "Highway":{
 			["Undercover", "You went too far away from any roads and have been spotted"] call A3A_fnc_customHint;
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";

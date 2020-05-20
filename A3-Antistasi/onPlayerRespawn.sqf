@@ -61,6 +61,12 @@ if (side group player == teamPlayer) then
 	{
     _newUnit addOwnedMine _x;
     } count (getAllOwnedMines (_oldUnit));
+	{
+		if (_x getVariable ["owner", ObjNull] == _oldUnit) then {
+			_x setVariable ["owner", _newUnit, true];
+		};
+	} forEach (units group player);
+
 
 	// don't reinit revive because damage handlers are respawn-persistent
 	//if (!hasACEMedical) then {[_newUnit] call A3A_fnc_initRevive};

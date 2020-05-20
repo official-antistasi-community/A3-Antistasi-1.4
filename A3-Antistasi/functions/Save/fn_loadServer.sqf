@@ -94,13 +94,14 @@ if (isServer) then {
     [true] call A3A_fnc_calculateAggression;
 
 	["chopForest"] call A3A_fnc_getStatVariable;
-	["destroyedBuildings"] call A3A_fnc_getStatVariable;
+
 	/*
 	{
 	_buildings = nearestObjects [_x, listMilBld, 25, true];
 	(_buildings select 1) setDamage 1;
 	} forEach destroyedBuildings;
 	*/
+
 	["posHQ"] call A3A_fnc_getStatVariable;
 	["nextTick"] call A3A_fnc_getStatVariable;
 	["staticsX"] call A3A_fnc_getStatVariable;

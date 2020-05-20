@@ -28,7 +28,6 @@ if (!isMultiPlayer) then {
 } else {
 	_nul = [-1, 0] remoteExec ["A3A_fnc_resourcesFIA",2];
 	[- _costs] call A3A_fnc_resourcesPlayer;
-	["moneyX",player getVariable ["moneyX",0]] call A3A_fnc_setStatVariable;
 	["AI Recruitment", "Soldier Recruited.<br/><br/>Remember: if you use the group menu to switch groups you will lose control of your recruited AI"] call A3A_fnc_customHint;
 };
 

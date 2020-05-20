@@ -72,6 +72,8 @@ if _playAnimation then{
 		//_vehicle call jn_fnc_logistics_lockSeats;//needs to be called after detach
 
 		_vehicle setVariable ["jnl_isUnloading",false, true];
+		
+		[_vehicle, _object, false] call jn_fnc_logistics_addOrRemoveObjectMass;  											   
 	};
 }else{
 	private _offsetAndDir = [_vehicle,_object,_nodeID] call jn_fnc_logistics_getCargoOffsetAndDir;
@@ -79,6 +81,8 @@ if _playAnimation then{
 	_object attachTo [_vehicle, _offsetAndDir select 0];
 	_object SetVectorDirAndUp [_offsetAndDir select 1, [0, 0, 1]];
 	_object hideObject false;
+	
+	[_vehicle, _object, false] call jn_fnc_logistics_addOrRemoveObjectMass;
 };
 
 //Add action to unload

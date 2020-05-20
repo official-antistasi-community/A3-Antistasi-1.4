@@ -147,7 +147,6 @@ switch (_callbackTarget) do {
 					else
 						{
 						[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
-						["moneyX",player getVariable ["moneyX",0]] call A3A_fnc_setStatVariable;
 						_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
 						};
 					};

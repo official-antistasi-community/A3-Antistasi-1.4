@@ -55,8 +55,8 @@ class CfgDebriefing
     class destroyedSites
     {
         title = "Stratis is Destroyed";
-        subtitle = "Stratis got Destroyed by CSAT";
-        description = "One third of the population in Stratis has been murdered by CSAT.<br/>Stratis no longer exists, nobody wants to live here.";
+        subtitle = "Stratis got Destroyed by OPFOR";
+        description = "One third of the population in Stratis has been murdered by OPFOR.<br/>Stratis no longer exists, nobody wants to live here.";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };

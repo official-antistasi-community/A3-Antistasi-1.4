@@ -97,7 +97,7 @@ DECLARE_SERVER_VAR(haveRadio, hasTFAR || hasACRE);
 //List of vehicles that are reported (I.e - Players can't go undercover in them)
 DECLARE_SERVER_VAR(reportedVehs, []);
 //Currently destroyed buildings.
-DECLARE_SERVER_VAR(destroyedBuildings, []);
+//DECLARE_SERVER_VAR(destroyedBuildings, []);
 //Initial HR
 server setVariable ["hr",8,true];
 //Initial faction money pool
@@ -128,6 +128,8 @@ movingMarker = false;
 markersChanging = [];
 
 playerHasBeenPvP = [];
+
+destroyedBuildings = [];		// synced only on join, to avoid spam on change
 
 ///////////////////////////////////////////
 //     INITIALISING ITEM CATEGORIES     ///

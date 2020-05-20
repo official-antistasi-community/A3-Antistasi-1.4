@@ -1,10 +1,15 @@
 if (hasInterface) then {
 	if (!isNil "savingClient" && {savingClient}) exitWith {["Save", "Your personal stats are being saved"] call A3A_fnc_customHint;};
-	[] call A3A_fnc_savePlayer;
+	[getPlayerUID player, player] call A3A_fnc_savePlayer;
 };
 
 //Server only from here on out.
 if (!isServer) exitWith {};
+
+// Save each player with global flag
+{
+	[getPlayerUID _x, _x, true] call A3A_fnc_savePlayer;
+} forEach (call A3A_fnc_playableUnits);
 
 if (savingServer) exitWith {["Save Game", "Server data save is still in progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
@@ -32,7 +37,8 @@ private _antennasDeadPositions = [];
 ["maxUnits", maxUnits] call A3A_fnc_setStatVariable;
 ["nextTick", nextTick - time] call A3A_fnc_setStatVariable;
 ["weather",[fogParams,rain]] call A3A_fnc_setStatVariable;
-["destroyedBuildings",destroyedBuildings] call A3A_fnc_setStatVariable;
+private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
+["destroyedBuildings",_destroyedPositions] call A3A_fnc_setStatVariable;
 
 //Save aggression values
 ["aggressionOccupants", [aggressionLevelOccupants, aggressionStackOccupants]] call A3A_fnc_setStatVariable;
@@ -208,6 +214,7 @@ _dataX = [];
 _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (controlsX find _x < defaultControlIndex)};
 ["controlsSDK",_controlsX] call A3A_fnc_setStatVariable;
 
+saveProfileNamespace;
 savingServer = false;
 _saveHintText = format ["Savegame Done.<br/><br/>You won't lose your stats in the event of a game update.<br/><br/>Remember: if you want to preserve any vehicle, it must be near the HQ Flag with no AI inside.<br/>If AI are inside, you will save the funds you spent on it.<br/><br/>AI will be refunded<br/><br/>Stolen and purchased Static Weapons need to be ASSEMBLED in order to be saved. You can save disassembled Static Weapons in the ammo box.<br/><br/>Mounted Statics (Mortar/AA/AT squads) won't get saved, but you will be able to recover the cost.<br/><br/>Same for assigned vehicles more than 50m away from HQ.<br/><br/>%1 fund count:<br/>HR: %2<br/>Money: %3 €",nameTeamPlayer,_hrBackground,_resourcesBackground];
 [petros,"hint",_saveHintText, "Save"] remoteExec ["A3A_fnc_commsMP", 0];

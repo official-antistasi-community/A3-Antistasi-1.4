@@ -9,6 +9,8 @@ if (isNil "logLevel") then { logLevel = 2 };scriptName "initClient.sqf";
 
 call A3A_fnc_installSchrodingersBuildingFix;
 
+if (!isServer) then { ["destroyedBuildings"] remoteExec ["A3A_fnc_requestDataFromServer", 2] };
+
 if (hasInterface) then {
 	waitUntil {!isNull player};
 	waitUntil {player == player};

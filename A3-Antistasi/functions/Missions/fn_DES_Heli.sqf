@@ -4,6 +4,7 @@ if (!isServer and hasInterface) exitWith{};
 private _missionOrigin = _this select 0;
 private _fileName = "fn_DES_Heli";
 private _difficult = if (random 10 < tierWar) then {true} else {false};
+private _bonus = if (_difficult) then {2} else {1};
 private _missionOriginPos = getMarkerPos _missionOrigin;
 private _sideX = if (sidesX getVariable [_missionOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _posHQ = getMarkerPos respawnTeamPlayer;
@@ -58,7 +59,7 @@ _vehicles append [_heli,_crater];
 
 //creating cover
 private _typeVeh = "Land_BagFence_01_long_green_F";
-private _counterLimit = 3 + (round (random 10));
+private _counterLimit = round (random[2,3,4]*_bonus);
 private _counter = 0;
 private _angle = random 360;
 while {_counter != _counterLimit} do {
@@ -185,7 +186,7 @@ if !(_typeVehH == vehNATOPatrolHeli) then {
 		//if attack helicopter
 		//creating transport vehicle
 		_typeVeh = if (_sideX == Occupants) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
-		private _posVehHT = _posCrash findEmptyPosition [0, 30 ,_typeVeh];
+		private _posVehHT = _posCrash findEmptyPosition [15, 30 ,_typeVeh];
 		_vehGuard = _typeVeh createVehicle _posVehHT;
 		[_vehGuard] call A3A_fnc_AIVEHinit;
 		_vehicles pushBack _vehGuard;
@@ -254,9 +255,7 @@ if (_vehR distance _heli < 50) then
 		_escortWP setWaypointType "MOVE";
 		_escortWP setWaypointBehaviour "SAFE";
 
-		[3, format ["%1, %2 are RTB", _pilots, _guard], _filename] call A3A_fnc_log;
-		deleteWaypoint [_pilots, 1];
-		if (!isNil "_guard") then {deleteWaypoint [_guard, 1]};
+		[3, format ["Pilots and Guard are RTB"], _filename] call A3A_fnc_log;
 		
 		_pilots addVehicle _heli;
 		(units _pilots) orderGetIn true;
@@ -314,7 +313,6 @@ waitUntil
 };
 
 //Reward & completing task
-_bonus = if (_difficult) then {2} else {1};
 if ((not alive _heli) || (_heli distance _posHQ < 100) ) then {
 	if (alive _heli) then {
 		[3, format ["%1 was captured", _heli], _filename] call A3A_fnc_log;

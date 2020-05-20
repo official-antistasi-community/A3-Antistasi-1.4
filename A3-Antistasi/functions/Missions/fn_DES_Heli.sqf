@@ -47,7 +47,6 @@ if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects 
 
 //creating array for cleanup
 private _vehicles = [];
-private _soldiers = [];
 private _groups = [];
 
 //createing crashed helicopter
@@ -117,7 +116,6 @@ private _vehCrew = crew _vehE;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
 [_vehE] call A3A_fnc_AIVEHinit;
 private _groupVeh = _vehicleDataE select 2;
-_soldiers append _vehCrew;
 _groups pushBack _groupVeh;
 _vehicles pushBack _vehE;
 
@@ -126,7 +124,7 @@ _vehicles pushBack _vehE;
 //spawning escort inf
 private _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry};
 private _groupX = [_missionOriginPos, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
-{_x assignAsCargo _vehE; _x moveInCargo _vehE; _soldiers pushBack _x; [_x] join _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
+{_x assignAsCargo _vehE; _x moveInCargo _vehE; [_x] join _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
 deleteGroup _groupX;
 
 //moving to crash site
@@ -146,7 +144,6 @@ sleep 1;
 private _groupVehR = _vehicleDataR select 2;
 private _vehCrewR = units _groupVehR;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrewR;
-_soldiers = _soldiers + _vehCrewR;
 _groups pushBack _groupVehR;
 _vehicles pushBack _vehR;
 
@@ -155,7 +152,7 @@ _reapirTruckWP = _groupVehR addWaypoint [_posCrash, 0];
 _reapirTruckWP setWaypointType "MOVE";
 _reapirTruckWP setWaypointBehaviour "SAFE";
 [3, format ["Transport Vehicle: %1, Crew: %2, Waypoint: %3", _typeVeh, _vehCrewR, _posCrash], _filename] call A3A_fnc_log;
-[3, format ["Waiting until %1 is destroyed or %2 has reached %1, or mission expires at: %3", _heli, _vehR, _dateLimitNum], _filename] call A3A_fnc_log;
+[3, format ["Waiting until %1 is destroyed or %2 has reached %1, or mission expires at: %3", _heli, _vehR, _dateLimit], _filename] call A3A_fnc_log;
 
 ///////////////////////////
 //Helicopter Crew & Guard//
@@ -177,7 +174,7 @@ _typeGroup = if (_sideX == Occupants) then {NATOSquad} else {CSATSquad};
 if !(_typeVehH == vehNATOPatrolHeli) then {
 	//spawning guard inf
 	_guard = [_posCrash, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
-	{_soldiers pushBack _x; [_x] call A3A_fnc_NATOinit} forEach units _guard;
+	{[_x] call A3A_fnc_NATOinit} forEach units _guard;
 	_groups pushBack _guard;
 
 	//tell guard group to guard heli
@@ -198,14 +195,19 @@ if !(_typeVehH == vehNATOPatrolHeli) then {
 //spawning pilots
 _typeGroup = if (_sideX == Occupants) then {[NATOPilot, NATOPilot]} else {[CSATPilot, CSATPilot]};
 _pilots = [_posCrash,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
-{_soldiers pushBack _x; [_x,""] call A3A_fnc_NATOinit} forEach units _pilots;
+{[_x,""] call A3A_fnc_NATOinit} forEach units _pilots;
 _groups pushBack _pilots;
+[_heli] call A3A_fnc_AIVEHinit;
 
-//tell pilots to guard heli
-private _pilotsWP = [_pilots, _posCrash, 50] call BIS_fnc_taskPatrol;
+pilots = _pilots; //debug
 
 
-[3, format ["Waiting until %1 reaches origin or rebel base, gets destroyed, timer expires or %2 reaches %1", _heli, _vehR], _filename] call A3A_fnc_log;
+//tell pilots to hide at heli
+private _pilotsWP = _pilots addWaypoint [_posCrash, 0];
+_pilotsWP setWaypointType "HOLD";
+_pilotsWP setWaypointBehaviour "STEALTH";
+
+[3, format ["Waiting until %1 reaches origin or rebel base, gets destroyed, timer expires at %3 or %2 reaches %1", _heli, _vehR, _dateLimit], _filename] call A3A_fnc_log;
 waitUntil
 {
 	sleep 1;
@@ -222,7 +224,7 @@ if (_vehR distance _heli < 50) then
 	{
 	[3, format ["Repair %1 has reached %2, starting repair...", _vehR, _heli], _filename] call A3A_fnc_log;
 	_vehR doMove position _heli;
-	sleep 300; //time to repair
+	sleep 30; //time to repair
 	if (alive _heli && alive _vehR && _vehR distance2D _heli < 50) then {
 		//repair complete remove crater and fix helicopter
 		_heli setDamage 0.2;
@@ -236,10 +238,10 @@ if (_vehR distance _heli < 50) then
 
 		//Guards & pilots stop patrolling
 		for "_i" from (count (waypoints _guard)) to 0 step -1 do {
-		deleteWaypoint [_guard, _i];
+			deleteWaypoint [_guard, _i];
 		};
 		for "_i" from (count (waypoints _pilots)) to 0 step -1 do {
-		deleteWaypoint [_pilots, _i];
+			deleteWaypoint [_pilots, _i];
 		};
 
 		//Repair truck & escort RTB
@@ -262,17 +264,30 @@ if (_vehR distance _heli < 50) then
 		_pilots addVehicle _heli;
 		(units _pilots) orderGetIn true;
 		sleep 1;
+		private _notAlivePilots = (units _pilots findIf {side _x == occupants} == -1);
 
 		if ((_typeVehH in vehNATOTransportHelis)||(_typeVehH in vehCSATTransportHelis)) then {
 			if !(_typeVehH == vehNATOPatrolHeli) then {
 				//guard move in back of heli, pilots wait for them to load
-				{_x assignAsCargo _heli}forEach units _guard;
+				if (_notAlivePilots) then {_guard addVehicle _heli} else {{_x assignAsCargo _heli}forEach units _guard};
 				(units _guard) orderGetIn true;
 				sleep 1;
+			};
+			if (_notAlivePilots && !(_typeVehH == vehNATOPatrolHeli)) then {
+				_pilotsWP = _guard addWaypoint [_missionOriginPos, 3];
+				_pilotsWP setWaypointType "MOVE";
+				_pilotsWP setWaypointBehaviour "AWARE";
+				_pilotsWP setWaypointSpeed "FULL";
+			} else {
+				_pilotsWP = _pilots addWaypoint [_missionOriginPos, 3];
+				_pilotsWP setWaypointType "MOVE";
+				_pilotsWP setWaypointBehaviour "AWARE";
+				_pilotsWP setWaypointSpeed "FULL";
 			};
 		} else {
 			//guard mount in own vehicle and RTB
 			_guard addVehicle _vehGuard;
+			if (_notAlivePilots) then {_guard addVehicle _heli};
 			(units _guard) orderGetIn true;
 			sleep 1;
 			_guardWP = _guard addWaypoint [_missionOriginPos, 1];
@@ -280,12 +295,11 @@ if (_vehR distance _heli < 50) then
 			_guardWP setWaypointBehaviour "AWARE";
 			_guardWP setWaypointSpeed "FULL";
 			_guard setCurrentWaypoint [_guard, 1];
+			_pilotsWP = _pilots addWaypoint [_missionOriginPos, 3];
+			_pilotsWP setWaypointType "MOVE";
+			_pilotsWP setWaypointBehaviour "AWARE";
+			_pilotsWP setWaypointSpeed "FULL";
 		};
-		//pilots RTB
-		_pilotsWP = _pilots addWaypoint [_missionOriginPos, 3];
-		_pilotsWP setWaypointType "MOVE";
-		_pilotsWP setWaypointBehaviour "AWARE";
-		_pilotsWP setWaypointSpeed "FULL";
 	};
 };
 
@@ -349,12 +363,6 @@ deleteMarker _taskMrk;
 deleteMarker _mrkCrash;
 
 //delete units, vehicles and groups
-{
-	waitUntil {sleep 1;(!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits))};
-	[3, format ["Clean up | Deleted: %1", _x], _filename] call A3A_fnc_log;
-	{deleteVehicle _x}forEach crew _x;
-	deleteVehicle _x;
-} forEach _vehicles;
-{deleteVehicle _x} forEach (_soldiers);
-{deleteGroup _x} forEach _groups;
+{[_x] spawn A3A_fnc_vehDespawner} forEach _vehicles;
+{[_x] spawn A3A_fnc_groupDespawner} forEach _groups;
 [3, format ["Downed Heli clean up complete"], _filename] call A3A_fnc_log;

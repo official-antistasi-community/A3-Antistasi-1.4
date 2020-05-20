@@ -199,9 +199,6 @@ _pilots = [_posCrash,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
 _groups pushBack _pilots;
 [_heli] call A3A_fnc_AIVEHinit;
 
-pilots = _pilots; //debug
-
-
 //tell pilots to hide at heli
 private _pilotsWP = _pilots addWaypoint [_posCrash, 0];
 _pilotsWP setWaypointType "HOLD";
@@ -224,7 +221,7 @@ if (_vehR distance _heli < 50) then
 	{
 	[3, format ["Repair %1 has reached %2, starting repair...", _vehR, _heli], _filename] call A3A_fnc_log;
 	_vehR doMove position _heli;
-	sleep 30; //time to repair
+	sleep 300; //time to repair
 	if (alive _heli && alive _vehR && _vehR distance2D _heli < 50) then {
 		//repair complete remove crater and fix helicopter
 		_heli setDamage 0.2;

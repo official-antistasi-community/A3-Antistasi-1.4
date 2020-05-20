@@ -7,7 +7,6 @@ private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _bonus = if (_difficult) then {2} else {1};
 private _missionOriginPos = getMarkerPos _missionOrigin;
 private _sideX = if (sidesX getVariable [_missionOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
-private _posHQ = getMarkerPos respawnTeamPlayer;
 [3, format ["Origin: %1, Hardmode: %2, Controlling Side: %3", _missionOrigin, _difficult, _sideX], _filename] call A3A_fnc_log;
 
 //finding crash position
@@ -17,7 +16,7 @@ private _dist = if (_difficult) then {2000} else {3000};
 private _posCrashOrigin = [];
 while {true} do {
 	_posCrashOrigin = _missionOriginPos getPos [_dist,_ang];
-	if ((!surfaceIsWater _posCrashOrigin) and (_posCrashOrigin distance _posHQ < 4000)) exitWith {};
+	if ((!surfaceIsWater _posCrashOrigin) and (_posCrashOrigin distance (getMarkerPos respawnTeamPlayer) < 4000)) exitWith {};
 	_ang = _ang + 1;
 	_countX = _countX + 1;
 	if (_countX > 360) then
@@ -211,7 +210,7 @@ waitUntil
 	sleep 1;
 	(not alive _heli) ||
 	{(_vehR distance _heli < 50) ||
-	((_heli distance _posHQ) < 100) ||
+	((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) ||
 	{(dateToNumber date > _dateLimitNum)}}
 };
 
@@ -308,12 +307,12 @@ waitUntil
 	sleep 1;
 	(not alive _heli) ||
 	((_heli distance _missionOriginPos) < 300) ||
-	((_heli distance _posHQ) < 100) ||
+	((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) ||
 	(dateToNumber date > _dateLimitNum)
 };
 
 //Reward & completing task
-if ((not alive _heli) || (_heli distance _posHQ < 100) ) then {
+if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100) ) then {
 	if (alive _heli) then {
 		[3, format ["%1 was captured", _heli], _filename] call A3A_fnc_log;
 		_vehicles = _vehicles - _heli;

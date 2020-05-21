@@ -210,7 +210,8 @@ waitUntil
 	sleep 1;
 	(not alive _heli) ||
 	{(_vehR distance _heli < 50) ||
-	((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) ||
+	((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) &&
+	isPlayer (driver _heli) ||
 	{(dateToNumber date > _dateLimitNum)}}
 };
 
@@ -306,13 +307,15 @@ waitUntil
 {
 	sleep 1;
 	(not alive _heli) ||
-	((_heli distance _missionOriginPos) < 300) ||
-	((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) ||
+	((_heli distance _missionOriginPos) < 300) &&
+	!isPlayer (driver _heli) ||
+	((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) &&
+	isPlayer (driver _heli) ||
 	(dateToNumber date > _dateLimitNum)
 };
 
 //Reward & completing task
-if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100) ) then {
+if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100) && isPlayer (driver _heli) ) then {
 	if (alive _heli) then {
 		[3, format ["%1 was captured", _heli], _filename] call A3A_fnc_log;
 		_vehicles = _vehicles - _heli;

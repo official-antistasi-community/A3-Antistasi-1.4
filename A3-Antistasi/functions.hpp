@@ -416,6 +416,7 @@ class A3A
 	class Punishment
 	{
 		class punishment {};
+		class punishment_FF {};
 		class punishment_addActionForgive {};
 		class punishment_notifyAdmin {};
 		class punishment_notifyAllAdmins {};

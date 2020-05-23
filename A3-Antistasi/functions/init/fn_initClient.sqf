@@ -61,7 +61,7 @@ if (isMultiplayer) then {
 					deleteVehicle (_this select 6);
 					if (_typeX == "Put") then {
 						if (player distance petros < 10) then {
-							[player, 20, 0.34, petros] call A3A_fnc_punishment;
+							[player, 20, 0.34, petros] call A3A_fnc_punishment_FF;
 						};
 					};
 				};
@@ -71,6 +71,10 @@ if (isMultiplayer) then {
 		if (hasACE) then {
 			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
 		};
+		player addEventHandler ["Killed", {
+			params ["_victim", "_killer", "_instigator", "_useEffects"];
+			[_instigator, 20, 0.34, _victim] remoteExec ["A3A_fnc_punishment_FF",_instigator];
+		}];
 	};
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }

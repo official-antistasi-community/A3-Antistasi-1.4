@@ -179,7 +179,7 @@ if (side group player == teamPlayer) then
 		_control
 		}];
 		*/
-	private _firedHandlerTk = 
+	private _firedHandlerTk =
 	{
 		_typeX = _this select 1;
 		if ((_typeX == "Put") or (_typeX == "Throw")) then
@@ -189,16 +189,16 @@ if (side group player == teamPlayer) then
 				deleteVehicle (_this select 6);
 				if (_typeX == "Put") then
 				{
-					if (player distance petros < 10) then 
+					if (player distance petros < 10) then
 					{
-						[player, 20, 0.34, petros] remoteExec ["A3A_fnc_punishment",player];
+						[player, 20, 0.34, petros] remoteExec ["A3A_fnc_punishment_FF",player];
 					};
 				};
 			};
 		};
 	};
 	player addEventHandler ["Fired", _firedHandlerTk];
-	if (hasACE) then 
+	if (hasACE) then
 	{
 		["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
 	};

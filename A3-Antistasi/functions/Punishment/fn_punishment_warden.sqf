@@ -1,6 +1,6 @@
 params["_detainee","_sentence"];
 
-_detainee setVariable ["punishment_coolDown", 2, true]; 
+_detainee setVariable ["punishment_coolDown", 2, true];
 _punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
 _punishment_warden_handle = _thisScript;
 _punishment_sentence_handle = [_detainee] call A3A_fnc_punishment_sentence;
@@ -10,8 +10,7 @@ _punishment_sentence_handle = [_detainee] call A3A_fnc_punishment_sentence;
 _punishment_vars set [3,[_punishment_warden_handle,_punishment_sentence_handle]];
 _detainee setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
 _countX = floor _sentence;
-while {_countX > 0} do
-{
+while {_countX > 0} do {
 	["Punishment", format ["Please do not teamkill. Play with the turtles for %1 more seconds.",_countX], true] remoteExec ["A3A_fnc_customHint", _detainee, false];
 	uiSleep 1;
 	_countX = _countX -1;

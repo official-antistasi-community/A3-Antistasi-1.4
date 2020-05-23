@@ -6,27 +6,47 @@ Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 	Refer to A3A_fnc_punishment for actual punishment logic.
 */
 /*
+[Required]
 	_instigator expects player object
 	_timeX expects time out
 	_offenceLevel expects percentage between 0 and 1 how server it is severe it is
+[OPTIONAL]
+	_victim expects player object
 */
 /*
-	Some Debug Console Interactions:
-
-	[cursorObject, 0, 0] remoteExec ["A3A_fnc_punishment_FF",cursorObject];					//ping
-	[cursorObject,120, 1, "sudo"] remoteExec ["A3A_fnc_punishment_FF",cursorObject];		//Insta Punish, 120 seconds
-	[player,120, 1, "sudo"] remoteExec ["A3A_fnc_punishment_FF",player];					//Self Punish, 120 seconds
-	[cursorObject,-99999, -1] remoteExec ["A3A_fnc_punishment_FF",cursorObject];			//Insta Forgive
-
+	[cursorObject, 0, 0] remoteExec ["A3A_fnc_punishment_FF",cursorObject];					// Test with no victim
+	[cursorObject, 0, 0 player] remoteExec ["A3A_fnc_punishment_FF",cursorObject];			// Test with victim
 */
+/////////////////Definitions////////////////
+_hurtYou = {
+	if (isPlayer _victim) then {["TK Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
+};
+_warn = {
+	Params ["_message"];
+	["TK Notification", _message] remoteExec ["A3A_fnc_customHint", _instigator, false];
+};
+_gotoExemption = {
+	Params ["_exemptionDetails"];
+	_playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name player, getPlayerUID player,str _timeAdded, str _offenceAdded];
+	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, %2 | %3", servertime, _exemptionDetails, _playerStats]] remoteExec ["diag_log", 2];
+	_exemptionDetails;
+};
+_vehicle = typeOf vehicle _instigator;
 /////////////Checks if TK/FF on/////////////
-if (!tkPunish) exitWith {"tkPunish is Disabled"};
-if (isDedicated) exitWith {"Is a Dedicated Server"};
-if (!isMultiplayer) exitWith {"Is not Multiplayer"};
-if (_instigator != player) exitWith {"Not Instigator"};	// Must be local for 'BIS_fnc_admin' and 'isServer'
-if (!_instigator in [Invaders, Occupants]) exitWith {"Not Rebel"};
-
+_exemption = "";
+_exemption = switch (true) do {
+	case !tkPunish:								{"tkPunish is Disabled"};
+	case isDedicated || isServer:				{"Is a Server"};
+	case !isMultiplayer:						{"Is not Multiplayer"};
+	case _instigator != player:					{"Not Instigator"};		// Must be local for 'BIS_fnc_admin' and 'isServer'
+	case !_instigator in [Invaders, Occupants]:	{"Not Rebel"};
+	case _victim == _instigator:				{"SUICIDE"};
+	case !isNull _victim && !alive _victim:		{"CORPSE"};				//Ace check is further on
+	default 									{""};
+};
 //////Cool down prevents multi-hit spam/////
+	// Is below previous checks as to not spam scripts.
+	// Is above following checks to avoid unnecessary calculations.
 _coolDown = _instigator getVariable ["punishment_coolDown", 0];
 if (_coolDown > 0) exitWith {"punishment_coolDown active"};
 _instigator setVariable ["punishment_coolDown", 1, true];
@@ -37,62 +57,54 @@ _instigator setVariable ["punishment_coolDown", 1, true];
 	_coolDown = _player getVariable ["punishment_coolDown", 0];
 	if (_coolDown < 2) then {_player setVariable ["punishment_coolDown", 0, true]};
 };
-
-/////////Checks if manual punishment////////
-_forcePunish = false;
-if (_victim isEqualTo "sudo") then {_victim = objNull; _forcePunish = true};
-_victimListed = !isNull _victim;
-
-_playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %4, _offenceOverhead: %5, _timeAdded: %6, _offenceAdded: %7", name player, getPlayerUID player, str _timeTotal, str _offenceTotal, str _overhead, str _timeAdded, str _offenceAdded];
-
-_exitCode = "";
-if (!_forcePunish) then {
-///////////Checks for CAS or Arty///////////
-	if (vehicle _instigator != _instigator && !_forgive) then {
-		_vehicle = typeOf vehicle _instigator;
-		if (isNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner")) then {
-			_artilleryScanner = getNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner");
-			if (_artilleryScanner != 0) then {
-				_exitCode = "Inside Artillery";
-				[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, ARTY, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
-				["TK Notification", "Arty Team Damage."] remoteExec ["A3A_fnc_customHint", _instigator, false];
-			};
-		};
-		if (_vehicle isKindOf "Helicopter" || _vehicle isKindOf "Plane") then {
-			[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, AIRCRAFT, %2 | %3", servertime, _vehicle, _playerStats]] remoteExec ["diag_log", 2];
-			["TK Notification", "CAS Team Damage."] remoteExec ["A3A_fnc_customHint", _instigator, false];
-			_exitCode = "Inside Aircraft";
-		};
-	};
-	if (
-		if (_victimListed) then	{
-			if (!alive _victim || (_victim getVariable ["ACE_isUnconscious", false])) exitWith {_exitCode = "Victim is a corpse"; true;};
-			if (_victim == _instigator) exitWith {_exitCode = "Victim of Suicide"; true;};
-			false;
-		}
-	) exitWith {_exitCode};
-/////////Checks for important roles/////////
-	//TODO: if( remoteControlling(_instigator) ) exitWith		//For the meantime do either one of the following: login for Zeus, use the memberList addon, disable TKPunish `_player setVariable ["punishment_coolDown", 2, true]; or change your player side to enemy faction`
-	//														//Even then: your controls will be free, and you won't die or lose inventory. If you have debug consol you can self forgive.
-	_adminType = ["Not","Voted","Logged"] select ([] call BIS_fnc_admin);
-	if (_adminType != "Not" || isServer ) exitWith {
-		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, ADMIN, %2 | %3", servertime, _adminType, _playerStats]] remoteExec ["diag_log", 2];
-		["TK Notification", "You damaged a player as admin."] remoteExec ["A3A_fnc_customHint", _instigator, false];
-		_exitCode = "Player is Voted or Logged Admin"; "Player is Voted or Logged Admin";
-	};
-	if (_instigator == theBoss) exitWith {
-		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, COMMANDER | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-		["TK Notification", "You damaged a player as the Commander."] remoteExec ["A3A_fnc_customHint", _instigator, false];
-		if (_victimListed) then {["TK Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
-		_exitCode = "Player is  Commander";
-	};
-	if ([_instigator] call A3A_fnc_isMember) exitWith {
-		[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, MEMBER | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-		["TK Notification", "You damaged a player as a trusted member."] remoteExec ["A3A_fnc_customHint", _instigator, false];
-		if (_victimListed) then {["TK Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
-		_exitCode = "Player is  Member";
-	};
+//////////////Acts if TK/FF on//////////////
+if (_exemption !=  "") exitWith {
+	[format["NOT FF, %1", _exemption]] call _gotoExemption;
 };
-if (_exitCode != "") exitWith {_exitCode;};
+/////////Checks for important roles/////////
+_exemption = switch (true) do {
+	case hasACE && {_victim getVariable ["ACE_isUnconscious", false]}: {
+		"CORPSE"
+	};
+	case vehicle _instigator isKindOf "Air": {
+		call _hurtYou;
+		["You damaged a friendly as CAS support."] call _warn;
+		format["AIRCRAFT, %1", _vehicle];
+	};
+	case
+		isNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner") &&
+		getNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner") != 0
+	: {
+		call _hurtYou;
+		["You damaged a friendly as arty support."] call _warn;
+		format ["ARTY, %1", _vehicle];
+	};
+	case call BIS_fnc_admin != 0: {
+		call _hurtYou;
+		["You damaged a friendly as admin."] call _warn;
+		format ["ADMIN, %1", ["Not","Voted","Logged"] select (call BIS_fnc_admin)];
+	};
+	case _instigator == theBoss: {
+		call _hurtYou;
+		["You damaged a friendly as the Commander."] call _warn;
+		"COMMANDER";
+	};
+	case [_instigator] call A3A_fnc_isMember: {
+		call _hurtYou;
+		["You damaged a friendly as a trusted member."] call _warn;
+		"MEMBER";
+	};
+	//TODO: if( remoteControlling(_instigator) ) exitWith
+		// For the meantime do either one of the following: login for Zeus, use the memberList addon;
+		// Or change your player side to enemy faction
+		// Without above: your controls will be free, and you won't die or lose inventory. If you have debug consol you can self forgive.
+	default {""};
+};
 
-["_instigator","_timeAdded","_offenceAdded","_victim"] remoteExec ["A3A_fnc_punishment",_instigator];
+if (_exemption != "") exitWith {
+	[_exemption] call _gotoExemption;
+};
+
+["_instigator","_timeAdded","_offenceAdded","_victim"] call A3A_fnc_punishment;
+
+

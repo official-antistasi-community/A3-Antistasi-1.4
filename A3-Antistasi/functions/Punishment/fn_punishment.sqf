@@ -1,18 +1,20 @@
 Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
-//MUST be executed on foolish for 'BIS_fnc_admin' and 'isServer' to work.
-// EG: [_instigator, 20, 0.34, _victim] remoteExec ["A3A_fnc_punishment",_instigator];
+// EG: [_instigator, 20, 0.34, _victim] call A3A_fnc_punishment;
 /*
+[Required]
 	_instigator expects player object
 	_timeX expects time out
 	_offenceLevel expects percentage between 0 and 1 how server it is severe it is
+[OPTIONAL]
+	_victim expects player object
 */
 /*
 	Some Debug Console Interactions:
 
-	[cursorObject, 0, 0] remoteExec ["A3A_fnc_punishment",cursorObject];				//ping
-	[cursorObject,120, 1, "sudo"] remoteExec ["A3A_fnc_punishment",cursorObject];		//Insta Punish, 120 seconds
-	[player,120, 1, "sudo"] remoteExec ["A3A_fnc_punishment",player];					//Self Punish, 120 seconds
-	[cursorObject,-99999, -1] remoteExec ["A3A_fnc_punishment",cursorObject];			//Insta Forgive
+	[cursorObject, 0, 0] call A3A_fnc_punishment;			// Ping
+	[cursorObject,120, 1] call A3A_fnc_punishment;			// Insta Punish, 120 seconds
+	[player,120, 1] call A3A_fnc_punishment";				// Self Punish, 120 seconds
+	[cursorObject,-99999, -1] call "A3A_fnc_punishment;		// Insta Forgive
 
 */
 //////////////////SETTINGS//////////////////

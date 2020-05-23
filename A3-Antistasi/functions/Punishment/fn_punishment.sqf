@@ -7,7 +7,7 @@ Params ["_foolish","_timeAdded","_offenceAdded",["_victim",objNull]];
 	_offenceLevel expects percentage between 0 and 1 how server it is severe it is
 */
 /*
-	Some Debug Consol Interactions:
+	Some Debug Console Interactions:
 
 	[cursorObject, 0, 0] remoteExec ["A3A_fnc_punishment",cursorObject];				//ping
 	[cursorObject,120, 1, "sudo"] remoteExec ["A3A_fnc_punishment",cursorObject];		//Insta Punish, 120 seconds
@@ -17,16 +17,13 @@ Params ["_foolish","_timeAdded","_offenceAdded",["_victim",objNull]];
 */
 //////////////////SETTINGS//////////////////
 _depreciationCoef = 0.75;							//Modifies the drop-off curve of the punishment value; a higher number drops off quicker, a lower number lingers longer.
-_overheadPercent = 0.3;								//Lowers the bar (1.0 - accumulated overhead) for getting punished
-/////////////////         //////////////////
+_overheadPercent = 0.3;								//Lowers the bar for getting punished (1.0 - accumulated overhead)
+/////////////Checks if TK/FF on/////////////
 if (!tkPunish) exitWith {"tkPunish is Disabled"};
-
 if (isDedicated) exitWith {"Is a Dedicated Server"};
-
 if (!isMultiplayer) exitWith {"Is not Multiplayer"};
-
 if (_foolish != player) exitWith {"Not Instigator"};	//Must be local for [BIS_fnc_admin, isServer]
-
+////////Calculates Punishment values////////
 _forgive = (_timeAdded < 0 || _offenceAdded < 0);
 
 _coolDown = _foolish getVariable ["punishment_coolDown", 0];
@@ -52,6 +49,7 @@ if (_forgive) exitWith {
 	_playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %4, _offenceOverhead: %5, _timeAdded: %6, _offenceAdded: %7", name player, getPlayerUID player, str _timeTotal, str _offenceTotal, str 0, str _timeAdded, str _offenceAdded];
 	[format ["%1: [Antistasi] | INFO | PUNISHMENT | FORGIVE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
 };
+//////Cool down prevents multi-hit spam/////
 if (_coolDown > 0) exitWith {"punishment_coolDown active"};
 _foolish setVariable ["punishment_coolDown", 1, true];
 [_foolish] spawn {
@@ -66,29 +64,29 @@ _punishment_vars = _foolish getVariable ["punishment_vars", [0,0,[0,0],[scriptNu
 _timeTotal = _punishment_vars select 0;
 _offenceTotal = _punishment_vars select 1;
 _lastTime = (_punishment_vars select 2) select 0;																//[lastTime,overhead]
-_overhead = (_punishment_vars select 2) select 1;																//[lastTime,overhead]
-
+_overhead = (_punishment_vars select 2) select 1;
+///////////////Data Validation//////////////
 if (_lastTime <= 0) then {_lastTime = serverTime;};
 _periodDelta = serverTime - _lastTime;
 if (_offenceAdded < 0) then {_offenceAdded = 0};
 if (_offenceTotal < 0) then {_offenceTotal = 0};
 if (_timeAdded < 0) then {_timeAdded = 0};
 if (_timeTotal < 0) then {_timeTotal = 0};
-if  (_periodDelta > 60*60) then	{			//Hourly falloff
+///////////////Hourly falloff///////////////
+if  (_periodDelta > 60*60) then	{
 	_offenceTotal = 0;
 	_timeTotal = 0;
 	_overhead = 0;
 };
-_overhead = _overhead + _offenceAdded * _overheadPercent;
-_offenceTotal = _offenceTotal + _offenceAdded;
-_offenceTotal = (_offenceTotal)*((1-_depreciationCoef*(1-(_offenceTotal)))^(_periodDelta/300));
+//////////////TK Score Addition/////////////
+_overhead += _offenceAdded * _overheadPercent;
+_offenceTotal += _offenceAdded;
+_offenceTotal *= (1-_depreciationCoef*(1-(_offenceTotal))) ^(_periodDelta/300);		//Depreciation formula
 _grandOffence = _offenceTotal + _overhead;
-_timeTotal = _timeTotal + _timeAdded;
-_timeTotal = (_timeTotal)*((1-_depreciationCoef*(1-(_timeTotal)))^(_periodDelta/300));
-
+_timeTotal += _timeAdded;
+_timeTotal *= (1-_depreciationCoef*(1-(_timeTotal))) ^(_periodDelta/300);			//Depreciation formula
 _lastOffenceData = [serverTime,_overhead];
-
-
+/////////Checks if manual punishment////////
 _forcePunish = false;
 if (_victim isEqualTo "sudo") then {_victim = objNull; _forcePunish = true};
 _victimListed = !isNull _victim;
@@ -97,6 +95,7 @@ _playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %4, _offe
 
 _exitCode = "";
 if (!_forcePunish) then {
+///////////Checks for CAS or Arty///////////
 	if (vehicle _foolish != _foolish && !_forgive) then {
 		_vehicle = typeOf vehicle _foolish;
 		if (isNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner")) then {
@@ -120,7 +119,7 @@ if (!_forcePunish) then {
 			false;
 		}
 	) exitWith {_exitCode};
-
+/////////Checks for important roles/////////
 	//TODO: if( remoteControlling(_foolish) ) exitWith		//For the meantime do either one of the following: login for Zeus, use the memberList addon, disable TKPunish `_player setVariable ["punishment_coolDown", 2, true]; or change your player side to enemy faction`
 	//														//Even then: your controls will be free, and you won't die or lose inventory. If you have debug consol you can self forgive.
 	_adminType = ["Not","Voted","Logged"] select ([] call BIS_fnc_admin);
@@ -141,7 +140,7 @@ if (!_forcePunish) then {
 		if (_victimListed) then {["TK Notification", format["%1 hurt you!",name _foolish]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 		_exitCode = "Player is  Member";
 	};
-
+///REMOVEEEEEEEEEEEEEEEEEEEE
 	_pvpNearby = false;
 	_pvpPerson = objNull;
 	if (_victimListed) then {
@@ -161,12 +160,12 @@ if (_exitCode != "") exitWith {_exitCode;};
 [format ["%1: [Antistasi] | INFO | PUNISHMENT | WARNING | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
 ["TK Warning", "Watch your fire!"] remoteExec ["A3A_fnc_customHint", _foolish, false];
 if (_victimListed) then {["TK Notification", format["%1 hurt you!",name _foolish]] remoteExec ["A3A_fnc_customHint", _victim, false];};
-
+//////////Saves data to instigator//////////
 _punishment_vars set [0,_timeTotal];
 _punishment_vars set [1,_offenceTotal];
 _punishment_vars set [2,_lastOffenceData];
 _foolish setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
-
+/////////Where punishment is issued/////////
 if (_grandOffence < 1) exitWith {"Strike"};
 
 [format ["%1: [Antistasi] | INFO | PUNISHMENT | GUILTY | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];

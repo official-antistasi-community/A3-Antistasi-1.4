@@ -248,28 +248,23 @@ else
 		};
 	};
 };
-
-//Why does the truck depends on roads?
-if (count _roads != 0) then
+//_pos = _positionX findEmptyPosition [5,_size,"I_Truck_02_covered_F"];//donde pone 5 antes ponía 10
+_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
+if (_spawnParameter isEqualType []) then
 {
-	//_pos = _positionX findEmptyPosition [5,_size,"I_Truck_02_covered_F"];//donde pone 5 antes ponía 10
-	_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
-	if (_spawnParameter isEqualType []) then
+	_typeVehX = if (_sideX == Occupants) then
 	{
-		_typeVehX = if (_sideX == Occupants) then
-		{
-			if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {[vehFIATruck]};
-		}
-		else
-		{
-			vehCSATTrucks
-		};
-		_veh = createVehicle [selectRandom _typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
-		_veh setDir (_spawnParameter select 1);
-		_vehiclesX pushBack _veh;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
-		sleep 1;
+		if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {[vehFIATruck]};
+	}
+	else
+	{
+		vehCSATTrucks
 	};
+	_veh = createVehicle [selectRandom _typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
+	_veh setDir (_spawnParameter select 1);
+	_vehiclesX pushBack _veh;
+	_nul = [_veh] call A3A_fnc_AIVEHinit;
+	sleep 1;
 };
 
 _countX = 0;

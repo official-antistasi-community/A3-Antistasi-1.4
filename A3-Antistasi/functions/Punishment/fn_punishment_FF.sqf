@@ -14,9 +14,9 @@ Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 	_victim expects player object
 */
 /*
-	[cursorObject, 0, 0, objNull] remoteExec ["A3A_fnc_punishment_FF",cursorObject];// Test with no victim
-	[cursorObject, 0, 0, player] remoteExec ["A3A_fnc_punishment_FF",cursorObject];	// Test with victim
-	[cursorObject] call A3A_fnc_punishment_release;                                 // Forgive all sins
+	[player, 0, 0, objNull] call A3A_fnc_punishment_FF;      // Test self with no victim
+	[player, 0, 0, cursorObject] call A3A_fnc_punishment_FF; // Test self with victim
+	[player] call A3A_fnc_punishment_release;                // Self forgive all sins
 */
 /////////////////Definitions////////////////
 _notifyVictim = {
@@ -35,14 +35,14 @@ _gotoExemption = {
 _vehicle = typeOf vehicle _instigator;
 ///////////////Checks if is FF//////////////
 _exemption = switch (true) do {
-	case !tkPunish:                             {"FF PUNISH IS DISABLED"};
-	case isDedicated || isServer:               {"FF BY SERVER"};
-	case !isMultiplayer:                        {"IS NOT MULTIPLAYER"};
-	case _instigator != player:                 {"NOT INSTIGATOR"};	// Must be local for 'BIS_fnc_admin' and 'isServer'
-	case !_instigator in [Invaders, Occupants]: {"NOT REBEL"};
-	case _victim == _instigator:                {"SUICIDE"};
-	case !isNull _victim && !alive _victim:     {"CORPSE"};	// Ace check is further on
-	default                                     {""};
+	case (!tkPunish):                                  {"FF PUNISH IS DISABLED"};
+	case (isDedicated || isServer):                    {"FF BY SERVER"};
+	case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};
+	case (_instigator != player):                      {"NOT INSTIGATOR"};	// Must be local for 'BIS_fnc_admin' and 'isServer'
+	case !(side _instigator in [Invaders, Occupants]): {"NOT REBEL"};
+	case (_victim == _instigator):                     {"SUICIDE"};
+	case !(isNull _victim && alive _victim):           {"CORPSE"};	// Ace check is further on
+	default                                            {""};
 };
 //////Cool down prevents multi-hit spam/////
 	// Is below previous checks as to not spam getVariable.
@@ -56,32 +56,32 @@ if (_exemption !=  "") exitWith {
 };
 /////////Checks for important roles/////////
 _exemption = switch (true) do {
-	case hasACE && {_victim getVariable ["ACE_isUnconscious", false]}: {
+	case (hasACE && {_victim getVariable ["ACE_isUnconscious", false]}): {
 		"CORPSE"
 	};
-	case call BIS_fnc_admin != 0: {
+	case (call BIS_fnc_admin != 0): {
 		["You damaged a friendly as admin."] call _notifyInstigator;	// Admin not reported for Zeus remote control.
 		format ["ADMIN, %1", ["Not","Voted","Logged"] select (call BIS_fnc_admin)];
 	};
-	case vehicle _instigator isKindOf "Air": {
+	case (vehicle _instigator isKindOf "Air"): {
 		call _notifyVictim;
 		["You damaged a friendly as CAS support."] call _notifyInstigator;
 		format["AIRCRAFT, %1", _vehicle];
 	};
-	case
+	case (
 		isNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner") &&
 		getNumber (configFile >> "CfgVehicles" >> _vehicle >> "artilleryScanner") != 0
-	: {
+	): {
 		call _notifyVictim;
 		["You damaged a friendly as arty support."] call _notifyInstigator;
 		format ["ARTY, %1", _vehicle];
 	};
-	case _instigator == theBoss: {
+	case (_instigator == theBoss): {
 		call _notifyVictim;
 		["You damaged a friendly as the Commander."] call _notifyInstigator;
 		"COMMANDER";
 	};
-	case [_instigator] call A3A_fnc_isMember: {
+	case ([_instigator] call A3A_fnc_isMember): {
 		call _notifyVictim;
 		["You damaged a friendly as a trusted member."] call _notifyInstigator;
 		"MEMBER";

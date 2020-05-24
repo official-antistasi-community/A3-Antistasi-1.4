@@ -32,7 +32,7 @@ _gotoExemption = {
 	_exemptionDetails;
 };
 _vehicle = typeOf vehicle _instigator;
-/////////////Checks if TK/FF on/////////////
+/////////////Checks if is TK/FF/////////////
 _exemption = "";
 _exemption = switch (true) do {
 	case !tkPunish:								{"tkPunish is Disabled"};
@@ -45,19 +45,12 @@ _exemption = switch (true) do {
 	default 									{""};
 };
 //////Cool down prevents multi-hit spam/////
-	// Is below previous checks as to not spam scripts.
+	// Is below previous checks as to not spam getVariable.
 	// Is above following checks to avoid unnecessary calculations.
-_coolDown = _instigator getVariable ["punishment_coolDown", 0];
-if (_coolDown > 0) exitWith {"punishment_coolDown active"};
-_instigator setVariable ["punishment_coolDown", 1, true];
-[_instigator] spawn {
-	params ["_player"];
-	sleep 1;	//Using raw sleep to help include lag spikes that may effect damage and shooting.
-
-	_coolDown = _player getVariable ["punishment_coolDown", 0];
-	if (_coolDown < 2) then {_player setVariable ["punishment_coolDown", 0, true]};
-};
-//////////////Acts if TK/FF on//////////////
+	// Doesn't log to avoid RPT spam.
+if (_instigator getVariable ["punishment_coolDown", 0] > servertime) exitWith {"punishment_coolDown active"};
+_instigator setVariable ["punishment_coolDown", servertime + 1, true];
+//////////////Logs if is TK/FF//////////////
 if (_exemption !=  "") exitWith {
 	[format["NOT FF, %1", _exemption]] call _gotoExemption;
 };

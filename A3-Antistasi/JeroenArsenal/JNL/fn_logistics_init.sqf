@@ -153,11 +153,10 @@ jnl_vehicleHardpoints = [
   ]],
 
 //Zils
-//Zil 131 ----- ZIL Disabled due to broken/clipping seats. DO NOT USE IN MISSION
-/*  ["rhsafrf\addons\rhs_zil131\rhs_zil131", [
-    [1, [0,-0.1,-0.45], [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]],
-    [1, [0,-1.8,-0.45], []]
-  ]],*/
+  ["rhsafrf\addons\rhs_zil131\rhs_zil131", [
+    [1, [0,-0.1,-0.5], [2,3,4,5,10,11]],
+    [1, [0,-1.8,-0.5], [6,7,8,9]]
+  ]],
 
 //Gaz
   ["\rhsafrf\addons\rhs_gaz66\rhs_gaz66.p3d", [
@@ -308,12 +307,16 @@ jnl_vehicleHardpoints = [
   ]],*/
 
 // ---------- 3CB ----------
-//Datsun
+//Datsun Civ Variant
   ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_datsun\uk3cb_datsun_civ_open.p3d", [
-    [0,		[0,-1.2,-0.72],		[1,2,3,4]],
-    [1,		[0,-1.2,-0.72],		[1,2,3,4]]
+    [0,		[0,-1.2,-0.72],		[2,3,4,5,6]], //1 Apears to be the Front Passenger Seat, FFV Seat cannot be disabled
+    [1,		[0,-1.2,-0.72],		[2,3,4,5,6]]
   ]],
-
+//Datsun Non Civ Variant
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_datsun\uk3cb_datsun_open.p3d", [
+    [0,		[0,-1.2,-1.15],		[1,3,4,5,6,7,8]], //2 is Front Passenger Seat, FFV Seat cannot be disabled
+    [1,		[0,-1.2,-1.15],		[1,3,4,5,6,7,8]]
+  ]],
 //Hilux
   ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_hilux\uk3cb_hilux.p3d", [
     [0,		[0,-1.2,-0.72],		[1,2,3,4]],

@@ -28,13 +28,12 @@ _notifyInstigator = {
 };
 _gotoExemption = {
 	Params ["_exemptionDetails"];
-	_playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name player, getPlayerUID player,str _timeAdded, str _offenceAdded];
+	_playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name _instigator, getPlayerUID _instigator,str _timeAdded, str _offenceAdded];
 	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, %2 | %3", servertime, _exemptionDetails, _playerStats]] remoteExec ["diag_log", 2];
 	_exemptionDetails;
 };
 _vehicle = typeOf vehicle _instigator;
 ///////////////Checks if is FF//////////////
-_exemption = "";
 _exemption = switch (true) do {
 	case !tkPunish:                             {"FF PUNISH IS DISABLED"};
 	case isDedicated || isServer:               {"FF BY SERVER"};

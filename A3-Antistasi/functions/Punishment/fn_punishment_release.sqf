@@ -22,7 +22,7 @@ if !(scriptDone _punishment_sentence || isNull _punishment_sentence) then {
 	call _TPToHQ;
 };
 
-_playerStats = format["Player: %1 [%2]", name player, getPlayerUID player];
+_playerStats = format["Player: %1 [%2]", name _detainee, getPlayerUID _detainee];
 [format ["%1: [Antistasi] | INFO | PUNISHMENT | FORGIVE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
 ["FF Notification", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExec ["A3A_fnc_customHint", _detainee, false];
 

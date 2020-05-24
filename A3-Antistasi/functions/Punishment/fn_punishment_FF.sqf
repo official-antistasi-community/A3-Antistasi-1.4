@@ -19,11 +19,11 @@ Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 */
 /////////////////Definitions////////////////
 _notifyVictim = {
-	if (isPlayer _victim) then {["TK Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
+	if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 };
 _notifyInstigator = {
 	Params ["_message"];
-	["TK Notification", _message] remoteExec ["A3A_fnc_customHint", _instigator, false];
+	["FF Notification", _message] remoteExec ["A3A_fnc_customHint", _instigator, false];
 };
 _gotoExemption = {
 	Params ["_exemptionDetails"];
@@ -32,11 +32,11 @@ _gotoExemption = {
 	_exemptionDetails;
 };
 _vehicle = typeOf vehicle _instigator;
-/////////////Checks if is TK/FF/////////////
+///////////////Checks if is FF//////////////
 _exemption = "";
 _exemption = switch (true) do {
-	case !tkPunish:                             {"TK PUNISH IS DISABLED"};
-	case isDedicated || isServer:               {"TK BY SERVER"};
+	case !tkPunish:                             {"FF PUNISH IS DISABLED"};
+	case isDedicated || isServer:               {"FF BY SERVER"};
 	case !isMultiplayer:                        {"IS NOT MULTIPLAYER"};
 	case _instigator != player:                 {"NOT INSTIGATOR"};	// Must be local for 'BIS_fnc_admin' and 'isServer'
 	case !_instigator in [Invaders, Occupants]: {"NOT REBEL"};
@@ -50,7 +50,7 @@ _exemption = switch (true) do {
 	// Doesn't log to avoid RPT spam.
 if (_instigator getVariable ["punishment_coolDown", 0] > servertime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
 _instigator setVariable ["punishment_coolDown", servertime + 1, true];
-//////////////Logs if is TK/FF//////////////
+////////////////Logs if is FF///////////////
 if (_exemption !=  "") exitWith {
 	[format["NOT FF, %1", _exemption]] call _gotoExemption;
 };

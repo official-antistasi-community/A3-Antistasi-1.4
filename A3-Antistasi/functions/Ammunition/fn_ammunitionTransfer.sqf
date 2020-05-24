@@ -79,21 +79,31 @@ if (count _weaponsFinal > 0) then
 
 _ammunitionFinal = [];
 _ammunitionFinalCount = [];
+_vehicleAmmo = [];
 if (isNil "_ammunition") then
-	{
+{
 	diag_log format ["Error en transmisión de munición. Tenía esto: %1 y estos containers: %2, el originX era un %3 y el objectX está definido como: %4", magazineCargo _originX, everyContainer _originX,typeOf _originX,_originX];
-	}
+}
 else
+{
 	{
-	{
-	_weaponX = _x;
-	if ((not(_weaponX in _ammunitionFinal)) and (not(_weaponX in unlockedMagazines))) then
+		_weaponX = _x;
+		if !(_weaponX in _ammunitionFinal) then
 		{
-		_ammunitionFinal pushBack _weaponX;
-		_ammunitionFinalCount pushBack ({_x == _weaponX} count _ammunition);
+			_magcount = {_x == _weaponX} count _ammunition;
+			if (getNumber (configFile >> "CfgMagazines" >> _weaponX >> "type") == 0) then
+			{
+				// save vehicle ammo for re-adding after clearance
+				_vehicleAmmo pushBack [_weaponX, _magcount];
+			};
+			if !(_weaponX in unlockedMagazines) then
+			{
+				_ammunitionFinal pushBack _weaponX;
+				_ammunitionFinalCount pushBack _magcount;
+			};
 		};
-	} forEach  _ammunition;
-	};
+	} forEach _ammunition;
+};
 
 
 if (count _ammunitionFinal > 0) then
@@ -143,16 +153,19 @@ if (count _backpcksFinal > 0) then
 	};
 
 if (count _this == 3) then
-	{
+{
 	deleteVehicle _originX;
-	}
+}
 else
-	{
+{
 	clearMagazineCargoGlobal _originX;
 	clearWeaponCargoGlobal _originX;
 	clearItemCargoGlobal _originX;
 	clearBackpackCargoGlobal _originX;
-	};
+
+	// restore original vehicle ammo
+	{ _originX addMagazineCargoGlobal _x } forEach _vehicleAmmo;
+};
 
 if (_destinationX == boxX) then
 	{

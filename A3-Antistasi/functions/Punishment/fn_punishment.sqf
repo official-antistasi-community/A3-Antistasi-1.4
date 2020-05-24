@@ -13,7 +13,7 @@ Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 
 	[cursorObject, 0, 0] call A3A_fnc_punishment;      // Ping
 	[cursorObject,120, 1] call A3A_fnc_punishment;     // Punish, 120 seconds
-	[player,120, 1] call A3A_fnc_punishment;           // Punish, 120 seconds
+	[player,10, 1] call A3A_fnc_punishment;            // Test Punish, 10 seconds
 	[cursorObject] call A3A_fnc_punishment_release;    // Forgive all sins
 
 */

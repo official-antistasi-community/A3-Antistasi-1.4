@@ -232,7 +232,14 @@ jnl_vehicleHardpoints = [
 ["\rhsusf\addons\rhsusf_SOCOMAUV\M1239",[
   [1,[0.0,-2.5,-1.2], []]
 ]],
-
+//Soccom Mrap M2
+["\rhsusf\addons\rhsusf_SOCOMAUV\M1239_M2",[
+[1,[0.0,-2.5,-1.2], []]
+]],
+//Soccom Mrap MK19
+["\rhsusf\addons\rhsusf_SOCOMAUV\M1239_MK19",[
+[1,[0.0,-2.5,-1.2], []]
+]],
 //USAF 8x8 Trucks
 //Standard
   ["\rhsusf\addons\rhsusf_HEMTT_A4\M977A4_wd",[

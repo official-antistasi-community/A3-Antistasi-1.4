@@ -35,14 +35,14 @@ _vehicle = typeOf vehicle _instigator;
 /////////////Checks if is TK/FF/////////////
 _exemption = "";
 _exemption = switch (true) do {
-	case !tkPunish:								{"TK PUNISH IS DISABLED"};
-	case isDedicated || isServer:				{"TK BY SERVER"};
-	case !isMultiplayer:						{"IS NOT MULTIPLAYER"};
-	case _instigator != player:					{"NOT INSTIGATOR"};	// Must be local for 'BIS_fnc_admin' and 'isServer'
-	case !_instigator in [Invaders, Occupants]:	{"NOT REBEL"};
-	case _victim == _instigator:				{"SUICIDE"};
-	case !isNull _victim && !alive _victim:		{"CORPSE"};			// Ace check is further on
-	default 									{""};
+	case !tkPunish:                             {"TK PUNISH IS DISABLED"};
+	case isDedicated || isServer:               {"TK BY SERVER"};
+	case !isMultiplayer:                        {"IS NOT MULTIPLAYER"};
+	case _instigator != player:                 {"NOT INSTIGATOR"};	// Must be local for 'BIS_fnc_admin' and 'isServer'
+	case !_instigator in [Invaders, Occupants]: {"NOT REBEL"};
+	case _victim == _instigator:                {"SUICIDE"};
+	case !isNull _victim && !alive _victim:     {"CORPSE"};	// Ace check is further on
+	default                                     {""};
 };
 //////Cool down prevents multi-hit spam/////
 	// Is below previous checks as to not spam getVariable.

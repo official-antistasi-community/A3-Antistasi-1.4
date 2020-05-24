@@ -1,4 +1,4 @@
-params["_detainee"];
+params["_detainee",["_source",""]];
 /*
 	[cursorObject] call A3A_fnc_punishment_release; // Forgive all sins
 */
@@ -10,20 +10,26 @@ _TPToHQ = {
 _punishmentPlatform = _detainee getVariable ["punishment_platform",objNull];
 _punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]]; // [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],[wardenHandle,sentenceHandle]]
 _punishment_warden = (_punishment_vars select 3) select 0;
-_punishment_sentence = (_punishment_vars select 3) select 1;
+_playerStats = format["Player: %1 [%2], _timeTotal: %3", name _detainee, getPlayerUID _detainee, _punishment_vars select 0];
 
-deleteVehicle _punishmentPlatform;
-if !(scriptDone _punishment_warden || isNull _punishment_warden) then {
-	terminate _punishment_warden;
-	call _TPToHQ;
+switch (_source) do {
+	case "punishment_warden": {
+		deleteVehicle _punishmentPlatform;
+		call _TPToHQ;
+		[format ["%1: [Antistasi] | INFO | PUNISHMENT | RELEASE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+		["FF Notification", "Enough then."] remoteExec ["A3A_fnc_customHint", _detainee, false];
+		_detainee setVariable ["punishment_vars", [0,0,[serverTime,0],[scriptNull,scriptNull]], true];
+	};
+	case "punishment_warden_manual": {
+		deleteVehicle _punishmentPlatform;
+		if (!scriptDone _punishment_warden) then {
+			terminate _punishment_warden;
+		};
+		call _TPToHQ;
+		[format ["%1: [Antistasi] | INFO | PUNISHMENT | FORGIVE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+		["FF Notification", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExec ["A3A_fnc_customHint", _detainee, false];
+		_detainee setVariable ["punishment_vars", [0,0,[serverTime,0],[scriptNull,scriptNull]], true];
+	};
+	default { };
 };
-if !(scriptDone _punishment_sentence || isNull _punishment_sentence) then {
-	terminate _punishment_sentence;
-	call _TPToHQ;
-};
 
-_playerStats = format["Player: %1 [%2]", name _detainee, getPlayerUID _detainee];
-[format ["%1: [Antistasi] | INFO | PUNISHMENT | FORGIVE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
-["FF Notification", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExec ["A3A_fnc_customHint", _detainee, false];
-
-_detainee setVariable ["punishment_vars", [0,0,[serverTime,0],[scriptNull,scriptNull]], true];

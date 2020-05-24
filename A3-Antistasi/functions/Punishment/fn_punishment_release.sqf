@@ -1,5 +1,7 @@
 params["_detainee"];
-
+/*
+	[cursorObject] call A3A_fnc_punishment_release; // Forgive all sins
+*/
 _TPToHQ = {
 	_detainee switchMove "";
 	_detainee setPos posHQ;

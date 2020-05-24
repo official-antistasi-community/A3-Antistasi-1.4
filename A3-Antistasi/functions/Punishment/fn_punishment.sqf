@@ -14,7 +14,7 @@ Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 	[cursorObject, 0, 0] call A3A_fnc_punishment;      // Ping
 	[cursorObject,120, 1] call A3A_fnc_punishment;     // Punish, 120 seconds
 	[player,120, 1] call A3A_fnc_punishment;           // Punish, 120 seconds
-	[cursorObject,-99999, -1] call A3A_fnc_punishment; // Forgive all sins
+	[cursorObject] call A3A_fnc_punishment_release;    // Forgive all sins
 
 */
 //////////////////Settings//////////////////

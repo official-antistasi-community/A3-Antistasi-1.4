@@ -16,6 +16,7 @@ Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 /*
 	[cursorObject, 0, 0, objNull] remoteExec ["A3A_fnc_punishment_FF",cursorObject];// Test with no victim
 	[cursorObject, 0, 0, player] remoteExec ["A3A_fnc_punishment_FF",cursorObject];	// Test with victim
+	[cursorObject] call A3A_fnc_punishment_release;                                 // Forgive all sins
 */
 /////////////////Definitions////////////////
 _notifyVictim = {

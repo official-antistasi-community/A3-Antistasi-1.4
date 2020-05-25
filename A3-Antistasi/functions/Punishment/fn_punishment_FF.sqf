@@ -39,9 +39,8 @@ _exemption = switch (true) do {
 	case (isDedicated || isServer):                    {"FF BY SERVER"};
 	case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};
 	case (_instigator != player):                      {"NOT INSTIGATOR"};	// Must be local for 'BIS_fnc_admin'
-	case !(side _instigator in [Invaders, Occupants]): {"NOT REBEL"};
+	case (side _instigator in [Invaders, Occupants]):  {"NOT REBEL"};
 	case (_victim == _instigator):                     {"SUICIDE"};
-	case !(isNull _victim && alive _victim):           {"CORPSE"};	// Ace check is further on
 	default                                            {""};
 };
 //////Cool down prevents multi-hit spam/////
@@ -56,9 +55,6 @@ if (_exemption !=  "") exitWith {
 };
 /////////Checks for important roles/////////
 _exemption = switch (true) do {
-	case (hasACE && {_victim getVariable ["ACE_isUnconscious", false]}): {
-		"CORPSE"
-	};
 	case (call BIS_fnc_admin != 0): {
 		["You damaged a friendly as admin."] call _notifyInstigator;	// Admin not reported for Zeus remote control.
 		format ["ADMIN, %1", ["Not","Voted","Logged"] select (call BIS_fnc_admin)];

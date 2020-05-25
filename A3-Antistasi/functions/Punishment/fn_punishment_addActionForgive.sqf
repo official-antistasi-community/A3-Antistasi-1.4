@@ -6,7 +6,7 @@ _addAction_parameters = [
 		params ["_target", "_caller", "_actionId", "_arguments"];
 		[_arguments] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false];
 		sleep 1;
-		[_arguments] call A3A_fnc_punishment_addActionForgive;
+		[_arguments] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false];
 	},
 	_detainee,
 	7

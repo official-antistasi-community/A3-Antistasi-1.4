@@ -421,6 +421,7 @@ class A3A
 		class punishment_notifyAdmin {};
 		class punishment_notifyAllAdmins {};
 		class punishment_release {};
+		class punishment_removeActionForgive {};
 		class punishment_sentence {};
 		class punishment_warden {};
 	};

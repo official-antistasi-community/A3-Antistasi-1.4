@@ -6,14 +6,6 @@ _TPToHQ = {
 	_detainee switchMove "";
 	_detainee setPos posHQ;
 };
-_removeReleaseActions = {
-	_actions = actionIDs _detainee;
-	{
-		if ((_detainee actionParams _x) select 0 isEqualTo "[ADMIN] Forgive Player") then {
-			[_detainee,_x] remoteExec ["removeAction",0,false];
-		};
-	} forEach _actions;
-};
 
 _punishmentPlatform = _detainee getVariable ["punishment_platform",objNull];
 _punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]]; // [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],[wardenHandle,sentenceHandle]]
@@ -22,7 +14,7 @@ _playerStats = format["Player: %1 [%2], _timeTotal: %3", name _detainee, getPlay
 
 switch (_source) do {
 	case "punishment_warden": {
-		call _removeReleaseActions;
+		[_detainee] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false];
 		deleteVehicle _punishmentPlatform;
 		call _TPToHQ;
 		[format ["%1: [Antistasi] | INFO | PUNISHMENT | RELEASE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
@@ -30,7 +22,7 @@ switch (_source) do {
 		_detainee setVariable ["punishment_vars", [0,0,[serverTime,0],[scriptNull,scriptNull]], true];
 	};
 	case "punishment_warden_manual": {
-		call _removeReleaseActions;
+		[_detainee] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false];
 		deleteVehicle _punishmentPlatform;
 		if (!scriptDone _punishment_warden) then {
 			terminate _punishment_warden;

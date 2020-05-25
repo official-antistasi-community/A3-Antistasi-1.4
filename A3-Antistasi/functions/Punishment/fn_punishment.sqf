@@ -23,7 +23,7 @@ _overheadPercent = 0.3;		// Percentage of _offenceAdded that does not get deprec
 /////////////////Definitions////////////////
 //////////Fetches punishment values/////////
 _playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %4, _offenceOverhead: %5, _timeAdded: %6, _offenceAdded: %7", name _instigator, getPlayerUID _instigator, str _timeTotal, str _offenceTotal, str 0, str _timeAdded, str _offenceAdded];
-_punishment_vars = _instigator getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],[wardenHandle,sentenceHandle]]
+_punishment_vars = _instigator getVariable ["punishment_vars", [0,0,[0,0],scriptNull]];	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],wardenHandle]
 _timeTotal = _punishment_vars select 0;
 _offenceTotal = _punishment_vars select 1;
 _lastTime = (_punishment_vars select 2) select 0;

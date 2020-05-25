@@ -18,6 +18,6 @@ _punishment_warden_handle = [_detainee,_sentenceTime] spawn {
 [_detainee] call A3A_fnc_punishment_addActionForgive;
 [_detainee] remoteExec ["A3A_fnc_punishment_notifyAdmin",0,false];
 
-_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],[wardenHandle,sentenceHandle]]
-_punishment_vars set [3,[_punishment_warden_handle,scriptNull]];
+_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],scriptNull]];	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],[wardenHandle]]
+_punishment_vars set [3,_punishment_warden_handle];
 _detainee setVariable ["punishment_vars", _punishment_vars, true];

@@ -38,7 +38,7 @@ _exemption = switch (true) do {
 	case (!tkPunish):                                  {"FF PUNISH IS DISABLED"};
 	case (isDedicated || isServer):                    {"FF BY SERVER"};
 	case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};
-	case (_instigator != player):                      {"NOT INSTIGATOR"};	// Must be local for 'BIS_fnc_admin' and 'isServer'
+	case (_instigator != player):                      {"NOT INSTIGATOR"};	// Must be local for 'BIS_fnc_admin'
 	case !(side _instigator in [Invaders, Occupants]): {"NOT REBEL"};
 	case (_victim == _instigator):                     {"SUICIDE"};
 	case !(isNull _victim && alive _victim):           {"CORPSE"};	// Ace check is further on

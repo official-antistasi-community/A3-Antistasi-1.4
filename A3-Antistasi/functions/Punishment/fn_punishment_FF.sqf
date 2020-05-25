@@ -93,6 +93,6 @@ if (_exemption != "") exitWith {
 	[_exemption] call _gotoExemption;
 };
 
-["_instigator","_timeAdded","_offenceAdded","_victim"] call A3A_fnc_punishment;
+[_instigator,_timeAdded,_offenceAdded,_victim] call A3A_fnc_punishment;
 
 

@@ -77,7 +77,7 @@ _exemption = switch (true) do {
 		["You damaged a friendly as the Commander."] call _notifyInstigator;
 		"COMMANDER";
 	};
-	case ([_instigator] call A3A_fnc_isMember): {
+	case (membershipEnabled && {[_instigator] call A3A_fnc_isMember}): {
 		call _notifyVictim;
 		["You damaged a friendly as a trusted member."] call _notifyInstigator;
 		"MEMBER";

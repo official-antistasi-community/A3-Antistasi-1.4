@@ -11,7 +11,7 @@ _addAction_parameters = [
 	_detainee,
 	7
 ];
-[_detainee,_addAction_parameters] remoteExec ["addAction",_detainee,false];
+_detainee addAction _addAction_parameters;
 
 if ([] call BIS_fnc_admin > 0 || isServer && hasInterface) then {
 	_addAction_parameters = [

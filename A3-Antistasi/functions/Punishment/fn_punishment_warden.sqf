@@ -16,7 +16,7 @@ _punishment_warden_handle = [_detainee,_sentenceTime] spawn {
 ///////////////////////// TODO: PLAYER TEAM FORGIVE SCRIPT
 [_detainee] call A3A_fnc_punishment_sentence;
 [_detainee] call A3A_fnc_punishment_addActionForgive;
-[_detainee, _sentenceTime] remoteExec ["A3A_fnc_punishment_notifyAdmin",0,false];
+[_detainee] remoteExec ["A3A_fnc_punishment_notifyAdmin",0,false];
 
 _punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],[wardenHandle,sentenceHandle]]
 _punishment_vars set [3,[_punishment_warden_handle,scriptNull]];

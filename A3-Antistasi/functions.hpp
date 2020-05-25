@@ -419,7 +419,6 @@ class A3A
 		class punishment_FF {};
 		class punishment_addActionForgive {};
 		class punishment_notifyAdmin {};
-		class punishment_notifyAllAdmins {};
 		class punishment_release {};
 		class punishment_removeActionForgive {};
 		class punishment_sentence {};

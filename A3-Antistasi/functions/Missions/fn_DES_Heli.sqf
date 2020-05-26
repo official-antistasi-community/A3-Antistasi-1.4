@@ -320,7 +320,6 @@ waitUntil
 if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100) && isPlayer (driver _heli) ) then {
 	if (alive _heli) then {
 		[3, format ["%1 was captured", _heli], _filename] call A3A_fnc_log;
-		_vehicles = _vehicles - _heli;
 	} else {
 		[3, format ["%1 was destroyed", _heli], _filename] call A3A_fnc_log;
 	};

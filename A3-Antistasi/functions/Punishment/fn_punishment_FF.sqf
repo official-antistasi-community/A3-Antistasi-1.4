@@ -1,4 +1,4 @@
-Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
+params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 // MUST be executed on foolish for 'BIS_fnc_admin' and 'isServer' to work.
 // EG: [_instigator, 20, 0.34, _victim] remoteExec ["A3A_fnc_punishment_FF",_instigator];
 /*
@@ -16,23 +16,24 @@ Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 /*
 	[player, 0, 0, objNull] call A3A_fnc_punishment_FF;      // Test self with no victim
 	[player, 0, 0, cursorObject] call A3A_fnc_punishment_FF; // Test self with victim
-	[player] call A3A_fnc_punishment_release;                // Self forgive all sins
+	[player,"forgive"] call A3A_fnc_punishment_release;      // Self forgive all sins
 */
 /////////////////Definitions////////////////
 private _notifyVictim = {
 	if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 };
 private _notifyInstigator = {
-	Params ["_message"];
+	params ["_message"];
 	["FF Notification", _message] remoteExec ["A3A_fnc_customHint", _instigator, false];
 };
 private _gotoExemption = {
-	Params ["_exemptionDetails"];
+	params ["_exemptionDetails"];
 	_playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name _instigator, getPlayerUID _instigator,str _timeAdded, str _offenceAdded];
 	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, %2 | %3", servertime, _exemptionDetails, _playerStats]] remoteExec ["diag_log", 2];
 	_exemptionDetails;
 };
 private _vehicle = typeOf vehicle _instigator;
+
 ///////////////Checks if is FF//////////////
 private _exemption = switch (true) do {
 	case (!tkPunish):                                  {"FF PUNISH IS DISABLED"};
@@ -47,12 +48,15 @@ private _exemption = switch (true) do {
 	// Is below previous checks as to not spam getVariable.
 	// Is above following checks to avoid unnecessary calculations.
 	// Doesn't log to avoid RPT spam.
+	// Doesn't use hash table to be as quick as possible.
 if (_instigator getVariable ["punishment_coolDown", 0] > servertime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
 _instigator setVariable ["punishment_coolDown", servertime + 1, true];
+
 ////////////////Logs if is FF///////////////
 if (_exemption !=  "") exitWith {
 	[format["NOT FF, %1", _exemption]] call _gotoExemption;
 };
+
 /////////Checks for important roles/////////
 _exemption = switch (true) do {
 	case (call BIS_fnc_admin != 0): {

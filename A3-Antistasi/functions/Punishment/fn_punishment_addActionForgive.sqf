@@ -1,7 +1,7 @@
 params["_detainee"];
 
 private _addAction_parameters = [
-	"Refresh Action for Admin",
+	"Refresh Admin Action",
 	{
 		params ["_target", "_caller", "_actionId", "_arguments"];
 		[_arguments] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false];
@@ -18,7 +18,7 @@ if ([] call BIS_fnc_admin > 0 || isServer && hasInterface) then {
 		format["[Forgive FF] ""%1""",name _detainee],
 		{
 			params ["_target", "_caller", "_actionId", "_arguments"];
-			[_arguments,"punishment_warden_manual"] call A3A_fnc_punishment_release;
+			[_arguments,"forgive"] call A3A_fnc_punishment_release;
 		},
 		_detainee,
 		0.1

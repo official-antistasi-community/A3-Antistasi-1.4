@@ -26,10 +26,21 @@ _backpcks = backpackCargo _truckX;
 
 _todo = _weaponsX + _ammunition + _items + _backpcks;
 
+private _vehName = getText (configFile >> "CfgVehicles" >> (typeof _truckX) >> "displayName");
+
 if (count _todo < 1) exitWith
 	{
-	if (count _this == 0) then {["Cargo", "Closest vehicle cargo is empty"] call A3A_fnc_customHint;};
+	if (count _this == 0) then {["Cargo", format ["Closest vehicle (%1) is empty", _vehName]] call A3A_fnc_customHint;};
 	if (count _this == 2) then {deleteVehicle _truckX};
 	};
 
-if (count _this == 2) then {[_truckX,boxX,true] remoteExec ["A3A_fnc_ammunitionTransfer",2]} else {[_truckX,boxX] remoteExec ["A3A_fnc_ammunitionTransfer",2]}
+if (count _this == 0) then {
+	["Cargo", format ["Transferred cargo from %1 to arsenal", _vehName]] call A3A_fnc_customHint;
+};
+
+if (count _this == 2) then {
+	[_truckX,boxX,true] remoteExec ["A3A_fnc_ammunitionTransfer",2];
+}
+else {
+	[_truckX,boxX] remoteExec ["A3A_fnc_ammunitionTransfer",2];
+};

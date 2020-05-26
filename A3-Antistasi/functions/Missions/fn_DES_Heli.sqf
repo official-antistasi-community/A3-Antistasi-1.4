@@ -260,7 +260,9 @@ if (_vehR distance _heli < 50) then
 		_pilots addVehicle _heli;
 		(units _pilots) orderGetIn true;
 		sleep 1;
-		private _notAlivePilots = (units _pilots findIf {side _x == occupants} == -1);
+		private _notAlivePilots true;
+		{if ([_x] call A3A_fnc_canFight) exitWith {_notAlivePilots = false}}forEach _pilots;
+		
 
 		if ((_typeVehH in vehNATOTransportHelis)||(_typeVehH in vehCSATTransportHelis)) then {
 			if !(_typeVehH == vehNATOPatrolHeli) then {

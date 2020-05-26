@@ -1,7 +1,7 @@
 params["_detainee","_sentenceTime"];
 
 _detainee setVariable ["punishment_coolDown", serverTime + _sentenceTime, true];
-_punishment_warden_handle = [_detainee,_sentenceTime] spawn {
+private _punishment_warden_handle = [_detainee,_sentenceTime] spawn {
 	params["_detainee","_sentenceTime"];
 
 	_countX = floor _sentenceTime;
@@ -18,6 +18,6 @@ _punishment_warden_handle = [_detainee,_sentenceTime] spawn {
 [_detainee] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false];
 [_detainee] remoteExec ["A3A_fnc_punishment_notifyAdmin",0,false];
 
-_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],scriptNull]];	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],[wardenHandle]]
+private _punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],scriptNull]];	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],[wardenHandle]]
 _punishment_vars set [3,_punishment_warden_handle];
 _detainee setVariable ["punishment_vars", _punishment_vars, true];

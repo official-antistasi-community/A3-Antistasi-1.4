@@ -2,16 +2,16 @@ params["_detainee",["_source",""]];
 /*
 	[cursorObject] call A3A_fnc_punishment_release; // Forgive all sins
 */
-_TPToHQ = {
+private _TPToHQ = {
 	_detainee switchMove "";
 	_detainee setPos posHQ;
 };
 
-_punishmentPlatform = _detainee getVariable ["punishment_platform",objNull];
-_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],scriptNull]];
-_sentenceTime = _punishment_vars select 0;	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],wardenHandle]
-_punishment_warden = _punishment_vars select 3;
-_playerStats = format["Player: %1 [%2], _timeTotal: %3", name _detainee, getPlayerUID _detainee, _sentenceTime];
+private _punishmentPlatform = _detainee getVariable ["punishment_platform",objNull];
+private _punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],scriptNull]];
+private _sentenceTime = _punishment_vars select 0;	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],wardenHandle]
+private _punishment_warden = _punishment_vars select 3;
+private _playerStats = format["Player: %1 [%2], _timeTotal: %3", name _detainee, getPlayerUID _detainee, _sentenceTime];
 
 switch (_source) do {
 	case "punishment_warden": {

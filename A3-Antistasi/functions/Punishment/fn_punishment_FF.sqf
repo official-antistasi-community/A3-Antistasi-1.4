@@ -19,22 +19,22 @@ Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 	[player] call A3A_fnc_punishment_release;                // Self forgive all sins
 */
 /////////////////Definitions////////////////
-_notifyVictim = {
+private _notifyVictim = {
 	if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 };
-_notifyInstigator = {
+private _notifyInstigator = {
 	Params ["_message"];
 	["FF Notification", _message] remoteExec ["A3A_fnc_customHint", _instigator, false];
 };
-_gotoExemption = {
+private _gotoExemption = {
 	Params ["_exemptionDetails"];
 	_playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name _instigator, getPlayerUID _instigator,str _timeAdded, str _offenceAdded];
 	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, %2 | %3", servertime, _exemptionDetails, _playerStats]] remoteExec ["diag_log", 2];
 	_exemptionDetails;
 };
-_vehicle = typeOf vehicle _instigator;
+private _vehicle = typeOf vehicle _instigator;
 ///////////////Checks if is FF//////////////
-_exemption = switch (true) do {
+private _exemption = switch (true) do {
 	case (!tkPunish):                                  {"FF PUNISH IS DISABLED"};
 	case (isDedicated || isServer):                    {"FF BY SERVER"};
 	case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};

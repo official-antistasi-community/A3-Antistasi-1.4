@@ -1,5 +1,5 @@
 params["_detainee"];
-_actionsDetainee = actionIDs _detainee;
+private _actionsDetainee = actionIDs _detainee;
 if !(isNil "_actionsDetainee" || {count _actionsDetainee == 0}) then {
 	{
 		if (((_detainee actionParams _x) select 0) isEqualTo "Refresh Action for Admin") then {
@@ -8,7 +8,7 @@ if !(isNil "_actionsDetainee" || {count _actionsDetainee == 0}) then {
 	} forEach _actionsDetainee;
 };
 
-_actionsSelf = actionIDs player;
+private _actionsSelf = actionIDs player;
 if !(isNil "_actionsSelf" || {count _actionsSelf == 0}) then {
 	{
 		if (((player actionParams _x) select 0) isEqualTo format["[Forgive FF] ""%1""",name _detainee]) then {

@@ -1,6 +1,6 @@
 params["_detainee"];
 
-_addAction_parameters = [
+private _addAction_parameters = [
 	"Refresh Action for Admin",
 	{
 		params ["_target", "_caller", "_actionId", "_arguments"];
@@ -14,7 +14,7 @@ _addAction_parameters = [
 _detainee addAction _addAction_parameters;
 
 if ([] call BIS_fnc_admin > 0 || isServer && hasInterface) then {
-	_addAction_parameters = [
+	private _addAction_parameters = [
 		format["[Forgive FF] ""%1""",name _detainee],
 		{
 			params ["_target", "_caller", "_actionId", "_arguments"];

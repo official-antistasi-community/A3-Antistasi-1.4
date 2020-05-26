@@ -18,16 +18,16 @@ Params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 
 */
 //////////////////Settings//////////////////
-_depreciationCoef = 0.75;	// Modifies the drop-off curve of the punishment score; a higher number drops off quicker, a lower number lingers longer.
-_overheadPercent = 0.3;		// Percentage of _offenceAdded that does not get depreciated.
+private _depreciationCoef = 0.75;	// Modifies the drop-off curve of the punishment score; a higher number drops off quicker, a lower number lingers longer.
+private _overheadPercent = 0.3;		// Percentage of _offenceAdded that does not get depreciated.
 /////////////////Definitions////////////////
 //////////Fetches punishment values/////////
-_playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %4, _offenceOverhead: %5, _timeAdded: %6, _offenceAdded: %7", name _instigator, getPlayerUID _instigator, str _timeTotal, str _offenceTotal, str 0, str _timeAdded, str _offenceAdded];
-_punishment_vars = _instigator getVariable ["punishment_vars", [0,0,[0,0],scriptNull]];	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],wardenHandle]
-_timeTotal = _punishment_vars select 0;
-_offenceTotal = _punishment_vars select 1;
-_lastTime = (_punishment_vars select 2) select 0;
-_overhead = (_punishment_vars select 2) select 1;
+private _playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %4, _offenceOverhead: %5, _timeAdded: %6, _offenceAdded: %7", name _instigator, getPlayerUID _instigator, str _timeTotal, str _offenceTotal, str 0, str _timeAdded, str _offenceAdded];
+private _punishment_vars = _instigator getVariable ["punishment_vars", [0,0,[0,0],scriptNull]];	// [timeTotal,offenceTotal,[lastOffenceServerTime,overhead],wardenHandle]
+private _timeTotal = _punishment_vars select 0;
+private _offenceTotal = _punishment_vars select 1;
+private _lastTime = (_punishment_vars select 2) select 0;
+private _overhead = (_punishment_vars select 2) select 1;
 ///////////////Data validation//////////////
 if (_lastTime <= 0) then    {_lastTime = serverTime;};
 if (_offenceAdded < 0) then {_offenceAdded = 0};
@@ -45,10 +45,10 @@ if  (_periodDelta > 60*60) then	{
 _overhead = _overhead + _offenceAdded * _overheadPercent;
 _offenceTotal = _offenceTotal + _offenceAdded;
 _offenceTotal = _offenceTotal * (1-_depreciationCoef*(1-(_offenceTotal))) ^(_periodDelta/300); // Depreciation formula
-_grandOffence = _offenceTotal + _overhead;
+private _grandOffence = _offenceTotal + _overhead;
 _timeTotal = _timeTotal + _timeAdded;
 _timeTotal = _timeTotal * (1-_depreciationCoef*(1-(_timeTotal))) ^(_periodDelta/300);       // Depreciation formula
-_lastOffenceData = [serverTime,_overhead];
+private _lastOffenceData = [serverTime,_overhead];
 //////////Saves data to instigator//////////
 _punishment_vars set [0,_timeTotal];
 _punishment_vars set [1,_offenceTotal];

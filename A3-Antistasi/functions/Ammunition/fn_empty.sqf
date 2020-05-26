@@ -9,7 +9,7 @@ if (count _this > 0) then
 	}
 else
 	{
-	_trucksX = nearestObjects [boxX, ["LandVehicle","ReammoBox_F"], 20];
+	_trucksX = nearestObjects [boxX, ["Helicopter","Plane","LandVehicle","ReammoBox_F"], 20];
 	_trucksX = _trucksX select {not (_x isKindOf "StaticWeapon")};
 	_trucksX = _trucksX - [boxX,vehicleBox];
 	if (count _trucksX < 1) then {_truckX = vehicleBox} else {_truckX = _trucksX select 0};

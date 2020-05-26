@@ -416,8 +416,12 @@ class A3A
 	class Punishment
 	{
 		class punishment {};
-		class punishment_FF {};
 		class punishment_addActionForgive {};
+		class punishment_dataGet {};
+		class punishment_dataRem {};
+		class punishment_dataSet {};
+		class punishment_dataNamespace {};
+		class punishment_FF {};
 		class punishment_notifyAdmin {};
 		class punishment_release {};
 		class punishment_removeActionForgive {};

@@ -1,0 +1,56 @@
+/*
+Function:
+	A3A_fnc_punishment_dataRem
+
+Description:
+	1. Removes specified keys in a UID entry;
+	2. Or removes an entire UID entry from _punishment_dataNamespace.
+
+Parameters 1:
+	<STRING> UID of entry.
+	<ARRAY<STRING>> List of keys to remove.
+
+Parameters 2:
+	<STRING> UID to remove.
+	<ARRAY> Empty array.
+
+Returns:
+	<BOOLEAN> True if hasn't crashed; nothing if it has.
+
+Examples:
+	_keys = ["test","420"];
+	_UID = "123";
+	[_UID,_keys] call A3A_fnc_punishment_dataRem; // Removes keys "test" and "frost" in UID "123"
+	[_UID,[]] call A3A_fnc_punishment_dataRem;    // Removes UID "123" and all it's keys from _punishment_dataNamespace
+
+Author: Caleb Serafin
+Date Updated: 27 May 2020
+License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+*/
+params[
+	["_UID",objNull,["UID string",objNull]],
+	["_keys",[],[]]
+];
+
+if (typeName _UID == "OBJECT" && {isPlayer _UID}) then {
+	_UID = getPlayerUID _UID;
+};
+if !(typeName _UID == "STRING" || {_UID == ""}) exitWith {
+	[format ["%1: [Antistasi] | ERROR | PUNISHMENT DATA SET | INVALID PARAMS | _UID=""%2""", servertime, _UID]] remoteExec ["diag_log", 2];
+	"";
+};
+
+private _data_namespace = call A3A_fnc_punishment_dataNamespace;
+if (_keys isEqualTo []) exitWith {
+	_data_namespace setVariable [_UID, nil, true];
+	true;
+};
+private _data_UID = _data_namespace getVariable [_UID, [] ];
+
+private _key = "";
+{
+	_key = _x;
+	_data_UID deleteAt (_data_UID findIf {(_x#0) == _key});
+} forEach _keys;
+_data_namespace setVariable [_UID, _data_UID, true];
+true;

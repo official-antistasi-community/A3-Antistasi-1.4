@@ -18,8 +18,8 @@ Returns:
 	<BOOLEAN> True if hasn't crashed; nothing if it has.
 
 Examples:
-	_keys = ["test","420"];
-	_UID = "123";
+	private _keys = ["test","420"];
+	private _UID = "123";
 	[_UID,_keys] call A3A_fnc_punishment_dataRem; // Removes keys "test" and "frost" in UID "123"
 	[_UID,[]] call A3A_fnc_punishment_dataRem;    // Removes UID "123" and all it's keys from _punishment_dataNamespace
 

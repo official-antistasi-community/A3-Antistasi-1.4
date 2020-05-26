@@ -29,8 +29,8 @@ Returns 3:
 	<ARRAY<STRING>> List of all UID entries in _punishment_dataNamespace.
 
 Examples:
-	_keyPairs = [ ["test",0], ["420",0] ];
-	_UID = "123";
+	private _keyPairs = [ ["test",0], ["420",0] ];
+	private _UID = "123";
 	[_UID,_keyPairs] call A3A_fnc_punishment_dataGet; // Return values from key "test" and "420" with default as 0, in UID "123"
 	[_UID,[]] call A3A_fnc_punishment_dataGet;    // Return all [key,value]s in UID "123"
 	["",[]] call A3A_fnc_punishment_dataGet;      // Return all UID strings

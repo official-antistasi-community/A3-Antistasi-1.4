@@ -13,8 +13,8 @@ Returns:
 	<BOOLEAN> True if hasn't crashed; nothing if it has.
 
 Examples:
-	_keyPairs = [ ["test","frost"], ["420",69], ["bob","ban"] ];
-	_UID = "123";
+	private _keyPairs = [ ["test","frost"], ["420",69], ["bob","ban"] ];
+	private _UID = "123";
 	[_UID,_keyPairs] call A3A_fnc_punishment_dataSet; // In UID "123": Sets values of key "test" to "frost" and "420" to 69
 
 Author: Caleb Serafin

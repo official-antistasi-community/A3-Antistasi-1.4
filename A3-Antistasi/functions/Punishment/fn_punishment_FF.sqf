@@ -76,16 +76,6 @@ _exemption = switch (true) do {
 		["You damaged a friendly as arty support."] call _notifyInstigator;
 		format ["ARTY, %1", _vehicle];
 	};
-	case (_instigator == theBoss): {
-		call _notifyVictim;
-		["You damaged a friendly as the Commander."] call _notifyInstigator;
-		"COMMANDER";
-	};
-	case (membershipEnabled && {[_instigator] call A3A_fnc_isMember}): {
-		call _notifyVictim;
-		["You damaged a friendly as a trusted member."] call _notifyInstigator;
-		"MEMBER";
-	};
 	// TODO: if( remoteControlling(_instigator) ) exitWith
 		// For the meantime do either one of the following: login for Zeus, use the memberList addon;
 		// Or change your player side to enemy faction

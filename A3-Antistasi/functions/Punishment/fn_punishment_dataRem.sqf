@@ -29,7 +29,7 @@ License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Comm
 */
 params[
 	["_UID",objNull,["UID string",objNull]],
-	["_keys",[],[]]
+	["_keys",[],[ [] ]]
 ];
 
 if (typeName _UID == "OBJECT" && {isPlayer _UID}) then {

@@ -2,7 +2,7 @@ params["_detainee"];
 private _actionsDetainee = actionIDs _detainee;
 if !(isNil "_actionsDetainee" || {count _actionsDetainee == 0}) then {
 	{
-		if (((_detainee actionParams _x) select 0) isEqualTo "Refresh Action for Admin") then {
+		if (((_detainee actionParams _x) select 0) isEqualTo "Refresh Admin Action") then {
 			_detainee removeAction _x;
 		};
 	} forEach _actionsDetainee;

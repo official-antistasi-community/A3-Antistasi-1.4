@@ -23,7 +23,7 @@ License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Comm
 */
 params[
 	["_UID",objNull,["UID string",objNull]],
-	["_keyPairs",[],[]]
+	["_keyPairs",[],[ [] ]]
 ];
 
 if (_keyPairs isEqualTo []) exitWith {

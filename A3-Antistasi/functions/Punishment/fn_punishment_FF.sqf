@@ -1,4 +1,4 @@
-params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
+params [["_instigator",objNull,[objNull,[]]],"_timeAdded","_offenceAdded",["_victim",objNull]];
 // MUST be executed on foolish for 'BIS_fnc_admin' and 'isServer' to work.
 // EG: [_instigator, 20, 0.34, _victim] remoteExec ["A3A_fnc_punishment_FF",_instigator];
 /*
@@ -32,18 +32,29 @@ private _gotoExemption = {
 	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, %2 | %3", servertime, _exemptionDetails, _playerStats]] remoteExec ["diag_log", 2];
 	_exemptionDetails;
 };
-private _vehicle = typeOf vehicle _instigator;
+private _isCollision = false;
+
+///////////////Checks if is Collision//////////////
+if (typeName _instigator == "ARRAY") then {
+	if (isPlayer (_instigator#0)) then {
+		_instigator = _instigator#0;
+	} else {
+		_isCollision = true;
+		_instigator = _instigator#1;
+	};
+};
 
 ///////////////Checks if is FF//////////////
-private _exemption = switch (true) do {
+private _exemption = ""; switch (true) do { /////////////////////////////////////////////////// DEBUG !!!!!!!!!!!
 	case (!tkPunish):                                  {"FF PUNISH IS DISABLED"};
 	case (isDedicated || isServer):                    {"FF BY SERVER"};
 	case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};
-	case (_instigator != player):                      {"NOT INSTIGATOR"};	// Must be local for 'BIS_fnc_admin'
+	case (_instigator != player):                      {"NOT INSTIGATOR"}; // Must be local for 'BIS_fnc_admin'
 	case (side _instigator in [Invaders, Occupants]):  {"NOT REBEL"};
 	case (_victim == _instigator):                     {"SUICIDE"};
 	default                                            {""};
 };
+
 //////Cool down prevents multi-hit spam/////
 	// Is below previous checks as to not spam getVariable.
 	// Is above following checks to avoid unnecessary calculations.
@@ -58,9 +69,14 @@ if (_exemption !=  "") exitWith {
 };
 
 /////////Checks for important roles/////////
+private _vehicle = typeOf vehicle _instigator;
 _exemption = switch (true) do {
+	case (_isCollision) : {
+		["You damaged a friendly as a driver."] call _notifyInstigator; /////////////////////////////////////////////////// DEBUG !!!!!!!!!!!
+		format ["COLLISION, %1", _vehicle]; // Just logged
+	};
 	case (call BIS_fnc_admin != 0): {
-		["You damaged a friendly as admin."] call _notifyInstigator;	// Admin not reported for Zeus remote control.
+		["You damaged a friendly as admin."] call _notifyInstigator; // Admin not reported for Zeus remote control.
 		format ["ADMIN, %1", ["Not","Voted","Logged"] select (call BIS_fnc_admin)];
 	};
 	case (vehicle _instigator isKindOf "Air"): {

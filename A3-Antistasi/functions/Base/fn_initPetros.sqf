@@ -21,7 +21,7 @@ petros addEventHandler
     _instigator = _this select 6;
     if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.1) then
     {
-        [_instigator, 60, 1, _victim] remoteExec ["A3A_fnc_punishment_FF",_instigator];
+        [[_instigator,_injurer], 60, 1, _victim] remoteExec ["A3A_fnc_punishment_FF",_instigator];
     };
     if (isPlayer _injurer) then
     {

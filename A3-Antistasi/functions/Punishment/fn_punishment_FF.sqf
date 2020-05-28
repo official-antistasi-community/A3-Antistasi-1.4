@@ -1,4 +1,5 @@
 params [["_instigator",objNull,[objNull,[]]],"_timeAdded","_offenceAdded",["_victim",objNull]];
+[2,"A3A_fnc_punishment_FF",format ["Called With: %1", str _this]] call A3A_fnc_log;/////////////////////////////////////////////////////////////
 // MUST be executed on foolish for 'BIS_fnc_admin' and 'isServer' to work.
 // EG: [_instigator, 20, 0.34, _victim] remoteExec ["A3A_fnc_punishment_FF",_instigator];
 /*
@@ -45,7 +46,7 @@ if (typeName _instigator == "ARRAY") then {
 };
 
 ///////////////Checks if is FF//////////////
-private _exemption = ""; switch (true) do { /////////////////////////////////////////////////// DEBUG !!!!!!!!!!!
+switch (true) do {
 	case (!tkPunish):                                  {"FF PUNISH IS DISABLED"};
 	case (isDedicated || isServer):                    {"FF BY SERVER"};
 	case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};
@@ -73,7 +74,7 @@ if (_exemption !=  "") exitWith {
 private _vehicle = typeOf vehicle _instigator;
 _exemption = switch (true) do {
 	case (_isCollision) : {
-		["You damaged a friendly as a driver."] call _notifyInstigator; /////////////////////////////////////////////////// DEBUG !!!!!!!!!!!
+		["You damaged a friendly as a driver."] call _notifyInstigator;
 		format ["COLLISION, %1", _vehicle]; // Just logged
 	};
 	case (call BIS_fnc_admin != 0): {

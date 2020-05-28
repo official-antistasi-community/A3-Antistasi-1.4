@@ -39,7 +39,6 @@ License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Comm
 */
 params ["_unit","_weapon","_projectile"];
 private _fileName = "fn_punishment_FF_checkNearHQ.sqf";
-[2,"Called",_fileName] call A3A_fnc_log;//////////////////////////////////////////////////
 
 if !(_weapon in ["Put","Throw"]) exitWith {false};
 private _distancePetros = _unit distance petros;

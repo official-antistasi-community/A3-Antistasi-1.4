@@ -51,31 +51,7 @@ if (isMultiplayer) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	if (side player == teamPlayer) then {
-		private _firedHandlerTk = {
-			_typeX = _this select 1;
-			if ((_typeX == "Put") or (_typeX == "Throw")) then {
-				private _shieldDistance = 100;
-				if (player distance petros < _shieldDistance) then {
-					["Warning", format ["You cannot throw grenades or place explosives within %1m of base.", _shieldDistance]] call A3A_fnc_customHint;
-					deleteVehicle (_this select 6);
-					if (_typeX == "Put") then {
-						if (player distance petros < 10) then {
-							[player, 20, 0.34, petros] remoteExec ["A3A_fnc_punishment_FF",player,false];
-						};
-					};
-				};
-			};
-		};
-		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then {
-			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
-		};
-		player addEventHandler ["Killed", {
-			params ["_victim", "_killer", "_instigator", "_useEffects"];
-			[[_instigator,_killer], 20, 0.34, _victim] remoteExec ["A3A_fnc_punishment_FF",_instigator];
-		}];
-	};
+	call A3A_fnc_punishment_FF_AddEH;
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {

@@ -1,6 +1,6 @@
 /*
 Function:
-	A3A_fnc_punishment_FF_AddEH
+	A3A_fnc_punishment_FF_addEH
 
 Description:
 	Adds EHs for Punishment FF check.
@@ -18,15 +18,15 @@ Returns:
 	<BOOLEAN> True if hasn't crashed; False if tkPunish is disabled; nothing if it has crashed.
 
 Examples:
-	call A3A_fnc_punishment_FF_AddEH; // Recommended to add to "onPlayerRespawn.sqf","initPlayerLocal.sqf"
-	remoteExec ["A3A_fnc_punishment_FF_AddEH",cursorObject,false];
+	call A3A_fnc_punishment_FF_addEH; // Recommended to add to "onPlayerRespawn.sqf","initPlayerLocal.sqf"
+	remoteExec ["A3A_fnc_punishment_FF_addEH",cursorObject,false];
 
 Author: Caleb Serafin
 Date Updated: 28 May 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params [["_unit",objNull,[objNull]]];
-private _fileName = "fn_punishment_FF_AddEH.sqf";
+private _fileName = "fn_punishment_FF_addEH.sqf";
 
 if (!tkPunish) exitWith {false};
 if (isNull _unit) then {_unit = player};

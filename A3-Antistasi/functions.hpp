@@ -423,7 +423,7 @@ class A3A
 		class punishment_dataNamespace {};
 		class punishment_FF {};
 		class punishment_FF_checkNearHQ {};
-		class punishment_FF_AddEH {};
+		class punishment_FF_addEH {};
 		class punishment_notifyAdmin {};
 		class punishment_release {};
 		class punishment_removeActionForgive {};

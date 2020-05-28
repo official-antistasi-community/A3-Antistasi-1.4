@@ -1,4 +1,4 @@
-params["_detainee"];
+params ["_detainee"];
 
 private _addAction_parameters = [
 	"Refresh Admin Action",

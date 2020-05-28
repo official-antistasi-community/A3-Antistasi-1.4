@@ -1,4 +1,4 @@
-params["_detainee"];
+params ["_detainee"];
 private _punishmentPlatform = createVehicle ["Land_Sun_chair_green_F", [0,0,0], [], 0, "CAN_COLLIDE"];
 _punishmentPlatform enableSimulation false;
 _detainee setVariable ["punishment_platform",_punishmentPlatform,true];

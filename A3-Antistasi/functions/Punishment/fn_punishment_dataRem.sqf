@@ -33,7 +33,7 @@ Author: Caleb Serafin
 Date Updated: 27 May 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
-params[
+params [
 	["_UID",objNull,["UID string",objNull]],
 	["_keys",[],[ [] ]]
 ];

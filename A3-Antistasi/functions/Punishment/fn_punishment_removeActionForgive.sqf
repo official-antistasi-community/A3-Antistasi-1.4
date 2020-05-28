@@ -1,4 +1,4 @@
-params["_detainee"];
+params ["_detainee"];
 private _actionsDetainee = actionIDs _detainee;
 if !(isNil "_actionsDetainee" || {count _actionsDetainee == 0}) then {
 	{

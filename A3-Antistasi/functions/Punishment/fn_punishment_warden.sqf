@@ -1,7 +1,7 @@
-params["_detainee","_sentenceEndTime"];
+params ["_detainee","_sentenceEndTime"];
 
 [_detainee,_sentenceEndTime] spawn {
-	params["_detainee","_sentenceEndTime"];
+	params ["_detainee","_sentenceEndTime"];
 
 	[_detainee] call A3A_fnc_punishment_sentence;
 	[_detainee] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false];

@@ -1,4 +1,4 @@
-params["_detainee",["_source",""]];
+params ["_detainee",["_source",""]];
 /*
 	[cursorObject] call A3A_fnc_punishment_release; // Forgive all sins
 */

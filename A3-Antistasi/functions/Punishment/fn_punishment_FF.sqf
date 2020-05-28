@@ -50,6 +50,7 @@ private _exemption = ""; switch (true) do { ////////////////////////////////////
 	case (isDedicated || isServer):                    {"FF BY SERVER"};
 	case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};
 	case (_instigator != player):                      {"NOT INSTIGATOR"}; // Must be local for 'BIS_fnc_admin'
+	case (!isPlayer player):                           {"NOT A PLAYER"};
 	case (side _instigator in [Invaders, Occupants]):  {"NOT REBEL"};
 	case (_victim == _instigator):                     {"SUICIDE"};
 	default                                            {""};

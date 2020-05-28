@@ -5,6 +5,12 @@ Function:
 Description:
 	Sets values of specified keys in a UID entry;
 
+Scope:
+	<ANY>
+
+Environment:
+	<ANY>
+
 Parameters:
 	<STRING> UID of entry.
 	<ARRAY<KEYPAIR>>  List of key pairs; KEYPAIR=[Name<STRING>,Value<ANY>].

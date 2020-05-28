@@ -7,6 +7,12 @@ Description:
 	2. Or Gets all key pairs in a UID entry;
 	3. Or Gets all UID entries from _punishment_dataNamespace.
 
+Scope:
+	<ANY>
+
+Environment:
+	<ANY>
+
 Parameters 1:
 	<STRING> UID of entry.
 	<ARRAY<KEYPAIR>> List of keys and defaults to fetch values from; KEYPAIR=[Name<STRING>,Value<ANY>].

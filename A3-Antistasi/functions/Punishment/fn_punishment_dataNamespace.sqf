@@ -6,6 +6,12 @@ Description:
 	Returns a hash table namespace for punishment storage.
 	Initializes is hash table does not exist.
 
+Scope:
+	<ANY>
+
+Environment:
+	<ANY>
+
 Parameters:
 	nil
 

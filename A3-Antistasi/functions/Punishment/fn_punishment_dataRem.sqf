@@ -6,6 +6,12 @@ Description:
 	1. Removes specified keys in a UID entry;
 	2. Or removes an entire UID entry from _punishment_dataNamespace.
 
+Scope:
+	<ANY>
+
+Environment:
+	<ANY>
+
 Parameters 1:
 	<STRING> UID of entry.
 	<ARRAY<STRING>> List of keys to remove.

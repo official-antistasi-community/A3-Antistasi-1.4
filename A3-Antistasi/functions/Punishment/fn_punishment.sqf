@@ -64,11 +64,11 @@ if (_timeTotal < 0) then    {_timeTotal = 0};
 //////////////FF score addition/////////////
 private _periodDelta = _currentTime - _lastTime;
 _overhead = _overhead + _offenceAdded * _overheadPercent;
-_offenceTotal = _offenceTotal + _offenceAdded;
 _offenceTotal = _offenceTotal * (1-_depreciationCoef*(1-(_offenceTotal))) ^(_periodDelta/300); // Depreciation formula
+_offenceTotal = _offenceTotal + _offenceAdded;
 private _grandOffence = _offenceTotal + _overhead;
+_timeTotal = _timeTotal * (1-_depreciationCoef) ^(_periodDelta/300);       // Depreciation formula
 _timeTotal = _timeTotal + _timeAdded;
-_timeTotal = _timeTotal * (1-_depreciationCoef*(1-(_timeTotal))) ^(_periodDelta/300);       // Depreciation formula
 
 //////////Saves data to instigator//////////
 private _keyPairs = [["timeTotal",_timeTotal],["offenceTotal",_offenceTotal],["lastOffenceTime",_currentTime],["overhead",_overhead]];

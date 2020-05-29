@@ -76,7 +76,7 @@ if (typeName _instigator == "ARRAY") then {
 };
 
 ///////////////Checks if is FF//////////////
-switch (true) do {
+_exemption = switch (true) do {
 	case (!tkPunish):                                  {"FF PUNISH IS DISABLED"};
 	case (isDedicated || isServer):                    {"FF BY SERVER"};
 	case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};

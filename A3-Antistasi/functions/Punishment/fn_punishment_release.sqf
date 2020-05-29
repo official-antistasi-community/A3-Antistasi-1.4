@@ -1,7 +1,32 @@
-params ["_detainee",["_source",""]];
 /*
-	[cursorObject] call A3A_fnc_punishment_release; // Forgive all sins
+Function:
+	A3A_fnc_punishment_release
+
+Description:
+	Releases a detainee from his sentence if he is incarcerated.
+	Forgives all punishment stats.
+
+Scope:
+	<ANY>
+
+Environment:
+	<ANY>
+
+Parameters:
+	<OBJECT> The detainee.
+	<STRING> Who is calling the function. All external calls should only use "forgive".
+
+Returns:
+	<BOOLEAN> True if hasn't crashed; nothing if it has crashed.
+
+Examples:
+	[cursorObject,"forgive"] call A3A_fnc_punishment_release; // Forgive all sins and release from Ocean Gulag.
+
+Author: Caleb Serafin
+Date Updated: 29 May 2020
+License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
+params ["_detainee",["_source",""]];
 
 private _keyPairs = [ ["_punishmentPlatform",objNull] ];
 private _UID = getPlayerUID _detainee;
@@ -40,4 +65,4 @@ switch (_source) do {
 		[format ["%1: [Antistasi] | ERROR | PUNISHMENT RELEASE | INVALID PARAMS | _source=""%2""", servertime, _source]] remoteExec ["diag_log", 2];
 	};
 };
-
+true;

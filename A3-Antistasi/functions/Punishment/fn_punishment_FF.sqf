@@ -1,24 +1,52 @@
-params [["_instigator",objNull,[objNull,[]]],"_timeAdded","_offenceAdded",["_victim",objNull]];
-[2,"A3A_fnc_punishment_FF",format ["Called With: %1", str _this]] call A3A_fnc_log;/////////////////////////////////////////////////////////////
-// MUST be executed on foolish for 'BIS_fnc_admin' and 'isServer' to work.
-// EG: [_instigator, 20, 0.34, _victim] remoteExec ["A3A_fnc_punishment_FF",_instigator];
 /*
+Function:
+	A3A_fnc_punishment_FF
+
+Description:
 	Checks if incident reported is indeed a rebel Friendly Fire event.
-	Refer to A3A_fnc_punishment for actual punishment logic.
-*/
-/*
-[Required]
-	_instigator expects player object
-	_timeX expects time out (Added to player's total)
-	_offenceLevel expects percentage between 0 and 1 how server it is severe it is
-[OPTIONAL]
-	_victim expects player object
-*/
-/*
+	Refer to A3A_fnc_punishment.sqf for actual punishment logic.
+	NOTE: Collisions are a guaranteed exemption, logged but with no notification for the victim.
+	NOTE: When called from an Hit type of EH, use Example 2 in order to detect collisions.
+
+Scope:
+	<LOCAL> Execute on player you wish to verify for FF. (For 'BIS_fnc_admin' and 'isServer').
+
+Environment:
+	<ANY>
+
+Parameters 1:
+	<OBJECT> Player that is being verified for FF.
+	<NUMBER> The amount of time to add to the players total sentence time.
+	<NUMBER> Raise the player's total offence level by this percentage. (100% total = Ocean Gulag).
+	<OBJECT> [OPTIONAL] The victim of the player's FF.
+
+Parameters 2:
+	<ARRAY<OBJECT,OBJECT>> Suspected instigator and source/killer returned from EH. The unit that caused the damage is collisions is the source/killer.
+	<NUMBER> The amount of time to add to the players total sentence time.
+	<NUMBER> Raise the player's total offence level by this percentage. (100% total = Ocean Gulag).
+	<OBJECT> [OPTIONAL] The victim of the player's FF.
+
+Returns:
+	<STRING> Either a exemption type or return from fn_punishment.sqf.
+
+Examples 1:
+	[_instigator, 20, 0.34, _unit] remoteExec ["A3A_fnc_punishment_FF",_instigator,false]; // How it should be called from another function.
+	// Unit Tests:
 	[player, 0, 0, objNull] call A3A_fnc_punishment_FF;      // Test self with no victim
 	[player, 0, 0, cursorObject] call A3A_fnc_punishment_FF; // Test self with victim
 	[player,"forgive"] call A3A_fnc_punishment_release;      // Self forgive all sins
+
+Examples 2:
+	[[_instigator,_source], 20, 0.34, _unit] remoteExec ["A3A_fnc_punishment_FF",[_instigator,_source] select {isNull _instigator},false]; // How it should be called from an EH.
+	// Unit Tests:
+	[[objNull,player], 0, 0, objNull] call A3A_fnc_punishment_FF;      // Test self with no victim
+	[[objNull,player], 0, 0, cursorObject] call A3A_fnc_punishment_FF; // Test self with victim
+
+Author: Caleb Serafin
+Date Updated: 29 May 2020
+License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
+params [["_instigator",objNull,[objNull,[]]],"_timeAdded","_offenceAdded",["_victim",objNull]];
 /////////////////Definitions////////////////
 private _notifyVictim = {
 	if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
@@ -105,6 +133,6 @@ if (_exemption != "") exitWith {
 	[_exemption] call _gotoExemption;
 };
 
-[_instigator,_timeAdded,_offenceAdded,_victim] call A3A_fnc_punishment;
+[_instigator,_timeAdded,_offenceAdded,_victim] call A3A_fnc_punishment; // Has a return
 
 

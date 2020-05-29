@@ -1,22 +1,40 @@
-params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
-// EG: [_instigator, 20, 0.34, _victim] call A3A_fnc_punishment;
 /*
-[Required]
-	_instigator expects player object
-	_timeX expects time out (Added to player's total)
-	_offenceLevel expects percentage between 0 and 1 how server it is severe it is
-[OPTIONAL]
-	_victim expects player object
-*/
-/*
-	Some Debug Console Interactions:
+Function:
+	A3A_fnc_punishment
 
-	[cursorObject, 0, 0] call A3A_fnc_punishment;             // Ping
-	[cursorObject,120, 1] call A3A_fnc_punishment;            // Punish, 120 seconds
-	[player,10, 1] call A3A_fnc_punishment;                   // Test Punish, 10 seconds
+Description:
+	Punishes the player given for FF.
+	Doesn't do the checking itself, refer to A3A_fnc_punishment_FF.
+
+Scope:
+	<ANY>
+
+Environment:
+	<ANY>
+
+Parameters:
+	<OBJECT> Player that is being verified for FF.
+	<NUMBER> The amount of time to add to the players total sentence time.
+	<NUMBER> Raise the player's total offence level by this percentage. (100% total = Ocean Gulag).
+	<OBJECT> [OPTIONAL] The victim of the player's FF.
+
+Returns:
+	<STRING> Either a exemption type or return from fn_punishment.sqf.
+
+Examples:
+	[_instigator,_timeAdded,_offenceAdded,_victim] call A3A_fnc_punishment; // How it should be called from another A3A_fnc_punishment_FF.
+	// Unit Tests:
+	[cursorObject, 0, 0] call A3A_fnc_punishment;             // Ping with FF Warning
+	[cursorObject,120, 1] call A3A_fnc_punishment;            // Punish, 120 additional seconds
+	[player,10, 1] call A3A_fnc_punishment;                   // Test Self Punish, 10 additional seconds
+	// Function that goes hand-in-hand
 	[cursorObject,"forgive"] call A3A_fnc_punishment_release; // Forgive all sins
 
+Author: Caleb Serafin
+Date Updated: 29 May 2020
+License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
+params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 //////////////////Settings//////////////////
 private _depreciationCoef = 0.75;	// Modifies the drop-off curve of the punishment score; a higher number drops off quicker, a lower number lingers longer.
 private _overheadPercent = 0.3;		// Percentage of _offenceAdded that does not get depreciated.

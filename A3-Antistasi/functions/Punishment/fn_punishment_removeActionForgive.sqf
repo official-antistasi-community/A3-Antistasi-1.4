@@ -1,3 +1,30 @@
+/*
+Function:
+	A3A_fnc_punishment_removeActionForgive
+
+Description:
+	Removes action from the Admin to forgive the detainee;
+	Removes action from the detainee to refresh the Admin's action.
+
+Scope:
+	<GLOBAL> Execute on all players.
+
+Environment:
+	<ANY>
+
+Parameters:
+	<OBJECT> The detainee that the actions pertains to.
+
+Returns:
+	<BOOLEAN> True if hasn't crashed; nothing if it has crashed.
+
+Examples:
+	[_arguments] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false];
+
+Author: Caleb Serafin
+Date Updated: 29 May 2020
+License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+*/
 params ["_detainee"];
 private _actionsDetainee = actionIDs _detainee;
 if !(isNil "_actionsDetainee" || {count _actionsDetainee == 0}) then {
@@ -16,3 +43,4 @@ if !(isNil "_actionsSelf" || {count _actionsSelf == 0}) then {
 		};
 	} forEach _actionsSelf;
 };
+true;

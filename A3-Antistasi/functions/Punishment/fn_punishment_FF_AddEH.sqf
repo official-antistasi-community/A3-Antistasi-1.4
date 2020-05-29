@@ -4,6 +4,8 @@ Function:
 
 Description:
 	Adds EHs for Punishment FF check.
+	This is the default entry point for the Punishment Module.
+	Nothing else should be called from Antistasi.
 
 Scope:
 	<LOCAL> Execute on player you wish to assign EH to.

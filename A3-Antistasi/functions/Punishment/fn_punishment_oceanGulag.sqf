@@ -34,15 +34,16 @@ if (!isServer) exitWith {
 	false;
 };
 
-private _detainee = _detaineeUID call BIS_fnc_getUnitByUid;
-if (isNull _detainee) exitWith {
-	[1, format ["INVALID PARAMS | UID:%1 matches no unit", _detaineeUID], _filename] call A3A_fnc_log;
-	false;
-};
-
 private _keyPairs = [ ["punishment_platform",objNull] ];
 private _punishment_platform = ([_detaineeUID,_keyPairs] call A3A_fnc_punishment_dataGet) select 0;
-_playerPos = getPos _detainee;
+private _detainee = _detaineeUID call BIS_fnc_getUnitByUid;
+private _playerPos = [0,0,0]
+
+if (isNull _detainee) then {
+	[2, format ["DETAINEE MIA | UID:%1 matches no unit. Running without player.", _detaineeUID], _filename] call A3A_fnc_log;
+} else {
+	_playerPos = getPos _detainee;
+};
 
 switch (toLower _operation) do {
 	case ("add"): {
@@ -61,11 +62,14 @@ switch (toLower _operation) do {
 		[_detaineeUID,_keyPairs] call A3A_fnc_punishment_dataSet;
 
 		_punishment_platform setPos [_pos2D #0, _pos2D #1, -0.25];
-		_detainee setPos [_pos2D #0, _pos2D #1, 0.25];
+
+		if (!isNull _detainee) then {
+			_detainee setPos [_pos2D #0, _pos2D #1, 0.25];
+		};
 		true;
 	};
 	case ("remove"): {
-		if (_playerPos inArea [ [50,50], 100, 100 ,0, true, -1]) then { // Slightly bigger, player can't swim 50m in 5 sec.
+		if (!isNull _detainee && {_playerPos inArea [ [50,50], 100, 100 ,0, true, -1]}) then { // Slightly bigger, player can't swim 50m in 5 sec.
 			_detainee switchMove "";
 			_detainee setPos posHQ;
 		};

@@ -16,7 +16,7 @@ Parameters:
 	<OBJECT> The detainee that the actions pertains to.
 
 Returns:
-	<BOOLEAN> True if hasn't crashed; nothing if it has crashed.
+	<BOOLEAN> True if hasn't crashed; False is detainee is free; nothing if it has crashed.
 
 Examples:
 	[_detainee] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false];
@@ -28,12 +28,16 @@ License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Comm
 params ["_detainee"];
 private _filename = "fn_punishment_addActionForgive.sqf";
 
+private _keyPairs = [["offenceTotal",0]];
+([getPlayerUID _detainee,_keyPairs] call A3A_fnc_punishment_dataGet) params ["_offenceTotal"];
+if (_offenceTotal < 1) exitWith {false};
+
 private _addAction_parameters = [
 	"Refresh Admin Action",
 	{
 		params ["_target", "_caller", "_actionId", "_arguments"];
 		[_arguments] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false];
-		sleep 1;
+		uiSleep 1;
 		[_arguments] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false];
 	},
 	_detainee,

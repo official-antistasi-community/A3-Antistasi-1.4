@@ -51,15 +51,15 @@ switch (toLower _operation) do {
 			deleteVehicle _punishment_platform;
 		};
 
-		_punishmentPlatform = createVehicle ["Land_Sun_chair_green_F", [0,0,0], [], 0, "CAN_COLLIDE"];
-		_punishmentPlatform enableSimulation false;
-		_punishmentPlatform allowDamage false;
+		_punishment_platform = createVehicle ["Land_Sun_chair_green_F", [0,0,0], [], 0, "CAN_COLLIDE"];
+		_punishment_platform enableSimulation false;
+		_punishment_platform allowDamage false;
 
 		_keyPairs = [ ["punishment_platform",_punishment_platform] ];
 		[_detaineeUID,_keyPairs] call A3A_fnc_punishment_dataSet;
 
 		private _pos2D = [random 100,random 100];
-		_punishmentPlatform setPos [_pos2D select 0, _pos2D select 1, -0.25];
+		_punishment_platform setPos [_pos2D select 0, _pos2D select 1, -0.25];
 		_detainee setPos [_pos2D select 0, _pos2D select 1, 0.25];
 		true;
 	};

@@ -42,7 +42,7 @@ private _playerStats = format["Player: %1 [%2]", name _detainee, _UID];
 
 private _releaseFromSentence = {
 	[_detainee] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false];
-	[_detaineeUID,"remove"] call A3A_fnc_punishment_oceanGulag;
+	[_UID,"remove"] call A3A_fnc_punishment_oceanGulag;
 };
 private _forgiveStats = {
 	private _keyPairs = ["timeTotal","offenceTotal","overhead","_sentenceEndTime"];
@@ -65,7 +65,8 @@ switch (_source) do {
 		true;
 	};
 	case "forgive": {
-		call _forgiveStats;
+		private _keyPairs = [ ["_sentenceEndTime",0] ];
+		[_UID,_keyPairs] call A3A_fnc_punishment_dataSet;
 		true;
 	};
 	default {

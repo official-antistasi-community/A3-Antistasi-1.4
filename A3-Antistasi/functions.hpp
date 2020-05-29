@@ -417,6 +417,7 @@ class A3A
 	{
 		class punishment {};
 		class punishment_addActionForgive {};
+		class punishment_checkStatus {};
 		class punishment_dataGet {};
 		class punishment_dataRem {};
 		class punishment_dataSet {};

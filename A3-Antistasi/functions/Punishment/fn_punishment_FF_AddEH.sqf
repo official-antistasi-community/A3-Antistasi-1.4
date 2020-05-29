@@ -57,5 +57,6 @@ _unit addEventHandler ["Hit", {
 	params ["_unit", "_source", "_damage", "_instigator"];
 	[[_instigator,_source], 20, 0.34, _unit] remoteExec ["A3A_fnc_punishment_FF",[_instigator,_source] select {isNull _instigator},false];
 }];
+[getPlayerUID player] remoteExec ["A3A_fnc_punishment_checkStatus",2,false];
 [2,"Punishment Event Handlers Added",_fileName] call A3A_fnc_log;
 true;

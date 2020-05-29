@@ -54,12 +54,12 @@ _data_instigator params ["_timeTotal","_offenceTotal","_lastTime","_overhead"];
 private _currentTime = (floor serverTime);
 
 ///////////////Data validation//////////////
-if (_lastTime <= 0) then    {_lastTime = _currentTime};
-if (_overhead < 0) then     {_overhead = 0};
-if (_offenceAdded < 0) then {_offenceAdded = 0};
-if (_offenceTotal < 0) then {_offenceTotal = 0};
-if (_timeAdded < 0) then    {_timeAdded = 0};
-if (_timeTotal < 0) then    {_timeTotal = 0};
+_lastTime = (_lastTime max 1) min _currentTime;
+_overhead = _overhead max 0;
+_offenceAdded = _offenceAdded max 0;
+_offenceTotal = _offenceTotal max 0;
+_timeAdded = _timeAdded max 0;
+_timeTotal = _timeTotal max 0;
 
 //////////////FF score addition/////////////
 private _periodDelta = _currentTime - _lastTime;

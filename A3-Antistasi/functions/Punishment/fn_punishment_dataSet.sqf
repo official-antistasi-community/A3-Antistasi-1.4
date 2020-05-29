@@ -40,7 +40,7 @@ if (_keyPairs isEqualTo []) exitWith {
 if (typeName _UID == "OBJECT" && {isPlayer _UID}) then {
 	_UID = getPlayerUID _UID;
 };
-if !(typeName _UID == "STRING" || {_UID == ""}) exitWith {
+if !(typeName _UID == "STRING" || {_UID in ["","punishment_dataNamespace"]}) exitWith {
 	[1, format ["INVALID PARAMS | _UID=""%1""", _UID], _filename] call A3A_fnc_log;
 	false;
 };

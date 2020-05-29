@@ -68,7 +68,7 @@ if (_UID == "") exitWith {
 };
 private _data_UID = _data_namespace getVariable [_UID, []];
 if (_data_UID isEqualTo []) exitWith {
-	_keyPairs apply {_x#0};
+	_keyPairs apply {_x#1};
 };
 if (_keyPairs isEqualTo []) exitWith {
 	_data_UID;

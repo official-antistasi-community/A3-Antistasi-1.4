@@ -37,7 +37,7 @@ if (!isServer) exitWith {
 private _keyPairs = [ ["punishment_platform",objNull] ];
 private _punishment_platform = ([_detaineeUID,_keyPairs] call A3A_fnc_punishment_dataGet) select 0;
 private _detainee = _detaineeUID call BIS_fnc_getUnitByUid;
-private _playerPos = [0,0,0]
+private _playerPos = [0,0,0];
 
 if (isNull _detainee) then {
 	[2, format ["DETAINEE MIA | UID:%1 matches no unit. Running without player.", _detaineeUID], _filename] call A3A_fnc_log;

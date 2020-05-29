@@ -1,0 +1,80 @@
+/*
+Function:
+	A3A_fnc_punishment_oceanGulag
+
+Description:
+	Creates a surfboard in a random pos 100m from the corner.
+	Moves the detainee onto the surfboard.
+
+Scope:
+	<SERVER> Execute on server.
+
+Environment:
+	<ANY>
+
+Parameters:
+	<STRING> The UID of the detainee being sent to Ocean Gulag.
+
+Returns:
+	<BOOLEAN> True if hasn't crashed; False is Invalid Params; nothing if it has crashed.
+
+Examples:
+	[_detainee,"add"] call ["A3A_fnc_punishment_oceanGulag",2,false];
+	[_detainee,"remove"] call ["A3A_fnc_punishment_oceanGulag",2,false];
+
+Author: Caleb Serafin
+Date Updated: 29 May 2020
+License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+*/
+params ["_detaineeUID",["_operation","add",[""]]];
+private _filename = "fn_punishment_oceanGulag.sqf";
+
+if (!isServer) exitWith {
+	[[1, "NOT SERVER"], _filename] call A3A_fnc_log;
+	false;
+};
+
+private _detainee = _detaineeUID call BIS_fnc_getUnitByUid;
+if (isNull _detainee) exitWith {
+	[1, format ["INVALID PARAMS | UID:%1 matches no unit", _detaineeUID], _filename] call A3A_fnc_log;
+	false;
+};
+
+private _keyPairs = [ ["punishment_platform",objNull] ];
+private _punishment_platform = ([_detaineeUID,_keyPairs] call A3A_fnc_punishment_dataGet) select 0;
+_playerPos = getPos _detainee;
+
+switch (toLower _operation) do {
+	case ("add"): {
+		if (_playerPos inArea [ [50,50], 50, 50 ,0, true, -1]) exitWith {};
+		if (!isNull _punishment_platform) then {
+			deleteVehicle _punishment_platform;
+		};
+
+		_punishmentPlatform = createVehicle ["Land_Sun_chair_green_F", [0,0,0], [], 0, "CAN_COLLIDE"];
+		_punishmentPlatform enableSimulation false;
+		_punishmentPlatform allowDamage false;
+
+		_keyPairs = [ ["punishment_platform",_punishment_platform] ];
+		[_detaineeUID,_keyPairs] call A3A_fnc_punishment_dataSet;
+
+		private _pos2D = [random 100,random 100];
+		_punishmentPlatform setPos [_pos2D select 0, _pos2D select 1, -0.25];
+		_detainee setPos [_pos2D select 0, _pos2D select 1, 0.25];
+		true;
+	};
+	case ("remove"): {
+		if (_playerPos inArea [ [50,50], 100, 100 ,0, true, -1]) then { // Slightly bigger, player can't swim 50m in 5 sec.
+			_detainee switchMove "";
+			_detainee setPos posHQ;
+		};
+		if (!isNull _punishment_platform) then {
+			deleteVehicle _punishment_platform;
+		};
+		[_detaineeUID,["punishment_platform"]] call A3A_fnc_punishment_dataRem;
+	};
+	default {
+		[1, format ["INVALID PARAMS | _operation=""%1""", _operation], _filename] call A3A_fnc_log;
+		false;
+	};
+};

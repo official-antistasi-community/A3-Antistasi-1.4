@@ -24,11 +24,11 @@ Returns:
 Examples:
 	[_instigator,_timeAdded,_offenceAdded,_victim] call A3A_fnc_punishment; // How it should be called from another A3A_fnc_punishment_FF.
 	// Unit Tests:
-	[cursorObject, 0, 0] call A3A_fnc_punishment;             // Ping with FF Warning
-	[cursorObject,120, 1] call A3A_fnc_punishment;            // Punish, 120 additional seconds
-	[player,10, 1] call A3A_fnc_punishment;                   // Test Self Punish, 10 additional seconds
+	[cursorObject, 0, 0] remoteExec ["A3A_fnc_punishment",2];           // Ping with FF Warning
+	[cursorObject,120, 1] remoteExec ["A3A_fnc_punishment",2];          // Punish, 120 additional seconds
+	[player,10, 1] remoteExec ["A3A_fnc_punishment",2];                 // Test Self Punish, 10 additional seconds
 	// Function that goes hand-in-hand
-	[cursorObject,"forgive"] call A3A_fnc_punishment_release; // Forgive all sins
+	[cursorObject,"forgive"] remoteExec [A3A_fnc_punishment_release,2]; // Forgive all sins
 
 Author: Caleb Serafin
 Date Updated: 29 May 2020
@@ -36,6 +36,11 @@ License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Comm
 */
 params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
 private _filename = "fn_punishment.sqf";
+
+if (!isServer) exitWith {
+	[[1, "NOT SERVER"], _filename] call A3A_fnc_log;
+	"NOT SERVER";
+};
 
 //////////////////Settings//////////////////
 private _depreciationCoef = 0.75;	// Modifies the drop-off curve of the punishment score; a higher number drops off quicker, a lower number lingers longer.
@@ -46,27 +51,27 @@ private _keyPairs = [["timeTotal",0],["offenceTotal",0],["lastOffenceTime",0],["
 private _UID = getPlayerUID _instigator;
 private _data_instigator = [_UID,_keyPairs] call A3A_fnc_punishment_dataGet;
 _data_instigator params ["_timeTotal","_offenceTotal","_lastTime","_overhead"];
+private _currentTime = (floor serverTime);
 
 ///////////////Data validation//////////////
-if (_lastTime <= 0) then    {_lastTime = serverTime;};
-if (_overhead < 0) then {_overhead = 0};
+if (_lastTime <= 0) then    {_lastTime = _currentTime};
+if (_overhead < 0) then     {_overhead = 0};
 if (_offenceAdded < 0) then {_offenceAdded = 0};
 if (_offenceTotal < 0) then {_offenceTotal = 0};
 if (_timeAdded < 0) then    {_timeAdded = 0};
 if (_timeTotal < 0) then    {_timeTotal = 0};
 
 //////////////FF score addition/////////////
-private _periodDelta = serverTime - _lastTime;
+private _periodDelta = _currentTime - _lastTime;
 _overhead = _overhead + _offenceAdded * _overheadPercent;
 _offenceTotal = _offenceTotal + _offenceAdded;
 _offenceTotal = _offenceTotal * (1-_depreciationCoef*(1-(_offenceTotal))) ^(_periodDelta/300); // Depreciation formula
 private _grandOffence = _offenceTotal + _overhead;
 _timeTotal = _timeTotal + _timeAdded;
 _timeTotal = _timeTotal * (1-_depreciationCoef*(1-(_timeTotal))) ^(_periodDelta/300);       // Depreciation formula
-private _sentenceEndTime = serverTime + _timeTotal;
 
 //////////Saves data to instigator//////////
-private _keyPairs = [["timeTotal",_timeTotal],["offenceTotal",_offenceTotal],["lastOffenceTime",serverTime],["overhead",_overhead],["_sentenceEndTime",_sentenceEndTime]];
+private _keyPairs = [["timeTotal",_timeTotal],["offenceTotal",_offenceTotal],["lastOffenceTime",_currentTime],["overhead",_overhead]];
 [_UID,_keyPairs] call A3A_fnc_punishment_dataSet;
 
 /////////Where punishment is issued/////////
@@ -78,5 +83,5 @@ if (_grandOffence < 1) exitWith {
 	"WARNED"
 };
 [2, format ["GUILTY | %1", _playerStats], _filename] call A3A_fnc_log;
-[_instigator,_sentenceEndTime] remoteExec ["A3A_fnc_punishment_warden",_instigator,false];
+[getPlayerUID _instigator,_timeTotal] remoteExec ["A3A_fnc_punishment_sentence_server",2,false];
 "FOUND GUILTY";

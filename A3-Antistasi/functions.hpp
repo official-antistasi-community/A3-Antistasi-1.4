@@ -425,10 +425,11 @@ class A3A
 		class punishment_FF_checkNearHQ {};
 		class punishment_FF_addEH {};
 		class punishment_notifyAdmin {};
+		class punishment_oceanGulag {};
 		class punishment_release {};
 		class punishment_removeActionForgive {};
-		class punishment_sentence {};
-		class punishment_warden {};
+		class punishment_sentence_client {};
+		class punishment_sentence_server {};
 	};
 
 	class pvp

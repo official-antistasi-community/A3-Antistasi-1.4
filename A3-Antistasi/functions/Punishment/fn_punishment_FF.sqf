@@ -47,6 +47,8 @@ Date Updated: 29 May 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params [["_instigator",objNull,[objNull,[]]],"_timeAdded","_offenceAdded",["_victim",objNull]];
+private _filename = "fn_punishment_FF.sqf";
+
 /////////////////Definitions////////////////
 private _notifyVictim = {
 	if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
@@ -58,7 +60,7 @@ private _notifyInstigator = {
 private _gotoExemption = {
 	params ["_exemptionDetails"];
 	_playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name _instigator, getPlayerUID _instigator,str _timeAdded, str _offenceAdded];
-	[format ["%1: [Antistasi] | INFO | PUNISHMENT | EXEMPTION, %2 | %3", servertime, _exemptionDetails, _playerStats]] remoteExec ["diag_log", 2];
+	[2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename] call A3A_fnc_log;
 	_exemptionDetails;
 };
 private _isCollision = false;

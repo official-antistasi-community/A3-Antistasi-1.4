@@ -16,7 +16,7 @@ Parameters:
 	<ARRAY<KEYPAIR>>  List of key pairs; KEYPAIR=[Name<STRING>,Value<ANY>].
 
 Returns:
-	<BOOLEAN> True if hasn't crashed; nothing if it has.
+	<BOOLEAN> True if hasn't crashed; False is invalid params; nothing if it has crashed.
 
 Examples:
 	private _keyPairs = [ ["test","frost"], ["420",69], ["bob","ban"] ];
@@ -31,17 +31,18 @@ params [
 	["_UID",objNull,["UID string",objNull]],
 	["_keyPairs",[],[ [] ]]
 ];
+private _filename = "fn_punishment_dataSet.sqf";
 
 if (_keyPairs isEqualTo []) exitWith {
-	[format ["%1: [Antistasi] | ERROR | PUNISHMENT DATA SET | INVALID PARAMS | No keys pairs", servertime]] remoteExec ["diag_log", 2];
-	"";
+	[1, "INVALID PARAMS | No keys pairs", _filename] call A3A_fnc_log;
+	false;
 };
 if (typeName _UID == "OBJECT" && {isPlayer _UID}) then {
 	_UID = getPlayerUID _UID;
 };
 if !(typeName _UID == "STRING" || {_UID == ""}) exitWith {
-	[format ["%1: [Antistasi] | ERROR | PUNISHMENT DATA SET | INVALID PARAMS | _UID=""%2""", servertime, _UID]] remoteExec ["diag_log", 2];
-	"";
+	[1, format ["INVALID PARAMS | _UID=""%1""", _UID], _filename] call A3A_fnc_log;
+	false;
 };
 
 private _data_namespace = call A3A_fnc_punishment_dataNamespace;

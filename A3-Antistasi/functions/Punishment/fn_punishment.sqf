@@ -35,6 +35,8 @@ Date Updated: 29 May 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
+private _filename = "fn_punishment.sqf";
+
 //////////////////Settings//////////////////
 private _depreciationCoef = 0.75;	// Modifies the drop-off curve of the punishment score; a higher number drops off quicker, a lower number lingers longer.
 private _overheadPercent = 0.3;		// Percentage of _offenceAdded that does not get depreciated.
@@ -72,9 +74,9 @@ private _playerStats = format["Player: %1 [%2], _timeTotal: %3, _offenceTotal: %
 if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 if (_grandOffence < 1) exitWith {
 	["FF Warning", "Watch your fire!"] remoteExec ["A3A_fnc_customHint", _instigator, false];
-	[format ["%1: [Antistasi] | INFO | PUNISHMENT | WARNING | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+	[2, format ["WARNING | %1", _playerStats], _filename] call A3A_fnc_log;
 	"WARNED"
 };
-[format ["%1: [Antistasi] | INFO | PUNISHMENT | GUILTY | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+[2, format ["GUILTY | %1", _playerStats], _filename] call A3A_fnc_log;
 [_instigator,_sentenceEndTime] remoteExec ["A3A_fnc_punishment_warden",_instigator,false];
 "FOUND GUILTY";

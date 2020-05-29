@@ -34,6 +34,9 @@ Returns 2:
 Returns 3:
 	<ARRAY<STRING>> List of all UID entries in _punishment_dataNamespace.
 
+Returns "INVALID PARAMS":
+	False;
+
 Examples:
 	private _keyPairs = [ ["test",0], ["420",0] ];
 	private _UID = "123";
@@ -49,13 +52,14 @@ params [
 	["_UID",objNull,["UID string",objNull]],
 	["_keyPairs",[],[ [] ]]
 ];
+private _filename = "fn_punishment_dataAdd.sqf";
 
 if (typeName _UID == "OBJECT" && {isPlayer _UID}) then {
 	_UID = getPlayerUID _UID;
 };
 if !(typeName _UID == "STRING") exitWith {
-	[format ["%1: [Antistasi] | ERROR | PUNISHMENT DATA GET | INVALID PARAMS | _UID=""%2""", servertime, _UID]] remoteExec ["diag_log", 2];
-	"";
+	[1, format ["INVALID PARAMS | _UID=""%1""", _UID], _filename] call A3A_fnc_log;
+	false;
 };
 
 private _data_namespace = call A3A_fnc_punishment_dataNamespace;

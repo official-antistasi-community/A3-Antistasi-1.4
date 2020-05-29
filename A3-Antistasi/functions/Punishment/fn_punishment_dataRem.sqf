@@ -21,7 +21,7 @@ Parameters 2:
 	<ARRAY> Empty array.
 
 Returns:
-	<BOOLEAN> True if hasn't crashed; nothing if it has.
+	<BOOLEAN> True if hasn't crashed; False is invalid params; nothing if it has crashed.
 
 Examples:
 	private _keys = ["test","420"];
@@ -37,13 +37,14 @@ params [
 	["_UID",objNull,["UID string",objNull]],
 	["_keys",[],[ [] ]]
 ];
+private _filename = "fn_punishment_dataRem.sqf";
 
 if (typeName _UID == "OBJECT" && {isPlayer _UID}) then {
 	_UID = getPlayerUID _UID;
 };
 if !(typeName _UID == "STRING" || {_UID == ""}) exitWith {
-	[format ["%1: [Antistasi] | ERROR | PUNISHMENT DATA SET | INVALID PARAMS | _UID=""%2""", servertime, _UID]] remoteExec ["diag_log", 2];
-	"";
+	[1, format ["INVALID PARAMS | _UID=""%1""", _UID], _filename] call A3A_fnc_log;
+	false;
 };
 
 private _data_namespace = call A3A_fnc_punishment_dataNamespace;

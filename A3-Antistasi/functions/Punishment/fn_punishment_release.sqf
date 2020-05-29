@@ -27,6 +27,7 @@ Date Updated: 29 May 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_detainee",["_source",""]];
+private _filename = "fn_punishment_release.sqf";
 
 private _keyPairs = [ ["_punishmentPlatform",objNull] ];
 private _UID = getPlayerUID _detainee;
@@ -49,20 +50,20 @@ switch (_source) do {
 	case "punishment_warden": {
 		call _forgiveStats;
 		call _releaseFromSentence;
-		[format ["%1: [Antistasi] | INFO | PUNISHMENT | RELEASE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+		[2, format ["RELEASE | %1", _playerStats], _filename] call A3A_fnc_log;
 		["FF Notification", "Enough then."] remoteExec ["A3A_fnc_customHint", _detainee, false];
 	};
 	case "punishment_warden_manual": {
 		call _forgiveStats;
 		call _releaseFromSentence;
-		[format ["%1: [Antistasi] | INFO | PUNISHMENT | FORGIVE | %2", servertime, _playerStats]] remoteExec ["diag_log", 2];
+		[2, format ["FORGIVE | %1", _playerStats], _filename] call A3A_fnc_log;
 		["FF Notification", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExec ["A3A_fnc_customHint", _detainee, false];
 	};
 	case "forgive": {
 		call _forgiveStats;
 	};
 	default {
-		[format ["%1: [Antistasi] | ERROR | PUNISHMENT RELEASE | INVALID PARAMS | _source=""%2""", servertime, _source]] remoteExec ["diag_log", 2];
+		[1, format ["INVALID PARAMS | _source=""%1""", _source], _filename] call A3A_fnc_log;
 	};
 };
 true;

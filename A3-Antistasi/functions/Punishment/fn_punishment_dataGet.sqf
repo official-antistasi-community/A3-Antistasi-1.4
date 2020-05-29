@@ -78,13 +78,15 @@ private _values = [];
 private _index = 0;
 private _pair = [];
 {
-	_pair = _x;
-	if (count _pair != 2 || {(typeName (_pair#0) != "STRING") }) exitWith {_values pushBack objNull;};
-	_index = _data_UID findIf {_x#0 == _pair#0};
-	if (_index > -1) then {
-		_values pushBack (_data_UID#_index)#1;
-	} else {
-		_values pushBack _x#1;
+	if (true) then { // Allows multiple exitWith to work without dirty nests.
+		_pair = _x;
+		if (count _pair != 2 || {(typeName (_pair#0) != "STRING") }) exitWith {_values pushBack objNull;};
+		_index = _data_UID findIf {_x#0 == _pair#0};
+		if (_index > -1) then {
+			_values pushBack (_data_UID#_index)#1;
+		} else {
+			_values pushBack _x#1;
+		};
 	};
 } forEach _keyPairs;
 _values;

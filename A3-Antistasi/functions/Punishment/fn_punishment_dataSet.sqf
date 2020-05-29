@@ -51,16 +51,18 @@ private _data_UID = _data_namespace getVariable [_UID, [] ];
 private _index = 0;
 private _pair = [];
 {
-	_pair = _x;
-	if (count _pair != 2 || {(typeName (_pair#0) != "STRING") }) exitWith {};
-	_index = _data_UID findIf {(_x#0) == _pair#0};
-	if (typeName (_pair#1) == "OBJECT" && {isNull (_pair#1)}) exitWith {
-		_data_UID deleteAt _index;
-	};
-	if (_index > -1) then {
-		_data_UID set [_index,_pair];
-	} else {
-		_data_UID pushBack _pair;
+	if (true) then { // Allows multiple exitWith to work without dirty nests.
+		_pair = _x;
+		if (count _pair != 2 || {(typeName (_pair#0) != "STRING") }) exitWith {};
+		_index = _data_UID findIf {(_x#0) == _pair#0};
+		if (typeName (_pair#1) == "OBJECT" && {isNull (_pair#1)}) exitWith {
+			_data_UID deleteAt _index;
+		};
+		if (_index > -1) then {
+			_data_UID set [_index,_pair];
+		} else {
+			_data_UID pushBack _pair;
+		};
 	};
 } forEach _keyPairs;
 _data_namespace setVariable [_UID, _data_UID, true];

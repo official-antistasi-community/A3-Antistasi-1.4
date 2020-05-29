@@ -45,8 +45,8 @@ private _releaseFromSentence = {
 	[_UID,"remove"] call A3A_fnc_punishment_oceanGulag;
 };
 private _forgiveStats = {
-	private _keyPairs = ["timeTotal","offenceTotal","overhead","_sentenceEndTime"];
-	[_UID,_keyPairs] call A3A_fnc_punishment_dataRem;
+	private _keys = ["timeTotal","offenceTotal","overhead","_sentenceEndTime"];
+	[_UID,_keys] call A3A_fnc_punishment_dataRem;
 };
 
 switch (_source) do {

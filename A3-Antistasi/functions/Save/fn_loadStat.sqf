@@ -11,19 +11,23 @@
 */
 
 specialVarLoads = [
-	"outpostsFIA","minesX","staticsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO",
+	"outpostsFIA","minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
 	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
 	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders"
+	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
+    "countCA", "attackCountdownInvaders"
 ];
 
 _varName = _this select 0;
 _varValue = _this select 1;
 if (isNil '_varValue') exitWith {};
 if (_varName in specialVarLoads) then {
-	if (_varName == 'countCA') then {countCA = _varValue; publicVariable "countCA"};
+	if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
+    if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
+    //Keep this for backwards compatiblity
+    if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
 	if (_varName == 'difficultyX') then {
 		if !(isMultiplayer) then {
 			skillMult = _varValue;
@@ -57,8 +61,8 @@ if (_varName in specialVarLoads) then {
 	if (_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
 	if (_varName == 'jna_dataList') then {jna_dataList = +_varValue};
     //Keeping these for older saves
-	if (_varName == 'prestigeNATO') then {[[_varValue, 60], [0, 0]] call A3A_fnc_prestige};
-	if (_varName == 'prestigeCSAT') then {[[0, 0], [_varValue, 60]] call A3A_fnc_prestige};
+	if (_varName == 'prestigeNATO') then {[[_varValue, 120], [0, 0]] call A3A_fnc_prestige};
+	if (_varName == 'prestigeCSAT') then {[[0, 0], [_varValue, 120]] call A3A_fnc_prestige};
     if (_varName == 'aggressionOccupants') then
     {
         aggressionLevelOccupants = _varValue select 0;
@@ -93,21 +97,23 @@ if (_varName in specialVarLoads) then {
 	if (_varName == 'maxUnits') then {maxUnits=_varValue; publicVariable "maxUnits"};
 	if (_varName == 'vehInGarage') then {vehInGarage= +_varValue; publicVariable "vehInGarage"};
 	if (_varName == 'destroyedBuildings') then {
-		destroyedBuildings= +_varValue;
-		//publicVariable "destroyedBuildings";
-		private _building = objNull;
 		{
-			_building = nearestObject [_x, "House"];
-			if !(_building in antennas) then {
+			// nearestObject sometimes picks the wrong building and is several times slower
+			// Example: Livonia Land_Cargo_Tower_V2_F at [6366.63,3880.88,0] ATL
+
+			private _building = nearestObjects [_x, ["House"], 1, true] select 0;
+			call {
+				if (isNil "_building") exitWith { diag_log format ["No building found at %1", _x] };
+				if (_building in antennas) exitWith { diag_log "Antenna in destroyed building list, ignoring" };
+
 				private _ruin = [_building] call BIS_fnc_createRuin;
-				//JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
-				if !(isNull _ruin) then {
-					[_building, true] remoteExec ["hideObject", 0, _ruin];
-				} else {
+				if (isNull _ruin) exitWith {
 					diag_log format ["Loading Destroyed Buildings: Unable to create ruin for %1", typeOf _building];
 				};
+
+				destroyedBuildings pushBack _building;
 			};
-		} forEach destroyedBuildings;
+		} forEach _varValue;
 	};
 	if (_varName == 'minesX') then {
 		for "_i" from 0 to (count _varvalue) - 1 do {

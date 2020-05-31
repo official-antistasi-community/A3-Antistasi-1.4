@@ -109,6 +109,7 @@ vehCSATLightArmed = ["LIB_Scout_M3"];
 vehCSATLightUnarmed = ["LIB_GazM1_SOV","LIB_GazM1_SOV_camo_sand","LIB_Willys_MB"];
 vehCSATTrucks = ["LIB_Zis5v","LIB_US6_Tent","LIB_US6_Open"];
 vehCSATAmmoTruck = "LIB_US6_Ammo";
+vehCSATRepairTruck = "LIB_Zis6_Parm";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
 vehCSATAPC = ["LIB_SdKfz251_captured","LIB_SU85","LIB_T34_76","LIB_T34_85"];
@@ -134,7 +135,7 @@ vehCSATUAVSmall = "not_supported";
 vehCSATMRLS = "LIB_US6_BM13";
 vehCSATMRLSMags = "LIB_16Rnd_BM13";
 //Combined Arrays
-vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck,"LIB_Zis5v_Med","LIB_Zis5v_Fuel","LIB_Zis6_Parm"];
+vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, vehCSATRepairTruck,"LIB_Zis5v_Med","LIB_Zis5v_Fuel"];
 vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 
 //Militia Vehicles

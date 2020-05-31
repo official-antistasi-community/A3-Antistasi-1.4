@@ -39,11 +39,11 @@ if (dateToNumber date > _dateLimitNum) then
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
     if(_side == Occupants) then
     {
-        [[-5, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
+        [[-5, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
     };
     if(_side == Invaders) then
     {
-        [[0, 0], [-5, 30]] remoteExec ["A3A_fnc_prestige",2]
+        [[0, 0], [-5, 60]] remoteExec ["A3A_fnc_prestige",2]
     };
 
 	}
@@ -54,13 +54,13 @@ else
 	//[-5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
     if(_side == Occupants) then
     {
-        [[15, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+        [[15, 90], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
     };
     if(_side == Invaders) then
     {
-        [[0, 0], [15, 30]] remoteExec ["A3A_fnc_prestige",2];
+        [[0, 0], [15, 90]] remoteExec ["A3A_fnc_prestige",2];
     };
-	[600*_bonus] remoteExec ["A3A_fnc_timingCA",2];
+	[600*_bonus, _side] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};

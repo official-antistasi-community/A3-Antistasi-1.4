@@ -1,10 +1,15 @@
 if (hasInterface) then {
 	if (!isNil "savingClient" && {savingClient}) exitWith {["Save", "Your personal stats are being saved"] call A3A_fnc_customHint;};
-	[] call A3A_fnc_savePlayer;
+	[getPlayerUID player, player] call A3A_fnc_savePlayer;
 };
 
 //Server only from here on out.
 if (!isServer) exitWith {};
+
+// Save each player with global flag
+{
+	[getPlayerUID _x, _x, true] call A3A_fnc_savePlayer;
+} forEach (call A3A_fnc_playableUnits);
 
 if (savingServer) exitWith {["Save Game", "Server data save is still in progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
@@ -27,7 +32,8 @@ if (_saveIndex == -1) then {
 profileNamespace setVariable ["ss_campaignID", campaignID];
 
 private ["_garrison"];
-["countCA", countCA] call A3A_fnc_setStatVariable;
+["attackCountdownOccupants", attackCountdownOccupants] call A3A_fnc_setStatVariable;
+["attackCountdownInvaders", attackCountdownInvaders] call A3A_fnc_setStatVariable;
 ["gameMode", gameMode] call A3A_fnc_setStatVariable;
 ["difficultyX", skillMult] call A3A_fnc_setStatVariable;
 ["bombRuns", bombRuns] call A3A_fnc_setStatVariable;
@@ -49,7 +55,8 @@ private _antennasDeadPositions = [];
 ["maxUnits", maxUnits] call A3A_fnc_setStatVariable;
 ["nextTick", nextTick - time] call A3A_fnc_setStatVariable;
 ["weather",[fogParams,rain]] call A3A_fnc_setStatVariable;
-["destroyedBuildings",destroyedBuildings] call A3A_fnc_setStatVariable;
+private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
+["destroyedBuildings",_destroyedPositions] call A3A_fnc_setStatVariable;
 
 //Save aggression values
 ["aggressionOccupants", [aggressionLevelOccupants, aggressionStackOccupants]] call A3A_fnc_setStatVariable;

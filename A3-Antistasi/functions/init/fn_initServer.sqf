@@ -213,7 +213,7 @@ addMissionEventHandler ["BuildingChanged", {
 
 		// Antenna dead/alive status is handled separately
 		if !(_oldBuilding in antennas || _oldBuilding in antennasDead) then {
-			destroyedBuildings pushBack (getPosATL _oldBuilding);
+			destroyedBuildings pushBack _oldBuilding;
 		};
 	};
 }];

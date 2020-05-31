@@ -100,7 +100,13 @@ else
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 			if (!isMultiplayer) then {_bonus = _bonus + ((20-skillFIA)*0.1)};
 			[-1*(20-skillFIA),15*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
-			[[-25, 60], [-10, 60]] remoteExec ["A3A_fnc_prestige",2];
+            [
+                3,
+                "Rebels won a supply mission",
+                "aggroEvent",
+                true
+            ] call A3A_fnc_log;
+			[[-25, 90], [-10, 60]] remoteExec ["A3A_fnc_prestige",2];
 			}
 		else
 			{

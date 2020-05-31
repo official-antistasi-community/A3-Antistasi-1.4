@@ -4,5 +4,4 @@ _moneyX = _moneyX + (player getVariable "moneyX");
 if (_moneyX < 0) then {_moneyX = 0};
 player setVariable ["moneyX",_moneyX,true];
 [] spawn A3A_fnc_statistics;
-["moneyX",_moneyX] call A3A_fnc_setStatVariable;
 true

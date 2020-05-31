@@ -46,14 +46,21 @@ if (side (group _killer) == teamPlayer) then
     };
 	if (count weapons _victim < 1 && !(_victim getVariable ["isAnimal", false])) then
     {
+        //This doesn't trigger for dogs, only for surrendered units
+        [
+            3,
+            "Rebels killed a surrendered unit",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
 		if (_victimSide == Occupants) then
 		{
 			[0,-2,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-			[[0.5, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+			[[20, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 		}
 		else
 		{
-			[[0, 0], [0.5, 15]] remoteExec ["A3A_fnc_prestige",2];
+			[[0, 0], [20, 30]] remoteExec ["A3A_fnc_prestige",2];
 		};
 	}
 	else
@@ -61,11 +68,11 @@ if (side (group _killer) == teamPlayer) then
 		[-1,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 		if (_victimSide == Occupants) then
 		{
-			[[20, 10], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+			[[0.5, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 		}
 		else
 		{
-			[[0, 0], [20, 10]] remoteExec ["A3A_fnc_prestige",2];
+			[[0, 0], [0.5, 45]] remoteExec ["A3A_fnc_prestige",2];
 		};
 	};
 }

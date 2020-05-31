@@ -8,7 +8,7 @@ class EditorData
 	toggles=1026;
 	class ItemIDProvider
 	{
-		nextID=1390;
+		nextID=1393;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=98;
+		nextID=109;
 	};
 	class Camera
 	{
-		pos[]={3934.9272,36.820293,4589.2261};
-		dir[]={-0.57010537,-0.57413942,0.58772248};
-		up[]={-0.39980498,0.81871247,0.41216198};
-		aside[]={0.71781546,-5.1133975e-007,0.69629622};
+		pos[]={2637.7673,59.399845,4931.0557};
+		dir[]={-0.011196959,-0.78264946,0.62236392};
+		up[]={-0.014078399,0.62246209,0.78252399};
+		aside[]={0.99983978,3.695277e-009,0.017988145};
 	};
 };
 binarizationWanted=0;
@@ -163,7 +163,7 @@ class AddonsMetaData
 		class Item12
 		{
 			className="A3_Structures_F_Enoch_Military";
-			name="Arma 3 Enoch - Military Buildings and Structures";
+			name="Arma 3 Contact Platform - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -219,8 +219,8 @@ class Mission
 		briefingName=$STR_antistasi_mission_info_kunduz_mapname_text;
 		resistanceWest=0;
 		year=2035;
-		month=6;
-		day=1;
+		month=7;
+		day=10;
 		hour=10;
 		minute=0;
 	};
@@ -5795,8 +5795,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4041.8948,7.4694195,4640.6494};
-				angles[]={0.091741994,4.3586445,0.083803542};
+				position[]={4041.895,7.4694734,4640.6489};
+				angles[]={0.034906585,4.3586454,0};
 			};
 			side="Empty";
 			flags=4;
@@ -6070,8 +6070,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3869.0015,5.6471577,4657.4702};
-				angles[]={6.187479,2.7637315,0};
+				position[]={3869.001,5.6471577,4657.4702};
+				angles[]={6.2482786,2.7637289,0};
 			};
 			side="Empty";
 			flags=4;
@@ -7034,8 +7034,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4022.438,5.8173208,4670.2427};
-				angles[]={0.0039967569,1.2170514,0.035984326};
+				position[]={4022.438,5.5259361,4670.2432};
+				angles[]={0,1.2170531,0};
 			};
 			side="Empty";
 			flags=4;
@@ -7045,7 +7045,7 @@ class Mission
 			};
 			id=1134;
 			type="Land_HBarrier_5_F";
-			atlOffset=7.1525574e-006;
+			atlOffset=-0.29137516;
 		};
 		class Item292
 		{
@@ -7850,7 +7850,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3919.8889,6.2139297,4697.043};
-				angles[]={0.012000273,3.4325023,0.10362703};
+				angles[]={0.012007865,3.4325042,0.052359879};
 			};
 			side="Empty";
 			flags=4;
@@ -9567,16 +9567,16 @@ class Mission
 				class Item3
 				{
 					dataType="Marker";
-					position[]={1452.9749,84.846191,3675.1572};
+					position[]={1466.109,84.846191,3663.0681};
 					name="outpost_1";
 					markerType="RECTANGLE";
 					type="Empty";
 					colorName="ColorGreen";
-					a=100.18131;
+					a=82.330467;
 					b=84.119888;
 					angle=222.62746;
 					id=247;
-					atlOffset=42.673824;
+					atlOffset=45.310776;
 				};
 				class Item4
 				{
@@ -9630,7 +9630,7 @@ class Mission
 					colorName="ColorGreen";
 					a=57.423988;
 					b=57.955338;
-					angle=165.46199;
+					angle=165.46198;
 					id=1319;
 				};
 				class Item8
@@ -9649,7 +9649,7 @@ class Mission
 				};
 			};
 			id=1296;
-			atlOffset=13.568083;
+			atlOffset=13.584381;
 		};
 		class Item426
 		{
@@ -9657,7 +9657,7 @@ class Mission
 			name="Roadblocks";
 			class Entities
 			{
-				items=13;
+				items=16;
 				class Item0
 				{
 					dataType="Marker";
@@ -9815,9 +9815,45 @@ class Mission
 					angle=231.22296;
 					id=1348;
 				};
+				class Item13
+				{
+					dataType="Marker";
+					position[]={857.8327,5.2265906,1407.002};
+					name="control_14";
+					markerType="RECTANGLE";
+					type="rectangle";
+					a=15;
+					b=15;
+					angle=231.22296;
+					id=1390;
+				};
+				class Item14
+				{
+					dataType="Marker";
+					position[]={622.86432,36.482681,4214.8198};
+					name="control_15";
+					markerType="RECTANGLE";
+					type="rectangle";
+					a=15;
+					b=15;
+					angle=231.22296;
+					id=1391;
+				};
+				class Item15
+				{
+					dataType="Marker";
+					position[]={3281.8455,5.659903,2052.4375};
+					name="control_16";
+					markerType="RECTANGLE";
+					type="rectangle";
+					a=15;
+					b=15;
+					angle=231.22296;
+					id=1392;
+				};
 			};
 			id=1297;
-			atlOffset=1.9014182;
+			atlOffset=7.6032648;
 		};
 		class Item427
 		{
@@ -10008,7 +10044,7 @@ class Mission
 					position[]={3854.791,20.436001,4481.6221};
 					name="spawnpoint";
 					type="hd_start";
-					angle=28.146986;
+					angle=28.146984;
 					id=211;
 					atlOffset=12.870616;
 				};
@@ -10148,15 +10184,15 @@ class Mission
 				class Item2
 				{
 					dataType="Marker";
-					position[]={3832.3286,-1.9667969,4493.7959};
+					position[]={3926.3718,-1.9667969,4622.77};
 					name="detectPlayer";
 					markerType="RECTANGLE";
 					type="rectangle";
-					a=25.366987;
-					b=348.42606;
+					a=158.01842;
+					b=97.308929;
 					angle=339.89185;
 					id=925;
-					atlOffset=-9.6127625;
+					atlOffset=-5.916647;
 				};
 				class Item3
 				{
@@ -10496,7 +10532,7 @@ class Mission
 			type="rectangle";
 			a=14.98178;
 			b=5.3061624;
-			angle=335.49991;
+			angle=335.49988;
 			id=1335;
 			atlOffset=4.1576209;
 		};

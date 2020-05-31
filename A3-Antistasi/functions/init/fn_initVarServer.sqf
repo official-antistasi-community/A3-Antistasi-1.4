@@ -97,7 +97,7 @@ DECLARE_SERVER_VAR(haveRadio, hasTFAR || hasACRE);
 //List of vehicles that are reported (I.e - Players can't go undercover in them)
 DECLARE_SERVER_VAR(reportedVehs, []);
 //Currently destroyed buildings.
-DECLARE_SERVER_VAR(destroyedBuildings, []);
+//DECLARE_SERVER_VAR(destroyedBuildings, []);
 //Initial HR
 server setVariable ["hr",8,true];
 //Initial faction money pool
@@ -113,7 +113,8 @@ server setVariable ["resourcesFIA",1000,true];
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
 // Indicates time in seconds before next counter attack.
-countCA = 600;																		
+attackCountdownOccupants = 600;
+attackCountdownInvaders = 600;																	
 
 cityIsSupportChanging = false;
 resourcesIsChanging = false;
@@ -127,6 +128,8 @@ movingMarker = false;
 markersChanging = [];
 
 playerHasBeenPvP = [];
+
+destroyedBuildings = [];		// synced only on join, to avoid spam on change
 
 ///////////////////////////////////////////
 //     INITIALISING ITEM CATEGORIES     ///
@@ -398,6 +401,7 @@ private _templateVariables = [
 	"vehCSATLightUnarmed",
 	"vehCSATTrucks",
 	"vehCSATAmmoTruck",
+	"vehCSATRepairTruck",
 	"vehCSATLight",
 	"vehCSATAPC",
 	"vehCSATTank",
@@ -641,7 +645,7 @@ DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
 // sanity check the lists to catch some serious problems early
 private _badVehs = [];
-{  
+{
     if !(isClass (configFile >> "CfgVehicles" >> _x)) then {
         _badVehs pushBackUnique _x;
     };

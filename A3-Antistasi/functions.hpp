@@ -61,6 +61,8 @@ class A3A
 		class garbageCleaner {};
 		class garrisonInfo {};
         class getAggroLevelString {};
+        class getVehiclePoolForAttacks {};
+        class getVehiclePoolForQRFs {};
 		class healAndRepair {};
 		class initPetros {};
 		class isFrontline {};
@@ -90,12 +92,14 @@ class A3A
 		class rebuildRadioTower {};
 		class relocateHQObjects {};
 		class repairRuinedBuilding {};
+		class requestDataFromServer {};
 		class resourceCheckSkipTime {};
 		class resourcesFIA {};
 		class returnMuzzle {};
 		class revealToPlayer {};
 		class scheduler {};
 		class sellVehicle {};
+		class setDataOnClient {};
 		class setMarkerAlphaForSide {};
 		class sizeMarker {};
 		class splitVehicleCrewIntoOwnGroups {};

@@ -1488,7 +1488,7 @@ Fixes
 
 2.2 - 04th January 2020
 
-Changelog version 2.2 Antistasi Community Edition
+Changes from version 2.1.2 to 2.2 Antistasi Community Edition
 
 =============  Major  ======================
 
@@ -1616,3 +1616,59 @@ Changelog version 2.2 Antistasi Community Edition
 
   - (Destroy Heli Mission) If you manage to steal the truck while it is trying to transport the heli back, the mission will fail (The fix for this is WIP)
   - The updated ACE version 3.13.0 maybe has introduced new issues with ACRE. We are investigating and thankful for input.
+
+
+2.2.1 - 07th February 2020
+
+Changes from version 2.2 to 2.2.1 Antistasi Community Edition
+
+
+=============  Major  ======================
+
+  GAMEPLAY CHANGES
+  - Re-enabled unit traits.
+
+
+  PARAMETER CHANGES
+  - Created parameter to allow unlock of LRs from the start (only regarding TFAR LRs)
+
+
+  MAP CHANGES (OLDER MAPS WILL NO LONGER WORK WITH 2.2 OR ABOVE)
+  - Added assets to positions like outposts on Chernarus Winter.
+  - Changed vehicle placement on Tanoa positions.
+  - Every map now only has 32 slots on the rebel side. Reason: Performance.
+ 
+
+==============  Minor  ========================
+  - Disabled unlocked IEDs in Vanilla arsenal.
+  - Changed playable Officer roles to TeamLead roles.
+  - Enabled further vehicles to be utilized for JNL loading.
+  - Added ACE spare barrel recognition.
+
+
+ ================  Groundwork  ===================
+   - Added building from CUP to be recognized as military buildings (also concerning 50. cal placements).
+ 
+
+================ Bugfixes ========================
+  - Fixed an exploit where guests could grab certain gear using a loadout.
+  - Fixed added aggro for hostages/surrenderes.
+  - Fixed PvP loadout assignment.
+  - Fixed roadblock creation issue.
+  - Fixed airstrike issue.
+  - Fixed RPT spam based on town road setup.
+  - Fixed vehicle saving issue near HQ flag.
+  - Fixed weapon spawn issues in loot crates.
+  - Fixed issues in snow script (for snow maps like currently Chernarus Winter).
+  - Fixed radio tower rebuild issue.
+  - Fixed template issue regarding vehSDKTrucks.
+  - Fixed Bob's forgotten D.
+  - Fixed Zeus not being able to access all assets.
+  - Fixed initVar spam.
+ 
+
+=================  Code  =========================
+
+*DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while! 
+
+  - CSAT outposts and airfields are set in fn_initGarrison.sqf now.

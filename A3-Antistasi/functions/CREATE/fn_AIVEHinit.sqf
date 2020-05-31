@@ -40,11 +40,11 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
                 {
                     if (_typeX in vehNATOTrucks) then
                     {
-                        [[2, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                        [[2, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
                     }
                     else
                     {
-                        [[0, 0], [2, 15]] remoteExec ["A3A_fnc_prestige",2];
+                        [[0, 0], [2, 45]] remoteExec ["A3A_fnc_prestige",2];
                     };
                 };
             }];
@@ -60,11 +60,11 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
                 {
                     if (_typeX in vehNATOLight) then
                     {
-                        [[5, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                        [[5, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
                     }
                     else
                     {
-                        [[0, 0], [5, 15]] remoteExec ["A3A_fnc_prestige",2];
+                        [[0, 0], [5, 45]] remoteExec ["A3A_fnc_prestige",2];
                     };
                 };
             }];
@@ -84,11 +84,11 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
 					if (_typeX in vehNATOAPC) then
                     {
                         [-2,2,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
-                        [[10, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                        [[10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
                     }
                     else
                     {
-                        [[0, 0], [10, 15]] remoteExec ["A3A_fnc_prestige",2];
+                        [[0, 0], [10, 45]] remoteExec ["A3A_fnc_prestige",2];
                     };
 				};
 				}];
@@ -108,14 +108,20 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats)) then
 					_typeX = typeOf _veh;
 					if (side (_this select 1) == teamPlayer) then
 						{
+                            [
+                                3,
+                                "Rebels killed a tank",
+                                "aggroEvent",
+                                true
+                            ] call A3A_fnc_log;
 						if (_typeX == vehNATOTank) then
                         {
                             [-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
-                            [[20, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                            [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
                         }
                         else
                         {
-                            [[0, 0], [20, 15]] remoteExec ["A3A_fnc_prestige",2];
+                            [[0, 0], [20, 45]] remoteExec ["A3A_fnc_prestige",2];
                         };
 						};
 					}];
@@ -167,11 +173,11 @@ else
 					{
 						if (_typeX in vehNATOTransportHelis) then
                         {
-                            [[5, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                            [[5, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
                         }
                         else
                         {
-                            [[0, 0], [5, 15]] remoteExec ["A3A_fnc_prestige",2];
+                            [[0, 0], [5, 45]] remoteExec ["A3A_fnc_prestige",2];
                         };
 					};
 				}];
@@ -188,11 +194,11 @@ else
 						if (_typeX in vehNATOAttackHelis) then
                         {
                             [-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
-                            [[15, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                            [[15, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
                         }
                         else
                         {
-                            [[0, 0], [15, 15]] remoteExec ["A3A_fnc_prestige",2];
+                            [[0, 0], [15, 45]] remoteExec ["A3A_fnc_prestige",2];
                         };
 					};
 				}];
@@ -210,11 +216,11 @@ else
 					if ((_typeX == vehNATOPlane) or (_typeX == vehNATOPlaneAA)) then
                     {
                         [-8,8,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
-                        [[10, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                        [[10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
                     }
                     else
                     {
-                        [[0, 0], [10, 15]] remoteExec ["A3A_fnc_prestige",2];
+                        [[0, 0], [10, 45]] remoteExec ["A3A_fnc_prestige",2];
                     };
 				};
 			}];
@@ -303,14 +309,20 @@ else
 					_typeX = typeOf _veh;
 					if (side (_this select 1) == teamPlayer) then
 					{
+                        [
+                            3,
+                            "Rebels killed a special vehicle",
+                            "aggroEvent",
+                            true
+                        ] call A3A_fnc_log;
 						if (_typeX == vehNATOAA || _typeX == vehNATOMRLS) then
                         {
                             [-5,5,position (_veh)] remoteExec ["A3A_fnc_citySupportChange",2];
-                            [[20, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+                            [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
                         }
                         else
                         {
-                            [[0, 0], [20, 15]] remoteExec ["A3A_fnc_prestige",2];
+                            [[0, 0], [20, 45]] remoteExec ["A3A_fnc_prestige",2];
                         };
 					};
 					_typeX call A3A_fnc_removeVehFromPool;

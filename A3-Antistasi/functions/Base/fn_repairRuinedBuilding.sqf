@@ -39,4 +39,6 @@ _buildingToRepair setPos [_oldPos select 0, _oldPos select 1, 0];
 //Make sure we unhide, in case it was hidden by BIS_fnc_createRuin
 [_buildingToRepair, false] remoteExec ["hideObject", 0, _buildingToRepair];
 
+destroyedBuildings = destroyedBuildings - [_buildingToRepair];
+
 true;

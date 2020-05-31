@@ -240,11 +240,17 @@ if((_isAPC && {(typeOf _vehicle) in vehNATOAPC}) || {_isTank && {(typeOf _vehicl
 {
     if(_isAPC) then
     {
-        [[10, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+        [[10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
     }
     else
     {
-        [[20, 15], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+        [
+            3,
+            "Rebels breached a tank",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
+        [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
     };
 
     if(citiesX findIf {(getMarkerPos _x) distance _vehicle < 300} != -1) then
@@ -256,10 +262,16 @@ else
 {
     if(_isAPC) then
     {
-        [[0, 0], [10, 15]] remoteExec ["A3A_fnc_prestige",2];
+        [[0, 0], [10, 45]] remoteExec ["A3A_fnc_prestige",2];
     }
     else
     {
-        [[0, 0], [20, 15]] remoteExec ["A3A_fnc_prestige",2];
+        [
+            3,
+            "Rebels breached a tank",
+            "aggroEvent",
+            true
+        ] call A3A_fnc_log;
+        [[0, 0], [20, 45]] remoteExec ["A3A_fnc_prestige",2];
     };
 };

@@ -114,6 +114,7 @@ vehCSATLightArmed = ["UK3CB_TKM_O_Datsun_Pkm","UK3CB_TKM_O_Hilux_Dshkm","UK3CB_T
 vehCSATLightUnarmed = ["UK3CB_TKM_O_BTR40","UK3CB_TKM_O_Hilux_Open","UK3CB_TKM_O_UAZ_Closed"];
 vehCSATTrucks = ["UK3CB_TKM_O_Ural_Covered","UK3CB_TKM_O_V3S_Closed","UK3CB_TKM_O_V3S_Open","UK3CB_TKM_O_Ural_Open"];
 vehCSATAmmoTruck = "UK3CB_TKM_O_V3S_Reammo";
+vehCSATRepairTruck = "UK3CB_TKM_O_Ural_Repair";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
 vehCSATAPC = ["UK3CB_TKM_O_BMP1","UK3CB_TKM_O_BRDM2_ATGM","UK3CB_TKM_O_BTR60","UK3CB_TKM_O_BRDM2","UK3CB_TKM_O_BRDM2_HQ","UK3CB_TKM_O_MTLB_PKT"];
@@ -139,7 +140,7 @@ vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "UK3CB_TKM_O_Hilux_Rocket_Arty";
 vehCSATMRLSMags = "122mm_10rnds";
 //Combined Arrays
-vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, "UK3CB_TKM_O_Ural_Repair","UK3CB_TKM_O_V3S_Refuel"];
+vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, vehCSATRepairTruck,"UK3CB_TKM_O_V3S_Refuel"];
 vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 
 //Militia Vehicles

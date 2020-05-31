@@ -66,6 +66,7 @@ if(!isnull _object)then{
 		//Clear object's jnl_cargo variable
 		_object setVariable ["jnl_cargo", Nil];
 
+		[_vehicle, _object, true] call jn_fnc_logistics_addOrRemoveObjectMass;
 		//re-enable seats
 		//need to call the function here, since it gets data from jnl_cargo!
 		[_vehicle] remoteExec ["jn_fnc_logistics_lockSeats",0,_vehicle];

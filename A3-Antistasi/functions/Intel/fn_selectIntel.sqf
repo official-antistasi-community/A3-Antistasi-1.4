@@ -61,14 +61,23 @@ if(_intelType == "Small") then
         };
         case (TIME_LEFT):
         {
-            private _nextAttack = countCA + (random 600) - 300;
-            if(_nextAttack < 300) then
+            private _nextAttack = 0;
+            if(_side == Occupants) then
             {
-                _text = format ["Next enemy attack is imminent!"];
+                _nextAttack = attackCountdownOccupants + (random 600) - 300;
             }
             else
             {
-                _text = format ["Next enemy attack expected in %1 minutes", round (_nextAttack / 60)];
+                _nextAttack = attackCountdownInvaders + (random 600) - 300;
+            };
+            private _sideName = if (_side == Occupants) then {nameOccupants} else {nameInvaders};
+            if(_nextAttack < 300) then
+            {
+                _text = format ["%1 attack is imminent!", _sideName];
+            }
+            else
+            {
+                _text = format ["%1 attack expected in %2 minutes", _sideName, round (_nextAttack / 60)];
             };
         };
         case (ACCESS_CAR):

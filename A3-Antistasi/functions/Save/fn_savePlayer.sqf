@@ -1,16 +1,10 @@
-private _playerId =	param [0];
-private _playerUnit = param [1];
-
-if (hasInterface) then {
-	if (isNil "_playerId" || isNil "_playerUnit") then {
-		_playerId = getPlayerUID player;
-		_playerUnit = player;
-	};
-};
+params ["_playerId", "_playerUnit", ["_globalSave", false]];
 
 if (isMultiplayer && !isServer) exitwith {
-	[_playerId, _playerUnit] remoteExec ["A3A_fnc_savePlayer", 2];
+	[_playerId, _playerUnit, _globalSave] remoteExec ["A3A_fnc_savePlayer", 2];
 };
+
+_playerUnit = _playerUnit getVariable ["owner", _playerUnit];		// save the real player, not remote controlled AIs
 
 if (isNil "_playerId" || {_playerId == ""}) exitWith {
 	diag_log format ["[Antistasi] Not saving player of unit %1 due to missing playerID", _playerUnit];
@@ -53,46 +47,40 @@ if (_shouldStripLoadout) then {
 };
 
 if (isMultiplayer) then
-	{
+{
 	[_playerId, "scorePlayer", _playerUnit getVariable "score"] call A3A_fnc_savePlayerStat;
 	[_playerId, "rankPlayer", rank _playerUnit] call A3A_fnc_savePlayerStat;
-	[_playerId, "personalGarage",[_playerUnit] call A3A_fnc_getPersonalGarage] call A3A_fnc_savePlayerStat;
-	_resourcesBackground = _playerUnit getVariable ["moneyX", 0];
-	{
-	_friendX = _x;
-	if ((!isNull _friendX) and (!isPlayer _friendX) and (alive _friendX)) then
-		{
-		private _valueOfFriend = server getVariable [typeOf _friendX, 0];
-		_resourcesBackground = _resourcesBackground + _valueOfFriend;
+	[_playerId, "personalGarage", [_playerUnit] call A3A_fnc_getPersonalGarage] call A3A_fnc_savePlayerStat;
 
-		if (vehicle _friendX != _friendX) then
+	_totalMoney = _playerUnit getVariable ["moneyX", 0];
+	if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
+
+	if (_globalSave) then 
+	{
+		// Add value of live AIs owned by player
+		// plus cost of vehicles driven by player-owned units, including self
+		// plus cost of unsaved static weapons aimed by player-owned units, including self
+		{
+			if (alive _x && (_x getVariable ["owner", objNull] == _playerUnit)) then
 			{
-			_veh = vehicle _friendX;
-			_typeVehX = typeOf _veh;
-			if (not(_veh in staticsToSave)) then
-				{
-					if ((_veh isKindOf "StaticWeapon") or (driver _veh == _friendX)) then
-					{
-						private _vehPrice = ([_typeVehX] call A3A_fnc_vehiclePrice);
-						if (_vehPrice isEqualType _resourcesBackground) then {
-							_resourcesBackground = _resourcesBackground + _vehPrice;
-						};
-						if (count attachedObjects _veh != 0) then {
-							{
-								private _attachmentPrice = ([typeOf _x] call A3A_fnc_vehiclePrice);
-								if (_vehPrice isEqualType _resourcesBackground) then {
-									_resourcesBackground = _resourcesBackground + _attachmentPrice;
-								};
-							} 
-							forEach attachedObjects _veh;
-						};
-					};
+				if (_x != _playerUnit) then {
+					private _unitPrice = server getVariable [typeOf _x, 0];
+					_totalMoney = _totalMoney + _unitPrice;
+				};
+				private _veh = vehicle _x;
+				if (_veh == _x || {_veh in staticsToSave}) exitWith {};
+				if (_x == driver _veh || {_x == gunner _veh && _veh isKindOf "StaticWeapon"}) then {
+					private _vehPrice = [typeof _veh] call A3A_fnc_vehiclePrice;
+					_totalMoney = _totalMoney + _vehPrice;
 				};
 			};
-		};
-	} forEach (units group _playerUnit) - [_playerUnit]; //Can't have player unit in here, as it'll get nulled out if called on disconnect.
-	[_playerId, "moneyX",_resourcesBackground] call A3A_fnc_savePlayerStat;
+
+		} forEach (units group _playerUnit);
 	};
-	
+
+	[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
+};
+
+if (!_globalSave) then { saveProfileNamespace };
 savingClient = false;
 true;

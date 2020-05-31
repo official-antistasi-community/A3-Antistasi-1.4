@@ -1,10 +1,10 @@
 if !(isServer) exitWith {};
 private _filename = "fn_theBossTransfer";
-params [["_newBoss", objNull]];
+params [["_newBoss", objNull], ["_silent", false]];
 
 if (!isNil "theBoss" and {!isNull theBoss}) then
 {
-	[3, format ["Removing %1 from Boss roles.", name theBoss], _filename] call A3A_fnc_log;
+	[3, format ["Removing %1 from Boss roles.", theBoss], _filename] call A3A_fnc_log;
 	
 	bossHCGroupsTransfer = hcAllGroups theBoss;
 	hcRemoveAllGroups theBoss;
@@ -17,10 +17,11 @@ theBoss = _newBoss;
 publicVariable "theBoss";
 
 if (isNull _newBoss) exitWith { 
-	[] spawn {
+	[_silent] spawn {
+		params ["_silent"];
 		sleep 5;
 		private _textX = format ["The commander has resigned. There is no eligible commander."];
-		[petros,"hint",_textX, "New Commander"] remoteExec ["A3A_fnc_commsMP", 0];
+		if (!_silent) then {[petros,"hint",_textX, "New Commander"] remoteExec ["A3A_fnc_commsMP", 0]};
 		[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
 	};
 };
@@ -39,6 +40,7 @@ if (!isNil "bossHCGroupsTransfer") then
 }
 else {
 	// Boss got lost somewhere, try to find HC groups by scanning
+	[3, "No previous HC groups found, scanning all groups.",_filename] call A3A_fnc_log;
 	{
 		if ((leader _x getVariable ["spawner",false]) and (!isPlayer leader _x) and (side _x == teamPlayer)) then
 		{
@@ -47,11 +49,12 @@ else {
 	} forEach allGroups;
 };
 
-[3, format ["New boss %1 (%2) set.", str theBoss, name theBoss], _filename] call A3A_fnc_log;
+[3, format ["New boss %1 set.", theBoss], _filename] call A3A_fnc_log;
 
-[] spawn {
+[_silent] spawn {
+	params ["_silent"];
 	sleep 5;
 	private _textX = format ["%1 is the new commander of our forces. Greet them!", name theBoss];
-	[petros,"hint",_textX, "New Commander"] remoteExec ["A3A_fnc_commsMP", 0];
+	if (!_silent) then {[petros,"hint",_textX, "New Commander"] remoteExec ["A3A_fnc_commsMP", 0]};
 	[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
 };

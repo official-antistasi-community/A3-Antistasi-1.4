@@ -15,6 +15,12 @@ while {true} do
 {
     sleep 60;
 
+    //Sleep if no player is online
+    if (isMultiplayer && (count (allPlayers - (entities "HeadlessClient_F")) == 0)) then
+    {
+        waitUntil {sleep 10; (count (allPlayers - (entities "HeadlessClient_F")) > 0)};
+    };
+
     waitUntil {!prestigeIsChanging};
     prestigeIsChanging = true;
 
@@ -29,5 +35,48 @@ while {true} do
     aggressionStackInvaders = aggressionStackInvaders select {(_x select 0) * (_x select 1) < 0};
 
     prestigeIsChanging = false;
-    [] spawn A3A_fnc_calculateAggression;
+    [] call A3A_fnc_calculateAggression;
+
+    [
+        3,
+        format ["Occupants:%1 Invaders:%2 Warlevel:%3", aggressionOccupants, aggressionInvaders, tierWar],
+        "aggressionUpdateLoop"
+    ] call A3A_fnc_log;
+
+    //Update attack countdown for occupants and execute attack if needed
+    attackCountdownOccupants = attackCountdownOccupants - (60 * (0.5 + (aggressionOccupants/100)));
+	if (attackCountdownOccupants < 0) then
+    {
+        [3600, Occupants] call A3A_fnc_timingCA;
+        if (!bigAttackInProgress) then
+        {
+            [Occupants] spawn A3A_fnc_rebelAttack;
+        };
+    }
+    else
+    {
+        //timingCA broadcasts the value in the if case
+        publicVariable "attackCountdownOccupants";
+    };
+
+
+    if ((tierWar > 1) || (gameMode == 4)) then
+    {
+        //Update attack countdown for invaders and execute attack if needed
+        attackCountdownInvaders = attackCountdownInvaders - (60 * (0.5 + (aggressionInvaders/100)));
+    	if (attackCountdownInvaders < 0) then
+        {
+            attackCountdownInvaders = 0;
+            [3600, Invaders] call A3A_fnc_timingCA;
+            if (!bigAttackInProgress) then
+            {
+                [Invaders] spawn A3A_fnc_rebelAttack;
+            };
+        }
+        else
+        {
+            //timingCA broadcasts the value in the if case
+            publicVariable "attackCountdownOccupants";
+        };
+    };
 };

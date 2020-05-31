@@ -68,7 +68,7 @@ staticATteamPlayer = "rhsgref_cdf_b_SPG9";
 staticAAteamPlayer = "rhsgref_cdf_b_ZU23";
 SDKMortar = "rhsgref_cdf_b_reg_M252";
 SDKMortarHEMag = "rhs_12Rnd_m821_HE";
-SDKMortarSmokeMag = "rhs_12Rnd_m821_HE";
+SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
 
 //Static Weapon Bags
 MGStaticSDKB = "RHS_DShkM_Gun_Bag";

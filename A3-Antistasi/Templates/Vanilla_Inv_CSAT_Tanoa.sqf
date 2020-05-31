@@ -120,6 +120,7 @@ vehCSATLightArmed = ["O_T_MRAP_02_gmg_ghex_F","O_T_MRAP_02_hmg_ghex_F","O_T_LSV_
 vehCSATLightUnarmed = ["O_T_MRAP_02_ghex_F","O_T_LSV_02_unarmed_F"];
 vehCSATTrucks = ["O_T_Truck_03_transport_ghex_F","O_T_Truck_03_covered_ghex_F"];
 vehCSATAmmoTruck = "O_T_Truck_03_ammo_ghex_F";
+vehCSATRepairTruck = "O_T_Truck_03_repair_ghex_F";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
 vehCSATAPC = ["O_T_APC_Wheeled_02_rcws_ghex_F","O_T_APC_Tracked_02_cannon_ghex_F"];
@@ -145,7 +146,7 @@ vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "O_T_MBT_02_arty_ghex_F";
 vehCSATMRLSMags = "32Rnd_155mm_Mo_shells";
 //Combined Arrays
-vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, "O_T_Truck_03_fuel_ghex_F", "O_T_Truck_03_medical_ghex_F", "O_T_Truck_03_repair_ghex_F"];
+vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, vehCSATRepairTruck, "O_T_Truck_03_fuel_ghex_F", "O_T_Truck_03_medical_ghex_F"];
 vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 
 //Militia Vehicles

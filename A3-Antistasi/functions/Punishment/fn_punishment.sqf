@@ -22,11 +22,11 @@ Returns:
 	<STRING> Either a exemption type or return from fn_punishment.sqf.
 
 Examples:
-	[_instigator,_timeAdded,_offenceAdded,_victim] call A3A_fnc_punishment; // How it should be called from another A3A_fnc_punishment_FF.
+	[_instigator,_timeAdded,_offenceAdded,_victim] remoteExec ["A3A_fnc_punishment",2,false]; // How it should be called from another A3A_fnc_punishment_FF.
 	// Unit Tests:
-	[cursorObject, 0, 0] remoteExec ["A3A_fnc_punishment",2];           // Ping with FF Warning
-	[cursorObject,120, 1] remoteExec ["A3A_fnc_punishment",2];          // Punish, 120 additional seconds
-	[player,10, 1] remoteExec ["A3A_fnc_punishment",2];                 // Test Self Punish, 10 additional seconds
+	[cursorObject, 0, 0] remoteExec ["A3A_fnc_punishment",2];                                 // Ping with FF Warning
+	[cursorObject,120, 1] remoteExec ["A3A_fnc_punishment",2];                                // Punish, 120 additional seconds
+	[player,10, 1] remoteExec ["A3A_fnc_punishment",2];                                       // Test Self Punish, 10 additional seconds
 	// Function that goes hand-in-hand
 	[cursorObject,"forgive"] remoteExec [A3A_fnc_punishment_release,2]; // Forgive all sins
 

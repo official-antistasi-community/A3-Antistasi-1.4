@@ -135,6 +135,7 @@ if (_exemption != "") exitWith {
 	[_exemption] call _gotoExemption;
 };
 
-[_instigator,_timeAdded,_offenceAdded,_victim] call A3A_fnc_punishment; // Has a return
+[_instigator,_timeAdded,_offenceAdded,_victim] remoteExec ["A3A_fnc_punishment",2,false];
+"PROSECUTED";
 
 

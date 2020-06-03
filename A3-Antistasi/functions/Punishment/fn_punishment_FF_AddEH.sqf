@@ -21,7 +21,7 @@ Returns:
 
 Examples:
 	call A3A_fnc_punishment_FF_addEH; // Recommended to add to "onPlayerRespawn.sqf","initPlayerLocal.sqf"
-	remoteExec ["A3A_fnc_punishment_FF_addEH",cursorObject,false];
+	[cursorObject] remoteExec ["A3A_fnc_punishment_FF_addEH",cursorObject,false];
 
 Author: Caleb Serafin
 Date Updated: 3 June 2020
@@ -51,11 +51,11 @@ if (hasACE) then {
 
 _unit addEventHandler ["Killed", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
-	[[_instigator,_killer], 20, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",[_instigator,_killer] select {isNull _instigator},false];
+	[[_instigator,_killer], 20, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",[_instigator,_killer] select (isNull _instigator),false];
 }];
 _unit addEventHandler ["Hit", {
 	params ["_unit", "_source", "_damage", "_instigator"];
-	[[_instigator,_source], 20, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",[_instigator,_source] select {isNull _instigator},false];
+	[[_instigator,_source], 20, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",[_instigator,_source] select (isNull _instigator),false];
 }];
 [getPlayerUID player] remoteExec ["A3A_fnc_punishment_checkStatus",2,false];
 [2,"Punishment Event Handlers Added",_fileName] call A3A_fnc_log;

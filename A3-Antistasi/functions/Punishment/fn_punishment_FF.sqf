@@ -37,7 +37,7 @@ Examples 1:
 	[player,"forgive"] remoteExec ["A3A_fnc_punishment_release",2]; // Self forgive all sins
 
 Examples 2:
-	[[_instigator,_source], 20, 0.34, _unit] remoteExec ["A3A_fnc_punishment_FF",[_instigator,_source] select {isNull _instigator},false]; // How it should be called from an EH.
+	[[_instigator,_source], 20, 0.34, _unit] remoteExec ["A3A_fnc_punishment_FF",[_instigator,_source] select (isNull _instigator),false]; // How it should be called from an EH.
 	// Unit Tests:
 	[[objNull,player], 0, 0, objNull] call A3A_fnc_punishment_FF;      // Test self with no victim
 	[[objNull,player], 0, 0, cursorObject] call A3A_fnc_punishment_FF; // Test self with victim

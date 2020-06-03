@@ -33,6 +33,10 @@ if (!isServer) exitWith {
 	[[1, "NOT SERVER"], _filename] call A3A_fnc_log;
 	false;
 };
+if (_UID isEqualTo "") exitWith {
+	[[1, "NO UID SPECIFIED"], _filename] call A3A_fnc_log;
+	false;
+};
 
 private _keyPairs = [["offenceTotal",0]];
 ([_UID,_keyPairs] call A3A_fnc_punishment_dataGet) params ["_offenceTotal"];

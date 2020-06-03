@@ -23,7 +23,7 @@ Examples:
 	[_detainee,"remove"] call ["A3A_fnc_punishment_oceanGulag",2,false];
 
 Author: Caleb Serafin
-Date Updated: 29 May 2020
+Date Updated: 3 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_detaineeUID",["_operation","add",[""]]];
@@ -35,7 +35,7 @@ if (!isServer) exitWith {
 };
 
 private _keyPairs = [ ["punishment_platform",objNull] ];
-private _punishment_platform = ([_detaineeUID,_keyPairs] call A3A_fnc_punishment_dataGet) select 0;
+([_detaineeUID,_keyPairs] call A3A_fnc_punishment_dataGet) params ["_punishment_platform"];
 private _detainee = _detaineeUID call BIS_fnc_getUnitByUid;
 private _playerPos = [0,0,0];
 
@@ -71,12 +71,16 @@ switch (toLower _operation) do {
 	case ("remove"): {
 		if (!isNull _detainee && {_playerPos inArea [ [50,50], 100, 100 ,0, true, -1]}) then { // Slightly bigger, player can't swim 50m in 5 sec.
 			_detainee switchMove "";
-			_detainee setPos posHQ;
+			if !(leader _detainee in [objNull, _detainee]) then {
+				_detainee setPos getPos leader _detainee;
+			} else {
+				_detainee setPos posHQ;
+			};
 		};
 		if (!isNull _punishment_platform) then {
 			deleteVehicle _punishment_platform;
 		};
-		[_detaineeUID,["punishment_platform"]] call A3A_fnc_punishment_dataRem;
+		[_detaineeUID,["punishment_platform","initialPosASL"]] call A3A_fnc_punishment_dataRem;
 	};
 	default {
 		[1, format ["INVALID PARAMS | _operation=""%1""", _operation], _filename] call A3A_fnc_log;

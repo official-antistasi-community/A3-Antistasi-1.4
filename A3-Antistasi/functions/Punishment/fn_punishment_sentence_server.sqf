@@ -21,10 +21,10 @@ Returns:
 	<BOOLEAN> True if hasn't crashed; False is invalid params; nothing if it has crashed.
 
 Examples:
-	[_instigator,_sentenceEndTime] remoteExec ["A3A_fnc_punishment_warden",2,false];
+	[_detaineeUID,_timeTotal] remoteExec ["A3A_fnc_punishment_sentence_server",2,false];
 
 Author: Caleb Serafin
-Date Updated: 29 May 2020
+Date Updated: 3 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_detaineeUID","_timeTotal"];
@@ -59,7 +59,6 @@ private _name = name _detainee;
 
 private _sentenceEndTime_old = _sentenceEndTime;
 private _countX = 0;
-private _keyPairs = [ ["_sentenceEndTime",_sentenceEndTime] ];
 private _disconnected = false;
 
 while {(ceil serverTime) < _sentenceEndTime-1} do { // ceil and -1 if something doesn't sync up
@@ -69,6 +68,7 @@ while {(ceil serverTime) < _sentenceEndTime-1} do { // ceil and -1 if something 
 	_countX = _sentenceEndTime - (floor serverTime);
 	[_detainee,_countX] remoteExec ["A3A_fnc_punishment_sentence_client",_detainee,false];
 	uiSleep 5;
+	_keyPairs = [ ["_sentenceEndTime",_sentenceEndTime] ];
 	_sentenceEndTime = ([_detaineeUID,_keyPairs] call A3A_fnc_punishment_dataGet) select 0; // Polls for updates
 };
 if (_disconnected) exitWith {};

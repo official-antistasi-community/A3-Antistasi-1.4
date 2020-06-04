@@ -335,6 +335,14 @@ else
 	_veh call jn_fnc_logistics_addAction;
 };
 
+[_veh] spawn {
+  sleep 1;
+  _veh = _this select 0;
+  {
+    _veh addItemCargoGlobal [_x, round random [5,15,15]];
+  }forEach flyGear;
+};
+
 if (!_busy) then
 {
 	for "_i" from 1 to (round (random 2)) do

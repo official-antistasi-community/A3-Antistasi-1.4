@@ -28,6 +28,12 @@ if !(_playerUnit getVariable ['canSave', true]) exitWith {
 savingClient = true;
 diag_log format ["[Antistasi] Saving player %1 on side %2", _playerId, side group _playerUnit];
 
+// Add player to saved list so that we can find the data for deletion
+if !(_playerId in savedPlayers) then {
+	savedPlayers pushBack _playerId;
+	["savedPlayers", savedPlayers] call A3A_fnc_setStatVariable;
+};
+
 private _shouldStripLoadout = false;
 if (hasACEMedical && {_playerUnit getVariable ["ACE_isUnconscious", false]}) then 
 {

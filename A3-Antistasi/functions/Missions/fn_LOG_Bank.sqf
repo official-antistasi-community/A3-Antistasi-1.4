@@ -33,7 +33,7 @@ _pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"
 
 _truckX = "C_Van_01_box_F" createVehicle _pos;
 {_x reveal _truckX} forEach (allPlayers - (entities "HeadlessClient_F"));
-[_truckX] call A3A_fnc_AIVEHinit;
+[_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
 _truckX setVariable ["destinationX",_nameDest,true];
 _truckX addEventHandler ["GetIn",
 	{
@@ -152,12 +152,7 @@ deleteVehicle _truckX;
 
 _nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
 
-waitUntil {sleep 1; !([distanceSPWN,1,_positionX,teamPlayer] call A3A_fnc_distanceUnits)};
-
-{_groupX = _x;
-{deleteVehicle _x} forEach units _groupX;
-deleteGroup _x;
-} forEach _groups;
+{ [_x] spawn A3A_fnc_groupDespawner } forEach _groups;
 
 //sleep (600 + random 1200);
 //_nul = [_tsk,true] call BIS_fnc_deleteTask;

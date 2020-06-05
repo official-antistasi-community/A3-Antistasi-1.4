@@ -118,7 +118,7 @@ else
 	_veh setDir _dirVeh;
 	sleep 15;
 	_veh allowDamage true;
-	_nul = [_veh] call A3A_fnc_AIVEHinit;
+	_nul = [_veh, Occupants] call A3A_fnc_AIVEHinit;
 	_mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], getPos _houseX];
 	_mrk setMarkerShapeLocal "RECTANGLE";
 	_mrk setMarkerSizeLocal [50,50];
@@ -211,23 +211,13 @@ deleteGroup _groupPOW;
 {boxX addItemCargoGlobal [_x,1]} forEach _items;
 
 if (_sideX == Occupants) then
-	{
+{
 	deleteMarkerLocal _mrk;
-	if (!isNull _veh) then {if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh}};
-	{
-	waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
-	deleteVehicle _x;
-	} forEach units _groupX;
-	deleteGroup _groupX;
-	if (!isNull _groupX1) then
-		{
-		{
-		waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
-		deleteVehicle _x;
-		} forEach units _groupX1;
-		deleteGroup _groupX1;
-		};
-	};
+	if (!isNull _veh) then { [_veh] spawn A3A_fnc_vehDespawner };
+	if (!isNull _groupX1) then { [_groupX1] spawn A3A_fnc_groupDespawner };
+	[_groupX] spawn A3A_fnc_groupDespawner; 
+};
+
 //sleep (540 + random 1200);
 
 //_nul = [_tsk,true] call BIS_fnc_deleteTask;

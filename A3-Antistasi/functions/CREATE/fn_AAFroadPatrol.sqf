@@ -114,7 +114,7 @@ if (_typePatrol != "AIR") then
 
 _vehicle=[_posBase, 0,_typeCar, _sideX] call bis_fnc_spawnvehicle;
 _veh = _vehicle select 0;
-[_veh] call A3A_fnc_AIVEHinit;
+[_veh, _sideX] call A3A_fnc_AIVEHinit;
 [_veh,"Patrol"] spawn A3A_fnc_inmuneConvoy;
 _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
@@ -178,12 +178,13 @@ while {alive _veh} do
 		};
 	};
 
-_enemiesX = if (_sideX == Occupants) then {Invaders} else {Occupants};
+{ 
+	private _wp = _x addWaypoint [getMarkerPos _base, 50];
+	_wp setWaypointType "MOVE";
+	_x setCurrentWaypoint _wp;
+	[_x] spawn A3A_fnc_groupDespawner;		// this one did care about enemies. Not sure why.
+} forEach _groups;
 
-{_unit = _x;
-waitUntil {sleep 1;!([distanceSPWN,1,_unit,teamPlayer] call A3A_fnc_distanceUnits) and !([distanceSPWN,1,_unit,_enemiesX] call A3A_fnc_distanceUnits)};deleteVehicle _unit} forEach _soldiers;
+{ [_x] spawn A3A_fnc_vehDespawner } forEach _vehiclesX;
 
-{_veh = _x;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and !([distanceSPWN,1,_veh,_enemiesX] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh}} forEach _vehiclesX;
-{deleteGroup _x} forEach _groups;
 AAFpatrols = AAFpatrols - 1;

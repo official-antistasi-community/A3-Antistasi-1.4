@@ -158,7 +158,7 @@ while {(_waves > 0)} do
 				_veh = _vehicle select 0;
 				_vehCrew = _vehicle select 1;
 				{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
-				[_veh] call A3A_fnc_AIVEHinit;
+				[_veh, _sideX] call A3A_fnc_AIVEHinit;
 				_groupVeh = _vehicle select 2;
 				_soldiers append _vehCrew;
 				_soldiersTotal append _vehCrew;
@@ -307,7 +307,7 @@ while {(_waves > 0)} do
 					_groups pushBack _groupVeh;
 					_vehiclesX pushBack _veh;
 					{[_x] call A3A_fnc_NATOinit} forEach units _groupVeh;
-					[_veh] call A3A_fnc_AIVEHinit;
+					[_veh, _sideX] call A3A_fnc_AIVEHinit;
 					if ((_typeVehX == vehNATOBoat) or (_typeVehX == vehCSATBoat)) then
 						{
 						_wp0 = _groupVeh addWaypoint [_landpos, 0];
@@ -396,7 +396,7 @@ while {(_waves > 0)} do
 		_groupUAV = group (crew _uav select 0);
 		_groups pushBack _groupUAV;
 		{[_x] call A3A_fnc_NATOinit} forEach units _groupUAV;
-		[_uav] call A3A_fnc_AIVEHinit;
+		[_uav, _sideX] call A3A_fnc_AIVEHinit;
 		_uwp0 = _groupUAV addWayPoint [_posDestination,0];
 		_uwp0 setWaypointBehaviour "AWARE";
 		_uwp0 setWaypointType "SAD";
@@ -461,7 +461,7 @@ while {(_waves > 0)} do
 			_pilots append _vehCrew;
 			_vehiclesX pushBack _veh;
 			{[_x] call A3A_fnc_NATOinit} forEach units _groupVeh;
-			[_veh] call A3A_fnc_AIVEHinit;
+			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 			if (not (_typeVehX in vehTransportAir)) then
 				{
 				(units _groupVeh) joinSilent _groupUAV;
@@ -721,45 +721,17 @@ bigAttackInProgress = false; publicVariable "bigAttackInProgress";
 forcedSpawn = forcedSpawn - [_mrkDestination]; publicVariable "forcedSpawn";
 [3600, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 
-{
-_veh = _x;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x; _pilots = _pilots - [_x]};
-} forEach _pilots;
-{
-_veh = _x;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x};
-} forEach _vehiclesX;
-{
-_veh = _x;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x; _soldiersTotal = _soldiersTotal - [_x]};
-} forEach _soldiersTotal;
 
-if (count _pilots > 0) then
-	{
-	{
-	[_x] spawn
-		{
-		private ["_veh"];
-		_veh = _this select 0;
-		waitUntil {sleep 1; !([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)};
-		deleteVehicle _veh;
-		};
-	} forEach _pilots;
+// Hand remaining aggressor units to the group despawner
+{
+	// order return to base if it's a city attack or if it was unsuccessful
+	if (_mrkDestination in citiesX || sidesX getVariable [_mrkDestination,sideUnknown] != _sideX) then {
+		private _wp = _x addWaypoint [_posOrigin, 50];
+		_wp setWaypointType "MOVE";
+		_x setCurrentWaypoint _wp;
 	};
+	[_x] spawn A3A_fnc_groupDespawner;
+} forEach _groups;
 
-if (count _soldiersTotal > 0) then
-	{
-	{
-	[_x] spawn
-		{
-		private ["_veh"];
-		_veh = _this select 0;
-		waitUntil {sleep 1; !([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)};
-		deleteVehicle _veh;
-		};
-	} forEach _soldiersTotal;
-	};
+{ [_x] spawn A3A_fnc_VEHdespawner } forEach _vehiclesX;
 
-
-{deleteGroup _x} forEach _groups;
-diag_log "Antistasi Waved CA: Despawn completed";

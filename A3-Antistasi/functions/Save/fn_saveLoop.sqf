@@ -13,6 +13,24 @@ if (!isServer) exitWith {};
 
 if (savingServer) exitWith {["Save Game", "Server data save is still in progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
+
+// Check if this campaign is already in the save list
+private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
+private _saveIndex = -1;
+{
+	if (_x select 0 == campaignID) exitWith { _saveIndex = forEachIndex };
+} forEach _saveList;
+
+// If not, append a new entry
+if (_saveIndex == -1) then {
+	private _gametype = if (side petros == independent) then {"Greenfor"} else {"Blufor"};
+	_saveList pushBack [campaignID, worldName, _gametype];
+	profileNamespace setVariable ["antistasiSavedGames", _saveList];
+};
+
+// Update the legacy campaign ID store
+profileNamespace setVariable ["ss_campaignID", campaignID];
+
 private ["_garrison"];
 ["attackCountdownOccupants", attackCountdownOccupants] call A3A_fnc_setStatVariable;
 ["attackCountdownInvaders", attackCountdownInvaders] call A3A_fnc_setStatVariable;

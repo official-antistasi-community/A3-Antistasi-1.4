@@ -2,7 +2,7 @@
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,-258.071289,-342.907776,-168.071396,-292.907776,0.000000,"Start"};
-item1[] = {"End_and_Rejoin",1,4346,64.791161,-139.450836,154.791199,-89.450851,0.000000,"End and Rejoin"};
+item1[] = {"End_and_Rejoin",1,250,64.791161,-139.450836,154.791199,-89.450851,0.000000,"End and Rejoin"};
 item2[] = {"HasArrived",4,218,-256.153625,-77.311310,-166.153625,-27.311371,10.000000,"HasArrived"};
 item3[] = {"Abort",4,218,-91.228699,-251.971512,-1.228698,-201.971497,100.000000,"Abort"};
 item4[] = {"Head_to__Next_Po",2,250,-256.894318,-166.599014,-166.894302,-116.599007,0.000000,"Head to " \n "Next Pos"};
@@ -10,7 +10,7 @@ item5[] = {"True",8,218,-257.487732,-253.817780,-167.487717,-203.817780,0.000000
 item6[] = {"At_Next_Pos",4,218,-403.907898,-167.404144,-313.907928,-117.404137,5.000000,"At Next Pos"};
 item7[] = {"Veh_stuck",4,218,-92.573151,-109.810966,-2.573151,-59.810974,0.000000,"Veh stuck"};
 item8[] = {"Veh_or_Crew_Dead",4,218,-91.259125,-177.638184,-1.259125,-127.638184,20.000000,"Veh or Crew" \n "Dead"};
-item9[] = {"End_and_Unload",1,250,-256.463623,15.090240,-166.463593,65.090225,0.000000,"End and Unload"};
+item9[] = {"End_and_Unload",1,4346,-256.463623,15.090240,-166.463593,65.090225,0.000000,"End and Unload"};
 item10[] = {"Hard_Abort",4,218,-92.573059,-344.041931,-2.573059,-294.041931,100.000000,"Hard Abort"};
 item11[] = {"End_and_Abort",1,250,66.121887,-341.269958,156.121918,-291.269989,0.000000,"End and Abort"};
 link0[] = {0,5};
@@ -28,7 +28,7 @@ link11[] = {7,1};
 link12[] = {8,1};
 link13[] = {10,11};
 globals[] = {0.000000,0,0,0,0,640,480,1,52,6316128,1,-539.552429,231.053772,136.200928,-476.403259,1112,884,1};
-window[] = {2,-1,-1,-1,-1,889,130,1570,130,3,1130};
+window[] = {2,-1,-1,-1,-1,863,104,1544,104,3,1130};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -109,13 +109,15 @@ class FSM
                          "	(units _cargoGroup) joinSilent _crewGroup;" \n
                          "	deleteGroup _cargoGroup;" \n
                          "};" \n
-                         "[_crewGroup] spawn A3A_fnc_groupDespawner;" \n
                          "" \n
                          "// Send back to base" \n
                          "private _wp3 = _crewGroup addWaypoint [getMarkerPos (_markers # 0), 100];" \n
                          "_wp3 setWaypointType ""MOVE"";" \n
-                         "_wp3 setWaypointBehaviour ""SAFE"";" \n
+                         "_wp3 setWaypointBehaviour ""AWARE"";" \n
                          "_crewGroup setCurrentWaypoint _wp3;" \n
+                         "" \n
+                         "[_crewGroup] spawn A3A_fnc_groupDespawner;" \n
+                         "[_vehicle] spawn A3A_fnc_vehDespawner;" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -216,6 +218,7 @@ class FSM
                          "if !(isNull _vehicle) then { _vehicle setVariable[""fsmresult"", 1] };" \n
                          "" \n
                          "private _crewGroup = _splitCrew call A3A_fnc_joinMultipleGroups;" \n
+                         "private _side = side _crewGroup;" \n
                          "" \n
                          "// Don't force all vehicles to drive into the outpost" \n
                          "private _wp0 = _crewGroup addWaypoint [_destination, 50];" \n
@@ -233,7 +236,7 @@ class FSM
                          "};" \n
                          "" \n
                          "// Despawning before the unload is completed is fine. We've arrived." \n
-                         "if (_convoyType isEqualTo ""reinforce"") then {" \n
+                         "if (_convoyType isEqualTo ""reinforce"" && (_side == sidesX getVariable _markers#1)) then {" \n
                          "" \n
                          "	// add units to garrison immediately, otherwise it'll keep sending them" \n
                          "	private _garrison = [typeOf _vehicle, [], []];" \n
@@ -243,18 +246,20 @@ class FSM
                          "" \n
                          "	// synchronize despawning with the target marker" \n
                          "	// remove this once addGarrison takes control of the units" \n
-                         "	[_crewGroup, _cargoGroup, _markers # 1] spawn {" \n
-                         "		params[""_crew"", ""_cargo"", ""_marker""];" \n
+                         "	[_vehicle, _crewGroup, _cargoGroup, _markers # 1] spawn {" \n
+                         "		params[""_vehicle"", ""_crew"", ""_cargo"", ""_marker""];" \n
                          "		waitUntil {sleep 5; (spawner getVariable _marker == 2)};" \n
                          "		{ deleteVehicle _x } forEach units _cargo;" \n
                          "		{ deleteVehicle _x } forEach units _crew;" \n
                          "		deleteGroup _cargo;" \n
                          "		deleteGroup _crew;" \n
+                         "		if (_vehicle getVariable ""ownerSide"" == _side) then { deleteVehicle _vehicle };" \n
                          "	};" \n
                          "} else {" \n
                          "	// otherwise just use the stock despawning" \n
                          "	[_crewGroup] spawn A3A_fnc_groupDespawner;" \n
                          "	[_cargoGroup] spawn A3A_fnc_groupDespawner;" \n
+                         "	[_vehicle] spawn A3A_fnc_vehDespawner;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

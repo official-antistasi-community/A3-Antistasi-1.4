@@ -5,6 +5,11 @@ if (side (group petros) == west) then {
 	diveGear pushBack "U_I_Wetsuit"
 };
 
+if (side (group petros) == west) then {
+	flyGear pushBack "U_B_PilotCoveralls"
+} else {
+	flyGear pushBack "U_I_pilotCoveralls"
+};
 //Lights Vs Laser ID
 {
 if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then

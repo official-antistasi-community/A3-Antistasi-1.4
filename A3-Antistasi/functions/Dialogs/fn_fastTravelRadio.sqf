@@ -16,6 +16,9 @@ if (({isPlayer _x} count units _groupX > 1) and (_esHC)) exitWith {["Fast Travel
 
 if (player != player getVariable ["owner",player]) exitWith {["Fast Travel", "You cannot Fast Travel while you are controlling AI"] call A3A_fnc_customHint;};
 
+private _punishmentoffenceTotal = [getPlayerUID player, [ ["offenceTotal",0] ]] call A3A_fnc_punishment_dataGet select 0;
+if (!isNil "_punishmentoffenceTotal" && {_punishmentoffenceTotal >= 1}) exitWith {["Fast Travel", "Nope. Not happening."] call A3A_fnc_customHint;};
+
 _checkX = false;
 //_distanceX = 500 - (([_boss,false] call A3A_fnc_fogCheck) * 450);
 _distanceX = 500;

@@ -51,27 +51,7 @@ if (isMultiplayer) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	if (side player == teamPlayer) then {
-		private _firedHandlerTk = {
-			_typeX = _this select 1;
-			if ((_typeX == "Put") or (_typeX == "Throw")) then {
-				private _shieldDistance = 100;
-				if (player distance petros < _shieldDistance) then {
-					["Warning", format ["You cannot throw grenades or place explosives within %1m of base.", _shieldDistance]] call A3A_fnc_customHint;
-					deleteVehicle (_this select 6);
-					if (_typeX == "Put") then {
-						if (player distance petros < 10) then {
-							[player, 20, 0.34, petros] call A3A_fnc_punishment;
-						};
-					};
-				};
-			};
-		};
-		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then {
-			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
-		};
-	};
+	call A3A_fnc_punishment_FF_addEH;
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {
@@ -276,30 +256,33 @@ player addEventHandler ["HandleHeal", {
 		};
 	};
 }];
+
+// notes:
+// Static weapon objects are persistent through assembly/disassembly
+// The bags are not persistent, object IDs change each time
+// Static weapon position seems to follow bag1, but it's not an attached object
+// Can use objectParent to identify backpack of static weapon
+
 player addEventHandler ["WeaponAssembled", {
-	private ["_veh"];
-	_veh = _this select 1;
+	private _veh = _this select 1;
+	[_veh, teamPlayer] call A3A_fnc_AIVEHinit;		// will flip/capture if already initialized
 	if (_veh isKindOf "StaticWeapon") then {
 		if (not(_veh in staticsToSave)) then {
 			staticsToSave pushBack _veh;
 			publicVariable "staticsToSave";
-			[_veh] call A3A_fnc_AIVEHinit;
 		};
-	_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
-	_pos = position _veh;
-	if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns"] call A3A_fnc_customHint;};
-	}
-	else {
-		_veh addEventHandler ["Killed",{[_this select 0] remoteExec ["A3A_fnc_postmortem",2]}];
+		_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+		_pos = position _veh;
+		if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns"] call A3A_fnc_customHint;};
 	};
 }];
 player addEventHandler ["WeaponDisassembled", {
-	_bag1 = _this select 1;
-	_bag2 = _this select 2;
+	private _bag1 = _this select 1;
+	private _bag2 = _this select 2;
 	//_bag1 = objectParent (_this select 1);
 	//_bag2 = objectParent (_this select 2);
-	[_bag1] call A3A_fnc_AIVEHinit;
-	[_bag2] call A3A_fnc_AIVEHinit;
+	[_bag1] remoteExec ["A3A_fnc_postmortem", 2];
+	[_bag2] remoteExec ["A3A_fnc_postmortem", 2];
 }];
 
 player addEventHandler ["GetInMan", {
@@ -515,3 +498,8 @@ player setPos (getMarkerPos respawnTeamPlayer);
 enableEnvironment [false, true];
 
 [2,"initClient completed",_fileName] call A3A_fnc_log;
+
+if(!isMultiplayer) then
+{
+    [] spawn A3A_fnc_singlePlayerBlackScreenWarning;
+};

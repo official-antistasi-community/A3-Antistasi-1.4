@@ -981,7 +981,7 @@ class game_options 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Use this option to save your current game. It does save the most important data in a ""Grand Theft Auto"" way. This opnion allows good MP save and independent saves of any version update. Vanilla saves are disabled because of lack of several features";
-			action = "closeDialog 0;if (player == theBoss) then {[] remoteExecCall [""A3A_fnc_saveLoop"", 0, false];} else {[] remoteExecCall [""A3A_fnc_saveLoop"", player, false]; hintC ""Personal Stats Saved""};";
+			action = "closeDialog 0;if (player == theBoss) then {[] remoteExecCall [""A3A_fnc_saveLoop"", 2, false];} else {[] remoteExecCall [""A3A_fnc_saveLoop"", player, false]; hintC ""Personal Stats Saved""};";
 		};
 	};
 };										//slots 6+1

@@ -1488,7 +1488,7 @@ Fixes
 
 2.2 - 04th January 2020
 
-Changelog version 2.2 Antistasi Community Edition
+Changes from version 2.1.2 to 2.2 Antistasi Community Edition
 
 =============  Major  ======================
 
@@ -1620,7 +1620,8 @@ Changelog version 2.2 Antistasi Community Edition
 
 2.2.1 - 07th February 2020
 
-Changelog version 2.2 Antistasi Community Edition
+Changes from version 2.2 to 2.2.1 Antistasi Community Edition
+
 
 =============  Major  ======================
 

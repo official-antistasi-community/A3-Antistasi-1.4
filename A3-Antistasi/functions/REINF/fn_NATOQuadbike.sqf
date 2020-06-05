@@ -24,4 +24,4 @@ while {_pos isEqualTo []} do
 	};
 lastVehicleSpawned = createVehicle [_typeBike,_pos, [], 10, "NONE"];
 
-[lastVehicleSpawned] call A3A_fnc_AIVEHinit;
+[lastVehicleSpawned, _sideX] call A3A_fnc_AIVEHinit;

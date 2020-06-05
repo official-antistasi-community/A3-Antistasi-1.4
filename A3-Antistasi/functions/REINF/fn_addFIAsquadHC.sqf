@@ -156,7 +156,8 @@ if (_esinf) then {
 	if (_typeGroup == staticAAteamPlayer) then {_groupX setGroupIdGlobal [format ["M.AA-%1",{side (leader _x) == teamPlayer} count allGroups]]};
 
 	driver _truckX action ["engineOn", _truckX];
-	[_truckX] call A3A_fnc_AIVEHinit;
+	[_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
+	[_truckX] spawn A3A_fnc_vehDespawner;
 	_bypassAI = true;
 };
 
@@ -202,7 +203,8 @@ vehQuery = nil;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 private _purchasedVehicle = _typeVehX createVehicle _pos;
 _purchasedVehicle setDir _roadDirection;
-[_purchasedVehicle] call A3A_fnc_AIVEHinit;
+[_purchasedVehicle, teamPlayer] call A3A_fnc_AIVEHinit;
+[_purchasedVehicle] spawn A3A_fnc_vehDespawner;
 _groupX addVehicle _purchasedVehicle;
 _purchasedVehicle setVariable ["owner",_groupX,true];
 [0, - _costs] remoteExec ["A3A_fnc_resourcesFIA",2];

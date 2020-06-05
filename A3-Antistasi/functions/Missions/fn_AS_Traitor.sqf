@@ -90,7 +90,7 @@ _veh setDir _dirVeh;
 sleep 15;
 _veh allowDamage true;
 _traitor allowDamage true;
-_nul = [_veh] call A3A_fnc_AIVEHinit;
+[_veh, Occupants] call A3A_fnc_AIVEHinit;
 {_x disableAI "MOVE"; _x setUnitPos "UP"} forEach units _groupTraitor;
 
 _mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], getPos _houseX];
@@ -207,17 +207,8 @@ else
 traitorIntel = false; publicVariable "traitorIntel";
 _nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
 _nul = [10,"AS1"] spawn A3A_fnc_deleteTask;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
 
-// Surrender routine will (eventually) despawn the traitor, if separated
-{
-waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
-deleteVehicle _x
-} forEach units _groupTraitor;
-deleteGroup _groupTraitor;
+[_groupX] spawn A3A_fnc_groupDespawner;
+[_groupTraitor] spawn A3A_fnc_groupDespawner;
+[_veh] spawn A3A_fnc_vehDespawner;
 
-{
-waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
-deleteVehicle _x
-} forEach units _groupX;
-deleteGroup _groupX;

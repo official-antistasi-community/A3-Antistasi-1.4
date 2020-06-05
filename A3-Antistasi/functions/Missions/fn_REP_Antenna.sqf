@@ -40,7 +40,7 @@ if (spawner getVariable _markerX != 2) then
 	_veh = createVehicle [vehNATORepairTruck, _pos, [], 0, "NONE"];
 	_veh allowdamage false;
 	_veh setDir (getDir _road);
-	_nul = [_veh] call A3A_fnc_AIVEHinit;
+	_nul = [_veh, Occupants] call A3A_fnc_AIVEHinit;
 	_groupX = createGroup Occupants;
 
 	sleep 5;
@@ -112,9 +112,6 @@ _nul = [30,"REP"] spawn A3A_fnc_deleteTask;
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
-if (_truckCreated) then
-	{
-	{deleteVehicle _x} forEach units _groupX;
-	deleteGroup _groupX;
-	if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
-	};
+// could make these guys return home, too much work atm
+[_groupX] spawn A3A_fnc_groupDespawner;
+[_veh] spawn A3A_fnc_vehDespawner;

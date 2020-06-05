@@ -9,6 +9,7 @@ petros allowDamage false;
 
 [petros,unlockedRifles] call A3A_fnc_randomRifle;
 petros selectWeapon (primaryWeapon petros);
+[petros] call A3A_fnc_punishment_FF_addEH;
 petros addEventHandler
 [
     "HandleDamage",
@@ -19,10 +20,6 @@ petros addEventHandler
 
     _victim = _this select 0;
     _instigator = _this select 6;
-    if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.1) then
-    {
-        [_instigator, 60, 1, _victim] remoteExec ["A3A_fnc_punishment",_instigator];
-    };
     if (isPlayer _injurer) then
     {
         _damage = (_this select 0) getHitPointDamage (_this select 7);
@@ -79,7 +76,7 @@ petros addMPEventHandler ["mpkilled",
 						select {(side (group _x) == teamPlayer) && isPlayer _x && _x == _x getVariable ["owner", _x]}
 						apply {[([_x] call A3A_fnc_numericRank) select 0, _x]};
 					_playersWithRank sort false;
-					
+
 					 [] remoteExec ["A3A_fnc_placementSelection", _playersWithRank select 0 select 1];
 				};
 			};

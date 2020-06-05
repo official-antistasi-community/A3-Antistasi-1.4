@@ -274,10 +274,13 @@ if (_varName in specialVarLoads) then {
 				_veh setPosATL _posVeh;
 				_veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
 			};
+			[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
 			if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then {
 				staticsToSave pushBack _veh;
+			}
+			else {
+				[_veh] spawn A3A_fnc_vehDespawner;
 			};
-			[_veh] call A3A_fnc_AIVEHinit;
 		};
 		publicVariable "staticsToSave";
 	};

@@ -16,7 +16,6 @@ if !(isNil { _veh getVariable "ownerSide" }) exitWith
 {
 	// vehicle already initialized, just swap side and exit
 	[_veh, _side] call A3A_fnc_vehKilledOrCaptured;
-	_veh setVariable ["ownerSide", _side, true];
 };
 
 _veh setVariable ["originalSide", _side, true];
@@ -185,10 +184,10 @@ if (_side == civilian) then
 // HandleDamage/Killed: Runs where installed, only if target is local
 // MPKilled: Runs everywhere, regardless of target locality or install location
 
-if (_side != teamPlayer) then {
-
+if (_side != teamPlayer) then
+{
 	// Vehicle stealing handler
-	// When a rebel first enters a vehicle, flip side, fire capture function and start vehDespawner (unless static)
+	// When a rebel first enters a vehicle, fire capture function
 	_veh addEventHandler ["GetIn", {
 
 		params ["_veh", "_role", "_unit"];
@@ -198,8 +197,6 @@ if (_side != teamPlayer) then {
 		{
 			[3, format ["%1 switching side from %2 to rebels", typeof _veh, _oldside], "fn_AIVEHinit"] call A3A_fnc_log;
 			[_veh, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;
-			_veh setVariable ["ownerSide", teamPlayer, true];
-			if !(_veh isKindOf "StaticWeapon") then { [_veh] spawn A3A_fnc_VEHdespawner };
 		};
 		_veh removeEventHandler ["GetIn", _thisEventHandler];
 	}];
@@ -233,53 +230,4 @@ _veh addEventHandler ["Dammaged", {
 
 // deletes vehicle if it exploded on spawn...
 [_veh] spawn A3A_fnc_cleanserVeh;
-
-
-
-/*
-if (isNil "A3A_vehicleEH_addHandlers") then 
-{	
-	A3A_vehicleEH_Killed = {
-		params ["_veh", "_killer", "_instigator"];
-		[_veh, side group _instigator, false] call A3A_fnc_vehKilledOrCaptured;
-		[_veh] spawn A3A_fnc_postmortem;
-	};
-	
-	A3A_vehicleEH_Local = {
-		params ["_veh", "_isLocal"];
-		[_veh] remoteExec ["A3A_vehicleEH_addHandlers", _veh];
-		_veh removeEventHandler ["Killed", _veh getVariable "killedEHindex"];
-		_veh removeEventHandler ["Local", _thisEventHandler];
-	};
-
-	A3A_vehicleEH_addHandlers = {
-		params ["_veh"];
-		_veh addEventHandler ["Local", A3A_vehicleEH_Local];
-		_idx = _veh addEventHandler ["Killed", A3A_vehicleEH_Killed];
-		_veh setVariable ["killedEHIndex", _idx];
-	};
-};
-_veh call A3A_vehicleEH_addHandlers;
-*/
-
-
-/*
-_veh addMPEventHandler ["MPKilled", {
-	
-	if (!isServer) exitWith {};			// MPKilled runs everywhere for some reason
-	params ["_veh", "_killer", "_instigator"];
-	[_veh, side group _instigator, false] call A3A_fnc_vehKilledOrCaptured;
-	[_veh] spawn A3A_fnc_postmortem;
-}];
-*/
-/*
-if (not(_veh in staticsToSave)) then
-	{
-	if (((count crew _veh) > 0) and (not (_typeX in vehAA)) and (not (_typeX in vehMRLS) and !(_veh isKindOf "StaticWeapon"))) then
-		{
-		[_veh] spawn A3A_fnc_VEHdespawner
-		};
-	};
-*/
-
 

@@ -218,6 +218,7 @@ class FSM
                          "if !(isNull _vehicle) then { _vehicle setVariable[""fsmresult"", 1] };" \n
                          "" \n
                          "private _crewGroup = _splitCrew call A3A_fnc_joinMultipleGroups;" \n
+                         "private _side = side _crewGroup;" \n
                          "" \n
                          "// Don't force all vehicles to drive into the outpost" \n
                          "private _wp0 = _crewGroup addWaypoint [_destination, 50];" \n
@@ -235,7 +236,7 @@ class FSM
                          "};" \n
                          "" \n
                          "// Despawning before the unload is completed is fine. We've arrived." \n
-                         "if (_convoyType isEqualTo ""reinforce"") then {" \n
+                         "if (_convoyType isEqualTo ""reinforce"" && (_side == sidesX getVariable _markers#1)) then {" \n
                          "" \n
                          "	// add units to garrison immediately, otherwise it'll keep sending them" \n
                          "	private _garrison = [typeOf _vehicle, [], []];" \n
@@ -252,7 +253,7 @@ class FSM
                          "		{ deleteVehicle _x } forEach units _crew;" \n
                          "		deleteGroup _cargo;" \n
                          "		deleteGroup _crew;" \n
-                         "		if !(_vehicle getVariable [""inDespawner"", false]) then { deleteVehicle _vehicle };" \n
+                         "		if (_vehicle getVariable ""ownerSide"" == _side) then { deleteVehicle _vehicle };" \n
                          "	};" \n
                          "} else {" \n
                          "	// otherwise just use the stock despawning" \n

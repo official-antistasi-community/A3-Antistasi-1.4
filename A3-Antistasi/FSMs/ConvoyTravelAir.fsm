@@ -302,7 +302,7 @@ class FSM
                          "" \n
                          "if (_cargoGroup == grpNull) exitWith {};" \n
                          "" \n
-                         "if (_convoyType isEqualTo ""reinforce"") then {" \n
+                         "if (_convoyType isEqualTo ""reinforce"" && (side _cargoGroup == sidesX getVariable _markers#1)) then {" \n
                          "" \n
                          "	// add units to garrison immediately, otherwise it'll keep sending them" \n
                          "	private _unitTypes = [];" \n

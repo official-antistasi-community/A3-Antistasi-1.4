@@ -77,7 +77,6 @@ if ({alive _x} count units _groupX == 0) then
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2) or (not(_markerX in outpostsFIA))};
 
-// Case where players drive off with the vehicle is not really handled...
 if (_isRoad) then { if (!isNull _veh) then { deleteVehicle _veh } };
 { deleteVehicle _x } forEach units _groupX;
 deleteGroup _groupX;

@@ -74,6 +74,7 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 			_veh setDir _dirveh;
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
+			_veh setVariable ["originalPos", getPos _veh];
 			};
 		};
 	sleep 0.5;
@@ -93,6 +94,7 @@ if (count _mrkMar > 0) then
 			_veh setDir (random 360);
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
+			_veh setVariable ["originalPos", getPos _veh];
 			sleep 0.5;
 			};
 		};
@@ -178,7 +180,10 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 {
 	// delete all parked vehicles that haven't been stolen
-	if !(_x getVariable ["inDespawner", false]) then { deleteVehicle _x };
+	if (_x getVariable "ownerSide" == civilian) then {
+		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+		else { [_x] spawn A3A_fnc_VEHdespawner };
+	};
 } forEach _vehiclesX;
 
 // Chuck all the civ vehicle patrols into the despawners

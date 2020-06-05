@@ -198,6 +198,8 @@ if (_spawnParameter isEqualType []) then
 	sleep 1;
 };
 
+{ _x setVariable ["originalPos", getPos _x] } forEach _vehiclesX;
+
 _array = [];
 _subArray = [];
 _countX = 0;
@@ -246,5 +248,8 @@ deleteMarker _mrk;
 
 {
 	// delete all vehicles that haven't been captured
-	if !(_x getVariable ["inDespawner", false]) then { deleteVehicle _x };
+	if (_x getVariable ["ownerSide", _sideX] == _sideX) then {
+		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
+	};
 } forEach _vehiclesX;

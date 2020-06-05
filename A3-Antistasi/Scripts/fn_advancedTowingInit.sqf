@@ -377,6 +377,11 @@ SA_Attach_Tow_Ropes = {
 					[[_helper],"SA_Hide_Object_Global"] call SA_RemoteExecServer;
 					[_helper, [0,0,0], [0,0,-1]] ropeAttachTo (_towRopes select 0);
 					[_vehicle,_vehicleHitch,_cargo,_cargoHitch,_ropeLength] spawn SA_Simulate_Towing;
+
+					// capture empty vehicles when attached
+					if (count crew _cargo == 0) then {
+						[_cargo, side group _player, true] remoteExec ["A3A_fnc_vehKilledOrCaptured", 2];
+					};
 				};
 			};
 		} else {

@@ -13,9 +13,10 @@ while {alive _veh} do
 	_blockTime = _veh getVariable ["despawnBlockTime", 0];
 
 	private _despawn = call {
-		if (count crew _veh > 0) exitWith {false};			// includes dead crew. This is fine.
-		if (_blockTime > time) exitWith {false};
+		if ({ alive _x } count crew _veh > 0) exitWith {false};
 		if (_veh distance getMarkerPos respawnTeamPlayer < 100) exitWith {false};
+		if (_blockTime > time) exitWith {false};
+		if !(isNull attachedTo _veh) exitWith {false};		// don't despawn attached objects
 		if ([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) exitWith {false};
 		if !(_checkNonRebel) exitWith {true};
 		if ([distanceSPWN,1,_veh,Occupants] call A3A_fnc_distanceUnits) exitWith {false};

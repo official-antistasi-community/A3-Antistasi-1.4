@@ -35,7 +35,7 @@ if (_isRoad) then
 		_veh = vehSDKLightArmed createVehicle getPos (_road select 0);
 		_veh setDir _dirveh + 90;
 		_veh lock 3;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
 		sleep 1;
 		};
 	_groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
@@ -77,6 +77,6 @@ if ({alive _x} count units _groupX == 0) then
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2) or (not(_markerX in outpostsFIA))};
 
-if (_isRoad) then {if (!isNull _veh) then {deleteVehicle _veh}};
-{deleteVehicle _x} forEach units _groupX;
+if (_isRoad) then { if (!isNull _veh) then { deleteVehicle _veh } };
+{ deleteVehicle _x } forEach units _groupX;
 deleteGroup _groupX;

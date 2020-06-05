@@ -114,7 +114,7 @@ prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NA
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
 // Indicates time in seconds before next counter attack.
 attackCountdownOccupants = 600;
-attackCountdownInvaders = 600;																	
+attackCountdownInvaders = 600;
 
 cityIsSupportChanging = false;
 resourcesIsChanging = false;
@@ -129,6 +129,7 @@ markersChanging = [];
 
 playerHasBeenPvP = [];
 
+savedPlayers = [];
 destroyedBuildings = [];		// synced only on join, to avoid spam on change
 
 ///////////////////////////////////////////
@@ -488,7 +489,7 @@ private _fnc_vehicleIsValid = {
 	params ["_type"];
 	private _configClass = configFile >> "CfgVehicles" >> _type;
 	if !(isClass _configClass) exitWith {
-		[1, format ["Vehicle class %1 not found", _type], _filename] call A3A_fnc_Log;	
+		[1, format ["Vehicle class %1 not found", _type], _filename] call A3A_fnc_Log;
 		false;
 	};
 	if (_configClass call A3A_fnc_getModOfConfigClass in disabledMods) then {false} else {true};
@@ -513,7 +514,7 @@ private _fnc_filterAndWeightArray = {
 	// second pass, re-weight
 	private _weightMod = _targWeight / _curWeight;
 	for "_i" from 0 to (count _output - 2) step 2 do {
-		_output set [_i+1, _weightMod * (_output select (_i+1))]; 
+		_output set [_i+1, _weightMod * (_output select (_i+1))];
 	};
 	_output;
 };
@@ -634,7 +635,7 @@ DECLARE_SERVER_VAR(vehMRLS, _vehMRLS);
 private _vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis + vehNATOTransportPlanes + vehCSATTransportPlanes;
 DECLARE_SERVER_VAR(vehTransportAir, _vehTransportAir);
 
-private _vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
+private _vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM","UK3CB_BAF_Merlin_HC3_18_GPMG_Tropical_RM","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
 DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 
 private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];

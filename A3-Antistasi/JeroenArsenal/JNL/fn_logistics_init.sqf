@@ -153,11 +153,10 @@ jnl_vehicleHardpoints = [
   ]],
 
 //Zils
-//Zil 131 ----- ZIL Disabled due to broken/clipping seats. DO NOT USE IN MISSION
-/*  ["rhsafrf\addons\rhs_zil131\rhs_zil131", [
-    [1, [0,-0.1,-0.45], [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]],
-    [1, [0,-1.8,-0.45], []]
-  ]],*/
+  ["rhsafrf\addons\rhs_zil131\rhs_zil131", [
+    [1, [0,-0.1,-0.5], [2,3,4,5,10,11]],
+    [1, [0,-1.8,-0.5], [6,7,8,9]]
+  ]],
 
 //Gaz
   ["\rhsafrf\addons\rhs_gaz66\rhs_gaz66.p3d", [
@@ -181,8 +180,8 @@ jnl_vehicleHardpoints = [
 
 //uparmoured - armed
   ["\rhsusf\addons\rhsusf_fmtv\M1078A1P2_B_M2",[
-    [1,[-0.00732422,0.0195313,-0.487986],[12,3,13,4,5,2]],
-    [1,[0.0366211,-1.80859,-0.435032],[6,7,8,9,11,10]]
+    [1,[-0.00732422,0.0195313,-1.1],[12,3,13,4,5,2]],
+    [1,[0.0366211,-1.80859,-1.1],[6,7,8,9,11,10]]
   ]],
 
 //USAF 6x6 Trucks
@@ -200,8 +199,8 @@ jnl_vehicleHardpoints = [
 
 //Armed
   ["\rhsusf\addons\rhsusf_fmtv\M1083A1P2_B_M2",[
-    [1,[0.0,0.0,-0.45], [12,3,13,4,5,2]],
-    [1,[0.0,-1.8,-0.45], [6,7,8,9,11,10]]
+    [1,[0.0,0.0,-1.1], [12,3,13,4,5,2]],
+    [1,[0.0,-1.8,-1.1], [6,7,8,9,11,10]]
   ]],
 
 //standard crane
@@ -232,7 +231,14 @@ jnl_vehicleHardpoints = [
 ["\rhsusf\addons\rhsusf_SOCOMAUV\M1239",[
   [1,[0.0,-2.5,-1.2], []]
 ]],
-
+//Soccom Mrap M2
+["\rhsusf\addons\rhsusf_SOCOMAUV\M1239_M2",[
+[1,[0.0,-2.5,-1.2], []]
+]],
+//Soccom Mrap MK19
+["\rhsusf\addons\rhsusf_SOCOMAUV\M1239_MK19",[
+[1,[0.0,-2.5,-1.2], []]
+]],
 //USAF 8x8 Trucks
 //Standard
   ["\rhsusf\addons\rhsusf_HEMTT_A4\M977A4_wd",[
@@ -301,12 +307,16 @@ jnl_vehicleHardpoints = [
   ]],*/
 
 // ---------- 3CB ----------
-//Datsun
+//Datsun Civ Variant
   ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_datsun\uk3cb_datsun_civ_open.p3d", [
-    [0,		[0,-1.2,-0.72],		[1,2,3,4]],
-    [1,		[0,-1.2,-0.72],		[1,2,3,4]]
+    [0,		[0,-1.2,-0.72],		[2,3,4,5,6]], //1 Apears to be the Front Passenger Seat, FFV Seat cannot be disabled
+    [1,		[0,-1.2,-0.72],		[2,3,4,5,6]]
   ]],
-
+//Datsun Non Civ Variant
+  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_datsun\uk3cb_datsun_open.p3d", [
+    [0,		[0,-1.2,-1.15],		[1,3,4,5,6,7,8]], //2 is Front Passenger Seat, FFV Seat cannot be disabled
+    [1,		[0,-1.2,-1.15],		[1,3,4,5,6,7,8]]
+  ]],
 //Hilux
   ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_hilux\uk3cb_hilux.p3d", [
     [0,		[0,-1.2,-0.72],		[1,2,3,4]],

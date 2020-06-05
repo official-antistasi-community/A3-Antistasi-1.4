@@ -14,11 +14,10 @@ mapX allowDamage false;
 //Load server id
 serverID = profileNameSpace getVariable ["ss_ServerID",nil];
 if(isNil "serverID") then {
-	serverID = str(round((random(100000)) + random 10000));
+	serverID = str(floor(random(90000) + 10000));
 	profileNameSpace setVariable ["ss_ServerID",serverID];
 };
 publicVariable "serverID";
-waitUntil {!isNil "serverID"};
 
 if (isMultiplayer) then {
 	//Load server parameters
@@ -75,15 +74,47 @@ if (isMultiplayer) then {
 
 [] call A3A_fnc_crateLootParams;
 
-//Load Campaign ID if resuming game
-if(loadLastSave) then {
-	campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
-}
-else {
-	campaignID = str(round((random(100000)) + random 10000));
-	profileNameSpace setVariable ["ss_CampaignID", campaignID];
+
+// Maintain a profilenamespace array called antistasiSavedGames
+// Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
+
+campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
+call
+{
+	// If the legacy campaign ID is valid for this map/mode, just use that
+	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
+		[2, "Loading last campaign, ID " + campaignID, _filename] call A3A_fnc_log;
+	};
+
+	// Otherwise, check through the saved game list for matches and build existing ID list
+	private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
+	private _gametype = if (side petros == independent) then {"Greenfor"} else {"Blufor"};
+	private _existingIDs = [campaignID];
+	{
+		if (_x isEqualType [] && {count _x >= 2}) then
+		{
+			if ((worldName == _x select 1) && (_gametype == _x select 2)) then {
+				campaignID = _x select 0;			// found a match
+			};
+			_existingIDs pushBack (_x select 0);
+		};
+	} forEach _saveList;
+
+	// If valid save found, exit with that
+	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
+		[2, "Loading campaign from saved list, ID " + campaignID, _filename] call A3A_fnc_log;
+	};
+
+	// Otherwise start a new campaign
+	loadLastSave = false;
+	while {campaignID in _existingIDs} do {
+		campaignID = str(floor(random(90000) + 10000));		// guaranteed five digits
+	};
+	[2, "Creating new campaign with ID " + campaignID, _fileName] call A3A_fnc_log;
 };
+publicVariable "loadLastSave";
 publicVariable "campaignID";
+
 
 //Initialise variables needed by the mission.
 _nul = call A3A_fnc_initVar;
@@ -107,21 +138,11 @@ waitUntil {count (call A3A_fnc_playableUnits) > 0};
 waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count (call A3A_fnc_playableUnits))};
 [] spawn A3A_fnc_modBlacklist;
 
-if (loadLastSave) then {
-	[2,"Loading saved data",_fileName] call A3A_fnc_log;
-	["membersX"] call A3A_fnc_getStatVariable;
-	if (isNil "membersX") then {
-		loadLastSave = false;
-		[2,"No member data found, skipping load",_fileName] call A3A_fnc_log;
-	};
-};
-publicVariable "loadLastSave";
-
 call A3A_fnc_initGarrisons;
 
 if (loadLastSave) then {
-	[] spawn A3A_fnc_loadServer;
-	waitUntil {!isNil"statsLoaded"};
+	[] call A3A_fnc_loadServer;
+//	waitUntil {!isNil"statsLoaded"};
 	if (!isNil "as_fnc_getExternalMemberListUIDs") then {
 		membersX = [];
 		{membersX pushBackUnique _x} forEach (call as_fnc_getExternalMemberListUIDs);

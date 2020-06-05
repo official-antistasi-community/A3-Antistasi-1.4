@@ -19,7 +19,9 @@ aceItems = [
 	"ACE_Tripod",
 	"ACE_Spraypaintred",
 	"ACE_UAVBattery",
-	"ACE_SpareBarrel"
+	"ACE_SpareBarrel",
+	"ACE_Flashlight_XL50",
+	"ACE_HandFlare_White"
 ];
 
 aceMedItems = [
@@ -42,10 +44,9 @@ aceMedItems = [
 	"ACE_morphine",
 	"ACE_adenosine",
 	"ACE_splint",
-	"ACE_bodyBag"
-]
-+ ([["ACE_personalAidKit"], ["adv_aceCPR_AED"]] select hasADVCPR)
-+ ([[], ["adv_aceSplint_splint"]] select hasADVSplint);
+	"ACE_bodyBag",
+	"ACE_personalAidKit"
+];
 
 publicVariable "aceItems";
 publicVariable "aceMedItems";

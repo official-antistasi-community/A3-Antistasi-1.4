@@ -267,7 +267,7 @@ if (_base != "") then
 		_veh = _vehicle select 0;
 		_vehCrew = _vehicle select 1;
 		{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
-		[_veh] call A3A_fnc_AIVEHinit;
+		[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		_groupVeh = _vehicle select 2;
 		_soldiers = _soldiers + _vehCrew;
 		_groups pushBack _groupVeh;
@@ -413,7 +413,7 @@ else
 		_groups pushBack _groupVeh;
 		_vehiclesX pushBack _veh;
 		{[_x] call A3A_fnc_NATOinit} forEach units _groupVeh;
-		[_veh] call A3A_fnc_AIVEHinit;
+		[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		if (not (_typeVehX in vehTransportAir)) then
 		{
 			_Hwp0 = _groupVeh addWaypoint [_posDestination, 0];
@@ -596,29 +596,19 @@ else
 
 //if (_markerX in forcedSpawn) then {forcedSpawn = forcedSpawn - [_markerX]; publicVariable "forcedSpawn"};
 
-{
-_veh = _x;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x};
-} forEach _vehiclesX;
-{
-_veh = _x;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x; _soldiers = _soldiers - [_x]};
-} forEach _soldiers;
 
-if (count _soldiers > 0) then
-	{
-	{
-	[_x] spawn
-		{
-		private ["_veh"];
-		_veh = _this select 0;
-		waitUntil {sleep 1; !([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)};
-		deleteVehicle _veh;
-		};
-	} forEach _soldiers;
+// Hand remaining aggressor units to the group despawner.
+{
+	if (!_isMarker || {_markerX in citiesX || sidesX getVariable [_markerX,sideUnknown] != _sideX}) then {
+		private _wp = _x addWaypoint [_posOrigin, 50];
+		_wp setWaypointType "MOVE";
+		_x setCurrentWaypoint _wp;
 	};
+	[_x] spawn A3A_fnc_groupDespawner;
+} forEach _groups;
 
-{deleteGroup _x} forEach _groups;
+{ [_x] spawn A3A_fnc_VEHdespawner } forEach _vehiclesX;
+
 
 sleep ((300 - ((tierWar + difficultyCoef) * 5)) max 0);
 if (_isMarker) then {smallCAmrk = smallCAmrk - [_markerX]; publicVariable "smallCAmrk"} else {smallCApos = smallCApos - [_posDestination]};

@@ -3,11 +3,9 @@
   <Package name="A3-Antistasi Mission">
     <Container name="dialog_load_previous_session">
       <Key ID="STR_antistasi_dialogs_lps_frame_text">
-        <Original>Load previous session?</Original>
-        <English>Load previous session?</English>
-        <French>Charger votre ancienne session ?</French>
-        <Russian>Загрузить предыдущее сохранение?</Russian>
-        <German>Letzten Spielstand laden?</German>
+        <Original>Load previous personal save?</Original>
+        <English>Load previous personal save?</English>
+        <German>Letzten persönlichen Spielstand laden?</German>
       </Key>
     </Container>
     <Container name="dialog_headquarters">
@@ -676,9 +674,8 @@
         <German>Weil nichts wichtiger ist als die Freiheit.</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_virolahti_blurb_text">
-        <Original>Virolahti blurb stuff text thingy</Original>
-        <English>Virolahti blurb stuff text thingy</English>
-        <German />
+        <Original>Hunting in the woods</Original>
+        <English>Hunting in the woods</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_blurb_text">
         <Original>Because nothing is more important than Freedom.</Original>

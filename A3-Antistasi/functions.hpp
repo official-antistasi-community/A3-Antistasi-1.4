@@ -101,6 +101,7 @@ class A3A
 		class sellVehicle {};
 		class setDataOnClient {};
 		class setMarkerAlphaForSide {};
+        class singlePlayerBlackScreenWarning {};
 		class sizeMarker {};
 		class splitVehicleCrewIntoOwnGroups {};
 		class startBreachVehicle {};
@@ -233,6 +234,7 @@ class A3A
 		class spawnGroup {};
 		class vehAvailable {};
 		class VEHdespawner {};
+		class vehKilledOrCaptured {};
 		class wavedCA {};
 		class WPCreate {};
 	};
@@ -484,6 +486,7 @@ class A3A
 
 	class Save
 	{
+		class deleteSave {};
 		class loadPlayer {};
 		class loadPreviousSession {};
 		class loadServer {};

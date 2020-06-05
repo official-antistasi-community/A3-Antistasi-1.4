@@ -33,7 +33,7 @@ private _victim = objNull;
 private _killer = objNull;
 
 if (player == leader _unit) then {
-	_unit setVariable ["owner",player];
+	_unit setVariable ["owner", player, true];
 	_unit addEventHandler ["killed", {
 		_victim = _this select 0;
 		[_victim] spawn A3A_fnc_postmortem;

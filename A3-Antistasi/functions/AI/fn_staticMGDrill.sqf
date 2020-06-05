@@ -80,7 +80,7 @@ while {(alive _gunner)} do
 						[_gunner] orderGetIn true;
 						[_gunner] allowGetIn true;
 						_gunner moveInGunner _veh;
-						[_veh] call A3A_fnc_AIVEHinit;
+						[_veh, side _groupX] call A3A_fnc_AIVEHinit;
 						_mounted = true;
 						if (_isMortar) then {_groupX setVariable ["mortarsX",_gunner]};
 						sleep 60;

@@ -81,7 +81,7 @@ private _typeGroup = if (_difficultX) then {if (_sideX == Occupants) then {NATOS
 private _boatSpawnLocation = selectRandom [_mrk1Pos, _mrk2Pos, _mrk3Pos];
 
 private _veh = createVehicle [_typeVeh, _boatSpawnLocation, [], 0, "NONE"];
-[_veh] call A3A_fnc_AIVEHinit;
+[_veh, _sideX] call A3A_fnc_AIVEHinit;
 private _vehCrewGroup = [_positionX,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 private _vehCrew = units _vehCrewGroup;
 {_x moveInAny _veh} forEach (_vehCrew);
@@ -139,9 +139,6 @@ deleteMarker _mrk2;
 deleteMarker _mrk3;
 deleteVehicle _ship;
 
-[_veh, _vehCrew] spawn {
-	params ["_veh", "_crew"];
-	waitUntil { sleep 5; allPlayers inAreaArray [getPos _veh, distanceSPWN, distanceSPWN] isEqualTo [] || isNull _veh };
-	deleteVehicle _veh;
-	{ deleteVehicle _x } forEach _crew;
-};
+[_vehCrewGroup] spawn A3A_fnc_groupDespawner;
+[_veh] spawn A3A_fnc_vehDespawner;
+

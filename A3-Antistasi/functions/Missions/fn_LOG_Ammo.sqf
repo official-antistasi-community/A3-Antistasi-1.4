@@ -42,6 +42,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	_truckX setDir (getDir _road);
 	_truckCreated = true;
 	[_truckX] spawn A3A_fnc_fillLootCrate;
+	[_truckX, _sideX] call A3A_fnc_AIVEHinit;
 
 	_mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], _pos];
 	_mrk setMarkerShapeLocal "RECTANGLE";
@@ -75,11 +76,10 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	};
 
 	_truckX setVariable ["ammoTruckLocation", _nameDest];
-	_truckX setVariable ["sideOwner", _sideX];
 	_truckX addEventHandler ["GetIn", {
 		params ["_vehicle", "_role", "_unit", "_turret"];
 
-		private _owningSide = (_vehicle getVariable "sideOwner");
+		private _owningSide = (_vehicle getVariable "originalSide");		// set by AIVEHinit
 
 		if (_unit getVariable ["spawner",false]) then {
 			["TaskFailed", ["", format ["Ammotruck Stolen in an %1",(_vehicle getVariable ["ammoTruckLocation", ""])]]] remoteExec ["BIS_fnc_showNotification",_owningSide];
@@ -117,12 +117,10 @@ else
 
 _nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
 if (_truckCreated) then
-	{
-	{deleteVehicle _x} forEach units _groupX;
-	deleteGroup _groupX;
-	{deleteVehicle _x} forEach units _groupX1;
-	deleteGroup _groupX1;
-	deleteMarker _mrk;
-	waitUntil {sleep 1; !([300,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
-	deleteVehicle _truckX;
-	};
+{
+	// TODO: Head off to nearby base
+	[_groupX] spawn A3A_fnc_groupDespawner;
+	[_groupX1] spawn A3A_fnc_groupDespawner;
+	[_truckX] spawn A3A_fnc_vehDespawner;
+	// delete truck contents maybe?
+};

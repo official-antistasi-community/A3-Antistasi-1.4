@@ -14,11 +14,11 @@ if (isMultiplayer && !isServer) exitwith {
 
 waitUntil {(!isNil "initVar")};
 
-if ([_playerId] call A3A_fnc_playerHasSave) then {
-	diag_log format ["[Antistasi] Server loading player %1 into unit %2", _playerId, _unit];
-} else {
+if !([_playerId] call A3A_fnc_playerHasSave) exitWith {
 	diag_log format ["[Antistasi] No save found for player %1 into unit %2", _playerId, _unit];
 };
+
+diag_log format ["[Antistasi] Server loading player %1 into unit %2", _playerId, _unit];
 
 private _loadoutInfo =	[_playerId, "loadoutPlayer"] call A3A_fnc_retrievePlayerStat;
 	

@@ -34,7 +34,7 @@ if(_vehicleType != "") then
   _vehicleGroup addVehicle _vehicleObj;
 
   //Init vehicle
-  [_vehicleObj] call A3A_fnc_AIVEHinit;
+  [_vehicleObj, _side] call A3A_fnc_AIVEHinit;
 };
 
 //Sleep to decrease spawn lag

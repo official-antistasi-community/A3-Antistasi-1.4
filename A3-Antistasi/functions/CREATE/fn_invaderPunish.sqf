@@ -38,7 +38,7 @@ for "_i" from 1 to 3 do {
 	private _veh = _spawnResult select 0;
 	private _vehCrew = _spawnResult select 1;
 	{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
-	[_veh] call A3A_fnc_AIVEHinit;
+	[_veh, Invaders] call A3A_fnc_AIVEHinit;
 	_groupVeh = _spawnResult select 2;
 	_pilots append _vehCrew;
 	_groups pushBack _groupVeh;
@@ -181,42 +181,22 @@ sleep 15;
 _nul = [0,"invaderPunish"] spawn A3A_fnc_deleteTask;
 [7200, Invaders] remoteExec ["A3A_fnc_timingCA",2];
 
-{
-	_veh = _x;
-	if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x};
-} forEach _vehiclesX;
-
-{
-	_veh = _x;
-	if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x; _soldiers = _soldiers - [_x]};
-} forEach _soldiers;
-
-{
-	_veh = _x;
-	if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x; _pilots = _pilots - [_x]};
-} forEach _pilots;
-
 bigAttackInProgress = false;
 publicVariable "bigAttackInProgress";
 
-if (count _soldiers > 0) then {
-	{
-		_veh = _x;
-		waitUntil {sleep 1; !([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)};
-		deleteVehicle _veh;
-	} forEach _soldiers;
-};
 
-if (count _pilots > 0) then {
-	{
-		_veh = _x;
-		waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)};
-		deleteVehicle _veh;
-	} forEach _pilots;
-};
-{deleteGroup _x} forEach _groups;
+// Order remaining aggressor units back to base, hand them to the group despawner
+{
+	private _wp = _x addWaypoint [_posOrigin, 50];
+	_wp setWaypointType "MOVE";
+	_x setCurrentWaypoint _wp;
+	[_x] spawn A3A_fnc_groupDespawner;
+} forEach _groups;
 
-waitUntil {sleep 1; (spawner getVariable _attackDestination == 2)};
+{ [_x] spawn A3A_fnc_VEHdespawner } forEach _vehiclesX;
 
+
+// When the city marker is despawned, get rid of the civilians
+waitUntil {sleep 5; (spawner getVariable _attackDestination == 2)};
 {deleteVehicle _x} forEach _civilians;
 deleteGroup _groupCivil;

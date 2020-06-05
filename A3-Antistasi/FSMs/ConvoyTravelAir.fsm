@@ -39,7 +39,7 @@ link19[] = {12,4};
 link20[] = {13,11};
 link21[] = {14,11};
 globals[] = {0.000000,0,0,0,0,640,480,1,70,6316128,1,-725.928467,294.090576,352.494415,-458.383972,1112,884,1};
-window[] = {2,-1,-1,-32000,-32000,889,130,1570,130,3,1130};
+window[] = {2,-1,-1,-1,-1,863,104,1544,104,3,1130};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -128,11 +128,12 @@ class FSM
                          "	deleteGroup _cargoGroup;" \n
                          "};" \n
                          "[_crewGroup] spawn A3A_fnc_groupDespawner;" \n
+                         "[_vehicle] spawn A3A_fnc_vehDespawner;" \n
                          "" \n
                          "// Send back to base" \n
                          "private _wp3 = _crewGroup addWaypoint [_originPos, 100];" \n
                          "_wp3 setWaypointType ""MOVE"";" \n
-                         "_wp3 setWaypointBehaviour ""SAFE"";" \n
+                         "_wp3 setWaypointBehaviour ""AWARE"";" \n
                          "_crewGroup setCurrentWaypoint _wp3;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -301,7 +302,7 @@ class FSM
                          "" \n
                          "if (_cargoGroup == grpNull) exitWith {};" \n
                          "" \n
-                         "if (_convoyType isEqualTo ""reinforce"") then {" \n
+                         "if (_convoyType isEqualTo ""reinforce"" && (side _cargoGroup == sidesX getVariable _markers#1)) then {" \n
                          "" \n
                          "	// add units to garrison immediately, otherwise it'll keep sending them" \n
                          "	private _unitTypes = [];" \n

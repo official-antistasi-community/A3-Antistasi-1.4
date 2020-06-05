@@ -231,20 +231,16 @@ if (side group player == teamPlayer) then
 		];
 	player addEventHandler ["WeaponAssembled",
 		{
-		private ["_veh"];
-		_veh = _this select 1;
-		if (_veh isKindOf "StaticWeapon") then
-			{
-			if (not(_veh in staticsToSave)) then
-				{
-				staticsToSave pushBack _veh;
-				publicVariable "staticsToSave";
-				[_veh] call A3A_fnc_AIVEHinit;
+			private _veh = _this select 1;
+			[_veh, teamPlayer] call A3A_fnc_AIVEHinit;		// will flip/capture if already initialized
+			if (_veh isKindOf "StaticWeapon") then {
+				if (not(_veh in staticsToSave)) then {
+					staticsToSave pushBack _veh;
+					publicVariable "staticsToSave";
 				};
-			}
-		else
-			{
-			_veh addEventHandler ["Killed",{[_this select 0] remoteExec ["A3A_fnc_postmortem",2]}];
+				_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+				_pos = position _veh;
+				if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns"] call A3A_fnc_customHint;};
 			};
 		}];
 	player addEventHandler ["WeaponDisassembled",
@@ -253,8 +249,8 @@ if (side group player == teamPlayer) then
 			_bag2 = _this select 2;
 			//_bag1 = objectParent (_this select 1);
 			//_bag2 = objectParent (_this select 2);
-			[_bag1] call A3A_fnc_AIVEHinit;
-			[_bag2] call A3A_fnc_AIVEHinit;
+			[_bag1] remoteExec ["A3A_fnc_postmortem", 2];
+			[_bag2] remoteExec ["A3A_fnc_postmortem", 2];
 			}
 		];
 	[true] spawn A3A_fnc_reinitY;

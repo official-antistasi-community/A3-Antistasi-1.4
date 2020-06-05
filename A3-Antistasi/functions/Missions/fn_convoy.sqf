@@ -170,7 +170,7 @@ _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit;_x allowDamage false} forEach _vehCrew;
 _soldiers append _vehCrew;
 _vehiclesX pushBack _vehLead;
-[_vehLead] call A3A_fnc_AIVEHinit;
+[_vehLead, _sideX] call A3A_fnc_AIVEHinit;
 _vehLead limitSpeed _speedLimit;
 
 _countX = 1;
@@ -199,7 +199,7 @@ for "_i" from 1 to _countX do
 	{[_x] call A3A_fnc_NATOinit;_x allowDamage false} forEach _vehCrew;
 	_soldiers = _soldiers + _vehCrew;
 	_vehiclesX pushBack _veh;
-	[_veh] call A3A_fnc_AIVEHinit;
+	[_veh, _sideX] call A3A_fnc_AIVEHinit;
 	if (_i == 1) then {_veh setConvoySeparation 60} else {_veh setConvoySeparation 20};
 	if (!_isFIA) then
 	{
@@ -250,7 +250,7 @@ _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit; _x allowDamage false} forEach _vehCrew;
 _soldiers = _soldiers + _vehCrew;
 _vehiclesX pushBack _vehObj;
-[_vehObj] call A3A_fnc_AIVEHinit;
+[_vehObj, _sideX] call A3A_fnc_AIVEHinit;
 
 if (_typeConvoyX == "Armor") then {_vehObj lock 3};// else {_vehObj forceFollowRoad true};
 if (_typeConvoyX == "Prisoners") then
@@ -313,7 +313,7 @@ _veh allowDamage false;
 [_veh,"Convoy Escort"] spawn A3A_fnc_inmuneConvoy;
 _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit; _x allowDamage false} forEach _vehCrew;
-[_veh] call A3A_fnc_AIVEHinit;
+[_veh, _sideX] call A3A_fnc_AIVEHinit;
 _soldiers = _soldiers + _vehCrew;
 _vehiclesX pushBack _veh;
 
@@ -784,18 +784,7 @@ if (_typeConvoyX == "Prisoners") then
 
 _nul = [600,"CONVOY"] spawn A3A_fnc_deleteTask;
 _nul = [0,"CONVOY1"] spawn A3A_fnc_deleteTask;
-{
-if (!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _x}
-} forEach _vehiclesX;
-{
-if (!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _x; _soldiers = _soldiers - [_x]}
-} forEach _soldiers;
 
-if (count _soldiers > 0) then
-	{
-	{
-	waitUntil {sleep 1; (!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits))};
-	deleteVehicle _x;
-	} forEach _soldiers;
-	};
-{deleteGroup _x} forEach _groups;
+{ [_x] spawn A3A_fnc_groupDespawner } forEach _groups;
+{ [_x] spawn A3A_fnc_VEHdespawner } forEach _vehiclesX;
+

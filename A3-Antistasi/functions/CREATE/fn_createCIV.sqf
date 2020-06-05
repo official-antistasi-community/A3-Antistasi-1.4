@@ -73,7 +73,8 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 			_veh = _typeVehX createVehicle _pos;
 			_veh setDir _dirveh;
 			_vehiclesX pushBack _veh;
-			_nul = [_veh] spawn A3A_fnc_civVEHinit;
+			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
+			_veh setVariable ["originalPos", getPos _veh];
 			};
 		};
 	sleep 0.5;
@@ -92,7 +93,8 @@ if (count _mrkMar > 0) then
 			_veh = _typeVehX createVehicle _pos;
 			_veh setDir (random 360);
 			_vehiclesX pushBack _veh;
-			[_veh] spawn A3A_fnc_civVEHinit;
+			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
+			_veh setVariable ["originalPos", getPos _veh];
 			sleep 0.5;
 			};
 		};
@@ -139,17 +141,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_typeVehX = selectRandomWeighted civVehiclesWeighted;
 					_veh = _typeVehX createVehicle _p1;
 					_veh setDir _dirveh;
-					_veh addEventHandler ["HandleDamage",{if (((_this select 1) find "wheel" != -1) and (_this select 4=="") and (!isPlayer driver (_this select 0))) then {0;} else {(_this select 2);};}];
-					_veh addEventHandler ["HandleDamage",
-						{
-						_veh = _this select 0;
-						if (side(_this select 3) == teamPlayer) then
-							{
-							_driverX = driver _veh;
-							if (side _driverX == civilian) then {_driverX leaveVehicle _veh};
-							};
-						}
-						];
+
 					//_veh forceFollowRoad true;
 					_vehPatrol = _vehPatrol + [_veh];
 					_typeCiv = selectRandom arrayCivs;
@@ -157,6 +149,8 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_nul = [_civ] spawn A3A_fnc_CIVinit;
 					_civsPatrol = _civsPatrol + [_civ];
 					_civ moveInDriver _veh;
+					[_veh, civilian] call A3A_fnc_AIVEHInit;
+
 					_groupP addVehicle _veh;
 					_groupP setBehaviour "CARELESS";
 					_veh limitSpeed 50;
@@ -183,25 +177,16 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 {deleteVehicle _x} forEach _civs;
 {deleteGroup _x} forEach _groups;
+
 {
-if (!([distanceSPWN-_size,1,_x,teamPlayer] call A3A_fnc_distanceUnits)) then
-	{
-	if (_x in reportedVehs) then {reportedVehs = reportedVehs - [_x]; publicVariable "reportedVehs"};
-	deleteVehicle _x;
-	}
-} forEach _vehiclesX;
-{
-waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
-deleteVehicle _x} forEach _civsPatrol;
-{
-if (!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)) then
-	{
-	if (_x in reportedVehs) then {reportedVehs = reportedVehs - [_x]; publicVariable "reportedVehs"};
-	deleteVehicle _x
-	}
-else
-	{
-	[_x] spawn A3A_fnc_civVEHinit
+	// delete all parked vehicles that haven't been stolen
+	if (_x getVariable "ownerSide" == civilian) then {
+		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+		else { [_x] spawn A3A_fnc_VEHdespawner };
 	};
-} forEach _vehPatrol;
-{deleteGroup _x} forEach _groupsPatrol;
+} forEach _vehiclesX;
+
+// Chuck all the civ vehicle patrols into the despawners
+{ [_x] spawn A3A_fnc_groupDespawner } forEach _groupsPatrol;
+{ [_x] spawn A3A_fnc_VEHdespawner } forEach _vehPatrol;
+

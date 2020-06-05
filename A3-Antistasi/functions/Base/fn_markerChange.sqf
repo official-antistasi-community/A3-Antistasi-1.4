@@ -287,6 +287,7 @@ if (_winner == teamPlayer) then
 	//Make the size larger, as rarely does the marker cover the whole outpost.
 	private _staticWeapons = nearestObjects [_positionX, ["StaticWeapon"], _size * 1.5, true];
 	{
+		[_x, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;
 		if !(_x in staticsToSave) then {
 			staticsToSave pushBack _x;
 		};
@@ -319,6 +320,9 @@ else
 	private _staticWeapons = nearestObjects [_positionX, ["StaticWeapon"], _size * 1.5, true];
 	staticsToSave = staticsToSave - _staticWeapons;
 	publicVariable "staticsToSave";
+	{
+		[_x, _winner, true] call A3A_fnc_vehKilledOrCaptured;
+	} forEach _staticWeapons;
 
 	if (!isNull _flagX) then
 	{

@@ -89,15 +89,13 @@ while {true} do
 
 		private _units = _createdUnits select _i;
 		private _veh = _units select 0;
-		private _result = _veh getVariable["fsmresult", 0];
-		// should also check whether vehicle still exists, to handle forced despawns?
+		private _result = if (isNull _veh) then {-10} else {_veh getVariable["fsmresult", 0]};
 
 		// could test for success vs failure here but we don't care yet
 		if (_result != 0) then {		// completed or abandoned mission, don't track here anymore
 			_createdUnits deleteAt _i;
 			_airVehicles deleteAt (_airVehicles find _veh);
 			_landVehicles deleteAt (_landVehicles find _veh);
-			[_veh] spawn A3A_fnc_VEHdespawner;		// FSM handles the groups, vehicle remains for tracking
 			[3, format["Vehicle FSM result %1, rem units %2", _result, count _createdUnits], "fn_spawnConvoy"] call A3A_fnc_log;
 		}
 		else {

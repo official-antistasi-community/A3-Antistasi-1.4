@@ -38,7 +38,7 @@ if (spawner getVariable _markerX == 0) then
 	_veh = createVehicle [_typeVehX, _pos, [], 0, "NONE"];
 	_veh allowdamage false;
 	_veh setDir random 360;
-	[_veh] call A3A_fnc_AIVEHinit;
+	[_veh, _sideX] call A3A_fnc_AIVEHinit;
 
 	_groupX = createGroup _sideX;
 
@@ -102,8 +102,7 @@ _nul = [1200,"DES"] spawn A3A_fnc_deleteTask;
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
 if (_truckCreated) then
-	{
-	{deleteVehicle _x} forEach units _groupX;
-	deleteGroup _groupX;
-	if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
-	};
+{
+	[_groupX] spawn A3A_fnc_groupDespawner;
+	[_veh] spawn A3A_fnc_vehDespawner;
+};

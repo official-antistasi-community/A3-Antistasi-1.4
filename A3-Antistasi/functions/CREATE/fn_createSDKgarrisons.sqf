@@ -84,7 +84,7 @@ if (staticCrewTeamPlayer in _garrison) then
 		_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";//TODO need delete UPSMON link
 		_unit assignAsGunner _veh;
 		_unit moveInGunner _veh;
-		[_veh] call A3A_fnc_AIVEHinit;
+		[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
 		_soldiers pushBack _unit;
 	} forEach (_garrison select {_x == staticCrewTeamPlayer});
 	_garrison = _garrison - [staticCrewTeamPlayer];

@@ -320,11 +320,10 @@ waitUntil
 if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100) && isPlayer (driver _heli) ) then {
 	if (alive _heli) then {
 		[3, format ["%1 was captured", _heli], _filename] call A3A_fnc_log;
-		[_heli, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;
 	} else {
 		[3, format ["%1 was destroyed", _heli], _filename] call A3A_fnc_log;
-		[_heli, teamPlayer, false] call A3A_fnc_vehKilledOrCaptured;
 	};
+	[_heli, teamPlayer] call A3A_fnc_AiVehInit;
 	["DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	[1800*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];

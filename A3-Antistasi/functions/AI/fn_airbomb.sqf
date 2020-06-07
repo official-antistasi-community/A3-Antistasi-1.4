@@ -24,7 +24,7 @@ switch (_typeX) do {
 		};
 };
 
-if (typeOf _plane == vehSDKPlane) then {_countX = round (_countX / 2)};
+if (typeOf (vehicle _plane) == vehSDKPlane) then {_countX = round (_countX / 2)};
 sleep random 5;
 
 for "_i" from 1 to _countX do

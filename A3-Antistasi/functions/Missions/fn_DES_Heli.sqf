@@ -27,7 +27,7 @@ while {true} do {
 };
 
 // selecting Aircraft
-private _heliPool =if (_sideX == Occupants) then {vehNATOTransportHelis + vehNATOAttackHelis} else {vehCSATAttackHelis + vehCSATTransportHelis}
+private _heliPool =if (_sideX == Occupants) then {vehNATOTransportHelis + vehNATOAttackHelis} else {vehCSATAttackHelis + vehCSATTransportHelis};
 private _typeVehH = selectRandom (_heliPool select {_x isKindOf "Helicopter"});
 if (isNil "_typeVehH") exitWith {
 	["DES"] remoteExecCall ["A3A_fnc_missionRequest",2];

@@ -27,16 +27,12 @@ while {true} do {
 };
 
 // selecting Aircraft
-private _typeVehH = if (_sideX == Occupants) then {selectRandom (vehNATOTransportHelis + vehNATOAttackHelis)} else {selectRandom (vehCSATAttackHelis + vehCSATTransportHelis)};
+private _heliPool =if (_sideX == Occupants) then {vehNATOTransportHelis + vehNATOAttackHelis} else {vehCSATAttackHelis + vehCSATTransportHelis}
+private _typeVehH = selectRandom (_heliPool select {_x isKindOf "Helicopter"});
 if (isNil "_typeVehH") exitWith {
 	["DES"] remoteExecCall ["A3A_fnc_missionRequest",2];
 	[1, format ["No aircrafts in arrays VehNatoTransportHelis, VehNatoAttackHelis or VehCSATTransportHelis, VehCSATAttackHelis. Reselecting DES mission"], _filename] call A3A_fnc_log;
 };
-_vtol = [configfile >> "CfgVehicles" >> _typeVehH >> "vtol"] call BIS_fnc_getCfgData;
-while {!isNil "_vtol"} do {
-	_typeVehH = if (_sideX == Occupants) then {selectRandom (vehNATOTransportHelis + vehNATOAttackHelis)} else {selectRandom (vehCSATAttackHelis + vehCSATTransportHelis)};
-};
-
 
 //refining crash spawn position, to avoid exploding on spawn or "Armaing" during mission
 private _flatPos = [_posCrashOrigin, 0, 1000, 0, 0, 0.1] call BIS_fnc_findSafePos;

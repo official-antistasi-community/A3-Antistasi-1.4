@@ -261,7 +261,7 @@ if (_vehR distance _heli < 50) then
 		(units _pilots) orderGetIn true;
 		sleep 1;
 		private _notAlivePilots = true;
-		{if ([_x] call A3A_fnc_canFight) exitWith {_notAlivePilots = false}}forEach _pilots;
+		{if ([_x] call A3A_fnc_canFight) exitWith {_notAlivePilots = false}}forEach units _pilots;
 		
 
 		if ((_typeVehH in vehNATOTransportHelis)||(_typeVehH in vehCSATTransportHelis)) then {

@@ -29,13 +29,20 @@ switch (_type) do {
 		_possibleMarkers = [airportsX + citiesX] call _findIfNearAndHostile;
 		_possibleMarkers = _possibleMarkers select {spawner getVariable _x == 2};
 		//add controlsX not on roads and on the 'frontier'
-		_control = controlsX select {!(isOnRoad getMarkerPos _x)};
+		private _markersX = markersX;
+		private _controlsX = controlsX;
+		private _distanceSPWNSqr = distanceSPWN^2;
+		private _sidesX = sidesX;
+		private _teamPlayer = teamPlayer;
+		private _pos = [0,0];
 		{
 			_pos = getmarkerPos _x;
-			_markersX = markersX select {(getMarkerPos _x distance _pos < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] == teamPlayer)};
-			_markersX = _markersX - ["Synd_HQ"];
-			if (count _markersX > 0) then {_possibleMarkers pushBack _x};
-		}forEach _control;
+			if !(isOnRoad _pos) then {
+				_markersX = _markersX select {(getMarkerPos _x distanceSqr _pos < _distanceSPWNSqr) and {_sidesX getVariable [_x,sideUnknown] isEqualTo _teamPlayer}};
+				_markersX deleteAt (_markersX find "Synd_HQ");
+				if !(_markersX isEqualTo []) then {_possibleMarkers pushBack _x};
+			};
+		}forEach _controlsX;
 
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {

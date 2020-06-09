@@ -1,7 +1,7 @@
 if(!isServer) exitWith{};
 scopeName "Main";
 private _filename = "fn_missionRequest"; 
-private _type = _this select 0;
+params ["_type"];
 private _autoSelect = false;
 if(isNil "_type") then {
 	if (leader group Petros != Petros) then {breakOut "Main"};

@@ -1,10 +1,10 @@
 [//Loadout
 	[//Primary Weapon
-		"RHS_Weap_Mk18_Bk",									//Weapon
+		"RHS_Weap_M590_8Rd",								//Weapon
 		"",													//Muzzle
-		"RHSUSF_Acc_WMX_Bk",								//Rail
-		"RHSUSF_Acc_T1_High",								//Sight
-		["RHS_Mag_30Rnd_556x45_M855_PMag",30],			//Primary Magazine
+		"",													//Rail
+		"",													//Sight
+		["RHSUSF_8Rnd_Slug",8],								//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
@@ -38,10 +38,11 @@
 		"V_TacVest_Blk_Police",								//Vest
 		[//Inventory
 			["RHS_1PN138",1],
-			["H_Beret_Gen_F",1],
+			["H_Cap_Police",1],
 			["RHS_Mag_An_M8HC",1,1],
-			["RHS_Mag_Mk3A2",1,1],
-			["RHS_Mag_30Rnd_556x45_M855_PMag",3,30],
+			["RHS_Mag_Mk3A2",2,1],
+			["RHSUSF_8Rnd_Slug",4,8],
+			["RHSUSF_8Rnd_00Buck",2,8],
 			["16Rnd_9x21_Mag",2,17]
 		]
 		+ _aceFlashlight
@@ -49,15 +50,27 @@
 	],
 
 	[//Backpack
-		"B_LegStrapBag_Black_F",							//Backpack
+		"B_Messenger_Black_F",								//Backpack
 		[//Inventory
-			["RHS_Mag_30Rnd_556x45_M855_PMag",3,30],
-			["16Rnd_9x21_Mag",2,17]
+			["RHS_Mag_M4009",3,1],
+			["1Rnd_Smoke_Grenade_Shell",5,1],
+			["1Rnd_HE_Grenade_Shell",1,1],
+			[
+				[//Weapon
+					"RHS_Weap_M320",
+					"",
+					"",
+					"",
+					[],
+					[],
+					""
+				],1
+			]
 		]
 	],
 
 		"H_PASGT_Basic_Blue_F",								//Headgear
-		"G_Balaclava_TI_Blk_F",								//Facewear
+		"G_Balaclava_Ti_Blk_F",								//Facewear
 
 	[//Binocular
 		"",													//Binocular

@@ -26,17 +26,17 @@ NATOAmmobox = "I_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	["rhs_gref_teamLeader"] call A3A_fnc_getLoadout,
+	"rhsgref_cdf_para_squadleader",
 	//Medic
-	["rhs_gref_medic"] call A3A_fnc_getLoadout,
+	"rhsgref_cdf_para_medic",
 	//Autorifleman
-	["rhs_gref_machineGunner"] call A3A_fnc_getLoadout,
+	"rhsgref_cdf_para_autorifleman",
 	//Marksman
-	["rhs_gref_marksman"] call A3A_fnc_getLoadout,
-	//Anti Tank
-	["rhs_gref_AT"] call A3A_fnc_getLoadout,
-	//Assistant Anti Tank
-	["rhs_gref_AAT"] call A3A_fnc_getLoadout
+	"rhsgref_cdf_para_marksman",
+	//Anti-tank Scout
+	"rhsgref_cdf_para_grenadier",
+	//AT2
+	"rhsgref_cdf_para_grenadier"
 ];
 
 //PVP Player Vehicles

@@ -1,12 +1,12 @@
 [//Loadout
 	[//Primary Weapon
-		"RHS_Weap_Mk18_Bk",									//Weapon
+		"RHS_Weap_M24SWS",									//Weapon
 		"",													//Muzzle
-		"RHSUSF_Acc_WMX_Bk",								//Rail
-		"RHSUSF_Acc_T1_High",								//Sight
-		["RHS_Mag_30Rnd_556x45_M855_PMag",30],			//Primary Magazine
+		"",													//Rail
+		"RHSUSF_Acc_LeupoldMk4",							//Sight
+		["RHSUSF_5Rnd_762x51_M993_Mag",5],					//Primary Magazine
 		[],													//Secondary Magazine
-		""													//Bipod
+		"RHSUSF_Acc_Harris_Swivel"							//Bipod
 	],
 
 	[//Launcher
@@ -21,7 +21,7 @@
 
 	[//Secondary Weapon
 		"RHSUSF_Weap_Glock17G4",							//Weapon
-		"",													//Muzzle
+		"RHSUSF_Acc_Omega9K",								//Muzzle
 		"Acc_Flashlight_Pistol",							//Rail
 		"",													//Sight
 		["16Rnd_9x21_Mag",17],								//Primary Magazine
@@ -30,7 +30,7 @@
 	],
 
 	[//Uniform
-		"U_B_GEN_Soldier_F",								//Uniform
+		"U_B_Gen_Soldier_F",								//Uniform
 		[] + _basicMedicalSupplies + _basicMiscItems
 	],
 
@@ -38,29 +38,23 @@
 		"V_TacVest_Blk_Police",								//Vest
 		[//Inventory
 			["RHS_1PN138",1],
-			["H_Beret_Gen_F",1],
-			["RHS_Mag_An_M8HC",1,1],
-			["RHS_Mag_Mk3A2",1,1],
-			["RHS_Mag_30Rnd_556x45_M855_PMag",3,30],
+			["H_Cap_Police",1],
+			["RHS_Mag_An_M8HC",2,1],
+			["RHSUSF_5Rnd_762x51_M993_Mag",5,5],
 			["16Rnd_9x21_Mag",2,17]
 		]
 		+ _aceFlashlight
 		+ _aceM84
+		+ _aceRangecard
 	],
 
-	[//Backpack
-		"B_LegStrapBag_Black_F",							//Backpack
-		[//Inventory
-			["RHS_Mag_30Rnd_556x45_M855_PMag",3,30],
-			["16Rnd_9x21_Mag",2,17]
-		]
-	],
+	[],
 
-		"H_PASGT_Basic_Blue_F",								//Headgear
-		"G_Balaclava_TI_Blk_F",								//Facewear
+	"H_PASGT_Basic_Blue_F",									//Headgear
+	"G_Balaclava_TI_Blk_F",									//Facewear
 
 	[//Binocular
-		"",													//Binocular
+		"RHSUSF_Bino_Lerca_1200_Black",						//Binocular
 		"",
 		"",
 		"",

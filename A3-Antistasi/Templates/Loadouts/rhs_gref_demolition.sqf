@@ -1,20 +1,20 @@
 [//Loadout
 	[//Primary Weapon
-		"RHS_Weap_Mk18_Bk",									//Weapon
-		"",													//Muzzle
+		"SMG_05_F",											//Weapon
+		"Muzzle_SNDS_L",									//Muzzle
 		"RHSUSF_Acc_WMX_Bk",								//Rail
-		"RHSUSF_Acc_T1_High",								//Sight
-		["RHS_Mag_30Rnd_556x45_M855_PMag",30],			//Primary Magazine
+		"Optic_Holosight_SMG_Blk_F",						//Sight
+		["30Rnd_9x21_Mag_SMG_02",30],						//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
 
 	[//Launcher
-		"",													//Weapon
+		"RHS_Weap_RPG7",									//Weapon
 		"",													//Muzzle
 		"",													//Rail
 		"",													//Sight
-		[],													//Primary Magazine
+		["RHS_RPG7_PG7V_Mag",1],							//Primary Magazine
 		[],													//Secondary Magazine
 		""													//Bipod
 	],
@@ -38,10 +38,10 @@
 		"V_TacVest_Blk_Police",								//Vest
 		[//Inventory
 			["RHS_1PN138",1],
-			["H_Beret_Gen_F",1],
+			["H_Cap_Police",1],
 			["RHS_Mag_An_M8HC",1,1],
-			["RHS_Mag_Mk3A2",1,1],
-			["RHS_Mag_30Rnd_556x45_M855_PMag",3,30],
+			["RHS_Mag_Mk3A2",2,1],
+			["30Rnd_9x21_Mag_SMG_02",4,30],
 			["16Rnd_9x21_Mag",2,17]
 		]
 		+ _aceFlashlight
@@ -49,15 +49,17 @@
 	],
 
 	[//Backpack
-		"B_LegStrapBag_Black_F",							//Backpack
+		"B_Messenger_Black_F",								//Backpack
 		[//Inventory
-			["RHS_Mag_30Rnd_556x45_M855_PMag",3,30],
-			["16Rnd_9x21_Mag",2,17]
+			["RHS_RPG7_PG7V_Mag",1,1],
+			["DemoCharge_Remote_Mag",2,1],
 		]
+		+ _aceDefusalKit
+		+ _aceClacker
 	],
 
 		"H_PASGT_Basic_Blue_F",								//Headgear
-		"G_Balaclava_TI_Blk_F",								//Facewear
+		"G_Balaclava_Ti_Blk_F",								//Facewear
 
 	[//Binocular
 		"",													//Binocular
@@ -71,10 +73,10 @@
 
 	[//Item
 		"ItemMap",											//Map
-		"ItemGPS",											//Terminal
+		"",													//Terminal
 		["TF_PNR1000A_26"] call _fnc_tfarRadio,				//Radio
 		"ItemCompass",										//Compass
-		_tfarMicroDAGRNoArray,										//Watch
+		_tfarMicroDAGRNoArray,									//Watch
 		""													//Goggles
 	]
 ];

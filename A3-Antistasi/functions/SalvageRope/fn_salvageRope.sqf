@@ -1,3 +1,8 @@
+private _filename = "fn_salvageRope.sqf";
+//TODO: Remove before final release
+if (isRemoteExecutedJIP) then {[3, format ["Salvage Rope Action added on JIP client: %1", player], _filename] remoteExec ["A3A_fnc_log", 2];};
+
+
 //Deploy action
 canDeployWinch = {
 	private _vehicle = cursorTarget;

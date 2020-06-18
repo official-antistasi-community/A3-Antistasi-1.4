@@ -106,8 +106,7 @@ addplayerWinchActions = {
 
 	if (isMultiplayer) then {
 		player addEventHandler ["Respawn",{
-			[] call addplayerWinchActions;
-			player setVariable ["SalvageRopeAction",true];
+			player setVariable ["SalvageRopeAction",false];
 		}];
 	};
 };

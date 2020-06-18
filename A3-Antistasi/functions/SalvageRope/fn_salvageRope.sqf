@@ -114,7 +114,7 @@ addplayerWinchActions = {
 
 [] spawn {
 	private _filename = "fn_salvageRope.sqf";
-	if (isRemoteExecutedJIP) then {[3, format ["Salvage Rope Action added on JIP client: %1", player], _filename] call A3A_fnc_log;}
+	if (isRemoteExecutedJIP) then {[3, format ["Salvage Rope Action added on JIP client: %1", player], _filename] call A3A_fnc_log;};
 	private _missionComplete = "LOG" call BIS_fnc_taskCompleted;
 	while {!_missionComplete} do {
 			if (!isNull player && isplayer player) then {

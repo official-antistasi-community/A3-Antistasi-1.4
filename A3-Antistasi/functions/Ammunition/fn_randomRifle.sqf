@@ -6,6 +6,8 @@ if (_pool isEqualTo []) then {
 	} else {
 		if !(unlockedSMGs isEqualTo []) then {
 			_pool = unlockedSMGs;
+		} else {
+			_pool = unlockedShotguns + unlockedSniperRifles;
 		};
 	};
 };
@@ -14,11 +16,11 @@ private _rifleFinal = selectRandom _pool;
 if !(primaryWeapon _unit isEqualTo "") then {
 	if (_rifleFinal == primaryWeapon _unit) exitWith {};
 	private _magazines = getArray (configFile / "CfgWeapons" / (primaryWeapon _unit) / "magazines");
-	{_unit removeMagazines _x} forEach _magazines;
+	{_unit removeMagazines _x} forEach _magazines;			// Broken, doesn't remove mags globally. Pain to fix.
 	_unit removeWeapon (primaryWeapon _unit);
 };
 
-if (_rifleFinal in unlockedGrenadeLaunchers) then {
+if (_rifleFinal in unlockedGrenadeLaunchers && {_rifleFinal in unlockedRifles} ) then {
 	// lookup real underbarrel GL magazine, because not everything is 40mm
 	private _config = configFile >> "CfgWeapons" >> _rifleFinal;
 	private _glmuzzle = getArray (_config >> "muzzles") select 1;		// guaranteed by category

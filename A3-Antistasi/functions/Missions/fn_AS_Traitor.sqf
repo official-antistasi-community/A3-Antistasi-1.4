@@ -44,11 +44,11 @@ _arrayAirports = airportsX select {sidesX getVariable [_x,sideUnknown] == Occupa
 _base = [_arrayAirports, _positionX] call BIS_Fnc_nearestPosition;
 _posBase = getMarkerPos _base;
 
-_traitor = _groupTraitor createUnit [NATOOfficer2, _posTraitor, [], 0, "NONE"];
+_traitor = [_groupTraitor, NATOOfficer2, _posTraitor, [], 0, "NONE"] call A3A_fnc_createUnit;
 _traitor allowDamage false;
 _traitor setPos _posTraitor;
-_sol1 = _groupTraitor createUnit [NATOBodyG, _posSol1, [], 0, "NONE"];
-_sol2 = _groupTraitor createUnit [NATOBodyG, _posSol2, [], 0, "NONE"];
+_sol1 = [_groupTraitor, NATOBodyG, _posSol1, [], 0, "NONE"] call A3A_fnc_createUnit;
+_sol2 = [_groupTraitor, NATOBodyG, _posSol2, [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupTraitor selectLeader _traitor;
 
 _posTsk = (position _houseX) getPos [random 100, random 360];
@@ -56,6 +56,8 @@ _posTsk = (position _houseX) getPos [random 100, random 360];
 [[teamPlayer,civilian],"AS",[format ["A traitor has scheduled a meeting with %4 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.",_nameDest,_displayTime,nameOccupants],"Kill the Traitor",_markerX],_posTsk,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 [[Occupants],"AS1",[format ["We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.",_nameDest,_displayTime,nameTeamPlayer],"Protect Contact",_markerX],getPos _houseX,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
+traitorIntel = false; publicVariable "traitorIntel";
+
 {_nul = [_x,""] call A3A_fnc_NATOinit; _x allowFleeing 0} forEach units _groupTraitor;
 _posVeh = [];
 _dirVeh = 0;
@@ -88,7 +90,7 @@ _veh setDir _dirVeh;
 sleep 15;
 _veh allowDamage true;
 _traitor allowDamage true;
-_nul = [_veh] call A3A_fnc_AIVEHinit;
+[_veh, Occupants] call A3A_fnc_AIVEHinit;
 {_x disableAI "MOVE"; _x setUnitPos "UP"} forEach units _groupTraitor;
 
 _mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], getPos _houseX];
@@ -104,13 +106,13 @@ _groupX = [_positionX,Occupants, NATOSquad] call A3A_fnc_spawnGroup;
 sleep 1;
 if (random 10 < 2.5) then
 	{
-	_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+	_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 	[_dog] spawn A3A_fnc_guardDog;
 	};
 _nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "NOFOLLOW"] execVM "scripts\UPSMON.sqf";
 {[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 
-waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (not alive _traitor) or ({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0)};
+waitUntil {sleep 1; (traitorIntel) || {(dateToNumber date > _dateLimitNum) or {(not alive _traitor) or {({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0)}}}};
 
 if ({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0) then
 	{
@@ -125,92 +127,88 @@ if ({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_f
 	_wp1 setWaypointSpeed "FULL";
 	};
 
-waitUntil  {sleep 1; (dateToNumber date > _dateLimitNum) or (not alive _traitor) or (_traitor distance _posBase < 20)};
+waitUntil  {sleep 1; (traitorIntel) || {(dateToNumber date > _dateLimitNum) or {(not alive _traitor) or {(_traitor distance _posBase < 20)}}}};
 
-if (not alive _traitor) then
-	{
+if (not alive _traitor || traitorIntel) then
+{
 	["AS",[format ["A traitor has scheduled a meeting with %3 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.",_nameDest,_displayTime,nameOccupants],"Kill the Traitor",_markerX],_traitor,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	["AS1",[format ["We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.",_nameDest,_displayTime,nameTeamPlayer],"Protect Contact",_markerX],getPos _houseX,"FAILED"] call A3A_fnc_taskUpdate;
-	if (_difficultX) then
-		{
-		[4,0] remoteExec ["A3A_fnc_prestige",2];
-		[0,600] remoteExec ["A3A_fnc_resourcesFIA",2];
-		{
-		if (!isPlayer _x) then
-			{
-			_skill = skill _x;
-			_skill = _skill + 0.1;
-			_x setSkill _skill;
-			}
-		else
-			{
-			[20,_x] call A3A_fnc_playerScoreAdd;
-			};
-		} forEach ([_radiusX,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
-		[10,theBoss] call A3A_fnc_playerScoreAdd;
-		}
-	else
-		{
-		[2,0] remoteExec ["A3A_fnc_prestige",2];
-		[0,300] remoteExec ["A3A_fnc_resourcesFIA",2];
-		{
-		if (!isPlayer _x) then
-			{
-			_skill = skill _x;
-			_skill = _skill + 0.1;
-			_x setSkill _skill;
-			}
-		else
-			{
-			[10,_x] call A3A_fnc_playerScoreAdd;
-			};
-		} forEach ([_radiusX,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
-		[5,theBoss] call A3A_fnc_playerScoreAdd;
-		};
-	}
-else
+
+	if(traitorIntel && (alive _traitor)) then
 	{
+		{[petros,"hint","Someone found some intel on the traitors family, he will not cause any problems any more!"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits);
+		doStop _groupTraitor;
+		doGetOut _traitor;
+		_traitor join grpNull;
+		[_traitor] call A3A_fnc_surrenderAction;
+		sleep 1;
+		[_traitor, "remove"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_traitor];
+		_wp1 = _groupTraitor addWaypoint [_posBase];
+		_wp1 setWaypointType "MOVE";
+		_wp1 setWaypointBehaviour "CARELESS";
+		_wp1 setWaypointSpeed "FULL";
+	};
+
+	_factor = 1;
+	if(_difficultX) then {_factor = 2;};
+    [
+        3,
+        "Rebels won a traitor mission",
+        "aggroEvent",
+        true
+    ] call A3A_fnc_log;
+	[[15 * _factor, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+	[0,300 * _factor] remoteExec ["A3A_fnc_resourcesFIA",2];
+	{
+		if (!isPlayer _x) then
+		{
+			_skill = skill _x;
+			_skill = _skill + 0.1;
+			_x setSkill _skill;
+		}
+		else
+		{
+			[10 * _factor,_x] call A3A_fnc_playerScoreAdd;
+		};
+	} forEach ([_radiusX,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
+	[5 * _factor,theBoss] call A3A_fnc_playerScoreAdd;
+}
+else
+{
 	["AS",[format ["A traitor has scheduled a meeting with %3 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.",_nameDest,_displayTime,nameOccupants],"Kill the Traitor",_markerX],_traitor,"FAILED"] call A3A_fnc_taskUpdate;
 	["AS1",[format ["We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.",_nameDest,_displayTime,nameTeamPlayer],"Protect Contact",_markerX],getPos _houseX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	if (_difficultX) then {[-10,theBoss] call A3A_fnc_playerScoreAdd} else {[-10,theBoss] call A3A_fnc_playerScoreAdd};
 	if (dateToNumber date > _dateLimitNum) then
-		{
+	{
 		_hrT = server getVariable "hr";
 		_resourcesFIAT = server getVariable "resourcesFIA";
 		[-1*(round(_hrT/3)),-1*(round(_resourcesFIAT/3))] remoteExec ["A3A_fnc_resourcesFIA",2];
-		}
+	}
 	else
-		{
+	{
 		if (isPlayer theBoss) then
-			{
+		{
 			if (!(["DEF_HQ"] call BIS_fnc_taskExists)) then
-				{
-				[[Occupants],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2];
-				};
-			}
-		else
 			{
+				[[Occupants],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2];
+			};
+		}
+		else
+		{
 			_minesFIA = allmines - (detectedMines Occupants) - (detectedMines Invaders);
 			if (count _minesFIA > 0) then
-				{
+			{
 				{if (random 100 < 30) then {Occupants revealMine _x;}} forEach _minesFIA;
-				};
 			};
 		};
 	};
+};
 
+traitorIntel = false; publicVariable "traitorIntel";
 _nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
 _nul = [10,"AS1"] spawn A3A_fnc_deleteTask;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
 
-{
-waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
-deleteVehicle _x
-} forEach units _groupTraitor;
-deleteGroup _groupTraitor;
+[_groupX] spawn A3A_fnc_groupDespawner;
+[_groupTraitor] spawn A3A_fnc_groupDespawner;
+[_veh] spawn A3A_fnc_vehDespawner;
 
-{
-waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
-deleteVehicle _x
-} forEach units _groupX;
-deleteGroup _groupX;

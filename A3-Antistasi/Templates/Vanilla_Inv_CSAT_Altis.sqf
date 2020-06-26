@@ -1,3 +1,5 @@
+//Call to Tanoa Invader Template
+if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Tanoa.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -14,7 +16,7 @@ CSATFlag = "Flag_CSAT_F";
 CSATFlagTexture = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 flagCSATmrk = "flag_CSAT";
 if (isServer) then {"CSAT_carrier" setMarkerText "CSAT Carrier"};
-	
+
 //Loot Crate
 CSATAmmoBox = "O_supplyCrate_F";
 
@@ -24,17 +26,17 @@ CSATAmmoBox = "O_supplyCrate_F";
 //PvP Loadouts
 CSATPlayerLoadouts = [
 	//Team Leader
-	"O_T_Recon_TL_F",
+	["vanilla_opfor_teamLeader_altis"] call A3A_fnc_getLoadout,
 	//Medic
-	"O_T_Recon_Medic_F",
+	["vanilla_opfor_medic_altis"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"O_Soldier_AR_F",
+	["vanilla_opfor_machineGunner_altis"] call A3A_fnc_getLoadout,
 	//Marksman
-	"O_T_Recon_M_F",
+	["vanilla_opfor_marksman_altis"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"O_T_Recon_LAT_F",
+	["vanilla_opfor_AT_altis"] call A3A_fnc_getLoadout,
 	//AT2
-	"O_T_Recon_LAT_F"
+	["vanilla_opfor_AT2_altis"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles
@@ -120,6 +122,7 @@ vehCSATLightArmed = ["O_MRAP_02_hmg_F","O_MRAP_02_gmg_F","O_LSV_02_armed_F"];
 vehCSATLightUnarmed = ["O_MRAP_02_F","O_LSV_02_unarmed_F"];
 vehCSATTrucks = ["O_Truck_03_transport_F","O_Truck_03_covered_F"];
 vehCSATAmmoTruck = "O_Truck_03_ammo_F";
+vehCSATRepairTruck = "O_Truck_03_repair_F";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
 vehCSATAPC = ["O_APC_Wheeled_02_rcws_v2_F","O_APC_Tracked_02_cannon_F"];
@@ -145,7 +148,7 @@ vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "O_MBT_02_arty_F";
 vehCSATMRLSMags = "32Rnd_155mm_Mo_shells";
 //Combined Arrays
-vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, "O_Truck_03_fuel_F", "O_Truck_03_medical_F", "O_Truck_03_repair_F"];
+vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, vehCSATRepairTruck, "O_Truck_03_fuel_F", "O_Truck_03_medical_F"];
 vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 
 //Militia Vehicles

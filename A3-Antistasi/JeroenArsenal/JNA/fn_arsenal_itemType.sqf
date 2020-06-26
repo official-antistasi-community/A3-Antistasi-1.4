@@ -163,21 +163,25 @@ private _itemCategory = switch true do {
 		// Check what the magazine actually is
 		switch true do {
 			// Rifle, handgun, secondary weapons mags
-			case (
-			       (getNumber (configFile >> "CfgMagazines" >> _item >> "type") in [TYPE_MAGAZINE_PRIMARY_AND_THROW,TYPE_MAGAZINE_SECONDARY_AND_PUT,1536,TYPE_MAGAZINE_HANDGUN_AND_GL]) &&
-			       {!(_item in _grenadeList)} &&
-			       {!(_item in _putList)}
-			     ): {
-						"Magazine";
-				};
-				// Grenades
-				case (_item in _grenadeList): {
-						"Throwable";
-				};
-				// Put
-				case (_item in _putList): {
-						"Placeable";
-				};
+//			case (
+//			       (getNumber (configFile >> "CfgMagazines" >> _item >> "type") in [TYPE_MAGAZINE_PRIMARY_AND_THROW,TYPE_MAGAZINE_SECONDARY_AND_PUT,1536,TYPE_MAGAZINE_HANDGUN_AND_GL]) &&
+//			       {!(_item in _grenadeList)} &&
+//			       {!(_item in _putList)}
+//			     ): {
+//						"Magazine";
+//				};
+			// Grenades
+			case (_item in _grenadeList): {
+				"Throwable";
+			};
+			// Put
+			case (_item in _putList): {
+				"Placeable";
+			};
+			// Everything else
+			default {
+				"Magazine";
+			};
 		};
 	};
 

@@ -56,14 +56,17 @@ _EHkilledIdx = _unit addEventHandler ["killed", {
 			};
 		};
 	if (side _killer == Occupants) then
-		{
+	{
 		[0,-0.25,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-		[-0.25,0] remoteExec ["A3A_fnc_prestige",2];
-		}
+		[[-1, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+	}
 	else
-		{
-		if (side _killer == Invaders) then {[0,-0.25] remoteExec ["A3A_fnc_prestige",2]};
-		};
+	{
+		if (side _killer == Invaders) then
+        {
+            [[0, 0], [-1, 30]] remoteExec ["A3A_fnc_prestige",2]
+        };
+	};
 	_markerX = _victim getVariable "markerX";
 	if (!isNil "_markerX") then
 		{

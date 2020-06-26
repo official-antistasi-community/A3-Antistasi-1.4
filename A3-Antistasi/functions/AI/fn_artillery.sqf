@@ -20,7 +20,7 @@ _vehicle=[_pos, random 360,_typeVehX, _attackingSide] call bis_fnc_spawnvehicle;
 _veh = _vehicle select 0;
 _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
-[_veh] call A3A_fnc_AIVEHinit;
+[_veh, _attackingSide] call A3A_fnc_AIVEHinit;
 _groupVeh = _vehicle select 2;
 _size = [_mrkDestination] call A3A_fnc_sizeMarker;
 
@@ -72,12 +72,5 @@ if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) selec
 		};
 	};
 
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _veh};
-
-{
-_veh = _x;
-waitUntil {sleep 1; !([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)};
-deleteVehicle _veh;
-} forEach _vehCrew;
-
-deleteGroup _groupVeh;
+[_groupVeh] spawn A3A_fnc_groupDespawner;
+[_veh] spawn A3A_fnc_vehDespawner;

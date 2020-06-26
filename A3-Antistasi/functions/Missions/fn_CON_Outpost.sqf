@@ -18,6 +18,8 @@ _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly
 _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time portion of the date array to a string for clarity in hints
 
+private _markerSide = sidesX getVariable [_markerX, sideUnknown];
+
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _textX = "";
 _taskName = "";
@@ -43,13 +45,13 @@ if (dateToNumber date > _dateLimitNum) then
 	if (_difficultX) then
 		{
 		[10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[-1200] remoteExec ["A3A_fnc_timingCA",2];
+		[-1200, _markerSide] remoteExec ["A3A_fnc_timingCA",2];
 		[-20,theBoss] call A3A_fnc_playerScoreAdd;
 		}
 	else
 		{
 		[5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[-600] remoteExec ["A3A_fnc_timingCA",2];
+		[-600, _markerSide] remoteExec ["A3A_fnc_timingCA",2];
 		[-10,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	}
@@ -61,7 +63,7 @@ else
 		{
 		[0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[-10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[1200] remoteExec ["A3A_fnc_timingCA",2];
+		[1200, _markerSide] remoteExec ["A3A_fnc_timingCA",2];
 		{if (isPlayer _x) then {[20,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
 		[20,theBoss] call A3A_fnc_playerScoreAdd;
 		}
@@ -69,7 +71,7 @@ else
 		{
 		[0,200] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[-5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[600] remoteExec ["A3A_fnc_timingCA",2];
+		[600, _markerSide] remoteExec ["A3A_fnc_timingCA",2];
 		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
 		[10,theBoss] call A3A_fnc_playerScoreAdd;
 		};

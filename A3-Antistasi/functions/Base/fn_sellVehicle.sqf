@@ -1,11 +1,11 @@
 private ["_veh", "_costs","_typeX"];
 _veh = cursortarget;
 
-if (isNull _veh) exitWith {hint "You are not looking to any vehicle"};
+if (isNull _veh) exitWith {["Sell Vehicle", "You are not looking to any vehicle"] call A3A_fnc_customHint;};
 
-if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {hint "Vehicle must be closer than 50 meters to the flag"};
+if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {["Sell Vehicle", "Vehicle must be closer than 50 meters to the flag"] call A3A_fnc_customHint;};
 
-if ({isPlayer _x} count crew _veh > 0) exitWith {hint "In order to sell, vehicle must be empty."};
+if ({isPlayer _x} count crew _veh > 0) exitWith {["Sell Vehicle", "In order to sell, vehicle must be empty."] call A3A_fnc_customHint;};
 
 _owner = _veh getVariable "ownerX";
 _exit = false;
@@ -17,7 +17,7 @@ if (!isNil "_owner") then
 		};
 	};
 
-if (_exit) exitWith {hint "You are not owner of this vehicle and you cannot sell it"};
+if (_exit) exitWith {["Sell Vehicle", "You are not owner of this vehicle and you cannot sell it"] call A3A_fnc_customHint;};
 
 _typeX = typeOf _veh;
 _costs = 0;
@@ -78,7 +78,7 @@ else
 	};
 };
 
-if (_costs == 0) exitWith {hint "The vehicle you are looking is not suitable in our marketplace"};
+if (_costs == 0) exitWith {["Sell Vehicle", "The vehicle you are looking is not suitable in our marketplace"] call A3A_fnc_customHint;};
 
 _costs = round (_costs * (1-damage _veh));
 
@@ -91,4 +91,4 @@ if (_veh in reportedVehs) then {reportedVehs = reportedVehs - [_veh]; publicVari
 
 if (_veh isKindOf "StaticWeapon") then {deleteVehicle _veh};
 
-hint "Vehicle Sold";
+["Sell Vehicle", "Vehicle Sold"] call A3A_fnc_customHint;

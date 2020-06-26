@@ -33,9 +33,10 @@ switch (_callbackTarget) do {
 			
 			case CALLBACK_VEH_IS_VALID_LOCATION: {
 				private _pos = _callbackParams select 0;
-				if (_pos distance2d (getMarkerPos garage_nearestMarker) > 50) exitWith 
+				private _maxDist = [50,150] select ((_callbackParams select 2) isKindOf "Ship");
+				if (_pos distance2d (getMarkerPos garage_nearestMarker) > _maxDist) exitWith
 				{
-					[false, "Vehicles must be placed within 50m of the flag"];
+					[false, format ["This vehicle must be placed within %1m of the flag", _maxDist]];
 				};
 				[true];
 			};
@@ -54,7 +55,8 @@ switch (_callbackTarget) do {
 		
 			case CALLBACK_VEH_PLACED_SUCCESSFULLY: {
 				private _garageVeh = _callbackParams param [0];
-				[_garageVeh] call A3A_fnc_AIVEHinit;
+				[_garageVeh, teamPlayer] call A3A_fnc_AIVEHinit;
+				if !(_garageVeh isKindOf "StaticWeapon") then { [_garageVeh] spawn A3A_fnc_vehDespawner };
 
 				if (_garageVeh isKindOf "Car") then {_garageVeh setPlateNumber format ["%1",name player]};
 				
@@ -105,9 +107,10 @@ switch (_callbackTarget) do {
 			
 			case CALLBACK_VEH_IS_VALID_LOCATION: {
 				private _pos = _callbackParams select 0;
-				if (_pos distance2d (getMarkerPos vehiclePurchase_nearestMarker) > 50) exitWith 
+				private _maxDist = [50,150] select ((_callbackParams select 2) isKindOf "Ship");
+				if (_pos distance2d (getMarkerPos vehiclePurchase_nearestMarker) > _maxDist) exitWith
 				{
-					[false, "Vehicles must be placed within 50m of the flag"];
+					[false, format ["This vehicle must be placed within %1m of the flag", _maxDist]];
 				};
 				[true];
 			};
@@ -128,7 +131,9 @@ switch (_callbackTarget) do {
 				private _purchasedVeh = _callbackParams param [0];
 				private _typeVehX = typeOf _purchasedVeh;
 				
-				[_purchasedVeh] call A3A_fnc_AIVEHinit;
+				[_purchasedVeh, teamPlayer] call A3A_fnc_AIVEHinit;
+				if !(_purchasedVeh isKindOf "StaticWeapon") then { [_purchasedVeh] spawn A3A_fnc_vehDespawner };
+
 				if (_purchasedVeh isKindOf "Car") then {_purchasedVeh setPlateNumber format ["%1",name player]};
 				
 				//Handle Money
@@ -140,12 +145,11 @@ switch (_callbackTarget) do {
 					{
 					if (player ==	theBoss && ((_typeVehX == SDKMortar) or (_typeVehX == staticATteamPlayer) or (_typeVehX == staticAAteamPlayer) or (_typeVehX == SDKMGStatic))) then
 						{
-						_nul = [0,(-1 * vehiclePurchase_cost)] remoteExecCall ["A3A_fnc_resourcesFIA",2]
+						_nul = [0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2]
 						}
 					else
 						{
 						[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
-						["moneyX",player getVariable ["moneyX",0]] call fn_SaveStat;
 						_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
 						};
 					};
@@ -170,7 +174,7 @@ switch (_callbackTarget) do {
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
-				hint "Construction cancelled";
+				["Construction", "Construction cancelled"] call A3A_fnc_customHint;
 			};
 		
 			case CALLBACK_SHOULD_CANCEL_PLACEMENT: {

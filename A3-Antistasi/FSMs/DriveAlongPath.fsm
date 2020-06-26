@@ -1,7 +1,7 @@
-/*%FSM<COMPILE "F:\Steam\SteamApps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, DriveAlongPath">*/
+/*%FSM<COMPILE "scriptedFSM.cfg, DriveAlongPath">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,250,-258.071289,-342.907776,-168.071396,-292.907776,0.000000,"Start"};
+item0[] = {"Start",0,4346,-258.071289,-342.907776,-168.071396,-292.907776,0.000000,"Start"};
 item1[] = {"_",-1,250,-162.790146,-180.814117,-73.255249,-177.907150,0.000000,""};
 item2[] = {"End_and_Rejoin",1,250,121.673431,-203.263062,211.673462,-153.263077,0.000000,"End and Rejoin"};
 item3[] = {"HasArrived",4,218,-87.535736,-114.861282,2.464264,-64.861282,10.000000,"HasArrived"};
@@ -40,8 +40,8 @@ link10[] = {7,5};
 link11[] = {8,5};
 link12[] = {9,2};
 link13[] = {11,10};
-globals[] = {0.000000,0,0,0,0,640,480,1,36,6316128,1,-559.409241,250.910950,151.986633,-492.188782,1112,884,1};
-window[] = {2,-1,-1,-1,-1,785,-1894,-454,26,3,1130};
+globals[] = {0.000000,0,0,0,0,640,480,1,36,6316128,1,-511.636810,203.138428,114.009247,-454.211395,1112,884,1};
+window[] = {2,-1,-1,-32000,-32000,915,156,1596,156,3,1130};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -61,7 +61,7 @@ class FSM
                          "if (isNull _vehicle || count _route == 0) exitWith {};" \n
                          "" \n
                          "private _destination = _route select (count _route - 1);" \n
-                         "private _accuracy = 20;" \n
+                         "private _accuracy = 50;" \n
                          "" \n
                          "private _splitCrew = [_vehicle] call A3A_fnc_splitVehicleCrewIntoOwnGroups;" \n
                          "if (_splitCrew select 0 isEqualTo []) exitWith {" \n

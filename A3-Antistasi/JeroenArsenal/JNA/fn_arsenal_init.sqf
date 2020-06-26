@@ -43,9 +43,11 @@ IDC_RSCDISPLAYARSENAL_TAB_CARGOPUT		23
 IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC		24
 IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL		26
 */
-//jna_minItemMember = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
-jna_minItemMember = [24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,memberOnlyMagLimit,24,24,24,24,memberOnlyMagLimit];
-
+jna_minItemMember = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
+//jna_minItemMember = [24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,memberOnlyMagLimit,24,24,24,24,memberOnlyMagLimit];
+jna_minItemMember = jna_minItemMember apply { minWeaps };
+jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG, memberOnlyMagLimit];
+jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, memberOnlyMagLimit];
 //preload the ammobox so you dont need to wait the first time
 ["Preload"] call jn_fnc_arsenal;
 

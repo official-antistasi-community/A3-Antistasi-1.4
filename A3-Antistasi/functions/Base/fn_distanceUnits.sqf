@@ -8,7 +8,7 @@
 		_modeX: 0 or 1 - Whether an array of units should be returned, or a boolean if a unit belonging to that side is in range.
 		_center: Position or Object - The center to search around.
 		_targetSide: Side - Search for units belonging to this side
-		
+
 	Returns:
 		Array of units found in range, or a boolean if a unit was found (depending on mode)
 **/

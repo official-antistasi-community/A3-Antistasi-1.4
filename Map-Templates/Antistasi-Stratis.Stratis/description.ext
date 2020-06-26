@@ -1,0 +1,63 @@
+#include "defines.hpp"
+#include "dialogs.hpp"
+
+author = $STR_antistasi_credits_generic_author_text;
+OnLoadName = $STR_antistasi_mission_info_stratis_mapname_short_text;
+OnLoadMission = $STR_antistasi_mission_info_stratis_blurb_text;
+loadScreen = "Pictures\Mission\pic.jpg";
+briefingName = $STR_antistasi_mission_info_stratis_mapname_text;
+overviewText = $STR_antistasi_mission_info_stratis_description_text;
+overviewPicture = "Pictures\Mission\pic.jpg";
+
+#include "MissionDescription\debug.hpp"
+
+#include "MissionDescription\gameSettings.hpp"
+
+class CfgFunctions {
+    #include "functions.hpp"
+    #include "JeroenArsenal\functions.hpp"
+};
+
+class CfgSounds
+{
+    class fire
+    {
+        name="fire";
+        sound[]={"Music\fire.ogg",db+12,1.0};
+        titles[]={};
+    };
+};
+
+#include "MissionDescription\params.hpp"
+
+#include "MissionDescription\CfgIdentities.hpp"
+
+class CfgDebriefing
+{
+	#include "MissionDescription\endMission.hpp"
+
+	class End1
+	{
+		title = "V I C T O R Y";
+		subtitle = "Stratis is Ours!";
+		description = "The population of Stratis loves you!<br/>The SDK brave soldiers have proven their valour, and Petros, Stratis' new Prime Minister, could at last to have a nice holiday. A deserved rest in a Greek island with drinks and fine food.";
+		picture = "n_inf";
+		pictureColor[] = {0.0,0.5,0.0,1};
+	};
+    class petrosDead
+    {
+        title = "Maru is Dead";
+        subtitle = "Maru is Dead";
+        description = "Congratulations!: Maru is Dead. Now with Syndikat without a leader, you may think about joining them, and free Malden";
+        picture = "b_unknown";
+        pictureColor[] = {0.5,0.0,0.0,1};
+    };
+    class destroyedSites
+    {
+        title = "Stratis is Destroyed";
+        subtitle = "Stratis got Destroyed by OPFOR";
+        description = "One third of the population in Stratis has been murdered by OPFOR.<br/>Stratis no longer exists, nobody wants to live here.";
+        picture = "b_unknown";
+        pictureColor[] = {0.5,0.0,0.0,1};
+    };
+};

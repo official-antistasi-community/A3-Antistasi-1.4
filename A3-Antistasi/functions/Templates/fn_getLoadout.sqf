@@ -3,17 +3,16 @@ params ["_loadoutName"];
 private _basicMedicalSupplies =
 	if (hasACE) then {
 		[
-			["ACE_Tourniquet",1],
+			["ACE_Tourniquet",3],
 			["ACE_SalineIV_500",1],
 			["ACE_Morphine",2],
 			["ACE_Epinephrine",2],
 			["ACE_Adenosine",2],
-			["ACE_PackingBandage",5],
-			["ACE_ElasticBandage",3],
-			["ACE_Quikclot",3],
+			["ACE_PackingBandage",10],
+			["ACE_ElasticBandage",10],
+			["ACE_Quikclot",10],
 			["ACE_splint", 2]
 		]
-		+ ([[], [["adv_aceSplint_splint", 2]]] select hasADVSplint);
 	} else {
 		[
 			["FirstAidKit",3]
@@ -24,8 +23,7 @@ private _basicMiscItems =
 	if (hasACE) then {
 		[
 			["ACE_Earplugs",1],
-			["ACE_Cabletie",3],
-			["ACE_Chemlight_Hiblue",5,1]
+			["ACE_Cabletie",3]
 		];
 	} else {
 		[
@@ -38,8 +36,8 @@ private _medicSupplies =
 		[
 			["ACE_surgicalKit",1],
 
-			["ACE_PackingBandage",15],
-			["ACE_ElasticBandage",10],
+			["ACE_PackingBandage",5],
+			["ACE_ElasticBandage",20],
 			["ACE_QuikClot",10],
 
 			["ACE_Morphine",5],
@@ -53,8 +51,6 @@ private _medicSupplies =
 			["ACE_Tourniquet",3],
 			["ACE_Splint",4]
 		]
-		+ ([[["ACE_PersonalAidKit", 2]], [["adv_aceCPR_AED", 1]]] select hasADVCPR)
-		+ ([[], [["adv_aceSplint_splint", 7]]] select hasADVSplint);
 	} else {
 		[
 			["Medikit", 1]
@@ -87,7 +83,7 @@ private _fnc_tfarRadio = {
 private _tfarMicroDAGRNoArray = [hasTFAR, "TF_MicroDagr", "ItemWatch"] call _fnc_modItemNoArray;
 
 private _aceFlashlight = [hasACE, ["ACE_Flashlight_XL50", 1]] call _fnc_modItem;
-private _aceM84 = [hasACE, ["ACE_M84", 1], ["HandGrenade", 1]] call _fnc_modItem;
+private _aceM84 = [hasACE, ["ACE_M84",2,1]] call _fnc_modItem;
 private _aceDefusalKit = [hasACE, ["ACE_DefusalKit", 1]] call _fnc_modItem;
 private _aceClacker = [hasACE, ["ACE_Clacker", 1]] call _fnc_modItem;
 private _aceRangecard = [hasACE, ["ACE_Rangecard", 1]] call _fnc_modItem;

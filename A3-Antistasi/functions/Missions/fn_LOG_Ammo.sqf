@@ -41,7 +41,8 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	_truckX = _typeVehX createVehicle _pos;
 	_truckX setDir (getDir _road);
 	_truckCreated = true;
-	if (_sideX == Occupants) then {[_truckX] spawn A3A_fnc_NATOcrate} else {[_truckX] spawn A3A_fnc_CSATcrate};
+	[_truckX] spawn A3A_fnc_fillLootCrate;
+	[_truckX, _sideX] call A3A_fnc_AIVEHinit;
 
 	_mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], _pos];
 	_mrk setMarkerShapeLocal "RECTANGLE";
@@ -56,7 +57,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	sleep 1;
 	if (random 10 < 33) then
 		{
-		_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+		_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 		[_dog] spawn A3A_fnc_guardDog;
 		};
 
@@ -68,25 +69,24 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX1;
-	
+
 	private _fnc_truckReturnedToBase = {
 		//DistanceSqr is faster, and we're hard coding it anyway.
 		(_truckX distanceSqr posHQ) < 10000;
 	};
-	
+
 	_truckX setVariable ["ammoTruckLocation", _nameDest];
-	_truckX setVariable ["sideOwner", _sideX];
 	_truckX addEventHandler ["GetIn", {
 		params ["_vehicle", "_role", "_unit", "_turret"];
-		
-		private _owningSide = (_vehicle getVariable "sideOwner");
-		
+
+		private _owningSide = (_vehicle getVariable "originalSide");		// set by AIVEHinit
+
 		if (_unit getVariable ["spawner",false]) then {
 			["TaskFailed", ["", format ["Ammotruck Stolen in an %1",(_vehicle getVariable ["ammoTruckLocation", ""])]]] remoteExec ["BIS_fnc_showNotification",_owningSide];
 		};
-		
+
 		[getPosASL _vehicle, _owningSide, "", false] spawn A3A_fnc_patrolCA;
-		
+
 		_truckX removeEventHandler ["GetIn", _thisEventHandler];
 	}];
 
@@ -95,15 +95,15 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	if (dateToNumber date > _dateLimitNum) then
 		{
 		["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_positionX,"FAILED","rearm"] call A3A_fnc_taskUpdate;
-		[-1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
+		[-1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	if ((not alive _truckX) or (call _fnc_truckReturnedToBase)) then
 		{
-			
+
 			["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_positionX,"SUCCEEDED","rearm"] call A3A_fnc_taskUpdate;
 			[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-			[1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
+			[1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 			{if (_x distance _truckX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		};
@@ -111,18 +111,16 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 else
 	{
 	["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_positionX,"FAILED","rearm"] call A3A_fnc_taskUpdate;
-	[-1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
+	[-1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};
 
 _nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
 if (_truckCreated) then
-	{
-	{deleteVehicle _x} forEach units _groupX;
-	deleteGroup _groupX;
-	{deleteVehicle _x} forEach units _groupX1;
-	deleteGroup _groupX1;
-	deleteMarker _mrk;
-	waitUntil {sleep 1; !([300,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
-	deleteVehicle _truckX;
-	};
+{
+	// TODO: Head off to nearby base
+	[_groupX] spawn A3A_fnc_groupDespawner;
+	[_groupX1] spawn A3A_fnc_groupDespawner;
+	[_truckX] spawn A3A_fnc_vehDespawner;
+	// delete truck contents maybe?
+};

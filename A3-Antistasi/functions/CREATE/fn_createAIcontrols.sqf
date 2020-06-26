@@ -76,7 +76,7 @@ if (_isControl) then
 
 			_groupE = createGroup _sideX;
 			_typeUnit = if (_sideX == Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
-			_unit = _groupE createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+			_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 			sleep 1;
@@ -92,11 +92,11 @@ if (_isControl) then
 			_veh setPosATL _pos;
 			_veh setDir _dirVeh;
 			sleep 1;
-			_unit = _groupE createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+			_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 			sleep 1;
-			{_nul = [_x] call A3A_fnc_AIVEHinit} forEach _vehiclesX;
+			{ [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
 			};
 		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsNATOmid} else {selectRandom groupsCSATmid};
 		_groupX = [_positionX,_sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
@@ -109,7 +109,7 @@ if (_isControl) then
 				};
 			if (random 10 < 2.5) then
 				{
-				_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				[_dog,_groupX] spawn A3A_fnc_guardDog;
 				};
 			_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
@@ -121,14 +121,14 @@ if (_isControl) then
 		_typeVehX = if !(hasIFA) then {vehFIAArmedCar} else {vehFIACar};
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
 		_veh setDir _dirveh + 90;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
 		_typeGroup = selectRandom groupsFIAMid;
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
-			_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
+			_unit = [_groupX, FIARifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			{_soldiers pushBack _x; [_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 			};
@@ -178,6 +178,9 @@ else
 		};
 	};
 if (_leave) exitWith {};
+
+{ _x setVariable ["originalPos", getPos _x] } forEach _vehiclesX;
+
 _spawnStatus = 0;
 while {(spawner getVariable _markerX != 2) and ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers > 0)} do
 	{
@@ -222,7 +225,7 @@ if (spawner getVariable _markerX != 2) then
 	_closest = [_allUnits,_positionX] call BIS_fnc_nearestPosition;
 	_winner = side _closest;
 	_loser = Occupants;
-	diag_log format ["%1: [Antistasi]: Server | Control %1 captured by %2. Is Roadblock: %3",servertime, _markerX, _winner, _isControl];
+	diag_log format ["%1: [Antistasi]: Server | Control %2 captured by %3. Is Roadblock: %4",servertime, _markerX, _winner, _isControl];
 	if (_isControl) then
 		{
 		["TaskSucceeded", ["", "Roadblock Destroyed"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -259,20 +262,18 @@ if (spawner getVariable _markerX != 2) then
 
 waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
-{_veh = _x;
-if (not(_veh in staticsToSave)) then
-	{
-	if ((!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits))) then {deleteVehicle _x}
+
+{ if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
+deleteGroup _groupX;
+
+{
+	// delete all vehicles that haven't been captured
+	if (_x getVariable ["ownerSide", _sideX] == _sideX) then {
+		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;
-{
-if (alive _x) then
-	{
-	if (_x != vehicle _x) then {deleteVehicle (vehicle _x)};
-	deleteVehicle _x
-	}
-} forEach (_soldiers + _pilots);
-deleteGroup _groupX;
+
 
 if (_conquered) then
 	{

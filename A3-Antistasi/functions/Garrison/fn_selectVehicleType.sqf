@@ -11,7 +11,7 @@ params ["_preference", "_side"];
 
 private _fileName = "SelectVehicleType";
 
-[3, format ["SelectVehicleType: Selecting vehicle now, preferred is %1, side is %2", _preference, _side], _fileName] call A3A_fnc_log;
+[4, format ["SelectVehicleType: Selecting vehicle now, preferred is %1, side is %2", _preference, _side], _fileName] call A3A_fnc_log;
 
 if(_preference == "LAND_AIR") exitWith
 {
@@ -122,7 +122,7 @@ if(count _possibleVehicles == 0) exitWith
     "Empty";
 };
 
-[3, format ["SelectVehicleType: Preselection done, possible vehicles are %1", str _possibleVehicles], _fileName] call A3A_fnc_log;
+[4, format ["SelectVehicleType: Preselection done, possible vehicles are %1", str _possibleVehicles], _fileName] call A3A_fnc_log;
 
 private _result = selectRandom _possibleVehicles;
 _result;

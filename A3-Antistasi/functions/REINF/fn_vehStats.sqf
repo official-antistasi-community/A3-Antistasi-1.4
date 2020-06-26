@@ -1,4 +1,4 @@
-if (count hcSelected player == 0) exitWith {hint "You must select one group on the HC bar"};
+if (count hcSelected player == 0) exitWith {["Vehicle Info", "You must select one group on the HC bar"] call A3A_fnc_customHint;};
 
 private ["_groupX","_veh","_textX","_unitsX"];
 
@@ -26,12 +26,12 @@ if (_this select 0 == "mount") exitWith
 			{
 			if (leader _groupX in _veh) then
 				{
-				_textX = format ["%2%1 dismounting\n",groupID _groupX,_textX];
+				_textX = format ["%2%1 dismounting<br/>",groupID _groupX,_textX];
 				{[_x] orderGetIn false; [_x] allowGetIn false} forEach units _groupX;
 				}
 			else
 				{
-				_textX = format ["%2%1 boarding\n",groupID _groupX,_textX];
+				_textX = format ["%2%1 boarding<br/>",groupID _groupX,_textX];
 				{[_x] orderGetIn true; [_x] allowGetIn true} forEach units _groupX;
 				};
 			}
@@ -39,7 +39,7 @@ if (_this select 0 == "mount") exitWith
 			{
 			if (leader _groupX in _veh) then
 				{
-				_textX = format ["%2%1 dismounting\n",groupID _groupX,_textX];
+				_textX = format ["%2%1 dismounting<br/>",groupID _groupX,_textX];
 				if (canMove _veh) then
 					{
 					{[_x] orderGetIn false; [_x] allowGetIn false} forEach assignedCargo _veh;
@@ -52,31 +52,31 @@ if (_this select 0 == "mount") exitWith
 				}
 			else
 				{
-				_textX = format ["%2%1 boarding\n",groupID _groupX,_textX];
+				_textX = format ["%2%1 boarding<br/>",groupID _groupX,_textX];
 				{[_x] orderGetIn true; [_x] allowGetIn true} forEach units _groupX;
 				};
 			};
 		};
 	} forEach hcSelected player;
-	if (_textX != "") then {hint format ["%1",_textX]};
+	if (_textX != "") then {["Vehicle Info", format ["%1",_textX]] call A3A_fnc_customHint;};
 	};
 _textX = "";
 _groupX = (hcSelected player select 0);
 player sideChat format ["%1, SITREP!!",groupID _groupX];
 _unitsX = units _groupX;
-_textX = format ["%1 Status\n\nAlive members: %2\nAble to combat: %3\nCurrent task: %4\nCombat Mode:%5\n",groupID _groupX,{alive _x} count _unitsX,{[_x] call A3A_fnc_canFight} count _unitsX,_groupX getVariable ["taskX","Patrol"],behaviour (leader _groupX)];
-if ({[_x] call A3A_fnc_isMedic} count _unitsX > 0) then {_textX = format ["%1Operative Medic\n",_textX]} else {_textX = format ["%1No operative Medic\n",_textX]};
-if ({_x call A3A_fnc_typeOfSoldier == "ATMan"} count _unitsX > 0) then {_textX = format ["%1With AT capabilities\n",_textX]};
-if ({_x call A3A_fnc_typeOfSoldier == "AAMan"} count _unitsX > 0) then {_textX = format ["%1With AA capabilities\n",_textX]};
+_textX = format ["%1 Status<br/><br/>Alive members: %2<br/>Able to combat: %3<br/>Current task: %4<br/>Combat Mode:%5<br/>",groupID _groupX,{alive _x} count _unitsX,{[_x] call A3A_fnc_canFight} count _unitsX,_groupX getVariable ["taskX","Patrol"],behaviour (leader _groupX)];
+if ({[_x] call A3A_fnc_isMedic} count _unitsX > 0) then {_textX = format ["%1Operative Medic<br/>",_textX]} else {_textX = format ["%1No operative Medic<br/>",_textX]};
+if ({_x call A3A_fnc_typeOfSoldier == "ATMan"} count _unitsX > 0) then {_textX = format ["%1With AT capabilities<br/>",_textX]};
+if ({_x call A3A_fnc_typeOfSoldier == "AAMan"} count _unitsX > 0) then {_textX = format ["%1With AA capabilities<br/>",_textX]};
 if (!(isNull(_groupX getVariable ["mortarsX",objNull])) or ({_x call A3A_fnc_typeOfSoldier == "StaticMortar"} count _unitsX > 0)) then
 	{
-	if ({vehicle _x isKindOf "StaticWeapon"} count _unitsX > 0) then {_textX = format ["%1Mortar is deployed\n",_textX]} else {_textX = format ["%1Mortar not deployed\n",_textX]};
+	if ({vehicle _x isKindOf "StaticWeapon"} count _unitsX > 0) then {_textX = format ["%1Mortar is deployed<br/>",_textX]} else {_textX = format ["%1Mortar not deployed<br/>",_textX]};
 	}
 else
 	{
 	if ({_x call A3A_fnc_typeOfSoldier == "StaticGunner"} count _unitsX > 0) then
 		{
-		if ({vehicle _x isKindOf "StaticWeapon"} count _unitsX > 0) then {_textX = format ["%1Static is deployed\n",_textX]} else {_textX = format ["%1Static not deployed\n",_textX]};
+		if ({vehicle _x isKindOf "StaticWeapon"} count _unitsX > 0) then {_textX = format ["%1Static is deployed<br/>",_textX]} else {_textX = format ["%1Static not deployed<br/>",_textX]};
 		};
 	};
 
@@ -93,20 +93,20 @@ if (isNull _veh) then
 	};
 if !(isNull _veh) then
 	{
-	_textX = format ["%1Current vehicle:\n%2\n",_textX,getText (configFile >> "CfgVehicles" >> (typeOf _veh) >> "displayName")];
+	_textX = format ["%1Current vehicle:<br/>%2<br/>",_textX,getText (configFile >> "CfgVehicles" >> (typeOf _veh) >> "displayName")];
 	if (!alive _veh) then
 		{
 		_textX = format ["%1DESTROYED",_textX];
 		}
 	else
 		{
-		if (!canMove _veh) then {_textX = format ["%1DISABLED\n",_textX]};
+		if (!canMove _veh) then {_textX = format ["%1DISABLED<br/>",_textX]};
 		if (count allTurrets [_veh, false] > 0) then
 			{
-			if (!canFire _veh) then {_textX = format ["%1WEAPON DISABLED\n",_textX]};
-			if (someAmmo _veh) then {_textX = format ["%1Munitioned\n",_textX]};
+			if (!canFire _veh) then {_textX = format ["%1WEAPON DISABLED<br/>",_textX]};
+			if (someAmmo _veh) then {_textX = format ["%1Munitioned<br/>",_textX]};
 			};
 		_textX = format ["%1Boarded:%2/%3",_textX,{vehicle _x == _veh} count _unitsX,{alive _x} count _unitsX];
 		};
 	};
-hint format ["%1",_textX];
+["Vehicle Info", format ["%1",_textX]] call A3A_fnc_customHint;

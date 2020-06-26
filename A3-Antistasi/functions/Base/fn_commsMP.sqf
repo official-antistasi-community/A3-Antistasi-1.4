@@ -3,16 +3,16 @@ if (isNil "initVar") exitWith {};
 if ((side player != teamPlayer) and (side player != civilian)) exitWith {};
 private ["_unit","_typeX","_textX","_display","_setText"];
 
-_unit = _this select 0;
-_typeX = _this select 1;
-_textX = _this select 2;
+params [["_unit", objNull], ["_typeX", ""], ["_textX", ""], ["_titleX", ""]];
 
 if (_typeX == "sideChat") then
 	{
 	_unit sideChat format ["%1", _textX];
 	};
-if (_typeX == "hint") then {hint format ["%1",_textX]};
+if (_typeX == "hint") then {[_titleX, format ["%1",_textX]] call A3A_fnc_customHint;};
 if (_typeX == "hintCS") then {hintC format ["%1",_textX]};
+if (_typeX == "hintS") then {[_titleX, format ["%1",_textX], true] call A3A_fnc_customHint;};
+if (_typeX == "intelError") then {[_titleX, format ["Download error:<br/>%1",_textX]] call A3A_fnc_customHint;};
 if (_typeX == "globalChat") then
 	{
 	_unit globalChat format ["%1", _textX];
@@ -33,7 +33,7 @@ if (_typeX == "income") then
 if (_typeX == "countdown") then
 	{
 	_textX = format ["Time Remaining: %1 secs",_textX];
-	hint format ["%1",_textX];
+	["Countdown", format ["%1",_textX]] call A3A_fnc_customHint;
 	};
 
 if (_typeX == "taxRep") then

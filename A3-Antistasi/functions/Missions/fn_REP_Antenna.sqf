@@ -40,7 +40,7 @@ if (spawner getVariable _markerX != 2) then
 	_veh = createVehicle [vehNATORepairTruck, _pos, [], 0, "NONE"];
 	_veh allowdamage false;
 	_veh setDir (getDir _road);
-	_nul = [_veh] call A3A_fnc_AIVEHinit;
+	_nul = [_veh, Occupants] call A3A_fnc_AIVEHinit;
 	_groupX = createGroup Occupants;
 
 	sleep 5;
@@ -48,7 +48,7 @@ if (spawner getVariable _markerX != 2) then
 
 	for "_i" from 1 to 3 do
 		{
-		_unit = _groupX createUnit [NATOCrew, _pos, [], 0, "NONE"];
+		_unit = [_groupX, NATOCrew, _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,""] call A3A_fnc_NATOinit;
 		sleep 2;
 		};
@@ -66,8 +66,8 @@ if (spawner getVariable _markerX != 2) then
 			],
 			getPos _antennaDead, "SUCCEEDED", "Destroy"
 		] call A3A_fnc_taskUpdate;
-		[2,0] remoteExec ["A3A_fnc_prestige",2];
-		[1200] remoteExec ["A3A_fnc_timingCA",2];
+		[[15, 90], [5, 60]] remoteExec ["A3A_fnc_prestige",2];
+		[1200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 		{if (_x distance _veh < 500) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
 		};
@@ -85,8 +85,8 @@ if (dateToNumber date > _dateLimitNum) then
 			],
 			getPos _antennaDead, "SUCCEEDED", "Destroy"
 		] call A3A_fnc_taskUpdate;
-		[2,0] remoteExec ["A3A_fnc_prestige",2];
-		[1200] remoteExec ["A3A_fnc_timingCA",2];
+		[[15, 90], [5, 60]] remoteExec ["A3A_fnc_prestige",2];
+		[1200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 		{if (_x distance _veh < 500) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
 		}
@@ -102,42 +102,16 @@ if (dateToNumber date > _dateLimitNum) then
 			getPos _antennaDead, "FAILED", "Destroy"
 		] call A3A_fnc_taskUpdate;
 		//[5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[-600] remoteExec ["A3A_fnc_timingCA",2];
+		[-600, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 		[-10,theBoss] call A3A_fnc_playerScoreAdd;
 		};
-	antennasDead = antennasDead - [_antennaDead]; publicVariable "antennasDead";
-	diag_log format ["%1: [Antistasi] | DEBUG | Repairing Antenna %2.",servertime, typeOf _antennaDead];
-	[_antennaDead] call A3A_fnc_repairRuinedBuilding;
-	antennas pushBack _antennaDead; publicVariable "antennas";
-	{if ([antennas,_x] call BIS_fnc_nearestPosition == _antennaDead) then {[_x,true] spawn A3A_fnc_blackout}} forEach citiesX;
-	_mrkFinal = createMarker [format ["Ant%1", mapGridPosition _antennaDead], getPos _antennaDead];
-	_mrkFinal setMarkerShape "ICON";
-	_mrkFinal setMarkerType "loc_Transmitter";
-	_mrkFinal setMarkerColor "ColorBlack";
-	_mrkFinal setMarkerText "Radio Tower";
-	mrkAntennas pushBack _mrkFinal;
-	publicVariable "mrkAntennas";
-	_antennaDead addEventHandler ["Killed",
-		{
-		_antenna = _this select 0;
-		_antenna removeAllEventHandlers "Killed";
-		{if ([antennas,_x] call BIS_fnc_nearestPosition == _antenna) then {[_x,false] spawn A3A_fnc_blackout}} forEach citiesX;
-		_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
-		antennas = antennas - [_antenna]; antennasDead = antennasDead + [_antenna]; deleteMarker _mrk;
-		["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
-		["TaskFailed",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",Occupants];
-		publicVariable "antennas"; publicVariable "antennasDead";
-		}
-		];
+	[_antennaDead] remoteExec ["A3A_fnc_rebuildRadioTower", 2];
 	};
 
 _nul = [30,"REP"] spawn A3A_fnc_deleteTask;
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
-if (_truckCreated) then
-	{
-	{deleteVehicle _x} forEach units _groupX;
-	deleteGroup _groupX;
-	if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh};
-	};
+// could make these guys return home, too much work atm
+[_groupX] spawn A3A_fnc_groupDespawner;
+[_veh] spawn A3A_fnc_vehDespawner;

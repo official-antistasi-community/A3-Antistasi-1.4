@@ -14,17 +14,17 @@ mapX allowDamage false;
 //Load server id
 serverID = profileNameSpace getVariable ["ss_ServerID",nil];
 if(isNil "serverID") then {
-	serverID = str(round((random(100000)) + random 10000));
+	serverID = str(floor(random(90000) + 10000));
 	profileNameSpace setVariable ["ss_ServerID",serverID];
 };
 publicVariable "serverID";
-waitUntil {!isNil "serverID"};
 
 if (isMultiplayer) then {
 	//Load server parameters
 	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	gameMode = "gameMode" call BIS_fnc_getParamValue; publicVariable "gameMode";
 	autoSave = if ("autoSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
+	autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
 	membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	switchCom = if ("switchComm" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
@@ -38,9 +38,11 @@ if (isMultiplayer) then {
 	memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
 	limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
 	napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
+	startWithLongRangeRadio = if ("startWithLongRangeRadio" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "startWithLongRangeRadio";
 	teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
 	playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
 	minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
+	helmetLossChance = "helmetLossChance" call BIS_fnc_getParamValue; publicVariable "helmetLossChance";
 } else {
 	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
 	//These should be set in the set parameters dialog.
@@ -48,6 +50,7 @@ if (isMultiplayer) then {
 	loadLastSave = if (isNil "loadLastSave") then {[1, "No loadLastSave setting", _fileName] call A3A_fnc_log; true} else {loadLastSave};
 	gameMode = if (isNil "gameMode") then {[1, "No gameMode setting", _fileName] call A3A_fnc_log; 1} else {gameMode};
 	autoSave = false;
+	autoSaveInterval = 3600;
 	membershipEnabled = false;
 	switchCom = false;
 	tkPunish = false;
@@ -65,19 +68,53 @@ if (isMultiplayer) then {
 	teamSwitchDelay = 0;
 	playerMarkersEnabled = true;
 	minPlayersRequiredforPVP = 2;
+	helmetLossChance = 33;
+    startWithLongRangeRadio = true;
 };
 
 [] call A3A_fnc_crateLootParams;
 
-//Load Campaign ID if resuming game
-if(loadLastSave) then {
-	campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
-}
-else {
-	campaignID = str(round((random(100000)) + random 10000));
-	profileNameSpace setVariable ["ss_CampaignID", campaignID];
+
+// Maintain a profilenamespace array called antistasiSavedGames
+// Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
+
+campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
+call
+{
+	// If the legacy campaign ID is valid for this map/mode, just use that
+	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
+		[2, "Loading last campaign, ID " + campaignID, _filename] call A3A_fnc_log;
+	};
+
+	// Otherwise, check through the saved game list for matches and build existing ID list
+	private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
+	private _gametype = if (side petros == independent) then {"Greenfor"} else {"Blufor"};
+	private _existingIDs = [campaignID];
+	{
+		if (_x isEqualType [] && {count _x >= 2}) then
+		{
+			if ((worldName == _x select 1) && (_gametype == _x select 2)) then {
+				campaignID = _x select 0;			// found a match
+			};
+			_existingIDs pushBack (_x select 0);
+		};
+	} forEach _saveList;
+
+	// If valid save found, exit with that
+	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
+		[2, "Loading campaign from saved list, ID " + campaignID, _filename] call A3A_fnc_log;
+	};
+
+	// Otherwise start a new campaign
+	loadLastSave = false;
+	while {campaignID in _existingIDs} do {
+		campaignID = str(floor(random(90000) + 10000));		// guaranteed five digits
+	};
+	[2, "Creating new campaign with ID " + campaignID, _fileName] call A3A_fnc_log;
 };
+publicVariable "loadLastSave";
 publicVariable "campaignID";
+
 
 //Initialise variables needed by the mission.
 _nul = call A3A_fnc_initVar;
@@ -85,8 +122,10 @@ _nul = call A3A_fnc_initVar;
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
-_nul = call A3A_fnc_initFuncs;
-_nul = call A3A_fnc_initZones;
+call A3A_fnc_initFuncs;
+if (hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
+call A3A_fnc_loadNavGrid;
+call A3A_fnc_initZones;
 if (gameMode != 1) then {
 	Occupants setFriend [Invaders,1];
 	Invaders setFriend [Occupants,1];
@@ -100,28 +139,18 @@ waitUntil {count (call A3A_fnc_playableUnits) > 0};
 waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (count (call A3A_fnc_playableUnits))};
 [] spawn A3A_fnc_modBlacklist;
 
-if (loadLastSave) then {
-	[2,"Loading saved data",_fileName] call A3A_fnc_log;
-	["membersX"] call fn_LoadStat;
-	if (isNil "membersX") then {
-		loadLastSave = false;
-		[2,"No member data found, skipping load",_fileName] call A3A_fnc_log;
-	};
-};
-publicVariable "loadLastSave";
-
 call A3A_fnc_initGarrisons;
 
 if (loadLastSave) then {
-	[] spawn A3A_fnc_loadServer;
-	waitUntil {!isNil"statsLoaded"};
+	[] call A3A_fnc_loadServer;
+//	waitUntil {!isNil"statsLoaded"};
 	if (!isNil "as_fnc_getExternalMemberListUIDs") then {
 		membersX = [];
 		{membersX pushBackUnique _x} forEach (call as_fnc_getExternalMemberListUIDs);
 		publicVariable "membersX";
 	};
 	if (membershipEnabled and (membersX isEqualTo [])) then {
-		[petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list"] remoteExec ["A3A_fnc_commsMP"];
+		[petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list", "Membership"] remoteExec ["A3A_fnc_commsMP"];
 		[2,"Previous data loaded",_fileName] call A3A_fnc_log;
 		[2,"Membership enabled, adding current players to list",_fileName] call A3A_fnc_log;
 		membersX = [];
@@ -169,7 +198,7 @@ if !(loadLastSave) then {
 };
 call A3A_fnc_createPetros;
 
-[[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+[petros,"hint","Server load finished", "Server Information"] remoteExec ["A3A_fnc_commsMP", 0];
 
 //HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.
 addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnect;false}];
@@ -183,7 +212,10 @@ addMissionEventHandler ["BuildingChanged", {
 		_oldBuilding setVariable ["ruins", _newBuilding];
 		_newBuilding setVariable ["building", _oldBuilding];
 
-		destroyedBuildings pushBack (getPosATL _oldBuilding);
+		// Antenna dead/alive status is handled separately
+		if !(_oldBuilding in antennas || _oldBuilding in antennasDead) then {
+			destroyedBuildings pushBack _oldBuilding;
+		};
 	};
 }];
 
@@ -196,6 +228,7 @@ waitUntil {sleep 1;!(isNil "placementDone")};
 [2, "HQ Placed, continuing init", _fileName] call A3A_fnc_log;
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
+[] spawn A3A_fnc_aggressionUpdateLoop;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
 
@@ -203,9 +236,10 @@ savingServer = false;
 
 //Enable performance logging
 [] spawn {
+	private _logPeriod = [30, 10] select (logLevel == 3);
 	while {true} do {
 		[] call A3A_fnc_logPerformance;
-		sleep 30;
+		sleep _logPeriod;
 	};
 };
 execvm "functions\init\fn_initSnowFall.sqf";

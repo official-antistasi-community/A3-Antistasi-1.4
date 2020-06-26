@@ -14,9 +14,9 @@ if (isNil "_units") exitWith {diag_log "AddGarrison: No units given!"};
 
 private [];
 
-_garrison = [_marker] call A3A_fnc_getGarrison;
-_requested = [_marker] call A3A_fnc_getRequested;
-_nonReinfUnits = [["", [], []]];
+private _garrison = [_marker] call A3A_fnc_getGarrison;
+private _requested = [_marker] call A3A_fnc_getRequested;
+private _nonReinfUnits = [["", [], []]];
 
 //_random = random 1000;
 //diag_log format ["AddGarrison %1: Before alive is %2", _random, _garrison];
@@ -24,14 +24,14 @@ _nonReinfUnits = [["", [], []]];
 
 {
   //Selecting the data
-  _vehicle = _x select 0;
-  _crew = _x select 1;
-  _cargo = _x select 2;
-  _isNew = false;
+  private _vehicle = _x select 0;
+  private _crew = _x select 1;
+  private _cargo = _x select 2;
+  private _isNew = false;
 
   if(_vehicle != "") then
   {
-    _index = _requested findIf {(_x select 0) == _vehicle};
+    private _index = _requested findIf {(_x select 0) == _vehicle};
     if(_index == -1) then
     {
       //Vehicle is new, will still be added with crew
@@ -65,8 +65,8 @@ _nonReinfUnits = [["", [], []]];
   {
     //Add crew to existing vehicles
     {
-      _crewUnit = _x;
-      _index = _requested findIf {count (_x select 1) > 0};
+      private _crewUnit = _x;
+      private _index = _requested findIf {count (_x select 1) > 0};
       if(_index == -1) then
       {
         //Search for vehicle with open crew space
@@ -99,11 +99,11 @@ _nonReinfUnits = [["", [], []]];
   if(count _cargo > 0) then
   {
     {
-      _cargoUnit = _x;
+      private _cargoUnit = _x;
       if(_cargoUnit == NATOCrew || _cargoUnit == CSATCrew) then
       {
         //Unit is crew member, check crew section
-        _index = _requested findIf {count (_x select 1) > 0};
+        private _index = _requested findIf {count (_x select 1) > 0};
         if(_index == -1) then
         {
           //Search for vehicle with open crew space
@@ -135,7 +135,7 @@ _nonReinfUnits = [["", [], []]];
       else
       {
         //Unit is combat unit, add as suited
-        _index = _requested findIf {count (_x select 2) > 0 && {_cargoUnit in (_x select 2)}};
+        private _index = _requested findIf {count (_x select 2) > 0 && {_cargoUnit in (_x select 2)}};
         if(_index == -1) then
         {
           _index = _nonReinfUnits findIf {(count (_x select 2)) < 8};

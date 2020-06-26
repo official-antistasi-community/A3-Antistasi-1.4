@@ -33,7 +33,7 @@ _truckX call jn_fnc_logistics_addAction;
 _truckX addAction ["Delivery infos",
 	{
 		_text = format ["Deliver this box to %1, unload it to start distributing to people",(_this select 0) getVariable "destinationX"]; //This need a rework
-		_text remoteExecCall ["hint",_this select 2];	//This need a rework
+		["Logistics Mission", _text] remoteExecCall ["A3A_fnc_customHint",_this select 2];	//This need a rework
 	},
 	nil,
 	0,
@@ -42,7 +42,7 @@ _truckX addAction ["Delivery infos",
 	"",
 	"(isPlayer _this) and (_this == _this getVariable ['owner',objNull])"
 ];
-[_truckX] call A3A_fnc_AIVEHinit;
+[_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
 //{_x reveal _truckX} forEach (allPlayers - (entities "HeadlessClient_F"));
 _truckX setVariable ["destinationX",_nameDest,true];
 
@@ -87,20 +87,26 @@ else
 		if (_countX > 0) then
 			{
 			_countX = 120*_bonus;//120
-			if (((_truckX distance _positionX > 40) or (not([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits != 0)) and (alive _truckX)) then {{[petros,"hint","Stay close to the crate, and clean all BLUFOR presence in the surroundings or count will restart"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([100,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
+			if (((_truckX distance _positionX > 40) or (not([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits != 0)) and (alive _truckX)) then {{[petros,"hint","Stay close to the crate, and clean all BLUFOR presence in the surroundings or count will restart", "Logistics Mission"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([100,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
 			waitUntil {sleep 1; ((_truckX distance _positionX < 40) and ([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits) and ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits == 0)) or (dateToNumber date > _dateLimitNum) or (isNull _truckX)};
 			};
 		if (_countX < 1) exitWith {};
 		};
 		if ((dateToNumber date < _dateLimitNum) and !(isNull _truckX)) then
 			{
-			[petros,"hint","Supplies Delivered"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+			[petros,"hint","Supplies Delivered", "Logistics Mission"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 			["LOG",[_taskDescription,"City Supplies",_markerX],_positionX,"SUCCEEDED","Heal"] call A3A_fnc_taskUpdate;
 			{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 			if (!isMultiplayer) then {_bonus = _bonus + ((20-skillFIA)*0.1)};
 			[-1*(20-skillFIA),15*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
-			[-3,0] remoteExec ["A3A_fnc_prestige",2];
+            [
+                3,
+                "Rebels won a supply mission",
+                "aggroEvent",
+                true
+            ] call A3A_fnc_log;
+			[[-25, 90], [-10, 60]] remoteExec ["A3A_fnc_prestige",2];
 			}
 		else
 			{
@@ -113,11 +119,10 @@ else
 _ecpos = getpos _truckX;
 deleteVehicle _truckX;
 _emptybox = "Land_PaperBox_01_open_empty_F" createVehicle _ecpos;
+[_emptybox] spawn A3A_fnc_postmortem;
 
 //sleep (600 + random 1200);
 
 //_nul = [_tsk,true] call BIS_fnc_deleteTask;
 _nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
-waitUntil {sleep 1; (not([distanceSPWN,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or (_truckX distance (getMarkerPos respawnTeamPlayer) < 60)};
 
-deleteVehicle _emptybox;

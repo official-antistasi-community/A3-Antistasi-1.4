@@ -156,7 +156,7 @@ else
 
 if (_destinationX == boxX) then
 	{
-	{if (_x distance boxX < 10) then {[petros,"hint","Ammobox Loaded"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach (call A3A_fnc_playableUnits);
+//	{if (_x distance boxX < 10) then {[petros,"hint","Ammobox Loaded", "Cargo"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach (call A3A_fnc_playableUnits);
 	if ((_originX isKindOf "ReammoBox_F") and (_originX != vehicleBox)) then {deleteVehicle _originX};
 	_updated = [] call A3A_fnc_arsenalManage;
 	if (_updated != "") then
@@ -167,5 +167,5 @@ if (_destinationX == boxX) then
 	}
 else
 	{
-	[petros,"hint","Truck Loaded"] remoteExec ["A3A_fnc_commsMP",driver _destinationX];
+	[petros,"hint","Truck Loaded", "Cargo"] remoteExec ["A3A_fnc_commsMP",driver _destinationX];
 	};

@@ -10,7 +10,7 @@ factionMaleInvaders = "UK3CB_TKM_B";
 if (gameMode == 4) then {factionFIA = "UK3CB_TKP_O"};
 
 //Flag Images
-CSATFlag = "Flag_TKM_O_Army";
+CSATFlag = "Flag_TKM_O";
 CSATFlagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_TKM\Flag\tkm_o_flag_co.paa";
 flagCSATmrk = "UK3CB_Marker_O_TKM";
 if (isServer) then {"CSAT_carrier" setMarkerText "Takistani Carrier"};
@@ -24,17 +24,17 @@ CSATAmmoBox = "O_supplyCrate_F";
 //PvP Loadouts
 CSATPlayerLoadouts = [
 	//Team Leader
-	"UK3CB_TKM_O_SL",
+	["3CB_TKM_Teamleader"] call A3A_fnc_getLoadout,
 	//Medic
-	"UK3CB_TKM_O_MD",
+	["3CB_TKM_Medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	"UK3CB_TKM_O_AR",
+	["3CB_TKM_MachineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	"UK3CB_TKM_O_MK",
+	["3CB_TKM_Marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	"UK3CB_TKM_O_LAT",
+	["3CB_TKM_AT"] call A3A_fnc_getLoadout,
 	//AT2
-	"UK3CB_TKM_O_LAT"
+	["3CB_TKM_AT2"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles
@@ -113,6 +113,7 @@ vehCSATLightArmed = ["UK3CB_TKM_O_Datsun_Pkm","UK3CB_TKM_O_Hilux_Dshkm","UK3CB_T
 vehCSATLightUnarmed = ["UK3CB_TKM_O_BTR40","UK3CB_TKM_O_Hilux_Open","UK3CB_TKM_O_UAZ_Closed"];
 vehCSATTrucks = ["UK3CB_TKM_O_Ural_Covered","UK3CB_TKM_O_V3S_Closed","UK3CB_TKM_O_V3S_Open","UK3CB_TKM_O_Ural_Open"];
 vehCSATAmmoTruck = "UK3CB_TKM_O_V3S_Reammo";
+vehCSATRepairTruck = "UK3CB_TKM_O_Ural_Repair";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
 vehCSATAPC = ["UK3CB_TKM_O_BMP1","UK3CB_TKM_O_BRDM2_ATGM","UK3CB_TKM_O_BTR60","UK3CB_TKM_O_BRDM2","UK3CB_TKM_O_BRDM2_HQ","UK3CB_TKM_O_MTLB_PKT"];
@@ -138,7 +139,7 @@ vehCSATUAVSmall = "O_UAV_01_F";
 vehCSATMRLS = "UK3CB_TKM_O_Hilux_Rocket_Arty";
 vehCSATMRLSMags = "122mm_10rnds";
 //Combined Arrays
-vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, "UK3CB_TKM_O_Ural_Repair","UK3CB_TKM_O_V3S_Refuel"];
+vehCSATNormal = vehCSATLight + vehCSATTrucks + [vehCSATAmmoTruck, vehCSATRepairTruck,"UK3CB_TKM_O_V3S_Refuel"];
 vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATPlaneAA] + vehCSATTransportPlanes;
 
 //Militia Vehicles

@@ -12,7 +12,7 @@ if (_typeX isEqualType "") then
 		{
 		_groups select 0;
 		};
-	_unit = _groupX createUnit [_typeX, _positionX, [], 0, "NONE"];
+	_unit = [_groupX, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 	//if (_typeX in SDKSL) then {_groupX selectLeader _unit};
 	[_unit,_markerX] call A3A_fnc_FIAinitBases;
 	if (_typeX == staticCrewTeamPlayer) then
@@ -21,7 +21,7 @@ if (_typeX isEqualType "") then
 		_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";//TODO need delete UPSMON link
 		_unit assignAsGunner _veh;
 		_unit moveInGunner _veh;
-		[_veh] call A3A_fnc_AIVEHinit;
+		[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
 		};
 	if (_groups isEqualTo []) then
 		{

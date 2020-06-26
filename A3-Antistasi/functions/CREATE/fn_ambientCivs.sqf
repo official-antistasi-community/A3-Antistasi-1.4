@@ -44,7 +44,7 @@ while {true} do {
 					};
 					_posHouse = selectRandom (_houseX buildingPos -1);
 					_unit = selectRandom arrayCivs;
-					_civ = _groupX createUnit [_unit, _posHouse, [],0, "NONE"];
+					_civ = [_groupX, _unit, _posHouse, [],0, "NONE"] call A3A_fnc_createUnit;
 					_civ setPosATL _posHouse;
 					[_civ] spawn A3A_fnc_CIVinit;
 					_civs pushBack _civ;

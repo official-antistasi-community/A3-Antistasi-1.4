@@ -6,7 +6,7 @@ _typeX = _this select 0;
 _positionTel = _this select 1;
 _quantity = _this select 2;
 _costs = (2*(server getVariable (SDKExp select 0))) + ([vehSDKTruck] call A3A_fnc_vehiclePrice);
-[-2,(-1*_costs)] remoteExecCall ["A3A_fnc_resourcesFIA",2];
+[-2,(-1*_costs)] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 if (_typeX == "ATMine") then
 	{
@@ -66,9 +66,9 @@ _mrk setMarkerText _textX;
 
 _groupX = createGroup teamPlayer;
 
-_unit = _groupX createUnit [(SDKExp select 0), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"];
+_unit = [_groupX, (SDKExp select 0), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
 sleep 1;
-_unit = _groupX createUnit [(SDKExp select 0), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"];
+_unit = [_groupX, (SDKExp select 0), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupX setGroupId ["MineF"];
 
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
@@ -78,7 +78,8 @@ _truckX = vehSDKTruck createVehicle _pos;
 
 _groupX addVehicle _truckX;
 {[_x] spawn A3A_fnc_FIAinit; [_x] orderGetIn true} forEach units _groupX;
-_nul = [_truckX] call A3A_fnc_AIVEHinit;
+[_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
+[_truckX] spawn A3A_fnc_vehDespawner;
 leader _groupX setBehaviour "SAFE";
 theBoss hcSetGroup [_groupX];
 _truckX allowCrewInImmobile true;
@@ -101,7 +102,7 @@ if ((_truckX distance _positionTel < 50) and ({alive _x} count units _groupX > 0
 		waitUntil {!(isPlayer leader _groupX)};
 		};
 	theBoss hcRemoveGroup _groupX;
-	[petros,"hint","Engineer Team deploying mines."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[petros,"hint","Engineer Team deploying mines.", "Minefields"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "SHOWMARKER"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
 	sleep 30*_quantity;
 	if ((alive _truckX) and ({alive _x} count units _groupX > 0)) then

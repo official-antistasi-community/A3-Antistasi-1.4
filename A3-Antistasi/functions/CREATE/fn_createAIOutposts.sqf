@@ -86,7 +86,7 @@ if (_patrol) then
 			sleep 1;
 			if ((random 10 < 2.5) and (!(_typeGroup in sniperGroups))) then
 			{
-				_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
@@ -108,9 +108,10 @@ if ((_frontierX) and (_markerX in outposts)) then
 		_groupX = createGroup _sideX;
 		_veh = _typeVehX createVehicle (_spawnParameter select 0);
 		_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";//TODO need delete UPSMON link
-		_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		_unit moveInGunner _veh;
+		_groups pushBack _groupX;
 		_soldiers pushBack _unit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
@@ -121,6 +122,13 @@ _ret = [_markerX,_size,_sideX,_frontierX] call A3A_fnc_milBuildings;
 _groups pushBack (_ret select 0);
 _vehiclesX append (_ret select 1);
 _soldiers append (_ret select 2);
+{ [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
+
+if(random 100 < (40 + tierWar * 3)) then
+{
+	_large = (random 100 < (30 + tierWar * 2));
+	[_markerX, _large] spawn A3A_fnc_placeIntel;
+};
 
 _typeVehX = if (_sideX == Occupants) then {NATOFlag} else {CSATFlag};
 _flagX = createVehicle [_typeVehX, _positionX, [],0, "NONE"];
@@ -128,20 +136,12 @@ _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;
 
-_boxX = objNull;
-if (_sideX == Occupants) then
-{
-	_boxX = NATOAmmoBox createVehicle _positionX;
-	[_boxX] spawn A3A_fnc_NATOcrate;
-}
-else
-{
-	_boxX = CSATAmmoBox createVehicle _positionX;
-	[_boxX] spawn A3A_fnc_CSATcrate;
-};
-_vehiclesX pushBack _boxX;
-_boxX call jn_fnc_logistics_addAction;
-{_nul = [_x] call A3A_fnc_AIVEHinit;} forEach _vehiclesX;
+private _ammoBoxType = if (_sideX == Occupants) then {NATOAmmoBox} else {CSATAmmoBox};
+private _ammoBox = _ammoBoxType createVehicle _positionX;
+[_ammoBox] spawn A3A_fnc_fillLootCrate;
+_ammoBox call jn_fnc_logistics_addAction;
+_vehiclesX pushBack _ammoBox;
+
 _roads = _positionX nearRoads _size;
 
 if ((_markerX in seaports) and !hasIFA) then
@@ -155,7 +155,7 @@ if ((_markerX in seaports) and !hasIFA) then
 			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
 			_vehicle=[_pos, 0,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
 			_veh = _vehicle select 0;
-			[_veh] call A3A_fnc_AIVEHinit;
+			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 			_vehCrew = _vehicle select 1;
 			{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
 			_groupVeh = _vehicle select 2;
@@ -169,8 +169,9 @@ if ((_markerX in seaports) and !hasIFA) then
 			diag_log format ["createAIOutposts: Could not find seaSpawn marker on %1!", _markerX];
 		};
 	};
+	sleep 1;    //make sure fillLootCrate finished clearing the crate
 	{
-		_boxX addItemCargoGlobal [_x,2]
+		 _ammoBox addItemCargoGlobal [_x, round random [2,6,8]];
 	} forEach diveGear;
 }
 else
@@ -214,9 +215,9 @@ else
 			_veh setPos _pos;
 			_veh setDir _dirVeh + 180;
 			_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
-			_unit = _groupX createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+			_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			[_unit,_markerX] call A3A_fnc_NATOinit;
-			[_veh] call A3A_fnc_AIVEHinit;
+			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 
@@ -233,7 +234,7 @@ else
 			// 		_nul = [_veh] call A3A_fnc_AIVEHinit;
 			// 		_vehiclesX pushBack _veh;
 			// 		sleep 1;
-			// 		_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
+			// 		_unit = [_groupX, FIARifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			// 		_unit moveInGunner _veh;
 			// 		{_soldiers pushBack _x; [_x,_markerX] call A3A_fnc_NATOinit} forEach units _groupX;
 			// 	};
@@ -241,29 +242,26 @@ else
 		};
 	};
 };
-
-//Why does the truck depends on roads?
-if (count _roads != 0) then
+//_pos = _positionX findEmptyPosition [5,_size,"I_Truck_02_covered_F"];//donde pone 5 antes ponía 10
+_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
+if (_spawnParameter isEqualType []) then
 {
-	//_pos = _positionX findEmptyPosition [5,_size,"I_Truck_02_covered_F"];//donde pone 5 antes ponía 10
-	_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
-	if (_spawnParameter isEqualType []) then
+	_typeVehX = if (_sideX == Occupants) then
 	{
-		_typeVehX = if (_sideX == Occupants) then
-		{
-			if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {[vehFIATruck]};
-		}
-		else
-		{
-			vehCSATTrucks
-		};
-		_veh = createVehicle [selectRandom _typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
-		_veh setDir (_spawnParameter select 1);
-		_vehiclesX pushBack _veh;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
-		sleep 1;
+		if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {[vehFIATruck]};
+	}
+	else
+	{
+		vehCSATTrucks
 	};
+	_veh = createVehicle [selectRandom _typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
+	_veh setDir (_spawnParameter select 1);
+	_vehiclesX pushBack _veh;
+	_nul = [_veh, _sideX] call A3A_fnc_AIVEHinit;
+	sleep 1;
 };
+
+{ _x setVariable ["originalPos", getPos _x] } forEach _vehiclesX;
 
 _countX = 0;
 
@@ -282,7 +280,7 @@ if (!isNull _antenna) then
 			_posF set [2,24.3];
 		};
 		_typeUnit = if (_sideX == Occupants) then {if (!_isFIA) then {NATOMarksman} else {FIAMarksman}} else {CSATMarksman};
-		_unit = _groupX createUnit [_typeUnit, _positionX, [], _dir, "NONE"];
+		_unit = [_groupX, _typeUnit, _positionX, [], _dir, "NONE"] call A3A_fnc_createUnit;
 		_unit setPosATL _posF;
 		_unit forceSpeed 0;
 		//_unit disableAI "MOVE";
@@ -331,37 +329,20 @@ for "_i" from 0 to (count _array - 1) do
 	};
 };//TODO need delete UPSMON link
 
-
-if (_markerX in seaports) then
-	{
-	_boxX addItemCargo ["V_RebreatherIA",round random 5];
-	_boxX addItemCargo ["G_I_Diving",round random 5];
-	};
-
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
 [_markerX] call A3A_fnc_freeSpawnPositions;
 
 deleteMarker _mrk;
 //{if ((!alive _x) and (not(_x in destroyedBuildings))) then {destroyedBuildings = destroyedBuildings + [position _x]; publicVariableServer "destroyedBuildings"}} forEach _buildings;
-{
-	if (alive _x) then
-	{
-		deleteVehicle _x;
-	};
-} forEach _soldiers;
-//if (!isNull _periodista) then {deleteVehicle _periodista};
-{
-	deleteGroup _x
-} forEach _groups;
+
+{ if (alive _x) then { deleteVehicle _x } } forEach _soldiers;
+{ deleteGroup _x } forEach _groups;
 
 {
-	if (!(_x in staticsToSave)) then
-	{
-		//distanceSPWN - _size? Shouldn't it be distanceSPWN + _size
-		if ((!([distanceSPWN-_size,1,_x,teamPlayer] call A3A_fnc_distanceUnits))) then
-		{
-			deleteVehicle _x;
-		};
+	// delete all vehicles that haven't been stolen
+	if (_x getVariable ["ownerSide", _sideX] == _sideX) then {
+		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;

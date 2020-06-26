@@ -1,0 +1,80 @@
+houses = getPos player nearObjects ["House", 200];
+houseTypes = [];
+{
+houseTypes pushBackUnique (typeOf _x);
+} forEach houses;
+copyToClipboard (str houseTypes);
+=======================================================================
+_deskPos = getPosWorld desk;
+_deskRot = getDir desk;
+_buildingPos = getPosWorld building;
+_buildingRot = getDir building;
+
+_relPos = _deskPos vectorDiff _buildingPos;
+_relRot = _deskRot - _buildingRot;
+
+_relValues = [_relPos, _relRot];
+copyToClipboard (str _relValues);
+=============================================================================================
+intelBuidings = [["Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V3_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V2_F","Land_Cargo_Tower_V1_No3_F"], ["Land_Cargo_HQ_V3_F","Land_Cargo_HQ_V1_F","Land_Cargo_HQ_V2_F"]];
+intelDeskOffset = [[[-2.59106,-3.74121,2.88818],0],[[4.76489,3.95068,-2.86576],180]];
+intelOffset = [[[0.500977,-0.0258789,0.531177],-148.395],[[-0.5,-0.0742188,0.412336],166.164]];
+_intelType = "Big";
+
+_allBuildings = nearestObjects [(getPos player),["House"], 200, true];
+
+if(count _allBuildings == 0) exitWith {["Intel Placement", "No buildings found around marker!"] call A3A_fnc_customHint;};
+
+_index = -1;
+_index = _allBuildings findIf {(typeOf _x) in (intelBuidings select 0)};
+_isTower = true;
+if(_index == -1) then
+{
+  _index = _allBuildings findIf {(typeOf _x) in (intelBuidings select 1)};
+  _isTower = false;
+};
+
+if(_index == -1) exitWith {["Intel Placement", "No suitable buildings found to place intel in!"] call A3A_fnc_customHint;};
+_building = _allBuildings select _index;
+
+_relValues = nil;
+if(_isTower) then
+{
+    _relValues = (intelDeskOffset select 0);
+}
+else
+{
+    _relValues = (intelDeskOffset select 1);
+};
+_desk = "Land_CampingTable_F" createVehicle (getPos _building);
+_desk setDir (getDir _building + (_relValues select 1));
+_desk setPosWorld ((getPosWorld _building) vectorAdd (_relValues select 0));
+
+_intelName = "";
+if(_intelType == "Medium") then {_intelName = "Land_Document_01_F"; _relValues = (intelOffset select 1);};
+if(_intelType == "Big") then {_intelName = "Land_Laptop_02_unfolded_F"; _relValues = (intelOffset select 0);};
+
+_intel = _intelName createVehicle (getPos _desk);
+_intel enableSimulation false;
+
+_offsetVector = _relValues select 0;
+_offsetVector = [_offsetVector, (getDir _desk)] call BIS_fnc_rotateVector2D;
+
+_intel setDir (getDir _desk + (_relValues select 1));
+_intel setPosWorld ((getPosWorld _desk) vectorAdd _offsetVector);
+
+_intel addAction ["Retrieve Intel", {["Search Intel", "You got the intel"] call A3A_fnc_customHint;},nil,4,false,true,"","(isPlayer _this)",4];
+
+==================================================================================
+this setVariable ["side", WEST, true];
+this addAction ["Retrieve Intel", {["Medium", _this select 0] call A3A_fnc_retrieveIntel},nil,4,false,true,"","(isPlayer _this)",4];
+==================================================================================
+this addAction ["Retrieve Intel", {["Large", _this select 0, "airport_2", false, _this select 2] call A3A_fnc_retrieveIntel},nil,4,false,true,"","(isPlayer _this)",4];
+==================================================================================
+this setVariable ["side", WEST, true];
+this addAction ["Retrieve Intel", {["Small", _this select 1, _this select 0, true, _this select 2] call A3A_fnc_retrieveIntel},nil,4,false,true,"","(isPlayer _this)",4];
+==================================================================================
+private _bomb = bomb;
+_bomb setVectorDirAndUp [(vectorDir intel), [0,0,-1]];
+_bomb setPosWorld ((getPosWorld intel) vectorAdd [0,0,-0.14]);
+_bomb = [_bomb] call BIS_fnc_replaceWithSimpleObject;

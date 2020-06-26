@@ -3,39 +3,40 @@ if (isServer) then {
 	diag_log format ["%1: [Antistasi] | INFO | Starting Persistent Load.",servertime];
 	petros allowdamage false;
 
-	["outpostsFIA"] call fn_LoadStat; publicVariable "outpostsFIA";
-	["mrkSDK"] call fn_LoadStat;
-	["mrkCSAT"] call fn_LoadStat;
-	["difficultyX"] call fn_LoadStat;
-	["gameMode"] call fn_LoadStat;
-	["destroyedSites"] call fn_LoadStat;
-	["minesX"] call fn_LoadStat;
-	["countCA"] call fn_LoadStat;
-	["antennas"] call fn_LoadStat;
-	["prestigeNATO"] call fn_LoadStat;
-	["prestigeCSAT"] call fn_LoadStat;
-	["hr"] call fn_LoadStat;
-	["dateX"] call fn_LoadStat;
-	["weather"] call fn_LoadStat;
-	["prestigeOPFOR"] call fn_LoadStat;
-	["prestigeBLUFOR"] call fn_LoadStat;
-	["resourcesFIA"] call fn_LoadStat;
-	["garrison"] call fn_LoadStat;
-	["usesWurzelGarrison"] call fn_LoadStat;
-	["skillFIA"] call fn_LoadStat;
-	["distanceSPWN"] call fn_LoadStat;
-	["civPerc"] call fn_LoadStat;
-	["maxUnits"] call fn_LoadStat;
-	["membersX"] call fn_LoadStat;
-	["vehInGarage"] call fn_LoadStat;
-	["destroyedBuildings"] call fn_LoadStat;
-	["idlebases"] call fn_LoadStat;
-	["idleassets"] call fn_LoadStat;
-	["killZones"] call fn_LoadStat;
-	["controlsSDK"] call fn_LoadStat;
-	["bombRuns"] call fn_LoadStat;
+	["savedPlayers"] call A3A_fnc_getStatVariable;
+	["outpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "outpostsFIA";
+	["mrkSDK"] call A3A_fnc_getStatVariable;
+	["mrkCSAT"] call A3A_fnc_getStatVariable;
+	["difficultyX"] call A3A_fnc_getStatVariable;
+	["gameMode"] call A3A_fnc_getStatVariable;
+	["destroyedSites"] call A3A_fnc_getStatVariable;
+	["minesX"] call A3A_fnc_getStatVariable;
+	["attackCountdownOccupants"] call A3A_fnc_getStatVariable;
+    ["attackCountdownInvaders"] call A3A_fnc_getStatVariable;
+    ["countCA"] call A3A_fnc_getStatVariable;
+	["antennas"] call A3A_fnc_getStatVariable;
+	["hr"] call A3A_fnc_getStatVariable;
+	["dateX"] call A3A_fnc_getStatVariable;
+	["weather"] call A3A_fnc_getStatVariable;
+	["prestigeOPFOR"] call A3A_fnc_getStatVariable;
+	["prestigeBLUFOR"] call A3A_fnc_getStatVariable;
+	["resourcesFIA"] call A3A_fnc_getStatVariable;
+	["garrison"] call A3A_fnc_getStatVariable;
+	["usesWurzelGarrison"] call A3A_fnc_getStatVariable;
+	["skillFIA"] call A3A_fnc_getStatVariable;
+	["distanceSPWN"] call A3A_fnc_getStatVariable;
+	["civPerc"] call A3A_fnc_getStatVariable;
+	["maxUnits"] call A3A_fnc_getStatVariable;
+	["membersX"] call A3A_fnc_getStatVariable;
+	["vehInGarage"] call A3A_fnc_getStatVariable;
+	["destroyedBuildings"] call A3A_fnc_getStatVariable;
+	["idlebases"] call A3A_fnc_getStatVariable;
+	["idleassets"] call A3A_fnc_getStatVariable;
+	["killZones"] call A3A_fnc_getStatVariable;
+	["controlsSDK"] call A3A_fnc_getStatVariable;
+	["bombRuns"] call A3A_fnc_getStatVariable;
 	waitUntil {!isNil "arsenalInit"};
-	["jna_dataList"] call fn_LoadStat;
+	["jna_dataList"] call A3A_fnc_getStatVariable;
 	//===========================================================================
 	#include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
@@ -88,30 +89,39 @@ if (isServer) then {
 		};
 	} forEach citiesX;
 
-	["chopForest"] call fn_LoadStat;
-	["destroyedBuildings"] call fn_LoadStat;
+    //Load aggro stacks and level and calculate current level
+    ["aggressionOccupants"] call A3A_fnc_getStatVariable;
+	["aggressionInvaders"] call A3A_fnc_getStatVariable;
+    [true] call A3A_fnc_calculateAggression;
+
+	["chopForest"] call A3A_fnc_getStatVariable;
+
 	/*
 	{
 	_buildings = nearestObjects [_x, listMilBld, 25, true];
 	(_buildings select 1) setDamage 1;
 	} forEach destroyedBuildings;
 	*/
-	["posHQ"] call fn_LoadStat;
-	["nextTick"] call fn_LoadStat;
-	["staticsX"] call fn_LoadStat;
+
+	["posHQ"] call A3A_fnc_getStatVariable;
+	["nextTick"] call A3A_fnc_getStatVariable;
+	["staticsX"] call A3A_fnc_getStatVariable;
 
 	{_x setPos getMarkerPos respawnTeamPlayer} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 
 	//Isn't that just tierCheck.sqf?
-	tierWar = 1 + (floor (((5*({(_x in outposts) or (_x in resourcesX) or (_x in citiesX)} count _sites)) + (10*({_x in seaports} count _sites)) + (20*({_x in airportsX} count _sites)))/10));
-	if (tierWar > 10) then {tierWar = 10};
-	publicVariable "tierWar";
+//	tierWar = 1 + (floor (((5*({(_x in outposts) or (_x in resourcesX) or (_x in citiesX)} count _sites)) + (10*({_x in seaports} count _sites)) + (20*({_x in airportsX} count _sites)))/10));
+//	if (tierWar > 10) then {tierWar = 10};
+//	publicVariable "tierWar";
 
 	tierPreference = 1;
 	publicVariable "tierPreference";
 	//Updating the preferences based on war level
-	[] call A3A_fnc_updatePreference;
+//	[] call A3A_fnc_updatePreference;
+
+	// update war tier silently, calls updatePreference if changed
+	[true] call A3A_fnc_tierCheck;
 
 	if (isNil "usesWurzelGarrison") then {
 		//Create the garrison new
@@ -125,7 +135,7 @@ if (isServer) then {
 	} else {
 		//Garrison save in wurzelformat, load it
 		diag_log "WurzelGarrison found, loading it!";
-		["wurzelGarrison"] call fn_LoadStat;
+		["wurzelGarrison"] call A3A_fnc_getStatVariable;
 	};
 
 	clearMagazineCargoGlobal boxX;
@@ -136,7 +146,7 @@ if (isServer) then {
 	[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
 	diag_log format ["%1: [Antistasi] | INFO | Persistent Load Completed.",servertime];
 	diag_log format ["%1: [Antistasi] | INFO | Generating Map Markers.",servertime];
-	["tasks"] call fn_LoadStat;
+	["tasks"] call A3A_fnc_getStatVariable;
 	if !(isMultiplayer) then {
 		{//Can't we go around this using the initMarker? And only switching marker?
 			_pos = getMarkerPos _x;

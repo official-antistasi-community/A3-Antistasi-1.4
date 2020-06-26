@@ -1,16 +1,57 @@
-_timeX = _this select 0;
-if (isNil "_timeX") exitWith {};
-if !(_timeX isEqualType 0) exitWith {};
-_mayor = if (_timeX >= 3600) then {true} else {false};
-_timeX = _timeX - (((tierWar + difficultyCoef)-1)*400);
+/*  Adds a random amount of the given one to the attack counter (Why tho?)
 
-if (_timeX < 0) then {_timeX = 0};
+    Execution on: Server
 
-countCA = countCA + round (random _timeX);
+    Scope: External
 
-if (_mayor and (countCA < 1200)) then {countCA = 1200};
-publicVariable "countCA";
+    Params:
+        _timeToAdd: NUMBER : The amount of seconds to add
+        _side: SIDE : To which side will the amount be added
 
+    Returns:
+        Nothing
+*/
 
+params ["_timeToAdd", "_side"];
 
+if (isNil "_timeToAdd") exitWith {};
+if !(_timeToAdd isEqualType 0) exitWith {};
 
+if (_timeToAdd < 0) then
+{
+    //Easy difficulty
+    if(skillMult == 1) then
+    {
+        _timeToAdd = round (_timeToAdd * 0.75);
+    };
+    //Hard difficulty
+    if(skillMult == 3) then
+    {
+        _timeToAdd = round (_timeToAdd * 1.25);
+    };
+}
+else
+{
+    //Easy difficulty
+    if(skillMult == 1) then
+    {
+        _timeToAdd = round (_timeToAdd * 1.25);
+    };
+    //Hard difficulty
+    if(skillMult == 3) then
+    {
+        _timeToAdd = round (_timeToAdd * 0.75);
+    };
+};
+
+if(_side == Occupants) then
+{
+    attackCountdownOccupants = attackCountdownOccupants + _timeToAdd;
+    publicVariable "attackCountdownOccupants";
+};
+
+if(_side == Invaders) then
+{
+    attackCountdownInvaders = attackCountdownInvaders + _timeToAdd;
+    publicVariable "attackCountdownInvaders";
+};

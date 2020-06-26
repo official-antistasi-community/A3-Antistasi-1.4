@@ -2,7 +2,7 @@ private ["_unit","_distanceX","_hasMedic","_medicX","_units","_helping","_asking
 _unit = _this select 0;
 _helped = _unit getVariable ["helped",objNull];
 if (!isNull _helped) exitWith {};
-//if (!(isMultiplayer) and (isPlayer _unit) and (_unit getVariable ["INCAPACITATED",false])) then {_unit setVariable ["INCAPACITATED",false]};
+//if (!(isMultiplayer) and (isPlayer _unit) and (_unit getVariable ["incapacitated",false])) then {_unit setVariable ["incapacitated",false]};
 _enemy = _unit findNearestEnemy _unit;
 _distanceX = 81;
 _medicX = objNull;
@@ -39,7 +39,7 @@ else
 		};
 	} forEach _units;
 
-	if (((isNull _medicX) or (_unit getVariable ["INCAPACITATED",false])) and !([_unit] call A3A_fnc_fatalWound)) then
+	if (((isNull _medicX) or (_unit getVariable ["incapacitated",false])) and !([_unit] call A3A_fnc_fatalWound)) then
 		{
 		{
 		if (!isPlayer _x) then

@@ -1,13 +1,13 @@
 private["_player"];
 if (player != player getVariable["owner", player]) exitWith {
-	hint "You cannot go Undercover while you are controlling AI"
+	["Undercover", "You cannot go Undercover while you are controlling AI"] call A3A_fnc_customHint;
 };
 _player = player getVariable["owner", player];
 if (captive _player) exitWith {
-	hint "You are Undercover already"
+	["Undercover", "You are Undercover already"] call A3A_fnc_customHint;
 };
 
-private["_compromised", "_changeX", "_airportsX", "_roadblocks", "_arrayCivVeh", "_player", "_size", "_base", "_onDetectionMarker", "_onBaseMarker", "_airportSide"];
+private["_compromised", "_changeX", "_airportsX", "_roadblocks", "_player", "_size", "_base", "_onDetectionMarker", "_onBaseMarker", "_airportSide"];
 
 _changeX = "";
 _roadblocks = (controlsX select {
@@ -15,28 +15,27 @@ _roadblocks = (controlsX select {
 });
 _airportsX = airportsX + outposts + _roadblocks;
 _airportsX1 = airportsX;
-_arrayCivVeh = arrayCivVeh + [civHeli] + civBoats;
 _compromised = _player getVariable "compromised";
 
 
 
 if (vehicle _player != _player) then {
-	if (not(typeOf(vehicle _player) in _arrayCivVeh)) then {
-		hint "You are not in a civilian vehicle";
+	if (not(typeOf(vehicle _player) in undercoverVehicles)) then {
+		["Undercover", "You are not in a civilian vehicle"] call A3A_fnc_customHint;
 		_changeX = "Init"
 	};
 	if (vehicle _player in reportedVehs) then {
-		hint "This vehicle has been reported to the enemy. Change or renew your vehicle in the Garage to go Undercover";
+		["Undercover", "This vehicle has been reported to the enemy. Change or renew your vehicle in the Garage to go Undercover"] call A3A_fnc_customHint;
 		_changeX = "Init";
 	};
 }
 else {
 	if ((primaryWeapon _player != "") or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or (vest _player != "") or (headgear _player in allArmoredHeadgear) or (hmd _player != "") or (not(uniform _player in allCivilianUniforms))) then {
-		hint "You cannot go Undercover while:\n\nA weapon is visible\nWearing a vest\nWearing a helmet\nWearing NVGs\nWearing a mil uniform";
+		["Undercover", "You cannot go Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform"] call A3A_fnc_customHint;
 		_changeX = "Init";
 	};
 	if (dateToNumber date < _compromised) then {
-		hint "You have been reported in the last 30 minutes therefore you cannot go Undercover";
+		["Undercover", "You have been reported in the last 30 minutes therefore you cannot go Undercover"] call A3A_fnc_customHint;
 		_changeX = "Init";
 	};
 };
@@ -47,7 +46,7 @@ if ({
 		((side _x == Invaders) or(side _x == Occupants)) and(((_x knowsAbout _player > 1.4) and(_x distance _player < 500)) or(_x distance _player < 350))
 	}
 	count allUnits > 0) exitWith {
-	hint "You cannot go Undercover while enemies are spotting you";
+	["Undercover", "You cannot go Undercover while enemies are spotting you"] call A3A_fnc_customHint;
 	if (vehicle _player != _player) then {
 		{
 			if ((isPlayer _x) and(captive _x)) then {
@@ -64,7 +63,7 @@ if ({
 _base = [_airportsX, _player] call BIS_fnc_nearestPosition;
 _size = [_base] call A3A_fnc_sizeMarker;
 if ((_player distance getMarkerPos _base < _size * 2) and(not(sidesX getVariable[_base, sideUnknown] == teamPlayer))) exitWith {
-	hint "You cannot go Undercover near Airports, Outposts or Roadblocks"
+	["Undercover", "You cannot go Undercover near Airports, Outposts or Roadblocks"] call A3A_fnc_customHint;
 };
 
 ["Undercover ON", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
@@ -98,7 +97,7 @@ do {
 		_veh = vehicle _player;
 		_typeX = typeOf _veh;
 		if (_veh != _player) then {
-			if (not(_typeX in _arrayCivVeh)) then {
+			if (not(_typeX in undercoverVehicles)) then {
 				_changeX = "VNoCivil"
 			}
 			else {
@@ -113,7 +112,7 @@ do {
 										((side _x == Invaders) or(side _x == Occupants)) and((_x knowsAbout _player > 1.4) or(_x distance _player < 350))
 									}
 									count allUnits > 0) then {
-									_changeX = "Carretera"
+									_changeX = "Highway"
 								};
 							};
 						};
@@ -171,9 +170,9 @@ do {
 					if !(_isInControl) then {
 						_aggro =
 							if (sidesX getVariable[_base, sideUnknown] == Occupants) then {
-								prestigeNATO + (tierWar * 10)
+								aggressionOccupants + (tierWar * 10)
 							} else {
-								prestigeCSAT + (tierWar * 10)
+								aggressionInvaders + (tierWar * 10)
 							};
 							//Probability	of being spotted. Unless we're in an airfield - then we're always spotted.
 						if (_base in _airportsX1 || _onDetectionMarker || random 100 < _aggro) then {
@@ -226,7 +225,7 @@ if (vehicle _player != _player) then {
 [] spawn A3A_fnc_statistics;
 switch _changeX do {
 	case "Reported":{
-			hint "You have been reported or spotted by the enemy";
+			["Undercover", "You have been reported or spotted by the enemy"] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
 			if (vehicle _player != _player) then {
 				//_player setVariable ["compromised",[_compromised select 0,vehicle _player]];
@@ -238,40 +237,40 @@ switch _changeX do {
 			};
 		};
 	case "VNoCivil":{
-			hint "You entered a non civilian vehicle"
+			["Undercover", "You entered a non civilian vehicle"] call A3A_fnc_customHint;
 		};
 	case "VCompromised":{
-			hint "You entered in a reported vehicle"
+			["Undercover", "You entered in a reported vehicle"] call A3A_fnc_customHint;
 		};
 	case "SpotBombTruck":{
-			hint "Explosives have been spotted on your vehicle";
+			["Undercover", "Explosives have been spotted on your vehicle"] call A3A_fnc_customHint;
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";
 		};
-	case "Carretera":{
-			hint "You went too far away from any roads and have been spotted";
+	case "Highway":{
+			["Undercover", "You went too far away from any roads and have been spotted"] call A3A_fnc_customHint;
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";
 		};
 	case "clothes":{
-			hint "You cannot stay Undercover while:\n\nA weapon is visible\nWearing a vest\nWearing a helmet\nWearing NVGs\nWearing a mil uniform"
+			["Undercover", "You cannot stay Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform"] call A3A_fnc_customHint;
 		};
 	case "clothes2":{
-			hint "You cannot stay Undercover while showing:\n\nA weapon is visible\nWearing a vest\nWearing a helmet\nWearing NVGs\nWearing a mil uniform\n\nThe enemy added you to their Wanted List";
+			["Undercover", "You cannot stay Undercover while showing:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform<br/><br/>The enemy added you to their Wanted List"] call A3A_fnc_customHint;
 			_player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
 		};
 	case "BadMedic":{
-			hint "You cannot stay Undercover while healing a compromised resistance member";
+			["Undercover", "You cannot stay Undercover while healing a compromised resistance member"] call A3A_fnc_customHint;
 		};
 	case "BadMedic2":{
-			hint "You cannot stay Undercover while healing a compromised resistance member\n\nThe enemy added you to their Wanted List";
+			["Undercover", "You cannot stay Undercover while healing a compromised resistance member<br/><br/>The enemy added you to their Wanted List"] call A3A_fnc_customHint;
 			_player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
 		};
 	case "Compromised":{
-			hint "You left your vehicle and you are still on the Wanted List"
+			["Undercover", "You left your vehicle and you are still on the Wanted List"] call A3A_fnc_customHint;
 		};
 	case "distanceX":{
-			hint "You have gotten too close to an enemy Base, Outpost or Roadblock";
+			["Undercover", "You have gotten too close to an enemy Base, Outpost or Roadblock"] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
 			if (vehicle _player != _player) then {
 				//_player setVariable ["compromised",[_compromised select 0,vehicle _player]];
@@ -283,13 +282,13 @@ switch _changeX do {
 			};
 		};
 	case "NoFly":{
-			hint "You have gotten too close to an enemy Airbase no-fly zone";
+			["Undercover", "You have gotten too close to an enemy Airbase no-fly zone"] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";
 		};
 	case "Control":{
-			hint "The Installation Garrison has recognised you";
+			["Undercover", "The Installation Garrison has recognised you"] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";

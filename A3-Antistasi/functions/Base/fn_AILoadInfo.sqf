@@ -4,7 +4,7 @@ _textX = "";
 
 for "_i" from 0 to (count hcArray) - 1 do
 	{
-	_textX = format ["%1HC %2 AI\n\n",_textX, _i];
+	_textX = format ["%1HC %2 AI<br/><br/>",_textX, _i];
 	_west = 0;
 	_east = 0;
 	_indep = 0;
@@ -24,6 +24,6 @@ for "_i" from 0 to (count hcArray) - 1 do
 			};
 		};
 	} forEach allUnits select {alive _x};
-	_textX = format ["%1SDK: %2\nWest:%3\nEast:%4\nCiv:%5\nTOTAL:%6\n\n",_textX,_indep,_west,_east,_civ,_total];
+	_textX = format ["%1SDK: %2<br/>West:%3<br/>East:%4<br/>Civ:%5<br/>TOTAL:%6<br/><br/>",_textX,_indep,_west,_east,_civ,_total];
 	};
-[petros,"hint",_textX] remoteExec ["A3A_fnc_commsMP",theBoss];
+[petros, "hint", _textX, "AILoad Information"] remoteExec ["A3A_fnc_commsMP",theBoss];

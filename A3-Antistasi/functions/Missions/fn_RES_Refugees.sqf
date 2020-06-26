@@ -45,7 +45,7 @@ missionsX pushBack ["RES","CREATED"]; publicVariable "missionsX";
 _groupPOW = createGroup teamPlayer;
 for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	{
-	_unit = _groupPOW createUnit [SDKUnarmed, _posHouse select _i, [], 0, "NONE"];
+	_unit = [_groupPOW, SDKUnarmed, _posHouse select _i, [], 0, "NONE"] call A3A_fnc_createUnit;
 	_unit allowdamage false;
 	_unit disableAI "MOVE";
 	_unit disableAI "AUTOTARGET";
@@ -118,7 +118,7 @@ else
 	_veh setDir _dirVeh;
 	sleep 15;
 	_veh allowDamage true;
-	_nul = [_veh] call A3A_fnc_AIVEHinit;
+	_nul = [_veh, Occupants] call A3A_fnc_AIVEHinit;
 	_mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], getPos _houseX];
 	_mrk setMarkerShapeLocal "RECTANGLE";
 	_mrk setMarkerSizeLocal [50,50];
@@ -126,7 +126,7 @@ else
 	_mrk setMarkerColorLocal "ColorRed";
 	_mrk setMarkerBrushLocal "DiagGrid";
 	_mrk setMarkerAlphaLocal 0;
-	if ((random 100 < prestigeNATO) or (_difficultX)) then
+	if ((random 100 < aggressionOccupants) or (_difficultX)) then
 		{
 		_groupX = [getPos _houseX,Occupants, NATOSquad] call A3A_fnc_spawnGroup;
 		sleep 1;
@@ -138,7 +138,7 @@ else
 		};
 	if (random 10 < 2.5) then
 		{
-		_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+		_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 		[_dog] spawn A3A_fnc_guardDog;
 		};
 	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2","RANDOM", "NOFOLLOW"] execVM "scripts\UPSMON.sqf";
@@ -159,7 +159,7 @@ if (_sideX == Occupants) then
 		_hr = _countX;
 		_resourcesFIA = 100 * _countX;
 		[_hr,_resourcesFIA*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-		[3,0] remoteExec ["A3A_fnc_prestige",2];
+		[[-10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 		{if (_x distance getMarkerPos respawnTeamPlayer < 500) then {[_countX*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[round (_countX*_bonus/2),theBoss] call A3A_fnc_playerScoreAdd;
 		{[_x] join _groupPOW; [_x] orderGetin false} forEach _POWs;
@@ -211,23 +211,13 @@ deleteGroup _groupPOW;
 {boxX addItemCargoGlobal [_x,1]} forEach _items;
 
 if (_sideX == Occupants) then
-	{
+{
 	deleteMarkerLocal _mrk;
-	if (!isNull _veh) then {if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) then {deleteVehicle _veh}};
-	{
-	waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
-	deleteVehicle _x;
-	} forEach units _groupX;
-	deleteGroup _groupX;
-	if (!isNull _groupX1) then
-		{
-		{
-		waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits)};
-		deleteVehicle _x;
-		} forEach units _groupX1;
-		deleteGroup _groupX1;
-		};
-	};
+	if (!isNull _veh) then { [_veh] spawn A3A_fnc_vehDespawner };
+	if (!isNull _groupX1) then { [_groupX1] spawn A3A_fnc_groupDespawner };
+	[_groupX] spawn A3A_fnc_groupDespawner; 
+};
+
 //sleep (540 + random 1200);
 
 //_nul = [_tsk,true] call BIS_fnc_deleteTask;

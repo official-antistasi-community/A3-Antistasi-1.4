@@ -8,7 +8,7 @@ _costs = (server getVariable (SDKExp select 0)) + ([vehSDKRepair] call A3A_fnc_v
 
 _groupX = createGroup teamPlayer;
 
-_unit = _groupX createUnit [(SDKExp select 0), getMarkerPos respawnTeamPlayer, [], 0, "NONE"];
+_unit = [_groupX, (SDKExp select 0), getMarkerPos respawnTeamPlayer, [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupX setGroupId ["MineSw"];
 _minesX = [];
 sleep 1;
@@ -17,7 +17,7 @@ _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 
 _truckX = vehSDKRepair createVehicle _pos;
 
-[_truckX] call A3A_fnc_AIVEHinit;
+[_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
 [_unit] spawn A3A_fnc_FIAinit;
 clearMagazineCargo unitBackpack _unit;
 _unit addItemToBackpack "MineDetector";

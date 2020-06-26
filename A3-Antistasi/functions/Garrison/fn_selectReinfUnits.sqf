@@ -30,12 +30,8 @@ private _maxVehiclesNeeded = _maxRequested select 0;
 private _maxCargoSpaceNeeded = _maxRequested select 2;
 private _currentUnitCount = 0;
 
-[
-    3,
-    format ["Gathered data for unit selection, available are %1, %3 cargo units needed", _maxUnitSend, _maxCargoSpaceNeeded],
-    _fileName
-] call A3A_fnc_log;
-[_reinf, "Reinforcement"] call A3A_fnc_logArray;
+[4, format ["Gathered data for unit selection, available are %1, %3 cargo units needed", _maxUnitSend, _maxCargoSpaceNeeded], _fileName] call A3A_fnc_log;
+[4, format ["Reinforcments requested from %1 for: %2", _target, _reinf], _fileName] call A3A_fnc_log;
 
 
 private _finishedSelection = false;
@@ -98,7 +94,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
         }
         else
         {
-            [3, format ["No reinf vehicle found, selecting not needed transport vehicle, needs space for %1 passengers", _neededCargoSpace], _fileName] call A3A_fnc_log;
+            [4, format ["No reinf vehicle found, selecting not needed transport vehicle, needs space for %1 passengers", _neededCargoSpace], _fileName] call A3A_fnc_log;
             if (_isAir) then
             {
                 if (_neededCargoSpace <= 4) then
@@ -109,7 +105,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
                 {
                     _currentSelected = if (_side ==	Occupants) then {selectRandom vehNATOTransportHelis} else {selectRandom vehCSATTransportHelis};
                 };
-                [3, format ["Selected %1 as an air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
+                [4, format ["Selected %1 as an air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
             }
             else
             {
@@ -131,7 +127,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
                         _currentSelected = if(_side == Occupants) then {selectRandom (vehNATOTrucks + vehNATOTransportHelis)} else {selectRandom (vehCSATTrucks + vehCSATTransportHelis)};
                     };
                 };
-                [3, format ["Selected %1 as an ground or air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
+                [4, format ["Selected %1 as an ground or air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
             };
             _seatCount = [_currentSelected, true] call BIS_fnc_crewCount;
             _crewSeats = [_currentSelected, false] call BIS_fnc_crewCount;
@@ -177,7 +173,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
             if(_abort) exitWith {};
         };
         _unitsSend pushBack [_currentSelected, _crew, _cargo];
-        [3, format ["Units selected, crew is %1, cargo is %2", _crew, _cargo], _fileName] call A3A_fnc_log;
+        [3, format ["Units selected, Vehicle is %1, crew is %2, cargo is %3", _currentSelected, _crew, _cargo], _fileName] call A3A_fnc_log;
     }
     else
     {

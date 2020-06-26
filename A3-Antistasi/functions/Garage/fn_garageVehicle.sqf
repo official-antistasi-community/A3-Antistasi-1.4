@@ -2,33 +2,33 @@
 
 private ["_pool","_veh","_typeVehX"];
 _pool = false;
-if (_this select 0) then {_pool = true};
+if (_this select 0 || !isMultiplayer) then {_pool = true};
 
-if (side player != teamPlayer) exitWith {hint "Only rebels can add vehicles to the garage."};
-if (!([player] call A3A_fnc_isMember)) exitWith {hint "Only server members have the garage feature enabled"};
+if (side player != teamPlayer) exitWith {["Garage", "Only rebels can add vehicles to the garage."] call A3A_fnc_customHint;};
+if (!([player] call A3A_fnc_isMember)) exitWith {["Garage", "Only server members have the garage feature enabled"] call A3A_fnc_customHint;};
 
 _veh = cursorTarget;
 
-if (isNull _veh) exitWith {hint "You are not looking at a vehicle"};
+if (isNull _veh) exitWith {["Garage", "You are not looking at a vehicle"] call A3A_fnc_customHint;};
 
-if (!alive _veh) exitWith {hint "You cannot add destroyed vehicles to your garage"};
+if (!alive _veh) exitWith {["Garage", "You cannot add destroyed vehicles to your garage"] call A3A_fnc_customHint;};
 _closeX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 _closeX = _closeX select {(player inArea _x) and (_veh inArea _x)};
 
-if (_closeX isEqualTo []) exitWith {hint format ["You and the vehicle need to be in a %1 garrison surrounding in order to garage a it",nameTeamPlayer]};
+if (_closeX isEqualTo []) exitWith {["Garage", format ["You and the vehicle need to be in a %1 garrison surrounding in order to garage a it",nameTeamPlayer]] call A3A_fnc_customHint;};
 
 //if (player distance2d getMarkerPos respawnTeamPlayer > 50) exitWith {hint "You must be closer than 50 meters to HQ"};
 
-if ({alive _x} count (crew vehicle _veh) > 0) exitWith { hint "In order to store a vehicle, its crew must disembark."};
+if ({alive _x} count (crew vehicle _veh) > 0) exitWith {["Garage", "In order to store a vehicle, its crew must disembark."] call A3A_fnc_customHint;};
 
 _typeVehX = typeOf _veh;
 
-if (_veh isKindOf "Man") exitWith {hint "Are you kidding?"};
+if (_veh isKindOf "Man") exitWith {["Garage", "Are you kidding?"] call A3A_fnc_customHint;};
 
-if !(_veh isKindOf "AllVehicles") exitWith {hint "The vehicle you are looking cannot be stored in our Garage"};
+if !(_veh isKindOf "AllVehicles") exitWith {["Garage", "The vehicle you are looking cannot be stored in our Garage"] call A3A_fnc_customHint;};
 
 
-if (_pool and (count vehInGarage >= (tierWar *3))) exitWith {hint "You cannot garage more vehicles at your current War Level"};
+if (_pool and (count vehInGarage >= (tierWar *3))) exitWith {["Garage", "You cannot garage more vehicles at your current War Level"] call A3A_fnc_customHint;};
 
 _exit = false;
 if (!_pool) then
@@ -43,7 +43,7 @@ if (!_pool) then
 		};
 	};
 
-if (_exit) exitWith {hint "You are not owner of this vehicle therefore you cannot garage it"};
+if (_exit) exitWith {["Garage", "You are not owner of this vehicle therefore you cannot garage it"] call A3A_fnc_customHint;};
 
 if (_typeVehX isKindOf "Plane") then
 	{
@@ -51,7 +51,7 @@ if (_typeVehX isKindOf "Plane") then
 	if (count _airportsX == 0) then {_exit = true};
 	};
 
-if (_exit) exitWith {hint format ["You cannot garage an air vehicle while you are not near an Aiport which belongs to %1. Place your HQ near an airbase flag in order to be able to garage it",nameTeamPlayer]};
+if (_exit) exitWith {["Garage", format ["You cannot garage an air vehicle while you are not near an Aiport which belongs to %1. Place your HQ near an airbase flag in order to be able to garage it",nameTeamPlayer]] call A3A_fnc_customHint;};
 
 if (_veh in staticsToSave) then {staticsToSave = staticsToSave - [_veh]; publicVariable "staticsToSave"};
 
@@ -62,10 +62,10 @@ if (_pool) then
 	{
 	vehInGarage = vehInGarage + [_typeVehX];
 	publicVariable "vehInGarage";
-	hint format ["Vehicle added to %1 Garage",nameTeamPlayer];
+	["Garage", format ["Vehicle added to %1 Garage",nameTeamPlayer]] call A3A_fnc_customHint;
 	}
 else
 	{
 	[_typeVehX] call A3A_fnc_addToPersonalGarageLocal;
-	hint "Vehicle added to Personal Garage";
+	["Garage", "Vehicle added to Personal Garage"] call A3A_fnc_customHint;
 	};

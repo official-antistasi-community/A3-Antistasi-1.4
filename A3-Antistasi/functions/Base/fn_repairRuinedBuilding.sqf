@@ -1,6 +1,8 @@
 //Repairs a destroyed building.
 //Parameter can either be the ruin of a building, or the building itself buried underneath the ruins.
 
+if (!isServer) exitWith { [1, "Server-only function miscalled", "fn_repairRuinedBuilding"] call A3A_fnc_log };
+
 params ["_target"];
 
 private _buildingToRepair = objNull;
@@ -36,5 +38,7 @@ _buildingToRepair setPos [_oldPos select 0, _oldPos select 1, 0];
 
 //Make sure we unhide, in case it was hidden by BIS_fnc_createRuin
 [_buildingToRepair, false] remoteExec ["hideObject", 0, _buildingToRepair];
+
+destroyedBuildings = destroyedBuildings - [_buildingToRepair];
 
 true;

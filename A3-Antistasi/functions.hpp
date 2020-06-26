@@ -84,7 +84,6 @@ class A3A
 		class prestige {};
 		class radioCheck {};
 		class rebuildAssets {};
-		class rebuildRadioTower {};
 		class relocateHQObjects {};
 		class repairRuinedBuilding {};
 		class resourceCheckSkipTime {};

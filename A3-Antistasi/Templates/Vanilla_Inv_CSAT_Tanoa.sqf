@@ -1,3 +1,5 @@
+//Call to Altis Invader Template
+if (worldName == "Altis") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

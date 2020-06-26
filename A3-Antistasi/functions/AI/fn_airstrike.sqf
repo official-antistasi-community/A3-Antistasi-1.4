@@ -30,12 +30,9 @@ if (_isMarker) then
 	if (_markerX in airportsX) then
 		{
 		private _runwayTakeoff = [_markerX] call A3A_fnc_getRunwayTakeoffForAirportMarker;
-		if (count _runwayTakeoff > 0) then
-			{
-			_positionX = _runwayTakeoff select 0;
-			_angOrig = (_runwayTakeoff select 1) + (random 20 - 10);
-			_ang = _angOrig + 180;
-			};
+		_positionX = _runwayTakeoff select 0;
+		_angOrig = (_runwayTakeoff select 1) + (random 20 - 10);
+		_ang = _angOrig + 180;
 		};
 	_pos1 = [_positionX, 400, _angorig] call BIS_Fnc_relPos;
 	_origpos = [_positionX, 3*distanceSPWN, _angorig] call BIS_fnc_relPos;

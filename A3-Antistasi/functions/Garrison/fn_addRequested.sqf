@@ -87,8 +87,6 @@ else
   _reinforcements pushBack _unit;
   garrison setVariable [format ["%1_requested", _marker], _reinforcements, true];
 
-
+  //Update reinforcement priority
+  [_marker] call A3A_fnc_updateReinfState;
 };
-
-//Update reinforcement priority
-[_marker] call A3A_fnc_updateReinfState;

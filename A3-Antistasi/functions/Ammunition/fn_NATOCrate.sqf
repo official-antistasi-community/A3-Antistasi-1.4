@@ -155,19 +155,14 @@ private _fnc_pickAmount = if (bobChaosCrates) then
 {
 	{
 		params ["_max"];
-		round random _max;
+		floor random _max;
 	}
 } 
 else 
 {
 	{
 		params ["_max"];
-		//Never have a greater than 50% chance of getting nothing
-		if (_max * _quantityScalingFactor < 1) then {
-			round random 1
-		} else {
-			round (random [1, floor (_max/2), _max] * _quantityScalingFactor)
-		}
+		floor (random [1, floor (_max/2), _max] * _quantityScalingFactor);
 	}
 };
 
@@ -227,7 +222,7 @@ for "_i" from 0 to floor random _crateItemTypeMax do {
 	}
 	else {
 		[3, format ["Item chosen: %1", _loot],"fn_NATOCrate"] call A3A_fnc_log;
-		_amount = round random crateItemNumMax;
+		_amount = floor random crateItemNumMax;
 		_crate addItemCargoGlobal [_loot,_amount];
 		[3, format ["Spawning %2 of %3", _amount,_loot],"fn_NATOCrate"] call A3A_fnc_log;
 	};
@@ -253,7 +248,7 @@ for "_i" from 0 to floor random _crateExplosiveTypeMax do {
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Explosives Left in Loot List",servertime]};
 	}
 	else {
-		_amount = round random crateExplosiveNumMax;
+		_amount = floor random crateExplosiveNumMax;
 		_crate addMagazineCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 	};
@@ -279,7 +274,7 @@ for "_i" from 0 to floor random _crateBackpackTypeMax do {
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Backpacks Left in Loot List",servertime]};
 	}
 	else {
-		_amount = round random crateBackpackNumMax;
+		_amount = floor random crateBackpackNumMax;
 		_crate addBackpackCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 	};
@@ -292,7 +287,7 @@ for "_i" from 0 to floor random _crateHelmetTypeMax do {
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Helmets Left in Loot List",servertime]};
 	}
 	else {
-		_amount = round random crateHelmetNumMax;
+		_amount = floor random crateHelmetNumMax;
 		_crate addItemCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 	};
@@ -305,7 +300,7 @@ for "_i" from 0 to floor random _crateVestTypeMax do {
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Vests Left in Loot List",servertime]};
 	}
 	else {
-		_amount = round random crateVestNumMax;
+		_amount = floor random crateVestNumMax;
 		_crate addItemCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 	};
@@ -318,7 +313,7 @@ for "_i" from 0 to floor random _crateDeviceTypeMax do {
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | No Device Bags Left in Loot List",servertime]};
 	}
 	else {
-		_amount = round random crateDeviceNumMax;
+		_amount = floor random crateDeviceNumMax;
 		_crate addBackpackCargoGlobal [_loot,_amount];
 		if (debug) then {diag_log format ["%1: [Antistasi] | INFO | NATOCrate | Spawning %2 of %3",servertime,_amount,_loot]};
 	};

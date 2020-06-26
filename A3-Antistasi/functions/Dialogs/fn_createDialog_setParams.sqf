@@ -10,23 +10,22 @@ if (!isNil "loadLastSave" && {!loadLastSave}) then {
 	hint "Choose a difficulty level";
 	waitUntil {!dialog};
 
-	[] spawn {
-		waitUntil {(!isNil "serverInitDone")};			// need following params to be initialized
-		if (isNil "skillMult") exitWith {};
+	if (!isNil "skillMult" && {skillMult != 2}) then
+		{
+		//Easy Difficulty Tweaks
 		if (skillMult == 1) then
 			{
-			//Easy Difficulty Tweaks
 			server setVariable ["hr",25,true];
 			server setVariable ["resourcesFIA",5000,true];
 			vehInGarage = [vehSDKTruck,vehSDKTruck,SDKMortar,SDKMGStatic,staticAAteamPlayer];
 			minWeaps = 15;
 			if !(hasTFAR) then
 				{
-				["ItemRadio"] call A3A_fnc_unlockEquipment;
+				"ItemRadio" call A3A_fnc_unlockEquipment;
 				haveRadio = true;
 				};
-			};
-		if (skillMult == 3) then 
+			}
+		else
 			{
 			//Hard Difficulty Tweaks
 			server setVariable ["hr",0,true];

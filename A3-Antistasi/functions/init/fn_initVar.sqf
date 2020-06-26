@@ -17,5 +17,5 @@ call A3A_fnc_initVarClient;
 
 //Marks initVar as finished.
 initVar = true;
-hint "Variables Init Completed";
+if (isMultiplayer) then {[[petros,"hint","Variables Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;};
 [2,"initVar completed",_fileName] call A3A_fnc_log;

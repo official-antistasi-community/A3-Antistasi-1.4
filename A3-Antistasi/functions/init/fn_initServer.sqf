@@ -38,7 +38,6 @@ if (isMultiplayer) then {
 	memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
 	limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
 	napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
-	startWithLongRangeRadio = if ("startWithLongRangeRadio" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "startWithLongRangeRadio";
 	teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
 	playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
 	minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
@@ -170,7 +169,7 @@ if !(loadLastSave) then {
 };
 call A3A_fnc_createPetros;
 
-[petros,"hint","Server load finished"] remoteExec ["A3A_fnc_commsMP", 0];
+[[petros,"hint","Server load finished"],"A3A_fnc_commsMP"] call BIS_fnc_MP;
 
 //HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.
 addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnect;false}];
@@ -184,10 +183,7 @@ addMissionEventHandler ["BuildingChanged", {
 		_oldBuilding setVariable ["ruins", _newBuilding];
 		_newBuilding setVariable ["building", _oldBuilding];
 
-		// Antenna dead/alive status is handled separately
-		if !(_oldBuilding in antennas || _oldBuilding in antennasDead) then {
-			destroyedBuildings pushBack (getPosATL _oldBuilding);
-		};
+		destroyedBuildings pushBack (getPosATL _oldBuilding);
 	};
 }];
 

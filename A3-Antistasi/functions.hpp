@@ -484,7 +484,6 @@ class A3A
 		class basicBackpack {};
 		class createDataObject {};
 		class dateToTimeString {};
-		class generateRoadsDB {};
 		class log {};
 		class vehicleWillCollideAtPosition {};
 	};

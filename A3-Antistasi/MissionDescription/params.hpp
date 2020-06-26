@@ -16,17 +16,10 @@ class Params
      };
      class autoSave
      {
-          title = "Enable Autosave (every X minutes)";
+          title = "Enable Autosave (every hour)";
           values[] = {1,0};
           texts[] = {"Yes","No"};
           default = 1;
-     };
-     class autoSaveInterval
-     {
-          title = "Time between autosaves (in minutes)";
-          values[] = {600,1200,1800,3600,5400};
-          texts[] = {"10","20","30","60","90"};
-          default = 3600;
      };
      class membership
      {

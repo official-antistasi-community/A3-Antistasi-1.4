@@ -23,6 +23,7 @@ _nul = [_oldUnit] spawn A3A_fnc_postmortem;
 
 _oldUnit setVariable ["incapacitated",false,true];
 _newUnit setVariable ["incapacitated",false,true];
+_newUnit call A3A_fnc_initAceTeamManagement;
 
 if (side group player == teamPlayer) then
 	{

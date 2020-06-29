@@ -24,6 +24,7 @@ if (count _this > 1) then
 		};
 	};
 [_unit] call A3A_fnc_initRevive;
+_unit call A3A_fnc_initAceTeamManagement;
 
 _unit allowFleeing 0;
 _typeX = typeOf _unit;

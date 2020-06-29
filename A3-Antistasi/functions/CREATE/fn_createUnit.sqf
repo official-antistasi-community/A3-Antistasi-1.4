@@ -35,5 +35,6 @@ private _unit = _group createUnit  [_type, _position, _markers, _placement, _spe
 if !(_unitLoadout isEqualTo []) then {
 	_unit setUnitLoadout _unitLoadout;
 };
+_unit call A3A_fnc_initAceTeamManagement;
 
 _unit

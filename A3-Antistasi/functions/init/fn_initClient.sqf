@@ -107,6 +107,7 @@ if (isMultiplayer && {playerMarkersEnabled}) then {
 };
 
 [player] spawn A3A_fnc_initRevive;		// with ACE medical, only used for helmet popping & TK checks
+player call A3A_fnc_initAceTeamManagement;
 
 if (!hasACE) then {
 	[] spawn A3A_fnc_tags;

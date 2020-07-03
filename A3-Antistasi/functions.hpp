@@ -207,6 +207,7 @@ class A3A
 		class createAISite {};
 		class createCIV {};
 		class createFIAOutposts2 {};
+		class createQRF {};
 		class createSDKGarrisons {};
 		class createSDKgarrisonsTemp {};
 		class createUnit {};
@@ -230,6 +231,7 @@ class A3A
 		class removeVehFromPool {};
 		class safeVehicleSpawn {};
 		class spawnGroup {};
+		class updateCAMark {};
 		class vehAvailable {};
 		class VEHdespawner {};
 		class vehKilledOrCaptured {};

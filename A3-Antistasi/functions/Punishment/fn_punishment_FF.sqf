@@ -49,6 +49,12 @@ License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Comm
 params [["_instigator",objNull,[objNull,[]]],"_timeAdded","_offenceAdded",["_victim",objNull]];
 private _filename = "fn_punishment_FF.sqf";
 
+//////Cool down prevents multi-hit spam/////
+    // Doesn't log to avoid RPT spam.
+    // Doesn't use hash table to be as quick as possible.
+if (_instigator getVariable ["punishment_coolDown", 0] > servertime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
+_instigator setVariable ["punishment_coolDown", servertime + 1, false]; // Local Exec faster
+
 /////////////////Definitions////////////////
 private _notifyVictim = {
     if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
@@ -65,7 +71,7 @@ private _gotoExemption = {
 };
 private _logPvPKill = {
     if (!(_victim isKindOf "Man")) exitWith {};
-    private _killStats = format ["PVPKILL | %1 killed by PvP: %2 [%3]", name _victim, name _instigator, getPlayerUID _instigator];
+    private _killStats = format ["PVPKILL | %1 Hurt by PvP: %2 [%3]", name _victim, name _instigator, getPlayerUID _instigator];
     [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
 };
 private _isCollision = false;
@@ -91,14 +97,6 @@ private _exemption = switch (true) do {
     case (_victim == _instigator):                     {"SUICIDE"};
     default                                            {""};
 };
-
-//////Cool down prevents multi-hit spam/////
-    // Is below previous checks as to not spam getVariable.
-    // Is above following checks to avoid unnecessary calculations.
-    // Doesn't log to avoid RPT spam.
-    // Doesn't use hash table to be as quick as possible.
-if (_instigator getVariable ["punishment_coolDown", 0] > servertime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
-_instigator setVariable ["punishment_coolDown", servertime + 1, true];
 
 ////////////////Logs if is FF///////////////
 if (_exemption !=  "") exitWith {

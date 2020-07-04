@@ -46,7 +46,12 @@ Author: Caleb Serafin
 Date Updated: 14 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
-params [["_instigator",objNull,[objNull,[]]],"_timeAdded","_offenceAdded",["_victim",objNull]];
+params [
+    ["_instigator",objNull, [objNull,[]], [] ],
+    "_timeAdded",
+    "_offenceAdded",
+    ["_victim",objNull]
+];
 private _filename = "fn_punishment_FF.sqf";
 
 //////Cool down prevents multi-hit spam/////

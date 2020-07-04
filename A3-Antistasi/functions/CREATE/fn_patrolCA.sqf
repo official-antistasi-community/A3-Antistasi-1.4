@@ -77,7 +77,7 @@ if ((!_isMarker) and (_typeOfAttack != "Air") and (!_super) and ({sidesX getVari
 	if !([_plane] call A3A_fnc_vehAvailable) exitWith {};
 
 	// Government have much broader definition of "friendlies" than invaders do
-	private _friendlies = if (_sideX == Occupants) then {allUnits select {(_x distance _posDest < 200) and (alive _x) and ((side (group _x) == _sideX) or (side (group _x) == civilian))}} else {allUnits select {(_x distance _posDestination < 100) and ([_x] call A3A_fnc_canFight) and (side (group _x) == _sideX)}};
+	private _friendlies = if (_sideX == Occupants) then {allUnits select {(_x distance _posDest < 200) and (alive _x) and ((side (group _x) == _sideX) or (side (group _x) == civilian))}} else {allUnits select {(_x distance _posDest < 100) and ([_x] call A3A_fnc_canFight) and (side (group _x) == _sideX)}};
 	if (count _friendlies == 0) then
 	{
 		// select ordnance to use

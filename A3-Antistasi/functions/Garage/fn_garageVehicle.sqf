@@ -28,7 +28,7 @@ if (_veh isKindOf "Man") exitWith {["Garage", "Are you kidding?"] call A3A_fnc_c
 if !(_veh isKindOf "AllVehicles") exitWith {["Garage", "The vehicle you are looking cannot be stored in our Garage"] call A3A_fnc_customHint;};
 
 
-if (_pool and (count vehInGarage >= (tierWar *3))) exitWith {["Garage", "You cannot garage more vehicles at your current War Level"] call A3A_fnc_customHint;};
+if (_pool and (count vehInGarage >= (tierWar *5))) exitWith {["Garage", "You cannot garage more vehicles at your current War Level"] call A3A_fnc_customHint;};
 
 _exit = false;
 if (!_pool) then

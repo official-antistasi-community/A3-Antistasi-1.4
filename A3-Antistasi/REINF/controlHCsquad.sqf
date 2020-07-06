@@ -1,4 +1,6 @@
 if (player != theBoss) exitWith {["Control Squad", "Only Commander has the ability to control HC units"] call A3A_fnc_customHint;};
+private _punishmentoffenceTotal = [getPlayerUID player, [ ["offenceTotal",0] ]] call A3A_fnc_punishment_dataGet select 0;
+if (_punishmentoffenceTotal >= 1) exitWith {["Control Squad", "Nope. Not happening."] call A3A_fnc_customHint;};
 
 _groups = _this select 0;
 

@@ -37,13 +37,13 @@ Examples 1:
     [player,"forgive"] remoteExec ["A3A_fnc_punishment_release",2]; // Self forgive all sins
 
 Examples 2:
-    [[_instigator,_source], 20, 0.34, _unit] remoteExec ["A3A_fnc_punishment_FF",[_instigator,_source] select (isNull _instigator),false]; // How it should be called from an EH.
+    [[_instigator,_source], 20, 0.34, _unit] remoteExec ["A3A_fnc_punishment_FF",[_source,_instigator] select (isPlayer _instigator),false]; // How it should be called from an EH.
     // Unit Tests:
     [[objNull,player], 0, 0, objNull] call A3A_fnc_punishment_FF;      // Test self with no victim
     [[objNull,player], 0, 0, cursorObject] call A3A_fnc_punishment_FF; // Test self with victim
 
 Author: Caleb Serafin
-Date Updated: 07 June 2020
+Date Updated: 14 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params [["_instigator",objNull,[objNull,[]]],"_timeAdded","_offenceAdded",["_victim",objNull]];
@@ -58,10 +58,15 @@ private _notifyInstigator = {
     ["FF Notification", _message] remoteExec ["A3A_fnc_customHint", _instigator, false];
 };
 private _gotoExemption = {
-    params ["_exemptionDetails"];
-    _playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name _instigator, getPlayerUID _instigator,str _timeAdded, str _offenceAdded];
-    [2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename] call A3A_fnc_log;
+    params [ ["_exemptionDetails", "" ,[""]] ];
+    private _playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name _instigator, getPlayerUID _instigator,str _timeAdded, str _offenceAdded];
+    [2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
     _exemptionDetails;
+};
+private _logPvPKill = {
+    if (!(_victim isKindOf "Man")) exitWith {};
+    private _killStats = format ["PVPKILL | %1 killed by PvP: %2 [%3]", name _victim, name _instigator, getPlayerUID _instigator];
+    [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
 };
 private _isCollision = false;
 
@@ -82,7 +87,7 @@ private _exemption = switch (true) do {
     case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};
     case (!isPlayer _instigator):                      {"NOT A PLAYER"};
     case (player != _instigator):                      {"NOT INSTIGATOR"}; // Must be local for 'BIS_fnc_admin'
-    case (side _instigator in [Invaders, Occupants]):  {"NOT REBEL"};
+    case (side _instigator in [Invaders, Occupants]):  {call _logPvPKill; "NOT REBEL"};
     case (_victim == _instigator):                     {"SUICIDE"};
     default                                            {""};
 };
@@ -135,6 +140,7 @@ if (_exemption != "") exitWith {
     [_exemption] call _gotoExemption;
 };
 
+///////////////Drop The Hammer//////////////
 [_instigator,_timeAdded,_offenceAdded,_victim] remoteExec ["A3A_fnc_punishment",2,false];
 "PROSECUTED";
 

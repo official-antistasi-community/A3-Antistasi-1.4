@@ -54,6 +54,16 @@ params [
 ];
 private _filename = "fn_punishment_FF.sqf";
 
+///////////////Checks if is Collision//////////////
+if (typeName _instigator == "ARRAY") then {
+    if (isPlayer (_instigator#0)) then {
+        _instigator = _instigator#0;
+    } else {
+        _isCollision = true;
+        _instigator = _instigator#1;
+    };
+};
+
 //////Cool down prevents multi-hit spam/////
     // Doesn't log to avoid RPT spam.
     // Doesn't use hash table to be as quick as possible.
@@ -85,16 +95,6 @@ private _logPvPKill = {
     [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
 };
 private _isCollision = false;
-
-///////////////Checks if is Collision//////////////
-if (typeName _instigator == "ARRAY") then {
-    if (isPlayer (_instigator#0)) then {
-        _instigator = _instigator#0;
-    } else {
-        _isCollision = true;
-        _instigator = _instigator#1;
-    };
-};
 
 ///////////////Checks if is FF//////////////
 private _exemption = switch (true) do {

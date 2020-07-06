@@ -72,6 +72,11 @@ private _gotoExemption = {
     params [ ["_exemptionDetails", "" ,[""]] ];
     private _playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name _instigator, getPlayerUID _instigator,str _timeAdded, str _offenceAdded];
     [2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
+    if (isPlayer _victim) then {
+        ["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];
+        private _victimStats = format ["VICTIM | Found Collateral: %1 [%2], hurt by %3 [%4]", name _victim, getPlayerUID _victim, name _instigator, getPlayerUID _instigator];
+        [2, format ["%1 | %2", _exemptionDetails, _victimStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
+    };
     _exemptionDetails;
 };
 private _logPvPKill = {

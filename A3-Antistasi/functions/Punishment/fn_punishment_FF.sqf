@@ -76,7 +76,9 @@ private _notifyVictim = {
 };
 private _notifyInstigator = {
     params ["_message"];
-    ["FF Notification", _message] remoteExec ["A3A_fnc_customHint", _instigator, false];
+    private _victimStats = "";
+    if (isPlayer _victim) then { _victimStats = format ["<br/><br/>Injured comrade: %1",name _victim]; };
+    ["FF Notification", _message + _victimStats] remoteExec ["A3A_fnc_customHint", _instigator, false];
 };
 private _gotoExemption = {
     params [ ["_exemptionDetails", "" ,[""]] ];

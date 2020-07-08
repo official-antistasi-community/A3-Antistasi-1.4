@@ -191,7 +191,7 @@ else
     + ([0, 3] select _super)
 };
 
-_vehicleCount = _vehicleCount * skillMult / 2;			// skillMult range 1-3
+_vehicleCount = _vehicleCount + ((skillMult - 2) / 2);			// skillMult range 1-3
 if !(_isMarker) then { _vehicleCount = _vehicleCount / 2 };
 _vehicleCount = (round (_vehicleCount)) max 1;
 

@@ -14,6 +14,6 @@ if (_target isEqualType "") then {
 	[3, format ["%1 CA mark for position %2", _operation, _target], _filename] call A3A_fnc_log;
 
 	if (_operation == "add") then { smallCApos pushBack _target }
-	else { smallCApos = smallCApos select { _x distance2d _target < 100 } };
+	else { smallCApos = smallCApos select { _x distance2d _target > 100 } };
 };
 

@@ -14,7 +14,11 @@ if (!isServer) then {
 	"destroyedBuildings" addPublicVariableEventHandler {
 		{ hideObject _x } forEach (_this select 1);
 	};
-	[clientOwner, "destroyedBuildings"] remoteExecCall ["publicVariableClient", 2];
+	// need to wait until server has loaded the save
+	[] spawn {
+		waitUntil {(!isNil "serverInitDone")};
+		[clientOwner, "destroyedBuildings"] remoteExecCall ["publicVariableClient", 2];
+	};
 };
 
 if (hasInterface) then {
@@ -422,6 +426,24 @@ gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",A3A_fnc_keys];
 //removeAllActions boxX;
 
 //if ((!isServer) and (isMultiplayer)) then {boxX call jn_fnc_arsenal_init};
+
+
+if (hasACE) then
+{
+	if (isNil "ace_interact_menu_fnc_compileMenu" || isNil "ace_interact_menu_fnc_compileMenuSelfAction") exitWith {
+		[1, "ACE non-public functions have changed, rebel group join/leave actions will not be removed", _filename] call A3A_fnc_log;
+	};
+	// Remove group join action from all rebel unit types
+	// Need to compile the menus first, because ACE delays creating menus until a unit of that class is created
+	private _playerUnits = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_GL_F" /*greenfor*/,
+		"B_G_soldier_F", "B_G_Soldier_TL_F", "B_G_Soldier_AR_F", "B_G_medic_F", "B_G_engineer_F", "B_G_Soldier_GL_F" /*bluefor*/];
+	{
+		[_x] call ace_interact_menu_fnc_compileMenu;
+		[_x] call ace_interact_menu_fnc_compileMenuSelfAction;
+		[_x, 1,["ACE_SelfActions", "ACE_TeamManagement", "ACE_LeaveGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
+		[_x, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
+	} forEach (_playerUnits + [typePetros, staticCrewTeamPlayer, SDKUnarmed] + SDKSniper + SDKATman + SDKMedic + SDKMG + SDKExp + SDKGL + SDKMil + SDKSL + SDKEng);
+};
 
 boxX allowDamage false;
 boxX addAction ["Transfer Vehicle cargo to Ammobox", {[] spawn A3A_fnc_empty;}, 4];

@@ -1,5 +1,3 @@
-//Alits Template Call
-if (worldName == "Altis") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

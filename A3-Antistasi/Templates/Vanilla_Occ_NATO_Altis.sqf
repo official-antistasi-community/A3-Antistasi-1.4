@@ -1,12 +1,3 @@
-//Call to Blufor Alits Template
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_AAF_Altis.sqf"};
-//Call For Tanoa
-if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Tanoa.sqf"};
-//Call for Woodland --------> I know there are better ways but that the Current one, dont reee at me.
-if (worldName == "chernarus_summer") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_WDL.sqf"};
-if (worldName == "Enoch") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_WDL.sqf"};
-if (worldName == "Tembelan") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_WDL.sqf"};
-if (worldName == "vt7") exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_WDL.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

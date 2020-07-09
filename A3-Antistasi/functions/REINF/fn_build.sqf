@@ -27,8 +27,8 @@ private _abortMessage = "";
 
 private _engineerIsBusy = {
 	private _engineer = param [0, objNull];
-	((_engineer getVariable ["helping",false]) 
-	or (_engineer getVariable ["rearming",false]) 
+	((_engineer getVariable ["helping",false])
+	or (_engineer getVariable ["rearming",false])
 	or (_engineer getVariable ["constructing",false]));
 };
 
@@ -53,21 +53,21 @@ if (isNull build_engineerSelected) then {
 	if (count _aiEngineers > 0 && player != leader player) exitWith {
 		_abortMessage =	_abortMessage + "Only squad leaders can order AI to build";
 	};
-	
+
 	{
 		if ([_x] call A3A_fnc_canFight && !([_x] call _engineerIsBusy)) exitWith {
 			build_engineerSelected = _x;
 			_abortMessage = _abortMessage + format ["Ordering %1 to build", _x];
 		};
 	} forEach _aiEngineers;
-	
+
 	if (isNull build_engineerSelected) exitWith {
 		_abortMessage =	_abortMessage + "You have no available engineers in your squad. They may be unconscious or busy.";
 	};
 };
 
 if (isNull build_engineerSelected ||
-   ((player != build_engineerSelected) and (isPlayer build_engineerSelected))) exitWith 
+   ((player != build_engineerSelected) and (isPlayer build_engineerSelected))) exitWith
 {
 	["Build Info", _abortMessage] call A3A_fnc_customHint;
 };
@@ -169,7 +169,7 @@ if ((build_type == "SB") or (build_type == "CB")) then
 
 if (_leave) exitWith {["Build Info", format ["%1",_textX]] call A3A_fnc_customHint;};
 
-build_handleDamageHandler = player addEventHandler ["HandleDamage",{[] call A3A_fnc_vehPlacementCancel;}];
+build_handleDamageHandler = player addEventHandler ["HandleDamage",{[] call A3A_fnc_vehPlacementCancel;nil;}];
 
 //START PLACEMENT HERE
 [_classX, "BUILDSTRUCTURE", ""] call A3A_fnc_vehPlacementBegin;

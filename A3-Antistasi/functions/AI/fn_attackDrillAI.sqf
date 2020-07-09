@@ -140,7 +140,7 @@ while {true} do
 				{
 				if (_allNearFriends findIf {(_x call A3A_fnc_typeOfSoldier == "AAMan") or (_x call A3A_fnc_typeOfSoldier == "StaticGunner")} == -1) then
 					{
-					if (_sideX != teamPlayer) then {[[getPosASL _LeaderX,_sideX,"Air",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+					if (_sideX != teamPlayer) then {[getPosASL _LeaderX,_sideX,"Air",false] remoteExec ["A3A_fnc_patrolCA",2]};
 					};
 				//_nuevataskX = ["Hide",_soldiers - (_soldiers select {(_x call A3A_fnc_typeOfSoldier == "AAMan") or (_x getVariable ["typeOfSoldier",""] == "StaticGunner")})];
 				_groupX setVariable ["taskX","Hide"];
@@ -157,7 +157,7 @@ while {true} do
 						}
 					else
 						{
-						if (_sideX != teamPlayer) then {[[getPosASL _LeaderX,_sideX,"Tank",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+						if (_sideX != teamPlayer) then {[getPosASL _LeaderX,_sideX,"Tank",false] remoteExec ["A3A_fnc_patrolCA",2]};
 						};
 					};
 				//_nuevataskX = ["Hide",_soldiers - (_soldiers select {(_x getVariable ["typeOfSoldier",""] == "ATMan")})];
@@ -168,7 +168,7 @@ while {true} do
 				{
 				if !(isNull _nearX) then
 					{
-					if (_sideX != teamPlayer) then {[[getPosASL _LeaderX,_sideX,"Normal",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
+					if (_sideX != teamPlayer) then {[getPosASL _LeaderX,_sideX,"Normal",false] remoteExec ["A3A_fnc_patrolCA",2]};
 					_mortarX = _groupX getVariable ["mortarsX",objNull];
 					if (!(isNull _mortarX) and ([_mortarX] call A3A_fnc_canFight)) then
 						{

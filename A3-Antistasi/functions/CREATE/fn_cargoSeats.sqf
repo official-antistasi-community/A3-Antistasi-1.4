@@ -33,7 +33,7 @@ else
 			case Occupants:
 				{
 				_return = selectRandom groupsNATOSquad;
-				if (_cargoSeats > 8) then
+/*				if (_cargoSeats > 8) then
 					{
 					_countX = _cargoSeats - (count _return);
 					for "_i" from 1 to _countX do
@@ -41,11 +41,11 @@ else
 						if (random 10 < (tierWar + difficultyCoef)) then {_return pushBack NATOGrunt};
 						};
 					};
-				};
+*/				};
 			case Invaders:
 				{
 				_return = selectRandom groupsCSATSquad;
-				if (_cargoSeats > 8) then
+/*				if (_cargoSeats > 8) then
 					{
 					_countX = _cargoSeats - (count _return);
 					for "_i" from 1 to _countX do
@@ -53,7 +53,7 @@ else
 						if (random 10 < (tierWar + difficultyCoef)) then {_return pushBack CSATGrunt};
 						};
 					};
-				};
+*/				};
 			};
 		};
 	};

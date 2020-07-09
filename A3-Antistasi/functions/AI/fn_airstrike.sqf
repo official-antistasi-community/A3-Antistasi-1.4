@@ -112,8 +112,7 @@ _wp1 setWaypointBehaviour "CARELESS";
 _plane setCollisionLight true;
 
 if ((_typeX == "NAPALM") and (napalmCurrent)) then {_typeX = "CLUSTER"};
-private _executeOn = if (count hcArray == 0) then {2} else {hcArray select 0};
-_wp1 setWaypointStatements ["true", format ["[this, '%1'] remoteExec ['A3A_fnc_airbomb', %2]", _typeX, _executeOn]];
+_wp1 setWaypointStatements ["local this", format ["[this, '%1'] spawn A3A_fnc_airbomb", _typeX]];
 
 _wp2 = _groupPlane addWaypoint [_pos2, 1];
 _wp2 setWaypointSpeed "LIMITED";

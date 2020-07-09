@@ -72,8 +72,7 @@ _wp1 setWaypointSpeed "LIMITED";
 _wp1 setWaypointBehaviour "CARELESS";
 
 if ((_typeX == "NAPALM") and (!napalmEnabled)) then {_typeX = "HE"};
-private _executeOn = if (count hcArray == 0) then {2} else {hcArray select 0};
-_wp1 setWaypointStatements ["true", format ["[this, '%1'] remoteExec ['A3A_fnc_airbomb', %2]", _typeX, _executeOn]];
+_wp1 setWaypointStatements ["local this", format ["[this, '%1'] spawn A3A_fnc_airbomb", _typeX]];
 
 
 

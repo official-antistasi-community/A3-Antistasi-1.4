@@ -4,7 +4,7 @@ private _filename = "fn_airbomb";
 private ["_countX","_plane","_typeX","_ammo","_cluster","_sleep","_bomb"];
 _plane = vehicle (_this select 0);
 _typeX = _this select 1;
-_countX = 6;
+_countX = 4;
 _cluster = false;
 
 switch (_typeX) do {

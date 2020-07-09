@@ -112,7 +112,7 @@ _wp1 setWaypointBehaviour "CARELESS";
 _plane setCollisionLight true;
 
 if ((_typeX == "NAPALM") and (napalmCurrent)) then {_typeX = "CLUSTER"};
-_wp1 setWaypointStatements ["local this", format ["[this, '%1'] spawn A3A_fnc_airbomb", _typeX]];
+_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1'] spawn A3A_fnc_airbomb", _typeX]];
 
 _wp2 = _groupPlane addWaypoint [_pos2, 1];
 _wp2 setWaypointSpeed "LIMITED";

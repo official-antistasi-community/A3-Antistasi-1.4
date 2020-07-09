@@ -57,7 +57,6 @@ for "_i" from 0 to (count _buildings) - 1 do
             private _zpos = ASLToATL (AGLToASL (_building buildingPos 1));
             private _pos = _zpos getPos [1.5, _dir];			// zeroes Z value because BIS
             _pos = [_pos select 0, _pos select 1, _zpos select 2];
-            _pos = _pos vectorAdd [ 0, 0, 0]; //offset
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
         if 	((_typeB == "Land_fortified_nest_small_EP1") or (_typeB == "Land_BagBunker_Small_F") or (_typeB == "Land_BagBunker_01_small_green_F")
@@ -68,7 +67,6 @@ for "_i" from 0 to (count _buildings) - 1 do
             private _zpos = ASLToATL (AGLToASL (_building buildingPos 1));
             private _pos = _zpos getPos [-1, _dir];
             _pos = [_pos select 0, _pos select 1, _zpos select 2];
-            _pos = _pos vectorAdd [ 0, 0, 0]; //offset
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
         if 	(_typeB in listbld) exitWith			// just the big towers?

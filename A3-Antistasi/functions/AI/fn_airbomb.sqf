@@ -2,7 +2,12 @@ if (not isServer and hasInterface) exitWith {};
 private _filename = "fn_airbomb";
 [3, format ["Executing on: %1", clientOwner], _filename] call A3A_fnc_log;
 private ["_countX","_plane","_typeX","_ammo","_cluster","_sleep","_bomb"];
+
 _plane = vehicle (_this select 0);
+if (isNil "_plane") exitWith {[1, "No plane passed, terminating", _filename] call A3A_fnc_log;};
+if (_plane getVariable ["airbomb", false]) exitWith {[1, "Airbomb already executing on this plane", _filename] call A3A_fnc_log;};
+_plane setVariable ["airbomb", true, true];
+
 _typeX = _this select 1;
 _countX = 6;
 _cluster = false;
@@ -57,4 +62,5 @@ for "_i" from 1 to _countX do
 		};
 	};
 [3, format ["Bombs dropped: %1", _debugCounter], _filename] call A3A_fnc_log;	
+_plane setVariable ["airbomb", nil, true];
 //_bomba is used to track when napalm bombs hit the ground in order to call the napalm script on the correct position

@@ -71,7 +71,7 @@ private _logPvPKill = {
 private _isCollision = false;
 
 ///////////////Checks if is Collision//////////////
-if (typeName _instigator == "ARRAY") then {
+if (_instigator isEqualType []) then {
     if (isPlayer (_instigator#0)) then {
         _instigator = _instigator#0;
     } else {

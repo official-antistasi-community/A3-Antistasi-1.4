@@ -1,4 +1,3 @@
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_AAF_Altis.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -49,7 +48,7 @@ vehNATOPVP = ["B_MRAP_01_F","B_MRAP_01_hmg_F","B_Quadbike_01_F"];
 //Military Units
 NATOGrunt = "B_W_Soldier_F";
 NATOOfficer = "B_W_Officer_F";
-NATOOfficer2 = "B_Competitor_F"; 
+NATOOfficer2 = "B_Competitor_F";
 NATOBodyG = "B_W_Soldier_TL_F";
 NATOCrew = "B_W_Crew_F";
 NATOUnarmed = "B_W_Survivor_F";

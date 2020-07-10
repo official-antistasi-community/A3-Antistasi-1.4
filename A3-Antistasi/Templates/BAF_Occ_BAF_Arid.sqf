@@ -1,12 +1,3 @@
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\3CB_Occ_TKA_Arid.sqf"};
-//Tropcical
-if (worldName == "Tanoa") exitWith {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Trop.sqf"};
-//Cheap Woodland(Tropical) Call since we dont have one yet
-if (worldName == "chernarus_summer") exitWith {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Trop.sqf"};
-if (worldName == "cup_chernarus_A3") exitWith {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Trop.sqf"};
-if (worldName == "Enoch") exitWith {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Trop.sqf"};
-if (worldName == "Tembelan") exitWith {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Trop.sqf"};
-if (worldName == "vt7") exitWith {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Trop.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////

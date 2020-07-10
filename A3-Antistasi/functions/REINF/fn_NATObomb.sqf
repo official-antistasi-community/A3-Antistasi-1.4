@@ -71,11 +71,8 @@ _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "LIMITED";
 _wp1 setWaypointBehaviour "CARELESS";
 
-if (_typeX == "NAPALM" && napalmEnabled) then {_wp1 setWaypointStatements ["true", "[this,""NAPALM""] spawn A3A_fnc_airbomb"]} else {_typeX = "HE"};
-if (_typeX == "CLUSTER") then {_wp1 setWaypointStatements ["true", "[this,""CLUSTER""] spawn A3A_fnc_airbomb"]};
-if (_typeX == "HE") then {_wp1 setWaypointStatements ["true", "[this,""HE""] spawn A3A_fnc_airbomb"]};
-
-
+if ((_typeX == "NAPALM") and (!napalmEnabled)) then {_typeX = "HE"};
+_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1'] spawn A3A_fnc_airbomb", _typeX]];
 
 _wp2 = group _plane addWaypoint [_pos2, 1];
 _wp2 setWaypointSpeed "LIMITED";

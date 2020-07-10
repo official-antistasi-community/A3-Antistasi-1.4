@@ -72,7 +72,7 @@ policeGrunt = "UK3CB_TKP_I_RIF_2";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentry = ["UK3CB_TKA_I_GL",NATOGrunt];
+groupsNATOSentry = ["UK3CB_TKA_I_MK",NATOGrunt];
 groupsNATOSniper = ["UK3CB_TKA_I_SF_SNI","UK3CB_TKA_I_SF_SPOT"];
 groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper];
 //Fireteams

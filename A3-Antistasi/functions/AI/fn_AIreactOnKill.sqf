@@ -26,11 +26,14 @@ if (fleeing _x) then
 						};
 					if (vehicle _killer == _killer) then
 						{
-						[[getPosASL _enemy,side _x,"Normal",_super],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]
+						[getPosASL _enemy,side _x,"Normal",_super] remoteExec ["A3A_fnc_patrolCA", 2];
 						}
 					else
 						{
-						if (vehicle _killer isKindOf "Air") then {[[getPosASL _enemy,side _x,"Air",_super],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]} else {if (vehicle _killer isKindOf "Tank") then {[[getPosASL _enemy,side _x,"Tank",_super],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]} else {[[getPosASL _enemy,side _x,"Normal",_super],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]}};
+						private _attackType = "Normal";
+						if (vehicle _killer isKindOf "Air") then {_attackType = "Air"};
+						if (vehicle _killer isKindof "Tank") then {_attackType = "Tank"};
+						[getPosASL _enemy,side _x,_attackType,_super] remoteExec ["A3A_fnc_patrolCA", 2];
 						};
 					};
 				if (([primaryWeapon _x] call BIS_fnc_baseWeapon) in allMachineGuns) then {[_x,_enemy] call A3A_fnc_suppressingFire} else {[_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke};

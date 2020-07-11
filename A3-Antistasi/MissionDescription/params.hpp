@@ -119,8 +119,8 @@ class Params
      class personalGarageMax
      {
           title = "Max personal garage slots";
-          texts[] = {"Unlimited", "2", "3", "5", "10"};
-          values[] = {0,2,3,5,10};
+          texts[] = {"Unlimited", "2", "5", "10"};
+          values[] = {0,2,5,10};
           default = 2;
      };
      class allowFT

@@ -58,10 +58,10 @@ private _filename = "fn_punishment_FF.sqf";
 private _isCollision = false;
 if (_instigator isEqualType []) then {
     if (((_instigator#1) isEqualType objNull) && {isPlayer (_instigator#1)}) then {
-        _instigator = _instigator#0;
-    } else {
         _isCollision = true;
         _instigator = _instigator#1;
+    } else {
+        _instigator = _instigator#0;
     };
 };
 
@@ -99,7 +99,7 @@ private _logPvPKill = {
 };
 
 ///////////////Checks if is FF//////////////
-private _exemption = switch (true) do {
+private _exemption = "";switch (true) do {
     case (!tkPunish):                                  {"FF PUNISH IS DISABLED"};
     case (isDedicated || isServer):                    {"FF BY SERVER"};
     case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};

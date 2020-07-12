@@ -55,8 +55,9 @@ params [
 private _filename = "fn_punishment_FF.sqf";
 
 ///////////////Checks if is Collision//////////////
+private _isCollision = false;
 if (_instigator isEqualType []) then {
-    if (isPlayer (_instigator#0)) then {
+    if (((_instigator#1) isEqualType objNull) && {isPlayer (_instigator#1)}) then {
         _instigator = _instigator#0;
     } else {
         _isCollision = true;
@@ -96,7 +97,6 @@ private _logPvPKill = {
     private _killStats = format ["PVPKILL | %1 Hurt by PvP: %2 [%3]", name _victim, name _instigator, getPlayerUID _instigator];
     [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
 };
-private _isCollision = false;
 
 ///////////////Checks if is FF//////////////
 private _exemption = switch (true) do {

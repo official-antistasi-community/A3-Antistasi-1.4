@@ -72,7 +72,7 @@ policeGrunt = "UK3CB_ANP_B_RIF_1";
 //Military Groups
 //Teams
 groupsNATOSentry = ["UK3CB_BAF_Officer_DPMT","UK3CB_BAF_RO_DPMT"];
-groupsNATOSniper = ["UK3CB_BAF_Sniper_DPMT_Ghillie_L115_RM","UK3CB_BAF_Spotter_DPMT_Ghillie_L129_RM"];
+groupsNATOSniper = ["UK3CB_BAF_Sniper_DPMT_Ghillie_L115","UK3CB_BAF_Spotter_DPMT_Ghillie_L85"];
 groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper];
 //Fireteams
 groupsNATOAA = ["rhsusf_army_ucp_fso","rhsusf_army_ucp_aa","rhsusf_army_ucp_aa","rhsusf_army_ucp_aa"];
@@ -130,7 +130,7 @@ vehNATOAmmoTruck = "rhsusf_M977A4_AMMO_usarmy_wd";
 vehNATORepairTruck = "UK3CB_BAF_MAN_HX58_Repair_Green_DPMT";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
-vehNATOAPC = ["UK3CB_BAF_FV432_Mk3_GPMG_Green_DPMT","UK3CB_BAF_FV432_Mk3_RWS_Green_DPMT","UK3CB_BAF_Warrior_A3_W_MTP_RM","UK3CB_BAF_Warrior_A3_W_Cage_MTP_RM","UK3CB_BAF_Warrior_A3_W_Cage_Camo_MTP_RM","UK3CB_BAF_Warrior_A3_W_Camo_MTP_RM"];
+vehNATOAPC = ["UK3CB_BAF_FV432_Mk3_GPMG_Green_DPMT","UK3CB_BAF_FV432_Mk3_RWS_Green_DPMT","UK3CB_BAF_Warrior_A3_W_MTP","UK3CB_BAF_Warrior_A3_W_Cage_MTP","UK3CB_BAF_Warrior_A3_W_Cage_Camo_MTP","UK3CB_BAF_Warrior_A3_W_Camo_MTP"];
 vehNATOTank = "rhsusf_m1a2sep1wd_usarmy";
 vehNATOAA = "RHS_M6_wd";
 vehNATOAttack = vehNATOAPC + [vehNATOTank];

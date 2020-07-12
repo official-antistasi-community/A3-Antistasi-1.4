@@ -24,17 +24,17 @@ CSATAmmoBox = "O_supplyCrate_F";
 //PvP Loadouts
 CSATPlayerLoadouts = [
 	//Team Leader
-	["3CB_TKM_Teamleader"] call A3A_fnc_getLoadout,
+	["3CB_SOV_Teamleader"] call A3A_fnc_getLoadout,
 	//Medic
-	["3CB_TKM_Medic"] call A3A_fnc_getLoadout,
+	["3CB_SOV_Medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	["3CB_TKM_MachineGunner"] call A3A_fnc_getLoadout,
+	["3CB_SOV_MachineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	["3CB_TKM_Marksman"] call A3A_fnc_getLoadout,
+	["3CB_SOV_Marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	["3CB_TKM_AT"] call A3A_fnc_getLoadout,
+	["3CB_SOV_AT"] call A3A_fnc_getLoadout,
 	//AT2
-	["3CB_TKM_AT2"] call A3A_fnc_getLoadout
+	["3CB_SOV_AT2"] call A3A_fnc_getLoadout
 ];
 
 

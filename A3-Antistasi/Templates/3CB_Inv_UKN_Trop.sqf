@@ -5,7 +5,7 @@
 nameInvaders = "TKM";
 
 //SF Faction
-factionMaleInvaders = "UK3CB_TKM_B";
+factionMaleInvaders = "UK3CB_TKM_O";
 //Miltia Faction
 if (gameMode == 4) then {factionFIA = "UK3CB_TKP_O"};
 
@@ -36,6 +36,7 @@ CSATPlayerLoadouts = [
 	//AT2
 	["3CB_TKM_AT2"] call A3A_fnc_getLoadout
 ];
+
 
 //PVP Player Vehicles
 vehCSATPVP = ["UK3CB_TKM_O_BTR40","UK3CB_TKM_O_Hilux_Open","UK3CB_TKM_O_UAZ_Closed","UK3CB_TKM_O_Datsun_Pkm","UK3CB_TKM_O_Hilux_Dshkm"];
@@ -108,7 +109,7 @@ if (gameMode == 4) then
 ////////////////////////////////////
 //Military Vehicles
 //Lite
-vehCSATBike = "O_T_Quadbike_01_ghex_F";
+vehCSATBike = "O_Quadbike_01_F";
 vehCSATLightArmed = ["UK3CB_TKM_O_Datsun_Pkm","UK3CB_TKM_O_Hilux_Dshkm","UK3CB_TKM_O_Hilux_GMG","UK3CB_TKM_O_Hilux_Rocket","UK3CB_TKM_O_Hilux_Spg9","UK3CB_TKM_O_Hilux_Zu23"];
 vehCSATLightUnarmed = ["UK3CB_TKM_O_BTR40","UK3CB_TKM_O_Hilux_Open","UK3CB_TKM_O_UAZ_Closed"];
 vehCSATTrucks = ["UK3CB_TKM_O_Ural_Covered","UK3CB_TKM_O_V3S_Closed","UK3CB_TKM_O_V3S_Open","UK3CB_TKM_O_Ural_Open"];
@@ -161,12 +162,12 @@ CSATMortar = "UK3CB_TKM_O_2b14_82mm";
 
 //Static Weapon Bags
 MGStaticCSATB = "RHS_Kord_Gun_Bag";
-ATStaticCSATB = "RHS_Kornet_Gun_Bag";
+ATStaticCSATB = "RHS_SPG9_Gun_Bag";
 AAStaticCSATB = "O_AA_01_weapon_F";
 MortStaticCSATB = "RHS_Podnos_Gun_Bag";
 //Short Support
 supportStaticCSATB = "RHS_Kord_Tripod_Bag";
 //Tall Support
-supportStaticCSATB2 = "RHS_Kornet_Tripod_Bag";
+supportStaticCSATB2 = "RHS_SPG9_Tripod_Bag";
 //Mortar Support
 supportStaticCSATB3 = "RHS_Podnos_Bipod_Bag";

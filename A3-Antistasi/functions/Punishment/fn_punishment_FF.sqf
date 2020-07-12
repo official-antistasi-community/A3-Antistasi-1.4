@@ -99,7 +99,7 @@ private _logPvPKill = {
 };
 
 ///////////////Checks if is FF//////////////
-private _exemption = "";switch (true) do {
+private _exemption = switch (true) do {
     case (!tkPunish):                                  {"FF PUNISH IS DISABLED"};
     case (isDedicated || isServer):                    {"FF BY SERVER"};
     case (!isMultiplayer):                             {"IS NOT MULTIPLAYER"};

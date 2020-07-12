@@ -31,7 +31,7 @@ if !(_veh isKindOf "AllVehicles") exitWith {["Garage", "The vehicle you are look
 if (_pool and (count vehInGarage >= (tierWar *5))) exitWith {["Garage", "You cannot garage more vehicles at your current War Level"] call A3A_fnc_customHint;};
 private _personalGarage = player getVariable ["personalGarage", []];
 if (!((count _personalGarage < personalGarageMax) or (personalGarageMax isEqualTo 0)) and !_pool) exitWith {["Garage", "Personal garage is full, you can't add more vehicles to it"] call A3A_fnc_customHint};
-if ((player nearEntities 500) findIf {player in (_x targets [true, 500])} != -1) exitWith {["Garage", "Can't garage while in combat."] call A3A_fnc_customHint};
+if ((player nearEntities 300) findIf {_unit = _x; _players = allPlayers select {(side _x isEqualTo teamPlayer) && (player distance _x < 300)}; _players findIf {_x in (_unit targets [true, 500])} != -1} != -1);
 
 _exit = false;
 if (!_pool) then

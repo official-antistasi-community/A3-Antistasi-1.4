@@ -147,7 +147,7 @@ vehNATOPatrolHeli = "UK3CB_BAF_Merlin_HC3_CSAR_DPMT";
 vehNATOTransportHelis = ["UK3CB_BAF_Wildcat_AH1_TRN_8A_DPMT","UK3CB_BAF_Merlin_HC3_18_GPMG_DPMT",vehNATOPatrolHeli,"UK3CB_BAF_Chinook_HC2_DPMT"];
 vehNATOAttackHelis = ["UK3CB_BAF_Apache_AH1_DPMT","UK3CB_BAF_Apache_AH1_CAS_DPMT","UK3CB_BAF_Wildcat_AH1_CAS_6A_DPMT","UK3CB_BAF_Wildcat_AH1_CAS_8A_DPMT"];
 //UAV
-vehNATOUAV = "UK3CB_BAF_MQ9_Reaper_DPMW";
+vehNATOUAV = "UK3CB_BAF_MQ9_Reaper_DPMT";
 vehNATOUAVSmall = "B_UAV_01_F";
 //Artillery
 vehNATOMRLS = "rhsusf_m109_usarmy";
@@ -159,7 +159,7 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 //Militia Vehicles
 if ((gameMode != 4) and (!hasFFAA)) then
 	{
-	vehFIAArmedCar = "UK3CB_BAF_LandRover_WMIK_GPMG_FFR_Green_B_DPMW";
+	vehFIAArmedCar = "UK3CB_BAF_LandRover_WMIK_GPMG_FFR_Green_B_DPMT";
 	vehFIATruck = "UK3CB_BAF_MAN_HX60_Cargo_Green_A_DPMT";
 	vehFIACar = "UK3CB_BAF_LandRover_Snatch_FFR_Green_A_DPMT";
 	};

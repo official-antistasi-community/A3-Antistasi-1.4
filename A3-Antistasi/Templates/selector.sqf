@@ -38,17 +38,17 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\3CB_Reb_CNM_Temp.sqf";
           call compile preProcessFileLineNumbers "Templates\3CB_Occ_BAF_Temp.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Inv_UKN_Temp.sqf";
+          call compile preProcessFileLineNumbers "Templates\3CB_Inv_SOV_Temp.sqf";
         };
         case (worldName in temperatemaps): {
           call compile preProcessFileLineNumbers "Templates\3CB_Reb_CNM_Temp.sqf";
           call compile preProcessFileLineNumbers "Templates\3CB_Occ_BAF_Temp.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Inv_UKN_Temp.sqf";
+          call compile preProcessFileLineNumbers "Templates\3CB_Inv_SOV_Temp.sqf";
         };
         case (worldName in tropicalmaps): {
           call compile preProcessFileLineNumbers "Templates\3CB_Reb_CNM_Trop.sqf";
           call compile preProcessFileLineNumbers "Templates\3CB_Occ_BAF_Trop.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Inv_UKN_Trop.sqf";
+          call compile preProcessFileLineNumbers "Templates\3CB_Inv_SOV_Temp.sqf";
         };
         default {
           call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf";

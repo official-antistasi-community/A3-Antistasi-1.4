@@ -116,6 +116,13 @@ class Params
           values[] = {1,0};
           default = 1;
      };
+     class personalGarageMax
+     {
+          title = "Max personal garage slots";
+          texts[] = {"Unlimited", "2", "5", "10"};
+          values[] = {0,2,5,10};
+          default = 2;
+     };
      class allowFT
      {
           title = "Fast Travel Targets Allowed";

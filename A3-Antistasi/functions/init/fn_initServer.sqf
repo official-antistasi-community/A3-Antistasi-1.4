@@ -34,6 +34,7 @@ if (isMultiplayer) then {
 	minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
 	memberOnlyMagLimit = "MemberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
 	allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
+	personalGarageMax = "personalGarageMax" call BIS_fnc_getParamValue; publicVariable "personalGarageMax";
 	civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
 	memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
 	limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
@@ -61,6 +62,7 @@ if (isMultiplayer) then {
 	minWeaps = if (isNil "minWeaps") then {25} else {minWeaps};
 	memberOnlyMagLimit = 0;
 	allowMembersFactionGarageAccess = true;
+	personalGarageMax = 2;
 	civTraffic = 1;
 	memberDistance = 10;
 	limitedFT = false;

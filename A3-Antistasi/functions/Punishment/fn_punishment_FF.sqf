@@ -46,29 +46,13 @@ Author: Caleb Serafin
 Date Updated: 14 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
-params [["_instigator",objNull,[objNull,[]]],"_timeAdded","_offenceAdded",["_victim",objNull]];
+params [
+    ["_instigator",objNull, [objNull,[]], [] ],
+    "_timeAdded",
+    "_offenceAdded",
+    ["_victim",objNull]
+];
 private _filename = "fn_punishment_FF.sqf";
-
-/////////////////Definitions////////////////
-private _notifyVictim = {
-    if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
-};
-private _notifyInstigator = {
-    params ["_message"];
-    ["FF Notification", _message] remoteExec ["A3A_fnc_customHint", _instigator, false];
-};
-private _gotoExemption = {
-    params [ ["_exemptionDetails", "" ,[""]] ];
-    private _playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name _instigator, getPlayerUID _instigator,str _timeAdded, str _offenceAdded];
-    [2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
-    _exemptionDetails;
-};
-private _logPvPKill = {
-    if (!(_victim isKindOf "Man")) exitWith {};
-    private _killStats = format ["PVPKILL | %1 killed by PvP: %2 [%3]", name _victim, name _instigator, getPlayerUID _instigator];
-    [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
-};
-private _isCollision = false;
 
 ///////////////Checks if is Collision//////////////
 if (_instigator isEqualType []) then {
@@ -79,6 +63,40 @@ if (_instigator isEqualType []) then {
         _instigator = _instigator#1;
     };
 };
+
+//////Cool down prevents multi-hit spam/////
+    // Doesn't log to avoid RPT spam.
+    // Doesn't use hash table to be as quick as possible.
+if (_instigator getVariable ["punishment_coolDown", 0] > servertime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
+_instigator setVariable ["punishment_coolDown", servertime + 1, false]; // Local Exec faster
+
+/////////////////Definitions////////////////
+private _notifyVictim = {
+    if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
+};
+private _notifyInstigator = {
+    params ["_message"];
+    private _victimStats = "";
+    if (isPlayer _victim) then { _victimStats = format ["<br/><br/>Injured comrade: %1",name _victim]; };
+    ["FF Notification", _message + _victimStats] remoteExec ["A3A_fnc_customHint", _instigator, false];
+};
+private _gotoExemption = {
+    params [ ["_exemptionDetails", "" ,[""]] ];
+    private _playerStats = format["Player: %1 [%2], _timeAdded: %3, _offenceAdded: %4", name _instigator, getPlayerUID _instigator,str _timeAdded, str _offenceAdded];
+    [2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
+    if (isPlayer _victim) then {
+        ["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];
+        private _victimStats = format ["VICTIM | Found Collateral: %1 [%2], hurt by %3 [%4]", name _victim, getPlayerUID _victim, name _instigator, getPlayerUID _instigator];
+        [2, format ["%1 | %2", _exemptionDetails, _victimStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
+    };
+    _exemptionDetails;
+};
+private _logPvPKill = {
+    if (!(_victim isKindOf "Man")) exitWith {};
+    private _killStats = format ["PVPKILL | %1 Hurt by PvP: %2 [%3]", name _victim, name _instigator, getPlayerUID _instigator];
+    [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
+};
+private _isCollision = false;
 
 ///////////////Checks if is FF//////////////
 private _exemption = switch (true) do {
@@ -91,14 +109,6 @@ private _exemption = switch (true) do {
     case (_victim == _instigator):                     {"SUICIDE"};
     default                                            {""};
 };
-
-//////Cool down prevents multi-hit spam/////
-    // Is below previous checks as to not spam getVariable.
-    // Is above following checks to avoid unnecessary calculations.
-    // Doesn't log to avoid RPT spam.
-    // Doesn't use hash table to be as quick as possible.
-if (_instigator getVariable ["punishment_coolDown", 0] > servertime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
-_instigator setVariable ["punishment_coolDown", servertime + 1, true];
 
 ////////////////Logs if is FF///////////////
 if (_exemption !=  "") exitWith {

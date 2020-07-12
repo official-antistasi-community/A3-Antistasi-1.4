@@ -54,9 +54,9 @@ for "_i" from 0 to (count _buildings) - 1 do
         {
             private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
             private _dir = (getDir _building) - 180;
-            private _zpos = ASLToATL (AGLToASL (_building buildingPos 1));
+            private _zpos = AGLToASL (_building buildingPos 1);
             private _pos = _zpos getPos [1.5, _dir];			// zeroes Z value because BIS
-            _pos = [_pos select 0, _pos select 1, _zpos select 2];
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
         if 	((_typeB == "Land_fortified_nest_small_EP1") or (_typeB == "Land_BagBunker_Small_F") or (_typeB == "Land_BagBunker_01_small_green_F")
@@ -64,9 +64,9 @@ for "_i" from 0 to (count _buildings) - 1 do
         {
             private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
             private _dir = (getDir _building) - 180;
-            private _zpos = ASLToATL (AGLToASL (_building buildingPos 1));
+            private _zpos = AGLToASL (_building buildingPos 1);
             private _pos = _zpos getPos [-1, _dir];
-            _pos = [_pos select 0, _pos select 1, _zpos select 2];
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
         if 	(_typeB in listbld) exitWith			// just the big towers?
@@ -75,33 +75,33 @@ for "_i" from 0 to (count _buildings) - 1 do
             _dir = getDir _building;
             _zOffset = [0, 0, -0.3]; //fix spawn hight
             _Tdir = _dir + 90; //relative rotation to building
-            _zpos = ASLToATL (AGLToASL (_building buildingPos 11)); //relative East
+            _zpos = AGLToASL (_building buildingPos 11); //relative East
             _pos = _zpos getPos [-1, _Tdir]; //offset
             _zpos = _zpos vectorAdd _zOffset;
-            _pos = [_pos select 0, _pos select 1, _zpos select 2];
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _Tdir] call _fnc_spawnStatic;
             sleep 0.5;			// why only here?
             _Tdir = _dir + 0;
-            _zpos = ASLToATL (AGLToASL (_building buildingPos 13)); //relative North
+            _zpos = AGLToASL (_building buildingPos 13); //relative North
             _pos = _zpos getPos [-0.8, _Tdir]; //offset
             _zpos = _zpos vectorAdd _zOffset;
-            _pos = [_pos select 0, _pos select 1, _zpos select 2];
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _Tdir] call _fnc_spawnStatic;
             sleep 0,5;
             _Tdir = _dir + 180;
-            _zpos = ASLToATL (AGLToASL (_building buildingPos 16)); //relative South
+            _zpos = AGLToASL (_building buildingPos 16); //relative South
             _pos = _zpos getPos [-0.2, _Tdir]; //offset
             _zpos = _zpos vectorAdd _zOffset;
-            _pos = [_pos select 0, _pos select 1, _zpos select 2];
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _Tdir] call _fnc_spawnStatic;
         };
         if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F")) exitWith
         {
             private _type = if (_sideX == Occupants) then {staticAAOccupants} else {staticAAInvaders};
             private _dir = getDir _building;
-            private _zpos = ASLToATL (AGLToASL (_building buildingPos 8));
+            private _zpos = AGLToASL (_building buildingPos 8);
             private _pos = getPosASL _building;
-            _pos = [_pos select 0, _pos select 1, _zpos select 2];
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             _pos = _pos vectorAdd [ 0, 0, 0]; //offset
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };

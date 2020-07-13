@@ -42,12 +42,9 @@ private _fileName = "fn_punishment_FF_checkNearHQ.sqf";
 
 if !(_weapon in ["Put","Throw"]) exitWith {false};
 private _distancePetros = _unit distance petros;
-if !(_distancePetros <= 100) exitWith {false};
+if !(_distancePetros <= 75) exitWith {false};
 
 deleteVehicle _projectile;
-if (_distancePetros < 10) then {
-	[_unit, 60, 0.4, objNull] call A3A_fnc_punishment_FF; // Call to override hint later.
-};
-["FF Warning", "You cannot throw grenades or place explosives within 100m of base."] call A3A_fnc_customHint;
+[_unit, 60, 0.4, objNull, "You cannot throw grenades or place explosives within 75m of base."] call A3A_fnc_punishment_FF;
 [2, format ["EXPLOSIVE DISCHARGE HQ | %1 [%2] distance from Petros: %3", name _unit, getPlayerUID _unit, _distancePetros], _filename] call A3A_fnc_log;
 true;

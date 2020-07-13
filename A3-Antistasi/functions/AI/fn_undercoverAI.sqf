@@ -25,7 +25,7 @@ _unit forceAddUniform (selectRandom allCivilianUniforms);
 while {(captive _LeaderX) and (captive _unit)} do
 	{
 	sleep 1;
-	if ((vehicle _unit != _unit) and (not((typeOf vehicle _unit) in arrayCivVeh))) exitWith {};
+	if ((vehicle _unit != _unit) and (not((typeOf vehicle _unit) in undercoverVehicles))) exitWith {};
 	//_base = [_airportsX,player] call BIS_fnc_nearestPosition;
 	//_size = [_base] call A3A_fnc_sizeMarker;
 	//if ((_unit inArea _base) and (not(sidesX getVariable [_base,sideUnknown] == teamPlayer))) exitWith {[_unit,false] remoteExec ["setCaptive"]};

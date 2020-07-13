@@ -5,5 +5,3 @@ waitUntil {dialog};
 waitUntil {!dialog};
 
 [] spawn A3A_fnc_credits;
-diag_log "[Antistasi] Saving is now possible.";
-player setVariable ['canSave', true, true];

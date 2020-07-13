@@ -50,7 +50,8 @@ params [
     ["_instigator",objNull, [objNull,[]], [] ],
     "_timeAdded",
     "_offenceAdded",
-    ["_victim",objNull]
+    ["_victim",objNull],
+    ["_customMessage","", [""], [] ]
 ];
 private _filename = "fn_punishment_FF.sqf";
 
@@ -75,10 +76,10 @@ private _notifyVictim = {
     if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 };
 private _notifyInstigator = {
-    params ["_message"];
+    params ["_exempMessage"];
     private _victimStats = "";
-    if (isPlayer _victim) then { _victimStats = format ["<br/><br/>Injured comrade: %1",name _victim]; };
-    ["FF Notification", _message + _victimStats] remoteExec ["A3A_fnc_customHint", _instigator, false];
+    if (isPlayer _victim) then { _victimStats = format ["<br/><br/>Injured comrade: %1<br/><br/>",name _victim]; };
+    ["FF Notification", _exempMessage+ _victimStats + _customMessage] remoteExec ["A3A_fnc_customHint", _instigator, false];
 };
 private _gotoExemption = {
     params [ ["_exemptionDetails", "" ,[""]] ];
@@ -151,7 +152,7 @@ if (_exemption != "") exitWith {
 };
 
 ///////////////Drop The Hammer//////////////
-[_instigator,_timeAdded,_offenceAdded,_victim] remoteExec ["A3A_fnc_punishment",2,false];
+[_instigator,_timeAdded,_offenceAdded,_victim,_customMessage] remoteExec ["A3A_fnc_punishment",2,false];
 "PROSECUTED";
 
 

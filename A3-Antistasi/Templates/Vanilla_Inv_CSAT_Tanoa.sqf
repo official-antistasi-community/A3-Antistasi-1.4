@@ -49,7 +49,7 @@ CSATOfficer = "O_T_Officer_F";
 CSATBodyG = "O_V_Soldier_ghex_F";
 CSATCrew = "O_T_Crew_F";
 CSATMarksman = "O_T_Soldier_M_F";
-staticCrewInvaders = "O_T_support_MG_F";
+staticCrewInvaders = "O_T_Support_MG_F";
 CSATPilot = "O_T_Pilot_F";
 
 //Militia Units
@@ -64,24 +64,24 @@ if (gameMode == 4) then
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsCSATSentry = ["O_T_soldier_GL_F","O_T_soldier_F"];
-groupsCSATSniper = ["O_T_sniper_F","O_T_spotter_F"];
-groupsCSATsmall = [groupsCSATSentry,["O_T_recon_M_F","O_T_recon_F"],groupsCSATSniper];
+groupsCSATSentry = ["O_T_Soldier_GL_F","O_T_Soldier_F"];
+groupsCSATSniper = ["O_T_Sniper_F","O_T_Spotter_F"];
+groupsCSATsmall = [groupsCSATSentry,["O_T_Recon_M_F","O_T_Recon_F"],groupsCSATSniper];
 //Fireteams
-groupsCSATAA = ["O_T_soldier_TL_F","O_T_soldier_AA_F","O_T_soldier_AA_F","O_T_soldier_AAA_F"];
-groupsCSATAT = ["O_T_soldier_TL_F","O_T_soldier_AT_F","O_T_soldier_AT_F","O_T_soldier_AAT_F"];
-groupsCSATmid = [["O_T_soldier_TL_F","O_T_soldier_AR_F","O_T_soldier_GL_F","O_T_soldier_LAT_F"],groupsCSATAA,groupsCSATAT];
+groupsCSATAA = ["O_T_Soldier_TL_F","O_T_Soldier_AA_F","O_T_Soldier_AA_F","O_T_Soldier_AAA_F"];
+groupsCSATAT = ["O_T_Soldier_TL_F","O_T_Soldier_AT_F","O_T_Soldier_AT_F","O_T_Soldier_AAT_F"];
+groupsCSATmid = [["O_T_Soldier_TL_F","O_T_Soldier_AR_F","O_T_Soldier_GL_F","O_T_Soldier_LAT_F"],groupsCSATAA,groupsCSATAT];
 //Squads
-CSATSquad = ["O_T_soldier_SL_F","O_T_soldier_F","O_T_soldier_LAT_F","O_T_soldier_M_F","O_T_soldier_TL_F","O_T_soldier_AR_F","O_T_soldier_A_F","O_T_medic_F"];
+CSATSquad = ["O_T_Soldier_SL_F","O_T_Soldier_F","O_T_Soldier_LAT_F","O_T_Soldier_M_F","O_T_Soldier_TL_F","O_T_Soldier_AR_F","O_T_Soldier_A_F","O_T_Medic_F"];
 CSATSpecOp = ["O_V_Soldier_TL_ghex_F","O_V_Soldier_JTAC_ghex_F","O_V_Soldier_M_ghex_F","O_V_Soldier_Exp_ghex_F","O_V_Soldier_LAT_ghex_F","O_V_Soldier_Medic_ghex_F"];
 groupsCSATSquad =
 	[
 	CSATSquad,
-	["O_T_soldier_SL_F","O_T_soldier_AR_F","O_T_soldier_GL_F","O_T_soldier_M_F","O_T_soldier_AT_F","O_T_soldier_AAT_F","O_T_soldier_A_F","O_T_medic_F"],
-	["O_T_soldier_SL_F","O_T_soldier_LAT_F","O_T_soldier_TL_F","O_T_soldier_AR_F","O_T_soldier_A_F","O_T_Support_Mort_F","O_T_Support_AMort_F","O_T_medic_F"],
-	["O_T_soldier_SL_F","O_T_soldier_LAT_F","O_T_soldier_TL_F","O_T_soldier_AR_F","O_T_soldier_A_F","O_T_Support_MG_F","O_T_Support_AMG_F","O_T_medic_F"],
-	["O_T_soldier_SL_F","O_T_soldier_LAT_F","O_T_soldier_TL_F","O_T_soldier_AR_F","O_T_soldier_A_F","O_T_soldier_AA_F","O_T_soldier_AAA_F","O_T_medic_F"],
-	["O_T_soldier_SL_F","O_T_soldier_LAT_F","O_T_soldier_TL_F","O_T_soldier_AR_F","O_T_soldier_A_F","O_T_Engineer_F","O_T_Engineer_F","O_T_medic_F"]
+	["O_T_Soldier_SL_F","O_T_Soldier_AR_F","O_T_Soldier_GL_F","O_T_Soldier_M_F","O_T_Soldier_AT_F","O_T_Soldier_AAT_F","O_T_Soldier_A_F","O_T_Medic_F"],
+	["O_T_Soldier_SL_F","O_T_Soldier_LAT_F","O_T_Soldier_TL_F","O_T_Soldier_AR_F","O_T_Soldier_A_F","O_T_Support_Mort_F","O_T_Support_AMort_F","O_T_Medic_F"],
+	["O_T_Soldier_SL_F","O_T_Soldier_LAT_F","O_T_Soldier_TL_F","O_T_Soldier_AR_F","O_T_Soldier_A_F","O_T_Support_MG_F","O_T_Support_AMG_F","O_T_Medic_F"],
+	["O_T_Soldier_SL_F","O_T_Soldier_LAT_F","O_T_Soldier_TL_F","O_T_Soldier_AR_F","O_T_Soldier_A_F","O_T_Soldier_AA_F","O_T_Soldier_AAA_F","O_T_Medic_F"],
+	["O_T_Soldier_SL_F","O_T_Soldier_LAT_F","O_T_Soldier_TL_F","O_T_Soldier_AR_F","O_T_Soldier_A_F","O_T_Engineer_F","O_T_Engineer_F","O_T_Medic_F"]
 	];
 
 //Militia Groups
@@ -162,7 +162,7 @@ if (gameMode == 4) then
 ////////////////////////////////////
 //Assembled Statics
 CSATMG = "I_G_HMG_02_high_F";
-staticATInvaders = "O_T_static_AT_F";
+staticATInvaders = "O_static_AT_F";
 staticAAInvaders = "O_static_AA_F";
 CSATMortar = "O_Mortar_01_F";
 

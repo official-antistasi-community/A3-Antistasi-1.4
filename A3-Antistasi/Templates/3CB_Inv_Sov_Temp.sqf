@@ -124,7 +124,7 @@ vehCSATAttack = vehCSATAPC + [vehCSATTank];
 //Boats
 vehCSATBoat = "UK3CB_TKA_O_RHIB_Gunboat";
 vehCSATRBoat = "UK3CB_CW_SOV_O_LATE_MTLB_PKT";
-vehCSATBoats = [vehCSATBoat,vehCSATRBoat] + [vehCSATAPC];
+vehCSATBoats = [vehCSATBoat,vehCSATRBoat,"UK3CB_CW_SOV_O_LATE_BTR80"];
 //Planes
 vehCSATPlane = "UK3CB_CW_SOV_O_LATE_Su25SM";
 vehCSATPlaneAA = "UK3CB_CW_SOV_O_LATE_MIG29S";

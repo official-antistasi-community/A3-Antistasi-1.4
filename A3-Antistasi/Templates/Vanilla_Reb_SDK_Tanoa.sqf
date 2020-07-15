@@ -45,11 +45,11 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 //Military Vehicles
 vehSDKBike = "I_G_Quadbike_01_F";
 vehSDKLightArmed = "I_G_Offroad_01_armed_F";
-vehSDKAT = "I_G_Offroad_02_AT_F";
+vehSDKAT = "I_C_Offroad_02_AT_F";
 vehSDKLightUnarmed = "I_G_Offroad_01_F";
-vehSDKTruck = "I_C_Van_01_Transport_F";
+vehSDKTruck = "I_C_Van_01_transport_F";
 //vehSDKHeli = "I_C_Heli_Light_01_civil_F";
-vehSDKPlane = "I_C_Plane_civil_01_F";
+vehSDKPlane = "I_C_Plane_Civil_01_F";
 vehSDKBoat = "I_C_Boat_Transport_01_F";
 vehSDKRepair = "B_G_Offroad_01_repair_F";
 
@@ -64,8 +64,8 @@ civBoat = "C_Boat_Transport_02_F";
 ////////////////////////////////////
 //Assembled Static Weapons
 SDKMGStatic = "I_G_HMG_02_high_F";
-staticATteamPlayer = "I_Static_AT_F";
-staticAAteamPlayer = "I_Static_AA_F";
+staticATteamPlayer = "I_static_AT_F";
+staticAAteamPlayer = "I_static_AA_F";
 SDKMortar = "I_G_Mortar_01_F";
 SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
 SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";

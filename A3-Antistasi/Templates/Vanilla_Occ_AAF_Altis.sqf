@@ -162,7 +162,7 @@ if (gameMode != 4) then
 	{
 	vehFIAArmedCar = "I_C_Offroad_02_LMG_F";
 	vehFIATruck = "I_C_Van_01_transport_F";
-	vehFIACar = "C_Offroad_01_F";
+	vehFIACar = "I_C_Offroad_02_unarmed_F";
 	};
 
 //Police Vehicles

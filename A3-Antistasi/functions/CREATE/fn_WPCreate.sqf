@@ -120,7 +120,7 @@ if (worldName == "Tanoa") then {
 	if (_roadsMrk isEqualTo []) exitWith
 	{
 		diag_log "Could not find any road marker in range, assuming direct way!";
-		_finalArray = [_mrkDestination];
+		_finalArray = [];
 	};
 
 	_roadsMrk = [_roadsMrk, [], {getMarkerPos _x distance2d _posOrigin}, "ASCEND"] call BIS_fnc_sortBy;
@@ -143,7 +143,8 @@ if (worldName == "Tanoa") then {
 };
 
 private _waypoints = _finalArray apply {_groupX addWaypoint [getMarkerPos (_x), 0]};
+{_x setWaypointBehaviour "SAFE"} forEach _waypoints;
 
-_groupX setCurrentWaypoint (_waypoints select 0);
+if (count _waypoints > 0) then { _groupX setCurrentWaypoint (_waypoints select 0) };
 
 _waypoints;

@@ -10,6 +10,7 @@ flagX allowDamage false;
 vehicleBox allowDamage false;
 fireX allowDamage false;
 mapX allowDamage false;
+teamPlayer = side group petros; 				// moved here because it must be initialized before accessing any saved vars
 
 //Load server id
 serverID = profileNameSpace getVariable ["ss_ServerID",nil];
@@ -233,6 +234,20 @@ distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_aggressionUpdateLoop;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
+
+// Autosave loop. Save if there were any players on the server since the last save.
+[] spawn {
+	private _lastPlayerCount = count (call A3A_fnc_playableUnits);
+	while {true} do
+	{
+		uiSleep autoSaveInterval;
+		private _playerCount = count (call A3A_fnc_playableUnits);
+		if (autoSave && (_playerCount > 0 || _lastPlayerCount > 0)) then {
+			[] remoteExecCall ["A3A_fnc_saveLoop", 2];
+		};
+		_lastPlayerCount = _playerCount;
+	};
+};
 
 [] spawn A3A_fnc_spawnDebuggingLoop;
 

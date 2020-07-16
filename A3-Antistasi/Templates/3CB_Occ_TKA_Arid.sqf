@@ -7,7 +7,7 @@ nameOccupants = "TKA";
 //Police Faction
 factionGEN = "BLU_GEN_F";
 //SF Faction
-factionMaleOccupants = "UK3CB_BAF_Faction_Army_Desert";
+factionMaleOccupants = "UK3CB_TKA_I";
 //Miltia Faction
 if (gameMode != 4) then {factionFIA = "UK3CB_TKP_I"};
 
@@ -26,17 +26,17 @@ NATOAmmobox = "I_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	["3CB_TKM_Teamleader"] call A3A_fnc_getLoadout,
+	["3CB_TKA_Teamleader"] call A3A_fnc_getLoadout,
 	//Medic
-	["3CB_TKM_Medic"] call A3A_fnc_getLoadout,
+	["3CB_TKA_Medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	["3CB_TKM_MachineGunner"] call A3A_fnc_getLoadout,
+	["3CB_TKA_MachineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	["3CB_TKM_Marksman"] call A3A_fnc_getLoadout,
+	["3CB_TKA_Marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	["3CB_TKM_AT"] call A3A_fnc_getLoadout,
+	["3CB_TKA_AT"] call A3A_fnc_getLoadout,
 	//AT2
-	["3CB_TKM_AT2"] call A3A_fnc_getLoadout
+	["3CB_TKA_AT2"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles
@@ -175,7 +175,7 @@ vehPoliceCar = "UK3CB_TKP_I_Lada_Police";
 NATOMG = "UK3CB_TKA_I_KORD_high";
 staticATOccupants = "UK3CB_TKA_I_Kornet";
 staticAAOccupants = "UK3CB_TKA_I_Igla_AA_pod";
-NATOMortar = "UK3CB_TKA_I_D30";
+NATOMortar = "UK3CB_TKA_I_2b14_82mm";
 
 //Static Weapon Bags
 MGStaticNATOB = "RHS_Kord_Gun_Bag";

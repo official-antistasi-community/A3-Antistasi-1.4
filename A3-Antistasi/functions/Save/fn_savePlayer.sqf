@@ -1,32 +1,35 @@
-params ["_playerId", "_playerUnit", ["_globalSave", false]];
-
-if (isMultiplayer && !isServer) exitwith {
-	[_playerId, _playerUnit, _globalSave] remoteExec ["A3A_fnc_savePlayer", 2];
+private _filename = "fn_savePlayer";
+if (!isServer) exitWith {
+	[1, "Miscalled server-only function", _filename] call A3A_fnc_log;
 };
+
+params ["_playerId", "_playerUnit", ["_globalSave", false]];
 
 _playerUnit = _playerUnit getVariable ["owner", _playerUnit];		// save the real player, not remote controlled AIs
 
 if (isNil "_playerId" || {_playerId == ""}) exitWith {
-	diag_log format ["[Antistasi] Not saving player of unit %1 due to missing playerID", _playerUnit];
+	[1, format ["Not saving player of unit %1 due to missing UID", _playerUnit], _filename] call A3A_fnc_log;
 };
 
 if (isNil "_playerUnit" || { isNull _playerUnit }) exitWith {
-	diag_log format ["[Antistasi] Not saving player %1 due to missing unit", _playerId];
+	[1, format ["Not saving player %1 due to missing unit", _playerId], _filename] call A3A_fnc_log;
+};
+
+if (isNil { _playerUnit getVariable "moneyX" }) exitWith {
+	[1, format ["Not saving player %1 due to missing variables. What happened here?", _playerId], _filename] call A3A_fnc_log;
 };
 
 //Only save rebel players.
 if (side group _playerUnit != teamPlayer && side group _playerUnit != sideUnknown) exitWith {
-	diag_log format ["[Antistasi] Not saving player %1 due to them being on the wrong team.", _playerId];
+	[2, format ["Not saving player %1 due to them being on the wrong team.", _playerId], _filename] call A3A_fnc_log;
 };
 
 //Used to disable saving while the player initialises. Otherwise they might disconnect, and overwrite their own save prematurely.
-//Default to being able to save - better to save when we shouldn't, than not be able to save at all. Safer, in case there's any bugs.
-if !(_playerUnit getVariable ['canSave', true]) exitWith {
-	diag_log format ["[Antistasi] Not saving player %1 due to canSave being false.", _playerId];
+if !(_playerUnit getVariable ['canSave', false]) exitWith {
+	[2, format ["Not saving player %1 due to canSave being false.", _playerId], _filename] call A3A_fnc_log;
 };
 
-savingClient = true;
-diag_log format ["[Antistasi] Saving player %1 on side %2", _playerId, side group _playerUnit];
+[2, format ["Saving player %1 on side %2", _playerId, side group _playerUnit], _filename] call A3A_fnc_log;
 
 // Add player to saved list so that we can find the data for deletion
 if !(_playerId in savedPlayers) then {
@@ -35,15 +38,10 @@ if !(_playerId in savedPlayers) then {
 };
 
 private _shouldStripLoadout = false;
-if (hasACEMedical && {_playerUnit getVariable ["ACE_isUnconscious", false]}) then 
+if (!(alive _playerUnit) || (_playerUnit getVariable ["incapacitated", false])) then 
 {
 	_shouldStripLoadout = true;
-	diag_log format ["[Antistasi] Stripping saved loadout of player %1 due to saving while being ACE unconscious", _playerId];
-};
-
-if !(lifeState _playerUnit == "HEALTHY" || lifeState _playerUnit == "INJURED") then {
-	_shouldStripLoadout = true;
-	diag_log format ["[Antistasi] Stripping saved loadout loadout of player %1 due to saving while not being healthy or injured", _playerId];
+	[2, format ["Stripping saved loadout of player %1 due to saving while dead or unconcious", _playerId], _filename] call A3A_fnc_log;
 };
 
 if (_shouldStripLoadout) then {
@@ -54,6 +52,7 @@ if (_shouldStripLoadout) then {
 
 if (isMultiplayer) then
 {
+	private _garage = [_playerUnit] call A3A_fnc_getPersonalGarage;
 	[_playerId, "scorePlayer", _playerUnit getVariable "score"] call A3A_fnc_savePlayerStat;
 	[_playerId, "rankPlayer", rank _playerUnit] call A3A_fnc_savePlayerStat;
 	[_playerId, "personalGarage", [_playerUnit] call A3A_fnc_getPersonalGarage] call A3A_fnc_savePlayerStat;
@@ -83,10 +82,10 @@ if (isMultiplayer) then
 
 		} forEach (units group _playerUnit);
 	};
-
 	[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
+
+	[2, format ["Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney, count _garage], _filename] call A3A_fnc_log;
 };
 
 if (!_globalSave) then { saveProfileNamespace };
-savingClient = false;
 true;

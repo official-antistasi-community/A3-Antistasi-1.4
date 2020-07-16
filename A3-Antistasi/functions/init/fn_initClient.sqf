@@ -81,7 +81,7 @@ else {
 private ["_colourTeamPlayer", "_colorInvaders"];
 _colourTeamPlayer = teamPlayer call BIS_fnc_sideColor;
 _colorInvaders = Invaders call BIS_fnc_sideColor;
-_positionX = if (side player == side (group petros)) then {position petros} else {getMarkerPos "respawn_west"};
+_positionX = if (side player isEqualTo teamPlayer) then {position petros} else {getMarkerPos "respawn_west"};
 
 {
 	_x set [3, 0.33]
@@ -157,12 +157,13 @@ if (player getVariable ["pvp",false]) exitWith {
 	}];
 };
 
-player setVariable ["score",0,true];
+// Placeholders, should get replaced globally by the server
+player setVariable ["score",0];
+player setVariable ["moneyX",0];
+player setVariable ["rankX",rank player];
+
 player setVariable ["owner",player,true];
 player setVariable ["punish",0,true];
-player setVariable ["moneyX",95,true];
-player setUnitRank "PRIVATE";
-player setVariable ["rankX",rank player,true];
 
 stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
@@ -513,8 +514,11 @@ if (isMultiplayer) then {
 else
 {
 	if (loadLastSave) then {
-		[] spawn A3A_fnc_loadPlayer;
+		// just do this directly, because playerHasSave doesn't work without moneyX
+		private _loadout = [getPlayerUID player, "loadoutPlayer"] call A3A_fnc_retrievePlayerStat;
+		if (!isNil "_loadout") then { player setUnitLoadout _loadout };
 	};
+	player setVariable ["canSave", true];
 };
 
 

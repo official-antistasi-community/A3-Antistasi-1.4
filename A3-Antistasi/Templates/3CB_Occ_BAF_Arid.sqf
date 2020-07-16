@@ -5,17 +5,17 @@
 nameOccupants = "BAF";
 
 //Police Faction
-factionGEN = "BLU_GEN_F";
+factionGEN = "UK3CB_TKP_B";
 //SF Faction
 factionMaleOccupants = "UK3CB_BAF_Faction_Army_Desert";
 //Miltia Faction
-if ((gameMode != 4) and (!hasFFAA)) then {factionFIA = "UK3CB_TKP_B"};
+if ((gameMode != 4) and (!hasFFAA)) then {factionFIA = "UK3CB_TKA_B"};
 
 //Flag Images
 NATOFlag = "Flag_UK_F";
 NATOFlagTexture = "\A3\Data_F\Flags\flag_uk_co.paa";
 flagNATOmrk = "flag_UK";
-if (isServer) then {"NATO_carrier" setMarkerText "HMS Ark Royal"};
+if (isServer) then {"NATO_carrier" setMarkerText "HMS Queen Elizabeth"};
 
 //Loot Crate
 NATOAmmobox = "B_supplyCrate_F";
@@ -59,13 +59,13 @@ NATOPilot = "UK3CB_BAF_HeliPilot_RAF_DDPM";
 //Militia Units
 if ((gameMode != 4) and (!hasFFAA)) then
 	{
-	FIARifleman = "UK3CB_BAF_Rifleman_Smock_DPMW";
-	FIAMarksman = "UK3CB_BAF_Pointman_Smock_DPMW";
+	FIARifleman = "UK3CB_TKA_B_RIF_2";
+	FIAMarksman = "UK3CB_TKA_B_MK";
 	};
 
 //Police Units
-policeOfficer = "UK3CB_ANP_B_TL";
-policeGrunt = "UK3CB_ANP_B_RIF_1";
+policeOfficer = "UK3CB_TKP_B_OFF";
+policeGrunt = "UK3CB_TKP_B_RIF_1";
 
 ////////////////////////////////////
 //            GROUPS             ///
@@ -76,8 +76,8 @@ groupsNATOSentry = ["UK3CB_BAF_Grenadier_DDPM",NATOGrunt];
 groupsNATOSniper = ["UK3CB_BAF_Sniper_DDPM_Ghillie_L115_RM","UK3CB_BAF_Spotter_DDPM_Ghillie_L85_RM"];
 groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper];
 //Fireteams
-groupsNATOAA = ["rhsusf_army_ocp_fso","rhsusf_army_ocp_aa","rhsusf_army_ocp_aa","rhsusf_army_ocp_aa"];
-groupsNATOAT = ["UK3CB_BAF_Officer_DDPM","UK3CB_BAF_MAT_DDPM","UK3CB_BAF_MAT_DDPM","UK3CB_BAF_MATC_DDPM"];
+groupsNATOAA = ["UK3CB_TKA_B_AA","UK3CB_TKA_B_AA_ASST","UK3CB_TKA_B_AA","UK3CB_TKA_B_AA_ASST"];
+groupsNATOAT = ["UK3CB_BAF_MAT_DDPM","UK3CB_BAF_MATC_DDPM","UK3CB_BAF_MAT_DDPM","UK3CB_BAF_MATC_DDPM"];
 groupsNATOmid = [["UK3CB_BAF_Officer_DDPM","UK3CB_BAF_MGLMG_DDPM","UK3CB_BAF_Grenadier_DDPM","UK3CB_BAF_GunnerM6_DDPM"],groupsNATOAA,groupsNATOAT];
 //Squads
 NATOSquad = ["UK3CB_BAF_Officer_DDPM",NATOGrunt,"UK3CB_BAF_GunnerM6_DDPM",NATOMarksman,"UK3CB_BAF_Officer_DDPM","UK3CB_BAF_LSW_DDPM","UK3CB_BAF_Explosive_DDPM","UK3CB_BAF_Medic_DDPM"];
@@ -97,19 +97,19 @@ if ((gameMode != 4) and (!hasFFAA)) then
 	//Teams
 	groupsFIASmall =
 		[
-		["UK3CB_BAF_Grenadier_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],
-		["UK3CB_BAF_LAT_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],
-		["UK3CB_BAF_Sniper_Smock_DPMW_Ghillie","UK3CB_BAF_Spotter_Smock_DPMW_Ghillie"]
+		["UK3CB_TKA_B_TL","UK3CB_TKA_B_RIF_1"],
+		["UK3CB_TKA_B_AT","UK3CB_TKA_B_AT_ASST"],
+		["UK3CB_TKA_B_SNI","UK3CB_TKA_B_SPOT"]
 		];
 	//Fireteams
 	groupsFIAMid =
 		[
-		["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_Pointman_Smock_DPMW","UK3CB_BAF_MGGPMG_Smock_DPMW","UK3CB_BAF_MGGPMGA_Smock_DPMW"],
-		["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_GunnerM6_Smock_DPMW","UK3CB_BAF_Grenadier_Smock_DPMW","UK3CB_BAF_MAT_Smock_DPMW"],
-		["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_MAT_Smock_DPMW","UK3CB_BAF_MATC_Smock_DPMW","UK3CB_BAF_Engineer_Smock_DPMW"]
+		["UK3CB_TKA_B_TL","UK3CB_TKA_B_AR","UK3CB_TKA_B_ENG","UK3CB_TKA_B_LAT"],
+		["UK3CB_TKA_B_TL","UK3CB_TKA_B_MG","UK3CB_TKA_B_MG_ASST","UK3CB_TKA_B_LAT"],
+		["UK3CB_TKA_B_TL","UK3CB_TKA_B_MK","UK3CB_TKA_B_DEM","UK3CB_TKA_B_LAT"]
 		];
 	//Squads
-	FIASquad = ["UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW","UK3CB_BAF_LAT_Smock_DPMW","UK3CB_BAF_FAC_Smock_DPMW","UK3CB_BAF_MGGPMG_Smock_DPMW","UK3CB_BAF_MGGPMGA_Smock_DPMW","UK3CB_BAF_Marksman_Smock_DPMW","UK3CB_BAF_Medic_Smock_DPMW"];
+	FIASquad = ["UK3CB_TKA_B_SL","UK3CB_TKA_B_LAT","UK3CB_TKA_B_MK","UK3CB_TKA_B_RIF_1","UK3CB_TKA_B_TL","UK3CB_TKA_B_AR","UK3CB_TKA_B_LAT","UK3CB_TKA_B_MD"];
 	groupsFIASquad = [FIASquad];
 	};
 
@@ -132,7 +132,7 @@ vehNATORepairTruck = "UK3CB_BAF_MAN_HX58_Repair_Sand_DDPM";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
 vehNATOAPC = ["UK3CB_BAF_FV432_Mk3_GPMG_Sand_DDPM","UK3CB_BAF_FV432_Mk3_RWS_Sand_DDPM","UK3CB_BAF_Warrior_A3_D_MTP_RM","UK3CB_BAF_Warrior_A3_D_Cage_MTP_RM","UK3CB_BAF_Warrior_A3_D_Cage_Camo_MTP_RM","UK3CB_BAF_Warrior_A3_D_Camo_MTP_RM"];
-vehNATOTank = "rhsusf_m1a2sep1d_usarmy";
+vehNATOTank = "rhsusf_m1a1aimd_usarmy";
 vehNATOAA = "RHS_M6";
 vehNATOAttack = vehNATOAPC + [vehNATOTank];
 //Boats
@@ -148,7 +148,7 @@ vehNATOPatrolHeli = "UK3CB_BAF_Merlin_HC3_CSAR_DDPM_RM";
 vehNATOTransportHelis = ["UK3CB_BAF_Wildcat_AH1_TRN_8A_DDPM_RM","UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM",vehNATOPatrolHeli,"UK3CB_BAF_Chinook_HC1_DDPM"];
 vehNATOAttackHelis = ["UK3CB_BAF_Apache_AH1_CAS_DDPM_RM","UK3CB_BAF_Apache_AH1_DDPM_RM","UK3CB_BAF_Wildcat_AH1_CAS_6A_DDPM_RM","UK3CB_BAF_Wildcat_AH1_CAS_8A"];
 //UAV
-vehNATOUAV = "B_UAV_02_F";
+vehNATOUAV = "UK3CB_BAF_MQ9_Reaper_DDPM";
 vehNATOUAVSmall = "B_UAV_01_F";
 //Artillery
 vehNATOMRLS = "rhsusf_m109d_usarmy";
@@ -160,13 +160,13 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 //Militia Vehicles
 if ((gameMode != 4) and (!hasFFAA)) then
 	{
-	vehFIAArmedCar = "UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_DPMW";
-	vehFIATruck = "UK3CB_BAF_MAN_HX60_Cargo_Sand_A_DDPM";
-	vehFIACar = "UK3CB_BAF_LandRover_Snatch_FFR_Green_A_DPMW";
+	vehFIAArmedCar = "UK3CB_TKA_B_MaxxPro_M2";
+	vehFIATruck = "UK3CB_TKA_B_Ural_Recovery";
+	vehFIACar = "UK3CB_TKA_B_M1025";
 	};
 
 //Police Vehicles
-vehPoliceCar = "UK3CB_TKP_B_Lada_Police";
+vehPoliceCar = "UK3CB_TKP_B_Hilux_Closed";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///

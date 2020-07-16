@@ -30,14 +30,7 @@ if(side (_aliveCrew select 0) == teamPlayer) exitWith
     _vehicle removeAction _actionID;
 };
 
-
-private _isAPC = (typeOf _vehicle) in vehAPCs;
 private _isTank = (typeOf _vehicle) in vehTanks;
-
-if(!_isAPC && !_isTank) exitWith
-{
-    ["Breach Vehicle", "You can only breach APCs and Tanks."] call A3A_fnc_customHint;
-};
 
 private _magazines = magazines _caller;
 private _magazineArray = [];
@@ -88,7 +81,7 @@ private _fn_selectExplosive =
 
 _index = -1;
 
-private _needed = if(_isAPC) then {breachingExplosivesAPC} else {breachingExplosivesTank};
+private _needed = if(_isTank) then {breachingExplosivesTank} else {breachingExplosivesAPC};
 private _explo = [_needed, _magazineArray] call _fn_selectExplosive;
 if(!(_explo isEqualTo [])) then
 {
@@ -103,15 +96,15 @@ if(_explosiveCount == 0) exitWith
 
 private _time = 15 + (random 5);
 private _damageDealt = 0;
-if(_isAPC) then
-{
-    _time = 25 + (random 10);
-    _damageDealt = 0.15 + random 0.15;
-};
 if(_isTank) then
 {
     _time = 45 + (random 15);
     _damageDealt = 0.25 + random 0.25;
+}
+else
+{
+    _time = 25 + (random 10);
+    _damageDealt = 0.15 + random 0.15;
 };
 
 _caller setVariable ["timeToBreach",time + _time];
@@ -171,7 +164,7 @@ if
 //Remove the correct amount of explosives
 for "_count" from 1 to _explosiveCount do
 {
-    _caller removeMagazine _explosive;
+    _caller removeMagazineGlobal _explosive;
 };
 
 //Added as the vehicle might blow up. Best not to blow up in the player's face.
@@ -227,7 +220,7 @@ private _crew = crew _vehicle;
     {
         moveOut _x;
         _x setVariable ["surrendered",true,true];
-        [_x] spawn A3A_fnc_surrenderAction;
+        [_x] remoteExec ["A3A_fnc_surrenderAction", _x];		// execute local to crewman
     }
     else
     {
@@ -236,42 +229,4 @@ private _crew = crew _vehicle;
     };
 } forEach _crew;
 
-if((_isAPC && {(typeOf _vehicle) in vehNATOAPC}) || {_isTank && {(typeOf _vehicle) in vehNATOTank}}) then
-{
-    if(_isAPC) then
-    {
-        [[10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
-    }
-    else
-    {
-        [
-            3,
-            "Rebels breached a tank",
-            "aggroEvent",
-            true
-        ] call A3A_fnc_log;
-        [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
-    };
-
-    if(citiesX findIf {(getMarkerPos _x) distance _vehicle < 300} != -1) then
-    {
-        [-1, 1, getPos _vehicle] remoteExec ["A3A_fnc_citySupportChange",2];
-    };
-}
-else
-{
-    if(_isAPC) then
-    {
-        [[0, 0], [10, 45]] remoteExec ["A3A_fnc_prestige",2];
-    }
-    else
-    {
-        [
-            3,
-            "Rebels breached a tank",
-            "aggroEvent",
-            true
-        ] call A3A_fnc_log;
-        [[0, 0], [20, 45]] remoteExec ["A3A_fnc_prestige",2];
-    };
-};
+[_vehicle, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;

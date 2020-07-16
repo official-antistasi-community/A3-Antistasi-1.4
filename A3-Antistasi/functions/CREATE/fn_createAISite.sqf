@@ -84,11 +84,6 @@ if(_marker in airportsX || {_marker in seaports || {_marker in outposts}}) then
   };
   _box call jn_fnc_logistics_addAction;
 
-  if (_marker in seaports) then
-  {
-  	_box addItemCargo ["V_RebreatherIA", round (random 5)];
-  	_box addItemCargo ["G_I_Diving", round (random 5)];
-  };
 };
 
 [_marker, _patrolMarker, _flag, _box] call A3A_fnc_cycleSpawn;

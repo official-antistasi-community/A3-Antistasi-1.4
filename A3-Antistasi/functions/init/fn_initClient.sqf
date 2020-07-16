@@ -9,7 +9,17 @@ if (isNil "logLevel") then { logLevel = 2 };scriptName "initClient.sqf";
 
 call A3A_fnc_installSchrodingersBuildingFix;
 
-if (!isServer) then { ["destroyedBuildings"] remoteExec ["A3A_fnc_requestDataFromServer", 2] };
+if (!isServer) then {
+	// get server to send us the current destroyedBuildings list, hide them locally
+	"destroyedBuildings" addPublicVariableEventHandler {
+		{ hideObject _x } forEach (_this select 1);
+	};
+	// need to wait until server has loaded the save
+	[] spawn {
+		waitUntil {(!isNil "serverInitDone")};
+		[clientOwner, "destroyedBuildings"] remoteExecCall ["publicVariableClient", 2];
+	};
+};
 
 if (hasInterface) then {
 	waitUntil {!isNull player};
@@ -23,6 +33,7 @@ if (!isServer) then {
 	call A3A_fnc_initVar;
 	if (!hasInterface) exitWith {
 		[2,format ["Headless client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
+		call A3A_fnc_loadNavGrid;
 		[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 	};
 	[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
@@ -51,7 +62,6 @@ if (isMultiplayer) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	call A3A_fnc_punishment_FF_addEH;
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {
@@ -71,7 +81,7 @@ else {
 private ["_colourTeamPlayer", "_colorInvaders"];
 _colourTeamPlayer = teamPlayer call BIS_fnc_sideColor;
 _colorInvaders = Invaders call BIS_fnc_sideColor;
-_positionX = if (side player == side (group petros)) then {position petros} else {getMarkerPos "respawn_west"};
+_positionX = if (side player isEqualTo teamPlayer) then {position petros} else {getMarkerPos "respawn_west"};
 
 {
 	_x set [3, 0.33]
@@ -147,12 +157,13 @@ if (player getVariable ["pvp",false]) exitWith {
 	}];
 };
 
-player setVariable ["score",0,true];
+// Placeholders, should get replaced globally by the server
+player setVariable ["score",0];
+player setVariable ["moneyX",0];
+player setVariable ["rankX",rank player];
+
 player setVariable ["owner",player,true];
 player setVariable ["punish",0,true];
-player setVariable ["moneyX",95,true];
-player setUnitRank "PRIVATE";
-player setVariable ["rankX",rank player,true];
 
 stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
@@ -417,6 +428,24 @@ gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",A3A_fnc_keys];
 
 //if ((!isServer) and (isMultiplayer)) then {boxX call jn_fnc_arsenal_init};
 
+
+if (hasACE) then
+{
+	if (isNil "ace_interact_menu_fnc_compileMenu" || isNil "ace_interact_menu_fnc_compileMenuSelfAction") exitWith {
+		[1, "ACE non-public functions have changed, rebel group join/leave actions will not be removed", _filename] call A3A_fnc_log;
+	};
+	// Remove group join action from all rebel unit types
+	// Need to compile the menus first, because ACE delays creating menus until a unit of that class is created
+	private _playerUnits = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_GL_F" /*greenfor*/,
+		"B_G_soldier_F", "B_G_Soldier_TL_F", "B_G_Soldier_AR_F", "B_G_medic_F", "B_G_engineer_F", "B_G_Soldier_GL_F" /*bluefor*/];
+	{
+		[_x] call ace_interact_menu_fnc_compileMenu;
+		[_x] call ace_interact_menu_fnc_compileMenuSelfAction;
+		[_x, 1,["ACE_SelfActions", "ACE_TeamManagement", "ACE_LeaveGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
+		[_x, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
+	} forEach (_playerUnits + [typePetros, staticCrewTeamPlayer, SDKUnarmed] + SDKSniper + SDKATman + SDKMedic + SDKMG + SDKExp + SDKGL + SDKMil + SDKSL + SDKEng);
+};
+
 boxX allowDamage false;
 boxX addAction ["Transfer Vehicle cargo to Ammobox", {[] spawn A3A_fnc_empty;}, 4];
 boxX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
@@ -485,8 +514,11 @@ if (isMultiplayer) then {
 else
 {
 	if (loadLastSave) then {
-		[] spawn A3A_fnc_loadPlayer;
+		// just do this directly, because playerHasSave doesn't work without moneyX
+		private _loadout = [getPlayerUID player, "loadoutPlayer"] call A3A_fnc_retrievePlayerStat;
+		if (!isNil "_loadout") then { player setUnitLoadout _loadout };
 	};
+	player setVariable ["canSave", true];
 };
 
 

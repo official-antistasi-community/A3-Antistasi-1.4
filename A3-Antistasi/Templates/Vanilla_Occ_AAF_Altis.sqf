@@ -172,19 +172,19 @@ vehPoliceCar = vehFIACar;
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled
-NATOMG = "I_HMG_01_high_F";
+NATOMG = "I_G_HMG_02_high_F";
 staticATOccupants = "I_static_AT_F";
 staticAAOccupants = "I_static_AA_F";
 NATOMortar = "I_Mortar_01_F";
 
 //Static Weapon Bags
-MGStaticNATOB = "I_HMG_01_high_weapon_F";
+MGStaticNATOB = "I_G_HMG_02_high_weapon_F";
 ATStaticNATOB = "I_AT_01_weapon_F";
 AAStaticNATOB = "I_AA_01_weapon_F";
 MortStaticNATOB = "I_Mortar_01_weapon_F";
 //Short Support
-supportStaticNATOB = "I_HMG_01_support_F";
+supportStaticNATOB = "I_G_HMG_02_support_F";
 //Tall Support
-supportStaticNATOB2 = "I_HMG_01_support_high_F";
+supportStaticNATOB2 = "I_G_HMG_02_support_high_F";
 //Mortar Support
 supportStaticNATOB3 = "I_Mortar_01_support_F";

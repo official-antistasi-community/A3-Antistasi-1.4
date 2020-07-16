@@ -71,14 +71,14 @@ SDKMortarHEMag = "rhs_mag_3vo18_10";
 SDKMortarSmokeMag = "rhs_mag_d832du_10";
 
 //Static Weapon Bags
-MGStaticSDKB = "RHS_DShkM_Gun_Bag";
+MGStaticSDKB = "RHS_NSV_Gun_Bag";
 ATStaticSDKB = "RHS_SPG9_Gun_Bag";
 AAStaticSDKB = "I_AA_01_weapon_F";
 MortStaticSDKB = "RHS_Podnos_Gun_Bag";
 //Short Support
 supportStaticSDKB = "RHS_SPG9_Tripod_Bag";
 //Tall Support
-supportStaticsSDKB2 = "RHS_DShkM_TripodHigh_Bag";
+supportStaticsSDKB2 = "RHS_NSV_Tripod_Bag";
 //Mortar Support
 supportStaticsSDKB3 = "RHS_Podnos_Bipod_Bag";
 

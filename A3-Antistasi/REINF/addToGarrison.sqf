@@ -39,6 +39,13 @@ else
 
 _leave = false;
 
+private _alreadyInGarrison = false;
+{
+	private _garrisondIn = _x getVariable "markerX";
+	if !(isNil "_garrisondIn") then {_alreadyInGarrison = true};
+} forEach _unitsX;
+if _alreadyInGarrison exitWith {["Garrison", "The units selected already are in a garrison"] call A3A_fnc_customHint};
+
 {
 if ((typeOf _x == staticCrewTeamPlayer) or (typeOf _x == SDKUnarmed) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_leave = true}
 } forEach _unitsX;

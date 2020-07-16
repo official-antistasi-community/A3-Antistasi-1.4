@@ -6,7 +6,6 @@ private ["_targetPos", "_dir", "_convoyMarker"];
 _targetPos = _route select (count _route - 1);
 
 _convoyMarker = format ["convoy%1", _convoyID];
-_convoyMarker setMarkerText (format ["%1 Convoy [%2]: Spawned", _convoyType, _convoyID]);
 
 if (!_isAir) then {
 	private _road = roadAt _pos;
@@ -41,14 +40,14 @@ private _landVehicles = [];
 for "_i" from 0 to ((count _units) - 1) do
 {
 	private _lineData = [_units select _i, _convoySide, _pos, _dir] call A3A_fnc_spawnConvoyLine;
-	
+
 	//Pushback the spawned objects
 	private _unitObjects = _lineData select 0;
 	_createdUnits pushBack _unitObjects;
-	
+
 	private _vehicle = _unitObjects select 0;
 	if (_vehicle != objNull) then {
-	
+
 		if(_vehicle isKindOf "Air") then
 		{
 			_airVehicles pushBack _vehicle;
@@ -66,7 +65,7 @@ for "_i" from 0 to ((count _units) - 1) do
 			private _fsm = [_vehicle, _route, _markers, _convoyType] execFSM "FSMs\ConvoyTravel.fsm";
 			_vehicle setVariable ["fsm", _fsm];
 		};
-				
+
 		// lastSpawn time check will try anyway if a vehicle gets stuck
 		private _lastSpawn = time;
 		waituntil {sleep 1; ((_vehicle distance2d _pos) > 15) or ((time - _lastSpawn) > 20)};
@@ -82,7 +81,7 @@ while {true} do
 {
 	sleep 2;
 	private _despawn = true;
-	
+
 	// Check whether each vehicle in the convoy (controlled by FSM) has completed its mission
 	// check last-to-first so that array deletion works correctly
 	for "_i" from ((count _createdUnits) - 1) to 0 step -1 do {
@@ -129,4 +128,3 @@ while {true} do
 		[_convoyID, _createdUnits, _convoyPos, _targetPos, _markerArray, _convoyType, _convoySide] call A3A_fnc_despawnConvoy;
 	};
 };
-

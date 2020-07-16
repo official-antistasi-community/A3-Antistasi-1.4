@@ -1,11 +1,10 @@
-diveGear append ["V_RebreatherIA","G_Diving"];
-if (side (group petros) == west) then {
-	diveGear pushBack "U_B_Wetsuit"
+if (teamPlayer isEqualTo west) then {
+	diveGear append ["U_B_Wetsuit","V_RebreatherB","G_Diving"];
 } else {
-	diveGear pushBack "U_I_Wetsuit"
+	diveGear append ["U_I_Wetsuit","V_RebreatherIA","G_Diving"];
 };
 
-if (side (group petros) == west) then {
+if (teamPlayer isEqualTo west) then {
 	flyGear pushBack "U_B_PilotCoveralls"
 } else {
 	flyGear pushBack "U_I_pilotCoveralls"

@@ -10,6 +10,7 @@ flagX allowDamage false;
 vehicleBox allowDamage false;
 fireX allowDamage false;
 mapX allowDamage false;
+teamPlayer = side group petros; 				// moved here because it must be initialized before accessing any saved vars
 
 //Load server id
 serverID = profileNameSpace getVariable ["ss_ServerID",nil];
@@ -34,6 +35,7 @@ if (isMultiplayer) then {
 	minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
 	memberOnlyMagLimit = "MemberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
 	allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
+	personalGarageMax = "personalGarageMax" call BIS_fnc_getParamValue; publicVariable "personalGarageMax";
 	civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
 	memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
 	limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
@@ -61,6 +63,7 @@ if (isMultiplayer) then {
 	minWeaps = if (isNil "minWeaps") then {25} else {minWeaps};
 	memberOnlyMagLimit = 0;
 	allowMembersFactionGarageAccess = true;
+	personalGarageMax = 2;
 	civTraffic = 1;
 	memberDistance = 10;
 	limitedFT = false;
@@ -122,9 +125,10 @@ _nul = call A3A_fnc_initVar;
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
-_nul = call A3A_fnc_initFuncs;
+call A3A_fnc_initFuncs;
 if (hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
-_nul = call A3A_fnc_initZones;
+call A3A_fnc_loadNavGrid;
+call A3A_fnc_initZones;
 if (gameMode != 1) then {
 	Occupants setFriend [Invaders,1];
 	Invaders setFriend [Occupants,1];
@@ -230,6 +234,20 @@ distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_aggressionUpdateLoop;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
+
+// Autosave loop. Save if there were any players on the server since the last save.
+[] spawn {
+	private _lastPlayerCount = count (call A3A_fnc_playableUnits);
+	while {true} do
+	{
+		uiSleep autoSaveInterval;
+		private _playerCount = count (call A3A_fnc_playableUnits);
+		if (autoSave && (_playerCount > 0 || _lastPlayerCount > 0)) then {
+			[] remoteExecCall ["A3A_fnc_saveLoop", 2];
+		};
+		_lastPlayerCount = _playerCount;
+	};
+};
 
 [] spawn A3A_fnc_spawnDebuggingLoop;
 

@@ -22,153 +22,90 @@ private _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
 private _count = 1 + round (random 3); //Change these numbers as you want, first number is minimum, max is first plus second number
 while {_spawnParameter isEqualType [] && {_count > 0}} do
 {
-	_typeVehX = selectRandom _helicopterTypes;
-	_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [],0, "CAN_COLLIDE"];
-	_veh setDir (_spawnParameter select 1);
-	_vehiclesX pushBack _veh;
-	_spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
-	_count = _count - 1;
+    _typeVehX = selectRandom _helicopterTypes;
+    _veh = createVehicle [_typeVehX, (_spawnParameter select 0), [],0, "CAN_COLLIDE"];
+    _veh setDir (_spawnParameter select 1);
+    _vehiclesX pushBack _veh;
+    _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
+    _count = _count - 1;
+};
+
+
+private _fnc_spawnStatic = {
+    params ["_type", "_pos", "_dir"];
+    private _veh = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
+    if (!isNil "_dir") then { _veh setDir _dir };
+    private _unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
+    [_unit,_markerX] call A3A_fnc_NATOinit;
+    _unit moveInGunner _veh;
+    _soldiers pushBack _unit;
+    _vehiclesX pushBack _veh;
 };
 
 for "_i" from 0 to (count _buildings) - 1 do
-	{
-	if (spawner getVariable _markerX == 2) exitWith {};
-	_building = _buildings select _i;
-	/*
-	if !(_building getVariable ["conEH",false]) then
-		{
-		_building setVariable ["conEH",true,true];
-		_building addEventHandler ["Killed",{
-			_building = _this select 0;
-			destroyedBuildings pushBackUnique (getPos _building);
-			publicVariable "destroyedBuildings";
-			}
-			];
-		};*/
-	_typeB = typeOf _building;
-	//Helipads spawn in different types of helicopter. By default, patrol helis.
-	//In the editor, drop this code in 'init' on the helipad to change that.
-	//this setVariable ["spawnableHelicopterTypes", ["patrol", "transport", "attack"]];
-	//Disabled by Wurzel, newer system in place
-
-	/*
-	if ((_typeB == "Land_HelipadSquare_F") and (!_frontierX)) then
-	{
-		private _helicopterCategories = _building getVariable ["spawnableHelicopterTypes", ["patrol"]];
-		private _helicopterTypes = [];
-		{
-			switch _x do
-			{
-				case "patrol":
-				{
-					_helicopterTypes pushBack (if (_sideX == Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli});
-				};
-				case "transport":
-				{
-					_helicopterTypes append (if (_sideX == Occupants) then {vehNATOTransportHelis} else {vehCSATTransportHelis});
-				};
-				case "attack":
-				{
-					_helicopterTypes append (if (_sideX == Occupants) then {vehNATOAttackHelis} else {vehCSATAttackHelis});
-				};
-			};
-		} forEach _helicopterCategories;
-		diag_log format ["Types of All Heli: %1", _helicopterTypes];
-		_helicopterTypes = _helicopterTypes select {[_x] call A3A_fnc_vehAvailable};
-		diag_log format ["Types of Heli: %1", _helicopterTypes];
-		_typeVehX = selectRandom _helicopterTypes;
-		_veh = createVehicle [_typeVehX, position _building, [],0, "CAN_COLLIDE"];
-		_veh setDir (getDir _building);
-		_vehiclesX pushBack _veh;
-	}
-	else
-	{
-		*/
-	if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F")) then
-	{
-		_typeVehX = if (_sideX == Occupants) then {staticAAOccupants} else {staticAAInvaders};
-		_veh = createVehicle [_typeVehX, (_building buildingPos 8), [],0, "CAN_COLLIDE"];
-		_veh setDir (getDir _building);
-		_veh setPosATL [(getPos _building select 0),(getPos _building select 1),(getPosATL _veh select 2)];
-		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-		[_unit,_markerX] call A3A_fnc_NATOinit;
-		_unit moveInGunner _veh;
-		_soldiers pushBack _unit;
-		_vehiclesX pushBack _veh;
-	}
-else
 {
-	if 	((_typeB == "Land_Cargo_Patrol_V1_F") or (_typeB == "Land_Cargo_Patrol_V2_F") or (_typeB == "Land_Cargo_Patrol_V3_F")) then
-	{
-		_typeVehX = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
-		_veh = createVehicle [_typeVehX, (_building buildingPos 1), [], 0, "CAN_COLLIDE"];
-		_ang = (getDir _building) - 180;
-		_pos = [getPosATL _veh, 2.5, _ang] call BIS_Fnc_relPos;
-		_veh setPosATL _pos;
-		_veh setDir (getDir _building) - 180;
-		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-		[_unit,_markerX] call A3A_fnc_NATOinit;
-		_unit moveInGunner _veh;
-		_soldiers pushBack _unit;
-		_vehiclesX pushBack _veh;
-	}
-	else
-	{
-		if 	((_typeB == "Land_fortified_nest_small_EP1") or (_typeB == "Land_BagBunker_Small_F") or (_typeB == "Land_BagBunker_01_small_green_F") or (_typeB == "Land_fortified_nest_small") or (_typeB == "Fort_Nest")) then
-		{
-			_typeVehX = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
-			_veh = createVehicle [_typeVehX, (_building buildingPos 1), [], 0, "CAN_COLLIDE"];
-			_ang = (getDir _building) - 180;
-			_pos = [getPosATL _veh, -1, _ang] call BIS_Fnc_relPos;
-			_veh setPosATL _pos;
-			_veh setDir (getDir _building) - 180;
-			_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-			[_unit,_markerX] call A3A_fnc_NATOinit;
-			_unit moveInGunner _veh;
-			_soldiers pushBack _unit;
-			_vehiclesX pushBack _veh;
-		}
-		else
-		{
-			if 	((_typeB == "Land_Hlaska")) then
-			{
-				_typeVehX = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
-				_veh = createVehicle [_typeVehX, (_building buildingPos 1), [], 0, "CAN_COLLIDE"];
-				_ang = (getDir _building) - 180;
-				_pos = [getPosATL _veh, -1, _ang] call BIS_Fnc_relPos;
-				_veh setPosATL _pos;
-				_veh setDir (getDir _building) - 180;
-							 
-			  
-																					   
-				_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-				[_unit,_markerX] call A3A_fnc_NATOinit;
-				_unit moveInGunner _veh;
-				_soldiers pushBack _unit;
-				_vehiclesX pushBack _veh;
-			}
-			else
-			{
-				if 	(_typeB in listbld) then
-				{
-					_typeVehX = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
-					_veh = createVehicle [_typeVehX, (_building buildingPos 11), [], 0, "CAN_COLLIDE"];
-					_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-					[_unit,_markerX] call A3A_fnc_NATOinit;
-					_unit moveInGunner _veh;
-					_soldiers pushBack _unit;
-					_vehiclesX pushBack _veh;
-					sleep 0.5;
-					_veh = createVehicle [_typeVehX, (_building buildingPos 13), [], 0, "CAN_COLLIDE"];
-					_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-					[_unit,_markerX] call A3A_fnc_NATOinit;
-					_unit moveInGunner _veh;
-					_soldiers pushBack _unit;
-					_vehiclesX pushBack _veh;
-				};
-			};
-		};
-	};
+    if (spawner getVariable _markerX == 2) exitWith {};
+    private _building = _buildings select _i;
+    private _typeB = typeOf _building;
+
+    call {
+        if (isObjectHidden _building) exitWith {};			// don't put statics on destroyed buildings
+        if 	((_typeB == "Land_Cargo_Patrol_V1_F") or (_typeB == "Land_Cargo_Patrol_V2_F") or (_typeB == "Land_Cargo_Patrol_V3_F") or (_typeB == "Land_Cargo_Patrol_V4_F")) exitWith
+        {
+            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+            private _dir = (getDir _building) - 180;
+            private _zpos = AGLToASL (_building buildingPos 1);
+            private _pos = _zpos getPos [1.5, _dir];			// zeroes Z value because BIS
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+            [_type, _pos, _dir] call _fnc_spawnStatic;
+        };
+        if 	((_typeB == "Land_fortified_nest_small_EP1") or (_typeB == "Land_BagBunker_Small_F") or (_typeB == "Land_BagBunker_01_small_green_F")
+            or (_typeB == "Land_fortified_nest_small") or (_typeB == "Fort_Nest") or (_typeB == "Land_Hlaska")) exitWith
+        {
+            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+            private _dir = (getDir _building) - 180;
+            private _zpos = AGLToASL (_building buildingPos 1);
+            private _pos = _zpos getPos [-1, _dir];
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+            [_type, _pos, _dir] call _fnc_spawnStatic;
+        };
+        if 	(_typeB in listbld) exitWith			// just the big towers?
+        {
+            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+            _dir = getDir _building;
+            _zOffset = [0, 0, -0.3]; //fix spawn hight
+            _Tdir = _dir + 90; //relative rotation to building
+            _zpos = AGLToASL (_building buildingPos 11); //relative East
+            _pos = _zpos getPos [-1, _Tdir]; //offset
+            _zpos = _zpos vectorAdd _zOffset;
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+            [_type, _pos, _Tdir] call _fnc_spawnStatic;
+            sleep 0.5;			// why only here?
+            _Tdir = _dir + 0;
+            _zpos = AGLToASL (_building buildingPos 13); //relative North
+            _pos = _zpos getPos [-0.8, _Tdir]; //offset
+            _zpos = _zpos vectorAdd _zOffset;
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+            [_type, _pos, _Tdir] call _fnc_spawnStatic;
+            sleep 0,5;
+            _Tdir = _dir + 180;
+            _zpos = AGLToASL (_building buildingPos 16); //relative South
+            _pos = _zpos getPos [-0.2, _Tdir]; //offset
+            _zpos = _zpos vectorAdd _zOffset;
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+            [_type, _pos, _Tdir] call _fnc_spawnStatic;
+        };
+        if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F")) exitWith
+        {
+            private _type = if (_sideX == Occupants) then {staticAAOccupants} else {staticAAInvaders};
+            private _dir = getDir _building;
+            private _zpos = AGLToASL (_building buildingPos 8);
+            private _pos = getPosASL _building;
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+            _pos = _pos vectorAdd [ 0, 0, 0]; //offset
+            [_type, _pos, _dir] call _fnc_spawnStatic;
+        };
+    };
 };
-};
+
 [_groupX,_vehiclesX,_soldiers]

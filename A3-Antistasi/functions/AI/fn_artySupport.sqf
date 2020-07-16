@@ -122,7 +122,7 @@ _mrkFinal setMarkerColorLocal "ColorRed";
 
 if (_typeArty == "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal "Atry Barrage Begin";
+	_mrkFinal setMarkerTextLocal "Artillery Barrage Begin";
 	positionTel = [];
 
 	["Artillery Support", "Select the position to finish the barrage"] call A3A_fnc_customHint;
@@ -187,7 +187,7 @@ if (_typeArty == "BARRAGE") then
 	_mrkFinal2 setMarkerShapeLocal "ICON";
 	_mrkFinal2 setMarkerTypeLocal "hd_destroy";
 	_mrkFinal2 setMarkerColorLocal "ColorRed";
-	_mrkFinal2 setMarkerTextLocal "Arty Barrage End";
+	_mrkFinal2 setMarkerTextLocal "Artillery Barrage End";
 	_ang = [_positionTel,_positionTel2] call BIS_fnc_dirTo;
 	sleep 5;
 	_eta = (_artyArrayDef1 select 0) getArtilleryETA [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)];

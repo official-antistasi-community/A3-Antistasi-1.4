@@ -58,7 +58,7 @@ if (typeName _UID == "OBJECT" && {isPlayer _UID}) then {
 	_UID = getPlayerUID _UID;
 };
 if !(typeName _UID == "STRING") exitWith {
-	[1, format ["INVALID PARAMS | _UID=""%1""", _UID], _filename] call A3A_fnc_log;
+	[1, format ["INVALID PARAMS | _UID=""%1""", _UID], _filename] remoteExecCall ["A3A_fnc_log",2,false];
 	false;
 };
 

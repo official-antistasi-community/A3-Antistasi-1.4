@@ -4,7 +4,7 @@
 		"",													//Muzzle
 		"RHSUSF_Acc_ANPEQ15A",								//Rail
 		"RHSUSF_Acc_M8541_Low",								//Sight
-		["RHSUSF_20Rnd_762x51_M993_Mag",20],				//Primary Magazine
+		["RHSUSF_20Rnd_762x51_M80_Mag",20],				//Primary Magazine
 		[],													//Secondary Magazine
 		"RHS_Acc_Harris_Swivel"								//Bipod
 	],
@@ -40,13 +40,13 @@
 			["RHSUSF_ANPVS_14",1],
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
-			["RHS_Mag_Mk84",1,1],
-			["RHSUSF_20Rnd_762x51_M993_Mag",5,30],
+			["RHSUSF_20Rnd_762x51_M80_Mag",5,30],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7]
 		]
 		+ _aceFlashlight
 		+ _aceKestrel
 		+ _aceRangecard
+		+ _aceM84
 	],
 
 	[//Backpack

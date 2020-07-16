@@ -9,7 +9,7 @@ petros allowDamage false;
 
 [petros,unlockedRifles] call A3A_fnc_randomRifle;
 petros selectWeapon (primaryWeapon petros);
-[petros] call A3A_fnc_punishment_FF_addEH;
+[petros,true] call A3A_fnc_punishment_FF_addEH;
 petros addEventHandler
 [
     "HandleDamage",

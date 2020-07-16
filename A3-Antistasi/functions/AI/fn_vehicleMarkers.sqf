@@ -8,7 +8,7 @@ _side = side (group (driver _veh));
 _typeX = "_unknown";
 _formatX = "";
 _color = colorOccupants;
-if (_veh isKindOf "Truck") then {_typeX = "_motor_inf"}
+if (_veh isKindOf "Truck" or _veh isKindOf "Car") then {_typeX = "_motor_inf"}
 	else
 		{
 		if (_veh isKindOf "Wheeled_APC_F") then {_typeX = "_mech_inf"}

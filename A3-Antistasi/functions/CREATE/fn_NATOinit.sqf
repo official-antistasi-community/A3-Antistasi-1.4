@@ -87,7 +87,7 @@ if (faction _unit isEqualTo factionGEN) then
         private _rifleFinal = primaryWeapon _unit;
         private _magazines = getArray (configFile / "CfgWeapons" / _rifleFinal / "magazines");
         {
-            _unit removeMagazines _x;
+            _unit removeMagazines _x;			// Broken, doesn't remove mags globally. Pain to fix.
         } forEach _magazines;
         _unit removeWeaponGlobal (_rifleFinal);
         if (tierWar < 5) then

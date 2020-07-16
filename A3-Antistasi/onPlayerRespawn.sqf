@@ -179,7 +179,9 @@ if (side group player == teamPlayer) then
 		_control
 		}];
 		*/
-	call A3A_fnc_punishment_FF_addEH;
+	if (hasInterface) then {
+		[player] call A3A_fnc_punishment_FF_addEH;
+	};
 	player addEventHandler ["HandleHeal",
 		{
 		_player = _this select 0;

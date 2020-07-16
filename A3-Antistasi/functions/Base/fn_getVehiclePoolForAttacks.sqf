@@ -14,7 +14,10 @@
 
 params ["_side", ["_filter", []]];
 
+private _fileName = "getVehiclePoolForAttacks";
 private _vehicleSelection = [];
+
+[3, format ["Now searching for attack vehicle pool for %1 with filter %2", _side, _filter], _fileName] call A3A_fnc_log;
 //In general is Invaders always a bit less chill than the occupants, they will use heavier vehicles more often and earlier
 switch (tierWar) do
 {
@@ -316,7 +319,7 @@ _fn_checkElementAgainstFilter =
             [
                 3,
                 format ["%1 didnt passed filter %2", _element, _x],
-                "getVehiclePoolForAttacks"
+                _fileName
             ] call A3A_fnc_log;
         };
     } forEach _filter;
@@ -329,7 +332,16 @@ private _vehiclePool = [];
 {
     if((_x select 0) isEqualType []) then
     {
-        private _points = (_x select 1)/(count (_x select 0));
+        private _points = 0;
+        private _vehicleCount = count (_x select 0);
+        if(_vehicleCount != 0) then
+        {
+            _points = (_x select 1)/_vehicleCount;
+        }
+        else
+        {
+            [1, "Found vehicle array with no defined vehicles!", _fileName] call A3A_fnc_log;
+        };
         {
             if(([_x, _filter] call _fn_checkElementAgainstFilter) && {[_x] call A3A_fnc_vehAvailable}) then
             {
@@ -351,7 +363,7 @@ private _vehiclePool = [];
 [
     3,
     format ["For %1 and war level %2 selected units are %3, filter was %4", _side, tierWar, _vehiclePool, _filter],
-    "getVehiclePoolForAttacks"
+    _fileName
 ] call A3A_fnc_log;
 
 _vehiclePool;

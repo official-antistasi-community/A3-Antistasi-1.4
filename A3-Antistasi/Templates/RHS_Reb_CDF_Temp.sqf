@@ -1,7 +1,7 @@
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
-nameTeamPlayer = "FIA";
+nameTeamPlayer = "Rebels";
 SDKFlag = "Flag_FIA_F";
 SDKFlagTexture = "\A3\Data_F\Flags\Flag_FIA_CO.paa";
 typePetros = "rhsgref_cdf_b_reg_general";

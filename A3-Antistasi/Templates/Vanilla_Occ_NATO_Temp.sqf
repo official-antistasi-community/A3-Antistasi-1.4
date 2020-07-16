@@ -1,4 +1,3 @@
-if (side petros == west) exitWith {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_AAF_Altis.sqf"};
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
@@ -49,7 +48,7 @@ vehNATOPVP = ["B_MRAP_01_F","B_MRAP_01_hmg_F","B_Quadbike_01_F"];
 //Military Units
 NATOGrunt = "B_W_Soldier_F";
 NATOOfficer = "B_W_Officer_F";
-NATOOfficer2 = "B_Competitor_F"; 
+NATOOfficer2 = "B_Competitor_F";
 NATOBodyG = "B_W_Soldier_TL_F";
 NATOCrew = "B_W_Crew_F";
 NATOUnarmed = "B_W_Survivor_F";
@@ -152,7 +151,7 @@ vehNATOTransportPlanes = ["B_T_VTOL_01_infantry_F"];
 //Heli
 vehNATOPatrolHeli = "B_Heli_Light_01_F";
 vehNATOTransportHelis = ["B_Heli_Transport_03_F",vehNATOPatrolHeli,"B_Heli_Transport_01_camo_F"];
-vehNATOAttackHelis = ["B_T_VTOL_01_armed_F","B_Heli_Light_01_armed_F","B_Heli_Attack_01_F"];
+vehNATOAttackHelis = ["B_Heli_Light_01_armed_F","B_Heli_Attack_01_F"];
 //UAV
 vehNATOUAV = "B_UAV_02_F";
 vehNATOUAVSmall = "B_UAV_01_F";
@@ -178,19 +177,19 @@ vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled Statics
-NATOMG = "B_HMG_01_high_F";
+NATOMG = "I_G_HMG_02_high_F";
 staticATOccupants = "B_static_AT_F";
 staticAAOccupants = "B_static_AA_F";
 NATOMortar = "B_Mortar_01_F";
 
 //Static Weapon Bags
-MGStaticNATOB = "B_HMG_01_high_weapon_F";
+MGStaticNATOB = "I_G_HMG_02_high_weapon_F";
 ATStaticNATOB = "B_AT_01_weapon_F";
 AAStaticNATOB = "B_AA_01_weapon_F";
 MortStaticNATOB = "B_Mortar_01_weapon_F";
 //Short Support
-supportStaticNATOB = "B_HMG_01_support_F";
+supportStaticNATOB = "I_G_HMG_02_support_F";
 //Tall Support
-supportStaticNATOB2 = "B_HMG_01_support_high_F";
+supportStaticNATOB2 = "I_G_HMG_02_support_high_F";
 //Mortar Support
 supportStaticNATOB3 = "B_Mortar_01_support_F";

@@ -1,76 +1,75 @@
-[//Loadout
-	[//Primary Weapon
-		"SMG_05_F",											//Weapon
-		"Muzzle_SNDS_L",									//Muzzle
-		"RHSUSF_Acc_WMX_Bk",								//Rail
-		"Optic_Holosight_SMG_Blk_F",						//Sight
-		["30Rnd_9x21_Mag_SMG_02",30],						//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
-	],
+[                                            //Loadout
+  [                                              //Primary Weapon
+    "rhs_weap_ak105_zenitco01",                      //Weapon
+    "rhs_acc_dtk3",                                  //Muzzle
+    "rhs_acc_perst3_2dp_h",                          //Rail
+    "rhs_acc_pkas",                                  //Sight
+    ["rhs_30rnd_545x39_7n10_ak",30],                //Primary Magazine
+    [],                                              //Secondary Magazine
+    ""                                              //Bipod
+  ],
 
-	[//Launcher
-		"",													//Weapon
-		"",													//Muzzle
-		"",													//Rail
-		"",													//Sight
-		[],													//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
-	],
+  [                                              //Launcher
+    "",                                              //Weapon
+    "",                                              //Muzzle
+    "",                                              //Rail
+    "",                                              //Sight
+    [],                                              //Primary Magazine
+    [],                                              //Secondary Magazine
+    ""                                              //Bipod
+  ],
 
-	[//Secondary Weapon
-		"RHSUSF_Weap_Glock17G4",							//Weapon
-		"RHSUSF_Acc_Omega9K",								//Muzzle
-		"Acc_Flashlight_Pistol",							//Rail
-		"",													//Sight
-		["16Rnd_9x21_Mag",17],								//Primary Magazine
-		[],													//Secondary Magazine
-		""													//Bipod
-	],
+  [                                              //Secondary Weapon
+    "RHS_Weap_makarov_pm",                          //Weapon
+    "",                                              //Muzzle
+    "",                                              //Rail
+    "",                                              //Sight
+    ["rhs_mag_9x18_8_57n181s",8],                    //Primary Magazine
+    [],                                              //Secondary Magazine
+    ""                                              //Bipod
+  ],
 
-	[//Uniform
-		"U_B_GEN_Soldier_F",								//Uniform
-		[] + _basicMedicalSupplies + _basicMiscItems
-	],
+  [                                              //Uniform
+    "rhsgref_uniform_ttsko_mountain",                //Uniform
+    [] + _basicMedicalSupplies + _basicMiscItems
+  ],
 
-	[//Vest
-		"V_TacVest_Blk_Police",								//Vest
-		[//Inventory
-			["RHS_1PN138",1],
-			["H_Cap_Police",1],
-			["RHS_Mag_An_M8HC",1,1],
-			["30Rnd_9x21_Mag_SMG_02",4,30],
-			["16Rnd_9x21_Mag",2,17]
-		] 
-		+ _aceFlashlight
-		+ _aceM84
-	],
+  [                                              //Vest
+    "rhsgref_6b23_ttsko_mountain_rifleman",          //Vest
+    [                                                    //Inventory
+      ["RHS_Mag_rgd5",2,1],
+      ["RHS_mag_rdg2_white",2,1],
+      ["rhs_30rnd_545x39_7n10_ak",4,30],
+      ["rhs_mag_9x18_8_57n181s",1,8]
+    ]
+    + _aceFlashlight
+    + _aceM84
+  ],
 
-	[//Backpack
-		"B_Messenger_Black_F",								//Backpack
-		[] + _medicSupplies
-	],
+  [                                              //Backpack
+    "rhs_medic_bag",                                //Backpack
+    [] + _medicSupplies
+  ],
 
-	"H_PASGT_Basic_Blue_F",									//Headgear
-	"G_Balaclava_Ti_Blk_F",									//Facewear
+    "rhsgref_ssh68_ttsko_mountain",              //Headgear
+    "",                                          //Facewear
 
-	[//Binocular
-		"",													//Binocular
-		"",
-		"",
-		"",
-		[],
-		[],
-		""
-	],
+  [                                              //Binocular
+    "Binocular",                                    //Binocular
+    "",
+    "",
+    "",
+    [],
+    [],
+    ""
+  ],
 
-	[//Item
-		"ItemMap",											//Map
-		"",													//Terminal
-		["TF_PNR1000A_26"] call _fnc_tfarRadio,				//Radio
-		"ItemCompass",										//Compass
-		_tfarMicroDAGRNoArray,										//Watch
-		""													//Goggles
-	]
+  [                                              //Item
+    "ItemMap",                                      //Map
+    "",                                              //Terminal
+    ["TF_anprc148jem"] call _fnc_tfarRadio,          //Radio
+    "ItemCompass",                                  //Compass
+    _tfarMicroDAGRNoArray,                          //Watch
+    "rhs_1pn138"                                    //Goggles
+  ]
 ];

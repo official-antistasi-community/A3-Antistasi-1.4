@@ -94,6 +94,8 @@ _plane = _planefn select 0;
 _planeCrew = _planefn select 1;
 _groupPlane = _planefn select 2;
 {_x setVariable ["spawner",true,true]} forEach _planeCrew;
+[_plane, _sideX] call A3A_fnc_AIVEHinit;
+
 _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
 _plane setVelocityModelSpace (velocityModelSpace _plane vectorAdd [0, 150, 50]);
 _plane disableAI "TARGET";
@@ -108,8 +110,9 @@ _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "LIMITED";
 _wp1 setWaypointBehaviour "CARELESS";
 _plane setCollisionLight true;
+
 if ((_typeX == "NAPALM") and (napalmCurrent)) then {_typeX = "CLUSTER"};
-if (_typeX == "HE") then {_wp1 setWaypointStatements ["true", "[this,""HE""] spawn A3A_fnc_airbomb"]} else {if (_typeX == "NAPALM") then {_wp1 setWaypointStatements ["true", "[this,""NAPALM""] spawn A3A_fnc_airbomb"]} else {_wp1 setWaypointStatements ["true", "[this,""CLUSTER""] spawn A3A_fnc_airbomb"]}};
+_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1'] spawn A3A_fnc_airbomb", _typeX]];
 
 _wp2 = _groupPlane addWaypoint [_pos2, 1];
 _wp2 setWaypointSpeed "LIMITED";
@@ -118,17 +121,15 @@ _wp2 setWaypointType "MOVE";
 _wp3 = _groupPlane addWaypoint [_finpos, 2];
 _wp3 setWaypointType "MOVE";
 _wp3 setWaypointSpeed "FULL";
-_wp3 setWaypointStatements ["true", "{deleteVehicle _x} forEach crew this; deleteVehicle this"];
 
-waitUntil {sleep 2; (currentWaypoint _groupPlane == 4) or (!alive _plane)};
+_timeOut = time + 300;
+waitUntil { sleep 2; (currentWaypoint _groupPlane == 4) or (time > _timeOut) };
 
-if (alive _plane) then
-	{
-	deleteVehicle _plane;
-	}
-else
-	{
-	[_plane] spawn A3A_fnc_postMortem;
-	};
-{deleteVehicle _x} forEach _planeCrew;
-deleteGroup _groupPlane;
+if (time >_timeOut) then {
+    [_groupPlane] spawn A3A_fnc_groupDespawner;
+    [_plane] spawn A3A_fnc_vehDespawner;
+} else {
+    { deleteVehicle _x } forEach _planeCrew;
+    deleteGroup _groupPlane;
+    deleteVehicle _plane;
+};

@@ -49,7 +49,7 @@ if (_varName in specialVarLoads) then {
 	if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
 	if (_varName == 'nextTick') then {nextTick = time + _varValue};
 	if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
-	if (_varName == 'smallCAmrk') then {smallCAmrk = +_varValue};
+	if (_varName == 'smallCAmrk') then {};		// Ignore. These are not persistent.
 	if (_varName == 'mrkNATO') then {{sidesX setVariable [_x,Occupants,true]} forEach _varValue;};
 	if (_varName == 'mrkCSAT') then {{sidesX setVariable [_x,Invaders,true]} forEach _varValue;};
 	if (_varName == 'mrkSDK') then {{sidesX setVariable [_x,teamPlayer,true]} forEach _varValue;};
@@ -67,11 +67,13 @@ if (_varName in specialVarLoads) then {
     {
         aggressionLevelOccupants = _varValue select 0;
         aggressionStackOccupants = +(_varValue select 1);
+        [true] spawn A3A_fnc_calculateAggression;
     };
     if (_varName == 'aggressionInvaders') then
     {
         aggressionLevelInvaders = _varValue select 0;
         aggressionStackInvaders = +(_varValue select 1);
+        [true] spawn A3A_fnc_calculateAggression;
     };
 	if (_varName == 'hr') then {server setVariable ["HR",_varValue,true]};
 	if (_varName == 'dateX') then {setDate _varValue};

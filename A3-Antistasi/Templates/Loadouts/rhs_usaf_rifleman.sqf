@@ -41,11 +41,11 @@
 			["RHSUSF_ANPVS_14",1],
 			["RHS_Mag_An_M8HC",2,1],
 			["RHS_Mag_M67",1,1],
-			["RHS_Mag_Mk84",1,1],
 			["RHS_Mag_30Rnd_556x45_M855A1_Stanag",6,30],
 			["RHSUSF_Mag_7x45ACP_MHP",2,7]
 		]
 		+ _aceFlashlight
+		+ _aceM84
 	],
 
 	//Backpack

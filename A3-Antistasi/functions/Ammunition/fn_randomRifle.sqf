@@ -16,7 +16,7 @@ private _rifleFinal = selectRandom _pool;
 if !(primaryWeapon _unit isEqualTo "") then {
 	if (_rifleFinal == primaryWeapon _unit) exitWith {};
 	private _magazines = getArray (configFile / "CfgWeapons" / (primaryWeapon _unit) / "magazines");
-	{_unit removeMagazines _x} forEach _magazines;
+	{_unit removeMagazines _x} forEach _magazines;			// Broken, doesn't remove mags globally. Pain to fix.
 	_unit removeWeapon (primaryWeapon _unit);
 };
 

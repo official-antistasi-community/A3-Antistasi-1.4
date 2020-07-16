@@ -157,10 +157,6 @@ if (debug) then {
 diag_log format ["%1: [Antistasi] | DEBUG | initZones | Roads built in %2.",servertime,worldname];
 };
 
-[2,"Loading nav grid",_fileName] call A3A_fnc_log;
-[] call A3A_fnc_loadNavGrid;
-[2,"Loaded nav grid",_fileName] call A3A_fnc_log;
-
 
 markersX = markersX + citiesX;
 sidesX setVariable ["Synd_HQ", teamPlayer, true];

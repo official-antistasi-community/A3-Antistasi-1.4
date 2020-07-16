@@ -214,15 +214,6 @@ while {true} do
 			};
 		} forEach allUnits;
 		};
-	if (autoSave) then
-	{
-		_countSave = _countSave - 600;
-		if (_countSave <= 0) then
-		{
-			_countSave = autoSaveInterval;
-			[] remoteExecCall ["A3A_fnc_saveLoop", 0, false];
-		};
-	};
 
 	sleep 4;
 	};

@@ -47,7 +47,7 @@ format [
 	,count entities ""
 	,{!isPlayer _x && !isNull (_x findNearestEnemy _x)} count allUnits
 	,{behaviour leader _x == "COMBAT"} count allGroups
-	,resourcesFIA
-	,hr
+	,server getVariable "resourcesFIA"
+	,server getVariable "hr"
 ]
 , _filename] call A3A_fnc_log;

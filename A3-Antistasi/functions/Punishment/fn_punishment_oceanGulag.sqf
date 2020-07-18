@@ -69,6 +69,7 @@ switch (toLower _operation) do {
 		_punishment_platform setPos [_pos2D #0, _pos2D #1, -0.25];
 
 		if (isPlayer _detainee) then {
+			// TODO Pull people from vehicles
 			_detainee setPos [_pos2D #0, _pos2D #1, 0.25];
 		};
 		true;

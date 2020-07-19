@@ -10,7 +10,7 @@ Scope:
 	<ANY>
 
 Environment:
-	<ANY>
+	<UNSCHEDULED>
 
 Parameters:
 	<OBJECT> Player that is being verified for FF.
@@ -31,7 +31,6 @@ Examples:
 	[cursorObject,"forgive"] remoteExec [A3A_fnc_punishment_release,2]; // Forgive all sins
 
 Author: Caleb Serafin
-Date Updated: 14 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull],["_customMessage",""]];
@@ -118,9 +117,9 @@ if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _inst
 		_instigator = [_UID] call BIS_fnc_getUnitByUid;
 		_instigatorHuman = _instigator getVariable ["owner",_instigator];
 		if (_instigator isEqualTo _instigatorHuman) exitWith {true;};
-		uiSleep 1;
+		uiSleep 0.1;
 		false;
 	};
-	[_UID,_timeTotal] remoteExec ["A3A_fnc_punishment_sentence_server",2,false];
+	[_UID,_timeTotal] call A3A_fnc_punishment_sentence_server; // Scope is within scheduled space.
 };
 "FOUND GUILTY";

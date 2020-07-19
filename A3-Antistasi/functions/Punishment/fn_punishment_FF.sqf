@@ -12,7 +12,7 @@ Scope:
     <LOCAL> Execute on player you wish to verify for FF. (For 'BIS_fnc_admin' and 'isServer').
 
 Environment:
-    <ANY>
+    <UNSCHEDULED>
 
 Parameters 1:
     <OBJECT> Player that is being verified for FF.
@@ -45,7 +45,6 @@ Examples 2:
     [[objNull,player], 0, 0, cursorObject] call A3A_fnc_punishment_FF; // Test self with victim
 
 Author: Caleb Serafin
-Date Updated: 14 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params [
@@ -148,7 +147,7 @@ if (_exemption != "") exitWith {
 };
 
 ///////////////Drop The Hammer//////////////
-[_instigator,_timeAdded,_offenceAdded,_victim,_customMessage] remoteExec ["A3A_fnc_punishment",2,false];
+[_instigator,_timeAdded,_offenceAdded,_victim,_customMessage] remoteExecCall ["A3A_fnc_punishment",2,false];
 "PROSECUTED";
 
 

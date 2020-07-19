@@ -70,6 +70,7 @@ switch (toLower _operation) do {
 
 		if (isPlayer _detainee) then {
 			// TODO Pull people from vehicles
+			if !(isNull objectParent _detainee) then { moveOut _detainee };
 			_detainee setPos [_pos2D #0, _pos2D #1, 0.25];
 		};
 		true;

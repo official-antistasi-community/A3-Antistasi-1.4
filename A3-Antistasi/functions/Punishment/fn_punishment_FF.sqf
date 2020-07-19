@@ -119,7 +119,7 @@ if (_isCollision) then {
 
 /////////Checks for important roles/////////
 _exemption = switch (true) do {
-    case (call BIS_fnc_admin != 0 || isServer): {
+    case (call BIS_fnc_admin != 0 /* || isServer */): {// <= DEV SWITCH DISABLE; PLEASE REMOVE BEFORE MERGING PULL REQUEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         ["You damaged a friendly as admin."] call _notifyInstigator; // Admin not reported to victim for Zeus remote control.
         format ["ADMIN, %1", ["Local Host","Voted","Logged"] select (call BIS_fnc_admin)];
     };

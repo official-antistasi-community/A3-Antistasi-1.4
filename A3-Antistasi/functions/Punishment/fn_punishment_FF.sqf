@@ -67,7 +67,7 @@ private _vehicle = typeOf vehicle _instigator;
     // Doesn't log to avoid RPT spam.
     // Doesn't use hash table to be as quick as possible.
 if (_instigator getVariable ["punishment_coolDown", 0] > servertime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
-_instigator setVariable ["punishment_coolDown", servertime + 1, false]; // Local Exec faster
+_instigator setVariable ["punishment_coolDown", servertime + 0.5, false]; // Local Exec faster
 
 /////////////////Definitions////////////////
 private _victimStats = ["",format [" damaged %1 ", name _victim]] select (_victim isKindOf "Man");

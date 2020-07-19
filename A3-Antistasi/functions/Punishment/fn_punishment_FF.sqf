@@ -112,8 +112,8 @@ if (_exemption !=  "") exitWith {
 /////////////Acts on Collision//////////////
 if (_isCollision) then {
     _customMessage = [_customMessage,"You damaged a friendly as a driver."] joinString "<br/>";
-    _timeAdded = 15;
-    _offenceAdded = 0.1;
+    _timeAdded = 27;
+    _offenceAdded = 0.15;
     [2, format ["COLLISION | %1 [%2]'s %3%4", name _instigator, getPlayerUID _instigator, _vehicle, _victimStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
 };
 

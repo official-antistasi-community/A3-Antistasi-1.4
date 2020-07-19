@@ -33,6 +33,7 @@ Version:
 [ ] Community Server 1
 [ ] Community Server 2
 [ ] Community Test Server
+[ ] Community Test Server 2
 
 Modset:
     

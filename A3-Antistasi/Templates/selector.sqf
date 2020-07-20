@@ -7,7 +7,7 @@
 aridmaps = ["Altis","Kunduz","Malden","tem_anizay","Tembelan"];
 tropicalmaps = ["Tanoa"];
 temperatemaps = ["Enoch","chernarus_summer","vt7"];
-arcticmaps = ["chernarus_winter"];
+arcticmaps = ["Chernarus_Winter"];
 //Mod selector
 
 if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!

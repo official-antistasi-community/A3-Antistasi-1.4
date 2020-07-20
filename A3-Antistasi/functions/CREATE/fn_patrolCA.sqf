@@ -198,23 +198,16 @@ if (_typeOfAttack == "") then
 
 
 // Determine vehicle count from aggression & attack type
-private _vehicleCount = if(_sideX == Occupants) then
-{
-    (aggressionOccupants/16)
-    + ([0, 2] select _super)
-}
-else
-{
-    (aggressionInvaders/16)
-    + ([0, 3] select _super)
-};
-
-_vehicleCount = _vehicleCount + ((skillMult - 2) / 2);			// skillMult range 1-3
-if !(_isMarker) then { _vehicleCount = _vehicleCount / 2 };
-_vehicleCount = (round (_vehicleCount)) max 1;
-
 private _aggro = if(_sideX == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-[3, format ["Due to %1 aggression, sending %2 vehicles", _aggro, _vehicleCount], _fileName] call A3A_fnc_log;
+private _vehicleCount = 0.5 + random (1.5) + _aggro/33;
+
+if (_super) then { _vehicleCount = _vehicleCount + 2 };
+_vehicleCount = _vehicleCount + ((skillMult - 2) / 2);			// skillMult range 1-3
+if (_sideX == Invaders) then { _vehicleCount = _vehicleCount * 1.2 };
+if !(_isMarker) then { _vehicleCount = _vehicleCount / 2 };
+
+_vehicleCount = (round (_vehicleCount)) max 1;
+[3, format ["With %1 aggression, sending %2 vehicles", _aggro, _vehicleCount], _fileName] call A3A_fnc_log;
 
 
 // Going ahead with the attack. Add it to the appropriate fencing array

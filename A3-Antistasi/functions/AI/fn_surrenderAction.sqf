@@ -14,6 +14,15 @@ _unit disableAI "ANIM";
 _unit setSkill 0;
 _unit setVariable ["surrendered", true, true];			// usually set by caller, just making sure
 
+//Make sure to pass group lead if unit is the leader
+if (_unit == leader (group _unit)) then
+{
+    private _index = (units (group _unit)) findIf {[_x] call A3A_fnc_canFight};
+    if(_index != -1) then
+    {
+        (group _unit) selectLeader ((units (group _unit)) select _index);
+    };
+};
 // make sure that the unit is actually alive & conscious before we start creating boxes
 sleep 3;
 if (!alive _unit) exitWith {};

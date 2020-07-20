@@ -179,7 +179,7 @@ vehPoliceCar = "rhsgref_un_uaz";
 NATOMG = "rhsgref_cdf_DSHKM";
 staticATOccupants = "rhsgref_cdf_SPG9M";
 staticAAOccupants = "rhsgref_cdf_Igla_AA_pod";
-NATOMortar = "rhsgref_cdf_reg_m252";
+NATOMortar = "rhsgref_cdf_reg_M252";
 
 //Static Weapon Bags
 MGStaticNATOB = "RHS_DShkM_Gun_Bag";

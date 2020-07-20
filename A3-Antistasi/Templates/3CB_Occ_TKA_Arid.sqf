@@ -7,7 +7,7 @@ nameOccupants = "TKA";
 //Police Faction
 factionGEN = "BLU_GEN_F";
 //SF Faction
-factionMaleOccupants = "UK3CB_BAF_Faction_Army_Desert";
+factionMaleOccupants = "UK3CB_TKA_I";
 //Miltia Faction
 if (gameMode != 4) then {factionFIA = "UK3CB_TKP_I"};
 
@@ -26,17 +26,17 @@ NATOAmmobox = "I_supplyCrate_F";
 //PvP Loadouts
 NATOPlayerLoadouts = [
 	//Team Leader
-	["3CB_TKM_Teamleader"] call A3A_fnc_getLoadout,
+	["3CB_TKA_Teamleader"] call A3A_fnc_getLoadout,
 	//Medic
-	["3CB_TKM_Medic"] call A3A_fnc_getLoadout,
+	["3CB_TKA_Medic"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	["3CB_TKM_MachineGunner"] call A3A_fnc_getLoadout,
+	["3CB_TKA_MachineGunner"] call A3A_fnc_getLoadout,
 	//Marksman
-	["3CB_TKM_Marksman"] call A3A_fnc_getLoadout,
+	["3CB_TKA_Marksman"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	["3CB_TKM_AT"] call A3A_fnc_getLoadout,
+	["3CB_TKA_AT"] call A3A_fnc_getLoadout,
 	//AT2
-	["3CB_TKM_AT2"] call A3A_fnc_getLoadout
+	["3CB_TKA_AT2"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles
@@ -99,7 +99,7 @@ if (gameMode != 4) then
 		[
 		["UK3CB_TKP_I_STATIC_GUN_NSV","UK3CB_TKP_I_STATIC_TRI_NSV"],
 		["UK3CB_TKP_I_AT","UK3CB_TKP_I_RIF_2"],
-		["UK3CB_TKP_I_IFF","UK3CB_TKP_I_MK"]
+		["UK3CB_TKP_I_TL","UK3CB_TKP_I_MK"]
 		];
 	//Fireteams
 	groupsFIAMid =
@@ -161,7 +161,7 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 if (gameMode != 4) then
 	{
     	vehFIAArmedCar = "UK3CB_TKP_I_Datsun_Pickup_PKM";
-    	vehFIATruck = "UK3CB_TKP_I_Hilux_Ipen";
+    	vehFIATruck = "UK3CB_TKP_I_Hilux_Open";
     	vehFIACar = "UK3CB_TKP_I_Lada_Police";
 	};
 
@@ -175,7 +175,7 @@ vehPoliceCar = "UK3CB_TKP_I_Lada_Police";
 NATOMG = "UK3CB_TKA_I_KORD_high";
 staticATOccupants = "UK3CB_TKA_I_Kornet";
 staticAAOccupants = "UK3CB_TKA_I_Igla_AA_pod";
-NATOMortar = "UK3CB_TKA_I_D30";
+NATOMortar = "UK3CB_TKA_I_2b14_82mm";
 
 //Static Weapon Bags
 MGStaticNATOB = "RHS_Kord_Gun_Bag";
@@ -187,4 +187,4 @@ supportStaticNATOB = "RHS_Kornet_Tripod_Bag";
 //Tall Support
 supportStaticNATOB2 = "RHS_Kord_Tripod_Bag";
 //Mortar Support
-supportStaticNATOB3 = "RHS_Podnos_Tripod_Bag";
+supportStaticNATOB3 = "RHS_Podnos_Bipod_Bag";

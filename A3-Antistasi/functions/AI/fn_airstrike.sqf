@@ -93,8 +93,8 @@ _planefn = [_origpos, _ang, _typePlane, _sideX] call bis_fnc_spawnvehicle;
 _plane = _planefn select 0;
 _planeCrew = _planefn select 1;
 _groupPlane = _planefn select 2;
-{_x setVariable ["spawner",true,true]} forEach _planeCrew;
 [_plane, _sideX] call A3A_fnc_AIVEHinit;
+{[_x] call A3A_fnc_NATOinit} forEach _planeCrew;
 
 _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
 _plane setVelocityModelSpace (velocityModelSpace _plane vectorAdd [0, 150, 50]);

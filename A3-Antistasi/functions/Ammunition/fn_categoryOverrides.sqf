@@ -46,6 +46,7 @@ private _categoryOverrideTable = [
 ["UK3CB_SVD_OLD", ["SniperRifles","Weapons"]],
 ["UK3CB_M16A1_LSW", ["MachineGuns","Weapons"]],
 
+["UK3CB_BAF_Javelin_Launcher", ["MissileLaunchers","Weapons","AT"]],
 ["UK3CB_BAF_Javelin_CLU", ["Binoculars","Items"]],
 ["UK3CB_BAF_Javelin_Slung_Tube", ["MissileLaunchers","Weapons","AT"]],
 ["UK3CB_M79", ["GrenadeLaunchers","Weapons"]],
@@ -53,6 +54,7 @@ private _categoryOverrideTable = [
 ["UK3CB_BAF_AT4_CS_AP_Launcher", ["RocketLaunchers","Weapons","AT"]],
 
 ["launch_NLAW_F", ["MissileLaunchers","Weapons","AT"]],
+["hgun_PDW2000_F", ["SMGs","Weapons"]],
 
 ["UK3CB_BAF_L86A2", ["MachineGuns","Weapons"]],
 ["UK3CB_BAF_L86A3", ["MachineGuns","Weapons"]],

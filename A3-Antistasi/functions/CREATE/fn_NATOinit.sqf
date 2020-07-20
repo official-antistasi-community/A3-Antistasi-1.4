@@ -1,9 +1,10 @@
-params ["_unit", ["_marker", ""]];
+params ["_unit", ["_marker", ""], "_isSpawner"];
 
 /*  Inits the given unit with all needed data, flags and weapons
 *   Params:
 *       _unit : OBJECT : The unit that needs to be initialized
 *       _marker : STRING : The name of the marker (default "")
+*       _isSpawner : BOOL : (Optional) Whether the unit should be made a spawner, otherwise automatic
 *
 *   Returns:
 *       Nothing
@@ -26,51 +27,47 @@ if (_type == "Fin_random_F") exitWith {};
 _unit addEventHandler ["HandleDamage", A3A_fnc_handleDamageAAF];
 _unit addEventHandler ["killed", A3A_fnc_occupantInvaderUnitKilledEH];
 
-//Sets the most important variables to the unit
-if (_marker != "") then
+if !(isNil "_isSpawner") then 
 {
-    _unit setVariable ["markerX",_marker,true];
-    if ((spawner getVariable _marker != 0) && {!(isNull objectParent _unit)}) then
-    {
-        [_unit,false] remoteExec ["enableSimulationGlobal",2];
-    };
+    if (_isSpawner) then { _unit setVariable ["spawner",true,true] };	
 }
 else
 {
-    if (isNull objectParent _unit) then
+    private _veh = objectParent _unit;
+    if (_marker != "") exitWith 
     {
-        private _veh = objectParent _unit;
-        if (_unit in (assignedCargo _veh)) then
-        {
-            _unit addEventHandler
-            [
-                "GetOutMan",
-                {
-                    _unit = _this select 0;
-                    _veh = _this select 2;
-                    _driver = driver _veh;
-                    if (!isNull _driver) then
-                    {
-                        if (side group _driver != teamPlayer) then
-                        {
-                            if !(_unit getVariable ["spawner",false]) then
-                            {
-                                _unit setVariable ["spawner",true,true]
-                            };
-                        };
-                    };
-                }
-            ];
-        }
-        else
-        {
-            _unit setVariable ["spawner",true,true]
+        // Persistent garrison units are never spawners.
+	    _unit setVariable ["markerX",_marker,true];
+	    if ((spawner getVariable _marker != 0) && (isNull _veh)) then
+	    {
+            // Garrison drifted out of spawn range, disable simulation on foot units
+            // this is re-enabled in distance.sqf when spawn range is re-entered
+            [_unit,false] remoteExec ["enableSimulationGlobal",2];
         };
-    }
-    else
-    {
-        _unit setVariable ["spawner",true,true]
     };
+
+    if (_unit in (assignedCargo _veh)) exitWith
+    {
+        // Cargo units aren't spawners until they leave the vehicle.
+        // Assumes that they'll get out if the crew are murdered.
+        _unit addEventHandler
+        [
+            "GetOutMan",
+            {
+                _unit = _this select 0;
+                if !(_unit getVariable ["surrendered", false]) then {
+                    _unit setVariable ["spawner",true,true];
+                };
+            }
+        ];
+    };
+
+	// Fixed-wing aircraft spawn far too much with little effect.
+	// Don't even spawn if ejected, because they often end up miles away from the real action
+	if (_veh isKindOf "Plane") exitWith {};
+
+    // Everyone else is a spawner
+	_unit setVariable ["spawner",true,true]
 };
 
 //Calculates the skill of the given unit

@@ -63,22 +63,22 @@ civBoat = "C_Boat_Transport_02_F";
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled Static Weapons
-SDKMGStatic = "B_HMG_01_high_F";
-staticATteamPlayer = "B_Static_AT_F";
-staticAAteamPlayer = "B_Static_AA_F";
+SDKMGStatic = "I_G_HMG_02_high_F";
+staticATteamPlayer = "B_static_AT_F";
+staticAAteamPlayer = "B_static_AA_F";
 SDKMortar = "B_G_Mortar_01_F";
 SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
 SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
 
 //Static Weapon Bags
-MGStaticSDKB = "B_HMG_01_high_weapon_F";
+MGStaticSDKB = "I_G_HMG_02_high_weapon_F";
 ATStaticSDKB = "B_AT_01_weapon_F";
 AAStaticSDKB = "B_AA_01_weapon_F";
 MortStaticSDKB = "B_Mortar_01_weapon_F";
 //Short Support
-supportStaticSDKB = "B_HMG_01_support_F";
+supportStaticSDKB = "I_G_HMG_02_support_F";
 //Tall Support
-supportStaticsSDKB2 = "B_HMG_01_support_high_F";
+supportStaticsSDKB2 = "I_G_HMG_02_support_high_F";
 //Mortar Support
 supportStaticsSDKB3 = "B_Mortar_01_support_F";
 

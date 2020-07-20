@@ -34,7 +34,7 @@ Author: Caleb Serafin
 Date Updated: 14 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
-params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull]];
+params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull],["_customMessage",""]];
 private _filename = "fn_punishment.sqf";
 
 if (!isServer) exitWith {
@@ -92,7 +92,7 @@ private _keyPairs = [["timeTotal",_timeTotal],["offenceTotal",_offenceTotal],["l
 private _playerStats = format["Player: %1 [%2], _timeAdded: %3, _timeTotal: %4, _offenceAdded: %7, _overhead: %5, _offenceTotal: %6", _name, _UID, str _timeAdded, str _timeTotal, str _offenceAdded, str _overhead, str _offenceTotal];
 if (_offenceTotal < 1) exitWith {
     _instigator = [_UID] call BIS_fnc_getUnitByUid;
-    private _message = "Watch your fire!";
+    private _message = format ["Watch your fire!%1%2","<br/>",_customMessage];
     if (isPlayer _victim) then { _message = _message + format ["<br/><br/>Injured comrade: %1",name _victim]; };
 	["FF Warning", _message] remoteExec ["A3A_fnc_customHint", _instigator, false]; // This may or may not work for remoteControl depending on deSync.
 	[2, format ["WARNING | %1", _playerStats], _filename] call A3A_fnc_log;

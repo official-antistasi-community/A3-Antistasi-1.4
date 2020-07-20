@@ -53,6 +53,7 @@ if (hasACEMedical) exitWith {};
 private _makeUnconscious =
 {
 	params ["_unit", "_injurer"];
+   
 	_unit setVariable ["incapacitated",true,true];
 	_unit setUnconscious true;
 	if (vehicle _unit != _unit) then
@@ -60,6 +61,17 @@ private _makeUnconscious =
 		moveOut _unit;
 	};
 	if (isPlayer _unit) then {_unit allowDamage false};
+	
+	 //Make sure to pass group lead if unit is the leader
+    	if (_unit == leader (group _unit)) then
+    	{
+		private _index = (units (group _unit)) findIf {[_x] call A3A_fnc_canFight};
+		if(_index != -1) then
+       		{
+        		(group _unit) selectLeader ((units (group _unit)) select _index);
+        	}
+	};
+	
 	[_unit,_injurer] spawn A3A_fnc_unconsciousAAF;
 };
 
@@ -125,4 +137,3 @@ if (side _injurer == teamPlayer) then
 };
 
 _damage
-

@@ -65,8 +65,6 @@ if (_land) then
 	[_veh,"Inf Truck."] spawn A3A_fnc_inmuneConvoy;
 	_groupX spawn A3A_fnc_attackDrillAI;
 	[_mrkOrigin,_posDestination,_groupX] call A3A_fnc_WPCreate;
-	_Vwp0 = (wayPoints _groupX) select 0;
-	_Vwp0 setWaypointBehaviour "SAFE";
 	_Vwp0 = _groupX addWaypoint [_posDestination, count (wayPoints _groupX)];
 	_Vwp0 setWaypointType "GETOUT";
 	_Vwp0 setWaypointStatements ["true","nul = [(thisList select {alive _x}),side this,(group this) getVariable [""reinfMarker"",""""],0] remoteExec [""A3A_fnc_garrisonUpdate"",2];[group this] spawn A3A_fnc_groupDespawner; reinfPatrols = reinfPatrols - 1; publicVariable ""reinfPatrols"";"];

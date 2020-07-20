@@ -49,7 +49,7 @@ vehSDKAT = "I_G_Offroad_01_AT_F";
 vehSDKLightUnarmed = "I_G_Offroad_01_F";
 vehSDKTruck = "I_G_Van_01_transport_F";
 //vehSDKHeli = "I_C_Heli_Light_01_civil_F";
-vehSDKPlane = "I_C_Plane_civil_01_F";
+vehSDKPlane = "I_C_Plane_Civil_01_F";
 vehSDKBoat = "I_G_Boat_Transport_01_F";
 vehSDKRepair = "I_G_Offroad_01_repair_F";
 
@@ -63,22 +63,22 @@ civBoat = "C_Boat_Transport_02_F";
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled Static Weapons
-SDKMGStatic = "I_HMG_01_high_F";
-staticATteamPlayer = "I_Static_AT_F";
-staticAAteamPlayer = "I_Static_AA_F";
+SDKMGStatic = "I_G_HMG_02_high_F";
+staticATteamPlayer = "I_static_AT_F";
+staticAAteamPlayer = "I_static_AA_F";
 SDKMortar = "I_G_Mortar_01_F";
 SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
 SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
 
 //Static Weapon Bags
-MGStaticSDKB = "I_HMG_01_high_weapon_F";
+MGStaticSDKB = "I_G_HMG_02_high_weapon_F";
 ATStaticSDKB = "I_AT_01_weapon_F";
 AAStaticSDKB = "I_AA_01_weapon_F";
 MortStaticSDKB = "I_Mortar_01_weapon_F";
 //Short Support
-supportStaticSDKB = "I_HMG_01_support_F";
+supportStaticSDKB = "I_G_HMG_02_support_F";
 //Tall Support
-supportStaticsSDKB2 = "I_HMG_01_support_high_F";
+supportStaticsSDKB2 = "I_G_HMG_02_support_high_F";
 //Mortar Support
 supportStaticsSDKB3 = "I_Mortar_01_support_F";
 

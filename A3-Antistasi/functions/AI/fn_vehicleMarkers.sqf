@@ -42,7 +42,8 @@ if ((_side == teamPlayer) or (_side == sideUnknown)) then
 	}
 else
 	{
-	if (_side == Occupants) then
+	// Civilian hack to prevent errors with convoy missions. Replace once we have proper vehicle spawning functions.
+	if ((_side == Occupants) or (_side == civilian)) then
 		{
 		_formatX = "b";
 		}

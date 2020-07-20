@@ -1,10 +1,6 @@
 private _filename = "fn_onPlayerDisconnect";
-private ["_unit","_resourcesX","_hr","_weaponsX","_ammunition","_items","_pos"];
 
-_unit = _this select 0;
-_uid = _this select 2;
-_resourcesX = 0;
-_hr = 0;
+params ["_unit", "_id", "_uid"];
 
 [2, format ["Player disconnected with id %1 and unit %2 on side %3", _uid, _unit, (side _unit)], _filename] call A3A_fnc_log;
 
@@ -16,11 +12,11 @@ if (side _unit == sideLogic || {_uid == ""}) exitWith {
 // find original player unit in case of remote control
 private _realUnit = _unit getVariable ["owner", _unit];
 
-[2, format ["Player unit %1, player unit owner %2, boss %3", _unit, _realUnit, theBoss], _filename] call A3A_fnc_log;
+[3, format ["Player unit %1, original unit %2, boss %3", _unit, _realUnit, theBoss], _filename] call A3A_fnc_log;
 
 if (_realUnit == theBoss) then
 {
-	if (group petros == group _realUnit) then { [] spawn A3A_fnc_buildHQ}; 
+	if (group petros == group _realUnit) then { [] spawn A3A_fnc_buildHQ }; 
 
 	// Remove our real unit from boss
 	_realUnit setVariable ["eligible", false, true];
@@ -36,13 +32,9 @@ if (side group _unit == teamPlayer || side group _unit == sideUnknown) then
 	};
 };
 
-[_uid, _realUnit] call A3A_fnc_savePlayer;
+[_uid, _realUnit, false] call A3A_fnc_savePlayer;
 
 // Preventing duping due to weapon loadout saves
 if (alive _realUnit && {!(_realUnit getVariable ["incapacitated", false])} ) then { deleteVehicle _realUnit }
 else { _realUnit setDamage 1 };			// finish off, if incapped
-
-//if (_realUnit != _unit) then { deleteVehicle _unit };
-
-//diag_log format ["dataX de handledisconnect: %1",_this];
 

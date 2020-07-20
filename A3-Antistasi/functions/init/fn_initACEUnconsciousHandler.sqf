@@ -8,6 +8,16 @@ private _fileName = "initACEUnconsciousHandler.sqf";
 	if (_knockout) exitWith {
 //		[3, format ["Unit type %1, side %2, realside %3, captive %4 knocked out", typeof _unit, side _unit, _realSide, str (captive _unit)], "ace_unconscious handler"] call A3A_fnc_log;
 		_unit setVariable ["incapacitated", true, true];	// for canFight tests
+
+        //Make sure to pass group lead if unit is the leader
+        if (_unit == leader (group _unit)) then
+        {
+            private _index = (units (group _unit)) findIf {[_x] call A3A_fnc_canFight};
+            if(_index != -1) then
+            {
+                (group _unit) selectLeader ((units (group _unit)) select _index);
+            };
+        };
 	};
 
 //	[3, format ["Unit type %1, side %2, realside %3, captive %4 waking up", typeof _unit, side _unit, _realSide, str (captive _unit)], "ace_unconscious handler"] call A3A_fnc_log;

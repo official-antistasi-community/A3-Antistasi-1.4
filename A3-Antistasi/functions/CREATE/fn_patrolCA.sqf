@@ -142,7 +142,7 @@ if (!_forced) then
 
 	// Use closest base outside spawn range of rebels. If none, allow bases further than half spawn range.
 	private _spawners = allUnits select { side group _x == teamPlayer && {_x getVariable ["spawner",false]} };
-	private _source = "";
+	private _closeMrk = "";
 	private _closeDist = 1000000;
 	{
 		private _basePos = getMarkerPos _x;
@@ -154,12 +154,13 @@ if (!_forced) then
 			if (count _closeSpwn > 0) then { _dist = distanceForLandAttack + _dist};
 			if (_dist > _closeDist) exitWith {};
 			_closeDist = _dist;
-			_source = _x;
+			_closeMrk = _x;
 		};
 	} forEach _bases;
 
-	if (_source == "") exitWith {_exit = true};
-	_posOrigin = getMarkerPos _source;
+	if (_closeMrk == "") exitWith {_exit = true};
+	_source = _closeMrk;
+	_posOrigin = getMarkerPos _closeMrk;
 };
 
 if (_exit) exitWith {

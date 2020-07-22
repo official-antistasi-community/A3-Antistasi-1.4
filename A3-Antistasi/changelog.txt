@@ -1355,7 +1355,8 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 
 1.4c1.01 through to 1.4c2.0 - 10th August 2019
 
-All Improvements
+============= All Improvements  ======================
+
 - Support for 3CB - You can now play as the British Armed Forces
 - ADV - ACE Medical support
 - Players save on disconnect
@@ -1377,7 +1378,8 @@ All Improvements
 - Improved vehicle placement and building system
 - roadsDB.sqf added for Chernarus
 
-All Fixes
+============= Fixes  ======================
+
 - Vanilla police replaced with RHS police where appropriate
 - Players no longer start with guns appropriate to their role (No more free guns)
 - Bodies now vanish when players disconnect
@@ -1450,7 +1452,7 @@ Improvements
 • Complete overhaul of PvP units
 • Multiple functions rewritten for readability
 
-Fixes
+============= Fixes  ======================
 • Fixed boat spawning on Malden
 • Changed the object of fireX into a tent got rid of clipping through the floor
 • Misc items are now unlocking
@@ -1468,13 +1470,14 @@ Fixes
 2.1.2 - 06 September 2019
 
 Changes from version 2.1.1 to 2.1.2
-Improvements
+
+============= Improvements  ======================
 • Clean up README on GitHub
 • Implementation of Malden and Livonia to stringtable
 • Change of weird variable names
 • Update of different mission.sqm’s
 
-Fixes
+============= Fixes  ======================
 • Garage wipes
 • Lost gear when hit “heal, repair and rearm” whilst being in vehicle
 • Unsynchronised buildings
@@ -1539,7 +1542,6 @@ Changes from version 2.1.2 to 2.2 Antistasi Community Edition
   - Added an option to disable civilian traffic.
   - Balance pass for "CSAT Punishment" mission.
 
-
  ================  Groundwork  ===================
 
   - Reworked the garrison system to build a new reinforcement system on top of it. Believe us, you will know once we got this running.
@@ -1585,8 +1587,6 @@ Changes from version 2.1.2 to 2.2 Antistasi Community Edition
 
 =================  Code  =========================
 
-*DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while! 
-
   - Arsenal can now be setup in multiple objects.
   - Rebuilt items detection system completely.
   - Items system now scans config for defines instead of relying on manual input.
@@ -1611,9 +1611,9 @@ Changes from version 2.1.2 to 2.2 Antistasi Community Edition
   - Map templates have been moved to the top level of the mission.
   - Small initVar addition to accept new gear arrays.
 
-
 =================  Known issues  ==========================
 
+*DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while! 
   - (Destroy Heli Mission) If you manage to steal the truck while it is trying to transport the heli back, the mission will fail (The fix for this is WIP)
   - The updated ACE version 3.13.0 maybe has introduced new issues with ACRE. We are investigating and thankful for input.
 
@@ -1621,7 +1621,6 @@ Changes from version 2.1.2 to 2.2 Antistasi Community Edition
 2.2.1 - 07th February 2020
 
 Changes from version 2.2 to 2.2.1 Antistasi Community Edition
-
 
 =============  Major  ======================
 
@@ -1638,18 +1637,15 @@ Changes from version 2.2 to 2.2.1 Antistasi Community Edition
   - Changed vehicle placement on Tanoa positions.
   - Every map now only has 32 slots on the rebel side. Reason: Performance.
  
-
 ==============  Minor  ========================
   - Disabled unlocked IEDs in Vanilla arsenal.
   - Changed playable Officer roles to TeamLead roles.
   - Enabled further vehicles to be utilized for JNL loading.
   - Added ACE spare barrel recognition.
 
-
  ================  Groundwork  ===================
    - Added building from CUP to be recognized as military buildings (also concerning 50. cal placements).
  
-
 ================ Bugfixes ========================
   - Fixed an exploit where guests could grab certain gear using a loadout.
   - Fixed added aggro for hostages/surrenderes.
@@ -1666,9 +1662,189 @@ Changes from version 2.2 to 2.2.1 Antistasi Community Edition
   - Fixed Zeus not being able to access all assets.
   - Fixed initVar spam.
  
-
 =================  Code  =========================
 
 *DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while! 
-
   - CSAT outposts and airfields are set in fn_initGarrison.sqf now.
+
+
+2.3 - xxth xxxxx 2020
+
+Changes from version 2.2.1 to 2.3 Antistasi Community Edition
+
+=============  Most significant changes with description  ======================
+
+Overhauled airstrikes to keep the sanity:
+- Halved the number of bombs in any given airstrike, Made the bombs used more sensible. (MK82 for HE, CBU for cluster, Glide bomb for napalm.
+
+New Salvage Mission implemented:
+- In this new mission a ship bound for the rebellion with supplies have been discovered and sunk just off the coast, these supplies are now at the bottom of the sea and about to be recovered by the hostile forces that sunk it in the first place. But all hope is not yet lost, we have a shot window of opportunity to recover theses supplies, by diving down and winching the supplies from the bottom of the sea right underneath their noses. Time is of the essence so hurry and locate a suitable boat with a winch like the motorboat and get our supplies back.
+
+Introduced new Aggro and Warlevel system
+- Aggression is now displayed better, synched correctly and actual playable. Say goodbye to steady 100 aggression.
+
+Adapted QRFs and attacks
+- Adapted vehicle selection for QRFs and attacks. The heavier the unit, the later it will arrive in the game. No more tank responces at warlevel 1.
+- Adapted vehicle amount for QRFs and attacks. These are now heavily dependant on the aggression of the attacking faction. Doesn't mean you wont get overrun sometimes.
+
+Introduced a new Intel system
+- Search enemies and locations for valuable intel on the enemy faction. But be aware that there is nothing without a risk.
+
+Temporary blackscreen for singleplayer
+- As we in the future will seize SP compatibility we have implemented a blackscreen which pops up when joining a SP campaign so players are informed regarding that. The blackscreen only lasts a few seconds and currently people are still able to continue and finish their campaigns.
+- Please note that we advice to play locally hosted MP even if you only want to play on your own. This is more stable, has less bugs and gives you the possibility to adapt parameters to your liking.
+
+Implemented Jeroen Nots Enhanced Debug Console
+- We added an enhanced debug console in which you can save debug commands. To set a name for a saved command, add a comment in the first line. Example: //ThisIsaTitle
+
+=============  Major  ======================
+
+  GAMEPLAY CHANGES
+  - New salvage mission integrated
+  - Reintroduced fuel trucks as spawning civ vehicles
+  - Introduced new Aggro and Warlevel system
+  - Deactivated IFA compatibility
+  - Introduced a new Intel system
+
+  PARAMETER CHANGES
+  - Introduced more understandable descriptions for unlockItem and allowFT
+
+  MAP CHANGES 
+  - Chernarus summer overhauled with added assets
+  - Chernarus winter overhauled with added assets
+  - Livonia overhaul with building adaptations
+  - General small overhauls/adaptations for every other map
+
+  OTHER CHANGES
+  - Implemented Jeroen Nots Enhanced Debug Console
+  - Temporary blackscreen for singleplayer
+  - Added Czech translation
+  - Added French translation
+
+==============  Minor  ========================
+  - Deactivated forced TFAR default radioVolume
+  - Added PvP role descriptions
+  - Replaced the ingame Antistasi logos on the whiteboard with corresponding heightmaps of the currently played map
+  - Added PvP loadout for Takistanis (3CB)
+  - Petros now can be moved around like the other HQ assets
+  - Added stamina reset to the heal box at HQ
+  - Increased boat placement radius at HQ
+  - Removed thermals from unlocking on Vanilla
+  - Added RDS Civilian Pack detection (Thank you, Mezcal)
+  - Deactivated ACE options on the vehicleBox
+  - Overhauled airstrikes to keep the sanity
+  - Overhauled airport marker colours
+  - Removed Civ uniforms as well as such things as IDAP clothing
+  - Added more assets to garbage clean
+  - 3CB template overhaul (added new assets)
+  - Fixed starting items for night combat compatibility
+  - Fixed mission dates so the first night has a full moon
+  - Adapted QRFs and Heli responses so they are working with the new system and more reasonable/balanced
+  - Vehicle mass changes when cargo is un/-loaded
+  - Added flight suits to airport crates 
+  - Improved static placement in milBuildings
+  - Changed infinite personal garage to limited (including parameter)
+  - Enhanced storing capabilities of faction garage
+  - Implemented boundaries to garaging capabilities (distance & enemies)
+  - Disabled unlocking of M152 remote detonator from start
+
+ ================  Groundwork  ===================
+  - Updated ACRE compatibility
+  - Updated performance logging in the RPTs
+  - Changed folder structure so all map related assets are in the map template folders
+  - Added information to distinguish between sources (Server, Client, HC) in the logs
+  - Unified the functions for the lootcreate creation
+  - Added documentation in countCA
+  - Removed ADV integration as it's not updated anymore
+  - Improved template selection system
+
+================ Refactor ========================
+  - Refactor of Antenna stuff in initZones
+  - Refactor of fn_rebelAttack
+  - Refactor of the hint system
+  - Refactor of AIVEHinit
+  - Refactor/recrite of patrolCA
+  - Rafactor/rewrite of wavedCA
+
+================ Bugfixes ========================
+  - Money exploit regarding AI refunds
+  - Contact report issue with ACE
+  - Livonia invisible buildings
+  - Wrong magazine type in SDKMortar Reb_CDF
+  - Incorrect faction names in outpost and airport markers
+  - Bugs and performance issues with civ vehicles
+  - RHS civ ural not detected as civ vehicle
+  - RHS doomsday rounds still spawning
+  - More money exploits
+  - Wrong message for end mission in some cases
+  - Commander role vanishing
+  - Visibility of commander eligebility hitns
+  - Status bar breaking when controlling AIs
+  - Give command to "cursor target" not working
+  - IFA civ trucks not being recognized
+  - Non-blufor crew in blufor vehicle
+  - stupid crashing airstrike planes because flying too low
+  - Lootcrates can be loaded whilst being undercover
+  - Tent retains velocity when being moved
+  - Debug log for NATOcrate not working properly
+  - Error in JN_fnc_logistigs_getCargoOffsetAndDir
+  - Darter drone can be sold for airstrikes
+  - War level calculation
+  - Disabled snow script because it breaks servers
+  - CsatPlaneAA-AFRF issue
+  - Breaching script issue with RHS
+  - Startup loading issues in local hosted MP
+  - Error in the traitor mission script
+  - Error in A3A_fnc_savePlayer
+  - Error in A3A_fnc_randomRifle
+  - Error in SelectIntel
+  - Error in waved CA
+  - Broken spawn distance decrease button
+  - Surrendered soldiers and crates not vanishing
+  - WW2 Ai weapon choice
+  - Backwards winner/loser params
+  - startWithLongRangeRadio not set in SP
+  - ACE not overwriting the Antistasi revive system
+  - Petros has "build HQ" option at start of campaign
+  - Disappearing RHS headgear
+  - Leaking groups in createSDKGarrisons
+  - Refilling crates which were already emptied after restart
+  - Filled ammo trucks after ungaraging
+  - Multiple arsenal issues regarding loadouts and sorting
+  - Added missing global variable for CSATRepairTruck
+  - Fixed inventory transfer for planes and helis
+  - Fixed misleading text for loading previous save
+  - Fixed 3CB ammo being eaten by the arsenal
+  - JNL adaptations for certain vehicles
+  - Fixed double-savings on global saves
+  - Fixed orphaned and inaccessible saves
+  - Fixed marker and flag bugs
+  - Fixed disappearing vehicles
+  - Fixing outposts needing a road to spawn the truck for the crate
+  - Fixed addGarrison variables fucking up
+  - Fixed diving gear spawn
+  - Fixed Arsenal exploit based on Armas inability to count
+  - Deleted vanilla units in RHS modset
+  - Improved texts for reinforcement convoy markers which are revealed through intel
+  - Fixed navGrid issues with headless clients
+  - Fixed convoy depart timer
+  - Fixed convoy spawning as they went poof a lot
+  - Fixed Arsenal dublication exploit
+  - Fixed Hangar spawn issue
+  - Fixed AA vehicles not being breachable
+  - Fixed airstrike issues
+  - Disabled some ACE Group Actions to prevent exploiting
+  - Moved VTOLs from helo array to plane array
+  - Fixed civ vehicles not being usable as undercover
+  - Fixed leadership issue with enemy AI
+  - Deactivated enemy patrols from spawning in units (was a reason for AI clutter)
+  - Fixed police cars not getting filled with enemy AI
+  - Fixed issue with picked up radios not changing to 5km versions
+  - Addes seaSpawn and seaPatrol markers to Chernarus Summer and Chernarus Winter
+  - Fixed Island markers for Tanoa
+  - Fixed slot order for all maps (now greenfor is being shown initially)
+
+  =================  Code  =========================
+  - Enhanced Travis for build checking
+   
+*DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while! 

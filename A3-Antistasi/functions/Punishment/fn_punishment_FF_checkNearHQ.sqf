@@ -9,7 +9,7 @@ Scope:
 	<LOCAL> Execute on player you wish to check for FF.
 
 Environment:
-	<ANY>
+	<UNSCHEDULED>
 
 Parameters:
 	<OBJECT> Player that created grenade or explosive.
@@ -34,7 +34,6 @@ Examples ACE:
 	["ace_explosives_place", _EH_ace_explosives_place] call CBA_fnc_addEventHandler;
 
 Author: Caleb Serafin
-Date Updated: 28 May 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_unit","_weapon","_projectile"];

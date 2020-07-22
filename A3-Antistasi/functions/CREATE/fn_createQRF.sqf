@@ -456,6 +456,6 @@ else
 
 
 // After a delay, remove the fencing mark
-sleep (60 * (20 - (tierWar + difficultyCoef))) max 0;		// 10-20 min delay. Maybe uisleep?
+sleep (60 * (30 - (tierWar + difficultyCoef))) max 0;		// 20-30 min delay. Maybe uisleep?
 [_target, "remove"] remoteExecCall ["A3A_fnc_updateCAMark", 2];
 

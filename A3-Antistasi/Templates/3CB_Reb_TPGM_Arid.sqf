@@ -2,7 +2,7 @@
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
 nameTeamPlayer = "TPGM";
-SDKFlag = "Flag_CCM_B";
+SDKFlag = "Flag_TKM_B";
 SDKFlagTexture = "uk3cb_factions\addons\uk3cb_factions_tkm\flag\tkm_b_flag_co.paa";
 typePetros = "UK3CB_TKM_B_WAR";
 

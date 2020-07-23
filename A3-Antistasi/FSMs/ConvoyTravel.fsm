@@ -28,7 +28,7 @@ link11[] = {7,1};
 link12[] = {8,1};
 link13[] = {10,11};
 globals[] = {0.000000,0,0,0,0,640,480,1,52,6316128,1,-539.552429,231.053772,136.200928,-476.403259,1112,884,1};
-window[] = {2,-1,-1,-1,-1,863,104,1544,104,3,1130};
+window[] = {2,-1,-1,-1,-1,837,78,1518,78,3,1130};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -224,14 +224,14 @@ class FSM
                          "private _wp0 = _crewGroup addWaypoint [_destination, 50];" \n
                          "_wp0 setWaypointCompletionRadius 50;" \n
                          "_wp0 setWaypointType ""TR UNLOAD"";" \n
-                         "_wp0 setWaypointStatements [""true"", ""{ unassignVehicle _x; } forEach (assignedCargo (vehicle this));""];" \n
+                         "_wp0 setWaypointStatements [""true"", ""if !(local this) exitWith {}; { unassignVehicle _x; } forEach (assignedCargo (vehicle this));""];" \n
                          "_crewGroup setCurrentWaypoint _wp0;" \n
                          "" \n
                          "if (_cargoGroup != grpNull) then {" \n
                          "	// Move cargo group towards centre of outpost" \n
                          "	private _wp2 = _cargoGroup addWaypoint [_destination, 10];" \n
                          "	_wp2 setWaypointType ""MOVE"";" \n
-                         "	_wp2 setWaypointStatements [""true"", ""(group this) spawn A3A_fnc_attackDrillAI;""];" \n
+                         "	_wp2 setWaypointStatements [""true"", ""if !(local this) exitWith {}; (group this) spawn A3A_fnc_attackDrillAI;""];" \n
                          "	_cargoGroup setCurrentWaypoint _wp2;" \n
                          "};" \n
                          "" \n
@@ -246,14 +246,14 @@ class FSM
                          "" \n
                          "	// synchronize despawning with the target marker" \n
                          "	// remove this once addGarrison takes control of the units" \n
-                         "	[_vehicle, _crewGroup, _cargoGroup, _markers # 1] spawn {" \n
-                         "		params[""_vehicle"", ""_crew"", ""_cargo"", ""_marker""];" \n
+                         "	[_vehicle, _crewGroup, _cargoGroup, _markers # 1, _side] spawn {" \n
+                         "		params[""_vehicle"", ""_crew"", ""_cargo"", ""_marker"", ""_side""];" \n
                          "		waitUntil {sleep 5; (spawner getVariable _marker == 2)};" \n
+                         "		if (_vehicle getVariable ""ownerSide"" == _side) then { deleteVehicle _vehicle };" \n
                          "		{ deleteVehicle _x } forEach units _cargo;" \n
                          "		{ deleteVehicle _x } forEach units _crew;" \n
                          "		deleteGroup _cargo;" \n
                          "		deleteGroup _crew;" \n
-                         "		if (_vehicle getVariable ""ownerSide"" == _side) then { deleteVehicle _vehicle };" \n
                          "	};" \n
                          "} else {" \n
                          "	// otherwise just use the stock despawning" \n

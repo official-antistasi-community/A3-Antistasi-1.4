@@ -3,7 +3,7 @@
 ////////////////////////////////////
 nameTeamPlayer = "TPGM";
 SDKFlag = "Flag_CCM_B";
-SDKFlagTexture = "uk3cb_factions\addons\uk3cb_factions_ccm\flag\ccm_b_flag_co.paa";
+SDKFlagTexture = "uk3cb_factions\addons\uk3cb_factions_tkm\flag\tkm_b_flag_co.paa";
 typePetros = "UK3CB_TKM_B_WAR";
 
 ////////////////////////////////////
@@ -41,11 +41,11 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 
 ////////////////////////////////////
 //           VEHICLES            ///
-////////////////////////////////////"","","","","","",""
+////////////////////////////////////
 //Military Vehicles
 vehSDKBike = "B_G_Quadbike_01_F";
 vehSDKLightArmed = "UK3CB_TKM_B_Hilux_Pkm";
-vehSDKAT = "UK3CB_TKM_B_Hilux_Rocket";//Don't worry about it.
+vehSDKAT = "UK3CB_TKM_I_LR_SPG9";
 vehSDKLightUnarmed = "UK3CB_TKM_B_Datsun_Pkm";//Otherwise it would be an exact match of the civ one. Dumb confusion is dumb.
 vehSDKTruck = "UK3CB_TKM_B_V3S_Open";
 //vehSDKHeli = "rhsgref_ins_g_Mi8amt";

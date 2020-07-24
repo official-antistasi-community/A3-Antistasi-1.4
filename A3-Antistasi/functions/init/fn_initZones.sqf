@@ -242,8 +242,7 @@ switch (toLower worldName) do {
 		[10114.3,11743.1,9.15527e-005], [10949.8,11517.3,0.14209], [11153.3,11435.2,0.210876], [13775.8,10976.8,0.170441]];	// All antennas to be bases or to ignore.
 		_blacklistPos = [9, 14];		// Ignore Antenna at <Index> in _posAntennas.
 		_posBank = [[5893.41,10253.1,-0.687263], [9507.5,13572.9,0.133848]];	// same as RT for Bank buildings, select the biggest buildings in your island, and make a DB with their positions.
-		antennas = [antenna];			// Don't do this.
-		_posAntennas pushBack (getPos antenna);	// Create _posAntennas element from object.
+		antennas = [];
 	};
 	case "altis": {
 		_posAntennas =

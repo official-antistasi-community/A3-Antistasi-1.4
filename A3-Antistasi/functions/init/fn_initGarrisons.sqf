@@ -180,6 +180,9 @@ else
 
 if (!(isNil "loadLastSave") && {loadLastSave}) exitWith {};
 
+//Set carrier markers to the same as airbases below.
+if (isServer) then {"NATO_carrier" setMarkertype flagNATOmrk};
+if (isServer) then {"CSAT_carrier" setMarkertype flagCSATmrk};
 
 if (debug) then {
 	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Airbase stuff.", servertime];

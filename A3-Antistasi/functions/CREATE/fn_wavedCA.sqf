@@ -322,7 +322,7 @@ while {(_waves > 0)} do
 	};
 
 	_isSea = false;
-	if !(hasIFA) then
+	if (!hasIFA && (count seaAttackSpawn != 0)) then
 		{
 		for "_i" from 0 to 3 do
 			{

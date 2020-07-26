@@ -53,6 +53,8 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
     - [Steam Workshop: 1959971214](https://steamcommunity.com/sharedfiles/filedetails/?id=1959971214)
 - Tembelan Island
     - [Steam Workshop: 1959976706](https://steamcommunity.com/sharedfiles/filedetails/?id=1959976706)
+- Virolahti
+    - [Steam Workshop: 1959976706](https://steamcommunity.com/sharedfiles/filedetails/?id=2178424367)
 - Altis 1.9 Community Version
     - [Steam Workshop: 1832910657](https://steamcommunity.com/sharedfiles/filedetails/?id=1832910657)
 

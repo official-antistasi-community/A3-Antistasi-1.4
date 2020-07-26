@@ -218,7 +218,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehNATOTruck, 10],
+                [vehNATOTrucks, 10],
                 [vehNATOLightArmed, 20],
                 [vehNATOAPC, 50],
                 [vehNATOAA, 5],
@@ -234,7 +234,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehCSATTruck, 5],
+                [vehCSATTrucks, 5],
                 [vehCSATLightArmed, 25],
                 [vehCSATAPC, 40],
                 [vehCSATAA, 5],
@@ -254,7 +254,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehNATOTruck, 10],
+                [vehNATOTrucks, 10],
                 [vehNATOLightArmed, 15],
                 [vehNATOAPC, 50],
                 [vehNATOAA, 5],
@@ -271,7 +271,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehCSATTruck, 5],
+                [vehCSATTrucks, 5],
                 [vehCSATLightArmed, 20],
                 [vehCSATAPC, 40],
                 [vehCSATAA, 10],
@@ -292,7 +292,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehNATOTruck, 5],
+                [vehNATOTrucks, 5],
                 [vehNATOLightArmed, 10],
                 [vehNATOAPC, 50],
                 [vehNATOAA, 10],
@@ -310,7 +310,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehCSATTruck, 5],
+                [vehCSATTrucks, 5],
                 [vehCSATLightArmed, 10],
                 [vehCSATAPC, 40],
                 [vehCSATAA, 10],
@@ -332,7 +332,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehNATOTruck, 5],
+                [vehNATOTrucks, 5],
                 [vehNATOLightArmed, 5],
                 [vehNATOAPC, 50],
                 [vehNATOAA, 10],
@@ -350,7 +350,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehCSATTruck, 5],
+                [vehCSATTrucks, 5],
                 [vehCSATLightArmed, 5],
                 [vehCSATAPC, 45],
                 [vehCSATAA, 10],

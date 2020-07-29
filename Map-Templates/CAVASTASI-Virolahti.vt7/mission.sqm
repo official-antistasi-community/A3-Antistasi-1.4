@@ -295,7 +295,7 @@ class Mission
 						name="flagX";
 					};
 					id=6378;
-					type="Flag_FIA_F";
+					type="Cav_Flag_00_Flag_F";
 					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{

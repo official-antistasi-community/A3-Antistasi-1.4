@@ -9082,7 +9082,7 @@ class Mission
 				name="flagX";
 			};
 			id=2443;
-			type="Flag_Syndikat_F";
+			type="Cav_Flag_00_Flag_F";
 		};
 		class Item367
 		{

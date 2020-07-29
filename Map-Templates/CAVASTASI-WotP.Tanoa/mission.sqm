@@ -469,7 +469,7 @@ class Mission
 				name="flagX";
 			};
 			id=175;
-			type="Flag_Syndikat_F";
+			type="Cav_Flag_00_Flag_F";
 			atlOffset=-0.031982422;
 		};
 		class Item12

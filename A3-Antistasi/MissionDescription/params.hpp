@@ -33,7 +33,7 @@ class Params
           title = "Enable Server Membership";
           texts[] = {"Yes","No"};
           values[] = {1,0};
-          default = 1;
+          default = 0;
      };
      class switchComm
      {
@@ -47,7 +47,7 @@ class Params
           title = "Enable Teamkill Punish";
           values[] = {1,0};
           texts[] = {"Yes","No"};
-          default = 1;
+          default = 0;
      };
      class mRadius
      {
@@ -80,13 +80,13 @@ class Params
      {
           title = "Number of the same item required to unlock";
           values[] = {15,25,40};
-          default = 25;
+          default = 15;
      };
      class memberOnlyMagLimit
      {
           title = "Number of magazines needed for guests to be able to use them";
           values[] = {10,20,30,40,50,60};
-          default = 40;
+          default = 20;
      };
      class civTraffic
      {
@@ -100,7 +100,7 @@ class Params
           title = "Percentage of Reserved Slots for Members";
           values[] = {0,20,40,60,80,100};
           texts[] = {"None","20%","40%","60%","80%","All"};
-          default = 20;
+          default = 0;
      };
      class memberDistance
      {
@@ -121,49 +121,49 @@ class Params
           title = "Max personal garage slots";
           texts[] = {"Unlimited", "2", "5", "10"};
           values[] = {0,2,5,10};
-          default = 2;
+          default = 0;
      };
      class allowFT
      {
           title = "Fast Travel Targets Allowed";
           values[] = {0,1};
           texts[] = {"Any friendly position","Only Airports & HQ"};
-          default = 1;
+          default = 0;
      };
      class napalmEnabled
      {
           title = "Enable Napalm Bombing for AI";
           values[] = {0,1};
           texts[] = {"No","Yes"};
-          default = 0;
+          default = 1;
      };
      class teamSwitchDelay
      {
           title = "Delay After Leaving Before a Player Can Join Another Team";
           values[] = {0, 900, 1800, 3600};
           texts[] = {"No delay","15 minutes","30 minutes","60 minutes"};
-          default = 3600;
+          default = 0;
      };
      class unlockedUnlimitedAmmo
      {
           title = "Do Unlocked Weapons Automatically Unlock Their Standard Magazine?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class allowGuidedLaunchers
      {
           title = "Should Guided Launchers become unlocked?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class allowUnlockedExplosives
      {
           title = "Should Explosives become unlocked?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class startWithLongRangeRadio
      {
@@ -226,7 +226,7 @@ class Params
           title = "Allow Items and Vehicles from Laws of War DLC?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class Tanks
      {
@@ -296,7 +296,7 @@ class Params
 		title = "Decrease loot quantity as player count increases? (Yes is recommended for balance reasons)";
 		values[] = {0, 1};
 		texts[] = {"False", "True"};
-		default = 1;
+		default = 0;
 	 };
      class crateWepTypeMax
      {
@@ -352,7 +352,7 @@ class Params
           title = "Maximum Ammo Quantity in Crates";
           values[] = {0,1,3,5,10,15,20,25,30};
           texts[] = {"None","1","3","5","10","15","20","25","30"};
-          default = 20;
+          default = 30;
      };
      class Spacer3
      {
@@ -408,7 +408,7 @@ class Params
           title = "Maximum Backpack Types in Crates";
           values[] = {0,2,4,9};
           texts[] = {"1","3","5","10"};
-          default = 0;
+          default = 2;
      };
      class crateBackpackNumMax
      {
@@ -436,7 +436,7 @@ class Params
           title = "Maximum Vest Quantity in Crates";
           values[] = {0,1,3,5,10,15};
           texts[] = {"None","1","3","5","10","15"};
-          default = 0;
+          default = 1;
      };
      class Spacer7
      {

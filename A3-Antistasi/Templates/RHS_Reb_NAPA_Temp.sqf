@@ -106,6 +106,3 @@ initialRebelEquipment append ["rhsusf_mag_17Rnd_9x19_FMJ","rhsusf_mag_7x45acp_MH
 initialRebelEquipment append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_Carryall_mcamo"];
 initialRebelEquipment append ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra_3m","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","rhsgref_alice_webbing","V_SmershVest_01_radio_F"];
 initialRebelEquipment append ["Binocular","ACE_Vector","ItemGPS","ItemcTab","acc_flashlight","rhs_acc_2dpzenit","rhsusf_ANPVS_14","ACRE_PRC152","ACRE_PRC343"];
-//TAFR Unlocks
-if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
-if (startLR) then {initialRebelEquipment pushBack "tf_anprc155_coyote"};

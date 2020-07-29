@@ -10,7 +10,7 @@ Scope:
 	<SERVER> Execute on server.
 
 Environment:
-	<ANY>
+	<UNSCHEDULED>
 
 Parameters:
 	<STRING> The UID of the detainee being sent to Ocean Gulag.
@@ -23,7 +23,6 @@ Examples:
 	[_UID,"remove"] call ["A3A_fnc_punishment_oceanGulag",2,false];
 
 Author: Caleb Serafin
-Date Updated: 10 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_UID",["_operation","add",[""]]];
@@ -69,6 +68,8 @@ switch (toLower _operation) do {
 		_punishment_platform setPos [_pos2D #0, _pos2D #1, -0.25];
 
 		if (isPlayer _detainee) then {
+			// TODO Pull people from vehicles
+			if !(isNull objectParent _detainee) then { moveOut _detainee };
 			_detainee setPos [_pos2D #0, _pos2D #1, 0.25];
 		};
 		true;

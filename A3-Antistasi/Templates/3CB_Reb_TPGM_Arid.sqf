@@ -1,26 +1,28 @@
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
-nameTeamPlayer = "UN";
-SDKFlag = "Flag_CCM_B";
-SDKFlagTexture = "uk3cb_factions\addons\uk3cb_factions_ccm\flag\ccm_b_flag_co.paa";
-typePetros = "UK3CB_UN_B_OFF";
+
+nameTeamPlayer = "TPGM";
+SDKFlag = "Flag_TKM_B";
+SDKFlagTexture = "uk3cb_factions\addons\uk3cb_factions_tkm\flag\tkm_b_flag_co.paa";
+typePetros = "UK3CB_TKM_B_WAR";
+
 
 ////////////////////////////////////
 //             UNITS             ///
 ////////////////////////////////////
 //First Entry is Guerilla, Second Entry is Para/Military
-staticCrewTeamPlayer = "UK3CB_UN_B_FIELD_OP";
-SDKUnarmed = "UK3CB_UN_B_FIELD_OP";
-SDKSniper = ["UK3CB_UN_B_MK","UK3CB_UN_B_MK"];
-SDKATman = ["UK3CB_UN_B_AT","UK3CB_UN_B_AT"];
-SDKMedic = ["UK3CB_UN_B_MD","UK3CB_UN_B_MD"];
-SDKMG = ["UK3CB_UN_B_AR","UK3CB_UN_B_MG"];
-SDKExp = ["UK3CB_UN_B_DEM","UK3CB_UN_B_DEM"];
-SDKGL = ["UK3CB_UN_B_GL","UK3CB_UN_B_GL"];
-SDKMil = ["UK3CB_UN_B_RIF_1","UK3CB_UN_B_RIF_2"];
-SDKSL = ["UK3CB_UN_B_TL","UK3CB_UN_B_SL"];
-SDKEng = ["UK3CB_UN_B_ENG","UK3CB_UN_B_ENG"];
+staticCrewTeamPlayer = "UK3CB_TKM_B_RIF_1";
+SDKUnarmed = "UK3CB_TKC_B_SPOT";
+SDKSniper = ["UK3CB_TKM_B_SPOT","UK3CB_TKM_B_SNI"];
+SDKATman = ["UK3CB_TKM_B_LAT","UK3CB_TKM_B_AT"];
+SDKMedic = ["UK3CB_TKC_B_DOC","UK3CB_TKM_B_MD"];
+SDKMG = ["UK3CB_TKM_B_AR","UK3CB_TKM_B_MG"];
+SDKExp = ["UK3CB_TKM_B_IED","UK3CB_TKM_B_DEM"];
+SDKGL = ["UK3CB_TKM_B_GL","UK3CB_TKM_B_GL"];
+SDKMil = ["UK3CB_TKM_B_RIF_1","UK3CB_TKM_B_RIF_2"];
+SDKSL = ["UK3CB_TKM_B_TL","UK3CB_TKM_B_SL"];
+SDKEng = ["UK3CB_TKM_B_ENG","UK3CB_TKM_B_ENG"];
 
 ////////////////////////////////////
 //            GROUPS             ///
@@ -44,14 +46,14 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 ////////////////////////////////////
 //Military Vehicles
 vehSDKBike = "B_G_Quadbike_01_F";
-vehSDKLightArmed = "UK3CB_UN_B_Hilux_Pkm";
-vehSDKAT = "UK3CB_UN_B_LR_SPG9";
-vehSDKLightUnarmed = "UK3CB_UN_B_Hilux_Closed";
-vehSDKTruck = "UK3CB_UN_B_V3S_Closed";
+vehSDKLightArmed = "UK3CB_TKM_B_Hilux_Pkm";
+vehSDKAT = "UK3CB_TKM_I_LR_SPG9";
+vehSDKLightUnarmed = "UK3CB_TKM_B_Datsun_Pkm";//Otherwise it would be an exact match of the civ one. Dumb confusion is dumb.
+vehSDKTruck = "UK3CB_TKM_B_V3S_Open";
 //vehSDKHeli = "rhsgref_ins_g_Mi8amt";
-vehSDKPlane = "UK3CB_UN_B_C130J";
-vehSDKBoat = "I_C_Boat_Transport_01_F";
-vehSDKRepair = "UK3CB_UN_B_V3S_Repair";
+vehSDKPlane = "UK3CB_TKC_B_Antonov_AN2";
+vehSDKBoat = "UK3CB_TKA_B_RHIB_Gunboat";
+vehSDKRepair = "UK3CB_TKM_B_V3S_Repair";
 
 //Civilian Vehicles
 civCar = "UK3CB_C_Hilux_Open";
@@ -63,10 +65,10 @@ civBoat = "C_Rubberboat";
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled Static Weapons
-SDKMGStatic = "UK3CB_UN_B_NSV";
-staticATteamPlayer = "UK3CB_UN_B_SPG9";
-staticAAteamPlayer = "UK3CB_UN_B_ZU23";
-SDKMortar = "UK3CB_UN_B_2b14_82mm";
+SDKMGStatic = "UK3CB_TKM_B_NSV";
+staticATteamPlayer = "UK3CB_TKM_B_SPG9";
+staticAAteamPlayer = "UK3CB_TKM_B_ZU23";
+SDKMortar = "UK3CB_TKM_B_2b14_82mm";
 SDKMortarHEMag = "rhs_mag_3vo18_10";
 SDKMortarSmokeMag = "rhs_mag_d832du_10";
 

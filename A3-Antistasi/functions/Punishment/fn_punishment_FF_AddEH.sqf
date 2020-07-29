@@ -27,7 +27,6 @@ Examples:
 	[cursorObject,true] remoteExec ["A3A_fnc_punishment_FF_addEH",cursorObject,false];
 
 Author: Caleb Serafin
-Date Updated: July 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params [ ["_unit",objNull,[objNull]], ["_addToAI",false,[false]] ];
@@ -46,12 +45,12 @@ if (_isAI && !_addToAI) exitWith {true};
 _unit addEventHandler ["Killed", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	if ([_instigator] call A3A_fnc_punishment_notPlayer && {[_killer] call A3A_fnc_punishment_notPlayer}) exitWith {}; // A certain company that develops a specific game called ArmaIII hasn't mastered the EH yet. So it's full objNull if a hippo crosses a stream when the day is divisible by the second fortnight of the month during a full moon on a warm summers day while the mosquitoes bit down on Richard Parker as he struggles during the October revolution.
-	[[_instigator,_killer], 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",[_killer,_instigator] select (isPlayer _instigator),false];
+	[[_instigator,_killer], 60, 0.4, _unit] remoteExecCall ["A3A_fnc_punishment_FF",[_killer,_instigator] select (isPlayer _instigator),false];
 }];
 _unit addEventHandler ["Hit", {
 	params ["_unit", "_source", "_damage", "_instigator"];
 	if ([_instigator] call A3A_fnc_punishment_notPlayer && {[_source] call A3A_fnc_punishment_notPlayer}) exitWith {};
-	[[_instigator,_source], 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",[_source,_instigator] select (isPlayer _instigator),false];
+	[[_instigator,_source], 60, 0.4, _unit] remoteExecCall ["A3A_fnc_punishment_FF",[_source,_instigator] select (isPlayer _instigator),false];
 }];
 
 if (_isAI) exitWith {true};
@@ -75,6 +74,6 @@ if (hasACE) then {
 	}];
 };
 
-[getPlayerUID player] remoteExec ["A3A_fnc_punishment_checkStatus",2,false];
+[getPlayerUID player] remoteExecCall ["A3A_fnc_punishment_checkStatus",2,false];
 [3,format["Punishment Event Handlers Added to: %1",name _unit],_fileName] remoteExecCall ["A3A_fnc_log",2,false];
 true;

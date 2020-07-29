@@ -661,7 +661,7 @@ class buy_vehicle 			{
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
-			h = 0.492103 * safezoneH;
+			h = 0.792103 * safezoneH;
 		};
 		class HQ_frame: RscFrame
 		{
@@ -670,7 +670,7 @@ class buy_vehicle 			{
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
-			h = 0.462103 * safezoneH;
+			h = 0.762103 * safezoneH;
 		};
 		class HQ_button_back: RscButton
 		{
@@ -685,7 +685,7 @@ class buy_vehicle 			{
 		class HQ_button_quad: RscButton
 		{
 			idc = 104;
-			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_quad_text;
+			text = "Purchase MZRZ";
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -766,6 +766,50 @@ class buy_vehicle 			{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [staticAAteamPlayer] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_APC: RscButton
+		{
+			idc = 112;
+			text = "M113 MK19";
+			tooltip = "Purchase an M113";
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.712025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			action = "closeDialog 0;nul = [vehSDKAPC] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_IFV: RscButton
+		{
+			idc = 113;
+			text = "M2A3 BFV";
+			tooltip = "Purchase an Bradley Fighting Vehicle";
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.712025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			action = "closeDialog 0;nul = [vehSDKIFV] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_TANK: RscButton
+		{
+			idc = 114;
+			text = "MBT";
+			tooltip = "Purchase an MBT";
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.812025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			action = "closeDialog 0;nul = [vehSDKTANK] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_HELI: RscButton
+		{
+			idc = 115;
+			text = "MI24";
+			tooltip = "Purchase an MI24v";
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.812025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			action = "closeDialog 0;nul = [vehSDKHeli] spawn A3A_fnc_addFIAveh;";
 		};
 	};
 };

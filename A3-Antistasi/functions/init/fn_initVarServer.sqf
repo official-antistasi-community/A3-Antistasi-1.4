@@ -263,6 +263,10 @@ private _templateVariables = [
 	"vehSDKPlane",
 	"vehSDKBoat",
 	"vehSDKRepair",
+	"vehSDKAPC",
+	"vehSDKIFV",
+	"vehSDKTANK",
+	"vehSDKHeli",
 	"civCar",
 	"civTruck",
 	"civHeli",
@@ -705,14 +709,17 @@ timer setVariable [vehCSATMRLS,5,true];
 server setVariable [civCar,200,true];													//200
 server setVariable [civTruck,600,true];													//600
 server setVariable [civHeli,5000,true];													//5000
-server setVariable [civBoat,200,true];													//200
+server setVariable [civBoat,500,true];													//200
 server setVariable [vehSDKBike ,50,true];												//50
 server setVariable [vehSDKLightUnarmed,200,true];										//200
 server setVariable [vehSDKTruck,300,true];											//300
 {server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];
 {server setVariable [_x,400,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];			//400
 {server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];			//800
-
+server setVariable [vehSDKAPC,800,true];
+server setVariable [vehSDKIFV,1000,true];
+server setVariable [vehSDKTANK,2000,true];
+server setVariable [vehSDKHeli,1500,true];
 ///////////////////////
 //     GARRISONS    ///
 ///////////////////////

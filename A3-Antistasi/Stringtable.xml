@@ -474,12 +474,12 @@
     </Container>
     <Container name="credits_generic">
       <Key ID="STR_antistasi_credits_generic_author_text">
-        <Original>The Official Antistasi Community and Barbolani</Original>
-        <English>The Official Antistasi Community and Barbolani</English>
-        <French>La Communauté Officielle d'Antistasi et Barbolani</French>
-        <Russian>Сообщество Antistasi</Russian>
-        <German>Die offizielle Antistasi Community und Barbolani</German>
-        <Czech>Oficiální komunita Antistasi a Barbolani</Czech>
+        <Original>Fork of Antistasi by Waldie.</Original>
+        <English>Fork of Antistasi by Waldie.</English>
+        <French>Fork of Antistasi by Waldie.</French>
+        <Russian>Fork of Antistasi by Waldie.</Russian>
+        <German>Fork of Antistasi by Waldie..</German>
+        <Czech>Fork of Antistasi by Waldie.</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_overview_text">
         <Original>Build FIA Army from scratch and defeat the AAF and CSAT forces in a whole map Dynamic Mission.</Original>
@@ -725,39 +725,39 @@
         <Czech>Buďte vedoucím odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_text">
-        <Original>Antistasi - Liberation of Altis</Original>
-        <English>Antistasi - Liberation of Altis</English>
-        <French>Antistasi - Libération d'Altis</French>
+        <Original>CAVASTASI - Liberation of Altis</Original>
+        <English>CAVASTASI - Liberation of Altis</English>
+        <French>CAVASTASI - Libération d'Altis</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_virolahti_mapname_text">
-        <Original>Antistasi - Liberation of Virolahti</Original>
-        <English>Antistasi - Liberation of Virolahti</English>
-        <French>Antistasi - Libération de Virolahti</French>
+        <Original>CAVASTASI - Liberation of Virolahti</Original>
+        <English>CAVASTASI - Liberation of Virolahti</English>
+        <French>CAVASTASI - Libération de Virolahti</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_mapname_text">
-        <Original>Antistasi - Liberation of Stratis</Original>
-        <English>Antistasi - Liberation of Stratis</English>
-        <French>Antistasi - Libération de Stratis</French>
+        <Original>CAVASTASI - Liberation of Stratis</Original>
+        <English>CAVASTASI - Liberation of Stratis</English>
+        <French>CAVASTASI - Libération de Stratis</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_short_text">
-        <Original>Antistasi Altis</Original>
-        <English>Antistasi Altis</English>
+        <Original>CAVASTASI Altis</Original>
+        <English>CAVASTASI Altis</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_virolahti_mapname_short_text">
-        <Original>Antistasi Virolahti</Original>
-        <English>Antistasi Virolahti</English>
+        <Original>CAVASTASI Virolahti</Original>
+        <English>CAVASTASI Virolahti</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_mapname_short_text">
-        <Original>Antistasi Stratis</Original>
-        <English>Antistasi Stratis</English>
+        <Original>CAVASTASI Stratis</Original>
+        <English>CAVASTASI Stratis</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
-        <Original>Antistasi - Liberation of Altis (BLUFOR)</Original>
-        <English>Antistasi - Liberation of Altis (BLUFOR)</English>
+        <Original>CAVASTASI - Liberation of Altis (BLUFOR)</Original>
+        <English>CAVASTASI - Liberation of Altis (BLUFOR)</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
-        <Original>Antistasi Altis (BLUFOR)</Original>
-        <English>Antistasi Altis (BLUFOR)</English>
+        <Original>CAVASTASI Altis (BLUFOR)</Original>
+        <English>CAVASTASI Altis (BLUFOR)</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_blurb_text">
         <Original>Because nothing is more important than Freedom.</Original>

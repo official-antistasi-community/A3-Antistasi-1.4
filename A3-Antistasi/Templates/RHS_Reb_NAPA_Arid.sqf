@@ -2,7 +2,7 @@
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
 nameTeamPlayer = "7CAV";
-SDKFlag = "Flag_Syndikat_F";
+SDKFlag = "Cav_Flag_00_Flag_F";
 SDKFlagTexture = "\z\cav\addons\flag\data\texture.paa";
 typePetros = "rhsgref_nat_warlord";
 

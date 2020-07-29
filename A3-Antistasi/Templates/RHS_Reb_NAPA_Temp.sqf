@@ -1,9 +1,9 @@
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
-nameTeamPlayer = "NAPA";
-SDKFlag = "Flag_Syndikat_F";
-SDKFlagTexture = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
+nameTeamPlayer = "7CAV";
+SDKFlag = "Cav_Flag_00_Flag_F";
+SDKFlagTexture = "\z\cav\addons\flag\data\texture.paa";
 typePetros = "rhsgref_nat_warlord";
 
 ////////////////////////////////////
@@ -43,20 +43,24 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 //           VEHICLES            ///
 ////////////////////////////////////
 //Military Vehicles
-vehSDKBike = "I_G_Quadbike_01_F";
-vehSDKLightArmed = "rhsgref_nat_uaz_dshkm";
-vehSDKAT = "rhsgref_nat_uaz_spg9";
-vehSDKLightUnarmed = "rhsgref_cdf_reg_uaz_open";
-vehSDKTruck = "rhsgref_cdf_zil131";
-//vehSDKHeli = "rhsgref_ins_g_Mi8amt";
+vehSDKBike = "rhsusf_mrzr4_d";
+vehSDKLightArmed = "LOP_AM_Landrover_M2";
+vehSDKAT = "LOP_AM_Landrover_SPG9";
+vehSDKLightUnarmed = "LOP_AM_Landrover";
+vehSDKTruck = "rhsgref_nat_ural";
+vehSDKHeli = "RHS_Mi8AMTSh_vvsc";
 vehSDKPlane = "RHS_AN2";
-vehSDKBoat = "I_C_Boat_Transport_01_F";
+vehSDKBoat = "I_Boat_Armed_01_minigun_F";
 vehSDKRepair = "rhsgref_cdf_gaz66_repair";
+vehSDKAPC = "rhsusf_m113_usarmy_MK19";
+vehSDKIFV = "RHS_M2A3_BUSKIII";
+vehSDKTANK = "rhsusf_m1a2sep1d_usarmy";
+
 
 //Civilian Vehicles
 civCar = "C_Offroad_01_F";
 civTruck = "RHS_Ural_Open_Civ_03";
-civHeli = "RHS_Mi8t_civilian";
+civHeli = "rhs_uh1h_idap";
 civBoat = "C_Boat_Transport_02_F";
 
 ////////////////////////////////////
@@ -96,12 +100,14 @@ breachingExplosivesAPC = [["rhs_ec200_mag", 1], ["rhs_ec200_sand_mag", 1], ["rhs
 breachingExplosivesTank = [["rhs_ec400_mag", 1], ["rhs_ec400_sand_mag", 1], ["rhs_ec200_mag", 2], ["rhs_ec200_sand_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1]];
 
 //Starting Unlocks
-initialRebelEquipment append ["rhs_weap_type94_new","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_kar98k"];
+initialRebelEquipment append ["rhs_weap_type94_new","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_kar98k","rhs_weap_akms","rhs_weap_svdp","rhsusf_weap_glock17g4","rhsusf_weap_m1911a1","rhs_weap_pp2000_folded","rhsusf_weap_m9","rhs_weap_M320","rhs_weap_l1a1_wood"];
 initialRebelEquipment append ["rhs_weap_rpg75"];
-initialRebelEquipment append ["rhs_mag_6x8mm_mhp","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_5Rnd_792x57_kar98k","rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_mag_rdg2_black","rhs_grenade_m15_mag"];
-initialRebelEquipment append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
-initialRebelEquipment append ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra_3m","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","rhsgref_alice_webbing"];
-initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular"];
+initialRebelEquipment append ["rhsusf_mag_17Rnd_9x19_FMJ","rhsusf_mag_7x45acp_MHP","rhs_mag_9x19mm_7n31_44","rhs_30Rnd_545x39_7N10_AK","rhs_100Rnd_762x54mmR","rhs_weap_M320","rhsusf_mag_15Rnd_9x19_FMJ","rhs_mag_6x8mm_mhp","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_5Rnd_792x57_kar98k","rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_mag_rdg2_black","rhs_grenade_m15_mag","rhs_magazine_rhs_75Rnd_762x39mm_tracer","rhs_magazine_rhs_45Rnd_545x39_AK_green","rhs_30Rnd_545x39_7N10_2mag_AK","rhs_mag_20Rnd_762x51_m80_fnfal","rhs_10Rnd_762x54mmR_7N1","rhs_30Rnd_762x39mm_bakelite"];
+initialRebelEquipment append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_Carryall_mcamo"];
+initialRebelEquipment append ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra_3m","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","rhsgref_alice_webbing","V_PlateCarrierH_CTRG","V_SmershVest_01_radio_F"];
+initialRebelEquipment append ["Binocular","ACE_Vector","ItemGPS","ItemcTab","acc_flashlight","rhs_acc_2dpzenit","rhsusf_ANPVS_14","ACE_Flashlight_Maglite_ML300L"];
 //TAFR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
-if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_anprc155_coyote"};
+if (startLR) then {initialRebelEquipment pushBack "tf_anprc155_coyote"};
+//ACRE Unlocks
+if (hasAcre) then {initialRebelEquipment append ["ACRE_PRC152","ACRE_PRC343"]};

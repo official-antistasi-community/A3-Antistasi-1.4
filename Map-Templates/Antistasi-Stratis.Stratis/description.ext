@@ -14,8 +14,20 @@ overviewPicture = "Pictures\Mission\pic.jpg";
 #include "MissionDescription\gameSettings.hpp"
 
 class CfgFunctions {
-    #include "functions.hpp"
+	class bear_antistasi_looter {
+		class bear_antistasi_looter {
+			file = "functions";
+			class transferToVehicle {};
+		};
+	};
+	#include "functions.hpp"
     #include "JeroenArsenal\functions.hpp"
+};
+
+class Extended_PostInit_EventHandlers {
+    class bear_antistasi_looter {
+        init = "call compile preProcessFileLineNumbers 'XEH_postInit.sqf'";
+    };
 };
 
 class CfgSounds

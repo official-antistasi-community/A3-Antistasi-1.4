@@ -195,9 +195,9 @@ _return params ["_leftover", "_allUnlocked"];
 
 if (isNil "_override") then {
 	if ((_leftover isEqualTo [[],[],[],[]]) or _allUnlocked) then {
-		["Loot crate", "All loot transfered from container"] call A3A_fnc_customHint;
+		["Loot crate", format ["All loot transfered to %1", getText (configFile >> "CfgVehicles" >> typeOf _container >> "displayname")]] call A3A_fnc_customHint;
 	} else {
-		["Loot crate", "Unable to transfer all loot from container"] call A3A_fnc_customHint;
+		["Loot crate", format ["Unable to transfer all loot to %1. %1 full", getText (configFile >> "CfgVehicles" >> typeOf _container >> "displayname")]] call A3A_fnc_customHint;
 	};
 	_target setVariable ["Looting", nil, true];
 };

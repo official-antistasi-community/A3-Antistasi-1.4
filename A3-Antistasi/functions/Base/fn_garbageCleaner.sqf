@@ -14,7 +14,7 @@ private _fnc_distCheck = {
 { deleteVehicle _x } forEach allDead;
 { deleteVehicle _x } forEach (allMissionObjects "WeaponHolder");
 { deleteVehicle _x } forEach (allMissionObjects "WeaponHolderSimulated");
-{ [_x, distanceSPWN2] call _fnc_distCheck } forEach (allMissionObjects "Box_IND_Wps_F");				// Surrender boxes
+{ [_x, distanceSPWN1] call _fnc_distCheck } forEach (allMissionObjects "Box_IND_Wps_F");				// Surrender boxes
 { deleteVehicle _x } forEach (allMissionObjects "Leaflet_05_F");				// Drone drop leaflets
 { deleteVehicle _x } forEach (allMissionObjects "Ejection_Seat_Base_F");		// All vanilla ejection seats
 

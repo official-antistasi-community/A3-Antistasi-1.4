@@ -15,3 +15,14 @@
 
 ## Welcome to CAVASTASI.
 Inhouse, customised variant of Antistasi for the 7th Cavalry Regiment.
+
+## About
+A Persistent Whole Map Mission for MP co-op, focused on Resistance, Infantry and Guerrilla Tactics. Adapted heavily from Antistasi for 7thCavalry use for fun!
+
+### How to build from GIT -PowerShell
+- Download ZIP file
+- Extract ZIP
+- Right click on `PrepareMissionsForPacking.ps1` and select 'Open with PowerShell'
+- The script will create a new folder called `PreparedMissions/`
+- Inside this folder you will find multiple subfolders, labeled `Antistasi-VersionNumber.MapName`
+- Use a PBO Packager to pack the any of these mission folders

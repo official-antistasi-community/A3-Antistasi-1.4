@@ -705,12 +705,12 @@ class buy_vehicle 			{
 		class HQ_button_truck: RscButton
 		{
 			idc = 106;
-			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_truck_text;
+			text = "Patrol Boat";
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [vehSDKTruck] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [vehSDKBoat] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Aoffroad: RscButton
 		{
@@ -747,13 +747,13 @@ class buy_vehicle 			{
 		class HQ_button_AT: RscButton
 		{
 			idc = 110;
-			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_text;
-			tooltip = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_tooltip;
+			text = "Land Rover SP9";
+			tooltip = "Purchase AT Vehicle";
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [staticATteamPlayer] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [vehSDKAT] spawn A3A_fnc_addFIAveh;";
 		};
 
 		class HQ_button_AA: RscButton

@@ -490,12 +490,12 @@
         <Czech>Postavte armádu FIA od nuly a porazte síly AAF a CSAT v celé mapě dynamické misi.</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missionname_text">
-        <Original>Antistasi Altis</Original>
-        <English>Antistasi Altis</English>
-        <French>Antistasi Altis</French>
-        <Russian>Antistasi Альтис</Russian>
-        <German>Antistasi Altis</German>
-        <Czech>Antistasi Altis</Czech>
+        <Original>CAVASTASI Altis</Original>
+        <English>CAVASTASI Altis</English>
+        <French>CAVASTASI Altis</French>
+        <Russian>CAVASTASI Альтис</Russian>
+        <German>CAVASTASI Altis</German>
+        <Czech>CAVASTASI Altis</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missiondesc_text">
         <Original>Be a Resistance leader, be a hero.</Original>
@@ -824,8 +824,8 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_mapname_text">
-        <Original>Antistasi - Kolkhoz in revolt</Original>
-        <English>Antistasi - Kolkhoz in revolt</English>
+        <Original>CAVASTASI - Kolkhoz in revolt</Original>
+        <English>CAVASTASI - Kolkhoz in revolt</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernawinter_mapname_text">
         <Original>CAVASTASI - Chilled revolt</Original>
@@ -863,12 +863,12 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_mapname_text">
-        <Original>Antistasi - Liberation of Malden</Original>
-        <English>Antistasi - Liberation of Malden</English>
-        <French>Antistasi - La Libération de Malden</French>
-        <Russian>Antistasi - Освобождение Мальдена</Russian>
-        <German>Antistasi - Liberation of Malden</German>
-        <Czech>Antistasi - Osvobození Maldenu</Czech>
+        <Original>CAVASTASI - Liberation of Malden</Original>
+        <English>CAVASTASI - Liberation of Malden</English>
+        <French>CAVASTASI - La Libération de Malden</French>
+        <Russian>CAVASTASI - Освобождение Мальдена</Russian>
+        <German>CAVASTASI - Liberation of Malden</German>
+        <Czech>CAVASTASI - Osvobození Maldenu</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_mapname_short_text">
         <Original>CAVASTASI Malden</Original>

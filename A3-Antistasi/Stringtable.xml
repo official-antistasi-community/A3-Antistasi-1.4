@@ -788,16 +788,16 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_mapname_text">
-        <Original>Antistasi - Warlords of the Pacific</Original>
-        <English>Antistasi - Warlords of the Pacific</English>
-        <French>Antistasi - Les Seigneurs de Guerre du Pacifique</French>
-        <Russian>Antistasi - Хозяева Тихого Океана</Russian>
-        <German>Antistasi - Warlords of the Pacific</German>
-        <Czech>Antistasi - Vojevůdci Pacifiku</Czech>
+        <Original>CAVASTASI - Warlords of the Pacific</Original>
+        <English>CAVASTASI - Warlords of the Pacific</English>
+        <French>CAVASTASI - Les Seigneurs de Guerre du Pacifique</French>
+        <Russian>CAVASTASI - Хозяева Тихого Океана</Russian>
+        <German>CAVASTASI - Warlords of the Pacific</German>
+        <Czech>CAVASTASI - Vojevůdci Pacifiku</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_mapname_short_text">
-        <Original>Antistasi Tanoa</Original>
-        <English>Antistasi Tanoa</English>
+        <Original>CAVASTASI Tanoa</Original>
+        <English>CAVASTASI Tanoa</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_blurb_text">
         <Original>Business and War...</Original>
@@ -828,16 +828,16 @@
         <English>Antistasi - Kolkhoz in revolt</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernawinter_mapname_text">
-        <Original>Antistasi - Chilled revolt</Original>
-        <English>Antistasi - Chilled revolt</English>
+        <Original>CAVASTASI - Chilled revolt</Original>
+        <English>CAVASTASI - Chilled revolt</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_mapname_short_text">
-        <Original>Antistasi Chernarus</Original>
-        <English>Antistasi Chernarus</English>
+        <Original>CAVASTASI Chernarus</Original>
+        <English>CAVASTASI Chernarus</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernawinter_mapname_short_text">
-        <Original>Antistasi Chernarus Winter</Original>
-        <English>Antistasi Chernarus Winter</English>
+        <Original>CAVASTASI Chernarus Winter</Original>
+        <English>CAVASTASI Chernarus Winter</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_blurb_text">
         <Original>Between the anvil and a steamroller.</Original>
@@ -871,12 +871,12 @@
         <Czech>Antistasi - Osvobození Maldenu</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_mapname_short_text">
-        <Original>Antistasi Malden</Original>
-        <English>Antistasi Malden</English>
-        <French>Antistasi Malden</French>
-        <Russian>Antistasi Мальдена</Russian>
-        <German>Antistasi Malden</German>
-        <Czech>Antistasi Malden</Czech>
+        <Original>CAVASTASI Malden</Original>
+        <English>CAVASTASI Malden</English>
+        <French>CAVASTASI Malden</French>
+        <Russian>CAVASTASI Мальдена</Russian>
+        <German>CAVASTASI Malden</German>
+        <Czech>CAVASTASI Malden</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_blurb_text">
         <Original>The island is small but packed with enemies. Look out!</Original>
@@ -895,18 +895,18 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_text">
-        <Original>Antistasi - The Baltic Revolution</Original>
-        <English>Antistasi - The Baltic Revolution</English>
-        <French>Antistasi - La Révolution Baltique</French>
-        <Russian>Antistasi - Балтийская Революция</Russian>
-        <German>Antistasi - The Baltic Revolution</German>
-        <Czech>Antistasi - Baltská Revoluce</Czech>
+        <Original>CAVASTASI - The Baltic Revolution</Original>
+        <English>CAVASTASI - The Baltic Revolution</English>
+        <French>CAVASTASI - La Révolution Baltique</French>
+        <Russian>CAVASTASI - Балтийская Революция</Russian>
+        <German>CAVASTASI - The Baltic Revolution</German>
+        <Czech>CAVASTASI - Baltská Revoluce</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_short_text">
-        <Original>Antistasi Livonia</Original>
-        <English>Antistasi Livonia</English>
-        <German>Antistasi Livonia</German>
-        <Czech>Antistasi Livonia</Czech>
+        <Original>CAVASTASI Livonia</Original>
+        <English>CAVASTASI Livonia</English>
+        <German>CAVASTASI Livonia</German>
+        <Czech>CAVASTASI Livonia</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_blurb_text">
         <Original>Stuck between two fronts.</Original>
@@ -925,20 +925,20 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_text">
-        <Original>Antistasi - Battle of Kunduz</Original>
-        <English>Antistasi - Battle of Kunduz</English>
-        <French>Antistasi - La Bataille de Kanduz</French>
-        <Russian>Antistasi - Битва за Кундуз</Russian>
-        <German>Antistasi - Battle of Kunduz</German>
-        <Czech>Antistasi - Bitva o Kunduz</Czech>
+        <Original>CAVASTASI - Battle of Kunduz</Original>
+        <English>CAVASTASI - Battle of Kunduz</English>
+        <French>CAVASTASI - La Bataille de Kanduz</French>
+        <Russian>CAVASTASI - Битва за Кундуз</Russian>
+        <German>CAVASTASI - Battle of Kunduz</German>
+        <Czech>CAVASTASI - Bitva o Kunduz</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_short_text">
-        <Original>Antistasi Kunduz</Original>
-        <English>Antistasi Kunduz</English>
-        <French>Antistasi Kanduz</French>
-        <Russian>Antistasi Кундуз</Russian>
-        <German>Antistasi Kunduz</German>
-        <Czech>Antistasi Kunduz</Czech>
+        <Original>CAVASTASI Kunduz</Original>
+        <English>CAVASTASI Kunduz</English>
+        <French>CAVASTASI Kanduz</French>
+        <Russian>CAVASTASI Кундуз</Russian>
+        <German>CAVASTASI Kunduz</German>
+        <Czech>CAVASTASI Kunduz</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_blurb_text">
         <Original>Sand and blood</Original>
@@ -949,18 +949,18 @@
         <Czech>Písek a krev</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_mapname_text">
-        <Original>Antistasi - Liberation of Tembelan Island</Original>
-        <English>Antistasi - Liberation of Tembelan Island</English>
-        <French>Antistasi - Liberation de l'ile de Tembelan</French>
-        <German>Antistasi - Liberation of Tembelan Island</German>
-        <Czech>Antistasi - Osvobození Ostrova Tembelan</Czech>
+        <Original>CAVASTASI - Liberation of Tembelan Island</Original>
+        <English>CAVASTASI - Liberation of Tembelan Island</English>
+        <French>CAVASTASI - Liberation de l'ile de Tembelan</French>
+        <German>CAVASTASI - Liberation of Tembelan Island</German>
+        <Czech>CAVASTASI - Osvobození Ostrova Tembelan</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_mapname_short_text">
-        <Original>Antistasi Tembelan</Original>
-        <English>Antistasi Tembelan</English>
-        <French>Antistasi Tembelan</French>
-        <German>Antistasi Tembelan</German>
-        <Czech>Antistasi Tembelan</Czech>
+        <Original>CAVASTASI Tembelan</Original>
+        <English>CAVASTASI Tembelan</English>
+        <French>CAVASTASI Tembelan</French>
+        <German>CAVASTASI Tembelan</German>
+        <Czech>CAVASTASI Tembelan</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_blurb_text">
         <Original>Beauty and destruction</Original>
@@ -978,11 +978,11 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_mapname_short_text">
-        <Original>Antistasi Anizay</Original>
-        <English>Antistasi Anizay</English>
-        <French>Antistasi Anizay</French>
-        <German>Antistasi Anizay</German>
-        <Czech>Antistasi Anizay</Czech>
+        <Original>CAVASTASI Anizay</Original>
+        <English>CAVASTASI Anizay</English>
+        <French>CAVASTASI Anizay</French>
+        <German>CAVASTASI Anizay</German>
+        <Czech>CAVASTASI Anizay</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -993,10 +993,10 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_mapname_text">
-        <Original>Antistasi - Liberation of Anizay</Original>
-        <English>Antistasi - Liberation of Anizay</English>
-        <German>Antistasi - Liberation of Anizay</German>
-        <Czech>Antistasi - Osvobození Anizay</Czech>
+        <Original>CAVASTASI - Liberation of Anizay</Original>
+        <English>CAVASTASI - Liberation of Anizay</English>
+        <German>CAVASTASI - Liberation of Anizay</German>
+        <Czech>CAVASTASI - Osvobození Anizay</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_blurb_text">
         <Original>Fought on the camel's back</Original>

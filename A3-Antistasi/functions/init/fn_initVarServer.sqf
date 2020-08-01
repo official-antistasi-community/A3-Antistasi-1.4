@@ -101,7 +101,7 @@ DECLARE_SERVER_VAR(reportedVehs, []);
 //Initial HR
 server setVariable ["hr",8,true];
 //Initial faction money pool
-server setVariable ["resourcesFIA",1000,true];
+server setVariable ["resourcesFIA",5000,true];
 
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///
@@ -109,7 +109,7 @@ server setVariable ["resourcesFIA",1000,true];
 //We shouldn't need to sync these.
 [2,"Setting server only variables",_fileName] call A3A_fnc_log;
 
-playerStartingMoney = 100;			// should probably be a parameter
+playerStartingMoney = 500;			// should probably be a parameter
 
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
@@ -672,7 +672,7 @@ if (hasIFA) then {
 ////////////////////////////////////
 //     ACRE ITEM MODIFICATIONS   ///
 ////////////////////////////////////
-if (hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];};
+if (hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC152","ACRE_PRC117F"];};
 
 ////////////////////////////////////
 //    UNIT AND VEHICLE PRICES    ///
@@ -716,10 +716,10 @@ server setVariable [vehSDKTruck,300,true];											//300
 {server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];
 {server setVariable [_x,400,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];			//400
 {server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];			//800
-server setVariable [vehSDKAPC,800,true];
-server setVariable [vehSDKIFV,1000,true];
-server setVariable [vehSDKTANK,2000,true];
-server setVariable [vehSDKHeli,1500,true];
+server setVariable [vehSDKAPC,10000,true];
+server setVariable [vehSDKIFV,15000,true];
+server setVariable [vehSDKTANK,20000,true];
+server setVariable [vehSDKHeli,10000,true];
 ///////////////////////
 //     GARRISONS    ///
 ///////////////////////

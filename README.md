@@ -20,7 +20,7 @@ Inhouse, customised variant of Antistasi for the 7th Cavalry Regiment.
 A Persistent Whole Map Mission for MP co-op, focused on Resistance, Infantry and Guerrilla Tactics. Adapted heavily from Antistasi for 7thCavalry use for fun!
 
 ## Project Status
-Master Branch: [![Build Status](https://travis-ci.com/AdamWaldie/A3-CAVASTASI.svg?branch=unstable](https://travis-ci.com/AdamWaldie/A3-CAVASTASI)
+Master Branch: [![Build Status](https://travis-ci.com/AdamWaldie/A3-CAVASTASI.svg?branch=unstable)](https://travis-ci.com/AdamWaldie/A3-CAVASTASI)
 
 ### How to build from GIT -PowerShell
 - Download ZIP file

@@ -76,7 +76,7 @@ if(!isnull _object)then{
 };
 
 //remove action if it was the last peace of cargo on the vehicle
-if(_nodeLast == 0)then{
+if((_nodeLast == 0) or (_nodeLast == -1))then{
 	[_vehicle] remoteExec ["jn_fnc_logistics_removeActionUnload",0, _vehicle];
 	[_vehicle] remoteExec ["jn_fnc_logistics_removeActionGetInWeapon", 0, _vehicle];
 	[_object] remoteExec ["jn_fnc_logistics_removeEventGetOut", 0, _object];

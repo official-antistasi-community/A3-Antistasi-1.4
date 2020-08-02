@@ -122,7 +122,7 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 //Military Vehicles
 //Lite
 vehNATOBike = "B_Quadbike_01_F";
-vehNATOLightArmed = ["UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_B_DPMT","UK3CB_BAF_LandRover_WMIK_GMG_FFR_Green_B_DPMT","UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_DPMT","UK3CB_BAF_Jackal2_GMG_W_Arctic","UK3CB_BAF_Jackal2_L2A1_W_Arctic","UK3CB_BAF_Coyote_Logistics_L111A1_W_Arctic","UK3CB_BAF_Coyote_Passenger_L111A1_W_Arctic","UK3CB_BAF_Husky_Passenger_GMG_Green_DPMT","UK3CB_BAF_Husky_Passenger_GMG_Green_Arctic","UK3CB_BAF_Husky_Logistics_HMG_Green_Arctic"];
+vehNATOLightArmed = ["UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_B_DPMT","UK3CB_BAF_LandRover_WMIK_GMG_FFR_Green_B_DPMT","UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_DPMT","UK3CB_BAF_Coyote_Logistics_L111A1_W_Arctic","UK3CB_BAF_Coyote_Passenger_L111A1_W_Arctic","UK3CB_BAF_Husky_Passenger_GMG_Green_DPMT","UK3CB_BAF_Husky_Passenger_GMG_Green_Arctic","UK3CB_BAF_Husky_Logistics_HMG_Green_Arctic"];
 vehNATOLightUnarmed = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Green","UK3CB_BAF_LandRover_Hard_FFR_Arctic_A_Arctic","UK3CB_BAF_LandRover_Soft_FFR_Arctic_A_Arctic"];
 vehNATOTrucks = ["UK3CB_BAF_MAN_HX60_Transport_Green_Arctic","UK3CB_BAF_MAN_HX58_Transport_Green_Arctic"];
 vehNATOCargoTrucks = ["UK3CB_BAF_MAN_HX60_Cargo_Green_A_Arctic","UK3CB_BAF_MAN_HX58_Cargo_Green_A_Arctic"];

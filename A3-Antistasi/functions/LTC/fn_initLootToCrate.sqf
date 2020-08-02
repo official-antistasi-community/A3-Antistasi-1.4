@@ -18,7 +18,7 @@ player addAction [
 	"(
 		((typeof cursorTarget) isEqualTo 'Box_IND_Wps_F') 
 		and (cursorTarget distance _this < 3)
-		and (!(_this getVariable ['carryingCrate', false]))
+		and (attachedTo cursorTarget isEqualTo objNull)
 	)"
 ];
 
@@ -35,7 +35,7 @@ player addAction [
 	"(
 		((typeof cursorTarget) isEqualTo 'Box_IND_Wps_F') 
 		and (cursorTarget distance _this < 3)
-		and (!(_this getVariable ['carryingCrate', false]))
+		and (attachedTo cursorTarget isEqualTo objNull)
 	)"
 ];
 
@@ -54,7 +54,7 @@ player addAction [
 		((typeof cursorTarget) isEqualTo 'Box_IND_Wps_F') 
 		and (cursorTarget distance _this < 3)
 		and ((cursorTarget getVariable ['pickedUp', true]) isEqualTo true)
-		and ((attachedTo cursorTarget) isEqualTo objNull)
+		and (attachedTo cursorTarget isEqualTo objNull)
 	)"
 ];
 

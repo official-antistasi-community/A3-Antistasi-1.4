@@ -27,5 +27,5 @@ Master Branch: [![Build Status](https://travis-ci.com/AdamWaldie/A3-CAVASTASI.sv
 - Extract ZIP
 - Right click on `PrepareMissionsForPacking.ps1` and select 'Open with PowerShell'
 - The script will create a new folder called `PreparedMissions/`
-- Inside this folder you will find multiple subfolders, labeled `Antistasi-VersionNumber.MapName`
+- Inside this folder you will find multiple subfolders, labeled `CAVASTASI-VersionNumber.MapName`
 - Use a PBO Packager to pack the any of these mission folders

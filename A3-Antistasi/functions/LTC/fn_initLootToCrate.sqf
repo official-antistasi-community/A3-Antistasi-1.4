@@ -53,7 +53,7 @@ player addAction [
 	"(
 		((typeof cursorTarget) isEqualTo 'Box_IND_Wps_F') 
 		and (cursorTarget distance _this < 3)
-		and ((cursorTarget getVariable ['pickedUp', true]) isEqualTo true)
+		and ({!(_x isEqualTo onjNull)} count attachedObjects _this isEqualTo 0)
 		and (attachedTo cursorTarget isEqualTo objNull)
 	)"
 ];

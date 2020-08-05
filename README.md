@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases/latest">
-        <img src="https://img.shields.io/badge/Latest_Version-2.2.1-blue.svg?style=flat-square" alt="Antistasi Version">
+        <img src="https://img.shields.io/badge/Latest_Version-2.3.0-blue.svg?style=flat-square" alt="Antistasi Version">
     </a>
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/issues">
         <img src="https://img.shields.io/github/issues/official-antistasi-community/A3-Antistasi?style=flat-square" alt="Issues">
@@ -54,7 +54,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Tembelan Island
     - [Steam Workshop: 1959976706](https://steamcommunity.com/sharedfiles/filedetails/?id=1959976706)
 - Virolahti
-    - [Steam Workshop: 1959976706](https://steamcommunity.com/sharedfiles/filedetails/?id=2178424367)
+    - [Steam Workshop: 2178424367](https://steamcommunity.com/sharedfiles/filedetails/?id=2178424367)
 - Altis 1.9 Community Version
     - [Steam Workshop: 1832910657](https://steamcommunity.com/sharedfiles/filedetails/?id=1832910657)
 
@@ -63,8 +63,6 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
     - [Steam Workshop: 1833674441](https://steamcommunity.com/sharedfiles/filedetails/?id=1833674441)
 - RHS Collection
     - [Steam Workshop: 1833668872](https://steamcommunity.com/sharedfiles/filedetails/?id=1833668872)
-- WW2 / Armia Krajowa
-    - [Steam Workshop: 1833672629](https://steamcommunity.com/sharedfiles/filedetails/?id=1833672629)
 - 3CB Collection
     - [Steam Workshop: 1834976313](https://steamcommunity.com/sharedfiles/filedetails/?id=1834976313)
 

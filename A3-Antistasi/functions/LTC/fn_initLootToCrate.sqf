@@ -1,5 +1,5 @@
 //check if action already on player
-if (_IDs findIf {
+if ((actionIDs Player) findIf {
 	_params = player actionParams _x;
 	(_params#0) isEqualTo "Load loot to crate"
 } != -1) exitWith {};
@@ -53,7 +53,7 @@ player addAction [
 	"(
 		((typeof cursorTarget) isEqualTo 'Box_IND_Wps_F') 
 		and (cursorTarget distance _this < 3)
-		and ({!(_x isEqualTo onjNull)} count attachedObjects _this isEqualTo 0)
+		and ({!(_x isEqualTo objNull)} count attachedObjects _this isEqualTo 0)
 		and (attachedTo cursorTarget isEqualTo objNull)
 	)"
 ];

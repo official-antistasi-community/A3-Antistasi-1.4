@@ -4,8 +4,7 @@ if (_pickUp) then {
 	_attachedObj = (attachedObjects player)select {!(_x isEqualTo objNull)};
 	if !(count _attachedObj == 0) exitWith {systemChat "you are already carrying something."};
 	_crate attachTo [player, [0, 1.5, 0], "Pelvis"];
-	_crate setVariable ["pickedUp", player, true];
-	player setVariable ["carryingCrate", true, true];
+	player setVariable ["carryingCrate", true];
 	player forceWalk true;
 	[player ,_crate] spawn { 
 		params ["_player", "_crate"];
@@ -18,9 +17,8 @@ if (_pickUp) then {
 	if !(isNil "_crate") then {
 		player setVelocity [0,0,0];
 		detach _crate;
-		_crate setVariable ["pickedUp", nil, true];
 		_crate setVelocity [0,0,0.3];
 	};
-	player setVariable ["carryingCrate", nil, true];
+	player setVariable ["carryingCrate", nil];
 	player forceWalk false;
 };

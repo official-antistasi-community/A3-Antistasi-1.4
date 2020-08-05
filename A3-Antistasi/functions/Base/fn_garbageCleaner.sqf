@@ -7,14 +7,14 @@ private _rebelSpawners = allUnits select { side group _x == teamPlayer && {_x ge
 private _fnc_distCheck = {
 	params["_object", "_dist"];
 	private _inRange = { if (_x distance _object <= _dist) exitWith {1}; false } count _rebelSpawners;
-	if (_inRange == 0) then { detach _object; deleteVehicle _object };
+	if (_inRange == 0) then { deleteVehicle _object };
 };
 
 
 { deleteVehicle _x } forEach allDead;
 { deleteVehicle _x } forEach (allMissionObjects "WeaponHolder");
 { deleteVehicle _x } forEach (allMissionObjects "WeaponHolderSimulated");
-{ [_x, distanceSPWN1] call _fnc_distCheck } forEach (allMissionObjects "Box_IND_Wps_F");				// Surrender boxes
+{ if (isNull attachedTo _x) then { [_x, distanceSPWN1] call _fnc_distCheck } } forEach (allMissionObjects "Box_IND_Wps_F");				// Surrender boxes
 { deleteVehicle _x } forEach (allMissionObjects "Leaflet_05_F");				// Drone drop leaflets
 { deleteVehicle _x } forEach (allMissionObjects "Ejection_Seat_Base_F");		// All vanilla ejection seats
 

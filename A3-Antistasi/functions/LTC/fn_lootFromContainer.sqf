@@ -11,7 +11,7 @@ if (isNil "_override") then {
 	_target setVariable ["Looting", true, true];
 	_target spawn {sleep 3; _this setVariable ["Looting", nil, true]};
 
-	private _containers = _target nearEntities [["Car", "Motorcycle", "Tank", "Air"], 10];
+	private _containers = nearestObjects [_target, ["Car", "Motorcycle", "Tank", "Air"], 10];
 	_container = _containers#0;
 } else {
 	_container = _override;

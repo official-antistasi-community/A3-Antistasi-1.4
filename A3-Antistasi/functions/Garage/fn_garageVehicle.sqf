@@ -28,7 +28,6 @@ if ((typeOf _veh) isEqualTo "Box_IND_Wps_F") exitWith {
 	_veh addMagazineCargoGlobal [unlockedMagazines#0,1];// so fnc_empty will delete the crate
 	_transferLoot = [_veh] spawn A3A_fnc_empty;
 	[10] call A3A_fnc_resourcesPlayer;
-	call A3A_fnc_Statistics;
 	["Garage", "Loot crate stored"] call A3A_fnc_customHint;
 };
 if !(_veh isKindOf "AllVehicles") exitWith {["Garage", "The vehicle you are looking cannot be stored in our Garage"] call A3A_fnc_customHint;};

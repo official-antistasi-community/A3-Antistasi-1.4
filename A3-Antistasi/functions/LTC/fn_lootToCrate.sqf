@@ -1,10 +1,6 @@
 params ["_container"];
 scopeName "Main";
 
-if (_container getVariable ["Looting", false]) exitWith {["Loot crate", "Cooldown still active"] call A3A_fnc_customHint};
-_nearbyLootContainers = nearestObjects [getposATL _container,["Box_IND_Wps_F"], 20];
-if (_nearbyLootContainers findIf {_x getVariable ["Looting", false]} != -1) exitWith {["Loot crate", "Nearby crate already looting"] call A3A_fnc_customHint};
-_container setVariable ["Looting", true, true];
 ["Loot crate", "Looting..."] call A3A_fnc_customHint;
 
 private "_unlocked";
@@ -178,4 +174,5 @@ if ((_allUnlockedArray findIf {!_x} isEqualTo -1)) then {
 } else {
 	["Loot crate", "Unable to transfer all nearby loot"] call A3A_fnc_customHint;
 };
-_container setVariable ["Looting", nil, true];
+
+[_container, clientOwner, true] remoteExecCall ["A3A_fnc_canLoot", 2];

@@ -8,7 +8,7 @@ if ((actionIDs Player) findIf {
 player addAction [
 	"Load loot to crate", 
 	{
-		[cursorTarget] call A3A_fnc_lootToCrate;
+		[cursorTarget, clientOwner] remoteExecCall ["A3A_fnc_canLoot", 2];
 	},
 	nil,
 	1.5,

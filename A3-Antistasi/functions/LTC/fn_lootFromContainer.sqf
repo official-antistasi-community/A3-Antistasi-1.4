@@ -3,14 +3,6 @@ scopeName "Main";
 
 private "_container";
 if (isNil "_override") then {
-	//spam prevention
-	if (_target getVariable ["Looting", false]) exitWith {
-		["Loot crate", "Cooldown still active"] call A3A_fnc_customHint;
-		breakOut "Main";
-	};
-	_target setVariable ["Looting", true, true];
-	_target spawn {sleep 3; _this setVariable ["Looting", nil, true]};
-
 	private _containers = nearestObjects [_target, ["Car", "Motorcycle", "Tank", "Air"], 10];
 	_container = _containers#0;
 } else {
@@ -199,7 +191,6 @@ if (isNil "_override") then {
 	} else {
 		["Loot crate", format ["Unable to transfer all loot to %1. %1 full", getText (configFile >> "CfgVehicles" >> typeOf _container >> "displayname")]] call A3A_fnc_customHint;
 	};
-	_target setVariable ["Looting", nil, true];
 };
 
 _return;

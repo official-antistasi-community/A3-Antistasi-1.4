@@ -47,7 +47,7 @@ vehSDKBike = "rhsusf_mrzr4_d";
 vehSDKLightArmed = "LOP_AM_Landrover_M2";
 vehSDKAT = "LOP_AM_Landrover_SPG9";
 vehSDKLightUnarmed = "LOP_AM_Landrover";
-vehSDKTruck = "rhsgref_nat_ural";
+vehSDKTruck = "RHS_Ural_Civ_01";
 vehSDKHeli = "RHS_Mi8AMTSh_vvsc";
 vehSDKPlane = "RHS_AN2";
 vehSDKBoat = "I_Boat_Armed_01_minigun_F";
@@ -59,7 +59,7 @@ vehSDKTANK = "rhsusf_m1a2sep1d_usarmy";
 
 //Civilian Vehicles
 civCar = "C_Offroad_01_F";
-civTruck = "rhsgref_nat_ural";
+civTruck = "RHS_Ural_Civ_01";
 civHeli = "rhs_uh1h_idap";
 civBoat = "C_Boat_Transport_02_F";
 

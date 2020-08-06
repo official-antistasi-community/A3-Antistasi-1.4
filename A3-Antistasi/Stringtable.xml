@@ -505,8 +505,8 @@
         <German>Sei ein Anführer des Widerstands, sei ein Held.</German>
         <Czech>Staňte se vůdcem odboje, buďte hrdinou.</Czech>
       </Key>
-      <Key ID="STR_antistasi_credits_generic_version_text">
-        <Original>2.3.6</Original>
+      <Key ID="STR_antistasi_credits_generic_7_text">
+        <Original>2.3.7</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">

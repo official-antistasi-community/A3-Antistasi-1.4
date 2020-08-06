@@ -5,7 +5,7 @@ private _backpacks = [];
 private _isMan = _target isKindOf "CAManBase";
 private _targetTypeStr = ["ground", "body"] select _isMan;
 
-systemChat format ["1Tac Antistasi Looter: from %1 into %2", _targetTypeStr, getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayname")];
+systemChat format ["7CAV Antistasi Looter: from %1 into %2", _targetTypeStr, getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayname")];
 
 if (_isMan) then {
     _items = magazines _target;

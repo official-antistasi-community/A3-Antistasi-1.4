@@ -17,4 +17,7 @@ if (!isMultiplayer) then {
 enableSaving [false,false];
 mapX setObjectTexture [0,"Pictures\Mission\whiteboard.jpg"];
 
+ACE_maxWeightCarry = 10000;
+ACE_maxWeightDrag = 15000;
+
 [2,"Init finished",_fileName] call A3A_fnc_log;

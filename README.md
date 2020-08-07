@@ -22,6 +22,9 @@ A Persistent Whole Map Mission for MP co-op, focused on Resistance, Infantry and
 ## Project Status
 Master Branch: [![Build Status](https://travis-ci.com/AdamWaldie/A3-CAVASTASI.svg?branch=unstable)](https://travis-ci.com/AdamWaldie/A3-CAVASTASI)
 
+### Attribution
+Fox.S - CAVASTASI bloodstained logo for ingame menus!
+
 ### How to build from GIT -PowerShell
 - Download ZIP file
 - Extract ZIP

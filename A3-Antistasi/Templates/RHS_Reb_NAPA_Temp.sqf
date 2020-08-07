@@ -43,7 +43,7 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 //           VEHICLES            ///
 ////////////////////////////////////
 //Military Vehicles
-vehSDKBike = "rhsusf_mrzr4_d";
+vehSDKBike = "B_Quadbike_01_F";
 vehSDKLightArmed = "LOP_AM_Landrover_M2";
 vehSDKAT = "LOP_AM_Landrover_SPG9";
 vehSDKLightUnarmed = "LOP_AM_Landrover";

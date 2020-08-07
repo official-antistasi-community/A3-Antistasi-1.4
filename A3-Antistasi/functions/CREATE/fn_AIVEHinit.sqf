@@ -103,17 +103,15 @@ else
 	{
 		if (_veh isKindOf "StaticWeapon") then
 		{
+			private _model = getText (configFile >> "CfgVehicles" >> typeOf _veh >> "model");
+			if (({(_X#0) isEqualTo _model } count logistics_weaponVehicleBlackList) isEqualTo 1) then {[_veh] call A3A_fnc_logistics_addLoadAction};
 			_veh setCenterOfMass [(getCenterOfMass _veh) vectorAdd [0, 0, -1], 0];
 			if ((not (_veh in staticsToSave)) and (side gunner _veh != teamPlayer)) then
 			{
-				if (hasRHS and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]} else {[_veh,"steal"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
+				if (activeGREF and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
 			};
 			if (_typeX == SDKMortar) then
 			{
-				if (!isNull gunner _veh) then
-				{
-					[_veh,"steal"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
-				};
 				_veh addEventHandler ["Fired",
 				{
 					_mortarX = _this select 0;

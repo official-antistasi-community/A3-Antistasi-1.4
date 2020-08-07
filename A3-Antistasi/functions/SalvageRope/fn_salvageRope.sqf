@@ -112,9 +112,9 @@ A3A_SR_attachRope = {
 
     //load cargo onto boat
     ropeDestroy _rope;
-    [_vehicle, _cargo] call jn_fnc_logistics_load;
-    _cargo call jn_fnc_logistics_addAction;
     _vehicle setVariable ["WinchRope",nil,true];
+	_cargo call A3A_fnc_logistics_addLoadAction;
+	[_vehicle, _cargo] call jn_fnc_logistics_load;
 };
 
 //adding of actions

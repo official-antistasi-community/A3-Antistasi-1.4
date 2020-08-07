@@ -333,6 +333,31 @@ class A3A
         class showIntel {};
     };
 
+	class Logistics
+    {
+        class logistics_addLoadAction {};
+        class logistics_initNodes {};
+    };
+
+    class LogisticsFunctions 
+    {
+        file = "functions\Logistics\functions";
+        class logistics_addAction {};
+        class logistics_addOrRemoveObjectMass {};
+        class logistics_addWeaponAction {};
+        class logistics_canLoad {};
+        class logistics_generateNodes {};
+        class logistics_getCargoNodeType {};
+        class logistics_getCargoOffsetAndDir {};
+        class logistics_getVehicleNodes {};
+        class logistics_initMountedWeapon {};
+        class logistics_load {};
+        class logistics_refreshVehicleLoad {};
+        class logistics_removeWeaponAction {};
+        class logistics_toggleAceActions {};
+        class logistics_unload {};
+    };
+
 	class LTC
 	{
 		class canLoot {};

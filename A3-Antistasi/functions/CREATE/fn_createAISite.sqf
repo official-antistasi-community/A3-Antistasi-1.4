@@ -82,7 +82,7 @@ if(_marker in airportsX || {_marker in seaports || {_marker in outposts}}) then
   	_box = CSATAmmoBox createVehicle _markerPos;
     [_box] spawn A3A_fnc_fillLootCrate;
   };
-  _box call jn_fnc_logistics_addAction;
+  _box call A3A_fnc_logistics_addLoadAction;
 
 };
 

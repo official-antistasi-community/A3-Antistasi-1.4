@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/AdamWaldie/A3-CAVASTASI/releases/latest">
-        <img src="https://img.shields.io/badge/Latest_Version-2.3.8-blue.svg?style=flat-square" alt="CAVASTASI Version">
+        <img src="https://img.shields.io/badge/Latest_Version-2.3.9-blue.svg?style=flat-square" alt="CAVASTASI Version">
     </a>
     <a href="https://github.com/AdamWaldie/A3-CAVASTASI/issues">
         <img src="https://img.shields.io/github/issues/AdamWaldie/A3-CAVASTASI/issues?style=flat-square" alt="Issues">

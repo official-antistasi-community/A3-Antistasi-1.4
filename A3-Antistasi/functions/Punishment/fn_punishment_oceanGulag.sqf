@@ -70,8 +70,7 @@ switch (toLower _operation) do {
 		if (isPlayer _detainee) then {
 			if !(isNull objectParent _detainee) then { moveOut _detainee };
 			_detainee switchMove "";
-			_detainee setPos [_pos2D #0, _pos2D #1, 0.5];
-			_detainee setVelocity [0, 0, 1];
+			_detainee attachTo [_punishment_platform,[0, 0, 0.5]];
 		};
 		true;
 	};
@@ -80,8 +79,10 @@ switch (toLower _operation) do {
 			private _keyPairs = [ ["initialPosASL",[0,0,0]] ];
 			([_UID,_keyPairs] call A3A_fnc_punishment_dataGet) params ["_initialPosASL"];
 			if !(isNull objectParent _detainee) then { moveOut _detainee };
+			detach _detainee;
 			_detainee switchMove "";
-			_detainee setPosASL ([_initialPosASL,posHQ] select (_initialPosASL isEqualTo [0,0,0]) findEmptyPosition [1,50,typeOf _detainee]);
+			private _emptyPos = ([_initialPosASL,posHQ] select (_initialPosASL isEqualTo [0,0,0]) findEmptyPosition [1,50,typeOf _detainee]); // *empty*
+			_detainee setVehiclePosition [_emptyPos, [], 0, "NONE"];
 			_detainee setVelocity [0, 0, 1];
 		};
 		if (!isNull _punishment_platform) then {

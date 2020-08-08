@@ -55,7 +55,7 @@ private _disconnectedCleanUp = {
 	true;
 };
 
-[_UID] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false];
+[_UID,true] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false]; // Removes possible issue of actions duplicating.
 [_UID] remoteExec ["A3A_fnc_punishment_notifyAdmin",0,false];
 
 private _sentenceEndTime_old = _sentenceEndTime;

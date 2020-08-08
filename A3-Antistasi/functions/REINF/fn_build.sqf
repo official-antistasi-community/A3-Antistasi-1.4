@@ -100,7 +100,7 @@ switch build_type do
 		};
 	case "MT":
 		{
-		build_time = 60;
+		build_time = 30;
 		if (count (nearestTerrainObjects [player, ["House"], 70]) > 3) then
 			{
 			_classX = "Land_Barricade_01_10m_F";
@@ -119,7 +119,7 @@ switch build_type do
 		};
 	case "RB":
 		{
-		build_time = 100;
+		build_time = 20;
 		if (count (nearestTerrainObjects [player, ["House"], 70]) > 3) then
 			{
 			_classX = "Land_Tyres_F";
@@ -131,13 +131,13 @@ switch build_type do
 		};
 	case "SB":
 		{
-		build_time = 60;
+		build_time = 40;
 		_classX = "Land_BagBunker_01_small_green_F";
 		build_cost = 100;
 		};
 	case "CB":
 		{
-		build_time = 120;
+		build_time = 60;
 		_classX = "Land_PillboxBunker_01_big_F";
 		build_cost = 300;
 		};

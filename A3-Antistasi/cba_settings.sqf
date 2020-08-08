@@ -136,7 +136,7 @@ force force ace_repair_addSpareParts = true;
 force force ace_repair_autoShutOffEngineWhenStartingRepair = false;
 force force ace_repair_consumeItem_toolKit = 0;
 force force ace_repair_displayTextOnRepair = true;
-force force ace_repair_engineerSetting_fullRepair = 2;
+force force ace_repair_engineerSetting_fullRepair = 1;
 force force ace_repair_engineerSetting_repair = 1;
 force force ace_repair_engineerSetting_wheel = 0;
 force force ace_repair_fullRepairLocation = 0;
@@ -152,10 +152,10 @@ force force ace_magazinerepack_timePerBeltLink = 1;
 force force ace_magazinerepack_timePerMagazine = 2;
 
 // ACE Map
-force force ace_map_BFT_Enabled = false;
-force force ace_map_BFT_HideAiGroups = false;
+force force ace_map_BFT_Enabled = true;
+force force ace_map_BFT_HideAiGroups = true;
 force force ace_map_BFT_Interval = 1;
-force force ace_map_BFT_ShowPlayerNames = false;
+force force ace_map_BFT_ShowPlayerNames = true;
 force force ace_map_DefaultChannel = 1;
 force force ace_map_mapGlow = true;
 force force ace_map_mapIllumination = true;

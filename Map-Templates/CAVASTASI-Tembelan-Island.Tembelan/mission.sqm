@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=489;
+		nextID=490;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=99;
+		nextID=105;
 	};
 	class Camera
 	{
-		pos[]={3069.6584,108.95512,4139.3765};
-		dir[]={-0.14437515,-0.48578817,0.86209536};
-		up[]={-0.080242276,0.87406504,0.47914115};
-		aside[]={0.9862867,4.5532943e-007,0.16517551};
+		pos[]={4258.6851,112.7517,5388.8359};
+		dir[]={0.72509664,-0.41043949,0.55297583};
+		up[]={0.32636446,0.91188765,0.24889323};
+		aside[]={0.60640687,-3.0267984e-008,-0.7951591};
 	};
 };
 binarizationWanted=0;
@@ -63,13 +63,14 @@ addons[]=
 	"acre_main",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Exp_Military_Flags",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"acex_fortify"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=24;
+		items=25;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -238,6 +239,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item24
+		{
+			className="acex_fortify";
+			name="acex_fortify";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=14599179;
@@ -290,7 +298,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=197;
+		items=198;
 		class Item0
 		{
 			dataType="Marker";
@@ -1699,7 +1707,7 @@ class Mission
 					colorName="ColorGreen";
 					a=41.753052;
 					b=37.37513;
-					angle=114.06977;
+					angle=114.06976;
 					id=125;
 					atlOffset=44.966366;
 				};
@@ -1811,7 +1819,7 @@ class Mission
 					colorName="ColorGreen";
 					a=19.487;
 					b=5.724;
-					angle=359.56534;
+					angle=359.56531;
 					id=263;
 				};
 				class Item13
@@ -1907,7 +1915,7 @@ class Mission
 					colorName="ColorGreen";
 					a=5.6589999;
 					b=5.2340002;
-					angle=178.83095;
+					angle=178.83093;
 					id=461;
 					atlOffset=0.00016021729;
 				};
@@ -1949,7 +1957,7 @@ class Mission
 					colorName="ColorGreen";
 					a=11.871;
 					b=5.2340002;
-					angle=91.088974;
+					angle=91.088966;
 					id=465;
 					atlOffset=-23.494232;
 				};
@@ -2175,7 +2183,7 @@ class Mission
 							colorName="ColorGreen";
 							a=14.496;
 							b=11.538742;
-							angle=28.279577;
+							angle=28.279575;
 							id=274;
 							atlOffset=-0.071720123;
 						};
@@ -2220,7 +2228,7 @@ class Mission
 					colorName="ColorBrown";
 					a=69.968704;
 					b=76.622749;
-					angle=228.59023;
+					angle=228.59021;
 					id=158;
 					atlOffset=25.352036;
 				};
@@ -2397,7 +2405,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.991456;
 					b=7.6840587;
-					angle=118.67047;
+					angle=118.67046;
 					id=242;
 					atlOffset=-23.725101;
 				};
@@ -2479,7 +2487,7 @@ class Mission
 					colorName="ColorGreen";
 					a=5.0797114;
 					b=5.5197411;
-					angle=269.39761;
+					angle=269.39758;
 					id=295;
 				};
 				class Item19
@@ -2584,7 +2592,7 @@ class Mission
 					colorName="ColorGreen";
 					a=5.0797114;
 					b=5.5197411;
-					angle=134.0537;
+					angle=134.05368;
 					id=478;
 				};
 				class Item27
@@ -2650,7 +2658,7 @@ class Mission
 					colorName="ColorGreen";
 					a=11.444118;
 					b=6.3723078;
-					angle=121.52276;
+					angle=121.52274;
 					id=486;
 					atlOffset=-23.725101;
 				};
@@ -3547,7 +3555,7 @@ class Mission
 			position[]={9207.2539,20.667,4988.5352};
 			name="spawnpoint";
 			type="hd_start";
-			angle=28.146976;
+			angle=28.146975;
 			id=351;
 			atlOffset=15.667;
 		};
@@ -3560,7 +3568,7 @@ class Mission
 			type="rectangle";
 			a=5190.1421;
 			b=5239.7939;
-			angle=55.783958;
+			angle=55.783955;
 			id=353;
 			atlOffset=-19.74058;
 		};
@@ -6900,6 +6908,21 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item197
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5009.0522,189.88873,4785.8394};
+				angles[]={0,4.712389,0};
+			};
+			areaSize[]={5006.3359,0,5001.519};
+			areaIsRectangle=1;
+			flags=1;
+			id=489;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=203.45242;
 		};
 	};
 	class Connections

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=2225;
+		nextID=2226;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=128;
+		nextID=137;
 	};
 	class Camera
 	{
-		pos[]={3728.3667,503.91013,6055.3721};
-		dir[]={-0.39799228,-0.82334816,-0.40463445};
-		up[]={-0.57736099,0.56753218,-0.58699632};
-		aside[]={-0.7129426,1.527369e-007,0.70123929};
+		pos[]={3710.574,503.91013,6088.1372};
+		dir[]={0.40317231,-0.53501284,-0.74245805};
+		up[]={0.25531864,0.84483469,-0.47018018};
+		aside[]={-0.87880301,1.6205013e-007,-0.47721073};
 	};
 };
 binarizationWanted=0;
@@ -33,13 +33,17 @@ addons[]=
 	"A3_Modules_F",
 	"A3_Characters_F",
 	"A3_Structures_F_EPC_Civ_InfoBoards",
-	"A3_Structures_F_Mil_Flags",
+	"cav_flag",
 	"A3_Props_F_Enoch_Military_Camps",
 	"A3_Structures_F_Mil_Helipads",
 	"A3_Weapons_F_Ammoboxes",
+	"ace_cargo",
+	"ace_rearm",
+	"ace_dragging",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Modules_F_Hc",
 	"A3_Weapons_F",
+	"ace_explosives",
 	"CUP_Buildings_Config",
 	"CUP_Misc3_Config",
 	"CUP_CAStructures_Mil",
@@ -51,16 +55,19 @@ addons[]=
 	"CUP_CAMisc",
 	"CUP_CAMisc_ACR_Sign_Mines",
 	"A3_Structures_F_Enoch_Civilian_Sheds",
+	"A3_Structures_F_Mil_Flags",
 	"A3_Ui_F_Exp",
+	"acre_main",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Exp_Military_Flags",
-	"A3_Structures_F_Mil_Fortification"
+	"A3_Structures_F_Mil_Fortification",
+	"acex_fortify"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=22;
+		items=29;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -91,10 +98,10 @@ class AddonsMetaData
 		};
 		class Item4
 		{
-			className="A3_Structures_F_Mil";
-			name="Arma 3 - Military Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
+			className="cav_flag";
+			name="7th Cavalry Addon - Flag";
+			author="7th Cavalry S3 Mod Team";
+			url="http://7cav.us";
 		};
 		class Item5
 		{
@@ -105,114 +112,199 @@ class AddonsMetaData
 		};
 		class Item6
 		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item7
+		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item8
+		{
+			className="ace_cargo";
+			name="ACE3 - Cargo";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item9
+		{
+			className="ace_rearm";
+			name="ACE3 - Rearm";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item10
+		{
+			className="ace_dragging";
+			name="ACE3 - Dragging";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item11
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item8
+		class Item12
+		{
+			className="ace_explosives";
+			name="ACE3 - Explosives";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item13
 		{
 			className="CUP_Buildings_Config";
 			name="CUP_Buildings_Config";
 		};
-		class Item9
+		class Item14
 		{
 			className="CUP_Misc3_Config";
 			name="CUP_Misc3_Config";
 		};
-		class Item10
+		class Item15
 		{
 			className="CUP_CAStructures_Mil";
 			name="CUP_CAStructures_Mil";
 		};
-		class Item11
+		class Item16
 		{
 			className="CUP_WarfareBuildings";
 			name="CUP_WarfareBuildings";
 		};
-		class Item12
+		class Item17
 		{
 			className="CUP_Terrains_Winter_Objects";
 			name="CUP_Terrains_Winter_Objects";
 			author="CUP Terrains - Community Upgrade Project";
 		};
-		class Item13
+		class Item18
 		{
 			className="CUP_Ind_Tank";
 			name="CUP_Ind_Tank";
 		};
-		class Item14
+		class Item19
 		{
 			className="CUP_Terrains_Winter_Plants";
 			name="CUP_Terrains_Winter_Plants";
 		};
-		class Item15
+		class Item20
 		{
 			className="CUP_CAMisc_E_WF";
 			name="CUP_CAMisc_E_WF";
 		};
-		class Item16
+		class Item21
 		{
 			className="CUP_CAMisc";
 			name="CUP_CAMisc";
 		};
-		class Item17
+		class Item22
 		{
 			className="CUP_CAMisc_ACR_Sign_Mines";
 			name="CUP_CAMisc_ACR_Sign_Mines";
 		};
-		class Item18
+		class Item23
 		{
 			className="A3_Structures_F_Enoch_Civilian";
 			name="Arma 3 Contact Platform - Civilian Buildings";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item19
+		class Item24
 		{
 			className="A3_Ui_F_Exp";
 			name="Arma 3 Apex - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item20
+		class Item25
+		{
+			className="acre_main";
+			name="ACRE2 - Main";
+			author="ACRE2Team";
+			url="https://github.com/IDI-Systems/acre2";
+		};
+		class Item26
 		{
 			className="A3_Characters_F_Exp";
 			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item21
+		class Item27
 		{
 			className="A3_Structures_F_Exp";
 			name="Arma 3 Apex - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item28
+		{
+			className="acex_fortify";
+			name="acex_fortify";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=5703879;
+class ScenarioData
+{
+	author="=7CAV=CPT.Waldie.A";
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="cba_settings_hasSettingsFile";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"BOOL"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
+};
 class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_chernawinter_mapname_text;
+		briefingName="CAVASTASI 2.3.9 - Chilled revolt";
 		resistanceWest=0;
+		startWind=0.1;
+		forecastWind=0.1;
+		forecastWaves=0.1;
 		year=2035;
 		month=1;
 		hour=10;
 		minute=0;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
 	};
 	class Entities
 	{
-		items=107;
+		items=108;
 		class Item0
 		{
 			dataType="Marker";
@@ -1250,7 +1342,7 @@ class Mission
 					colorName="ColorGreen";
 					a=13.529;
 					b=4.3730001;
-					angle=187.59695;
+					angle=187.59694;
 					id=157;
 				};
 				class Item28
@@ -1263,7 +1355,7 @@ class Mission
 					colorName="ColorGreen";
 					a=9.6932468;
 					b=4.7401009;
-					angle=214.35858;
+					angle=214.35857;
 					id=158;
 					atlOffset=0.062484741;
 				};
@@ -1277,7 +1369,7 @@ class Mission
 					colorName="ColorGreen";
 					a=10.144073;
 					b=4.9241195;
-					angle=225.6067;
+					angle=225.60669;
 					id=159;
 					atlOffset=-0.73698235;
 				};
@@ -1332,7 +1424,7 @@ class Mission
 					colorName="ColorGreen";
 					a=7.8309999;
 					b=7.7649999;
-					angle=190.00998;
+					angle=190.00996;
 					id=2208;
 					atlOffset=0.11811757;
 				};
@@ -1346,7 +1438,7 @@ class Mission
 					colorName="ColorGreen";
 					a=3.5864019;
 					b=6.1445723;
-					angle=75.483337;
+					angle=75.48333;
 					id=2209;
 				};
 				class Item35
@@ -1359,7 +1451,7 @@ class Mission
 					colorName="ColorGreen";
 					a=11.911586;
 					b=6.145;
-					angle=103.17699;
+					angle=103.17698;
 					id=2210;
 				};
 			};
@@ -1479,7 +1571,7 @@ class Mission
 					colorName="ColorGreen";
 					a=14.64;
 					b=6.8839998;
-					angle=130.17598;
+					angle=130.17596;
 					id=2204;
 				};
 				class Item8
@@ -1492,7 +1584,7 @@ class Mission
 					colorName="ColorGreen";
 					a=13.893;
 					b=6.3979998;
-					angle=179.44598;
+					angle=179.44597;
 					id=2206;
 					atlOffset=-2.3891602;
 				};
@@ -1582,7 +1674,7 @@ class Mission
 					colorName="ColorGreen";
 					a=8.7680368;
 					b=11.922183;
-					angle=199.65277;
+					angle=199.65276;
 					id=175;
 					atlOffset=0.00036621094;
 				};
@@ -3987,7 +4079,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="_this setGroupID [_value];";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
 					class Value
 					{
 						class data
@@ -4932,7 +5024,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3733.199,405.13635,5980.4653};
-						angles[]={-0,1.7072766,0};
+						angles[]={0,1.7072766,0};
 					};
 					side="Empty";
 					flags=4;
@@ -24531,7 +24623,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6410.9751,6.2935462,2652.7522};
-						angles[]={-0,5.4819384,0};
+						angles[]={0,5.4819384,0};
 					};
 					side="Empty";
 					flags=4;
@@ -24571,7 +24663,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6412.4893,9.1363554,2651.1731};
-						angles[]={-0,5.4819384,0};
+						angles[]={0,5.4819384,0};
 					};
 					side="Empty";
 					flags=4;
@@ -24587,7 +24679,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6481.6265,9.1363554,2528.4412};
-						angles[]={-0,2.4147418,0};
+						angles[]={0,2.4147418,0};
 					};
 					side="Empty";
 					flags=4;
@@ -24603,7 +24695,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={10441.268,6.1346645,1866.0471};
-						angles[]={-0,0.20460282,6.2818937};
+						angles[]={0,0.20460282,6.2818937};
 					};
 					side="Empty";
 					flags=4;
@@ -24612,6 +24704,7 @@ class Mission
 					};
 					id=2207;
 					type="Land_Hlaska";
+					atlOffset=-2.3841858e-007;
 				};
 				class Item566
 				{
@@ -24619,7 +24712,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={9756.0488,299.57132,8895.8936};
-						angles[]={-0,1.3805996,0.0012918708};
+						angles[]={0,1.3805996,0.0012918708};
 					};
 					side="Empty";
 					flags=4;
@@ -24739,7 +24832,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3701.5281,405.13635,6017.7666};
-						angles[]={-0,0.81255567,0};
+						angles[]={0,0.81255567,0};
 					};
 					side="Empty";
 					flags=4;
@@ -26814,7 +26907,7 @@ class Mission
 			name="seaPatrol_6";
 			type="Empty";
 			id=2185;
-			atlOffset=1.9772339;
+			atlOffset=1.9772415;
 		};
 		class Item86
 		{
@@ -26841,7 +26934,7 @@ class Mission
 			name="seaPatrol_9";
 			type="Empty";
 			id=2188;
-			atlOffset=1.9772339;
+			atlOffset=1.9772263;
 		};
 		class Item89
 		{
@@ -27099,7 +27192,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={11446.2,237.16801,7473.4995};
-				angles[]={-0,0.30871171,0};
+				angles[]={0,0.30871171,0};
 			};
 			side="Empty";
 			flags=4;
@@ -27140,6 +27233,20 @@ class Mission
 			};
 			id=2223;
 			type="Land_HBarrier_5_F";
+		};
+		class Item107
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9973.2129,400.05341,7994.7656};
+			};
+			areaSize[]={10006.336,0,8001.519};
+			areaIsRectangle=1;
+			flags=1;
+			id=2225;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=189.83661;
 		};
 	};
 	class Connections

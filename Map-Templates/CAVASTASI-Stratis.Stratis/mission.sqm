@@ -8,7 +8,7 @@ class EditorData
 	toggles=1538;
 	class ItemIDProvider
 	{
-		nextID=666;
+		nextID=667;
 	};
 	class MarkerIDProvider
 	{
@@ -50,13 +50,14 @@ addons[]=
 	"acre_main",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Exp_Military_Flags",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"acex_fortify"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=18;
+		items=19;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -183,6 +184,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item18
+		{
+			className="acex_fortify";
+			name="acex_fortify";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=7889923;
@@ -235,7 +243,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=207;
+		items=208;
 		class Item0
 		{
 			dataType="Marker";
@@ -1856,7 +1864,7 @@ class Mission
 			type="rectangle";
 			a=134.05487;
 			b=273.97559;
-			angle=13.519991;
+			angle=13.51999;
 			id=569;
 			atlOffset=0.85693359;
 		};
@@ -1910,7 +1918,7 @@ class Mission
 			colorName="ColorGreen";
 			a=15;
 			b=8.5559998;
-			angle=13.74452;
+			angle=13.744519;
 			id=573;
 			atlOffset=15.256104;
 		};
@@ -1924,7 +1932,7 @@ class Mission
 			colorName="ColorGreen";
 			a=13.084536;
 			b=8.5559998;
-			angle=13.744519;
+			angle=13.744518;
 			id=576;
 		};
 		class Item141
@@ -5018,6 +5026,20 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item207
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4264.6787,130.6001,4152.9351};
+			};
+			areaSize[]={5006.3359,0,4001.519};
+			areaIsRectangle=1;
+			flags=1;
+			id=666;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=-27.426285;
 		};
 	};
 	class Connections

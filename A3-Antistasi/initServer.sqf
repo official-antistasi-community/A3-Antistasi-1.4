@@ -4,6 +4,59 @@
  
  * So if it's singleplayer, we wait for initServer.sqf to finish (and the player to be spawned in), then get params, then load.
  */
+
+//Fortify Init
+diag_log "InitServer Fortify Init loading"; 
+_budget = -1;
+
+_fortificationStructures = [
+	["Land_PillboxBunker_01_rectangle_F", 40],
+	["Land_PillboxBunker_01_hex_F", 50 ],
+	["Land_PillboxBunker_01_big_F", 50],
+	["Land_HBarrier_1_F", 1],
+	["Land_HBarrier_5_F", 5],
+	["Land_HBarrierTower_F", 25],
+	["Land_BagFence_Long_F", 5],
+	["Land_BagBunker_Small_F", 25],
+	["Land_BagBunker_Large_F", 50],
+	["Land_CncBarrierMedium_F", 5],
+	["Land_CncBarrierMedium4_F", 20],
+	["Land_HelipadCircle_F", 25],
+	["Land_PortableLight_double_F", 3]
+];
+
+//side setup
+[west, _budget, _fortificationStructures] call acex_fortify_fnc_registerObjects;
+[east, _budget, _fortificationStructures] call acex_fortify_fnc_registerObjects;
+[resistance, _budget, _fortificationStructures] call acex_fortify_fnc_registerObjects;
+[civilian, _budget, _fortificationStructures] call acex_fortify_fnc_registerObjects;
+
+//fortification area setup
+/*{
+	private _newLocation = [_x, 100, 100, 0, false];
+	private _fortifyLocations = missionNamespace getVariable ["acex_fortify_locations", []];
+	_fortifyLocations pushBack _newLocation;
+} forEach allMapMarkers;
+
+missionNamespace setVariable ["acex_fortify_locations", _fortifyLocations];
+
+Handled in mission.sqm now
+*/
+
+//fortify persistant listener event handlers.
+/*
+["acex_fortify_objectPlaced", {
+	staticsToSave pushBackUnique [(_this select 2)];
+}] call CBA_fnc_addEventHandler;
+ 
+["acex_fortify_objectDeleted", {
+	private _deletedObject = [(_this select 2)]; 
+	staticsToSave = staticsToSave - _deletedObject;
+}] call CBA_fnc_addEventHandler;
+*/
+
+
+
 if (isNil "logLevel") then {LogLevel = 2};
 if (isMultiplayer) then {
 	[] call A3A_fnc_initServer;

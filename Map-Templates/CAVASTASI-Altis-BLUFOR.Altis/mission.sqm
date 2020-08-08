@@ -8,7 +8,7 @@ class EditorData
 	toggles=1546;
 	class ItemIDProvider
 	{
-		nextID=2570;
+		nextID=2572;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=643;
+		nextID=648;
 	};
 	class Camera
 	{
@@ -56,13 +56,14 @@ addons[]=
 	"A3_Ui_F_Exp",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Exp_Military_Flags",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"acex_fortify"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=20;
+		items=21;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -203,6 +204,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item20
+		{
+			className="acex_fortify";
+			name="acex_fortify";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=8109385;
@@ -254,7 +262,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=391;
+		items=392;
 		class Item0
 		{
 			dataType="Marker";
@@ -1400,7 +1408,7 @@ class Mission
 			name="seaSpawn_8";
 			type="mil_objective";
 			id=1186;
-			atlOffset=5.0577831;
+			atlOffset=4.5166793;
 		};
 		class Item108
 		{
@@ -2739,7 +2747,7 @@ class Mission
 					colorName="ColorGreen";
 					a=35.460999;
 					b=6;
-					angle=225.25708;
+					angle=225.25706;
 					id=1626;
 				};
 				class Item11
@@ -3067,7 +3075,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.529018;
 					b=5.5;
-					angle=56.906063;
+					angle=56.906059;
 					id=1646;
 					atlOffset=-0.15297318;
 				};
@@ -3597,7 +3605,7 @@ class Mission
 					colorName="ColorGreen";
 					a=20.940199;
 					b=6;
-					angle=174.15202;
+					angle=174.15201;
 					id=1676;
 					atlOffset=-0.04334259;
 				};
@@ -3943,7 +3951,7 @@ class Mission
 					colorName="ColorGreen";
 					a=13.568802;
 					b=6;
-					angle=49.485077;
+					angle=49.485073;
 					id=1738;
 					atlOffset=-1.2362518;
 				};
@@ -3985,7 +3993,7 @@ class Mission
 					colorName="ColorGreen";
 					a=18.695999;
 					b=6;
-					angle=311.08936;
+					angle=311.08932;
 					id=1749;
 					atlOffset=1.1072388;
 				};
@@ -4083,7 +4091,7 @@ class Mission
 					colorName="ColorGreen";
 					a=22.618999;
 					b=6;
-					angle=152.80841;
+					angle=152.8084;
 					id=1791;
 					atlOffset=0.83612061;
 				};
@@ -4251,7 +4259,7 @@ class Mission
 					colorName="ColorGreen";
 					a=18.320681;
 					b=6;
-					angle=189.80702;
+					angle=189.80701;
 					id=1836;
 					atlOffset=-4.2795105;
 				};
@@ -10887,6 +10895,20 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item391
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15432.943,0.14355469,15352.517};
+			};
+			areaSize[]={15361.216,0,15366.671};
+			areaIsRectangle=1;
+			flags=1;
+			id=2571;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=59.225834;
 		};
 	};
 	class Connections

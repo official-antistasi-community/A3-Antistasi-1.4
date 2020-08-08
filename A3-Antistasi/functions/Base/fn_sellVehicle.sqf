@@ -3,7 +3,9 @@ _veh = cursortarget;
 
 if (isNull _veh) exitWith {["Sell Vehicle", "You are not looking to any vehicle"] call A3A_fnc_customHint;};
 
-if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {["Sell Vehicle", "Vehicle must be closer than 50 meters to the flag"] call A3A_fnc_customHint;};
+if (_veh isKindOf "Building") then {staticsToSave = staticsToSave - [_veh]; publicVariable "staticsToSave"; deleteVehicle _veh};
+
+if (_veh distance getMarkerPos respawnTeamPlayer > 100) exitWith {["Sell Vehicle", "Vehicle must be closer than 100 meters to the flag"] call A3A_fnc_customHint;};
 
 if ({isPlayer _x} count crew _veh > 0) exitWith {["Sell Vehicle", "In order to sell, vehicle must be empty."] call A3A_fnc_customHint;};
 

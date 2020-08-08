@@ -8,7 +8,7 @@ class EditorData
 	toggles=1541;
 	class ItemIDProvider
 	{
-		nextID=956;
+		nextID=957;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=368;
+		nextID=373;
 	};
 	class Camera
 	{
@@ -55,13 +55,14 @@ addons[]=
 	"acre_main",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Exp_Military_Flags",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"acex_fortify"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=19;
+		items=20;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -195,6 +196,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item19
+		{
+			className="acex_fortify";
+			name="acex_fortify";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=11834268;
@@ -247,7 +255,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=235;
+		items=236;
 		class Item0
 		{
 			dataType="Marker";
@@ -2570,7 +2578,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.436396;
 					b=6;
-					angle=197.55228;
+					angle=197.55226;
 					id=746;
 				};
 				class Item6
@@ -2877,7 +2885,7 @@ class Mission
 					colorName="ColorGreen";
 					a=9.6424713;
 					b=4.9717536;
-					angle=154.82982;
+					angle=154.8298;
 					id=775;
 				};
 				class Item3
@@ -3216,7 +3224,7 @@ class Mission
 					colorName="ColorGreen";
 					a=16.384659;
 					b=6;
-					angle=146.86833;
+					angle=146.86832;
 					id=804;
 					atlOffset=-0.3298645;
 				};
@@ -3258,7 +3266,7 @@ class Mission
 					colorName="ColorGreen";
 					a=11.753829;
 					b=6;
-					angle=70.664543;
+					angle=70.664536;
 					id=808;
 					atlOffset=-1.5412292;
 				};
@@ -4099,7 +4107,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.928885;
 					b=4.3750725;
-					angle=0.65071863;
+					angle=0.65071857;
 					id=837;
 					atlOffset=0.78999996;
 				};
@@ -7223,6 +7231,20 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item235
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7592,192.5,7756};
+			};
+			areaSize[]={10006.336,0,8001.519};
+			areaIsRectangle=1;
+			flags=1;
+			id=956;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=190.05002;
 		};
 	};
 	class Connections

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1030;
 	class ItemIDProvider
 	{
-		nextID=8891;
+		nextID=8892;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1439;
+		nextID=1496;
 	};
 	class Camera
 	{
@@ -78,13 +78,14 @@ addons[]=
 	"acre_main",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Exp_Military_Flags",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"acex_fortify"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=25;
+		items=26;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -260,6 +261,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item25
+		{
+			className="acex_fortify";
+			name="acex_fortify";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=13388897;
@@ -312,7 +320,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=869;
+		items=870;
 		class Item0
 		{
 			dataType="Marker";
@@ -11714,7 +11722,7 @@ class Mission
 			angle=351.11893;
 			drawBorder=1;
 			id=7947;
-			atlOffset=17.306135;
+			atlOffset=15.959801;
 		};
 		class Item539
 		{
@@ -12947,7 +12955,7 @@ class Mission
 					colorName="ColorGreen";
 					a=20.458;
 					b=6;
-					angle=343.81631;
+					angle=343.81628;
 					id=8406;
 					atlOffset=5.2016144;
 				};
@@ -13980,7 +13988,7 @@ class Mission
 					colorName="ColorGreen";
 					a=10;
 					b=6;
-					angle=79.407028;
+					angle=79.407021;
 					id=8468;
 					atlOffset=-0.73122406;
 				};
@@ -21184,7 +21192,7 @@ class Mission
 			};
 			id=8890;
 			type="ModuleCurator_F";
-			atlOffset=1.1757345;
+			atlOffset=1.1757355;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -21265,6 +21273,20 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item869
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6418.25,320.375,6565.875};
+			};
+			areaSize[]={10006.336,0,8001.519};
+			areaIsRectangle=1;
+			flags=1;
+			id=8891;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=75.03273;
 		};
 	};
 	class Connections

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1538;
 	class ItemIDProvider
 	{
-		nextID=2337;
+		nextID=2338;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=608;
+		nextID=613;
 	};
 	class Camera
 	{
 		pos[]={9867.3652,301.65424,19357.021};
-		dir[]={0.13115788,-0.37570846,0.91741681};
-		up[]={0.053172946,0.92673326,0.37193337};
-		aside[]={0.98993856,-3.2014214e-010,-0.14152567};
+		dir[]={0.12740816,-0.40001366,0.90761751};
+		up[]={0.055607952,0.9165042,0.39613608};
+		aside[]={0.99029499,-1.0448275e-008,-0.13901393};
 	};
 };
 binarizationWanted=0;
@@ -56,13 +56,14 @@ addons[]=
 	"A3_Ui_F_Exp",
 	"acre_main",
 	"A3_Characters_F_Exp",
-	"A3_Structures_F_Exp_Military_Flags"
+	"A3_Structures_F_Exp_Military_Flags",
+	"acex_fortify"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=20;
+		items=21;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -203,6 +204,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item20
+		{
+			className="acex_fortify";
+			name="acex_fortify";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=8109385;
@@ -254,7 +262,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=395;
+		items=396;
 		class Item0
 		{
 			dataType="Marker";
@@ -1810,7 +1818,7 @@ class Mission
 			name="seaSpawn_8";
 			type="mil_objective";
 			id=1186;
-			atlOffset=5.0577831;
+			atlOffset=4.5166793;
 		};
 		class Item123
 		{
@@ -3335,7 +3343,7 @@ class Mission
 					colorName="ColorGreen";
 					a=24.10615;
 					b=6;
-					angle=225.25713;
+					angle=225.25711;
 					id=1626;
 				};
 				class Item11
@@ -3526,7 +3534,7 @@ class Mission
 					colorName="ColorGreen";
 					a=19.764999;
 					b=5.5;
-					angle=266.01801;
+					angle=266.01797;
 					id=1658;
 					atlOffset=0.57285213;
 				};
@@ -3554,7 +3562,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.722984;
 					b=5.5;
-					angle=107.31911;
+					angle=107.3191;
 					id=1661;
 					atlOffset=-0.63444233;
 				};
@@ -3608,7 +3616,7 @@ class Mission
 					colorName="ColorGreen";
 					a=9;
 					b=5.5;
-					angle=269.36182;
+					angle=269.36179;
 					id=1644;
 				};
 				class Item7
@@ -3649,7 +3657,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.529018;
 					b=5.5;
-					angle=56.906075;
+					angle=56.906071;
 					id=1646;
 					atlOffset=-0.15297318;
 				};
@@ -3960,7 +3968,7 @@ class Mission
 					colorName="ColorGreen";
 					a=13.263;
 					b=5.5;
-					angle=357.98114;
+					angle=357.98111;
 					id=1667;
 				};
 				class Item3
@@ -4164,7 +4172,7 @@ class Mission
 					colorName="ColorGreen";
 					a=19.816999;
 					b=5.2251682;
-					angle=300.30746;
+					angle=300.30743;
 					id=1682;
 					atlOffset=7.5345483;
 				};
@@ -4425,7 +4433,7 @@ class Mission
 					colorName="ColorGreen";
 					a=16;
 					b=6;
-					angle=179.25896;
+					angle=179.25894;
 					id=1711;
 					atlOffset=-0.00029850006;
 				};
@@ -4523,7 +4531,7 @@ class Mission
 					colorName="ColorGreen";
 					a=19.49556;
 					b=6.7016497;
-					angle=52.429543;
+					angle=52.429539;
 					id=1738;
 					atlOffset=-0.91734314;
 				};
@@ -4858,7 +4866,7 @@ class Mission
 					colorName="ColorGreen";
 					a=16;
 					b=6;
-					angle=3.5407596;
+					angle=3.5407593;
 					id=1684;
 					atlOffset=0.75311279;
 				};
@@ -11202,6 +11210,20 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item395
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15358.661,0,15366.765};
+			};
+			areaSize[]={15361.216,0,15366.671};
+			areaIsRectangle=1;
+			flags=1;
+			id=2337;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=50.446632;
 		};
 	};
 	class Connections

@@ -490,12 +490,12 @@
         <Czech>Postavte armádu FIA od nuly a porazte síly AAF a CSAT v celé mapě dynamické misi.</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missionname_text">
-        <Original>CAVASTASI 2.3.9 Altis</Original>
-        <English>CAVASTASI 2.3.9 Altis</English>
-        <French>CAVASTASI 2.3.9 Altis</French>
-        <Russian>CAVASTASI 2.3.9 Альтис</Russian>
-        <German>CAVASTASI 2.3.9 Altis</German>
-        <Czech>CAVASTASI 2.3.9 Altis</Czech>
+        <Original>CAVASTASI 2.4.0 Altis</Original>
+        <English>CAVASTASI 2.4.0 Altis</English>
+        <French>CAVASTASI 2.4.0 Altis</French>
+        <Russian>CAVASTASI 2.4.0 Альтис</Russian>
+        <German>CAVASTASI 2.4.0 Altis</German>
+        <Czech>CAVASTASI 2.4.0 Altis</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missiondesc_text">
         <Original>Be a Resistance leader, be a hero.</Original>
@@ -506,7 +506,7 @@
         <Czech>Staňte se vůdcem odboje, buďte hrdinou.</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_version_text">
-        <Original>2.3.9</Original>
+        <Original>2.4.0</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
@@ -725,39 +725,39 @@
         <Czech>Buďte vedoucím odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Liberation of Altis</Original>
-        <English>CAVASTASI 2.3.9 - Liberation of Altis</English>
-        <French>CAVASTASI 2.3.9 - Libération d'Altis</French>
+        <Original>CAVASTASI 2.4.0 - Liberation of Altis</Original>
+        <English>CAVASTASI 2.4.0 - Liberation of Altis</English>
+        <French>CAVASTASI 2.4.0 - Libération d'Altis</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_virolahti_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Liberation of Virolahti</Original>
-        <English>CAVASTASI 2.3.9 - Liberation of Virolahti</English>
-        <French>CAVASTASI 2.3.9 - Libération de Virolahti</French>
+        <Original>CAVASTASI 2.4.0 - Liberation of Virolahti</Original>
+        <English>CAVASTASI 2.4.0 - Liberation of Virolahti</English>
+        <French>CAVASTASI 2.4.0 - Libération de Virolahti</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Liberation of Stratis</Original>
-        <English>CAVASTASI 2.3.9 - Liberation of Stratis</English>
-        <French>CAVASTASI 2.3.9 - Libération de Stratis</French>
+        <Original>CAVASTASI 2.4.0 - Liberation of Stratis</Original>
+        <English>CAVASTASI 2.4.0 - Liberation of Stratis</English>
+        <French>CAVASTASI 2.4.0 - Libération de Stratis</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Altis</Original>
-        <English>CAVASTASI 2.3.9 Altis</English>
+        <Original>CAVASTASI 2.4.0 Altis</Original>
+        <English>CAVASTASI 2.4.0 Altis</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_virolahti_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Virolahti</Original>
-        <English>CAVASTASI 2.3.9 Virolahti</English>
+        <Original>CAVASTASI 2.4.0 Virolahti</Original>
+        <English>CAVASTASI 2.4.0 Virolahti</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Stratis</Original>
-        <English>CAVASTASI 2.3.9 Stratis</English>
+        <Original>CAVASTASI 2.4.0 Stratis</Original>
+        <English>CAVASTASI 2.4.0 Stratis</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Liberation of Altis (BLUFOR)</Original>
-        <English>CAVASTASI 2.3.9 - Liberation of Altis (BLUFOR)</English>
+        <Original>CAVASTASI 2.4.0 - Liberation of Altis (BLUFOR)</Original>
+        <English>CAVASTASI 2.4.0 - Liberation of Altis (BLUFOR)</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Altis (BLUFOR)</Original>
-        <English>CAVASTASI 2.3.9 Altis (BLUFOR)</English>
+        <Original>CAVASTASI 2.4.0 Altis (BLUFOR)</Original>
+        <English>CAVASTASI 2.4.0 Altis (BLUFOR)</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_blurb_text">
         <Original>Because nothing is more important than Freedom.</Original>
@@ -788,16 +788,16 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Warlords of the Pacific</Original>
-        <English>CAVASTASI 2.3.9 - Warlords of the Pacific</English>
-        <French>CAVASTASI 2.3.9 - Les Seigneurs de Guerre du Pacifique</French>
-        <Russian>CAVASTASI 2.3.9 - Хозяева Тихого Океана</Russian>
-        <German>CAVASTASI 2.3.9 - Warlords of the Pacific</German>
-        <Czech>CAVASTASI 2.3.9 - Vojevůdci Pacifiku</Czech>
+        <Original>CAVASTASI 2.4.0 - Warlords of the Pacific</Original>
+        <English>CAVASTASI 2.4.0 - Warlords of the Pacific</English>
+        <French>CAVASTASI 2.4.0 - Les Seigneurs de Guerre du Pacifique</French>
+        <Russian>CAVASTASI 2.4.0 - Хозяева Тихого Океана</Russian>
+        <German>CAVASTASI 2.4.0 - Warlords of the Pacific</German>
+        <Czech>CAVASTASI 2.4.0 - Vojevůdci Pacifiku</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Tanoa</Original>
-        <English>CAVASTASI 2.3.9 Tanoa</English>
+        <Original>CAVASTASI 2.4.0 Tanoa</Original>
+        <English>CAVASTASI 2.4.0 Tanoa</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_blurb_text">
         <Original>Business and War...</Original>
@@ -824,20 +824,20 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Kolkhoz in revolt</Original>
-        <English>CAVASTASI 2.3.9 - Kolkhoz in revolt</English>
+        <Original>CAVASTASI 2.4.0 - Kolkhoz in revolt</Original>
+        <English>CAVASTASI 2.4.0 - Kolkhoz in revolt</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernawinter_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Chilled revolt</Original>
-        <English>CAVASTASI 2.3.9 - Chilled revolt</English>
+        <Original>CAVASTASI 2.4.0 - Chilled revolt</Original>
+        <English>CAVASTASI 2.4.0 - Chilled revolt</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Chernarus</Original>
-        <English>CAVASTASI 2.3.9 Chernarus</English>
+        <Original>CAVASTASI 2.4.0 Chernarus</Original>
+        <English>CAVASTASI 2.4.0 Chernarus</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernawinter_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Chernarus Winter</Original>
-        <English>CAVASTASI 2.3.9 Chernarus Winter</English>
+        <Original>CAVASTASI 2.4.0 Chernarus Winter</Original>
+        <English>CAVASTASI 2.4.0 Chernarus Winter</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_cherna_blurb_text">
         <Original>Between the anvil and a steamroller.</Original>
@@ -863,20 +863,20 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Liberation of Malden</Original>
-        <English>CAVASTASI 2.3.9 - Liberation of Malden</English>
-        <French>CAVASTASI 2.3.9 - La Libération de Malden</French>
-        <Russian>CAVASTASI 2.3.9 - Освобождение Мальдена</Russian>
-        <German>CAVASTASI 2.3.9 - Liberation of Malden</German>
-        <Czech>CAVASTASI 2.3.9 - Osvobození Maldenu</Czech>
+        <Original>CAVASTASI 2.4.0 - Liberation of Malden</Original>
+        <English>CAVASTASI 2.4.0 - Liberation of Malden</English>
+        <French>CAVASTASI 2.4.0 - La Libération de Malden</French>
+        <Russian>CAVASTASI 2.4.0 - Освобождение Мальдена</Russian>
+        <German>CAVASTASI 2.4.0 - Liberation of Malden</German>
+        <Czech>CAVASTASI 2.4.0 - Osvobození Maldenu</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Malden</Original>
-        <English>CAVASTASI 2.3.9 Malden</English>
-        <French>CAVASTASI 2.3.9 Malden</French>
-        <Russian>CAVASTASI 2.3.9 Мальдена</Russian>
-        <German>CAVASTASI 2.3.9 Malden</German>
-        <Czech>CAVASTASI 2.3.9 Malden</Czech>
+        <Original>CAVASTASI 2.4.0 Malden</Original>
+        <English>CAVASTASI 2.4.0 Malden</English>
+        <French>CAVASTASI 2.4.0 Malden</French>
+        <Russian>CAVASTASI 2.4.0 Мальдена</Russian>
+        <German>CAVASTASI 2.4.0 Malden</German>
+        <Czech>CAVASTASI 2.4.0 Malden</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_malden_blurb_text">
         <Original>The island is small but packed with enemies. Look out!</Original>
@@ -895,18 +895,18 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_text">
-        <Original>CAVASTASI 2.3.9 - The Baltic Revolution</Original>
-        <English>CAVASTASI 2.3.9 - The Baltic Revolution</English>
-        <French>CAVASTASI 2.3.9 - La Révolution Baltique</French>
-        <Russian>CAVASTASI 2.3.9 - Балтийская Революция</Russian>
-        <German>CAVASTASI 2.3.9 - The Baltic Revolution</German>
-        <Czech>CAVASTASI 2.3.9 - Baltská Revoluce</Czech>
+        <Original>CAVASTASI 2.4.0 - The Baltic Revolution</Original>
+        <English>CAVASTASI 2.4.0 - The Baltic Revolution</English>
+        <French>CAVASTASI 2.4.0 - La Révolution Baltique</French>
+        <Russian>CAVASTASI 2.4.0 - Балтийская Революция</Russian>
+        <German>CAVASTASI 2.4.0 - The Baltic Revolution</German>
+        <Czech>CAVASTASI 2.4.0 - Baltská Revoluce</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Livonia</Original>
-        <English>CAVASTASI 2.3.9 Livonia</English>
-        <German>CAVASTASI 2.3.9 Livonia</German>
-        <Czech>CAVASTASI 2.3.9 Livonia</Czech>
+        <Original>CAVASTASI 2.4.0 Livonia</Original>
+        <English>CAVASTASI 2.4.0 Livonia</English>
+        <German>CAVASTASI 2.4.0 Livonia</German>
+        <Czech>CAVASTASI 2.4.0 Livonia</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_blurb_text">
         <Original>Stuck between two fronts.</Original>
@@ -925,20 +925,20 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Battle of Kunduz</Original>
-        <English>CAVASTASI 2.3.9 - Battle of Kunduz</English>
-        <French>CAVASTASI 2.3.9 - La Bataille de Kanduz</French>
-        <Russian>CAVASTASI 2.3.9 - Битва за Кундуз</Russian>
-        <German>CAVASTASI 2.3.9 - Battle of Kunduz</German>
-        <Czech>CAVASTASI 2.3.9 - Bitva o Kunduz</Czech>
+        <Original>CAVASTASI 2.4.0 - Battle of Kunduz</Original>
+        <English>CAVASTASI 2.4.0 - Battle of Kunduz</English>
+        <French>CAVASTASI 2.4.0 - La Bataille de Kanduz</French>
+        <Russian>CAVASTASI 2.4.0 - Битва за Кундуз</Russian>
+        <German>CAVASTASI 2.4.0 - Battle of Kunduz</German>
+        <Czech>CAVASTASI 2.4.0 - Bitva o Kunduz</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Kunduz</Original>
-        <English>CAVASTASI 2.3.9 Kunduz</English>
-        <French>CAVASTASI 2.3.9 Kanduz</French>
-        <Russian>CAVASTASI 2.3.9 Кундуз</Russian>
-        <German>CAVASTASI 2.3.9 Kunduz</German>
-        <Czech>CAVASTASI 2.3.9 Kunduz</Czech>
+        <Original>CAVASTASI 2.4.0 Kunduz</Original>
+        <English>CAVASTASI 2.4.0 Kunduz</English>
+        <French>CAVASTASI 2.4.0 Kanduz</French>
+        <Russian>CAVASTASI 2.4.0 Кундуз</Russian>
+        <German>CAVASTASI 2.4.0 Kunduz</German>
+        <Czech>CAVASTASI 2.4.0 Kunduz</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_blurb_text">
         <Original>Sand and blood</Original>
@@ -949,18 +949,18 @@
         <Czech>Písek a krev</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Liberation of Tembelan Island</Original>
-        <English>CAVASTASI 2.3.9 - Liberation of Tembelan Island</English>
-        <French>CAVASTASI 2.3.9 - Liberation de l'ile de Tembelan</French>
-        <German>CAVASTASI 2.3.9 - Liberation of Tembelan Island</German>
-        <Czech>CAVASTASI 2.3.9 - Osvobození Ostrova Tembelan</Czech>
+        <Original>CAVASTASI 2.4.0 - Liberation of Tembelan Island</Original>
+        <English>CAVASTASI 2.4.0 - Liberation of Tembelan Island</English>
+        <French>CAVASTASI 2.4.0 - Liberation de l'ile de Tembelan</French>
+        <German>CAVASTASI 2.4.0 - Liberation of Tembelan Island</German>
+        <Czech>CAVASTASI 2.4.0 - Osvobození Ostrova Tembelan</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Tembelan</Original>
-        <English>CAVASTASI 2.3.9 Tembelan</English>
-        <French>CAVASTASI 2.3.9 Tembelan</French>
-        <German>CAVASTASI 2.3.9 Tembelan</German>
-        <Czech>CAVASTASI 2.3.9 Tembelan</Czech>
+        <Original>CAVASTASI 2.4.0 Tembelan</Original>
+        <English>CAVASTASI 2.4.0 Tembelan</English>
+        <French>CAVASTASI 2.4.0 Tembelan</French>
+        <German>CAVASTASI 2.4.0 Tembelan</German>
+        <Czech>CAVASTASI 2.4.0 Tembelan</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_tembelan_blurb_text">
         <Original>Beauty and destruction</Original>
@@ -978,11 +978,11 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_mapname_short_text">
-        <Original>CAVASTASI 2.3.9 Anizay</Original>
-        <English>CAVASTASI 2.3.9 Anizay</English>
-        <French>CAVASTASI 2.3.9 Anizay</French>
-        <German>CAVASTASI 2.3.9 Anizay</German>
-        <Czech>CAVASTASI 2.3.9 Anizay</Czech>
+        <Original>CAVASTASI 2.4.0 Anizay</Original>
+        <English>CAVASTASI 2.4.0 Anizay</English>
+        <French>CAVASTASI 2.4.0 Anizay</French>
+        <German>CAVASTASI 2.4.0 Anizay</German>
+        <Czech>CAVASTASI 2.4.0 Anizay</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -993,10 +993,10 @@
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_mapname_text">
-        <Original>CAVASTASI 2.3.9 - Liberation of Anizay</Original>
-        <English>CAVASTASI 2.3.9 - Liberation of Anizay</English>
-        <German>CAVASTASI 2.3.9 - Liberation of Anizay</German>
-        <Czech>CAVASTASI 2.3.9 - Osvobození Anizay</Czech>
+        <Original>CAVASTASI 2.4.0 - Liberation of Anizay</Original>
+        <English>CAVASTASI 2.4.0 - Liberation of Anizay</English>
+        <German>CAVASTASI 2.4.0 - Liberation of Anizay</German>
+        <Czech>CAVASTASI 2.4.0 - Osvobození Anizay</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_anizay_blurb_text">
         <Original>Fought on the camel's back</Original>

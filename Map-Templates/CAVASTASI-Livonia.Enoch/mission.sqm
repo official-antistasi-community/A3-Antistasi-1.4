@@ -8,7 +8,7 @@ class EditorData
 	toggles=1030;
 	class ItemIDProvider
 	{
-		nextID=3331;
+		nextID=3332;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=444;
+		nextID=468;
 	};
 	class Camera
 	{
-		pos[]={9161.8203,94.536835,9398.1064};
-		dir[]={-0.84784639,-0.25765997,-0.46344197};
-		up[]={-0.22609231,0.96623379,-0.12358493};
-		aside[]={-0.47963974,4.6938658e-007,0.87747461};
+		pos[]={9163.2227,94.536835,9398.9492};
+		dir[]={-0.48201299,-0.34011662,-0.80746502};
+		up[]={-0.17433383,0.94038051,-0.29204369};
+		aside[]={-0.85865748,2.1001324e-007,0.51256871};
 	};
 };
 binarizationWanted=0;
@@ -77,13 +77,14 @@ addons[]=
 	"acre_main",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Exp_Military_Flags",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"acex_fortify"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=28;
+		items=29;
 		class Item0
 		{
 			className="A3_Weapons_F";
@@ -280,6 +281,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item28
+		{
+			className="acex_fortify";
+			name="acex_fortify";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=228300;
@@ -331,7 +339,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=780;
+		items=781;
 		class Item0
 		{
 			dataType="Object";
@@ -15492,7 +15500,7 @@ class Mission
 					colorName="ColorGreen";
 					a=20.010422;
 					b=8.6266327;
-					angle=270.52478;
+					angle=270.52475;
 					id=3206;
 					atlOffset=-17.321625;
 				};
@@ -15768,7 +15776,7 @@ class Mission
 					colorName="ColorGreen";
 					a=17.457001;
 					b=7.158;
-					angle=182.77231;
+					angle=182.77229;
 					id=3227;
 					atlOffset=-3.8704681;
 				};
@@ -20520,6 +20528,20 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item780
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6947.625,58.625,6553.625};
+			};
+			areaSize[]={10006.336,0,8001.519};
+			areaIsRectangle=1;
+			flags=1;
+			id=3331;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=-21.738007;
 		};
 	};
 	class Connections

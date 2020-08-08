@@ -18,7 +18,7 @@ enableSaving [false,false];
 mapX setObjectTexture [0,"Pictures\Mission\whiteboard.jpg"];
 
 //ACE Carry values
-ACE_maxWeightCarry = 10000;
+ACE_maxWeightCarry = 15000;
 ACE_maxWeightDrag = 20000;
 
 //Fortify Init

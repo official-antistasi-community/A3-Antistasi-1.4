@@ -288,8 +288,7 @@ player addEventHandler ["WeaponAssembled", {
 		};
 		_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 		_pos = position _veh;
-		private _model = getText (configFile >> "CfgVehicles" >> typeOf _veh >> "model");
-		if (({(_X#0) isEqualTo _model } count logistics_weaponVehicleBlackList) isEqualTo 1) then {[_veh] call A3A_fnc_logistics_addLoadAction};
+		[_veh] call A3A_fnc_logistics_addLoadAction;
 		if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns"] call A3A_fnc_customHint;};
 	};
 }];

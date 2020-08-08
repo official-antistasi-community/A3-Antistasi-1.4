@@ -103,8 +103,7 @@ else
 	{
 		if (_veh isKindOf "StaticWeapon") then
 		{
-			private _model = getText (configFile >> "CfgVehicles" >> typeOf _veh >> "model");
-			if (({(_X#0) isEqualTo _model } count logistics_weaponVehicleBlackList) isEqualTo 1) then {[_veh] call A3A_fnc_logistics_addLoadAction};
+			[_veh] call A3A_fnc_logistics_addLoadAction;
 			_veh setCenterOfMass [(getCenterOfMass _veh) vectorAdd [0, 0, -1], 0];
 			if ((not (_veh in staticsToSave)) and (side gunner _veh != teamPlayer)) then
 			{

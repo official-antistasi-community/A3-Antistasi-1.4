@@ -17,7 +17,11 @@ DeployWinch = {
 	if (captive player) then {player setCaptive false};
 	params ["_player"];
 	private _vehicle = cursorTarget;
-	_vehicle setVariable ["Rope", (ropeCreate [_vehicle, [0,-2.8,-0.8], _player, [0,0,0], 10]), true];
+	private _helper = "Land_Can_V1_F" createVehicle [random 100,random 100, random 100];
+	_helper hideObjectGlobal true;
+	_helper attachTo [_player,[0,0.1,0], "pelvis"];
+	_vehicle setVariable ["Rope", (ropeCreate [_vehicle, [0,-2.8,-0.8], _helper, [0,0,0], 10]), true];
+	_vehicle setVariable ["Helper", _helper, true];
 	_vehicle setVariable ["RopeUnit", _player, true];
 	[_player, _vehicle] spawn adjustRope;
 };
@@ -54,7 +58,9 @@ stowRope = {
 	params ["_player"];
 	private _vehicle = cursorTarget;
 	ropeDestroy (_vehicle getVariable "Rope");
+	deleteVehicle (_vehicle getVariable "Helper");
 	_vehicle setVariable ["Rope",nil,true];
+	_vehicle setVariable ["Helper",nil,true];
 	_vehicle setVariable ["RopeUnit",nil,true];
 	
 };
@@ -80,6 +86,8 @@ attachRope = {
 	private _unwind = _distance - 0.5;
 	private _time = 5 + (_unwind*2);
 	ropeDestroy (_vehicle getVariable "Rope");
+	deleteVehicle (_vehicle getVariable "Helper");
+	_vehicle setVariable ["Helper",nil,true];
 	_vehicle setVariable ["Rope2", (ropeCreate [_vehicle, [0,-2.8,-0.8], _cargo, [0,0,0], _distance]), true];
 	sleep 1;
 	ropeUnwind [ropes _vehicle select 0, 0.5, -(_unwind), true];

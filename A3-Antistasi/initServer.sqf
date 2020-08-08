@@ -30,12 +30,12 @@ _fortificationStructures = [
 
 //fortify persistant listener event handlers.
 ["acex_fortify_objectPlaced", {
-	private _newObject = [(_this select 2)]; 
+	private _newObject = (_this select 2); 
 	staticsToSave pushBackUnique _newObject;
 }] call CBA_fnc_addEventHandler;
  
 ["acex_fortify_objectDeleted", {
-	private _deletedObject = [(_this select 2)]; 
+	private _deletedObject = (_this select 2); 
 	staticsToSave = staticsToSave - _deletedObject;
 }] call CBA_fnc_addEventHandler;
 

@@ -25,6 +25,8 @@ Master Branch: [![Build Status](https://travis-ci.com/AdamWaldie/A3-CAVASTASI.sv
 ### Attribution
 Fox.S - CAVASTASI bloodstained logo for ingame menus!
 
+Brostrom.A - For being excellent in every code consult we have performed, whilst being witty consistently!
+
 ### How to build from GIT -PowerShell
 - Download ZIP file
 - Extract ZIP

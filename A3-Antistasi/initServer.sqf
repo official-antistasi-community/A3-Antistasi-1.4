@@ -13,14 +13,11 @@ _fortificationStructures = [
 	["Land_PillboxBunker_01_rectangle_F", 40],
 	["Land_PillboxBunker_01_hex_F", 50 ],
 	["Land_PillboxBunker_01_big_F", 50],
-	["Land_HBarrier_1_F", 1],
-	["Land_HBarrier_5_F", 5],
 	["Land_HBarrierTower_F", 25],
 	["Land_BagFence_Long_F", 5],
+	["Land_BagFence_Round_F", 5],
 	["Land_BagBunker_Small_F", 25],
 	["Land_BagBunker_Large_F", 50],
-	["Land_CncBarrierMedium_F", 5],
-	["Land_CncBarrierMedium4_F", 20],
 	["Land_HelipadCircle_F", 25],
 	["Land_PortableLight_double_F", 3]
 ];

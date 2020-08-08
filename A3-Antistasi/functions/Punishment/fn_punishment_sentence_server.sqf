@@ -65,13 +65,14 @@ _keyPairs = [ ["sentenceEndTime",floor serverTime] ];
 while {(ceil serverTime) < _sentenceEndTime-1} do { // ceil and -1 if something doesn't sync up
 	if (!isPlayer _detainee) exitWith {call _disconnectedCleanUp};
 	if ((admin owner _detainee > 0) || player isEqualTo _detainee) exitWith { // If local host, the server is the admin.
+		_sentenceEndTime = 0;
 		[_UID,"forgive"] call A3A_fnc_punishment_release;
 	};
+	[_UID] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false]; // Refreshes in case the admin logged in.
 	_countX = _sentenceEndTime - (floor serverTime);
 	[_UID,_countX] remoteExec ["A3A_fnc_punishment_sentence_client",_detainee,false];
 	[_UID,"add"] call A3A_fnc_punishment_oceanGulag;
 	uiSleep 5;
-	[_UID,true] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false]; // Refreshes in case the admin logged in.
 	_sentenceEndTime = ([_UID,_keyPairs] call A3A_fnc_punishment_dataGet) select 0; // Polls for updates from admin forgive
 };
 if (_disconnected) exitWith {};

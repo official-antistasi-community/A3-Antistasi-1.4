@@ -36,7 +36,7 @@ private _alreadyHasAction = false; // Avoids having the action added again.
 if !(isNil "_actionsSelf" || {count _actionsSelf == 0}) then {
 	{
 		if (((player actionParams _x) select 0) isEqualTo format["[Forgive FF] ""%1""",_name]) then {
-			_hasNoAction = true;
+			_alreadyHasAction = true;
 		};
 	} forEach _actionsSelf;
 };

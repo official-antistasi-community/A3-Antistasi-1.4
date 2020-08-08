@@ -203,38 +203,8 @@ logistics_attachmentOffset = [
     ["\A3\weapons_F\AmmoBoxes\WpnsBox_F",							            [0,0,0.22],				    [0,0,0],			    	1]		                    //surrender crates
 ];
 
+//elements are [Weapon model, [vehicles weapon is not allowed on]]
 logistics_weapons = [
-    //weapons														          //description
-    //------  Vanilla  ------
-	"\A3\Static_F_Gamma\AT_01\AT_01.p3d",	                                  //AT titan
-    "\A3\Static_F_Gamma\AA_01\AA_01.p3d",	                                  //AA titan
-	"\A3\Static_F_Gamma\GMG_01\GMG_01_high_F.p3d",	                          //Static GMG High
-	"\A3\Static_F_Gamma\HMG_01\HMG_01_high_F.p3d",		                      //Static HMG High
-    "\A3\Static_F_Gamma\GMG_01\GMG_01_F.p3d",	                              //Static GMG
-	"\A3\Static_F_Gamma\HMG_01\HMG_01_F.p3d",		                          //Static HMG
-    "\A3\static_f\Mortar_01\Mortar_01_F",                                     //Mortar
-    "\A3\Static_F\HMG_02\HMG_02_high_F.p3d",                                  //M2 High
-    "\A3\Static_F\HMG_02\HMG_02_F.p3d",                                       //M2
-
-    //------  RHS  ------
-	"rhsusf\addons\rhsusf_heavyweapons\TOW\TOW_static",	                      //RHS TOW launcher
-	"\rhsusf\addons\rhsusf_heavyweapons\m2_mg",	                              //RHS M2HB machinegun
-	"\rhsusf\addons\rhsusf_heavyweapons\m2_mg2",                              //RHS M2HB sitting machinegun
-	"\rhsusf\addons\rhsusf_heavyweapons\Mk19_minitripod\mk19_stat",           //RHS mk.19 GMG, facing to the right
-	"\rhsafrf\addons\rhs_heavyweapons\DShKM\DShKM_mg",				          //RHS DShKM
-	"rhsafrf\addons\rhs_heavyweapons\DShKM\DShKM_mg2",				          //RHS DShKM sitting, facing to the right
-	"\rhsafrf\addons\rhs_heavyweapons\mg\bis_kord\KORD_6u16sp",	              //RHS Kord
-	"\rhsafrf\addons\rhs_heavyweapons\mg\bis_kord\kord",			          //RHS Kord sitting, facing to the right
-	"\rhsafrf\addons\rhs_heavyweapons\mg\rhs_nsv_tripod",			          //RHS NSV sitting, facing to the right
-	"\rhsafrf\addons\rhs_heavyweapons\kornet\kornet.p3d",			          //RHS kornet, facing to the right
-	"\rhsafrf\addons\rhs_heavyweapons\spg9\spg9.p3d",				          //RHS SPG-9, facing 75 degrees to the left
-	"\rhsafrf\addons\rhs_heavyweapons\AGS30\AGS_static",			          //RHS AGS-30 the russian GMG, facing right
-	"rhsafrf\addons\rhs_heavyweapons\igla\igla_AA_pod", 		              //RHS double Igla launcher
-    "\rhsafrf\addons\rhs_heavyweapons\ZU23\zu23"                              //RHS ZU-23
-];
-
-//Blacklist elements are [Weapon model, [vehicles weapon is not allowed on]]
-logistics_weaponVehicleBlackList = [
     //vanilla
     ["\A3\Static_F_Gamma\AT_01\AT_01.p3d",["\a3\Soft_F_Orange\Van_02\Van_02_vehicle_F.p3d","\a3\Soft_F_Orange\Van_02\Van_02_transport_F.p3d","\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],
     ["\A3\Static_F_Gamma\AA_01\AA_01.p3d",["\a3\Soft_F_Orange\Van_02\Van_02_vehicle_F.p3d","\a3\Soft_F_Orange\Van_02\Van_02_transport_F.p3d","\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],

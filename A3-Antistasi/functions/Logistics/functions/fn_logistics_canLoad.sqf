@@ -20,14 +20,15 @@ if !(alive _vehicle) exitWith {["Cargo Load", "You cant load cargo into destroye
 //is weapon? and weapon allowed
 private _model = getText (configFile >> "CfgVehicles" >> typeOf _object >> "model");
 private _vehModel = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "model");
-private _weapon = _model in logistics_weapons;
+private _weapon = false;
 private _allowed = true;
 {
     _x params ["_wep", "_blacklistVehicles"];
     if (_wep isEqualTo _model) exitWith {
+        _weapon = true;
         if (_vehModel in _blacklistVehicles) then {_allowed = false};
-    };    
-} forEach logistics_weaponVehicleBlackList;
+    };
+} forEach logistics_weapons;
 if !(_allowed) exitWith {["Cargo Load", format ["%1 can not be mounted on a %2", _cargoName, _vehicleName]] call A3A_fnc_customHint};
 
 if ((_object isKindOf "CAManBase") and !(([_object] call A3A_fnc_canFight) or !(isNull (_object getVariable ["helped",objNull])) or !(isNull attachedTo _object))) exitWith {["Cargo Load", format ["%1 is being helped or no longer needs your help",_cargoName]] call A3A_fnc_customHint};

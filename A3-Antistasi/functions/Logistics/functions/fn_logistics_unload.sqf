@@ -60,7 +60,11 @@ private _keepUnloading = false;
 if !(_cargo isEqualTo objNull) then {//cargo not deleted
     //isWeapon?
     private _model = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "model");
-    _weapon = _model in logistics_weapons;
+    _weapon = false;
+    {
+        if ((_x#0) isEqualTo _model) exitWith {_weapon = true}; 
+    } forEach logistics_weapons;
+
     if (_weapon) then {
         [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];
         player setCaptive false; //break undercover for unloading weapon

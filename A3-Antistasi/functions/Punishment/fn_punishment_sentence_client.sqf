@@ -31,9 +31,14 @@ private _filename = "fn_punishment_sentence_client.sqf";
 private _detainee = [_UID] call BIS_fnc_getUnitByUid;
 if (_timeLeft < 5) then {_timeLeft = 5;}; // Sometimes something somewhere might go out of sync, so we just troll the player if that happens.
 
+if (([] call BIS_fnc_admin > 0 || isServer && hasInterface)) exitWith {
+	["FF Notification", "You are being forgiven. Hang tight for 5 seconds.", true] remoteExec ["A3A_fnc_customHint", _detainee, false];
+	[_UID,"forgive"] call A3A_fnc_punishment_release;
+}; // If the player logs in as admin
+
 for "_timeLeft" from _timeLeft to _timeLeft-4 step -1 do {
 	if (!isPlayer _detainee) exitWith {false};
-	["FF Notification", format ["Please do not teamkill. Stare at the turtles for %1 more seconds.<br/>Use Refresh Admin Action if the admin just logged in.",_timeLeft], true] remoteExec ["A3A_fnc_customHint", _detainee, false];
+	["FF Notification", format ["Please do not teamkill. Stare at the turtles for %1 more seconds.",_timeLeft], true] remoteExec ["A3A_fnc_customHint", _detainee, false];
 	uiSleep 1;
 };
 true;

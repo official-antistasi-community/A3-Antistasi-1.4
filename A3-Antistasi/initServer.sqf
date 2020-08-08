@@ -28,18 +28,6 @@ _fortificationStructures = [
 [resistance, _budget, _fortificationStructures] call acex_fortify_fnc_registerObjects;
 [civilian, _budget, _fortificationStructures] call acex_fortify_fnc_registerObjects;
 
-//fortification area setup
-/*{
-	private _newLocation = [_x, 100, 100, 0, false];
-	private _fortifyLocations = missionNamespace getVariable ["acex_fortify_locations", []];
-	_fortifyLocations pushBack _newLocation;
-} forEach allMapMarkers;
-
-missionNamespace setVariable ["acex_fortify_locations", _fortifyLocations];
-
-Handled in mission.sqm now
-*/
-
 //fortify persistant listener event handlers.
 ["acex_fortify_objectPlaced", {
 	staticsToSave pushBackUnique [(_this select 2)];

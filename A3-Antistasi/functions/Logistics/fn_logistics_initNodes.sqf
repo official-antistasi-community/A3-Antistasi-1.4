@@ -1,3 +1,8 @@
+_classNameToModel = {
+    params ["_className"];
+    getText (configFile >> "CfgVehicles" >> _className >> "model");
+};
+
 //Each element is: [model name, [nodes]]
 //Nodes are build like this: [Available(internal use,  always 1), Hardpoint location, Seats locked when node is in use]
 logistics_vehicleHardpoints = [
@@ -12,7 +17,7 @@ logistics_vehicleHardpoints = [
 
     //4x4s
     //Offroad
-    ["\A3\soft_f\Offroad_01\Offroad_01_unarmed_F", [
+    ["C_Offroad_01_F" call _classNameToModel, [
         // always 1,    location				locked seats
         [1,	    	    [-0.05,-1.3,-0.72],		[3,4]],
         [1,	    	    [-0.05,-2.3,-0.72],		[1,2]]

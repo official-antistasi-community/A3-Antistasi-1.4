@@ -32,11 +32,13 @@ _fortificationStructures = [
 ["acex_fortify_objectPlaced", {
 	private _newObject = (_this select 2); 
 	staticsToSave pushBackUnique _newObject;
+	publicVariable "staticsToSave"
 }] call CBA_fnc_addEventHandler;
  
 ["acex_fortify_objectDeleted", {
 	private _deletedObject = (_this select 2); 
-	staticsToSave = staticsToSave - _deletedObject;
+	staticsToSave = staticsToSave - [_deletedObject];
+	publicVariable "staticsToSave"
 }] call CBA_fnc_addEventHandler;
 
 

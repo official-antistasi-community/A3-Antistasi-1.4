@@ -44,7 +44,6 @@ Handled in mission.sqm now
 */
 
 //fortify persistant listener event handlers.
-/*
 ["acex_fortify_objectPlaced", {
 	staticsToSave pushBackUnique [(_this select 2)];
 }] call CBA_fnc_addEventHandler;
@@ -53,7 +52,7 @@ Handled in mission.sqm now
 	private _deletedObject = [(_this select 2)]; 
 	staticsToSave = staticsToSave - _deletedObject;
 }] call CBA_fnc_addEventHandler;
-*/
+
 
 
 

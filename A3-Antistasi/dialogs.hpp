@@ -2411,12 +2411,12 @@ class garage_sell 			{
 		class HQ_button_Gstatic: RscButton
 		{
 			idc = -1;
-			text = "Sell Vehicle"; //--- ToDo: Localize;
+			text = "Sell Object"; //--- ToDo: Localize;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; if (player == theBoss) then {nul = [] call A3A_fnc_sellVehicle} else {[""Sell Vehicle"", ""Only the Commander can sell vehicles""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; if (player == theBoss) then {nul = [] call A3A_fnc_sellVehicle} else {[""Sell Vehicle"", ""Only the Commander can sell Object""] call A3A_fnc_customHint;};";
 		};
 		/*
 		class HQ_button_Gremove: RscButton

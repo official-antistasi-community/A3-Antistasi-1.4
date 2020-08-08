@@ -80,6 +80,8 @@ else
 	};
 };
 
+if (_veh isKindOf "Building") then {staticsToSave = staticsToSave - [_veh]; publicVariable "staticsToSave"; deleteVehicle _veh};
+
 if (_costs == 0) exitWith {["Sell Vehicle", "The vehicle you are looking is not suitable in our marketplace"] call A3A_fnc_customHint;};
 
 _costs = round (_costs * (1-damage _veh));

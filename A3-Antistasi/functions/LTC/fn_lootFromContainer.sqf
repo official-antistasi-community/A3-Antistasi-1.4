@@ -11,6 +11,7 @@ if (isNil "_override") then {
 
 if (isNil "_container") exitWith {
 	["Loot crate", "No vehicles nearby"] call A3A_fnc_customHint;
+	[_target, clientOwner, true] remoteExecCall ["A3A_fnc_canTransfer", 2];
 };
 
 private "_unlocked";
@@ -191,6 +192,7 @@ if (isNil "_override") then {
 	} else {
 		["Loot crate", format ["Unable to transfer all loot to %1. %1 full", getText (configFile >> "CfgVehicles" >> typeOf _container >> "displayname")]] call A3A_fnc_customHint;
 	};
+	[_target, clientOwner, true] remoteExecCall ["A3A_fnc_canTransfer", 2];
 };
 
 _return;

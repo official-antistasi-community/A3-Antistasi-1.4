@@ -326,6 +326,8 @@ class A3A
 
 	class LTC
 	{
+		class canLoot {};
+		class canTransfer {};
 		class carryCrate {};
 		class initLootToCrate {};
 		class lootFromContainer {};

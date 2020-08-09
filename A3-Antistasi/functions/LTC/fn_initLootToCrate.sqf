@@ -25,7 +25,7 @@ player addAction [
 player addAction [
 	"Load loot from crate to vehicle", 
 	{
-		[cursorTarget] call A3A_fnc_lootFromContainer;
+		[cursorTarget, clientOwner] remoteExecCall ["A3A_fnc_canTransfer", 2];
 	},
 	nil,
 	1.5,

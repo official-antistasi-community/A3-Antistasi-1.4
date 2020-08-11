@@ -368,6 +368,168 @@ logistics_vehicleHardpoints = [
     ["rhsusf_m998_w_2dr" call _classNameToModel, [
         [1,             [0,-0.6,-0.97],         [1,2,4,5]],
         [1,             [0,-1.4,-0.97],         [3,6]]
+    ]],
+
+    // ---------- 3CB ----------
+
+    // Datsun civ variant, TODO: redo for 3 crates maybeeee?
+    ["UK3CB_C_Datsun_Open" call _classNameToModel, [
+        [1,	    	    [0,-0.5,-0.83],		[2,3]],
+        [1,	    	    [0,-1.5,-0.83],		[0,2,3,4,5,6]]
+    ]],
+
+    // Datsun non civ variant, TODO: redo for 3 crates maybeeee?
+    ["UK3CB_B_G_Datsun_Pickup" call _classNameToModel, [
+        [1,	    	    [0,-0.6,-1.2],		[3,4]], // 2 is cab passenger
+        [1,	    	    [0,-1.3,-1.2],		[5,6]] // 0,1 is backmost ffv, didn't need block after all, juuuuust nuff space
+    ]],
+
+    // Hilux
+    ["UK3CB_C_Hilux_Open" call _classNameToModel, [
+        [1,	    	    [-0.05,-0.5,-0.66],		[5]],
+        [1,	    	    [-0.05,-1.6,-0.66],		[3,4,6]]
+    ]],
+
+    // M939 open
+    ["UK3CB_B_M939_Open_HIDF" call _classNameToModel,[
+        [1,             [0,0.2,-0.5],           [1,10]],
+        [1,             [0,-0.6,-0.5],          [2,3]],
+        [1,             [0,-1.4,-0.5],          [4,5]],
+        [1,             [0,-2.2,-0.5],          [6,7]],
+        [1,             [0,-3.0,-0.5],          [8,9]],
+        [1,             [0,-3.8,-0.5],          [11,12]]
+    ]],
+
+    // M939 closed
+    ["UK3CB_B_M939_Closed_HIDF" call _classNameToModel,[
+        [1,             [0,0.2,-0.5],           [1,10]],
+        [1,             [0,-0.6,-0.5],          [2,3]],
+        [1,             [0,-1.4,-0.5],          [4,5]],
+        [1,             [0,-2.2,-0.5],          [6,7]],
+        [1,             [0,-3.0,-0.5],          [8,9]],
+        [1,             [0,-3.8,-0.5],          [11,12]]
+    ]],
+
+    // M939 guntruck
+    ["UK3CB_B_M939_Guntruck_HIDF" call _classNameToModel,[
+        [1,             [0,0.2,-1.3],           [0,9]],
+        [1,             [0,-0.6,-1.3],          [1,2]],
+        [1,             [0,-1.4,-1.3],          [3,4]],
+        [1,             [0,-2.2,-1.3],          [5,6]],
+        [1,             [0,-3.0,-1.3],          [7,8]],
+        [1,             [0,-3.8,-1.3],          [10,11]]
+    ]],
+
+    // M939 recovery
+    ["UK3CB_B_M939_Recovery_HIDF" call _classNameToModel,[
+        [1,             [0,0.2,-0.5],           []],
+        [1,             [0,-0.6,-0.5],          []],
+        [1,             [0,-1.4,-0.5],          []],
+        [1,             [0,-2.2,-0.5],          []],
+        [1,             [0,-3.0,-0.5],          []],
+        [1,             [0,-3.8,-0.5],          []]
+    ]],
+
+    // Coyote P GMG
+    ["UK3CB_BAF_Coyote_Passenger_L134A1_D" call _classNameToModel,[
+        [1,             [0.05,-1.6,-1.75],      [2,3,4,5,6,7]], // Both nodes block all seats here because 2 nodes blocking
+        [1,             [0.05,-2.4,-1.75],      [2,3,4,5,6,7]]  // 2 common seats but not all didn't work for some reason
+    ]],
+
+    // Coyote P HMG
+    ["UK3CB_BAF_Coyote_Passenger_L111A1_D2" call _classNameToModel,[
+        [1,             [0.05,-1.6,-1.75],      [2,3,4,5,6,7]], // Same deal as above here
+        [1,             [0.05,-2.4,-1.75],      [2,3,4,5,6,7]]
+    ]],
+
+    // Didn't redo the Husky because it was disabled in the old JNL, might work now tho, didn't test yet
+
+    // MTVR Open
+    ["UK3CB_B_MTVR_Open_WDL" call _classNameToModel,[
+        [1,             [0,0.2,-0.83],          [0,1]],
+        [1,             [0,-0.6,-0.83],         [2,3]],
+        [1,             [0,-1.4,-0.83],         [4,5]],
+        [1,             [0,-2.2,-0.83],         [6,7]],
+        [1,             [0,-3.0,-0.83],         [9,10]]
+    ]],
+
+    // MTVR Covered
+    ["UK3CB_B_MTVR_Closed_WDL" call _classNameToModel,[
+        [1,             [0,0.2,-0.83],          [0,1]],
+        [1,             [0,-0.6,-0.83],         [2,3]],
+        [1,             [0,-1.4,-0.83],         [4,5]],
+        [1,             [0,-2.2,-0.83],         [6,7]],
+        [1,             [0,-3.0,-0.83],         [9,10]]
+    ]],
+
+    // MTVR Recovery
+    ["UK3CB_B_MTVR_Recovery_WDL" call _classNameToModel,[
+        [1,             [0,0.2,-0.8],           []],
+        [1,             [0,-0.6,-0.8],          []],
+        [1,             [0,-1.4,-0.8],          []],
+        [1,             [0,-2.2,-0.8],          []],
+        [1,             [0,-3.0,-0.8],          []],
+        [1,             [0,-3.8,-0.8],          []]
+    ]],
+
+    // MAN Truck, 4x4 Flatbed
+    ["UK3CB_BAF_MAN_HX60_Cargo_Green_A" call _classNameToModel,[
+        [1,             [0,3.3,-1.25],          []],
+        [1,             [0,2.5,-1.25],          []],
+        [1,             [0,1.7,-1.25],          []],
+        [1,             [0,0.9,-1.25],          []],
+        [1,             [0,0.1,-1.25],          []],
+        [1,             [0,-0.7,-1.25],         []]
+    ]],
+
+    // MAN Truck, 6x6 Flatbed
+    ["UK3CB_BAF_MAN_HX58_Cargo_Green_A" call _classNameToModel,[
+        [1,             [0,4.8,-1.25],          []],
+        [1,             [0,4.0,-1.25],          []],
+        [1,             [0,3.2,-1.25],          []],
+        [1,             [0,2.4,-1.25],          []],
+        [1,             [0,1.6,-1.25],          []],
+        [1,             [0,0.8,-1.25],          []],
+        [1,             [0,0.0,-1.25],          []],
+        [1,             [0,-0.8,-1.25],         []]
+    ]],
+
+    // V3S, Recovery
+    ["UK3CB_C_V3S_Recovery" call _classNameToModel,[
+        [1,             [0,0.8,-0.65],          []],
+        [1,             [0,0.0,-0.65],          []],
+        [1,             [0,-0.8,-0.65],         []],
+        [1,             [0,-1.6,-0.65],         []],
+        [1,             [0,-2.4,-0.65],         []],
+        [1,             [0,-3.2,-0.65],         []]
+    ]],
+
+    // V3S, Open
+    ["UK3CB_C_V3S_Open" call _classNameToModel,[
+        [1,             [0,0.3,-0.75],          [9,10]],
+        [1,             [0,-0.5,-0.75],         [1,2,3,4]],
+        [1,             [0,-1.3,-0.75],         [3,4,5,6]],
+        [1,             [0,-2.1,-0.75],         [5,6,7,8]],
+        [1,             [0,-2.9,-0.75],         [11,12]]
+    ]],
+
+    // V3S, Closed
+    ["UK3CB_C_V3S_Closed" call _classNameToModel,[
+        [1,             [0,0.3,-0.75],          [9,10]],
+        [1,             [0,-0.5,-0.75],         [1,2,3,4]],
+        [1,             [0,-1.3,-0.75],         [3,4,5,6]],
+        [1,             [0,-2.1,-0.75],         [5,6,7,8]],
+        [1,             [0,-2.9,-0.75],         [11,12]]
+    ]],
+
+    // Ural, Recovery
+    ["UK3CB_C_Ural_Recovery" call _classNameToModel,[
+        [1,             [0,0,-0.58],            []],
+        [1,             [0,-0.8,-0.58],         []],
+        [1,             [0,-1.6,-0.58],         []],
+        [1,             [0,-2.4,-0.58],         []],
+        [1,             [0,-3.2,-0.58],         []],
+        [1,             [0,-4.0,-0.58],         []]
     ]]
 
     // ---------- MODNAME ----------
@@ -379,83 +541,85 @@ logistics_attachmentOffset = [
 
     //weapons														          //location				  //rotation				  //size 	//recoil            //description
         // ---------- Vanilla ----------
-	["\A3\Static_F_Gamma\AT_01\AT_01.p3d",							            [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AT titan, facing to the right
-    ["\A3\Static_F_Gamma\AA_01\AA_01.p3d",							            [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AA titan, facing to the right
-	["\A3\Static_F_Gamma\GMG_01\GMG_01_high_F.p3d",					            [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],               //Static GMG High
-	["\A3\Static_F_Gamma\HMG_01\HMG_01_high_F.p3d",					            [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],		        //Static HMG High
-    ["\A3\Static_F_Gamma\GMG_01\GMG_01_F.p3d",					                [0, 0, 1.19],		        [0, -1, 0],				    4,      200],               //Static GMG
-	["\A3\Static_F_Gamma\HMG_01\HMG_01_F.p3d",					                [0, 0, 1.19],		        [0, -1, 0],				    4,      200],		        //Static HMG
-    ["\A3\static_f\Mortar_01\Mortar_01_F",                                      [-0.1,-0.5,0.79],           [0, 1, 0],                  2,      6000],              //Mortar
-    ["\A3\Static_F\HMG_02\HMG_02_high_F.p3d",                                   [0.2, -0.5, 1.7],           [0, 1, 0],                  4,      200],               //M2 High
-    ["\A3\Static_F\HMG_02\HMG_02_F.p3d",                                        [-0.2, 0, 1.3],             [0, -1, 0],                 4,      200],               //M2
+	["B_static_AT_F" call _classNameToModel,							        [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AT titan, facing to the right
+    ["B_static_AA_F" call _classNameToModel,							        [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AA titan, facing to the right
+	["B_GMG_01_high_F" call _classNameToModel,					                [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],               //Static GMG High
+	["B_HMG_01_high_F" call _classNameToModel,					                [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],		        //Static HMG High
+    ["B_GMG_01_F" call _classNameToModel,					                    [0, 0, 1.19],		        [0, -1, 0],				    4,      200],               //Static GMG
+	["B_HMG_01_F" call _classNameToModel,					                    [0, 0, 1.19],		        [0, -1, 0],				    4,      200],		        //Static HMG
+    ["B_Mortar_01_F" call _classNameToModel,                                    [-0.1,-0.5,0.79],           [0, 1, 0],                  2,      6000],              //Mortar
+    ["B_HMG_02_high_F" call _classNameToModel,                                  [0.2, -0.5, 1.7],           [0, 1, 0],                  4,      200],               //M2 High
+    ["B_HMG_02_F" call _classNameToModel,                                       [-0.2, 0, 1.3],             [0, -1, 0],                 4,      200],               //M2
 
         // ----------   RHS   ----------                                                                                                        //RHS vehicles are heavier than vanilla
-	["rhsusf\addons\rhsusf_heavyweapons\TOW\TOW_static",			            [0.0, 0, 1.08],		        [0, 1, 0],				    4,      2000],		        //RHS TOW launcher
-	["\rhsusf\addons\rhsusf_heavyweapons\m2_mg",					            [0.35, -0.3, 1.72],	        [0, 1, 0],				    4,      800],				//RHS M2HB machinegun
-	["\rhsusf\addons\rhsusf_heavyweapons\m2_mg2",					            [0.3, -0.1, 0.03],		    [1, 0, 0],				    4,      800],		        //RHS M2HB sitting machinegun
-	["\rhsusf\addons\rhsusf_heavyweapons\Mk19_minitripod\mk19_stat",            [0, 0, 1],	                [0, -1, 0],				    4,      800],		        //RHS mk.19 GMG, facing to the right
-	["\rhsafrf\addons\rhs_heavyweapons\DShKM\DShKM_mg",				            [0.3, -0.5, 1.65],		    [0, 1, 0],				    4,      800],		        //RHS DShKM
-	["rhsafrf\addons\rhs_heavyweapons\DShKM\DShKM_mg2",				            [-0.5, -0.2, 1.32],	        [1, 0, 0],				    4,      800],		        //RHS DShKM sitting, facing to the right
-	["\rhsafrf\addons\rhs_heavyweapons\mg\bis_kord\KORD_6u16sp",	            [0.22, -0.3, 1.65],	        [0, 1, 0],				    4,      1000],		        //RHS Kord
-	["\rhsafrf\addons\rhs_heavyweapons\mg\bis_kord\kord",			            [0.1, -0.3, 1.34],	        [1, 0, 0],				    4,      1000],		        //RHS Kord sitting, facing to the right
-	["\rhsafrf\addons\rhs_heavyweapons\mg\rhs_nsv_tripod",			            [-0.1, 0, 1.34],		    [1, 0, 0],				    4,      1000],		        //RHS NSV sitting, facing to the right
-	["\rhsafrf\addons\rhs_heavyweapons\kornet\kornet.p3d",			            [0.0, 0, 1.01],			    [1, 0, 0],				    4,      2000],		        //RHS kornet, facing to the right
-	["\rhsafrf\addons\rhs_heavyweapons\spg9\spg9.p3d",				            [-0.1, 0, 1.03], 		    [-0.96,0.25,0],	            4,      2000],		        //RHS SPG-9, facing 75 degrees to the left
-	["\rhsafrf\addons\rhs_heavyweapons\AGS30\AGS_static",			            [-0.4, 0, 1.25],		    [0, -1, 0],	                4,      800],		        //RHS AGS-30 the russian GMG, facing right
-	["rhsafrf\addons\rhs_heavyweapons\igla\igla_AA_pod",			            [0.3, 0, 1.59],			    [0, 1, 0],				    4,      2000],		        //RHS double Igla launcher
-    ["\rhsafrf\addons\rhs_heavyweapons\ZU23\zu23",                              [0,0,2],                    [0,1,0],                    7,      2000],               //RHS ZU-23 //no rhs vehicle can fit it :D
+	["RHS_TOW_TriPod_D" call _classNameToModel,			                        [0.0, 0, 1.08],		        [0, 1, 0],				    4,      500],		        //RHS TOW launcher
+	["RHS_M2StaticMG_D" call _classNameToModel,					                [0.35, -0.3, 1.72],	        [0, 1, 0],				    4,      200],				//RHS M2HB machinegun
+	["RHS_M2StaticMG_MiniTripod_D" call _classNameToModel,					    [0.3, -0.1, 0.03],		    [1, 0, 0],				    4,      200],		        //RHS M2HB sitting machinegun
+	["RHS_MK19_TriPod_D" call _classNameToModel,                                [0, 0, 1],	                [0, -1, 0],				    4,      200],		        //RHS mk.19 GMG, facing to the right
+	["rhs_DSHKM_ins" call _classNameToModel,				                    [0.3, -0.5, 1.65],		    [0, 1, 0],				    4,      200],		        //RHS DShKM
+	["rhs_DSHKM_Mini_TriPod_ins" call _classNameToModel,				        [-0.5, -0.2, 1.32],	        [1, 0, 0],				    4,      200],		        //RHS DShKM sitting, facing to the right
+	["rhs_KORD_high_MSV" call _classNameToModel,	                            [0.22, -0.3, 1.65],	        [0, 1, 0],				    4,      300],		        //RHS Kord
+	["rhs_KORD_MSV" call _classNameToModel,			                            [0.1, -0.3, 1.34],	        [1, 0, 0],				    4,      300],		        //RHS Kord sitting, facing to the right
+	["RHS_NSV_TriPod_MSV" call _classNameToModel,			                    [-0.1, 0, 1.34],		    [1, 0, 0],				    4,      300],		        //RHS NSV sitting, facing to the right
+	["rhs_Kornet_9M133_2_msv" call _classNameToModel,			                [0.0, 0, 1.01],			    [1, 0, 0],				    4,      500],		        //RHS kornet, facing to the right
+	["rhs_SPG9_INS" call _classNameToModel,				                        [-0.1, 0, 1.03], 		    [-0.96,0.25,0],	            4,      500],		        //RHS SPG-9, facing 75 degrees to the left
+	["RHS_AGS30_TriPod_MSV" call _classNameToModel,			                    [-0.4, 0, 1.25],		    [0, -1, 0],	                4,      200],		        //RHS AGS-30 the russian GMG, facing right
+	["rhs_Igla_AA_pod_msv" call _classNameToModel,			                    [0.3, 0, 1.59],			    [0, 1, 0],				    4,      500],		        //RHS double Igla launcher
+    ["RHS_ZU23_MSV" call _classNameToModel,                                     [0,0,2],                    [0,1,0],                    7,      500],               //RHS ZU-23 //no rhs vehicle can fit it :D
 
     //medium size crate											              //location			      //rotation		          //size 	                    //description
-    ["A3\Weapons_F\Ammoboxes\AmmoVeh_F",							            [0,0,0.85],			    	[1,0,0],		    		2],		                    //Vehicle ammo create
-    ["\A3\Props_F_Orange\Humanitarian\Supplies\PaperBox_01_open_boxes_F.p3d",   [0,0,0.85],	                [1,0,0],			    	2],		                    //Stef test supplybox
-    ["\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_medium_F.p3d",         [0,0,0.85],		        	[1,0,0],			    	2],		                    //Stef test Devin crate1
-    ["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicAmmoBox.p3d",			            [0,0,0.85],				    [1,0,0],		    		2],		                    //Stef test Devin crate2
-    ["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicExplosives.p3d",			            [0,0,0.85],			    	[1,0,0],		    		2],		                    //Stef test Devin crate3
-    ["\A3\Weapons_F\Ammoboxes\Supplydrop.p3d",						            [0, 0, 0.95],		    	[1,0,0],			    	2],		                    //Ammodrop crate
-    ["\A3\Soft_F\Quadbike_01\Quadbike_01_F.p3d",				            	[0, 0, 1.4],		    	[0,1,0],			    	2],		                    //Quadbike
+    ["Box_NATO_AmmoVeh_F" call _classNameToModel,							    [0,0,0.85],			    	[1,0,0],		    		2],		                    //Vehicle ammo create
+    ["Land_PaperBox_01_open_boxes_F" call _classNameToModel,                    [0,0,0.85],	                [1,0,0],			    	2],		                    //Stef test supplybox
+    ["Land_PlasticCase_01_medium_F" call _classNameToModel,                     [0,0,0.85],		        	[1,0,0],			    	2],		                    //Stef test Devin crate1
+    ["Box_Syndicate_Ammo_F" call _classNameToModel,			                    [0,0,0.85],				    [1,0,0],		    		2],		                    //Stef test Devin crate2
+    ["Box_IED_Exp_F" call _classNameToModel,			                        [0,0,0.85],			    	[1,0,0],		    		2],		                    //Stef test Devin crate3
+    ["B_supplyCrate_F" call _classNameToModel,						            [0, 0, 0.95],		    	[1,0,0],			    	2],		                    //Ammodrop crate
+    ["C_Quadbike_01_F" call _classNameToModel,				            	    [0, 0, 1.4],		    	[0,1,0],			    	2],		                    //Quadbike
     ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_GER_Ammo.p3d",			            [0,0,0.85],			    	[1,0,0],		    		2],		                    //ifa ammo
     ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_SU_Ammo.p3d",			            [0,0,0.85],			    	[1,0,0],			    	2],		                    //ifa ammo
 
     //small size crate										                  //location				  //rotation			      //size 	                    //description
-    ["\A3\Supplies_F_Exp\Ammoboxes\Equipment_Box_F.p3d",						[0,0,0.44],			    	[1,0,0],			    	1],		                    //Equipment box
-    ["\A3\weapons_F\AmmoBoxes\WpnsBox_F",							            [0,0,0.22],				    [0,0,0],			    	1]		                    //surrender crates
+    ["Box_NATO_Equip_F" call _classNameToModel,						            [0,0,0.44],			    	[1,0,0],			    	1],		                    //Equipment box
+    ["Box_NATO_Wps_F" call _classNameToModel,							        [0,0,0.22],				    [0,0,0],			    	1]		                    //surrender crates
 ];
 
 //elements are [Weapon model, [vehicles weapon is not allowed on]]
 logistics_weapons = [
     //vanilla
-    ["\A3\Static_F_Gamma\AT_01\AT_01.p3d",["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],
-    ["\A3\Static_F_Gamma\AA_01\AA_01.p3d",["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],
-    ["\A3\Static_F_Gamma\GMG_01\GMG_01_high_F.p3d",["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],
-    ["\A3\Static_F_Gamma\HMG_01\HMG_01_high_F.p3d",["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],
-    ["\A3\Static_F_Gamma\GMG_01\GMG_01_F.p3d",["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],
-    ["\A3\Static_F_Gamma\HMG_01\HMG_01_F.p3d",["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],
-    ["\A3\static_f\Mortar_01\Mortar_01_F",["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d","\A3\boat_f_gamma\Boat_Civil_01\Boat_Civil_01_F","\A3\boat_f\Boat_Transport_01\Boat_Transport_01_F.p3d","\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d"]],
-    ["\A3\Static_F\HMG_02\HMG_02_high_F.p3d",["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],
-    ["\A3\Static_F\HMG_02\HMG_02_F.p3d",["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d","\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d","\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d"]],
+    ["B_static_AT_F" call _classNameToModel,[]],
+    ["B_static_AA_F" call _classNameToModel,[]],
+    ["B_GMG_01_high_F" call _classNameToModel,[]],
+    ["B_HMG_01_high_F" call _classNameToModel,[]],
+    ["B_GMG_01_F" call _classNameToModel,[]],
+    ["B_HMG_01_F" call _classNameToModel,[]],
+    ["B_Mortar_01_F" call _classNameToModel,["C_Boat_Civil_01_F" call _classNameToModel, "B_Boat_Transport_01_F" call _classNameToModel, "C_Boat_Transport_02_F" call _classNameToModel]],
+    ["B_HMG_02_high_F" call _classNameToModel,[]],
+    ["B_HMG_02_F" call _classNameToModel,[]],
     //RHS
-    ["rhsusf\addons\rhsusf_heavyweapons\TOW\TOW_static",[]],
-    ["\rhsusf\addons\rhsusf_heavyweapons\m2_mg",[]],
-    ["\rhsusf\addons\rhsusf_heavyweapons\m2_mg2",[]],
-    ["\rhsusf\addons\rhsusf_heavyweapons\Mk19_minitripod\mk19_stat",[]],
-    ["\rhsafrf\addons\rhs_heavyweapons\DShKM\DShKM_mg",[]],
-    ["rhsafrf\addons\rhs_heavyweapons\DShKM\DShKM_mg2",[]],
-    ["\rhsafrf\addons\rhs_heavyweapons\mg\bis_kord\KORD_6u16sp",[]],
-    ["\rhsafrf\addons\rhs_heavyweapons\mg\bis_kord\kord",[]],
-    ["\rhsafrf\addons\rhs_heavyweapons\mg\rhs_nsv_tripod",[]],
-    ["\rhsafrf\addons\rhs_heavyweapons\kornet\kornet.p3d",[]],
-    ["\rhsafrf\addons\rhs_heavyweapons\spg9\spg9.p3d",[]],
-    ["\rhsafrf\addons\rhs_heavyweapons\AGS30\AGS_static",[]],
-    ["rhsafrf\addons\rhs_heavyweapons\igla\igla_AA_pod",[]],
-    ["\rhsafrf\addons\rhs_heavyweapons\ZU23\zu23", ["rhsusf_M977A4_usarmy_wd" call _classNameToModel, "rhsusf_M977A4_BKIT_usarmy_wd" call _classNameToModel, "rhsusf_M977A4_BKIT_M2_usarmy_wd" call _classNameToModel]]
-]; 
+    ["RHS_TOW_TriPod_D" call _classNameToModel,[]],
+    ["RHS_M2StaticMG_D" call _classNameToModel,[]],
+    ["RHS_M2StaticMG_MiniTripod_D" call _classNameToModel,[]],
+    ["RHS_MK19_TriPod_D" call _classNameToModel,[]],
+    ["rhs_DSHKM_ins" call _classNameToModel,[]],
+    ["rhs_DSHKM_Mini_TriPod_ins" call _classNameToModel,[]],
+    ["rhs_KORD_high_MSV" call _classNameToModel,[]],
+    ["rhs_KORD_MSV" call _classNameToModel,[]],
+    ["RHS_NSV_TriPod_MSV" call _classNameToModel,[]],
+    ["rhs_Kornet_9M133_2_msv" call _classNameToModel,[]],
+    ["rhs_SPG9_INS" call _classNameToModel,[]],
+    ["RHS_AGS30_TriPod_MSV" call _classNameToModel,[]],
+    ["rhs_Igla_AA_pod_msv" call _classNameToModel,[]],
+    ["RHS_ZU23_MSV" call _classNameToModel, ["rhsusf_M977A4_usarmy_wd" call _classNameToModel, "rhsusf_M977A4_BKIT_usarmy_wd" call _classNameToModel, "rhsusf_M977A4_BKIT_M2_usarmy_wd" call _classNameToModel]]
+];
 
 //coverd vehicles
-_coveredVehicles = ["C_Van_02_vehicle_F","C_Van_02_transport_F","rhsgref_nat_ural_work", "rhs_kamaz5350", "rhs_zil131_base", "rhs_gaz66_vmf", "rhsusf_M1078A1P2_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy", "rhsusf_M1083A1P2_WD_fmtv_usarmy"];
+logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Truck_01_covered_F", "O_Truck_03_covered_F", "I_Truck_02_covered_F",
+"rhsgref_nat_ural_work", "rhs_kamaz5350", "rhs_zil131_base", "rhs_gaz66_vmf", "rhsusf_M1078A1P2_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy", "rhsusf_M1083A1P2_WD_fmtv_usarmy", 
+"UK3CB_B_M939_Closed_HIDF", "UK3CB_B_MTVR_Closed_WDL", "UK3CB_C_V3S_Closed"];
 {
     private _blackList = (_x#1);
     {
         private _model = _x call _classNameToModel;
         if !(_model isEqualTo "") then {_blackList pushBack _model};      
-    } forEach _coveredVehicles;   
+    } forEach logistics_coveredVehicles;
 } forEach logistics_weapons;

@@ -14,6 +14,9 @@ antistasiVersion = localize "STR_antistasi_credits_generic_version_text";
 ////////////////////////////////////
 [2,"Setting initial variables",_fileName] call A3A_fnc_log;													//Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
 debug = false;
+enableDismissibleHints = false; // is set to true in initClient
+customHintQueue = [];
+[true] call A3A_fnc_renderHint;
 
 ////////////////////////////////////
 //     BEGIN SIDES AND COLORS    ///

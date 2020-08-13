@@ -138,6 +138,7 @@ class A3A
 		class entriesLand {};
 		class fastrope {};
 		class findSafeRoadToUnload {};
+		class fleeToSide {};
 		class guardDog {};
 		class hasRadio {};
 		class help {};

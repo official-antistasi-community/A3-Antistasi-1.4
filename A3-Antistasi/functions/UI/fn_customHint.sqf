@@ -28,6 +28,14 @@ Examples:
     ["Vaya...", "Parece que sus notificaciones importantes se cifraron.<br/><br/>Nadie espera el cifrado español.", false, "<img color='#ffffff' image='Pictures\Intel\laptop_error.paa' align='center' size='6' />"] remoteExec ["A3A_fnc_customHint", 0, false];
     ["Unseen header", parseText "<t size='1.2' color='#e5b348' shadow='1' shadowColor='#000000'>Pre-parsed Example</t><br/><br/><img image='Pictures\Intel\laptop_complete.paa' align='center' size='8'/><br/><br/><t size='1' color='#ffffff' shadow='1' shadowColor='#000000'>Hello World</t><br/>",false] remoteExec ["A3A_fnc_customHint", 0, false];
 
+    // Pre-parse FooBar(Hello World)
+        private _iconXML = "<img color='#ffffff' image='functions\UI\images\logo.paa' align='center' size='2' />";
+        private _separator  = parseText "<br/><img color='#ffffff' image='functions\UI\images\img_line_ca.paa' align='center' size='0.60' />";
+        private _header = parseText "<br/><br/><t size='1.2' color='#e5b348' shadow='1' shadowColor='#000000'>FooBar</t>";
+        private _body = parseText "<br/><br/><t size='1' color='#ffffff' shadow='1' shadowColor='#000000'>Hello World</t><br/>";
+        FooBarParse = composeText [parseText _iconXML, _header, _separator, _body, _separator];
+        ["FooBar", FooBarParse] call A3A_fnc_customHint;
+
 Authors: Michael Phillips(original customHint), Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */

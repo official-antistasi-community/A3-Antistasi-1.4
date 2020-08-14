@@ -39,37 +39,49 @@ Examples:
 Authors: Michael Phillips(original customHint), Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
-params [["_headerText", "", [""]], ["_bodyText", "", ["",parseText""]], ["_isSilent", false, [false]], ["_iconXML", "<img color='#ffffff' image='functions\UI\images\logo.paa' align='center' size='2' />", [""]]];
+params [
+    ["_headerText", "", [""]],
+    ["_bodyText", "", ["",parseText""]],
+    ["_isSilent", false, [false]],
+    ["_iconXML", "<img color='#ffffff' image='functions\UI\images\logo.paa' align='center' size='2' />", [""]]
+];
 private _filename = "fn_customHint.sqf";
 
 if (!hasInterface) exitWith {false;}; // Disabled for server & HC.
 
+private _structuredText = parseText"";
+if (_bodyText isEqualType parseText"") then {
+    _structuredText = composeText [_bodyText];
+} else {
+    private _separator  = parseText "<br/><img color='#ffffff' image='functions\UI\images\img_line_ca.paa' align='center' size='0.60' />";
+    private _header = parseText (["<br/><br/><t size='1.2' color='#e5b348' shadow='1' shadowColor='#000000'>",_headerText,"</t>"]joinString "");
+    private _body = parseText (["<br/><br/><t size='1' color='#ffffff' shadow='1' shadowColor='#000000'>",_bodyText,"</t><br/>"] joinString "");
+    _structuredText = composeText [parseText _iconXML, _header, _separator, _body, _separator];
+};
+
 if (enableDismissibleHints) then {
-    private _index = customHintQueue findIf {(_x # 0) isEqualTo _headerText}; // Temporary solution until an interface is added for counters and timers.
+    private _index = customHintQueue findIf {(_x #0) isEqualTo _headerText}; // Temporary solution until an programming-interface is added for counters and timers.
     if (_index isEqualTo -1) then {
-        customHintQueue pushBack [_headerText,_bodyText,_isSilent,_iconXML];
+        customHintQueue pushBack [_headerText,_structuredText,_isSilent];
     } else {
-        customHintQueue set [_index,[_headerText,_bodyText,_isSilent,_iconXML]];
+        customHintQueue set [_index,[_headerText,_structuredText,_isSilent]];
     };
     [] call A3A_fnc_renderHint; // Allows immediate display of new hint without waiting for loop.
 } else {
-    // Thanks to Michael Phillips for original customHint design.
-    private _logo = "<img color='#ffffff' image='functions\UI\images\logo.paa' align='center' size='2' />";
-    private _separator = "<br/>";
-    private _header = format["<t size='1.2' color='#e5b348' shadow='1' shadowColor='#000000'>%1</t><br/><img color='#ffffff' image='functions\UI\images\img_line_ca.paa' align='center' size='0.60' />", _headerText];
-    private _body = format["<t size='1' color='#ffffff' shadow='1' shadowColor='#000000'>%1</t><br/><br/><img color='#ffffff' image='functions\UI\images\img_line_ca.paa' align='center' size='0.60' />", _bodyText];
-
     if (_isSilent) then {
-        hintSilent parseText format ["%1%2%3%4%5%6%7", _logo, _separator, _separator, _header, _separator,_separator, _body];
+        hintSilent _structuredText;
     } else {
-        hint parseText format ["%1%2%3%4%5%6%7", _logo, _separator, _separator, _header, _separator,_separator, _body];
+        hint _structuredText;
     };
 };
 true;
 
 /*
 // Benchmarks. // TL:DR: short pre-parsed notifications can achieve ludicrous speed.
+    // 14 Aug 2020
 FooBar (Hello World): customHint(0.745156 ms), NotTop-DismissibleHint(0.673401 ms), NotTop-PreParsed-DismissibleHint(0.670241 ms), DismissibleHint(0.664452 ms), PreParsed-DismissibleHint(0.10421 ms) // Speed lost probably due to queueCheck. Yes, 0.10421 ms.
 BeeMovieScript (cut < 8kb): customHint(8.7807 ms), DismissibleHint(8.48305 ms), PreParsed-DismissibleHint(7.54887 ms), NotTop-DismissibleHint(0.676133 ms), NotTop-PreParsed-DismissibleHint(0.670241 ms) // Speed lost due to rendering.
+    // 15 Aug 2020
+FooBar (Hello World): NotTop-DismissibleHint(0.292826 ms), DismissibleHint(0.282885 ms), InstantHint(0.200602 ms), NotTop-PreParsed-DismissibleHint(0.110779 ms), PreParsed-DismissibleHint(0.102512 ms), PreParsed-InstantHint(0.0334 ms) // Better text render led to x22 performance for customHint.
 // TODO: remove all `hintSilent ""` used in boot processes.
 */

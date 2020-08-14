@@ -32,7 +32,7 @@ if (!hasInterface || !enableDismissibleHints) exitWith {false;}; // Disabled for
 if (_dismissAll) then {
     customHintQueue = [];
 } else {
-    if (!(count customHintQueue isEqualTo 0)) then {
+    if !(count customHintQueue isEqualTo 0) then {
         customHintQueue deleteAt 0
     }
 };

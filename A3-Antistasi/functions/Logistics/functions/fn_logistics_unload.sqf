@@ -8,9 +8,9 @@ if ((count _loaded) isEqualTo 1) then {_lastLoaded = true};
 if !(
     ((gunner _cargo) isEqualTo _cargo)
     or ((gunner _cargo) isEqualTo objNull)
-) exitWith {["Cargo Load", "Cant unload a static thats mounted"] call A3A_fnc_customHint};
+) exitWith {["Cargo Load", "Cant unload a static thats mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Cargo Load", "Cargo is already being unloaded from vehicle"] call A3A_fnc_customHint};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Cargo Load", "Cargo is already being unloaded from vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //update list function
@@ -20,7 +20,7 @@ _updateList = {
     _index = _list find _node;
     _node set [0,1];
     _list set [_index, _node];
-    _vehicle setVariable ["logisticsCargoNodes", _list, true];
+    _vehicle setVariable ["logisticsCargoNodes", _list];
 };
 
 //find node point and seats
@@ -69,7 +69,7 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
         [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];
         player setCaptive false; //break undercover for unloading weapon
     };
-    _cargo setVariable ["AttachmentOffset", nil, true];
+    _cargo setVariable ["AttachmentOffset", nil];
 
     private _location = ([_cargo] call A3A_fnc_logistics_getCargoOffsetAndDir)#0;
     private _location = _location vectorAdd _nodeOffset;
@@ -95,7 +95,7 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
 
 //update list
 _loaded deleteAt 0;
-_vehicle setVariable ["Cargo", _loaded, true];
+_vehicle setVariable ["Cargo", _loaded,true];
 [_vehicle] call A3A_fnc_logistics_refreshVehicleLoad; //refresh list in case theres more on the list but no actuall cargo loaded
 
 _vehicle setVariable ["LoadingCargo",nil,true];

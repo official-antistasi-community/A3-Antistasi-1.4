@@ -29,7 +29,7 @@ _vehicle setUserActionText [
 	_text,
 	"<t size='2'><img image='\A3\ui_f\data\IGUI\Cfg\Actions\getingunner_ca.paa'/></t>"
 ];
-_cargo setVariable ["getInAction", _actionID, true];
+_cargo setVariable ["getInAction", _actionID];
 
 //EH that removes action if static is destroyed
 private _KilledEH = _cargo addEventHandler ["Killed", { 
@@ -37,7 +37,7 @@ private _KilledEH = _cargo addEventHandler ["Killed", {
 	private _vehicle = attachedTo _cargo; 
 	[_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0]
 }];
-_cargo setVariable ["KilledEH", _KilledEH, true];
+_cargo setVariable ["KilledEH", _KilledEH];
 _cargo enableWeaponDisassembly false;
 
 //moves player to apropriate spot when exiting static
@@ -48,13 +48,13 @@ private _GetOutEH = _cargo addEventHandler ["GetOut", {
     private _newPos = _unit getPos [2.0, _vehDir-90];
 	_unit setPos _newPos;
 }];
-_cargo setVariable ["GetOutEH", _GetOutEH, true];
+_cargo setVariable ["GetOutEH", _GetOutEH];
 
 //break undercover of units getting in
 private _undercoverBreak = _vehicle addEventHandler ["GetIn", {
 	_this spawn {sleep 0.1; (_this#2) setCaptive false};
 }];
-_vehicle setVariable ["undercoverBreak", _undercoverBreak, true];
+_vehicle setVariable ["undercoverBreak", _undercoverBreak];
 
 //init unneccesary but nice features
 _cargo call A3A_fnc_logistics_initMountedWeapon;

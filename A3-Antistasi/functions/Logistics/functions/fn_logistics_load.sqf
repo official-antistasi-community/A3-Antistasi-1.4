@@ -1,6 +1,6 @@
 params ["_cargo", "_vehicle", "_node", "_weapon"];
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Cargo Load", "Cargo is already being loaded into vehicle"] call A3A_fnc_customHint};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Cargo Load", "Cargo is already being loaded into vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //update list function
@@ -10,7 +10,7 @@ _updateList = {
     _index = _list find _node;
     _node set [0,0];
     _list set [_index, _node];
-    _vehicle setVariable ["logisticsCargoNodes", _list, true];
+    _vehicle setVariable ["logisticsCargoNodes", _list];
 };
 
 //find node point and seats
@@ -58,7 +58,7 @@ private _bbv = (boundingBoxReal _vehicle select 0 select 1) + ((boundingCenter _
 private _bbc = (boundingBoxReal _cargo select 0 select 1) + ((boundingCenter _cargo) select 1);
 private _yStart = _bbv + _bbc - 0.1;
 private _yEnd = _location#1;
-_cargo setVariable ["AttachmentOffset", _location, true];
+_cargo setVariable ["AttachmentOffset", _location];
 
 //block seats
 _cargo lockDriver true;

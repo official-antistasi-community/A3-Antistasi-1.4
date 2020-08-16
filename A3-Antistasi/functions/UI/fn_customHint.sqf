@@ -3,9 +3,10 @@ Function:
     A3A_fnc_customHint
 
 Description:
-    Adds item to hint queue.
+    Adds item to notification queue.
+    Pre-parse body text to take control of the whole notification (except footer).
+    Note: you don't need pre-parse for custom heading/body XML, just insert where plain text would go.
     Set enableDismissibleHints=false to use original custom hint.
-    Using Dismissible Hint runs 7x faster than regular customHint. (see benchmarks by EOF.).
 
 Scope:
     <LOCAL> Execute on each player to add a global notification.
@@ -14,10 +15,10 @@ Environment:
     <UNSCHEDULED> Simultaneous modification may cause trampling of items in customHintQueue.
 
 Parameters:
-    <STRING> Heading of your message.
-    <STRING> Body of your message. | <TEXT> The hint will only be body + footer.
+    <STRING> Heading of your notification.
+    <STRING> Body of your notification. | <TEXT> Provide whole notification (except footer).
     <BOOLEAN> Silent Notification, false if you want to annoy players. [DEFAULT=false]
-    <XML IMG> Icon [DEFAULT=A3A Blood Logo,size 2]
+    [<STRING>,<SCALER>] Icon Path & Aspect Ratio. [DEFAULT=["functions\UI\images\logo.paa",4] (512/128=4)]
 
 Returns:
     <BOOLEAN> true if it hasn't crashed; false if it does not have an interface; nil if it has crashed.
@@ -25,15 +26,14 @@ Returns:
 Examples:
     ["FooBar", "Hello World"] call A3A_fnc_customHint;
     ["FooBar", "Hello World"] remoteExec ["A3A_fnc_customHint", 0, false];
-    ["Vaya...", "Parece que sus notificaciones importantes se cifraron.<br/><br/>Nadie espera el cifrado español.", false, "<img color='#ffffff' image='Pictures\Intel\laptop_error.paa' align='center' size='6' />"] remoteExec ["A3A_fnc_customHint", 0, false];
-    ["Unseen header", parseText "<t size='1.2' color='#e5b348' shadow='1' shadowColor='#000000'>Pre-parsed Example</t><br/><br/><img image='Pictures\Intel\laptop_complete.paa' align='center' size='8'/><br/><br/><t size='1' color='#ffffff' shadow='1' shadowColor='#000000'>Hello World</t><br/>",false] remoteExec ["A3A_fnc_customHint", 0, false];
+    ["Vaya...", "Parece que sus notificaciones importantes se cifraron.<br/><br/>Nadie espera el cifrado español.", false, ["Pictures\Intel\laptop_error.paa",1]] remoteExec ["A3A_fnc_customHint", 0, false];
 
-    // Pre-parse FooBar(Hello World)
-        private _iconXML = "<img color='#ffffff' image='functions\UI\images\logo.paa' align='center' size='2' />";
-        private _separator  = parseText "<br/><img color='#ffffff' image='functions\UI\images\img_line_ca.paa' align='center' size='0.60' />";
+    // Pre-parse FooBar(Hello World) NoMacro
+        private _iconXML = parseText "<img color='#ffffff' image='functions\UI\images\logo.paa' align='center' size='2' shadow='1' shadowColor='#000000' />";
+        private _separator  = parseText "<br/><img color='#e6b24a' image='functions\UI\images\img_line_ca.paa' align='center' size='0.60' />";
         private _header = parseText "<br/><br/><t size='1.2' color='#e5b348' shadow='1' shadowColor='#000000'>FooBar</t>";
         private _body = parseText "<br/><br/><t size='1' color='#ffffff' shadow='1' shadowColor='#000000'>Hello World</t><br/>";
-        FooBarParse = composeText [parseText _iconXML, _header, _separator, _body, _separator];
+        FooBarParse = composeText [_iconXML, _header, _separator, _body, _separator];
         ["FooBar", FooBarParse] call A3A_fnc_customHint;
 
 Authors: Michael Phillips(original customHint), Caleb Serafin
@@ -43,7 +43,7 @@ params [
     ["_headerText", "", [""]],
     ["_bodyText", "", ["",parseText""]],
     ["_isSilent", false, [false]],
-    ["_iconXML", "<img color='#ffffff' image='functions\UI\images\logo.paa' align='center' size='2' />", [""]]
+    ["_iconData", ["functions\UI\images\logo.paa",4], [ [] ], 2]
 ];
 private _filename = "fn_customHint.sqf";
 
@@ -51,13 +51,18 @@ if (!hasInterface) exitWith {false;}; // Disabled for server & HC.
 
 private _structuredText = parseText"";
 if (_bodyText isEqualType parseText"") then {
-    _structuredText = composeText [_bodyText];
+    _structuredText = _bodyText;
 } else {
-    private _separator  = parseText "<br/><img color='#ffffff' image='functions\UI\images\img_line_ca.paa' align='center' size='0.60' />";
-    private _header = parseText (["<br/><br/><t size='1.2' color='#e5b348' shadow='1' shadowColor='#000000'>",_headerText,"</t>"]joinString "");
-    private _body = parseText (["<br/><br/><t size='1' color='#ffffff' shadow='1' shadowColor='#000000'>",_bodyText,"</t><br/>"] joinString "");
-    _structuredText = composeText [parseText _iconXML, _header, _separator, _body, _separator];
-};
+    _structuredText = parseText ([
+        "<t size='1' color='#ffffff' font='RobotoCondensed' align='center' valign='middle' underline='0' shadow='1' shadowColor='#000000' shadowOffset='0.0625' colorLink='#0099ff' >",
+        "<img size='",8/_iconData#1,"' shadowOffset='",0.015625*_iconData#1,"' image='",_iconData#0,"' /><br/><br/>",
+        "<t size='1.2' color='#e5b348' >",
+        _headerText,
+        "</t><br/><img size='0.60' color='#e6b24a' image='functions\UI\images\img_line_ca.paa' /><br/><br/><t >",
+        _bodyText,
+        "</t><br/><br/><img size='0.60' color='#e6b24a' image='functions\UI\images\img_line_ca.paa' /></t>"
+    ] joinString "");
+}; //
 
 if (enableDismissibleHints) then {
     private _index = customHintQueue findIf {(_x #0) isEqualTo _headerText}; // Temporary solution until an programming-interface is added for counters and timers.
@@ -76,12 +81,5 @@ if (enableDismissibleHints) then {
 };
 true;
 
-/*
-// Benchmarks. // TL:DR: short pre-parsed notifications can achieve ludicrous speed.
-    // 14 Aug 2020
-FooBar (Hello World): customHint(0.745156 ms), NotTop-DismissibleHint(0.673401 ms), NotTop-PreParsed-DismissibleHint(0.670241 ms), DismissibleHint(0.664452 ms), PreParsed-DismissibleHint(0.10421 ms) // Speed lost probably due to queueCheck. Yes, 0.10421 ms.
-BeeMovieScript (cut < 8kb): customHint(8.7807 ms), DismissibleHint(8.48305 ms), PreParsed-DismissibleHint(7.54887 ms), NotTop-DismissibleHint(0.676133 ms), NotTop-PreParsed-DismissibleHint(0.670241 ms) // Speed lost due to rendering.
-    // 15 Aug 2020
-FooBar (Hello World): NotTop-DismissibleHint(0.292826 ms), DismissibleHint(0.282885 ms), InstantHint(0.200602 ms), NotTop-PreParsed-DismissibleHint(0.110779 ms), PreParsed-DismissibleHint(0.102512 ms), PreParsed-InstantHint(0.0334 ms) // Better text render led to x22 performance for customHint.
 // TODO: remove all `hintSilent ""` used in boot processes.
-*/
+// TODO: Get colour from Loaded Arma 3 profile (Might be done when actual GUI is designed)

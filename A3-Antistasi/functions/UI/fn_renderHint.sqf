@@ -42,7 +42,7 @@ if (count customHintQueue isEqualTo 0) then {
 } else{
     private _dismissKey = actionKeysNames ["User12",1];
     _dismissKey = [_dismissKey,"""Use Action 12"""] select (_dismissKey isEqualTo "");
-    private _footer = parseText (["<br/><t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'>Press <t color='#218a36'>",_dismissKey,"</t> to dismiss notification. +",str((count customHintQueue) -1),"</t>"] joinString ""); // Needs to be added to string table.
+    private _footer = parseText (["<br/><t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top' >Press <t color='#f0d498' >",_dismissKey,"</t> to dismiss notification. +",str((count customHintQueue) -1),"</t>"] joinString ""); // Needs to be added to string table.
 
     _structuredText = composeText [customHintQueue #0#1, _footer];
     if (customHintQueue #0#2) then {

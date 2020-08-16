@@ -26,6 +26,8 @@ Returns:
 Examples:
     ["FooBar", "Hello World"] call A3A_fnc_customHint;
     ["FooBar", "Hello World"] remoteExec ["A3A_fnc_customHint", 0, false];
+    //Save Notify
+        ["Restart Notification", "Please make your way to HQ as a restart will occure soon™<br/><br/>Please make sure you save your stats at the Map.", true] remoteExec ["A3A_fnc_customHint", 0, false];
     ["Vaya...", "Parece que sus notificaciones importantes se cifraron.<br/><br/>Nadie espera el cifrado español.", false, ["Pictures\Intel\laptop_error.paa",1]] remoteExec ["A3A_fnc_customHint", 0, false];
 
     // Pre-parse FooBar(Hello World) NoMacro

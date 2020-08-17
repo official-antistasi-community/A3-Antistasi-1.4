@@ -37,19 +37,19 @@ if (_loopForever) then {
 };
 if (!enableDismissibleHints) exitWith {false;}; // Stop render in these instances.
 
-if (count customHintQueue isEqualTo 0) then {
+if (count A3A_NotifQueue isEqualTo 0) then {
     hintSilent "";
 } else{
     private _dismissKey = actionKeysNames ["User12",1];
     _dismissKey = [_dismissKey,"""Use Action 12"""] select (_dismissKey isEqualTo "");
-    private _footer = parseText (["<br/><t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top' >Press <t color='#f0d498' >",_dismissKey,"</t> to dismiss notification. +",str((count customHintQueue) -1),"</t>"] joinString ""); // Needs to be added to string table.
+    private _footer = parseText (["<br/><t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top' >Press <t color='#f0d498' >",_dismissKey,"</t> to dismiss notification. +",str((count A3A_NotifQueue) -1),"</t>"] joinString ""); // Needs to be added to string table.
 
-    _structuredText = composeText [customHintQueue #0#1, _footer];
-    if (customHintQueue #0#2) then {
+    _structuredText = composeText [A3A_NotifQueue #0#1, _footer];
+    if (A3A_NotifQueue #0#2) then {
         hintSilent _structuredText;
     } else {
         hint _structuredText;
-        customHintQueue #0 set [2,true]; // so it does not ping more than once.
+        A3A_NotifQueue #0 set [2,true]; // so it does not ping more than once.
     };
 };
 true;

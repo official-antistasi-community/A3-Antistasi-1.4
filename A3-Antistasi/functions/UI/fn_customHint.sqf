@@ -12,7 +12,7 @@ Scope:
     <LOCAL> Execute on each player to add a global notification.
 
 Environment:
-    <UNSCHEDULED> Simultaneous modification may cause trampling of items in customHintQueue.
+    <UNSCHEDULED> Simultaneous modification may cause trampling of items in A3A_NotifQueue.
 
 Parameters:
     <STRING> Heading of your notification.
@@ -67,11 +67,11 @@ if (_bodyText isEqualType parseText"") then {
 }; //
 
 if (enableDismissibleHints) then {
-    private _index = customHintQueue findIf {(_x #0) isEqualTo _headerText}; // Temporary solution until an programming-interface is added for counters and timers.
+    private _index = A3A_NotifQueue findIf {(_x #0) isEqualTo _headerText}; // Temporary solution until an programming-interface is added for counters and timers.
     if (_index isEqualTo -1) then {
-        customHintQueue pushBack [_headerText,_structuredText,_isSilent];
+        A3A_NotifQueue pushBack [_headerText,_structuredText,_isSilent];
     } else {
-        customHintQueue set [_index,[_headerText,_structuredText,_isSilent]];
+        A3A_NotifQueue set [_index,[_headerText,_structuredText,_isSilent]];
     };
     [] call A3A_fnc_renderHint; // Allows immediate display of new hint without waiting for loop.
 } else {

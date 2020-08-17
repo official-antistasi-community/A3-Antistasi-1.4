@@ -31,14 +31,13 @@ switch (_type) do {
 		//add controlsX not on roads and on the 'frontier'
 		private _markersX = markersX;
 		private _controlsX = controlsX;
-		private _distanceSPWNSqr = distanceSPWN^2;
 		private _sidesX = sidesX;
 		private _teamPlayer = teamPlayer;
 		private _pos = [0,0];
 		{
 			_pos = getmarkerPos _x;
 			if !(isOnRoad _pos) then {
-				_markersX = _markersX select {(getMarkerPos _x distanceSqr _pos < _distanceSPWNSqr) and {_sidesX getVariable [_x,sideUnknown] isEqualTo _teamPlayer}};
+				_markersX = _markersX select {(getMarkerPos _x distance _pos < distanceSPWN) and {_sidesX getVariable [_x,sideUnknown] isEqualTo _teamPlayer}};
 				_markersX deleteAt (_markersX find "Synd_HQ");
 				if !(_markersX isEqualTo []) then {_possibleMarkers pushBack _x};
 			};
@@ -94,7 +93,7 @@ switch (_type) do {
 			_site = selectRandom _possibleMarkers;
 			//if (_site in airportsX) then {if (random 10 < 8) then {[[_site],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_site],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
 			if (_site in airportsX) then {[[_site],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]};
-			if (_site in antennas) then {[[_site],"DES_antenna"] remoteExec ["A3A_fnc_scheduler",2]}
+			if (_site in antennas) then {[[_site],"A3A_fnc_DES_antenna"] remoteExec ["A3A_fnc_scheduler",2]}
 		};
 	};
 

@@ -167,10 +167,10 @@ jnl_vehicleHardpoints append [
 logistics_attachmentOffset append [];
 
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
-logistics_coveredVehicles = ["UK3CB_B_M939_Closed_HIDF", "UK3CB_B_MTVR_Closed_WDL", "UK3CB_C_V3S_Closed"];
+logistics_coveredVehicles append ["UK3CB_B_M939_Closed_HIDF", "UK3CB_B_MTVR_Closed_WDL", "UK3CB_C_V3S_Closed"];
 
 //if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]], 
 //if the vehicle is in the coveredVehicles array dont add it to the blacklist in this array.
-logistics_weapons = [
+logistics_weapons append [
 ];
 

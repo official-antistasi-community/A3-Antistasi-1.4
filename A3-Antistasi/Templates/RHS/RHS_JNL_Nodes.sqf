@@ -238,11 +238,11 @@ logistics_attachmentOffset append [
 ];
 
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
-logistics_coveredVehicles = ["rhsgref_nat_ural_work", "rhs_kamaz5350", "rhs_zil131_base", "rhs_gaz66_vmf", "rhsusf_M1078A1P2_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy", "rhsusf_M1083A1P2_WD_fmtv_usarmy"];
+logistics_coveredVehicles append ["rhsgref_nat_ural_work", "rhs_kamaz5350", "rhs_zil131_base", "rhs_gaz66_vmf", "rhsusf_M1078A1P2_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy", "rhsusf_M1083A1P2_WD_fmtv_usarmy"];
 
 //if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]], 
 //if the vehicle is in the coveredVehicles array dont add it to the blacklist in this array.
-logistics_weapons = [
+logistics_weapons append [
     ["RHS_TOW_TriPod_D" call A3A_fnc_classNameToModel,[]],
     ["RHS_M2StaticMG_D" call A3A_fnc_classNameToModel,[]],
     ["RHS_M2StaticMG_MiniTripod_D" call A3A_fnc_classNameToModel,[]],

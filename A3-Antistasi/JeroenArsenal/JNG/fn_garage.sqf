@@ -1406,7 +1406,7 @@ switch _mode do {
 							} forEach (_x select 1);//loop hardpoints
 
 						};
-					} forEach jnl_vehicleHardpoints;
+					} forEach logistics_vehicleHardpoints;
 
 
 					missionnamespace setvariable ["JNG_garage_icons_pylon",_ctrlList];

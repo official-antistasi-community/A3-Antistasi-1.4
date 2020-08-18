@@ -1,152 +1,197 @@
-jnl_vehicleHardpoints = [
-//4x4s
-//Offroad
-  ["\A3\soft_f\Offroad_01\Offroad_01_unarmed_F", [
-    //type, location				locked seats
-    [0,		[0,-1.7,-0.72],		[1,2,3,4]],		//weapon node
-    [1,		[0,-1.7,-0.72],		[1,2,3,4]]		//cargo node
-  ]],
+//Each element is: [model name, [nodes]]
+//Nodes are build like this: [Available(internal use,  always 1), Hardpoint location, Seats locked when node is in use]
+logistics_vehicleHardpoints = [
+    //Bikes
+    //Quadbike
+    ["C_Quadbike_01_F" call A3A_fnc_classNameToModel, [
+        // always 1,    location                locked seats
+        [1,             [0,-0.9,-0.5],          [0]]
+    ]],
 
-//Van Cargo
-  ["\a3\Soft_F_Orange\Van_02\Van_02_vehicle_F.p3d", [
-    [1,		[0,0,-1],		[1,2,3,4,5,6,7]],
-    [1,		[0,-2,-1],	[8,9]]
-  ]],
+    //4x4s
+    //Offroad
+    ["C_Offroad_01_F" call A3A_fnc_classNameToModel, [
+        // always 1,    location				locked seats
+        [1,	    	    [-0.05,-1.3,-0.72],		[3,4]],
+        [1,	    	    [-0.05,-2.3,-0.72],		[1,2]]
+    ]],
 
-//Van Transport
-  ["\a3\Soft_F_Orange\Van_02\Van_02_transport_F.p3d", [
-    [1,		[0,-1.7,-1],		[9,10]]
-  ]],
+        //Small Truck
+    ["C_Van_01_transport_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,-0.7475,-0.65],      [2,3,4,5]],
+        [1,             [0,-1.4375,-0.65],      [6,7]],
+        [1,             [0,-2.2,-0.65],         [8,9]],
+        [1,             [0,-3,-0.65],           [10,11]]
+        ]],
 
-//Small Truck
-  ["\A3\soft_f_gamma\van_01\Van_01_transport_F.p3d", [
-    [0,		[0,-1.6,-0.63],			[2,3,4,5,6,7,8,9]],
-    [1,		[0,-1.06,-0.63],			[2,3,4,5]],
-    [1,		[0,-2.61,-0.63],			[6,7,8,9,10,11]]
-  ]],
+        //Van Transport
+    ["C_Van_02_transport_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,-1.245,-0.97],       []],
+        [1,             [0,-2.49,-0.97],        [9,10]]
+    ]],
 
-//6x6s
-//Zamak Open
-  ["\A3\soft_f_beta\Truck_02\Truck_02_transport_F", [
-    [0,		[0,-1.31,-0.81],	[2,3,4,5,6,7,8,9,10,11,12,13]],
-    [1,		[0,0,-0.81],					[2,3,4,5,6,7,8]],
-    [1,		[0,-2.1,-0.81],					[9,10,11,12,13]]
-  ]],
+        //Van Cargo
+    ["C_Van_02_vehicle_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,0.7025,-0.97],       []],
+        [1,             [0,-0.1275,-0.97],      []],
+        [1,             [0,-0.9575,-0.97],      []],
+        [1,             [0,-1.7875,-0.97],      []],
+        [1,             [0,-2.6175,-0.97],      []]
+    ]],
 
-//Zamak Covered
-	["\A3\soft_f_beta\Truck_02\Truck_02_covered_F.p3d", [
-	  [1,		[0,0,-0.81],					[2,3,4,5,6,7,8]],
-		[1,		[0,-2.1,-0.81],					[9,10,11,12,13]]
-	]],
+    //6x6s
+    //Zamak Open
+    ["O_Truck_02_transport_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,0.7175,-0.82],       [2,3]],
+        [1,             [0,-0.1125,-0.82],      [4,5,6,7]],
+        [1,             [0,-0.9425,-0.82],      [8,9]],
+        [1,             [0,-1.7725,-0.82],      [10,11]],
+        [1,             [0,-2.6025,-0.82],      [12,13]],
+        [1,             [0,-3.4325,-0.82],      [14,15]]
+    ]],
 
-//CSAT Tempest open
-	["\A3\Soft_F_EPC\Truck_03\Truck_03_transport_F.p3d",[
-		[1,	[0.0,-0.9,-0.4],		[1,7,6,9]],
-		[1,	[0.0,-2.5,-0.4],		[2,3,8,12]],
-		[1,	[0.0,-4.1,-0.4],			[4,5,11,10]]
-	]],
+    //Zamak Covered
+    ["O_Truck_02_covered_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,0.7175,-0.82],       [2,3]],
+        [1,             [0,-0.1125,-0.82],      [4,5,6,7]],
+        [1,             [0,-0.9425,-0.82],      [8,9]],
+        [1,             [0,-1.7725,-0.82],      [10,11]],
+        [1,             [0,-2.6025,-0.82],      [12,13]],
+        [1,             [0,-3.4325,-0.82],      [14,15]]
+    ]],
 
-//CSAT Tempest closed
-	["\A3\Soft_F_EPC\Truck_03\Truck_03_covered_F.p3d",[
-    [1,	[0.0,-0.9,-0.4],		[1,7,6,9]],
-    [1,	[0.0,-2.5,-0.4],		[2,3,8,12]],
-    [1,	[0.0,-4.1,-0.4],		[4,5,11,10]]
-	]],
+    //CSAT Tempest open
+    ["O_Truck_03_transport_F" call A3A_fnc_classNameToModel,[
+        [1,             [0,-0.5175,-0.4],       [1,6]],
+        [1,             [0,-1.3475,-0.4],       [9,7]],
+        [1,             [0,-2.1775,-0.4],       [2,8]],
+        [1,             [0,-3.0075,-0.4],       [3,10,12]],
+        [1,             [0,-3.8375,-0.4],       [4]],
+        [1,             [0,-4.65,-0.4],         [5,11]]
+    ]],
 
-//8x8s
-//HEMTT open
-  ["\A3\soft_f_beta\Truck_01\Truck_01_transport_F.p3d",[
-    [1,[0,-0.222656,-0.5],[3,4,10,11,2]],
-    [1,[0,-2.16602,-0.5],[1,16,8,9]],
-    [1,[0,-4.11816,-0.5],[5,6,12,13,15,7]]
-  ]],
+    //CSAT Tempest closed
+    ["O_Truck_03_covered_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,-0.5175,-0.4],       [1,6]],
+        [1,             [0,-1.3475,-0.4],       [9,7]],
+        [1,             [0,-2.1775,-0.4],       [2,8]],
+        [1,             [0,-3.0075,-0.4],       [3,10,12]],
+        [1,             [0,-3.8375,-0.4],       [4]],
+        [1,             [0,-4.65,-0.4],         [5,11]]
+    ]],
 
-//HEMMT closed
-  ["\A3\soft_f_beta\Truck_01\Truck_01_covered_F.p3d",[
-    [1,[0,-0.224609,-0.5],[1,16,8,9,2]],
-    [1,[0,-2.16016,-0.5],[3,4,10,11]],
-    [1,[0,-4.10547,-0.5],[5,6,12,13,15]]
-  ]],
+    //8x8s
+    //HEMTT open
+    ["B_Truck_01_transport_F" call A3A_fnc_classNameToModel,[
+        // always 1    location				    locked seats
+        [1,             [0,0,-0.56],            [1,8,9,16]],
+        [1,             [0,-0.8,-0.56],         [2,10]],
+        [1,             [0,-1.7,-0.56],         [3,11]],
+        [1,             [0,-2.6,-0.56],         [4,5,12,13]],
+        [1,             [0,-3.5,-0.56],         [6,14]],
+        [1,             [0,-4.4,-0.56],         [7,15]]
+    ]],
 
-//Vanilla HEMTT Flatbed
-  ["a3\Soft_F_Gamma\Truck_01\Truck_01_flatbed_F.p3d",[
-      [0,[0.0,-0.29,-0.79],[]],
-      [0,[0.0,-2.97,-0.79],[]],
-      [1,[0.0,0,-0.8],[]],
-      [1,[0.0,-1.75,-0.8],[]],
-      [1,[0.0,-3.5,-0.8],[]]
-  ]],
+    //HEMTT covered
+    ["B_Truck_01_covered_F" call A3A_fnc_classNameToModel,[
+        // always 1    location				    locked seats
+        [1,             [0,0,-0.56],            [1,8,9,16]],
+        [1,             [0,-0.8,-0.56],         [2,10]],
+        [1,             [0,-1.7,-0.56],         [3,11]],
+        [1,             [0,-2.6,-0.56],         [4,5,12,13]],
+        [1,             [0,-3.5,-0.56],         [6,14]],
+        [1,             [0,-4.4,-0.56],         [7,15]]
+    ]],
 
-//Vanilla HEMTT Cargo
-  ["a3\Soft_F_Gamma\Truck_01\Truck_01_cargo_F.p3d",[
-    [0,[0.0,-0.29,-0.51],[]],
-    [0,[0.0,-2.97,-0.51],[]],
-    [1,[0.0,0.5,-0.51],[]],
-    [1,[0.0,-1.25,-0.51],[]],
-    [1,[0.0,-2.97,-0.51],[]]
-  ]],
+    //Vanilla HEMTT Flatbed
+    ["B_Truck_01_flatbed_F" call A3A_fnc_classNameToModel,[
+        [1,             [0,0.6825,-0.88],       []],
+        [1,             [0,-0.1475,-0.88],      []],
+        [1,             [0,-0.9775,-0.88],      []],
+        [1,             [0,-1.8075,-0.88],      []],
+        [1,             [0,-2.6375,-0.88],      []],
+        [1,             [0,-3.4675,-0.88],      []],
+        [1,             [0,-4.2975,-0.88],      []]
+    ]],
 
-//Boats
-//Motorboat civilian
-  ["\A3\boat_f_gamma\Boat_Civil_01\Boat_Civil_01_F", [
-    [1,		[0,-1.697,-0.874],	[]]
-  ]],
+    //Vanilla HEMTT Cargo
+    ["B_Truck_01_cargo_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,1,-0.6],             []],
+        [1,             [0,0.2,-0.6],           []],
+        [1,             [0,-0.6,-0.6],          []],
+        [1,             [0,-1.4,-0.6],          []],
+        [1,             [0,-2.2,-0.6],          []],
+        [1,             [0,-3,-0.6],            []],
+        [1,             [0,-3.8,-0.6],          []]
+    ]],
 
-//Speedboat minigun
-  ["\A3\Boat_F\Boat_Armed_01\Boat_Armed_01_minigun_F.p3d", [
-    [1,		[0,2.63701,-2.16123],	[]]
-  ]],
+    //Boats
+    //Motorboat civilian
+    ["C_Boat_Civil_01_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,-0.9425,-1.1],       [0,1]],
+        [1,             [0,-1.5725,-1.1],       []]
+    ]],
 
-//Transport rubber boat
-  ["\A3\boat_f\Boat_Transport_01\Boat_Transport_01_F.p3d", [
-    [1,		[0,0.0189972,-1.04965],	[]]
-  ]],
+    //Speedboat minigun
+    ["B_Boat_Armed_01_minigun_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,3.2,-2.2],           [4,5]],
+        [1,             [0,2.4,-2.2],           []]
+    ]],
 
-//Civilian transport boat
-  ["\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d", [
-    [1, [0,1.233,-0.72029],			[]]
-  ]],
+    //Transport rubber boat
+    ["B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,0.7575,-1.1],        [0,1,2,3]],
+        [1,             [0,-0.0725,-1.1],       []]
+    ]],
 
-//Tanoa boat
-  ["\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d",[
-      [1,[-0.0615234,0.492443,0.322869],[5,6,2]]
-  ]]
-
+    //Civilian transport boat (RHIB)
+    ["C_Boat_Transport_02_F" call A3A_fnc_classNameToModel, [
+        [1,             [0,1.8575,-0.7],        [0,1]],
+        [1,             [0,1.0275,-0.7],        [2,6]]
+    ]]
 ];
-//Add to weapon sets
-jnl_smallVicWeapons = [
-  "\A3\Static_F_Gamma\AT_01\AT_01.p3d",					//AT titan, facing to the right
-  "\A3\Static_F_Gamma\GMG_01\GMG_01_high_F.p3d",//Static GMG
-  "\A3\Static_F_Gamma\HMG_01\HMG_01_high_F.p3d" //Static HMG
-];
-jnl_largeVicWeapons = [
-  "\A3\Static_F_Gamma\AT_01\AT_01.p3d",				  //AT titan, facing to the right
-  "\A3\Static_F_Gamma\GMG_01\GMG_01_high_F.p3d",//Static GMG
-  "\A3\Static_F_Gamma\HMG_01\HMG_01_high_F.p3d"//Static HMG
-];
-//Weapon lists for each vehicle.
-jnl_allowedWeapons = [
-//Offroad
-  ["\A3\soft_f\Offroad_01\Offroad_01_unarmed_F", jnl_smallVicWeapons],
-//Boxer truck
-  ["\A3\soft_f_gamma\van_01\Van_01_transport_F.p3d", jnl_largeVicWeapons],
-//Zamak
-  ["\A3\soft_f_beta\Truck_02\Truck_02_transport_F", jnl_largeVicWeapons]
-];
+
 //Offsets for adding new statics/boxes to the JNL script.
 jnl_attachmentOffset = [
-//Weapons
-  ["\A3\Static_F_Gamma\AT_01\AT_01.p3d",					                       		[-0.5, 0.0, 1.05],	[1,0,0],	0],		//AT titan, facing to the right
-  ["\A3\Static_F_Gamma\GMG_01\GMG_01_high_F.p3d",		                       	[0.2, -0.3, 1.7],		[0,1,0],	0],		//Static GMG
-  ["\A3\Static_F_Gamma\HMG_01\HMG_01_high_F.p3d",	                      		[0.2, -0.3, 1.7],		[0,1,0],	0],		//Static HMG
-//Crates
-  ["A3\Weapons_F\Ammoboxes\AmmoVeh_F",			                         				[0,0,0.85],	  			[1,0,0],  1],		//Vehicle ammo create
-  ["\A3\Supplies_F_Exp\Ammoboxes\Equipment_Box_F.p3d",		        					[0,0,0.85],	 	   		[1,0,0],  1],		//Equipment box
-  ["\A3\Props_F_Orange\Humanitarian\Supplies\PaperBox_01_open_boxes_F.p3d", [0,0,0.85],       	[1,0,0],  1], 	//Stef test supplybox
-  ["\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_medium_F.p3d",       [0,0,0.85],	    		[1,0,0],  1], 	//Stef test Devin crate1
-  ["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicAmmoBox.p3d",	                 		[0,0,0.85],		   		[1,0,0],  1], 	//Stef test Devin crate2
-  ["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicExplosives.p3d",	              		[0,0,0.85],		   		[1,0,0],  1], 	//Stef test Devin crate3
-  ["\A3\Weapons_F\Ammoboxes\Supplydrop.p3d",					                      [0, 0, 0.95],	   		[1,0,0],  1],		//Ammodrop crate
-//Other
-  ["\A3\Soft_F\Quadbike_01\Quadbike_01_F.p3d",	                         		[0, 0, 1.4],  			[0,1,0],  1]		//Quadbike
+    //weapons														          //location				  //rotation				  //size 	//recoil            //description
+    ["B_static_AT_F" call A3A_fnc_classNameToModel,							        [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AT titan, facing to the right
+    ["B_static_AA_F" call A3A_fnc_classNameToModel,							        [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AA titan, facing to the right
+    ["B_GMG_01_high_F" call A3A_fnc_classNameToModel,					                [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],               //Static GMG High
+    ["B_HMG_01_high_F" call A3A_fnc_classNameToModel,					                [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],		        //Static HMG High
+    ["B_GMG_01_F" call A3A_fnc_classNameToModel,					                    [0, 0, 1.19],		        [0, -1, 0],				    4,      200],               //Static GMG
+    ["B_HMG_01_F" call A3A_fnc_classNameToModel,					                    [0, 0, 1.19],		        [0, -1, 0],				    4,      200],		        //Static HMG
+    ["B_Mortar_01_F" call A3A_fnc_classNameToModel,                                    [-0.1,-0.5,0.79],           [0, 1, 0],                  2,      4000],              //Mortar
+    ["B_HMG_02_high_F" call A3A_fnc_classNameToModel,                                  [0.2, -0.5, 1.7],           [0, 1, 0],                  4,      200],               //M2 High
+    ["B_HMG_02_F" call A3A_fnc_classNameToModel,                                       [-0.2, 0, 1.3],             [0, -1, 0],                 4,      200],               //M2
+
+    //medium sized crates
+    ["Box_NATO_AmmoVeh_F" call A3A_fnc_classNameToModel,							    [0,0,0.85],			    	[1,0,0],		    		2],		                    //Vehicle ammo create
+    ["Land_PaperBox_01_open_boxes_F" call A3A_fnc_classNameToModel,                    [0,0,0.85],	                [1,0,0],			    	2],		                    //Stef test supplybox
+    ["Land_PlasticCase_01_medium_F" call A3A_fnc_classNameToModel,                     [0,0,0.85],		        	[1,0,0],			    	2],		                    //Stef test Devin crate1
+    ["Box_Syndicate_Ammo_F" call A3A_fnc_classNameToModel,			                    [0,0,0.85],				    [1,0,0],		    		2],		                    //Stef test Devin crate2
+    ["Box_IED_Exp_F" call A3A_fnc_classNameToModel,			                        [0,0,0.85],			    	[1,0,0],		    		2],		                    //Stef test Devin crate3
+    ["B_supplyCrate_F" call A3A_fnc_classNameToModel,						            [0, 0, 0.95],		    	[1,0,0],			    	2],		                    //Ammodrop crate
+    ["C_Quadbike_01_F" call A3A_fnc_classNameToModel,				            	    [0, 0, 1.4],		    	[0,1,0],			    	2],		                    //Quadbike
+
+    //small sized crates										                  //location				  //rotation			      //size 	                    //description
+    ["Box_NATO_Equip_F" call A3A_fnc_classNameToModel,						            [0,0,0.44],			    	[1,0,0],			    	1],		                    //Equipment box
+    ["Box_NATO_Wps_F" call A3A_fnc_classNameToModel,							        [0,0,0.22],				    [0,0,0],			    	1]		                    //surrender crates
+];
+
+//all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
+logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Truck_01_covered_F", "O_Truck_03_covered_F", "I_Truck_02_covered_F"];
+
+//if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]], 
+//if the vehicle is in the coveredVehicles array dont add it to the blacklist in this array.
+logistics_weapons = [
+    //vanilla
+    ["B_static_AT_F" call A3A_fnc_classNameToModel,[]],
+    ["B_static_AA_F" call A3A_fnc_classNameToModel,[]],
+    ["B_GMG_01_high_F" call A3A_fnc_classNameToModel,[]],
+    ["B_HMG_01_high_F" call A3A_fnc_classNameToModel,[]],
+    ["B_GMG_01_F" call A3A_fnc_classNameToModel,[]],
+    ["B_HMG_01_F" call A3A_fnc_classNameToModel,[]],
+    ["B_Mortar_01_F" call A3A_fnc_classNameToModel,["C_Boat_Civil_01_F" call A3A_fnc_classNameToModel, "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "C_Boat_Transport_02_F" call A3A_fnc_classNameToModel]],
+    ["B_HMG_02_high_F" call A3A_fnc_classNameToModel,[]],
+    ["B_HMG_02_F" call A3A_fnc_classNameToModel,[]]
 ];

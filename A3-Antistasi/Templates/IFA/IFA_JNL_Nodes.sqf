@@ -1,5 +1,5 @@
-jnl_vehicleHardpoints append [
-
+logistics_vehicleHardpoints append [
+//note hardpoints needs to be redone for IFA
 //Allies
 //GMC
   ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Gmc353Truck.p3d",[
@@ -34,18 +34,22 @@ jnl_vehicleHardpoints append [
   ]]
 
 ];
-//Add to the weapon sets
-jnl_smallVicWeapons append [];
-jnl_largeVicWeapons append [];
-//Weapon lists for each vehicle.
-jnl_allowedWeapons append [];
+
 //Offsets for adding new statics/boxes to the JNL script.
 jnl_attachmentOffset append [
-//weapons
+    //weapons														          //location				  //rotation				  //size 	//recoil            //description
 
-//Crates
-  ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_GER_Ammo.p3d",			[0,0,0.85],				[1,0,0],				1],		//ifa ammo
-  ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_SU_Ammo.p3d",			[0,0,0.85],				[1,0,0],				1]		//ifa ammo
-//Other
+    //medium size crate											              //location			      //rotation		          //size 	                    //description
+    ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_GER_Ammo.p3d",			            [0,0,0.85],			    	[1,0,0],		    		2],		                    //ifa ammo
+    ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_SU_Ammo.p3d",			            [0,0,0.85],			    	[1,0,0],			    	2],		                    //ifa ammo
+
+    //small size crate										                  //location				  //rotation			      //size 	                    //description
 
 ];
+
+//all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
+logistics_coveredVehicles = [];
+
+//if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]], 
+//if the vehicle is in the coveredVehicles array dont add it to the blacklist in this array.
+logistics_weapons = [];

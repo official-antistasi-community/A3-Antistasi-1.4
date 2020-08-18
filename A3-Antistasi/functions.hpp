@@ -584,6 +584,7 @@ class A3A
 	class Utility
 	{
 		class basicBackpack {};
+		class classNameToModel {};
 		class createDataObject {};
 		class createNamespace {};
 		class dateToTimeString {};

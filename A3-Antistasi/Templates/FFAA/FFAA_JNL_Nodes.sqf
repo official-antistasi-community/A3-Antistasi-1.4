@@ -1,5 +1,5 @@
 //JNL mounting nodes for cargo and statics.
-jnl_vehicleHardpoints append [
+logistics_vehicleHardpoints append [
 //4x4s
 //pegaso open
   ["\ffaa_et_pegaso\ffaa_et_pegaso.p3d",[

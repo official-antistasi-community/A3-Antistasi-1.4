@@ -23,7 +23,7 @@ Always think of the next guy that may have to work on your code. Chances are it 
       The locked seat list is the set of seats that should be made unusable when the node has something on it.
       This stops people being clipped into the crate/static when it is loaded. It is populated with the seat IDs for each one to be disabled.
 */
-jnl_vehicleHardpoints append [
+logistics_vehicleHardpoints append [
   ["modelpath", [
     [0, [0,0,0], [1,2,3,4]],//This line would assign a weapon node at 0,0,0 on the model, and block seats 1-4 when in use.
     [1, [0,0,0], [1,2,3,4]]//This line would assign a cargo node at 0,0,0 on the model, and block seats 1-4 when in use.

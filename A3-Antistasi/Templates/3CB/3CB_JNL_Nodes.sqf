@@ -1,121 +1,176 @@
 //JNL mounting nodes for cargo and statics.
+//Each element is: [model name, [nodes]]
+//Nodes are build like this: [Available(internal use,  always 1), Hardpoint location, Seats locked when node is in use]
 jnl_vehicleHardpoints append [
-//4x4s
-//Datsun Civ Variant
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_datsun\uk3cb_datsun_civ_open.p3d", [
-    [0,		[0,-1.2,-0.72],		[2,3,4,5,6]], //1 Apears to be the Front Passenger Seat, FFV Seat cannot be disabled
-    [1,		[0,-1.2,-0.72],		[2,3,4,5,6]]
-  ]],
-//Datsun Non Civ Variant
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_datsun\uk3cb_datsun_open.p3d", [
-    [0,		[0,-1.2,-1.15],		[1,3,4,5,6,7,8]], //2 is Front Passenger Seat, FFV Seat cannot be disabled
-    [1,		[0,-1.2,-1.15],		[1,3,4,5,6,7,8]]
-  ]],
-//Hilux
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_hilux\uk3cb_hilux.p3d", [
-    [0,		[0,-1.2,-0.72],		[1,2,3,4]],
-    [1,		[0,-1.2,-0.72],		[1,2,3,4]]
+  // Datsun civ variant, TODO: redo for 3 crates maybeeee?
+  ["UK3CB_C_Datsun_Open" call A3A_fnc_classNameToModel, [
+      [1,	    	    [0,-0.5,-0.83],		[2,3]],
+      [1,	    	    [0,-1.5,-0.83],		[0,2,3,4,5,6]]
   ]],
 
-//MAN Flatbed
-  ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_man\uk3cb_man_4x4_cargo.p3d",[
-    [1,[0,2.5,-1.25],[]],
-    [1,[0,0.5,-1.25],[]]
+  // Datsun non civ variant, TODO: redo for 3 crates maybeeee?
+  ["UK3CB_B_G_Datsun_Pickup" call A3A_fnc_classNameToModel, [
+      [1,	    	    [0,-0.6,-1.2],		[3,4]], // 2 is cab passenger
+      [1,	    	    [0,-1.3,-1.2],		[5,6]] // 0,1 is backmost ffv, didn't need block after all, juuuuust nuff space
   ]],
 
-//6x6s
-//M939s
-//open
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_m939\uk3cb_m939_open.p3d",[
-    [1,[0,-0.5,-0.5],[1,2,3,4,5,6]],
-    [1,[0,-2.5,-0.5],[7,8,9,10,11,12]]
+  // Hilux
+  ["UK3CB_C_Hilux_Open" call A3A_fnc_classNameToModel, [
+      [1,	    	    [-0.05,-0.5,-0.66],		[5]],
+      [1,	    	    [-0.05,-1.6,-0.66],		[3,4,6]]
   ]],
 
-//Covered
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_m939\uk3cb_m939_closed.p3d",[
-    [1,[0,-0.5,-0.5],[1,2,3,4,5,6]],
-    [1,[0,-2.5,-0.5],[7,8,9,10,11,12]]
+  // M939 open
+  ["UK3CB_B_M939_Open_HIDF" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.2,-0.5],           [1,10]],
+      [1,             [0,-0.6,-0.5],          [2,3]],
+      [1,             [0,-1.4,-0.5],          [4,5]],
+      [1,             [0,-2.2,-0.5],          [6,7]],
+      [1,             [0,-3.0,-0.5],          [8,9]],
+      [1,             [0,-3.8,-0.5],          [11,12]]
   ]],
 
-//Guntruck
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_m939\uk3cb_m939_guntruck.p3d",[
-    [1,[0,-0.5,-1.25],[0,1,2,3,4,5]],
-    [1,[0,-2.5,-1.25],[6,7,8,9,10,11]]
+  // M939 closed
+  ["UK3CB_B_M939_Closed_HIDF" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.2,-0.5],           [1,10]],
+      [1,             [0,-0.6,-0.5],          [2,3]],
+      [1,             [0,-1.4,-0.5],          [4,5]],
+      [1,             [0,-2.2,-0.5],          [6,7]],
+      [1,             [0,-3.0,-0.5],          [8,9]],
+      [1,             [0,-3.8,-0.5],          [11,12]]
   ]],
 
-//Recovery
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_m939\uk3cb_m939_recovery.p3d",[
-    [1,[0,-0.5,-0.5],[]],
-    [1,[0,-2.5,-0.5],[]]
+  // M939 guntruck
+  ["UK3CB_B_M939_Guntruck_HIDF" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.2,-1.3],           [0,9]],
+      [1,             [0,-0.6,-1.3],          [1,2]],
+      [1,             [0,-1.4,-1.3],          [3,4]],
+      [1,             [0,-2.2,-1.3],          [5,6]],
+      [1,             [0,-3.0,-1.3],          [7,8]],
+      [1,             [0,-3.8,-1.3],          [10,11]]
   ]],
 
-//Coyote P
-  ["\UK3CB_BAF_Vehicles\addons\UK3CB_BAF_Vehicles_Coyote_Jackal\uk3cb_coyote_L134A1_passenger.p3d",[
-    [1,[0,-2,-1.6],[2,3,4,5,6,7,8]]
+  // M939 recovery
+  ["UK3CB_B_M939_Recovery_HIDF" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.2,-0.5],           []],
+      [1,             [0,-0.6,-0.5],          []],
+      [1,             [0,-1.4,-0.5],          []],
+      [1,             [0,-2.2,-0.5],          []],
+      [1,             [0,-3.0,-0.5],          []],
+      [1,             [0,-3.8,-0.5],          []]
   ]],
 
-//MTVRs
-//open
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_mtvr\uk3cb_mtvr_open.p3d",[
-    [1,[0,-0.5,-0.7],[0,1,2,3,4,5,6]],
-    [1,[0,-2.5,-0.7],[7,8,9,10,11,12]]
+  // Coyote P GMG
+  ["UK3CB_BAF_Coyote_Passenger_L134A1_D" call A3A_fnc_classNameToModel,[
+      [1,             [0.05,-1.6,-1.75],      [2,3,4,5,6,7]], // Both nodes block all seats here because 2 nodes blocking
+      [1,             [0.05,-2.4,-1.75],      [2,3,4,5,6,7]]  // 2 common seats but not all didn't work for some reason
   ]],
 
-//Covered
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_mtvr\uk3cb_mtvr_closed.p3d",[
-    [1,[0,-0.5,-0.7],[0,1,2,3,4,5,6]],
-    [1,[0,-2.5,-0.7],[7,8,9,10,11,12]]
+  // Coyote P HMG
+  ["UK3CB_BAF_Coyote_Passenger_L111A1_D2" call A3A_fnc_classNameToModel,[
+      [1,             [0.05,-1.6,-1.75],      [2,3,4,5,6,7]], // Same deal as above here
+      [1,             [0.05,-2.4,-1.75],      [2,3,4,5,6,7]]
   ]],
 
-//Recovery
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_mtvr\uk3cb_mtvr_recovery.p3d",[
-    [1,[0,0,-0.7],[]],
-    [1,[0,-1.7,-0.7],[]],
-    [1,[0,-3.5,-0.7],[]]
+  // Didn't redo the Husky because it was disabled in the old JNL, might work now tho, didn't test yet
+
+  // MTVR Open
+  ["UK3CB_B_MTVR_Open_WDL" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.2,-0.83],          [0,1]],
+      [1,             [0,-0.6,-0.83],         [2,3]],
+      [1,             [0,-1.4,-0.83],         [4,5]],
+      [1,             [0,-2.2,-0.83],         [6,7]],
+      [1,             [0,-3.0,-0.83],         [9,10]]
   ]],
 
-//Flatbed
-  ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_man\uk3cb_man_6x6_cargo.p3d",[
-    [1,[0,4.5175781,-1.254599],[]],
-    [1,[0,2.5175781,-1.254599],[]],
-    [1,[0,0.51055,-1.254599],[]]
+  // MTVR Covered
+  ["UK3CB_B_MTVR_Closed_WDL" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.2,-0.83],          [0,1]],
+      [1,             [0,-0.6,-0.83],         [2,3]],
+      [1,             [0,-1.4,-0.83],         [4,5]],
+      [1,             [0,-2.2,-0.83],         [6,7]],
+      [1,             [0,-3.0,-0.83],         [9,10]]
   ]],
 
-//v3s
-//Recovery
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_recovery.p3d",[
-    [1,[0,0.6,-0.65],[]],
-    [1,[0,-1,-0.65],[]],
-    [1,[0,-2.6,-0.65],[]]
+  // MTVR Recovery
+  ["UK3CB_B_MTVR_Recovery_WDL" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.2,-0.8],           []],
+      [1,             [0,-0.6,-0.8],          []],
+      [1,             [0,-1.4,-0.8],          []],
+      [1,             [0,-2.2,-0.8],          []],
+      [1,             [0,-3.0,-0.8],          []],
+      [1,             [0,-3.8,-0.8],          []]
   ]],
 
-//Closed
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_transport.p3d",[
-    [1,[0,-0.3,-0.75],[10,3,11,4,5,2]],
-    [1,[0,-2.3,-0.75],[6,7,8,9,12,13]]
+  // MAN Truck, 4x4 Flatbed
+  ["UK3CB_BAF_MAN_HX60_Cargo_Green_A" call A3A_fnc_classNameToModel,[
+      [1,             [0,3.3,-1.25],          []],
+      [1,             [0,2.5,-1.25],          []],
+      [1,             [0,1.7,-1.25],          []],
+      [1,             [0,0.9,-1.25],          []],
+      [1,             [0,0.1,-1.25],          []],
+      [1,             [0,-0.7,-1.25],         []]
   ]],
 
-//Open
-  ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_v3s\uk3cb_v3s_open.p3d",[
-    [1,[0,-0.3,-0.75],[10,3,11,4,5,2]],
-    [1,[0,-2.3,-0.75],[6,7,8,9,12,13]]
+  // MAN Truck, 6x6 Flatbed
+  ["UK3CB_BAF_MAN_HX58_Cargo_Green_A" call A3A_fnc_classNameToModel,[
+      [1,             [0,4.8,-1.25],          []],
+      [1,             [0,4.0,-1.25],          []],
+      [1,             [0,3.2,-1.25],          []],
+      [1,             [0,2.4,-1.25],          []],
+      [1,             [0,1.6,-1.25],          []],
+      [1,             [0,0.8,-1.25],          []],
+      [1,             [0,0.0,-1.25],          []],
+      [1,             [0,-0.8,-1.25],         []]
   ]],
 
-//Ural Recovery
-  ["UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_ural\uk3cb_ural_recovery.p3d",[
-      [1,[0,-0.2,-0.5],[]],
-      [1,[0,-1.9,-0.5],[]],
-      [1,[0,-3.6,-0.5],[]]
+  // V3S, Recovery
+  ["UK3CB_C_V3S_Recovery" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.8,-0.65],          []],
+      [1,             [0,0.0,-0.65],          []],
+      [1,             [0,-0.8,-0.65],         []],
+      [1,             [0,-1.6,-0.65],         []],
+      [1,             [0,-2.4,-0.65],         []],
+      [1,             [0,-3.2,-0.65],         []]
+  ]],
+
+  // V3S, Open
+  ["UK3CB_C_V3S_Open" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.3,-0.75],          [9,10]],
+      [1,             [0,-0.5,-0.75],         [1,2,3,4]],
+      [1,             [0,-1.3,-0.75],         [3,4,5,6]],
+      [1,             [0,-2.1,-0.75],         [5,6,7,8]],
+      [1,             [0,-2.9,-0.75],         [11,12]]
+  ]],
+
+  // V3S, Closed
+  ["UK3CB_C_V3S_Closed" call A3A_fnc_classNameToModel,[
+      [1,             [0,0.3,-0.75],          [9,10]],
+      [1,             [0,-0.5,-0.75],         [1,2,3,4]],
+      [1,             [0,-1.3,-0.75],         [3,4,5,6]],
+      [1,             [0,-2.1,-0.75],         [5,6,7,8]],
+      [1,             [0,-2.9,-0.75],         [11,12]]
+  ]],
+
+  // Ural, Recovery
+  ["UK3CB_C_Ural_Recovery" call A3A_fnc_classNameToModel,[
+      [1,             [0,0,-0.58],            []],
+      [1,             [0,-0.8,-0.58],         []],
+      [1,             [0,-1.6,-0.58],         []],
+      [1,             [0,-2.4,-0.58],         []],
+      [1,             [0,-3.2,-0.58],         []],
+      [1,             [0,-4.0,-0.58],         []]
   ]]
-//8x8s
-
-//Boats
-
 ];
-//Add to the weapon sets
-jnl_smallVicWeapons append [];
-jnl_largeVicWeapons append [];
-//Weapon lists for each vehicle.
-jnl_allowedWeapons append [];
+
 //Offsets for adding new statics/boxes to the JNL script.
 jnl_attachmentOffset append [];
+
+//all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
+logistics_coveredVehicles = ["UK3CB_B_M939_Closed_HIDF", "UK3CB_B_MTVR_Closed_WDL", "UK3CB_C_V3S_Closed"];
+
+//if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]], 
+//if the vehicle is in the coveredVehicles array dont add it to the blacklist in this array.
+logistics_weapons = [
+];
+

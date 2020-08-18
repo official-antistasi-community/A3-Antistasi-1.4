@@ -65,7 +65,7 @@ jnl_allowedWeapons append [
   The first 2 are self explanatory, the 3rd is for things like quadbikes, as they can be loaded onto vehicles if they are initialised properly.
   This is filled by listing the model path, the coordinate offset(for tweaking it so that its base is centered on the node), and any angle offset it needs (in case the weapon should be facing any other direction than forward by default.), finally you list the node type that the entry should use (0 for weapons, 1 for anything else.)
 */
-jnl_attachmentOffset append [
+logistics_attachmentOffset append [
   ["modelPath",		[0, 0, 0],		[0,0,0],	0],//This would attach the model at its 0,0,0 coord to a weapon node.
   ["modelPath",		[0, 0, 0],		[0,0,0],	1]//This would attach the model at its 0,0,0 coord to a cargo node.
 ];

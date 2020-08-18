@@ -36,7 +36,7 @@ logistics_vehicleHardpoints append [
 ];
 
 //Offsets for adding new statics/boxes to the JNL script.
-jnl_attachmentOffset append [
+logistics_attachmentOffset append [
     //weapons														          //location				  //rotation				  //size 	//recoil            //description
 
     //medium size crate											              //location			      //rotation		          //size 	                    //description

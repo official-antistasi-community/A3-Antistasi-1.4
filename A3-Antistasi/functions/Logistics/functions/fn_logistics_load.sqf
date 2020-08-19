@@ -99,4 +99,4 @@ if (_weapon) then {
 };
 
 _vehicle setVariable ["LoadingCargo",nil,true];
-[_vehicle, "unload"] call A3A_fnc_logistics_addAction;
+[_vehicle, "unload"] remoteExec ["A3A_fnc_logistics_addAction", 0 ,_vehicle];

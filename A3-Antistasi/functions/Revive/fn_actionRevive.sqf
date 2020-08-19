@@ -52,7 +52,6 @@ if !(_cured getVariable ["incapacitated",false]) exitWith
 	if (_inPlayerGroup) then {_medicX groupChat format ["%1 no longer needs my help",name _cured]};
 	_healed
 	};
-if (surfaceIsWater (position _cured)) exitWith {if (_player) then {["Revive", format ["You cannot heal %1 in the water",name _cured]] call A3A_fnc_customHint;};_healed};
 if (_player) then
 	{
 	_cured setVariable ["helped",_medicX,true];

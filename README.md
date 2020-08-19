@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://i.imgur.com/SzQZg0S.png" >
+    <img src="https://i.imgur.com/Vhpxy27.jpg" >
 </p>
 <p align="center">
     <a href="https://github.com/AdamWaldie/A3-CAVASTASI/releases/latest">

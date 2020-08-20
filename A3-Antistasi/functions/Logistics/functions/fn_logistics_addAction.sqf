@@ -40,7 +40,7 @@ switch (_action) do {
             _text,
             {
                 params ["_target"];
-                _target call A3A_fnc_logistics_unload;
+                _target spawn A3A_fnc_logistics_unload;
             },
             nil,
             1.5,

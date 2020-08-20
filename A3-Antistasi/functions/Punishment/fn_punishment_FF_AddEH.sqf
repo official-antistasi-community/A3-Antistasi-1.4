@@ -55,6 +55,9 @@ _unit addEventHandler ["Hit", {
 
 if (_isAI) exitWith {true};
 
+if (isNil "A3A_FFPunish_Q") then { A3A_FFPunish_Q = [] };
+if (isNil "A3A_FFPunish_CD") then { A3A_FFPunish_CD = 0 };
+
 if (hasACE) then {
 	["ace_firedPlayer", {
 		params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile"];

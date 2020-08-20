@@ -58,7 +58,7 @@ if ((_node#0) isEqualType []) then {
 //detach cargo
 private _keepUnloading = false;
 if !(_cargo isEqualTo objNull) then {//cargo not deleted
-    //isWeapon?
+    //check if its a weapon
     private _model = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "model");
     _weapon = false;
     {

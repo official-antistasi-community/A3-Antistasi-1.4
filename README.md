@@ -20,6 +20,19 @@ Inhouse, customised variant of Antistasi for the 7th Cavalry Regiment.
 A Persistent Whole Map Mission for MP co-op, focused on Resistance, Infantry and Guerrilla Tactics. Adapted heavily from Antistasi for 7thCavalry use for fun!
 
 ## Project Status
+
+### Game Information
+
+#### Latest Update
+
+The latest update is: 2.4.0.
+
+Campaigns running on versions older than 2.3.9 should be reset before playing this version.
+
+#### Before Starting a new Map
+
+ I advise all players to disable "Load Last Persistent Save" in the mission parameters when starting a new map for the first time.
+
 Master Branch: [![Build Status](https://travis-ci.com/AdamWaldie/A3-CAVASTASI.svg?branch=unstable)](https://travis-ci.com/AdamWaldie/A3-CAVASTASI)
 
 ### Attribution

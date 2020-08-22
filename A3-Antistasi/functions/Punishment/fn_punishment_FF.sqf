@@ -87,7 +87,7 @@ private _onExitExemption = {
     [_instigator] spawn {
         params ["_instigator"];
         A3A_FFPunish_CD = servertime + 5; // Large finite number to allow a time-out if there is an unknown crash during execution.
-        uiSleep 0.1;
+        uiSleep 0.01;
         isNil {["loadQueue"] call A3A_fnc_punishment_FF}; // Unscheduled execution
     };
 };

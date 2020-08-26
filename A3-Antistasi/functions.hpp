@@ -418,6 +418,7 @@ class A3A
 
 	class Punishment
 	{
+		class outOfBounds {};
 		class punishment {};
 		class punishment_addActionForgive {};
 		class punishment_checkStatus {};

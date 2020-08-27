@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/AdamWaldie/A3-CAVASTASI/releases/latest">
-        <img src="https://img.shields.io/badge/Latest_Version-2.4.0-blue.svg?style=flat-square" alt="CAVASTASI Version">
+        <img src="https://img.shields.io/badge/Latest_Version-2.4.1-blue.svg?style=flat-square" alt="CAVASTASI Version">
     </a>
     <a href="https://github.com/AdamWaldie/A3-CAVASTASI/issues">
         <img src="https://img.shields.io/github/issues/AdamWaldie/A3-CAVASTASI/issues?style=flat-square" alt="Issues">
@@ -13,26 +13,25 @@
     </a>
 </p>
 
-## Welcome to CAVASTASI.
+# Welcome to CAVASTASI.
 Inhouse, customised variant of Antistasi for the 7th Cavalry Regiment.
 
 ## About
 A Persistent Whole Map Mission for MP co-op, focused on Resistance, Infantry and Guerrilla Tactics. Adapted heavily from Antistasi for 7thCavalry use for fun!
 
-## Project Status
-
 ### Game Information
 
 #### Latest Update
 
-The latest update is: 2.4.0.
+The latest update is: 2.4.1.
 
-Campaigns running on versions older than 2.3.9 should be reset before playing this version.
+Campaigns running on versions older than 2.4.0 should be reset before playing this version.
 
 #### Before Starting a new Map
 
- I advise all players to disable "Load Last Persistent Save" in the mission parameters when starting a new map for the first time.
+I advise all players to disable "Load Last Persistent Save" in the mission parameters when starting a new map for the first time.
 
+# Project Status
 Master Branch: [![Build Status](https://travis-ci.com/AdamWaldie/A3-CAVASTASI.svg?branch=unstable)](https://travis-ci.com/AdamWaldie/A3-CAVASTASI)
 
 ### Attribution

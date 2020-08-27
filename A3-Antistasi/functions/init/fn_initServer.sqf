@@ -78,7 +78,7 @@ if (isMultiplayer) then {
 [] call A3A_fnc_crateLootParams;
 
 
-// Maintain a profilenamespace array called antistasiSavedGames
+// Maintain a profilenamespace array called CavastasiSavedGames
 // Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
 
 campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
@@ -90,7 +90,7 @@ call
 	};
 
 	// Otherwise, check through the saved game list for matches and build existing ID list
-	private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
+	private _saveList = [profileNamespace getVariable "CavastasiSavedGames"] param [0, [], [[]]];
 	private _gametype = if (side petros == independent) then {"Greenfor"} else {"Blufor"};
 	private _existingIDs = [campaignID];
 	{

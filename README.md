@@ -29,7 +29,7 @@ Campaigns running on versions older than 2.4.0 should be reset before playing th
 
 #### Before Starting a new Map
 
- I advise all players to disable "Load Last Persistent Save" in the mission parameters when starting a new map for the first time.
+I advise all players to disable "Load Last Persistent Save" in the mission parameters when starting a new map for the first time.
 
 # Project Status
 Master Branch: [![Build Status](https://travis-ci.com/AdamWaldie/A3-CAVASTASI.svg?branch=unstable)](https://travis-ci.com/AdamWaldie/A3-CAVASTASI)

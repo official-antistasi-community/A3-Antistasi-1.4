@@ -46,3 +46,4 @@ private _saveIndex = -1;
 _saveList deleteAt _saveIndex;
 profileNamespace setVariable ["CavastasiSavedGames", _saveList];
 
+

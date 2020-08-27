@@ -1,8 +1,4 @@
 language: python
-branches:
-  only:
-    - master
-    - unstable
 python: "3.6"
 install:
   - pip3 install sqflint

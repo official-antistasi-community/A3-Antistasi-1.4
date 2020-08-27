@@ -26,7 +26,7 @@ while {alive player} do {
 	private _limit = if (vehicle player isKindOf "Plane") then {3000} else {0};
 
 	private _outOfBounds = _pos findIf { (_x < -_limit) || (_x > worldSize + _limit)} != -1;
-	private _atHQ = (player distance2D getMarkerPos respawnTeamPlayer) < 1000;
+	private _atHQ = (player distance2D getMarkerPos respawnTeamPlayer) < 200;
 	if (_outOfBounds and !_atHQ) then {
 		if (_timeLeft isEqualTo 0) then {player call BIS_fnc_neutralizeUnit} else {
 			_timerResetTimeOut = 60;

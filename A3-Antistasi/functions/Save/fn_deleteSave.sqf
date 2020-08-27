@@ -37,12 +37,12 @@ private _savedPlayers = profileNamespace getVariable ["savedPlayers" + postfix, 
 
 
 // Remove this campaign from the save list, if present
-private _saveList = [profileNamespace getVariable "cavastasiSavedGames"] param [0, [], [[]]];
+private _saveList = [profileNamespace getVariable "antistasiSavedGamesmes"] param [0, [], [[]]];
 private _saveIndex = -1;
 {
 	if (_x select 0 == _campaignID) exitWith { _saveIndex = _forEachIndex };
 } forEach _saveList;
 
 _saveList deleteAt _saveIndex;
-profileNamespace setVariable ["cavastasiSavedGames", _saveList];
+profileNamespace setVariable ["antistasiSavedGamesmes", _saveList];
 

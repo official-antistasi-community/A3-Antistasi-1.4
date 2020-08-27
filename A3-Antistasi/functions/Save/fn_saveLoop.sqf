@@ -13,7 +13,7 @@ savingServer = true;
 } forEach (call A3A_fnc_playableUnits);
 
 // Check if this campaign is already in the save list
-private _saveList = [profileNamespace getVariable "cavastasiSavedGames"] param [0, [], [[]]];
+private _saveList = [profileNamespace getVariable "antistasiSavedGamesmes"] param [0, [], [[]]];
 private _saveIndex = -1;
 {
 	if (_x select 0 == campaignID) exitWith { _saveIndex = forEachIndex };
@@ -23,7 +23,7 @@ private _saveIndex = -1;
 if (_saveIndex == -1) then {
 	private _gametype = if (teamPlayer isEqualTo independent) then {"Greenfor"} else {"Blufor"};
 	_saveList pushBack [campaignID, worldName, _gametype];
-	profileNamespace setVariable ["cavastasiSavedGames", _saveList];
+	profileNamespace setVariable ["antistasiSavedGamesmes", _saveList];
 };
 
 // Update the legacy campaign ID store

@@ -17,7 +17,7 @@ specialVarLoads = [
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
 	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-    "countCA", "attackCountdownInvaders"
+	"countCA", "attackCountdownInvaders", "testingTimerIsActive"
 ];
 
 _varName = _this select 0;
@@ -25,9 +25,9 @@ _varValue = _this select 1;
 if (isNil '_varValue') exitWith {};
 if (_varName in specialVarLoads) then {
 	if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
-    if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
-    //Keep this for backwards compatiblity
-    if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
+	if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
+	//Keep this for backwards compatiblity
+	if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
 	if (_varName == 'difficultyX') then {
 		if !(isMultiplayer) then {
 			skillMult = _varValue;
@@ -60,21 +60,21 @@ if (_varName in specialVarLoads) then {
 	};
 	if (_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
 	if (_varName == 'jna_dataList') then {jna_dataList = +_varValue};
-    //Keeping these for older saves
+	//Keeping these for older saves
 	if (_varName == 'prestigeNATO') then {[[_varValue, 120], [0, 0]] call A3A_fnc_prestige};
 	if (_varName == 'prestigeCSAT') then {[[0, 0], [_varValue, 120]] call A3A_fnc_prestige};
-    if (_varName == 'aggressionOccupants') then
-    {
-        aggressionLevelOccupants = _varValue select 0;
-        aggressionStackOccupants = +(_varValue select 1);
-        [true] spawn A3A_fnc_calculateAggression;
-    };
-    if (_varName == 'aggressionInvaders') then
-    {
-        aggressionLevelInvaders = _varValue select 0;
-        aggressionStackInvaders = +(_varValue select 1);
-        [true] spawn A3A_fnc_calculateAggression;
-    };
+	if (_varName == 'aggressionOccupants') then
+	{
+		aggressionLevelOccupants = _varValue select 0;
+		aggressionStackOccupants = +(_varValue select 1);
+		[true] spawn A3A_fnc_calculateAggression;
+	};
+	if (_varName == 'aggressionInvaders') then
+	{
+		aggressionLevelInvaders = _varValue select 0;
+		aggressionStackInvaders = +(_varValue select 1);
+		[true] spawn A3A_fnc_calculateAggression;
+	};
 	if (_varName == 'hr') then {server setVariable ["HR",_varValue,true]};
 	if (_varName == 'dateX') then {setDate _varValue};
 	if (_varName == 'weather') then {
@@ -298,6 +298,14 @@ if (_varName in specialVarLoads) then {
 				};
 			};
 		} forEach _varvalue;
+	};
+	if(_varname == 'testingTimerIsActive') then
+	{
+		if(_varValue) then
+		{
+			[] spawn A3A_fnc_startTestingTimer;
+		};
+		testingTimerIsActive = _varValue;
 	};
 } else {
 	call compile format ["%1 = %2",_varName,_varValue];

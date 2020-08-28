@@ -64,8 +64,8 @@ civBoat = "C_Boat_Transport_02_F";
 ////////////////////////////////////
 //Assembled Static Weapons
 SDKMGStatic = "I_G_HMG_02_high_F";
-staticATteamPlayer = "B_Static_AT_F";
-staticAAteamPlayer = "B_Static_AA_F";
+staticATteamPlayer = "B_static_AT_F";
+staticAAteamPlayer = "B_static_AA_F";
 SDKMortar = "B_G_Mortar_01_F";
 SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
 SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";

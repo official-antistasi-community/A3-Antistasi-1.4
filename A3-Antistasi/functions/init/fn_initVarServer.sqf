@@ -133,6 +133,8 @@ playerHasBeenPvP = [];
 savedPlayers = [];
 destroyedBuildings = [];		// synced only on join, to avoid spam on change
 
+testingTimerIsActive = false;
+
 ///////////////////////////////////////////
 //     INITIALISING ITEM CATEGORIES     ///
 ///////////////////////////////////////////
@@ -360,13 +362,7 @@ private _templateVariables = [
 	"staticATOccupants",
 	"staticAAOccupants",
 	"NATOMortar",
-	"MGStaticNATOB",
-	"ATStaticNATOB",
-	"AAStaticNATOB",
-	"MortStaticNATOB",
-	"supportStaticNATOB",
-	"supportStaticNATOB2",
-	"supportStaticNATOB3",
+
 	//Invaders
 	"nameInvaders",
 	"factionMaleInvaders",
@@ -431,14 +427,7 @@ private _templateVariables = [
 	"CSATMG",
 	"staticATInvaders",
 	"staticAAInvaders",
-	"CSATMortar",
-	"MGStaticCSATB",
-	"ATStaticCSATB",
-	"AAStaticCSATB",
-	"MortStaticCSATB",
-	"supportStaticCSATB",
-	"supportStaticCSATB2",
-	"supportStaticCSATB3"
+	"CSATMortar"
 ];
 
 {
@@ -446,6 +435,55 @@ private _templateVariables = [
 } forEach _templateVariables;
 
 call compile preProcessFileLineNumbers "Templates\selector.sqf";
+
+////////////////////////////////////
+//     TEMPLATE SANITY CHECK      //
+////////////////////////////////////
+[2,"Sanity-checking templates",_fileName] call A3A_fnc_log;
+
+// modify these appropriately when adding new template vars
+private _nonClassVars = ["nameTeamPlayer", "SDKFlagTexture", "nameOccupants", "NATOPlayerLoadouts", "NATOFlagTexture", "flagNATOmrk", "nameInvaders", "CSATPlayerLoadouts", "CSATFlagTexture", "flagCSATmrk"];
+private _factionVars = ["factionGEN", "factionMaleOccupants", "factionFIA", "factionMaleInvaders"];
+private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "ATMineMag", "APERSMineMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank"];
+
+private _missingVars = [];
+private _badCaseVars = [];
+{
+	call {
+		private _varName = _x;
+		private _var = missionNamespace getVariable _varName;
+		if (isNil "_var") exitWith { [1, "Missing template var " + _varName, _filename] call A3A_fnc_log };
+
+		if !(_var isEqualType []) then {_var = [_var]};									// plain string case, eg factions, some units
+		if ("breachingExplosives" in _varName) then { _var = _var apply {_x#0} };		// ["class", n] case for breaching explosives
+		if (_var#0 isEqualType []) then {												// arrays of arrays case, used for infantry groups
+			private _classes = [];
+			{ _classes append _x } forEach _var;
+			_var = _classes;
+		};
+
+		private _section = if (_x in _factionVars) then {"CfgFactionClasses"}
+			else { if (_x in _magazineVars) then {"CfgMagazines"} else {"CfgVehicles"} };
+		{
+			if !(_x isEqualType "") exitWith { [1, "Bad template var " + _varName, _filename] call A3A_fnc_log };
+			if !(_x isEqualTo configName (configFile >> _section >> _x)) then
+			{
+			    if !(isClass (configFile >> _section >> _x)) then {
+			        _missingVars pushBackUnique _x;
+			    } else {
+					_badCaseVars pushBackUnique _x;
+				};
+			};
+		} forEach _var;
+	};
+} forEach (_templateVariables - _nonClassVars);
+
+if (count _missingVars > 0) then {
+	[1, format ["Missing classnames: %1", _missingVars], _filename] call A3A_fnc_log;
+};
+if (count _badCaseVars > 0) then {
+	[1, format ["Miscased classnames: %1", _badCaseVars], _filename] call A3A_fnc_log;
+};
 
 ////////////////////////////////////
 //      CIVILIAN VEHICLES       ///
@@ -613,18 +651,6 @@ DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
 private _vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 DECLARE_SERVER_VAR(vehFIA, _vehFIA);
-
-// sanity check the lists to catch some serious problems early
-private _badVehs = [];
-{
-    if !(isClass (configFile >> "CfgVehicles" >> _x)) then {
-        _badVehs pushBackUnique _x;
-    };
-} forEach (vehNormal + vehBoats + vehAttack + vehPlanes + vehAA + vehMRLS + vehUnlimited + vehFIA);
-
-if (count _badVehs > 0) then {
-	[1, format ["Missing vehicle classnames: %1", str _badVehs], _filename] call A3A_fnc_log;
-};
 
 ///////////////////////////
 //     MOD TEMPLATES    ///

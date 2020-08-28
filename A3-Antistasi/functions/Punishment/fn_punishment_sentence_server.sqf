@@ -24,7 +24,6 @@ Examples:
 	[_UID,_timeTotal] remoteExec ["A3A_fnc_punishment_sentence_server",2,false];
 
 Author: Caleb Serafin
-Date Updated: 13 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_UID","_timeTotal"];
@@ -68,12 +67,12 @@ while {(ceil serverTime) < _sentenceEndTime-1} do { // ceil and -1 if something 
 	_countX = _sentenceEndTime - (floor serverTime);
 	if (!isPlayer _detainee) exitWith {call _disconnectedCleanUp};
 	[_UID,_countX] remoteExec ["A3A_fnc_punishment_sentence_client",_detainee,false];
-	[_UID,"add"] remoteExecCall ["A3A_fnc_punishment_oceanGulag",2,false]; // Run in another thread so that time don't get too desynced. Keeps player locked up.
+	[_UID,"add"] call A3A_fnc_punishment_oceanGulag;
 	uiSleep 5;
 	_sentenceEndTime = ([_UID,_keyPairs] call A3A_fnc_punishment_dataGet) select 0; // Polls for updates from admin forgive
 };
 if (_disconnected) exitWith {};
-if (_sentenceEndTime_old == _sentenceEndTime) then {
+if (_sentenceEndTime_old isEqualTo _sentenceEndTime) then {
 	[_UID,"punishment_warden"] call A3A_fnc_punishment_release;
 } else {
 	[_UID,"punishment_warden_manual"] call A3A_fnc_punishment_release;

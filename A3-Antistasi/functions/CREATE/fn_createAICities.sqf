@@ -75,7 +75,8 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 if ((_esAAF) or (_markerX in destroyedSites)) then
 	{
 	{_grp = _x;
-	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
+	// Forced non-spawner for performance and consistency with other garrison patrols
+	{[_x,"",false] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
 	}
 else
 	{

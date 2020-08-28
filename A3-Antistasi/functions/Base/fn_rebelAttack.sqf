@@ -232,7 +232,7 @@ if (count _availableTargets == 0) exitWith
     private _nearbyStatics = staticsToSave select {(_x distance2D (getMarkerPos _target)) < distanceSPWN};
     _targetPoints = _targetPoints + (50 * (count _garrison) + (200 * (count _nearbyStatics)));
 
-    if((count _garrison <= 8) && {(count _nearbyStatics <= 2) && {!(_target in citiesX)}}) then
+    if((_targetSide == teamPlayer) && {(count _garrison <= 8) && {(count _nearbyStatics <= 2) && {!(_target in citiesX)}}}) then
     {
         //Only minimal garrison, consider it an easy target
         [3, format ["%1 has only minimal garrison, considering easy target", _target], _fileName] call A3A_fnc_log;

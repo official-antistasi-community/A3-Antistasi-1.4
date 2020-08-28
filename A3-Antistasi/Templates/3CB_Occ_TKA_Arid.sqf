@@ -99,7 +99,7 @@ if (gameMode != 4) then
 		[
 		["UK3CB_TKP_I_STATIC_GUN_NSV","UK3CB_TKP_I_STATIC_TRI_NSV"],
 		["UK3CB_TKP_I_AT","UK3CB_TKP_I_RIF_2"],
-		["UK3CB_TKP_I_IFF","UK3CB_TKP_I_MK"]
+		["UK3CB_TKP_I_TL","UK3CB_TKP_I_MK"]
 		];
 	//Fireteams
 	groupsFIAMid =
@@ -161,7 +161,7 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 if (gameMode != 4) then
 	{
     	vehFIAArmedCar = "UK3CB_TKP_I_Datsun_Pickup_PKM";
-    	vehFIATruck = "UK3CB_TKP_I_Hilux_Ipen";
+    	vehFIATruck = "UK3CB_TKP_I_Hilux_Open";
     	vehFIACar = "UK3CB_TKP_I_Lada_Police";
 	};
 
@@ -187,4 +187,4 @@ supportStaticNATOB = "RHS_Kornet_Tripod_Bag";
 //Tall Support
 supportStaticNATOB2 = "RHS_Kord_Tripod_Bag";
 //Mortar Support
-supportStaticNATOB3 = "RHS_Podnos_Tripod_Bag";
+supportStaticNATOB3 = "RHS_Podnos_Bipod_Bag";

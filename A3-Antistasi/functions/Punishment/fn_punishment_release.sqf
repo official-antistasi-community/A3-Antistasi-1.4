@@ -10,7 +10,7 @@ Scope:
 	<SERVER> Execute on server.
 
 Environment:
-	<ANY>
+	<UNSCHEDULED>
 
 Parameters:
 	<STRING> The detainee's UID.
@@ -23,7 +23,6 @@ Examples:
 	[_UID,"forgive"] remoteExec ["A3A_fnc_punishment_release",2]; // Forgive all sins and release from Ocean Gulag.
 
 Author: Caleb Serafin
-Date Updated: 14 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_UID",["_source",""]];

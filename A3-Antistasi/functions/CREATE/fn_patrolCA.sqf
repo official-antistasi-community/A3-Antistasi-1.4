@@ -140,8 +140,27 @@ if (!_forced) then
 	};
 	if (_bases isEqualTo []) exitWith {_exit = true};
 
-	_source = [_bases, _posDest] call BIS_fnc_nearestPosition;
-	_posOrigin = getMarkerPos _source;
+	// Use closest base outside spawn range of rebels. If none, allow bases further than half spawn range.
+	private _spawners = allUnits select { side group _x == teamPlayer && {_x getVariable ["spawner",false]} };
+	private _closeMrk = "";
+	private _closeDist = 1000000;
+	{
+		private _basePos = getMarkerPos _x;
+		private _dist = _basePos distance2D _posDest;
+		if (_dist < _closeDist) then {
+			private _closeSpwn = _spawners inAreaArray [getMarkerPos _x, distanceSPWN, distanceSPWN];
+			private _closeSpwn2 = _closeSpwn inAreaArray [getMarkerPos _x, distanceSPWN2, distanceSPWN2];
+			if (count _closeSpwn2 > 0) exitWith {};
+			if (count _closeSpwn > 0) then { _dist = distanceForLandAttack + _dist};
+			if (_dist > _closeDist) exitWith {};
+			_closeDist = _dist;
+			_closeMrk = _x;
+		};
+	} forEach _bases;
+
+	if (_closeMrk == "") exitWith {_exit = true};
+	_source = _closeMrk;
+	_posOrigin = getMarkerPos _closeMrk;
 };
 
 if (_exit) exitWith {
@@ -180,23 +199,16 @@ if (_typeOfAttack == "") then
 
 
 // Determine vehicle count from aggression & attack type
-private _vehicleCount = if(_sideX == Occupants) then
-{
-    (aggressionOccupants/16)
-    + ([0, 2] select _super)
-}
-else
-{
-    (aggressionInvaders/16)
-    + ([0, 3] select _super)
-};
-
-_vehicleCount = _vehicleCount + ((skillMult - 2) / 2);			// skillMult range 1-3
-if !(_isMarker) then { _vehicleCount = _vehicleCount / 2 };
-_vehicleCount = (round (_vehicleCount)) max 1;
-
 private _aggro = if(_sideX == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-[3, format ["Due to %1 aggression, sending %2 vehicles", _aggro, _vehicleCount], _fileName] call A3A_fnc_log;
+private _vehicleCount = 0.5 + random (1.5) + _aggro/33;
+
+if (_super) then { _vehicleCount = _vehicleCount + 2 };
+_vehicleCount = _vehicleCount + ((skillMult - 2) / 2);			// skillMult range 1-3
+if (_sideX == Invaders) then { _vehicleCount = _vehicleCount * 1.2 };
+if !(_isMarker) then { _vehicleCount = _vehicleCount / 2 };
+
+_vehicleCount = (round (_vehicleCount)) max 1;
+[3, format ["With %1 aggression, sending %2 vehicles", _aggro, _vehicleCount], _fileName] call A3A_fnc_log;
 
 
 // Going ahead with the attack. Add it to the appropriate fencing array

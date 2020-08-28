@@ -10,7 +10,7 @@ Scope:
 	<ANY>
 
 Environment:
-	<ANY>
+	<UNSCHEDULED>
 
 Parameters:
 	<OBJECT> Player that is being verified for FF.
@@ -31,7 +31,6 @@ Examples:
 	[cursorObject,"forgive"] remoteExec [A3A_fnc_punishment_release,2]; // Forgive all sins
 
 Author: Caleb Serafin
-Date Updated: 14 June 2020
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull],["_customMessage",""]];
@@ -89,21 +88,28 @@ private _keyPairs = [["timeTotal",_timeTotal],["offenceTotal",_offenceTotal],["l
 [_UID,_keyPairs] call A3A_fnc_punishment_dataSet;
 
 /////////Where punishment is issued/////////
-private _playerStats = format["Player: %1 [%2], _timeAdded: %3, _timeTotal: %4, _offenceAdded: %7, _overhead: %5, _offenceTotal: %6", _name, _UID, str _timeAdded, str _timeTotal, str _offenceAdded, str _overhead, str _offenceTotal];
+private _victimStats = ["",format [" damaged %1 ", name _victim]] select (_victim isKindOf "Man");
+_victimStats = _victimStats + (["[AI]",format ["[%1]", getPlayerUID _victim]] select (isPlayer _victim));
+private _playerStats = format["Total-time: %1 (incl. +%2), Offence+Overhead: %3 [%4+%5] (incl. +%6)", str _timeTotal, str _timeAdded, str _offenceTotal, str (_offenceTotal-_overhead), str _overhead, str _offenceAdded];
+
+private _logProsecution = {
+    params [ ["_actionTaken", "" ,[""]] ];
+    private _playerInfo = format["%1 [%2]%3, %4", name _instigator, getPlayerUID _instigator, _victimStats, _playerStats];
+    [2, format ["%1 | %2", _actionTaken, _playerInfo], _filename] remoteExecCall ["A3A_fnc_log",2,false];
+    _actionTaken;
+};
+
 if (_offenceTotal < 1) exitWith {
-    _instigator = [_UID] call BIS_fnc_getUnitByUid;
     private _message = format ["Watch your fire!%1%2","<br/>",_customMessage];
-    if (isPlayer _victim) then { _message = _message + format ["<br/><br/>Injured comrade: %1",name _victim]; };
-	["FF Warning", _message] remoteExec ["A3A_fnc_customHint", _instigator, false]; // This may or may not work for remoteControl depending on deSync.
-	[2, format ["WARNING | %1", _playerStats], _filename] call A3A_fnc_log;
-	"WARNED"
+	private _comradeStats = ["<br/>",format ["<br/>Injured comrade: %1<br/>",name _victim]] select (_victim isKindOf "Man");
+	["FF Warning", _message + _comradeStats] remoteExec ["A3A_fnc_customHint", _instigator, false]; // This may or may not work for remoteControlled units depending on deSync.
+	["WARNING"] call _logProsecution;
 };
-if (_victim isKindOf "Man") then {
-	["FF Notification", format["%1 hurt you!",_name]] remoteExec ["A3A_fnc_customHint", _victim, false];
-	[2, format ["VICTIM | Found Collateral: %1 [%2]", name _victim, getPlayerUID _victim], _filename] call A3A_fnc_log;
-};
-[2, format ["GUILTY | %1", _playerStats], _filename] call A3A_fnc_log;
-[_UID,_timeTotal] spawn { // SteamingHotFixPatch Ghetto has just reached a new level
+
+if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
+
+["GUILTY"] call _logProsecution;
+[_UID,_timeTotal] spawn { // SteamingHotFixPatch Ghetto has just reached a new level to combat remoteControlling AI
 	params ["_UID","_timeTotal"];
 	private _instigator = objNull;
 	private _instigatorHuman = objNull;
@@ -111,9 +117,9 @@ if (_victim isKindOf "Man") then {
 		_instigator = [_UID] call BIS_fnc_getUnitByUid;
 		_instigatorHuman = _instigator getVariable ["owner",_instigator];
 		if (_instigator isEqualTo _instigatorHuman) exitWith {true;};
-		uiSleep 1;
+		uiSleep 0.1;
 		false;
 	};
-	[_UID,_timeTotal] remoteExec ["A3A_fnc_punishment_sentence_server",2,false];
+	[_UID,_timeTotal] call A3A_fnc_punishment_sentence_server; // Scope is within scheduled space.
 };
 "FOUND GUILTY";

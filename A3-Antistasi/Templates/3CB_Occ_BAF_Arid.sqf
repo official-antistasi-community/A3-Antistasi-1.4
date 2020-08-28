@@ -47,8 +47,8 @@ vehNATOPVP = ["UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Sn
 ////////////////////////////////////
 //Military Units
 NATOGrunt = "UK3CB_BAF_Rifleman_DDPM";
-NATOOfficer = "UK3CB_BAF_SL_DDPM";
-NATOOfficer2 = "UK3CB_BAF_Officer_DDPM";
+NATOOfficer = "UK3CB_BAF_Officer_DDPM";
+NATOOfficer2 = "UK3CB_BAF_FAC_DDPM";
 NATOBodyG = "UK3CB_BAF_Crewman_RTR_DDPM";
 NATOCrew = "UK3CB_BAF_Crewman_DDPM";
 NATOUnarmed = "B_G_Survivor_F";

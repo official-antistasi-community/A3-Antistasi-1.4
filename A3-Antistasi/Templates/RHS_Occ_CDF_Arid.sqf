@@ -127,7 +127,7 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 //Military Vehicles
 //Lite
 vehNATOBike = "I_Quadbike_01_F";
-vehNATOLightArmed = ["rhsgref_cdf_uaz_ags","rhsgref_cdf_reg_uaz_dshkm","rhsgref_cdf_reg_uaz_spg9","rhsgref_BRDM2_HQ"];
+vehNATOLightArmed = ["rhsgref_cdf_reg_uaz_ags","rhsgref_cdf_reg_uaz_dshkm","rhsgref_cdf_reg_uaz_spg9","rhsgref_BRDM2_HQ"];
 vehNATOLightUnarmed = ["rhsgref_cdf_reg_uaz","rhsgref_cdf_reg_uaz_open","rhsgref_BRDM2UM"];
 vehNATOTrucks = ["rhsgref_cdf_gaz66","rhsgref_cdf_ural","rhsgref_cdf_ural_open","rhsgref_cdf_gaz66o","rhsgref_cdf_zil131","rhsgref_cdf_zil131_open"];
 vehNATOCargoTrucks = [];
@@ -179,7 +179,7 @@ vehPoliceCar = "rhsgref_un_uaz";
 NATOMG = "rhsgref_cdf_DSHKM";
 staticATOccupants = "rhsgref_cdf_SPG9M";
 staticAAOccupants = "rhsgref_cdf_Igla_AA_pod";
-NATOMortar = "rhsgref_cdf_reg_m252";
+NATOMortar = "rhsgref_cdf_reg_M252";
 
 //Static Weapon Bags
 MGStaticNATOB = "RHS_DShkM_Gun_Bag";

@@ -31,7 +31,7 @@ private _countCiv = 0;
 
 [2,
 format [
-	"%10 ServerFPS:%1, Players:%11, DeadUnits:%2, AllUnits:%3, UnitsAwareOfEnemies:%14, AllVehicles:%4, WreckedVehicles:%12, Entities:%13, GroupsRebels:%5, GroupsInvaders:%6, GroupsOccupants:%7, GroupsCiv:%8, GroupsTotal:%9, GroupsCombatBehaviour:%15"
+	"%10 ServerFPS:%1, Players:%11, DeadUnits:%2, AllUnits:%3, UnitsAwareOfEnemies:%14, AllVehicles:%4, WreckedVehicles:%12, Entities:%13, GroupsRebels:%5, GroupsInvaders:%6, GroupsOccupants:%7, GroupsCiv:%8, GroupsTotal:%9, GroupsCombatBehaviour:%15, Faction Cash:%16, HR:%17"
 	,diag_fps
 	,(count alldead)
 	,count allunits
@@ -47,5 +47,7 @@ format [
 	,count entities ""
 	,{!isPlayer _x && !isNull (_x findNearestEnemy _x)} count allUnits
 	,{behaviour leader _x == "COMBAT"} count allGroups
+	,server getVariable "resourcesFIA"
+	,server getVariable "hr"
 ]
 , _filename] call A3A_fnc_log;

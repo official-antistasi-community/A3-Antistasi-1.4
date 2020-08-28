@@ -45,7 +45,7 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 //Military Vehicles
 vehSDKBike = "I_G_Quadbike_01_F";
 vehSDKLightArmed = "UK3CB_CCM_I_Datsun_Pkm";
-vehSDKAT = "UK3CB_CCM_I_Hilux_Spg";
+vehSDKAT = "UK3CB_I_G_Hilux_Spg9";
 vehSDKLightUnarmed = "UK3CB_CCM_I_Datsun_Open";
 vehSDKTruck = "UK3CB_CCM_I_V3S_Closed";
 //vehSDKHeli = "rhsgref_ins_g_Mi8amt";

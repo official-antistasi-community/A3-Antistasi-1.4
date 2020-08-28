@@ -1,10 +1,10 @@
 #include "defines.h"
 /*
-    Author: Bryan "Tonic" Boardwine
-    
-    Description:
-    Updates the view distance dependant on whether the player
-    is on foot, a car or an aircraft.
+	Author: Bryan "Tonic" Boardwine
+	
+	Description:
+	Updates the view distance dependant on whether the player
+	is on foot, a car or an aircraft.
 */
 private "_saveData";
 params [["_control",controlNull,[controlNull]],["_index",-1,[0]]];

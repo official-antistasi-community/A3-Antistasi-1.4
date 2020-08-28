@@ -29,7 +29,7 @@ class CfgFunctions {
 
 class Extended_PostInit_EventHandlers {
     class bear_antistasi_looter {
-        init = "call compile preProcessFileLineNumbers 'XEH_postInit.sqf'";
+        init = "call compile preProcessFileLineNumbers 'Scripts\Scripts\XEH_postInit.sqf'";
     };
     class LandVehicle {
         class autoFlip {

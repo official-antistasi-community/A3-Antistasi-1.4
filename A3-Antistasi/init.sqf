@@ -19,6 +19,6 @@ mapX setObjectTexture [0,"Pictures\Mission\whiteboard.jpg"];
 
 //ACE Carry values
 ACE_maxWeightCarry = 15000;
-ACE_maxWeightDrag = 20000;
+ACE_maxWeightDrag = 50000;
 
 [2,"Init finished",_fileName] call A3A_fnc_log;

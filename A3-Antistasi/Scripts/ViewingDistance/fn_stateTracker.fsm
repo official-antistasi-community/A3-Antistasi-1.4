@@ -40,12 +40,12 @@ class FSM
                          "tawvd_addon_disable = true;" \n
                          "" \n
                          "if(isNil {profileNamespace getVariable ""tawvd_foot""}) then {" \n
-                         "	profileNamespace setVariable [""tawvd_foot"",viewDistance];" \n
-                         "	profileNamespace setVariable [""tawvd_car"",viewDistance];" \n
-                         "	profileNamespace setVariable [""tawvd_air"",viewDistance];" \n
-                         "	profileNamespace setVariable [""tawvd_drone"",viewDistance];" \n
-                         "	profileNamespace setVariable [""tawvd_object"",viewDistance];" \n
-                         "	saveProfileNamespace;" \n
+                         "    profileNamespace setVariable [""tawvd_foot"",viewDistance];" \n
+                         "    profileNamespace setVariable [""tawvd_car"",viewDistance];" \n
+                         "    profileNamespace setVariable [""tawvd_air"",viewDistance];" \n
+                         "    profileNamespace setVariable [""tawvd_drone"",viewDistance];" \n
+                         "    profileNamespace setVariable [""tawvd_object"",viewDistance];" \n
+                         "    saveProfileNamespace;" \n
                          "};" \n
                          "" \n
                          "tawvd_foot = profileNamespace getVariable [""tawvd_foot"",viewDistance];" \n
@@ -56,10 +56,10 @@ class FSM
                          "" \n
                          "tawvd_syncObject = true;" \n
                          "if(!isNil ""ace_interact_menu_fnc_createAction"") then {" \n
-                         "	_actionID = [""tawvd_menu"",""View Distance Settings"","""",{[] call TAWVD_fnc_openMenu},{true}] call ace_interact_menu_fnc_createAction;" \n
-                         "	[typeOf player, 1, [""ACE_SelfActions""], _actionID] call ace_interact_menu_fnc_addActionToClass;" \n
+                         "    _actionID = [""tawvd_menu"",""View Distance Settings"","""",{[] call TAWVD_fnc_openMenu},{true}] call ace_interact_menu_fnc_createAction;" \n
+                         "    [typeOf player, 1, [""ACE_SelfActions""], _actionID] call ace_interact_menu_fnc_addActionToClass;" \n
                          "} else {" \n
-                         "	_actionID = player addAction[""<t color='#FF0000'>Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];" \n
+                         "    _actionID = player addAction[""<t color='#FF0000'>Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -143,7 +143,7 @@ class FSM
                         name = "Re_add_my_action";
                         itemno = 6;
                         init = /*%FSM<STATEINIT""">*/"if(isNil ""ace_interact_menu_fnc_createAction"") then {" \n
-                         "	_actionID = player addAction[""<t color='#FF0000'>Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];" \n
+                         "    _actionID = player addAction[""<t color='#FF0000'>Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

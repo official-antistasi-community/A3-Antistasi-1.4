@@ -8,9 +8,9 @@ private _action = [
         } params [["_nearestVehicle", objNull]];
         
         if (isNull _nearestVehicle) then {
-            systemChat "7Cav Antistasi Looter: Error: couldn't find any nearby vehicle";
+            systemChat "7Cav Cavastasi Looter: Error: couldn't find any nearby vehicle";
         } else {
-            systemChat "7Cav Antistasi Looter: Using nearest vehicle";
+            systemChat "7Cav Cavastasi Looter: Using nearest vehicle";
             [_target, _nearestVehicle] call bear_antistasi_looter_fnc_transferToVehicle;
         };
     },

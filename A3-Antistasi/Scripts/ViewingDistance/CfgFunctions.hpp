@@ -2,7 +2,7 @@ class TAW_VD {
     tag = "TAWVD";
 
     class Initialize {
-        file = "cScripts\ViewingDistance";
+        file = "Scripts\ViewingDistance";
         class stateTracker {
             ext = ".fsm";
             postInit = 1;

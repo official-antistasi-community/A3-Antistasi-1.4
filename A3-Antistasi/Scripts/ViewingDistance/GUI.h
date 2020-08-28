@@ -16,7 +16,7 @@ class RscEdit {
 	canModify = 1;
 };
 
-class RscListBox {
+class RscListBox_tawVD {
 	style = 16;
 	idc = -1;
 	type = 5;
@@ -623,7 +623,7 @@ class TAW_VDMenu {
 							h = .57 - (22 / 250);
 						};
 						
-						class SaveList:RscListBox {
+						class SaveList:RscListBox_tawVD {
 							idc = SAVES_LIST;
 							sizeEx = 0.04;
 							colorBackground[] = {0.1,0.1,0.1,0.9};

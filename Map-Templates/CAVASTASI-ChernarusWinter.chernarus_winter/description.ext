@@ -13,7 +13,8 @@ overviewPicture = "Pictures\Mission\pic.jpg";
 
 #include "MissionDescription\gameSettings.hpp"
 
-#include "Scripts\ViewingDistance\defines.h"
+#include "Scripts\ViewingDistance\GUI.h"
+#include "Scripts\description.hpp"
 
 class CfgFunctions {
 	class bear_antistasi_looter {

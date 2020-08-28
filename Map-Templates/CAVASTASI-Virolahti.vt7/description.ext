@@ -13,7 +13,8 @@ overviewPicture = "Pictures\Mission\pic.jpg";
 
 #include "MissionDescription\gameSettings.hpp"
 
-#include "Scripts\ViewingDistance\defines.h"
+#include "Scripts\ViewingDistance\GUI.h"
+#include "Scripts\description.hpp"
 
 class CfgFunctions {
 	class bear_antistasi_looter {
@@ -30,11 +31,6 @@ class CfgFunctions {
 class Extended_PostInit_EventHandlers {
     class bear_antistasi_looter {
         init = "call compile preProcessFileLineNumbers 'Scripts\XEH_postInit.sqf'";
-    };
-    class LandVehicle {
-        class autoFlip {
-            serverInit = "_this spawn VEH_fnc_xehInit";
-        };
     };
 };
 

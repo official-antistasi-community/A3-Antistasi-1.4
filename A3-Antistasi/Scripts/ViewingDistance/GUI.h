@@ -16,7 +16,7 @@ class RscEdit {
 	canModify = 1;
 };
 
-class RscListBox {
+class RscListBox_TVD {
 	style = 16;
 	idc = -1;
 	type = 5;
@@ -145,7 +145,7 @@ class RscXSliderH {
 	thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
 };
 
-class RscText {
+class RscText_TVD {
 	x = 0;
 	y = 0;
 	h = 0.037;
@@ -162,7 +162,7 @@ class RscText {
 	linespacing = 1;
 };
 
-class RscTitle:RscText {
+class RscTitle:RscText_TVD {
 	style = 0;
 	shadow = 0;
 	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
@@ -623,7 +623,7 @@ class TAW_VDMenu {
 							h = .57 - (22 / 250);
 						};
 						
-						class SaveList:RscListBox {
+						class SaveList:RscListBox_TVD {
 							idc = SAVES_LIST;
 							sizeEx = 0.04;
 							colorBackground[] = {0.1,0.1,0.1,0.9};

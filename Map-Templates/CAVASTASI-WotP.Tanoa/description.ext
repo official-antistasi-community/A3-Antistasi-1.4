@@ -13,7 +13,7 @@ overviewPicture = "Pictures\Mission\pic.jpg";
 
 #include "MissionDescription\gameSettings.hpp"
 
-#include "A3-Antistasi\taw_vd\GUI.h"
+#include "taw_vd\GUI.h"
 
 class CfgFunctions {
 	class bear_antistasi_looter {
@@ -24,7 +24,7 @@ class CfgFunctions {
 	};
 	#include "functions.hpp"
     #include "JeroenArsenal\functions.hpp"
-	#include "A3-Antistasi\taw_vd\CfgFunctions.hpp"
+	#include "taw_vd\CfgFunctions.hpp"
 };
 
 class Extended_PostInit_EventHandlers {

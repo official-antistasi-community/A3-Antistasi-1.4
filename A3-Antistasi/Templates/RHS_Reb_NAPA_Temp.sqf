@@ -67,7 +67,7 @@ civBoat = "C_Boat_Transport_02_F";
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled Static Weapons
-SDKMGStatic = "rhsgref_nat_NSV_TriPod";
+SDKMGStatic = "RHS_M2StaticMG_WD";
 staticATteamPlayer = "rhsgref_nat_SPG9";
 staticAAteamPlayer = "rhsgref_nat_ZU23";
 SDKMortar = "rhsgref_nat_2b14";

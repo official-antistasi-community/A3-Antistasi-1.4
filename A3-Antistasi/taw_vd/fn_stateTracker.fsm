@@ -1,0 +1,196 @@
+/*%FSM<COMPILE "scriptedFSM.cfg, TAW_VD State Tracker">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init",0,250,-39.234997,-157.457230,50.765003,-107.457222,0.000000,"init"};
+item1[] = {"true",8,218,-39.286701,-67.901810,50.713299,-17.901814,0.000000,"true"};
+item2[] = {"I_am_a_loop__",2,250,-37.913574,2.551729,52.086441,52.551727,0.000000,"I am a loop.."};
+item3[] = {"Dead_Player",4,4314,-137.117889,56.721581,-47.117889,106.721581,0.000000,"Dead Player"};
+item4[] = {"I_am_dead_Set_my",2,250,-215.837250,109.620483,-125.837227,159.620499,0.000000,"I am dead" \n "Set my corpse"};
+item5[] = {"Alive_player",4,218,-215.185760,16.088562,-125.185867,66.088623,0.000000,"Alive player"};
+item6[] = {"Re_add_my_action",2,250,-215.481354,-68.055023,-125.481308,-18.054995,0.000000,"Re-add my" \n "action please"};
+item7[] = {"State_changed",4,218,107.007217,1.512135,197.007202,51.512016,0.000000,"State changed"};
+item8[] = {"Update_me",2,250,107.804337,-67.884735,197.804352,-17.884773,0.000000,"Update me"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,7};
+link4[] = {3,4};
+link5[] = {4,5};
+link6[] = {5,6};
+link7[] = {6,1};
+link8[] = {7,8};
+link9[] = {8,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,12,6316128,1,-604.631348,604.623535,339.349304,-422.033386,1146,884,1};
+window[] = {2,-1,-1,-1,-1,1340,208,1648,580,3,1164};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "TAW_VD State Tracker";
+        class States
+        {
+                /*%FSM<STATE "init">*/
+                class init
+                {
+                        name = "init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private [""_playerState"",""_corpse"",""_actionID"",""_droneState""];" \n
+                         "" \n
+                         "_playerState = vehicle player;" \n
+                         "_droneState = UAVControl (getConnectedUAV player) select 1;" \n
+                         "tawvd_addon_disable = true;" \n
+                         "" \n
+                         "if(isNil {profileNamespace getVariable ""tawvd_foot""}) then {" \n
+                         "	profileNamespace setVariable [""tawvd_foot"",viewDistance];" \n
+                         "	profileNamespace setVariable [""tawvd_car"",viewDistance];" \n
+                         "	profileNamespace setVariable [""tawvd_air"",viewDistance];" \n
+                         "	profileNamespace setVariable [""tawvd_drone"",viewDistance];" \n
+                         "	profileNamespace setVariable [""tawvd_object"",viewDistance];" \n
+                         "	saveProfileNamespace;" \n
+                         "};" \n
+                         "" \n
+                         "tawvd_foot = profileNamespace getVariable [""tawvd_foot"",viewDistance];" \n
+                         "tawvd_car = profileNamespace getVariable [""tawvd_car"",viewDistance];" \n
+                         "tawvd_air = profileNamespace getVariable [""tawvd_air"",viewDistance];" \n
+                         "tawvd_drone = profileNamespace getVariable [""tawvd_drone"",viewDistance];" \n
+                         "tawvd_object = profileNamespace getVariable [""tawvd_object"",viewDistance];" \n
+                         "" \n
+                         "tawvd_syncObject = true;" \n
+                         "if(!isNil ""ace_interact_menu_fnc_createAction"") then {" \n
+                         "	_actionID = [""tawvd_menu"",""View Distance Settings"","""",{[] call TAWVD_fnc_openMenu},{true}] call ace_interact_menu_fnc_createAction;" \n
+                         "	[typeOf player, 1, [""ACE_SelfActions""], _actionID] call ace_interact_menu_fnc_addActionToClass;" \n
+                         "} else {" \n
+                         "	_actionID = player addAction[""<t color='#FF0000'>Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="I_am_a_loop__";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "I_am_a_loop__">*/
+                class I_am_a_loop__
+                {
+                        name = "I_am_a_loop__";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "State_changed">*/
+                                class State_changed
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Update_me";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle player != _playerState OR (UAVControl getConnectedUAV player select 1) != _droneState)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Dead_Player">*/
+                                class Dead_Player
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="I_am_dead_Set_my";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"isNil ""ace_interact_menu_fnc_createAction"""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive player && isNil ""ace_interact_menu_fnc_createAction"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "I_am_dead_Set_my">*/
+                class I_am_dead_Set_my
+                {
+                        name = "I_am_dead_Set_my";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_corpse = player;" \n
+                         "_corpse removeAction _actionID;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/"isNil ""ace_interact_menu_fnc_createAction""" \n
+                         ""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Alive_player">*/
+                                class Alive_player
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Re_add_my_action";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive player"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Re_add_my_action">*/
+                class Re_add_my_action
+                {
+                        name = "Re_add_my_action";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"if(isNil ""ace_interact_menu_fnc_createAction"") then {" \n
+                         "	_actionID = player addAction[""<t color='#FF0000'>Settings</t>"",TAWVD_fnc_openMenu,[],-99,false,false,"""",''];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="I_am_a_loop__";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Update_me">*/
+                class Update_me
+                {
+                        name = "Update_me";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"[] call TAWVD_fnc_updateViewDistance;" \n
+                         "_playerState = vehicle player;" \n
+                         "_droneState = UAVControl (getConnectedUAV player) select 1;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="I_am_a_loop__";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

@@ -13,6 +13,8 @@ overviewPicture = "Pictures\Mission\pic.jpg";
 
 #include "MissionDescription\gameSettings.hpp"
 
+#include "A3-Antistasi\taw_vd\GUI.h"
+
 class CfgFunctions {
 	class bear_antistasi_looter {
 		class bear_antistasi_looter {
@@ -22,11 +24,17 @@ class CfgFunctions {
 	};
 	#include "functions.hpp"
     #include "JeroenArsenal\functions.hpp"
+	#include "A3-Antistasi\taw_vd\CfgFunctions.hpp"
 };
 
 class Extended_PostInit_EventHandlers {
     class bear_antistasi_looter {
         init = "call compile preProcessFileLineNumbers 'XEH_postInit.sqf'";
+    };
+    class LandVehicle {
+        class autoFlip {
+            serverInit = "_this spawn VEH_fnc_xehInit";
+        };
     };
 };
 

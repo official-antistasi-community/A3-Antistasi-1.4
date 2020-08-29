@@ -9,7 +9,7 @@ factionGEN = "BLU_GEN_F";
 //SF Faction
 factionMaleOccupants = "BLU_CTRG_F";
 //Miltia Faction
-if (gameMode != 4) then {factionFIA = "BLU_G_F"};
+if (gameMode != 4) then {factionFIA = ""};
 
 //Flag Images
 NATOFlag = "Flag_NATO_F";
@@ -59,8 +59,8 @@ NATOPilot = "B_T_Pilot_F";
 //Militia Units
 if (gameMode != 4) then
 	{
-	FIARifleman = "B_G_Soldier_F";
-	FIAMarksman = "B_G_Sharpshooter_F";
+	FIARifleman = "B_T_Soldier_F";
+	FIAMarksman = "B_T_soldier_M_F";
 	};
 
 //Police Units
@@ -85,10 +85,11 @@ NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F",NATOBodyG,"B_CT
 groupsNATOSquad =
 	[
 	NATOSquad,
-	["B_T_Soldier_SL_F","B_T_Soldier_AR_F","B_T_Soldier_GL_F",NATOMarksman,"B_T_Soldier_AT_F","B_T_Soldier_AAT_F","B_T_Soldier_A_F","B_T_Medic_F"],
-	["B_T_Soldier_SL_F","B_T_Soldier_LAT_F","B_T_Soldier_TL_F","B_T_Soldier_AR_F","B_T_Soldier_A_F","B_T_Support_Mort_F","B_support_AMort_F","B_T_Medic_F"],
-	["B_T_Soldier_SL_F","B_T_Soldier_AR_F","B_T_Soldier_GL_F",NATOMarksman,"B_T_Soldier_AA_F","B_T_Soldier_AAA_F","B_T_Soldier_A_F","B_T_Medic_F"],
-	["B_T_Soldier_SL_F","B_T_Soldier_AR_F","B_T_Soldier_GL_F",NATOMarksman,"B_T_Engineer_F","B_T_Engineer_F","B_T_Soldier_A_F","B_T_Medic_F"]
+	["B_T_Soldier_SL_F",NATOGrunt,"B_T_Soldier_TL_F","B_T_Soldier_AR_F","B_T_Soldier_A_F","B_T_Soldier_LAT2_F","B_T_Soldier_LAT2_F","B_T_Medic_F"],
+	["B_T_Soldier_SL_F",NATOGrunt,"B_T_Soldier_TL_F","B_T_Soldier_AR_F","B_T_Soldier_A_F","B_T_Soldier_LAT_F","B_T_Soldier_LAT_F","B_T_Medic_F"],
+	["B_T_Soldier_SL_F",NATOGrunt,"B_T_Soldier_TL_F","B_T_Soldier_AR_F","B_T_Soldier_A_F","B_T_Soldier_AA_F","B_T_Soldier_AAA_F","B_T_Medic_F"],
+	["B_T_Soldier_SL_F",NATOGrunt,"B_T_Soldier_TL_F","B_T_Soldier_AR_F","B_T_Soldier_A_F","B_T_Soldier_AT_F","B_T_Soldier_AAT_F","B_T_Medic_F"],
+	["B_T_Soldier_SL_F",NATOGrunt,"B_T_Soldier_TL_F","B_T_Soldier_AR_F","B_T_Soldier_A_F","B_T_Engineer_F","B_T_Engineer_F","B_T_Medic_F"]
 	];
 
 //Militia Groups
@@ -97,23 +98,23 @@ if (gameMode != 4) then
 	//Teams
 	groupsFIASmall =
 		[
-		["B_G_Soldier_GL_F","B_G_Soldier_F"],
-		["B_G_Soldier_M_F","B_G_Soldier_F"],
-		["B_G_Sharpshooter_F","B_G_Soldier_M_F"]
+		["B_T_Soldier_GL_F",FIARifleman],
+		[FIAMarksman,FIARifleman],
+		["B_T_soldier_M_F","B_T_soldier_M_F"]
 		];
 	//Fireteams
 	groupsFIAMid =
 		[
-		["B_G_Soldier_SL_F","B_G_Sharpshooter_F","B_G_Soldier_AR_F","B_G_Soldier_A_F"],
-		["B_G_Soldier_TL_F","B_G_Soldier_AR_F","B_G_Soldier_GL_F","B_G_Soldier_LAT_F"],
-		["B_G_Soldier_TL_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F"]
+		["B_T_Soldier_TL_F","B_T_Soldier_GL_F","B_T_Soldier_AR_F","B_T_soldier_M_F"],
+		["B_T_Soldier_TL_F","B_T_Soldier_GL_F","B_T_Soldier_AR_F","B_T_Soldier_LAT2_F"],
+		["B_T_Soldier_TL_F","B_T_Soldier_AR_F","B_T_Soldier_AAA_F","B_T_Soldier_AA_F"]
 		];
 	//Squads
-	FIASquad = ["B_G_Soldier_SL_F","B_G_Soldier_F","B_G_Soldier_LAT_F","B_G_Soldier_M_F","B_G_Soldier_TL_F","B_G_Soldier_AR_F","B_G_Soldier_A_F","B_G_medic_F"];
+	FIASquad = ["B_T_Soldier_TL_F","B_T_Soldier_AR_F","B_T_Soldier_GL_F","B_T_Officer_F","B_T_Officer_F","B_T_soldier_M_F","B_T_Soldier_LAT2_F","B_T_Medic_F"];
 	groupsFIASquad =
 		[
 		FIASquad,
-		["B_G_Soldier_SL_F","B_G_Soldier_LAT_F","B_G_Soldier_M_F","B_G_Soldier_TL_F","B_G_Soldier_A_F","B_support_MG_F","B_support_AMG_F","B_G_medic_F"]
+		["B_T_Soldier_TL_F","B_T_Support_AMG_F","B_T_Soldier_GL_F","B_T_Officer_F","B_T_Support_MG_F","B_T_soldier_M_F","B_T_Soldier_LAT2_F","B_T_Medic_F"]
 		];
 	};
 
@@ -127,7 +128,7 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 //Military Vehicles
 //Lite
 vehNATOBike = "B_T_Quadbike_01_F";
-vehNATOLightArmed = ["B_T_LSV_01_armed_F"];
+vehNATOLightArmed = ["B_T_LSV_01_armed_F","B_T_MRAP_01_hmg_F"];
 vehNATOLightUnarmed = ["B_T_MRAP_01_F","B_T_LSV_01_unarmed_F"];
 vehNATOTrucks = ["B_T_Truck_01_transport_F","B_T_Truck_01_covered_F"];
 vehNATOCargoTrucks = ["B_T_Truck_01_cargo_F","B_T_Truck_01_flatbed_F"];
@@ -164,9 +165,9 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 //Militia Vehicles
 if (gameMode != 4) then
 	{
-	vehFIAArmedCar = "B_G_Offroad_01_armed_F";
-	vehFIATruck = "B_G_Van_01_transport_F";
-	vehFIACar = "B_G_Offroad_01_F";
+	vehFIAArmedCar = "B_T_LSV_01_armed_F";
+	vehFIATruck = "B_T_Truck_01_transport_F";
+	vehFIACar = "B_T_LSV_01_unarmed_F";
 	};
 
 //Police Vehicles

@@ -49,7 +49,7 @@ vehNATOPVP = ["B_MRAP_01_F","B_MRAP_01_hmg_F"];
 NATOGrunt = "B_Soldier_F";
 NATOOfficer = "B_officer_F";
 NATOOfficer2 = "B_G_officer_F";
-NATOBodyG = "B_Patrol_Soldier_TL_F";
+NATOBodyG = "B_Patrol_Medic_F";
 NATOCrew = "B_crew_F";
 NATOUnarmed = "B_G_Survivor_F";
 NATOMarksman = "B_Sharpshooter_F";
@@ -85,8 +85,8 @@ NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F",NATOBodyG,"B_CT
 groupsNATOSquad =
 	[
 	NATOSquad,
-	["B_Soldier_SL_F",NATOGrunt,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_support_Mort_F","B_support_AMort_F","B_medic_F"],
-	["B_Soldier_SL_F",NATOGrunt,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_support_MG_F","B_support_AMG_F","B_medic_F"],
+	["B_Soldier_SL_F",NATOGrunt,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_soldier_LAT2_F","B_soldier_LAT2_F","B_medic_F"],
+	["B_Soldier_SL_F",NATOGrunt,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_soldier_LAT_F","B_soldier_LAT_F","B_medic_F"],
 	["B_Soldier_SL_F",NATOGrunt,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_soldier_AA_F","B_soldier_AAA_F","B_medic_F"],
 	["B_Soldier_SL_F",NATOGrunt,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_soldier_AT_F","B_soldier_AAT_F","B_medic_F"],
 	["B_Soldier_SL_F",NATOGrunt,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_engineer_F","B_engineer_F","B_medic_F"]

@@ -9,7 +9,7 @@ factionGEN = "UK3CB_TKP_B";
 //SF Faction
 factionMaleOccupants = "UK3CB_BAF_Faction_Army_Desert";
 //Miltia Faction
-if ((gameMode != 4) and (!hasFFAA)) then {factionFIA = "UK3CB_TKA_B"};
+if (gameMode != 4) then {factionFIA = "UK3CB_TKA_B"};
 
 //Flag Images
 NATOFlag = "Flag_UK_F";
@@ -57,7 +57,7 @@ staticCrewOccupants = "UK3CB_BAF_GunnerStatic_DDPM";;
 NATOPilot = "UK3CB_BAF_HeliPilot_RAF_DDPM";
 
 //Militia Units
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	FIARifleman = "UK3CB_TKA_B_RIF_2";
 	FIAMarksman = "UK3CB_TKA_B_MK";
@@ -92,7 +92,7 @@ groupsNATOSquad =
 	];
 
 //Militia Groups
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	//Teams
 	groupsFIASmall =
@@ -158,7 +158,7 @@ vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "UK3CB_BAF_MAN
 vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
 
 //Militia Vehicles
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	vehFIAArmedCar = "UK3CB_TKA_B_MaxxPro_M2";
 	vehFIATruck = "UK3CB_TKA_B_Ural_Recovery";

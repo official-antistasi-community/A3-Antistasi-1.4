@@ -119,7 +119,7 @@ else
 
 _ecpos = getpos _truckX;
 deleteVehicle _truckX;
-_emptybox = "Land_FoodSacks_01_cargo_brown_F" createVehicle _ecpos;
+_emptybox = "Land_Pallet_F" createVehicle _ecpos;
 [_emptybox] spawn A3A_fnc_postmortem;
 
 //sleep (600 + random 1200);

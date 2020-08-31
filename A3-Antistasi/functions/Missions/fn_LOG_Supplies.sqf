@@ -49,7 +49,7 @@ _truckX setVariable ["destinationX",_nameDest,true];
 
 [_truckX,"Supply Box"] spawn A3A_fnc_inmuneConvoy;
 
-waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _positionX < 40) and (isNull attachedTo _truckX)) or (isNull _truckX)};
+waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _positionX < 40) and (isNull attachedTo _truckX) and (isNull ropeAttachedTo _truckX)) or (isNull _truckX)};
 _bonus = if (_difficultX) then {2} else {1};
 if ((dateToNumber date > _dateLimitNum) or (isNull _truckX)) then
 	{
@@ -119,7 +119,7 @@ else
 
 _ecpos = getpos _truckX;
 deleteVehicle _truckX;
-_emptybox = "Land_PaperBox_01_open_empty_F" createVehicle _ecpos;
+_emptybox = "Land_FoodSacks_01_cargo_brown_F" createVehicle _ecpos;
 [_emptybox] spawn A3A_fnc_postmortem;
 
 //sleep (600 + random 1200);

@@ -27,7 +27,8 @@ missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";
 _pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"];
 
 //Creating the box
-_truckX = "Land_PaperBox_01_open_boxes_F" createVehicle _pos;
+_truckX = "Land_FoodSacks_01_cargo_brown_F" createVehicle _pos;
+_truckX enableRopeAttach true;
 _truckX allowDamage false;
 _truckX call jn_fnc_logistics_addAction;
 _truckX addAction ["Delivery infos",
@@ -125,4 +126,3 @@ _emptybox = "Land_PaperBox_01_open_empty_F" createVehicle _ecpos;
 
 //_nul = [_tsk,true] call BIS_fnc_deleteTask;
 _nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
-

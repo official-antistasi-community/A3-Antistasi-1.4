@@ -171,19 +171,19 @@ vehPoliceCar = "UK3CB_CPD_B_Lada";
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled Statics
-NATOMG = "UK3CB_BAF_Static_L111A1_Deployed_High_Arctic";
+NATOMG = "RHS_M2StaticMG_USMC_WD";
 staticATOccupants = "RHS_TOW_TriPod_USMC_WD";
 staticAAOccupants = "RHS_Stinger_AA_pod_WD";
-NATOMortar = "UK3CB_BAF_Static_L16_Deployed_Arctic";
+NATOMortar = "RHS_M252_USMC_WD";
 
 //Static Weapon Bags
-MGStaticNATOB = "UK3CB_BAF_L111A1";
+MGStaticNATOB = "RHS_M2_Gun_Bag";
 ATStaticNATOB = "rhs_Tow_Gun_Bag";
 AAStaticNATOB = "B_AA_01_weapon_F";
-MortStaticNATOB = "UK3CB_BAF_L16";
+MortStaticNATOB = "rhs_M252_Gun_Bag";
 //Short Support
 supportStaticNATOB = "rhs_TOW_Tripod_Bag";
 //Tall Support
-supportStaticNATOB2 = "UK3CB_BAF_Tripod";
+supportStaticNATOB2 = "RHS_M2_Tripod_Bag";
 //Mortar Support
-supportStaticNATOB3 = "UK3CB_BAF_L16_Tripod";
+supportStaticNATOB3 = "rhs_M252_Bipod_Bag";

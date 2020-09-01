@@ -140,7 +140,7 @@ jnl_vehicleHardpoints = [
   ]],
 
 //Ural Closed
-  ["rhsafrf\addons\rhs_a2port_car\Ural\Ural.p3d", [
+  ["\rhsafrf\addons\rhs_a2port_car\Ural\Ural.p3d", [
     [1,         [0,-0.3,-0.2],    [12,3,13,4,5,2]  ],
     [1,         [0,-2.2,-0.2],    [6,7,8,9,11,10]  ]
   ]],

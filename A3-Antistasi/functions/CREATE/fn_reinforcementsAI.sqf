@@ -26,7 +26,7 @@ _reinfPlaces = [];
 	//Self reinforce done
 
 	//Reinforce nearby sides
-	if ((_numberX >= 4) and (reinfPatrols <= 4)) then
+	if (_numberX >= 4) then
 	{
 		_potentials = (outposts + seaports - _reinfPlaces - (killZones getVariable [_airportX,[]])) select {sidesX getVariable [_x,sideUnknown] == _sideX};
 		if (_potentials isEqualTo []) then

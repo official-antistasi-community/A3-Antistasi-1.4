@@ -9,7 +9,7 @@ factionGEN = "UK3CB_CPD_B";
 //SF Faction
 factionMaleOccupants = "UK3CB_BAF_Faction_Army_Temperate";
 //Miltia Faction
-if ((gameMode != 4) and (!hasFFAA)) then {factionFIA = "UK3CB_BAF_Faction_Army_Woodland_CW"};
+if (gameMode != 4) then {factionFIA = "UK3CB_BAF_Faction_Army_Woodland_CW"};
 //Flag Images
 NATOFlag = "Flag_UK_F";
 NATOFlagTexture = "\A3\Data_F\Flags\flag_uk_co.paa";
@@ -56,7 +56,7 @@ staticCrewOccupants = "UK3CB_BAF_GunnerStatic_DPMT";;
 NATOPilot = "UK3CB_BAF_HeliPilot_RAF_DPMT";
 
 //Militia Units
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	FIARifleman = "UK3CB_BAF_Rifleman_Smock_DPMW";
 	FIAMarksman = "UK3CB_BAF_Pointman_Smock_DPMW";
@@ -91,7 +91,7 @@ groupsNATOSquad =
 	];
 
 //Militia Groups
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	//Teams
 	groupsFIASmall =
@@ -122,7 +122,7 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 //Military Vehicles
 //Lite
 vehNATOBike = "B_Quadbike_01_F";
-vehNATOLightArmed = ["UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_B_DPMT","UK3CB_BAF_LandRover_WMIK_GMG_FFR_Green_B_DPMT","UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_DPMT","UK3CB_BAF_Jackal2_GMG_W_DPMT","UK3CB_BAF_Jackal2_L2A1_W_DPMT","UK3CB_BAF_Coyote_Logistics_L111A1_W_DPMT","UK3CB_BAF_Coyote_Passenger_L111A1_W_DPMT","UK3CB_BAF_Husky_Passenger_GMG_Green_DPMT","UK3CB_BAF_Husky_Passenger_GPMG_Green_DPMT","UK3CB_BAF_Husky_Passenger_HMG_Green_DPMT"];
+vehNATOLightArmed = ["UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_B_DPMT","UK3CB_BAF_LandRover_WMIK_GMG_FFR_Green_B_DPMT","UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_DPMT","UK3CB_BAF_Husky_Passenger_GMG_Green_DPMT","UK3CB_BAF_Husky_Passenger_GPMG_Green_DPMT","UK3CB_BAF_Husky_Passenger_HMG_Green_DPMT"];
 vehNATOLightUnarmed = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Green","UK3CB_BAF_LandRover_Hard_FFR_Green_B_DPMT","UK3CB_BAF_LandRover_Snatch_FFR_Green_A_DPMT","UK3CB_BAF_LandRover_Soft_FFR_Green_B_DPMT"];
 vehNATOTrucks = ["UK3CB_BAF_MAN_HX60_Transport_Green_DPMT","UK3CB_BAF_MAN_HX58_Transport_Green_DPMT"];
 vehNATOCargoTrucks = ["UK3CB_BAF_MAN_HX60_Cargo_Green_A_DPMT","UK3CB_BAF_MAN_HX58_Cargo_Green_A_DPMT"];
@@ -157,7 +157,7 @@ vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "UK3CB_BAF_MAN
 vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
 
 //Militia Vehicles
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	vehFIAArmedCar = "UK3CB_BAF_LandRover_WMIK_GPMG_FFR_Green_B_DPMT";
 	vehFIATruck = "UK3CB_BAF_MAN_HX60_Cargo_Green_A_DPMT";

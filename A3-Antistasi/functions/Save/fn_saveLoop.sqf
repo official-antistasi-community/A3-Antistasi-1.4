@@ -230,6 +230,9 @@ _dataX = [];
 _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (controlsX find _x < defaultControlIndex)};
 ["controlsSDK",_controlsX] call A3A_fnc_setStatVariable;
 
+//Saving the state of the testing timer
+["testingTimerIsActive", testingTimerIsActive] call A3A_fnc_setStatVariable;
+
 saveProfileNamespace;
 savingServer = false;
 _saveHintText = format ["Savegame Done.<br/><br/>You won't lose your stats in the event of a game update.<br/><br/>Remember: if you want to preserve any vehicle, it must be near the HQ Flag with no AI inside.<br/>If AI are inside, you will save the funds you spent on it.<br/><br/>AI will be refunded<br/><br/>Stolen and purchased Static Weapons need to be ASSEMBLED in order to be saved. You can save disassembled Static Weapons in the ammo box.<br/><br/>Mounted Statics (Mortar/AA/AT squads) won't get saved, but you will be able to recover the cost.<br/><br/>Same for assigned vehicles more than 50m away from HQ.<br/><br/>%1 fund count:<br/>HR: %2<br/>Money: %3 €",nameTeamPlayer,_hrBackground,_resourcesBackground];

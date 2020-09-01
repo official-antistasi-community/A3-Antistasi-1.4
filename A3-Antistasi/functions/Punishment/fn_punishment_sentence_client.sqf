@@ -33,7 +33,7 @@ if (_timeLeft < 5) then {_timeLeft = 5;}; // Sometimes something somewhere might
 
 for "_timeLeft" from _timeLeft to _timeLeft-4 step -1 do {
 	if (!isPlayer _detainee) exitWith {false};
-	["FF Notification", format ["Please do not teamkill. Play with the turtles for %1 more seconds.<br/>Use Refresh Admin Action if the admin just logged in.<br/>Swimming in water may cause injury.",_timeLeft], true] remoteExec ["A3A_fnc_customHint", _detainee, false];
+	["FF Notification", format ["Please do not teamkill. Stare at the turtles for %1 more seconds.",_timeLeft], true] remoteExec ["A3A_fnc_customHint", _detainee, false];
 	uiSleep 1;
 };
 true;

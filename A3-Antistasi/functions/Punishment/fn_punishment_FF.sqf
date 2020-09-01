@@ -5,7 +5,6 @@ Function:
 Description:
     Checks if incident reported is indeed a rebel Friendly Fire event.
     Refer to A3A_fnc_punishment.sqf for actual punishment logic.
-    NOTE: Collisions are a guaranteed exemption, logged but with no notification for the victim.
     NOTE: When called from an Hit type of EH, use Example 2 in order to detect collisions.
 
 Scope:
@@ -18,24 +17,21 @@ Parameters:
     <OBJECT> Player that is being verified for FF. | <ARRAY<OBJECT,OBJECT>> Suspected instigator and source/killer returned from EH. The unit that caused the damage is collisions is the source/killer.
     <NUMBER> The amount of time to add to the players total sentence time.
     <NUMBER> Raise the player's total offence level by this percentage. (100% total = Ocean Gulag).
-    <OBJECT> [OPTIONAL=objNull] The victim of the player's FF.
-    <STRING> [OPTIONAL] Custom message to be displayed to FFer
+    <OBJECT> The victim of the player's FF. [DEFAULT=objNull]
+    <STRING> Custom message to be displayed to FFer [DEFAULT=""]
 
 Returns:
     <STRING> Either a exemption type or return from fn_punishment.sqf.
 
 Examples <OBJECT>:
-    [_instigator, 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",_instigator,false]; // How it should be called from another function.
+    [_instigator, 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",_instigator,false]; // How it should be called from another object.
     // Unit Tests:
     [player, 0, 0, objNull] call A3A_fnc_punishment_FF;             // Test self with no victim
     [player, 0, 0, cursorObject] call A3A_fnc_punishment_FF;        // Test self with victim
-    [player,"forgive"] remoteExec ["A3A_fnc_punishment_release",2]; // Self forgive all sins
+    [getPlayerUID player,"forgive"] remoteExec ["A3A_fnc_punishment_release",2]; // Self forgive all sins
 
 Examples <ARRAY<OBJECT,OBJECT>>:
     [[_instigator,_source], 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",[_source,_instigator] select (isPlayer _instigator),false]; // How it should be called from an EH.
-    // Unit Tests:
-    [[objNull,player], 0, 0, objNull] call A3A_fnc_punishment_FF;      // Test self with no victim
-    [[objNull,player], 0, 0, cursorObject] call A3A_fnc_punishment_FF; // Test self with victim
 
 Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
@@ -50,11 +46,13 @@ params [
 private _filename = "fn_punishment_FF.sqf";
 ///////////////Load Event from Queue///////////////
 private _skipCoolDownCheck = false;
+private _queueEmpty = false;
 if (_instigator isEqualType "" && {_instigator isEqualTo "loadQueue"}) then {
     if ((count A3A_FFPunish_Q) isEqualTo 0) exitWith {
-        _instigator setVariable ["punishment_coolDown", servertime, false];
+        A3A_FFPunish_CD = servertime + 0.5;
+        _queueEmpty = true;
     };
-     _instigator = A3A_FFPunish_Q #0#0; // Cannot use params, it will be limited to this scope.
+     _instigator = A3A_FFPunish_Q #0#0; // Cannot use params, it will be limited to this scope. // + => Copy operation if it's an array.
      _timeAdded = A3A_FFPunish_Q #0#1;
      _offenceAdded = A3A_FFPunish_Q #0#2;
      _victim = A3A_FFPunish_Q #0#3;
@@ -62,6 +60,7 @@ if (_instigator isEqualType "" && {_instigator isEqualTo "loadQueue"}) then {
      A3A_FFPunish_Q deleteAt 0;
      _skipCoolDownCheck = true;
 };
+if (_queueEmpty) exitWith {"PUNISHMENT QUEUE EMPTY"};
 
 ///////////////Checks if is Collision//////////////
 private _isCollision = false;
@@ -73,22 +72,23 @@ private _vehicle = typeOf vehicle _instigator;
 
 //////Cool down prevents multi-hit spam/////
     // Doesn't log to avoid RPT spam.
-    // Doesn't use hash table to be as quick as possible.
-if (!_skipCoolDownCheck) then {
-    if (A3A_FFPunish_CD > servertime) exitWith {
-        A3A_FFPunish_Q pushBack [_instigator,_timeAdded,_offenceAdded,_victim,_customMessage];
-        "PUNISHMENT COOL-DOWN ACTIVE";
-    };
-    A3A_FFPunish_CD = servertime + 0.5;
+    // Doesn't use punish data to be as quick as possible.
+if ((!_skipCoolDownCheck) && A3A_FFPunish_CD > servertime) exitWith {
+    A3A_FFPunish_Q pushBack [_instigator,_timeAdded,_offenceAdded,_victim,_customMessage];
+    "PUNISHMENT COOL-DOWN ACTIVE";
 };
+if (!_skipCoolDownCheck) then {
+    A3A_FFPunish_Q = []; // If the cool down period had concluded, what ever might of been shoved into the queue is from previous EH trigger.
+};
+A3A_FFPunish_CD = servertime + 0.5;
 
 /////////////////Definitions////////////////
 private _onExitExemption = {
     [_instigator] spawn {
         params ["_instigator"];
-        A3A_FFPunish_CD = servertime + 5; // Large finite number to allow a time-out if there is an unknown crash during execution.
+        A3A_FFPunish_CD = servertime + 5; // Large if there is a scheduler delay. Finite to allow a time-out if there is an unknown crash during execution.
         uiSleep 0.01;
-        isNil {["loadQueue"] call A3A_fnc_punishment_FF}; // Unscheduled execution
+        isNil {["loadQueue",nil,nil,nil,nil] call A3A_fnc_punishment_FF}; // Unscheduled execution
     };
 };
 private _victimStats = ["",format [" damaged %1 ", name _victim]] select (_victim isKindOf "Man");
@@ -104,13 +104,13 @@ private _notifyInstigator = {
 private _gotoExemption = {
     params [ ["_exemptionDetails", "" ,[""]] ];
     private _playerStats = format["%1 [%2]%3, Avoided-time: %4, Avoided-offence: %5", name _instigator, getPlayerUID _instigator, _victimStats,str _timeAdded, str _offenceAdded];
-    [2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
+    [2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename,true] remoteExecCall ["A3A_fnc_log",2,false];
     _exemptionDetails;
 };
 private _logPvPKill = {
     if (!(_victim isKindOf "Man")) exitWith {};
     private _killStats = format ["PVPKILL | PvP %1 [%2]%3", name _instigator, getPlayerUID _instigator, _victimStats];
-    [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
+    [2,_killStats,_filename,true] remoteExecCall ["A3A_fnc_log",2,false];
 };
 
 ///////////////Checks if is FF//////////////
@@ -127,7 +127,7 @@ private _exemption = switch (true) do {
 ////////////////Logs if is FF///////////////
 if (_exemption !=  "") exitWith {
     call _onExitExemption;
-    private _return = format["NOT FF, %1", _exemption];
+    format["NOT FF, %1", _exemption];
 };
 
 /////////////Acts on Collision//////////////
@@ -135,7 +135,7 @@ if (_isCollision) then {
     _customMessage = [_customMessage,"You damaged a friendly as a driver."] joinString "<br/>";
     _timeAdded = 27;
     _offenceAdded = 0.15;
-    [2, format ["COLLISION | %1 [%2]'s %3%4", name _instigator, getPlayerUID _instigator, _vehicle, _victimStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
+    [2, format ["COLLISION | %1 [%2]'s %3%4", name _instigator, getPlayerUID _instigator, _vehicle, _victimStats], _filename,true] remoteExecCall ["A3A_fnc_log",2,false];
 };
 
 /////////Checks for important roles/////////
@@ -158,9 +158,8 @@ _exemption = switch (true) do {
         format ["ARTY, %1", _vehicle];
     };
     // TODO: if( remoteControlling(_instigator) ) exitWith
-        // For the meantime do either one of the following: login for Zeus, use the memberList addon;
-        // Or change your player side to enemy faction
-        // Without above: your controls will be free, and you won't die or lose inventory. If you have debug consol you can self forgive.
+        // For the meantime do either one of the following: login as admin for Zeus, or "player setVariable ["PvP",true,true];
+        // Without above: Your AI will be prosecuted for FF. Upon leaving UAV you will be punished. If you have debug consol you can self forgive.
     default {""};
 };
 
@@ -173,5 +172,3 @@ if (_exemption != "") exitWith {
 A3A_FFPunish_Q = []; // Clear queue as it only exists to mitigate zero-frame incorrect calls from Event Handlers.
 [_instigator,_timeAdded,_offenceAdded,_victim,_customMessage] remoteExecCall ["A3A_fnc_punishment",2,false];
 "PROSECUTED";
-
-

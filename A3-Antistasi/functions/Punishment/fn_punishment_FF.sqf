@@ -52,7 +52,7 @@ if (_instigator isEqualType "" && {_instigator isEqualTo "loadQueue"}) then {
         A3A_FFPunish_CD = servertime + 0.5;
         _queueEmpty = true;
     };
-     _instigator = A3A_FFPunish_Q #0#0; // Cannot use params, it will be limited to this scope. // + => Copy operation if it's an array.
+     _instigator = A3A_FFPunish_Q #0#0; // Cannot use params, it will be limited to this scope.
      _timeAdded = A3A_FFPunish_Q #0#1;
      _offenceAdded = A3A_FFPunish_Q #0#2;
      _victim = A3A_FFPunish_Q #0#3;

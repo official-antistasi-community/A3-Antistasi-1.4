@@ -48,7 +48,7 @@ civVehMedicalData = [
 
 civVehRefuelData = [
 	"UK3CB_TKC_C_Kamaz_Fuel", 0.1
-	,"UK3CB_TKC_C_Fuel", 0.1				// Ural
+	,"UK3CB_TKC_C_Ural_Fuel", 0.1				// Ural
 	,"UK3CB_TKC_C_V3S_Refuel", 0.1
 
 //	,"C_Van_01_fuel_F", 0.2
@@ -69,7 +69,7 @@ civVehIndustrialData = [
 	,"UK3CB_TKC_C_Kamaz_Open", 0.3
 
 	,"UK3CB_TKC_C_Ural", 0.3				// Urals
-	,"UK3CB_TKC_C_Open", 0.3
+	,"UK3CB_TKC_C_Ural_Open", 0.3
 	,"UK3CB_TKC_C_Ural_Empty", 0.3
 
 	,"UK3CB_TKC_C_V3S_Closed", 0.3
@@ -94,4 +94,3 @@ civBoatData = [
 	,"C_Scooter_Transport_01_F", 0.5		// jetski
 //rhsgref_civ_canoe
 ];
-

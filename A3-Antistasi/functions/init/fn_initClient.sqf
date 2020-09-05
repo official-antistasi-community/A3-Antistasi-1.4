@@ -29,6 +29,7 @@ if (hasInterface) then {
 };
 
 if (!isServer) then {
+	waitUntil {!isNil "initParamsDone"};
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
 	if (!hasInterface) exitWith {
@@ -61,7 +62,7 @@ if (isMultiplayer) then {
 	if (hasTFAR) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
-	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
+//	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {
@@ -101,7 +102,7 @@ _introShot = [
 ] spawn BIS_fnc_establishingShot;
 
 //Initialise membershipEnabled so we can do isMember checks.
-membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
+//membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
 disableUserInput false;
 player setVariable ["spawner",true,true];

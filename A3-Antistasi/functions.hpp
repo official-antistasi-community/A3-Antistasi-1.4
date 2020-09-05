@@ -13,6 +13,7 @@ class A3A
 		class initFuncs {};
 		class initGarrisons {};
 		class initGetMissionPath {};
+		class initParams {};
 		class initSpawnPlaces {};
 
 		class initVar {};
@@ -363,7 +364,6 @@ class A3A
 		class categoryOverrides {};
 		class checkRadiosUnlocked {};
 		class configSort {};
-		class crateLootParams {};
 		class dress {};
 		class empty {};
 		class equipmentClassToCategories {};

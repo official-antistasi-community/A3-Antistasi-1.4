@@ -8,7 +8,7 @@ class EditorData
 	toggles=1538;
 	class ItemIDProvider
 	{
-		nextID=667;
+		nextID=669;
 	};
 	class MarkerIDProvider
 	{
@@ -50,8 +50,8 @@ addons[]=
 	"acre_main",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Exp_Military_Flags",
-	"A3_Modules_F_Curator_Curator",
-	"acex_fortify"
+	"acex_fortify",
+	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
 {
@@ -179,17 +179,17 @@ class AddonsMetaData
 		};
 		class Item17
 		{
-			className="A3_Modules_F_Curator";
-			name="Arma 3 Zeus Update - Scripted Modules";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item18
-		{
 			className="acex_fortify";
 			name="acex_fortify";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
+		};
+		class Item18
+		{
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -1864,7 +1864,7 @@ class Mission
 			type="rectangle";
 			a=134.05487;
 			b=273.97559;
-			angle=13.51999;
+			angle=13.519989;
 			id=569;
 			atlOffset=0.85693359;
 		};
@@ -1918,7 +1918,7 @@ class Mission
 			colorName="ColorGreen";
 			a=15;
 			b=8.5559998;
-			angle=13.744519;
+			angle=13.744518;
 			id=573;
 			atlOffset=15.256104;
 		};
@@ -4848,12 +4848,27 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={2604.676,62.969723,614.82202};
+				position[]={4264.6787,130.6001,4152.9351};
+			};
+			areaSize[]={5006.3359,0,4001.519};
+			areaIsRectangle=1;
+			flags=1;
+			id=666;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=-27.426285;
+		};
+		class Item206
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2603.594,62.739277,611.72021};
 				angles[]={6.2658539,0,6.2285738};
 			};
-			id=664;
+			name="WaldieA";
+			id=667;
 			type="ModuleCurator_F";
-			atlOffset=-0.80981064;
+			atlOffset=-0.65306473;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4935,17 +4950,18 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item206
+		class Item207
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={2593.3176,64.154694,614.75171};
+				position[]={2595.8831,63.907246,611.41162};
 				angles[]={6.2658539,0,6.2285738};
 			};
-			id=665;
+			name="AdminZeus";
+			id=668;
 			type="ModuleCurator_F";
-			atlOffset=2.1289253;
+			atlOffset=1.9177246;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -5026,20 +5042,6 @@ class Mission
 				};
 				nAttributes=4;
 			};
-		};
-		class Item207
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4264.6787,130.6001,4152.9351};
-			};
-			areaSize[]={5006.3359,0,4001.519};
-			areaIsRectangle=1;
-			flags=1;
-			id=666;
-			type="acex_fortify_buildLocationModule";
-			atlOffset=-27.426285;
 		};
 	};
 	class Connections

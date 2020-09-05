@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=2724;
+		nextID=2726;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=164;
+		nextID=173;
 	};
 	class Camera
 	{
-		pos[]={6701.2163,434.63614,5677.9243};
-		dir[]={0.3767935,-0.5086351,-0.77416462};
-		up[]={0.2225965,0.86097729,-0.45734966};
-		aside[]={-0.89916593,1.0663643e-007,-0.43763316};
+		pos[]={6702.4712,411.00052,5653.2871};
+		dir[]={0.48531353,-0.63923603,-0.59654355};
+		up[]={0.40341297,0.76900524,-0.49587184};
+		aside[]={-0.77572721,1.1920929e-007,-0.63108706};
 	};
 };
 binarizationWanted=0;
@@ -61,8 +61,8 @@ addons[]=
 	"A3_Structures_F_Civ_Statues",
 	"A3_Structures_F_Civ_Dead",
 	"A3_Props_F_Enoch_Civilian_Forest",
-	"A3_Modules_F_Curator_Curator",
-	"acex_fortify"
+	"acex_fortify",
+	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
 {
@@ -232,17 +232,17 @@ class AddonsMetaData
 		};
 		class Item25
 		{
-			className="A3_Modules_F_Curator";
-			name="Arma 3 Zeus Update - Scripted Modules";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item26
-		{
 			className="acex_fortify";
 			name="acex_fortify";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
+		};
+		class Item26
+		{
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -1336,7 +1336,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.656919;
 					b=4.3730001;
-					angle=183.18182;
+					angle=183.18181;
 					id=157;
 					atlOffset=0.032516956;
 				};
@@ -1446,7 +1446,7 @@ class Mission
 					colorName="ColorGreen";
 					a=10.874;
 					b=5.8610001;
-					angle=101.61096;
+					angle=101.61095;
 					id=2714;
 					atlOffset=-0.0064435005;
 				};
@@ -27982,11 +27982,27 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={6752.7188,343.32364,5602.9526};
-				angles[]={0.041308183,0,6.217947};
+				position[]={10033.605,404.5065,8013.96};
 			};
-			id=2720;
+			areaSize[]={10006.336,0,8001.519};
+			areaIsRectangle=1;
+			flags=1;
+			id=2723;
+			type="acex_fortify_buildLocationModule";
+			atlOffset=189.83664;
+		};
+		class Item172
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6748.04,343.41022,5604.6802};
+				angles[]={6.2658539,0,6.2285738};
+			};
+			name="WaldieA";
+			id=2724;
 			type="ModuleCurator_F";
+			atlOffset=-0.01965332;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -28068,16 +28084,18 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item172
+		class Item173
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={6741.3604,344.64578,5602.8823};
-				angles[]={6.2631836,0,6.1025114};
+				position[]={6736.6816,346.79858,5604.6099};
+				angles[]={6.2658539,0,6.2285738};
 			};
-			id=2721;
+			name="AdminZeus";
+			id=2725;
 			type="ModuleCurator_F";
+			atlOffset=1.2636108;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -28158,20 +28176,6 @@ class Mission
 				};
 				nAttributes=4;
 			};
-		};
-		class Item173
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={10033.605,404.5065,8013.96};
-			};
-			areaSize[]={10006.336,0,8001.519};
-			areaIsRectangle=1;
-			flags=1;
-			id=2723;
-			type="acex_fortify_buildLocationModule";
-			atlOffset=189.83664;
 		};
 	};
 	class Connections

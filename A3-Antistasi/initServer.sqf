@@ -41,9 +41,6 @@ _fortificationStructures = [
 	publicVariable "staticsToSave"
 }] call CBA_fnc_addEventHandler;
 
-
-
-
 if (isNil "logLevel") then {LogLevel = 2};
 if (isMultiplayer) then {
 	[] call A3A_fnc_initServer;

@@ -59,7 +59,7 @@ vehSDKTANK = "rhsusf_m1a2sep1d_usarmy";
 
 //Civilian Vehicles
 civCar = "C_Offroad_01_F";
-civTruck = "RHS_Ural_Civ_01";
+civTruck = "C_Truck_02_transport_F";
 civHeli = "rhs_uh1h_idap";
 civBoat = "C_Boat_Transport_02_F";
 

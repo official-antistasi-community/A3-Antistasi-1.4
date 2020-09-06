@@ -1904,7 +1904,7 @@
 <!-- VAM LINE START -->
 <!-- Function/기능부 -->
 			<Key ID="STR_VAM_INITIALIZED">
-				<Original>Vehicle Customisation initialized</Original>
+				<Original>Vehicle Customisation Initialized</Original>
 				<Korean>차량 형상 관리자 불러오기 및 초기화 완료</Korean>
 			</Key>
 			<Key ID="STR_VAM_MAIN_MENU_NAME">

@@ -5,7 +5,7 @@ VAM_condition_3 = false;
 
 while {true} do {
 	if (1 in VAM_condition_check_options) then {
-		private _repair_vehicle_finder = vehicles inAreaArray [getPos player, 20, 20, 0, false, 20] select {(typeof _x) in VAM_repair_vehicle_list};
+		private _repair_vehicle_finder = vehicles inAreaArray [getPos player, 50, 50, 0, false, 20] select {(typeof _x) in VAM_repair_vehicle_list};
 		if (count _repair_vehicle_finder > 0 && alive player) then {
 			VAM_condition_1 = true;
 			} else {

@@ -7,7 +7,7 @@ if (!hasInterface) exitWith {};
 //1 : Activate when player is near vehicles those are in list.
 //2 : Activate when player is in certain marker area. (Marker name should be like "VAM_service_area_0", "VAM_service_area_1". You could have multiple marker area.)
 //3 : Activate when player is near KP Liberation FOB
-VAM_condition_check_options = [1];
+VAM_condition_check_options = [];
 VAM_repair_vehicle_list = [
 	"B_APC_Tracked_01_CRV_F",
 	"B_T_APC_Tracked_01_CRV_F",

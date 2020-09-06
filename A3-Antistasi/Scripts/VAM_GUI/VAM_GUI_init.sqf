@@ -24,7 +24,21 @@ VAM_repair_vehicle_list = [
 	"O_T_Truck_03_repair_ghex_F",
 	"O_Truck_02_box_F",
 	"C_Truck_02_box_F",
-	"Box_East_AmmoVeh_F"
+	"Box_East_AmmoVeh_F",
+	"rhsusf_M977A4_AMMO_usarmy_d",
+	"rhsusf_M977A4_REPAIR_usarmy_d",
+	"rhsusf_M977A4_AMMO_BKIT_usarmy_d",
+	"rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d",
+	"rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_d",
+	"rhsusf_M977A4_REPAIR_BKIT_usarmy_d",
+	"rhsusf_M978A4_usarmy_d",
+	"rhsusf_M978A4_BKIT_usarmy_d",
+	"rhs_gaz66_ammo_vdv",
+	"rhs_gaz66_ap2_vdv",
+	"RHS_Ural_Fuel_VDV_01",
+	"RHS_Ural_Repair_VDV_01",
+	"C_Van_02_service_F",
+	"C_IDAP_Truck_02_water_F"
 ];
 
 //Exception for bug fix and additional cosmetic change. Check out fnc_VAM_GUI_check.sqf.

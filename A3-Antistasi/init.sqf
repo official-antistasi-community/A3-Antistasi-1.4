@@ -22,3 +22,7 @@ ACE_maxWeightCarry = 15000;
 ACE_maxWeightDrag = 50000;
 
 [2,"Init finished",_fileName] call A3A_fnc_log;
+
+
+//Vehicle customisation editor
+[] execVM "Scripts\VAM_GUI\VAM_GUI_init.sqf";

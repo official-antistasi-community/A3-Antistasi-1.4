@@ -16,6 +16,11 @@ overviewPicture = "Pictures\Mission\pic.jpg";
 #include "Scripts\ViewingDistance\GUI.h"
 #include "Scripts\description.hpp"
 
+//Garage Appearance Editor
+#include "Scripts\VAM_GUI\defines.hpp"
+#include "Scripts\VAM_GUI\VAM_GUI_controls.hpp"
+#include "Scripts\VAM_GUI\VAM_GUI_classes.hpp"
+
 class CfgFunctions {
 	class bear_antistasi_looter {
 		class bear_antistasi_looter {

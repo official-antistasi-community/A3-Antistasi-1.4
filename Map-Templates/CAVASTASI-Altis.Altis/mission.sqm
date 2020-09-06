@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=618;
+		nextID=628;
 	};
 	class Camera
 	{
-		pos[]={10383.933,142.87648,17997.814};
-		dir[]={-0.31174305,-0.34251964,0.88629252};
-		up[]={-0.11365375,0.93950582,0.32311928};
-		aside[]={0.94335753,7.8813173e-008,0.33181575};
+		pos[]={10375.543,160.69472,17996.91};
+		dir[]={0.093046106,-0.54892266,0.8306787};
+		up[]={0.061104015,0.83587241,0.54551214};
+		aside[]={0.99378508,4.7730282e-009,-0.11131601};
 	};
 };
 binarizationWanted=0;
@@ -543,8 +543,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={10353.021,128.19339,18001.391};
-				angles[]={0.098347999,0,6.247201};
+				position[]={10353.021,128.19318,18001.391};
+				angles[]={0.098349303,0,6.2471962};
 			};
 			side="Empty";
 			flags=4;
@@ -554,29 +554,10 @@ class Mission
 			};
 			id=935;
 			type="Box_East_AmmoVeh_F";
-			atlOffset=-0.004776001;
+			atlOffset=-0.004989624;
 			class CustomAttributes
 			{
 				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
-						};
-					};
-				};
-				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -595,7 +576,64 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute1
+				{
+					property="ace_isRepairFacility";
+					expression="if (_value != (if (isNumber (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_repair_canRepair"")) then {getNumber (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_repair_canRepair"")} else {0})) then {_this setVariable ['ace_isRepairFacility', _value, true]}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=4;
 			};
 		};
 		class Item33
@@ -3344,7 +3382,7 @@ class Mission
 					colorName="ColorGreen";
 					a=24.10615;
 					b=6;
-					angle=225.2571;
+					angle=225.25705;
 					id=1626;
 				};
 				class Item11
@@ -3563,7 +3601,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.722984;
 					b=5.5;
-					angle=107.31909;
+					angle=107.31906;
 					id=1661;
 					atlOffset=-0.63444233;
 				};
@@ -3658,7 +3696,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.529018;
 					b=5.5;
-					angle=56.906067;
+					angle=56.906055;
 					id=1646;
 					atlOffset=-0.15297318;
 				};
@@ -4010,7 +4048,7 @@ class Mission
 					colorName="ColorGreen";
 					a=21.657;
 					b=5.5;
-					angle=109.72633;
+					angle=109.72632;
 					id=1670;
 					atlOffset=0.20936584;
 				};
@@ -4867,7 +4905,7 @@ class Mission
 					colorName="ColorGreen";
 					a=16;
 					b=6;
-					angle=3.5407591;
+					angle=3.5407584;
 					id=1684;
 					atlOffset=0.75311279;
 				};

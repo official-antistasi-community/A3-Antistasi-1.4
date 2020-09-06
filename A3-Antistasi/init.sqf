@@ -27,4 +27,3 @@ ACE_maxWeightDrag = 50000;
 //Vehicle customisation editor
 [] execVM "Scripts\VAM_GUI\VAM_GUI_init.sqf";
 //Box setup for rearm
-vehicleBox setVariable ["ace_rearm_isSupplyVehicle", true]

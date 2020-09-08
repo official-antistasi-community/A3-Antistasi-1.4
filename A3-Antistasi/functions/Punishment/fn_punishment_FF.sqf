@@ -45,11 +45,11 @@ params [
 ];
 private _filename = "fn_punishment_FF.sqf";
 ///////////////Load Event from Queue///////////////
-private _skipCoolDownCheck = false;
+private _loadedQueue = false;
 private _queueEmpty = false;
 if (_instigator isEqualType "" && {_instigator isEqualTo "loadQueue"}) then {
     if ((count A3A_FFPunish_Q) isEqualTo 0) exitWith {
-        A3A_FFPunish_CD = servertime + 0.5;
+        A3A_FFPunish_CD = servertime;  // If we got to the end of the queue, it means none were prosecutable, which means we should stay open for actual FF in case it comes in.
         _queueEmpty = true;
     };
      _instigator = A3A_FFPunish_Q #0#0; // Cannot use params, it will be limited to this scope.
@@ -58,7 +58,7 @@ if (_instigator isEqualType "" && {_instigator isEqualTo "loadQueue"}) then {
      _victim = A3A_FFPunish_Q #0#3;
      _customMessage = A3A_FFPunish_Q #0#4;
      A3A_FFPunish_Q deleteAt 0;
-     _skipCoolDownCheck = true;
+     _loadedQueue = true;
 };
 if (_queueEmpty) exitWith {"PUNISHMENT QUEUE EMPTY"};
 
@@ -70,23 +70,21 @@ if (_instigator isEqualType []) then {
 };
 private _vehicle = typeOf vehicle _instigator;
 
-//////Cool down prevents multi-hit spam/////
-    // Doesn't log to avoid RPT spam.
-    // Doesn't use punish data to be as quick as possible.
-if ((!_skipCoolDownCheck) && A3A_FFPunish_CD > servertime) exitWith {
-    A3A_FFPunish_Q pushBack [_instigator,_timeAdded,_offenceAdded,_victim,_customMessage];
-    "PUNISHMENT COOL-DOWN ACTIVE";
+/////////////////////Cool-down/////////////////////
+if ((!_loadedQueue) && A3A_FFPunish_CD > servertime) exitWith {
+    A3A_FFPunish_Q pushBack [_instigator,_timeAdded,_offenceAdded,_victim,_customMessage]; // The original Cool-down implementation blocked everything for 0.5sec.
+    "PUNISHMENT COOL-DOWN ACTIVE";                                                         // That didn't cover edge-cases where the EH was triggered multiple time and some of the first calls were invalid (Due to EH side, fragments, self-harm, missing data).
+};                                                                                         // On high latency the packets may also get bunched up.
+if (!_loadedQueue) then {
+    A3A_FFPunish_Q = []; // If there are items left in here because loadQueue is no longer happening. It means one of the previous Queue items was prosecuted. Therefore, this would represent duplicates of the last event which was handled. It should be emptied then.
 };
-if (!_skipCoolDownCheck) then {
-    A3A_FFPunish_Q = []; // If the cool down period had concluded, what ever might of been shoved into the queue is from previous EH trigger.
-};
-A3A_FFPunish_CD = servertime + 0.5;
+A3A_FFPunish_CD = servertime + 0.5;  // We dealing with a mean of 0.1-0.2 seconds disparity.
 
 /////////////////Definitions////////////////
 private _onExitExemption = {
     [_instigator] spawn {
         params ["_instigator"];
-        A3A_FFPunish_CD = servertime + 5; // Large if there is a scheduler delay. Finite to allow a time-out if there is an unknown crash during execution.
+        A3A_FFPunish_CD = servertime + 5; // Large if there is a scheduler delay. Finite to allow a time-out if there is an unexpected crash during loadQueue.
         uiSleep 0.01;
         isNil {["loadQueue",nil,nil,nil,nil] call A3A_fnc_punishment_FF}; // Unscheduled execution
     };
@@ -147,7 +145,7 @@ if (_isCollision) then {
 /////////Checks for important roles/////////
 _exemption = switch (true) do {
     case (call BIS_fnc_admin != 0 || isServer): {
-        ["You damaged a friendly as admin."] call _notifyInstigator; // Admin not reported to victim for Zeus remote control.
+        ["You damaged a friendly as admin."] call _notifyInstigator; // Admin not reported to victim in case of Zeus remote control.
         format ["ADMIN, %1", ["Local Host","Voted","Logged"] select (call BIS_fnc_admin)];
     };
     case (vehicle _instigator isKindOf "Air"): {
@@ -165,7 +163,7 @@ _exemption = switch (true) do {
     };
     // TODO: if( remoteControlling(_instigator) ) exitWith
         // For the meantime do either one of the following: login as admin for Zeus, or "player setVariable ["PvP",true,true];
-        // Without above: Your AI will be prosecuted for FF. Upon leaving UAV you will be punished. If you have debug consol you can self forgive.
+        // Without above: Your AI will be prosecuted for FF. Upon leaving UAV you will be punished. If you have debug console you can self forgive.
     default {""};
 };
 
@@ -175,6 +173,7 @@ if (_exemption != "") exitWith {
 };
 
 ///////////////Drop The Hammer//////////////
+// By this point A3A_FFPunish_CD should still be +0.5sec. A prosecution has taken place. Even if a separate FF event happened within 0.5sec, the player has been warned anyway.
 A3A_FFPunish_Q = []; // Clear queue as it only exists to mitigate zero-frame incorrect calls from Event Handlers.
 [_instigator,_timeAdded,_offenceAdded,_victim,_customMessage] remoteExecCall ["A3A_fnc_punishment",2,false];
 "PROSECUTED";

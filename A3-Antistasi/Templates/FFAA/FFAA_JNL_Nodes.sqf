@@ -1,19 +1,25 @@
 //JNL mounting nodes for cargo and statics.
-logistics_vehicleHardpoints append [ // needs to be redone
-//4x4s
-//pegaso open
+logistics_vehicleHardpoints append [
+  //4x4s
+  //pegaso open
   ["\ffaa_et_pegaso\ffaa_et_pegaso.p3d",[
-    [1,[0,-1,-0.5],[3,4,5,6,7]],
-    [1,[0,-2.75,-0.5],[1,2,8,9,10]]
+    [1,             [0,-0.6,-0.55],         [2,3,4]],
+    [1,             [0,-1.4,-0.55],         [5,6]],
+    [1,             [0,-2.2,-0.55],         [7,8]],
+    [1,             [0,-3,-0.55],           [1,9]],
+    [1,             [0,-3.8,-0.55],         [10,11]]
   ]],
-//6x6s
-//m250 (all variants share a model)
+  //6x6s
+  //m250 (all variants share a model)
   ["\ffaa_et_pegaso\ffaa_et_m250_blindado.p3d",[
-    [1,[-0,0.50,-0.5],[8,9,10,11,12,13]],
-    [1,[-0,-1.25,-0.5],[4,5,6,7]],
-    [1,[-0,-3,-0.5],[]]
+    [1,             [-0.1,0.9,-0.6],        [10,12,13]],
+    [1,             [-0.1,0.1,-0.6],        [11]],
+    [1,             [-0.1,-0.7,-0.6],       [8,9]],
+    [1,             [-0.1,-1.5,-0.6],       [6,7]],
+    [1,             [-0.1,-2.3,-0.6],       [4,5]],
+    [1,             [-0.1,-3.1,-0.6],       [14,15]]
   ]]
-//8x8s
+  //8x8s
 
 //Boats
 

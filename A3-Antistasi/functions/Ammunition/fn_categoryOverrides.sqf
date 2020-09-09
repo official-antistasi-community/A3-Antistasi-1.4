@@ -70,6 +70,40 @@ private _categoryOverrideTable = [
 ["UK3CB_M21_Bipod_Railed", ["SniperRifles","Weapons"]],
 ["UK3CB_M14DMR_Railed", ["SniperRifles","Weapons"]],
 
+["tf_rt1523g", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_bwmod", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_rhs", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_big", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_big_bwmod", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_big_bwmod_tropen", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_big_rhs", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_sage", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_green", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_fabric", ["Radiobackpacks","Backpacks"]],
+["tf_rt1523g_black", ["Radiobackpacks","Backpacks"]],
+["tf_anprc155", ["Radiobackpacks","Backpacks"]],
+["tf_anprc155_coyote", ["Radiobackpacks","Backpacks"]],
+["tf_mr3000", ["Radiobackpacks","Backpacks"]],
+["tf_mr3000_multicam", ["Radiobackpacks","Backpacks"]],
+["tf_mr3000_bwmod", ["Radiobackpacks","Backpacks"]],
+["tf_mr3000_bwmod_tropen", ["Radiobackpacks","Backpacks"]],
+["tf_mr3000_rhs", ["Radiobackpacks","Backpacks"]],
+["tf_bussole", ["Radiobackpacks","Backpacks"]],
+["tf_anarc210", ["Radiobackpacks","Backpacks"]],
+["tf_anarc164", ["Radiobackpacks","Backpacks"]],
+["tf_mr6000l", ["Radiobackpacks","Backpacks"]],
+["UK3CB_B_B_Radio_Backpack", ["Radiobackpacks","Backpacks"]],
+["UK3CB_B_I_Radio_Backpack", ["Radiobackpacks","Backpacks"]],
+["UK3CB_B_O_Radio_Backpack", ["Radiobackpacks","Backpacks"]],
+["UK3CB_BAF_B_Bergen_MTP_Radio_H_A", ["Radiobackpacks","Backpacks"]],
+["UK3CB_BAF_B_Bergen_MTP_Radio_H_B", ["Radiobackpacks","Backpacks"]],
+["UK3CB_BAF_B_Bergen_MTP_Radio_L_A", ["Radiobackpacks","Backpacks"]],
+["UK3CB_BAF_B_Bergen_MTP_Radio_L_B", ["Radiobackpacks","Backpacks"]],
+["UK3CB_CW_SOV_O_EARLY_B_Radio", ["Radiobackpacks","Backpacks"]],
+["UK3CB_CW_SOV_O_LATE_B_Radio", ["Radiobackpacks","Backpacks"]],
+["UK3CB_CW_US_B_EARLY_B_Radio", ["Radiobackpacks","Backpacks"]],
+["UK3CB_CW_US_B_LATE_B_Radio", ["Radiobackpacks","Backpacks"]],
+
 ["ace_csw_m3CarryTripod", ["StaticWeaponParts","Items"]],
 ["ace_csw_m3CarryTripodLow", ["StaticWeaponParts","Items"]],
 ["ace_csw_kordCarryTripod", ["StaticWeaponParts","Items"]],
@@ -133,5 +167,3 @@ categoryOverrides = false call A3A_fnc_createNamespace;
 {
 	categoryOverrides setVariable [_x select 0, _x select 1];
 } forEach _categoryOverrideTable;
-
-

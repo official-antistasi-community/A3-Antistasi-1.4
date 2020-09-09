@@ -137,3 +137,83 @@ allCivilianGlasses deleteAt (allCivilianGlasses find "G_I_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_O_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_B_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "LIB_Glasses");
+
+//////////////////
+//   Radios   ///
+//////////////////
+//Removes Radios that are not useable and adds filtering for Sides.(TFAR)
+if (HasTFAR) then {
+allRadios deleteAt (allRadios find "ItemRadio");
+};
+allRadios deleteAt (allRadios find "tf_pnr1000a"); //Redfor 2K Radio
+allRadios deleteAt (allRadios find "tf_fadak"); //Redfor 5K Radio
+allRadios deleteAt (allRadios find "tf_rf7800str"); //Bluefor 2K Radio
+allRadios deleteAt (allRadios find "tf_anprc154"); //Greenfor 2K Radio
+if (teamPlayer isEqualTo west) then {
+allRadios deleteAt (allRadios find "tf_anprc148jem");
+} else {
+allRadios deleteAt (allRadios find "tf_anprc152");
+};
+
+//////////////////
+//   Radio-Backpacks   ///
+//////////////////
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_bussole");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_mr3000");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_mr3000_multicam");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_mr3000_bwmod");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_mr3000_bwmod_tropen");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_mr3000_rhs");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_mr6000l");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_bussole");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_mr6000l");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_bussole");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_mr6000l");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_bussole");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_B_O_Radio_Backpack");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_CW_SOV_O_EARLY_B_Radio");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_CW_SOV_O_LATE_B_Radio");
+if (teamPlayer isEqualTo west) then {
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_anprc155");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_anprc155_coyote");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_anarc164");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_B_I_Radio_Backpack");
+} else {
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_bwmod");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_rhs");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_big");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_big_bwmod");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_big_bwmod_tropen");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_big_rhs");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_sage");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_green");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_fabric");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_black");
+allRadiobackpacks deleteAt (allRadiobackpacks find "tf_anarc210");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_B_B_Radio_Backpack");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_BAF_B_Bergen_MTP_Radio_H_A");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_BAF_B_Bergen_MTP_Radio_H_B");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_BAF_B_Bergen_MTP_Radio_L_A");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_BAF_B_Bergen_MTP_Radio_L_B");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_CW_US_B_EARLY_B_Radio");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_CW_US_B_LATE_B_Radio");
+};
+
+//////////////////
+//   UAVTerminal   ///
+//////////////////
+//Removes Terminals that are not useable and adds filtering for Sides.
+allUAVTerminals deleteAt (allUAVTerminals find "O_UavTerminal"); //Redfor Terminal
+allUAVTerminals deleteAt (allUAVTerminals find "C_UavTerminal"); //Civilian
+allUAVTerminals deleteAt (allUAVTerminals find "I_E_UavTerminal"); //LDF Terminal
+if (teamPlayer isEqualTo west) then {
+allUAVTerminals deleteAt (allUAVTerminals find "I_UavTerminal");
+} else {
+allUAVTerminals deleteAt (allUAVTerminals find "B_UavTerminal");
+};
+
+//////////////////
+//   NVGs   ///
+//////////////////
+lootNVG deleteAt (lootNVG find "rhsusf_Rhino"); //Not NVG

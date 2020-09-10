@@ -97,7 +97,7 @@ _unit addEventHandler ["HandleDamage", {
 	[_unit, "remove"] remoteExec ["A3A_fnc_flagaction", [teamPlayer, civilian], _unit];
 	[_unit, side group _unit] spawn A3A_fnc_fleeToSide;
 	_unit removeEventHandler ["HandleDamage", _thisEventHandler];
-	_damage;
+	nil;
 }];
 
 // Add release/recruit/interrogate options

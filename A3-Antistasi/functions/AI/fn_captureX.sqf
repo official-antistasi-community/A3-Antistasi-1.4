@@ -70,13 +70,13 @@ _unit globalChat _response;
 
 [_unit, _fleeSide] remoteExec ["A3A_fnc_fleeToSide", _unit];
 
+private _group = group _unit;		// Group should be surrender-specific now
 sleep 100;
-if (alive _unit) then
+if (alive _unit && {!(_unit getVariable ["incapacitated", false])}) then
 {
 	[_modAggroOcc,_modAggroInv] remoteExec ["A3A_fnc_prestige",2];
 	if (_modHR) then { [1,0] remoteExec ["A3A_fnc_resourcesFIA",2] };
 };
 
-private _group = group _unit;		// Group should be surrender-specific now
 deleteVehicle _unit;
 deleteGroup _group;

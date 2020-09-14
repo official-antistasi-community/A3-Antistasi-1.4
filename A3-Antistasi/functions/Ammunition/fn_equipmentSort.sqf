@@ -178,6 +178,7 @@ allRadiobackpacks deleteAt (allRadiobackpacks find "tf_anprc155");
 allRadiobackpacks deleteAt (allRadiobackpacks find "tf_anprc155_coyote");
 allRadiobackpacks deleteAt (allRadiobackpacks find "tf_anarc164");
 allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_B_I_Radio_Backpack");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_B_B_Radio_Backpack"); //Remove Line when confirmed that Radios work again.
 } else {
 allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g");
 allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_bwmod");
@@ -192,6 +193,7 @@ allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_fabric");
 allRadiobackpacks deleteAt (allRadiobackpacks find "tf_rt1523g_black");
 allRadiobackpacks deleteAt (allRadiobackpacks find "tf_anarc210");
 allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_B_B_Radio_Backpack");
+allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_B_I_Radio_Backpack"); //Remove Line when confirmed that Radios work again.
 allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_BAF_B_Bergen_MTP_Radio_H_A");
 allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_BAF_B_Bergen_MTP_Radio_H_B");
 allRadiobackpacks deleteAt (allRadiobackpacks find "UK3CB_BAF_B_Bergen_MTP_Radio_L_A");

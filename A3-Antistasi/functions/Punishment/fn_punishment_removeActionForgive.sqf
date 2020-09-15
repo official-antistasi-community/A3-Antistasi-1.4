@@ -30,20 +30,8 @@ params [
 	["_reAdd",false]
 ];
 
-private _detainee = [_UID] call BIS_fnc_getUnitByUid;
-if (isPlayer _detainee) then {
-    private _actionsDetainee = actionIDs _detainee;
-    if !(isNil "_actionsDetainee" || {count _actionsDetainee isEqualTo 0}) then {
-        {
-            if (((_detainee actionParams _x) select 0) isEqualTo "Refresh Admin Action") then {
-                _detainee removeAction _x;
-            };
-        } forEach _actionsDetainee;
-    };
-};
-
 private _actionsSelf = actionIDs player;
-if !(isNil "_actionsSelf" || {count _actionsSelf == 0}) then {
+if !(isNil "_actionsSelf" || {count _actionsSelf == 0} || !([] call BIS_fnc_admin > 0 || isServer && hasInterface)) then { // Admin won't have action removed before being added again.
 	private _keyPairs = [ ["name","NO NAME"] ];
 	private _data_instigator = [_UID,_keyPairs] call A3A_fnc_punishment_dataGet;
 	_data_instigator params ["_name"];

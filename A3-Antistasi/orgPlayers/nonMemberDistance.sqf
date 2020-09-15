@@ -29,12 +29,12 @@ while {!([player] call A3A_fnc_isMember)} do
 		};
 	if (_countX != INITIAL_COUNT_TIME) then
 		{
-		["Member Distance", "You have to get closer to the HQ or the closest server member in %1 seconds. <br/><br/> After this timeout you will be teleported to your HQ"] call A3A_fnc_customHint;
+		["Member Distance", format ["You have to get closer to the HQ or the closest server member in %1 seconds. <br/><br/> After this timeout you will be teleported to your HQ", _countX]] call A3A_fnc_customHint;
 		sleep 1;
-		if (_countX == 0) then 
+		if (_countX == 0) then
 			{
 			private _possibleVehicle = vehicle player;
-			if (_possibleVehicle != player && (driver _possibleVehicle) == player) then 
+			if (_possibleVehicle != player && (driver _possibleVehicle) == player) then
 				{
 				[_possibleVehicle] call A3A_fnc_teleportVehicleToBase;
 				};

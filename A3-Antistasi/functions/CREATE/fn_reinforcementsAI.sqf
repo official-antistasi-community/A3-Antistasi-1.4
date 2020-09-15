@@ -1,3 +1,31 @@
+
+// Remove a random killzone if the aggression-based accumulator hits >1
+
+if (isNil "killZoneRemove") then {killZoneRemove = 0};
+killZoneRemove = killZoneRemove + 0.2 + 0.4 * (aggressionOccupants + aggressionInvaders) / 100;
+
+if (killZoneRemove >= 1) then
+{
+	// convert killzones into [base, target] array
+	private _allKillzones = [];
+	{
+		private _base = _x;
+		private _kzlist = killZones getVariable [_base, []];
+		{ _allKillzones pushBack [_base, _x] } forEach _kzlist;
+	} forEach (outposts + airportsX);
+
+	killZoneRemove = killZoneRemove - 1;
+	if (count _allKillzones == 0) exitWith {};
+
+	// Remove a random killzone entry from the real killzones
+	(selectRandom _allKillzones) params ["_base", "_target"];
+	private _kzlist = killZones getVariable [_base, []];
+	_kzlist deleteAt (_kzlist find _target);
+	killZones setVariable [_base, _kzlist, true];
+};
+
+// Handle the old reinforcements
+
 private ["_airportsX","_reinfPlaces","_airportX","_numberX","_numGarr","_numReal","_sideX","_potentials","_countX","_siteX","_positionX"];
 _airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] != teamPlayer) and (spawner getVariable _x == 2)};
 if (count _airportsX == 0) exitWith {};
@@ -26,7 +54,7 @@ _reinfPlaces = [];
 	//Self reinforce done
 
 	//Reinforce nearby sides
-	if ((_numberX >= 4) and (reinfPatrols <= 4)) then
+	if (_numberX >= 4) then
 	{
 		_potentials = (outposts + seaports - _reinfPlaces - (killZones getVariable [_airportX,[]])) select {sidesX getVariable [_x,sideUnknown] == _sideX};
 		if (_potentials isEqualTo []) then

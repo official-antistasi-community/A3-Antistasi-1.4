@@ -38,7 +38,7 @@ CSATPlayerLoadouts = [
 ];
 
 //PVP Player Vehicles
-vehCSATPVP = ["O_MRAP_02_F","O_LSV_02_unarmed_F","O_MRAP_02_hmg_F","O_LSV_02_armed_F"];
+vehCSATPVP = ["O_MRAP_02_F","O_MRAP_02_hmg_F"];
 
 ////////////////////////////////////
 //             UNITS             ///
@@ -78,8 +78,8 @@ groupsCSATSquad =
 	[
 	CSATSquad,
 	["O_Soldier_SL_F","O_Soldier_AR_F","O_Soldier_GL_F","O_soldier_M_F","O_Soldier_AT_F","O_Soldier_AAT_F","O_Soldier_A_F","O_medic_F"],
-	["O_Soldier_SL_F","O_Soldier_LAT_F","O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_A_F","O_support_Mort_F","O_support_AMort_F","O_medic_F"],
-	["O_Soldier_SL_F","O_Soldier_LAT_F","O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_A_F","O_support_MG_F","O_support_AMG_F","O_medic_F"],
+	["O_Soldier_SL_F","O_Soldier_LAT_F","O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_A_F","O_Soldier_LAT_F","O_Soldier_LAT_F","O_medic_F"],
+	["O_Soldier_SL_F","O_Soldier_LAT_F","O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_A_F","O_Soldier_LAT_F","O_Soldier_LAT_F","O_medic_F"],
 	["O_Soldier_SL_F","O_Soldier_LAT_F","O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_A_F","O_Soldier_AA_F","O_Soldier_AAA_F","O_medic_F"],
 	["O_Soldier_SL_F","O_Soldier_LAT_F","O_Soldier_TL_F","O_Soldier_AR_F","O_Soldier_A_F","O_engineer_F","O_engineer_F","O_medic_F"]
 	];
@@ -116,8 +116,8 @@ if (gameMode == 4) then
 //Military Vehicles
 //Lite
 vehCSATBike = "O_Quadbike_01_F";
-vehCSATLightArmed = ["O_MRAP_02_hmg_F","O_MRAP_02_gmg_F","O_LSV_02_armed_F"];
-vehCSATLightUnarmed = ["O_MRAP_02_F","O_LSV_02_unarmed_F"];
+vehCSATLightArmed = ["O_MRAP_02_hmg_F","O_MRAP_02_gmg_F"];
+vehCSATLightUnarmed = ["O_MRAP_02_F"];
 vehCSATTrucks = ["O_Truck_03_transport_F","O_Truck_03_covered_F"];
 vehCSATAmmoTruck = "O_Truck_03_ammo_F";
 vehCSATRepairTruck = "O_Truck_03_repair_F";

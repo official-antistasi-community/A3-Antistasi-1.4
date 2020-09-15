@@ -55,7 +55,6 @@ private _disconnectedCleanUp = {
 	true;
 };
 
-[_UID] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false];
 [_UID] remoteExec ["A3A_fnc_punishment_notifyAdmin",0,false];
 
 private _sentenceEndTime_old = _sentenceEndTime;
@@ -64,8 +63,13 @@ private _detainee = _UID call BIS_fnc_getUnitByUid;
 
 _keyPairs = [ ["sentenceEndTime",floor serverTime] ];
 while {(ceil serverTime) < _sentenceEndTime-1} do { // ceil and -1 if something doesn't sync up
-	_countX = _sentenceEndTime - (floor serverTime);
 	if (!isPlayer _detainee) exitWith {call _disconnectedCleanUp};
+	if ((admin owner _detainee > 0) || player isEqualTo _detainee) exitWith { // If local host, the server is the admin.
+		_sentenceEndTime = 0;
+		[_UID,"forgive"] call A3A_fnc_punishment_release;
+	};
+	[_UID] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false]; // Refreshes in case the admin logged in.
+	_countX = _sentenceEndTime - (floor serverTime);
 	[_UID,_countX] remoteExec ["A3A_fnc_punishment_sentence_client",_detainee,false];
 	[_UID,"add"] call A3A_fnc_punishment_oceanGulag;
 	uiSleep 5;

@@ -1,7 +1,7 @@
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
-nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
+nameTeamPlayer = "SDK";
 SDKFlag = "Flag_Syndikat_F";
 SDKFlagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
 typePetros = "I_C_Soldier_Camo_F";
@@ -102,6 +102,8 @@ initialRebelEquipment append ["10Rnd_9x21_Mag","16Rnd_9x21_Mag","30Rnd_9x21_Mag_
 initialRebelEquipment append ["B_FieldPack_blk","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_oli","B_FieldPack_ghex_F"];
 initialRebelEquipment append ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_ghex","V_BandollierB_rgr","V_BandollierB_oli","V_Rangemaster_belt","V_TacChestrig_cbr_F","V_TacChestrig_oli_F","V_TacChestrig_grn_F"];
 initialRebelEquipment append ["Binocular","acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
+//Greenfor uniforms
+allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader","U_IG_Guerrilla_6_1"];
 //TFAR unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_anprc155"};

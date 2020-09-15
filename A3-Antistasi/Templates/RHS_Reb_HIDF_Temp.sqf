@@ -4,7 +4,7 @@
 nameTeamPlayer = "Rebels";
 SDKFlag = "Flag_FIA_F";
 SDKFlagTexture = "\A3\Data_F\Flags\Flag_FIA_CO.paa";
-typePetros = "rhsgref_cdf_b_reg_general";
+typePetros = "rhsgref_hidf_teamleader";
 
 ////////////////////////////////////
 //             UNITS             ///
@@ -12,15 +12,15 @@ typePetros = "rhsgref_cdf_b_reg_general";
 //First Entry is Guerilla, Second Entry is Para/Military
 staticCrewTeamPlayer = "B_G_Soldier_unarmed_F";
 SDKUnarmed = "B_G_Survivor_F";
-SDKSniper = ["rhsgref_cdf_b_reg_marksman","rhsgref_hidf_marksman"];
-SDKATman = ["rhsgref_cdf_b_ngd_grenadier_rpg","rhsgref_cdf_b_reg_grenadier_rpg"];
-SDKMedic = ["rhsgref_cdf_b_ngd_medic","rhsgref_cdf_b_para_medic"];
-SDKMG = ["rhsgref_cdf_b_ngd_machinegunner","rhsgref_cdf_b_reg_machinegunner"];
-SDKExp = ["rhsgref_cdf_b_ngd_engineer","rhsgref_cdf_b_reg_engineer"];
-SDKGL = ["rhsgref_cdf_b_ngd_grenadier","rhsgref_cdf_b_reg_grenadier"];
-SDKMil = ["rhsgref_cdf_b_ngd_rifleman_lite","rhsgref_cdf_b_para_rifleman_lite"];
-SDKSL = ["rhsgref_cdf_b_ngd_squadleader","rhsgref_cdf_b_reg_squadleader"];
-SDKEng = ["rhsgref_cdf_b_ngd_engineer","rhsgref_cdf_b_reg_engineer"];
+SDKSniper = ["rhsgref_hidf_marksman","rhsgref_hidf_sniper"];
+SDKATman = ["rhsgref_hidf_rifleman_m72","rhsgref_hidf_rifleman_m72"];
+SDKMedic = ["rhsgref_hidf_medic","rhsgref_hidf_medic"];
+SDKMG = ["rhsgref_hidf_autorifleman","rhsgref_hidf_machinegunner"];
+SDKExp = ["B_G_Soldier_exp_F","B_G_Soldier_exp_F"];
+SDKGL = ["rhsgref_hidf_grenadier","rhsgref_hidf_grenadier_m79"];
+SDKMil = ["rhsgref_hidf_rifleman","rhsgref_hidf_rifleman"];
+SDKSL = ["rhsgref_hidf_teamleader","rhsgref_hidf_squadleader"];
+SDKEng = ["B_G_engineer_F","B_G_engineer_F"];
 
 ////////////////////////////////////
 //            GROUPS             ///
@@ -44,12 +44,12 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 ////////////////////////////////////
 //Military Vehicles
 vehSDKBike = "B_G_Quadbike_01_F";
-vehSDKLightArmed = "rhsgref_cdf_b_reg_uaz_dshkm";
-vehSDKAT = "rhsgref_cdf_b_reg_uaz_spg9";
-vehSDKLightUnarmed = "rhsgref_cdf_b_reg_uaz_open";
+vehSDKLightArmed = "B_G_Offroad_01_armed_F";
+vehSDKAT = "B_G_Offroad_01_AT_F";
+vehSDKLightUnarmed = "rhsgref_hidf_M998_2dr_fulltop";
 vehSDKTruck = "rhsgref_cdf_b_ural_open";
 //vehSDKHeli = "I_C_Heli_Light_01_civil_F";
-vehSDKPlane = "RHS_AN2_B";
+vehSDKPlane = "rhsgred_hidf_cessna_o3a";
 vehSDKBoat = "B_G_Boat_Transport_01_F";
 vehSDKRepair = "rhsgref_cdf_b_ural_repair";
 
@@ -63,7 +63,7 @@ civBoat = "C_Boat_Transport_02_F";
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled Static Weapons
-SDKMGStatic = "rhsgref_cdf_b_DSHKM";
+SDKMGStatic = "rhsgref_hidf_m2_static";
 staticATteamPlayer = "rhsgref_cdf_b_SPG9";
 staticAAteamPlayer = "rhsgref_cdf_b_ZU23";
 SDKMortar = "rhsgref_cdf_b_reg_M252";
@@ -71,14 +71,14 @@ SDKMortarHEMag = "rhs_12Rnd_m821_HE";
 SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
 
 //Static Weapon Bags
-MGStaticSDKB = "RHS_DShkM_Gun_Bag";
+MGStaticSDKB = "RHS_M2_Gun_Bag";
 ATStaticSDKB = "RHS_SPG9_Gun_Bag";
 AAStaticSDKB = "no_exists";
 MortStaticSDKB = "rhs_M252_Gun_Bag";
 //Short Support
 supportStaticSDKB = "RHS_SPG9_Tripod_Bag";
 //Tall Support
-supportStaticsSDKB2 = "RHS_DShkM_TripodHigh_Bag";
+supportStaticsSDKB2 = "RHS_M2_Tripod_Bag";
 //Mortar Support
 supportStaticsSDKB3 = "rhs_M252_Bipod_Bag";
 

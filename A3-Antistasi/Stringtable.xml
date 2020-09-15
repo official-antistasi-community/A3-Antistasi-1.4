@@ -506,7 +506,7 @@
         <Czech>Staňte se vůdcem odboje, buďte hrdinou.</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_version_text">
-        <Original>2.3</Original>
+        <Original>2.3.1</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">

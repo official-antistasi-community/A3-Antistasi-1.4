@@ -86,9 +86,14 @@ private _gotoExemption = {
     [2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
     _exemptionDetails;
 };
-private _logPvPKill = {
+private _logPvPHurt = {
     if (!(_victim isKindOf "Man")) exitWith {};
-    private _killStats = format ["PVPKILL | PvP %1 [%2]%3", name _instigator, getPlayerUID _instigator, _victimStats];
+    private _killStats = format ["PVPHURT | Rebel %1 [%2]%3", name _instigator, getPlayerUID _instigator, _victimStats];
+    [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
+};
+private _logPvPAttack = {
+    if (!(_victim isKindOf "Man")) exitWith {};
+    private _killStats = format ["PVPATTACK | PvP %1 [%2]%3", name _instigator, getPlayerUID _instigator, _victimStats];
     [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
 };
 
@@ -99,7 +104,8 @@ private _exemption = switch (true) do {
     case (!hasInterface):                              {"FF BY SERVER/HC"};
     case (!(player isEqualTo _instigator)):            {"NOT EXEC ON INSTIGATOR"}; // Must be local for 'BIS_fnc_admin'
     case (_victim isEqualTo _instigator):              {"SUICIDE"}; // Local AI victims will be different.
-    case (side _instigator in [Invaders, Occupants]):  {call _logPvPKill; "NOT REBEL"};
+    case (_victim getVariable ["pvp",false]):          {call _logPvPHurt; "VICTIM NOT REBEL"};
+    case (_instigator getVariable ["pvp",false]):      {call _logPvPAttack; "INSTIGATOR NOT REBEL"};
     default                                            {""};
 };
 

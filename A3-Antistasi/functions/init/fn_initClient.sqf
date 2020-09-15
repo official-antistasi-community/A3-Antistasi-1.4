@@ -21,21 +21,24 @@ if (!isServer) then {
 	};
 };
 
-if (hasInterface) then {
-	waitUntil {!isNull player};
-	waitUntil {player == player};
-	//Disable player saving until they're fully ready, and have chosen whether to load their save.
-	player setVariable ["canSave", false, true];
+// Headless clients install some support functions, register with the server and bail out
+if (!hasInterface) exitWith {
+	call A3A_fnc_initFuncs;
+	call A3A_fnc_initVar;
+	call A3A_fnc_loadNavGrid;
+	[2,format ["Headless client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
+	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 };
+
+
+waitUntil {!isNull player};
+waitUntil {player == player};
+//Disable player saving until they're fully ready, and have chosen whether to load their save.
+player setVariable ["canSave", false, true];
 
 if (!isServer) then {
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
-	if (!hasInterface) exitWith {
-		[2,format ["Headless client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
-		call A3A_fnc_loadNavGrid;
-		[clientOwner] remoteExec ["A3A_fnc_addHC",2];
-	};
 	[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 }
 else {
@@ -111,6 +114,7 @@ if (isMultiplayer && {playerMarkersEnabled}) then {
 };
 
 [player] spawn A3A_fnc_initRevive;		// with ACE medical, only used for helmet popping & TK checks
+[] spawn A3A_fnc_outOfBounds;
 
 if (!hasACE) then {
 	[] spawn A3A_fnc_tags;
@@ -530,6 +534,7 @@ player setPos (getMarkerPos respawnTeamPlayer);
 enableEnvironment [false, true];
 
 [2,"initClient completed",_fileName] call A3A_fnc_log;
+enableDismissibleHints = true; // Was false in initVarCommon to allow hints to flow in and overwrite each other.
 
 if(!isMultiplayer) then
 {

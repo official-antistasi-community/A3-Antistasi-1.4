@@ -10,8 +10,8 @@ class Params
      class gameMode
      {
           title = "Game Mode - Do NOT change this mid mission";
-          values[] = {1,2,3,4};
-          texts[] = {"Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov","Reb vs Inv"};
+          values[] = {1,2,3};
+          texts[] = {"Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov"};
           default = 1;
      };
      class autoSave

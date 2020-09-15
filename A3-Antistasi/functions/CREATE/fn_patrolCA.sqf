@@ -200,6 +200,7 @@ if (_typeOfAttack == "") then
 
 // Determine vehicle count from aggression & attack type
 private _aggro = if(_sideX == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+if (_isMarker && {sidesX getVariable [_target, sideUnknown] != teamPlayer}) then {_aggro = 100 - _aggro;};
 private _vehicleCount = 0.5 + random (1.5) + _aggro/33;
 
 if (_super) then { _vehicleCount = _vehicleCount + 2 };

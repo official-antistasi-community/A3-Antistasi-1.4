@@ -104,6 +104,8 @@ private _categoryOverrideTable = [
 ["ACE_Kestrel4500", ["Gadgets","Items"]],
 ["ACE_ATragMX", ["Gadgets","Items"]],
 ["ACE_HuntIR_monitor", ["Gadgets","Items"]],
+["ACE_microDAGR", ["Gadgets","Items"]],
+["ACE_DAGR", ["Gadgets","Items"]],
 
 ["LIB_PTRD", ["Unknown", "Weapons"]],
 ["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs

@@ -7,7 +7,15 @@ if(isNil "_type") then {
 	if (leader group Petros != Petros) then {breakOut "Main"};
 	private _types = ["AS","CON","DES","LOG","RES","CONVOY"];
 	_type = selectRandom (_types select {!([_x] call BIS_fnc_taskExists)});
+	if (isNil "_type") then {breakOut "Main"}; //you have all the mission types
 	_autoSelect = true;
+};
+//if the boss is nil/null wait til it is and then request again, loading stats restores active missions, maybe this is causing errors?
+if ((isNil "theBoss") || (theBoss isEqualTo objNull)) exitWith {
+	_this spawn {
+		waitUntil {!((isNil "theBoss") || (theBoss isEqualTo objNull))};
+		_this call A3A_fnc_missionRequest;
+	};
 };
 if ([_type] call BIS_fnc_taskExists) exitWith {if (!_autoSelect) then {[petros,"globalChat","I already gave you a mission of this type"] remoteExec ["A3A_fnc_commsMP",theBoss]}};
 

@@ -309,7 +309,7 @@ if (_varName in _specialVarLoads) then {
 				if (_x == "DEF_HQ") then {
 					[] spawn A3A_fnc_attackHQ;
 				} else {
-					[_x,true] call A3A_fnc_missionRequest;
+					[_x,clientOwner,true] call A3A_fnc_missionRequest;
 				};
 			};
 		} forEach _varvalue;

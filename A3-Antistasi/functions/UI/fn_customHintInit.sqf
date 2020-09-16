@@ -4,19 +4,21 @@ Function:
 
 Description:
    Adds EH to detect key/mouse presses to hide hints.
+   Defines many important variables for customHintXXX and shader_ratioToHex.
+   Starts loops for key detection/hint rendering.
    Setting A3A_customHintEnable to false executes will allow it to use the simpler fall-back system.
 
 Scope:
-    <LOCAL> Execute on each player ONCE necessary EHs and variables.
+    <LOCAL> Execute on each player ONCE to add necessary EHs and variables.
 
 Environment:
     <ANY>
 
 Returns:
-    <BOOLEAN> true if successful; false if already initialised; nil if it has crashed.
+    <BOOLEAN> true if successful; false if already initialised/server/HC; nil if it has crashed.
 
 Examples:
-    [] call A3A_fnc_customHintInit; // Adds dismiss key EH to local player.
+    [] call A3A_fnc_customHintInit;
 
 Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
@@ -30,20 +32,17 @@ if !(isNil {A3A_customHint_InitComplete}) exitWith {false;};
 A3A_customHint_Queue = [];
 A3A_customHint_DismissKeyDown = false;
 A3A_customHint_LastDismiss = 0;
+A3A_customHint_CanRender = false;
 if (isNil {A3A_customHintEnable}) then {A3A_customHintEnable = true}; // isNil check in case value was set before this initialises.
 
 A3A_customHint_hexChars = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
-A3A_customHint_PercentToHex = {
-    private _percent = 255 * (0 max (_this#0 min 1));
-    [A3A_customHint_hexChars#(floor (_percent/16)), A3A_customHint_hexChars#(floor (_percent%16))] joinString "";
-};
 
 private _renderLoop = [
     "A3A_fnc_customHintInit/_renderLoop",
     A3A_fnc_customHintRender,
     15,
     "frames",
-    {A3A_customHintEnable},
+    {A3A_customHint_CanRender},
     {false},
     false
 ];

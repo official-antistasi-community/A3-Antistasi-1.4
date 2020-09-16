@@ -75,6 +75,7 @@ if (A3A_customHintEnable) then {
         A3A_customHint_Queue set [_index,[_headerText,_structuredText,_isSilent]];
     };
     if (A3A_customHint_Queue #0#0 isEqualTo _headerText) then {A3A_customHint_LastDismiss = serverTime;};
+    A3A_customHint_CanRender = true;
 } else {
     if (_isSilent) then {
         hintSilent _structuredText;

@@ -28,6 +28,7 @@ if (!hasInterface || !A3A_customHintEnable) exitWith {false;}; // Disabled for s
 
 if (count A3A_customHint_Queue isEqualTo 0) then {
     hintSilent "";
+    A3A_customHint_CanRender = false;
 } else{
     private _autoDismiss = 15; // seconds
     if (serverTime - A3A_customHint_LastDismiss > _autoDismiss) exitWith {
@@ -47,7 +48,6 @@ if (count A3A_customHint_Queue isEqualTo 0) then {
     };
 };
 true;
-
 
 // Arma 3 Apex #218a36 // BIS Website Differs incorrectly from in-game
 // Arma 3 #c48214

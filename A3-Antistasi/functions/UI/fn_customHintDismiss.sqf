@@ -16,7 +16,7 @@ Parameters:
     <BOOLEAN> true to empty whole queue. [DEFAULT=false]
 
 Returns:
-    <BOOLEAN> true if hint(s) dequeued; false if A3A_customHintQueue is empty; nil if it has crashed.
+    <BOOLEAN> true if executed successfully; false if A3A_customHintEnable is false; nil if it has crashed.
 
 Examples:
     call A3A_fnc_customHintDismiss;
@@ -30,12 +30,12 @@ private _filename = "fn_customHintDismiss.sqf";
 
 if (!hasInterface || !A3A_customHintEnable) exitWith {false;}; // Disabled for server & HC.
 if (_dismissAll) then {
-    A3A_customHintQueue = [];
+    A3A_customHint_Queue = [];
 } else {
-    if !(count A3A_customHintQueue isEqualTo 0) then {
-        A3A_customHintQueue deleteAt 0
+    if !(count A3A_customHint_Queue isEqualTo 0) then {
+        A3A_customHint_Queue deleteAt 0
     }
 };
-[] call A3A_fnc_customHintRender;
-
+A3A_customHint_LastDismiss = serverTime;
+[] call A3A_fnc_customHintRender;  // Instant update will be preffered when user is dismissing notifications.
 true;

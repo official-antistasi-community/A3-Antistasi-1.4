@@ -529,6 +529,7 @@ class A3A
 		class customHintDismiss {};
 		class customHintInit {};
 		class customHintRender {};
+		class shader_ratioToHex {};
 	};
 
 	class Undercover

@@ -534,7 +534,7 @@ player setPos (getMarkerPos respawnTeamPlayer);
 enableEnvironment [false, true];
 
 [2,"initClient completed",_fileName] call A3A_fnc_log;
-enableDismissibleHints = true; // Was false in initVarCommon to allow hints to flow in and overwrite each other.
+A3A_customHintEnable = true; // Was false in initVarCommon to allow hints to flow in and overwrite each other.
 
 if(!isMultiplayer) then
 {

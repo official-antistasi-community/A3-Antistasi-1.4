@@ -6,13 +6,13 @@ Description:
     Adds item to notification queue.
     Pre-parse body text to take control of the whole notification (except footer).
     Note: you don't need pre-parse for custom heading/body XML, just insert where plain text would go.
-    Set enableDismissibleHints=false to use original custom hint.
+    Set A3A_customHintEnable=false to use original custom hint.
 
 Scope:
     <LOCAL> Execute on each player to add a global notification.
 
 Environment:
-    <UNSCHEDULED> Simultaneous modification may cause trampling of items in A3A_NotifQueue.
+    <UNSCHEDULED> Simultaneous modification may cause trampling of items in A3A_customHintQueue.
 
 Parameters:
     <STRING> Heading of your notification.
@@ -50,6 +50,7 @@ params [
 private _filename = "fn_customHint.sqf";
 
 if (!hasInterface) exitWith {false;}; // Disabled for server & HC.
+if (isNil {A3A_customHintInitComplete}) then { [] call A3A_fnc_customHintInit; };
 
 private _structuredText = parseText"";
 if (_bodyText isEqualType parseText"") then {
@@ -66,14 +67,14 @@ if (_bodyText isEqualType parseText"") then {
     ] joinString "");
 }; //
 
-if (enableDismissibleHints) then {
-    private _index = A3A_NotifQueue findIf {(_x #0) isEqualTo _headerText}; // Temporary solution until an programming-interface is added for counters and timers.
+if (A3A_customHintEnable) then {
+    private _index = A3A_customHintQueue findIf {(_x #0) isEqualTo _headerText}; // Temporary solution until an programming-interface is added for counters and timers.
     if (_index isEqualTo -1) then {
-        A3A_NotifQueue pushBack [_headerText,_structuredText,_isSilent];
+        A3A_customHintQueue pushBack [_headerText,_structuredText,_isSilent];
     } else {
-        A3A_NotifQueue set [_index,[_headerText,_structuredText,_isSilent]];
+        A3A_customHintQueue set [_index,[_headerText,_structuredText,_isSilent]];
     };
-    [] call A3A_fnc_renderHint; // Allows immediate display of new hint without waiting for loop.
+    [] call A3A_fnc_customHintRender; // Allows immediate display of new hint without waiting for loop.
 } else {
     if (_isSilent) then {
         hintSilent _structuredText;

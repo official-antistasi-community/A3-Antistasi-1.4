@@ -526,8 +526,9 @@ class A3A
 	class UI
 	{
 		class customHint {};
-		class dismissHint {};
-		class renderHint {};
+		class customHintDismiss {};
+		class customHintInit {};
+		class customHintRender {};
 	};
 
 	class Undercover

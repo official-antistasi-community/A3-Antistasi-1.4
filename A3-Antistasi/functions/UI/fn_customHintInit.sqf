@@ -48,39 +48,12 @@ private _renderLoop = [
 ];
 ["itemAdd", _renderLoop] call BIS_fnc_loop;
 
-private _keyUpCheck = [  // Yes, uber sketch, but BI left us no choice because inputAction "User12" is still above zero when keyUp is invoked!
-    "A3A_fnc_customHintInit/_keyUpCheck",
-    {
-        if (inputAction "User12" isEqualTo 0) then {
-            A3A_customHint_DismissKeyDown = false;
-        };
-    },
-    5,
-    "frames",
-    {A3A_customHint_DismissKeyDown},
-    {false},
-    false
-];
-["itemAdd", _keyUpCheck] call BIS_fnc_loop;
-
-[] spawn {  // Is not mission critical to customHint processes. Only delays availability of manual dismiss by some milliseconds.
-    private _onKeyDown = {
-        if (!A3A_customHint_DismissKeyDown && {!(inputAction "User12" isEqualTo 0)}) then {
-            A3A_customHint_DismissKeyDown = true;
-            [] call A3A_fnc_customHintDismiss;
-        };
-        false;
+addMissionEventHandler ["EachFrame", {
+    if ((inputAction "User12" isEqualTo 0) isEqualTo A3A_customHint_DismissKeyDown) then {  // This is probably the fastest edge/Xor & key-down detector you can get. ~0.0034ms total execution time on non-edges (`inputAction "User12"` alone uses ~0.0017ms)(The case most of the time when key-state is not changing.).
+        A3A_customHint_DismissKeyDown = !A3A_customHint_DismissKeyDown;                     // user action slot Will be selectable when client-side preferences, Soon™.
+        if (A3A_customHint_DismissKeyDown) then { [] call A3A_fnc_customHintDismiss; };
     };
-    waitUntil {!isNull (findDisplay 46)};
-    private _UIDisplay = findDisplay 46;
-    _UIDisplay displayAddEventHandler ["KeyDown", _onKeyDown];
-    _UIDisplay displayAddEventHandler ["MouseButtonDown", _onKeyDown];
-};
+}];
 
 A3A_customHint_InitComplete = true;
 true;
-// Keyboard Params: params ["_displayorcontrol", "_key", "_shift", "_ctrl", "_alt"];
-// Mouse Params: params ["_displayorcontrol", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
-
-// https://community.bistudio.com/wiki/User_Interface_Event_Handlers
-// user action slot Will be selectable when client-side preferences, Soon™.

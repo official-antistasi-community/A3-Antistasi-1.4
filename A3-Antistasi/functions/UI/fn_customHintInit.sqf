@@ -62,21 +62,23 @@ private _keyUpCheck = [  // Yes, uber sketch, but BI left us no choice because i
     false
 ];
 ["itemAdd", _keyUpCheck] call BIS_fnc_loop;
-A3A_customHint_InitComplete = true;
 
-private _onKeyDown = {
-    if (!A3A_customHint_DismissKeyDown && {!(inputAction "User12" isEqualTo 0)}) then {
-        A3A_customHint_DismissKeyDown = true;
-        [] call A3A_fnc_customHintDismiss;
+[] spawn {  // Is not mission critical to customHint processes. Only delays availability of manual dismiss by some milliseconds.
+    private _onKeyDown = {
+        if (!A3A_customHint_DismissKeyDown && {!(inputAction "User12" isEqualTo 0)}) then {
+            A3A_customHint_DismissKeyDown = true;
+            [] call A3A_fnc_customHintDismiss;
+        };
+        false;
     };
-    false;
+    waitUntil {!isNull (findDisplay 46)};
+    private _UIDisplay = findDisplay 46;
+    _UIDisplay displayAddEventHandler ["KeyDown", _onKeyDown];
+    _UIDisplay displayAddEventHandler ["MouseButtonDown", _onKeyDown];
 };
-waitUntil {!isNull (findDisplay 46)};
-private _UIDisplay = findDisplay 46;
-_UIDisplay displayAddEventHandler ["KeyDown", _onKeyDown];
-_UIDisplay displayAddEventHandler ["MouseButtonDown", _onKeyDown];
-true;
 
+A3A_customHint_InitComplete = true;
+true;
 // Keyboard Params: params ["_displayorcontrol", "_key", "_shift", "_ctrl", "_alt"];
 // Mouse Params: params ["_displayorcontrol", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
 

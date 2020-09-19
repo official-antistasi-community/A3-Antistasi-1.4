@@ -8,11 +8,16 @@ lootBasicItem append allMaps + allToolkits + allWatches + allCompasses + allMedi
 /////////////////
 lootNVG append allNVGs;
 
+allNVGs deleteAt (allNVGs find "rhsusf_Rhino"); //Not NVG
 /////////////////////
 // Assigned Items ///
 /////////////////////
 lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG + allGadgets;
 
+//"Blank" Radios dont make sense due to always Converting so no Unlocking (With TFAR)
+if (hasTFAR) then {
+lootItem deleteAt (lootItem find "ItemRadio");
+};
 ////////////////////
 //    Weapons    ///
 ////////////////////
@@ -69,7 +74,7 @@ switch (teamPlayer) do {
      case independent: {_lootDeviceBag append rebelBackpackDevice};
      default {_lootDeviceBag append occupantBackpackDevice};
 };
-lootDevice append _lootDeviceBag + allRadiobackpacks;
+lootDevice append _lootDeviceBag + allBackpackRadio;
 
 ////////////////////////////////////
 //      REBEL STARTING ITEMS     ///

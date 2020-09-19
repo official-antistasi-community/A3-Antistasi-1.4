@@ -161,7 +161,7 @@ if (_medicX getVariable ["success",true]) then
     _sideX = side (group _cured);
     if ((_sideX != side (group _medicX)) and ((_sideX == Occupants) or (_sideX == Invaders))) then
         {
-        _cured setVariable ["surrendered",true,true];
+        _cured setVariable ["surrendering",true,true];
         sleep 2;
         };
     _cured setVariable ["incapacitated",false,true];

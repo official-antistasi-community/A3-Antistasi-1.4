@@ -219,7 +219,6 @@ private _crew = crew _vehicle;
     if(alive _x) then
     {
         moveOut _x;
-        _x setVariable ["surrendered",true,true];
         [_x] remoteExec ["A3A_fnc_surrenderAction", _x];		// execute local to crewman
     }
     else

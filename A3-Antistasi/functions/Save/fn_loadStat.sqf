@@ -297,12 +297,19 @@ if (_varName in _specialVarLoads) then {
 	if (_varname == 'tasks') then {
 		{
 			if (_x == "rebelAttack") then {
-				[] call A3A_fnc_rebelAttack;
+                if(attackCountdownInvaders > attackCountdownOccupants) then
+                {
+                    [Invaders] spawn A3A_fnc_rebelAttack;
+                }
+                else
+                {
+                    [Occupants] spawn A3A_fnc_rebelAttack;
+                };
 			} else {
 				if (_x == "DEF_HQ") then {
 					[] spawn A3A_fnc_attackHQ;
 				} else {
-					[_x,true] call A3A_fnc_missionRequest;
+					[_x,clientOwner,true] call A3A_fnc_missionRequest;
 				};
 			};
 		} forEach _varvalue;

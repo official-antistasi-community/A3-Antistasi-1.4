@@ -227,6 +227,8 @@ _veh addEventHandler ["Dammaged", {
 	};
 }];
 
+//add JNL loading to quadbikes
+if(!hasIFA && typeOf _veh in [vehSDKBike,vehNATOBike,vehCSATBike]) then {_veh call jn_fnc_logistics_addAction;};
 
 // deletes vehicle if it exploded on spawn...
 [_veh] spawn A3A_fnc_cleanserVeh;

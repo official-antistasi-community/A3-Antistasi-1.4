@@ -11,7 +11,7 @@ lootNVG append allNVGs;
 /////////////////////
 // Assigned Items ///
 /////////////////////
-lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG;
+lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG + allGadgets;
 
 ////////////////////
 //    Weapons    ///

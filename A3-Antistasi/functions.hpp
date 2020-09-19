@@ -140,6 +140,7 @@ class A3A
 		class entriesLand {};
 		class fastrope {};
 		class findSafeRoadToUnload {};
+		class fleeToSide {};
 		class guardDog {};
 		class hasRadio {};
 		class help {};
@@ -183,7 +184,6 @@ class A3A
 		class findAirportForAirstrike {};
 		class followVehicle {};
 		class onConvoyArrival {};
-		class onSpawnedArrival {};
 		class roadblockFight {};
 		class selectAndCreateVehicle {};
 		class spawnConvoy {};
@@ -526,8 +526,10 @@ class A3A
 	class UI
 	{
 		class customHint {};
-		class dismissHint {};
-		class renderHint {};
+		class customHintDismiss {};
+		class customHintInit {};
+		class customHintRender {};
+		class shader_ratioToHex {};
 	};
 
 	class Undercover

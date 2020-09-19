@@ -1,48 +1,49 @@
 private _filename = "fn_surrenderAction";
 params ["_unit"];
 
+if !(local _unit) exitWith {
+	[1, "Function miscalled with non-local unit", _filename] call A3A_fnc_log;
+	[_unit] remoteExec ["A3A_fnc_surrenderAction", _unit];
+};
+
+if (_unit getVariable ["surrendered", false]) exitWith {};
+_unit setVariable ["surrendered", true, true];
+
 if (typeOf _unit == "Fin_random_F") exitWith {};		// dogs do not surrender?
 
-// ACE sometimes calls the wakeup handler when units die
-// Safe code to prevent unit doing anything until we check that they're alive
+if (!alive _unit) exitWith {};							// Used to happen with ACE, seems to be fixed
+if (lifeState _unit == "INCAPACITATED") exitWith {
+	[2, "Unit attempted to surrender while incapacitated", _filename] call A3A_fnc_log;		// If not rare, probably a sync bug
+	_unit setVariable ["surrendered", false, true];
+};
+
+private _unitSide = side group _unit;
+_unit allowDamage false;		// give players a couple of seconds to stop shooting
+_unit setCaptive true;
 _unit stop true;
 _unit disableAI "MOVE";
 _unit disableAI "AUTOTARGET";
 _unit disableAI "TARGET";
 _unit disableAI "ANIM";
-//_unit disableAI "FSM";
 _unit setSkill 0;
-_unit setVariable ["surrendered", true, true];			// usually set by caller, just making sure
-
-//Make sure to pass group lead if unit is the leader
-if (_unit == leader (group _unit)) then
-{
-    private _index = (units (group _unit)) findIf {[_x] call A3A_fnc_canFight};
-    if(_index != -1) then
-    {
-        (group _unit) selectLeader ((units (group _unit)) select _index);
-    };
-};
-// make sure that the unit is actually alive & conscious before we start creating boxes
-sleep 3;
-if (!alive _unit) exitWith {};
-if (lifeState _unit == "INCAPACITATED") exitWith {};
-[_unit,true] remoteExec ["setCaptive",0,_unit];
-_unit setCaptive true;
-
-_unit allowDamage false;
 unassignVehicle _unit;			// stop them getting back into vehicles
 [_unit] orderGetin false;
 _unit setUnitPos "UP";
 _unit playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";		// hands up?
 _unit setSpeaker "NoVoice";
-_unit addEventHandler ["HandleDamage",
-	{
-	_unit = _this select 0;
-	_unit enableAI "ANIM";
-	if (!simulationEnabled _unit) then {if (isMultiplayer) then {[_unit,true] remoteExec ["enableSimulationGlobal",2]} else {_unit enableSimulation true}};
-	}
-	];
+
+// prevent surrendered units from spawning garrisons
+if (_unit getVariable ["spawner", false]) then { _unit setVariable ["spawner", nil, true] };
+
+// find or create suitable group for surrendered unit
+private _grpIdx = allGroups findIf { local _x && (side _x == _unitSide) && {_x getVariable ["surrenderGroup", false]} };
+if (_grpIdx == -1) then {
+	private _grp = createGroup _unitSide;
+	_grp setVariable ["surrenderGroup", true, true];
+	[_unit] joinSilent _grp;
+} else {
+	[_unit] joinSilent (allGroups select _grpIdx);
+};
 
 // create surrender box
 private _boxX = "Box_IND_Wps_F" createVehicle position _unit;
@@ -72,36 +73,32 @@ if (_backpack != "") then {
 };
 _unit setUnitLoadout [ [], [], [], [uniform _unit, []], [], [], "", "", [], ["","","","","",""] ];
 
-// prevent surrendered units from spawning garrisons
-if (_unit getVariable ["spawner",false]) then
-	{
-	_unit setVariable ["spawner",nil,true]
-	};
-if (side group _unit == Occupants) then
-	{
-	_nul = [-2,0,getPos _unit] remoteExec ["A3A_fnc_citySupportChange",2];
-	}
-else
-	{
-	_nul = [1,0,getPos _unit] remoteExec ["A3A_fnc_citySupportChange",2];
-	};
+
+if (_unitSide == Occupants) then {
+	[-2, 0, getPos _unit] remoteExec ["A3A_fnc_citySupportChange", 2];
+} else {
+	[0, 1, getPos _unit] remoteExec ["A3A_fnc_citySupportChange", 2];
+};
 
 // check for zone capture
 private _markerX = _unit getVariable "markerX";
-if (!isNil "_markerX") then
-	{
-	_sideX = side (group _unit);
-	[_markerX,_sideX] remoteExec ["A3A_fnc_zoneCheck",2];
-	};
+if (!isNil "_markerX") then { [_markerX, _unitSide] remoteExec ["A3A_fnc_zoneCheck",2] };
 
 // timed cleanup functions
-[3,format["Cleanup called for unit:%1",_unit],_filename] call A3A_fnc_log;
 [_unit] spawn A3A_fnc_postmortem;
-
-[3,format["Cleanup called for boxx:%1",_boxX],_filename] call A3A_fnc_log;
 [_boxX] spawn A3A_fnc_postmortem;
 
-sleep 3;
+sleep 2;				// Also protects against box kills
 _unit allowDamage true;
-//if (isMultiplayer) then {[_unit,false] remoteExec ["enableSimulationGlobal",2]} else {_unit enableSimulation false};
+_unit addEventHandler ["HandleDamage", {
+	// If unit gets injured after the delay, run away
+	params ["_unit","_part","_damage"];
+	if (_damage < 0.2) exitWith {};
+	[_unit, "remove"] remoteExec ["A3A_fnc_flagaction", [teamPlayer, civilian], _unit];
+	[_unit, side group _unit] spawn A3A_fnc_fleeToSide;
+	_unit removeEventHandler ["HandleDamage", _thisEventHandler];
+	nil;
+}];
+
+// Add release/recruit/interrogate options
 [_unit,"captureX"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];

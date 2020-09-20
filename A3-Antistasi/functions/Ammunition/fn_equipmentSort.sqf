@@ -148,7 +148,7 @@ allRadios = allRadios select {
 };
 
 //////////////////
-//   Radio-Backpacks   ///
+//   BackpackRadio   ///
 //////////////////
 private _encryptRebel = if (teamPlayer == west) then { "tf_west_radio_code" } else { "tf_guer_radio_code" };
 allBackpackRadio = allBackpackRadio select {

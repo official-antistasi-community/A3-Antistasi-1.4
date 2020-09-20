@@ -161,7 +161,7 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 if (gameMode != 4) then
 	{
 	vehFIAArmedCar = "UK3CB_BAF_LandRover_WMIK_GPMG_FFR_Green_B_Tropical";
-	vehFIATruck = "UK3CB_BAF_MAN_HX60_Cargo_Green_A_Tropical";
+	vehFIATruck = "UK3CB_BAF_MAN_HX60_Transport_Green_Tropical";
 	vehFIACar = "UK3CB_BAF_LandRover_Snatch_FFR_Green_A_Tropical";
 	};
 

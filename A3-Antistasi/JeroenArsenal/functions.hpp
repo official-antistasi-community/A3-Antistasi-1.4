@@ -66,6 +66,7 @@ class JN {
 		file = "JeroenArsenal\JNL\Functions";
 		class logistics_addOrRemoveObjectMass {};
 		class logistics_canLoad {};
+		class logistics_classHasCargo {};
 		class logistics_getCargo {};
 		class logistics_getCargoOffsetAndDir {};
 		class logistics_getCargoType {};

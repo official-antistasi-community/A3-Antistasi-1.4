@@ -8,7 +8,6 @@ lootBasicItem append allMaps + allToolkits + allWatches + allCompasses + allMedi
 /////////////////
 lootNVG append allNVGs;
 
-allNVGs deleteAt (allNVGs find "rhsusf_Rhino"); //Not NVG
 /////////////////////
 // Assigned Items ///
 /////////////////////

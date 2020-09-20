@@ -92,17 +92,10 @@ private _categoryOverrideTable = [
 ["tf_anarc210", ["BackpackRadio","Backpacks","Items"]],
 ["tf_anarc164", ["BackpackRadio","Backpacks","Items"]],
 ["tf_mr6000l", ["BackpackRadio","Backpacks","Items"]],
-["UK3CB_B_B_Radio_Backpack", ["BackpackRadio","Backpacks","Items"]],
-["UK3CB_B_I_Radio_Backpack", ["BackpackRadio","Backpacks","Items"]],
-["UK3CB_B_O_Radio_Backpack", ["BackpackRadio","Backpacks","Items"]],
 ["UK3CB_BAF_B_Bergen_MTP_Radio_H_A", ["BackpackRadio","Backpacks","Items"]],
 ["UK3CB_BAF_B_Bergen_MTP_Radio_H_B", ["BackpackRadio","Backpacks","Items"]],
 ["UK3CB_BAF_B_Bergen_MTP_Radio_L_A", ["BackpackRadio","Backpacks","Items"]],
 ["UK3CB_BAF_B_Bergen_MTP_Radio_L_B", ["BackpackRadio","Backpacks","Items"]],
-["UK3CB_CW_SOV_O_EARLY_B_Radio", ["BackpackRadio","Backpacks","Items"]],
-["UK3CB_CW_SOV_O_LATE_B_Radio", ["BackpackRadio","Backpacks","Items"]],
-["UK3CB_CW_US_B_EARLY_B_Radio", ["BackpackRadio","Backpacks","Items"]],
-["UK3CB_CW_US_B_LATE_B_Radio", ["BackpackRadio","Backpacks","Items"]],
 
 ["ace_csw_m3CarryTripod", ["StaticWeaponParts","Items"]],
 ["ace_csw_m3CarryTripodLow", ["StaticWeaponParts","Items"]],
@@ -142,6 +135,7 @@ private _categoryOverrideTable = [
 ["ACE_microDAGR", ["Gadgets","Items"]],
 ["ACE_DAGR", ["Gadgets","Items"]],
 
+["rhsusf_Rhino", ["Unknown", "Items"]],    //Just a Headmount not NVG
 ["LIB_PTRD", ["Unknown", "Weapons"]],
 ["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
 ["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat

@@ -136,11 +136,25 @@ _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;
 
-private _ammoBoxType = if (_sideX == Occupants) then {NATOAmmoBox} else {CSATAmmoBox};
-private _ammoBox = _ammoBoxType createVehicle _positionX;
-[_ammoBox] spawn A3A_fnc_fillLootCrate;
-_ammoBox call jn_fnc_logistics_addAction;
-_vehiclesX pushBack _ammoBox;
+// Only create ammoBox if it's been recharged (see reinforcementsAI)
+private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
+{
+	private _ammoBoxType = if (_sideX == Occupants) then {NATOAmmoBox} else {CSATAmmoBox};
+	private _ammoBox = _ammoBoxType createVehicle _positionX;
+	[_ammoBox] spawn A3A_fnc_fillLootCrate;
+	_ammoBox call jn_fnc_logistics_addAction;
+	// ammoBox treated separately from other objects, don't add to _vehiclesX
+
+	if ((_markerX in seaports) and !hasIFA) then {
+		[_ammoBox] spawn {
+			sleep 1;    //make sure fillLootCrate finished clearing the crate
+			{
+				_this#0 addItemCargoGlobal [_x, round random [2,6,8]];
+			} forEach diveGear;
+		};
+	};
+	_ammoBox;
+};
 
 _roads = _positionX nearRoads _size;
 
@@ -169,10 +183,6 @@ if ((_markerX in seaports) and !hasIFA) then
 			diag_log format ["createAIOutposts: Could not find seaSpawn marker on %1!", _markerX];
 		};
 	};
-	sleep 1;    //make sure fillLootCrate finished clearing the crate
-	{
-		 _ammoBox addItemCargoGlobal [_x, round random [2,6,8]];
-	} forEach diveGear;
 }
 else
 {
@@ -346,3 +356,11 @@ deleteMarker _mrk;
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;
+
+// If loot crate was stolen, set the cooldown
+if (!isNil "_ammoBox") then {
+	if (_ammoBox distance2d _positionX < 100) exitWith { deleteVehicle _ammoBox };
+	[_ammoBox] spawn A3A_fnc_VEHdespawner;
+	private _lootCD = 120*16 / ([_markerX] call A3A_fnc_garrisonSize);
+	garrison setVariable [_markerX + "_lootCD", _lootCD, true];
+};

@@ -147,8 +147,10 @@ if (_varName in _specialVarLoads) then {
 		};
 	};
 	if (_varName == 'garrison') then {
-		//_markersX = markersX - outpostsFIA - controlsX - citiesX;
-		{garrison setVariable [[_x select 0] call _translateMarker,_x select 1,true]} forEach _varvalue;
+		{
+			garrison setVariable [[_x select 0] call _translateMarker, _x select 1, true];
+			if (count _x > 2) then { garrison setVariable [(_x select 0) + "_lootCD", _x select 2, true] };
+		} forEach _varvalue;
 	};
 	if (_varName == 'wurzelGarrison') then {
 		{

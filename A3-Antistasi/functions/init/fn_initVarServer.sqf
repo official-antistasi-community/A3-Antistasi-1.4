@@ -600,10 +600,13 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////
 [2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
-private _vehNormal = (vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair]);
+
+private _vehNormal = vehNATONormal + vehCSATNormal + vehNATOCargoTrucks;
+_vehNormal append [vehFIACar,vehFIATruck,vehFIAArmedCar,vehPoliceCar,vehNATOBike,vehCSATBike];
+_vehNormal append [vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair];
 DECLARE_SERVER_VAR(vehNormal, _vehNormal);
 
-private _vehBoats = [vehNATOBoat,vehCSATBoat,vehSDKBoat];
+private _vehBoats = [vehNATOBoat,vehNATORBoat,vehCSATBoat,vehCSATRBoat,vehSDKBoat];
 DECLARE_SERVER_VAR(vehBoats, _vehBoats);
 
 private _vehAttack = vehNATOAttack + vehCSATAttack;

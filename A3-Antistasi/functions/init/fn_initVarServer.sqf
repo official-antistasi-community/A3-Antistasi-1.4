@@ -603,7 +603,7 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 
 private _vehNormal = vehNATONormal + vehCSATNormal + vehNATOCargoTrucks;
 _vehNormal append [vehFIACar,vehFIATruck,vehFIAArmedCar,vehPoliceCar,vehNATOBike,vehCSATBike];
-_vehNormal append [vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair];
+_vehNormal append [vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair];
 DECLARE_SERVER_VAR(vehNormal, _vehNormal);
 
 private _vehBoats = [vehNATOBoat,vehNATORBoat,vehCSATBoat,vehCSATRBoat,vehSDKBoat];
@@ -651,7 +651,7 @@ DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
 DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
-private _vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
+private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
 ///////////////////////////

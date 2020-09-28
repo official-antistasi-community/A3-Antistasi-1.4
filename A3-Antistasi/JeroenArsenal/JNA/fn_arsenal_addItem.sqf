@@ -3,6 +3,7 @@
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 private _array = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
+private _filename = "JN_fnc_arsenal_addItem";
 
 if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_index, _item, _amount];
 	params["_index","_item",["_amount",1]];
@@ -19,6 +20,7 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 	{
 		private _item = _x select 0;
 		private _amount = _x select 1;
+		if ((!isNil "serverInitDone") && (_amount isEqualTo -1)) then {[3, format ["Item unlocked: %1", _item], _filename] call A3A_fnc_log};
 		if (_item isEqualType "") then
 			{
 			if !(_item isEqualTo "")then{

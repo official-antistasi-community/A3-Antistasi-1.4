@@ -14,7 +14,7 @@
 **/
 
 params ["_className", ["_dontAddToArsenal", false]];
-private _filename = "A3A_fnc_unlockEquipment";
+private _filename = "fn_unlockEquipment";
 
 private _categories = _className call A3A_fnc_equipmentClassToCategories;
 

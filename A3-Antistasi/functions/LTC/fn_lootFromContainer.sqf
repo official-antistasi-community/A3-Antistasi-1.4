@@ -18,7 +18,7 @@ private "_unlocked";
 if (LTCLootUnlocked) then {
 	_unlocked = [];
 } else {
-	_unlocked = (unlockedHeadgear + unlockedVests + unlockedNVGs + unlockedOptics + unlockedItems + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
+	_unlocked = unlockedItems + unlockedWeapons + unlockedMagazines;
 };
 
 private _mainContainer = _target;
@@ -37,7 +37,7 @@ _transferCargo = {
 
 		_attachments = _x select {(_x isEqualType "") and !(_x isEqualTo "")};
 		_attachments deleteAt (_attachments find (_x#0));
-		
+
 		{
 			(_gear#2#0) pushBack _x;
 			(_gear#2#1) pushBack 1;
@@ -147,7 +147,7 @@ _transferCargo = {
 		{
 			_x params ["_type", "_count"];
 			if !(_type in _unlocked) then {_allUnlocked = false};
-			_mainContainer addWeaponCargoGlobal [_type, _count];		
+			_mainContainer addWeaponCargoGlobal [_type, _count];
 		} forEach _weaponsArray;
 
 		{
@@ -160,13 +160,13 @@ _transferCargo = {
 		{
 			_x params ["_type", "_count"];
 			if !(_type in _unlocked) then {_allUnlocked = false};
-			_mainContainer addItemCargoGlobal [_type, _count];		
+			_mainContainer addItemCargoGlobal [_type, _count];
 		} forEach _itemsArray;
 
 		{
 			_x params ["_type", "_count"];
 			if !(_type in _unlocked) then {_allUnlocked = false};
-			_mainContainer addBackpackCargoGlobal [_type, _count];		
+			_mainContainer addBackpackCargoGlobal [_type, _count];
 		} forEach _backpacksArray;
 
 	};

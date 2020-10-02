@@ -24,8 +24,6 @@ if (LTCLootUnlocked) then {
 private _mainContainer = _target;
 _transferCargo = {
 	params ["_target", "_container"];
-	if (_target getVariable ["LootingNow",false]) exitWith {[[[],[],[],[]], false]};
-	_target setVariable ["LootingNow", true, true];
 	private _gear = [[[],[]],[],[[],[]],[]];
 	//----------------------------//
 	// get Cargo
@@ -170,7 +168,6 @@ _transferCargo = {
 		} forEach _backpacksArray;
 
 	};
-	_target setVariable ["LootingNow", nil, true];
 	[_leftover, _allUnlocked];
 };
 

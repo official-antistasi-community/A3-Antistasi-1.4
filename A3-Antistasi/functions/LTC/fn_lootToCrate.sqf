@@ -20,8 +20,6 @@ _container setVariable ["stopPostmortem", true, true]; //block postmortem on sur
 //----------------------------//
 _lootBodies = {
 	params ["_unit", "_container"];
-	if (_unit getVariable ["LootingNow",false]) exitWith {};
-	_unit setVariable ["LootingNow", true, true];
 
 	private _gear = [[],[],[],[]];//weapons, mags, items, backpacks
 	//build list of all gear
@@ -99,7 +97,7 @@ _lootBodies = {
 	} forEach (_gear#3);
 
 	//Deal with leftovers
-	if (_remaining isEqualTo [[],[],[],[]]) exitWith {_unit setVariable ["LootingNow", nil, true]};
+	if (_remaining isEqualTo [[],[],[],[]]) exitWith {};
 	_pos = getPos _unit;
 	_container = "GroundWeaponHolder" createVehicle _pos;
 	{
@@ -118,7 +116,6 @@ _lootBodies = {
 		_container addBackpackCargoGlobal [_x, 1];
 	} forEach (_remaining#3);
 	_container setPos _pos;
-	_unit setVariable ["LootingNow", nil, true];
 };
 
 _targets = _targets select {!alive _x};

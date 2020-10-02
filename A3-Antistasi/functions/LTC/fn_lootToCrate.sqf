@@ -13,6 +13,8 @@ if (LTCLootUnlocked) then {
 _targets = nearestObjects [getposATL _container, ["Man"], 10];
 _weaponHolders = nearestObjects [getposATL _container, ["WeaponHolder","WeaponHolderSimulated"], 10];
 
+_container setVariable ["stopPostmortem", true, true]; //block postmortem on surrender crates
+
 //----------------------------//
 //Loot Bodies
 //----------------------------//
@@ -37,7 +39,7 @@ _lootBodies = {
 	_mags = [];
 	{
 		_x params ["_type", "_count"];
-		_mags pushBack [_type, _count];		
+		_mags pushBack [_type, _count];
 	} forEach (magazinesAmmoFull _unit);
 	(_gear#1) append _mags;
 	clearMagazineCargoGlobal _unit;
@@ -101,7 +103,7 @@ _lootBodies = {
 	_pos = getPos _unit;
 	_container = "GroundWeaponHolder" createVehicle _pos;
 	{
-		_container addWeaponCargoGlobal [_x, 1];	
+		_container addWeaponCargoGlobal [_x, 1];
 	} forEach (_remaining#0);
 
 	{
@@ -134,15 +136,15 @@ _allUnlockedArray = [];
 	_allUnlockedArray pushBack _allUnlocked;
 
 	if !(_remainder isEqualTo [[],[],[],[]]) then {
-		
+
 		_newContainer = "GroundWeaponHolder" createVehicle _pos;
 
 		_remainder params ["_weaponsArray", "_magsArray", "_itemsArray", "_backpacksArray"];
-		
+
 		{
 			_x params ["_type", "_count"];
 			if !(_type in _unlocked) then {_allUnlocked = false};
-			_newContainer addWeaponCargoGlobal [_type, _count];		
+			_newContainer addWeaponCargoGlobal [_type, _count];
 		} forEach _weaponsArray;
 
 		{
@@ -155,13 +157,13 @@ _allUnlockedArray = [];
 		{
 			_x params ["_type", "_count"];
 			if !(_type in _unlocked) then {_allUnlocked = false};
-			_newContainer addItemCargoGlobal [_type, _count];		
+			_newContainer addItemCargoGlobal [_type, _count];
 		} forEach _itemsArray;
 
 		{
 			_x params ["_type", "_count"];
 			if !(_type in _unlocked) then {_allUnlocked = false};
-			_newContainer addBackpackCargoGlobal [_type, _count];		
+			_newContainer addBackpackCargoGlobal [_type, _count];
 		} forEach _backpacksArray;
 
 		_allUnlockedArray pushBack _allUnlocked;

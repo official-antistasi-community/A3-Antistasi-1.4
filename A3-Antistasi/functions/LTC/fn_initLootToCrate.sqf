@@ -6,9 +6,9 @@ if ((actionIDs Player) findIf {
 
 //add load actions
 player addAction [
-	"Load loot to crate", 
+	"Load loot to crate",
 	{
-		[cursorTarget, clientOwner] remoteExecCall ["A3A_fnc_canLoot", 2];
+		[cursorObject, clientOwner] remoteExecCall ["A3A_fnc_canLoot", 2];
 	},
 	nil,
 	1.5,
@@ -16,16 +16,16 @@ player addAction [
 	true,
 	"",
 	"(
-		((typeof cursorTarget) isEqualTo 'Box_IND_Wps_F') 
-		and (cursorTarget distance _this < 3)
-		and (attachedTo cursorTarget isEqualTo objNull)
+		((typeof cursorObject) isEqualTo 'Box_IND_Wps_F')
+		and (cursorObject distance _this < 3)
+		and (attachedTo cursorObject isEqualTo objNull)
 	)"
 ];
 
 player addAction [
-	"Load loot from crate to vehicle", 
+	"Load loot from crate to vehicle",
 	{
-		[cursorTarget, clientOwner] remoteExecCall ["A3A_fnc_canTransfer", 2];
+		[cursorObject, clientOwner] remoteExecCall ["A3A_fnc_canTransfer", 2];
 	},
 	nil,
 	1.5,
@@ -33,17 +33,17 @@ player addAction [
 	true,
 	"",
 	"(
-		((typeof cursorTarget) isEqualTo 'Box_IND_Wps_F') 
-		and (cursorTarget distance _this < 3)
-		and (attachedTo cursorTarget isEqualTo objNull)
+		((typeof cursorObject) isEqualTo 'Box_IND_Wps_F')
+		and (cursorObject distance _this < 3)
+		and (attachedTo cursorObject isEqualTo objNull)
 	)"
 ];
 
 //add carry actions
 player addAction [
-	"Carry Crate", 
+	"Carry Crate",
 	{
-		[cursorTarget, true] call A3A_fnc_carryCrate;
+		[cursorObject, true] call A3A_fnc_carryCrate;
 	},
 	nil,
 	1.5,
@@ -51,15 +51,15 @@ player addAction [
 	true,
 	"",
 	"(
-		((typeof cursorTarget) isEqualTo 'Box_IND_Wps_F') 
-		and (cursorTarget distance _this < 3)
+		((typeof cursorObject) isEqualTo 'Box_IND_Wps_F')
+		and (cursorObject distance _this < 3)
 		and ({!(_x isEqualTo objNull)} count attachedObjects _this isEqualTo 0)
-		and (attachedTo cursorTarget isEqualTo objNull)
+		and (attachedTo cursorObject isEqualTo objNull)
 	)"
 ];
 
 player addAction [
-	"Drop Crate", 
+	"Drop Crate",
 	{
 		[nil, false] call A3A_fnc_carryCrate;
 	},

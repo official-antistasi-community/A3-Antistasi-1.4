@@ -20,7 +20,8 @@ if (!_done) then {
 	};
 
 } else {
-	if (_pos in LTClootingAreas) then {
-		LTClootingAreas deleteAt (LTClootingAreas find _pos);
+	_pos = LTClootingAreas inAreaArray [_pos, 1, 1]; //override in case of looting while crate was in motion, done by the carry action
+	if !(_pos isEqualTo []) then {
+		LTClootingAreas deleteAt (LTClootingAreas find (_pos#0));
 	};
 };

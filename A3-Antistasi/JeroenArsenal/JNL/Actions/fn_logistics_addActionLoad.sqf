@@ -16,6 +16,9 @@ if (isNil "jnl_initCompleted") then {
 //Check if this vehicle can be loaded with JNL
 if((_object call jn_fnc_logistics_getCargoType) == -1) exitWith {};
 
+//dont add for pvp
+if !((side group player) isEqualTo teamPlayer) exitWith {};
+
 _text = "";
 
 if (_object isKindOf "CAManBase") then {_text = format ["<img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa' />  Load %1 in Vehicle</t>",name _object]} else {_text = "<img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa' />  Load Cargo in Vehicle</t>"};
@@ -92,4 +95,3 @@ _object setUserActionText [
 ];
 
 _object setVariable ["jnl_loadActionID", _loadActionID, false];
-

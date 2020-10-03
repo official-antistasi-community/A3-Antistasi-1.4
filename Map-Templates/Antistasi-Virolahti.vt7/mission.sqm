@@ -78402,7 +78402,7 @@ class Mission
 					flags=6;
 					class Attributes
 					{
-						init="groupPlayersCSAT = group this; this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
+						init="groupPlayersCSAT = group this; this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
 						name="pvp_red_1";
 						description="Teamleader";
 						isPlayable=1;
@@ -78477,7 +78477,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
 						name="pvp_red_2";
 						description="Medic";
 						isPlayable=1;
@@ -78551,7 +78551,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
 						name="pvp_red_3";
 						description="Machinegunner";
 						isPlayable=1;
@@ -78625,7 +78625,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
 						name="pvp_red_4";
 						description="Marksman";
 						isPlayable=1;
@@ -78699,7 +78699,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
 						name="pvp_red_5";
 						description="AT1";
 						isPlayable=1;
@@ -78773,7 +78773,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
 						name="pvp_red_6";
 						description="AT2";
 						isPlayable=1;
@@ -78911,7 +78911,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						init="groupPlayersNATO = group this; this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
+						init="groupPlayersNATO = group this; this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
 						name="pvp_blue_1";
 						description="Teamleader";
 						isPlayable=1;
@@ -78986,7 +78986,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.40000001;
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
 						name="pvp_blue_2";
 						description="Medic";
 						isPlayable=1;
@@ -79062,7 +79062,7 @@ class Mission
 					{
 						skill=0.44999999;
 						rank="CORPORAL";
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
 						name="pvp_blue_3";
 						description="Machinegunner";
 						isPlayable=1;
@@ -79138,7 +79138,7 @@ class Mission
 					{
 						skill=0.44999999;
 						rank="CORPORAL";
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
 						name="pvp_blue_4";
 						description="Marksman";
 						isPlayable=1;
@@ -79213,7 +79213,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.40000001;
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
 						name="pvp_blue_5";
 						description="AT1";
 						isPlayable=1;
@@ -79288,7 +79288,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.40000001;
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
+						init="this setVariable [""pvp"",true,true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
 						name="pvp_blue_6";
 						description="AT2";
 						isPlayable=1;

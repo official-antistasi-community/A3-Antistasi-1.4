@@ -17,6 +17,7 @@ if (isNil "jnl_initCompleted") then {
 if((_object call jn_fnc_logistics_getCargoType) == -1) exitWith {};
 
 //dont add for pvp
+waitUntil { !isNull player }; //wait for player unit to be local and valid
 if !((side group player) isEqualTo teamPlayer) exitWith {};
 
 _text = "";

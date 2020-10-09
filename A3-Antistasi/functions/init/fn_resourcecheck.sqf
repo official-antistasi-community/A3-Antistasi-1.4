@@ -12,7 +12,7 @@ while {true} do
 	nextTick = time + 600;
 	waitUntil {sleep 15; time >= nextTick};
 	if (isMultiplayer) then {waitUntil {sleep 10; isPlayer theBoss}};
-	_suppBoost = 1+ ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count seaports);
+	_suppBoost = 0.5 * (1+ ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count seaports));
 	_recAddSDK = 25;//0
 	_hrAddBLUFOR = 0;//0
 	_popFIA = 0;
@@ -49,9 +49,9 @@ while {true} do
 		_hrAddCity = (_numciv * (_prestigeSDK / 10000));///20000 originalmente
 		switch (_radioTowerSide) do
 			{
-			case teamPlayer: {[-1,_suppBoost,_city] spawn A3A_fnc_citySupportChange};
-			case Occupants: {[1,-1,_city] spawn A3A_fnc_citySupportChange};
-			case Invaders: {[-1,-1,_city] spawn A3A_fnc_citySupportChange};
+			case teamPlayer: {[-1,_suppBoost,_city,true] spawn A3A_fnc_citySupportChange};
+			case Occupants: {[1,-1,_city,true] spawn A3A_fnc_citySupportChange};
+			case Invaders: {[-1,-1,_city,true] spawn A3A_fnc_citySupportChange};
 			};
 		if (sidesX getVariable [_city,sideUnknown] == Occupants) then
 			{

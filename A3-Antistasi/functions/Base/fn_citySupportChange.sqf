@@ -1,40 +1,39 @@
-private ["_opfor","_blufor","_pos","_city","_dataX","_numCiv","_numVeh","_roads","_prestigeOPFOR","_prestigeBLUFOR"];
+private _filename = "fn_citySupportChange";
+if (!isServer) exitWith {
+	[1, "Server-only function miscalled", _filename] call A3A_fnc_log;
+};
 
 waitUntil {!cityIsSupportChanging};
 cityIsSupportChanging = true;
-_opfor = _this select 0;
-_blufor = _this select 1;
-_pos = _this select 2;
-if (_pos isEqualType "") then {_city = _pos} else {_city = [citiesX, _pos] call BIS_fnc_nearestPosition};
-_dataX = server getVariable _city;
+
+params ["_changeGov", "_changeReb", "_pos", ["_isRadio", false]];
+
+private _city = if (_pos isEqualType "") then {_pos} else {[citiesX, _pos] call BIS_fnc_nearestPosition};
+private _dataX = server getVariable _city;
 if (isNil "_dataX" || {!(_dataX isEqualType [])}) exitWith
 {
 	cityIsSupportChanging = false;
-	diag_log format ["%1: [Antistasi] | ERROR | citySupportChange.sqf | Passed %2 as city, pos was %3.",servertime, _city, _pos];
+	[1, format ["No data found for city %1", _city], _filename] call A3A_fnc_log;
 };
-_numCiv = _dataX select 0;
-_numVeh = _dataX select 1;
-_prestigeOPFOR = _dataX select 2;
-_prestigeBLUFOR = _dataX select 3;
+_dataX params ["_numCiv", "_numVeh", "_supportGov", "_supportReb"];
 
-if (_prestigeOPFOR + _prestigeBLUFOR + _opfor > 100) then
-	{
-	_opfor = (_prestigeOPFOR + _prestigeBLUFOR) - 100;
-	};
-_prestigeOPFOR = _prestigeOPFOR + _opfor;
-if (_prestigeOPFOR + _prestigeBLUFOR + _blufor > 100) then
-	{
-	_blufor = (_prestigeOPFOR + _prestigeBLUFOR) - 100;
-	};
-_prestigeBLUFOR = _prestigeBLUFOR + _blufor;
+// Radio propaganda can't increase support above 30% or decrease below 50%
+if (_isRadio) then {
+	if (_changeGov > 0) then { _changeGov = (30 - _supportGov) max 0 min _changeGov };
+	if (_changeGov < 0) then { _changeGov = (50 - _supportGov) min 0 max _changeGov };
+	
+	if (_changeReb > 0) then { _changeReb = (30 - _supportReb) max 0 min _changeReb };
+	if (_changeReb < 0) then { _changeReb = (50 - _supportReb) min 0 max _changeReb };
+};
 
+// Cap total to 100 and minimums to 0
+_changeGov = _changeGov min (100 - _supportReb + _supportGov);
+_supportGov = 0 max (_supportGov + _changeGov);
 
-if (_prestigeOPFOR > 100) then {_prestigeOPFOR = 100};
-if (_prestigeBLUFOR > 100) then {_prestigeBLUFOR = 100};
-if (_prestigeOPFOR < 0) then {_prestigeOPFOR = 0};
-if (_prestigeBLUFOR < 0) then {_prestigeBLUFOR = 0};
+_changeReb = _changeReb min (100 - _supportReb + _supportGov);
+_supportReb = 0 max (_supportReb + _changeReb);
 
-_dataX = [_numCiv, _numVeh,_prestigeOPFOR,_prestigeBLUFOR];
+_dataX = [_numCiv, _numVeh, _supportGov, _supportReb];
 
 server setVariable [_city,_dataX,true];
 cityIsSupportChanging = false;

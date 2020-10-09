@@ -28,7 +28,7 @@ if ((_node#0) isEqualType []) then {
 
     //seats
     {
-        _seats append (_x#2);        
+        _seats append (_x#2);
     } forEach _node;
 
     //update cargo list
@@ -57,8 +57,10 @@ private _yEnd = _location#1;
 _cargo setVariable ["AttachmentOffset", _location, true];
 
 //block seats
+_cargo setOwner clientOwner; //locking seats require it to be local to executing machine
 _cargo lockDriver true;
 moveOut driver _cargo;
+_vehicle setOwner clientOwner; //locking seats require it to be local to executing machine
 {_vehicle lockCargo [_x, true]} forEach _seats;
 
 //break undercover

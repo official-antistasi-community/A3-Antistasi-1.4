@@ -58,6 +58,9 @@ _finpos = [_pos2, 2500, _ang] call BIS_fnc_relPos;
 
 _planefn = [_origpos, _ang, vehSDKPlane, teamPlayer] call bis_fnc_spawnvehicle;
 _plane = _planefn select 0;
+_planeCrew = _planefn select 1;
+_groupPlane = _planefn select 2;
+
 _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
@@ -81,15 +84,14 @@ _wp2 setWaypointType "MOVE";
 _wp3 = group _plane addWaypoint [_finpos, 2];
 _wp3 setWaypointType "MOVE";
 _wp3 setWaypointSpeed "FULL";
-_wp3 setWaypointStatements ["true", "{deleteVehicle _x} forEach crew this; deleteVehicle this; deleteGroup (group this)"];
 
-waitUntil {sleep 1; (currentWaypoint group _plane == 4) or (!canMove _plane)};
+private _timeOut = time + 600;
+waitUntil { sleep 2; (currentWaypoint group _plane == 4) or (time > _timeOut) or !(canMove _plane) };
 
 deleteMarkerLocal _mrkOrig;
 deleteMarkerLocal _mrkDest;
-if ((!canMove _plane) and (!isNull _plane)) then
-	{
-	sleep cleantime;
-	{deleteVehicle _x} forEach crew _plane; deleteVehicle _plane;
-	deleteGroup group _plane;
-	};
+
+if !(canMove _plane) then { sleep cleantime };		// let wreckage hang around for a bit
+deleteVehicle _plane;
+{deleteVehicle _x} forEach _planeCrew;
+deleteGroup _groupPlane;

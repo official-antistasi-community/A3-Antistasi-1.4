@@ -275,13 +275,13 @@ while {(_waves > 0)} do
 						[_posOriginLand,_landPos,_groupVeh] call A3A_fnc_WPCreate;
 						_Vwp0 = _groupVeh addWaypoint [_landPos, count (wayPoints _groupVeh)];
 						_Vwp0 setWaypointType "TR UNLOAD";
-						//_Vwp0 setWaypointStatements ["true", "(group this) spawn A3A_fnc_attackDrillAI"];
 						_Vwp0 setWayPointCompletionRadius (10*_countX);
 						_Vwp1 = _groupVeh addWaypoint [_posDestination, 1];
 						_Vwp1 setWaypointType "SAD";
-						_Vwp1 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
+						_Vwp1 setWaypointStatements ["true","if !(local this) exitWith {}; {if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
 						_Vwp1 setWaypointBehaviour "COMBAT";
 						_veh allowCrewInImmobile true;
+						private _typeName = if (_typeVehX in vehAPCs) then {"APC"} else {"MRAP"};
 						[_veh,"APC"] spawn A3A_fnc_inmuneConvoy;
 					}
 					else
@@ -293,10 +293,9 @@ while {(_waves > 0)} do
 						[_posOriginLand,_landPos,_groupVeh] call A3A_fnc_WPCreate;
 						_Vwp0 = _groupVeh addWaypoint [_landPos, count (wayPoints _groupVeh)];
 						_Vwp0 setWaypointType "GETOUT";
-						//_Vwp0 setWaypointStatements ["true", "(group this) spawn A3A_fnc_attackDrillAI"];
 						_Vwp1 = _groupVeh addWaypoint [_posDestination, count (wayPoints _groupVeh)];
 						_Vwp1 setWaypointType "SAD";
-						[_veh,"Inf Truck."] spawn A3A_fnc_inmuneConvoy;
+						[_veh,"Truck"] spawn A3A_fnc_inmuneConvoy;
 					};
 				}
 				else
@@ -305,10 +304,11 @@ while {(_waves > 0)} do
 					[_posOriginLand,_posDestination,_groupVeh] call A3A_fnc_WPCreate;
 					_Vwp0 = _groupVeh addWaypoint [_posDestination, count (wayPoints _groupVeh)];
 					_Vwp0 setWaypointType "MOVE";
-					_Vwp0 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
+					_Vwp0 setWaypointStatements ["true","if !(local this) exitWith {}; {if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
 					_Vwp0 = _groupVeh addWaypoint [_posDestination, count (wayPoints _groupVeh)];
 					_Vwp0 setWaypointType "SAD";
-					[_veh,"Tank"] spawn A3A_fnc_inmuneConvoy;
+					private _typeName = if (_typeVehX in vehTanks) then {"Tank"} else {"AA"};
+					[_veh, _typeName] spawn A3A_fnc_inmuneConvoy;
 					_veh allowCrewInImmobile true;
 				};
 			};
@@ -420,11 +420,11 @@ while {(_waves > 0)} do
 							_Vwp setWaypointSpeed "FULL";
 							_Vwp1 = _groupVeh addWaypoint [_posDestination, 1];
 							_Vwp1 setWaypointType "SAD";
-							_Vwp1 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
+							_Vwp1 setWaypointStatements ["true","if !(local this) exitWith {}; {if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
 							_Vwp1 setWaypointBehaviour "COMBAT";
 							_Vwp2 = _grupo addWaypoint [_landPos, 0];
 							_Vwp2 setWaypointType "GETOUT";
-							_Vwp2 setWaypointStatements ["true", "(group this) spawn A3A_fnc_attackDrillAI"];
+							_Vwp2 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) spawn A3A_fnc_attackDrillAI"];
 							//_grupo setVariable ["mrkAttack",_mrkDestination];
 							_Vwp synchronizeWaypoint [_Vwp2];
 							_Vwp3 = _grupo addWaypoint [_posDestination, 1];
@@ -441,7 +441,7 @@ while {(_waves > 0)} do
 							_Vwp setWaypointBehaviour "SAFE";
 							_Vwp setWaypointSpeed "FULL";
 							_Vwp setWaypointType "GETOUT";
-							_Vwp setWaypointStatements ["true", "(group this) spawn A3A_fnc_attackDrillAI"];
+							_Vwp setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) spawn A3A_fnc_attackDrillAI"];
 							_Vwp1 = _groupVeh addWaypoint [_posDestination, 1];
 							_Vwp1 setWaypointType "SAD";
 							_Vwp1 setWaypointBehaviour "COMBAT";
@@ -589,23 +589,18 @@ while {(_waves > 0)} do
 						_vehiclesX pushBack _pad;
 						_wp0 = _groupVeh addWaypoint [_landpos, 0];
 						_wp0 setWaypointType "TR UNLOAD";
-						_wp0 setWaypointStatements ["true", "(vehicle this) land 'GET OUT';[vehicle this] call A3A_fnc_smokeCoverAuto"];
+						_wp0 setWaypointStatements ["true", "if !(local this) exitWith {}; (vehicle this) land 'GET OUT';[vehicle this] call A3A_fnc_smokeCoverAuto"];
 						_wp0 setWaypointBehaviour "CARELESS";
 						_wp3 = _grupo addWaypoint [_landpos, 0];
 						_wp3 setWaypointType "GETOUT";
-						_wp3 setWaypointStatements ["true", "(group this) spawn A3A_fnc_attackDrillAI"];
-						//_grupo setVariable ["mrkAttack",_mrkDestination];
-						//_wp3 setWaypointStatements ["true","nul = [this, (group this getVariable ""mrkAttack""), ""SPAWNED"",""NOVEH2"",""NOFOLLOW"",""NOWP3""] execVM ""scripts\UPSMON.sqf"";"];
+						_wp3 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) spawn A3A_fnc_attackDrillAI"];
 						_wp0 synchronizeWaypoint [_wp3];
 						_wp4 = _grupo addWaypoint [_posDestination, 1];
 						_wp4 setWaypointType "SAD";
-						//_wp4 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
-						//_wp4 setWaypointStatements ["true","nul = [this, (group this getVariable ""mrkAttack""), ""SPAWNED"",""NOVEH2"",""NOFOLLOW"",""NOWP3""] execVM ""scripts\UPSMON.sqf"";"];
 						_wp4 = _grupo addWaypoint [_posDestination, 1];
-						//_wp4 setWaypointType "SAD";
 						_wp2 = _groupVeh addWaypoint [_posOrigin, 1];
 						_wp2 setWaypointType "MOVE";
-						_wp2 setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
+						_wp2 setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
 						[_groupVeh,1] setWaypointBehaviour "AWARE";
 						}
 					else

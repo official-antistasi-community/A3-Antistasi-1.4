@@ -19,7 +19,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
       call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf";
     };
     case (hasRHS): {
-      call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf";
+      call compile preProcessFileLineNumbers "Templates\RHS_Reb_HIDF_Arid.sqf";
       call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf";
       call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf";
       call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf";

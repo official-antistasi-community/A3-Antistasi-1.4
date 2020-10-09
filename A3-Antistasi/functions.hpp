@@ -181,7 +181,6 @@ class A3A
 		class findAirportForAirstrike {};
 		class followVehicle {};
 		class onConvoyArrival {};
-		class onSpawnedArrival {};
 		class roadblockFight {};
 		class selectAndCreateVehicle {};
 		class spawnConvoy {};

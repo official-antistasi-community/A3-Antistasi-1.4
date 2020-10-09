@@ -76,17 +76,17 @@ for "_i" from 1 to 3 do {
 					_vehiclesX pushBack _pad;
 					_wp0 = _groupVeh addWaypoint [_landpos, 0];
 					_wp0 setWaypointType "TR UNLOAD";
-					_wp0 setWaypointStatements ["true", "(vehicle this) land 'GET OUT'"];
+					_wp0 setWaypointStatements ["true", "if !(local this) exitWith {}; (vehicle this) land 'GET OUT'"];
 					[_groupVeh,0] setWaypointBehaviour "CARELESS";
 					_wp3 = _groupX addWaypoint [_landpos, 0];
 					_wp3 setWaypointType "GETOUT";
 					_wp0 synchronizeWaypoint [_wp3];
 					_wp4 = _groupX addWaypoint [_posDestination, 1];
 					_wp4 setWaypointType "SAD";
-					_wp4 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
+					_wp4 setWaypointStatements ["true","if !(local this) exitWith {}; {if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
 					_wp2 = _groupVeh addWaypoint [_posOrigin, 1];
 					_wp2 setWaypointType "MOVE";
-					_wp2 setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
+					_wp2 setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
 					[_groupVeh,1] setWaypointBehaviour "AWARE";
 				};
 			} else {

@@ -57,11 +57,8 @@ private _yEnd = _location#1;
 _cargo setVariable ["AttachmentOffset", _location, true];
 
 //block seats
-_cargo setOwner clientOwner; //locking seats require it to be local to executing machine
-_cargo lockDriver true;
-moveOut driver _cargo;
-_vehicle setOwner clientOwner; //locking seats require it to be local to executing machine
-{_vehicle lockCargo [_x, true]} forEach _seats;
+[_cargo, true] remoteExecCall ["A3A_fnc_logistics_toggleLock", 2];
+[_vehicle, true, _seats] remoteExecCall ["A3A_fnc_logistics_toggleLock", 2];
 
 //break undercover
 if (_weapon) then {

@@ -91,7 +91,8 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
 } else {_keepUnloading = true};
 
 //unlock seats
-{_vehicle lockCargo [_x, false]}forEach _seats;
+[_cargo, false] remoteExecCall ["A3A_fnc_logistics_toggleLock", 2];
+[_vehicle, false, _seats] remoteExecCall ["A3A_fnc_logistics_toggleLock", 2];
 
 //update list
 _loaded deleteAt 0;

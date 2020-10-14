@@ -30,6 +30,7 @@ if ((_node#0) isEqualType []) then {
     {
         _seats append (_x#2);
     } forEach _node;
+    _cargo setVariable ["Logistics_occupiedSeats", _seats, true];
 
     //update cargo list
     for "_i" from 0 to _lastNode do {
@@ -57,8 +58,8 @@ private _yEnd = _location#1;
 _cargo setVariable ["AttachmentOffset", _location, true];
 
 //block seats
-[_cargo, true] remoteExecCall ["A3A_fnc_logistics_toggleLock", 2];
-[_vehicle, true, _seats] remoteExecCall ["A3A_fnc_logistics_toggleLock", 2];
+[_cargo, true] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _cargo];
+[_vehicle, true, _seats] remoteExecCall ["A3A_fnc_logistics_toggleLock", 0, _vehicle];
 
 //break undercover
 if (_weapon) then {

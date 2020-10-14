@@ -38,7 +38,7 @@ if ((_node#0) isEqualType []) then {
 
     //seats
     {
-        _seats append (_x#2);        
+        _seats append (_x#2);
     } forEach _node;
 
     //update cargo list
@@ -58,18 +58,18 @@ if ((_node#0) isEqualType []) then {
 //detach cargo
 private _keepUnloading = false;
 if !(_cargo isEqualTo objNull) then {//cargo not deleted
-    //isWeapon?
+    //check if its a weapon
     private _model = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "model");
     _weapon = false;
     {
-        if ((_x#0) isEqualTo _model) exitWith {_weapon = true}; 
+        if ((_x#0) isEqualTo _model) exitWith {_weapon = true};
     } forEach logistics_weapons;
 
     if (_weapon) then {
         [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];
         player setCaptive false; //break undercover for unloading weapon
     };
-    _cargo setVariable ["AttachmentOffset", nil];
+    _cargo setVariable ["AttachmentOffset", nil, true];
 
     private _location = ([_cargo] call A3A_fnc_logistics_getCargoOffsetAndDir)#0;
     private _location = _location vectorAdd _nodeOffset;
@@ -91,12 +91,14 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
 } else {_keepUnloading = true};
 
 //unlock seats
-{_vehicle lockCargo [_x, false]}forEach _seats;
+[_cargo, false] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _cargo];
+_cargo setVariable ["Logistics_occupiedSeats", nil, true];
+[_vehicle, false, _seats] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _vehicle];
 
 //update list
 _loaded deleteAt 0;
-_vehicle setVariable ["Cargo", _loaded,true];
+_vehicle setVariable ["Cargo", _loaded, true];
 [_vehicle] call A3A_fnc_logistics_refreshVehicleLoad; //refresh list in case theres more on the list but no actuall cargo loaded
 
 _vehicle setVariable ["LoadingCargo",nil,true];
-if (_keepUnloading and !_lastLoaded) then {[_vehicle] spawn A3A_fnc_logistics_unload};//if you tried to unload a null obj unload next on list 
+if (_keepUnloading and !_lastLoaded) then {[_vehicle] spawn A3A_fnc_logistics_unload};//if you tried to unload a null obj unload next on list

@@ -28,8 +28,9 @@ if ((_node#0) isEqualType []) then {
 
     //seats
     {
-        _seats append (_x#2);        
+        _seats append (_x#2);
     } forEach _node;
+    _cargo setVariable ["Logistics_occupiedSeats", _seats, true];
 
     //update cargo list
     for "_i" from 0 to _lastNode do {
@@ -45,13 +46,9 @@ if ((_node#0) isEqualType []) then {
     [_vehicle , _node] call _updateList;
 };
 
-//fix attachement offset
+//attach data
 private _offsetAndDir = [_cargo] call A3A_fnc_logistics_getCargoOffsetAndDir;
 private _location = _offsetAndDir#0;
-private _location = _location vectorAdd _nodeOffset;
-
-//attach data
-private _location = ([_cargo] call A3A_fnc_logistics_getCargoOffsetAndDir)#0;
 private _location = _location vectorAdd _nodeOffset;
 
 private _bbv = (boundingBoxReal _vehicle select 0 select 1) + ((boundingCenter _vehicle) select 1);
@@ -61,9 +58,8 @@ private _yEnd = _location#1;
 _cargo setVariable ["AttachmentOffset", _location];
 
 //block seats
-_cargo lockDriver true;
-moveOut driver _cargo;
-{_vehicle lockCargo [_x, true]} forEach _seats;
+[_cargo, true] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _cargo];
+[_vehicle, true, _seats] remoteExecCall ["A3A_fnc_logistics_toggleLock", 0, _vehicle];
 
 //break undercover
 if (_weapon) then {

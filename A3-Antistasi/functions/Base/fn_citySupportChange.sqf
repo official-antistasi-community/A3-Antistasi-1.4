@@ -24,6 +24,12 @@ if (_isRadio) then {
 	
 	if (_changeReb > 0) then { _changeReb = (30 - _supportReb) max 0 min _changeReb };
 	if (_changeReb < 0) then { _changeReb = (50 - _supportReb) min 0 max _changeReb };
+}
+else {
+	// Non-radio changes are scaled inversely by city population, so less effect on large towns
+	private _popScale = 200 / (_numCiv max 50);
+	_changeGov = _changeGov * _popScale;
+	_changeReb = _changeReb * _popScale;
 };
 
 // Cap total to 100 and minimums to 0

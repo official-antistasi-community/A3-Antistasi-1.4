@@ -6,7 +6,7 @@ if (!isServer) exitWith {
 if (savingServer) exitWith {["Save Game", "Server data save is still in progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 [2, "Starting persistent save", _filename] call A3A_fnc_log;
-
+["Persistent Save Starting","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
 // Save each player with global flag
 {
 	[getPlayerUID _x, _x, true] call A3A_fnc_savePlayer;
@@ -236,5 +236,5 @@ _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlaye
 saveProfileNamespace;
 savingServer = false;
 _saveHintText = ["<t size='1.5'>",nameTeamPlayer," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
-["Persistent Save Completed",_saveHintText] call A3A_fnc_customHint;
+["Persistent Save Completed",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
 [2, "Persistent Save Completed", _filename] call A3A_fnc_log;

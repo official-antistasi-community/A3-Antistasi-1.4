@@ -63,6 +63,14 @@ if (_instigator isEqualType []) then {
 };
 private _vehicle = typeOf vehicle _instigator;
 
+/////Log Instigator Pos on every damage/////
+private _victimCoordsStats = "";
+if (_victim isKindOf "Man") then {
+    _victimCoordsStats = [" damaged ",name _victim," [",["AI",getPlayerUID _victim] select (isPlayer _victim),"] (grid: ",mapGridPosition _victim,"; ",(_victim distance2D posHQ) toFixed 0,"m from HQ; ",(_instigator distance2D _victim) toFixed 0,"m from Instigator)"] joinString "";
+};
+private _instigatorCoordsStats = [name _instigator," [",getPlayerUID _instigator,"] (grid: ",mapGridPosition _instigator,"; ",(_instigator distance2D posHQ) toFixed 0,"m from HQ; customMessage:'",_customMessage,"')"] joinString "";
+[2, ["DAMAGE | ", _instigatorCoordsStats, _victimCoordsStats] joinString "", _filename] remoteExecCall ["A3A_fnc_log",2,false];
+
 //////Cool down prevents multi-hit spam/////
     // Doesn't log to avoid RPT spam.
     // Doesn't use hash table to be as quick as possible.

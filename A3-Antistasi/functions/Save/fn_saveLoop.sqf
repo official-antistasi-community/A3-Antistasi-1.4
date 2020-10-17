@@ -6,7 +6,7 @@ if (!isServer) exitWith {
 if (savingServer) exitWith {["Save Game", "Server data save is still in progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 [2, "Starting persistent save", _filename] call A3A_fnc_log;
-
+["Persistent Save Starting","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
 // Save each player with global flag
 {
 	[getPlayerUID _x, _x, true] call A3A_fnc_savePlayer;
@@ -230,8 +230,11 @@ _dataX = [];
 _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (controlsX find _x < defaultControlIndex)};
 ["controlsSDK",_controlsX] call A3A_fnc_setStatVariable;
 
+//Saving the state of the testing timer
+["testingTimerIsActive", testingTimerIsActive] call A3A_fnc_setStatVariable;
+
 saveProfileNamespace;
 savingServer = false;
-_saveHintText = format ["Savegame Done.<br/><br/>You won't lose your stats in the event of a game update.<br/><br/>Remember: if you want to preserve any vehicle, it must be near the HQ Flag with no AI inside.<br/>If AI are inside, you will save the funds you spent on it.<br/><br/>AI will be refunded<br/><br/>Stolen and purchased Static Weapons need to be ASSEMBLED in order to be saved. You can save disassembled Static Weapons in the ammo box.<br/><br/>Mounted Statics (Mortar/AA/AT squads) won't get saved, but you will be able to recover the cost.<br/><br/>Same for assigned vehicles more than 50m away from HQ.<br/><br/>%1 fund count:<br/>HR: %2<br/>Money: %3 €",nameTeamPlayer,_hrBackground,_resourcesBackground];
-[petros,"hint",_saveHintText, "Save"] remoteExec ["A3A_fnc_commsMP", 0];
+_saveHintText = ["<t size='1.5'>",nameTeamPlayer," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
+["Persistent Save Completed",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
 [2, "Persistent Save Completed", _filename] call A3A_fnc_log;

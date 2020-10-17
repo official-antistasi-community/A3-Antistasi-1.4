@@ -58,7 +58,6 @@ DECLARE_SERVER_VAR(difficultyCoef, if !(isMultiplayer) then {0} else {floor ((({
 //Mostly state variables, used by various parts of Antistasi.
 DECLARE_SERVER_VAR(bigAttackInProgress, false);
 DECLARE_SERVER_VAR(AAFpatrols,0);
-DECLARE_SERVER_VAR(reinfPatrols, 0);
 DECLARE_SERVER_VAR(smallCAmrk, []);
 DECLARE_SERVER_VAR(smallCApos, []);
 
@@ -132,6 +131,8 @@ playerHasBeenPvP = [];
 
 savedPlayers = [];
 destroyedBuildings = [];		// synced only on join, to avoid spam on change
+
+testingTimerIsActive = false;
 
 ///////////////////////////////////////////
 //     INITIALISING ITEM CATEGORIES     ///
@@ -453,7 +454,7 @@ private _badCaseVars = [];
 		if (isNil "_var") exitWith { [1, "Missing template var " + _varName, _filename] call A3A_fnc_log };
 
 		if !(_var isEqualType []) then {_var = [_var]};									// plain string case, eg factions, some units
-		if ("breachingExplosives" in _varName) then { _var = _var apply {_x#0} };		// ["class", n] case for breaching explosives
+		if (_varname find "breachingExplosives" != -1) then { _var = _var apply {_x#0} };		// ["class", n] case for breaching explosives
 		if (_var#0 isEqualType []) then {												// arrays of arrays case, used for infantry groups
 			private _classes = [];
 			{ _classes append _x } forEach _var;

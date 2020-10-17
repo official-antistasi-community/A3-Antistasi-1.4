@@ -17,6 +17,7 @@ private _bomb = _intel getVariable ["trapBomb", objNull];
 private _isTrap = !(isNull _bomb);
 if(_isTrap) exitWith
 {
+    _intel remoteExecCall ["removeAllActions", 0];
     _intel setObjectTextureGlobal [0, "Pictures\Intel\laptop_die.paa"];
     {
         [petros,"hint","The screen says:<br/><br/>Prepare to die!", "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x];

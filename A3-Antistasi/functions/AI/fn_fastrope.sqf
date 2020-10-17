@@ -86,10 +86,10 @@ if !(_reinf) then
 	{
 	_wp2 = _groupX addWaypoint [(position (leader _groupX)), 0];
 	_wp2 setWaypointType "MOVE";
-	_wp2 setWaypointStatements ["true", "(group this) spawn A3A_fnc_attackDrillAI"];
+	_wp2 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) spawn A3A_fnc_attackDrillAI"];
 	_wp2 = _groupX addWaypoint [_positionX, 1];
 	_wp2 setWaypointType "MOVE";
-	_wp2 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
+	_wp2 setWaypointStatements ["true","if !(local this) exitWith {}; {if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
 	_wp2 = _groupX addWaypoint [_positionX, 2];
 	_wp2 setWaypointType "SAD";
 	}
@@ -97,11 +97,10 @@ else
 	{
 	_wp2 = _groupX addWaypoint [_positionX, 0];
 	_wp2 setWaypointType "MOVE";
-	_wp2 setWaypointStatements ["true","nul = [(thisList select {alive _x}),side this,(group this) getVariable [""reinfMarker"",""""],0] remoteExec [""A3A_fnc_garrisonUpdate"",2];[group this] spawn A3A_fnc_groupDespawner; reinfPatrols = reinfPatrols - 1; publicVariable ""reinfPatrols"";"];
 	};
 _wp3 = _heli addWaypoint [_posOrigin, 1];
 _wp3 setWaypointType "MOVE";
 _wp3 setWaypointSpeed "NORMAL";
 _wp3 setWaypointBehaviour "AWARE";
-_wp3 setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
+_wp3 setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
 {_x setBehaviour "AWARE";} forEach units _heli;

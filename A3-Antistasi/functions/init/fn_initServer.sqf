@@ -74,6 +74,7 @@ if (isMultiplayer) then {
 	playerMarkersEnabled = true;
 	minPlayersRequiredforPVP = 2;
 	helmetLossChance = 33;
+	startWithLongRangeRadio = true;
 	LootToCrateEnabled = true;
 	LTCLootUnlocked = false;
     startWithLongRangeRadio = true;
@@ -258,7 +259,14 @@ savingServer = false;
 //Enable performance logging
 [] spawn {
 	private _logPeriod = [30, 10] select (logLevel == 3);
-	while {true} do {
+	while {true} do
+	{
+		//Sleep if no player is online
+		if (isMultiplayer && (count (allPlayers - (entities "HeadlessClient_F")) == 0)) then
+		{
+			waitUntil {sleep 10; (count (allPlayers - (entities "HeadlessClient_F")) > 0)};
+		};
+
 		[] call A3A_fnc_logPerformance;
 		sleep _logPeriod;
 	};

@@ -44,7 +44,7 @@ if (worldName == "Tanoa") then {
 	{
 		sleep 1;
 		diag_log "WPCreate cannot get the roadsMrk, sleeping 1 second to await marker init!";
-		!(isNil "roadsMrk" || {isNull roadsMrk})
+		!(isNil "roadsMrk")
 	};
 
 	private _arr2 = [];

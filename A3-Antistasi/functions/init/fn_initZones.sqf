@@ -399,7 +399,14 @@ if (count _posBank > 0) then {
 	};
 };
 
-blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {!((position ([getMarkerPos _x] call A3A_fnc_findNearestGoodRoad)) inArea _x)};
+// Make list of markers that don't have a proper road nearby
+blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
+	private _nearRoads = (getMarkerPos _x) nearRoads (([_x] call A3A_fnc_sizeMarker) * 1.5);
+//	_nearRoads = _nearRoads inAreaArray _x;
+	private _badSurfaces = ["#GdtForest", "#GdtRock", "#GdtGrassTall"];
+	private _idx = _nearRoads findIf { !(surfaceType (position _x) in _badSurfaces) && { count roadsConnectedTo _x != 0 } };
+	if (_idx == -1) then {true} else {false};
+};
 
 publicVariable "blackListDest";
 publicVariable "markersX";

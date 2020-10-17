@@ -1581,6 +1581,15 @@ switch _mode do {
 		private _ctrlListSecondaryWeapon = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON);
 		private _ctrlListHandgun = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYARSENAL_TAB_HANDGUN);
 
+		// Prevent equipping item when there aren't any left
+		if (_amount == 0 and _item != "") exitWith{
+			if(missionnamespace getvariable ["jna_reselect_item",true])then{//prefent loop when unavalable item was worn and a other unavalable item was selected
+				missionnamespace setvariable ["jna_reselect_item",false];
+				["ListSelectCurrent",[_display,_index]] call jn_fnc_arsenal;
+				missionnamespace setvariable ["jna_reselect_item",true];
+			};
+		};
+
 		//check if weapon is unlocked
 		private _min = jna_minItemMember select _index;
 		if ((_amount <= _min) AND (_amount != -1) AND (_item !="") AND !([player] call A3A_fnc_isMember) AND !_type) exitWith{
@@ -2562,11 +2571,11 @@ switch _mode do {
 
 			//--- Save
 			case (_key == DIK_S): {
-				if (_ctrl) then {['buttonSave',[_display]] call jn_fnc_arsenal;};
+				if (_ctrl && (vehicle player isEqualTo player)) then {['buttonSave',[_display]] call jn_fnc_arsenal;};
 			};
 			//--- Open
 			case (_key == DIK_O): {
-				if (_ctrl) then {['buttonLoad',[_display]] call jn_fnc_arsenal;};
+				if (_ctrl && (vehicle player isEqualTo player)) then {['buttonLoad',[_display]] call jn_fnc_arsenal;};
 			};
 
 			//--- Vision mode

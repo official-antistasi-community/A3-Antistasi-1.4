@@ -67,6 +67,11 @@ while {_positionIsInvalid} do {
 		["HQ Position", "Selected position cannot be in water"] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
+
+	if (!_positionIsInvalid && (_positionClicked findIf { (_x < 0) || (_x > worldSize)} != -1)) then {
+		["HQ Position", "Selected position cannot be outside the map"] call A3A_fnc_customHint;
+		_positionIsInvalid = true;
+	};
 	
 	if (!_positionIsInvalid && !_newGame) then {
 		//Invalid if enemies nearby

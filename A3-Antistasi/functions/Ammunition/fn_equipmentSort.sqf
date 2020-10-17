@@ -15,15 +15,18 @@
 	switch (_uniformFaction) do {
 		//RHS
 		case "rhsgref_faction_nationalist": {if ((!has3CB) and nameTeamPlayer isEqualTo "NAPA") then {allRebelUniforms pushBack _x};};
-		case "rhsgref_faction_cdf_ng_b": {if ((!has3CB) and teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
-		//3CB
-		//case "IND_F": {if ((has3CB) and nameTeamPlayer isEqualTo "TTF") then {allRebelUniforms pushBack _x};};
+		case "rhsgref_faction_hidf": {if ((!has3CB) and nameTeamPlayer isEqualTo "Rebels") then {allRebelUniforms pushBack _x};};
+		//3CB These dont actually work, added TKM manually in Template, CCM Uniforms are the same as the Civilian ones.
+		//case "UK3CB_CCM_I": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
+		//case "UK3CB_TKM_B": {if (teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
 		//IFA
 		case "LIB_GUER": {if (hasIFA) then {allRebelUniforms pushBack _x};};
-		//Vanilla
-		case "IND_C_F";
-		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1
-		case "BLU_G_F": {allRebelUniforms pushBack _x};
+		//Tanoa/ApexDLC
+		case "IND_C_F": {if ((!hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
+		//Contact DLC Looters
+		case "IND_L_F": {if ((!hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
+		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1 ----> Added Green Via Templates.
+		case "BLU_G_F": {if ((!hasIFA) and teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
 	};
 } forEach allUniforms;
 
@@ -48,6 +51,10 @@ allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_pol_uniform_blouse
 allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_ff_uniform_man_80_orn");	//Gmob Firefighter
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_camo_F");	//LDF Deserter Jacket
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_deserter_F");	//LDF Desserter T-Shirt
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_olive_F"); //Looter Clothes (T-Shirt Olive)
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_sport_F"); //Looter Clothes (T-Shirt Sport)
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_black_F"); //Looter Clothes (T-Shirt Black)
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_skull_F"); //Looter Clothes (T-Shirt Skull)
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_shorts_F");	//Idap Worker Uniforms
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_casual_F");
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_cargo_F");

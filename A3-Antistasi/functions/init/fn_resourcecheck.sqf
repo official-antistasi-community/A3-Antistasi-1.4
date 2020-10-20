@@ -24,8 +24,8 @@ while {true} do
 		private _city = _x;
 		private _resAddCity = 0;
 		private _hrAddCity = 0;
-		private _dataX = server getVariable _city;
-		_dataX params ["_numCiv", "_numVeh", "_supportGov", "_supportReb"];
+		private _cityData = server getVariable _city;
+		_cityData params ["_numCiv", "_numVeh", "_supportGov", "_supportReb"];
 
 		_popTotal = _popTotal + _numCiv;
 		_popReb = _popReb + (_numCiv * (_supportReb / 100));

@@ -9,13 +9,13 @@ cityIsSupportChanging = true;
 params ["_changeGov", "_changeReb", "_pos", ["_scaled", true], ["_isRadio", false]];
 
 private _city = if (_pos isEqualType "") then {_pos} else {[citiesX, _pos] call BIS_fnc_nearestPosition};
-private _dataX = server getVariable _city;
-if (isNil "_dataX" || {!(_dataX isEqualType [])}) exitWith
+private _cityData = server getVariable _city;
+if (isNil "_cityData" || {!(_cityData isEqualType [])}) exitWith
 {
 	cityIsSupportChanging = false;
 	[1, format ["No data found for city %1", _city], _filename] call A3A_fnc_log;
 };
-_dataX params ["_numCiv", "_numVeh", "_supportGov", "_supportReb"];
+_cityData params ["_numCiv", "_numVeh", "_supportGov", "_supportReb"];
 
 // Radio propaganda can't increase support above 30% or decrease below 50%
 if (_isRadio) then {
@@ -44,8 +44,8 @@ if (_supportTotal > 100) then {
 	_supportReb = _supportReb * (100 / _supportTotal);
 };
 
-_dataX = [_numCiv, _numVeh, _supportGov, _supportReb];
+_cityData = [_numCiv, _numVeh, _supportGov, _supportReb];
 
-server setVariable [_city,_dataX,true];
+server setVariable [_city,_cityData,true];
 cityIsSupportChanging = false;
 true

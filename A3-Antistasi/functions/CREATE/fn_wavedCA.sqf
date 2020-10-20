@@ -726,34 +726,26 @@ while {(_waves > 0)} do
                     {
                         private _distance = (getMarkerPos _mrkDestination) distance2D (getMarkerPos _x);
                         private _supportChange = [0, 0];
-                        if(_distance < 2500) then
-                        {
-                            _supportChange = [0, -10];
-                        };
                         if(_distance < 2000) then
                         {
-                            _supportChange = [10, -30];
-                        };
-                        if(_distance < 1500) then
-                        {
-                            _supportChange = [25, -50];
+                            _supportChange = [10, -10];
                         };
                         if(_distance < 1000) then
                         {
-                            _supportChange = [50, -75];
+                            _supportChange = [20, -20];
                         };
                         if(_distance < 500) then
                         {
-                            _supportChange = [75, -75];
+                            _supportChange = [30, -30];
                         };
-                        if(_distance < 2500) then
+                        if(_distance < 2000) then
                         {
                             _supportChange pushBack _x;
                             _supportChange remoteExec ["A3A_fnc_citySupportChange",2];
                         };
                     };
                 } forEach citiesX;
-				[100,-100,_mrkDestination] remoteExec ["A3A_fnc_citySupportChange",2];
+				[60,-60,_mrkDestination,false] remoteExec ["A3A_fnc_citySupportChange",2];		// no pop scaling, force swing
 				["TaskFailed", ["", format ["%1 joined %2",[_mrkDestination, false] call A3A_fnc_location,nameOccupants]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 				sidesX setVariable [_mrkDestination,Occupants,true];
 				[[-10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];

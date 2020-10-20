@@ -44,9 +44,9 @@ while {true} do
 			_hrAddCity = _numciv * (_supportReb / 10000);
 			switch (_radioTowerSide) do
 			{
-				case teamPlayer: {[-1,_suppBoost,_city,true] spawn A3A_fnc_citySupportChange};
-				case Occupants: {[1,-1,_city,true] spawn A3A_fnc_citySupportChange};
-				case Invaders: {[-1,-1,_city,true] spawn A3A_fnc_citySupportChange};
+				case teamPlayer: {[-1,_suppBoost,_city,false,true] spawn A3A_fnc_citySupportChange};
+				case Occupants: {[1,-1,_city,false,true] spawn A3A_fnc_citySupportChange};
+				case Invaders: {[-1,-1,_city,false,true] spawn A3A_fnc_citySupportChange};
 			};
 			if (sidesX getVariable [_city,sideUnknown] == Occupants) then
 			{

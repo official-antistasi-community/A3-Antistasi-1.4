@@ -6,7 +6,7 @@ if (!isServer) exitWith {
 waitUntil {!cityIsSupportChanging};
 cityIsSupportChanging = true;
 
-params ["_changeGov", "_changeReb", "_pos", ["_isRadio", false]];
+params ["_changeGov", "_changeReb", "_pos", ["_scaled", true], ["_isRadio", false]];
 
 private _city = if (_pos isEqualType "") then {_pos} else {[citiesX, _pos] call BIS_fnc_nearestPosition};
 private _dataX = server getVariable _city;
@@ -26,18 +26,23 @@ if (_isRadio) then {
 	if (_changeReb < 0) then { _changeReb = (50 - _supportReb) min 0 max _changeReb };
 }
 else {
-	// Non-radio changes are scaled inversely by city population, so less effect on large towns
-	private _popScale = 200 / (_numCiv max 50);
-	_changeGov = _changeGov * _popScale;
-	_changeReb = _changeReb * _popScale;
+	// Most non-radio changes are scaled inversely by city population, so less effect on large towns
+	if (_scaled) then {
+		private _popScale = 200 / (_numCiv max 50);
+		_changeGov = _changeGov * _popScale;
+		_changeReb = _changeReb * _popScale;
+	};
 };
 
 // Cap total to 100 and minimums to 0
-_changeGov = _changeGov min (100 - _supportReb + _supportGov);
 _supportGov = 0 max (_supportGov + _changeGov);
-
-_changeReb = _changeReb min (100 - _supportReb + _supportGov);
 _supportReb = 0 max (_supportReb + _changeReb);
+
+private _supportTotal = _supportGov + _supportReb;
+if (_supportTotal > 100) then {
+	_supportGov = _supportGov * (100 / _supportTotal);
+	_supportReb = _supportReb * (100 / _supportTotal);
+};
 
 _dataX = [_numCiv, _numVeh, _supportGov, _supportReb];
 

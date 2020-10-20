@@ -30,7 +30,6 @@ if ((_node#0) isEqualType []) then {
     {
         _seats append (_x#2);
     } forEach _node;
-    _cargo setVariable ["Logistics_occupiedSeats", _seats, true];
 
     //update cargo list
     for "_i" from 0 to _lastNode do {

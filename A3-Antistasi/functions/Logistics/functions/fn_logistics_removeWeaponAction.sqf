@@ -22,10 +22,10 @@ _weaponCount = _attachedObjects findIf {
 	private _model = getText (configFile >> "CfgVehicles" >> typeOf _x >> "model");
     _weapon = false;
     {
-        if ((_x#0) isEqualTo _model) exitWith {_weapon = true}; 
+        if ((_x#0) isEqualTo _model) exitWith {_weapon = true};
     } forEach logistics_weapons;
 	_weapon
-}
+};
 if (_weaponCount isEqualTo -1) then {
 	private _undercoverBreak = _vehicle getVariable ["undercoverBreak", -1];
 	_vehicle removeEventHandler ["GetIn", _undercoverBreak];

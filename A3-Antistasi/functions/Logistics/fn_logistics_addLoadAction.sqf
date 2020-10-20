@@ -1,7 +1,7 @@
 params ["_object", ["_action", "load"]];
 
-if (isNil "logistics_vehicleHardpoints") then {
-	call A3A_fnc_logistics_initNodes;
+if (isNil "logistics_vehicleHardpoints") exitWith {
+	[1, "Logistics nodes not initialized", "fn_logistics_addLoadAction.sqf"] call A3A_fnc_log;
 };
 
 _nonSupportedStatic = false;

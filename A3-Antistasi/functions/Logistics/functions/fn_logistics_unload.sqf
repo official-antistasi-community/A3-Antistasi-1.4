@@ -92,7 +92,6 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
 
 //unlock seats
 [_cargo, false] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _cargo];
-_cargo setVariable ["Logistics_occupiedSeats", nil, true];
 [_vehicle, false, _seats] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _vehicle];
 
 //update list

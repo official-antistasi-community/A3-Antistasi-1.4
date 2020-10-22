@@ -182,6 +182,7 @@ if !(_typeVehH == vehNATOPatrolHeli) then {
 		//creating transport vehicle
 		_typeVeh = if (_sideX == Occupants) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
 		private _posVehHT = _posCrash findEmptyPosition [15, 30 ,_typeVeh];
+		if (_posVehHT isEqualTo []) then {_posVehHT = _posCrash findEmptyPosition [15, 100 ,_typeVeh]}; //if it fails to find a pos expand and try again
 		_vehGuard = _typeVeh createVehicle _posVehHT;
 		[_vehGuard, _sideX] call A3A_fnc_AIVEHinit;
 		_vehicles pushBack _vehGuard;
@@ -252,13 +253,13 @@ if (_vehR distance _heli < 50) then
 		_escortWP setWaypointBehaviour "SAFE";
 
 		[3, format ["Pilots and Guard are RTB"], _filename] call A3A_fnc_log;
-		
+
 		_pilots addVehicle _heli;
 		(units _pilots) orderGetIn true;
 		sleep 1;
 		private _notAlivePilots = true;
 		{if ([_x] call A3A_fnc_canFight) exitWith {_notAlivePilots = false}}forEach units _pilots;
-		
+
 
 		if ((_typeVehH in vehNATOTransportHelis)||(_typeVehH in vehCSATTransportHelis)) then {
 			if !(_typeVehH == vehNATOPatrolHeli) then {

@@ -1,7 +1,13 @@
 _nul=createDialog "set_params";
 
 waitUntil {dialog};
-["W A R N I N G", "READ THIS!!!<br/><br/><br/>Antistasi does NOT support vanilla save. Do not expect 100% of functionalities if you Save and Exit and after you come back with Resume option. Both on SP and MP.<br/><br/><br/>Antistasi has an in built save system, GTA alike, which is the system you have to use in order to have full functionalities.<br/><br/>To Save: Go to the Map Board, select ""Game Options"" and hit on ""Persistent Save"" button.<br/><br/>To load: RESTART the game and click YES on this window"] call A3A_fnc_customHint;
+private _autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
+[
+	"W A R N I N G ",
+	["Antistasi has a custom save system similar to other CTIs.<br/><br/>",
+	"To Save: Your commander needs to go to the <t color='#f0d498'>Map Board</t>, scroll-select <t color='#f0d498'>""Game Options""</t> and click on the <t color='#f0d498'>""Persistent Save""</t> button.<br/><br/>",
+	"Current parameters are configured to auto-save every <t color='#f0d498'>",(_autoSaveInterval/60) toFixed 0," minutes</t>."] joinString ""
+] call A3A_fnc_customHint;
 waitUntil {!dialog};
 
 if (!isNil "loadLastSave" && {!loadLastSave}) then {
@@ -26,7 +32,7 @@ if (!isNil "loadLastSave" && {!loadLastSave}) then {
 				haveRadio = true;
 				};
 			};
-		if (skillMult == 3) then 
+		if (skillMult == 3) then
 			{
 			//Hard Difficulty Tweaks
 			server setVariable ["hr",0,true];

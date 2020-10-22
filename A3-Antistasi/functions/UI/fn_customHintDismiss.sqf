@@ -30,12 +30,13 @@ private _filename = "fn_customHintDismiss.sqf";
 
 if (!hasInterface || !A3A_customHintEnable) exitWith {false;}; // Disabled for server & HC.
 if (_dismissAll) then {
-    A3A_customHint_Queue = [];
+    A3A_customHint_MSGs = [];
 } else {
-    if !(count A3A_customHint_Queue isEqualTo 0) then {
-        A3A_customHint_Queue deleteAt 0
-    }
+    if !(count A3A_customHint_MSGs isEqualTo 0) then {
+        private _lastMSGIndex = count A3A_customHint_MSGs - 1;
+        A3A_customHint_MSGs deleteAt _lastMSGIndex;
+    };
 };
-A3A_customHint_LastDismiss = serverTime;
+A3A_customHint_LastMSG = serverTime;
 [] call A3A_fnc_customHintRender;  // Instant update will be preffered when user is dismissing notifications.
 true;

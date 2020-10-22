@@ -45,5 +45,4 @@ if !(_distancePetros <= 75) exitWith {false};
 
 deleteVehicle _projectile;
 [_unit, 60, 0.4, objNull, "You cannot throw grenades or place explosives within 75m of base."] call A3A_fnc_punishment_FF;
-[2, format ["EXPLOSIVE DISCHARGE HQ | %1 [%2] distance from Petros: %3", name _unit, getPlayerUID _unit, _distancePetros], _filename] call A3A_fnc_log;
 true;

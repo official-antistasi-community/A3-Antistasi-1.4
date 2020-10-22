@@ -4,7 +4,7 @@ private _filename = "fn_missionRequest";
 params ["_type", ["_requester", clientOwner], ["_autoSelect", false]];
 if(isNil "_type") then {
 	if (leader group Petros != Petros) then {breakOut "Main"};
-	private _types = ["AS","CON","DES","LOG","RES","CONVOY"];
+	private _types = ["CON","DES","LOG","RES","CONVOY"];
 	_type = selectRandom (_types select {!([_x] call BIS_fnc_taskExists)});
 	if (isNil "_type") then {breakOut "Main"}; //you have all the mission types
 	_autoSelect = true;

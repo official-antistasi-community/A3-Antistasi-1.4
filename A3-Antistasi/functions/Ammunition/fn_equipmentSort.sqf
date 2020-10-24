@@ -151,9 +151,9 @@ allRadios = allRadios select {
 //   BackpackRadio   ///
 //////////////////
 private _encryptRebel = if (teamPlayer == west) then { "tf_west_radio_code" } else { "tf_guer_radio_code" };
-allBackpackRadio = allBackpackRadio select {
+allBackpackRadio = allBackpacksEmpty select {
   private _encrypt = getText (configFile >> "CfgVehicles" >> _x >> "tf_encryptionCode");
-  (_encrypt isEqualTo "") or (_encrypt isEqualTo _encryptRebel);
+  (_encrypt isEqualTo _encryptRebel);
 };
 
 //////////////////

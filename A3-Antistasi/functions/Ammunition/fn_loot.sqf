@@ -13,10 +13,6 @@ lootNVG append allNVGs;
 /////////////////////
 lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG + allGadgets;
 
-//"Blank" Radios dont make sense due to always Converting so no Unlocking (With TFAR)
-if (hasTFAR) then {
-lootItem deleteAt (lootItem find "ItemRadio");
-};
 ////////////////////
 //    Weapons    ///
 ////////////////////

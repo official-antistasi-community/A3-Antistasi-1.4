@@ -141,6 +141,7 @@ allCivilianGlasses deleteAt (allCivilianGlasses find "LIB_Glasses");
 ////////////////
 //   Radios   //
 ////////////////
+If (hasTFAR) then {
 private _encryptRebel = if (teamPlayer == west) then { ["tf_west_radio_code"] } else { ["tf_guer_radio_code", "tf_independent_radio_code"] };
 allRadios = allRadios select {
     private _encrypt = getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode");
@@ -148,17 +149,16 @@ allRadios = allRadios select {
 };
 
 private _encrypthostile = if (teamPlayer == west) then { ["tf_guer_radio_code", "tf_independent_radio_code", "tf_east_radio_code"] } else { ["tf_west_radio_code", "tf_east_radio_code"] };
-allBackpackRadio = [];
 private _allHostileRadio = [];
 {
     private _encrypt = getText (configFile >> "CfgVehicles" >> _x >> "tf_encryptionCode");
-  	if (_encrypt in _encryptRebel) then {allBackpackRadio pushBack _x};
+  	if (_encrypt in _encryptRebel) then {allBackpacksRadio pushBack _x};
     if (_encrypt in _encrypthostile) then {_allHostileRadio pushBack _x};
 } forEach allBackpacksEmpty;
 
 //Removes Radios from allBackpacksEmpty
-allBackpacksEmpty = allBackpacksEmpty - _allHostileRadio - allBackpackRadio;
-
+allBackpacksEmpty = allBackpacksEmpty - _allHostileRadio - allBackpacksRadio;
+};
 /////////////////
 // UAVTerminal //
 /////////////////

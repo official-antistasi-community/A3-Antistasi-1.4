@@ -4,14 +4,14 @@ if (isRemoteExecutedJIP) then {[3, format ["Salvage Rope Action added on JIP cli
 
 
 //Deploy action
-canDeployWinch = {
+canDeployWinch = { //can deploy winch if player is not in a vehicle, is within 10m, theres no rope deployed yet and the vehicle can load cargo
 	private _vehicle = cursorTarget;
-	if(_vehicle isKindOf "Ship") then {	
+	if(_vehicle isKindOf "Ship") then {
 		vehicle player == player && player distance _vehicle < 10 && isNil {_vehicle getVariable "WinchRope"} && [_vehicle, boxX] call jn_fnc_logistics_canLoad != -3;
 	} else {
 		false;
 	};
-}; 
+};
 
 DeployWinch = {
 	if (captive player) then {player setCaptive false};
@@ -22,6 +22,7 @@ DeployWinch = {
 	_helper attachTo [_player,[0,0.1,0], "pelvis"];
 	_vehicle setVariable ["WinchRope", (ropeCreate [_vehicle, [0,-2.8,-0.8], _helper, [0,0,0], 10]), true];
 	_vehicle setVariable ["WinchHelper", _helper, true];
+	player setVariable ["WinchHelperObj", _helper];
 	_vehicle setVariable ["WinchRopeUnit", _player, true];
 	[_player, _vehicle] spawn adjustRope;
 };
@@ -42,15 +43,16 @@ adjustRope = {
 		};
 		sleep 0.1;
 	};
-}; 
+};
 
 //Stow action
-canStow = {
+canStow = { //can stow when the player is not in a vehicle, is within 10m, a rope is deployed, and its attached to the player or no one
 	private _vehicle = cursorTarget;
 	if (isNull _vehicle) exitWith {false};
 	private _ropeExist = if (!isNil {_vehicle getVariable "WinchRope"}) then {true} else {false};
 	private _ropeOwner = if ((_vehicle getVariable "WinchRopeUnit") == player) then {true} else {false};
-	if ((_vehicle getVariable "WinchRopeUnit") isEqualTo []) then {_ropeOwner = true}; //overide if none is on the rope end
+	private _attachedPlayer = attachedTo (_vehicle getVariable ["WinchHelper", objNull]);
+	if (isNil {_vehicle getVariable "WinchRope2"} && !(isNull _attachedPlayer)) then {_ropeOwner = true}; //overide if none is on the helper and its not winching salvage obj
 	vehicle player == player && player distance _vehicle < 10 && _ropeExist && _ropeOwner;
 };
 
@@ -63,15 +65,18 @@ stowRope = {
 	deleteVehicle _helper;
 	_vehicle setVariable ["WinchRope",nil,true];
 	_vehicle setVariable ["WinchHelper",nil,true];
+	player setVariable ["WinchHelperObj", objNull];
 	_vehicle setVariable ["WinchRopeUnit",nil,true];
-	
+
 };
 
 //Attach action
-canAttach = {
+canAttach = { //whitelisted objs (SalvageCrate) thats within 13m (finicky with low distance) and thats under water can be attached while the player has a rope
 	_cargo = cursorTarget;
 	if(!isNull _cargo) then {
-		player != _cargo && _cargo getVariable ["SalvageCrate", false] && player distance _cargo <= 10 && ((ropeAttachedTo player) getVariable "WinchRopeUnit") == player;
+		private _helper = player getVariable ["WinchHelperObj", objNull];//get helper from player
+		if !(_helper in attachedObjects player) then {_helper = objNull};//make sure its still attached to the player
+		player != _cargo && _cargo getVariable ["SalvageCrate", false] && player distance _cargo <= 13 && ((ropeAttachedTo _helper) getVariable "WinchRopeUnit") == player && (getPosASLW _cargo#2)<0;
 	} else {
 		false;
 	};
@@ -80,7 +85,8 @@ canAttach = {
 attachRope = {
 	private _cargo = cursorTarget;
 	private ["_vehicle"];
-	_vehicle = ropeAttachedTo player;
+	private _helper = player getVariable ["WinchHelperObj", objNull];
+	_vehicle = ropeAttachedTo _helper;
 	_vehicle setVariable ["WinchRopeUnit",_vehicle,true]; //to stop stow action from showing while recovering crate
 	[player, false] remoteExec ["setCaptive"];
 	[] spawn A3A_fnc_statistics;
@@ -100,7 +106,6 @@ attachRope = {
 	ropeDestroy (_vehicle getVariable "WinchRope2");
 	[_vehicle, _cargo] call jn_fnc_logistics_load;
 	_cargo call jn_fnc_logistics_addAction;
-	_cargo setVariable ["SalvageCrate",nil,true];
 	_vehicle setVariable ["WinchRope2",nil,true];
 	_vehicle setVariable ["WinchRope",nil,true];
 	_vehicle setVariable ["WinchRopeUnit",nil,true];

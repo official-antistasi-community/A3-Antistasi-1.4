@@ -104,6 +104,7 @@ _transferCargo = {
 
 		if (_container canAdd [_type, _count] and !(_type in _unlocked)) then {
 			_container addMagazineAmmoCargo [_type, _count, _max];
+			if (_remainder isEqualTo 0) exitWith {};
 			_container addMagazineAmmoCargo [_type, 1, _remainder];
 		} else {
 			(_leftover#1) pushBack [_type, _count, _max, _remainder];

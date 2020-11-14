@@ -6,12 +6,12 @@ if (isRemoteExecutedJIP) then {[3, format ["Salvage Rope Action added on JIP cli
 //Deploy action
 canDeployWinch = {
 	private _vehicle = cursorTarget;
-	if(_vehicle isKindOf "Ship") then {	
-		vehicle player == player && player distance _vehicle < 10 && isNil {_vehicle getVariable "WinchRope"} && [_vehicle, boxX] call jn_fnc_logistics_canLoad != -3;
+	if(_vehicle isKindOf "Ship") then {
+		vehicle player == player && player distance _vehicle < 10 && isNil {_vehicle getVariable "WinchRope"} && [_vehicle] call A3A_fnc_logistics_getVehicleNodes != -1;
 	} else {
 		false;
 	};
-}; 
+};
 
 DeployWinch = {
 	if (captive player) then {player setCaptive false};
@@ -42,7 +42,7 @@ adjustRope = {
 		};
 		sleep 0.1;
 	};
-}; 
+};
 
 //Stow action
 canStow = {
@@ -64,7 +64,7 @@ stowRope = {
 	_vehicle setVariable ["WinchRope",nil,true];
 	_vehicle setVariable ["WinchHelper",nil,true];
 	_vehicle setVariable ["WinchRopeUnit",nil,true];
-	
+
 };
 
 //Attach action
@@ -98,7 +98,7 @@ attachRope = {
 	_vehicle lockCargo true;
 	sleep _time;
 	ropeDestroy (_vehicle getVariable "WinchRope2");
-	[_vehicle, _cargo] call jn_fnc_logistics_load;
+	[_cargo] call A3A_fnc_logistics_canLoad;
 	_cargo call A3A_fnc_logistics_addLoadAction;
 	_cargo setVariable ["SalvageCrate",nil,true];
 	_vehicle setVariable ["WinchRope2",nil,true];

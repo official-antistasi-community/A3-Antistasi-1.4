@@ -21,7 +21,7 @@ if !(isNil "_seats") then {//for vehicle loading cargo
 		_vehicle lockCargo [_x, true];
 	} forEach _seatsToLock;
 } else {//for cargo, lock it fully and kick out any crew
-	if (_vehicle isKindOf "StaticWeapon") exitWith {}; // dont lock statics, cang get out otherwise
+	if (_vehicle isKindOf "StaticWeapon") exitWith {}; // dont lock statics, cant get out otherwise
 	_vehicle lock _lock;
 	if (_lock) then {{moveOut _x}forEach crew _vehicle};
 };

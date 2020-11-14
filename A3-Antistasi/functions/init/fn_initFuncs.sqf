@@ -4,7 +4,6 @@ private _fileName = "initFuncs.sqf";
 
 [] call compile preprocessFileLineNumbers "scripts\Init_UPSMON.sqf";
 call A3A_fnc_logistics_initNodes;
-//[] call jn_fnc_logistics_init;
 boxX call jn_fnc_arsenal_init;
 
 [2,"initFuncs completed",_fileName] call A3A_fnc_log;

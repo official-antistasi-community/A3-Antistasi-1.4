@@ -98,7 +98,7 @@ attachRope = {
 	_vehicle lockCargo true;
 	sleep _time;
 	ropeDestroy (_vehicle getVariable "WinchRope2");
-	[_cargo] call A3A_fnc_logistics_canLoad;
+	[_cargo] remoteExecCall ["A3A_fnc_logistics_canLoad", 2];
 	_cargo call A3A_fnc_logistics_addLoadAction;
 	_cargo setVariable ["SalvageCrate",nil,true];
 	_vehicle setVariable ["WinchRope2",nil,true];

@@ -14,6 +14,10 @@ if (isNil "_container") exitWith {
 	[_target, clientOwner, true] remoteExecCall ["A3A_fnc_canTransfer", 2];
 };
 
+//break undercover
+player setCaptive false;
+[] spawn A3A_fnc_statistics;
+
 private "_unlocked";
 if (LTCLootUnlocked) then {
 	_unlocked = [];

@@ -6,9 +6,9 @@ if (_pickUp) then {
 	_crate attachTo [player, [0, 1.5, 0], "Pelvis"];
 	player setVariable ["carryingCrate", true];
 	player forceWalk true;
-	[player ,_crate] spawn { 
+	[player ,_crate] spawn {
 		params ["_player", "_crate"];
-		waitUntil {(!alive _crate) or !(_player getVariable ["carryingCrate", false]) or !((vehicle _player) isEqualTo _player) or !([_player] call A3A_fnc_canFight)};
+		waitUntil { !alive _crate or !(_player getVariable ["carryingCrate", false]) or !(vehicle _player isEqualTo _player) or ( !([_player] call A3A_fnc_canFight) && !captive _player) };
 		[objNull, false] call A3A_fnc_carryCrate;
 	};
 } else {

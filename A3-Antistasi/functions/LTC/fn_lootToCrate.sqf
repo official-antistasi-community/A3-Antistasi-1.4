@@ -3,6 +3,10 @@ scopeName "Main";
 
 ["Loot crate", "Looting..."] call A3A_fnc_customHint;
 
+//break undercover
+player setCaptive false;
+[] spawn A3A_fnc_statistics;
+
 private "_unlocked";
 if (LTCLootUnlocked) then {
 	_unlocked = [];

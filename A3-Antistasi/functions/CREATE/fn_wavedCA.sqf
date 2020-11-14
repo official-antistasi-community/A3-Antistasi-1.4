@@ -65,7 +65,7 @@ _nameDest = [_mrkDestination] call A3A_fnc_localizar;
 
 // Use fixed aggro value for non-rebel targets for the moment
 private _aggro = if (_sideX == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-if !(_isSDK) then { _aggro = 60 };
+if !(_isSDK) then {_aggro = 100 - _aggro;};
 
 _timeX = time + 3600;
 
@@ -180,7 +180,8 @@ while {(_waves > 0)} do
 	{
 		//Attempt land attack if origin is an airport in range
 		_airportIndex = airportsX find _mrkOrigin;
-		if (_airportIndex >= 0 and (_posOrigin distance _posDestination < distanceForLandAttack)) then
+		if (_airportIndex >= 0 and (_posOrigin distance _posDestination < distanceForLandAttack)
+			and ([_posOrigin, _posDestination] call A3A_fnc_isTheSameIsland)) then
 		{
 			_spawnPoint = server getVariable (format ["spawn_%1", _mrkOrigin]);
 			_pos = getMarkerPos _spawnPoint;
@@ -190,7 +191,12 @@ while {(_waves > 0)} do
 		else
 		//Find an outpost we can attack from
 		{
-			_outposts = outposts select {(sidesX getVariable [_x,sideUnknown] == _sideX) and (getMarkerPos _x distance _posDestination < distanceForLandAttack)  and ([_x,false] call A3A_fnc_airportCanAttack)};
+			_outposts = outposts select {
+				(sidesX getVariable [_x,sideUnknown] == _sideX)
+				and (getMarkerPos _x distance _posDestination < distanceForLandAttack)
+				and {[_posDestination, getMarkerPos _x] call A3A_fnc_isTheSameIsland}
+				and {[_x,false] call A3A_fnc_airportCanAttack}			// checks idle, garrison size, spawndist2
+			};
 			if !(_outposts isEqualTo []) then
 			{
 				_outpost = selectRandom _outposts;
@@ -712,15 +718,41 @@ while {(_waves > 0)} do
 			["rebelAttack",[format ["%2 Is attacking from the %1. Intercept them or we may loose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,"FAILED"] call A3A_fnc_taskUpdate;
 			["rebelAttackPVP",[format ["We are attacking an %2 from the %1. Help the operation if you can",_nameOrigin,_nameDest],format ["%1 Attack",_nameENY],_mrkDestination],getMarkerPos _mrkDestination,"SUCEEDED"] call A3A_fnc_taskUpdate;
 			if (_mrkDestination in citiesX) then
-				{
-				[0,-100,_mrkDestination] remoteExec ["A3A_fnc_citySupportChange",2];
+			{
+                //Impact the support on other cities in the area
+                //They cant defend us, switch back to NATO
+                {
+                    if(_x != _mrkDestination) then
+                    {
+                        private _distance = (getMarkerPos _mrkDestination) distance2D (getMarkerPos _x);
+                        private _supportChange = [0, 0];
+                        if(_distance < 2000) then
+                        {
+                            _supportChange = [10, -10];
+                        };
+                        if(_distance < 1000) then
+                        {
+                            _supportChange = [20, -20];
+                        };
+                        if(_distance < 500) then
+                        {
+                            _supportChange = [30, -30];
+                        };
+                        if(_distance < 2000) then
+                        {
+                            _supportChange pushBack _x;
+                            _supportChange remoteExec ["A3A_fnc_citySupportChange",2];
+                        };
+                    };
+                } forEach citiesX;
+				[60,-60,_mrkDestination,false] remoteExec ["A3A_fnc_citySupportChange",2];		// no pop scaling, force swing
 				["TaskFailed", ["", format ["%1 joined %2",[_mrkDestination, false] call A3A_fnc_location,nameOccupants]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 				sidesX setVariable [_mrkDestination,Occupants,true];
 				[[-10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 				_mrkD = format ["Dum%1",_mrkDestination];
 				_mrkD setMarkerColor colorOccupants;
 				garrison setVariable [_mrkDestination,[],true];
-				};
+			};
 			};
 		sleep 10;
 		if (!(sidesX getVariable [_mrkDestination,sideUnknown] == Occupants)) then
@@ -803,7 +835,7 @@ _nul = [0,"rebelAttackPVP"] spawn A3A_fnc_deleteTask;
 bigAttackInProgress = false; publicVariable "bigAttackInProgress";
 //forcedSpawn = forcedSpawn - _forced; publicVariable "forcedSpawn";
 forcedSpawn = forcedSpawn - [_mrkDestination]; publicVariable "forcedSpawn";
-[3600, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+[3600, _sideX] remoteExec ["A3A_fnc_timingCA", 2];
 
 
 // Hand remaining aggressor units to the group despawner

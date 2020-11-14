@@ -140,7 +140,7 @@ jnl_vehicleHardpoints = [
   ]],
 
 //Ural Closed
-  ["rhsafrf\addons\rhs_a2port_car\Ural\Ural.p3d", [
+  ["\rhsafrf\addons\rhs_a2port_car\Ural\Ural.p3d", [
     [1,         [0,-0.3,-0.2],    [12,3,13,4,5,2]  ],
     [1,         [0,-2.2,-0.2],    [6,7,8,9,11,10]  ]
   ]],
@@ -538,8 +538,9 @@ jnl_attachmentOffset = [
 	//medium size crate												//location				//rotation				//type 	//discription
 	["A3\Weapons_F\Ammoboxes\AmmoVeh_F",							[0,0,0.85],				[1,0,0],				1],		//Vehicle ammo create
  	 ["\A3\Supplies_F_Exp\Ammoboxes\Equipment_Box_F.p3d",							[0,0,0.85],				[1,0,0],				1],		//Equipment box
-	["\A3\Props_F_Orange\Humanitarian\Supplies\PaperBox_01_open_boxes_F.p3d", [0,0,0.85],	[1,0,0],				1], 	//Stef test supplybox
+	["\A3\Props_F_Orange\Humanitarian\Supplies\FoodSacks_01_cargonet_F.p3d", [0,0,0.85],	[1,0,0],				1], 	//Stef test supplybox
 	["\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_medium_F.p3d", [0,0,0.85],			[1,0,0],				1], 	//Stef test Devin crate1
+  ["\A3\weapons_F\AmmoBoxes\WpnsBox_F",							[0,0,0.85],				[1,0,0],				1],		//surrender crates
 	["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicAmmoBox.p3d",			[0,0,0.85],				[1,0,0],				1], 	//Stef test Devin crate2
 	["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicExplosives.p3d",			[0,0,0.85],				[1,0,0],				1], 	//Stef test Devin crate3
 	["\A3\Weapons_F\Ammoboxes\Supplydrop.p3d",						[0, 0, 0.95],			[1,0,0],				1],		//Ammodrop crate

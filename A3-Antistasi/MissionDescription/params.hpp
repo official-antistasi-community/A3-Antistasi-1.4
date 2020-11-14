@@ -10,8 +10,8 @@ class Params
      class gameMode
      {
           title = "Game Mode - Do NOT change this mid mission";
-          values[] = {1,2,3,4};
-          texts[] = {"Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov","Reb vs Inv"};
+          values[] = {1,2,3};
+          texts[] = {"Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov"};
           default = 1;
      };
      class autoSave
@@ -180,6 +180,27 @@ class Params
           default = 33;
      };
      class Spacer10
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     class EnableLootToCrate
+     {
+          title = "Enable Loot to crate";
+          values[] = {0, 1};
+          texts[] = {"Disabled", "Enabled"};
+          default = 1;
+     };
+     class LTCLootUnlocked
+     {
+          title = "Loot to crate: transfers unlocked items";
+          values[] = {0, 1};
+          texts[] = {"Disabled", "Enabled"};
+          default = 0;
+     };
+     class Spacer11
      {
           title = "";
           values[] = {""};

@@ -7,7 +7,7 @@ nameInvaders = "CSAT";
 //SF Faction
 factionMaleInvaders = "OPF_V_F";
 //Miltia Faction
-if (gameMode == 4) then {factionFIA = "OPF_G_F"};
+if (gameMode == 4) then {factionFIA = ""};
 
 //Flag Images
 CSATFlag = "Flag_CSAT_F";
@@ -55,8 +55,8 @@ CSATPilot = "O_T_Pilot_F";
 //Militia Units
 if (gameMode == 4) then
 	{
-	FIARifleman = "O_G_Soldier_F";
-	FIAMarksman = "O_G_Sharpshooter_F";
+	FIARifleman = "O_T_Soldier_F";
+	FIAMarksman = "O_T_Soldier_M_F";
 	};
 
 ////////////////////////////////////
@@ -90,23 +90,23 @@ if (gameMode == 4) then
 	//Teams
 	groupsFIASmall =
 		[
-		["O_G_Soldier_GL_F","O_G_Soldier_F"],
-		["O_G_Soldier_M_F","O_G_Soldier_F"],
-		["O_G_Sharpshooter_F","O_G_Soldier_M_F"]
+		["O_T_Soldier_GL_F","O_T_Soldier_F"],
+		["O_T_Soldier_M_F","O_T_Soldier_F"],
+		["O_T_Soldier_M_F","O_T_Soldier_M_F"]
 		];
 	//Fireteams
 	groupsFIAMid =
 		[
-		["O_G_Soldier_SL_F","O_G_Sharpshooter_F","O_G_Soldier_AR_F","O_G_Soldier_A_F"],
-		["O_G_Soldier_TL_F","O_G_Soldier_AR_F","O_G_Soldier_GL_F","O_G_Soldier_LAT_F"],
-		["O_G_Soldier_TL_F","O_G_Soldier_LAT_F","O_G_Soldier_LAT_F","O_G_Soldier_LAT_F"]
+		["O_T_Soldier_SL_F","O_T_Soldier_M_F","O_T_Soldier_AR_F","O_T_Soldier_A_F"],
+		["O_T_Soldier_TL_F","O_T_Soldier_AR_F","O_T_Soldier_GL_F","O_T_Soldier_LAT_F"],
+		["O_T_Soldier_TL_F","O_T_Soldier_LAT_F","O_T_Soldier_LAT_F","O_T_Soldier_LAT_F"]
 		];
 	//Squads
-	FIASquad = ["O_G_soldier_SL_F","O_G_soldier_F","O_G_soldier_LAT_F","O_G_Soldier_M_F","O_G_soldier_TL_F","O_G_soldier_AR_F","O_G_Soldier_A_F","O_G_medic_F"];
+	FIASquad = ["O_T_Soldier_SL_F","O_T_Soldier_F","O_T_Soldier_LAT_F","O_T_Soldier_M_F","O_T_Soldier_TL_F","O_T_Soldier_AR_F","O_T_Soldier_A_F","O_T_Medic_F"];
 	groupsFIASquad =
 		[
 		FIASquad,
-		["O_G_soldier_SL_F","O_G_soldier_LAT_F","O_G_Soldier_M_F","O_G_soldier_TL_F","O_G_Soldier_A_F","O_support_MG_F","O_support_AMG_F","O_G_medic_F"]
+		["O_T_Soldier_SL_F","O_T_Soldier_LAT_F","O_T_Soldier_M_F","O_T_Soldier_TL_F","O_T_Soldier_A_F","O_T_Soldier_GL_F","O_T_Engineer_F","O_T_Medic_F"]
 		];
 	};
 
@@ -152,9 +152,9 @@ vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATP
 //Militia Vehicles
 if (gameMode == 4) then
 	{
-	vehFIAArmedCar = "O_G_Offroad_01_armed_F";
-	vehFIATruck = "O_G_van_01_transport_F";
-	vehFIACar = "O_G_Offroad_01_F";
+	vehFIAArmedCar = "O_MRAP_02_hmg_F";
+	vehFIATruck = "O_Truck_02_transport_F";
+	vehFIACar = "O_MRAP_02_F";
 	};
 
 ////////////////////////////////////

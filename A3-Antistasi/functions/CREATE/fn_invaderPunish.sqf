@@ -179,7 +179,7 @@ if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or (
 
 sleep 15;
 _nul = [0,"invaderPunish"] spawn A3A_fnc_deleteTask;
-[7200, Invaders] remoteExec ["A3A_fnc_timingCA",2];
+[3600, Invaders] remoteExec ["A3A_fnc_timingCA", 2];
 
 bigAttackInProgress = false;
 publicVariable "bigAttackInProgress";

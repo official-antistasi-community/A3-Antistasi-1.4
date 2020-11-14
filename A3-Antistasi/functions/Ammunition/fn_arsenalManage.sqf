@@ -40,39 +40,38 @@ private _count = objNull;
 private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics + _helmets + _vests + _magazine;
 
 {
-	private _item = _x select 0;
-	if (_x select 1 >= minWeaps) then {
+	call {
+		if (_x select 1 < minWeaps) exitWith {};
+		private _item = _x select 0;
+
 		private _categories = _item call A3A_fnc_equipmentClassToCategories;
-		
-		if ((allowGuidedLaunchers isEqualTo 1 || {!("MissileLaunchers" in _categories)}) &&
-		    (allowUnlockedExplosives isEqualTo 1 || !("Explosives" in _categories))) then {
-			
-			_item call A3A_fnc_unlockEquipment;
-			
-			private _name = switch (true) do {
-				case ("Magazines" in _categories): {getText (configFile >> "CfgMagazines" >> _item >> "displayName")};
-				case ("Backpacks" in _categories): {getText (configFile >> "CfgVehicles" >> _item >> "displayName")};
-				default {getText (configFile >> "CfgWeapons" >> _item >> "displayName")};
-			};
-			
-			//Update the 'Updated' text with the name of the new item.
-			_updated = format ["%1%2<br/>",_updated,_name];
-			
-			//Unlock ammo for guns, if appropriate.
-			if (unlockedUnlimitedAmmo == 1 && ("Weapons" in _categories)) then {
-				private _weaponMagazine = (getArray (configFile / "CfgWeapons" / _item / "magazines") select 0);
-				if (!isNil "_weaponMagazine") then {
-					if (not(_weaponMagazine in unlockedMagazines)) then {
-						_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")];
-						[_weaponMagazine] call A3A_fnc_unlockEquipment;
-					};
+		if ("MissileLaunchers" in _categories && {allowGuidedLaunchers == 0}) exitWith {};
+		if ("Explosives" in _categories && {allowUnlockedExplosives == 0}) exitWith {};
+		if ("Backpacks" in _categories && {_item in allBackpacksTool}) exitWith {};			// should be UAV & static backpacks
+		if ("StaticWeaponParts" in _categories) exitWith {};
+
+		_item call A3A_fnc_unlockEquipment;
+
+		private _name = switch (true) do {
+			case ("Magazines" in _categories): {getText (configFile >> "CfgMagazines" >> _item >> "displayName")};
+			case ("Backpacks" in _categories): {getText (configFile >> "CfgVehicles" >> _item >> "displayName")};
+			default {getText (configFile >> "CfgWeapons" >> _item >> "displayName")};
+		};
+
+		//Update the 'Updated' text with the name of the new item.
+		_updated = format ["%1%2<br/>",_updated,_name];
+
+		//Unlock ammo for guns, if appropriate.
+		if (unlockedUnlimitedAmmo == 1 && ("Weapons" in _categories)) then {
+			private _weaponMagazine = (getArray (configFile / "CfgWeapons" / _item / "magazines") select 0);
+			if (!isNil "_weaponMagazine") then {
+				if (not(_weaponMagazine in unlockedMagazines)) then {
+					_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")];
+					[_weaponMagazine] call A3A_fnc_unlockEquipment;
 				};
 			};
-			
-			
 		};
 	};
-
 } forEach _allExceptNVs;
 
 call A3A_fnc_checkRadiosUnlocked;

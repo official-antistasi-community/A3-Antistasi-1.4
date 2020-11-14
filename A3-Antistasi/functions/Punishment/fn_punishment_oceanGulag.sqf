@@ -68,18 +68,22 @@ switch (toLower _operation) do {
 		_punishment_platform setPos [_pos2D #0, _pos2D #1, -0.25];
 
 		if (isPlayer _detainee) then {
-			// TODO Pull people from vehicles
 			if !(isNull objectParent _detainee) then { moveOut _detainee };
-			_detainee setPos [_pos2D #0, _pos2D #1, 0.25];
+			_detainee switchMove "";
+			_detainee attachTo [_punishment_platform,[0, 0, 0.5]];
 		};
 		true;
 	};
 	case ("remove"): {
 		if (isPlayer _detainee && {_playerPos inArea [ [50,50], 100, 100 ,0, true, -1]}) then { // Slightly bigger, player can't swim 50m in 5 sec.
-			_detainee switchMove "";
 			private _keyPairs = [ ["initialPosASL",[0,0,0]] ];
 			([_UID,_keyPairs] call A3A_fnc_punishment_dataGet) params ["_initialPosASL"];
-			_detainee setPosASL ([_initialPosASL,posHQ findEmptyPosition [1,50,typeOf _detainee]] select (_initialPosASL isEqualTo [0,0,0]));
+			if !(isNull objectParent _detainee) then { moveOut _detainee };
+			detach _detainee;
+			_detainee switchMove "";
+			private _emptyPos = ([_initialPosASL,posHQ] select (_initialPosASL isEqualTo [0,0,0]) findEmptyPosition [1,50,typeOf _detainee]); // *empty*
+			_detainee setVehiclePosition [_emptyPos, [], 0, "NONE"];
+			_detainee setVelocity [0, 0, 1];
 		};
 		if (!isNull _punishment_platform) then {
 			deleteVehicle _punishment_platform;

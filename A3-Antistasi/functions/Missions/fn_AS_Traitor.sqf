@@ -137,12 +137,15 @@ if (not alive _traitor || traitorIntel) then
 	if(traitorIntel && (alive _traitor)) then
 	{
 		{[petros,"hint","Someone found some intel on the traitors family, he will not cause any problems any more!"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits);
-		doStop _groupTraitor;
-		doGetOut _traitor;
+
+		moveOut _traitor;
 		_traitor join grpNull;
-		[_traitor] call A3A_fnc_surrenderAction;
-		sleep 1;
-		[_traitor, "remove"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_traitor];
+		_traitor setCaptive true;
+		_traitor stop true;
+		_traitor setUnitPos "UP";
+		_traitor playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";
+		_traitor setSpeaker "NoVoice";
+
 		_wp1 = _groupTraitor addWaypoint [_posBase];
 		_wp1 setWaypointType "MOVE";
 		_wp1 setWaypointBehaviour "CARELESS";

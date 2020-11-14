@@ -109,4 +109,4 @@ initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular","UK3CB_BAF_Flashlig
 allRebelUniforms append ["UK3CB_TKM_B_U_01","UK3CB_TKM_B_U_01_B","UK3CB_TKM_B_U_01_C","UK3CB_TKM_B_U_03","UK3CB_TKM_B_U_03_B","UK3CB_TKM_B_U_03_C","UK3CB_TKM_B_U_04","UK3CB_TKM_B_U_04_B","UK3CB_TKM_B_U_04_C","UK3CB_TKM_B_U_05","UK3CB_TKM_B_U_05_B","UK3CB_TKM_B_U_05_C","UK3CB_TKM_B_U_06","UK3CB_TKM_B_U_06_B","UK3CB_TKM_B_U_06_C"];
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_rf7800str"]};
-if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "UK3CB_B_B_Radio_Backpack"};
+if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_rt1523g_big_rhs"};

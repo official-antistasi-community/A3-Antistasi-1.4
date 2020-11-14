@@ -15,10 +15,6 @@ if (isNil "_playerUnit" || { isNull _playerUnit }) exitWith {
 	[1, format ["Not saving player %1 due to missing unit", _playerId], _filename] call A3A_fnc_log;
 };
 
-if (isNil { _playerUnit getVariable "moneyX" }) exitWith {
-	[1, format ["Not saving player %1 due to missing variables. What happened here?", _playerId], _filename] call A3A_fnc_log;
-};
-
 //Only save rebel players.
 if (side group _playerUnit != teamPlayer && side group _playerUnit != sideUnknown) exitWith {
 	[2, format ["Not saving player %1 due to them being on the wrong team.", _playerId], _filename] call A3A_fnc_log;
@@ -27,6 +23,10 @@ if (side group _playerUnit != teamPlayer && side group _playerUnit != sideUnknow
 //Used to disable saving while the player initialises. Otherwise they might disconnect, and overwrite their own save prematurely.
 if !(_playerUnit getVariable ['canSave', false]) exitWith {
 	[2, format ["Not saving player %1 due to canSave being false.", _playerId], _filename] call A3A_fnc_log;
+};
+
+if (isNil { _playerUnit getVariable "moneyX" }) exitWith {
+	[1, format ["Not saving player %1 due to missing variables. What happened here?", _playerId], _filename] call A3A_fnc_log;
 };
 
 [2, format ["Saving player %1 on side %2", _playerId, side group _playerUnit], _filename] call A3A_fnc_log;

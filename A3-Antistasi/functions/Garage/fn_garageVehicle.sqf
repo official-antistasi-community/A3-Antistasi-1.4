@@ -24,11 +24,16 @@ if ({alive _x} count (crew vehicle _veh) > 0) exitWith {["Garage", "In order to 
 _typeVehX = typeOf _veh;
 
 if (_veh isKindOf "Man") exitWith {["Garage", "Are you kidding?"] call A3A_fnc_customHint;};
-
+if ((typeOf _veh) isEqualTo "Box_IND_Wps_F") exitWith {
+	_veh addMagazineCargoGlobal [unlockedMagazines#0,1];// so fnc_empty will delete the crate
+	_transferLoot = [_veh] spawn A3A_fnc_empty;
+	[10] call A3A_fnc_resourcesPlayer;
+	["Garage", "Loot crate stored"] call A3A_fnc_customHint;
+};
 if !(_veh isKindOf "AllVehicles") exitWith {["Garage", "The vehicle you are looking cannot be stored in our Garage"] call A3A_fnc_customHint;};
 
 _units = (player nearEntities ["Man",300]) select {([_x] call A3A_fnc_CanFight) && (side _x isEqualTo Occupants || side _x isEqualTo Invaders)};
-if (_units findIf {_unit = _x; _players = allPlayers select {(side _x isEqualTo teamPlayer) && (player distance _x < 300)}; _players findIf {_x in (_unit targets [true, 300])} != -1} != -1) exitWith {["Garage", "You can't garage vehicles while enemies are engageing you"] call A3A_fnc_customHint};
+if (_units findIf {_unit = _x; _players = allPlayers select {(side _x isEqualTo teamPlayer) && (player distance _x < 300)}; _players findIf {_x in (_unit targets [true, 300])} != -1} != -1) exitWith {["Garage", "You can't garage vehicles while enemies are engaging you"] call A3A_fnc_customHint};
 if (_units findIf{player distance _x < 100} != -1) exitWith {["Garage", "You can't garage vehicles while enemies are near you"] call A3A_fnc_customHint};
 
 if (player distance _veh > 25) exitWith {["Garage", "You can't garage vehicles that are more than 25m away from you"] call A3A_fnc_customHint};

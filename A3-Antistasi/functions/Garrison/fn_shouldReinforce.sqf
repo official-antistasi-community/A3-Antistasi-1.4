@@ -20,6 +20,9 @@ if(!_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > dist
 //To far away for air convoy
 if(_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > distanceForAirAttack}) exitWith {false};
 
+//Base/target combination is in killzones (other reinforcements or attacks failed recently)
+if (_target in (killZones getVariable [_base, []])) exitWith {false};
+
 _targetIsBase = _target in outposts;
 _reinfMarker = if(_side == Occupants) then {reinforceMarkerOccupants} else {reinforceMarkerInvader};
 

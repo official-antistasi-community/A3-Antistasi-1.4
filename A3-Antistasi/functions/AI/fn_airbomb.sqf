@@ -1,6 +1,5 @@
-if (not isServer and hasInterface) exitWith {};
 private _filename = "fn_airbomb";
-[3, format ["Executing on: %1", clientOwner], _filename] call A3A_fnc_log;
+[3, format ["Executing on: %1", clientOwner], _filename, true] call A3A_fnc_log;
 private ["_countX","_plane","_typeX","_ammo","_cluster","_sleep","_bomb"];
 _plane = vehicle (_this select 0);
 _typeX = _this select 1;
@@ -25,14 +24,12 @@ switch (_typeX) do {
 	};
 };
 
-if (typeOf _plane == vehSDKPlane) then {_countX = round (_countX / 2); [3, "Rebel Airstrike", _filename] call A3A_fnc_log;};
+if (typeOf _plane == vehSDKPlane) then {_countX = round (_countX / 2)};
 sleep random 5;
 
-[3, format ["Dropping %1 bombs of type %2 at %3 (near %4)", _countX, _typeX, getPos _plane,text nearestLocation [getPos _plane, "NameCity"]], _filename] call A3A_fnc_log;
-private _debugCounter = 0;
+[3, format ["Dropping %1 bombs of type %2 at %3 (near %4)", _countX, _typeX, getPos _plane,text nearestLocation [getPos _plane, "NameCity"]], _filename, true] call A3A_fnc_log;
 for "_i" from 1 to _countX do
 	{
-	_debugCounter = _debugCounter + 1;
 	sleep _sleep;
 	if (alive _plane) then
 		{
@@ -56,5 +53,4 @@ for "_i" from 1 to _countX do
 			};
 		};
 	};
-[3, format ["Bombs dropped: %1", _debugCounter], _filename] call A3A_fnc_log;	
 //_bomba is used to track when napalm bombs hit the ground in order to call the napalm script on the correct position

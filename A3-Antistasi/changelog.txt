@@ -1,4 +1,62 @@
-2.3 - 26th July 2020
+Version 2.3.1 - 16th October 2020
+
+Changes from version 2.3.0 to 2.3.1 Antistasi Community Edition
+
+=============  Major  ======================
+
+  GAMEPLAY CHANGES
+  - Implemented new hint system with dismissable hints
+  - Implemented out-of-bounds kill zone
+
+  PARAMETER CHANGES
+  - Removed "Reb vs Inv" option from gamemode parameter
+
+  MAP CHANGES 
+  - Altis - new position for initial HQ and other small changes
+
+  OTHER CHANGES
+  - Added Korean translation
+
+==============  Minor  ========================
+  - FF-system changes and improvements
+  - Some assets changed for 3CB modset
+  - added new asset for citysupply mission
+  - Added new ACE settings
+  - Small template changes and bugfixes
+  - Added CUP/Enoch buildings for intel system and AA placements
+
+================  Groundwork  ===================
+  - 
+
+================ Refactor ========================
+  - missionRequest refactor
+
+================ Bugfixes ========================
+  - Taken assassination missions from the RNG array
+  - Added failsafe for artillery spawn breaking
+  - Failsafe for findEmptyPosition for desHeli mission
+  - Added seaports to list of markers that break undercover
+  - Fixed arsenal exploits
+  - Fixed issues in missionrequest
+  - Fixed killZones issue where no QRF could be deployed
+  - Fixed setWaypointStatements
+  - Preventet equipping zero-count items from the arsenal
+  - Fixed Tanoa attack bugs
+  - Fixed surrender/release code
+  - Fixed initClient running on HCs
+  - Fixed road search bugs
+  - Fixed non-hosted rebel airstrikes
+  - patrolReinf termination overhaul
+
+ =================  Code  =========================
+  - Added bugfix branch to Travis
+ 
+ =================  Disclaimer  =========================
+  - Significant template changes are still underway. You might want to avoid making custom templates for a while!
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+  
+  
+Version 2.3 - 26th July 2020
 
 Changes from version 2.2.1 to 2.3 Antistasi Community Edition
 
@@ -173,15 +231,15 @@ Implemented Jeroen Nots Enhanced Debug Console
   - Fixed Island markers for Tanoa
   - Fixed slot order for all maps (now greenfor is being shown initially)
 
-  =================  Code  =========================
+ =================  Code  =========================
   - Enhanced Travis for build checking
    
-  =================  DISCLAIMER  =========================
+ =================  DISCLAIMER  =========================
   - Significant template changes are still underway. You might want to avoid making custom templates for a while! 
   - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
 
 
-2.2.1 - 07th February 2020
+Version 2.2.1 - 07th February 2020
 
 Changes from version 2.2 to 2.2.1 Antistasi Community Edition
 
@@ -204,7 +262,7 @@ Changes from version 2.2 to 2.2.1 Antistasi Community Edition
   - Enabled further vehicles to be utilized for JNL loading.
   - Added ACE spare barrel recognition.
 
- ================  Groundwork  ===================
+================  Groundwork  ===================
    - Added building from CUP to be recognized as military buildings (also concerning 50. cal placements).
  
 ================ Bugfixes ========================
@@ -229,7 +287,7 @@ Changes from version 2.2 to 2.2.1 Antistasi Community Edition
   - CSAT outposts and airfields are set in fn_initGarrison.sqf now.
 
 
-2.2 - 04th January 2020
+Version 2.2 - 04th January 2020
 
 Changes from version 2.1.2 to 2.2 Antistasi Community Edition
 
@@ -282,7 +340,7 @@ Changes from version 2.1.2 to 2.2 Antistasi Community Edition
   - Added an option to disable civilian traffic.
   - Balance pass for "CSAT Punishment" mission.
 
- ================  Groundwork  ===================
+================  Groundwork  ===================
 
   - Reworked the garrison system to build a new reinforcement system on top of it. Believe us, you will know once we got this running.
   - Added a system to simulate convoys of all types. Convoys 12 kilometer away will no longer kill your server performance. Even if there are many.
@@ -358,7 +416,7 @@ Changes from version 2.1.2 to 2.2 Antistasi Community Edition
   - The updated ACE version 3.13.0 maybe has introduced new issues with ACRE. We are investigating and thankful for input.
 
 
-2.1.2 - 06 September 2019
+Version 2.1.2 - 06 September 2019
 
 Changes from version 2.1.1 to 2.1.2
 
@@ -380,7 +438,7 @@ Changes from version 2.1.1 to 2.1.2
 • InitVar for Malden and Livonia
 
 
-2.1.1 - 31st August 2019
+Version 2.1.1 - 31st August 2019
 
 To shorten the version number and to distinguish this version from 1.4 we changed the version to 2.1.1 instead of having 1.4c2.1.1.
 
@@ -416,7 +474,7 @@ Improvements
 • Russian aircraft spawning in Armia Krajowa fixed
 
 
-1.4c1.01 through to 1.4c2.0 - 10th August 2019
+Version 1.4c1.01 through to 1.4c2.0 - 10th August 2019
 
 ============= All Improvements  ======================
 
@@ -494,7 +552,7 @@ Improvements
 meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that comes from and where that belongs [Bob Murphy - 04.01.2020]
 
 
-1.4.0 25/10/18
+Version 1.4.0 25/10/18
 
 - Rework of the spawning scripts, less CPU and bandwith compsuming.
 - Liberated prisoners will be deleted after 100 seconds to save performance (those units have no combat capabilities at all).
@@ -518,7 +576,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Added RHS SPG9 as AT gun for rebel RHSGREF config, thanks to Mocksybren!!
 
 
-1.3.5 14/10/18
+Version 1.3.5 14/10/18
 
 - NEW FEATURE: SP init options ported from MP: Difficulty settings affect several params, and Game Mode behaves the same. Want to fight only Redfor? Now you can!
 - Garrison mortars will be manned again.
@@ -537,7 +595,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Fixed error on qrf when the AI sends more than 1 vehicle and there are no more vehicles to send.
 
 
-1.3.4 21/09/18
+Version 1.3.4 21/09/18
 
 - Corrected reinf bug when the AI lacks of air transports to send big groups.
 - Convoy delay re enabled.
@@ -553,7 +611,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Solved bug on basic mandatory vehicle availability check.
 
 
-1.3.3 05/09/18
+Version 1.3.3 05/09/18
 
 - IMPORTANT: Removed and unauthorised ACE medical in SP to avoid the "I cannot respawn" false bug report flood.
 - Vehicles can be garaged in any rebel garrison.
@@ -570,7 +628,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Fixed major bug which stopped economics and major attacks on some templates (specially IFA)
 
 
-1.3.2 04/09/18
+Version 1.3.2 04/09/18
 
 - NEW FEATURE: Total rework of economics for AI so there are now real economics (like old 1.8) but instead of money they will need time to replentish and maximum assets will depend on zone ownership. Example: Max Tanks for a faction is 1xAirbases belonging to them + you will never see more than that in the field.
 - Convoys wont spawn having a distance minor than the spawn distance setting from origin to destination.
@@ -583,7 +641,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Fixed relentless major attacks in some cases.
 
 
-1.3.1 02/09/18
+Version 1.3.1 02/09/18
 
 - IFA: Replaced winter wehrmacht by Afrikakorps for Tier 2 troops. Requires mission restart to see them.
 - IFA: Disabled mortar squad recruitment until I find a solution.
@@ -601,7 +659,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - CSAT wont punish cities influenced by them.
 
 
-1.3.0 16/08/2018
+Version 1.3.0 16/08/2018
 
 - NEW IMPORTANT FEATURE IN MP: GAME MODE. In the lobby you may set 4 options: All vs All, Rebels vs All and other two on which rebels only fight one chosen faction (invaders or government).
 - NEW VERSION: WWII Has arrived to Antistasi. In Armja Krajova polish resistance fight against Germans and Soviets. Required mods are CUP Maps and IFA.
@@ -655,13 +713,13 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Slight less chance for a mortar to get zeroed.
 
 
-1.2.5 30/07/2018 Holliday update!
+Version 1.2.5 30/07/2018 Holliday update!
 
 - Seaport boat garrisons and patrols are subject to boat availability.
 - Fixed teammate disband.
 
 
-1.2.4 29/07/2018
+Version 1.2.4 29/07/2018
 
 - HR of AI squadmates is properly refunded when saving.
 - Enemy small vehicle patrols wont have only rebel HQ as reference but the whole frontier in SP and player presence in MP to simulate the whole island is being patrolled.
@@ -673,7 +731,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Changed the position of the NATO Carrier in Altis.
 
 
-1.2.3 28/07/2018
+Version 1.2.3 28/07/2018
 
 - NEW FEATURE: MP param to monitor non member distance to the closest member or HQ. After some timeout they will be teleported. This can be customizable in the MP lobby but it is activated by default. The aim of this feature is to avoid randomers in open dedis make spawn senseless zones and not be collaborative with other players.
 - Extended AutoRearm to HC squads. If they are "easy" and not fighting, they will search for better weapons, vests etc.. same as AI squadmates when ordered.
@@ -690,7 +748,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - When a headless clint disconnects, an alarm will appear constantly instead of finishing the mission.
 
 
-1.2.2 28/07/2018
+Version 1.2.2 28/07/2018
 
 - Re enabled Headless Clients.
 - Commander auto assign on JiP fixed when there are PvP players present.
@@ -699,7 +757,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Reduced spawning requisites for a wave to be counted in major attacks.
 
 
-1.2.1 27/07/2018
+Version 1.2.1 27/07/2018
 
 - When rebels lose territory, there is a small chance depending on WL to be attacked on their HQ.
 - Corrected bug in ambient civilians.
@@ -707,7 +765,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Solved statics not saving in MP dedi.
 
 
-1.2.0 13/07/2018
+Version 1.2.0 13/07/2018
 
 - IMPORTANT: Added enhaced AI features for the HC infantry squads (under testing).
 - IMPORTANT: Added CSAT as PvP faction.
@@ -753,7 +811,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Aggro implications when conquering / loosing certain territory types.
 
 
-1.1.5 06/07/2018
+Version 1.1.5 06/07/2018
 
 - ALTIS BLUFOR VERSION IS OUT ON STEAM: Play against a mix of militia SDK + AAF in Altis (or RHS alike config).
 - NEW FEATURE: Battle accelerator for battles very remote to players.
@@ -781,7 +839,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Tier 2 NATO (if exist) instead of lowering the aggro when releasing prisoners, they will join you like CSAT.
 
 
-1.1.4 21/06/2018
+Version 1.1.4 21/06/2018
 
 - Solved bug when server is initialised by non members.
 - Solved bug on new match which prevented to be asked for placement selection.
@@ -798,7 +856,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Workarounded some weird bug on task updating in JIP MP.
 
 
-1.1.3 14/06/2018
+Version 1.1.3 14/06/2018
 
 - Reworked a bit RT influence, different results from 4 possible status (from destroyed, no influence to no one, to CSAT, negative influence for everyone).
 - IMPORTANT: Availability of transports enabled, except the most basic ones on each faction.
@@ -812,7 +870,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Land vehicles wont be constantly teleporting to roads when no player is near.
 
 
-1.1.2 09/06/2018
+Version 1.1.2 09/06/2018
 
 - NEW FEATURE: Any kind of destroyed building is persistent saved.
 - More save fixes and debug checks on the Save feature.
@@ -820,14 +878,14 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - No loss of advanced towing when the removeAllActions command has been used on the player.
 
 
-1.1.1 09/06/2018
+Version 1.1.1 09/06/2018
 
 - Several persistent save bugfixes.
 - Re enabled civilians being of the side which owns the city because setFriend command is not reliable during mission.
 - Re enabled vehicle markers report as the watchpost became uselees without them.
 
 
-1.1.0 03/06/2018
+Version 1.1.0 03/06/2018
 
 - NEW FEATURE: Major assault AI overhaul. Now AI sent on major attacks will perform the following:
 - Mortar assemble and mortar support.
@@ -861,7 +919,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Bank robbery hint spam removed.
 
 
-1.0.8 01/06/2018
+Version 1.0.8 01/06/2018
 
 - Solved several undercover MP issues.
 - Re enabled player markers in MP.
@@ -870,7 +928,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Bunkers shouldnt move on persistent save.
 
 
-1.0.7 30/05/2018
+Version 1.0.7 30/05/2018
 
 - Reverted Jeroen's modification because of bugs until we find a solution.
 - No area check for undercover AI
@@ -881,7 +939,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Hopefully solved some MP animation fails.
 
 
-1.0.6 28/05/2018
+Version 1.0.6 28/05/2018
 
 - Jeroen Arsenal fix some leeks which allowed players select whatever equipment. Thanks to Jeroen
 - APCs and Tanks will pop smoke only once when damaged. Removed damage processess when killed.
@@ -892,7 +950,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Re enabled AI teleport to player when they cannot reach the player while unconscious because of AI pathfinding.
 
 
-1.0.5 22/05/2018
+Version 1.0.5 22/05/2018
 
 - IMPORTANT: Conquer QRFs can be dispatched on AI vs AI factions. Instead of only send major attacks to eachother, we may find several qrfs dispatched on the same time, taking advantage of weaker garrisons.
 - IMPORTANT: CSAT intervention now starts with WL 2.
@@ -921,7 +979,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Bulletproofed "transfer to ammobox" script to avoid some errors.
 
 
-1.0.4 21/05/2018
+Version 1.0.4 21/05/2018
 
 - Fixed bugs that made convoy missions not launch.
 - Convoys in Altis work much better now, not with the cohesion from Tanoa but with more chances of arrival.
@@ -938,7 +996,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Friendly AAF spawned during daytime wont have NV
 
 
-1.0.3 20/05/2018
+Version 1.0.3 20/05/2018
 
 - IMPORTANT: Early stages AI skill will be lowered, as there was some wrong calculation which made training beyond 5 skill level making AI Rambos.
 - Reverted no busy status because of QRF sent in airports, outposts will require more time to recover.
@@ -962,7 +1020,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Last? Attempt to fix broken BIS task functions with JiP players.
 
 
-1.0.2 16/05/2018
+Version 1.0.2 16/05/2018
 
 - IMPORTANT: Reviving takes time, depending on the injuries received. Still has some glitches but gameplay improvement wotrth it.
 - Ambushed AI will react faster, trying to take cover when engaged, take deffensive positions, evaluate the situation and react.
@@ -985,7 +1043,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Lowered a bit NATO skill.
 
 
-1.0.1 14/05/2018
+Version 1.0.1 14/05/2018
 
 - Player won't be able to garage an air vehicle without being near an airport.
 - PvP players will be able to "steal" unarmed vehicles from their faction airbases and outposts.
@@ -1012,7 +1070,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - ACE assets added to PvP player loadouts depending on ACE config.
 
 
-1.0.0 23/04/2018
+Version 1.0.0 23/04/2018
 
 - NEW FEATURE: When a garrison is under attack, all players will receive a notification about it with relevant info. PvP too. PvP mission experience should change A LOT.
 - NEW FEATURE: As visual aid, SDK markers for SDK players display the total garrison in map
@@ -1072,7 +1130,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Skip Time works again with PvP players present.
 
 
-0.12.2 14/04/2018 ALPHA
+Version 0.12.2 14/04/2018 ALPHA
 
 - NEW FEATURE: Now you may transport your wounded teammate to some truck / offroad to be healed by friendly medics or at HQ.
 - More bulletproofing of garrisonUpdate.sqf
@@ -1084,7 +1142,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - SDK wont gain influence when the RT is on CSAT hands.
 
 
-0.12.1 12/04/2018 ALPHA
+Version 0.12.1 12/04/2018 ALPHA
 
 - Added new Tanks DLC SDK Armed cars (AT and LMG).
 - Purchased vehicles will have players name in the plate.
@@ -1097,7 +1155,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Stronger Radio Tower effect on Civ Support on each tick.
 
 
-0.12.0 05/04/2018 ALPHA
+Version 0.12.0 05/04/2018 ALPHA
 
 - IMPORTANT: Added dynamic headless client resource assignation. Antistasi will try to balance the AI load on HC platforms so the idle-est one will spawn AI.
 - IMPORTANT: Added unlimited Headless Client support, default mission has 3 HCs but you may just edit the mission and add as many HCs as you have.
@@ -1115,7 +1173,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - No more QRF paratroopers without parachute :)
 
 
-0.11.3 26/03/2018 ALPHA
+Version 0.11.3 26/03/2018 ALPHA
 
 - Workers wont get deleted on dedicated servers without HCs.
 - Reverted some autoload features to only official servers. Autosave will be enabled in dedicated servers.
@@ -1126,7 +1184,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Garrison states on zones under attack now get saved.
 
 
-0.11.2 20/03/2018 ALPHA
+Version 0.11.2 20/03/2018 ALPHA
 
 - IMPORTANT: Civ Spawn rework. Civvies everywhere! Now the Setting Civ Percentage means max amount of civilians. Plase NOTE: Civs are executed on clients in MP.
 - IMPORTANT: Added Jeroen Logistics to enemy garrison ammoboxes. No more transfers to trucks.
@@ -1147,7 +1205,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Removed thermal googles of the NV unlocking scripts. SDK AI will spawn with random googles when unlocked.
 
 
-0.11.1 06/03/2018 ALPHA
+Version 0.11.1 06/03/2018 ALPHA
 
 - IMPORTANT: Undercover lose on roadblocks is affected by aggro. With low level, the soldiers wont recognise you and will allow you to pass.
 - Optimised a bit actions appearing on flags upon capture.
@@ -1161,7 +1219,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - AI will be more aggressive when attacking and assaulting garrisons.
 
 
-0.11.0 25/02/2018 ALPHA
+Version 0.11.0 25/02/2018 ALPHA
 
 - NEW FEATURE: Construct things. At last! Requires an engineer in your squad (or being player engineer). Trench classnames depend on the surroundings (urban, forest, field) and bunkers can be built for a price and in controlled zones. Bunkers wont despawn.
 - Players can buy civilian boats in HQ.
@@ -1187,7 +1245,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - HC groups get removed from the HC bar when they are assigned to a garrison.
 
 
-0.10.4 20/02/2018 ALPHA
+Version 0.10.4 20/02/2018 ALPHA
 
 - New Feature: Replaced Sentry squads with MG static squads. Managed by HC module, they will mount an MG when they reach their destination.
 - New feature: SDK Roadblocks can be managed as garrisons, have cache of units and get persistent saved.
@@ -1207,7 +1265,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Lower cost for ARs, GLs and AT soldiers. Higher for Militia.
 
 
-0.10.3 14/02/2018 ALPHA
+Version 0.10.3 14/02/2018 ALPHA
 
 - NEW FEATURE: Player will be able to assign to garrison squadmates and HC controlled squads.
 - Increased A LOT, A REAL LOT convoy cohesion. Convoy experience is much better right now. Ai behaviour improved too.
@@ -1221,7 +1279,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Corrected small bug in money convoys when destination was not a city.
 
 
-0.10.2 13/02/2018 ALPHA
+Version 0.10.2 13/02/2018 ALPHA
 
 - Major improvements on departure, drills, waypoints and procedures on AI attacks.
 - Reverted no NATO attack on cities on early game.
@@ -1229,12 +1287,12 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Surrendered troops ammoboxes shouldnt explode / burn.
 
 
-0.10.1 HOTFIX 11/02/2018 ALPHA
+Version 0.10.1 HOTFIX 11/02/2018 ALPHA
 
 - Changes on attack waypoints werent applied by a mistake.
 
 
-0.10.1 11/02/2018 ALPHA
+Version 0.10.1 11/02/2018 ALPHA
 
 - Enabled AI control on mortar squads.
 - No more NATO assaults on cities until some War Level is reached.
@@ -1243,7 +1301,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Increased ACE integration: city support and QRFs related to AI kills will be included.
 
 
-0.10.0 08/02/2018 ALPHA
+Version 0.10.0 08/02/2018 ALPHA
 
 - IMPORTANT: Enemy QRF and major attacks affect garrison in departure zone. Hold an attack and decimate outpost / airport garrison.
 - NV is unlockable again.
@@ -1260,7 +1318,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Map Info now shows if Outposts are Idle or Busy.
 
 
-0.9.8 25/01/2018 ALPHA
+Version 0.9.8 25/01/2018 ALPHA
 
 - More usage of predefined positions on airports, so they become more challenging.
 - More reliable enemy dead because of bleadout effects.
@@ -1270,12 +1328,12 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - ACE: Solved ACE BUG, NOT MINE so medical items werent appearing in the proper section.
 
 
-0.9.7 25/01/2018 ALPHA
+Version 0.9.7 25/01/2018 ALPHA
 
 - HOTFIX: Jeroen Arsenal now working as host MP.
 
 
-0.9.6 25/01/2018 ALPHA
+Version 0.9.6 25/01/2018 ALPHA
 
 - IMPORTANT: Small QRFs may be launched from nearby outposts.
 - IMPORTANT: Removed FPS limiter feature, as it was inconsistent and unreliable. Instead of that, Commanders will be able to set the aproximated max amount of AI he wants in the map. Careful with that, use it wisely.
@@ -1287,7 +1345,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Civilian cars shouldnt kill your teammates.
 
 
-0.9.5 21/01/2018 ALPHA
+Version 0.9.5 21/01/2018 ALPHA
 
 - Traitor mission guards type depend on War Level.
 - Corrected BIG bug in AI recruiting and weapon check.
@@ -1299,7 +1357,7 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Shortened a lot distances for AI to decide to send a LAND QRF
 
 
-0.9.4 22/08/2017 ALPHA
+Version 0.9.4 22/08/2017 ALPHA
 
 - NEW FEATURE: Added JAS. The finest Inventory system around the scene, built in by Jeroen Not (Thanks!!!) for Antistasi and one of the things makes Antistasi special :)
 - NEW FEATURE: FPS monitor will dynamically adapt spawn distances smoothly to avoid serious drops. More Antistasi For All!!!
@@ -1313,14 +1371,14 @@ meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that co
 - Refugees, traitors etc. shouldnt spawn in some blacklisted buildings (containers)
 
 
-0.9.3 23/06/2017 ALPHA
+Version 0.9.3 23/06/2017 ALPHA
 
 - Hotfixed some garrisons not spawning.
 - While BIS does not fix HC Bar squad order options, squads will spawn in Aware stance.
 changeX a inArea el undercover y revisar a qu� bando van los controlsX conquereds
 
 
-0.9.2 23/06/2017 ALPHA
+Version 0.9.2 23/06/2017 ALPHA
 
 - Optimised mortar positioning routines.
 - Optimised fog checks.
@@ -1328,7 +1386,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - FPS checks won't be done for player recruiting squads
 
 
-0.9.1 18/06/2017 ALPHA
+Version 0.9.1 18/06/2017 ALPHA
 
 - Hotfixed timeout for friendly AI bleedout.
 - When a HC disconnects, mission finishes to avoid malfunctions. A finer solution is WiP but wont be 100% perfect.
@@ -1340,7 +1398,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Fixed error on road finding function.
 
 
-0.9.0 16/06/2017 ALPHA
+Version 0.9.0 16/06/2017 ALPHA
 
 - NEW FEATURE: Real Garrisons Cache. Garrisons are now composed of combinations of types of soldiers and it works on cache mode (you kill an AT man, go to base, go back, that AT man no longer spawns). AI decides dynamically and with real units and vehicles to send reinforcements, if they reach their destination, they are added to the garrison.
 - NEW FEATURE: Killzone avoidance. AI will think twice to send reinforcements, QRFs, convoys etc. to some places which may have been proven as killzones.
@@ -1379,7 +1437,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - With one HC, AI load will be shared with the server, instead of everything going to the HC.
 
 
-0.8.2 08/06/2017 ALPHA
+Version 0.8.2 08/06/2017 ALPHA
 
 - IMPORTANT: Made the whole spawning process on groups fps dependant. Groups will spawn with a minimum of one unit. 
 - RHS GREF: Added some default grenades, SMGs and vest. Players lose their vanilla vest on connection.
@@ -1390,13 +1448,13 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - RHS: Enabled Build Minefield function
 
 
-0.8.1 05/06/2017 ALPHA
+Version 0.8.1 05/06/2017 ALPHA
 
 - Fixed bug on dedi server when buying a civilian truck.
 - Spawn distance parameters correctly updated on persistent save.
 
 
-0.8 04/06/2017 ALPHA
+Version 0.8 04/06/2017 ALPHA
 
 - NEW FEATURE: Spawning system reworked, AI will spawn AI again under some limited conditions. More reliable, smoother game and more realistic. Under heavy testing, please report if you find any frozen soldier.
 - NEW FEATURE: Revive greatly reworked. Carry injured, AI compatible. Less insta kills.
@@ -1422,7 +1480,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - More carried units on big transport vehicles .
 
 
-0.7.2 23/05/2017 ALPHA
+Version 0.7.2 23/05/2017 ALPHA
 
 - NEW FEATURE: "I hate the fog" action on HQ lamp. It will remove the fog, that simple.
 - Fog checks are back and improved! AI will make decisions depending on fog status on target positions.
@@ -1430,7 +1488,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Tanoaised breifing thanks part to those who helped on this edition.
 
 
-0.7.1 22/05/2017 ALPHA
+Version 0.7.1 22/05/2017 ALPHA
 
 - Improved garrison system, better, faster, smoother.
 - Corrected bugs on ACRE support.
@@ -1438,7 +1496,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - AI should get less stuck unloading weapons on AutoLoot.
 
 
-0.7.0 11/05/2017 ALPHA
+Version 0.7.0 11/05/2017 ALPHA
 
 - NEW FEATURE: Major attacks now may consist on several waves, converting them in authentic battles. The number of waves depends on several factors.
 - NEW FEATURE: Added ACRE compatibility. Radios are unlocked by default.
@@ -1477,7 +1535,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - More aggressive NATO if they are corenered with one Airport.
 
 
-0.6.3 05/05/2017 ALPHA
+Version 0.6.3 05/05/2017 ALPHA
 
 - NEW FEATURE: Autoloot. If you order Auto Rearm a man inside a vehicle, instead of picking new weapons he will scavenge corpses for weapons and place them in his vehicle until he finds nothing more. After that he will pick his old weapon.
 - NEW FEATURE: Fatal Wounds. Wounds in the head can be only healed by medics. Helmets prevent those, until you lose them..
@@ -1497,7 +1555,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - SDK will know after some time where the attack is going if they are targeted.
 
 
-0.6.2 04/05/2017 ALPHA
+Version 0.6.2 04/05/2017 ALPHA
 
 - Non TFAR players won't lose Radio on Pers. Load if Radios are unlocked.
 - Corrected bug on QRF for CSAT
@@ -1508,13 +1566,13 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Added negative bonuses for time to recover NATO vehicles when they are destroyed.
 
 
-0.6.1 03/05/2017 ALPHA
+Version 0.6.1 03/05/2017 ALPHA
 
 - HOTFIX: SDK Garrisonws were not spawning.
 - Civ "patrol" cars won't go allways to city centres.
 
 
-0.6 03/05/2017 ALPHA
+Version 0.6 03/05/2017 ALPHA
 
 - NEW FEATURE: SDK Cities are now garrisoneable, NATO will attack them. This will add an uncommon theatre of war in Antistasi.
 - IMPORTANT: As this is an Alpha I decided to "free" the mission to any open coop server, in its current state of development mission is playable and I don't have all the time I need to work on it.
@@ -1526,7 +1584,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Increased skill on Gendarmes and FIA
 
 
-0.5.2 26/09/2016 BETA
+Version 0.5.2 26/09/2016 BETA
 
 - Enemy AI Skill will have some limit on how good is doing Syndikat and not depending on Sydikat skill level.
 - When Maru dies no unlocked mags will be locked.
@@ -1539,7 +1597,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - When CSAT attacks, timer for next counterattack will be much lower.
 
 
-0.5.1 26/09/2016 BETA
+Version 0.5.1 26/09/2016 BETA
 
 - Tweaked Arsenal: Now requirements are constant, not affected by factories.
 - Added a message on mission init so newcomers have an introduction to the persistent save system.
@@ -1563,12 +1621,12 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Optimised ammobox loadouts to spawn only locked assets and more weapon numbers.
 
 
-0.5 18/09/2016 BETA
+Version 0.5 18/09/2016 BETA
 
 - NEW FEATURE: Tiered missions. As you progress in game some missions will require a contact in some city which will provide relevant info. Tier 2 missions will be harder and with some additional difficulties. Bonuses and penalties will be higher too. Those informants are treacherous, they may report you too...
 
 
-0.4.6 18/09/2016 BETA
+Version 0.4.6 18/09/2016 BETA
 
 - Added markers on HQ placement selection for visual aid.
 - Tweaks and bugfixes on revive.
@@ -1583,7 +1641,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Faster Convoys.
 
 
-0.4.5 16/09/2016 BETA
+Version 0.4.5 16/09/2016 BETA
 
 - Attacking AI will be a bit more effective.
 - Removed LMG of default unlocked pool, changed by a cheap Sting but compatible with flashlights.
@@ -1599,7 +1657,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - AI will consider hot zone any with relevant enemie zones around
 
 
-0.4.4 13/09/2016 BETA
+Version 0.4.4 13/09/2016 BETA
 
 - Optimised AI where to attack procedures. No more 99% chance the target will be the central airport.
 - Corrected bug in Outpost garrisons.
@@ -1611,12 +1669,12 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Added some texture to the map board.
 
 
-0.4.3 13/09/2016 BETA
+Version 0.4.3 13/09/2016 BETA
 
 - Killed a few more suspects of the lockup server bug.
 
 
-0.4.2 12/09/2016 BETA
+Version 0.4.2 12/09/2016 BETA
 
 - Removed small bug to remove some mousewheel actions from the player
 - Corrected bug on AI attack target scripts.
@@ -1638,7 +1696,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Less chance for NATO to build a major attack on airports.
 
 
-0.4.1 08/09/2016 BETA
+Version 0.4.1 08/09/2016 BETA
 
 - IMPORTANT: REINFORCEMENT CONVOYS. AI will use them to boost their garrison reinforcements when needed.
 - Halved auto reinforcements on each tick.
@@ -1653,7 +1711,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Disabled introshot as it is causing some issues.
 
 
-0.4 03/09/2016 BETA
+Version 0.4 03/09/2016 BETA
 
 - Land vehicles will try to use main roads!!!
 - Fixed skill for SDK nor getting saved and loaded.
@@ -1676,7 +1734,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Added a lot of vehicles to sell.
 
 
-0.3.3 01/09/2016
+Version 0.3.3 01/09/2016
 
 - IMPORTANT: In SP. 50 seconds timeout to get healed by AI for player, after that, if AI is stuck and trying to heal, player will be conscious again, but with heavy damage.
 - Corrected error when AI embarked a garrison vehicle
@@ -1700,7 +1758,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Outposts can be FIA now.
 
 
-0.3.2 30/08/2016
+Version 0.3.2 30/08/2016
 
 - The ULTIMATE measures to improve FPS. If a player has issues, change config or... buy a new PC.
 - Really improved performance on distance spawn check script.
@@ -1719,7 +1777,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Airbase vehicles won't despawn when AI board them.
 
 
-0.3.1 28/08/2016
+Version 0.3.1 28/08/2016
 
 - Greatly improved spawning garrisons with all the cache related.
 - Tasks on enemy or friendly major attacks no matter if you are the target or not.
@@ -1733,7 +1791,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - More consistent convoys.
 
 
-0.3 28/08/2016
+Version 0.3 28/08/2016
 
 - IMPORTANT: jungles are no longer a sure safe position. SpecOp patrols cover the area if AI feels there is insurgency nearby. If SDK kills all the patrols, they will respawn in the same way roadblocks do. Sometimes, AI will decide to reinforce the area with mines.
 - Traits on engineers and medics applied to SDK AI too.
@@ -1749,7 +1807,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Some anti lag measures when AI attacks an Airbase.
 
 
-0.1.2.4 27/08/2016
+Version 0.1.2.4 27/08/2016
 
 - IMPORTANT: Loosing condition: 1/3 of the total population is massacred by CSAT. Number will be shown on "Map Info".
 - IMPORTANT: R key to respawn.
@@ -1772,7 +1830,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Fixed when commander disconnects and despawns his AI + vehicles despite he's got players in his group.
 
 
-0.1.2.3 26/08/2016 BETA
+Version 0.1.2.3 26/08/2016 BETA
 
 - Tweaked here and there Undercover and Revive to prevent some bugs MP related.
 - Medics are now truly medics.
@@ -1787,7 +1845,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - NATO WONT send a QRF to defend a city under attack if it's SDK.
 
 
-0.1.2 24/04/2016 BETA
+Version 0.1.2 24/04/2016 BETA
 
 - NEW FEATURE: Commanders can clear the nearby forest in order to have more space for their vehicles. Persistent Save integrated.
 - Evac Refugees can happen in NATO cities with substantial differences between NATO and CSAT mission types.
@@ -1810,7 +1868,7 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Prestige values saved correctly.
 
 
-0.1.1 24/04/2016 BETA
+Version 0.1.1 24/04/2016 BETA
 
 - Fixed Persistent Save: It wont corrupt Altis saves.
 - Corrected Maru respawning as Petros.
@@ -1844,6 +1902,6 @@ changeX a inArea el undercover y revisar a qu� bando van los controlsX conquer
 - Gendarmes and FIA will use flashlights.
 
 
-0.1 24/04/2016 BETA
+Version 0.1 24/04/2016 BETA
 
 - Initial release

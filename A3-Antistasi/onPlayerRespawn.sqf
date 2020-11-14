@@ -181,6 +181,7 @@ if (side group player == teamPlayer) then
 		*/
 	if (hasInterface) then {
 		[player] call A3A_fnc_punishment_FF_addEH;
+		[] spawn A3A_fnc_outOfBounds;
 	};
 	player addEventHandler ["HandleHeal",
 		{
@@ -236,6 +237,7 @@ if (side group player == teamPlayer) then
 	[true] spawn A3A_fnc_reinitY;
 	[player] execVM "OrgPlayers\unitTraits.sqf";
 	[] spawn A3A_fnc_statistics;
+	if (LootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
 	}
 else
 	{

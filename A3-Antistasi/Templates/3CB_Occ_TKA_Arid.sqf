@@ -109,7 +109,7 @@ if (gameMode != 4) then
 		["UK3CB_TKP_I_QRF_TL","UK3CB_TKP_I_QRF_ENG","UK3CB_TKP_I_QRF_AR","UK3CB_TKP_I_QRF_AT"]
 		];
 	//Squads
-    	FIASquad = ["UK3CB_TKP_I_CIB_SL","UUK3CB_TKP_I_CIB_RIF_2","UK3CB_TKP_I_CIB_AT","UK3CB_TKP_I_CIB_TL","UK3CB_TKP_I_CIB_AR","UK3CB_TKP_I_CIB_RIF_1","UK3CB_TKP_I_CIB_ENG","UK3CB_TKP_I_CIB_MD"];
+    	FIASquad = ["UK3CB_TKP_I_CIB_SL","UK3CB_TKP_I_CIB_RIF_2","UK3CB_TKP_I_CIB_AT","UK3CB_TKP_I_CIB_TL","UK3CB_TKP_I_CIB_AR","UK3CB_TKP_I_CIB_RIF_1","UK3CB_TKP_I_CIB_ENG","UK3CB_TKP_I_CIB_MD"];
 	groupsFIASquad = [FIASquad];
 	};
 
@@ -125,8 +125,8 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 vehNATOBike = "I_G_Quadbike_01_F";
 vehNATOLightArmed = ["UK3CB_TKA_I_LR_M2","UK3CB_TKA_I_LR_AGS30","UK3CB_TKA_I_LR_SPG9","UK3CB_TKA_I_GAZ_Vodnik_PKT","UK3CB_TKA_I_LR_SF_M2","UK3CB_TKA_I_LR_SF_AGS30","UK3CB_TKA_I_BTR40_MG","UK3CB_TKA_I_BRDM2","UK3CB_TKA_I_BRDM2_ATGM"];
 vehNATOLightUnarmed = ["UK3CB_TKA_I_BTR40","UK3CB_TKA_I_GAZ_Vodnik","UK3CB_TKA_I_LR_Open","UK3CB_TKA_I_Hilux_Closed","UK3CB_TKA_I_BRDM2_HQ"];
-vehNATOTrucks = ["UK3CB_TKA_I_V3S_Closed","UK3CB_TKA_I_V3S_Open","UK3CB_TKA_I_V3S_Recovery"];
-vehNATOCargoTrucks = [];
+vehNATOTrucks = ["UK3CB_TKA_I_V3S_Closed","UK3CB_TKA_I_V3S_Open"];
+vehNATOCargoTrucks = ["UK3CB_TKA_I_V3S_Recovery"];
 vehNATOAmmoTruck = "UK3CB_TKA_I_M113_supply";
 vehNATORepairTruck = "UK3CB_TKA_I_V3S_Repair";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;

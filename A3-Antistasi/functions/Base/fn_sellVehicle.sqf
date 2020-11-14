@@ -20,62 +20,16 @@ if (!isNil "_owner") then
 if (_exit) exitWith {["Sell Vehicle", "You are not owner of this vehicle and you cannot sell it"] call A3A_fnc_customHint;};
 
 _typeX = typeOf _veh;
-_costs = 0;
-
-if (_typeX in vehFIA) then
-{
-	_costs = round (([_typeX] call A3A_fnc_vehiclePrice)/2)
-}
-else
-{
-	if (_typeX in arrayCivVeh) then
-	{
-		//This is for selling supply trucks, but currently is unused.
-		_destinationX = _veh getVariable "destinationX";
-		if (isNil "_destinationX") then
-		{
-			if (_typeX == "C_Van_01_fuel_F") then {_costs = 50} else {_costs = 25};
-		}
-		else
-		{
-			_costs = 200;
-		};
-	}
-	else
-	{
-		if ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks)) then
-		{
-			_costs = 100;
-		}
-		else
-		{
-			if (_typeX in vehAPCs) then
-			{
-				_costs = 1000;
-			}
-			else
-			{
-				if (_typeX isKindOf "Plane") then
-				{
-					_costs = 4000;
-				}
-				else
-				{
-					if ((_typeX in vehAttackHelis) or (_typeX in vehTanks) or (_typeX in vehAA) or (_typeX in vehMRLS)) then
-					{
-						_costs = 3000;
-					}
-					else
-					{
-						if (_typeX in vehTransportAir) then
-						{
-							_costs = 500;
-						};
-					};
-				};
-			};
-		};
-	};
+_costs = call {
+	if (_veh isKindOf "StaticWeapon") exitWith {100};			// in case rebel static is same as enemy statics
+	if (_typeX in vehFIA) exitWith { ([_typeX] call A3A_fnc_vehiclePrice) / 2 };
+	if ((_typeX in arrayCivVeh) or (_typeX in civBoats) or (_typeX in [civBoat,civCar,civTruck])) exitWith {25};
+	if ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks)) exitWith {100};
+	if (_typeX in [vehCSATPatrolHeli, vehNATOPatrolHeli, civHeli]) exitWith {500};
+	if ((_typeX in vehAPCs) || (_typeX in vehTransportAir) || (_typeX in vehUAVs)) exitWith {1000};
+	if ((_typeX in vehAttackHelis) or (_typeX in vehTanks) or (_typeX in vehAA) or (_typeX in vehMRLS)) exitWith {3000};
+	if (_typeX in [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA]) exitWith {4000};
+	0;
 };
 
 if (_costs == 0) exitWith {["Sell Vehicle", "The vehicle you are looking is not suitable in our marketplace"] call A3A_fnc_customHint;};

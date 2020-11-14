@@ -8,9 +8,9 @@ if ((count _loaded) isEqualTo 1) then {_lastLoaded = true};
 if !(
     ((gunner _cargo) isEqualTo _cargo)
     or ((gunner _cargo) isEqualTo objNull)
-) exitWith {["Cargo Load", "Cant unload a static thats mounted"] call A3A_fnc_customHint};
+) exitWith {["Cargo Load", "Cant unload a static thats mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Cargo Load", "Cargo is already being unloaded from vehicle"] call A3A_fnc_customHint};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Cargo Load", "Cargo is already being unloaded from vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //update list function
@@ -20,7 +20,7 @@ _updateList = {
     _index = _list find _node;
     _node set [0,1];
     _list set [_index, _node];
-    _vehicle setVariable ["logisticsCargoNodes", _list, true];
+    _vehicle setVariable ["logisticsCargoNodes", _list];
 };
 
 //find node point and seats
@@ -92,7 +92,6 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
 
 //unlock seats
 [_cargo, false] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _cargo];
-_cargo setVariable ["Logistics_occupiedSeats", nil, true];
 [_vehicle, false, _seats] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _vehicle];
 
 //update list

@@ -12,7 +12,7 @@ switch (_action) do {
             _loadText,
             {
                 params ["_target"];
-                [_target] call A3A_fnc_logistics_canLoad;
+                [_target] remoteExecCall ["A3A_fnc_logistics_canLoad",2];
             },
             nil,
             1.5,
@@ -40,7 +40,7 @@ switch (_action) do {
             _text,
             {
                 params ["_target"];
-                _target spawn A3A_fnc_logistics_unload;
+                [_target] remoteExec ["A3A_fnc_logistics_unload",2];
             },
             nil,
             1.5,

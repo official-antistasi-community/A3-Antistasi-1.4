@@ -40,14 +40,14 @@ private _displayVehicleMessage = {
 	_text = _text + _msg;
 	
 	//Don't use customHint, as we've got a lot of custom formatting.
-	hint parseText (_text);
+	[parseText _text] remoteExec ["hint", remoteExecutedOwner];
 	[parseText _text] remoteExec ["hint", crew _vehicle]; //parse text dont work with chat
 };
 
 if (isNil {_vehicle getVariable "default_mass"}) then {
 	//Doesn't matter if we're unloading or loading.
 	//If this isn't set, the script has never run - so the mass has never changed! So either way, its currently at the default mass.
-	_vehicle setVariable ["default_mass", getMass _vehicle, true];
+	_vehicle setVariable ["default_mass", getMass _vehicle];
 };
 
 private _defaultMass = _vehicle getVariable "default_mass";

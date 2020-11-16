@@ -1,3 +1,21 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Verify that it can load cargo in nearest vehicle, and then starts loading it
+
+    Arguments:
+    0. <Object> Cargo you want to load
+
+    Return Value:
+    <nil>
+
+    Scope: Any
+    Environment: Any
+    Public: [No]
+    Dependencies:
+
+    Example: [_target] remoteExecCall ["A3A_fnc_logistics_canLoad",2];
+*/
 params ["_object"];
 if (isNil "_object") exitWith {};
 
@@ -41,7 +59,7 @@ if (_objNodeType isEqualTo -1) exitWith {["Cargo Load", format ["%1 cannot be lo
 private _nodes = _vehicle getVariable ["logisticsCargoNodes",nil];
 
 //if nodes not initilized
-if (isNil "_nodes") then {	
+if (isNil "_nodes") then {
     _nodes = [_vehicle] call A3A_fnc_logistics_getVehicleNodes;
     _vehicle setVariable ["logisticsCargoNodes", _nodes];
 };

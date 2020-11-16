@@ -1,3 +1,23 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Defines all vehicle nodes, cargo node, weapon data, blacklist etc. for use with Antistasi logistics system.
+
+        Note: needs to be run on every client for logistic functions to function on said client
+
+    Arguments:
+    0. <Nil>
+
+    Return Value:
+    <Nil>
+
+    Scope: Any
+    Environment: Any
+    Public: [Yes]
+    Dependencies:
+
+    Example: call A3A_fnc_logistics_initNodes;
+*/
 _classNameToModel = {
     params ["_className"];
     getText (configFile >> "CfgVehicles" >> _className >> "model");
@@ -614,12 +634,12 @@ logistics_weapons = [
 
 //coverd vehicles
 logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Truck_01_covered_F", "O_Truck_03_covered_F", "I_Truck_02_covered_F",
-"rhsgref_nat_ural_work", "rhs_kamaz5350", "rhs_zil131_base", "rhs_gaz66_vmf", "rhsusf_M1078A1P2_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy", "rhsusf_M1083A1P2_WD_fmtv_usarmy", 
+"rhsgref_nat_ural_work", "rhs_kamaz5350", "rhs_zil131_base", "rhs_gaz66_vmf", "rhsusf_M1078A1P2_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy", "rhsusf_M1083A1P2_WD_fmtv_usarmy",
 "UK3CB_B_M939_Closed_HIDF", "UK3CB_B_MTVR_Closed_WDL", "UK3CB_C_V3S_Closed"];
 {
     private _blackList = (_x#1);
     {
         private _model = _x call _classNameToModel;
-        if !(_model isEqualTo "") then {_blackList pushBack _model};      
+        if !(_model isEqualTo "") then {_blackList pushBack _model};
     } forEach logistics_coveredVehicles;
 } forEach logistics_weapons;

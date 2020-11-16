@@ -1,3 +1,21 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Cleans cargo/node list on vehicle if it gets the objNull bug, but is really empty.
+
+    Arguments:
+    0. <Object> Vehicle to clean cargo/node list of
+
+    Return Value:
+    <nil>
+
+    Scope: Any
+    Environment: Any
+    Public: [No]
+    Dependencies:
+
+    Example: [_vehicle] call A3A_fnc_logistics_refreshVehicleLoad;
+*/
 params ["_vehicle"];
 
 _cargo = _vehicle getVariable ["Cargo",[]];

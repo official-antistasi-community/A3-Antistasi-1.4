@@ -1,3 +1,21 @@
+/*
+    Author: [Håkon]
+    [Description]
+        unloads last loaded cargo of the vehicle
+
+    Arguments:
+    0. <Object> Vehicle to unload cargo from
+
+    Return Value:
+    <Nil>
+
+    Scope: Any
+    Environment: Scheduled
+    Public: [No]
+    Dependencies:
+
+    Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
+*/
 params ["_vehicle"];
 
 private _loaded = _vehicle getVariable ["Cargo", []];

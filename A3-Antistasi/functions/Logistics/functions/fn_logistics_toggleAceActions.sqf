@@ -1,3 +1,21 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Toggles ace actions; Drag, Carry, and Load. on/off
+
+    Arguments:
+    0. <Object> Cargo to toggle ace actions on/off
+
+    Return Value:
+    <Nil>
+
+    Scope: Any
+    Environment: Any
+    Public: [No]
+    Dependencies:
+
+    Example: [_cargo] call A3A_fnc_logistics_toggleAceActions;
+*/
 params ["_object"];
 
 if (isNil "_object") exitWith {};
@@ -10,7 +28,7 @@ if (_removeAction) then {
 	//check if actions are on the object
 	_canDrag = _object getVariable ["ace_dragging_canDrag",false];
 	_canCarry = _object getVariable ["ace_dragging_canCarry",false];
-	_canLoad = if (getNumber (configFile >> "CfgVehicles" >> typeOf _object >> "ace_cargo_canLoad") isEqualTo 1) then {true} else {false}; 
+	_canLoad = if (getNumber (configFile >> "CfgVehicles" >> typeOf _object >> "ace_cargo_canLoad") isEqualTo 1) then {true} else {false};
 
 	//save old actions
 	_object setVariable ["LogisticsAceToggle", [_canDrag, _canCarry, _canLoad], true];

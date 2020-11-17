@@ -1,7 +1,7 @@
 /*
     Author: [Håkon]
     [Description]
-        retrieves the node required to load cargo
+        Finds the node type(size) from logistics_attachmentOffset
 
     Arguments:
     0. <Object> Object that is loadable (Cargo)
@@ -12,7 +12,7 @@
     Scope: Any
     Environment: unscheduled
     Public: [Yes]
-    Dependencies:
+    Dependencies: logistics_attachmentOffset
 
     Example: private _objNodeType = [_object] call A3A_fnc_logistics_getCargoNodeType;
 */

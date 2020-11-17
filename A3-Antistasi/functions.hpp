@@ -339,7 +339,7 @@ class A3A
         class logistics_addOrRemoveObjectMass {};
         class logistics_addWeaponAction {};
         class logistics_canLoad {};
-        class logistics_generateNodes {};
+        class logistics_generateHardPoints {};
         class logistics_getCargoNodeType {};
         class logistics_getCargoOffsetAndDir {};
         class logistics_getVehicleNodes {};

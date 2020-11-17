@@ -22,18 +22,18 @@ if (isNil "_object") exitWith {};
 if !(
     ((gunner _object) isEqualTo _object)
     or ((gunner _object) isEqualTo objNull)
-) exitWith {["Cargo Load", "Cant load a static thats mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+) exitWith {["Logistics", "Cant load a static thats mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 private _vehicles = (nearestObjects [_object,["Car","Ship"], 10]) - [_object];
 private _vehicle = _vehicles#0;
-if (isNil "_vehicle") exitWith {["Cargo Load", "No vehicle close enough"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (isNil "_vehicle") exitWith {["Logistics", "No vehicle close enough"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 //displayName
 private _cargoName = getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName");
 private _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName");
 if (_object isKindOf "CAManBase") then {_cargoName = name _object};
 
-if !(alive _vehicle) exitWith {["Cargo Load", "You cant load cargo into destroyed a vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if !(alive _vehicle) exitWith {["Logistics", "You cant load cargo into destroyed a vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 //is weapon? and weapon allowed
 private _model = getText (configFile >> "CfgVehicles" >> typeOf _object >> "model");
@@ -47,13 +47,13 @@ private _allowed = true;
         if (_vehModel in _blacklistVehicles) then {_allowed = false};
     };
 } forEach logistics_weapons;
-if !(_allowed) exitWith {["Cargo Load", format ["%1 can not be mounted on a %2", _cargoName, _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if !(_allowed) exitWith {["Logistics", format ["%1 can not be mounted on a %2", _cargoName, _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
-if ((_object isKindOf "CAManBase") and !(([_object] call A3A_fnc_canFight) or !(isNull (_object getVariable ["helped",objNull])) or !(isNull attachedTo _object))) exitWith {["Cargo Load", format ["%1 is being helped or no longer needs your help",_cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if ((_object isKindOf "CAManBase") and !(([_object] call A3A_fnc_canFight) or !(isNull (_object getVariable ["helped",objNull])) or !(isNull attachedTo _object))) exitWith {["Logistics", format ["%1 is being helped or no longer needs your help",_cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 //get cargo node size
 private _objNodeType = [_object] call A3A_fnc_logistics_getCargoNodeType;
-if (_objNodeType isEqualTo -1) exitWith {["Cargo Load", format ["%1 cannot be loaded", _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (_objNodeType isEqualTo -1) exitWith {["Logistics", format ["%1 cannot be loaded", _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 //get vehicle nodes
 private _nodes = _vehicle getVariable ["logisticsCargoNodes",nil];
@@ -65,7 +65,7 @@ if (isNil "_nodes") then {
 };
 
 //Vehicle not able to carry cargo
-if (_nodes isEqualTo -1) exitWith {["Cargo Load", format ["%1 is unable to load %2", _vehicleName, _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (_nodes isEqualTo -1) exitWith {["Logistics", format ["%1 is unable to load %2", _vehicleName, _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 //enough free nodes to load cargo
 private "_node";
@@ -78,7 +78,7 @@ private "_node";
     };
     if ((count _currentNodes) isEqualTo _objNodeType) exitWith {_node = _currentNodes};
 } forEach _nodes;
-if (isNil "_node") exitWith {["Cargo Load", format ["%1 does not have enough space to load %2", _vehicleName, _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (isNil "_node") exitWith {["Logistics", format ["%1 does not have enough space to load %2", _vehicleName, _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 //block loading if crew in node seats
 private _fullCrew = fullCrew _vehicle;
@@ -97,6 +97,6 @@ private _cargoUnits = [];
     };
     if (_isBlocking) then {_cargoUnits pushBack _x};
 }forEach _fullCrew;
-if !(_cargoUnits isEqualTo []) exitWith {["Cargo Load", format ["%1 can not load cargo while units blocking the cargo plane", _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if !(_cargoUnits isEqualTo []) exitWith {["Logistics", format ["%1 can not load cargo while units blocking the cargo plane", _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 [_object, _vehicle, _node, _weapon] spawn A3A_fnc_logistics_load;

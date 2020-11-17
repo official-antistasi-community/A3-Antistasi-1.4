@@ -40,8 +40,8 @@ private _displayVehicleMessage = {
 	_text = _text + _msg;
 	
 	//Don't use customHint, as we've got a lot of custom formatting.
-	[parseText _text] remoteExec ["hint", remoteExecutedOwner];
-	[parseText _text] remoteExec ["hint", crew _vehicle]; //parse text dont work with chat
+    ["LogisticsInfo", parseText _text] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner];
+    ["LogisticsInfo", parseText _text] remoteExec ["A3A_fnc_customHint", crew _vehicle];
 };
 
 if (isNil {_vehicle getVariable "default_mass"}) then {

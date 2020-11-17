@@ -38,7 +38,7 @@ private _plane = _planeStart vectorDiff _planeEnd;
 
 private _nodeArray = [];
 private _node = _planeStart vectorAdd [0,_radius,0];//first point
-while {(-_diameter) < (_plane#1)} do {
+while {(-_radius*1.5) < (_plane#1)} do {
     _plane = _plane vectorAdd [0,_diameter,0];
     _nodeArray pushBack _node;
     _node = _node vectorAdd [0,_diameter,0];

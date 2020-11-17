@@ -66,10 +66,10 @@ A3A_Logistics_RenderCP = addMissionEventHandler ["Draw3D", {
     private _endPosASL = A3A_Logistics_vehicle modelToWorldVisualWorld A3A_Logistics_pEnd;
 
     //plane boundries corner positions
-    private _startGuide1 = _startPos vectorAdd [-0.6,0,0];
-    private _startGuide2 = _startGuide1 vectorAdd [1.2,0,0];
-    private _endGuide1 = _endPos vectorAdd [-0.6,0,0];
-    private _endGuide2 = _endGuide1 vectorAdd [1.2,0,0];
+    private _startGuide1 = A3A_Logistics_vehicle modelToWorldVisual (A3A_Logistics_pStart vectorAdd [-0.6,0,0]);
+    private _startGuide2 = A3A_Logistics_vehicle modelToWorldVisual (A3A_Logistics_pStart vectorAdd [0.6,0,0]);
+    private _endGuide1 = A3A_Logistics_vehicle modelToWorldVisual (A3A_Logistics_pEnd vectorAdd [-0.6,0,0]);
+    private _endGuide2 = A3A_Logistics_vehicle modelToWorldVisual (A3A_Logistics_pEnd vectorAdd [0.6,0,0]);
 
     //Plane Start and end
     if (count (lineIntersectsSurfaces [eyePos player, _startPosASL, player]) isEqualTo 0) then {

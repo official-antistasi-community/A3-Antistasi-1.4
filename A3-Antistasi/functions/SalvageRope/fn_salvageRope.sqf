@@ -7,7 +7,7 @@ if (isRemoteExecutedJIP) then {[3, format ["Salvage Rope Action added on JIP cli
 canDeployWinch = {
 	private _vehicle = cursorTarget;
 	if(_vehicle isKindOf "Ship") then {
-		vehicle player == player && player distance _vehicle < 10 && isNil {_vehicle getVariable "WinchRope"} && [_vehicle] call A3A_fnc_logistics_getVehicleNodes != -1;
+		vehicle player == player && player distance _vehicle < 10 && isNil {_vehicle getVariable "WinchRope"} && [_vehicle] call A3A_fnc_logistics_getVehicleNodes isEqualType [];
 	} else {
 		false;
 	};

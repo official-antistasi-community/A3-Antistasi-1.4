@@ -26,7 +26,7 @@ if (isNil "logistics_vehicleHardpoints") exitWith {
 _nonSupportedStatic = false;
 if (_object isKindOf "StaticWeapon") then {
     private _model = getText (configFile >> "CfgVehicles" >> typeOf _object >> "model");
-    if (logistics_weapons findIf ((_x#0) isEqualTo _model) isEqualTo -1) then {_nonSupportedStatic = true};
+    if (logistics_weapons findIf {(_x#0) isEqualTo _model} isEqualTo -1) then {_nonSupportedStatic = true};
 };
 if (_nonSupportedStatic) exitWith {};
 

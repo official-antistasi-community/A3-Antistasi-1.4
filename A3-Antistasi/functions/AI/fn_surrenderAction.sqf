@@ -52,7 +52,7 @@ clearMagazineCargoGlobal _boxX;
 clearWeaponCargoGlobal _boxX;
 clearItemCargoGlobal _boxX;
 clearBackpackCargoGlobal _boxX;
-_boxX call A3A_fnc_logistics_addLoadAction;
+[_boxX] call A3A_fnc_logistics_addLoadAction;
 
 // move all unit's equipment except uniform into the surrender crate
 private _loadout = getUnitLoadout _unit;

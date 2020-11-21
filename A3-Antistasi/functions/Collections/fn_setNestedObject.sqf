@@ -24,6 +24,9 @@ Parameters:
 Returns:
     <LOCATION> last varSpace; locationNull if issue.
 
+Exceptions:
+    ["nameAlreadyInUse",_details] If the desired name of a new nested location already holds another value type other than locationNull.
+
 Examples:
     [player, "lootBoxesOpened", 5] call A3A_fnc_setNestedObject;
         // is equal to player setVariable ["lootBoxesOpened", 5, false];
@@ -43,8 +46,11 @@ private _varSpace = _this#0;
 private _lastVarSpace = _varSpace;
 for "_i" from 1 to _count - 3 do {
     _lastVarSpace = _varSpace;
-    _varSpace = _lastVarSpace getVariable [_this#_i, false];
-    if (!(_varSpace isEqualType locationNull) || {isNull _varSpace}) then {
+    _varSpace = _lastVarSpace getVariable [_this#_i, locationNull];
+    if (!(_varSpace isEqualType locationNull)) exitWith {
+        throw ["nameAlreadyInUse",["Variable '",_this#_i,"' in (",(_this select [0,_i]) joinString " > ",") already has <",typeName _varSpace,"> '",str _varSpace,"'."] joinString ""];
+    };
+    if (isNull _varSpace) then {
         _varSpace = [false] call A3A_fnc_createNamespace;
         _lastVarSpace setVariable [_this#_i,_varSpace];
     };

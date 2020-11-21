@@ -23,10 +23,19 @@ A3A_SR_DeployWinch = {
     [_player, _vehicle] spawn A3A_SR_adjustRope;
 };
 
+A3A_SR_cleanHelper = {
+    params ["_helper", "_vehicle"];
+    detach _helper;
+    deleteVehicle _helper;
+    _vehicle setVariable ["WinchHelper", nil];
+    player setVariable ["WinchHelperObj", nil];
+};
+
 A3A_SR_adjustRope = {
     params ["_player", "_vehicle"];
-    while {!isNil {_vehicle getVariable "WinchRope"}} do {
-        private _rope = _vehicle getVariable "WinchRope";
+    private _rope = _vehicle getVariable "WinchRope";
+    private _helper = _vehicle getVariable ["WinchHelper", objNull];
+    while {!isNull ropeAttachedTo _helper} do {
         private _dist = _vehicle distance _player;
         private _optimalDist = _dist + 3;
         private _maxDist = _dist + 7;
@@ -39,15 +48,16 @@ A3A_SR_adjustRope = {
         };
         sleep 0.1;
     };
+    if (!alive _vehicle) then { [_helper, _vehicle] call A3A_SR_cleanHelper };
 };
 
 //Stow action
 A3A_SR_canStow = { //can stow when the player is not in a vehicle, is within 10m, rope attached to the player or no one, not recovering cargo
     private _vehicle = cursorTarget;
     if (isNull _vehicle) exitWith {false};
-    if !(isNil {_vehicle getVariable "WinchRope2"}) exitWith {false};
+    if (isNull (_vehicle getVariable ["WinchRope", objNull])) exitWith {false}; //winch deployed
     private _attachedPlayer = attachedTo (_vehicle getVariable ["WinchHelper", objNull]);
-    if (isNull _attachedPlayer) exitWith {false}; //winch not deployed
+    if (isNull _attachedPlayer) exitWith {false};//this is the case when retrieving cargo
     vehicle player == player && player distance _vehicle < 10 && (!alive _attachedPlayer || player == _attachedPlayer); //only attached player unless dead
 };
 
@@ -55,13 +65,8 @@ A3A_SR_stowRope = {
     params ["_player"];
     private _vehicle = cursorTarget;
     ropeDestroy (_vehicle getVariable "WinchRope");
-    _helper = _vehicle getVariable "WinchHelper";
-    detach _helper;
-    deleteVehicle _helper;
+    [_vehicle getVariable "WinchHelper", _vehicle] call A3A_SR_cleanHelper;
     _vehicle setVariable ["WinchRope",nil,true];
-    _vehicle setVariable ["WinchHelper",nil,true];
-    player setVariable ["WinchHelperObj", objNull];
-
 };
 
 //Attach action
@@ -76,27 +81,33 @@ A3A_SR_canAttach = { //whitelisted objs (SalvageCrate) thats within 13m (finicky
 
 A3A_SR_attachRope = {
     private _cargo = cursorTarget;
-    private ["_vehicle"];
     private _helper = player getVariable ["WinchHelperObj", objNull];
-    _vehicle = ropeAttachedTo _helper;
+    private _vehicle = ropeAttachedTo _helper;
+
+    //calculate unwind distance and wait time, break undercover
     player setCaptive false;
     private _distance = _vehicle distance _cargo;
     private _unwind = _distance - 0.5;
-    private _time = 5 + (_unwind*2);
+    private _time = time + 5 + (_unwind*2);
+
+    //destroy rope between player and boat
     ropeDestroy (_vehicle getVariable "WinchRope");
-    _helper = _vehicle getVariable "WinchHelper";
-    detach _helper;
-    deleteVehicle _helper;
-    _vehicle setVariable ["WinchHelper",nil,true];
-    _vehicle setVariable ["WinchRope2", (ropeCreate [_vehicle, [0,-2.8,-0.8], _cargo, [0,0,0], _distance]), true];
+    [_helper, _vehicle] call A3A_SR_cleanHelper;
+
+    //create rope between cargo and boat
+    private _rope = ropeCreate [_vehicle, [0,-2.8,-0.8], _cargo, [0,0,0], _distance];
+    _vehicle setVariable ["WinchRope", _rope, true];
+
+    //winch the cargo up to the boat
     sleep 1;
-    ropeUnwind [ropes _vehicle select 0, 0.5, -(_unwind), true];
-    _vehicle lockCargo true;
-    sleep _time;
-    ropeDestroy (_vehicle getVariable "WinchRope2");
+    ropeUnwind [_rope, 0.5, -(_unwind), true];
+    waitUntil {time > _time || isNull _rope};
+    if (isNull _rope) exitWith {};
+
+    //load cargo onto boat
+    ropeDestroy _rope;
     [_vehicle, _cargo] call jn_fnc_logistics_load;
     _cargo call jn_fnc_logistics_addAction;
-    _vehicle setVariable ["WinchRope2",nil,true];
     _vehicle setVariable ["WinchRope",nil,true];
 };
 

@@ -42,7 +42,7 @@ private _varSpace = _this#0;
 for "_i" from 1 to _count - 3 do {
     _varSpace = _varSpace getVariable [_this#_i, false];
     if (!(_varSpace isEqualType locationNull) || {isNull _varSpace}) exitWith {
-        _varSpace = _this#0;
+        _varSpace = locationNull;
     };
 };
 _varSpace getVariable [_this#(_count-2), _this#(_count-1)];

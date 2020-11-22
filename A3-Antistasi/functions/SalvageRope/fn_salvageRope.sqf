@@ -20,15 +20,16 @@ A3A_SR_DeployWinch = {
     _vehicle setVariable ["WinchRope", (ropeCreate [_vehicle, [0,-2.8,-0.8], _helper, [0,0,0], 10]), true];
     _vehicle setVariable ["WinchHelper", _helper, true];
     player setVariable ["WinchHelperObj", _helper];
-    [_player, _vehicle] spawn A3A_SR_adjustRope;
+    [_player, _vehicle] call A3A_SR_adjustRope;
 };
 
 A3A_SR_cleanHelper = {
     params ["_helper", "_vehicle"];
+    private _player = attachedTo _helper;
     detach _helper;
     deleteVehicle _helper;
     _vehicle setVariable ["WinchHelper", nil];
-    player setVariable ["WinchHelperObj", nil];
+    _player setVariable ["WinchHelperObj", nil];
 };
 
 A3A_SR_adjustRope = {
@@ -56,8 +57,9 @@ A3A_SR_canStow = { //can stow when the player is not in a vehicle, is within 10m
     private _vehicle = cursorTarget;
     if (isNull _vehicle) exitWith {false};
     if (isNull (_vehicle getVariable ["WinchRope", objNull])) exitWith {false}; //winch deployed
-    private _attachedPlayer = attachedTo (_vehicle getVariable ["WinchHelper", objNull]);
-    if (isNull _attachedPlayer) exitWith {false};//this is the case when retrieving cargo
+    private _helper = _vehicle getVariable ["WinchHelper", objNull];
+    if (isNull _helper) exitWith {false};//this is the case when retrieving cargo
+    private _attachedPlayer = attachedTo _helper;
     vehicle player == player && player distance _vehicle < 10 && (!alive _attachedPlayer || player == _attachedPlayer); //only attached player unless dead
 };
 
@@ -122,7 +124,7 @@ A3A_SR_addplayerWinchActions = {
     }, nil, 0, false, true, "", "call A3A_SR_canStow"];
 
     player addAction ["Attach Rope", {
-        [player] spawn A3A_SR_attachRope;
+        [player] call A3A_SR_attachRope;
     }, nil, 0, false, true, "", "call A3A_SR_canAttach"];
 
     if (isMultiplayer) then {

@@ -36,7 +36,7 @@ A3A_SR_adjustRope = {
     params ["_player", "_vehicle"];
     private _rope = _vehicle getVariable "WinchRope";
     private _helper = _vehicle getVariable ["WinchHelper", objNull];
-    while {!isNull ropeAttachedTo _helper} do {
+    while {!isNull ropeAttachedTo _helper && alive attachedTo _helper} do {
         private _dist = _vehicle distance _player;
         private _optimalDist = _dist + 3;
         private _maxDist = _dist + 7;
@@ -49,7 +49,11 @@ A3A_SR_adjustRope = {
         };
         sleep 0.1;
     };
-    if (!alive _vehicle) then { [_helper, _vehicle] call A3A_SR_cleanHelper };
+    if (alive _helper) then { //vehicle destroyed, rope broken or player died
+        [_helper, _vehicle] call A3A_SR_cleanHelper;
+        ropeDestroy (_vehicle getVariable "WinchRope");
+        _vehicle setVariable ["WinchRope", nil, true];
+    };
 };
 
 //Stow action
@@ -66,9 +70,9 @@ A3A_SR_canStow = { //can stow when the player is not in a vehicle, is within 10m
 A3A_SR_stowRope = {
     params ["_player"];
     private _vehicle = cursorTarget;
-    ropeDestroy (_vehicle getVariable "WinchRope");
     [_vehicle getVariable "WinchHelper", _vehicle] call A3A_SR_cleanHelper;
-    _vehicle setVariable ["WinchRope",nil,true];
+    ropeDestroy (_vehicle getVariable "WinchRope");
+    _vehicle setVariable ["WinchRope", nil, true];
 };
 
 //Attach action
@@ -93,8 +97,8 @@ A3A_SR_attachRope = {
     private _time = time + 5 + (_unwind*2);
 
     //destroy rope between player and boat
-    ropeDestroy (_vehicle getVariable "WinchRope");
     [_helper, _vehicle] call A3A_SR_cleanHelper;
+    ropeDestroy (_vehicle getVariable "WinchRope");
 
     //create rope between cargo and boat
     private _rope = ropeCreate [_vehicle, [0,-2.8,-0.8], _cargo, [0,0,0], _distance];

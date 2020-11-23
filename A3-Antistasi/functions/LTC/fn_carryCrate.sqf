@@ -14,6 +14,7 @@ if (_pickUp) then {
 } else {
     if (isNull _crate) then {
         private _attached = (attachedObjects _player)select {(typeOf _x) isEqualTo "Box_IND_Wps_F"};
+        if (_attached isEqualTo []) exitWith {};
         _crate = _attached#0;
     };
 	if !(isNull _crate) then {

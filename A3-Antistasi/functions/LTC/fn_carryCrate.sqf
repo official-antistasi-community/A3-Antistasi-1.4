@@ -8,7 +8,7 @@ if (_pickUp) then {
 	player forceWalk true;
 	[player ,_crate] spawn {
 		params ["_player", "_crate"];
-		waitUntil { !alive _crate or !(_player getVariable ["carryingCrate", false]) or !(vehicle _player isEqualTo _player) or ( !([_player] call A3A_fnc_canFight) && !captive _player) };
+		waitUntil { !alive _crate or !(_player getVariable ["carryingCrate", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player };
 		[objNull, false] call A3A_fnc_carryCrate;
 	};
 } else {

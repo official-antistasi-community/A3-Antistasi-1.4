@@ -245,7 +245,8 @@ savingServer = false;
 	private _lastPlayerCount = count (call A3A_fnc_playableUnits);
 	while {true} do
 	{
-		uiSleep autoSaveInterval;
+		autoSaveTime = time + autoSaveInterval;
+		waitUntil { sleep 60; time > autoSaveTime; };
 		private _playerCount = count (call A3A_fnc_playableUnits);
 		if (autoSave && (_playerCount > 0 || _lastPlayerCount > 0)) then {
 			[] remoteExecCall ["A3A_fnc_saveLoop", 2];

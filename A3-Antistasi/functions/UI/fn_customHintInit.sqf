@@ -52,3 +52,23 @@ addMissionEventHandler ["EachFrame", {
 
 A3A_customHint_InitComplete = true;
 true;
+
+/*
+# Global/Public variables used by custom hint system.
+
+All public created variables:
+| Name                              | Type          | Machine   | Domain            | Description                                                           |
+|-----------------------------------|---------------|-----------|-------------------|-----------------------------------------------------------------------|
+| A3A_customHint_hexChars           | ARRAY<STRING> | Client    | missionNamespace  | All hexadecimal symbols in order. Used in shader_ratioToHex.          |
+| A3A_customHint_InitComplete       | BOOLEAN       | Client    | missionNamespace  | Defines if customHintInit should be called.                           |
+| A3A_customHint_MSGs               | ARRAY<CUSTOM> | Client    | missionNamespace  | Stack of hint notifications. <_headerText,_structuredText,_isSilent>  |
+| A3A_customHint_DismissKeyDown     | BOOLEAN       | Client    | missionNamespace  | Whether dismiss key is depressed.                                     |
+| A3A_customHintEnable              | BOOLEAN       | Local     | missionNamespace  | Whether queuing and dismissing is enabled. Defined on all, not synced.|
+| A3A_customHint_LastMSG            | SCALAR        | Client    | missionNamespace  | ServerTime of last update to the focused message.                     |
+| A3A_customHint_RenderFrameCount   | SCALAR        | Client    | missionNamespace  | Determines intensity of hint footer fading.                           |
+
+Worker processes:
+| Script Name                       | Machine   | Description                                                                               |
+|-----------------------------------|-----------|-------------------------------------------------------------------------------------------|
+| undefined                         | Client    | In customHintInit. EachFrame. Checks key press. Refreshes hint display. FrameCount++      |
+*/

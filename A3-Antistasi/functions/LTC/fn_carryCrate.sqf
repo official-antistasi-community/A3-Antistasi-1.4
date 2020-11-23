@@ -16,7 +16,7 @@ if (_pickUp) then {
         private _attached = (attachedObjects _player)select {(typeOf _x) isEqualTo "Box_IND_Wps_F"};
         _crate = _attached#0;
     };
-	if !(isNull "_crate") then {
+	if !(isNull _crate) then {
 		_player setVelocity [0,0,0];
 		detach _crate;
 		_crate setVelocity [0,0,0.3];

@@ -53,13 +53,13 @@ if (count _positionTel > 0) then
 		_positionX = [getMarkerPos _base, 10, random 360] call BIS_Fnc_relPos;
 		_distanceX = round (((position player) distance _positionX)/200);
 		disableUserInput true;
-		cutText ["Fast traveling, please wait","BLACK",2];
+		cutText [localize "STR_antistasi_cutText_tp","BLACK",2];
 		sleep 2;
 		(vehicle player) setPos _positionX;
 		player allowDamage false;
 		sleep _distanceX;
 		disableUserInput false;
-		cutText ["You arrived to destination","BLACK IN",3];
+		cutText [localize "STR_antistasi_cutText_tpDone","BLACK IN",3];
 		sleep 5;
 		player allowDamage true;
 		}

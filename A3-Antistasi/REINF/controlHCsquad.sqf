@@ -52,7 +52,7 @@ selectPlayer _unit;
 
 _timeX = 60;
 
-_unit addAction ["Return Control to AI",{selectPlayer (player getVariable ["owner",player])}];
+_unit addAction [localize "STR_antistasi_addAction_returnControl",{selectPlayer (player getVariable ["owner",player])}];
 
 waitUntil {sleep 1;[localize "STR_antistasi_customHint_controlSquad", format [localize "STR_antistasi_customHint_controlSquad_time", _timeX]] call A3A_fnc_customHint; _timeX = _timeX - 1; (_timeX < 0) or (isPlayer theBoss)};
 

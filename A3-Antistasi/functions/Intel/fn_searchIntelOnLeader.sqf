@@ -21,7 +21,7 @@ _caller setVariable ["intelFound",false];
 _caller setVariable ["cancelIntelSearch",false];
 
 _caller playMoveNow selectRandom medicAnims;
-private _cancelAction = _caller addAction ["Cancel Search", {(_this select 1) setVariable ["cancelIntelSearch",true]},nil,6,true,true,"","(isPlayer _this)"];
+private _cancelAction = _caller addAction [localize "STR_antistasi_addAction_searchCancel", {(_this select 1) setVariable ["cancelIntelSearch",true]},nil,6,true,true,"","(isPlayer _this)"];
 
 _caller addEventHandler
 [

@@ -113,7 +113,7 @@ _caller setVariable ["breachVeh", _vehicle];
 _caller setVariable ["animsDone",false];
 _caller setVariable ["cancelBreach",false];
 
-private _action = _caller addAction ["Cancel Breaching", {(_this select 1) setVariable ["cancelBreach",true]},nil,6,true,true,"","(isPlayer _this) && (_this == vehicle _this)"];
+private _action = _caller addAction [localize "STR_antistasi_addAction_breach_cancel", {(_this select 1) setVariable ["cancelBreach",true]},nil,6,true,true,"","(isPlayer _this) && (_this == vehicle _this)"];
 _vehicle removeAction _actionID;
 
 _caller addEventHandler ["AnimDone",

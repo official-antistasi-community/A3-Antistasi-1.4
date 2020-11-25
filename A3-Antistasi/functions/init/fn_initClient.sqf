@@ -398,12 +398,12 @@ if (A3A_hasACE) then
 };
 
 boxX allowDamage false;
-boxX addAction ["Transfer Vehicle cargo to Ammobox", {[] spawn A3A_fnc_empty;}, 4];
-boxX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
+boxX addAction [localize "STR_antistasi_addAction_trans_veh_to_ammo", {[] spawn A3A_fnc_empty;}, 4];
+boxX addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (A3A_hasACE) then { [boxX, boxX] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 flagX allowDamage false;
-flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_dialogs_build_recruit_units_button_text", localize "STR_antistasi_customHint_unit_recruit_enemies"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
-flagX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
+flagX addAction [localize "STR_antistasi_customHint_unit_recruit", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_dialogs_build_recruit_units_button_text", localize "STR_antistasi_customHint_unit_recruit_enemies"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
+flagX addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 //Adds a light to the flag
 private _flagLight = "#lightpoint" createVehicle (getPos flagX);
@@ -415,18 +415,18 @@ _flagLight lightAttachObject [flagX, [0, 0, 4]];
 _flagLight setLightAttenuation [7, 0, 0.5, 0.5];
 
 vehicleBox allowDamage false;
-vehicleBox addAction ["Heal, Repair and Rearm", A3A_fnc_healAndRepair,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
+vehicleBox addAction [localize "STR_antistasi_addAction_healRepairRearm", A3A_fnc_healAndRepair,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction [localize "STR_antistasi_addAction_vehArsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 if (A3A_hasACE) then { [vehicleBox, vehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 if (isMultiplayer) then {
-	vehicleBox addAction ["Personal Garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+	vehicleBox addAction [localize "STR_antistasi_addAction_personGarage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 };
-vehicleBox addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_customHint_buy_vehicle", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
+vehicleBox addAction [localize "STR_antistasi_addAction_factionGarage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction [localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_customHint_buy_vehicle", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 if (LootToCrateEnabled) then {
-	vehicleBox addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
+	vehicleBox addAction [localize "STR_antistasi_addAction_buyBox", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
 	call A3A_fnc_initLootToCrate;
 };
 
@@ -448,8 +448,8 @@ mapX addAction ["Game Options", {
 	CreateDialog "game_options";
 	nil;
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
+mapX addAction [localize "STR_antistasi_addAction_map", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+mapX addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 [] execVM "OrgPlayers\unitTraits.sqf";
 

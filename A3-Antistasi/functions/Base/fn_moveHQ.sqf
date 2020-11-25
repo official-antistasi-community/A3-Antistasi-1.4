@@ -83,4 +83,4 @@ if (count _garrison > 0) then
 
 sleep 5;
 
-petros addAction ["Build HQ here", A3A_fnc_buildHQ,nil,0,false,true];
+petros addAction [localize "STR_antistasi_addAction_buildHQ", A3A_fnc_buildHQ,nil,0,false,true];

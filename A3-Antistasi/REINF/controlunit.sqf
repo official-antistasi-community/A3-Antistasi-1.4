@@ -49,7 +49,7 @@ selectPlayer _unit;
 
 _timeX = 60;
 
-_unit addAction ["Return Control to AI",{selectPlayer leader (group (_this select 0))}];
+_unit addAction [localize "STR_antistasi_addAction_returnControl",{selectPlayer leader (group (_this select 0))}];
 
 waitUntil {sleep 1; [localize "STR_antistasi_customHint_control", format [localize"STR_antistasi_customHint_controlSquad_time", _timeX]] call A3A_fnc_customHint; _timeX = _timeX - 1; (_timeX == -1) or (isPlayer (leader group player))};
 

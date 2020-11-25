@@ -47,7 +47,7 @@ if(isNil "vehPlace_keyDownHandler")	then {
 			{
 			if (vehPlace_previewVeh distance [0,0,1000] <= 1500) then
 				{
-				["<t size='0.6'>The current position is not suitable for the vehicle. Try another",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
+				[localize "STR_antistasi_dynamicText_vehPlaced_noPos" + "<t size='0.6'>",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
 				}
 			else
 				{

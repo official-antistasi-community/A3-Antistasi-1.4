@@ -65,7 +65,7 @@ if ((_player distance getMarkerPos _base < _size * 2) and(not(sidesX getVariable
 	[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_zone"] call A3A_fnc_customHint;
 };
 
-["Undercover ON", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
+[localize "STR_antistasi_dynamicText_undercover_ON", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
 
 [_player, true] remoteExec["setCaptive", 0, _player];
 _player setCaptive true;
@@ -220,7 +220,7 @@ if (vehicle _player != _player) then {
 	forEach((assignedCargo(vehicle _player)) + (crew(vehicle _player)) - [_player]);
 };
 
-["Undercover OFF", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
+[localize "STR_antistasi_dynamicText_undercover_OFF", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
 [] spawn A3A_fnc_statistics;
 switch _changeX do {
 	case "Reported":{

@@ -5144,5 +5144,37 @@
         <Original>Single player modus detected!&lt;br/&gt;&lt;br/&gt;For the best experience please play as a local hosted game. SP support will end in the near future.&lt;br/&gt;&lt;br/&gt;You can still play as SP modus for now, this screen will vanish in a few seconds!</Original>
       </Key>
     </Container>
+    <Container name="dynamicText">
+      <Key ID="STR_antistasi_dynamicText_vehPlaced">
+        <Original>Vehicle Placed</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_vehPlaced_noPos">
+        <Original>The current position is not suitable for the vehicle. Try another</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_intelFound">
+        <Original>Intel Found</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_respawning">
+        <Original>Respawning</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_revive_noAI">
+        <Original>There is no AI near to help you</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_revive_hit_R">
+        <Original>Hit R to Respawn</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_revive_AI">
+        <Original>%1 is on the way to help you.</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_revive_wait">
+        <Original>Wait until you get assistance or</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_undercover_ON">
+        <Original>Undercover ON</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_undercover_OFF">
+        <Original>Undercover OFF</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

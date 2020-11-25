@@ -41,8 +41,8 @@ _truckX addEventHandler ["GetIn",
 	{
 	if (_this select 1 == "driver") then
 		{
-		_textX = format ["Bring this truck to %1 Bank and park it in the main entrance",(_this select 0) getVariable "destinationX"];
-		["Bank Mission", _textX] remoteExecCall ["A3A_fnc_customHint", _this select 2];
+		_textX = format [localize "STR_antistasi_customHint_mission_bank_text",(_this select 0) getVariable "destinationX"];
+		[localize "STR_antistasi_customHint_mission_bank", _textX] remoteExecCall ["A3A_fnc_customHint", _this select 2];
 		};
 	}];
 

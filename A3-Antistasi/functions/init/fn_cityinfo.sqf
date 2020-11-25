@@ -18,7 +18,7 @@ if (_x in destroyedSites) then {_popCSAT = _popCSAT + _numCIV};
 } forEach citiesX;
 _popFIA = round _popFIA;
 _popAAF = round _popAAF;
-["City Information", format ["%7<br/><br/>Total pop: %1<br/>%6 Support: %2<br/>%5 Support: %3 <br/><br/>Murdered Pop: %4<br/><br/>Click on the zone",_pop, _popFIA, _popAAF, _popCSAT,nameOccupants,nameTeamPlayer,worldName]] call A3A_fnc_customHint;
+[localize "STR_antistasi_customHint_city_info", format [localize "STR_antistasi_customHint_city_stat",_pop, _popFIA, _popAAF, _popCSAT,nameOccupants,nameTeamPlayer,worldName]] call A3A_fnc_customHint;
 
 if (!visibleMap) then {openMap true};
 
@@ -161,7 +161,7 @@ while {visibleMap} do
 				_textX = format ["%1 Watchpost",_nameFaction];
 				};
 			};
-		["City Information", _textX] call A3A_fnc_customHint;
+		[localize "STR_antistasi_customHint_city_info", _textX] call A3A_fnc_customHint;
 		};
 	positionTel = [];
 	};

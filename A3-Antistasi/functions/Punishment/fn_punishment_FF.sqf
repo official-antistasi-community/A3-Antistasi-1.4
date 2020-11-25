@@ -75,12 +75,12 @@ _instigator setVariable ["A3A_FFPun_CD", servertime + 1, false]; // Local Exec f
 private _victimStats = ["damaged ",["systemPunished",name _victim] select (_victim isKindOf "Man")," "] joinString "";
 _victimStats = [_victimStats,"[",["AI",getPlayerUID _victim] select (isPlayer _victim),"]"] joinString "";
 private _notifyVictim = {
-    if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
+    if (isPlayer _victim) then {[localize "STR_antistasi_customHint_FF", format[localize "STR_antistasi_customHint_punish_hurt",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 };
 private _notifyInstigator = {
     params ["_exempMessage"];
     private _comradeStats = ["",["Injured comrade: ",name _victim,""] joinString ""] select (_victim isKindOf "Man");
-    ["FF Warning", [_exempMessage,_comradeStats,_customMessage] joinString "<br/>"] remoteExec ["A3A_fnc_customHint", _instigator, false];
+    [localize "STR_antistasi_customHint_FF", [_exempMessage,_comradeStats,_customMessage] joinString "<br/>"] remoteExec ["A3A_fnc_customHint", _instigator, false];
 };
 private _logPvPHurt = {
     if (!(_victim isKindOf "Man")) exitWith {};

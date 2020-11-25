@@ -3413,5 +3413,1325 @@
         <Russian>Зеленые vs Красные</Russian>
       </Key>
     </Container>
+	<Container name="customHint">
+		<Key ID="STR_antistasi_customHint_money_grab">
+			<Original>Money Grab</Original>
+			<Russian>Передача денег</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_only_comander">
+			<Original>Only Commander has access to this function</Original>
+			<Russian>Только командующий имеет доступ к этой функции</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_only_admin">
+			<Original>Only Admin has access to this function</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_only_mp">
+			<Original>This function is MP only</Original>
+			<Russian>Эта функция работает только в мультиплеере</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_only_leader">
+			<Original>Only group leaders has access to this function</Original>
+			<Russian>Только лидер отряда имеет доступ к этой функции</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_spawn_distance">
+			<Original>Spawn Distance</Original>
+			<Russian>Дистанция спавна</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_spawn_distance_text">
+			<Original>Spawn Distance Set to %1 meters. Be careful, this may affect game performance.</Original>
+			<Russian>Расстояние спавна установлена на %1 метров. Будьте осторожны, это может повлиять на производительность игры.</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_spawn_distance_text_min">
+			<Original>Spawn Distance Set to %1 meters.</Original>
+			<Russian>Расстояние спавна установлена на %1 метров.</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons">
+			<Original>Garrisons</Original>
+			<Russian>Гарнизоны</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_text">
+			<Original>No units or squads selected</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_move_hq">
+			<Original>Move HQ</Original>
+			<Russian>Перемещение штаба</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_members_list">
+			<Original>Members List</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_squad">
+			<Original>Recruit Squad</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_vehicle">
+			<Original>Recruit Vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_civilian_spawn">
+			<Original>Civilian Spawn</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_limiter">
+			<Original>AI Limiter</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_music">
+			<Original>Music</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_music_off">
+			<Original>Music turned OFF</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_music_on">
+			<Original>Music turned ON</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_limiter_text">
+			<Original>AI Limit has been set at %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_limiter_200">
+			<Original>AI Limit cannot be raised from 200</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_limiter_80">
+			<Original>AI Limit cannot be less than 80</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_civ_limit">
+			<Original>Civilian Limit</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_civ_limit_set">
+			<Original>Maximum Number of Civilians Set to %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_mission_request">
+			<Original>Mission Request</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_money">
+			<Original>Money</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_medical">
+			<Original>Medical</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_medical_help_you">
+			<Original>%1 is on the way to help you</Original>
+			<Russian>%1 готов помочь вам</Russian>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_management">
+			<Original>AI Management</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehicle_management">
+			<Original>Vehicle Management</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_control">
+			<Original>AI Control</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_control_text">
+			<Original>You must select from HC or Squad Bars, not both</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_Autoheal">
+			<Original>AI Auto Heal</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_Autoheal_off">
+			<Original>Auto Healing disabled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_Autoheal_on">
+			<Original>Auto Heal enabled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_dismiss">
+			<Original>Dismiss Squad</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_dismiss_text">
+			<Original>No units or squads selected</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_air_support">
+			<Original>Air Support</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_air_support_noSupport">
+			<Original>You lack of enough Air Support to make this request</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_air_support_noAirport">
+			<Original>You need to control an airport in order to fulfill this request</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_air_support_select">
+			<Original>Select the spot from which the plane will start to drop the bombs</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_air_support_selectVector">
+			<Original>Select the map position to which the plane will exit to calculate plane's route vector</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_op_rb">
+			<Original>Outposts/Roadblocks</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_clean">
+			<Original>Garbage Cleaner</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_resign">
+			<Original>Resign Commander</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_sell_veh">
+			<Original>Sell Vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership">
+			<Original>Membership</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery">
+			<Original>Artillery Support</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery_no_select">
+			<Original>You must select an artillery group</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery_no_select_2">
+			<Original>You must select an artillery group or it is a Mobile Mortar and it's moving</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery_off">
+			<Original>All elements in this Batery cannot fire or are disabled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery_no_ammo">
+			<Original>The Battery has no ammo to fire. Reload it on HQ</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery_busy">
+			<Original>Selected Battery is busy right now</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery_type">
+			<Original>Your current modset doesent support this strike type</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery_map">
+			<Original>Select the position on map where to perform the Artillery strike</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery_bounds">
+			<Original>The position you marked is out of bounds for that Battery</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_artillery_barrage">
+			<Original>Select the position to finish the barrage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_autoheal_only_leader">
+			<Original>You must be leader of your group to enable Auto Heal</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_autoheal_requires">
+			<Original>Auto Heal requires at least one AI soldier in your group</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_auto_target">
+			<Original>Static Auto Target</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_auto_target_no_select">
+			<Original>You must select one group on the HC bar</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_auto_target_no_type">
+			<Original>Selected squad is not a mounted static type</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_auto_target_MP">
+			<Original>Статическая автоматическая цель недоступна для минометных отрядов в сетевой игре.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_auto_target_off">
+			<Original>Mounted Static Squad %1 set to Auto Target Mode OFF</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_auto_target_on">
+			<Original>Mounted Static Squad %1 set to Auto Target Mode ON</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo">
+			<Original>Cargo</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargoLoad">
+			<Original>Cargo Load</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_empty_veh">
+			<Original>Closest vehicle (%1) is empty</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_transfer">
+			<Original>Transferred cargo from %1 to arsenal</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_no_comander">
+			<Original>Only the Commander can transfer this ammobox content to any truck</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_empty">
+			<Original>Closest Ammobox is empty</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_loading">
+			<Original>Truck loading. &lt;br/&gt; Time remaining: %1 secs</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_closer">
+			<Original>Bring vehicle closer</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_help">
+			<Original>%1 is being helped or no longer needs your help</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_occupied">
+			<Original>Cannot load cargo: passengers have occupied cargo space!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_noCarry">
+			<Original>This vehicle can not carry this cargo!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_noSpace">
+			<Original>There is no space for this cargo!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_noType">
+			<Original>Can not load this type of cargo!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cargo_">
+			<Original></Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cancel">
+			<Original>Transfer cancelled due to movement of Truck or Player</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_op_rb_deprecated">
+			<Original>Deprecated option. Use Remove Garrison from HQ instead</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_pvp_info">
+			<Original>PvP Information</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_pvp_info_text">
+			<Original>PvP players are only allowed to use their own or other PvP player vehicles</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unit_recruit">
+			<Original>Unit Recruitment</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unit_recruit_enemies">
+			<Original>You cannot recruit units while there are enemies near you</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_buy_vehicle">
+			<Original>Buy Vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_buy_vehicle_enemies">
+			<Original>You cannot buy vehicles while there are enemies near you</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_heal_repair">
+			<Original>Heal And Repair</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_heal_repair_wait">
+			<Original>The repair box has been used in the last 30 seconds! Please wait for a bit.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_heal_repair_text">
+			<Original>Nearby units have been healed, refreshed, and can go undercover again. &lt;br/&gt; Nearby vehicles have been repaired, rearmed, and are no longer reported</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_ear">
+			<Original>Ear Plugs</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_ear_off">
+			<Original>You've taken out your ear plugs</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_ear_on">
+			<Original>You've inserted your ear plugs</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_moveHQ_ammobox">
+			<Original>You must first empty your Ammobox in order to move the HQ</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_moveHQ_petros">
+			<Original>Put Petros down before you move the HQ!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_moveHQ_garrison">
+			<Original>HQ Garrison will stay here and hold the enemy</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_moveHQ_garrison_remove">
+			<Original>Garrison removed &lt;br/&gt; &lt;br/&gt; Recovered Money: %1 €&lt;br/&gt; Recovered HR: %2</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_moveHQ_being">
+			<Original>The asset you want to move is being moved by another player</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_moveHQ_veh">
+			<Original>You cannot move HQ assets while in a vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_moveHQ_other">
+			<Original>You have other things attached, you cannot move this</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_moveHQ_center_need">
+			<Original>This asset needs to be closer to it relative zone center to be able to be moved</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_moveHQ_center">
+			<Original>This asset cannot be moved more far away for its zone center</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_capture">
+			<Original>Capture</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_capture_undercover">
+			<Original>You cannot Capture the Flag while Undercover</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_capture_warlevel">
+			<Original>You cannot capture Airports until you reach War Level 3</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_capture_wait">
+			<Original>This flag pole is locked, try again in 30 seconds</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_capture_enemy">
+			<Original>The enemy still outnumber us, check the map and clear the rest of the area</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_travel">
+			<Original>Fast Travel</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_travel_enemy">
+			<Original>You cannot Fast Travel while enemies are nearby</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_travel_noDriver">
+			<Original>You cannot Fast Travel if your vehicles don't have a driver or your vehicles immobile</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_travel_map">
+			<Original>Click on the zone you want to travel to</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_travel_enemy_control">
+			<Original>You cannot Fast Travel to an enemy controlled zone</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_info">
+			<Original>You can only Fast Travel to Airbases, Outposts and Seaports</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_attack">
+			<Original>You cannot Fast Travel to an area under attack or with enemies in the surrounding area</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_click">
+			<Original>You must click near a marker you control</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_rope">
+			<Original>You cannot Fast Travel with your Tow Rope out or a Vehicle attached</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_one">
+			<Original>You can select one group only to Fast Travel</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_com_by">
+			<Original>You cannot Fast Travel groups commanded by players</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_control_ai">
+			<Original>You cannot Fast Travel while you are controlling AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_nope">
+			<Original>Nope. Not happening.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_only">
+			<Original>Player groups are only allowed to Fast Travel to HQ or Airbases</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_mov">
+			<Original>Moving group %1 to destination</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_cancel">
+			<Original>%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ or an Airbase</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_arrived">
+			<Original>Group %1 arrived to destination</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_fast_trevel_marker">
+			<Original>You must click near marker under your control</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_outpost_one">
+			<Original>We can only deploy / delete one Observation Post or Roadblock at a time.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_outpost_map">
+			<Original>Click on the position you wish to build the Observation Post or Roadblock. &lt;br/&gt; &lt;br/&gt; Remember: to build Roadblocks you must click exactly on a road map section</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_outpost_delete">
+			<Original>Click on the Observation Post or Roadblock to delete</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_outpost_no_post">
+			<Original>No Posts or Roadblocks deployed to delete</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_outpost_enemy">
+			<Original>You cannot delete a Post while enemies are near it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_outpost_no_nearby">
+			<Original>No post nearby</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_outpost_no_resources">
+			<Original>You lack of resources to build this Outpost or Roadblock &lt;br/&gt; &lt;br/&gt; %1 HR and %2 € needed</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_HQ_position">
+			<Original>HQ Position</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_HQ_close">
+			<Original>Place selected is very close to enemy zones. &lt;br/&gt; &lt;br/&gt; Please select another position</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_HQ_water">
+			<Original>Selected position cannot be in water</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_HQ_outside">
+			<Original>Selected position cannot be outside the map</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_HQ_enemy">
+			<Original>There are enemies in the surroundings of that area, please select another</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_rebuild">
+			<Original>Rebuild Assets</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_rebuild_no_money">
+			<Original>You do not have enough money to rebuild any Asset. You need 5.000 €</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_rebuild_map">
+			<Original>Click on the zone you want to rebuild</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_rebuild_near">
+			<Original>You must click near a map marker</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_rebuild_cannot">
+			<Original>You cannot rebuild that</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_rebuild_rebuild">
+			<Original>%1 Rebuilt</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_rebuild_radio">
+			<Original>Radio Tower rebuilt</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_sell_veh_no_look">
+			<Original>You are not looking at a vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_sell_veh_no_flag">
+			<Original>Vehicle must be closer than 50 meters to the flag marker</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_sell_veh_no_empty">
+			<Original>In order to convert, Vehicle must be empty</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_sell_veh_owner">
+			<Original>You are not the owner of this vehicle. Therefore, you can't garage it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_sell_veh_suitable">
+			<Original>The vehicle you are looking is not suitable in our marketplace</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_sell_veh_sold">
+			<Original>Vehicle Sold</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh">
+			<Original>Breach Vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh_only_player">
+			<Original>Only players are currently able to breach vehicles!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh_no_eng">
+			<Original>Чтобы взломать автомобиль, нужно быть инженером!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh_destr">
+			<Original>Why would you want to breach a destroyed vehicle?</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh_no_need">
+			<Original>There is no living crew left, no need for breaching!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh_rebels">
+			<Original>You cannot breach a vehicle which is controlled by the rebels!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh_no_explosives">
+			<Original>You carry no explosives. You will need some to breach vehicles!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh_type_explosives">
+			<Original>You don't have the right explosives, check the briefing notes to see what you need!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh_cancel">
+			<Original>Breaching cancelled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_breach_veh_wait">
+			<Original>Breaching in 10 seconds</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unlock">
+			<Original>Unlock Vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unlocked">
+			<Original>Vehicle Unlocked</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unlock_no_look">
+			<Original>You are not looking at a vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unlock_destroy">
+			<Original>You cannot unlock destroyed</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unlock_busy">
+			<Original>Are you kidding?</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unlock_no_used">
+			<Original>The vehicle you are looking at cannot be used</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unlock_already">
+			<Original>The vehicle you are looking at is already unlocked</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unlock_own">
+			<Original>You cannot unlock vehicles which you do not own</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_general">
+			<Original>General Info</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_general_only_player">
+			<Original>Only Humans can pilot an air vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_clean_forest">
+			<Original>Clean Forest</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_clean_forest_only_comander">
+			<Original>Only Commanders can order to clean the forest</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_cleared_forest">
+			<Original>You've cleared the surroundings of trees and bushes</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_minefields">
+			<Original>Minefields</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_minefields_one">
+			<Original>We can only deploy one minefield at a time</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_minefields_noradio">
+			<Original>You need a radio in your inventory to be able to give orders to other squads</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_minefields_no_radioman">
+			<Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_minefields_no_resources">
+			<Original>Not enough resources to recruit a mine deploying team (%1 € and %2 HR needed)</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_minefields_HC">
+			<Original>An Explosive Specialist is available on your High Command bar. &lt;br/&gt; &lt;br/&gt; Send him anywhere on the map to deactivate mines. He will load his truck with mines he found. &lt;br/&gt; &lt;br/&gt; Upon returning back to HQ he will unload mines stored in his vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_minefields_no_mine">
+			<Original>You need at least 5 mines of this type to build a Minefield</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_minefields_map">
+			<Original>Click on the position you wish to build the minefield</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skipTime">
+			<Original>Skip Time / Rest</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skipTime_enemy">
+			<Original>You cannot rest while enemies are near our units</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skipTime_counterattack">
+			<Original>You cannot rest while the enemy is counterattacking</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skipTime_attack">
+			<Original>You cannot rest while citizens are under attack</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skipTime_attackHQ">
+			<Original>You cannot rest while your HQ is under attack</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skipTime_radius">
+			<Original>All players must be in a 100m radius from HQ to be able to rest</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_squad_options">
+			<Original>Squad Options</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_squad_recruit">
+			<Original>Squad Recruit</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage">
+			<Original>Garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_unable_open">
+			<Original>Unable to open garage, you are already placing something</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_guest">
+			<Original>You cannot access the Garage as you are guest in this server</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_member_off">
+			<Original>Member access to the faction garage is disabled. You must be the commander.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_control_ai">
+			<Original>You cannot access the Garage while you are controlling AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_enemy">
+			<Original>You cannot manage the Garage with enemies nearby</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_no_garrisons">
+			<Original>You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_accessing">
+			<Original>%1 is accessing the garage right now. Please try again later. If this is broken, ask the player to log out.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_no_rebels">
+			<Original>Only rebels can add vehicles to the garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_member_on">
+			<Original>Only server members have the garage feature enabled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_destr">
+			<Original>You cannot add destroyed vehicles to your garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_no_garrison">
+			<Original>You and the vehicle need to be in a %1 garrison surrounding in order to garage a it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_no_empty">
+			<Original>In order to store a vehicle, its crew must disembark.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_loot">
+			<Original>Loot crate stored</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_cannot_stored">
+			<Original>The vehicle you are looking can't be stored in our Garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_away">
+			<Original>You can't garage vehicles that are more than 25m away from you</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_warlevel">
+			<Original>You can't garage more vehicles at your current War Level</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_personal_full">
+			<Original>Personal garage is full, you can't add more vehicles to it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_owner">
+			<Original>You are not owner of this vehicle and you cannot sell it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_air">
+			<Original>You can't garage a Plane while you are not near an Aiport which belongs to %1. Please move your Plane to an Airport to garage it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_add">
+			<Original>Vehicle added to %1 Garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_personal_add">
+			<Original>Vehicle added to Personal Garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_already">
+			<Original>Unable to place vehicle, already placing a vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_look">
+			<Original>Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage_stored">
+			<Original> stored in garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_construct">
+			<Original>Construction</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_construct_cancel">
+			<Original>Construction cancelled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_static_deployed">
+			<Original>Static Deployed</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_static_deployed_use">
+			<Original>Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_warning">
+			<Original>Warning</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_other_group">
+			<Original>You cannot board other player vehicle if you are not in the same group</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_not_member">
+			<Original>You are not in the member's list, but as you are Server Admin, you have been added. Welcome!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_welcome_guest">
+			<Original>Welcome Guest &lt;br/&gt; &lt;br/&gt; You have joined this server as guest</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_game_options">
+			<Original>Game Options</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_maps_info_intro">
+			<Original>Antistasi - %2 &lt;br/&gt; &lt;br/&gt; Version: %1 &lt;br/&gt; &lt;br/&gt; Difficulty: %3 &lt;br/&gt; Unlock Weapon Number: %4 &lt;br/&gt; Limited Fast Travel: %5</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_city_info">
+			<Original>City Information</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_city_stat">
+			<Original>%7 &lt;br/&gt; &lt;br/&gt; Total pop: %1 &lt;br/&gt; %6 Support: %2 &lt;br/&gt; %5 Support: %3 &lt;br/&gt; &lt;br/&gt; Murdered Pop: %4 &lt;br/&gt; &lt;br/&gt; Click on the zone</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_intel">
+			<Original>Intel</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_intel_taken">
+			<Original>Intel documents taken</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_intel_cancel">
+			<Original>Search cancelled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_intel_found">
+			<Original>Search completed, intel found!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_intel_no_found">
+			<Original>Search completed, but you found nothing!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot">
+			<Original>Loot crate</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_active">
+			<Original>Cooldown still active</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_already">
+			<Original>Already transfering</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_noVeh">
+			<Original>No vehicles nearby</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_transfered">
+			<Original>All loot transfered to %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_veh_full">
+			<Original>Unable to transfer all loot to %1. %1 full</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_looting">
+			<Original>Looting...</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_nearby">
+			<Original>Nearby loot transfered to crate</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_unable">
+			<Original>Unable to transfer all nearby loot</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_wait">
+			<Original>You already bought one, wait %1 seconds before you can buy another</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_no_afford">
+			<Original>You can't afford a loot crate</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_loot_bought">
+			<Original>Loot crate bought</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_mission_bank">
+			<Original>Bank Mission</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_mission_bank_text">
+			<Original>Bring this truck to %1 Bank and park it in the main entrance</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_logistics_mission">
+			<Original>Logistics Mission</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_logistics_mission_text">
+			<Original>Deliver this box to %1, unload it to start distributing to people</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_donate">
+			<Original>Donate Money</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_donate_no_money">
+			<Original>You have less than 100 € to donate</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_donated">
+			<Original>You have donated 100 € to the cause. This will raise your status among our forces</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_donate_noLook">
+			<Original>You must be looking to a player in order to give him money</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_donated_player">
+			<Original>You have donated 100 € to %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership_off">
+			<Original>Server Member feature is disabled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership_noInit">
+			<Original>Membership feature not yet initialised. Please try again later</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership_noLook">
+			<Original>You are not pointing to anyone</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership_already">
+			<Original>The player is already a member of this server</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership_not_member">
+			<Original>The player is not a member of this server</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership_added">
+			<Original>%1 has been added to the Server Members List</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership_add">
+			<Original>You have been added to the Server Members list</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership_removed">
+			<Original>%1 has been removed from the Server Members List</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_membership_remove">
+			<Original>You have been removed from the Server Members list</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_grab_noMoney">
+			<Original>FIA has not enough resources to grab</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_grabed">
+			<Original>You grabbed 100 € from the %1 Money Pool. &lt;br/&gt; &lt;br/&gt; This will affect your prestige and status among %1 forces</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_eligible_suc">
+			<Original>You resign from being commander, choosing %1 as your successor</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_eligible_suc_noChosen">
+			<Original>You resign from being commander. Your chosen successor (%1) was not eligible</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_eligible_noSuc">
+			<Original>You resign from being Commander. Others will take the command if there is someone suitable</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_eligible_no">
+			<Original>You decided not to be eligible for commander</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_eligible">
+			<Original>You are now eligible to be commander of our forces</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_out_of_bounds">
+			<Original>Out of bounds</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_out_of_bounds_return">
+			<Original>Return to the AO before your blown up, you have %1 seconds</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_control">
+			<Original>Control Unit</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_control_return">
+			<Original>Returned to original Unit due to FF</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_control_petros">
+			<Original>You cannot control Petros</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_control_player">
+			<Original>You cannot control another player</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_control_dead">
+			<Original>You cannot control an unconscious, a dead unit</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_control_noBelong">
+			<Original>You cannot control a unit which does not belong to %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_control_already">
+			<Original>You cannot control AI while you are controlling another AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_control_">
+			<Original></Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_punish_hurt">
+			<Original>%1 hurt you!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_FF">
+			<Original>FF Warning</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_FF_Punishment">
+			<Original>FF Punishment</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_friendlyFire">
+			<Original>Watch your fire!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_FF_enough">
+			<Original>Enough then</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_FF_forgiven">
+			<Original>An admin looks with pity upon your soul. &lt;br/&gt; You have been forgiven.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_FF_wait">
+			<Original>Please do not teamkill. Stare at the turtles for %1 more seconds</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_airstrike">
+			<Original>Airstrike</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_airstrike_noLook">
+			<Original>You are not looking to any vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_airstrike_noFlag">
+			<Original>Vehicle must be closer than 50 meters to the flag</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_airstrike_empty">
+			<Original>In order to sell, vehicle must be empty</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_airstrike_owner">
+			<Original>You are not the owner of this vehicle. Therefore, you can't convert it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_airstrike_onlyAir">
+			<Original>Only Air Vehicles can be used to increase Airstrike points</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_airstrike_drone">
+			<Original>Backpack drones can't be used to increase Airstrike points</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_airstrike_add">
+			<Original>Air Support increased in %1 points</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_moveHQ">
+			<Original>You cannot recruit a new squad while you are moving your HQ</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_enemy">
+			<Original>You cannot recruit squads with enemies near your HQ</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_modset">
+			<Original>The group or vehicle type you requested is not supported in your modset</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_modset_static">
+			<Original>Your current modset doesn't support packing/unpacking static weapons</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_gref">
+			<Original>AT Trucks are disabled in RHS - GREF</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_noHR">
+			<Original>You do not have enough HR for this request (%1 required)</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_noMoney">
+			<Original>You do not have enough money for this request (%1 € required)</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_info">
+			<Original>Group %1 at your command. &lt;br/&gt; &lt;br/&gt; Groups are managed from the High Command bar (Default: CTRL+SPACE) &lt;br/&gt; &lt;br/&gt; If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP) &lt;br/&gt; &lt;br/&gt; To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_recruit_veh">
+			<Original>Vehicle Purchased</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_veh">
+			<Original>Add Vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_veh_placing">
+			<Original>Unable to buy vehicle, you are already placing something</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_veh_ctrlAI">
+			<Original>You cannot buy vehicles while you are controlling AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_veh_enemy">
+			<Original>You cannot buy vehicles with enemies nearby</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_veh_modset">
+			<Original>The vehicle you requested is not supported in your current modset</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_veh_noMoney">
+			<Original>You do not have enough money for this vehicle: %1 € required</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_veh_noFlag">
+			<Original>You need to be close to the flag to be able to purchase a vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehSq">
+			<Original>Add Squad Vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehSq_already">
+			<Original>This group has a vehicle already and their mission depends on it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehSq_destroy">
+			<Original>The selected vehicle is destroyed or cannot move</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehSq_noEmpty">
+			<Original>Selected vehicle is not empty</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehSq_static">
+			<Original>You cannot assign a Static Weapon to a Squad</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehSq_noChange">
+			<Original>Static Weapon Squads cannot change of vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehSq_noRoom">
+			<Original>The vehicle selected has no room for this squad</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehSq_assigned">
+			<Original>Vehicle Assigned to %1 Squad</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build">
+			<Original>Build Info</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_placing">
+			<Original>You can't build while placing something</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_ctrlAI">
+			<Original>You cannot construct anything while controlling AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_undercover">
+			<Original>You are an engineer, but not in a state to build: you may be unconscious or undercover&lt;br/&gt;</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_noEng">
+			<Original>You are not an engineer&lt;br/&gt;</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_noPlayer">
+			<Original>There is a human engineer in your squad. Ask them to build.<br/></Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_noLeader">
+			<Original>Only squad leaders can order AI to build</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_order">
+			<Original>Ordering %1 to build</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_noEng_SQ">
+			<Original>You have no available engineers in your squad. They may be unconscious or busy.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_start">
+			<Original>Walk to the selected position to start building</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_timeout">
+			<Original>You didn't move to the position, construction has timed out</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_build_cancel">
+			<Original>Construction cancelled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_noComm">
+			<Original>%1 lost communication, he will come back with you if possible</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skill">
+			<Original>Skill Add</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skill_max">
+			<Original>Your troops have the maximum training</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skill_warlevel">
+			<Original>You cannot upgrade training in the current War Level</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skill_noMoney">
+			<Original>You do not have enough money to afford additional training. %1 € needed</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_skill_upgrade">
+			<Original>%2 Skill Level has been Upgraded&lt;br/&gt;Current level is %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_noHR">
+			<Original>You lack of HR to make a new recruitment</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_noMoney">
+			<Original>You do not have enough money for this kind of unit (%1 € needed)</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_mortar">
+			<Original>You cannot add mortars to a Roadblock garrison</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_wait">
+			<Original>This Garrison is still updating, please try again in a few seconds</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_enemy">
+			<Original>You cannot Recruit Garrison Units with enemies near the zone</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_recruit">
+			<Original>Soldier recruited.%1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_maps_add">
+			<Original>Select a zone to add garrisoned troops</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_maps_remove">
+			<Original>Select a zone to remove it's Garrison</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_marker">
+			<Original>You must click near a marked zone</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_noBelong">
+			<Original>That zone does not belong to %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_enemy">
+			<Original>You cannot manage this garrison while there are enemies nearby</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_noGar">
+			<Original>The place has no garrisoned troops to remove</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_remove">
+			<Original>Garrison removed&lt;br/&gt;&lt;br/&gt;Recovered Money: %1 €&lt;br/&gt;Recovered HR: %2</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_select">
+			<Original>Select the zone on which sending the selected troops as garrison</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_outpost">
+			<Original>You cannot manage garrisons on this kind of zone</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_already">
+			<Original>The units selected already are in a garrison</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_dead">
+			<Original>Static crewman, prisoners, refugees, Petros or dead units cannot be added to any garrison</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_mine">
+			<Original>You cannot garrison player led, Watchpost, Roadblocks or Minefield building squads</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_addUnits">
+			<Original>Adding units to garrison</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_addSquad">
+			<Original>Adding %1 squad to garrison</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garrisons_zoneLost">
+			<Original>Group %1 is back to HC control because the zone which was pointed to garrison has been lost</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_transport">
+			<Original>Transportation</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_transport_noZone">
+			<Original>You need to be close to a zone belonging to %1 in order to request a vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_transport_noZoneSide">
+			<Original>You need to be close to an Airbase, Seaport or Outpost of your side in order to request a vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_transport_noZoneOrder">
+			<Original>You need to be close to an Airbase, Seaport or Outpost in order to request a vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_transport_available">
+			<Original>Vehicle available</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit">
+			<Original>AI Recruitment</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit_onlyMember">
+			<Original>Only Server Members can recruit AI units</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit_wait">
+			<Original>You need to wait %1 seconds to be able to recruit units again</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit_ctrlAI">
+			<Original>You cannot buy units while you are controlling AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit_enemy">
+			<Original>You cannot Recruit Units with enemies nearby</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit_noLeader">
+			<Original>You cannot recruit units as you are not your group leader</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit_noHR">
+			<Original>You do not have enough HR for this request</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit_noMoney">
+			<Original>You do not have enough money for this kind of unit (%1 € needed)</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit_full">
+			<Original>Your squad is full or you have too many scattered units with no radio contact</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_AI_Recruit_recruit">
+			<Original>Soldier Recruited.&lt;br/&gt;&lt;br/&gt;Remember: if you use the group menu to switch groups you will lose control of your recruited AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_steal">
+			<Original>Steal Static</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_steal_destroy">
+			<Original>You cannot steal a destroyed static weapon</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_steal_use">
+			<Original>You cannot steal a static weapon when someone is using it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_steal_alive">
+			<Original>The gunner of this static weapon is still alive</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_steal_noDissassembled">
+			<Original>This weapon cannot be dissassembled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_steal_conquer">
+			<Original>You have to conquer this zone in order to be able to steal this Static Weapon</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_steal_despawn">
+			<Original>Weapon Stolen. It won't despawn when you assemble it again</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehInfo">
+			<Original>Vehicle Info</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_vehInfo_HC">
+			<Original>You must select one group on the HC bar</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive">
+			<Original>Revive</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_already">
+			<Original>%1 is already dead</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_noAble">
+			<Original>You are not able to revive anyone</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_need">
+			<Original>You or %1 need a First Aid Kit or Medikit to be able to revive</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_noSpace">
+			<Original>%1 has a First Aid Kit but you do not have enough space in your inventory to use it</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_fatal">
+			<Original>%1 is injured by a fatal wound, only a medic can revive him</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_carried">
+			<Original>%1 is being carried or transported and you cannot heal him</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_long">
+			<Original>%1 no longer needs your help</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_cancel">
+			<Original>Revive cancelled</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_lost">
+			<Original>We lost %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_revive_unsuccesful">
+			<Original>Revive unsuccesful</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_carry">
+			<Original>Carry/Drag</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_carry_dead">
+			<Original>%1 is dead</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_carry_nocarry">
+			<Original>%1 is being carried or transported and you cannot carry him</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_save">
+			<Original>Save Game</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_save_progress">
+			<Original>Server data save is still in progress</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_save_start">
+			<Original>Starting persistent save...</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover">
+			<Original>Undercover</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_ctrlAI">
+			<Original>You cannot go Undercover while you are controlling AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_already">
+			<Original>You are Undercover already</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_noCivVeh">
+			<Original>You are not in a civilian vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_noCivVeh_enter">
+			<Original>You entered a non civilian vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_reportedVeh">
+			<Original>This vehicle has been reported to the enemy. Change or renew your vehicle in the Garage to go Undercover</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_info">
+			<Original>You cannot go Undercover while:&lt;br/&gt;&lt;br/&gt;A weapon is visible&lt;br/&gt;Wearing a vest&lt;br/&gt;Wearing a helmet&lt;br/&gt;Wearing NVGs&lt;br/&gt;Wearing a mil uniform</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_info_wanted">
+			<Original>You cannot stay Undercover while showing:&lt;br/&gt;&lt;br/&gt;A weapon is visible&lt;br/&gt;Wearing a vest&lt;br/&gt;Wearing a helmet&lt;br/&gt;Wearing NVGs&lt;br/&gt;Wearing a mil uniform&lt;br/&gt;&lt;br/&gt;The enemy added you to their Wanted List</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_spotting">
+			<Original>You cannot go Undercover while enemies are spotting you</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_zone">
+			<Original>You cannot go Undercover near Airports, Outposts, Seaports or Roadblocks</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_RepSpot">
+			<Original>You have been reported or spotted by the enemy</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_repVeh">
+			<Original>You entered in a reported vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_explo">
+			<Original>Explosives have been spotted on your vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_road">
+			<Original>You went too far away from any roads and have been spotted</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_heal">
+			<Original>You cannot stay Undercover while healing a compromised resistance member</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_heal_wanted">
+			<Original>You cannot stay Undercover while healing a compromised resistance member&lt;br/&gt;&lt;br/&gt;The enemy added you to their Wanted List</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_vehStill">
+			<Original>You left your vehicle and you are still on the Wanted List</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_zone">
+			<Original>You have gotten too close to an enemy Base, Outpost or Roadblock</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_zoneAir">
+			<Original>You have violated the airspace of %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_undercover_recognised">
+			<Original>The Installation Garrison has recognised you</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_remoteAI">
+			<Original>Remote AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_remoteAI_dead">
+			<Original>Died while remote controlling AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_staticDeployed">
+			<Original>Static Deployed</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_staticDeployed_text">
+			<Original>Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_memberDistance">
+			<Original>Member Distance</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_memberDistance_tp">
+			<Original>You have to get closer to the HQ or the closest server member in %1 seconds. &lt;br/&gt;&lt;br/&gt; After this timeout you will be teleported to your HQ</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unitTraits">
+			<Original>Unit Traits</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_unitTraits_select">
+			<Original>You have selected %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_controlSquad">
+			<Original>Control Squad</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_controlSquad_dead">
+			<Original>You cannot control an unconscious or dead unit</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_controlSquad_damage">
+			<Original>Returned to original Unit as it received damage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_controlSquad_damageAI">
+			<Original>Returned to original Unit as controlled AI received damage</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_controlSquad_time">
+			<Original>Time to return control to AI: %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_dismissGroup">
+			<Original>Dismiss Group</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_dismissGroup_onlyLeader">
+			<Original>You cannot dismiss anyone if you are not the squad leader</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_dismissGroup_undercover">
+			<Original>You cannot disband supressed, undercover or unconscious units</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_dismissSquad">
+			<Original>Dismiss Squad</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_dismissSquad_nato">
+			<Original>You cannot dismiss NATO groups</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_dismissSquad_player">
+			<Original>You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads</Original>
+		</Key>
+	</Container>
   </Package>
 </Project>

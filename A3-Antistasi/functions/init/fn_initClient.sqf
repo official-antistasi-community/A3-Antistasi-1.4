@@ -119,11 +119,11 @@ if (player getVariable ["pvp",false]) exitWith {
 			if (!A3A_hasACEhearing) then {
 				if (soundVolume <= 0.5) then {
 					0.5 fadeSound 1;
-					["Ear Plugs", "You've taken out your ear plugs.", true] call A3A_fnc_customHint;
+					[localize "STR_antistasi_customHint_ear", localize "STR_antistasi_customHint_ear_off", true] call A3A_fnc_customHint;
 				}
 				else {
 					0.5 fadeSound 0.1;
-					["Ear Plugs", "You've inserted your ear plugs.", true] call A3A_fnc_customHint;
+					[localize "STR_antistasi_customHint_ear", localize "STR_antistasi_customHint_ear_on", true] call A3A_fnc_customHint;
 				};
 			};
 		}
@@ -265,7 +265,7 @@ player addEventHandler ["WeaponAssembled", {
 		_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 		_pos = position _veh;
 		[_veh] call A3A_fnc_logistics_addLoadAction;
-		if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns"] call A3A_fnc_customHint;};
+		if (_markersX findIf {_pos inArea _x} != -1) then {["STR_antistasi_customHint_static_deployed", localize "STR_antistasi_customHint_static_deployed_use"] call A3A_fnc_customHint;};
 	};
 }];
 
@@ -289,7 +289,7 @@ player addEventHandler ["GetInMan", {
 			if (!isNil "_owner") then {
 				if (_owner isEqualType "") then {
 					if ({getPlayerUID _x == _owner} count (units group player) == 0) then {
-						["Warning", "You cannot board other player vehicle if you are not in the same group"] call A3A_fnc_customHint;
+						[localize "STR_antistasi_customHint_warning", localize "STR_antistasi_customHint_other_group"] call A3A_fnc_customHint;
 						moveOut _unit;
 						_exit = true;
 					};
@@ -318,7 +318,7 @@ if (isMultiplayer) then {
 			};
 			if (serverCommandAvailable "#logout") then {
 				_isMember = true;
-				["General Info", "You are not in the member's list, but as you are Server Admin, you have been added. Welcome!"] call A3A_fnc_customHint;
+				[localize "STR_antistasi_customHint_general", localize "STR_antistasi_customHint_not_member"] call A3A_fnc_customHint;
 			};
 
 			if (_isMember) then {
@@ -329,7 +329,7 @@ if (isMultiplayer) then {
 				if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
 				if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
 
-				["General Info", "Welcome Guest<br/><br/>You have joined this server as guest"] call A3A_fnc_customHint;
+				[localize "STR_antistasi_customHint_general", localize "STR_antistasi_customHint_welcome_guest"] call A3A_fnc_customHint;
 			};
 		};
 	};
@@ -424,7 +424,7 @@ boxX allowDamage false;
 boxX addAction ["Transfer Vehicle cargo to Ammobox", {[] spawn A3A_fnc_empty;}, 4];
 boxX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 flagX allowDamage false;
-flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Recruit Unit", "You cannot recruit units while there are enemies near you"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
+flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_dialogs_build_recruit_units_button_text", localize "STR_antistasi_customHint_unit_recruit_enemies"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 flagX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 //Adds a light to the flag
@@ -444,7 +444,7 @@ if (isMultiplayer) then {
 	vehicleBox addAction ["Personal Garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 };
 vehicleBox addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_customHint_buy_vehicle", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 if (LootToCrateEnabled) then {
@@ -458,7 +458,7 @@ fireX allowDamage false;
 mapX allowDamage false;
 mapX addAction ["Game Options", {
 	[
-		"Game Options",
+		localize "STR_antistasi_customHint_game_options",
 		"Version: "+ antistasiVersion +
 		"<br/><br/>Difficulty: "+ ( ["Easy","Normal","Hard"] select ((skillMult-1) min 2) ) +
 		"<br/>Unlock Weapon Number: "+ str minWeaps +

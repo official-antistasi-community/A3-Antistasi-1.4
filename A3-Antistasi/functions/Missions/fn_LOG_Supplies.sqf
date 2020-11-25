@@ -34,8 +34,8 @@ _truckX allowDamage false;
 [_truckX] call A3A_fnc_logistics_addLoadAction;
 _truckX addAction ["Delivery infos",
 	{
-		_text = format ["Deliver this box to %1, unload it to start distributing to people",(_this select 0) getVariable "destinationX"]; //This need a rework
-		["Logistics Mission", _text] remoteExecCall ["A3A_fnc_customHint",_this select 2];	//This need a rework
+		_text = format [localize "STR_antistasi_customHint_logistics_mission_text",(_this select 0) getVariable "destinationX"]; //This need a rework
+		[localize "STR_antistasi_customHint_logistics_mission", _text] remoteExecCall ["A3A_fnc_customHint",_this select 2];	//This need a rework
 	},
 	nil,
 	0,

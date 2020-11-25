@@ -1,21 +1,21 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-if (player != theBoss) exitWith {["Move HQ", "Only Player Commander is allowed to move HQ assets"] call A3A_fnc_customHint;};
+if (player != theBoss) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_only_comander"] call A3A_fnc_customHint;};
 private ["_thingX","_playerX","_id","_sites","_markerX","_size","_positionX"];
 
 _thingX = _this select 0;
 _playerX = _this select 1;
 _id = _this select 2;
 
-if (!(isNull attachedTo _thingX)) exitWith {["Move HQ", "The asset you want to move is being moved by another player"] call A3A_fnc_customHint;};
-if (vehicle _playerX != _playerX) exitWith {["Move HQ", "You cannot move HQ assets while in a vehicle"] call A3A_fnc_customHint;};
+if (!(isNull attachedTo _thingX)) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_moveHQ_being"] call A3A_fnc_customHint;};
+if (vehicle _playerX != _playerX) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_moveHQ_veh"] call A3A_fnc_customHint;};
 
-if ({!(isNull _x)} count (attachedObjects _playerX) != 0) exitWith {["Move HQ", "You have other things attached, you cannot move this"] call A3A_fnc_customHint;};
+if ({!(isNull _x)} count (attachedObjects _playerX) != 0) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_moveHQ_other"] call A3A_fnc_customHint;};
 _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 _markerX = [_sites,_playerX] call BIS_fnc_nearestPosition;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 _positionX = getMarkerPos _markerX;
-if (_playerX distance2D _positionX > _size) exitWith {["Move HQ", "This asset needs to be closer to it relative zone center to be able to be moved"] call A3A_fnc_customHint;};
+if (_playerX distance2D _positionX > _size) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_moveHQ_center_need"] call A3A_fnc_customHint;};
 
 _thingX setVariable ["objectBeingMoved", true];
 _thingX removeAction _id;
@@ -78,6 +78,6 @@ waitUntil {sleep 1; (_playerX != attachedTo _thingX) or (vehicle _playerX != _pl
 
 [_thingX, _playerX, _actionX] call _fnc_placeObject;
 
-if (vehicle _playerX != _playerX) exitWith {["Move HQ", "You cannot move HQ assets while in a vehicle"] call A3A_fnc_customHint;};
+if (vehicle _playerX != _playerX) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_moveHQ_veh"] call A3A_fnc_customHint;};
 
-if  (_playerX distance2D _positionX > _size) exitWith {["Move HQ", "This asset cannot be moved more far away for its zone center"] call A3A_fnc_customHint;};
+if  (_playerX distance2D _positionX > _size) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_moveHQ_center"] call A3A_fnc_customHint;};

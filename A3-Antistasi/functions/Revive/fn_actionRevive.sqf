@@ -13,42 +13,42 @@ if (captive _medicX) then
     };
 if !(alive _cured) exitWith
     {
-    if (_player) then {["Revive", format ["%1 is already dead",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_already",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat format ["%1 is already dead",name _cured]};
     _healed
     };
-if !([_medicX] call A3A_fnc_canFight) exitWith {if (_player) then {["Revive", "You are not able to revive anyone"] call A3A_fnc_customHint;};_healed};
+if !([_medicX] call A3A_fnc_canFight) exitWith {if (_player) then {[localize "STR_antistasi_customHint_revive", localize "STR_antistasi_customHint_revive_noAble"] call A3A_fnc_customHint;};_healed};
 if  (
         (!([_medicX] call A3A_fnc_isMedic && "Medikit" in (items _medicX))) &&
         {(!("FirstAidKit" in (items _medicX))) &&
         {(!("FirstAidKit" in (items _cured)))}}
     ) exitWith
 {
-    if (_player) then {["Revive", format ["You or %1 need a First Aid Kit or Medikit to be able to revive",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_need",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat "I'm out of FA kits and I have no Medikit!"};
     _healed
 };
 if ((not("FirstAidKit" in (items _medicX))) and !(_medicX canAdd "FirstAidKit")) exitWith
     {
-    if (_player) then {["Revive", format ["%1 has a First Aid Kit but you do not have enough space in your inventory to use it",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_noSpace",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat "I'm out of FA kits!"};
     _healed
     };
 if ((([_cured] call A3A_fnc_fatalWound)) and !([_medicX] call A3A_fnc_isMedic)) exitWith
     {
-    if (_player) then {["Revive", format ["%1 is injured by a fatal wound, only a medic can revive him",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_fatal",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat format ["%1 is injured by a fatal wound, only a medic can revive him",name _cured]};
     _healed
     };
 if !(isNull attachedTo _cured) exitWith
     {
-    if (_player) then {["Revive", format ["%1 is being carried or transported and you cannot heal him",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_carried",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat format ["%1 is being carried or transported and I cannot heal him",name _cured]};
     _healed
     };
 if !(_cured getVariable ["incapacitated",false]) exitWith
     {
-    if (_player) then {["Revive", format ["%1 no longer needs your help",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_long",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat format ["%1 no longer needs my help",name _cured]};
     _healed
     };
@@ -143,18 +143,18 @@ if (_medicX getVariable ["cancelRevive",false]) exitWith
     {
     if (_player) then
         {
-        ["Revive", "Revive cancelled"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_customHint_revive", localize "STR_antistasi_customHint_revive_cancel"] call A3A_fnc_customHint;
         _medicX setVariable ["cancelRevive",nil];
         };
     _healed
     };
 if !(alive _cured) exitWith
     {
-    if (_player) then {["Revive", format ["We lost %1",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_lost",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat format ["We lost %1",name _cured]};
     _healed
     };
-if (!([_medicX] call A3A_fnc_canFight) or (_medicX != vehicle _medicX) or (_medicX distance _cured > 3)) exitWith {if (_player) then {["Revive", "Revive cancelled"] call A3A_fnc_customHint;};_healed};
+if (!([_medicX] call A3A_fnc_canFight) or (_medicX != vehicle _medicX) or (_medicX distance _cured > 3)) exitWith {if (_player) then {[localize "STR_antistasi_customHint_revive", localize "STR_antistasi_customHint_revive_cancel"] call A3A_fnc_customHint;};_healed};
 
 if (_medicX getVariable ["success",true]) then
     {
@@ -169,7 +169,7 @@ if (_medicX getVariable ["success",true]) then
     }
 else
     {
-    if (_player) then {["Revive", "Revive unsuccesful"] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_antistasi_customHint_revive", localize "STR_antistasi_customHint_revive_unsuccesful"] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat "Revive failed"};
     };
 

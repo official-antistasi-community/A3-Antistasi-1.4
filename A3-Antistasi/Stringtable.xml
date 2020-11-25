@@ -4897,5 +4897,232 @@
 			<Original>Pickup Tow Ropes</Original>
 		</Key>
 	</Container>
+	<Container name="chat">
+		<Key ID="STR_antistasi_chat_airSupport_request">
+			<Original>Requesting fire support on Grid %1. %2 Rounds</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_airSupport_fire">
+			<Original>Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_airSupport_splash">
+			<Original>Splash. Out</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_airSupport_fire_time">
+			<Original>Acknowledged. Fire mission is inbound. %2 Rounds fired. ETA %1 secs</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_noRearm_heal">
+			<Original>I cannot rearm right now. I'm healing a comrade</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_cancel">
+			<Original>I am currently rearming. Cancelling.</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_noRearm_gun">
+			<Original>I cannot rearm right now. I'm manning this gun</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_noRearm_repair">
+			<Original>It is useless to load my vehicle, as it needs repairs</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_noCorpses">
+			<Original>I see no corpses here to loot</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_nothing">
+			<Original>There is nothing to loot</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_start">
+			<Original>Starting looting</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_noWeap">
+			<Original>No more weapons to loot</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_betterWeap">
+			<Original>Picking a better weapon</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_haveBetterWeap">
+			<Original>I have a better weapon now</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_rearming">
+			<Original>Rearming</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_rearmed">
+			<Original>Rearmed</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_partiallyRearmed">
+			<Original>Partially Rearmed</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_noSourcePri">
+			<Original>No source to rearm my primary weapon</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_secondWeap">
+			<Original>Picking a secondary weapon</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_haveSecondWeap">
+			<Original>I have a secondary weapon now</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_noSourceSec">
+			<Original>No source to rearm my primary weapon</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_radio">
+			<Original>Picking a Radio</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_NV">
+			<Original>Picking NV Googles</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_Helmet">
+			<Original>Picking a Helmet</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_FAK">
+			<Original>Picking a First Aid Kit</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_vest">
+			<Original>Picking a better vest</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_backpack">
+			<Original>Picking a Backpack</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_noNeed">
+			<Original>No need to rearm</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_loot_done">
+			<Original>Rearming Done</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_joinEnemy">
+			<Original>How about joining the good guys?</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_joinEnemy_yes">
+			<Original>Why not? It can't be any worse</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_joinEnemy_no">
+			<Original>Screw you!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_captureX">
+			<Original>Go back to your base and tell your comrades we are not enemies. We just want to live in peace</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_captureX_random1">
+			<Original>Okay, thank you. I owe you my life</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_captureX_random2">
+			<Original>Thank you. I swear you won't regret it!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_captureX_random3">
+			<Original>Thank you, I won't forget this!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_helpMe">
+			<Original>Comrades, this is %1. I'm hurt</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_helpMe_wait">
+			<Original>Wait a minute comrade %1, I will patch you up</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_helpMe_ready">
+			<Original>You are ready %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_inter_tellMe">
+			<Original>You imperialist! Tell me what you know!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_inter_chanse100">
+			<Original>Okay, I tell you what I know</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_inter_iDontKnow">
+			<Original>I would, but I don't know anything</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_inter_noLeader">
+			<Original>I would, but only our squadleader may knows something</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_inter_no">
+			<Original>Screw you, I am not telling anything!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_liberate_free">
+			<Original>You are free. Come with us!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_liberate_thank">
+			<Original>Thank you. I owe you my life!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_undercoverAI">
+			<Original>Shit, they have spotted me!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_missionType">
+			<Original>I already gave you a mission of this type</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_AssasMission">
+			<Original>I have no assasination missions for you. Move our HQ closer to the enemy</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_AssasMission_hint">
+			<Original>Assasination Missions require cities, Patrolled Jungles or Airports closer than 4Km from your HQ</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_ConqMission">
+			<Original>I have no Conquest missions for you. Move our HQ closer to the enemy.</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_ConqMission_hint">
+			<Original>Conquest Missions require roadblocks or outposts closer than 4Km from your HQ</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_DestrMission">
+			<Original>I have no destroy missions for you. Move our HQ closer to the enemy</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_DestrMission_hint">
+			<Original>Destroy Missions require Airbases or Radio Towers closer than 4Km from your HQ</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_LogMission">
+			<Original>I have no logistics missions for you. Move our HQ closer to the enemy</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_LogMission_hint">
+			<Original>Logistics Missions require Outposts, Seaports or Banks closer than 4Km from your HQ</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_SupMission">
+			<Original>I have no support missions for you. Move our HQ closer to the enemy</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_SupMission_hint">
+			<Original>Support Missions require Cities closer than 4Km from your HQ.</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_RescMission">
+			<Original>I have no rescue missions for you. Move our HQ closer to the enemy</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_RescMission_hint">
+			<Original>Rescue Missions require Cities or Airports closer than 4Km from your HQ.</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_ConvMission">
+			<Original>There is a big battle around, I don't think the enemy will send any convoy</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_ConvMission_hint">
+			<Original>Convoy Missions require a calmed status around the island, and now it is not the proper time</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_noConvMission">
+			<Original>I have no Convoy missions for you. Move our HQ closer to the enemy</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_noConvMission_hint">
+			<Original>Convoy Missions require Airports or Cities closer than 5Km from your HQ, and they must have an idle friendly base in their surroundings</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_petros_mission">
+			<Original>I have a mission for you</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_sitrep">
+			<Original>%1, SITREP!!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_radiocheck">
+			<Original>This is %1, radiocheck OK</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_startBomb">
+			<Original>Starting Bomb Run. ETA 30 seconds.</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_revive_noFAK_noMedkit">
+			<Original>I'm out of FA kits and I have no Medikit!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_revive_noFAK">
+			<Original>I'm out of FA kits!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_revive_carried">
+			<Original>%1 is being carried or transported and I cannot heal him</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_revive_long">
+			<Original>%1 no longer needs my help</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_revive_failed">
+			<Original>Revive failed</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_dismissGroup">
+			<Original>Get out of my sight you useless scum!</Original>
+		</Key>
+		<Key ID="STR_antistasi_chat_dismissSquad">
+			<Original>%2, I'm sending %1 back to base</Original>
+		</Key>
+	</Container>
   </Package>
 </Project>

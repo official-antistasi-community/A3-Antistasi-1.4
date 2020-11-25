@@ -24,7 +24,7 @@ if (_leave) exitWith {[localize "STR_antistasi_customHint_dismissSquad", localiz
 _pos = getMarkerPos respawnTeamPlayer;
 
 {
-	theBoss sideChat format ["%2, I'm sending %1 back to base", _x,name petros];
+	theBoss sideChat format [localize "STR_antistasi_chat_dismissSquad", _x,name petros];
 	theBoss hcRemoveGroup _x;
 	_wp = _x addWaypoint [_pos, 0];
 	_wp setWaypointType "MOVE";

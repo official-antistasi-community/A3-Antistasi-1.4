@@ -62,7 +62,7 @@ if (_this select 0 == "mount") exitWith
 	};
 _textX = "";
 _groupX = (hcSelected player select 0);
-player sideChat format ["%1, SITREP!!",groupID _groupX];
+player sideChat format [localize "STR_antistasi_chat_sitrep",groupID _groupX];
 _unitsX = units _groupX;
 _textX = format ["%1 Status<br/><br/>Alive members: %2<br/>Able to combat: %3<br/>Current task: %4<br/>Combat Mode:%5<br/>",groupID _groupX,{alive _x} count _unitsX,{[_x] call A3A_fnc_canFight} count _unitsX,_groupX getVariable ["taskX","Patrol"],behaviour (leader _groupX)];
 if ({[_x] call A3A_fnc_isMedic} count _unitsX > 0) then {_textX = format ["%1Operative Medic<br/>",_textX]} else {_textX = format ["%1No operative Medic<br/>",_textX]};

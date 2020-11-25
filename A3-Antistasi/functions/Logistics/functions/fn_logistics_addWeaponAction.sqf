@@ -62,10 +62,13 @@ _cargo enableWeaponDisassembly false;
 
 //moves player to apropriate spot when exiting static
 private _GetOutEH = _cargo addEventHandler ["GetOut", {
-    params ["_cargo", "_role", "_unit"];
+    params ["_cargo", "", "_unit"];
     private _vehicle = attachedTo _cargo;
-    private _vehDir = direction _vehicle;
-    private _newPos = _unit getPos [2.0, _vehDir-90];
+    if (isNull _vehicle) exitWith { _cargo removeEventHandler ["GetOut", _thisEventHandler] };
+
+    private _bb = 3 boundingBoxReal _vehicle;
+    private _mPos = [_bb#0#0, (_vehicle worldToModel getPos _cargo)#1, _bb#0#2];
+    private _newPos = _vehicle modelToWorld _mPos;
     _unit setPos _newPos;
 }];
 _cargo setVariable ["GetOutEH", _GetOutEH];

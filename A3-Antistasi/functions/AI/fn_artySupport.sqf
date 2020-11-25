@@ -180,7 +180,7 @@ if ((not(_markerX in forcedSpawn)) and (_positionTel distance (getMarkerPos _mar
 	publicVariable "forcedSpawn";
 	};
 
-_textX = format ["Requesting fire support on Grid %1. %2 Rounds", mapGridPosition _positionTel, round _rounds];
+_textX = format [localize "STR_antistasi_chat_airSupport_request", mapGridPosition _positionTel, round _rounds];
 [theBoss,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 
 if (_typeArty == "BARRAGE") then
@@ -194,14 +194,14 @@ if (_typeArty == "BARRAGE") then
 	sleep 5;
 	_eta = (_artyArrayDef1 select 0) getArtilleryETA [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)];
 	_timeX = time + _eta;
-	_textX = format ["Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact",round _eta];
+	_textX = format [localize "STR_antistasi_chat_airSupport_fire",round _eta];
 	[petros,"sideChat",_textX]remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	[_timeX] spawn
 		{
 		private ["_timeX"];
 		_timeX = _this select 0;
 		waitUntil {sleep 1; time > _timeX};
-		[petros,"sideChat","Splash. Out"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+		[petros,"sideChat", localize "STR_antistasi_chat_airSupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 		};
 	};
 
@@ -259,14 +259,14 @@ if (_typeArty != "BARRAGE") then
 	if (isNil "_timeX") exitWith {
         Error_4("Params: %1,%2,%3,%4",_artyArrayDef1 select 0,_positionTel,((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0),(_artyArrayDef1 select 0) getArtilleryETA [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)]);
 		};
-	_textX = format ["Acknowledged. Fire mission is inbound. %2 Rounds fired. ETA %1 secs",round _eta,_roundsMax - _rounds];
+	_textX = format [localize "STR_antistasi_chat_airSupport_fire_time",round _eta,_roundsMax - _rounds];
 	[petros,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};
 
 if (_typeArty != "BARRAGE") then
 	{
 	waitUntil {sleep 1; time > _timeX};
-	[petros,"sideChat","Splash. Out"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[petros,"sideChat", localize "STR_antistasi_chat_airSupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};
 sleep 10;
 deleteMarkerLocal _mrkFinal;

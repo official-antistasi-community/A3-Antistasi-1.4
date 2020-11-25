@@ -16,7 +16,7 @@ private _response = "";
 private _fleeSide = _sideX;
 
 if (_recruiting) then {
-	_playerX globalChat "How about joining the good guys?";
+	_playerX globalChat localize "STR_antistasi_chat_joinEnemy";
 
 	private _chance = 0;
 	if (_sideX == Occupants) then
@@ -35,23 +35,23 @@ if (_recruiting) then {
 
 	if (random 100 < _chance) then
     {
-		_response = "Why not? It can't be any worse.";
+		_response = localize "STR_antistasi_chat_joinEnemy_yes";
 		_modHR = true;
 		_fleeSide = teamPlayer;
 	}
 	else
     {
-		_response =  "Screw you!";
+		_response = localize "STR_antistasi_chat_joinEnemy_no";
 		_modAggroOcc = [0, 0];
 		_modAggroInv = [0, 0];
 	};
 }
 else {
-	_playerX globalChat "Go back to your base and tell your comrades we are not enemies. We just want to live in peace";
+	_playerX globalChat localize "STR_antistasi_chat_captureX";
 	_response = selectRandom [
-		"Okay, thank you. I owe you my life",
-		"Thank you. I swear you won't regret it!",
-		"Thank you, I won't forget this!"
+		localize "STR_antistasi_chat_captureX_random1",
+		localize "STR_antistasi_chat_captureX_random2",
+		localize "STR_antistasi_chat_captureX_random3"
 	];
 
 	if (_sideX == Occupants) then

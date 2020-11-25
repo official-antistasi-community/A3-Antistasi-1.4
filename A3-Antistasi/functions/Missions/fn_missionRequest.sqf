@@ -10,7 +10,7 @@ if(isNil "_type") then {
 	if (isNil "_type") then {breakOut "Main"}; //you have all the mission types
 	_autoSelect = true;
 };
-if ([_type] call BIS_fnc_taskExists) exitWith {if (!_autoSelect) then {[petros,"globalChat","I already gave you a mission of this type"] remoteExec ["A3A_fnc_commsMP",_requester]}};
+if ([_type] call BIS_fnc_taskExists) exitWith {if (!_autoSelect) then {[petros,"globalChat", localize "STR_antistasi_chat_petros_missionType"] remoteExec ["A3A_fnc_commsMP",_requester]}};
 
 private _findIfNearAndHostile = {
 	/*
@@ -44,8 +44,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {
-				[petros,"globalChat","I have no assasination missions for you. Move our HQ closer to the enemy"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint","Assasination Missions require cities, Patrolled Jungles or Airports closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_AssasMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_antistasi_chat_petros_AssasMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -61,8 +61,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {
-				[petros,"globalChat","I have no Conquest missions for you. Move our HQ closer to the enemy."] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint","Conquest Missions require roadblocks or outposts closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_ConqMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_antistasi_chat_petros_ConqMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -85,8 +85,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {
-				[petros,"globalChat","I have no destroy missions for you. Move our HQ closer to the enemy"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint","Destroy Missions require Airbases or Radio Towers closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_DestrMission_hint"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_antistasi_chat_petros_DestrMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -112,8 +112,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {
-				[petros,"globalChat","I have no logistics missions for you. Move our HQ closer to the enemy"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint","Logistics Missions require Outposts, Seaports or Banks closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_LogMission_hint"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_antistasi_chat_petros_LogMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -138,8 +138,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {
-				[petros,"globalChat","I have no support missions for you. Move our HQ closer to the enemy"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint","Support Missions require Cities closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_SupMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_antistasi_chat_petros_SupMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
             Debug_1("City weights: %1", _weightedMarkers);
@@ -157,8 +157,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {
-				[petros,"globalChat","I have no rescue missions for you. Move our HQ closer to the enemy"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint","Rescue Missions require Cities or Airports closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_RescMission_hint"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_antistasi_chat_petros_RescMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -169,8 +169,8 @@ switch (_type) do {
 	case "CONVOY": {
 		if (bigAttackInProgress) exitWith {
 			if (!_autoSelect) then {
-				[petros,"globalChat","There is a big battle around, I don't think the enemy will send any convoy"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint","Convoy Missions require a calmed status around the island, and now it is not the proper time.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_ConvMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_antistasi_chat_petros_ConvMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		};
 		//prety mutch untuched, not mutch in common with the others
@@ -193,8 +193,8 @@ switch (_type) do {
 		if (count _possibleMarkers == 0) then
 		{
 			if (!_autoSelect) then {
-				[petros,"globalChat","I have no Convoy missions for you. Move our HQ closer to the enemy"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint","Convoy Missions require Airports or Cities closer than 5Km from your HQ, and they must have an idle friendly base in their surroundings.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_noConvMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_antistasi_chat_petros_noConvMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -207,4 +207,4 @@ switch (_type) do {
         Error_1("%1 is not an accepted task type", _type);
 	};
 };
-if ((count _possibleMarkers > 0) and (!_autoSelect)) then {[petros,"globalChat","I have a mission for you"] remoteExec ["A3A_fnc_commsMP",_requester]};
+if ((count _possibleMarkers > 0) and (!_autoSelect)) then {[petros,"globalChat",localize "STR_antistasi_chat_petros_mission"] remoteExec ["A3A_fnc_commsMP",_requester]};

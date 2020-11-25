@@ -1,4 +1,4 @@
-if !(membershipEnabled) exitWith {["Membership", "Server Member feature is disabled"] call A3A_fnc_customHint;};
+if !(membershipEnabled) exitWith {[localize "STR_antistasi_customHint_membership", localize "STR_antistasi_customHint_membership_off"] call A3A_fnc_customHint;};
 private ["_countX"];
 _textX = "In Game Members<br/><br/>";
 _countN = 0;
@@ -14,4 +14,4 @@ if (!isNull _playerX) then
 
 _textX = format ["%1<br/>No members:<br/>%2",_textX,_countN];
 
-["Membership", _textX] call A3A_fnc_customHint;
+[localize "STR_antistasi_customHint_membership", _textX] call A3A_fnc_customHint;

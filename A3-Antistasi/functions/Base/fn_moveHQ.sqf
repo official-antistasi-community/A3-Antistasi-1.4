@@ -1,8 +1,8 @@
-if (player != theBoss) exitWith {["Move HQ", "Only our Commander has access to this function"] call A3A_fnc_customHint;};
+if (player != theBoss) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_only_comander"] call A3A_fnc_customHint;};
 
-if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {["Move HQ", "You must first empty your Ammobox in order to move the HQ"] call A3A_fnc_customHint;};
+if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_moveHQ_ammobox"] call A3A_fnc_customHint;};
 
-if !(isNull attachedTo petros) exitWith {["Move HQ", "Put Petros down before you move the HQ!"] call A3A_fnc_customHint;};
+if !(isNull attachedTo petros) exitWith {[localize "STR_antistasi_customHint_move_hq", localize "STR_antistasi_customHint_moveHQ_petros"] call A3A_fnc_customHint;};
 
 
 [petros,"remove"] remoteExec ["A3A_fnc_flagaction",0];
@@ -48,7 +48,7 @@ if (count _garrison > 0) then
 	_hr = 0;
 	if ({(alive _x) and (!captive _x) and ((side _x == Occupants) or (side _x == Invaders)) and (_x distance _positionX < 500)} count allUnits > 0) then
 		{
-		["Garrison", "HQ Garrison will stay here and hold the enemy"] call A3A_fnc_customHint;
+		[localize "STR_antistasi_customHint_garrisons", localize "STR_antistasi_customHint_moveHQ_garrison"] call A3A_fnc_customHint;
 		}
 	else
 		{
@@ -78,7 +78,7 @@ if (count _garrison > 0) then
 	} forEach _garrison;
 	[_hr,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 	garrison setVariable ["Synd_HQ",[],true];
-	["Garrison", format ["Garrison removed<br/><br/>Recovered Money: %1 €<br/>Recovered HR: %2",_costs,_hr]] call A3A_fnc_customHint;
+	[localize "STR_antistasi_customHint_garrisons", format [localize "STR_antistasi_customHint_moveHQ_garrison_remove",_costs,_hr]] call A3A_fnc_customHint;
 	};
 
 sleep 5;

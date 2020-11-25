@@ -78,5 +78,5 @@ else
 if (isMultiPlayer) then
 {
 	sleep 5;
-	["Unit Traits", format ["You have selected %1",_text]] call A3A_fnc_customHint;
+	[localize "STR_antistasi_customHint_unitTraits", format [localize "STR_antistasi_customHint_unitTraits_select",_text]] call A3A_fnc_customHint;
 };

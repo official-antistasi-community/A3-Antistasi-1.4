@@ -13,13 +13,13 @@ _leave = false;
 	exitWith { _leave = true; };
 } forEach _groups;
 
-if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads"] call A3A_fnc_customHint;};
+if (_leave) exitWith {[localize"STR_antistasi_customHint_dismissSquad", localize "STR_antistasi_customHint_dismissSquad_player"] call A3A_fnc_customHint;};
 
 {
 if (_x getVariable ["esNATO",false]) then {_leave = true};
 } forEach _groups;
 
-if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss NATO groups"] call A3A_fnc_customHint;};
+if (_leave) exitWith {[localize "STR_antistasi_customHint_dismissSquad", localize "STR_antistasi_customHint_dismissSquad_nato"] call A3A_fnc_customHint;};
 
 _pos = getMarkerPos respawnTeamPlayer;
 

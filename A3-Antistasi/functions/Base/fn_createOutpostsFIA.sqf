@@ -5,7 +5,7 @@ private ["_typeX","_costs","_groupX","_unit","_radiusX","_roads","_road","_pos",
 _typeX = _this select 0;
 _positionTel = _this select 1;
 
-if (_typeX == "delete") exitWith {["Create Outpost", "Deprecated option. Use Remove Garrison from HQ instead"] call A3A_fnc_customHint;};
+if (_typeX == "delete") exitWith {[localize "STR_antistasi_customHint_op_rb", localize "STR_antistasi_customHint_op_rb_deprecated"] call A3A_fnc_customHint;};
 
 _isRoad = isOnRoad _positionTel;
 

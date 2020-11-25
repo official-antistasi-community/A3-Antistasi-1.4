@@ -1,10 +1,10 @@
 private["_player"];
 if (player != player getVariable["owner", player]) exitWith {
-	["Undercover", "You cannot go Undercover while you are controlling AI"] call A3A_fnc_customHint;
+	[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_ctrlAI"] call A3A_fnc_customHint;
 };
 _player = player getVariable["owner", player];
 if (captive _player) exitWith {
-	["Undercover", "You are Undercover already"] call A3A_fnc_customHint;
+	[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_already"] call A3A_fnc_customHint;
 };
 
 private["_compromised", "_changeX", "_secureBases", "_roadblocks", "_player", "_size", "_base", "_onDetectionMarker", "_onBaseMarker", "_baseSide"];
@@ -20,21 +20,21 @@ _compromised = _player getVariable "compromised";
 
 if (vehicle _player != _player) then {
 	if (not(typeOf(vehicle _player) in undercoverVehicles)) then {
-		["Undercover", "You are not in a civilian vehicle"] call A3A_fnc_customHint;
+		[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_noCivVeh"] call A3A_fnc_customHint;
 		_changeX = "Init"
 	};
 	if (vehicle _player in reportedVehs) then {
-		["Undercover", "This vehicle has been reported to the enemy. Change or renew your vehicle in the Garage to go Undercover"] call A3A_fnc_customHint;
+		[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_reportedVeh"] call A3A_fnc_customHint;
 		_changeX = "Init";
 	};
 }
 else {
 	if ((primaryWeapon _player != "") or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or (vest _player != "") or (headgear _player in allArmoredHeadgear) or (hmd _player != "") or (not(uniform _player in allCivilianUniforms))) then {
-		["Undercover", "You cannot go Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform"] call A3A_fnc_customHint;
+		[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_info"] call A3A_fnc_customHint;
 		_changeX = "Init";
 	};
 	if (dateToNumber date < _compromised) then {
-		["Undercover", "You have been reported in the last 30 minutes therefore you cannot go Undercover"] call A3A_fnc_customHint;
+		[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_reported"] call A3A_fnc_customHint;
 		_changeX = "Init";
 	};
 };
@@ -45,7 +45,7 @@ if ({
 		((side _x == Invaders) or(side _x == Occupants)) and(((_x knowsAbout _player > 1.4) and(_x distance _player < 500)) or(_x distance _player < 350))
 	}
 	count allUnits > 0) exitWith {
-	["Undercover", "You cannot go Undercover while enemies are spotting you"] call A3A_fnc_customHint;
+	[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_spotting"] call A3A_fnc_customHint;
 	if (vehicle _player != _player) then {
 		{
 			if ((isPlayer _x) and(captive _x)) then {
@@ -62,7 +62,7 @@ if ({
 _base = [_secureBases, _player] call BIS_fnc_nearestPosition;
 _size = [_base] call A3A_fnc_sizeMarker;
 if ((_player distance getMarkerPos _base < _size * 2) and(not(sidesX getVariable[_base, sideUnknown] == teamPlayer))) exitWith {
-	["Undercover", "You cannot go Undercover near Airports, Outposts, Seaports or Roadblocks"] call A3A_fnc_customHint;
+	[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_zone"] call A3A_fnc_customHint;
 };
 
 ["Undercover ON", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
@@ -224,7 +224,7 @@ if (vehicle _player != _player) then {
 [] spawn A3A_fnc_statistics;
 switch _changeX do {
 	case "Reported":{
-			["Undercover", "You have been reported or spotted by the enemy"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_RepSpot"] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
 			if (vehicle _player != _player) then {
 				//_player setVariable ["compromised",[_compromised select 0,vehicle _player]];
@@ -236,40 +236,40 @@ switch _changeX do {
 			};
 		};
 	case "VNoCivil":{
-			["Undercover", "You entered a non civilian vehicle"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_noCivVeh_enter"] call A3A_fnc_customHint;
 		};
 	case "VCompromised":{
-			["Undercover", "You entered in a reported vehicle"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_repVeh"] call A3A_fnc_customHint;
 		};
 	case "SpotBombTruck":{
-			["Undercover", "Explosives have been spotted on your vehicle"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_explo"] call A3A_fnc_customHint;
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";
 		};
 	case "Highway":{
-			["Undercover", "You went too far away from any roads and have been spotted"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_road"] call A3A_fnc_customHint;
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";
 		};
 	case "clothes":{
-			["Undercover", "You cannot stay Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_info"] call A3A_fnc_customHint;
 		};
 	case "clothes2":{
-			["Undercover", "You cannot stay Undercover while showing:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform<br/><br/>The enemy added you to their Wanted List"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_info_wanted"] call A3A_fnc_customHint;
 			_player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
 		};
 	case "BadMedic":{
-			["Undercover", "You cannot stay Undercover while healing a compromised resistance member"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_heal"] call A3A_fnc_customHint;
 		};
 	case "BadMedic2":{
-			["Undercover", "You cannot stay Undercover while healing a compromised resistance member<br/><br/>The enemy added you to their Wanted List"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_heal_wanted"] call A3A_fnc_customHint;
 			_player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
 		};
 	case "Compromised":{
-			["Undercover", "You left your vehicle and you are still on the Wanted List"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_vehStill"] call A3A_fnc_customHint;
 		};
 	case "distanceX":{
-			["Undercover", "You have gotten too close to an enemy Base, Outpost or Roadblock"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_zone"] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
 			if (vehicle _player != _player) then {
 				//_player setVariable ["compromised",[_compromised select 0,vehicle _player]];
@@ -283,14 +283,14 @@ switch _changeX do {
 	case "NoFly":{
             private _veh = vehicle _player;
             private _detectedBy = _veh getVariable "NoFlyZoneDetected";
-			["Undercover", format ["You have violated the airspace of %1", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", format [localize "STR_antistasi_customHint_undercover_zoneAir", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
 			reportedVehs pushBackUnique _veh;
 			publicVariable "reportedVehs";
             _veh setVariable ["NoFlyZoneDetected", nil, true];
 		};
 	case "Control":{
-			["Undercover", "The Installation Garrison has recognised you"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_recognised"] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
 			reportedVehs pushBackUnique(vehicle _player);
 			publicVariable "reportedVehs";

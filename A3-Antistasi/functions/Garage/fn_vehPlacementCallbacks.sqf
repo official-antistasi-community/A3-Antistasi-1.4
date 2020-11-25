@@ -176,7 +176,7 @@ switch (_callbackTarget) do {
 			};
 
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
-				["Construction", "Construction cancelled"] call A3A_fnc_customHint;
+				[localize "STR_antistasi_customHint_construct", localize "STR_antistasi_customHint_construct_cancel"] call A3A_fnc_customHint;
 			};
 
 			case CALLBACK_SHOULD_CANCEL_PLACEMENT: {

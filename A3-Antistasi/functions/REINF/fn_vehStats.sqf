@@ -1,4 +1,4 @@
-if (count hcSelected player == 0) exitWith {["Vehicle Info", "You must select one group on the HC bar"] call A3A_fnc_customHint;};
+if (count hcSelected player == 0) exitWith {[localize "STR_antistasi_customHint_vehInfo", localize "STR_antistasi_customHint_vehInfo_HC"] call A3A_fnc_customHint;};
 
 private ["_groupX","_veh","_textX","_unitsX"];
 
@@ -58,7 +58,7 @@ if (_this select 0 == "mount") exitWith
 			};
 		};
 	} forEach hcSelected player;
-	if (_textX != "") then {["Vehicle Info", format ["%1",_textX]] call A3A_fnc_customHint;};
+	if (_textX != "") then {[localize "STR_antistasi_customHint_vehInfo", format ["%1",_textX]] call A3A_fnc_customHint;};
 	};
 _textX = "";
 _groupX = (hcSelected player select 0);
@@ -109,4 +109,4 @@ if !(isNull _veh) then
 		_textX = format ["%1Boarded:%2/%3",_textX,{vehicle _x == _veh} count _unitsX,{alive _x} count _unitsX];
 		};
 	};
-["Vehicle Info", format ["%1",_textX]] call A3A_fnc_customHint;
+[localize "STR_antistasi_customHint_vehInfo", format ["%1",_textX]] call A3A_fnc_customHint;

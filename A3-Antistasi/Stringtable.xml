@@ -4733,5 +4733,142 @@
 			<Original>You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads</Original>
 		</Key>
 	</Container>
+	<Container name="addAction">
+		<Key ID="STR_antistasi_addAction_HQ_management">
+			<Original>HQ Management</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_takeFlag">
+			<Original>Take the Flag</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_trans_ammo_to_truck">
+			<Original>Transfer Ammobox to Truck</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_revive">
+			<Original>Revive %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_carry">
+			<Original>Carry %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_move">
+			<Original>Move this asset</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_drop">
+			<Original>Drop Here</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_map">
+			<Original>Map Info</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_liberate">
+			<Original>Liberate</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_liberate_POW">
+			<Original>Liberate POW</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_recruit">
+			<Original>Recruit</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_interrogate">
+			<Original>Interrogate</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_buildHQ">
+			<Original>Build HQ here</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_buyBoat">
+			<Original>Buy Boat</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_stealStatic">
+			<Original>Steal Static</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_personGarage">
+			<Original>Personal Garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_factionGarage">
+			<Original>Faction Garage</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_sleep">
+			<Original>Rest for 8 Hours</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_cleanForest">
+			<Original>Clear Nearby Forest</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_fog">
+			<Original>I hate the fog</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_rain">
+			<Original>Rain rain go away</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_intelSmall">
+			<Original>Search for Intel</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_intelMedium">
+			<Original>Take Intel</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_intelLarge">
+			<Original>Download Intel</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_breach_cancel">
+			<Original>Cancel Breaching</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_trans_veh_to_ammo">
+			<Original>Transfer Vehicle cargo to Ammobox</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_healRepairRearm">
+			<Original>Heal, Repair and Rearm</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_vehArsenal">
+			<Original>Vehicle Arsenal</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_buyBox">
+			<Original>Buy loot box for 10€</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_searchCancel">
+			<Original>Cancel Search</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_lootCrate">
+			<Original>Load loot to crate</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_lootVeh">
+			<Original>Load loot from crate to vehicle</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_carryCrate">
+			<Original>Carry Crate</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_dropCrate">
+			<Original>Drop Crate</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_deliveryInfo">
+			<Original>Delivery infos</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_release">
+			<Original>Release %1</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_deployWinch">
+			<Original>Deploy Winch</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_stowWinch">
+			<Original>Stow Winch</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_attachRope">
+			<Original>Attach Rope</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_returnControl">
+			<Original>Return Control to AI</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_deployRopes">
+			<Original>Deploy Tow Ropes</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_putRopes">
+			<Original>Put Away Tow Ropes</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_attachRopes">
+			<Original>Attach To Tow Ropes</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_dropRopes">
+			<Original>Drop Tow Ropes</Original>
+		</Key>
+		<Key ID="STR_antistasi_addAction_pickupRopes">
+			<Original>Pickup Tow Ropes</Original>
+		</Key>
+	</Container>
   </Package>
 </Project>

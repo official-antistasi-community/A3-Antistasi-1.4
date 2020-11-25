@@ -32,7 +32,7 @@ _truckX = "Land_FoodSacks_01_cargo_brown_F" createVehicle _pos;
 _truckX enableRopeAttach true;
 _truckX allowDamage false;
 [_truckX] call A3A_fnc_logistics_addLoadAction;
-_truckX addAction ["Delivery infos",
+_truckX addAction [localize "STR_antistasi_addAction_deliveryInfo",
 	{
 		_text = format [localize "STR_antistasi_customHint_logistics_mission_text",(_this select 0) getVariable "destinationX"]; //This need a rework
 		[localize "STR_antistasi_customHint_logistics_mission", _text] remoteExecCall ["A3A_fnc_customHint",_this select 2];	//This need a rework

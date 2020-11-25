@@ -5124,5 +5124,25 @@
         <Original>%2, I'm sending %1 back to base</Original>
       </Key>
     </Container>
+    <Container name="cutText">
+      <Key ID="STR_antistasi_cutText_tp">
+        <Original>Fast traveling, please wait</Original>
+      </Key>
+      <Key ID="STR_antistasi_cutText_tp_wait">
+        <Original>Fast traveling, travel time: %1s , please wait</Original>
+      </Key>
+      <Key ID="STR_antistasi_cutText_tpDone">
+        <Original>You arrived to destination</Original>
+      </Key>
+      <Key ID="STR_antistasi_cutText_sleep">
+        <Original>You decided to rest for some time</Original>
+      </Key>
+      <Key ID="STR_antistasi_cutText_sleepDone">
+        <Original>Time to go</Original>
+      </Key>
+      <Key ID="STR_antistasi_cutText_SP_detect">
+        <Original>Single player modus detected!&lt;br/&gt;&lt;br/&gt;For the best experience please play as a local hosted game. SP support will end in the near future.&lt;br/&gt;&lt;br/&gt;You can still play as SP modus for now, this screen will vanish in a few seconds!</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

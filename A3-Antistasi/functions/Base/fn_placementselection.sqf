@@ -6,11 +6,11 @@ private _disabledPlayerDamage = false;
 
 if (_newGame) then {
     Info("New session selected");
-	"Initial HQ Placement Selection" hintC ["Click on the Map Position you want to start the Game.","Close the map with M to start in the default position.","Don't select areas with enemies nearby!!\n\nGame experience changes a lot on different starting positions."];
+	"Initial HQ Placement Selection" hintC [localize "STR_antistasi_customHint_startPosition1", localize "STR_antistasi_customHint_startPosition2", localize "STR_antistasi_customHint_startPosition3", localize "STR_antistasi_customHint_startPosition4"];
 } else {
 	player allowDamage false;
 	_disabledPlayerDamage = true;
-	format ["%1 is Dead",name petros] hintC format ["%1 has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.",name petros];
+	format [localize "STR_antistasi_customHint_petrosDead",name petros] hintC format [localize "STR_antistasi_customHint_startPosition_petrosDead",name petros];
 };
 
 hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{

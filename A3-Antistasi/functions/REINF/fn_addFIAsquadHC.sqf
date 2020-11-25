@@ -188,9 +188,9 @@ private _display = findDisplay 100;
 
 if (str (_display) != "no display") then {
 	private _ChildControl = _display displayCtrl 104;
-	_ChildControl  ctrlSetTooltip format ["Buy a vehicle for this squad for %1 €",_costs];
+	_ChildControl  ctrlSetTooltip format [localize "STR_antistasi_tooltip_cost_veh",_costs];
 	_ChildControl = _display displayCtrl 105;
-	_ChildControl  ctrlSetTooltip "Barefoot Infantry";
+	_ChildControl  ctrlSetTooltip localize "STR_antistasi_tooltip_cost_noVeh";
 };
 
 waitUntil {(!dialog) or (!isNil "vehQuery")};

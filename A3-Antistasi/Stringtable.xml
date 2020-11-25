@@ -5176,5 +5176,22 @@
         <Original>Undercover OFF</Original>
       </Key>
     </Container>
+    <Container name="ctrlSetTooltip">
+      <Key ID="STR_antistasi_tooltip_cost">
+        <Original>Cost: %1 €</Original>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_HR">
+        <Original>Cost: %1 €. HR: %2</Original>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_upgrade">
+        <Original>Current level: %2. Next Level Training Cost: %1 €</Original>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_veh">
+        <Original>Buy a vehicle for this squad for %1 €</Original>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_noVeh">
+        <Original>Barefoot Infantry</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

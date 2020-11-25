@@ -4732,6 +4732,33 @@
 		<Key ID="STR_antistasi_customHint_dismissSquad_player">
 			<Original>You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads</Original>
 		</Key>
+		<Key ID="STR_antistasi_customHint_startPosition1">
+			<Original>Click on the Map Position you want to start the Game</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_startPosition2">
+			<Original>Close the map with M to start in the default position</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_startPosition3">
+			<Original>Don't select areas with enemies nearby!!</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_startPosition4">
+			<Original>Game experience changes a lot on different starting positions</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_startPosition_petrosDead">
+			<Original>%1 has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_startPosition">
+			<Original>Initial HQ Placement Selection</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_petrosDead">
+			<Original>%1 is Dead</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage1">
+			<Original>The Garage is empty or the vehicles you have are not suitable to recover in the place you are</Original>
+		</Key>
+		<Key ID="STR_antistasi_customHint_garage2">
+			<Original>Air vehicles need to be recovered near Airport flags</Original>
+		</Key>
 	</Container>
 	<Container name="addAction">
 		<Key ID="STR_antistasi_addAction_HQ_management">

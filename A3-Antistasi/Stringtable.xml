@@ -1357,9 +1357,6 @@
       </Key>
     </Container>
     <Container name="journal_entries">
-      <Key ID="STR_antistasi_journal_entry_header_tutorial">
-        <Original>Antistasi Basics</Original>
-      </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_1">
         <Original>Early Beginning</Original>
         <English>Early Beginning</English>
@@ -1498,9 +1495,6 @@
         <Chinesesimp>在早期阶段,特别是在完成某些任务时,卧底是非常有帮助的.就像真正的抵抗战士一样,你消失的能力是敌人无法抵抗的.有关卧底模式的详细说明,请参见功能部分.</Chinesesimp>
         <Korean>초기에 특정 임무를 수행할때, 잠복하는것은 매우 도움이 됩니다. 진짜 게릴라답게 감추십시오. 그러면 적이 대응하지 못 할것입니다. 잠복모드에 대한 자세할 설명은 기능섹션을 참고하십시오.</Korean>
         <Russian>На ранних стадиях, особенно при выполнении определенных миссий, работа под прикрытием может быть чрезвычайно полезной. Как и в случае с настоящими бойцами сопротивления, ваша способность исчезнуть - это то, чему противник не может противостоять. См. Раздел «Возможности» для более подробного описания режима под прикрытием.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_commander">
-        <Original>Commander Options</Original>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_1">
         <Original>General</Original>
@@ -1772,9 +1766,6 @@
         <Korean>HQ 깃발에서 서버 멤버 기능이 활성화된다면 인게임 서버 멤버와 비 멤버의 수를 확인할 수 있습니다.</Korean>
         <Russian>В флаге HQ, если функция «Участник сервера» включена, вы можете проверить, кто из участников сервера находится в игре.</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_SpecialK">
-        <Original>Special Keys</Original>
-      </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_1">
         <Original>Battle Options</Original>
         <French>Options de combat</French>
@@ -1864,9 +1855,6 @@
         <Chinesesimp>按END启用 / 关闭 耳塞. 使用ACE时禁用.</Chinesesimp>
         <Korean>END키로 이어플러그 탈부착이 가능합니다. ACE모드에선 불가능.</Korean>
         <Russian>Нажмите END, чтобы включить/отключить беруши. Отключено при использовании ACE.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Features">
-        <Original>Features Detail</Original>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_1">
         <Original>Faction Leader</Original>
@@ -2174,9 +2162,6 @@
         <Korean>장갑차 해치 폭파하기위해선 %1 %2탱크 해치 폭파하기 위해선 %3</Korean>
         <Russian>Чтобы пробить APC вам нужно %1 %2 Чтобы пробить танк вам нужно %3</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_AI">
-        <Original>AI Management</Original>
-      </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_1">
         <Original>Recruit</Original>
         <French>Recruter</French>
@@ -2311,9 +2296,6 @@
         <Chinesesimp>地图信息</Chinesesimp>
         <Korean>지도 정보</Korean>
         <Russian>Карта</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Options">
-        <Original>Game Options</Original>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_1">
         <Original>Click on a city to learn the strength of their support for the enemy or Faction. Click on other zones to know relevant info about them.</Original>
@@ -2652,9 +2634,6 @@
         <Chinesesimp>如果 %1 杀死了总人口的1/3,你将失去比赛.</Chinesesimp>
         <Korean>%1이 전체 인구수의 1/3을 죽인다면, 게임에서 패배합니다.</Korean>
         <Russian>Вы проиграете игру, если %1 убил 1/3 всего населения.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Credits">
-        <Original>Credits</Original>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Credits_1">
         <Original>Script Credits</Original>

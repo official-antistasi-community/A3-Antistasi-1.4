@@ -5156,7 +5156,7 @@
         <Original>Time to go</Original>
       </Key>
       <Key ID="STR_antistasi_cutText_SP_detect">
-        <Original>Single player modus detected!&lt;br/&gt;&lt;br/&gt;For the best experience please play as a local hosted game. SP support will end in the near future.&lt;br/&gt;&lt;br/&gt;You can still play as SP modus for now, this screen will vanish in a few seconds!</Original>
+        <Original>Single player modus detected! \n\n For the best experience please play as a local hosted game. SP support will end in the near future. \n\n You can still play as SP modus for now, this screen will vanish in a few seconds!</Original>
       </Key>
     </Container>
     <Container name="dynamicText">

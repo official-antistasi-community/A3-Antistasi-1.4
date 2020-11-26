@@ -23,7 +23,7 @@ _mrkorig = createMarkerLocal [format ["BRStart%1",random 1000], _pos1];
 _mrkorig setMarkerShapeLocal "ICON";
 _mrkorig setMarkerTypeLocal "hd_destroy";
 _mrkorig setMarkerColorLocal "ColorRed";
-_mrkOrig setMarkerTextLocal "Bomb Run Init";
+_mrkOrig setMarkerTextLocal localize "STR_antistasi_markers_bomb_init";
 
 [localize "STR_antistasi_customHint_air_support", localize "STR_antistasi_customHint_air_support_selectVector"] call A3A_fnc_customHint;
 
@@ -48,7 +48,7 @@ _mrkDest = createMarkerLocal [format ["BRFin%1",random 1000], _pos2];
 _mrkDest setMarkerShapeLocal "ICON";
 _mrkDest setMarkerTypeLocal "hd_destroy";
 _mrkDest setMarkerColorLocal "ColorRed";
-_mrkDest setMarkerTextLocal "Bomb Run Exit";
+_mrkDest setMarkerTextLocal localize "STR_antistasi_markers_bomb_exit";
 
 //openMap false;
 

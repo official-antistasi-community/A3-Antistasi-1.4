@@ -81,19 +81,19 @@ else
 		};
 	if (_markerX in resourcesX) then
 	 	{
-			_mrkD setMarkerText "Resources";
+			_mrkD setMarkerText localize "STR_antistasi_markers_Resources";
 	 	}
 	 else
 	 	{
 	 	if (_markerX in factories) then
     		{
-					_mrkD setMarkerText "Factory";
+					_mrkD setMarkerText localize "STR_antistasi_markers_Factory";
     		}
     	else
     		{
     		if (_markerX in seaports) then
     			{
-    			_mrkD setMarkerText "Sea Port";
+    			_mrkD setMarkerText localize "STR_antistasi_markers_Seaport";
     			};
     		};
 	 	};

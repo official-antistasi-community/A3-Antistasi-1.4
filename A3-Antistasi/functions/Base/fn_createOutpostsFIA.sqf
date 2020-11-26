@@ -26,7 +26,7 @@ _mrk setMarkerShape "ICON";
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + 60];
 _dateLimitNum = dateToNumber _dateLimit;
 private _taskId = "outpostsFIA" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,["We are sending a team to establish a Watchpost/Roadblock. Use HC to send the team to their destination","Post \ Roadblock Deploy",_mrk],_positionTel,false,0,true,"Move",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[localize "STR_antistasi_mission_OP_RB_text",localize "STR_antistasi_mission_OP_RB_name",_mrk],_positionTel,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 [_taskId, "outpostsFIA", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _formatX = [];

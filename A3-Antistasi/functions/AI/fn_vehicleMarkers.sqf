@@ -59,7 +59,7 @@ else
 
 _typeX = format ["%1%2",_formatX,_typeX];
 
-if ((side group (driver _veh) != teamPlayer) and (side driver _veh != sideUnknown)) then {["TaskSucceeded", ["", format ["%1 Spotted",_text]]] spawn BIS_fnc_showNotification};
+if ((side group (driver _veh) != teamPlayer) and (side driver _veh != sideUnknown)) then {["TaskSucceeded", ["", format [localize "STR_antistasi_notification_spotted",_text]]] spawn BIS_fnc_showNotification};
 
 _mrkFinal = createMarkerLocal [format ["%2%1", random 100,_text], position _veh];
 _mrkFinal setMarkerShapeLocal "ICON";

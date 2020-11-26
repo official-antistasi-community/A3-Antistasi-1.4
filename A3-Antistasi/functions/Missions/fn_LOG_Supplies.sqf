@@ -21,9 +21,9 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _holdTime = if(_difficultX) then {4} else {2};
-_taskDescription = format ["%1 population is in need of supplies. We may improve our relationship with that city if we are the ones who provide them. I have placed a crate with supplies near our HQ. Deliver the crate to %1 city center, hold it there for %3 minutes and it's done. Do this before %2.",_nameDest,_displayTime, _holdTime];
+_taskDescription = format [localize "STR_antistasi_mission_supplies_text",_nameDest,_displayTime, _holdTime];
 
-[[teamPlayer,civilian],"SUPP",[_taskDescription,"City Supplies",_markerX],_positionX,false,0,true,"Heal",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"SUPP",[_taskDescription,localize "STR_antistasi_mission_supplies",_markerX],_positionX,false,0,true,"Heal",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["SUPP","CREATED"]; publicVariable "missionsX";
 _pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"];
 
@@ -54,14 +54,14 @@ waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _p
 _bonus = if (_difficultX) then {2} else {1};
 if ((dateToNumber date > _dateLimitNum) or (isNull _truckX)) then
 	{
-	["SUPP",[_taskDescription,"City Supplies",_markerX],_positionX,"FAILED","Heal"] call A3A_fnc_taskUpdate;
+	["SUPP",[_taskDescription,localize "STR_antistasi_mission_supplies",_markerX],_positionX,"FAILED","Heal"] call A3A_fnc_taskUpdate;
 	[5*_bonus,-5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	}
 else
 	{
 	_countX = 120*_bonus;//120
-	["TaskFailed", ["", format ["%2 deploying supplies in %1",_nameDest,nameTeamPlayer]]] remoteExec ["BIS_fnc_showNotification",Occupants];
+	["TaskFailed", ["", format [localize "STR_antistasi_notification_deploy_supplies",_nameDest,nameTeamPlayer]]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	{_friendX = _x;
 	if (captive _friendX) then
 		{
@@ -96,7 +96,7 @@ else
 		if ((dateToNumber date < _dateLimitNum) and !(isNull _truckX)) then
 			{
 			[petros,"hint","Supplies Delivered", "Logistics Mission"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
-			["SUPP",[_taskDescription,"City Supplies",_markerX],_positionX,"SUCCEEDED","Heal"] call A3A_fnc_taskUpdate;
+			["SUPP",[_taskDescription,localize "STR_antistasi_mission_supplies",_markerX],_positionX,"SUCCEEDED","Heal"] call A3A_fnc_taskUpdate;
 			{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 			[-15*_bonus,15*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -105,7 +105,7 @@ else
 			}
 		else
 			{
-			["SUPP",[_taskDescription,"City Supplies",_markerX],_positionX,"FAILED","Heal"] call A3A_fnc_taskUpdate;
+			["SUPP",[_taskDescription,localize "STR_antistasi_mission_supplies",_markerX],_positionX,"FAILED","Heal"] call A3A_fnc_taskUpdate;
 			[5*_bonus,-5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 			[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 			};

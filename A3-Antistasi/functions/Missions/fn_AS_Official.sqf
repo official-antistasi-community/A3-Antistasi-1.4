@@ -20,7 +20,7 @@ _dateLimitNum = dateToNumber _dateLimit;
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _naming = if (_sideX == Occupants) then {"NATO"} else {"CSAT"};
 
-[[teamPlayer,civilian],"AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"AS",[format [localize "STR_antistasi_mission_ASOfficial_text",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],localize "STR_antistasi_mission_ASOfficial_name",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
 _grp = createGroup _sideX;
 
@@ -46,7 +46,7 @@ waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (not alive _official)
 
 if (not alive _official) then
 	{
-	["AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	["AS",[format [localize "STR_antistasi_mission_ASOfficial_text",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],localize "STR_antistasi_mission_ASOfficial_name",_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	if (_difficultX) then
 		{
 		[0,600] remoteExec ["A3A_fnc_resourcesFIA",2];
@@ -63,11 +63,11 @@ if (not alive _official) then
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,30] call A3A_fnc_addTimeForIdle;
 		};
-	["TaskFailed", ["", format ["Officer killed at %1",[_nameDest, false] call A3A_fnc_location]]] remoteExec ["BIS_fnc_showNotification",_sideX];
+	["TaskFailed", ["", format [localize "STR_antistasi_mission_ASOfficial_killed",[_nameDest, false] call A3A_fnc_location]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 	}
 else
 	{
-	["AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
+	["AS",[format [localize "STR_antistasi_mission_ASOfficial_text",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],localize "STR_antistasi_mission_ASOfficial_name",_markerX],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
 	if (_difficultX) then
 		{
 		[-1200, _sideX] remoteExec ["A3A_fnc_timingCA",2];

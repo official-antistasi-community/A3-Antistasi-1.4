@@ -330,8 +330,8 @@ switch (toLower worldName) do {
 					deleteMarker _mrk;
 					publicVariable "antennas";
 					publicVariable "antennasDead";
-					["TaskSucceeded", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
-					["TaskFailed", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", Occupants];
+					["TaskSucceeded", ["", localize "STR_antistasi_notification_radioDestroy"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+					["TaskFailed", ["", localize "STR_antistasi_notification_radioDestroy"]] remoteExec ["BIS_fnc_showNotification", Occupants];
 				}
 			];
 		};
@@ -378,8 +378,8 @@ if (count _posAntennas > 0) then {
 						deleteMarker _mrk;
 						publicVariable "antennas";
 						publicVariable "antennasDead";
-						["TaskSucceeded", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
-						["TaskFailed", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", Occupants];
+						["TaskSucceeded", ["", localize "STR_antistasi_notification_radioDestroy"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+						["TaskFailed", ["", localize "STR_antistasi_notification_radioDestroy"]] remoteExec ["BIS_fnc_showNotification", Occupants];
 					}
 				];
 			};

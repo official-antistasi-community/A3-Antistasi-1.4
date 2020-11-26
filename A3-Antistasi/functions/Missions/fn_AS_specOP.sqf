@@ -20,13 +20,13 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _naming = if (_sideX == Occupants) then {"NATO"} else {"CSAT"};
 
-[[teamPlayer,civilian],"AS",[format ["We have spotted a %3 SpecOp team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime],"SpecOps",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"AS",[format [localize "STR_antistasi_mission_SpecOps_text",_nameDest,_displayTime],localize"STR_antistasi_mission_SpecOps_name",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
 waitUntil  {sleep 5; (dateToNumber date > _dateLimitNum) or (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)};
 
 if (dateToNumber date > _dateLimitNum) then
 	{
-	["AS",[format ["We have spotted a %3 SpecOp team patrolling around an %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime],"SpecOps",_markerX],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
+	["AS",[format [localize "STR_antistasi_mission_SpecOps_text",_nameDest,_displayTime],localize "STR_antistasi_mission_SpecOps_name",_markerX],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
 	if (_difficultX) then
 		{
 		[10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -42,7 +42,7 @@ if (dateToNumber date > _dateLimitNum) then
 	}
 else
 	{
-	["AS",[format ["We have spotted a %3 SpecOp team patrolling around an %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime,_naming],"SpecOps",_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	["AS",[format [localize "STR_antistasi_mission_SpecOps_text",_nameDest,_displayTime,_naming],localize "STR_antistasi_mission_SpecOps_name",_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	if (_difficultX) then
 		{
 		[0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
@@ -67,7 +67,7 @@ else
     {
         [[0, 0], [10, 60]] remoteExec ["A3A_fnc_prestige",2]
     };
-	["TaskFailed", ["", format ["SpecOp Team decimated at a %1",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
+	["TaskFailed", ["", format [localize "STR_antistasi_mission_killed",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 	};
 
 _nul = [1200,"AS"] spawn A3A_fnc_deleteTask;

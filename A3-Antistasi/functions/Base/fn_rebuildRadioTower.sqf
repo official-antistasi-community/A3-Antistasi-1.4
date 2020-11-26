@@ -32,7 +32,7 @@ _antenna addEventHandler ["Killed",
 	mrkAntennas = mrkAntennas - [_mrk]; deleteMarker _mrk;
 	antennas = antennas - [_antenna]; antennasDead = antennasDead + [_antenna];
 	publicVariable "antennas"; publicVariable "antennasDead"; publicVariable "mrkAntennas";
-	["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
-	["TaskFailed",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",Occupants];
+	["TaskSucceeded",["", localize "STR_antistasi_notification_radioDestroy"]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+	["TaskFailed",["", localize "STR_antistasi_notification_radioDestroy"]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	}
 	];

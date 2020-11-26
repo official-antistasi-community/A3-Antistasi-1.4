@@ -26,7 +26,7 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 _mrkFinal = createMarker [format ["DES%1", random 100], _positionX];
 _mrkFinal setMarkerShape "ICON";
 
-[[teamPlayer,civilian],"DES",[format ["We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Nework. Do it before %2.",_nameDest,_displayTime,nameOccupants],"Destroy Radio Tower",_mrkFinal],_positionX,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"DES",[format [localize "STR_antistasi_mission_antena_text",_nameDest,_displayTime,nameOccupants],localize "STR_antistasi_mission_antena",_mrkFinal],_positionX,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
 waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or (not alive _antenna) or (not(sidesX getVariable [_markerX,sideUnknown] == Occupants))};
 
@@ -34,7 +34,7 @@ _bonus = if (_difficultX) then {2} else {1};
 
 if (dateToNumber date > _dateLimitNum) then
 	{
-	["DES",[format ["We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Nework. Do it before %2.",_nameDest,_displayTime,nameOccupants],"Destroy Radio Tower",_mrkFinal],_positionX,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
+	["DES",[format [localize "STR_antistasi_mission_antena_text",_nameDest,_displayTime,nameOccupants],localize "STR_antistasi_mission_antena",_mrkFinal],_positionX,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
 	//[5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
     if(_side == Occupants) then
@@ -50,7 +50,7 @@ if (dateToNumber date > _dateLimitNum) then
 else
 	{
 	sleep 15;
-	["DES",[format ["We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Nework. Do it before %2.",_nameDest,_displayTime,nameOccupants],"Destroy Radio Tower",_mrkFinal],_positionX,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
+	["DES",[format [localize "STR_antistasi_mission_antena_text",_nameDest,_displayTime,nameOccupants],localize "STR_antistasi_mission_antena",_mrkFinal],_positionX,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	//[-5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
     if(_side == Occupants) then
     {

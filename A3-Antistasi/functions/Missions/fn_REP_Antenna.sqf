@@ -18,8 +18,8 @@ _nameDest = [_markerX] call A3A_fnc_localizar;
 	[teamPlayer, civilian],
 	"REP",
 	[
-		format ["%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.",_nameDest,_displayTime,nameOccupants],
-		"Tower Rebuild Disrupt",
+		format [localize "STR_antistasi_mission_rebuild_text",_nameDest,_displayTime,nameOccupants],
+		localize "STR_antistasi_mission_rebuild",
 		_markerX
 	],
 	getPos _antennaDead,
@@ -60,8 +60,8 @@ if (spawner getVariable _markerX != 2) then
 		[
 			"REP",
 			[
-				format ["%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.", _nameDest, _displayTime, nameOccupants],
-				"Tower Rebuild Disrupt",
+				format [localize "STR_antistasi_mission_rebuild_text", _nameDest, _displayTime, nameOccupants],
+				localize "STR_antistasi_mission_rebuild",
 				_markerX
 			],
 			getPos _antennaDead, "SUCCEEDED", "Destroy"
@@ -79,8 +79,8 @@ if (dateToNumber date > _dateLimitNum) then
 		[
 			"REP",
 			[
-				format ["%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2:%3.",_nameDest,_displayTime,nameOccupants],
-				"Tower Rebuild Disrupt",
+				format [localize "STR_antistasi_mission_rebuild_text2",_nameDest,_displayTime,nameOccupants],
+				localize "STR_antistasi_mission_rebuild",
 				_markerX
 			],
 			getPos _antennaDead, "SUCCEEDED", "Destroy"
@@ -95,8 +95,8 @@ if (dateToNumber date > _dateLimitNum) then
 		[
 			"REP",
 			[
-				format ["%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.",_nameDest,_displayTime,nameOccupants],
-				"Tower Rebuild Disrupt",
+				format [localize "STR_antistasi_mission_rebuild_text",_nameDest,_displayTime,nameOccupants],
+				localize "STR_antistasi_mission_rebuild",
 				_markerX
 			],
 			getPos _antennaDead, "FAILED", "Destroy"

@@ -39,10 +39,10 @@ _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber b
 _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time portion of the date array to a string for clarity in hints
 
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
-_textX = if (_sideX == Occupants) then {format ["A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2",_nameDest,_displayTime]} else {format ["A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ",_nameDest,nameInvaders,nameTeamPlayer]};
+_textX = if (_sideX == Occupants) then {format [localize "STR_antistasi_mission_refugees_text",_nameDest,_displayTime]} else {format [localize "STR_antistasi_mission_refugees_text2",_nameDest,nameInvaders,nameTeamPlayer]};
 _posTsk = if (_sideX == Occupants) then {(position _houseX) getPos [random 100, random 360]} else {position _houseX};
 
-[[teamPlayer,civilian],"RES",[_textX,"Refugees Evac",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"RES",[_textX,localize "STR_antistasi_mission_refugees",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["RES","CREATED"]; publicVariable "missionsX";
 _groupPOW = createGroup teamPlayer;
 for "_i" from 1 to (((count _posHouse) - 1) min 15) do
@@ -151,7 +151,7 @@ if (_sideX == Occupants) then
 	if ({(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 50)} count _POWs > 0) then
 		{
 		sleep 5;
-		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
+		["RES",[_textX,localize "STR_antistasi_mission_refugees",_nameDest],_posTsk,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
 		_countX = {(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 150)} count _POWs;
 		_hr = _countX;
 		_resourcesFIA = 100 * _countX;
@@ -163,7 +163,7 @@ if (_sideX == Occupants) then
 		}
 	else
 		{
-		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"FAILED","run"] call A3A_fnc_taskUpdate;
+		["RES",[_textX,localize "STR_antistasi_mission_refugees",_nameDest],_posTsk,"FAILED","run"] call A3A_fnc_taskUpdate;
 		[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	}
@@ -172,12 +172,12 @@ else
 	waitUntil {sleep 1; ({alive _x} count _POWs == 0) or ({(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 50)} count _POWs > 0)};
 	if ({alive _x} count _POWs == 0) then
 		{
-		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"FAILED","run"] call A3A_fnc_taskUpdate;
+		["RES",[_textX,localize "STR_antistasi_mission_refugees",_nameDest],_posTsk,"FAILED","run"] call A3A_fnc_taskUpdate;
 		[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		}
 	else
 		{
-		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
+		["RES",[_textX,localize "STR_antistasi_mission_refugees",_nameDest],_posTsk,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
 		_countX = {(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 150)} count _POWs;
 		_hr = _countX;
 		_resourcesFIA = 100 * _countX;

@@ -63,7 +63,7 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 	markersX = markersX + [_mrk];
 	publicVariable "markersX";
 	spawner setVariable [_mrk,2,true];
-	["outpostsFIA",["We are sending a team to establish a Watchpost/Roadblock. Use HC to send the team to their destination","Post \ Roadblock Deploy",_mrk],_positionTel,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	["outpostsFIA",[localize "STR_antistasi_mission_OP_RB_text", localize "STR_antistasi_mission_OP_RB_name",_mrk],_positionTel,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	//["outpostsFIA", "SUCCEEDED",true] spawn BIS_fnc_taskSetState;
 	_nul = [-5,5,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
 	_mrk setMarkerType "loc_bunker";
@@ -80,7 +80,7 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 	}
 else
 	{
-	["outpostsFIA",["We are sending a team to establish a Watchpost/Roadblock. Use HC to send the team to their destination","Post \ Roadblock Deploy",_mrk],_positionTel,"FAILED"] call A3A_fnc_taskUpdate;
+	["outpostsFIA",[localize "STR_antistasi_mission_OP_RB_text",localize "STR_antistasi_mission_OP_RB_name",_mrk],_positionTel,"FAILED"] call A3A_fnc_taskUpdate;
 	//["outpostsFIA", "FAILED",true] spawn BIS_fnc_taskSetState;
 	sleep 3;
 	deleteMarker _mrk;

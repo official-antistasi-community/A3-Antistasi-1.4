@@ -48,8 +48,8 @@ private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the
 
 //Name of seaport marker
 private _nameDest = [_markerX] call A3A_fnc_localizar;
-private _title = "Salvage supplies";
-private _text = format ["A supply shipment was sunk outside of %1. Go there and recover the supplies before %2. You will need to get a hold of a boat with a winch to recover the shipment, check beaches for civilian boats you can commandeer.", _nameDest, _displayTime];
+private _title = localize "STR_antistasi_mission_salvage";
+private _text = format [localize "STR_antistasi_mission_salvage_text", _nameDest, _displayTime];
 [[teamPlayer, civilian], "LOG",[ _text, _title, [_mrk1, _mrk2, _mrk3]], _positionX, false, 0, true, "rearm", true] call BIS_fnc_taskCreate;
 
 missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";

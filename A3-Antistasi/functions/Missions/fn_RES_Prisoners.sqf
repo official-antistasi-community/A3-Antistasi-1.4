@@ -26,7 +26,7 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 
-[[teamPlayer,civilian],"RES",[format ["A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ",_nameDest,_displayTime],"POW Rescue",_markerX],_positionX,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"RES",[format [localize "STR_antistasi_mission_rescue_text",_nameDest,_displayTime],localize "STR_antistasi_mission_rescue",_markerX],_positionX,false,0,true,"run",true] call BIS_fnc_taskCreate;
 //_blacklistbld = ["Land_Cargo_HQ_V1_F", "Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F"];
 missionsX pushBack ["RES","CREATED"]; publicVariable "missionsX";
 _posHouse = [];
@@ -118,14 +118,14 @@ _bonus = if (_difficultX) then {2} else {1};
 
 if ({alive _x} count _POWs == 0) then
 	{
-	["RES",[format ["A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ",_nameDest,_displayTime],"POW Rescue",_markerX],_positionX,"FAILED","run"] call A3A_fnc_taskUpdate;
+	["RES",[format [localize "STR_antistasi_mission_rescue_text",_nameDest,_displayTime],localize "STR_antistasi_mission_rescue",_markerX],_positionX,"FAILED","run"] call A3A_fnc_taskUpdate;
 	{[_x,false] remoteExec ["setCaptive",0,_x]; _x setCaptive false} forEach _POWs;
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	}
 else
 	{
 	sleep 5;
-	["RES",[format ["A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ",_nameDest,_displayTime],"POW Rescue",_markerX],_positionX,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
+	["RES",[format [localize "STR_antistasi_mission_rescue_text",_nameDest,_displayTime],localize "STR_antistasi_mission_rescue",_markerX],_positionX,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
 	_countX = {(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 150)} count _POWs;
 	_hr = 2 * (_countX);
 	_resourcesFIA = 100 * _countX*_bonus;

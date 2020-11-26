@@ -48,7 +48,7 @@ _truckX addEventHandler ["GetIn",
 
 [_truckX,"Mission Vehicle"] spawn A3A_fnc_inmuneConvoy;
 
-[[teamPlayer,civilian],"LOG",[format ["We know Gendarmes are guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,false,0,true,"Interact",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"LOG",[format [localize "STR_antistasi_mission_bank_text",_nameDest,_displayTime],localize "STR_antistasi_mission_bank",_mrkFinal],_positionX,false,0,true,"Interact",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";
 _mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], _positionX];
 _mrk setMarkerShapeLocal "RECTANGLE";
@@ -75,7 +75,7 @@ waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (!alive _truckX) or (
 _bonus = if (_difficultX) then {2} else {1};
 if ((dateToNumber date > _dateLimitNum) or (!alive _truckX)) then
 	{
-	["LOG",[format ["We know Gendarmes is guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,"FAILED","Interact"] call A3A_fnc_taskUpdate;
+	["LOG",[format [localize "STR_antistasi_mission_bank_text",_nameDest,_displayTime],localize "STR_antistasi_mission_bank",_mrkFinal],_positionX,"FAILED","Interact"] call A3A_fnc_taskUpdate;
 	[-1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	}
@@ -85,7 +85,7 @@ else
     private _reveal = [_positionX , Invaders] call A3A_fnc_calculateSupportCallReveal;
     [_positionX, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
 	[10*_bonus,-20*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
-	["TaskFailed", ["", format ["Bank of %1 being assaulted",_nameDest]]] remoteExec ["BIS_fnc_showNotification",Occupants];
+	["TaskFailed", ["", format [localize "STR_antistasi_notification_bank_assault",_nameDest]]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	{_friendX = _x;
 	if (_friendX distance _truckX < 300) then
 		{
@@ -127,7 +127,7 @@ else
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (!alive _truckX) or (_truckX distance _posbase < 50)};
 if ((_truckX distance _posbase < 50) and (dateToNumber date < _dateLimitNum)) then
 	{
-	["LOG",[format ["We know Gendarmes is guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,"SUCCEEDED","Interact"] call A3A_fnc_taskUpdate;
+	["LOG",[format [localize "STR_antistasi_mission_bank_text",_nameDest,_displayTime],localize "STR_antistasi_mission_bank",_mrkFinal],_positionX,"SUCCEEDED","Interact"] call A3A_fnc_taskUpdate;
 	[0,5000*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
     Debug("aggroEvent | Rebels won a bank mission");
 	[[20 * _bonus, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
@@ -140,7 +140,7 @@ if ((_truckX distance _posbase < 50) and (dateToNumber date < _dateLimitNum)) th
 	};
 if (!alive _truckX) then
 	{
-	["LOG",[format ["We know Gendarmes is guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,"FAILED","Interact"] call A3A_fnc_taskUpdate;
+	["LOG",[format [localize "STR_antistasi_mission_bank_text",_nameDest,_displayTime],localize "STR_antistasi_mission_bank",_mrkFinal],_positionX,"FAILED","Interact"] call A3A_fnc_taskUpdate;
 	[1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};

@@ -577,12 +577,6 @@
         <Chinesesimp>否</Chinesesimp>
         <Korean>아니오</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_generic_button_yes_tooltip">
-        <Original />
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_button_no_tooltip">
-        <Original />
-      </Key>
     </Container>
     <Container name="credits_generic">
       <Key ID="STR_antistasi_credits_generic_author_text">
@@ -3679,9 +3673,6 @@
       <Key ID="STR_antistasi_customHint_cargo_noType">
         <Original>Can not load this type of cargo!</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_cargo_">
-        <Original></Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_cancel">
         <Original>Transfer cancelled due to movement of Truck or Player</Original>
       </Key>
@@ -4276,9 +4267,6 @@
       <Key ID="STR_antistasi_customHint_control_already">
         <Original>You cannot control AI while you are controlling another AI</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_control_">
-        <Original></Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_punish_hurt">
         <Original>%1 hurt you!</Original>
       </Key>
@@ -4480,7 +4468,7 @@
       <Key ID="STR_antistasi_customHint_garrisons_noBelong">
         <Original>That zone does not belong to %1</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_garrisons_enemy">
+      <Key ID="STR_antistasi_customHint_garrisons_enemyZone">
         <Original>You cannot manage this garrison while there are enemies nearby</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_garrisons_noGar">
@@ -4687,7 +4675,7 @@
       <Key ID="STR_antistasi_customHint_undercover_vehStill">
         <Original>You left your vehicle and you are still on the Wanted List</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_undercover_zone">
+      <Key ID="STR_antistasi_customHint_undercover_zone_gotten">
         <Original>You have gotten too close to an enemy Base, Outpost or Roadblock</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_undercover_zoneAir">

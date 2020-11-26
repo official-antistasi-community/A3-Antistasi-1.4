@@ -124,7 +124,7 @@ _mrkFinal setMarkerColorLocal "ColorRed";
 
 if (_typeArty == "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal "Artillery Barrage Begin";
+	_mrkFinal setMarkerTextLocal localize "STR_antistasi_markers_art_begin";
 	positionTel = [];
 
 	[localize "STR_antistasi_customHint_artillery", localize "STR_antistasi_customHint_artillery_barrage"] call A3A_fnc_customHint;
@@ -158,7 +158,7 @@ if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarkerLocal 
 
 if (_typeArty != "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal "Arty Strike";
+	_mrkFinal setMarkerTextLocal localize "STR_antistasi_markers_art_strike";
 	_rounds = roundsX;
 	_roundsMax = _rounds;
 	roundsX = nil;
@@ -189,7 +189,7 @@ if (_typeArty == "BARRAGE") then
 	_mrkFinal2 setMarkerShapeLocal "ICON";
 	_mrkFinal2 setMarkerTypeLocal "hd_destroy";
 	_mrkFinal2 setMarkerColorLocal "ColorRed";
-	_mrkFinal2 setMarkerTextLocal "Artillery Barrage End";
+	_mrkFinal2 setMarkerTextLocal localize "STR_antistasi_markers_art_end";
 	_ang = [_positionTel,_positionTel2] call BIS_fnc_dirTo;
 	sleep 5;
 	_eta = (_artyArrayDef1 select 0) getArtilleryETA [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)];

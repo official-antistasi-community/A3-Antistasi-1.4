@@ -5494,5 +5494,49 @@
         <Original>%2 deploying supplies in %1</Original>
       </Key>
     </Container>
+    <Container name="markers">
+      <Key ID="STR_antistasi_markers_art_begin">
+        <Original>Artillery Barrage Begin</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_art_strike">
+        <Original>Arty Strike</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_art_end">
+        <Original>Artillery Barrage End</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_convoy_obj">
+        <Original>Convoy Objective</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_veh">
+        <Original>Mission Vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_box">
+        <Original>Supply Box</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_OP">
+        <Original>%1 Observation Post</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_RB">
+        <Original>%1 Roadblock</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_Resources">
+        <Original>Resources</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_Factory">
+        <Original>Factory</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_Seaport">
+        <Original>Sea Port</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_radio">
+        <Original>Radio Tower</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_bomb_init">
+        <Original>Bomb Run Init</Original>
+      </Key>
+      <Key ID="STR_antistasi_markers_bomb_exit">
+        <Original>Bomb Run Exit</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

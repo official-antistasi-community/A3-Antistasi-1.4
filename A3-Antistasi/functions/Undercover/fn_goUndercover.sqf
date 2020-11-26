@@ -269,7 +269,7 @@ switch _changeX do {
 			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_vehStill"] call A3A_fnc_customHint;
 		};
 	case "distanceX":{
-			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_zone"] call A3A_fnc_customHint;
+			[localize "STR_antistasi_customHint_undercover", localize "STR_antistasi_customHint_undercover_zone_gotten"] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
 			if (vehicle _player != _player) then {
 				//_player setVariable ["compromised",[_compromised select 0,vehicle _player]];

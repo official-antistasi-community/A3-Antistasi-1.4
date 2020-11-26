@@ -22,7 +22,7 @@ _positionX = getMarkerPos _nearX;
 if (getMarkerPos _nearX distance _positionTel > 40) exitWith {[localize "STR_antistasi_customHint_garrisons", localize "STR_antistasi_customHint_garrisons_marker"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
 
 if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {[localize "STR_antistasi_customHint_garrisons", format [localize "STR_antistasi_customHint_garrisons_noBelong",nameTeamPlayer]] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
-if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {[localize "STR_antistasi_customHint_garrisons", localize "STR_antistasi_customHint_garrisons_enemy"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu"};
+if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {[localize "STR_antistasi_customHint_garrisons", localize "STR_antistasi_customHint_garrisons_enemyZone"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu"};
 //if (((_nearX in outpostsFIA) and !(isOnRoad _positionX)) /*or (_nearX in citiesX)*/ or (_nearX in controlsX)) exitWith {hint "You cannot manage garrisons on this kind of zone"; _nul=CreateDialog "garrison_menu"};
 _outpostFIA = if (_nearX in outpostsFIA) then {true} else {false};
 _wPost = if (_outpostFIA and !(isOnRoad getMarkerPos _nearX)) then {true} else {false};

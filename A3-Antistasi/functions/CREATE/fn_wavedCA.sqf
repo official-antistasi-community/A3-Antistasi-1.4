@@ -749,8 +749,8 @@ while {(_waves > 0)} do
 				{_x doMove _posOrigin} forEach _soldiersTotal;
 				if (_waves <= 0) then {[_mrkDestination,_mrkOrigin] call A3A_fnc_minefieldAAF};
 
-				["rebelAttack",[format ["STR_antistasi_mission_attack_text",_nameOrigin,_nameENY],format [localize "STR_antistasi_mission_attack_name",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,"SUCCEEDED"] call A3A_fnc_taskUpdate;
-				["rebelAttackPVP",[format ["STR_antistasi_mission_attackPVP_text2",_nameOrigin,_nameDest],format [localize "STR_antistasi_mission_attack_name",_nameENY],_mrkDestination],getMarkerPos _mrkDestination,"FAILED"] call A3A_fnc_taskUpdate;
+				["rebelAttack",[format [localize "STR_antistasi_mission_attack_text",_nameOrigin,_nameENY],format [localize "STR_antistasi_mission_attack_name",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+				["rebelAttackPVP",[format [localize "STR_antistasi_mission_attackPVP_text2",_nameOrigin,_nameDest],format [localize "STR_antistasi_mission_attack_name",_nameENY],_mrkDestination],getMarkerPos _mrkDestination,"FAILED"] call A3A_fnc_taskUpdate;
 				};
 			};
 		}

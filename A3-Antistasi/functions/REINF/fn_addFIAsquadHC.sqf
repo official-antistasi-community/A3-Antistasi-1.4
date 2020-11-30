@@ -70,7 +70,7 @@ if ((_withBackpck != "") and A3A_hasIFA) exitWith {[localize "STR_antistasi_cust
 
 if (_hr < _costHR) then {_exit = true; [localize "STR_antistasi_customHint_recruit_squad", format [localize "STR_antistasi_customHint_recruit_noHR",_costHR]] call A3A_fnc_customHint;};
 
-if (_resourcesFIA < _costs) then {_exit = true; [localize "STR_antistasi_customHint_recruit_squad", format ["STR_antistasi_customHint_recruit_noMoney",_costs]] call A3A_fnc_customHint;};
+if (_resourcesFIA < _costs) then {_exit = true; [localize "STR_antistasi_customHint_recruit_squad", format [localize "STR_antistasi_customHint_recruit_noMoney",_costs]] call A3A_fnc_customHint;};
 
 if (_exit) exitWith {};
 

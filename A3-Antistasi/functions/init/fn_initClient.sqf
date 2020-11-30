@@ -265,7 +265,7 @@ player addEventHandler ["WeaponAssembled", {
 		_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 		_pos = position _veh;
 		[_veh] call A3A_fnc_logistics_addLoadAction;
-		if (_markersX findIf {_pos inArea _x} != -1) then {["STR_antistasi_customHint_static_deployed", localize "STR_antistasi_customHint_static_deployed_use"] call A3A_fnc_customHint;};
+		if (_markersX findIf {_pos inArea _x} != -1) then {[localize "STR_antistasi_customHint_static_deployed", localize "STR_antistasi_customHint_static_deployed_use"] call A3A_fnc_customHint;};
 	};
 }];
 

@@ -24,7 +24,7 @@
         <Chinesesimp>总部选项：仅指挥官</Chinesesimp>
         <Korean>HQ 옵션: 지휘관 전용</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_close_text">
+      <Key ID="STR_antistasi_dialogs_hq_button_close_text"> <!-- TODO str_disp_close -->
         <Original>Close</Original>
         <English>Close</English>
         <French>Fermer</French>
@@ -186,7 +186,7 @@
         <Chinesesimp>建筑-驻军选项</Chinesesimp>
         <Korean>건축 - 주둔지 설정</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_build_button_no_text">
+      <Key ID="STR_antistasi_dialogs_build_button_no_text">	<!-- TODO str_usract_menu_back -->
         <Original>Back</Original>
         <English>Back</English>
         <French>Retour</French>
@@ -380,7 +380,7 @@
         <Chinesesimp>建立雷区</Chinesesimp>
         <Korean>지뢰지대 만들기</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_text">
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_text"> <!-- TODO str_a3_cfgmagazines_classicminerangemagazine0 -->
         <Original>APERS Mines</Original>
         <English>APERS Mines</English>
         <French>APERS Mines</French>
@@ -420,7 +420,7 @@
         <Chinesesimp>生成一个AI工程师来清除周围的地雷</Chinesesimp>
         <Korean>주변 지뢰지대를 제거할 AI 공병을 소환합니다.</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_text">
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_text"> <!-- TODO str_a3_cfgmagazines_mine0 -->
         <Original>AT Mines</Original>
         <English>AT Mines</English>
         <French>Mines AT</French>
@@ -534,10 +534,10 @@
       </Key>
     </Container>
     <Container name="dialog_generic">
-      <Key ID="STR_antistasi_dialogs_generic_box_text">
+      <Key ID="STR_antistasi_dialogs_generic_box_text"> <!-- TODO -->
         <Original />
       </Key>
-      <Key ID="STR_antistasi_dialogs_generic_button_back_text">
+      <Key ID="STR_antistasi_dialogs_generic_button_back_text"> <!-- TODO str_usract_menu_back -->
         <Original>Back</Original>
         <English>Back</English>
         <French>Retour</French>
@@ -547,7 +547,7 @@
         <Chinesesimp>返回</Chinesesimp>
         <Korean>뒤로</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_generic_button_back_tooltip">
+      <Key ID="STR_antistasi_dialogs_generic_button_back_tooltip"> <!-- TODO Dubl -->
         <Original>Back</Original>
         <English>Back</English>
         <French>Retour</French>
@@ -557,7 +557,7 @@
         <Chinesesimp>返回</Chinesesimp>
         <Korean>뒤로</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_generic_button_yes_text">
+      <Key ID="STR_antistasi_dialogs_generic_button_yes_text"> <!-- TODO str_lib_info_yes -->
         <Original>Yes</Original>
         <English>Yes</English>
         <French>Oui</French>
@@ -567,7 +567,7 @@
         <Chinesesimp>是</Chinesesimp>
         <Korean>예</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_generic_button_no_text">
+      <Key ID="STR_antistasi_dialogs_generic_button_no_text"> <!-- TODO str_lib_info_no -->
         <Original>No</Original>
         <English>No</English>
         <French>Non</French>
@@ -599,7 +599,7 @@
         <Chinesesimp>白手起家建立FIA军队,在一个完整的地图动态任务中击败AAF和CSAT部队.</Chinesesimp>
         <Korean>바닥부터 FIA 군을 일으켜 다이나믹 미션이 생성되는 맵 전체에서 AAF와 CSAT을 패퇴시키십시오.</Korean>
       </Key>
-      <Key ID="STR_antistasi_credits_generic_missionname_text">
+      <Key ID="STR_antistasi_credits_generic_missionname_text"> <!-- TODO Dubl -->
         <Original>Antistasi Altis</Original>
         <English>Antistasi Altis</English>
         <French>Antistasi Altis</French>
@@ -623,7 +623,7 @@
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
-      <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_text">
+      <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_text"> <!-- TODO Dubl -->
         <Original>Buy Vehicle</Original>
         <English>Buy Vehicle</English>
         <French>Acheter un véhicule</French>
@@ -685,7 +685,7 @@
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase_military">
-      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_quad_text">
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_quad_text"> <!-- TODO str_a3_cfgvehicles_quadbike_base_f0 -->
         <Original>ATV</Original>
         <English>Quadbike</English>
         <French>Quad</French>
@@ -695,7 +695,7 @@
         <Chinesesimp>四轮摩托车</Chinesesimp>
         <Korean>ATV</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mg_text">
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mg_text"> <!-- TODO str_dn_staticmgweapon -->
         <Original>Machine Gun</Original>
         <English>Machine Gun</English>
         <French>Mitrailleuse</French>
@@ -715,7 +715,7 @@
         <Chinesesimp>购买放置固定重机枪</Chinesesimp>
         <Korean>고정형 중기관총 구입</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_text">
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_text"> <!-- TODO str_a3_cfgmarkers_nato_mortar -->
         <Original>Mortar</Original>
         <English>Mortar</English>
         <French>Mortier</French>
@@ -817,7 +817,7 @@
         <Chinesesimp>购买民用载具</Chinesesimp>
         <Korean>민수차량 구입</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_offroad_text">
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_offroad_text"> <!-- TODO str_a3_cfgvehicles_offroad_base0 -->
         <Original>Offroad</Original>
         <English>Offroad</English>
         <French>Tout-Terrain</French>
@@ -827,7 +827,7 @@
         <Chinesesimp>越野车</Chinesesimp>
         <Korean>오프로드</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_truck_text">
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_truck_text"> <!-- TODO str_dn_truck -->
         <Original>Truck</Original>
         <English>Truck</English>
         <French>Camion</French>
@@ -837,7 +837,7 @@
         <Chinesesimp>卡车</Chinesesimp>
         <Korean>트럭</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_boat_text">
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_boat_text"> <!-- TODO str_a3_cfgvehicles_abandonedboats_base_f0 -->
         <Original>Boat</Original>
         <English>Boat</English>
         <French>Bateau</French>
@@ -847,7 +847,7 @@
         <Chinesesimp>汽艇</Chinesesimp>
         <Korean>보트</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_heli_text">
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_heli_text"> <!-- TODO str_dn_helicopter -->
         <Original>Helicopter</Original>
         <English>Helicopter</English>
         <French>Hélicoptère</French>
@@ -859,7 +859,7 @@
       </Key>
     </Container>
     <Container name="mission_info">
-      <Key ID="STR_antistasi_mission_info_altis_mapname_short_text">
+      <Key ID="STR_antistasi_mission_info_altis_mapname_short_text"> <!-- TODO Dubl -->
         <Original>Antistasi Altis</Original>
         <English>Antistasi Altis</English>
         <Russian>Antistasi Алтис</Russian>
@@ -1434,7 +1434,7 @@
         <Korean>전략 요충지 또는 공항을 점령할 때 적들이 쉽게 내줄 거라 기대하지 마시오. 적들은 가능한 선에서 보낼 수 있는 모든 것을 보낼 것입니다. 만약 점령 후 반격이 예상된다면, 도망가는 것도 좋은 선택입니다.</Korean>
         <Russian>Не ожидайте легкой контратаки при захвате стратегических зон, таких как ресурсы или аэропорты. Враг пошлет все, что сможет, если возможно. Если вы захватываете зону и ожидаете контратаки, бегство - хороший вариант.</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_tutorial_5">
+      <Key ID="STR_antistasi_journal_entry_header_tutorial_5"> <!-- TODO Dubl -->
         <Original>Resources</Original>
         <English>Resources</English>
         <French>Ressources</French>
@@ -1676,7 +1676,7 @@
         <Korean>지뢰지대를 건설하려면 공병 트럭을 원하는 위치에 가져가야합니다. 그 후로는 아무도 그 지역을 안전히 통과할 수 없습니다 (아군도 마찬가지이므로 주의해야합니다). 지뢰(대인 그리고 대전차)는 아군 탄약박스에서 사용합니다. 지뢰지대의 지뢰 종류와 한도는 탄약박스 재고에 따라 달라집니다. 지뢰지대를 제거하려면 지뢰를 해제해야합니다.</Korean>
         <Russian>Отведите грузовик инженеров в нужное место, чтобы построить минное поле. Прикрывайте их, пока они устанавливают мины. С этого момента никто не сможет безопасно пройти через территорию (даже ваши собственные отряды, поэтому используйте их с осторожностью). Мины (ПТ и ПП) берутся из вашего боеприпаса. Количество мин в поле будет зависеть от содержимого вашего ящика с боеприпасами, вплоть до макс. количество в зависимости от типа минного поля. Удалите эти минные поля, чтобы восстановить мины</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_commander_11">
+      <Key ID="STR_antistasi_journal_entry_header_commander_11"> <!-- TODO Dubl -->
         <Original>Sell Vehicle</Original>
         <French>Vendre le véhicule</French>
         <German>Fahrzeuge verkaufen</German>
@@ -1929,7 +1929,7 @@
         <Original>Scavenge for items, weapons and magazines and put them in your HQ Ammobox. Once you have a specific amount of an them, they will be unlocked and added to the Arsenal for personal use (and for your Faction squads).&lt;br/&gt;The amount required to unlock depends on how many assets the Faction has unlocked and the number of factories owned. Unlocked weapons, optics and night-vision Googles may also change AI load-out. Basic militiamen are especially affected by this: their load-out will start from small SMGs and progress to having an extra AA / AT launcher. Please note this will not affect their dress, which will depend on the current Faction Skill Level (helmets and uniform). Arsenal is the standard BIS Arsenal, check their documentation for interaction and use.&lt;br/&gt;&lt;br/&gt;To see the amounts required to unlock each group of items, open the HQ Ammobox and you will receive a detailed report on the right.</Original>
         <French>Récupérez des objets, des armes et des magazines et mettez-les dans votre Arsenal au QG. Une fois que vous en avez un nombre spécifique, ils seront déverrouillés et ajoutés à l'arsenal pour un usage personnel (et pour vos escouades de faction).&lt;br/&gt;Le montant requis pour déverrouiller dépend du nombre d'actifs débloqués par la faction et du nombre d'usines possédées. Les armes déverrouillées, les viseurs et les lunettes de vision nocturne peuvent également modifier les équipements de vos IA. Les miliciens de base sont particulièrement touchés par cela: leur équipement commencera par de petites SMG et passera à un lanceur AA / AT supplémentaire. Veuillez noter que cela n'affectera pas leur tenue, qui dépendra du niveau de compétence de faction actuel (casques et uniformes). Arsenal est l'arsenal BIS standard, consultez leur documentation pour l'interaction et l'utilisation.&lt;br/&gt;&lt;br/&gt;Pour voir les montants nécessaires pour déverrouiller chaque groupe d'articles, ouvrez l'Arsenal au QG et vous recevrez un rapport détaillé sur la droite.</French>
         <German>Sammle Gegenstände, Waffen und Magazine, um sie in das Munitionslager deines HQs abzulegen. Sobald du eine bestimmte Anzahl eines Gegenstands vorrätig hast, wird er im Arsenal für den persönlichen Gebrauch durch dich und den Gruppen deiner Fraktion freigeschaltet.&lt;br/&gt;Die benötigte Anzahl zur Freischaltung hängt davon ab, wie viele Gegenstände die Fraktion bereits freigeschaltet hat und wie viele Fabriken im Besitz der Fraktion sind. Freigeschaltete Waffen, Visiere und Nachtsichtgeräte können auch die Ausrüstung deiner KI Einheiten verändern. Einfache Milizen sind davon im speziellen betroffen: Ihre Ausrüstung ist zu Beginn ein einfaches SMG und erweitert sich auf zusätzliche Luft- und Panzerabwehrwaffen. Beachte, dass dies nicht ihre Kleidung (Uniform und Helm) beeinflusst, da dies von dem Fertigkeitslevel der Fraktion abhängt. Das Arsenal ist das standard BI Arsenal, also nutze die darüber verfügbare Dokumentation für Bedienungshinweise.&lt;br/&gt;&lt;br/&gt;Um die notwendige Anzahl zum Freischalten von Gegenständen einzusehen, öffne das Munitionslager im HQ und du erhälst eine Auflistung am rechten Bildschirmrand.</German>
-        <Czech>Hledejte předměty, zbraně a zásobníky a vložte je do svého arzenálu. Jakmile budete mít určité množství z nich, budou odemčeny a přidány do Arzenálu pro osobní potřebu (a pro vaše frakce družstva).&lt;br/&gt;Částka potřebná k odemčení závisí na tom, kolik aktiv frakce odemkla a počet vlastněných továren. Odemčené zbraně, optika a noční vidění může také změnit vybavení AI. Základní milicionáři jsou tímto obzvláště postiženi: jejich vybavení začne od malých SMG až po odpalovací zařízení AA / AT. Vezměte prosím na vědomí, že to nebude mít vliv na jejich oblečení, které bude záviset na aktuální úrovni dovedností frakce (přilby a uniformy). Arzenal je standardní BIS Arsenal, zkontrolujte jejich dokumentaci pro interakci a použití.&lt;br/&gt;&lt;br/&gt; Chcete-li zobrazit částky potřebné k odemknutí každé skupiny položek, otevřete okno hq a obdržíte podrobnou zprávu vpravo.</Czech>
+        <Czech>Hledejte předměty, zbraně a zásobníky a vložte je do svého arzenálu. Jakmile budete mít určité množství z nich, budou odemčeny a přidány do Arzenálu pro osobní potřebu (a pro vaše frakce družstva).&lt;br/&gt;Částka potřebná k odemčení závisí na tom, kolik aktiv frakce odemkla a počet vlastněných továren. Odemčené zbraně, optika a noční vidění může také změnit vybavení AI. Základní milicionáři jsou tímto obzvláště postiženi: jejich vybavení začne od malých SMG až po odpalovací zařízení AA / AT. Vezměte prosím na vědomí, že to nebude mít vliv na jejich oblečení, které bude záviset na aktuální úrovni dovedností frakce (přilby a uniformy). Arzenal je standardní BIS Arsenal, zkontrolujte jejich dokumentaci pro interakci a použití.&lt;br/&gt;&lt;br/&gt;Chcete-li zobrazit částky potřebné k odemknutí každé skupiny položek, otevřete okno hq a obdržíte podrobnou zprávu vpravo.</Czech>
         <Chinesesimp>清除项目, 武器和弹匣放在你的总部弹药箱里.一旦你有一个特定的数量,他们将被解锁并添加到武器库供个人使用（并为你的派系小队使用).&lt;br/&gt;解锁所需的数量取决于该派系解锁的资产数量和拥有的工厂数量.解锁的武器,光学和夜视谷歌也可能改变人工智能的负荷.基本民兵尤其受此影响：他们的装载将从小型小型小型导弹开始,并逐步增加一个额外的防空/反坦克发射器.请注意,这不会影响他们的着装,这将取决于当前的派系技能水平（头盔和制服）.阿森纳是标准的BIS阿森纳,查看他们的文档以进行交互和使用.&lt;br/&gt;若要查看解锁每组项目所需的金额,请打开HQ弹药箱,您将收到右侧的详细报告.</Chinesesimp>
         <Korean>아이템, 무기 탄약을 모아 HQ 탄약박스에 넣으십시오. 아이템이 특정 갯수가 넘으면 아스널에서 언락되고 개인적으로 사용할수 있습니다(AI 분대도 포함).&lt;br/&gt;언락하기 위한 조건은 팩션 자금과 점령한 공장 수에 따라 다릅니다. 언락된 무기, 광학장비, 야시경은 AI병사 장비도 바꿀 수 있습니다. 기본적인 민병대원는 언락된 무기에 영향받아 SMG에서 시작해서 중방비(AA/AT)까지 무장합니다. 팩션 스킬 레벨(헬멧과 유니폼)에 따라 달라지는 그들의 복장에는 영향을 주지 않습니다. 아스널은 표준 BIS 아스널입니다. 자세한건 BIS 문서를 확인하십시오.&lt;br/&gt;&lt;br/&gt;각 항목의 언락 조건을 보려면 HQ 탄약상자를 열면 오른쪽에 자세한 정보가 제공됩니다.</Korean>
         <Russian>Найдите предметы, оружие и журналы и положите их в ящик для боеприпасов в штаб-квартире. Как только у вас будет определенное количество их, они будут разблокированы и добавлены в Арсенал для личного использования (и для ваших отрядов фракции). &lt;br/&gt; Количество, необходимое для разблокировки, зависит от того, сколько активов разблокировала фракция. и количество принадлежащих фабрик. Разблокированное оружие, оптика и очки ночного видения также могут изменить загрузку ИИ. Это особенно касается обычных ополченцев: их снаряжение начнется с небольших пистолетов-пулеметов и перейдет к дополнительным зенитным / противотанковым гранатометам. Обратите внимание, это не повлияет на их одежду, которая будет зависеть от текущего уровня навыков фракции (шлемы и униформа). Арсенал - это стандартный арсенал BIS, проверьте его документацию для взаимодействия и использования. &lt;br/&gt;&lt;br/&gt; Чтобы увидеть суммы, необходимые для разблокировки каждой группы предметов, откройте HQ Ammobox, и вы получите подробный отчет справа</Russian>
@@ -2042,7 +2042,7 @@
         <Korean>트럭에 박스를 올릴때, 작업메뉴에서 전송을 눌러야합니다. 가까운 탄약박스을 찾아 트럭 환물칸에 옮깁니다. 그리고 미래의 HQ로 사용할 장소에 탄약박스를 내릴 수 있습니다. 옮기기전 가방과 조끼 내용물을 트럭 화물칸에 두고 운반해야합니다. 팁: 본부 탄약 상자가 가득 찬 경우 근처트럭에서 이 기능을 사용하여 탄약상자에 더 많은 짐들을 넣을수 있습니다 :)</Korean>
         <Russian>Когда вы садитесь на грузовик, вы можете использовать действие «Переместить» в меню действий. Он будет искать ближайшие боеприпасы и загружать содержимое ближайшего в грузовое пространство грузовика. Затем вы можете разгрузить грузовик в свой боезапас в штаб-квартире для будущего использования. Перед перемещением убедитесь, что содержимое рюкзака / жилета выгружено в грузовое пространство грузовика, а затем перенесите его. СОВЕТ: если ваш штаб-квартира с боеприпасами заполнена, используйте эту функцию из ближайшего грузовика, чтобы добавить больше содержимого в ящик с боеприпасами, поскольку он будет принимать все</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Features_11">
+      <Key ID="STR_antistasi_journal_entry_header_Features_11">  <!-- TODO str_a3_fastravel1 -->
         <Original>Fast Travel</Original>
         <French>Téléportation</French>
         <German>Schnellreise</German>
@@ -2453,7 +2453,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_1">
         <Original>There is an All vs All war in %4. %1 and %2 are constantly attacking each other, but that does not mean they don't shoot at %3 on first sight.&lt;br/&gt;&lt;br/&gt;%1 and %2 Aggro points represent how much threat they see in %3 faction.&lt;br/&gt;&lt;br/&gt;Generally speaking those points will low or raise depending on your actions against them and civilians.</Original>
-        <French>Il y a une guerre tous contre tous dans %4. %1 et %2 s'attaquent constamment, mais cela ne signifie pas qu'ils ne tirent pas sur %3 à première vue.&lt;br/&gt;&lt;br/&gt; Les points %1 et %2 Aggro représentent la menace qu'ils voient dans la faction  %3.&lt;br/&gt;&lt;br/&gt;De manière générale, cette valeur augmentera et baissera en fonction de vos actions contre eux et les civils.</French>
+        <French>Il y a une guerre tous contre tous dans %4. %1 et %2 s'attaquent constamment, mais cela ne signifie pas qu'ils ne tirent pas sur %3 à première vue.&lt;br/&gt;&lt;br/&gt;Les points %1 et %2 Aggro représentent la menace qu'ils voient dans la faction  %3.&lt;br/&gt;&lt;br/&gt;De manière générale, cette valeur augmentera et baissera en fonction de vos actions contre eux et les civils.</French>
         <German>Es ist ein Jeder gegen Jeden Krieg in %4. %1 und %2 greifen sind ununterbrochen gegenseitig an. Dies bedeutet aber nicht, dass sie nicht bei Kontakt direkt %3 angreifen.&lt;br/&gt;&lt;br/&gt;%1 und %2 Aggressivitätspunkte zeigen an, wie hoch diese die Bedrohung der %3 Fraktion einschätzen.&lt;br/&gt;&lt;br/&gt;Grundsätzlich erhöhen und verringern sich diese Werte gemäß deinen Unternehmungen gegen die jeweilige Fraktion oder die Zivilbevölkerung.</German>
         <Czech>V %4 je válka Všichni proti Všem. %1 a %2 neustále útočí na sebe, ale to neznamená, že na první pohled nestřílejí na %3.&lt;br/&gt;&lt;br/&gt;%1 a %2 Aggro body představují to, jak velkou hrozbu představují vidět ve frakci %3.&lt;br/&gt;&lt;br/&gt;Obecně řečeno, tyto body se budou snižovat nebo zvyšovat v závislosti na vašem jednání proti nim a civilistům.</Czech>
         <Chinesesimp>%4 中发生了一场全场大战.%1 和 %2一直在互相攻击，但这并不意味着它们不会对 %3 一见钟情.&lt;br/&gt;&lt;br/&gt;％1和％2 Aggro点代表他们在％3派系中看到的威胁程度.一般来说,&lt;br/&gt;&lt;br/&gt;根据您对他们和平民采取的行动，这些观点会降低或提高。</Chinesesimp>
@@ -2495,7 +2495,7 @@
         <Korean>자금은 두가지가 있습니다. 팩션 자금 (지휘관만 사용 가능)과 개인 자금. 개인 자금은 각 플레이어가 차량, 혹은 인력을 구매하는데 쓸수 있습니다. 팩션은 세금과 미션 완수로 자금을 벌수 있습니다. 개인 자금 또한 미션 완수, 킬 포인트 등으로 얻을수 있습니다. Y 메뉴를 사용해 팩션에 자금 기부가 가능합니다. 지휘관은 팩션 자금에서 인출이 가능합니다.</Korean>
         <Russian>В MP-играх есть два пула денег. Деньги фракции, предназначенные только для командиров, и личные деньги. Любой игрок может использовать личные деньги для найма ИИ или покупки транспортных средств. Фракция зарабатывает деньги налогами и выполнением миссий. Личные деньги поступают от убийства врагов и выполнения миссий. Варианты перевода или пожертвования денег находятся в меню Y. Командир может забрать деньги из пула фракций на свой счет.</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Diary_4">
+      <Key ID="STR_antistasi_journal_entry_header_Diary_4"> <!-- TODO Dubl -->
         <Original>Money</Original>
         <French>Argent</French>
         <German>Geld</German>
@@ -2513,7 +2513,7 @@
         <Korean>자금은 각 도시의 지원, 자원지대 점령, 공장 점령( 경제력 버프 ) , 그리고 파워 플랜트 ( 점거시 상대방의 자원줄 타격을 입힙니다.) 으로 수급됩니다. 자금으로는 차량, 인력 등을 고용할수 있습니다.</Korean>
         <Russian>Деньги поступают из поддержки граждан в каждом городе, завоеванных ресурсов, завоеванных заводов (которые стимулируют экономику) и энергии, предоставляемой всем им с помощью близлежащей дружественной электростанции (вы также можете победить их, чтобы отрезать денежную массу врагу). Деньги идут на покупку техники, юнитов и отрядов.</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Diary_5">
+      <Key ID="STR_antistasi_journal_entry_header_Diary_5"> <!-- TODO Dubl -->
         <Original>Resources</Original>
         <French>Ressources</French>
         <German>Ressourcen</German>
@@ -2586,7 +2586,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_gamemode_4">
         <Original>All vs All war.&lt;br/&gt;&lt;br/&gt;%1 and %2 will attack each other and both to %3.</Original>
-        <French>Guerre tous contre tous.&lt;br/&gt;&lt;br/&gt; %1 et %2 s’attaqueront tous les deux et aussi à %3.</French>
+        <French>Guerre tous contre tous.&lt;br/&gt;&lt;br/&gt;%1 et %2 s’attaqueront tous les deux et aussi à %3.</French>
         <German>Krieger jeder gegen jeden.&lt;br/&gt;%1 und %2 werden einander und %3 bekämpfen.</German>
         <Czech>Všichni vs Všem válka.&lt;br/&gt;&lt;br/&gt;%1 a %2 zaútočí na sebe a oba na %3.</Czech>
         <Chinesesimp>All vs All 战争&lt;br/&gt;&lt;br/&gt;%1 和 %2 会互相攻击 %3</Chinesesimp>
@@ -2662,8 +2662,8 @@
       <Key ID="STR_antistasi_journal_entry_text_Credits_1">
         <Original>UPSMon by Monsada, Kronzy and Cool=Azroul13.&lt;br/&gt;Persistent Save by zooloo75.&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;JAS by Jeroen (sorry for including you that late)&lt;br/&gt;Advanced Towing by Seth Duda.</Original>
         <German>UPSMon von Monsada, Kronzy und Cool=Azroul13.&lt;br/&gt;Persistent Save von zooloo75.&lt;br/&gt;Tags von Marker und Melbo.&lt;br/&gt;JAS von Jeroen (Entschuldige, dass es so lange gedauert hat dich hinzuzufügen)&lt;br/&gt;Advanced Towing von Seth Duda.</German>
-        <Czech>UPSMon od Monsada, Kronzy and Cool = Azroul13 &lt;br/&gt;Trvalé Uložit podle zooloo75.&lt;br/&gt;Štítky Marker a Melbo.&lt;br/&gt;JAS od Jeroen (omlouvám se za to, že jste byli pozdě)&lt;br/&gt;Štítky od Markera a Melba.&lt;br/&gt;Rozšířené tažení od Setha Dudy.</Czech>
-        <Korean>UPSMon 제공 : Monsada, Kronzy and Cool=Azroul13.&lt;br/&gt;Persistent Save 제공 : zooloo75.&lt;br/&gt;태그 제공 : Marker and Melbo.&lt;br/&gt;JAS 제공: Jeroen &lt;br/&gt;Advanced Towing 제공 : Seth Duda.</Korean>
+        <Czech>UPSMon od Monsada, Kronzy and Cool = Azroul13&lt;br/&gt;Trvalé Uložit podle zooloo75.&lt;br/&gt;Štítky Marker a Melbo.&lt;br/&gt;JAS od Jeroen (omlouvám se za to, že jste byli pozdě)&lt;br/&gt;Štítky od Markera a Melba.&lt;br/&gt;Rozšířené tažení od Setha Dudy.</Czech>
+        <Korean>UPSMon 제공 : Monsada, Kronzy and Cool=Azroul13.&lt;br/&gt;Persistent Save 제공 : zooloo75.&lt;br/&gt;태그 제공 : Marker and Melbo.&lt;br/&gt;JAS 제공: Jeroen&lt;br/&gt;Advanced Towing 제공 : Seth Duda.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Credits_2">
         <Original>Mods</Original>
@@ -2677,7 +2677,7 @@
       <Key ID="STR_antistasi_journal_entry_text_Credits_2">
         <Original>Integrated (optional) Mods:&lt;br/&gt;TFAR: Radio integrated in Arsenal. Sound disabled when player is unconscious.&lt;br/&gt;ACE Medical: Will disable Antistasi revive system.&lt;br/&gt;&lt;br/&gt;CAUTION: The use of Persistent Save system with TFAR and any weapon mod activated will make them mandatory in future.&lt;br/&gt;&lt;br/&gt;Any client sided Mod, such as JSRS, Blastcore, UI Mod should work.&lt;br/&gt;&lt;br/&gt;Units and vehicles mods won't work. AI Mods may cause malfunctions (in any case Antistasi has heavy AI tweaking).</Original>
         <German>Integrierte (optionale) Mods:&lt;br/&gt;TFAR: Funkgerät in Arsenal integriert. Sound deaktiviert, wenn der Spieler bewusstlos ist.&lt;br/&gt;ACE Medical: Deaktiviert das Antistasi Revive System.&lt;br/&gt;VORSICHT: Die Speicherung des Spielstands mit TFAR oder jedglicher Mod für Waffen führt dazu, dass diese Mods bis zum Ende notwendig sind.&lt;br/&gt;&lt;br/&gt;Jeder clientseitige Mod, wie z.B. JSRS, Blastcore oder UI Mod sollte funktionieren.&lt;br/&gt;Einheiten und Fahrzeuge aus Mods funktionieren nicht. KI Mods können zu Fehlern führen. (Antistasi hat in jedem Fall viel am KI Verhalten geändert)</German>
-        <Czech>Integrované (volitelné) Módy:&lt;br/&gt;TFAR: Rádio integrované v Arsenalu. Zvuk je deaktivován, když je hráč v bezvědomí.&lt;br/&gt;ACE Lékař: Vypne Antistasi revive system.&lt;br/&gt;&lt;br/&gt;UPOZORNĚNÍ: Používání systému Uložení hry s TFAR a jakýmkoli aktivovaným módem zbraně je v budoucnosti povinné.&lt;br/&gt;&lt;br/&gt; Mód by měl fungovat. Módy pro jednotky a vozidla nebudou fungovat.&lt;br/&gt;&lt;br/&gt; Režimy AI mohou způsobit poruchy (v každém případě má Antistasi těžké vylepšení AI).</Czech>
+        <Czech>Integrované (volitelné) Módy:&lt;br/&gt;TFAR: Rádio integrované v Arsenalu. Zvuk je deaktivován, když je hráč v bezvědomí.&lt;br/&gt;ACE Lékař: Vypne Antistasi revive system.&lt;br/&gt;&lt;br/&gt;UPOZORNĚNÍ: Používání systému Uložení hry s TFAR a jakýmkoli aktivovaným módem zbraně je v budoucnosti povinné.&lt;br/&gt;&lt;br/&gt;Mód by měl fungovat. Módy pro jednotky a vozidla nebudou fungovat.&lt;br/&gt;&lt;br/&gt;Režimy AI mohou způsobit poruchy (v každém případě má Antistasi těžké vylepšení AI).</Czech>
         <Korean>추가적인 모드들&lt;br/&gt;TFAR: 라디오 대체, 쓰러졌을 경우 라디오 비활성화&lt;br/&gt;ACE Medical: 안티스타시 기존 리바이브 시스템 대체.&lt;br/&gt;&lt;br/&gt;주의: 해당 모드들을 사용 한 채로 저장을 하면, 그 이후에도 계속 사용해야 함.&lt;br/&gt;&lt;br/&gt;클라이언트 사이드 모드, 가령 jsrs, 블라스트 코어, UI 모드들은 상관 없음..&lt;br/&gt;&lt;br/&gt;유닛과 차량 모드들은 적용되지 않고, AI 모드는 적용시 불량이 날수 있습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Credits_3">
@@ -3486,7 +3486,7 @@
       <Key ID="STR_antistasi_customHint_AI_limiter">
         <Original>AI Limiter</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_music">
+      <Key ID="STR_antistasi_customHint_music"> <!-- TODO str_a3_rscattributemusic_title -->
         <Original>Music</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_music_off">
@@ -3513,7 +3513,7 @@
       <Key ID="STR_antistasi_customHint_mission_request">
         <Original>Mission Request</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_money">
+      <Key ID="STR_antistasi_customHint_money"> <!-- TODO Dubl -->
         <Original>Money</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_medical">
@@ -3574,13 +3574,13 @@
       <Key ID="STR_antistasi_customHint_resign">
         <Original>Resign Commander</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_sell_veh">
+      <Key ID="STR_antistasi_customHint_sell_veh"> <!-- TODO Dubl -->
         <Original>Sell Vehicle</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_membership">
         <Original>Membership</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_artillery">
+      <Key ID="STR_antistasi_customHint_artillery"> <!-- TODO str_a3_tactics_artillerycall1 -->
         <Original>Artillery Support</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_no_select">
@@ -3653,7 +3653,7 @@
         <Original>Closest Ammobox is empty</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_cargo_loading">
-        <Original>Truck loading. &lt;br/&gt; Time remaining: %1 secs</Original>
+        <Original>Truck loading.&lt;br/&gt;Time remaining: %1 secs</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_cargo_closer">
         <Original>Bring vehicle closer</Original>
@@ -3691,7 +3691,7 @@
       <Key ID="STR_antistasi_customHint_unit_recruit_enemies">
         <Original>You cannot recruit units while there are enemies near you</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_buy_vehicle">
+      <Key ID="STR_antistasi_customHint_buy_vehicle"> <!-- TODO Dubl -->
         <Original>Buy Vehicle</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_buy_vehicle_enemies">
@@ -3704,7 +3704,7 @@
         <Original>The repair box has been used in the last 30 seconds! Please wait for a bit.</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_heal_repair_text">
-        <Original>Nearby units have been healed, refreshed, and can go undercover again. &lt;br/&gt; Nearby vehicles have been repaired, rearmed, and are no longer reported</Original>
+        <Original>Nearby units have been healed, refreshed, and can go undercover again.&lt;br/&gt;Nearby vehicles have been repaired, rearmed, and are no longer reported</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_ear">
         <Original>Ear Plugs</Original>
@@ -3725,7 +3725,7 @@
         <Original>HQ Garrison will stay here and hold the enemy</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_moveHQ_garrison_remove">
-        <Original>Garrison removed &lt;br/&gt; &lt;br/&gt; Recovered Money: %1 €&lt;br/&gt; Recovered HR: %2</Original>
+        <Original>Garrison removed&lt;br/&gt;&lt;br/&gt;Recovered Money: %1 €&lt;br/&gt;Recovered HR: %2</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_moveHQ_being">
         <Original>The asset you want to move is being moved by another player</Original>
@@ -3757,7 +3757,7 @@
       <Key ID="STR_antistasi_customHint_capture_enemy">
         <Original>The enemy still outnumber us, check the map and clear the rest of the area</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_fast_travel">
+      <Key ID="STR_antistasi_customHint_fast_travel"> <!-- TODO Dubl -->
         <Original>Fast Travel</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_fast_travel_enemy">
@@ -3815,7 +3815,7 @@
         <Original>We can only deploy / delete one Observation Post or Roadblock at a time.</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_map">
-        <Original>Click on the position you wish to build the Observation Post or Roadblock. &lt;br/&gt; &lt;br/&gt; Remember: to build Roadblocks you must click exactly on a road map section</Original>
+        <Original>Click on the position you wish to build the Observation Post or Roadblock.&lt;br/&gt;&lt;br/&gt;Remember: to build Roadblocks you must click exactly on a road map section</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_delete">
         <Original>Click on the Observation Post or Roadblock to delete</Original>
@@ -3830,13 +3830,13 @@
         <Original>No post nearby</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_no_resources">
-        <Original>You lack of resources to build this Outpost or Roadblock &lt;br/&gt; &lt;br/&gt; %1 HR and %2 € needed</Original>
+        <Original>You lack of resources to build this Outpost or Roadblock&lt;br/&gt;&lt;br/&gt;%1 HR and %2 € needed</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_HQ_position">
         <Original>HQ Position</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_HQ_close">
-        <Original>Place selected is very close to enemy zones. &lt;br/&gt; &lt;br/&gt; Please select another position</Original>
+        <Original>Place selected is very close to enemy zones.&lt;br/&gt;&lt;br/&gt;Please select another position</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_HQ_water">
         <Original>Selected position cannot be in water</Original>
@@ -3928,7 +3928,7 @@
       <Key ID="STR_antistasi_customHint_unlock_destroy">
         <Original>You cannot unlock destroyed</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_unlock_busy">
+      <Key ID="STR_antistasi_customHint_unlock_busy"> <!-- TODO str_a3_boot_m03_d01_situation_lac_4 -->
         <Original>Are you kidding?</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_unlock_no_used">
@@ -3955,7 +3955,7 @@
       <Key ID="STR_antistasi_customHint_cleared_forest">
         <Original>You've cleared the surroundings of trees and bushes</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_minefields">
+      <Key ID="STR_antistasi_customHint_minefields"> <!-- TODO Dubl -->
         <Original>Minefields</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_one">
@@ -3971,7 +3971,7 @@
         <Original>Not enough resources to recruit a mine deploying team (%1 € and %2 HR needed)</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_HC">
-        <Original>An Explosive Specialist is available on your High Command bar. &lt;br/&gt; &lt;br/&gt; Send him anywhere on the map to deactivate mines. He will load his truck with mines he found. &lt;br/&gt; &lt;br/&gt; Upon returning back to HQ he will unload mines stored in his vehicle</Original>
+        <Original>An Explosive Specialist is available on your High Command bar.&lt;br/&gt;&lt;br/&gt;Send him anywhere on the map to deactivate mines. He will load his truck with mines he found.&lt;br/&gt;&lt;br/&gt;Upon returning back to HQ he will unload mines stored in his vehicle</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_no_mine">
         <Original>You need at least 5 mines of this type to build a Minefield</Original>
@@ -3979,7 +3979,7 @@
       <Key ID="STR_antistasi_customHint_minefields_map">
         <Original>Click on the position you wish to build the minefield</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_skipTime">
+      <Key ID="STR_antistasi_customHint_skipTime"> <!-- TODO str_a3_cfgvehicles_moduleskiptime_f_0 -->
         <Original>Skip Time / Rest</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_skipTime_enemy">
@@ -4003,7 +4003,7 @@
       <Key ID="STR_antistasi_customHint_squad_recruit">
         <Original>Squad Recruit</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_garage">
+      <Key ID="STR_antistasi_customHint_garage"> <!-- TODO Dubl str_a3_garage -->
         <Original>Garage</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_unable_open">
@@ -4090,7 +4090,7 @@
       <Key ID="STR_antistasi_customHint_static_deployed_use">
         <Original>Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_warning">
+      <Key ID="STR_antistasi_customHint_warning"> <!-- TODO STR_A3_C_in1_notifLeaving_AoA1_title -->
         <Original>Warning</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_other_group">
@@ -4100,21 +4100,21 @@
         <Original>You are not in the member's list, but as you are Server Admin, you have been added. Welcome!</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_welcome_guest">
-        <Original>Welcome Guest &lt;br/&gt; &lt;br/&gt; You have joined this server as guest</Original>
+        <Original>Welcome Guest&lt;br/&gt;&lt;br/&gt;You have joined this server as guest</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_game_options">
+      <Key ID="STR_antistasi_customHint_game_options"> <!-- TODO str_disp_options_game_options -->
         <Original>Game Options</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_maps_info_intro">
-        <Original>Antistasi - %2 &lt;br/&gt; &lt;br/&gt; Version: %1 &lt;br/&gt; &lt;br/&gt; Difficulty: %3 &lt;br/&gt; Unlock Weapon Number: %4 &lt;br/&gt; Limited Fast Travel: %5</Original>
+        <Original>Antistasi - %2&lt;br/&gt;&lt;br/&gt;Version: %1&lt;br/&gt;&lt;br/&gt;Difficulty: %3&lt;br/&gt;Unlock Weapon Number: %4&lt;br/&gt;Limited Fast Travel: %5</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_city_info">
         <Original>City Information</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_city_stat">
-        <Original>%7 &lt;br/&gt; &lt;br/&gt; Total pop: %1 &lt;br/&gt; %6 Support: %2 &lt;br/&gt; %5 Support: %3 &lt;br/&gt; &lt;br/&gt; Murdered Pop: %4 &lt;br/&gt; &lt;br/&gt; Click on the zone</Original>
+        <Original>%7&lt;br/&gt;&lt;br/&gt;Total pop: %1&lt;br/&gt;%6 Support: %2&lt;br/&gt;%5 Support: %3&lt;br/&gt;&lt;br/&gt;Murdered Pop: %4&lt;br/&gt;&lt;br/&gt;Click on the zone</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_intel">
+      <Key ID="STR_antistasi_customHint_intel"> <!-- TODO str_disp_intel_title -->
         <Original>Intel</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_intel_taken">
@@ -4223,7 +4223,7 @@
         <Original>FIA has not enough resources to grab</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_grabed">
-        <Original>You grabbed 100 € from the %1 Money Pool. &lt;br/&gt; &lt;br/&gt; This will affect your prestige and status among %1 forces</Original>
+        <Original>You grabbed 100 € from the %1 Money Pool.&lt;br/&gt;&lt;br/&gt;This will affect your prestige and status among %1 forces</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_eligible_suc">
         <Original>You resign from being commander, choosing %1 as your successor</Original>
@@ -4283,7 +4283,7 @@
         <Original>Enough then</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_FF_forgiven">
-        <Original>An admin looks with pity upon your soul. &lt;br/&gt; You have been forgiven.</Original>
+        <Original>An admin looks with pity upon your soul.&lt;br/&gt;You have been forgiven.</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_FF_wait">
         <Original>Please do not teamkill. Stare at the turtles for %1 more seconds</Original>
@@ -4334,7 +4334,7 @@
         <Original>You do not have enough money for this request (%1 € required)</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_recruit_info">
-        <Original>Group %1 at your command. &lt;br/&gt; &lt;br/&gt; Groups are managed from the High Command bar (Default: CTRL+SPACE) &lt;br/&gt; &lt;br/&gt; If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP) &lt;br/&gt; &lt;br/&gt; To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</Original>
+        <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_recruit_veh">
         <Original>Vehicle Purchased</Original>
@@ -4573,7 +4573,7 @@
       <Key ID="STR_antistasi_customHint_vehInfo_HC">
         <Original>You must select one group on the HC bar</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_revive">
+      <Key ID="STR_antistasi_customHint_revive"> <!-- TODO STR_A3_Revive -->
         <Original>Revive</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_revive_already">
@@ -4624,7 +4624,7 @@
       <Key ID="STR_antistasi_customHint_save_start">
         <Original>Starting persistent save...</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_undercover">
+      <Key ID="STR_antistasi_customHint_undercover"> <!-- TODO Dubl -->
         <Original>Undercover</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_undercover_ctrlAI">
@@ -4700,7 +4700,7 @@
         <Original>Member Distance</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_memberDistance_tp">
-        <Original>You have to get closer to the HQ or the closest server member in %1 seconds. &lt;br/&gt;&lt;br/&gt; After this timeout you will be teleported to your HQ</Original>
+        <Original>You have to get closer to the HQ or the closest server member in %1 seconds.&lt;br/&gt;&lt;br/&gt;After this timeout you will be teleported to your HQ</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_unitTraits">
         <Original>Unit Traits</Original>
@@ -4759,7 +4759,7 @@
       <Key ID="STR_antistasi_customHint_startPosition">
         <Original>Initial HQ Placement Selection</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_petrosDead">
+      <Key ID="STR_antistasi_customHint_petrosDead"> <!-- TODO Dubl -->
         <Original>%1 is Dead</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_garage1">
@@ -4779,7 +4779,7 @@
       <Key ID="STR_antistasi_addAction_trans_ammo_to_truck">
         <Original>Transfer Ammobox to Truck</Original>
       </Key>
-      <Key ID="STR_antistasi_addAction_revive">
+      <Key ID="STR_antistasi_addAction_revive"> <!-- TODO STR_A3_ReviveName -->
         <Original>Revive %1</Original>
       </Key>
       <Key ID="STR_antistasi_addAction_carry">
@@ -4788,7 +4788,7 @@
       <Key ID="STR_antistasi_addAction_move">
         <Original>Move this asset</Original>
       </Key>
-      <Key ID="STR_antistasi_addAction_drop">
+      <Key ID="STR_antistasi_addAction_drop"> <!-- TODO STR_VIV_DROP -->
         <Original>Drop Here</Original>
       </Key>
       <Key ID="STR_antistasi_addAction_map">
@@ -4800,7 +4800,7 @@
       <Key ID="STR_antistasi_addAction_liberate_POW">
         <Original>Liberate POW</Original>
       </Key>
-      <Key ID="STR_antistasi_addAction_recruit">
+      <Key ID="STR_antistasi_addAction_recruit"> <!-- TODO str_skill_recruit -->
         <Original>Recruit</Original>
       </Key>
       <Key ID="STR_antistasi_addAction_interrogate">
@@ -4812,7 +4812,7 @@
       <Key ID="STR_antistasi_addAction_buyBoat">
         <Original>Buy Boat</Original>
       </Key>
-      <Key ID="STR_antistasi_addAction_stealStatic">
+      <Key ID="STR_antistasi_addAction_stealStatic"> <!-- TODO Dubl -->
         <Original>Steal Static</Original>
       </Key>
       <Key ID="STR_antistasi_addAction_personGarage">
@@ -4833,13 +4833,13 @@
       <Key ID="STR_antistasi_addAction_rain">
         <Original>Rain rain go away</Original>
       </Key>
-      <Key ID="STR_antistasi_addAction_intelSmall">
+      <Key ID="STR_antistasi_addAction_intelSmall"> <!-- TODO STR_A3_Showcase_Marksman_BIS_tskIntel_title -->
         <Original>Search for Intel</Original>
       </Key>
-      <Key ID="STR_antistasi_addAction_intelMedium">
+      <Key ID="STR_antistasi_addAction_intelMedium"> <!-- TODO str_a3_bis_fnc_initintelobject_take -->
         <Original>Take Intel</Original>
       </Key>
-      <Key ID="STR_antistasi_addAction_intelLarge">
+      <Key ID="STR_antistasi_addAction_intelLarge"> <!-- TODO str_a3_endgame_misc_downloadintel -->
         <Original>Download Intel</Original>
       </Key>
       <Key ID="STR_antistasi_addAction_breach_cancel">
@@ -4913,7 +4913,7 @@
       <Key ID="STR_antistasi_chat_airSupport_fire">
         <Original>Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact</Original>
       </Key>
-      <Key ID="STR_antistasi_chat_airSupport_splash">
+      <Key ID="STR_antistasi_chat_airSupport_splash"> <!-- TODO str_a3_splash__out_ -->
         <Original>Splash. Out</Original>
       </Key>
       <Key ID="STR_antistasi_chat_airSupport_fire_time">
@@ -4949,7 +4949,7 @@
       <Key ID="STR_antistasi_chat_loot_haveBetterWeap">
         <Original>I have a better weapon now</Original>
       </Key>
-      <Key ID="STR_antistasi_chat_loot_rearming">
+      <Key ID="STR_antistasi_chat_loot_rearming"> <!-- TODO str_cfg_cutscenes_rearm -->
         <Original>Rearming</Original>
       </Key>
       <Key ID="STR_antistasi_chat_loot_rearmed">
@@ -5528,7 +5528,7 @@
       <Key ID="STR_antistasi_markers_RB">
         <Original>%1 Roadblock</Original>
       </Key>
-      <Key ID="STR_antistasi_markers_Resources">
+      <Key ID="STR_antistasi_markers_Resources"> <!-- TODO Dubl -->
         <Original>Resources</Original>
       </Key>
       <Key ID="STR_antistasi_markers_Factory">

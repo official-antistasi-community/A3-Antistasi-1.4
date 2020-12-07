@@ -90,7 +90,7 @@ _vectorUp = if (_cargo isKindOf "CAManBase") then {[0,0,0]} else {[0,0,1]};
 _location set [1, _yStart];
 _cargo hideObjectGlobal true;
 _cargo attachto [_vehicle,_location];
-_cargo setVectorDirAndUp [(_offsetAndDir#1),[0,0,1]];
+[_cargo, [(_offsetAndDir#1),[0,0,1]]] remoteExecCall ["setVectorDirAndUp", owner _cargo]; //need to be done where cargo is local, command broadcast updated vector dir and up
 _cargo hideObjectGlobal false;
 
 //slideing attachment

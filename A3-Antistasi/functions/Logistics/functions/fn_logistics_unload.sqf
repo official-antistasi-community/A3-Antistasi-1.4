@@ -1,3 +1,21 @@
+/*
+    Author: [Håkon]
+    [Description]
+        unloads last loaded cargo of the vehicle
+
+    Arguments:
+    0. <Object> Vehicle to unload cargo from
+
+    Return Value:
+    <Nil>
+
+    Scope: Any
+    Environment: Scheduled
+    Public: [No]
+    Dependencies:
+
+    Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
+*/
 params ["_vehicle"];
 
 private _loaded = _vehicle getVariable ["Cargo", []];
@@ -8,9 +26,9 @@ if ((count _loaded) isEqualTo 1) then {_lastLoaded = true};
 if !(
     ((gunner _cargo) isEqualTo _cargo)
     or ((gunner _cargo) isEqualTo objNull)
-) exitWith {["Cargo Load", "Cant unload a static thats mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+) exitWith {["Logistics", "Cant unload a static thats mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Cargo Load", "Cargo is already being unloaded from vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being unloaded from vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //update list function

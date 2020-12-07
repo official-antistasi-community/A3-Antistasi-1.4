@@ -16,38 +16,38 @@
 params["_vehicle","_object", ["_removeObject", false]];
 
 private _displayVehicleMessage = {
-	params ["_veh", "_msg", "_cargoMass"];
+    params ["_veh", "_msg", "_cargoMass"];
 
-	private _vehDefaultMass = _vehicle getVariable "default_mass";
-	
-	private _text = format [
-		"
-		<img image='%1' size='2' align='left'/>
-		<t color='#a02e69' size='1.2' shadow='1' shadowColor='#000000' align='center'>%2</t><br/>
-		<t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'>Default mass: </t>
-		<t color='#00ff59' size='1.2' shadow='1' shadowColor='#000000' align='left'>%3</t><br/>
-		<t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'>Cargo mass: </t>
-		<t color='#00ff59' size='1.2' shadow='1' shadowColor='#000000' align='left'>%4</t><br/>
-		<t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'>Current mass: </t>
-		<t color='#00ff59' size='1.2' shadow='1' shadowColor='#000000' align='left'>%5</t><br/>
-		",
-		getText(configFile >> "cfgVehicles" >> typeOf _veh >> "picture"),
-		getText(configFile >> "cfgVehicles" >> typeOf _veh >> "displayName"),
-		_vehDefaultMass,
-		_cargoMass,
-		_vehDefaultMass + _cargoMass
-	];
-	_text = _text + _msg;
-	
-	//Don't use customHint, as we've got a lot of custom formatting.
-	[parseText _text] remoteExec ["hint", remoteExecutedOwner];
-	[parseText _text] remoteExec ["hint", crew _vehicle]; //parse text dont work with chat
+    private _vehDefaultMass = _vehicle getVariable "default_mass";
+
+    private _text = format [
+        "
+        <img image='%1' size='2' align='left'/>
+        <t color='#a02e69' size='1.2' shadow='1' shadowColor='#000000' align='center'>%2</t><br/>
+        <t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'>Default mass: </t>
+        <t color='#00ff59' size='1.2' shadow='1' shadowColor='#000000' align='left'>%3</t><br/>
+        <t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'>Cargo mass: </t>
+        <t color='#00ff59' size='1.2' shadow='1' shadowColor='#000000' align='left'>%4</t><br/>
+        <t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'>Current mass: </t>
+        <t color='#00ff59' size='1.2' shadow='1' shadowColor='#000000' align='left'>%5</t><br/>
+        ",
+        getText(configFile >> "cfgVehicles" >> typeOf _veh >> "picture"),
+        getText(configFile >> "cfgVehicles" >> typeOf _veh >> "displayName"),
+        _vehDefaultMass,
+        _cargoMass,
+        _vehDefaultMass + _cargoMass
+    ];
+    _text = _text + _msg;
+
+    //Don't use customHint, as we've got a lot of custom formatting.
+    ["LogisticsInfo", parseText _text] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner];
+    ["LogisticsInfo", parseText _text] remoteExec ["A3A_fnc_customHint", crew _vehicle];
 };
 
 if (isNil {_vehicle getVariable "default_mass"}) then {
-	//Doesn't matter if we're unloading or loading.
-	//If this isn't set, the script has never run - so the mass has never changed! So either way, its currently at the default mass.
-	_vehicle setVariable ["default_mass", getMass _vehicle];
+    //Doesn't matter if we're unloading or loading.
+    //If this isn't set, the script has never run - so the mass has never changed! So either way, its currently at the default mass.
+    _vehicle setVariable ["default_mass", getMass _vehicle];
 };
 
 private _defaultMass = _vehicle getVariable "default_mass";
@@ -60,10 +60,10 @@ private _newMass = _currentMass;
 
 //Figure out our new mass value
 if (_removeObject) then {
-	//Never go lower than the base vehicle's mass.
-	_newMass = (_currentMass - _objectMass) max _defaultMass;
+    //Never go lower than the base vehicle's mass.
+    _newMass = (_currentMass - _objectMass) max _defaultMass;
 } else {
-	_newMass = _currentMass + _objectMass;
+    _newMass = _currentMass + _objectMass;
 };
 
 [_vehicle, _newMass] remoteExec ["setMass", _vehicle];
@@ -80,16 +80,16 @@ private _cargoMass = _newMass - _defaultMass;
 //Output the final message.
 if (!_removeObject) then
 {
-	if (_availableNodes == 0) then
-	{
-		[_vehicle, Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"" There is no more space.</t>", _objectName, _vehicleName, _availableNodes], _cargoMass] call _displayVehicleMessage;
-	}
-	else
-	{
-		[_vehicle, Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"". Free slots: ""%3"".</t>", _objectName, _vehicleName, _availableNodes], _cargoMass] call _displayVehicleMessage;
-	};
+    if (_availableNodes == 0) then
+    {
+        [_vehicle, Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"" There is no more space.</t>", _objectName, _vehicleName, _availableNodes], _cargoMass] call _displayVehicleMessage;
+    }
+    else
+    {
+        [_vehicle, Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"". Free slots: ""%3"".</t>", _objectName, _vehicleName, _availableNodes], _cargoMass] call _displayVehicleMessage;
+    };
 }
 else
 {
-	[_vehicle, Format ["<t color='#00fff3'>""%1"" was unloaded from ""%2"". Free slots: ""%3"".</t>", _objectName, _vehicleName, _availableNodes], _cargoMass] call _displayVehicleMessage;
+    [_vehicle, Format ["<t color='#00fff3'>""%1"" was unloaded from ""%2"". Free slots: ""%3"".</t>", _objectName, _vehicleName, _availableNodes], _cargoMass] call _displayVehicleMessage;
 };

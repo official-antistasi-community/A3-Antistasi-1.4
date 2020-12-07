@@ -1,3 +1,22 @@
+/*
+    Author: [Håkon]
+    [Description]
+        adds load (or unload) action to object, if it isnt already on it
+
+    Arguments:
+    0. <Object> Object to add action to
+    1. <String> Which action to add ("load"/"unload")
+
+    Return Value:
+    <nil>
+
+    Scope: Clients
+    Environment: Any
+    Public: [No]
+    Dependencies:
+
+    Example: [_object , _action] remoteExec ["A3A_fnc_logistics_addAction", 0, _object];
+*/
 params ["_object", "_action"];
 
 private _actions = [];
@@ -12,7 +31,7 @@ switch (_action) do {
             _loadText,
             {
                 params ["_target"];
-                [_target] remoteExecCall ["A3A_fnc_logistics_canLoad",2];
+                [_target] remoteExecCall ["A3A_fnc_logistics_tryLoad",2];
             },
             nil,
             1.5,

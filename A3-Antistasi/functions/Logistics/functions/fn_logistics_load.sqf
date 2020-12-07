@@ -1,6 +1,27 @@
+/*
+    Author: [Håkon]
+    [Description]
+
+
+    Arguments:
+    0. <Object> Cargo being loaded
+    1. <Object> Vehicle cargo is being loaded into
+    2. <Array>  Node array or array of node arrays to use for loading
+    3. <Bool>   is cargo a static weapon
+
+    Return Value:
+    <nil>
+
+    Scope: Any
+    Environment: Scheduled
+    Public: [No]
+    Dependencies:
+
+    Example:
+*/
 params ["_cargo", "_vehicle", "_node", "_weapon"];
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Cargo Load", "Cargo is already being loaded into vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being loaded into vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //update list function
@@ -18,7 +39,6 @@ private _nodeOffset = [0,0,0];
 private _seats = [];
 
 if ((_node#0) isEqualType []) then {
-    //type 2 cargo
     //offset
     private _lastNode = (count _node) -1;
     private _offsetOne = (_node#0#1);
@@ -35,8 +55,7 @@ if ((_node#0) isEqualType []) then {
     for "_i" from 0 to _lastNode do {
         [_vehicle, _node#_i] call _updateList;
     };
-} else {
-    //type 1 cargo
+} else { //single node
     //offset
     _nodeOffset = (_node#1);
     //seats
@@ -71,7 +90,7 @@ _vectorUp = if (_cargo isKindOf "CAManBase") then {[0,0,0]} else {[0,0,1]};
 _location set [1, _yStart];
 _cargo hideObjectGlobal true;
 _cargo attachto [_vehicle,_location];
-_cargo setVectorDirAndUp [(_offsetAndDir#1),[0,0,1]];
+[_cargo, [(_offsetAndDir#1),[0,0,1]]] remoteExecCall ["setVectorDirAndUp", owner _cargo]; //need to be done where cargo is local, command broadcast updated vector dir and up
 _cargo hideObjectGlobal false;
 
 //slideing attachment

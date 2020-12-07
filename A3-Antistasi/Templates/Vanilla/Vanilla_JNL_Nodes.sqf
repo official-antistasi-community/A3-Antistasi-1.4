@@ -167,7 +167,7 @@ logistics_attachmentOffset = [
     //medium sized crates
     ["Box_NATO_AmmoVeh_F" call A3A_fnc_classNameToModel,						[0,0,0.85],			    	[1,0,0],		    		2],		                    //Vehicle ammo create
     ["Land_PaperBox_01_open_boxes_F" call A3A_fnc_classNameToModel,             [0,0,0.85],	                [1,0,0],			    	2],		                    //Stef test supplybox
-    ["Land_FoodSacks_01_cargo_brown_F" call _classNameToModel,                  [0,0,0.85],	                [1,0,0],			    	2],		                    //New city supplies crate
+    ["Land_FoodSacks_01_cargo_brown_F" call A3A_classNameToModel,                  [0,0,0.85],	                [1,0,0],			    	2],		                    //New city supplies crate
     ["Land_PlasticCase_01_medium_F" call A3A_fnc_classNameToModel,              [0,0,0.85],		        	[1,0,0],			    	2],		                    //Stef test Devin crate1
     ["Box_Syndicate_Ammo_F" call A3A_fnc_classNameToModel,			            [0,0,0.85],				    [1,0,0],		    		2],		                    //Stef test Devin crate2
     ["Box_IED_Exp_F" call A3A_fnc_classNameToModel,			                    [0,0,0.85],			    	[1,0,0],		    		2],		                    //Stef test Devin crate3

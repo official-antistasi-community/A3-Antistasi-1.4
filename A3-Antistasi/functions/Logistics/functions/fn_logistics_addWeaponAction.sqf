@@ -27,7 +27,7 @@ _actionID = _vehicle addAction [
     _text,
     {
         params ["_vehicle", "_caller", "_id", "_static"];
-        if !(attachedTo _static isEqualTo _vehicle) exitWith {[_vehilce, _id] remoteExecCall ["removeAction", 0]};// incase of code break in unloading static
+        if !(attachedTo _static isEqualTo _vehicle) exitWith {[_vehicle, _id] remoteExecCall ["removeAction", 0]};// incase of code break in unloading static
         if ((gunner _static) isEqualTo objNull) then  {
             _caller moveInGunner _static;
         } else {["Logistics", "Someone is already in the static"] call A3A_fnc_customHint};

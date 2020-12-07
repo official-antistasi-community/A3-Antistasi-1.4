@@ -31,7 +31,7 @@ switch (_action) do {
             _loadText,
             {
                 params ["_target"];
-                [_target] remoteExecCall ["A3A_fnc_logistics_canLoad",2];
+                [_target] remoteExecCall ["A3A_fnc_logistics_tryLoad",2];
             },
             nil,
             1.5,

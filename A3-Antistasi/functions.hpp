@@ -356,6 +356,7 @@ class A3A
         class logistics_removeWeaponAction {};
         class logistics_toggleAceActions {};
         class logistics_toggleLock {};
+        class logistics_tryLoad {};
         class logistics_unload {};
     };
 

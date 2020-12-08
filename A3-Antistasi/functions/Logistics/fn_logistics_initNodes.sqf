@@ -38,9 +38,9 @@ logistics_vehicleHardpoints = [
     //4x4s
     //Offroad
     ["C_Offroad_01_F" call _classNameToModel, [
-        // always 1,    location				locked seats
-        [1,	    	    [-0.05,-1.3,-0.72],		[3,4]],
-        [1,	    	    [-0.05,-2.3,-0.72],		[1,2]]
+        // always 1,    location                locked seats
+        [1,             [-0.05,-1.3,-0.72],     [3,4]],
+        [1,             [-0.05,-2.3,-0.72],     [1,2]]
     ]],
 
         //Small Truck
@@ -110,7 +110,7 @@ logistics_vehicleHardpoints = [
     //8x8s
     //HEMTT open
     ["B_Truck_01_transport_F" call _classNameToModel,[
-        // always 1    location				    locked seats
+        // always 1    location                 locked seats
         [1,             [0,0,-0.56],            [1,8,9,16]],
         [1,             [0,-0.8,-0.56],         [2,10]],
         [1,             [0,-1.7,-0.56],         [3,11]],
@@ -121,7 +121,7 @@ logistics_vehicleHardpoints = [
 
     //HEMTT covered
     ["B_Truck_01_covered_F" call _classNameToModel,[
-        // always 1    location				    locked seats
+        // always 1    location                 locked seats
         [1,             [0,0,-0.56],            [1,8,9,16]],
         [1,             [0,-0.8,-0.56],         [2,10]],
         [1,             [0,-1.7,-0.56],         [3,11]],
@@ -394,20 +394,20 @@ logistics_vehicleHardpoints = [
 
     // Datsun civ variant, TODO: redo for 3 crates maybeeee?
     ["UK3CB_C_Datsun_Open" call _classNameToModel, [
-        [1,	    	    [0,-0.5,-0.83],		[2,3]],
-        [1,	    	    [0,-1.5,-0.83],		[0,2,3,4,5,6]]
+        [1,             [0,-0.5,-0.83],     [2,3]],
+        [1,             [0,-1.5,-0.83],     [0,2,3,4,5,6]]
     ]],
 
     // Datsun non civ variant, TODO: redo for 3 crates maybeeee?
     ["UK3CB_B_G_Datsun_Pickup" call _classNameToModel, [
-        [1,	    	    [0,-0.6,-1.2],		[3,4]], // 2 is cab passenger
-        [1,	    	    [0,-1.3,-1.2],		[5,6]] // 0,1 is backmost ffv, didn't need block after all, juuuuust nuff space
+        [1,             [0,-0.6,-1.2],      [3,4]], // 2 is cab passenger
+        [1,             [0,-1.3,-1.2],      [5,6]] // 0,1 is backmost ffv, didn't need block after all, juuuuust nuff space
     ]],
 
     // Hilux
     ["UK3CB_C_Hilux_Open" call _classNameToModel, [
-        [1,	    	    [-0.05,-0.5,-0.66],		[5]],
-        [1,	    	    [-0.05,-1.6,-0.66],		[3,4,6]]
+        [1,             [-0.05,-0.5,-0.66],     [5]],
+        [1,             [-0.05,-1.6,-0.66],     [3,4,6]]
     ]],
 
     // M939 open
@@ -559,49 +559,51 @@ logistics_vehicleHardpoints = [
 //Each element is: [model name, offset, vectorDir, nodes used, recoil(weapons only)]
 logistics_attachmentOffset = [
 
-    //weapons														          //location				  //rotation				  //size 	//recoil            //description
+    //weapons                                                                 //location                  //rotation                  //size    //recoil            //description
         // ---------- Vanilla ----------
-    ["B_static_AT_F" call _classNameToModel,							        [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AT titan, facing to the right
-    ["B_static_AA_F" call _classNameToModel,							        [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AA titan, facing to the right
-    ["B_GMG_01_high_F" call _classNameToModel,					                [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],               //Static GMG High
-    ["B_HMG_01_high_F" call _classNameToModel,					                [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],		        //Static HMG High
-    ["B_GMG_01_F" call _classNameToModel,					                    [0, 0, 1.19],		        [0, -1, 0],				    4,      200],               //Static GMG
-    ["B_HMG_01_F" call _classNameToModel,					                    [0, 0, 1.19],		        [0, -1, 0],				    4,      200],		        //Static HMG
+    ["B_static_AT_F" call _classNameToModel,                                    [-0.5, 0.0, 1.05],          [1, 0, 0],                  2,      500],               //AT titan, facing to the right
+    ["B_static_AA_F" call _classNameToModel,                                    [-0.5, 0.0, 1.05],          [1, 0, 0],                  2,      500],               //AA titan, facing to the right
+    ["B_GMG_01_high_F" call _classNameToModel,                                  [0.2, -0.4, 1.7],           [0, 1, 0],                  2,      200],               //Static GMG High
+    ["B_HMG_01_high_F" call _classNameToModel,                                  [0.2, -0.4, 1.7],           [0, 1, 0],                  2,      200],               //Static HMG High
+    ["B_GMG_01_F" call _classNameToModel,                                       [0, 0, 1.19],               [0, -1, 0],                 4,      200],               //Static GMG
+    ["B_HMG_01_F" call _classNameToModel,                                       [0, 0, 1.19],               [0, -1, 0],                 4,      200],               //Static HMG
     ["B_Mortar_01_F" call _classNameToModel,                                    [-0.1,-0.5,0.79],           [0, 1, 0],                  2,      6000],              //Mortar
     ["B_HMG_02_high_F" call _classNameToModel,                                  [0.2, -0.5, 1.7],           [0, 1, 0],                  4,      200],               //M2 High
     ["B_HMG_02_F" call _classNameToModel,                                       [-0.2, 0, 1.3],             [0, -1, 0],                 4,      200],               //M2
 
         // ----------   RHS   ----------                                                                                                        //RHS vehicles are heavier than vanilla
-    ["RHS_TOW_TriPod_D" call _classNameToModel,			                        [0.0, 0, 1.08],		        [0, 1, 0],				    4,      500],		        //RHS TOW launcher
-    ["RHS_M2StaticMG_D" call _classNameToModel,					                [0.35, -0.3, 1.72],	        [0, 1, 0],				    4,      200],				//RHS M2HB machinegun
-    ["RHS_M2StaticMG_MiniTripod_D" call _classNameToModel,					    [0.3, -0.1, 0.03],		    [1, 0, 0],				    4,      200],		        //RHS M2HB sitting machinegun
-    ["RHS_MK19_TriPod_D" call _classNameToModel,                                [0, 0, 1],	                [0, -1, 0],				    4,      200],		        //RHS mk.19 GMG, facing to the right
-    ["rhs_DSHKM_ins" call _classNameToModel,				                    [0.3, -0.5, 1.65],		    [0, 1, 0],				    4,      200],		        //RHS DShKM
-    ["rhs_DSHKM_Mini_TriPod_ins" call _classNameToModel,				        [-0.5, -0.2, 1.32],	        [1, 0, 0],				    4,      200],		        //RHS DShKM sitting, facing to the right
-    ["rhs_KORD_high_MSV" call _classNameToModel,	                            [0.22, -0.3, 1.65],	        [0, 1, 0],				    4,      300],		        //RHS Kord
-    ["rhs_KORD_MSV" call _classNameToModel,			                            [0.1, -0.3, 1.34],	        [1, 0, 0],				    4,      300],		        //RHS Kord sitting, facing to the right
-    ["RHS_NSV_TriPod_MSV" call _classNameToModel,			                    [-0.1, 0, 1.34],		    [1, 0, 0],				    4,      300],		        //RHS NSV sitting, facing to the right
-    ["rhs_Kornet_9M133_2_msv" call _classNameToModel,			                [0.0, 0, 1.01],			    [1, 0, 0],				    4,      500],		        //RHS kornet, facing to the right
-    ["rhs_SPG9_INS" call _classNameToModel,				                        [-0.1, 0, 1.03], 		    [-0.96,0.25,0],	            4,      500],		        //RHS SPG-9, facing 75 degrees to the left
-    ["RHS_AGS30_TriPod_MSV" call _classNameToModel,			                    [-0.4, 0, 1.25],		    [0, -1, 0],	                4,      200],		        //RHS AGS-30 the russian GMG, facing right
-    ["rhs_Igla_AA_pod_msv" call _classNameToModel,			                    [0.3, 0, 1.59],			    [0, 1, 0],				    4,      500],		        //RHS double Igla launcher
+    ["RHS_TOW_TriPod_D" call _classNameToModel,                                 [0.0, 0, 1.08],             [0, 1, 0],                  4,      500],               //RHS TOW launcher
+    ["RHS_M2StaticMG_D" call _classNameToModel,                                 [0.35, -0.3, 1.72],         [0, 1, 0],                  4,      200],               //RHS M2HB machinegun
+    ["RHS_M2StaticMG_MiniTripod_D" call _classNameToModel,                      [0.3, -0.1, 0.03],          [1, 0, 0],                  4,      200],               //RHS M2HB sitting machinegun
+    ["RHS_MK19_TriPod_D" call _classNameToModel,                                [0, 0, 1],                  [0, -1, 0],                 4,      200],               //RHS mk.19 GMG, facing to the right
+    ["rhs_DSHKM_ins" call _classNameToModel,                                    [0.3, -0.5, 1.65],          [0, 1, 0],                  4,      200],               //RHS DShKM
+    ["rhs_DSHKM_Mini_TriPod_ins" call _classNameToModel,                        [-0.5, -0.2, 1.32],         [1, 0, 0],                  4,      200],               //RHS DShKM sitting, facing to the right
+    ["rhs_KORD_high_MSV" call _classNameToModel,                                [0.22, -0.3, 1.65],         [0, 1, 0],                  4,      300],               //RHS Kord
+    ["rhs_KORD_MSV" call _classNameToModel,                                     [0.1, -0.3, 1.34],          [1, 0, 0],                  4,      300],               //RHS Kord sitting, facing to the right
+    ["RHS_NSV_TriPod_MSV" call _classNameToModel,                               [-0.1, 0, 1.34],            [1, 0, 0],                  4,      300],               //RHS NSV sitting, facing to the right
+    ["rhs_Kornet_9M133_2_msv" call _classNameToModel,                           [0.0, 0, 1.01],             [1, 0, 0],                  4,      500],               //RHS kornet, facing to the right
+    ["rhs_SPG9_INS" call _classNameToModel,                                     [-0.1, 0, 1.03],            [-0.96,0.25,0],             4,      500],               //RHS SPG-9, facing 75 degrees to the left
+    ["RHS_AGS30_TriPod_MSV" call _classNameToModel,                             [-0.4, 0, 1.25],            [0, -1, 0],                 4,      200],               //RHS AGS-30 the russian GMG, facing right
+    ["rhs_Igla_AA_pod_msv" call _classNameToModel,                              [0.3, 0, 1.59],             [0, 1, 0],                  4,      500],               //RHS double Igla launcher
     ["RHS_ZU23_MSV" call _classNameToModel,                                     [0,0,2],                    [0,1,0],                    7,      500],               //RHS ZU-23 //no rhs vehicle can fit it :D
+    ["rhsgref_ins_2b14" call _classNameToModel,                                 [0, -0.55, 0.8],            [0, 1, 0],                  2,      6000],              //RHS Podnos Mortar
+    ["RHS_M252_USMC_WD" call _classNameToModel,                                 [0, -0.45, 1.22],           [0, 1, 0],                  2,      6000],              //RHS M252
 
-    //medium size crate											              //location			      //rotation		          //size 	                    //description
-    ["Box_NATO_AmmoVeh_F" call _classNameToModel,							    [0,0,0.85],			    	[1,0,0],		    		2],		                    //Vehicle ammo create
-    ["Land_PaperBox_01_open_boxes_F" call _classNameToModel,                    [0,0,0.85],	                [1,0,0],			    	2],		                    //Stef test supplybox
-    ["Land_FoodSacks_01_cargo_brown_F" call _classNameToModel,                  [0,0,0.85],	                [1,0,0],			    	2],		                    //New city supplies crate
-    ["Land_PlasticCase_01_medium_F" call _classNameToModel,                     [0,0,0.85],		        	[1,0,0],			    	2],		                    //Stef test Devin crate1
-    ["Box_Syndicate_Ammo_F" call _classNameToModel,			                    [0,0,0.85],				    [1,0,0],		    		2],		                    //Stef test Devin crate2
-    ["Box_IED_Exp_F" call _classNameToModel,			                        [0,0,0.85],			    	[1,0,0],		    		2],		                    //Stef test Devin crate3
-    ["B_supplyCrate_F" call _classNameToModel,						            [0, 0, 0.95],		    	[1,0,0],			    	2],		                    //Ammodrop crate
-    ["C_Quadbike_01_F" call _classNameToModel,				            	    [0, 0, 1.4],		    	[0,1,0],			    	2],		                    //Quadbike
-    ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_GER_Ammo.p3d",			            [0,0,0.85],			    	[1,0,0],		    		2],		                    //ifa ammo
-    ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_SU_Ammo.p3d",			            [0,0,0.85],			    	[1,0,0],			    	2],		                    //ifa ammo
+    //medium size crate                                                       //location                  //rotation                  //size                        //description
+    ["Box_NATO_AmmoVeh_F" call _classNameToModel,                               [0,0,0.85],                 [1,0,0],                    2],                         //Vehicle ammo create
+    ["Land_PaperBox_01_open_boxes_F" call _classNameToModel,                    [0,0,0.85],                 [1,0,0],                    2],                         //Stef test supplybox
+    ["Land_FoodSacks_01_cargo_brown_F" call _classNameToModel,                  [0,0,0.85],                 [1,0,0],                    2],                         //New city supplies crate
+    ["Land_PlasticCase_01_medium_F" call _classNameToModel,                     [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate1
+    ["Box_Syndicate_Ammo_F" call _classNameToModel,                             [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate2
+    ["Box_IED_Exp_F" call _classNameToModel,                                    [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate3
+    ["B_supplyCrate_F" call _classNameToModel,                                  [0, 0, 0.95],               [1,0,0],                    2],                         //Ammodrop crate
+    ["C_Quadbike_01_F" call _classNameToModel,                                  [0, 0, 1.4],                [0,1,0],                    2],                         //Quadbike
+    ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_GER_Ammo.p3d",                       [0,0,0.85],                 [1,0,0],                    2],                         //ifa ammo
+    ["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_SU_Ammo.p3d",                        [0,0,0.85],                 [1,0,0],                    2],                         //ifa ammo
 
-    //small size crate										                  //location				  //rotation			      //size 	                    //description
-    ["Box_NATO_Equip_F" call _classNameToModel,						            [0,0,0.44],			    	[1,0,0],			    	1],		                    //Equipment box
-    ["Box_NATO_Wps_F" call _classNameToModel,							        [0,0,0.22],				    [0,0,0],			    	1]		                    //surrender crates
+    //small size crate                                                        //location                  //rotation                  //size                        //description
+    ["Box_NATO_Equip_F" call _classNameToModel,                                 [0,0,0.44],                 [1,0,0],                    1],                         //Equipment box
+    ["Box_NATO_Wps_F" call _classNameToModel,                                   [0,0,0.22],                 [0,0,0],                    1]                          //surrender crates
 ];
 
 //elements are [Weapon model, [vehicles weapon is not allowed on]]
@@ -630,7 +632,9 @@ logistics_weapons = [
     ["rhs_SPG9_INS" call _classNameToModel,[]],
     ["RHS_AGS30_TriPod_MSV" call _classNameToModel,[]],
     ["rhs_Igla_AA_pod_msv" call _classNameToModel,[]],
-    ["RHS_ZU23_MSV" call _classNameToModel, ["rhsusf_M977A4_usarmy_wd" call _classNameToModel, "rhsusf_M977A4_BKIT_usarmy_wd" call _classNameToModel, "rhsusf_M977A4_BKIT_M2_usarmy_wd" call _classNameToModel]]
+    ["RHS_ZU23_MSV" call _classNameToModel, ["rhsusf_M977A4_usarmy_wd" call _classNameToModel, "rhsusf_M977A4_BKIT_usarmy_wd" call _classNameToModel, "rhsusf_M977A4_BKIT_M2_usarmy_wd" call _classNameToModel]],
+    ["rhsgref_ins_2b14" call _classNameToModel, ["C_Boat_Civil_01_F" call _classNameToModel, "B_Boat_Transport_01_F" call _classNameToModel, "C_Boat_Transport_02_F" call _classNameToModel]],
+    ["RHS_M252_USMC_WD" call _classNameToModel, ["C_Boat_Civil_01_F" call _classNameToModel, "B_Boat_Transport_01_F" call _classNameToModel, "C_Boat_Transport_02_F" call _classNameToModel]]
 ];
 
 //coverd vehicles

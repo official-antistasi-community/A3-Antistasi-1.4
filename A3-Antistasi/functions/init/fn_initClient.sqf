@@ -421,7 +421,6 @@ if (hasTFAR or hasACE or hasRHS or hasACRE or hasFFAA) then {
 		hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload", {
 			0 = _this spawn {
 				_this select 0 displayRemoveEventHandler ["unload", hintC_arr_EH];
-				hintSilent "";
 			};
 		}];
 	};

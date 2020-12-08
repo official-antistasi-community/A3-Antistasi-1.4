@@ -15,7 +15,6 @@ if (_newGame) then {
 hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{
 	0 = _this spawn {
 		_this select 0 displayRemoveEventHandler ["unload", hintC_arr_EH];
-		hintSilent "";
 	};
 }];
 
@@ -48,21 +47,21 @@ while {_positionIsInvalid} do {
 	onMapSingleClick "positionClickedDuringHQPlacement = _pos;";
 	waitUntil {sleep 1; (count positionClickedDuringHQPlacement > 0) or (not visiblemap)};
 	onMapSingleClick "";
-	
+
 	//If they quit the map, keep HQ where it is.
 	if (not visiblemap) exitWith {};
-	
+
 	//Assume the position chosen is valid.
 	_positionIsInvalid = false;
-	
+
 	_positionClicked = positionClickedDuringHQPlacement;
 	_markerX = [_markersX,_positionClicked] call BIS_fnc_nearestPosition;
-	
+
 	if (getMarkerPos _markerX distance _positionClicked < 500) then {
 		["HQ Position", "Place selected is very close to enemy zones.<br/><br/> Please select another position"] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
-	
+
 	if (!_positionIsInvalid && {surfaceIsWater _positionClicked}) then {
 		["HQ Position", "Selected position cannot be in water"] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
@@ -72,7 +71,7 @@ while {_positionIsInvalid} do {
 		["HQ Position", "Selected position cannot be outside the map"] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
-	
+
 	if (!_positionIsInvalid && !_newGame) then {
 		//Invalid if enemies nearby
 		_positionIsInvalid = (allUnits findIf {(side _x == Occupants || side _x == Invaders) && {_x distance _positionClicked < 500}}) > -1;

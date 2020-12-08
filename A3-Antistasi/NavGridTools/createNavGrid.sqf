@@ -60,7 +60,6 @@ not every junction is suitable, the script will tell you, if that case happens.<
         0 = _this spawn
         {
           _this select 0 displayRemoveEventHandler ["unload", hintC_EH];
-          hintSilent "";
           hintDone = true;
           publicVariable "hintDone";
         };
@@ -90,7 +89,6 @@ not every junction is suitable, the script will tell you, if that case happens.<
         0 = _this spawn
         {
           _this select 0 displayRemoveEventHandler ["unload", hintC_EH];
-          hintSilent "";
           hintDone = true;
           publicVariable "hintDone";
         };
@@ -139,7 +137,6 @@ not every junction is suitable, the script will tell you, if that case happens.<
         0 = _this spawn
         {
           _this select 0 displayRemoveEventHandler ["unload", hintC_EH];
-          hintSilent "";
           hintDone = true;
           publicVariable "hintDone";
         };

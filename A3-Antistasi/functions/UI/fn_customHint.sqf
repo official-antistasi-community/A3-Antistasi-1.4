@@ -86,5 +86,3 @@ if (A3A_customHintEnable) then {
     };
 };
 true;
-
-// TODO: remove all `hintSilent ""` used in boot processes.

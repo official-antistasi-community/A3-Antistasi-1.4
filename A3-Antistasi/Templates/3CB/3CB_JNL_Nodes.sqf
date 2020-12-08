@@ -4,20 +4,20 @@
 jnl_vehicleHardpoints append [
   // Datsun civ variant, TODO: redo for 3 crates maybeeee?
   ["UK3CB_C_Datsun_Open" call A3A_fnc_classNameToModel, [
-      [1,	    	    [0,-0.5,-0.83],		[2,3]],
-      [1,	    	    [0,-1.5,-0.83],		[0,2,3,4,5,6]]
+      [1,               [0,-0.5,-0.83],     [2,3]],
+      [1,               [0,-1.5,-0.83],     [0,2,3,4,5,6]]
   ]],
 
   // Datsun non civ variant, TODO: redo for 3 crates maybeeee?
   ["UK3CB_B_G_Datsun_Pickup" call A3A_fnc_classNameToModel, [
-      [1,	    	    [0,-0.6,-1.2],		[3,4]], // 2 is cab passenger
-      [1,	    	    [0,-1.3,-1.2],		[5,6]] // 0,1 is backmost ffv, didn't need block after all, juuuuust nuff space
+      [1,               [0,-0.6,-1.2],      [3,4]], // 2 is cab passenger
+      [1,               [0,-1.3,-1.2],      [5,6]] // 0,1 is backmost ffv, didn't need block after all, juuuuust nuff space
   ]],
 
   // Hilux
   ["UK3CB_C_Hilux_Open" call A3A_fnc_classNameToModel, [
-      [1,	    	    [-0.05,-0.5,-0.66],		[5]],
-      [1,	    	    [-0.05,-1.6,-0.66],		[3,4,6]]
+      [1,               [-0.05,-0.5,-0.66],     [5]],
+      [1,               [-0.05,-1.6,-0.66],     [3,4,6]]
   ]],
 
   // M939 open
@@ -169,8 +169,7 @@ logistics_attachmentOffset append [];
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
 logistics_coveredVehicles append ["UK3CB_B_M939_Closed_HIDF", "UK3CB_B_MTVR_Closed_WDL", "UK3CB_C_V3S_Closed"];
 
-//if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]], 
+//if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]],
 //if the vehicle is in the coveredVehicles array dont add it to the blacklist in this array.
 logistics_weapons append [
 ];
-

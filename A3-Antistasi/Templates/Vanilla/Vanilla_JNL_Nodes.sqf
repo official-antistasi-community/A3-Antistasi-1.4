@@ -11,9 +11,9 @@ logistics_vehicleHardpoints = [
     //4x4s
     //Offroad
     ["C_Offroad_01_F" call A3A_fnc_classNameToModel, [
-        // always 1,    location				locked seats
-        [1,	    	    [-0.05,-1.3,-0.72],		[3,4]],
-        [1,	    	    [-0.05,-2.3,-0.72],		[1,2]]
+        // always 1,    location                locked seats
+        [1,             [-0.05,-1.3,-0.72],     [3,4]],
+        [1,             [-0.05,-2.3,-0.72],     [1,2]]
     ]],
 
         //Small Truck
@@ -83,7 +83,7 @@ logistics_vehicleHardpoints = [
     //8x8s
     //HEMTT open
     ["B_Truck_01_transport_F" call A3A_fnc_classNameToModel,[
-        // always 1    location				    locked seats
+        // always 1    location                 locked seats
         [1,             [0,0,-0.56],            [1,8,9,16]],
         [1,             [0,-0.8,-0.56],         [2,10]],
         [1,             [0,-1.7,-0.56],         [3,11]],
@@ -94,7 +94,7 @@ logistics_vehicleHardpoints = [
 
     //HEMTT covered
     ["B_Truck_01_covered_F" call A3A_fnc_classNameToModel,[
-        // always 1    location				    locked seats
+        // always 1    location                 locked seats
         [1,             [0,0,-0.56],            [1,8,9,16]],
         [1,             [0,-0.8,-0.56],         [2,10]],
         [1,             [0,-1.7,-0.56],         [3,11]],
@@ -153,30 +153,30 @@ logistics_vehicleHardpoints = [
 
 //Offsets for adding new statics/boxes to the JNL script.
 logistics_attachmentOffset = [
-    //weapons														          //location				  //rotation				  //size 	//recoil            //description
-    ["B_static_AT_F" call A3A_fnc_classNameToModel,							    [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AT titan, facing to the right
-    ["B_static_AA_F" call A3A_fnc_classNameToModel,							    [-0.5, 0.0, 1.05],		    [1, 0, 0],				    2,      500],               //AA titan, facing to the right
-    ["B_GMG_01_high_F" call A3A_fnc_classNameToModel,					        [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],               //Static GMG High
-    ["B_HMG_01_high_F" call A3A_fnc_classNameToModel,					        [0.2, -0.4, 1.7],		    [0, 1, 0],				    2,      200],		        //Static HMG High
-    ["B_GMG_01_F" call A3A_fnc_classNameToModel,					            [0, 0, 1.19],		        [0, -1, 0],				    4,      200],               //Static GMG
-    ["B_HMG_01_F" call A3A_fnc_classNameToModel,					            [0, 0, 1.19],		        [0, -1, 0],				    4,      200],		        //Static HMG
+    //weapons                                                                 //location                  //rotation                  //size    //recoil            //description
+    ["B_static_AT_F" call A3A_fnc_classNameToModel,                             [-0.5, 0.0, 1.05],          [1, 0, 0],                  2,      500],               //AT titan, facing to the right
+    ["B_static_AA_F" call A3A_fnc_classNameToModel,                             [-0.5, 0.0, 1.05],          [1, 0, 0],                  2,      500],               //AA titan, facing to the right
+    ["B_GMG_01_high_F" call A3A_fnc_classNameToModel,                           [0.2, -0.4, 1.7],           [0, 1, 0],                  2,      200],               //Static GMG High
+    ["B_HMG_01_high_F" call A3A_fnc_classNameToModel,                           [0.2, -0.4, 1.7],           [0, 1, 0],                  2,      200],               //Static HMG High
+    ["B_GMG_01_F" call A3A_fnc_classNameToModel,                                [0, 0, 1.19],               [0, -1, 0],                 4,      200],               //Static GMG
+    ["B_HMG_01_F" call A3A_fnc_classNameToModel,                                [0, 0, 1.19],               [0, -1, 0],                 4,      200],               //Static HMG
     ["B_Mortar_01_F" call A3A_fnc_classNameToModel,                             [-0.1,-0.5,0.79],           [0, 1, 0],                  2,      4000],              //Mortar
     ["B_HMG_02_high_F" call A3A_fnc_classNameToModel,                           [0.2, -0.5, 1.7],           [0, 1, 0],                  4,      200],               //M2 High
     ["B_HMG_02_F" call A3A_fnc_classNameToModel,                                [-0.2, 0, 1.3],             [0, -1, 0],                 4,      200],               //M2
 
     //medium sized crates
-    ["Box_NATO_AmmoVeh_F" call A3A_fnc_classNameToModel,						[0,0,0.85],			    	[1,0,0],		    		2],		                    //Vehicle ammo create
-    ["Land_PaperBox_01_open_boxes_F" call A3A_fnc_classNameToModel,             [0,0,0.85],	                [1,0,0],			    	2],		                    //Stef test supplybox
-    ["Land_FoodSacks_01_cargo_brown_F" call A3A_classNameToModel,                  [0,0,0.85],	                [1,0,0],			    	2],		                    //New city supplies crate
-    ["Land_PlasticCase_01_medium_F" call A3A_fnc_classNameToModel,              [0,0,0.85],		        	[1,0,0],			    	2],		                    //Stef test Devin crate1
-    ["Box_Syndicate_Ammo_F" call A3A_fnc_classNameToModel,			            [0,0,0.85],				    [1,0,0],		    		2],		                    //Stef test Devin crate2
-    ["Box_IED_Exp_F" call A3A_fnc_classNameToModel,			                    [0,0,0.85],			    	[1,0,0],		    		2],		                    //Stef test Devin crate3
-    ["B_supplyCrate_F" call A3A_fnc_classNameToModel,						    [0, 0, 0.95],		    	[1,0,0],			    	2],		                    //Ammodrop crate
-    ["C_Quadbike_01_F" call A3A_fnc_classNameToModel,				            [0, 0, 1.4],		    	[0,1,0],			    	2],		                    //Quadbike
+    ["Box_NATO_AmmoVeh_F" call A3A_fnc_classNameToModel,                        [0,0,0.85],                 [1,0,0],                    2],                         //Vehicle ammo create
+    ["Land_PaperBox_01_open_boxes_F" call A3A_fnc_classNameToModel,             [0,0,0.85],                 [1,0,0],                    2],                         //Stef test supplybox
+    ["Land_FoodSacks_01_cargo_brown_F" call A3A_fnc_classNameToModel,           [0,0,0.85],                 [1,0,0],                    2],                         //New city supplies crate
+    ["Land_PlasticCase_01_medium_F" call A3A_fnc_classNameToModel,              [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate1
+    ["Box_Syndicate_Ammo_F" call A3A_fnc_classNameToModel,                      [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate2
+    ["Box_IED_Exp_F" call A3A_fnc_classNameToModel,                             [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate3
+    ["B_supplyCrate_F" call A3A_fnc_classNameToModel,                           [0, 0, 0.95],               [1,0,0],                    2],                         //Ammodrop crate
+    ["C_Quadbike_01_F" call A3A_fnc_classNameToModel,                           [0, 0, 1.4],                [0,1,0],                    2],                         //Quadbike
 
-    //small sized crates										              //location				  //rotation			      //size 	                    //description
-    ["Box_NATO_Equip_F" call A3A_fnc_classNameToModel,						    [0,0,0.44],			    	[1,0,0],			    	1],		                    //Equipment box
-    ["Box_NATO_Wps_F" call A3A_fnc_classNameToModel,							[0,0,0.22],				    [0,0,0],			    	1]		                    //surrender crates
+    //small sized crates                                                      //location                  //rotation                  //size                        //description
+    ["Box_NATO_Equip_F" call A3A_fnc_classNameToModel,                          [0,0,0.44],                 [1,0,0],                    1],                         //Equipment box
+    ["Box_NATO_Wps_F" call A3A_fnc_classNameToModel,                            [0,0,0.22],                 [0,0,0],                    1]                          //surrender crates
 ];
 
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.

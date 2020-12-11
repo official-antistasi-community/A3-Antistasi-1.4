@@ -1260,7 +1260,7 @@
         <Chinesesimp>在骆驼背上战斗</Chinesesimp>
         <Russian>Сражайся верхом на верблюде</Russian>
       </Key>
-          <Key ID="STR_antistasi_mission_info_1_mapname_short_text">
+      <Key ID="STR_antistasi_mission_info_1_mapname_short_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
@@ -1276,7 +1276,7 @@
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-          <Key ID="STR_antistasi_mission_info_2_mapname_short_text">
+      <Key ID="STR_antistasi_mission_info_2_mapname_short_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
@@ -1292,7 +1292,7 @@
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-          <Key ID="STR_antistasi_mission_info_3_mapname_short_text">
+      <Key ID="STR_antistasi_mission_info_3_mapname_short_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
@@ -1308,7 +1308,7 @@
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-          <Key ID="STR_antistasi_mission_info_4_mapname_short_text">
+      <Key ID="STR_antistasi_mission_info_4_mapname_short_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
@@ -1324,7 +1324,7 @@
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-          <Key ID="STR_antistasi_mission_info_takistan_mapname_short_text">
+      <Key ID="STR_antistasi_mission_info_takistan_mapname_short_text">
         <Original>Antistasi Takistan</Original>
         <English>Antistasi Takistan</English>
         <Russian>Antistasi Такистан</Russian>

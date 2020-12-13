@@ -3,7 +3,7 @@ _veh = cursortarget;
 
 if (isNull _veh) exitWith {["Sell Vehicle", "You are not looking to any vehicle"] call A3A_fnc_customHint;};
 
-if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {["Sell Vehicle", "Vehicle must be closer than 50 meters to the flag"] call A3A_fnc_customHint;};
+if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {["Sell Vehicle", "The Vehicle must be within 50 meters of HQ to be sold."] call A3A_fnc_customHint;};
 
 if ({isPlayer _x} count crew _veh > 0) exitWith {["Sell Vehicle", "In order to sell, vehicle must be empty."] call A3A_fnc_customHint;};
 
@@ -17,7 +17,7 @@ if (!isNil "_owner") then
 		};
 	};
 
-if (_exit) exitWith {["Sell Vehicle", "You are not owner of this vehicle and you cannot sell it"] call A3A_fnc_customHint;};
+if (_exit) exitWith {["Sell Vehicle", "You are not owner of this vehicle and you can't sell it"] call A3A_fnc_customHint;};
 
 _typeX = typeOf _veh;
 _costs = call {

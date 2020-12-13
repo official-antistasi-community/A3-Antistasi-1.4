@@ -11,7 +11,7 @@ _veh = cursorTarget;
 
 if (isNull _veh) exitWith {["Garage", "You are not looking at a vehicle"] call A3A_fnc_customHint;};
 
-if (!alive _veh) exitWith {["Garage", "You cannot add destroyed vehicles to your garage"] call A3A_fnc_customHint;};
+if (!alive _veh) exitWith {["Garage", "You can't add destroyed vehicles to your garage"] call A3A_fnc_customHint;};
 _closeX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 _closeX = _closeX select {(player inArea _x) and (_veh inArea _x)};
 
@@ -23,22 +23,23 @@ if ({alive _x} count (crew vehicle _veh) > 0) exitWith {["Garage", "In order to 
 
 _typeVehX = typeOf _veh;
 
-if (_veh isKindOf "Man") exitWith {["Garage", "Are you kidding?"] call A3A_fnc_customHint;};
+if (_veh isKindOf "CAManBase") exitWith {["Garage", format ["Sorry you can't Garage %1.",name _veh]] call A3A_fnc_customHint;};
+
 if ((typeOf _veh) isEqualTo "Box_IND_Wps_F") exitWith {
 	_veh addMagazineCargoGlobal [unlockedMagazines#0,1];// so fnc_empty will delete the crate
 	_transferLoot = [_veh] spawn A3A_fnc_empty;
 	[10] call A3A_fnc_resourcesPlayer;
 	["Garage", "Loot crate stored"] call A3A_fnc_customHint;
 };
-if !(_veh isKindOf "AllVehicles") exitWith {["Garage", "The vehicle you are looking cannot be stored in our Garage"] call A3A_fnc_customHint;};
+if !(_veh isKindOf "AllVehicles") exitWith {["Garage", "The vehicle you are looking can't be stored in our Garage"] call A3A_fnc_customHint;};
 
-_units = (player nearEntities ["Man",300]) select {([_x] call A3A_fnc_CanFight) && (side _x isEqualTo Occupants || side _x isEqualTo Invaders)};
+_units = (player nearEntities ["CAManBase",300]) select {([_x] call A3A_fnc_CanFight) && (side _x isEqualTo Occupants || side _x isEqualTo Invaders)};
 if (_units findIf {_unit = _x; _players = allPlayers select {(side _x isEqualTo teamPlayer) && (player distance _x < 300)}; _players findIf {_x in (_unit targets [true, 300])} != -1} != -1) exitWith {["Garage", "You can't garage vehicles while enemies are engaging you"] call A3A_fnc_customHint};
 if (_units findIf{player distance _x < 100} != -1) exitWith {["Garage", "You can't garage vehicles while enemies are near you"] call A3A_fnc_customHint};
 
 if (player distance _veh > 25) exitWith {["Garage", "You can't garage vehicles that are more than 25m away from you"] call A3A_fnc_customHint};
 
-if (_pool and (count vehInGarage >= (tierWar *5))) exitWith {["Garage", "You cannot garage more vehicles at your current War Level"] call A3A_fnc_customHint;};
+if (_pool and (count vehInGarage >= (tierWar *5))) exitWith {["Garage", "You can't garage more vehicles at your current War Level"] call A3A_fnc_customHint;};
 private _personalGarage = player getVariable ["personalGarage", []];
 if (!((count _personalGarage < personalGarageMax) or (personalGarageMax isEqualTo 0)) and !_pool) exitWith {["Garage", "Personal garage is full, you can't add more vehicles to it"] call A3A_fnc_customHint};
 
@@ -56,7 +57,7 @@ if (!_pool) then
 		};
 	};
 
-if (_exit) exitWith {["Garage", "You are not owner of this vehicle therefore you cannot garage it"] call A3A_fnc_customHint;};
+if (_exit) exitWith {["Garage", "You are not owner of this vehicle therefore you can't garage it"] call A3A_fnc_customHint;};
 
 if (_typeVehX isKindOf "Plane") then
 	{
@@ -64,7 +65,7 @@ if (_typeVehX isKindOf "Plane") then
 	if (count _airportsX == 0) then {_exit = true};
 	};
 
-if (_exit) exitWith {["Garage", format ["You cannot garage an air vehicle while you are not near an Aiport which belongs to %1. Place your HQ near an airbase flag in order to be able to garage it",nameTeamPlayer]] call A3A_fnc_customHint;};
+if (_exit) exitWith {["Garage", format ["You can't garage a Plane while you are not near an Aiport which belongs to %1. Please move your Plane to an Airport to garage it",nameTeamPlayer]] call A3A_fnc_customHint;};
 
 if (_veh in staticsToSave) then {staticsToSave = staticsToSave - [_veh]; publicVariable "staticsToSave"};
 

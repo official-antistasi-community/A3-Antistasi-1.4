@@ -29,7 +29,7 @@
 
 #define INBOUND_TEXT "STR_antistasi_arty_inbound_text" call BIS_fnc_localize
 #define SPLASH_TEXT "STR_antistasi_arty_splash_text" call BIS_fnc_localize
-#define	TITLE_TEXT "STR_antistasi_arty_title_text" call BIS_fnc_localize
+#define TITLE_TEXT "STR_antistasi_arty_title_text" call BIS_fnc_localize
 #define YOU_MUST_TEXT "STR_antistasi_arty_you_must_text" call BIS_fnc_localize
 #define CANNOT_FIRE_TEXT "STR_antistasi_arty_cannot_fire_text" call BIS_fnc_localize
 #define MODSET_TEXT "STR_antistasi_arty_modset_text" call BIS_fnc_localize

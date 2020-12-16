@@ -417,10 +417,12 @@ then
 
 private _fin = "";
 
-if (_rounds != 1)
+if (((_rounds % 10) != 1) || {
+	((_rounds % 100) == 11) })
 then
 {
-	if ((_rounds % 10) in [2, 3, 4])
+	if (((_rounds % 10) in [2, 3, 4]) && {
+		!((_rounds % 100) in [12, 13, 14]) })
 	then { _fin = "а"; }
 	else { _fin = "ов"; };
 };

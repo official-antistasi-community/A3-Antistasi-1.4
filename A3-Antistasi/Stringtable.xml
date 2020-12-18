@@ -1123,7 +1123,7 @@
       <Key ID="STR_antistasi_mission_info_chernawinter_mapname_text">
         <Original>Antistasi - Chilled revolt</Original>
         <English>Antistasi - Chilled revolt</English>
-        <Russian>Antistasi - Революция колхоза</Russian>
+        <Russian>Antistasi - Зимнее восстание</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernawinter_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -1359,7 +1359,7 @@
         <Czech>Začátek</Czech>
         <Chinesesimp>早期开始</Chinesesimp>
         <Korean>초기 시작</Korean>
-        <Russian>Раннее начало</Russian>
+        <Russian>В самом начале</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_1">
         <Original>Don't expect to be able to conquer anything in the early stages. First you have to gather enough resources (HR and Money) in order to be able to conquer and hold your positions. This mission tries to simulate real life guerilla situations. If in doubt, ask yourself what would you do in real life. Don't expect to win every time. Hit and Run is the basic manoeuvre here. Earn every resource, weapon and ammunition to gather enough assets in order to be a real challenge for the enemy. In the meantime, disturb its operations and gain support from the population.</Original>
@@ -1605,7 +1605,7 @@
         <Czech>Bombardování</Czech>
         <Chinesesimp>空中打击</Chinesesimp>
         <Korean>폭격</Korean>
-        <Russian>Авиоудар</Russian>
+        <Russian>Авиаудар</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_7">
         <Original>Use your Airstrike points to perform a bombing run of the specified type.</Original>
@@ -1785,7 +1785,7 @@
         <Czech>Vrchní velení</Czech>
         <Chinesesimp>高级指挥</Chinesesimp>
         <Korean>High Command</Korean>
-        <Russian>Высшее командование</Russian>
+        <Russian>Командование отрядами</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_2">
         <Original>When you are the Commander, hit CTRL + SPACE to give way-points and other orders to your AI squads using the HC mode. Non commanders may use it to check enemy contacts reported by the Faction communications network.</Original>
@@ -1947,7 +1947,7 @@
         <Czech>Rádiové věže</Czech>
         <Chinesesimp>无线电发射塔</Chinesesimp>
         <Korean>라디오 타워</Korean>
-        <Russian>Радио вышки</Russian>
+        <Russian>Радиовышки</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_6">
         <Original>Destroy or capture Radio Towers in order to build trust with %1 citizens.</Original>
@@ -2019,7 +2019,7 @@
         <Czech>Přenos ammuboxu</Czech>
         <Chinesesimp>弹药箱转移</Chinesesimp>
         <Korean>탄약박스 운반</Korean>
-        <Russian>Передача боеприпасов</Russian>
+        <Russian>Погрузка боеприпасов</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_10">
         <Original>When you mount a truck, you may use the Transfer action in the action menu. It will search for nearby ammoboxes and load the contents of the nearest one into the truck's cargo space. You may then unload the truck in your ammobox at HQ for future use. Before transferring, make sure to unload backpack/vest contents into the Truck cargo space and then transfer. TIP: If your HQ Ammobox is full, use this functionality from a nearby truck to add more content to the ammobox as it will then accept everything :)</Original>
@@ -2172,7 +2172,7 @@
         <Czech>Na některých frakčních vlajkách a na velitelských vlajkách můžete najmout až 9 jednotek AI.</Czech>
         <Chinesesimp>你可以在一些派系旗和总部旗招募最多9名AI队友.</Chinesesimp>
         <Korean>HQ 깃발과 일부 팩션 깃발에서 최대 9명의 AI 분대원을 모집할 수 있습니다.</Korean>
-        <Russian>Вы можете нанять до 9 товарищей по отряду ИИ.</Russian>
+        <Russian>Вы можете нанять до 9 ИИ товарищей в отряд.</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_2">
         <Original>AI Control</Original>
@@ -2199,7 +2199,7 @@
         <Czech>AI Rádio</Czech>
         <Chinesesimp>AI无线电</Chinesesimp>
         <Korean>AI 라디오</Korean>
-        <Russian>Радио ИИ</Russian>
+        <Russian>Радиосвязь с ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_3">
         <Original>This feature aims to simulate the lack of radio communications with AI fighters. Your AI squad-mates won't have a radio until you unlock it from the Arsenal. Without a radio, if an AI squad-mate gets too far away, they will get lost and return to the leader's position after completing the last order they received. To avoid this, you may scavenge some radios from enemy (AutoRearm feature will do) or let the AI use a military vehicle which has long range radios. If it takes too long to find their leader, they will automatically return to the HQ.</Original>
@@ -2235,7 +2235,7 @@
         <Czech>Automatické přezbrojení \ Rabování</Czech>
         <Chinesesimp>自动 武装 \ 掠夺</Chinesesimp>
         <Korean>자동획득 \ 약탈</Korean>
-        <Russian>Автопополнение \ Лут</Russian>
+        <Russian>Автоснаряжение \ Лут</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_5">
         <Original>Your AI squad-mates will automatically look for and scavenge any ammunition from nearby corpses, vehicles and ammoboxes if needed. Also they will try to renew their weapons with more powerful ones. If AI is inside a vehicle, they will loot weapons and launchers, and drop them in their truck until there is nothing in the area. Use this instead of the vanilla Rearm radio option.</Original>

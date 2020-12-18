@@ -2633,7 +2633,7 @@
     <Container name="radio_comm">
       <Key ID="STR_antistasi_dialogs_radio_comm">
         <Original>Battle Options</Original>
-        <Russian>Радио</Russian>
+        <Russian>Управление</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel">
         <Original>Fast Travel</Original>
@@ -2649,7 +2649,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_player_money_tooltip">
         <Original>Look at some player and interact with him</Original>
-        <Russian>Посмотрите на игрока чтобы взаимодействовать</Russian>
+        <Russian>Посмотрите на игрока чтобы взаимодействовать с ним</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover">
         <Original>Undercover ON</Original>
@@ -2731,7 +2731,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
-        <Russian>Разблокировать автомобиль</Russian>
+        <Russian>Разблокировать технику</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_unlock_vehicle_tooltip">
         <Original>Allow other groups to mount this vehicle</Original>
@@ -2745,11 +2745,11 @@
     <Container name="squad_manager">
       <Key ID="STR_antistasi_dialogs_squad_manager">
         <Original>HC Squad Options</Original>
-        <Russian>Верховное командование</Russian>
+        <Russian>Управление отрядами</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle">
         <Original>Squad Add Vehicle</Original>
-        <Russian>Добавить технику отряду</Russian>
+        <Russian>Добавить технику в отряд</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
@@ -2757,7 +2757,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_squad_sitrep">
         <Original>Squad SITREP</Original>
-        <Russian>Состояние отряда</Russian>
+        <Russian>Статус отряда</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_squad_sitrep_tooltip">
         <Original>If the selected squad is using some vehicle, know remotely it's status</Original>
@@ -2773,7 +2773,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget">
         <Original>Static Autotarget</Original>
-        <Russian>Статическая автоцель</Russian>
+        <Russian>Автонаведение установок</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget_tooltip">
         <Original>Use this option on AT / AA mounted squads. The truck driver will try to point his truck's back to any detected enemy</Original>
@@ -2803,7 +2803,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal">
         <Original>Auto Heal</Original>
-        <Russian>Авто исцеление</Russian>
+        <Russian>Авто-лечение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal_tooltip">
         <Original>AI squad mates will heal proactively each other</Original>
@@ -2811,7 +2811,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_SITREP">
         <Original>Squad SITREP</Original>
-        <Russian>Состояние отряда</Russian>
+        <Russian>Статус отряда</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_SITREP_tooltip">
         <Original>Recover info about a HC squad status</Original>
@@ -2835,7 +2835,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units">
         <Original>Dismiss Units / Squad</Original>
-        <Russian>Расформировать</Russian>
+        <Russian>В запас</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units_tooltip">
         <Original>Dimiss selected units or squads, recovering it's cost to the proper resource pool</Original>
@@ -2865,11 +2865,11 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
         <Original>Air Support</Original>
-        <Russian>Воздушная поддержка</Russian>
+        <Russian>Авиаподдержка</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support_tooltip">
         <Original>Ask for Air Support (uses Airstrike points)</Original>
-        <Russian>Попросите воздушную поддержку (использует очки авиаудара)</Russian>
+        <Russian>Запросить авиаподдержку (использует очки авиаподдержки)</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock">
         <Original>O.Post - Roadblock</Original>

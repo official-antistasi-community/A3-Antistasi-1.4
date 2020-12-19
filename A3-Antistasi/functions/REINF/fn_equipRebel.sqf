@@ -80,6 +80,7 @@ switch (true) do {
 	case (_unitClass in SDKExp): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		_unit setUnitTrait ["explosiveSpecialist",true];
+		_unit addItemToBackpack "MineDetector";
 		_unit addItemToBackpack "Toolkit";
 		if (count unlockedAA > 0) then {
 			[_unit, selectRandom unlockedAA, 1] call _addWeaponAndMags;

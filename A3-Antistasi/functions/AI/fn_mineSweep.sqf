@@ -19,14 +19,9 @@ _truckX = vehSDKRepair createVehicle _pos;
 
 [_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
 [_unit] spawn A3A_fnc_FIAinit;
-clearMagazineCargo unitBackpack _unit;
-_unit addItemToBackpack "MineDetector";
 
 _groupX addVehicle _truckX;
 [_unit] orderGetIn true;
-// Add Mine Detector to detect invisible APERS
-clearMagazineCargo (unitBackpack _unit);
-_unit addItemToBackpack "MineDetector";
 //_unit setBehaviour "SAFE";
 theBoss hcSetGroup [_groupX];
 

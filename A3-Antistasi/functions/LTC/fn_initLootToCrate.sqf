@@ -1,3 +1,23 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Initilizes the LTC system for the individual client
+
+    Arguments:
+    0. <nil>
+
+    Return Value:
+    <nil>
+
+    Scope: Clients
+    Environment: Any
+    Public: [Yes]
+    Dependencies:
+
+    Example: [] call A3A_fnc_initLootToCrate;
+
+    License: MIT License
+*/
 //check if action already on player
 if ((actionIDs Player) findIf {
     _params = player actionParams _x;
@@ -72,3 +92,5 @@ player addAction [
         (_this getVariable ['carryingCrate', false])
     )"
 ];
+
+nil;

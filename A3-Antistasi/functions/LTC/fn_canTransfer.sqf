@@ -1,3 +1,27 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Handles request to transfer from a container to another
+
+    Arguments:
+    0. <Object> Crate to transfere from
+    1. <Int>    Client ID
+    2. <Bool>   Transfere done ( optional -Default: false)
+
+    Return Value:
+    <nil>
+
+    Scope: Server
+    Environment: Any
+    Public: [No]
+    Dependencies:
+
+    Example:
+        [cursorObject, clientOwner] remoteExecCall ["A3A_fnc_canTransfer", 2];
+        [_target, clientOwner, true] remoteExecCall ["A3A_fnc_canTransfer", 2];
+
+    License: MIT License
+*/
 //blocks transfer if container is already transfering
 params ["_crate", ["_owner",2], ["_done", false]];
 if (isNil "LTCTransferringCrates") then {LTCTransferringCrates = []};

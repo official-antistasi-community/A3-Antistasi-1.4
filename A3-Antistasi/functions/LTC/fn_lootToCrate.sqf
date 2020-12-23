@@ -1,3 +1,24 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Attempts to transfer loot from nearby bodies and ground to the specified container, what is unable to be transfered
+        will be left on the ground next to its origin.
+
+    Arguments:
+    0. <Object> The container to try to transfere loot to
+
+    Return Value:
+    <nil>
+
+    Scope: Any
+    Environment: unscheduled
+    Public: [No]
+    Dependencies:
+
+    Example: [_crate] remoteExec ["A3A_fnc_lootToCrate", _owner];
+
+    License: MIT License
+*/
 params ["_container"];
 scopeName "Main";
 

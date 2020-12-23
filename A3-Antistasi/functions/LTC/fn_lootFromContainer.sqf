@@ -1,3 +1,26 @@
+/*
+    Author: [Håkon]
+    [Description]
+        attempts to transfer loot from one container to another
+
+    Arguments:
+    0. <Object> container to transfere from
+    1. <Object> container to transfere to
+
+    Return Value:
+    <Array> What items are left over and if whats left over is all unlocked
+
+    Scope: Server,Server/HC,Clients,Any
+    Environment: Scheduled/unscheduled/Any
+    Public: [Yes/No]
+    Dependencies:
+
+    Example:
+        [_crate] remoteExec ["A3A_fnc_lootFromContainer", _owner];
+        [_weaponHolder, _crate] call A3A_fnc_lootFromContainer;
+
+    License: MIT License
+*/
 params ["_target", "_override"];
 scopeName "Main";
 

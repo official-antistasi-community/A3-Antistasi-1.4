@@ -1,3 +1,27 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Handles request to loot an area with LTC
+
+    Arguments:
+    0. <Object> Crate to loot to
+    1. <Int>    Client ID
+    2. <Bool>   Transfere done ( optional -Default: false)
+
+    Return Value:
+    <nil>
+
+    Scope: Server
+    Environment: Any
+    Public: [No]
+    Dependencies:
+
+    Example:
+        [cursorObject, clientOwner] remoteExecCall ["A3A_fnc_canLoot", 2];
+        [_container, clientOwner, true] remoteExecCall ["A3A_fnc_canLoot", 2];
+
+    License: MIT License
+*/
 //blocks looting if nearby container is already looting
 params ["_crate", ["_owner",2], ["_done", false]];
 private _pos = getPos _crate;

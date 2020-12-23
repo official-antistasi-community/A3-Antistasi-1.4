@@ -1,3 +1,27 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Handles carrying of LTC crates
+
+    Arguments:
+    0. <Object> The crate to carry/drop
+    1. <Bool>   Picking up the crate
+    2. <Object> The unit picking-up/dropping the crate ( optional - Default: Player )
+
+    Return Value:
+    <nil>
+
+    Scope: Any
+    Environment: Any
+    Public: [Yes/No]
+    Dependencies:
+
+    Example:
+        [cursorObject, true] call A3A_fnc_carryCrate;
+        [_crate, false, _player] call A3A_fnc_carryCrate;
+
+    License: MIT License
+*/
 params [["_crate", objNull], "_pickUp", ["_player", player]];
 
 if (_pickUp) then {

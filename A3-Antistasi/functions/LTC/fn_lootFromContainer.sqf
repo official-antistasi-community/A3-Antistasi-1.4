@@ -156,6 +156,7 @@ _transferCargo = {
 			_x params ["_type", "_count", "_max", "_remainder"];
 			if !(_type in _unlocked) then {_allUnlocked = false};
 			_mainContainer addMagazineAmmoCargo [_type, _count, _max];
+            if (_remainder isEqualTo 0) exitWith {};
 			_mainContainer addMagazineAmmoCargo [_type, 1, _remainder];
 		} forEach _magsArray;
 

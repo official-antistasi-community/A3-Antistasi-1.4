@@ -69,7 +69,7 @@ switch (teamPlayer) do {
      case independent: {_lootDeviceBag append rebelBackpackDevice};
      default {_lootDeviceBag append occupantBackpackDevice};
 };
-lootDevice append _lootDeviceBag;
+lootDevice append _lootDeviceBag + allBackpacksRadio;
 
 ////////////////////////////////////
 //      REBEL STARTING ITEMS     ///

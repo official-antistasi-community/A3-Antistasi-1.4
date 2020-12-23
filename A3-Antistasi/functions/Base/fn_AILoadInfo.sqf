@@ -1,5 +1,5 @@
 if (!isServer) exitWith {};
-if (count hcArray == 0) exitWith {[petros,"hint","No Headless Client Detected"] remoteExec ["A3A_fnc_commsMP",theBoss]};
+if (count hcArray == 0) exitWith {[petros,"hint","No Headless Client Detected","AI Load Information"] remoteExec ["A3A_fnc_commsMP",theBoss]};
 _textX = "";
 
 for "_i" from 0 to (count hcArray) - 1 do
@@ -26,4 +26,4 @@ for "_i" from 0 to (count hcArray) - 1 do
 	} forEach allUnits select {alive _x};
 	_textX = format ["%1SDK: %2<br/>West:%3<br/>East:%4<br/>Civ:%5<br/>TOTAL:%6<br/><br/>",_textX,_indep,_west,_east,_civ,_total];
 	};
-[petros, "hint", _textX, "AILoad Information"] remoteExec ["A3A_fnc_commsMP",theBoss];
+[petros, "hint", _textX, "AI Load Information"] remoteExec ["A3A_fnc_commsMP",theBoss];

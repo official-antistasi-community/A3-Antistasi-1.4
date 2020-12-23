@@ -7,6 +7,10 @@ if (savingServer) exitWith {["Save Game", "Server data save is still in progress
 savingServer = true;
 [2, "Starting persistent save", _filename] call A3A_fnc_log;
 ["Persistent Save Starting","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
+
+// Set next autosave time, so that we won't run another shortly after a manual save
+autoSaveTime = time + autoSaveInterval;
+
 // Save each player with global flag
 {
 	[getPlayerUID _x, _x, true] call A3A_fnc_savePlayer;

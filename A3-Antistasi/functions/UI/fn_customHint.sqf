@@ -4,7 +4,7 @@ Function:
 
 Description:
     Adds item to notification queue.
-    Pre-parse body text to take control of the whole notification (except footer).
+    Pre-parse body text to take control of the space in-between the top A3 icon and footer.
     Note: you don't need pre-parse for custom heading/body XML, just insert where plain text would go.
     Set A3A_customHintEnable=false to use original custom hint.
 
@@ -30,7 +30,7 @@ Examples:
         ["Restart Notification", "Please make your way to HQ as a restart will occure soon™<br/><br/>Please make sure you save your stats at the Map.", true] remoteExec ["A3A_fnc_customHint", 0, false];
     ["Vaya...", "Parece que sus notificaciones importantes se cifraron.<br/><br/>Nadie espera el cifrado español.", false, ["Pictures\Intel\laptop_error.paa",1]] remoteExec ["A3A_fnc_customHint", 0, false];
 
-    // Pre-parse FooBar(Hello World) NoMacro
+    // Pre-parse FooBar
         private _iconXML = parseText "<img color='#ffffff' image='functions\UI\images\logo.paa' align='center' size='2' shadow='1' shadowColor='#000000' />";
         private _separator  = parseText "<br/><img color='#e6b24a' image='functions\UI\images\img_line_ca.paa' align='center' size='0.60' />";
         private _header = parseText "<br/><br/><t size='1.2' color='#e5b348' shadow='1' shadowColor='#000000'>FooBar</t>";
@@ -45,7 +45,7 @@ params [
     ["_headerText", "headermissingno", [""]],
     ["_bodyText", "bodymissingno", ["",parseText""]],
     ["_isSilent", false, [false]],
-    ["_iconData", ["functions\UI\images\logo.paa",4], [ [] ], 2]
+    ["_iconData", ["",1], [ [] ], 2]  // Will be used for GUI control version of customHints. Images can be baked into the message via XML or parseText so that the default header is not present. (See example `Pre-parse FooBar`)
 ];
 private _filename = "fn_customHint.sqf";
 
@@ -57,9 +57,7 @@ if (_bodyText isEqualType parseText"") then {
     _structuredText = _bodyText;
 } else {
     _structuredText = parseText ([
-        "<t size='1' color='#ffffff' font='RobotoCondensed' align='center' valign='middle' underline='0' shadow='1' shadowColor='#000000' shadowOffset='0.0625' colorLink='#0099ff' >",
-        "<img size='",8/_iconData#1,"' shadowOffset='",0.015625*_iconData#1,"' image='",_iconData#0,"' /><br/><br/>",
-        "<t size='1.2' color='#e5b348' >",
+        "<t size='1' color='#ffffff' font='RobotoCondensed' align='center' valign='middle' underline='0' shadow='1' shadowColor='#000000' shadowOffset='0.0625' colorLink='#0099ff' ><t size='1.2' color='#e5b348' >",
         _headerText,
         "</t><br/><img size='0.60' color='#e6b24a' image='functions\UI\images\img_line_ca.paa' /><br/><br/><t >",
         _bodyText,
@@ -76,9 +74,10 @@ if (A3A_customHintEnable) then {
     };
     private _lastMSGIndex = count A3A_customHint_MSGs - 1;
     if (A3A_customHint_MSGs #(_lastMSGIndex)#0 isEqualTo _headerText) then {
-        A3A_customHint_LastMSG = serverTime;
+        A3A_customHint_UpdateTime = serverTime;
     };
 } else {
+    _structuredText = composeText [parseText "<img size='2.1' color='#ffffffff' shadowOffset='0.06' image='functions\UI\images\logo.paa' /><br/>",_structuredText];
     if (_isSilent) then {
         hintSilent _structuredText;
     } else {
@@ -86,5 +85,3 @@ if (A3A_customHintEnable) then {
     };
 };
 true;
-
-// TODO: remove all `hintSilent ""` used in boot processes.

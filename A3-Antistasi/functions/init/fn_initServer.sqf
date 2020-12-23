@@ -123,6 +123,8 @@ call
 publicVariable "loadLastSave";
 publicVariable "campaignID";
 
+//JNA, JNL and UPSMON. Shouldn't have any Antistasi dependencies except on parameters.
+call A3A_fnc_initFuncs;
 
 //Initialise variables needed by the mission.
 _nul = call A3A_fnc_initVar;
@@ -130,7 +132,6 @@ _nul = call A3A_fnc_initVar;
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
-call A3A_fnc_initFuncs;
 if (hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 call A3A_fnc_loadNavGrid;
 call A3A_fnc_initZones;
@@ -245,7 +246,8 @@ savingServer = false;
 	private _lastPlayerCount = count (call A3A_fnc_playableUnits);
 	while {true} do
 	{
-		uiSleep autoSaveInterval;
+		autoSaveTime = time + autoSaveInterval;
+		waitUntil { sleep 60; time > autoSaveTime; };
 		private _playerCount = count (call A3A_fnc_playableUnits);
 		if (autoSave && (_playerCount > 0 || _lastPlayerCount > 0)) then {
 			[] remoteExecCall ["A3A_fnc_saveLoop", 2];

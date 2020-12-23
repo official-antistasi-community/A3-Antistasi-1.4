@@ -12,7 +12,7 @@ typePetros = "UK3CB_TKM_B_WAR";
 //             UNITS             ///
 ////////////////////////////////////
 //First Entry is Guerilla, Second Entry is Para/Military
-staticCrewTeamPlayer = "UK3CB_TKM_B_RIF_1";
+staticCrewTeamPlayer = "UK3CB_TKM_B_STATIC_GUN_NSV";
 SDKUnarmed = "UK3CB_TKC_B_SPOT";
 SDKSniper = ["UK3CB_TKM_B_SPOT","UK3CB_TKM_B_SNI"];
 SDKATman = ["UK3CB_TKM_B_LAT","UK3CB_TKM_B_AT"];

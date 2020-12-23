@@ -130,8 +130,9 @@ _transferCargo = {
 
         if (_container canAdd [_type, _count] and !(_type in _unlocked)) then {
             _container addMagazineAmmoCargo [_type, _count, _max];
-            if (_remainder isEqualTo 0) exitWith {};
-            _container addMagazineAmmoCargo [_type, 1, _remainder];
+            if !(_remainder isEqualTo 0) then {
+                _container addMagazineAmmoCargo [_type, 1, _remainder];
+            };
         } else {
             (_leftover#1) pushBack [_type, _count, _max, _remainder];
         };
@@ -179,8 +180,9 @@ _transferCargo = {
             _x params ["_type", "_count", "_max", "_remainder"];
             if !(_type in _unlocked) then {_allUnlocked = false};
             _mainContainer addMagazineAmmoCargo [_type, _count, _max];
-            if (_remainder isEqualTo 0) exitWith {};
-            _mainContainer addMagazineAmmoCargo [_type, 1, _remainder];
+            if !(_remainder isEqualTo 0) then {
+                _mainContainer addMagazineAmmoCargo [_type, 1, _remainder];
+            };
         } forEach _magsArray;
 
         {

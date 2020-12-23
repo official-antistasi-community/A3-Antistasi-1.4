@@ -172,7 +172,9 @@ _allUnlockedArray = [];
             _x params ["_type", "_count", "_max", "_remainder"];
             if !(_type in _unlocked) then {_allUnlocked = false};
             _newContainer addMagazineAmmoCargo [_type, _count, _max];
-            _newContainer addMagazineAmmoCargo [_type, 1, _remainder];
+            if !(_remainder isEqualTo 0) then {
+                _newContainer addMagazineAmmoCargo [_type, 1, _remainder];
+            };
         } forEach _magsArray;
 
         {

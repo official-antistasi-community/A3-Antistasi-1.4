@@ -63,6 +63,7 @@ private _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >
 private _cargoMass = _newMass - _defaultMass;
 
 //Output the final message.
+private _msg = "";
 if (!_removeObject) then{
     if (_availableNodes == 0) then {
         _msg = Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"" There is no more space.</t>", _objectName, _vehicleName, _availableNodes];

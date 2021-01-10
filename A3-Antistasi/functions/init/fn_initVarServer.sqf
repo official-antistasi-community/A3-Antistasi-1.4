@@ -654,7 +654,7 @@ DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
-private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks) select { _x call jn_fnc_logistics_classHasCargo };
+private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks) select { [_x] call A3A_fnc_logistics_getVehCapacity > 1 };
 DECLARE_SERVER_VAR(vehCargoTrucks, _vehCargoTrucks);
 
 ///////////////////////////

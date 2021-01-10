@@ -14,6 +14,9 @@ if (isNil "_container") exitWith {
 	[_target, clientOwner, true] remoteExecCall ["A3A_fnc_canTransfer", 2];
 };
 
+//break undercover
+player setCaptive false;
+
 private "_unlocked";
 if (LTCLootUnlocked) then {
 	_unlocked = [];
@@ -104,6 +107,7 @@ _transferCargo = {
 
 		if (_container canAdd [_type, _count] and !(_type in _unlocked)) then {
 			_container addMagazineAmmoCargo [_type, _count, _max];
+			if (_remainder isEqualTo 0) exitWith {};
 			_container addMagazineAmmoCargo [_type, 1, _remainder];
 		} else {
 			(_leftover#1) pushBack [_type, _count, _max, _remainder];

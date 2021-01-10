@@ -123,18 +123,20 @@ _arrayContains = {
 	(param[0]) findIf { toLower(_x) == _item } != -1
 };
 
-private _ammoCountToMags = {
-	params ["_item", "_count"];
-	private _magSize = getNumber (configfile >> "CfgMagazines" >> _item >> "count");
-	//Return
-	_amount / _magSize;
+// Calculate the minimum number of an item needed before non-members can take it
+private _minItemsMember = {
+	params ["_index", "_item"];					// Arsenal tab index, item classname
+	private _min = jna_minItemMember select _index;
+	if (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG || _index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) then {
+		_min = _min * getNumber (configfile >> "CfgMagazines" >> _item >> "count");
+	};
+	_min;
 };
 
 _mode = [_this,0,"Open",[displaynull,""]] call bis_fnc_param;
 _this = [_this,1,[]] call bis_fnc_param;
 //if!(_mode in ["draw3D","ListCurSel"])then{diag_log ("jna call "+_mode);};
 //commented by Barbolani to avoid rpt flood
-
 
 switch _mode do {
 
@@ -263,7 +265,6 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "CustomInit":{
-
 		_display = _this select 0;
 		["ReplaceBaseItems",[_display]] call jn_fnc_arsenal;
 		["customEvents",[_display]] call jn_fnc_arsenal;
@@ -529,24 +530,6 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ReplaceBaseItems":{
-		//replace magazines with partial filled, just like it was before entering the box, entering the arsanal refilles all ammo
-		_mags = missionNamespace getVariable "jna_magazines_init";//get ammo list from before arsenal started
-
-		{
-			if!(isnil "_x")then{
-				_container = switch _foreachindex do{
-					case 0: {uniformContainer player;};
-					case 1: {vestContainer player;};
-					case 2: {backpackContainer player;};
-				};
-				clearMagazineCargoGlobal _container;
-				{
-					_item = _x select 0;
-					_amount = _x select 1;
-					_container addMagazineAmmoCargo [_item,1,_amount];
-				}forEach _x;
-			};
-		} forEach _mags;
 
 		//replace all items to base type
 		_loadout = getUnitLoadout player;//this crap doesnt save weapon attachments in containers
@@ -593,6 +576,25 @@ switch _mode do {
 				_container addItemCargoGlobal [_x,1];
 			} forEach ((missionNamespace getVariable "jna_containerCargo_init") select _foreachindex);
 		} forEach [uniformContainer player,vestContainer player,backpackContainer player];
+
+		//replace magazines with partial filled, just like it was before entering the box, entering the arsanal refilles all ammo
+		// Do this after setUnitLoadout, because that fills magazines when you have >1 with the same bullet count (BIS bug)
+		_mags = missionNamespace getVariable "jna_magazines_init";//get ammo list from before arsenal started
+		{
+			if!(isnil "_x")then{
+				_container = switch _foreachindex do{
+					case 0: {uniformContainer player;};
+					case 1: {vestContainer player;};
+					case 2: {backpackContainer player;};
+				};
+				clearMagazineCargoGlobal _container;
+				{
+					_item = _x select 0;
+					_amount = _x select 1;
+					_container addMagazineAmmoCargo [_item,1,_amount];
+				}forEach _x;
+			};
+		} forEach _mags;
 	};
 
 
@@ -1400,8 +1402,9 @@ switch _mode do {
 		};
 
 		//grayout items for non members, right items are done in selectRight
-		_min = jna_minItemMember select _index;
+		// Except in the vehicle arsenal, where this function is used for the right items too
 		_grayout = false;
+		_min = [_index, _item] call _minItemsMember;
 		if ((_amount <= _min) AND (_amount != -1) AND !([player] call A3A_fnc_isMember)) then{_grayout = true};
 
 		_color = [1,1,1,1];
@@ -1591,7 +1594,7 @@ switch _mode do {
 		};
 
 		//check if weapon is unlocked
-		private _min = jna_minItemMember select _index;
+		private _min = [_index, _item] call _minItemsMember;
 		if ((_amount <= _min) AND (_amount != -1) AND (_item !="") AND !([player] call A3A_fnc_isMember) AND !_type) exitWith{
 			['showMessage',[_display,"We are low on this item, only members may use it"]] call jn_fnc_arsenal;
 
@@ -2051,7 +2054,6 @@ switch _mode do {
 
 
 		//-- Disable too heavy items
-		_min = jna_minItemMember select _index;
 		_rows = lnbsize _ctrlList select 0;
 		_columns = lnbsize _ctrlList select 1;
 		_colorWarning = ["IGUI","WARNING_RGB"] call bis_fnc_displayColorGet;
@@ -2063,10 +2065,7 @@ switch _mode do {
 			_amount = _data select 1;
 			_grayout = false;
 
-			if (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG || _index ==	IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL && _amount > 0) then {
-				_amount = [_item, _amount] call _ammoCountToMags;
-			};
-
+			_min = [_index, _item] call _minItemsMember;
 			if ((_amount <= _min) AND (_amount != -1) AND (_amount !=0) AND !([player] call A3A_fnc_isMember)) then{_grayout = true};
 
 			_isIncompatible = _ctrlList lnbvalue [_r,1];
@@ -2103,12 +2102,6 @@ switch _mode do {
 		_data = call compile _dataStr;
 		_item = _data select 0;
 		_amount = _data select 1;
-		//Number of magazines if item is ammo, or _amount otherwise
-		_numberOfMags = _amount;
-
-		if(_index in [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL] && _amount > 0) then {
-				_numberOfMags = [_item, _amount] call _ammoCountToMags;
-		};
 
 		_load = 0;
 		_items = [];
@@ -2129,9 +2122,8 @@ switch _mode do {
 		if(((_amount > 0 || _amount == -1) || _add < 0) && (_add != 0))then{
 
 			if (_add > 0) then {//add
-				_min = jna_minItemMember select _index;
-
-				if((_numberOfMags <= _min) AND (_amount != -1) AND !([player] call A3A_fnc_isMember)) exitWith{
+				_min = [_index, _item] call _minItemsMember;
+				if((_amount <= _min) AND (_amount != -1) AND !([player] call A3A_fnc_isMember)) exitWith{
 					['showMessage',[_display,"We are low on this item, only members may use it"]] call jn_fnc_arsenal;
 				};
 				if(_index in [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL])then{//magazines are handeld by bullet count

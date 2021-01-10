@@ -68,7 +68,7 @@ if (isNil "_nodes") then {
 };
 
 //Vehicle not able to carry cargo
-if (_nodes isEqualTo -1) exitWith {-7};
+if (_nodes isEqualTo []) exitWith {-7};
 
 //enough free nodes to load cargo
 private "_node";

@@ -80,4 +80,4 @@ private _undercoverBreak = _vehicle addEventHandler ["GetIn", {
 _vehicle setVariable ["undercoverBreak", _undercoverBreak];
 
 //init unneccesary but nice features
-_cargo call A3A_fnc_logistics_initMountedWeapon;
+[_cargo] call A3A_fnc_logistics_initMountedWeapon;

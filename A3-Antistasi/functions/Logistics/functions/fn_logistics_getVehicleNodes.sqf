@@ -17,7 +17,7 @@
     Example: private _nodes = [_vehicle] call A3A_fnc_logistics_getVehicleNodes;
 */
 params ["_vehicle"];
-private _return = -1;
+private _return = [];
 private _model = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "model");
 
 {

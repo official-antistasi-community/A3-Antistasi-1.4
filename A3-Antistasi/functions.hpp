@@ -333,17 +333,6 @@ class A3A
         class showIntel {};
     };
 
-    class LTC
-    {
-        class canLoot {};
-        class canTransfer {};
-        class carryCrate {};
-        class initLootToCrate {};
-        class lootFromContainer {};
-        class lootToCrate {};
-        class spawnCrate {};
-    };
-
     class Logistics
     {
         class logistics_addLoadAction {};
@@ -372,42 +361,17 @@ class A3A
         class logistics_unload {};
     };
 
-<<<<<<<
-	class LTC
-	{
-		class canLoot {};
-		class canTransfer {};
-		class carryCrate {};
-		class initLootToCrate {};
-		class lootFromContainer {};
-		class lootToCrate {};
-		class spawnCrate {};
-	};
+    class LTC
+    {
+        class canLoot {};
+        class canTransfer {};
+        class carryCrate {};
+        class initLootToCrate {};
+        class lootFromContainer {};
+        class lootToCrate {};
+        class spawnCrate {};
+    };
 
-	class Missions
-	{
-		class AS_Official {};
-		class AS_specOP {};
-		class AS_Traitor {};
-		class attackHQ {};
-		class CON_Outpost {};
-		class convoy {};
-		class deleteTask {};
-		class DES_Antenna {};
-		class DES_Heli {};
-		class DES_Vehicle {};
-		class LOG_Ammo {};
-		class LOG_Bank {};
-		class LOG_Supplies {};
-		class LOG_Salvage {};
-		class missionRequest {};
-		class REP_Antenna {};
-		class RES_Prisoners {};
-		class RES_Refugees {};
-		class taskUpdate {};
-		class underAttack {};
-	};
-=======
     class Missions
     {
         class AS_Official {};
@@ -431,7 +395,6 @@ class A3A
         class taskUpdate {};
         class underAttack {};
     };
->>>>>>>
 
     class ModsAndDLC {
         class getModOfConfigClass {};

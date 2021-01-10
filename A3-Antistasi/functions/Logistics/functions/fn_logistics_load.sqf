@@ -19,12 +19,12 @@
 
     Example:
 */
-params ["_cargo", "_vehicle", "_node", "_weapon"];
+params ["_cargo", "_vehicle", "_node", "_weapon", ["_instant", false, [true]]];
 
 if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being loaded into vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
-//update list function
+//update list of nodes on vehicle
 _updateList = {
     params ["_vehicle", "_node"];
     _list = _vehicle getVariable ["logisticsCargoNodes",[]];
@@ -80,7 +80,7 @@ _cargo setVariable ["AttachmentOffset", _location];
 [_vehicle, true, _seats] remoteExecCall ["A3A_fnc_logistics_toggleLock", 0, _vehicle];
 
 //break undercover
-if (_weapon) then {
+if (_weapon && !_instant) then {
     {_x setCaptive false;}forEach crew _vehicle;
     player setCaptive false;
 };
@@ -94,10 +94,15 @@ _cargo attachto [_vehicle,_location];
 _cargo hideObjectGlobal false;
 
 //slideing attachment
-while {(_location#1) < _yEnd} do {
-    sleep 0.1;
-    _location = _location vectorAdd [0,0.1,0];
+if (_instant) then {
+    _location set [1, _yEnd+0.1];
     _cargo attachto [_vehicle,_location];
+} else {
+    while {(_location#1) < _yEnd} do {
+        sleep 0.1;
+        _location = _location vectorAdd [0,0.1,0];
+        _cargo attachto [_vehicle,_location];
+    };
 };
 
 //update loaded list (for unload ease)
@@ -107,7 +112,7 @@ _vehicle setVariable ["Cargo", _loadedCargo, true];
 
 //misc
 [_cargo] call A3A_fnc_logistics_toggleAceActions;
-[_vehicle, _cargo] call A3A_fnc_logistics_addOrRemoveObjectMass;
+[_vehicle, _cargo, nil, _instant] call A3A_fnc_logistics_addOrRemoveObjectMass;
 if (_weapon) then {
     [_cargo, _vehicle] remoteExec ["A3A_fnc_logistics_addWeaponAction", 0, _cargo];
 };

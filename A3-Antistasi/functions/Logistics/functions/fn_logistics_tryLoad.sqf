@@ -48,3 +48,5 @@ if (_return isEqualType 0) exitWith {
 };
 
 _return spawn A3A_fnc_logistics_load;
+
+nil

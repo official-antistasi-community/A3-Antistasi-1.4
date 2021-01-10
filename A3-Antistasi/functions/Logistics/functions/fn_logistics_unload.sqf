@@ -16,7 +16,7 @@
 
     Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
 */
-params ["_vehicle"];
+params ["_vehicle", ["_instant", false, [true]]];
 
 private _loaded = _vehicle getVariable ["Cargo", []];
 private _lastLoaded = false;
@@ -31,7 +31,7 @@ if !(
 if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being unloaded from vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
-//update list function
+//update list of nodes on vehicle
 _updateList = {
     params ["_vehicle", "_node"];
     _list = _vehicle getVariable ["logisticsCargoNodes",[]];
@@ -96,15 +96,20 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
     private _bbc = (boundingBoxReal _cargo select 0 select 1) + ((boundingCenter _cargo) select 1);
     private _yEnd = _bbv + _bbc - 0.1;
 
-    while {(_location#1) > _yEnd} do {
-        sleep 0.1;
-        _location = _location vectorAdd [0,-0.1,0];
+    if (_instant) then {
+        _location set [1, _yEnd-0.1];
         _cargo attachto [_vehicle,_location];
+    } else {
+        while {(_location#1) > _yEnd} do {
+            sleep 0.1;
+            _location = _location vectorAdd [0,-0.1,0];
+            _cargo attachto [_vehicle,_location];
+        };
     };
     detach _cargo;
 
     [_cargo] call A3A_fnc_logistics_toggleAceActions;
-    [_vehicle, _cargo, true] call A3A_fnc_logistics_addOrRemoveObjectMass;
+    [_vehicle, _cargo, true, _instant] call A3A_fnc_logistics_addOrRemoveObjectMass;
     _cargo lockDriver false;
 } else {_keepUnloading = true};
 

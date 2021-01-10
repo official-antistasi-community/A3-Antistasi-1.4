@@ -16,13 +16,15 @@
 
     Example: private _offsetAndDir = [_cargo] call A3A_fnc_logistics_getCargoOffsetAndDir;
 */
-params ["_object"];
-if (_object isKindOf "CAManBase") exitWith {[[0,0,0],[0,0,0]]};//exception for the mdical system
-private _return = [[0,0,0],[0,0,0]];
+params [["_object", objNull, [objNull, ""]]];
+private _type = if (_object isEqualType objNull) then { typeOf _object } else { _object };
+private _return = [ [0,0,0], [0,0,0] ];
+if (_type isEqualTo "") exitWith {_return};
+if (_object isKindOf "CAManBase") exitWith {_return};//exception for the mdical system
 
-private _model = getText (configFile >> "CfgVehicles" >> typeOf _object >> "model");
+private _model = getText (configFile >> "CfgVehicles" >> _type >> "model");
 {
-    if ((_x#0) isEqualTo _model) exitWith {_return = +[_x#1,_x#2]};
+    if ( (_x#0) isEqualTo _model ) exitWith { _return = +[_x#1,_x#2] };
 }forEach logistics_attachmentOffset;
 
 _return;

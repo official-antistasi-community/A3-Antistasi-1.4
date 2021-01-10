@@ -16,12 +16,14 @@
 
     Example: private _nodes = [_vehicle] call A3A_fnc_logistics_getVehicleNodes;
 */
-params ["_vehicle"];
-private _return = -1;
-private _model = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "model");
+params [["_vehicle", objNull, [objNull, ""]]];
+private _type = if (_vehicle isEqualType objNull) then { typeOf _vehicle } else { _vehicle };
+private _return = [];
+if (_type isEqualTo "") exitWith { _return };
 
+private _model = getText (configFile >> "CfgVehicles" >> _type >> "model");
 {
-    if ((_x#0) isEqualTo _model) exitWith {_return = +_x#1};
+    if ( (_x#0) isEqualTo _model ) exitWith { _return = +_x#1 };
 }forEach logistics_vehicleHardpoints;
 
 _return;

@@ -20,7 +20,9 @@
 */
 _classNameToModel = {
     params ["_className"];
-    getText (configFile >> "CfgVehicles" >> _className >> "model");
+    private _cfg = (configFile >> "CfgVehicles");
+    if !( isClass (_cfg >> _className) ) exitWith {"N/A"}; //ensure its never misstaken for anything if invalid class
+    getText (_cfg >> _className >> "model");
 };
 
 //Each element is: [model name, [nodes]]

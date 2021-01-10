@@ -16,4 +16,4 @@ clearMagazineCargoGlobal _crate;
 clearWeaponCargoGlobal _crate;
 clearItemCargoGlobal _crate;
 clearBackpackCargoGlobal _crate;
-[_crate] call jn_fnc_logistics_addAction;
+[_crate] call A3A_fnc_logistics_addLoadAction;

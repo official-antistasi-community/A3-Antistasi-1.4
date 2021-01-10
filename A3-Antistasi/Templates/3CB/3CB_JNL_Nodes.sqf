@@ -1,7 +1,7 @@
 //JNL mounting nodes for cargo and statics.
 //Each element is: [model name, [nodes]]
 //Nodes are build like this: [Available(internal use,  always 1), Hardpoint location, Seats locked when node is in use]
-jnl_vehicleHardpoints append [
+logistics_vehicleHardpoints append [
   // Datsun civ variant, TODO: redo for 3 crates maybeeee?
   ["UK3CB_C_Datsun_Open" call A3A_fnc_classNameToModel, [
       [1,               [0,-0.5,-0.83],     [2,3]],

@@ -1,4 +1,22 @@
 /*
+Author: Barbolani, Bob-Murphy, ...
+Description
+
+Arguments:
+none
+
+Return Value:
+none
+
+Scope: Server
+Environment: Scheduled
+Public: Yes
+Dependencies: Occupants, Invaders, teamPlayer, markersX, forcedSpawn, spawner
+
+Example:
+[] spawn A3A_fnc_distance;
+
+
                             ==(W{==========-      /===-
                               ||   .--.          /===-_---~~~~~~~~~------____
                               | \_,|**|,__      |===-~___                _,-' `
@@ -28,7 +46,7 @@
    ;'( ')/ ,)(                              ~~~~~~~~~~
   ' ') '( (/
     '   '  `
-*/
+
 /* -------------------------------------------------------------------------- */
 /*                                   defines                                  */
 /* -------------------------------------------------------------------------- */
@@ -456,8 +474,8 @@ do
 			do
 			{
 				case Occupants: { _blufor pushBack _x; };
-				case invaders: { _opfor pushBack _x; };
-				case teamplayer: { _greenfor pushBack _x; };
+				case Invaders: { _opfor pushBack _x; };
+				case teamPlayer: { _greenfor pushBack _x; };
 			};
 		} forEach _spawners;
 	};
@@ -472,8 +490,8 @@ do
 		do
 		{
 			case Occupants: _processOccupantMarker;
-			case invaders: _processInvaderMarker;
-			case teamplayer: _processFIAMarker;
+			case Invaders: _processInvaderMarker;
+			case teamPlayer: _processFIAMarker;
 		};
 	} forEach markersX;
 };

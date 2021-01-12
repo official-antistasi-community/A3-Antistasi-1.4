@@ -3447,7 +3447,7 @@
       <Key ID="STR_antistasi_arty_no_ammo_text">
         <Original>The Battery has no ammo to fire. Reload it on HQ</Original>
         <English>The Battery has no ammo to fire. Reload it on HQ</English>
-        <Russian>Закончились боеприпасов. Перезарядите в Штабе</Russian>
+        <Russian>Закончились боеприпасы. Перезарядите в Штабе</Russian>
       </Key>
       <Key ID="STR_antistasi_arty_busy_text">
         <Original>Selected Battery is busy right now</Original>

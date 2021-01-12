@@ -95,10 +95,9 @@ private _artyFire =
 	{
 		sleep 0.2;
 
-		if (!(canFire _artyUnit) || {
-			(_artyUnit getVariable ["currentOrderNum", 1] == _orderNum) && {
-			(unitReady _artyUnit) }})
-		exitWith { true };
+		if (!(canFire _artyUnit)
+			|| { _artyUnit getVariable ["currentOrderNum", 1] == _orderNum
+			&& { unitReady _artyUnit } }) exitWith { true };
 
 		false
 	};
@@ -136,20 +135,19 @@ private _firstImpactNotification =
 	private _timeX = time + _eta;
 	private _textX = format [INBOUND_TEXT, round _eta];
 
-	[petros, "sideChat", _textX] remoteExec
-		["A3A_fnc_commsMP", [teamPlayer, civilian]];
+	[petros, "sideChat", _textX] remoteExec ["A3A_fnc_commsMP", [teamPlayer, civilian]];
 
 	waitUntil
 	{
 		sleep 1;
 
-		if (!(isNil "_timeX") && { (time > _timeX) }) exitWith { true };
+		if (!(isNil "_timeX") && { time > _timeX }) exitWith { true };
 
 		false
 	};
 
-	[petros, "sideChat", SPLASH_TEXT] remoteExec
-		["A3A_fnc_commsMP", [teamPlayer, civilian]];
+
+	[petros, "sideChat", SPLASH_TEXT] remoteExec ["A3A_fnc_commsMP", [teamPlayer, civilian]];
 };
 
 /* -------------------------------------------------------------------------- */
@@ -195,14 +193,9 @@ private _supportConfigArray = [];
 	_unit = _x;
 	_veh = vehicle _unit;
 
-	if ((_veh != _unit) && {
-		_supportConfigArray = getArray (configfile >> "CfgVehicles" >>
-			typeOf _veh >> "availableForSupportTypes");
-		("Artillery" in _supportConfigArray) })
-	then
-	{
-		_artyArray pushBackUnique _veh;
-	};
+	if (_veh != _unit && { _supportConfigArray = getArray (configfile >> "CfgVehicles"
+			>> typeOf _veh >> "availableForSupportTypes"); "Artillery" in _supportConfigArray })
+	then { _artyArray pushBackUnique _veh; };
 } forEach _units;
 
 if (count _artyArray == 0)
@@ -320,8 +313,7 @@ exitWith { [TITLE_TEXT, OUT_TEXT] call A3A_fnc_customHint; };
 
 /* ------------------- markers and second click on the map ------------------ */
 
-private _mrkFinal = createMarkerLocal
-	[format ["Arty%1", random 100], _positionTel];
+private _mrkFinal = createMarkerLocal [format ["Arty%1", random 100], _positionTel];
 _mrkFinal setMarkerShapeLocal "ICON";
 _mrkFinal setMarkerTypeLocal "hd_destroy";
 _mrkFinal setMarkerColorLocal "ColorRed";
@@ -339,8 +331,7 @@ else
 
 	_mrkFinal setMarkerTextLocal (BEGIN_MARKER_TEXT);
 
-	[TITLE_TEXT, SELECT_POS_FIN_TEXT]
-		call A3A_fnc_customHint;
+	[TITLE_TEXT, SELECT_POS_FIN_TEXT] call A3A_fnc_customHint;
 
 	if !(visibleMap) then { openMap true; };
 
@@ -351,7 +342,7 @@ else
 	_positionTel2 = positionTel;
 };
 
-if ((_typeArty == "BARRAGE") && { (count _positionTel2 == 0) })
+if (_typeArty == "BARRAGE" && { count _positionTel2 == 0 })
 exitWith { deleteMarkerLocal _mrkFinal; };
 
 private _mrkFinal2 = nil;
@@ -394,7 +385,7 @@ private _rounds = roundsX;
 
 private  _distance = 0;
 
-if ((_typeArty == "BARRAGE") && { (_rounds > 1) })
+if (_typeArty == "BARRAGE" && { _rounds > 1 })
 then { _distance = (_positionTel distance _positionTel2) / (_rounds - 1); };
 
 /* ---------------------------- spawn fired area ---------------------------- */
@@ -403,9 +394,9 @@ private _markerX = [markersX, _positionTel] call BIS_fnc_nearestPosition;
 private _size = [_markerX] call A3A_fnc_sizeMarker;
 private _forcedX = false;
 
-if (!(_markerX in forcedSpawn) && {
-	(_positionTel distance (getMarkerPos _markerX) < _size) && {
-	(spawner getVariable _markerX != 0) }})
+if (!(_markerX in forcedSpawn)
+	&& { _positionTel distance (getMarkerPos _markerX) < _size
+	&& { spawner getVariable _markerX != 0 } })
 then
 {
 	_forcedX = true;
@@ -417,20 +408,16 @@ then
 
 private _fin = "";
 
-if (((_rounds % 10) != 1) || {
-	((_rounds % 100) == 11) })
+if ((_rounds % 10) != 1 || { (_rounds % 100) == 11 })
 then
 {
-	if (((_rounds % 10) in [2, 3, 4]) && {
-		!((_rounds % 100) in [12, 13, 14]) })
+	if ((_rounds % 10) in [2, 3, 4] && !{ (_rounds % 100) in [12, 13, 14] })
 	then { _fin = "а"; }
 	else { _fin = "ов"; };
 };
 
-private _textX = format [REQUEST_TEXT, mapGridPosition _positionTel,
-	round _rounds, _fin];
-[theBoss, "sideChat", _textX] remoteExec
-	["A3A_fnc_commsMP", [teamPlayer, civilian]];
+private _textX = format [REQUEST_TEXT, mapGridPosition _positionTel, round _rounds, _fin];
+[theBoss, "sideChat", _textX] remoteExec ["A3A_fnc_commsMP", [teamPlayer, civilian]];
 
 /* ------------------------------- fire cycle ------------------------------- */
 
@@ -455,9 +442,7 @@ do
 		_artyUnit = _artyUnits # _i;
 		_unitAmmo = _ammoUnits # _i;
 
-		if ((_count != _rounds) && {
-			(canFire _artyUnit) && {
-			(_unitAmmo >= 1) }})
+		if (_count != _rounds && { canFire _artyUnit && { _unitAmmo >= 1 } })
 		then
 		{
 			_lastOrderNum = _artyUnit getVariable ["lastOrderNum", 0];
@@ -472,11 +457,7 @@ do
 			[_artyUnit, _position, _typeAmmo, _lastOrderNum] spawn _artyFire;
 
 			if (_count == 0)
-			then
-			{
-				[_artyUnit, _position, _typeAmmo]
-					spawn _firstImpactNotification;
-			};
+			then { [_artyUnit, _position, _typeAmmo] spawn _firstImpactNotification; };
 
 			_count = _count + 1;
 			_isCycleOn = true;

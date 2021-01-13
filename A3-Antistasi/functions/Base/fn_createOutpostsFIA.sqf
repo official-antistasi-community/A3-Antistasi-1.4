@@ -1,15 +1,27 @@
-// Author: Antistasi Community
-//
-// Description:
-// create task, group with vehicle, wait time limit,
-// delete group with vehicle, create marker and post
-//
-// Returns:
-// nothing
-//
-// How to use:
-// ["create", [0, 0, 0]] remoteExec ["A3A_fnc_createOutpostsFIA", 2];
-// ["delete", [0, 0, 0]] remoteExec ["A3A_fnc_createOutpostsFIA", 2];
+/*
+Author: Antistasi Community
+
+Description:
+create task, group with vehicle, wait time limit,
+delete group with vehicle, create marker and post
+
+Arguments:
+	<STRING> "create" or "delete"
+	<POSITION> post position
+Return Value: <nil>
+Scope: Server
+Environment: Scheduled
+Public: No
+Dependencies:
+	groupsSDKAT, vehSDKTruck, groupsSDKSniper, vehSDKBike, theBoss,
+	outpostsFIA, sidesX, markersX, spawner, garrison, A3A_fnc_customHint,
+	A3A_fnc_spawnGroup, A3A_fnc_findNearestGoodRoad, A3A_fnc_FIAinit,
+	A3A_fnc_taskUpdate, A3A_fnc_deleteTask
+
+Example:
+	["create", [0, 0, 0]] remoteExec ["A3A_fnc_createOutpostsFIA", 2];
+	["delete", [0, 0, 0]] remoteExec ["A3A_fnc_createOutpostsFIA", 2];
+*/
 
 /* -------------------------------------------------------------------------- */
 /*                                   defines                                  */
@@ -108,10 +120,8 @@ waitUntil
 
 	if ({alive _x} count units _group == 0) exitWith { true };
 
-	if ((units _group) findIf {
-			(alive _x) && {
-			(_x distance _position < 10) }
-		} != -1) exitWith { _isSuccess = true; true };
+	if ((units _group) findIf { alive _x && { _x distance _position < 10 }} != -1)
+	exitWith { _isSuccess = true; true };
 
 	if (dateToNumber date > _dateLimitNum) exitWith { true };
 

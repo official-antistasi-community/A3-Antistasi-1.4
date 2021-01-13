@@ -1,3 +1,23 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Handles buying of loot crates
+
+    Arguments:
+    0. <Object> Unit that is trying to buy a new crate
+
+    Return Value:
+    <nil>
+
+    Scope: Clients
+    Environment: Any
+    Public: [No]
+    Dependencies:
+
+    Example: [player] call A3A_fnc_spawnCrate;
+
+    License: MIT License
+*/
 params ["_unit"];
 private _time = player getVariable ["BuyCrateCooldown",time];
 if (_time > time) exitWith {["Loot crate", format ["You already bought one, wait %1 seconds before you can buy another", ceil (_time - time)]] call A3A_fnc_customHint};

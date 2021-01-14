@@ -44,7 +44,7 @@ DECLARE_SERVER_VAR(civPerc, 5);
 //The furthest distance the AI can attack from using helicopters or planes
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
-DECLARE_SERVER_VAR(distanceForLandAttack, if (hasIFA) then {5000} else {3000});
+DECLARE_SERVER_VAR(distanceForLandAttack, if (A3A_hasIFA) then {5000} else {3000});
 //Max units we aim to spawn in. It's not very strictly adhered to.
 DECLARE_SERVER_VAR(maxUnits, 140);
 
@@ -199,7 +199,7 @@ if (hasTFAR) then
 			waitUntil {sleep 1; !isNil "TF_server_addon_version"};
 			[2,"Initializing TFAR settings","initVar.sqf"] call A3A_fnc_log;
 			["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;						//set to false and players will spawn with LR radio.
-			if (hasIFA) then
+			if (A3A_hasIFA) then
 				{
 				["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
 				["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
@@ -666,10 +666,10 @@ DECLARE_SERVER_VAR(vehCargoTrucks, _vehCargoTrucks);
 if (hasACE) then {
 	[] call A3A_fnc_aceModCompat;
 };
-if (hasRHS) then {
+if (A3A_hasRHS) then {
 	[] call A3A_fnc_rhsModCompat;
 };
-if (hasIFA) then {
+if (A3A_hasIFA) then {
 	[] call A3A_fnc_ifaModCompat;
 };
 

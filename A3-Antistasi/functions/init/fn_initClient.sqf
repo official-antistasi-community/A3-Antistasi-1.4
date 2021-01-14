@@ -408,20 +408,20 @@ if ((hasTFAR) or (hasACRE)) then {
 if (hasACE) then {
 	_textX = _textX + ["ACE 3 Detected\n\nAntistasi detects ACE modules in the server config.\nACE items added to arsenal and ammoboxes. Default AI control is disabled\nIf ACE Medical is used, default revive system will be disabled.\nIf ACE Hearing is used, default earplugs will be disabled."];
 };
-if (hasRHS) then {
+if (A3A_hasRHS) then {
 	_textX = _textX + ["RHS Detected\n\nAntistasi detects RHS in the server config.\nAll factions will be replaced by factions from the mod."];
 };
-if (has3CB) then {
+if (A3A_has3CB) then {
 	_textX = _textX + ["3CB Detected\n\nAntistasi detects 3CB in the server config.\nAll factions will be replaced by factions from the mod."];
 };
-if (hasFFAA) then {
+if (A3A_hasFFAA) then {
 	_textX = _textX + ["FFAA Detected\n\nAntistasi detects FFAA in the server config.\nOccupant faction will be replaced by Spanish Armed Forces"];
 };
-if (hasIvory) then {
+if (A3A_hasIvory) then {
 	_textX = _textX + ["Ivory Cars Detected\n\nAntistasi detects Ivory Cars in the server config.\nMod cars will be added to civilian car spawns."];
 };
 
-if (hasTFAR or hasACE or hasRHS or hasACRE or hasFFAA or has3CB or hasIvory) then {
+if (hasTFAR or hasACE or A3A_hasRHS or hasACRE or A3A_hasFFAA or A3A_has3CB or A3A_hasIvory) then {
 	[_textX] spawn {
 		sleep 0.5;
 		_textX = _this select 0;

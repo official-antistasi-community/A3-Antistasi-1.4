@@ -81,7 +81,7 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 	_countParked = _countParked + 1;
 	};
 
-_mrkMar = if !(hasIFA) then {seaSpawn select {getMarkerPos _x inArea _markerX}} else {[]};
+_mrkMar = if !(A3A_hasIFA) then {seaSpawn select {getMarkerPos _x inArea _markerX}} else {[]};
 if (count _mrkMar > 0) then
 	{
 	for "_i" from 0 to (round (random 3)) do

@@ -16,7 +16,7 @@ params [["_side", sideEnemy]];
 private _fileName = "rebelAttack";
 [2, format ["Starting large attack script for side %1", _side], _fileName, true] call A3A_fnc_log;
 
-if (hasIFA and (sunOrMoon < 1)) exitWith
+if (A3A_hasIFA and (sunOrMoon < 1)) exitWith
 {
     [2, "Aborting attack as IFA has no nightvision (at least thats what I assume)", _fileName, true] call A3A_fnc_log;
 };

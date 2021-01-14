@@ -67,7 +67,7 @@ if (_isControl) then
 	if (!_isFIA) then
 		{
 		_groupE = grpNull;
-		if !(hasIFA) then
+		if !(A3A_hasIFA) then
 			{
 			_pos = [getPos (_roads select 0), 7, _dirveh + 270] call BIS_Fnc_relPos;
 			_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
@@ -108,7 +108,7 @@ if (_isControl) then
 		_groupX = [_positionX,_sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
-			if !(hasIFA) then
+			if !(A3A_hasIFA) then
 				{
 				{[_x] join _groupX} forEach units _groupE;
 				deleteGroup _groupE;
@@ -125,7 +125,7 @@ if (_isControl) then
 		}
 	else
 		{
-		_typeVehX = if !(hasIFA) then {vehFIAArmedCar} else {vehFIACar};
+		_typeVehX = if !(A3A_hasIFA) then {vehFIAArmedCar} else {vehFIACar};
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
 		_veh setDir _dirveh + 90;
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -165,7 +165,7 @@ else
 			};
 		_groupX = [_positionX,_sideX, _cfg] call A3A_fnc_spawnGroup;
 		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
-		if !(hasIFA) then
+		if !(A3A_hasIFA) then
 			{
 			sleep 1;
 			{_soldiers pushBack _x} forEach units _groupX;

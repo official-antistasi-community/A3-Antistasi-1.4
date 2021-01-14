@@ -146,7 +146,7 @@ private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 	[_ammoBox] spawn A3A_fnc_fillLootCrate;
     [_ammoBox] call A3A_fnc_logistics_addLoadAction;
 
-	if ((_markerX in seaports) and !hasIFA) then {
+	if ((_markerX in seaports) and !A3A_hasIFA) then {
 		[_ammoBox] spawn {
 			sleep 1;    //make sure fillLootCrate finished clearing the crate
 			{
@@ -159,7 +159,7 @@ private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 
 _roads = _positionX nearRoads _size;
 
-if ((_markerX in seaports) and !hasIFA) then
+if ((_markerX in seaports) and !A3A_hasIFA) then
 {
 	_typeVehX = if (_sideX == Occupants) then {vehNATOBoat} else {vehCSATBoat};
 	if ([_typeVehX] call A3A_fnc_vehAvailable) then

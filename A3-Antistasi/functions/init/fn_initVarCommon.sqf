@@ -126,7 +126,7 @@ medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic
 //     ID LIST FOR UNIT NAMES    ///
 ////////////////////////////////////
 [2,"Creating unit identities",_fileName] call A3A_fnc_log;
-if !(hasIFA) then {
+if !(A3A_hasIFA) then {
 	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
 	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
 };

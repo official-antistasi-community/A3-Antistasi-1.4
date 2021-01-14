@@ -1,7 +1,7 @@
 private ["_typeX","_costs","_groupX","_unit","_radiusX","_roads","_road","_pos","_truckX","_textX","_mrk","_hr","_exists","_positionTel","_isRoad","_typeGroup","_resourcesFIA","_hrFIA"];
 
 if (["outpostsFIA"] call BIS_fnc_taskExists) exitWith {["Outposts/Roadblocks", "We can only deploy / delete one Observation Post or Roadblock at a time."] call A3A_fnc_customHint;};
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(hasIFA) then {["Radio Required", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;} else {["Radio-man Required", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Radio Required", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;} else {["Radio-man Required", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
 
 _typeX = _this select 0;
 

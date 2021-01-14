@@ -18,7 +18,7 @@ _newGroup = createGroup teamPlayer;
 if (typeOf _x != SDKUnarmed) then
 	{
 	[_x] join _newGroup;
-	if !(hasIFA) then {arrayids = arrayids + [name _x]};
+	if !(A3A_hasIFA) then {arrayids = arrayids + [name _x]};
 	};
 } forEach _units;
 

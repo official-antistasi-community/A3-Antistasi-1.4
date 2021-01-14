@@ -1,6 +1,14 @@
 /*
-    This file controls the selection of templates based on the mods loaded and map used.
-    When porting new mods/maps be sure to add them to their respective sections!
+Author: Meerkat
+  This file controls the selection of templates based on the mods loaded and map used.
+  When porting new mods/maps be sure to add them to their respective sections!
+
+Scope: Server
+Environment: Any (Inherits scheduled from initVarServer)
+Public: No
+Dependencies:
+  <SIDE> teamplayer The side of the rebels, usually only independent or west.
+  <FILES> "Templates\" Assumes the existence of files under "Templates\". Please check here before deleting/renaming one.
 */
 private _filename = "selector.sqf";
 //Map checker
@@ -12,14 +20,14 @@ arcticmaps = ["Chernarus_Winter"];
 
 if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
   switch(true) do {
-    case (has3CB): {
+    case (A3A_has3CB): {
       call compile preProcessFileLineNumbers "Templates\3CB\3CB_Reb_TPGM_Arid.sqf";
       call compile preProcessFileLineNumbers "Templates\3CB\3CB_Occ_TKA_Arid.sqf";
       call compile preProcessFileLineNumbers "Templates\3CB\3CB_Inv_TKM_Arid.sqf";
       call compile preProcessFileLineNumbers "Templates\3CB\3CB_Civ.sqf";
       [2, "Using arid_b TGPM, TKA, TKM, 3CB Civ Templates", _filename] call A3A_fnc_log;
     };
-    case (hasRHS): {
+    case (A3A_hasRHS): {
       call compile preProcessFileLineNumbers "Templates\RHS\RHS_Reb_HIDF_Arid.sqf";
       call compile preProcessFileLineNumbers "Templates\RHS\RHS_Occ_CDF_Arid.sqf";
       call compile preProcessFileLineNumbers "Templates\RHS\RHS_Inv_AFRF_Arid.sqf";
@@ -37,7 +45,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
 }else{//This is for non-blufor (THE ONE THAT MATTERS!!)
   //Reb Templates
   switch(true) do{
-    case (has3CB): {
+    case (A3A_has3CB): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\3CB\3CB_Reb_CNM_Temp.sqf";
@@ -57,7 +65,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
-    case (hasRHS): {
+    case (A3A_hasRHS): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\RHS\RHS_Reb_NAPA_Temp.sqf";
@@ -77,7 +85,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
-    case (hasIFA): {
+    case (A3A_hasIFA): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\IFA\IFA_Reb_POL_Arct.sqf";
@@ -116,7 +124,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
   };
   //Occ Templates
   switch(true) do{
-    case (hasFFAA): {
+    case (A3A_hasFFAA): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Occ_FFAA_Temp.sqf";
@@ -136,7 +144,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
-    case (has3CB): {
+    case (A3A_has3CB): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\3CB\3CB_Occ_BAF_Temp.sqf";
@@ -156,7 +164,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
-    case (hasRHS): {
+    case (A3A_hasRHS): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\RHS\RHS_Occ_USAF_Temp.sqf";
@@ -176,7 +184,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
-    case (hasIFA): {
+    case (A3A_hasIFA): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\IFA\IFA_Occ_WEH_Arct.sqf";
@@ -216,7 +224,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
   };
   //Inv Templates
   switch(true) do{
-    case (has3CB): {
+    case (A3A_has3CB): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\3CB\3CB_Inv_SOV_Temp.sqf";
@@ -236,7 +244,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
-    case (hasRHS): {
+    case (A3A_hasRHS): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\RHS\RHS_Inv_AFRF_Temp.sqf";
@@ -256,7 +264,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
-    case (hasIFA): {
+    case (A3A_hasIFA): {
       switch(true) do {
         case (worldName in arcticmaps): {
           call compile preProcessFileLineNumbers "Templates\IFA\IFA_Inv_SOV_Arct.sqf";
@@ -295,15 +303,15 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
   };
   //Civ Templates
   switch(true) do{
-    case (has3CB): {
+    case (A3A_has3CB): {
       call compile preProcessFileLineNumbers "Templates\3CB\3CB_Civ.sqf";
       [2, "Using 3CB Civ Template", _filename] call A3A_fnc_log;
     };
-    case (hasRHS): {
+    case (A3A_hasRHS): {
       call compile preProcessFileLineNumbers "Templates\RHS\RHS_Civ.sqf";
       [2, "Using RHS Civ Template", _filename] call A3A_fnc_log;
     };
-    case (hasIFA): {
+    case (A3A_hasIFA): {
       call compile preProcessFileLineNumbers "Templates\IFA\IFA_Civ.sqf";
       [2, "Using IFA Civ Template", _filename] call A3A_fnc_log;
     };
@@ -316,7 +324,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
 
 [2,"Reading Addon mod files.",_fileName] call A3A_fnc_log;
 //Addon pack loading goes here.
-if (hasIvory) then {
+if (A3A_hasIvory) then {
   call compile preProcessFileLineNumbers "Templates\AddonVics\ivory_Civ.sqf";
   [2, "Using Addon Ivory Cars Template", _filename] call A3A_fnc_log;
 };
@@ -328,7 +336,7 @@ if (hasTCGM) then {
 //JNL node loading is done here
 [2,"Reading JNL Node files.",_fileName] call A3A_fnc_log;
 call compile preProcessFileLineNumbers "Templates\Vanilla\Vanilla_JNL_Nodes.sqf";//Always call vanilla as it initialises the arrays.
-if (hasRHS) then {call compile preProcessFileLineNumbers "Templates\RHS\RHS_JNL_Nodes.sqf"};
-if (has3CB) then {call compile preProcessFileLineNumbers "Templates\3CB\3CB_JNL_Nodes.sqf"};
-if (hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_JNL_Nodes.sqf"};
-if (hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_JNL_Nodes.sqf"};
+if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\RHS\RHS_JNL_Nodes.sqf"};
+if (A3A_has3CB) then {call compile preProcessFileLineNumbers "Templates\3CB\3CB_JNL_Nodes.sqf"};
+if (A3A_hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_JNL_Nodes.sqf"};
+if (A3A_hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_JNL_Nodes.sqf"};

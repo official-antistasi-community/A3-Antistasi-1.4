@@ -328,7 +328,7 @@ while {(_waves > 0)} do
 	};
 
 	_isSea = false;
-	if (!hasIFA && (count seaAttackSpawn != 0)) then
+	if (!A3A_hasIFA && (count seaAttackSpawn != 0)) then
 		{
 		for "_i" from 0 to 3 do
 			{
@@ -638,7 +638,7 @@ while {(_waves > 0)} do
 	_plane = if (_sideX == Occupants) then {vehNATOPlane} else {vehCSATPlane};
 	if (_sideX == Occupants) then
 		{
-		if (((not(_mrkDestination in outposts)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "NATO_carrier")) or hasIFA) then
+		if (((not(_mrkDestination in outposts)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "NATO_carrier")) or A3A_hasIFA) then
 			{
 			[_mrkOrigin,_mrkDestination,_sideX] spawn A3A_fnc_artillery;
 			diag_log "Antistasi: Arty Spawned";
@@ -668,7 +668,7 @@ while {(_waves > 0)} do
 		}
 	else
 		{
-		if (((not(_mrkDestination in resourcesX)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "CSAT_carrier")) or hasIFA) then
+		if (((not(_mrkDestination in resourcesX)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "CSAT_carrier")) or A3A_hasIFA) then
 			{
 			if !(_posOriginLand isEqualTo []) then {[_posOriginLand,_mrkDestination,_sideX] spawn A3A_fnc_artillery} else {[_mrkOrigin,_mrkDestination,_sideX] spawn A3A_fnc_artillery};
 			diag_log "Antistasi: Arty Spawned";

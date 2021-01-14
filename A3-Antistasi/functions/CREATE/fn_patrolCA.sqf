@@ -125,7 +125,7 @@ private _threatEvalLand = [_posDest,_sideX] call A3A_fnc_landThreatEval;
 if (!_forced) then
 {
 	private _airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == _sideX) and ([_x,true] call A3A_fnc_airportCanAttack) and (getMarkerPos _x distance2D _posDest < distanceForAirAttack)};
-	if (hasIFA and (_threatEvalLand <= 15)) then {_airportsX = _airportsX select {(getMarkerPos _x distance2D _posDest < distanceForLandAttack)}};
+	if (A3A_hasIFA and (_threatEvalLand <= 15)) then {_airportsX = _airportsX select {(getMarkerPos _x distance2D _posDest < distanceForLandAttack)}};
 	private _outposts = if (_threatEvalLand <= 15) then {outposts select {(sidesX getVariable [_x,sideUnknown] == _sideX) and ([_posDest,getMarkerPos _x] call A3A_fnc_isTheSameIsland) and (getMarkerPos _x distance _posDest < distanceForLandAttack)  and ([_x,true] call A3A_fnc_airportCanAttack)}} else {[]};
 	private _bases = _airportsX + _outposts;
 	if (_isMarker) then

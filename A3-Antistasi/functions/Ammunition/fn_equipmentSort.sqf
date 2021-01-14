@@ -14,19 +14,19 @@
 	private _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
 	switch (_uniformFaction) do {
 		//RHS
-		case "rhsgref_faction_nationalist": {if ((!has3CB) and nameTeamPlayer isEqualTo "NAPA") then {allRebelUniforms pushBack _x};};
-		case "rhsgref_faction_hidf": {if ((!has3CB) and nameTeamPlayer isEqualTo "Rebels") then {allRebelUniforms pushBack _x};};
+		case "rhsgref_faction_nationalist": {if ((!A3A_has3CB) and nameTeamPlayer isEqualTo "NAPA") then {allRebelUniforms pushBack _x};};
+		case "rhsgref_faction_hidf": {if ((!A3A_has3CB) and nameTeamPlayer isEqualTo "Rebels") then {allRebelUniforms pushBack _x};};
 		//3CB These dont actually work, added TKM manually in Template, CCM Uniforms are the same as the Civilian ones.
 		//case "UK3CB_CCM_I": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
 		//case "UK3CB_TKM_B": {if (teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
 		//IFA
-		case "LIB_GUER": {if (hasIFA) then {allRebelUniforms pushBack _x};};
+		case "LIB_GUER": {if (A3A_hasIFA) then {allRebelUniforms pushBack _x};};
 		//Tanoa/ApexDLC
-		case "IND_C_F": {if ((!hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
+		case "IND_C_F": {if ((!A3A_hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
 		//Contact DLC Looters
-		case "IND_L_F": {if ((!hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
+		case "IND_L_F": {if ((!A3A_hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
 		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1 ----> Added Green Via Templates.
-		case "BLU_G_F": {if ((!hasIFA) and teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
+		case "BLU_G_F": {if ((!A3A_hasIFA) and teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
 	};
 } forEach allUniforms;
 

@@ -60,7 +60,7 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 			_dirveh = 0;
 			_roadcon = roadsConnectedTo [_road, true];
 
-			if !(_roadcon == [])
+			if (count _roadcon != 0)
 			then
 			{
 				_p2 = getPos (_roadcon # 0);

@@ -40,7 +40,7 @@ NATOPlayerLoadouts = [
 ];
 
 //PVP Player Vehicles
-vehNATOPVP = ["rhsgref_ins_g_uaz","rhsgref_ins_g_uaz_open","rhsgref_BRDM2UM_ins_g","rhsgref_ins_g_uaz_dshkm_chdkz"];
+vehNATOPVP = ["rhsgref_ins_g_uaz","rhsgref_ins_g_uaz_open","rhsgref_ins_g_uaz_dshkm_chdkz"];
 
 ////////////////////////////////////
 //             UNITS             ///

@@ -78,7 +78,11 @@ if ((!_isMarker) and (_typeOfAttack != "Air") and (!_super) and ({sidesX getVari
 
 	// Government have much broader definition of "friendlies" than invaders do
 	private _friendlies = if (_sideX == Occupants) then {allUnits select {(_x distance _posDest < 200) and (alive _x) and ((side (group _x) == _sideX) or (side (group _x) == civilian))}} else {allUnits select {(_x distance _posDest < 100) and ([_x] call A3A_fnc_canFight) and (side (group _x) == _sideX)}};
-	if (count _friendlies == 0) then
+	private _nearCity = [citiesX, _posDest] call BIS_fnc_nearestPosition;
+	private _citySize = [_nearCity] call A3A_fnc_sizeMarker;
+	private _withinCity = _posDest inArea [getMarkerPos _nearCity, _citySize/2, _citySize/2, 0, false];
+
+	if (count _friendlies == 0 and !(_withinCity and _sideX == Occupants)) then
 	{
 		// select ordnance to use
 		private _bombType = if (napalmEnabled) then {"NAPALM"} else {"HE"};		// anti-infantry default. why?

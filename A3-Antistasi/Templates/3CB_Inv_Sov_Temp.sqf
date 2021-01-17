@@ -147,7 +147,7 @@ vehCSATAir = vehCSATTransportHelis + vehCSATAttackHelis + [vehCSATPlane,vehCSATP
 if (gameMode == 4) then
 	{
 	vehFIAArmedCar = "UK3CB_CW_SOV_O_EARLY_BRDM2";
-	vehFIATruck = "UK3CB_CW_SOV_O_EARLY_Ural_Recovery";
+	vehFIATruck = "UK3CB_CW_SOV_O_EARLY_Ural_Open";
 	vehFIACar = "UK3CB_CW_SOV_O_EARLY_UAZ_Closed";
 	};
 

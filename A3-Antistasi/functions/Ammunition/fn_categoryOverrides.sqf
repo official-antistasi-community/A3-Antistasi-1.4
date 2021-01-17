@@ -83,6 +83,7 @@ private _categoryOverrideTable = [
 ["ace_csw_staticHMGCarry", ["StaticWeaponParts","Items"]],
 ["ace_csw_staticGMGCarry", ["StaticWeaponParts","Items"]],
 ["ace_csw_staticMortarCarry", ["StaticWeaponParts","Items"]],
+["ace_csw_staticM2ShieldCarry", ["StaticWeaponParts","Items"]],
 
 ["ace_compat_rhs_afrf3_2b14_carry", ["StaticWeaponParts","Items"]],
 ["ace_compat_rhs_afrf3_nsv_carry" , ["StaticWeaponParts","Items"]],
@@ -107,6 +108,7 @@ private _categoryOverrideTable = [
 ["ACE_microDAGR", ["Gadgets","Items"]],
 ["ACE_DAGR", ["Gadgets","Items"]],
 
+["rhsusf_Rhino", ["Unknown", "Items"]],    //Just a Headmount not NVG
 ["LIB_PTRD", ["Unknown", "Weapons"]],
 ["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
 ["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat
@@ -139,5 +141,3 @@ categoryOverrides = false call A3A_fnc_createNamespace;
 {
 	categoryOverrides setVariable [_x select 0, _x select 1];
 } forEach _categoryOverrideTable;
-
-

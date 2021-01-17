@@ -173,6 +173,13 @@ class A3A
 		class vehicleMarkers {};
 	};
 
+	class Collections
+	{
+		class getNestedObject {};
+		class remNestedObject {};
+		class setNestedObject {};
+	};
+
 	class Convoy
 	{
         class cleanConvoyMarker {};
@@ -325,6 +332,17 @@ class A3A
         class selectIntel {};
         class showIntel {};
     };
+
+	class LTC
+	{
+		class canLoot {};
+		class canTransfer {};
+		class carryCrate {};
+		class initLootToCrate {};
+		class lootFromContainer {};
+		class lootToCrate {};
+		class spawnCrate {};
+	};
 
 	class Missions
 	{

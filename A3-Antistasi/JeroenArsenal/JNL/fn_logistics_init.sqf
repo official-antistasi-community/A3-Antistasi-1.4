@@ -540,6 +540,7 @@ jnl_attachmentOffset = [
  	 ["\A3\Supplies_F_Exp\Ammoboxes\Equipment_Box_F.p3d",							[0,0,0.85],				[1,0,0],				1],		//Equipment box
 	["\A3\Props_F_Orange\Humanitarian\Supplies\FoodSacks_01_cargonet_F.p3d", [0,0,0.85],	[1,0,0],				1], 	//Stef test supplybox
 	["\A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_medium_F.p3d", [0,0,0.85],			[1,0,0],				1], 	//Stef test Devin crate1
+  ["\A3\weapons_F\AmmoBoxes\WpnsBox_F",							[0,0,0.85],				[1,0,0],				1],		//surrender crates
 	["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicAmmoBox.p3d",			[0,0,0.85],				[1,0,0],				1], 	//Stef test Devin crate2
 	["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicExplosives.p3d",			[0,0,0.85],				[1,0,0],				1], 	//Stef test Devin crate3
 	["\A3\Weapons_F\Ammoboxes\Supplydrop.p3d",						[0, 0, 0.95],			[1,0,0],				1],		//Ammodrop crate

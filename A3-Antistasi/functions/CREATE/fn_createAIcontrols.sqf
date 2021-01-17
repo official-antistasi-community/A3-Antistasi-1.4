@@ -1,12 +1,13 @@
 if (!isServer and hasInterface) exitWith{};
+private _filename = "fn_createAIcontrols";
 
-private ["_pos","_roadscon","_veh","_roads","_conquered","_dirVeh","_markerX","_positionX","_vehiclesX","_soldiers","_radiusX","_bunker","_groupE","_unit","_typeGroup","_groupX","_timeLimit","_dateLimit","_dateLimitNum","_base","_dog","_sideX","_cfg","_isFIA","_leave","_isControl","_radiusX","_typeVehX","_typeUnit","_markersX","_frontierX","_uav","_groupUAV","_allUnits","_closest","_winner","_timeLimit","_dateLimit","_dateLimitNum","_size","_base","_mineX","_loser","_sideX"];
+private ["_pos","_veh","_roads","_conquered","_dirVeh","_markerX","_positionX","_vehiclesX","_soldiers","_radiusX","_bunker","_groupE","_unit","_typeGroup","_groupX","_timeLimit","_dateLimit","_dateLimitNum","_base","_dog","_sideX","_cfg","_isFIA","_leave","_isControl","_radiusX","_typeVehX","_typeUnit","_markersX","_frontierX","_uav","_groupUAV","_allUnits","_closest","_winner","_timeLimit","_dateLimit","_dateLimitNum","_size","_base","_mineX","_loser","_sideX"];
 
 _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 
-diag_log format ["[Antistasi] Spawning Control Point %1 (createAIControls.sqf)", _markerX];
+[2, format ["Spawning Control Point %1", _markerX], _filename] call A3A_fnc_log;
 
 if ((_sideX == teamPlayer) or (_sideX == sideUnknown)) exitWith {};
 if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea _x)) exitWith {1}} count markersX >1) exitWith {};
@@ -43,20 +44,25 @@ if (_isControl) then
 			};
 		};
 
+	// Attempt to find nearby road with two connected roads
 	_radiusX = 20;
-	while {true} do
-		{
+	while {_radiusX < 100} do
+	{
 		_roads = _positionX nearRoads _radiusX;
-		if (count _roads > 1) exitWith {};
-		_radiusX = _radiusX + 5;
-		};
+		_roads = _roads select { count (roadsConnectedTo _x) == 2 };
+		if (count _roads > 0) exitWith {};
+		_radiusX = _radiusX + 10;
+	};
 
-	_roadscon = roadsConnectedto (_roads select 0);
-
-	_dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
-	if ((isNull (_roads select 0)) or (isNull (_roadscon select 0))) then {
-		diag_log format ["%1: [Antistasi] | ERROR | createAIcontrols.sqf | Roadblock error: %2 bad position.",servertime, _markerX];
-		};
+	if (_radiusX >= 100) then {
+		// fallback case, shouldn't happen unless the map is very broken
+		[1, format ["Roadblock error for %1 at %2", _markerX, _positionX], _filename] call A3A_fnc_log;
+		_roads = _positionX nearRoads 20;		// guaranteed due to isOnRoad check
+		_dirveh = random 360;
+	} else {
+		private _roadscon = roadsConnectedto (_roads select 0);
+		_dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
+	};
 
 	if (!_isFIA) then
 		{

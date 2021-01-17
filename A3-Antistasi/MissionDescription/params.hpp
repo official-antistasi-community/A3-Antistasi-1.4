@@ -186,6 +186,27 @@ class Params
           texts[] = {""};
           default = "";
      };
+     class EnableLootToCrate
+     {
+          title = "Enable Loot to crate";
+          values[] = {0, 1};
+          texts[] = {"Disabled", "Enabled"};
+          default = 1;
+     };
+     class LTCLootUnlocked
+     {
+          title = "Loot to crate: transfers unlocked items";
+          values[] = {0, 1};
+          texts[] = {"Disabled", "Enabled"};
+          default = 0;
+     };
+     class Spacer11
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
      class Kart
      {
           title = "Allow Items and Vehicles from Karts DLC?";

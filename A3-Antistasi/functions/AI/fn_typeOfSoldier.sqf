@@ -29,7 +29,7 @@ if ((_var isEqualTo "") or (_var isEqualTo "ATMan") or (_var isEqualTo "AAMan") 
 				if (_hasAmmunition) then
 					{
 					private _ammo = gettext (configFile >> "CfgMagazines" >> _typeOfMags >> "ammo");
-					if ((getNumber (configfile >> "CfgAmmo" >> _ammo >> "airLock")) == 0) then {_result = "ATMan"} else {_reuslt = "AAMan"};
+					if ((getNumber (configfile >> "CfgAmmo" >> _ammo >> "airLock")) == 0) then {_result = "ATMan"} else {_result = "AAMan"};
 					};
 				}
 			else

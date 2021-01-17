@@ -4,6 +4,18 @@
 #define MID_SEGMENT         3
 #define LINK_POINTS         4
 
+if (isNil {A3A_fnc_customHint}) then {
+  A3A_fnc_customHint = {  // Scope will be global, so this nesting and further spawns will not be a problem.
+    params ["_title","_body",["_silent",false]];
+    private _message = parseText (_title+"<br/>"+_body);
+    if (_silent) then {
+      hintSilent _message;
+    } else {
+      hint _message;
+    };
+  };
+};
+
 _showText = true;
 _showText = param [0, true];
 if(isNil "_showText") then

@@ -16,7 +16,8 @@ private _dist = if (_difficult) then {2000} else {3000};
 private _posCrashOrigin = [];
 while {true} do {
 	_posCrashOrigin = _missionOriginPos getPos [_dist,_ang];
-	if ((!surfaceIsWater _posCrashOrigin) and (_posCrashOrigin distance (getMarkerPos respawnTeamPlayer) < 4000) and (_posCrashOrigin distance (getMarkerPos respawnTeamPlayer) > 1000)) exitWith {};
+	private _notOutOfBounds = (_posCrashOrigin select [0,2]) findIf { (_x < 0 + 1000) || (_x > worldSize -1000)} isEqualTo -1; //1k grace for refinement search later
+	if ((!surfaceIsWater _posCrashOrigin) and (_posCrashOrigin distance (getMarkerPos respawnTeamPlayer) < 4000) and (_posCrashOrigin distance (getMarkerPos respawnTeamPlayer) > 1000) and _notOutOfBounds) exitWith {};
 	_ang = _ang + 1;
 	_countX = _countX + 1;
 	if (_countX > 360) then

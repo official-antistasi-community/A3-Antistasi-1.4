@@ -124,7 +124,7 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 //Lite
 vehNATOBike = "B_T_Quadbike_01_F";
 vehNATOLightArmed = ["UK3CB_BAF_LandRover_WMIK_HMG_FFR_Green_B_Tropical_RM","UK3CB_BAF_LandRover_WMIK_GMG_FFR_Green_B_Tropical_RM","UK3CB_BAF_LandRover_WMIK_Milan_FFR_Green_B_Tropical_RM","UK3CB_BAF_Husky_Passenger_GMG_Green_Tropical_RM","UK3CB_BAF_Husky_Passenger_GPMG_Green_Tropical_RM","UK3CB_BAF_Husky_Passenger_HMG_Green_Tropical_RM"];
-vehNATOLightUnarmed = ["UK3CB_BAF_MAN_HX60_Container_Servicing_Air_Green","UK3CB_BAF_LandRover_Hard_FFR_Green_B_Tropical","UK3CB_BAF_LandRover_Snatch_FFR_Green_A_Tropical","UK3CB_BAF_LandRover_Soft_FFR_Green_B_Tropical"];
+vehNATOLightUnarmed = ["UK3CB_BAF_LandRover_Hard_FFR_Green_B_Tropical","UK3CB_BAF_LandRover_Snatch_FFR_Green_A_Tropical","UK3CB_BAF_LandRover_Soft_FFR_Green_B_Tropical"];
 vehNATOTrucks = ["UK3CB_BAF_MAN_HX60_Transport_Green_Tropical","UK3CB_BAF_MAN_HX58_Transport_Green_Tropical"];
 vehNATOCargoTrucks = ["UK3CB_BAF_MAN_HX60_Cargo_Green_A_Tropical","UK3CB_BAF_MAN_HX58_Cargo_Green_A_Tropical"];
 vehNATOAmmoTruck = "rhsusf_M977A4_AMMO_usarmy_wd";
@@ -161,7 +161,7 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 if (gameMode != 4) then
 	{
 	vehFIAArmedCar = "UK3CB_BAF_LandRover_WMIK_GPMG_FFR_Green_B_Tropical";
-	vehFIATruck = "UK3CB_BAF_MAN_HX60_Cargo_Green_A_Tropical";
+	vehFIATruck = "UK3CB_BAF_MAN_HX60_Transport_Green_Tropical";
 	vehFIACar = "UK3CB_BAF_LandRover_Snatch_FFR_Green_A_Tropical";
 	};
 

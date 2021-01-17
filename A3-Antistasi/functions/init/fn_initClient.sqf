@@ -477,6 +477,11 @@ vehicleBox addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage;
 vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
+if (LootToCrateEnabled) then {
+	vehicleBox addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
+	call A3A_fnc_initLootToCrate;
+};
+
 fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 

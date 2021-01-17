@@ -105,6 +105,18 @@ _reinfPlaces = [];
 if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFroadPatrol};
 
 
+// Reduce loot crate cooldown if garrison is complete
+{
+	call {
+		private _lootCD = garrison getVariable [_x + "_lootCD", 0];
+		if (_lootCD == 0) exitWith {};							// don't update unless changed
+		private _realSize = count (garrison getVariable [_x, []]);
+		if (_realSize < [_x] call A3A_fnc_garrisonSize) exitWith {};
+		garrison setVariable [_x + "_lootCD", 0 max (_lootCD - 10), true];
+	};
+} forEach (airportsX + outposts + seaports);
+
+
 {
 		//Setting the number of recruitable units per ticks per airport
     garrison setVariable [format ["%1_recruit", _x], 12, true];

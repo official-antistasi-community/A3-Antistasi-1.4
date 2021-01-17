@@ -44,8 +44,8 @@ while {visibleMap} do
 			_dataX = server getVariable _siteX;
 
 			_numCiv = _dataX select 0;
-			_prestigeOPFOR = _dataX select 2;
-			_prestigeBLUFOR = _dataX select 3;
+			_prestigeOPFOR = round (_dataX select 2);
+			_prestigeBLUFOR = round (_dataX select 3);
 			_power = [_siteX] call A3A_fnc_getSideRadioTowerInfluence;
 			_textX = format ["%1<br/><br/>Pop %2<br/>%6 Support: %3 %5<br/>%7 Support: %4 %5",[_siteX,false] call A3A_fnc_location,_numCiv,_prestigeOPFOR,_prestigeBLUFOR,"%",nameOccupants,nameTeamPlayer];
 			_positionX = getMarkerPos _siteX;

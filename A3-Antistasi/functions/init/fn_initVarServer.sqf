@@ -600,10 +600,13 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////
 [2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
-private _vehNormal = (vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair]);
+
+private _vehNormal = vehNATONormal + vehCSATNormal + vehNATOCargoTrucks;
+_vehNormal append [vehFIACar,vehFIATruck,vehFIAArmedCar,vehPoliceCar,vehNATOBike,vehCSATBike];
+_vehNormal append [vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair];
 DECLARE_SERVER_VAR(vehNormal, _vehNormal);
 
-private _vehBoats = [vehNATOBoat,vehCSATBoat,vehSDKBoat];
+private _vehBoats = [vehNATOBoat,vehNATORBoat,vehCSATBoat,vehCSATRBoat,vehSDKBoat];
 DECLARE_SERVER_VAR(vehBoats, _vehBoats);
 
 private _vehAttack = vehNATOAttack + vehCSATAttack;
@@ -648,8 +651,11 @@ DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
 DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
-private _vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
+private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 DECLARE_SERVER_VAR(vehFIA, _vehFIA);
+
+private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks) select { _x call jn_fnc_logistics_classHasCargo };
+DECLARE_SERVER_VAR(vehCargoTrucks, _vehCargoTrucks);
 
 ///////////////////////////
 //     MOD TEMPLATES    ///

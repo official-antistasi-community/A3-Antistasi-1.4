@@ -1,7 +1,7 @@
 ~~~ Adding a vehicle ~~~
 
 To make a vehicle capable to load cargo, use the function "A3A_fnc_logistics_renderCargoPlane" to generate a vehicle hard point array (the nodes may be a bit rough)
-Example: [cursorTarget, [0,-0.7,-0.7], [0,-2.8,-0.7]] call A3A_fnc_logistics_generateHardPoints;
+Example: [cursorTarget, [0,-0.7,-0.7], 2.1] call A3A_fnc_logistics_generateHardPoints;
 
 This will display visual reperencation of where the nodes will be and the boundries of the cargo plane.
 copy the returned array and put it in logistics_vehicleHardpoints in "fn_logistics_initNodes.sqf".

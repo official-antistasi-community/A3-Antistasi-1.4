@@ -14,7 +14,7 @@
     Arguments:
     0. <Object> Vehicle your generating the nodes for
     1. <Array>  Model relativ position of cargo plane start position
-    2. <Array>  Model relativ position of cargo plane end position
+    2. <Int>    The lenght of the cargo plane
 
     Return Value:
     <Array> vehicle hardpoint point [model, node array]
@@ -24,14 +24,21 @@
     Public: [Yes]
     Dependencies:
 
-    Example: [cursorTarget, [0,-0.7,-0.7], [0,-2.8,-0.7]] call A3A_fnc_logistics_generateHardPoints;
+    Example: [cursorTarget, [0,-0.7,-0.7], 2.1] call A3A_fnc_logistics_generateHardPoints;
 */
-params ["_vehicle", "_planeStart", "_planeEnd"];
+params [["_vehicle", objNull, [objNull]], ["_planeStart", [], [[]], 3], ["_planeSpan", 0, [0]]];
+
+//validate input
+if (isNull _vehicle) exitWith {"Null vehicle"};
+if (_planeStart isEqualTo []) exitWith {"Invalid start off plane"};
+if (_planeSpan < 0) exitWith {"Plane length cannot be negative"};
 
 //get model
 private _model = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "model");
 
 //calculate nodes
+private _planeEnd = +_planeStart;
+_planeEnd set [1, (_planeEnd#1) - _planeSpan];
 private _diameter = -0.8;
 private _radius = (_diameter/2);// get some distance from walls
 private _plane = _planeStart vectorDiff _planeEnd;

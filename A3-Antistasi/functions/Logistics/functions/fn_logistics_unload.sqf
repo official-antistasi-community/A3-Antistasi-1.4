@@ -26,7 +26,7 @@ if ((count _loaded) isEqualTo 1) then {_lastLoaded = true};
 if !(
     ((gunner _cargo) isEqualTo _cargo)
     or ((gunner _cargo) isEqualTo objNull)
-) exitWith {["Logistics", "Cant unload a static thats mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+) exitWith {["Logistics", "Can't unload a static that's mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being unloaded from vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
@@ -34,8 +34,8 @@ _vehicle setVariable ["LoadingCargo",true,true];
 //update list of nodes on vehicle
 _updateList = {
     params ["_vehicle", "_node"];
-    _list = _vehicle getVariable ["logisticsCargoNodes",[]];
-    _index = _list find _node;
+    private _list = _vehicle getVariable ["logisticsCargoNodes",[]];
+    private _index = _list find _node;
     _node set [0,1];
     _list set [_index, _node];
     _vehicle setVariable ["logisticsCargoNodes", _list];
@@ -78,7 +78,7 @@ private _keepUnloading = false;
 if !(_cargo isEqualTo objNull) then {//cargo not deleted
     //check if its a weapon
     private _model = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "model");
-    _weapon = false;
+    private _weapon = false;
     {
         if ((_x#0) isEqualTo _model) exitWith {_weapon = true};
     } forEach logistics_weapons;

@@ -4,7 +4,7 @@
         adds "get in" action and nececary EH's for mounted weapon
 
     Arguments:
-    0. <Object> Weapon thats being attached
+    0. <Object> Weapon that's being attached
     1. <Object> Vehicle weapon is being attached to
 
     Return Value:

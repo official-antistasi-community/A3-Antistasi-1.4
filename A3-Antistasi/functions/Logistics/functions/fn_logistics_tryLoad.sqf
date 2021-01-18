@@ -34,10 +34,10 @@ if (_return isEqualType 0) exitWith {
     if (_cargo isKindOf "CAManBase") then {_cargoName = name _cargo};
 
     switch _return do {
-        case -1: { ["Logistics", "You cant load cargo into destroyed a vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
-        case -2: { ["Logistics", "You cant load destroyed cargo into a vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
+        case -1: { ["Logistics", "You can't load cargo into a destroyed vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
+        case -2: { ["Logistics", "You can't load destroyed cargo into a vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
         case -3: { ["Logistics", format ["%1 cannot be loaded", _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
-        case -4: { ["Logistics", "Cant load a static thats mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
+        case -4: { ["Logistics", "Can't load a static that's mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
         case -5: { ["Logistics", format ["%1 can not be mounted on a %2", _cargoName, _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] }; //vehicle in weapon blacklist
         case -6: { ["Logistics", format ["%1 is being helped or no longer needs your help",_cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
         case -7: { ["Logistics", format ["%1 is unable to any cargo", _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };

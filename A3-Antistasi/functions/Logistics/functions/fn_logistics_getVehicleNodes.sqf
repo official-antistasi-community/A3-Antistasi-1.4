@@ -9,9 +9,9 @@
     Return Value:
     <Array> Node array of the object
 
-    Scope: Server,Server/HC,Clients,Any
-    Environment: Scheduled/unscheduled/Any
-    Public: [Yes/No]
+    Scope: Any
+    Environment: unscheduled
+    Public: [No]
     Dependencies:
 
     Example: private _nodes = [_vehicle] call A3A_fnc_logistics_getVehicleNodes;

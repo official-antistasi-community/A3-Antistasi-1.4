@@ -5,6 +5,7 @@
 
     Arguments:
     0. <Object> Vehicle to unload cargo from
+    1. <Bool>   optional: unload cargo instantly (Default: False)
 
     Return Value:
     <Nil>
@@ -12,7 +13,7 @@
     Scope: Any
     Environment: Scheduled
     Public: [No]
-    Dependencies:
+    Dependencies: <Array< <String>model,<Array>blacklisted vehicle models >> logistics_weapons
 
     Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
 */
@@ -28,7 +29,7 @@ if !(
     or ((gunner _cargo) isEqualTo objNull)
 ) exitWith {["Logistics", "Can't unload a static that's mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being unloaded from vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being unloaded from the vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //update list of nodes on vehicle
@@ -124,3 +125,4 @@ _vehicle setVariable ["Cargo", _loaded, true];
 
 _vehicle setVariable ["LoadingCargo",nil,true];
 if (_keepUnloading and !_lastLoaded) then {[_vehicle] spawn A3A_fnc_logistics_unload};//if you tried to unload a null obj unload next on list
+nil

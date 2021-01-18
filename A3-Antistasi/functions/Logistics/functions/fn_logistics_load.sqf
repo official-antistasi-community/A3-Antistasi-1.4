@@ -8,6 +8,7 @@
     1. <Object> Vehicle cargo is being loaded into
     2. <Array>  Node array or array of node arrays to use for loading
     3. <Bool>   is cargo a static weapon
+    4. <Bool>   optional: load cargo instantly (Default: False)
 
     Return Value:
     <nil>
@@ -21,7 +22,7 @@
 */
 params ["_cargo", "_vehicle", "_node", "_weapon", ["_instant", false, [true]]];
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being loaded into the vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being loaded into the vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]; nil};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //update list of nodes on vehicle
@@ -119,3 +120,4 @@ if (_weapon) then {
 
 _vehicle setVariable ["LoadingCargo",nil,true];
 [_vehicle, "unload"] remoteExec ["A3A_fnc_logistics_addAction", 0 ,_vehicle];
+nil

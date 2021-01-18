@@ -12,7 +12,7 @@
     Scope: Clients
     Environment: Any
     Public: [No]
-    Dependencies:
+    Dependencies: <Array< <String>model,<vec3>location,<vec3>rotation,<scalar>size,<scalar>recoil >> logistics_attachmentOffset
 
     Example: _cargo call A3A_fnc_logistics_initMountedWeapon;
 */
@@ -46,3 +46,4 @@ private _idRecoil = _weapon addEventHandler ["Fired", { //credits to audiocustom
     waitUntil {sleep 1; (attachedTo _weapon) isEqualTo objNull};
     _weapon removeEventHandler ["Fired", _idRecoil];
 };
+nil

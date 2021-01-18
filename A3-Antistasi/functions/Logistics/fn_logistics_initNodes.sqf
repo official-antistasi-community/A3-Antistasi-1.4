@@ -650,3 +650,4 @@ logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Tr
         if !(_model isEqualTo "") then {_blackList pushBack _model};
     } forEach logistics_coveredVehicles;
 } forEach logistics_weapons;
+nil

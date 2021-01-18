@@ -24,7 +24,7 @@ params ["_cargo"];
 
 private _vehicles = (nearestObjects [_cargo,["Car","Ship"], 10]) - [_cargo];
 private _vehicle = _vehicles#0;
-if (isNil "_vehicle") exitWith {["Logistics", "No vehicle close enough"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (isNil "_vehicle") exitWith {["Logistics", "No vehicle is close enough"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
 private _return = [_vehicle, _cargo] call A3A_fnc_logistics_canLoad;
 if (_return isEqualType 0) exitWith {
@@ -40,9 +40,9 @@ if (_return isEqualType 0) exitWith {
         case -4: { ["Logistics", "Can't load a static that's mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
         case -5: { ["Logistics", format ["%1 can not be mounted on a %2", _cargoName, _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] }; //vehicle in weapon blacklist
         case -6: { ["Logistics", format ["%1 is being helped or no longer needs your help",_cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
-        case -7: { ["Logistics", format ["%1 is unable to any cargo", _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
+        case -7: { ["Logistics", format ["%1 is unable to load any cargo", _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
         case -8: { ["Logistics", format ["%1 does not have enough space to load %2", _vehicleName, _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
-        case -9: { ["Logistics", format ["%1 can not load cargo while units blocking the cargo plane", _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
+        case -9: { ["Logistics", format ["%1 can not load cargo while units are blocking the cargo plane", _vehicleName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner] };
         default { [1, format ["Unknown error code: %1", _return], _filename] call A3A_fnc_log };
     };
 };

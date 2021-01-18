@@ -93,12 +93,7 @@ if ((_node#0) isEqualType []) then {
 };
 private _cargoUnits = [];
 {
-    _x params ["_unit", "_role", "_index", "_turretPath", "_personTurret"];
-    private _isBlocking = call {
-        if (_index in _seats) exitWith {true};
-        false;
-    };
-    if (_isBlocking) then {_cargoUnits pushBack _x};
+    if ( (_x#2) in _seats ) then {_cargoUnits pushBack _x};
 }forEach _fullCrew;
 if !(_cargoUnits isEqualTo []) exitWith {-9};
 

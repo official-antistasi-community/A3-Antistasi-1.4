@@ -13,7 +13,7 @@
     Scope: Any
     Environment: unscheduled
     Public: [Yes]
-    Dependencies:
+    Dependencies: <Array< <String>model,<scalar>1,<vec3>location,Array<Scalar>locked seats >> logistics_vehicleHardpoints
 
     Example: [_vehicle] call A3A_fnc_logistics_getVehCapacity
 

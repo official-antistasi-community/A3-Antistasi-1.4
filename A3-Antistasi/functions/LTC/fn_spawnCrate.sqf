@@ -1,20 +1,20 @@
 /*
     Author: [Håkon]
-    Description:
-        Tries to purchase a LTC compatible crate near the passed unit
+    [Description]
+        Handles buying of loot crates
 
     Arguments:
-    0. <Object> The player buying the crate
+    0. <Object> Unit that is trying to buy a new crate
 
     Return Value:
     <nil>
 
     Scope: Clients
     Environment: Any
-    Public: Yes
+    Public: [No]
     Dependencies:
 
-    Example: [player] call A3A_fnc_spawnCrate
+    Example: [player] call A3A_fnc_spawnCrate;
 
     License: MIT License
 */

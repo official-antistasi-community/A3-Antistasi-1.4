@@ -13,7 +13,7 @@
     Scope: Any
     Environment: Scheduled
     Public: [No]
-    Dependencies: <Array< <String>model,<Array>blacklisted vehicle models >> logistics_weapons
+    Dependencies: <Array< <String>model,<Array>blacklisted vehicle models >> A3A_logistics_weapons
 
     Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
 */
@@ -82,7 +82,7 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
     private _weapon = false;
     {
         if ((_x#0) isEqualTo _model) exitWith {_weapon = true};
-    } forEach logistics_weapons;
+    } forEach A3A_logistics_weapons;
 
     if (_weapon) then {
         [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];

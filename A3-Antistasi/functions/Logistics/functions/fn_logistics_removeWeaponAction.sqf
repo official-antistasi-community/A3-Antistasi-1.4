@@ -13,7 +13,7 @@
     Scope: Clients
     Environment: Any
     Public: [No]
-    Dependencies: <Array< <String>model,<Array>blacklisted vehicle models >> logistics_weapons
+    Dependencies: <Array< <String>model,<Array>blacklisted vehicle models >> A3A_logistics_weapons
 
     Example: [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];
 */
@@ -42,7 +42,7 @@ private _weaponCount = _attachedObjects findIf {
     _weapon = false;
     {
         if ((_x#0) isEqualTo _model) exitWith {_weapon = true};
-    } forEach logistics_weapons;
+    } forEach A3A_logistics_weapons;
     _weapon
 };
 if (_weaponCount isEqualTo -1) then {

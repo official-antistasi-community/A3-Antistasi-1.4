@@ -53,7 +53,7 @@ private _allowed = true;
         _weapon = true;
         if (_vehModel in _blacklistVehicles) then {_allowed = false};
     };
-} forEach logistics_weapons;
+} forEach A3A_logistics_weapons;
 if !(_allowed) exitWith {-5}; //weapon not allowed on vehicle
 
 if ((_object isKindOf "CAManBase") and !(([_object] call A3A_fnc_canFight) or !(isNull (_object getVariable ["helped",objNull])) or !(isNull attachedTo _object))) exitWith {-6}; //conscious man

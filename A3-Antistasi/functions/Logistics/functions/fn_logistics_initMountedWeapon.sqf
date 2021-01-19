@@ -12,7 +12,7 @@
     Scope: Clients
     Environment: Any
     Public: [No]
-    Dependencies: <Array< <String>model,<vec3>location,<vec3>rotation,<scalar>size,<scalar>recoil >> logistics_attachmentOffset
+    Dependencies: <Array< <String>model,<vec3>location,<vec3>rotation,<scalar>size,<scalar>recoil >> A3A_logistics_attachmentOffset
 
     Example: _cargo call A3A_fnc_logistics_initMountedWeapon;
 */
@@ -23,7 +23,7 @@ private _model = getText (configFile >> "CfgVehicles" >> typeOf _weapon >> "mode
 private _fireForce = 0;
 {
     if ((_x#0) isEqualTo _model) exitWith {_fireForce = +(_x#4)};
-}forEach logistics_attachmentOffset;
+}forEach A3A_logistics_attachmentOffset;
 _weapon setVariable ["fireForce", _fireForce, true];
 
 private _idRecoil = _weapon addEventHandler ["Fired", { //credits to audiocustoms on youtube (Cup dev) for the concept

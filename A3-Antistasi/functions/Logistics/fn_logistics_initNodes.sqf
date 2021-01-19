@@ -27,7 +27,7 @@ _classNameToModel = {
 
 //Each element is: [model name, [nodes]]
 //Nodes are build like this: [Available(internal use,  always 1), Hardpoint location, Seats locked when node is in use]
-logistics_vehicleHardpoints = [
+A3A_logistics_vehicleHardpoints = [
 
     // ---------- Vanilla ----------
     //Bikes
@@ -559,7 +559,7 @@ logistics_vehicleHardpoints = [
 ];
 
 //Each element is: [model name, offset, vectorDir, nodes used, recoil(weapons only)]
-logistics_attachmentOffset = [
+A3A_logistics_attachmentOffset = [
 
     //weapons                                                                 //location                  //rotation                  //size    //recoil            //description
         // ---------- Vanilla ----------
@@ -609,7 +609,7 @@ logistics_attachmentOffset = [
 ];
 
 //elements are [Weapon model, [vehicles weapon is not allowed on]]
-logistics_weapons = [
+A3A_logistics_weapons = [
     //vanilla
     ["B_static_AT_F" call _classNameToModel,[]],
     ["B_static_AA_F" call _classNameToModel,[]],
@@ -640,7 +640,7 @@ logistics_weapons = [
 ];
 
 //coverd vehicles
-logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Truck_01_covered_F", "O_Truck_03_covered_F", "I_Truck_02_covered_F",
+A3A_logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Truck_01_covered_F", "O_Truck_03_covered_F", "I_Truck_02_covered_F",
 "rhsgref_nat_ural_work", "rhs_kamaz5350", "rhs_zil131_base", "rhs_gaz66_vmf", "rhsusf_M1078A1P2_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy", "rhsusf_M1083A1P2_WD_fmtv_usarmy",
 "UK3CB_B_M939_Closed_HIDF", "UK3CB_B_MTVR_Closed_WDL", "UK3CB_C_V3S_Closed"];
 {
@@ -648,6 +648,6 @@ logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Tr
     {
         private _model = _x call _classNameToModel;
         if !(_model isEqualTo "") then {_blackList pushBack _model};
-    } forEach logistics_coveredVehicles;
-} forEach logistics_weapons;
+    } forEach A3A_logistics_coveredVehicles;
+} forEach A3A_logistics_weapons;
 nil

@@ -2,11 +2,11 @@ To make a vehicle capable to of loading cargo, use the function "A3A_fnc_logisti
 Example: [cursorTarget, [0,-0.7,-0.7], 2.1] call A3A_fnc_logistics_generateHardPoints;
 
 This will display a visual representation of where the nodes will be and the boundaries of the cargo plane.
-copy the returned array and put it in logistics_vehicleHardpoints in "fn_logistics_initNodes.sqf".
+copy the returned array and put it in A3A_logistics_vehicleHardpoints in "fn_logistics_initNodes.sqf".
 remember to verify the nodes by loading a cargo of both node size 1 and 2 in the vehicle afterwards (assuming it has two or more points).
 
 Finally, you need to add in the seats occupied by each node, to do this:
-1) start the game with the newly added "logistics_vehicleHardpoints" entry
+1) start the game with the newly added "A3A_logistics_vehicleHardpoints" entry
 2) load the vehicle full of size 1 cargo (Example: "Box_NATO_Wps_F")
 3) while looking at the vehicle run this command in the debug console.
     Vic = cursorTarget;
@@ -14,12 +14,12 @@ Finally, you need to add in the seats occupied by each node, to do this:
     moveout Player; Player moveInCargo [vic, 0]
 increasing the number at the end until you are put back in the first seat, and for each increase fill in the seat number into each node where you collide with the cargo
 
-Note: if the vehicle is covered or closed, you need to add its classname to logistics_coveredVehicles at the bottom of fn_logistics_initNodes.sqf
+Note: if the vehicle is covered or closed, you need to add its classname to A3A_logistics_coveredVehicles at the bottom of fn_logistics_initNodes.sqf
 
 
 ~~~ Adding a cargo type ~~~
 
-to add a cargo type you need to add an entry to logistics_attachmentOffset, this array consists of elements like this
+to add a cargo type you need to add an entry to A3A_logistics_attachmentOffset, this array consists of elements like this
 [ Model, Offset from hardpoint, Rotation, Size, Recoil (only for weapons)]
 
     Model: the model same as with vehicles, you can alternatively get this by using classname and this function "_classNameToModel"
@@ -41,7 +41,7 @@ so the resulting example array would look like this:
 ["Box_NATO_AmmoVeh_F" call _classNameToModel, [0,0,0.85], [1,0,0], 2] (the recoil was left out as this is a crate and not a weapon)
 ["Box_NATO_AmmoVeh_F" call _classNameToModel, [0,0,0.85], [1,0,0], 2, 500] (if left in, works fine too)
 
-In addition if your adding a weapon, you need to add its model name to "logistics_weapons" along with a list of blacklisted vehicles its not allowed on (usualy empty array)
+In addition if your adding a weapon, you need to add its model name to "A3A_logistics_weapons" along with a list of blacklisted vehicles its not allowed on (usualy empty array)
 Example:
     ["B_static_AT_F" call _classNameToModel, []] (no unique blacklisted vehicles)
 Example 2:

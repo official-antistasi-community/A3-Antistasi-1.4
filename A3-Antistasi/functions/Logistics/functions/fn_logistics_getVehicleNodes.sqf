@@ -24,6 +24,6 @@ if (_type isEqualTo "") exitWith { _return };
 private _model = getText (configFile >> "CfgVehicles" >> _type >> "model");
 {
     if ( (_x#0) isEqualTo _model ) exitWith { _return = +_x#1 };
-}forEach logistics_vehicleHardpoints;
+}forEach A3A_logistics_vehicleHardpoints;
 
 _return;

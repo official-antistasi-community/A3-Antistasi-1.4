@@ -6,7 +6,7 @@ private ["_units","_hr","_resourcesFIA","_unit","_newGroup"];
 
 _units = _this select 0;
 _units = _units - [player];
-_units = _units select {!(isPlayer _x)};
+_units = _units select { !(isPlayer _x) && { !(_x == petros) } };
 if (_units isEqualTo []) exitWith {};
 if (_units findIf {!([_x] call A3A_fnc_canFight)} != -1) exitWith {["Dismiss Group", "You cannot disband supressed, undercover or unconscious units"] call A3A_fnc_customHint;};
 player globalChat "Get out of my sight you useless scum!";
@@ -55,5 +55,3 @@ if (!isMultiplayer) then {_nul = [_hr,_resourcesFIA] remoteExec ["A3A_fnc_resour
 {boxX addMagazineCargoGlobal [_x,1]} forEach _ammunition;
 {boxX addItemCargoGlobal [_x,1]} forEach _items;
 deleteGroup _newGroup;
-
-

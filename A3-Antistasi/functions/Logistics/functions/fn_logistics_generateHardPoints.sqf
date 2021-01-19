@@ -39,24 +39,20 @@ private _model = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "mod
 //calculate nodes
 private _planeEnd = +_planeStart;
 _planeEnd set [1, (_planeEnd#1) - _planeSpan];
-private _diameter = -0.8;
-private _radius = (_diameter/2);// get some distance from walls
+private _diameter = 0.8;
+private _radius = _diameter/2;// get some distance from walls
 private _plane = _planeStart vectorDiff _planeEnd;
 
 private _nodeArray = [];
-private _node = _planeStart vectorAdd [0,_radius,0];//first point
-while {(-_radius*1.5) < (_plane#1)} do {
-    _plane = _plane vectorAdd [0,_diameter,0];
+private _node = _planeStart vectorDiff [0,_radius,0];//first point
+while {(_radius*1.5) < (_plane#1)} do {
+    _plane = _plane vectorDiff [0,_diameter,0];
     _nodeArray pushBack _node;
-    _node = _node vectorAdd [0,_diameter,0];
+    _node = _node vectorDiff [0,_diameter,0];
 };
 
 //fix nodeArray with rest of information
-private _newArray = [];
-{
-    _newArray pushBack [1, _x, []];
-} forEach _nodeArray;
-A3A_Logistics_nodeArray = _newArray;
+A3A_Logistics_nodeArray = _nodeArray apply {[1, _x, []]};
 
 //Rendering visuals
 A3A_Logistics_vehicle = _vehicle;

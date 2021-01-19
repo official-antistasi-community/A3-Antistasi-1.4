@@ -24,7 +24,7 @@ if (_type isEqualTo "") exitWith {_size};
 
 private _model = getText (configFile >> "CfgVehicles" >> _type >> "model");
 {
-    if ((_x#0) isEqualTo _model) exitWith {_size = +(_x#3)};
+    if ((_x#0) isEqualTo _model) exitWith {_size = _x#3};
 }forEach A3A_logistics_attachmentOffset;
 
 _size;

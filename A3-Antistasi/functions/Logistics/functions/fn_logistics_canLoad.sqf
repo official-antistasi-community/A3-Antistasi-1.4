@@ -48,10 +48,9 @@ private _vehModel = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "
 private _weapon = false;
 private _allowed = true;
 {
-    _x params ["_wep", "_blacklistVehicles"];
-    if (_wep isEqualTo _model) exitWith {
+    if ((_x#0) isEqualTo _model) exitWith {
         _weapon = true;
-        if (_vehModel in _blacklistVehicles) then {_allowed = false};
+        if (_vehModel in (_x#1)) then {_allowed = false};
     };
 } forEach A3A_logistics_weapons;
 if !(_allowed) exitWith {-5}; //weapon not allowed on vehicle
@@ -91,10 +90,6 @@ if ((_node#0) isEqualType []) then {
 } else {
     _seats append (_node#2);
 };
-private _cargoUnits = [];
-{
-    if ( (_x#2) in _seats ) then {_cargoUnits pushBack _x};
-}forEach _fullCrew;
-if !(_cargoUnits isEqualTo []) exitWith {-9};
+if !(_fullCrew findIf {_x#2 in _seats} isEqualTo -1) exitWith {-9};
 
 [_object, _vehicle, _node, _weapon]

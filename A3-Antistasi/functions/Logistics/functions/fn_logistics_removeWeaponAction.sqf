@@ -39,11 +39,7 @@ _cargo setVariable ["GetOutEH", nil];
 private _attachedObjects =  attachedObjects _vehicle;
 private _weaponCount = _attachedObjects findIf {
     private _model = getText (configFile >> "CfgVehicles" >> typeOf _x >> "model");
-    _weapon = false;
-    {
-        if ((_x#0) isEqualTo _model) exitWith {_weapon = true};
-    } forEach A3A_logistics_weapons;
-    _weapon
+    A3A_logistics_weapons findIf {_x#0 isEqualTo _model} > -1
 };
 if (_weaponCount isEqualTo -1) then {
     private _undercoverBreak = _vehicle getVariable ["undercoverBreak", -1];

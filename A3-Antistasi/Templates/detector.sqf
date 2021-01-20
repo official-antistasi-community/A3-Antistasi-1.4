@@ -42,7 +42,7 @@ if (A3A_hasRHS && (
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Units_Common") &&
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Equipment") &&
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Factions")
-) ) then {A3A_has3CB = true; [2,"3CB Detected.",_fileName] call A3A_fnc_log;
+) ) then {A3A_has3CB = true; [2,"3CB Detected.",_fileName] call A3A_fnc_log;};
 
 //FFAA Detection
 if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {A3A_hasFFAA = true; [2,"FFAA Detected.",_fileName] call A3A_fnc_log;};

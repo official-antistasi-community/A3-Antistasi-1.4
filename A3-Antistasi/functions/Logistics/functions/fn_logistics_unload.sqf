@@ -102,7 +102,7 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
         _cargo attachto [_vehicle,_location];
     } else {
         while {(_location#1) > _yEnd} do {
-            uiSleep 0.1;
+            sleep 0.1;
             _location = _location vectorAdd [0,-0.1,0];
             _cargo attachto [_vehicle,_location];
         };

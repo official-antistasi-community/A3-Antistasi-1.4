@@ -26,11 +26,12 @@ params["_vehicle","_object", ["_removeObject", false, [true]], ["_dontMsg", fals
 //------------------\\
 //-- Set new mass --\\
 //------------------\\
-private _defaultMass = _vehicle getVariable "default_mass";
-if (isNil "_defaultMass") then {
-    _defaultMass = getMass _vehicle;
-    _vehicle setVariable ["default_mass", _defaultMass, true];
+private _setDefaultMass = {
+    private _mass = getMass _vehicle;
+    _vehicle setVariable ["default_mass", _mass, true];
+    _mass;
 };
+private _defaultMass = _vehicle getVariable ["default_mass", call _setDefaultMass];
 
 private _objectMass = getMass _object;
 private _currentMass = getMass _vehicle;

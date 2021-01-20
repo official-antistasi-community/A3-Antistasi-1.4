@@ -24,7 +24,7 @@ if (_object isKindOf "CAManBase") exitWith {_return};//exception for the mdical 
 
 private _model = getText (configFile >> "CfgVehicles" >> _type >> "model");
 {
-    if ( (_x#0) isEqualTo _model ) exitWith { _return = [+_x#1,+_x#2] };
-}forEach A3A_logistics_attachmentOffset;
+    if ( (_x#0) isEqualTo _model ) exitWith { _return = +[_x#1,_x#2] };
+}forEach logistics_attachmentOffset;
 
 _return;

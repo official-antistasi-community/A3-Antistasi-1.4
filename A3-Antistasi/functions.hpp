@@ -336,7 +336,7 @@ class A3A
     class Logistics
     {
         class logistics_addLoadAction {};
-        class logistics_getVehCapacity {};
+		class logistics_getVehCapacity {};
         class logistics_initNodes {};
     };
 

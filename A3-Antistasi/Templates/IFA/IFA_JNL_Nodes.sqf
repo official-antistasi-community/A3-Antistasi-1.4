@@ -1,4 +1,4 @@
-logistics_vehicleHardpoints append [
+A3A_logistics_vehicleHardpoints append [
 //note hardpoints needs to be redone for IFA
 //Allies
 //GMC
@@ -36,7 +36,7 @@ logistics_vehicleHardpoints append [
 ];
 
 //Offsets for adding new statics/boxes to the JNL script.
-logistics_attachmentOffset append [
+A3A_logistics_attachmentOffset append [
     //weapons                                                                 //location                  //rotation                  //size    //recoil            //description
 
     //medium size crate                                                       //location                  //rotation                  //size                        //description
@@ -48,8 +48,8 @@ logistics_attachmentOffset append [
 ];
 
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
-logistics_coveredVehicles append [];
+A3A_logistics_coveredVehicles append [];
 
 //if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]],
 //if the vehicle is in the coveredVehicles array dont add it to the blacklist in this array.
-logistics_weapons append [];
+A3A_logistics_weapons append [];

@@ -27,6 +27,6 @@ if (_type isEqualTo "") exitWith { _countNodes };
 private _model = getText (configFile >> "CfgVehicles" >> _type >> "model");
 {
     if ( (_x#0) isEqualTo _model ) exitWith { _countNodes = count (_x#1) };
-}forEach logistics_vehicleHardpoints;
+}forEach A3A_logistics_vehicleHardpoints;
 
 _countNodes;

@@ -4,10 +4,10 @@
     {
         private _model = _x call A3A_fnc_classNameToModel;
         if !(_model isEqualTo "") then {_blackList pushBack _model};
-    } forEach logistics_coveredVehicles;
-} forEach logistics_weapons;
+    } forEach A3A_logistics_coveredVehicles;
+} forEach A3A_logistics_weapons;
 
-publicVariable "logistics_vehicleHardpoints";
-publicVariable "logistics_attachmentOffset";
-publicVariable "logistics_coveredVehicles";
-publicVariable "logistics_weapons";
+publicVariable "A3A_logistics_vehicleHardpoints";
+publicVariable "A3A_logistics_attachmentOffset";
+publicVariable "A3A_logistics_coveredVehicles";
+publicVariable "A3A_logistics_weapons";

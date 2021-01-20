@@ -20,7 +20,7 @@ Always think of the next guy that may have to work on your code. Chances are it 
       The locked seat list is the set of seats that should be made unusable when the node has something on it.
       This stops people being clipped into the crate/static when it is loaded. It is populated with the seat IDs for each one to be disabled.
 */
-logistics_vehicleHardpoints append [
+A3A_logistics_vehicleHardpoints append [
   ["modelpath", [
     [1, [0,0,0], [1,2,3,4]]//This line would assign a cargo node at 0,0,0 on the model, and block seats 1-4 when in use.
     [1, [0,0,0], [1,2,3,4]]//This line would assign a cargo node at 0,0,0 on the model, and block seats 1-4 when in use.
@@ -44,7 +44,7 @@ logistics_vehicleHardpoints append [
   finally you list the node size that the entry should use from 1 to x, for reference a crate usualy is either 1 or 2, and a static is 2 or 4, but it can be any size you want EXCEPT 0 or negative numbers!!!!
   in addition if your defining offsets for weapons youd want to add in one more entry after size that of recoil, this is how much newtonian force is applied to the vehicle when you fire the static
 */
-logistics_attachmentOffset append [
+A3A_logistics_attachmentOffset append [
 //model           //offset        //rotation  //size  //recoil (if weapon)
   ["modelPath",     [0, 0, 0],      [0,0,0],    2,      200],   //some small static
   ["modelPath",     [0, 0, 0],      [0,0,0],    1]              //some small cargo
@@ -53,7 +53,7 @@ logistics_attachmentOffset append [
 /*
     Next up is to add all covered or closed vehicles to this next section, this is needed to prevent statics being loaded inside of closed vehicles or covered vehicle, where they become usless, and it quite franckly looks silly.
 */
-logistics_coveredVehicles append [
+A3A_logistics_coveredVehicles append [
     "modelPath", "modelPath"
 ];
 
@@ -61,7 +61,7 @@ logistics_coveredVehicles append [
     Finally you need to declair weapons that you have added here, this is done with arrays consisting of pairs of the model of the weapon, and an array of all vehicle models the weapon is not allowed on.
     This blacklisted vehicles already include closed and covered vehicles so yuo dont have to add those
 */
-logistics_weapons append [
+A3A_logistics_weapons append [
     ["weaponModelPath", []]
     ,["weaponModelPath", ["vehModelPath", "vehModelPath"]]
 ];

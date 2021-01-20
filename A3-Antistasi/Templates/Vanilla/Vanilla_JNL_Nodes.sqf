@@ -1,6 +1,6 @@
 //Each element is: [model name, [nodes]]
 //Nodes are build like this: [Available(internal use,  always 1), Hardpoint location, Seats locked when node is in use]
-logistics_vehicleHardpoints = [
+A3A_logistics_vehicleHardpoints = [
     //Bikes
     //Quadbike
     ["C_Quadbike_01_F" call A3A_fnc_classNameToModel, [
@@ -152,7 +152,7 @@ logistics_vehicleHardpoints = [
 ];
 
 //Offsets for adding new statics/boxes to the JNL script.
-logistics_attachmentOffset = [
+A3A_logistics_attachmentOffset = [
     //weapons                                                                 //location                  //rotation                  //size    //recoil            //description
     ["B_static_AT_F" call A3A_fnc_classNameToModel,                             [-0.5, 0.0, 1.05],          [1, 0, 0],                  2,      500],               //AT titan, facing to the right
     ["B_static_AA_F" call A3A_fnc_classNameToModel,                             [-0.5, 0.0, 1.05],          [1, 0, 0],                  2,      500],               //AA titan, facing to the right
@@ -180,11 +180,11 @@ logistics_attachmentOffset = [
 ];
 
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
-logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Truck_01_covered_F", "O_Truck_03_covered_F", "I_Truck_02_covered_F"];
+A3A_logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Truck_01_covered_F", "O_Truck_03_covered_F", "I_Truck_02_covered_F"];
 
 //if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]],
 //if the vehicle is in the coveredVehicles array dont add it to the blacklist in this array.
-logistics_weapons = [
+A3A_logistics_weapons = [
     //vanilla
     ["B_static_AT_F" call A3A_fnc_classNameToModel,[]],
     ["B_static_AA_F" call A3A_fnc_classNameToModel,[]],

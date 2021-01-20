@@ -16,8 +16,8 @@ A3A_hasFFAA = false;
 A3A_hasIFA = false;
 A3A_has3CB = false;
 A3A_hasIvory = false;
-hasTCGM = false;
-hasADV = false;
+A3A_hasTCGM = false;
+A3A_hasADV = false;
 
 //Actual Detection
 //IFA Detection
@@ -51,6 +51,6 @@ if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {A3A_hasFFAA = tr
 if (isClass (configfile >> "CfgPatches" >> "Ivory_Data")) then {A3A_hasIvory = true; [2,"Ivory Cars Detected.",_fileName] call A3A_fnc_log;};
 
 //TCGM_BikeBackpack Detection
-if (isClass (configfile >> "CfgPatches" >> "TCGM_BikeBackpack")) then {hasTCGM = true; diag_log format ["%1: [Antistasi] | INFO | initVar | TCGM_BikeBackpack Detected.",servertime];};
+if (isClass (configfile >> "CfgPatches" >> "TCGM_BikeBackpack")) then {A3A_hasTCGM = true; [2,"TCGM Detected.",_fileName] call A3A_fnc_log;};
 //ADV-CPR Pike Edition detection
-if (hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) then {hasADV = true; diag_log format ["%1: [Antistasi] | INFO | initVar | ADV-CPR Detected.",servertime];};
+if (hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) then {A3A_hasADV = true; [2,"ADV Detected.",_fileName] call A3A_fnc_log;};

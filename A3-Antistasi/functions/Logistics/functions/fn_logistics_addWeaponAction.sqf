@@ -4,7 +4,7 @@
         adds "get in" action and nececary EH's for mounted weapon
 
     Arguments:
-    0. <Object> Weapon thats being attached
+    0. <Object> Weapon that's being attached
     1. <Object> Vehicle weapon is being attached to
 
     Return Value:
@@ -20,10 +20,10 @@
 params ["_cargo", "_vehicle"];
 
 //action to get into static
-_name = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName");
-_text = format ["Get in %1 as Gunner", _name];
+private _name = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName");
+private _text = format ["Get in %1 as Gunner", _name];
 
-_actionID = _vehicle addAction [
+private _actionID = _vehicle addAction [
     _text,
     {
         params ["_vehicle", "_caller", "_id", "_static"];

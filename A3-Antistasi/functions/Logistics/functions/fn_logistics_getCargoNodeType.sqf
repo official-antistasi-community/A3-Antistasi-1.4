@@ -1,7 +1,7 @@
 /*
     Author: [Håkon]
     [Description]
-        Finds the node type(size) from logistics_attachmentOffset
+        Finds the node type(size) from A3A_logistics_attachmentOffset
 
     Arguments:
     0. <Object> Object that is loadable (Cargo)
@@ -12,7 +12,7 @@
     Scope: Any
     Environment: unscheduled
     Public: [Yes]
-    Dependencies: logistics_attachmentOffset
+    Dependencies: A3A_logistics_attachmentOffset
 
     Example: private _objNodeType = [_object] call A3A_fnc_logistics_getCargoNodeType;
 */
@@ -24,7 +24,7 @@ if (_type isEqualTo "") exitWith {_size};
 
 private _model = getText (configFile >> "CfgVehicles" >> _type >> "model");
 {
-    if ((_x#0) isEqualTo _model) exitWith {_size = +(_x#3)};
-}forEach logistics_attachmentOffset;
+    if ((_x#0) isEqualTo _model) exitWith {_size = _x#3};
+}forEach A3A_logistics_attachmentOffset;
 
 _size;

@@ -107,7 +107,7 @@ else
 			_veh setCenterOfMass [(getCenterOfMass _veh) vectorAdd [0, 0, -1], 0];
 			if ((not (_veh in staticsToSave)) and (side gunner _veh != teamPlayer)) then
 			{
-				if (hasRHS and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
+				if (A3A_hasRHS and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
 			};
 			if (_typeX == SDKMortar) then
 			{
@@ -225,7 +225,7 @@ _veh addEventHandler ["Dammaged", {
 }];
 
 //add JNL loading to quadbikes
-if(!hasIFA && typeOf _veh in [vehSDKBike,vehNATOBike,vehCSATBike]) then {[_veh] call A3A_fnc_logistics_addLoadAction;};
+if(!A3A_hasIFA && typeOf _veh in [vehSDKBike,vehNATOBike,vehCSATBike]) then {[_veh] call A3A_fnc_logistics_addLoadAction;};
 
 // deletes vehicle if it exploded on spawn...
 [_veh] spawn A3A_fnc_cleanserVeh;

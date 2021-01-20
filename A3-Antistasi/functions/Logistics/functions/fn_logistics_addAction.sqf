@@ -19,13 +19,12 @@
 */
 params ["_object", "_action"];
 
-private _actions = [];
-{_actions pushBack (_object actionParams _x)}forEach actionIDs _object;
+private _actionNames = (actionIDs _object) apply {(_object actionParams _x)#0};
 private _loadText = format ["Load %1 into nearest vehicle", getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")];
 
 switch (_action) do {
     case "load":{
-        if (_actions findIf {(_x#0) isEqualTo _loadText} != -1) exitWith {};
+        if (_loadText in _actionNames) exitWith {};
         private _loadActionID = _object addAction
         [
             _loadText,
@@ -53,7 +52,7 @@ switch (_action) do {
     };
     case "unload": {
         private _text = "Unload Cargo";
-        if (_actions findIf {(_x#0) isEqualTo _text} != -1) exitWith {};
+        if (_text in _actionNames) exitWith {};
         private _unloadActionID = _object addAction
         [
             _text,

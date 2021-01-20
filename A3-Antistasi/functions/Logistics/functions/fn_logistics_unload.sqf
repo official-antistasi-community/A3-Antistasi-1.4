@@ -5,6 +5,7 @@
 
     Arguments:
     0. <Object> Vehicle to unload cargo from
+    1. <Bool>   optional: unload cargo instantly (Default: False)
 
     Return Value:
     <Nil>
@@ -12,7 +13,7 @@
     Scope: Any
     Environment: Scheduled
     Public: [No]
-    Dependencies:
+    Dependencies: <Array< <String>model,<Array>blacklisted vehicle models >> A3A_logistics_weapons
 
     Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
 */
@@ -26,16 +27,16 @@ if ((count _loaded) isEqualTo 1) then {_lastLoaded = true};
 if !(
     ((gunner _cargo) isEqualTo _cargo)
     or ((gunner _cargo) isEqualTo objNull)
-) exitWith {["Logistics", "Cant unload a static thats mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+) exitWith {["Logistics", "Can't unload a static that's mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being unloaded from vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being unloaded from the vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //update list of nodes on vehicle
 _updateList = {
     params ["_vehicle", "_node"];
-    _list = _vehicle getVariable ["logisticsCargoNodes",[]];
-    _index = _list find _node;
+    private _list = _vehicle getVariable ["logisticsCargoNodes",[]];
+    private _index = _list find _node;
     _node set [0,1];
     _list set [_index, _node];
     _vehicle setVariable ["logisticsCargoNodes", _list];
@@ -78,10 +79,10 @@ private _keepUnloading = false;
 if !(_cargo isEqualTo objNull) then {//cargo not deleted
     //check if its a weapon
     private _model = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "model");
-    _weapon = false;
+    private _weapon = false;
     {
         if ((_x#0) isEqualTo _model) exitWith {_weapon = true};
-    } forEach logistics_weapons;
+    } forEach A3A_logistics_weapons;
 
     if (_weapon) then {
         [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];
@@ -101,7 +102,7 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
         _cargo attachto [_vehicle,_location];
     } else {
         while {(_location#1) > _yEnd} do {
-            sleep 0.1;
+            uiSleep 0.1;
             _location = _location vectorAdd [0,-0.1,0];
             _cargo attachto [_vehicle,_location];
         };
@@ -124,3 +125,4 @@ _vehicle setVariable ["Cargo", _loaded, true];
 
 _vehicle setVariable ["LoadingCargo",nil,true];
 if (_keepUnloading and !_lastLoaded) then {[_vehicle] spawn A3A_fnc_logistics_unload};//if you tried to unload a null obj unload next on list
+nil

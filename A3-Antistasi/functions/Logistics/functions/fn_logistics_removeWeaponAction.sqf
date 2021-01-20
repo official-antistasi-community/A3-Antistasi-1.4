@@ -13,7 +13,7 @@
     Scope: Clients
     Environment: Any
     Public: [No]
-    Dependencies:
+    Dependencies: <Array< <String>model,<Array>blacklisted vehicle models >> A3A_logistics_weapons
 
     Example: [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];
 */
@@ -37,16 +37,12 @@ _cargo setVariable ["GetOutEH", nil];
 
 //remove Undercover break if last weapon
 private _attachedObjects =  attachedObjects _vehicle;
-_weaponCount = _attachedObjects findIf {
+private _weaponCount = _attachedObjects findIf {
     private _model = getText (configFile >> "CfgVehicles" >> typeOf _x >> "model");
-    _weapon = false;
-    {
-        if ((_x#0) isEqualTo _model) exitWith {_weapon = true};
-    } forEach logistics_weapons;
-    _weapon
+    !(A3A_logistics_weapons findIf { (_x#0) isEqualTo _model } isEqualTo -1);
 };
 if (_weaponCount isEqualTo -1) then {
     private _undercoverBreak = _vehicle getVariable ["undercoverBreak", -1];
     _vehicle removeEventHandler ["GetIn", _undercoverBreak];
-_vehicle setVariable ["undercoverBreak", nil];
+    _vehicle setVariable ["undercoverBreak", nil];
 };

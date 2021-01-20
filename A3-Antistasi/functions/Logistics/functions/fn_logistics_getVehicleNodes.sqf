@@ -9,9 +9,9 @@
     Return Value:
     <Array> Node array of the object
 
-    Scope: Server,Server/HC,Clients,Any
-    Environment: Scheduled/unscheduled/Any
-    Public: [Yes/No]
+    Scope: Any
+    Environment: unscheduled
+    Public: [No]
     Dependencies:
 
     Example: private _nodes = [_vehicle] call A3A_fnc_logistics_getVehicleNodes;
@@ -24,6 +24,6 @@ if (_type isEqualTo "") exitWith { _return };
 private _model = getText (configFile >> "CfgVehicles" >> _type >> "model");
 {
     if ( (_x#0) isEqualTo _model ) exitWith { _return = +_x#1 };
-}forEach logistics_vehicleHardpoints;
+}forEach A3A_logistics_vehicleHardpoints;
 
 _return;

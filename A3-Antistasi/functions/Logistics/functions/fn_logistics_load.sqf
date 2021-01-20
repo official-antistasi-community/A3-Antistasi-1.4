@@ -8,6 +8,7 @@
     1. <Object> Vehicle cargo is being loaded into
     2. <Array>  Node array or array of node arrays to use for loading
     3. <Bool>   is cargo a static weapon
+    4. <Bool>   optional: load cargo instantly (Default: False)
 
     Return Value:
     <nil>
@@ -21,14 +22,14 @@
 */
 params ["_cargo", "_vehicle", "_node", "_weapon", ["_instant", false, [true]]];
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being loaded into vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being loaded into the vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]; nil};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //update list of nodes on vehicle
 _updateList = {
     params ["_vehicle", "_node"];
-    _list = _vehicle getVariable ["logisticsCargoNodes",[]];
-    _index = _list find _node;
+    private _list = _vehicle getVariable ["logisticsCargoNodes",[]];
+    private _index = _list find _node;
     _node set [0,0];
     _list set [_index, _node];
     _vehicle setVariable ["logisticsCargoNodes", _list];
@@ -69,9 +70,9 @@ private _offsetAndDir = [_cargo] call A3A_fnc_logistics_getCargoOffsetAndDir;
 private _location = _offsetAndDir#0;
 private _location = _location vectorAdd _nodeOffset;
 
-private _bbv = (boundingBoxReal _vehicle select 0 select 1) + ((boundingCenter _vehicle) select 1);
-private _bbc = (boundingBoxReal _cargo select 0 select 1) + ((boundingCenter _cargo) select 1);
-private _yStart = _bbv + _bbc - 0.1;
+private _bbVehicle = (boundingBoxReal _vehicle select 0 select 1) + ((boundingCenter _vehicle) select 1);
+private _bbCargo = (boundingBoxReal _cargo select 0 select 1) + ((boundingCenter _cargo) select 1);
+private _yStart = _bbVehicle + _bbCargo - 0.1;
 private _yEnd = _location#1;
 _cargo setVariable ["AttachmentOffset", _location];
 
@@ -99,7 +100,7 @@ if (_instant) then {
     _cargo attachto [_vehicle,_location];
 } else {
     while {(_location#1) < _yEnd} do {
-        sleep 0.1;
+        uiSleep 0.1;
         _location = _location vectorAdd [0,0.1,0];
         _cargo attachto [_vehicle,_location];
     };
@@ -119,3 +120,4 @@ if (_weapon) then {
 
 _vehicle setVariable ["LoadingCargo",nil,true];
 [_vehicle, "unload"] remoteExec ["A3A_fnc_logistics_addAction", 0 ,_vehicle];
+nil

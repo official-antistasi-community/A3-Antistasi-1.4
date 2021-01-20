@@ -1,41 +1,20 @@
-#include "defines.hpp"
-#include "dialogs.hpp"
+#include "MissionDescription\master.hpp"
 
-author = $STR_antistasi_credits_generic_author_text;
 OnLoadName = $STR_antistasi_mission_info_malden_mapname_short_text;
 OnLoadMission = $STR_antistasi_mission_info_malden_blurb_text;
-loadScreen = "Pictures\Mission\pic.jpg";
 briefingName = $STR_antistasi_mission_info_malden_mapname_text;
 overviewText = $STR_antistasi_mission_info_malden_description_text;
-overviewPicture = "Pictures\Mission\pic.jpg";
-
-#include "MissionDescription\debug.hpp"
-
-#include "MissionDescription\gameSettings.hpp"
 
 class CfgFunctions {
-    #include "functions.hpp"
-    #include "JeroenArsenal\functions.hpp"
+    #include "MissionDescription\CfgFunctionsContents.hpp"
 };
 
-class CfgSounds
-{
-    class fire
-    {
-        name="fire";
-        sound[]={"Music\fire.ogg",db+12,1.0};
-        titles[]={};
-    };
+class CfgSounds {
+    #include "MissionDescription\CfgSoundsContents.hpp"
 };
 
-#include "MissionDescription\params.hpp"
-
-#include "MissionDescription\CfgIdentities.hpp"
-
-class CfgDebriefing
-{
-	#include "MissionDescription\endMission.hpp"
-
+class CfgDebriefing {
+    #include "MissionDescription\CfgDebriefingContents.hpp"
 	class End1
 	{
 		title = "V I C T O R Y";

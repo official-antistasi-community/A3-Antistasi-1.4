@@ -1,7 +1,7 @@
 /*
     Author: [Håkon]
     [Description]
-        Finds the node offset and rotation from logistics_attachmentOffset
+        Finds the node offset and rotation from A3A_logistics_attachmentOffset
 
     Arguments:
     0. <Object> Cargo to retrive the offset and rotation from hardpoint to attach to
@@ -12,7 +12,7 @@
     Scope: Any
     Environment: unscheduled
     Public: [No]
-    Dependencies: logistics_attachmentOffset
+    Dependencies: A3A_logistics_attachmentOffset
 
     Example: private _offsetAndDir = [_cargo] call A3A_fnc_logistics_getCargoOffsetAndDir;
 */
@@ -24,7 +24,7 @@ if (_object isKindOf "CAManBase") exitWith {_return};//exception for the mdical 
 
 private _model = getText (configFile >> "CfgVehicles" >> _type >> "model");
 {
-    if ( (_x#0) isEqualTo _model ) exitWith { _return = +[_x#1,_x#2] };
-}forEach logistics_attachmentOffset;
+    if ( (_x#0) isEqualTo _model ) exitWith { _return = [+_x#1,+_x#2] };
+}forEach A3A_logistics_attachmentOffset;
 
 _return;

@@ -66,7 +66,7 @@ if (hasACEMedical) then {
 	initialRebelEquipment append aceMedItems;
 };
 
-if (hasADV) then {
+if (A3A_hasADV) then {
 	initialRebelEquipment append advItems;
 };
 

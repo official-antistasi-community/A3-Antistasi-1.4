@@ -10,7 +10,7 @@ _leave = false;
 	if ((groupID _x) in ["MineF", "Watch"]
 		|| { isPlayer (leader _x)
 		|| { (units _x) findIf { _x == petros } != -1 }})
-	then { _leave = true; };
+	exitWith { _leave = true; };
 } forEach _groups;
 
 if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads"] call A3A_fnc_customHint;};

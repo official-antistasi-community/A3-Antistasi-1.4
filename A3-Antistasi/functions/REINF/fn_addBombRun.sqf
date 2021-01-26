@@ -1,10 +1,10 @@
 _veh = cursortarget;
 
-if (isNull _veh) exitWith {["Airstrike", "You are not looking to any vehicle."] call A3A_fnc_customHint;};
+if (isNull _veh) exitWith {["Airstrike", "You are not looking at a vehicle."] call A3A_fnc_customHint;};
 
 if (!alive _veh) exitWith {["Airstrike", "You can't convert destroyed Air vehicle to Airstrikes."] call A3A_fnc_customHint;};
 
-_units = (player nearEntities ["CAManBase",300]) select {([_x] call A3A_fnc_CanFight) && (side _x isEqualTo Occupants || side _x isEqualTo Invaders)};
+_units = (player nearEntities ["Man",300]) select {([_x] call A3A_fnc_CanFight) && (side _x isEqualTo Occupants || side _x isEqualTo Invaders)};
 if (_units findIf {_unit = _x; _players = allPlayers select {(side _x isEqualTo teamPlayer) && (player distance _x < 300)}; _players findIf {_x in (_unit targets [true, 300])} != -1} != -1) exitWith {["Airstrike", "You can't convert Airstrikes while enemies are near you"] call A3A_fnc_customHint};
 if (_units findIf{player distance _x < 100} != -1) exitWith {["Airstrike", "You can't convert Airstrikes while enemies are near you."] call A3A_fnc_customHint};
 
@@ -25,7 +25,7 @@ if (!isNil "_owner") then
 		};
 	};
 
-if (_exit) exitWith {["Airstrike", "You are not owner of this vehicle and you can't convert it"] call A3A_fnc_customHint;};
+if (_exit) exitWith {["Airstrike", "You are not the owner of this vehicle. Therefore, you can't convert it."] call A3A_fnc_customHint;};
 
 if (not(_veh isKindOf "Air")) exitWith {["Airstrike", "Only Air Vehicles can be used to increase Airstrike points"] call A3A_fnc_customHint;};
 

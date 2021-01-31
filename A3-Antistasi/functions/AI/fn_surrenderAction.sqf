@@ -46,7 +46,8 @@ if (_grpIdx == -1) then {
 };
 
 // create surrender box
-private _boxX = "Box_IND_Wps_F" createVehicle position _unit;
+private _surrenderCrateType = [NATOSurrenderCrate, CSATSurrenderCrate] select {side group _unit isEqualTo Invaders};
+private _boxX = _surrenderCrateType createVehicle position _unit;
 _boxX allowDamage false;
 clearMagazineCargoGlobal _boxX;
 clearWeaponCargoGlobal _boxX;

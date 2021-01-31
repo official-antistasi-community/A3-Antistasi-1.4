@@ -8,8 +8,7 @@ params ["_markerX"];
 
 private _positionX = getMarkerPos _markerX;
 
-//Type of salvage crate to spawn
-private _boxType = "Box_NATO_Equip_F";
+
 //Sunken ship that was carrying the box to spawn in
 private _shipType = "Land_UWreck_FishingBoat_F";
 
@@ -34,6 +33,10 @@ _mrk3 setMarkerSize [25, 25];
 
 private _difficultX = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+
+//Type of salvage crate to spawn
+private _boxType = [NATOEquipmentBox, CSATEquipmentBox] select (_sideX isEqualTo Invaders); //until new template system is in this will be nil
+_boxType = [_boxType, "Box_NATO_Equip_F"] select isNil "_boxType"; //so we add this so boxtype is not undefined
 
 //Set time limit on mission
 private _timeLimit = if (_difficultX) then {30} else {60};
@@ -67,8 +70,8 @@ private _box = _boxType createVehicle _boxPos;
 //Used in salvage rope
 _box setVariable ["SalvageCrate", true, true];
 private _crateContents = selectRandom [
-	[_box, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 10, 5, 10, 0, 0], 
-	[_box, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0], 
+	[_box, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 10, 5, 10, 0, 0],
+	[_box, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0],
 	[_box, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 _crateContents call A3A_fnc_fillLootCrate;
@@ -141,4 +144,3 @@ deleteVehicle _ship;
 
 [_vehCrewGroup] spawn A3A_fnc_groupDespawner;
 [_veh] spawn A3A_fnc_vehDespawner;
-

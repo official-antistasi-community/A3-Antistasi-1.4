@@ -17,6 +17,8 @@ if (isServer) then {"CSAT_carrier" setMarkerText "CSAT Carrier"};
 
 //Loot Crate
 CSATAmmoBox = "O_supplyCrate_F";
+CSATSurrenderCrate = "Box_IND_Wps_F";
+CSATEquipmentBox = "Box_NATO_Equip_F";
 
 ////////////////////////////////////
 //   PVP LOADOUTS AND VEHICLES   ///

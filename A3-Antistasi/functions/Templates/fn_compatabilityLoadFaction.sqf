@@ -22,9 +22,11 @@ if (_side isEqualTo east) then {
 	CSATFlag = _faction getVariable "flag";
 	CSATFlagTexture = _faction getVariable "flagTexture";
 	flagCSATmrk = _faction getVariable "flagMarkerType";
-	
+
 	//Loot crate
 	CSATAmmoBox = _faction getVariable "ammobox";
+    CSATSurrenderCrate = _faction getVariable "surrenderCrate";
+    CSATEquipmentBox = _faction getVariable "equipmentBox";
 
 	//PVP Loadouts
 	CSATPlayerLoadouts = _faction getVariable "pvpLoadouts";
@@ -60,13 +62,13 @@ if (_side isEqualTo east) then {
 		"loadouts_military_AT"
 	];
 	private _groupsCSATMediumSquad = [
-		"loadouts_military_SquadLeader", 
+		"loadouts_military_SquadLeader",
 		"loadouts_military_MachineGunner",
 		"loadouts_military_Grenadier",
 		"loadouts_military_LAT"
 	];
 	groupsCSATmid = [_groupsCSATMediumSquad, groupsCSATAA, groupsCSATAT];
-	
+
 	groupsCSATSquad = [];
 	for "_i" from 1 to 5 do {
 		groupsCSATSquad pushBack [
@@ -104,7 +106,7 @@ if (_side isEqualTo east) then {
 				"loadouts_military_Grenadier",
 				"loadouts_military_MachineGunner",
 				selectRandomWeighted [
-					"loadouts_military_LAT", 1, 
+					"loadouts_military_LAT", 1,
 					"loadouts_militia_Marksman", 1,
 					"loadouts_military_Engineer", 1
 				]
@@ -159,15 +161,15 @@ if (_side isEqualTo east) then {
 	vehCSATMRLS = _faction getVariable "vehiclesArtillery" select 0 select 0;
 	vehCSATMRLSMags = _faction getVariable "vehiclesArtillery" select 0 select 1 select 0;
 
-	vehCSATNormal = 
-		  vehCSATLight 
-		+ vehCSATTrucks 
-		+ (_faction getVariable "vehiclesAmmoTrucks") 
-		+ (_faction getVariable "vehiclesRepairTrucks") 
+	vehCSATNormal =
+		  vehCSATLight
+		+ vehCSATTrucks
+		+ (_faction getVariable "vehiclesAmmoTrucks")
+		+ (_faction getVariable "vehiclesRepairTrucks")
 		+ (_faction getVariable "vehiclesFuelTrucks")
 		+ (_faction getVariable "vehiclesMedical");
 
-	vehCSATAir = 
+	vehCSATAir =
 		  vehCSATTransportHelis
 		+ vehCSATAttackHelis
 		+ [vehCSATPlane, vehCSATPlaneAA]
@@ -206,9 +208,11 @@ if (_side isEqualTo west) then {
 	NATOFlagTexture = _faction getVariable "flagTexture";
 	flagNATOmrk = _faction getVariable "flagMarkerType";
 	if (isServer) then {"NATO_carrier" setMarkerText (_faction getVariable "spawnMarkerName")};
-	
+
 	//Loot crate
 	NATOAmmobox = _faction getVariable "ammobox";
+    NATOSurrenderCrate = _faction getVariable "surrenderCrate";
+    NATOEquipmentBox = _faction getVariable "equipmentBox";
 
 	//PVP Loadouts
 	NATOPlayerLoadouts = _faction getVariable "pvpLoadouts";
@@ -250,13 +254,13 @@ if (_side isEqualTo west) then {
 		"loadouts_military_AT"
 	];
 	private _groupsNATOMediumSquad = [
-		"loadouts_military_SquadLeader", 
+		"loadouts_military_SquadLeader",
 		"loadouts_military_MachineGunner",
 		"loadouts_military_Grenadier",
 		"loadouts_military_LAT"
 	];
 	groupsNATOmid = [_groupsNATOMediumSquad, groupsNATOAA, groupsNATOAT];
-	
+
 	groupsNATOSquad = [];
 	for "_i" from 1 to 5 do {
 		groupsNATOSquad pushBack [
@@ -294,7 +298,7 @@ if (_side isEqualTo west) then {
 				"loadouts_military_Grenadier",
 				"loadouts_military_MachineGunner",
 				selectRandomWeighted [
-					"loadouts_military_LAT", 1, 
+					"loadouts_military_LAT", 1,
 					"loadouts_militia_Marksman", 1,
 					"loadouts_military_Engineer", 1
 				]
@@ -351,15 +355,15 @@ if (_side isEqualTo west) then {
 	vehNATOMRLS = _faction getVariable "vehiclesArtillery" select 0 select 0;
 	vehNATOMRLSMags = _faction getVariable "vehiclesArtillery" select 0 select 1 select 0;
 
-	vehNATONormal = 
-		  vehNATOLight 
-		+ vehNATOTrucks 
-		+ (_faction getVariable "vehiclesAmmoTrucks") 
-		+ (_faction getVariable "vehiclesRepairTrucks") 
+	vehNATONormal =
+		  vehNATOLight
+		+ vehNATOTrucks
+		+ (_faction getVariable "vehiclesAmmoTrucks")
+		+ (_faction getVariable "vehiclesRepairTrucks")
 		+ (_faction getVariable "vehiclesFuelTrucks")
 		+ (_faction getVariable "vehiclesMedical");
 
-	vehNATOAir = 
+	vehNATOAir =
 		  vehNATOTransportHelis
 		+ vehNATOAttackHelis
 		+ [vehNATOPlane, vehNATOPlaneAA]

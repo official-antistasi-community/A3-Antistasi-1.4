@@ -14,9 +14,11 @@ CSATFlag = "LIB_FlagCarrier_SU";
 CSATFlagTexture = "ww2\core_t\if_decals_t\ussr\flag_su_co.paa";
 flagCSATmrk = "LIB_faction_RKKA";
 if (isServer) then {"CSAT_carrier" setMarkerText "Soviet Reinforcements"};
-	
+
 //Loot Crate
 CSATAmmoBox = "O_supplyCrate_F";
+CSATSurrenderCrate = "Box_IND_Wps_F";
+CSATEquipmentBox = "Box_NATO_Equip_F";
 
 ////////////////////////////////////
 //   PVP LOADOUTS AND VEHICLES   ///

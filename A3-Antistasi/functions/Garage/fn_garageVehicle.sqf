@@ -24,7 +24,7 @@ if ({alive _x} count (crew vehicle _veh) > 0) exitWith {["Garage", "In order to 
 _typeVehX = typeOf _veh;
 
 if (_veh isKindOf "Man") exitWith {["Garage", "Are you kidding?"] call A3A_fnc_customHint;};
-if ((typeOf _veh) isEqualTo "Box_IND_Wps_F") exitWith {
+if ((typeOf _veh) in [NATOSurrenderCrate, CSATSurrenderCrate]) exitWith {
 	_veh addMagazineCargoGlobal [unlockedMagazines#0,1];// so fnc_empty will delete the crate
 	_transferLoot = [_veh] spawn A3A_fnc_empty;
 	[10] call A3A_fnc_resourcesPlayer;

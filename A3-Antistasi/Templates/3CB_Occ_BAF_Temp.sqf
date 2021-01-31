@@ -18,6 +18,8 @@ if (isServer) then {"NATO_carrier" setMarkerText "HMS Prince of Wales"};
 
 //Loot Crate
 NATOAmmobox = "B_supplyCrate_F";
+NATOSurrenderCrate = "Box_IND_Wps_F";
+NATOEquipmentBox = "Box_NATO_Equip_F";
 
 ////////////////////////////////////
 //   PVP LOADOUTS AND VEHICLES   ///

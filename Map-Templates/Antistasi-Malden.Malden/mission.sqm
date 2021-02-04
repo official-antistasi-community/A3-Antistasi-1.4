@@ -14114,7 +14114,7 @@ class Mission
 				class Item17
 				{
 					dataType="Marker";
-					position[]={5687.5581,349.78223,5589.0303};
+					position[]={6493.38,10681,0.00149536};
 					name="outpost_12";
 					markerType="RECTANGLE";
 					type="rectangle";

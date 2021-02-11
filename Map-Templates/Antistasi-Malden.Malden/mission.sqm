@@ -217,24 +217,16 @@ class AddonsMetaData
 	};
 };
 randomSeed=13388897;
-class ScenarioData
-{
-	author="Dad";
-};
 class Mission
 {
 	class Intel
 	{
+		briefingName=$STR_antistasi_mission_info_malden_mapname_text;
 		resistanceWest=0;
-		startWind=0.1;
-		forecastWind=0.1;
-		forecastWaves=0.1;
 		year=2035;
 		month=6;
 		hour=10;
 		minute=0;
-		startFogDecay=0.0049333;
-		forecastFogDecay=0.0049333;
 	};
 	class Entities
 	{
@@ -10836,29 +10828,6 @@ class Mission
 					};
 					id=9010;
 					type="Land_Wall_IndCnc_4_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
 				};
 				class Item109
 				{
@@ -12725,29 +12694,6 @@ class Mission
 					id=9301;
 					type="Land_Wall_IndCnc_4_F";
 					atlOffset=9.1552734e-005;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
 				};
 				class Item213
 				{

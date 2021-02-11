@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1844;
+		nextID=1902;
 	};
 	class Camera
 	{
-		pos[]={6067.1865,218.81451,10357.297};
-		dir[]={-0.84627956,-0.41712481,0.33140767};
-		up[]={-0.38841161,0.90884686,0.1521045};
-		aside[]={0.36464566,5.2968971e-008,0.9311561};
+		pos[]={7074.5698,121.74033,6726.6738};
+		dir[]={-0.58197796,-0.052415621,0.81152713};
+		up[]={-0.03055325,0.99862641,0.042605102};
+		aside[]={0.81264609,-1.6175909e-007,0.58277982};
 	};
 };
 binarizationWanted=0;
@@ -217,20 +217,28 @@ class AddonsMetaData
 	};
 };
 randomSeed=13388897;
+class ScenarioData
+{
+	author="Dad";
+};
 class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_malden_mapname_text;
 		resistanceWest=0;
+		startWind=0.1;
+		forecastWind=0.1;
+		forecastWaves=0.1;
 		year=2035;
 		month=6;
 		hour=10;
 		minute=0;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
 	};
 	class Entities
 	{
-		items=890;
+		items=886;
 		class Item0
 		{
 			dataType="Marker";
@@ -16141,7 +16149,7 @@ class Mission
 					colorName="ColorGreen";
 					a=62.826801;
 					b=55.433304;
-					angle=232.00449;
+					angle=232.00447;
 					id=183;
 					atlOffset=10328.511;
 				};
@@ -16277,7 +16285,7 @@ class Mission
 					colorName="ColorGreen";
 					a=62.826801;
 					b=55.433304;
-					angle=217.26146;
+					angle=217.26143;
 					id=9351;
 					atlOffset=10552.287;
 				};
@@ -23181,44 +23189,12 @@ class Mission
 		};
 		class Item868
 		{
-			dataType="Marker";
-			position[]={5037.6235,59.503517,3738.2615};
-			name="marker_35";
-			type="mil_circle";
-			id=9014;
-		};
-		class Item869
-		{
-			dataType="Marker";
-			position[]={3785.9294,68.754272,4934.2417};
-			name="marker_36";
-			type="mil_circle";
-			id=9015;
-		};
-		class Item870
-		{
-			dataType="Marker";
-			position[]={4057.447,369.1442,6326.9438};
-			name="marker_37";
-			type="mil_circle";
-			id=9016;
-		};
-		class Item871
-		{
-			dataType="Marker";
-			position[]={7074.5698,96.740334,6751.6738};
-			name="marker_38";
-			type="mil_circle";
-			id=9017;
-		};
-		class Item872
-		{
 			dataType="Layer";
 			name="Check Point (Large)";
 			id=9037;
 			atlOffset=96.5;
 		};
-		class Item873
+		class Item869
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23234,7 +23210,7 @@ class Mission
 			id=9054;
 			type="Land_CargoBox_V1_F";
 		};
-		class Item874
+		class Item870
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23250,7 +23226,7 @@ class Mission
 			id=9055;
 			type="Land_CargoBox_V1_F";
 		};
-		class Item875
+		class Item871
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -23307,7 +23283,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item876
+		class Item872
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23323,7 +23299,7 @@ class Mission
 			id=9307;
 			type="MetalBarrel_burning_F";
 		};
-		class Item877
+		class Item873
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23339,7 +23315,7 @@ class Mission
 			id=9308;
 			type="Land_ScrapHeap_2_F";
 		};
-		class Item878
+		class Item874
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23355,7 +23331,7 @@ class Mission
 			id=9309;
 			type="Land_RepairDepot_01_tan_ruins_F";
 		};
-		class Item879
+		class Item875
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23372,7 +23348,7 @@ class Mission
 			type="Land_CargoBox_V1_F";
 			atlOffset=-0.0038757324;
 		};
-		class Item880
+		class Item876
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23389,7 +23365,7 @@ class Mission
 			type="Land_CargoBox_V1_F";
 			atlOffset=-0.00390625;
 		};
-		class Item881
+		class Item877
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23405,7 +23381,7 @@ class Mission
 			id=9326;
 			type="Land_Tank_rust_F";
 		};
-		class Item882
+		class Item878
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23420,7 +23396,7 @@ class Mission
 			id=9333;
 			type="Land_Loudspeakers_F";
 		};
-		class Item883
+		class Item879
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23436,7 +23412,7 @@ class Mission
 			type="Land_Loudspeakers_F";
 			atlOffset=0.0095214844;
 		};
-		class Item884
+		class Item880
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23453,7 +23429,7 @@ class Mission
 			type="Land_PowerGenerator_F";
 			atlOffset=0.0014343262;
 		};
-		class Item885
+		class Item881
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23470,7 +23446,7 @@ class Mission
 			type="Land_Cargo_House_V1_F";
 			atlOffset=-3.0517578e-005;
 		};
-		class Item886
+		class Item882
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23486,7 +23462,7 @@ class Mission
 			id=9341;
 			type="Land_Cargo_HQ_V1_F";
 		};
-		class Item887
+		class Item883
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23503,7 +23479,7 @@ class Mission
 			type="Land_Cargo_House_V1_F";
 			atlOffset=0.26083374;
 		};
-		class Item888
+		class Item884
 		{
 			dataType="Object";
 			class PositionInfo
@@ -23518,7 +23494,7 @@ class Mission
 			id=9345;
 			type="Land_Loudspeakers_F";
 		};
-		class Item889
+		class Item885
 		{
 			dataType="Object";
 			class PositionInfo

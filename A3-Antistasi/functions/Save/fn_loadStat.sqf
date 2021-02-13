@@ -24,7 +24,7 @@ private _specialVarLoads = [
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
 	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-    "countCA", "attackCountdownInvaders", "testingTimerIsActive"
+	"countCA", "attackCountdownInvaders", "testingTimerIsActive"
 ];
 
 private _varName = _this select 0;
@@ -33,9 +33,9 @@ if (isNil '_varValue') exitWith {};
 
 if (_varName in _specialVarLoads) then {
 	if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
-    if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
-    //Keep this for backwards compatiblity
-    if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
+	if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
+	//Keep this for backwards compatiblity
+	if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
 	if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
 	if (_varName == 'nextTick') then {nextTick = time + _varValue};
 	if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};

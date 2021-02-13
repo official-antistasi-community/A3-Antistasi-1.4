@@ -185,7 +185,9 @@ if (_spawnParameter isEqualType []) then
 {
 	_typeVehX = if (_sideX == Occupants) then
 	{
-		if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {[vehFIATruck]};
+		private _types = if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {[vehFIATruck]};
+		_types = _types select { _x in vehCargoTrucks };
+		if (count _types == 0) then { vehNATOCargoTrucks } else { _types };
 	}
 	else
 	{

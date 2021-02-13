@@ -4,7 +4,7 @@ if (player != theBoss) exitWith {["Recruit Squad", "Only the Commander has acces
 
 if (markerAlpha respawnTeamPlayer == 0) exitWith {["Recruit Squad", "You cannot recruit a new squad while you are moving your HQ"] call A3A_fnc_customHint;};
 
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(hasIFA) then {["Recruit Squad", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;} else {["Recruit Squad", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Recruit Squad", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;} else {["Recruit Squad", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
 
 private _enemyNear = false;
 
@@ -19,10 +19,10 @@ _exit = false;
 
 if (_typeGroup isEqualType "") then {
 	if (_typeGroup == "not_supported") then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset"] call A3A_fnc_customHint;};
-	if (hasIFA and ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) and !debug) then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset"] call A3A_fnc_customHint;};
+	if (A3A_hasIFA and ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) and !debug) then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset"] call A3A_fnc_customHint;};
 };
 
-if (activeGREF) then {
+if (A3A_hasRHS) then {
 	if (_typeGroup isEqualType objNull) then {
 		if (_typeGroup == staticATteamPlayer) then {["Recruit Squad", "AT Trucks are disabled in RHS - GREF"] call A3A_fnc_customHint; _exit = true};
 	};
@@ -66,7 +66,7 @@ if (_typeGroup isEqualType []) then {
 	};
 };
 
-if ((_withBackpck != "") and hasIFA) exitWith {["Recruit Squad", "Your current modset doesn't support packing/unpacking static weapons"] call A3A_fnc_customHint;};
+if ((_withBackpck != "") and A3A_hasIFA) exitWith {["Recruit Squad", "Your current modset doesn't support packing/unpacking static weapons"] call A3A_fnc_customHint;};
 
 if (_hr < _costHR) then {_exit = true; ["Recruit Squad", format ["You do not have enough HR for this request (%1 required)",_costHR]] call A3A_fnc_customHint;};
 
@@ -121,7 +121,7 @@ if (_esinf) then {
 
 	if (_typeGroup == staticAAteamPlayer) then
 	{
-		private _vehType = if (activeGREF) then {"rhsgref_ins_g_ural_Zu23"} else {vehSDKTruck};
+		private _vehType = if (vehSDKAA != "not_supported") then {vehSDKAA} else {vehSDKTruck};
 		_truckX = createVehicle [_vehType, _pos, [], 0, "NONE"];
 		_truckX setDir _roadDirection;
 
@@ -131,7 +131,7 @@ if (_esinf) then {
 		_driver moveInDriver _truckX;
 		_driver assignAsDriver _truckX;
 
-		if (!activeGREF) then
+		if (vehSDKAA == "not_supported") then
 		{
 			private _lpos = _pos vectorAdd [0,0,1000];
 			private _launcher = createVehicle [staticAAteamPlayer, _lpos, [], 0, "CAN_COLLIDE"];
@@ -140,13 +140,11 @@ if (_esinf) then {
 			_gunner moveInGunner _launcher;
 			_gunner assignAsGunner _launcher;
 //			[_launcher] call A3A_fnc_AIVEHinit;			// don't need separate despawn/killed handlers
-		}
-		else {
+		} else {
 			_gunner moveInGunner _truckX;
 			_gunner assignAsGunner _truckX;
 		};
-	}
-	else {
+	} else {
 		private _veh = [_pos, _roadDirection,_typeGroup, teamPlayer] call bis_fnc_spawnvehicle;
 		_truckX = _veh select 0;
 		_groupX = _veh select 2;

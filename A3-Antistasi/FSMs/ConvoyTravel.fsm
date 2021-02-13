@@ -5,12 +5,12 @@ item0[] = {"Start",0,250,-258.071289,-342.907776,-168.071396,-292.907776,0.00000
 item1[] = {"End_and_Rejoin",1,250,64.791161,-139.450836,154.791199,-89.450851,0.000000,"End and Rejoin"};
 item2[] = {"HasArrived",4,218,-256.153625,-77.311310,-166.153625,-27.311371,10.000000,"HasArrived"};
 item3[] = {"Abort",4,218,-91.228699,-251.971512,-1.228698,-201.971497,100.000000,"Abort"};
-item4[] = {"Head_to__Next_Po",2,250,-256.894318,-166.599014,-166.894302,-116.599007,0.000000,"Head to " \n "Next Pos"};
+item4[] = {"Head_to__Next_Po",2,4346,-256.894318,-166.599014,-166.894302,-116.599007,0.000000,"Head to " \n "Next Pos"};
 item5[] = {"True",8,218,-257.487732,-253.817780,-167.487717,-203.817780,0.000000,"True"};
 item6[] = {"At_Next_Pos",4,218,-403.907898,-167.404144,-313.907928,-117.404137,5.000000,"At Next Pos"};
 item7[] = {"Veh_stuck",4,218,-92.573151,-109.810966,-2.573151,-59.810974,0.000000,"Veh stuck"};
 item8[] = {"Veh_or_Crew_Dead",4,218,-91.259125,-177.638184,-1.259125,-127.638184,20.000000,"Veh or Crew" \n "Dead"};
-item9[] = {"End_and_Unload",1,4346,-256.463623,15.090240,-166.463593,65.090225,0.000000,"End and Unload"};
+item9[] = {"End_and_Unload",1,250,-256.463623,15.090240,-166.463593,65.090225,0.000000,"End and Unload"};
 item10[] = {"Hard_Abort",4,218,-92.573059,-344.041931,-2.573059,-294.041931,100.000000,"Hard Abort"};
 item11[] = {"End_and_Abort",1,250,66.121887,-341.269958,156.121918,-291.269989,0.000000,"End and Abort"};
 link0[] = {0,5};
@@ -49,7 +49,7 @@ class FSM
                          "// log some broken input errors" \n
                          "if (isNull _vehicle) exitWith { _abort = true; [1, ""Null vehicle input"", ""ConvoyTravel""] call A3A_fnc_log };" \n
                          "if (count _route == 0) exitWith { _abort = true; [1, ""No route specified"", ""ConvoyTravel""] call A3A_fnc_log };" \n
-                         "if (driver _vehicle == objNull) exitWith { _abort = true; [1, ""No driver in vehicle"", ""ConvoyTravel""] call A3A_fnc_log };" \n
+                         "if (isNull driver _vehicle) exitWith { _abort = true; [1, ""No driver in vehicle"", ""ConvoyTravel""] call A3A_fnc_log };" \n
                          "if (!alive driver _vehicle) exitWith { _abort = true; [1, ""Dead driver in vehicle"", ""ConvoyTravel""] call A3A_fnc_log };" \n
                          "" \n
                          "// Make sure our driver doesn't give a shit about the whole 'being shot' thing" \n
@@ -102,10 +102,10 @@ class FSM
                          "if !(isNull _vehicle) then { _vehicle setVariable[""fsmresult"", -1] };" \n
                          "" \n
                          "private _crewGroup = _splitCrew call A3A_fnc_joinMultipleGroups;" \n
-                         "if (_crewGroup == grpNull) exitwith {};" \n
+                         "if (isNull _crewGroup) exitwith {};" \n
                          "" \n
                          "{ unassignVehicle _x } forEach (crew _vehicle);" \n
-                         "if (_cargoGroup != grpNull) then {" \n
+                         "if !(isNull _cargoGroup) then {" \n
                          "	(units _cargoGroup) joinSilent _crewGroup;" \n
                          "	deleteGroup _cargoGroup;" \n
                          "};" \n
@@ -164,7 +164,7 @@ class FSM
                                         priority = 20.000000;
                                         to="End_and_Rejoin";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!alive _vehicle || !canMove _vehicle || { driver _vehicle == objNull } || { !alive driver _vehicle };"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!canMove _vehicle || { !alive driver _vehicle };"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"[2, ""Vehicle or driver died during travel, abandoning"", ""ConvoyTravel""] call A3A_fnc_log;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -227,7 +227,7 @@ class FSM
                          "_wp0 setWaypointStatements [""true"", ""if !(local this) exitWith {}; { unassignVehicle _x; } forEach (assignedCargo (vehicle this));""];" \n
                          "_crewGroup setCurrentWaypoint _wp0;" \n
                          "" \n
-                         "if (_cargoGroup != grpNull) then {" \n
+                         "if !(isNull _cargoGroup) then {" \n
                          "	// Move cargo group towards centre of outpost" \n
                          "	private _wp2 = _cargoGroup addWaypoint [_destination, 10];" \n
                          "	_wp2 setWaypointType ""MOVE"";" \n

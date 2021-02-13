@@ -1,7 +1,7 @@
 _title = if (worldName == "Tanoa") then {
 	"Warlords of the Pacific"
 } else {
-	if (hasIFA) then {
+	if (A3A_hasIFA) then {
 		"Armia Krajowa"
 	} else {
 		"Antistasi"

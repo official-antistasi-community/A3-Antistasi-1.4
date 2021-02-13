@@ -29,14 +29,24 @@ private _filename = "fn_punishment_addActionForgive.sqf";
 
 private _keyPairs = [["offenceTotal",0],["name","NO NAME"]];
 ([_UID,_keyPairs] call A3A_fnc_punishment_dataGet) params ["_offenceTotal","_name"];
-if (_offenceTotal < 1) exitWith {false};
+if (_offenceTotal < 1) exitWith {false}; // If offence is less than 1, the UID is not a detained player.
 
-if ([] call BIS_fnc_admin > 0 || isServer && hasInterface) then {
+private _actionsSelf = actionIDs player;
+private _alreadyHasAction = false; // Avoids having the action added again.
+if !(isNil "_actionsSelf" || {count _actionsSelf == 0}) then {
+	{
+		if (((player actionParams _x) select 0) isEqualTo format["[Forgive FF] ""%1""",_name]) then {
+			_alreadyHasAction = true;
+		};
+	} forEach _actionsSelf;
+};
+
+if ((!_alreadyHasAction) && ([] call BIS_fnc_admin > 0 || isServer && hasInterface)) then {
 	private _addAction_parameters = [
 		format["[Forgive FF] ""%1""",_name],
 		{
 			params ["_target", "_caller", "_actionId", "_arguments"];
-			if ([] call BIS_fnc_admin > 0 || isServer) then {
+			if ([] call BIS_fnc_admin > 0 || isServer && hasInterface) then {
 				[_arguments,"forgive"] remoteExec ["A3A_fnc_punishment_release",2,false];
 			};
 			player removeAction _actionId;
@@ -45,20 +55,5 @@ if ([] call BIS_fnc_admin > 0 || isServer && hasInterface) then {
 		0.1
 	];
 	player addAction _addAction_parameters;
-};
-
-private _detainee = [_UID] call BIS_fnc_getUnitByUid;
-if (player isEqualTo _detainee) then {
-	uiSleep 5; // Prevents detainee from spamming action.
-	private _addAction_parameters = [
-		"Refresh Admin Action",
-		{
-			params ["_target", "_caller", "_actionId", "_arguments"];
-			[_arguments,true] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false];
-		},
-		_UID,
-		7
-	];
-	_detainee addAction _addAction_parameters;
 };
 true;

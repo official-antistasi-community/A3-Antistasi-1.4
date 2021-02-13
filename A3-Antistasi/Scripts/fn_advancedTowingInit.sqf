@@ -247,7 +247,7 @@ SA_Simulate_Towing = {
 			_lastMovedCargoPosition = _cargoPosition;
 
 			_massAdjustedMaxSpeed = _vehicle getVariable ["SA_Max_Tow_Speed",_maxVehicleSpeed];
-			if(speed _vehicle > (_massAdjustedMaxSpeed)+0.1) then {
+			if(speed _vehicle^2 > (_massAdjustedMaxSpeed+0.1)^2) then { //square to ensure positive number
 				_vehicle setVelocity ((vectorNormalized (velocity _vehicle)) vectorMultiply (_massAdjustedMaxSpeed/3.6));
 			};
 

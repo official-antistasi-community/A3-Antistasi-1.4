@@ -3,6 +3,7 @@ private _fileName = "fn_initDisabledMods.sqf";
 private _disabledMods = [];
 
 if (!allowDLCKart) then {_disabledMods pushBack "kart"};
+if (!allowDLCMark) then {_disabledMods pushBack "mark"};
 if (!allowDLCHeli) then {_disabledMods pushBack "heli"};
 if (!allowDLCExpansion) then {_disabledMods pushBack "expansion"};
 if (!allowDLCJets) then {_disabledMods pushBack "jets"};

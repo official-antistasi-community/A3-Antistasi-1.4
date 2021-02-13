@@ -67,19 +67,19 @@ call
 publicVariable "loadLastSave";
 publicVariable "campaignID";
 
-
 // Now load all other parameters, loading from save if available
 call A3A_fnc_initParams;
-initParamsDone = true; publicVariable "initParamsDone";
 
+//JNA, JNL and UPSMON. Shouldn't have any Antistasi dependencies except on parameters.
+call A3A_fnc_initFuncs;
 
 //Initialise variables needed by the mission.
 _nul = call A3A_fnc_initVar;
+call A3A_fnc_logistics_initNodes;
 
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
-call A3A_fnc_initFuncs;
 if (hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 call A3A_fnc_loadNavGrid;
 call A3A_fnc_initZones;
@@ -186,6 +186,7 @@ waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] spawn A3A_fnc_aggressionUpdateLoop;
+[] spawn A3A_fnc_initSupportCooldowns;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
 
@@ -194,7 +195,8 @@ savingServer = false;
 	private _lastPlayerCount = count (call A3A_fnc_playableUnits);
 	while {true} do
 	{
-		uiSleep autoSaveInterval;
+		autoSaveTime = time + autoSaveInterval;
+		waitUntil { sleep 60; time > autoSaveTime; };
 		private _playerCount = count (call A3A_fnc_playableUnits);
 		if (autoSave && (_playerCount > 0 || _lastPlayerCount > 0)) then {
 			[] remoteExecCall ["A3A_fnc_saveLoop", 2];
@@ -208,7 +210,14 @@ savingServer = false;
 //Enable performance logging
 [] spawn {
 	private _logPeriod = [30, 10] select (logLevel == 3);
-	while {true} do {
+	while {true} do
+	{
+		//Sleep if no player is online
+		if (isMultiplayer && (count (allPlayers - (entities "HeadlessClient_F")) == 0)) then
+		{
+			waitUntil {sleep 10; (count (allPlayers - (entities "HeadlessClient_F")) > 0)};
+		};
+
 		[] call A3A_fnc_logPerformance;
 		sleep _logPeriod;
 	};

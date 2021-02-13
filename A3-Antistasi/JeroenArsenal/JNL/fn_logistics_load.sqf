@@ -72,8 +72,8 @@ if _playAnimation then{
 		//_vehicle call jn_fnc_logistics_lockSeats;//needs to be called after detach
 
 		_vehicle setVariable ["jnl_isUnloading",false, true];
-		
-		[_vehicle, _object, false] call jn_fnc_logistics_addOrRemoveObjectMass;  											   
+
+		[_vehicle, _object, false] call jn_fnc_logistics_addOrRemoveObjectMass;
 	};
 }else{
 	private _offsetAndDir = [_vehicle,_object,_nodeID] call jn_fnc_logistics_getCargoOffsetAndDir;
@@ -81,7 +81,7 @@ if _playAnimation then{
 	_object attachTo [_vehicle, _offsetAndDir select 0];
 	_object SetVectorDirAndUp [_offsetAndDir select 1, [0, 0, 1]];
 	_object hideObject false;
-	
+
 	[_vehicle, _object, false] call jn_fnc_logistics_addOrRemoveObjectMass;
 };
 
@@ -98,11 +98,11 @@ if(_objectType == 0) then
 
 	[_vehicle,_object] remoteExec ["jn_fnc_logistics_addActionGetinWeapon",0,_vehicle];
 };
-[_object] spawn A3A_fnc_VEHdespawner;
+
 //save ACE settings to we can reset them when we unload
 _ace_dragging_canDrag = _object getVariable ["ace_dragging_canDrag",false];
 _ace_dragging_canCarry = _object getVariable ["ace_dragging_canCarry",false];
-_ace_cargo_canLoad = _object getVariable ["ace_cargo_canLoad",false];
+_ace_cargo_canLoad = if (getNumber (configFile >> "CfgVehicles" >> typeOf _object >> "ace_cargo_canLoad") isEqualTo 1) then {true} else {false};
 
 _object setVariable ["ace_dragging_canDrag_old",_ace_dragging_canDrag, true];
 _object setVariable ["ace_dragging_canCarry_old",_ace_dragging_canCarry, true];
@@ -112,5 +112,7 @@ _object setvariable ["ace_cargo_canLoad_old",_ace_cargo_canLoad, true];
 _object setVariable ["ace_dragging_canDrag",false, true];
 _object setVariable ["ace_dragging_canCarry",false, true];
 _object setvariable ["ace_cargo_canLoad",false, true];
+
+_object setVariable ["stopPostmortem", true, true]; //block postmortem on loaded cargo
 
 _nodeID

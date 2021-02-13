@@ -13,7 +13,7 @@ private _modAggroOcc = [0, 0];
 private _modAggroInv = [0, 0];
 private _modHR = false;
 private _response = "";
-private _targetMarker = respawnOccupants;
+private _fleeSide = _sideX;
 
 if (_recruiting) then {
 	_playerX globalChat "How about joining the good guys?";
@@ -21,13 +21,13 @@ if (_recruiting) then {
 	private _chance = 0;
 	if (_sideX == Occupants) then
     {
-        _modAggroOcc = [0.25, 30];
+        _modAggroOcc = [1, 30];
 		if (faction _unit == factionFIA) then { _chance = 60;}
 		else { _chance = 20;};
 	}
 	else
     {
-        _modAggroInv = [0.25, 30];
+        _modAggroInv = [1, 30];
 		if (faction _unit == factionFIA) then { _chance = 60;}
 		else { _chance = 40;};
 	};
@@ -37,7 +37,7 @@ if (_recruiting) then {
     {
 		_response = "Why not? It can't be any worse.";
 		_modHR = true;
-		_targetMarker = respawnTeamPlayer;
+		_fleeSide = teamPlayer;
 	}
 	else
     {
@@ -56,29 +56,27 @@ else {
 
 	if (_sideX == Occupants) then
     {
-        _modAggroOcc = [-0.25, 30];
+        _modAggroOcc = [-3, 30];
 	}
 	else
     {
-        _modAggroInv = [-0.25, 30];
+        _modAggroInv = [-3, 30];
 	};
 };
 
 
-if (isMultiplayer) then {[_unit,true] remoteExec ["enableSimulationGlobal",2]} else {_unit enableSimulation true};
-sleep 3;
+sleep 2;
 _unit globalChat _response;
-_unit enableAI "ANIM";
-_unit enableAI "MOVE";
-_unit stop false;
-[_unit,""] remoteExec ["switchMove"];
-_unit doMove (getMarkerPos _targetMarker);
-// probably redundant. Should already be done in surrenderAction
-if (_unit getVariable ["spawner",false]) then {_unit setVariable ["spawner",nil,true]};
+
+[_unit, _fleeSide] remoteExec ["A3A_fnc_fleeToSide", _unit];
+
+private _group = group _unit;		// Group should be surrender-specific now
 sleep 100;
-if (alive _unit) then
+if (alive _unit && {!(_unit getVariable ["incapacitated", false])}) then
 {
 	[_modAggroOcc,_modAggroInv] remoteExec ["A3A_fnc_prestige",2];
 	if (_modHR) then { [1,0] remoteExec ["A3A_fnc_resourcesFIA",2] };
 };
+
 deleteVehicle _unit;
+deleteGroup _group;

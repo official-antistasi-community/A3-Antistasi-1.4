@@ -59,8 +59,17 @@ for "_i" from 0 to (count _buildings) - 1 do
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
+		if 	((_typeB == "Land_Hlaska")) exitWith
+        {
+            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+            private _dir = (getDir _building);
+            private _zpos = AGLToASL (_building buildingPos 1);
+            private _pos = _zpos getPos [0.5, _dir];
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+            [_type, _pos, _dir] call _fnc_spawnStatic;
+        };
         if 	((_typeB == "Land_fortified_nest_small_EP1") or (_typeB == "Land_BagBunker_Small_F") or (_typeB == "Land_BagBunker_01_small_green_F")
-            or (_typeB == "Land_fortified_nest_small") or (_typeB == "Fort_Nest") or (_typeB == "Land_Hlaska")) exitWith
+            or (_typeB == "Land_fortified_nest_small") or (_typeB == "Fort_Nest")) exitWith
         {
             private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
             private _dir = (getDir _building) - 180;
@@ -95,6 +104,15 @@ for "_i" from 0 to (count _buildings) - 1 do
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _Tdir] call _fnc_spawnStatic;
         };
+		if 	((_typeB == "Land_Radar_01_HQ_F")) exitWith
+        {
+            private _type = if (_sideX == Occupants) then {staticAAOccupants} else {staticAAInvaders};
+            private _dir = getDir _building;
+            private _zpos = AGLToASL (_building buildingPos 30);
+            private _pos = getPosASL _building;
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+            [_type, _pos, _dir] call _fnc_spawnStatic;
+        };
         if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F")) exitWith
         {
             private _type = if (_sideX == Occupants) then {staticAAOccupants} else {staticAAInvaders};
@@ -102,7 +120,6 @@ for "_i" from 0 to (count _buildings) - 1 do
             private _zpos = AGLToASL (_building buildingPos 8);
             private _pos = getPosASL _building;
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            _pos = _pos vectorAdd [ 0, 0, 0]; //offset
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
     };

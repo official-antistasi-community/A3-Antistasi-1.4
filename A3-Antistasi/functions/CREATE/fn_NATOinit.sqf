@@ -27,14 +27,14 @@ if (_type == "Fin_random_F") exitWith {};
 _unit addEventHandler ["HandleDamage", A3A_fnc_handleDamageAAF];
 _unit addEventHandler ["killed", A3A_fnc_occupantInvaderUnitKilledEH];
 
-if !(isNil "_isSpawner") then 
+if !(isNil "_isSpawner") then
 {
-    if (_isSpawner) then { _unit setVariable ["spawner",true,true] };	
+    if (_isSpawner) then { _unit setVariable ["spawner",true,true] };
 }
 else
 {
     private _veh = objectParent _unit;
-    if (_marker != "") exitWith 
+    if (_marker != "") exitWith
     {
         // Persistent garrison units are never spawners.
 	    _unit setVariable ["markerX",_marker,true];
@@ -79,7 +79,7 @@ if (faction _unit isEqualTo factionFIA) then
 if (faction _unit isEqualTo factionGEN) then
 {
     _skill = _skill min (0.12 * skillMult);
-    if (!hasIFA) then
+    if (!A3A_hasIFA) then
     {
         private _rifleFinal = primaryWeapon _unit;
         private _magazines = getArray (configFile / "CfgWeapons" / _rifleFinal / "magazines");
@@ -105,7 +105,7 @@ if (_type in squadLeaders) then
 {
     _unit setskill ["courage",_skill + 0.2];
     _unit setskill ["commanding",_skill + 0.2];
-    private _hasIntel = ((random 100) < 40);
+    private _hasIntel = ((random 100) < 80);
     _unit setVariable ["hasIntel", _hasIntel, true];
     _unit setVariable ["side", _side, true];
     [_unit, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian], _unit];
@@ -113,11 +113,11 @@ if (_type in squadLeaders) then
 
 //Sets NVGs, lights, lasers, radios and spotting skills for the night
 private _hmd = hmd _unit;
-if !(hasIFA) then
+if !(A3A_hasIFA) then
 {
     if (sunOrMoon < 1) then
     {
-        if (!hasRHS) then
+        if (!A3A_hasRHS) then
         {
             if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders) and (_unit != leader (group _unit))) then
             {
@@ -200,7 +200,7 @@ if !(hasIFA) then
     }
     else
     {
-        if (!hasRHS) then
+        if (!A3A_hasRHS) then
         {
             if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders)) then
             {

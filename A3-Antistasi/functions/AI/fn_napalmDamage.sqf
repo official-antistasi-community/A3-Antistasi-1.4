@@ -1,109 +1,144 @@
-private ["_pos"];
-_pos = _this select 0;
+/*
+Author: Caleb Serafin
+    Decimates most objects.
+    Vehicles should survive but be extremely damaged.
+    Plays relevant audio if applicable. (Hurt sounds)
+    Deletes items and cargo inventory.
 
-_argumentX = ["Car","Truck","CAManBase","Air"];
+Arguments:
+    <OBJECT> The targeted object. Is filtered within this function.
+    <BOOL> If allowed to create particles and lights. Only set to true if this used on few objects at a time.
+    <STRING> CancellationToken; pass with element 0 = true; if element 0 is false effects stop as-soon as possible.
 
-if (isServer) then {_argumentX = ["All", "", "House", "Wall"]};
+Return Value:
+    <BOOL> true if normal operation. false if something is invalid.
 
-_timeOut = time + 70;
-_lightsX = [];
-_fires = [];
+Scope: _victim, Local Arguments, Global Effect
+Environment: Any
+Public: Yes. Can be called on objects independently, might make for an "interesting" punishment.
+Dependencies:
+    <BOOL> hasACEMedical
 
-while {time < _timeOut} do
-	{
-	_units = nearestobjects [_pos, _argumentX, 70];
-	if (isServer) then {_units = _units - [mapX,flagX,vehicleBox,boxX]};
-	{
-	if (local _x) then
-		{
-		if (not(_x isKindOf "Tank")) then
-			{
-			if (alive _x) then
-				{
-				_distMult = (1-((_x distance _pos)/70))/2;
-				if (_x isKindOf "CAManBase") then
-					{
-					_dam = damage _x + _distMult;
-					if ((_dam >= 1) and (isPlayer _x)) then
-						{
-						_x setdamage 0;
-						[_x] spawn A3A_fnc_respawn;
-						}
-					else
-						{
-						_x setDamage _dam;
-						if (_dam >= 1) then
-							{
-							_l1 = "#lightpoint" createVehicleLocal getpos _x;
-							_lightsX pushBack _l1;
-							_l1 setLightDayLight true;
-							_l1 setLightColor [5, 2.5, 0];
-							_l1 setLightBrightness 0.1;
-							_l1 setLightAmbient [5, 2.5, 0];
-							_l1 lightAttachObject [_x, [0, 0, 0]];
-							_l1 setLightAttenuation [3, 0, 0, 0.6];
-							_source01 = "#particlesource" createVehicleLocal getpos _x;
-							_fires pushBack _source01;
-							_source01 setParticleClass "ObjectDestructionFire1Tiny";
-							_l1 attachTo [_x, [0,0,0], "Spine3"];
-							_source01 attachTo [_x, [0,0,0], "Spine3"];
-							}
-						else
-							{
-							_ang = _pos getDir _x;
-							_posFlee = _pos getPos [100,_ang];
-							_x doMove _posFlee;
-							};
-						};
-					if (_x isKindOf "CAManBase") then
-						{
-						[_x] spawn
-							{
-							if (random 100 < 50) then
-								{
-								_typeX = _this select 0;
-								sleep random 3;
-								playSound3D [(selectRandom injuredSounds),_typeX];
-								};
-							};
-						};
-					}
-				else
-					{
-					if ((_x isKindOf "Truck") or (_x isKindOf "Car") or (_x isKindOf "Air")) then
-						{
-						_x setDamage (damage _x + (_distMult/2));
-						}
-					else
-						{
-						if (_x isKindOf "Building") then
-							{
-							_x setDamage (damage _x + (_distMult/16));
-							}
-						else
-							{
-							 if (str _x find ": t_" > -1) then
-							 	{
-							 	_x setDamage 1;
-							 	}
-							 else
-							 	{
-							 	_x setDamage (damage _x + (_distMult/4));
-							 	};
-							};
-						};
-					};
-				};
-			};
-		};
-	} forEach _units;
-	sleep 5;
-	};
-if (!isMultiplayer) then {{_x hideObject true } foreach (nearestTerrainObjects [_pos,["tree","bush"],20])} else {if (isServer) then {{ _x hideObjectGlobal true } foreach (nearestTerrainObjects [_pos,["tree","bush"],20])}};
-for "_i" from 0 to (count _fires) do
-	{
-	sleep random 5;
-	deleteVehicle (_fires select _i);
-	sleep random 3;
-	deleteVehicle (_lightsX select _i);
-	};
+Example:
+    [cursorObject, true] call A3A_fnc_napalmDamage;  // Burn whatever you are looking at.
+*/
+params [
+    ["_victim",objNull,[objNull]],
+    ["_particles",false,[false]],
+    ["_cancellationTokenUUID","",[ "" ]]
+];
+private _filename = "functions\AI\fn_napalmDamage.sqf";
+
+if (isNull _victim) exitWith {false};  // Silent, likely for script to find some null objects somehow.
+
+if (isNil {
+    if (!alive _victim || {!isDamageAllowed _victim}) exitWith {nil};
+    1;
+}) exitWith {true};
+private _overKill = 5;  // In case the the unit starts getting healed.
+private _timeToLive = 6;  // Higher number causes damage to be dealt more slowly.
+private _totalTicks = 12;  // Higher number gives more detail.
+
+private _timeBetweenTicks = _timeToLive/_totalTicks;
+private _damagePerTick = 1/_totalTicks;
+_totalTicks = _totalTicks * _overKill;
+
+private _fnc_init = 'params ["_victim"];';                  // params ["_victim"] No return required
+private _fnc_onTick = 'params ["_victim","_tickCount"];';   // params ["_victim","_tickCount"] No return required
+private _fnc_final = 'params ["_victim"];';                 // params ["_victim"] No return required
+
+private _invalidVictim = false;
+switch (true) do {
+    case (_victim isKindOf "CAManBase"): {  // Man includes everything biological, even animals such as goats ect...
+        if (hasACEMedical) then {
+            _fnc_onTick = _fnc_onTick +
+            'if (alive _victim) then {
+                [ _victim, 1*' + str _damagePerTick + ' , "Body", "grenade"] call ace_medical_fnc_addDamageToUnit;'+  // Multiplier might need to be raised for ACE.
+            '};
+
+            if (alive _victim && {!(_victim getVariable ["ACE_isUnconscious",false])} && {(('+ str _timeBetweenTicks + '*_tickCount) mod 2) isEqualTo 0}) then {'+  // Once every 2 seconds
+            '    playSound3D [selectRandom A3A_sounds_soundInjured_max,vehicle _victim, false, getPosASL vehicle _victim, 1.75, 1, 200];'+  // For `vehicle _victim` see https://community.bistudio.com/wiki/playSound3D Comment Posted on November 8, 2014 - 21:48 (UTC) By Killzone kid
+            '};';
+        } else {
+            _fnc_onTick = _fnc_onTick +
+            'if (alive _victim) then {
+                _victim setDamage [(damage _victim + ' + str _damagePerTick + ') min 1, true];'+
+            '};
+
+            if (alive _victim && {(('+ str _timeBetweenTicks + '* _tickCount) mod 2) isEqualTo 0}) then {'+  // Once every 2 seconds
+            '    playSound3D [selectRandom A3A_sounds_soundInjured_max,vehicle _victim, false, getPosASL vehicle _victim, 1.75, 1, 200];'+  // For `vehicle _victim` see https://community.bistudio.com/wiki/playSound3D Comment Posted on November 8, 2014 - 21:48 (UTC) By Killzone kid
+            '};';
+        };
+        if (_particles) then {
+            // WIP
+        };
+    };
+    case (_victim isKindOf "Man"): {_invalidVictim = true;};  // Goats, Sneks, butterflies, Rabbits can be blessed by Petros himself.
+    case (_victim isKindOf "AllVehicles" && {isClass (configFile >> "cfgVehicles" >> typeOf _victim >> "HitPoints" >> "HitHull")}): {
+        // Vehicles should be damaged as much as possible but salvageable. This would give napalm a unique tactic of clearing AI from vehicles allowing them to be repaired, refuelled and requestioned.
+        _fnc_init = _fnc_init +
+            'clearMagazineCargoGlobal _victim;
+            clearWeaponCargoGlobal _victim;
+            clearItemCargoGlobal _victim;
+            clearBackpackCargoGlobal _victim;';
+
+        _fnc_onTick = _fnc_onTick +
+            '_victim setHitPointDamage ["HitHull",(((_victim getHitPointDamage "HitHull") + ' + str _damagePerTick + ') min 0.8) max (_victim getHitPointDamage "HitHull")];'+ // Limited to avoid vehicle being destroyed. Will not decrease vehicle damage if it was initially above 80%
+            '{
+                _victim setHitPointDamage [_x,((_victim getHitPointDamage _x) + ' + str _damagePerTick + ') min 1];
+            } forEach ' + str ((getAllHitPointsDamage _victim)#0 - ["hithull"]) + ';
+
+            private _thermalHeat = 0.75*(_tickCount/'+ str _totalTicks +') + 0.25;'+  // The vehicles shouldn't snap to cold when the napalm effect starts begin.
+            '_victim setVehicleTIPars [_thermalHeat, _thermalHeat, _thermalHeat];';
+
+        private _horn = getArray (configFile >> "cfgVehicles" >> typeOf _victim >> "weapons");
+        if !(_horn isEqualTo []) then {
+            private _soundArray = getArray (configFile >> "cfgWeapons" >> _horn#0 >> "drySound");
+            _soundArray params [["_sound",""],["_volume",1],["_pitch",1],["_range",250]];
+            if (_sound == "") exitWith {};  // When fileExists becomes available on stable, use `fileExists (_soundArray#0 + ".wss")`
+            _sound = _sound + ".wss";
+            _pitch = _pitch -0.05;
+
+            _fnc_init = _fnc_init + 'playSound3D ['+ str _sound +', _victim, false, getPosASL _victim, '+ str _volume +' + random 1, '+ str _pitch +' + random 0.1, '+ str _range +'];';
+        };
+    };
+    case (_victim isKindOf "GroundWeaponHolder"): {  // Is a building, therefore needs to be above buildings
+        _totalTicks = 1;
+        _fnc_final = _fnc_final + 'deleteVehicle _victim;';  // Items would be burnt to ashes.
+    };
+    case (_victim isKindOf "Building"): {
+        _totalTicks = _totalTicks/_overKill;  // Undo overkill
+        _fnc_onTick = _fnc_onTick + '_victim setDamage [((damage _victim + ' + str _damagePerTick + ') min 0.5) max (damage _victim), true];';
+    };
+    case (_victim isKindOf "ReammoBox_F"): {
+        _totalTicks = _totalTicks/_overKill;  // Undo overkill
+        _fnc_onTick = _fnc_onTick + '_victim setDamage [(damage _victim + ' + str _damagePerTick + ') min 1, true];';
+        _fnc_final = _fnc_final + 'deleteVehicle _victim;';
+    };
+    default {_invalidVictim = true;};  // Exclude everything else. Safest & least laggy option, gameplay comes before realism.
+};
+
+if (_invalidVictim) exitWith {true};
+
+[_victim,_cancellationTokenUUID,_timeBetweenTicks,_totalTicks,compile _fnc_init,compile _fnc_onTick, compile _fnc_final] spawn {
+    params ["_victim", "_canTokUUID", "_timeBetweenTicks" ,"_totalTicks","_fnc_init", "_fnc_onTick", "_fnc_final"];
+
+    private _fnc_cancelRequested = { false; };// Future provisioning for implementation of cancellationTokens.
+    private _fnc_exit = {isNull _victim || [_canTokUUID] call _fnc_cancelRequested};
+
+    uiSleep (random 3); // To ensure that damage and sound is not in-sync. Makes it more chaotic.
+
+    if (call _fnc_exit) exitWith {};
+    [_victim] call _fnc_init;
+
+    for "_tickCount" from 1 to _totalTicks do {
+        if (call _fnc_exit) exitWith {};
+        [_victim, _tickCount] call _fnc_onTick;
+        uiSleep _timeBetweenTicks;
+    };
+
+    if (call _fnc_exit) exitWith {};
+    [_victim] call _fnc_final;
+};
+
+true;

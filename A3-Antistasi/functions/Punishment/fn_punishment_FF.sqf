@@ -63,11 +63,19 @@ if (_instigator isEqualType []) then {
 };
 private _vehicle = typeOf vehicle _instigator;
 
+/////Log Instigator Pos on every damage/////
+private _victimCoordsStats = "";
+if (_victim isKindOf "Man") then {
+    _victimCoordsStats = [" damaged ",name _victim," [",["AI",getPlayerUID _victim] select (isPlayer _victim),"] (grid: ",mapGridPosition _victim,"; ",(_victim distance2D posHQ) toFixed 0,"m from HQ; ",(_instigator distance2D _victim) toFixed 0,"m from Instigator)"] joinString "";
+};
+private _instigatorCoordsStats = [name _instigator," [",getPlayerUID _instigator,"] (grid: ",mapGridPosition _instigator,"; ",(_instigator distance2D posHQ) toFixed 0,"m from HQ; customMessage:'",_customMessage,"')"] joinString "";
+[2, ["DAMAGE | ", _instigatorCoordsStats, _victimCoordsStats] joinString "", _filename] remoteExecCall ["A3A_fnc_log",2,false];
+
 //////Cool down prevents multi-hit spam/////
     // Doesn't log to avoid RPT spam.
     // Doesn't use hash table to be as quick as possible.
 if (_instigator getVariable ["punishment_coolDown", 0] > servertime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
-_instigator setVariable ["punishment_coolDown", servertime + 0.5, false]; // Local Exec faster
+_instigator setVariable ["punishment_coolDown", servertime + 1, false]; // Local Exec faster
 
 /////////////////Definitions////////////////
 private _victimStats = ["",format [" damaged %1 ", name _victim]] select (_victim isKindOf "Man");
@@ -86,9 +94,14 @@ private _gotoExemption = {
     [2, format ["%1 | %2", _exemptionDetails, _playerStats], _filename] remoteExecCall ["A3A_fnc_log",2,false];
     _exemptionDetails;
 };
-private _logPvPKill = {
+private _logPvPHurt = {
     if (!(_victim isKindOf "Man")) exitWith {};
-    private _killStats = format ["PVPKILL | PvP %1 [%2]%3", name _instigator, getPlayerUID _instigator, _victimStats];
+    private _killStats = format ["PVPHURT | Rebel %1 [%2]%3", name _instigator, getPlayerUID _instigator, _victimStats];
+    [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
+};
+private _logPvPAttack = {
+    if (!(_victim isKindOf "Man")) exitWith {};
+    private _killStats = format ["PVPATTACK | PvP %1 [%2]%3", name _instigator, getPlayerUID _instigator, _victimStats];
     [2,_killStats,_filename] remoteExecCall ["A3A_fnc_log",2,false];
 };
 
@@ -99,7 +112,8 @@ private _exemption = switch (true) do {
     case (!hasInterface):                              {"FF BY SERVER/HC"};
     case (!(player isEqualTo _instigator)):            {"NOT EXEC ON INSTIGATOR"}; // Must be local for 'BIS_fnc_admin'
     case (_victim isEqualTo _instigator):              {"SUICIDE"}; // Local AI victims will be different.
-    case (side _instigator in [Invaders, Occupants]):  {call _logPvPKill; "NOT REBEL"};
+    case (!(side group _victim isEqualTo teamPlayer)):      {call _logPvPHurt; "VICTIM NOT REBEL"};
+    case (!(side group _instigator isEqualTo teamPlayer)):  {call _logPvPAttack; "INSTIGATOR NOT REBEL"};
     default                                            {""};
 };
 

@@ -5,8 +5,12 @@ _groups = _this select 0;
 _hr = 0;
 _resourcesFIA = 0;
 _leave = false;
+
 {
-if ((groupID _x == "MineF") or (groupID _x == "Watch") or (isPlayer(leader _x))) then {_leave = true};
+	if ((groupID _x) in ["MineF", "Watch"]
+		|| { isPlayer (leader _x)
+		|| { (units _x) findIf { _x == petros } != -1 }})
+	exitWith { _leave = true; };
 } forEach _groups;
 
 if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads"] call A3A_fnc_customHint;};
@@ -75,5 +79,3 @@ private _assignedVehicles =	[];
 } forEach _assignedVehicles;
 
 _nul = [_hr,_resourcesFIA] remoteExec ["A3A_fnc_resourcesFIA",2];
-
-

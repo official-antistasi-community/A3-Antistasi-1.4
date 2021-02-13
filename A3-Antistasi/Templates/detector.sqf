@@ -37,13 +37,14 @@ if (isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") && isClass 
   [2,"RHS Detected.",_fileName] call A3A_fnc_log;
 };
 
-//3CB Detection
+//3CB BAF + Factions Detection
 if (A3A_hasRHS && (
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons") &&
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Vehicles") &&
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Units_Common") &&
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Equipment") &&
-  isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Factions")
+  isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Factions") &&
+  isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")
 ) ) then {A3A_has3CB = true; [2,"3CB Detected.",_fileName] call A3A_fnc_log;};
 
 //FFAA Detection

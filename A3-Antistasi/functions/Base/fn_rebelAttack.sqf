@@ -87,7 +87,7 @@ else
         private _aggroChange = (100 - _defenderAggro) - (100 - _attackerAggro);
         private _winChange = 50 - (_aggroChange/2);
         private _loseChange = 100 - _winChange;
-        [3, format ["Attacker win chance is %1, counter chance is %2", _winChange, _loseChange], "_fileName"] call A3A_fnc_log;
+        [3, format ["Attacker win chance is %1, counter chance is %2", _winChange, _loseChange], _fileName] call A3A_fnc_log;
         private _attackerWon = selectRandomWeighted [false, _loseChange, true, _winChange];
         if(!_attackerWon) then
         {

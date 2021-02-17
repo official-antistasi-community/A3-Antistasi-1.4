@@ -79,11 +79,10 @@ while {_endTime > serverTime && !([_cancellationTokenUUID] call _fnc_cancelReque
     private _allRenderers = allPlayers;
     //_allRenderers = _allRenderers select {(_x distance2D _pos) < 1500};  // Turn on if optimisation is required (A good way to show progress to your boss without doing any work!)
     isNil {  // Run in unscheduled scope to prevent parallel filtering.
-        private _currentUID = "";
         _allRenderers = _allRenderers select {
             !isNull _x &&
-            {_currentUID = getPlayerUID _x; !(_currentUID isEqualTo "")} &&
-            {!(_storageNamespace getVariable [_currentUID, false])}
+            {!(getPlayerUID _x isEqualTo "")} &&
+            {!(_storageNamespace getVariable [getPlayerUID _x, false])}
         };    // Per napalm as every effect needs to be rendered.
         { _storageNamespace setVariable [getPlayerUID _x, true]; } forEach _allRenderers;
     };

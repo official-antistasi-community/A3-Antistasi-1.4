@@ -74,7 +74,7 @@ switch (true) do {
         };
     };
     case (_victim isKindOf "Man"): {_invalidVictim = true;};  // Goats, Sneks, butterflies, Rabbits can be blessed by Petros himself.
-    case (_victim isKindOf "AllVehicles" && {isClass (configFile >> "cfgVehicles" >> typeOf _victim >> "HitPoints" >> "HitHull")}): {
+    case (_victim isKindOf "AllVehicles"): {
         // Vehicles should be damaged as much as possible but salvageable. This would give napalm a unique tactic of clearing AI from vehicles allowing them to be repaired, refuelled and requestioned.
         _fnc_init = _fnc_init +
             'clearMagazineCargoGlobal _victim;
@@ -82,13 +82,18 @@ switch (true) do {
             clearItemCargoGlobal _victim;
             clearBackpackCargoGlobal _victim;';
 
-        _fnc_onTick = _fnc_onTick +
-            '_victim setHitPointDamage ["HitHull",(((_victim getHitPointDamage "HitHull") + ' + str _damagePerTick + ') min 0.8) max (_victim getHitPointDamage "HitHull")];'+ // Limited to avoid vehicle being destroyed. Will not decrease vehicle damage if it was initially above 80%
-            '{
-                _victim setHitPointDamage [_x,((_victim getHitPointDamage _x) + ' + str _damagePerTick + ') min 1];
-            } forEach ' + str ((getAllHitPointsDamage _victim)#0 - ["hithull"]) + ';
+        if !(getAllHitPointsDamage _victim isEqualTo []) then { // The static has a class entry, but its empty and getAllHitPointsDamage will return empty array
+            _fnc_onTick = _fnc_onTick +
+                '_victim setHitPointDamage ["HitHull",(((_victim getHitPointDamage "HitHull") + ' + str _damagePerTick + ') min 0.8) max (_victim getHitPointDamage "HitHull")];'+ // Limited to avoid vehicle being destroyed. Will not decrease vehicle damage if it was initially above 80%
+                '{
+                    _victim setHitPointDamage [_x,((_victim getHitPointDamage _x) + ' + str _damagePerTick + ') min 1];
+                } forEach ' + str ((getAllHitPointsDamage _victim)#0 - ["hithull"]) + ';';
+        } else {
+            _fnc_onTick = _fnc_onTick + '_victim setDamage (((damage _victim + ' + str _damagePerTick + ') min 0.8) max damage _victim);'; // Limited to avoid vehicle being destroyed. Will not decrease vehicle damage if it was initially above 80%
+        };
 
-            private _thermalHeat = 0.75*(_tickCount/'+ str _totalTicks +') + 0.25;'+  // The vehicles shouldn't snap to cold when the napalm effect starts begin.
+        _fnc_onTick = _fnc_onTick +
+            'private _thermalHeat = 0.75*(_tickCount/'+ str _totalTicks +') + 0.25;'+  // The vehicles shouldn't snap to cold when the napalm effect starts begin.
             '_victim setVehicleTIPars [_thermalHeat, _thermalHeat, _thermalHeat];';
 
         private _horn = getArray (configFile >> "cfgVehicles" >> typeOf _victim >> "weapons");

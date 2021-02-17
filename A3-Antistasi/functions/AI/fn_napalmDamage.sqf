@@ -32,7 +32,7 @@ private _filename = "functions\AI\fn_napalmDamage.sqf";
 if (isNull _victim) exitWith {false};  // Silent, likely for script to find some null objects somehow.
 
 if (isNil {
-    if (!alive _victim || {!isDamageAllowed _victim}) exitWith {nil};
+    if (!alive _victim || {!isDamageAllowed _victim} || {isObjectHidden _victim}) exitWith {nil};   // Hidden objects could be Zeus or other important mission things.
     1;
 }) exitWith {true};
 private _overKill = 5;  // In case the the unit starts getting healed.

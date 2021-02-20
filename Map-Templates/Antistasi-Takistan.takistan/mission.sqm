@@ -228,7 +228,7 @@ class Mission
 				name="vehicleBox";
 			};
 			id=15;
-			type="Box_East_AmmoVeh_F";
+			type="Land_CargoBox_V1_F";
 			class CustomAttributes
 			{
 				class Attribute0

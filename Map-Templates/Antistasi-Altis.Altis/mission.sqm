@@ -460,7 +460,7 @@ class Mission
 				name="vehicleBox";
 			};
 			id=935;
-			type="Box_East_AmmoVeh_F";
+			type="Land_CargoBox_V1_F";
 			atlOffset=-0.013900757;
 			class CustomAttributes
 			{

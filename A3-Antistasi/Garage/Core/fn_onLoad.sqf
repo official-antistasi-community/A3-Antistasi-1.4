@@ -127,7 +127,7 @@ private _extraInitData = [
 ];
 if (
     HR_GRG_Pylons_Enabled //Pylon editing enabled
-    && { !((HR_GRG_Sources#0) isEqualTo []) } //or ammo source registered
+    && { HR_GRG_hasAmmoSource } //or ammo source registered
 ) then { _extraInitData pushBack [PylonsIcon, "Pylons",IDC_ExtraPylons] }; //add pylon editing menu
 
 {

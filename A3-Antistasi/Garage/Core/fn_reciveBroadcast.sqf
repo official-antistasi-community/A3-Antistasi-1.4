@@ -24,7 +24,7 @@ if (_isPlayer) then {
         [] call HR_GRG_fnc_reloadPreview;
         if (
             HR_GRG_Pylons_Enabled //Pylon editing enabled
-            && { !((HR_GRG_Sources#0) isEqualTo []) } //or ammo source registered
+            && { HR_GRG_hasAmmoSource } //or ammo source registered
         ) then { [] call HR_GRG_fnc_reloadPylons };
     };
     [true] call HR_GRG_fnc_toggleConfirmBttn;

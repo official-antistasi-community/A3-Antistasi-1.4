@@ -312,6 +312,13 @@ class Params
         texts[] = {"Default (No)","Yes","No"};
         default = 9999;
     };
+    class AoW
+    {
+        title = "Allow Art of War DLC?";
+        values[] = {9999,1,0};
+        texts[] =  {"Default (No)","Yes","No"};
+        default = 9999;
+    };
     class Spacer0
     {
         title = "";

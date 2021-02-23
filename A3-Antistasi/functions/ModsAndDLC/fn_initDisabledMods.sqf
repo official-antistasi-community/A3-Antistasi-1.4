@@ -12,6 +12,7 @@ if (!allowDLCTanks) then {_disabledMods pushBack "tanks"};
 if (!allowDLCGlobMob) then {_disabledMods pushBack "globmob"};
 if (!allowDLCEnoch) then {_disabledMods pushBack "enoch"};
 if (!allowDLCOfficialMod) then {_disabledMods pushBack "officialmod"};
+if (!allowDLCAoW) then {_disabledMods pushBack "aow"};
 
 [2,format ["Disabled DLC: %1",_disabledMods],_fileName] call A3A_fnc_log;
 

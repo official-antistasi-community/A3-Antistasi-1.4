@@ -1312,7 +1312,7 @@ class radio_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_radio_comm_garage_tooltip;
-			action = "closeDialog 0; [cursorObject, clientOwner, call HR_GRG_dLock] remoteExecCall ['HR_GRG_fnc_addVehicle',2];";
+			action = "closeDialog 0; [cursorObject, clientOwner, call HR_GRG_dLock, player] remoteExecCall ['HR_GRG_fnc_addVehicle',2];";
 		};
 		class 8slots_R3: RscButton
 		{

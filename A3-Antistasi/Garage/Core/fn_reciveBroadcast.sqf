@@ -22,11 +22,10 @@ if (_isPlayer) then {
     if (_switch) then {
         HR_GRG_SelectedVehicles = [_catIndex, _vehUID, _vehicle#1];
         [] call HR_GRG_fnc_reloadPreview;
-        if (HR_GRG_hasAmmoSource) then {
-            [] call HR_GRG_fnc_reloadPylons;
-        } else {
-            [HR_GRG_previewVeh, HR_GRG_previewVehState] call HR_GRG_fnc_setState;
-        };
+        if (
+            HR_GRG_Pylons_Enabled //Pylon editing enabled
+            && { !((HR_GRG_Sources#0) isEqualTo []) } //or ammo source registered
+        ) then { [] call HR_GRG_fnc_reloadPylons };
     };
     [true] call HR_GRG_fnc_toggleConfirmBttn;
 };

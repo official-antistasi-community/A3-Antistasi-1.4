@@ -16,7 +16,7 @@
     Public: [Yes]
     Dependencies:
 
-    Example: [cursorObject, clientOwner, getPlayerUID player] remoteExecCall ["HR_GRG_fnc_addVehicle",2];
+    Example: [cursorObject, clientOwner, call HR_GRG_dLock] remoteExecCall ["HR_GRG_fnc_addVehicle",2];
 
     License: MIT License
 */

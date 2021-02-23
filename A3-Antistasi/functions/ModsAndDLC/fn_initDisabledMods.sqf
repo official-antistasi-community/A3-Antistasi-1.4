@@ -51,6 +51,10 @@ if ("OfficialMod" call BIS_fnc_getParamValue isEqualTo 0) then
 {
 	_disabledMods pushBack "officialmod";
 };
+if ("AoW" call BIS_fnc_getParamValue isEqualTo 0) then
+{
+	_disabledMods pushBack "aow";
+};
 [2,format ["Disabled DLC: %1",_disabledMods],_fileName] call A3A_fnc_log;
 
 _disabledMods;

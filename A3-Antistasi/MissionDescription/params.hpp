@@ -277,6 +277,13 @@ class Params
           texts[] =  {"Yes","No"};
           default = 0;
      };
+     class AoW
+     {
+          title = "Allow Art of War DLC?";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 0;
+     };
      class Spacer0
      {
           title = "";

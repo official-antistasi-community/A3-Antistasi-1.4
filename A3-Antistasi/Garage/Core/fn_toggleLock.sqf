@@ -34,7 +34,7 @@ private _lock = _veh#2;
 _succes = call {
     if ( _lock isEqualTo "" ) exitWith { true };
     if ( _lock isEqualTo _UID) exitWith { _UID = ""; true };
-    if (_player isEqualTo call HR_GRG_cmdClient) exitWith { _veh set [2, ""]; true };
+    if (_player isEqualTo call HR_GRG_cmdClient) exitWith { _UID = ""; true };
     false
 };
 

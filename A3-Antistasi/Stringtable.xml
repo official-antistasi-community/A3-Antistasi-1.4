@@ -3413,5 +3413,175 @@
         <Russian>Зеленые vs Красные</Russian>
       </Key>
     </Container>
+    <Container name="HR_GRG">
+        <Key ID="STR_HR_GRG_Generic_Cancel">
+            <Original>Cancel</Original>
+            <English>Cancel</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Lock">
+            <Original>(Un)Lock</Original>
+            <English>(Un)Lock</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Confirm">
+            <Original>Confirm</Original>
+            <English>Confirm</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Cars">
+            <Original>Cars</Original>
+            <English>Cars</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Armored">
+            <Original>Armor</Original>
+            <English>Armor</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Air">
+            <Original>Aircraft</Original>
+            <English>Aircraft</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Boat">
+            <Original>Ships</Original>
+            <English>Ships</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Static">
+            <Original>Statics</Original>
+            <English>Statics</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Mounts">
+            <Original>Mounts</Original>
+            <English>Mounts</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Texture">
+            <Original>Texture</Original>
+            <English>Texture</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Anim">
+            <Original>Customize</Original>
+            <English>Customize</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_Seats">
+            <Original>Seats:</Original>
+            <English>Seats:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_Cargo">
+            <Original>Cargo:</Original>
+            <English>Cargo:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_AceCargo">
+            <Original>Ace Cargo:</Original>
+            <English>Ace Cargo:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_Capacity">
+            <Original>Capacity:</Original>
+            <English>Capacity:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_Available">
+            <Original>Available:</Original>
+            <English>Available:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_Speed">
+            <Original>Top speed:</Original>
+            <English>Top speed:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_HP">
+            <Original>Horse power:</Original>
+            <English>Horse power:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_Mass">
+            <Original>Mass:</Original>
+            <English>Mass:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_openGarage_Action">
+            <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</Original>
+            <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</English>
+        </Key>
+        <Key ID="STR_HR_GRG_addVehicle_Action">
+            <!--%1 is display name of vehicle-->
+            <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</Original>
+            <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Destroyed">
+            <Original>You can't garage a destroyed vehicle</Original>
+            <English>You can't garage a destroyed vehicle</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Locked">
+            <Original>You can't garage a locked vehicle</Original>
+            <English>You can't garage a locked vehicle</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_GenericFail">
+            <Original>You can't garage this</Original>
+            <English>You can't garage this</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Crewed">
+            <Original>You can't garage a vehicle with crew inside</Original>
+            <English>You can't garage a vehicle with crew inside</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Capacity">
+            <Original>Theres not enough room to garage this vehicle</Original>
+            <English>Theres not enough room to garage this vehicle</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Success">
+            <!--%1 is display name of vehicle-->
+            <Original>%1 Garaged</Original>
+            <English>%1 Garaged</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_requestMount_Denied">
+            <Original>Cant mount static</Original>
+            <English>Cant mount static</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_CP_Rotation">
+            <!--Keybinds are hardcoded to key DIK codes: DIK_E, DIK_Q, DIK_ESCAPE, DIK_RETURN, and DIK_SPACE-->
+            <Original>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</Original>
+            <English>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_CP_TooFar">
+            <Original>&lt;t size='0.6'&gt;Cant place vehicle that far away&lt;/t&gt;</Original>
+            <English>&lt;t size='0.6'&gt;Cant place vehicle that far away&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_CP_Blocked">
+            <Original>&lt;t size='0.6'&gt;Something is blocking placement&lt;/t&gt;</Original>
+            <English>&lt;t size='0.6'&gt;Something is blocking placement&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_Cam_Controls">
+            <Original>Camera controls</Original>
+            <English>Camera controls</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_Cam_Rotate">
+            <Original>Rotate: Right Mouse Button + Move mouse</Original>
+            <English>Rotate: Right Mouse Button + Move mouse</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_Cam_Zoom">
+            <Original>Zoom: Right Mouse Button + Mouse wheel</Original>
+            <English>Zoom: Right Mouse Button + Mouse wheel</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Pylons_Mirror">
+            <Original>Mirror</Original>
+            <English>Mirror</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Pylons_CustomPreset">
+            <Original>[Custom preset]</Original>
+            <English>[Custom preset]</English>
+        </Key>
+        <!--%1 is pylon number-->
+        <Key ID="STR_HR_GRG_Pylons_PylonText">
+            <Original>Pylon %1</Original>
+            <English>Pylon %1</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Pylons_Empty">
+            <Original>[Empty]</Original>
+            <English>[Empty]</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Pylons_noPylons">
+            <Original>No pylon customizations for:</Original>
+            <English>No pylon customizations for:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Pylons_Gunner">
+            <Original>Gunner</Original>
+            <English>Gunner</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Pylons_Driver">
+            <Original>Driver</Original>
+            <English>Driver</English>
+        </Key>
+        </Container>
   </Package>
 </Project>

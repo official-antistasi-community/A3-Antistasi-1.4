@@ -1312,7 +1312,7 @@ class radio_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_radio_comm_garage_tooltip;
-			action = "closeDialog 0; if (isMultiplayer && [player] call A3A_fnc_isMember) then {_nul = createDialog ""garage_check""} else {nul = [false] call A3A_fnc_garageVehicle};";
+			action = "closeDialog 0; [cursorObject, clientOwner, getPlayerUID player] remoteExecCall ['HR_GRG_fnc_addVehicle',2];";
 		};
 		class 8slots_R3: RscButton
 		{
@@ -1779,13 +1779,13 @@ class commander_comm 		{
 		class 8slots_R3: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_commander_comm_faction_garage;
+			text = "";//$STR_antistasi_dialogs_commander_comm_faction_garage;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = $STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
-			action = "closeDialog 0; [true] call A3A_fnc_garageVehicle;";
+			tooltip = "";//$STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
+			action = "";//"closeDialog 0; [true] call A3A_fnc_garageVehicle;";
 		};
 		class 8slots_L4: RscButton
 		{
@@ -2321,12 +2321,12 @@ class garage_sell 			{
 		class HQ_button_Gsquad: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_garage_sell_add;
+			text = "";
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; if (isMultiplayer && [player] call A3A_fnc_isMember) then {_nul = createDialog ""garage_check""} else {nul = [false] call A3A_fnc_garageVehicle};";
+			action = "";
 		};
 		class HQ_button_Gstatic: RscButton
 		{

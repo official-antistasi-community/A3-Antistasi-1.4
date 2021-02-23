@@ -134,6 +134,7 @@ call A3A_fnc_initFuncs;
 //Initialise variables needed by the mission.
 _nul = call A3A_fnc_initVar;
 call A3A_fnc_logistics_initNodes;
+call HR_GRG_fnc_initServer;
 
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;

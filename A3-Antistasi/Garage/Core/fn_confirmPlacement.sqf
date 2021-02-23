@@ -69,7 +69,7 @@ HR_GRG_fnc_execForGarageUsers = {
     private _recipients = +HR_GRG_Users;
     _recipients pushBackUnique 2;
     _recipients pushBackUnique _client;
-    [_UID, player] remoteExecCall [_fnc,_recipients];
+    [_UID, _player] remoteExecCall [_fnc,_recipients];
 };
 
 //create display vehicle localy

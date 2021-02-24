@@ -14,7 +14,7 @@ class HR_GRG_RscText
     type = CT_STATIC;
     style = ST_LEFT;
     linespacing = 1;
-    colorBackground[] = HR_GRG_colorBG;
+    colorBackground[] = {0,0,0,0};
     colorText[] = {1,1,1,1};
     text = "";
     shadow = 0;
@@ -50,6 +50,10 @@ class HR_GRG_RscStructuredText
         shadowColor = "#F5F5F5";
         size = "1";
     };
+};
+class HR_GRG_RscStructuredTextNoBG : HR_GRG_RscStructuredText
+{
+    colorBackground[] = {0,0,0,0};
 };
 
 class HR_GRG_RscPicture
@@ -105,7 +109,6 @@ class HR_GRG_RscButton
     onMouseEnter = "(_this select 0) ctrlSetTextColor [0.85,0.85,0.55,1]";
     onMouseExit = "(_this select 0) ctrlSetTextColor [1,1,1,1]";
 };
-class HR_GRG_ctrlButtonPictureKeepAspect;
 
 class HR_GRG_RscFrame
 {
@@ -236,7 +239,7 @@ class HR_GRG_RscCombo
     type = CT_COMBO;
     colorSelect[] = {1,1,1,0.75};
     colorText[] = {1,1,1,1};
-    colorBackground[] = HR_GRG_colorBG;
+    colorBackground[] = {0,0,0,0.75};
     colorScrollbar[] = {1,1,1,1};
     colorDisabled[] = {1,1,1,0.25};
     colorPicture[] = {1,1,1,1};
@@ -275,41 +278,142 @@ class HR_GRG_RscCombo
 };
 
 class HR_GRG_RscCheckBox
+	{
+		idc = -1;
+		type = 77;
+		style = 0;
+		checked = 0;
+		x = "0.375 * safezoneW + safezoneX";
+		y = "0.36 * safezoneH + safezoneY";
+		w = "0.025 * safezoneW";
+		h = "0.04 * safezoneH";
+		color[] = {1, 1, 1, 0.7};
+		colorFocused[] = {1, 1, 1, 1};
+		colorHover[] = {1, 1, 1, 1};
+		colorPressed[] = {1, 1, 1, 1};
+		colorDisabled[] = {1, 1, 1, 0.2};
+		colorBackground[] = {0, 0, 0, 0};
+		colorBackgroundFocused[] = {0, 0, 0, 0};
+		colorBackgroundHover[] = {0, 0, 0, 0};
+		colorBackgroundPressed[] = {0, 0, 0, 0};
+		colorBackgroundDisabled[] = {0, 0, 0, 0};
+		textureChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+		textureUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+		textureFocusedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+		textureFocusedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+		textureHoverChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+		textureHoverUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+		texturePressedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+		texturePressedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+		textureDisabledChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+		textureDisabledUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+		tooltipColorText[] = {1, 1, 1, 1};
+		tooltipColorBox[] = {1, 1, 1, 1};
+		tooltipColorShade[] = {0, 0, 0, 0.65};
+		soundEnter[] = {"", 0.1, 1};
+		soundPush[] = {"", 0.1, 1};
+		soundClick[] = {"", 0.1, 1};
+		soundEscape[] = {"", 0.1, 1};
+	};
+
+class ctrlDefault
 {
+    access = 0;
     idc = -1;
-    type = CT_CHECKBOX;
-    deletable = 1;
-    style = ST_LEFT;
-    checked = 0;
+    style = 0;
+    default = 0;
+    show = 1;
+    fade = 0;
+    blinkingPeriod = 0;
+    deletable = 0;
     x = 0;
     y = 0;
     w = 0;
     h = 0;
-    color[] = {1,1,1,0.7};
-    colorFocused[] = {1,1,1,1};
-    colorHover[] = {1,1,1,1};
-    colorPressed[] = {1,1,1,1};
-    colorDisabled[] = {1,1,1,0.2};
-    colorBackground[] = {0,0,0,0};
-    colorBackgroundFocused[] = {0,0,0,0};
-    colorBackgroundHover[] = {0,0,0,0};
-    colorBackgroundPressed[] = {0,0,0,0};
-    colorBackgroundDisabled[] = {0,0,0,0};
-    textureChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-    textureUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-    textureFocusedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-    textureFocusedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-    textureHoverChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-    textureHoverUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-    texturePressedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-    texturePressedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-    textureDisabledChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-    textureDisabledUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-    tooltipColorText[] = {1,1,1,1};
-    tooltipColorBox[] = {1,1,1,1};
-    tooltipColorShade[] = {0,0,0,0.65};
-    soundEnter[] = {"",0.1,1};
-    soundPush[] = {"",0.1,1};
-    soundClick[] = {"",0.1,1};
-    soundEscape[] = {"",0.1,1};
+    tooltip = "";
+    tooltipMaxWidth = 0.5;
+    tooltipColorShade[] = {0, 0, 0, 1};
+    tooltipColorText[] = {1, 1, 1, 1};
+    tooltipColorBox[] = {0, 0, 0, 0};
+    class ScrollBar
+    {
+        width = 0;
+        height = 0;
+        scrollSpeed = 0.06;
+        arrowEmpty = "\a3\3DEN\Data\Controls\ctrlDefault\arrowEmpty_ca.paa";
+        arrowFull = "\a3\3DEN\Data\Controls\ctrlDefault\arrowFull_ca.paa";
+        border = "\a3\3DEN\Data\Controls\ctrlDefault\border_ca.paa";
+        thumb = "\a3\3DEN\Data\Controls\ctrlDefault\thumb_ca.paa";
+        color[] = {1, 1, 1, 1};
+    };
+};
+
+class ctrlDefaultText: ctrlDefault
+{
+    sizeEx = "4.32 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+    font = "RobotoCondensedLight";
+    shadow = 1;
+};
+
+class ctrlDefaultButton: ctrlDefaultText
+{
+    soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick", 0.09, 1};
+    soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter", 0.09, 1};
+    soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush", 0.09, 1};
+    soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape", 0.09, 1};
+};
+
+class ctrlButton: ctrlDefaultButton
+{
+    type = 1;
+    style = "0x02 + 0xC0";
+    colorBackground[] = {0, 0, 0, 1};
+    colorBackgroundDisabled[] = {0, 0, 0, 0.5};
+    colorBackgroundActive[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])", 1};
+    colorFocused[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])", 1};
+    font = "PuristaLight";
+    text = "";
+    colorText[] = {1, 1, 1, 1};
+    colorDisabled[] = {1, 1, 1, 0.25};
+    borderSize = 0;
+    colorBorder[] = {0, 0, 0, 0};
+    colorShadow[] = {0, 0, 0, 0};
+    offsetX = 0;
+    offsetY = 0;
+    offsetPressedX = "pixelW";
+    offsetPressedY = "pixelH";
+    period = 0;
+    periodFocus = 2;
+    periodOver = 0.5;
+    class KeyHints
+    {
+        class A
+        {
+            key = "0x00050000 + 0";
+            hint = "KEY_XBOX_A";
+        };
+    };
+    onCanDestroy = "";
+    onDestroy = "";
+    onMouseEnter = "";
+    onMouseExit = "";
+    onSetFocus = "";
+    onKillFocus = "";
+    onKeyDown = "";
+    onKeyUp = "";
+    onMouseButtonDown = "";
+    onMouseButtonUp = "";
+    onMouseButtonClick = "";
+    onMouseButtonDblClick = "";
+    onMouseZChanged = "";
+    onMouseMoving = "";
+    onMouseHolding = "";
+    onButtonClick = "";
+    onButtonDown = "";
+    onButtonUp = "";
+};
+
+class HR_GRG_ctrlButtonPictureKeepAspect: ctrlButton
+{
+    style = "0x02 + 0x30 + 0x800";
 };

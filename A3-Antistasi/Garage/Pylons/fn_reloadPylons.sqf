@@ -181,7 +181,7 @@ Trace("Done adding pylons controls");
 ///////////////////////////
 if (_IDCCount isEqualTo 4) then {
     Trace("No pylons were found, creating hint text");
-    private _textCtrl = _disp ctrlCreate ["HR_GRG_RscStructuredText", -1, _ctrlGroup];
+    private _textCtrl = _disp ctrlCreate ["HR_GRG_RscStructuredTextNoBG", -1, _ctrlGroup];
     _textCtrl ctrlSetPosition [
         0.01 * _xAdjust
         , _baseOffset + 0.01 * _yAdjust

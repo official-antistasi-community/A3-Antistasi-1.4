@@ -20,8 +20,10 @@
 */
 params [ ["_object", objNull, [objNull]] ];
 if (isNull _object) exitWith {false};
+private _oldID = _object getVariable ["HR_GRG_GarageID", -1];
+_object removeAction _oldID;
 
-_object addAction [
+private _id = _object addAction [
     localize "STR_HR_GRG_openGarage_Action"
     , "
         ['HR_GRG','Loading Garage, please wait...'] call BIS_fnc_startLoadingScreen;
@@ -31,4 +33,5 @@ _object addAction [
     ", nil, 1.5, true, true, ""
     , "(isNil {HR_GRG_Placing}) || {!HR_GRG_Placing}", 6
 ];
+_object setVariable ["HR_GRG_GarageID", _id, true];
 true;

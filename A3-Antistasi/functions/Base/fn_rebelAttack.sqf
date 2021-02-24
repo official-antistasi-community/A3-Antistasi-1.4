@@ -84,11 +84,11 @@ else
     //Side selected, check for counter attack
     if(_targetSide != teamPlayer) then
     {
-        private _aggroChange = (100 - _defenderAggro) - (100 - _attackerAggro);
-        private _winChange = 50 - (_aggroChange/2);
-        private _loseChange = 100 - _winChange;
-        [3, format ["Attacker win chance is %1, counter chance is %2", _winChange, _loseChange], _fileName] call A3A_fnc_log;
-        private _attackerWon = selectRandomWeighted [false, _loseChange, true, _winChange];
+        private _aggroChance = (100 - _defenderAggro) - (100 - _attackerAggro);
+        private _winChance = 50 - (_aggroChance/2);
+        private _loseChance = 100 - _winChance;
+        [3, format ["Attacker win chance is %1, counter chance is %2", _winChance, _loseChance], _fileName] call A3A_fnc_log;
+        private _attackerWon = selectRandomWeighted [false, _loseChance, true, _winChance];
         if(!_attackerWon) then
         {
             [3, format ["Attack from %1 got countered by %2, reversing attack sides", _side, _enemySide], _fileName] call A3A_fnc_log;

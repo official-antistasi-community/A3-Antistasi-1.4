@@ -16,7 +16,7 @@
 
     License: MIT License
 */
-HR_GRG_Prefix = "Antistasi";
+if (!isNil "HR_GRG_Prefix") then {HR_GRG_Prefix = "Antistasi"; publicVariable "HR_GRG_Prefix"};
 //Overwrite client
 if (isNil "HR_GRG_cmdClient") then { HR_GRG_cmdClient = { theBoss } };
 
@@ -43,6 +43,7 @@ if (isNil "HR_GRG_blackListCamo") then {HR_GRG_blackListCamo = ["IDAP"]; publicV
 //proxies
 if (isNil "HR_GRG_fnc_Log") then {HR_GRG_fnc_Log = { [2,_this, "HR Garage", true] call A3A_fnc_log }}; publicVariable "HR_GRG_fnc_Log";
 if (isNil "HR_GRG_fnc_Hint") then {HR_GRG_fnc_Hint = { ["Garage",_this#0] call A3A_fnc_customHint }; publicVariable "HR_GRG_fnc_Hint"};
+if (isNil "HR_GRG_fnc_vehInit") then { HR_GRG_fnc_vehInit = { [_this, TeamPlayer] call A3A_fnc_AIVEHinit; }; publicVariable "HR_GRG_fnc_vehInit" }; //is passed vehicle as _this
 
 //CBA settings
 if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {

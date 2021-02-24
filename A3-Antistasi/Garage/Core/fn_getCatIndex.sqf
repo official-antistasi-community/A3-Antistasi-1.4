@@ -20,7 +20,7 @@
 */
 #include "cfgMacros.hpp"
 params [["_class", "", [""]]];
-if ( !isClass (configFile >> "CfgVehicles" >> _class) ) exitWith { [0, "Invalid Input: " + _class, _filename] call RB_fnc_log };
+if ( !isClass (configFile >> "CfgVehicles" >> _class) ) exitWith { [0, "Invalid Input: " + _class, _filename] call HR_GRG_fnc_log };
 
 private _editorCat = cfgEditorCat(_class);
 switch (true) do {

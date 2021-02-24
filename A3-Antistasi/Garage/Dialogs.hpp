@@ -53,8 +53,16 @@ class VehicleSelect
             h = 0.590 * safezoneH;
             onMouseButtonClick = "_this call HR_GRG_fnc_requestMount;";
         };
-        class ExtraTexture: ExtraMount { idc = IDC_ExtraTexture };
-        class ExtraAnim: ExtraMount { idc = IDC_ExtraAnim };
+        class ExtraTexture: ExtraMount
+        {
+            idc = IDC_ExtraTexture;
+            onMouseButtonClick = "_this call HR_GRG_fnc_switchTexture;";
+        };
+        class ExtraAnim: ExtraMount
+        {
+            idc = IDC_ExtraAnim;
+            onMouseButtonClick = "_this call HR_GRG_fnc_toggleAnim;";
+        };
         class ExtraPylons: HR_GRG_RscControlsGroup
         {
             idc = IDC_ExtraPylons;

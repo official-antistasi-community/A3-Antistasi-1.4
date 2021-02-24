@@ -255,7 +255,7 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             };
             [_veh] call HR_GRG_fnc_removeUnusedWeapons;
             _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
-            [_veh] call HR_GRG_fnc_finalInit;
+            _veh call HR_GRG_fnc_vehInit;
 
             true;
         } else { false };

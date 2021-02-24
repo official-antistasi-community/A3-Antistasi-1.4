@@ -9,7 +9,6 @@ class HR_GRG
         class confirm {};
         class confirmPlacement {};
         class declairSources {};
-        class finalInit {};
         class genVehUID {};
         class getCatIndex {};
         class onLoad {};

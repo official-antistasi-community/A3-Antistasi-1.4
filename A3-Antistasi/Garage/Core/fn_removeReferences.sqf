@@ -19,11 +19,9 @@
     License: MIT License
 */
 private _fnc_removeReferences = {
-    diag_log "HR_GRG_fnc_removeReferences recursive function: _this = " + str _this;
     if (_this isEqualType []) exitWith {
-        _this apply { _x call _fnc_removeReferences };
+        +_this apply { _x call _fnc_removeReferences };
     };
-
     _this
 };
 

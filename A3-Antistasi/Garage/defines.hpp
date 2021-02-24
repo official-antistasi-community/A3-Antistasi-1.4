@@ -105,7 +105,7 @@ class HR_GRG_RscButton
     onMouseEnter = "(_this select 0) ctrlSetTextColor [0.85,0.85,0.55,1]";
     onMouseExit = "(_this select 0) ctrlSetTextColor [1,1,1,1]";
 };
-class ctrlButtonPictureKeepAspect;
+class HR_GRG_ctrlButtonPictureKeepAspect;
 
 class HR_GRG_RscFrame
 {

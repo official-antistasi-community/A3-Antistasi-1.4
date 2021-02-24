@@ -36,7 +36,7 @@ Trace("Clearing old pylon controls");
 ///////////////
 Trace("Prepping base info");
 //define adjustments for x and y
-private _bgCtrl = _disp ctrlCreate ["RscBox", IDC_PylonsFirstIDC, _ctrlGroup];
+private _bgCtrl = _disp ctrlCreate ["HR_GRG_RscBox", IDC_PylonsFirstIDC, _ctrlGroup];
 private _xAdjust = safeZoneX + safeZoneW;
 private _yAdjust = safeZoneY + safeZoneH;
 private _baseOffset = 0.01;
@@ -56,7 +56,7 @@ private _fullCrew = fullCrew [HR_GRG_previewVeh,"",true];
 //mirror button //
 //////////////////
 Trace("Creating mirror functionality");
-private _cbCtrl = _disp ctrlCreate ["RscCheckBox", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
+private _cbCtrl = _disp ctrlCreate ["HR_GRG_RscCheckBox", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
 _IDCCount = _IDCCount +1;
 _cbCtrl ctrlSetPosition [
     0.01 * _xAdjust
@@ -67,7 +67,7 @@ _cbCtrl ctrlSetPosition [
 _cbCtrl ctrlAddEventHandler ["CheckedChanged", {[(_this select 1) == 1] call HR_GRG_fnc_pylonToggleMirror}];
 _cbCtrl ctrlCommit 0;
 
-private _cbTextCtrl = _disp ctrlCreate ["RscText", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
+private _cbTextCtrl = _disp ctrlCreate ["HR_GRG_RscText", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
 _IDCCount = _IDCCount +1;
 _cbTextCtrl ctrlSetPosition [
     0.025 * _xAdjust
@@ -82,7 +82,7 @@ _cbTextCtrl ctrlCommit 0;
 //preset loudouts //
 ////////////////////
 Trace("Getting preset data, and creating preset control");
-private _presetComboCtrl = _disp ctrlCreate ["RscCombo", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
+private _presetComboCtrl = _disp ctrlCreate ["HR_GRG_RscCombo", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
 _IDCCount = _IDCCount +1;
 _presetComboCtrl ctrlSetPosition [
     0.14 * _xAdjust
@@ -125,7 +125,7 @@ private _curPylons = getPylonMagazines HR_GRG_previewVeh;
     private _pylonMag = _curPylons#_forEachIndex;
 
     //Header text
-    private _textCtrl = _disp ctrlCreate ["RscText", -1, _ctrlGroup];
+    private _textCtrl = _disp ctrlCreate ["HR_GRG_RscText", -1, _ctrlGroup];
     _textCtrl ctrlSetPosition [
         0.01 * _xAdjust
         , _baseOffset + 0.01 * _yAdjust
@@ -136,7 +136,7 @@ private _curPylons = getPylonMagazines HR_GRG_previewVeh;
     _textCtrl ctrlCommit 0;
 
     //Turret button
-    private _btnCtrl = _disp ctrlCreate ["ctrlButtonPictureKeepAspect", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
+    private _btnCtrl = _disp ctrlCreate ["HR_GRG_ctrlButtonPictureKeepAspect", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
     _IDCCount = _IDCCount +1;
     _btnCtrl ctrlSetPosition [
         0.02 * _xAdjust
@@ -150,7 +150,7 @@ private _curPylons = getPylonMagazines HR_GRG_previewVeh;
     _btnCtrl ctrlCommit 0;
 
     //Pylon magazine selection
-    private _comboCtrl = _disp ctrlCreate ["RscCombo", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
+    private _comboCtrl = _disp ctrlCreate ["HR_GRG_RscCombo", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
     _IDCCount = _IDCCount +1;
     _comboCtrl ctrlSetPosition [
         0.05 * _xAdjust
@@ -181,7 +181,7 @@ Trace("Done adding pylons controls");
 ///////////////////////////
 if (_IDCCount isEqualTo 4) then {
     Trace("No pylons were found, creating hint text");
-    private _textCtrl = _disp ctrlCreate ["RscStructuredText", -1, _ctrlGroup];
+    private _textCtrl = _disp ctrlCreate ["HR_GRG_RscStructuredText", -1, _ctrlGroup];
     _textCtrl ctrlSetPosition [
         0.01 * _xAdjust
         , _baseOffset + 0.01 * _yAdjust

@@ -28,42 +28,10 @@ class VehicleSelect
             h = 0.920 * safezoneH;
             onMouseButtonClick = "_this call HR_GRG_fnc_selectionChange;";
         };
-        class ListArmored: HR_GRG_RscListbox
-        {
-            idc = IDC_CatArmored;
-            x = 0.000 * safezoneW + safezoneX;
-            y = 0.030 * safezoneH + safezoneY;
-            w = 0.180 * safezoneW;
-            h = 0.920 * safezoneH;
-            onMouseButtonClick = "_this call HR_GRG_fnc_selectionChange;";
-        };
-        class ListAir: HR_GRG_RscListbox
-        {
-            idc = IDC_CatAir;
-            x = 0.000 * safezoneW + safezoneX;
-            y = 0.030 * safezoneH + safezoneY;
-            w = 0.180 * safezoneW;
-            h = 0.920 * safezoneH;
-            onMouseButtonClick = "_this call HR_GRG_fnc_selectionChange;";
-        };
-        class ListBoat: HR_GRG_RscListbox
-        {
-            idc = IDC_CatBoat;
-            x = 0.000 * safezoneW + safezoneX;
-            y = 0.030 * safezoneH + safezoneY;
-            w = 0.180 * safezoneW;
-            h = 0.920 * safezoneH;
-            onMouseButtonClick = "_this call HR_GRG_fnc_selectionChange;";
-        };
-        class ListStatic: HR_GRG_RscListbox
-        {
-            idc = IDC_CatStatic;
-            x = 0.000 * safezoneW + safezoneX;
-            y = 0.030 * safezoneH + safezoneY;
-            w = 0.180 * safezoneW;
-            h = 0.920 * safezoneH;
-            onMouseButtonClick = "_this call HR_GRG_fnc_selectionChange;";
-        };
+        class ListArmored: ListCars { idc = IDC_CatArmored };
+        class ListAir: ListCars { idc = IDC_CatAir };
+        class ListBoat: ListCars { idc = IDC_CatBoat };
+        class ListStatic: ListCars { idc = IDC_CatStatic };
 
         //vehicle extras
         class ExtraList: HR_GRG_RscListbox
@@ -85,24 +53,8 @@ class VehicleSelect
             h = 0.590 * safezoneH;
             onMouseButtonClick = "_this call HR_GRG_fnc_requestMount;";
         };
-        class ExtraTexture: HR_GRG_RscListbox
-        {
-            idc = IDC_ExtraTexture;
-            x = 0.820 * safezoneW + safezoneX;
-            y = 0.030 * safezoneH + safezoneY;
-            w = 0.180 * safezoneW;
-            h = 0.590 * safezoneH;
-            onMouseButtonClick = "_this call HR_GRG_fnc_switchTexture;";
-        };
-        class ExtraAnim: HR_GRG_RscListbox
-        {
-            idc = IDC_ExtraAnim;
-            x = 0.820 * safezoneW + safezoneX;
-            y = 0.030 * safezoneH + safezoneY;
-            w = 0.180 * safezoneW;
-            h = 0.590 * safezoneH;
-            onMouseButtonClick = "_this call HR_GRG_fnc_toggleAnim;";
-        };
+        class ExtraTexture: ExtraMount { idc = IDC_ExtraTexture };
+        class ExtraAnim: ExtraMount { idc = IDC_ExtraAnim };
         class ExtraPylons: HR_GRG_RscControlsGroup
         {
             idc = IDC_ExtraPylons;

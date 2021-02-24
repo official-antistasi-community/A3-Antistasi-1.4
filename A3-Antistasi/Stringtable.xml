@@ -3534,12 +3534,16 @@
             <English>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</English>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_TooFar">
-            <Original>&lt;t size='0.6'&gt;Cant place vehicle that far away&lt;/t&gt;</Original>
-            <English>&lt;t size='0.6'&gt;Cant place vehicle that far away&lt;/t&gt;</English>
+            <Original>&lt;t size='0.6'&gt;Cant place vehicle that far away &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
+            <English>&lt;t size='0.6'&gt;Cant place vehicle that far away &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_Blocked">
-            <Original>&lt;t size='0.6'&gt;Something is blocking placement&lt;/t&gt;</Original>
-            <English>&lt;t size='0.6'&gt;Something is blocking placement&lt;/t&gt;</English>
+            <Original>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
+            <English>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_CallbackFailed">
+            <Original>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
+            <English>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_Cam_Controls">
             <Original>Camera controls</Original>

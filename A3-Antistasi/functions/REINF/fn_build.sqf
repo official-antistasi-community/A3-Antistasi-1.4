@@ -172,4 +172,5 @@ if (_leave) exitWith {["Build Info", format ["%1",_textX]] call A3A_fnc_customHi
 build_handleDamageHandler = player addEventHandler ["HandleDamage",{[] call A3A_fnc_vehPlacementCancel;nil;}];
 
 //START PLACEMENT HERE
-[_classX, "BUILDSTRUCTURE", ""] call A3A_fnc_vehPlacementBegin;
+//[_classX, "BUILDSTRUCTURE", ""] call A3A_fnc_vehPlacementBegin;
+[_classX, [], [], nil, false, "BUILDSTRUCTURE"] call HR_GRG_fnc_confirmPlacement;

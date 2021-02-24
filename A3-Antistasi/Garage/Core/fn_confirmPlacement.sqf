@@ -6,6 +6,7 @@
     Arguments:
     0. <String> className of vehicle
     1. <Array>  Arrays of [className of Mount, Index of mount in garage]
+    2. <Array>  Pylons
     2. <Struct/nil> Vehicle state (optional)
     3. <Bool>   use garage vehicle pool for placement (optional: default true)
 
@@ -17,12 +18,12 @@
     Public: [Yes]
     Dependencies:
 
-    Example: [_class, [], _state, false] call HR_GRG_fnc_confirmPlacement;
+    Example: [_class, [], [], nil, false] call HR_GRG_fnc_confirmPlacement;
 
     License: MIT License
 */
 #include "\a3\ui_f\hpp\definedikcodes.inc"
-params [ ["_class", "", [""]], ["_mounts", [], [[]]], ["_pylons", [], [[]]], "_state", ["_useGRGPool", true, [true]] ];
+params [ ["_class", "", [""]], ["_mounts", [], [[]]], ["_pylons", [], [[]]], "_state", ["_useGRGPool", true, [true]], ["_callBack", ""] ];
 if (!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {HR_GRG_Placing = false};
 if (isNil "HR_GRG_CurTexture") then {HR_GRG_CurTexture = []};
 if (isNil "HR_GRG_CurAnims") then {HR_GRG_CurAnims = []};
@@ -38,6 +39,8 @@ HR_GRG_validPlacement = 0;
 HR_GRG_Mounts_ = _mounts; //HR_GRG_Mounts is used in garage internaly
 HR_GRG_Pylons_ = if (!isNil "_pylons") then {_pylons} else {[]}; //same for HR_GRG_Pylons
 HR_GRG_usePool = _useGRGPool;
+HR_GRG_placement_callBack = if (HR_GRG_usePool) then {""} else {_callBack};
+HR_GRG_callBackFeedback = "";
 
 //define private use function
 HR_GRG_cleanUp = {
@@ -110,6 +113,11 @@ HR_GRG_dispMounts = [];
     _x params ["_pylonIndex", "_mag", "_forced", "_turret"];
     HR_GRG_dispVehicle setPylonLoadout [_pylonIndex, _mag, _forced, _turret];
 } forEach HR_GRG_Pylons_;
+
+{
+    _x hideObject true;
+} forEach (attachedObjects HR_GRG_dispVehicle);
+HR_GRG_dispVehicle hideObject true;
 
 //calculate raycast positions
 private _bb = (0 boundingBoxReal HR_GRG_dispVehicle);
@@ -256,6 +264,7 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             [_veh] call HR_GRG_fnc_removeUnusedWeapons;
             _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
             _veh call HR_GRG_fnc_vehInit;
+            if !(HR_GRG_usePool) then { [_veh,HR_GRG_placement_callBack, "Placed"] call HR_GRG_fnc_callbackHandler };
 
             true;
         } else { false };
@@ -273,18 +282,33 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
 
 HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
     private _updateState = false;
+
+    //update Pos and rotation
+    if ((HR_GRG_pos distance screenToWorld [0.5,0.5]) > 0.1) then {
+        HR_GRG_pos = screenToWorld [0.5,0.5];
+        _updateState = true;
+    };
+
+    if (HR_GRG_KeyQ) then {
+        HR_GRG_KeyQ = false;
+        HR_GRG_dir = HR_GRG_dir - 1;
+        _updateState = true;
+    };
+
+    if (HR_GRG_KeyE) then {
+        HR_GRG_KeyE = false;
+        HR_GRG_dir = HR_GRG_dir + 1;
+        _updateState = true;
+    };
+
+    //vallidate new pos
     private _hide = {
         {
             _x hideObject _this;
         } forEach (attachedObjects HR_GRG_dispVehicle);
         HR_GRG_dispVehicle hideObject _this;
     };
-
-    //update Pos
-    if ( (HR_GRG_pos distance screenToWorld [0.5,0.5]) > 0.1 ) then {
-        HR_GRG_pos = screenToWorld [0.5,0.5];
-        _updateState = true;
-
+    if (_updateState) then {
         //if invalid position, block placement
         if (HR_GRG_pos distance player > 50) exitWith { true call _hide; HR_GRG_validPlacement = 1 }; //distance
 
@@ -299,6 +323,12 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         } forEach HR_GRG_rays;
         if (_exit) exitWith { true call _hide };
 
+        //callback check
+        private _callBack = [HR_GRG_dispVehicle,HR_GRG_placement_callBack, "invalidPlacement"] call HR_GRG_fnc_callbackHandler;
+        private _callbackCheck = _callBack param [0, false, [false]];
+        HR_GRG_callBackFeedback = _callBack param [1, "", [""]];
+        if ( _callbackCheck ) exitWith { true call _hide ; HR_GRG_validPlacement = 3 };
+
         //player in vehicle
         HR_GRG_dispSquare params ["_adjustment", "_square", "_diameter"];
         _square params ["_a","_b"];
@@ -310,19 +340,7 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         false call _hide;
     };
 
-    //update dir if key pressed
-    if (HR_GRG_KeyQ) then {
-        HR_GRG_KeyQ = false;
-        HR_GRG_dir = HR_GRG_dir - 1;
-        _updateState = true;
-    };
-
-    if (HR_GRG_KeyE) then {
-        HR_GRG_KeyE = false;
-        HR_GRG_dir = HR_GRG_dir + 1;
-        _updateState = true;
-    };
-
+    //update vehicle placement
     if (_updateState) then {
         HR_GRG_dispVehicle setPos HR_GRG_pos;
         HR_GRG_dispVehicle setDir HR_GRG_dir;
@@ -339,6 +357,8 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         case 0: {localize "STR_HR_GRG_Feedback_CP_Rotation"};
         case 1: {localize "STR_HR_GRG_Feedback_CP_TooFar"};
         case 2: {localize "STR_HR_GRG_Feedback_CP_Blocked"};
+        case 3: { HR_GRG_callBackFeedback };
+        default {localize "STR_HR_GRG_Feedback_CallbackFailed"};
     };
 
     HR_GRG_keyHint = [

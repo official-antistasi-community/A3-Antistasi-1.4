@@ -74,6 +74,7 @@ class HR_GRG
         file = "Garage"
         class A3AGarageToHRGarage {};
         class addVehicle {};
+        class callbackHandler {};
         class getSaveData {};
         class initGarage {};
         class initServer {};

@@ -10,7 +10,8 @@
             <Bool> if is pylon
 
             <Struct> [ //if not pylon
-                <String> Weapon name
+                <String> Magazine name
+                <Array> Turret path
                 <Int> Ammo count
             ] Weapon Data
 
@@ -44,7 +45,8 @@ if (HR_GRG_hasAmmoSource) exitWith {};
 private _weaponData = _ammoData select {!(_x#0)};
 private _pylonData = _ammoData - _weaponData;
 
-{ _vehicle setAmmo (_x#1) } forEach _weaponData;
+{_vehicle removeMagazinesTurret [_x#0,_x#1];} forEach (magazinesAllTurrets _vehicle select {!("pylon" in toLower (_x#0))}); //remove non pylon mags
+{_vehicle addMagazineTurret (_x#1)} forEach _weaponData; //restore non pylon magazines
 
 {
     (_x#1) params ["_index", "", "_turret", "_mag", "_count"];

@@ -249,14 +249,11 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             //set pylons loudout
             if !(HR_GRG_Pylons_ isEqualTo []) then {
                 {
-                    _veh removeWeaponTurret [_x, [-1]];
-                    _veh removeWeaponTurret [_x, [0]];
-                } forEach HR_GRG_DefaultMags;
-                {
                     _x params ["_pylonIndex", "_mag", "_forced", "_turret"];
                     _veh setPylonLoadout [_pylonIndex, _mag, _forced, _turret]
                 } forEach HR_GRG_Pylons_;
             };
+            [_veh] call HR_GRG_fnc_removeUnusedWeapons;
             _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
             [_veh] call HR_GRG_fnc_finalInit;
 

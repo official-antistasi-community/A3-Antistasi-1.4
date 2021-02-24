@@ -12,7 +12,8 @@
             <Bool> if is pylon
 
             <Struct> [ //if not pylon
-                <String> Weapon name
+                <String> Magazine name
+                <Array> Turret path
                 <Int> Ammo count
             ] Weapon Data
 
@@ -33,17 +34,15 @@
     Public: Yes
     Dependencies:
 
-    Example: [_veh] call HR_GRG_fnc_getPylonData;
+    Example: [_veh] call HR_GRG_fnc_getAmmoData;
 
     License: MIT License
 */
 params [["_veh", objNull, [objNull]]];
 
-private _nonPylon = weaponsItems _veh select {! ((_x#4) isEqualTo []) };
-_nonPylon = _nonPylon apply { [false, [_x#0, _x#4#1]] }; // [<Bool>Pylon, <Array>[<String>Weapon, <Int>Ammo] Ammo Detail ]
+private _nonPylon = magazinesAllTurrets _veh select {!("pylon" in toLower (_x#0))} apply { [false, [_x#0,_x#1,_x#2]] }; //[is Pylon, [magName, path, ammo]]
 
 private _pylonsCfg = (configFile >> "CfgVehicles" >> typeOf _veh >> "Components" >> "TransportPylonsComponent");
-
 private _pylonAmmo = [];
 private _magName = getPylonMagazines _veh;
 {

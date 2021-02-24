@@ -23,7 +23,7 @@ params [ ["_UID" ,"", [""]]];
 if (_UID isEqualTo "") exitWith {false};
 Trace_1("Releasing all vehicles with UID: %1", _UID);
 
-//release all vehicles in all categories
+//release all vehicles in all HR_GRG_categories
 {
     {
         if ( (_x#3) isEqualTo _UID) then {_x set [3, ""] };

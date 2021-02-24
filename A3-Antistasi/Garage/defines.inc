@@ -2,38 +2,53 @@
 #include "cfgMacros.hpp"
 
 //-- display --\\
-#define IDD_Garage 17001
+#define HR_GRG_IDD_Garage 17001
+
+//-- pixelGrid --\\
+#define pixelScale    0.50
+#define GRID_NOUISCALE_W (pixelW * pixelGridNoUIScale * pixelScale)
+#define GRID_NOUISCALE_H (pixelH * pixelGridNoUIScale * pixelScale)
+
+//-- Screen edge coordinates --\\
+#define SCREEN_TOP safeZoneY
+#define SCREEN_BOTTOM safeZoneH + safeZoneY
+#define SCREEN_LEFT safeZoneX
+#define SCREEN_RIGHT safeZoneW + safeZoneX
+
+//-- Text sizes --\\
+#define TEXT_SIZE_SMALL GRID_NOUISCALE_H * 2
+#define TEXT_SIZE_MEDIUM GRID_NOUISCALE_H * 2.4
+#define TEXT_SIZE_LARGE GRID_NOUISCALE_H * 3
 
 //-- Category --\\
-#define IDC_CatList 170010
-#define IDC_CatCar 1700100
-#define IDC_CatArmored 1700101
-#define IDC_CatAir 1700102
-#define IDC_CatBoat 1700103
-#define IDC_CatStatic 1700104
-#define CatEnabled [0.00 * safezoneW + safezoneX, 0.03 * safezoneH + safezoneY, 0.18 * safezoneW, 0.92 * safezoneH]
-
+#define HR_GRG_IDC_CatList 170010
+#define HR_GRG_IDC_CatCar 1700100
+#define HR_GRG_IDC_CatArmored 1700101
+#define HR_GRG_IDC_CatAir 1700102
+#define HR_GRG_IDC_CatBoat 1700103
+#define HR_GRG_IDC_CatStatic 1700104
 
 //-- extra --\\
-#define IDC_ExtraList 170015
-#define IDC_ExtraMounts 1700150
-#define IDC_ExtraTexture 1700151
-#define IDC_ExtraAnim 1700152
-#define IDC_ExtraPylons 1700153
-#define IDC_PylonsFirstIDC 1715300
-#define ExtraEnabled [0.82 * safezoneW + safezoneX, 0.03 * safezoneH + safezoneY, 0.18 * safezoneW, 0.59 * safezoneH]
+#define HR_GRG_IDC_ExtraList 170015
+#define HR_GRG_IDC_ExtraMounts 1700150
+#define HR_GRG_IDC_ExtraTexture 1700151
+#define HR_GRG_IDC_ExtraAnim 1700152
+#define HR_GRG_IDC_ExtraPylonsContainer 1700153 // Outer controlsgroup
+#define HR_GRG_IDC_ExtraPylonsMirrorCheckbox 1700154
+#define HR_GRG_IDC_ExtraPylonsMirrorLabel 1700155
+#define HR_GRG_IDC_ExtraPylonsPresetsCombo 1700156
+#define HR_GRG_IDC_ExtraPylons 1700157 // Controlsgroup containing all the actual pylons
+#define HR_GRG_IDC_PylonsFirstIDC 1715300
 #define checkboxTextures [tolower gettext (configfile >> "RscCheckBox" >> "textureUnchecked"),tolower gettext (configfile >> "RscCheckBox" >> "textureChecked")]
 
 //-- General --\\
-#define IDC_Cancel 170011
-#define IDC_tLock 170012
-#define IDC_Confirm 170013
-#define IDC_InfoPanel 170014
-#define IDC_CatText 170016
-#define IDC_ExtrasText 170017
-#define IDC_KeyBindHint 170018
-#define InfoEnable [0.82 * safezoneW + safezoneX, 0.62 * safezoneH + safezoneY, 0.18 * safezoneW, 0.38 * safezoneH]
-#define ctrlDisabled [-1 * safezoneW + safezoneX, -1 * safezoneH + safezoneY, 0, 0]
+#define HR_GRG_IDC_Cancel 170011
+#define HR_GRG_IDC_tLock 170012
+#define HR_GRG_IDC_Confirm 170013
+#define HR_GRG_IDC_InfoPanel 170014
+#define HR_GRG_IDC_CatText 170016
+#define HR_GRG_IDC_ExtrasText 170017
+#define HR_GRG_IDC_KeyBindHint 170018
 
 //icons
 #define CheckOutIcon "\a3\ui_f\data\Map\Diary\Icons\diaryLocateTask_ca.paa"

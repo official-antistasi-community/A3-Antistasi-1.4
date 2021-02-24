@@ -20,26 +20,22 @@
 */
 #include "defines.inc"
 Trace("Reloading pylons menu");
-private _disp = findDisplay IDD_Garage;
-private _ctrlGroup = _disp displayCtrl IDC_ExtraPylons;
+private _disp = findDisplay HR_GRG_IDD_Garage;
+private _ctrlGroup = _disp displayCtrl HR_GRG_IDC_ExtraPylons;
 
 ////////////////////
 //clear old ctrls //
 ////////////////////
 Trace("Clearing old pylon controls");
 { //ToDo: find a better way to clear the controls under this control group
-    if (_ctrlGroup isEqualTo ctrlParentControlsGroup _x) then {ctrlDelete _x};
+    if (ctrlParentControlsGroup _x isEqualTo _ctrlGroup) then {ctrlDelete _x};
 } forEach allControls _disp;
 
 ///////////////
 // Base menu //
 ///////////////
 Trace("Prepping base info");
-//define adjustments for x and y
-private _bgCtrl = _disp ctrlCreate ["HR_GRG_RscBox", IDC_PylonsFirstIDC, _ctrlGroup];
-private _xAdjust = safeZoneX + safeZoneW;
-private _yAdjust = safeZoneY + safeZoneH;
-private _baseOffset = 0.01;
+private _baseOffset = 0;
 private _IDCCount = 1;
 private _pylonsCfg = (configFile >> "CfgVehicles" >> typeOf HR_GRG_previewVeh >> "Components" >> "TransportPylonsComponent");
 HR_GRG_PylonData = [];
@@ -56,42 +52,19 @@ private _fullCrew = fullCrew [HR_GRG_previewVeh,"",true];
 //mirror button //
 //////////////////
 Trace("Creating mirror functionality");
-private _cbCtrl = _disp ctrlCreate ["HR_GRG_RscCheckBox", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
-_IDCCount = _IDCCount +1;
-_cbCtrl ctrlSetPosition [
-    0.01 * _xAdjust
-    , _baseOffset + 0 * _yAdjust
-    , 0.01 * safeZoneW
-    , 0.02 * safeZoneH
-];
+private _cbCtrl = _disp displayCtrl HR_GRG_IDC_ExtraPylonsMirrorCheckbox;
 _cbCtrl ctrlAddEventHandler ["CheckedChanged", {[(_this select 1) == 1] call HR_GRG_fnc_pylonToggleMirror}];
-_cbCtrl ctrlCommit 0;
 
-private _cbTextCtrl = _disp ctrlCreate ["HR_GRG_RscText", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
-_IDCCount = _IDCCount +1;
-_cbTextCtrl ctrlSetPosition [
-    0.025 * _xAdjust
-    , _baseOffset + 0 * _yAdjust
-    , 0.05 * safeZoneW
-    , 0.02 * safeZoneH
-];
+private _cbTextCtrl = _disp displayCtrl HR_GRG_IDC_ExtraPylonsMirrorLabel;
 _cbTextCtrl ctrlSetText localize "STR_HR_GRG_Pylons_Mirror";
-_cbTextCtrl ctrlCommit 0;
 
 ////////////////////
 //preset loudouts //
 ////////////////////
-Trace("Getting preset data, and creating preset control");
-private _presetComboCtrl = _disp ctrlCreate ["HR_GRG_RscCombo", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
-_IDCCount = _IDCCount +1;
-_presetComboCtrl ctrlSetPosition [
-    0.14 * _xAdjust
-    , _baseOffset + 0.001 * _yAdjust
-    , 0.08 * safeZoneW
-    , 0.02 * safeZoneH
-];
-_baseOffset = _baseOffset + 0.05;
+Trace("Get preset control and add preset data");
+private _presetComboCtrl = _disp displayCtrl HR_GRG_IDC_ExtraPylonsPresetsCombo;
 
+lbClear _presetComboCtrl;
 private _index = _presetComboCtrl lbAdd localize "STR_HR_GRG_Pylons_CustomPreset";
 _presetComboCtrl lbSetData [_index, "[]"];
 HR_GRG_DefaultMags = [];
@@ -109,7 +82,6 @@ HR_GRG_DefaultMags = [];
 
 _presetComboCtrl lbSetCurSel 0;
 _presetComboCtrl ctrlAddEventHandler ["LBSelChanged", {_this call HR_GRG_fnc_PylonsPresetChanged}];
-_presetComboCtrl ctrlCommit 0;
 
 HR_GRG_Pylon_GeneralCtrls = [_cbCtrl, _presetComboCtrl];
 
@@ -125,39 +97,43 @@ private _curPylons = getPylonMagazines HR_GRG_previewVeh;
     private _pylonMag = _curPylons#_forEachIndex;
 
     //Header text
-    private _textCtrl = _disp ctrlCreate ["HR_GRG_RscText", -1, _ctrlGroup];
+    private _textCtrl = _disp ctrlCreate ["HR_GRG_RscTextNoBG", -1, _ctrlGroup];
     _textCtrl ctrlSetPosition [
-        0.01 * _xAdjust
-        , _baseOffset + 0.01 * _yAdjust
-        , 0.14 * safeZoneW
-        , 0.02 * safeZoneH
+        0
+        , _baseOffset
+        , 10 * GRID_NOUISCALE_W
+        , 3 * GRID_NOUISCALE_H
     ];
-    _textCtrl ctrlSetText format [localize "STR_HR_GRG_Pylons_PylonText", _forEachIndex + 1];
     _textCtrl ctrlCommit 0;
 
+    _textCtrl ctrlSetText format [localize "STR_HR_GRG_Pylons_PylonText", _forEachIndex + 1];
+
     //Turret button
-    private _btnCtrl = _disp ctrlCreate ["HR_GRG_ctrlButtonPictureKeepAspect", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
+    private _btnCtrl = _disp ctrlCreate ["ctrlButtonPictureKeepAspect", HR_GRG_IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
     _IDCCount = _IDCCount +1;
     _btnCtrl ctrlSetPosition [
-        0.02 * _xAdjust
-        , _baseOffset + 0.05 * _yAdjust
-        , 0.01 * safeZoneW
-        , 0.02 * safeZoneH
+        1 * GRID_NOUISCALE_W
+        , _baseOffset + 4 * GRID_NOUISCALE_H
+        , 3 * GRID_NOUISCALE_W
+        , 3 * GRID_NOUISCALE_H
     ];
+    _btnCtrl ctrlCommit 0;
+
     private _turret = [HR_GRG_previewVeh, _forEachIndex] call HR_GRG_fnc_getPylonTurret;
     [_btnCtrl, false, _turret] call HR_GRG_fnc_PylonsTurretToggle;
     _btnCtrl ctrlAddEventHandler ["ButtonClick", {[_this#0, true, []] call HR_GRG_fnc_PylonsTurretToggle}];
-    _btnCtrl ctrlCommit 0;
 
     //Pylon magazine selection
-    private _comboCtrl = _disp ctrlCreate ["HR_GRG_RscCombo", IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
+    private _comboCtrl = _disp ctrlCreate ["HR_GRG_RscComboBlckBG", HR_GRG_IDC_PylonsFirstIDC + _IDCCount, _ctrlGroup];
     _IDCCount = _IDCCount +1;
     _comboCtrl ctrlSetPosition [
-        0.05 * _xAdjust
-        , _baseOffset + 0.05 * _yAdjust
-        , 0.14 * safeZoneW
-        , 0.02 * safeZoneH
+        7 * GRID_NOUISCALE_W
+        , _baseOffset + 4 * GRID_NOUISCALE_H
+        , 30 * GRID_NOUISCALE_W
+        , 3 * GRID_NOUISCALE_H
     ];
+    _comboCtrl ctrlCommit 0;
+
     private _index = _comboCtrl lbAdd localize "STR_HR_GRG_Pylons_Empty";
     private _selected = 0;
     {
@@ -168,36 +144,30 @@ private _curPylons = getPylonMagazines HR_GRG_previewVeh;
     } forEach _mags;
     _comboCtrl lbSetCurSel _selected;
     _comboCtrl ctrlAddEventHandler ["LBSelChanged", {_this call HR_GRG_fnc_PylonsChanged}];
-    _comboCtrl ctrlCommit 0;
 
     //Add to data array
     private _mirroredIndex = getNumber (_x >> "mirroredMissilePos");
     HR_GRG_PylonData pushBack [_comboCtrl, _mirroredIndex - 1, _btnCtrl, _selected];
-    _baseOffset = _baseOffset + 0.12;
+    _baseOffset = _baseOffset + 8 * GRID_NOUISCALE_H;
 } forEach ("true" configClasses (_pylonsCfg >> "Pylons"));
 Trace("Done adding pylons controls");
+
+
 ///////////////////////////
 // Handle no pylons case //
 ///////////////////////////
-if (_IDCCount isEqualTo 4) then {
+if (_IDCCount isEqualTo 1) then {
     Trace("No pylons were found, creating hint text");
     private _textCtrl = _disp ctrlCreate ["HR_GRG_RscStructuredTextNoBG", -1, _ctrlGroup];
     _textCtrl ctrlSetPosition [
-        0.01 * _xAdjust
-        , _baseOffset + 0.01 * _yAdjust
-        , 0.14 * safeZoneW
-        , 0.1 * safeZoneH
+        1 * GRID_NOUISCALE_W
+        , 1 * GRID_NOUISCALE_H
+        , 37 * GRID_NOUISCALE_W
+        , 37 * GRID_NOUISCALE_H
     ];
     _textCtrl ctrlSetStructuredText composeText [localize "STR_HR_GRG_Pylons_noPylons", lineBreak,"    ", cfgDispName(typeOf HR_GRG_previewVeh)];
     _textCtrl ctrlCommit 0;
 };
-
-///////////////////////////////////////
-//set background position and height //
-///////////////////////////////////////
-Trace("Setting background position and height");
-_bgCtrl ctrlSetPosition [0, 0, 0.180 * safeZoneW, (0.590 * safeZoneH) max (_baseOffset + 0.01 * _yAdjust)];
-_bgCtrl ctrlCommit 0;
 
 HR_GRG_UpdatePylons = true;
 Trace("Pylons menu reloaded");

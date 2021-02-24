@@ -20,8 +20,8 @@
 */
 #include "defines.inc"
 Trace("Reloading mounts");
-private _disp = findDisplay IDD_Garage;
-private _ctrl = _disp displayCtrl IDC_ExtraMounts;
+private _disp = findDisplay HR_GRG_IDD_Garage;
+private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraMounts;
 //remove old statics
 {
     [HR_GRG_previewVeh, true] call A3A_fnc_logistics_unload;

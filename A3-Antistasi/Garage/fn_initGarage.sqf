@@ -27,7 +27,7 @@ private _id = _object addAction [
     localize "STR_HR_GRG_openGarage_Action"
     , "
         ['HR_GRG','Loading Garage, please wait...'] call BIS_fnc_startLoadingScreen;
-        createDialog 'VehicleSelect';
+        createDialog 'HR_GRG_VehicleSelect';
         sleep 1.5;
         'HR_GRG' call BIS_fnc_endLoadingScreen;
     ", nil, 1.5, true, true, ""

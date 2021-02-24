@@ -23,8 +23,8 @@ params ["_reloadMounts"];
 private _class = HR_GRG_SelectedVehicles param [2, "", [""]];
 Trace("Reloading Extras");
 //Mounts
-private _disp = findDisplay IDD_Garage;
-private _ctrl = _disp displayCtrl IDC_ExtraMounts;
+private _disp = findDisplay HR_GRG_IDD_Garage;
+private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraMounts;
 lbClear _ctrl;
 private _vehNodes = [HR_GRG_previewVeh] call A3A_fnc_logistics_getVehicleNodes;
 if (_vehNodes isEqualType []) then {
@@ -69,7 +69,7 @@ if (_reloadMounts) then { [] call HR_GRG_fnc_reloadMounts };
 private _customisation = [HR_GRG_previewVeh] call bis_fnc_getVehicleCustomization;
 //textures
 HR_GRG_CurTexture = _customisation#0;
-private _ctrl = _disp displayCtrl IDC_ExtraTexture;
+private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraTexture;
 lbClear _ctrl;
 {
     private _displayName = getText (_x >> "displayName");
@@ -83,7 +83,7 @@ lbClear _ctrl;
 lbSort _ctrl;
 
 //animations
-private _ctrl = _disp displayCtrl IDC_ExtraAnim;
+private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraAnim;
 private _anims = _customisation#1;
 lbClear _ctrl;
 {
@@ -103,7 +103,7 @@ HR_GRG_CurAnims = _anims;
 [HR_GRG_previewVeh, HR_GRG_CurTexture, HR_GRG_CurAnims] call BIS_fnc_initVehicle;
 
 //update info panel
-private _ctrl = _disp displayCtrl IDC_InfoPanel;
+private _ctrl = _disp displayCtrl HR_GRG_IDC_InfoPanel;
 private _spacer = composeText [lineBreak, lineBreak];
 private _topBar = composeText [
     image cfgIcon(_class), " ", cfgDispName(_class)

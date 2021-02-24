@@ -22,15 +22,14 @@
 #include "defines.inc"
 params ["_listCtrl","_index"];
 if (_index isEqualTo -1) exitWith {};
-private _disp = findDisplay IDD_Garage;
+private _disp = findDisplay HR_GRG_IDD_Garage;
 
 //disable all extras menus
 for "_i" from 0 to (lbSize _listCtrl) -1 do {
-    private _ctrl = _disp displayCtrl (IDC_ExtraMounts + _i);
+    private _ctrl = _disp displayCtrl (HR_GRG_IDC_ExtraMounts + _i);
     if (ctrlEnabled _ctrl) exitWith { //theres only one active at a time
-        _ctrl ctrlSetPosition ctrlDisabled;
+        _ctrl ctrlShow false;
         _ctrl ctrlEnable false;
-        _ctrl ctrlCommit 0;
     };
 };
 
@@ -40,9 +39,8 @@ if (_index isEqualTo -1) exitWith {};
 private _ctrlIDC = _listCtrl lbValue _index;
 private _ctrl = _disp displayCtrl _ctrlIDC;
 _ctrl ctrlEnable true;
-_ctrl ctrlSetPosition ExtraEnabled;
-_ctrl ctrlCommit 0;
+_ctrl ctrlShow true;
 
 //update extras text
-_textCtrl = _disp displayCtrl IDC_ExtrasText;
+_textCtrl = _disp displayCtrl HR_GRG_IDC_ExtrasText;
 _textCtrl ctrlSetStructuredText text (_listCtrl lbData _index);

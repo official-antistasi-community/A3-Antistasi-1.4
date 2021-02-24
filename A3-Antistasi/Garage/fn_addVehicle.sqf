@@ -78,7 +78,7 @@ LogDebug_6("Vehicle garaged | By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5
 private _catToRefresh = if (_countStatics > 0) then {[_cat, 4]} else {[_cat]};
 private _refreshCode = {
     #include "defines.inc"
-    private _disp = findDisplay IDD_Garage;
+    private _disp = findDisplay HR_GRG_IDD_Garage;
     private _cats = _this apply { HR_GRG_Cats#_x };
     {
         if (ctrlEnabled _x) then {

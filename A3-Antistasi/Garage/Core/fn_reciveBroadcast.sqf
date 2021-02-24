@@ -32,8 +32,8 @@ if (_isPlayer) then {
 [_isPlayer] call HR_GRG_fnc_reloadExtras;
 
 //refresh the category display
-private _disp = findDisplay IDD_Garage;
-private _catCtrl = _disp displayCtrl IDC_CatList;
+private _disp = findDisplay HR_GRG_IDD_Garage;
+private _catCtrl = _disp displayCtrl HR_GRG_IDC_CatList;
 private _ctrl = HR_GRG_Cats#_catIndex;
 Trace_2("r.Broadcast - Ctrl: %1 | Active: %2" , _ctrl, ctrlEnabled _ctrl);
 if (ctrlEnabled _ctrl) then {

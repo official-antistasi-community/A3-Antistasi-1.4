@@ -21,9 +21,9 @@
 #include "defines.inc"
 params ["_enable"];
 
-private _disp = findDisplay IDD_Garage;
-private _ctrlCnfrm = _disp displayCtrl IDC_Confirm;
-private _ctrlLock = _disp displayCtrl IDC_tLock;
+private _disp = findDisplay HR_GRG_IDD_Garage;
+private _ctrlCnfrm = _disp displayCtrl HR_GRG_IDC_Confirm;
+private _ctrlLock = _disp displayCtrl HR_GRG_IDC_tLock;
 
 _ctrlCnfrm ctrlEnable _enable;
 _ctrlLock ctrlEnable _enable;

@@ -4,7 +4,7 @@ private _filename = "HR_GRG_fnc_onLoad";
     [Description]
         Handels opening the garage
 
-        Builds list in vehicleSelect dialog
+        Builds list in HR_GRG_VehicleSelect dialog
         Data structure:
                 | Display name      | Class name                    | Locked UID    | Checked out UID
         Cars    | [["Offroad"       |, "C_Offroad_01_F"             |, ""           |, ""
@@ -44,7 +44,7 @@ if (isNil "HR_GRG_Placing") then { HR_GRG_Placing = false };
 if (HR_GRG_Placing) exitWith { closeDialog 2 };
 
 //define general global variables used by garage
-private _disp = findDisplay IDD_Garage;
+private _disp = findDisplay HR_GRG_IDD_Garage;
 HR_GRG_PlayerUID = getPlayerUID player;
 HR_GRG_SelectedVehicles = [-1, -1, ""];
 HR_GRG_SelectedChanged = false;
@@ -80,8 +80,8 @@ _disp displayAddEventHandler ["MouseButtonUp", "if ((_this#1) isEqualTo 1) then 
 _disp displayAddEventHandler ["MouseMoving", "if (HR_GRG_RMouseBtnDown) then {_this call HR_GRG_fnc_updateCamPos};"];
 _disp displayAddEventHandler ["MouseZChanged","if !(HR_GRG_RMouseBtnDown) exitWith {}; HR_GRG_camDist = 0.9 max (HR_GRG_camDist - (_this#1)*0.1) min 2; [nil,0,0] call HR_GRG_fnc_updateCamPos; HR_GRG_previewLight setLightBrightness 1.1 * HR_GRG_camDist;"];
 
-//categories list init
-private _ctrlCat = _disp displayCtrl IDC_CatList;
+//HR_GRG_categories list init
+private _ctrlCat = _disp displayCtrl HR_GRG_IDC_CatList;
 private _catInitData = [
     [CarIcon, localize "STR_HR_GRG_Generic_Cars"]
     ,[ArmoredIcon, localize "STR_HR_GRG_Generic_Armored"]
@@ -99,11 +99,10 @@ private _catInitData = [
 } forEach _catInitData;
 
 //define list of controls coresponding with list index
-HR_GRG_Cats = [IDC_CatCar,IDC_CatArmored,IDC_CatAir,IDC_CatBoat,IDC_CatStatic] apply {_disp displayCtrl _x};
+HR_GRG_Cats = [HR_GRG_IDC_CatCar,HR_GRG_IDC_CatArmored,HR_GRG_IDC_CatAir,HR_GRG_IDC_CatBoat,HR_GRG_IDC_CatStatic] apply {_disp displayCtrl _x};
 {
-    _x ctrlSetPosition ctrlDisabled;
+    _x ctrlShow false;
     _x ctrlEnable false;
-    _x ctrlCommit 0;
 } forEach HR_GRG_Cats;
 _ctrlCat lbSetCurSel 0;
 
@@ -111,24 +110,24 @@ _ctrlCat lbSetCurSel 0;
 "HR_GRG_Event" addPublicVariableEventHandler { (_this#1) call HR_GRG_fnc_reciveBroadcast };
 "HR_GRG_Vehicles" addPublicVariableEventHandler {
     #include "defines.inc"
-    private _disp = findDisplay IDD_Garage;
-    private _catCtrl = _disp displayCtrl IDC_CatList;
+    private _disp = findDisplay HR_GRG_IDD_Garage;
+    private _catCtrl = _disp displayCtrl HR_GRG_IDC_CatList;
     private _index = lbCurSel _catCtrl;
     private _ctrl = HR_GRG_Cats#_index;
     [_ctrl, _index] call HR_GRG_fnc_reloadCategory;
 };
 
 //extras list init
-private _ctrlExtraList = _disp displayCtrl IDC_ExtraList;
+private _ctrlExtraList = _disp displayCtrl HR_GRG_IDC_ExtraList;
 private _extraInitData = [
-    [StaticIcon, localize "STR_HR_GRG_Generic_Mounts",IDC_ExtraMounts]
-    ,[TexturesIcon, localize "STR_HR_GRG_Generic_Texture",IDC_ExtraTexture]
-    ,[AnimationsIcon, localize "STR_HR_GRG_Generic_Anim",IDC_ExtraAnim]
+    [StaticIcon, localize "STR_HR_GRG_Generic_Mounts",HR_GRG_IDC_ExtraMounts]
+    ,[TexturesIcon, localize "STR_HR_GRG_Generic_Texture",HR_GRG_IDC_ExtraTexture]
+    ,[AnimationsIcon, localize "STR_HR_GRG_Generic_Anim",HR_GRG_IDC_ExtraAnim]
 ];
 if (
     HR_GRG_Pylons_Enabled //Pylon editing enabled
     && { HR_GRG_hasAmmoSource } //or ammo source registered
-) then { _extraInitData pushBack [PylonsIcon, "Pylons",IDC_ExtraPylons] }; //add pylon editing menu
+) then { _extraInitData pushBack [PylonsIcon, "Pylons",HR_GRG_IDC_ExtraPylonsContainer] }; //add pylon editing menu
 
 {
     private _index = _ctrlExtraList lbAdd "";
@@ -139,17 +138,13 @@ if (
     _ctrlExtraList lbSetPictureColor [_index, [1, 1, 1, 1]];
     _ctrlExtraList lbSetPictureColorSelected [_index, [0.85, 0.85, 0.55, 1]];
 } forEach _extraInitData;
-private _h = (lbSize _ctrlExtraList) * 0.03 * safezoneH;
-_ctrlExtraList ctrlSetPosition [0.790 * safezoneW + safezoneX, 0.000 * safezoneH + safezoneY, 0.030 * safezoneW, _h];
-_ctrlExtraList ctrlCommit 0;
 
 //hide all extras menus and info panel
 {
     _ctrl = _disp displayCtrl _x;
     _ctrl ctrlEnable false;
-    _ctrl ctrlSetPosition ctrlDisabled;
-    _ctrl ctrlCommit 0;
-} forEach [IDC_ExtraMounts,IDC_ExtraTexture,IDC_ExtraAnim,IDC_ExtraPylons];
+    _ctrl ctrlShow false;
+} forEach [HR_GRG_IDC_ExtraMounts,HR_GRG_IDC_ExtraTexture,HR_GRG_IDC_ExtraAnim,HR_GRG_IDC_ExtraPylonsContainer];
 _ctrlExtraList lbSetCurSel 0;
 [] call HR_GRG_fnc_reloadPylons;
 
@@ -162,7 +157,7 @@ HR_GRG_EachFrame = addMissionEventHandler ["EachFrame", {
 }];
 
 //keyBind hints
-_keyBindCtrl = _disp displayCtrl IDC_KeyBindHint;
+_keyBindCtrl = _disp displayCtrl HR_GRG_IDC_KeyBindHint;
 _keyBindText = composeText [
     image cameraIcon,"",localize "STR_HR_GRG_Feedback_Cam_Controls", lineBreak
     ,"    ",image moveIcon,"",localize "STR_HR_GRG_Feedback_Cam_Rotate",lineBreak

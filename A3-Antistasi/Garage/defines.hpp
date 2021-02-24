@@ -1,7 +1,126 @@
+//Common Macros
+#ifndef QUOTE
+#define QUOTE(var1) #var1
+#endif
+
+// Control types
+#define CT_STATIC           0
+#define CT_BUTTON           1
+#define CT_EDIT             2
+#define CT_SLIDER           3
+#define CT_COMBO            4
+#define CT_LISTBOX          5
+#define CT_TOOLBOX          6
+#define CT_CHECKBOXES       7
+#define CT_PROGRESS         8
+#define CT_HTML             9
+#define CT_STATIC_SKEW      10
+#define CT_ACTIVETEXT       11
+#define CT_TREE             12
+#define CT_STRUCTURED_TEXT  13
+#define CT_CONTEXT_MENU     14
+#define CT_CONTROLS_GROUP   15
+#define CT_SHORTCUTBUTTON   16
+#define CT_CONTROLS_TABLE   19
+#define CT_XKEYDESC         40
+#define CT_XBUTTON          41
+#define CT_XLISTBOX         42
+#define CT_XSLIDER          43
+#define CT_XCOMBO           44
+#define CT_ANIMATED_TEXTURE 45
+#define CT_CHECKBOX         77
+#define CT_OBJECT           80
+#define CT_OBJECT_ZOOM      81
+#define CT_OBJECT_CONTAINER 82
+#define CT_OBJECT_CONT_ANIM 83
+#define CT_LINEBREAK        98
+#define CT_USER             99
+#define CT_MAP              100
+#define CT_MAP_MAIN         101
+#define CT_LISTNBOX         102
+
+// Static styles
+#define ST_POS            0x0F
+#define ST_HPOS           0x03
+#define ST_VPOS           0x0C
+#define ST_LEFT           0x00
+#define ST_RIGHT          0x01
+#define ST_CENTER         0x02
+#define ST_DOWN           0x04
+#define ST_UP             0x08
+#define ST_VCENTER        0x0C
+#define ST_GROUP_BOX       96
+#define ST_GROUP_BOX2      112
+#define ST_ROUNDED_CORNER  ST_GROUP_BOX + ST_CENTER
+#define ST_ROUNDED_CORNER2 ST_GROUP_BOX2 + ST_CENTER
+
+#define ST_TYPE           0xF0
+#define ST_SINGLE         0x00
+#define ST_MULTI          0x10
+#define ST_TITLE_BAR      0x20
+#define ST_PICTURE        0x30
+#define ST_FRAME          0x40
+#define ST_BACKGROUND     0x50
+#define ST_GROUP_BOX      0x60
+#define ST_GROUP_BOX2     0x70
+#define ST_HUD_BACKGROUND 0x80
+#define ST_TILE_PICTURE   0x90
+#define ST_WITH_RECT      0xA0
+#define ST_LINE           0xB0
+
+#define ST_SHADOW         0x100
+#define ST_NO_RECT        0x200
+#define ST_KEEP_ASPECT_RATIO  0x800
+
+#define ST_TITLE          ST_TITLE_BAR + ST_CENTER
+
+// Slider styles
+#define SL_DIR            0x400
+#define SL_VERT           0
+#define SL_HORZ           0x400
+
+#define SL_TEXTURES       0x10
+
+// progress bar
+#define ST_VERTICAL       0x01
+#define ST_HORIZONTAL     0
+
+// Listbox styles
+#define LB_TEXTURES       0x10
+#define LB_MULTI          0x20
+
+// Tree styles
+#define TR_SHOWROOT       1
+#define TR_AUTOCOLLAPSE   2
+
+// MessageBox styles
+#define MB_BUTTON_OK      1
+#define MB_BUTTON_CANCEL  2
+#define MB_BUTTON_USER    4
+//-- WIP Pixel Grid --\\
+// Default grid
+#define GUI_GRID_WAbs       ((safezoneW / safezoneH) min 1.2)
+#define GUI_GRID_HAbs       (GUI_GRID_WAbs / 1.2)
+#define GUI_GRID_W          (GUI_GRID_WAbs / 40)
+#define GUI_GRID_H          (GUI_GRID_HAbs / 25)
+#define GUI_GRID_X          (safezoneX)
+#define GUI_GRID_Y          (safezoneY + safezoneH - GUI_GRID_HAbs)
+
+// Default text sizes
+#define GUI_TEXT_SIZE_SMALL  (GUI_GRID_H * 0.8)
+#define GUI_TEXT_SIZE_MEDIUM (GUI_GRID_H * 1)
+#define GUI_TEXT_SIZE_LARGE  (GUI_GRID_H * 1.2)
+
+// Pixel grid
+#define pixelScale  0.50
+#define GRID_W (pixelW * pixelGrid * pixelScale)
+#define GRID_H (pixelH * pixelGrid * pixelScale)
+//-- WIP Pixel Grid --\\
+
 //standardised values
-#define HR_GRG_FontSize "safeZoneW / safeZoneH min 1.2 / 1.2 / 25"
-#define HR_GRG_colorBG {0.43,0.43,0.43,0.75}
-#define HR_GRG_FontStyle "PuristaMedium"
+#define FontSize "safeZoneW / safeZoneH min 1.2 / 1.2 / 25"
+#define colorBG {0.43,0.43,0.43,0.75}
+#define FontStyle "PuristaMedium"
 
 ////////////////
 //Base Classes//
@@ -14,12 +133,12 @@ class HR_GRG_RscText
     type = CT_STATIC;
     style = ST_LEFT;
     linespacing = 1;
-    colorBackground[] = {0,0,0,0};
+    colorBackground[] = colorBG;
     colorText[] = {1,1,1,1};
     text = "";
     shadow = 0;
-    font = HR_GRG_FontStyle;
-    SizeEx = HR_GRG_FontSize;
+    font = FontStyle;
+    SizeEx = FontSize;
     fixedWidth = 0;
     x = 0;
     y = 0;
@@ -27,22 +146,26 @@ class HR_GRG_RscText
     w = 0;
 
 };
+class HR_GRG_RscTextNoBG : HR_GRG_RscText
+{
+    colorBackground[] = {0,0,0,0};
+};
 
 class HR_GRG_RscStructuredText
 {
     idc = -1;
     type = CT_STRUCTURED_TEXT;
     style = ST_LEFT;
-    colorBackground[] = HR_GRG_colorBG;
+    colorBackground[] = colorBG;
     x = 0;
     y = 0;
     w = 0;
     h = 0;
-    size = HR_GRG_FontSize;
+    size = FontSize;
     text = "";
     class Attributes
     {
-        font = HR_GRG_FontStyle;
+        font = FontStyle;
         color = "#FFFFFF";
         align = "left";
         valign = "middle";
@@ -64,7 +187,7 @@ class HR_GRG_RscPicture
     style = ST_PICTURE;
     colorBackground[] = {0,0,0,0};
     colorText[] = {1,1,1,1};
-    font = HR_GRG_FontStyle;
+    font = FontStyle;
     sizeEx = 0;
     lineSpacing = 0;
     text = "";
@@ -83,12 +206,12 @@ class HR_GRG_RscButton
     text = "";
     colorText[] = {1,1,1,1};
     colorDisabled[] = {0.7,0,0,1};
-    colorBackground[] = HR_GRG_colorBG;
-    colorBackgroundDisabled[] = HR_GRG_colorBG;
-    colorBackgroundActive[] = HR_GRG_colorBG;
+    colorBackground[] = colorBG;
+    colorBackgroundDisabled[] = colorBG;
+    colorBackgroundActive[] = colorBG;
     colorFocused[] = {0.53,0.53,0.53,0.75};
-    colorShadow[] = HR_GRG_colorBG;
-    colorBorder[] = HR_GRG_colorBG;
+    colorShadow[] = colorBG;
+    colorBorder[] = colorBG;
     soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1};
     soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1};
     soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1};
@@ -99,8 +222,8 @@ class HR_GRG_RscButton
     w = 0.06;
     h = 0.05;
     shadow = 0;
-    font = HR_GRG_FontStyle;
-    sizeEx = HR_GRG_FontSize;
+    font = FontStyle;
+    sizeEx = FontSize;
     offsetX = 0;
     offsetY = 0;
     offsetPressedX = 0.002;
@@ -109,6 +232,7 @@ class HR_GRG_RscButton
     onMouseEnter = "(_this select 0) ctrlSetTextColor [0.85,0.85,0.55,1]";
     onMouseExit = "(_this select 0) ctrlSetTextColor [1,1,1,1]";
 };
+class ctrlButtonPictureKeepAspect;
 
 class HR_GRG_RscFrame
 {
@@ -120,10 +244,10 @@ class HR_GRG_RscFrame
     h = 0;
     style = ST_FRAME;
     shadow = 0;
-    colorBackground[] = HR_GRG_colorBG;
+    colorBackground[] = colorBG;
     colorText[] = {1,1,1,1};
-    font = HR_GRG_FontStyle;
-    sizeEx = HR_GRG_FontSize;
+    font = FontStyle;
+    sizeEx = FontSize;
     text = "";
 };
 
@@ -137,10 +261,10 @@ class HR_GRG_RscBox
     h = 0;
     style = ST_CENTER;
     shadow = 0;
-    colorText[] = HR_GRG_colorBG;
-    font = HR_GRG_FontStyle;
-    sizeEx = HR_GRG_FontSize;
-    colorBackground[] = HR_GRG_colorBG;
+    colorText[] = colorBG;
+    font = FontStyle;
+    sizeEx = FontSize;
+    colorBackground[] = colorBG;
     text = "";
 };
 
@@ -151,16 +275,16 @@ class HR_GRG_RscListbox
      style = 0;
      w = 0.4;
      h = 0.4;
-     font = HR_GRG_FontStyle;
-     sizeEx = HR_GRG_FontSize;
+     font = FontStyle;
+     sizeEx = FontSize;
      rowHeight = 0;
      colorText[] = {1,1,1,1};
      colorScrollbar[] = {0.34,0.34,0.34,1};
      colorSelect[] = {1,1,1,0.75};
      colorSelect2[] = {0.85,0.85,0.55,0.75};
      colorSelectBackground[] = {0.53,0.53,0.53,0.75};
-     colorSelectBackground2[] = HR_GRG_colorBG;
-     colorBackground[] = HR_GRG_colorBG;
+     colorSelectBackground2[] = colorBG;
+     colorBackground[] = colorBG;
      colorDisabled[] = {0,0,0,0};
      maxHistoryDelay = 1.0;
      soundSelect[] = {"\A3\ui_f\data\sound\RscCombo\soundSelect",0.1,1};
@@ -186,9 +310,9 @@ class HR_GRG_RscListbox
 
 class HR_GRG_ScrollBar
 {
-    color[] = HR_GRG_colorBG;
-    colorActive[] = HR_GRG_colorBG;
-    colorDisabled[] = HR_GRG_colorBG;
+    color[] = colorBG;
+    colorActive[] = colorBG;
+    colorDisabled[] = colorBG;
     thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
     arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
     arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
@@ -231,6 +355,20 @@ class HR_GRG_RscControlsGroup
     };
 };
 
+class RscControlsGroupNoScrollbars: HR_GRG_RscControlsGroup
+{
+    class VScrollbar: VScrollbar
+    {
+        width = 0;
+        scrollSpeed = 0;
+    };
+    class HScrollbar: HScrollbar
+    {
+        height = 0;
+        scrollSpeed = 0;
+    };
+};
+
 class HR_GRG_RscCombo
 {
     deletable = 1;
@@ -239,7 +377,7 @@ class HR_GRG_RscCombo
     type = CT_COMBO;
     colorSelect[] = {1,1,1,0.75};
     colorText[] = {1,1,1,1};
-    colorBackground[] = {0,0,0,0.75};
+    colorBackground[] = colorBG;
     colorScrollbar[] = {1,1,1,1};
     colorDisabled[] = {1,1,1,0.25};
     colorPicture[] = {1,1,1,1};
@@ -263,157 +401,60 @@ class HR_GRG_RscCombo
         color[] = {1,1,1,1};
     };
     style = ST_MULTI + ST_NO_RECT;
-    font = HR_GRG_FontStyle;
-    sizeEx = HR_GRG_FontSize;
+    font = FontStyle;
+    sizeEx = FontSize;
     shadow = 0;
     x = 0;
     y = 0;
     w = 0;
     h = 0;
     colorSelectBackground[] = {0.53,0.53,0.53,0.75};
-    arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa";
-    arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa";
+    arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\RscCombo\arrow_combo_ca.paa";
+    arrowFull = "\A3\ui_f\data\GUI\RscCommon\RscCombo\arrow_combo_active_ca.paa";
     wholeHeight = 0.45 * safeZoneH;
     colorActive[] = {1,0,0,1};
 };
+class HR_GRG_RscComboBlckBG : HR_GRG_RscCombo
+{
+    colorBackground[] = {0,0,0,1};
+};
 
 class HR_GRG_RscCheckBox
-	{
-		idc = -1;
-		type = 77;
-		style = 0;
-		checked = 0;
-		x = "0.375 * safezoneW + safezoneX";
-		y = "0.36 * safezoneH + safezoneY";
-		w = "0.025 * safezoneW";
-		h = "0.04 * safezoneH";
-		color[] = {1, 1, 1, 0.7};
-		colorFocused[] = {1, 1, 1, 1};
-		colorHover[] = {1, 1, 1, 1};
-		colorPressed[] = {1, 1, 1, 1};
-		colorDisabled[] = {1, 1, 1, 0.2};
-		colorBackground[] = {0, 0, 0, 0};
-		colorBackgroundFocused[] = {0, 0, 0, 0};
-		colorBackgroundHover[] = {0, 0, 0, 0};
-		colorBackgroundPressed[] = {0, 0, 0, 0};
-		colorBackgroundDisabled[] = {0, 0, 0, 0};
-		textureChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-		textureUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-		textureFocusedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-		textureFocusedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-		textureHoverChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-		textureHoverUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-		texturePressedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-		texturePressedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-		textureDisabledChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
-		textureDisabledUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
-		tooltipColorText[] = {1, 1, 1, 1};
-		tooltipColorBox[] = {1, 1, 1, 1};
-		tooltipColorShade[] = {0, 0, 0, 0.65};
-		soundEnter[] = {"", 0.1, 1};
-		soundPush[] = {"", 0.1, 1};
-		soundClick[] = {"", 0.1, 1};
-		soundEscape[] = {"", 0.1, 1};
-	};
-
-class ctrlDefault
 {
-    access = 0;
     idc = -1;
-    style = 0;
-    default = 0;
-    show = 1;
-    fade = 0;
-    blinkingPeriod = 0;
-    deletable = 0;
+    type = CT_CHECKBOX;
+    deletable = 1;
+    style = ST_LEFT;
+    checked = 0;
     x = 0;
     y = 0;
     w = 0;
     h = 0;
-    tooltip = "";
-    tooltipMaxWidth = 0.5;
-    tooltipColorShade[] = {0, 0, 0, 1};
-    tooltipColorText[] = {1, 1, 1, 1};
-    tooltipColorBox[] = {0, 0, 0, 0};
-    class ScrollBar
-    {
-        width = 0;
-        height = 0;
-        scrollSpeed = 0.06;
-        arrowEmpty = "\a3\3DEN\Data\Controls\ctrlDefault\arrowEmpty_ca.paa";
-        arrowFull = "\a3\3DEN\Data\Controls\ctrlDefault\arrowFull_ca.paa";
-        border = "\a3\3DEN\Data\Controls\ctrlDefault\border_ca.paa";
-        thumb = "\a3\3DEN\Data\Controls\ctrlDefault\thumb_ca.paa";
-        color[] = {1, 1, 1, 1};
-    };
-};
-
-class ctrlDefaultText: ctrlDefault
-{
-    sizeEx = "4.32 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
-    font = "RobotoCondensedLight";
-    shadow = 1;
-};
-
-class ctrlDefaultButton: ctrlDefaultText
-{
-    soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick", 0.09, 1};
-    soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter", 0.09, 1};
-    soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush", 0.09, 1};
-    soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape", 0.09, 1};
-};
-
-class ctrlButton: ctrlDefaultButton
-{
-    type = 1;
-    style = "0x02 + 0xC0";
-    colorBackground[] = {0, 0, 0, 1};
-    colorBackgroundDisabled[] = {0, 0, 0, 0.5};
-    colorBackgroundActive[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])", 1};
-    colorFocused[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])", 1};
-    font = "PuristaLight";
-    text = "";
-    colorText[] = {1, 1, 1, 1};
-    colorDisabled[] = {1, 1, 1, 0.25};
-    borderSize = 0;
-    colorBorder[] = {0, 0, 0, 0};
-    colorShadow[] = {0, 0, 0, 0};
-    offsetX = 0;
-    offsetY = 0;
-    offsetPressedX = "pixelW";
-    offsetPressedY = "pixelH";
-    period = 0;
-    periodFocus = 2;
-    periodOver = 0.5;
-    class KeyHints
-    {
-        class A
-        {
-            key = "0x00050000 + 0";
-            hint = "KEY_XBOX_A";
-        };
-    };
-    onCanDestroy = "";
-    onDestroy = "";
-    onMouseEnter = "";
-    onMouseExit = "";
-    onSetFocus = "";
-    onKillFocus = "";
-    onKeyDown = "";
-    onKeyUp = "";
-    onMouseButtonDown = "";
-    onMouseButtonUp = "";
-    onMouseButtonClick = "";
-    onMouseButtonDblClick = "";
-    onMouseZChanged = "";
-    onMouseMoving = "";
-    onMouseHolding = "";
-    onButtonClick = "";
-    onButtonDown = "";
-    onButtonUp = "";
-};
-
-class HR_GRG_ctrlButtonPictureKeepAspect: ctrlButton
-{
-    style = "0x02 + 0x30 + 0x800";
+    color[] = {1,1,1,0.7};
+    colorFocused[] = {1,1,1,1};
+    colorHover[] = {1,1,1,1};
+    colorPressed[] = {1,1,1,1};
+    colorDisabled[] = {1,1,1,0.2};
+    colorBackground[] = {0,0,0,0};
+    colorBackgroundFocused[] = {0,0,0,0};
+    colorBackgroundHover[] = {0,0,0,0};
+    colorBackgroundPressed[] = {0,0,0,0};
+    colorBackgroundDisabled[] = {0,0,0,0};
+    textureChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    textureUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    textureFocusedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    textureFocusedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    textureHoverChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    textureHoverUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    texturePressedChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    texturePressedUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    textureDisabledChecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_checked_ca.paa";
+    textureDisabledUnchecked = "A3\Ui_f\data\GUI\RscCommon\RscCheckBox\CheckBox_unchecked_ca.paa";
+    tooltipColorText[] = {1,1,1,1};
+    tooltipColorBox[] = {1,1,1,1};
+    tooltipColorShade[] = {0,0,0,0.65};
+    soundEnter[] = {"",0.1,1};
+    soundPush[] = {"",0.1,1};
+    soundClick[] = {"",0.1,1};
+    soundEscape[] = {"",0.1,1};
 };

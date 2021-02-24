@@ -27,22 +27,22 @@ private _class = typeOf _vehicle;
 private _cat = [_class] call HR_GRG_fnc_getCatIndex;
 
 //validate input
-if (!alive _vehicle) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Destroyed"] remoteExec ["Hint", _client]; false };
-if (locked _vehicle > 1) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Locked"] remoteExec ["Hint", _client]; false };
-if (_cat isEqualTo -1) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_GenericFail"] remoteExec ["Hint", _client]; false };
+if (!alive _vehicle) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Destroyed"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+if (locked _vehicle > 1) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Locked"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+if (_cat isEqualTo -1) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_GenericFail"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
     //crewed
 private _exit = false;
 if ( ( {alive _x} count (crew _vehicle) ) > 0) then { _exit = true };
 { if ( ( {alive _x} count (crew _x) ) > 0) exitWith {_exit = true} } forEach attachedObjects _vehicle;
-if (_exit) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Crewed"] remoteExec ["Hint", _client]; false };
+if (_exit) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Crewed"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
     //cap block
 private _capacity = 0;
 { _capacity = _capacity + count _x } forEach HR_GRG_Vehicles;
 
 private _countStatics = {_x isKindOf "StaticWeapon"} count (attachedObjects _vehicle);
-if ((call HR_GRG_VehCap - _capacity) < (_countStatics + 1)) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Capacity"] remoteExec ["Hint", _client]; false };//HR_GRG_VehCap is defined in config.inc
+if ((call HR_GRG_VehCap - _capacity) < (_countStatics + 1)) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Capacity"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };//HR_GRG_VehCap is defined in config.inc
 
 //add vehicle
 private _locking = if (_lockUID isEqualTo "") then {false} else {true};
@@ -88,5 +88,5 @@ private _refreshCode = {
 };
 [ _catToRefresh, _refreshCode ] remoteExecCall ["call", HR_GRG_Users];
 
-[format [localize "STR_HR_GRG_Feedback_addVehicle_Success", cfgDispName(_class)]] remoteExec ["Hint", _client];
+[format [localize "STR_HR_GRG_Feedback_addVehicle_Success", cfgDispName(_class)] ] remoteExec ["HR_GRG_fnc_Hint", _client];
 true;

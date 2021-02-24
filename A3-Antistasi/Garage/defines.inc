@@ -65,15 +65,15 @@
 #define zoomIcon "\a3\ui_f\data\IGUI\Cfg\Actions\autohover_ca.paa"
 
 //Debug
-#define LogDebug(Message) [Message] call HR_GRG_Log
-#define LogDebug_1(Message, A) [format [Message, A]] call HR_GRG_Log
-#define LogDebug_2(Message, A,B) [format [Message, A,B]] call HR_GRG_Log
-#define LogDebug_3(Message, A,B,C) [format [Message, A,B,C]] call HR_GRG_Log
-#define LogDebug_4(Message, A,B,C,D) [format [Message, A,B,C,D]] call HR_GRG_Log
-#define LogDebug_5(Message, A,B,C,D,E) [format [Message, A,B,C,D,E]] call HR_GRG_Log
-#define LogDebug_6(Message, A,B,C,D,E,F) [format [Message, A,B,C,D,E,F]] call HR_GRG_Log
-#define LogDebug_7(Message, A,B,C,D,E,F,G) [format [Message, A,B,C,D,E,F,G]] call HR_GRG_Log
-#define LogDebug_8(Message, A,B,C,D,E,F,G,H) [format [Message, A,B,C,D,E,F,G,H]] call HR_GRG_Log
+#define LogDebug(Message) [Message] call HR_GRG_fnc_Log
+#define LogDebug_1(Message, A) [format [Message, A]] call HR_GRG_fnc_Log
+#define LogDebug_2(Message, A,B) [format [Message, A,B]] call HR_GRG_fnc_Log
+#define LogDebug_3(Message, A,B,C) [format [Message, A,B,C]] call HR_GRG_fnc_Log
+#define LogDebug_4(Message, A,B,C,D) [format [Message, A,B,C,D]] call HR_GRG_fnc_Log
+#define LogDebug_5(Message, A,B,C,D,E) [format [Message, A,B,C,D,E]] call HR_GRG_fnc_Log
+#define LogDebug_6(Message, A,B,C,D,E,F) [format [Message, A,B,C,D,E,F]] call HR_GRG_fnc_Log
+#define LogDebug_7(Message, A,B,C,D,E,F,G) [format [Message, A,B,C,D,E,F,G]] call HR_GRG_fnc_Log
+#define LogDebug_8(Message, A,B,C,D,E,F,G,H) [format [Message, A,B,C,D,E,F,G,H]] call HR_GRG_fnc_Log
 
 #ifdef Debug
     #define Trace(Message) diag_log ( str serverTime + " | " + HR_GRG_Prefix + " | Garage | Trace | " + Message)

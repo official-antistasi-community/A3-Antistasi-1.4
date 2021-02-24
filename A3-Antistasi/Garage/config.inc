@@ -40,8 +40,9 @@ if (isNil "HR_GRG_Pylons_Enabled") then { HR_GRG_Pylons_Enabled = true }; public
 //camo blacklist (display name, case sensitive)
 if (isNil "HR_GRG_blackListCamo") then {HR_GRG_blackListCamo = ["IDAP"]; publicVariable "HR_GRG_blackListCamo"};
 
-//log intermediary
-if (isNil "HR_GRG_Log") then {HR_GRG_Log = {[2,_this, "HR Garage", true] call A3A_fnc_log}}; publicVariable "HR_GRG_Log";
+//proxies
+if (isNil "HR_GRG_fnc_Log") then {HR_GRG_fnc_Log = { [2,_this, "HR Garage", true] call A3A_fnc_log }}; publicVariable "HR_GRG_fnc_Log";
+if (isNil "HR_GRG_fnc_Hint") then {HR_GRG_fnc_Hint = { ["Garage",_this#0] call A3A_fnc_customHint }; publicVariable "HR_GRG_fnc_Hint"};
 
 //CBA settings
 if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {

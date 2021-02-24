@@ -1,5 +1,3 @@
-#include "..\Garage\defineGarage.inc"
-
 private ["_flag","_typeX"];
 
 if (!hasInterface) exitWith {};

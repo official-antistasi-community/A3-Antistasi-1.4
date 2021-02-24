@@ -1,4 +1,3 @@
-#include "..\Garage\defineGarage.inc"
 private _fileName = "initClient.sqf";
 
 //Make sure logLevel is always initialised.

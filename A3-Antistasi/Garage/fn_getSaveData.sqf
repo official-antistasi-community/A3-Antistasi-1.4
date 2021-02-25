@@ -40,10 +40,9 @@
 if (!isServer) exitWith {};
 #include "defines.inc"
 //get data to be saved
-private _garage = HR_GRG_Vehicles call HR_GRG_fnc_removeReferences;
-private _UID = HR_GRG_UID call HR_GRG_fnc_removeReferences;
-private _sources = HR_GRG_Sources call HR_GRG_fnc_removeReferences;
-diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["Sources Loaded: %1",_sources]);
+private _garage = call compile str HR_GRG_Vehicles; //have had issus with refrences persisting trough save procces causing mangling of save data
+private _UID = call compile str HR_GRG_UID;
+private _sources = call compile str HR_GRG_Sources;
 
 //correct some data to savable state
 {
@@ -51,6 +50,11 @@ diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["Sour
         _x set [3, ""]; //remove checkouts
     } forEach _x;
 } forEach _garage;
+
+//log the save data (due to issues with save mangeling)
+diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["Vehicles saved: %1",_garage]);
+diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["UID saved: %1",_UID]);
+diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["Sources saved: %1",_sources]);
 
 //return save data struct
 [_garage, _UID, _sources];

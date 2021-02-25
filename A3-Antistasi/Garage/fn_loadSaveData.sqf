@@ -43,12 +43,15 @@ if (!isServer) exitWith {false};
 params ["_save"];
 _save params ["_garage", "_uid", "_sources"];
 
-HR_GRG_Vehicles = _garage;
-HR_GRG_UID = _uid;
+HR_GRG_Vehicles = +_garage;
+HR_GRG_UID = +_uid;
+HR_GRG_Sources = +_sources;
 
-HR_GRG_Sources = _sources;
-diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["Sources Loaded: %1",_sources]);//temp debug
-if (isNil "HR_GRG_Sources") exitWith {false};
+diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["Vehicles Loaded: %1",HR_GRG_Vehicles]);
+diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["UID Loaded: %1",HR_GRG_UID]);
+diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["Sources Loaded: %1",HR_GRG_Sources]);
+
+if (isNil "HR_GRG_Sources") exitWith {HR_GRG_Sources = [[],[],[]]};
 {
     [_forEachIndex] call HR_GRG_fnc_declairSources;
 } forEach HR_GRG_Sources;

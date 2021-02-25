@@ -55,20 +55,20 @@ if (isNil "HR_GRG_fnc_vehInit") then { HR_GRG_fnc_vehInit = { [_this, TeamPlayer
 //CBA settings
 if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {
 
-    ["HR_GRG_dLock", "CHECKBOX", ["Lock on garage", "Lock vehicles when garaged"], ["Red Rebelion","Garage"], (HR_GRG_dLock isEqualTo {getPlayerUID player}), false, {
+    ["HR_GRG_dLock", "CHECKBOX", ["Lock on garage", "Lock vehicles when garaged"], [HR_GRG_Prefix,"Garage"], (HR_GRG_dLock isEqualTo {getPlayerUID player}), false, {
         HR_GRG_dLock = [{""}, { getPlayerUID player }] select _this;
     }] remoteExecCall ["CBA_fnc_addSetting",0,true];
 
-    ["HR_GRG_Pylons_Enabled", "CHECKBOX", ["Allow pylon editing", "Allows player to configure pylons in the garage"], ["Red Rebelion","Garage"], true, true, {
+    ["HR_GRG_Pylons_Enabled", "CHECKBOX", ["Allow pylon editing", "Allows player to configure pylons in the garage"], [HR_GRG_Prefix,"Garage"], true, true, {
         HR_GRG_Pylons_Enabled = _this;
     }] remoteExecCall ["CBA_fnc_addSetting",0,true];
 
-    ["HR_GRG_PoolBase", "SLIDER", ["Base Capacity", "Garage base capacity"], ["Red Rebelion","Garage"], [0, 50, HR_GRG_PoolBase, 0], true, {
+    ["HR_GRG_PoolBase", "SLIDER", ["Base Capacity", "Garage base capacity"], [HR_GRG_Prefix,"Garage"], [0, 50, HR_GRG_PoolBase, 0], true, {
         HR_GRG_PoolBase = round _this;
         HR_GRG_VehCap = { HR_GRG_PoolBase + warTier * HR_GRG_PoolIncr };
     }] remoteExecCall ["CBA_fnc_addSetting",0,true];
 
-    ["HR_GRG_PoolIncr", "SLIDER", ["Capacity increase", "Capacity increase per war level"], ["Red Rebelion","Garage"], [0, 10, HR_GRG_PoolIncr, 0], true, {
+    ["HR_GRG_PoolIncr", "SLIDER", ["Capacity increase", "Capacity increase per war level"], [HR_GRG_Prefix,"Garage"], [0, 10, HR_GRG_PoolIncr, 0], true, {
         HR_GRG_PoolIncr = round _this;
         HR_GRG_VehCap = { HR_GRG_PoolBase + warTier * HR_GRG_PoolIncr };
     }] remoteExecCall ["CBA_fnc_addSetting",0,true];

@@ -48,8 +48,10 @@ private _HR_GRG_SelectedVehicles = [-1,-1,""];
 
     if !( _lockedUID isEqualTo "" ) then {
         private _color = if ( _lockedUID isEqualTo HR_GRG_PlayerUID ) then { [1,1,1,1] } else { [1,0.1,0.1,1] }; //white, red
+        private _toolTip = if ( _lockedUID isEqualTo HR_GRG_PlayerUID ) then { "" } else { localize "STR_HR_GRG_Feedback_LockedToolTip" };
         _ctrl lbSetPictureRight [_index, LockIcon];
         _ctrl lbSetPictureRightColor [_index, _color];
+        _ctrl lbSetTooltip [_index, _toolTip]; //for some reason dosnt apply
     };
     _ctrl lbSetPictureRightColorSelected [_index, [0.85,0.85,0.55,1]];
 

@@ -3574,6 +3574,10 @@
             <Original>Cant mount static</Original>
             <English>Cant mount static</English>
         </Key>
+        <Key ID="STR_HR_GRG_Feedback_LockedToolTip">
+            <Original>This vehicle is locked by another player</Original>
+            <English>This vehicle is locked by another player</English>
+        </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_Rotation">
             <!--Keybinds are hardcoded to key DIK codes: DIK_E, DIK_Q, DIK_ESCAPE, DIK_RETURN, and DIK_SPACE-->
             <Original>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</Original>

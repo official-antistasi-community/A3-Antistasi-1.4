@@ -64,6 +64,8 @@ HR_GRG_cleanUp = {
     HR_GRG_EH_EF = nil;
     HR_GRG_EH_KeyDown = nil;
     HR_GRG_keyHint = nil;
+    HR_GRG_Placing = false;
+    HR_GRG_AccessPoint = objNull;
 };
 
 HR_GRG_fnc_execForGarageUsers = {
@@ -273,7 +275,6 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             private _fnc = if (_placed) then {"HR_GRG_fnc_removeFromPool"} else {"HR_GRG_fnc_releaseAllVehicles"};
             [[clientOwner, player, _fnc], HR_GRG_fnc_execForGarageUsers] remoteExecCall ["call", 2]; //run code on server as HR_GRG_Users is maintained ONLY on the server
         };
-        HR_GRG_Placing = false;
     };
 
     //block key press if valid key

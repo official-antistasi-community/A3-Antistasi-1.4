@@ -26,6 +26,7 @@ _object removeAction _oldID;
 private _id = _object addAction [
     localize "STR_HR_GRG_openGarage_Action"
     , "
+        HR_GRG_AccessPoint = _this#0;
         ['HR_GRG','Loading Garage, please wait...'] call BIS_fnc_startLoadingScreen;
         createDialog 'HR_GRG_VehicleSelect';
         sleep 1.5;

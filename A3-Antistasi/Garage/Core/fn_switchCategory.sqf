@@ -20,12 +20,12 @@
     License: MIT License
 */
 #include "defines.inc"
-params ["_listCtrl", "_index"];
+params ["_index"];
 if (_index isEqualTo -1) exitWith {};
 private _disp = findDisplay HR_GRG_IDD_Garage;
 
 //disables current category
-for "_i" from 0 to (lbSize _listCtrl) - 1 do {
+for "_i" from 0 to 4 do {
     private _ctrl = _disp displayCtrl (HR_GRG_IDC_CatCar + _i);
     if (ctrlEnabled _ctrl) exitWith {
         _ctrl ctrlShow false;
@@ -43,5 +43,13 @@ _newCtrl ctrlEnable true;
 _newCtrl ctrlShow true;
 
 //update category text
+private _text = switch _index do {
+    case 0: {localize "STR_HR_GRG_Generic_Cars"};
+    case 1: {localize "STR_HR_GRG_Generic_Armored"};
+    case 2: {localize "STR_HR_GRG_Generic_Air"};
+    case 3: {localize "STR_HR_GRG_Generic_Boat"};
+    case 4: {localize "STR_HR_GRG_Generic_Static"};
+    default {""};
+};
 _textCtrl = _disp displayCtrl HR_GRG_IDC_CatText;
-_textCtrl ctrlSetStructuredText text (_listCtrl lbData _index);
+_textCtrl ctrlSetStructuredText text _text;

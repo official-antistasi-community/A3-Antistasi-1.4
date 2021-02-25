@@ -54,4 +54,5 @@ private _code = {
     _recipients pushBackUnique _client;
     [_UID] remoteExecCall [_fnc,_recipients];
 };
+HR_GRG_AccessPoint = objNull;
 [[clientOwner, getPlayerUID player, _fnc], _code] remoteExecCall ["call", 2]; //run code on server as HR_GRG_Users is maintained ONLY on the server

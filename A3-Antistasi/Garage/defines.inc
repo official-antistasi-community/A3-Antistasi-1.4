@@ -21,15 +21,22 @@
 #define TEXT_SIZE_LARGE GRID_NOUISCALE_H * 3
 
 //-- Category --\\
-#define HR_GRG_IDC_CatList 170010
 #define HR_GRG_IDC_CatCar 1700100
 #define HR_GRG_IDC_CatArmored 1700101
 #define HR_GRG_IDC_CatAir 1700102
 #define HR_GRG_IDC_CatBoat 1700103
 #define HR_GRG_IDC_CatStatic 1700104
+#define HR_GRG_IDC_BttnCars 1700105
+#define HR_GRG_IDC_BttnArmor 1700106
+#define HR_GRG_IDC_BttnAir 1700107
+#define HR_GRG_IDC_BttnBoats 1700108
+#define HR_GRG_IDC_BttnStatics 1700109
 
 //-- extra --\\
-#define HR_GRG_IDC_ExtraList 170015
+#define HR_GRG_IDC_BttnMounts 1700170
+#define HR_GRG_IDC_BttnTexture 1700171
+#define HR_GRG_IDC_BttnAnim 1700172
+#define HR_GRG_IDC_BttnPylons 1700173
 #define HR_GRG_IDC_ExtraMounts 1700150
 #define HR_GRG_IDC_ExtraTexture 1700151
 #define HR_GRG_IDC_ExtraAnim 1700152

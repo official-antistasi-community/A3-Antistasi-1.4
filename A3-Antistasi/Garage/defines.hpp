@@ -458,3 +458,35 @@ class HR_GRG_RscCheckBox
     soundClick[] = {"",0.1,1};
     soundEscape[] = {"",0.1,1};
 };
+
+class HR_GRG_RscActiveText
+{
+    deletable = 1;
+    fade = 0;
+    access = 0;
+    type = CT_ACTIVETEXT;
+    style = ST_CENTER;
+    color[] = {0.43,0.43,0.43,1};
+    colorActive[] = {1,1,1,1};
+    colorDisabled[] = {0.7,0,0,1};
+    soundEnter[] = { "", 0.1, 1 };
+    soundPush[] = { "", 0.1, 1 };
+    soundClick[] = { "", 0.1, 1 };
+    soundEscape[] = { "", 0.1, 1 };
+    text = "";
+    default = 0;
+    idc = -1;
+    x = 0;
+    y = 0;
+    h = 0.035;
+    w = 0.035;
+    font = FontStyle;
+    shadow = 2;
+    sizeEx = FontSize;
+    url = "";
+    tooltipColorText[] = {1,1,1,1};
+    tooltipColorBox[] = {1,1,1,1};
+    tooltipColorShade[] = {0,0,0,0.65};
+};
+class HR_GRG_RscActivePicture: HR_GRG_RscActiveText { style = ST_MULTI + ST_TITLE_BAR };
+class HR_GRG_RscActivePictureKeepAspect: HR_GRG_RscActivePicture { style = ST_MULTI + ST_TITLE_BAR + ST_KEEP_ASPECT_RATIO };

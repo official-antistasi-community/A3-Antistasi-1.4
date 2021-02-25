@@ -80,64 +80,39 @@ _disp displayAddEventHandler ["MouseButtonUp", "if ((_this#1) isEqualTo 1) then 
 _disp displayAddEventHandler ["MouseMoving", "if (HR_GRG_RMouseBtnDown) then {_this call HR_GRG_fnc_updateCamPos};"];
 _disp displayAddEventHandler ["MouseZChanged","if !(HR_GRG_RMouseBtnDown) exitWith {}; HR_GRG_camDist = 0.9 max (HR_GRG_camDist - (_this#1)*0.1) min 2; [nil,0,0] call HR_GRG_fnc_updateCamPos; HR_GRG_previewLight setLightBrightness 1.1 * HR_GRG_camDist;"];
 
-//HR_GRG_categories list init
-private _ctrlCat = _disp displayCtrl HR_GRG_IDC_CatList;
-private _catInitData = [
-    [CarIcon, localize "STR_HR_GRG_Generic_Cars"]
-    ,[ArmoredIcon, localize "STR_HR_GRG_Generic_Armored"]
-    ,[AirIcon, localize "STR_HR_GRG_Generic_Air"]
-    ,[BoatIcon, localize "STR_HR_GRG_Generic_Boat"]
-    ,[StaticIcon, localize "STR_HR_GRG_Generic_Static"]
-];
-{
-    private _index = _ctrlCat lbAdd "";
-    _ctrlCat lbSetData [_index, _x#1];
-    _ctrlCat lbSetTooltip [_index, _x#1];
-    _ctrlCat lbSetPicture [_index, _x#0];
-    _ctrlCat lbSetPictureColor [_index, [1, 1, 1, 1]];
-    _ctrlCat lbSetPictureColorSelected [_index, [0.85, 0.85, 0.55, 1]];
-} forEach _catInitData;
-
 //define list of controls coresponding with list index
 HR_GRG_Cats = [HR_GRG_IDC_CatCar,HR_GRG_IDC_CatArmored,HR_GRG_IDC_CatAir,HR_GRG_IDC_CatBoat,HR_GRG_IDC_CatStatic] apply {_disp displayCtrl _x};
 {
     _x ctrlShow false;
     _x ctrlEnable false;
 } forEach HR_GRG_Cats;
-_ctrlCat lbSetCurSel 0;
+[0] call HR_GRG_fnc_switchCategory;
+
+if !(call HR_GRG_Cnd_canAccessAir) then {
+    private _airBttn = _disp displayCtrl HR_GRG_IDC_BttnAir;
+    _airBttn ctrlEnable false;
+    _airBttn ctrlSetTooltip localize "STR_HR_GRG_Generic_AirDisabled";
+};
 
 //add veh pool modified EH
 "HR_GRG_Event" addPublicVariableEventHandler { (_this#1) call HR_GRG_fnc_reciveBroadcast };
 "HR_GRG_Vehicles" addPublicVariableEventHandler {
     #include "defines.inc"
     private _disp = findDisplay HR_GRG_IDD_Garage;
-    private _catCtrl = _disp displayCtrl HR_GRG_IDC_CatList;
-    private _index = lbCurSel _catCtrl;
+    private _index = HR_GRG_Cats findIf {ctrlShown _x};
     private _ctrl = HR_GRG_Cats#_index;
     [_ctrl, _index] call HR_GRG_fnc_reloadCategory;
 };
 
 //extras list init
-private _ctrlExtraList = _disp displayCtrl HR_GRG_IDC_ExtraList;
-private _extraInitData = [
-    [StaticIcon, localize "STR_HR_GRG_Generic_Mounts",HR_GRG_IDC_ExtraMounts]
-    ,[TexturesIcon, localize "STR_HR_GRG_Generic_Texture",HR_GRG_IDC_ExtraTexture]
-    ,[AnimationsIcon, localize "STR_HR_GRG_Generic_Anim",HR_GRG_IDC_ExtraAnim]
-];
 if (
-    HR_GRG_Pylons_Enabled //Pylon editing enabled
-    && { HR_GRG_hasAmmoSource } //or ammo source registered
-) then { _extraInitData pushBack [PylonsIcon, "Pylons",HR_GRG_IDC_ExtraPylonsContainer] }; //add pylon editing menu
-
-{
-    private _index = _ctrlExtraList lbAdd "";
-    _ctrlExtraList lbSetData [_index, _x#1];
-    _ctrlExtraList lbSetValue [_index, _x#2];
-    _ctrlExtraList lbSetTooltip [_index, _x#1];
-    _ctrlExtraList lbSetPicture [_index, _x#0];
-    _ctrlExtraList lbSetPictureColor [_index, [1, 1, 1, 1]];
-    _ctrlExtraList lbSetPictureColorSelected [_index, [0.85, 0.85, 0.55, 1]];
-} forEach _extraInitData;
+    !HR_GRG_Pylons_Enabled //Pylon editing disabled
+    || {!HR_GRG_hasAmmoSource} //or ammo source not registered
+) then {
+    private _pylonBttn = _disp displayCtrl HR_GRG_IDC_BttnPylons;
+    _pylonBttn ctrlEnable false;
+    _pylonBttn ctrlSetTooltip localize "STR_HR_GRG_Generic_PylonDisabled";
+};
 
 //hide all extras menus and info panel
 {
@@ -145,7 +120,7 @@ if (
     _ctrl ctrlEnable false;
     _ctrl ctrlShow false;
 } forEach [HR_GRG_IDC_ExtraMounts,HR_GRG_IDC_ExtraTexture,HR_GRG_IDC_ExtraAnim,HR_GRG_IDC_ExtraPylonsContainer];
-_ctrlExtraList lbSetCurSel 0;
+[0] call HR_GRG_fnc_switchExtrasMenu;
 [] call HR_GRG_fnc_reloadPylons;
 
 //add player to broadcast recipient list

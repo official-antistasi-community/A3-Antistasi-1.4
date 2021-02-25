@@ -100,27 +100,85 @@ class HR_GRG_VehicleSelect
         };
 
         // Vehicle HR_GRG_categories buttons
-        class HR_GRG_categories: HR_GRG_RscListbox
+        class HR_GRG_BttnCars: HR_GRG_RscActivePictureKeepAspect
         {
-            idc = HR_GRG_IDC_CatList;
+            idc = HR_GRG_IDC_BttnCars;
             x = SCREEN_LEFT + 39 * GRID_NOUISCALE_W;
             y = SCREEN_TOP;
             w = 10 * GRID_NOUISCALE_W;
-            h = 20 * GRID_NOUISCALE_H;
-            rowHeight = 4 * GRID_NOUISCALE_H;
-            onLBSelChanged = "_this call HR_GRG_fnc_switchCategory;";
+            h = 4 * GRID_NOUISCALE_H;
+            text = CarIcon;
+            tooltip = $STR_HR_GRG_Generic_Cars;
+            action = "[0] call HR_GRG_fnc_switchCategory;";
+        };
+        class HR_GRG_BttnArmor: HR_GRG_BttnCars
+        {
+            idc = HR_GRG_IDC_BttnArmor;
+            y = SCREEN_TOP + 4 * GRID_NOUISCALE_H;
+            text = ArmoredIcon;
+            tooltip = $STR_HR_GRG_Generic_Armored;
+            action = "[1] call HR_GRG_fnc_switchCategory;";
+        };
+        class HR_GRG_BttnAir: HR_GRG_BttnCars
+        {
+            idc = HR_GRG_IDC_BttnAir;
+            y = SCREEN_TOP + 8 * GRID_NOUISCALE_H;
+            text = AirIcon;
+            tooltip = $STR_HR_GRG_Generic_Air;
+            action = "[2] call HR_GRG_fnc_switchCategory;";
+        };
+        class HR_GRG_BttnBoats: HR_GRG_BttnCars
+        {
+            idc = HR_GRG_IDC_BttnBoats;
+            y = SCREEN_TOP + 12 * GRID_NOUISCALE_H;
+            text = BoatIcon;
+            tooltip = $STR_HR_GRG_Generic_Boat;
+            action = "[3] call HR_GRG_fnc_switchCategory;";
+        };
+        class HR_GRG_BttnStatics: HR_GRG_BttnCars
+        {
+            idc = HR_GRG_IDC_BttnStatics;
+            y = SCREEN_TOP + 16 * GRID_NOUISCALE_H;
+            text = StaticIcon;
+            tooltip = $STR_HR_GRG_Generic_Static;
+            action = "[4] call HR_GRG_fnc_switchCategory;";
         };
 
         //vehicle extras buttons
-        class HR_GRG_ExtraList: HR_GRG_RscListbox
+        class HR_GRG_BttnMounts: HR_GRG_RscActivePictureKeepAspect
         {
-            idc = HR_GRG_IDC_ExtraList;
+            idc = HR_GRG_IDC_BttnMounts;
             x = SCREEN_RIGHT - 49 * GRID_NOUISCALE_W;
             y = SCREEN_TOP;
             w = 10 * GRID_NOUISCALE_W;
-            h = 16 * GRID_NOUISCALE_H;
-            rowHeight = 4 * GRID_NOUISCALE_H;
-            onLBSelChanged = "_this call HR_GRG_fnc_switchExtrasMenu;";
+            h = 4 * GRID_NOUISCALE_H;
+            text = StaticIcon;
+            tooltip = $STR_HR_GRG_Generic_Mounts;
+            action = "[0] call HR_GRG_fnc_switchExtrasMenu;";
+        };
+        class HR_GRG_BttnTexture: HR_GRG_BttnMounts
+        {
+            idc = HR_GRG_IDC_BttnTexture;
+            y = SCREEN_TOP + 4 * GRID_NOUISCALE_H;
+            text = TexturesIcon;
+            tooltip = $STR_HR_GRG_Generic_Texture;
+            action = "[1] call HR_GRG_fnc_switchExtrasMenu;";
+        };
+        class HR_GRG_BttnAnim: HR_GRG_BttnMounts
+        {
+            idc = HR_GRG_IDC_BttnAnim;
+            y = SCREEN_TOP + 8 * GRID_NOUISCALE_H;
+            text = AnimationsIcon;
+            tooltip = $STR_HR_GRG_Generic_Anim;
+            action = "[2] call HR_GRG_fnc_switchExtrasMenu;";
+        };
+        class HR_GRG_BttnPylons: HR_GRG_BttnMounts
+        {
+            idc = HR_GRG_IDC_BttnPylons;
+            y = SCREEN_TOP + 12 * GRID_NOUISCALE_H;
+            text = PylonsIcon;
+            tooltip = $STR_HR_GRG_Generic_Pylons;
+            action = "[3] call HR_GRG_fnc_switchExtrasMenu;";
         };
 
 

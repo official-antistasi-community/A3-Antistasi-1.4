@@ -20,12 +20,12 @@
     License: MIT License
 */
 #include "defines.inc"
-params ["_listCtrl","_index"];
+params ["_index"];
 if (_index isEqualTo -1) exitWith {};
 private _disp = findDisplay HR_GRG_IDD_Garage;
 
 //disable all extras menus
-for "_i" from 0 to (lbSize _listCtrl) -1 do {
+for "_i" from 0 to 3 do {
     private _ctrl = _disp displayCtrl (HR_GRG_IDC_ExtraMounts + _i);
     if (ctrlEnabled _ctrl) exitWith { //theres only one active at a time
         _ctrl ctrlShow false;
@@ -36,11 +36,17 @@ for "_i" from 0 to (lbSize _listCtrl) -1 do {
 if (_index isEqualTo -1) exitWith {};
 
 //enable new menu
-private _ctrlIDC = _listCtrl lbValue _index;
-private _ctrl = _disp displayCtrl _ctrlIDC;
+private _ctrl = _disp displayCtrl (HR_GRG_IDC_ExtraMounts + _index);
 _ctrl ctrlEnable true;
 _ctrl ctrlShow true;
 
 //update extras text
+private _text = switch _index do {
+    case 0: {localize "STR_HR_GRG_Generic_Mounts"};
+    case 1: {localize "STR_HR_GRG_Generic_Texture"};
+    case 2: {localize "STR_HR_GRG_Generic_Anim"};
+    case 3: {localize "STR_HR_GRG_Generic_Pylons"};
+    default {""};
+};
 _textCtrl = _disp displayCtrl HR_GRG_IDC_ExtrasText;
-_textCtrl ctrlSetStructuredText text (_listCtrl lbData _index);
+_textCtrl ctrlSetStructuredText text _text;

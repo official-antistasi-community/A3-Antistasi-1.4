@@ -3438,6 +3438,10 @@
             <Original>Aircraft</Original>
             <English>Aircraft</English>
         </Key>
+        <Key ID="STR_HR_GRG_Generic_AirDisabled">
+            <Original>You can only acces aircrafts from a friendly airbase</Original>
+            <English>You can only acces aircrafts from a friendly airbase</English>
+        </Key>
         <Key ID="STR_HR_GRG_Generic_Boat">
             <Original>Ships</Original>
             <English>Ships</English>
@@ -3457,6 +3461,14 @@
         <Key ID="STR_HR_GRG_Generic_Anim">
             <Original>Customize</Original>
             <English>Customize</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_Pylons">
+            <Original>Pylons</Original>
+            <English>Pylons</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_PylonDisabled">
+            <Original>Pylons require an ammo source to edit</Original>
+            <English>Pylons require an ammo source to edit</English>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Seats">
             <Original>Seats:</Original>
@@ -3499,6 +3511,22 @@
             <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</Original>
             <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</English>
         </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Null">
+            <Original>You are not looking at a vehicle</Original>
+            <English>You are not looking at a vehicle</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_SATow">
+            <Original>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</Original>
+            <English>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_LTC">
+            <Original>Loot crate stored</Original>
+            <English>Loot crate stored</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Distance">
+            <Original>You can't garage vehicles that are more than 25m away from you</Original>
+            <English>You can't garage vehicles that are more than 25m away from you</English>
+        </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Destroyed">
             <Original>You can't garage a destroyed vehicle</Original>
             <English>You can't garage a destroyed vehicle</English>
@@ -3506,6 +3534,24 @@
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Locked">
             <Original>You can't garage a locked vehicle</Original>
             <English>You can't garage a locked vehicle</English>
+        </Key>
+        <!--%1 is faction name-->
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_badLocation">
+            <Original>You and the vehicle need to be in a %1 garrison surrounding in order to garage a it</Original>
+            <English>You and the vehicle need to be in a %1 garrison surrounding in order to garage a it</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_enemiesEngaging">
+            <Original>You can't garage vehicles while enemies are engaging you</Original>
+            <English>You can't garage vehicles while enemies are engaging you</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_enemiesNear">
+            <Original>You can't garage vehicles while enemies are near you</Original>
+            <English>You can't garage vehicles while enemies are near you</English>
+        </Key>
+        <!--%1 is faction name-->
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_airBlocked">
+            <Original>You can't garage a aircraft while you are not near an Aiport which belongs to %1. Please move your aircraft to an Airport to garage it</Original>
+            <English>You can't garage a aircraft while you are not near an Aiport which belongs to %1. Please move your aircraft to an Airport to garage it</English>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_GenericFail">
             <Original>You can't garage this</Original>

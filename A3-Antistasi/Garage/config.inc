@@ -18,7 +18,9 @@
 */
 if (isNil "HR_GRG_Prefix") then {HR_GRG_Prefix = "Antistasi"; publicVariable "HR_GRG_Prefix"};
 //Overwrite client
-if (isNil "HR_GRG_cmdClient") then { HR_GRG_cmdClient = { theBoss } };
+if (isNil "HR_GRG_cmdClient") then { HR_GRG_cmdClient = {
+    if (admin _this > 0) then {_this} else {theBoss};
+} };
 
 //condition to automatically close garage/placement as if canceled
 if (isNil "HR_GRG_CP_closeCnd") then { HR_GRG_CP_closeCnd = {
@@ -36,7 +38,6 @@ if (isNil "HR_GRG_Cnd_canAccessAir") then { HR_GRG_Cnd_canAccessAir = {
 if (isNil "HR_GRG_dLock") then { HR_GRG_dLock = {""} }; publicVariable "HR_GRG_dLock";
 
 //garage pool cap
-if (isNil "warTier") then {warTier = 1; publicVariable "warTier"};//debug due to lack of warTier
 if (isNil "HR_GRG_PoolBase") then { HR_GRG_PoolBase = 10 }; publicVariable "HR_GRG_PoolBase";
 if (isNil "HR_GRG_PoolIncr") then { HR_GRG_PoolIncr = 2 }; publicVariable "HR_GRG_PoolIncr";
 if (isNil "HR_GRG_VehCap") then { HR_GRG_VehCap = { HR_GRG_PoolBase + warTier * HR_GRG_PoolIncr } }; publicVariable "HR_GRG_VehCap";

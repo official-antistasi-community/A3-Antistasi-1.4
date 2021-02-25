@@ -39,16 +39,19 @@
 */
 if (!isServer) exitWith {};
 #include "defines.inc"
+if (isNil "HR_GRG_Vehicles") then { [] call HR_GRG_fnc_initServer };
 //get data to be saved
-private _garage = call compile str HR_GRG_Vehicles; //have had issus with refrences persisting trough save procces causing mangling of save data
-private _UID = call compile str HR_GRG_UID;
-private _sources = call compile str HR_GRG_Sources;
+private _garage = + HR_GRG_Vehicles; //have had issus with refrences persisting trough save procces causing mangling of save data
+private _UID = HR_GRG_UID;
+private _sources = [+(HR_GRG_Sources#0),+(HR_GRG_Sources#1),+(HR_GRG_Sources#2)];
 
 //correct some data to savable state
 {
+    private _cat = _x;
     {
-        _x set [3, ""]; //remove checkouts
-    } forEach _x;
+        private _veh = _cat get _x;
+        _veh set [3, ""]; //remove checkouts
+    } forEach (keys _cat);
 } forEach _garage;
 
 //log the save data (due to issues with save mangeling)

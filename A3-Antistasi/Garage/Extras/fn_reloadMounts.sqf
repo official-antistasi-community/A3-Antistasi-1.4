@@ -22,6 +22,7 @@
 Trace("Reloading mounts");
 private _disp = findDisplay HR_GRG_IDD_Garage;
 private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraMounts;
+private _cat = HR_GRG_vehicles#4;
 //remove old statics
 {
     [HR_GRG_previewVeh, true] call A3A_fnc_logistics_unload;
@@ -30,18 +31,22 @@ private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraMounts;
 
 //remove unticked statics
 private _toRemove = [];
-{
-    private _class = _ctrl lbData _forEachIndex;
-    private _index = _ctrl lbValue _forEachIndex;
-    if ( (checkboxTextures find (_ctrl lbPicture _forEachIndex)) isEqualTo 0 ) then {_toRemove pushBack [_class, _index]};
-} forEach (HR_GRG_vehicles#4);
+for "_i" from 0 to (lbSize _ctrl) -1 do {
+    private _class = _ctrl lbData _i;
+    private _UID = _ctrl lbValue _i;
+    Trace_4("Checking mount list | Index: %1 | Class: %2 | UID: %3 | Not checked: %4", _i, _class, _UID, (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 0 );
+    if ( (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 0 ) then {_toRemove pushBack [_class, _UID]}; // if not checked
+};
+Trace_1("reloadMounts - removing mounts | %1", _toRemove);
 HR_GRG_Mounts = HR_GRG_Mounts - _toRemove;
+Trace_1("reloadMounts - Remaining mounts | %1", HR_GRG_Mounts);
 
 //add new statics to the list
 for "_i" from 0 to (lbSize _ctrl) -1 do {
-    if (HR_GRG_Mounts findIf {_i isEqualTo (_x#1)} isEqualTo -1) then { //not in list
+    private _UID = _ctrl lbValue _i;
+    if (HR_GRG_Mounts findIf {_UID isEqualTo (_x#1)} isEqualTo -1) then { //not in list
         if ( (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 1 ) then { //and checked
-            HR_GRG_Mounts pushBackUnique [_ctrl lbData _i, _ctrl lbValue _i];
+            HR_GRG_Mounts pushBackUnique [_ctrl lbData _i, _UID];
         };
     };
 };

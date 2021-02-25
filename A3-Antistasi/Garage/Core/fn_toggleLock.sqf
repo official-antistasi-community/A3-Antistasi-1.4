@@ -28,8 +28,7 @@ if ( (_catIndex isEqualTo -1) || (_vehUID isEqualTo -1) ) exitWith {};
 Trace_2("Attempting to toggle lock for vehicle at cat: %1 | vehUID: %2", _catIndex, _vehUID);
 
 private _cat = HR_GRG_Vehicles#_catIndex;
-private _index = _cat findIf { (_x#4) isEqualTo _vehUID };
-private _veh = _cat#_index;
+private _veh = _cat get _vehUID;
 private _lock = _veh#2;
 _succes = call {
     if ( _lock isEqualTo "" ) exitWith { true };

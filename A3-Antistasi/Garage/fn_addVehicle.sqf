@@ -52,7 +52,7 @@ private _locking = if (_lockUID isEqualTo "") then {false} else {true};
         private _stateData = [_x] call HR_GRG_fnc_getState;
         deleteVehicle _x;
         private _vehUID = [] call HR_GRG_fnc_genVehUID;
-        (HR_GRG_Vehicles#4) pushBack [cfgDispName(typeOf _x), typeOf _x, _lockUID, "", _vehUID, _stateData];
+        (HR_GRG_Vehicles#4) set [_vehUID, [cfgDispName(typeOf _x), typeOf _x, _lockUID, "", _stateData]];
         LogDebug_5("Vehicle garaged | By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5", name _player, getPlayerUID _player, cfgDispName(typeOf _x), _vehUID, _locking );
     };
 } forEach attachedObjects _vehicle;
@@ -67,7 +67,7 @@ private _stateData = [_vehicle] call HR_GRG_fnc_getState;
 
 deleteVehicle _vehicle;
 private _vehUID = [] call HR_GRG_fnc_genVehUID;
-(HR_GRG_Vehicles#_cat) pushBack [cfgDispName(_class), _class, _lockUID, "", _vehUID, _stateData];
+(HR_GRG_Vehicles#_cat) set [_vehUID, [cfgDispName(_class), _class, _lockUID, "", _stateData]];
 if (_sourceIndex != -1) then {
     (HR_GRG_Sources#_sourceIndex) pushBack _vehUID;
     [_sourceIndex] call HR_GRG_fnc_declairSources;

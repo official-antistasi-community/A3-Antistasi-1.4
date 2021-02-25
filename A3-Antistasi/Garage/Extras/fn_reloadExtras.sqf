@@ -30,7 +30,8 @@ private _vehNodes = [HR_GRG_previewVeh] call A3A_fnc_logistics_getVehicleNodes;
 if (_vehNodes isEqualType []) then {
     private _capacity = count _vehNodes;
     {
-        _x params ["_displayName", "_staticClass", "_lockedUID", "_checkedOut", "_vehUID"];
+        _static = (HR_GRG_Vehicles#4) get _x;
+        _static params ["_displayName", "_staticClass", "_lockedUID", "_checkedOut"];
 
         private _block =false;
         if !(_lockedUID in ["", HR_GRG_PlayerUID]) then {_block = true};
@@ -58,11 +59,12 @@ if (_vehNodes isEqualType []) then {
         if ( (_allowed) && (_type != -1) && (_capacity >= _type) && !_block) then { //static is loadable and vehicle can fit it
             private _index = _ctrl lbAdd _displayName;
             _ctrl lbSetData [_index, _staticClass];
-            _ctrl lbSetValue [_index, _vehUID];
+            _ctrl lbSetValue [_index, _x];
             _ctrl lbsetpicture [_index,checkboxTextures select (_checkedOut isEqualTo HR_GRG_PlayerUID)];
             _ctrl lbSetTextRight [_index, format ["Size: %1", _type]];
+            Trace_4("Mount Added to list | Class: %1 | UID: %2 | Checked: %3 | Size: %4", _staticClass, _x, (_checkedOut isEqualTo HR_GRG_PlayerUID), _type);
         };
-    } forEach (HR_GRG_Vehicles#4);//statics
+    } forEach (keys (HR_GRG_Vehicles#4));//statics
 };
 if (_reloadMounts) then { [] call HR_GRG_fnc_reloadMounts };
 

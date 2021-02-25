@@ -90,7 +90,8 @@
 #define LogDebug_7(Message, A,B,C,D,E,F,G) [format [Message, A,B,C,D,E,F,G]] call HR_GRG_fnc_Log
 #define LogDebug_8(Message, A,B,C,D,E,F,G,H) [format [Message, A,B,C,D,E,F,G,H]] call HR_GRG_fnc_Log
 
-#ifdef Debug
+#define Debug_Trace true
+#ifdef Debug_Trace
     #define Trace(Message) diag_log ( str serverTime + " | " + HR_GRG_Prefix + " | Garage | Trace | " + Message)
     #define Trace_1(Message, A) diag_log (str serverTime + " | " + HR_GRG_Prefix + " | Garage | Trace | " + format [Message,A])
     #define Trace_2(Message, A,B) diag_log (str serverTime + " | " + HR_GRG_Prefix + " | Garage | Trace | " + format [Message,A,B])

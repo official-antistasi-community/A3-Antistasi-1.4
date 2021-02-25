@@ -29,7 +29,7 @@ if (_UID isEqualTo "") exitWith {false};
 _category = HR_GRG_Vehicles#_cat;
 
 //Try to do a targeted releas of the vehicle
-_veh = _category#_index;
+_veh = _category get _index;
 if ( (_veh#3) isEqualTo _UID) exitWith { _veh set [3, ""]; true };
 
 // targeted release failed, doing broad release

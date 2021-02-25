@@ -22,7 +22,7 @@
 #include "defines.inc"
 Trace("Running server init");
 
-if (isNil "HR_GRG_Vehicles") then {HR_GRG_Vehicles = [[],[],[],[],[]]};
+if (isNil "HR_GRG_Vehicles") then {HR_GRG_Vehicles = [createHashMap,createHashMap,createHashMap,createHashMap,createHashMap]};
 if (isNil "HR_GRG_Users") then {HR_GRG_Users = []};
 if (isNil "HR_GRG_UID") then {HR_GRG_UID = 0};
 if (isNil "HR_GRG_Sources") then {HR_GRG_Sources = [[],[],[]]};
@@ -34,17 +34,19 @@ if (isNil "HR_GRG_hasRepairSource") then {HR_GRG_hasRepairSource = !((HR_GRG_Sou
 private _invalidentries = [];
 _cfg = (configFile >> "CfgVehicles");
 {
-    _catIndex = _forEachIndex;
+    private _cat = _x;
+    private _catIndex = _forEachIndex;
     {
-        private _class = _x#1;
+        private _veh = _cat get _x;
+        private _class = _veh#1;
         if !(isClass (_cfg >> _class)) then {_invalidentries pushBack [_catIndex, _x]};
-    } forEach _x;
+    } forEach (keys _x);
 } forEach HR_GRG_Vehicles;
 
 {
     _x params ["_catIndex", "_entry"];
     private _cat = HR_GRG_Vehicles#_catIndex;
-    _cat deleteAt (_cat find _entry);
+    _cat deleteAt _entry;
 } forEach _invalidentries;
 
 //mark init complete

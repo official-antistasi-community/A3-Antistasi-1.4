@@ -27,17 +27,18 @@ lbClear _ctrl;
 private _selected = -1;
 private _HR_GRG_SelectedVehicles = [-1,-1,""];
 {
-    _x params ["_displayName", "_class", "_lockedUID", "_checkedOut", "_vehUID"];
+    private _veh = (HR_GRG_Vehicles#_catIndex) get _x;
+    _veh params ["_displayName", "_class", "_lockedUID", "_checkedOut"];
     private _index = _ctrl lbAdd _displayName;
     _ctrl lbSetData [_index, str _x];
-    _ctrl lbSetValue [_index, _vehUID];
+    _ctrl lbSetValue [_index, _x];
     _ctrl lbSetPicture [_index, cfgIcon(_class)];
     _ctrl lbSetPictureColor [_index, [1, 1, 1, 1]];
     _ctrl lbSetPictureColorSelected [_index, [0.85, 0.85, 0.55, 1]];
 
     if !( _checkedOut isEqualTo "" ) then {
         private _color = [1,0.1,0.1,1];
-        if ( (HR_GRG_SelectedVehicles#1) isEqualTo _vehUID ) then {
+        if ( (HR_GRG_SelectedVehicles#1) isEqualTo _x ) then {
             _selected = _index;
             _color = [1,1,1,1];
         };
@@ -52,5 +53,5 @@ private _HR_GRG_SelectedVehicles = [-1,-1,""];
     };
     _ctrl lbSetPictureRightColorSelected [_index, [0.85,0.85,0.55,1]];
 
-} forEach (HR_GRG_Vehicles#_catIndex);
+} forEach (keys (HR_GRG_Vehicles#_catIndex));
 _ctrl lbSetCurSel _selected;

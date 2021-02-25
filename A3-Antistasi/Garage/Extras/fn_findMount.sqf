@@ -28,8 +28,7 @@ private _failed = { [localize "STR_HR_GRG_Feedback_requestMount_Denied"] remoteE
 if (!isServer) exitWith {call _failed; false};
 
 private _cat = HR_GRG_vehicles#4;
-private _index = _cat findIf { (_x#4) isEqualTo _vehUID };
-private _mount = _cat#_index;
+private _mount = _cat get _vehUID;
 private _CheckedUID = ["",_UID] select (_newIconIndex isEqualTo 1);
 
 //block checkout condition

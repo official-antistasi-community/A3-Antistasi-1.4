@@ -3,8 +3,7 @@ Trace_1("Reciving broadcast: %1",_this);
 params ["_lockUID", "_checkoutUID", "_catIndex", "_vehUID", "_player", "_switch"];
 
 private _cat = HR_GRG_Vehicles#_catIndex;
-private _index = _cat findIf { (_x#4) isEqualTo _vehUID };
-private _vehicle = _cat#_index;
+private _vehicle = _cat get _vehUID;
 
 //set the new data
 if (_switch) then { [getPlayerUID _player] call HR_GRG_fnc_releaseAllVehicles };
@@ -20,6 +19,7 @@ private _isPlayer = _player isEqualTo player;
 //handle refreshing preview and extras
 if (_isPlayer) then {
     if (_switch) then {
+        Trace_3("Setting selected vehicle | Cat: %1 | UID: %2 | Class: %3", _catIndex, _vehUID, _vehicles#1);
         HR_GRG_SelectedVehicles = [_catIndex, _vehUID, _vehicle#1];
         [] call HR_GRG_fnc_reloadPreview;
         if (

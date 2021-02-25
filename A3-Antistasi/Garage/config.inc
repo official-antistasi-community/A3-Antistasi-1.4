@@ -16,7 +16,7 @@
 
     License: MIT License
 */
-if (!isNil "HR_GRG_Prefix") then {HR_GRG_Prefix = "Antistasi"; publicVariable "HR_GRG_Prefix"};
+if (isNil "HR_GRG_Prefix") then {HR_GRG_Prefix = "Antistasi"; publicVariable "HR_GRG_Prefix"};
 //Overwrite client
 if (isNil "HR_GRG_cmdClient") then { HR_GRG_cmdClient = { theBoss } };
 

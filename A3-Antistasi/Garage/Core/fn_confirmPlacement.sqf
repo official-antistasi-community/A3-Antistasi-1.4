@@ -96,6 +96,7 @@ HR_GRG_dispMounts = [];
     _static allowDamage false;
 
     private _nodes = [HR_GRG_dispVehicle, _static] call A3A_fnc_logistics_canLoad;
+    if (_nodes isEqualType 0) exitWith {};
     (_nodes + [true]) call A3A_fnc_logistics_load; //we know we can load it, just need the nodes from can load
     hintSilent ""; //clear load hint
 
@@ -254,6 +255,7 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
                 [_static, _x#2] call HR_GRG_fnc_setState;
                 _static allowDamage false;
                 private _nodes = [_veh, _static] call A3A_fnc_logistics_canLoad;
+                if (_nodes isEqualType 0) exitWith {};
                 (_nodes + [true]) call A3A_fnc_logistics_load;
                 _static call HR_GRG_fnc_vehInit;
             } forEach HR_GRG_Mounts_;

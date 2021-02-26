@@ -1,3 +1,10 @@
+/*
+    Author: [Håkon, DoomMetal]
+    Description:
+        Garage base GUI resources
+
+    License: MIT License
+*/
 //Common Macros
 #ifndef QUOTE
 #define QUOTE(var1) #var1

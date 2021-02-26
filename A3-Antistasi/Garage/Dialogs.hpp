@@ -1,4 +1,10 @@
-#include "defines.inc"
+/*
+    Author: [Håkon, DoomMetal]
+    Description:
+        Garage GUI
+
+    License: MIT License
+*/#include "defines.inc"
 #include "defines.hpp"
 class HR_GRG_VehicleSelect
 {

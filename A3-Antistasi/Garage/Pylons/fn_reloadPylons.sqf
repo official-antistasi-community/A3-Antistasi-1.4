@@ -1,5 +1,5 @@
 /*
-    Author: [Håkon]
+    Author: [Håkon, DoomMetal]
     [Description]
         Reloads the pylons menu for a new vehicle selection
 

@@ -55,8 +55,8 @@ if (_exit) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Crewed"] remoteE
 
     //Valid area
 private _friendlyMarkers = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
-private _inArea = _friendlyMarkers findIf { count ([_player, _vehicle] inAreaArray _x) > 1 } > -1;
-if !(_inArea) exitWith {[format [localize "STR_HR_GRG_Feedback_addVehicle_badLocation",nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+private _inArea = _friendlyMarkers findIf { count ([_player, _vehicle] inAreaArray _x) > 1 };
+if !(_inArea > -1) exitWith {[format [localize "STR_HR_GRG_Feedback_addVehicle_badLocation",nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
     //No hostiles near
 private _units = (_player nearEntities ["Man",300]) select {([_x] call A3A_fnc_CanFight) && (side _x isEqualTo Occupants || side _x isEqualTo Invaders)};

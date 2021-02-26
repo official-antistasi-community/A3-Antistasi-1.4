@@ -38,7 +38,7 @@ if !(_playerId in savedPlayers) then {
 };
 
 private _shouldStripLoadout = false;
-if (!(alive _playerUnit) || (_playerUnit getVariable ["incapacitated", false])) then 
+if (!(alive _playerUnit) || (_playerUnit getVariable ["incapacitated", false])) then
 {
 	_shouldStripLoadout = true;
 	[2, format ["Stripping saved loadout of player %1 due to saving while dead or unconcious", _playerId], _filename] call A3A_fnc_log;
@@ -52,15 +52,15 @@ if (_shouldStripLoadout) then {
 
 if (isMultiplayer) then
 {
-	private _garage = [_playerUnit] call A3A_fnc_getPersonalGarage;
+	private _garage = [];
 	[_playerId, "scorePlayer", _playerUnit getVariable "score"] call A3A_fnc_savePlayerStat;
 	[_playerId, "rankPlayer", rank _playerUnit] call A3A_fnc_savePlayerStat;
-	[_playerId, "personalGarage", [_playerUnit] call A3A_fnc_getPersonalGarage] call A3A_fnc_savePlayerStat;
+	[_playerId, "personalGarage", []] call A3A_fnc_savePlayerStat;
 
 	_totalMoney = _playerUnit getVariable ["moneyX", 0];
 	if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
 
-	if (_globalSave) then 
+	if (_globalSave) then
 	{
 		// Add value of live AIs owned by player
 		// plus cost of vehicles driven by player-owned units, including self
@@ -84,7 +84,7 @@ if (isMultiplayer) then
 	};
 	[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
 
-	[2, format ["Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney, count _garage], _filename] call A3A_fnc_log;
+	[2, format ["Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney, "old garage removed"], _filename] call A3A_fnc_log;
 };
 
 if (!_globalSave) then { saveProfileNamespace };

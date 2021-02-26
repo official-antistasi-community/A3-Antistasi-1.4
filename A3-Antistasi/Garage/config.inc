@@ -19,7 +19,7 @@
 if (isNil "HR_GRG_Prefix") then {HR_GRG_Prefix = "Antistasi"; publicVariable "HR_GRG_Prefix"};
 //Overwrite client
 if (isNil "HR_GRG_cmdClient") then { HR_GRG_cmdClient = {
-    if (admin _this > 0) then {_this} else {theBoss};
+    if ((isServer && hasInterface) || {admin owner _this > 0}) then {_this} else {theBoss}; //LAN Host or admin on DS or commander
 } };
 
 //condition to automatically close garage/placement as if canceled

@@ -158,7 +158,7 @@ class HQ_menu 			{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "";//QUOTE(closeDialog 0;nul = [GARAGE_FACTION] spawn A3A_fnc_garage);
+			action = "";
 		};
 	};
 }; 										//slots: 6+1
@@ -1785,7 +1785,7 @@ class commander_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "";//$STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
-			action = "";//"closeDialog 0; [true] call A3A_fnc_garageVehicle;";
+			action = "";
 		};
 		class 8slots_L4: RscButton
 		{
@@ -2394,7 +2394,7 @@ class garage_check 				{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "";//"closeDialog 0;nul = [false] call A3A_fnc_garageVehicle;";
+			action = "";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -2404,7 +2404,7 @@ class garage_check 				{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "";//"closeDialog 0; nul = [true] call A3A_fnc_garageVehicle;";
+			action = "";
 		};
 		/*
 		class HQ_button_Gremove: RscButton

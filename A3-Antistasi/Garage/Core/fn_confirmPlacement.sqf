@@ -253,7 +253,7 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
                 _static allowDamage false;
                 private _nodes = [_veh, _static] call A3A_fnc_logistics_canLoad;
                 (_nodes + [true]) call A3A_fnc_logistics_load;
-                [_static] call HR_GRG_fnc_finalInit;
+                _veh call HR_GRG_fnc_vehInit;
             } forEach HR_GRG_Mounts_;
 
             //set pylons loudout

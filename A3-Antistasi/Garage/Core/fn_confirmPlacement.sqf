@@ -91,6 +91,7 @@ HR_GRG_dispVehicle setDir HR_GRG_dir;
 HR_GRG_dispMounts = [];
 {
     private _static = (_x#0) createVehicleLocal HR_GRG_pos;
+    [_static, _x#2] call HR_GRG_fnc_setState;
     _static enableSimulation false;
     _static allowDamage false;
 
@@ -250,10 +251,11 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             //create and load cargo
             {
                 private _static = (_x#0) createVehicle _pos;
+                [_static, _x#2] call HR_GRG_fnc_setState;
                 _static allowDamage false;
                 private _nodes = [_veh, _static] call A3A_fnc_logistics_canLoad;
                 (_nodes + [true]) call A3A_fnc_logistics_load;
-                _veh call HR_GRG_fnc_vehInit;
+                _static call HR_GRG_fnc_vehInit;
             } forEach HR_GRG_Mounts_;
 
             //set pylons loudout

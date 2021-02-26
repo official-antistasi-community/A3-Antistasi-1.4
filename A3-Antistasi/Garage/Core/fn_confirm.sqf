@@ -1,5 +1,13 @@
 //handles confiming vehicle selection
 HR_GRG_SelectedVehicles params ["_catIndex", "_vehUID", "_class"];
+
+//get mounts state
+HR_GRG_Mounts apply {
+    private _static = (HR_GRG_Vehicles#4) get (_x#1);
+    _x pushBack (_static#4);
+    _x
+};
+
 [
     _class
     , HR_GRG_Mounts

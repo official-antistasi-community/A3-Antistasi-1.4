@@ -37,9 +37,7 @@ for "_i" from 0 to (lbSize _ctrl) -1 do {
     Trace_4("Checking mount list | Index: %1 | Class: %2 | UID: %3 | Not checked: %4", _i, _class, _UID, (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 0 );
     if ( (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 0 ) then {_toRemove pushBack [_class, _UID]}; // if not checked
 };
-Trace_1("reloadMounts - removing mounts | %1", _toRemove);
 HR_GRG_Mounts = HR_GRG_Mounts - _toRemove;
-Trace_1("reloadMounts - Remaining mounts | %1", HR_GRG_Mounts);
 
 //add new statics to the list
 for "_i" from 0 to (lbSize _ctrl) -1 do {
@@ -50,14 +48,17 @@ for "_i" from 0 to (lbSize _ctrl) -1 do {
         };
     };
 };
+Trace_1("reloadMounts - Remaining mounts | %1", HR_GRG_Mounts);
 
 //add new statics
 private _lockedSeats = 0;
 private _usedCapacity = 0;
 {
     //load preview static onto preview vehicle
-    _x params ["_class", "_index"];
+    _x params ["_class", "_vehUID"];
+    private _staticData = (HR_GRG_Vehicles#4) get _vehUID;
     private _static = _class createVehicleLocal [random 100,random 100,10000 + random 10000];
+    [_static, _staticData#4] call HR_GRG_fnc_setState;
     _static enableSimulation false;
     _static allowDamage false;
     _loadInfo = [HR_GRG_previewVeh, _static] call A3A_fnc_logistics_canLoad;

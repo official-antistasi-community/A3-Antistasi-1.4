@@ -24,7 +24,7 @@ if (isNil "HR_GRG_cmdClient") then { HR_GRG_cmdClient = {
 
 //condition to automatically close garage/placement as if canceled
 if (isNil "HR_GRG_CP_closeCnd") then { HR_GRG_CP_closeCnd = {
-    (![player] call A3A_fnc_canFight)
+    (!([player] call A3A_fnc_canFight))
     || {(!isNull HR_GRG_AccessPoint)
         && {player distance HR_GRG_AccessPoint > 25}
     }

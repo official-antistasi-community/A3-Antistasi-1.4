@@ -12,6 +12,7 @@ class A3A
         class initACEUnconsciousHandler {};
         class initFuncs {};
         class initGarrisons {};
+        class initParams {};
         class initSpawnPlaces {};
 
         class initVar {};
@@ -397,7 +398,6 @@ class A3A
         class categoryOverrides {};
         class checkRadiosUnlocked {};
         class configSort {};
-        class crateLootParams {};
         class dress {};
         class empty {};
         class equipmentClassToCategories {};

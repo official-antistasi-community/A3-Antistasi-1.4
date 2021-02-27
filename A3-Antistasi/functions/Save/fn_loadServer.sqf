@@ -7,8 +7,6 @@ if (isServer) then {
 	["outpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "outpostsFIA";
 	["mrkSDK"] call A3A_fnc_getStatVariable;
 	["mrkCSAT"] call A3A_fnc_getStatVariable;
-	["difficultyX"] call A3A_fnc_getStatVariable;
-	["gameMode"] call A3A_fnc_getStatVariable;
 	["destroyedSites"] call A3A_fnc_getStatVariable;
 	["minesX"] call A3A_fnc_getStatVariable;
 	["attackCountdownOccupants"] call A3A_fnc_getStatVariable;
@@ -24,9 +22,6 @@ if (isServer) then {
 	["garrison"] call A3A_fnc_getStatVariable;
 	["usesWurzelGarrison"] call A3A_fnc_getStatVariable;
 	["skillFIA"] call A3A_fnc_getStatVariable;
-	["distanceSPWN"] call A3A_fnc_getStatVariable;
-	["civPerc"] call A3A_fnc_getStatVariable;
-	["maxUnits"] call A3A_fnc_getStatVariable;
 	["membersX"] call A3A_fnc_getStatVariable;
 	["vehInGarage"] call A3A_fnc_getStatVariable;
     ["HR_Garage"] call A3A_fnc_getStatVariable;

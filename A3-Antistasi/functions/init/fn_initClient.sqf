@@ -36,6 +36,7 @@ waitUntil {player == player};
 player setVariable ["canSave", false, true];
 
 if (!isServer) then {
+	waitUntil {!isNil "initParamsDone"};
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
 	[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
@@ -62,7 +63,6 @@ if (isMultiplayer) then {
 	if (hasTFAR) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
-	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {
@@ -79,9 +79,6 @@ else {
 };
 
 [] spawn A3A_fnc_ambientCivs;
-
-//Initialise membershipEnabled so we can do isMember checks.
-membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
 disableUserInput false;
 player setVariable ["spawner",true,true];

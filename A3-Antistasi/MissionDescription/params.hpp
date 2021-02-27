@@ -109,20 +109,6 @@ class Params
           texts[] = {"4 Kmts","5 Kmts","6 Kmts","7 Kmts","8 Kmts","Unlimited"};
           default = 5000;
      };
-	 class allowMembersFactionGarageAccess
-     {
-          title = "Allow members to access the faction garage";
-          texts[] = {"Yes", "No"};
-          values[] = {1,0};
-          default = 1;
-     };
-     class personalGarageMax
-     {
-          title = "Max personal garage slots";
-          texts[] = {"Unlimited", "2", "5", "10"};
-          values[] = {0,2,5,10};
-          default = 2;
-     };
      class allowFT
      {
           title = "Fast Travel Targets Allowed";

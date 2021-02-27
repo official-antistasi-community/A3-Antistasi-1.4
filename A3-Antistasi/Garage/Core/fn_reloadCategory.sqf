@@ -21,6 +21,7 @@
 */
 #include "defines.inc"
 params ["_ctrl", "_catIndex"];
+if (isNil "HR_GRG_Vehicles") exitWith {Trace("Reloading category canceled no garage data");};
 Trace("Reloading category");
 
 lbClear _ctrl;

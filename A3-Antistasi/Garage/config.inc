@@ -49,7 +49,7 @@ if (isNil "HR_GRG_Pylons_Enabled") then { HR_GRG_Pylons_Enabled = true; publicVa
 if (isNil "HR_GRG_blackListCamo") then {HR_GRG_blackListCamo = ["IDAP"]; publicVariable "HR_GRG_blackListCamo"};
 
 //proxies
-if (isNil "HR_GRG_fnc_Log") then {HR_GRG_fnc_Log = { [2,_this, "HR Garage", true] call A3A_fnc_log }; publicVariable "HR_GRG_fnc_Log"};
+if (isNil "HR_GRG_fnc_Log") then {HR_GRG_fnc_Log = { [2,_this, "HR Garage"] call A3A_fnc_log }; publicVariable "HR_GRG_fnc_Log"};
 if (isNil "HR_GRG_fnc_Hint") then {HR_GRG_fnc_Hint = { ["Garage",_this#0] call A3A_fnc_customHint }; publicVariable "HR_GRG_fnc_Hint"};
 if (isNil "HR_GRG_fnc_vehInit") then { HR_GRG_fnc_vehInit = { [_this, TeamPlayer] call A3A_fnc_AIVEHinit; }; publicVariable "HR_GRG_fnc_vehInit" }; //is passed vehicle as _this
 

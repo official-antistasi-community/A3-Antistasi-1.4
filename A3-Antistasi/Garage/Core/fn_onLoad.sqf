@@ -98,7 +98,10 @@ if !(call HR_GRG_Cnd_canAccessAir) then {
 };
 
 //add veh pool modified EH
-"HR_GRG_Event" addPublicVariableEventHandler { (_this#1) call HR_GRG_fnc_reciveBroadcast };
+"HR_GRG_Event" addPublicVariableEventHandler {
+    if (isNil "HR_GRG_Vehicles") exitWith {};
+    (_this#1) call HR_GRG_fnc_reciveBroadcast;
+};
 "HR_GRG_Vehicles" addPublicVariableEventHandler {
     #include "defines.inc"
     private _disp = findDisplay HR_GRG_IDD_Garage;

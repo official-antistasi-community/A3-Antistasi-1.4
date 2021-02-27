@@ -1,8 +1,0 @@
-#define cfgPreview(className) getText(configfile >> "CfgVehicles" >> className >> "editorPreview")
-#define cfgIcon(className) getText(configfile >> "CfgVehicles" >> className >> "picture")
-#define cfgDispName(className) getText(configfile >> "CfgVehicles" >> className >> "displayName")
-#define cfgVehClass(className) getText(configfile >> "CfgVehicles" >> className >> "vehicleClass")
-#define cfgEditorCat(className) getText(configfile >> "CfgVehicles" >> className >> "editorSubCategory")
-#define cfgMaxSpeed(className) getNumber(configfile >> "CfgVehicles" >> className >> "maxSpeed")
-#define cfgEnginePower(className) getNumber(configfile >> "CfgVehicles" >> className >> "enginePower")
-#define cfgAceCargo(className) getNumber(configfile >> "CfgVehicles" >> className >> "ace_cargo_space")

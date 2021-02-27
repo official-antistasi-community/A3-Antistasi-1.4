@@ -26,13 +26,7 @@ params [ ["_vehicle", objNull, [objNull]], ["_client", 2, [0]], ["_lockUID", ""]
 private _class = typeOf _vehicle;
 private _cat = [_class] call HR_GRG_fnc_getCatIndex;
 
-//validate input
-if (isNull _vehicle) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Null"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
-if (!alive _vehicle) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Destroyed"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
-if (locked _vehicle > 1) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Locked"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
-if (_cat isEqualTo -1) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_GenericFail"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
-
-    //LTC refund
+//LTC refund
 if (_class isEqualTo "Box_IND_Wps_F") exitWith {
     _vehicle addMagazineCargoGlobal [unlockedMagazines#0,1];// so fnc_empty will delete the crate
     _transferLoot = [_vehicle] spawn A3A_fnc_empty;
@@ -40,6 +34,12 @@ if (_class isEqualTo "Box_IND_Wps_F") exitWith {
     [localize "STR_HR_GRG_Feedback_addVehicle_LTC"]  remoteExec ["HR_GRG_fnc_Hint", _client];
     true
 };
+
+//validate input
+if (isNull _vehicle) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Null"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+if (!alive _vehicle) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Destroyed"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+if (locked _vehicle > 1) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_Locked"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+if (_cat isEqualTo -1) exitWith { [localize "STR_HR_GRG_Feedback_addVehicle_GenericFail"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
     //Towing
 if !((_vehicle getVariable ["SA_Tow_Ropes",objNull]) isEqualTo objNull) exitWith {[localize "STR_HR_GRG_Feedback_addVehicle_SATow"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };

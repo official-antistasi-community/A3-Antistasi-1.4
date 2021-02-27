@@ -18,7 +18,7 @@
 
     License: MIT License
 */
-#include "cfgMacros.hpp"
+#include "defines.inc"
 params [["_class", "", [""]]];
 if ( !isClass (configFile >> "CfgVehicles" >> _class) ) exitWith { [0, "Invalid Input: " + _class, _filename] call HR_GRG_fnc_log };
 

@@ -1,6 +1,3 @@
-//-- Other Includes --\\
-#include "cfgMacros.hpp"
-
 //-- display --\\
 #define HR_GRG_IDD_Garage 17001
 
@@ -85,6 +82,16 @@
 #define cameraIcon "\a3\ui_f\data\GUI\Cfg\KeyframeAnimation\IconCamera_CA.paa"
 #define moveIcon "\a3\ui_f\data\GUI\Cfg\Cursors\move_gs.paa"
 #define zoomIcon "\a3\ui_f\data\IGUI\Cfg\Actions\autohover_ca.paa"
+
+//Cfg macros
+#define cfgPreview(className) getText(configfile >> "CfgVehicles" >> className >> "editorPreview")
+#define cfgIcon(className) getText(configfile >> "CfgVehicles" >> className >> "picture")
+#define cfgDispName(className) getText(configfile >> "CfgVehicles" >> className >> "displayName")
+#define cfgVehClass(className) getText(configfile >> "CfgVehicles" >> className >> "vehicleClass")
+#define cfgEditorCat(className) getText(configfile >> "CfgVehicles" >> className >> "editorSubCategory")
+#define cfgMaxSpeed(className) getNumber(configfile >> "CfgVehicles" >> className >> "maxSpeed")
+#define cfgEnginePower(className) getNumber(configfile >> "CfgVehicles" >> className >> "enginePower")
+#define cfgAceCargo(className) getNumber(configfile >> "CfgVehicles" >> className >> "ace_cargo_space")
 
 //Debug
 #define LogDebug(Message) [Message] call HR_GRG_fnc_Log

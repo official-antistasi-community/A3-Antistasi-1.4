@@ -19,7 +19,7 @@
 
     License: MIT License
 */
-params ["_vehicles", "_lockUID"];
+params [["_vehicles", [], [[]]], ["_lockUID", "", [""]]];
 #include "defines.inc"
 private _cfg = configFile >> "CfgVehicles";
 {

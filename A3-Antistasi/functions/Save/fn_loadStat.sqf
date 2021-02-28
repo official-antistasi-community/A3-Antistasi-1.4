@@ -90,7 +90,7 @@ if (_varName in _specialVarLoads) then {
 	if (_varName == 'vehInGarage') then {
         vehInGarage= [];
         publicVariable "vehInGarage";
-        [_varValue, ""] call HR_GRG_fnc_A3AGarageToHRGarage;
+        [_varValue, ""] call HR_GRG_fnc_addVehiclesByClass;
     }; //TODO: Garage -> convert and add to new system
 	if (_varName == 'destroyedBuildings') then {
 		{

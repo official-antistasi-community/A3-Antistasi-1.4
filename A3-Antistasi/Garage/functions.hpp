@@ -72,7 +72,7 @@ class HR_GRG
     class PublicFunctions
     {
         file = "Garage"
-        class A3AGarageToHRGarage {};
+        class addVehiclesByClass {};
         class addVehicle {};
         class callbackHandler {};
         class getSaveData {};

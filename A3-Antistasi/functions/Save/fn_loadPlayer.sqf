@@ -33,7 +33,7 @@ if (isNil "_money" || {!(_money isEqualType 0)}) then {_money = playerStartingMo
 
 private _garage = [_playerId, "personalGarage"] call A3A_fnc_retrievePlayerStat;
 if (isNil "_garage" || {!(_garage isEqualType [])}) then {_garage = []};
-[_garage, _playerId] call HR_GRG_fnc_A3AGarageToHRGarage;
+[_garage, _playerId] call HR_GRG_fnc_addVehiclesByClass;
 
 _unit setVariable ["score", _score, true];
 _unit setUnitRank _rank;

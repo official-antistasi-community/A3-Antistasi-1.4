@@ -1,0 +1,1 @@
+[["AM_HuntingRifle","","","",["5Rnd_308_Mag",5],[],""],[],["AM_WBK_machete","","","",[],[],""],["legion_recruit_uniform",[]],[],["republican_bag_01",[["10Rnd_308_Mag",7,10],["AM_dynamite_throw",5,1]]],"legionfeatherhead02","republican_bandana",[],["ItemMap","","ItemRadio","ItemCompass","ItemWatch",""]];

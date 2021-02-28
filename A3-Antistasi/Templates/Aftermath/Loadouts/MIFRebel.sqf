@@ -1,0 +1,1 @@
+[["AM_CowboyRepeater","","","",["8Rnd_357",8],[],""],[],["AM_HuntringRevolverR","","","",["5Rnd_45x70_Cyl",5],[],""],["wastelandclothing03_uniform",[]],["pipboy3000_vest",[["8Rnd_357",15,8],["5Rnd_45x70_Cyl",15,5]]],["Backpack_04",[]],"hat_wasteland_clothing_02","republican_bandana",[],["ItemMap","","ItemRadio","ItemCompass","ItemWatch",""]];

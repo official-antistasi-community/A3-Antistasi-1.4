@@ -105,6 +105,14 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
+    case (A3A_hasAftermath): {
+      switch(true) do {
+        default {
+          call compile preProcessFileLineNumbers "Templates\Aftermath\Aftermath_Reb.sqf";
+          [2, "Using Aftermath Great Khans(GK) Template", _filename] call A3A_fnc_log;
+        };
+      };
+    };
     default {
       switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
         case (worldName == "Enoch"): {
@@ -204,6 +212,14 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
+    case (A3A_hasAftermath): {
+      switch(true) do {
+        default {
+          call compile preProcessFileLineNumbers "Templates\Aftermath\Aftermath_Occ.sqf";
+          [2, "Using New California Republic(NCR) Template", _filename] call A3A_fnc_log;
+        };
+      };
+    };
     default {
       switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
         case (worldName == "Tanoa"): {
@@ -284,6 +300,14 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
         };
       };
     };
+    case (A3A_hasAftermath): {
+      switch(true) do {
+        default {
+          call compile preProcessFileLineNumbers "Templates\Aftermath\Aftermath_Inv.sqf";
+          [2, "Using Caesar's Legion(CL) Template", _filename] call A3A_fnc_log;
+        };
+      };
+    };
     default {
       switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
         case (worldName == "Enoch"): {
@@ -314,6 +338,10 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
     case (A3A_hasIFA): {
       call compile preProcessFileLineNumbers "Templates\IFA\IFA_Civ.sqf";
       [2, "Using IFA Civ Template", _filename] call A3A_fnc_log;
+    };
+    case (A3A_hasAftermath): {
+      call compile preProcessFileLineNumbers "Templates\Aftermath\Aftermath_Civ.sqf";
+      [2, "Using Aftermath Civ Template", _filename] call A3A_fnc_log;
     };
     default {
       call compile preProcessFileLineNumbers "Templates\Vanilla\Vanilla_Civ.sqf";
@@ -350,3 +378,4 @@ if (A3A_hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_
 if (A3A_hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Logistics_Nodes.sqf"};
 if (A3A_hasD3S) then {call compile preProcessFileLineNumbers "Templates\AddonVics\d3s_Logi_Nodes.sqf";};
 if (A3A_hasRDS) then {call compile preProcessFileLineNumbers "Templates\AddonVics\rds_Logi_Nodes.sqf";};
+if (A3A_hasAftermath) then {call compile preProcessFileLineNumbers "Templates\Aftermath\Aftermath_Logi_Nodes.sqf";};

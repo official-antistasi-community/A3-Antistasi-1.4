@@ -19,6 +19,7 @@
     License: MIT License
 */
 params [ ["_vehicle", objNull, [objNull]] ];
+if (isNull _vehicle) exitWith {false};
 
 if (hasAce) then { //Ace
     private _vehCfg = configFile >> "CfgVehicles" >> typeOf _vehicle;

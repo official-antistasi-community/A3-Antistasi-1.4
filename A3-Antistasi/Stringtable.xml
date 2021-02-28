@@ -3470,6 +3470,50 @@
             <Original>Pylons require an ammo source to edit</Original>
             <English>Pylons require an ammo source to edit</English>
         </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_Header">
+            <Original>Sources:</Original>
+            <English>Sources:</English>
+        </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Available">
+            <Original>Vehicles will be rearmed when ungaraged</Original>
+            <English>Vehicles will be rearmed when ungaraged</English>
+        </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable">
+            <Original>Vehicles won't be rearmed when ungaraged</Original>
+            <English>Vehicles won't be rearmed when ungaraged</English>
+        </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Available">
+            <Original>Vehicles will be refueled when ungaraged</Original>
+            <English>Vehicles will be refueled when ungaraged</English>
+        </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Unavailable">
+            <Original>Vehicles won't be refueled when ungaraged</Original>
+            <English>Vehicles won't be refueled when ungaraged</English>
+        </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Available">
+            <Original>Vehicles will be repaired when ungaraged</Original>
+            <English>Vehicles will be repaired when ungaraged</English>
+        </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Unavailable">
+            <Original>Vehicles won't be repaired when ungaraged</Original>
+            <English>Vehicles won't be repaired when ungaraged</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_isAmmoSource">
+            <Original>Vehicle is an ammo source</Original>
+            <English>Vehicle is an ammo source</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_isFuelSource">
+            <Original>Vehicle is an fuel source</Original>
+            <English>Vehicle is an fuel source</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_isRepairSource">
+            <Original>Vehicle is an repair source</Original>
+            <English>Vehicle is an repair source</English>
+        </Key>
+        <Key ID="STR_HR_GRG_InfoPanel_isNotSource">
+            <Original>Vehicle is not a source</Original>
+            <English>Vehicle is not a source</English>
+        </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Seats">
             <Original>Seats:</Original>
             <English>Seats:</English>

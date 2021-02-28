@@ -286,14 +286,73 @@ class HR_GRG_VehicleSelect
             };
         };
 
+        // Source pannel
+        /*
+        class HR_GRG_SourcePanel: HR_GRG_RscStructuredText
+        {
+            idc = HR_GRG_IDC_SourcePanel;
+            x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
+            y = SCREEN_BOTTOM - 52 * GRID_NOUISCALE_H;
+            w = 39 * GRID_NOUISCALE_W;
+            h = 6 * GRID_NOUISCALE_H;
+            size = TEXT_SIZE_MEDIUM;
+        };*/
+        class HR_GRG_SourcePanel: HR_GRG_RscControlsGroup
+        {
+            x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
+            y = SCREEN_BOTTOM - 52 * GRID_NOUISCALE_H;
+            w = 39 * GRID_NOUISCALE_W;
+            h = 7 * GRID_NOUISCALE_H;
+            size = TEXT_SIZE_MEDIUM;
+            class controls
+            {
+                class HR_GRG_sourceInfo: HR_GRG_RscStructuredText
+                {
+                    x = 0 * GRID_NOUISCALE_W;
+                    y = 0 * GRID_NOUISCALE_H;
+                    w = 39 * GRID_NOUISCALE_W;
+                    h = 3 * GRID_NOUISCALE_H;
+                    size = TEXT_SIZE_MEDIUM;
+                    Text = $STR_HR_GRG_SourcePanel_Header;
+                };
+                class HR_GRG_sourceAmmo: HR_GRG_RscStructuredText
+                {
+                    idc = HR_GRG_IDC_SourcePanelAmmo;
+                    x = 0 * GRID_NOUISCALE_W;
+                    y = 3 * GRID_NOUISCALE_H;
+                    w = 13 * GRID_NOUISCALE_W;
+                    h = 4 * GRID_NOUISCALE_H;
+                    size = TEXT_SIZE_MEDIUM;
+                };
+                class HR_GRG_sourceFuel: HR_GRG_RscStructuredText
+                {
+                    idc = HR_GRG_IDC_SourcePanelFuel;
+                    x = 13 * GRID_NOUISCALE_W;
+                    y = 3 * GRID_NOUISCALE_H;
+                    w = 13 * GRID_NOUISCALE_W;
+                    h = 4 * GRID_NOUISCALE_H;
+                    size = TEXT_SIZE_MEDIUM;
+                };
+                class HR_GRG_sourceRepair: HR_GRG_RscStructuredText
+                {
+                    idc = HR_GRG_IDC_SourcePanelRepair;
+                    x = 26 * GRID_NOUISCALE_W;
+                    y = 3 * GRID_NOUISCALE_H;
+                    w = 13 * GRID_NOUISCALE_W;
+                    h = 4 * GRID_NOUISCALE_H;
+                    size = TEXT_SIZE_MEDIUM;
+                };
+            };
+        };
+
         // Info Panel
         class HR_GRG_InfoPanel: HR_GRG_RscStructuredText
         {
             idc = HR_GRG_IDC_InfoPanel;
             x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
-            y = SCREEN_BOTTOM - 52 * GRID_NOUISCALE_H;
+            y = SCREEN_BOTTOM - 45 * GRID_NOUISCALE_H;
             w = 39 * GRID_NOUISCALE_W;
-            h = 52 * GRID_NOUISCALE_H;
+            h = 45 * GRID_NOUISCALE_H;
             size = TEXT_SIZE_MEDIUM;
         };
 

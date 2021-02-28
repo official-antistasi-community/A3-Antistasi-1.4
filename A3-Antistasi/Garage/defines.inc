@@ -50,6 +50,9 @@
 #define HR_GRG_IDC_tLock 170012
 #define HR_GRG_IDC_Confirm 170013
 #define HR_GRG_IDC_InfoPanel 170014
+#define HR_GRG_IDC_SourcePanelAmmo 1700141
+#define HR_GRG_IDC_SourcePanelFuel 1700142
+#define HR_GRG_IDC_SourcePanelRepair 1700143
 #define HR_GRG_IDC_CatText 170016
 #define HR_GRG_IDC_ExtrasText 170017
 #define HR_GRG_IDC_KeyBindHint 170018
@@ -77,6 +80,9 @@
 #define SpeedIcon "\a3\ui_f\data\GUI\Rsc\RscDisplayOptionsVideo\icon_performance.paa"
 #define EngineIcon "\a3\ui_f\data\IGUI\Cfg\Actions\engine_on_ca.paa"
 #define MassIcon "\a3\ui_f\data\GUI\Cfg\Cursors\raise_gs.paa"
+#define Rearm "\a3\ui_f\data\IGUI\Cfg\Actions\reload_ca.paa"
+#define Refuel "\a3\ui_f\data\IGUI\Cfg\Actions\refuel_ca.paa"
+#define Repair "\a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa"
 
 #define TutorialIcon "\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\unknown_ca.paa"
 #define cameraIcon "\a3\ui_f\data\GUI\Cfg\KeyframeAnimation\IconCamera_CA.paa"

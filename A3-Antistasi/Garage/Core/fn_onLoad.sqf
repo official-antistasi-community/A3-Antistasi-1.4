@@ -120,6 +120,7 @@ if (
     _pylonBttn ctrlSetTextColor [0.7,0,0,1];
     _pylonBttn ctrlSetTooltip localize "STR_HR_GRG_Generic_PylonDisabled";
 };
+[false] call HR_GRG_fnc_reloadExtras;
 
 //hide all extras menus and info panel
 {

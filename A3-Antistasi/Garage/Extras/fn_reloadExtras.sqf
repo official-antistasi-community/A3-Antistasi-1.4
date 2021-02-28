@@ -19,7 +19,7 @@
     License: MIT License
 */
 #include "defines.inc"
-params ["_reloadMounts"];
+params [["_reloadMounts", false, [true]]];
 private _class = HR_GRG_SelectedVehicles param [2, "", [""]];
 Trace("Reloading Extras");
 //Mounts
@@ -104,12 +104,48 @@ HR_GRG_CurAnims = _anims;
 
 [HR_GRG_previewVeh, HR_GRG_CurTexture, HR_GRG_CurAnims] call BIS_fnc_initVehicle;
 
+//update source panel
+private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelAmmo;
+_ctrl ctrlSetStructuredText composeText ["   ", image Rearm, " ", image (checkboxTextures select HR_GRG_hasAmmoSource)];
+_ctrl ctrlSetTooltip ([
+    localize "STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable"
+    , localize "STR_HR_GRG_SourcePanel_toolTip_Ammo_Available"
+] select HR_GRG_hasAmmoSource);
+
+private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelFuel;
+_ctrl ctrlSetStructuredText composeText ["   ", image Refuel, " ", image (checkboxTextures select HR_GRG_hasFuelSource)];
+_ctrl ctrlSetTooltip ([
+    localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Unavailable"
+    , localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Available"
+] select HR_GRG_hasFuelSource);
+
+private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelRepair;
+_ctrl ctrlSetStructuredText composeText ["   ", image Repair, " ", image (checkboxTextures select HR_GRG_hasRepairSource)];
+_ctrl ctrlSetTooltip ([
+    localize "STR_HR_GRG_SourcePanel_toolTip_Repair_Unavailable"
+    , localize "STR_HR_GRG_SourcePanel_toolTip_Repair_Available"
+] select HR_GRG_hasRepairSource);
+
+if (isNull HR_GRG_previewVeh) exitWith {};
 //update info panel
 private _ctrl = _disp displayCtrl HR_GRG_IDC_InfoPanel;
 private _spacer = composeText [lineBreak, lineBreak];
 private _topBar = composeText [
     image cfgIcon(_class), " ", cfgDispName(_class)
 ];
+
+//is source
+private _source = [
+    [HR_GRG_previewVeh] call HR_GRG_fnc_isAmmoSource
+    ,[HR_GRG_previewVeh] call HR_GRG_fnc_isFuelSource
+    ,[HR_GRG_previewVeh] call HR_GRG_fnc_isRepairSource
+];
+private _typeSource = switch (_source find true) do {
+    case 0: {localize "STR_HR_GRG_InfoPanel_isAmmoSource"};
+    case 1: {localize "STR_HR_GRG_InfoPanel_isFuelSource"};
+    case 2: {localize "STR_HR_GRG_InfoPanel_isRepairSource"};
+    default {localize "STR_HR_GRG_InfoPanel_isNotSource"};
+};
 
 //Crew
 private _fullCrew = fullCrew [HR_GRG_previewVeh, "", true];
@@ -168,8 +204,7 @@ private _mass = HR_GRG_previewVeh getVariable ["default_mass", getMass HR_GRG_pr
 { _mass = _mass + getMass _x } forEach attachedObjects HR_GRG_previewVeh; //the only thing attached is mounts
 _generalInfo = composeText [
     image SpeedIcon," ", localize "STR_HR_GRG_InfoPanel_Speed"," ", str _topSpeed, lineBreak
-    ,image EngineIcon," ",localize "STR_HR_GRG_InfoPanel_HP"," ", str _horsePower, lineBreak
     ,image MassIcon," ",localize "STR_HR_GRG_InfoPanel_Mass"," ", str _mass
 ];
 
-_ctrl ctrlSetStructuredText composeText [_topBar, _spacer, _seatsInfo, _spacer, _cargoInfo, _spacer, _generalInfo];
+_ctrl ctrlSetStructuredText composeText [_topBar, lineBreak, _typeSource, _spacer, _seatsInfo, _spacer, _cargoInfo, _spacer, _generalInfo];

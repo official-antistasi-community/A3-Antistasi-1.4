@@ -19,10 +19,11 @@
     License: MIT License
 */
 params [ ["_vehicle", objNull, [objNull]] ];
+if (isNull _vehicle) exitWith {false};
 
 if (hasAce) then { //Ace
     private _aceCurrent = _vehicle getVariable ["ace_rearm_currentSupply", 0];
-    if (_currentSupply < 0) exitWith {false};
+    if (_aceCurrent < 0) exitWith {false};
 
     private _vehCfg = configFile >> "CfgVehicles" >> typeOf _vehicle;
     private _ammoCap = getNumber (_vehCfg >> "transportAmmo");

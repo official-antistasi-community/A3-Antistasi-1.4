@@ -19,6 +19,7 @@
     License: MIT License
 */
 params [ ["_vehicle", objNull, [objNull]] ];
+if (isNull _vehicle) exitWith {false};
 
 if (hasAce) then {
     private _value = _vehicle getVariable ["ACE_isRepairVehicle", getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "ace_repair_canRepair")];

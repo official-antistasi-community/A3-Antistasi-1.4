@@ -127,7 +127,7 @@ vehNATOAmmoTruck = "uns_M35A2_ammo";//ammotruck, self explanatory
 vehNATORepairTruck = "uns_M35A2_repair";//Repair truck, self explanatory
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;//Don't change this line.
 //Armored
-vehNATOAPC = ["uns_M113", "uns_M113_M134", "uns_M113_M2", "uns_M113_M60", "uns_M113_transport", "uns_M113_XM182"];//APCs, should be troop carrying.
+vehNATOAPC = ["uns_M113_M134", "uns_M113_M2", "uns_M113_M60", "uns_M113_transport", "uns_M113_XM182"];//APCs, should be troop carrying.
 vehNATOTank = "uns_m48a3";//The 1 tank they can use.
 vehNATOAA = "uns_m163";//Anti air vehicle.
 vehNATOAttack = vehNATOAPC + [vehNATOTank];//Don't change this line.

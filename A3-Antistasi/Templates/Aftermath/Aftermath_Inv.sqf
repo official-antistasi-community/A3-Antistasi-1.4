@@ -122,7 +122,7 @@ vehCSATAmmoTruck = "uns_M35A2_ammo";
 vehCSATRepairTruck = "uns_M35A2_repair";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
-vehCSATAPC = ["uns_M113", "uns_M113_M134", "uns_M113_M2", "uns_M113_M60", "uns_M113_transport", "uns_M113_XM182"];
+vehCSATAPC = ["uns_M113_M134", "uns_M113_M2", "uns_M113_M60", "uns_M113_transport", "uns_M113_XM182"];
 vehCSATTank = "uns_m48a3";
 vehCSATAA = "uns_m163";
 vehCSATAttack = vehCSATAPC + [vehCSATTank];

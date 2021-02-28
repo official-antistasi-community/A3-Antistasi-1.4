@@ -1,4 +1,4 @@
-arrayCivs = {
+arrayCivs = [
 	"civ_foa_01",
 	"civ_foa_02",
 	"wastelander_01",

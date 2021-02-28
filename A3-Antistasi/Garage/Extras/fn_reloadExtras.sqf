@@ -106,21 +106,21 @@ HR_GRG_CurAnims = _anims;
 
 //update source panel
 private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelAmmo;
-_ctrl ctrlSetStructuredText composeText ["   ", image Rearm, " ", image (checkboxTextures select HR_GRG_hasAmmoSource)];
+_ctrl ctrlSetStructuredText composeText ["   ", image RearmIcon, " ", image (checkboxTextures select HR_GRG_hasAmmoSource)];
 _ctrl ctrlSetTooltip ([
     localize "STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable"
     , localize "STR_HR_GRG_SourcePanel_toolTip_Ammo_Available"
 ] select HR_GRG_hasAmmoSource);
 
 private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelFuel;
-_ctrl ctrlSetStructuredText composeText ["   ", image Refuel, " ", image (checkboxTextures select HR_GRG_hasFuelSource)];
+_ctrl ctrlSetStructuredText composeText ["   ", image RefuelIcon, " ", image (checkboxTextures select HR_GRG_hasFuelSource)];
 _ctrl ctrlSetTooltip ([
     localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Unavailable"
     , localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Available"
 ] select HR_GRG_hasFuelSource);
 
 private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelRepair;
-_ctrl ctrlSetStructuredText composeText ["   ", image Repair, " ", image (checkboxTextures select HR_GRG_hasRepairSource)];
+_ctrl ctrlSetStructuredText composeText ["   ", image RepairIcon, " ", image (checkboxTextures select HR_GRG_hasRepairSource)];
 _ctrl ctrlSetTooltip ([
     localize "STR_HR_GRG_SourcePanel_toolTip_Repair_Unavailable"
     , localize "STR_HR_GRG_SourcePanel_toolTip_Repair_Available"

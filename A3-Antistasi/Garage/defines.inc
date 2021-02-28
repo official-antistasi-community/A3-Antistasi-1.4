@@ -80,9 +80,9 @@
 #define SpeedIcon "\a3\ui_f\data\GUI\Rsc\RscDisplayOptionsVideo\icon_performance.paa"
 #define EngineIcon "\a3\ui_f\data\IGUI\Cfg\Actions\engine_on_ca.paa"
 #define MassIcon "\a3\ui_f\data\GUI\Cfg\Cursors\raise_gs.paa"
-#define Rearm "\a3\ui_f\data\IGUI\Cfg\Actions\reload_ca.paa"
-#define Refuel "\a3\ui_f\data\IGUI\Cfg\Actions\refuel_ca.paa"
-#define Repair "\a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa"
+#define RearmIcon "\a3\ui_f\data\IGUI\Cfg\Actions\reload_ca.paa"
+#define RefuelIcon "\a3\ui_f\data\IGUI\Cfg\Actions\refuel_ca.paa"
+#define RepairIcon "\a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa"
 
 #define TutorialIcon "\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\unknown_ca.paa"
 #define cameraIcon "\a3\ui_f\data\GUI\Cfg\KeyframeAnimation\IconCamera_CA.paa"

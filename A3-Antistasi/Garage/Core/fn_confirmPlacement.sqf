@@ -241,6 +241,7 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
         private _placed = if (_key isEqualTo DIK_SPACE) then {
             //create vehicle
             private _veh = _class createVehicle [0,0,10000];
+            [_veh] call HR_GRG_fnc_prepPylons;
             [_veh, _state] call HR_GRG_fnc_setState;
             _veh enableSimulation false;
             _veh allowDamage false;
@@ -267,7 +268,6 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
                     _veh setPylonLoadout [_pylonIndex, _mag, _forced, _turret]
                 } forEach HR_GRG_Pylons_;
             };
-            [_veh] call HR_GRG_fnc_removeUnusedWeapons;
             _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
             _veh call HR_GRG_fnc_vehInit;
             if !(HR_GRG_usePool) then { [_veh,HR_GRG_placement_callBack, "Placed"] call HR_GRG_fnc_callbackHandler };

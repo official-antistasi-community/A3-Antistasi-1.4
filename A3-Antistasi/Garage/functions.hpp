@@ -61,7 +61,7 @@ class HR_GRG
         class getDamage {};
         class getFuel {};
         class getState {};
-        class removeUnusedWeapons {};
+        class prepPylons {};
         class setAmmoData {};
         class setDamage {};
         class setFuel {};

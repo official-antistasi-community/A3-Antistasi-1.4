@@ -3,7 +3,8 @@
 ////////////////////////////////////
 nameTeamPlayer = "Great Khans";//The name for the player side. Used on the top UI bar in game, and on player held locations.
 SDKFlag = "Flag_Syndikat_F";
-SDKFlagTexture = "\Templates\Aftermath\khans_flag_antistasi.paa";
+SDKFlagTexture = "Templates\Aftermath\khans_flag_antistasi.paa";
+
 typePetros = "khan_great_01_body";//classname for the unit that should be used for petros
 
 ////////////////////////////////////

@@ -14,9 +14,12 @@ if (gameMode == 4) then {factionFIA = "CLF"};
 
 //Flag Images
 CSATFlag = "Flag_CSAT_F";
-CSATFlagTexture = "\Templates\Aftermath\caesar_flag_antistasi.paa";
-flagCSATmrk = "flag_CSAT";
-if (isServer) then {"CSAT_carrier" setMarkerText "Caesar's Legion Hexareme"};
+CSATFlagTexture = "Templates\Aftermath\caesar_flag_antistasi.paa"; 
+flagCSATmrk = "CL_Marker";
+if (isServer) then {
+	"CSAT_carrier" setMarkerText "Caesar's Legion Hexareme";
+	"CSAT_carrier" setMarkerType "CL_Marker";
+};
 
 //Loot Crate
 CSATAmmoBox = "O_supplyCrate_F";

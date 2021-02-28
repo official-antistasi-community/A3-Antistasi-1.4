@@ -13,9 +13,13 @@ if (gameMode != 4) then {factionFIA = "NCRF"};//Faction classname for low war le
 
 //Flag Images
 NATOFlag = "Flag_NATO_F";
-NATOFlagTexture = "\Templates\Aftermath\ncr_flag_antistasi.paa";
-flagNATOmrk = "flag_NATO";
-if (isServer) then {"NATO_carrier" setMarkerText "NCR Forward Operating Base"};
+NATOFlagTexture = "Templates\Aftermath\ncr_flag_antistasi.paa";
+
+flagNATOmrk = "NCR_Marker";
+if (isServer) then {
+	"NATO_carrier" setMarkerText "NCR Forward Operating Base";
+	"NATO_carrier" setMarkerType "NCR_Marker";
+};
 
 //Loot Crate
 NATOAmmobox = "B_supplyCrate_F";

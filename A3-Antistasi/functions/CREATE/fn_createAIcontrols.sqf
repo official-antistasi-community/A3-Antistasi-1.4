@@ -94,6 +94,12 @@ if (_isControl) then
 			_pos = [getPos _bunker, 6, getDir _bunker] call BIS_fnc_relPos;
 			_typeVehX = if (_sideX == Occupants) then {NATOFlag} else {CSATFlag};
 			_veh = createVehicle [_typeVehX, _pos, [],0, "NONE"];
+			if (_sideX == Occupants) then {
+				_veh setFlagTexture NATOFlagTexture;
+			}
+			else {
+				_veh setFlagTexture CSATFlagTexture;
+			};
 			_vehiclesX pushBack _veh;
 			_veh setPosATL _pos;
 			_veh setDir _dirVeh;

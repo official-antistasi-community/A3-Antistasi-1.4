@@ -14,7 +14,7 @@ if (gameMode == 4) then {factionFIA = "CLF"};
 
 //Flag Images
 CSATFlag = "Flag_CSAT_F";
-CSATFlagTexture = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
+CSATFlagTexture = "\Templates\Aftermath\caesar_flag_antistasi.paa";
 flagCSATmrk = "flag_CSAT";
 if (isServer) then {"CSAT_carrier" setMarkerText "Caesar's Legion Hexareme"};
 

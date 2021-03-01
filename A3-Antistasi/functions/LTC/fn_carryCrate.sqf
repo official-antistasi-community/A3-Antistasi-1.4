@@ -29,10 +29,9 @@ if (_pickUp) then {
     if !(count _attachedObj == 0) exitWith {systemChat "you are already carrying something."};
     _crate attachTo [_player, [0, 1.5, 0], "Pelvis"];
     _player setVariable ["carryingCrate", true];
-    _player forceWalk true;
     [_player ,_crate] spawn {
         params ["_player", "_crate"];
-        waitUntil { !alive _crate or !(_player getVariable ["carryingCrate", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _crate) };
+        waitUntil {_player forceWalk true; !alive _crate or !(_player getVariable ["carryingCrate", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _crate) };
         [_crate, false, _player] call A3A_fnc_carryCrate;
     };
 } else {

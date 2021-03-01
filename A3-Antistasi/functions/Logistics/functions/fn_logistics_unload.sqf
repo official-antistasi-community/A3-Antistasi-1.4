@@ -127,5 +127,5 @@ _vehicle setVariable ["Cargo", _loaded, true];
 
 _vehicle setVariable ["LoadingCargo",nil,true];
 if (_keepUnloading and !_lastLoaded) then {[_vehicle] spawn A3A_fnc_logistics_unload};//if you tried to unload a null obj unload next on list
-if (_lastLoaded) then {_vehicle setMass (_vehicle getVariable ["default_mass", getMass])};
+if (_lastLoaded) then {_vehicle setMass (_vehicle getVariable ["default_mass", getMass _vehicle])};
 nil

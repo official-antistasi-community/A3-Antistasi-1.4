@@ -21,6 +21,12 @@ A3A_hasTCGM = false;
 A3A_hasADV = false;
 A3A_hasD3S = false;
 A3A_hasRDS = false;
+A3A_hasAftermath = false;
+
+//Actual Detection
+
+//Aftermath Detection
+if (isClass (configfile >> "CfgPatches" >> "AFTERMATH") && isClass (configfile >> "CfgPatches" >> "uns_base")) then {A3A_hasAftermath = true; [2,"Aftermath Detected.",_fileName] call A3A_fnc_log;};
 
 //Actual Detection
 //IFA Detection

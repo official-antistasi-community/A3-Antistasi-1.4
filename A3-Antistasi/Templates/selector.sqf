@@ -70,6 +70,10 @@ switch(true) do{
       };
     };
 */
+    case (A3A_hasAftermath): {
+		["Templates\NewTemplates\Aftermath\Great Khans.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+		[2, "Using Great Khans template", _filename] call A3A_fnc_log;
+    };
     default {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (worldName == "Enoch"): {
@@ -189,6 +193,10 @@ case (A3A_hasIFA): {
     };
 };
 */
+    case (A3A_hasAftermath): {
+		["Templates\NewTemplates\Aftermath\New California Republic.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+		[2, "Using New California Republic template", _filename] call A3A_fnc_log;
+    };
     default {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (worldName == "Enoch"): {
@@ -266,6 +274,10 @@ case (A3A_hasIFA): {
     };
 };
 */
+    case (A3A_hasAftermath): {
+		["Templates\NewTemplates\Aftermath\Caesar's Legion.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+		[2, "Using Caesar's Legion template", _filename] call A3A_fnc_log;
+    };
     default {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (worldName == "Enoch"): {
@@ -299,6 +311,10 @@ switch(true) do{
         [2, "Using IFA Civ Template", _filename] call A3A_fnc_log;
     };
     */
+    case (A3A_hasAftermath): {
+        ["Templates\NewTemplates\Aftermath\Wastelanders.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+        [2, "Using Wastelanders Template", _filename] call A3A_fnc_log;
+    };
     default {
         ["Templates\NewTemplates\Vanilla\Vanilla_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using Vanilla Civ Template", _filename] call A3A_fnc_log;

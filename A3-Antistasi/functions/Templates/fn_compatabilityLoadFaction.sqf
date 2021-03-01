@@ -492,6 +492,8 @@ if (_side isEqualTo independent) then {
 };
 
 if (_side isEqualTo civilian) then {
+	allCivilianUniforms = _faction getVariable "civilianUniforms";
+	allCivilianHeadgear = _faction getVariable "civilianHeadgear";	
 	civVehCommonData = _faction getVariable "vehiclesCivCar";
 	civVehRepairData = _faction getVariable "vehiclesCivRepair";
 	civVehMedicalData = _faction getVariable "vehiclesCivMedical";

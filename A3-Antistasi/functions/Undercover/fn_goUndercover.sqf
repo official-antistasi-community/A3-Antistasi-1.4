@@ -29,8 +29,8 @@ if (vehicle _player != _player) then {
 	};
 }
 else {
-	if ((primaryWeapon _player != "") or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or (vest _player != "") or (headgear _player in allArmoredHeadgear) or (hmd _player != "") or (not(uniform _player in allCivilianUniforms))) then {
-		["Undercover", "You cannot go Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform"] call A3A_fnc_customHint;
+	if ((primaryWeapon _player != "") or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or (vest _player != "") or ((headgear _player != "") and (not(headgear _player in allCivilianHeadgear))) or (hmd _player != "") or (not(uniform _player in allCivilianUniforms))) then {
+		["Undercover", "You cannot go Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a non-civilian hat or helmet<br/>Wearing NVGs<br/>Wearing a non civilian uniform"] call A3A_fnc_customHint;
 		_changeX = "Init";
 	};
 	if (dateToNumber date < _compromised) then {
@@ -137,7 +137,7 @@ do {
 					};
 				};
 			};
-			if ((primaryWeapon _player != "") or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or(vest _player != "") or(getNumber(configfile >> "CfgWeapons" >> headgear _player >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2) or(hmd _player != "") or(not(uniform _player in allCivilianUniforms))) then {
+			if ((primaryWeapon _player != "") or (secondaryWeapon _player != "") or (handgunWeapon _player != "") or (vest _player != "") or ((headgear _player != "") and (not(headgear _player in allCivilianHeadgear))) or (hmd _player != "") or (not(uniform _player in allCivilianUniforms))) then {
 				if ({((side _x == Invaders) or (side _x == Occupants)) and ((_x knowsAbout _player > 1.4) or (_x distance _player < 350))} count allUnits > 0) then {
 					_changeX = "clothes2"
 				} else {

@@ -76,6 +76,14 @@ if (_isControl) then
 			_pos = getPosATL _bunker;
 			_typeVehX = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
 			_veh = _typeVehX createVehicle _positionX;
+			if (_sideX == Occupants) then
+			{
+				_veh setFlagTexture NATOFlagTexture;
+			}
+			else
+			{
+				_veh setFlagTexture CSATFlagTexture;
+			};
 			_vehiclesX pushBack _veh;
 			_veh setPosATL _pos;
 			_veh setDir _dirVeh;

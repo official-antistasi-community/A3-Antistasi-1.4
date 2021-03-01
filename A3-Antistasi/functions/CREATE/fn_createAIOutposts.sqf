@@ -132,6 +132,14 @@ if(random 100 < (40 + tierWar * 3)) then
 
 _typeVehX = if (_sideX == Occupants) then {NATOFlag} else {CSATFlag};
 _flagX = createVehicle [_typeVehX, _positionX, [],0, "NONE"];
+if (_sideX == Occupants) then
+{
+	_flagX setFlagTexture NATOFlagTexture;
+}
+else
+{
+	_flagX setFlagTexture CSATFlagTexture;
+};
 _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;

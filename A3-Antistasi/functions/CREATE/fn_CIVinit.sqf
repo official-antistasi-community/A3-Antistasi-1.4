@@ -4,6 +4,7 @@ _unit = _this select 0;
 
 _unit setSkill 0;
 _unit forceAddUniform (selectRandom allCivilianUniforms);
+_unit addHeadgear (selectRandom allCivilianHeadgear);
 _unit disableAI "TARGET";
 _unit disableAI "AUTOTARGET";
 //Stops civilians from shouting out commands.

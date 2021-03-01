@@ -67,6 +67,14 @@ if(!debug) then
 _typeFlag = if (_side == Occupants) then {NATOFlag} else {CSATFlag};
 _flag = createVehicle [_typeFlag, _markerPos, [], 0, "NONE"];
 _flag allowDamage false;
+if (_side == Occupants) then
+{
+	_flag setFlagTexture NATOFlagTexture;
+}
+else
+{
+	_flag setFlagTexture CSATFlagTexture;
+};
 [_flag,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flag];
 
 _box = objNull;

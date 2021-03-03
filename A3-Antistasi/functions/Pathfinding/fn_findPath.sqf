@@ -40,6 +40,8 @@ params
 private _fileName = "findPath";
 private _deltaTime = time;
 
+[3, format ["Starting pathfinding from %1 to %2", _startPos, _endPos], _fileName] call A3A_fnc_log;
+
 private _startNavIndex = [_startPos] call A3A_fnc_getNearestNavPoint;
 private _endNavIndex = [_endPos] call A3A_fnc_getNearestNavPoint;
 

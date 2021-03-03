@@ -8,7 +8,7 @@ Arguments:
     <GROUP> The group for which the waypoints should be created
 
 Return Value:
-    <ARRAY> Simplified path
+    <NULL>
 
 Scope: Any
 Environment: Any
@@ -27,11 +27,21 @@ params
     ["_group", grpNull, [grpNull]]
 ];
 
+private _fileName = "WPCreate";
+
+[3, format ["Creating waypoints for group %1 from %2 to %3", _group, _origin, _destination], _fileName] call A3A_fnc_log;
+
 private _posOrigin = if(_origin isEqualType "") then {getMarkerPos _origin} else {_origin};
 private _posDestination = if(_destination isEqualType "") then {getMarkerPos _destination} else {_destination};
 
 private _path = [_posOrigin, _posDestination] call A3A_fnc_findPath;
 _path = [_path] call A3A_fnc_trimPath;
+
+//Get rid of the first part of to avoid driving back
+if(count _path > 0) then
+{
+    _path deleteAt 0;
+};
 
 private _waypoints = _path apply {_group addWaypoint [_x, 0]};
 {_x setWaypointBehaviour "SAFE"} forEach _waypoints;
@@ -40,5 +50,3 @@ if (count _waypoints > 0) then
 {
     _group setCurrentWaypoint (_waypoints select 0);
 };
-
-_waypoints;

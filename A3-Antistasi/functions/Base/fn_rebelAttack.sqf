@@ -98,18 +98,17 @@ else
     };
 
     _possibleStartBases = _possibleStartBases select {sidesX getVariable [_x,sideUnknown] == _side};
-
-    if((_side == Occupants) && (gameMode != 4)) then
-    {
-        _possibleStartBases pushBack "NATO_carrier";
-    };
-    if((_side == Invaders) && (gameMode != 3)) then
-    {
-        _possibleStartBases pushBack "CSAT_carrier";
-    };
-
     _possibleTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] == _targetSide};
     [3, format ["Selected target side is %1", _targetSide], _filename] call A3A_fnc_log;
+};
+
+if((_side == Occupants) && (gameMode != 4)) then
+{
+    _possibleStartBases pushBack "NATO_carrier";
+};
+if((_side == Invaders) && (gameMode != 3)) then
+{
+    _possibleStartBases pushBack "CSAT_carrier";
 };
 
 //On low level remove cities from target list

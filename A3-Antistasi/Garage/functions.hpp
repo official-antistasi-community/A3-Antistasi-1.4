@@ -15,11 +15,9 @@ class HR_GRG
         class onUnload {};
         class reciveBroadcast {};
         class releaseAllVehicles {};
-        class releaseVehicle {};
         class reloadCategory {};
         class reloadPreview {};
         class removeFromPool {};
-        class removeReferences {};
         class removeUser {};
         class requestSelectionChange {};
         class requestVehicle {};
@@ -28,6 +26,7 @@ class HR_GRG
         class toggleConfirmBttn {};
         class toggleLock {};
         class updateCamPos {};
+        class validateGarage {};
     };
     class Extras
     {

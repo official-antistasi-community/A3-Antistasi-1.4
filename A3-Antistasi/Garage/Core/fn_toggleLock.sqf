@@ -33,7 +33,7 @@ private _lock = _veh#2;
 _succes = call {
     if ( _lock isEqualTo "" ) exitWith { true };
     if ( _lock isEqualTo _UID) exitWith { _UID = ""; true };
-    if (_player isEqualTo (_player call HR_GRG_cmdClient)) exitWith { _UID = ""; LogDebug_4("Commander unlock | VehUID: %1 | Owner: %2 | Commander: %3[%4]", _vehUID, _lock, name _player, _UID); true };
+    if (_player isEqualTo (_player call HR_GRG_cmdClient)) exitWith { _UID = ""; LogDebug_4("fn_toggleUnlock | Commander unlock | VehUID: %1 | Owner: %2 | Commander: %3[%4]", _vehUID, _lock, name _player, _UID); true };
     false
 };
 

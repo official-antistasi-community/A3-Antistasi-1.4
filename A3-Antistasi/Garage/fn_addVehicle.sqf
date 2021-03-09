@@ -20,9 +20,13 @@
 
     License: MIT License
 */
-#include "defines.inc"
-private _filename = "HR_GRG_fnc_addVehicle";
 params [ ["_vehicle", objNull, [objNull]], ["_client", 2, [0]], ["_lockUID", ""], ["_player", objNull, [objNull]] ];
+#include "defines.inc"
+
+if (isNil "HR_GRG_Vehicles") then {
+    if (isServer) then {[] call HR_GRG_fnc_initServer} else {[] remoteExec ["HR_GRG_fnc_initServer", 2]};
+};
+
 private _class = typeOf _vehicle;
 private _cat = [_class] call HR_GRG_fnc_getCatIndex;
 
@@ -89,7 +93,7 @@ private _locking = if (_lockUID isEqualTo "") then {false} else {true};
         deleteVehicle _x;
         private _vehUID = [] call HR_GRG_fnc_genVehUID;
         (HR_GRG_Vehicles#4) set [_vehUID, [cfgDispName(typeOf _x), typeOf _x, _lockUID, "", _stateData]];
-        LogDebug_5("Vehicle garaged | By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5", name _player, getPlayerUID _player, cfgDispName(typeOf _x), _vehUID, _locking );
+        LogDebug_5("fn_addVehicle | Vehicle garaged | By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5", name _player, getPlayerUID _player, cfgDispName(typeOf _x), _vehUID, _locking );
     };
 } forEach attachedObjects _vehicle;
 
@@ -112,7 +116,7 @@ if (_sourceIndex != -1) then {
     (HR_GRG_Sources#_sourceIndex) pushBack _vehUID;
     [_sourceIndex] call HR_GRG_fnc_declairSources;
     }; //register vehicle as a source
-LogDebug_6("Vehicle garaged | By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5 | Source: %6", name _player, getPlayerUID _player, cfgDispName(_class), _vehUID, _locking, _sourceIndex);
+LogDebug_6("fn_addVehicle | Vehicle garaged | By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5 | Source: %6", name _player, getPlayerUID _player, cfgDispName(_class), _vehUID, _locking, _sourceIndex);
 
 //refresh category for active users
 private _catToRefresh = if (_countStatics > 0) then {[_cat, 4]} else {[_cat]};

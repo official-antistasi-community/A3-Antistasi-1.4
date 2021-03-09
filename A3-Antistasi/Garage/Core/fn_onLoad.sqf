@@ -1,20 +1,8 @@
-private _filename = "HR_GRG_fnc_onLoad";
 /*
     Author: [Håkon]
     [Description]
         Handels opening the garage
-
-        Builds list in HR_GRG_VehicleSelect dialog
-        Data structure:
-                | Display name      | Class name                    | Locked UID    | Checked out UID
-        Cars    | [["Offroad"       |, "C_Offroad_01_F"             |, ""           |, ""
-        Armored | [["FV-720 Mora"   |, "I_APC_tracked_03_cannon_F"  |, ""           |, ""
-        Air     | [["CH-49 Mohawk"  |, "I_Heli_Transport_02_F"      |, ""           |, ""
-        Boats   | [["Assault Boat"  |, "I_Boat_Transport_01_F"      |, ""           |, ""
-        Statics | [["Mk6 Mortar"    |, "I_Mortar_01_F"              |, ""           |, ""
-
-        Locked UID: Player UID of player who locked the vehicle in the garage
-        Checked out UID: UID of player that is currently selecting the vehicle in the garage
+        setting up controls and EH for the garage to function
 
         Note: Should only be called from display onLoad EH
 

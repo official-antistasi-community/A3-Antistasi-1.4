@@ -1,4 +1,22 @@
-//handles confiming vehicle selection
+/*
+    Author: [Håkon]
+    [Description]
+        intermidiary between dialog EH and confim placement
+        gathers and formats data used in vehicle placement
+
+    Arguments: <nil>
+
+    Return Value: <nil>
+
+    Scope: Clients
+    Environment: Any
+    Public: No
+    Dependencies:
+
+    Example: [] call HR_GRG_fnc_confirm;
+
+    License: MIT License
+*/
 HR_GRG_SelectedVehicles params ["_catIndex", "_vehUID", "_class"];
 
 //get mounts state

@@ -54,10 +54,6 @@ private _sources = [+(HR_GRG_Sources#0),+(HR_GRG_Sources#1),+(HR_GRG_Sources#2)]
     } forEach (keys _cat);
 } forEach _garage;
 
-//log the save data (due to issues with save mangeling)
-diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["Vehicles saved: %1",_garage]);
-diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["UID saved: %1",_UID]);
-diag_log (str serverTime + " | Red Rebelion | Garage | Trace | " + format ["Sources saved: %1",_sources]);
-
+Trace("Save data generated");
 //return save data struct
 [_garage, _UID, _sources];

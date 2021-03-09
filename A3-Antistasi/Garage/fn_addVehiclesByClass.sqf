@@ -21,11 +21,15 @@
 */
 params [["_vehicles", [], [[]]], ["_lockUID", "", [""]]];
 #include "defines.inc"
+if (isNil "HR_GRG_Vehicles") then {
+    if (isServer) then {[] call HR_GRG_fnc_initServer} else {[] remoteExec ["HR_GRG_fnc_initServer", 2]};
+};
+
 private _cfg = configFile >> "CfgVehicles";
 {
-    if (!isClass (_cfg >> _x)) then {LogDebug_1("addVehiclesByClass | Invalid class: %1", _x); continue};
+    if (!isClass (_cfg >> _x)) then {LogDebug_1("fn_addVehiclesByClass | Invalid class: %1", _x); continue};
     private _cat = [_x] call HR_GRG_fnc_getCatIndex;
-    if (_cat < 0) then {LogDebug_1("addVehiclesByClass | Unsoported category: %1", _x); continue};
+    if (_cat < 0) then {LogDebug_1("fn_addVehiclesByClass | Unsoported category: %1", _x); continue};
     private _vehUID = [] call HR_GRG_fnc_genVehUID;
     (HR_GRG_Vehicles#_cat) set [_vehUID, [cfgDispName(_x), _x, _lockUID, "", [[1,-1,nil],[0,[[],[]],-1],[]]]];
 } forEach _vehicles;

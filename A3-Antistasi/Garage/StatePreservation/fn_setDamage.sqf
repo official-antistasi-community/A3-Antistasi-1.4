@@ -1,3 +1,27 @@
+/*
+    Author: [Håkon]
+    [Description]
+        
+
+    Arguments:
+        0. <Object> Vehicle to set damage state off
+        1. <Array> [
+            <Int> Overall damage
+            <Array> Hitpoint damage
+            <Int> Repair cargo
+        ] Damage state
+
+    Return Value: <nil>
+
+    Scope: Any
+    Environment: Any
+    Public: Yes
+    Dependencies:
+
+    Example:
+
+    License: MIT License
+*/
 params ["_vehicle", "_dmgStats"];
 if !(local _vehicle) exitWith {};
 _dmgStats params [["_dmg",0,[0]], ["_hitDmg", [[],[]], [[]]], ["_repairCargo", -1, [0]]];

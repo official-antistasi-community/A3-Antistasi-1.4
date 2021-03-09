@@ -64,7 +64,7 @@ if (!isNull player) then {
 //logging is low priority do it after done modifying the pool
 {
     (_x#2) params ["_dispName", "", "", "_UID"];
-    LogDebug_4("Vehicle ungaraged | By: %1 [%2] | Type: %3 | Vehicle ID: %4", name _player, _UID, _dispName, _x#1);
+    LogDebug_4("fn_removeFromPool | Vehicle ungaraged | By: %1 [%2] | Type: %3 | Vehicle ID: %4", name _player, _UID, _dispName, _x#1);
 } forEach _toRemove;
 
 true

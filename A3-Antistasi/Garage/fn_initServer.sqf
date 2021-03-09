@@ -22,13 +22,8 @@
 #include "defines.inc"
 Trace("Running server init");
 
-if (isNil "HR_GRG_Vehicles") then {HR_GRG_Vehicles = [createHashMap,createHashMap,createHashMap,createHashMap,createHashMap]};
+if (isNil "HR_GRG_Vehicles") then {[] call HR_GRG_fnc_loadSaveData};
 if (isNil "HR_GRG_Users") then {HR_GRG_Users = []};
-if (isNil "HR_GRG_UID") then {HR_GRG_UID = 0};
-if (isNil "HR_GRG_Sources") then {HR_GRG_Sources = [[],[],[]]};
-if (isNil "HR_GRG_hasAmmoSource") then {HR_GRG_hasAmmoSource = !((HR_GRG_Sources#0) isEqualTo []); publicVariable "HR_GRG_hasAmmoSource"};
-if (isNil "HR_GRG_hasFuelSource") then {HR_GRG_hasFuelSource = !((HR_GRG_Sources#1) isEqualTo []); publicVariable "HR_GRG_hasFuelSource"};
-if (isNil "HR_GRG_hasRepairSource") then {HR_GRG_hasRepairSource = !((HR_GRG_Sources#2) isEqualTo []); publicVariable "HR_GRG_hasRepairSource"};
 
 //validate and fix garage vehicle pool
 private _invalidentries = [];

@@ -1,3 +1,27 @@
+/*
+    Author: [Håkon]
+    [Description]
+        
+
+    Arguments:
+        0. <Object> Vehicle to get damage state from
+
+    Return Value:
+        <Array> [
+            <Int> Overall damage
+            <Array> Hitpoint damage
+            <Int> Repair cargo
+        ] Damage state
+
+    Scope: Any
+    Environment: Any
+    Public: Yes
+    Dependencies:
+
+    Example:
+
+    License: MIT License
+*/
 params ["_vehicle"];
 private _dmg = damage _vehicle min 0.89;
 private _hitPointDamage = getAllHitPointsDamage _vehicle;

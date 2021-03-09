@@ -1,3 +1,28 @@
+/*
+    Author: [Håkon]
+    [Description]
+        Client side handling of server broadcast, keeps client in synch with server data
+
+    Arguments:
+        0. <String> Lock UID
+        1. <String> Checkout UID
+        2. <Int>    Category index
+        3. <Int>    Vehicle UID
+        4. <Object> Player who made the request
+        5. <Bool>   Switch vehicle
+
+    Return Value:
+        <Nil>
+
+    Scope: Clients
+    Environment: Any
+    Public: [No]
+    Dependencies:
+
+    Example: (_this#1) call HR_GRG_fnc_reciveBroadcast;
+
+    License: MIT License
+*/
 #include "defines.inc"
 Trace_1("Reciving broadcast: %1",_this);
 params ["_lockUID", "_checkoutUID", "_catIndex", "_vehUID", "_player", "_switch"];

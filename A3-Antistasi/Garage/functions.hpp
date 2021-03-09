@@ -15,11 +15,9 @@ class HR_GRG
         class onUnload {};
         class reciveBroadcast {};
         class releaseAllVehicles {};
-        class releaseVehicle {};
         class reloadCategory {};
         class reloadPreview {};
         class removeFromPool {};
-        class removeReferences {};
         class removeUser {};
         class requestSelectionChange {};
         class requestVehicle {};

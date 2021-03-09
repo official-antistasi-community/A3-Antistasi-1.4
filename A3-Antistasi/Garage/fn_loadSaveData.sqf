@@ -41,7 +41,7 @@
 if (!isServer) exitWith {false};
 #include "defines.inc"
 params [["_save", [], [[]] ]];
-_save params [
+private _validSave = _save params [
     ["_garage", [createHashMap,createHashMap,createHashMap,createHashMap,createHashMap], [[]], 5]
     , ["_uid", 0, [0]]
     , ["_sources", [[],[],[]], [[]], 3]
@@ -51,9 +51,14 @@ HR_GRG_Vehicles = +_garage;
 HR_GRG_UID = +_uid;
 HR_GRG_Sources = +_sources;
 
+[] call HR_GRG_validateGarage;
 {
     [_forEachIndex] call HR_GRG_fnc_declairSources;
 } forEach HR_GRG_Sources;
 
-Trace("Save data restored");
+if _validSave then {
+    Trace("fn_loadSaveData | Garage restored");
+} else {
+    Trace("fn_loadSaveData | New garage loaded");
+};
 true;

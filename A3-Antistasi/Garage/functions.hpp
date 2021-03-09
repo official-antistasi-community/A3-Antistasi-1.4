@@ -26,6 +26,7 @@ class HR_GRG
         class toggleConfirmBttn {};
         class toggleLock {};
         class updateCamPos {};
+        class validateGarage {};
     };
     class Extras
     {

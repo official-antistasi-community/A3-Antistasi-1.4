@@ -40,7 +40,7 @@
 */
 if (!isServer) exitWith {false};
 #include "defines.inc"
-params ["_save"];
+params [["_save", [], [[]] ]];
 _save params [
     ["_garage", [createHashMap,createHashMap,createHashMap,createHashMap,createHashMap], [[]], 5]
     , ["_uid", 0, [0]]

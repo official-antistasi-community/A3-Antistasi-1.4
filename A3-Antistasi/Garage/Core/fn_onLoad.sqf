@@ -22,6 +22,7 @@
     License: MIT License
 */
 #include "defines.inc"
+['HR_GRG','Loading Garage, please wait...'] call BIS_fnc_startLoadingScreen;
 Trace("Opening Garage");
 
 //if for some reason the server init has not been done, do it now
@@ -70,6 +71,22 @@ _disp displayAddEventHandler ["MouseButtonUp", "if ((_this#1) isEqualTo 1) then 
 _disp displayAddEventHandler ["MouseMoving", "if (HR_GRG_RMouseBtnDown) then {_this call HR_GRG_fnc_updateCamPos};"];
 _disp displayAddEventHandler ["MouseZChanged","if !(HR_GRG_RMouseBtnDown) exitWith {}; HR_GRG_camDist = 0.9 max (HR_GRG_camDist - (_this#1)*0.1) min 2; [nil,0,0] call HR_GRG_fnc_updateCamPos; HR_GRG_previewLight setLightBrightness 1.1 * HR_GRG_camDist;"];
 
+//add veh pool modified EH
+"HR_GRG_Event" addPublicVariableEventHandler {
+    if (isNil "HR_GRG_Vehicles") exitWith {};
+    (_this#1) call HR_GRG_fnc_reciveBroadcast;
+};
+"HR_GRG_Vehicles" addPublicVariableEventHandler {
+    #include "defines.inc"
+    private _disp = findDisplay HR_GRG_IDD_Garage;
+    private _index = HR_GRG_Cats findIf {ctrlShown _x};
+    private _ctrl = HR_GRG_Cats#_index;
+    [_ctrl, _index] call HR_GRG_fnc_reloadCategory;
+};
+//add player to broadcast recipient list
+[clientOwner] remoteExecCall ["HR_GRG_fnc_addUser", 2]; //add to recipient
+waitUntil {!isNil "HR_GRG_Vehicles"};//wait for server response
+
 //define list of controls coresponding with list index
 HR_GRG_Cats = [HR_GRG_IDC_CatCar,HR_GRG_IDC_CatArmored,HR_GRG_IDC_CatAir,HR_GRG_IDC_CatBoat,HR_GRG_IDC_CatStatic] apply {_disp displayCtrl _x};
 {
@@ -83,19 +100,6 @@ if !(call HR_GRG_Cnd_canAccessAir) then {
     _airBttn ctrlEnable false;
     _airBttn ctrlSetTextColor [0.7,0,0,1];
     _airBttn ctrlSetTooltip localize "STR_HR_GRG_Generic_AirDisabled";
-};
-
-//add veh pool modified EH
-"HR_GRG_Event" addPublicVariableEventHandler {
-    if (isNil "HR_GRG_Vehicles") exitWith {};
-    (_this#1) call HR_GRG_fnc_reciveBroadcast;
-};
-"HR_GRG_Vehicles" addPublicVariableEventHandler {
-    #include "defines.inc"
-    private _disp = findDisplay HR_GRG_IDD_Garage;
-    private _index = HR_GRG_Cats findIf {ctrlShown _x};
-    private _ctrl = HR_GRG_Cats#_index;
-    [_ctrl, _index] call HR_GRG_fnc_reloadCategory;
 };
 
 //extras list init
@@ -119,8 +123,6 @@ if (
 [0] call HR_GRG_fnc_switchExtrasMenu;
 [] call HR_GRG_fnc_reloadPylons;
 
-//add player to broadcast recipient list
-[clientOwner] remoteExecCall ["HR_GRG_fnc_addUser", 2]; //add to recipient
 
 HR_GRG_EachFrame = addMissionEventHandler ["EachFrame", {
     if (call HR_GRG_CP_closeCnd) exitWith {closeDialog 2};
@@ -135,3 +137,5 @@ _keyBindText = composeText [
     ,"    ",image zoomIcon,"",localize "STR_HR_GRG_Feedback_Cam_Zoom"
 ];
 _keyBindCtrl ctrlSetStructuredText _keyBindText;
+
+'HR_GRG' call BIS_fnc_endLoadingScreen;

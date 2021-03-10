@@ -8,7 +8,7 @@
     1. <String> Lock uid, valid values {"", getPlayerUID player}
 
     Return Value:
-    <nil>
+    <Bool> Successfull
 
     Scope: Server
     Environment: unscheduled
@@ -21,9 +21,8 @@
 */
 params [["_vehicles", [], [[]]], ["_lockUID", "", [""]]];
 #include "defines.inc"
-if (isNil "HR_GRG_Vehicles") then {
-    if (isServer) then {[] call HR_GRG_fnc_initServer} else {[] remoteExec ["HR_GRG_fnc_initServer", 2]};
-};
+if (!isServer) exitWith {false};
+if (isNil "HR_GRG_Vehicles") then { [] call HR_GRG_fnc_initServer };
 
 private _cfg = configFile >> "CfgVehicles";
 {
@@ -33,4 +32,4 @@ private _cfg = configFile >> "CfgVehicles";
     private _vehUID = [] call HR_GRG_fnc_genVehUID;
     (HR_GRG_Vehicles#_cat) set [_vehUID, [cfgDispName(_x), _x, _lockUID, "", [[1,-1,nil],[0,[[],[]],-1],[]]]];
 } forEach _vehicles;
-nil
+true

@@ -16,6 +16,7 @@
 
     License: MIT License
 */
+#include "defines.inc"
 //find invalid vehicle class entries
 private _invalidentries = [];
 private _cfg = (configFile >> "CfgVehicles");
@@ -33,7 +34,8 @@ private _cfg = (configFile >> "CfgVehicles");
     //remove invalid classes from garage pool
     _x params ["_catIndex", "_entry"];
     private _cat = HR_GRG_Vehicles#_catIndex;
-    _cat deleteAt _entry;
+    private _vehicle = _cat deleteAt _entry;
+    LogDebug_1("fn_validateGarage | Removing invalid class: %1", _vehicle#1);
 
     //clear them from the source registre
     private _sourceType = HR_GRG_Sources findIf {_entry in _x};

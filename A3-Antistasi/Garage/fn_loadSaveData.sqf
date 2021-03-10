@@ -51,7 +51,7 @@ HR_GRG_Vehicles = +_garage;
 HR_GRG_UID = +_uid;
 HR_GRG_Sources = +_sources;
 
-[] call HR_GRG_validateGarage;
+[] call HR_GRG_fnc_validateGarage;
 {
     [_forEachIndex] call HR_GRG_fnc_declairSources;
 } forEach HR_GRG_Sources;

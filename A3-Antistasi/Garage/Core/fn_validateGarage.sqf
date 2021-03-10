@@ -12,13 +12,13 @@
     Public: Yes
     Dependencies: HR_GRG_Vehicles, HR_GRG_Sources
 
-    Example: [] call HR_GRG_validateGarage;
+    Example: [] call HR_GRG_fnc_validateGarage;
 
     License: MIT License
 */
 //find invalid vehicle class entries
 private _invalidentries = [];
-_cfg = (configFile >> "CfgVehicles");
+private _cfg = (configFile >> "CfgVehicles");
 {
     private _cat = _x;
     private _catIndex = _forEachIndex;

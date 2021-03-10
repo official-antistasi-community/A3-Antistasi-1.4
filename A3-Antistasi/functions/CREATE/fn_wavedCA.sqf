@@ -328,7 +328,7 @@ while {(_waves > 0)} do
 	};
 
 	_isSea = false;
-	if (!hasIFA && (count seaAttackSpawn != 0)) then
+	if (!A3A_hasIFA && (count seaAttackSpawn != 0)) then
 		{
 		for "_i" from 0 to 3 do
 			{
@@ -638,59 +638,39 @@ while {(_waves > 0)} do
 	_plane = if (_sideX == Occupants) then {vehNATOPlane} else {vehCSATPlane};
 	if (_sideX == Occupants) then
 		{
-		if (((not(_mrkDestination in outposts)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "NATO_carrier")) or hasIFA) then
+		if (((not(_mrkDestination in outposts)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "NATO_carrier")) or A3A_hasIFA) then
 			{
-			[_mrkOrigin,_mrkDestination,_sideX] spawn A3A_fnc_artillery;
-			diag_log "Antistasi: Arty Spawned";
+            private _reveal = [getMarkerPos _mrkDestination, _sideX] call A3A_fnc_calculateSupportCallReveal;
+            [getMarkerPos _mrkDestination, 4, ["MORTAR"], _sideX, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
 			if (([_plane] call A3A_fnc_vehAvailable) and (not(_mrkDestination in citiesX)) and _firstWave) then
 				{
 				sleep 60;
 				_rnd = if (_mrkDestination in airportsX) then {round random 4} else {round random 2};
-				private _bombOptions = if (napalmEnabled) then {["HE","CLUSTER","NAPALM"]} else {["HE","CLUSTER"]};
 				for "_i" from 0 to _rnd do
 					{
-					if ([_plane] call A3A_fnc_vehAvailable) then
-						{
-						diag_log "Antistasi: Airstrike Spawned";
-						if (_i == 0 && {_mrkDestination in airportsX}) then
-							{
-							_nul = [_mrkDestination,_sideX,"HE"] spawn A3A_fnc_airstrike;
-							}
-						else
-							{
-							_nul = [_mrkDestination,_sideX,selectRandom _bombOptions] spawn A3A_fnc_airstrike;
-							};
-						sleep 30;
-						};
+                        private _reveal = [getMarkerPos _mrkDestination, _sideX] call A3A_fnc_calculateSupportCallReveal;
+                        [getMarkerPos _mrkDestination, 4, ["AIRSTRIKE"], _sideX, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
+                        sleep 30;
 					};
 				};
 			};
 		}
 	else
 		{
-		if (((not(_mrkDestination in resourcesX)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "CSAT_carrier")) or hasIFA) then
+		if (((not(_mrkDestination in resourcesX)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "CSAT_carrier")) or A3A_hasIFA) then
 			{
-			if !(_posOriginLand isEqualTo []) then {[_posOriginLand,_mrkDestination,_sideX] spawn A3A_fnc_artillery} else {[_mrkOrigin,_mrkDestination,_sideX] spawn A3A_fnc_artillery};
-			diag_log "Antistasi: Arty Spawned";
+                private _reveal = [getMarkerPos _mrkDestination, _sideX] call A3A_fnc_calculateSupportCallReveal;
+                    [getMarkerPos _mrkDestination, 4, ["MORTAR"], _sideX, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
 			if (([_plane] call A3A_fnc_vehAvailable) and (_firstWave)) then
 				{
 				sleep 60;
 				_rnd = if (_mrkDestination in airportsX) then {if ({sidesX getVariable [_x,sideUnknown] == Invaders} count airportsX == 1) then {8} else {round random 4}} else {round random 2};
-				private _bombOptions = if (napalmEnabled) then {["HE","CLUSTER","NAPALM"]} else {["HE","CLUSTER"]};
 				for "_i" from 0 to _rnd do
 					{
 					if ([_plane] call A3A_fnc_vehAvailable) then
 						{
-						diag_log "Antistasi: Airstrike Spawned";
-						if (_i == 0 && {_mrkDestination in airportsX}) then
-							{
-							_nul = [_mrkDestination,_sideX,"HE"] spawn A3A_fnc_airstrike;
-							}
-						else
-							{
-							_nul = [_posDestination,_sideX,selectRandom _bombOptions] spawn A3A_fnc_airstrike;
-							};
-						sleep 30;
+                            private _reveal = [getMarkerPos _mrkDestination, _sideX] call A3A_fnc_calculateSupportCallReveal;
+                            [getMarkerPos _mrkDestination, 4, ["AIRSTRIKE"], _sideX, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
 						};
 					};
 				};
@@ -726,34 +706,26 @@ while {(_waves > 0)} do
                     {
                         private _distance = (getMarkerPos _mrkDestination) distance2D (getMarkerPos _x);
                         private _supportChange = [0, 0];
-                        if(_distance < 2500) then
-                        {
-                            _supportChange = [0, -10];
-                        };
                         if(_distance < 2000) then
                         {
-                            _supportChange = [10, -30];
-                        };
-                        if(_distance < 1500) then
-                        {
-                            _supportChange = [25, -50];
+                            _supportChange = [10, -10];
                         };
                         if(_distance < 1000) then
                         {
-                            _supportChange = [50, -75];
+                            _supportChange = [20, -20];
                         };
                         if(_distance < 500) then
                         {
-                            _supportChange = [75, -75];
+                            _supportChange = [30, -30];
                         };
-                        if(_distance < 2500) then
+                        if(_distance < 2000) then
                         {
                             _supportChange pushBack _x;
                             _supportChange remoteExec ["A3A_fnc_citySupportChange",2];
                         };
                     };
                 } forEach citiesX;
-				[100,-100,_mrkDestination] remoteExec ["A3A_fnc_citySupportChange",2];
+				[60,-60,_mrkDestination,false] remoteExec ["A3A_fnc_citySupportChange",2];		// no pop scaling, force swing
 				["TaskFailed", ["", format ["%1 joined %2",[_mrkDestination, false] call A3A_fnc_location,nameOccupants]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 				sidesX setVariable [_mrkDestination,Occupants,true];
 				[[-10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];

@@ -1,3 +1,134 @@
+## PRELIMINARY CHANGELOG FOR 2.4
+
+Version 2.4.0 - date of update missing
+
+Changes from version 2.3.2 to 2.4.0 Antistasi Community Edition
+
+=============  Most significant changes with description  ======================
+
+--> LTC
+- short explanation missing
+
+--> New support system
+- short explanation missing
+
+--> New navGrid system
+- short explanation missing
+
+--> New template system
+- short explanation missing
+
+--> MIE
+- short explanation missing
+
+=============  Major  ======================
+
+  GAMEPLAY CHANGES
+  - BLUFOR is discontinued as it will be obsolete with the new teamplate system
+  - Local singleplayer got disabled --> please play locally hosted MP
+
+  PARAMETER CHANGES
+  - added parameters for the new support system
+  - added parameters for the LTC system
+
+  MAP CHANGES
+  - NEW MAP: Antistasi Sahrani added
+  - NEW MAP: Antistasi Takistan added
+  - Kunduz has two custom bridges now
+  - Malden has a new outpost and helipad is fixed at outpost 12
+
+  OTHER CHANGES
+  - snow script was removed as it was broken and deactivated for quite some time
+  - RDS vehicle compatibility integrated
+  - D3S vehicle compatibility integrated
+  - Ivory cars vehicle compatibility integrated
+  - added ADV support
+  - All the startup messages got removed
+  - Napalm effect overhauled and re-enabled
+
+==============  Minor  ========================
+  - replaced heightmaps on whiteboards with satellite pics
+  - default commander role now has medic and engineer perk because singleplayer need that
+  - added templated surrender and salvage crates
+  - added buyable AA vehicles to all templates
+  - more russian translations in the stringtable
+  - added airstrike conversion to airfields
+  - added "stop rain" function on the tent
+  - added multilingual support for Dialog Menu
+  - added small trees to "clear forest"
+  - preventing occupants of launching airstrikes against cities but sending QRFs instead
+  - more vehicles can now be sold
+  - autosave now delayes after a manual save
+  - loot crate respawns are now limited - no crate farming possible anymore
+  - when a commander now buys a vehicle, the faction money is used instead of the personal money
+  - influence of loosing radiotowers is minimized
+  - added radiobagpacks to item sorting
+  - optimised mission root path parsing
+
+ ================  Groundwork  ===================
+  - moved non-map-specific items from description.ext to MissionDescription
+  - overhauled hint system with easier dismissable hints
+  - added logging for unlocks
+  - added first steps of UNSUNG compatibility - not playable yet
+  - added first steps of FFAA compatibility - not playable yet
+  - added list of global UI vars and UI processes
+  - added nestedObject wrapping for createNamespace
+
+================ Refactor ========================
+  - fn_typeOfSoldier
+  - fn_distance
+  - mod detection system
+  - initVarCommon to get rid of obsolete content
+
+================ Bugfixes ========================
+  - towing of logistics cargo is now blocked
+  - dead units no longer blocking statics which are mounted
+  - halfed recoil for mounted statics on vehicles
+  - added towing check for garaging vehicles
+  - added a bunch of new assets to the garbage clean
+  - removed a bunch of issues with the LTC system
+  - fixed duplication exploits
+  - you can't sell Petros anymore
+  - fixed spam sell vehicle exploit
+  - removed servicing container from 3CB vehicle array
+  - fixed duplication of single mags
+  - fixed salvage rope
+  - fixed captive state being stripped from handcuffed units when waking up
+  - fixed missions spawning outside of the map borders
+  - fixed issue with players being able to load assets which are not in the arsenal
+  - fixed the state of city supplies crate not being saved
+  - fixed fast towing exploit
+  - fixed garrison spawning in/on destroyed buildings
+  - fixed teleportation bugs with ff-punishment system
+  - fixed roadblock issues
+  - fixed undercover heli exploit
+  - fixed issues with having UAV terminals from unusable sides in crates
+  - fixed roadblocks being destroyed on engagement
+  - minimized the amount of errors thrown from fnc_createCIV
+  - removed city supplies box from saving
+
+ =================  Code  =========================
+  -
+
+ =================  DISCLAIMER  =========================
+  - Significant template changes are still underway. You might want to avoid making custom templates for a while!
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
+Version 2.3.2 - 05th December 2020
+
+Changes from version 2.3.1 to 2.3.2 Antistasi Community Edition
+
+================ Bugfixes ========================
+
+  - Fixed the rope issue in the salvage mission
+  - Disabled two towns (Kuusela and Niemela) on the Virolahti map
+
+=================  Disclaimer  =========================
+   - Significant template changes are still underway. You might want to avoid making custom templates for a while!
+   - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
 Version 2.3.1 - 16th October 2020
 
 Changes from version 2.3.0 to 2.3.1 Antistasi Community Edition
@@ -11,7 +142,7 @@ Changes from version 2.3.0 to 2.3.1 Antistasi Community Edition
   PARAMETER CHANGES
   - Removed "Reb vs Inv" option from gamemode parameter
 
-  MAP CHANGES 
+  MAP CHANGES
   - Altis - new position for initial HQ and other small changes
 
   OTHER CHANGES
@@ -26,7 +157,7 @@ Changes from version 2.3.0 to 2.3.1 Antistasi Community Edition
   - Added CUP/Enoch buildings for intel system and AA placements
 
 ================  Groundwork  ===================
-  - 
+  -
 
 ================ Refactor ========================
   - missionRequest refactor
@@ -50,12 +181,12 @@ Changes from version 2.3.0 to 2.3.1 Antistasi Community Edition
 
  =================  Code  =========================
   - Added bugfix branch to Travis
- 
+
  =================  Disclaimer  =========================
   - Significant template changes are still underway. You might want to avoid making custom templates for a while!
   - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-  
-  
+
+
 Version 2.3 - 26th July 2020
 
 Changes from version 2.2.1 to 2.3 Antistasi Community Edition
@@ -97,7 +228,7 @@ Implemented Jeroen Nots Enhanced Debug Console
   PARAMETER CHANGES
   - Introduced more understandable descriptions for unlockItem and allowFT
 
-  MAP CHANGES 
+  MAP CHANGES
   - Chernarus summer overhauled with added assets
   - Chernarus winter overhauled with added assets
   - Livonia overhaul with building adaptations
@@ -128,7 +259,7 @@ Implemented Jeroen Nots Enhanced Debug Console
   - Fixed mission dates so the first night has a full moon
   - Adapted QRFs and Heli responses so they are working with the new system and more reasonable/balanced
   - Vehicle mass changes when cargo is un/-loaded
-  - Added flight suits to airport crates 
+  - Added flight suits to airport crates
   - Improved static placement in milBuildings
   - Changed infinite personal garage to limited (including parameter)
   - Enhanced storing capabilities of faction garage
@@ -233,9 +364,9 @@ Implemented Jeroen Nots Enhanced Debug Console
 
  =================  Code  =========================
   - Enhanced Travis for build checking
-   
+
  =================  DISCLAIMER  =========================
-  - Significant template changes are still underway. You might want to avoid making custom templates for a while! 
+  - Significant template changes are still underway. You might want to avoid making custom templates for a while!
   - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
 
 
@@ -255,7 +386,7 @@ Changes from version 2.2 to 2.2.1 Antistasi Community Edition
   - Added assets to positions like outposts on Chernarus Winter.
   - Changed vehicle placement on Tanoa positions.
   - Every map now only has 32 slots on the rebel side. Reason: Performance.
- 
+
 ==============  Minor  ========================
   - Disabled unlocked IEDs in Vanilla arsenal.
   - Changed playable Officer roles to TeamLead roles.
@@ -264,7 +395,7 @@ Changes from version 2.2 to 2.2.1 Antistasi Community Edition
 
 ================  Groundwork  ===================
    - Added building from CUP to be recognized as military buildings (also concerning 50. cal placements).
- 
+
 ================ Bugfixes ========================
   - Fixed an exploit where guests could grab certain gear using a loadout.
   - Fixed added aggro for hostages/surrenderes.
@@ -280,10 +411,10 @@ Changes from version 2.2 to 2.2.1 Antistasi Community Edition
   - Fixed Bob's forgotten D.
   - Fixed Zeus not being able to access all assets.
   - Fixed initVar spam.
- 
+
 =================  Code  =========================
 
-*DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while! 
+*DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while!
   - CSAT outposts and airfields are set in fn_initGarrison.sqf now.
 
 
@@ -411,7 +542,7 @@ Changes from version 2.1.2 to 2.2 Antistasi Community Edition
 
 =================  Known issues  ==========================
 
-*DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while! 
+*DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while!
   - (Destroy Heli Mission) If you manage to steal the truck while it is trying to transport the heli back, the mission will fail (The fix for this is WIP)
   - The updated ACE version 3.13.0 maybe has introduced new issues with ACRE. We are investigating and thankful for input.
 
@@ -965,7 +1096,7 @@ Version 1.0.5 22/05/2018
 - AI wont decide to send reinforcements to areas under attack.
 - Ai wont pick unlocked things when looting.
 - Increased much more enemy distance for AI to decide get to cover instead of return fire.
-- Revive is far more reliable, more BIS alike. 
+- Revive is far more reliable, more BIS alike.
 - Fatal wounds now depend on body too, not only head.
 - Minor body parts can have "unlimited damage".
 - AI will cancel revive procedures if they get damage in the process.
@@ -1439,7 +1570,7 @@ Version 0.9.0 16/06/2017 ALPHA
 
 Version 0.8.2 08/06/2017 ALPHA
 
-- IMPORTANT: Made the whole spawning process on groups fps dependant. Groups will spawn with a minimum of one unit. 
+- IMPORTANT: Made the whole spawning process on groups fps dependant. Groups will spawn with a minimum of one unit.
 - RHS GREF: Added some default grenades, SMGs and vest. Players lose their vanilla vest on connection.
 - TFAR: Default greenfor radio unlocked.
 - XLA Fixed Arsenal: Integrated & Recommended
@@ -1705,7 +1836,7 @@ Version 0.4.1 08/09/2016 BETA
 - Some chance AI rebuilds a resource on each tick.
 - Replaced our mean old campfire by a modern camp lamp, which you can turn on and off.
 - Lights off when a city or it's nearby RT are destroyed.
-- Severe tweak of AI skills, as SDK was supposed to be equal than NATO/CSAT. 
+- Severe tweak of AI skills, as SDK was supposed to be equal than NATO/CSAT.
 - Corrected Interrogate script bug.
 - Corrected server init bug which made initialisation 2 minutes longer in MP
 - Disabled introshot as it is causing some issues.

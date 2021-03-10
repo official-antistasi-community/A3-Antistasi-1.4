@@ -15,7 +15,7 @@ if (isNil "_isValidLocationArray") then {
 //EachFrame handler should have exited if we're in here.
 //If that ever changes, change below.
 if (!(_isValidLocationArray select 0))	exitWith {
-		hint (_isValidLocationArray select 1);
+		["Attempt Place Vehicle",_isValidLocationArray select 1] call A3A_fnc_customHint;
 		[] call A3A_fnc_handleVehPlacementCancelled;
 };
 
@@ -28,7 +28,7 @@ if (isNil "_canPlaceArray") then {
 //EachFrame handler should have exited if we're in here.
 //If that ever changes, change below.
 if (!(_canPlaceArray select 0))	exitWith {
-		hint (_canPlaceArray select 1);
+		["Attempt Place Vehicle",_canPlaceArray select 1] call A3A_fnc_customHint;
 		[] call A3A_fnc_handleVehPlacementCancelled;
 };
 

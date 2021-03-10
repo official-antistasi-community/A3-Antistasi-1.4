@@ -36,17 +36,18 @@ private _declareServerVariable = {
 //time to delete dead bodies, vehicles etc..
 DECLARE_SERVER_VAR(cleantime, 3600);
 //initial spawn distance. Less than 1Km makes parked vehicles spawn in your nose while you approach.
-DECLARE_SERVER_VAR(distanceSPWN, 1000);
-DECLARE_SERVER_VAR(distanceSPWN1, 1300);
-DECLARE_SERVER_VAR(distanceSPWN2, 500);
+//User-adjustable variables are now declared in initParams
+//DECLARE_SERVER_VAR(distanceSPWN, 1000);
+DECLARE_SERVER_VAR(distanceSPWN1, distanceSPWN*1.3);
+DECLARE_SERVER_VAR(distanceSPWN2, distanceSPWN*0.5);
 //Quantity of Civs to spawn in (most likely per client - Bob Murphy 26.01.2020)
-DECLARE_SERVER_VAR(civPerc, 5);
+//DECLARE_SERVER_VAR(civPerc, 5);
 //The furthest distance the AI can attack from using helicopters or planes
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
-DECLARE_SERVER_VAR(distanceForLandAttack, if (hasIFA) then {5000} else {3000});
+DECLARE_SERVER_VAR(distanceForLandAttack, if (A3A_hasIFA) then {5000} else {3000});
 //Max units we aim to spawn in. It's not very strictly adhered to.
-DECLARE_SERVER_VAR(maxUnits, 140);
+//DECLARE_SERVER_VAR(maxUnits, 140);
 
 //Disabled DLC according to server parameters
 DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
@@ -64,6 +65,15 @@ DECLARE_SERVER_VAR(smallCApos, []);
 DECLARE_SERVER_VAR(attackPos, []);
 DECLARE_SERVER_VAR(attackMrk, []);
 DECLARE_SERVER_VAR(airstrike, []);
+
+//Variables used for the internal support system
+DECLARE_SERVER_VAR(occupantsSupports, []);
+DECLARE_SERVER_VAR(invadersSupports, []);
+
+DECLARE_SERVER_VAR(supportTargetsChanging, false);
+
+DECLARE_SERVER_VAR(occupantsRadioKeys, 0);
+DECLARE_SERVER_VAR(invaderRadioKeys, 0);
 
 //Vehicles currently in the garage
 DECLARE_SERVER_VAR(vehInGarage, []);
@@ -85,7 +95,6 @@ DECLARE_SERVER_VAR(tierWar, 1);
 DECLARE_SERVER_VAR(bombRuns, 0);
 //Should various units, such as patrols and convoys, be revealed.
 DECLARE_SERVER_VAR(revealX, false);
-DECLARE_SERVER_VAR(napalmCurrent, false);
 //Whether the players have Nightvision unlocked
 DECLARE_SERVER_VAR(haveNV, false);
 DECLARE_SERVER_VAR(missionsX, []);
@@ -199,7 +208,7 @@ if (hasTFAR) then
 			waitUntil {sleep 1; !isNil "TF_server_addon_version"};
 			[2,"Initializing TFAR settings","initVar.sqf"] call A3A_fnc_log;
 			["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;						//set to false and players will spawn with LR radio.
-			if (hasIFA) then
+			if (A3A_hasIFA) then
 				{
 				["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
 				["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
@@ -264,6 +273,7 @@ private _templateVariables = [
 	"vehSDKPlane",
 	"vehSDKBoat",
 	"vehSDKRepair",
+	"vehSDKAA",
 	"civCar",
 	"civTruck",
 	"civHeli",
@@ -493,7 +503,7 @@ private _fnc_vehicleIsValid = {
 	params ["_type"];
 	private _configClass = configFile >> "CfgVehicles" >> _type;
 	if !(isClass _configClass) exitWith {
-		[1, format ["Vehicle class %1 not found", _type], _filename] call A3A_fnc_Log;
+		[1, format ["Vehicle class %1 not found", _type], _filename] call A3A_fnc_log;
 		false;
 	};
 	if (_configClass call A3A_fnc_getModOfConfigClass in disabledMods) then {false} else {true};
@@ -600,10 +610,13 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////
 [2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
-private _vehNormal = (vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair]);
+
+private _vehNormal = vehNATONormal + vehCSATNormal + vehNATOCargoTrucks;
+_vehNormal append [vehFIACar,vehFIATruck,vehFIAArmedCar,vehPoliceCar,vehNATOBike,vehCSATBike];
+_vehNormal append [vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair];
 DECLARE_SERVER_VAR(vehNormal, _vehNormal);
 
-private _vehBoats = [vehNATOBoat,vehCSATBoat,vehSDKBoat];
+private _vehBoats = [vehNATOBoat,vehNATORBoat,vehCSATBoat,vehCSATRBoat,vehSDKBoat];
 DECLARE_SERVER_VAR(vehBoats, _vehBoats);
 
 private _vehAttack = vehNATOAttack + vehCSATAttack;
@@ -648,8 +661,11 @@ DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
 DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
-private _vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
+private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
 DECLARE_SERVER_VAR(vehFIA, _vehFIA);
+
+private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks) select { [_x] call A3A_fnc_logistics_getVehCapacity > 1 };
+DECLARE_SERVER_VAR(vehCargoTrucks, _vehCargoTrucks);
 
 ///////////////////////////
 //     MOD TEMPLATES    ///
@@ -659,10 +675,10 @@ DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 if (hasACE) then {
 	[] call A3A_fnc_aceModCompat;
 };
-if (hasRHS) then {
+if (A3A_hasRHS) then {
 	[] call A3A_fnc_rhsModCompat;
 };
-if (hasIFA) then {
+if (A3A_hasIFA) then {
 	[] call A3A_fnc_ifaModCompat;
 };
 

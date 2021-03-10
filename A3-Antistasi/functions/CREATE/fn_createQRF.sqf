@@ -261,7 +261,7 @@ else
 		if (count _pos == 0) then {_pos = _posOrigin};
 		_vehicle=[_pos, _ang + 90,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
 		_veh = _vehicle select 0;
-		if (hasIFA) then {_veh setVelocityModelSpace [((velocityModelSpace _veh) select 0) + 0,((velocityModelSpace _veh) select 1) + 150,((velocityModelSpace _veh) select 2) + 50]};
+		if (A3A_hasIFA) then {_veh setVelocityModelSpace [((velocityModelSpace _veh) select 0) + 0,((velocityModelSpace _veh) select 1) + 150,((velocityModelSpace _veh) select 2) + 50]};
 		_vehCrew = _vehicle select 1;
 		_groupVeh = _vehicle select 2;
 		_soldiers append _vehCrew;

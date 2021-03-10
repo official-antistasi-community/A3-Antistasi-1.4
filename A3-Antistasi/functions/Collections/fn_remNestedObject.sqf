@@ -1,41 +1,35 @@
 /*
-Function:
-    A3A_fnc_remNestedObject
-
-Description:
+Author: Caleb Serafin
     Recursively deletes nested child objects.
     Can delete self-referencing trees.
     Trying to do this by hand may cause memory leaks.
+    NB: It will not remove the reference to the parent, it will hold locationNull.
 
-Scope:
-    <LOCAL> Interacts with many objects. Should not be networked.
-
-Environment:
-    <SCHEDULED> Recurses over entire sub-tree. Could be resource heavy.
-
-Parameters:
+Arguments:
     <VARSPACE/OBJECT> Parent variable space
     <BOOLEAN> Full object purge? Will delete objects as well. [DEFAULT=true]
 
-Returns:
+Return Value:
     <BOOLEAN> true if success; false if access denied; nil if crashed;
 
-Examples:
+Scope: Local, Interacts with many objects. Should not be networked.
+Environment: Scheduled, Recommended as it recurses over entire sub-tree. Could be resource heavy.
+Public: Yes
+
+Example:
     [[missionNamespace, "A3A_UIDPlayers", "1234567890123456", "equipment", "weapon", "SMG_02_F"] call A3A_fnc_setNestedObject, "helmet", "H_Hat_grey"] call A3A_fnc_setNestedObject;
         // missionNamespace > "A3A_UIDPlayers" > "1234567890123456" > "equipment" > [multiple end values]
-    _parent = [missionNamespace, "A3A_UIDPlayers", locationNull] call A3A_fnc_getNestedObject; // returns a <location> that's referenced by "1234567890123456";
+    _parent = [missionNamespace, "A3A_UIDPlayers", locationNull] call A3A_fnc_getNestedObject; // returns a <location> that's referenced by "A3A_UIDPlayers" in missionNamespace;
     [_parent] call A3A_fnc_remNestedObject;
-        // missionNamespace > "A3A_UIDPlayers" <LocationNull>
+        // missionNamespace > "A3A_UIDPlayers" will have value locationNull.
 
-    // Recursive
-    _parent = [missionNamespace, "A3A_parent", "loop back", locationNull] call A3A_fnc_setNestedObject;
+    // Recursive (NB: There are not many good reasons to have self-referencing trees. However, if you wanted to delete the entire tree by deleting any sub node, this "practice" will achieve that.)
+    _parent = [false] call A3A_fnc_createNamespace;
+    [missionNamespace, "A3A_parent", _parent] call A3A_fnc_setNestedObject;
     [missionNamespace, "A3A_parent", "recursion", _parent] call A3A_fnc_setNestedObject;
         // missionNamespace > "A3A_parent" > "recursion" > "recursion" > "recursion" > "recursion" > "recursion" > "recursion" > "recursion"...
     [_parent] call A3A_fnc_remNestedObject;
-        // missionNamespace > "A3A_parent" <LocationNull>
-
-Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+        // missionNamespace > "A3A_parent" will have value locationNull
 */
 params [["_parent",locationNull],["_purge",true]];
 private _filename = "Collections\fn_remNestedObject.sqf";

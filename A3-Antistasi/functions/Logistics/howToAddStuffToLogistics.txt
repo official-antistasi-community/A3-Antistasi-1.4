@@ -1,0 +1,49 @@
+To make a vehicle capable to of loading cargo, use the function "A3A_fnc_logistics_renderCargoPlane" to generate a vehicle hard point array (the nodes may be a bit rough)
+Example: [cursorTarget, [0,-0.7,-0.7], 2.1] call A3A_fnc_logistics_generateHardPoints;
+
+This will display a visual representation of where the nodes will be and the boundaries of the cargo plane.
+copy the returned array and put it in A3A_logistics_vehicleHardpoints in "fn_logistics_initNodes.sqf".
+remember to verify the nodes by loading a cargo of both node size 1 and 2 in the vehicle afterwards (assuming it has two or more points).
+
+Finally, you need to add in the seats occupied by each node, to do this:
+1) start the game with the newly added "A3A_logistics_vehicleHardpoints" entry
+2) load the vehicle full of size 1 cargo (Example: "Box_NATO_Wps_F")
+3) while looking at the vehicle run this command in the debug console.
+    Vic = cursorTarget;
+4) then run this command
+    moveout Player; Player moveInCargo [vic, 0]
+increasing the number at the end until you are put back in the first seat, and for each increase fill in the seat number into each node where you collide with the cargo
+
+Note: if the vehicle is covered or closed, you need to add its classname to A3A_logistics_coveredVehicles at the bottom of fn_logistics_initNodes.sqf
+
+
+~~~ Adding a cargo type ~~~
+
+to add a cargo type you need to add an entry to A3A_logistics_attachmentOffset, this array consists of elements like this
+[ Model, Offset from hardpoint, Rotation, Size, Recoil (only for weapons)]
+
+    Model: the model same as with vehicles, you can alternatively get this by using classname and this function "_classNameToModel"
+    Example: "Box_NATO_AmmoVeh_F" call _classNameToModel
+
+    Offset: This is the relative offset to the bottom of the cargo you want to load. For the most part, it's just a bit positive on the Z-axis
+    Example: [0,0,0.85]
+
+    Rotation: This is model relative rotation between the vehicle and the cargo, simple trial and error works fine here
+    Example: [1,0,0]
+
+    Size: how many vehicle hardpoints this cargo needs, usually sorted into the visual size of how big it is from small (1 node), medium (2) to large (6), you can go beyond this as you see fit.
+    Example: 2
+
+    Recoil: This is only needed when the new cargo is a weapon (static) and defines how hard the weapon should affect the vehicle. (leave empty for non-weapon cargo)
+    Example: 500
+
+so the resulting example array would look like this:
+["Box_NATO_AmmoVeh_F" call _classNameToModel, [0,0,0.85], [1,0,0], 2] (the recoil was left out as this is a crate and not a weapon)
+["Box_NATO_AmmoVeh_F" call _classNameToModel, [0,0,0.85], [1,0,0], 2, 500] (if left in, works fine too)
+
+In addition if your adding a weapon, you need to add its model name to "A3A_logistics_weapons" along with a list of blacklisted vehicles its not allowed on (usualy empty array)
+Example:
+    ["B_static_AT_F" call _classNameToModel, []] (no unique blacklisted vehicles)
+Example 2:
+    ["B_Mortar_01_F" call _classNameToModel, ["C_Boat_Civil_01_F" call _classNameToModel, "B_Boat_Transport_01_F" call _classNameToModel, "C_Boat_Transport_02_F" call _classNameToModel]]
+(above mortar is not allowed on boats, so we added them to the blacklist)

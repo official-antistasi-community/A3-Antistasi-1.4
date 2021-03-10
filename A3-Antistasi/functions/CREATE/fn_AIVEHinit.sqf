@@ -2,7 +2,7 @@
 	Installs various damage/smoke/kill/capture logic for vehicles
 	Will set and modify the "originalSide" and "ownerSide" variables on the vehicle indicating side ownership
 	If a rebel enters a vehicle, it will be switched to rebel side and added to vehDespawner
-	
+
 	Params:
 	1. Object: Vehicle object
 	2. Side: Side ownership for vehicle
@@ -103,17 +103,14 @@ else
 	{
 		if (_veh isKindOf "StaticWeapon") then
 		{
+			[_veh] call A3A_fnc_logistics_addLoadAction;
 			_veh setCenterOfMass [(getCenterOfMass _veh) vectorAdd [0, 0, -1], 0];
 			if ((not (_veh in staticsToSave)) and (side gunner _veh != teamPlayer)) then
 			{
-				if (activeGREF and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]} else {[_veh,"steal"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
+				if (A3A_hasRHS and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
 			};
 			if (_typeX == SDKMortar) then
 			{
-				if (!isNull gunner _veh) then
-				{
-					[_veh,"steal"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
-				};
 				_veh addEventHandler ["Fired",
 				{
 					_mortarX = _this select 0;
@@ -145,16 +142,6 @@ else
 									if ([_LeaderX] call A3A_fnc_isMember) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
 								};
 							};
-						}
-						else
-						{
-							_bases = airportsX select {(getMarkerPos _x distance _mortarX < distanceForAirAttack) and ([_x,true] call A3A_fnc_airportCanAttack) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
-							if (count _bases > 0) then
-							{
-								_base = [_bases,_positionX] call BIS_fnc_nearestPosition;
-								_sideX = sidesX getVariable [_base,sideUnknown];
-								[[getPosASL _mortarX,_sideX,"Normal",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
-							};
 						};
 					};
 					_mortarX setVariable ["detection",[_positionX,_chance]];
@@ -179,7 +166,7 @@ if (_side == civilian) then
 };
 
 // EH behaviour:
-// GetIn/GetOut/Dammaged: Runs where installed, regardless of locality 
+// GetIn/GetOut/Dammaged: Runs where installed, regardless of locality
 // Local: Runs where installed if target was local before or after the transition
 // HandleDamage/Killed: Runs where installed, only if target is local
 // MPKilled: Runs everywhere, regardless of target locality or install location
@@ -200,6 +187,36 @@ if (_side != teamPlayer) then
 		};
 		_veh removeEventHandler ["GetIn", _thisEventHandler];
 	}];
+};
+
+if(_veh isKindOf "Air") then
+{
+    //Start airspace control script if rebel player enters
+    _veh addEventHandler
+    [
+        "GetIn",
+        {
+            params ["_veh", "_role", "_unit"];
+            if((side (group _unit) == teamPlayer) && {isPlayer _unit}) then
+            {
+                [_veh] spawn A3A_fnc_airspaceControl;
+            };
+        }
+    ];
+
+
+    _veh addEventHandler
+    [
+        "IncomingMissile",
+        {
+            params ["_target", "_ammo", "_vehicle", "_instigator"];
+            private _group = group driver _target;
+            private _supportTypes = [_group, _vehicle] call A3A_fnc_chooseSupport;
+            _supportTypes = _supportTypes - ["QRF"];
+            private _reveal = [getPos _vehicle, side _group] call A3A_fnc_calculateSupportCallReveal;
+            [_vehicle, 4, _supportTypes, side _group, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
+        }
+    ]
 };
 
 // Handler to prevent vehDespawner deleting vehicles for an hour after rebels exit them
@@ -228,8 +245,7 @@ _veh addEventHandler ["Dammaged", {
 }];
 
 //add JNL loading to quadbikes
-if(!hasIFA && typeOf _veh in [vehSDKBike,vehNATOBike,vehCSATBike]) then {_veh call jn_fnc_logistics_addAction;};
+if(!A3A_hasIFA && typeOf _veh in [vehSDKBike,vehNATOBike,vehCSATBike]) then {[_veh] call A3A_fnc_logistics_addLoadAction;};
 
 // deletes vehicle if it exploded on spawn...
 [_veh] spawn A3A_fnc_cleanserVeh;
-

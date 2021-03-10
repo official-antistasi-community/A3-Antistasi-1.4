@@ -106,7 +106,7 @@ if(_type == "patrol") then
   //TODO rework the origin selection!!
   _threatEvalLand = [_destinationPos, _side] call A3A_fnc_landThreatEval;
 	_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == _side) and ([_x,true] call A3A_fnc_airportCanAttack) and (getMarkerPos _x distance2D _destinationPos < distanceForAirAttack)};
-	if (hasIFA and (_threatEvalLand <= 15)) then {_airportsX = _airportsX select {(getMarkerPos _x distance2D _destinationPos < distanceForLandAttack)}};
+	if (A3A_hasIFA and (_threatEvalLand <= 15)) then {_airportsX = _airportsX select {(getMarkerPos _x distance2D _destinationPos < distanceForLandAttack)}};
 	_outposts = if (_threatEvalLand <= 15) then {outposts select {(sidesX getVariable [_x,sideUnknown] == _side) and ([_destinationPos, getMarkerPos _x] call A3A_fnc_isTheSameIsland) and (getMarkerPos _x distance _destinationPos < distanceForLandAttack)  and ([_x,true] call A3A_fnc_airportCanAttack)}} else {[]};
 	_airportsX = _airportsX + _outposts;
   if (_isMarker) then

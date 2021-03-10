@@ -57,9 +57,16 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 		{
 		if ((count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) and !([50,1,_road,teamPlayer] call A3A_fnc_distanceUnits)) then
 			{
-			_roadcon = roadsConnectedto (_road);
-			_p2 = getPos (_roadcon select 0);
-			_dirveh = [_p1,_p2] call BIS_fnc_DirTo;
+			_dirveh = 0;
+			_roadcon = roadsConnectedTo [_road, true];
+
+			if (count _roadcon != 0)
+			then
+			{
+				_p2 = getPos (_roadcon # 0);
+				_dirveh = _p1 getDir _p2;
+			};
+
 			_pos = [_p1, 3, _dirveh + 90] call BIS_Fnc_relPos;
 			_typeVehX = selectRandomWeighted civVehiclesWeighted;
 			/*
@@ -81,7 +88,7 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 	_countParked = _countParked + 1;
 	};
 
-_mrkMar = if !(hasIFA) then {seaSpawn select {getMarkerPos _x inArea _markerX}} else {[]};
+_mrkMar = if !(A3A_hasIFA) then {seaSpawn select {getMarkerPos _x inArea _markerX}} else {[]};
 if (count _mrkMar > 0) then
 	{
 	for "_i" from 0 to (round (random 3)) do
@@ -189,4 +196,3 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 // Chuck all the civ vehicle patrols into the despawners
 { [_x] spawn A3A_fnc_groupDespawner } forEach _groupsPatrol;
 { [_x] spawn A3A_fnc_VEHdespawner } forEach _vehPatrol;
-

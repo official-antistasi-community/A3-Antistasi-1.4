@@ -4,7 +4,7 @@ private _filename = "fn_missionRequest";
 params ["_type", ["_requester", clientOwner], ["_autoSelect", false]];
 if(isNil "_type") then {
 	if (leader group Petros != Petros) then {breakOut "Main"};
-	private _types = ["CON","DES","LOG","RES","CONVOY"];
+	private _types = ["CON","DES","LOG","SUPP","RES","CONVOY"];
 	_type = selectRandom (_types select {!([_x] call BIS_fnc_taskExists)});
 	if (isNil "_type") then {breakOut "Main"}; //you have all the mission types
 	_autoSelect = true;
@@ -97,10 +97,6 @@ switch (_type) do {
 	case "LOG": {
 		//find apropriate sites
 		_possibleMarkers = [Seaports + outposts] call _findIfNearAndHostile;
-		{
-			private _prestige = server getVariable _x;
-			if (((_prestige select 2) + (_prestige select 3)) < 90) then {_possibleMarkers pushBack _x};
-		}forEach ([citiesX - destroyedSites] call _findIfNearAndHostile);
 		
 		//append banks in hostile cities
 		if (random 100 < 20) then {
@@ -116,14 +112,38 @@ switch (_type) do {
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {
 				[petros,"globalChat","I have no logistics missions for you. Move our HQ closer to the enemy"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint","Logistics Missions require Outposts, Cities or Banks closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint","Logistics Missions require Outposts, Seaports or Banks closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
-			if (_site in citiesX) then {[[_site],"A3A_fnc_LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2]};
 			if (_site in outposts) then {[[_site],"A3A_fnc_LOG_Ammo"] remoteExec ["A3A_fnc_scheduler",2]};
 			if (_site in banks) then {[[_site],"A3A_fnc_LOG_Bank"] remoteExec ["A3A_fnc_scheduler",2]};
 			if (_site in Seaports) then {[[_site],"A3A_fnc_LOG_Salvage"] remoteExec ["A3A_fnc_scheduler",2]};
+		};
+	};
+
+	case "SUPP": {
+		_possibleMarkers = [];
+		private _weightedMarkers = [];
+		{
+			private _dist = getMarkerPos _x distance2D getMarkerPos respawnTeamPlayer;
+			private _supportReb = (server getVariable _x) select 3;
+			if (_dist < distanceMission && _supportReb < 90) then {
+				private _weight = (100 - _supportReb) * ((distanceMission - _dist) ^ 2);
+				_possibleMarkers pushBack _x;
+				_weightedMarkers append [_x, _weight];
+			};
+		}forEach (citiesX - destroyedSites);
+
+		if (count _possibleMarkers == 0) then {
+			if (!_autoSelect) then {
+				[petros,"globalChat","I have no support missions for you. Move our HQ closer to the enemy"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint","Support Missions require Cities closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+			};
+		} else {
+			[3, format ["City weights: %1", _weightedMarkers], _filename] call A3A_fnc_log;
+			private _site = selectRandomWeighted _weightedMarkers;
+			[[_site],"A3A_fnc_LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2];
 		};
 	};
 

@@ -8,7 +8,7 @@ _groups = [];
 _base = "";
 _roads = [];
 
-_arrayAirports = if (hasIFA) then {(airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}} else {(seaports + airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}};
+_arrayAirports = if (A3A_hasIFA) then {(airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}} else {(seaports + airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}};
 _arrayAirports1 = [];
 
 private _isValidPatrolOrigin = if (isMultiplayer) then {

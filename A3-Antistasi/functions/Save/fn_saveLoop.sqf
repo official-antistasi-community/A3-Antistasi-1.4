@@ -7,6 +7,10 @@ if (savingServer) exitWith {["Save Game", "Server data save is still in progress
 savingServer = true;
 [2, "Starting persistent save", _filename] call A3A_fnc_log;
 ["Persistent Save Starting","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
+
+// Set next autosave time, so that we won't run another shortly after a manual save
+autoSaveTime = time + autoSaveInterval;
+
 // Save each player with global flag
 {
 	[getPlayerUID _x, _x, true] call A3A_fnc_savePlayer;
@@ -29,11 +33,16 @@ if (_saveIndex == -1) then {
 // Update the legacy campaign ID store
 profileNamespace setVariable ["ss_campaignID", campaignID];
 
+// Save persistent global variables defined in initParam
+private _savedParams = paramTable apply { [_x#0, missionNameSpace getVariable _x#0] };
+[3, format ["Saving params: %1", _savedParams], _filename] call A3A_fnc_log;
+["params", _savedParams] call A3A_fnc_setStatVariable;
+
 private ["_garrison"];
 ["attackCountdownOccupants", attackCountdownOccupants] call A3A_fnc_setStatVariable;
 ["attackCountdownInvaders", attackCountdownInvaders] call A3A_fnc_setStatVariable;
-["gameMode", gameMode] call A3A_fnc_setStatVariable;
-["difficultyX", skillMult] call A3A_fnc_setStatVariable;
+["gameMode", gameMode] call A3A_fnc_setStatVariable;					// backwards compatibility
+["difficultyX", skillMult] call A3A_fnc_setStatVariable;				// backwards compatibiiity
 ["bombRuns", bombRuns] call A3A_fnc_setStatVariable;
 ["smallCAmrk", smallCAmrk] call A3A_fnc_setStatVariable;
 ["membersX", membersX] call A3A_fnc_setStatVariable;
@@ -47,10 +56,10 @@ private _antennasDeadPositions = [];
 ["dateX", date] call A3A_fnc_setStatVariable;
 ["skillFIA", skillFIA] call A3A_fnc_setStatVariable;
 ["destroyedSites", destroyedSites] call A3A_fnc_setStatVariable;
-["distanceSPWN", distanceSPWN] call A3A_fnc_setStatVariable;
-["civPerc", civPerc] call A3A_fnc_setStatVariable;
+["distanceSPWN", distanceSPWN] call A3A_fnc_setStatVariable;		// backwards compatibility
+["civPerc", civPerc] call A3A_fnc_setStatVariable;					// backwards compatibility
 ["chopForest", chopForest] call A3A_fnc_setStatVariable;
-["maxUnits", maxUnits] call A3A_fnc_setStatVariable;
+["maxUnits", maxUnits] call A3A_fnc_setStatVariable;				// backwards compatibility
 ["nextTick", nextTick - time] call A3A_fnc_setStatVariable;
 ["weather",[fogParams,rain]] call A3A_fnc_setStatVariable;
 private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
@@ -107,7 +116,7 @@ _arrayEst = [];
 {
 	_veh = _x;
 	_typeVehX = typeOf _veh;
-	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in staticsToSave) and !(_typeVehX in ["ACE_SandbagObject","Land_PaperBox_01_open_boxes_F","Land_PaperBox_01_open_empty_F"])) then {
+	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in staticsToSave) and !(_typeVehX in ["ACE_SandbagObject","Land_FoodSacks_01_cargo_brown_F","Land_Pallet_F"])) then {
 		if (((not (_veh isKindOf "StaticWeapon")) and (not (_veh isKindOf "ReammoBox")) and (not (_veh isKindOf "ReammoBox_F")) and (not (_veh isKindOf "FlagCarrier")) and (not(_veh isKindOf "Building"))) and (not (_typeVehX == "C_Van_01_box_F")) and (count attachedObjects _veh == 0) and (alive _veh) and ({(alive _x) and (!isPlayer _x)} count crew _veh == 0) and (not(_typeVehX == "WeaponHolderSimulated"))) then {
 			_posVeh = getPos _veh;
 			_xVectorUp = vectorUp _veh;
@@ -150,7 +159,7 @@ _garrison = [];
 _wurzelGarrison = [];
 
 {
-	_garrison pushBack [_x,garrison getVariable [_x,[]]];
+	_garrison pushBack [_x,garrison getVariable [_x,[]],garrison getVariable [_x + "_lootCD", 0]];
 	_wurzelGarrison pushBack [
 		_x,
 		garrison getVariable [format ["%1_garrison",_x], []],

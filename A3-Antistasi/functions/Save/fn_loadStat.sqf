@@ -20,10 +20,10 @@ private _translateMarker = {
 private _specialVarLoads = [
 	"outpostsFIA","minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
 	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
-	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
+	"prestigeBLUFOR","resourcesFIA","skillFIA","destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
+	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
 	"countCA", "attackCountdownInvaders", "testingTimerIsActive"
 ];
 
@@ -36,24 +36,6 @@ if (_varName in _specialVarLoads) then {
 	if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
 	//Keep this for backwards compatiblity
 	if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
-	if (_varName == 'difficultyX') then {
-		if !(isMultiplayer) then {
-			skillMult = _varValue;
-			if (skillMult == 1) then {minWeaps = 15};
-			if (skillMult == 3) then {minWeaps = 40};
-		};
-	};
-	if(_varName == 'gameMode') then {
-		if !(isMultiplayer) then {
-			gameMode = _varValue;
-			if (gameMode != 1) then {
-				Occupants setFriend [Invaders,1];
-				Invaders setFriend [Occupants,1];
-				if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
-				if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
-			};
-		};
-	};
 	if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
 	if (_varName == 'nextTick') then {nextTick = time + _varValue};
 	if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
@@ -102,9 +84,6 @@ if (_varName in _specialVarLoads) then {
 			server setVariable [_x,_costs,true];
 		} forEach soldiersSDK;
 	};
-	if (_varName == 'distanceSPWN') then {distanceSPWN = _varValue; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable "distanceSPWN";publicVariable "distanceSPWN1";publicVariable "distanceSPWN2"};
-	if (_varName == 'civPerc') then {civPerc = _varValue; if (civPerc < 1) then {civPerc = 35}; publicVariable "civPerc"};
-	if (_varName == 'maxUnits') then {maxUnits=_varValue; publicVariable "maxUnits"};
 	if (_varName == 'vehInGarage') then {vehInGarage= +_varValue; publicVariable "vehInGarage"};
 	if (_varName == 'destroyedBuildings') then {
 		{
@@ -147,8 +126,10 @@ if (_varName in _specialVarLoads) then {
 		};
 	};
 	if (_varName == 'garrison') then {
-		//_markersX = markersX - outpostsFIA - controlsX - citiesX;
-		{garrison setVariable [[_x select 0] call _translateMarker,_x select 1,true]} forEach _varvalue;
+		{
+			garrison setVariable [[_x select 0] call _translateMarker, _x select 1, true];
+			if (count _x > 2) then { garrison setVariable [(_x select 0) + "_lootCD", _x select 2, true] };
+		} forEach _varvalue;
 	};
 	if (_varName == 'wurzelGarrison') then {
 		{

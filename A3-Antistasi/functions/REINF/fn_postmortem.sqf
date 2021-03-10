@@ -28,6 +28,8 @@ cleanSTR = format ["Pausing for %1 minutes before cleaning victim: %2 and group:
 [3,cleanSTR, _filename] call A3A_fnc_log;
 sleep cleantime;
 
+if (_victim getVariable ["stopPostmortem", false]) exitWith {};
+
 if !(isnull _victim) then
 {
     [3,format["Cleanup complete for %1 victim.", _victim],_filename] call A3A_fnc_log;

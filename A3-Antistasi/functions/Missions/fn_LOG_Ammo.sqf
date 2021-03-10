@@ -13,7 +13,7 @@ _tsk = "";
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 _timeLimit = if (_difficultX) then {30} else {60};
-if (hasIFA) then {_timeLimit = _timeLimit * 2};
+if (A3A_hasIFA) then {_timeLimit = _timeLimit * 2};
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly
@@ -84,8 +84,6 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 		if (_unit getVariable ["spawner",false]) then {
 			["TaskFailed", ["", format ["Ammotruck Stolen in an %1",(_vehicle getVariable ["ammoTruckLocation", ""])]]] remoteExec ["BIS_fnc_showNotification",_owningSide];
 		};
-
-		[getPosASL _vehicle, _owningSide, "", false] spawn A3A_fnc_patrolCA;
 
 		_truckX removeEventHandler ["GetIn", _thisEventHandler];
 	}];

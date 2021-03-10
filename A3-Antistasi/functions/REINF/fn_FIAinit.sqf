@@ -38,7 +38,7 @@ if (player == leader _unit) then {
 		_victim = _this select 0;
 		[_victim] spawn A3A_fnc_postmortem;
 		_killer = _this select 1;
-		if !(hasIFA) then {arrayids pushBackUnique (name _victim)};
+		if !(A3A_hasIFA) then {arrayids pushBackUnique (name _victim)};
 		if (side _killer == Occupants) then {
 			_nul = [0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 			[[-1, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
@@ -53,7 +53,7 @@ if (player == leader _unit) then {
 		};
 		_victim setVariable ["spawner",nil,true];
 	}];
-	if ((typeOf _unit != SDKUnarmed) and !hasIFA) then {
+	if ((typeOf _unit != SDKUnarmed) and !A3A_hasIFA) then {
 		private _idUnit = selectRandom arrayids;
 		arrayids = arrayids - [_idunit];
 		_unit setIdentity _idUnit;
@@ -61,7 +61,7 @@ if (player == leader _unit) then {
 	if (captive player) then {[_unit] spawn A3A_fnc_undercoverAI};
 
 	_unit setVariable ["rearming",false];
-	if ((!haveRadio) and !(hasIFA)) then {
+	if ((!haveRadio) and !(A3A_hasIFA)) then {
 		while {alive _unit} do {
 			sleep 10;
 			if (([player] call A3A_fnc_hasRadio) && (_unit call A3A_fnc_getRadio != "")) exitWith {_unit groupChat format ["This is %1, radiocheck OK",name _unit]};

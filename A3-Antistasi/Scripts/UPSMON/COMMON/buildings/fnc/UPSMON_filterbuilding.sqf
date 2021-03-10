@@ -3,7 +3,7 @@ File: UPSMON_filterbuilding.sqf
 Author: Azroul13
 
 Description:
-	Filter the building, avoid bridge building or building with no position.
+	Filter the building, avoid bridge building, hidden (destroyed) buildings or building with no position.
 
 Parameter(s):
 	<--- Building
@@ -18,7 +18,7 @@ _marker = _this select 1;
 _return = false;
 _in = true;
 
-if (!((typeof _bld) in UPSMON_Bld_remove)) then
+if (!((typeof _bld) in UPSMON_Bld_remove) && !(isObjectHidden _bld)) then
 {
 	If (_marker != "") then
 	{

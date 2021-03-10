@@ -22,7 +22,10 @@ private _fileName = "initACEUnconsciousHandler.sqf";
 
 //	[3, format ["Unit type %1, side %2, realside %3, captive %4, lifestate %5 waking up", typeof _unit, side _unit, _realSide, str (captive _unit), lifestate _unit], ace_unconscious handler] call A3A_fnc_log;
 	_unit setVariable ["incapacitated", false, true];
-	[_unit, false] remoteExec ["setCaptive", _unit];			// match vanilla behaviour
+
+	if !(_unit getVariable ["ACE_captives_isHandcuffed", false]) then {
+		[_unit, false] remoteExec ["setCaptive", _unit];			// match vanilla behaviour
+	};
 
 	if (isPlayer _unit) exitWith {};					// don't force surrender with players
 	if (_realSide != Occupants && _realSide != Invaders) exitWith {};

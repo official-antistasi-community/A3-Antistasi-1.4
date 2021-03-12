@@ -105,7 +105,7 @@ if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
 					{
                         if (sunOrMoon < 1) then
 						{
-                            if ((A3A_hasIFA and (typeOf _x in squadLeaders)) || (count (getArray (configfile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2)) then
+                            if ((A3A_hasIFA and ((_x getVariable "unitType") in squadLeaders)) || (count (getArray (configfile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2)) then
 							{
                                 [_x,_enemy] spawn A3A_fnc_useFlares;
 							};
@@ -117,7 +117,7 @@ if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
 			{
                 if ((sunOrMoon <1) && !haveNV) then
 				{
-                    if ((A3A_hasIFA and (typeOf _x in squadLeaders)) || (count (getArray (configfile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2)) then
+                    if ((A3A_hasIFA and ((_x getVariable "unitType") in squadLeaders)) || (count (getArray (configfile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2)) then
 					{
                         [_x] call A3A_fnc_useFlares;
 					};

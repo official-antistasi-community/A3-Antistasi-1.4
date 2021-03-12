@@ -69,7 +69,7 @@ if (isMultiplayer) then
 			if (alive _x && (_x getVariable ["owner", objNull] == _playerUnit)) then
 			{
 				if (_x != _playerUnit) then {
-					private _unitPrice = server getVariable [typeOf _x, 0];
+					private _unitPrice = server getVariable [_x getVariable "unitType", 0];
 					_totalMoney = _totalMoney + _unitPrice;
 				};
 				private _veh = vehicle _x;

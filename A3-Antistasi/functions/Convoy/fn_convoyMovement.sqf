@@ -1,4 +1,15 @@
-params ["_convoyID" ,"_route", "_markerArray", "_maxSpeed", "_units", "_convoySide", "_convoyType", "_isAir", ["_debugObject", nil]];
+params
+[
+    ["_convoyID", -1, [1]],
+    ["_route", [], [[]]],
+    ["_markerArray", ["", ""], [[]]],
+    ["_maxSpeed", 60, [0]],
+    ["_units", [], [[]]],
+    ["_convoySide", sideEnemy, [sideEnemy]],
+    ["_convoyType", "PATROL", [""]],
+    ["_isAir", false, [false]],
+    ["_debugObject", nil]
+];
 
 /*  Simulates the movement of the convoy
 *   Params:
@@ -13,6 +24,8 @@ params ["_convoyID" ,"_route", "_markerArray", "_maxSpeed", "_units", "_convoySi
 *   Returns:
       Nothing
 */
+private _fileName = "convoyMovements";
+
 private _convoyMarker = format ["convoy%1", _convoyID];
 
 if(!(_maxSpeed > 0)) exitWith
@@ -23,11 +36,17 @@ if(!(_maxSpeed > 0)) exitWith
 
 _maxSpeed = _maxSpeed * 0.8; //Only drive with 80% of max speed
 
+if(count _route == 0 || {count (_route select 0) != 2}) exitWith
+{
+    [3, format ["Input was %1", str _this], _fileName] call A3A_fnc_log;
+    [3, "Path is broken", _fileName] call A3A_fnc_log;
+};
+
 
 private _isDebug = !(isNil "_debugObject");
 
 private _pointsCount = count _route;
-private _currentPos = _route select 0;
+private _currentPos = _route select 0 select 0;
 private _remainingRoute = +_route;
 _remainingRoute deleteAt 0;
 
@@ -40,8 +59,8 @@ if(_isDebug) then {_debugObject setPos _currentPos;};
 
 for "_i" from 1 to (_pointsCount - 1) do
 {
-  private _lastPoint = _route select (_i - 1);
-  private _nextPoint = _route select (_i);
+  private _lastPoint = _route select (_i - 1) select 0;
+  private _nextPoint = _route select (_i) select 0;
 
   private _movementVector = (_lastPoint vectorFromTo _nextPoint) vectorMultiply _maxSpeed;
   private _movementLength = _lastPoint vectorDistance _nextPoint;
@@ -81,7 +100,7 @@ for "_i" from 1 to (_pointsCount - 1) do
         if(spawner getVariable _currentRoadBlock == 2) then
         {
           _isSimulated = false;
-          [_convoyID, _units, _currentPos, _remainingRoute, _markerArray, _convoySide, _convoyType, _maxSpeed, _isAir] call A3A_fnc_spawnConvoy;
+          [_convoyID, _units, _currentPos, [_remainingRoute] call A3A_fnc_trimPath, _markerArray, _convoySide, _convoyType, _maxSpeed, _isAir] call A3A_fnc_spawnConvoy;
         }
         else
         {
@@ -107,10 +126,10 @@ for "_i" from 1 to (_pointsCount - 1) do
     */
 
     //Currently only triggered by teamPlayer units!
-    if([distanceSPWN, 1, _currentPos, teamPlayer] call A3A_fnc_distanceUnits) then
+    if([distanceSPWN * 0.9, 1, _currentPos, teamPlayer] call A3A_fnc_distanceUnits) then
     {
       _isSimulated = false;
-      [_convoyID, _units, _currentPos, _remainingRoute, _markerArray, _convoySide, _convoyType, _maxSpeed, _isAir] call A3A_fnc_spawnConvoy;
+      [_convoyID, _units, _currentPos, [_remainingRoute] call A3A_fnc_trimPath, _markerArray, _convoySide, _convoyType, _maxSpeed, _isAir] call A3A_fnc_spawnConvoy;
     };
   };
 
@@ -121,7 +140,7 @@ if(!_isSimulated) exitWith {};
 
 diag_log format ["ConvoyMovement[%1]: Convoy arrived at destination!", _convoyID];
 
-[_convoyID, (_route select 0), (_route select (_pointsCount - 1)), _units, _convoySide, _convoyType] spawn A3A_fnc_onConvoyArrival;
+[_convoyID, (_route select 0) select 0, (_route select (_pointsCount - 1) select 0) , _units, _convoySide, _convoyType] spawn A3A_fnc_onConvoyArrival;
 
 sleep 10;
 deleteMarker _convoyMarker;

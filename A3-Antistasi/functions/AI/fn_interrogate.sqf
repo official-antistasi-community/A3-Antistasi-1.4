@@ -36,7 +36,7 @@ sleep 5;
 
 if ((round (random 100)) < _chance) then
 {
-    if((typeOf _unit) in squadLeaders) then
+    if((_unit getVariable "unitType") in squadLeaders) then
     {
         if(_unit getVariable ["hasIntel", false]) then
         {

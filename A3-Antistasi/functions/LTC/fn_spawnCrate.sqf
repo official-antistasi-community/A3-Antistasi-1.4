@@ -28,9 +28,10 @@ _unit setVariable ["BuyCrateCooldown",time + 5];
 ["Loot crate", "Loot crate bought"] call A3A_fnc_customHint;
 
 //spawn crate
-_position = (getPos _unit) findEmptyPosition [1,10,"Box_IND_Wps_F"];
+private _createType = NATOSurrenderCrate;
+_position = (getPos _unit) findEmptyPosition [1,10,_createType];
 if (_position isEqualTo []) then {_position = getPos _unit};
-private _crate = "Box_IND_Wps_F" createVehicle _position;
+private _crate = _createType createVehicle _position;
 _crate allowDamage false;
 clearMagazineCargoGlobal _crate;
 clearWeaponCargoGlobal _crate;

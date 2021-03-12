@@ -6,7 +6,7 @@ private _unit = _this select 0;
 _unit setVariable ["spawner",true,true];
 
 _unit allowFleeing 0;
-private _typeX = typeOf _unit;
+private _typeX = _unit getVariable "unitType";
 private _skill = (0.6 / skillMult + 0.015 * skillFIA);
 _unit setSkill _skill;
 
@@ -53,7 +53,7 @@ if (player == leader _unit) then {
 		};
 		_victim setVariable ["spawner",nil,true];
 	}];
-	if ((typeOf _unit != SDKUnarmed) and !A3A_hasIFA) then {
+	if (((_unit getVariable "unitType") != SDKUnarmed) and !A3A_hasIFA) then {
 		private _idUnit = selectRandom arrayids;
 		arrayids = arrayids - [_idunit];
 		_unit setIdentity _idUnit;

@@ -2,7 +2,7 @@ if (!isServer and hasInterface) exitWith{};
 
 private _fileName = "fn_createCIV.sqf";
 
-private ["_markerX","_dataX","_numCiv","_numVeh","_roads","_prestigeOPFOR","_prestigeBLUFOR","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_burst","_groupP","_wp","_wp1"];
+private ["_markerX","_dataX","_numCiv","_numVeh","_prestigeOPFOR","_prestigeBLUFOR","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_burst","_groupP","_wp","_wp1"];
 
 _markerX = _this select 0;
 
@@ -12,9 +12,10 @@ _dataX = server getVariable _markerX;
 
 _numCiv = _dataX select 0;
 _numVeh = _dataX select 1;
-//_roads = _dataX select 2;
-_roads = roadsX getVariable [_markerX, []];
-if (count _roads == 0) then {
+
+private _roads = nearestTerrainObjects [getMarkerPos _markerX, ["MAIN ROAD", "ROAD", "TRACK"], 250, false, true];
+if (count _roads == 0) exitWith
+{
 	[1, format ["Roads not found for marker %1", _markerX], _fileName] call A3A_fnc_log;
 };
 
@@ -146,13 +147,13 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_p2 = getPos (_roadcon select 0);
 					_dirveh = [_p1,_p2] call BIS_fnc_DirTo;
 					_typeVehX = selectRandomWeighted civVehiclesWeighted;
-					_veh = _typeVehX createVehicle _p1;
+					_veh = _typeVehX createVehicle (getPos _p1);
 					_veh setDir _dirveh;
 
 					//_veh forceFollowRoad true;
 					_vehPatrol = _vehPatrol + [_veh];
 					_typeCiv = selectRandom arrayCivs;
-					_civ = [_groupP, _typeCiv, _p1, [],0, "NONE"] call A3A_fnc_createUnit;
+					_civ = [_groupP, _typeCiv, (getPos _p1), [],0, "NONE"] call A3A_fnc_createUnit;
 					_nul = [_civ] spawn A3A_fnc_CIVinit;
 					_civsPatrol = _civsPatrol + [_civ];
 					_civ moveInDriver _veh;
@@ -161,7 +162,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_groupP addVehicle _veh;
 					_groupP setBehaviour "CARELESS";
 					_veh limitSpeed 50;
-					_posDestination = selectRandom (roadsX getVariable (selectRandom _patrolCities));
+					_posDestination = getPos (selectRandom (nearestTerrainObjects [getMarkerPos (selectRandom _patrolCities), ["ROAD", "TRACK"], 250, false, true]));
 					_wp = _groupP addWaypoint [_posDestination,0];
 					_wp setWaypointType "MOVE";
 					_wp setWaypointSpeed "LIMITED";

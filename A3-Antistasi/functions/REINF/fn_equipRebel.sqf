@@ -49,7 +49,7 @@ private _unlockedSmokes = allSmokeGrenades arrayIntersect unlockedMagazines;
 if !(_unlockedSmokes isEqualTo []) then { _unit addMagazines [selectRandom _unlockedSmokes, 2] };
 
 
-private _unitClass = typeOf _unit;
+private _unitClass = _unit getVariable "unitType";
 
 switch (true) do {
 	case (_unitClass in SDKSniper): {

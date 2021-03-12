@@ -112,7 +112,7 @@ if (_typePatrol != "AIR") then
 		};
 	};
 
-_vehicle=[_posBase, 0,_typeCar, _sideX] call bis_fnc_spawnvehicle;
+_vehicle=[_posBase, 0,_typeCar, _sideX] call A3A_fnc_spawnVehicle;
 _veh = _vehicle select 0;
 [_veh, _sideX] call A3A_fnc_AIVEHinit;
 [_veh,"Patrol"] spawn A3A_fnc_inmuneConvoy;

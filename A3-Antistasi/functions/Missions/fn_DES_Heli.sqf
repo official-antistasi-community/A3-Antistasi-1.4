@@ -105,7 +105,7 @@ sleep 1;
 
 //Spawning escort
  _typeVeh = if (_sideX == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};
-private _vehicleDataE = [position _roadE, 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
+private _vehicleDataE = [position _roadE, 0,_typeVeh, _sideX] call A3A_fnc_spawnVehicle;
 private _vehE = _vehicleDataE select 0;
 _vehE limitSpeed 50;
 [_vehE,"Escort"] spawn A3A_fnc_inmuneConvoy;
@@ -132,7 +132,7 @@ _escortWP setWaypointBehaviour "SAFE";
 
 //creating repair vehicle
 _typeVeh = if (_sideX == Occupants) then {vehNATORepairTruck} else {vehCSATRepairTruck};
-private _vehicleDataR = [position _roadR, 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
+private _vehicleDataR = [position _roadR, 0,_typeVeh, _sideX] call A3A_fnc_spawnVehicle;
 private _vehR = _vehicleDataR select 0;
 _vehR limitSpeed 50;
 [_vehR, _sideX] call A3A_fnc_AIVEHinit;

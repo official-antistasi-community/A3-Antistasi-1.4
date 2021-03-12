@@ -65,7 +65,7 @@ _launcher attachTo [_holdObject, [0, 0, 0]];
 _launcher hideObject true;
 
 //Create the crew and sets its AI
-createVehicleCrew _launcher;
+[_side, _launcher] call A3A_fnc_createVehicleCrew;
 _launcher disableAI "Target";
 _launcher disableAI "Autotarget";
 

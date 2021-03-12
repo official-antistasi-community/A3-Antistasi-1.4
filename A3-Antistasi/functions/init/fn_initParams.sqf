@@ -26,8 +26,8 @@ private _filename = "fn_initParams";
 
 A3A_paramTable = [
     ["gameMode", "gameMode", ["locked", "oldsave"], 1],
-    ["autoSave", "autoSave", ["server"], false],
-    ["autoSaveInterval", "autoSaveInterval", ["server"], 3600],
+    ["autoSave", "autoSave", [], true],
+    ["autoSaveInterval", "autoSaveInterval", [], 3600],
     ["distanceMission", "mRadius", [], 4000],
     ["skillMult", "AISkill", [], 2],
     ["personalGarageMax", "personalGarageMax", [], 2],

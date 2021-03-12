@@ -32,7 +32,7 @@ _index = outposts findIf
     sidesX getVariable [_x, sideUnknown] == _side &&
     {(getMarkerPos _x) distance2D _position < distanceForLandAttack &&
     {[_x, true] call A3A_fnc_airportCanAttack &&
-    {[getMarkerPos _x, _position] call A3A_fnc_isTheSameIsland}}}
+    {[getMarkerPos _x, _position] call A3A_fnc_arePositionsConnected}}}
 };
 if(_index != -1) then
 {

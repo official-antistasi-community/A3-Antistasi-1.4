@@ -36,7 +36,7 @@ player addAction [
     true,
     "",
     "(
-        ((typeof cursorObject) isEqualTo 'Box_IND_Wps_F')
+        ((typeof cursorObject) in [NATOSurrenderCrate, CSATSurrenderCrate])
         and (cursorObject distance _this < 3)
         and (attachedTo cursorObject isEqualTo objNull)
     )"
@@ -53,7 +53,7 @@ player addAction [
     true,
     "",
     "(
-        ((typeof cursorObject) isEqualTo 'Box_IND_Wps_F')
+        ((typeof cursorObject) in [NATOSurrenderCrate, CSATSurrenderCrate])
         and (cursorObject distance _this < 3)
         and (attachedTo cursorObject isEqualTo objNull)
     )"
@@ -71,7 +71,7 @@ player addAction [
     true,
     "",
     "(
-        ((typeof cursorObject) isEqualTo 'Box_IND_Wps_F')
+        ((typeof cursorObject) in [NATOSurrenderCrate, CSATSurrenderCrate])
         and (cursorObject distance _this < 3)
         and ({!(_x isEqualTo objNull)} count attachedObjects _this isEqualTo 0)
         and (attachedTo cursorObject isEqualTo objNull)

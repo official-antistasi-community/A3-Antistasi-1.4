@@ -381,7 +381,8 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 		[hasACE,"ACE 3","ACE items added to arsenal and ammo-boxes."],
 		[hasACEMedical,"ACE 3 Medical","Default revive system will be disabled"],
 		[A3A_hasRHS,"RHS","All factions will be replaced by RHS (AFRF &amp; USAF &amp; GREF)."],
-		[A3A_has3CB,"3CB","All factions will be replaced by 3CB and RHS."],
+		[A3A_has3CBFactions,"3CB Factions","All Factions will be Replaced by 3CB Factions."],
+		[A3A_has3CBBAF,"3CB BAF","Occupant Faction will be Replaced by British Armed forces."],
 		[A3A_hasFFAA,"FFAA","Occupant faction will be replaced by Spanish Armed Forces"],
 		[A3A_hasIvory,"Ivory Cars","Mod cars will be added to civilian car spawns."]
 	] select {_x#0};

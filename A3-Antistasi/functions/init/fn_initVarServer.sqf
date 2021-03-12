@@ -194,6 +194,9 @@ everyEquipmentRelatedArrayName = allEquipmentArrayNames + unlockedEquipmentArray
 	DECLARE_SERVER_VAR_FROM_VARIABLE(_x, []);
 } forEach everyEquipmentRelatedArrayName;
 
+//Create a global namespace for custom unit types.
+DECLARE_SERVER_VAR(customUnitTypes, [true] call A3A_fnc_createNamespace);
+
 ////////////////////////////////////
 //          MOD CONFIG           ///
 ////////////////////////////////////
@@ -300,13 +303,12 @@ private _templateVariables = [
 
 	//Occupants
 	"nameOccupants",
-	"factionGEN",
-	"factionMaleOccupants",
-	"factionFIA",
 	"NATOFlag",
 	"NATOFlagTexture",
 	"flagNATOmrk",
 	"NATOAmmobox",
+    "NATOSurrenderCrate",
+    "NATOEquipmentBox",
 	"NATOPlayerLoadouts",
 	"vehNATOPVP",
 	"NATOGrunt",
@@ -374,12 +376,12 @@ private _templateVariables = [
 
 	//Invaders
 	"nameInvaders",
-	"factionMaleInvaders",
-	"factionFIA",
 	"CSATFlag",
 	"CSATFlagTexture",
 	"flagCSATmrk",
 	"CSATAmmoBox",
+    "CSATSurrenderCrate",
+    "CSATEquipmentBox",
 	"CSATPlayerLoadouts",
 	"vehCSATPVP",
 	"CSATGrunt",
@@ -452,7 +454,6 @@ call compile preProcessFileLineNumbers "Templates\selector.sqf";
 
 // modify these appropriately when adding new template vars
 private _nonClassVars = ["nameTeamPlayer", "SDKFlagTexture", "nameOccupants", "NATOPlayerLoadouts", "NATOFlagTexture", "flagNATOmrk", "nameInvaders", "CSATPlayerLoadouts", "CSATFlagTexture", "flagCSATmrk"];
-private _factionVars = ["factionGEN", "factionMaleOccupants", "factionFIA", "factionMaleInvaders"];
 private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "ATMineMag", "APERSMineMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank"];
 
 private _missingVars = [];
@@ -471,8 +472,7 @@ private _badCaseVars = [];
 			_var = _classes;
 		};
 
-		private _section = if (_x in _factionVars) then {"CfgFactionClasses"}
-			else { if (_x in _magazineVars) then {"CfgMagazines"} else {"CfgVehicles"} };
+		private _section = if (_x in _magazineVars) then {"CfgMagazines"} else {"CfgVehicles"};
 		{
 			if !(_x isEqualType "") exitWith { [1, "Bad template var " + _varName, _filename] call A3A_fnc_log };
 			if !(_x isEqualTo configName (configFile >> _section >> _x)) then
@@ -628,6 +628,9 @@ DECLARE_SERVER_VAR(vehPlanes, _vehPlanes);
 private _vehAttackHelis = vehCSATAttackHelis + vehNATOAttackHelis;
 DECLARE_SERVER_VAR(vehAttackHelis, _vehAttackHelis);
 
+private _vehHelis = vehNATOTransportHelis + vehCSATTransportHelis + vehAttackHelis + [vehNATOPatrolHeli,vehCSATPatrolHeli];
+DECLARE_SERVER_VAR(vehHelis, _vehHelis);
+
 private _vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
 DECLARE_SERVER_VAR(vehFixedWing, _vehFixedWing);
 
@@ -652,6 +655,9 @@ DECLARE_SERVER_VAR(vehAA, _vehAA);
 private _vehMRLS = [vehCSATMRLS, vehNATOMRLS];
 DECLARE_SERVER_VAR(vehMRLS, _vehMRLS);
 
+private _vehArmor = [vehTanks,vehAA,vehMRLS] + vehAPCs;
+DECLARE_SERVER_VAR(vehArmor, _vehArmor);
+
 private _vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis + vehNATOTransportPlanes + vehCSATTransportPlanes;
 DECLARE_SERVER_VAR(vehTransportAir, _vehTransportAir);
 
@@ -666,6 +672,9 @@ DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
 private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks) select { [_x] call A3A_fnc_logistics_getVehCapacity > 1 };
 DECLARE_SERVER_VAR(vehCargoTrucks, _vehCargoTrucks);
+
+private _vehClassToCrew = call A3A_fnc_initVehClassToCrew;
+DECLARE_SERVER_VAR(A3A_vehClassToCrew,_vehClassToCrew);
 
 ///////////////////////////
 //     MOD TEMPLATES    ///

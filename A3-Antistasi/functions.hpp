@@ -20,6 +20,7 @@ class A3A
         class initVarCommon {};
         class initVarServer {};
 
+        class initVehClassToCrew {};
         class initZones {};
         class modBlacklist {};
         class playerMarkers {};
@@ -69,7 +70,7 @@ class A3A
 		class healAndRepair {};
 		class initPetros {};
 		class isFrontline {};
-		class isTheSameIsland {};
+		class arePositionsConnected {};
 		class joinMultipleGroups {};
 		class keys {};
 		class localizar {};
@@ -223,11 +224,12 @@ class A3A
         class createAttackVehicle {};
 		class createCIV {};
 		class createFIAOutposts2 {};
-		class createQRF {};
 		class createSDKGarrisons {};
 		class createSDKgarrisonsTemp {};
 		class createUnit {};
+		class createVehicleCrew {};
         class createVehicleQRFBehaviour {};
+        class crewTypeForVehicle {};
 		class cycleSpawn {};
 		class FIAinitBases {};
 		class findSpawnPosition {};
@@ -243,11 +245,13 @@ class A3A
 		class NATOinit {};
 		class patrolReinf {};
 		class reinforcementsAI {};
+		class registerUnitType {};
 		class remoteBattle {};
 		class removeVehFromPool {};
 		class safeVehicleSpawn {};
         class singleAttack {};
 		class spawnGroup {};
+		class spawnVehicle {};
         class spawnVehicleAtMarker {};
 		class updateCAMark {};
 		class vehAvailable {};
@@ -342,6 +346,30 @@ class A3A
         class showIntel {};
     };
 
+    class ItemSets
+    {
+        file = "functions\Templates\Itemsets";
+        class itemset_medicalSupplies {};
+        class itemset_miscEssentials {};
+    };
+
+    class Loadouts
+	{
+		file = "functions\Templates\Loadouts";
+		class loadout_setBackpack {};
+		class loadout_addEquipment {};
+		class loadout_setHelmet {};
+		class loadout_addItems {};
+		class loadout_additionalMuzzleMags {};
+		class loadout_setUniform {};
+		class loadout_setVest {};
+		class loadout_setWeapon {};
+		class loadout_builder {};
+		class loadout_createBase {};
+		class loadout_defaultWeaponMag {};
+		class loadout_itemLoad {};
+	};
+
     class Logistics
     {
         class logistics_addLoadAction {};
@@ -426,6 +454,8 @@ class A3A
         class equipmentSort {};
         class fillLootCrate {};
         class getRadio {};
+        class itemConfig {};
+        class itemConfigMass {};
         class itemSort {};
         class itemType {};
         class launcherInfo {};
@@ -456,19 +486,22 @@ class A3A
 
     class Pathfinding
     {
-        //Public API - Call these from anywhere
-        class findPath {};
-        class loadNavGrid {};
-
-
-        //Private API - Do NOT call these elsewhere
+        class areNodesConnected {};
         class calculateH {};
-        class findNearestNavPoint {};
-        class getClosestMainMarker {};
-        class getMainMarkers {};
-        class getNavConnections {};
-        class getNavPos {};
-        class setNavOnMarker {};
+        class convoyTest {};
+        class drawGrid {};
+        class drawLine {};
+        class drawPath {};
+        class findNodesInDistance {};
+        class findPath {};
+        class findPathPrecheck {};
+        class getMainPositions {};
+        class getNearestNavPoint {};
+        class listInsert {};
+        class loadNavGrid {};
+        class markNode {};
+        class setNavData {};
+        class trimPath {};
     };
 
     class Punishment
@@ -615,7 +648,9 @@ class A3A
     class Templates
     {
         class aceModCompat {};
-        class getLoadout {};
+		class compatabilityLoadFaction {};
+		class getLoadout {};
+		class loadFaction {};
         class ifaModCompat {};
         class rhsModCompat {};
     };
@@ -644,6 +679,7 @@ class A3A
         class dateToTimeString {};
         class generateRoadsDB {};
         class getAdmin {};
+        class deleteNamespace {};
         class log {};
         class systemTime_format_G {};
         class vehicleWillCollideAtPosition {};

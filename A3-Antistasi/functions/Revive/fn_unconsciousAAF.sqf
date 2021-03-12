@@ -41,7 +41,7 @@ _unit stop false;
 if (_playerNear) then
 {
 	[_unit,"remove"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-    if((typeOf _unit) in squadLeaders) then
+    if((_unit getVariable "unitType") in squadLeaders) then
     {
         _unit spawn
         {

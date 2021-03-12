@@ -15,7 +15,7 @@ _newGroup = createGroup teamPlayer;
 //if ({isPlayer _x} count units group player == 1) then {_ai = true; _newGroup = createGroup teamPlayer};
 
 {
-if (typeOf _x != SDKUnarmed) then
+if ((_x getVariable "unitType") != SDKUnarmed) then
 	{
 	[_x] join _newGroup;
 	if !(A3A_hasIFA) then {arrayids = arrayids + [name _x]};
@@ -42,7 +42,7 @@ _weaponsX = [];
 {_unit = _x;
 if ([_unit] call A3A_fnc_canFight) then
 	{
-	_resourcesFIA = _resourcesFIA + (server getVariable (typeOf _unit));
+	_resourcesFIA = _resourcesFIA + (server getVariable (_unit getVariable "unitType"));
 	_hr = _hr +1;
 	{if (not(([_x] call BIS_fnc_baseWeapon) in unlockedWeapons)) then {_weaponsX pushBack ([_x] call BIS_fnc_baseWeapon)}} forEach weapons _unit;
 	{if (not(_x in unlockedMagazines)) then {_ammunition pushBack _x}} forEach magazines _unit;

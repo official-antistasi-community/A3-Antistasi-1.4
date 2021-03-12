@@ -19,7 +19,7 @@ if (getText (_configClass >> "picture") == "") exitWith {
 };
 
 //Remove vanilla items if no vanilla sides (IFA handled seperately)
-if (_itemIsVanilla && {A3A_has3CB || A3A_hasRHS}) then {
+if (_itemIsVanilla && {A3A_hasRHS}) then {
 	switch (_categories select 0) do {
 		case "Item": {
 			switch (_categories select 1) do {

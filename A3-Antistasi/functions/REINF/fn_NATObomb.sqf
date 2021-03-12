@@ -57,7 +57,7 @@ _angorig = _ang - 180;
 _origpos = [_pos1, 2500, _angorig] call BIS_fnc_relPos;
 _finpos = [_pos2, 2500, _ang] call BIS_fnc_relPos;
 
-_planefn = [_origpos, _ang, vehSDKPlane, teamPlayer] call bis_fnc_spawnvehicle;
+_planefn = [_origpos, _ang, vehSDKPlane, teamPlayer] call A3A_fnc_spawnVehicle;
 _plane = _planefn select 0;
 _planeCrew = _planefn select 1;
 _groupPlane = _planefn select 2;

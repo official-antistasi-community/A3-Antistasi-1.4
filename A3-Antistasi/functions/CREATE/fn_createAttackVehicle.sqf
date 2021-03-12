@@ -25,8 +25,7 @@ private _vehicle = [_markerOrigin, _vehicleType] call A3A_fnc_spawnVehicleAtMark
 
 if(isNull _vehicle) exitWith {objNull};
 
-private _crewGroup = createVehicleCrew _vehicle;
-
+private _crewGroup = [_side, _vehicle] call A3A_fnc_createVehicleCrew;
 {
     [_x] call A3A_fnc_NATOinit
 } forEach (units _crewGroup);

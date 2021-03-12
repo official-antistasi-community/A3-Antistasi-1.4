@@ -47,7 +47,7 @@ if (debug) then {
 //And weirdly, == is not case sensitive.
 //this comments has not an information about the code
 
-(seaMarkers + seaSpawn + seaAttackSpawn + spawnPoints + detectionAreas + islands) apply {_x setMarkerAlpha 0};
+(seaMarkers + seaSpawn + seaAttackSpawn + spawnPoints + detectionAreas) apply {_x setMarkerAlpha 0};
 defaultControlIndex = (count controlsX) - 1;
 outpostsFIA = [];
 destroyedSites = [];
@@ -132,25 +132,9 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	_sizeY = getNumber (_x >> "radiusB");
 	_size = [_sizeY, _sizeX] select (_sizeX > _sizeY);
 	_pos = getArray (_x >> "position");
-	_size = [_size, 400] select (_size < 400);		// Different from generateRoadsDB. Maybe not good.
+	_size = [_size, 400] select (_size < 400);
 	_roads = [];
 	_numCiv = 0;
-
-	_roads = roadsX getVariable [_nameX, []];
-	if (count _roads == 0) then
-	{
-		[2, format ["No roads found for marker %1, generating...", _nameX], _fileName] call A3A_fnc_log;
-		_roadsProv = _pos nearRoads _size;
-		_roadsProv apply
-		{
-			_roadcon = roadsConnectedto _x;
-			if (count _roadcon == 2) then
-			{
-				_roads pushBack (getPosATL _x);
-			};
-		};
-		roadsX setVariable [_nameX, _roads, true];
-	};
 
 	if (_hardcodedPop) then
 	{
@@ -446,8 +430,6 @@ publicVariable "seaSpawn";
 publicVariable "seaAttackSpawn";
 publicVariable "defaultControlIndex";
 publicVariable "detectionAreas";
-publicVariable "islands";
-publicVariable "roadsMrk";
 
 if (isMultiplayer) then {
 	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]

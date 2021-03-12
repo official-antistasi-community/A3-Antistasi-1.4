@@ -15,7 +15,7 @@ _side = sidesX getVariable [_base, sideUnknown];
 if (spawner getVariable _base != 2 || {_base in forcedSpawn}) exitWith {false};
 
 //To far away for land convoy or not the same island
-if(!_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > distanceForLandAttack || {!([_base, _target] call A3A_fnc_isTheSameIsland)}}) exitWith {false};
+if(!_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > distanceForLandAttack || {!([_base, _target] call A3A_fnc_arePositionsConnected)}}) exitWith {false};
 
 //To far away for air convoy
 if(_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > distanceForAirAttack}) exitWith {false};

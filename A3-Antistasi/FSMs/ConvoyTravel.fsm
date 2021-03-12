@@ -240,8 +240,8 @@ class FSM
                          "" \n
                          "	// add units to garrison immediately, otherwise it'll keep sending them" \n
                          "	private _garrison = [typeOf _vehicle, [], []];" \n
-                         "	{ (_garrison # 1) pushBack (typeOf _x) } foreach units _crewGroup;" \n
-                         "	{ (_garrison # 2) pushBack (typeOf _x) } foreach units _cargoGroup;" \n
+                         "	{ (_garrison # 1) pushBack (_x getVariable ""unitType"") } foreach units _crewGroup;" \n
+                         "	{ (_garrison # 2) pushBack (_x getVariable ""unitType"") } foreach units _cargoGroup;" \n
                          "	[_markers # 1, [_garrison]] call A3A_fnc_addGarrison;" \n
                          "" \n
                          "	// synchronize despawning with the target marker" \n

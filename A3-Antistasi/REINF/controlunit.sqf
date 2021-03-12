@@ -9,7 +9,6 @@ if (_unit == Petros) exitWith {["Control Unit", "You cannot control Petros"] cal
 if (player != leader group player) exitWith {["Control Unit", "You cannot control AI if you are not the squad leader"] call A3A_fnc_customHint;};
 if (isPlayer _unit) exitWith {["Control Unit", "You cannot control another player"] call A3A_fnc_customHint;};
 if (!(alive _unit) or (_unit getVariable ["incapacitated",false]))  exitWith {["Control Unit", "You cannot control an unconscious, a dead unit"] call A3A_fnc_customHint;};
-//if ((not(typeOf _unit in soldiersSDK)) and (typeOf _unit != "b_g_survivor_F")) exitWith {hint "You cannot control a unit which does not belong to FIA"};
 if (side _unit != teamPlayer) exitWith {["Control Unit", format ["You cannot control a unit which does not belong to %1",nameTeamPlayer]] call A3A_fnc_customHint;};
 private _punishmentoffenceTotal = [getPlayerUID player, [ ["offenceTotal",0] ]] call A3A_fnc_punishment_dataGet select 0;
 if (_punishmentoffenceTotal >= 1) exitWith {["Control Unit", "Nope. Not happening."] call A3A_fnc_customHint;};

@@ -6,7 +6,7 @@ private _lastSupport = server getVariable ["lastSupport", ["", 0]];
 if((_lastSupport select 0) == "GUNSHIP" && {(_lastSupport select 1) > time}) exitWith {-1};
 
 //Vehicles not available, block support
-if(has3CB || hasFFAA) exitWith {-1};
+if(A3A_has3CB || A3A_hasFFAA) exitWith {-1};
 
 private _timerIndex = -1;
 private _playerAdjustment = (floor ((count allPlayers)/10)) + 1;

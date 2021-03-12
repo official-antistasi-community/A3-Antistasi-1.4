@@ -99,7 +99,7 @@ else
 {
     _launcher = ["O_SAM_System_04_F", _spawnPos, 50, 5, true] call A3A_fnc_safeVehicleSpawn;
 };
-createVehicleCrew _launcher;
+[_side, _launcher] call A3A_fnc_createVehicleCrew;
 _launcher setVariable ["side", _side];
 
 _launcher addEventHandler ["Fired",

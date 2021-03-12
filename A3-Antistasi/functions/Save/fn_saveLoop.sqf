@@ -34,7 +34,7 @@ if (_saveIndex == -1) then {
 profileNamespace setVariable ["ss_campaignID", campaignID];
 
 // Save persistent global variables defined in initParam
-private _savedParams = paramTable apply { [_x#0, missionNameSpace getVariable _x#0] };
+private _savedParams = A3A_paramTable apply { [_x#0, missionNameSpace getVariable _x#0] };
 [3, format ["Saving params: %1", _savedParams], _filename] call A3A_fnc_log;
 ["params", _savedParams] call A3A_fnc_setStatVariable;
 
@@ -80,7 +80,7 @@ _vehInGarage = _vehInGarage + vehInGarage;
 	if ((_friendX getVariable ["spawner",false]) and (side group _friendX == teamPlayer))then {
 		if ((alive _friendX) and (!isPlayer _friendX)) then {
 			if (((isPlayer leader _friendX) and (!isMultiplayer)) or (group _friendX in (hcAllGroups theBoss)) and (not((group _friendX) getVariable ["esNATO",false]))) then {
-				_resourcesBackground = _resourcesBackground + (server getVariable [(typeOf _friendX),0]);
+				_resourcesBackground = _resourcesBackground + (server getVariable [(_friendX getVariable "unitType"),0]);
 				_backpck = backpack _friendX;
 				if (_backpck != "") then {
 					switch (_backpck) do {

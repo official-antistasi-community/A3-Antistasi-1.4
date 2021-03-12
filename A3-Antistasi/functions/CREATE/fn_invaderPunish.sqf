@@ -35,7 +35,7 @@ for "_i" from 1 to 3 do {
 		sleep 1;
 	};
 	if (count _pos == 0) then {_pos = _posOrigin};
-	private _spawnResult = [_pos, 0, _typeAirVehicle, Invaders] call bis_fnc_spawnvehicle;
+	private _spawnResult = [_pos, 0, _typeAirVehicle, Invaders] call A3A_fnc_spawnVehicle;
 	private _veh = _spawnResult select 0;
 	private _vehCrew = _spawnResult select 1;
 	{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;

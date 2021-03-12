@@ -1,163 +1,237 @@
-params ["_startPos" , "_endPos", "_avoid"];
+/*
+Author: Wurzel0701
+    Searches a path between two given points
+    Start and End position will always be part of the path and marked as junction if path is found
 
-if(isNil "roadDataDone") exitWith {
-	diag_log "Pathfinding: Road data base not loaded, aborting pathfinding!";
-	[];
-};
+Arguments:
+    <POSITION> The position from which the search is starting
+    <POSITION> The position to which the search is going to
+    <ARRAY> Node data (actual data from the navGrid) of blocked nodes
 
+Return Value:
+    <ARRAY> An path based of <POSITION, BOOL isJunction>
+
+Scope: Any
+Environment: Scheduled
+Public: Yes
+Dependencies:
+    <BOOLEAN> pathfindingActive
+    <ARRAY> navGrid
+
+Example:
+    [pos player, pos _target, []] call A3A_fnc_findPath;
+*/
+
+params
+[
+    ["_startPos", [0,0,0], [[]]],
+    ["_endPos", [0,0,0], [[]]],
+    ["_avoid", [], [[]]]
+];
+
+#define WORKSTATE_UNTOUCHED         0
+#define WORKSTATE_OPENED            1
+#define WORKSTATE_CLOSED            2
+#define WORKSTATE_AVOID_OPENED      3
+#define WORKSTATE_AVOID_UNTOUCHED   4
+
+#define AVOID_PENALTY               15
+
+private _fileName = "findPath";
 private _deltaTime = time;
 
+[3, format ["Starting pathfinding from %1 to %2", _startPos, _endPos], _fileName] call A3A_fnc_log;
 
-_startNav = [_startPos] call A3A_fnc_findNearestNavPoint;
-_endNav = [_endPos] call A3A_fnc_findNearestNavPoint;
+private _startNavIndex = [_startPos] call A3A_fnc_getNearestNavPoint;
+private _endNavIndex = [_endPos] call A3A_fnc_getNearestNavPoint;
 
-diag_log format ["Pathfinding: Start %1 at %2 End %3 at %4", _startNav, str _startPos, _endNav, str _endPos];
-
-allMarker = [];
-createNavMarker = compile preprocessFileLineNumbers "NavGridTools\createNavMarker.sqf";
-
-
-if(!(_startNav isEqualType 1 && _endNav isEqualType 1)) exitWith {
-	//Hint: Improve the search!
-	[];
+private _preCheckValue = [_startNavIndex, _endNavIndex] call A3A_fnc_findPathPrecheck;
+if(_preCheckValue isEqualType []) exitWith
+{
+    [2, "Requested path was cached, returned cached path", _fileName] call A3A_fnc_log;
+    _preCheckValue;
 };
 
+if(!_preCheckValue) exitWith
+{
+    [];
+};
+
+if(isNil "pathfindingActive") then
+{
+    pathfindingActive = false;
+};
+waitUntil {!pathfindingActive};
+pathfindingActive = true;
+
+private _startNav = navGrid select _startNavIndex;
+private _endNav = navGrid select _endNavIndex;
+
+[2, format ["Start %1 at %2 End %3 at %4", _startNav, str _startPos, _endNav, str _endPos], _fileName] call A3A_fnc_log;
+
+private _touchedNodes = [];
+//Blocking avoid elements
+{
+    missionNamespace setVariable [format ["PF_%1", str (_x select 0)], WORKSTATE_AVOID_UNTOUCHED];
+    _touchedNodes pushBack (str (_x select 0));
+} forEach _avoid;
 
 //Start A* here
-_openList = [];
-_closedList = [];
-
-_targetNavPos = [_startNav] call A3A_fnc_getNavPos;
-_startNavPos = [_endNav] call A3A_fnc_getNavPos;
-
-//_end = ["mil_triangle", _targetNavPos, "ColorBlue"] call createNavMarker;
-//_end setMarkerText "Start";
-//_start = ["mil_triangle", _startNavPos, "ColorBlue"] call createNavMarker;
-//_start setMarkerText "Target";
-
+private _openList = [];
+private _closedList = [];
+private _targetPos = _endNav select 0;
+private _startNavPos = _startNav select 0;
+private _maxDistance = 5 * ((_endNav select 0) distance (_startNav select 0));
 private _lastNav = -1;
 
-//Search for end to start, due to nature of script
-_openList pushBack [_endNav, 0, [_startNavPos, _targetNavPos] call A3A_fnc_calculateH, "End"];
-
+_openList pushBack [_startNav, 0, [_startNav select 0, _endNav select 0] call A3A_fnc_calculateH, "Start"];
+missionNamespace setVariable [format ["PF_%1", str (_startNav select 0)], WORKSTATE_OPENED];
+_touchedNodes pushBack (str (_startNav select 0));
 
 while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
 {
     //Select node with lowest score
-    _next = objNull;
-    //private _debug = "List is<br/>";
-    if((count _openList) == 1) then
-    {
-      _next = _openList deleteAt 0;
-    }
-    else
-    {
-      private _nextValue = 0;
-      {
-        _xValue = ((_x select 1) + (_x select 2));
-        //_debug = format ["%1Object: %2 Value: %3<br/>", _debug, (_x select 0), _xValue];
-
-        if((!(_next isEqualType [])) || {_xValue < _nextValue}) then
-        {
-          _next = _x;
-          _nextValue = _xValue;
-        };
-      } forEach _openList;
-      _openList = _openList - [_next];
-      //_debug = format ["%1Choose: %2 Value: %3", _debug, (_next select 0), _nextValue];
-    };
-
-    //hint _debug;
+    private _current = _openList deleteAt 0;
 
     //Close node
-    _closedList pushBack _next;
-
+    private _closedListIndex = _closedList pushBack _current;
+    missionNamespace setVariable [format ["PF_%1", str (_current select 0 select 0)], WORKSTATE_CLOSED];
+    missionNamespace setVariable [format ["CL_%1", str (_current select 0 select 0)], _closedListIndex];
 
     //Gather next nodes
-    _nextNodes = [_next select 0] call A3A_fnc_getNavConnections;
-    _nextPos = [_next select 0] call A3A_fnc_getNavPos;
-
-    //["mil_dot", _nextPos, "ColorRed"] call createNavMarker;
-
+    private _currentConnections = _current select 0 select 3;
+    private _currentPos = _current select 0 select 0;
     {
-        _conNav = _x;
-        _conName = _conNav select 0;
+        private _conData = _x;
+        private _conIndex = _conData select 0;
 
-        //Found the end
-        if(_conName == _startNav) exitWith {_lastNav = _next};
 
-        _conPos = [_conName] call A3A_fnc_getNavPos;
+        //sleep 1;
+
+        //Found a path to the node
+        if(_conIndex == _endNavIndex) exitWith
+        {
+            _lastNav = _current;
+        };
+        private _conNode = navGrid select _conIndex;
 
         //Not in closed list
-        if((_closedList findIf {(_x select 0) == _conName}) == -1) then
+        private _workState = missionNamespace getVariable [format ["PF_%1", str (_conNode select 0)], WORKSTATE_UNTOUCHED];
+        if(_workState != WORKSTATE_CLOSED) then
         {
-          _openListIndex = _openList findIf {(_x select 0) == _conName};
-
-          //Not in open list
-          if(_openListIndex == -1) then
-          {
-            _h = [_conPos, _targetNavPos] call A3A_fnc_calculateH;
-            _openList pushBack [_conName, ((_next select 1) + (_nextPos distance _conPos)), _h, (_next select 0)];
-            //private _marker = ["mil_dot", _conPos, "ColorBlue"] call createNavMarker;
-            //_marker setMarkerText str (_h + (_next select 1) + (_nextPos distance _conPos));
-          }
-          else
-          {
-            //In open list
-            _conData = _openList deleteAt _openListIndex;
-            //Is it a shorter way to this node?
-            if((_conData select 1) > ((_next select 1) + (_nextPos distance _conPos))) then
+            if(_workState == WORKSTATE_UNTOUCHED || _workState == WORKSTATE_AVOID_UNTOUCHED) then
             {
-              _conData set [1, ((_next select 1) + (_nextPos distance _conPos))];
-              _conData set [3, (_next select 0)];
+                //Not in open list, add to it
+                private _h = [_conNode select 0, _targetPos] call A3A_fnc_calculateH;
+                private _newDistance = (_current select 1) + (_conData select 2) * (1 / ((_conData select 1) max 0.5));
+                if(_workState == WORKSTATE_AVOID_UNTOUCHED) then
+                {
+                    _newDistance = (_current select 1) + (_conData select 2) * AVOID_PENALTY;
+                };
+                if(_newDistance < _maxDistance) then
+                {
+                    //[_conIndex, "mil_dot", "ColorBlue", str (count (_conNode select 3))] call A3A_fnc_markNode;
+                    //diag_log format ["Adding %1 to the list", str ([_conNode, _newDistance, _h, (_current select 0 select 0)])];
+                    _openList = [_openList, [_conNode, _newDistance, _h, (_current select 0 select 0)]] call A3A_fnc_listInsert;
+                    missionNamespace setVariable [format ["PF_%1", str (_conNode select 0)], WORKSTATE_OPENED];
+                    if(_workState == WORKSTATE_AVOID_UNTOUCHED) then
+                    {
+                        missionNamespace setVariable [format ["PF_%1", str (_conNode select 0)], WORKSTATE_AVOID_OPENED];
+                    };
+                    _touchedNodes pushBack (str (_conNode select 0));
+                }
+                else
+                {
+                    //diag_log format ["Not adding %1 to the list because of distance", _conData];
+                };
+            }
+            else
+            {
+                //In open list, adapt distance if needed
+                private _openListIndex = _openList findIf {(_x select 0 select 0) isEqualTo (_conNode select 0)};
+                //diag_log format ["ConNode %3 || Open list index is %1, state was %2", _openListIndex, _workState, _conNode];
+                if(_openListIndex != -1) then
+                {
+                    private _openData = _openList deleteAt _openListIndex;
+                    private _newDistance = (_current select 1) + (_conData select 2) * (1 / ((_conData select 1) max 0.5));
+                    if(_workState == WORKSTATE_AVOID_OPENED) then
+                    {
+                        _newDistance = (_current select 1) + (_conData select 2) * AVOID_PENALTY;
+                    };
+                    if((_openData select 1) > _newDistance) then
+                    {
+                        //New way is shorter, adapt node
+                        _openData set [1, _newDistance];
+                        _openData set [3, (_current select 0 select 0)];
+                    };
+                    //diag_log format ["Replacing %1 into the list", str (_openData)];
+                    _openList = [_openList, _openData] call A3A_fnc_listInsert;
+                }
+                else
+                {
+                    diag_log format ["BROKEN NODE %1", _conNode];
+                    //[_conIndex, "mil_dot", "ColorRed", "BROKEN"] call A3A_fnc_markNode;
+                };
             };
-            _openList pushBack _conData;
-          };
         };
-    } forEach _nextNodes;
+    } forEach _currentConnections;
 };
+//A* finished, way found
 
+
+
+//Create raw path out of data now
 private _wayPoints = [];
+private _lastIndex = 0;
 if(_lastNav isEqualType []) then
 {
-  //Way found, reverting way through path
-  _wayPoints = [_startPos, _targetNavPos];
-
-  while {_lastNav isEqualType []} do
-  {
-    _lastPos = [_lastNav select 0] call A3A_fnc_getNavPos;
-    _wayPoints pushBack _lastPos;
-    //["mil_dot", _lastPos, "ColorGreen"] call createNavMarker;
-    _lastNavIndex = _lastNav select 3;
-    if(_lastNavIndex isEqualType 1) then
+    //Way found, reverting way through path
+    [2, format ["Max Distance %1, Distance %2", _maxDistance, _lastNav select 1], _fileName] call A3A_fnc_log;
+    _wayPoints = [[_endPos, true], [_targetPos, true]];
+    while {_lastNav isEqualType []} do
     {
-      _closedListIndex = _closedList findIf {(_x select 0) == _lastNavIndex};
-      _lastNav = _closedList select _closedListIndex;
-    }
-    else
-    {
-      _lastNav = -1;
+        _wayPoints pushBack [_lastNav select 0 select 0, _lastNav select 0 select 2];
+        _lastIndex = missionNamespace getVariable [format ["CL_%1", _lastNav select 3], -1];
+        if(_lastIndex != -1) then
+        {
+            _lastNav = _closedList select _lastIndex;
+        }
+        else
+        {
+            _lastNav = -1;
+        }
     };
-  };
-  //_wayPoints pushBack _endPos;
-  _wayPoints = _wayPoints + [_startNavPos, _endPos];
-  //_wayPoints = [_startPos, _startNavPos];
+    _wayPoints pushBack [_startPos, true];
+    reverse _wayPoints;
 
-  _deltaTime = time - _deltaTime;
-  diag_log format ["Pathfinding: Successful finished pathfinding in %1 seconds", _deltaTime];
+    _deltaTime = time - _deltaTime;
+    [2, format ["Successful finished pathfinding after %1 seconds", _deltaTime], _fileName] call A3A_fnc_log;
 }
 else
 {
-  _deltaTime = time - _deltaTime;
-  diag_log format ["Pathfinding: Could not find a way, search took %1 seconds", _deltaTime];
+    _deltaTime = time - _deltaTime;
+    [1, format ["Could not find a way, search took %1 seconds, max distance reached", _deltaTime], _fileName] call A3A_fnc_log;
 };
 
-[] spawn
 {
-  sleep 15;
-  {
-      deleteMarker _x;
-  } forEach allMarker;
+    missionNamespace setVariable [format ["PF_%1", _x], WORKSTATE_UNTOUCHED];
+    missionNamespace setVariable [format ["CL_%1", _x], WORKSTATE_UNTOUCHED];
+} forEach _touchedNodes;
+
+pathfindingActive = false;
+
+//Cache results
+private _cachedPaths = missionNamespace getVariable ["CachedPaths", []];
+private _pathKey = format ["%1->%2", _startNavIndex, _endNavIndex];
+private _cachedIndex = _cachedPaths findIf {(_x select 0) == _pathKey};
+if(_cachedIndex == -1) then
+{
+    _cachedPaths pushBack [_pathKey, _wayPoints];
+    if(count _cachedPaths > 20) then
+    {
+        _cachedPaths deleteAt 0;
+    };
+    missionNamespace setVariable ["CachedPaths", _cachedPaths, true];
 };
 
 _wayPoints;

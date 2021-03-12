@@ -58,11 +58,12 @@ if (count _garrison > 0) then
 			{
 			if (!alive _x) then
 				{
-				if (typeOf _x in soldiersSDK) then
+				private _unitType = _x getVariable "unitType";
+				if (_unitType in soldiersSDK) then
 					{
-					if (typeOf _x == staticCrewTeamPlayer) then {_costs = _costs - ([SDKMortar] call A3A_fnc_vehiclePrice)};
+					if (_unitType == staticCrewTeamPlayer) then {_costs = _costs - ([SDKMortar] call A3A_fnc_vehiclePrice)};
 					_hr = _hr - 1;
-					_costs = _costs - (server getVariable (typeOf _x));
+					_costs = _costs - (server getVariable (_unitType));
 					};
 				};
 			if (typeOf (vehicle _x) == SDKMortar) then {deleteVehicle vehicle _x};

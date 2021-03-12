@@ -677,9 +677,8 @@ class A3A
         class createDataObject {};
         class createNamespace {};
         class dateToTimeString {};
-        class generateRoadsDB {};
-        class getAdmin {};
         class deleteNamespace {};
+        class getAdmin {};
         class log {};
         class systemTime_format_G {};
         class vehicleWillCollideAtPosition {};

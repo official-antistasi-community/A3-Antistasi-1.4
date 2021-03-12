@@ -31,9 +31,9 @@ HR_GRG_camDirY = 85 min (HR_GRG_camDirY + _yPos * 0.5) max -85; //cap rotation u
 private _BB = 0 boundingBoxReal HR_GRG_previewVeh;
 private _pos = [[(_BB#2) * HR_GRG_camDist, 0, 0], HR_GRG_camDirY, 1] call BIS_fnc_rotateVector3D;
 _pos = [_pos, HR_GRG_camDirX] call BIS_fnc_rotateVector2D;
-_pos = HR_GRG_previewVeh modelToWorld _pos;
+_pos = HR_GRG_previewVeh modelToWorldWorld _pos;
 
 //update cam position
-HR_GRG_previewCam setPos _pos;
-HR_GRG_previewCam camSetTarget getPosWorld HR_GRG_previewVeh;
+HR_GRG_previewCam setPosWorld _pos;
+HR_GRG_previewCam camSetTarget getPos HR_GRG_previewVeh;
 HR_GRG_previewCam camCommit 0;

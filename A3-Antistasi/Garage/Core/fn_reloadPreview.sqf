@@ -38,4 +38,5 @@ HR_GRG_previewVehState = _veh#4;
 [HR_GRG_previewVeh, HR_GRG_previewVehState] call HR_GRG_fnc_setState;
 HR_GRG_previewVeh allowDamage false;
 HR_GRG_previewVeh setPosASL [0,0,100000];
+HR_GRG_previewVeh setVectorUp [0,0,1];
 [nil,0,0] call HR_GRG_fnc_updateCamPos;

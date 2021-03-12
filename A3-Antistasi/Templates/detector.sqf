@@ -14,7 +14,8 @@ private _filename = "detector.sqf";
 A3A_hasRHS = false;
 A3A_hasFFAA = false;
 A3A_hasIFA = false;
-A3A_has3CB = false;
+A3A_has3CBFactions = false;
+A3A_has3CBBAF = false;
 A3A_hasIvory = false;
 A3A_hasTCGM = false;
 A3A_hasADV = false;
@@ -37,14 +38,16 @@ if (isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") && isClass 
   [2,"RHS Detected.",_fileName] call A3A_fnc_log;
 };
 
-//3CB BAF + Factions Detection
+//3CB BAF Detection
 if (A3A_hasRHS && (
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons") &&
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Vehicles") &&
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Units_Common") &&
-  isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Equipment") &&
-  isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")
-) ) then {A3A_has3CB = true; [2,"3CB Detected.",_fileName] call A3A_fnc_log;};
+  isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Equipment")
+) ) then {A3A_has3CBBAF = true; [2,"3CB BAF Detected.",_fileName] call A3A_fnc_log;};
+
+//3CB Factions Detection
+if (isClass (configfile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")) then {A3A_has3CBFactions = true; [2,"3CB Factions Detected.",_fileName] call A3A_fnc_log;};
 
 //FFAA Detection
 if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {A3A_hasFFAA = true; [2,"FFAA Detected.",_fileName] call A3A_fnc_log;};
@@ -64,5 +67,5 @@ if (isClass (configfile >> "CfgVehicles" >> "d3s_baumaschinen")) then {A3A_hasD3
 if (isClass (configfile >> "CfgPatches" >> "rds_A2_Civilians")) then {A3A_hasRDS = true; [2,"RDS Cars Detected.",_fileName] call A3A_fnc_log;};
 
 //No Mods found logging
-if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_hasIFA && !A3A_has3CB) then {[2,"No Side Replacement Mods Detected.",_fileName] call A3A_fnc_log;};
+if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_hasIFA && !A3A_has3CBBAF) then {[2,"No Side Replacement Mods Detected.",_fileName] call A3A_fnc_log;};
 if (!A3A_hasIvory && !A3A_hasTCGM && !A3A_hasADV) then {[2,"No Addon Mods Detected.",_fileName] call A3A_fnc_log;};

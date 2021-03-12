@@ -36,7 +36,7 @@ private _outposts = if (_threatEvalLand <= 15) then
         (sidesX getVariable [_x,sideUnknown] == _side) &&
         {([_x,true] call A3A_fnc_airportCanAttack) &&
         {(getMarkerPos _x distance _posDestination < distanceForLandAttack) &&
-        {[_posDestination, getMarkerPos _x] call A3A_fnc_isTheSameIsland}}}
+        {[_posDestination, getMarkerPos _x] call A3A_fnc_arePositionsConnected}}}
     }
 }
 else

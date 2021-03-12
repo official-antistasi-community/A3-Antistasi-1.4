@@ -12,9 +12,8 @@ closes #XXXX
 
 ### Please verify the following and ensure all checks are completed.
 
-1. [ ] Have you loaded the mission in singleplayer?
-2. [ ] Have you loaded the mission in LAN host?
-3. [ ] Have you loaded the mission on a dedicated server?
+1. [ ] Have you loaded the mission in LAN host?
+2. [ ] Have you loaded the mission on a dedicated server?
 
 ### Is further testing or are further changes required?
 1. [ ] No

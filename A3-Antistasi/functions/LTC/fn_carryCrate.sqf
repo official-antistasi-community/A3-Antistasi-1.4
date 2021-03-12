@@ -37,9 +37,9 @@ if (_pickUp) then {
     };
 } else {
     if (isNull _crate) then {
-        private _attached = (attachedObjects _player)select {(typeOf _x) isEqualTo "Box_IND_Wps_F"};
+        private _attached = (attachedObjects _player)select {(typeOf _x) in [NATOSurrenderCrate, CSATSurrenderCrate]};
         if (_attached isEqualTo []) exitWith {};
-        _crate = _attached#0;
+        _crate = _attached # 0;
     };
     if !(isNull _crate) then {
         _player setVelocity [0,0,0];

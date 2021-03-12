@@ -1,5 +1,11 @@
 params ["_convoyID", "_units", "_pos", "_route", "_markers", "_convoySide", "_convoyType", "_maxSpeed", "_isAir"];
 
+private _fileName = "spawnConvoy";
+if(count (_route select 1) != 3) exitWith
+{
+    [3, format ["Input was %1", str _this], _fileName] call A3A_fnc_log;
+    [3, "Path is broken, abort", _fileName] call A3A_fnc_log;
+};
 
 private ["_targetPos", "_dir", "_convoyMarker"];
 
@@ -27,6 +33,11 @@ if (!_isAir) then {
 //Spawn a bit above the ground
 _pos = _pos vectorAdd [0,0,0.1];
 _dir = _pos getDir (_route select 0);
+if(isNil "_dir") exitWith
+{
+    [3, format ["Dir uncalced, Pos was %1, route was %1", _pos, (_route select 0)], _fileName] call A3A_fnc_log;
+    _dir = 0;
+};
 private _targetDir = _pos vectorFromTo _targetPos;
 private _airOffset = (_targetDir vectorMultiply 200) vectorAdd [0,0,50];
 

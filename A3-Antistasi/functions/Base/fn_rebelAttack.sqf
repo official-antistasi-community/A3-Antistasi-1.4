@@ -148,7 +148,7 @@ private _availableTargets = [];
         if(_distance < distanceForAirAttack) then
         {
             //If in land range, half the distance
-            if(_distance < distanceForLandAttack && {[_startAirport, _target] call A3A_fnc_isTheSameIsland}) then
+            if(_distance < distanceForLandAttack && {[_startAirport, _target] call A3A_fnc_arePositionsConnected}) then
             {
                 _distance = _distance * 0.5;
             };

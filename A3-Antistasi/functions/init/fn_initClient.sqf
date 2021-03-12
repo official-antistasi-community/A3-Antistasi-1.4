@@ -37,6 +37,7 @@ waitUntil {player == player};
 player setVariable ["canSave", false, true];
 
 if (!isServer) then {
+	waitUntil {!isNil "initParamsDone"};
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
 	[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
@@ -63,7 +64,6 @@ if (isMultiplayer) then {
 	if (hasTFAR) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
-	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {
@@ -80,9 +80,6 @@ else {
 };
 
 [] spawn A3A_fnc_ambientCivs;
-
-//Initialise membershipEnabled so we can do isMember checks.
-membershipEnabled = if (isMultiplayer && "membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
 disableUserInput false;
 player setVariable ["spawner",true,true];
@@ -384,7 +381,8 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 		[hasACE,"ACE 3","ACE items added to arsenal and ammo-boxes."],
 		[hasACEMedical,"ACE 3 Medical","Default revive system will be disabled"],
 		[A3A_hasRHS,"RHS","All factions will be replaced by RHS (AFRF &amp; USAF &amp; GREF)."],
-		[A3A_has3CB,"3CB","All factions will be replaced by 3CB and RHS."],
+		[A3A_has3CBFactions,"3CB Factions","All Factions will be Replaced by 3CB Factions."],
+		[A3A_has3CBBAF,"3CB BAF","Occupant Faction will be Replaced by British Armed forces."],
 		[A3A_hasFFAA,"FFAA","Occupant faction will be replaced by Spanish Armed Forces"],
 		[A3A_hasIvory,"Ivory Cars","Mod cars will be added to civilian car spawns."]
 	] select {_x#0};

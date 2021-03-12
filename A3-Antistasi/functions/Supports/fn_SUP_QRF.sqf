@@ -87,7 +87,7 @@ else
 private _vehPool = [];
 private _replacement = [];
 
-if ((_posOrigin distance2D _posDestination < distanceForLandAttack) && {[_posOrigin, _posDestination] call A3A_fnc_isTheSameIsland}) then
+if ((_posOrigin distance2D _posDestination < distanceForLandAttack) && {[_posOrigin, _posDestination] call A3A_fnc_arePositionsConnected}) then
 {
     //The attack will be carried out by land and air vehicles
 	_vehPool = [_side] call A3A_fnc_getVehiclePoolForQRFs;
@@ -126,6 +126,15 @@ for "_i" from 1 to _vehicleCount do
 [2, format ["Spawn Performed: %1 QRF sent with %2 vehicles, callsign %3", _typeOfAttack, count _vehicles, _supportName], _filename] call A3A_fnc_log;
 
 [_side, _vehicles, _groups, _posDestination, _supportName] spawn A3A_fnc_SUP_QRFRoutine;
+
+_markerOrigin spawn
+{
+    sleep 60;
+    if(spawner getVariable _this == 2) then
+    {
+        [_this] call A3A_fnc_freeSpawnPositions;
+    };
+};
 
 private _distance = _posOrigin distance2D _posDestination;
 private _minTime = _distance / (300 / 3.6);

@@ -100,7 +100,7 @@ if (_victimLocation != "") then
 {
 	if (sidesX getVariable [_victimLocation,sideUnknown] == _victimSide) then
 	{
-		[typeOf _victim,_victimSide,_victimLocation,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+		[_victim getVariable "unitType",_victimSide,_victimLocation,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
 		if (_victimWasGarrison) then
         {
             [_victimLocation,_victimSide] remoteExec ["A3A_fnc_zoneCheck",2]

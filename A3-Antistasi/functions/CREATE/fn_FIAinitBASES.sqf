@@ -26,7 +26,7 @@ if (count _this > 1) then
 [_unit] call A3A_fnc_initRevive;
 
 _unit allowFleeing 0;
-_typeX = typeOf _unit;
+_typeX = _unit getVariable "unitType";
 _skill = (0.6 / skillMult + 0.015 * skillFIA);
 _unit setSkill _skill;
 
@@ -72,7 +72,7 @@ _EHkilledIdx = _unit addEventHandler ["killed", {
 		{
 		if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 			{
-			[typeOf _victim,teamPlayer,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+			[_victim getVariable "unitType",teamPlayer,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
 			_victim setVariable [_markerX,nil,true];
 			};
 		};

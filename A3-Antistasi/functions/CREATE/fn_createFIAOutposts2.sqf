@@ -41,7 +41,7 @@ if (_isRoad) then
 	_groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
 	//_unit = [_groupX, staticCrewTeamPlayer, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 	//_unit moveInGunner _veh;
-	{[_x,_markerX] spawn A3A_fnc_FIAinitBases; if (typeOf _x == staticCrewTeamPlayer) then {_x moveInGunner _veh}} forEach units _groupX;
+	{[_x,_markerX] spawn A3A_fnc_FIAinitBases; if ((_x getVariable "unitType") == staticCrewTeamPlayer) then {_x moveInGunner _veh}} forEach units _groupX;
 	}
 else
 	{

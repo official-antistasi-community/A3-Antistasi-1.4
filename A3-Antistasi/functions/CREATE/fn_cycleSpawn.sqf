@@ -100,7 +100,7 @@ _lineIndex = 0;
             _unitX = _this select 0;
             _id = _unitX getVariable "UnitIndex";
             _marker = _unitX getVariable "UnitMarker";
-            [_marker, typeOf _unitX, _id] call A3A_fnc_addRequested;
+            [_marker, _unitX getVariable "unitType", _id] call A3A_fnc_addRequested;
           }
         ];
         sleep 0.25;
@@ -127,7 +127,7 @@ _lineIndex = 0;
           _unitX = _this select 0;
           _id = _unitX getVariable "UnitIndex";
           _marker = _unitX getVariable "UnitMarker";
-          [_marker, typeOf _unitX, _id] call A3A_fnc_addRequested;
+          [_marker, _unitX getVariable "unitType", _id] call A3A_fnc_addRequested;
         }
       ];
       sleep 0.25;

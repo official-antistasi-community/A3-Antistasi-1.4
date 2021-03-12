@@ -1,4 +1,14 @@
-params ["_convoyID", "_units", "_origin", "_destination", "_markerArray", "_convoyType", "_convoySide"];
+params
+
+[
+    ["_convoyID", -1 , [1]],
+    ["_units", [], [[]]],
+    ["_origin", [0,0,0], [[]]],
+    ["_destination", [0,0,0], [[]]],
+    ["_markerArray", ["", ""], [[]]],
+    ["_convoyType", "PATROL", [""]],
+    ["_convoySide", sideEnemy, [sideEnemy]]
+];
 
 /*  Creates a convoy for simulated movement
 *   Params:
@@ -16,6 +26,9 @@ if (isNil "_convoyID") exitWith {diag_log "CreateConvoy: No convoy ID given"};
 if (isNil "_units" || {count _units == 0}) exitWith {diag_log format ["CreateConvoy[%1]: No units given for convoy!", _convoyID]};
 if (isNil "_origin") exitWith {diag_log format ["CreateConvoy[%1]: No origin given for the convoy!", _convoyID]};
 if (isNil "_destination") exitWith {diag_log format ["CreateConvoy[%1]: No destination given for the convoy!", _convoyID]};
+
+private _fileName = "createConvoy";
+[3, format ["Input is %1", str _this], _fileName] call A3A_fnc_log;
 
 _hasAir = false;
 _hasLand = false;
@@ -50,7 +63,7 @@ _type = "";
 if(_hasAir && {!_hasLand}) then
 {
   //Convoy contains only air vehicles, can fly direct way
-  _route = [_origin, _origin vectorAdd [0,0,200], _destination vectorAdd [0,0,200], _destination];
+  _route = [[_origin, true], [_origin vectorAdd [0,0,200], false], [_destination vectorAdd [0,0,200], false], [_destination, true]];
   _type = "Air";
 }
 else
@@ -75,21 +88,20 @@ if(_type == "Mixed") then {_markerType = "_armor"};
 _convoyMarker = createMarker [format ["convoy%1", _convoyID], _origin];
 _convoyMarker setMarkerShapeLocal "ICON";
 _convoyMarker setMarkerType format ["%1%2", _markerPrefix, _markerType];
-
 _convoyMarker setMarkerAlpha 0;
 
 if(_convoySide == Occupants) then
 {
-    private _markerArray = server getVariable ["convoyMarker_Occupants", []];
-    _markerArray pushBack _convoyMarker;
-    server setVariable ["convoyMarker_Occupants", _markerArray, true];
+    private _convoyArray = server getVariable ["convoyMarker_Occupants", []];
+    _convoyArray pushBack _convoyMarker;
+    server setVariable ["convoyMarker_Occupants", _convoyArray, true];
     _convoyMarker setMarkerText (format ["[GPS-%3] %1 %2 Convoy", nameOccupants, _convoyType, _convoyID]);
 }
 else
 {
-    private _markerArray = server getVariable ["convoyMarker_Invaders", []];
-    _markerArray pushBack _convoyMarker;
-    server setVariable ["convoyMarker_Invaders", _markerArray, true];
+    private _convoyArray = server getVariable ["convoyMarker_Invaders", []];
+    _convoyArray pushBack _convoyMarker;
+    server setVariable ["convoyMarker_Invaders", _convoyArray, true];
     _convoyMarker setMarkerText (format ["[GPS-%3] %1 %2 Convoy", nameInvaders, _convoyType, _convoyID]);
 };
 

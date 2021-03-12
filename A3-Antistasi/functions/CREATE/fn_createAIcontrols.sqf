@@ -171,7 +171,7 @@ else
 			{_soldiers pushBack _x} forEach units _groupX;
 			_typeVehX = if (_sideX == Occupants) then {vehNATOUAVSmall} else {vehCSATUAVSmall};
 			_uav = createVehicle [_typeVehX, _positionX, [], 0, "FLY"];
-			createVehicleCrew _uav;
+			[_sideX, _uav] call A3A_fnc_createVehicleCrew;
 			_vehiclesX pushBack _uav;
 			_groupUAV = group (crew _uav select 1);
 			{[_x] joinSilent _groupX; _pilots pushBack _x} forEach units _groupUAV;

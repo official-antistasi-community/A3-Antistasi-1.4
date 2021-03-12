@@ -20,73 +20,12 @@ if(isNil "serverID") then {
 };
 publicVariable "serverID";
 
+
+// Read loadLastSave param directly, SP handles this in createDialog_setParams
 if (isMultiplayer) then {
 	//Load server parameters
 	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	gameMode = "gameMode" call BIS_fnc_getParamValue; publicVariable "gameMode";
-	autoSave = if ("autoSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
-	membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	switchCom = if ("switchComm" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	distanceMission = "mRadius" call BIS_fnc_getParamValue; publicVariable "distanceMission";
-	pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "pvpEnabled";
-	skillMult = "AISkill" call BIS_fnc_getParamValue; publicVariable "skillMult";
-	minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
-	memberOnlyMagLimit = "MemberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
-	allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
-	personalGarageMax = "personalGarageMax" call BIS_fnc_getParamValue; publicVariable "personalGarageMax";
-	civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
-	memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
-	limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
-	napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
-	startWithLongRangeRadio = if ("startWithLongRangeRadio" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "startWithLongRangeRadio";
-	teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
-	playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
-	minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
-	helmetLossChance = "helmetLossChance" call BIS_fnc_getParamValue; publicVariable "helmetLossChance";
-    allowUnfairSupports = [false, true] select ("allowUnfairSupports" call BIS_fnc_getParamValue);
-    allowFuturisticSupports = allowUnfairSupports && ([false, true] select ("allowFuturisticSupports" call BIS_fnc_getParamValue));
-	LootToCrateEnabled = if ("EnableLootToCrate" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "LootToCrateEnabled";
-	LTCLootUnlocked = if ("LTCLootUnlocked" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "LTCLootUnlocked";
-} else {
-	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
-	//These should be set in the set parameters dialog.
-	//This is just a fallback so we don't break
-	loadLastSave = if (isNil "loadLastSave") then {[1, "No loadLastSave setting", _fileName] call A3A_fnc_log; true} else {loadLastSave};
-	gameMode = if (isNil "gameMode") then {[1, "No gameMode setting", _fileName] call A3A_fnc_log; 1} else {gameMode};
-	autoSave = false;
-	autoSaveInterval = 3600;
-	membershipEnabled = false;
-	switchCom = false;
-	tkPunish = false;
-	distanceMission = 4000;
-	pvpEnabled = false;
-	skillMult = if (isNil "skillMult") then {2} else {skillMult};
-	//Acceptable to default this one.
-	minWeaps = if (isNil "minWeaps") then {25} else {minWeaps};
-	memberOnlyMagLimit = 0;
-	allowMembersFactionGarageAccess = true;
-	personalGarageMax = 2;
-	civTraffic = 1;
-	memberDistance = 10;
-	limitedFT = false;
-	napalmEnabled = false;
-	teamSwitchDelay = 0;
-	playerMarkersEnabled = true;
-	minPlayersRequiredforPVP = 2;
-	helmetLossChance = 33;
-	startWithLongRangeRadio = true;
-	LootToCrateEnabled = true;
-	LTCLootUnlocked = false;
-    startWithLongRangeRadio = true;
-
-    allowUnfairSupports = false;
-    allowFuturisticSupports = false;
 };
-
-[] call A3A_fnc_crateLootParams;
-
 
 // Maintain a profilenamespace array called antistasiSavedGames
 // Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
@@ -128,6 +67,9 @@ call
 publicVariable "loadLastSave";
 publicVariable "campaignID";
 
+// Now load all other parameters, loading from save if available
+call A3A_fnc_initParams;
+
 //JNA, JNL and UPSMON. Shouldn't have any Antistasi dependencies except on parameters.
 call A3A_fnc_initFuncs;
 
@@ -137,11 +79,11 @@ call A3A_fnc_logistics_initNodes;
 
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
-bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
+bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 if (hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 call A3A_fnc_loadNavGrid;
 call A3A_fnc_initZones;
-if (gameMode != 1) then {
+if (gameMode != 1) then {			// probably shouldn't be here...
 	Occupants setFriend [Invaders,1];
 	Invaders setFriend [Occupants,1];
 	if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};

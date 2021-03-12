@@ -76,7 +76,7 @@ allCategories = allCategoriesExceptSpecial + specialCategories;
 //     BEGIN MOD DETECTION       ///
 ////////////////////////////////////
 [2,"Starting mod detection",_fileName] call A3A_fnc_log;
-allDLCMods = ["kart", "mark", "heli", "expansion", "jets", "orange", "tank", "globmob", "enoch", "officialmod", "tacops", "argo", "warlords"];
+allDLCMods = ["kart", "mark", "heli", "expansion", "jets", "orange", "tank", "globmob", "enoch", "officialmod", "tacops", "argo", "warlords", "aow"];
 
 // Short Info of loaded mods needs to be added to this array. eg: `A3A_loadedTemplateInfoXML pushBack ["RHS","All factions will be replaced by RHS (AFRF &amp; USAF &amp; GREF)."];`
 A3A_loadedTemplateInfoXML = [];
@@ -156,93 +156,6 @@ medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic
 if !(A3A_hasIFA) then {
 	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
 	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
-};
-
-////////////////////////////////////
-//   MAP SETTINGS AND MARKERS    ///
-////////////////////////////////////
-[2,"Setting map configuration",_fileName] call A3A_fnc_log;
-switch (toLower worldName) do {
-	case "tanoa":
-	{
-		roadsCentral = ["road","road_1","road_2","road_3","road_4"];
-		roadsCE = ["road_5","road_6"];
-		roadsCSE = ["road_7"];
-		roadsSE = ["road_8","road_9","road_10","road_11"];
-		roadsSW = ["road_12"];
-		roadsCW = ["road_13","road_14"];
-		roadsNW = ["road_15"];
-		roadsNE = ["road_16"];
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBTanoa.sqf";
-	};
-	case "altis":
-	{
-		
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBAltis.sqf";
-	};
-	case "chernarus_summer":
-	{
-
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBcherna.sqf";
-	};
-	case "chernarus_winter":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBcherna.sqf";
-	};
-	case "malden":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBmalden.sqf";
-	};
-	case "enoch":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBLivonia.sqf";
-	};
-	case "kunduz":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBKunduz.sqf";
-	};
-	case "tembelan":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBTembelan.sqf";
-	};
-	case "tem_anizay":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBanizay.sqf";
-	};
-	case "tem_kujari":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBkujari.sqf";
-	};
-	case "vt7":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBvirolahti.sqf";
-	};
-	case "stratis":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBstratis.sqf";
-	};
-	case "takistan":
-	{
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBtakistan.sqf";
-	};
-	case "sara":
-	{
-	//Roads DB
-	call compile preprocessFileLineNumbers "Navigation\roadsDBsara.sqf";
-	};
 };
 
 [2,"initVarCommon completed",_fileName] call A3A_fnc_log;

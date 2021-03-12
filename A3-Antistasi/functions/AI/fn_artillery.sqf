@@ -17,7 +17,7 @@ _typeAmmunition = if (_attackingSide == Occupants) then {vehNATOMRLSMags} else {
 
 _pos = [_posOrigin, 50,100, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
 
-_vehicle=[_pos, random 360,_typeVehX, _attackingSide] call bis_fnc_spawnvehicle;
+_vehicle=[_pos, random 360,_typeVehX, _attackingSide] call A3A_fnc_spawnVehicle;
 _veh = _vehicle select 0;
 _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;

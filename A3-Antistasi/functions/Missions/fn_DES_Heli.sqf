@@ -15,24 +15,24 @@ private _countX = 0;
 private _dist = if (_difficult) then {2000} else {3000};
 private _posCrashOrigin = [];
 while {true} do {
-	_posCrashOrigin = _missionOriginPos getPos [_dist,_ang];
-	private _notOutOfBounds = (_posCrashOrigin select [0,2]) findIf { (_x < 0 + 1000) || (_x > worldSize -1000)} isEqualTo -1; //1k grace for refinement search later
-	if ((!surfaceIsWater _posCrashOrigin) and (_posCrashOrigin distance (getMarkerPos respawnTeamPlayer) < 4000) and (_posCrashOrigin distance (getMarkerPos respawnTeamPlayer) > 1000) and _notOutOfBounds) exitWith {};
-	_ang = _ang + 1;
-	_countX = _countX + 1;
-	if (_countX > 360) then
-		{
-		_countX = 0;
-		_dist = _dist - 500;
-		};
+    _posCrashOrigin = _missionOriginPos getPos [_dist,_ang];
+    private _notOutOfBounds = (_posCrashOrigin select [0,2]) findIf { (_x < 0 + 1000) || (_x > worldSize -1000)} isEqualTo -1; //1k grace for refinement search later
+    if ((!surfaceIsWater _posCrashOrigin) and (_posCrashOrigin distance (getMarkerPos respawnTeamPlayer) < 4000) and (_posCrashOrigin distance (getMarkerPos respawnTeamPlayer) > 1000) and _notOutOfBounds) exitWith {};
+    _ang = _ang + 1;
+    _countX = _countX + 1;
+    if (_countX > 360) then
+        {
+        _countX = 0;
+        _dist = _dist - 500;
+        };
 };
 
 // selecting Aircraft
 private _heliPool =if (_sideX == Occupants) then {vehNATOTransportHelis + vehNATOAttackHelis} else {vehCSATAttackHelis + vehCSATTransportHelis};
 private _typeVehH = selectRandom (_heliPool select {_x isKindOf "Helicopter"});
 if (isNil "_typeVehH") exitWith {
-	["DES"] remoteExecCall ["A3A_fnc_missionRequest",2];
-	[1, format ["No aircrafts in arrays VehNatoTransportHelis, VehNatoAttackHelis or VehCSATTransportHelis, VehCSATAttackHelis. Reselecting DES mission"], _filename] call A3A_fnc_log;
+    ["DES"] remoteExecCall ["A3A_fnc_missionRequest",2];
+    [1, format ["No aircrafts in arrays VehNatoTransportHelis, VehNatoAttackHelis or VehCSATTransportHelis, VehCSATAttackHelis. Reselecting DES mission"], _filename] call A3A_fnc_log;
 };
 
 //refining crash spawn position, to avoid exploding on spawn or "Armaing" during mission
@@ -59,15 +59,15 @@ private _counterLimit = round (random[2,3,4]*_bonus);
 private _counter = 0;
 private _angle = random 360;
 while {_counter != _counterLimit} do {
-	_counter = _counter + 1;
-	_angle = _angle + 45 + round random 90;
-	private _pos = _posCrash getPos [10,_angle];
-	if !(isOnRoad _pos) then {
-	private _cov = _typeVeh createVehicle _pos;
-	private _dir = _posCrash getDir _pos;
-	_cov setDir _dir;
-	_vehicles pushBack _cov;
-	} else {_counter = _counter -1};
+    _counter = _counter + 1;
+    _angle = _angle + 45 + round random 90;
+    private _pos = _posCrash getPos [10,_angle];
+    if !(isOnRoad _pos) then {
+    private _cov = _typeVeh createVehicle _pos;
+    private _dir = _posCrash getDir _pos;
+    _cov setDir _dir;
+    _vehicles pushBack _cov;
+    } else {_counter = _counter -1};
 };
 
 //creating mission marker near crash site
@@ -95,9 +95,9 @@ missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
 private _radiusX = 100;
 private _roads = [];
 while {true} do {
-	_roads = _missionOriginPos nearRoads _radiusX;
-	if (count _roads > 1) exitWith {};
-	_radiusX = _radiusX + 50;
+    _roads = _missionOriginPos nearRoads _radiusX;
+    if (count _roads > 1) exitWith {};
+    _radiusX = _radiusX + 50;
 };
 private _roadE = _roads select 1;
 private _roadR = _roads select 0;
@@ -105,7 +105,7 @@ sleep 1;
 
 //Spawning escort
  _typeVeh = if (_sideX == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};
-private _vehicleDataE = [position _roadE, 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
+private _vehicleDataE = [position _roadE, 0,_typeVeh, _sideX] call A3A_fnc_spawnVehicle;
 private _vehE = _vehicleDataE select 0;
 _vehE limitSpeed 50;
 [_vehE,"Escort"] spawn A3A_fnc_inmuneConvoy;
@@ -132,7 +132,7 @@ _escortWP setWaypointBehaviour "SAFE";
 
 //creating repair vehicle
 _typeVeh = if (_sideX == Occupants) then {vehNATORepairTruck} else {vehCSATRepairTruck};
-private _vehicleDataR = [position _roadR, 0,_typeVeh, _sideX] call bis_fnc_spawnvehicle;
+private _vehicleDataR = [position _roadR, 0,_typeVeh, _sideX] call A3A_fnc_spawnVehicle;
 private _vehR = _vehicleDataR select 0;
 _vehR limitSpeed 50;
 [_vehR, _sideX] call A3A_fnc_AIVEHinit;
@@ -169,25 +169,26 @@ private ["_guard", "_guardWP", "_vehGuard"];
 _typeGroup = if (_sideX == Occupants) then {NATOSquad} else {CSATSquad};
 //if not patrol heli
 if !(_typeVehH == vehNATOPatrolHeli) then {
-	//spawning guard inf
-	_guard = [_posCrash, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
-	{[_x] call A3A_fnc_NATOinit} forEach units _guard;
-	_groups pushBack _guard;
+    //spawning guard inf
+    _guard = [_posCrash, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
+    {[_x] call A3A_fnc_NATOinit} forEach units _guard;
+    _groups pushBack _guard;
 
-	//tell guard group to guard heli
-	_guardWP = [_guard, _posCrash, 10] call BIS_fnc_taskPatrol;
+    //tell guard group to guard heli
+    _guardWP = [_guard, _posCrash, 10] call BIS_fnc_taskPatrol;
 
-	[3, format ["Location: %1, Guard Squad spawned", _posCrash], _filename] call A3A_fnc_log;
-	if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {
-		//if attack helicopter
-		//creating transport vehicle
-		_typeVeh = if (_sideX == Occupants) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
-		private _posVehHT = _posCrash findEmptyPosition [15, 30 ,_typeVeh];
-		if (_posVehHT isEqualTo []) then {_posVehHT = _posCrash findEmptyPosition [15, 100 ,_typeVeh]}; //if it fails to find a pos expand and try again
-		_vehGuard = _typeVeh createVehicle _posVehHT;
-		[_vehGuard, _sideX] call A3A_fnc_AIVEHinit;
-		_vehicles pushBack _vehGuard;
-	};
+    [3, format ["Location: %1, Guard Squad spawned", _posCrash], _filename] call A3A_fnc_log;
+    if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {
+        //if attack helicopter
+        //creating transport vehicle
+        _typeVeh = if (_sideX == Occupants) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
+        private _posVehHT = _posCrash findEmptyPosition [15, 30 ,_typeVeh];
+        if (_posVehHT isEqualTo []) then {_posVehHT = _posCrash findEmptyPosition [15, 100 ,_typeVeh]}; //if it fails to find a pos expand and try again
+        if (_posVehHT isEqualTo []) exitWith { _vehGuard = _heli};
+        _vehGuard = _typeVeh createVehicle _posVehHT;
+        [_vehGuard, _sideX] call A3A_fnc_AIVEHinit;
+        _vehicles pushBack _vehGuard;
+    };
 };
 
 //spawning pilots
@@ -205,98 +206,98 @@ _pilotsWP setWaypointBehaviour "STEALTH";
 [3, format ["Waiting until %1 reaches origin or rebel base, gets destroyed, timer expires at %3 or %2 reaches %1", _heli, _vehR, _dateLimit], _filename] call A3A_fnc_log;
 waitUntil
 {
-	sleep 1;
-	(not alive _heli) ||
-	{(_vehR distance _heli < 50) ||
-	((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) &&
-	isPlayer (driver _heli) ||
-	{(dateToNumber date > _dateLimitNum)}}
+    sleep 1;
+    (not alive _heli) ||
+    {(_vehR distance _heli < 50) ||
+    ((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) &&
+    isPlayer (driver _heli) ||
+    {(dateToNumber date > _dateLimitNum)}}
 };
 
 //////////////////////
 //EI Recovering Heli//
 //////////////////////
 if (_vehR distance _heli < 50) then
-	{
-	[3, format ["Repair %1 has reached %2, starting repair...", _vehR, _heli], _filename] call A3A_fnc_log;
-	_vehR doMove position _heli;
-	sleep 300; //time to repair
-	if (alive _heli && alive _vehR && _vehR distance2D _heli < 50) then {
-		//repair complete remove crater and fix helicopter
-		_heli setDamage 0.2;
-		_heli setFuel 0.4;
-		private _emitterArray = _smoke getVariable "effects"; //get rid of smoke effects spawned by smoke obj & smoke obj
-		{deleteVehicle _x} forEach _emitterArray;
-		deleteVehicle _smoke;
-		deleteVehicle _crater;
+    {
+    [3, format ["Repair %1 has reached %2, starting repair...", _vehR, _heli], _filename] call A3A_fnc_log;
+    _vehR doMove position _heli;
+    sleep 300; //time to repair
+    if (alive _heli && alive _vehR && _vehR distance2D _heli < 50) then {
+        //repair complete remove crater and fix helicopter
+        _heli setDamage 0.2;
+        _heli setFuel 0.4;
+        private _emitterArray = _smoke getVariable "effects"; //get rid of smoke effects spawned by smoke obj & smoke obj
+        {deleteVehicle _x} forEach _emitterArray;
+        deleteVehicle _smoke;
+        deleteVehicle _crater;
 
-		[3, format ["%1 has repaired %2, %3 is heading back to %4", _sideX,_heli,_vehR,_missionOriginPos], _filename] call A3A_fnc_log;
+        [3, format ["%1 has repaired %2, %3 is heading back to %4", _sideX,_heli,_vehR,_missionOriginPos], _filename] call A3A_fnc_log;
 
-		//Guards & pilots stop patrolling
-		for "_i" from (count (waypoints _guard)) to 0 step -1 do {
-			deleteWaypoint [_guard, _i];
-		};
-		for "_i" from (count (waypoints _pilots)) to 0 step -1 do {
-			deleteWaypoint [_pilots, _i];
-		};
+        //Guards & pilots stop patrolling
+        for "_i" from (count (waypoints _guard)) to 0 step -1 do {
+            deleteWaypoint [_guard, _i];
+        };
+        for "_i" from (count (waypoints _pilots)) to 0 step -1 do {
+            deleteWaypoint [_pilots, _i];
+        };
 
-		//Repair truck & escort RTB
-		_reapirTruckWP = _groupVehR addWaypoint [_missionOriginPos, 1];
-		_reapirTruckWP setWaypointType "MOVE";
-		_reapirTruckWP setWaypointBehaviour "SAFE";
+        //Repair truck & escort RTB
+        _reapirTruckWP = _groupVehR addWaypoint [_missionOriginPos, 1];
+        _reapirTruckWP setWaypointType "MOVE";
+        _reapirTruckWP setWaypointBehaviour "SAFE";
 
-		_escortWP = _groupVeh addWaypoint [_posCrash, 0];
-		_escortWP setWaypointType "GETIN";
-		_escortWP setWaypointBehaviour "SAFE";
+        _escortWP = _groupVeh addWaypoint [_posCrash, 0];
+        _escortWP setWaypointType "GETIN";
+        _escortWP setWaypointBehaviour "SAFE";
 
-		_escortWP = _groupVeh addWaypoint [_missionOriginPos, 2];
-		_escortWP setWaypointType "MOVE";
-		_escortWP setWaypointBehaviour "SAFE";
+        _escortWP = _groupVeh addWaypoint [_missionOriginPos, 2];
+        _escortWP setWaypointType "MOVE";
+        _escortWP setWaypointBehaviour "SAFE";
 
-		[3, format ["Pilots and Guard are RTB"], _filename] call A3A_fnc_log;
+        [3, format ["Pilots and Guard are RTB"], _filename] call A3A_fnc_log;
 
-		_pilots addVehicle _heli;
-		(units _pilots) orderGetIn true;
-		sleep 1;
-		private _notAlivePilots = true;
-		{if ([_x] call A3A_fnc_canFight) exitWith {_notAlivePilots = false}}forEach units _pilots;
+        _pilots addVehicle _heli;
+        (units _pilots) orderGetIn true;
+        sleep 1;
+        private _notAlivePilots = true;
+        {if ([_x] call A3A_fnc_canFight) exitWith {_notAlivePilots = false}}forEach units _pilots;
 
 
-		if ((_typeVehH in vehNATOTransportHelis)||(_typeVehH in vehCSATTransportHelis)) then {
-			if !(_typeVehH == vehNATOPatrolHeli) then {
-				//guard move in back of heli, pilots wait for them to load
-				if (_notAlivePilots) then {_guard addVehicle _heli} else {{_x assignAsCargo _heli}forEach units _guard};
-				(units _guard) orderGetIn true;
-				sleep 1;
-			};
-			if (_notAlivePilots && !(_typeVehH == vehNATOPatrolHeli)) then {
-				_pilotsWP = _guard addWaypoint [_missionOriginPos, 3];
-				_pilotsWP setWaypointType "MOVE";
-				_pilotsWP setWaypointBehaviour "AWARE";
-				_pilotsWP setWaypointSpeed "FULL";
-			} else {
-				_pilotsWP = _pilots addWaypoint [_missionOriginPos, 3];
-				_pilotsWP setWaypointType "MOVE";
-				_pilotsWP setWaypointBehaviour "AWARE";
-				_pilotsWP setWaypointSpeed "FULL";
-			};
-		} else {
-			//guard mount in own vehicle and RTB
-			_guard addVehicle _vehGuard;
-			if (_notAlivePilots) then {_guard addVehicle _heli};
-			(units _guard) orderGetIn true;
-			sleep 1;
-			_guardWP = _guard addWaypoint [_missionOriginPos, 1];
-			_guardWP setWaypointType "MOVE";
-			_guardWP setWaypointBehaviour "AWARE";
-			_guardWP setWaypointSpeed "FULL";
-			_guard setCurrentWaypoint [_guard, 1];
-			_pilotsWP = _pilots addWaypoint [_missionOriginPos, 3];
-			_pilotsWP setWaypointType "MOVE";
-			_pilotsWP setWaypointBehaviour "AWARE";
-			_pilotsWP setWaypointSpeed "FULL";
-		};
-	};
+        if ((_typeVehH in vehNATOTransportHelis)||(_typeVehH in vehCSATTransportHelis)) then {
+            if !(_typeVehH == vehNATOPatrolHeli) then {
+                //guard move in back of heli, pilots wait for them to load
+                if (_notAlivePilots) then {_guard addVehicle _heli} else {{_x assignAsCargo _heli}forEach units _guard};
+                (units _guard) orderGetIn true;
+                sleep 1;
+            };
+            if (_notAlivePilots && !(_typeVehH == vehNATOPatrolHeli)) then {
+                _pilotsWP = _guard addWaypoint [_missionOriginPos, 3];
+                _pilotsWP setWaypointType "MOVE";
+                _pilotsWP setWaypointBehaviour "AWARE";
+                _pilotsWP setWaypointSpeed "FULL";
+            } else {
+                _pilotsWP = _pilots addWaypoint [_missionOriginPos, 3];
+                _pilotsWP setWaypointType "MOVE";
+                _pilotsWP setWaypointBehaviour "AWARE";
+                _pilotsWP setWaypointSpeed "FULL";
+            };
+        } else {
+            //guard mount in own vehicle and RTB
+            _guard addVehicle _vehGuard;
+            if (_notAlivePilots) then {_guard addVehicle _heli};
+            (units _guard) orderGetIn true;
+            sleep 1;
+            _guardWP = _guard addWaypoint [_missionOriginPos, 1];
+            _guardWP setWaypointType "MOVE";
+            _guardWP setWaypointBehaviour "AWARE";
+            _guardWP setWaypointSpeed "FULL";
+            _guard setCurrentWaypoint [_guard, 1];
+            _pilotsWP = _pilots addWaypoint [_missionOriginPos, 3];
+            _pilotsWP setWaypointType "MOVE";
+            _pilotsWP setWaypointBehaviour "AWARE";
+            _pilotsWP setWaypointSpeed "FULL";
+        };
+    };
 };
 
 ////////////////
@@ -305,34 +306,34 @@ if (_vehR distance _heli < 50) then
 [3, format ["Waiting until %1 reaches origin or rebel base, gets destroyed or timer expires at %2", _heli, _dateLimit], _filename] call A3A_fnc_log;
 waitUntil
 {
-	sleep 1;
-	(not alive _heli) ||
-	((_heli distance _missionOriginPos) < 300) &&
-	!isPlayer (driver _heli) ||
-	((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) &&
-	isPlayer (driver _heli) ||
-	(dateToNumber date > _dateLimitNum)
+    sleep 1;
+    (not alive _heli) ||
+    ((_heli distance _missionOriginPos) < 300) &&
+    !isPlayer (driver _heli) ||
+    ((_heli distance (getMarkerPos respawnTeamPlayer)) < 100) &&
+    isPlayer (driver _heli) ||
+    (dateToNumber date > _dateLimitNum)
 };
 
 //Reward & completing task
 if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100) && isPlayer (driver _heli) ) then {
-	if (alive _heli) then {
-		[3, format ["%1 was captured", _heli], _filename] call A3A_fnc_log;
-	} else {
-		[3, format ["%1 was destroyed", _heli], _filename] call A3A_fnc_log;
-	};
-	["DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
-	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-	[1800*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-	{if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
-	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-	if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {[600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    if (alive _heli) then {
+        [3, format ["%1 was captured", _heli], _filename] call A3A_fnc_log;
+    } else {
+        [3, format ["%1 was destroyed", _heli], _filename] call A3A_fnc_log;
+    };
+    ["DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
+    [0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
+    [1800*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+    {if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
+    [5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+    if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {[600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
 } else {
-	[3, format ["%1 was successfully recovered by %2, mission failed", _heli, _sideX], _filename] call A3A_fnc_log;
-	["DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
-	[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-	if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    [3, format ["%1 was successfully recovered by %2, mission failed", _heli, _sideX], _filename] call A3A_fnc_log;
+    ["DES",[_text,"Downed Heli",_taskMrk],_posCrashMrk,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
+    [-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+    [-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+    if (_typeVehH in (vehNATOAttackHelis + vehCSATAttackHelis)) then {[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
 };
 [2, format ["Downed Heli mission completed"], _filename] call A3A_fnc_log;
 ////////////
@@ -340,9 +341,9 @@ if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100)
 ////////////
 //get rid of smoke effects spawned by smoke obj & smoke obj, if still there
 if (!isNull _smoke) then {
-	private _emitterArray = _smoke getVariable "effects";
-	{deleteVehicle _x} forEach _emitterArray;
-	deleteVehicle _smoke;
+    private _emitterArray = _smoke getVariable "effects";
+    {deleteVehicle _x} forEach _emitterArray;
+    deleteVehicle _smoke;
 };
 
 //delete task and markers

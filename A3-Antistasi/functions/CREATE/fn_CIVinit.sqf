@@ -51,11 +51,11 @@ _EHkilledIdx = _unit addEventHandler
 		{
 			if (isPlayer _killer) then
 			{
-				if (typeOf _victim == "C_man_w_worker_F") then {_killer addRating 1000};
+				if (_victim getVariable "unitType" == "C_man_w_worker_F") then {_killer addRating 1000};
 				[-10,_killer] call A3A_fnc_playerScoreAdd;
 			};
 			_multiplier = 1;
-			if (typeOf _victim == "C_journalist_F") then {_multiplier = 3};
+			if ((_victim getVariable "unitType") == "C_journalist_F") then {_multiplier = 3};
 			//Must be group, in case they're undercover.
 			if (side group _killer == teamPlayer) then
 			{

@@ -47,7 +47,8 @@ private _alreadyInGarrison = false;
 if _alreadyInGarrison exitWith {["Garrison", "The units selected already are in a garrison"] call A3A_fnc_customHint};
 
 {
-if ((typeOf _x == staticCrewTeamPlayer) or (typeOf _x == SDKUnarmed) or (typeOf _x in arrayCivs) or (!alive _x)) exitWith {_leave = true}
+	private _unitType = _x getVariable "unitType";
+	if ((_unitType == staticCrewTeamPlayer) or (_unitType == SDKUnarmed) or (_unitType in arrayCivs) or (!alive _x)) exitWith {_leave = true}
 } forEach _unitsX;
 
 if (_leave) exitWith {["Garrison", "Static crewman, prisoners, refugees or dead units cannot be added to any garrison"] call A3A_fnc_customHint;};
@@ -68,13 +69,7 @@ else
 	["Garrison", format ["Adding %1 squad to garrison", groupID _groupX]] call A3A_fnc_customHint;
 	theBoss hcRemoveGroup _groupX;
 	};
-/*
-_garrison = [];
-_garrison = _garrison + (garrison getVariable [_nearX,[]]);
-{_garrison pushBack (typeOf _x)} forEach _unitsX;
-garrison setVariable [_nearX,_garrison,true];
-[_nearX] call A3A_fnc_mrkUpdate;
-*/
+
 [_unitsX,teamPlayer,_nearX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 _noBorrar = false;
 
@@ -94,20 +89,7 @@ if (spawner getVariable _nearX != 2) then
 			{
 			if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 				{
-				/*
-				_garrison = [];
-				_garrison = _garrison + (garrison getVariable [_markerX,[]]);
-				if (_garrison isEqualType []) then
-					{
-					for "_i" from 0 to (count _garrison -1) do
-						{
-						if (typeOf _victim == (_garrison select _i)) exitWith {_garrison deleteAt _i};
-						};
-					garrison setVariable [_markerX,_garrison,true];
-					};
-				[_markerX] call A3A_fnc_mrkUpdate;
-				*/
-				[typeOf _victim,teamPlayer,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+				[_victim getVariable "unitType",teamPlayer,_markerX,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
 				_victim setVariable [_markerX,nil,true];
 				};
 			};

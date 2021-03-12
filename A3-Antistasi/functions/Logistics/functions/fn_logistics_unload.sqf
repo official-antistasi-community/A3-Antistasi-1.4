@@ -18,6 +18,7 @@
     Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
 */
 params ["_vehicle", ["_instant", false, [true]]];
+private _fileName = "fn_logistics_unload";
 
 private _loaded = _vehicle getVariable ["Cargo", []];
 private _lastLoaded = false;
@@ -37,6 +38,7 @@ _updateList = {
     params ["_vehicle", "_node"];
     private _list = _vehicle getVariable ["logisticsCargoNodes",[]];
     private _index = _list find _node;
+    if (_index < 0) exitWith {[1, format ["Bad _updateList call | Vehicle: %1 | Vehicle Nodes: %2 | Node: %3", _vehicle, _list, _node], _fileName] call A3A_fnc_Log};
     _node set [0,1];
     _list set [_index, _node];
     _vehicle setVariable ["logisticsCargoNodes", _list];

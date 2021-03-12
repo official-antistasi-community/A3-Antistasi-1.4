@@ -3,7 +3,7 @@ class HR_GRG
 //private functions
     class Core
     {
-        file = "Garage\Core"
+        file = "Garage\Core";
         class addUser {};
         class broadcast {};
         class confirm {};
@@ -30,7 +30,7 @@ class HR_GRG
     };
     class Extras
     {
-        file = "Garage\Extras"
+        file = "Garage\Extras";
         class findMount {};
         class isAmmoSource {};
         class isFuelSource {};
@@ -44,7 +44,7 @@ class HR_GRG
     };
     class Pylons
     {
-        file = "Garage\Pylons"
+        file = "Garage\Pylons";
         class getPylonTurret {};
         class pylonsChanged {};
         class pylonsPresetChanged {};
@@ -55,7 +55,7 @@ class HR_GRG
     };
     class StatePreservation
     {
-        file = "Garage\StatePreservation"
+        file = "Garage\StatePreservation";
         class getAmmoData {};
         class getDamage {};
         class getFuel {};
@@ -70,7 +70,7 @@ class HR_GRG
 //public functions
     class PublicFunctions
     {
-        file = "Garage"
+        file = "Garage";
         class addVehiclesByClass {};
         class addVehicle {};
         class callbackHandler {};

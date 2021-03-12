@@ -476,5 +476,5 @@ class HR_GRG_RscActiveText
     tooltipColorBox[] = {1,1,1,1};
     tooltipColorShade[] = {0,0,0,0.65};
 };
-class HR_GRG_RscActivePicture: HR_GRG_RscActiveText { style = ST_MULTI + ST_TITLE_BAR };
-class HR_GRG_RscActivePictureKeepAspect: HR_GRG_RscActivePicture { style = ST_MULTI + ST_TITLE_BAR + ST_KEEP_ASPECT_RATIO };
+class HR_GRG_RscActivePicture: HR_GRG_RscActiveText { style = ST_MULTI + ST_TITLE_BAR; };
+class HR_GRG_RscActivePictureKeepAspect: HR_GRG_RscActivePicture { style = ST_MULTI + ST_TITLE_BAR + ST_KEEP_ASPECT_RATIO; };

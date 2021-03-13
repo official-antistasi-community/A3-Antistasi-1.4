@@ -979,7 +979,7 @@ class fps_limiter 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "if (player == theBoss) then {if (maxUnits < 200) then {maxUnits = maxUnits + 10; publicVariable ""maxUnits""; [""AI Limit"", format [""AI Limit has been set at %1"",maxUnits]] call A3A_fnc_customHint;} else {[""AI Limit"", ""AI Limit cannot be raised from 200""] call A3A_fnc_customHint;}} else {[""AI Limit"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {if (maxUnits < 200) then {maxUnits = maxUnits + 10; publicVariable ""maxUnits""; [2,(name player)+'['+(getPlayerUID player)+'] changed the AI limit from '+(str(maxUnits -10))+' to '+(str maxUnits),'dialogs.hpp'] call A3A_fnc_log; [""AI Limit"", format [""AI Limit has been set at %1"",maxUnits]] call A3A_fnc_customHint;} else {[""AI Limit"", ""AI Limit cannot be raised from 200""] call A3A_fnc_customHint;}} else {[""AI Limit"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -989,7 +989,7 @@ class fps_limiter 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "if (player == theBoss) then {if (maxUnits > 80) then {maxUnits = maxUnits - 10; publicVariable ""maxUnits""; [""AI Limit"", format [""AI Limit has been set at %1"",maxUnits]] call A3A_fnc_customHint;} else {[""AI Limit"", ""AI Limit cannot be less than 80""] call A3A_fnc_customHint;}} else {[""AI Limit"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {if (maxUnits > 80) then {maxUnits = maxUnits - 10; publicVariable ""maxUnits""; [2,(name player)+'['+(getPlayerUID player)+'] changed the AI limit from '+(str(maxUnits +10))+' to '+(str maxUnits),'dialogs.hpp'] call A3A_fnc_log; [""AI Limit"", format [""AI Limit has been set at %1"",maxUnits]] call A3A_fnc_customHint;} else {[""AI Limit"", ""AI Limit cannot be less than 80""] call A3A_fnc_customHint;}} else {[""AI Limit"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 	};
 };
@@ -1034,7 +1034,7 @@ class spawn_config 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "if (player == theBoss) then {if (distanceSPWN < 2000) then {distanceSPWN = distanceSPWN + 100; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable ""distanceSPWN"";publicVariable ""distanceSPWN1"";publicVariable ""distanceSPWN2""}; [""Spawn Distance"", format [""Spawn Distance Set to %1 meters. Be careful, this may affect game performance"",distanceSPWN]] call A3A_fnc_customHint;} else {[""Spawn Distance"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {if (distanceSPWN < 2000) then {distanceSPWN = distanceSPWN + 100; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable ""distanceSPWN"";publicVariable ""distanceSPWN1"";publicVariable ""distanceSPWN2""}; [2,(name player)+'['+(getPlayerUID player)+'] changed the Spawn distance from '+(str(distanceSPWN -100))+' to '+(str distanceSPWN),'dialogs.hpp'] call A3A_fnc_log; [""Spawn Distance"", format [""Spawn Distance Set to %1 meters. Be careful, this may affect game performance"",distanceSPWN]] call A3A_fnc_customHint;} else {[""Spawn Distance"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -1044,7 +1044,7 @@ class spawn_config 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "if (player == theBoss) then {if (distanceSPWN > 600) then {distanceSPWN = distanceSPWN - 100; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable ""distanceSPWN"";publicVariable ""distanceSPWN1"";publicVariable ""distanceSPWN2"";}; [""Spawn Distance"", format [""Spawn Distance Set to %1 meters"",distanceSPWN]] call A3A_fnc_customHint;} else {[""Spawn Distance"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {if (distanceSPWN > 600) then {distanceSPWN = distanceSPWN - 100; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable ""distanceSPWN"";publicVariable ""distanceSPWN1"";publicVariable ""distanceSPWN2"";}; [2,(name player)+'['+(getPlayerUID player)+'] changed the Spawn distance from '+(str(distanceSPWN +100))+' to '+(str distanceSPWN),'dialogs.hpp'] call A3A_fnc_log; [""Spawn Distance"", format [""Spawn Distance Set to %1 meters"",distanceSPWN]] call A3A_fnc_customHint;} else {[""Spawn Distance"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 	};
 };
@@ -1089,7 +1089,7 @@ class civ_config 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "if (player == theBoss) then {if (civPerc < 150) then {civPerc = civPerc + 1; if (civPerc > 150) then {civPerc = 150}; publicVariable ""civPerc"";}; [""Civilian Limit"", format [""Maximum Number of Civilians Set to %1"",civPerc]] call A3A_fnc_customHint;} else {[""Civilian Limit"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {if (civPerc < 150) then {civPerc = civPerc + 1; [2,(name player)+'['+(getPlayerUID player)+'] changed the Civilian Limit from '+(str(civPerc -1))+' to '+(str civPerc),'dialogs.hpp'] call A3A_fnc_log; if (civPerc > 150) then {civPerc = 150}; publicVariable ""civPerc"";}; [""Civilian Limit"", format [""Maximum Number of Civilians Set to %1"",civPerc]] call A3A_fnc_customHint;} else {[""Civilian Limit"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -1099,7 +1099,7 @@ class civ_config 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "if (player == theBoss) then {if (civPerc > 0) then {civPerc = civPerc - 1; if (civPerc < 0) then {civPerc = 0};publicVariable ""civPerc"";}; [""Civilian Limit"", format [""Maximum Number of Civilians Set to %1"",civPerc]] call A3A_fnc_customHint;} else {[""Civilian Limit"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {if (civPerc > 0) then {civPerc = civPerc - 1; [2,(name player)+'['+(getPlayerUID player)+'] changed the Civilian Limit from '+(str(civPerc +1))+' to '+(str civPerc),'dialogs.hpp'] call A3A_fnc_log; if (civPerc < 0) then {civPerc = 0};publicVariable ""civPerc"";}; [""Civilian Limit"", format [""Maximum Number of Civilians Set to %1"",civPerc]] call A3A_fnc_customHint;} else {[""Civilian Limit"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 	};
 };

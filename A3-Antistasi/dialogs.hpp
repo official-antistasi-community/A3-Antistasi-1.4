@@ -842,7 +842,7 @@ class game_options 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_maps_civ_limit_tooltip;
-			action = "if (player == theBoss) then {closeDialog 0; nul = createDialog ""civ_config""} else {[""Civilian Spawn"", ""Only our Commander or admin has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss || call BIS_fnc_admin > 0) then {closeDialog 0; nul = createDialog ""civ_config""} else {[""Civilian Spawn"", ""Only our Commander or admin has access to this function""] call A3A_fnc_customHint;};";
 		};
 		class 8slots_R1: RscButton
 		{
@@ -853,7 +853,7 @@ class game_options 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_maps_spawn_distance_tooltip;
-			action = "if (player == theBoss) then {closeDialog 0; nul = createDialog ""spawn_config""} else {[""Spawn Distance"", ""Only our Commander or admin has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss || call BIS_fnc_admin > 0) then {closeDialog 0; nul = createDialog ""spawn_config""} else {[""Spawn Distance"", ""Only our Commander or admin has access to this function""] call A3A_fnc_customHint;};";
 		};
 		class 8slots_L2: RscButton
 		{
@@ -864,7 +864,7 @@ class game_options 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_maps_ai_limiter_tooltip;
-			action = "if (player == theBoss) then {closeDialog 0; nul = createDialog ""fps_limiter""} else {[""AI Limiter"", ""Only our Commander or admin has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss || call BIS_fnc_admin > 0) then {closeDialog 0; nul = createDialog ""fps_limiter""} else {[""AI Limiter"", ""Only our Commander or admin has access to this function""] call A3A_fnc_customHint;};";
 		};
 		class 8slots_R2: RscButton
 		{

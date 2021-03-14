@@ -27,60 +27,75 @@ params [
 ];
 private _filename = "fn_HQSpawnOptions.sqf";
 
-//////////////////////////
-// DON'T TOUCH THIS BIT //
-//////////////////////////
-private _clientID = remoteExecutedOwner max 3;  // Avoids calling from server.
+////////////////////
+// Authentication //
+////////////////////
+private _optionLocalisationTable = [["maxUnits","distanceSPWN","civPerc"],["AI Limit","Spawn Distance","Civilian Limit"]];
 private _hintTitle = "HQ Spawn Options";
 private _authenticate = _option in ["maxUnits","distanceSPWN","civPerc"];
 
-if (_authenticate && {_player == theBoss || admin owner _player > 0}) exitWith {
-    [_hintTitle, "Only our Commander or admin has access to "+_option] remoteExecCall ["A3A_fnc_customHint",_player];
-    [1," ACCESS VIOLATION | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str _clientID +"] attempted calling restricted backing method "+str _this,_filename] call A3A_fnc_log;
+if (_authenticate && {!(_player == theBoss || admin owner _player > 0 || _player == player)}) exitWith {
+    [_hintTitle, "Only our Commander or admin has access to "+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player];
+    [1,"ACCESS VIOLATION | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] attempted calling restricted backing method "+str _this,_filename] call A3A_fnc_log;
     nil;
 };
-if (owner _player != _clientID) exitWith {
+if (owner _player != remoteExecutedOwner) exitWith {
     private _allPlayers = allPlayers;
-    private _index = _allPlayers findIf {owner _x == _clientID};
+    private _index = _allPlayers findIf {owner _x == remoteExecutedOwner};
     private _realPlayer = objNull;
     if (_index != -1) then {
         _realPlayer = _allPlayers#_index;
     };
-    [1," HACKING | "+ name _realPlayer + " ["+(getPlayerUID _realPlayer) + "] ["+ str _clientID +"] attempted impersonating "+name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] while calling "+str _this,_filename] call A3A_fnc_log;
+    [1,"HACKING | "+ name _realPlayer + " ["+(getPlayerUID _realPlayer) + "] ["+ str remoteExecutedOwner +"] attempted impersonating "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] while calling "+str _this,_filename] call A3A_fnc_log;
     nil;
 };
 
-private _optionLocalisationTable = [];
+///////////////////////
+// Increase/Decrease //
+///////////////////////
 private _processAction = {
-    params["_option","_action","_upperLimit","_lowerLimit","_amountAdjustment"];
-    private _inRange = true;
+    params["_option","_action","_upperLimit","_lowerLimit","_adjustmentAmount"];
+    private _inRange = 2;   // 2 for in-range, 0 for low, 1 for high.
     private _invalid = false;
+
+    private _originalAmount = missionNamespace getVariable [_option,0];
+    private _finalAmount = _originalAmount;
     switch (_action) do {
-        case "increase": { _inRange = maxUnits <= _upperLimit - _adjustmentAmount; };
-        case "decrease": { _inRange = maxUnits >= _lowerLimit + _adjustmentAmount; _adjustmentAmount = -_adjustmentAmount; };
+        case "decrease": { if (_originalAmount < _lowerLimit + _adjustmentAmount) then {_inRange = 0}; _adjustmentAmount = -_adjustmentAmount; };
+        case "increase": { if (_originalAmount > _upperLimit - _adjustmentAmount) then {_inRange = 1}; };
         default {
             _invalid = true;
-            [1,"INVALID METHOD | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str _clientID +"] called invalid backing method "+str _this,_filename] call A3A_fnc_log;
+            [1,"INVALID METHOD | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] called invalid backing method "+str _this,_filename] call A3A_fnc_log;
         };
     };
     if (_invalid) exitWith {};
-    private _optionName = _optionLocalisationTable#1#(_optionLocalisationTable#0 find _option);
-    if (_inRange) then {
-        private _originalAmount = missionNamespace getVariable _option;
-        private _finalAmount = _originalAmount + _adjustmentAmount;
-        missionNamespace setVariable [_option,_finalAmount,true];
 
-        [_hintTitle, _optionName+" set to "+str _finalAmount] remoteExecCall ["A3A_fnc_customHint",_player];
-        [2,(name _player)+"["+(getPlayerUID _player)+"] ["+ str _clientID +"] changed "+_optionName+" from " + str _originalAmount +" to " + str _finalAmount,_filename] call A3A_fnc_log;
+    private _optionName = _optionLocalisationTable#1#(_optionLocalisationTable#0 find _option);
+    private _hintText = "";
+    if (_inRange == 2) then {
+        _finalAmount = _originalAmount + _adjustmentAmount;
+        missionNamespace setVariable [_option,_finalAmount,true];
+        _hintText = " set to "+str _finalAmount;
+        [2,"SET | "+name _player+" ["+ getPlayerUID _player +"] ["+ str owner _player +"] changed "+_optionName+" from " + str _originalAmount +" to " + str _finalAmount,_filename] call A3A_fnc_log;
     } else {
-        [_hintTitle, _optionName+" must be between "+str _upperLimit + " and "+ str _lowerLimit] remoteExecCall ["A3A_fnc_customHint",_player];
+        _hintText = " is already at "+(["lower","upper"] select _inRange)+" limit of "+str _originalAmount;
     };
+
+    private _graphic = "--------------------------------------------------";
+    private _padding = _graphic;
+    private _graphicLength = count _graphic;
+    private _graphicSliderPos = round ((_graphicLength -1)*((_finalAmount-_lowerLimit) / (_upperLimit-_lowerLimit)));
+    private _graphic = "[<t color='#705722'>"+ (_graphic select [0,_graphicSliderPos]) + "<t color='#f0d498'>@</t>" + (_graphic select [_graphicSliderPos+1,_graphicLength]) + "</t>]";
+    private _lowerLimitText = str _lowerLimit;
+    private _UpperLimitText = "  " + str _upperLimit;
+    private _graphicLabel = _lowerLimitText + "<t color='#00000000' shadow='0'>" + (_padding select [0,_graphicLength -count _lowerLimitText -count _UpperLimitText])+ "</t>" + _UpperLimitText;
+
+    [_hintTitle, _optionName+_hintText+"<br/>"+_graphic+"<br/>"+_graphicLabel] remoteExecCall ["A3A_fnc_customHint",_player];
 };
 
 //////////////////////////
 // ADD NEW OPTIONS HERE //
 //////////////////////////
-_optionLocalisationTable = [["maxUnits","distanceSPWN","civPerc"],["AI Limit","Spawn Distance","Civilian Limit"]];
 switch (_option) do {
     case "maxUnits": { [_option,_action,200,80,10] call _processAction; };
     case "civPerc": { [_option,_action,150,0,1] call _processAction; };
@@ -91,7 +106,7 @@ switch (_option) do {
         publicVariable "distanceSPWN1";
         publicVariable "distanceSPWN2";
     };
-    default {[1,"INVALID METHOD | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str _clientID +"] called invalid backing method "+str _this,_filename] call A3A_fnc_log;};
+    default {[1,"INVALID METHOD | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] called invalid backing method "+str _this,_filename] call A3A_fnc_log;};
 };
 
 nil;

@@ -2,7 +2,7 @@ if (!isServer and hasInterface) exitWith{};
 
 private _fileName = "fn_createCIV.sqf";
 
-private ["_markerX","_dataX","_numCiv","_numVeh","_roads","_prestigeOPFOR","_prestigeBLUFOR","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_burst","_groupP","_wp","_wp1"];
+private ["_markerX","_dataX","_numCiv","_numVeh","_prestigeOPFOR","_prestigeBLUFOR","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_burst","_groupP","_wp","_wp1"];
 
 _markerX = _this select 0;
 
@@ -12,9 +12,10 @@ _dataX = server getVariable _markerX;
 
 _numCiv = _dataX select 0;
 _numVeh = _dataX select 1;
-//_roads = _dataX select 2;
-_roads = roadsX getVariable [_markerX, []];
-if (count _roads == 0) then {
+
+private _roads = nearestTerrainObjects [getMarkerPos _markerX, ["MAIN ROAD", "ROAD", "TRACK"], 250, false, true];
+if (count _roads == 0) exitWith
+{
 	[1, format ["Roads not found for marker %1", _markerX], _fileName] call A3A_fnc_log;
 };
 
@@ -57,9 +58,16 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 		{
 		if ((count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) and !([50,1,_road,teamPlayer] call A3A_fnc_distanceUnits)) then
 			{
-			_roadcon = roadsConnectedto (_road);
-			_p2 = getPos (_roadcon select 0);
-			_dirveh = [_p1,_p2] call BIS_fnc_DirTo;
+			_dirveh = 0;
+			_roadcon = roadsConnectedTo [_road, true];
+
+			if (count _roadcon != 0)
+			then
+			{
+				_p2 = getPos (_roadcon # 0);
+				_dirveh = _p1 getDir _p2;
+			};
+
 			_pos = [_p1, 3, _dirveh + 90] call BIS_Fnc_relPos;
 			_typeVehX = selectRandomWeighted civVehiclesWeighted;
 			/*
@@ -81,7 +89,7 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 	_countParked = _countParked + 1;
 	};
 
-_mrkMar = if !(hasIFA) then {seaSpawn select {getMarkerPos _x inArea _markerX}} else {[]};
+_mrkMar = if !(A3A_hasIFA) then {seaSpawn select {getMarkerPos _x inArea _markerX}} else {[]};
 if (count _mrkMar > 0) then
 	{
 	for "_i" from 0 to (round (random 3)) do
@@ -139,13 +147,13 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_p2 = getPos (_roadcon select 0);
 					_dirveh = [_p1,_p2] call BIS_fnc_DirTo;
 					_typeVehX = selectRandomWeighted civVehiclesWeighted;
-					_veh = _typeVehX createVehicle _p1;
+					_veh = _typeVehX createVehicle (getPos _p1);
 					_veh setDir _dirveh;
 
 					//_veh forceFollowRoad true;
 					_vehPatrol = _vehPatrol + [_veh];
 					_typeCiv = selectRandom arrayCivs;
-					_civ = [_groupP, _typeCiv, _p1, [],0, "NONE"] call A3A_fnc_createUnit;
+					_civ = [_groupP, _typeCiv, (getPos _p1), [],0, "NONE"] call A3A_fnc_createUnit;
 					_nul = [_civ] spawn A3A_fnc_CIVinit;
 					_civsPatrol = _civsPatrol + [_civ];
 					_civ moveInDriver _veh;
@@ -154,7 +162,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_groupP addVehicle _veh;
 					_groupP setBehaviour "CARELESS";
 					_veh limitSpeed 50;
-					_posDestination = selectRandom (roadsX getVariable (selectRandom _patrolCities));
+					_posDestination = getPos (selectRandom (nearestTerrainObjects [getMarkerPos (selectRandom _patrolCities), ["ROAD", "TRACK"], 250, false, true]));
 					_wp = _groupP addWaypoint [_posDestination,0];
 					_wp setWaypointType "MOVE";
 					_wp setWaypointSpeed "LIMITED";
@@ -189,4 +197,3 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 // Chuck all the civ vehicle patrols into the despawners
 { [_x] spawn A3A_fnc_groupDespawner } forEach _groupsPatrol;
 { [_x] spawn A3A_fnc_VEHdespawner } forEach _vehPatrol;
-

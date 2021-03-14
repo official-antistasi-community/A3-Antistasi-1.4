@@ -1,18 +1,10 @@
-_nul=createDialog "should_load_personal_save";
+private _saveString = ["Antistasi has a custom save system similar to other CTIs.<br/><br/>",
+    "To Save: Your commander needs to go to the <t color='#f0d498'>Map Board</t>, scroll-select <t color='#f0d498'>""Game Options""</t> and click on the <t color='#f0d498'>""Persistent Save""</t> button.<br/><br/>"] joinString "";
+_saveString = if (autoSave) then { [_saveString,"Current parameters are configured to auto-save every <t color='#f0d498'>",(autoSaveInterval/60) toFixed 0," minutes</t>."] joinString "" }
+    else { [_saveString,"Auto-save is currently disabled"] joinString "" };
 
-waitUntil {dialog};
-private _autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
-[
-	"W A R N I N G ",
-	["Antistasi has a custom save system similar to other CTIs.<br/><br/>",
-	"To Save: Your commander needs to go to the <t color='#f0d498'>Map Board</t>, scroll-select <t color='#f0d498'>""Game Options""</t> and click on the <t color='#f0d498'>""Persistent Save""</t> button.<br/><br/>",
-	"Current parameters are configured to auto-save every <t color='#f0d498'>",(_autoSaveInterval/60) toFixed 0," minutes</t>."] joinString ""
-] call A3A_fnc_customHint;
-waitUntil {!dialog};
+["W A R N I N G ", _saveString] call A3A_fnc_customHint;
 
-if (isNil "previousSessionLoaded") then {
-	// Dialog closed without selecting a button. Default to loading previous save.
-	[true] call A3A_fnc_loadPreviousSession;
-};
+[true] call A3A_fnc_loadPreviousSession;
 
 [] spawn A3A_fnc_credits;

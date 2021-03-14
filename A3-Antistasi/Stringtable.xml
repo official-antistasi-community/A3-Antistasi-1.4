@@ -1308,21 +1308,27 @@
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_4_mapname_short_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
+      <Key ID="STR_antistasi_mission_info_sahrani_mapname_short_text">
+        <Original>Antistasi Sahrani</Original>
+        <English>Antistasi Sahrani</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_4_mapname_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
+      <Key ID="STR_antistasi_mission_info_sahrani_mapname_text">
+        <Original>Antistasi - Liberation of Sahrani</Original>
+        <English>Antistasi - Liberation of Sahrani</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_4_description_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_4_blurb_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
+      <Key ID="STR_antistasi_mission_info_sahrani_description_text">
+		  <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+          <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+          <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+          <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
+          <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
+          <Czech>Buďte vedoucím odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
+          <Korean>반군 지도자가 되십시오. 수적 그리고 질적으로 막강한 적과 싸우십시오. 18개의 서브 미션과 함께 언제 어디든지 게릴라 전술을 사용하십시오.</Korean>
+          <Chinesesimp>作为抵抗运动的领袖,与优势敌人使用游击战术灵活作战,有18个左右的支线任务.</Chinesesimp>
+        </Key>
+      <Key ID="STR_antistasi_mission_info_sahrani_blurb_text">
+        <Original>The reunification of Sahrani</Original>
+        <English>The reunification of Sahrani</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_mapname_short_text">
         <Original>Antistasi Takistan</Original>
@@ -1330,8 +1336,8 @@
         <Russian>Antistasi Такистан</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_mapname_text">
-        <Original>Liberation of Takistan</Original>
-        <English>Liberation of Takistan</English>
+        <Original>Antistasi - Liberation of Takistan</Original>
+        <English>Antistasi - Liberation of Takistan</English>
         <Chinesesimp>Antistasi - 解放Takistan</Chinesesimp>
         <Russian>Освобождение Такистана</Russian>
       </Key>
@@ -3254,12 +3260,12 @@
         <Original>Donate 100 € to player</Original>
         <Russian>Пожертвуйте 100 € игроку</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_player_money_donate_fraction">
-        <Original>Donate 100 € to Fraction</Original>
+      <Key ID="STR_antistasi_dialogs_player_money_donate_faction">
+        <Original>Donate 100 € to Faction</Original>
         <Russian>Пожертвовать 100 € фракции</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_player_money_donate_fraction_tooltip">
-        <Original>It will increase your prestige among your fraction</Original>
+      <Key ID="STR_antistasi_dialogs_player_money_donate_faction_tooltip">
+        <Original>It will increase your prestige among your faction</Original>
         <Russian>Это повысит ваш престиж среди вашей фракции</Russian>
       </Key>
     </Container>

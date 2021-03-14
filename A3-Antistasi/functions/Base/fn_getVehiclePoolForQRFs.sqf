@@ -164,7 +164,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehCSATTruck, 10],
+                [vehCSATTrucks, 10],
                 [vehCSATLightArmed, 30],
                 [vehCSATAPC, 40],
                 [vehCSATTank, 20],
@@ -198,7 +198,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehCSATTruck, 5],
+                [vehCSATTrucks, 5],
                 [vehCSATLightArmed, 25],
                 [vehCSATAPC, 45],
                 [vehCSATAA, 5],

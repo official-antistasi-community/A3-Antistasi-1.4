@@ -23,7 +23,7 @@ if (_land) then
 else
 {
 	_vehPool = if (_sideX == Occupants) then {vehNATOTransportHelis + vehNATOTransportPlanes} else {vehCSATTransportHelis + vehNATOTransportPlanes};
-	if ((_numberX > 4) and (count _vehPool > 1) and !hasIFA) then {_vehPool = _vehPool - [vehNATOPatrolHeli,vehCSATPatrolHeli]};
+	if ((_numberX > 4) and (count _vehPool > 1) and !A3A_hasIFA) then {_vehPool = _vehPool - [vehNATOPatrolHeli,vehCSATPatrolHeli]};
 	//_vehPool = _vehPool select {(_x isKindOf "Helicopter") and (_x in vehFastRope)};
 	_typeVehX = selectRandom _vehPool;
 };
@@ -90,7 +90,7 @@ else
 	};
 	if (count _pos == 0) then {_pos = _posOrigin};
 
-	_vehicle=[_pos, _ang + 90,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
+	_vehicle=[_pos, _ang + 90,_typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 	_veh = _vehicle select 0;
 	_vehCrew = _vehicle select 1;
 	_groupVeh = _vehicle select 2;

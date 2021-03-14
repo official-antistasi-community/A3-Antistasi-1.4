@@ -2216,16 +2216,8 @@ switch _mode do {
 	case "buttonInvToJNA": {
 		//_display = _this select 0;
 		private _object = missionnamespace getVariable ["jna_object",objNull];
-		private _array = _object call jn_fnc_arsenal_cargoToArray;
-
-		//clear cargo
-		clearMagazineCargoGlobal _object;
-		clearItemCargoGlobal _object;
-		clearweaponCargoGlobal _object;
-		clearbackpackCargoGlobal _object;
-
 		//update server
-		[_object,_array] remoteExec ["jn_fnc_arsenal_cargoToArsenal",2];
+		[_object] remoteExec ["jn_fnc_arsenal_cargoToArsenal",2];
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////

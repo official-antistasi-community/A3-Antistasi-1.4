@@ -11,4 +11,4 @@ if (!_globalNamespace) exitWith
 	createLocation ["Invisible", [-10, -10, 0], 0, 0]
 };
 
-createSimpleObject ["a3\weapons_f\empty.p3d", [-10, -10, 0], true]
+createSimpleObject ["a3\weapons_f\empty.p3d", [-10, -10, 0], false]

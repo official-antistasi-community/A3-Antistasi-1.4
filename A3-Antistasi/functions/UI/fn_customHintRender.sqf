@@ -62,3 +62,4 @@ true;
 // Arma 3 Apex #218a36 // BIS Website Differs incorrectly from in-game
 // Arma 3 #c48214
 // Custom Orange #e5b348
+// Custom Peach #f0d498

@@ -46,13 +46,14 @@ if (_grpIdx == -1) then {
 };
 
 // create surrender box
-private _boxX = "Box_IND_Wps_F" createVehicle position _unit;
+private _surrenderCrateType = [NATOSurrenderCrate, CSATSurrenderCrate] select (side group _unit isEqualTo Invaders);
+private _boxX = _surrenderCrateType createVehicle position _unit;
 _boxX allowDamage false;
 clearMagazineCargoGlobal _boxX;
 clearWeaponCargoGlobal _boxX;
 clearItemCargoGlobal _boxX;
 clearBackpackCargoGlobal _boxX;
-[_boxX] call jn_fnc_logistics_addAction;
+[_boxX] call A3A_fnc_logistics_addLoadAction;
 
 // move all unit's equipment except uniform into the surrender crate
 private _loadout = getUnitLoadout _unit;

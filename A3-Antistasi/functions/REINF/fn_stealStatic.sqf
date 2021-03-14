@@ -9,7 +9,7 @@ if (alive gunner _staticX) exitWith {["Steal Static", "You cannot steal a static
 
 if ((alive assignedGunner _staticX) and (!isPlayer (assignedGunner _staticX))) exitWith {["Steal Static", "The gunner of this static weapon is still alive"] call A3A_fnc_customHint;};
 
-if (activeGREF and ((typeOf _staticX == staticATteamPlayer) or (typeOf _staticX == staticAAteamPlayer))) exitWith {["Steal Static", "This weapon cannot be dissassembled"] call A3A_fnc_customHint;};
+if (A3A_hasRHS and ((typeOf _staticX == staticATteamPlayer) or (typeOf _staticX == staticAAteamPlayer))) exitWith {["Steal Static", "This weapon cannot be dissassembled"] call A3A_fnc_customHint;};
 
 _nearX = [markersX,_staticX] call BIS_fnc_nearestPosition;
 
@@ -21,11 +21,11 @@ private _staticClass =	typeOf _staticX;
 private _staticComponents = getArray (configFile >> "CfgVehicles" >> _staticClass >> "assembleInfo" >> "dissasembleTo");
 
 deleteVehicle _staticX;
- 
+
 //We need to create the ground weapon holder first, otherwise it won't spawn exactly where we tell it to.
 private _groundWeaponHolder = createVehicle ["GroundWeaponHolder", (getPosATL _playerX), [], 0, "CAN_COLLIDE"];
- 
-for "_i" from 0 to ((count _staticComponents) - 1) do 
+
+for "_i" from 0 to ((count _staticComponents) - 1) do
 	{
 		_groundWeaponHolder addBackpackCargoGlobal [(_staticComponents select _i), 1];
 	};

@@ -47,54 +47,6 @@ class set_params {
 	};
 };
 
-class should_load_personal_save {
-	idd=-1;
-	movingenable=false;
-
-	class controls {
-		class HQ_box: BOX
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
-			x = 0.244979 * safezoneW + safezoneX;
-			y = 0.223941 * safezoneH + safezoneY;
-			w = 0.445038 * safezoneW;
-			h = 0.20 * safezoneH;//30
-		};
-		class HQ_frame: RscFrame
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_lps_frame_text;
-			x = 0.254979 * safezoneW + safezoneX;
-			y = 0.233941 * safezoneH + safezoneY;
-			w = 0.425038 * safezoneW;
-			h = 0.18 * safezoneH;//28
-		};
-		class HQ_button_Gsquad: RscButton
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_generic_button_yes_text;
-			tooltip = $STR_antistasi_dialogs_generic_button_yes_tooltip;
-			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			action = "[true] call A3A_fnc_loadPreviousSession; closeDialog 0;";
-		};
-		class HQ_button_Gstatic: RscButton
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_generic_button_no_text;
-			tooltip = $STR_antistasi_dialogs_generic_button_no_tooltip;
-			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			action = "[false] call A3A_fnc_loadPreviousSession; closeDialog 0;";
-		};
-	};
-};
-
 //FLAG
 class HQ_menu 			{
 	idd=100;
@@ -2323,12 +2275,12 @@ class player_money 			{
 		class HQ_button_AA: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_player_money_donate_fraction;
+			text = $STR_antistasi_dialogs_player_money_donate_faction;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = $STR_antistasi_dialogs_player_money_donate_fraction_tooltip;
+			tooltip = $STR_antistasi_dialogs_player_money_donate_faction_tooltip;
 			action = "[] call A3A_fnc_donateMoney;";
 		};
 	};

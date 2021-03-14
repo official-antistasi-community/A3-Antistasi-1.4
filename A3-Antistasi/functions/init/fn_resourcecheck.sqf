@@ -186,7 +186,7 @@ while {true} do
 				{
 				if (local _x) then
 					{
-					if ((typeOf _x) in arrayCivs) then
+					if ((_x getVariable "unitType") in arrayCivs) then
 						{
 						if (vehicle _x == _x) then
 							{

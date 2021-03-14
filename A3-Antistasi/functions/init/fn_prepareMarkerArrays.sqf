@@ -14,8 +14,6 @@ seaMarkers = [];
 seaSpawn = [];
 seaAttackSpawn = [];
 detectionAreas = [];
-islands = [];
-roadsMrk = [];
 
 fnc_sortPlacementMarker =
 {
@@ -78,12 +76,6 @@ fnc_sortPlacementMarker =
     case ("seaspawn"): {seaSpawn pushBack _x;};
     case ("seaattackspawn"): {seaAttackSpawn pushBack _x;};
     case ("detectplayer"): {detectionAreas pushBack _x;};
-    case ("island"): {islands pushBack _x;};
-    case ("road"):
-    {
-      _x setMarkerAlpha 0;
-      roadsMrk pushBack _x;
-    };
 
     //Following marker are handled elsewhere
     case ("respawn");

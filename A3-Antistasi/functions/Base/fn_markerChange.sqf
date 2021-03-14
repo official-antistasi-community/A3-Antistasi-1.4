@@ -64,15 +64,35 @@ garrison setVariable [format ["%1_requested", _markerX], [], true];
 if (_winner == teamPlayer) then
 {
 	_super = if (_markerX in airportsX) then {true} else {false};
-	[_markerX,_looser,"",_super] spawn A3A_fnc_patrolCA;
-	//sleep 15;
-	// Removed for the moment, old broken stuff
-//	[[_markerX],"A3A_fnc_autoGarrison"] call A3A_fnc_scheduler;
+    if(_positionX distance2D posHQ > distanceMission) then
+    {
+        [_markerX, _looser, _super] spawn
+        {
+            params ["_marker", "_loser", "_super"];
+            waitUntil
+            {
+                sleep 10;
+                spawner getVariable _marker == 2
+            };
+            if(sidesX getVariable [_marker, sideUnknown] == _loser) exitWith {};
+            [[_marker, _loser, _super], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
+        };
+    }
+    else
+    {
+        [_markerX, _looser, _super] spawn
+        {
+            params ["_marker", "_loser", "_super"];
+            sleep (random ((15 - tierWar) * 60));
+            if(sidesX getVariable [_marker, sideUnknown] == _loser) exitWith {};
+            [[_marker, _loser, _super], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
+        };
+    };
 }
 else
 {
 	_soldiers = [];
-	{_soldiers pushBack (typeOf _x)} forEach (allUnits select {(_x distance _positionX < (_size*3)) and (_x getVariable ["spawner",false]) and (side group _x == _winner) and (vehicle _x == _x) and (alive _x)});
+	{_soldiers pushBack (_x getVariable "unitType")} forEach (allUnits select {(_x distance _positionX < (_size*3)) and (_x getVariable ["spawner",false]) and (side group _x == _winner) and (vehicle _x == _x) and (alive _x)});
 	[_soldiers,_winner,_markerX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 
 	//New system =================================================================

@@ -25,7 +25,7 @@ if (count _typesVeh > 0) then
 	{
 	_typeVehX = selectRandom _typesVeh;
 	//_pos = [_positionX, distanceSPWN * 3, random 360] call BIS_Fnc_relPos;
-	_vehicle=[_posOrigin, 0, _typeVehX, _sideX] call bis_fnc_spawnvehicle;
+	_vehicle=[_posOrigin, 0, _typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 	_heli = _vehicle select 0;
 	_heliCrew = _vehicle select 1;
 	_groupHeli = _vehicle select 2;
@@ -47,7 +47,7 @@ for "_i" from 0 to (round random 2) do
 	{
 	_typeVehX = selectRandom _typesVeh;
 	//_pos = [_positionX, distanceSPWN * 3, random 360] call BIS_Fnc_relPos;
-	_vehicle=[_posOrigin, 0, _typeVehX, _sideX] call bis_fnc_spawnvehicle;
+	_vehicle=[_posOrigin, 0, _typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 	_heli = _vehicle select 0;
 	_heliCrew = _vehicle select 1;
 	_groupHeli = _vehicle select 2;

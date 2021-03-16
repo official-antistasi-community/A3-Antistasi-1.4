@@ -8,7 +8,7 @@ Arguments:
     <POS3D> Leaves placement up to createUnit. | <POS3DTYPE> Places according to the specified coordinate system. | <<POS3D><TYPE>> Places according to the specified coordinate system. [Default=[0,0,0]]
     <SCALAR> Angles towards heading. | <VECTORDIR> Angles according to VectorDir. | <<VECTORDIR>,<VECTORUP>> Angles according to VectorDir And VectorUp. [Default=0]
     <SCALAR> If above zero, will look for an empty position nearby. [Default=0]
-    <BOOLEAN> True to make aircraft spawn at minimum 100m and fly at 110% stall speed. | <<SCALAR>height,<SCALAR>Velocity> True and overrides minimum height and velocity (leave value nil for default). [Default=true]
+    <ANY> nil for no aircraft physics | <<SCALAR>height,<SCALAR>Velocity> Overrides minimum height and velocity, if no value is provided: aircraft spawn at minimum 100m and fly at 110% stall speed. (leave value nil for each default [nil,nil]). [Default=nil]
     <BOOLEAN> True to enable vehicle BIS randomisation. [Default=true]
 
 Return Value:
@@ -45,34 +45,36 @@ params [
     ["_position",[0,0,0],[ [] ], [2,3,4]],
     ["_direction",0,[ 0,[] ], [ 3,2 ]],
     ["_emptyPositionRadius",0, [ 0 ]],
-    ["_aircraftPhysics",[], [ true,[] ]],
+    ["_aircraftPhysics",nil, [ nil,[] ]],
     ["_enableRandomization",true, [ true ]]
 ];
 private _filename = "fn_spawnVehiclePrecise";
 
 private _position = flatten _position;
-private _addAircraftPhysics = true;
+private _addAircraftPhysics = false;
 private _aircraftMinHeight = 0;
 private _velocity = 0;
+private _createVehicleSpecial = "CAN_COLLIDE";
 
-if (_aircraftPhysics isEqualType true) then {
-    _addAircraftPhysics = _aircraftPhysics && {(toLower getText(configFile >> "CfgVehicles" >> _className >> "simulation")) in ["airplanex","helicopterrtd","helicopterx"]};
-    if (_addAircraftPhysics) then {
-        _aircraftMinHeight = 100;
-        _velocity = getNumber(configFile >> "CfgVehicles" >> _className >> "stallSpeed") / 3.6 * 1.1;  // default speed is kilometres per hour to metres per second; 110% of stall speed.
-    };
-} else {
-    _aircraftMinHeight = _aircraftPhysics#0;
-    _velocity = _aircraftPhysics#1;
+if !(isNil {_aircraftPhysics}) then {
+    if !((toLower getText(configFile >> "CfgVehicles" >> _className >> "simulation")) in ["airplanex","helicopterrtd","helicopterx"]) exitWith {};
+    private _addAircraftPhysics = true;
+    _createVehicleSpecial = "FLY";
+
+    _aircraftPhysics params [
+        ["_aircraftMinHeightIN",100,[0]],
+        ["_velocityIN",getNumber(configFile >> "CfgVehicles" >> _className >> "stallSpeed") / 3.6 * 1.1,[0]]  // default speed is kilometres per hour to metres per second; 110% of stall speed should provide enough speed and lift.
+    ];
+    _aircraftMinHeight = _aircraftMinHeightIN;
+    _velocity = _velocityIN;
 };
-private _createVehicleSpecial = ["CAN_COLLIDE","FLY"] select (_addAircraftPhysics);
 
 private _vehicle = objNull;
 if (isNil { // Make sure vehicle is spawned and placed within the same physics step.
     _vehicle = createVehicle [_className, _position select [0,2], [], 0, _createVehicleSpecial];
     if (isNull _vehicle) then {
         [1, "InvalidObjectClassName | """+_className+""" does not exist or failed creation.", _filename] remoteExecCall ["A3A_fnc_log",2,false];
-        _vehicle = createVehicle [_className, _position select [0,2], [], 0, _createVehicleSpecial];     // Retry with a vehicle so that a convoy/mission which doesn't check won't error out.
+        _vehicle = createVehicle ["C_Offroad_01_F", _position select [0,2], [], 0, _createVehicleSpecial];     // Retry with a known vehicle so that a convoy/mission which doesn't check won't error out.
         _vehicle setVariable ["InvalidObjectClassName",true,true];                  // Allow external code to check for incorrect vehicle.
     };
     if (isNull _vehicle) exitWith {

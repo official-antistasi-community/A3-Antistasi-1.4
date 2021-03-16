@@ -68,9 +68,10 @@ if (_vehNodes isEqualType []) then {
 };
 if (_reloadMounts) then { [] call HR_GRG_fnc_reloadMounts };
 
-private _customisation = [HR_GRG_previewVeh] call bis_fnc_getVehicleCustomization;
+private _customisation = [HR_GRG_previewVeh] call BIS_fnc_getVehicleCustomization;
 //textures
 HR_GRG_CurTexture = _customisation#0;
+private _badInit = HR_GRG_CurTexture isEqualTo [];
 private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraTexture;
 lbClear _ctrl;
 {
@@ -79,7 +80,11 @@ lbClear _ctrl;
     if (_displayName != "" && {!(_displayName in HR_GRG_blackListCamo)}) then {
         private _index = _ctrl lbAdd _displayName;
         _ctrl lbsetdata [_index,_cfgName];
-        _ctrl lbsetpicture [_index,checkboxTextures select ((HR_GRG_CurTexture#0) isEqualTo _cfgName)];
+        if (_badInit) then {
+            _ctrl lbsetpicture [_index,checkboxTextures#0];
+        } else {
+            _ctrl lbsetpicture [_index,checkboxTextures select ((HR_GRG_CurTexture#0) isEqualTo _cfgName)];
+        };
     };
 } foreach (configProperties [(configfile >> "CfgVehicles" >> _class >> "textureSources"),"isclass _x",true]);
 lbSort _ctrl;

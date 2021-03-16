@@ -135,12 +135,12 @@ private _squadLeaderTemplate = {
 	["helmets"] call _fnc_setHelmet;
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
-	//TODO - Long range radios
+	
 	["backpacks"] call _fnc_setBackpack;
 
 	[["grenadeLaunchers", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 5] call _fnc_addMagazines;
-	//TODO: How to add underslung grenade mags.
+	
 
 	["sidearms"] call _fnc_setHandgun;
 	["handgun", 2] call _fnc_addMagazines;
@@ -221,7 +221,7 @@ private _grenadierTemplate = {
 
 	["grenadeLaunchers"] call _fnc_setPrimary;
 	["primary", 5] call _fnc_addMagazines;
-	//TODO: How to add underslung grenade mags.
+	
 
 	["sidearms"] call _fnc_setHandgun;
 	["handgun", 2] call _fnc_addMagazines;
@@ -248,7 +248,7 @@ private _explosivesExpertTemplate = {
 
 	["rifles"] call _fnc_setPrimary;
 	["primary", 5] call _fnc_addMagazines;
-	//TODO: How to add underslung grenade mags.
+	
 
 	["sidearms"] call _fnc_setHandgun;
 	["handgun", 2] call _fnc_addMagazines;
@@ -430,7 +430,7 @@ private _marksmanTemplate = {
 	["items_marksman_extras"] call _fnc_addItemSet;
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 3] call _fnc_addItem;
+	["smokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;
@@ -455,7 +455,7 @@ private _sniperTemplate = {
 	["items_sniper_extras"] call _fnc_addItemSet;
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 3] call _fnc_addItem;
+	["smokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;
@@ -530,9 +530,9 @@ private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
 	["staticCrew", _riflemanTemplate],
-	["Medic", _medicTemplate],
-	["Engineer", _engineerTemplate],
-	["ExplosivesExpert", _explosivesExpertTemplate],
+	["Medic", _medicTemplate, [["medic", true]]],
+	["Engineer", _engineerTemplate, [["engineer", true]]],
+	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
 	["Grenadier", _grenadierTemplate],
 	["LAT", _latTemplate],
 	["AT", _atTemplate],

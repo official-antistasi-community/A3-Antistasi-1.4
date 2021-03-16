@@ -73,13 +73,13 @@
 ["baggedMortars", [["rhs_M252_Gun_Bag", "rhs_M252_Bipod_Bag"]]] call _fnc_saveToTemplate; 			//this line determines bagged static mortars -- Example: ["baggedMortars", [["B_Mortar_01_F", "B_Mortar_01_weapon_F"]]] -- Array, can contain multiple assets
 
 //Minefield definition
-["minefieldAT", []] call _fnc_saveToTemplate; 				//this line determines AT mines used for spawning in minefields -- Example: ["minefieldAT", ["ATMine_Range_Mag"]] -- Array, can contain multiple assets
-["minefieldAPERS", []] call _fnc_saveToTemplate; 			//this line determines APERS mines used for spawning in minefields -- Example: ["minefieldAPERS", ["APERSMine_Range_Mag"]] -- Array, can contain multiple assets
+["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
 
 //PvP definitions
-["playerDefaultLoadout", []] call _fnc_saveToTemplate;		//this and PvP could be made from below, unarmed for spawn, PvP from role loadouts - don't touch as it's automation
-["pvpLoadouts", []] call _fnc_saveToTemplate; 				//don't touch as it's automation
-["pvpVehicles", []] call _fnc_saveToTemplate; 				//this line determines the vehicles PvP players can spawn in -- Example: ["pvpVehicles", ["B_MRAP_01_F", "B_MRAP_01_hmg_F"]] -- Array, can contain multiple assets
+["playerDefaultLoadout", []] call _fnc_saveToTemplate;
+["pvpLoadouts", []] call _fnc_saveToTemplate;
+["pvpVehicles", []] call _fnc_saveToTemplate;
 
 
 //////////////////////////
@@ -94,25 +94,17 @@ _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanrifles", []];
 _loadoutData setVariable ["sniperrifles", []];
 _loadoutData setVariable ["lightATLaunchers", []];
-_loadoutData setVariable ["ATLaunchers", [
-["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HE"], [], ""],
-["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEDP"], [], ""],
-["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEAT"], [], ""],
-["rhs_weap_smaw_green", "", "acc_pointer_IR", "rhs_weap_optic_smaw", ["rhs_mag_smaw_HEAA"],["rhs_mag_smaw_SR"],""],
-["rhs_weap_smaw_green", "", "acc_pointer_IR", "rhs_weap_optic_smaw", ["rhs_mag_smaw_HEDP"],["rhs_mag_smaw_SR"],""]
-]];
-_loadoutData setVariable ["missileATLaunchers", [
-"UK3CB_BAF_Javelin_Launcher"
-]];
+_loadoutData setVariable ["ATLaunchers", []];
+_loadoutData setVariable ["missileATLaunchers", []];
 _loadoutData setVariable ["AALaunchers", [
 "rhs_weap_fim92"
 ]];
 _loadoutData setVariable ["sidearms", []];
 
-_loadoutData setVariable ["ATMines", ["ATMine_Range_Mag"]]; 					//this line determines the AT mines which can be carried by units -- Example: ["ATMine_Range_Mag"] -- Array, can contain multiple assets
-_loadoutData setVariable ["APMines", ["APERSMine_Range_Mag"]]; 					//this line determines the APERS mines which can be carried by units -- Example: ["APERSMine_Range_Mag"] -- Array, can contain multiple assets
-_loadoutData setVariable ["lightExplosives", ["DemoCharge_Remote_Mag"]]; 			//this line determines light explosives -- Example: ["DemoCharge_Remote_Mag"] -- Array, can contain multiple assets
-_loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]]; 			//this line determines heavy explosives -- Example: ["SatchelCharge_Remote_Mag"] -- Array, can contain multiple assets
+_loadoutData setVariable ["ATMines", ["rhs_mine_M19_mag"]]; 					//this line determines the AT mines which can be carried by units -- Example: ["ATMine_Range_Mag"] -- Array, can contain multiple assets
+_loadoutData setVariable ["APMines", ["rhsusf_mine_m14_mag"]]; 					//this line determines the APERS mines which can be carried by units -- Example: ["APERSMine_Range_Mag"] -- Array, can contain multiple assets
+_loadoutData setVariable ["lightExplosives", ["rhsusf_m112_mag", "DemoCharge_Remote_Mag"]]; 			//this line determines light explosives -- Example: ["DemoCharge_Remote_Mag"] -- Array, can contain multiple assets
+_loadoutData setVariable ["heavyExplosives", ["rhsusf_m112x4_mag", "SatchelCharge_Remote_Mag"]]; 			//this line determines heavy explosives -- Example: ["SatchelCharge_Remote_Mag"] -- Array, can contain multiple assets
 
 _loadoutData setVariable ["antiInfantryGrenades", ["HandGrenade", "MiniGrenade"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
 _loadoutData setVariable ["antiTankGrenades", []]; 			//this line determines anti tank grenades. Leave empty when not available. -- Array, can contain multiple assets
@@ -185,7 +177,6 @@ _sfLoadoutData setVariable ["MGvests", ["UK3CB_BAF_V_Osprey_MG_A", "UK3CB_BAF_V_
 _sfLoadoutData setVariable ["SNIvests", ["UK3CB_BAF_V_Osprey_Marksman_A"]];
 _sfLoadoutData setVariable ["backpacks", ["UK3CB_BAF_B_Bergen_MTP_Rifleman_L_C", "UK3CB_BAF_B_Bergen_MTP_Rifleman_L_D", "UK3CB_BAF_B_Kitbag_MTP"]];
 _sfLoadoutData setVariable ["AAbackpacks", ["UK3CB_BAF_B_Carryall_MTP"]];
-//_sfLoadoutData setVariable ["longRangeRadios", ["UK3CB_BAF_B_Bergen_MTP_Radio_L_A", "UK3CB_BAF_B_Bergen_MTP_Radio_L_B", "UK3CB_BAF_B_Bergen_MTP_Radio_H_A", "UK3CB_BAF_B_Bergen_MTP_Radio_H_B", "UK3CB_BAF_B_Bergen_MTP_SL_L_A", "UK3CB_BAF_B_Bergen_MTP_SL_H_A", "UK3CB_BAF_B_Bergen_MTP_JTAC_L_A", "UK3CB_BAF_B_Bergen_MTP_JTAC_H_A"]];
 _sfLoadoutData setVariable ["Medbackpacks", ["UK3CB_BAF_B_Bergen_MTP_Medic_L_A", "UK3CB_BAF_B_Bergen_MTP_Medic_L_B", "UK3CB_BAF_B_Bergen_MTP_Medic_H_A", "UK3CB_BAF_B_Bergen_MTP_Medic_H_B"]];
 _sfLoadoutData setVariable ["Engibackpacks", ["UK3CB_BAF_B_Bergen_MTP_Engineer_L_A", "UK3CB_BAF_B_Bergen_MTP_Engineer_H_A"]];
 _sfLoadoutData setVariable ["Expbackpacks", ["UK3CB_BAF_B_Bergen_MTP_Sapper_L_A", "UK3CB_BAF_B_Bergen_MTP_Sapper_H_A"]];
@@ -196,67 +187,73 @@ _sfLoadoutData setVariable ["helmets", ["UK3CB_BAF_H_Mk7_Camo_A", "UK3CB_BAF_H_M
 _sfLoadoutData setVariable ["binoculars", ["UK3CB_BAF_Soflam_Laserdesignator"]];
 
 _sfLoadoutData setVariable ["rifles", [
-["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_grippod_t"],
-["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_grippod_t"],
-["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552_d", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_afg_t"],
-["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_afg_t"],
-["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_d", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_grippod_t"],
-["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG", ["UK3CB_BAF_556_30Rnd",30], [], ""]
+["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_grippod_t"],
+["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_grippod_t"],
+["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552_d", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_afg_t"],
+["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_afg_t"],
+["UK3CB_BAF_L85A3", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_d", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_grippod_t"],
+["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L119A1", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""]
 ]];
 _sfLoadoutData setVariable ["grenadeLaunchers", [
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552_d", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_d", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG", ["UK3CB_BAF_556_30Rnd",30], [], ""]
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552_d", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_d", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L119A1_UKUGL", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_ACOG", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "rhs_mag_M397_HET", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _sfLoadoutData setVariable ["carbines", [
-["UK3CB_BAF_L22", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_T1_high", [], [], ""],
-["UK3CB_BAF_L22", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552", [], [], ""],
-["UK3CB_BAF_L22", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_xps3", [], [], ""],
-["UK3CB_BAF_L22", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", [], [], ""]
+["UK3CB_BAF_L22", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L22", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_xps3", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L22", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L119A1_CQB", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L119A1_CQB", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L119A1_CQB", "UK3CB_BAF_Silencer_L85", "", "rhsusf_acc_eotech_xps3", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""]
 ]];
 _sfLoadoutData setVariable ["machineGuns", [
-["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", [], [], ""],
-["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", [], [], ""],
-["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", [], [], ""],
-["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", [], [], ""],
-["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", [], [], ""],
-["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", [], [], ""],
-["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", [], [], ""],
-["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", [], [], ""],
-["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", [], [], ""]
+["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", ["UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd_T"], [], ""]
 ]];
 _sfLoadoutData setVariable ["marksmanRifles", [
-["UK3CB_BAF_L129A1", "UK3CB_BAF_Silencer_L115A3", "", "UK3CB_BAF_TA648_308", ["UK3CB_BAF_762_L42A1_20Rnd",20], [], "UK3CB_underbarrel_acc_bipod"],
-["UK3CB_BAF_L129A1", "UK3CB_BAF_Silencer_L115A3", "", "rhsusf_acc_M8541", ["UK3CB_BAF_762_L42A1_20Rnd",20], [], "UK3CB_underbarrel_acc_bipod"],
-["UK3CB_BAF_L129A1", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_762_L42A1_20Rnd",20], [], "UK3CB_underbarrel_acc_bipod"],
-["UK3CB_BAF_L129A1", "UK3CB_BAF_Silencer_L115A3", "", "rhsusf_acc_LEUPOLDMK4_2", ["UK3CB_BAF_762_L42A1_20Rnd",20], [], "UK3CB_underbarrel_acc_bipod"]
+["UK3CB_BAF_L129A1", "UK3CB_BAF_Silencer_L115A3", "", "UK3CB_BAF_TA648_308", ["UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd_T"], [], "UK3CB_underbarrel_acc_bipod"],
+["UK3CB_BAF_L129A1", "UK3CB_BAF_Silencer_L115A3", "", "rhsusf_acc_M8541", ["UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd_T"], [], "UK3CB_underbarrel_acc_bipod"],
+["UK3CB_BAF_L129A1", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd_T"], [], "UK3CB_underbarrel_acc_bipod"],
+["UK3CB_BAF_L129A1", "UK3CB_BAF_Silencer_L115A3", "", "rhsusf_acc_LEUPOLDMK4_2", ["UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd_T"], [], "UK3CB_underbarrel_acc_bipod"]
 ]];
 _sfLoadoutData setVariable ["sniperRifles", [
-["UK3CB_BAF_L115A3_BL", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL", "UK3CB_BAF_Silencer_L115A3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL_Ghillie", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL_Ghillie", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL_Ghillie", "UK3CB_BAF_Silencer_L115A3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L118A1_Covert_BL", "", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_762_L42A1_10Rnd",10], [], ""],
-["UK3CB_BAF_L118A1_Covert_BL", "", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_762_L42A1_10Rnd",10], [], ""],
-["UK3CB_BAF_L118A1_Covert_BL", "", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_762_L42A1_10Rnd",10], [], ""],
-["UK3CB_BAF_L135A1", "", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_762_L42A1_10Rnd",10], [], ""],
-["UK3CB_BAF_L135A1", "", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_762_L42A1_10Rnd",10], [], ""]
+["UK3CB_BAF_L115A3_BL", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL", "UK3CB_BAF_Silencer_L115A3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL_Ghillie", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL_Ghillie", "UK3CB_BAF_Silencer_L115A3", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL_Ghillie", "UK3CB_BAF_Silencer_L115A3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L118A1_Covert_BL", "", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_762_L42A1_10Rnd", "UK3CB_BAF_762_L42A1_10Rnd", "UK3CB_BAF_762_L42A1_10Rnd_T"], [], ""],
+["UK3CB_BAF_L118A1_Covert_BL", "", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_762_L42A1_10Rnd", "UK3CB_BAF_762_L42A1_10Rnd", "UK3CB_BAF_762_L42A1_10Rnd_T"], [], ""],
+["UK3CB_BAF_L118A1_Covert_BL", "", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_762_L42A1_10Rnd", "UK3CB_BAF_762_L42A1_10Rnd", "UK3CB_BAF_762_L42A1_10Rnd_T"], [], ""],
+["UK3CB_BAF_L135A1", "", "", "RKSL_optic_PMII_525", ["rhsusf_mag_10Rnd_STD_50BMG_M33"], [], ""],
+["UK3CB_BAF_L135A1", "", "", "RKSL_optic_PMII_312", ["rhsusf_mag_10Rnd_STD_50BMG_M33"], [], ""],
+["UK3CB_BAF_L135A1", "", "", "RKSL_optic_PMII_525", ["rhsusf_mag_10Rnd_STD_50BMG_mk211"], [], ""]
 ]];
 _sfLoadoutData setVariable ["sidearms", [
-["UK3CB_BAF_L131A1", "rhsusf_acc_omega9k", "UK3CB_BAF_Laser_L131A1", "", ["UK3CB_BAF_9_17Rnd",17], [], ""]
+["UK3CB_BAF_L131A1", "rhsusf_acc_omega9k", "UK3CB_BAF_Laser_L131A1", "", ["UK3CB_BAF_9_17Rnd"], [], ""]
+]];
+_sfLoadoutData setVariable ["ATLaunchers", [
+["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HE", "rhs_mag_maaws_HEDP"], [], ""]
 ]];
 _sfLoadoutData setVariable ["lightATLaunchers", [
 "UK3CB_BAF_NLAW_Launcher",
@@ -277,63 +274,67 @@ _militaryLoadoutData setVariable ["GLvests", ["UK3CB_BAF_V_Osprey_DPMW3"]];
 _militaryLoadoutData setVariable ["backpacks", ["UK3CB_BAF_B_Kitbag_DPMW", "UK3CB_BAF_B_Bergen_DPMW_Rifleman_A",
 "UK3CB_BAF_B_Bergen_DPMW_Rifleman_B"]];
 _militaryLoadoutData setVariable ["AAbackpacks", ["UK3CB_BAF_B_Carryall_DPMW"]];
-//_militaryLoadoutData setVariable ["longRangeRadios", ["UK3CB_BAF_B_Bergen_DPMW_SL_A", "UK3CB_BAF_B_Bergen_DPMW_JTAC_A", "UK3CB_BAF_B_Bergen_DPMW_JTAC_H_A"]];
 _militaryLoadoutData setVariable ["helmets", ["UK3CB_BAF_H_Mk6_DPMW_D", "UK3CB_BAF_H_Mk6_DPMW_F", "UK3CB_BAF_H_Mk6_DPMW_B", "UK3CB_BAF_H_Mk6_DPMW_A"]];		//this line determines helmets for military loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
 _militaryLoadoutData setVariable ["binoculars", ["UK3CB_BAF_Soflam_Laserdesignator"]];
 
 _militaryLoadoutData setVariable ["rifles", [
-["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_grippod_t"],
-["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_grippod_t"],
-["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552_d", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_afg_t"],
-["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_afg_t"],
-["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ACOG_d", ["UK3CB_BAF_556_30Rnd",30], [], "UK3CB_underbarrel_acc_grippod_t"]
+["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_grippod_t"],
+["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_grippod_t"],
+["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552_d", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_afg_t"],
+["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_afg_t"],
+["UK3CB_BAF_L85A3", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ACOG_d", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], "UK3CB_underbarrel_acc_grippod_t"]
 ]];
 _militaryLoadoutData setVariable ["grenadeLaunchers", [
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552_d", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd",30], [], ""],
-["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ACOG_d", ["UK3CB_BAF_556_30Rnd",30], [], ""]
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552_d", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""],
+["UK3CB_BAF_L85A3_UGL", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ACOG_d", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militaryLoadoutData setVariable ["carbines", [
-["UK3CB_BAF_L22A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_T1_high", [], [], ""],
-["UK3CB_BAF_L22A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", [], [], ""],
-["UK3CB_BAF_L22A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_xps3", [], [], ""],
-["UK3CB_BAF_L22A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_compm4", [], [], ""]
+["UK3CB_BAF_L22A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L22A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_xps3", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""],
+["UK3CB_BAF_L22A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_compm4", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""]
 ]];
 _militaryLoadoutData setVariable ["machineGuns", [
-["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", [], [], ""],
-["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", [], [], ""],
-["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", [], [], ""],
-["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", [], [], ""],
-["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", [], [], ""],
-["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", [], [], ""],
-["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", [], [], ""],
-["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", [], [], ""],
-["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", [], [], ""]
+["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110A2RIS", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", ["UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd", "UK3CB_BAF_556_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "RKSL_optic_LDS", ["UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "rhsusf_acc_eotech_552", ["UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd_T"], [], ""],
+["UK3CB_BAF_L110_762", "UK3CB_BAF_SFFH", "", "rhsusf_acc_ELCAN", ["UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd", "UK3CB_BAF_762_200Rnd_T"], [], ""]
 ]];
 _militaryLoadoutData setVariable ["marksmanRifles", [
-["UK3CB_BAF_L129A1", "", "", "UK3CB_BAF_TA648_308", ["UK3CB_BAF_762_L42A1_20Rnd",20], [], "UK3CB_underbarrel_acc_bipod"],
-["UK3CB_BAF_L129A1", "", "", "rhsusf_acc_M8541", ["UK3CB_BAF_762_L42A1_20Rnd",20], [], "UK3CB_underbarrel_acc_bipod"],
-["UK3CB_BAF_L129A1", "", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_762_L42A1_20Rnd",20], [], "UK3CB_underbarrel_acc_bipod"],
-["UK3CB_BAF_L129A1", "", "", "rhsusf_acc_LEUPOLDMK4_2", ["UK3CB_BAF_762_L42A1_20Rnd",20], [], "UK3CB_underbarrel_acc_bipod"]
+["UK3CB_BAF_L129A1", "", "", "UK3CB_BAF_TA648_308", ["UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd_T"], [], "UK3CB_underbarrel_acc_bipod"],
+["UK3CB_BAF_L129A1", "", "", "rhsusf_acc_M8541", ["UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd_T"], [], "UK3CB_underbarrel_acc_bipod"],
+["UK3CB_BAF_L129A1", "", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd_T"], [], "UK3CB_underbarrel_acc_bipod"],
+["UK3CB_BAF_L129A1", "", "", "rhsusf_acc_LEUPOLDMK4_2", ["UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd", "UK3CB_BAF_762_L42A1_20Rnd_T"], [], "UK3CB_underbarrel_acc_bipod"]
 ]];
 _militaryLoadoutData setVariable ["sniperRifles", [
-["UK3CB_BAF_L115A3_BL", "", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL", "", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL", "", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL_Ghillie", "", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL_Ghillie", "", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_338_5Rnd",5], [], ""],
-["UK3CB_BAF_L115A3_BL_Ghillie", "", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_338_5Rnd",5], [], ""]
+["UK3CB_BAF_L115A3_BL", "", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL", "", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL", "", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL_Ghillie", "", "", "RKSL_optic_PMII_525", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL_Ghillie", "", "", "RKSL_optic_PMII_312", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""],
+["UK3CB_BAF_L115A3_BL_Ghillie", "", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd", "UK3CB_BAF_338_5Rnd_Tracer"], [], ""]
 ]];
 _militaryLoadoutData setVariable ["sidearms", [
-["UK3CB_BAF_L105A2", "", "", "", ["UK3CB_BAF_9_15Rnd",15], [], ""],
-["UK3CB_BAF_L117A2", "", "", "", ["UK3CB_BAF_9_15Rnd",15], [], ""]
+["UK3CB_BAF_L105A2", "", "", "", ["UK3CB_BAF_9_15Rnd"], [], ""],
+["UK3CB_BAF_L117A2", "", "", "", ["UK3CB_BAF_9_15Rnd"], [], ""]
 ]];
 _militaryLoadoutData setVariable ["lightATLaunchers", [
 "UK3CB_BAF_NLAW_Launcher",
 "UK3CB_BAF_AT4_CS_AT_Launcher",
 "UK3CB_BAF_AT4_CS_AP_Launcher"
+]];
+_militaryLoadoutData setVariable ["ATLaunchers", [
+["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HE", "rhs_mag_maaws_HEDP"], [], ""]
+]];
+_militaryLoadoutData setVariable ["missileATLaunchers", [
+["UK3CB_BAF_Javelin_Launcher", "", "", "", ["UK3CB_BAF_Javelin_Mag"], [], ""]
 ]];
 
 ///////////////////////////////
@@ -346,17 +347,15 @@ _policeLoadoutData setVariable ["vests", ["V_TacVest_blk_POLICE"]];			//this lin
 _policeLoadoutData setVariable ["helmets", ["H_Cap_police"]];			//this line determines helmets for police loadouts -- Example: ["H_Beret_gen_F"] -- Array, can contain multiple assets
 
 _policeLoadoutData setVariable ["shotgun", [
-["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_eotech_xps3", ["UK3CB_BAF_12G_Pellets", 12], [], ""],
-["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_eotech_xps3", ["UK3CB_BAF_12G_Slugs", 12], [], ""],
-["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_T1_high", ["UK3CB_BAF_12G_Pellets", 12], [], ""],
-["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_T1_high", ["UK3CB_BAF_12G_Slugs", 12], [], ""]
-]];			//this line determines the rifles for police loadouts -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets_policeLoadoutData setVariable ["SMGs", ["rhsusf_weap_MP7A2"]];			//this line determines the SMGs for police loadouts -- Example: ["SMG_01_F", "SMG_01_Holo_F"] -- Array, can contain multiple assets_
+["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_eotech_xps3", ["UK3CB_BAF_12G_Pellets", "UK3CB_BAF_12G_Slugs"], [], ""],
+["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_T1_high", ["UK3CB_BAF_12G_Pellets", "UK3CB_BAF_12G_Slugs"], [], ""]
+]];
 _policeLoadoutData setVariable ["SMGs", [
 ["UK3CB_BAF_L91A1", "", "", "rhsusf_acc_T1_high", [], [], ""],
 ["UK3CB_BAF_L91A1", "", "", "rhsusf_acc_eotech_xps3", [], [], ""]
 ]];
 _policeLoadoutData setVariable ["sidearms", [
-["UK3CB_BAF_L105A2", "", "", "", ["UK3CB_BAF_9_15Rnd",15], [], ""]
+["UK3CB_BAF_L105A2", "", "", "", ["UK3CB_BAF_9_15Rnd"], [], ""]
 ]];
 
 ////////////////////////////////
@@ -367,30 +366,33 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch a
 _militiaLoadoutData setVariable ["uniforms", ["UK3CB_BAF_U_Smock_DPMW"]];		//this line determines uniforms for militia loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
 _militiaLoadoutData setVariable ["vests", ["UK3CB_BAF_V_PLCE_Webbing_DPMW"]];			//this line determines vests for militia loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
 _militiaLoadoutData setVariable ["backpacks", ["UK3CB_BAF_B_Kitbag_OLI", "UK3CB_BAF_B_Carryall_OLI", "UK3CB_BAF_B_Bergen_OLI_Rifleman_A", "UK3CB_BAF_B_Bergen_OLI_Rifleman_B"]];		//this line determines backpacks for militia loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
-_militiaLoadoutData setVariable ["helmets", ["UK3CB_BAF_H_Beret_TYR", "UK3CB_BAF_H_Wool_Hat", "UK3CB_BAF_H_Earphone", "UK3CB_BAF_H_Headset_PRR"]];		//this line determines helmets for police loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
+_militiaLoadoutData setVariable ["helmets", ["UK3CB_BAF_H_Wool_Hat"]];
 
 _militiaLoadoutData setVariable ["rifles", [
-["UK3CB_BAF_L85A2", "UK3CB_BAF_SFFH", "", "UK3CB_BAF_SUSAT", ["UK3CB_BAF_556_30Rnd",30], [], ""]
+["UK3CB_BAF_L85A2", "UK3CB_BAF_SFFH", "", "UK3CB_BAF_SUSAT", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["grenadeLaunchers", [
-["UK3CB_BAF_L85A2_UGL", "UK3CB_BAF_SFFH", "", "UK3CB_BAF_SUSAT", ["UK3CB_BAF_556_30Rnd",30], [], ""]
+["UK3CB_BAF_L85A2_UGL", "UK3CB_BAF_SFFH", "", "UK3CB_BAF_SUSAT", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], ["UK3CB_BAF_1Rnd_HE_Grenade_Shell", "UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", "UK3CB_BAF_1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 
 _militiaLoadoutData setVariable ["carbines", [
-["UK3CB_BAF_L22", "", "", "", [], [], ""]
+["UK3CB_BAF_L22", "", "", "", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["machineGuns", [
-["UK3CB_BAF_L7A2", "", "", "", ["UK3CB_BAF_762_100Rnd",100], [], ""]
+["UK3CB_BAF_L7A2", "", "", "", ["UK3CB_BAF_762_100Rnd"], ["UK3CB_BAF_762_100Rnd", "UK3CB_BAF_762_100Rnd_T"], ""]
 ]];
 _militiaLoadoutData setVariable ["marksmanRifles", [
-["UK3CB_BAF_L86A3", "UK3CB_BAF_SFFH", "UK3CB_BAF_LLM_IR_Black", "UK3CB_BAF_SUSAT", ["UK3CB_BAF_556_30Rnd",30], [], ""]
+["UK3CB_BAF_L86A3", "UK3CB_BAF_SFFH", "UK3CB_BAF_LLM_IR_Black", "UK3CB_BAF_SUSAT", ["UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd", "UK3CB_BAF_556_30Rnd_T"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["sidearms", [
-["UK3CB_BAF_L9A1", "", "", "", ["UK3CB_BAF_9_13Rnd",13], [], ""]
+["UK3CB_BAF_L9A1", "", "", "", ["UK3CB_BAF_9_13Rnd"], [], ""]
 ]];
 
 _militiaLoadoutData setVariable ["lightATLaunchers", [
 ["rhs_weap_m72a7"]
+]];
+_militiaLoadoutData setVariable ["ATLaunchers", [
+["rhs_weap_maaws", "", "", "", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HE", "rhs_mag_maaws_HEDP"], [], ""]
 ]];
 //////////////////////////
 //    Misc Loadouts     //
@@ -424,11 +426,11 @@ private _squadLeaderTemplate = {
 	["helmets"] call _fnc_setHelmet;
 	[["SLvests", "vests"] call _fnc_fallback] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
-	//TODO - Long range radios
+
 	["backpacks"] call _fnc_setBackpack;
 
-	[["grenadeLaunchers", "rifles", "shotgun"] call _fnc_fallback] call _fnc_setPrimary;
-	["primary", 5] call _fnc_addMagazines;
+	[selectRandom ["grenadeLaunchers", "rifles"]] call _fnc_setPrimary;
+	["primary", 6] call _fnc_addMagazines;
 	["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
@@ -484,7 +486,7 @@ private _medicTemplate = {
 	[["Medbackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
 	["carbines"] call _fnc_setPrimary;
-	["primary", 5] call _fnc_addMagazines;
+	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
 	["handgun", 2] call _fnc_addMagazines;
@@ -509,7 +511,7 @@ private _grenadierTemplate = {
 	["backpacks"] call _fnc_setBackpack;
 
 	["grenadeLaunchers"] call _fnc_setPrimary;
-	["primary", 5] call _fnc_addMagazines;
+	["primary", 6] call _fnc_addMagazines;
 	["primary", 10] call _fnc_addAdditionalMuzzleMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
@@ -536,8 +538,8 @@ private _explosivesExpertTemplate = {
 	[["Expbackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
 	["rifles"] call _fnc_setPrimary;
-	["primary", 5] call _fnc_addMagazines;
-	//TODO: How to add underslung grenade mags.
+	["primary", 6] call _fnc_addMagazines;
+
 
 	["sidearms"] call _fnc_setHandgun;
 	["handgun", 2] call _fnc_addMagazines;
@@ -568,7 +570,7 @@ private _engineerTemplate = {
 	[["Engibackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
 	["carbines"] call _fnc_setPrimary;
-	["primary", 5] call _fnc_addMagazines;
+	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
 	["handgun", 2] call _fnc_addMagazines;
@@ -626,9 +628,9 @@ private _atTemplate = {
 	["backpacks"] call _fnc_setBackpack;
 
 	["rifles"] call _fnc_setPrimary;
-	["primary", 5] call _fnc_addMagazines;
+	["primary", 6] call _fnc_addMagazines;
 
-	[selectRandom ["ATLaunchers", "missileATLaunchers"]] call _fnc_setLauncher;
+	[["missileATLaunchers", "ATLaunchers"] call _fnc_fallback] call _fnc_setLauncher;
 	//TODO - Add a check if it's disposable.
 	["launcher", 3] call _fnc_addMagazines;
 
@@ -656,7 +658,7 @@ private _aaTemplate = {
 	[["AAbackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
 	["rifles"] call _fnc_setPrimary;
-	["primary", 5] call _fnc_addMagazines;
+	["primary", 6] call _fnc_addMagazines;
 
 	["AALaunchers"] call _fnc_setLauncher;
 	//TODO - Add a check if it's disposable.
@@ -719,7 +721,7 @@ private _marksmanTemplate = {
 	["items_marksman_extras"] call _fnc_addItemSet;
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 3] call _fnc_addItem;
+	["smokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;
@@ -745,7 +747,7 @@ private _sniperTemplate = {
 	["items_sniper_extras"] call _fnc_addItemSet;
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 3] call _fnc_addItem;
+	["smokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;
@@ -762,7 +764,7 @@ private _policeTemplate = {
 
 
 	[selectRandom ["SMGs", "shotgun"]] call _fnc_setPrimary;
-	["primary", 5] call _fnc_addMagazines;
+	["primary", 4] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
 	["handgun", 2] call _fnc_addMagazines;
@@ -783,7 +785,7 @@ private _crewTemplate = {
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
-	[["SMGs", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
+	["carbines"] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
@@ -834,9 +836,9 @@ private _prefix = "SF";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
-	["Medic", _medicTemplate],
-	["Engineer", _engineerTemplate],
-	["ExplosivesExpert", _explosivesExpertTemplate],
+	["Medic", _medicTemplate, [["medic", true]]],
+	["Engineer", _engineerTemplate, [["engineer", true]]],
+	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
 	["Grenadier", _grenadierTemplate],
 	["LAT", _latTemplate],
 	["AT", _atTemplate],
@@ -863,9 +865,9 @@ private _prefix = "military";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
-	["Medic", _medicTemplate],
-	["Engineer", _engineerTemplate],
-	["ExplosivesExpert", _explosivesExpertTemplate],
+	["Medic", _medicTemplate, [["medic", true]]],
+	["Engineer", _engineerTemplate, [["engineer", true]]],
+	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
 	["Grenadier", _grenadierTemplate],
 	["LAT", _latTemplate],
 	["AT", _atTemplate],
@@ -882,7 +884,7 @@ private _unitTypes = [
 ////////////////////////
 private _prefix = "police";
 private _unitTypes = [
-	["SquadLeader", _squadLeaderTemplate],
+	["SquadLeader", _policeTemplate],
 	["Standard", _policeTemplate]
 ];
 
@@ -895,9 +897,9 @@ private _prefix = "militia";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
-	["Medic", _medicTemplate],
-	["Engineer", _engineerTemplate],
-	["ExplosivesExpert", _explosivesExpertTemplate],
+	["Medic", _medicTemplate, [["medic", true]]],
+	["Engineer", _engineerTemplate, [["engineer", true]]],
+	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
 	["Grenadier", _grenadierTemplate],
 	["LAT", _latTemplate],
 	["AT", _atTemplate],

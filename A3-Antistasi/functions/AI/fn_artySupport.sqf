@@ -373,7 +373,8 @@ else { roundsX = 1; };
 
 waitUntil { sleep 1; !(dialog) };
 
-if (isNil "roundsX") exitWith
+if (isNil "roundsX")
+exitWith
 {
 	if !(isNil "_mrkFinal") then { deleteMarkerLocal _mrkFinal; };
 	if !(isNil "_mrkFinal2") then { deleteMarkerLocal _mrkFinal2; };
@@ -474,17 +475,13 @@ if !(isNil "_mrkFinal") then { deleteMarkerLocal _mrkFinal; };
 
 if !(isNil "_mrkFinal2") then { deleteMarkerLocal _mrkFinal2; };
 
-if (_forcedX)
-then
-{
-	sleep 20;
+if !(_forcedX) exitWith {};
 
-	if (_markerX in forcedSpawn)
-	then
-	{
-		forcedSpawn = forcedSpawn - [_markerX];
-		publicVariable "forcedSpawn";
-	};
-};
+sleep 20;
+
+if !(_markerX in forcedSpawn) exitWith {};
+
+forcedSpawn = forcedSpawn - [_markerX];
+publicVariable "forcedSpawn";
 
 /* -------------------------------------------------------------------------- */

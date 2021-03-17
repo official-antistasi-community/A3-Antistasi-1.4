@@ -26,10 +26,9 @@ params
     ["_destination", [0,0,0], [[], ""]],
     ["_group", grpNull, [grpNull]]
 ];
+#include "..\..\Includes\LogMacros.inc"
 
-private _fileName = "WPCreate";
-
-[3, format ["Creating waypoints for group %1 from %2 to %3", _group, _origin, _destination], _fileName] call A3A_fnc_log;
+Debug_3("Creating waypoints for group %1 from %2 to %3", _group, _origin, _destination);
 
 private _posOrigin = if(_origin isEqualType "") then {getMarkerPos _origin} else {_origin};
 private _posDestination = if(_destination isEqualType "") then {getMarkerPos _destination} else {_destination};

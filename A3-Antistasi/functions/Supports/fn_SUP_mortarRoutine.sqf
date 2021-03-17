@@ -15,8 +15,7 @@ params ["_mortar", "_crewGroup", "_supportName", "_side", "_sleepTime"];
     Returns:
         Nothing
 */
-
-private _fileName = "SUP_mortarRoutine";
+#include "..\..\Includes\LogMacros.inc"
 
 //Sleep to simulate the time it would need to set the support up
 sleep _sleepTime;
@@ -96,11 +95,7 @@ while {_timeAlive > 0} do
             private _target = _targetList deleteAt 0;
             server setVariable [format ["%1_targets", _supportName], _targetList, true];
 
-            [
-                3,
-                format ["Next target is %1", _target],
-                _fileName
-            ] call A3A_fnc_log;
+            Debug_1("Next target is %1", _target);
 
             //Parse targets
             private _targetParams = _target select 0;
@@ -161,7 +156,7 @@ while {_timeAlive > 0} do
         {_mortar getVariable ["Stolen", false]}}
     ) exitWith
     {
-        [2, format ["%1 has been destroyed or crew killed, aborting routine", _supportName], _fileName] call A3A_fnc_log;
+        Info_1("%1 has been destroyed or crew killed, aborting routine", _supportName);
         if(_side == Occupants) then
         {
             [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige", 2];
@@ -174,7 +169,7 @@ while {_timeAlive > 0} do
 
     if (!(_mortar getVariable "CurrentlyFiring") && (_numberOfRounds <= 0)) exitWith
     {
-        [2, format ["%1 has no more rounds left to fire, aborting routine", _supportName], _fileName] call A3A_fnc_log;
+        Info_1("%1 has no more rounds left to fire, aborting routine", _supportName);
     };
 
     sleep 5;

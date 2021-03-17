@@ -1,5 +1,5 @@
-private _fileName = "fn_initPetros";
-[2,"initPetros started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\LogMacros.inc"
+Info("initPetros started");
 scriptName "fn_initPetros";
 removeHeadgear petros;
 removeGoggles petros;
@@ -108,4 +108,4 @@ private _removeProblematicAceInteractions = {
 //This'll prevent it breaking in the future.
 [petros, _removeProblematicAceInteractions] remoteExec ["call", 0, petros];
 
-[2,"initPetros completed",_fileName] call A3A_fnc_log;
+Info("initPetros completed");

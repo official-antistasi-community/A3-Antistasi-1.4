@@ -1,8 +1,7 @@
 params ["_strikePlane", "_target", "_supportName"];
-
-private _fileName = "SUP_CASRun";
+#include "..\..\Includes\LogMacros.inc"
 //Take over control
-[3, format ["%1 has started gun run", _supportName], _fileName] call A3A_fnc_log;
+Debug_1("%1 has started gun run", _supportName);
 _strikePlane setVariable ["OnRun", true];
 private _supportMarker = format ["%1_coverage", _supportName];
 
@@ -180,7 +179,7 @@ while {_interval < 0.95 && alive _strikePlane && {!(isNull (driver _strikePlane)
 {
     if(!(alive _target) || {!(_strikePlane getVariable ["InArea", false]) || {!(getPos _target inArea _supportMarker)}}) exitWith
     {
-        [3, format ["%1 target eliminated or escaped, returning to loitering", _supportName], _fileName] call A3A_fnc_log;
+        Debug_1("%1 target eliminated or escaped, returning to loitering", _supportName);
         _strikePlane setVariable ["currentTarget", objNull];
     };
 
@@ -207,7 +206,7 @@ while {_interval < 0.95 && alive _strikePlane && {!(isNull (driver _strikePlane)
 
         if(terrainIntersect [getPosASL _strikePlane, _targetPos]) exitWith
         {
-            [3, format ["%1 gun way is blocked, recalculating", _supportName], _fileName] call A3A_fnc_log;
+            Debug_1("%1 gun way is blocked, recalculating", _supportName);
             _strikePlane setVariable ["needsRecalculation", true];
         };
     };
@@ -279,6 +278,6 @@ waitUntil
     sleep 0.5;
     ((getPos _strikePlane) select 2) > 450
 };
-[3, format ["Gun run for %1 finished, returning control", _supportName], _fileName] call A3A_fnc_log;
+Debug_1("Gun run for %1 finished, returning control", _supportName);
 _strikePlane setVariable ["OnRun", false];
 _strikePlane setVariable ["needsRecalculation", true];

@@ -1,6 +1,6 @@
-private _filename = "fn_savePlayer";
+#include "..\..\Includes\LogMacros.inc"
 if (!isServer) exitWith {
-	[1, "Miscalled server-only function", _filename] call A3A_fnc_log;
+    Error("Miscalled server-only function");
 };
 
 params ["_playerId", "_playerUnit", ["_globalSave", false]];
@@ -8,28 +8,28 @@ params ["_playerId", "_playerUnit", ["_globalSave", false]];
 _playerUnit = _playerUnit getVariable ["owner", _playerUnit];		// save the real player, not remote controlled AIs
 
 if (isNil "_playerId" || {_playerId == ""}) exitWith {
-	[1, format ["Not saving player of unit %1 due to missing UID", _playerUnit], _filename] call A3A_fnc_log;
+    Error_1("Not saving player of unit %1 due to missing UID", _playerUnit);
 };
 
 if (isNil "_playerUnit" || { isNull _playerUnit }) exitWith {
-	[1, format ["Not saving player %1 due to missing unit", _playerId], _filename] call A3A_fnc_log;
+    Error_1("Not saving player %1 due to missing unit", _playerId);
 };
 
 //Only save rebel players.
 if (side group _playerUnit != teamPlayer && side group _playerUnit != sideUnknown) exitWith {
-	[2, format ["Not saving player %1 due to them being on the wrong team.", _playerId], _filename] call A3A_fnc_log;
+    Info_1("Not saving player %1 due to them being on the wrong team.", _playerId);
 };
 
 //Used to disable saving while the player initialises. Otherwise they might disconnect, and overwrite their own save prematurely.
 if !(_playerUnit getVariable ['canSave', false]) exitWith {
-	[2, format ["Not saving player %1 due to canSave being false.", _playerId], _filename] call A3A_fnc_log;
+    Info_1("Not saving player %1 due to canSave being false.", _playerId);
 };
 
 if (isNil { _playerUnit getVariable "moneyX" }) exitWith {
-	[1, format ["Not saving player %1 due to missing variables. What happened here?", _playerId], _filename] call A3A_fnc_log;
+    Error_1("Not saving player %1 due to missing variables. What happened here?", _playerId);
 };
 
-[2, format ["Saving player %1 on side %2", _playerId, side group _playerUnit], _filename] call A3A_fnc_log;
+Info_2("Saving player %1 on side %2", _playerId, side group _playerUnit);
 
 // Add player to saved list so that we can find the data for deletion
 if !(_playerId in savedPlayers) then {
@@ -38,10 +38,10 @@ if !(_playerId in savedPlayers) then {
 };
 
 private _shouldStripLoadout = false;
-if (!(alive _playerUnit) || (_playerUnit getVariable ["incapacitated", false])) then 
+if (!(alive _playerUnit) || (_playerUnit getVariable ["incapacitated", false])) then
 {
 	_shouldStripLoadout = true;
-	[2, format ["Stripping saved loadout of player %1 due to saving while dead or unconcious", _playerId], _filename] call A3A_fnc_log;
+    Info_1("Stripping saved loadout of player %1 due to saving while dead or unconcious", _playerId);
 };
 
 if (_shouldStripLoadout) then {
@@ -60,7 +60,7 @@ if (isMultiplayer) then
 	_totalMoney = _playerUnit getVariable ["moneyX", 0];
 	if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
 
-	if (_globalSave) then 
+	if (_globalSave) then
 	{
 		// Add value of live AIs owned by player
 		// plus cost of vehicles driven by player-owned units, including self
@@ -84,7 +84,7 @@ if (isMultiplayer) then
 	};
 	[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
 
-	[2, format ["Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney, count _garage], _filename] call A3A_fnc_log;
+    Info_4("Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney, count _garage);
 };
 
 if (!_globalSave) then { saveProfileNamespace };

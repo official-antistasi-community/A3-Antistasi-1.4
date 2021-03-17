@@ -10,7 +10,7 @@
     Returns:
         Nothing
 */
-
+#include "..\..\Includes\LogMacros.inc"
 while {true} do
 {
     sleep 60;
@@ -37,7 +37,7 @@ while {true} do
     prestigeIsChanging = false;
     [] call A3A_fnc_calculateAggression;
 
-    [3, format ["Occupants:%1 Invaders:%2 Warlevel:%3", aggressionOccupants, aggressionInvaders, tierWar], "aggressionUpdateLoop"] call A3A_fnc_log;
+    Debug_3("Occupants:%1 Invaders:%2 Warlevel:%3", aggressionOccupants, aggressionInvaders, tierWar);
 
     if(gameMode != 4) then
     {

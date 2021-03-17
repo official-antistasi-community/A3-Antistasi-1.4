@@ -1,15 +1,15 @@
-private _filename = "fn_cleanserVeh";
+#include "..\..\Includes\LogMacros.inc"
 params ["_veh"];
 
 sleep 5;
 
 if (isNull _veh) exitWith {
-	[3, format ["%1 is null on spawn", typeof _veh], _filename] call A3A_fnc_log;
+    Debug_1("%1 is null on spawn", typeof _veh);
 };
 
 if (!alive _veh) then
 {
-	[3, format ["%1 destroyed on spawn", typeof _veh], _filename] call A3A_fnc_log;
+    Debug_1("%1 destroyed on spawn", typeof _veh);
 	_veh hideObjectGlobal true;
 	deleteVehicle _veh;
 };

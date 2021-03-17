@@ -9,8 +9,7 @@ params ["_base", "_target", ["_isAir", false], ["_bypass", false]];
 *   Returns:
 *     _unitsSend : ARRAY : The units in the correct format
 */
-
-private _fileName = "fn_selectReinfUnits";
+#include "..\..\Includes\LogMacros.inc"
 
 private _maxUnitSend = garrison getVariable [format ["%1_recruit", _base], 0];
 if(_maxUnitSend < 3 && {!_bypass}) exitWith
@@ -30,9 +29,8 @@ private _maxVehiclesNeeded = _maxRequested select 0;
 private _maxCargoSpaceNeeded = _maxRequested select 2;
 private _currentUnitCount = 0;
 
-[4, format ["Gathered data for unit selection, available are %1, %3 cargo units needed", _maxUnitSend, _maxCargoSpaceNeeded], _fileName] call A3A_fnc_log;
-[4, format ["Reinforcments requested from %1 for: %2", _target, _reinf], _fileName] call A3A_fnc_log;
-
+Verbose_2("Gathered data for unit selection, available are %1, %2 cargo units needed", _maxUnitSend, _maxCargoSpaceNeeded);
+Verbose_2("Reinforcments requested from %1 for: %2", _target, _reinf);
 
 private _finishedSelection = false;
 
@@ -77,7 +75,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
         }
         else
         {
-            [1, format ["Tried to delete reinf vehicle, but couldn't find it after selection, vehicle was %1!", _currentSelected], _fileName] call A3A_fnc_log;
+            Error_1("Tried to delete reinf vehicle, but couldn't find it after selection, vehicle was %1!", _currentSelected);
         };
     };
 
@@ -90,11 +88,11 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
 
         if(_neededCargoSpace == 0) then
         {
-            [1, "_neededCargoSpace is 0, something went really wrong!", _fileName] call A3A_fnc_log;
+            Error("_neededCargoSpace is 0, something went really wrong!");
         }
         else
         {
-            [4, format ["No reinf vehicle found, selecting not needed transport vehicle, needs space for %1 passengers", _neededCargoSpace], _fileName] call A3A_fnc_log;
+            Verbose_1("No reinf vehicle found, selecting not needed transport vehicle, needs space for %1 passengers", _neededCargoSpace);
             if (_isAir) then
             {
                 if (_neededCargoSpace <= 4) then
@@ -105,7 +103,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
                 {
                     _currentSelected = if (_side ==	Occupants) then {selectRandom vehNATOTransportHelis} else {selectRandom vehCSATTransportHelis};
                 };
-                [4, format ["Selected %1 as an air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
+                Verbose_1("Selected %1 as an air transport vehicle", _currentSelected);
             }
             else
             {
@@ -127,7 +125,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
                         _currentSelected = if(_side == Occupants) then {selectRandom (vehNATOTrucks + vehNATOTransportHelis)} else {selectRandom (vehCSATTrucks + vehCSATTransportHelis)};
                     };
                 };
-                [4, format ["Selected %1 as an ground or air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
+                Verbose_1("Selected %1 as an ground or air transport vehicle", _currentSelected);
             };
             _seatCount = [_currentSelected, true] call BIS_fnc_crewCount;
             _crewSeats = [_currentSelected, false] call BIS_fnc_crewCount;
@@ -173,7 +171,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
             if(_abort) exitWith {};
         };
         _unitsSend pushBack [_currentSelected, _crew, _cargo];
-        [3, format ["Units selected, Vehicle is %1, crew is %2, cargo is %3", _currentSelected, _crew, _cargo], _fileName] call A3A_fnc_log;
+        Debug_3("Units selected, Vehicle is %1, crew is %2, cargo is %3", _currentSelected, _crew, _cargo);
     }
     else
     {

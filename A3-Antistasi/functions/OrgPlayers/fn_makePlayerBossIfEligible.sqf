@@ -1,15 +1,14 @@
-private _filename = "fn_makePlayerBossIfEligible";
-
+#include "..\..\Includes\LogMacros.inc"
 params ["_player"];
 
-[3, format ["Attempting to make %1 the boss", _player], _filename] call A3A_fnc_log;
+Debug_1("Attempting to make %1 the boss", _player);
 
 if (_player getVariable ["eligible",false] && (side (group _player) == teamPlayer) && [_player] call A3A_fnc_isMember) exitWith {
-	[3, "Player is eligible, making them the boss", _filename] call A3A_fnc_log;
+	Debug("Player is eligible, making them the boss");
 	[_player] call A3A_fnc_theBossTransfer;
 	true;
 };
 
-[3, "Player is not eligible, unable to make them the boss", _filename] call A3A_fnc_log;
+Debug("Player is not eligible, unable to make them the boss");
 
 false;

@@ -18,9 +18,9 @@
     Example: [_object] call A3A_fnc_logistics_addLoadAction;
 */
 params ["_object", ["_action", "load"]];
-
+#include "..\..\Includes\LogMacros.inc"
 if (isNil "A3A_logistics_vehicleHardpoints") exitWith {
-    [1, "Logistics nodes not initialized", "fn_logistics_addLoadAction.sqf"] call A3A_fnc_log;
+    Error("Logistics nodes not initialized");
     nil
 };
 

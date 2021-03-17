@@ -1,5 +1,5 @@
 params [["_message", ""]];
-private _filename = "fn_logPerformance";
+#include "..\..\Includes\LogMacros.inc"
 private _countGroups = 0;
 private _countRebels = 0;
 private _countInvaders = 0;
@@ -28,11 +28,8 @@ private _countCiv = 0;
 	};
 } forEach allGroups;
 
-
-[2,
-format [
-	"%10 ServerFPS:%1, Players:%11, DeadUnits:%2, AllUnits:%3, UnitsAwareOfEnemies:%14, AllVehicles:%4, WreckedVehicles:%12, Entities:%13, GroupsRebels:%5, GroupsInvaders:%6, GroupsOccupants:%7, GroupsCiv:%8, GroupsTotal:%9, GroupsCombatBehaviour:%15, Faction Cash:%16, HR:%17"
-	,diag_fps
+private _performanceLog = Format ["%10 ServerFPS:%1, Players:%11, DeadUnits:%2, AllUnits:%3, UnitsAwareOfEnemies:%14, AllVehicles:%4, WreckedVehicles:%12, Entities:%13, GroupsRebels:%5, GroupsInvaders:%6, GroupsOccupants:%7, GroupsCiv:%8, GroupsTotal:%9, GroupsCombatBehaviour:%15, Faction Cash:%16, HR:%17"
+    ,diag_fps
 	,(count alldead)
 	,count allunits
 	,count vehicles
@@ -49,5 +46,5 @@ format [
 	,{behaviour leader _x == "COMBAT"} count allGroups
 	,server getVariable "resourcesFIA"
 	,server getVariable "hr"
-]
-, _filename] call A3A_fnc_log;
+];
+Info(_performanceLog);

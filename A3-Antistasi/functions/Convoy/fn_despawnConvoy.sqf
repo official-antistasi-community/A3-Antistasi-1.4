@@ -1,6 +1,6 @@
 params ["_convoyID", "_unitObjects", "_convoyPos", "_target", "_markerArray", "_convoyType", "_convoySide"];
-
-[2, format ["Despawning convoy %1", _convoyID], "fn_despawnConvoy"] call A3A_fnc_log;
+#include "..\..\Includes\LogMacros.inc"
+Info_1("Despawning convoy %1", _convoyID);
 
 // Exit any vehicle's FSM if it's still running
 {

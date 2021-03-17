@@ -18,15 +18,14 @@ Dependencies:
 Example:
     [] call A3A_fnc_loadNavGrid;
 */
-
-private _fileName = "fn_loadNavGrid";
+#include "..\..\Includes\LogMacros.inc"
 
 if !(isNil "roadDataDone") exitWith
 {
-    [1, "Nav grid already created, cant load it twice!", _fileName] call A3A_fnc_log;
+    Error("Nav grid already created, cant load it twice!");
 };
 
-[2, "Started loading nav grid", _fileName] call A3A_fnc_log;
+Info("Started loading nav grid");
 
 private _path = format ["Navigation\%1NavGrid.sqf", toLower worldName];
 private _abort = false;
@@ -37,8 +36,8 @@ try
 }
 catch
 {
-	[1, format ["Road database at %1 could not be loaded", _path], _fileName] call A3A_fnc_log;
-    [1, "Nav Grid with the name format navGrid<WorldName> are no longer compatible! DO NOT LOAD THEM!", _fileName] call A3A_fnc_log;
+    Error_1("Road database at %1 could not be loaded", _path);
+    Error("Nav Grid with the name format navGrid<WorldName> are no longer compatible! DO NOT LOAD THEM!");
 	_abort = true;
 };
 if(_abort) exitWith {};
@@ -54,4 +53,4 @@ if(_abort) exitWith {};
 
 roadDataDone = true;
 
-[2, "Finished loading nav grid", _fileName] call A3A_fnc_log;
+Info("Finished loading nav grid");

@@ -1,10 +1,10 @@
 params ["_convoyID", "_units", "_pos", "_route", "_markers", "_convoySide", "_convoyType", "_maxSpeed", "_isAir"];
+#include "..\..\Includes\LogMacros.inc"
 
-private _fileName = "spawnConvoy";
 if(count (_route select 1) != 3) exitWith
 {
-    [3, format ["Input was %1", str _this], _fileName] call A3A_fnc_log;
-    [3, "Path is broken, abort", _fileName] call A3A_fnc_log;
+    Debug_1("Input was %1", str _this);
+    Debug("Path is broken, abort");
 };
 
 private ["_targetPos", "_dir", "_convoyMarker"];
@@ -35,7 +35,7 @@ _pos = _pos vectorAdd [0,0,0.1];
 _dir = _pos getDir (_route select 0);
 if(isNil "_dir") exitWith
 {
-    [3, format ["Dir uncalced, Pos was %1, route was %1", _pos, (_route select 0)], _fileName] call A3A_fnc_log;
+    Debug_2("Dir uncalced, Pos was %1, route was %2", _pos, (_route select 0));
     _dir = 0;
 };
 private _targetDir = _pos vectorFromTo _targetPos;
@@ -45,7 +45,7 @@ private _createdUnits = [];
 private _airVehicles = [];
 private _landVehicles = [];
 
-[2, format ["Spawning in convoy %1", _convoyID], "fn_spawnConvoy"] call A3A_fnc_log;
+Info_1("Spawning in convoy %1", _convoyID);
 [_units, "Convoy Units"] call A3A_fnc_logArray;
 
 for "_i" from 0 to ((count _units) - 1) do
@@ -82,7 +82,7 @@ for "_i" from 0 to ((count _units) - 1) do
 		waituntil {sleep 1; ((_vehicle distance2d _pos) > 15) or ((time - _lastSpawn) > 20)};
 	}
 	else {
-		[3, "Convoy line has no vehicle, unhandled", "fn_spawnConvoy"] call A3A_fnc_log;
+        Debug("Convoy line has no vehicle, unhandled");
 	};
 };
 
@@ -107,7 +107,7 @@ while {true} do
 			_createdUnits deleteAt _i;
 			_airVehicles deleteAt (_airVehicles find _veh);
 			_landVehicles deleteAt (_landVehicles find _veh);
-			[3, format["Vehicle FSM result %1, rem units %2", _result, count _createdUnits], "fn_spawnConvoy"] call A3A_fnc_log;
+            Debug_2("Vehicle FSM result %1, rem units %2", _result, count _createdUnits);
 		}
 		else {
 			if ([distanceSPWN*1.2, 1, getPos _veh, teamPlayer] call A3A_fnc_distanceUnits) then { _despawn = false };
@@ -118,7 +118,7 @@ while {true} do
 	if (count _createdUnits == 0) exitWith {
 		deleteMarker _convoyMarker;
 		server setVariable [format ["Con%1", _convoyID], nil, true];
-		[2, format ["%1 Convoy [%2]: Terminated", _convoyType, _convoyID], "fn_spawnConvoy"] call A3A_fnc_log;
+        Info_2("%1 Convoy [%2]: Terminated", _convoyType, _convoyID);
 
 		if (_failure > 0) then {
 			// At least one vehicle failed, add base/target to killZones to avoid repetition

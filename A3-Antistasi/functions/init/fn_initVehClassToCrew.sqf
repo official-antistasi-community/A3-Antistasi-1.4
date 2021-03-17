@@ -32,7 +32,7 @@ Example:
         private _crewLoadout = A3A_vehClassToCrew getOrDefault [_typeX,[NATOGrunt, CSATGrunt, staticCrewTeamPlayer, "C_Man_1"]] select _sideIndex;
         //        ^-returned loadout to be used                        ^-----Default load-outs if veh not in templates-----^
 */
-private _filename = "functions/init/fn_initVehClassToCrew.sqf";
+#include "..\..\Includes\LogMacros.inc"
 
 // ⬇ EDIT HERE 👇 TO ADD TEMPLATE LOAD-OUTS ⬇
 private _allVehClassToCrew = [
@@ -60,12 +60,12 @@ reverse _allVehClassToCrew;     // Does it in reverse so that items on the top o
 {
     private _currentVehClassToCrew = _x;
     if !((_currentVehClassToCrew#0) isEqualType _const_emptyArray) then {
-        [1,"VehicleClassesNotArray | A vehicle category was not an array, but was instead '"+str (_currentVehClassToCrew#0)+"'. Please fix this.",_filename] call A3A_fnc_log;
+        Error("VehicleClassesNotArray | A vehicle category was not an array, but was instead '"+str (_currentVehClassToCrew#0)+"'. Please fix this.");
         assert false;
     } else {
         {
             if !(_x isEqualType _const_emptyString) then {
-                [1,"VehicleClassNotString | A vehicle was not a classname, but was instead '"+str _x+"'. Please fix this.",_filename] call A3A_fnc_log;
+                Error("VehicleClassNotString | A vehicle was not a classname, but was instead '"+str _x+"'. Please fix this.");
                 assert false;
             } else {
                 _vehClassToCrew set [_x,_currentVehClassToCrew#1];      // _currentVehClassToCrew#1 is all crew load-outs that should be worn in this category's vehicles.

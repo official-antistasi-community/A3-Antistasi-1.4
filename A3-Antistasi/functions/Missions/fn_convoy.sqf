@@ -1,6 +1,7 @@
 //Mission: Capture/destroy the convoy
 if (!isServer and hasInterface) exitWith {};
 params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""]];
+#include "..\..\Includes\LogMacros.inc"
 
 private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
@@ -306,8 +307,7 @@ private _fnc_applyResults =
 		killZones setVariable [_mrkOrigin,_killZones,true];
 	};
 
-	private _eventText = format ["Rebels %1 a %2 convoy mission", ["lost", "won"] select _success, _type];
-	[3, _eventText, "aggroEvent"] call A3A_fnc_log;
+    Debug_2("Rebels %1 a %2 convoy mission", ["lost", "won"] select _success, _type);
 };
 
 if (_convoyType == "Ammunition") then

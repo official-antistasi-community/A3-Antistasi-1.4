@@ -1,5 +1,5 @@
 params ["_impactPosition", "_sleepTime", "_supportName", "_side"];
-
+#include "..\..\Includes\LogMacros.inc"
 //Hugely inspired and partly copied from ALIAS https://www.armaholic.com/page.php?id=32556
 
 /*	An orbital attack, resulting in an devastating beam
@@ -64,7 +64,7 @@ _strikeObject enableSimulation false;
 private _nearObjects = (ASLtoAGL _impactPosition) nearObjects ["Static", 200];
 _nearObjects append ((ASLtoAGL _impactPosition) nearEntities [["Man", "AllVehicles"], 250]);
 _nearObjects append ( nearestTerrainObjects [ASLtoAGL _impactPosition, ["BUSH", "TREE", "WALL", "FENCE", "POWER LINES", "FUELSTATION"], 150, true]);
-[2, format ["Found %1 objects to destroy", count _nearObjects], "orbitalStrikeRoutine"] call A3A_fnc_log;
+Info_1("Found %1 objects to destroy", count _nearObjects);
 private _destroyCounter = 0;
 {
 

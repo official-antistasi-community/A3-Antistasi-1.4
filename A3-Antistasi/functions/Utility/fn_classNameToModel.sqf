@@ -19,7 +19,7 @@
 
     License: MIT License
 */
-
+#include "..\..\Includes\LogMacros.inc"
 params [["_className", "", [""]]];
-if !(isClass (configFile/"CfgVehicles"/_className)) exitWith { [1, "Invalid classname: " + _classname, "fn_classNameToModel.sqf"] call A3A_fnc_log; "N/A" };
+if !(isClass (configFile/"CfgVehicles"/_className)) exitWith { Error("Invalid classname: " + _classname); "N/A" };
 getText (configFile >> "CfgVehicles" >> _className >> "model");

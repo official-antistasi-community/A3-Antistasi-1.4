@@ -9,7 +9,7 @@ params
     ["_convoyType", "PATROL", [""]],
     ["_convoySide", sideEnemy, [sideEnemy]]
 ];
-
+#include "..\..\Includes\LogMacros.inc"
 /*  Creates a convoy for simulated movement
 *   Params:
 *     _convoyID: NUMBER; the unique convoy ID
@@ -28,7 +28,7 @@ if (isNil "_origin") exitWith {diag_log format ["CreateConvoy[%1]: No origin giv
 if (isNil "_destination") exitWith {diag_log format ["CreateConvoy[%1]: No destination given for the convoy!", _convoyID]};
 
 private _fileName = "createConvoy";
-[3, format ["Input is %1", str _this], _fileName] call A3A_fnc_log;
+Debug_1("Input is %1", str _this);
 
 _hasAir = false;
 _hasLand = false;

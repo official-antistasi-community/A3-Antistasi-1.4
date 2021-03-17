@@ -1,5 +1,5 @@
-private _filename = "fn_promotePlayer";
-[3, format ["Working on player ranks"],_filename] call A3A_fnc_log;
+#include "..\..\Includes\LogMacros.inc"
+Debug("Working on player ranks");
 private ["_puntMax","_textX","_multiplier","_newRank","_selectable","_disconnected","_owner","_pointsX","_dataX"];
 _puntMax = 0;
 _multiplier = 1;
@@ -14,7 +14,7 @@ _promoted = false;
 	private _multiplier = _dataX select 0;
 	private _newRank = _dataX select 1;
 	private _rank = _x getVariable ["rankX","PRIVATE"];
-	
+
 	if (_rank != "COLONEL") then
 	{
 		if (_pointsX >= 50*_multiplier) then
@@ -30,7 +30,7 @@ _promoted = false;
 	};
 } forEach ((call A3A_fnc_playableUnits) select {(side (group _x) == teamPlayer)});
 
-[3, _textX, _filename] call A3A_fnc_log;
+Debug(_textX);
 
 if (_promoted) then
 {

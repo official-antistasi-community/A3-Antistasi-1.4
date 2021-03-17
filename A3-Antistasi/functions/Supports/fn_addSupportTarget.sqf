@@ -26,8 +26,7 @@ params
     ["_targetParams", [], [[]]],
     ["_revealCall", 0, [0]]
 ];
-
-private _fileName = "addSupportTarget";
+#include "..\..\Includes\LogMacros.inc"
 
 //Wait until no targets are changing
 if(supportTargetsChanging) then
@@ -35,8 +34,6 @@ if(supportTargetsChanging) then
     waitUntil {!supportTargetsChanging};
 };
 supportTargetsChanging = true;
-
-private _fileName = "addSupportTarget";
 private _targetList = server getVariable [format ["%1_targets", _supportName], []];
 
 if((_targetParams select 0) isEqualType []) then
@@ -47,11 +44,11 @@ if((_targetParams select 0) isEqualType []) then
     {
         _targetList pushBack [_targetParams, _revealCall];
         server setVariable [format ["%1_targets", _supportName], _targetList, true];
-        [2, format ["Added fire order %1 to %2s target list", _targetParams, _supportName], _fileName] call A3A_fnc_log;
+        Info_2("Added fire order %1 to %2s target list", _targetParams, _supportName);
     }
     else
     {
-        [2, format ["Couldnt add target %1 as another target is already in the area", _targetPos], _fileName] call A3A_fnc_log;
+        Info_1("Couldnt add target %1 as another target is already in the area", _targetPos);
     };
 }
 else
@@ -67,11 +64,11 @@ else
     {
         _targetList pushBack [_targetParams, _revealCall];
         server setVariable [format ["%1_targets", _supportName], _targetList, true];
-        [3, format ["Added fire order %1 to %2s target list", _targetParams, _supportName], _fileName] call A3A_fnc_log;
+        Debug_2("Added fire order %1 to %2s target list", _targetParams, _supportName);
     }
     else
     {
-        [2, format ["Couldnt add target %1 as target is already in the list", _targetParams select 0], _fileName] call A3A_fnc_log;
+        Info_1("Couldnt add target %1 as target is already in the list", _targetParams select 0);
     };
 };
 

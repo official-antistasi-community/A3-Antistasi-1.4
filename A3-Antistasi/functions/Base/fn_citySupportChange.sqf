@@ -1,7 +1,5 @@
-private _filename = "fn_citySupportChange";
-if (!isServer) exitWith {
-	[1, "Server-only function miscalled", _filename] call A3A_fnc_log;
-};
+#include "..\..\Includes\LogMacros.inc"
+if (!isServer) exitWith {Error("Server-only function miscalled")};
 
 waitUntil {!cityIsSupportChanging};
 cityIsSupportChanging = true;
@@ -13,7 +11,7 @@ private _cityData = server getVariable _city;
 if (isNil "_cityData" || {!(_cityData isEqualType [])}) exitWith
 {
 	cityIsSupportChanging = false;
-	[1, format ["No data found for city %1", _city], _filename] call A3A_fnc_log;
+    Error_1("No data found for city %1", _city);
 };
 _cityData params ["_numCiv", "_numVeh", "_supportGov", "_supportReb"];
 
@@ -21,7 +19,7 @@ _cityData params ["_numCiv", "_numVeh", "_supportGov", "_supportReb"];
 if (_isRadio) then {
 	if (_changeGov > 0) then { _changeGov = (30 - _supportGov) max 0 min _changeGov };
 	if (_changeGov < 0) then { _changeGov = (50 - _supportGov) min 0 max _changeGov };
-	
+
 	if (_changeReb > 0) then { _changeReb = (30 - _supportReb) max 0 min _changeReb };
 	if (_changeReb < 0) then { _changeReb = (50 - _supportReb) min 0 max _changeReb };
 }

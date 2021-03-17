@@ -1,8 +1,8 @@
 scriptName "initFuncs.sqf";
-private _fileName = "initFuncs.sqf";
-[2,"initFuncs started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\LogMacros.inc"
+Info("initFuncs started");
 
 [] call compile preprocessFileLineNumbers "scripts\Init_UPSMON.sqf";
 boxX call jn_fnc_arsenal_init;
 
-[2,"initFuncs completed",_fileName] call A3A_fnc_log;
+Info("initFuncs completed");

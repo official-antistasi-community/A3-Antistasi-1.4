@@ -9,8 +9,7 @@ params ["_plane", "_type"];
     Returns:
         Nothing
 */
-
-private _fileName = "setPlaneLoadout";
+#include "..\..\Includes\LogMacros.inc"
 
 private _validInput = false;
 private _loadout = [];
@@ -68,7 +67,7 @@ if (_type == "CAS") then
         };
         default
         {
-            [1, format ["Plane type %1 currently not supported for CAS, please add the case!", typeOf _plane], _fileName] call A3A_fnc_log;
+            Error_1("Plane type %1 currently not supported for CAS, please add the case!", typeOf _plane);
         };
     };
 };
@@ -117,14 +116,14 @@ if (_type == "AA") then
         };
         default
         {
-            [1, format ["Plane type %1 currently not supported for AA, please add the case!", typeOf _plane], _fileName] call A3A_fnc_log;
+            Error_1("Plane type %1 currently not supported for AA, please add the case!", typeOf _plane);
         };
     };
 };
 
 if !(_loadout isEqualTo []) then
 {
-    [3, "Selected new loadout for plane, now equiping plane with it", _fileName] call A3A_fnc_log;
+    Debug("Selected new loadout for plane, now equiping plane with it");
     {
         _plane setPylonLoadout [_forEachIndex + 1, _x, true];
         _plane setVariable ["loadout", _loadout];

@@ -1,7 +1,6 @@
 params ["_base", "_target"];
-
-private _fileName = "shouldReinforce";
-[4, format ["Checking if %1 should reinforce %2", _base, _target], _fileName] call A3A_fnc_log;
+#include "..\..\Includes\LogMacros.inc"
+Verbose_2("Checking if %1 should reinforce %2", _base, _target);
 
 //Bases cannot reinforce themselves
 if(_base isEqualTo _target) exitWith {false};

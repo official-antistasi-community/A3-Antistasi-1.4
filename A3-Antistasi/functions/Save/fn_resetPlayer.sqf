@@ -1,12 +1,12 @@
-private _filename = "fn_resetPlayer";
+#include "..\..\Includes\LogMacros.inc"
 if (!isServer) exitWith {
-	[1, "Miscalled server-only function", _filename] call A3A_fnc_log;
+    Error("Miscalled server-only function");
 };
 waitUntil {(!isNil "initVar")};		// hmm...
 
 params ["_playerId", "_unit"];
 
-[2, format ["Resetting player data for ID %1, unit %2", _playerId, _unit], _filename] call A3A_fnc_log;
+Info_2("Resetting player data for ID %1, unit %2", _playerId, _unit);
 
 // Don't restore more money than this player had previously
 private _money = playerStartingMoney;
@@ -22,4 +22,3 @@ _unit setUnitRank "PRIVATE";
 
 [] remoteExec ["A3A_fnc_statistics", _unit];
 _unit setVariable ["canSave", true, true];
-

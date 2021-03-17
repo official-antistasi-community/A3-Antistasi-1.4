@@ -28,7 +28,7 @@ params
     ["_endPos", [0,0,0], [[]]],
     ["_avoid", [], [[]]]
 ];
-
+#include "..\..\Includes\LogMacros.inc"
 #define WORKSTATE_UNTOUCHED         0
 #define WORKSTATE_OPENED            1
 #define WORKSTATE_CLOSED            2
@@ -39,8 +39,7 @@ params
 
 private _fileName = "findPath";
 private _deltaTime = time;
-
-[3, format ["Starting pathfinding from %1 to %2", _startPos, _endPos], _fileName] call A3A_fnc_log;
+Debug_2("Starting pathfinding from %1 to %2", _startPos, _endPos);
 
 private _startNavIndex = [_startPos] call A3A_fnc_getNearestNavPoint;
 private _endNavIndex = [_endPos] call A3A_fnc_getNearestNavPoint;
@@ -48,7 +47,7 @@ private _endNavIndex = [_endPos] call A3A_fnc_getNearestNavPoint;
 private _preCheckValue = [_startNavIndex, _endNavIndex] call A3A_fnc_findPathPrecheck;
 if(_preCheckValue isEqualType []) exitWith
 {
-    [2, "Requested path was cached, returned cached path", _fileName] call A3A_fnc_log;
+    Info("Requested path was cached, returned cached path");
     _preCheckValue;
 };
 
@@ -67,7 +66,7 @@ pathfindingActive = true;
 private _startNav = navGrid select _startNavIndex;
 private _endNav = navGrid select _endNavIndex;
 
-[2, format ["Start %1 at %2 End %3 at %4", _startNav, str _startPos, _endNav, str _endPos], _fileName] call A3A_fnc_log;
+Info_4("Start %1 at %2 End %3 at %4", _startNav, str _startPos, _endNav, str _endPos);
 
 private _touchedNodes = [];
 //Blocking avoid elements
@@ -186,7 +185,7 @@ private _lastIndex = 0;
 if(_lastNav isEqualType []) then
 {
     //Way found, reverting way through path
-    [2, format ["Max Distance %1, Distance %2", _maxDistance, _lastNav select 1], _fileName] call A3A_fnc_log;
+    Info_2("Max Distance %1, Distance %2", _maxDistance, _lastNav select 1);
     _wayPoints = [[_endPos, true], [_targetPos, true]];
     while {_lastNav isEqualType []} do
     {
@@ -205,12 +204,12 @@ if(_lastNav isEqualType []) then
     reverse _wayPoints;
 
     _deltaTime = time - _deltaTime;
-    [2, format ["Successful finished pathfinding after %1 seconds", _deltaTime], _fileName] call A3A_fnc_log;
+    Info_1("Successful finished pathfinding after %1 seconds", _deltaTime);
 }
 else
 {
     _deltaTime = time - _deltaTime;
-    [1, format ["Could not find a way, search took %1 seconds, max distance reached", _deltaTime], _fileName] call A3A_fnc_log;
+    Error_1("Could not find a way, search took %1 seconds, max distance reached", _deltaTime);
 };
 
 {

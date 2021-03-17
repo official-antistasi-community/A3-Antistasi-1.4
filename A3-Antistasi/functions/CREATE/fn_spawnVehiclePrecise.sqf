@@ -48,7 +48,7 @@ params [
     ["_aircraftPhysics",nil, [ nil,[] ]],
     ["_enableRandomization",true, [ true ]]
 ];
-private _filename = "fn_spawnVehiclePrecise";
+#include "..\..\Includes\LogMacros.inc"
 
 private _position = flatten _position;
 private _addAircraftPhysics = false;
@@ -73,12 +73,12 @@ private _vehicle = objNull;
 if (isNil { // Make sure vehicle is spawned and placed within the same physics step.
     _vehicle = createVehicle [_className, _position select [0,2], [], 0, _createVehicleSpecial];
     if (isNull _vehicle) then {
-        [1, "InvalidObjectClassName | """+_className+""" does not exist or failed creation.", _filename] remoteExecCall ["A3A_fnc_log",2,false];
+        Error("InvalidObjectClassName | """+_className+""" does not exist or failed creation.");
         _vehicle = createVehicle ["C_Offroad_01_F", _position select [0,2], [], 0, _createVehicleSpecial];     // Retry with a known vehicle so that a convoy/mission which doesn't check won't error out.
         _vehicle setVariable ["InvalidObjectClassName",true,true];                  // Allow external code to check for incorrect vehicle.
     };
     if (isNull _vehicle) exitWith {
-        [1, "CreateVehicleFailure | Could not create vehicle at "+str _position, _filename] remoteExecCall ["A3A_fnc_log",2,false];
+        Error("CreateVehicleFailure | Could not create vehicle at "+str _position);
         nil;    // Will cause outer scope to exit as well.
     };
     _vehicle setVariable ["BIS_enableRandomization", _enableRandomization];
@@ -94,7 +94,7 @@ if (isNil { // Make sure vehicle is spawned and placed within the same physics s
         [_vehicle,_position] call A3A_fnc_setPos;
         _safePosition = getPos _vehicle findEmptyPosition [0, _emptyPositionRadius, _className];
         if (_safePosition isEqualTo []) then {
-            [2, "EmptyPositionNotFound | Unable to find suitable empty position """+_emptyPositionRadius+"""m within """+getPosASL _vehicle+"""(ASL) for """+_className+""" on """+worldName+""".", _filename] remoteExecCall ["A3A_fnc_log",2,false];
+            Info("EmptyPositionNotFound | Unable to find suitable empty position """+_emptyPositionRadius+"""m within """+getPosASL _vehicle+"""(ASL) for """+_className+""" on """+worldName+""".");
         } else {
             _position = _safePosition + ["AGLS"];   // Is set in following setPos call.
         };

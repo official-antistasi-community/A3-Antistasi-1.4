@@ -1,6 +1,5 @@
 params ["_launcher", "_side", "_supportName"];
-
-private _fileName = "SUP_cruiseMissile";
+#include "..\..\Includes\LogMacros.inc"
 sleep (random 90);
 
 private _rounds = 4;
@@ -56,7 +55,7 @@ while {_onlineTime > 0} do
 
         //Creates the laser target to mark the target
         private _laser = createVehicle ["LaserTargetE", (getPos _targetObj), [], 0, "CAN_COLLIDE"];
-        [2, format ["Trying to attack laser to %1", _targetObj], "_fileName"] call A3A_fnc_log;
+        Info_1("Trying to attack laser to %1", _targetObj);
         _laser attachTo [_targetObj, [0,0,0]];
 
         //Send the laser target to the launcher
@@ -69,7 +68,7 @@ while {_onlineTime > 0} do
 
     if(_rounds <= 0) exitWith
     {
-        [2, format ["%1 has no missiles left to fire, aborting", _supportName], _fileName] call A3A_fnc_log;
+        Info_1("%1 has no missiles left to fire, aborting", _supportName);
     };
 
     sleep 30;

@@ -1,5 +1,5 @@
 private ["_flagX","_pos","_markerX","_positionX","_size","_powerpl","_revealX"];
-private _filename = "fn_mrkWIN";
+#include "..\..\Includes\LogMacros.inc"
 
 //Variable Setup.
 _flagX = _this select 0;
@@ -33,7 +33,7 @@ _flagX spawn
 
 if (!isNull _playerX) then
 {
-	[2, format ["Flag capture at %1 initiated by %2", _markerX, str _playerX], _filename, true] call A3A_fnc_log;
+    Info_2("Flag capture at %1 initiated by %2", _markerX, str _playerX);
 	if (_size > 300) then
 	{
 		_size = 300
@@ -57,8 +57,8 @@ if (!isNull _playerX) then
 
 if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x == teamPlayer)} count allUnits)) exitWith
 {
-	[3, format ["Markers left to be conquered: %1 ", _revealX], _filename, true] call A3A_fnc_log;
-	[2, format ["Flag capture by %1 abandoned due to outnumbering", str _playerX], _filename, true] call A3A_fnc_log;
+    Debug_1("Markers left to be conquered: %1 ", _revealX);
+    Info_1("Flag capture by %1 abandoned due to outnumbering", str _playerX);
 	["Capture", "The enemy still outnumber us, check the map and clear the rest of the area"] call A3A_fnc_customHint;
 };
 
@@ -74,5 +74,5 @@ if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x 
 	}
 } forEach ([_size,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
 
-[2, format ["Flag capture by %1 rewarded", str _playerX], _filename, true] call A3A_fnc_log;
+Info_1("Flag capture by %1 rewarded", str _playerX);
 [teamPlayer,_markerX] remoteExec ["A3A_fnc_markerChange",2];

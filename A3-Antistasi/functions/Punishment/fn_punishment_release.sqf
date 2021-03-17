@@ -26,10 +26,10 @@ Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_UID",["_source",""]];
-private _filename = "fn_punishment_release";
+#include "..\..\Includes\LogMacros.inc"
 
 if (!isServer) exitWith {
-	[1, "NOT SERVER", _filename] call A3A_fnc_log;
+    Error("NOT SERVER");
 	false;
 };
 
@@ -54,7 +54,7 @@ switch (_source) do {
 	case "punishment_warden": {
 		call _forgiveStats;
 		call _releaseFromSentence;
-		[2, format ["RELEASE | %1", _playerStats], _filename] call A3A_fnc_log;
+        Info_1("RELEASE | %1", _playerStats);
 		if (isPlayer _detainee) then {
 			["FF Punishment", "Enough then."] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
 		};
@@ -63,7 +63,7 @@ switch (_source) do {
 	case "punishment_warden_manual": {
 		call _forgiveStats;
 		call _releaseFromSentence;
-		[2, format ["FORGIVE | %1", _playerStats], _filename] call A3A_fnc_log;
+        Info("FORGIVE | %1", _playerStats);
 		if (isPlayer _detainee) then {
 			["FF Punishment", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
 		};
@@ -74,7 +74,7 @@ switch (_source) do {
 		true;
 	};
 	default {
-		[1, format ["INVALID PARAMS | _source=""%1""", _source], _filename] call A3A_fnc_log;
+        Error_1("INVALID PARAMS | _source=""%1""", _source);
 		false;
 	};
 };

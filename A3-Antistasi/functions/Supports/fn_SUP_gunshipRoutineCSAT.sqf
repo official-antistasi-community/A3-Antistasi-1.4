@@ -1,6 +1,5 @@
 params ["_sleepTime", "_timerIndex", "_airport", "_supportPos", "_supportName"];
-
-private _fileName = "SUP_gunshipRoutineCSAT";
+#include "..\..\Includes\LogMacros.inc"
 
 while {_sleepTime > 0} do
 {
@@ -129,7 +128,7 @@ waitUntil
 
 if !(_gunship getVariable ["InArea", false]) exitWith
 {
-    [3, format ["%1 has been destroyed before reaching the area", _supportName], _fileName] call A3A_fnc_log;
+    Debug_1("%1 has been destroyed before reaching the area", _supportName);
     //Gunship destroyed before reaching the area
 };
 
@@ -144,11 +143,12 @@ private _antiTankBelt = [false, false, false];
 private _mainGunnerList = [];
 [_gunship, _mainGunnerList, _mainGunner, _supportName] spawn
 {
+    #include "..\..\Includes\LogMacros.inc"
     params ["_gunship", "_mainGunnerList", "_mainGunner", "_supportName"];
 
     private _fnc_executeFireOrder =
     {
-        [3, format ["Fireorder %1 recieved", _this], "ExecuteFireOrder"] call A3A_fnc_log;
+        Debug_1("Fireorder %1 recieved", _this);
         params ["_gunner", "_target", "_gunshots", "_belt", "_rocketShots"];
         private _gunship = vehicle _gunner;
         private _steps = _gunshots max _rocketShots;
@@ -213,7 +213,7 @@ private _mainGunnerList = [];
             private _targetList = server getVariable [format ["%1_targets", _supportName], []];
             if(count _targetList > 0) then
             {
-                [3, "Using priority list", "Gunship"] call A3A_fnc_log;
+                Debug("Gunship | Using priority list");
                 //Priority target, execute first
                 private _target = _targetList#0#0#0;
                 private _supportMarker = format ["%1_coverage", _supportName];
@@ -252,7 +252,7 @@ private _mainGunnerList = [];
             {
                 if(count _mainGunnerList > 0) then
                 {
-                    [3, "Using target list", "Gunship"] call A3A_fnc_log;
+                    Debug("Gunship | Using target list");
                     private _targetParams = _mainGunnerList deleteAt 0;
                     _targetParams params ["_target", "_gunshots", "_belt", "_rocketShots"];
                     if
@@ -300,8 +300,7 @@ while {_lifeTime > 0} do
                 (alive _x) && {(isNull driver _x) || {side group driver _x != Invaders}}
             }
         };
-        [3, format ["%1 found %2 targets in its area", _supportName, count _targets], _fileName] call A3A_fnc_log;
-
+        Debug_2("%1 found %2 targets in its area", _supportName, count _targets);
 
         if(count _targets > 0) then
         {
@@ -352,21 +351,21 @@ while {_lifeTime > 0} do
     //No ammo left
     if(_gunship getVariable ["OutOfAmmo", false]) exitWith
     {
-        [2, format ["%1 run out of ammo, returning to base", _supportName], _fileName] call A3A_fnc_log;
+        Info_1("%1 run out of ammo, returning to base", _supportName);
         _gunship setVariable ["currentTarget", objNull];
     };
 
     //Retreating
     if(_gunship getVariable ["Retreat", false]) exitWith
     {
-        [2,format ["%1 met heavy resistance, retreating", _supportName], _fileName] call A3A_fnc_log;
+        Info_1("%1 met heavy resistance, retreating", _supportName);
         _gunship setVariable ["currentTarget", objNull];
     };
 
     //Gunship died
     if !(alive _gunship) then
     {
-        [2, format ["%1 has been destroyed while in the area", _supportName], _fileName] call A3A_fnc_log;
+        Info_1("%1 has been destroyed while in the area", _supportName);
         _gunship setVariable ["currentTarget", objNull];
     };
 

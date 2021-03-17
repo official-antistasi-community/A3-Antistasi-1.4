@@ -1,5 +1,5 @@
 params ["_occupantsChanged","_invadersChanged"];
-
+#include "..\..\Includes\LogMacros.inc"
 /*  Adds a new aggro spike to the current stack
 
     Execution on: Server
@@ -19,7 +19,7 @@ _fn_convertMinutesToDecayRate =
     params ["_points", "_minutes"];
     if(_minutes == 0) then
     {
-        [1, "Minute parameter is 0, assuming 1", "prestige"] call A3A_fnc_log;
+        Error("prestige | Minute parameter is 0, assuming 1");
         _minutes = 1;
     };
     private _decayRate = (-1) * (_points / _minutes);

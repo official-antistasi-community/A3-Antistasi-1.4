@@ -1,5 +1,5 @@
 params ["_side", "_posDestination"];
-
+#include "..\..\Includes\LogMacros.inc"
 if(tierWar < 9) exitWith {-1};
 
 private _lastSupport = server getVariable ["lastSupport", ["", 0]];
@@ -94,7 +94,7 @@ private _unitsInRange = allUnits select {((getPos _x) distance2D _posDestination
 } forEach _unitsInRange;
 
 private _willUse = selectRandomWeighted [true, _proCounter, false, _contraCounter];
-[2, format ["With %1 pro and %2 contra, decided for %3", _proCounter, _contraCounter, _willUse], "SUP_orbitalStrikeAvailable"] call A3A_fnc_log;
+Info_3("With %1 pro and %2 contra, decided for %3", _proCounter, _contraCounter, _willUse);
 
 if(_willUse) exitWith {0};
 -1;

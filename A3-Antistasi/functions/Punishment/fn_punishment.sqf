@@ -34,7 +34,7 @@ Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_instigator","_timeAdded","_offenceAdded",["_victim",objNull],["_customMessage",""]];
-private _filename = "fn_punishment";
+#include "..\..\Includes\LogMacros.inc"
 
 //////////////////Settings//////////////////
 private _depreciationCoef = 0.75;	// Modifies the drop-off curve of the punishment score; a higher number drops off quicker, a lower number lingers longer.
@@ -93,7 +93,8 @@ if (_victim isKindOf "Man") then {
 
 /////////////Instigator Notifier////////////
 private _playerStats = ["Total-time: ",str _timeTotal," (incl. +",str _timeAdded,"), Offence+Overhead: ",str _offenceTotal," [",str (_offenceTotal-_overhead),"+",str _overhead,"] (incl. +",str _offenceAdded,")"] joinString "";
-[2, [["WARNING","GUILTY"] select (_offenceTotal >= 1)," | ",_name," [",_UID,"] ",_victimStats,", ",_playerStats] joinString "", _filename] call A3A_fnc_log;
+private _instigatorLog = [["WARNING","GUILTY"] select (_offenceTotal >= 1)," | ",_name," [",_UID,"] ",_victimStats,", ",_playerStats] joinString "";
+Info(_instigatorLog);
 
 ["FF Warning", ["Watch your fire!",_injuredComrade,_customMessage] joinString "<br/>"] remoteExecCall ["A3A_fnc_customHint", _originalBody, false];
 
@@ -113,7 +114,8 @@ if (_instigator isEqualTo _originalBody) then {
 		private _timeOut = serverTime + 20;
 		waitUntil {isPlayer _originalBody || _timeOut < serverTime};
 		if !(isPlayer _originalBody) exitWith {
-			[1, ["TIMED-OUT | Gave up waiting for ",_name," [",_UID,"] to exit remote control."] joinString "", "fn_punishment.sqf/RemoteControlSpawn"] call A3A_fnc_log;
+            private _timeOutLog = ["TIMED-OUT | Gave up waiting for ",_name," [",_UID,"] to exit remote control."] joinString "";
+            Error(_timeOutLog);
 		};
 		[_UID,_timeTotal] call A3A_fnc_punishment_sentence_server; // Scope is within scheduled space.
 	};

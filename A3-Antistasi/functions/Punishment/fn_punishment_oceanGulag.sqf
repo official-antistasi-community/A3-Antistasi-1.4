@@ -26,10 +26,10 @@ Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_UID",["_operation","add",[""]]];
-private _filename = "fn_punishment_oceanGulag";
+#include "..\..\Includes\LogMacros.inc"
 
 if (!isServer) exitWith {
-	[1, "NOT SERVER", _filename] call A3A_fnc_log;
+    Error("NOT SERVER");
 	false;
 };
 
@@ -41,7 +41,7 @@ private _detainee = _varspace getVariable ["player",objNull];
 private _playerPos = [0,0,0];
 
 if (!isPlayer _detainee) then { // Prevents punishing AI
-	[2, format ["DETAINEE MIA | UID:%1 matches no in-game player. Cleaning up.", _UID], _filename] call A3A_fnc_log;
+    Info_2("DETAINEE MIA | UID:%1 matches no in-game player. Cleaning up.", _UID);
 	_operation = "remove";
 } else {
 	_playerPos = getPosASL _detainee;
@@ -99,7 +99,7 @@ switch (toLower _operation) do {
 		true;
 	};
 	default {
-		[1, format ["INVALID PARAMS | _operation=""%1""", _operation], _filename] call A3A_fnc_log;
+        Error_1("INVALID PARAMS | _operation=""%1""", _operation);
 		false;
 	};
 };

@@ -1,6 +1,5 @@
 params ["_side", "_timerIndex", "_sleepTime", "_bombType", "_airport", "_targetPos", "_supportName"];
-
-private _fileName = "SUP_airstrikeRoutine";
+#include "..\..\Includes\LogMacros.inc"
 //Sleep to simulate preparetion time
 while {_sleepTime > 0} do
 {
@@ -44,7 +43,7 @@ _strikePlane addEventHandler
     "Killed",
     {
         params ["_strikePlane"];
-        [2, format ["Plane for %1 destroyed, airstrike aborted", _strikePlane getVariable "supportName"], "SUP_airstrike"] call A3A_fnc_log;
+        Info_1("Plane for %1 destroyed, airstrike aborted", _strikePlane getVariable "supportName");
         ["TaskSucceeded", ["", "Airstrike Vessel Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
         private _timerArray = _strikePlane getVariable "TimerArray";
         private _timerIndex = _strikePlane getVariable "TimerIndex";
@@ -71,7 +70,7 @@ _pilot addEventHandler
         params ["_unit"];
         ["TaskSucceeded", ["", "Airstrike crew killed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
         private _strikePlane = _unit getVariable "Plane";
-        [2, format ["Crew for %1 killed, airstrike aborted", _strikePlane getVariable "supportName"], "SUP_airstrike"] call A3A_fnc_log;
+        Info_1("Crew for %1 killed, airstrike aborted", _strikePlane getVariable "supportName");
         private _timerArray = _strikePlane getVariable "TimerArray";
         private _timerIndex = _strikePlane getVariable "TimerIndex";
         _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 1800];
@@ -137,7 +136,7 @@ if(_aggroValue > 30 && _aggroValue < 70) then
     _flightSpeed = "NORMAL";
     _bombCount = 6;
 };
-[2, format["Airstrike %1 will be carried out with %2 bombs at %3 speed", _supportName, _bombCount, toLower _flightSpeed], _fileName] call A3A_fnc_log;
+Info_3("Airstrike %1 will be carried out with %2 bombs at %3 speed", _supportName, _bombCount, toLower _flightSpeed);
 
 //Creating bombing parameters
 private _bombParams = [_strikePlane, _strikePlane getVariable "bombType", _bombCount, 200];

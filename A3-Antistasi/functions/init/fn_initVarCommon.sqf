@@ -4,22 +4,22 @@
  */
 
 scriptName "initVarCommon.sqf";
-private _fileName = "initVarCommon.sqf";
-[2,"initVarCommon started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\LogMacros.inc"
+Info("initVarCommon started");
 
 antistasiVersion = localize "STR_antistasi_credits_generic_version_text";
 
 ////////////////////////////////////
 // INITIAL SETTING AND VARIABLES ///
 ////////////////////////////////////
-[2,"Setting initial variables",_fileName] call A3A_fnc_log;													//Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
+Info("Setting initial variables");
 debug = false;
 A3A_customHintEnable = false; // Disables custom hints for boot duration. Is set to true in initClient.
 
 ////////////////////////////////////
 //     BEGIN SIDES AND COLORS    ///
 ////////////////////////////////////
-[2,"Generating sides",_fileName] call A3A_fnc_log;
+Info("Generating sides");
 if (isNil "teamPlayer") then { teamPlayer = side group petros };
 if (teamPlayer == independent) then
 	{
@@ -44,7 +44,7 @@ colorInvaders = "colorOPFOR";
 ////////////////////////////////////////
 //     DECLARING ITEM CATEGORIES     ///
 ////////////////////////////////////////
-[2,"Declaring item categories",_fileName] call A3A_fnc_log;
+Info("Declaring item categories");
 
 weaponCategories = ["Rifles", "Handguns", "MachineGuns", "MissileLaunchers", "Mortars", "RocketLaunchers", "Shotguns", "SMGs", "SniperRifles"];
 itemCategories = ["Gadgets", "Bipods", "MuzzleAttachments", "PointerAttachments", "Optics", "Binoculars", "Compasses", "FirstAidKits", "GPS", "LaserDesignators",
@@ -75,7 +75,7 @@ allCategories = allCategoriesExceptSpecial + specialCategories;
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
 ////////////////////////////////////
-[2,"Starting mod detection",_fileName] call A3A_fnc_log;
+Info("Starting mod detection");
 allDLCMods = ["kart", "mark", "heli", "expansion", "jets", "orange", "tank", "globmob", "enoch", "officialmod", "tacops", "argo", "warlords", "aow"];
 
 // Short Info of loaded mods needs to be added to this array. eg: `A3A_loadedTemplateInfoXML pushBack ["RHS","All factions will be replaced by RHS (AFRF &amp; USAF &amp; GREF)."];`
@@ -104,7 +104,7 @@ call compile preProcessFileLineNumbers "Templates\detector.sqf";
 ////////////////////////////////////
 //        BUILDINGS LISTS        ///
 ////////////////////////////////////
-[2,"Creating building arrays",_fileName] call A3A_fnc_log;
+Info("Creating building arrays");
 
 listbld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F", "Land_Cargo_Tower_V4_F"];
 listMilBld = listbld + ["Land_Radar_01_HQ_F","Land_Cargo_HQ_V1_F","Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_HQ_V4_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F", "Land_Cargo_Patrol_V4_F","Land_HelipadSquare_F","Land_Posed","Land_Hlaska","Land_fortified_nest_small_EP1","Land_fortified_nest_small","Fort_Nest","Fortress1","Land_GuardShed","Land_BagBunker_Small_F","Land_BagBunker_01_small_green_F"];
@@ -115,7 +115,7 @@ lamptypes = ["Lamps_Base_F", "PowerLines_base_F","Land_LampDecor_F","Land_LampHa
 ////////////////////////////////////
 //     SOUNDS AND ANIMATIONS     ///
 ////////////////////////////////////
-[2,"Compiling sounds and animations",_fileName] call A3A_fnc_log;
+Info("Compiling sounds and animations");
 
 private _missionRootPathNodes = str missionConfigFile splitString "\";
 A3A_missionRootPath = (_missionRootPathNodes select [0,count _missionRootPathNodes -1] joinString "\") + "\";
@@ -152,10 +152,10 @@ medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic
 ////////////////////////////////////
 //     ID LIST FOR UNIT NAMES    ///
 ////////////////////////////////////
-[2,"Creating unit identities",_fileName] call A3A_fnc_log;
+Info("Creating unit identities");
 if !(A3A_hasIFA) then {
 	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
 	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
 };
 
-[2,"initVarCommon completed",_fileName] call A3A_fnc_log;
+Info("initVarCommon completed");

@@ -53,27 +53,16 @@ if (side (group _killer) == teamPlayer) then
             "aggroEvent",
             true
         ] call A3A_fnc_log;
+        [_victimSide, 20, 30] remoteExec ["A3A_fnc_addAggression", 2];
 		if (_victimSide == Occupants) then
 		{
 			[0,-2,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-			[[20, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
-		}
-		else
-		{
-			[[0, 0], [20, 30]] remoteExec ["A3A_fnc_prestige",2];
 		};
 	}
 	else
 	{
 		[-1,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-		if (_victimSide == Occupants) then
-		{
-			[[0.5, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
-		}
-		else
-		{
-			[[0, 0], [0.5, 45]] remoteExec ["A3A_fnc_prestige",2];
-		};
+        [_victimSide, 0.5, 45] remoteExec ["A3A_fnc_addAggression", 2];
 	};
 }
 else

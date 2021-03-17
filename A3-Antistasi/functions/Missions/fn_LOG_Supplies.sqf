@@ -105,7 +105,7 @@ else
                 "aggroEvent",
                 true
             ] call A3A_fnc_log;
-			[[-10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+			[Occupants, -10, 60] remoteExec ["A3A_fnc_addAggression",2];
 			}
 		else
 			{

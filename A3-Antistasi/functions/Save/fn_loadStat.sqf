@@ -51,8 +51,8 @@ if (_varName in _specialVarLoads) then {
 	if (_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
 	if (_varName == 'jna_dataList') then {jna_dataList = +_varValue};
 	//Keeping these for older saves
-	if (_varName == 'prestigeNATO') then {[[_varValue, 120], [0, 0]] call A3A_fnc_prestige};
-	if (_varName == 'prestigeCSAT') then {[[0, 0], [_varValue, 120]] call A3A_fnc_prestige};
+	if (_varName == 'prestigeNATO') then {[Occupants, _varValue, 120] call A3A_fnc_addAggression};
+	if (_varName == 'prestigeCSAT') then {[Invaders, _varValue, 120] call A3A_fnc_addAggression};
 	if (_varName == 'aggressionOccupants') then
 	{
 		aggressionLevelOccupants = _varValue select 0;

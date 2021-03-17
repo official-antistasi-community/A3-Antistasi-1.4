@@ -133,7 +133,7 @@ if ((_truckX distance _posbase < 50) and (dateToNumber date < _dateLimitNum)) th
         "aggroEvent",
         true
     ] call A3A_fnc_log;
-	[[20 * _bonus, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+	[Occupants, 20 * _bonus, 120] remoteExec ["A3A_fnc_addAggression",2];
 	[1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _truckX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

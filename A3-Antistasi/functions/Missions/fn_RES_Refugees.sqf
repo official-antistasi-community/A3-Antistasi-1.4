@@ -154,7 +154,7 @@ if (_sideX == Occupants) then
 		_hr = _countX;
 		_resourcesFIA = 100 * _countX;
 		[_hr,_resourcesFIA*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-		[[-10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+		[Occupants, -10, 60] remoteExec ["A3A_fnc_addAggression",2];
 		{if (_x distance getMarkerPos respawnTeamPlayer < 500) then {[_countX*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[round (_countX*_bonus/2),theBoss] call A3A_fnc_playerScoreAdd;
 		{[_x] join _groupPOW; [_x] orderGetin false} forEach _POWs;

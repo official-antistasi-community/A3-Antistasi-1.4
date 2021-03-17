@@ -160,7 +160,7 @@ if (not alive _traitor || traitorIntel) then
         "aggroEvent",
         true
     ] call A3A_fnc_log;
-	[[15 * _factor, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+	[Occupants, 15 * _factor, 120] remoteExec ["A3A_fnc_addAggression",2];
 	[0,300 * _factor] remoteExec ["A3A_fnc_resourcesFIA",2];
 	{
 		if (!isPlayer _x) then
@@ -214,4 +214,3 @@ _nul = [10,"AS1"] spawn A3A_fnc_deleteTask;
 [_groupX] spawn A3A_fnc_groupDespawner;
 [_groupTraitor] spawn A3A_fnc_groupDespawner;
 [_veh] spawn A3A_fnc_vehDespawner;
-

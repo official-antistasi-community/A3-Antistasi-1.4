@@ -90,11 +90,13 @@ else
 		["DEF_HQ1",[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name petros,nameTeamPlayer],format ["Kill %1",name petros],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
         if(_sideX == Occupants) then
         {
-            [[10, 60], [5, 60]] remoteExec ["A3A_fnc_prestige",2];
+            [Occupants, 10, 60] remoteExec ["A3A_fnc_addAggression",2];
+            [Invaders, 5, 60] remoteExec ["A3A_fnc_addAggression",2];
         }
         else
         {
-            [[5, 60], [10, 60]] remoteExec ["A3A_fnc_prestige",2];
+            [Occupants, 5, 60] remoteExec ["A3A_fnc_addAggression",2];
+            [Invaders, 10, 60] remoteExec ["A3A_fnc_addAggression",2];
         };
 		[0,300] remoteExec ["A3A_fnc_resourcesFIA",2];
 		//[-5,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];

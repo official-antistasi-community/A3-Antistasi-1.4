@@ -43,10 +43,7 @@ _fn_convertMinutesToDecayRate =
     _decayRate;
 };
 
-if(_aggroChange == 0) exitWith
-{
-    [1, format ["Tried to a 0 aggression change, parameter where %1", _this], "addAggression"] call A3A_fnc_log;
-};
+if(_aggroChange == 0) exitWith {};
 
 //Wait until all other aggro change operations are done
 waitUntil {!prestigeIsChanging};

@@ -24,10 +24,10 @@ private _vehicle = ["B_T_LSV_01_armed_F",getPos player, 0, 20] call A3A_fnc_spaw
 _unitType = [_side, _vehicle] call A3A_fnc_crewTypeForVehicle;
 [resistance, _vehicle, _unitType] call A3A_fnc_createVehicleCrew;
 
-    // Spawn rebel LSV on roof above you
+    // Spawn empty LSV on roof above you
 private _myPos = getPosWorld player;
 _myPos = [_myPos#0,_myPos#1,0,"AGLS"];  // Spawn 0m above highest roof above the player.
-["B_T_LSV_01_armed_F",_myPos, 0, 20] call A3A_fnc_spawnVehiclePrecise;
+["B_T_LSV_01_armed_F",_myPos] call A3A_fnc_spawnVehiclePrecise;
 
 
     // Spawn rebel ghost-hawk roof above you motionless, until being released.
@@ -58,7 +58,7 @@ private _createVehicleSpecial = "CAN_COLLIDE";
 
 if !(isNil {_aircraftPhysics}) then {
     if !((toLower getText(configFile >> "CfgVehicles" >> _className >> "simulation")) in ["airplanex","helicopterrtd","helicopterx"]) exitWith {};
-    private _addAircraftPhysics = true;
+    _addAircraftPhysics = true;
     _createVehicleSpecial = "FLY";
 
     _aircraftPhysics params [
@@ -91,17 +91,18 @@ if (isNil { // Make sure vehicle is spawned and placed within the same physics s
     _vehicle setVelocityModelSpace [0, _velocity, 0];
 
     if (_emptyPositionRadius > 0) then {
+        [2,"94 "+str [_emptyPositionRadius],_filename] call A3A_fnc_log;
         [_vehicle,_position] call A3A_fnc_setPos;
         _safePosition = getPos _vehicle findEmptyPosition [0, _emptyPositionRadius, _className];
         if (_safePosition isEqualTo []) then {
-            [2, "EmptyPositionNotFound | Unable to find suitable empty position """+_emptyPositionRadius+"""m within """+getPosASL _vehicle+"""(ASL) for """+_className+""" on """+worldName+""".", _filename] remoteExecCall ["A3A_fnc_log",2,false];
+            [2, "EmptyPositionNotFound | Unable to find suitable empty position """+str _emptyPositionRadius+"""m within """+str getPosASL _vehicle+"""(ASL) for """+_className+""" on """+worldName+""".", _filename] remoteExecCall ["A3A_fnc_log",2,false];
         } else {
             _position = _safePosition + ["AGLS"];   // Is set in following setPos call.
         };
     };
     [_vehicle,_position] call A3A_fnc_setPos;
     if (_addAircraftPhysics && getPosVisual _vehicle #2 < _aircraftMinHeight) then {    // Enforces minimum height above surface.
-        [_vehicle,[_position#0,_position#1,_aircraftMinHeight],"AGLS"] call A3A_fnc_setPos
+        [_vehicle,[_position#0,_position#1,_aircraftMinHeight],"AGLS"] call A3A_fnc_setPos;
     };
 
     true;

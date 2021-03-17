@@ -91,7 +91,6 @@ if (isNil { // Make sure vehicle is spawned and placed within the same physics s
     _vehicle setVelocityModelSpace [0, _velocity, 0];
 
     if (_emptyPositionRadius > 0) then {
-        [2,"94 "+str [_emptyPositionRadius],_filename] call A3A_fnc_log;
         [_vehicle,_position] call A3A_fnc_setPos;
         _safePosition = getPos _vehicle findEmptyPosition [0, _emptyPositionRadius, _className];
         if (_safePosition isEqualTo []) then {

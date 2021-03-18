@@ -582,7 +582,7 @@ while {(_waves > 0)} do
 				} forEach units _grupo;
 				if (!(_veh isKindOf "Helicopter") or (_mrkDestination in airportsX)) then
 					{
-					[_veh,_grupo,_mrkDestination,_mrkOrigin] spawn A3A_fnc_airdrop;
+					[_veh,_grupo,_mrkDestination,_mrkOrigin] spawn A3A_fnc_paradrop;
 					}
 				else
 					{
@@ -619,7 +619,7 @@ while {(_waves > 0)} do
 							}
 						else
 							{
-							[_veh,_grupo,_mrkDestination,_mrkOrigin] spawn A3A_fnc_airdrop;
+							[_veh,_grupo,_mrkDestination,_mrkOrigin] spawn A3A_fnc_paradrop;
 							}
 						};
 					};

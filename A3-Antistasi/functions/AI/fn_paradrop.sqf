@@ -50,42 +50,42 @@ _vehicle flyInHeight 1000;
 _vehicle setCollisionLight false;
 if(_vehicle isKindOf "Helicopter") then
 {
-    _entryDistance = 200;
+    _entryDistance = 150;
     _vehicle flyInHeight 500;
 };
 
-private _normalAngle = _originPosition getDir _targetPosition;
+private _normalAngle = (_originPosition getDir _targetPosition);
 private _attackAngle = (random 120) - 60;
-private _entryPos;
+private _entryPos = [];
 while {true} do
 {
-    _entryPos = _targetPosition getPos [(_normalAngle - 180) - _attackAngle, _entryDistance];
+    _entryPos = _targetPosition getPos [_entryDistance, (_normalAngle - 180) - _attackAngle];
     if(!surfaceIsWater _entryPos) exitWith {};
     _attackAngle = (random 120) - 60;
 };
-
-private _exitPos = _targetPosition getPos [_normalAngle - _attackAngle, _entryDistance];
+private _exitPos = _targetPosition getPos [_entryDistance, _normalAngle + _attackAngle];
 
 {
     _x set [2,300];
-} forEach [_entryPos,_exitPos,_originPosition];
+} forEach [_entryPos, _exitPos, _originPosition];
 
-private _wp = _groupPilot addWaypoint [_entryPos, -1, 0];
+private _wp = _groupPilot addWaypoint [_entryPos, -1];
 _wp setWaypointType "MOVE";
 _wp setWaypointSpeed "NORMAL";
+_wp setWaypointStatements ["true", "if !(local this) exitWith {}; (vehicle this) setVariable ['dropPosReached', true]; [3, 'Drop pos reached', 'paradrop'] call A3A_fnc_log;"];
 
-private _wp2 = _groupPilot addWaypoint [_exitPos, -1, 1];
+private _wp1 = _groupPilot addWaypoint [_exitPos, -1];
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "NORMAL";
 
-_wp2 = _groupPilot addWaypoint [_originPosition, -1, 2];
+private _wp2 = _groupPilot addWaypoint [_originPosition, -1];
 _wp2 setWaypointType "MOVE";
 _wp2 setWaypointSpeed "FULL";
 _wp2 setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
 
-waitUntil {sleep 1; (currentWaypoint _groupPilot == 1) || (!alive _vehicle) || (!canMove _vehicle)};
+waitUntil {sleep 1; (_vehicle getVariable ["dropPosReached", false]) || (!alive _vehicle) || (!canMove _vehicle)};
 
-if(currentWaypoint _groupPilot == 2) then
+if(_vehicle getVariable ["dropPosReached", false]) then
 {
     _vehicle setCollisionLight true;
 	{
@@ -95,8 +95,10 @@ if(currentWaypoint _groupPilot == 2) then
         _x setPos _pos;
         _x spawn
         {
-            waitUntil {sleep 0.25; ((getPosATL _this) select 2) < 100};
+            waitUntil {sleep 0.25; ((getPosATL _this) select 2) < 105};
             _this addBackpack "B_Parachute";
+            private _smokeGrenade = selectRandom allSmokeGrenades;
+    		private _smoke = _smokeGrenade createVehicle (getPosATL _this);
         };
         sleep 0.5;
   	} forEach units _groupJumper;

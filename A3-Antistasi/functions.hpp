@@ -122,7 +122,6 @@ class A3A
     class AI
     {
         class airbomb {};
-        class airdrop {};
         class AIreactOnKill {};
         class artillery {};
         class artySupport {};
@@ -165,6 +164,7 @@ class A3A
         class napalmParticles {};
         class nearEnemy {};
         class occupantInvaderUnitKilledEH {};
+        class paradrop {};
         class rearmCall {};
         class recallGroup {};
         class smokeCoverAuto {};

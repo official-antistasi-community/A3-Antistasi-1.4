@@ -138,7 +138,7 @@ else
 		}
 		else
 		{
-			[_veh,_groupX,_posDestination,_mrkOrigin,true] spawn A3A_fnc_airdrop;
+			[_veh,_groupX,_posDestination,_mrkOrigin,true] spawn A3A_fnc_paradrop;
 		};
 	};
 };

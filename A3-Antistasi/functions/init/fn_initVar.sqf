@@ -1,7 +1,8 @@
 //Original Author: Barbolani
 //Edited and updated by the Antstasi Community Development Team
 scriptName "initVar.sqf";
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Info("initVar started");
 
 call A3A_fnc_initVarCommon;

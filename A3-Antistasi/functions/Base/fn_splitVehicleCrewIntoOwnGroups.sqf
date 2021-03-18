@@ -9,7 +9,8 @@
 **/
 
 params ["_vehicle"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 Debug_2("Splitting the crew of %1, type of %2", _vehicle, typeOf _vehicle);
 

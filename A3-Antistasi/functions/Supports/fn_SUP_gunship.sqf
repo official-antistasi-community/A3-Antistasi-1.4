@@ -15,7 +15,8 @@ params ["_side", "_timerIndex", "_supportObj", "_supportName"];
     Returns:
         The name of the target marker, empty string if not created
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _supportPos = if(_supportObj isEqualType []) then {_supportObj} else {getPos _supportObj};
 private _airport = [_supportPos, _side] call A3A_fnc_findAirportForAirstrike;

@@ -1,5 +1,6 @@
 params ["_occupantsChanged","_invadersChanged"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Adds a new aggro spike to the current stack
 
     Execution on: Server

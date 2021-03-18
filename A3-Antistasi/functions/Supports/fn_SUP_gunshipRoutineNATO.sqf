@@ -1,5 +1,6 @@
 params ["_sleepTime", "_timerIndex", "_airport", "_supportPos", "_supportName"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 while {_sleepTime > 0} do
 {
@@ -112,7 +113,8 @@ private _heavyGunnerList = [];
 //Fire loop for 40mm cannon gunner
 [_gunship, _mainGunnerList, _mainGunner, _supportName] spawn
 {
-    #include "..\..\Includes\LogMacros.inc"
+    #include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
     params ["_gunship", "_mainGunnerList", "_mainGunner", "_supportName"];
 
     private _fnc_executeFireOrder =
@@ -226,7 +228,8 @@ private _heavyGunnerList = [];
 //Fire loop for howitzer and minigun gunner
 [_gunship, _heavyGunnerList, _heavyGunner, _supportName] spawn
 {
-    #include "..\..\Includes\LogMacros.inc"
+    #include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
     params ["_gunship", "_mainGunnerList", "_heavyGunner", "_supportName"];
 
     private _fnc_executeFireOrder =

@@ -1,4 +1,5 @@
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_unit"];
 
 private _friendlyPlayers = ({(side group _x == teamPlayer)} count (call A3A_fnc_playableUnits));

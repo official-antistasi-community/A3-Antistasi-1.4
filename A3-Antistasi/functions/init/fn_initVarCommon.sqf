@@ -4,7 +4,8 @@
  */
 
 scriptName "initVarCommon.sqf";
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Info("initVarCommon started");
 
 antistasiVersion = localize "STR_antistasi_credits_generic_version_text";

@@ -1,5 +1,6 @@
 params ["_unit", ["_marker", ""], "_isSpawner"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Inits the given unit with all needed data, flags and weapons
 *   Params:
 *       _unit : OBJECT : The unit that needs to be initialized

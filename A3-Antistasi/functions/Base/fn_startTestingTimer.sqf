@@ -18,7 +18,8 @@ if !(canSuspend) exitWith
 {
     [] spawn A3A_fnc_startTestingTimer;
 };
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 Debug("Starting testing timer now");
 

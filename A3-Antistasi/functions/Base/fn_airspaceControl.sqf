@@ -3,7 +3,8 @@
 #define JET             2
 
 params ["_vehicle"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Handles the airspace control of any player aircraft, breaking undercover and calling support
 
     Execution on: Any

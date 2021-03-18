@@ -1,6 +1,7 @@
 if(!isServer) exitWith{};
 scopeName "Main";
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_type", ["_requester", clientOwner], ["_autoSelect", false]];
 if(isNil "_type") then {
 	if (leader group Petros != Petros) then {breakOut "Main"};

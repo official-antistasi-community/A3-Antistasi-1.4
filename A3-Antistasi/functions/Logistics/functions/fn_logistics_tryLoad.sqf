@@ -20,7 +20,8 @@
 */
 if (!isServer) exitWith {};
 params ["_cargo"];
-#include "..\..\..\Includes\LogMacros.inc"
+#include "..\..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _vehicles = (nearestObjects [_cargo,["Car","Ship"], 10]) - [_cargo];
 private _vehicle = _vehicles#0;

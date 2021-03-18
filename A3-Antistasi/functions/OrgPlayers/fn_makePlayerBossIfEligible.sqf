@@ -1,4 +1,5 @@
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_player"];
 
 Debug_1("Attempting to make %1 the boss", _player);

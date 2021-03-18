@@ -9,7 +9,8 @@ params ["_plane", "_type"];
     Returns:
         Nothing
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _validInput = false;
 private _loadout = [];

@@ -25,7 +25,8 @@ params [
     ["_option","",[""]],
     ["_action","",[""]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 ////////////////////
 // Authentication //

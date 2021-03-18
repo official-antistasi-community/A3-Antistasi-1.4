@@ -1,7 +1,8 @@
 //Mission: Capture/destroy the convoy
 if (!isServer and hasInterface) exitWith {};
 params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""]];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};

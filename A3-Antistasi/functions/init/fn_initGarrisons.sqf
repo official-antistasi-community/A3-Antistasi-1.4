@@ -1,7 +1,8 @@
 //Original Author: Barbolani
 //Edited and updated by the Antistasi Community Development Team
 scriptName "fn_initGarrisons";
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Info("InitGarrisons started");
 
 _fnc_initMarker =

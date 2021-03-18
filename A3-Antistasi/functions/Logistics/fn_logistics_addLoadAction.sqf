@@ -18,7 +18,8 @@
     Example: [_object] call A3A_fnc_logistics_addLoadAction;
 */
 params ["_object", ["_action", "load"]];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (isNil "A3A_logistics_vehicleHardpoints") exitWith {
     Error("Logistics nodes not initialized");
     nil

@@ -1,5 +1,6 @@
 params ["_base", "_target"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Verbose_2("Checking if %1 should reinforce %2", _base, _target);
 
 //Bases cannot reinforce themselves

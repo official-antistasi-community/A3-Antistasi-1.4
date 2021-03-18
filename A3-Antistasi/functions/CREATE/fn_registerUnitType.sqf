@@ -1,4 +1,5 @@
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 params [["_unitTypeName", nil, [""]], ["_unitLoadouts", nil, [[]]]];
 

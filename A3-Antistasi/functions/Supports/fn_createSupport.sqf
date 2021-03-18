@@ -16,7 +16,8 @@ params ["_side", "_timerIndex", "_supportType", "_supportTarget", "_precision", 
     Returns:
         Nothing
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 //Selecting the first available name of support type
 private _supportIndex = 0;

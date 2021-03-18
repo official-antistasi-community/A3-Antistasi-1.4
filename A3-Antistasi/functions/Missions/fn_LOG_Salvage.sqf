@@ -3,7 +3,8 @@ private _fileName = "fn_LOG_Salvage";
 if (!isServer and hasInterface) exitWith {};
 
 params ["_markerX"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Info("Creating Salvage mission");
 
 private _positionX = getMarkerPos _markerX;

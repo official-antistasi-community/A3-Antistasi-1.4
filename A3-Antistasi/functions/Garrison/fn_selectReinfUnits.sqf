@@ -9,7 +9,8 @@ params ["_base", "_target", ["_isAir", false], ["_bypass", false]];
 *   Returns:
 *     _unitsSend : ARRAY : The units in the correct format
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _maxUnitSend = garrison getVariable [format ["%1_recruit", _base], 0];
 if(_maxUnitSend < 3 && {!_bypass}) exitWith

@@ -1,6 +1,7 @@
 // Repairs a radio tower.
 // Parameter should be present in antennasDead array
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer) exitWith { Error("Server-only function miscalled") };
 
 params ["_antenna"];

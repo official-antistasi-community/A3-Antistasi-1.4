@@ -26,7 +26,8 @@ params ["_intelType", "_side"];
 *   Returns:
 *       _text : STRING : The text of the selected intel
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if(isNil "_intelType") exitWith
 {
     Error("No intel type given!");

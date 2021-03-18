@@ -13,7 +13,8 @@
 */
 
 params ["_side", ["_filter", []]];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _vehicleSelection = [];
 

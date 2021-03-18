@@ -1,7 +1,8 @@
 if (!isServer and hasInterface) exitWith{};
 
 private ["_mrkOrigin","_pos","_attackingSide","_countX","_mrkDestination","_veh","_posOrigin","_sideTargets","_posDestination","_typeVehX","_typeAmmunition","_size","_vehicle","_vehCrew","_groupVeh","_roundsX","_objectiveX","_objectivesX","_timeX"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 _mrkOrigin = _this select 0;
 _posOrigin = if (_mrkOrigin isEqualType "") then {getMarkerPos _mrkOrigin} else {_mrkOrigin};

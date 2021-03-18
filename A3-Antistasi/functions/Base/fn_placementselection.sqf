@@ -1,4 +1,5 @@
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 scriptName "fn_placementSelection.sqf";
 private _newGame = isNil "placementDone";
 private _disabledPlayerDamage = false;

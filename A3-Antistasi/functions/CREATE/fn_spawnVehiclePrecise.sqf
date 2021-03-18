@@ -48,7 +48,8 @@ params [
     ["_aircraftPhysics",nil, [ nil,[] ]],
     ["_enableRandomization",true, [ true ]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _position = flatten _position;
 private _addAircraftPhysics = false;

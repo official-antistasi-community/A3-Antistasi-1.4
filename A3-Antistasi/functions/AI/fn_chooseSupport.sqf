@@ -13,7 +13,8 @@ params ["_group", "_enemy"];
     Returns:
         _supportTypes: ARRAY of STRINGs : The set of supports which should be called in, [] if none needed
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _supportTypes = [];
 
 //If enemy is more than 600 meters away we always force the support

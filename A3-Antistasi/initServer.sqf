@@ -9,7 +9,8 @@ if (isMultiplayer) then {
     [] call A3A_fnc_initServer;
 } else {
     [] spawn {
-        #include "Includes\LogMacros.inc"
+        #include "Includes\common.inc"
+FIX_LINE_NUMBERS()
         waitUntil {!isNull player && player == player && !isNull (finddisplay 46)};
         Info("Opening Singleplayer Parameter Dialog");
         [] call A3A_fnc_createDialog_setParams;

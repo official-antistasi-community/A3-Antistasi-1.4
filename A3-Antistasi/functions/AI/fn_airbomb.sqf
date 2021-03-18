@@ -5,7 +5,8 @@
 */
 
 params ["_pilot", "_bombType", "_bombCount", "_bombRunLength"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Debug_1("Executing on: %1", clientOwner);
 
 //Ensure reasonable bomb run lenght

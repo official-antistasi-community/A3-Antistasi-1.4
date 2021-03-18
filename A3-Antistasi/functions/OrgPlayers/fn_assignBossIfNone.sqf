@@ -1,5 +1,6 @@
 if !(isServer) exitWith {};
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 // Don't run if a Boss exists and is still eligible
 if (!isNil "theBoss" && {!isNull theBoss && (theBoss getVariable ["eligible", false])}) exitWith {

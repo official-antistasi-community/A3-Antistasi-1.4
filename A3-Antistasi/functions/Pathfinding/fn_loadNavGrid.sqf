@@ -18,7 +18,8 @@ Dependencies:
 Example:
     [] call A3A_fnc_loadNavGrid;
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if !(isNil "roadDataDone") exitWith
 {

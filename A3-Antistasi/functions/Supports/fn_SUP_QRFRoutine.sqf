@@ -16,7 +16,8 @@ params ["_side", "_vehicles", "_groups", "_posDestination", "_supportName"];
     Returns:
         Nothing
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Prepare despawn conditions
 private _endTime = time + 2700;
 private _qrfHasArrived = false;

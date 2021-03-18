@@ -1,5 +1,6 @@
 params ["_vehicleType", "_typeOfAttack", "_landPosBlacklist", "_side", "_markerOrigin"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Creates a vehicle for a QRF or small attack, including crew and cargo
 
     Execution on: HC or Server

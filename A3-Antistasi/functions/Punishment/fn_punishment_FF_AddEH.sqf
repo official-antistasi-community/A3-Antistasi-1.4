@@ -30,7 +30,8 @@ Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params [ ["_unit",objNull,[objNull]], ["_addToAI",false,[false]] ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if (!tkPunish) exitWith {false};
 if (!(_unit isKindOf "Man")) exitWith {

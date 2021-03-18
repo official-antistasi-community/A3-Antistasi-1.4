@@ -15,7 +15,8 @@ params ["_mortar", "_crewGroup", "_supportName", "_side", "_sleepTime"];
     Returns:
         Nothing
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 //Sleep to simulate the time it would need to set the support up
 sleep _sleepTime;

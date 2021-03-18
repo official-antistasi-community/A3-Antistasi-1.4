@@ -1,5 +1,6 @@
 private ["_flagX","_pos","_markerX","_positionX","_size","_powerpl","_revealX"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 //Variable Setup.
 _flagX = _this select 0;

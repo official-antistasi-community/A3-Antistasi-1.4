@@ -22,7 +22,8 @@ params
 [
     ["_pos", [-1,-1,-1], [[]]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if(isNil "roadDataDone") exitWith
 {

@@ -9,7 +9,8 @@ params ["_destination", ["_side", sideUnknown]];
 *   retuns
 *   _airport : MARKER; the best suited airport, "" if none found
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _airport = "";
 
 //Assuming _destination is a pos

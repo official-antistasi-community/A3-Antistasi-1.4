@@ -19,7 +19,8 @@
 
     License: MIT License
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params [["_className", "", [""]]];
 if !(isClass (configFile/"CfgVehicles"/_className)) exitWith { Error("Invalid classname: " + _classname); "N/A" };
 getText (configFile >> "CfgVehicles" >> _className >> "model");

@@ -1,5 +1,6 @@
 params ["_level"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if(_level == 1) exitWith {"Low"};
 if(_level == 2) exitWith {"Medium"};

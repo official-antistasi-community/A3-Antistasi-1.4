@@ -1,5 +1,6 @@
 params ["_convoyID", "_units", "_pos", "_route", "_markers", "_convoySide", "_convoyType", "_maxSpeed", "_isAir"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if(count (_route select 1) != 3) exitWith
 {

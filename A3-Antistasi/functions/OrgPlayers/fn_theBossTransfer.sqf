@@ -1,5 +1,6 @@
 if !(isServer) exitWith {};
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params [["_newBoss", objNull], ["_silent", false]];
 
 if (!isNil "theBoss" and {!isNull theBoss}) then

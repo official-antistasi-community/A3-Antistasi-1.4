@@ -26,7 +26,8 @@ params
     ["_targetParams", [], [[]]],
     ["_revealCall", 0, [0]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 //Wait until no targets are changing
 if(supportTargetsChanging) then

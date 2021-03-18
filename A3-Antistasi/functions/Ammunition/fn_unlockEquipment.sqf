@@ -12,7 +12,8 @@
 	Returns:
 		None
 **/
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_className", ["_dontAddToArsenal", false]];
 
 private _categories = _className call A3A_fnc_equipmentClassToCategories;

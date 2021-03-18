@@ -51,7 +51,11 @@
         | Verbose         | 4         | false                   |
         |_________________|___________|_________________________|
 
-    ---
+    ~~~~ Warning
+
+        Array defines and strings will have there commas striped in macro calls.
+        i.e. this Info("Don't, wait until i get there to hang him"); becomes "Don't wait until i get there to hang him"
+        and Info(["some","elements"]); would fail to log
 
     Scope: Any
     Environment: Any
@@ -73,18 +77,11 @@
     #define Log_Trace
 #endif
 
-//filename parser
-private _LOG_file = {
-    private _fileName = reverse _this;
-    private _index = _fileName find "\";
-    reverse (_fileName select [0,_index]);
-};
-private _LOG_timeText = {str (_this#0) +"-"+ str (_this#1) +"-"+ str (_this#2) +" "+ str (_this#3) +":"+ str (_this#4) +":"+ str (_this#5) +":"+ str (_this#6)};
 if (isNil "LogLevel") then {LogLevel = 2};
 
 //Log standard format
-#define LogMessage(Level, Message) diag_log text ((systemTimeUTC call _LOG_timeText) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ call _LOG_file) + " | " + Message)
-#define LogServerMessage(Level, Message) (text ((systemTimeUTC call _LOG_timeText) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ call _LOG_file) + " | " + Message + format [" | Client: %1 [%2]", player, clientOwner])) remoteExec ["diag_log", 2]
+#define LogMessage(Level, Message) diag_log text ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ select [count __FILE__ -(reverse __FILE__ find '\'),1e6]) + " | " + Message)
+#define LogServerMessage(Level, Message) ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ select [count __FILE__ -(reverse __FILE__ find '\'),1e6]) + " | " + Message + format [" | Client: %1 [%2]", player, clientOwner]) remoteExec ["A3A_fnc_localLog", 2]
 
 //log macros
 #ifdef Log_Error

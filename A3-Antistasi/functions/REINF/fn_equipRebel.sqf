@@ -2,7 +2,8 @@
 // _recruitType param allows some variation based on recruiting method: 0 recruit, 1 HC squad, 2 garrison
 
 params ["_unit", "_recruitType"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 // Mostly exists because BIS_fnc_addWeapon won't use backpack space properly with AT launchers
 private _addWeaponAndMags = {

@@ -1,5 +1,6 @@
 params ["_victim", "_killer"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 //Stops the unit from spawning things
 if (_victim getVariable ["spawner",false]) then

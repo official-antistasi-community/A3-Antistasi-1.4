@@ -10,7 +10,8 @@
  *    Namespace containing faction information
  * Example Usage:
  */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 params ["_file", "_side"];
 

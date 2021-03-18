@@ -29,7 +29,8 @@ params
     ["_side", sideEnemy, [sideEnemy]],
     ["_timeTillExecution", 0, [0]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if(_supportName == "" || _side == sideEnemy) exitWith
 {

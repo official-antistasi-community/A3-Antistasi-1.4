@@ -7,7 +7,8 @@
 */
 
 params ["_victim"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _group = group _victim;
 
 Debug("PostMortem Called");

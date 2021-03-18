@@ -1,6 +1,7 @@
 //Repairs a destroyed building.
 //Parameter can either be the ruin of a building, or the building itself buried underneath the ruins.
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer) exitWith { Error("Server-only function miscalled") };
 
 params ["_target"];

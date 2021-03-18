@@ -9,7 +9,8 @@ params
     ["_convoyType", "PATROL", [""]],
     ["_convoySide", sideEnemy, [sideEnemy]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Creates a convoy for simulated movement
 *   Params:
 *     _convoyID: NUMBER; the unique convoy ID

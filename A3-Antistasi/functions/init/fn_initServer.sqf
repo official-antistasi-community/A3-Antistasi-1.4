@@ -1,5 +1,6 @@
 if (!(isNil "serverInitDone")) exitWith {};
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 scriptName "initServer.sqf";
 //Define logLevel first thing, so we can start logging appropriately.
 logLevel = "LogLevel" call BIS_fnc_getParamValue; publicVariable "logLevel"; //Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG

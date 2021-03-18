@@ -32,7 +32,8 @@ Example:
         private _crewLoadout = A3A_vehClassToCrew getOrDefault [_typeX,[NATOGrunt, CSATGrunt, staticCrewTeamPlayer, "C_Man_1"]] select _sideIndex;
         //        ^-returned loadout to be used                        ^-----Default load-outs if veh not in templates-----^
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 // ⬇ EDIT HERE 👇 TO ADD TEMPLATE LOAD-OUTS ⬇
 private _allVehClassToCrew = [

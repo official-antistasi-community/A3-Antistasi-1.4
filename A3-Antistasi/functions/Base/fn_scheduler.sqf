@@ -1,5 +1,6 @@
 if (!isServer) exitWith {};
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 scriptName "fn_scheduler";
 private _params = _this select 0;
 private _function = _this select 1;

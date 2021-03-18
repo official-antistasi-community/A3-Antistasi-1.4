@@ -2,7 +2,8 @@
 if (!isServer and hasInterface) exitWith{};
 
 private _missionOrigin = _this select 0;
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _bonus = if (_difficult) then {2} else {1};
 private _missionOriginPos = getMarkerPos _missionOrigin;

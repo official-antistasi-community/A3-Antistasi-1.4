@@ -7,7 +7,8 @@
 	1. Object: Vehicle object
 	2. Side: Side ownership for vehicle
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_veh", "_side"];
 if (isNil "_veh") exitWith {};
 

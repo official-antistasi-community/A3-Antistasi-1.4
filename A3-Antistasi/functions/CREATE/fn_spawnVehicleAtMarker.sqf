@@ -17,7 +17,8 @@ params
     Returns:
         OBJECT : The vehicle object, objNull if spawn wasnt possible
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if(_vehicle == "" || _marker == "") exitWith
 {

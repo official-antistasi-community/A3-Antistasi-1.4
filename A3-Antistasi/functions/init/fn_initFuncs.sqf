@@ -1,5 +1,6 @@
 scriptName "initFuncs.sqf";
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Info("initFuncs started");
 
 [] call compile preprocessFileLineNumbers "scripts\Init_UPSMON.sqf";

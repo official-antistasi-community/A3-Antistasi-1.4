@@ -4,7 +4,8 @@
  * We also initialise anything in here that we don't want a client that's joining to overwrite, as JIP happens before initVar.
  */
 scriptName "initVarServer.sqf";
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Info("initVarServer started");
 
 
@@ -208,7 +209,8 @@ if (hasTFAR) then
 	if (isServer) then
 	{
 		[] spawn {
-            #include "..\..\Includes\LogMacros.inc"
+            #include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 			waitUntil {sleep 1; !isNil "TF_server_addon_version"};
             Info("Initializing TFAR settings");
 			["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;						//set to false and players will spawn with LR radio.

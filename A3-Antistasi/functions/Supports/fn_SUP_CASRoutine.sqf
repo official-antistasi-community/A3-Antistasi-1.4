@@ -1,5 +1,6 @@
 params ["_side", "_sleepTime", "_timerIndex", "_airport", "_supportName", "_setupPos"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _plane = if (_side == Occupants) then {vehNATOPlane} else {vehCSATPlane};
 private _crewUnits = if(_side == Occupants) then {NATOPilot} else {CSATPilot};

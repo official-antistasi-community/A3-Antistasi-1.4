@@ -7,7 +7,8 @@
 	2. Side: Side of unit that captured or destroyed the vehicle
 	2. Bool (default false): True if captured, else destroyed
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_veh", "_sideEnemy", ["_captured", false]];
 
 private _type = typeof _veh;

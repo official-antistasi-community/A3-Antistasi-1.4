@@ -1,5 +1,6 @@
 private ["_unit","_enemiesX"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _unit = _this select 0;
 
 _unit setSkill 0;

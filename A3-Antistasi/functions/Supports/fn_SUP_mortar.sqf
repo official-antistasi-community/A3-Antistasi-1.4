@@ -15,7 +15,8 @@ params ["_side", "_timerIndex", "_supportPos", "_supportName"];
     Returns:
         The name of the marker, covering the whole support area
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _mortarType = if(_side == Occupants) then {NATOMortar} else {CSATMortar};
 private _shellType = SDKMortarHEMag;
 private _isMortar = true;

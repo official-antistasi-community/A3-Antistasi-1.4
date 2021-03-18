@@ -1,5 +1,6 @@
 params ["_strikePlane", "_target", "_supportName"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Take over control
 Debug_1("%1 has started gun run", _supportName);
 _strikePlane setVariable ["OnRun", true];

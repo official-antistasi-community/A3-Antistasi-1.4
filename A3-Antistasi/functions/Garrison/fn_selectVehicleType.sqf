@@ -8,7 +8,8 @@ params ["_preference", "_side"];
 *   Returns:
 *     _result : STRING : The typename of the selected vehicle
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 Verbose_2("SelectVehicleType: Selecting vehicle now, preferred is %1, side is %2", _preference, _side);
 

@@ -26,7 +26,8 @@ params
     ["_startNav", 0, [0]],
     ["_endNav", 0, [0]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if(_startNav == -1) exitWith
 {
     Error("No navnode found to start pathfinding at");

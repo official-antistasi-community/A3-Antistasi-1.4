@@ -10,7 +10,8 @@ if (!isServer) exitWith {};
         Nothing
 */
 params ["_marker", "_side"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if ((isNil "_marker") or (isNil "_side")) exitWith {};
 

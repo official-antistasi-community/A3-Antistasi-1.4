@@ -28,7 +28,8 @@ params
     ["_endPos", [0,0,0], [[]]],
     ["_avoid", [], [[]]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 #define WORKSTATE_UNTOUCHED         0
 #define WORKSTATE_OPENED            1
 #define WORKSTATE_CLOSED            2

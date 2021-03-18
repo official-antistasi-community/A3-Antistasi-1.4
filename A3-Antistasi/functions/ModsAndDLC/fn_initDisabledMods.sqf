@@ -1,5 +1,6 @@
 scriptName "fn_initDisabledMods.sqf";
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _disabledMods = [];
 
 if (!allowDLCKart) then {_disabledMods pushBack "kart"};

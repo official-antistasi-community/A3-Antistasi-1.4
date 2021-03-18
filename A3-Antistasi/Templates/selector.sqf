@@ -10,7 +10,8 @@ Dependencies:
   <SIDE> teamplayer The side of the rebels, usually only independent or west.
   <FILES> "Templates\" Assumes the existence of files under "Templates\". Please check here before deleting/renaming one.
 */
-#include "..\Includes\LogMacros.inc"
+#include "..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Map checker
 aridmaps = ["Altis","Kunduz","Malden","tem_anizay","takistan","sara"];
 tropicalmaps = ["Tanoa"];

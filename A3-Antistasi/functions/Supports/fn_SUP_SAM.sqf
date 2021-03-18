@@ -15,7 +15,8 @@ params ["_side", "_timerIndex", "_supportObj", "_supportName"];
     Returns:
         The name of the marker, covering the whole support area
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _supportPos = getPos _supportObj;
 private _spawnPos = [];

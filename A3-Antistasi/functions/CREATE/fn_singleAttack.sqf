@@ -14,7 +14,8 @@ params ["_markerDestination", "_side", "_super"];
     Returns:
         Nothing
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 Info_1("Starting single attack with parameters %1", _this);
 

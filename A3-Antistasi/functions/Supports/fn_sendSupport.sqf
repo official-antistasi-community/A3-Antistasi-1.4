@@ -34,7 +34,8 @@ params
     ["_side", sideEnemy, [sideEnemy]],
     ["_revealCall", 0, [0]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 //Ensure this is running on the main server, otherwise it will break
 if(!isServer) exitWith

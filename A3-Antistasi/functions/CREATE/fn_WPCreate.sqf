@@ -26,7 +26,8 @@ params
     ["_destination", [0,0,0], [[], ""]],
     ["_group", grpNull, [grpNull]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 Debug_3("Creating waypoints for group %1 from %2 to %3", _group, _origin, _destination);
 

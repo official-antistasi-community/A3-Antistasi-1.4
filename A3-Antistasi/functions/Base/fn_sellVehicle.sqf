@@ -31,7 +31,8 @@ params [
     ["_player",objNull,[objNull]],
     ["_veh",objNull,[objNull]]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if (isNull _player) exitWith { Error("_player is null.") };
 if (isNull _veh) exitWith {["Sell Vehicle", "You are not looking at a vehicle."] remoteExecCall ["A3A_fnc_customHint",_player];};

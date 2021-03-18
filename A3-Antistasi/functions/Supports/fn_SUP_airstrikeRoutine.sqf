@@ -1,5 +1,6 @@
 params ["_side", "_timerIndex", "_sleepTime", "_bombType", "_airport", "_targetPos", "_supportName"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Sleep to simulate preparetion time
 while {_sleepTime > 0} do
 {

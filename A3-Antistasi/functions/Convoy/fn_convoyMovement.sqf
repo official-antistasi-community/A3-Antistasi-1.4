@@ -10,7 +10,8 @@ params
     ["_isAir", false, [false]],
     ["_debugObject", nil]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Simulates the movement of the convoy
 *   Params:
 *     _convoyID : NUMBER; the unique convoy ID

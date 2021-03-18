@@ -1,7 +1,8 @@
 //Mission: Logistic supplies
 if (!isServer and hasInterface) exitWith{};
 private ["_markerX","_difficultX","_leave","_contactX","_groupContact","_tsk","_posHQ","_citiesX","_city","_radiusX","_positionX","_posHouse","_nameDest","_timeLimit","_dateLimit","_dateLimitNum","_pos","_truckX","_countX", "_holdTime"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _markerX = _this select 0;
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};

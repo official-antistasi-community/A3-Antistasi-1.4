@@ -2,7 +2,8 @@
  * This file is called AFTER initVarServer.sqf, on both the client and server.
  */
 scriptName "initVarClient.sqf";
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Info("initVarClient started");
 
 //Is music enabled

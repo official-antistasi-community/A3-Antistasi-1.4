@@ -1,5 +1,6 @@
 params ["_sleepTime", "_timerIndex", "_airport", "_supportPos", "_supportName"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 while {_sleepTime > 0} do
 {
@@ -143,7 +144,8 @@ private _antiTankBelt = [false, false, false];
 private _mainGunnerList = [];
 [_gunship, _mainGunnerList, _mainGunner, _supportName] spawn
 {
-    #include "..\..\Includes\LogMacros.inc"
+    #include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
     params ["_gunship", "_mainGunnerList", "_mainGunner", "_supportName"];
 
     private _fnc_executeFireOrder =

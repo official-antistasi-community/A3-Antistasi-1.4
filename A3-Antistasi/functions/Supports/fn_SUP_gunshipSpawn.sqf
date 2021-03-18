@@ -1,5 +1,6 @@
 params ["_side", "_airport", "_timerIndex", "_plane", "_crewUnits", "_supportObj"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //No runway on this airport, use airport position
 //Not sure if I should go with 150 or 1000 here, players might be only 1001 meters away
 //While technically 1000 meter height is technically visible from a greater distance

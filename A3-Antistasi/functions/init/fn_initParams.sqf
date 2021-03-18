@@ -9,7 +9,8 @@
     Environment: Init
     Dependencies: Save game (if any) must have been selected
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 Info("Initializing global params");
 

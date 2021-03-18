@@ -7,7 +7,8 @@
 //deletion of a marker in the array will require deletion of the corresponding marker in the editor
 //only touch the commented arrays
 scriptName "initZones.sqf";
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 Info("initZones started");
 
 forcedSpawn = [];

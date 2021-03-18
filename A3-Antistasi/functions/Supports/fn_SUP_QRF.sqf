@@ -13,7 +13,8 @@ params ["_side", "_posDestination", "_supportName"];
     Returns:
         _coverageMarker : STRING : The name of the marker covering the support area, "" if not possible
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _typeOfAttack = [_posDestination, _side, _supportName] call A3A_fnc_chooseAttackType;
 //If no type specified, exit here

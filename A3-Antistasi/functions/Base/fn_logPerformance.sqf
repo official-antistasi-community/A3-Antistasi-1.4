@@ -1,5 +1,6 @@
 params [["_message", ""]];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _countGroups = 0;
 private _countRebels = 0;
 private _countInvaders = 0;

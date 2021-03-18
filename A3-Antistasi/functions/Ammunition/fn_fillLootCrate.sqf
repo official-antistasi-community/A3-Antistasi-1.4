@@ -1,4 +1,5 @@
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_crate",
 ["_crateWepTypeMax", crateWepTypeMax], "_crateWepNum",
 ["_crateItemTypeMax", crateItemTypeMax], "_crateItemNum",

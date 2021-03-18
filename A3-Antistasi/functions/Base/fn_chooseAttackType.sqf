@@ -14,7 +14,8 @@ params ["_posDestination", "_side", ["_supportName", "Small attack"]];
     Returns:
         _typeOfAttack: STRING : The type of the attack, "" if no attack should happen
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 //Check if unit count isnt reached
 //There might be an exploit here with spawning alot of rebel units to prevent qrfs from happening

@@ -1,5 +1,6 @@
 params ["_impactPosition", "_sleepTime", "_supportName", "_side"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Hugely inspired and partly copied from ALIAS https://www.armaholic.com/page.php?id=32556
 
 /*	An orbital attack, resulting in an devastating beam

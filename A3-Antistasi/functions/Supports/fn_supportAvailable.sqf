@@ -13,7 +13,8 @@ params ["_supportType", "_side", "_position"];
     Returns:
         -1 if not available, the index of the timer otherwise
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _timerIndex = -1;
 private _arrays = [];
 

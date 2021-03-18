@@ -1,5 +1,6 @@
 params ["_side", "_posDestination"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if(tierWar < 9) exitWith {-1};
 
 private _lastSupport = server getVariable ["lastSupport", ["", 0]];

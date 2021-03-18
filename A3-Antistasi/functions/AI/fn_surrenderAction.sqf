@@ -1,5 +1,6 @@
 params ["_unit"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if !(local _unit) exitWith {
     Error("Function miscalled with non-local unit");

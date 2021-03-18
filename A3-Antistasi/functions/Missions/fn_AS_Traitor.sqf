@@ -1,6 +1,7 @@
 //Mission: Assassinate a traitor
 if (!isServer and hasInterface) exitWith{};
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _markerX = _this select 0;
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};

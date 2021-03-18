@@ -1,5 +1,6 @@
 params [["_side", sideEnemy]];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Handles the large attack that also are missions
 
     Execution on: HC or Server

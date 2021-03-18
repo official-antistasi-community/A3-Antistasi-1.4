@@ -43,7 +43,8 @@ params [
     ["_victim",objNull, [objNull]],
     ["_customMessage","", [""], [] ]
 ];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 ///////////Checks if is Collision///////////
 private _isCollision = false;
 if (_instigator isEqualType []) then {

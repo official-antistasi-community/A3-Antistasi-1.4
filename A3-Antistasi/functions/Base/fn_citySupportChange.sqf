@@ -1,4 +1,5 @@
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer) exitWith {Error("Server-only function miscalled")};
 
 waitUntil {!cityIsSupportChanging};

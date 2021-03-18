@@ -8,7 +8,8 @@ Scope: All
 Environment: Any (Scheduled Inherited from fn_initVarCommon.sqf)
 Public: No
 */
-#include "..\Includes\LogMacros.inc"
+#include "..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Var initialisation
 A3A_hasRHS = false;
 A3A_hasFFAA = false;

@@ -1,5 +1,6 @@
 params ["_sleepTime", "_launcher", "_side", "_supportName"];
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 sleep _sleepTime;
 
 private _rounds = 4;

@@ -14,7 +14,8 @@ params ["_group", "_supportTypes", "_target"];
     Returns:
         Nothing
 */
-#include "..\..\Includes\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _groupLeader = leader _group;
 
 if(side _group == teamPlayer) exitWith

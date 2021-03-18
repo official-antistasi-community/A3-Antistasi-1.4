@@ -18,7 +18,8 @@
     Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
 */
 params ["_vehicle", ["_instant", false, [true]]];
-#include "..\..\..\Includes\LogMacros.inc"
+#include "..\..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _loaded = _vehicle getVariable ["Cargo", []];
 private _lastLoaded = false;

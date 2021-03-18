@@ -66,13 +66,13 @@ while {true} do
 private _exitPos = _targetPosition getPos [_entryDistance, _normalAngle + _attackAngle];
 
 {
-    _x set [2,300];
+    _x set [2, 500];
 } forEach [_entryPos, _exitPos, _originPosition];
 
 private _wp = _groupPilot addWaypoint [_entryPos, -1];
 _wp setWaypointType "MOVE";
 _wp setWaypointSpeed "NORMAL";
-_wp setWaypointStatements ["true", "if !(local this) exitWith {}; (vehicle this) setVariable ['dropPosReached', true]; [3, 'Drop pos reached', 'paradrop'] call A3A_fnc_log;"];
+_wp setWaypointStatements ["true", "if !(local this) exitWith {}; (vehicle this) setVariable ['dropPosReached', true];"];
 
 private _wp1 = _groupPilot addWaypoint [_exitPos, -1];
 _wp1 setWaypointType "MOVE";
@@ -87,18 +87,19 @@ waitUntil {sleep 1; (_vehicle getVariable ["dropPosReached", false]) || (!alive 
 
 if(_vehicle getVariable ["dropPosReached", false]) then
 {
+    [3, 'Drop pos reached', 'paradrop'] call A3A_fnc_log;
     _vehicle setCollisionLight true;
-	{
+    {
         unAssignVehicle _x;
         //Move them into alternating left/right positions, so their parachutes are less likely to kill each other
         private _pos = if (_forEachIndex % 2 == 0) then {_vehicle modeltoWorld [7, -20, -5]} else {_vehicle modeltoWorld [-7, -20, -5]};
         _x setPos _pos;
         _x spawn
         {
-            waitUntil {sleep 0.25; ((getPosATL _this) select 2) < 105};
+            waitUntil {sleep 0.25; ((getPos _this) select 2) < 105};
             _this addBackpack "B_Parachute";
             private _smokeGrenade = selectRandom allSmokeGrenades;
-    		private _smoke = _smokeGrenade createVehicle (getPosATL _this);
+            private _smoke = _smokeGrenade createVehicle (getPosATL _this);
         };
         sleep 0.5;
   	} forEach units _groupJumper;

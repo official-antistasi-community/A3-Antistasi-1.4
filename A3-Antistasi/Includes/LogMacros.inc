@@ -103,10 +103,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerError_6(Message, A,B,C,D,E,F) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Error", _msg) }
     #define ServerError_7(Message, A,B,C,D,E,F,G) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Error", _msg) }
     #define ServerError_8(Message, A,B,C,D,E,F,G,H) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Error", _msg) }
-    #define ErrorArray(Message, Array) if (0 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Error", _msg) }
-    #define ServerErrorArray(Message, Array) if (0 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Error", _msg) }
-    #define ErrorArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Error", _msg) }
-    #define ServerErrorArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Error", _msg) }
+    #define ErrorArray(Message, Array) if (0 < LogLevel) then { LogMessage("Error", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ServerErrorArray(Message, Array) if (0 < LogLevel) then { LogServerMessage("Error", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ErrorArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogMessage("Error", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
+    #define ServerErrorArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogServerMessage("Error", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Error(Message)
     #define Error_1(Message, A)
@@ -151,10 +151,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerInfo_6(Message, A,B,C,D,E,F) if (1 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Info", _msg) }
     #define ServerInfo_7(Message, A,B,C,D,E,F,G) if (1 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Info", _msg) }
     #define ServerInfo_8(Message, A,B,C,D,E,F,G,H) if (1 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Info", _msg) }
-    #define InfoArray(Message, Array) if (1 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Info", _msg) }
-    #define ServerInfoArray(Message, Array) if (1 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Info", _msg) }
-    #define InfoArrayFormat(Message, Frmat, Array) if (1 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Info", _msg) }
-    #define ServerInfoArrayFormat(Message, Frmat, Array) if (1 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Info", _msg) }
+    #define InfoArray(Message, Array) if (0 < LogLevel) then { LogMessage("Info", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ServerInfoArray(Message, Array) if (0 < LogLevel) then { LogServerMessage("Info", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define InfoArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogMessage("Info", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
+    #define ServerInfoArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogServerMessage("Info", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Info(Message)
     #define Info_1(Message, A)
@@ -199,10 +199,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerDebug_6(Message, A,B,C,D,E,F) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Debug", _msg) }
     #define ServerDebug_7(Message, A,B,C,D,E,F,G) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Debug", _msg) }
     #define ServerDebug_8(Message, A,B,C,D,E,F,G,H) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Debug", _msg) }
-    #define DebugArray(Message, Array) if (2 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Debug ", _msg) }
-    #define ServerDebugArray(Message, Array) if (2 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Debug", _msg) }
-    #define DebugArrayFormat(Message, Frmat, Array) if (2 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Debug", _msg) }
-    #define ServerDebugArrayFormat(Message, Frmat, Array) if (2 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Debug", _msg) }
+    #define DebugArray(Message, Array) if (0 < LogLevel) then { LogMessage("Debug", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ServerDebugArray(Message, Array) if (0 < LogLevel) then { LogServerMessage("Debug", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define DebugArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogMessage("Debug", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
+    #define ServerDebugArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogServerMessage("Debug", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Debug(Message)
     #define Debug_1(Message, A)
@@ -247,10 +247,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerTrace_6(Message, A,B,C,D,E,F) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Trace", _msg) }
     #define ServerTrace_7(Message, A,B,C,D,E,F,G) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Trace", _msg) }
     #define ServerTrace_8(Message, A,B,C,D,E,F,G,H) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Trace", _msg) }
-    #define TraceArray(Message, Array) if (2 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Trace", _msg) }
-    #define ServerTraceArray(Message, Array) if (2 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Trace", _msg) }
-    #define TraceArrayFormat(Message, Frmat, Array) if (2 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Trace", _msg) }
-    #define ServerTraceArrayFormat(Message, Frmat, Array) if (2 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Trace", _msg) }
+    #define TraceArray(Message, Array) if (0 < LogLevel) then { LogMessage("Trace", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ServerTraceArray(Message, Array) if (0 < LogLevel) then { LogServerMessage("Trace", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define TraceArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogMessage("Trace", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
+    #define ServerTraceArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogServerMessage("Trace", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Trace(Message)
     #define Trace_1(Message, A)
@@ -295,10 +295,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerVerbose_6(Message, A,B,C,D,E,F) if (3 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Verbose", _msg) }
     #define ServerVerbose_7(Message, A,B,C,D,E,F,G) if (3 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Verbose", _msg) }
     #define ServerVerbose_8(Message, A,B,C,D,E,F,G,H) if (3 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Verbose", _msg) }
-    #define VerboseArray(Message, Array) if (3 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Verbose", _msg) }
-    #define ServerVerboseArray(Message, Array) if (3 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ("    " + str _x)} forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Verbose", _msg) }
-    #define VerboseArrayFormat(Message, Frmat, Array) if (3 < LogLevel) then { private _msg = [Message + " ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogMessage("Verbose", _msg) }
-    #define ServerVerboseArrayFormat(Message, Frmat, Array) if (3 < LogLevel) then { private _msg = [Message +" ["]; { _msg pushBack ( format (["    " + Frmat] + _x) ) } forEach Array; _msg pushBack "]"; _msg = _msg joinString endl; LogServerMessage("Verbose", _msg) }
+    #define VerboseArray(Message, Array) if (0 < LogLevel) then { LogMessage("Verbose", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ServerVerboseArray(Message, Array) if (0 < LogLevel) then { LogServerMessage("Verbose", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define VerboseArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogMessage("Verbose", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
+    #define ServerVerboseArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogServerMessage("Verbose", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Verbose(Message)
     #define Verbose_1(Message, A)

@@ -50,7 +50,8 @@ if (_instigator isEqualType []) then {
     _isCollision = !(((_instigator#0) isEqualType objNull) && {isPlayer (_instigator#0)});
     _instigator = _instigator select _isCollision;  // First one in EH will be unit by default, if its a collision the eh returns the instigator in "source" or "killer"
 };
-if (!(_instigator isEqualType objNull)) exitWith {"NOT OBJECT"};
+if (!(_instigator isEqualType objNull) || {isNull _instigator}) exitWith {"NOT OBJECT"};
+if (!isPlayer _instigator) exitWith {"AI"};
 private _vehicle = vehicle _instigator;
 private _vehicleType = typeOf _vehicle;
 

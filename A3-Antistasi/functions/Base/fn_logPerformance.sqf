@@ -28,8 +28,9 @@ private _countCiv = 0;
 	};
 } forEach allGroups;
 
-private _performanceLog = Format ["%10 ServerFPS:%1, Players:%11, DeadUnits:%2, AllUnits:%3, UnitsAwareOfEnemies:%14, AllVehicles:%4, WreckedVehicles:%12, Entities:%13, GroupsRebels:%5, GroupsInvaders:%6, GroupsOccupants:%7, GroupsCiv:%8, GroupsTotal:%9, GroupsCombatBehaviour:%15, Faction Cash:%16, HR:%17"
-    ,diag_fps
+private _performanceLog = format [
+	"%10 ServerFPS:%1, Players:%11, DeadUnits:%2, AllUnits:%3, UnitsAwareOfEnemies:%14, AllVehicles:%4, WreckedVehicles:%12, Entities:%13, GroupsRebels:%5, GroupsInvaders:%6, GroupsOccupants:%7, GroupsCiv:%8, GroupsTotal:%9, GroupsCombatBehaviour:%15, Faction Cash:%16, HR:%17, OccAggro: %18, InvAggro: %19, Warlevel: %20"
+	,diag_fps
 	,(count alldead)
 	,count allunits
 	,count vehicles
@@ -46,5 +47,8 @@ private _performanceLog = Format ["%10 ServerFPS:%1, Players:%11, DeadUnits:%2, 
 	,{behaviour leader _x == "COMBAT"} count allGroups
 	,server getVariable "resourcesFIA"
 	,server getVariable "hr"
+    ,aggressionOccupants
+    ,aggressionInvaders
+    ,tierWar
 ];
 Info(_performanceLog);

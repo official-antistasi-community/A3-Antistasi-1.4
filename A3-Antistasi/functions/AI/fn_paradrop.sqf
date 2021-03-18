@@ -39,6 +39,8 @@ private _groupPilot = group driver _vehicle;
 } foreach (units _groupPilot);
 
 {
+    _x setVariable ["jumpSave_Backpack", backpack _x];
+    _x setVariable ["jumpSave_BackpackItems", backpackItems _x];
     removebackpack _x;
 } forEach (units _groupJumper);
 
@@ -100,6 +102,11 @@ if(_vehicle getVariable ["dropPosReached", false]) then
             _this addBackpack "B_Parachute";
             private _smokeGrenade = selectRandom allSmokeGrenades;
             private _smoke = _smokeGrenade createVehicle (getPosATL _this);
+            waitUntil { sleep 1; isTouchingGround _this};
+            _this addBackpack (_this getVariable "jumpSave_Backpack");
+            {
+                _this addItemToBackpack _x;
+            } forEach (_this getVariable "jumpSave_BackpackItems");
         };
         sleep 0.5;
   	} forEach units _groupJumper;

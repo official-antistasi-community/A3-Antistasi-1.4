@@ -50,4 +50,4 @@ _fnc_pad_3Digits = {
     };
 };
 
-(str _year) + "-" + ((str _month) call _fnc_pad_2Digits) + "-" + ((str _day) call _fnc_pad_2Digits) + " " + ((str _hour) call _fnc_pad_2Digits) + ":" + ((str _minute) call _fnc_pad_2Digits) + ":" + ((str _second) call _fnc_pad_2Digits + ":" + ((str _millisecond) call _fnc_pad_3Digits );
+(str _year) + "-" + ((str _month) call _fnc_pad_2Digits) + "-" + ((str _day) call _fnc_pad_2Digits) + " " + ((str _hour) call _fnc_pad_2Digits) + ":" + ((str _minute) call _fnc_pad_2Digits) + ":" + ((str _second) call _fnc_pad_2Digits) + ":" + ((str _millisecond) call _fnc_pad_3Digits );

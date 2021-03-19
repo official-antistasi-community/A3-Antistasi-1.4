@@ -86,15 +86,15 @@ if (isNil "LogLevel") then {LogLevel = 2};
 
 //log macros
 #ifdef Log_Error
-    #define Error(Message) if (0 < LogLevel) then { LogMessage("Error", Message); LogServerMessage("Error", Message) }
-    #define Error_1(Message, A) if (0 < LogLevel) then { private _msg = format [Message,A]; LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
-    #define Error_2(Message, A,B) if (0 < LogLevel) then { private _msg = format [Message,A,B]; LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
-    #define Error_3(Message, A,B,C) if (0 < LogLevel) then { private _msg = format [Message,A,B,C]; LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
-    #define Error_4(Message, A,B,C,D) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D]; LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
-    #define Error_5(Message, A,B,C,D,E) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E]; LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
-    #define Error_6(Message, A,B,C,D,E,F) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
-    #define Error_7(Message, A,B,C,D,E,F,G) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
-    #define Error_8(Message, A,B,C,D,E,F,G,H) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
+    #define Error(Message) if (0 < LogLevel) then { LogMessage("Error", Message); if !(isServer) then {LogServerMessage("Error", Message)} }
+    #define Error_1(Message, A) if (0 < LogLevel) then { private _msg = format [Message,A]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_2(Message, A,B) if (0 < LogLevel) then { private _msg = format [Message,A,B]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_3(Message, A,B,C) if (0 < LogLevel) then { private _msg = format [Message,A,B,C]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_4(Message, A,B,C,D) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_5(Message, A,B,C,D,E) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_6(Message, A,B,C,D,E,F) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_7(Message, A,B,C,D,E,F,G) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_8(Message, A,B,C,D,E,F,G,H) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
     #define ServerError(Message) if (0 < LogLevel) then { LogServerMessage("Error", Message) }
     #define ServerError_1(Message, A) if (0 < LogLevel) then { private _msg = format [Message,A]; LogServerMessage("Error", _msg) }
     #define ServerError_2(Message, A,B) if (0 < LogLevel) then { private _msg = format [Message,A,B]; LogServerMessage("Error", _msg) }

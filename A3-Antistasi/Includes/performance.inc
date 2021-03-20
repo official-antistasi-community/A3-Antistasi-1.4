@@ -1,5 +1,8 @@
-#define debugEnabled 1
-#ifdef debugEnabled
+#ifndef debugEnabled
+    #define debugEnabled 0
+#endif
+
+#if debugEnabled
     if (isNil "HR_performanceCounters") then {HR_performanceCounters = createHashMap};
 
     #define startCounter(X) HR_performanceCounters set [X, diag_tickTime]
@@ -14,4 +17,8 @@
 #else
     #define startCounter(X)
     #define stopCounter(X)
+
+    #define startBatch(X)
+    #define markBatch(X, C)
+    #define stopBatch(X)
 #endif

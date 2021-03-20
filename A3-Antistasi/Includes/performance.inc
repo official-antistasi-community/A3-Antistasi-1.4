@@ -1,3 +1,38 @@
+/*
+    Author: [Håkon]
+    Description:
+        Performance logging macros
+
+        Counter: Single elapsed time in ms
+            startCounter(X) - Starts counting
+            stopCounter(X)  - Stops counting and logs elapsed time
+        Batch:   Colection of times with notes over elapsed time
+            startBatch(X)   - Starts Counting
+            markBatch(X,C)  - Marks elapsed time with note C
+            stopBatch(X)    - Stios counting and logs the marks in the batch
+
+        Note: all arguments for macros MUST be strings
+
+    Scope: Any
+    Environment: Any
+    Public: Yes
+    Dependencies:
+
+    Example:
+
+        startCounter("Test");
+        //some block of code run
+        stopCounter("Test"); //logs time code block used
+
+        startBatch("Test");
+        //some code
+        markBatch("Test", "some done"); //note <<some done: {elapsed time}>> added to batch
+        //more code
+        markBatch("Test", "more code done"); //note <<more code done: {elapsed time}>> added to batch
+        stopBatch("Test"); // batch is logged neatly
+
+    License: MIT License
+*/
 #ifndef debugEnabled
     #define debugEnabled 0
 #endif

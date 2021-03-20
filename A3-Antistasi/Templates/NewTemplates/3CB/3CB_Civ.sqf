@@ -21,6 +21,7 @@
 	,"UK3CB_TKC_C_Sedan", 0.5
 	,"UK3CB_TKC_C_Skoda", 0.5
 	,"UK3CB_TKC_C_S1203", 0.5
+	,"UK3CB_TKC_C_SUV", 0.3
 	,"UK3CB_TKC_C_UAZ_Closed", 0.5
 	,"UK3CB_TKC_C_UAZ_Open", 0.5
 	,"UK3CB_TKC_C_Gaz24", 0.5
@@ -32,7 +33,6 @@
 	,"UK3CB_TKC_C_Kamaz_Open", 0.3
 	,"UK3CB_TKC_C_Ural", 0.3				// Urals
 	,"UK3CB_TKC_C_Ural_Open", 0.3
-	,"UK3CB_TKC_C_Ural_Empty", 0.3
 	,"UK3CB_TKC_C_V3S_Closed", 0.3
 	,"UK3CB_TKC_C_V3S_Open", 0.3]] call _fnc_saveToTemplate; 			//this line determines civilian trucks -- Example: ["vehiclesCivIndustrial", ["C_Truck_02_transport_F"]] -- Array, can contain multiple assets
 
@@ -40,7 +40,13 @@
 
 ["vehiclesCivBoat", ["C_Boat_Civil_01_rescue_F", 0.1			// motorboats
 	,"C_Boat_Civil_01_police_F", 0.1
-	,"C_Boat_Civil_01_F", 1.0
+	,"UK3CB_C_Fishing_Boat", 0.3
+	,"UK3CB_C_Fishing_Boat_Smuggler_VIV_FFV", 0.1
+	,"UK3CB_C_Fishing_Boat_Smuggler", 0.2
+	,"UK3CB_C_Fishing_Boat_VIV_FFV", 0.1
+	,"UK3CB_C_Small_Boat_Closed", 0.7
+	,"UK3CB_C_Small_Boat_Open", 0.8
+	,"UK3CB_C_Small_Boat_Wood", 0.9
 	,"C_Rubberboat", 1.0					// rescue boat
 	,"C_Boat_Transport_02_F", 1.0			// RHIB
 	,"C_Scooter_Transport_01_F", 0.5]] call _fnc_saveToTemplate; 			//this line determines civilian boats -- Example: ["vehiclesCivBoat", ["C_Boat_Civil_01_F"]] -- Array, can contain multiple assets

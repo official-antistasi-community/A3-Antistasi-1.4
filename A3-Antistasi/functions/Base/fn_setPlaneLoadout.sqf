@@ -42,7 +42,9 @@ if (_type == "CAS") then
             _loadout = ["PylonRack_1Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_1Rnd_LG_scalpel"];
         };
         //RHS US CAS (A-10)
-        case "RHS_A10":
+        case "RHS_A10";
+        case "UK3CB_CW_US_B_EARLY_A10":
+
         {
             _loadout = ["rhs_mag_ANALQ131","rhs_mag_M151_7_USAF_LAU131","rhs_mag_agm65d_3","rhs_mag_M151_21_USAF_LAU131_3","rhs_mag_M151_7_USAF_LAU131","","rhs_mag_M151_7_USAF_LAU131","rhs_mag_M151_21_USAF_LAU131_3","rhs_mag_agm65d_3","rhs_mag_M151_7_USAF_LAU131","","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x16"];
             _plane setVariable ["mainGun", "RHS_weap_gau8"];
@@ -59,7 +61,8 @@ if (_type == "CAS") then
         };
         case "RHS_Su25SM_CAS_vvs";
         case "rhsgref_cdf_b_su25";
-        case "UK3CB_TKA_B_Su25SM_CAS":
+        case "UK3CB_TKA_B_Su25SM_CAS";
+        case "UK3CB_CW_SOV_O_LATE_Su25SM_CAS":
         {
             _loadout = ["rhs_mag_kh29D","rhs_mag_kh29D","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_b8m1_s8kom","rhs_mag_b8m1_s8kom","rhs_mag_R60M","rhs_mag_R60M","rhs_ASO2_CMFlare_Chaff_Magazine_x4"];
             _plane setVariable ["mainGun", "rhs_weap_gsh302"];
@@ -103,7 +106,8 @@ if (_type == "AA") then
         //RHS Russian Air superiority
         case "rhs_mig29s_vvs";
         case "rhsgref_cdf_b_mig29s";
-        case "UK3CB_TKA_O_MIG29SM":
+        case "UK3CB_TKA_O_MIG29SM";
+        case "UK3CB_CW_SOV_O_LATE_MIG29S":
         {
             _loadout = ["rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R77_AKU170_MIG29","rhs_mag_R77_AKU170_MIG29","","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
         };

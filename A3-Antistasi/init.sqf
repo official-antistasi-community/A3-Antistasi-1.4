@@ -1,4 +1,5 @@
-#include "Includes\LogMacros.Inc"
+#include "Includes\common.inc"
+FIX_LINE_NUMBERS()
 Info("Init Started");
 //Arma 3 - Antistasi - Warlords of the Pacific by Barbolani & The Official AntiStasi Community
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.

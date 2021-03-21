@@ -1,6 +1,7 @@
-private _filename = "fn_garbageCleaner.sqf";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 [petros,"hint","Deleting Garbage. Please wait", "Garbage Cleaner"] remoteExec ["A3A_fnc_commsMP", 0];
-[2, "Cleaning garbage...", _filename] call A3A_fnc_log;
+Info("Cleaning garbage...");
 
 private _rebelSpawners = allUnits select { side group _x == teamPlayer && {_x getVariable ["spawner",false]} };
 
@@ -49,4 +50,4 @@ if (A3A_hasRHS) then {
 };
 
 [petros,"hint","Garbage deleted", "Garbage Cleaner"] remoteExec ["A3A_fnc_commsMP", 0];
-[2, "Garbage clean completed", _filename] call A3A_fnc_log;
+Info("Garbage clean completed");

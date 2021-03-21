@@ -1,5 +1,6 @@
 private ["_unit","_enemiesX"];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _unit = _this select 0;
 
 _unit setSkill 0;
@@ -59,12 +60,7 @@ _EHkilledIdx = _unit addEventHandler
 			//Must be group, in case they're undercover.
 			if (side group _killer == teamPlayer) then
 			{
-                [
-                    3,
-                    "Rebels killed a civilian",
-                    "aggroEvent",
-                    true
-                ] call A3A_fnc_log;
+                Debug("aggroEvent | Rebels killed a civilian");
 				[[10 * _multiplier, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 				[1,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 			}

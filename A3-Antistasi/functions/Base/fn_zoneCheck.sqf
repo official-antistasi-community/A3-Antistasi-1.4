@@ -10,6 +10,8 @@ if (!isServer) exitWith {};
         Nothing
 */
 params ["_marker", "_side"];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if ((isNil "_marker") or (isNil "_side")) exitWith {};
 
@@ -60,11 +62,7 @@ private _markerPos = getMarkerPos _marker;
     }
 } forEach allUnits;
 
-[
-    3,
-    format ["ZoneCheck at %1 found %2 friendly %5 units, %3 enemy %6 units and %4 enemy %7 units", _marker, _defenderUnitCount, _enemy1UnitCount, _enemy2UnitCount, _side, _enemy1, _enemy2],
-    "zoneCheck"
-] call A3A_fnc_log;
+Debug_7("ZoneCheck at %1 found %2 friendly %5 units, %3 enemy %6 units and %4 enemy %7 units", _marker, _defenderUnitCount, _enemy1UnitCount, _enemy2UnitCount, _side, _enemy1, _enemy2);
 
 if (_enemy1UnitCount > 3 * _defenderUnitCount || {_enemy2UnitCount > 3 * _defenderUnitCount}) then
 {

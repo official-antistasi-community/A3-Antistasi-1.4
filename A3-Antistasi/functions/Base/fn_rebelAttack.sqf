@@ -1,5 +1,6 @@
 params [["_side", sideEnemy]];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Handles the large attack that also are missions
 
     Execution on: HC or Server
@@ -13,12 +14,11 @@ params [["_side", sideEnemy]];
         Nothing
 */
 
-private _fileName = "rebelAttack";
-[2, format ["Starting large attack script for side %1", _side], _fileName, true] call A3A_fnc_log;
+Info_1("Starting large attack script for side %1", _side);
 
 if (A3A_hasIFA and (sunOrMoon < 1)) exitWith
 {
-    [2, "Aborting attack as IFA has no nightvision (at least thats what I assume)", _fileName, true] call A3A_fnc_log;
+    Info("Aborting attack as IFA has no nightvision (at least thats what I assume)");
 };
 
 private _possibleTargets = markersX - controlsX - outpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedSites;;
@@ -87,11 +87,11 @@ else
         private _aggroChance = (100 - _defenderAggro) - (100 - _attackerAggro);
         private _winChance = 50 - (_aggroChance/2);
         private _loseChance = 100 - _winChance;
-        [3, format ["Attacker win chance is %1, counter chance is %2", _winChance, _loseChance], _fileName] call A3A_fnc_log;
+        Debug_2("Attacker win chance is %1, counter chance is %2", _winChance, _loseChance);
         private _attackerWon = selectRandomWeighted [false, _loseChance, true, _winChance];
         if(!_attackerWon) then
         {
-            [3, format ["Attack from %1 got countered by %2, reversing attack sides", _side, _enemySide], _fileName] call A3A_fnc_log;
+            Debug_2("Attack from %1 got countered by %2, reversing attack sides", _side, _enemySide);
             _targetSide = _side;
             _side = _enemySide;
         };
@@ -99,7 +99,7 @@ else
 
     _possibleStartBases = _possibleStartBases select {sidesX getVariable [_x,sideUnknown] == _side};
     _possibleTargets = _possibleTargets select {sidesX getVariable [_x,sideUnknown] == _targetSide};
-    [3, format ["Selected target side is %1", _targetSide], _filename] call A3A_fnc_log;
+    Debug_1("Selected target side is %1", _targetSide);
 };
 
 if((_side == Occupants) && (gameMode != 4)) then
@@ -126,10 +126,10 @@ _possibleTargets = _possibleTargets select {(sidesX getVariable [_x, sideUnknown
 
 if((count _possibleTargets == 0) || (count _possibleStartBases == 0)) exitWith
 {
-    [2, "Attack found no suitable targets or no suitable start bases, aborting!", _fileName, true] call A3A_fnc_log;
+    Info("Attack found no suitable targets or no suitable start bases, aborting!");
 };
 
-[3, format ["%1 possible targets for attack found, possible start points are %2", count _possibleTargets, _possibleStartBases], _fileName, true] call A3A_fnc_log;
+Debug_2("%1 possible targets for attack found, possible start points are %2", count _possibleTargets, _possibleStartBases);
 
 private _easyTargets = [];
 private _availableTargets = [];
@@ -164,7 +164,7 @@ private _availableTargets = [];
 
             if(count _nearbyFriendlyMarkers >= 5 && {!(_target in citiesX)}) then
             {
-                [3, format ["%1 is surrounded by us, considering easy target", _target], _fileName] call A3A_fnc_log;
+                Debug_1("%1 is surrounded by us, considering easy target", _target);
                 _easyTargets pushBack _target;
             };
 
@@ -191,15 +191,11 @@ private _availableTargets = [];
 
 if (count _availableTargets == 0) exitWith
 {
-    [2, "Attack could not find available targets, aborting!", _fileName, true] call A3A_fnc_log;
+    Info("Attack could not find available targets, aborting!");
 };
-
-//[3, "Logging available targets for attack", _fileName] call A3A_fnc_log;
-//[_availableTargets, "Available targets"] call A3A_fnc_logArray;
 
 {
     _x params ["_target", "_baseArray"];
-    //[3, format ["T: %1, A: %2", _target, _baseArray], _fileName] call A3A_fnc_log;
 
     //Multiplier is used as an overall multiplier based on types
     private _targetMultiplier = 1;
@@ -235,16 +231,13 @@ if (count _availableTargets == 0) exitWith
     if((count _garrison <= 8) && {(count _nearbyStatics <= 2) && {!(_target in citiesX)}}) then
     {
         //Only minimal garrison, consider it an easy target
-        [3, format ["%1 has only minimal garrison, considering easy target", _target], _fileName] call A3A_fnc_log;
+        Debug_1("%1 has only minimal garrison, considering easy target", _target);
         _easyTargets pushBackUnique _target;
     };
 
     //Apply the new points to the base array
     _baseArray = _baseArray apply {[_x select 0, ((_x select 1) + _targetPoints) * _targetMultiplier]};
 } forEach _availableTargets;
-
-//[3, "Logging final target values for attack", _fileName] call A3A_fnc_log;
-//[_availableTargets, "Target values"] call A3A_fnc_logArray;
 
 /*
 All targets are now having values which airport can attack them how efficient
@@ -256,7 +249,7 @@ to attack from which airport
 private _fnc_flipMarker =
 {
     params ["_side", "_marker", "_minTroops", "_randomTroops"];
-    [2, format ["Autowin %1 for side %2 to avoid unnecessary calculations", _marker, _side], "rebelAttack"] call A3A_fnc_log;
+    Info_2("Autowin %1 for side %2 to avoid unnecessary calculations", _marker, _side);
     [_side, _marker] spawn A3A_fnc_markerChange;
     sleep 10;
     private _squads = _minTroops + round (random _randomTroops);
@@ -317,8 +310,7 @@ if(count _easyTargets >= 4) then
         };
     } forEach _easyTargets;
 
-    [3, "Found four targets to attack, these are:", _fileName] call A3A_fnc_log;
-    [_attackList, "Target params"] call A3A_fnc_logArray;
+    DebugArray("Found four targets to attack, these are:", _attackList);
 
     //In case of four small attacks have 90 minutes break
     [5400, _side] call A3A_fnc_timingCA;
@@ -329,7 +321,7 @@ if(count _easyTargets >= 4) then
         private _nearPlayers = allPlayers findIf {(getMarkerPos (_target) distance2D _x) < 1500};
         if((_nearPlayers != -1) || ((spawner getVariable _target) != 2) || (sidesX getVariable _target == teamPlayer)) then
         {
-            [2, format ["Starting single attack against %1 from %2", _target, _x select 0], _fileName] call A3A_fnc_log;
+            Info_2("Starting single attack against %1 from %2", _target, _x select 0);
             [[_target, _x select 0, false],"A3A_fnc_singleAttack"] remoteExec ["A3A_fnc_scheduler",2];
             sleep 180;
         }
@@ -376,20 +368,20 @@ else
         };
     } forEach _availableTargets;
 
-    [3, format ["Main target is %1, easy target is %2", _mainTarget, _easyTarget], _fileName] call A3A_fnc_log;
+    Debug_2("Main target is %1, easy target is %2", _mainTarget, _easyTarget);
 
     //If one if the target is not set, use the other one
     private _finalTarget = objNull;
     if(!(_mainTarget isEqualType [])) then
     {
-        [3, "Main target not set, selecting easy target", _fileName] call A3A_fnc_log;
+        Debug("Main target not set, selecting easy target");
         _finalTarget = _easyTarget;
     }
     else
     {
         if(!(_easyTarget isEqualType [])) then
         {
-            [3, "Easy target not set, selecting main target", _fileName] call A3A_fnc_log;
+            Debug("Easy target not set, selecting main target");
             _finalTarget = _mainTarget;
         }
         else
@@ -406,7 +398,7 @@ else
         };
     };
 
-    [3, format ["Selected target is %1!", _finalTarget], _fileName] call A3A_fnc_log;
+    Debug_1("Selected target is %1!", _finalTarget);
 
     _finalTarget params ["_attackOrigin", "_attackPoints", "_attackTarget"];
 
@@ -427,7 +419,7 @@ else
         if((_nearPlayers != -1) || ((spawner getVariable _attackTarget) != 2) || (sidesX getVariable _attackTarget == teamPlayer) || (_attackTarget in citiesX)) then
         {
             //Sending real attack, execute the fight
-            [2, format ["Starting waved attack with %1 waves from %2 to %3", _waves, _attackOrigin, _attackTarget], _fileName] call A3A_fnc_log;
+            Info_3("Starting waved attack with %1 waves from %2 to %3", _waves, _attackOrigin, _attackTarget);
             [_attackTarget, _attackOrigin, _waves] spawn A3A_fnc_wavedCA;
         }
         else
@@ -438,7 +430,7 @@ else
     }
     else
     {
-        [2, format ["Starting punishment mission from %1 to %2", _attackOrigin, _attackTarget], _fileName] call A3A_fnc_log;
+        Info_2("Starting punishment mission from %1 to %2", _attackOrigin, _attackTarget);
         [_attackTarget, _attackOrigin] spawn A3A_fnc_invaderPunish;
     };
 };

@@ -10,7 +10,8 @@ params
     ["_isAir", false, [false]],
     ["_debugObject", nil]
 ];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Simulates the movement of the convoy
 *   Params:
 *     _convoyID : NUMBER; the unique convoy ID
@@ -24,13 +25,12 @@ params
 *   Returns:
       Nothing
 */
-private _fileName = "convoyMovements";
 
 private _convoyMarker = format ["convoy%1", _convoyID];
 
 if(!(_maxSpeed > 0)) exitWith
 {
-  diag_log format ["ConvoyMovement[%1]: Max speed is 0 or lower, can't simulate convoy with it!", _convoyID];
+    Debug_1("ConvoyMovement[%1]: Max speed is 0 or lower, can't simulate convoy with it!", _convoyID);
   deleteMarker _convoyMarker;
 };
 
@@ -38,8 +38,8 @@ _maxSpeed = _maxSpeed * 0.8; //Only drive with 80% of max speed
 
 if(count _route == 0 || {count (_route select 0) != 2}) exitWith
 {
-    [3, format ["Input was %1", str _this], _fileName] call A3A_fnc_log;
-    [3, "Path is broken", _fileName] call A3A_fnc_log;
+    Debug_1("Input was %1", str _this);
+    Debug("Path is broken");
 };
 
 

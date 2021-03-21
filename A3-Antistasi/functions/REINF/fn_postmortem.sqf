@@ -7,15 +7,16 @@
 */
 
 params ["_victim"];
-private _filename = "fn_postmortem";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _group = group _victim;
 
-[3,"PostMortem Called",_filename] call A3A_fnc_log;
-if (isnull _victim)exitwith{[1,"Function failed called with null param.",_filename] call A3A_fnc_log;};
+Debug("PostMortem Called");
+if (isnull _victim)exitwith{Error("Function failed called with null param.")};
 
 if (isNull _group) then
 {
-    [3,format["Group for victim :: %1, no group found! Removing from Statics list.",_victim],_filename] call A3A_fnc_log;
+    Debug_1("Group for victim :: %1, no group found! Removing from Statics list.",_victim);
 
 	if (_victim in staticsToSave) then
     {
@@ -24,20 +25,19 @@ if (isNull _group) then
     };
 };
 
-cleanSTR = format ["Pausing for %1 minutes before cleaning victim: %2 and group: %3", round cleantime/60, _victim, _group];
-[3,cleanSTR, _filename] call A3A_fnc_log;
+Debug_3("Pausing for %1 minutes before cleaning victim: %2 and group: %3", round cleantime/60, _victim, _group);
 sleep cleantime;
 
 if (_victim getVariable ["stopPostmortem", false]) exitWith {};
 
 if !(isnull _victim) then
 {
-    [3,format["Cleanup complete for %1 victim.", _victim],_filename] call A3A_fnc_log;
+    Debug_1("Cleanup complete for %1 victim.", _victim);
     deleteVehicle _victim;
 };
 
 if !(isnull _group) then
 {
-    [3,format["Cleanup complete for %1 group.", _group],_filename] call A3A_fnc_log;
+    Debug_1("Cleanup complete for %1 group.", _group);
     deleteGroup _group;
 };

@@ -1,10 +1,11 @@
 if (!(isNil "serverInitDone")) exitWith {};
-private _fileName = "initServer.sqf";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 scriptName "initServer.sqf";
 //Define logLevel first thing, so we can start logging appropriately.
 logLevel = "LogLevel" call BIS_fnc_getParamValue; publicVariable "logLevel"; //Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
-[2,"Dedicated server detected",_fileName] call A3A_fnc_log;
-[2,"Server init started",_fileName] call A3A_fnc_log;
+Info("Dedicated server detected");
+Info("Server init started");
 boxX allowDamage false;
 flagX allowDamage false;
 vehicleBox allowDamage false;
@@ -35,7 +36,7 @@ call
 {
 	// If the legacy campaign ID is valid for this map/mode, just use that
 	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
-		[2, "Loading last campaign, ID " + campaignID, _filename] call A3A_fnc_log;
+        Info("Loading last campaign, ID " + campaignID);
 	};
 
 	// Otherwise, check through the saved game list for matches and build existing ID list
@@ -54,7 +55,7 @@ call
 
 	// If valid save found, exit with that
 	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
-		[2, "Loading campaign from saved list, ID " + campaignID, _filename] call A3A_fnc_log;
+        Info("Loading campaign from saved list, ID " + campaignID);
 	};
 
 	// Otherwise start a new campaign
@@ -62,7 +63,7 @@ call
 	while {campaignID in _existingIDs} do {
 		campaignID = str(floor(random(90000) + 10000));		// guaranteed five digits
 	};
-	[2, "Creating new campaign with ID " + campaignID, _fileName] call A3A_fnc_log;
+    Info("Creating new campaign with ID " + campaignID);
 };
 publicVariable "loadLastSave";
 publicVariable "campaignID";
@@ -79,7 +80,7 @@ call A3A_fnc_logistics_initNodes;
 call HR_GRG_fnc_initServer;
 
 savingServer = true;
-[2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
+Info_2("%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text");
 bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 if (hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 call A3A_fnc_loadNavGrid;
@@ -109,8 +110,8 @@ if (loadLastSave) then {
 	};
 	if (membershipEnabled and (membersX isEqualTo [])) then {
 		[petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list", "Membership"] remoteExec ["A3A_fnc_commsMP"];
-		[2,"Previous data loaded",_fileName] call A3A_fnc_log;
-		[2,"Membership enabled, adding current players to list",_fileName] call A3A_fnc_log;
+        Info("Previous data loaded");
+        Info("Membership enabled, adding current players to list");
 		membersX = [];
 		{
 			membersX pushBack (getPlayerUID _x);
@@ -135,7 +136,7 @@ else {
 			} forEach playableUnits;
 	}
 	else {
-		[2,"New session selected",_fileName] call A3A_fnc_log;
+        Info("New session selected");
 		if (isNil "commanderX" || {isNull commanderX}) then {commanderX = (call A3A_fnc_playableUnits) select 0};
 		theBoss = commanderX;
 		theBoss setRank "CORPORAL";
@@ -147,12 +148,12 @@ else {
 	publicVariable "membersX";
 };
 
-[2,"Accepting players",_fileName] call A3A_fnc_log;
+Info("Accepting players");
 if !(loadLastSave) then {
 	{
 		_x call A3A_fnc_unlockEquipment;
 	} foreach initialRebelEquipment;
-	[2,"Initial arsenal unlocks completed",_fileName] call A3A_fnc_log;
+    Info("Initial arsenal unlocks completed");
 };
 call A3A_fnc_createPetros;
 
@@ -178,12 +179,11 @@ addMissionEventHandler ["BuildingChanged", {
 }];
 
 serverInitDone = true; publicVariable "serverInitDone";
-[2,"Setting serverInitDone as true",_fileName] call A3A_fnc_log;
+Info("Setting serverInitDone as true");
 
-
-[2, "Waiting for HQ placement", _fileName] call A3A_fnc_log;
+Info("Waiting for HQ placement");
 waitUntil {sleep 1;!(isNil "placementDone")};
-[2, "HQ Placed, continuing init", _fileName] call A3A_fnc_log;
+Info("HQ Placed, continuing init");
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] spawn A3A_fnc_aggressionUpdateLoop;
@@ -223,4 +223,4 @@ savingServer = false;
 		sleep _logPeriod;
 	};
 };
-[2,"initServer completed",_fileName] call A3A_fnc_log;
+Info("initServer completed");

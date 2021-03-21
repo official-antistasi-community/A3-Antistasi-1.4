@@ -1,7 +1,8 @@
 //Mission: Logistic supplies
 if (!isServer and hasInterface) exitWith{};
 private ["_markerX","_difficultX","_leave","_contactX","_groupContact","_tsk","_posHQ","_citiesX","_city","_radiusX","_positionX","_posHouse","_nameDest","_timeLimit","_dateLimit","_dateLimitNum","_pos","_truckX","_countX", "_holdTime"];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _markerX = _this select 0;
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};
@@ -99,12 +100,7 @@ else
 			{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 			[-15*_bonus,15*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
-            [
-                3,
-                "Rebels won a supply mission",
-                "aggroEvent",
-                true
-            ] call A3A_fnc_log;
+            Debug("aggroEvent | Rebels won a supply mission");
 			[[-10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 			}
 		else

@@ -21,8 +21,8 @@ Environment:Any
 Public: Yes
 
 Example:
-    [2009,15,6,13,45,30,420] call A3A_fnc_systemTime_format_G;  // "2009-15-06 13:45:30"
-    systemTimeUTC call A3A_fnc_systemTime_format_G;
+    [2009,15,6,13,45,30,420] call A3A_fnc_systemTime_format_S;  // "2009-15-06 13:45:30"
+    systemTimeUTC call A3A_fnc_systemTime_format_S;
 */
 params [
     "_year",
@@ -31,7 +31,7 @@ params [
     "_hour",
     "_minute",
     "_second",
-    ["_millisecond",0] // Discarded
+    "_millisecond"
 ];
 
 _fnc_pad_2Digits = {    // Assume 1 or 2 digits supplied
@@ -42,4 +42,12 @@ _fnc_pad_2Digits = {    // Assume 1 or 2 digits supplied
     };
 };
 
-(str _year) + "-" + ((str _month) call _fnc_pad_2Digits) + "-" + ((str _day) call _fnc_pad_2Digits) + " " + ((str _hour) call _fnc_pad_2Digits) + ":" + ((str _minute) call _fnc_pad_2Digits) + ":" + ((str _second) call _fnc_pad_2Digits);
+_fnc_pad_3Digits = {
+    switch (count _this) do {
+        case 1: {"00"+_this};
+        case 2: {"0"+_this};
+        default {_this};
+    };
+};
+
+(str _year) + "-" + ((str _month) call _fnc_pad_2Digits) + "-" + ((str _day) call _fnc_pad_2Digits) + " " + ((str _hour) call _fnc_pad_2Digits) + ":" + ((str _minute) call _fnc_pad_2Digits) + ":" + ((str _second) call _fnc_pad_2Digits) + ":" + ((str _millisecond) call _fnc_pad_3Digits );

@@ -1,17 +1,18 @@
-private _filename = "fn_loadPlayer";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer) exitWith {
-	[1, "Miscalled server-only function", _filename] call A3A_fnc_log;
+    Error("Miscalled server-only function");
 };
 waitUntil {(!isNil "initVar")};		// hmm...
 
 params ["_playerId", "_unit"];
 
 if !([_playerId] call A3A_fnc_playerHasSave) exitWith {
-	[2, format ["No save found for player ID %1", _playerId], _filename] call A3A_fnc_log;
+    Info_1("No save found for player ID %1", _playerId);
 	[_playerId, _unit] call A3A_fnc_resetPlayer;
 };
 
-[2, format ["Loading player data for ID %1 into unit %2", _playerId, _unit], _filename] call A3A_fnc_log;
+Info_2("Loading player data for ID %1 into unit %2", _playerId, _unit);
 
 private _loadout = [_playerId, "loadoutPlayer"] call A3A_fnc_retrievePlayerStat;
 if (!isNil "_loadout") then { _unit setUnitLoadout _loadout };
@@ -43,4 +44,4 @@ _unit setVariable ["moneyX", _money, true];
 [] remoteExec ["A3A_fnc_statistics", _unit];
 _unit setVariable ["canSave", true, true];
 
-[2, format ["Player %1: Score %2, rank %3, money %4, garage count %5", _playerId, _score, _rank, _money, count _garage], _filename] call A3A_fnc_log;
+Info_5("Player %1: Score %2, rank %3, money %4, garage count %5", _playerId, _score, _rank, _money, count _garage);

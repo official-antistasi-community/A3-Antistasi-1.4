@@ -1,5 +1,6 @@
 params ["_vehicleType", "_typeOfAttack", "_landPosBlacklist", "_side", "_markerOrigin"];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Creates a vehicle for a QRF or small attack, including crew and cargo
 
     Execution on: HC or Server
@@ -18,8 +19,6 @@ params ["_vehicleType", "_typeOfAttack", "_landPosBlacklist", "_side", "_markerO
         or
         OBJECT : objNull if the spawning did not worked
 */
-
-private _fileName = "createAttackVehicle";
 
 private _vehicle = [_markerOrigin, _vehicleType] call A3A_fnc_spawnVehicleAtMarker;
 
@@ -85,7 +84,7 @@ if (_expectedCargo > 0) then
 
 if(!_spawnPerformed) exitWith
 {
-    [3, "Unit limit reached, deleting vehicle and crew", _fileName] call A3A_fnc_log;
+    Debug("Unit limit reached, deleting vehicle and crew");
     {
         deleteVehicle _x;
     } forEach (units _crewGroup);
@@ -95,7 +94,7 @@ if(!_spawnPerformed) exitWith
 };
 
 _landPosBlacklist = [_vehicle, _crewGroup, _cargoGroup, _posDestination, _markerOrigin, _landPosBlacklist] call A3A_fnc_createVehicleQRFBehaviour;
-[3, format ["Spawn Preformed: Created vehicle %1 with %2 soldiers", typeof _vehicle, count crew _vehicle], _filename] call A3A_fnc_log;
+Debug_2("Spawn Preformed: Created vehicle %1 with %2 soldiers", typeof _vehicle, count crew _vehicle);
 
 private _vehicleData = [_vehicle, _crewGroup, _cargoGroup, _landPosBlacklist];
 _vehicleData;

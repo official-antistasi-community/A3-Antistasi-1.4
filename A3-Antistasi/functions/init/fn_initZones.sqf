@@ -7,8 +7,9 @@
 //deletion of a marker in the array will require deletion of the corresponding marker in the editor
 //only touch the commented arrays
 scriptName "initZones.sqf";
-private _fileName = "initZones.sqf";
-[2,"initZones started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Info("initZones started");
 
 forcedSpawn = [];
 citiesX = [];
@@ -141,7 +142,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 		_numCiv = server getVariable _nameX;
 		if (isNil "_numCiv" || {!(_numCiv isEqualType 0)}) then
 		{
-			[1, format ["Bad population count data for %1", _nameX], _fileName] call A3A_fnc_log;
+            Error_1("Bad population count data for %1", _nameX);
 			_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
 		};
 	}
@@ -435,4 +436,4 @@ if (isMultiplayer) then {
 	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]
 };
 
-[2,"initZones completed",_fileName] call A3A_fnc_log;
+Info("initZones completed");

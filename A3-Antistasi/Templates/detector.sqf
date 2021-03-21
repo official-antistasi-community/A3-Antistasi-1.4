@@ -8,9 +8,9 @@ Scope: All
 Environment: Any (Scheduled Inherited from fn_initVarCommon.sqf)
 Public: No
 */
-
+#include "..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Var initialisation
-private _filename = "detector.sqf";
 A3A_hasRHS = false;
 A3A_hasFFAA = false;
 A3A_hasIFA = false;
@@ -27,15 +27,15 @@ A3A_hasRDS = false;
 //Deactivated for now, as IFA is having some IP problems (08.05.2020 european format)
 if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
     //A3A_hasIFA = true;
-    //[2, "IFA Detected", _fileName] call A3A_fnc_log;
-    [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
+    //Info("IFA Detected");
+    Error("IFA detected, but it is no longer supported, please remove this mod");
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
 //RHS Detection
 if (isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") && isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") && isClass (configFile >> "CfgFactionClasses" >> "rhsgref_faction_tla")) then {
   A3A_hasRHS = true;
-  [2,"RHS Detected.",_fileName] call A3A_fnc_log;
+  Info("RHS Detected.");
 };
 
 //3CB BAF Detection
@@ -44,28 +44,28 @@ if (A3A_hasRHS && (
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Vehicles") &&
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Units_Common") &&
   isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Equipment")
-) ) then {A3A_has3CBBAF = true; [2,"3CB BAF Detected.",_fileName] call A3A_fnc_log;};
+) ) then {A3A_has3CBBAF = true; Info("3CB BAF Detected.") };
 
 //3CB Factions Detection
-if (isClass (configfile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")) then {A3A_has3CBFactions = true; [2,"3CB Factions Detected.",_fileName] call A3A_fnc_log;};
+if (isClass (configfile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")) then {A3A_has3CBFactions = true; Info("3CB Factions Detected.") };
 
 //FFAA Detection
-if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {A3A_hasFFAA = true; [2,"FFAA Detected.",_fileName] call A3A_fnc_log;};
+if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {A3A_hasFFAA = true; Info("FFAA Detected.") };
 
 //Ivory Car Pack Detection
-if (isClass (configfile >> "CfgPatches" >> "Ivory_Data")) then {A3A_hasIvory = true; [2,"Ivory Cars Detected.",_fileName] call A3A_fnc_log;};
+if (isClass (configfile >> "CfgPatches" >> "Ivory_Data")) then {A3A_hasIvory = true; Info("Ivory Cars Detected.") };
 
 //TCGM_BikeBackpack Detection
-if (isClass (configfile >> "CfgPatches" >> "TCGM_BikeBackpack")) then {A3A_hasTCGM = true; [2,"TCGM Detected.",_fileName] call A3A_fnc_log;};
+if (isClass (configfile >> "CfgPatches" >> "TCGM_BikeBackpack")) then {A3A_hasTCGM = true; Info("TCGM Detected.") };
 //ADV-CPR Pike Edition detection
-if (hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) then {A3A_hasADV = true; [2,"ADV Detected.",_fileName] call A3A_fnc_log;};
+if (hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) then {A3A_hasADV = true; Info("ADV Detected.") };
 
 //D3S Car Pack Detection !!!--- Currently using vehicle classname check. Needs config viewer to work to find cfgPatches. ---!!!
-if (isClass (configfile >> "CfgVehicles" >> "d3s_baumaschinen")) then {A3A_hasD3S = true; [2,"D3S Detected.",_fileName] call A3A_fnc_log;};
+if (isClass (configfile >> "CfgVehicles" >> "d3s_baumaschinen")) then {A3A_hasD3S = true; Info("D3S Detected.") };
 
 //RDS Car Pack Detection
-if (isClass (configfile >> "CfgPatches" >> "rds_A2_Civilians")) then {A3A_hasRDS = true; [2,"RDS Cars Detected.",_fileName] call A3A_fnc_log;};
+if (isClass (configfile >> "CfgPatches" >> "rds_A2_Civilians")) then {A3A_hasRDS = true; Info("RDS Cars Detected.") };
 
 //No Mods found logging
-if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_hasIFA && !A3A_has3CBBAF) then {[2,"No Side Replacement Mods Detected.",_fileName] call A3A_fnc_log;};
-if (!A3A_hasIvory && !A3A_hasTCGM && !A3A_hasADV) then {[2,"No Addon Mods Detected.",_fileName] call A3A_fnc_log;};
+if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_hasIFA && !A3A_has3CBBAF) then { Info("No Side Replacement Mods Detected.") };
+if (!A3A_hasIvory && !A3A_hasTCGM && !A3A_hasADV) then { Info("No Addon Mods Detected.") };

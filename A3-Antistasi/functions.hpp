@@ -660,9 +660,10 @@ class A3A
         class dateToTimeString {};
         class deleteNamespace {};
         class getAdmin {};
+        class localLog {};
         class log {};
         class setPos {};
-        class systemTime_format_G {};
+        class systemTime_format_S {};
         class vehicleWillCollideAtPosition {};
         class getRoadDirection {};
     };

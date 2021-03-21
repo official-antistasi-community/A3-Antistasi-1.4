@@ -1,8 +1,9 @@
 //Original Author: Barbolani
 //Edited and updated by the Antistasi Community Development Team
 scriptName "fn_initGarrisons";
-private _fileName = "fn_initGarrisons";
-[2,"InitGarrisons started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Info("InitGarrisons started");
 
 _fnc_initMarker =
 {
@@ -230,4 +231,4 @@ if (debug) then {
 //New system, adding cities
 [citiesX, "City", [0,0,0]] call A3A_fnc_createGarrison;
 
-[2,"InitGarrisons completed",_fileName] call A3A_fnc_log;
+Info("InitGarrisons completed");

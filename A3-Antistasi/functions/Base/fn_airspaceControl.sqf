@@ -3,7 +3,8 @@
 #define JET             2
 
 params ["_vehicle"];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Handles the airspace control of any player aircraft, breaking undercover and calling support
 
     Execution on: Any
@@ -16,8 +17,6 @@ params ["_vehicle"];
     Returns:
         Nothing
 */
-
-private _fileName = "airspaceControl";
 
 //If vehicle already has an airspace control script, exit here
 if(_vehicle getVariable ["airspaceControl", false]) exitWith {};
@@ -85,29 +84,17 @@ private _fn_sendSupport =
     {
         case (MIL_HELI):
         {
-            [
-                3,
-                format ["Rebel military helicopter %1 detected by %2 (side %3), sending support now!", _vehicle, _marker, _markerSide],
-                _fileName
-            ] call A3A_fnc_log;
+            Debug_3("Rebel military helicopter %1 detected by %2 (side %3), sending support now!", _vehicle, _marker, _markerSide);
             [_vehicle, 4, ["SAM", "ASF", "GUNSHIP"], _markerSide, _revealValue] remoteExec ["A3A_fnc_sendSupport", 2];
         };
         case (JET):
         {
-            [
-                3,
-                format ["Rebel jet %1 detected by %2 (side %3), sending support now!", _vehicle, _marker, _markerSide],
-                _fileName
-            ] call A3A_fnc_log;
+            Debug_3("Rebel jet %1 detected by %2 (side %3), sending support now!", _vehicle, _marker, _markerSide);
             [_vehicle, 4, ["ASF", "SAM"], _markerSide, _revealValue] remoteExec ["A3A_fnc_sendSupport", 2];
         };
         default
         {
-            [
-                3,
-                format ["Rebel civil helicopter %1 detected by %2 (side %3), revealed for all groups!", _vehicle, _marker, _markerSide],
-                _fileName
-            ] call A3A_fnc_log;
+            Debug_3("Rebel civil helicopter %1 detected by %2 (side %3), revealed for all groups!", _vehicle, _marker, _markerSide);
         };
     };
 };

@@ -102,7 +102,7 @@ if(_spawnPos isEqualTo []) exitWith
 _mortar = [_mortarType, _spawnPos, _spawnRadius, 5, true] call A3A_fnc_safeVehicleSpawn;
 
 //Spawn in crew
-private _mortarGroup = createVehicleCrew _mortar;
+private _mortarGroup = [_side, _mortar] call A3A_fnc_createVehicleCrew;
 
 _mortar setVariable ["shellType", _shellType, true];
 

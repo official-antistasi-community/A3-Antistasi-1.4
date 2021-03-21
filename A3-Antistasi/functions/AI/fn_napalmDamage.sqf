@@ -35,9 +35,9 @@ if (isNil {
     if (!alive _victim || {!isDamageAllowed _victim} || {isObjectHidden _victim}) exitWith {nil};   // Hidden objects could be Zeus or other important mission things.
     1;
 }) exitWith {true};
-private _overKill = 5;  // In case the the unit starts getting healed.
+private _overKill = 3;  // In case the the unit starts getting healed.
 private _timeToLive = 6;  // Higher number causes damage to be dealt more slowly.
-private _totalTicks = 12;  // Higher number gives more detail.
+private _totalTicks = 3;  // Higher number gives more detail.
 
 private _timeBetweenTicks = _timeToLive/_totalTicks;
 private _damagePerTick = 1/_totalTicks;

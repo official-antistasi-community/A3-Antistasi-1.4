@@ -29,8 +29,8 @@ switch(true) do{
                 [2, "Using Temperate CNM Template", _filename] call A3A_fnc_log;
             };
             default {
-                ["Templates\NewTemplates\3CB\3CB_Reb_TTF_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using arid TTF Templates", _filename] call A3A_fnc_log;
+                ["Templates\NewTemplates\3CB\3CB_Reb_TKM_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using arid TKM Templates", _filename] call A3A_fnc_log;
             };
         };
     };
@@ -139,8 +139,8 @@ case (A3A_hasFFAA): {
                 [2, "Using Temperate US Marines Template as Placeholder", _filename] call A3A_fnc_log;
             };
             case (worldName in tropicalmaps): {
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Marines_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Temperate US Marines Template as Placeholder", _filename] call A3A_fnc_log;
+                ["Templates\NewTemplates\3CB\3CB_AI_CW_US.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using Coldwar US Template", _filename] call A3A_fnc_log;
             };
             default {
                 ["Templates\NewTemplates\3CB\3CB_AI_TKA_West.sqf", west] call A3A_fnc_compatabilityLoadFaction;
@@ -221,8 +221,8 @@ switch(true) do{
                 [2, "Using RHS AFRF as Placeholder Template", _filename] call A3A_fnc_log;
             };
             case (worldName in tropicalmaps): {
-                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using RHS AFRF as Placeholder Template", _filename] call A3A_fnc_log;
+                ["Templates\NewTemplates\3CB\3CB_AI_CW_SOV.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using Coldwar Soviets Template", _filename] call A3A_fnc_log;
             };
             default {
                 ["Templates\NewTemplates\3CB\3CB_AI_TKA_East.sqf", east] call A3A_fnc_compatabilityLoadFaction;

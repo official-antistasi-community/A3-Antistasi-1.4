@@ -20,34 +20,34 @@ Returns:
 	<BOOLEAN> true if it hasn't crashed; false if invalid params; nil if it has crashed.
 
 Examples:
-	[_UID,"forgive"] remoteExec ["A3A_fnc_punishment_release",2]; // Forgive all sins and release from Ocean Gulag.
+	[_UID,"forgive"] remoteExecCall ["A3A_fnc_punishment_release",2]; // Forgive all sins and release from Ocean Gulag.
 
 Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_UID",["_source",""]];
-private _filename = "fn_punishment_release.sqf";
+private _filename = "fn_punishment_release";
 
 if (!isServer) exitWith {
 	[1, "NOT SERVER", _filename] call A3A_fnc_log;
 	false;
 };
 
+private _varspace = [missionNamespace,"A3A_FFPun",_UID,locationNull] call A3A_fnc_getNestedObject;
+private _name = _varspace getVariable ["name","NO NAME"];
+private _detainee = _varspace getVariable ["player",objNull];
 
-private _keyPairs = [ ["_punishmentPlatform",objNull],["name","NO NAME"] ];
-private _data_instigator = [_UID,_keyPairs] call A3A_fnc_punishment_dataGet;
-_data_instigator params ["_punishmentPlatform","_name"];
-
-private _detainee = [_UID] call BIS_fnc_getUnitByUid;
 private _playerStats = format["Player: %1 [%2]", _name, _UID];
 
 private _releaseFromSentence = {
-	[_UID] remoteExec ["A3A_fnc_punishment_removeActionForgive",0,false];
+	[_name] remoteExecCall ["A3A_fnc_punishment_removeActionForgive",0,false];
 	[_UID,"remove"] call A3A_fnc_punishment_oceanGulag;
 };
 private _forgiveStats = {
-	private _keys = ["timeTotal","offenceTotal","overhead","sentenceEndTime"];
-	[_UID,_keys] call A3A_fnc_punishment_dataRem;
+	private _varspace = [missionNamespace,"A3A_FFPun",_UID,"timeTotal",nil] call A3A_fnc_setNestedObject;
+	_varspace setVariable ["offenceTotal",nil];
+	_varspace setVariable ["overhead",nil];
+	_varspace setVariable ["sentenceEndTime",nil];
 };
 
 switch (_source) do {
@@ -56,7 +56,7 @@ switch (_source) do {
 		call _releaseFromSentence;
 		[2, format ["RELEASE | %1", _playerStats], _filename] call A3A_fnc_log;
 		if (isPlayer _detainee) then {
-			["FF Notification", "Enough then."] remoteExec ["A3A_fnc_customHint", _detainee, false];
+			["FF Punishment", "Enough then."] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
 		};
 		true;
 	};
@@ -65,13 +65,12 @@ switch (_source) do {
 		call _releaseFromSentence;
 		[2, format ["FORGIVE | %1", _playerStats], _filename] call A3A_fnc_log;
 		if (isPlayer _detainee) then {
-			["FF Notification", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExec ["A3A_fnc_customHint", _detainee, false];
+			["FF Punishment", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
 		};
 		true;
 	};
 	case "forgive": {
-		private _keyPairs = [ ["sentenceEndTime",0] ];
-		[_UID,_keyPairs] call A3A_fnc_punishment_dataSet;
+		[missionNamespace,"A3A_FFPun",_UID,"sentenceEndTime",0] call A3A_fnc_setNestedObject;
 		true;
 	};
 	default {

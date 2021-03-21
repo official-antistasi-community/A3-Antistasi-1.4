@@ -1,84 +1,81 @@
 /*
 Function:
-	A3A_fnc_punishment_sentence_server
+    A3A_fnc_punishment_sentence_server
 
 Description:
-	Organises the sentence and addActions of the detainee.
-	Includes timer and release mechanism.
-	Will release on remote sentence release time shorting.
+    Organises the sentence and addActions of the detainee.
+    Includes timer and release mechanism.
+    Will release on remote sentence release time shorting.
 
 Scope:
-	<SERVER> Execute on server.
+    <SERVER> Execute on server.
 
 Environment:
-	<SCHEDULED> For suspensions.
+    <UNSCHEDULED>.
 
 Parameters:
-	<STRING> The UID of the detainee being sent to Ocean Gulag.
-	<NUMBER> The time the detainee will be imprisoned.
+    <STRING> The UID of the detainee being sent to Ocean Gulag.
+    <NUMBER> The time the detainee will be imprisoned.
 
 Returns:
-	<BOOLEAN> true if it hasn't crashed; false if invalid params; nil if it has crashed.
+    <BOOLEAN> true if it hasn't crashed; false if invalid params; nil if it has crashed.
 
 Examples:
-	[_UID,_timeTotal] remoteExec ["A3A_fnc_punishment_sentence_server",2,false];
+    [_UID,_timeTotal] remoteExecCall ["A3A_fnc_punishment_sentence_server",2,false];
 
 Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_UID","_timeTotal"];
-private _filename = "fn_punishment_sentence_server.sqf";
-scriptName "fn_punishment_sentence_server.sqf";
-
-if (!isServer) exitWith {
-	[1, "NOT SERVER", _filename] call A3A_fnc_log;
-	false;
-};
+private _filename = "fn_punishment_sentence_server";
 
 _timeTotal = 5*(floor (_timeTotal/5)); // Rounds up so the loop lines up.
 private _sentenceEndTime = (floor serverTime) + _timeTotal;
-private _keyPairs = [["sentenceEndTime",_sentenceEndTime],["timeTotal",_timeTotal],["offenceTotal",1]]; //,["name","NO NAME"]
-[_UID,_keyPairs] call A3A_fnc_punishment_dataSet;
+private _varspace = [missionNamespace,"A3A_FFPun",_UID,"sentenceEndTime",_sentenceEndTime] call A3A_fnc_setNestedObject;
+_varspace setVariable ["timeTotal",_timeTotal];
+_varspace setVariable ["offenceTotal",2];
 
+private _varspace = [missionNamespace,"A3A_FFPun",_UID,locationNull] call A3A_fnc_getNestedObject;
+private _name = _varspace getVariable ["name","NO NAME"];
+private _detainee = _varspace getVariable ["player",objNull];
 
-private _keyPairs = [["name","NO NAME"]];
-private _data_instigator = [_UID,_keyPairs] call A3A_fnc_punishment_dataGet;
-_data_instigator params ["_name"];
+[_detainee,_UID,_name,_sentenceEndTime] spawn {
+    params ["_detainee","_UID","_name","_sentenceEndTime"];
+    private _filename = "fn_punishment_sentence_server";
+    scriptName "fn_punishment_sentence_server";
 
-private _disconnected = false;
-private _disconnectedCleanUp = {
-	_playerStats = format["Player: %1 [%2], _timeTotal: %3", _name, _UID, str _timeTotal];
-	[2, format ["DISCONNECTED/DIED WHILE PUNISHED | %1", _playerStats], _filename] call A3A_fnc_log;
-	systemChat format["FF: %1 disconnected/died while being punished.",_name];
-	[_UID,"remove"] call A3A_fnc_punishment_oceanGulag;
-	_disconnected=true;
-	true;
-};
+    private _lastAdmin = objNull;
+    private _admin = objNull;
+    private _sentenceEndTime_old = _sentenceEndTime;
+    private _disconnected = false;
 
-[_UID] remoteExec ["A3A_fnc_punishment_notifyAdmin",0,false];
+    while {(ceil serverTime) < _sentenceEndTime-1} do { // ceil and -1 if something doesn't sync up
+        if (!isPlayer _detainee) exitWith {_disconnected=true};
+        _admin = [] call A3A_fnc_getAdmin;  // Refreshes in case the admin logged in.
+        if !(_admin isEqualTo _lastAdmin) then {  // Admin Change
+            if (!isNull _lastAdmin) then {
+                [_name] remoteExecCall ["A3A_fnc_punishment_removeActionForgive",_lastAdmin,false];
+            };
+            if (!isNull _admin) then {
+                if (_admin isEqualTo _detainee) exitWith { [_UID,"forgive"] call A3A_fnc_punishment_release; };  // The admin cannot use the self forgive scroll-action when attached to the surf-board.
+                ["FF Notification", [_name," has been found guilty of FF (3+ Strikes).<br/><br/>If you believe this is a mistake, you can forgive him with the corresponding scroll-menu action."] joinString ""] remoteExecCall ["A3A_fnc_customHint",_admin,false];
+                [_UID,[missionNamespace,"A3A_FFPun",_UID,"offenceTotal",0] call A3A_fnc_getNestedObject,_name] remoteExecCall ["A3A_fnc_punishment_addActionForgive",_admin,false];
+            };
+            _lastAdmin = _admin;
+        };
+        [_detainee,_sentenceEndTime - (floor serverTime)] remoteExec ["A3A_fnc_punishment_sentence_client",_detainee,false];
+        [_UID,"add"] call A3A_fnc_punishment_oceanGulag;
+        uiSleep 5;
+        _sentenceEndTime = [missionNamespace,"A3A_FFPun",_UID,"sentenceEndTime",floor serverTime] call A3A_fnc_getNestedObject; // Polls for updates from admin forgive
 
-private _sentenceEndTime_old = _sentenceEndTime;
-private _countX = 0;
-private _detainee = _UID call BIS_fnc_getUnitByUid;
-
-_keyPairs = [ ["sentenceEndTime",floor serverTime] ];
-while {(ceil serverTime) < _sentenceEndTime-1} do { // ceil and -1 if something doesn't sync up
-	if (!isPlayer _detainee) exitWith {call _disconnectedCleanUp};
-	if ((admin owner _detainee > 0) || player isEqualTo _detainee) exitWith { // If local host, the server is the admin.
-		_sentenceEndTime = 0;
-		[_UID,"forgive"] call A3A_fnc_punishment_release;
-	};
-	[_UID] remoteExec ["A3A_fnc_punishment_addActionForgive",0,false]; // Refreshes in case the admin logged in.
-	_countX = _sentenceEndTime - (floor serverTime);
-	[_UID,_countX] remoteExec ["A3A_fnc_punishment_sentence_client",_detainee,false];
-	[_UID,"add"] call A3A_fnc_punishment_oceanGulag;
-	uiSleep 5;
-	_sentenceEndTime = ([_UID,_keyPairs] call A3A_fnc_punishment_dataGet) select 0; // Polls for updates from admin forgive
-};
-if (_disconnected) exitWith {};
-if (_sentenceEndTime_old isEqualTo _sentenceEndTime) then {
-	[_UID,"punishment_warden"] call A3A_fnc_punishment_release;
-} else {
-	[_UID,"punishment_warden_manual"] call A3A_fnc_punishment_release;
+    };
+    if (_disconnected) then {
+        _playerStats = format["Player: %1 [%2], _timeTotal: %3", _name, _UID, str _timeTotal];
+        [2, format ["DISCONNECTED/DIED WHILE PUNISHED | %1", _playerStats], _filename] call A3A_fnc_log;
+        systemChat format["FF: %1 disconnected/died while being punished.",_name];
+        [_UID,"remove"] call A3A_fnc_punishment_oceanGulag;
+    } else {
+        [_UID,["punishment_warden_manual","punishment_warden"] select (_sentenceEndTime_old isEqualTo _sentenceEndTime)] call A3A_fnc_punishment_release;
+    };
 };
 true;

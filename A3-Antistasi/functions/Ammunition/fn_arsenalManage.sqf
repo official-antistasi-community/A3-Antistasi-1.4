@@ -25,7 +25,7 @@ private _count = objNull;
 {
 	_type = _x select 0;
 	_magConfig = configFile >> "CfgMagazines" >> _type;
-	_capacity = getNumber (_magConfig >> "count");
+	_capacity = 1 max getNumber (_magConfig >> "count");			// Avoid div-by-zero on broken/missing config
 
 	// control unlocking missile launcher magazines
 	// the capacity check is an optimisation to bypass the config check. ~18% perf gain on the loop.

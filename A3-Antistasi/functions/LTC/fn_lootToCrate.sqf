@@ -90,8 +90,9 @@ _lootBodies = {
     };
 
     //to ensure proper cleanup
-    removeAllWeapons _unit;
-    removeAllItems _unit;
+    private _uniform = uniform _unit;
+    _unit setUnitLoadout (configFile >> "EmptyLoadout");
+    _unit forceAddUniform _uniform;
 
     //try to add items to container
     _remaining = [[],[],[],[]];

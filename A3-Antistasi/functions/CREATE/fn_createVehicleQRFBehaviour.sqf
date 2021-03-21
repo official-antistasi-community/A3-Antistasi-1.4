@@ -141,7 +141,7 @@ switch (true) do
             }
             else
             {
-                [_vehicle, _cargoGroup, _posDestination, _markerOrigin] spawn A3A_fnc_airdrop;
+                [_vehicle, _cargoGroup, _posDestination, _markerOrigin] spawn A3A_fnc_paradrop;
             };
         };
     };
@@ -155,7 +155,7 @@ switch (true) do
     case ((typeof _vehicle) in vehTransportAir && {!(_vehicle isKindOf "Helicopter")}):
     {
         //Dropship with para units
-        [_vehicle, _cargoGroup, _posDestination, _markerOrigin] spawn A3A_fnc_airdrop;
+        [_vehicle, _cargoGroup, _posDestination, _markerOrigin] spawn A3A_fnc_paradrop;
     };
     default
     {

@@ -36,9 +36,7 @@ while {true} do
 
     prestigeIsChanging = false;
     [] call A3A_fnc_calculateAggression;
-
-    [3, format ["Occupants:%1 Invaders:%2 Warlevel:%3", aggressionOccupants, aggressionInvaders, tierWar], "aggressionUpdateLoop"] call A3A_fnc_log;
-
+    
     if(gameMode != 4) then
     {
         //Update attack countdown for occupants and execute attack if needed

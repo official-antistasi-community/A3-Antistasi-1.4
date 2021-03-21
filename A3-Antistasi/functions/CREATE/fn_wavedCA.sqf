@@ -582,11 +582,11 @@ while {(_waves > 0)} do
 				} forEach units _grupo;
 				if (!(_veh isKindOf "Helicopter") or (_mrkDestination in airportsX)) then
 					{
-					[_veh,_grupo,_mrkDestination,_mrkOrigin] spawn A3A_fnc_airdrop;
+					[_veh,_grupo,_mrkDestination,_mrkOrigin] spawn A3A_fnc_paradrop;
 					}
 				else
 					{
-					_landPos = _posDestination getPos [300, random 360];
+					_landPos = _posDestination getPos [150, random 360];
 					_landPos = [_landPos, 0, 550, 10, 0, 0.20, 0,[],[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
 					if !(_landPos isEqualTo [0,0,0]) then
 						{
@@ -619,7 +619,7 @@ while {(_waves > 0)} do
 							}
 						else
 							{
-							[_veh,_grupo,_mrkDestination,_mrkOrigin] spawn A3A_fnc_airdrop;
+							[_veh,_grupo,_mrkDestination,_mrkOrigin] spawn A3A_fnc_paradrop;
 							}
 						};
 					};

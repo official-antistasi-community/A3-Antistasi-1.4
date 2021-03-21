@@ -32,7 +32,9 @@ private _crewGroup = [_side, _vehicle] call A3A_fnc_createVehicleCrew;
 [_vehicle, _side] call A3A_fnc_AIVEHinit;
 
 private _cargoGroup = grpNull;
-if ((([_vehicleType, true] call BIS_fnc_crewCount) - ([_vehicleType, false] call BIS_fnc_crewCount)) > 0) then
+private _spawnPerformed = false;
+private _expectedCargo = ([_vehicleType, true] call BIS_fnc_crewCount) - ([_vehicleType, false] call BIS_fnc_crewCount);
+if (_expectedCargo > 0) then
 {
     //Vehicle is able to transport units
     private _groupType = if (_typeOfAttack == "Normal") then
@@ -50,20 +52,46 @@ if ((([_vehicleType, true] call BIS_fnc_crewCount) - ([_vehicleType, false] call
             if (_side == Occupants) then {groupsNATOAT} else {groupsCSATAT}
         };
     };
-    _cargoGroup = [_posOrigin, _side, _groupType] call A3A_fnc_spawnGroup;
+
+    private _allUnits = {(local _x) and (alive _x)} count allUnits;
+
+    private _allUnitsSide = 0;
+    private _maxUnitsSide = maxUnits;
+    if (gameMode < 3) then
     {
-        _x assignAsCargo _vehicle;
-        _x moveInCargo _vehicle;
-        if !(isNull objectParent _x) then
+        _allUnitsSide = {(local _x) and (alive _x) and (side group _x == _side)} count allUnits;
+        _maxUnitsSide = round (maxUnits * 0.7);
+    };
+
+    if ((_allUnits + _expectedCargo) <= maxUnits  && (_allUnitsSide + _expectedCargo) <= _maxUnitsSide) then
+    {
+        _spawnPerformed = true;
+        _cargoGroup = [_posOrigin, _side, _groupType] call A3A_fnc_spawnGroup;
         {
-            [_x] call A3A_fnc_NATOinit;
-            _x setVariable ["originX", _markerOrigin];
-        }
-        else
-        {
-            deleteVehicle _x;
-        };
-    } forEach units _cargoGroup;
+            _x assignAsCargo _vehicle;
+            _x moveInCargo _vehicle;
+            if !(isNull objectParent _x) then
+            {
+                [_x] call A3A_fnc_NATOinit;
+                _x setVariable ["originX", _markerOrigin];
+            }
+            else
+            {
+                deleteVehicle _x;
+            };
+        } forEach units _cargoGroup;
+    };
+};
+
+if(!_spawnPerformed) exitWith
+{
+    [3, "Unit limit reached, deleting vehicle and crew", _fileName] call A3A_fnc_log;
+    {
+        deleteVehicle _x;
+    } forEach (units _crewGroup);
+    deleteVehicle _vehicle;
+    deleteGroup _crewGroup;
+    objNull;
 };
 
 _landPosBlacklist = [_vehicle, _crewGroup, _cargoGroup, _posDestination, _markerOrigin, _landPosBlacklist] call A3A_fnc_createVehicleQRFBehaviour;

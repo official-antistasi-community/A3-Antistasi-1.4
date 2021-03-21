@@ -66,7 +66,7 @@ for "_i" from 1 to 3 do {
 		//[_veh,"CSAT Air Transport"] spawn A3A_fnc_inmuneConvoy;
 
 		if (_typeAirVehicle isKindOf "Plane") then {
-			[_veh,_groupX,_attackDestination,_attackOrigin] spawn A3A_fnc_airdrop;
+			[_veh,_groupX,_attackDestination,_attackOrigin] spawn A3A_fnc_paradrop;
 		} else {
 			if (not(_typeAirVehicle in vehFastRope)) then {
 				_landPos = _posDestination getPos [(random 500) + 300, random 360];

@@ -30,8 +30,8 @@ switch(true) do{
                 Info("Using Temperate CNM Template");
             };
             default {
-                ["Templates\NewTemplates\3CB\3CB_Reb_TTF_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                Info("Using arid TTF Templates");
+                ["Templates\NewTemplates\3CB\3CB_Reb_TKM_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                Info("Using arid TKM Templates");
             };
         };
     };
@@ -140,8 +140,8 @@ case (A3A_hasFFAA): {
                 Info("Using Temperate US Marines Template as Placeholder");
             };
             case (worldName in tropicalmaps): {
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Marines_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                Info("Using Temperate US Marines Template as Placeholder");
+                ["Templates\NewTemplates\3CB\3CB_AI_CW_US.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                Info("Using Coldwar US Template");
             };
             default {
                 ["Templates\NewTemplates\3CB\3CB_AI_TKA_West.sqf", west] call A3A_fnc_compatabilityLoadFaction;
@@ -222,8 +222,8 @@ switch(true) do{
                 Info("Using RHS AFRF as Placeholder Template");
             };
             case (worldName in tropicalmaps): {
-                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatabilityLoadFaction;
-                Info("Using RHS AFRF as Placeholder Template");
+                ["Templates\NewTemplates\3CB\3CB_AI_CW_SOV.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                Info(""Using Coldwar Soviets Template"");
             };
             default {
                 ["Templates\NewTemplates\3CB\3CB_AI_TKA_East.sqf", east] call A3A_fnc_compatabilityLoadFaction;

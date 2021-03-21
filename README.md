@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases/latest">
-        <img src="https://img.shields.io/badge/Latest_Version-2.3.1-blue.svg?style=flat-square" alt="Antistasi Version">
+        <img src="https://img.shields.io/badge/Latest_Version-2.4-blue.svg?style=flat-square" alt="Antistasi Version">
     </a>
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/issues">
         <img src="https://img.shields.io/github/issues/official-antistasi-community/A3-Antistasi?style=flat-square" alt="Issues">
@@ -35,8 +35,6 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 ### [Mission Files](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/)
 - Altis
     - [Steam Workshop: 1832638103](https://steamcommunity.com/sharedfiles/filedetails/?id=1832638103)
-- Altis Blufor
-    - [Steam Workshop: 1832665647](https://steamcommunity.com/sharedfiles/filedetails/?id=1832665647)
 - Tanoa
     - [Steam Workshop: 1832685459](https://steamcommunity.com/sharedfiles/filedetails/?id=1832685459)
 - Malden
@@ -55,7 +53,13 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
     - [Steam Workshop: 1959976706](https://steamcommunity.com/sharedfiles/filedetails/?id=1959976706)
 - Virolahti
     - [Steam Workshop: 2178424367](https://steamcommunity.com/sharedfiles/filedetails/?id=2178424367)
-- Altis 1.9 Community Version
+- Sahrani
+    - [Steam Workshop: 2431325805](https://steamcommunity.com/sharedfiles/filedetails/?id=2431325805)
+- Takistan
+    - [Steam Workshop: 2431332218](https://steamcommunity.com/sharedfiles/filedetails/?id=2431332218)
+- Altis Blufor (discontinued)
+    - [Steam Workshop: 1832665647](https://steamcommunity.com/sharedfiles/filedetails/?id=1832665647)
+- Altis 1.9 Community Version (discontinued)
     - [Steam Workshop: 1832910657](https://steamcommunity.com/sharedfiles/filedetails/?id=1832910657)
 
 ### [Suggested Modlists](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/?section=collections)

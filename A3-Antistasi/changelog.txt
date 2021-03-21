@@ -1,41 +1,50 @@
-## PRELIMINARY CHANGELOG FOR 2.4
-
-Version 2.4.0 - date of update missing
+Version 2.4.0 - 21st March 2021
 
 Changes from version 2.3.2 to 2.4.0 Antistasi Community Edition
 
 =============  Most significant changes with description  ======================
 
 --> LTC
-- short explanation missing
+- The Loot to crate system is a new system implemented to allow for faster and less bothersome looting experience while still keeping balance with the new support system.
+  This system allows you to use the surrender crates of enemies to quickly and easily loot the aftermath of battles, buy gathering nearby loot from enemies and on the ground in to the crate. In addition to this you can also load the contents of the crates into the inventory of vehicles and the crates themselves can be loaded onto vehicles.
+  To make things even easier you can now also purchase these crates at the vehicle box at HQ for 10€, and you can also refund these crates by storing them in the garage.
+  Happy looting!
 
 --> New support system
-- short explanation missing
+- Gave the AI the tools to fight any kind of rebel attack in a fun and interesting way.
+  Watch them bring tank killer planes against your vehicles, air superiority fighter against your helicopters and heavy gunships against infantry positions. If you hear the brrrt, it is already too late.
 
 --> New navGrid system
-- short explanation missing
+- Completely redid the antistasi internal pathfinding mechanics, enabling us to utilize roads more and better, as we can ensure that the AI does not decide to drive the tank through half a kilometer of wood any more. At least in most cases.
 
 --> New template system
-- short explanation missing
+- The new template system allows modders to quickly and easily set up new, highly customized factions by listing the vehicles and equipment available. These new templates introduce enemies which wield a larger variety of weapons and gear, providing more diverse opponents and a greater variety of tools to fight back against the oppressors.
+  These new templates also lay the groundwork for allowing any faction to be used as either the occupants or invaders, or pitting factions from different mods against each other. However, right now this functionality is experimental and will be enabled fully in a later release.
 
 --> MIE
-- short explanation missing
+- The MIE project seeked to centralise the process of mod integration, taking the various changes necessary to make a new mod function within the mission away from the important code files and into dedicated areas within the template folder. This makes new mod integration much safer and more accessible to people less confident or knowledgeable in SQF.
+  There are, however, some sections that have yet to be centralised however, such as loot and supports, but most of the important sections, such as mod detection, templates and template selection, and logistic nodes have all been covered by the MIE project.
 
 =============  Major  ======================
 
   GAMEPLAY CHANGES
-  - BLUFOR is discontinued as it will be obsolete with the new teamplate system
+  - BLUFOR is discontinued as it will be obsolete with the new template system
+        This ability to switch functions is not yet completely integrated and is lacking a plug and play interface. We will deliver that in the next versions.
   - Local singleplayer got disabled --> please play locally hosted MP
+        To make your lives a little bit easier, we gave the default commander slot the ability to be a medic and an engineer at the same time, so you can do everything you need to. Further balances will come in the next versions.
 
   PARAMETER CHANGES
   - added parameters for the new support system
   - added parameters for the LTC system
+  - added parameter to enable/disable Art of War content within the mission
+  - added option 1,000,000 to unlock parameters to have no unlocked assets anymore
 
   MAP CHANGES
   - NEW MAP: Antistasi Sahrani added
   - NEW MAP: Antistasi Takistan added
   - Kunduz has two custom bridges now
-  - Malden has a new outpost and helipad is fixed at outpost 12
+  - Malden has a new outpost to fill a gap and provide an extra point to attack
+  - Fixed some helipads on outposts on Malden as the AI was unable to perform with the given assets
 
   OTHER CHANGES
   - snow script was removed as it was broken and deactivated for quite some time
@@ -45,10 +54,11 @@ Changes from version 2.3.2 to 2.4.0 Antistasi Community Edition
   - added ADV support
   - All the startup messages got removed
   - Napalm effect overhauled and re-enabled
+  - Paradrop approach reworked into something actually resembling a paradrop
+  - Combat landing approach for helicopters reworked, they are now faster and more precise
 
 ==============  Minor  ========================
   - replaced heightmaps on whiteboards with satellite pics
-  - default commander role now has medic and engineer perk because singleplayer need that
   - added templated surrender and salvage crates
   - added buyable AA vehicles to all templates
   - more russian translations in the stringtable
@@ -56,7 +66,6 @@ Changes from version 2.3.2 to 2.4.0 Antistasi Community Edition
   - added "stop rain" function on the tent
   - added multilingual support for Dialog Menu
   - added small trees to "clear forest"
-  - preventing occupants of launching airstrikes against cities but sending QRFs instead
   - more vehicles can now be sold
   - autosave now delayes after a manual save
   - loot crate respawns are now limited - no crate farming possible anymore
@@ -64,15 +73,18 @@ Changes from version 2.3.2 to 2.4.0 Antistasi Community Edition
   - influence of loosing radiotowers is minimized
   - added radiobagpacks to item sorting
   - optimised mission root path parsing
+  - allow commander and admins to edit game options plus logging of changes
+  - improvements within the FF scripts as well as the logging
 
  ================  Groundwork  ===================
-  - moved non-map-specific items from description.ext to MissionDescription
+  - moved non-map-specific items from description.ext to MissionDescription to decrease mission-size and loading-time
   - overhauled hint system with easier dismissable hints
   - added logging for unlocks
   - added first steps of UNSUNG compatibility - not playable yet
   - added first steps of FFAA compatibility - not playable yet
   - added list of global UI vars and UI processes
   - added nestedObject wrapping for createNamespace
+  - parameters now are saved from the initial load and are carried over after restarts
 
 ================ Refactor ========================
   - fn_typeOfSoldier
@@ -83,10 +95,8 @@ Changes from version 2.3.2 to 2.4.0 Antistasi Community Edition
 ================ Bugfixes ========================
   - towing of logistics cargo is now blocked
   - dead units no longer blocking statics which are mounted
-  - halfed recoil for mounted statics on vehicles
   - added towing check for garaging vehicles
   - added a bunch of new assets to the garbage clean
-  - removed a bunch of issues with the LTC system
   - fixed duplication exploits
   - you can't sell Petros anymore
   - fixed spam sell vehicle exploit
@@ -108,10 +118,9 @@ Changes from version 2.3.2 to 2.4.0 Antistasi Community Edition
   - removed city supplies box from saving
 
  =================  Code  =========================
-  -
+  - introduced log level integration with logMacros
 
  =================  DISCLAIMER  =========================
-  - Significant template changes are still underway. You might want to avoid making custom templates for a while!
   - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
 
 
@@ -125,8 +134,8 @@ Changes from version 2.3.1 to 2.3.2 Antistasi Community Edition
   - Disabled two towns (Kuusela and Niemela) on the Virolahti map
 
 =================  Disclaimer  =========================
-   - Significant template changes are still underway. You might want to avoid making custom templates for a while!
-   - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+  - Significant template changes are still underway. You might want to avoid making custom templates for a while!
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
 
 
 Version 2.3.1 - 16th October 2020

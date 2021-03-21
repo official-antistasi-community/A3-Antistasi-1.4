@@ -56,7 +56,6 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 		(leader _groupX) setVariable ["owner",_owner,true];
 		{[_x] joinsilent group _owner} forEach units group _owner;
 		[group _owner, _owner] remoteExec ["selectLeader", _owner];
-		"" remoteExec ["hint",_owner];
 		waitUntil {!(isPlayer leader _groupX)};
 		};
 	outpostsFIA = outpostsFIA + [_mrk]; publicVariable "outpostsFIA";

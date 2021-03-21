@@ -13,17 +13,15 @@
 	private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
 	private _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
 	switch (_uniformFaction) do {
-		//RHS
-		case "rhsgref_faction_nationalist": {if ((!has3CB) and nameTeamPlayer isEqualTo "NAPA") then {allRebelUniforms pushBack _x};};
-		case "rhsgref_faction_cdf_ng_b": {if ((!has3CB) and teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
-		//3CB
-		//case "IND_F": {if ((has3CB) and nameTeamPlayer isEqualTo "TTF") then {allRebelUniforms pushBack _x};};
+		//RHS and 3CB Rebell Uniforms are manually Added in Templates.
 		//IFA
-		case "LIB_GUER": {if (hasIFA) then {allRebelUniforms pushBack _x};};
-		//Vanilla
-		case "IND_C_F";
-		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1
-		case "BLU_G_F": {allRebelUniforms pushBack _x};
+		case "LIB_GUER": {if (A3A_hasIFA) then {allRebelUniforms pushBack _x};};
+		//Tanoa/ApexDLC
+		case "IND_C_F": {if ((!A3A_hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
+		//Contact DLC Looters
+		case "IND_L_F": {if ((!A3A_hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
+		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1 ----> Added Green Via Templates.
+		case "BLU_G_F": {if ((!A3A_hasIFA) and teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
 	};
 } forEach allUniforms;
 
@@ -48,6 +46,10 @@ allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_pol_uniform_blouse
 allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_ff_uniform_man_80_orn");	//Gmob Firefighter
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_camo_F");	//LDF Deserter Jacket
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_deserter_F");	//LDF Desserter T-Shirt
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_olive_F"); //Looter Clothes (T-Shirt Olive)
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_sport_F"); //Looter Clothes (T-Shirt Sport)
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_black_F"); //Looter Clothes (T-Shirt Black)
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_skull_F"); //Looter Clothes (T-Shirt Skull)
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_shorts_F");	//Idap Worker Uniforms
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_casual_F");
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_cargo_F");
@@ -130,3 +132,33 @@ allCivilianGlasses deleteAt (allCivilianGlasses find "G_I_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_O_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_B_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "LIB_Glasses");
+
+////////////////
+//   Radios   //
+////////////////
+If (hasTFAR) then {
+private _encryptRebel = if (teamPlayer == west) then { ["tf_west_radio_code"] } else { ["tf_guer_radio_code", "tf_independent_radio_code"] };
+allRadios = allRadios select {
+    private _encrypt = getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode");
+    (_encrypt in _encryptRebel);
+};
+
+private _encrypthostile = if (teamPlayer == west) then { ["tf_guer_radio_code", "tf_independent_radio_code", "tf_east_radio_code"] } else { ["tf_west_radio_code", "tf_east_radio_code"] };
+private _allHostileRadio = [];
+{
+    private _encrypt = getText (configFile >> "CfgVehicles" >> _x >> "tf_encryptionCode");
+  	if (_encrypt in _encryptRebel) then {allBackpacksRadio pushBack _x};
+    if (_encrypt in _encrypthostile) then {_allHostileRadio pushBack _x};
+} forEach allBackpacksEmpty;
+
+//Removes Radios from allBackpacksEmpty
+allBackpacksEmpty = allBackpacksEmpty - _allHostileRadio - allBackpacksRadio;
+};
+/////////////////
+// UAVTerminal //
+/////////////////
+private _encryptRebel = if (teamPlayer == west) then { 1 } else { 2 };
+allUAVTerminals = allUAVTerminals select {
+    private _encrypt = getNumber  (configFile >> "CfgWeapons" >> _x >> "ItemInfo" >> "side");
+    (_encrypt isEqualTo "") or (_encrypt isEqualTo _encryptRebel);
+};

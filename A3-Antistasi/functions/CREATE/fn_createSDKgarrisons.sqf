@@ -15,7 +15,7 @@ if (_markerX != "Synd_HQ") then
 	if (!(_markerX in citiesX)) then
 	{
 		private _veh = createVehicle [SDKFlag, _positionX, [],0, "NONE"];
-		if (hasIFA) then {_veh setFlagTexture SDKFlagTexture};
+		if (A3A_hasIFA) then {_veh setFlagTexture SDKFlagTexture};
 		_veh allowDamage false;
 		_vehiclesX pushBack _veh;
 		[_veh,"SDKFlag"] remoteExec ["A3A_fnc_flagaction",0,_veh];

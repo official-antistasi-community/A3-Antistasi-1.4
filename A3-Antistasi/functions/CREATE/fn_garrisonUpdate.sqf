@@ -7,14 +7,14 @@ if (_typeX isEqualType []) then
 		{
 		_subType = [];
 		{
-		_subType pushBack (typeOf _x);
+		_subType pushBack (_x getVariable "unitType");
 		} forEach _typeX;
 		_typeX = _subType;
 		};
 	}
 else
 	{
-	if (_typeX isEqualType objNull) then {_typeX = typeOf _typeX};
+	if (_typeX isEqualType objNull) then {_typeX = _typeX getVariable "unitType"};
 	};
 _sideX = _this select 1;
 _markerX = _this select 2;

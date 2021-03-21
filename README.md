@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases/latest">
-        <img src="https://img.shields.io/badge/Latest_Version-2.3.0-blue.svg?style=flat-square" alt="Antistasi Version">
+        <img src="https://img.shields.io/badge/Latest_Version-2.4-blue.svg?style=flat-square" alt="Antistasi Version">
     </a>
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/issues">
         <img src="https://img.shields.io/github/issues/official-antistasi-community/A3-Antistasi?style=flat-square" alt="Issues">
@@ -20,7 +20,7 @@
 
 
 <p align="center">
-    <a href="https://discord.gg/t7JD7eT">Discord</a> | <a href="https://antistasi.net/">Forums</a> | <a href="https://docs.google.com/document/d/1cCptf8Uo-mBHRhIqx1BPznECzgRqwJuj70AGjiI6KOI/">Guide (outdated)</a> | <a href="https://www.youtube.com/watch?v=nebLG3Jhrbk">Video Tutorial (outdated)</a>
+    <a href="https://discord.gg/TYDwCRKnKX">Discord</a> | <a href="https://antistasi.net/">Forums</a> | <a href="https://docs.google.com/document/d/1cCptf8Uo-mBHRhIqx1BPznECzgRqwJuj70AGjiI6KOI/">Guide (outdated)</a> | <a href="https://www.youtube.com/watch?v=nebLG3Jhrbk">Video Tutorial (outdated)</a>
 </p>
 </div>
 
@@ -28,15 +28,13 @@
 A Persistent Whole Map Mission for MP co-op, focused on Resistance, Infantry and Guerrilla Tactics.
 
 ## Project Status
-Master Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=master)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)
+Master Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=master)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)  
 Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=unstable)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)
 
 ## Grab our latest release on Steam!
 ### [Mission Files](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/)
 - Altis
     - [Steam Workshop: 1832638103](https://steamcommunity.com/sharedfiles/filedetails/?id=1832638103)
-- Altis Blufor
-    - [Steam Workshop: 1832665647](https://steamcommunity.com/sharedfiles/filedetails/?id=1832665647)
 - Tanoa
     - [Steam Workshop: 1832685459](https://steamcommunity.com/sharedfiles/filedetails/?id=1832685459)
 - Malden
@@ -55,7 +53,13 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
     - [Steam Workshop: 1959976706](https://steamcommunity.com/sharedfiles/filedetails/?id=1959976706)
 - Virolahti
     - [Steam Workshop: 2178424367](https://steamcommunity.com/sharedfiles/filedetails/?id=2178424367)
-- Altis 1.9 Community Version
+- Sahrani
+    - [Steam Workshop: 2431325805](https://steamcommunity.com/sharedfiles/filedetails/?id=2431325805)
+- Takistan
+    - [Steam Workshop: 2431332218](https://steamcommunity.com/sharedfiles/filedetails/?id=2431332218)
+- Altis Blufor (discontinued)
+    - [Steam Workshop: 1832665647](https://steamcommunity.com/sharedfiles/filedetails/?id=1832665647)
+- Altis 1.9 Community Version (discontinued)
     - [Steam Workshop: 1832910657](https://steamcommunity.com/sharedfiles/filedetails/?id=1832910657)
 
 ### [Suggested Modlists](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/?section=collections)
@@ -81,7 +85,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - AI friendlies and enemy can drag/carry and heal injured soldiers, not working with ACE3 mod.
 - AI Garrisons that use static weapon you add.
 - Supports up to 3 Headless Clients.
-- Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [3CB](https://steamcommunity.com/sharedfiles/filedetails/?id=1834976313), [GRAD Trenches](https://steamcommunity.com/sharedfiles/filedetails/?id=1224892496&searchtext=grad+trenches), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=1316471790). None of them mandatory.
+- Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [3CB](https://steamcommunity.com/sharedfiles/filedetails/?id=1834976313), [GRAD Trenches](https://steamcommunity.com/sharedfiles/filedetails/?id=1224892496&searchtext=grad+trenches), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=2158809703). None of them mandatory.
 
 ### How to build from GIT -PowerShell
 - Download ZIP file
@@ -92,7 +96,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Use a PBO Packager to pack the any of these mission folders
 
 ### Alternative: Build with Antistasi Dev Deploy
-- Download&Extract ZIP file or Clone Repository.
+- Download & Extract the ZIP file or Clone Repository.
 - Follow [Getting Started](https://github.com/official-antistasi-community/A3-Antistasi/wiki/Build-With-ADD)
 
 ### Known Issues:

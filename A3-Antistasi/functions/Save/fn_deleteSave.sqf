@@ -12,7 +12,7 @@ private _postfix = if (_worldName == "Tanoa") then {
 
 
 // Delete all known player data for specified campaign
-private _savedPlayers = profileNamespace getVariable ["savedPlayers" + postfix, []];
+private _savedPlayers = profileNamespace getVariable ["savedPlayers" + _postfix, []];
 {
 	private _playerID = _x;
 	{
@@ -33,7 +33,9 @@ private _savedPlayers = profileNamespace getVariable ["savedPlayers" + postfix, 
 	"chopForest", "maxUnits", "nextTick", "weather", "destroyedBuildings", "aggressionOccupants",
 	"aggressionInvaders", "resourcesFIA", "hr", "vehInGarage", "staticsX", "jna_datalist",
 	"prestigeOPFOR", "prestigeBLUFOR", "garrison", "wurzelGarrison", "usesWurzelGarrison", "minesX",
-	"outpostsFIA", "tasks", "idlebases", "idleassets", "killZones", "controlsSDK"];
+	"outpostsFIA", "tasks", "idlebases", "idleassets", "killZones", "controlsSDK", "params",
+	"attackCountdownOccupants", "attackCountdownInvaders", "prestigeNATO", "prestigeCSAT",
+	"savedPlayers", "testingTimerIsActive"];
 
 
 // Remove this campaign from the save list, if present

@@ -8,7 +8,7 @@ _groups = [];
 _base = "";
 _roads = [];
 
-_arrayAirports = if (hasIFA) then {(airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}} else {(seaports + airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}};
+_arrayAirports = if (A3A_hasIFA) then {(airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}} else {(seaports + airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}};
 _arrayAirports1 = [];
 
 private _isValidPatrolOrigin = if (isMultiplayer) then {
@@ -112,7 +112,7 @@ if (_typePatrol != "AIR") then
 		};
 	};
 
-_vehicle=[_posBase, 0,_typeCar, _sideX] call bis_fnc_spawnvehicle;
+_vehicle=[_posBase, 0,_typeCar, _sideX] call A3A_fnc_spawnVehicle;
 _veh = _vehicle select 0;
 [_veh, _sideX] call A3A_fnc_AIVEHinit;
 [_veh,"Patrol"] spawn A3A_fnc_inmuneConvoy;

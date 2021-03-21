@@ -395,6 +395,7 @@ _addItemToContainer = {
 						_arrayMissing = [_arrayMissing,[_item,(_amount - _amountAvailable)]] call jn_fnc_arsenal_addToArray;
 						_amount = _amountAvailable max 0;
 					};
+					if (_amount == 0) exitWith {};				// Don't add empty mags
 					[_arrayTaken,_index,_item,_amount] call _addToArray;
 					[_availableItems,_index,_item,_amount] call _removeFromArray;
 					_container addMagazineAmmoCargo  [_item,1, _amount];

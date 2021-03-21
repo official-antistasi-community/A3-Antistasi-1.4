@@ -22,35 +22,24 @@ Examples:
 
 	// Unit Test
 	private _UID = getPlayerUID player;
-	private _keyPairs = [["timeTotal",10],["offenceTotal",1]];
-	private _data_instigator = [_UID,_keyPairs] call A3A_fnc_punishment_dataSet;
+	([missionNamespace,"A3A_FFPun",_UID,"timeTotal",10] call A3A_fnc_setNestedObject) setVariable ["offenceTotal",1];
 	[_UID] remoteExec ["A3A_fnc_punishment_checkStatus",2,false];
-	[_UID] call A3A_fnc_punishment_dataGet;
+	allVariables [missionNamespace,"A3A_FFPun",_UID,locationNull] call A3A_fnc_getNestedObject;
 
 Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params [["_UID","",[""]]];
-private _fileName = "fn_punishment_checkStatus.sqf";
+private _fileName = "fn_punishment_checkStatus";
 
-if (!tkPunish) exitWith {false;};
+if ((!tkPunish) || {_UID isEqualTo ""}) exitWith {false;};
 
-if (!isServer) exitWith {
-	[1, "NOT SERVER", _filename] call A3A_fnc_log;
-	false;
-};
-if (_UID isEqualTo "") exitWith {
-	false;
-};
-
-private _keyPairs = [["offenceTotal",0]];
-([_UID,_keyPairs] call A3A_fnc_punishment_dataGet) params ["_offenceTotal"];
+private _offenceTotal = [missionNamespace,"A3A_FFPun",_UID,"offenceTotal",0] call A3A_fnc_getNestedObject;
 
 if (_offenceTotal >= 1) then {
 	_instigator = [_UID] call BIS_fnc_getUnitByUid;
 	if (!isPlayer _instigator) exitWith {};
-	private _keys = ["lastOffenceTime"];
-	[_UID,_keys] call A3A_fnc_punishment_dataRem;
-	[_instigator, 0, 0] remoteExecCall ["A3A_fnc_punishment",2,false];
+	[missionNamespace,"A3A_FFPun",_UID,"lastOffenceTime",nil] call A3A_fnc_setNestedObject;  // CLears any sort of depreciation that would gather over time away from server.
+	[_instigator, 0, 0] call A3A_fnc_punishment;
 };
 true;

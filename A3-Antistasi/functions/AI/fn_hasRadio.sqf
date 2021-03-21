@@ -16,9 +16,9 @@ else
 		}
 	else
 		{
-		if (hasIFA) then
+		if (A3A_hasIFA) then
 			{
-			{if (typeOf _x in SDKGL) exitWith {_result = true}} forEach (units (group _unit));
+			{if ((_x getVariable "unitType") in SDKGL) exitWith {_result = true}} forEach (units (group _unit));
 			};
 		};
 	};

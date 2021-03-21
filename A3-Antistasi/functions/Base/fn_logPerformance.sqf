@@ -30,8 +30,9 @@ private _countCiv = 0;
 
 
 [2,
+//I wonder at how many entries this will break?
 format [
-	"%10 ServerFPS:%1, Players:%11, DeadUnits:%2, AllUnits:%3, UnitsAwareOfEnemies:%14, AllVehicles:%4, WreckedVehicles:%12, Entities:%13, GroupsRebels:%5, GroupsInvaders:%6, GroupsOccupants:%7, GroupsCiv:%8, GroupsTotal:%9, GroupsCombatBehaviour:%15, Faction Cash:%16, HR:%17"
+	"%10 ServerFPS:%1, Players:%11, DeadUnits:%2, AllUnits:%3, UnitsAwareOfEnemies:%14, AllVehicles:%4, WreckedVehicles:%12, Entities:%13, GroupsRebels:%5, GroupsInvaders:%6, GroupsOccupants:%7, GroupsCiv:%8, GroupsTotal:%9, GroupsCombatBehaviour:%15, Faction Cash:%16, HR:%17, OccAggro: %18, InvAggro: %19, Warlevel: %20"
 	,diag_fps
 	,(count alldead)
 	,count allunits
@@ -49,5 +50,8 @@ format [
 	,{behaviour leader _x == "COMBAT"} count allGroups
 	,server getVariable "resourcesFIA"
 	,server getVariable "hr"
+    ,aggressionOccupants
+    ,aggressionInvaders
+    ,tierWar
 ]
 , _filename] call A3A_fnc_log;

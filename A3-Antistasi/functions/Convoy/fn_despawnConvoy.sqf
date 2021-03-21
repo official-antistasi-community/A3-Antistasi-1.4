@@ -19,28 +19,28 @@ for "_i" from 0 to ((count _unitObjects) - 1) do
 	{
 		if(alive _x) then
 		{
-			_cargoData pushBack (typeOf _x);
+			_cargoData pushBack (_x getVariable "unitType");
 			(group _x) deleteGroupWhenEmpty true;
 			deleteVehicle _x;
 		};
 	} forEach (_data select 2);
 	_convoyLine set [2, _cargoData];
-	
+
 	private _crewData = [];
 	{
 		if(alive _x) then
 		{
-			_crewData pushBack (typeOf _x);
+			_crewData pushBack (_x getVariable "unitType");
 			(group _x) deleteGroupWhenEmpty true;
 			deleteVehicle _x;
 		};
 	} forEach (_data select 1);
 	_convoyLine set [1, _crewData];
-	
+
 	//Vehicle is alive, otherwise it would have been dropped from _unitObjects
 	_convoyLine set [0, typeOf _vehicle];
 	deleteVehicle _vehicle;
-	
+
 	_convoyData pushBack _convoyLine;
 };
 

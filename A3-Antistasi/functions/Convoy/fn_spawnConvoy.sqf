@@ -1,5 +1,11 @@
 params ["_convoyID", "_units", "_pos", "_route", "_markers", "_convoySide", "_convoyType", "_maxSpeed", "_isAir"];
 
+private _fileName = "spawnConvoy";
+if(count (_route select 1) != 3) exitWith
+{
+    [3, format ["Input was %1", str _this], _fileName] call A3A_fnc_log;
+    [3, "Path is broken, abort", _fileName] call A3A_fnc_log;
+};
 
 private ["_targetPos", "_dir", "_convoyMarker"];
 
@@ -27,6 +33,11 @@ if (!_isAir) then {
 //Spawn a bit above the ground
 _pos = _pos vectorAdd [0,0,0.1];
 _dir = _pos getDir (_route select 0);
+if(isNil "_dir") exitWith
+{
+    [3, format ["Dir uncalced, Pos was %1, route was %1", _pos, (_route select 0)], _fileName] call A3A_fnc_log;
+    _dir = 0;
+};
 private _targetDir = _pos vectorFromTo _targetPos;
 private _airOffset = (_targetDir vectorMultiply 200) vectorAdd [0,0,50];
 
@@ -75,6 +86,7 @@ for "_i" from 0 to ((count _units) - 1) do
 	};
 };
 
+private _failure = 0;
 
 // Monitor convoy vehicles for FSM completion and spawn distance
 while {true} do
@@ -90,8 +102,8 @@ while {true} do
 		private _veh = _units select 0;
 		private _result = if (isNull _veh) then {-10} else {_veh getVariable["fsmresult", 0]};
 
-		// could test for success vs failure here but we don't care yet
 		if (_result != 0) then {		// completed or abandoned mission, don't track here anymore
+			if (_result < 0) then { _failure = _failure + 1 };		// convoy vehicle failed to reach target
 			_createdUnits deleteAt _i;
 			_airVehicles deleteAt (_airVehicles find _veh);
 			_landVehicles deleteAt (_landVehicles find _veh);
@@ -107,6 +119,13 @@ while {true} do
 		deleteMarker _convoyMarker;
 		server setVariable [format ["Con%1", _convoyID], nil, true];
 		[2, format ["%1 Convoy [%2]: Terminated", _convoyType, _convoyID], "fn_spawnConvoy"] call A3A_fnc_log;
+
+		if (_failure > 0) then {
+			// At least one vehicle failed, add base/target to killZones to avoid repetition
+			private _kzlist = killZones getVariable [_markers#0, []];
+			_kzlist pushBack _markers#1;
+			killZones setVariable [_markers#0, _kzlist, true];
+		};
 	};
 
 	// Have at least one remaining vehicle if we got here

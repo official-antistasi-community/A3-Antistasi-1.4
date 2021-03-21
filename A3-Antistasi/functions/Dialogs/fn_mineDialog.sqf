@@ -2,7 +2,7 @@ private ["_typeX","_costs","_positionTel","_quantity","_quantityMax"];
 
 if (["Mines"] call BIS_fnc_taskExists) exitWith {["Minefields", "We can only deploy one minefield at a time."] call A3A_fnc_customHint;};
 
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(hasIFA) then {["Minefields", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;} else {["Minefields", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Minefields", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;} else {["Minefields", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
 
 _typeX = _this select 0;
 
@@ -17,7 +17,7 @@ if ((server getVariable "resourcesFIA" < _costs) or (server getVariable "hr" < _
 
 if (_typeX == "delete") exitWith
 	{
-	["Minefields", "Explosive Specialists is available on your High Command bar.<br/><br/>Send him anywhere on the map and he will deactivate and load in his truck any mine he may find.<br/><br/>Returning back to HQ will unload the mines he stored in his vehicle"] call A3A_fnc_customHint;
+	["Minefields", "An Explosive Specialist is available on your High Command bar.<br/><br/>Send him anywhere on the map to deactivate mines. He will load his truck with mines he found.<br/><br/>Upon returning back to HQ he will unload mines stored in his vehicle."] call A3A_fnc_customHint;
 	[[],"A3A_fnc_mineSweep"] remoteExec ["A3A_fnc_scheduler",2];
 	};
 

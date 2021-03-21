@@ -15,7 +15,7 @@ _positionX = getPosASL _banco;
 _posbase = getMarkerPos respawnTeamPlayer;
 
 _timeLimit = if (_difficultX) then {60} else {120};
-if (hasIFA) then {_timeLimit = _timeLimit * 2};
+if (A3A_hasIFA) then {_timeLimit = _timeLimit * 2};
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly
@@ -80,7 +80,8 @@ if ((dateToNumber date > _dateLimitNum) or (!alive _truckX)) then
 else
 	{
 	_countX = 120*_bonus;//120
-	[[_positionX,Occupants,"",true],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
+    private _reveal = [_positionX , Invaders] call A3A_fnc_calculateSupportCallReveal;
+    [_positionX, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
 	[10*_bonus,-20*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
 	["TaskFailed", ["", format ["Bank of %1 being assaulted",_nameDest]]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	{_friendX = _x;

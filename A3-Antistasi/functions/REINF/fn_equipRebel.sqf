@@ -49,7 +49,7 @@ private _unlockedSmokes = allSmokeGrenades arrayIntersect unlockedMagazines;
 if !(_unlockedSmokes isEqualTo []) then { _unit addMagazines [selectRandom _unlockedSmokes, 2] };
 
 
-private _unitClass = typeOf _unit;
+private _unitClass = _unit getVariable "unitType";
 
 switch (true) do {
 	case (_unitClass in SDKSniper): {
@@ -81,6 +81,8 @@ switch (true) do {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		_unit setUnitTrait ["explosiveSpecialist",true];
 		_unit addItemToBackpack "Toolkit";
+		_unit addItemToBackpack "MineDetector";
+		_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
 		if (count unlockedAA > 0) then {
 			[_unit, selectRandom unlockedAA, 1] call _addWeaponAndMags;
 		};
@@ -102,7 +104,7 @@ switch (true) do {
 		if !(unlockedAT isEqualTo []) then {
 			[_unit, selectRandom unlockedAT, 4] call _addWeaponAndMags;
 		} else {
-			if (hasIFA) then {
+			if (A3A_hasIFA) then {
 				[_unit, "LIB_PTRD", 10] call _addWeaponAndMags;
 			};
 		};
@@ -122,7 +124,7 @@ switch (true) do {
 	};
 };
 
-if (!hasIFA && sunOrMoon < 1) then {
+if (!A3A_hasIFA && sunOrMoon < 1) then {
 	if !(haveNV) then {
 		// horrible, although at least it stops once you unlock NV
 		private _flashlights = allLightAttachments arrayIntersect unlockedItems;

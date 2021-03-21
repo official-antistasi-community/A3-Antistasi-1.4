@@ -44,7 +44,7 @@ if (_typeX isEqualType "") then
 		if (alive _unit) then
 			{
 			private _groupX = group _unit;
-			if (typeOf _unit == staticCrewTeamPlayer) then {deleteVehicle (vehicle _unit)};
+			if ((_unit getVariable "unitType") == staticCrewTeamPlayer) then {deleteVehicle (vehicle _unit)};
 			deleteVehicle _unit;
 			if (count units _groupX == 0) then {deleteGroup _groupX};
 			};

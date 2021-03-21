@@ -4,6 +4,16 @@ _originX = _this select 0;
 if (isNull _originX) exitWith {};
 _destinationX = _this select 1;
 
+if (isNil {	// Run in unschedule scope.
+	if (_originX getVariable ["A3A_JNA_ammunitionTransfer_busy",false]) then {
+		nil;  // will lead to exit.
+	} else {
+		_originX setVariable ["A3A_JNA_ammunitionTransfer_busy",true];
+		0;  // not nil, will allow script to continue.
+	};
+}) exitWith {};  // Silent exit, likely due to spamming
+
+
 _ammunition= [];
 _items = [];
 _ammunition = magazineCargo _originX;
@@ -169,3 +179,7 @@ else
 	{
 	[petros,"hint","Truck Loaded", "Cargo"] remoteExec ["A3A_fnc_commsMP",driver _destinationX];
 	};
+
+if (!isNull _originX) then {
+	_originX setVariable ["A3A_JNA_ammunitionTransfer_busy",false];
+};

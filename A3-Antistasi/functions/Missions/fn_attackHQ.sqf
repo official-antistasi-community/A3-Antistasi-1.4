@@ -25,7 +25,7 @@ if (count _typesVeh > 0) then
 	{
 	_typeVehX = selectRandom _typesVeh;
 	//_pos = [_positionX, distanceSPWN * 3, random 360] call BIS_Fnc_relPos;
-	_vehicle=[_posOrigin, 0, _typeVehX, _sideX] call bis_fnc_spawnvehicle;
+	_vehicle=[_posOrigin, 0, _typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 	_heli = _vehicle select 0;
 	_heliCrew = _vehicle select 1;
 	_groupHeli = _vehicle select 2;
@@ -47,7 +47,7 @@ for "_i" from 0 to (round random 2) do
 	{
 	_typeVehX = selectRandom _typesVeh;
 	//_pos = [_positionX, distanceSPWN * 3, random 360] call BIS_Fnc_relPos;
-	_vehicle=[_posOrigin, 0, _typeVehX, _sideX] call bis_fnc_spawnvehicle;
+	_vehicle=[_posOrigin, 0, _typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 	_heli = _vehicle select 0;
 	_heliCrew = _vehicle select 1;
 	_groupHeli = _vehicle select 2;
@@ -61,7 +61,7 @@ for "_i" from 0 to (round random 2) do
 	_groups pushBack _groupX;
 	//[_heli,"Air Transport"] spawn A3A_fnc_inmuneConvoy;
 	if (_typeVehX isKindOf "Plane") then {
-		[_heli,_groupX,_positionX,_posOrigin] spawn A3A_fnc_airdrop;
+		[_heli,_groupX,_positionX,_posOrigin] spawn A3A_fnc_paradrop;
 	} else {
 		[_heli,_groupX,_positionX,_posOrigin,_groupHeli] spawn A3A_fnc_fastrope;
 	};

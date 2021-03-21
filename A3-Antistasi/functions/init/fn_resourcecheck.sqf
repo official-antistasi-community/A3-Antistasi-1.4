@@ -1,6 +1,7 @@
-private _filename = "fn_citySupportChange";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer) exitWith {
-	[1, "Server-only function miscalled", _filename] call A3A_fnc_log;
+    Error("Server-only function miscalled");
 };
 
 while {true} do

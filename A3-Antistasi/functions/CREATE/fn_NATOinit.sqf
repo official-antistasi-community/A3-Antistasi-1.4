@@ -1,5 +1,6 @@
 params ["_unit", ["_marker", ""], "_isSpawner"];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Inits the given unit with all needed data, flags and weapons
 *   Params:
 *       _unit : OBJECT : The unit that needs to be initialized
@@ -11,18 +12,16 @@ params ["_unit", ["_marker", ""], "_isSpawner"];
 */
 
 //TODO we may want to rename that file to AIinit or something
-private _fileName = "NATOinit";
-
 if ((isNil "_unit") || (isNull _unit)) exitWith
 {
-    [1, format ["Bad init parameter: %1", _this], _fileName] call A3A_fnc_log;
+    Error_1("Bad init parameter: %1", _this);
 };
 
 private _type = _unit getVariable "unitType";
 private _side = side (group _unit);
 
 if (isNil "_type") then {
-    [1, format ["Unit does not have a type assigned: %1, vehicle: %2", typeOf _unit, typeOf vehicle _unit], _fileName] call A3A_fnc_log;
+    Error_2("Unit does not have a type assigned: %1, vehicle: %2", typeOf _unit, typeOf vehicle _unit);
     _type = typeOf _unit;
 };
 

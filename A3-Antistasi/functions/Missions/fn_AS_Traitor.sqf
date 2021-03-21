@@ -1,6 +1,7 @@
 //Mission: Assassinate a traitor
 if (!isServer and hasInterface) exitWith{};
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _markerX = _this select 0;
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};
@@ -154,12 +155,7 @@ if (not alive _traitor || traitorIntel) then
 
 	_factor = 1;
 	if(_difficultX) then {_factor = 2;};
-    [
-        3,
-        "Rebels won a traitor mission",
-        "aggroEvent",
-        true
-    ] call A3A_fnc_log;
+    Debug("aggroEvent | Rebels won a traitor mission");
 	[[15 * _factor, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
 	[0,300 * _factor] remoteExec ["A3A_fnc_resourcesFIA",2];
 	{
@@ -214,4 +210,3 @@ _nul = [10,"AS1"] spawn A3A_fnc_deleteTask;
 [_groupX] spawn A3A_fnc_groupDespawner;
 [_groupTraitor] spawn A3A_fnc_groupDespawner;
 [_veh] spawn A3A_fnc_vehDespawner;
-

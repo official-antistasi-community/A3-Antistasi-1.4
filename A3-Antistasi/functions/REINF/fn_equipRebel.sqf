@@ -2,7 +2,8 @@
 // _recruitType param allows some variation based on recruiting method: 0 recruit, 1 HC squad, 2 garrison
 
 params ["_unit", "_recruitType"];
-private _filename = "fn_equipRebel";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 // Mostly exists because BIS_fnc_addWeapon won't use backpack space properly with AT launchers
 private _addWeaponAndMags = {
@@ -120,7 +121,7 @@ switch (true) do {
 	};
 	default {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;
-		[1, format["Unknown unit class: %1", _unitClass], _filename] call A3A_fnc_log;
+        Error_1("Unknown unit class: %1", _unitClass);
 	};
 };
 
@@ -159,4 +160,4 @@ if (!A3A_hasIFA && sunOrMoon < 1) then {
 // remove backpack if empty, otherwise squad troops will throw it on the ground
 if (backpackItems _unit isEqualTo []) then { removeBackpack _unit };
 
-[4, format["Class %1, type %2, loadout %3", _unitClass, _recruitType, str (getUnitLoadout _unit)], _filename] call A3A_fnc_log;
+Verbose_3("Class %1, type %2, loadout %3", _unitClass, _recruitType, str (getUnitLoadout _unit));

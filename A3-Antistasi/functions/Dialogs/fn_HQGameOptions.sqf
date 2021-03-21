@@ -25,7 +25,8 @@ params [
     ["_option","",[""]],
     ["_action","",[""]]
 ];
-private _filename = "fn_HQSpawnOptions.sqf";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 ////////////////////
 // Authentication //
@@ -36,7 +37,7 @@ private _authenticate = _option in ["maxUnits","distanceSPWN","civPerc"];
 
 if (_authenticate && {!(_player == theBoss || admin owner _player > 0 || _player == player)}) exitWith {
     [_hintTitle, "Only our Commander or admin has access to "+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player];
-    [1,"ACCESS VIOLATION | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] attempted calling restricted backing method "+str _this,_filename] call A3A_fnc_log;
+    Error("ACCESS VIOLATION | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] attempted calling restricted backing method "+str _this);
     nil;
 };
 if (owner _player != remoteExecutedOwner) exitWith {
@@ -46,7 +47,7 @@ if (owner _player != remoteExecutedOwner) exitWith {
     if (_index != -1) then {
         _realPlayer = _allPlayers#_index;
     };
-    [1,"HACKING | "+ name _realPlayer + " ["+(getPlayerUID _realPlayer) + "] ["+ str remoteExecutedOwner +"] attempted impersonating "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] while calling "+str _this,_filename] call A3A_fnc_log;
+    Error("HACKING | "+ name _realPlayer + " ["+(getPlayerUID _realPlayer) + "] ["+ str remoteExecutedOwner +"] attempted impersonating "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] while calling "+str _this);
     nil;
 };
 
@@ -65,7 +66,7 @@ private _processAction = {
         case "increase": { if (_originalAmount > _upperLimit - _adjustmentAmount) then {_inRange = 1}; };
         default {
             _invalid = true;
-            [1,"INVALID METHOD | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] called invalid backing method "+str _this,_filename] call A3A_fnc_log;
+            Error("INVALID METHOD | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] called invalid backing method "+str _this);
         };
     };
     if (_invalid) exitWith {};
@@ -76,7 +77,7 @@ private _processAction = {
         _finalAmount = _originalAmount + _adjustmentAmount;
         missionNamespace setVariable [_option,_finalAmount,true];
         _hintText = " set to "+str _finalAmount;
-        [2,"SET | "+name _player+" ["+ getPlayerUID _player +"] ["+ str owner _player +"] changed "+_optionName+" from " + str _originalAmount +" to " + str _finalAmount,_filename] call A3A_fnc_log;
+        Info("SET | "+name _player+" ["+ getPlayerUID _player +"] ["+ str owner _player +"] changed "+_optionName+" from " + str _originalAmount +" to " + str _finalAmount);
     } else {
         _hintText = " is already at "+(["lower","upper"] select _inRange)+" limit of "+str _originalAmount;
     };
@@ -106,7 +107,7 @@ switch (_option) do {
         publicVariable "distanceSPWN1";
         publicVariable "distanceSPWN2";
     };
-    default {[1,"INVALID METHOD | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] called invalid backing method "+str _this,_filename] call A3A_fnc_log;};
+    default {Error("INVALID METHOD | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] called invalid backing method "+str _this);};
 };
 
 nil;

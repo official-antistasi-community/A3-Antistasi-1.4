@@ -3,14 +3,46 @@
     Description:
         SQF log macros, includes server log macros.
 
+    ~~~~ General
+
         Types: Error, Info, Debug, Trace
-        to log to the server prefix Server to it.
-        to log arguments add _n to the end, n being amount of arguments
+        To log to the server prefix Server to it.
+        Error client logs logs to the server in addition to client
+
+    ~~~~ Logging Arguments
+
+        To log arguments add _n to the end, n being amount of arguments
         maximum arguments: 8
+
+        Syntax:
+            {Type}_{N arguments}({Format}, {Arg1}...);
+            Server{Type}_{N arguments}({Format}, {Arg1}...);
+
+        Example:
+            Info_2("%1 did something with %2", player, _car);
+            ServerInfo_2("%1 did something with %2", player, _car);
+
+    ~~~~ Logging Arrays
+
+        To log an array add 'Array' after the type
+        you can only one array with array log
+
+        To format the logged array elements add 'Format' after 'Array'
+
+        Syntax:
+            {Type}Array({Message}, {Array});
+            {Type}ArrayFormat({Message}, {Format}, {Array});
+
+        Example:
+            DebugArray("Valid placement Positions", _positions);
+            DebugArrayFormat("BombData", "Bomb: %1 | Guidance: %2 | Optimal target types: %3", _bombdata);
+
+    ~~~~ Log output format
 
         Log output: "{Time UTC} | {Prefix} | {Log level} | File: {filename} | {Message}"
         To server: "{Time UTC} | {Prefix} | {Log level} | File: {filename} | {Message} | Client {Player} [clientOwner]"
 
+    ~~~~ Logging requirements
         ________________________________________________________
         | Logging Type    | Log Level | Only in A3 Debug mode   |
         | Error           | 1         | false                   |
@@ -20,14 +52,16 @@
         | Verbose         | 4         | false                   |
         |_________________|___________|_________________________|
 
+    ~~~~ Warning
+
+        Array defines and strings will have there commas striped in macro calls.
+        i.e. this Info("Don't, wait until i get there to hang him"); becomes "Don't wait until i get there to hang him"
+        and Info(["some","elements"]); would fail to log
+
     Scope: Any
     Environment: Any
     Public: Yes
     Dependencies: SQF, LogLevel
-
-    Example:
-        Trace_2("somelog to client | Var1: %1 | Var2: %2", _a, _b);
-        ServerInfo("Some log to the server");
 
     License: MIT License
 */
@@ -44,32 +78,25 @@
     #define Log_Trace
 #endif
 
-//filename parser
-private _LOG_file = {
-    private _fileName = reverse _this;
-    private _index = _fileName find "\";
-    reverse (_fileName select [0,_index]);
-};
-private _LOG_timeText = {str (_this#0) +"-"+ str (_this#1) +"-"+ str (_this#2) +" "+ str (_this#3) +":"+ str (_this#4) +":"+ str (_this#5) +":"+ str (_this#6)};
 if (isNil "LogLevel") then {LogLevel = 2};
 
 //Log standard format
-#define LogMessage(Level, Message) diag_log text ((systemTimeUTC call _LOG_timeText) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ call _LOG_file) + " | " + Message)
-#define LogServerMessage(Level, Message) (text ((systemTimeUTC call _LOG_timeText) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ call _LOG_file) + " | " + Message + format [" | Client: %1 [%2]", player, clientOwner])) remoteExec ["diag_log", 2]
+#define LogMessage(Level, Message) diag_log text ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ select [count __FILE__ -(reverse __FILE__ find '\'),1e6]) + " | " + Message)
+#define LogServerMessage(Level, Message) ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ select [count __FILE__ -(reverse __FILE__ find '\'),1e6]) + " | " + Message + format [" | Client: %1 [%2]", player, clientOwner]) remoteExec ["A3A_fnc_localLog", 2]
 
 //log macros
 #ifdef Log_Error
-    #define Error(Message) if (0 < LogLevel) then { LogMessage("Error", Message) }
-    #define Error_1(Message, A) if (0 < LogLevel) then { private _msg = format [Message,A]; LogMessage("Error", _msg) }
-    #define Error_2(Message, A,B) if (0 < LogLevel) then { private _msg = format [Message,A,B]; LogMessage("Error", _msg }
-    #define Error_3(Message, A,B,C) if (0 < LogLevel) then { private _msg = format [Message,A,B,C]; LogMessage("Error", _msg) }
-    #define Error_4(Message, A,B,C,D) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D]; LogMessage("Error", _msg) }
-    #define Error_5(Message, A,B,C,D,E) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E]; LogMessage("Error", _msg) }
-    #define Error_6(Message, A,B,C,D,E,F) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogMessage("Error", _msg) }
-    #define Error_7(Message, A,B,C,D,E,F,G) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogMessage("Error", _msg) }
-    #define Error_8(Message, A,B,C,D,E,F,G,H) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogMessage("Error", _msg) }
+    #define Error(Message) if (0 < LogLevel) then { LogMessage("Error", Message); if !(isServer) then {LogServerMessage("Error", Message)} }
+    #define Error_1(Message, A) if (0 < LogLevel) then { private _msg = format [Message,A]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_2(Message, A,B) if (0 < LogLevel) then { private _msg = format [Message,A,B]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_3(Message, A,B,C) if (0 < LogLevel) then { private _msg = format [Message,A,B,C]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_4(Message, A,B,C,D) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_5(Message, A,B,C,D,E) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_6(Message, A,B,C,D,E,F) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_7(Message, A,B,C,D,E,F,G) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
+    #define Error_8(Message, A,B,C,D,E,F,G,H) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogMessage("Error", _msg); if !(isServer) then {LogServerMessage("Error", _msg)} }
     #define ServerError(Message) if (0 < LogLevel) then { LogServerMessage("Error", Message) }
-    #define ServerError_1(Message, A) if (0 < LogLevel) then { private _msg = format [Message,A]; LogServerMessage("Error", _msg }
+    #define ServerError_1(Message, A) if (0 < LogLevel) then { private _msg = format [Message,A]; LogServerMessage("Error", _msg) }
     #define ServerError_2(Message, A,B) if (0 < LogLevel) then { private _msg = format [Message,A,B]; LogServerMessage("Error", _msg) }
     #define ServerError_3(Message, A,B,C) if (0 < LogLevel) then { private _msg = format [Message,A,B,C]; LogServerMessage("Error", _msg) }
     #define ServerError_4(Message, A,B,C,D) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D]; LogServerMessage("Error", _msg) }
@@ -77,6 +104,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerError_6(Message, A,B,C,D,E,F) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Error", _msg) }
     #define ServerError_7(Message, A,B,C,D,E,F,G) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Error", _msg) }
     #define ServerError_8(Message, A,B,C,D,E,F,G,H) if (0 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Error", _msg) }
+    #define ErrorArray(Message, Array) if (0 < LogLevel) then { private _msg = (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]"); LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
+    #define ServerErrorArray(Message, Array) if (0 < LogLevel) then { LogServerMessage("Error", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ErrorArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { private _msg = (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]"); LogMessage("Error", _msg); LogServerMessage("Error", _msg) }
+    #define ServerErrorArrayFormat(Message, Frmat, Array) if (0 < LogLevel) then { LogServerMessage("Error", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Error(Message)
     #define Error_1(Message, A)
@@ -96,6 +127,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerError_6(Message, A,B,C,D,E,F)
     #define ServerError_7(Message, A,B,C,D,E,F,G)
     #define ServerError_8(Message, A,B,C,D,E,F,G,H)
+    #define ErrorArray(Message, Array)
+    #define ServerErrorArray(Message, Array)
+    #define ErrorArrayFormat(Message, Frmat, Array)
+    #define ServerErrorArrayFormat(Message, Frmat, Array)
 #endif
 
 #ifdef Log_Info
@@ -117,6 +152,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerInfo_6(Message, A,B,C,D,E,F) if (1 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Info", _msg) }
     #define ServerInfo_7(Message, A,B,C,D,E,F,G) if (1 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Info", _msg) }
     #define ServerInfo_8(Message, A,B,C,D,E,F,G,H) if (1 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Info", _msg) }
+    #define InfoArray(Message, Array) if (1 < LogLevel) then { LogMessage("Info", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ServerInfoArray(Message, Array) if (1 < LogLevel) then { LogServerMessage("Info", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define InfoArrayFormat(Message, Frmat, Array) if (1 < LogLevel) then { LogMessage("Info", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
+    #define ServerInfoArrayFormat(Message, Frmat, Array) if (1 < LogLevel) then { LogServerMessage("Info", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Info(Message)
     #define Info_1(Message, A)
@@ -136,6 +175,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerInfo_6(Message, A,B,C,D,E,F)
     #define ServerInfo_7(Message, A,B,C,D,E,F,G)
     #define ServerInfo_8(Message, A,B,C,D,E,F,G,H)
+    #define InfoArray(Message, Array)
+    #define ServerInfoArray(Message, Array)
+    #define InfoArrayFormat(Message, Frmat, Array)
+    #define ServerInfoArrayFormat(Message, Frmat, Array)
 #endif
 
 #ifdef Log_Debug
@@ -157,6 +200,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerDebug_6(Message, A,B,C,D,E,F) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Debug", _msg) }
     #define ServerDebug_7(Message, A,B,C,D,E,F,G) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Debug", _msg) }
     #define ServerDebug_8(Message, A,B,C,D,E,F,G,H) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Debug", _msg) }
+    #define DebugArray(Message, Array) if (2 < LogLevel) then { LogMessage("Debug", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ServerDebugArray(Message, Array) if (2 < LogLevel) then { LogServerMessage("Debug", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define DebugArrayFormat(Message, Frmat, Array) if (2 < LogLevel) then { LogMessage("Debug", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
+    #define ServerDebugArrayFormat(Message, Frmat, Array) if (2 < LogLevel) then { LogServerMessage("Debug", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Debug(Message)
     #define Debug_1(Message, A)
@@ -176,6 +223,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerDebug_6(Message, A,B,C,D,E,F)
     #define ServerDebug_7(Message, A,B,C,D,E,F,G)
     #define ServerDebug_8(Message, A,B,C,D,E,F,G,H)
+    #define DebugArray(Message, Array)
+    #define ServerDebugArray(Message, Array)
+    #define DebugArrayFormat(Message, Frmat, Array)
+    #define ServerDebugArrayFormat(Message, Frmat, Array)
 #endif
 
 #ifdef Log_Trace
@@ -197,6 +248,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerTrace_6(Message, A,B,C,D,E,F) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Trace", _msg) }
     #define ServerTrace_7(Message, A,B,C,D,E,F,G) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Trace", _msg) }
     #define ServerTrace_8(Message, A,B,C,D,E,F,G,H) if (2 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Trace", _msg) }
+    #define TraceArray(Message, Array) if (2 < LogLevel) then { LogMessage("Trace", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ServerTraceArray(Message, Array) if (2 < LogLevel) then { LogServerMessage("Trace", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define TraceArrayFormat(Message, Frmat, Array) if (2 < LogLevel) then { LogMessage("Trace", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
+    #define ServerTraceArrayFormat(Message, Frmat, Array) if (2 < LogLevel) then { LogServerMessage("Trace", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Trace(Message)
     #define Trace_1(Message, A)
@@ -216,6 +271,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerTrace_6(Message, A,B,C,D,E,F)
     #define ServerTrace_7(Message, A,B,C,D,E,F,G)
     #define ServerTrace_8(Message, A,B,C,D,E,F,G,H)
+    #define TraceArray(Message, Array)
+    #define ServerTraceArray(Message, Array)
+    #define TraceArrayFormat(Message, Frmat, Array)
+    #define ServerTraceArrayFormat(Message, Frmat, Array)
 #endif
 
 #ifdef Log_Verbose
@@ -237,6 +296,10 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerVerbose_6(Message, A,B,C,D,E,F) if (3 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F]; LogServerMessage("Verbose", _msg) }
     #define ServerVerbose_7(Message, A,B,C,D,E,F,G) if (3 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G]; LogServerMessage("Verbose", _msg) }
     #define ServerVerbose_8(Message, A,B,C,D,E,F,G,H) if (3 < LogLevel) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; LogServerMessage("Verbose", _msg) }
+    #define VerboseArray(Message, Array) if (3 < LogLevel) then { LogMessage("Verbose", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define ServerVerboseArray(Message, Array) if (3 < LogLevel) then { LogServerMessage("Verbose", (Message + " [" + endl + (Array apply {"    " + str _x} joinString endl) + endl + "]")) }
+    #define VerboseArrayFormat(Message, Frmat, Array) if (3 < LogLevel) then { LogMessage("Verbose", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
+    #define ServerVerboseArrayFormat(Message, Frmat, Array) if (3 < LogLevel) then { LogServerMessage("Verbose", (Message + " [" + endl + (Array apply {format (["    " + Frmat] + _x)} joinString endl) + endl + "]")) }
 #else
     #define Verbose(Message)
     #define Verbose_1(Message, A)
@@ -256,4 +319,8 @@ if (isNil "LogLevel") then {LogLevel = 2};
     #define ServerVerbose_6(Message, A,B,C,D,E,F)
     #define ServerVerbose_7(Message, A,B,C,D,E,F,G)
     #define ServerVerbose_8(Message, A,B,C,D,E,F,G,H)
+    #define VerboseArray(Message, Array)
+    #define ServerVerboseArray(Message, Array)
+    #define VerboseArrayFormat(Message, Frmat, Array)
+    #define ServerVerboseArrayFormat(Message, Frmat, Array)
 #endif

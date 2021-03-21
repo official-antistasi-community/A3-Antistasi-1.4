@@ -17,11 +17,12 @@ params
     Returns:
         OBJECT : The vehicle object, objNull if spawn wasnt possible
 */
-private _fileName = "spawnVehicleAtMarker";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if(_vehicle == "" || _marker == "") exitWith
 {
-    [1, format ["Function called with bad input, was %1", _this], _fileName] call A3A_fnc_log;
+    Error_1("Function called with bad input, was %1", _this);
     objNull;
 };
 

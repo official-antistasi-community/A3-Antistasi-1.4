@@ -1,11 +1,12 @@
 #include "..\Garage\defineGarage.inc"
-private _fileName = "initClient.sqf";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 //Make sure logLevel is always initialised.
 //This should be overridden by the server, as appropriate. Hence the nil check.
 if (isNil "logLevel") then { logLevel = 2 };scriptName "initClient.sqf";
 
-[2,"initClient started",_fileName] call A3A_fnc_log;
+Info("initClient started");
 
 call A3A_fnc_installSchrodingersBuildingFix;
 
@@ -26,7 +27,7 @@ if (!hasInterface) exitWith {
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
 	call A3A_fnc_loadNavGrid;
-	[2,format ["Headless client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
+    Info_1("Headless client version: %1",localize "STR_antistasi_credits_generic_version_text");
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 };
 
@@ -40,7 +41,7 @@ if (!isServer) then {
 	waitUntil {!isNil "initParamsDone"};
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
-	[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
+    Info_1("MP client version: %1",localize "STR_antistasi_credits_generic_version_text");
 }
 else {
 	// SP or hosted, initFuncs/var run in serverInit
@@ -56,11 +57,11 @@ if (isMultiplayer) then {
 	musicON = false;
 	disableUserInput true;
 	cutText ["Waiting for Players and Server Init","BLACK",0];
-	[2,"Waiting for server...",_fileName] call A3A_fnc_log;
+    Info("Waiting for server...");
 	waitUntil {(!isNil "serverInitDone")};
 	cutText ["Starting Mission","BLACK IN",0];
-	[2,"Server loaded!",_fileName] call A3A_fnc_log;
-	[2,format ["JIP client: %1",_isJIP],_fileName] call A3A_fnc_log;
+	Info("Server loaded!");
+    Info_1("JIP client: %1",_isJIP);
 	if (hasTFAR) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
@@ -343,7 +344,7 @@ if !(isPlayer leader group player) then {
 [] remoteExec ["A3A_fnc_assignBossIfNone", 2];
 
 if (_isJip) then {
-	[2,"Joining In Progress (JIP)",_filename] call A3A_fnc_log;
+    Info("Joining In Progress (JIP)");
 
 	waitUntil {!(isNil "missionsX")};
 	if (count missionsX > 0) then {
@@ -364,7 +365,7 @@ if (_isJip) then {
 }
 else
 {
-	[2,"Not Joining in Progress (JIP)",_filename] call A3A_fnc_log;
+    Info("Not Joining in Progress (JIP)");
 };
 
 [] spawn A3A_fnc_modBlacklist;
@@ -405,7 +406,7 @@ gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",A3A_fnc_keys];
 if (hasACE) then
 {
 	if (isNil "ace_interact_menu_fnc_compileMenu" || isNil "ace_interact_menu_fnc_compileMenuSelfAction") exitWith {
-		[1, "ACE non-public functions have changed, rebel group join/leave actions will not be removed", _filename] call A3A_fnc_log;
+        Error("ACE non-public functions have changed, rebel group join/leave actions will not be removed");
 	};
 	// Remove group join action from all rebel unit types
 	// Need to compile the menus first, because ACE delays creating menus until a unit of that class is created
@@ -518,7 +519,7 @@ player setPos (getMarkerPos respawnTeamPlayer);
 //Can re-enable them if we find the source of the bug.
 enableEnvironment [false, true];
 
-[2,"initClient completed",_fileName] call A3A_fnc_log;
+Info("initClient completed");
 
 if(!isMultiplayer) then
 {

@@ -325,7 +325,7 @@ _policeLoadoutData setVariable ["helmets", ["UK3CB_TKP_B_H_Patrolcap_TAN"]];
 
 _policeLoadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_fakel", "rhs_mag_fakels", "rhs_mag_plamyam"]];
 _policeLoadoutData setVariable ["rifles", [
-["rhs_weap_ak103_1", "rhs_acc_dtk", "rhs_weap_ak103_1", "", ["rhs_10Rnd_762x39mm"], [], ""]
+["rhs_weap_ak103_1", "rhs_acc_dtk", "", "", ["rhs_10Rnd_762x39mm"], [], ""]
 ]];			//this line determines the rifles for police loadouts -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets
 _policeLoadoutData setVariable ["smgs", ["rhs_weap_pp2000"]];			//this line determines the smgs for police loadouts -- Example: ["SMG_01_F", "SMG_01_Holo_F"] -- Array, can contain multiple assets
 

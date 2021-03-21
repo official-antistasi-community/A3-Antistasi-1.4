@@ -30,11 +30,12 @@ Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params [ ["_unit",objNull,[objNull]], ["_addToAI",false,[false]] ];
-private _fileName = "fn_punishment_FF_addEH";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if (!tkPunish) exitWith {false};
 if (!(_unit isKindOf "Man")) exitWith {
-    [1,"No unit given",_fileName] remoteExecCall ["A3A_fnc_log",2,false];
+    Error("No unit given");
     false;
 };
 
@@ -70,7 +71,7 @@ if (hasACE) then {
 };
 
 [getPlayerUID player] remoteExecCall ["A3A_fnc_punishment_checkStatus",2,false];
-[3,format["Punishment Event Handlers Added to: %1",name _unit],_fileName] remoteExecCall ["A3A_fnc_log",2,false];
+Debug_1("Punishment Event Handlers Added to: %1",name _unit);
 true;
 
 /*

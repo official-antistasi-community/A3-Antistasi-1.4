@@ -1,6 +1,6 @@
 if (!isServer and hasInterface) exitWith{};
-
-private _fileName = "fn_createCIV.sqf";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private ["_markerX","_dataX","_numCiv","_numVeh","_prestigeOPFOR","_prestigeBLUFOR","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_burst","_groupP","_wp","_wp1"];
 
@@ -16,7 +16,7 @@ _numVeh = _dataX select 1;
 private _roads = nearestTerrainObjects [getMarkerPos _markerX, ["MAIN ROAD", "ROAD", "TRACK"], 250, false, true];
 if (count _roads == 0) exitWith
 {
-	[1, format ["Roads not found for marker %1", _markerX], _fileName] call A3A_fnc_log;
+    Error_1("Roads not found for marker %1", _markerX);
 };
 
 _prestigeOPFOR = _dataX select 2;

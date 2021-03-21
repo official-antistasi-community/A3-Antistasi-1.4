@@ -27,7 +27,8 @@ Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params ["_UID","_timeTotal"];
-private _filename = "fn_punishment_sentence_server";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 _timeTotal = 5*(floor (_timeTotal/5)); // Rounds up so the loop lines up.
 private _sentenceEndTime = (floor serverTime) + _timeTotal;
@@ -71,7 +72,7 @@ private _detainee = _varspace getVariable ["player",objNull];
     };
     if (_disconnected) then {
         _playerStats = format["Player: %1 [%2], _timeTotal: %3", _name, _UID, str _timeTotal];
-        [2, format ["DISCONNECTED/DIED WHILE PUNISHED | %1", _playerStats], _filename] call A3A_fnc_log;
+        Info_1("DISCONNECTED/DIED WHILE PUNISHED | %1", _playerStats);
         systemChat format["FF: %1 disconnected/died while being punished.",_name];
         [_UID,"remove"] call A3A_fnc_punishment_oceanGulag;
     } else {

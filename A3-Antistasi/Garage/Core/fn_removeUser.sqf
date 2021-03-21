@@ -19,6 +19,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_client"];
 if !(isServer) exitWith {false};
 if (isNil "_client") exitWith {false};

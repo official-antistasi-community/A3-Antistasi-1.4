@@ -39,6 +39,7 @@
 */
 if (!isServer) exitWith {};
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 if (isNil "HR_GRG_Vehicles") then { [] call HR_GRG_fnc_initServer };
 //get data to be saved
 private _garage = + HR_GRG_Vehicles; //have had issus with refrences persisting trough save procces causing mangling of save data

@@ -22,6 +22,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_UID", "_vehUID", "_newIconIndex", "_owner", "_player"];
 Trace_4("Finding available mount | UID: %1 | vehUID: %2 | Reserving: %3 | Client: %4", _UID, _vehUID, _newIconIndex, _owner);
 private _failed = { [localize "STR_HR_GRG_Feedback_requestMount_Denied"] remoteExec ["Hint", _owner]; [true] remoteExecCall ["HR_GRG_fnc_toggleConfirmBttn", _owner]; false };

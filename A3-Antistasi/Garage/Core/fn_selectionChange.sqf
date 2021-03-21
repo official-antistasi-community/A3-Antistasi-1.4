@@ -18,7 +18,8 @@
 
     License: MIT License
 */
-#include "defines.inc"//temp for trace
+#include "defines.inc"
+FIX_LINE_NUMBERS()//temp for trace
 params ["_ctrl"];
 private _curSel = lbCurSel _ctrl;
 if (_curSel isEqualTo -1) exitWith {};

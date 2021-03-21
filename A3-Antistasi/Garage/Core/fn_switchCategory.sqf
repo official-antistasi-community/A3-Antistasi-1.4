@@ -20,6 +20,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_index"];
 if (_index isEqualTo -1) exitWith {};
 private _disp = findDisplay HR_GRG_IDD_Garage;

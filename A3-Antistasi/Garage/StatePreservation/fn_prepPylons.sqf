@@ -21,6 +21,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params [["_veh", objNull, [objNull]]];
 
 #define weaponMag(X) getArray (configFile/"CfgWeapons"/X/"magazines")
@@ -41,5 +42,5 @@ private _toRemove = [];
     } forEach (_veh weaponsTurret _turret);
 } forEach _turrets;
 
-Trace_1("prepPylons | Removing pylon weapons: %1", _toRemove);
+Trace_1("Removing pylon weapons: %1", _toRemove);
 { _veh removeWeaponTurret _x } forEach _toRemove;

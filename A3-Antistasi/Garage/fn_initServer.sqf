@@ -20,6 +20,7 @@
 */
 #include "config.inc"
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 Trace("Running server init");
 
 if (isNil "HR_GRG_Vehicles") then {[] call HR_GRG_fnc_loadSaveData};

@@ -21,6 +21,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_UID", "_catIndex", "_vehUID", "_player", "_client"];
 Trace_3("Vehicle change requested | UID: %1 | Cat: %2 | vehUID: %3", _UID, _catIndex, _vehUID);
 private _exit = { [true] remoteExecCall ["HR_GRG_fnc_toggleConfirmBttn", _client] };

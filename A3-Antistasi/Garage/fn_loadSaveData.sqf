@@ -40,6 +40,7 @@
 */
 if (!isServer) exitWith {false};
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params [["_save", [], [[]] ]];
 private _validSave = _save params [
     ["_garage", [createHashMap,createHashMap,createHashMap,createHashMap,createHashMap], [[]], 5]
@@ -57,8 +58,8 @@ HR_GRG_Sources = +_sources;
 } forEach HR_GRG_Sources;
 
 if _validSave then {
-    Trace("fn_loadSaveData | Garage restored");
+    Trace("Garage restored");
 } else {
-    Trace("fn_loadSaveData | New garage loaded");
+    Trace("New garage loaded");
 };
 true;

@@ -22,6 +22,7 @@
     License: GNU General Public License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_ctrl", "_index"];
 Trace_2("Pylon changed Ctrl: %1 | Index: %2",_ctrl , _index);
 {

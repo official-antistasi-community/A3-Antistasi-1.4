@@ -21,6 +21,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 Trace("Closing Garage");
 [clientOwner] remoteExecCall ["HR_GRG_fnc_removeUser",2];
 "HR_GRG_Event" addPublicVariableEventHandler {};

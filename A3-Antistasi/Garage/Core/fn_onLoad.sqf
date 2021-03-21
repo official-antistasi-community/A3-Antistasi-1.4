@@ -22,6 +22,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 ['HR_GRG','Loading Garage, please wait...'] call BIS_fnc_startLoadingScreen;
 Trace("Opening Garage");
 
@@ -79,6 +80,7 @@ _disp displayAddEventHandler ["MouseZChanged","if !(HR_GRG_RMouseBtnDown) exitWi
 };
 "HR_GRG_Vehicles" addPublicVariableEventHandler {
     #include "defines.inc"
+FIX_LINE_NUMBERS()
     private _disp = findDisplay HR_GRG_IDD_Garage;
     private _index = HR_GRG_Cats findIf {ctrlShown _x};
     private _ctrl = HR_GRG_Cats#_index;

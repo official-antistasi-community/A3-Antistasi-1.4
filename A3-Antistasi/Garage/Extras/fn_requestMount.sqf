@@ -19,6 +19,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_ctrl"];
 private _index = lbCurSel _ctrl;
 _ctrl lbSetCurSel -1;

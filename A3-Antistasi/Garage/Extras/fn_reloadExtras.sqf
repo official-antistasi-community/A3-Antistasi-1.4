@@ -19,6 +19,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params [["_reloadMounts", false, [true]]];
 private _class = HR_GRG_SelectedVehicles param [2, "", [""]];
 Trace("Reloading Extras");

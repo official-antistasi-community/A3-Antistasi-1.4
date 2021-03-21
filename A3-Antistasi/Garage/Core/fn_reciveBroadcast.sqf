@@ -24,6 +24,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 Trace_1("Reciving broadcast: %1",_this);
 params ["_lockUID", "_checkoutUID", "_catIndex", "_vehUID", "_player", "_switch"];
 

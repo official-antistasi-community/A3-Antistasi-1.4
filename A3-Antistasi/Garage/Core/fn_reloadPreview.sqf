@@ -19,6 +19,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 Trace("Reloading preview");
 HR_GRG_SelectedVehicles params ["_catIndex", "_vehUID", "_class"];
 if (!isNull HR_GRG_previewVeh) then {

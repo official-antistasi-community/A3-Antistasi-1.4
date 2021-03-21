@@ -19,6 +19,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 Trace("Reloading pylons menu");
 private _disp = findDisplay HR_GRG_IDD_Garage;
 private _ctrlGroup = _disp displayCtrl HR_GRG_IDC_ExtraPylons;

@@ -19,6 +19,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params [ ["_UID" ,"", [""]]];
 if (_UID isEqualTo "") exitWith {false};
 Trace_1("Releasing all vehicles with UID: %1", _UID);

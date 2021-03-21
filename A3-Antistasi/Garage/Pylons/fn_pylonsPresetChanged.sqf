@@ -21,6 +21,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_ctrl", "_index", ["_blockPylonChange", false]];
 Trace("Updating preset selection");
 if (_index isEqualTo 0) exitWith {Trace("Custom preset");};//custom preset, dont change anything with the pylons

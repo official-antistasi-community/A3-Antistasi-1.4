@@ -20,6 +20,7 @@
 */
 HR_GRG_UpdatePylons = false;
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 Trace("Updating equiped pylons");
 //update data
 private _pylonLoudout = [];

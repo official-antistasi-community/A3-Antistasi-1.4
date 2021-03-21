@@ -21,6 +21,7 @@
     License: GNU General Public License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_checked"];
 Trace_1("Toggeling mirror functionaity: %1",_checked);
 if (_checked) then {

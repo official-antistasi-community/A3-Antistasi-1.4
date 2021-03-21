@@ -23,6 +23,7 @@
     License: GNU General Public License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_ctrl", "_switch", "_turret"];
 
 if (_switch && !(HR_GRG_Turrets isEqualTo [])) then {

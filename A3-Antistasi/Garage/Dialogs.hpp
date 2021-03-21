@@ -5,7 +5,7 @@
 
     License: MIT License
 */
-#include "defines.inc"
+#include "CfgDefines.inc"
 #include "defines.hpp"
 class HR_GRG_VehicleSelect
 {

@@ -20,6 +20,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params ["_ctrl", "_catIndex"];
 if (isNil "HR_GRG_Vehicles") exitWith {Trace("Reloading category canceled no garage data");};
 Trace("Reloading category");

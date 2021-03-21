@@ -19,6 +19,7 @@
     License: MIT License
 */
 #include "defines.inc"
+FIX_LINE_NUMBERS()
 params [["_class", "", [""]]];
 if ( !isClass (configFile >> "CfgVehicles" >> _class) ) exitWith { [0, "Invalid Input: " + _class, _filename] call HR_GRG_fnc_log };
 

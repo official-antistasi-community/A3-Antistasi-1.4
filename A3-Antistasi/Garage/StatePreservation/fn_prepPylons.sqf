@@ -34,8 +34,8 @@ private _toRemove = [];
         private _mags = weaponMag(_x);
         if (_mags isEqualTo []) then {continue}; //no mags, dont remove
 
-        private _pylonWeapon = magPylonWeapon(_mags#0);
-        if (_pylonWeapon isEqualTo "") then {continue}; //no pylon weapon, dont remove
+        private _pylonWeapon = _mags findIf {magPylonWeapon(_x) != ""};
+        if (_pylonWeapon isEqualTo -1) then {continue}; //no pylon weapon, dont remove
 
         _toRemove pushBack [_x, _turret]; //pylon weapon, remove
     } forEach (_veh weaponsTurret _turret);

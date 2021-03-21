@@ -223,7 +223,7 @@ switch(true) do{
             };
             case (worldName in tropicalmaps): {
                 ["Templates\NewTemplates\3CB\3CB_AI_CW_SOV.sqf", east] call A3A_fnc_compatabilityLoadFaction;
-                Info(""Using Coldwar Soviets Template"");
+                Info("Using Coldwar Soviets Template");
             };
             default {
                 ["Templates\NewTemplates\3CB\3CB_AI_TKA_East.sqf", east] call A3A_fnc_compatabilityLoadFaction;

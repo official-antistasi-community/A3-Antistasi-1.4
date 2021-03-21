@@ -54,7 +54,7 @@ _unit addEventHandler ["Hit", {
 
 if (_isAI) exitWith {true};
 
-if (hasACE) then {
+if (A3A_hasACE) then {
     ["ace_firedPlayer", {
         params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile"];
         [_unit,_weapon,_projectile] call A3A_fnc_punishment_FF_checkNearHQ;
@@ -80,7 +80,7 @@ true;
 All other public variables referenced:
 | Name              | Type          | Machine   | Domain            | Description                                                           |
 |-------------------|---------------|-----------|-------------------|-----------------------------------------------------------------------|
-| hasACE            | BOOLEAN       | Public    | missionNamespace  | If ACE is loaded.                                                     |
+| A3A_hasACE            | BOOLEAN       | Public    | missionNamespace  | If ACE is loaded.                                                     |
 | tkPunish          | BOOLEAN       | Public    | missionNamespace  | Parameter. If the FF system should be enabled.                        |
 | petros            | OBJECT        | Public    | missionNamespace  | AI that rebels need to protect and access.                            |
 | posHQ             | POS3D<AGL>    | Public    | missionNamespace  | getMarkerPos respawnTeamPlayer. The position of the HQ marker.        |

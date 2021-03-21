@@ -279,7 +279,7 @@ switch _mode do {
 	case "SaveTFAR": {
 		jna_backpackRadioSettings = nil;
 		jna_swRadioSettings = nil;
-		if (hasTFAR) then {
+		if (A3A_hasTFAR) then {
 			private _backpackRadio = player call TFAR_fnc_backpackLr;
 			if (!isNil "_backpackRadio" && {count _backpackRadio >= 2}) then {
 				jna_backpackRadioSettings = _backpackRadio call TFAR_fnc_getLrSettings;
@@ -295,7 +295,7 @@ switch _mode do {
 	//Restore TFAR radio settings
 
 	case "RestoreTFAR": {
-		if (hasTFAR) then {
+		if (A3A_hasTFAR) then {
 			private _backpackRadio = player call TFAR_fnc_backpackLr;
 			if (!isNil "_backpackRadio" && {count _backpackRadio >= 2}) then {
 				if (isNil "jna_backpackRadioSettings" || {typeName jna_backpackRadioSettings != typeName []}) exitWith {
@@ -2612,7 +2612,7 @@ switch _mode do {
 		/////////////////////////////////////////////////////////////////////////////////
 		// unifrom
 		_itemsUnifrom = [];
-		if(hasACEMedical)then{
+		if(A3A_hasACEMedical)then{
 			_itemsUnifrom pushBack ["ACE_elasticBandage",2];
 			_itemsUnifrom pushBack ["ACE_packingBandage",2];
 			_itemsUnifrom pushBack ["ACE_morphine",1];
@@ -2622,14 +2622,14 @@ switch _mode do {
 			_itemsUnifrom pushBack ["ACE_splint", 1];
 		}else{
 			_itemsUnifrom pushBack ["FirstAidKit",2];
-			if(hasACE) then {
+			if(A3A_hasACE) then {
 				_itemsUnifrom pushBack ["ACE_EarPlugs",1];
 				_itemsUnifrom pushBack ["ACE_MapTools",1];
 				_itemsUnifrom pushBack ["ACE_CableTie",2];
 			};
 		};
 
-		if ((hasACE) AND (sunOrMoon <1)) then {
+		if ((A3A_hasACE) AND (sunOrMoon <1)) then {
 			_itemsUnifrom pushback ["ACE_HandFlare_Red",1];
 			_itemsUnifrom pushback ["ACE_Chemlight_HiRed",1];
 			_itemsUnifrom pushBack ["ACE_Flashlight_MX991",1];
@@ -2661,7 +2661,7 @@ switch _mode do {
 
 		if([player] call A3A_fnc_isMedic)then{
 
-			if(hasACEMedical) then { //Medic equipment
+			if(A3A_hasACEMedical) then { //Medic equipment
 				_itemsBackpack pushBack ["ACE_elasticBandage",15];
 				_itemsBackpack pushBack ["ACE_packingBandage",15];
 				_itemsBackpack pushBack ["ACE_tourniquet",5];
@@ -2674,7 +2674,7 @@ switch _mode do {
 				_itemsBackpack pushBack ["FirstAidKit",1];
 			};
 		} else {
-		 		if(hasACEMedical) then {
+		 		if(A3A_hasACEMedical) then {
 					_itemsBackpack pushBack ["ACE_fieldDressing",5];
 					_itemsBackpack pushBack ["ACE_packingBandage",5];
 					_itemsBackpack pushBack ["ACE_elasticBandage",5];
@@ -2690,7 +2690,7 @@ switch _mode do {
 
 		if(player getUnitTrait "Engineer")then {
 					_itemsBackpack pushback ["ToolKit",1];
-					if(hasACE) then {
+					if(A3A_hasACE) then {
 						_itemsbackpack pushback ["ACE_Clacker",1];
 						_itemsbackpack pushback ["ACE_SpraypaintRed",4];
 					};

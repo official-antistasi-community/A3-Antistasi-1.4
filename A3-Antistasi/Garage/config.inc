@@ -52,6 +52,7 @@ if (isNil "HR_GRG_blackListCamo") then {HR_GRG_blackListCamo = ["IDAP"]; publicV
 if (isNil "HR_GRG_fnc_Log") then {HR_GRG_fnc_Log = { [2,_this, "HR Garage"] call A3A_fnc_log }; publicVariable "HR_GRG_fnc_Log"};
 if (isNil "HR_GRG_fnc_Hint") then {HR_GRG_fnc_Hint = { ["Garage",_this#0] call A3A_fnc_customHint }; publicVariable "HR_GRG_fnc_Hint"};
 if (isNil "HR_GRG_fnc_vehInit") then { HR_GRG_fnc_vehInit = { [_this, TeamPlayer] call A3A_fnc_AIVEHinit; }; publicVariable "HR_GRG_fnc_vehInit" }; //is passed vehicle as _this
+if (isNil "HR_GRG_onOpenEvent") then { HR_GRG_onOpenEvent = { player setCaptive false; }; publicVariable "HR_GRG_onOpenEvent" };
 
 //CBA settings
 if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {

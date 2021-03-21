@@ -31,6 +31,7 @@ if (isNil "HR_GRG_Init") then {remoteExecCall ["HR_GRG_fnc_initServer",2]};
 //dont allow opening when placing a vehicle
 if (isNil "HR_GRG_Placing") then { HR_GRG_Placing = false };
 if (HR_GRG_Placing) exitWith { closeDialog 2 };
+[] call HR_GRG_onOpenEvent;
 
 //define general global variables used by garage
 private _disp = findDisplay HR_GRG_IDD_Garage;

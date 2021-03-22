@@ -87,11 +87,11 @@ if (_varName in _specialVarLoads) then {
     if (_varname == "HR_Garage") then {
         [_varValue] call HR_GRG_fnc_loadSaveData;
     };
-	if (_varName == 'vehInGarage') then {
+	if (_varName == 'vehInGarage') then { //convert old garage to new garage
         vehInGarage= [];
         publicVariable "vehInGarage";
         [_varValue, ""] call HR_GRG_fnc_addVehiclesByClass;
-    }; //TODO: Garage -> convert and add to new system
+    };
 	if (_varName == 'destroyedBuildings') then {
 		{
 			// nearestObject sometimes picks the wrong building and is several times slower

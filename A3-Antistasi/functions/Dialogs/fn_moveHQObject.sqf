@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (player != theBoss) exitWith {["Move HQ", "Only Player Commander is allowed to move HQ assets"] call A3A_fnc_customHint;};
 private ["_thingX","_playerX","_id","_sites","_markerX","_size","_positionX"];
 
@@ -25,8 +27,8 @@ _thingX attachTo [_playerX, [0, _spacing, _height]];
 private _fnc_placeObject = {
 	params [["_thingX", objNull], ["_playerX", objNull], ["_dropObjectActionIndex", -1]];
 
-	if (isNull _thingX) exitWith {diag_log "[Antistasi] Error, trying to place invalid HQ object"};
-	if (isNull _playerX) exitWith {diag_log "[Antistasi] Error, trying to place HQ object with invalid player"};
+	if (isNull _thingX) exitWith {Error("trying to place invalid HQ object")};
+	if (isNull _playerX) exitWith {Error("trying to place HQ object with invalid player")};
 
 	if (!(_thingX getVariable ["objectBeingMoved", false])) exitWith {};
 

@@ -42,7 +42,7 @@ if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
 	};
 };  //this only for Altis and Cherno
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initZones | Setting Spawn Points for %2.", servertime, worldname];
+    Debug_1("Setting Spawn Points for %1.", worldname);
 };
 //We're doing it this way, because Dedicated servers world name changes case, depending on how the file is named.
 //And weirdly, == is not case sensitive.
@@ -55,7 +55,7 @@ destroyedSites = [];
 garrison setVariable ["Synd_HQ", [], true];
 markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initZones | Building roads for %2.",servertime,worldname];
+    Debug_1("Building roads for %1.",worldname);
 };
 markersX apply {
 	_x setMarkerAlpha 0;
@@ -179,7 +179,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	server setVariable [_nameX, _info, true];
 };	//find in congigs faster then find location in 25000 radius
 if (debug) then {
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Roads built in %2.",servertime,worldname];
+    Debug_1("Roads built in %1.", worldName);
 };
 
 
@@ -196,7 +196,7 @@ private _blacklistPos = [];
 private _posBank = [];
 private ["_antenna", "_mrkFinal", "_antennaProv"];
 if (debug) then {
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Setting up Radio Towers.",servertime];
+    Debug("Setting up Radio Towers.");
 };
 
 // Land_A_TVTower_base can't be destroyed, Land_Communication_F and Land_Vysilac_FM are not replaced with "Ruins" when destroyed.
@@ -338,8 +338,8 @@ switch (toLower worldName) do {
 	};
 };
 if (debug) then {
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Radio Tower built.", servertime];
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Finding broken Radio Towers.", servertime];
+    Debug("Radio Tower built.");
+    Debug("Finding broken Radio Towers.");
 };
 if (count _posAntennas > 0) then {
 	for "_i" from 0 to (count _posAntennas - 1) do {
@@ -387,7 +387,7 @@ if (count _posAntennas > 0) then {
 	};
 };
 if (debug) then {
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Broken Radio Towers identified.",servertime];
+    Debug("Broken Radio Towers identified.");
 };
 if (count _posBank > 0) then {
 	for "_i" from 0 to (count _posBank - 1) do {

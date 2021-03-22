@@ -131,7 +131,7 @@ while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
                 if(_newDistance < _maxDistance) then
                 {
                     //[_conIndex, "mil_dot", "ColorBlue", str (count (_conNode select 3))] call A3A_fnc_markNode;
-                    //diag_log format ["Adding %1 to the list", str ([_conNode, _newDistance, _h, (_current select 0 select 0)])];
+                    //Debug_1("Adding %1 to the list", str ([_conNode, _newDistance, _h, (_current select 0 select 0)]));
                     _openList = [_openList, [_conNode, _newDistance, _h, (_current select 0 select 0)]] call A3A_fnc_listInsert;
                     missionNamespace setVariable [format ["PF_%1", str (_conNode select 0)], WORKSTATE_OPENED];
                     if(_workState == WORKSTATE_AVOID_UNTOUCHED) then
@@ -142,14 +142,14 @@ while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
                 }
                 else
                 {
-                    //diag_log format ["Not adding %1 to the list because of distance", _conData];
+                    //Debug_1("Not adding %1 to the list because of distance", _conData);
                 };
             }
             else
             {
                 //In open list, adapt distance if needed
                 private _openListIndex = _openList findIf {(_x select 0 select 0) isEqualTo (_conNode select 0)};
-                //diag_log format ["ConNode %3 || Open list index is %1, state was %2", _openListIndex, _workState, _conNode];
+                //Debug_3("ConNode %3 || Open list index is %1, state was %2", _openListIndex, _workState, _conNode);
                 if(_openListIndex != -1) then
                 {
                     private _openData = _openList deleteAt _openListIndex;
@@ -164,12 +164,12 @@ while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
                         _openData set [1, _newDistance];
                         _openData set [3, (_current select 0 select 0)];
                     };
-                    //diag_log format ["Replacing %1 into the list", str (_openData)];
+                    //Debug_1("Replacing %1 into the list", str (_openData));
                     _openList = [_openList, _openData] call A3A_fnc_listInsert;
                 }
                 else
                 {
-                    diag_log format ["BROKEN NODE %1", _conNode];
+                    Debug_1("BROKEN NODE %1", _conNode);
                     //[_conIndex, "mil_dot", "ColorRed", "BROKEN"] call A3A_fnc_markNode;
                 };
             };

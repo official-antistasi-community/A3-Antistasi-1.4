@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer) exitWith {};
 private ["_subObject","_ammunition","_originX","_destinationX"];
 _originX = _this select 0;
@@ -34,7 +36,7 @@ if (count _containers > 0) then
 	for "_i" from 0 to (count _containers) - 1 do
 		{
 		_subObject = magazineCargo ((_containers select _i) select 1);
-		if (!isNil "_subObject") then {_ammunition = _ammunition + _subObject} else {diag_log format ["Error from %1",magazineCargo (_containers select _i)]};
+		if (!isNil "_subObject") then {_ammunition = _ammunition + _subObject} else {Error_1("Error from %1",magazineCargo (_containers select _i))};
 		//_ammunition = _ammunition + (magazineCargo ((_containers select _i) select 1));
 		_items = _items + (itemCargo ((_containers select _i) select 1));
 		_weaponsItemsCargo = _weaponsItemsCargo + weaponsItemsCargo ((_containers select _i) select 1);
@@ -91,7 +93,7 @@ _ammunitionFinal = [];
 _ammunitionFinalCount = [];
 if (isNil "_ammunition") then
 	{
-	diag_log format ["Error en transmisión de munición. Tenía esto: %1 y estos containers: %2, el originX era un %3 y el objectX está definido como: %4", magazineCargo _originX, everyContainer _originX,typeOf _originX,_originX];
+        Error_4("Ammunition transmission error. I had this: %1 and these containers: %2, the originX was a %3 and the objectX is defined as: %4", magazineCargo _originX, everyContainer _originX,typeOf _originX,_originX);
 	}
 else
 	{

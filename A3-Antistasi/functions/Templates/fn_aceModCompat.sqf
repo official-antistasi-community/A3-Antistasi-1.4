@@ -1,7 +1,9 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 ////////////////////////////////////
 //      ACE ITEMS LIST           ///
 ////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating ACE Items List",servertime];
+Info("Creating ACE Items List");
 aceItems = [
 	"ACE_EarPlugs",
 	"ACE_RangeCard",

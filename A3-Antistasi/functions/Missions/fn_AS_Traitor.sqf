@@ -73,7 +73,7 @@ while {count _roads == 0} do
 _road = _roads select 0;
 _posroad = getPos _road;
 _roadcon = roadsConnectedto _road; if (count _roadCon == 0) then {
-	diag_log format ["%1: [Antistasi] | ERROR | AS_Traitor.sqf | Road has no connection :%2.",servertime,position _road];
+    Error("Road has no connection :%1.",position _road);
 	};
 if (count _roadCon > 0) then
 	{

@@ -1,7 +1,9 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_marker", "_attackingUnits", "_sideAttacker"];
 
-if(isNil "_marker") exitWith {diag_log "PrepareFightData: Can't simulate a fight without a marker!"};
-if(isNil "_attackingUnits") exitWith {diag_log "PrepareFightData: No attacking units found!"};
+if(isNil "_marker") exitWith {Error("Can't simulate a fight without a marker!")};
+if(isNil "_attackingUnits") exitWith {Error("No attacking units found!")};
 
 _sideDefender = sidesX getVariable [_marker, sideUnknown];
 
@@ -9,7 +11,7 @@ if(_sideDefender == _sideAttacker) exitWith
 {
   //This was either a reinforment convoy or a patrol, neither needs a simulated fight
   //TODO add a check whether case and act depending on it
-  diag_log "PrepareFightData: Attacker and Defender are the same side. No fighting needed!";
+  Error("Attacker and Defender are the same side. No fighting needed!");
 };
 
 _attackerMan = [];

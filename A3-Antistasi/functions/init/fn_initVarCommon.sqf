@@ -83,15 +83,6 @@ allDLCMods = ["kart", "mark", "heli", "expansion", "jets", "orange", "tank", "gl
 A3A_loadedTemplateInfoXML = [];
 
 //Mod detection is done locally to each client, in case some clients have different modsets for some reason.
-//Systems Mods
-A3A_hasACE = false;
-A3A_hasACEHearing = false;
-A3A_hasACEMedical = false;
-//Radio Mods
-A3A_hasACRE = false;
-A3A_hasTFAR = false;
-A3A_hasTFARBeta = false;
-
 //Radio Detection
 A3A_hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
 A3A_hasACRE = isClass (configFile >> "cfgPatches" >> "acre_main");

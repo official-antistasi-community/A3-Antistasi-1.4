@@ -174,7 +174,7 @@ if (_varName in _specialVarLoads) then {
 				//JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
 				[_antenna, true] remoteExec ["hideObject", 0, _ruin];
 			} else {
-                Info("Loading Antennas: Unable to create ruin for %1", typeOf _antenna);
+				Error("Loading Antennas: Unable to create ruin for %1", typeOf _antenna);
 			};
 
 			deleteMarker _mrk;

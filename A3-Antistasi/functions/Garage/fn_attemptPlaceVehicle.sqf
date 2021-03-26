@@ -23,7 +23,7 @@ if (!(_isValidLocationArray select 0))	exitWith {
 
 private _canPlaceArray = [vehPlace_callbackTarget, CALLBACK_CAN_PLACE_VEH , [_pos, _dir, _vehicleType]] call A3A_fnc_vehPlacementCallbacks;
 if (isNil "_canPlaceArray") then {
-    Debug_1("No Can Place Vehicle Callback registered for %1", vehPlace_callbackTarget);
+	Error_1("No Can Place Vehicle Callback registered for %1", vehPlace_callbackTarget);
 	_canPlaceArray = [true];
 };
 

@@ -21,7 +21,7 @@ else
 _sideX = _this select 1;
 _markerX = _this select 2;
 if !(_markerX isEqualType "") exitWith {
-        Error("Failed to update Garrison at Position:%1", _this);
+		Error_1("Failed to update Garrison at Position:%1", _this);
 		};
 _modeX = _this select 3;//-1 to remove 1 unbit (killed EHs etc). 1 add 1 single classname / object. 2 adds a hole array and admits classnames or objects
 _exit = false;

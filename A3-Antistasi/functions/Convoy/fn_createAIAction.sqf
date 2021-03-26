@@ -229,7 +229,7 @@ if(_type == "reinforce") then
 
     if(_units isEqualTo []) then
     {
-        Debug_1("CreateAIAction[%1]: No units given for reinforcements!", _convoyID);
+      Error_1("CreateAIAction[%1]: No units given for reinforcements!", _convoyID);
       _abort = true;
     }
     else

@@ -98,7 +98,7 @@ if (_varName in _specialVarLoads) then {
 
 				private _ruin = [_building] call BIS_fnc_createRuin;
 				if (isNull _ruin) exitWith {
-                    Info_1("Loading Destroyed Buildings: Unable to create ruin for %1", typeOf _building);
+					Error_1("Loading Destroyed Buildings: Unable to create ruin for %1", typeOf _building);
 				};
 
 				destroyedBuildings pushBack _building;

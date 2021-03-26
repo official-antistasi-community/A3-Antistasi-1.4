@@ -11,7 +11,7 @@ if(_sideDefender == _sideAttacker) exitWith
 {
   //This was either a reinforment convoy or a patrol, neither needs a simulated fight
   //TODO add a check whether case and act depending on it
-  Error("Attacker and Defender are the same side. No fighting needed!");
+  Info("Attacker and Defender are the same side. No fighting needed!");
 };
 
 _attackerMan = [];

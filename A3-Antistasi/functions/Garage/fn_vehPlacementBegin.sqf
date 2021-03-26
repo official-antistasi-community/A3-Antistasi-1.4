@@ -99,7 +99,7 @@ addMissionEventHandler ["EachFrame",
 				};
 			case VEHPLACE_ACTION_RELOAD:
 				{
-					if (isNil "vehPlace_nextVehType") exitWith {Info("Attempting to refresh placed vehicle, but no new type set.")};
+					if (isNil "vehPlace_nextVehType") exitWith {Error("Attempting to refresh placed vehicle, but no new type set.")};
 					private _typeX = vehPlace_nextVehType;
 					if !(_typeX isEqualType "") exitWith {};
 

@@ -38,7 +38,7 @@ _patrolMarkerSize = [0,0];
 if(_isFrontline || _isMilitia) then
 {
   //Cannot risk to spread to thin, stay close
-  Debug_3("Decided smaller radius for patrol, due to %1!", if(_isFrontline) then {if(_isMilitia) then {"frontline and militia"} else {"frontline"};} else {"militia"});
+  Debug_1("Decided smaller radius for patrol, due to %1!", if(_isFrontline) then {if(_isMilitia) then {"frontline and militia"} else {"frontline"};} else {"militia"});
   _patrolMarkerSize = [(distanceSPWN/8), (distanceSPWN/8)];
 }
 else

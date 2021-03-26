@@ -5,7 +5,7 @@ waitUntil {!resourcesIsChanging};
 resourcesIsChanging = true;
 _hr = _this select 0;
 _resourcesFIA = _this select 1;
-if (isNil "_resourcesFIA") then {Info("You have some costs without definite in the FIA ​​tables");};
+if (isNil "_resourcesFIA") then {Error("You have some costs without definite in the FIA ​​tables");};
 if ((isNil "_hr") or (isNil "_resourcesFIA")) exitWith {};
 if ((floor _resourcesFIA == 0) and (floor _hr == 0)) exitWith {resourcesIsChanging = false};
 _hrT = server getVariable "hr";

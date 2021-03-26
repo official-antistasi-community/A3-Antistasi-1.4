@@ -169,7 +169,7 @@ while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
                 }
                 else
                 {
-                    Debug_1("BROKEN NODE %1", _conNode);
+                    Error_1("BROKEN NODE %1", _conNode);
                     //[_conIndex, "mil_dot", "ColorRed", "BROKEN"] call A3A_fnc_markNode;
                 };
             };

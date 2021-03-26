@@ -34,7 +34,7 @@ _mainMarker = getMarkerPos _marker;
   _fullName = format ["%1%2", _markerPrefix, _x];
   if(debug && {_mainMarker distance (getMarkerPos _fullName) > 500}) then
   {
-      Debug_2("Placementmarker %1 is more than 500 meter away from its mainMarker %2. You may want to check that!", _fullName, _marker);
+    Error_2("Placementmarker %1 is more than 500 meter away from its mainMarker %2. You may want to check that!", _fullName, _marker);
   };
   switch (_first) do
   {
@@ -48,7 +48,7 @@ _mainMarker = getMarkerPos _marker;
 
 if(count _vehicleMarker == 0) then
 {
-    Debug_1("InitSpawnPlaces: Could not find any vehicle places on %1!", _marker);
+  Error_1("InitSpawnPlaces: Could not find any vehicle places on %1!", _marker);
 };
 
 private ["_markerSize", "_distance", "_buildings", "_hangars", "_helipads", "_markerX"];
@@ -113,13 +113,13 @@ _vehicleSpawns = [];
     _width = (_size select 1) * 2;
     if(_width < (4 + 2 * SPACING)) then
     {
-        Debug_2("InitSpawnPlaces: Marker %1 is not wide enough for vehicles, required are %2 meters!", _x , (4 + 2 * SPACING));
+      Error_2("InitSpawnPlaces: Marker %1 is not wide enough for vehicles, required are %2 meters!", _x , (4 + 2 * SPACING));
     }
     else
     {
       if(_length < 10) then
       {
-          Debug_1("InitSpawnPlaces: Marker %1 is not long enough for vehicles, required are 10 meters!", _x);
+        Error_1("InitSpawnPlaces: Marker %1 is not long enough for vehicles, required are 10 meters!", _x);
       }
       else
       {

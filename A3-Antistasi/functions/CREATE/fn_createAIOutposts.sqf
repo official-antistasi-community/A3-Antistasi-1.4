@@ -183,7 +183,7 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 		}
 		else
 		{
-            Debug_1("Could not find seaSpawn marker on %1!", _markerX);
+			Error_1("Could not find seaSpawn marker on %1!", _markerX);
 		};
 	};
 }

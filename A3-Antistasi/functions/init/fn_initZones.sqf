@@ -387,7 +387,7 @@ if (count _posAntennas > 0) then {
 	};
 };
 if (debug) then {
-    Debug("Broken Radio Towers identified.");
+	Error("Broken Radio Towers identified.");
 };
 if (count _posBank > 0) then {
 	for "_i" from 0 to (count _posBank - 1) do {

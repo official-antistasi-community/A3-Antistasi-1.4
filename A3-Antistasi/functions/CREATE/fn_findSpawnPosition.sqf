@@ -13,7 +13,7 @@ _result = getMarkerPos _marker;
 _spawns = spawner getVariable [format ["%1_spawns", _marker], -1];
 if(_spawns isEqualType -1) exitWith
 {
-    Error("%1 does not have any spawn positions set!", _marker);
+  Error_1("%1 does not have any spawn positions set!", _marker);
   -1;
 };
 //DebugArray("Spawnpoints", _spawns);

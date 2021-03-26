@@ -13,6 +13,13 @@
 
         Note: all arguments for macros MUST be strings
 
+        How to use:
+        Before this is included define diag_performance as 1
+            #define diag_performance 1
+            #include "performance.inc"
+
+        Then use the macros to start stop counters and batches, and markBatch to make a mark on a batch
+
     Scope: Any
     Environment: Any
     Public: Yes
@@ -33,11 +40,11 @@
 
     License: MIT License
 */
-#ifndef debugEnabled
-    #define debugEnabled 0
+#ifndef diag_performance
+    #define diag_performance 0
 #endif
 
-#if debugEnabled
+#if diag_performance
     if (isNil "HR_performanceCounters") then {HR_performanceCounters = createHashMap};
 
     #define startCounter(X) HR_performanceCounters set [X, diag_tickTime]

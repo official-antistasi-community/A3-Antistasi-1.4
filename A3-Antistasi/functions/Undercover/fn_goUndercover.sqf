@@ -36,21 +36,24 @@ Example:
     [] call A3A_fnc_goUndercover;
 */
 
-private _result = A3A_fnc_canGoUndercover;
+private _result = [] call A3A_fnc_canGoUndercover;
 
-if(!(_result select 0) && ((_result select 1) == "Spotted by enemies")) exitWith
+if(!(_result select 0)) exitWith
 {
-    if !(isNull (objectParent player)) then
+    if((_result select 1) == "Spotted by enemies") then
     {
+        if !(isNull (objectParent player)) then
         {
-            if ((isPlayer _x) && (captive _x)) then
             {
-                [_x, false] remoteExec["setCaptive"];
-                _x setCaptive false;
-                reportedVehs pushBackUnique (vehicle _player);
-                publicVariable "reportedVehs";
-            };
-        } forEach ((crew(objectParent player)) + (assignedCargo(objectParent player)) - [player]);
+                if ((isPlayer _x) && (captive _x)) then
+                {
+                    [_x, false] remoteExec["setCaptive"];
+                    _x setCaptive false;
+                    reportedVehs pushBackUnique (vehicle _player);
+                    publicVariable "reportedVehs";
+                };
+            } forEach ((crew(objectParent player)) + (assignedCargo(objectParent player)) - [player]);
+        };
     };
 };
 
@@ -72,6 +75,7 @@ if (player == leader group player) then
 private _roadblocks = controlsX select {isOnRoad(getMarkerPos _x)};
 private _secureBases = airportsX + outposts + seaports + _roadblocks;
 private _isInRoadblock = false;
+private _reason = "";
 
 while {_reason == ""} do
 {

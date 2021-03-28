@@ -46,10 +46,10 @@ if (captive player) exitWith
 private _changeState = "";
 private _roadblocks = controlsX select {isOnRoad(getMarkerPos _x)};
 private _secureBases = airportsX + outposts + seaports + _roadblocks;
-private _compromised = player getVariable "compromised";
+private _compromised = player getVariable ["compromised", 0];
 private _result = [];
 
-if !(isNull (objectParent object)) then
+if !(isNull (objectParent player)) then
 {
 	if (!(typeOf(objectParent player) in undercoverVehicles)) exitWith
     {
@@ -72,38 +72,35 @@ else
 
     private _text = "You cannot go Undercover while:<br/>";
     _result = [true];
-    switch (true) do
+    if (primaryWeapon player != "" || secondaryWeapon player != "" || handgunWeapon player != "") then
     {
-        case (primaryWeapon player != "" || secondaryWeapon player != "" || handgunWeapon player != ""):
-        {
-            _text format ["%1<br/>A weapon is visible", _text];
-            _result set [0, false];
-            _result pushBack "Weapon visible";
-        };
-        case (vest player != ""):
-        {
-            _text format ["%1<br/>Wearing a vest", _text];
-            _result set [0, false];
-            _result pushBack "Vest visible";
-        };
-        case (headgear player in allArmoredHeadgear):
-        {
-            _text format ["%1<br/>Wearing a helmet", _text];
-            _result set [0, false];
-            _result pushBack "Helmet visible";
-        };
-        case (hmd player != ""):
-        {
-            _text format ["%1<br/>Wearing NVGs", _text];
-            _result set [0, false];
-            _result pushBack "NVG visible";
-        };
-        case (!(uniform player in allCivilianUniforms)):
-        {
-            _text format ["%1<br/>Suspicious uniform", _text];
-            _result set [0, false];
-            _result pushBack "Suspicious uniform";
-        };
+        _text = format ["%1<br/>A weapon is visible", _text];
+        _result set [0, false];
+        _result pushBack "Weapon visible";
+    };
+    if (vest player != "") then
+    {
+        _text = format ["%1<br/>Wearing a vest", _text];
+        _result set [0, false];
+        _result pushBack "Vest visible";
+    };
+    if (headgear player in allArmoredHeadgear) then
+    {
+        _text = format ["%1<br/>Wearing a helmet", _text];
+        _result set [0, false];
+        _result pushBack "Helmet visible";
+    };
+    if (hmd player != "") then
+    {
+        _text = format ["%1<br/>Wearing NVGs", _text];
+        _result set [0, false];
+        _result pushBack "NVG visible";
+    };
+    if (!(uniform player in allCivilianUniforms)) then
+    {
+        _text = format ["%1<br/>Wearing a suspicious uniform", _text];
+        _result set [0, false];
+        _result pushBack "Suspicious uniform";
     };
     if !(_result select 0) then
     {

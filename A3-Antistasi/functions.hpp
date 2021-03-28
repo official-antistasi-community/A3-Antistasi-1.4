@@ -668,8 +668,9 @@ class A3A
 
     class Undercover
     {
-        class initUndercover {};
+        class canGoUndercover {};
         class goUndercover {};
+        class initUndercover {};
     };
 
     class Utility

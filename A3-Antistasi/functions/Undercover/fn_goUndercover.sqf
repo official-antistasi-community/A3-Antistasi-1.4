@@ -1,3 +1,40 @@
+/*
+Maintainer: Wurzel0701
+    Checks if the player is able to go undercover
+
+Arguments:
+    <NIL>
+
+Return Value:
+    <NIL>
+
+Scope: Local
+Environment: Any
+Public: Yes
+Dependencies:
+    <ARRAY> reportedVehs
+    <ARRAY> controlsX
+    <ARRAY> airportsX
+    <ARRAY> outposts
+    <ARRAY> seaports
+    <ARRAY> undercoverVehicles
+    <ARRAY> reportedVehs
+    <BOOL> hasACE
+    <SIDE> Occupants
+    <STRING> civHeli
+    <ARRAY> civBoats
+    <SIDE> Invaders
+    <ARRAY> detectionAreas
+    <NAMESPACE> sidesX
+    <SIDE> teamPlayer
+    <NUMBER> aggressionOccupants
+    <NUMBER> aggressionInvaders
+    <NUMBER> tierWar
+    <ARRAY> allCivilianUniforms
+
+Example:
+    [] call A3A_fnc_goUndercover;
+*/
 
 private _result = A3A_fnc_canGoUndercover;
 

@@ -69,7 +69,7 @@ _plane flyInHeight 100;
 private _minAltASL = ATLToASL [_positionX select 0, _positionX select 1, 0];
 _plane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (_minAltASL select 2) +100];
 
-driver _plane sideChat localize "STR_antistasi_chat_startBomb";
+driver _plane sideChat format [localize "STR_antistasi_chat_startBomb",30];
 _wp1 = group _plane addWaypoint [_pos1, 0];
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "LIMITED";

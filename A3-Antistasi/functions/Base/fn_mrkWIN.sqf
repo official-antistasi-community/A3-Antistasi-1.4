@@ -19,7 +19,7 @@ if ((_markerX in airportsX) and (tierWar < 3)) exitWith {[localize "STR_antistas
 //Check if the flag is locked
 if(_flagX getVariable ["isGettingCaptured", false]) exitWith
 {
-	[localize "STR_antistasi_customHint_capture", localize "STR_antistasi_customHint_capture_wait"] call A3A_fnc_customHint;
+	[localize "STR_antistasi_customHint_capture", format [localize "STR_antistasi_customHint_capture_wait",30]] call A3A_fnc_customHint;
 };
 
 //Lock the flag

@@ -216,7 +216,7 @@ player addAction ["Hold On", {
 	if(!isnil "_nearestVehicle")then{
 		player attachto [_nearestVehicle];
 		_index = (findDisplay 46) displayAddEventHandler ["KeyDown", "
-			[localize "STR_antistasi_customHint_game_options", str (_this select 1)] call A3A_fnc_customHint;
+			[localize 'STR_antistasi_customHint_game_options', str (_this select 1)] call A3A_fnc_customHint;
 			if((_this select 1) in [17,30,31,32,57])then{
 				detach player;
 				_index = missionnamespace getVariable 'jn_hold';

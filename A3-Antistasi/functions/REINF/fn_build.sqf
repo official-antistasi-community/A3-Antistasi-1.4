@@ -152,7 +152,7 @@ if ((build_type == "SB") or (build_type == "CB")) then
 	if (build_cost > _resourcesFIA) then
 		{
 		_leave = true;
-		_textX = format ["You do not have enough money for this construction (%1 € needed)",build_cost]
+		_textX = format [localize "STR_antistasi_customHint_build_noMoney",build_cost]
 		}
 	else
 		{
@@ -161,7 +161,7 @@ if ((build_type == "SB") or (build_type == "CB")) then
 		if (!(_playerPosition inArea build_nearestFriendlyMarker)) then
 			{
 			_leave = true;
-			_textX = "You cannot build a bunker outside a controlled zone";
+			_textX = localize "STR_antistasi_customHint_build_outside";
 			build_nearestFriendlyMarker = nil;
 			};
 		};

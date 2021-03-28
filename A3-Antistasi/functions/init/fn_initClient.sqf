@@ -354,15 +354,15 @@ A3A_customHintEnable = true; // Was false in initVarCommon to allow debug progre
 
 if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  // Local Host || Commander || Dedicated Admin
 	private _modsAndLoadText = [
-		[A3A_hasTFAR || A3A_hasTFARBeta,"TFAR","Players will use TFAR radios. Unconscious players' radios will be muted."],
-		[A3A_hasACRE,"ACRE","Players will use ACRE radios. Unconscious players' radios will be muted."],
-		[A3A_hasACE,"ACE 3","ACE items added to arsenal and ammo-boxes."],
-		[A3A_hasACEMedical,"ACE 3 Medical","Default revive system will be disabled"],
-		[A3A_hasRHS,"RHS","All factions will be replaced by RHS (AFRF &amp; USAF &amp; GREF)."],
-		[A3A_has3CBFactions,"3CB Factions","All Factions will be Replaced by 3CB Factions."],
-		[A3A_has3CBBAF,"3CB BAF","Occupant Faction will be Replaced by British Armed forces."],
-		[A3A_hasFFAA,"FFAA","Occupant faction will be replaced by Spanish Armed Forces"],
-		[A3A_hasIvory,"Ivory Cars","Mod cars will be added to civilian car spawns."]
+		[A3A_hasTFAR || A3A_hasTFARBeta,"TFAR",localize "STR_antistasi_cutText_detect_TFAR"],
+		[A3A_hasACRE,"ACRE",localize "STR_antistasi_cutText_detect_ACRE"],
+		[A3A_hasACE,"ACE 3",localize "STR_antistasi_cutText_detect_ACE"],
+		[A3A_hasACEMedical,"ACE 3 Medical",localize "STR_antistasi_cutText_detect_ACE_Medical"],
+		[A3A_hasRHS,"RHS",localize "STR_antistasi_cutText_detect_RHS"],
+		[A3A_has3CBFactions,localize "3CB Factions","STR_antistasi_cutText_detect_3CB_Factions"],
+		[A3A_has3CBBAF,"3CB BAF",localize "STR_antistasi_cutText_detect_3CB_BAF"],
+		[A3A_hasFFAA,"FFAA",localize "STR_antistasi_cutText_detect_FFAA"],
+		[A3A_hasIvory,"Ivory Cars",localize "STR_antistasi_cutText_detect_Ivory_Cars"]
 	] select {_x#0};
 
 	private _loadedTemplateInfoXML = A3A_loadedTemplateInfoXML apply {[true,_x#0,_x#1]};	// Remove and simplify when the list above is empty and can be deleted.
@@ -426,7 +426,7 @@ vehicleBox addAction [localize "STR_antistasi_dialogs_vehicle_purchase_buy_text"
 vehicleBox addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 if (LootToCrateEnabled) then {
-	vehicleBox addAction [localize "STR_antistasi_addAction_buyBox", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
+	vehicleBox addAction [format [localize "STR_antistasi_addAction_buyBox",10], {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
 	call A3A_fnc_initLootToCrate;
 };
 
@@ -437,13 +437,13 @@ mapX allowDamage false;
 mapX addAction ["Game Options", {
 	[
 		localize "STR_antistasi_customHint_game_options",
-		"Version: "+ antistasiVersion +
-		"<br/><br/>Difficulty: "+ ( ["Easy","Normal","Hard"] select ((skillMult-1) min 2) ) +
-		"<br/>Unlock Weapon Number: "+ str minWeaps +
-		"<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
-		"<br/>AI Limit: "+ str maxUnits +
-		"<br/>Spawn Distance: "+ str distanceSPWN + "m" +
-		"<br/>Civilian Limit: "+ str civPerc
+		localize "STR_antistasi_customHint_info_version"+ antistasiVersion +
+		localize "STR_antistasi_customHint_info_difficulty"+ ( [localize "STR_antistasi_dialogs_diff_menu_easy",localize "STR_antistasi_dialogs_diff_menu_normal",localize "STR_antistasi_dialogs_diff_menu_hard"] select ((skillMult-1) min 2) ) +
+		localize "STR_antistasi_customHint_info_unlockWeapon"+ str minWeaps +
+		localize "STR_antistasi_customHint_info_limitFT"+ ([localize "str_lib_info_no",localize "str_lib_info_yes"] select limitedFT) +
+		localize "STR_antistasi_customHint_info_limitAI"+ str maxUnits +
+		localize "STR_antistasi_customHint_info_spawnDistance"+ str distanceSPWN + "m" +
+		localize "STR_antistasi_customHint_info_limitCiv"+ str civPerc
 	] call A3A_fnc_customHint;
 	CreateDialog "game_options";
 	nil;

@@ -29,4 +29,4 @@ deleteVehicle _vehicle;
 //set message it was saved
 _data = _dataAndIndex select 0;
 SPLIT_SAVE
-[localize "STR_antistasi_customHint_garage", (_name + localize "STR_antistasi_customHint_garage_stored")] call A3A_fnc_customHint;
+[localize "STR_antistasi_customHint_garage", format [localize "STR_antistasi_customHint_garage_stored",_name]] call A3A_fnc_customHint;

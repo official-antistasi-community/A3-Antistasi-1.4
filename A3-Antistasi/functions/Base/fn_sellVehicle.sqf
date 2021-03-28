@@ -37,10 +37,10 @@ FIX_LINE_NUMBERS()
 if (isNull _player) exitWith { Error("_player is null.") };
 if (isNull _veh) exitWith {[localize "STR_antistasi_customHint_sell_veh", localize "STR_antistasi_customHint_sell_veh_no_look"] remoteExecCall ["A3A_fnc_customHint",_player];};
 
-if (_veh getVariable ["A3A_sellVehicle_inProgress",false]) exitWith {[localize "STR_antistasi_customHint_sell_veh", "Vehicle sale already in progress."] remoteExecCall ["A3A_fnc_customHint",_player];};
+if (_veh getVariable ["A3A_sellVehicle_inProgress",false]) exitWith {[localize "STR_antistasi_customHint_sell_veh", localize "STR_antistasi_customHint_sell_veh_already"] remoteExecCall ["A3A_fnc_customHint",_player];};
 _veh setVariable ["A3A_sellVehicle_inProgress",true,false];  // Only processed on the server. It is absolutely pointless trying to network this due to race conditions.
 
-if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {[localize "STR_antistasi_customHint_sell_veh", localize "STR_antistasi_customHint_sell_veh_no_flag"] remoteExecCall ["A3A_fnc_customHint",_player];};
+if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {[localize "STR_antistasi_customHint_sell_veh", format [localize "STR_antistasi_customHint_sell_veh_no_flag",50]] remoteExecCall ["A3A_fnc_customHint",_player];};
 
 if ({isPlayer _x} count crew _veh > 0) exitWith {[localize "STR_antistasi_customHint_sell_veh", localize "STR_antistasi_customHint_sell_veh_no_empty"] remoteExecCall ["A3A_fnc_customHint",_player];};
 

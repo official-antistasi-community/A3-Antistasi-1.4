@@ -31,12 +31,12 @@ FIX_LINE_NUMBERS()
 ////////////////////
 // Authentication //
 ////////////////////
-private _optionLocalisationTable = [["maxUnits","distanceSPWN","civPerc"],["AI Limit","Spawn Distance","Civilian Limit"]];
-private _hintTitle = "HQ Spawn Options";
+private _optionLocalisationTable = [["maxUnits","distanceSPWN","civPerc"],[localize "STR_antistasi_customHint_AI_limit",localize "STR_antistasi_dialogs_maps_spawn_distance",localize "STR_antistasi_customHint_civ_limit"]];
+private _hintTitle = localize "STR_antistasi_customHint_spawnOptions";
 private _authenticate = _option in ["maxUnits","distanceSPWN","civPerc"];
 
 if (_authenticate && {!(_player == theBoss || admin owner _player > 0 || _player == player)}) exitWith {
-    [_hintTitle, "Only our Commander or admin has access to "+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player];
+    [_hintTitle, localize "STR_antistasi_customHint_only_admin_or_comander_to"+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player];
     Error("ACCESS VIOLATION | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] attempted calling restricted backing method "+str _this);
     nil;
 };

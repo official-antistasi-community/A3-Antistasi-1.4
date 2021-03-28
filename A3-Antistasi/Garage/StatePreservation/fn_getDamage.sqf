@@ -1,7 +1,7 @@
 /*
     Author: [Håkon]
     [Description]
-        
+
 
     Arguments:
         0. <Object> Vehicle to get damage state from
@@ -20,7 +20,7 @@
 
     Example:
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params ["_vehicle"];
 private _dmg = damage _vehicle min 0.89;

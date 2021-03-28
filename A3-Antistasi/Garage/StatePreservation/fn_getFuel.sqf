@@ -20,7 +20,7 @@
 
     Example:
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params [["_vehicle", objNull, [objNull]]];
 private _fuelCargo = getFuelCargo _vehicle;

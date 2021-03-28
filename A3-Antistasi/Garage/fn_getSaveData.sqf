@@ -35,7 +35,7 @@
 
     Example: [] call HR_GRG_fnc_getSaveData;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 if (!isServer) exitWith {};
 #include "defines.inc"

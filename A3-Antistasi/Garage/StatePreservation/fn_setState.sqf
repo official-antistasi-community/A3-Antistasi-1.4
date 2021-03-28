@@ -40,7 +40,7 @@
                     ] Pylon data
                 ]
             ] Ammo Data
-            
+
         ] State Data
 
     Return Value: <ni>
@@ -52,7 +52,7 @@
 
     Example:
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params [["_vehicle", objNull, [objNull]], "_state"];
 if (isNull _vehicle) exitWith {};

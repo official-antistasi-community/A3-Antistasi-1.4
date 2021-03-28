@@ -36,7 +36,7 @@
 
     Example: [_veh] call HR_GRG_fnc_getAmmoData;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params [["_veh", objNull, [objNull]]];
 

@@ -21,7 +21,7 @@
 
     Example: (_this#1) call HR_GRG_fnc_reciveBroadcast;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

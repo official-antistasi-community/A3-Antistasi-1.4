@@ -15,7 +15,7 @@
 
     Example: [] call HR_GRG_fnc_confirm;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 HR_GRG_SelectedVehicles params ["_catIndex", "_vehUID", "_class"];
 

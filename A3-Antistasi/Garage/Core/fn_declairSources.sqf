@@ -16,7 +16,7 @@
 
     Example: [0] call HR_GRG_fnc_declairSources;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

@@ -3,7 +3,7 @@
     Description:
         Garage GUI
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 #include "CfgDefines.inc"
 #include "defines.hpp"

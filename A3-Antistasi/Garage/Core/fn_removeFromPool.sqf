@@ -16,7 +16,7 @@
 
     Example: [HR_GRG_PlayerUID] remoteExecCall ["HR_GRG_fnc_removeFromPool",_recipients];
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

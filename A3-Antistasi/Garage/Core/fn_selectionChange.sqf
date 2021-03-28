@@ -16,7 +16,7 @@
 
     Example: _this call HR_GRG_fnc_selectionChange;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()//temp for trace

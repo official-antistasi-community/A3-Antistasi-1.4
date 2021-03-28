@@ -21,7 +21,7 @@
 
     Example: [nil, _UID, _catIndex, _vehUID, _player, true] call HR_GRG_fnc_broadcast;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 if !(isServer) exitWith {false};
 HR_GRG_Event = _this;

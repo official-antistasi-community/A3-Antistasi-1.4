@@ -3,7 +3,7 @@
     Description:
         Garage base GUI resources
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 //Common Macros
 #ifndef QUOTE

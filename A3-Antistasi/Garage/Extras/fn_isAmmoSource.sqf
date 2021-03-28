@@ -16,7 +16,7 @@
 
     Example: [_veh] call HR_GRG_fnc_isAmmoSource;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params [ ["_vehicle", objNull, [objNull]] ];
 if (isNull _vehicle) exitWith {false};

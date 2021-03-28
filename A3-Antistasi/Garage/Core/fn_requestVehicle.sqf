@@ -18,7 +18,7 @@
 
     Example: [_UID, _cat, _index] call HR_GRG_fnc_requestVehicle;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params [["_UID","",[""]], ["_cat",0,[0]], ["_index",0,[0]]];
 if (!isServer) exitWith {};

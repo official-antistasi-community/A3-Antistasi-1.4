@@ -18,7 +18,7 @@
 
     Example: [HR_GRG_PlayerUID, _newCat, _newIndex] remoteExecCall ["HR_GRG_fnc_requestSelectionChange",2];
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

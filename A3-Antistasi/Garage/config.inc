@@ -14,7 +14,7 @@
 
     Example:
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 if (isNil "HR_GRG_Prefix") then {HR_GRG_Prefix = "Antistasi"; publicVariable "HR_GRG_Prefix"};
 //Overwrite client

@@ -1,7 +1,7 @@
 /*
     Author: [Håkon]
     [Description]
-        
+
 
     Arguments:
         0. <Object> Vehicle to set damage state off
@@ -20,7 +20,7 @@
 
     Example:
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params ["_vehicle", "_dmgStats"];
 if !(local _vehicle) exitWith {};

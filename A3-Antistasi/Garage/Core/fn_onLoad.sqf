@@ -19,7 +19,7 @@
 
     Example: [] call HR_GRG_fnc_onLoad;
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

@@ -20,7 +20,7 @@
 
     Example:
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params ["_vehicle", "_fuelStats"];
 if !(local _vehicle) exitWith {};

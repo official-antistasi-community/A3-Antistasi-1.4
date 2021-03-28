@@ -42,7 +42,7 @@
                     ] Pylon data
                 ]
             ] Ammo Data
-            
+
         ] State Data
 
     Scope: Any
@@ -52,7 +52,7 @@
 
     Example:
 
-    License: MIT License
+    License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params [["_vehicle", objNull, [objNull]]];
 if (isNull _vehicle) exitWith {};

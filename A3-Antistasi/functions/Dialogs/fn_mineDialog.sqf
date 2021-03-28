@@ -37,7 +37,7 @@ if (_typeX == "ATMine") then
 if (_x select 0 == _typeM) exitWith {_quantity = _x select 1}
 } forEach _pool;
 
-if (_quantity < 5) exitWith {[localize "STR_antistasi_customHint_minefields", localize "STR_antistasi_customHint_minefields_no_mine"] call A3A_fnc_customHint;};
+if (_quantity < 5) exitWith {[localize "STR_antistasi_customHint_minefields",format [localize "STR_antistasi_customHint_minefields_no_mine",5]] call A3A_fnc_customHint;};
 
 if (!visibleMap) then {openMap true};
 positionTel = [];

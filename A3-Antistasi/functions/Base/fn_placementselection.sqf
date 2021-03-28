@@ -6,7 +6,7 @@ private _disabledPlayerDamage = false;
 
 if (_newGame) then {
     Info("New session selected");
-	"Initial HQ Placement Selection" hintC [localize "STR_antistasi_customHint_startPosition1", localize "STR_antistasi_customHint_startPosition2", localize "STR_antistasi_customHint_startPosition3", localize "STR_antistasi_customHint_startPosition4"];
+	localize "STR_antistasi_customHint_startPosition" hintC [localize "STR_antistasi_customHint_startPosition1", localize "STR_antistasi_customHint_startPosition2", localize "STR_antistasi_customHint_startPosition3", localize "STR_antistasi_customHint_startPosition4"];
 } else {
 	player allowDamage false;
 	_disabledPlayerDamage = true;

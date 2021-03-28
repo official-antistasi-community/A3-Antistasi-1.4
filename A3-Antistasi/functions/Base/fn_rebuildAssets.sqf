@@ -1,7 +1,7 @@
 
 _resourcesFIA = server getVariable "resourcesFIA";
 
-if (_resourcesFIA < 5000) exitWith {[localize "STR_antistasi_customHint_rebuild", localize "STR_antistasi_customHint_rebuild_no_money"] call A3A_fnc_customHint;};
+if (_resourcesFIA < 5000) exitWith {[localize "STR_antistasi_customHint_rebuild", format [localize "STR_antistasi_customHint_rebuild_no_money",5000]] call A3A_fnc_customHint;};
 
 _destroyedSites = destroyedSites - citiesX;
 
@@ -26,7 +26,7 @@ if ((not(_siteX in _destroyedSites)) and (!(_siteX in outposts))) exitWith {[loc
 
 _leave = false;
 _antennaDead = objNull;
-_textX = "That Outpost does not have a destroyed Radio Tower";
+_textX = localize "STR_antistasi_customHint_rebuild_noDestroyed";
 if (_siteX in outposts) then
 	{
 	_antennasDead = antennasDead select {_x inArea _siteX};
@@ -35,7 +35,7 @@ if (_siteX in outposts) then
 		if (sidesX getVariable [_siteX, sideUnknown] != teamPlayer) then
 			{
 			_leave = true;
-			_textX = format ["You cannot rebuild a Radio Tower in an Outpost which does not belong to %1",nameTeamPlayer];
+			_textX = format [localize "STR_antistasi_customHint_rebuild_noBelong",nameTeamPlayer];
 			}
 		else
 			{
@@ -54,7 +54,7 @@ if (isNull _antennaDead) then
 	{
 	_nameX = [_siteX] call A3A_fnc_localizar;
 
-	[localize "STR_antistasi_customHint_rebuild", format [localize "STR_antistasi_customHint_rebuild_rebuild"]] call A3A_fnc_customHint;
+	[localize "STR_antistasi_customHint_rebuild", format [localize "STR_antistasi_customHint_rebuild_rebuild",_nameX]] call A3A_fnc_customHint;
 
 	[0,10,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
 	[[10, 30], [10, 30]] remoteExec ["A3A_fnc_prestige",2];

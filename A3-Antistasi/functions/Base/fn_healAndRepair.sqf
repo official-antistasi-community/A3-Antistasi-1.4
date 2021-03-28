@@ -4,7 +4,7 @@ private _time = if (isMultiplayer) then {serverTime} else {time};
 
 if ((_time - (boxX getVariable ["lastUsed", -30])) < 30) exitWith {
 	if (hasInterface) then {
-		[localize "STR_antistasi_customHint_heal_repair", localize "STR_antistasi_customHint_heal_repair_wait"] call A3A_fnc_customHint;
+		[localize "STR_antistasi_customHint_heal_repair", format [localize "STR_antistasi_customHint_heal_repair_wait",30]] call A3A_fnc_customHint;
 	};
 };
 

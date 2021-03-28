@@ -6,7 +6,7 @@ if (isNull _veh) exitWith {[localize "STR_antistasi_customHint_unlock", localize
 
 if (!alive _veh) exitWith {[localize "STR_antistasi_customHint_unlock", localize "STR_antistasi_customHint_unlock_destroy"] call A3A_fnc_customHint;};
 
-if (_veh isKindOf "Man") exitWith {[localize "STR_antistasi_customHint_unlock", localize "STR_antistasi_customHint_unlock_busy"] call A3A_fnc_customHint;};
+if (_veh isKindOf "Man") exitWith {[localize "STR_antistasi_customHint_unlock", localize "STR_antistasi_customHint_unlock_man"] call A3A_fnc_customHint;};
 if (not(_veh isKindOf "AllVehicles")) exitWith {[localize "STR_antistasi_customHint_unlock", localize "STR_antistasi_customHint_unlock_no_used"] call A3A_fnc_customHint;};
 _ownerX = _veh getVariable "ownerX";
 

@@ -39,7 +39,7 @@ player createDiaryRecord ["SpecialK",[localize "STR_antistasi_journal_entry_head
 
 
 _index =player createDiarySubject ["Features",localize "STR_antistasi_journal_entry_header_Features"];
-player createDiaryRecord ["Features",[format [localize "STR_antistasi_journal_entry_header_Features_17"],format [localize "STR_antistasi_journal_entry_text_Features_17", breachingExplosivesAPC call A3A_fnc_createBreachChargeText, "<br></br><br></br>", breachingExplosivesTank call A3A_fnc_createBreachChargeText]]];
+player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_17",format [localize "STR_antistasi_journal_entry_text_Features_17", breachingExplosivesAPC call A3A_fnc_createBreachChargeText, "<br></br><br></br>", breachingExplosivesTank call A3A_fnc_createBreachChargeText]]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_16",localize "STR_antistasi_journal_entry_text_Features_16"]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_12",localize "STR_antistasi_journal_entry_text_Features_12"]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_11",localize "STR_antistasi_journal_entry_text_Features_11"]];
@@ -47,7 +47,7 @@ player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_head
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_9",localize "STR_antistasi_journal_entry_text_Features_9"]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_8",localize "STR_antistasi_journal_entry_text_Features_8"]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_7",localize "STR_antistasi_journal_entry_text_Features_7"]];
-player createDiaryRecord ["Features",[format [localize "STR_antistasi_journal_entry_header_Features_6"],format [localize "STR_antistasi_journal_entry_text_Features_6",worldName]]];
+player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_6",format [localize "STR_antistasi_journal_entry_text_Features_6",worldName]]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_5",localize "STR_antistasi_journal_entry_text_Features_5"]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_4",localize "STR_antistasi_journal_entry_text_Features_4"]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_3",localize "STR_antistasi_journal_entry_text_Features_3"]];
@@ -96,27 +96,27 @@ player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry
 //Mission Specific stuff, fuck this code. This specifies the Rules of Engagement option in the menus.
 switch (gameMode) do {
 	case 1: {
-				player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_gamemode"],format [localize "STR_antistasi_journal_entry_text_gamemode_4",nameOccupants,nameInvaders,nameTeamPlayer]]]
+				player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_gamemode",format [localize "STR_antistasi_journal_entry_text_gamemode_4",nameOccupants,nameInvaders,nameTeamPlayer]]]
 			};
 	case 2: {
-				player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_gamemode"],format [localize "STR_antistasi_journal_entry_text_gamemode_3",nameOccupants,nameInvaders,nameTeamPlayer]]]
+				player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_gamemode",format [localize "STR_antistasi_journal_entry_text_gamemode_3",nameOccupants,nameInvaders,nameTeamPlayer]]]
 			};
 	case 3: {
-				player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_gamemode"],format [localize "STR_antistasi_journal_entry_text_gamemode_2",nameOccupants,nameTeamPlayer]]]
+				player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_gamemode",format [localize "STR_antistasi_journal_entry_text_gamemode_2",nameOccupants,nameTeamPlayer]]]
 			};
 	case 4: {
-				player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_gamemode"],format [localize "STR_antistasi_journal_entry_text_gamemode_1",nameInvaders,nameTeamPlayer]]]
+				player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_gamemode",format [localize "STR_antistasi_journal_entry_text_gamemode_1",nameInvaders,nameTeamPlayer]]]
 			};
-	Default {player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_gamemode"],format [localize "STR_antistasi_journal_entry_text_gamemode_4",nameOccupants,nameInvaders,nameTeamPlayer]]]};
+	Default {player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_gamemode",format [localize "STR_antistasi_journal_entry_text_gamemode_4",nameOccupants,nameInvaders,nameTeamPlayer]]]};
 	};
 
 
 // Default Welcome stuff.
-player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_Default_3"],format [localize "STR_antistasi_journal_entry_text_Default_3",nameInvaders]]];
+player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_Default_3",format [localize "STR_antistasi_journal_entry_text_Default_3",nameInvaders]]];
 player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_Default_2",localize "STR_antistasi_journal_entry_text_Default_2"]];
 
 _nameXMiss = if (A3A_hasIFA) then {"Armia Krajowa"} else {if (worldName == "Tanoa") then {"Warlords of the Pacific"} else {"Antistasi"}};
-player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_Default_1"],format [localize "STR_antistasi_journal_entry_text_Default_1",_nameXMiss]]];
+player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_Default_1",format [localize "STR_antistasi_journal_entry_text_Default_1",_nameXMiss]]];
 
 // Always include the Credits. It's important!
 _index =player createDiarySubject ["Credits",localize "STR_antistasi_journal_entry_header_Credits"];

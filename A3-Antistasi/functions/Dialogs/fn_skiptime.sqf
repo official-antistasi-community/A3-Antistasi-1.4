@@ -18,7 +18,7 @@ _posHQ = getMarkerPos respawnTeamPlayer;
 if ((_x distance _posHQ > 100) and (side _x == teamPlayer)) then {_checkX = true};
 } forEach (allPlayers - (entities "HeadlessClient_F"));
 
-if (_checkX) exitWith {[localize "STR_antistasi_customHint_skipTime", localize "STR_antistasi_customHint_skipTime_radius"] call A3A_fnc_customHint;};
+if (_checkX) exitWith {[localize "STR_antistasi_customHint_skipTime", format [localize "STR_antistasi_customHint_skipTime_radius",100]] call A3A_fnc_customHint;};
 
 remoteExec ["A3A_fnc_resourcecheckSkipTime", 0];
 

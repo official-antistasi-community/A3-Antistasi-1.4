@@ -23,7 +23,7 @@ _nameDest = [_markerX] call A3A_fnc_localizar;
 
 _typeVehX = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 
-[[teamPlayer,civilian],"DES",[format [localize "STR_antistasi_mission_vehArmor_text",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],localize "STR_antistasi_mission_vehArmori",_markerX],_positionX,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"DES",[format [localize "STR_antistasi_mission_vehArmor_text",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],localize "STR_antistasi_mission_vehArmor",_markerX],_positionX,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 _truckCreated = false;
 missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
 
@@ -67,7 +67,7 @@ if (spawner getVariable _markerX == 0) then
 
 	if ((not alive _veh) or ({(_x getVariable ["spawner",false]) and (side group _x == teamPlayer)} count crew _veh > 0)) then
 		{
-		["DES",[format [localize "STR_antistasi_mission_vehArmor_text",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],localize "STR_antistasi_mission_vehArmori",_markerX],_positionX,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
+		["DES",[format [localize "STR_antistasi_mission_vehArmor_text",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],localize "STR_antistasi_mission_vehArmor",_markerX],_positionX,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 		if ({(_x getVariable ["spawner",false]) and (side group _x == teamPlayer)} count crew _veh > 0) then
 			{
 			["TaskFailed", ["", format [localize "STR_antistasi_notification_AA_stolen",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
@@ -90,7 +90,7 @@ if (spawner getVariable _markerX == 0) then
 	}
 else
 	{
-	["DES",[format [localize "STR_antistasi_mission_vehArmor_text",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],localize "STR_antistasi_mission_vehArmori",_markerX],_positionX,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
+	["DES",[format [localize "STR_antistasi_mission_vehArmor_text",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],localize "STR_antistasi_mission_vehArmor",_markerX],_positionX,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
 	[-5*_bonus,-100*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	[5*_bonus,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];

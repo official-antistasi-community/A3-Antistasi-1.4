@@ -1651,7 +1651,7 @@ class AI_management 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_garrison_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\addToGarrison.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\addToGarrison.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_customHint_garrisons"", localize ""STR_antistasi_customHint_garrisons_text""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\addToGarrison.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\addToGarrison.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_customHint_garrisons"", localize ""STR_antistasi_customHint_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
 		};
 		class 8slots_R3: RscButton
 		{
@@ -1753,7 +1753,7 @@ class commander_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_commander_comm_roadblock_tooltip;
-			action = "if (player == theBoss) then {closeDialog 0;[""create""] spawn A3A_fnc_outpostDialog} else {[localize ""STR_antistasi_customHint_op_rb"", localize ""STR_antistasi_customHint_only_comander!""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {closeDialog 0;[""create""] spawn A3A_fnc_outpostDialog} else {[localize ""STR_antistasi_customHint_op_rb"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
 		};
 		class 8slots_R2: RscButton
 		{
@@ -1925,7 +1925,7 @@ class dismiss_menu 				{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_dismiss_menu_dismiss_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\dismissPlayerGroup.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\dismissSquad.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_customHint_garrisons"", localize ""STR_antistasi_customHint_garrisons_text""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\dismissPlayerGroup.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\dismissSquad.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_customHint_garrisons"", localize ""STR_antistasi_customHint_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -1936,7 +1936,7 @@ class dismiss_menu 				{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_dismiss_menu_garrison_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\addToGarrison.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\addToGarrison.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_customHint_garrisons"", localize ""STR_antistasi_customHint_garrisons_text""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\addToGarrison.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\addToGarrison.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_customHint_garrisons"", localize ""STR_antistasi_customHint_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
 		};
 		/*
 		class HQ_button_Gremove: RscButton

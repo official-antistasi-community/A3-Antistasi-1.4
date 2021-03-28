@@ -40,7 +40,7 @@ if ((round (random 100)) < _chance) then
     {
         if(_unit getVariable ["hasIntel", false]) then
         {
-            _unit globalChat localize "STR_antistasi_chat_inter_chanse100";
+            _unit globalChat localize "STR_antistasi_chat_inter_cooperative";
             _unit setVariable ["hasIntel", false, true];
             ["Small", _side] spawn A3A_fnc_selectIntel;
         }

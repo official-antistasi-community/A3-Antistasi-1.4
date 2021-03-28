@@ -10,7 +10,7 @@ garage_mode = _this select 0;
 if (garage_mode == GARAGE_FACTION && (not([player] call A3A_fnc_isMember))) exitWith {[localize "STR_antistasi_customHint_garage", localize "STR_antistasi_customHint_garage_guest"] call A3A_fnc_customHint;};
 if (garage_mode == GARAGE_FACTION && !allowMembersFactionGarageAccess && player != theBoss) exitWith {[localize "STR_antistasi_customHint_garage", localize "STR_antistasi_customHint_garage_member_off"] call A3A_fnc_customHint;};
 if (player != player getVariable "owner") exitWith {[localize "STR_antistasi_customHint_garage", localize "STR_antistasi_customHint_garage_control_ai"] call A3A_fnc_customHint;};
-if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {[localize "STR_antistasi_customHint_garage", localize "STR_antistasi_customHint_garage_enemy"] call A3A_fnc_customHint;};
+if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {[localize "STR_antistasi_customHint_garage", format [localize "STR_antistasi_customHint_garage_enemy",25]] call A3A_fnc_customHint;};
 
 garage_vehiclesAvailable = [];
 
@@ -29,7 +29,7 @@ if (count _airportsX > 0) then {_hasAir = true};
 		};
 } forEach (if (garage_mode == GARAGE_FACTION) then {vehInGarage} else {[] call A3A_fnc_getPersonalGarageLocal});
 
-if (count garage_vehiclesAvailable == 0) exitWith {hintC localize "STR_antistasi_customHint_garage1", localize "STR_antistasi_customHint_garage2"};
+if (count garage_vehiclesAvailable == 0) exitWith {hintC localize "STR_antistasi_customHint_garage_empty"};
 
 garage_nearestMarker = [markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer},player] call BIS_fnc_nearestPosition;
 if !(player inArea garage_nearestMarker) exitWith {[localize "STR_antistasi_customHint_garage", localize "STR_antistasi_customHint_garage_no_garrisons"] call A3A_fnc_customHint;};
@@ -67,7 +67,7 @@ if (isNil "garage_keyDownHandler") then {
 		_handled;
 	}];
 };
-private _extraMessage = "Arrow Up-Down to Switch Vehicles<br/>";
+private _extraMessage = localize "STR_antistasi_customHint_garage_switch";
 
 //Only allow access to the faction garage if someone else isn't already accessing it. 
 //Try to find the player to make sure they're still online - aim to avoid a situation where players are locked out of the garage.

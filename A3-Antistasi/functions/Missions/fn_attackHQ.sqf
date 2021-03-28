@@ -81,7 +81,7 @@ else
 	{
 	if (_positionX distance getMarkerPos respawnTeamPlayer > 999) then
 		{
-		["DEF_HQ",[format [localize "STR_antistasi_mission_defend_text2",name petros],format [localize "STR_antistasi_mission_defend_name",name petros],respawnTeamPlayer],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+		["DEF_HQ",[format [localize "STR_antistasi_mission_defend_text",name petros],format [localize "STR_antistasi_mission_defend_name",name petros],respawnTeamPlayer],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 		["DEF_HQ1",[_sideX],[format [localize "STR_antistasi_mission_kill_text",name petros,nameTeamPlayer],format [localize "STR_antistasi_mission_kill_name",name petros],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
 		}
 	else

@@ -155,14 +155,14 @@ switch _typeX do
     };
     case "Intel_Small":
     {
-        _flag addAction [localize "STR_antistasi_addAction_intelSmall", A3A_fnc_searchIntelOnLeader, nil, 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction [localize "STR_antistasi_addAction_intelBody", A3A_fnc_searchIntelOnLeader, nil, 4, true, false, "", "isPlayer _this", 4];
     };
     case "Intel_Medium":
     {
-        _flag addAction [localize "STR_antistasi_addAction_intelMedium", A3A_fnc_searchIntelOnDocument, nil, 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction [localize "STR_antistasi_addAction_intelDossier", A3A_fnc_searchIntelOnDocument, nil, 4, true, false, "", "isPlayer _this", 4];
     };
     case "Intel_Large":
     {
-        _flag addAction [localize "STR_antistasi_addAction_intelLarge", A3A_fnc_searchIntelOnLaptop, nil, 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction [localize "STR_antistasi_addAction_intelDownload", A3A_fnc_searchIntelOnLaptop, nil, 4, true, false, "", "isPlayer _this", 4];
     };
 };

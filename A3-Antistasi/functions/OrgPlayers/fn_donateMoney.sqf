@@ -1,6 +1,6 @@
 private ["_resourcesPlayer","_pointsXJ","_target"];
 _resourcesPlayer = player getVariable "moneyX";
-if (_resourcesPlayer < 100) exitWith {[localize "STR_antistasi_customHint_donate", localize "STR_antistasi_customHint_donate_no_money"] call A3A_fnc_customHint;};
+if (_resourcesPlayer < 100) exitWith {[localize "STR_antistasi_customHint_donate", format [localize "STR_antistasi_customHint_donate_no_money",100]] call A3A_fnc_customHint;};
 
 if (count _this == 0) exitWith
 	{

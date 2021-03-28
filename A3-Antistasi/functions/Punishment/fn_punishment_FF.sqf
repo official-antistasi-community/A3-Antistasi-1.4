@@ -79,7 +79,7 @@ private _notifyVictim = {
 };
 private _notifyInstigator = {
     params ["_exempMessage"];
-    private _comradeStats = ["",["Injured comrade: ",name _victim,""] joinString ""] select (_victim isKindOf "Man");
+    private _comradeStats = ["",[localize "STR_antistasi_customHint_FF_injured",name _victim,""] joinString ""] select (_victim isKindOf "Man");
     [localize "STR_antistasi_customHint_FF", [_exempMessage,_comradeStats,_customMessage] joinString "<br/>"] remoteExec ["A3A_fnc_customHint", _instigator, false];
 };
 private _logPvPHurt = {

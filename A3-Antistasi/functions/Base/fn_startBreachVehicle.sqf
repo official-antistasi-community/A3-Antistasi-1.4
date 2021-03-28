@@ -169,7 +169,7 @@ for "_count" from 1 to _explosiveCount do
 
 //Added as the vehicle might blow up. Best not to blow up in the player's face.
 //Pause AFTER removing the explosive in case they decide to drop it or something.
-[localize "STR_antistasi_customHint_breach_veh", localize "STR_antistasi_customHint_breach_veh_wait"] call A3A_fnc_customHint;
+[localize "STR_antistasi_customHint_breach_veh", format [localize "STR_antistasi_customHint_breach_veh_wait",10]] call A3A_fnc_customHint;
 sleep 10;
 
 private _hitPointsConfigPath = configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "HitPoints";

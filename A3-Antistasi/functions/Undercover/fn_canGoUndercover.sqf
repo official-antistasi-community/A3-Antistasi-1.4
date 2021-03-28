@@ -96,11 +96,17 @@ else
         _result set [0, false];
         _result pushBack "NVG visible";
     };
-    if (!(uniform player in allCivilianUniforms)) then
+    if ((uniform player != "") && !(uniform player in allCivilianUniforms)) then
     {
         _text = format ["%1<br/>Wearing a suspicious uniform", _text];
         _result set [0, false];
         _result pushBack "Suspicious uniform";
+    };
+    if (uniform player == "") then
+    {
+        _text = format ["%1<br/>Being naked. Thats what you think is unsuspicious?", _text];
+        _result set [0, false];
+        _result pushBack "No clothes";
     };
     if !(_result select 0) then
     {

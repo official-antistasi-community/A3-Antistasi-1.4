@@ -15,7 +15,7 @@ FIX_LINE_NUMBERS()
 private _maxUnitSend = garrison getVariable [format ["%1_recruit", _base], 0];
 if(_maxUnitSend < 3 && {!_bypass}) exitWith
 {
-    diag_log "Can't select units with less than 3 slots, would be an vehicle only with crew!";
+    Debug("Can't select units with less than 3 slots, would be an vehicle only with crew!");
     [];
 };
 

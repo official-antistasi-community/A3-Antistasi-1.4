@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if(!isServer && hasInterface) exitWith {};
 
 params ["_marker"];
@@ -18,7 +20,7 @@ _isMilitia = false;
 
 if(_side == sideUnknown) exitWith
 {
-  diag_log format ["CreateAISide: Could not get side of %1", _marker];
+    Error_1("Could not get side of %1", _marker);
 };
 
 //Check if the outpost is hold by militia
@@ -36,13 +38,13 @@ _patrolMarkerSize = [0,0];
 if(_isFrontline || _isMilitia) then
 {
   //Cannot risk to spread to thin, stay close
-  diag_log format ["Decided smaller radius for patrol, due to %1!",if(_isFrontline) then {if(_isMilitia) then {"both"} else {"frontline"};} else {"militia"}];
+  Debug_1("Decided smaller radius for patrol, due to %1!", if(_isFrontline) then {if(_isMilitia) then {"frontline and militia"} else {"frontline"};} else {"militia"});
   _patrolMarkerSize = [(distanceSPWN/8), (distanceSPWN/8)];
 }
 else
 {
   //Full patrol way, not so extrem like in the original
-  diag_log "Decided larger radius for patrol!";
+  Debug("Decided larger radius for patrol!");
   _patrolMarkerSize = [(distanceSPWN/4), (distanceSPWN/4)];
 };
 
@@ -88,4 +90,4 @@ if(_marker in airportsX || {_marker in seaports || {_marker in outposts}}) then
 
 [_marker, _patrolMarker, _flag, _box] call A3A_fnc_cycleSpawn;
 
-diag_log "Marker spawn prepared!";
+Debug("Marker spawn prepared!");

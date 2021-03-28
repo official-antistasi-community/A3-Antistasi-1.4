@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params
 [
     ["_convoyID", -1, [1]],
@@ -138,7 +140,7 @@ for "_i" from 1 to (_pointsCount - 1) do
 if(_isDestroyed) exitWith {deleteMarker _convoyMarker};
 if(!_isSimulated) exitWith {};
 
-diag_log format ["ConvoyMovement[%1]: Convoy arrived at destination!", _convoyID];
+Debug_1("ConvoyMovement[%1]: Convoy arrived at destination!", _convoyID);
 
 [_convoyID, (_route select 0) select 0, (_route select (_pointsCount - 1) select 0) , _units, _convoySide, _convoyType] spawn A3A_fnc_onConvoyArrival;
 

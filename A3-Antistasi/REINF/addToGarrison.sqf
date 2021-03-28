@@ -48,10 +48,10 @@ if _alreadyInGarrison exitWith {["Garrison", "The units selected already are in 
 
 {
 	private _unitType = _x getVariable "unitType";
-	if ((_unitType == staticCrewTeamPlayer) or (_unitType == SDKUnarmed) or (_unitType in arrayCivs) or (!alive _x)) exitWith {_leave = true}
+	if ((_unitType == staticCrewTeamPlayer) or (_unitType == SDKUnarmed) or (_unitType == typePetros) or (_unitType in arrayCivs) or (!alive _x)) exitWith {_leave = true}
 } forEach _unitsX;
 
-if (_leave) exitWith {["Garrison", "Static crewman, prisoners, refugees or dead units cannot be added to any garrison"] call A3A_fnc_customHint;};
+if (_leave) exitWith {["Garrison", "Static crewman, prisoners, refugees, Petros or dead units cannot be added to any garrison"] call A3A_fnc_customHint;};
 
 if ((groupID _groupX == "MineF") or (groupID _groupX == "Watch") or (isPlayer(leader _groupX))) exitWith {["Garrison", "You cannot garrison player led, Watchpost, Roadblocks or Minefield building squads"] call A3A_fnc_customHint;};
 

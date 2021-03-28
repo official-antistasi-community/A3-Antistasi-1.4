@@ -13,7 +13,7 @@ private _victimGroup = group _victim;
 private _victimSide = side (group _victim);
 [_victim] spawn A3A_fnc_postmortem;
 
-if (hasACE) then
+if (A3A_hasACE) then
 {
 	if ((isNull _killer) || (_killer == _victim)) then
 	{

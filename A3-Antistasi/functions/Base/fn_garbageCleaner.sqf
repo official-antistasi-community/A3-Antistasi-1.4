@@ -20,7 +20,7 @@ private _fnc_distCheck = {
 { deleteVehicle _x } forEach (allMissionObjects "Leaflet_05_F");				// Drone drop leaflets
 { deleteVehicle _x } forEach (allMissionObjects "Ejection_Seat_Base_F");		// All vanilla ejection seats
 
-if (hasACE) then {
+if (A3A_hasACE) then {
 	{ deleteVehicle _x } forEach (allMissionObjects "ACE_bodyBagObject");
 	{ deleteVehicle _x } forEach (allMissionObjects "UserTexture1m_F");						// ACE spraycan tags
 	{ deleteVehicle _x } forEach (allMissionObjects "ace_cookoff_Turret_MBT_01");			//MBT turret wrecks

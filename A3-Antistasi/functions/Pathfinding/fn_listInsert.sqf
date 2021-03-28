@@ -22,7 +22,8 @@ Dependencies:
 Example:
     NO BAD DONT
 */
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params
 [
     ["_list", [], [[]]],
@@ -34,7 +35,7 @@ private _listCount = count _list;
 
 if(isNil "_entryValue" || {!(_entryValue isEqualType 0)}) exitWith
 {
-    diag_log format ["Bad input, was %1", _entry];
+    Error_1("Bad input, was %1", _entry);
     _list;
 };
 

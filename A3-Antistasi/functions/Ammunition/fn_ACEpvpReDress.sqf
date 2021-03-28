@@ -7,7 +7,7 @@ for "_i" from 1 to (_x select 1) do
 	};
 } forEach [["ACE_HandFlare_White",3],["ACE_Flashlight_XL50",1],["ACE_CableTie",1],["ACE_MapTools",1]];
 player addItemToUniform "ACE_EarPlugs";
-if (hasACEMedical) then
+if (A3A_hasACEMedical) then
 	{
 	player removeItems "FirstAidKit";
 	player removeItem "Medikit";

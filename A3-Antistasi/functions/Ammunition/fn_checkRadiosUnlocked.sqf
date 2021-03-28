@@ -10,7 +10,7 @@
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 // ACRE doesn't use the standard radio slot. We need to bypass the check for this and just set haveRadio to true if ACRE is enabled -Hazey
-if (hasAcre) then {
+if (A3A_hasACRE) then {
     haveRadio = true;
 } else {
     //See if any of the radios available in the arsenal are unlocked.

@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer and hasInterface) exitWith{};
 
 private ["_markerX","_vehiclesX","_groups","_soldiers","_civs","_positionX","_pos","_typeGroup","_typeCiv","_size","_mrk","_ang","_countX","_groupX","_veh","_civ","_frontierX","_flagX","_dog","_garrison","_sideX","_cfg","_isFIA","_roads","_dist","_road","_roadscon","_roadcon","_dirveh","_bunker","_typeVehX","_typeUnit","_unit","_typeGroup","_stance"];
@@ -6,7 +8,7 @@ _markerX = _this select 0;
 //Not sure if that ever happens, but it reduces redundance
 if(spawner getVariable _markerX == 2) exitWith {};
 
-diag_log format ["[Antistasi] Spawning Resource Point %1 (createAIResources.sqf)", _markerX];
+Debug_1("Spawning Resource Point %1", _markerX);
 
 _positionX = getMarkerPos _markerX;
 

@@ -16,8 +16,8 @@ params ["_side", "_vehicles", "_groups", "_posDestination", "_supportName"];
     Returns:
         Nothing
 */
-
-private _fileName = "SUP_QRFRoutine";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Prepare despawn conditions
 private _endTime = time + 2700;
 private _qrfHasArrived = false;
@@ -34,7 +34,7 @@ while {true} do
         private _index = _vehicles findIf {getPos _x distance2D _posDestination < 300};
         if(_index != -1) then
         {
-            [2, format ["%1 has arrived with at least one vehicle, attacking now", _supportName], _fileName] call A3A_fnc_log;
+            Info_1("%1 has arrived with at least one vehicle, attacking now", _supportName);
             _qrfHasArrived = true;
 
             private _textMarker = createMarker [format ["%1_text", _supportName], _posDestination];
@@ -59,7 +59,7 @@ while {true} do
         private _nearbyEnemyGroups = allGroups select {(side _x != _side) && (side _x != civilian) && {getPos (leader _x) distance2D _posDestination < 300}};
         if(count _nearbyEnemyGroups == 0) then
         {
-            [2, format ["%1 has cleared the area, starting despawn routines", _supportName], _fileName] call A3A_fnc_log;
+            Info_1("%1 has arrived with at least one vehicle, attacking now", _supportName);
             _qrfHasWon = true;
         };
     };
@@ -76,14 +76,14 @@ while {true} do
 
     if !(_groupAlive) exitWith
     {
-        [2, format ["%1 has been eliminated, starting despawn routines", _supportName], _fileName] call A3A_fnc_log;
+        Info_1("%1 has been eliminated, starting despawn routines");
         [_side, 10, 60] remoteExec ["A3A_fnc_addAggression", 2];
     };
 
     sleep 15;
     if(_endTime < time) exitWith
     {
-        [2, format ["%1 timed out without winning or losing, starting despawn routines", _supportName], _fileName] call A3A_fnc_log;
+        Info_1("%1 timed out without winning or losing, starting despawn routines", _supportName);
     };
 };
 

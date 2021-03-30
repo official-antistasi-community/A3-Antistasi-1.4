@@ -1,4 +1,5 @@
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 // convert killzones into [base, target] array
 private _allKillzones = [];
 {
@@ -132,7 +133,7 @@ if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFr
 	_side = _x;
   _reinfMarker = if(_x == Occupants) then {reinforceMarkerOccupants} else {reinforceMarkerInvader};
 	_canReinf = if(_x == Occupants) then {canReinforceOccupants} else {canReinforceInvader};
-  diag_log format ["Side %1, needed %2, possible %3", _x, count _reinfMarker, count _canReinf];
+    Debug_3("Side %1, needed %2, possible %3", _x, count _reinfMarker, count _canReinf);
 	_reinfMarker sort true;
 	{
 		_target = (_x select 1);

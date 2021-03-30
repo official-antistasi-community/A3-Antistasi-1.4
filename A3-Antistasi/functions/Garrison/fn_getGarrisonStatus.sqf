@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_marker"];
 
 /*  Returns the current state of a garrison as a string
@@ -8,7 +10,7 @@ params ["_marker"];
 *     _result: STRING: One of Good, Weakened and Decimated, depending on the state of the garrison
 */
 
-if(isNil "_marker") exitWith {diag_log "GetGarrisonStatus: No marker given!";};
+if(isNil "_marker") exitWith {Error("No marker given!")};
 
 private ["_ratio", "_result"];
 

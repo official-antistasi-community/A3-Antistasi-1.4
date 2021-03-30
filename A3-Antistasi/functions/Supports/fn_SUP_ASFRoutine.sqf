@@ -1,6 +1,6 @@
 params ["_side", "_timerIndex", "_sleepTime", "_airport", "_supportName", "_setupPos"];
-
-private _fileName = "SUP_ASFRoutine";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _plane = if (_side == Occupants) then {vehNATOPlaneAA} else {vehCSATPlaneAA};
 private _crewUnits = if(_side == Occupants) then {NATOPilot} else {CSATPilot};
@@ -157,7 +157,7 @@ private _height = (ATLToASL _supportPos) select 2;
 _height = _height + 500;
 
 private _entryPos = _setupPos getPos [_lenght, _dir + _angle];
-[3, format ["Entry Pos: %1", _entryPos], _fileName] call A3A_fnc_log;
+Debug_1("Entry Pos: %1", _entryPos);
 _entryPos set [2, _height];
 
 private _areaWP = _strikeGroup addWaypoint [_entryPos, 50];
@@ -190,7 +190,7 @@ while {_timeAlive > 0} do
 {
     if !(_strikePlane getVariable "CurrentlyAttacking") then
     {
-        //[3, format ["Searching new target for %1", _supportName], _fileName] call A3A_fnc_log;
+        //Debug_1("Searching new target for %1", _supportName);
         //Plane is currently not attacking a target, search for new order
         private _targetList = server getVariable [format ["%1_targets", _supportName], []];
         if (count _targetList > 0) then
@@ -199,7 +199,7 @@ while {_timeAlive > 0} do
             private _target = _targetList deleteAt 0;
             server setVariable [format ["%1_targets", _supportName], _targetList, true];
 
-            [3, format ["Next target for %2 is %1", _target, _supportName], _fileName] call A3A_fnc_log;
+            Debug_2("Next target for %2 is %1", _target, _supportName);
 
             //Parse targets
             private _targetParams = _target select 0;
@@ -262,11 +262,11 @@ while {_timeAlive > 0} do
             if(isNull _targetObj || {!(alive _targetObj)}) then
             {
                 _possibleKills = _possibleKills - 1;
-                [3, format ["Target destroyed, %1 returns to cycle mode", _supportName], _fileName] call A3A_fnc_log;
+                Debug_1("Target destroyed, %1 returns to cycle mode", _supportName);
             }
             else
             {
-                [3, format ["Target evaded, %1 returns to cycle mode", _supportName], _fileName] call A3A_fnc_log;
+                Debug_1("Target evaded, %1 returns to cycle mode", _supportName)
             };
 
             //Target destroyed
@@ -297,20 +297,20 @@ while {_timeAlive > 0} do
         {({alive _x} count (units _strikeGroup)) == 0}
     ) exitWith
     {
-        [2,format ["%1 has been destroyed or crew killed, aborting routine", _supportName],_fileName] call A3A_fnc_log;
+        Info_1("%1 has been destroyed or crew killed, aborting routine", _supportName);
         [_side, 20, 45] remoteExec ["A3A_fnc_addAggression", 2];
     };
 
     //No missiles left
     if (!(_strikePlane getVariable "CurrentlyAttacking") && (_possibleKills <= 0)) exitWith
     {
-        [2,format ["%1 has no more missiles left to fire, aborting routine", _supportName],_fileName] call A3A_fnc_log;
+        Info_1("%1 has no more missiles left to fire, aborting routine", _supportName);
     };
 
     //Retreating
     if(_strikePlane getVariable ["Retreat", false]) exitWith
     {
-        [2,format ["%1 met heavy resistance, retreating", _supportName], _fileName] call A3A_fnc_log;
+        Info_1("%1 met heavy resistance, retreating", _supportName);
     };
 
     sleep 5;

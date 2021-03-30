@@ -69,7 +69,7 @@ if (side group player == teamPlayer) then
 
 
 	// don't reinit revive because damage handlers are respawn-persistent
-	//if (!hasACEMedical) then {[_newUnit] call A3A_fnc_initRevive};
+	//if (!A3A_hasACEMedical) then {[_newUnit] call A3A_fnc_initRevive};
 	disableUserInput false;
 	//_newUnit enableSimulation true;
 	if (_oldUnit == theBoss) then
@@ -244,5 +244,5 @@ else
 	_oldUnit setVariable ["spawner",nil,true];
 	_newUnit setVariable ["spawner",true,true];
 	[player] call A3A_fnc_dress;
-	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
+	if (A3A_hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	};

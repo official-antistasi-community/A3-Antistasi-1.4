@@ -68,7 +68,7 @@ _unit setFatigue 1;
 sleep 2;
 if (_isPlayer) then
 	{
-	if (hasTFAR) then
+	if (A3A_hasTFAR || A3A_hasTFARBeta) then
 		{
 		_saveVolume = player getVariable ["tf_globalVolume", 1.0];
 		player setVariable ["tf_unable_to_use_radio", true, true];
@@ -140,7 +140,7 @@ while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (a
 if (_isPlayer) then
 	{
 	(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu];
-	if (hasTFAR) then
+	if (A3A_hasTFAR || A3A_hasTFARBeta) then
 		{
 		player setVariable ["tf_unable_to_use_radio", false, true];
 		player setVariable ["tf_globalVolume", _saveVolume];

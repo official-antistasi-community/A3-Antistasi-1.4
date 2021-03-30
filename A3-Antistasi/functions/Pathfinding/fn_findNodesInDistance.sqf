@@ -25,19 +25,19 @@ params
     ["_startPos", [], [[]]],
     ["_distance", 0, [0]]
 ];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 #define WORKSTATE_UNTOUCHED         0
 #define WORKSTATE_OPENED            1
 #define WORKSTATE_CLOSED            2
 
-private _fileName = "findNodesInDistance";
 private _deltaTime = time;
 
 private _startNavIndex = [_startPos] call A3A_fnc_getNearestNavPoint;
 
 if(_startNavIndex == -1) exitWith
 {
-    [1, "No navnode found to start node search at", _fileName] call A3A_fnc_log;
+    Error("No navnode found to start node search at");
     [];
 };
 

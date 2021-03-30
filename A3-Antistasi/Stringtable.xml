@@ -1352,8 +1352,8 @@
         <Chinesesimp>作为抵抗运动的领袖,与优势敌人使用游击战术灵活作战,有18个左右的支线任务.</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_blurb_text">
-        <Original>In the Heat of the Takistani Dessert (Placeholder)</Original>
-        <English>In the Heat of the Takistani Dessert (Placeholder)</English>
+        <Original>In the Heat of the Takistani Desert</Original>
+        <English>In the Heat of the Takistani Desert</English>
       </Key>
     </Container>
     <Container name="journal_entries">

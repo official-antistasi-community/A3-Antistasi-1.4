@@ -15,8 +15,8 @@ params ["_side", "_timerIndex", "_supportPos", "_supportName"];
     Returns:
         The name of the marker, covering the whole support area
 */
-
-private _fileName = "SUP_mortar";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _mortarType = if(_side == Occupants) then {NATOMortar} else {CSATMortar};
 private _shellType = SDKMortarHEMag;
 private _isMortar = true;
@@ -29,7 +29,7 @@ if((25 * (tierWar - 5)) > random 100) then
     _isMortar = false;
 };
 
-[2, format ["Mortar support %1 will be carried out by a %2 with %3 mags", _supportName, _mortarType, _shellType], _fileName] call A3A_fnc_log;
+Info_3("Mortar support %1 will be carried out by a %2 with %3 mags", _supportName, _mortarType, _shellType);
 
 private _mortar = objNull;
 private _spawnRadius = 5;
@@ -94,7 +94,7 @@ else
 
 if(_spawnPos isEqualTo []) exitWith
 {
-    [2, format ["Couldn't spawn in mortar %1, no suitable position found!", _supportName], _fileName] call A3A_fnc_log;
+    Info_1("Couldn't spawn in mortar %1, no suitable position found!", _supportName);
     ["", 0, 0];
 };
 
@@ -102,7 +102,7 @@ if(_spawnPos isEqualTo []) exitWith
 _mortar = [_mortarType, _spawnPos, _spawnRadius, 5, true] call A3A_fnc_safeVehicleSpawn;
 
 //Spawn in crew
-private _mortarGroup = createVehicleCrew _mortar;
+private _mortarGroup = [_side, _mortar] call A3A_fnc_createVehicleCrew;
 
 _mortar setVariable ["shellType", _shellType, true];
 

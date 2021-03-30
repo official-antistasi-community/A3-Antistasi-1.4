@@ -28,7 +28,8 @@ params
     ["_endPos", [0,0,0], [[]]],
     ["_avoid", [], [[]]]
 ];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 #define WORKSTATE_UNTOUCHED         0
 #define WORKSTATE_OPENED            1
 #define WORKSTATE_CLOSED            2
@@ -39,8 +40,7 @@ params
 
 private _fileName = "findPath";
 private _deltaTime = time;
-
-[3, format ["Starting pathfinding from %1 to %2", _startPos, _endPos], _fileName] call A3A_fnc_log;
+Debug_2("Starting pathfinding from %1 to %2", _startPos, _endPos);
 
 private _startNavIndex = [_startPos] call A3A_fnc_getNearestNavPoint;
 private _endNavIndex = [_endPos] call A3A_fnc_getNearestNavPoint;
@@ -48,7 +48,7 @@ private _endNavIndex = [_endPos] call A3A_fnc_getNearestNavPoint;
 private _preCheckValue = [_startNavIndex, _endNavIndex] call A3A_fnc_findPathPrecheck;
 if(_preCheckValue isEqualType []) exitWith
 {
-    [2, "Requested path was cached, returned cached path", _fileName] call A3A_fnc_log;
+    Info("Requested path was cached, returned cached path");
     _preCheckValue;
 };
 
@@ -67,7 +67,7 @@ pathfindingActive = true;
 private _startNav = navGrid select _startNavIndex;
 private _endNav = navGrid select _endNavIndex;
 
-[2, format ["Start %1 at %2 End %3 at %4", _startNav, str _startPos, _endNav, str _endPos], _fileName] call A3A_fnc_log;
+Info_4("Start %1 at %2 End %3 at %4", _startNav, str _startPos, _endNav, str _endPos);
 
 private _touchedNodes = [];
 //Blocking avoid elements
@@ -131,7 +131,7 @@ while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
                 if(_newDistance < _maxDistance) then
                 {
                     //[_conIndex, "mil_dot", "ColorBlue", str (count (_conNode select 3))] call A3A_fnc_markNode;
-                    //diag_log format ["Adding %1 to the list", str ([_conNode, _newDistance, _h, (_current select 0 select 0)])];
+                    //Debug_1("Adding %1 to the list", str ([_conNode, _newDistance, _h, (_current select 0 select 0)]));
                     _openList = [_openList, [_conNode, _newDistance, _h, (_current select 0 select 0)]] call A3A_fnc_listInsert;
                     missionNamespace setVariable [format ["PF_%1", str (_conNode select 0)], WORKSTATE_OPENED];
                     if(_workState == WORKSTATE_AVOID_UNTOUCHED) then
@@ -142,14 +142,14 @@ while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
                 }
                 else
                 {
-                    //diag_log format ["Not adding %1 to the list because of distance", _conData];
+                    //Debug_1("Not adding %1 to the list because of distance", _conData);
                 };
             }
             else
             {
                 //In open list, adapt distance if needed
                 private _openListIndex = _openList findIf {(_x select 0 select 0) isEqualTo (_conNode select 0)};
-                //diag_log format ["ConNode %3 || Open list index is %1, state was %2", _openListIndex, _workState, _conNode];
+                //Debug_3("ConNode %3 || Open list index is %1, state was %2", _openListIndex, _workState, _conNode);
                 if(_openListIndex != -1) then
                 {
                     private _openData = _openList deleteAt _openListIndex;
@@ -164,12 +164,12 @@ while {(!(_lastNav isEqualType [])) && {count _openList > 0}} do
                         _openData set [1, _newDistance];
                         _openData set [3, (_current select 0 select 0)];
                     };
-                    //diag_log format ["Replacing %1 into the list", str (_openData)];
+                    //Debug_1("Replacing %1 into the list", str (_openData));
                     _openList = [_openList, _openData] call A3A_fnc_listInsert;
                 }
                 else
                 {
-                    diag_log format ["BROKEN NODE %1", _conNode];
+                    Error_1("BROKEN NODE %1", _conNode);
                     //[_conIndex, "mil_dot", "ColorRed", "BROKEN"] call A3A_fnc_markNode;
                 };
             };
@@ -186,7 +186,7 @@ private _lastIndex = 0;
 if(_lastNav isEqualType []) then
 {
     //Way found, reverting way through path
-    [2, format ["Max Distance %1, Distance %2", _maxDistance, _lastNav select 1], _fileName] call A3A_fnc_log;
+    Info_2("Max Distance %1, Distance %2", _maxDistance, _lastNav select 1);
     _wayPoints = [[_endPos, true], [_targetPos, true]];
     while {_lastNav isEqualType []} do
     {
@@ -205,12 +205,12 @@ if(_lastNav isEqualType []) then
     reverse _wayPoints;
 
     _deltaTime = time - _deltaTime;
-    [2, format ["Successful finished pathfinding after %1 seconds", _deltaTime], _fileName] call A3A_fnc_log;
+    Info_1("Successful finished pathfinding after %1 seconds", _deltaTime);
 }
 else
 {
     _deltaTime = time - _deltaTime;
-    [1, format ["Could not find a way, search took %1 seconds, max distance reached", _deltaTime], _fileName] call A3A_fnc_log;
+    Error_1("Could not find a way, search took %1 seconds, max distance reached", _deltaTime);
 };
 
 {

@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Mission: Rescue the refugees
 if (!isServer and hasInterface) exitWith{};
 private ["_markerX","_difficultX","_leave","_contactX","_groupContact","_tsk","_posHQ","_citiesX","_city","_radiusX","_positionX","_houseX","_posHouse","_nameDest","_timeLimit","_dateLimit","_dateLimitNum","_pos","_countX"];
@@ -96,7 +98,7 @@ else
 	_road = _roads select 0;
 	_posroad = getPos _road;
 	_roadcon = roadsConnectedto _road; if (count _roadCon == 0) then {
-		diag_log format ["%1: [Antistasi] | ERROR | RES_Refugees.sqf | Road has no connection :%2.",servertime,position _road];
+        Error_1("Road has no connection :%1.",position _road);
 		};
 	if (count _roadCon > 0) then
 		{

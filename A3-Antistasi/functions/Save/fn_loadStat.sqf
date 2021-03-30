@@ -9,7 +9,8 @@
 	"mrkSDK",
 	"prestigeNATO","prestigeCSAT", "hr","planesAAFcurrent","helisAAFcurrent","APCAAFcurrent","tanksAAFcurrent","armas","items","backpcks","ammunition","dateX", "WitemsPlayer","prestigeOPFOR","prestigeBLUFOR","resourcesAAF","resourcesFIA","skillFIA"];
 */
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _translateMarker = {
 	params ["_mrk"];
 	if (_mrk find "puesto" == 0) exitWith { "outpost" + (_mrk select [6]) };
@@ -92,12 +93,12 @@ if (_varName in _specialVarLoads) then {
 
 			private _building = nearestObjects [_x, ["House"], 1, true] select 0;
 			call {
-				if (isNil "_building") exitWith { diag_log format ["No building found at %1", _x] };
-				if (_building in antennas) exitWith { diag_log "Antenna in destroyed building list, ignoring" };
+				if (isNil "_building") exitWith { Error("No building found at %1", _x)};
+				if (_building in antennas) exitWith { Info("Antenna in destroyed building list, ignoring")};
 
 				private _ruin = [_building] call BIS_fnc_createRuin;
 				if (isNull _ruin) exitWith {
-					diag_log format ["Loading Destroyed Buildings: Unable to create ruin for %1", typeOf _building];
+					Error_1("Loading Destroyed Buildings: Unable to create ruin for %1", typeOf _building);
 				};
 
 				destroyedBuildings pushBack _building;
@@ -173,7 +174,7 @@ if (_varName in _specialVarLoads) then {
 				//JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
 				[_antenna, true] remoteExec ["hideObject", 0, _ruin];
 			} else {
-				diag_log format ["Loading Antennas: Unable to create ruin for %1", typeOf _antenna];
+				Error("Loading Antennas: Unable to create ruin for %1", typeOf _antenna);
 			};
 
 			deleteMarker _mrk;

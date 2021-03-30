@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _playerUID = _this select 0;
 private _varName = _this select 1;
 private _varValue = _this select 2;
@@ -16,7 +18,7 @@ if (isNil "_varValue") then {
 	_abort = true;
 };
 if (_abort) exitWith {
-	diag_log format ["[Antistiasi] Save invalid for %1, saving %3 as %2", _playerUID, _varName, _varValue];
+    Error_3("Save invalid for %1, saving %3 as %2", _playerUID, _varName, _varValue);
 };
 private _playerVarName = format ["player_%1_%2", _playerUID, _varName];
 [_playerVarName, _varValue] call A3A_fnc_setStatVariable;

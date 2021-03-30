@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if !(isServer) exitWith {};
 _unit = _this select 0;
 _adminState = admin owner _unit;
@@ -13,5 +15,5 @@ _id = getPlayerUID _unit;
 if (_leave) then
 {
 	["noPvP",false,1,false,false] remoteExec ["BIS_fnc_endMission",_unit];
-	diag_log format ["%1: [Antistasi]: Player kicked because he has been rebel recently: %2, %3", servertime, name _unit, _id];
+    Info_2("Player kicked because he has been rebel recently: %1, %2", name _unit, _id);
 };

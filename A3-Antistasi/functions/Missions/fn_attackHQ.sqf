@@ -61,7 +61,7 @@ for "_i" from 0 to (round random 2) do
 	_groups pushBack _groupX;
 	//[_heli,"Air Transport"] spawn A3A_fnc_inmuneConvoy;
 	if (_typeVehX isKindOf "Plane") then {
-		[_heli,_groupX,_positionX,_posOrigin] spawn A3A_fnc_airdrop;
+		[_heli,_groupX,_positionX,_posOrigin] spawn A3A_fnc_paradrop;
 	} else {
 		[_heli,_groupX,_positionX,_posOrigin,_groupHeli] spawn A3A_fnc_fastrope;
 	};

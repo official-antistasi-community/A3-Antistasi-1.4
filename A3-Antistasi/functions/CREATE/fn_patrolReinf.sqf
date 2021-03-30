@@ -1,16 +1,17 @@
-_filename = "fn_patrolReinf";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private ["_mrkDestination","_mrkOrigin","_numberX","_sideX","_typeGroup","_typeVehX","_indexX","_spawnPoint","_pos","_timeOut","_veh","_groupX","_landPos","_Vwp0","_posOrigin","_land","_pos1","_pos2"];
 
 _mrkDestination = _this select 0;
 _mrkOrigin = _this select 1;
 _numberX = _this select 2;
 _sideX = _this select 3;
-[2, format ["Spawning PatrolReinf. Dest:%1, Orig:%2, Size:%3, Side: %4",_mrkDestination,_mrkOrigin,_numberX,_sideX], _filename] call A3A_fnc_log;
+Info_4("Spawning PatrolReinf. Dest:%1, Orig:%2, Size:%3, Side: %4",_mrkDestination,_mrkOrigin,_numberX,_sideX);
 _posDestination = getMarkerPos _mrkDestination;
 _posOrigin = getMarkerPos _mrkOrigin;
 
 if ([_sideX] call A3A_fnc_remUnitCount < _numberX) exitWith {
-	[2, "Cancelling because maxUnits exceeded", _filename] call A3A_fnc_log;
+    Info("Cancelling because maxUnits exceeded");
 };
 
 _land = if (_posOrigin distance _posDestination > distanceForLandAttack) then {false} else {true};
@@ -138,12 +139,12 @@ else
 		}
 		else
 		{
-			[_veh,_groupX,_posDestination,_mrkOrigin,true] spawn A3A_fnc_airdrop;
+			[_veh,_groupX,_posDestination,_mrkOrigin,true] spawn A3A_fnc_paradrop;
 		};
 	};
 };
 
-[2, format ["Spawn performed: Vehicle type %1 with %2 troops", _typeVehX, count units _groupX], _filename] call A3A_fnc_log;
+Info_2("Spawn performed: Vehicle type %1 with %2 troops", _typeVehX, count units _groupX);
 
 
 // Allow the convoy a generous time to arrive
@@ -152,7 +153,7 @@ private _timeout = time + (if (_land) then { _dist / 3 + 300 } else { _dist / 15
 
 // termination conditions:
 // - everyone dead or timeout exceeded
-// - group leader out of vehicle and within 50m of target 
+// - group leader out of vehicle and within 50m of target
 waituntil {
 	sleep 10;
 	private _leader = leader _groupX;
@@ -183,11 +184,10 @@ if (count _units == 0 || time > _timeout || _sideX != (sidesX getVariable _mrkDe
 		killZones setVariable [_mrkOrigin,_killzones,true];
 	};
 
-	[2, format ["Reinf on %1 failed, returning with %2 units", _mrkDestination, count units _groupX], _filename] call A3A_fnc_log;
+    Info_2("Reinf on %1 failed, returning with %2 units", _mrkDestination, count units _groupX);
 };
 
-
-[2, format ["Reinf on %1 successful, adding %2 units", _mrkDestination, count units _groupX], _filename] call A3A_fnc_log;
+Info_2("Reinf on %1 successful, adding %2 units", _mrkDestination, count units _groupX);
 
 // Arrived successfully, add units to garrison and despawn with it
 [_units, _sideX, _mrkDestination, 0] remoteExec ["A3A_fnc_garrisonUpdate", 2];

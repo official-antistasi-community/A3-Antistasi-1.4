@@ -124,11 +124,6 @@ while {_continuar and ([_unit] call A3A_fnc_canFight) and (_unit getVariable "re
 					};
 				{if !(_x in unlockedItems) then {_unit linkItem _x}} forEach assignedItems _target;
 				{if !(_x in unlockedItems) then {_target unlinkItem _x}} forEach assignedItems _target;
-				/*
-				_targetLoadout = getUnitLoadout _target; diag_log format ["Target: %1",_targetLoadout];
-				_currentLoadout = getUnitLoadout _unit; diag_log format ["Unit current: %1",_currentLoadout];
-				_unit setUnitLoadout [_currentLoadout select 0,_currentLoadout select 1,_targetLoadout select 2,[(_currentLoadout select 3) select 0,(_targetLoadout select 3) select 1],_targetLoadout select 4,_targetLoadout select 4,_targetLoadout select 5,_currentLoadout select 6,_targetLoadout select 7]; diag_log format ["Unit new: %1",getUnitLoadout _unit];
-				*/
 				};
 			_target setVariable ["busy",false];
 			};

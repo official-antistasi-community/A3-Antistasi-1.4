@@ -30,11 +30,12 @@ Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
 */
 params [ ["_unit",objNull,[objNull]], ["_addToAI",false,[false]] ];
-private _fileName = "fn_punishment_FF_addEH";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if (!tkPunish) exitWith {false};
 if (!(_unit isKindOf "Man")) exitWith {
-    [1,"No unit given",_fileName] remoteExecCall ["A3A_fnc_log",2,false];
+    Error("No unit given");
     false;
 };
 
@@ -53,7 +54,7 @@ _unit addEventHandler ["Hit", {
 
 if (_isAI) exitWith {true};
 
-if (hasACE) then {
+if (A3A_hasACE) then {
     ["ace_firedPlayer", {
         params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile"];
         [_unit,_weapon,_projectile] call A3A_fnc_punishment_FF_checkNearHQ;
@@ -70,7 +71,7 @@ if (hasACE) then {
 };
 
 [getPlayerUID player] remoteExecCall ["A3A_fnc_punishment_checkStatus",2,false];
-[3,format["Punishment Event Handlers Added to: %1",name _unit],_fileName] remoteExecCall ["A3A_fnc_log",2,false];
+Debug_1("Punishment Event Handlers Added to: %1",name _unit);
 true;
 
 /*
@@ -79,7 +80,7 @@ true;
 All other public variables referenced:
 | Name              | Type          | Machine   | Domain            | Description                                                           |
 |-------------------|---------------|-----------|-------------------|-----------------------------------------------------------------------|
-| hasACE            | BOOLEAN       | Public    | missionNamespace  | If ACE is loaded.                                                     |
+| A3A_hasACE            | BOOLEAN       | Public    | missionNamespace  | If ACE is loaded.                                                     |
 | tkPunish          | BOOLEAN       | Public    | missionNamespace  | Parameter. If the FF system should be enabled.                        |
 | petros            | OBJECT        | Public    | missionNamespace  | AI that rebels need to protect and access.                            |
 | posHQ             | POS3D<AGL>    | Public    | missionNamespace  | getMarkerPos respawnTeamPlayer. The position of the HQ marker.        |

@@ -47,7 +47,7 @@ if (side group _injurer == teamPlayer) then
 };
 
 // Let ACE medical handle the rest (inc return value) if it's running
-if (hasACEMedical) exitWith {};
+if (A3A_hasACEMedical) exitWith {};
 
 
 private _makeUnconscious =

@@ -32,6 +32,7 @@ A3A_SR_cleanHelper = {
     _player setVariable ["WinchHelperObj", nil];
 };
 
+
 A3A_SR_adjustRope = {
     params ["_player", "_vehicle"];
     private _rope = _vehicle getVariable "WinchRope";
@@ -126,6 +127,7 @@ A3A_SR_attachRope = {
     ropeDestroy _rope;
     [[_vehicle, _cargo], A3A_SR_LoadSalvage] remoteExecCall ["call", 2];
     [_cargo] call A3A_fnc_logistics_addLoadAction;
+
     _vehicle setVariable ["WinchRope",nil,true];
 };
 

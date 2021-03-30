@@ -23,6 +23,8 @@ Dependencies:
 Example:
 [Occupants, 50, 15] call A3A_fnc_addAggression;
 */
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 params
 [
@@ -36,11 +38,10 @@ _fn_convertMinutesToDecayRate =
     params ["_points", "_minutes"];
     if(_minutes == 0) then
     {
-        [1, "Minute parameter is 0, assuming 1", "addAggression"] call A3A_fnc_log;
+        Error("Minute parameter is 0, assuming 1");
         _minutes = 1;
     };
-    private _decayRate = (-1) * (_points / _minutes);
-    _decayRate;
+    (-1) * (_points / _minutes);
 };
 
 if(_aggroChange == 0) exitWith {};

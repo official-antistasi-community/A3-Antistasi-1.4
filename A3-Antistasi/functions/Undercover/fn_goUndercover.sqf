@@ -34,6 +34,8 @@ Dependencies:
 Example:
     [] call A3A_fnc_goUndercover;
 */
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _result = [] call A3A_fnc_canGoUndercover;
 
@@ -43,13 +45,13 @@ if(!(_result select 0)) exitWith
     {
         if !(isNull (objectParent player)) then
         {
+            reportedVehs pushBackUnique (objectParent player);
+            publicVariable "reportedVehs";
             {
                 if ((isPlayer _x) && (captive _x)) then
                 {
                     [_x, false] remoteExec["setCaptive"];
                     _x setCaptive false;
-                    reportedVehs pushBackUnique (vehicle _player);
-                    publicVariable "reportedVehs";
                 };
             } forEach ((crew(objectParent player)) + (assignedCargo(objectParent player)) - [player]);
         };
@@ -126,16 +128,15 @@ while {_reason == ""} do
 
         if ((_vehType != civHeli) && (!(_vehType in civBoats))) then
         {
-            if !(isOnRoad position _veh) then
+            if !(isOnRoad position _veh && {count (_veh nearRoads 50) == 0}) then
             {
-                if (count (_veh nearRoads 50) == 0) then
+                if ({((side _x == Invaders) || (side _x == Occupants)) && ((_x knowsAbout player > 1.4) || (_x distance player < 350))} count allUnits > 0) then
                 {
-                    if ({((side _x == Invaders) || (side _x == Occupants)) && ((_x knowsAbout player > 1.4) || (_x distance player < 350))} count allUnits > 0) then
-                    {
-                        _reason = "Highway";
-                    };
+                    _reason = "Highway";
                 };
             };
+
+            if(_reason != "") exitWith {};
 
             private _base = [_secureBases, player] call BIS_fnc_nearestPosition;
             private _onDetectionMarker = (detectionAreas findIf {player inArea _x} != -1);
@@ -305,5 +306,10 @@ switch (_reason) do
         ["Undercover", "The Installation Garrison has recognised you"] call A3A_fnc_customHint;
         reportedVehs pushBackUnique(vehicle player);
         publicVariable "reportedVehs";
+    };
+    default
+    {
+        Error_1("Unknown reason given, was %1", _reason);
+        ["Undercover", "Unknown error occured in undercover execution routine!"] call A3A_fnc_customHint;
     };
 };

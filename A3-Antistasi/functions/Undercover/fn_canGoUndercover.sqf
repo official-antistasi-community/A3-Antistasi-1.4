@@ -45,7 +45,6 @@ if (captive player) exitWith
 
 private _roadblocks = controlsX select {isOnRoad(getMarkerPos _x)};
 private _secureBases = airportsX + outposts + seaports + _roadblocks;
-private _compromised = player getVariable ["compromised", 0];
 private _result = [];
 
 if !(isNull (objectParent player)) then
@@ -63,7 +62,7 @@ if !(isNull (objectParent player)) then
 }
 else
 {
-    if (dateToNumber date < _compromised) exitWith
+    if (dateToNumber date < (player getVariable ["compromised", 0])) exitWith
     {
         ["Undercover", "You have been reported in the last 30 minutes therefore you cannot go Undercover"] call A3A_fnc_customHint;
         _result = [false, "Recently reported"];
@@ -120,7 +119,7 @@ if (count _result != 0 && !(_result select 0)) exitWith
 
 private _base = [_secureBases, player] call BIS_fnc_nearestPosition;
 private _size = [_base] call A3A_fnc_sizeMarker;
-if ((player distance2D getMarkerPos _base < _size * 2) && (!(sidesX getVariable [_base, sideUnknown] == teamPlayer))) exitWith
+if ((player distance2D getMarkerPos _base < _size * 2) && (sidesX getVariable [_base, sideUnknown] != teamPlayer)) exitWith
 {
     ["Undercover", "You cannot go Undercover near Airports, Outposts, Seaports or Roadblocks"] call A3A_fnc_customHint;
     [false, "Near enemy territory"];

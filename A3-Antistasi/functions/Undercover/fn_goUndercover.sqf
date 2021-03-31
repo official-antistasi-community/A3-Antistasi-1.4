@@ -1,6 +1,6 @@
 /*
 Maintainer: Wurzel0701
-    Checks if the player is able to go undercover
+    Activates undercover if possible and controls its status till undercover is broken/ended
 
 Arguments:
     <NIL>
@@ -9,7 +9,7 @@ Return Value:
     <NIL>
 
 Scope: Local
-Environment: Any
+Environment: Scheduled
 Public: Yes
 Dependencies:
     <ARRAY> reportedVehs
@@ -18,8 +18,7 @@ Dependencies:
     <ARRAY> outposts
     <ARRAY> seaports
     <ARRAY> undercoverVehicles
-    <ARRAY> reportedVehs
-    <BOOL> hasACE
+    <BOOL> A3A_hasACE
     <SIDE> Occupants
     <STRING> civHeli
     <ARRAY> civBoats
@@ -87,120 +86,117 @@ while {_reason == ""} do
 
     sleep 1;
 
-    if (!captive player) then
+    if (!captive player) exitWith
     {
         _reason = "Reported";
-    }
-    else
+    };
+
+    private _veh = objectParent player;
+    if !(isNull _veh) then
     {
-        private _veh = objectParent player;
-        if !(isNull _veh) then
+        private _vehType = typeOf _veh;
+        if (!(_vehType in undercoverVehicles)) exitWith
         {
-            private _vehType = typeOf _veh;
-            if (!(_vehType in undercoverVehicles)) then
-            {
-                _reason = "VNoCivil"
-            };
+            _reason = "VNoCivil"
+        };
 
-            if (_veh in reportedVehs) then
-            {
-                _reason = "VCompromised"
-            };
+        if (_veh in reportedVehs) exitWith
+        {
+            _reason = "VCompromised"
+        };
 
-            if (hasACE) then
+        if (A3A_hasACE) then
+        {
+            if (((position player nearObjects["DemoCharge_Remote_Ammo", 5]) select 0) mineDetectedBy Occupants) exitWith
             {
-                if (((position player nearObjects["DemoCharge_Remote_Ammo", 5]) select 0) mineDetectedBy Occupants) then
+                _reason = "SpotBombTruck";
+            };
+            if (((position player nearObjects["SatchelCharge_Remote_Ammo", 5]) select 0) mineDetectedBy Occupants) exitWith
+            {
+                _reason = "SpotBombTruck";
+            };
+        };
+
+        if(_reason != "") exitWith {};
+
+        if(_veh getVariable ["NoFlyZoneDetected", ""] != "") exitWith
+        {
+            _reason = "NoFly";
+        };
+
+        if ((_vehType != civHeli) && (!(_vehType in civBoats))) then
+        {
+            if !(isOnRoad position _veh) then
+            {
+                if (count (_veh nearRoads 50) == 0) then
                 {
-                    _reason = "SpotBombTruck";
-                };
-                if (((position player nearObjects["SatchelCharge_Remote_Ammo", 5]) select 0) mineDetectedBy Occupants) then
-                {
-                    _reason = "SpotBombTruck";
-                };
-            };
-
-            if(_veh getVariable ["NoFlyZoneDetected", ""] != "") then
-            {
-                _reason = "NoFly";
-            };
-
-            if ((_vehType != civHeli) && (!(_vehType in civBoats))) then
-            {
-                if !(isOnRoad position _veh) then
-                {
-                    if (count (_veh nearRoads 50) == 0) then
+                    if ({((side _x == Invaders) || (side _x == Occupants)) && ((_x knowsAbout player > 1.4) || (_x distance player < 350))} count allUnits > 0) then
                     {
-                        if ({((side _x == Invaders) || (side _x == Occupants)) && ((_x knowsAbout player > 1.4) or(_x distance player < 350))} count allUnits > 0) then
-                        {
-                            _reason = "Highway";
-                        };
+                        _reason = "Highway";
                     };
                 };
+            };
 
-                private _base = [_secureBases, player] call BIS_fnc_nearestPosition;
-                private _onDetectionMarker = (detectionAreas findIf {player inArea _x} != -1);
-                private _onBaseMarker = (player inArea _base);
-                private _baseSide = (sidesX getVariable [_base, sideUnknown]);
-                if ((_onBaseMarker || _onDetectionMarker) && (_baseSide != teamPlayer)) then
+            private _base = [_secureBases, player] call BIS_fnc_nearestPosition;
+            private _onDetectionMarker = (detectionAreas findIf {player inArea _x} != -1);
+            private _onBaseMarker = (player inArea _base);
+            private _baseSide = (sidesX getVariable [_base, sideUnknown]);
+            if ((_onBaseMarker || _onDetectionMarker) && (_baseSide != teamPlayer)) then
+            {
+                if !(_isInRoadblock) then
                 {
-                    if !(_isInRoadblock) then
+                    private _aggro = if (_baseSide == Occupants) then {aggressionOccupants + (tierWar * 10)} else {aggressionInvaders + (tierWar * 10)};
+                    //Probability of being spotted. Unless we're in an airfield - then we're always spotted.
+                    if (_base in airportsX || _onDetectionMarker || random 100 < _aggro) then
                     {
-                        private _aggro = if (_baseSide == Occupants) then {aggressionOccupants + (tierWar * 10)} else {aggressionInvaders + (tierWar * 10)};
-                        //Probability of being spotted. Unless we're in an airfield - then we're always spotted.
-                        if (_base in airportsX || _onDetectionMarker || random 100 < _aggro) then
+                        if (_base in _roadblocks) then
                         {
-                            if (_base in _roadblocks) then
-                            {
-                                _reason = "distanceX";
-                            }
-                            else
-                            {
-                                _reason = "Control";
-                            };
+                            _reason = "distanceX";
                         }
                         else
                         {
-                            _isInRoadblock = true;
+                            _reason = "Control";
                         };
-                    };
-                }
-                else
-                {
-                    _isInRoadblock = false;
-                };
-            };
-        }
-        else
-        {
-            if (_healingTarget != objNull) then
-            {
-                if (side _healingTarget != civilian && {_healingTarget isKindOf "Man"}) then
-                {
-                    if ({((side _x == Invaders) or(side _x == Occupants)) and((_x knowsAbout player > 1.4) or(_x distance player < 350))} count allUnits > 0) then
-                    {
-                        _reason = "BadMedic2";
                     }
                     else
                     {
-                        _reason = "BadMedic";
+                        _isInRoadblock = true;
                     };
                 };
-            };
-            if ((primaryWeapon player != "") || (secondaryWeapon player != "") || (handgunWeapon player != "") || (vest player != "") || (getNumber(configfile >> "CfgWeapons" >> headgear player >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2) || (hmd player != "") || (!(uniform player in allCivilianUniforms))) then
+            }
+            else
             {
-                if ({((side _x == Invaders) or (side _x == Occupants)) and ((_x knowsAbout player > 1.4) or (_x distance player < 350))} count allUnits > 0) then
-                {
-                    _reason = "clothes2"
-                }
-                else
-                {
-                    _reason = "clothes"
-                };
+                _isInRoadblock = false;
             };
-            if (dateToNumber date < _compromised) then
+        };
+    }
+    else
+    {
+        if (_healingTarget != objNull && {side _healingTarget != civilian && {_healingTarget isKindOf "Man"}}) exitWith
+        {
+            if ({((side _x == Invaders) or(side _x == Occupants)) and((_x knowsAbout player > 1.4) or(_x distance player < 350))} count allUnits > 0) then
             {
-                _reason = "Compromised";
+                _reason = "BadMedic2";
+            }
+            else
+            {
+                _reason = "BadMedic";
             };
+        };
+        if ((primaryWeapon player != "") || (secondaryWeapon player != "") || (handgunWeapon player != "") || (vest player != "") || (getNumber(configfile >> "CfgWeapons" >> headgear player >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 2) || (hmd player != "") || (!(uniform player in allCivilianUniforms))) exitWith
+        {
+            if ({((side _x == Invaders) or (side _x == Occupants)) and ((_x knowsAbout player > 1.4) or (_x distance player < 350))} count allUnits > 0) then
+            {
+                _reason = "clothes2"
+            }
+            else
+            {
+                _reason = "clothes"
+            };
+        };
+        if (dateToNumber date < _compromised) exitWith
+        {
+            _reason = "Compromised";
         };
     };
 };

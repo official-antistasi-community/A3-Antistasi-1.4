@@ -2381,7 +2381,7 @@
         <Original>Spawn Distance</Original>
         <French>Distance d'apparition</French>
         <German>Spawnentfernung</German>
-        <Czech>Vzdálenost Vzniku</Czech>
+        <Czech>Spawnovací Vzdalenost</Czech>
         <Chinesesimp>生成距离</Chinesesimp>
         <Korean>스폰 거리</Korean>
         <Russian>Дистанция спавна</Russian>
@@ -2685,732 +2685,906 @@
       <Key ID="STR_antistasi_dialogs_maps_game_options">
         <Original>Game Options</Original>
         <Russian>Параметры</Russian>
+        <Czech>Možnosti Hry</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_limit">
         <Original>Civ Limit</Original>
         <Russian>Лимит гражданских</Russian>
+        <Czech>Civilní Limit</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_limit_tooltip">
         <Original>Set the max number of spawned civilians. Affects game performance.</Original>
         <Russian>Установите максимальное количество мирных жителей. Влияет на производительность игры.</Russian>
+        <Czech>Nastavte maximální počet civilistů. Ovlivňuje výkon hry.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_distance">
         <Original>Spawn Distance</Original>
         <Russian>Дистанция спавна</Russian>
+        <Czech>Spawn Vzdalenost</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_distance_tooltip">
         <Original>Affects performance. Please use this with caution. Set it to lower distances if you feel Antistasi is running bad.</Original>
         <Russian>Влияет на производительность. Пожалуйста, используйте это с осторожностью. Установите меньшее расстояние, если чувствуете, что Antistasi работает плохо.</Russian>
+        <Czech>Ovlivňuje výkon. Používejte to opatrně. Pokud máte pocit, že se Antistasi zhoršuje, nastavte jej na menší vzdálenosti.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_ai_limiter">
         <Original>AI Limiter</Original>
         <Russian>Лимит ИИ</Russian>
+        <Czech>Limit AI</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_ai_limiter_tooltip">
         <Original>Sets how much local and simulated AI can spawn in the map. Affects performance and AI ""intelligence"". Use with caution. This is not an exact number as vehicles and squad leaders will allways spawn.</Original>
         <Russian>Устанавливает, сколько локальных и смоделированных ИИ может появиться на карте. Влияет на производительность и «интеллект» ИИ. Используйте с осторожностью. Это не точное число, поскольку всегда будут появляться машины и лидеры отрядов.</Russian>
+        <Czech>Nastavuje, kolik místní a simulované AI se může objevit na mapě. Ovlivňuje výkon a ""inteligenci""AI. Používejte opatrně. To není přesné číslo, protože se vždy objeví vedoucí vozidel a družstev.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_music">
         <Original>Music ON/OFF</Original>
         <Russian>Музыка ВКЛ / ВЫКЛ</Russian>
+        <Czech>Music ON/OFF</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_music_tooltip">
         <Original>Disables/Enable situational music.</Original>
         <Russian>Отключение/включение музыки</Russian>
+        <Czech>Zakáže/Povolí situační hudbu.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_save">
         <Original>Persistent Save</Original>
         <Russian>Сохранение</Russian>
+        <Czech>Trvalé ukládání</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_save_tooltip">
         <Original>Use this option to save your current game. It does save the most important data in a ""Grand Theft Auto"" way. This opnion allows good MP save and independent saves of any version update. Vanilla saves are disabled because of lack of several features.</Original>
         <Russian>Используйте эту опцию, чтобы сохранить вашу текущую игру. Он действительно сохраняет самые важные данные способом "Grand Theft Auto". Этот вариант обеспечивает хорошее сохранение MP и независимое сохранение любого обновления версии. Ванильные сохранения отключены из-за отсутствия некоторых функций.</Russian>
+        <Czech>Tuto možnost použijte k uložení aktuální hry. Ukládá nejdůležitější data způsobem „" Grand Theft Auto "". Toto nastavení umožňuje dobré ukládání MP a nezávislé ukládání jakékoli aktualizace verze. Vanilkové ukládání je deaktivováno z důvodu nedostatku několika funkcí.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_fps_limiter_plus">
         <Original>+10 AI Limit</Original>
         <Russian>+10 к лимиту ИИ</Russian>
+        <Czech>+10 Limit AI</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_fps_limiter_minus">
         <Original>-10 AI Limit</Original>
         <Russian>-10 к лимиту ИИ</Russian>
+        <Czech>-10 Limit AI</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_config">
         <Original>Spawn Distance Config</Original>
         <Russian>Настройка дистаниции спавна</Russian>
+        <Czech>Konfigurace vzdálenosti spawnu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_config_plus">
         <Original>+100 Spawn Dist.</Original>
         <Russian>+100 метров</Russian>
+        <Czech>+100 Spawn Dist.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_config_minus">
         <Original>-100 Spawn Dist.</Original>
         <Russian>-100 метров</Russian>
+        <Czech>-100 Spawn Dist.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_config">
         <Original>Civ Presence Config</Original>
         <Russian>Настройка гражданского насиления</Russian>
+        <Czech>Přítomnost občanů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_config_plus">
         <Original>+1 Max Civs</Original>
         <Russian>+1 к лимиту</Russian>
+        <Czech>+1 max. Počet obyvatel</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_config_minus">
         <Original>-1 Max Civs</Original>
         <Russian>-1 к лимиту</Russian>
+        <Czech>-1 Max. Počet obyvatel</Czech>
       </Key>
     </Container>
     <Container name="mission_menu">
       <Key ID="STR_antistasi_dialogs_mission_menu_available_missions">
         <Original>Available Missions</Original>
         <Russian>Доступные миссии</Russian>
+        <Czech>Dostupné mise</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_assasination_missions">
         <Original>Assasination Mission</Original>
         <Russian>Миссия на убийство</Russian>
+        <Czech>Atentátní mise</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_convoy_ambush">
         <Original>Convoy Ambush</Original>
         <Russian>Засада конвоя</Russian>
+        <Czech>Přepadnout Konvoj</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_destroy_missions">
         <Original>Destroy Missions</Original>
         <Russian>Миссия на уничтожение</Russian>
+        <Czech>Zničte mise</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_conquest_missions">
         <Original>Conquest Missions</Original>
         <Russian>Миссия захвата</Russian>
+        <Czech>Dobývací mise</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_logistics_missions">
         <Original>Logistics Missions</Original>
         <Russian>Миссия перевозки</Russian>
+        <Czech>Logistické mise</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_logistics_missions_tooltip">
         <Original>Missions to acquire money or equipment</Original>
         <Russian>Миссии по добыче денег или оборудования</Russian>
+        <Czech>Mise za účelem získání peněz nebo vybavení</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_support_missions">
         <Original>Support Missions</Original>
         <Russian>Миссия поддержки</Russian>
+        <Czech>Podpůrné mise</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_support_missions_tooltip">
         <Original>Missions to increase your support within the population</Original>
         <Russian>Миссии по увеличению вашей поддержки среди населения</Russian>
+        <Czech>Mise ke zvýšení vaší podpory v populaci</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_rescue_missions">
         <Original>Rescue Missions</Original>
         <Russian>Спасательные миссии</Russian>
+        <Czech>Záchranné mise</Czech>
       </Key>
     </Container>
     <Container name="radio_comm">
       <Key ID="STR_antistasi_dialogs_radio_comm">
         <Original>Battle Options</Original>
         <Russian>Управление</Russian>
+        <Czech>Možnosti Bitvy</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel">
         <Original>Fast Travel</Original>
         <Russian>Быстрое Перемещение</Russian>
+        <Czech>Teleport</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel_tooltip">
         <Original>Teleport your squad or a HC selected squad to a friendly zone depending on several factors</Original>
         <Russian>Телепортируйте свой отряд или отряд, выбранный HC, в дружественную зону в зависимости от нескольких факторов</Russian>
+        <Czech>Teleportujte svůj tým nebo tým vybraný HC do přátelské zóny v závislosti na několika faktorech</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_player_money">
         <Original>Player and Money</Original>
         <Russian>Игрок и деньги</Russian>
+        <Czech>Hráč a peníze</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_player_money_tooltip">
         <Original>Look at some player and interact with him</Original>
         <Russian>Посмотрите на игрока чтобы взаимодействовать с ним</Russian>
+        <Czech>Podívejte se na nějakého hráče</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover">
         <Original>Undercover ON</Original>
         <Russian>Скрытность ВКЛ</Russian>
+        <Czech>V utajení</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover_tooltip">
         <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you</Original>
         <Russian>Станьте скрытным, если вы соответствуете требованиям. Вражеский ИИ не нападет на вас, пока не обнаружит вас</Russian>
+        <Czech>Staňte se v utajení, pokud splňujete požadavky. Nepřátelská AI na vás nezaútočí, dokud vás neobjeví</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_garage">
         <Original>Garage Vehicle</Original>
         <Russian>Гараж</Russian>
+        <Czech>Garáž Vozidel</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_garage_tooltip">
         <Original>Vehicle or Static gun you're looking at will be garaged, interact with Flag to retrieve</Original>
         <Russian>Автомобиль или статическая пушка, на которую вы смотрите, будут помещены в гараж, взаимодействуйте с Флагом, чтобы получить</Russian>
+        <Czech>Vozidlo nebo statická zbraň, na které se díváte, budou garážovány, interagujte u Vlajky a získejte</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_construct">
         <Original>Construct Here</Original>
         <Russian>Строительство</Russian>
+        <Czech>Stavění</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_construct_tooltip">
         <Original>Construct in the spot where you are a selected building facing this direction</Original>
         <Russian>Постройте в том месте, где вы выбрали здание, обращенное в этом направлении</Russian>
+        <Czech>Postavte na místě, vybranou budovu, obrácenou tímto směrem</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
         <Russian>Разблокировать технику</Russian>
+        <Czech>Odemknout vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle_tooltip">
         <Original>Allow other groups to mount this vehicle</Original>
         <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
+        <Czech>Umožněte dalším skupinám připojit toto vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_ai_management">
         <Original>AI Management</Original>
         <Russian>Управление ИИ</Russian>
+        <Czech>Manažer AI</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_ai_management_tooltip">
         <Original>Several AI options</Original>
         <Russian>Управление ИИ</Russian>
+        <Czech>Možnosti AI</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_commander">
         <Original>Commander</Original>
         <Russian>Командующий</Russian>
+        <Czech>Commander</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_commander_tooltip">
         <Original>Open commander options</Original>
         <Russian>Открыть меню командования</Russian>
+        <Czech>Možnosti Velitele</Czech>
       </Key>
     </Container>
     <Container name="vehicle_manager">
       <Key ID="STR_antistasi_dialogs_vehicle_manager">
         <Original>Vehicle Manager</Original>
         <Russian>Техника</Russian>
+        <Czech>Správce vozidel</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle">
         <Original>Garage\Sell Vehicle</Original>
         <Russian>Гараж\Продать технику</Russian>
+        <Czech>Garáž\Prodej vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle_tooltip">
         <Original>Add to garage / sell the vehicle you are currently looking at</Original>
         <Russian>Добавить в гараж/продать технику, на которую сейчас смотрите</Russian>
+        <Czech>Přidat do garáže / prodat vozidlo, na které se právě díváte</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads">
         <Original>Vehicles and Squads</Original>
         <Russian>Техника и отряды</Russian>
+        <Czech>Vozidla a Squads</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads_tooltip">
         <Original>Options related to vehicle management in HC controlled squads</Original>
         <Russian>Варианты, связанные с управлением транспортными средствами в отрядах, контролируемых HC</Russian>
+        <Czech>Možnosti související se správou vozidla v jednotkách kontrolovaných HC</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support">
         <Original>Add to Air Support</Original>
         <Russian>Добавить в воздушную поддержку</Russian>
+        <Czech>Přidat do letecké podpory</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support_tooltip">
         <Original>Gain Airstrike points giving this vehicle to the faction Air pool</Original>
         <Russian>Получите очки авиаудара, отдав этот автомобиль в запас воздуха фракции</Russian>
+        <Czech>Získejte body náletu, které tomuto vozidlu poskytnou frakci Air pool</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
         <Russian>Разблокировать технику</Russian>
+        <Czech>Odemknout vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_unlock_vehicle_tooltip">
         <Original>Allow other groups to mount this vehicle</Original>
         <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
+        <Czech>Umožněte dalším skupinám připojit toto vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_veh_query">
         <Original>Add Vehicle to Squad?</Original>
         <Russian>Добавить машину в отряд?</Russian>
+        <Czech>Přidat vozidlo týmu?</Czech>
       </Key>
     </Container>
     <Container name="squad_manager">
       <Key ID="STR_antistasi_dialogs_squad_manager">
         <Original>HC Squad Options</Original>
         <Russian>Управление отрядами</Russian>
+        <Czech>Volby skupiny HC</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle">
         <Original>Squad Add Vehicle</Original>
         <Russian>Добавить технику в отряд</Russian>
+        <Czech>Přidat vozidlo Jednotce</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
         <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
+        <Czech>Podívejte se na nějaké vozidlo a přiřaďte jej vybranému týmu pro jeho použití</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_squad_sitrep">
         <Original>Squad SITREP</Original>
         <Russian>Статус отряда</Russian>
+        <Czech>Squad SITREP</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_squad_sitrep_tooltip">
         <Original>If the selected squad is using some vehicle, know remotely it's status</Original>
         <Russian>Если выбранный отряд использует какую-либо технику, узнайте ее статус удаленно.</Russian>
+        <Czech>Pokud vybraná jednotka používá nějaké vozidlo, zjistěte na dálku jeho stav</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_mount">
         <Original>Mount / Dismount</Original>
         <Russian>Погрузка / Разгрузка</Russian>
+        <Czech>Mount / Dismount</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_mount_tooltip">
         <Original>Force squad to mount or dismount their assigned vehicle</Original>
         <Russian>Заставить отряд сесть или слезть с назначенной машины</Russian>
+        <Czech>Přinutit četu k nasazení nebo sesednutí z přiřazeného vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget">
         <Original>Static Autotarget</Original>
         <Russian>Автонаведение установок</Russian>
+        <Czech>Statické automatické cílení</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget_tooltip">
         <Original>Use this option on AT / AA mounted squads. The truck driver will try to point his truck's back to any detected enemy</Original>
         <Russian>Используйте эту опцию для ПТ / ПВО отрядов. Отряд попытается направить свое орудие на любого обнаруженного врага.</Russian>
+        <Czech>Tuto možnost použijte u oddílů namontovaných na AT / AA. Řidič kamionu se pokusí nasměrovat záda svého kamionu na zjištěného nepřítele</Czech>
       </Key>
     </Container>
     <Container name="AI_management">
       <Key ID="STR_antistasi_dialogs_AI_management">
         <Original>Battle Options</Original>
         <Russian>Управление ИИ</Russian>
+        <Czech>Možnosti bitvy</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_AI_control">
         <Original>Temp. AI Control</Original>
         <Russian>Временный контроль ИИ</Russian>
+        <Czech>Ovládat AI</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_AI_control_tooltip">
         <Original>Take personal control of the selected squad member or HC squad leader and be able to perform any kind of actions for 60 seconds. Control state will be cancelled if the player or the controlled unit receives any kind of damage</Original>
         <Russian>Возьмите под личный контроль выбранного члена отряда или лидера отряда HC и получите возможность выполнять любые действия в течение 60 секунд. Состояние контроля будет отменено, если игрок или управляемый юнит получит какой-либо урон.</Russian>
+        <Czech>Převezměte osobní kontrolu nad vybraným členem týmu nebo vedoucím týmu HC a buďte schopni provádět jakékoli akce po dobu 60 sekund. Stav ovládání bude zrušen, pokud hráč nebo ovládaná jednotka utrpí jakýkoli druh poškození</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm">
         <Original>Auto Rearm \ Loot</Original>
         <Russian>Автоперезарядка \ Лут</Russian>
+        <Czech>Auto Přezbrojit \ Rabovat</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm_tooltip">
         <Original>AI will search for better weapons, vests, helmets etc. If they are in a vehicle, they will just store what they scavenge in the vehicle. If not, they will equip them</Original>
         <Russian>ИИ будет искать лучшее оружие, жилетки, шлемы и т. Д. Если они находятся в транспортном средстве, они просто сохранят то, что они собирают, в транспортном средстве. Если нет, они их оснастят</Russian>
+        <Czech>AI bude hledat lepší zbraně, vesty, přilby atd. Pokud jsou ve vozidle, jednoduše si ve vozidle uloží to, co uklízejí. Pokud ne, vybaví je</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal">
         <Original>Auto Heal</Original>
         <Russian>Авто-лечение</Russian>
+        <Czech>Automatické léčení</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal_tooltip">
         <Original>AI squad mates will heal proactively each other</Original>
         <Russian>Соратники ИИ будут активно лечить друг друга</Russian>
+        <Czech>AI se budou vzájemně léčit</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_SITREP">
         <Original>Squad SITREP</Original>
         <Russian>Статус отряда</Russian>
+        <Czech>Squad SITREP</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_SITREP_tooltip">
         <Original>Recover info about a HC squad status</Original>
         <Russian>Доложить информацию о статусе отряда</Russian>
+        <Czech>Obnovte informace o stavu týmu HC</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_garrison">
         <Original>Garrison Units / Squads</Original>
         <Russian>Добавить в гарнизон</Russian>
+        <Czech>Vložit jednotky / oddíly</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_garrison_tooltip">
         <Original>Adds selected units or squads to a map selected garrison</Original>
         <Russian>Добавляет выбранные юниты или отряды в выбранный на карте гарнизон</Russian>
+        <Czech>Přidá vybrané jednotky nebo jednotky do mapy vybrané posádky</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle">
         <Original>Squad Add Vehicle</Original>
         <Russian>Добавить технику отряду</Russian>
+        <Czech>Přidat Jednotce vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
         <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
+        <Czech>Podívejte se na nějaké vozidlo a přiřaďte jej vybranému týmu pro jeho použití</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units">
         <Original>Dismiss Units / Squad</Original>
         <Russian>В запас</Russian>
+        <Czech>Vrátit jednotky / oddíl</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units_tooltip">
         <Original>Dimiss selected units or squads, recovering it's cost to the proper resource pool</Original>
         <Russian>Распустить выбранные отряды или отряды, вернув их стоимость в соответствующий пул ресурсов.</Russian>
+        <Czech>Vrátit vybrané jednotky nebo jednotky a obnovit náklady do správného fondu zdrojů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_mount">
         <Original>Mount / Dismount</Original>
         <Russian>Погрузка / Разгрузка</Russian>
+        <Czech>Mount / Dismount</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_mount_tooltips">
         <Original>Force squad to mount or dismount their assigned vehicle</Original>
         <Russian>Заставить отряд сесть или слезть с назначенной машины</Russian>
+        <Czech>Přinutit četu k nasazení nebo sesednutí z přiřazeného vozidla</Czech>
       </Key>
     </Container>
     <Container name="commander_comm">
       <Key ID="STR_antistasi_dialogs_commander_comm">
         <Original>Commander Battle Options</Original>
         <Russian>Меню командущего</Russian>
+        <Czech>Možnosti Commandera</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_recruit">
         <Original>Recruit Squad</Original>
         <Russian>Набрать отряд</Russian>
+        <Czech>Naverbujte jednotku</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_recruit_tooltip">
         <Original>Recruit new squads and manage them with the HC Module (CTRL + SPACE)</Original>
         <Russian>Набирайте новые отряды и управляйте ими с помощью модуля HC (CTRL + SPACE)</Russian>
+        <Czech>Nábor nových oddílů a jejich správa pomocí modulu HC (CTRL + MEZERNÍK)</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
         <Original>Air Support</Original>
         <Russian>Авиаподдержка</Russian>
+        <Czech>Letecká Podpora</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support_tooltip">
         <Original>Ask for Air Support (uses Airstrike points)</Original>
         <Russian>Запросить авиаподдержку (использует очки авиаподдержки)</Russian>
+        <Czech>Požádejte o leteckou podporu (používá body Airstrike)</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock">
         <Original>O.Post - Roadblock</Original>
         <Russian>Добавить БП / НП</Russian>
+        <Czech>Hlídka - Zátaras</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_tooltip">
         <Original>Establish a new watchpost or roadblock depending on the type of terrain you select</Original>
         <Russian>Установите новый наблюдательный пост или блокпост в зависимости от выбранного типа местности.</Russian>
+        <Czech>V závislosti na vybraném typu terénu vytvořte novou hlídku nebo zátaras</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_clean">
         <Original>Garbage Clean</Original>
         <Russian>Очистка мусора</Russian>
+        <Czech>Guma</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
         <Original>Cleans several things in game. Use with caution as it freezes the mission</Original>
         <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
+        <Czech>Čistí několik věcí ve hře. Používejte opatrně, protože mise zamrzne</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete">
         <Original>O.Post-Roadblock Delete</Original>
         <Russian>Удалить БП / НП</Russian>
+        <Czech>Odebrat Hlídku-Zátaras</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete_tooltip">
         <Original>Remove selected observation post or roadblock, money will be refunded</Original>
         <Russian>Удалите выбранный наблюдательный пункт или блокпост, деньги будут возвращены</Russian>
+        <Czech>Odstraňte vybrané pozorovací stanoviště nebo zátaras, peníze vám budou vráceny</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_faction_garage">
         <Original>Faction Garage</Original>
         <Russian>Гараж фракции</Russian>
+        <Czech>Frakční garáž</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_faction_garage_tooltip">
         <Original>Look at a vehicle and garage it into faction garage (shared among commanders)</Original>
         <Russian>Посмотрите на машину и поставьте ее в гараж фракции (общий для командиров)</Russian>
+        <Czech>Podívejte se na vozidlo a přidej jej do garáže frakce (sdílené mezi veliteli)</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_resign">
         <Original>Resign / Eligible</Original>
         <Russian>Отставка</Russian>
+        <Czech>Rezignovat / Příjmout</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_resign_tooltip">
         <Original>Step down from commander or toggle eligibility</Original>
         <Russian>Уйти от командира или изменить право на участие</Russian>
+        <Czech>Odstoupit z funkce velitele nebo příjmout způsobilost</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_sell">
         <Original>Sell Vehicle</Original>
         <Russian>Продать технику</Russian>
+        <Czech>Prodat Vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_sell_tooltip">
         <Original>Look at a vehicle and sell it for money</Original>
         <Russian>Посмотрите на автомобиль и продайте его за деньги</Russian>
+        <Czech>Podívejte se na vozidlo a prodejte ho za peníze</Czech>
       </Key>
     </Container>
     <Container name="carpet_bombing">
       <Key ID="STR_antistasi_dialogs_carpet_bombing">
         <Original>Carpet Bombing Strike</Original>
         <Russian>Ковровая бомбардировка</Russian>
+        <Czech>Kobercový Útok</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_he">
         <Original>HE Bombs</Original>
         <Russian>ОФ бомбы</Russian>
+        <Czech>HE Bombs</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_cluster">
         <Original>Cluster Bombs</Original>
         <Russian>Кассетные бомбы</Russian>
+        <Czech>Cluster Bombs</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_napalm">
         <Original>NAPALM Bombs</Original>
         <Russian>Напалм</Russian>
+        <Czech>NAPALM Bombs</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_tooltip">
         <Original>Cost: 1 point</Original>
         <Russian>Цена: 1 очко</Russian>
+        <Czech>Cena: 1 bod</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_add">
         <Original>Add to Air Support</Original>
         <Russian>Добавить в воздушную поддержку</Russian>
+        <Czech>Letecká Podpora</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_add_tooltip">
         <Original>Gain Airstrike points giving this aircraft to the faction Air pool</Original>
         <Russian>Получайте очки за авиаудар, отдавая этот самолет в воздушный пул фракции.</Russian>
+        <Czech>Přidejte body náletu, které tomuto letadlu poskytnou frakci Air pool</Czech>
       </Key>
     </Container>
     <Container name="dismiss_menu">
       <Key ID="STR_antistasi_dialogs_dismiss_menu">
         <Original>Dismiss Options</Original>
         <Russian>Меню роспуска</Russian>
+        <Czech>Vrácení možnosti</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_dismiss_menu_dismiss">
         <Original>Dismiss Units / Squad</Original>
         <Russian>Распустить</Russian>
+        <Czech>Vrátit jednotky / oddíl</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_dismiss_menu_dismiss_tooltip">
         <Original>Dimiss selected units or squads, recovering it's cost to the proper resource pool</Original>
         <Russian>Распустить выбранные отряды или отряды, вернув их стоимость в соответствующий пул ресурсов.</Russian>
+        <Czech>Vrátit vybrané jednotky nebo jednotky a obnovit jejich náklady do fondu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_dismiss_menu_garrison">
         <Original>Garrison Units / Squads</Original>
         <Russian>Добавить в гарнизон</Russian>
+        <Czech>Posádkové jednotky / oddíly</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_dismiss_menu_garrison_tooltip">
         <Original>Adds selected units or squads to a map selected garrison</Original>
         <Russian>Добавляет выбранные юниты или отряды в выбранный на карте гарнизон</Russian>
+        <Czech>Přidá vybrané jednotky nebo jednotky do mapy vybrané posádky</Czech>
       </Key>
     </Container>
     <Container name="construction_menu">
       <Key ID="STR_antistasi_dialogs_construction_menu">
         <Original>Construction Menu</Original>
         <Russian>Меню строительства</Russian>
+        <Czech>Konstrukční nabídka</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_small_trench">
         <Original>Small Trench</Original>
         <Russian>Малая траншея</Russian>
+        <Czech>Malý příkop</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_small_trench_tooltip">
         <Original>Make a quick small trench for one man</Original>
         <Russian>Сделайте быстрый небольшой окоп для одного человека</Russian>
+        <Czech>Udělejte rychlý malý příkop pro jednoho muže</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_medium_trench">
         <Original>Medium Trench</Original>
         <Russian>Средняя траншея</Russian>
+        <Czech>Střední příkop</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_medium_trench_tooltip">
         <Original>A mid sized trench with capabilities for more than one soldier</Original>
         <Russian>Окоп среднего размера, вмещающий более одного солдата</Russian>
+        <Czech>Středně velký příkop s možnostmi pro více než jednoho vojáka</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_vehicle_obstacles">
         <Original>Vehicle obstacles</Original>
         <Russian>Транспортные препятствия</Russian>
+        <Czech>Překážky vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_vehicle_obstacles_tooltip">
         <Original>Build some obstacles for vehicles</Original>
         <Russian>Постройте препятствия для транспортных средств</Russian>
+        <Czech>Postavte překážky pro vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_options">
         <Original>Bunker Options</Original>
         <Russian>Бункер</Russian>
+        <Czech>Možnosti bunkru</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_options_tooltip">
         <Original>Need to be built in garrison controlled zones and cost money</Original>
         <Russian>Должен быть построен в зонах, контролируемых гарнизоном, и стоит денег.</Russian>
+        <Czech>Je třeba postavit v zónách kontrolovaných posádkou za peníze</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_type">
         <Original>Select Bunker Type</Original>
         <Russian>Выберите тип бункера</Russian>
+        <Czech>Typ Bunkru</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_sandbag">
         <Original>Sandbag Bunker</Original>
         <Russian>Мешки с песком</Russian>
+        <Czech>Bunkr z pytle a písku</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_concrete">
         <Original>Concrete Bunker</Original>
         <Russian>Бетонный бункер</Russian>
+        <Czech>Betonový bunkr</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_tooltip">
         <Original>Requires to be in a garrisoned zone. It will be permanent</Original>
         <Russian>Требуется находиться в гарнизонной зоне. Это будет навсегда</Russian>
+        <Czech>Umístit skupinu vojáků a bránit ji</Czech>
       </Key>
     </Container>
     <Container name="squad_recruit">
       <Key ID="STR_antistasi_dialogs_squad_recruit">
         <Original>Squad Recruitment Options</Original>
         <Russian>Меню найма отряда</Russian>
+        <Czech>Možnosti náboru družstev</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_inf">
         <Original>Recruit Inf. Squad</Original>
         <Russian>Отряд</Russian>
+        <Czech>Nábor Inf. Sqvad</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_inf_team">
         <Original>Recruit Inf. Team</Original>
         <Russian>Группа</Russian>
+        <Czech>Nábor Inf. Team</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_at">
         <Original>Recruit AT Team</Original>
         <Russian>Группа ПТ</Russian>
+        <Czech>Nábor AT Team</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_sniper">
         <Original>Recruit Sniper Team</Original>
         <Russian>Группа снайперов</Russian>
+        <Czech>Nábor Sniper Team</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_mg">
         <Original>Recruit MG Team</Original>
         <Russian>Группа пулеметчиков</Russian>
+        <Czech>Nábor MG Team</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_at_car">
         <Original>Recruit AT Car</Original>
         <Russian>ПТ Техника</Russian>
+        <Czech>Nábor AT vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_aa_car">
         <Original>Recruit AA Truck</Original>
         <Russian>ПВО Техника</Russian>
+        <Czech>Nábor AA Truck</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_mortar">
         <Original>Recruit Mortar Team</Original>
         <Russian>Артилерия</Russian>
+        <Czech>Minometný Team</Czech>
       </Key>
     </Container>
     <Container name="player_money">
       <Key ID="STR_antistasi_dialogs_player_money">
         <Original>Player and Money Interaction</Original>
         <Russian>Меню Игроков и Снабжения</Russian>
+        <Czech>Možnosti hráče a peněz</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_add_member">
         <Original>Add Server Member</Original>
         <Russian>Добавить участника сервера</Russian>
+        <Czech>Přidat člena serveru</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_add_member_tooltip">
         <Original>Use this option to add the player which you are currently looking to the member's list</Original>
         <Russian>Используйте эту опцию, чтобы добавить игрока, которого вы сейчас ищете, в список участников.</Russian>
+        <Czech>Pomocí této možnosti můžete přidat hráče, do seznamu členů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_remove_member">
         <Original>Remove Server Member</Original>
         <Russian>Удалить участника сервера</Russian>
+        <Czech>Odebrat člena serveru</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_remove_member_tooltip">
         <Original>Use this option to remove the player which you are currently looking to the member's list</Original>
         <Russian>Используйте эту опцию, чтобы удалить игрока, которого вы сейчас ищете, из списка участников.</Russian>
+        <Czech>Pomocí této možnosti odeberete hráče, ze seznamu členů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_donate_player">
         <Original>Donate 100 € to player</Original>
         <Russian>Пожертвуйте 100 € игроку</Russian>
+        <Czech>Přispět hráči 100 €</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_donate_faction">
         <Original>Donate 100 € to Faction</Original>
         <Russian>Пожертвовать 100 € фракции</Russian>
+        <Czech>Přispět 100 € na frakci</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_donate_faction_tooltip">
         <Original>It will increase your prestige among your faction</Original>
         <Russian>Это повысит ваш престиж среди вашей фракции</Russian>
+        <Czech>Zvýší to vaši prestiž mezi vaší frakcí</Czech>
       </Key>
     </Container>
     <Container name="garage_sell">
       <Key ID="STR_antistasi_dialogs_garage_sell">
         <Original>Sell or Garage Vehicle?</Original>
         <Russian>Продать или поставить в гараж?</Russian>
+        <Czech>Prodat nebo garážovat vozidlo?</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_sell_add">
         <Original>Garage Vehicle</Original>
         <Russian>В гараж</Russian>
+        <Czech>V garáži</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_sell_sell">
         <Original>Sell Vehicle</Original>
         <Russian>Продать</Russian>
+        <Czech>Prodat vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_check">
         <Original>Personal or Faction Garage?</Original>
         <Russian>Личный гараж или гараж фракции?</Russian>
+        <Czech>Osobní nebo frakční garáž?</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_personal">
         <Original>Personal Garage</Original>
         <Russian>Личный</Russian>
+        <Czech>Osobní garáž</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_faction">
         <Original>Faction Garage</Original>
         <Russian>Фракции</Russian>
+        <Czech>Frakční garáž</Czech>
       </Key>
     </Container>
     <Container name="mortar_type">
       <Key ID="STR_antistasi_dialogs_mortar_type">
         <Original>Select Mortar Ammo</Original>
         <Russian>Выберите боеприпасы для минометов</Russian>
+        <Czech>Vyberte minometnou munici</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mortar_type_he">
         <Original>HE</Original>
         <Russian>ОФ</Russian>
+        <Czech>HE</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_he_tooltip">
         <Original>Cost: 10 points</Original>
         <Russian>Цена: 10 Очков</Russian>
+        <Czech>Cena: 10 bodů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mortar_type_smoke">
         <Original>Smoke</Original>
         <Russian>Дым</Russian>
+        <Czech>Kouř</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mortar_type_laser">
         <Original>Laser Guided</Original>
         <Russian>С лазерным наведением</Russian>
+        <Czech>Naváděné laserem</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_rounds_number">
         <Original>Select No. Rounds to be fired</Original>
         <Russian>Выберите кол-во снарядов</Russian>
+        <Czech>Vyberte počet granátů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_strike_type">
         <Original>Select type of strike</Original>
         <Russian>Выберите тип удара</Russian>
+        <Czech>Vyberte typ úderu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_strike_type_single">
         <Original>Single Point Strike</Original>
         <Russian>Одноточечный удар</Russian>
+        <Czech>Single Point Strike</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_strike_type_barrage">
         <Original>Barrage Strike</Original>
         <Russian>Заградительный удар</Russian>
+        <Czech>Obranný úder</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mbt_type">
         <Original>Select type ammo for the strike</Original>
         <Russian>Выберите тип боеприпасов для удара</Russian>
+        <Czech>Vyberte typ munice pro úder</Czech>
       </Key>
     </Container>
     <Container name="NATO_player">
       <Key ID="STR_antistasi_dialogs_nato_player_specop">
         <Original>SpecOp Menu</Original>
         <Russian>Меню СпН</Russian>
+        <Czech>Nabídka SpecOp</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_nato_player_quadbike">
         <Original>Quadbike</Original>
         <Russian>Квадроцикл</Russian>
+        <Czech>Čtyřkolka</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_nato_player_fast">
         <Original>Fast Travel</Original>
         <Russian>Быстрое Перемещение</Russian>
+        <Czech>Teleport</Czech>
       </Key>
     </Container>
     <Container name="squad_options">
       <Key ID="STR_antistasi_dialogs_squad_options">
         <Original>Squad Options</Original>
         <Russian>Назначение отряда</Russian>
+        <Czech>Možnosti týmu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_normal">
         <Original>Normal Squad</Original>
         <Russian>Стандарт</Russian>
+        <Czech>Normal Squad</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_engineer">
         <Original>Engineer Squad</Original>
         <Russian>Инженеры</Russian>
+        <Czech>Engineer Squad</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_mg">
         <Original>MG Squad</Original>
         <Russian>Пулеметчики</Russian>
+        <Czech>MG Squad</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_mortar">
         <Original>Mortar Squad</Original>
         <Russian>Минометчики</Russian>
+        <Czech>Mortar Squad</Czech>
       </Key>
     </Container>
     <Container name="diff_menu">
       <Key ID="STR_antistasi_dialogs_diff_menu">
         <Original>Choose difficulty</Original>
         <Russian>Выберите сложность</Russian>
+        <Czech>Vyberte obtížnost</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_diff_menu_easy">
         <Original>Easy</Original>
         <Russian>Легко</Russian>
+        <Czech>Lehký</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_diff_menu_normal">
         <Original>Normal</Original>
         <Russian>Обычный</Russian>
+        <Czech>Normální</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_diff_menu_hard">
         <Original>Hard</Original>
         <Russian>Жесткий</Russian>
+        <Czech>Obtížný</Czech>
       </Key>
     </Container>
     <Container name="gameMode_menu">
       <Key ID="STR_antistasi_dialogs_gameMode_menu">
         <Original>Select your Game Mode</Original>
         <Russian>Выберите свой игровой режим</Russian>
+        <Czech>Vyberte herní režim</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_vs_Inv">
         <Original>Reb vs Gov vs Inv</Original>
         <Russian>Зеленые vs Синие vs Красные</Russian>
+        <Czech>Reb vs Gov vs Inv</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_and_Inv">
         <Original>Reb vs Gov &amp; Inv</Original>
         <Russian>Зеленые vs Синие и Красные</Russian>
+        <Czech>Reb vs Gov &amp; Inv</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov">
         <Original>Reb vs Gov</Original>
         <Russian>Зеленые vs Синие</Russian>
+        <Czech>Reb vs Gov</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Inv">
         <Original>Reb vs Inv</Original>
         <Russian>Зеленые vs Красные</Russian>
+        <Czech>Reb vs Inv</Czech>
       </Key>
     </Container>
   </Package>

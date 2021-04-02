@@ -306,7 +306,7 @@ switch (toLower worldName) do {
 			_mrkFinal setMarkerShape "ICON";
 			_mrkFinal setMarkerType "loc_Transmitter";
 			_mrkFinal setMarkerColor "ColorBlack";
-			_mrkFinal setMarkerText localize "STR_antistasi_markers_radio";
+			_mrkFinal setMarkerText localize "STR_a3_cfgmarkers_loc_transmitter";
 			mrkAntennas pushBack _mrkFinal;
 			_x addEventHandler [
 				"Killed",
@@ -353,7 +353,7 @@ if (count _posAntennas > 0) then {
 				_mrkFinal setMarkerShape "ICON";
 				_mrkFinal setMarkerType "loc_Transmitter";
 				_mrkFinal setMarkerColor "ColorBlack";
-				_mrkFinal setMarkerText localize "STR_antistasi_markers_radio";
+				_mrkFinal setMarkerText localize "STR_a3_cfgmarkers_loc_transmitter";
 				mrkAntennas pushBack _mrkFinal;
 
 				_antenna addEventHandler [

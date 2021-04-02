@@ -6,11 +6,11 @@ private _disabledPlayerDamage = false;
 
 if (_newGame) then {
     Info("New session selected");
-	localize "STR_antistasi_customHint_startPosition" hintC [localize "STR_antistasi_customHint_startPosition1", localize "STR_antistasi_customHint_startPosition2", localize "STR_antistasi_customHint_startPosition3", localize "STR_antistasi_customHint_startPosition4"];
+	localize "STR_antistasi_customHint_startPosition" hintC [localize "STR_antistasi_customHint_startPosition_text"];
 } else {
 	player allowDamage false;
 	_disabledPlayerDamage = true;
-	format [localize "STR_antistasi_customHint_petrosDead",name petros] hintC format [localize "STR_antistasi_customHint_startPosition_petrosDead",name petros];
+	format [localize "STR_antistasi_customHint_carry_dead",name petros] hintC format [localize "STR_antistasi_customHint_startPosition_petrosDead",name petros];
 };
 
 hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{

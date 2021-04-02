@@ -4,10 +4,10 @@ if (!isServer) exitWith {
     Error("Miscalled server-only function");
 };
 
-if (savingServer) exitWith {[localize "STR_antistasi_customHint_save", localize "STR_antistasi_customHint_save_progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
+if (savingServer) exitWith {[localize "str_a3_cfgvehicles_modulesavegame_f_0", localize "STR_antistasi_customHint_save_progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 Info("Starting persistent save");
-[localize "STR_antistasi_customHint_save", localize "STR_antistasi_customHint_save_start"] remoteExec ["A3A_fnc_customHint",0,false];
+[localize "str_a3_cfgvehicles_modulesavegame_f_0", localize "STR_antistasi_customHint_save_start"] remoteExec ["A3A_fnc_customHint",0,false];
 
 // Set next autosave time, so that we won't run another shortly after a manual save
 autoSaveTime = time + autoSaveInterval;
@@ -245,5 +245,5 @@ _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlaye
 saveProfileNamespace;
 savingServer = false;
 _saveHintText = ["<t size='1.5'>",nameTeamPlayer," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
-[localize "STR_antistasi_customHint_save",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
+[localize "str_a3_cfgvehicles_modulesavegame_f_0",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
 Info("Persistent Save Completed");

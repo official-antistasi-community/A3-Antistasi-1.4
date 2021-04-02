@@ -10,7 +10,7 @@ params ["_intel"];
 
 //Take intel from desk
 private _side = _intel getVariable "side";
-[localize "STR_antistasi_customHint_intel", localize "STR_antistasi_customHint_intel_taken"] call A3A_fnc_customHint;
+[localize "STR_disp_intel_title", localize "STR_antistasi_customHint_intel_taken"] call A3A_fnc_customHint;
 private _intelText = ["Medium", _side] call A3A_fnc_selectIntel;
 [_intelText] remoteExec ["A3A_fnc_showIntel", [teamPlayer, civilian]];
 {

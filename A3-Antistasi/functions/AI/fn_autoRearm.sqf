@@ -110,7 +110,7 @@ if ((_foundItem) && (_unit getVariable "rearming")) then {
 	_unit stop false;
 	if (!((alive _selectedContainer) || (_selectedContainer isKindOf "ReammoBox_F"))) then {_selectedContainer setVariable ["busy",true]};
 	_unit doMove (getPosATL _selectedContainer);
-	if (_inPlayerGroup) then {_unit groupChat localize "STR_antistasi_chat_loot_rearming"};
+	if (_inPlayerGroup) then {_unit groupChat localize "STR_cfg_cutscenes_rearm"};
 	_timeOut = time + 60;
 	sleep 1;
 	waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
@@ -201,7 +201,7 @@ if (_secondaryWeapon != "") then {
 		_unit stop false;
 		if (!alive _selectedContainer) then {_selectedContainer setVariable ["busy",true]};
 		_unit doMove (position _selectedContainer);
-		if (_inPlayerGroup) then {_unit groupChat localize "STR_antistasi_chat_loot_rearming"};
+		if (_inPlayerGroup) then {_unit groupChat localize "STR_cfg_cutscenes_rearm"};
 		_timeOut = time + 60;
 		sleep 1;
 		waitUntil {!([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};

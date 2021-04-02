@@ -31,7 +31,7 @@ FIX_LINE_NUMBERS()
 ////////////////////
 // Authentication //
 ////////////////////
-private _optionLocalisationTable = [["maxUnits","distanceSPWN","civPerc"],[localize "STR_antistasi_customHint_AI_limit",localize "STR_antistasi_dialogs_maps_spawn_distance",localize "STR_antistasi_customHint_civ_limit"]];
+private _optionLocalisationTable = [["maxUnits","distanceSPWN","civPerc"],[localize "STR_antistasi_customHint_AI_limit",localize "STR_a3_modules_modulepatrolarea_f_attributes_spawndistance0",localize "STR_antistasi_dialogs_maps_civ_limit"]];
 private _hintTitle = localize "STR_antistasi_customHint_spawnOptions";
 private _authenticate = _option in ["maxUnits","distanceSPWN","civPerc"];
 

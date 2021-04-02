@@ -34,7 +34,7 @@ else
 	_text = localize "STR_antistasi_customHint_eligible";
 };
 
-[localize "STR_antistasi_customHint_Commander", _text] remoteExec ["A3A_fnc_customHint", _playerX];
+[localize "STR_position_commander", _text] remoteExec ["A3A_fnc_customHint", _playerX];
 
 // Will remove current boss if now ineligible
 [] call A3A_fnc_assignBossIfNone;

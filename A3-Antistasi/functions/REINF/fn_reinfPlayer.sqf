@@ -17,7 +17,7 @@ private _costs = server getVariable _typeUnit;
 private _resourcesFIA = 0;
 if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} else {_resourcesFIA = player getVariable "moneyX";};
 
-if (_costs > _resourcesFIA) exitWith {[localize "STR_antistasi_customHint_AI_Recruit", format [localize "STR_antistasi_customHint_AI_Recruit_noMoney",_costs]] call A3A_fnc_customHint;};
+if (_costs > _resourcesFIA) exitWith {[localize "STR_antistasi_customHint_AI_Recruit", format [localize "STR_antistasi_customHint_garrisons_noMoney",_costs]] call A3A_fnc_customHint;};
 
 if ((count units group player) + (count units stragglers) > 9) exitWith {[localize "STR_antistasi_customHint_AI_Recruit", localize "STR_antistasi_customHint_AI_Recruit_full"] call A3A_fnc_customHint;};
 

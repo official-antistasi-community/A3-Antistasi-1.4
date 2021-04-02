@@ -13,42 +13,42 @@ if (captive _medicX) then
     };
 if !(alive _cured) exitWith
     {
-    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_already",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_A3_Revive", format [localize "STR_antistasi_customHint_revive_already",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat format [localize "STR_antistasi_customHint_revive_already",name _cured]};
     _healed
     };
-if !([_medicX] call A3A_fnc_canFight) exitWith {if (_player) then {[localize "STR_antistasi_customHint_revive", localize "STR_antistasi_customHint_revive_noAble"] call A3A_fnc_customHint;};_healed};
+if !([_medicX] call A3A_fnc_canFight) exitWith {if (_player) then {[localize "STR_A3_Revive", localize "STR_antistasi_customHint_revive_noAble"] call A3A_fnc_customHint;};_healed};
 if  (
         (!([_medicX] call A3A_fnc_isMedic && "Medikit" in (items _medicX))) &&
         {(!("FirstAidKit" in (items _medicX))) &&
         {(!("FirstAidKit" in (items _cured)))}}
     ) exitWith
 {
-    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_need",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_A3_Revive", format [localize "STR_antistasi_customHint_revive_need",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat localize "STR_antistasi_chat_revive_noFAK_noMedkit"};
     _healed
 };
 if ((not("FirstAidKit" in (items _medicX))) and !(_medicX canAdd "FirstAidKit")) exitWith
     {
-    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_noSpace",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_A3_Revive", format [localize "STR_antistasi_customHint_revive_noSpace",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat localize "STR_antistasi_chat_revive_noFAK"};
     _healed
     };
 if ((([_cured] call A3A_fnc_fatalWound)) and !([_medicX] call A3A_fnc_isMedic)) exitWith
     {
-    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_fatal",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_A3_Revive", format [localize "STR_antistasi_customHint_revive_fatal",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat format [localize "STR_antistasi_customHint_revive_fatal",name _cured]};
     _healed
     };
 if !(isNull attachedTo _cured) exitWith
     {
-    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_carried",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_A3_Revive", format [localize "STR_antistasi_customHint_revive_carried",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat format [localize "STR_antistasi_chat_revive_carried",name _cured]};
     _healed
     };
 if !(_cured getVariable ["incapacitated",false]) exitWith
     {
-    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_long",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_A3_Revive", format [localize "STR_antistasi_customHint_revive_long",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat format [localize "STR_antistasi_chat_revive_long",name _cured]};
     _healed
     };
@@ -94,7 +94,7 @@ if (!_player) then
     }
 else
     {
-    _actionX = _medicX addAction ["Cancel Revive", {(_this select 1) setVariable ["cancelRevive",true]},nil,6,true,true,"","(_this getVariable [""helping"",false]) and (isPlayer _this)"];
+    _actionX = _medicX addAction [localize "STR_antistasi_addAction_revive_cancel", {(_this select 1) setVariable ["cancelRevive",true]},nil,6,true,true,"","(_this getVariable [""helping"",false]) and (isPlayer _this)"];
     };
 _medicX addEventHandler ["AnimDone",
 {
@@ -143,18 +143,18 @@ if (_medicX getVariable ["cancelRevive",false]) exitWith
     {
     if (_player) then
         {
-        [localize "STR_antistasi_customHint_revive", localize "STR_antistasi_customHint_revive_cancel"] call A3A_fnc_customHint;
+        [localize "STR_A3_Revive", localize "STR_antistasi_customHint_revive_cancel"] call A3A_fnc_customHint;
         _medicX setVariable ["cancelRevive",nil];
         };
     _healed
     };
 if !(alive _cured) exitWith
     {
-    if (_player) then {[localize "STR_antistasi_customHint_revive", format [localize "STR_antistasi_customHint_revive_lost",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medicX groupChat format [localize "STR_antistasi_customHint_revive_lost",name _cured]};
+    if (_player) then {[localize "STR_A3_Revive", format [localize "STR_antistasi_customHint_carry_dead",name _cured]] call A3A_fnc_customHint;};
+    if (_inPlayerGroup) then {_medicX groupChat format [localize "STR_antistasi_customHint_carry_dead",name _cured]};
     _healed
     };
-if (!([_medicX] call A3A_fnc_canFight) or (_medicX != vehicle _medicX) or (_medicX distance _cured > 3)) exitWith {if (_player) then {[localize "STR_antistasi_customHint_revive", localize "STR_antistasi_customHint_revive_cancel"] call A3A_fnc_customHint;};_healed};
+if (!([_medicX] call A3A_fnc_canFight) or (_medicX != vehicle _medicX) or (_medicX distance _cured > 3)) exitWith {if (_player) then {[localize "STR_A3_Revive", localize "STR_antistasi_customHint_revive_cancel"] call A3A_fnc_customHint;};_healed};
 
 if (_medicX getVariable ["success",true]) then
     {
@@ -169,7 +169,7 @@ if (_medicX getVariable ["success",true]) then
     }
 else
     {
-    if (_player) then {[localize "STR_antistasi_customHint_revive", localize "STR_antistasi_customHint_revive_unsuccesful"] call A3A_fnc_customHint;};
+    if (_player) then {[localize "STR_A3_Revive", localize "STR_antistasi_customHint_revive_unsuccesful"] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat localize "STR_antistasi_chat_revive_failed"};
     };
 

@@ -1,7 +1,7 @@
 private ["_typeX","_positionTel","_nearX","_garrison","_costs","_hr","_size"];
 _typeX = _this select 0;
 
-if (_typeX == "add") then {[localize "STR_antistasi_customHint_garrisons", localize "STR_antistasi_customHint_garrisons_maps_add"] call A3A_fnc_customHint;} else {[localize "STR_antistasi_customHint_garrisons", localize "STR_antistasi_customHint_garrisons_maps_remove"] call A3A_fnc_customHint;};
+if (_typeX == "add") then {[localize "STR_antistasi_journal_entry_header_commander_2", localize "STR_antistasi_customHint_garrisons_maps_add"] call A3A_fnc_customHint;} else {[localize "STR_antistasi_journal_entry_header_commander_2", localize "STR_antistasi_customHint_garrisons_maps_remove"] call A3A_fnc_customHint;};
 
 if (!visibleMap) then {openMap true};
 positionTel = [];
@@ -19,10 +19,10 @@ positionXGarr = "";
 _nearX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
 _positionX = getMarkerPos _nearX;
 
-if (getMarkerPos _nearX distance _positionTel > 40) exitWith {[localize "STR_antistasi_customHint_garrisons", localize "STR_antistasi_customHint_garrisons_marker"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
+if (getMarkerPos _nearX distance _positionTel > 40) exitWith {[localize "STR_antistasi_journal_entry_header_commander_2", localize "STR_antistasi_customHint_garrisons_marker"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
 
-if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {[localize "STR_antistasi_customHint_garrisons", format [localize "STR_antistasi_customHint_garrisons_noBelong",nameTeamPlayer]] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
-if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {[localize "STR_antistasi_customHint_garrisons", localize "STR_antistasi_customHint_garrisons_enemyZone"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu"};
+if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {[localize "STR_antistasi_journal_entry_header_commander_2", format [localize "STR_antistasi_customHint_garrisons_noBelong",nameTeamPlayer]] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
+if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {[localize "STR_antistasi_journal_entry_header_commander_2", localize "STR_antistasi_customHint_garrisons_enemyZone"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu"};
 //if (((_nearX in outpostsFIA) and !(isOnRoad _positionX)) /*or (_nearX in citiesX)*/ or (_nearX in controlsX)) exitWith {hint "You cannot manage garrisons on this kind of zone"; _nul=CreateDialog "garrison_menu"};
 _outpostFIA = if (_nearX in outpostsFIA) then {true} else {false};
 _wPost = if (_outpostFIA and !(isOnRoad getMarkerPos _nearX)) then {true} else {false};
@@ -30,7 +30,7 @@ _garrison = if (! _wpost) then {garrison getVariable [_nearX,[]]} else {SDKSnipe
 
 if (_typeX == "rem") then
 	{
-	if ((count _garrison == 0) and !(_nearX in outpostsFIA)) exitWith {[localize "STR_antistasi_customHint_garrisons", localize "STR_antistasi_customHint_garrisons_noGar"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
+	if ((count _garrison == 0) and !(_nearX in outpostsFIA)) exitWith {[localize "STR_antistasi_journal_entry_header_commander_2", localize "STR_antistasi_customHint_garrisons_noGar"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
 	_costs = 0;
 	_hr = 0;
 	{
@@ -55,14 +55,14 @@ if (_typeX == "rem") then
 		{if (_x getVariable ["markerX",""] == _nearX) then {deleteVehicle _x}} forEach allUnits;
 		};
 	[_nearX] call A3A_fnc_mrkUpdate;
-	[localize "STR_antistasi_customHint_garrisons", format [localize"STR_antistasi_customHint_garrisons_remove",_costs,_hr]] call A3A_fnc_customHint;
+	[localize "STR_antistasi_journal_entry_header_commander_2", format [localize"STR_antistasi_customHint_moveHQ_garrison_remove",_costs,_hr]] call A3A_fnc_customHint;
 	_nul=CreateDialog "build_menu";
 	}
 else
 	{
 	positionXGarr = _nearX;
 	publicVariable "positionXGarr";
-	[localize "STR_antistasi_customHint_garrisons", format ["Info%1",[_nearX] call A3A_fnc_garrisonInfo]] call A3A_fnc_customHint;
+	[localize "STR_antistasi_journal_entry_header_commander_2", format ["Info%1",[_nearX] call A3A_fnc_garrisonInfo]] call A3A_fnc_customHint;
 	closeDialog 0;
 	_nul=CreateDialog "garrison_recruit";
 	sleep 1;

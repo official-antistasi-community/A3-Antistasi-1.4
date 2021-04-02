@@ -25,7 +25,7 @@ _mrk setMarkerShape "ICON";
 
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + 60];
 _dateLimitNum = dateToNumber _dateLimit;
-[[teamPlayer,civilian],"outpostsFIA",["We are sending a team to establish a Watchpost/Roadblock. Use HC to send the team to their destination","Post \ Roadblock Deploy",_mrk],_positionTel,false,0,true,"Move",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"outpostsFIA",[localize "STR_antistasi_mission_OP_RB_text",localize "STR_antistasi_mission_OP_RB_name",_mrk],_positionTel,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 //_tsk = ["outpostsFIA",[teamPlayer,civilian],["We are sending a team to establish a Watchpost/Roadblock. Use HC to send the team to their destination","Post \ Roadblock Deploy",_mrk],_positionTel,"CREATED",5,true,true,"Move"] call BIS_fnc_setTask;
 //missionsX pushBackUnique _tsk; publicVariable "missionsX";
 _formatX = [];

@@ -1,12 +1,12 @@
-if (bombRuns < 1) exitWith {[localize "STR_antistasi_customHint_air_support", localize "STR_antistasi_customHint_air_support_noSupport"] call A3A_fnc_customHint;};
+if (bombRuns < 1) exitWith {[localize "STR_antistasi_dialogs_commander_comm_air_support", localize "STR_antistasi_customHint_air_support_noSupport"] call A3A_fnc_customHint;};
 //if (!allowPlayerRecruit) exitWith {hint "Server is very loaded. <br/>Wait one minute or change FPS settings in order to fulfill this request"};
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[localize "STR_antistasi_customHint_air_support", localize "STR_antistasi_customHint_minefields_noradio"] call A3A_fnc_customHint;} else {["Air Support", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
-if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {[localize "STR_antistasi_customHint_air_support", localize "STR_antistasi_customHint_air_support_noAirport"] call A3A_fnc_customHint;};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[localize "STR_antistasi_dialogs_commander_comm_air_support", localize "STR_antistasi_customHint_minefields_noradio"] call A3A_fnc_customHint;} else {["Air Support", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
+if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {[localize "STR_antistasi_dialogs_commander_comm_air_support", localize "STR_antistasi_customHint_air_support_noAirport"] call A3A_fnc_customHint;};
 _typeX = _this select 0;
 
 positionTel = [];
 
-[localize "STR_antistasi_customHint_air_support", localize "STR_antistasi_customHint_air_support_select"] call A3A_fnc_customHint;
+[localize "STR_antistasi_dialogs_commander_comm_air_support", localize "STR_antistasi_customHint_air_support_select"] call A3A_fnc_customHint;
 
 if (!visibleMap) then {openMap true};
 onMapSingleClick "positionTel = _pos;";
@@ -25,7 +25,7 @@ _mrkorig setMarkerTypeLocal "hd_destroy";
 _mrkorig setMarkerColorLocal "ColorRed";
 _mrkOrig setMarkerTextLocal localize "STR_antistasi_markers_bomb_init";
 
-[localize "STR_antistasi_customHint_air_support", localize "STR_antistasi_customHint_air_support_selectVector"] call A3A_fnc_customHint;
+[localize "STR_antistasi_dialogs_commander_comm_air_support", localize "STR_antistasi_customHint_air_support_selectVector"] call A3A_fnc_customHint;
 
 onMapSingleClick "positionTel = _pos;";
 

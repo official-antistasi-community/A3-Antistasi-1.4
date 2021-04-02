@@ -5,14 +5,14 @@ _enemyFaction = if (_sideX == Occupants) then {Invaders} else {Occupants};
 if (((side _enemyX == _enemyFaction) or (side _enemyX == teamPlayer)) and (_enemyX distance player < 500) and (not(captive _enemyX))) exitWith {_checkX = true};
 } forEach allUnits;
 
-if (_checkX) exitWith {[localize "STR_antistasi_customHint_fast_travel", localize "STR_antistasi_customHint_fast_travel_enemy"] call A3A_fnc_customHint;};
+if (_checkX) exitWith {[localize "STR_a3_fastravel1", localize "STR_antistasi_customHint_fast_travel_enemy"] call A3A_fnc_customHint;};
 
 if (vehicle player != player) then {if (!(canMove vehicle player)) then {_checkX = true}};
-if (_checkX) exitWith {[localize "STR_antistasi_customHint_fast_travel", localize "STR_antistasi_customHint_fast_travel_noDriver"] call A3A_fnc_customHint;};
+if (_checkX) exitWith {[localize "STR_a3_fastravel1", localize "STR_antistasi_customHint_fast_travel_noDriver"] call A3A_fnc_customHint;};
 
 positionTel = [];
 
-[localize "STR_antistasi_customHint_fast_travel", localize "STR_antistasi_customHint_fast_travel_map"] call A3A_fnc_customHint;
+[localize "STR_a3_fastravel1", localize "STR_antistasi_customHint_fast_travel_map"] call A3A_fnc_customHint;
 if (!visibleMap) then {openMap true};
 onMapSingleClick "positionTel = _pos;";
 
@@ -38,15 +38,15 @@ if (count _positionTel > 0) then
 		};
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
 
-	if ((sidesX getVariable [_base,sideUnknown] == teamPlayer) or (_base in _mrkENY)) exitWith {[localize "STR_antistasi_customHint_fast_travel", localize "STR_antistasi_customHint_fast_travel_enemy_control"] call A3A_fnc_customHint; openMap [false,false]};
+	if ((sidesX getVariable [_base,sideUnknown] == teamPlayer) or (_base in _mrkENY)) exitWith {[localize "STR_a3_fastravel1", localize "STR_antistasi_customHint_fast_travel_enemy_control"] call A3A_fnc_customHint; openMap [false,false]};
 
-	if ((!(_base in airportsX)) and (!(_base in seaports)) and (!(_base in outposts)) and (_base != _mrkRespawn)) exitWith {[localize "STR_antistasi_customHint_fast_travel", localize "STR_antistasi_customHint_fast_trevel_info"] call A3A_fnc_customHint; openMap [false,false]};
+	if ((!(_base in airportsX)) and (!(_base in seaports)) and (!(_base in outposts)) and (_base != _mrkRespawn)) exitWith {[localize "STR_a3_fastravel1", localize "STR_antistasi_customHint_fast_trevel_info"] call A3A_fnc_customHint; openMap [false,false]};
 
 	{
 		if (((side (group _x) == teamPlayer) or (side (group _x) == _enemyFaction)) and (_x distance (getMarkerPos _base) < 500) and (not(captive _x))) then {_checkX = true};
 	} forEach allUnits;
 
-	if (_checkX) exitWith {[localize "STR_antistasi_customHint_fast_travel", localize "STR_antistasi_customHint_fast_trevel_attack"] call A3A_fnc_customHint; openMap [false,false]};
+	if (_checkX) exitWith {[localize "STR_a3_fastravel1", localize "STR_antistasi_customHint_fast_trevel_attack"] call A3A_fnc_customHint; openMap [false,false]};
 
 	if (_positionTel distance getMarkerPos _base < 50) then
 		{
@@ -65,7 +65,7 @@ if (count _positionTel > 0) then
 		}
 	else
 		{
-		[localize "STR_antistasi_customHint_fast_travel", localize "STR_antistasi_customHint_fast_trevel_click"] call A3A_fnc_customHint;
+		[localize "STR_a3_fastravel1", localize "STR_antistasi_customHint_fast_trevel_click"] call A3A_fnc_customHint;
 		};
 	};
 openMap false;

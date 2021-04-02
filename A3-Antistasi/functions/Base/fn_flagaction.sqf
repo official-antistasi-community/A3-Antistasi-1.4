@@ -21,7 +21,7 @@ switch _typeX do
     };
     case "vehicle":
     {
-        _flag addAction [localize "STR_antistasi_customHint_buy_vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_customHint_buy_vehicle", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
+        _flag addAction [localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
     };
     case "mission":
     {
@@ -40,13 +40,13 @@ switch _typeX do
         {
             if ([_flag] call A3A_fnc_fatalWound) then
             {
-                _actionX = _flag addAction [format [localize "STR_antistasi_addAction_revive" + "<img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,true,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];
-                _flag setUserActionText [_actionX,format [localize "STR_antistasi_addAction_revive",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/></t>"];
+                _actionX = _flag addAction [format [localize "STR_A3_ReviveName" + "<img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,true,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];
+                _flag setUserActionText [_actionX,format [localize "STR_A3_ReviveName",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/></t>"];
             }
             else
             {
-                _actionX = _flag addAction [format [localize "STR_antistasi_addAction_revive" + "<img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,true,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];
-                _flag setUserActionText [_actionX,format [localize "STR_antistasi_addAction_revive",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/></t>"];
+                _actionX = _flag addAction [format [localize "STR_A3_ReviveName" + "<img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,true,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];
+                _flag setUserActionText [_actionX,format [localize "STR_A3_ReviveName",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/></t>"];
             };
         };
     };
@@ -56,13 +56,13 @@ switch _typeX do
         {
             if ([_flag] call A3A_fnc_fatalWound) then
             {
-                _actionX = _flag addAction [format [localize "STR_antistasi_addAction_revive" + "<img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,false,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];
-                _flag setUserActionText [_actionX,format [localize "STR_antistasi_addAction_revive",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/></t>"];
+                _actionX = _flag addAction [format [localize "STR_A3_ReviveName" + "<img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,false,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];
+                _flag setUserActionText [_actionX,format [localize "STR_A3_ReviveName",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/></t>"];
             }
             else
             {
-                _actionX = _flag addAction [format [localize "STR_antistasi_addAction_revive" + "<img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,false,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];
-                _flag setUserActionText [_actionX,format [localize "STR_antistasi_addAction_revive",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/></t>"];
+                _actionX = _flag addAction [format [localize "STR_A3_ReviveName" + "<img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,false,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];
+                _flag setUserActionText [_actionX,format [localize "STR_A3_ReviveName",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/></t>"];
             };
             //_flag addAction [format ["Revive %1",name _flag], { _this spawn A3A_fnc_actionRevive; },nil,0,false,true,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)"];
 
@@ -107,7 +107,7 @@ switch _typeX do
     {
         // Uses the optional param to determine whether the call of captureX is a release or a recruit
         _flag addAction [localize "STR_antistasi_addAction_liberate_POW" + "<img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa' size='1.6' shadow=2 />", { _this spawn A3A_fnc_captureX; },false,6,true,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        _flag addAction [localize "STR_antistasi_addAction_recruit", { _this spawn A3A_fnc_captureX; },true,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+        _flag addAction [localize "STR_antistasi_journal_entry_header_AI_1", { _this spawn A3A_fnc_captureX; },true,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         _flag addAction [localize "STR_antistasi_addAction_interrogate", A3A_fnc_interrogate,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
     };
     case "buildHQ":
@@ -122,12 +122,12 @@ switch _typeX do
     {
         if (isMultiplayer) then
         {
-            _flag addAction [localize "STR_antistasi_addAction_personGarage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage;},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4];
-            _flag addAction [localize "STR_antistasi_addAction_factionGarage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4];
+            _flag addAction [localize "STR_antistasi_personal_garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage;},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4];
+            _flag addAction [localize "STR_antistasi_faction_garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4];
         }
         else
         {
-            _flag addAction [localize "STR_antistasi_addAction_factionGarage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4]
+            _flag addAction [localize "STR_antistasi_faction_garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4]
         };
     };
     case "fireX":
@@ -142,27 +142,27 @@ switch _typeX do
     {
         removeAllActions _flag;
         _flag addAction [localize "STR_antistasi_customHint_unit_recruit", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_customHint_unit_recruit", localize "STR_antistasi_customHint_unit_recruit_enemies"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        _flag addAction [localize "STR_antistasi_customHint_buy_vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_customHint_buy_vehicle", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+        _flag addAction [localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         if (isMultiplayer) then
         {
-            _flag addAction [localize "STR_antistasi_addAction_personGarage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-            _flag addAction [localize "STR_antistasi_addAction_factionGarage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+            _flag addAction [localize "STR_antistasi_personal_garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+            _flag addAction [localize "STR_antistasi_faction_garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         }
         else
         {
-            _flag addAction [localize "STR_antistasi_addAction_factionGarage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
+            _flag addAction [localize "STR_antistasi_faction_garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
         };
     };
     case "Intel_Small":
     {
-        _flag addAction [localize "STR_antistasi_addAction_intelBody", A3A_fnc_searchIntelOnLeader, nil, 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction [localize "STR_A3_Showcase_Marksman_BIS_tskIntel_title", A3A_fnc_searchIntelOnLeader, nil, 4, true, false, "", "isPlayer _this", 4];
     };
     case "Intel_Medium":
     {
-        _flag addAction [localize "STR_antistasi_addAction_intelDossier", A3A_fnc_searchIntelOnDocument, nil, 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction [localize "STR_a3_bis_fnc_initintelobject_take", A3A_fnc_searchIntelOnDocument, nil, 4, true, false, "", "isPlayer _this", 4];
     };
     case "Intel_Large":
     {
-        _flag addAction [localize "STR_antistasi_addAction_intelDownload", A3A_fnc_searchIntelOnLaptop, nil, 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction [localize "STR_a3_endgame_misc_downloadintel", A3A_fnc_searchIntelOnLaptop, nil, 4, true, false, "", "isPlayer _this", 4];
     };
 };

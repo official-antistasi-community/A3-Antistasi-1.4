@@ -1,10 +1,10 @@
 private ["_typeGroup","_esinf","_typeVehX","_costs","_costHR","_exit","_formatX","_pos","_hr","_resourcesFIA","_groupX","_roads","_road","_truckX","_vehicle","_mortarX","_morty"];
 
-if (player != theBoss) exitWith {[localize "STR_antistasi_customHint_recruit_squad", localize "STR_antistasi_customHint_only_comander"] call A3A_fnc_customHint;};
+if (player != theBoss) exitWith {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_only_comander"] call A3A_fnc_customHint;};
 
-if (markerAlpha respawnTeamPlayer == 0) exitWith {[localize "STR_antistasi_customHint_recruit_squad", localize "STR_antistasi_customHint_recruit_moveHQ"] call A3A_fnc_customHint;};
+if (markerAlpha respawnTeamPlayer == 0) exitWith {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_recruit_moveHQ"] call A3A_fnc_customHint;};
 
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[localize "STR_antistasi_customHint_recruit_squad", localize "STR_antistasi_customHint_minefields_noradio"] call A3A_fnc_customHint;} else {["Recruit Squad", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_minefields_noradio"] call A3A_fnc_customHint;} else {["Recruit Squad", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
 
 private _enemyNear = false;
 
@@ -12,19 +12,19 @@ private _enemyNear = false;
 	if (((side _x == Invaders) or (side _x == Occupants)) and (_x distance petros < 500) and ([_x] call A3A_fnc_canFight) and !(isPlayer _x)) exitWith {_enemyNear = true};
 } forEach allUnits;
 
-if (_enemyNear) exitWith {[localize "STR_antistasi_customHint_recruit_squad", localize "STR_antistasi_customHint_recruit_enemy"] call A3A_fnc_customHint;};
+if (_enemyNear) exitWith {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_recruit_enemy"] call A3A_fnc_customHint;};
 
 _typeGroup = _this select 0;
 _exit = false;
 
 if (_typeGroup isEqualType "") then {
-	if (_typeGroup == "not_supported") then {_exit = true; [localize "STR_antistasi_customHint_recruit_squad", localize "STR_antistasi_customHint_recruit_modset"] call A3A_fnc_customHint;};
-	if (A3A_hasIFA and ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) and !debug) then {_exit = true; [localize "STR_antistasi_customHint_recruit_squad", localize "STR_antistasi_customHint_recruit_modset"] call A3A_fnc_customHint;};
+	if (_typeGroup == "not_supported") then {_exit = true; [localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_recruit_modset"] call A3A_fnc_customHint;};
+	if (A3A_hasIFA and ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) and !debug) then {_exit = true; [localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_recruit_modset"] call A3A_fnc_customHint;};
 };
 
 if (A3A_hasRHS) then {
 	if (_typeGroup isEqualType objNull) then {
-		if (_typeGroup == staticATteamPlayer) then {[localize "STR_antistasi_customHint_recruit_squad", localize "STR_antistasi_customHint_recruit_gref"] call A3A_fnc_customHint; _exit = true};
+		if (_typeGroup == staticATteamPlayer) then {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_recruit_gref"] call A3A_fnc_customHint; _exit = true};
 	};
 };
 
@@ -66,11 +66,11 @@ if (_typeGroup isEqualType []) then {
 	};
 };
 
-if ((_withBackpck != "") and A3A_hasIFA) exitWith {[localize "STR_antistasi_customHint_recruit_squad", localize "STR_antistasi_customHint_recruit_modset_static"] call A3A_fnc_customHint;};
+if ((_withBackpck != "") and A3A_hasIFA) exitWith {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_recruit_modset_static"] call A3A_fnc_customHint;};
 
-if (_hr < _costHR) then {_exit = true; [localize "STR_antistasi_customHint_recruit_squad", format [localize "STR_antistasi_customHint_recruit_noHR",_costHR]] call A3A_fnc_customHint;};
+if (_hr < _costHR) then {_exit = true; [localize "STR_antistasi_journal_entry_header_commander_9", format [localize "STR_antistasi_customHint_recruit_noHR",_costHR]] call A3A_fnc_customHint;};
 
-if (_resourcesFIA < _costs) then {_exit = true; [localize "STR_antistasi_customHint_recruit_squad", format [localize "STR_antistasi_customHint_recruit_noMoney",_costs]] call A3A_fnc_customHint;};
+if (_resourcesFIA < _costs) then {_exit = true; [localize "STR_antistasi_journal_entry_header_commander_9", format [localize "STR_antistasi_customHint_recruit_noMoney",_costs]] call A3A_fnc_customHint;};
 
 if (_exit) exitWith {};
 
@@ -162,7 +162,7 @@ if (_esinf) then {
 {[_x] call A3A_fnc_FIAinit} forEach units _groupX;
 theBoss hcSetGroup [_groupX];
 petros directSay "SentGenReinforcementsArrived";
-[localize "STR_antistasi_customHint_recruit_squad", format [localize "STR_antistasi_customHint_recruit_info", groupID _groupX]] call A3A_fnc_customHint;
+[localize "STR_antistasi_journal_entry_header_commander_9", format [localize "STR_antistasi_customHint_recruit_info", groupID _groupX]] call A3A_fnc_customHint;
 if (!_esinf) exitWith {};
 if !(_bypassAI) then {_groupX spawn A3A_fnc_attackDrillAI};
 
@@ -208,5 +208,5 @@ _purchasedVehicle setVariable ["owner",_groupX,true];
 [0, - _costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 leader _groupX assignAsDriver _purchasedVehicle;
 {[_x] orderGetIn true; [_x] allowGetIn true} forEach units _groupX;
-[localize "STR_antistasi_customHint_recruit_squad", localize "STR_antistasi_customHint_recruit_veh"] call A3A_fnc_customHint;
+[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_recruit_veh"] call A3A_fnc_customHint;
 petros directSay "SentGenBaseUnlockVehicle";

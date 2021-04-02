@@ -1,8 +1,8 @@
 private ["_typeX","_costs","_positionTel","_quantity","_quantityMax"];
 
-if (["Mines"] call BIS_fnc_taskExists) exitWith {[localize "STR_antistasi_customHint_minefields", localize "STR_antistasi_customHint_minefields_one"] call A3A_fnc_customHint;};
+if (["Mines"] call BIS_fnc_taskExists) exitWith {[localize "STR_antistasi_journal_entry_header_commander_10", localize "STR_antistasi_customHint_minefields_one"] call A3A_fnc_customHint;};
 
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[localize "STR_antistasi_customHint_minefields", localize "STR_antistasi_customHint_minefields_noradio"] call A3A_fnc_customHint;} else {["Minefields", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[localize "STR_antistasi_journal_entry_header_commander_10", localize "STR_antistasi_customHint_minefields_noradio"] call A3A_fnc_customHint;} else {["Minefields", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
 
 _typeX = _this select 0;
 
@@ -13,11 +13,11 @@ if (_typeX == "delete") then
 	_costs = _costs - (server getVariable (SDKExp select 0));
 	_hr = 1;
 	};
-if ((server getVariable "resourcesFIA" < _costs) or (server getVariable "hr" < _hr)) exitWith {[localize "STR_antistasi_customHint_minefields", format [localize "STR_antistasi_customHint_minefields_no_resources",_costs,_hr]] call A3A_fnc_customHint;};
+if ((server getVariable "resourcesFIA" < _costs) or (server getVariable "hr" < _hr)) exitWith {[localize "STR_antistasi_journal_entry_header_commander_10", format [localize "STR_antistasi_customHint_minefields_no_resources",_costs,_hr]] call A3A_fnc_customHint;};
 
 if (_typeX == "delete") exitWith
 	{
-	[localize "STR_antistasi_customHint_minefields", localize "STR_antistasi_customHint_minefields_HC"] call A3A_fnc_customHint;
+	[localize "STR_antistasi_journal_entry_header_commander_10", localize "STR_antistasi_customHint_minefields_HC"] call A3A_fnc_customHint;
 	[[],"A3A_fnc_mineSweep"] remoteExec ["A3A_fnc_scheduler",2];
 	};
 
@@ -37,11 +37,11 @@ if (_typeX == "ATMine") then
 if (_x select 0 == _typeM) exitWith {_quantity = _x select 1}
 } forEach _pool;
 
-if (_quantity < 5) exitWith {[localize "STR_antistasi_customHint_minefields",format [localize "STR_antistasi_customHint_minefields_no_mine",5]] call A3A_fnc_customHint;};
+if (_quantity < 5) exitWith {[localize "STR_antistasi_journal_entry_header_commander_10",format [localize "STR_antistasi_customHint_minefields_no_mine",5]] call A3A_fnc_customHint;};
 
 if (!visibleMap) then {openMap true};
 positionTel = [];
-[localize "STR_antistasi_customHint_minefields", localize "STR_antistasi_customHint_minefields_map"] call A3A_fnc_customHint;
+[localize "STR_antistasi_journal_entry_header_commander_10", localize "STR_antistasi_customHint_minefields_map"] call A3A_fnc_customHint;
 
 onMapSingleClick "positionTel = _pos;";
 

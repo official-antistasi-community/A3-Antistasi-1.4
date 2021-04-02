@@ -119,11 +119,11 @@ if (player getVariable ["pvp",false]) exitWith {
 			if (!A3A_hasACEhearing) then {
 				if (soundVolume <= 0.5) then {
 					0.5 fadeSound 1;
-					[localize "STR_antistasi_customHint_ear", localize "STR_antistasi_customHint_ear_off", true] call A3A_fnc_customHint;
+					[localize "STR_antistasi_journal_entry_header_SpecialK_5", localize "STR_antistasi_customHint_ear_off", true] call A3A_fnc_customHint;
 				}
 				else {
 					0.5 fadeSound 0.1;
-					[localize "STR_antistasi_customHint_ear", localize "STR_antistasi_customHint_ear_on", true] call A3A_fnc_customHint;
+					[localize "STR_antistasi_journal_entry_header_SpecialK_5", localize "STR_antistasi_customHint_ear_on", true] call A3A_fnc_customHint;
 				};
 			};
 		}
@@ -289,7 +289,7 @@ player addEventHandler ["GetInMan", {
 			if (!isNil "_owner") then {
 				if (_owner isEqualType "") then {
 					if ({getPlayerUID _x == _owner} count (units group player) == 0) then {
-						[localize "STR_antistasi_customHint_warning", localize "STR_antistasi_customHint_other_group"] call A3A_fnc_customHint;
+						[localize "STR_A3_C_in1_notifLeaving_AoA1_title", localize "STR_antistasi_customHint_other_group"] call A3A_fnc_customHint;
 						moveOut _unit;
 						_exit = true;
 					};
@@ -382,7 +382,7 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 		[A3A_hasACE,"ACE 3",localize "STR_antistasi_cutText_detect_ACE"],
 		[A3A_hasACEMedical,"ACE 3 Medical",localize "STR_antistasi_cutText_detect_ACE_Medical"],
 		[A3A_hasRHS,"RHS",localize "STR_antistasi_cutText_detect_RHS"],
-		[A3A_has3CBFactions,localize "3CB Factions","STR_antistasi_cutText_detect_3CB_Factions"],
+		[A3A_has3CBFactions,"3CB Factions","STR_antistasi_cutText_detect_3CB_Factions"],
 		[A3A_has3CBBAF,"3CB BAF",localize "STR_antistasi_cutText_detect_3CB_BAF"],
 		[A3A_hasFFAA,"FFAA",localize "STR_antistasi_cutText_detect_FFAA"],
 		[A3A_hasIvory,"Ivory Cars",localize "STR_antistasi_cutText_detect_Ivory_Cars"]
@@ -393,7 +393,7 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 
 	if (count _modsAndLoadText isEqualTo 0) exitWith {};
 	private _textXML = "<t align='left'>" + ((_modsAndLoadText apply { "<t color='#f0d498'>" + _x#1 + ":</t>" + _x#2 }) joinString "<br/>") + "</t>";
-	["Loaded Mods",_textXML] call A3A_fnc_customHint;
+	[localize "STR_antistasi_cutText_detect_head",_textXML] call A3A_fnc_customHint;
 };
 
 waituntil {!isnull (finddisplay 46)};
@@ -441,10 +441,10 @@ vehicleBox addAction [localize "STR_antistasi_addAction_healRepairRearm", A3A_fn
 vehicleBox addAction [localize "STR_antistasi_addAction_vehArsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 if (isMultiplayer) then {
-	vehicleBox addAction [localize "STR_antistasi_addAction_personGarage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+	vehicleBox addAction [localize "STR_antistasi_personal_garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 };
-vehicleBox addAction [localize "STR_antistasi_addAction_factionGarage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-vehicleBox addAction [localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_customHint_buy_vehicle", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction [localize "STR_antistasi_faction_garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction [localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 if (LootToCrateEnabled) then {
@@ -456,9 +456,9 @@ fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 
 mapX allowDamage false;
-mapX addAction ["Game Options", {
+mapX addAction [localize "STR_disp_options_game_options", {
 	[
-		localize "STR_antistasi_customHint_game_options",
+		localize "STR_disp_options_game_options",
 		localize "STR_antistasi_customHint_info_version"+ antistasiVersion +
 		localize "STR_antistasi_customHint_info_difficulty"+ ( [localize "STR_antistasi_dialogs_diff_menu_easy",localize "STR_antistasi_dialogs_diff_menu_normal",localize "STR_antistasi_dialogs_diff_menu_hard"] select ((skillMult-1) min 2) ) +
 		localize "STR_antistasi_customHint_info_unlockWeapon"+ str minWeaps +
@@ -470,9 +470,9 @@ mapX addAction ["Game Options", {
 	CreateDialog "game_options";
 	nil;
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-mapX addAction [localize "STR_antistasi_addAction_map", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+mapX addAction [localize "STR_antistasi_journal_entry_header_Options_1", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 mapX addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
+if (isMultiplayer) then {mapX addAction [localize "STR_antistasi_addAction_AI_info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 [] execVM "OrgPlayers\unitTraits.sqf";
 
 // only add petros actions if he's static

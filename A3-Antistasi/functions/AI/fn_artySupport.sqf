@@ -1,6 +1,6 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-if (count hcSelected player == 0) exitWith {[localize "STR_antistasi_customHint_artillery", localize "STR_antistasi_customHint_artillery_no_select"] call A3A_fnc_customHint;};
+if (count hcSelected player == 0) exitWith {[localize "STR_a3_tactics_artillerycall1", localize "STR_antistasi_customHint_artillery_no_select"] call A3A_fnc_customHint;};
 
 private ["_groups","_artyArray","_artyRoundsArr","_hasAmmunition","_areReady","_hasArtillery","_areAlive","_soldierX","_veh","_typeAmmunition","_typeArty","_positionTel","_artyArrayDef1","_artyRoundsArr1","_piece","_isInRange","_positionTel2","_rounds","_roundsMax","_markerX","_size","_forcedX","_textX","_mrkFinal","_mrkFinal2","_timeX","_eta","_countX","_pos","_ang"];
 
@@ -59,11 +59,11 @@ if ((_veh != _soldierX) and (not(_veh in _artyArray))) then
 	};
 } forEach _unitsX;
 
-if (!_hasArtillery) exitWith {[localize "STR_antistasi_customHint_artillery",localize "STR_antistasi_customHint_artillery_no_select_2"] call A3A_fnc_customHint;};
-if (!_areAlive) exitWith {[localize "STR_antistasi_customHint_artillery",localize "STR_antistasi_customHint_artillery_off"] call A3A_fnc_customHint;};
-if ((_hasAmmunition < 2) and (!_areReady)) exitWith {[localize "STR_antistasi_customHint_artillery", localize "STR_antistasi_customHint_artillery_no_ammo"] call A3A_fnc_customHint;};
-if (!_areReady) exitWith {[localize "STR_antistasi_customHint_artillery", localize "STR_antistasi_customHint_artillery_busy"] call A3A_fnc_customHint;};
-if (_typeAmmunition == "not_supported") exitWith {[localize "STR_antistasi_customHint_artillery", localize "STR_antistasi_customHint_artillery_type"] call A3A_fnc_customHint;};
+if (!_hasArtillery) exitWith {[localize "STR_a3_tactics_artillerycall1",localize "STR_antistasi_customHint_artillery_no_select_2"] call A3A_fnc_customHint;};
+if (!_areAlive) exitWith {[localize "STR_a3_tactics_artillerycall1",localize "STR_antistasi_customHint_artillery_off"] call A3A_fnc_customHint;};
+if ((_hasAmmunition < 2) and (!_areReady)) exitWith {[localize "STR_a3_tactics_artillerycall1", localize "STR_antistasi_customHint_artillery_no_ammo"] call A3A_fnc_customHint;};
+if (!_areReady) exitWith {[localize "STR_a3_tactics_artillerycall1", localize "STR_antistasi_customHint_artillery_busy"] call A3A_fnc_customHint;};
+if (_typeAmmunition == "not_supported") exitWith {[localize "STR_a3_tactics_artillerycall1", localize "STR_antistasi_customHint_artillery_type"] call A3A_fnc_customHint;};
 if (isNil "_typeAmmunition") exitWith {};
 
 hcShowBar false;
@@ -89,7 +89,7 @@ typeArty = nil;
 
 positionTel = [];
 
-[localize "STR_antistasi_customHint_artillery", localize "STR_antistasi_customHint_artillery_map"] call A3A_fnc_customHint;
+[localize "STR_a3_tactics_artillerycall1", localize "STR_antistasi_customHint_artillery_map"] call A3A_fnc_customHint;
 
 if (!visibleMap) then {openMap true};
 onMapSingleClick "positionTel = _pos;";
@@ -115,7 +115,7 @@ for "_i" from 0 to (count _artyArray) - 1 do
 		};
 	};
 
-if (count _artyArrayDef1 == 0) exitWith {[localize "STR_antistasi_customHint_artillery", localize "STR_antistasi_customHint_artillery_bounds"] call A3A_fnc_customHint;};
+if (count _artyArrayDef1 == 0) exitWith {[localize "STR_a3_tactics_artillerycall1", localize "STR_antistasi_customHint_artillery_bounds"] call A3A_fnc_customHint;};
 
 _mrkFinal = createMarkerLocal [format ["Arty%1", random 100], _positionTel];
 _mrkFinal setMarkerShapeLocal "ICON";
@@ -127,7 +127,7 @@ if (_typeArty == "BARRAGE") then
 	_mrkFinal setMarkerTextLocal localize "STR_antistasi_markers_art_begin";
 	positionTel = [];
 
-	[localize "STR_antistasi_customHint_artillery", localize "STR_antistasi_customHint_artillery_barrage"] call A3A_fnc_customHint;
+	[localize "STR_a3_tactics_artillerycall1", localize "STR_antistasi_customHint_artillery_barrage"] call A3A_fnc_customHint;
 
 	if (!visibleMap) then {openMap true};
 	onMapSingleClick "positionTel = _pos;";
@@ -201,7 +201,7 @@ if (_typeArty == "BARRAGE") then
 		private ["_timeX"];
 		_timeX = _this select 0;
 		waitUntil {sleep 1; time > _timeX};
-		[petros,"sideChat", localize "STR_antistasi_chat_airSupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+		[petros,"sideChat", localize "STR_a3_splash__out_"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 		};
 	};
 
@@ -266,7 +266,7 @@ if (_typeArty != "BARRAGE") then
 if (_typeArty != "BARRAGE") then
 	{
 	waitUntil {sleep 1; time > _timeX};
-	[petros,"sideChat", localize "STR_antistasi_chat_airSupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[petros,"sideChat", localize "STR_a3_splash__out_"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};
 sleep 10;
 deleteMarkerLocal _mrkFinal;

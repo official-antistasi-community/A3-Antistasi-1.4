@@ -9,8 +9,8 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 	_mrkD setMarkerColor colorTeamPlayer;
 	if (_markerX in airportsX) then
 		{
-		_textX = format ["%2 Airbase%1",_textX,nameTeamPlayer];
-		[_mrkD,format ["%1 Airbase",nameTeamPlayer]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
+		_textX = format [localize "STR_antistasi_markers_Airbase_teamPlayer",_textX,nameTeamPlayer];
+		[_mrkD,format [localize "STR_antistasi_markers_Airbase",nameTeamPlayer]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
 		//_mrkD setMarkerText format ["SDK Airbase%1",_textX];
 		if (markerType _mrkD != "flag_FIA") then {_mrkD setMarkerType "flag_FIA"};
 		_mrkD setMarkerColor "Default";
@@ -19,20 +19,20 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 		{
 		if (_markerX in outposts) then
 			{
-			_textX = format ["%2 Outpost%1",_textX,nameTeamPlayer];
-			[_mrkD,format ["%1 Outpost",nameTeamPlayer]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
+			_textX = format [localize "STR_antistasi_markers_Outpos_teamPlayer",_textX,nameTeamPlayer];
+			[_mrkD,format [localize "STR_antistasi_markers_Outpost",nameTeamPlayer]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
 			}
 		else
 			{
 			 if (_markerX in resourcesX) then
 			 	{
-			 	_textX = format ["Resources%1",_textX];
+			 	_textX = format [localize "STR_antistasi_customHint_stat_resources3",_textX];
 			 	}
 			 else
 			 	{
 			 	if (_markerX in factories) then
             		{
-            		_textX = format ["Factory%1",_textX];
+            		_textX = format [localize "STR_antistasi_customHint_stat_factory3",_textX];
             		}
             	else
             		{
@@ -49,7 +49,7 @@ else
 		{
 		if (_markerX in airportsX) then
 			{
-			_mrkD setMarkerText format ["%1 Airbase",nameOccupants];
+			_mrkD setMarkerText format [localize "STR_antistasi_markers_Airbase",nameOccupants];
 			_mrkD setMarkerType flagNATOmrk;
 			_mrkD setMarkerColor "Default";
 			}
@@ -57,7 +57,7 @@ else
 			{
 			if (_markerX in outposts) then
 				{
-				_mrkD setMarkerText format ["%1 Outpost",nameOccupants]
+				_mrkD setMarkerText format [localize "STR_antistasi_markers_Outpost",nameOccupants]
 				};
 			_mrkD setMarkerColor colorOccupants;
 			};
@@ -66,7 +66,7 @@ else
 		{
 		if (_markerX in airportsX) then
 			{
-			_mrkD setMarkerText format ["%1 Airbase",nameInvaders];
+			_mrkD setMarkerText format [localize "STR_antistasi_markers_Airbase",nameInvaders];
 			_mrkD setMarkerType flagCSATmrk;
 			_mrkD setMarkerColor "Default";
 			}
@@ -74,20 +74,20 @@ else
 			{
 			if (_markerX in outposts) then
 				{
-				_mrkD setMarkerText format ["%1 Outpost",nameInvaders];
+				_mrkD setMarkerText format [localize "STR_antistasi_markers_Outpost",nameInvaders];
 				};
 			_mrkD setMarkerColor colorInvaders;
 			};
 		};
 	if (_markerX in resourcesX) then
 	 	{
-			_mrkD setMarkerText localize "STR_antistasi_markers_Resources";
+			_mrkD setMarkerText localize "STR_antistasi_journal_entry_header_tutorial_5";
 	 	}
 	 else
 	 	{
 	 	if (_markerX in factories) then
     		{
-					_mrkD setMarkerText localize "STR_antistasi_markers_Factory";
+					_mrkD setMarkerText localize "STR_a3_cfgvehicles_land_factory_main_f0";
     		}
     	else
     		{

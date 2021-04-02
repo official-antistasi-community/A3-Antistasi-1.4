@@ -45,7 +45,7 @@ _strikePlane addEventHandler
     {
         params ["_strikePlane"];
         Info_1("Plane for %1 destroyed, airstrike aborted", _strikePlane getVariable "supportName");
-        ["TaskSucceeded", ["", "Airstrike Vessel Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+        ["TaskSucceeded", ["", localize "STR_antistasi_notification_airstrike_destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
         private _timerArray = _strikePlane getVariable "TimerArray";
         private _timerIndex = _strikePlane getVariable "TimerIndex";
         _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 3600];
@@ -69,7 +69,7 @@ _pilot addEventHandler
     "Killed",
     {
         params ["_unit"];
-        ["TaskSucceeded", ["", "Airstrike crew killed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+        ["TaskSucceeded", ["", localize "STR_antistasi_notification_airstrike_crewKilled"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
         private _strikePlane = _unit getVariable "Plane";
         Info_1("Crew for %1 killed, airstrike aborted", _strikePlane getVariable "supportName");
         private _timerArray = _strikePlane getVariable "TimerArray";

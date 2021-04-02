@@ -142,7 +142,7 @@ _mortar addEventHandler
     "Killed",
     {
         params ["_mortar"];
-        ["TaskSucceeded", ["", "Mortar Support Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+        ["TaskSucceeded", ["", localize "STR_antistasi_notification_mortar_destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
         private _timerArray = _mortar getVariable "TimerArray";
         private _timerIndex = _mortar getVariable "TimerIndex";
         _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 7200];
@@ -156,7 +156,7 @@ _mortar addEventHandler
         params ["_vehicle", "_role", "_unit", "_turret"];
         if(side (group _unit) == teamPlayer) then
         {
-            ["TaskSucceeded", ["", "Mortar Support Stolen"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+            ["TaskSucceeded", ["", localize "STR_antistasi_notification_mortar_stolen"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
             _vehicle setVariable ["Stolen", true, true];
             _vehicle removeAllEventHandlers "GetIn";
             private _timerArray = _vehicle getVariable "TimerArray";
@@ -176,7 +176,7 @@ _mortarGroup setVariable ["Mortar", _mortar, true];
             private _group = group _unit;
             if({alive _x} count (units _group) == 0) then
             {
-                ["TaskSucceeded", ["", "Mortar Support crew killed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+                ["TaskSucceeded", ["", localize "STR_antistasi_notification_mortar_crewKilled"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
                 private _mortar = _group getVariable "Mortar";
                 private _timerArray = _mortar getVariable "TimerArray";
                 private _timerIndex = _mortar getVariable "TimerIndex";

@@ -17,7 +17,7 @@ _civilians = [];
 Info_2("Launching CSAT Punish Against %1 from %2", _attackDestination, _attackOrigin);
 
 _nameDestination = [_attackDestination] call A3A_fnc_localizar;
-[[teamPlayer,civilian,Occupants],"invaderPunish",[format ["%2 is attacking innocent civilians in %1! Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian,Occupants],"invaderPunish",[format [localize "STR_antistasi_mission_invader_text",_nameDestination,nameInvaders],format [localize "STR_antistasi_mission_invader_name",nameInvaders],_attackDestination],getMarkerPos _attackDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 
 private _reveal = [_posDestination, Invaders] call A3A_fnc_calculateSupportCallReveal;
 [_posDestination, 4, ["MORTAR"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];

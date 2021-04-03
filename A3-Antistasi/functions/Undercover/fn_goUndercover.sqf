@@ -195,7 +195,7 @@ while {_reason == ""} do
                 _reason = "clothes"
             };
         };
-        if (dateToNumber date < _compromised) exitWith
+        if (dateToNumber date < (player getVariable ["compromised", 0])) exitWith
         {
             _reason = "Compromised";
         };

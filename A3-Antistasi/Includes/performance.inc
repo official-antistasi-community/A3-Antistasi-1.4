@@ -9,7 +9,7 @@
         Batch:   Colection of times with notes over elapsed time
             startBatch(X)   - Starts Counting
             markBatch(X,C)  - Marks elapsed time with note C
-            stopBatch(X)    - Stios counting and logs the marks in the batch
+            stopBatch(X,C)    - Stios counting and logs the marks in the batch
 
         Note: X must be none string, C must be string
 
@@ -78,5 +78,5 @@
 
     #define startBatch(X)
     #define markBatch(X, C)
-    #define stopBatch(X)
+    #define stopBatch(X, C)
 #endif

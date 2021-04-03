@@ -45,18 +45,33 @@
 #endif
 
 #if diag_performance
-    if (isNil "HR_performanceCounters") then {HR_performanceCounters = createHashMap};
 
-    #define startCounter(X) HR_performanceCounters set [X, diag_tickTime]
-    #define stopCounter(X) private _performanceCounters_time = diag_tickTime; private _performanceCounters_base = HR_performanceCounters deleteAt X; \
-    if (isNil "_performanceCounters_base") then {diag_log text ("Performance Counter | Error flag not found: " + X)} else { \
-    diag_log text ("Performance Counter | " + X + " | Time: " + str ((_performanceCounters_time - _performanceCounters_base) * 1000 ) + " ms")}
+    #define startCounter(X) HR_performanceCounter_##X = diag_tickTime;
+    #define stopCounter(X) \
+        private _HR_perf_counter_time = diag_tickTime; \
+        if (isNil {HR_performanceCounter_##X}) then { \
+            diag_log text ("Performance Counter | Error flag not found: " + #X) \
+        } else { \
+            diag_log text ("Performance Counter | " + #X + " | Time: " + str ((_HR_perf_counter_time - HR_performanceCounter_##X) * 1000 ) + " ms") \
+        }; \
+        HR_performanceCounter_##X = nil;
 
-    #define startBatch(X) HR_performanceCounters set [X+"_Batch", []]; HR_performanceCounters set [X+"_StartTime", diag_tickTime]
-    #define markBatch(X, C) (HR_performanceCounters getOrDefault [X+"_Batch", []]) pushBack [C, diag_tickTime]
-    #define stopBatch(X) markBatch(X, "Batch stopped"); private _batch = HR_performanceCounters deleteAt (X+"_Batch"); private _startTime = HR_performanceCounters deleteAt (X + "_StartTime");\
-    if (isNil "_batch" || {isNil "_startTime"}) then {diag_log text ("Performance Batch | Error flag not found: " + X)} else { \
-    diag_log text ("Performance Batch | " + X + " | [" + endl + (_batch apply { "    " + (_x select 0) + ": " + str ( ((_x select 1) - _startTime) * 1000 ) + " ms" + endl} joinString "") + "]")}
+    #define startBatch(X) HR_performanceBatch_##X = []; HR_performanceBatch_##X##_startTime = diag_tickTime;
+    #define markBatch(X, C) if (!isNil {HR_performanceBatch_##X}) then {HR_performanceBatch_##X pushBack [C, diag_tickTime]};
+    #define stopBatch(X, C) \
+        private _HR_perf_CurTime = diag_tickTime; \
+        if (isNil {HR_performanceBatch_##X} || {isNil {HR_performanceBatch_##X##_startTime}}) then { \
+            diag_log text ("Performance Batch | Error flag not found: " + #X) \
+        } else { \
+            HR_performanceBatch_##X pushBack [C, _HR_perf_CurTime]; \
+            private _deltaTime = HR_performanceBatch_##X##_startTime; \
+            diag_log text ("Performance Batch | " + #X + " | Time: " + str ((_Hr_perf_CurTime - HR_performanceBatch_##X##_startTime) * 1000) +" ms | [" + endl + (HR_performanceBatch_##X apply { \
+                _deltaTime = (_x select 1) - _deltaTime; \
+                "    " + (_x select 0) + ": " + str (_deltaTime * 1000 ) + " ms" + endl \
+            } joinString "") + "]") \
+        }; \
+        HR_performanceBatch_##X = nil; \
+        HR_performanceBatch_##X##_startTime = nil;
 #else
     #define startCounter(X)
     #define stopCounter(X)

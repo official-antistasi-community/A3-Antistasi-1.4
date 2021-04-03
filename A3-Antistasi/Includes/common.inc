@@ -4,4 +4,3 @@
 #define FIX_LINE_NUMBERS() FIX_LINE_NUMBERS2(#)
 
 #include "LogMacros.inc"
-#include "performance.inc"

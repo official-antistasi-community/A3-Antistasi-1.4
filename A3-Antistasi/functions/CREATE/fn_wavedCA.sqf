@@ -727,7 +727,7 @@ while {(_waves > 0)} do
 				[60,-60,_mrkDestination,false] remoteExec ["A3A_fnc_citySupportChange",2];		// no pop scaling, force swing
 				["TaskFailed", ["", format [localize "STR_antistasi_notification_joined",[_mrkDestination, false] call A3A_fnc_location,nameOccupants]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 				sidesX setVariable [_mrkDestination,Occupants,true];
-				[[-10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+				[Occupants, -10, 45] remoteExec ["A3A_fnc_addAggression",2];
 				_mrkD = format ["Dum%1",_mrkDestination];
 				_mrkD setMarkerColor colorOccupants;
 				garrison setVariable [_mrkDestination,[],true];

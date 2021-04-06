@@ -156,7 +156,7 @@ if (not alive _traitor || traitorIntel) then
 	_factor = 1;
 	if(_difficultX) then {_factor = 2;};
     Debug("aggroEvent | Rebels won a traitor mission");
-	[[15 * _factor, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+	[Occupants, 15 * _factor, 120] remoteExec ["A3A_fnc_addAggression",2];
 	[0,300 * _factor] remoteExec ["A3A_fnc_resourcesFIA",2];
 	{
 		if (!isPlayer _x) then

@@ -296,11 +296,7 @@ private _fnc_applyResults =
 	[_adjustCA, _sideX] remoteExec ["A3A_fnc_timingCA", 2];
 	[_adjustBoss, theBoss] call A3A_fnc_playerScoreAdd;
 
-	if (_sideX == Occupants) then {
-		[[_aggroMod, _aggroTime], [0, 0]] remoteExec ["A3A_fnc_prestige", 2]
-	} else {
-		[[0, 0], [_aggroMod, _aggroTime]] remoteExec ["A3A_fnc_prestige", 2]
-	};
+    [_sideX, _aggroMod, _aggroTime] remoteExec["A3A_fnc_addAggression", 2];
 
 	if !(_success1) then {
 		_killZones = killZones getVariable [_mrkOrigin,[]];

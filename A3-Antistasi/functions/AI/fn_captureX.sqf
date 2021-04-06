@@ -9,8 +9,7 @@ if (!alive _unit) exitWith {};
 private _sideX = side (group _unit);
 private _interrogated = _unit getVariable ["interrogated", false];
 
-private _modAggroOcc = [0, 0];
-private _modAggroInv = [0, 0];
+private _modAggro = [0, 0];
 private _modHR = false;
 private _response = "";
 private _fleeSide = _sideX;
@@ -21,13 +20,11 @@ if (_recruiting) then {
 	private _chance = 0;
 	if (_sideX == Occupants) then
     {
-        _modAggroOcc = [1, 30];
 		if ("militia_" in (_unit getVariable "unitType")) then { _chance = 60;}
 		else { _chance = 20;};
 	}
 	else
     {
-        _modAggroInv = [1, 30];
 		if ("militia_" in (_unit getVariable "unitType")) then { _chance = 60;}
 		else { _chance = 40;};
 	};
@@ -36,14 +33,15 @@ if (_recruiting) then {
 	if (random 100 < _chance) then
     {
 		_response = localize "STR_antistasi_chat_joinEnemy_yes";
+    _modAggro = [1, 30];
+
 		_modHR = true;
 		_fleeSide = teamPlayer;
 	}
 	else
     {
-		_response = localize "STR_antistasi_chat_joinEnemy_no";
-		_modAggroOcc = [0, 0];
-		_modAggroInv = [0, 0];
+		_response =  localize "STR_antistasi_chat_joinEnemy_no";
+		_modAggro = [0, 0];
 	};
 }
 else {
@@ -54,14 +52,7 @@ else {
 		localize "STR_antistasi_chat_captureX_random3"
 	];
 
-	if (_sideX == Occupants) then
-    {
-        _modAggroOcc = [-3, 30];
-	}
-	else
-    {
-        _modAggroInv = [-3, 30];
-	};
+    _modAggro = [-3, 30];
 };
 
 
@@ -74,7 +65,7 @@ private _group = group _unit;		// Group should be surrender-specific now
 sleep 100;
 if (alive _unit && {!(_unit getVariable ["incapacitated", false])}) then
 {
-	[_modAggroOcc,_modAggroInv] remoteExec ["A3A_fnc_prestige",2];
+	([_sideX] + _modAggro) remoteExec ["A3A_fnc_addAggression",2];
 	if (_modHR) then { [1,0] remoteExec ["A3A_fnc_resourcesFIA",2] };
 };
 

@@ -298,14 +298,7 @@ while {_timeAlive > 0} do
     ) exitWith
     {
         Info_1("%1 has been destroyed or crew killed, aborting routine", _supportName);
-        if(_side == Occupants) then
-        {
-            [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige", 2];
-        }
-        else
-        {
-            [[0, 0], [20, 45]] remoteExec ["A3A_fnc_prestige", 2];
-        };
+        [_side, 20, 45] remoteExec ["A3A_fnc_addAggression", 2];
     };
 
     //No missiles left

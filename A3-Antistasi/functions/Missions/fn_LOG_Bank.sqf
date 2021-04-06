@@ -130,7 +130,7 @@ if ((_truckX distance _posbase < 50) and (dateToNumber date < _dateLimitNum)) th
 	["LOG",[format [localize "STR_antistasi_mission_bank_text",_nameDest,_displayTime],localize "STR_antistasi_mission_bank",_mrkFinal],_positionX,"SUCCEEDED","Interact"] call A3A_fnc_taskUpdate;
 	[0,5000*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
     Debug("aggroEvent | Rebels won a bank mission");
-	[[20 * _bonus, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+	[Occupants, 20 * _bonus, 120] remoteExec ["A3A_fnc_addAggression",2];
 	[1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _truckX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

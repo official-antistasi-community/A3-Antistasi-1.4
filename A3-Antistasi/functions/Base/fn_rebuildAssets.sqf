@@ -57,7 +57,8 @@ if (isNull _antennaDead) then
 	[localize "STR_antistasi_dialogs_hq_button_rebuild_assets_text", format [localize "STR_antistasi_customHint_rebuild_rebuild",_nameX]] call A3A_fnc_customHint;
 
 	[0,10,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
-	[[10, 30], [10, 30]] remoteExec ["A3A_fnc_prestige",2];
+    [Occupants, 10, 30] remoteExec ["A3A_fnc_addAggression",2];
+    [Invaders, 10, 30] remoteExec ["A3A_fnc_addAggression",2];
 	destroyedSites = destroyedSites - [_siteX];
 	publicVariable "destroyedSites";
 	}

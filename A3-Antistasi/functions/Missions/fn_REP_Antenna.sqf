@@ -66,7 +66,8 @@ if (spawner getVariable _markerX != 2) then
 			],
 			getPos _antennaDead, "SUCCEEDED", "Destroy"
 		] call A3A_fnc_taskUpdate;
-		[[15, 90], [5, 60]] remoteExec ["A3A_fnc_prestige",2];
+        [Occupants, 15, 90] remoteExec ["A3A_fnc_addAggression", 2];
+        [Invaders, 5, 60] remoteExec ["A3A_fnc_addAggression", 2];
 		[1200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 		{if (_x distance _veh < 500) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
@@ -85,7 +86,8 @@ if (dateToNumber date > _dateLimitNum) then
 			],
 			getPos _antennaDead, "SUCCEEDED", "Destroy"
 		] call A3A_fnc_taskUpdate;
-		[[15, 90], [5, 60]] remoteExec ["A3A_fnc_prestige",2];
+        [Occupants, 15, 90] remoteExec ["A3A_fnc_addAggression", 2];
+        [Invaders, 5, 60] remoteExec ["A3A_fnc_addAggression", 2];
 		[1200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 		{if (_x distance _veh < 500) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[5,theBoss] call A3A_fnc_playerScoreAdd;

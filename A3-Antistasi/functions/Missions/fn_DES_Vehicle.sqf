@@ -73,14 +73,13 @@ if (spawner getVariable _markerX == 0) then
 			["TaskFailed", ["", format [localize "STR_antistasi_notification_AA_stolen",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 			};
 		[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
+        [_sideX, 10, 60] remoteExec ["A3A_fnc_addAggression", 2];
 		if (_sideX == Invaders) then
         {
-            [[0, 0], [10, 60]] remoteExec ["A3A_fnc_prestige",2];
             [0,10*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
         }
         else
         {
-            [[10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
             [0,5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
         };
 		[1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];

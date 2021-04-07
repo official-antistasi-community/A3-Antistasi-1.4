@@ -1,15 +1,15 @@
 /*
 Author: Barbolani, Triada
 Description:
-	checking static vehicle type,
-	equip group leader and static operator with backpacks,
-	and deploy static weapon when leader is ready (not moving to waypoint)
-	if the operator is dead, then leader is going in static, fold _mortar
-	when group moving to waypoint
+    checking static vehicle type,
+    equip group leader and static operator with backpacks,
+    and deploy static weapon when leader is ready (not moving to waypoint)
+    if the operator is dead, then leader is going in static, fold _mortar
+    when group moving to waypoint
 
 Arguments:
-	<OBJECT> artillery group
-	<STRING> static vehicle type
+    <OBJECT> artillery group
+    <STRING> static vehicle type
 
 Return Value:
 <BOOL> The return value
@@ -18,12 +18,12 @@ Scope: Server
 Environment: Scheduled
 Public: No
 Dependencies:
-	MortStaticSDKB,
-	supportStaticsSDKB3,
-	SDKMGStatic,
-	MGStaticSDKB,
-	supportStaticsSDKB2,
-	A3A_fnc_AIVEHinit
+    MortStaticSDKB,
+    supportStaticsSDKB3,
+    SDKMGStatic,
+    MGStaticSDKB,
+    supportStaticsSDKB2,
+    A3A_fnc_AIVEHinit
 
 Example:
 [_group, SDKMortar] spawn A3A_fnc_mortyAI;
@@ -54,14 +54,14 @@ private _operatorBackpack = supportStaticsSDKB3;
 if (_type == SDKMGStatic)
 then
 {
-	_leaderBackpack = MGStaticSDKB;
-	_operatorBackpack = supportStaticsSDKB2;
+    _leaderBackpack = MGStaticSDKB;
+    _operatorBackpack = supportStaticsSDKB2;
 
-	_leader setVariable ["typeOfSoldier", "StaticGunner"];
+    _leader setVariable ["typeOfSoldier", "StaticGunner"];
 }
 else
 {
-	_leader setVariable ["typeOfSoldier", "StaticMortar"];
+    _leader setVariable ["typeOfSoldier", "StaticMortar"];
 };
 
 /* -------------------------------------------------------------------------- */
@@ -70,171 +70,171 @@ else
 
 private _deployMortar =
 {
-	if !(isNull _mortar) exitWith {};
+    if !(isNull _mortar) exitWith {};
 
-	params ["_unit"];
+    params ["_unit"];
 
-	_pos = (getPos _unit) findEmptyPosition [1, 30, _type];
+    _pos = (getPos _unit) findEmptyPosition [1, 30, _type];
 
-	if (_pos isEqualTo [])
-	exitWith
-	{
-		_continue = true;
-		// TODO hint something to HC commander
-		sleep 30;
-	};
+    if (_pos isEqualTo [])
+    exitWith
+    {
+        _continue = true;
+        // TODO hint something to HC commander
+        sleep 30;
+    };
 
-	removeBackpackGlobal _leader;
-	removeBackpackGlobal _operator;
-	_mortar = _type createVehicle _pos;
+    removeBackpackGlobal _leader;
+    removeBackpackGlobal _operator;
+    _mortar = _type createVehicle _pos;
 
-	[_mortar, side _group] call A3A_fnc_AIVEHinit;
+    [_mortar, side _group] call A3A_fnc_AIVEHinit;
 };
 
 private _getInMortar =
 {
-	// if mortar is destroyed
-	if (damage _mortar >= DESTROYED_DAMAGE)
-	exitWith { _exitCycle = true; };
+    // if mortar is destroyed
+    if (damage _mortar >= DESTROYED_DAMAGE)
+    exitWith { _exitCycle = true; };
 
-	// if mortar is not fully broken then wait sombody to repare
-	if (damage _mortar >= NOT_GET_IN_DAMAGE)
-	exitWith { _continue = true; sleep 10; };
+    // if mortar is not fully broken then wait sombody to repare
+    if (damage _mortar >= NOT_GET_IN_DAMAGE)
+    exitWith { _continue = true; sleep 10; };
 
-	params ["_unit"];
+    params ["_unit"];
 
-	if (vehicle _unit != _mortar)
-	then
-	{
-		_unit assignAsGunner _mortar;
-		[_unit] orderGetIn true;
-		[_unit] allowGetIn true;
-	};
+    if (vehicle _unit != _mortar)
+    then
+    {
+        _unit assignAsGunner _mortar;
+        [_unit] orderGetIn true;
+        [_unit] allowGetIn true;
+    };
 };
 
 private _foldMortar =
 {
-	if (isNull _mortar) exitWith { _exitCycle = true; };
+    if (isNull _mortar) exitWith { _exitCycle = true; };
 
-	_leader addBackpackGlobal _leaderBackpack;
-	_operator addBackpackGlobal _operatorBackpack;
-	unassignVehicle _operator;
-	moveOut _operator;
-	deleteVehicle _mortar;
+    _leader addBackpackGlobal _leaderBackpack;
+    _operator addBackpackGlobal _operatorBackpack;
+    unassignVehicle _operator;
+    moveOut _operator;
+    deleteVehicle _mortar;
 };
 
 private _normalProcedure =
 {
-	waitUntil
-	{
-		_units = units _group;
+    waitUntil
+    {
+        _units = units _group;
 
-		// if no units in the _group or _group is deleted
-		if (_units isEqualTo [])
-		exitWith { _continue = true; _exitCycle = true; true };
+        // if no units in the _group or _group is deleted
+        if (_units isEqualTo [])
+        exitWith { _continue = true; _exitCycle = true; true };
 
-		// if leader or operator is dead
-		if (_units findIf { !(alive _x) } != -1)
-		exitWith { _continue = true; true };
+        // if leader or operator is dead
+        if (_units findIf { !(alive _x) } != -1)
+        exitWith { _continue = true; true };
 
-		// all are alive and ready
-		if (_units findIf { !(alive _x) || { !(unitReady _x) } } == -1)
-		exitWith { true };
+        // all are alive and ready
+        if (_units findIf { !(alive _x) || { !(unitReady _x) } } == -1)
+        exitWith { true };
 
-		sleep 1;
+        sleep 1;
 
-		false
-	};
+        false
+    };
 
-	if (_continue) exitWith {};
+    if (_continue) exitWith {};
 
-	// TODO force leader to stay near the mortar or to sit in the mortar
+    // TODO force leader to stay near the mortar or to sit in the mortar
 
-	[_operator] call _deployMortar;
+    [_operator] call _deployMortar;
 
-	if (_continue) exitWith {};
+    if (_continue) exitWith {};
 
-	[_operator] call _getInMortar;
+    [_operator] call _getInMortar;
 
-	if (_continue) exitWith {};
+    if (_continue) exitWith {};
 
-	waitUntil
-	{
-		_units = units _group;
+    waitUntil
+    {
+        _units = units _group;
 
-		// if no units in the _group or _group is deleted
-		if (_units isEqualTo [])
-		exitWith { _continue = true; _exitCycle = true; true };
+        // if no units in the _group or _group is deleted
+        if (_units isEqualTo [])
+        exitWith { _continue = true; _exitCycle = true; true };
 
-		// if somebody is not alive
-		if (_units findIf { !(alive _x) } != -1)
-		exitWith { _continue = true; true };
+        // if somebody is not alive
+        if (_units findIf { !(alive _x) } != -1)
+        exitWith { _continue = true; true };
 
-		// leader is not ready (on the way to waypoint)
-		if !(unitReady _leader)
-		exitWith { true };
+        // leader is not ready (on the way to waypoint)
+        if !(unitReady _leader)
+        exitWith { true };
 
-		sleep 1;
+        sleep 1;
 
-		false
-	};
+        false
+    };
 
-	if (_continue) exitWith {};
+    if (_continue) exitWith {};
 
-	call _foldMortar;
+    call _foldMortar;
 };
 
 
 private _waitProcedure =
 {
-	params ["_unit"];
+    params ["_unit"];
 
-	waitUntil
-	{
-		sleep 1;
+    waitUntil
+    {
+        sleep 1;
 
-		// if leader is not alive or mortar is destroyed
-		if (!(alive _unit) || { damage _mortar >= DESTROYED_DAMAGE })
-		exitWith { _continue = true; _exitCycle = true; true };
+        // if leader is not alive or mortar is destroyed
+        if (!(alive _unit) || { damage _mortar >= DESTROYED_DAMAGE })
+        exitWith { _continue = true; _exitCycle = true; true };
 
-		// if leader is enter mortar
-		if (vehicle _unit == _mortar) exitWith { true };
+        // if leader is enter mortar
+        if (vehicle _unit == _mortar) exitWith { true };
 
-		false
-	};
+        false
+    };
 
-	if (_continue) exitWith {};
+    if (_continue) exitWith {};
 
-	waitUntil
-	{
-		sleep 1;
+    waitUntil
+    {
+        sleep 1;
 
-		// if leader is not alive or mortar is destroyed
-		if (!(alive _unit) || { damage _mortar >= DESTROYED_DAMAGE })
-		exitWith { _exitCycle = true; true };
+        // if leader is not alive or mortar is destroyed
+        if (!(alive _unit) || { damage _mortar >= DESTROYED_DAMAGE })
+        exitWith { _exitCycle = true; true };
 
-		// if leader is exit mortar for some reason
-		if (vehicle _unit != _mortar) exitWith { sleep 30; true };
+        // if leader is exit mortar for some reason
+        if (vehicle _unit != _mortar) exitWith { sleep 30; true };
 
-		false
-	};
+        false
+    };
 };
 
 private _lastOneProcedure =
 {
-	params ["_unit"];
+    params ["_unit"];
 
-	if !(alive _unit) exitWith { _exitCycle = true; };
+    if !(alive _unit) exitWith { _exitCycle = true; };
 
-	[_unit] call _deployMortar;
+    [_unit] call _deployMortar;
 
-	if (_continue) exitWith {};
+    if (_continue) exitWith {};
 
-	[_unit] call _getInMortar;
+    [_unit] call _getInMortar;
 
-	if (_continue) exitWith {};
+    if (_continue) exitWith {};
 
-	[_unit] call _waitProcedure;
+    [_unit] call _waitProcedure;
 };
 
 /* -------------------------------------------------------------------------- */
@@ -250,25 +250,25 @@ private _continue = false;
 while { !(_exitCycle) }
 do
 {
-	_continue = false;
+    _continue = false;
 
-	sleep 0.1;
+    sleep 0.1;
 
-	if (alive _leader)
-	then
-	{
-		if (alive _operator)
-		then
-		{
-			call _normalProcedure;
-		}
-		else
-		{
-			[_leader] call _lastOneProcedure;
-		};
-	}
-	else
-	{
-		[_operator] call _lastOneProcedure;
-	};
+    if (alive _leader)
+    then
+    {
+        if (alive _operator)
+        then
+        {
+            call _normalProcedure;
+        }
+        else
+        {
+            [_leader] call _lastOneProcedure;
+        };
+    }
+    else
+    {
+        [_operator] call _lastOneProcedure;
+    };
 };

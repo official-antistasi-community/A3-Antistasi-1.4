@@ -1,6 +1,6 @@
 if !(membershipEnabled) exitWith {[localize "STR_antistasi_customHint_membership", localize "STR_antistasi_customHint_membership_off"] call A3A_fnc_customHint;};
 private ["_countX"];
-private _textX = localize "STR_antistasi_orgPlayers_memberList_inGame";
+private _textX = localize "STR_antistasi_orgPlayers_memberList_inGame"+"<br/><br/>";
 _countN = 0;
 
 {

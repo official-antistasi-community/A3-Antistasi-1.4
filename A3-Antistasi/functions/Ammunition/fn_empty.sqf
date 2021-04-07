@@ -30,12 +30,12 @@ private _vehName = getText (configFile >> "CfgVehicles" >> (typeof _truckX) >> "
 
 if (count _todo < 1) exitWith
 	{
-	if (count _this == 0) then {[localize "STR_antistasi_customHint_cargo", format [localize "STR_antistasi_customHint_cargo_empty_veh", _vehName]] call A3A_fnc_customHint;};
+	if (count _this == 0) then {[localize "STR_antistasi_logistics_cargo", format [localize "STR_antistasi_logistics_vehEmpty", _vehName]] call A3A_fnc_customHint;};
 	if (count _this == 2) then {deleteVehicle _truckX};
 	};
 
 if (count _this == 0) then {
-	[localize "STR_antistasi_customHint_cargo", format [localize "STR_antistasi_customHint_cargo_transfer", _vehName]] call A3A_fnc_customHint;
+	[localize "STR_antistasi_logistics_cargo", format [localize "STR_antistasi_logistics_transfer", _vehName]] call A3A_fnc_customHint;
 };
 
 if (count _this == 2) then {

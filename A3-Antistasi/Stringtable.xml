@@ -677,7 +677,7 @@
         <Chinesesimp>Antistasi - 解放Altis</Chinesesimp>
         <Russian>Antistasi - Освобождение Алтиса</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_altis_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_altis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -720,7 +720,7 @@
         <Chinesesimp>Antistasi - 解放Stratis</Chinesesimp>
         <Russian>Antistasi - Освобождение Стратиса</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_stratis_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_stratis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -759,7 +759,7 @@
         <Korean>Antistasi - Malden 해방</Korean>
         <Chinesesimp>Antistasi - 解放Malden</Chinesesimp>
       </Key>
-      <Key ID="STR_antistasi_mission_info_malden_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_malden_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -794,7 +794,7 @@
         <Korean>안티스타시 - 태평양의 군벌</Korean>
         <Chinesesimp>Antistasi - 太平洋军阀之战</Chinesesimp>
       </Key>
-      <Key ID="STR_antistasi_mission_info_tanoa_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_tanoa_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -832,7 +832,7 @@
         <Korean>Antistasi - 발틱 혁명</Korean>
         <Chinesesimp>Antistasi - 波罗的海革命</Chinesesimp>
       </Key>
-      <Key ID="STR_antistasi_mission_info_livonia_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_livonia_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -865,7 +865,7 @@
         <Chinesesimp>Antistasi - 解放Virolahti</Chinesesimp>
         <Russian>Antistasi - Освобождение Виролахти</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_virolahti_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_virolahti_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -894,7 +894,7 @@
         <English>Antistasi - Kolkhoz in revolt</English>
         <Russian>Antistasi - Революция колхоза</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_cherna_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_cherna_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -924,7 +924,7 @@
         <English>Antistasi - Chilled revolt</English>
         <Russian>Antistasi - Зимнее восстание</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_chernawinter_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_chernawinter_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -963,7 +963,7 @@
         <Korean>Antistasi - Kunduz 전투</Korean>
         <Chinesesimp>Antistasi - Kunduz之战</Chinesesimp>
       </Key>
-      <Key ID="STR_antistasi_mission_info_kunduz_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_kunduz_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -1002,7 +1002,7 @@
         <Chinesesimp>Antistasi - 解放Tembelan</Chinesesimp>
         <Russian>Antistasi - Освобождение острова Тембелан</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_tembelan_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_tembelan_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -1040,7 +1040,7 @@
         <Chinesesimp>Antistasi - 解放Anizay</Chinesesimp>
         <Russian>Antistasi - Освобождение Анизая</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_anizay_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_anizay_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -1059,51 +1059,51 @@
         <Chinesesimp>在骆驼背上战斗</Chinesesimp>
         <Russian>Сражайся верхом на верблюде</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_1_mapname_short_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_1_mapname_short_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_1_mapname_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_1_mapname_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_1_description_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_1_description_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_1_blurb_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_1_blurb_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_2_mapname_short_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_2_mapname_short_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_2_mapname_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_2_mapname_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_2_description_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_2_description_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_2_blurb_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_2_blurb_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_3_mapname_short_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_3_mapname_short_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_3_mapname_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_3_mapname_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_3_description_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_3_description_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_3_blurb_text"> <!-- TODO not used -->
+      <Key ID="STR_antistasi_mission_info_3_blurb_text">
         <Original>Placeholder</Original>
         <English>Placeholder</English>
       </Key>
@@ -1115,16 +1115,16 @@
         <Original>Antistasi - Liberation of Sahrani</Original>
         <English>Antistasi - Liberation of Sahrani</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_sahrani_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
-		  <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-          <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
-          <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
-          <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
-          <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
-          <Czech>Buďte vedoucím odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
-          <Korean>반군 지도자가 되십시오. 수적 그리고 질적으로 막강한 적과 싸우십시오. 18개의 서브 미션과 함께 언제 어디든지 게릴라 전술을 사용하십시오.</Korean>
-          <Chinesesimp>作为抵抗运动的领袖,与优势敌人使用游击战术灵活作战,有18个左右的支线任务.</Chinesesimp>
-        </Key>
+      <Key ID="STR_antistasi_mission_info_sahrani_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+        <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
+        <Czech>Buďte vedoucím odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
+        <Korean>반군 지도자가 되십시오. 수적 그리고 질적으로 막강한 적과 싸우십시오. 18개의 서브 미션과 함께 언제 어디든지 게릴라 전술을 사용하십시오.</Korean>
+        <Chinesesimp>作为抵抗运动的领袖,与优势敌人使用游击战术灵活作战,有18个左右的支线任务.</Chinesesimp>
+      </Key>
       <Key ID="STR_antistasi_mission_info_sahrani_blurb_text">
         <Original>The reunification of Sahrani</Original>
         <English>The reunification of Sahrani</English>
@@ -1140,7 +1140,7 @@
         <Chinesesimp>Antistasi - 解放Takistan</Chinesesimp>
         <Russian>Освобождение Такистана</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_takistan_description_text"> <!-- TODO duplicate STR_antistasi_mission_info_..._description_text -->
+      <Key ID="STR_antistasi_mission_info_takistan_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
         <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
@@ -2543,7 +2543,7 @@
         <Original>Squad Add Vehicle</Original>
         <Russian>Добавить технику отряду</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle_tooltip">
+      <Key ID="STR_antistasi_dialogs_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
         <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
       </Key>
@@ -2601,10 +2601,6 @@
         <Original>Adds selected units or squads to a map selected garrison</Original>
         <Russian>Добавляет выбранные юниты или отряды в выбранный на карте гарнизон</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle_tooltip">
-        <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
-        <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
-      </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units">
         <Original>Dismiss Units / Squad</Original>
         <Russian>В запас</Russian>
@@ -2632,7 +2628,7 @@
         <Russian>Запросить авиаподдержку (использует очки авиаподдержки)</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock">
-        <Original>O.Post - Roadblock</Original>
+        <Original>W.Post - Roadblock</Original>
         <Russian>Добавить БП / НП</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_tooltip">
@@ -2648,11 +2644,11 @@
         <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete">
-        <Original>O.Post-Roadblock Delete</Original>
+        <Original>W.Post-Roadblock Delete</Original>
         <Russian>Удалить БП / НП</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete_tooltip">
-        <Original>Remove selected observation post or roadblock, money will be refunded</Original>
+        <Original>Remove selected watchpost or roadblock, money will be refunded</Original>
         <Russian>Удалите выбранный наблюдательный пункт или блокпост, деньги будут возвращены</Russian>
       </Key>
       <Key ID="STR_antistasi_faction_garage">
@@ -2907,15 +2903,15 @@
       </Key>
     </Container>
     <Container name="diff_menu">
-      <Key ID="STR_antistasi_dialogs_diff_menu_easy">
+      <Key ID="STR_antistasi_difficulty_easy">
         <Original>Easy</Original>
         <Russian>Легко</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_diff_menu_normal">
+      <Key ID="STR_antistasi_difficulty_normal">
         <Original>Normal</Original>
         <Russian>Обычный</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_diff_menu_hard">
+      <Key ID="STR_antistasi_difficulty_hard">
         <Original>Hard</Original>
         <Russian>Жесткий</Russian>
       </Key>
@@ -2925,19 +2921,19 @@
         <Original>Select your Game Mode</Original>
         <Russian>Выберите свой игровой режим</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_vs_Inv">
+      <Key ID="STR_antistasi_gameMode_Reb_vs_Gov_vs_Inv">
         <Original>Reb vs Gov vs Inv</Original>
         <Russian>Зеленые vs Синие vs Красные</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_and_Inv">
+      <Key ID="STR_antistasi_gameMode_Reb_vs_Gov_and_Inv">
         <Original>Reb vs Gov and Inv</Original>
         <Russian>Зеленые vs Синие и Красные</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov">
+      <Key ID="STR_antistasi_gameMode_Reb_vs_Gov">
         <Original>Reb vs Gov</Original>
         <Russian>Зеленые vs Синие</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Inv">
+      <Key ID="STR_antistasi_gameMode_Reb_vs_Inv">
         <Original>Reb vs Inv</Original>
         <Russian>Зеленые vs Красные</Russian>
       </Key>
@@ -2966,7 +2962,7 @@
         <Russian>Только лидер отряда имеет доступ к этой функции</Russian>
       </Key>
       <Key ID="STR_antistasi_garrisons_info">
-        <Original>&lt;br/&gt;&lt;br/&gt;Garrison men: %1&lt;br/&gt;&lt;br/&gt;Squad Leaders: %2&lt;br/&gt;%11: %3&lt;br/&gt;Riflemen: %4&lt;br/&gt;Autoriflemen: %5&lt;br/&gt;Medics: %6&lt;br/&gt;Grenadiers: %7&lt;br/&gt;Marksmen: %8&lt;br/&gt;AT Men: %9&lt;br/&gt;Static Weap: %10</Original>
+        <Original>Garrison men: %1&lt;br/&gt;&lt;br/&gt;Squad Leaders: %2&lt;br/&gt;%11: %3&lt;br/&gt;Riflemen: %4&lt;br/&gt;Autoriflemen: %5&lt;br/&gt;Medics: %6&lt;br/&gt;Grenadiers: %7&lt;br/&gt;Marksmen: %8&lt;br/&gt;AT Men: %9&lt;br/&gt;Static Weap: %10</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_garrisons_noUnitsSelected">
         <Original>No units or squads selected</Original>
@@ -3089,47 +3085,8 @@
       <Key ID="STR_antistasi_customHint_auto_target_on">
         <Original>Mounted Static Squad %1 set to Auto Target Mode ON</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_cargo">
-        <Original>Cargo</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargoLoad">
-        <Original>Cargo Load</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_empty_veh">
-        <Original>Closest vehicle (%1) is empty</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_transfer">
-        <Original>Transferred cargo from %1 to arsenal</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_no_comander">
-        <Original>Only the Commander can transfer this ammobox content to any truck</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_empty">
-        <Original>Closest Ammobox is empty</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_loading">
-        <Original>Truck loading.&lt;br/&gt;Time remaining: %1 secs</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_time_remaining">
         <Original>Time Remaining: %1 secs</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_closer">
-        <Original>Bring vehicle closer</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_help">
-        <Original>%1 is being helped or no longer needs your help</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_occupied">
-        <Original>Cannot load cargo: passengers have occupied cargo space!</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_noCarry">
-        <Original>This vehicle can not carry this cargo!</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_noSpace">
-        <Original>There is no space for this cargo!</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cargo_noType">
-        <Original>Can not load this type of cargo!</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_cancel">
         <Original>Transfer cancelled due to movement of Truck or Player</Original>
@@ -3518,9 +3475,6 @@
       <Key ID="STR_antistasi_customHint_garage_look">
         <Original>Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_garage_stored">
-        <Original>%1 stored in garage</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_construct">
         <Original>Construction</Original>
       </Key>
@@ -3549,22 +3503,22 @@
         <Original>Version: </Original>
       </Key>
       <Key ID="STR_antistasi_customHint_info_difficulty">
-        <Original>&lt;br/&gt;&lt;br/&gt;Difficulty: </Original>
+        <Original>Difficulty: </Original>
       </Key>
       <Key ID="STR_antistasi_customHint_info_unlockWeapon">
-        <Original>&lt;br/&gt;Unlock Weapon Number: </Original>
+        <Original>Unlock Weapon Number: </Original>
       </Key>
       <Key ID="STR_antistasi_customHint_info_limitFT">
-        <Original>&lt;br/&gt;Limited Fast Travel: </Original>
+        <Original>Limited Fast Travel: </Original>
       </Key>
       <Key ID="STR_antistasi_customHint_info_limitAI">
-        <Original>&lt;br/&gt;AI Limit: </Original>
+        <Original>AI Limit: </Original>
       </Key>
       <Key ID="STR_antistasi_customHint_info_spawnDistance">
-        <Original>&lt;br/&gt;Spawn Distance: </Original>
+        <Original>Spawn Distance: </Original>
       </Key>
       <Key ID="STR_antistasi_customHint_info_limitCiv">
-        <Original>&lt;br/&gt;Civilian Limit: </Original>
+        <Original>Civilian Limit: </Original>
       </Key>
       <Key ID="STR_antistasi_customHint_city_info">
         <Original>City Information</Original>
@@ -3576,70 +3530,37 @@
         <Original>%1&lt;br/&gt;&lt;br/&gt;Pop %2&lt;br/&gt;%6 Support: %3 %5&lt;br/&gt;%7 Support: %4 %5</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_city_influence">
-        <Original>%1&lt;br/&gt;Influence: %2</Original>
+        <Original>Influence:</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_hq">
         <Original>%2 HQ%1</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_destroyed">
-        <Original>%1&lt;br/&gt;DESTROYED</Original>
+        <Original>DESTROYED</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_airport">
-        <Original>%1 Airport</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_airport2">
-        <Original>%2 Airport%1</Original>
+        <Original>Airport</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_idle">
-        <Original>%1&lt;br/&gt;Status: Idle</Original>
+        <Original>Status: Idle</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_busy">
-        <Original>%1&lt;br/&gt;Status: Busy</Original>
+        <Original>Status: Busy</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_garrisonGood">
-        <Original>%1&lt;br/&gt;Garrison: Good</Original>
+        <Original>Garrison: Good</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_garrisonWeakened">
-        <Original>%1&lt;br/&gt;Garrison: Weakened</Original>
+        <Original>Garrison: Weakened</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_garrisonDecimated">
-        <Original>%1&lt;br/&gt;Garrison: Decimated</Original>
+        <Original>Garrison: Decimated</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_stat_resources">
-        <Original>%1 Resources</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_resources2">
-        <Original>%2 Resources%1</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_resources3">
-        <Original>Resources%1</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_factory">
-        <Original>%1 Factory</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_factory2">
-        <Original>%2 Factory%1</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_factory3">
-        <Original>Factory%1</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_outpost">
-        <Original>%1 Grand Outpost</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_outpost2">
-        <Original>%2 Grand Outpost%1</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_seaport">
-        <Original>%1 Seaport</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_seaport2">
-        <Original>%2 Seaport%1</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_stat_roadblock">
-        <Original>%2 Roadblock%1</Original>
+      <Key ID="STR_antistasi_customHint_stat_Grand_Outpost">
+        <Original>Grand Outpost</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_stat_watchpost">
-        <Original>%1 Watchpost</Original>
+        <Original>Watchpost</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_intel_taken">
         <Original>Intel documents taken</Original>
@@ -3794,9 +3715,6 @@
       <Key ID="STR_antistasi_customHint_punish_hurt">
         <Original>%1 hurt you!</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_FF">
-        <Original>FF Warning</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_FF_Punishment">
         <Original>FF Punishment</Original>
       </Key>
@@ -3930,13 +3848,13 @@
         <Original>You cannot construct anything while controlling AI</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_build_undercover">
-        <Original>You are an engineer, but not in a state to build: you may be unconscious or undercover&lt;br/&gt;</Original>
+        <Original>You are an engineer, but not in a state to build: you may be unconscious or undercover</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_build_noEng">
-        <Original>You are not an engineer&lt;br/&gt;</Original>
+        <Original>You are not an engineer</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_build_noPlayer">
-        <Original>There is a human engineer in your squad. Ask them to build.&lt;br/&gt;</Original>
+        <Original>There is a human engineer in your squad. Ask them to build.</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_build_noLeader">
         <Original>Only squad leaders can order AI to build</Original>
@@ -4095,10 +4013,10 @@
         <Original>Weapon Stolen. It won't despawn when you assemble it again</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_vehInfo_dismounting">
-        <Original>%2%1 dismounting&lt;br/&gt;</Original>
+        <Original>%2%1 dismounting</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_vehInfo_boarding">
-        <Original>2%1 boarding&lt;br/&gt;</Original>
+        <Original>%2%1 boarding</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_sitrep">
         <Original>%1 Status&lt;br/&gt;&lt;br/&gt;Alive members: %2&lt;br/&gt;Able to combat: %3&lt;br/&gt;Current task: %4&lt;br/&gt;Combat Mode:%5&lt;br/&gt;</Original>
@@ -4181,11 +4099,32 @@
       <Key ID="STR_antistasi_customHint_carry_nocarry">
         <Original>%1 is being carried or transported and you cannot carry him</Original>
       </Key>
+      <Key ID="STR_antistasi_customHint_difficulty">
+        <Original>Choose a difficulty level</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_load_head">
+        <Original>Load Game</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_save_head">
+        <Original>Save Game</Original>
+      </Key>
       <Key ID="STR_antistasi_customHint_save_progress">
         <Original>Server data save is still in progress</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_save_start">
         <Original>Starting persistent save...</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_save_info">
+        <Original>Antistasi has a custom save system similar to other CTIs.</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_save_info2">
+        <Original>To Save: Your commander needs to go to the &lt;t color=&apos;#f0d498&apos;&gt;Map Board&lt;/t&gt;, scroll-select &lt;t color=&apos;#f0d498&apos;&gt;Game Options&lt;/t&gt; and click on the &lt;t color=&apos;#f0d498&apos;&gt;Persistent Save&lt;/t&gt; button.&lt;br/&gt;&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_autosave_info">
+        <Original>Current parameters are configured to auto-save every</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_autosave_off">
+        <Original>Auto-save is currently disabled</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_undercover_ctrlAI">
         <Original>You cannot go Undercover while you are controlling AI</Original>
@@ -4311,13 +4250,13 @@
         <Original>The Garage is empty or the vehicles you have are not suitable to recover in the place you are. \n\n Air vehicles need to be recovered near Airport flags</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_switch">
-        <Original>Arrow Up-Down to Switch Vehicles &lt;br/&gt;</Original>
+        <Original>Arrow Up-Down to Switch Vehicles</Original>
       </Key>
       <Key ID="STR_antistasi_orgPlayers_memberList_count">
         <Original>Number of members: </Original>
       </Key>
       <Key ID="STR_antistasi_orgPlayers_memberList_inGame">
-        <Original>In Game Members &lt;br/&gt;&lt;br/&gt;</Original>
+        <Original>In Game Members</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_newComander">
         <Original>New Commander</Original>
@@ -4333,6 +4272,18 @@
       </Key>
       <Key ID="STR_antistasi_customHint_render2">
         <Original>to dismiss notification. +</Original>
+      </Key>
+      <Key ID="STR_antistasi_statistics_SinglePlayer">
+        <Original>HR: %1 | %9 Money: %2 € | Airstrikes: %5 | %7 Aggr: %3 | %8 Aggr: %4 | War Level: %6 | Undercover Mode: %10</Original>
+      </Key>
+      <Key ID="STR_antistasi_statistics_noBoss">
+        <Original>Commander: %3 | Rank: %2 | HR: %1 | Your Money: %4 € | %8 Aggr: %5 | %9 Aggr: %6 | War Level: %7 | Undercover Mode: %10</Original>
+      </Key>
+      <Key ID="STR_antistasi_statistics_Member">
+        <Original>Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | %10 Aggr: %4 | War Level: %8 | Undercover Mode: %12</Original>
+      </Key>
+      <Key ID="STR_antistasi_statistics_noMember">
+        <Original>Rank: %1 | Your Money: %2 € | %3 Money: %4 € | %5 Aggr: %6 | %7 Aggr: %8 | War Level: %9 | Undercover Mode: %10</Original>
       </Key>
     </Container>
     <Container name="addAction">
@@ -4645,16 +4596,16 @@
         <Original>I have a mission for you</Original>
       </Key>
       <Key ID="STR_antistasi_chat_petros_promoted">
-        <Original>Promoted Players:&lt;br/&gt;&lt;br/&gt;</Original>
+        <Original>Promoted Players:</Original>
       </Key>
       <Key ID="STR_antistasi_chat_petros_promotion">
         <Original>Promotion</Original>
       </Key>
       <Key ID="STR_antistasi_chat_petros_congratulation">
-        <Original>%1&lt;br/&gt;&lt;br/&gt;CONGRATULATIONS!!</Original>
+        <Original>!CONGRATULATIONS!</Original>
       </Key>
       <Key ID="STR_antistasi_chat_sitrep">
-        <Original>%1, SITREP!!</Original>
+        <Original>%1, SITREP!</Original>
       </Key>
       <Key ID="STR_antistasi_chat_radiocheck">
         <Original>This is %1, radiocheck OK</Original>
@@ -4762,29 +4713,29 @@
       <Key ID="STR_antistasi_dynamicText_undercover_OFF">
         <Original>Undercover OFF</Original>
       </Key>
-      <Key ID="STR_antistasi_dynamicText_resource">
-        <Original>&lt;t size='0.6' color='#C1C0BB'&gt; Taxes Income.&lt;br/&gt; &lt;t size='0.5' color='#C1C0BB'&gt;&lt;br/&gt;Manpower: +%1&lt;br/&gt;Money: +%2 €</Original>
+      <Key ID="STR_antistasi_dynamicText_resource_income">
+        <Original>Taxes Income</Original>
       </Key>
-      <Key ID="STR_antistasi_dynamicText_resourceCheck_updated">
-        <Original>%1&lt;br/&gt;Arsenal Updated&lt;br/&gt;&lt;br/&gt;%2</Original>
-      </Key>
-      <Key ID="STR_antistasi_dynamicText_ammunition_updated">
-        <Original>&lt;t size='0.6' color='#C1C0BB'&gt; Arsenal Updated &lt;br/&gt;&lt;br/&gt;%1</Original>
+      <Key ID="STR_antistasi_dynamicText_resource_arsenalUpdated">
+        <Original>Arsenal Updated</Original>
       </Key>
       <Key ID="STR_antistasi_dynamicText_garage">
-        <Original>&lt;t size='0.7'&gt; %1 &lt;br/&gt; &lt;t size='0.5'&gt; %2 &lt;br/&gt; &lt;t size='0.5'&gt; SPACE to place vehicle &lt;br/&gt; Arrow Left-Right to rotate &lt;br/&gt; %3 for Precision (Less Safe) Placement &lt;br/&gt; ENTER to Exit</Original>
+        <Original>SPACE to place vehicle &lt;br/&gt; Arrow Left-Right to rotate &lt;br/&gt; %3 for Precision (Less Safe) Placement &lt;br/&gt; ENTER to Exit</Original>
       </Key>
       <Key ID="STR_antistasi_dynamicText_agression">
-        <Original>&lt;t size='0.6' color='#C1C0BB'&gt; Aggression level changed &lt;br/&gt; &lt;t size='0.6'&gt; %1</Original>
+        <Original>Aggression level changed</Original>
       </Key>
-      <Key ID="STR_antistasi_dynamicText_resourcesFIA_HR_money">
-        <Original>&lt;t size='0.6' color='#C1C0BB'&gt; %5 Resources.&lt;br/&gt; &lt;t size='0.5' color='#C1C0BB'&gt; &lt;br/&gt; HR: %3%1 &lt;br/&gt; Money: %4%2 €</Original>
+      <Key ID="STR_antistasi_dynamicText_resource_HR_money">
+        <Original>HR: %3%1 &lt;br/&gt; Money: %4%2 €</Original>
       </Key>
-      <Key ID="STR_antistasi_dynamicText_resourcesFIA_HR">
-        <Original>&lt;t size='0.6' color='#C1C0BB'&gt; %5 Resources.&lt;br/&gt; &lt;t size='0.5' color='#C1C0BB'&gt; &lt;br/&gt; HR: %3%1</Original>
+      <Key ID="STR_antistasi_dynamicText_resource_HR">
+        <Original>HR: %3%1</Original>
       </Key>
-      <Key ID="STR_antistasi_dynamicText_resourcesFIA_money">
-        <Original>&lt;t size='0.6' color='#C1C0BB'&gt; %5 Resources.&lt;br/&gt; &lt;t size='0.5' color='#C1C0BB'&gt; &lt;br/&gt; Money: %4%2 €</Original>
+      <Key ID="STR_antistasi_dynamicText_resource_money">
+        <Original>Money: %4%2 €</Original>
+      </Key>
+      <Key ID="STR_antistasi_dynamicText_resource_income_HR_money">
+        <Original>Manpower: +%1&lt;br/&gt;Money: +%2 €</Original>
       </Key>
     </Container>
     <Container name="ctrlSetTooltip">
@@ -5210,10 +5161,10 @@
         <Original>Mortar Support crew killed</Original>
       </Key>
       <Key ID="STR_antistasi_notification_aggression_reduced">
-        <Original>%1 aggression level reduced to %2&lt;br/&gt;</Original>
+        <Original>%1 aggression level reduced to %2</Original>
       </Key>
       <Key ID="STR_antistasi_notification_aggression_increased">
-        <Original>%1 aggression level increased to %2&lt;br/&gt;</Original>
+        <Original>%1 aggression level increased to %2</Original>
       </Key>
       <Key ID="STR_antistasi_notification_aggression_invaders_reduced">
         <Original>%1%2 aggression level reduced to %3</Original>
@@ -5235,29 +5186,465 @@
       <Key ID="STR_antistasi_markers_OP">
         <Original>%1 Observation Post</Original>
       </Key>
-      <Key ID="STR_antistasi_markers_RB">
-        <Original>%1 Roadblock</Original>
-      </Key>
-      <Key ID="STR_antistasi_markers_Outpost">
-        <Original>%1 Outpost</Original>
-      </Key>
-      <Key ID="STR_antistasi_markers_Outpos_teamPlayer">
-        <Original>%2 Outpost%1</Original>
-      </Key>
-      <Key ID="STR_antistasi_markers_Airbase">
-        <Original>%1 Airbase</Original>
-      </Key>
-      <Key ID="STR_antistasi_markers_Airbase_teamPlayer">
-        <Original>%2 Airbase%1</Original>
-      </Key>
-      <Key ID="STR_antistasi_markers_Seaport">
-        <Original>Sea Port</Original>
-      </Key>
       <Key ID="STR_antistasi_markers_bomb_init">
         <Original>Bomb Run Init</Original>
       </Key>
       <Key ID="STR_antistasi_markers_bomb_exit">
         <Original>Bomb Run Exit</Original>
+      </Key>
+    </Container>
+    <Container name="params">
+      <Key ID="STR_antistasi_param_howTo0">
+        <Original>HOW TO USE ANTISTASI PARAMETERS</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_howTo1">
+        <Original>Default values will attempt to load from the save. If not found, the value in brackets will be used instead</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_howTo2">
+        <Original>Setting any other value will override that parameter with the chosen value</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_loadSave">
+        <Original>Load last Persistent Save</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_gameMode">
+        <Original>Game Mode - Do NOT change this mid mission</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_gameMode_default">
+        <Original>Default (Reb vs Gov vs Inv)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_autoSave">
+        <Original>Enable Autosave (every X minutes)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_autoSaveInterval">
+        <Original>Time between autosaves (in minutes)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_membership">
+        <Original>Enable Server Membership</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_switchComm">
+        <Original>Enable Commander Switch (highest ranked player)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_tkPunish">
+        <Original>Enable Teamkill Punish</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_mRadius">
+        <Original>Max distance from HQ for tasks</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowPvP">
+        <Original>Allow PvP Slots</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_pMarkers">
+        <Original>Allow Friendly Player Markers</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_AISkill">
+        <Original>Mission Difficulty</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_AISkill_default">
+        <Original>Default (Normal)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_unlockItem">
+        <Original>Number of the same item required to unlock</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_memberOnlyMagLimit">
+        <Original>Number of magazines needed for guests to be able to use them</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_civTraffic">
+        <Original>Rate of Civ Traffic</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_civTraffic_default">
+        <Original>Default (Medium)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_memberSlots">
+        <Original>Percentage of Reserved Slots for Members</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_memberSlots_default">
+        <Original>Default (20%)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_memberDistance">
+        <Original>Max distance non members can be from the closest member or HQ (they will be teleported to HQ after some timeout)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_memberDistance_default">
+        <Original>Default (5km)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowMembersFactionGarageAccess">
+        <Original>Allow members to access the faction garage</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_personalGarageMax">
+        <Original>Max personal garage slots</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowFT">
+        <Original>Fast Travel Targets Allowed</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowFT_default">
+        <Original>Default (Airports and HQ)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowFT_friendlyPos">
+        <Original>Any friendly position</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowFT_onlyAirHQ">
+        <Original>Only Airports and HQ</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_napalmEnabled">
+        <Original>Enable Napalm Bombing for AI</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_teamSwitchDelay">
+        <Original>Delay After Leaving Before a Player Can Join Another Team</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_teamSwitchDelay_default">
+        <Original>Default (60 mins)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_teamSwitchDelay_noDelay">
+        <Original>No delay</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_unlockedUnlimitedAmmo">
+        <Original>Do Unlocked Weapons Automatically Unlock Their Standard Magazine?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowGuidedLaunchers">
+        <Original>Should Guided Launchers become unlocked?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowUnlockedExplosives">
+        <Original>Should Explosives become unlocked?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_startWithLongRangeRadio">
+        <Original>[TFAR] Start with Long Range Radio?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_helmetLossChance">
+        <Original>Chance of helmet loss on headshots</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_helmetLossChance_default">
+        <Original>Default (Sometimes)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_helmetLossChance_Sometimes">
+        <Original>Sometimes</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_helmetLossChance_Often">
+        <Original>Often</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_EnableLootToCrate">
+        <Original>Enable Loot to crate</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_LTCLootUnlocked">
+        <Original>Loot to crate: transfers unlocked items</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_Kart">
+        <Original>Allow Items and Vehicles from Karts DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_Mark">
+        <Original>Allow Items and Vehicles from Marksman DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_Heli">
+        <Original>Allow Items and Vehicles from Heli DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_Expansion">
+        <Original>Allow Items and Vehicles from Apex DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_Jets">
+        <Original>Allow Items and Vehicles from Jets DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_Orange">
+        <Original>Allow Items and Vehicles from Laws of War DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_Tanks">
+        <Original>Allow Items and Vehicles from Tanks DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_GlobMob">
+        <Original>Allow Items and Vehicles from Global Mobilization DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_Enoch">
+        <Original>Allow Items and Vehicles from Contact DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_OfficialMod">
+        <Original>Allow ADR-97 DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_AoW">
+        <Original>Allow Art of War DLC?</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_AdvancedParams">
+        <Original>ADVANCED USERS ONLY</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_LogLevel">
+        <Original>Logging Level (Amount of detail in .rpt file)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_LogLevel_default">
+        <Original>Default (Debug)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_SupportOptions">
+        <Original>SUPPORT OPTIONS</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowUnfairSupports">
+        <Original>[Experimental - Use at own risk] Allow unfair supports to be used by the enemy</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_allowFuturisticSupports">
+        <Original>[Experimental - Use at own risk](Requires unfair supports) Allow futuristic supports to be used by the enemy</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_CrateOptions">
+        <Original>LOOT CRATE OPTIONS</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_truelyRandomCrates">
+        <Original>[Experimental] Truely Random Crates: Remove all balance checks from Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_cratePlayerScaling">
+        <Original>Decrease loot quantity as player count increases? (Yes is recommended for balance reasons)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateWepTypeMax">
+        <Original>Maximum Weapon Types in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateWepNumMax">
+        <Original>Maximum Weapon Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateItemTypeMax">
+        <Original>Maximum Item Types in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateItemNumMax">
+        <Original>Maximum Item Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateAmmoTypeMax">
+        <Original>Maximum Ammo Types in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateAmmoNumMax">
+        <Original>Maximum Ammo Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateExplosiveTypeMax">
+        <Original>Maximum Explosive Types in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateExplosiveNumMax">
+        <Original>Maximum Explosive Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateAttachmentTypeMax">
+        <Original>Maximum Attachment Types in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateAttachmentNumMax">
+        <Original>Maximum Attachment Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateBackpackTypeMax">
+        <Original>Maximum Backpack Types in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateBackpackNumMax">
+        <Original>Maximum Backpack Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateVestTypeMax">
+        <Original>Maximum Vest Types in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateVestNumMax">
+        <Original>Maximum Vest Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateHelmetTypeMax">
+        <Original>Maximum Helmet Types in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateHelmetNumMax">
+        <Original>Maximum Helmet Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateDeviceTypeMax">
+        <Original>Maximum Device Backpack Types in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_crateDeviceNumMax">
+        <Original>Maximum Device Backpack Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_Allowed">
+        <Original>Allowed</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_notAllowed">
+        <Original>Not allowed</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_true">
+        <Original>True</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_false">
+        <Original>False</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_yes">
+        <Original>Default (Yes)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_no">
+        <Original>Default (No)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_enabled">
+        <Original>Default (Enabled)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_disabled">
+        <Original>Default (Disabled)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_true">
+        <Original>Default (True)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_false">
+        <Original>Default (False)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_notAllowed">
+        <Original>Default (Not Allowed)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_0">
+        <Original>Default (0)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_2">
+        <Original>Default (2)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_3">
+        <Original>Default (3)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_5">
+        <Original>Default (5)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_7">
+        <Original>Default (7)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_8">
+        <Original>Default (8)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_9">
+        <Original>Default (9)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_15">
+        <Original>Default (15)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_20">
+        <Original>Default (20)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_25">
+        <Original>Default (25)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_40">
+        <Original>Default (40)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_60">
+        <Original>Default (60)</Original>
+      </Key>
+      <Key ID="STR_antistasi_param_default_4000">
+        <Original>Default (4000)</Original>
+      </Key>
+    </Container>
+    <Container name="Jeroen/Logistics">
+      <Key ID="STR_antistasi_JN_loadVehicle">
+        <Original>Load %1 in Vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_loadVehicle_cargo">
+        <Original>Load Cargo in Vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_cargo">
+        <Original>Cargo</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_cargoLoad">
+        <Original>Cargo Load</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_transfer">
+        <Original>Transferred cargo from %1 to arsenal</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_noComander">
+        <Original>Only the Commander can transfer this ammobox content to any truck</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_vehEmpty">
+        <Original>Closest vehicle (%1) is empty</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_boxEmpty">
+        <Original>Closest Ammobox is empty</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_loading">
+        <Original>Truck loading.&lt;br/&gt;Time remaining: %1 secs</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_closer">
+        <Original>Bring vehicle closer</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_helped">
+        <Original>%1 is being helped or no longer needs your help</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_occupied">
+        <Original>Cannot load cargo: passengers have occupied cargo space!</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_noCarry">
+        <Original>This vehicle can not carry this cargo!</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_noSpace">
+        <Original>There is no space for this cargo!</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_noType">
+        <Original>Can not load this type of cargo!</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_stored">
+        <Original>%1 stored in garage</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_defaultMass">
+        <Original>Default mass:</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_cargoMass">
+        <Original>Cargo mass:</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_currentMass">
+        <Original>Current mass</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_loaded_noSpace">
+        <Original>"%1" is loaded onto "%2" There is no more space</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_loaded_free">
+        <Original>"%1" is loaded onto "%2". Free slots: "%3"</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_unloaded">
+        <Original>"%1" was unloaded from "%2". Free slots: "%3"</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_head">
+        <Original>Logistics</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_alreadyStatic">
+        <Original>Someone is already in the static</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_alreadyUploaded">
+        <Original>Cargo is already being unloaded from the vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_alreadyLoaded">
+        <Original>Cargo is already being loaded into the vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_destroyedVeh">
+        <Original>You can't load cargo into a destroyed vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_destroyedCargo">
+        <Original>You can't load destroyed cargo into a vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_cannotLoaded">
+        <Original>%1 cannot be loaded</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_staticMounted_unload">
+        <Original>Can't unload a static that's mounted</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_staticMounted_load">
+        <Original>Can't load a static that's mounted</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_cannotMounted">
+        <Original>%1 can not be mounted on a %2</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_unableLoad">
+        <Original>%1 is unable to load any cargo</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_noSpace">
+        <Original>%1 does not have enough space to load %2</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_unitBlock">
+        <Original>%1 can not load cargo while unit are blocking the cargo plane</Original>
+      </Key>
+      <Key ID="STR_antistasi_logistics_longAway">
+        <Original>No vehicle is close enough</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_defaultGear">
+        <Original>Default gear</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_defaultGear_tooltip">
+        <Original>Add default items like radio and medical supplies</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_toCrate">
+        <Original>To crate</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_toCrate_tooltip">
+        <Original>Move items from crate inventory to arsenal</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_unload_tooltip">
+        <Original>Move items from car to arsenal</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_noItem_1">
+        <Original>These items were not in the Arsenal, so the originals have been kept:</Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_noItem_2">
+        <Original> has been kept, because there is no </Original>
+      </Key>
+      <Key ID="STR_antistasi_JN_noItem_3">
+        <Original>These items were not in the Arsenal:</Original>
       </Key>
     </Container>
   </Package>

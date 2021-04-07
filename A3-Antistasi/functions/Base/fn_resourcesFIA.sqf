@@ -28,11 +28,11 @@ _resourcesFIASim = "";
 if (_resourcesFIA > 0) then {_resourcesFIASim = "+"};
 if ((_hr != 0) and (_resourcesFIA != 0)) then
 	{
-	_textX = format [localize "STR_antistasi_dynamicText_resourcesFIA_HR_money",_hr,_resourcesFIA,_hrSim,_resourcesFIASim,nameTeamPlayer]
+	_textX = format ["<t size='0.6' color='#C1C0BB'>%5 "+localize "STR_antistasi_journal_entry_header_tutorial_5"+"<t size='0.5' color='#C1C0BB'><br/><br/>"+localize"STR_antistasi_dynamicText_resource_HR_money",_hr,_resourcesFIA,_hrSim,_resourcesFIASim,nameTeamPlayer]
 	}
 else
 	{
-	if (_hr != 0) then {_textX = format [localize "STR_antistasi_dynamicText_resourcesFIA_HR",_hr,_resourcesFIA,_hrSim,nameTeamPlayer]} else {if (_resourcesFIA != 5) then {_textX = format [localize "STR_antistasi_dynamicText_resourcesFIA_money",_hr,_resourcesFIA,_hrSim,_resourcesFIASim,nameTeamPlayer]}};
+	if (_hr != 0) then {_textX = format ["<t size='0.6' color='#C1C0BB'>%5 "+localize "STR_antistasi_journal_entry_header_tutorial_5"+"<t size='0.5' color='#C1C0BB'><br/><br/>"+localize"STR_antistasi_dynamicText_resource_HR",_hr,_resourcesFIA,_hrSim,nameTeamPlayer]} else {if (_resourcesFIA != 5) then {_textX = format ["<t size='0.6' color='#C1C0BB'>%5 "+localize "STR_antistasi_journal_entry_header_tutorial_5"+"<t size='0.5' color='#C1C0BB'><br/><br/>"+localize"STR_antistasi_dynamicText_resource_money",_hr,_resourcesFIA,_hrSim,_resourcesFIASim,nameTeamPlayer]}};
 	};
 
 if (_textX != "") then

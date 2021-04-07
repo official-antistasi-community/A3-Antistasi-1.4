@@ -67,7 +67,7 @@ if (isNil "garage_keyDownHandler") then {
 		_handled;
 	}];
 };
-private _extraMessage = localize "STR_antistasi_customHint_garage_switch";
+private _extraMessage = localize "STR_antistasi_customHint_garage_switch"+"<br/>";
 
 //Only allow access to the faction garage if someone else isn't already accessing it. 
 //Try to find the player to make sure they're still online - aim to avoid a situation where players are locked out of the garage.

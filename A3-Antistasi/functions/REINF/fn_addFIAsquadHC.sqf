@@ -4,7 +4,7 @@ if (player != theBoss) exitWith {[localize "STR_antistasi_journal_entry_header_c
 
 if (markerAlpha respawnTeamPlayer == 0) exitWith {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_recruit_moveHQ"] call A3A_fnc_customHint;};
 
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_minefields_noradio"] call A3A_fnc_customHint;} else {["Recruit Squad", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_minefields_noradio"] call A3A_fnc_customHint;} else {[localize "STR_antistasi_journal_entry_header_commander_9", localize "STR_antistasi_customHint_minefields_no_radioman"] call A3A_fnc_customHint;}};
 
 private _enemyNear = false;
 

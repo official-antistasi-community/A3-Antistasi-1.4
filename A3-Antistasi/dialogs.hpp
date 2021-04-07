@@ -1526,7 +1526,7 @@ class squad_manager 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = $STR_antistasi_dialogs_squad_manager_add_vehicle_tooltip;
+			tooltip = $STR_antistasi_dialogs_add_vehicle_tooltip;
 			action = "closeDialog 0;[] call A3A_fnc_addSquadVeh;";
 		};
 		class HQ_button_MG: RscButton
@@ -1661,7 +1661,7 @@ class AI_management 		{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = $STR_antistasi_dialogs_AI_management_squad_add_vehicle_tooltip;
+			tooltip = $STR_antistasi_dialogs_add_vehicle_tooltip;
 			action = "closeDialog 0;[] call A3A_fnc_addSquadVeh;";
 		};
 		class 8slots_L4: RscButton
@@ -2984,7 +2984,7 @@ class diff_menu 			{
 		class HQ_button_mortar: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_diff_menu_easy;
+			text = $STR_antistasi_difficulty_easy;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -2994,7 +2994,7 @@ class diff_menu 			{
 		class HQ_button_MG: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_diff_menu_normal;
+			text = $STR_antistasi_difficulty_normal;
 			x = 0.37749 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -3004,7 +3004,7 @@ class diff_menu 			{
 		class HQ_button_AT: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_diff_menu_hard;
+			text = $STR_antistasi_difficulty_hard;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -3040,7 +3040,7 @@ class gameMode_menu 			{
 		class HQ_button_Gsquad: RscButton
 		{
 			idc = 104;
-			text = $STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_vs_Inv;
+			text = $STR_antistasi_gameMode_Reb_vs_Gov_vs_Inv;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -3050,7 +3050,7 @@ class gameMode_menu 			{
 		class HQ_button_Gstatic: RscButton
 		{
 			idc = 105;
-			text = $STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_and_Inv;
+			text = $STR_antistasi_gameMode_Reb_vs_Gov_and_Inv;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -3060,7 +3060,7 @@ class gameMode_menu 			{
 		class HQ_button_Gremove: RscButton
 		{
 			idc = 106;
-			text = $STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov;
+			text = $STR_antistasi_gameMode_Reb_vs_Gov;
 			//x = 0.37749 * safezoneW + safezoneX;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
@@ -3071,7 +3071,7 @@ class gameMode_menu 			{
 		class HQ_button_offroad: RscButton
 		{
 			idc = 107;
-		 	text = $STR_antistasi_dialogs_gameMode_menu_Reb_vs_Inv;
+		 	text = $STR_antistasi_gameMode_Reb_vs_Inv;
 			x = 0.272481 * safezoneW + safezoneX;
 		 	y = 0.415981 * safezoneH + safezoneY;
 		 	w = 0.175015 * safezoneW;

@@ -87,7 +87,7 @@ private _injuredComrade = "";
 private _victimStats = "damaged systemPunished [AI]";
 if (_victim isKindOf "Man") then {
 	_injuredComrade = [localize "STR_antistasi_customHint_FF_injured",name _victim] joinString "";
-	[localize "STR_antistasi_customHint_FF", format [localize "STR_antistasi_customHint_punish_hurt",_name]] remoteExecCall ["A3A_fnc_customHint", _victim, false];
+	[localize "str_cfg_markers_warning", format [localize "STR_antistasi_customHint_punish_hurt",_name]] remoteExecCall ["A3A_fnc_customHint", _victim, false];
 	private _UIDVictim = ["AI", getPlayerUID _victim] select (isPlayer _victim);
 	_victimStats = ["damaged ",name _victim," [",_UIDVictim,"]"] joinString "";
 };
@@ -97,7 +97,7 @@ private _playerStats = ["Total-time: ",str _timeTotal," (incl. +",str _timeAdded
 private _instigatorLog = [["WARNING","GUILTY"] select (_offenceTotal >= 1)," | ",_name," [",_UID,"] ",_victimStats,", ",_playerStats] joinString "";
 Info(_instigatorLog);
 
-[localize "STR_antistasi_customHint_FF", [localize "STR_antistasi_customHint_friendlyFire",_injuredComrade,_customMessage] joinString "<br/>"] remoteExecCall ["A3A_fnc_customHint", _originalBody, false];
+[localize "str_cfg_markers_warning", [localize "STR_antistasi_customHint_friendlyFire",_injuredComrade,_customMessage] joinString "<br/>"] remoteExecCall ["A3A_fnc_customHint", _originalBody, false];
 
 if (_offenceTotal < 1) exitWith {"WARNING";};
 

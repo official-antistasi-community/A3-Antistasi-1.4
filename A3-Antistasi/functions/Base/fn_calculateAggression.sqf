@@ -81,7 +81,7 @@ if(_levelsChanged) then
     if(!_silent) then
     {
         //If not load progress, show message for everyone
-        _notificationText = format [localize "STR_antistasi_dynamicText_agression", _notificationText];
+        _notificationText = format ["<t size='0.6' color='#C1C0BB'>"+localize "STR_antistasi_dynamicText_agression"+"<br/><br/><t size='0.5' color='#C1C0BB'>%1", _notificationText];
         [petros, "income", _notificationText] remoteExec ["A3A_fnc_commsMP", [teamPlayer, civilian]];
     };
 };

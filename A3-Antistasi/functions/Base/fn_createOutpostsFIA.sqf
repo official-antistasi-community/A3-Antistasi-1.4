@@ -15,7 +15,7 @@ _typeVehX = vehSDKBike;
 private _tsk = "";
 if (_isRoad) then
 	{
-	_textX = format [localize "STR_antistasi_markers_RB",nameTeamPlayer];
+	_textX = format ["%1 "+localize "STR_a3_cfggroups_empty_military_roadblocks_roadblock2",nameTeamPlayer];
 	_typeGroup = groupsSDKAT;
 	_typeVehX = vehSDKTruck;
 	};

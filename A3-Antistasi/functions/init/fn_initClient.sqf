@@ -359,7 +359,7 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 		[A3A_hasACE,"ACE 3",localize "STR_antistasi_cutText_detect_ACE"],
 		[A3A_hasACEMedical,"ACE 3 Medical",localize "STR_antistasi_cutText_detect_ACE_Medical"],
 		[A3A_hasRHS,"RHS",localize "STR_antistasi_cutText_detect_RHS"],
-		[A3A_has3CBFactions,"3CB Factions","STR_antistasi_cutText_detect_3CB_Factions"],
+		[A3A_has3CBFactions,"3CB Factions",localize "STR_antistasi_cutText_detect_3CB_Factions"],
 		[A3A_has3CBBAF,"3CB BAF",localize "STR_antistasi_cutText_detect_3CB_BAF"],
 		[A3A_hasFFAA,"FFAA",localize "STR_antistasi_cutText_detect_FFAA"],
 		[A3A_hasIvory,"Ivory Cars",localize "STR_antistasi_cutText_detect_Ivory_Cars"]
@@ -437,12 +437,12 @@ mapX allowDamage false;
 mapX addAction [localize "STR_disp_options_game_options", {
 	[
 		localize "STR_disp_options_game_options",
-		localize "STR_antistasi_customHint_info_version"+ antistasiVersion +
-		localize "STR_antistasi_customHint_info_difficulty"+ ( [localize "STR_antistasi_dialogs_diff_menu_easy",localize "STR_antistasi_dialogs_diff_menu_normal",localize "STR_antistasi_dialogs_diff_menu_hard"] select ((skillMult-1) min 2) ) +
-		localize "STR_antistasi_customHint_info_unlockWeapon"+ str minWeaps +
-		localize "STR_antistasi_customHint_info_limitFT"+ ([localize "str_lib_info_no",localize "str_lib_info_yes"] select limitedFT) +
-		localize "STR_antistasi_customHint_info_limitAI"+ str maxUnits +
-		localize "STR_antistasi_customHint_info_spawnDistance"+ str distanceSPWN + "m" +
+		localize "STR_antistasi_customHint_info_version"+ antistasiVersion + "<br/><br/>" +
+		localize "STR_antistasi_customHint_info_difficulty"+ ( [localize "STR_antistasi_difficulty_easy",localize "STR_antistasi_difficulty_normal",localize "STR_antistasi_difficulty_hard"] select ((skillMult-1) min 2) ) + "<br/>" +
+		localize "STR_antistasi_customHint_info_unlockWeapon"+ str minWeaps + "<br/>" +
+		localize "STR_antistasi_customHint_info_limitFT"+ ([localize "STR_lib_info_no",localize "STR_lib_info_yes"] select limitedFT) + "<br/>" +
+		localize "STR_antistasi_customHint_info_limitAI"+ str maxUnits + "<br/>" +
+		localize "STR_antistasi_customHint_info_spawnDistance"+ str distanceSPWN + "m" + "<br/>" +
 		localize "STR_antistasi_customHint_info_limitCiv"+ str civPerc
 	] call A3A_fnc_customHint;
 	CreateDialog "game_options";

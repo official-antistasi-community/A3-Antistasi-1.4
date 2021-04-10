@@ -61,14 +61,14 @@ _EHkilledIdx = _unit addEventHandler
 			if (side group _killer == teamPlayer) then
 			{
                 Debug("aggroEvent | Rebels killed a civilian");
-				[[10 * _multiplier, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+				[Occupants, 10 * _multiplier, 60] remoteExec ["A3A_fnc_addAggression",2];
 				[1,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 			}
 			else
 			{
 				if (side group _killer == Occupants) then
 				{
-					[[-5 * _multiplier, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+					[Occupants, -5 * _multiplier, 60] remoteExec ["A3A_fnc_addAggression",2];
 					[0,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 				}
 				else

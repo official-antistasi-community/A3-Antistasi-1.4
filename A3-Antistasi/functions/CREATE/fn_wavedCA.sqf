@@ -17,7 +17,7 @@ _tsk1 = "";
 _posDestination = getMarkerPos _mrkDestination;
 _posOrigin = getMarkerPos _mrkOrigin;
 
-diag_log format ["[Antistasi] Spawning Waved Attack Against %1 from %2 with %3 waves (wavedCA.sqf)", _mrkDestination, _mrkOrigin,	_waves];
+Debug_3("Spawning Waved Attack Against %1 from %2 with %3 waves", _mrkDestination, _mrkOrigin, _waves);
 
 _groups = [];
 _soldiersTotal = [];
@@ -53,7 +53,7 @@ else
 
 //forcedSpawn = forcedSpawn + _forced; publicVariable "forcedSpawn";
 forcedSpawn pushBack _mrkDestination; publicVariable "forcedSpawn";
-diag_log format ["%1: [Antistasi] | INFO | Side Attacker:%2, Side Defender: %3",servertime,_sideX,_isSDK];
+Info_2("Side Attacker:%1, Side Defender: %2",_sideX,_isSDK);
 _nameDest = [_mrkDestination] call A3A_fnc_localizar;
 
 [_sideTsk,"rebelAttack",[format ["%2 Is attacking from the %1. Intercept them or we may loose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
@@ -526,7 +526,7 @@ while {(_waves > 0)} do
 		}
 		else {
 			if (count _vehPoolAirTransport == 0) then {
-				for "_i" from 1 to 10 do { vehPoolAirTransport pushBack _typePatrolHeli };
+				for "_i" from 1 to 10 do { _vehPoolAirTransport pushBack _typePatrolHeli };
                 Info("Attack ran out of air transports");
 				_waves = 0;
 			};
@@ -727,7 +727,7 @@ while {(_waves > 0)} do
 				[60,-60,_mrkDestination,false] remoteExec ["A3A_fnc_citySupportChange",2];		// no pop scaling, force swing
 				["TaskFailed", ["", format ["%1 joined %2",[_mrkDestination, false] call A3A_fnc_location,nameOccupants]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 				sidesX setVariable [_mrkDestination,Occupants,true];
-				[[-10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+				[Occupants, -10, 45] remoteExec ["A3A_fnc_addAggression",2];
 				_mrkD = format ["Dum%1",_mrkDestination];
 				_mrkD setMarkerColor colorOccupants;
 				garrison setVariable [_mrkDestination,[],true];
@@ -757,7 +757,6 @@ while {(_waves > 0)} do
 	else
 		{
 		waitUntil {sleep 5; (({!([_x] call A3A_fnc_canFight)} count _soldiers) >= _solMax) or (time > _timeX) or (sidesX getVariable [_mrkDestination,sideUnknown] == Invaders) or (({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits))};
-		//diag_log format ["1:%1,2:%2,3:%3,4:%4",(({!([_x] call A3A_fnc_canFight)} count _soldiers) >= _solMax),(time > _timeX),(sidesX getVariable [_mrkDestination,sideUnknown] == Invaders),(({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits))];
 		if  ((({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits)) or (sidesX getVariable [_mrkDestination,sideUnknown] == Invaders))  then
 			{
 			_waves = 0;
@@ -769,7 +768,7 @@ while {(_waves > 0)} do
 		if (!(sidesX getVariable [_mrkDestination,sideUnknown] == Invaders)) then
 			{
 			_timeX = time + 3600;
-			diag_log format ["%1: [Antistasi] | INFO | Wave number %2 on wavedCA lost",servertime,_waves];
+            Info_1("Wave number %1 lost",_waves);
 			if (sidesX getVariable [_mrkOrigin,sideUnknown] == Invaders) then
 				{
 				_killZones = killZones getVariable [_mrkOrigin,[]];
@@ -805,7 +804,7 @@ if (_isSDK) then
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	};
-diag_log "Antistasi: Reached end of winning conditions. Starting despawn";
+Info("Reached end of winning conditions. Starting despawn");
 sleep 30;
 _nul = [0,"rebelAttack"] spawn A3A_fnc_deleteTask;
 _nul = [0,"rebelAttackPVP"] spawn A3A_fnc_deleteTask;

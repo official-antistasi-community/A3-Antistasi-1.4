@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Mission: Rescue the refugees
 if (!isServer and hasInterface) exitWith{};
 private ["_markerX","_difficultX","_leave","_contactX","_groupContact","_tsk","_posHQ","_citiesX","_city","_radiusX","_positionX","_houseX","_posHouse","_nameDest","_timeLimit","_dateLimit","_dateLimitNum","_pos","_countX"];
@@ -96,7 +98,7 @@ else
 	_road = _roads select 0;
 	_posroad = getPos _road;
 	_roadcon = roadsConnectedto _road; if (count _roadCon == 0) then {
-		diag_log format ["%1: [Antistasi] | ERROR | RES_Refugees.sqf | Road has no connection :%2.",servertime,position _road];
+        Error_1("Road has no connection :%1.",position _road);
 		};
 	if (count _roadCon > 0) then
 		{
@@ -154,7 +156,7 @@ if (_sideX == Occupants) then
 		_hr = _countX;
 		_resourcesFIA = 100 * _countX;
 		[_hr,_resourcesFIA*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-		[[-10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+		[Occupants, -10, 60] remoteExec ["A3A_fnc_addAggression",2];
 		{if (_x distance getMarkerPos respawnTeamPlayer < 500) then {[_countX*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 		[round (_countX*_bonus/2),theBoss] call A3A_fnc_playerScoreAdd;
 		{[_x] join _groupPOW; [_x] orderGetin false} forEach _POWs;

@@ -101,7 +101,7 @@ else
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 			[-15*_bonus,15*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
             Debug("aggroEvent | Rebels won a supply mission");
-			[[-10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+			[Occupants, -10, 60] remoteExec ["A3A_fnc_addAggression",2];
 			}
 		else
 			{

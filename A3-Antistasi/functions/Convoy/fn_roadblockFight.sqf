@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_units", "_roadblockMarker"];
 
 _nightTimeBonus = if (daytime < 6 || {daytime > 22}) then {0.25} else {0};
@@ -22,7 +24,7 @@ _attackerCount = 0;
 {
   _attackerCount = _attackerCount + (count (_x select 1)) + (count (_x select 2));
   _vehicle = _x select 0;
-  //diag_log format ["Units: %1, Veh: %2", str _units, str _vehicle];
+  //Debug_2("Units: %1, Veh: %2", str _units, str _vehicle);
   switch (true) do
   {
     case (_vehicle isKindOf "APC"): {_attackerCount = _attackerCount + 5};
@@ -44,7 +46,7 @@ _result = false;
 if(_attackerCount == 0) then
 {
   //Attacker lost
-  diag_log format ["Attacker lost against roadblock %1", _roadblockMarker];
+  Debug_1("Attacker lost against roadblock %1", _roadblockMarker);
   _result = false;
 }
 else
@@ -52,14 +54,14 @@ else
   _ratio = _roadblockCount/_attackerCount;
   if(_roadblockCount == 0 || {_ratio < 0.9}) then
   {
-    diag_log format ["Defender at %1 lost against attacker with ratio %2", _roadblockMarker, _ratio];
+      Debug_2("Defender at %1 lost against attacker with ratio %2", _roadblockMarker, _ratio);
     _result = true;
   }
   else
   {
     if(_ratio > 1.1) then
     {
-      diag_log format ["Attacker lost against roadblock %1", _roadblockMarker];
+        Debug_1("Attacker lost against roadblock %1", _roadblockMarker);
       _result = false;
     }
     else
@@ -67,11 +69,11 @@ else
       _result = [true, false] selectRandomWeighted [0.5, 0.5];
       if(_result) then
       {
-        diag_log format ["Defender at %1 lost against attacker with ratio %2", _roadblockMarker, _ratio];
+          Debug_2("Defender at %1 lost against attacker with ratio %2", _roadblockMarker, _ratio);
       }
       else
       {
-        diag_log format ["Attacker lost against roadblock %1", _roadblockMarker];
+          Debug_1("Attacker lost against roadblock %1", _roadblockMarker);
       };
     };
   };

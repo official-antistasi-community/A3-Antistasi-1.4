@@ -303,7 +303,8 @@ if (_winner == teamPlayer) then
 		//[_flagX,"garage"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 		if (_markerX in seaports) then {[_flagX,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX]};
 	};
-	[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;
+    ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
+    ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
 	waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({((side group _x) in [_looser,_other]) and (_x getVariable ["spawner",false]) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits > 3*({(side _x == teamPlayer) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits))};
 	if (spawner getVariable _markerX != 2) then
 	{
@@ -341,7 +342,8 @@ else
 	};
 	if (_looser == teamPlayer) then
 		{
-		[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;
+        ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
+        ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
 		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !(["DEF_HQ"] call BIS_fnc_taskExists) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};

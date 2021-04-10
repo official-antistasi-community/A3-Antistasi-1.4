@@ -1,10 +1,12 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private ["_unit","_skill"];
 _unit = _this select 0;
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | _unit:%2.",servertime,_unit];
+    Debug_1("Unit: %1", _unit);
 };
 if ((isNil "_unit") || (isNull _unit)) exitWith {
-	diag_log format ["%1: [Antistasi] | ERROR | FIAinitBases.sqf | Problem with NATO Param: %2",servertime,_this];
+    Error_1("Problem with NATO Param: %1", _this);
 	};
 _markerX = "";
 if (count _this > 1) then
@@ -55,17 +57,10 @@ _EHkilledIdx = _unit addEventHandler ["killed", {
 			_killer addRating 1000;
 			};
 		};
+    [side _killer, -1, 30] remoteExec ["A3A_fnc_addAggression", 2];
 	if (side _killer == Occupants) then
 	{
 		[0,-0.25,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-		[[-1, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
-	}
-	else
-	{
-		if (side _killer == Invaders) then
-        {
-            [[0, 0], [-1, 30]] remoteExec ["A3A_fnc_prestige",2]
-        };
 	};
 	_markerX = _victim getVariable "markerX";
 	if (!isNil "_markerX") then
@@ -85,7 +80,7 @@ if (vehicle _unit != _unit) then
 		{
 			_revealX = true;
 			if (debug) then {
-				diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | Unit: %2 is mounted gunner.",servertime,_unit];
+                Debug_1("Unit: %1 is mounted gunner.", _unit);
 			};
 		};
 	}
@@ -94,7 +89,7 @@ else
 	if ((secondaryWeapon _unit) in allMissileLaunchers) then {
 			_revealX = true;
 			if (debug) then {
-				diag_log format ["%1: [Antistasi] | DEBUG | FIAinitBASES.sqf | Unit: %2 has launcher: %3.",servertime,_unit, (secondaryWeapon _unit)];
+                Debug_2("Unit: %1 has launcher: %2.", _unit, (secondaryWeapon _unit));
 			};
 		};
 	};

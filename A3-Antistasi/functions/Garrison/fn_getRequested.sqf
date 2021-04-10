@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_marker"];
 
 /*  Returns the units of a garrison that needs to be reinforced on the given marker
@@ -10,7 +12,7 @@ params ["_marker"];
 
 private ["_result"];
 
-if(isNil "_marker") exitWith {diag_log "GetRequested: No marker given!";};
+if(isNil "_marker") exitWith {Error("No marker given!")};
 
 _result = garrison getVariable [format ["%1_requested", _marker], [["", [], []]]];
 

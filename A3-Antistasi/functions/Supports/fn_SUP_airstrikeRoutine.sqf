@@ -51,15 +51,7 @@ _strikePlane addEventHandler
         _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 3600];
         [_strikePlane getVariable "supportName", _strikePlane getVariable "side"] spawn A3A_fnc_endSupport;
         [_strikePlane] spawn A3A_fnc_postMortem;
-
-        if((_strikePlane getVariable "side") == Occupants) then
-        {
-            [[20, 45], [0, 0]] remoteExec ["A3A_fnc_prestige", 2];
-        }
-        else
-        {
-            [[0, 0], [20, 45]] remoteExec ["A3A_fnc_prestige", 2];
-        };
+        [(_strikePlane getVariable "side"), 20, 45] remoteExec ["A3A_fnc_addAggression", 2];
     }
 ];
 

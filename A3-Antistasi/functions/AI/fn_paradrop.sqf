@@ -21,7 +21,8 @@ Dependencies:
 Example:
 [_myPlane, _ODSTgroup, _targetPos, "CSAT_Carrier"] call A3A_fnc_initSupportCooldowns;
 */
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params
 [
     ["_vehicle", objNull, [objNull]],
@@ -89,7 +90,7 @@ waitUntil {sleep 1; (_vehicle getVariable ["dropPosReached", false]) || (!alive 
 
 if(_vehicle getVariable ["dropPosReached", false]) then
 {
-    [3, 'Drop pos reached', 'paradrop'] call A3A_fnc_log;
+    Debug("Drop pos reached");
     _vehicle setCollisionLight true;
     {
         unAssignVehicle _x;

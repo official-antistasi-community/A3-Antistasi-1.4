@@ -6,7 +6,7 @@ params ["_unit", "_id", "_uid"];
 Info_3("Player disconnected with id %1 and unit %2 on side %3", _uid, _unit, side _unit);
 
 if (side _unit == sideLogic || {_uid == ""}) exitWith {
-	diag_log "[Antistasi] Exiting onPlayerDisconnect due to no UID or sideLogic unit. Possible Headless Client disconnect?";
+    Error("Exiting onPlayerDisconnect due to no UID or sideLogic unit. Possible Headless Client disconnect?");
 };
 
 

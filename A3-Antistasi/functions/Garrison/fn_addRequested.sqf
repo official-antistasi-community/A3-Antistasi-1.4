@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_marker", "_unit", "_unitIndex", ["_stockUp", false]];
 
 /*  Adds the given units to the list of troups that needs to be reinforced
@@ -16,8 +18,8 @@ params ["_marker", "_unit", "_unitIndex", ["_stockUp", false]];
 *     Nothing
 */
 
-if (isNil "_marker") exitWith {diag_log "AddRequested: No marker given!"};
-if (isNil "_unit") exitWith {diag_log "AddRequested: No units given!"};
+if (isNil "_marker") exitWith {Error("No marker given!")};
+if (isNil "_unit") exitWith {Error("No units given!")};
 
 private ["_unitType", "_groupID", "_reinforcements", "_reinfCount", "_element", "_countGarrison"];
 
@@ -61,11 +63,8 @@ if(!_stockUp) then
   };
   _reinforcements set [_groupID, _element];
 
-  //diag_log "Unit killed, reinforcement are now!";
-  //[_reinforcements, "Reinf"] call A3A_fnc_logArray;
-
-  //diag_log "Garrison is now!";
-  //[_garrison, "Garrison"] call A3A_fnc_logArray;
+  //DebugArray("Unit killed, reinforcement are now!",_reinforcements);
+  //DebugArray("Garrison is now!",_garrison);
 
   //Setting new reinforcements Pretty sure this is not needed
   //garrison setVariable [format ["%1_requested", _marker], _reinforcements, true];
@@ -75,7 +74,7 @@ else
   //The AI wants to improve the units needed on this marker
   if (!(_unit isEqualType []) || {count _unit != 3}) exitWith
   {
-    diag_log format ["AddRequested: Given units do not match format, input was %1", str _unit];
+      Error_1("AddRequested: Given units do not match format, input was %1", str _unit);
   };
   _countGarrison = count ([_marker] call A3A_fnc_getGarrison);
   _reinforcements = [_marker] call A3A_fnc_getNeededReinforcements;

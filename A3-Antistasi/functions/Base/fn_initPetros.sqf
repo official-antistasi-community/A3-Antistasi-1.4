@@ -95,10 +95,10 @@ petros addMPEventHandler ["mpkilled",
 
 private _removeProblematicAceInteractions = {
     _this spawn {
-        //Wait until we've got hasACE initialised fully
+        //Wait until we've got A3A_hasACE initialised fully
         waitUntil {!isNil "initVar"};
         //Disable ACE Interactions
-        if (hasInterface && hasACE) then {
+        if (hasInterface && A3A_hasACE) then {
             [typeOf _this, 0,["ACE_ApplyHandcuffs"]] call ace_interact_menu_fnc_removeActionFromClass;
             [typeOf _this, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
         };

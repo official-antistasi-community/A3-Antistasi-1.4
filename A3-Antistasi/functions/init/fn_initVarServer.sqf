@@ -376,6 +376,7 @@ private _templateVariables = [
 	"staticATOccupants",
 	"staticAAOccupants",
 	"NATOMortar",
+	"NATOmortarMagazineHE",
 
 	//Invaders
 	"nameInvaders",
@@ -441,7 +442,8 @@ private _templateVariables = [
 	"CSATMG",
 	"staticATInvaders",
 	"staticAAInvaders",
-	"CSATMortar"
+	"CSATMortar",
+	"CSATmortarMagazineHE"
 ];
 
 {

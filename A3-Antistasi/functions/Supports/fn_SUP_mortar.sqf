@@ -18,7 +18,7 @@ params ["_side", "_timerIndex", "_supportPos", "_supportName"];
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 private _mortarType = if(_side == Occupants) then {NATOMortar} else {CSATMortar};
-private _shellType = SDKMortarHEMag;
+private _shellType = if(_side == Occupants) then {NATOmortarMagazineHE} else {CSATmortarMagazineHE};
 private _isMortar = true;
 
 //If war level between 6 and 8 there is a chance (25%/50%/75%) that it switches to a howitzer instead, above it howitzer is guaranteed

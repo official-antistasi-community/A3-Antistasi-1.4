@@ -242,7 +242,7 @@ if (_side isEqualTo west) then {
 	NATOOfficer2 = "loadouts_occ_other_Traitor";
 	NATOBodyG = "loadouts_occ_military_Rifleman";
 	NATOCrew = "loadouts_occ_other_Crew";
-	NATOUnarmed = "loadouts_occ_Unarmed";
+	NATOUnarmed = "loadouts_occ_other_Unarmed";
 	NATOMarksman = "loadouts_occ_military_Marksman";
 	staticCrewOccupants = "loadouts_occ_military_Rifleman";
 	NATOPilot = "loadouts_occ_other_Pilot";

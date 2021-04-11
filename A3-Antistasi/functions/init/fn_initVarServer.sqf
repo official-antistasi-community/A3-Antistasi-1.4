@@ -391,6 +391,7 @@ private _templateVariables = [
 	"CSATOfficer",
 	"CSATBodyG",
 	"CSATCrew",
+	"CSATUnarmed",
 	"CSATMarksman",
 	"staticCrewInvaders",
 	"CSATPilot",

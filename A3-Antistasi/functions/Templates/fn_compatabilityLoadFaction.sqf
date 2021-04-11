@@ -57,6 +57,7 @@ if (_side isEqualTo east) then {
 	CSATOfficer = "loadouts_inv_other_Official";
 	CSATBodyG = "loadouts_inv_military_Rifleman";
 	CSATCrew = "loadouts_inv_other_Crew";
+	CSATUnarmed = "loadouts_inv_other_Unarmed";
 	CSATMarksman = "loadouts_inv_military_Marksman";
 	staticCrewInvaders = "loadouts_inv_military_Rifleman";
 	CSATPilot = "loadouts_inv_other_Pilot";

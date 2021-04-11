@@ -65,7 +65,6 @@ private _initialRebelEquipment = [
 "UK3CB_V_CW_Chestrig","UK3CB_V_CW_Chestrig_2_Small","UK3CB_V_Belt_KHK","UK3CB_V_Belt_Rig_KHK","UK3CB_V_Belt_Rig_Lite_KHK","UK3CB_V_Pouch","UK3CB_V_Chestrig_TKA_OLI","UK3CB_V_Chestrig_2_Small_OLI","UK3CB_V_Chestrig_TKA_BRUSH","UK3CB_V_Chestrig_Lite_KHK","UK3CB_V_Chestrig_Lite_2_Small_KHK",
 "rhs_acc_2dpZenit","Binocular"
 ];
-if (A3A_hasACRE) then {_initialRebelEquipment append ["ACRE_SEM90","ACRE_VRC111","ACRE_VRC110","ACRE_VRC103","ACRE_VRC64","ACRE_SEM70","ACRE_SEM52SL","ACRE_PRC343","ACRE_PRC152","ACRE_PRC148","ACRE_PRC117F","ACRE_PRC77","ACRE_VHF30108SPIKE","ACRE_VHF30108MAST"]};
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155"};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};

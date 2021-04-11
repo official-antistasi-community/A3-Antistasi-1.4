@@ -24,7 +24,7 @@ if (_level > LogLevel) exitwith {};
 private _logLine = if (1 <= _level && _level <= 4) then {
 	(systemTimeUTC call A3A_fnc_systemTime_format_S) + " | Antistasi | " + ["Error","Info","Debug","Verbose"]#(_level-1) + " | File: " + _file + " | " + _message;
 } else {
-	(systemTimeUTC call A3A_fnc_systemTime_format_S) + " | Antistasi | Error | File: fn_log | Invalid Log Level | Dump: " + str _message;
+	(systemTimeUTC call A3A_fnc_systemTime_format_S) + " | Antistasi | Error | File: fn_log | Invalid Log Level | Dump: " + str _this;
 };
 
 if (isNil "blockServerLogging" && _toServer && !isServer) then {

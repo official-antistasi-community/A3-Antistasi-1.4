@@ -21,23 +21,10 @@ private _filename = "fn_log";
 if (_level > LogLevel) exitwith {};
 
 // Sets up the actual log event.
-private _logLine = "";
-switch (_level) do {
-	case 1: {
-		_logLine = format ["%1: [Antistasi] | ERROR | %2 | %3", servertime, _file, _message];
-	};
-	case 2: {
-		_logLine = format ["%1: [Antistasi] | INFO | %2 | %3", servertime, _file, _message];
-	};
-	case 3: {
-		_logLine = format ["%1: [Antistasi] | DEBUG | %2 | %3", servertime, _file, _message];
-	};
-	case 4: {
-		_logLine = format ["%1: [Antistasi] | VERBOSE | %2 | %3", servertime, _file, _message];
-	};
-	default {
-		_logLine = format ["%1: [Antistasi] | Unknown Log Level Specified, please use 1= Errors, 2= Info, 3= Debug | %2 | %3", servertime, _file, _message];
-	};
+private _logLine = if (1 <= _level && _level <= 4) then {
+	(systemTimeUTC call A3A_fnc_systemTime_format_S) + " | Antistasi | " + ["Error","Info","Debug","Verbose"]#(_level-1) + " | File: " + _file + " | " + _message;
+} else {
+	format ["%1: [Antistasi] | Unknown Log Level Specified, please use 1= Errors, 2= Info, 3= Debug | %2 | %3", servertime, _file, _message];
 };
 
 if (isNil "blockServerLogging" && _toServer && !isServer) then {

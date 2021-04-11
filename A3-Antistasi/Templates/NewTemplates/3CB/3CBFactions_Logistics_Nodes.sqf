@@ -124,6 +124,44 @@ A3A_logistics_vehicleHardpoints append [
         [1,             [0,-2.4,-0.58],         []],
         [1,             [0,-3.2,-0.58],         []],
         [1,             [0,-4.0,-0.58],         []]
+    ]],
+        // 3CB Fishing Boat
+    ["UK3CB_CCM_I_Fishing_Boat" call A3A_fnc_classNameToModel,[
+        [1,             [0,-2.6,-4.28],          [2,0]],
+        [1,             [0,-3.4,-4.28],          []],
+        [1,             [0,-4.2,-4.28],          [5]],
+        [1,             [0,-5,-4.28],            [1,4,3]]
+    ]],
+        // 3CB Fishing Boat
+    ["UK3CB_CCM_I_Fishing_Boat_VIV_FFV" call A3A_fnc_classNameToModel,[
+        [1,             [0,-2.6,-4.28],          []],
+        [1,             [0,-3.4,-4.28],          []],
+        [1,             [0,-4.2,-4.28],          []],
+        [1,             [0,-5,-4.28],            []]
+    ]],
+        // 3CB Fishing Boat ZU23 Rear
+    ["UK3CB_CHD_I_Fishing_Boat_Zu23" call A3A_fnc_classNameToModel,[
+        [1,             [0,6.1,-3.24],          []]
+    ]],
+        // 3CB Fishing Boat ZU23 Front
+    ["UK3CB_CHD_I_Fishing_Boat_Zu23_front" call A3A_fnc_classNameToModel,[
+        [1,             [0,-2.6,-4.28],          [2,0]],
+        [1,             [0,-3.4,-4.28],          []],
+        [1,             [0,-4.2,-4.28],          [5]],
+        [1,             [0,-5,-4.28],            [1,4,3]]
+    ]],
+        // 3CB Wooden Boat
+    ["UK3CB_CHC_C_Small_Boat_Wood" call A3A_fnc_classNameToModel,[
+        [1,             [0,1.1,-0.62],          [1]],
+        [1,             [0,0.3,-0.62],          [0,2]]
+    ]],
+        // Small boat
+    ["UK3CB_CHC_C_Small_Boat_Closed" call A3A_fnc_classNameToModel,[
+        [1,             [0,-0.7,-1],            [4,5]]
+    ]],
+        // Small boat
+    ["UK3CB_CHC_C_Small_Boat_Open" call A3A_fnc_classNameToModel,[
+        [1,             [0,-0.7,-1],            [4,5]]
     ]]
 ];
 

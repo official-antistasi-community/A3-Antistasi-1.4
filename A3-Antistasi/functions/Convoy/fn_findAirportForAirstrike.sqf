@@ -9,9 +9,9 @@ params ["_destination", ["_side", sideUnknown]];
 *   retuns
 *   _airport : MARKER; the best suited airport, "" if none found
 */
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _airport = "";
-private _fileName = "findAirportForAirstrike";
 
 //Assuming _destination is a pos
 private _destinationPos = _destination;
@@ -62,11 +62,11 @@ _suitableAirports = [];
 if (count _suitableAirports > 0) then
 {
     _airport = [_suitableAirports,_destinationPos] call BIS_fnc_nearestPosition;
-    [3, format ["Found %1 suitable airports, will return %2", count _suitableAirports, _airport], _fileName] call A3A_fnc_log;
+    Debug_2("Found %1 suitable airports, will return %2", count _suitableAirports, _airport);
 }
 else
 {
     _airport = "";
-    [3, "FindAirportForAirstrike: No suitable position found, returning empty string", _fileName] call A3A_fnc_log;
+    Debug("FindAirportForAirstrike: No suitable position found, returning empty string");
 };
 _airport;

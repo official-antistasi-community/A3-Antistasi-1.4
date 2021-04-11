@@ -1,8 +1,7 @@
 if (!isServer and hasInterface) exitWith {};
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_typeVehX","_vehicle","_heli","_heliCrew","_groupHeli","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_mrkDestination","_posDestination","_prestigeCSAT","_mrkOrigin","_airportX","_nameDest","_timeX","_solMax","_nul","_costs","_typeX","_threatEvalAir","_threatEvalLand","_pos","_timeOut","_sideX","_waves","_countX","_tsk1","_spawnPoint","_vehPool", "_airportIndex"];
-
-private _fileName = "wavedCA";
 
 bigAttackInProgress = true;
 publicVariable "bigAttackInProgress";
@@ -18,7 +17,7 @@ _tsk1 = "";
 _posDestination = getMarkerPos _mrkDestination;
 _posOrigin = getMarkerPos _mrkOrigin;
 
-diag_log format ["[Antistasi] Spawning Waved Attack Against %1 from %2 with %3 waves (wavedCA.sqf)", _mrkDestination, _mrkOrigin,	_waves];
+Debug_3("Spawning Waved Attack Against %1 from %2 with %3 waves", _mrkDestination, _mrkOrigin, _waves);
 
 _groups = [];
 _soldiersTotal = [];
@@ -54,7 +53,7 @@ else
 
 //forcedSpawn = forcedSpawn + _forced; publicVariable "forcedSpawn";
 forcedSpawn pushBack _mrkDestination; publicVariable "forcedSpawn";
-diag_log format ["%1: [Antistasi] | INFO | Side Attacker:%2, Side Defender: %3",servertime,_sideX,_isSDK];
+Info_2("Side Attacker:%1, Side Defender: %2",_sideX,_isSDK);
 _nameDest = [_mrkDestination] call A3A_fnc_localizar;
 
 [_sideTsk,"rebelAttack",[format ["%2 Is attacking from the %1. Intercept them or we may loose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
@@ -139,9 +138,9 @@ call {
 	for "_i" from 1 to (_patrolHeliCount) do { _vehPoolAirTransport pushBack _typePatrolHeli };
 };
 
-[3, format ["Land vehicle pool: %1", _vehPoolLand], _filename] call A3A_fnc_log;
-[3, format ["Air transport pool: %1", _vehPoolAirTransport], _filename] call A3A_fnc_log;
-[3, format ["Air support pool: %1", _vehPoolAirSupport], _filename] call A3A_fnc_log;
+Debug_1("Land vehicle pool: %1", _vehPoolLand);
+Debug_1("Air transport pool: %1", _vehPoolAirTransport);
+Debug_1("Air support pool: %1", _vehPoolAirSupport);
 
 private _fnc_remUnitCount = {
 	private _unitCount = {(local _x) and (alive _x)} count allUnits;
@@ -170,7 +169,7 @@ while {(_waves > 0)} do
 	if (_firstWave) then { _nVeh = _nVeh + 2 };
     _nVeh = (round (_nVeh)) max 1;
 
-    [3, format ["Wave will contain %1 vehicles", _nVeh], _fileName] call A3A_fnc_log;
+    Debug_1("Wave will contain %1 vehicles", _nVeh);
 
 	_posOriginLand = [];
 	_pos = [];
@@ -221,11 +220,11 @@ while {(_waves > 0)} do
 				_vehPoolLand append _typesTruck;
 				_vehPoolLand append _typesMRAP;
 				_waves = 0;
-				[2, "Attack ran out of land vehicles", _filename] call A3A_fnc_log;
+                Info("Attack ran out of land vehicles");
 			};
 			_typeVehX = selectRandom _vehPoolLand;
 			_vehPoolLand deleteAt (_vehPoolLand find _typeVehX);
-			[3, format ["Spawning vehicle type %1", _typeVehX], _filename] call A3A_fnc_log;
+            Debug_1("Spawning vehicle type %1", _typeVehX);
 
 			if (true) then
 			{
@@ -320,7 +319,7 @@ while {(_waves > 0)} do
 			};
 
 			if ((count _soldiers >= 10) && (call _fnc_remUnitCount < 5)) exitWith {
-				[2, format ["Ground wave reached maximum units count after %1 vehicles", _countX], _filename] call A3A_fnc_log;
+                Info_1("Ground wave reached maximum units count after %1 vehicles", _countX);
 			};
 			sleep 15;
 			_countX = _countX + 1;
@@ -485,11 +484,11 @@ while {(_waves > 0)} do
 
 	// Fill air supports up to half wave size, minimum +1
 	private _countNewSupport = 1 max (floor (_nVeh / 2) - count _airSupport);
-	[3, format ["Spawning %1 new support aircraft", _countNewSupport], _filename] call A3A_fnc_log;
+    Debug_1("Spawning %1 new support aircraft", _countNewSupport);
 
 	if (_countNewSupport > count _vehPoolAirSupport) then {
 		_countNewSupport = count _vehPoolAirSupport;
-		[2, "Attack ran out of air supports", _filename] call A3A_fnc_log;
+        Info("Attack ran out of air supports");
 		_waves = 0;
 	};
 
@@ -513,7 +512,7 @@ while {(_waves > 0)} do
 		{[_x] call A3A_fnc_NATOinit} forEach (crew _uav);
 		[_uav, _sideX] call A3A_fnc_AIVEHinit;
 		if (not(_mrkDestination in airportsX)) then {_uav removeMagazines "6Rnd_LG_scalpel"};
-		[3, format ["Spawning vehicle type %1", _typeVehX], _filename] call A3A_fnc_log;
+        Debug_1("Spawning vehicle type %1", _typeVehX);
 		sleep 5;
 		_countX = _countX + 1;
 	};
@@ -527,14 +526,14 @@ while {(_waves > 0)} do
 		}
 		else {
 			if (count _vehPoolAirTransport == 0) then {
-				for "_i" from 1 to 10 do { vehPoolAirTransport pushBack _typePatrolHeli };
-				[2, "Attack ran out of air transports", _filename] call A3A_fnc_log;
+				for "_i" from 1 to 10 do { _vehPoolAirTransport pushBack _typePatrolHeli };
+                Info("Attack ran out of air transports");
 				_waves = 0;
 			};
 			_typeVehX = selectRandom _vehPoolAirTransport;
 			_vehPoolAirTransport deleteAt (_vehPoolAirTransport find _typeVehX);
 		};
-		[3, format ["Spawning vehicle type %1", _typeVehX], _filename] call A3A_fnc_log;
+        Debug_1("Spawning vehicle type %1", _typeVehX);
 
 		if (true) then
 			{
@@ -626,14 +625,14 @@ while {(_waves > 0)} do
 				};
 			};
 		if ((_countX > _countNewSupport) && (count _soldiers >= 10) && (call _fnc_remUnitCount < 5)) exitWith {
-			[2, format ["Air wave reached maximum units count after %1 vehicles", _countX], _filename] call A3A_fnc_log;
+            Info_1("Air wave reached maximum units count after %1 vehicles", _countX);
 		};
 		sleep 1;
 		_pos = [_pos, 80,_ang] call BIS_fnc_relPos;
 		_countX = _countX + 1;
 		};
 
-	[2, format ["Spawn performed: %1 air vehicles inc. %2 supports, %3 land vehicles, %4 soldiers", _nVehAir, _countNewSupport, _nVehLand, count _soldiers], _filename] call A3A_fnc_log;
+    Info_4("Spawn performed: %1 air vehicles inc. %2 supports, %3 land vehicles, %4 soldiers", _nVehAir, _countNewSupport, _nVehLand, count _soldiers);
 
 	_plane = if (_sideX == Occupants) then {vehNATOPlane} else {vehCSATPlane};
 	if (_sideX == Occupants) then
@@ -728,7 +727,7 @@ while {(_waves > 0)} do
 				[60,-60,_mrkDestination,false] remoteExec ["A3A_fnc_citySupportChange",2];		// no pop scaling, force swing
 				["TaskFailed", ["", format ["%1 joined %2",[_mrkDestination, false] call A3A_fnc_location,nameOccupants]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 				sidesX setVariable [_mrkDestination,Occupants,true];
-				[[-10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+				[Occupants, -10, 45] remoteExec ["A3A_fnc_addAggression",2];
 				_mrkD = format ["Dum%1",_mrkDestination];
 				_mrkD setMarkerColor colorOccupants;
 				garrison setVariable [_mrkDestination,[],true];
@@ -758,7 +757,6 @@ while {(_waves > 0)} do
 	else
 		{
 		waitUntil {sleep 5; (({!([_x] call A3A_fnc_canFight)} count _soldiers) >= _solMax) or (time > _timeX) or (sidesX getVariable [_mrkDestination,sideUnknown] == Invaders) or (({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits))};
-		//diag_log format ["1:%1,2:%2,3:%3,4:%4",(({!([_x] call A3A_fnc_canFight)} count _soldiers) >= _solMax),(time > _timeX),(sidesX getVariable [_mrkDestination,sideUnknown] == Invaders),(({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits))];
 		if  ((({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits)) or (sidesX getVariable [_mrkDestination,sideUnknown] == Invaders))  then
 			{
 			_waves = 0;
@@ -770,7 +768,7 @@ while {(_waves > 0)} do
 		if (!(sidesX getVariable [_mrkDestination,sideUnknown] == Invaders)) then
 			{
 			_timeX = time + 3600;
-			diag_log format ["%1: [Antistasi] | INFO | Wave number %2 on wavedCA lost",servertime,_waves];
+            Info_1("Wave number %1 lost",_waves);
 			if (sidesX getVariable [_mrkOrigin,sideUnknown] == Invaders) then
 				{
 				_killZones = killZones getVariable [_mrkOrigin,[]];
@@ -806,7 +804,7 @@ if (_isSDK) then
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	};
-diag_log "Antistasi: Reached end of winning conditions. Starting despawn";
+Info("Reached end of winning conditions. Starting despawn");
 sleep 30;
 _nul = [0,"rebelAttack"] spawn A3A_fnc_deleteTask;
 _nul = [0,"rebelAttackPVP"] spawn A3A_fnc_deleteTask;

@@ -1,6 +1,7 @@
 //Mission: Assassinate a traitor
 if (!isServer and hasInterface) exitWith{};
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _markerX = _this select 0;
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};
@@ -72,7 +73,7 @@ while {count _roads == 0} do
 _road = _roads select 0;
 _posroad = getPos _road;
 _roadcon = roadsConnectedto _road; if (count _roadCon == 0) then {
-	diag_log format ["%1: [Antistasi] | ERROR | AS_Traitor.sqf | Road has no connection :%2.",servertime,position _road];
+    Error("Road has no connection :%1.",position _road);
 	};
 if (count _roadCon > 0) then
 	{
@@ -154,13 +155,8 @@ if (not alive _traitor || traitorIntel) then
 
 	_factor = 1;
 	if(_difficultX) then {_factor = 2;};
-    [
-        3,
-        "Rebels won a traitor mission",
-        "aggroEvent",
-        true
-    ] call A3A_fnc_log;
-	[[15 * _factor, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+    Debug("aggroEvent | Rebels won a traitor mission");
+	[Occupants, 15 * _factor, 120] remoteExec ["A3A_fnc_addAggression",2];
 	[0,300 * _factor] remoteExec ["A3A_fnc_resourcesFIA",2];
 	{
 		if (!isPlayer _x) then
@@ -214,4 +210,3 @@ _nul = [10,"AS1"] spawn A3A_fnc_deleteTask;
 [_groupX] spawn A3A_fnc_groupDespawner;
 [_groupTraitor] spawn A3A_fnc_groupDespawner;
 [_veh] spawn A3A_fnc_vehDespawner;
-

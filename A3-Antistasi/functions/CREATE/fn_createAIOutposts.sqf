@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer and hasInterface) exitWith{};
 private ["_markerX","_vehiclesX","_groups","_soldiers","_positionX","_pos","_size","_frontierX","_sideX","_cfg","_isFIA","_garrison","_antenna","_radiusX","_buildings","_mrk","_countX","_typeGroup","_groupX","_typeUnit","_typeVehX","_veh","_unit","_flagX","_boxX","_roads","_mrkMar","_vehicle","_vehCrew","_groupVeh","_dist","_road","_roadCon","_dirVeh","_bunker","_dir","_posF"];
 _markerX = _this select 0;
@@ -12,7 +14,7 @@ _soldiers = [];
 _positionX = getMarkerPos (_markerX);
 _pos = [];
 
-diag_log format ["[Antistasi] Spawning Outpost %1 (createAIOutposts.sqf)", _markerX];
+Debug_1("Spawning Outpost %1", _markerX);
 
 _size = [_markerX] call A3A_fnc_sizeMarker;
 
@@ -181,7 +183,7 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 		}
 		else
 		{
-			diag_log format ["createAIOutposts: Could not find seaSpawn marker on %1!", _markerX];
+			Error_1("Could not find seaSpawn marker on %1!", _markerX);
 		};
 	};
 }

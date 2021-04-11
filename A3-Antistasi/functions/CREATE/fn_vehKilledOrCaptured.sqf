@@ -7,8 +7,8 @@
 	2. Side: Side of unit that captured or destroyed the vehicle
 	2. Bool (default false): True if captured, else destroyed
 */
-
-private _filename = "fn_vehKilledOrCaptured";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_veh", "_sideEnemy", ["_captured", false]];
 
 private _type = typeof _veh;
@@ -17,7 +17,7 @@ private _side = _veh getVariable ["ownerSide", teamPlayer];			// default because
 if (_captured && (_side == _sideEnemy)) exitWith {};
 
 private _act = if (_captured) then {"captured"} else {"destroyed"};
-[3, format ["%1 of %2 %3 by %4", _type, _side, _act, _sideEnemy], _filename] call A3A_fnc_log;
+Debug_4("%1 of %2 %3 by %4", _type, _side, _act, _sideEnemy);
 
 if (_side == Occupants or _side == Invaders) then
 {
@@ -36,12 +36,9 @@ if (_side == Occupants or _side == Invaders) then
 		2;		// trucks, light attack, boats, UAV etc
 	};
 
+    [_side, _value, 45] remoteExec ["A3A_fnc_addAggression", 2];
 	if (_side == Occupants) then {
 		[-_value/3, _value/3, position _veh] remoteExec ["A3A_fnc_citySupportChange", 2];
-		[[_value, 45], [0, 0]] remoteExec ["A3A_fnc_prestige", 2];
-	}
-	else {
-		[[0, 0], [_value, 45]] remoteExec ["A3A_fnc_prestige", 2];
 	};
 };
 

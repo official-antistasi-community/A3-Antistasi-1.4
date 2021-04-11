@@ -1,7 +1,7 @@
 params ["_loadoutName"];
 
 private _basicMedicalSupplies =
-	if (hasACE) then {
+	if (A3A_hasACE) then {
 		[
 			["ACE_Tourniquet",3],
 			["ACE_SalineIV_500",1],
@@ -20,7 +20,7 @@ private _basicMedicalSupplies =
 	};
 
 private _basicMiscItems =
-	if (hasACE) then {
+	if (A3A_hasACE) then {
 		[
 			["ACE_Earplugs",1],
 			["ACE_Cabletie",3]
@@ -32,7 +32,7 @@ private _basicMiscItems =
 	};
 
 private _medicSupplies =
-	if (hasACE) then {
+	if (A3A_hasACE) then {
 		[
 			["ACE_surgicalKit",1],
 
@@ -77,17 +77,17 @@ private _fnc_modItemNoArray = {
 
 private _fnc_tfarRadio = {
 	params ["_radio"];
-	[hasTFAR, _radio, "ItemRadio"] call _fnc_modItemNoArray;
+	[A3A_hasTFAR, _radio, "ItemRadio"] call _fnc_modItemNoArray;
 };
 
-private _tfarMicroDAGRNoArray = [hasTFAR, "TF_MicroDagr", "ItemWatch"] call _fnc_modItemNoArray;
+private _tfarMicroDAGRNoArray = [A3A_hasTFAR, "TF_MicroDagr", "ItemWatch"] call _fnc_modItemNoArray;
 
-private _aceFlashlight = [hasACE, ["ACE_Flashlight_XL50", 1]] call _fnc_modItem;
-private _aceM84 = [hasACE, ["ACE_M84",2,1]] call _fnc_modItem;
-private _aceDefusalKit = [hasACE, ["ACE_DefusalKit", 1]] call _fnc_modItem;
-private _aceClacker = [hasACE, ["ACE_Clacker", 1]] call _fnc_modItem;
-private _aceRangecard = [hasACE, ["ACE_Rangecard", 1]] call _fnc_modItem;
-private _aceKestrel = [hasACE, ["ACE_Kestrel14500", 1]] call _fnc_modItem;
+private _aceFlashlight = [A3A_hasACE, ["ACE_Flashlight_XL50", 1]] call _fnc_modItem;
+private _aceM84 = [A3A_hasACE, ["ACE_M84",2,1]] call _fnc_modItem;
+private _aceDefusalKit = [A3A_hasACE, ["ACE_DefusalKit", 1]] call _fnc_modItem;
+private _aceClacker = [A3A_hasACE, ["ACE_Clacker", 1]] call _fnc_modItem;
+private _aceRangecard = [A3A_hasACE, ["ACE_Rangecard", 1]] call _fnc_modItem;
+private _aceKestrel = [A3A_hasACE, ["ACE_Kestrel14500", 1]] call _fnc_modItem;
 
 private _loadoutArray = missionNamespace getVariable [_loadoutName, []];
 

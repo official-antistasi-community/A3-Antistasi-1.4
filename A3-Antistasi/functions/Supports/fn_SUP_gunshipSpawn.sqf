@@ -1,5 +1,6 @@
 params ["_side", "_airport", "_timerIndex", "_plane", "_crewUnits", "_supportObj"];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //No runway on this airport, use airport position
 //Not sure if I should go with 150 or 1000 here, players might be only 1001 meters away
 //While technically 1000 meter height is technically visible from a greater distance
@@ -114,7 +115,7 @@ _strikeGroup deleteGroupWhenEmpty true;
 private _distance = _strikePlane distance2D _supportPos;
 private _angle = asin (1500/_distance);
 private _lenght = cos (_angle) * _distance;
-[3, format ["Distance %1 Length %2 Angle %3", _distance, _lenght, _angle], _fileName] call A3A_fnc_log;
+Debug_3("Distance %1 Length %2 Angle %3", _distance, _lenght, _angle);
 
 private _height = (ATLToASL _supportPos) select 2;
 _height = _height + 500;
@@ -123,7 +124,7 @@ _height = _height + 500;
 _strikePlane flyInHeight 500;
 
 private _entryPos = _spawnPos getPos [_lenght, _startDir + _angle];
-[3, format ["Entry Pos: %1", _entryPos], _fileName] call A3A_fnc_log;
+Debug_1("Entry Pos: %1", _entryPos);
 _entryPos set [2, _height];
 
 private _entryPoint = _strikeGroup addWaypoint [_entryPos, 0, 1];

@@ -1,13 +1,12 @@
 if (!isServer) exitWith {};
-
-private _fileName = "fn_markerChange";
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private ["_winner","_markerX","_looser","_positionX","_other","_flagX","_flagsX","_dist","_textX","_sides"];
 _winner = _this select 0;
 _markerX = _this select 1;
 
-[3, format ["Changing side of %1 to %2", _markerX, _winner], _fileName] call A3A_fnc_log;
+Debug_2("Changing side of %1 to %2", _markerX, _winner);
 if ((_winner == teamPlayer) and (_markerX in airportsX) and (tierWar < 3)) exitWith {};
 if ((_winner == teamPlayer) and (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) exitWith {};
 if ((_winner == Occupants) and (sidesX getVariable [_markerX,sideUnknown] == Occupants)) exitWith {};
@@ -51,7 +50,7 @@ else
 garrison setVariable [_markerX,[],true];
 sidesX setVariable [_markerX,_winner,true];
 
-[3, format ["Side changed for %1", _markerX], _fileName] call A3A_fnc_log;
+Debug_1("Side changed for %1", _markerX);
 
 //New garrison update ==========================================================
 garrison setVariable [format ["%1_garrison", _markerX], [], true];
@@ -114,7 +113,7 @@ else
 };
 
 [_markerX, [_looser, _winner]] call A3A_fnc_updateReinfState;
-[3, format ["Garrison set for %1", _markerX], _fileName] call A3A_fnc_log;
+Debug_1("Garrison set for %1", _markerX);
 
 if !(_markerX in airportsX) then
 {
@@ -138,12 +137,7 @@ if (_markerX in airportsX) then
 	if (_winner == teamPlayer) then
 	{
 		[0,10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-        [
-            3,
-            "Rebels took an airport",
-            "aggroEvent",
-            true
-        ] call A3A_fnc_log;
+        Debug("aggroEvent | Rebels took an airport");
 		if (_looser == Occupants) then
 		{
 			_prestigeOccupants = [50, 150];
@@ -169,12 +163,7 @@ if (_markerX in airportsX) then
 		};
 		if (_looser == teamPlayer) then
 		{
-            [
-                3,
-                "Rebels lost an airport",
-                "aggroEvent",
-                true
-            ] call A3A_fnc_log;
+            Debug("aggroEvent | Rebels lost an airport");
             if(_winner == Occupants) then
             {
                 _prestigeOccupants = [-40, 90];
@@ -199,12 +188,7 @@ if (_markerX in outposts) then
 		server setVariable [_markerX,dateToNumber date,true];
 		if (_looser == teamPlayer) then
 		{
-            [
-                3,
-                "Rebels lost an outpost",
-                "aggroEvent",
-                true
-            ] call A3A_fnc_log;
+            Debug("aggroEvent | Rebels lost an outpost");
 			if (_winner == Occupants) then
             {
                 _prestigeOccupants = [-10, 90];
@@ -217,12 +201,7 @@ if (_markerX in outposts) then
 	}
 	else
 	{
-        [
-            3,
-            "Rebels took an outpost",
-            "aggroEvent",
-            true
-        ] call A3A_fnc_log;
+        Debug("aggroEvent | Rebels took an outpost");
 		if (_looser == Occupants) then
         {
             _prestigeOccupants = [30, 150];
@@ -243,12 +222,7 @@ if (_markerX in seaports) then
 {
 	if (_winner == teamPlayer) then
 	{
-        [
-            3,
-            "Rebels took a seaport",
-            "aggroEvent",
-            true
-        ] call A3A_fnc_log;
+        Debug("aggroEvent | Rebels took a seaport");
 		if (_looser == Occupants) then
         {
             _prestigeOccupants = [20, 120];
@@ -266,12 +240,7 @@ if (_markerX in factories) then
 {
     if (_winner == teamPlayer) then
 	{
-        [
-            3,
-            "Rebels took a factory",
-            "aggroEvent",
-            true
-        ] call A3A_fnc_log;
+        Debug("aggroEvent | Rebels took a factory");
 		if (_looser == Occupants) then
         {
             _prestigeOccupants = [20, 120];
@@ -289,12 +258,7 @@ if (_markerX in resourcesX) then
 {
     if (_winner == teamPlayer) then
 	{
-        [
-            3,
-            "Rebels took a resource",
-            "aggroEvent",
-            true
-        ] call A3A_fnc_log;
+        Debug("aggroEvent | Rebels took a resource");
 		if (_looser == Occupants) then
         {
             _prestigeOccupants = [20, 120];
@@ -309,7 +273,7 @@ if (_markerX in resourcesX) then
 	["TaskUpdated",["",format ["%1 lost a Resource",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 };
 
-[3, format ["Notification and points done for marker change at %1", _markerX], _fileName] call A3A_fnc_log;
+Debug_1("Notification and points done for marker change at %1", _markerX);
 
 {_nul = [_markerX,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
 if (_winner == teamPlayer) then
@@ -339,7 +303,8 @@ if (_winner == teamPlayer) then
 		//[_flagX,"garage"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 		if (_markerX in seaports) then {[_flagX,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX]};
 	};
-	[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;
+    ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
+    ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
 	waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({((side group _x) in [_looser,_other]) and (_x getVariable ["spawner",false]) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits > 3*({(side _x == teamPlayer) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits))};
 	if (spawner getVariable _markerX != 2) then
 	{
@@ -377,7 +342,8 @@ else
 	};
 	if (_looser == teamPlayer) then
 		{
-		[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;
+        ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
+        ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
 		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !(["DEF_HQ"] call BIS_fnc_taskExists) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
@@ -402,4 +368,4 @@ if ((_winner != teamPlayer) and (_looser != teamPlayer)) then
 	};
 markersChanging = markersChanging - [_markerX];
 
-[3, format ["Finished marker change at %1", _markerX], _fileName] call A3A_fnc_log;
+Debug_1("Finished marker change at %1", _markerX);

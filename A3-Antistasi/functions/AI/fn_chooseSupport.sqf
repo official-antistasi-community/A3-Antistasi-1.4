@@ -13,8 +13,8 @@ params ["_group", "_enemy"];
     Returns:
         _supportTypes: ARRAY of STRINGs : The set of supports which should be called in, [] if none needed
 */
-
-private _fileName = "chooseSupport";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private _supportTypes = [];
 
 //If enemy is more than 600 meters away we always force the support
@@ -192,11 +192,7 @@ switch (true) do
     };
     default
     {
-        [
-            1,
-            format ["Cannot figure out class for unit %1 (vehicle %2)", _enemy, typeOf _enemyVehicle],
-            _fileName
-        ] call A3A_fnc_log;
+        Error_2("Cannot figure out class for unit %1 (vehicle %2)", _enemy, typeOf _enemyVehicle);
     };
 };
 

@@ -7,8 +7,8 @@
 	1. Object: Vehicle object
 	2. Side: Side ownership for vehicle
 */
-
-private _filename = "fn_AIVEHinit";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_veh", "_side"];
 if (isNil "_veh") exitWith {};
 
@@ -182,7 +182,7 @@ if (_side != teamPlayer) then
 		private _oldside = _veh getVariable ["ownerSide", teamPlayer];
 		if (_oldside != teamPlayer) then
 		{
-			[3, format ["%1 switching side from %2 to rebels", typeof _veh, _oldside], "fn_AIVEHinit"] call A3A_fnc_log;
+            Debug_2("%1 switching side from %2 to rebels", typeof _veh, _oldside);
 			[_veh, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;
 		};
 		_veh removeEventHandler ["GetIn", _thisEventHandler];
@@ -224,7 +224,7 @@ if(_veh isKindOf "Air") then
 _veh addEventHandler ["GetOut", {
 	params ["_veh", "_role", "_unit"];
 	if !(_unit isEqualType objNull) exitWith {
-		[1, format ["GetOut handler weird input: %1, %2, %3", _veh, _role, _unit], "fn_AIVEHinit"] call A3A_fnc_log;
+        Error_3("GetOut handler weird input: %1, %2, %3", _veh, _role, _unit);
 	};
 	if (side group _unit == teamPlayer) then {
 		_veh setVariable ["despawnBlockTime", time + 3600];			// despawner always launched locally
@@ -237,7 +237,7 @@ _veh addEventHandler ["Dammaged", {
 	params ["_veh", "_selection", "_damage"];
 	if (_damage >= 1 && _selection == "") then {
 		private _killerSide = side group (_this select 5);
-		[3, format ["%1 destroyed by %2", typeof _veh, _killerSide], "fn_AIVEHinit"] call A3A_fnc_log;
+        Debug_2("%1 destroyed by %2", typeof _veh, _killerSide);
 		[_veh, _killerSide, false] call A3A_fnc_vehKilledOrCaptured;
 		[_veh] spawn A3A_fnc_postmortem;
 		_veh removeEventHandler ["Dammaged", _thisEventHandler];

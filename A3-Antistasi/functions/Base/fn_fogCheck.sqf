@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //params [["_pos0", [0,0,0], [[]], 3], ["_pos1", [0,0,0], [[]], 3]];
 private ["_thing0","_typeX","_error","_pos0","_pos1"];
 
@@ -28,7 +30,7 @@ else
 		};
 	};
 if (_error) exitWith {
-	diag_log format ["%1: [Antistasi] | ERROR | fogCheck.sqf | Unknown height:%2.",servertime,_thing0];
+    Error_1("Unknown height:%1.",_thing0);
 	};
 
 _pos1 = [(_pos0 select 0) + 300,_pos0 select 1,_pos0 select 2];

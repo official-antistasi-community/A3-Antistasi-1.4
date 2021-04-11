@@ -10,11 +10,12 @@
  *    Namespace containing faction information
  * Example Usage:
  */
-private _fileName = "fn_compatabilityLoadFaction";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 params ["_file", "_side"];
 
-[2, format ["Compatibility loading template: '%1' as side %2", _file, _side], _fileName] call A3A_fnc_log;
+Info_2("Compatibility loading template: '%1' as side %2", _file, _side);
 
 private _faction = [_file] call A3A_fnc_loadFaction;
 
@@ -206,6 +207,7 @@ if (_side isEqualTo east) then {
 	staticATInvaders = _faction getVariable "staticAT" select 0;
 	staticAAInvaders = _faction getVariable "staticAA" select 0;
 	CSATMortar = _faction getVariable "staticMortars" select 0;
+	CSATmortarMagazineHE = _faction getVariable "mortarMagazineHE";
 
 	MGStaticCSATB = _faction getVariable "baggedMGs" select 0 select 0;
 	//TODO: Add tall/short support support.
@@ -399,6 +401,7 @@ if (_side isEqualTo west) then {
 	staticATOccupants = _faction getVariable "staticAT" select 0;
 	staticAAOccupants = _faction getVariable "staticAA" select 0;
 	NATOMortar = _faction getVariable "staticMortars" select 0;
+	NATOmortarMagazineHE = _faction getVariable "mortarMagazineHE";
 
 	MGStaticNATOB = _faction getVariable "baggedMGs" select 0 select 0;
 	//TODO: Add tall/short support support.

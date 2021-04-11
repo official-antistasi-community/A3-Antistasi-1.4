@@ -7,11 +7,12 @@
 *
 *
 */
-
-diag_log format ["UpdatePreference: Updating preferences now, tierWar is %1", tierWar];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Debug_1("Updating preferences now, tierWar is %1", tierWar);
 
 //No need to update the preferences
-if(tierPreference >= tierWar) exitWith {diag_log "Aborting update of preferences!";};
+if(tierPreference >= tierWar) exitWith {Debug("Aborting update of preferences!")};
 
 for "_i" from (tierPreference + 1) to tierWar do
 {
@@ -36,8 +37,8 @@ for "_i" from (tierPreference + 1) to tierWar do
 
     if(true || debug) then
     {
-      diag_log format ["Airport_preference hit level %1", tierWar];
-      [_preference, "Airport_preference"] call A3A_fnc_logArray;
+        Debug("Airport_preference hit level %1", tierWar)
+        DebugArray("Airport_preference",_preference);
     };
     garrison setVariable ["Airport_preference", _preference, true];
     garrison setVariable ["Airport_statics", (airportStaticsTiers select _index), true];
@@ -61,8 +62,8 @@ for "_i" from (tierPreference + 1) to tierWar do
     };
     if(true || debug) then
     {
-      diag_log format ["Outpost_preference hit level %1", tierWar];
-      [_preference, "Outpost_preference"] call A3A_fnc_logArray;
+        Debug("Outpost_preference hit level %1", tierWar)
+        DebugArray("Outpost_preference",_preference);
     };
     garrison setVariable ["Outpost_preference", _preference, true];
     garrison setVariable ["Outpost_statics", (outpostStaticsTiers select _index), true];
@@ -76,8 +77,8 @@ for "_i" from (tierPreference + 1) to tierWar do
 
     if(true || debug) then
     {
-      diag_log format ["City_preference hit level %1", tierWar];
-      [_preference, "City_preference"] call A3A_fnc_logArray;
+        Debug("City_preference hit level %1", tierWar)
+        DebugArray("City_preference",_preference);
     };
     garrison setVariable ["City_preference", _preference, true];
 
@@ -97,8 +98,8 @@ for "_i" from (tierPreference + 1) to tierWar do
 
     if(true || debug) then
     {
-      diag_log format ["Other_preference hit level %1", tierWar];
-      [_preference, "Other_preference"] call A3A_fnc_logArray;
+        Debug("Other_preference hit level %1", tierWar)
+        DebugArray("Other_preference",_preference);
     };
     garrison setVariable ["Other_preference", _preference, true];
 

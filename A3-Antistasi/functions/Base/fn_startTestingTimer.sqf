@@ -18,14 +18,10 @@ if !(canSuspend) exitWith
 {
     [] spawn A3A_fnc_startTestingTimer;
 };
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
-private _fileName = "testingTimer";
-
-[
-    3,
-    "Starting testing timer now",
-    _fileName
-] call A3A_fnc_log;
+Debug("Starting testing timer now");
 
 testingTimerIsActive = true;
 private _testedTime = 0;
@@ -73,17 +69,7 @@ while {true} do
     //Add new testing time
     _testedTime = _testedTime + (_playersActive * TESTING_INTERVAL);
 
-    [
-        3,
-        format
-        [
-            "Total testing time: %1 || Testing time last cycle: %2 || Active players: %3",
-            _testedTime/3600,
-            (_playersActive * TESTING_INTERVAL)/3600,
-            _playersActive
-        ],
-        _fileName
-    ] call A3A_fnc_log;
+    Debug_3("Total testing time: %1 || Testing time last cycle: %2 || Active players: %3",_testedTime/3600,(_playersActive * TESTING_INTERVAL)/3600,_playersActive);
 
     //Reset counter
     _playersActive = 0;

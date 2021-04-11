@@ -338,7 +338,6 @@ while {true} do
 				(units _groupX select {vehicle _x == _x}) allowGetIn true;
 				};
 			};
-		//diag_log format ["taskX:%1.Movable:%2.Base:%3.Flankers:%4",_groupX getVariable "taskX",_groupX getVariable "movable",_groupX getVariable "baseOfFire",_groupX getVariable "flankers"];
 		sleep 30;
 		_movable =  (_groupX getVariable ["movable",[]]) select {alive _x};
 		if ((_movable isEqualTo []) or (isNull _groupX)) exitWith {};

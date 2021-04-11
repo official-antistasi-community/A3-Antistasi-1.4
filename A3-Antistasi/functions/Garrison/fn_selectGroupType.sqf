@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_vehicle", "_preference", "_side"];
 
 /*  Selects a suitable group for the given vehicle and preference
@@ -46,8 +48,8 @@ else
       _result = _preference;
       if(debug) then
       {
-        diag_log format ["SelectGroupType: Vehicle %1 cannot transport four or more people, reconsider using another vehicle or make smaller groups possible!", _vehicle];
-        diag_log "SelectGroupType: Assuming preference as a solution, may be changed in the future!";
+          Debug_1("Vehicle %1 cannot transport four or more people, reconsider using another vehicle or make smaller groups possible!", _vehicle);
+          Debug("Assuming preference as a solution, may be changed in the future!");
       };
     };
   };

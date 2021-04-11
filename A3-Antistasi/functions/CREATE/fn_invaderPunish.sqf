@@ -1,5 +1,7 @@
 if (!isServer and hasInterface) exitWith {};
 private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_typeAirVehicle","_vehicle","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_tanksX","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uav","_groupUAV","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_attackDestination","_posDestination","_prestigeCSAT","_base","_airportX","_nameDestination","_missionExpireTime","_soldiersSpawned","_nul","_pos","_timeOut"];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _attackDestination = _this select 0;
 _attackOrigin = _this select 1;
 bigAttackInProgress = true;
@@ -12,7 +14,7 @@ _pilots = [];
 _vehiclesX = [];
 _civilians = [];
 
-diag_log format ["[Antistasi] Launching CSAT Punish Against %1 from %2 (CSATpunish.sqf)", _attackDestination, _attackOrigin];
+Info_2("Launching CSAT Punish Against %1 from %2", _attackDestination, _attackOrigin);
 
 _nameDestination = [_attackDestination] call A3A_fnc_localizar;
 [[teamPlayer,civilian,Occupants],"invaderPunish",[format ["%2 is attacking innocent civilians in %1! Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
@@ -156,13 +158,9 @@ if ((({not (captive _x)} count _soldiers) < ({captive _x} count _soldiers)) or (
 	["invaderPunish",[format ["%2 is attacking innocent civilians in %1! Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	if ({(side _x == teamPlayer) and (_x distance _posDestination < _size * 2)} count allUnits >= {(side _x == _sideTarget) and (_x distance _posDestination < _size * 2)} count allUnits) then {
 		if (sidesX getVariable [_attackDestination,sideUnknown] == Occupants) then {[-15,15,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2]} else {[-5,15,_posDestination] remoteExec ["A3A_fnc_citySupportChange",2]};
-        [
-            3,
-            "Rebels won a punishment mission",
-            "aggroEvent",
-            true
-        ] call A3A_fnc_log;
-        [[-10, 90], [40, 150]] remoteExec ["A3A_fnc_prestige",2];
+        Debug("aggroEvent | Rebels won a punishment mission");
+        [Occupants, -10, 90] remoteExec ["A3A_fnc_addAggression",2];
+        [Invaders, 40, 150] remoteExec ["A3A_fnc_addAggression",2];
 		{[-10,10,_x] remoteExec ["A3A_fnc_citySupportChange",2]} forEach citiesX;
 		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_posDestination,teamPlayer] call A3A_fnc_distanceUnits);
 		[10,theBoss] call A3A_fnc_playerScoreAdd;

@@ -1,6 +1,7 @@
-private _filename = "fn_citySupportChange";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer) exitWith {
-	[1, "Server-only function miscalled", _filename] call A3A_fnc_log;
+    Error("Server-only function miscalled");
 };
 
 while {true} do
@@ -62,7 +63,7 @@ while {true} do
 		{
 			["TaskSucceeded", ["", format ["%1 joined %2",[_city, false] call A3A_fnc_location,nameTeamPlayer]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,teamPlayer,true];
-			[[10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+			[Occupants, 10, 60] remoteExec ["A3A_fnc_addAggression",2];
 			_mrkD = format ["Dum%1",_city];
 			_mrkD setMarkerColor colorTeamPlayer;
 			garrison setVariable [_city,[],true];
@@ -82,7 +83,7 @@ while {true} do
 		{
 			["TaskFailed", ["", format ["%1 joined %2",[_city, false] call A3A_fnc_location,nameOccupants]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,Occupants,true];
-			[[-10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+			[Occupants, -10, 45] remoteExec ["A3A_fnc_addAggression",2];
 			_mrkD = format ["Dum%1",_city];
 			_mrkD setMarkerColor colorOccupants;
 			garrison setVariable [_city,[],true];

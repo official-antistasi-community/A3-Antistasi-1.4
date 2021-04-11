@@ -37,29 +37,14 @@ if (dateToNumber date > _dateLimitNum) then
 	["DES",[format ["We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Nework. Do it before %2.",_nameDest,_displayTime,nameOccupants],"Destroy Radio Tower",_mrkFinal],_positionX,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
 	//[5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-    if(_side == Occupants) then
-    {
-        [[-5, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
-    };
-    if(_side == Invaders) then
-    {
-        [[0, 0], [-5, 60]] remoteExec ["A3A_fnc_prestige",2]
-    };
-
+    [_side, -5, 60] remoteExec ["A3A_fnc_addAggression", 2];
 	}
 else
 	{
 	sleep 15;
 	["DES",[format ["We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Nework. Do it before %2.",_nameDest,_displayTime,nameOccupants],"Destroy Radio Tower",_mrkFinal],_positionX,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	//[-5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-    if(_side == Occupants) then
-    {
-        [[15, 90], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
-    };
-    if(_side == Invaders) then
-    {
-        [[0, 0], [15, 90]] remoteExec ["A3A_fnc_prestige",2];
-    };
+    [_side, 15, 90] remoteExec ["A3A_fnc_addAggression", 2];
 	[600*_bonus, _side] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

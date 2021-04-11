@@ -33,6 +33,7 @@ class A3A
     class Base
     {
         class addActionBreachVehicle {};
+        class addAggression {};
         class addHC {};
         class addTimeForIdle {};
         class aggressionUpdateLoop {};
@@ -90,7 +91,6 @@ class A3A
 		class playableUnits {};
 		class getSideRadioTowerInfluence {};
 		class powerReorg {};
-		class prestige {};
 		class radioCheck {};
 		class rebuildAssets {};
 		class rebuildRadioTower {};
@@ -681,9 +681,10 @@ class A3A
         class dateToTimeString {};
         class deleteNamespace {};
         class getAdmin {};
+        class localLog {};
         class log {};
         class setPos {};
-        class systemTime_format_G {};
+        class systemTime_format_S {};
         class vehicleWillCollideAtPosition {};
         class getRoadDirection {};
     };

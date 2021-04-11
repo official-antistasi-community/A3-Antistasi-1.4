@@ -1,6 +1,7 @@
 if(!isServer) exitWith{};
 scopeName "Main";
-private _filename = "fn_missionRequest"; 
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_type", ["_requester", clientOwner], ["_autoSelect", false]];
 if(isNil "_type") then {
 	if (leader group Petros != Petros) then {breakOut "Main"};
@@ -26,7 +27,7 @@ switch (_type) do {
 	case "AS": {
 		//find apropriate sites
 		_possibleMarkers = [airportsX + citiesX] call _findIfNearAndHostile;
-		_possibleMarkers = _possibleMarkers select {spawner getVariable _x == 2};
+		_possibleMarkers = _possibleMarkers select {spawner getVariable _x != 0};
 		//add controlsX not on roads and on the 'frontier'
 		private _controlsX = [controlsX] call _findIfNearAndHostile;
 		private _nearbyFriendlyMarkers = markersX select {
@@ -48,8 +49,8 @@ switch (_type) do {
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
-			if (_site in airportsX) then {[[_site],"A3A_fnc_AS_Official"] remoteExec ["A3A_fnc_scheduler",2]} 
-			else {if (_site in citiesX) then {[[_site],"A3A_fnc_AS_Traitor"] remoteExec ["A3A_fnc_scheduler",2]} 
+			if (_site in airportsX) then {[[_site],"A3A_fnc_AS_Official"] remoteExec ["A3A_fnc_scheduler",2]}
+			else {if (_site in citiesX) then {[[_site],"A3A_fnc_AS_Traitor"] remoteExec ["A3A_fnc_scheduler",2]}
 			else {[[_site],"A3A_fnc_AS_SpecOP"] remoteExec ["A3A_fnc_scheduler",2]}};
 		};
 	};
@@ -57,7 +58,7 @@ switch (_type) do {
 	case "CON": {
 		//find apropriate sites
 		_possibleMarkers = [outposts + resourcesX + (controlsX select {isOnRoad (getMarkerPos _x)})] call _findIfNearAndHostile;
-		
+
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {
 				[petros,"globalChat","I have no Conquest missions for you. Move our HQ closer to the enemy."] remoteExec ["A3A_fnc_commsMP",_requester];
@@ -72,13 +73,13 @@ switch (_type) do {
 	case "DES": {
 		//find apropriate sites
 		_possibleMarkers = [airportsX] call _findIfNearAndHostile;
-		_possibleMarkers = _possibleMarkers select {spawner getVariable _x == 2};
-		//append occupants antennas to list		
+		_possibleMarkers = _possibleMarkers select {spawner getVariable _x != 0};
+		//append occupants antennas to list
 		{
 			private _nearbyMarker = [markersX, getPos _x] call BIS_fnc_nearestPosition;
 			if (
 				(sidesX getVariable [_nearbyMarker,sideUnknown] == Occupants)
-				&& (getPos _x distance getMarkerPos respawnTeamPlayer < distanceMission) 
+				&& (getPos _x distance getMarkerPos respawnTeamPlayer < distanceMission)
 				) then {_possibleMarkers pushBack _x};
 		}forEach antennas;
 
@@ -89,22 +90,23 @@ switch (_type) do {
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
-			if (_site in airportsX) then {if (random 10 < 8) then {[[_site],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_site],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
+			if (_site in airportsX) then {if (random 10 < 6) then {[[_site],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_site],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
 			if (_site in antennas) then {[[_site],"A3A_fnc_DES_antenna"] remoteExec ["A3A_fnc_scheduler",2]}
 		};
 	};
 
 	case "LOG": {
-		//find apropriate sites
-		_possibleMarkers = [Seaports + outposts] call _findIfNearAndHostile;
-		
+		//Add unspawned outposts for ammo trucks, and seaports for salvage
+		_possibleMarkers = [seaports + outposts] call _findIfNearAndHostile;
+		_possibleMarkers = _possibleMarkers select {(_x in seaports) or (spawner getVariable _x != 0)};
+
 		//append banks in hostile cities
 		if (random 100 < 20) then {
 			{
 				private _nearbyMarker = [markersX, getPos _x] call BIS_fnc_nearestPosition;
 				if (
 					(sidesX getVariable [_nearbyMarker,sideUnknown] != teamPlayer)
-					&& (getPos _x distance getMarkerPos respawnTeamPlayer < distanceMission) 
+					&& (getPos _x distance getMarkerPos respawnTeamPlayer < distanceMission)
 					) then {_possibleMarkers pushBack _x};
 			}forEach banks;
 		};
@@ -141,7 +143,7 @@ switch (_type) do {
 				[petros,"hint","Support Missions require Cities closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
-			[3, format ["City weights: %1", _weightedMarkers], _filename] call A3A_fnc_log;
+            Debug_1("City weights: %1", _weightedMarkers);
 			private _site = selectRandomWeighted _weightedMarkers;
 			[[_site],"A3A_fnc_LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2];
 		};
@@ -151,7 +153,7 @@ switch (_type) do {
 		_possibleMarkers = [citiesX] call _findIfNearAndHostile;
 		{
 			private _spawner = spawner getVariable _x;
-			if (_spawner == 2) then {_possibleMarkers pushBack _x};
+			if (_spawner != 0) then {_possibleMarkers pushBack _x};
 		} forEach ([airportsX + outposts] call _findIfNearAndHostile);
 
 		if (count _possibleMarkers == 0) then {
@@ -180,9 +182,9 @@ switch (_type) do {
 				private _site = _Markers select _i;
 				private _pos = getMarkerPos _site;
 				private _base = [_site] call A3A_fnc_findBasesForConvoy;
-				if ((_pos distance (getMarkerPos respawnTeamPlayer) < (distanceMission*2)) and (_base !="")) then {	
+				if ((_pos distance (getMarkerPos respawnTeamPlayer) < (distanceMission*2)) and (_base !="")) then {
 					if (
-						((sidesX getVariable [_site,sideUnknown] == Occupants) and (sidesX getVariable [_base,sideUnknown] == Occupants)) 
+						((sidesX getVariable [_site,sideUnknown] == Occupants) and (sidesX getVariable [_base,sideUnknown] == Occupants))
 						or ((sidesX getVariable [_site,sideUnknown] == Invaders) and (sidesX getVariable [_base,sideUnknown] == Invaders))
 					) then {_possibleMarkers pushBack _site};
 				};
@@ -203,7 +205,7 @@ switch (_type) do {
 	};
 
 	default {
-		[1, format ["%1 is not an accepted task type", _type], _filename] call A3A_fnc_log;
+        Error_1("%1 is not an accepted task type", _type);
 	};
 };
 if ((count _possibleMarkers > 0) and (!_autoSelect)) then {[petros,"globalChat","I have a mission for you"] remoteExec ["A3A_fnc_commsMP",_requester]};

@@ -2,6 +2,8 @@
 //el sitio de la boxX es el 21
 if (!isServer and hasInterface) exitWith {};
 private ["_banco","_markerX","_difficultX","_leave","_contactX","_groupContact","_tsk","_posHQ","_citiesX","_city","_radiusX","_positionX","_posHouse","_nameDest","_timeLimit","_dateLimit","_dateLimitNum","_posBase","_pos","_truckX","_countX","_mrkFinal","_mrk","_soldiers"];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _banco = _this select 0;
 _markerX = [citiesX,_banco] call BIS_fnc_nearestPosition;
 
@@ -127,13 +129,8 @@ if ((_truckX distance _posbase < 50) and (dateToNumber date < _dateLimitNum)) th
 	{
 	["LOG",[format ["We know Gendarmes is guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,"SUCCEEDED","Interact"] call A3A_fnc_taskUpdate;
 	[0,5000*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-    [
-        3,
-        "Rebels won a bank mission",
-        "aggroEvent",
-        true
-    ] call A3A_fnc_log;
-	[[20 * _bonus, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+    Debug("aggroEvent | Rebels won a bank mission");
+	[Occupants, 20 * _bonus, 120] remoteExec ["A3A_fnc_addAggression",2];
 	[1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _truckX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

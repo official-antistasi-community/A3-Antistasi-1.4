@@ -1,11 +1,12 @@
 if !(isServer) exitWith {};
-private _filename = "fn_theBossTransfer";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params [["_newBoss", objNull], ["_silent", false]];
 
 if (!isNil "theBoss" and {!isNull theBoss}) then
 {
-	[3, format ["Removing %1 from Boss roles.", theBoss], _filename] call A3A_fnc_log;
-	
+    Debug_1("Removing %1 from Boss roles.", theBoss);
+
 	bossHCGroupsTransfer = hcAllGroups theBoss;
 	hcRemoveAllGroups theBoss;
 
@@ -16,7 +17,7 @@ if (!isNil "theBoss" and {!isNull theBoss}) then
 theBoss = _newBoss;
 publicVariable "theBoss";
 
-if (isNull _newBoss) exitWith { 
+if (isNull _newBoss) exitWith {
 	[_silent] spawn {
 		params ["_silent"];
 		sleep 5;
@@ -33,14 +34,14 @@ HC_commanderX synchronizeObjectsAdd [theBoss];
 
 if (!isNil "bossHCGroupsTransfer") then
 {
-	[3, "Found previous HC groups, transferring.", _filename] call A3A_fnc_log;
+    Debug("Found previous HC groups, transferring.");
 
 	{ theBoss hcSetGroup [_x] } forEach bossHCGroupsTransfer;
 	bossHCGroupsTransfer = nil;
 }
 else {
 	// Boss got lost somewhere, try to find HC groups by scanning
-	[3, "No previous HC groups found, scanning all groups.",_filename] call A3A_fnc_log;
+    Debug("No previous HC groups found, scanning all groups.");
 	{
 		if ((leader _x getVariable ["spawner",false]) and (!isPlayer leader _x) and (side _x == teamPlayer)) then
 		{
@@ -49,7 +50,7 @@ else {
 	} forEach allGroups;
 };
 
-[3, format ["New boss %1 set.", theBoss], _filename] call A3A_fnc_log;
+Debug_1("New boss %1 set.", theBoss);
 
 [_silent] spawn {
 	params ["_silent"];

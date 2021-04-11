@@ -22,12 +22,12 @@ params
 [
     ["_pos", [-1,-1,-1], [[]]]
 ];
-
-private _fileName = "getNearestNavPoint";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if(isNil "roadDataDone") exitWith
 {
-	[1, "Road database not loaded yet, cannot get nodes", _fileName] call A3A_fnc_log;
+    Error("Road database not loaded yet, cannot get nodes");
 	-1;
 };
 

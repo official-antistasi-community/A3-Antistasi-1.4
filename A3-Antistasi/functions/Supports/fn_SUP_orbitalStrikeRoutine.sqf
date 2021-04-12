@@ -94,7 +94,7 @@ private _destroyCounter = 0;
     }
     else
     {
-        if !(_x in [mapX,flagX,vehicleBox,boxX]) then
+        if !(_x in [mapX,flagX,vehicleBox,boxX,fireX]) then
         {
             if !(_x isKindOf "FlagCarrier") then
             {

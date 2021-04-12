@@ -25,7 +25,7 @@ private _specialVarLoads = [
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
 	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-	"countCA", "attackCountdownInvaders", "testingTimerIsActive"
+	"countCA", "attackCountdownInvaders", "testingTimerIsActive", "version"
 ];
 
 private _varName = _this select 0;
@@ -33,6 +33,10 @@ private _varValue = _this select 1;
 if (isNil '_varValue') exitWith {};
 
 if (_varName in _specialVarLoads) then {
+	if (_varName == 'version') then {
+		_s = antistasiVersion splitString ".";
+		A3A_saveVersion = 10000*parsenumber(_s#0) + 100*parseNumber(_s#1) + parseNumber(_s#2);
+	};
 	if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
 	if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
 	//Keep this for backwards compatiblity
@@ -255,7 +259,7 @@ if (_varName in _specialVarLoads) then {
 			_posVeh = _varvalue select _i select 1;
 			_xVectorUp = _varvalue select _i select 2;
 			_xVectorDir = _varvalue select _i select 3;
-			private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"NONE"];
+			private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"CAN_COLLIDE"];
 			// This is only here to handle old save states. Could be removed after a few version itterations. -Hazey
 			if ((_varvalue select _i select 2) isEqualType 0) then { // We have to check number because old save state might still be using getDir. -Hazey
 				_dirVeh = _varvalue select _i select 2;
@@ -263,7 +267,7 @@ if (_varName in _specialVarLoads) then {
 				_veh setVectorUp surfaceNormal (_posVeh);
 				_veh setPosATL _posVeh;
 			} else {
-				_veh setPosATL _posVeh;
+				if (A3A_saveVersion >= 20401) then { _veh setPosWorld _posVeh } else { _veh setPosATL _posVeh };
 				_veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
 			};
 			[_veh, teamPlayer] call A3A_fnc_AIVEHinit;

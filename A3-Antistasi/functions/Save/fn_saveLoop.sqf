@@ -40,6 +40,7 @@ Debug_1("Saving params: %1", _savedParams);
 ["params", _savedParams] call A3A_fnc_setStatVariable;
 
 private ["_garrison"];
+["version", antistasiVersion] call A3A_fnc_setStatVariable;
 ["attackCountdownOccupants", attackCountdownOccupants] call A3A_fnc_setStatVariable;
 ["attackCountdownInvaders", attackCountdownInvaders] call A3A_fnc_setStatVariable;
 ["gameMode", gameMode] call A3A_fnc_setStatVariable;					// backwards compatibility
@@ -119,7 +120,7 @@ _arrayEst = [];
 	_typeVehX = typeOf _veh;
 	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in staticsToSave) and !(_typeVehX in ["ACE_SandbagObject","Land_FoodSacks_01_cargo_brown_F","Land_Pallet_F"])) then {
 		if (((not (_veh isKindOf "StaticWeapon")) and (not (_veh isKindOf "ReammoBox")) and (not (_veh isKindOf "ReammoBox_F")) and (not (_veh isKindOf "FlagCarrier")) and (not(_veh isKindOf "Building"))) and (not (_typeVehX == "C_Van_01_box_F")) and (count attachedObjects _veh == 0) and (alive _veh) and ({(alive _x) and (!isPlayer _x)} count crew _veh == 0) and (not(_typeVehX == "WeaponHolderSimulated"))) then {
-			_posVeh = getPos _veh;
+			_posVeh = getPosWorld _veh;
 			_xVectorUp = vectorUp _veh;
 			_xVectorDir = vectorDir _veh;
 			_arrayEst pushBack [_typeVehX,_posVeh,_xVectorUp,_xVectorDir];
@@ -131,7 +132,7 @@ _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 {
 	_positionX = position _x;
 	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
-		_arrayEst pushBack [typeOf _x,getPosATL _x,getDir _x];
+		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
 	};
 } forEach staticsToSave;
 

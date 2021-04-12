@@ -34,7 +34,10 @@ if (isNil '_varValue') exitWith {};
 
 if (_varName in _specialVarLoads) then {
 	if (_varName == 'version') then {
-		_s = antistasiVersion splitString ".";
+		_s = _varValue splitString ".";
+		if (count _s < 2) exitWith {
+			Error_1("Bad version string: %1", _varValue);
+		};
 		A3A_saveVersion = 10000*parsenumber(_s#0) + 100*parseNumber(_s#1) + parseNumber(_s#2);
 	};
 	if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};

@@ -94,12 +94,11 @@ private _destroyCounter = 0;
     }
     else
     {
-        _x setDamage [1, false];
         if !(_x in [mapX,flagX,vehicleBox,boxX]) then
         {
             if !(_x isKindOf "FlagCarrier") then
             {
-
+                _x setDamage [1, false];
             };
         };
     };

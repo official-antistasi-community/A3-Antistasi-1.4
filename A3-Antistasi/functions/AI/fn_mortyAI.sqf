@@ -12,7 +12,7 @@ Arguments:
     <STRING> static vehicle type
 
 Return Value:
-<BOOL> The return value
+    <BOOL> The return value
 
 Scope: Server
 Environment: Scheduled
@@ -25,8 +25,7 @@ Dependencies:
     supportStaticsSDKB2,
     A3A_fnc_AIVEHinit
 
-Example:
-[_group, SDKMortar] spawn A3A_fnc_mortyAI;
+Example: [_group, SDKMortar] spawn A3A_fnc_mortyAI;
 */
 
 /* -------------------------------------------------------------------------- */
@@ -103,13 +102,11 @@ private _getInMortar =
 
     params ["_unit"];
 
-    if (vehicle _unit != _mortar)
-    then
-    {
-        _unit assignAsGunner _mortar;
-        [_unit] orderGetIn true;
-        [_unit] allowGetIn true;
-    };
+    if (vehicle _unit == _mortar) exitWith {};
+
+    _unit assignAsGunner _mortar;
+    [_unit] orderGetIn true;
+    [_unit] allowGetIn true;
 };
 
 private _foldMortar =
@@ -252,23 +249,13 @@ do
 {
     _continue = false;
 
-    sleep 0.1;
-
-    if (alive _leader)
-    then
+    switch (true)
+    do
     {
-        if (alive _operator)
-        then
-        {
-            call _normalProcedure;
-        }
-        else
-        {
-            [_leader] call _lastOneProcedure;
-        };
-    }
-    else
-    {
-        [_operator] call _lastOneProcedure;
+        case !(alive _leader): { [_operator] call _lastOneProcedure; };
+        case !(alive _operator): { [_leader] call _lastOneProcedure; };
+        default { call _normalProcedure; };
     };
+
+    sleep 0.1;
 };

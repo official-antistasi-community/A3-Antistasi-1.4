@@ -43,6 +43,7 @@ class A3A
 		class blackout {};
 		class buildHQ {};
         class calculateAggression {};
+        class canMoveHQ {};
         class chooseAttackType {};
 		class citiesToCivPatrol {};
 		class citySupportChange {};

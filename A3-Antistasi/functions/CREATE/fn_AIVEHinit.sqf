@@ -165,6 +165,27 @@ if (_side == civilian) then
 	}];
 };
 
+if(_typeX in vehMRLS + [CSATMortar, NATOMortar, SKDMortar]) then
+{
+    _veh addEventHandler
+    [
+        "Fired",
+        {
+            params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+            _projectile spawn
+            {
+                sleep 0.05;
+
+                private _smoke = "SmokeShell_Infinite" createVehicle (getPos _this);
+                _smoke attachTo [_this, [0, -1, 0]];
+
+                waitUntil {sleep 0.1; !(alive _this)};
+                deleteVehicle _smoke;
+            };
+        }
+    ];
+};
+
 // EH behaviour:
 // GetIn/GetOut/Dammaged: Runs where installed, regardless of locality
 // Local: Runs where installed if target was local before or after the transition

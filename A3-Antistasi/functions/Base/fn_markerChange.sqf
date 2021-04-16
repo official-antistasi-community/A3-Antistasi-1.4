@@ -344,7 +344,7 @@ else
 		{
         ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
         ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
-		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !(["DEF_HQ"] call BIS_fnc_taskExists) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
+		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !("DEF_HQ" in A3A_activeTasks) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
 if ((_winner != teamPlayer) and (_looser != teamPlayer)) then

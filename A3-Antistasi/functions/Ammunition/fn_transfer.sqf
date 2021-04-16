@@ -69,7 +69,7 @@ if (_countX > 0) then
 	{
 	if (_boxX == boxX) then
 		{
-		if (["DEF_HQ"] call BIS_fnc_taskExists) then {_countX = round (_countX / 10)} else {_countX = round (_countX / 100)};
+		if ("DEF_HQ" in A3A_activeTasks) then {_countX = round (_countX / 10)} else {_countX = round (_countX / 100)};
 		}
 	else
 		{

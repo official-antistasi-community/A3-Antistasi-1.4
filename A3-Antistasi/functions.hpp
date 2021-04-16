@@ -419,7 +419,6 @@ class A3A
         class attackHQ {};
         class CON_Outpost {};
         class convoy {};
-        class deleteTask {};
         class DES_Antenna {};
         class DES_Heli {};
         class DES_Vehicle {};
@@ -431,6 +430,8 @@ class A3A
         class REP_Antenna {};
         class RES_Prisoners {};
         class RES_Refugees {};
+        class taskDelete {};
+        class taskSetState {};
         class taskUpdate {};
         class underAttack {};
     };

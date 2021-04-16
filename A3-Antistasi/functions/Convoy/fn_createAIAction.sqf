@@ -484,9 +484,9 @@ if(_type == "convoy") then
       if(!_abort) then
       {
         //Deactivated, cause you can't win this mission currently
-        [[teamPlayer,civilian],"CONVOY",[_text,_taskTitle,_destination], _destinationPos,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
-        [[_side],"CONVOY1",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_destination],_destinationPos,false,0,true,"run",true] call BIS_fnc_taskCreate;
-        missionsX pushBack ["CONVOY","CREATED"]; publicVariable "missionsX";
+//      [[teamPlayer,civilian],"CONVOY",[_text,_taskTitle,_destination], _destinationPos,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
+//      [[_side],"CONVOY1",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_destination],_destinationPos,false,0,true,"run",true] call BIS_fnc_taskCreate;
+//      missionsX pushBack ["CONVOY","CREATED"]; publicVariable "missionsX";
 
         sleep (_timeLimit * 60);
         _crewUnits = if(_side == Occupants) then {NATOCrew} else {CSATCrew};

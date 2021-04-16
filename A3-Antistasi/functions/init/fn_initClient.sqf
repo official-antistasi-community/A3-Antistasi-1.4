@@ -343,30 +343,7 @@ if !(isPlayer leader group player) then {
 
 [] remoteExec ["A3A_fnc_assignBossIfNone", 2];
 
-if (_isJip) then {
-    Info("Joining In Progress (JIP)");
-
-	waitUntil {!(isNil "missionsX")};
-	if (count missionsX > 0) then {
-		{
-			_tsk = _x select 0;
-			if ([_tsk] call BIS_fnc_taskExists) then {
-				_state = _x select 1;
-				if ((_tsk call BIS_fnc_taskState) != _state) then {
-					/*
-					_tskVar = _tsk call BIS_fnc_taskVar;
-					_tskVar setTaskState _state;
-					*/
-					[_tsk,_state] call bis_fnc_taskSetState;
-				};
-			};
-		} forEach missionsX;
-	};
-}
-else
-{
-    Info("Not Joining in Progress (JIP)");
-};
+if (_isJip) then { Info("Joining In Progress (JIP)") } else { Info("Not Joining in Progress (JIP)") };
 
 [] spawn A3A_fnc_modBlacklist;
 

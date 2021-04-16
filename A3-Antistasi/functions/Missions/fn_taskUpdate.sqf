@@ -1,54 +1,44 @@
-private _variable = _this select 0;
-private _description = _this select 1;
-private _destinationX = _this select 2;
-private _state = _this select 3;
-_singleDestination = true;
-if !([_variable] call BIS_fnc_taskExists) exitWith {};
-private _descriptionOld = _variable call BIS_fnc_taskDescription;
+/*
+    A3A_fnc_taskUpdate
 
-if (((_descriptionOld select 1) select 0) != (_description select 1)) then
-	{
-	_singleDestination = false;
-	[_variable,_description] call BIS_fnc_taskSetDescription;
-	};
-private _destinationOld = _variable call BIS_fnc_taskDestination;
-if !(_destinationX isEqualType _destinationOld) then
-	{
-	[_variable,_destinationX] call BIS_fnc_taskSetDestination;
-	}
-else
-	{
-	if !(_destinationX isEqualTo _destinationOld) then
-		{
-		[_variable,_destinationX] call BIS_fnc_taskSetDestination;
-		};
-	};
-if (count _this > 4) then
-	{
-	private _type = _this select 4;
-	_typeOld = _variable call BIS_fnc_taskType;
-	if (_type != _typeOld) then
-		{
-		[_variable,_type] call BIS_fnc_taskSetType;
-		_singleDestination = false;
-		};
-	};
-_stateOld = _variable call BIS_fnc_taskState;
-if ((_stateOld != _state) or !(_singleDestination)) then
-	{
-	[_variable,_state] call BIS_fnc_taskSetState;
-	if (count missionsX > 0) then
-		{
-		for "_i" from 0 to (count missionsX -1) do
-			{
-			_missionX = (missionsX select _i) select 0;
-			if (_missionX == _variable) exitWith
-				{
-				missionsX deleteAt _i;
-				missionsX pushBack [_variable,_state];
-				publicVariable "missionsX"
-				};
-			};
-		};
-	};
-true
+    Maintains the A3A task list and related vars:
+    A3A_tasksData: array of all active tasks, format [taskID, type, state, creationTime]. Non-public.
+    A3A_activeTasks: unique string array of all active task types, completed or not. Public.
+    A3A_taskCount: number of tasks created. Used to help generate unique task IDs. Public.
+
+    Parameters:
+    <STRING> taskID: Unique ID for task.
+    <STRING> taskType: Task type. Will act appropriately if non-unique.
+    <STRING> state/action: CREATED, DELETED, SUCCEEDED, FAILED
+
+    Scope: Server, preferably unscheduled
+*/
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+
+if (!isServer) exitWith { Error("Server-only function miscalled") };
+
+params ["_taskId", "_taskType", "_state"];
+private _taskIndex = A3A_tasksData findIf { (_x#0) isEqualTo _taskId };
+
+if (_state isEqualTo "CREATED") exitWith
+{
+    A3A_taskCount = A3A_taskCount + 1; publicVariable "A3A_taskCount";
+
+    if (_taskIndex != -1) exitWith { Error_1("Non-unique task ID %1 created", _taskId) };
+    A3A_tasksData pushBack [_taskId, _taskType, "CREATED", serverTime];
+
+    if (A3A_activeTasks find _taskType != -1) exitWith { Error_1("Task type %1 already active", _taskType) };
+    A3A_activeTasks pushBack _taskType; publicVariable "A3A_activeTasks";
+};
+
+if (_taskIndex == -1) exitWith { Error_2("Task ID %1 not found for state %2", _taskId, _state) };
+
+if (_state isEqualTo "DELETED") exitWith {
+    A3A_tasksData deleteAt _taskIndex;
+    if (A3A_tasksData findIf { (_x#1) isEqualTo _taskType } != -1) exitWith {};				// non-unique task type
+    A3A_activeTasks deleteAt (A3A_activeTasks find _taskType); publicVariable "A3A_activeTasks";
+};
+
+if !(_state in ["SUCCEEDED", "FAILED"]) exitWith { Error_2("Bad state %1 for task ID %2", _state, _taskId) };
+(A3A_tasksData#_taskIndex) set [2, _state];

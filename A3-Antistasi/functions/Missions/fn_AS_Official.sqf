@@ -19,11 +19,13 @@ _dateLimitNum = dateToNumber _dateLimit;
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _naming = if (_sideX == Occupants) then {"NATO"} else {"CSAT"};
+private _taskString = format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming];
 
-[[teamPlayer,civilian],"AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
-missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
+private _taskId = "AS" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,[_taskStr,"Kill the Officer",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
+[_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
+
 _grp = createGroup _sideX;
-
 _typeX = if (_sideX == Occupants) then {NATOOfficer} else {CSATOfficer};
 _official = [_grp, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 _typeX = if (_sideX == Occupants) then {NATOBodyG} else {CSATBodyG};
@@ -46,7 +48,7 @@ waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (not alive _official)
 
 if (not alive _official) then
 	{
-	["AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	[_taskId, "AS", "SUCCEEDED"] call A3A_fnc_taskSetState;
 	if (_difficultX) then
 		{
 		[0,600] remoteExec ["A3A_fnc_resourcesFIA",2];
@@ -67,7 +69,7 @@ if (not alive _official) then
 	}
 else
 	{
-	["AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
+	[_taskId, "AS", "FAILED"] call A3A_fnc_taskSetState;
 	if (_difficultX) then
 		{
 		[-1200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
@@ -85,4 +87,4 @@ else
 {deleteVehicle _x} forEach units _grp;
 deleteGroup _grp;
 
-_nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
+[_taskId, "AS", 1200] spawn A3A_fnc_taskDelete;

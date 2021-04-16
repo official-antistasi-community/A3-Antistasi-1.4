@@ -69,7 +69,7 @@ while {true} do
 			garrison setVariable [_city,[],true];
 			sleep 5;
 			{_nul = [_city,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
-			if ((!(["CONVOY"] call BIS_fnc_taskExists)) and (!bigAttackInProgress)) then
+			if (!("CONVOY" in A3A_activeTasks) and (!bigAttackInProgress)) then
 			{
 				_base = [_city] call A3A_fnc_findBasesForConvoy;
 				if (_base != "") then
@@ -128,7 +128,8 @@ while {true} do
 		publicVariable "difficultyCoef";
 	};
 
-	if ((!bigAttackInProgress) and (random 100 < 50)) then {[] call A3A_fnc_missionRequest};
+	private _missionChance = 5 * count (call A3A_fnc_playableUnits);
+	if ((!bigAttackInProgress) and (random 100 < _missionChance)) then {[] spawn A3A_fnc_missionRequest};
 	//Removed from scheduler for now, as it errors on Headless Clients.
 	//[[],"A3A_fnc_reinforcementsAI"] call A3A_fnc_scheduler;
 	[] spawn A3A_fnc_reinforcementsAI;
@@ -144,7 +145,7 @@ while {true} do
     _numWreckedAntennas = count antennasDead;
 	//Probability of spawning a mission in.
     _shouldSpawnRepairThisTick = round(random 100) < 20;
-    if ((_numWreckedAntennas > 0) && _shouldSpawnRepairThisTick && !(["REP"] call BIS_fnc_taskExists)) then
+    if ((_numWreckedAntennas > 0) && _shouldSpawnRepairThisTick && !("REP" in A3A_activeTasks)) then
 		{
 		_potentials = [];
 		{

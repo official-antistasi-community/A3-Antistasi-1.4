@@ -98,7 +98,8 @@ DECLARE_SERVER_VAR(bombRuns, 0);
 DECLARE_SERVER_VAR(revealX, false);
 //Whether the players have Nightvision unlocked
 DECLARE_SERVER_VAR(haveNV, false);
-DECLARE_SERVER_VAR(missionsX, []);
+DECLARE_SERVER_VAR(A3A_activeTasks, []);
+DECLARE_SERVER_VAR(A3A_taskCount, 0);
 //List of statics (MGs, AA, etc) that will be saved and loaded.
 DECLARE_SERVER_VAR(staticsToSave, []);
 //Whether the players have access to radios.
@@ -143,6 +144,8 @@ savedPlayers = [];
 destroyedBuildings = [];		// synced only on join, to avoid spam on change
 
 testingTimerIsActive = false;
+
+A3A_tasksData = [];
 
 ///////////////////////////////////////////
 //     INITIALISING ITEM CATEGORIES     ///

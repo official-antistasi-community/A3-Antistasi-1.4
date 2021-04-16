@@ -206,12 +206,10 @@ _arrayOutpostsFIA = [];
 if (!isDedicated) then {
 	_typesX = [];
 	{
-		if ([_x] call BIS_fnc_taskExists) then {
-			_state = [_x] call BIS_fnc_taskState;
-			if (_state == "CREATED") then {
-				_typesX pushBackUnique _x;
-			};
-		};
+		private _type = _x;
+		private _index = A3A_tasksData findIf { (_x#1) isEqualTo _type and (_x#2) isEqualTo "CREATED" };
+		if (_index != -1) then { _typesX pushBackUnique _type };
+
 	} forEach ["AS","CON","DES","LOG","RES","CONVOY","DEF_HQ","rebelAttack","invaderPunish"];
 
 	["tasks",_typesX] call A3A_fnc_setStatVariable;

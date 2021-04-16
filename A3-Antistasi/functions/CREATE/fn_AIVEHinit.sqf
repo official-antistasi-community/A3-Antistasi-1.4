@@ -130,7 +130,7 @@ else
 						{if ((side _x == Occupants) or (side _x == Invaders)) then {_x reveal [_mortarX,4]}} forEach allUnits;
 						if (_mortarX distance posHQ < 300) then
 						{
-							if (!(["DEF_HQ"] call BIS_fnc_taskExists)) then
+							if !("DEF_HQ" in A3A_activeTasks) then
 							{
 								_LeaderX = leader (gunner _mortarX);
 								if (!isPlayer _LeaderX) then

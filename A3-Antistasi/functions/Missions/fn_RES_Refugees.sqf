@@ -42,8 +42,10 @@ _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occup
 _textX = if (_sideX == Occupants) then {format ["A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2",_nameDest,_displayTime]} else {format ["A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ",_nameDest,nameInvaders,nameTeamPlayer]};
 _posTsk = if (_sideX == Occupants) then {(position _houseX) getPos [random 100, random 360]} else {position _houseX};
 
-[[teamPlayer,civilian],"RES",[_textX,"Refugees Evac",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
-missionsX pushBack ["RES","CREATED"]; publicVariable "missionsX";
+private _taskId = "RES" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,[_textX,"Refugees Evac",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[_taskId, "RES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
+
 _groupPOW = createGroup teamPlayer;
 for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	{
@@ -77,7 +79,7 @@ if (_sideX == Invaders) then
 	{
 		params ["_house", "_isDifficult"];
 		if (_isDifficult) then {sleep 300} else {sleep 300 + (random 1800)};
-		if (["RES"] call BIS_fnc_taskExists) then
+		if !(_taskId call BIS_fnc_taskCompleted) then
 		{
             private _reveal = [_positionX , Invaders] call A3A_fnc_calculateSupportCallReveal;
             [getPos _house, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
@@ -151,7 +153,7 @@ if (_sideX == Occupants) then
 	if ({(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 50)} count _POWs > 0) then
 		{
 		sleep 5;
-		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
+		[_taskId, "RES", "SUCCEEDED"] call A3A_fnc_taskSetState;
 		_countX = {(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 150)} count _POWs;
 		_hr = _countX;
 		_resourcesFIA = 100 * _countX;
@@ -163,7 +165,7 @@ if (_sideX == Occupants) then
 		}
 	else
 		{
-		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"FAILED","run"] call A3A_fnc_taskUpdate;
+		[_taskId, "RES", "FAILED"] call A3A_fnc_taskSetState;
 		[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	}
@@ -172,12 +174,12 @@ else
 	waitUntil {sleep 1; ({alive _x} count _POWs == 0) or ({(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 50)} count _POWs > 0)};
 	if ({alive _x} count _POWs == 0) then
 		{
-		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"FAILED","run"] call A3A_fnc_taskUpdate;
+		[_taskId, "RES", "FAILED"] call A3A_fnc_taskSetState;
 		[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		}
 	else
 		{
-		["RES",[_textX,"Refugees Evac",_nameDest],_posTsk,"SUCCEEDED","run"] call A3A_fnc_taskUpdate;
+		[_taskId, "RES", "SUCCEEDED"] call A3A_fnc_taskSetState;
 		_countX = {(alive _x) and (_x distance getMarkerPos respawnTeamPlayer < 150)} count _POWs;
 		_hr = _countX;
 		_resourcesFIA = 100 * _countX;
@@ -215,9 +217,4 @@ if (_sideX == Occupants) then
 	[_groupX] spawn A3A_fnc_groupDespawner;
 };
 
-//sleep (540 + random 1200);
-
-//_nul = [_tsk,true] call BIS_fnc_deleteTask;
-//deleteMarker _mrkFinal;
-
-_nul = [1200,"RES"] spawn A3A_fnc_deleteTask;
+[_taskId, "RES", 1200] spawn A3A_fnc_taskDelete;

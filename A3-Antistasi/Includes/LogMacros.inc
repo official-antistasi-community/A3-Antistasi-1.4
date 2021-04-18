@@ -54,10 +54,6 @@
 
     ~~~~ Warning
 
-        If file is not compile in CfgFunctions you need to add these two lines before the include:
-        private _fnc_scriptName = "{filename}";
-        private _fnc_scriptNameParent = "{filename}";
-
         Array defines and strings will have there commas striped in macro calls.
         i.e. this Info("Don't, wait until i get there to hang him"); becomes "Don't wait until i get there to hang him"
         and Info(["some","elements"]); would fail to log

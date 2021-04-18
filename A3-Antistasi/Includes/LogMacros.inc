@@ -54,6 +54,10 @@
 
     ~~~~ Warning
 
+        If file is not compile in CfgFunctions you need to add these two lines before the include:
+        private _fnc_scriptName = "{filename}";
+        private _fnc_scriptNameParent = "{filename}";
+
         Array defines and strings will have there commas striped in macro calls.
         i.e. this Info("Don't, wait until i get there to hang him"); becomes "Don't wait until i get there to hang him"
         and Info(["some","elements"]); would fail to log
@@ -81,8 +85,8 @@
 if (isNil "LogLevel") then {LogLevel = 2};
 
 //Log standard format
-#define LogMessage(Level, Message) diag_log text ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ select [count __FILE__ -(reverse __FILE__ find '\'),1e6]) + " | " + Message)
-#define LogServerMessage(Level, Message) ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ select [count __FILE__ -(reverse __FILE__ find '\'),1e6]) + " | " + Message + format [" | Client: %1 [%2]", player, clientOwner]) remoteExec ["A3A_fnc_localLog", 2]
+#define LogMessage(Level, Message) diag_log text ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + _fnc_scriptName + " | " + Message + " | Called By: " + _fnc_scriptNameParent)
+#define LogServerMessage(Level, Message) ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + _fnc_scriptName + " | " + Message + " | Called By: " + _fnc_scriptNameParent + format [" | Client: %1 [%2]", player, clientOwner]) remoteExec ["A3A_fnc_localLog", 2]
 
 //log macros
 #ifdef Log_Error

@@ -1,3 +1,5 @@
+private _fnc_scriptName = "init.sqf";
+private _fnc_scriptNameParent = "init.sqf";
 #include "Includes\common.inc"
 FIX_LINE_NUMBERS()
 Info("Init Started");

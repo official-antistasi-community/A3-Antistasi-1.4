@@ -128,7 +128,7 @@ while {true} do
 		publicVariable "difficultyCoef";
 	};
 
-	private _missionChance = 5 * count (call A3A_fnc_playableUnits);
+	private _missionChance = 5 * count (allPlayers - (entities "HeadlessClient_F"));
 	if ((!bigAttackInProgress) and (random 100 < _missionChance)) then {[] spawn A3A_fnc_missionRequest};
 	//Removed from scheduler for now, as it errors on Headless Clients.
 	//[[],"A3A_fnc_reinforcementsAI"] call A3A_fnc_scheduler;

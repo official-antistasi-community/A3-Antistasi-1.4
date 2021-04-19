@@ -41,14 +41,14 @@ Performance: ~80ms
     if (!canSuspend) exitWith { Error("Suspension not allowed, spawn this function") }; \
     private _varName = genVarName("await"); \
     missionNamespace setVariable [_varName, nil]; \
-    private _awaitTimeout = time + 60; \
+    private _awaitTimeout = time + 5; \
     [[_varName, _this], { \
         params ["_varName", "_args"]; \
         private _await_VAR = _args call FUNCTION; \
         [missionNamespace, [_varName, _await_VAR]] remoteExecCall ["setVariable", remoteExecutedOwner]; \
     }] remoteExecCall ["call", TARGET]; \
     waitUntil {!isNil _varName || time > _awaitTimeout}; \
-    if (isNil _varName) then { private _logString = "Await timed out after 60 secounds | Function: "+ #FUNCTION +" | Target "+ #TARGET; Error(_logString) }; \
+    if (isNil _varName) then { private _logString = "Await timed out after 5 secounds | Function: "+ #FUNCTION +" | Target "+ #TARGET; Error(_logString) }; \
     private _return = missionNamespace getVariable _varName; \
     missionNamespace setVariable [_varName, nil]; \
     _return \
@@ -62,10 +62,11 @@ AwaitAsync
 
     Does allow suspension of execution
 
-Syntax: arg AwaitAsync(func, target)
+Syntax: arg AwaitAsync(func, target, timeout?)
     arg: <Any> anything passed to function
     func: <Code> code to be executed
     target: <Int> machine to run the function on
+    timeout: <Int> time before timeout (default 60 sec)
 
 Return: <Any> What the function returns
 
@@ -89,14 +90,31 @@ Performance: ~100ms
     if (!canSuspend) exitWith { Error("Suspension not allowed, spawn this function") }; \
     private _varName = genVarName("awaitAsync");; \
     missionNamespace setVariable [_varName, nil]; \
-    private _awaitTimeout = time + 60; \
+    private _awaitTimeout = time + 5; \
     [[_varName, _this], { \
         params ["_varName", "_args"]; \
         private _await_VAR = _args call FUNCTION; \
         [missionNamespace, [_varName, _await_VAR]] remoteExecCall ["setVariable", remoteExecutedOwner]; \
     }] remoteExecCall ["spawn", TARGET]; \
     waitUntil {!isNil _varName || time > _awaitTimeout}; \
-    if (isNil _varName) then { private _logString = "Await timed out after 60 secounds | Function: "+ #FUNCTION +" | Target "+ #TARGET; Error(_logString) }; \
+    if (isNil _varName) then { private _logString = "Await timed out after 5 secounds | Function: "+ #FUNCTION +" | Target "+ #TARGET; Error(_logString) }; \
+    private _return = missionNamespace getVariable _varName; \
+    missionNamespace setVariable [_varName, nil]; \
+    _return \
+}
+
+#define awaitAsync(FUNCTION, TARGET, TIMEOUT) call {\
+    if (!canSuspend) exitWith { Error("Suspension not allowed, spawn this function") }; \
+    private _varName = genVarName("awaitAsync");; \
+    missionNamespace setVariable [_varName, nil]; \
+    private _awaitTimeout = time + TIMEOUT; \
+    [[_varName, _this], { \
+        params ["_varName", "_args"]; \
+        private _await_VAR = _args call FUNCTION; \
+        [missionNamespace, [_varName, _await_VAR]] remoteExecCall ["setVariable", remoteExecutedOwner]; \
+    }] remoteExecCall ["spawn", TARGET]; \
+    waitUntil {!isNil _varName || time > _awaitTimeout}; \
+    if (isNil _varName) then { private _logString = "Await timed out after "+ #TIMEOUT +" secounds | Function: "+ #FUNCTION +" | Target "+ #TARGET; Error(_logString) }; \
     private _return = missionNamespace getVariable _varName; \
     missionNamespace setVariable [_varName, nil]; \
     _return \

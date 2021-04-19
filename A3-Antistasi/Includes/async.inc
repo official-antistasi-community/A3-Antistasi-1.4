@@ -150,3 +150,22 @@ Performance: ~85ms
     missionNamespace setVariable [_varName, nil]; \
     _return \
 }
+
+/*
+Async
+    Execute function async
+
+Syntax: argument async(function, callback)
+    argument: <Any>  Arguments passed to function, can not be nil
+    function: <code> Function to execute
+    callback: <code> callback with return of function after its done
+
+Examples:
+    [] async(someFunction,someCallbackFunction);
+    someArg async(someFunction, {some callback code});
+    someArg async({some async code}, someCallbackFunction);
+    [] async({some async code}, {some callback code});
+
+Note: arguments passed to function is accasible in callback as _arguments
+*/
+#define async(FUNCTION, CALLBACK) spawn {private _arguments = _this; private _return = _arguments call FUNCTION; _return call CALLBACK}

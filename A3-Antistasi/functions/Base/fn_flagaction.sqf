@@ -165,4 +165,10 @@ switch _typeX do
     {
         _flag addAction ["Download Intel", A3A_fnc_searchIntelOnLaptop, nil, 4, true, false, "", "isPlayer _this", 4];
     };
+    case "static":
+    {
+        _flag addAction ["Allow AIs to use this weapon", A3A_fnc_unlockStatic, nil, 1, true, false, "", "!isNil {_target getVariable 'lockedForAI'} and (isNull gunner _target)", 4];
+        _flag addAction ["Prevent AIs using this weapon", A3A_fnc_lockStatic, nil, 1, true, false, "", "isNil {_target getVariable 'lockedForAI'} and (isNull gunner _target)", 4];
+        _flag addAction ["Kick AI off this weapon", A3A_fnc_lockStatic, nil, 1, true, false, "", "isNil {_target getVariable 'lockedForAI'} and !(isNull gunner _target) and !(isPlayer gunner _target)}", 4];
+    };
 };

@@ -76,6 +76,7 @@ class A3A
 		class keys {};
 		class localizar {};
 		class location {};
+        class lockStatic {};
 		class logPerformance {};
 		class markerChange {};
 		class moveHQ {};
@@ -115,7 +116,9 @@ class A3A
         class teleportVehicleToBase {};
         class timingCA {};
         class translateVariable {};
+        class unlockStatic {};
         class unlockVehicle {};
+        class updateRebelStatics {};
         class zoneCheck {};
     };
 

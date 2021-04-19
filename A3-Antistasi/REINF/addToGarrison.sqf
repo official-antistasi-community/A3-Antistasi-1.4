@@ -76,11 +76,11 @@ private _unitTypes = _unitsX apply { _x getVariable "unitType" };
 _noBorrar = false;
 
 if (spawner getVariable _nearX != 2) then
-	{
-
-	{deleteWaypoint _x} forEach waypoints _groupX;
-	_wp = _groupX addWaypoint [(getMarkerPos _nearX), 0];
+{
+	private _targPos = getMarkerPos _nearX;
+	private _wp = _groupX addWaypoint [(getMarkerPos _nearX), 0];
 	_wp setWaypointType "MOVE";
+	_groupX setCurrentWaypoint _wp;
 	{
 	_x setVariable ["markerX",_nearX,true];
 	_x setVariable ["spawner",nil,true];
@@ -99,9 +99,12 @@ if (spawner getVariable _nearX != 2) then
 		}];
 	} forEach _unitsX;
 
-	waitUntil {sleep 1; (spawner getVariable _nearX == 2 or !(sidesX getVariable [_nearX,sideUnknown] == teamPlayer))};
-	if (!(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) then {_noBorrar = true};
+	waitUntil {sleep 1; (spawner getVariable _nearX == 2 or !(sidesX getVariable [_nearX,sideUnknown] == teamPlayer) or (leader _groupX distance _targPos < 100))};
+	if (!(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {_noBorrar = true};
+	if (leader _groupX distance _targPos < 100) then {
+		[_nearX] remoteExec ["A3A_fnc_updateRebelStatics", 2];
 	};
+};
 
 if (!_noBorrar) then
 	{

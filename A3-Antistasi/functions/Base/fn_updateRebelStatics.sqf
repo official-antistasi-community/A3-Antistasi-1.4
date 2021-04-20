@@ -1,28 +1,22 @@
 
-params ["_marker"];
+params ["_target"];
 
-// do we need specified _possibleCrew and _freeStatics, plus return value?
+// If position or object target, identify rebel marker
+private _marker = _target;
+if !(_target isEqualType "") then
+{
+    _marker = "";
+    private _markers = markersX select { _target inArea _x && {sidesX getVariable [_x, sideUnknown] == teamPlayer} };
+    private _mindist = 10000;
+    {
+        private _dist = (getMarkerPos _x) distance2d _target;
+        if (_dist > _mindist) then { continue };
+        _marker = _x; _mindist = _dist;
+    } forEach _markers;
+};
+if (_marker isEqualTo "") exitWith {};
 
-//principle...
-// call this function whenever:
-// 1. A static weapon is added to a marker (area)
-// 2. Riflemen are added to a marker
-// 3. A static weapon is changed from locked to unlocked
-
-// how does this work with spawning?
-// spawn group of riflemen equal to unlocked statics, then call the function. lol.
-
-// scope would be HC or server then?
-// rebel garrison spawn would be HC target
-// player usage would be server target
-
-// now *ideally* we use same group for init and later changes
-// but that's difficult to arrange
-// can simplify a lot with group-per-machine?
-
-// sanity check that marker is rebel?
-// sanity check that the marker is spawned...
-
+// Find all non-mortar statics within marker
 private _statics = staticsToSave inAreaArray _marker;
 _statics = _statics select { !(_x isKindOf "StaticMortar") };           // don't bother with mortars yet
 if (count _statics == 0) exitWith {};
@@ -40,7 +34,7 @@ _possibleCrew = _possibleCrew select {
     _x getVariable ["markerX", ""] isEqualTo _marker
     and _x getVariable ["UnitType", ""] in SDKMil
     and isNull objectParent _x
-    and side group _x isEqualTo teamPlayer
+    and [_x] call A3A_fnc_canFight
 };
 if (count _possibleCrew == 0) exitWith {};
 
@@ -71,24 +65,3 @@ if (isNull _staticGroup) then { _staticGroup = createGroup [teamPlayer, true] };
         };
     };
 } forEach _freeStatics;
-
-// what about spamming?
-// ok, kinda handled...
-// it's probably fine lol
-
-// so ideally, each garrison is strictly assigned to a HC/server
-// and statics per garrison are stored in a setVariable
-
-
-// hokay...
-// need to see how fast joinSilent works wrt. locality changes
-// minimum: a few frames. So we need to delay.
-
-// need to think about mortars at some point...
-// ideally move those into same structure? Any issues aside from UPSMON?
-
-// don't fuck around, just chuck them straight in there?
-// potential locality problems. Not guaranteed that all AIs are local on same machine.
-// subfunction to do the actual move-in?
-
-// do the commander too?

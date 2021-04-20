@@ -99,11 +99,19 @@ if (spawner getVariable _nearX != 2) then
 		}];
 	} forEach _unitsX;
 
-	waitUntil {sleep 1; (spawner getVariable _nearX == 2 or !(sidesX getVariable [_nearX,sideUnknown] == teamPlayer) or (leader _groupX distance _targPos < 100))};
-	if (!(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {_noBorrar = true};
-	if (leader _groupX distance _targPos < 100) then {
-		[_nearX] remoteExec ["A3A_fnc_updateRebelStatics", 2];
+	// trigger actual garrison join when close to target
+	[_nearX, _groupX] spawn {
+		params ["_marker", "_group"];
+		waitUntil {
+			sleep 5;
+			isNull leader _group or { leader _group distance getMarkerPos _marker < 20 } 
+		};
+		sleep 10;			// give units some time to get onto marker
+		if !(isNull leader _group) then { [_marker] remoteExec ["A3A_fnc_updateRebelStatics", 2] };
 	};
+
+	waitUntil {sleep 1; (spawner getVariable _nearX == 2 or !(sidesX getVariable [_nearX,sideUnknown] == teamPlayer))};
+	if (!(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {_noBorrar = true};
 };
 
 if (!_noBorrar) then

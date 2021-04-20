@@ -167,8 +167,9 @@ switch _typeX do
     };
     case "static":
     {
-        _flag addAction ["Allow AIs to use this weapon", A3A_fnc_unlockStatic, nil, 1, true, false, "", "!isNil {_target getVariable 'lockedForAI'} and (isNull gunner _target)", 4];
-        _flag addAction ["Prevent AIs using this weapon", A3A_fnc_lockStatic, nil, 1, true, false, "", "isNil {_target getVariable 'lockedForAI'} and (isNull gunner _target)", 4];
-        _flag addAction ["Kick AI off this weapon", A3A_fnc_lockStatic, nil, 1, true, false, "", "isNil {_target getVariable 'lockedForAI'} and !(isNull gunner _target) and !(isPlayer gunner _target)}", 4];
+        private _cond = "(_target getVariable ['ownerSide', teamPlayer] == teamPlayer) and (isNull attachedTo _target) and ([_this] call A3A_fnc_isMember) and ";
+        _flag addAction ["Allow AIs to use this weapon", A3A_fnc_unlockStatic, nil, 1, true, false, "", _cond+"!isNil {_target getVariable 'lockedForAI'}", 4];
+        _flag addAction ["Prevent AIs using this weapon", A3A_fnc_lockStatic, nil, 1, true, false, "", _cond+"isNil {_target getVariable 'lockedForAI'}", 4];
+    //    _flag addAction ["Kick AI off this weapon", A3A_fnc_lockStatic, nil, 1, true, false, "", _cond+"isNil {_target getVariable 'lockedForAI'} and !(isNull gunner _target) and !(isPlayer gunner _target)}", 4];
     };
 };

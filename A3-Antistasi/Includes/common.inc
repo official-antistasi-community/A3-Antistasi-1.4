@@ -36,9 +36,9 @@ Macros:
         Return: <Nil>
 */
 #define currentScript if (isNil "_fnc_scriptName") then {__FILE__ select [count __FILE__ - (reverse __FILE__ find '\'), 1e6]} else {_fnc_scriptName}
-#define dumpCallStackMSG(MSG) reverse __CALLSTACK__; diag_log text ( (systemTimeUTC call A3A_fnc_systemTime_format_S) + " | Antistasi | Callstack: " + MSG + endl + (__CALLSTACK__ apply {"    " + _x} joinString endl) ); reverse __CALLSTACK__;
+#define dumpCallStackMSG(MSG) diag_log text ( (systemTimeUTC call A3A_fnc_systemTime_format_S) + " | Antistasi | Callstack: " + MSG + endl + (__CALLSTACK__ apply {"    " + _x} joinString endl) );
 #define dumpCallStack() dumpCallStackMSG("")
-private __CALLSTACK__ = if (isNil "__CALLSTACK__") then { [currentScript] } else { __CALLSTACK__ + [currentScript] };
+private __CALLSTACK__ = if (isNil "__CALLSTACK__") then { [currentScript] } else { [currentScript] + __CALLSTACK__ };
 
 //includes
 #include "LogMacros.inc"

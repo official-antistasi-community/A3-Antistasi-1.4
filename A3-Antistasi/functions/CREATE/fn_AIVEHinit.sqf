@@ -165,25 +165,9 @@ if (_side == civilian) then
 	}];
 };
 
-if(_typeX in vehMRLS + [CSATMortar, NATOMortar, SKDMortar]) then
+if(_typeX in vehMRLS + [CSATMortar, NATOMortar, SDKMortar]) then
 {
-    _veh addEventHandler
-    [
-        "Fired",
-        {
-            params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
-            _projectile spawn
-            {
-                sleep 0.05;
-
-                private _smoke = "SmokeShell_Infinite" createVehicle (getPos _this);
-                _smoke attachTo [_this, [0, -1, 0]];
-
-                waitUntil {sleep 0.1; !(alive _this)};
-                deleteVehicle _smoke;
-            };
-        }
-    ];
+    [_veh] call A3A_fnc_addArtilleryTrailEH;
 };
 
 // EH behaviour:

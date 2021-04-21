@@ -289,6 +289,11 @@ class A3A
         class unit_recruit {};
     };
 
+    class EventHandler
+    {
+        class addArtilleryTrailEH {};
+    };
+
     class Garage
     {
         class addToPersonalGarage {};

@@ -1,4 +1,14 @@
-params ["_target", "_caller", "_actionId", "_arguments"];
+/*
+    A3A_fnc_unlockStatic
+    Permit static weapon for garrison AIs. Runs updateRebelStatics on server.
+
+    Arguments:
+    0. <Object> Target static weapon.
+
+    Scope: Anywhere. Usually called from addAction.
+*/
+
+params ["_target"];     //, "_caller", "_actionId", "_arguments"];
 
 _target setVariable ["lockedForAI", nil, true];
 

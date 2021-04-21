@@ -1,3 +1,13 @@
+/*
+    A3A_fnc_updateRebelStatics
+    Search rebel marker area for empty statics, move garrison riflemen into them.
+    Attempts to find existing local garrison static group, otherwise creates one.
+
+    Arguments:
+    0. <Array> or <String>. Position within marker or marker name.
+
+    Scope: Wherever you want to put garrison groups, probably server or HC
+*/
 
 params ["_target"];
 

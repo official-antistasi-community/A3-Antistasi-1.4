@@ -312,8 +312,8 @@ _militaryLoadoutData setVariable ["sniperRifles", [
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _policeLoadoutData setVariable ["uniforms", ["rhs_uniform_cossack"]];
-_policeLoadoutData setVariable ["vests", ["rhs_6b2_lifchik", "rhs_6b2_chicom", ]];
-_policeLoadoutData setVariable ["helmets", ["rhs_cossack_visor_cap", "rhs_cossack_papakha", ]];
+_policeLoadoutData setVariable ["vests", ["rhs_6b2_lifchik", "rhs_6b2_chicom"]];
+_policeLoadoutData setVariable ["helmets", ["rhs_cossack_visor_cap", "rhs_cossack_papakha"]];
 _policeLoadoutData setVariable ["rifles", [
 ["rhs_weap_akm", "rhs_acc_dtk", "", "", ["rhs_30Rnd_762x39mm_bakelite"], [], ""]
 ]];			//this line determines the rifles for police loadouts -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets

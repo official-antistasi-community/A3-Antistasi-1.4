@@ -108,7 +108,7 @@ _helicopter flyInHeight 100;
 
 private _vehWP1 = _crewGroup addWaypoint [_originPos, 0];
 _vehWP1 setWaypointType "MOVE";
-_vehWP1 setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
+_vehWP1 setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
 _vehWP1 setWaypointBehaviour "CARELESS";
 _crewGroup setCurrentWaypoint _vehWP1;
 

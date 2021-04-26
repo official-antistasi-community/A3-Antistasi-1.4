@@ -15,3 +15,4 @@ KeysLimit = 2;  // Even if player tampers with his unlocked keys, this will neve
 #include "gameSettings.hpp"
 #include "params.hpp"
 #include "CfgIdentities.hpp"
+#include "CfgRemoteExec.hpp"

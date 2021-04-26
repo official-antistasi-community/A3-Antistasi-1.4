@@ -160,7 +160,7 @@ if(_intelType == "Medium") then
 };
 if(_intelType == "Large") then
 {
-    if(["AS"] call BIS_fnc_taskExists) then
+    if("AS" in A3A_activeTasks) then
     {
         _intelContent = selectRandomWeighted [TRAITOR, 0.3, WEAPON, 0.3, MONEY, 0.4];
     }

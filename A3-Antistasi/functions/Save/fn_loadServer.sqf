@@ -5,6 +5,8 @@ if (isServer) then {
     Info("Starting Persistent Load.");
 	petros allowdamage false;
 
+	A3A_saveVersion = 0;
+	["version"] call A3A_fnc_getStatVariable;
 	["savedPlayers"] call A3A_fnc_getStatVariable;
 	["outpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "outpostsFIA";
 	["mrkSDK"] call A3A_fnc_getStatVariable;

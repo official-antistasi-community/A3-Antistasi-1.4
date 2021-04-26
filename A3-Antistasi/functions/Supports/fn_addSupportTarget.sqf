@@ -40,7 +40,7 @@ private _targetList = server getVariable [format ["%1_targets", _supportName], [
 if((_targetParams select 0) isEqualType []) then
 {
     private _targetPos = _targetParams select 0;
-    private _index = _targetList findIf {((_x select 0 select 0) distance2D _targetPos) < 25};
+    private _index = _targetList findIf {((_x select 0 select 0) distance2D _targetPos) < 150};
     if(_index == -1) then
     {
         _targetList pushBack [_targetParams, _revealCall];

@@ -1,30 +1,24 @@
-_unit = _this select 0;
-_playerX = _this select 1;
+params ["_unit", "_playerX"];
 
-[_unit,"remove"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
-
-//removeAllActions _unit;
-
-if (captive _playerX) then
-	{
-	[_playerX,false] remoteExec ["setCaptive",0,_playerX];
-	_playerX setCaptive false;
-	};
+if (captive _playerX) then { _playerX setCaptive false };
 
 _playerX globalChat "You are free. Come with us!";
 _unit setDir (getDir _playerX);
 _playerX playMove "MountSide";
-sleep 3;
-_unit sideChat "Thank you. I owe you my life!";
+sleep 5;
+_playerX playMove "";
 
+[_unit] join group _playerX;
+private _timeout = 10;
+waituntil {sleep 1; _timeout = _timeout-1; _timeout < 0 or (local _unit and group _unit == group _playerX)};
+if (_timeout < 0) exitWith {};
+
+[_unit,"remove"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
+
+_unit globalChat "Thank you. I owe you my life!";
 _unit enableAI "MOVE";
 _unit enableAI "AUTOTARGET";
 _unit enableAI "TARGET";
 _unit enableAI "ANIM";
-sleep 5;
-_playerX playMove "";
-//_unit playMove "SitStandUp";
-[_unit,false] remoteExec ["setCaptive",0,_unit];
-_unit setCaptive false;
-[_unit] join group _playerX;
 [_unit] spawn A3A_fnc_FIAInit;
+if (captive _unit) then { _unit setCaptive false };

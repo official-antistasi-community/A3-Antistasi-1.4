@@ -34,7 +34,7 @@ _index = outposts findIf
     {[_x, true] call A3A_fnc_airportCanAttack &&
     {[getMarkerPos _x, _position] call A3A_fnc_arePositionsConnected}}}
 };
-if(_index != -1) then
+if(_index != -1) exitWith
 {
     0;
 };

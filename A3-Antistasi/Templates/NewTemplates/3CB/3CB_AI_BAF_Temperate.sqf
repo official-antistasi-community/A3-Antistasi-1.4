@@ -53,7 +53,7 @@
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
 ["vehiclesMilitiaLightArmed", ["UK3CB_BAF_LandRover_WMIK_GPMG_FFR_Green_B_DPMW"]] call _fnc_saveToTemplate; //this line determines lightly armed militia vehicles -- Example: ["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] -- Array, can contain multiple assets
-["vehiclesMilitiaTrucks", ["UK3CB_BAF_MAN_HX60_Cargo_Green_B_DPMW"]] call _fnc_saveToTemplate; 	//this line determines militia trucks (unarmed) -- Example: ["vehiclesMilitiaTrucks", ["B_G_Van_01_transport_F"]] -- Array, can contain multiple assets
+["vehiclesMilitiaTrucks", ["UK3CB_BAF_MAN_HX60_Transport_Green_DPMW"]] call _fnc_saveToTemplate; 	//this line determines militia trucks (unarmed) -- Example: ["vehiclesMilitiaTrucks", ["B_G_Van_01_transport_F"]] -- Array, can contain multiple assets
 ["vehiclesMilitiaCars", ["UK3CB_BAF_LandRover_Soft_FFR_Green_B_DPMW"]] call _fnc_saveToTemplate; 		//this line determines militia cars (unarmed) -- Example: ["vehiclesMilitiaCars", ["	B_G_Offroad_01_F"]] -- Array, can contain multiple assets
 
 ["vehiclesPolice", ["UK3CB_BAF_LandRover_Snatch_FFR_Police_A"]] call _fnc_saveToTemplate; 			//this line determines police cars -- Example: ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] -- Array, can contain multiple assets
@@ -923,3 +923,5 @@ private _unitTypes = [
 ["other", [["Official", _policeTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
 ["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+//The following lines are determining the loadout for the AI used in the "Invader Punishment" mission
+["other", [["Unarmed", _UnarmedTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;

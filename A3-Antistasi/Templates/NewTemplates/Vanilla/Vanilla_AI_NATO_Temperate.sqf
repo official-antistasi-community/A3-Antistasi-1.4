@@ -326,10 +326,10 @@ _militiaLoadoutData setVariable ["grenadeLaunchers", [
 ["arifle_MX_GL_Black_F", "", "acc_flashlight", "", ["30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militiaLoadoutData setVariable ["smgs", [
-["SMG_01_F", "", "acc_flashlight", "", [], [], ""],
+["SMG_01_F", "", "acc_flashlight_smg_01", "", [], [], ""],
 ["SMG_02_F", "", "acc_flashlight", "", [], [], ""],
-["SMG_03_black", "", "acc_flashlight", "", [], [], ""],
-["SMG_03C_black", "", "acc_flashlight", "", [], [], ""]
+["SMG_03_black", "", "", "", [], [], ""],
+["SMG_03C_black", "", "", "", [], [], ""]
 ]];
 _militiaLoadoutData setVariable ["machineGuns", [
 ["arifle_MX_SW_Black_F", "", "acc_flashlight", "", ["100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag_tracer"], [], ""]
@@ -861,3 +861,5 @@ private _unitTypes = [
 ["other", [["Official", _policeTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
 ["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+//The following lines are determining the loadout for the AI used in the "Invader Punishment" mission
+["other", [["Unarmed", _UnarmedTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;

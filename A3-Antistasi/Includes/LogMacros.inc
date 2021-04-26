@@ -81,8 +81,14 @@
 if (isNil "LogLevel") then {LogLevel = 2};
 
 //Log standard format
-#define LogMessage(Level, Message) diag_log text ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ select [count __FILE__ -(reverse __FILE__ find '\'),1e6]) + " | " + Message)
-#define LogServerMessage(Level, Message) ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level +" | File: " + (__FILE__ select [count __FILE__ -(reverse __FILE__ find '\'),1e6]) + " | " + Message + format [" | Client: %1 [%2]", player, clientOwner]) remoteExec ["A3A_fnc_localLog", 2]
+#define LogMessage(Level, Message) diag_log text ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level \
++ " | File: " + (if (isNil "_fnc_scriptName") then {__FILE__ select [count __FILE__-(reverse __FILE__ find '\'), 1e6]} else {_fnc_scriptName}) \
++ " | " + Message + ( if (!isNil "_fnc_scriptNameParent" && {_fnc_scriptNameParent isNotEqualTo _fnc_scriptName}) then { " | Called By: " + _fnc_scriptNameParent} else {""} ) )
+
+#define LogServerMessage(Level, Message) ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level \
++ " | File: " + (if (isNil "_fnc_scriptName") then {__FILE__ select [count __FILE__-(reverse __FILE__ find '\'), 1e6]} else {_fnc_scriptName}) \
++ " | " + Message + ( if (!isNil "_fnc_scriptNameParent" && {_fnc_scriptNameParent isNotEqualTo _fnc_scriptName}) then { " | Called By: " + _fnc_scriptNameParent} else {""} ) \
++ format [" | Client: %1 [%2]", player, clientOwner]) remoteExec ["A3A_fnc_localLog", 2]
 
 //log macros
 #ifdef Log_Error

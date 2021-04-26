@@ -562,14 +562,7 @@ while {_timeAlive > 0} do
     ) exitWith
     {
         Info_1("%1 has been destroyed or crew killed, aborting routine", _supportName);
-        if(_side == Occupants) then
-        {
-            [[10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige", 2];
-        }
-        else
-        {
-            [[0, 0], [10, 45]] remoteExec ["A3A_fnc_prestige", 2];
-        };
+        [_side, 20, 45] remoteExec ["A3A_fnc_addAggression", 2];
     };
 
     //No missiles left
@@ -612,7 +605,7 @@ if (alive _strikePlane && [driver _strikePlane] call A3A_fnc_canFight) then
     _wpBase setWaypointType "MOVE";
     _wpBase setWaypointBehaviour "CARELESS";
     _wpBase setWaypointSpeed "FULL";
-    _wpBase setWaypointStatements ["", "deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
+    _wpBase setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
     _strikeGroup setCurrentWaypoint _wpBase;
 
     waitUntil {sleep 0.5;_strikePlane distance2D (getMarkerPos _airport) < 100};

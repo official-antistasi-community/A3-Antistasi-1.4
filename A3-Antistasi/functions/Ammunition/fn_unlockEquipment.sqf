@@ -22,7 +22,7 @@ if (!_dontAddToArsenal) then {
 	//Add the equipment to the arsenal.
 	private _arsenalTab = _className call jn_fnc_arsenal_itemType;
 	[_arsenalTab,_className,-1] call jn_fnc_arsenal_addItem;
-	if (!isNil "serverInitDone") then {Debug_1("Item unlocked: %1", _item)};
+	if (!isNil "serverInitDone") then {ServerDebug_1("Item unlocked: %1", _className)};
 };
 
 {

@@ -103,5 +103,5 @@ _wp3 = _heli addWaypoint [_posOrigin, 1];
 _wp3 setWaypointType "MOVE";
 _wp3 setWaypointSpeed "NORMAL";
 _wp3 setWaypointBehaviour "CARELESS";
-_wp3 setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
+_wp3 setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
 {_x setBehaviour "CARELESS";} forEach units _heli;

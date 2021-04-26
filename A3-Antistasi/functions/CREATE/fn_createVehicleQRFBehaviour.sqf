@@ -40,7 +40,7 @@ switch (true) do
         private _vehWP1 = _crewGroup addWaypoint [_landPos,count (wayPoints _crewGroup)];
         _vehWP1 setWaypointType "TR UNLOAD";
         _vehWP1 setWaypointBehaviour "AWARE";
-        _vehWP1 setWaypointStatements ["true", "[vehicle this] call A3A_fnc_smokeCoverAuto"];
+        _vehWP1 setWaypointStatements ["true", "if !(local this) exitWith {}; [vehicle this] call A3A_fnc_smokeCoverAuto"];
         private _vehWP2 = _crewGroup addWaypoint [_posDestination, count (wayPoints _crewGroup)];
         _vehWP2 setWaypointType "SAD";
         _vehWP2 setWaypointBehaviour "COMBAT";
@@ -50,7 +50,7 @@ switch (true) do
         //Set the waypoints for cargoGroup
         private _cargoWP0 = _cargoGroup addWaypoint [_landpos, 0];
         _cargoWP0 setWaypointType "GETOUT";
-        _cargoWP0 setWaypointStatements ["true", "(group this) spawn A3A_fnc_attackDrillAI"];
+        _cargoWP0 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) spawn A3A_fnc_attackDrillAI"];
         private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 1];
         _cargoWP1 setWaypointType "SAD";
         _cargoWP1 setWaypointBehaviour "COMBAT";

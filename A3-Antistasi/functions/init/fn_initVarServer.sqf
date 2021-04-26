@@ -98,7 +98,8 @@ DECLARE_SERVER_VAR(bombRuns, 0);
 DECLARE_SERVER_VAR(revealX, false);
 //Whether the players have Nightvision unlocked
 DECLARE_SERVER_VAR(haveNV, false);
-DECLARE_SERVER_VAR(missionsX, []);
+DECLARE_SERVER_VAR(A3A_activeTasks, []);
+DECLARE_SERVER_VAR(A3A_taskCount, 0);
 //List of statics (MGs, AA, etc) that will be saved and loaded.
 DECLARE_SERVER_VAR(staticsToSave, []);
 //Whether the players have access to radios.
@@ -143,6 +144,8 @@ savedPlayers = [];
 destroyedBuildings = [];		// synced only on join, to avoid spam on change
 
 testingTimerIsActive = false;
+
+A3A_tasksData = [];
 
 ///////////////////////////////////////////
 //     INITIALISING ITEM CATEGORIES     ///
@@ -376,6 +379,7 @@ private _templateVariables = [
 	"staticATOccupants",
 	"staticAAOccupants",
 	"NATOMortar",
+	"NATOmortarMagazineHE",
 
 	//Invaders
 	"nameInvaders",
@@ -391,6 +395,7 @@ private _templateVariables = [
 	"CSATOfficer",
 	"CSATBodyG",
 	"CSATCrew",
+	"CSATUnarmed",
 	"CSATMarksman",
 	"staticCrewInvaders",
 	"CSATPilot",
@@ -441,7 +446,8 @@ private _templateVariables = [
 	"CSATMG",
 	"staticATInvaders",
 	"staticAAInvaders",
-	"CSATMortar"
+	"CSATMortar",
+	"CSATmortarMagazineHE"
 ];
 
 {
@@ -457,7 +463,7 @@ Info("Sanity-checking templates");
 
 // modify these appropriately when adding new template vars
 private _nonClassVars = ["nameTeamPlayer", "SDKFlagTexture", "nameOccupants", "NATOPlayerLoadouts", "NATOFlagTexture", "flagNATOmrk", "nameInvaders", "CSATPlayerLoadouts", "CSATFlagTexture", "flagCSATmrk"];
-private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "ATMineMag", "APERSMineMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank"];
+private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "ATMineMag", "APERSMineMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank", "NATOmortarMagazineHE", "CSATmortarMagazineHE"];
 
 private _missingVars = [];
 private _badCaseVars = [];
@@ -477,6 +483,8 @@ private _badCaseVars = [];
 
 		private _section = if (_x in _magazineVars) then {"CfgMagazines"} else {"CfgVehicles"};
 		{
+			if ("loadouts_" in _x) then {continue};
+			if ("not_supported" in _x) then {continue};
 			if !(_x isEqualType "") exitWith { Error("Bad template var " + _varName) };
 			if !(_x isEqualTo configName (configFile >> _section >> _x)) then
 			{

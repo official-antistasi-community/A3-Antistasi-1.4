@@ -52,7 +52,7 @@ A3A_paramTable = [
     ["membershipEnabled", "membership", [], true],
     ["switchCom", "switchComm", ["server"], true],						// dead param
     ["tkpunish", "tkPunish", [], true],
-    ["pvpEnabled", "allowPvP", [], true],
+    ["pvpEnabled", "allowPvP", [], false],
     ["allowMembersFactionGarageAccess", "allowMembersFactionGarageAccess", [], true],
     ["memberDistance", "memberDistance", [], 5000],
     ["memberSlots", "memberSlots", ["server"], 20],

@@ -1,4 +1,4 @@
-version=53;
+version=54;
 class EditorData
 {
 	moveGridStep=0.125;
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3404;
+		nextID=3467;
 	};
 	class Camera
 	{
@@ -27,12 +27,14 @@ class EditorData
 	};
 };
 binarizationWanted=0;
+sourceName="Antistasi-Virolahti-2-4-1";
 addons[]=
 {
 	"A3_Ui_F",
 	"A3_Structures_F_Mil_Flags",
 	"A3_Weapons_F_Ammoboxes",
 	"A3_Props_F_Enoch_Military_Camps",
+	"A3_Structures_F_Ind_Cargo",
 	"A3_Structures_F_EPC_Civ_InfoBoards",
 	"A3_Structures_F_Mil_Cargo",
 	"A3_Modules_F",
@@ -72,16 +74,13 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Modules_F_Hc",
-	"A3_Weapons_F",
-	"A3_Ui_F_Exp",
-	"A3_Characters_F_Exp",
-	"A3_Structures_F_Exp_Military_Flags"
+	"A3_Weapons_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=22;
+		items=20;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -112,43 +111,43 @@ class AddonsMetaData
 		};
 		class Item4
 		{
+			className="A3_Structures_F_Ind";
+			name="Arma 3 - Industrial Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
 			className="A3_Structures_F_EPC";
 			name="Arma 3 Win Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item6
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item7
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item8
 		{
 			className="A3_Structures_F_Exp";
 			name="Arma 3 Apex - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item8
+		class Item9
 		{
 			className="A3_Structures_F_Enoch";
 			name="Arma 3 Contact Platform - Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item9
-		{
-			className="A3_Structures_F_Ind";
-			name="Arma 3 - Industrial Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -220,20 +219,6 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item20
-		{
-			className="A3_Ui_F_Exp";
-			name="Arma 3 Apex - User Interface";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item21
-		{
-			className="A3_Characters_F_Exp";
-			name="Arma 3 Apex - Characters and Clothing";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
 	};
 };
 randomSeed=7550483;
@@ -251,7 +236,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=188;
+		items=182;
 		class Item0
 		{
 			dataType="Layer";
@@ -437,6 +422,7 @@ class Mission
 					};
 					id=6381;
 					type="Land_CargoBox_V1_F";
+					atlOffset=0.057531357;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -522,7 +508,7 @@ class Mission
 				};
 			};
 			id=121;
-			atlOffset=0.0061736107;
+			atlOffset=0.020537853;
 		};
 		class Item1
 		{
@@ -915,7 +901,7 @@ class Mission
 					colorName="ColorGreen";
 					a=18;
 					b=5;
-					angle=54.246075;
+					angle=54.246071;
 					id=327;
 					atlOffset=-0.034999847;
 				};
@@ -1072,7 +1058,7 @@ class Mission
 					colorName="ColorGreen";
 					a=22.141001;
 					b=5.7616115;
-					angle=41.530815;
+					angle=41.530811;
 					id=2309;
 					atlOffset=-2.0205441;
 				};
@@ -1308,7 +1294,7 @@ class Mission
 					colorName="ColorGreen";
 					a=9.5877705;
 					b=3.0350001;
-					angle=222.18936;
+					angle=222.18935;
 					id=383;
 					atlOffset=-2.7644641;
 				};
@@ -1420,7 +1406,7 @@ class Mission
 					colorName="ColorGreen";
 					a=8.8684597;
 					b=4.8285527;
-					angle=25.823254;
+					angle=25.823252;
 					id=391;
 					atlOffset=-4.7769604;
 				};
@@ -1462,7 +1448,7 @@ class Mission
 					colorName="ColorGreen";
 					a=98.64106;
 					b=79.171577;
-					angle=0.71949857;
+					angle=0.71949852;
 					id=395;
 					atlOffset=-0.015069962;
 				};
@@ -1476,7 +1462,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.164;
 					b=3.0350001;
-					angle=0.19536676;
+					angle=0.19536674;
 					id=396;
 					atlOffset=-0.92210579;
 				};
@@ -1531,7 +1517,7 @@ class Mission
 					colorName="ColorGreen";
 					a=13.936;
 					b=6.3080001;
-					angle=52.297001;
+					angle=52.296997;
 					id=1156;
 					atlOffset=-9.3767357;
 				};
@@ -1698,7 +1684,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.472233;
 					b=7.0100884;
-					angle=85.530983;
+					angle=85.530975;
 					id=2501;
 					atlOffset=0.45134258;
 				};
@@ -2123,7 +2109,7 @@ class Mission
 					colorName="ColorGreen";
 					a=10.039738;
 					b=3.8759999;
-					angle=171.74554;
+					angle=171.74553;
 					id=459;
 					atlOffset=0.88508201;
 				};
@@ -2207,7 +2193,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.15052;
 					b=8.438446;
-					angle=157.32547;
+					angle=157.32545;
 					id=1112;
 					atlOffset=-0.12611008;
 				};
@@ -2330,7 +2316,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.673191;
 					b=4.6957054;
-					angle=49.264652;
+					angle=49.264648;
 					id=468;
 					atlOffset=0.024763107;
 				};
@@ -2595,7 +2581,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15;
 					b=5.8201675;
-					angle=88.223846;
+					angle=88.223839;
 					id=2510;
 					atlOffset=0.10062027;
 				};
@@ -2717,7 +2703,7 @@ class Mission
 					colorName="ColorGreen";
 					a=9.8780422;
 					b=5.6417966;
-					angle=150.48538;
+					angle=150.48537;
 					id=483;
 					atlOffset=-5.5696535;
 				};
@@ -76593,986 +76579,12 @@ class Mission
 		};
 		class Item166
 		{
-			dataType="Marker";
-			position[]={13080.505,14.211137,2645.2026};
-			name="respawn_east";
-			type="flag_Viper";
-			id=6438;
-		};
-		class Item167
-		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=6;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13079.854,14.108906,2643.3257};
-						angles[]={6.228632,0,6.2377095};
-					};
-					side="East";
-					flags=6;
-					class Attributes
-					{
-						init="groupPlayersCSAT = group this; this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
-						name="pvp_red_1";
-						description="Teamleader";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_O_SpecopsUniform_ocamo";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6440;
-					type="O_T_Recon_TL_F";
-					atlOffset=-4.863739e-005;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male03CHI";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.98000002;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13078.249,14.106781,2643.3257};
-						angles[]={6.2286329,0,0.013650165};
-					};
-					side="East";
-					flags=4;
-					class Attributes
-					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
-						name="pvp_red_2";
-						description="Medic";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_O_SpecopsUniform_ocamo";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6441;
-					type="O_T_Recon_Medic_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male01CHI";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.98000002;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13076.644,14.080335,2643.3257};
-						angles[]={6.2240958,0,0.018201422};
-					};
-					side="East";
-					flags=4;
-					class Attributes
-					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
-						name="pvp_red_3";
-						description="Machinegunner";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_O_SpecopsUniform_ocamo";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6442;
-					type="O_Soldier_AR_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male01PER";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13081.439,14.039027,2643.3667};
-						angles[]={6.228632,0,6.2377095};
-					};
-					side="East";
-					flags=4;
-					class Attributes
-					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
-						name="pvp_red_4";
-						description="Marksman";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_O_SpecopsUniform_ocamo";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6443;
-					type="O_T_Recon_M_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male02CHI";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13083.064,14.04305,2643.3862};
-						angles[]={6.1586905,0,0.02502477};
-					};
-					side="East";
-					flags=4;
-					class Attributes
-					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
-						name="pvp_red_5";
-						description="AT1";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_O_SpecopsUniform_ocamo";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6444;
-					type="O_T_Recon_LAT_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male02CHI";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13084.669,14.050616,2643.3862};
-						angles[]={6.1586905,0,6.2649875};
-					};
-					side="East";
-					flags=4;
-					class Attributes
-					{
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
-						name="pvp_red_6";
-						description="AT2";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_O_SpecopsUniform_ocamo";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6445;
-					type="O_T_Recon_LAT_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male03CHI";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.98000002;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-			};
-			class Attributes
-			{
-			};
-			id=6439;
-			atlOffset=-4.863739e-005;
-		};
-		class Item168
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={13080.516,18.303518,2646.4702};
-				angles[]={6.2218289,0,0.02502477};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				init="if !(isMultiplayer) then {deleteVehicle this}";
-			};
-			id=6446;
-			type="Flag_Viper_F";
-		};
-		class Item169
-		{
 			dataType="Layer";
 			name="Basics_3";
 			id=6447;
 			atlOffset=22.049999;
 		};
-		class Item170
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={13615.105,21.451328,3055.8154};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-				init="if (!isMultiplayer) then {deleteVehicle this};";
-			};
-			id=6449;
-			type="Flag_NATO_F";
-		};
-		class Item171
-		{
-			dataType="Marker";
-			position[]={13615.23,17.518696,3055.6904};
-			name="respawn_west";
-			type="flag_CTRG";
-			id=6450;
-			atlOffset=0.058055878;
-		};
-		class Item172
-		{
-			dataType="Group";
-			side="West";
-			class Entities
-			{
-				items=6;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13615.48,17.398901,3053.1152};
-						angles[]={6.2786441,0,6.2218299};
-					};
-					side="West";
-					flags=6;
-					class Attributes
-					{
-						rank="SERGEANT";
-						init="groupPlayersNATO = group this; this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 0];";
-						name="pvp_blue_1";
-						description="Teamleader";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_B_CombatUniform_mcam";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6452;
-					type="B_recon_TL_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male12ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.99000001;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13611.355,17.630644,3052.9902};
-						angles[]={6.2649841,0,6.2354403};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.40000001;
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 1];";
-						name="pvp_blue_2";
-						description="Medic";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_B_CombatUniform_mcam";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6453;
-					type="B_recon_medic_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male03ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13618.48,17.133446,3053.2402};
-						angles[]={6.2740831,0,6.1946807};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.44999999;
-						rank="CORPORAL";
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 2];";
-						name="pvp_blue_3";
-						description="Machinegunner";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_B_CombatUniform_mcam";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6454;
-					type="B_recon_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male07ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.94999999;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13616.855,17.278561,3053.2402};
-						angles[]={6.2786312,0,6.190167};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.44999999;
-						rank="CORPORAL";
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 3];";
-						name="pvp_blue_4";
-						description="Marksman";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_B_CombatUniform_mcam";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6455;
-					type="B_recon_M_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male12ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.98000002;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13609.605,17.772602,3052.9902};
-						angles[]={6.2649841,0,6.201457};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.40000001;
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 4];";
-						name="pvp_blue_5";
-						description="AT1";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_B_CombatUniform_mcam";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6456;
-					type="B_recon_LAT_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male12ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={13613.355,17.529419,3053.1152};
-						angles[]={6.2786441,0,6.2218299};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.40000001;
-						init="this setVariable [""pvp"",true]; this setVariable [""pvpPlayerUnitNumber"", 5];";
-						name="pvp_blue_6";
-						description="AT2";
-						isPlayable=1;
-						class Inventory
-						{
-							class uniform
-							{
-								typeName="U_B_CombatUniform_mcam";
-								isBackpack=0;
-							};
-							map="ItemMap";
-							compass="ItemCompass";
-							watch="ItemWatch";
-							radio="ItemRadio";
-						};
-					};
-					id=6457;
-					type="B_recon_LAT_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male12ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-			};
-			class Attributes
-			{
-			};
-			id=6451;
-		};
-		class Item173
+		class Item167
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -77586,7 +76598,7 @@ class Mission
 			type="HeadlessClient_F";
 			atlOffset=0.025331974;
 		};
-		class Item174
+		class Item168
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -77600,7 +76612,7 @@ class Mission
 			type="HeadlessClient_F";
 			atlOffset=0.032497644;
 		};
-		class Item175
+		class Item169
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -77614,7 +76626,7 @@ class Mission
 			type="HeadlessClient_F";
 			atlOffset=0.032827139;
 		};
-		class Item176
+		class Item170
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -77671,7 +76683,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item177
+		class Item171
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -77728,7 +76740,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item178
+		class Item172
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -77784,7 +76796,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item179
+		class Item173
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -77840,7 +76852,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item180
+		class Item174
 		{
 			dataType="Marker";
 			position[]={4240.2881,4.9780617,5453.0313};
@@ -77853,7 +76865,7 @@ class Mission
 			id=6465;
 			atlOffset=0.20235348;
 		};
-		class Item181
+		class Item175
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -77908,7 +76920,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item182
+		class Item176
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -77965,7 +76977,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item183
+		class Item177
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -78022,7 +77034,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item184
+		class Item178
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -78079,7 +77091,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item185
+		class Item179
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -78136,7 +77148,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item186
+		class Item180
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -78193,7 +77205,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item187
+		class Item181
 		{
 			dataType="Logic";
 			class PositionInfo

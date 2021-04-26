@@ -34,6 +34,9 @@ if (_side == teamPlayer) then
 	clearBackpackCargoGlobal _veh;
 };
 
+// Sync the vehicle textures if necessary
+_veh call A3A_fnc_vehicleTextureSync;
+
 private _typeX = typeOf _veh;
 if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats) or (_typeX in vehAA)) then
 {
@@ -130,7 +133,7 @@ else
 						{if ((side _x == Occupants) or (side _x == Invaders)) then {_x reveal [_mortarX,4]}} forEach allUnits;
 						if (_mortarX distance posHQ < 300) then
 						{
-							if (!(["DEF_HQ"] call BIS_fnc_taskExists)) then
+							if !("DEF_HQ" in A3A_activeTasks) then
 							{
 								_LeaderX = leader (gunner _mortarX);
 								if (!isPlayer _LeaderX) then
@@ -163,6 +166,11 @@ if (_side == civilian) then
 			_veh removeEventHandler ["HandleDamage", _thisEventHandler];
 		};
 	}];
+};
+
+if(_typeX in vehMRLS + [CSATMortar, NATOMortar, SDKMortar]) then
+{
+    [_veh] call A3A_fnc_addArtilleryTrailEH;
 };
 
 // EH behaviour:

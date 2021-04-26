@@ -465,7 +465,7 @@ if (alive _gunship) then
     _wpBase setWaypointType "MOVE";
     _wpBase setWaypointBehaviour "CARELESS";
     _wpBase setWaypointSpeed "FULL";
-    _wpBase setWaypointStatements ["", "deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
+    _wpBase setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
     _strikeGroup setCurrentWaypoint _wpBase;
     _gunship flyInHeight 1000;
 

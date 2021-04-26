@@ -59,7 +59,7 @@ private _fnc_addCrewToTurrets = {
 [_config] call _fnc_addCrewToTurrets;
 
 if (_newGroup) then {
-	_group selectLeader (commander _vehicle);
+	_group selectLeader (effectiveCommander _vehicle);
 };
 
 _group addVehicle _vehicle;

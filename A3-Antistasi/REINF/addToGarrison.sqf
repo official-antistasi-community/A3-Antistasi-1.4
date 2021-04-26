@@ -70,7 +70,9 @@ else
 	theBoss hcRemoveGroup _groupX;
 	};
 
-[_unitsX,teamPlayer,_nearX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
+// Send types, because the units may be deleted before the remoteExec hits
+private _unitTypes = _unitsX apply { _x getVariable "unitType" };
+[_unitTypes,teamPlayer,_nearX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 _noBorrar = false;
 
 if (spawner getVariable _nearX != 2) then
@@ -81,6 +83,7 @@ if (spawner getVariable _nearX != 2) then
 	_wp setWaypointType "MOVE";
 	{
 	_x setVariable ["markerX",_nearX,true];
+	_x setVariable ["spawner",nil,true];
 	_x addEventHandler ["killed",
 		{
 		_victim = _this select 0;
@@ -117,6 +120,7 @@ else
 	if (alive _x) then
 		{
 		_x setVariable ["markerX",nil,true];
+		_x setVariable ["spawner",true,true];
 		_x removeAllEventHandlers "killed";
 		_x addEventHandler ["killed", {
 			_victim = _this select 0;
@@ -135,11 +139,11 @@ else
 				if (side _killer == Occupants) then
 					{
 					_nul = [0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-					[[-1, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+					[Occupants, -1, 30] remoteExec ["A3A_fnc_addAggression",2];
 					}
 				else
 					{
-					if (side _killer == Invaders) then {[[0, 0], [-1, 30]] remoteExec ["A3A_fnc_prestige",2]};
+					if (side _killer == Invaders) then {[Invaders, -1, 30] remoteExec ["A3A_fnc_addAggression",2]};
 					};
 				};
 			_victim setVariable ["spawner",nil,true];

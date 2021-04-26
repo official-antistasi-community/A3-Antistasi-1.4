@@ -109,11 +109,12 @@ switch (_convoyType) do
 	};
 };
 
-[[teamPlayer,civilian],"CONVOY",[_textX,_taskTitle,_mrkDest],_posDest,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
-[[_sideX],"CONVOY1",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_mrkDest],_posDest,false,0,true,"run",true] call BIS_fnc_taskCreate;
-missionsX pushBack ["CONVOY","CREATED"]; publicVariable "missionsX";
-sleep (_timeLimit * 60);
+private _taskId = "CONVOY" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,[_textX,_taskTitle,_mrkDest],_posDest,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
+[[_sideX],_taskID+"B",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_mrkDest],_posDest,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[_taskId, "CONVOY", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
+sleep (_timeLimit * 60);
 
 // Setup spawn data
 
@@ -296,11 +297,7 @@ private _fnc_applyResults =
 	[_adjustCA, _sideX] remoteExec ["A3A_fnc_timingCA", 2];
 	[_adjustBoss, theBoss] call A3A_fnc_playerScoreAdd;
 
-	if (_sideX == Occupants) then {
-		[[_aggroMod, _aggroTime], [0, 0]] remoteExec ["A3A_fnc_prestige", 2]
-	} else {
-		[[0, 0], [_aggroMod, _aggroTime]] remoteExec ["A3A_fnc_prestige", 2]
-	};
+    [_sideX, _aggroMod, _aggroTime] remoteExec["A3A_fnc_addAggression", 2];
 
 	if !(_success1) then {
 		_killZones = killZones getVariable [_mrkOrigin,[]];
@@ -477,16 +474,15 @@ if (_convoyType == "Supplies") then
 	publicVariable "reportedVehs";
 };
 
-["CONVOY",[_textX,_taskTitle,_mrkDest],_posDest,_taskState] call A3A_fnc_taskUpdate;
-["CONVOY1",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_mrkDest],_posDest,_taskState1] call A3A_fnc_taskUpdate;
+[_taskId, "CONVOY", _taskState] call A3A_fnc_taskSetState;
+[_taskId+"B",_taskState1] call BIS_fnc_taskSetState;		// Do this manually because both sides can fail
 
 
 // Cleanup
 
 { deleteVehicle _x } forEach _POWs;
 
-_nul = [600,"CONVOY"] spawn A3A_fnc_deleteTask;
-_nul = [0,"CONVOY1"] spawn A3A_fnc_deleteTask;
+[_taskId, "CONVOY", 600, true] spawn A3A_fnc_taskDelete;
 
 // abort active FSMs so that the groups merge
 { _x setFSMVariable ["_abort", true] } forEach _fsmHandles;

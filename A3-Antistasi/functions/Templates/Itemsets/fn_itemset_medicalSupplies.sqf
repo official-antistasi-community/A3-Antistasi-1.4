@@ -14,7 +14,7 @@
  params ["_level"];
 
 if (_level == "MEDIC") exitWith {
-	if (A3A_hasACE) then {
+	if (A3A_hasACEMedical) then {
 		[
 			["ACE_surgicalKit",1],
 
@@ -42,7 +42,7 @@ if (_level == "MEDIC") exitWith {
 };
 
 if (_level == "STANDARD") exitWith {
-	if (A3A_hasACE) then {
+	if (A3A_hasACEMedical) then {
 		[
 			["ACE_Tourniquet",1],
 			["ACE_SalineIV_500",1],
@@ -62,7 +62,7 @@ if (_level == "STANDARD") exitWith {
 };
 
 //If neither of them, return minimal medical supplies
-if (A3A_hasACE) then {
+if (A3A_hasACEMedical) then {
 	[
 		["ACE_Morphine",1],
 		["ACE_Epinephrine",1],

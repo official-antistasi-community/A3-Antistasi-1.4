@@ -92,8 +92,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_DestrMission_hint"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize "STR_antistasi_chat_petros_DestrMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_DestrMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_chat_petros_DestrMission_hint", 4], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -120,8 +120,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_LogMission_hint"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize "STR_antistasi_chat_petros_LogMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_LogMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_chat_petros_LogMission_hint", 4], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -165,8 +165,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_RescMission_hint"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize "STR_antistasi_chat_petros_RescMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_chat_petros_RescMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_chat_petros_RescMission_hint", 4], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;

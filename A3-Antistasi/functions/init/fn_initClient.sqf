@@ -344,6 +344,8 @@ if !(isPlayer leader group player) then {
 
 [] remoteExec ["A3A_fnc_assignBossIfNone", 2];
 
+if (_isJip) then { Info("Joining In Progress (JIP)") } else { Info("Not Joining in Progress (JIP)") };
+
 [] spawn A3A_fnc_modBlacklist;
 
 //Move this

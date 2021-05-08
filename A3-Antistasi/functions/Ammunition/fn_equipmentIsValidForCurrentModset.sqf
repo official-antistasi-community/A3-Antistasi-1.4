@@ -4,7 +4,7 @@ private _itemMod = (_configClass call A3A_fnc_getModOfConfigClass);
 private _itemIsVanilla = [_itemMod] call A3A_fnc_isModNameVanilla;
 
 //Mod is disabled, remove item.
-if (_itemMod in disabledMods) exitWith { true };
+if (toLower _itemMod in disabledMods) exitWith { true };
 
 //We remove anything without a picture, because it's a surprisingly good indicator if whether something
 //is actually a valid item or not.
@@ -102,5 +102,6 @@ if (A3A_hasVN && {(_itemIsVanilla || _itemMod in _acemods || _itemMod in _TFARmo
 };
 
 //no other CDLC content when using VN
-//if (A3A_hasVN && {_itemMod isNotEqualTo "VN"} && {_itemMod in (allCDLC apply {_x#1})}) exitWith {true}; //for some reason remove all items, wtf!!!
+if (A3A_hasVN && {toLower _itemMod isNotEqualTo "vn"} && {toLower _itemMod in (allCDLC apply {toLower (_x#1)})}) exitWith {true};
+
 false

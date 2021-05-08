@@ -10,11 +10,11 @@ if (!allowDLCExpansion) then {_disabledMods pushBack "expansion"};
 if (!allowDLCJets) then {_disabledMods pushBack "jets"};
 if (!allowDLCOrange) then {_disabledMods pushBack "orange"};
 if (!allowDLCTanks) then {_disabledMods pushBack "tanks"};
-if (!allowDLCGlobMob) then {_disabledMods pushBack "GM"};
+if (!allowDLCGlobMob) then {_disabledMods pushBack "gm"};
 if (!allowDLCEnoch) then {_disabledMods pushBack "enoch"};
 if (!allowDLCOfficialMod) then {_disabledMods pushBack "officialmod"};
 if (!allowDLCAoW) then {_disabledMods pushBack "aow"};
-if (!allowDLCVN) then {_disabledMods pushBack "VN"};
+if (!allowDLCVN) then {_disabledMods pushBack "vn"};
 
 Info_1("Disabled DLC: %1",_disabledMods);
 

@@ -177,6 +177,7 @@ class A3A
         class unitGetToCover {};
         class useFlares {};
         class VANTinfo {};
+        class vehicleConvoyTravel {};
         class vehicleMarkers {};
     };
 
@@ -503,11 +504,15 @@ class A3A
         class findNodesInDistance {};
         class findPath {};
         class findPathPrecheck {};
+        class findPosOnRoute {};
         class getMainPositions {};
+        class getMarkerNavPoint {};
         class getNearestNavPoint {};
         class listInsert {};
         class loadNavGrid {};
         class markNode {};
+        class roadAStar {};
+        class roadConnPoint {};
         class setNavData {};
         class trimPath {};
     };

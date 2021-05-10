@@ -8,7 +8,7 @@ private _crewSeats = [_veh, false] call BIS_fnc_crewCount; // Number of crew sea
 private _cargoSeats = _totalSeats - _crewSeats;
 if (_veh == vehPoliceCar) then { _cargoSeats = 4 min _cargoSeats };
 
-if (_cargoSeats < 2) exitwith { [1, format ["Cargoseats misused for vehicle %1", _veh], _filename]; [] };
+if (_cargoSeats < 2) exitwith { [] };
 
 if (_cargoSeats < 4) exitWith
 {

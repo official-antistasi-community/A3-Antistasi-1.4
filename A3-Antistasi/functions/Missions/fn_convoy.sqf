@@ -21,7 +21,7 @@ private _reinforcementsX = [];
 
 // Setup start time
 
-private _startDelay = 1;	//random 1 + ([2, 2] select _difficult); 		// start delay, 5-10 or 15-20 mins real time
+private _startDelay = random 5 + ([15, 5] select _difficult); 		// start delay, 5-10 or 15-20 mins real time
 private _startDateNum = dateToNumber date + _startDelay * timeMultiplier / (365*24*60);
 private _startDate = numberToDate [date select 0, _startDateNum];
 private _displayTime = [_startDate] call A3A_fnc_dateToTimeString;
@@ -249,49 +249,14 @@ ServerInfo("Convoy mission under way");
 // This array is used to share remaining convoy vehicles between threads
 private _convoyVehicles = +_vehiclesX;
 reverse _convoyVehicles;
-convoyVehicles = _convoyVehicles;		// TODO: remove debug
 {
     (driver _x) stop false;
-    [_x, _route, _convoyVehicles, 30] spawn A3A_fnc_vehicleConvoyTravel;
+    [_x, _route, _convoyVehicles, 30, _x == _vehObj] spawn A3A_fnc_vehicleConvoyTravel;
 //	[_x, _markNames#_forEachIndex] spawn A3A_fnc_inmuneConvoy;			// Check whether this is going to interfere
     sleep 3;
 } forEach _convoyVehicles;
 
 
-/*
-private _fsmHandles = [];
-private _lastVeh = objNull;
-{
-    (driver _x) stop false;
-    _fsmHandles pushBack ([_x, _route, _lastVeh, _speedLimit] execFSM "FSMs\ConvoyTest.fsm");
-    [_x, _markNames#_forEachIndex] spawn A3A_fnc_inmuneConvoy;			// Needs to wait until vehicle is moving
-    _lastVeh = _x;
-    sleep 3;
-} forEach _vehiclesX;
-
-
-// Convoy monitor, updates vehicle follow data as vehicles leave the convoy
-[+_vehiclesX, _fsmHandles] spawn {
-
-    params ["_vehicles", "_fsmHandles"];
-    while {count _vehicles > 0} do
-    {
-        sleep 1;
-        private _index = _fsmHandles findif { completedFSM _x };
-        if (_index != -1) then {
-            // Vehicle quit the convoy, remove it
-            _vehicles deleteAt _index;
-            _fsmHandles deleteAt _index;
-
-            // Fix follow orders for next vehicle
-            if (count _vehicles > _index) then {
-                private _followVeh = if (_index == 0) then {objNull} else {_vehicles # (_index-1)};
-                (_fsmHandles # _index) setFSMVariable ["_followVeh", _followVeh];
-            };
-        };
-    };
-};
-*/
 
 // **************** Termination condition handling ********************************
 
@@ -491,9 +456,6 @@ if (_convoyType == "Supplies") then
 { deleteVehicle _x } forEach _POWs;
 
 [_taskId, "CONVOY", 600, true] spawn A3A_fnc_taskDelete;
-
-// abort active FSMs so that the groups merge
-//{ _x setFSMVariable ["_abort", true] } forEach _fsmHandles;
 
 // Clear this array so the vehicleConvoyTravel spawns exit and merge groups
 _convoyVehicles resize 0;

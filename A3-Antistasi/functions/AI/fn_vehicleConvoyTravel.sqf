@@ -7,9 +7,10 @@ Parameters:
     <ARRAY> Array of AGL(?) positions from start to end position.
     <ARRAY> Array of vehicles in convoy, first is lead vehicle. Note: Shared between scripts.
     <NUMBER> Maximum convoy (lead) speed in km/h.
+    <BOOLEAN> True if vehicle is critical (shouldn't give up even if timed out)
 */
 
-params ["_vehicle", "_route", "_convoy", "_maxSpeed"];
+params ["_vehicle", "_route", "_convoy", "_maxSpeed", ["_critical", false]];
 private _filename = "fn_vehicleConvoyTravel";
 
 // Handle some broken input errors
@@ -57,7 +58,7 @@ while {true} do
     };
 
     // Transition to next waypoint if close
-    if (_vehicle distance _nextPos < _accuracy) then
+    while {_vehicle distance _nextPos < _accuracy} do
     {
         _currentNode = _currentNode + 1;
         _nextPos = _route select _currentNode;
@@ -65,7 +66,7 @@ while {true} do
         _driverGroup setCurrentWaypoint _waypoint;
         _timeout = time + (_vehicle distance2d _nextPos);
     };
-    if (time > _timeout) exitWith {
+    if (!_critical && time > _timeout) exitWith {
         [2, "Vehicle stuck during travel, abandoning", _filename] call A3A_fnc_log;
     };
 

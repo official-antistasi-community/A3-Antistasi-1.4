@@ -78,6 +78,10 @@ switch (true) do {
 	};
 	case (_unitClass in SDKMedic): {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;
+		// temporary hack
+		{
+			for "_i" from 1 to (_x#1) do { _unit addItemToBackpack (_x#0) };
+		} forEach (["MEDIC"] call A3A_fnc_itemset_medicalSupplies);
 	};
 	case (_unitClass in SDKATman): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;

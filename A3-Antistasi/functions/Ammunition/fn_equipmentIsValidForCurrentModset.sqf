@@ -1,5 +1,7 @@
 params ["_configClass", "_categories"];
 
+private _remove = false;
+
 private _itemMod = (_configClass call A3A_fnc_getModOfConfigClass);
 private _itemIsVanilla = [_itemMod] call A3A_fnc_isModNameVanilla;
 

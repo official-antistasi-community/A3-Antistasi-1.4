@@ -69,7 +69,7 @@ if (isNull _staticGroup) then { _staticGroup = createGroup [teamPlayer, true] };
         params ["_unit", "_static"];
         private _timeout = 10;
         waitUntil { sleep 1; _timeout = _timeout-1; _timeout < 0 or local _unit };
-        if (isNull objectParent _unit and isNull gunner _static) then {
+        if (isNull objectParent _unit and isNull gunner _static and isNull objectParent _static and isNull attachedTo _static) then {
             _unit assignAsGunner _static;
             _unit moveInGunner _static;
         };

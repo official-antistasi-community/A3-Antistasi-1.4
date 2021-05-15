@@ -105,9 +105,13 @@ else
 		{
 			[_veh] call A3A_fnc_logistics_addLoadAction;
 			_veh setCenterOfMass [(getCenterOfMass _veh) vectorAdd [0, 0, -1], 0];
-			[_veh, "static"] remoteExec ["A3A_fnc_flagAction", [teamPlayer,civilian], _veh];
-			if (_side == teamPlayer && !isNil {serverInitDone}) then { [_veh] remoteExec ["A3A_fnc_updateRebelStatics", 2] };
 
+			if !(_typeX isKindOf "StaticMortar") then {
+				[_veh, "static"] remoteExec ["A3A_fnc_flagAction", [teamPlayer,civilian], _veh];
+				if (_side == teamPlayer && !isNil {serverInitDone}) then { [_veh] remoteExec ["A3A_fnc_updateRebelStatics", 2] };
+			};
+
+			// TODO: fix this shit so it's dependent on occupancy rather than type
 			if (_typeX == SDKMortar) then
 			{
 				_veh addEventHandler ["Fired",

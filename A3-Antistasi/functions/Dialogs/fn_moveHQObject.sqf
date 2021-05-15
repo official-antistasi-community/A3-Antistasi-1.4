@@ -18,6 +18,8 @@ _size = [_markerX] call A3A_fnc_sizeMarker;
 _positionX = getMarkerPos _markerX;
 if (_playerX distance2D _positionX > _size) exitWith {["Move HQ", "This asset needs to be closer to it relative zone center to be able to be moved"] call A3A_fnc_customHint;};
 
+if (captive _playerX) then { _playerX setCaptive false };
+
 _thingX setVariable ["objectBeingMoved", true];
 if !(_isStatic) then { _thingX removeAction _id };
 
@@ -74,7 +76,14 @@ private _actionX = _playerX addAction ["Drop Here", {
 	[_thingX, player, (_this select 2)] call _fnc_placeObject;
 }, [_thingX, _fnc_placeObject],4,true,true,"",""];
 
-waitUntil {sleep 1; (_playerX != attachedTo _thingX) or (vehicle _playerX != _playerX) or (_playerX distance2D _positionX > (_size-3)) or !([_playerX] call A3A_fnc_canFight) or (!isPlayer _playerX)};
+waitUntil {sleep 1;
+	(_playerX != attachedTo _thingX)
+	or (vehicle _playerX != _playerX)
+	or (_playerX distance2D _positionX > (_size-3))
+	or !([_playerX] call A3A_fnc_canFight)
+	or (!isPlayer _playerX)
+	or (_isStatic and {count crew _thingX > 0})
+};
 
 [_thingX, _playerX, _actionX] call _fnc_placeObject;
 if !(_isStatic) then { _thingX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"] };

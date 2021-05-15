@@ -56,7 +56,11 @@ private _allowed = true;
 } forEach A3A_logistics_weapons;
 if !(_allowed) exitWith {-5}; //weapon not allowed on vehicle
 
-if ((_object isKindOf "CAManBase") and !(!([_object] call A3A_fnc_canFight) or !(isNull (_object getVariable ["helped",objNull])) or !(isNull attachedTo _object))) exitWith {-6}; //conscious man
+if ((_object isKindOf "CAManBase") and (
+    ( [_object] call A3A_fnc_canFight )
+    or !( isNull (_object getVariable ["helped",objNull]) )
+    or !( isNull attachedTo _object )
+)) exitWith {-6}; //conscious man
 
 //get vehicle nodes
 private _nodes = _vehicle getVariable ["logisticsCargoNodes",nil];

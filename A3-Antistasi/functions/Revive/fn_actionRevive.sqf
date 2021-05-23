@@ -28,7 +28,7 @@ if  (
     if (_inPlayerGroup) then {_medicX groupChat "I'm out of FA kits and I have no Medikit!"};
     _healed
 };
-if ((not("FirstAidKit" in (items _medicX))) and !(_medicX canAdd "FirstAidKit")) exitWith
+if (((!("FirstAidKit" in (items _medicX))) and !(_medicX canAdd "FirstAidKit")) and !("Medikit" in (items _medicX))) exitWith
     {
     if (_player) then {["Revive", format ["%1 has a First Aid Kit but you do not have enough space in your inventory to use it",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat "I'm out of FA kits!"};

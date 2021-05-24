@@ -697,8 +697,8 @@ if (A3A_hasIFA) then {
 ////////////////////////////////////
 //     ACRE ITEM MODIFICATIONS   ///
 ////////////////////////////////////
-if (A3A_hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];};
-if (A3A_hasACRE && startWithLongRangeRadio) then {initialRebelEquipment append ["ACRE_SEM90","ACRE_VRC111","ACRE_VRC110","ACRE_VRC103","ACRE_VRC64","ACRE_SEM70","ACRE_SEM52SL","ACRE_VHF30108SPIKE","ACRE_VHF30108MAST"];};
+if (A3A_hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_SEM52SL"];};
+if (A3A_hasACRE && startWithLongRangeRadio) then {initialRebelEquipment append ["ACRE_SEM70", "ACRE_PRC117F", "ACRE_PRC77"];};
 
 ////////////////////////////////////
 //    UNIT AND VEHICLE PRICES    ///

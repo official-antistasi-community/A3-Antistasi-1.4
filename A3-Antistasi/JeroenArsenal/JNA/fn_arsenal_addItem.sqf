@@ -30,6 +30,10 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 				private _radioName = getText(configfile >> "CfgWeapons" >> _item >> "tf_parent");
 				if!(_radioName isEqualTo "")then{_item = _radioName};
 
+				//ACRE fix
+				private _radioName = getText(configfile >> "CfgVehicles" >> _item >> "acre_baseClass");
+				if!(_radioName isEqualTo "")then{_item = _radioName};
+
 				//update
 				private _playersInArsenal = +(server getVariable ["jna_playersInArsenal",[]]);
 				if!(0 in _playersInArsenal)then{_playersInArsenal pushBackUnique 2;};

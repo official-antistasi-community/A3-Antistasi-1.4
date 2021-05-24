@@ -1035,7 +1035,15 @@ switch _mode do {
 				if!(_radioName isEqualTo "")then{_return1 = _radioName};
 
 				_return1;
+
+								//ACRE FIX
+				_radioName = getText(configfile >> "CfgVehicles" >> _return1 >> "acre_baseClass");
+				if!(_radioName isEqualTo "")then{_return1 = _radioName};
+
+				_return1;
+
 			};
+
 			case IDC_RSCDISPLAYARSENAL_TAB_MAP;
 			case IDC_RSCDISPLAYARSENAL_TAB_GPS;
 			case IDC_RSCDISPLAYARSENAL_TAB_COMPASS;
@@ -1924,6 +1932,15 @@ switch _mode do {
 				_OldItemUnequal = _oldItem;
 				if(_index == IDC_RSCDISPLAYARSENAL_TAB_COMPASS)then{
 					_radioName = getText(configfile >> "CfgWeapons" >> _oldItem >> "tf_parent");
+					if!(_radioName isEqualTo "")exitWith{
+						_OldItemUnequal = _radioName;
+					};
+				};
+
+				//ACRE FIX
+				_OldItemUnequal = _oldItem;
+				if(_index == IDC_RSCDISPLAYARSENAL_TAB_COMPASS)then{
+					_radioName = getText(configfile >> "CfgVehicles" >> _oldItem >> "acre_baseClass");
 					if!(_radioName isEqualTo "")exitWith{
 						_OldItemUnequal = _radioName;
 					};

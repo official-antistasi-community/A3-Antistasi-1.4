@@ -142,6 +142,18 @@ private _categoryOverrideTable = [
 ["vn_sks_gl", ["GrenadeLaunchers","Weapons"]],
 ["vn_type56", ["Rifles","Weapons"]],
 
+//ACRE Radios
+//Using Gadgets instead of Radios to prevent future issues as they don't use the Radio Slot
+["ACRE_PRC148", ["Gadgets","items"]],
+["ACRE_PRC152", ["Gadgets","items"]],
+["ACRE_PRC343", ["Gadgets","items"]],
+["ACRE_PRC77", ["Gadgets","items"]],
+["ACRE_SEM52SL", ["Gadgets","items"]],
+["ACRE_SEM70", ["Gadgets","items"]],
+["ACRE_VHF30108SPIKE", ["Gadgets","items"]],
+["ACRE_VHF30108", ["Gadgets","items"]],
+["ACRE_VHF30108MAST", ["Gadgets","items"]],
+["ACRE_PRC117F", ["Gadgets","items"]],
 
 ["LIB_M2_Tripod", ["StaticWeaponParts","Items"]],
 ["LIB_Laffete_Tripod", ["StaticWeaponParts","Items"]],

@@ -103,7 +103,7 @@ DECLARE_SERVER_VAR(A3A_taskCount, 0);
 //List of statics (MGs, AA, etc) that will be saved and loaded.
 DECLARE_SERVER_VAR(staticsToSave, []);
 //Whether the players have access to radios.
-DECLARE_SERVER_VAR(haveRadio, A3A_hasTFAR || A3A_hasACRE || A3A_hasTFARBeta);
+DECLARE_SERVER_VAR(haveRadio, call A3A_fnc_checkRadiosUnlocked);
 //List of vehicles that are reported (I.e - Players can't go undercover in them)
 DECLARE_SERVER_VAR(reportedVehs, []);
 //Currently destroyed buildings.
@@ -199,7 +199,7 @@ everyEquipmentRelatedArrayName = allEquipmentArrayNames + unlockedEquipmentArray
 } forEach everyEquipmentRelatedArrayName;
 
 //Create a global namespace for custom unit types.
-DECLARE_SERVER_VAR(customUnitTypes, [true] call A3A_fnc_createNamespace);
+DECLARE_SERVER_VAR(A3A_customUnitTypes, [true] call A3A_fnc_createNamespace);
 
 ////////////////////////////////////
 //          MOD CONFIG           ///
@@ -222,9 +222,9 @@ FIX_LINE_NUMBERS()
 				["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
 				["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
 				};
-			//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";								//to make enemy vehicles usable as LR radio
-			//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";					//to make enemy vehicles usable as LR radio
-			//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";					//to make enemy vehicles usable as LR radio
+			tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";								//to make enemy vehicles usable as LR radio
+			tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";					//to make enemy vehicles usable as LR radio
+			tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";					//to make enemy vehicles usable as LR radio
 			["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;						//synchronize SR default frequencies
 			["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;						//synchronize LR default frequencies
 		};
@@ -251,6 +251,7 @@ private _templateVariables = [
 	"nameTeamPlayer",
 	"SDKFlag",
 	"SDKFlagTexture",
+	"SDKFlagMarkerType",
 	"typePetros",
 	"staticCrewTeamPlayer",
 	"SDKUnarmed",
@@ -455,6 +456,8 @@ private _templateVariables = [
 } forEach _templateVariables;
 
 call compile preProcessFileLineNumbers "Templates\selector.sqf";
+//Set SDKFlagTexture on FlagX
+if (local flagX) then { flagX setFlagTexture SDKFlagTexture } else { [flagX, SDKFlagTexture] remoteExec ["setFlagTexture", owner flagX] };
 
 ////////////////////////////////////
 //     TEMPLATE SANITY CHECK      //
@@ -705,7 +708,8 @@ if (A3A_hasIFA) then {
 ////////////////////////////////////
 //     ACRE ITEM MODIFICATIONS   ///
 ////////////////////////////////////
-if (A3A_hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];};
+if (A3A_hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_SEM52SL"];};
+if (A3A_hasACRE && startWithLongRangeRadio) then {initialRebelEquipment append ["ACRE_SEM70", "ACRE_PRC117F", "ACRE_PRC77"];};
 
 ////////////////////////////////////
 //    UNIT AND VEHICLE PRICES    ///

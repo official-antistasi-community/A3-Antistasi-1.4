@@ -76,7 +76,7 @@ if (alive _veh) then
 	} forEach units _groupX;
 	};
 
-waitUntil {sleep 1; (not alive _veh) or ((count assignedCargo _veh == 0) and (count attachedObjects _veh == 0))};
+waitUntil {sleep 1; (not alive _veh) or ((count assignedCargo _veh == 0) and (([_veh] call A3A_fnc_countAttachedObjects) == 0))};
 
 
 sleep 5;

@@ -1,10 +1,10 @@
 /*
     File: fn_spawnVehicle.sqf
     Author: Spoffy
-    
+
     Description:
 		Creates a vehicle with a crew. Compatible with A3A_fnc_spawnVehicle parameters.
-    
+
     Parameter(s):
 		_pos - Desired position [ARRAY]
 		_azi - Desired rotation [NUMBER]
@@ -12,14 +12,23 @@
 		_group - Side or existing group [SIDE or GROUP]
 		_precise - (Optional) force precise positioning [BOOL - Default: true]
 		_unitType - unit type to use as crew [STRING, default "loadouts_side_other_crew"]
-    
+
     Returns:
 		[new vehicle, all crew, group]
-    
+
     Example(s):
 */
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 params ["_pos", "_azi", "_type", "_group", ["_precise", true], "_unitType"];
+
+if (
+    isNil "_pos"
+    || {isNil "_azi"}
+    || {isNil "_type"}
+    || {isNil "_group"}
+) exitWith { Error_4("Invalid arguments passed | Pos: %1 | Azimut: %2 | Type: %3 | Group: %4", _pos, _azi, _type, _group) };
 
 private _side = if (_group isEqualType sideUnknown) then { _group } else { side _group };
 

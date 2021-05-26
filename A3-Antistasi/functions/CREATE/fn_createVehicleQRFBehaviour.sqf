@@ -24,46 +24,37 @@ _posOrigin set [2, 50];
 
 switch (true) do
 {
-    case (_vehicle isKindOf "APC"):
+    case (typeof _vehicle in vehTrucks):
     {
-        {_x disableAI "MINEDETECTION"} forEach (units _crewGroup);
+        //Move cargo group into crew group
+        (units _cargoGroup) joinSilent _crewGroup;
+        deleteGroup _cargoGroup;
 
-        //(units _groupX) joinSilent _crewGroup;
-        //deleteGroup _groupX;
-        //Dont unify these two groups, so the vehicle and the group can attack different targets
         _crewGroup spawn A3A_fnc_attackDrillAI;
 
-        //Set up vehicle waypoints
+        //Unassign driver from being the group leader
+        if (count units _crewGroup > 1) then
+        {
+            _crewGroup selectLeader (units _crewGroup select 1)
+        };
+
+        //Assign the waypoints
         [getPos _vehicle, _landPos, _crewGroup] call A3A_fnc_WPCreate;
         private _vehWP0 = (wayPoints _crewGroup) select 0;
         _vehWP0 setWaypointBehaviour "SAFE";
-        private _vehWP1 = _crewGroup addWaypoint [_landPos,count (wayPoints _crewGroup)];
-        _vehWP1 setWaypointType "TR UNLOAD";
-        _vehWP1 setWaypointBehaviour "AWARE";
-        _vehWP1 setWaypointStatements ["true", "if !(local this) exitWith {}; [vehicle this] call A3A_fnc_smokeCoverAuto"];
-        private _vehWP2 = _crewGroup addWaypoint [_posDestination, count (wayPoints _crewGroup)];
+
+        private _vehWP1 = _crewGroup addWaypoint [_landPos, 0];
+        _vehWP1 setWaypointType "GETOUT";
+
+        private _vehWP2 = _crewGroup addWaypoint [_posDestination, 0];
+        //Ever wondered why AI have instant pinpoint accuracy?
+        //_vehWP2 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
+        //We could add the UPSMON routines here
         _vehWP2 setWaypointType "SAD";
         _vehWP2 setWaypointBehaviour "COMBAT";
-        //God AI
-        //_vehWP2 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
-
-        //Set the waypoints for cargoGroup
-        private _cargoWP0 = _cargoGroup addWaypoint [_landpos, 0];
-        _cargoWP0 setWaypointType "GETOUT";
-        _cargoWP0 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) spawn A3A_fnc_attackDrillAI"];
-        private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 1];
-        _cargoWP1 setWaypointType "SAD";
-        _cargoWP1 setWaypointBehaviour "COMBAT";
-        _cargoWP1 setWaypointSpeed "FULL";
-
-        //Link the waypoints
-        _vehWP1 synchronizeWaypoint [_cargoWP0];
-
-        //This keeps units from moving out of APC if disabled, do we want that?
-        _vehicle allowCrewInImmobile true;
-        [_vehicle,"APC"] spawn A3A_fnc_inmuneConvoy;
+        [_vehicle, "Inf Truck."] spawn A3A_fnc_inmuneConvoy;
     };
-    case (_vehicle isKindOf "Tank"):
+    case ((typeof _vehicle in vehTanks) or (typeof _vehicle in vehAA)):
     {
         {_x disableAI "MINEDETECTION"} forEach (units _crewGroup);
 
@@ -72,7 +63,7 @@ switch (true) do
         private _vehWP0 = (wayPoints _crewGroup) select 0;
         _vehWP0 setWaypointBehaviour "SAFE";
 
-        private _vehWP1 = _crewGroup addWaypoint [_posDestination, count (waypoints _crewGroup)];
+        private _vehWP1 = _crewGroup addWaypoint [_posDestination, 0];
         _vehWP1 setWaypointType "SAD";
         _vehWP1 setWaypointBehaviour "COMBAT";
         //God AI
@@ -80,15 +71,8 @@ switch (true) do
 
         //This keeps units from moving out of tanks if disabled, do we want that?
         _vehicle allowCrewInImmobile true;
-        [_vehicle,"Tank"] spawn A3A_fnc_inmuneConvoy;
-    };
-    case (_vehicle isKindOf "Plane"):
-    {
-        //Attack plane or drone
-        private _vehWP0 = _crewGroup addWaypoint [_posDestination, 0];
-        _vehWP0 setWaypointBehaviour "COMBAT";
-        _vehWP0 setWaypointType "SAD";
-        _crewGroup setCombatMode "RED";
+        private _typeName = if (typeof _vehicle in vehTanks) then {"Tank"} else {"AA"};
+        [_vehicle, _typeName] spawn A3A_fnc_inmuneConvoy;
     };
     case (_vehicle isKindOf "Helicopter" && {(typeof _vehicle) in vehTransportAir}):
     {
@@ -124,6 +108,11 @@ switch (true) do
             _vehWP0 setWaypointCompletionRadius 150;
             _vehWP0 setWaypointBehaviour "CARELESS";
 
+            if(toLower worldName in tropicalmaps) then
+            {
+                _vehicle flyInHeight 250;
+            };
+
             [_vehicle, _landPos] spawn
             {
                 params ["_vehicle", "_landPos"];
@@ -157,35 +146,54 @@ switch (true) do
         //Dropship with para units
         [_vehicle, _cargoGroup, _posDestination, _markerOrigin] spawn A3A_fnc_paradrop;
     };
+    case (_vehicle isKindOf "Plane"):
+    {
+        //Attack plane or drone
+        private _vehWP0 = _crewGroup addWaypoint [_posDestination, 0];
+        _vehWP0 setWaypointBehaviour "COMBAT";
+        _vehWP0 setWaypointType "SAD";
+        _crewGroup setCombatMode "RED";
+    };
     default
     {
-        //Move cargo group into crew group
-        (units _cargoGroup) joinSilent _crewGroup;
-        deleteGroup _cargoGroup;
+        // APC or MRAP
+        {_x disableAI "MINEDETECTION"} forEach (units _crewGroup);
 
+        //(units _groupX) joinSilent _crewGroup;
+        //deleteGroup _groupX;
+        //Dont unify these two groups, so the vehicle and the group can attack different targets
         _crewGroup spawn A3A_fnc_attackDrillAI;
 
-        //Unassign driver from being the group leader
-        if (count units _crewGroup > 1) then
-        {
-            _crewGroup selectLeader (units _crewGroup select 1)
-        };
-
-        //Assign the waypoints
+        //Set up vehicle waypoints
         [getPos _vehicle, _landPos, _crewGroup] call A3A_fnc_WPCreate;
         private _vehWP0 = (wayPoints _crewGroup) select 0;
         _vehWP0 setWaypointBehaviour "SAFE";
-
-        private _vehWP1 = _crewGroup addWaypoint [_landPos, count (wayPoints _crewGroup)];
-        _vehWP1 setWaypointType "GETOUT";
-
-        private _vehWP2 = _crewGroup addWaypoint [_posDestination, count (wayPoints _crewGroup)];
-        //Ever wondered why AI have instant pinpoint accuracy?
-        //_vehWP2 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
-        //We could add the UPSMON routines here
+        private _vehWP1 = _crewGroup addWaypoint [_landPos, 0];
+        _vehWP1 setWaypointType "TR UNLOAD";
+        _vehWP1 setWaypointBehaviour "AWARE";
+        _vehWP1 setWaypointStatements ["true", "if !(local this) exitWith {}; [vehicle this] call A3A_fnc_smokeCoverAuto"];
+        private _vehWP2 = _crewGroup addWaypoint [_posDestination, 0];
         _vehWP2 setWaypointType "SAD";
         _vehWP2 setWaypointBehaviour "COMBAT";
-        [_vehicle,"Inf Truck."] spawn A3A_fnc_inmuneConvoy;
+        //God AI
+        //_vehWP2 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
+
+        //Set the waypoints for cargoGroup
+        private _cargoWP0 = _cargoGroup addWaypoint [_landpos, 0];
+        _cargoWP0 setWaypointType "GETOUT";
+        _cargoWP0 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) spawn A3A_fnc_attackDrillAI"];
+        private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 0];
+        _cargoWP1 setWaypointType "SAD";
+        _cargoWP1 setWaypointBehaviour "COMBAT";
+        _cargoWP1 setWaypointSpeed "FULL";
+
+        //Link the waypoints
+        _vehWP1 synchronizeWaypoint [_cargoWP0];
+
+        //This keeps units from moving out of APC if disabled, do we want that?
+        _vehicle allowCrewInImmobile true;
+        private _typeName = if (typeof _vehicle in vehAPCs) then {"APC"} else {"MRAP"};
+        [_vehicle, _typeName] spawn A3A_fnc_inmuneConvoy;
     };
 };
 

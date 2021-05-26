@@ -1,12 +1,14 @@
-//////////////////////////////
-//   Civilian Information   //
-//////////////////////////////
+//////////////////////////
+//       Loadout        //
+//////////////////////////
 
-["civilianUniforms", []] call _fnc_saveToTemplate;
+["uniforms", []] call _fnc_saveToTemplate;          //this line determines civilian uniforms equiped -- Example: ["U_C_Poloshirt_blue","U_C_Poloshirt_burgundy","U_C_Poloshirt_stripped"] -- cannot be empty
 
-["civilianHeadgear", []] call _fnc_saveToTemplate;
+["headgear", []] call _fnc_saveToTemplate;          //this line determines civilian headgear equiped -- Example: ["H_Bandanna_blu","H_Cap_blk","H_StrawHat"] -- cannot be empty
 
-
+//////////////////////////
+//       Vehicles       //
+//////////////////////////
 
 ["vehiclesCivCar", []] call _fnc_saveToTemplate; 			//this line determines civilian cars -- Example: ["vehiclesCivCar", ["C_Offroad_01_F"]] -- Array, can contain multiple assets
 

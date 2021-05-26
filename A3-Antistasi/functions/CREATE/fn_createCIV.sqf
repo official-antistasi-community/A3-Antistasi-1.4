@@ -80,6 +80,10 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 		    */
 			_veh = _typeVehX createVehicle _pos;
 			_veh setDir _dirveh;
+			clearMagazineCargoGlobal _veh;
+			clearWeaponCargoGlobal _veh;
+			clearItemCargoGlobal _veh;
+			clearBackpackCargoGlobal _veh;
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
 			_veh setVariable ["originalPos", getPos _veh];
@@ -100,6 +104,10 @@ if (count _mrkMar > 0) then
 			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
 			_veh = _typeVehX createVehicle _pos;
 			_veh setDir (random 360);
+			clearMagazineCargoGlobal _veh;
+			clearWeaponCargoGlobal _veh;
+			clearItemCargoGlobal _veh;
+			clearBackpackCargoGlobal _veh;
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
 			_veh setVariable ["originalPos", getPos _veh];
@@ -149,6 +157,10 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_typeVehX = selectRandomWeighted civVehiclesWeighted;
 					_veh = _typeVehX createVehicle (getPos _p1);
 					_veh setDir _dirveh;
+					clearMagazineCargoGlobal _veh;
+					clearWeaponCargoGlobal _veh;
+					clearItemCargoGlobal _veh;
+					clearBackpackCargoGlobal _veh;
 
 					//_veh forceFollowRoad true;
 					_vehPatrol = _vehPatrol + [_veh];

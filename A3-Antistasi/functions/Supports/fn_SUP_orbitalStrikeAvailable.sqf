@@ -7,6 +7,8 @@ private _lastSupport = server getVariable ["lastSupport", ["", 0]];
 if((_lastSupport select 0) == "ORBSTRIKE" && {(_lastSupport select 1) > time}) exitWith {-1};
 
 if !(allowFuturisticSupports) exitWith {-1};
+private _loadedTemplate = if (_side isEqualTo Occupants) then {A3A_Occ_template} else {A3A_Inv_template};
+if (toLower _loadedTemplate isEqualTo "VN") exitWith {-1}; //dont allow with VN
 
 //Check if support is available at all
 private _timer = -1;

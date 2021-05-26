@@ -496,6 +496,7 @@ while {(_waves > 0)} do
 		//75% chance to spawn a UAV, to give some variety.
 		if (random 1 < 0.25) exitWith {};
 		_typeVehX = if (_sideX == Occupants) then {vehNATOUAV} else {vehCSATUAV};
+		if (_typeVehX isEqualTo "not_supported") exitWith {};
 		_uav = createVehicle [_typeVehX, _posOrigin, [], 0, "FLY"];
 		_vehiclesX pushBack _uav;
 		_airSupport pushBack _uav;

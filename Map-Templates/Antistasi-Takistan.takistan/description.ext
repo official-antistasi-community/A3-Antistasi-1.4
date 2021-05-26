@@ -9,6 +9,11 @@ class CfgFunctions {
     #include "MissionDescription\CfgFunctionsContents.hpp"
 };
 
+class CfgNotifications
+{
+    #include "MissionDescription\CfgNotificationsContents.hpp"
+};
+
 class CfgSounds {
     #include "MissionDescription\CfgSoundsContents.hpp"
 };

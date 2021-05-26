@@ -105,6 +105,7 @@ _mortar = [_mortarType, _spawnPos, _spawnRadius, 5, true] call A3A_fnc_safeVehic
 private _mortarGroup = [_side, _mortar] call A3A_fnc_createVehicleCrew;
 
 _mortar setVariable ["shellType", _shellType, true];
+[_mortar] call A3A_fnc_addArtilleryTrailEH;
 
 //Creates the marker which coveres the area in which the support can help
 private _coverageMarker = createMarker [format ["%1_coverage", _supportName], getPos _mortar];

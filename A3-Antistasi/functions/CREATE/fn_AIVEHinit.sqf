@@ -22,7 +22,7 @@ _veh setVariable ["originalSide", _side, true];
 _veh setVariable ["ownerSide", _side, true];
 
 // probably just shouldn't be called for these
-if ((_veh isKindOf "FlagCarrier") or (_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
+if ((_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
 //if (_veh isKindOf "ReammoBox_F") exitWith {[_veh] call A3A_fnc_NATOcrate};
 
 // this might need moving into a different function later
@@ -33,6 +33,9 @@ if (_side == teamPlayer) then
 	clearItemCargoGlobal _veh;
 	clearBackpackCargoGlobal _veh;
 };
+
+// Sync the vehicle textures if necessary
+_veh call A3A_fnc_vehicleTextureSync;
 
 private _typeX = typeOf _veh;
 if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats) or (_typeX in vehAA)) then
@@ -166,6 +169,11 @@ if (_side == civilian) then
 			_veh removeEventHandler ["HandleDamage", _thisEventHandler];
 		};
 	}];
+};
+
+if(_typeX in vehMRLS + [CSATMortar, NATOMortar, SDKMortar]) then
+{
+    [_veh] call A3A_fnc_addArtilleryTrailEH;
 };
 
 // EH behaviour:

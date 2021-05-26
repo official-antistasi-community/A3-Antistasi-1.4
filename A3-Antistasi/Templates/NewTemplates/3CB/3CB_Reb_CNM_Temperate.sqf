@@ -49,12 +49,32 @@
 //  Rebel Starting Gear  //
 ///////////////////////////
 
-//Greenfor uniforms
-allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader","U_IG_Guerrilla_6_1"];
-//ADE/Napa uniforms
-allRebelUniforms append ["UK3CB_ADE_I_U_02", "UK3CB_ADE_I_U_02_B", "UK3CB_ADE_I_U_02_C", "UK3CB_ADE_I_U_02_D", "UK3CB_ADE_I_U_02_E",
-"UK3CB_ADE_I_U_02_F", "UK3CB_ADE_I_U_02_G", "UK3CB_ADE_I_U_02_H", "UK3CB_ADE_I_U_02_I", "UK3CB_ADE_I_U_02_J", "UK3CB_ADE_I_U_02_K",
-"UK3CB_ADM_B_U_Tshirt_01_TCC", "UK3CB_NAP_I_U_Tshirt_BLK", "UK3CB_NAP_I_U_Tshirt_FLK", "UK3CB_NAP_I_U_Tshirt_FLR"];
+["uniforms", [
+    "U_IG_Guerilla1_1"
+    ,"U_IG_Guerilla2_1"
+    ,"U_IG_Guerilla2_2"
+    ,"U_IG_Guerilla2_3"
+    ,"U_IG_Guerilla3_1"
+    ,"U_IG_leader"
+    ,"U_IG_Guerrilla_6_1"
+    ,"UK3CB_ADE_I_U_02"
+    ,"UK3CB_ADE_I_U_02_B"
+    ,"UK3CB_ADE_I_U_02_C"
+    ,"UK3CB_ADE_I_U_02_D"
+    ,"UK3CB_ADE_I_U_02_E"
+    ,"UK3CB_ADE_I_U_02_F"
+    ,"UK3CB_ADE_I_U_02_G"
+    ,"UK3CB_ADE_I_U_02_H"
+    ,"UK3CB_ADE_I_U_02_I"
+    ,"UK3CB_ADE_I_U_02_J"
+    ,"UK3CB_ADE_I_U_02_K"
+    ,"UK3CB_ADM_B_U_Tshirt_01_TCC"
+    ,"UK3CB_NAP_I_U_Tshirt_BLK"
+    ,"UK3CB_NAP_I_U_Tshirt_FLK"
+    ,"UK3CB_NAP_I_U_Tshirt_FLR"
+]] call _fnc_saveToTemplate;
+
+["headgear", [""]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
 "UK3CB_BHP","rhs_weap_tt33",
@@ -109,8 +129,8 @@ _loadoutData setVariable ["smokeGrenades", []]; 		//this line determines smoke g
 _loadoutData setVariable ["maps", ["ItemMap"]];
 _loadoutData setVariable ["watches", ["ItemWatch"]];
 _loadoutData setVariable ["compasses", ["ItemCompass"]];
-_loadoutData setVariable ["radios", ["ItemRadio"]];
-_loadoutData setVariable ["gpses", ["ItemGPS"]];
+_loadoutData setVariable ["radios", []];
+_loadoutData setVariable ["gpses", []];
 _loadoutData setVariable ["NVGs", []]; //this line determines NVGs -- Array, can contain multiple assets
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 

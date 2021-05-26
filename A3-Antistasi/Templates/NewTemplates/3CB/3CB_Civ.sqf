@@ -2,9 +2,32 @@
 //   Civilian Information   //
 //////////////////////////////
 
-["civilianUniforms", []] call _fnc_saveToTemplate;
+["uniforms", [
+    "UK3CB_ADC_C_Shorts_U_05",
+    "UK3CB_ADC_C_Shorts_U_01",
+    "UK3CB_ADC_C_Shorts_U_06",
+    "UK3CB_ADC_C_Shorts_U_03",
+    "UK3CB_CHC_C_U_VILL_01",
+    "UK3CB_CHC_C_U_VILL_03",
+    "UK3CB_CHC_C_U_VILL_04",
+    "UK3CB_CHC_C_U_POLITIC_01",
+    "UK3CB_CHC_C_U_POLITIC_02",
+    "UK3CB_CHC_C_U_POLITIC_03",
+    "UK3CB_CHC_C_U_Overall_02",
+    "UK3CB_ADC_C_Hunter_U_06",
+    "UK3CB_ADC_C_Hunter_U_08",
+    "UK3CB_ADC_C_Hunter_U_07",
+    "UK3CB_CHC_C_U_DOC_01",
+    "UK3CB_CHC_C_U_PROF_04",
+    "UK3CB_CHC_C_U_PROF_01",
+    "UK3CB_CHC_C_U_COACH_03",
+    "UK3CB_CHC_C_U_COACH_05",
+    "UK3CB_CHC_C_U_COACH_02",
+    "UK3CB_CHC_C_U_COACH_04",
+    "UK3CB_CHC_C_U_CAN_01"
+]] call _fnc_saveToTemplate;
 
-["civilianHeadgear", []] call _fnc_saveToTemplate;
+["headgear", [""]] call _fnc_saveToTemplate;
 
 
 

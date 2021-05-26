@@ -49,15 +49,14 @@ A3A_paramTable = [
     ["allowDLCEnoch", "Enoch", ["server"], false],
     ["allowDLCOfficialMod", "OfficialMod", ["server"], false],
     ["allowDLCAoW", "AoW", ["server"], false],
+    ["allowDLCVN", "VN", [], true],
 
     ["membershipEnabled", "membership", [], true],
     ["switchCom", "switchComm", ["server"], true],						// dead param
     ["tkpunish", "tkPunish", [], true],
-    ["pvpEnabled", "allowPvP", [], true],
     ["allowMembersFactionGarageAccess", "allowMembersFactionGarageAccess", [], true],
     ["memberDistance", "memberDistance", [], 5000],
     ["memberSlots", "memberSlots", ["server"], 20],
-    ["teamSwitchDelay", "teamSwitchDelay", ["server"], 3600],
 
     ["startWithLongRangeRadio", "startWithLongRangeRadio", [], true],
     ["helmetLossChance", "helmetLossChance", [], 33],

@@ -64,7 +64,6 @@ for "_i" from 0 to _countX do
 	{
 	_unit = [_grpPOW, SDKUnarmed, (_posHouse select _i), [], 0, "NONE"] call A3A_fnc_createUnit;
 	_unit allowDamage false;
-	[_unit,true] remoteExec ["setCaptive",0,_unit];
 	_unit setCaptive true;
 	_unit disableAI "MOVE";
 	_unit disableAI "AUTOTARGET";
@@ -104,7 +103,6 @@ if (dateToNumber date > _dateLimitNum) then
 		{
 		if (group _x == _grpPOW) then
 			{
-			[_x,false] remoteExec ["setCaptive",0,_x];
 			_x setCaptive false;
 			_x enableAI "MOVE";
 			_x doMove _positionX;

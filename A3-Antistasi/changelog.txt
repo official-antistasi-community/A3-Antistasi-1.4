@@ -1,3 +1,160 @@
+Version 2.4.1.VN.02 - 15th May 2021
+
+Changes from version 2.4.1.VN.01 to 2.4.1.VN.02 Antistasi Community Edition
+
+
+================ Major ================
+
+  GAMEPLAY CHANGES
+  - none
+
+  PARAMETER CHANGES
+  - none
+
+  MAP CHANGES
+  - small adaptations to Cam Lao Nam
+
+  OTHER CHANGES
+  - none
+
+================ Minor ================
+  - expanded starting gear with VN modset
+
+================ Groundwork ================
+  - none
+
+================ Refactor ================
+  - none
+
+================ Bugfixes ================
+  - fixed FirstAidKits not available
+  - adapted DLC filtering
+  - fixed error from equipmentIsValidForCurrentmodset
+  - fixed references to FlagCarrier so VN flagpoles are working
+  - for the time being changed loot boxes to plastic boxes from vanilla as the VN boxes have infinite inventory space
+  - fixed AI medical functionality so it works with VN medic assets
+  - adapted VN weapon category filtering
+  - fixed revive animation not stopping when cancelled
+
+================ Code ================
+  - none
+
+ ================ DISCLAIMER ================
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
+Version 2.4.1.VN.01 - 06th May 2021
+
+Changes from version 2.4.1 to 2.4.1.VN.01 Antistasi Community Edition
+
+
+================  Most significant changes with description  ================
+
+  --> S.O.G. Prairie Fire compatibility <--
+  - adaptation of the CDLC map Cam Lao Nam
+  - generation of templates based on the CDLC assets including logistic nodes
+  - compatibility with milbuildings, radiotowers, AA-spawnplaces etc.
+  - removal of vanilla items when VN enabled (medical, engineer,..)
+  - adaptation for intel system
+
+================ Major ================
+
+  GAMEPLAY CHANGES
+  - none
+
+  PARAMETER CHANGES
+  - added parameter for VN (needs to be enabled to play Cam Lao Nam with the CDLC assets)
+
+  MAP CHANGES
+  - NEW MAP - Cam Lao Nam ... duuh
+
+  OTHER CHANGES
+  - none
+
+================ Minor ================
+  - disabled VN dynamic radio music at bases and such
+  - disabled flyGear and diveGear when VN active
+  - helicopters can now perform airstrikes
+  - VN radios are recogniced as radios.
+
+================ Groundwork ================
+  - adaptation of FSMs from 3D to 2D nav grids.
+
+================ Refactor ================
+  - improved mod autodetection item sorting for VN
+
+================ Bugfixes ================
+  - fix for tree-hugging helis
+
+================ Code ================
+  - implemented script that changes the aperture to make the map more playable at night
+
+ ================ DISCLAIMER ================
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
+Version 2.4.1 - 30th April 2021
+
+Changes from version 2.4.0 to 2.4.1 Antistasi Community Edition
+
+================ Major ================
+
+  GAMEPLAY CHANGES
+  - removed PvP
+
+  PARAMETER CHANGES
+  - removed two PvP related parameters
+
+  MAP CHANGES
+  - none
+
+  OTHER CHANGES
+  - added support for TFAR BETA
+
+================ Minor ================
+  - added smoke trails to artillery/mortar and enhanced impact radius
+
+================ Groundwork ================
+  - none
+
+================ Refactor ================
+  - none
+
+================ Bugfixes ================
+  - fixed being able to add Petros to garrison
+  - fixed town markers not being placed on roads and therefore fixing related issues
+  - improvements to mission request and therefore fixing issues like ammo truck missions spawning at already spawned outposts
+  - fixed troops being deleted when adding to unspawned garrisons
+  - fixed rebel city garrisons not spawning
+  - added new and fixed prior logistic nodes for 3CB Faction assets
+  - added missing and deleted incorrect 3CB BAF assets
+  - added missing unarmed loadouts which for example caused invader punishment missions to auto-complete
+  - defending civs in punishment missions are now using unlocked weapons instead of hardcoded vanilla weapons
+  - disabled gunship unless vanilla
+  - fixed uncorrect variable in unlockEquipment logging
+  - fixed a check in SUP_QRFAvailable
+  - fixed function for saved vehicle positions
+  - fixed createVehicleCrew leader selection
+  - separated task types from IDs to fix multiple task bugs
+  - removed ACE loading from BoxX
+  - fixed broken description.ext's for Sahrani, Takistan and Chernarus_winter
+  - fixed AI having no vanilla-med items with ACE-non-medical loaded
+  - synchronised vehicle textures
+  - fixed various locality and JIP issues with prisoners and refugee missions
+  - fixed QRF APCs and transport aircraft using the wrong behaviour
+  - fixed safeVehicleSpawn to spawn air vehicles in the air
+
+================ Code ================
+  - logs are now being created with logMacros
+  - updated mod detection
+  - prestige was renamed to aggro as the naming was incorrect and confusing
+  - updated debug list with current IDs
+  - added info for BattlEye compatibility
+
+ ================ DISCLAIMER ================
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
 Version 2.4.0 - 21st March 2021
 
 Changes from version 2.3.2 to 2.4.0 Antistasi Community Edition

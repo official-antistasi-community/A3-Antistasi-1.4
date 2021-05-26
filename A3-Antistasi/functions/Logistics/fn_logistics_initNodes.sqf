@@ -17,12 +17,13 @@
     Example: call A3A_fnc_logistics_initNodes;
 */
 {
-    private _blackList = (_x#1);
+    private _blackList = _x#1;
     {
-        private _model = _x call A3A_fnc_classNameToModel;
-        if !(_model isEqualTo "") then {_blackList pushBack _model};
+        if (isClass (configFile/"CfgVehicles"/_x)) then {continue};
+        if !(_x isEqualTo "") then {_blackList pushBackUnique _x};
     } forEach A3A_logistics_coveredVehicles;
 } forEach A3A_logistics_weapons;
+A3A_logistics_coveredVehicles = A3A_logistics_coveredVehicles select {isClass(configFile/"CfgVehicles"/_x)};
 
 publicVariable "A3A_logistics_vehicleHardpoints";
 publicVariable "A3A_logistics_attachmentOffset";

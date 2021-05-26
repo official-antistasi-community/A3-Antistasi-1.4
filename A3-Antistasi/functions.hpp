@@ -43,6 +43,7 @@ class A3A
 		class blackout {};
 		class buildHQ {};
         class calculateAggression {};
+        class canMoveHQ {};
         class chooseAttackType {};
 		class citiesToCivPatrol {};
 		class citySupportChange {};
@@ -292,6 +293,11 @@ class A3A
         class unit_recruit {};
     };
 
+    class EventHandler
+    {
+        class addArtilleryTrailEH {};
+    };
+
     class Garage
     {
         class addToPersonalGarage {};
@@ -344,6 +350,7 @@ class A3A
     {
         class getVehicleIntel {};
         class placeIntel {};
+        class searchEncryptedIntel {};
         class searchIntelOnDocument {};
         class searchIntelOnLaptop {};
         class searchIntelOnLeader {};
@@ -388,6 +395,7 @@ class A3A
         class logistics_addAction {};
         class logistics_addOrRemoveObjectMass {};
         class logistics_addWeaponAction {};
+        class logistics_attachCargo {};
         class logistics_canLoad {};
         class logistics_generateHardPoints {};
         class logistics_getCargoNodeType {};
@@ -440,6 +448,7 @@ class A3A
     };
 
     class ModsAndDLC {
+        class darkMapFix {};
         class getModOfConfigClass {};
         class initDisabledMods {};
         class isModNameVanilla {};
@@ -460,6 +469,7 @@ class A3A
         class equipmentSort {};
         class fillLootCrate {};
         class getRadio {};
+        class hasARadio {};
         class itemConfig {};
         class itemConfigMass {};
         class itemSort {};
@@ -654,7 +664,7 @@ class A3A
     class Templates
     {
         class aceModCompat {};
-		class compatabilityLoadFaction {};
+		class compatibilityLoadFaction {};
 		class getLoadout {};
 		class loadFaction {};
         class ifaModCompat {};
@@ -672,14 +682,16 @@ class A3A
 
     class Undercover
     {
-        class initUndercover {};
+        class canGoUndercover {};
         class goUndercover {};
+        class initUndercover {};
     };
 
     class Utility
     {
         class basicBackpack {};
         class classNameToModel {};
+        class countAttachedObjects {};
         class createDataObject {};
         class createNamespace {};
         class dateToTimeString {};
@@ -689,6 +701,7 @@ class A3A
         class log {};
         class setPos {};
         class systemTime_format_S {};
+        class vehicleTextureSync {};
         class vehicleWillCollideAtPosition {};
         class getRoadDirection {};
     };

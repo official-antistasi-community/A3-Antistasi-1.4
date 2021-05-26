@@ -59,7 +59,7 @@ for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	_unit setSkill 0;
 	_POWs pushBack _unit;
 	[_unit,"refugee"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
-	if (_sideX == Occupants) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
+	if (_sideX == Occupants) then {_unit setCaptive true};
 	[_unit] call A3A_fnc_reDress;
 	sleep 0.5;
 	};

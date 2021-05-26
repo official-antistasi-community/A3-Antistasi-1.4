@@ -23,7 +23,8 @@ if (_land) then
 }
 else
 {
-	_vehPool = if (_sideX == Occupants) then {vehNATOTransportHelis + vehNATOTransportPlanes} else {vehCSATTransportHelis + vehNATOTransportPlanes};
+	_vehPool = if (_sideX == Occupants) then {vehNATOTransportHelis + vehNATOTransportPlanes} else {vehCSATTransportHelis + vehCSATTransportPlanes};
+    _vehPool = _vehPool arrayIntersect _vehPool;//ensure unique classnames
 	if ((_numberX > 4) and (count _vehPool > 1) and !A3A_hasIFA) then {_vehPool = _vehPool - [vehNATOPatrolHeli,vehCSATPatrolHeli]};
 	//_vehPool = _vehPool select {(_x isKindOf "Helicopter") and (_x in vehFastRope)};
 	_typeVehX = selectRandom _vehPool;

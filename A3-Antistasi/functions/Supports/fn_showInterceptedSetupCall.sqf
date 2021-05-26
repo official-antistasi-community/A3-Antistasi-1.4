@@ -93,7 +93,7 @@ else
     {
         case ("QRF"):
         {
-            _text = format ["%1 just send a QRF", _sideName];
+            _text = format ["%1 just sent a QRF", _sideName];
         };
         case ("AIRSTRIKE"):
         {

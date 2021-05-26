@@ -52,9 +52,10 @@ A3A_logistics_attachmentOffset append [
 
 /*
     Next up is to add all covered or closed vehicles to this next section, this is needed to prevent statics being loaded inside of closed vehicles or covered vehicle, where they become usless, and it quite franckly looks silly.
+    can be by classname or model
 */
 A3A_logistics_coveredVehicles append [
-    "modelPath", "modelPath"
+    "modelPath", "modelPath", "className", "className"
 ];
 
 /*

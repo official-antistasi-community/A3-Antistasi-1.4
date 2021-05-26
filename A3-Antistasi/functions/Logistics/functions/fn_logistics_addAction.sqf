@@ -38,9 +38,17 @@ switch (_action) do {
             true,
             "",
             "(
-                ((attachedTo _target) isEqualTo objNull)
+                ((attachedTo _originalTarget) isEqualTo objNull)
                 and ((vehicle _this) isEqualTo _this)
-                and (alive _target)
+                and (alive _originalTarget)
+                and {
+                    !(_originalTarget isKindOf 'CAManBase')
+                    or {
+                        (_originalTarget getVariable ['incapacitated',false])
+                        and (_target isEqualTo _originalTarget)
+                    }
+                }
+                and _originalTarget isNotEqualTo _this
             )",
             5
         ];
@@ -66,8 +74,8 @@ switch (_action) do {
             true,
             "",
             "(
-                !((_target getVariable ['Cargo', []]) isEqualTo [])
-                and !(_target getVariable ['LoadingCargo', false])
+                !((_originalTarget getVariable ['Cargo', []]) isEqualTo [])
+                and !(_originalTarget getVariable ['LoadingCargo', false])
                 and ((vehicle _this) isEqualTo _this)
             )",
             5

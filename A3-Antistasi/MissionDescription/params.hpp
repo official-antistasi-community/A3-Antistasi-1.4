@@ -88,13 +88,6 @@ class Params
         texts[] = {"Default (4000)","2000","4000","6000","8000","10000","12000"};
         default = 9999;
     };
-    class allowPvP
-    {
-        title = "Allow PvP Slots";
-        values[] = {9999,1,0};
-        texts[] = {"Default (Yes)","Yes","No"};
-        default = 9999;
-    };
     class pMarkers
     {
         title = "Allow Friendly Player Markers";
@@ -170,13 +163,6 @@ class Params
         title = "Enable Napalm Bombing for AI";
         values[] = {9999,0,1};
         texts[] = {"Default (No)","No","Yes"};
-        default = 9999;
-    };
-    class teamSwitchDelay
-    {
-        title = "Delay After Leaving Before a Player Can Join Another Team";
-        values[] = {9999, 0, 900, 1800, 3600};
-        texts[] = {"Default (60 mins)","No delay","15 minutes","30 minutes","60 minutes"};
         default = 9999;
     };
     class unlockedUnlimitedAmmo
@@ -317,6 +303,13 @@ class Params
         title = "Allow Art of War DLC?";
         values[] = {9999,1,0};
         texts[] =  {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+        class VN
+    {
+        title = "Allow VN DLC (S.O.G. PRAIRIE FIRE)?";
+        values[] = {9999,1,0};
+        texts[] =  {"Default (Yes)","Yes","No"};
         default = 9999;
     };
     class Spacer0

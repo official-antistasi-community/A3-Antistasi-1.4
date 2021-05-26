@@ -28,8 +28,12 @@ private _finished = false;
 for "_i" from 1 to _attempts do {
 	//We keep changing around the start position, to avoid findEmptyPosition repeatedly returning the same thing.
 	//Makes the function more likely to succeed.
-	private _randomOffset = [random (_radius - _radius / 2), random (_radius - _radius / 2), 0];
-	_spawnPosition = (_pos vectorAdd _randomOffset) findEmptyPosition [0, (_radius / 2), _vehicleType];
+	_spawnPosition = _pos vectorAdd [random (_radius*2) - _radius, random (_radius*2) - _radius, 0];
+
+	if !(_vehicleType isKindOf "Air") then {
+		// findEmptyPosition always searches on the ground, regardless of input height
+		_spawnPosition = _spawnPosition findEmptyPosition [0, (_radius / 2), _vehicleType];
+	};
 
 	if !(_spawnPosition isEqualTo []) then {
 		_willCollide = [_vehicle, _spawnPosition] call A3A_fnc_vehicleWillCollideAtPosition;

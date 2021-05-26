@@ -7,6 +7,8 @@
     0. <String> Player UID
     1. <Int>    Category index
     2. <Int>    Index
+    3. <Object> Player
+    4. <Int>    Machine Net ID
 
     Return Value:
     <Bool> Success

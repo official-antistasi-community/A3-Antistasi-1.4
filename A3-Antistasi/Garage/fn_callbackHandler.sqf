@@ -18,9 +18,9 @@
     Return Value:
     <Bool/Nil> Callback succesfull
 
-    Scope: Server,Server/HC,Clients,Any
-    Environment: Scheduled/unscheduled/Any
-    Public: Yes/No
+    Scope: Any
+    Environment: Any
+    Public: No
     Dependencies:
 
     Example:

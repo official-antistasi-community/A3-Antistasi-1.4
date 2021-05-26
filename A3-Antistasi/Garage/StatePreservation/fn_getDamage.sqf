@@ -8,9 +8,9 @@
 
     Return Value:
         <Array> [
-            <Int> Overall damage
+            <Scalar> Overall damage
             <Array> Hitpoint damage
-            <Int> Repair cargo
+            <Scalar> Repair cargo
         ] Damage state
 
     Scope: Any

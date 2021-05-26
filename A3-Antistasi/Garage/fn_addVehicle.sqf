@@ -7,6 +7,7 @@
     0. <Object> Vehicle to add
     1. <Int>    ClientID
     2. <String> Lock UID
+    3. <Object> Player trying to add the vehicle
 
     Return Value:
     <Bool> Successfully added vehicle

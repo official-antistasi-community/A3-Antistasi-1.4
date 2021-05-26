@@ -24,7 +24,7 @@ Trace("Toggling a animation");
 params ["_ctrl"];
 private _index = lbCurSel _ctrl;
 _ctrl lbSetCurSel -1;
-if (_index isEqualTo -1) exitWith {};
+if (_index isEqualTo -1) exitWith {false};
 
 private _newIconIndex = checkboxTextures findIf { !( _x isEqualTo (_ctrl lbPicture _index) ) };
 _ctrl lbSetPicture [_index, checkboxTextures#_newIconIndex];

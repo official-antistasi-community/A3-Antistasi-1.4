@@ -11,9 +11,9 @@
     Return Value:
     <>
 
-    Scope: Server,Server/HC,Clients,Any
-    Environment: Scheduled/unscheduled/Any
-    Public: [Yes/No]
+    Scope: Server
+    Environment: Uncheduled
+    Public: [No]
     Dependencies:
 
     Example: [HR_GRG_PlayerUID, player, HR_GRG_SelectedVehicles] remoteExecCall ["HR_GRG_fnc_toggleLock",2];

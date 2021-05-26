@@ -21,8 +21,8 @@
     License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 params [["_UID","",[""]], ["_cat",0,[0]], ["_index",0,[0]]];
-if (!isServer) exitWith {};
-if (_UID isEqualTo "") exitWith {};
+if (!isServer) exitWith {false};
+if (_UID isEqualTo "") exitWith {false};
 
 private _veh = (HR_GRG_Vehicles#_cat) get _index;
 if ( (_veh#3) isEqualTo "") exitWith {_veh set [3, _UID]; call HR_GRG_fnc_broadcast; true};

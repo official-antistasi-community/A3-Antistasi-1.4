@@ -9,6 +9,8 @@
  * Return Value:
  * * Turret index (either [-1] or [0]) <ARRAY>
  *
+ * Scope: Any
+ * Environment: Any
  * Example:
  * [cursorObject, 0] call HR_GRG_fnc_getPylonTurret;
  *

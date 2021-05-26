@@ -6,9 +6,9 @@
     Arguments:
         0. <Object> Vehicle to set damage state off
         1. <Array> [
-            <Int> Overall damage
+            <Scalar> Overall damage
             <Array> Hitpoint damage
-            <Int> Repair cargo
+            <Scalar> Repair cargo
         ] Damage state
 
     Return Value: <nil>

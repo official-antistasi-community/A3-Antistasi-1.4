@@ -24,7 +24,7 @@ Trace("Changeing texture");
 params ["_ctrl"];
 private _index = lbCurSel _ctrl;
 _ctrl lbSetCurSel -1;
-if (_index isEqualTo -1) exitWith {};
+if (_index isEqualTo -1) exitWith {false};
 
 for "_i" from 0 to (lbSize _ctrl) -1 do { //uncheck all textures
     if ( (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 1) then { _ctrl lbSetPicture [_i, checkboxTextures#0] };

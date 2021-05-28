@@ -30,6 +30,7 @@ while {count _posHouse < 3} do
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _timeLimit = if (_difficultX) then {30} else {60};
+_timeLimit = _timeLimit * taskTimerMultiplier;
 if (A3A_hasIFA) then {_timeLimit = _timeLimit * 2};
 
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];

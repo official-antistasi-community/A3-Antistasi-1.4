@@ -22,6 +22,7 @@ private _reinforcementsX = [];
 // Setup start/end times and convoy type
 
 private _timeXfin = 120;
+_timeXfin = _timeXfin * taskTimerMultiplier;
 private _dateFinal = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeXfin];
 private _enddateNum = dateToNumber _dateFinal;
 
@@ -47,6 +48,7 @@ else
 if (_convoyType == "") then { _convoyType = selectRandom _convoyTypes };
 
 private _timeLimit = if (_difficult) then {0} else { (round random 5)+5 }; // 0 or 5-10 minute limit - there's already good a chance for 0 seconds, why have a double chance (0-10)?
+_timeLimit = _timeLimit * taskTimerMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly when put through the function

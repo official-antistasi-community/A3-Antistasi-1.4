@@ -88,6 +88,13 @@ class Params
         texts[] = {"Default (4000)","2000","4000","6000","8000","10000","12000"};
         default = 9999;
     };
+    class taskTimerMultiplier
+    {
+        title = "Task time limit multiplier";
+        values[] = {9999,1,2,3,4};
+        texts[] = {"Default (1x)","1x","2x","3x","4x"};
+        default = 9999;
+    };
     class pMarkers
     {
         title = "Allow Friendly Player Markers";

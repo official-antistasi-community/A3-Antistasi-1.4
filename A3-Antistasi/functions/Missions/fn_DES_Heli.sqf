@@ -78,6 +78,7 @@ _taskMrk setMarkerShape "ICON";
 
 //finding timelimit for mission
 private _timeLimit = 120;
+_timeLimit = _timeLimit * taskTimerMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 

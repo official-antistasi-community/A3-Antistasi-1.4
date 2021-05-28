@@ -57,19 +57,19 @@ allCivilianVests deleteAt (allCivilianVests find "V_RebreatherIA");
 ////////////////////////////////////
 //WHY is there no clean list?
 //allArmoredHeadgear = allHeadgear select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0};
-allCivilianHeadgear = allHeadgear - allArmoredHeadgear;
+allCosmeticHeadgear = allHeadgear - allArmoredHeadgear;
 
 //////////////////
 //   Glasses   ///
 //////////////////
-allCivilianGlasses append allGlasses;
+allCosmeticGlasses append allGlasses;
 
-allCivilianGlasses deleteAt (allCivilianGlasses find "None");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_Goggles_VR");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_I_Diving");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_O_Diving");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_B_Diving");
-allCivilianGlasses deleteAt (allCivilianGlasses find "LIB_Glasses");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "None");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_Goggles_VR");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_I_Diving");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_O_Diving");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_B_Diving");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "LIB_Glasses");
 
 ////////////////
 //   Radios   //

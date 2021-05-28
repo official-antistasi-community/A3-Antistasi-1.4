@@ -38,7 +38,7 @@
 	,"UK3CB_CHC_C_Hilux_Civ_Closed", 0.5
 	,"UK3CB_CHC_C_Hilux_Civ_Open", 1.0			// cargo capable
 	,"UK3CB_CHC_C_Lada", 0.5
-	,"UK3CB_CHC_C_Lada_Taxi", 0.5
+	,"UK3CB_TKC_C_Lada_Taxi", 0.5
 	,"UK3CB_CHC_C_LR_Closed", 0.5		// land rovers
 	,"UK3CB_CHC_C_LR_Open", 0.5
 	,"UK3CB_CHC_C_Sedan", 0.5

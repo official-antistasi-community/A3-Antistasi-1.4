@@ -3,35 +3,30 @@
 //////////////////////////////
 
 ["uniforms", [
-    "UK3CB_ADC_C_Shorts_U_05",
-    "UK3CB_ADC_C_Shorts_U_01",
-    "UK3CB_ADC_C_Shorts_U_06",
-    "UK3CB_ADC_C_Shorts_U_03",
-    "UK3CB_CHC_C_U_VILL_01",
-    "UK3CB_CHC_C_U_VILL_03",
-    "UK3CB_CHC_C_U_VILL_04",
-    "UK3CB_CHC_C_U_POLITIC_01",
-    "UK3CB_CHC_C_U_POLITIC_02",
-    "UK3CB_CHC_C_U_POLITIC_03",
-    "UK3CB_CHC_C_U_Overall_02",
-    "UK3CB_ADC_C_Hunter_U_06",
-    "UK3CB_ADC_C_Hunter_U_08",
-    "UK3CB_ADC_C_Hunter_U_07",
-    "UK3CB_CHC_C_U_DOC_01",
-    "UK3CB_CHC_C_U_PROF_04",
-    "UK3CB_CHC_C_U_PROF_01",
-    "UK3CB_CHC_C_U_COACH_03",
-    "UK3CB_CHC_C_U_COACH_05",
-    "UK3CB_CHC_C_U_COACH_02",
-    "UK3CB_CHC_C_U_COACH_04",
-    "UK3CB_CHC_C_U_CAN_01"
+    "UK3CB_TKC_C_U_01",
+    "UK3CB_TKC_C_U_01_B",
+    "UK3CB_TKC_C_U_01_C",
+    "UK3CB_TKC_C_U_01_D",
+    "UK3CB_TKC_C_U_01_E",
+    "UK3CB_TKC_C_U_02",
+    "UK3CB_TKC_C_U_02_B",
+    "UK3CB_TKC_C_U_02_C",
+    "UK3CB_TKC_C_U_02_D",
+    "UK3CB_TKC_C_U_02_E"
 ]] call _fnc_saveToTemplate;
 
-["headgear", [""]] call _fnc_saveToTemplate;
+["headgear", [
+	"UK3CB_TKC_H_Turban_01_1",
+	"UK3CB_TKC_H_Turban_02_1",
+	"UK3CB_TKC_H_Turban_06_1",
+	"UK3CB_TKC_H_Turban_03_1",
+	"UK3CB_TKC_H_Turban_04_1",
+	"UK3CB_TKC_H_Turban_05_1"
+]] call _fnc_saveToTemplate;
 
 
 
-["vehiclesCivCar", ["UK3CB_CHC_C_Ikarus", 0					// bus, dangerously large
+["vehiclesCivCar", ["UK3CB_TKC_C_Ikarus", 0					// bus, dangerously large
 	,"UK3CB_TKC_C_Datsun_Civ_Closed", 0.5
 	,"UK3CB_TKC_C_Datsun_Civ_Open", 1.0			// cargo capable
 	,"UK3CB_TKC_C_Hatchback", 0.5

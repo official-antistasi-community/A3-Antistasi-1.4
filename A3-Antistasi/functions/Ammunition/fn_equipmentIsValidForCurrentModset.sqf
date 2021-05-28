@@ -28,8 +28,11 @@ if (_itemIsVanilla && {A3A_hasRHS}) exitWith {
 		case "Weapon": { false };
 		case "Equipment": {
 			switch (_categories select 1) do {
+				case "Headgear": {
+					if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 0.1) then { true };
+				};
 				case "Vest": {
-					if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 5) then { false };
+					if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") < 12.1) then { true };
 				};
 				default { true };
 			};

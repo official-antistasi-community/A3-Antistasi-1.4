@@ -128,7 +128,7 @@ while {_reason == ""} do
 
         if ((_vehType != civHeli) && (!(_vehType in civBoats))) then
         {
-            if !(isOnRoad position _veh && {count (_veh nearRoads 50) == 0}) then
+            if (!(isOnRoad position _veh) && {count (_veh nearRoads 50) == 0}) then
             {
                 if ({((side _x == Invaders) || (side _x == Occupants)) && ((_x knowsAbout player > 1.4) || (_x distance player < 350))} count allUnits > 0) then
                 {

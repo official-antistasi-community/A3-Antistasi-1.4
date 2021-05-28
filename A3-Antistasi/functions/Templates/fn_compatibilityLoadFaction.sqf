@@ -1,4 +1,5 @@
 /*
+
  * File: fn_compatabilityLoadFaction.sqf
  * Author: Spoffy
  * Description:
@@ -447,6 +448,7 @@ if (_side isEqualTo independent) then {
 	SDKFlag = _faction getVariable "flag";
 	SDKFlagTexture = _faction getVariable "flagTexture";
 	SDKFlagMarkerType = _faction getVariable "flagMarkerType";
+
 	typePetros = "loadouts_reb_militia_Petros";
 
 	staticCrewTeamPlayer = "loadouts_reb_militia_staticCrew";

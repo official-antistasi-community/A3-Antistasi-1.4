@@ -27,11 +27,11 @@ A3A_Reb_template = switch(true) do {
             case (toLower worldName in temperatemaps);
             case (toLower worldName in tropicalmaps): {
                 Info("Using Temperate CNM Template");
-                ["Templates\NewTemplates\3CB\3CB_Reb_CNM_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_Reb_CNM_Temperate.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using arid TKM Templates");
-                ["Templates\NewTemplates\3CB\3CB_Reb_TKM_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_Reb_TKM_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "3CBFactions"
@@ -42,17 +42,17 @@ A3A_Reb_template = switch(true) do {
             case (toLower worldName in temperatemaps);
             case (toLower worldName in tropicalmaps): {
                 Info("Using Temperate Napa Template");
-                ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using arid Napa Templates");
-                ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "RHS"
     };
     case (A3A_hasVN): {
-        ["Templates\NewTemplates\VN\VN_Reb_POF.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+        ["Templates\NewTemplates\VN\VN_Reb_POF.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
         Info("Using Pissed off Farmers Templates");
         "VN"
     };
@@ -83,15 +83,15 @@ A3A_Reb_template = switch(true) do {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (toLower worldName == "enoch"): {
                 Info("Using Enoch FIA Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Enoch.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Enoch.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName == "tanoa"): {
                 Info("Using tanoa SDK Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_SDK_Tanoa.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_SDK_Tanoa.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using arid FIA Templates");
-                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "Vanilla"
@@ -126,19 +126,20 @@ A3A_Occ_template = switch(true) do {
         switch(true) do {
             case (toLower worldName in arcticmaps): {
                 Info("Using arctic BAF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Arctic.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Arctic.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName in temperatemaps): {
+
                 Info("Using temperate BAF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName in tropicalmaps): {
                 Info("Using tropical BAF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Tropical.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Tropical.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using arid BAF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "3CBBAF"
@@ -148,15 +149,15 @@ A3A_Occ_template = switch(true) do {
             case (toLower worldName in arcticmaps);
             case (toLower worldName in temperatemaps): {
                 Info("Using Temperate US Marines Template as Placeholder");
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Marines_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Marines_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName in tropicalmaps): {
                 Info("Using Coldwar US Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_CW_US.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_AI_CW_US.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using TKA_West Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_TKA_West.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_AI_TKA_West.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "3CBFactions"
@@ -166,23 +167,23 @@ A3A_Occ_template = switch(true) do {
             case (toLower worldName == "chernarus_summer");
             case (toLower worldName == "chernarus_winter"): {
                 Info("Using CDF Temperate Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_CDF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_AI_CDF_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName in arcticmaps);
             case (toLower worldName in temperatemaps);
             case (toLower worldName in tropicalmaps): {
                 Info("Using arctic USAF Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using arid USAF Templates");
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "RHS"
     };
     case (A3A_hasVN): {
-        ["Templates\NewTemplates\VN\VN_PAVN.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+        ["Templates\NewTemplates\VN\VN_PAVN.sqf", west] call A3A_fnc_compatibilityLoadFaction;
         Info("Using VN PAVN Templates");
         "VN"
     };
@@ -213,20 +214,20 @@ A3A_Occ_template = switch(true) do {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (toLower worldName == "enoch"): {
                 Info("Using Enoch LDF Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_LDF_Enoch.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_AI_LDF_Enoch.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName == "tanoa"): {
                 Info("Using tropical NATO Templates");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Tropical.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Tropical.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName in temperatemaps);
             case (toLower worldName in tropicalmaps): {
                 Info("Using temperate NATO Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using arid NATO Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "Vanilla"
@@ -239,15 +240,15 @@ A3A_Inv_template = switch(true) do {
             case (toLower worldName in arcticmaps);
             case (toLower worldName in temperatemaps): {
                 Info("Using RHS AFRF as Placeholder Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName in tropicalmaps): {
                 Info("Using Coldwar Soviets Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_CW_SOV.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_AI_CW_SOV.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using TKA_East Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_TKA_East.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_AI_TKA_East.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "3CBFactions"
@@ -258,17 +259,17 @@ A3A_Inv_template = switch(true) do {
             case (toLower worldName in temperatemaps);
             case (toLower worldName in tropicalmaps): {
                 Info("Using temperate AFRF Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using arid AFRF Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Arid.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Arid.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "RHS"
     };
     case (A3A_hasVN): {
-        ["Templates\NewTemplates\VN\VN_MACV.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+        ["Templates\NewTemplates\VN\VN_MACV.sqf", east] call A3A_fnc_compatibilityLoadFaction;
         Info("Using VN MACV Templates");
         "VN"
     };
@@ -299,15 +300,15 @@ A3A_Inv_template = switch(true) do {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (toLower worldName == "enoch"): {
                 Info("Using Enoch CSAT Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Enoch.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Enoch.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName == "tanoa"): {
                 Info("Using tanoa CSAT Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Tropical.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Tropical.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using arid CSAT Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Arid.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Arid.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "Vanilla"
@@ -320,23 +321,23 @@ A3A_Civ_template = switch(true) do {
             case (toLower worldName in arcticmaps);
             case (toLower worldName in temperatemaps);
             case (toLower worldName in tropicalmaps): {
-                ["Templates\NewTemplates\3CB\3CB_Civ_Temperate.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_Civ_Temperate.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
                 Info("Using 3CB Civ Temperate Template");
             };
             default {
-                ["Templates\NewTemplates\3CB\3CB_Civ_Arid.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CB\3CB_Civ_Arid.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
                 Info("Using 3CB Civ Arid Template");
                 "3CBFactions"
             };
         };
     };
     case (A3A_hasRHS): {
-        ["Templates\NewTemplates\RHS\RHS_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+        ["Templates\NewTemplates\RHS\RHS_Civ.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
         Info("Using RHS Civ Template");
         "RHS"
     };
     case (A3A_hasVN): {
-        ["Templates\NewTemplates\VN\VN_CIV.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+        ["Templates\NewTemplates\VN\VN_CIV.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
         Info("Using VN CIV Templates");
         "VN"
     };
@@ -348,7 +349,7 @@ A3A_Civ_template = switch(true) do {
     };
     */
     default {
-        ["Templates\NewTemplates\Vanilla\Vanilla_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+        ["Templates\NewTemplates\Vanilla\Vanilla_Civ.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
         Info("Using Vanilla Civ Template");
         "Vanilla"
     };

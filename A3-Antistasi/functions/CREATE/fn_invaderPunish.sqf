@@ -114,6 +114,7 @@ if (sidesX getVariable [_attackDestination,sideUnknown] == Occupants) then
     [_posDestination, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
 };
 if (_numCiv < 8) then {_numCiv = 8};
+if (_numCiv > 40) then {_numCiv = 40};
 
 _size = [_attackDestination] call A3A_fnc_sizeMarker;
 

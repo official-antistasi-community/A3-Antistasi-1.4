@@ -316,9 +316,19 @@ A3A_Inv_template = switch(true) do {
 //Civ Templates
 A3A_Civ_template = switch(true) do {
     case (A3A_has3CBFactions): {
-        ["Templates\NewTemplates\3CB\3CB_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
-        Info("Using 3CB Civ Template");
-        "3CBFactions"
+        switch(true) do {
+            case (toLower worldName in arcticmaps);
+            case (toLower worldName in temperatemaps);
+            case (toLower worldName in tropicalmaps): {
+                ["Templates\NewTemplates\3CB\3CB_Civ_Temperate.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+                Info("Using 3CB Civ Temperate Template");
+            };
+            default {
+                ["Templates\NewTemplates\3CB\3CB_Civ_Arid.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+                Info("Using 3CB Civ Arid Template");
+                "3CBFactions"
+            };
+        };
     };
     case (A3A_hasRHS): {
         ["Templates\NewTemplates\RHS\RHS_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;

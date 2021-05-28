@@ -3,6 +3,21 @@
 //////////////////////////////
 
 ["uniforms", [
+    "U_C_Man_casual_1_F",
+    "U_C_Man_casual_2_F",
+    "U_C_Man_casual_3_F",
+    "U_C_Man_casual_4_F",
+    "U_C_Man_casual_5_F",
+    "U_C_Man_casual_6_F",
+    "U_C_ArtTShirt_01_v1_F",
+    "U_C_ArtTShirt_01_v2_F",
+    "U_C_ArtTShirt_01_v3_F",
+    "U_C_ArtTShirt_01_v4_F",
+    "U_C_ArtTShirt_01_v5_F",
+    "U_C_ArtTShirt_01_v6_F",
+    "U_NikosBody",
+    "U_NikosAgedBody",
+    "U_C_Journalist",
     "U_C_Poloshirt_blue",
     "U_C_Poloshirt_burgundy",
     "U_C_Poloshirt_stripped",
@@ -13,24 +28,14 @@
     "U_C_Poor_1",
     "U_C_WorkerCoveralls",
     "U_C_HunterBody_grn",
-    "U_C_Journalist",
+    "U_C_Uniform_Farmer_01_F",
+    "U_I_L_Uniform_01_tshirt_skull_F",
+    "U_I_L_Uniform_01_tshirt_black_F",
+    "U_I_L_Uniform_01_tshirt_sport_F",
     "U_C_Scientist",
-    "U_C_ArtTShirt_01_v1_F",
-    "U_C_ArtTShirt_01_v2_F",
-    "U_C_ArtTShirt_01_v3_F",
-    "U_C_ArtTShirt_01_v4_F",
-    "U_C_ArtTShirt_01_v5_F",
-    "U_C_ArtTShirt_01_v6_F",
     "U_C_Uniform_Scientist_02_formal_F",
     "U_C_Uniform_Scientist_02_F",
-    "U_C_Uniform_Scientist_01_F",
-    "U_C_Uniform_Farmer_01_F",
-    "U_C_Man_casual_1_F",
-    "U_C_Man_casual_2_F",
-    "U_C_Man_casual_3_F",
-    "U_C_Man_casual_4_F",
-    "U_C_Man_casual_5_F",
-    "U_C_Man_casual_6_F"
+    "U_C_Uniform_Scientist_01_F"
 ]] call _fnc_saveToTemplate;
 
 ["headgear", [
@@ -38,8 +43,6 @@
     "H_Bandanna_cbr",
     "H_Bandanna_gry",
     "H_Bandanna_khk",
-    "H_Bandanna_khk_hs",
-    "H_Bandanna_mcamo",
     "H_Bandanna_sand",
     "H_Bandanna_sgg",
     "H_Bandanna_surfer",
@@ -55,7 +58,8 @@
     "H_Cap_surfer",
     "H_Cap_tan",
     "H_StrawHat",
-    "H_StrawHat_dark"
+    "H_StrawHat_dark",
+    "H_Hat_checker"
 ]] call _fnc_saveToTemplate;
 
 

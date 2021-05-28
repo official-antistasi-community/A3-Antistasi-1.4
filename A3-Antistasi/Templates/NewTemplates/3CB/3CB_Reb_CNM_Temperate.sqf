@@ -50,31 +50,33 @@
 ///////////////////////////
 
 ["uniforms", [
-    "U_IG_Guerilla1_1"
-    ,"U_IG_Guerilla2_1"
-    ,"U_IG_Guerilla2_2"
-    ,"U_IG_Guerilla2_3"
-    ,"U_IG_Guerilla3_1"
-    ,"U_IG_leader"
-    ,"U_IG_Guerrilla_6_1"
-    ,"UK3CB_ADE_I_U_02"
-    ,"UK3CB_ADE_I_U_02_B"
-    ,"UK3CB_ADE_I_U_02_C"
-    ,"UK3CB_ADE_I_U_02_D"
-    ,"UK3CB_ADE_I_U_02_E"
-    ,"UK3CB_ADE_I_U_02_F"
-    ,"UK3CB_ADE_I_U_02_G"
-    ,"UK3CB_ADE_I_U_02_H"
-    ,"UK3CB_ADE_I_U_02_I"
-    ,"UK3CB_ADE_I_U_02_J"
-    ,"UK3CB_ADE_I_U_02_K"
-    ,"UK3CB_ADM_B_U_Tshirt_01_TCC"
-    ,"UK3CB_NAP_I_U_Tshirt_BLK"
-    ,"UK3CB_NAP_I_U_Tshirt_FLK"
-    ,"UK3CB_NAP_I_U_Tshirt_FLR"
+    "UK3CB_CCM_I_U_COM_01",
+    "UK3CB_NAP_I_U_Officer_Uniform_GRN",
+    "UK3CB_NAP_I_U_Officer_Uniform_FLK_GRN",
+    "UK3CB_NAP_I_U_Officer_Uniform_WDL_GRN",
+    "UK3CB_ADE_I_U_02_B",
+    "UK3CB_ADE_I_U_02_C",
+    "UK3CB_ADE_I_U_02_D",
+    "UK3CB_ADE_I_U_02_E",
+    "UK3CB_ADE_I_U_02_F",
+    "UK3CB_ADE_I_U_02_G",
+    "UK3CB_ADE_I_U_02_H",
+    "UK3CB_ADE_I_U_02_I",
+    "UK3CB_ADE_I_U_02_J",
+    "UK3CB_ADE_I_U_02_K",
+    "UK3CB_ADM_I_U_Tshirt_01_TCC",
+    "UK3CB_NAP_I_U_Tshirt_BLK",
+	"UK3CB_NAP_I_U_Tshirt_FLK",
+    "UK3CB_NAP_I_U_Tshirt_FLR"
 ]] call _fnc_saveToTemplate;
 
-["headgear", [""]] call _fnc_saveToTemplate;
+["headgear", [
+	"UK3CB_H_Beanie_02_BLK",
+	"rhs_beanie",
+	"H_Cap_oli_hs",
+	"UK3CB_H_Ushanka_Cap_03",
+	"UK3CB_H_Ushanka_Cap_01"
+]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
 "UK3CB_BHP","rhs_weap_tt33",
@@ -134,7 +136,26 @@ _loadoutData setVariable ["gpses", []];
 _loadoutData setVariable ["NVGs", []]; //this line determines NVGs -- Array, can contain multiple assets
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 
-_loadoutData setVariable ["uniforms", ["UK3CB_ADE_I_U_02", "UK3CB_ADE_I_U_02_B", "UK3CB_ADE_I_U_02_C", "UK3CB_ADE_I_U_02_D", "UK3CB_ADE_I_U_02_E", "UK3CB_ADE_I_U_02_F", "UK3CB_ADE_I_U_02_G", "UK3CB_ADE_I_U_02_H", "UK3CB_ADE_I_U_02_I", "UK3CB_ADE_I_U_02_J", "UK3CB_ADE_I_U_02_K", "UK3CB_ADM_B_U_Tshirt_01_TCC", "UK3CB_NAP_I_U_Tshirt_BLK", "UK3CB_NAP_I_U_Tshirt_FLK", "UK3CB_NAP_I_U_Tshirt_FLR"]];
+_loadoutData setVariable ["uniforms", [
+	"UK3CB_CCM_I_U_COM_01",
+    "UK3CB_NAP_I_U_Officer_Uniform_GRN",
+    "UK3CB_NAP_I_U_Officer_Uniform_FLK_GRN",
+    "UK3CB_NAP_I_U_Officer_Uniform_WDL_GRN",
+    "UK3CB_ADE_I_U_02",
+    "UK3CB_ADE_I_U_02_B",
+    "UK3CB_ADE_I_U_02_C",
+    "UK3CB_ADE_I_U_02_D",
+    "UK3CB_ADE_I_U_02_E",
+    "UK3CB_ADE_I_U_02_F",
+    "UK3CB_ADE_I_U_02_G",
+    "UK3CB_ADE_I_U_02_H",
+    "UK3CB_ADE_I_U_02_I",
+    "UK3CB_ADE_I_U_02_K",
+    "UK3CB_ADM_I_U_Tshirt_01_TCC",
+    "UK3CB_NAP_I_U_Tshirt_BLK",
+	"UK3CB_NAP_I_U_Tshirt_FLK",
+    "UK3CB_NAP_I_U_Tshirt_FLR"
+]];
 _loadoutData setVariable ["vests", []];
 _loadoutData setVariable ["backpacks", []];
 _loadoutData setVariable ["longRangeRadios", []];

@@ -78,7 +78,15 @@
     "vn_o_uniform_vc_03_03"
 ]] call _fnc_saveToTemplate;
 
-["headgear", [""]] call _fnc_saveToTemplate;
+["headgear", [
+	"vn_c_conehat_02",
+    "vn_c_conehat_01",
+	"vn_b_headband_05",
+	"vn_b_headband_04",
+	"vn_b_headband_01",
+	"vn_o_boonie_vc_01_01",
+	"vn_o_boonie_vc_01_02"
+]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
 "vn_p38s","vn_welrod",

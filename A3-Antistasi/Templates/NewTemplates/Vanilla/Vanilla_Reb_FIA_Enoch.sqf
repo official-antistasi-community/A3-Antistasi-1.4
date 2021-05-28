@@ -59,7 +59,7 @@
 	"U_IG_Guerrilla_6_1",
 	"U_I_G_resistanceLeader_F",
 	"U_I_L_Uniform_01_camo_F",
-	"U_I_L_Uniform_01_deserter_F",
+	"U_I_L_Uniform_01_deserter_F"
 	]] call _fnc_saveToTemplate;
 
 	["headgear", [
@@ -141,7 +141,7 @@ _loadoutData setVariable ["uniforms", [
 	"U_IG_Guerilla3_1",
 	"U_IG_leader",
 	"U_IG_Guerrilla_6_1"
-];
+]];
 _loadoutData setVariable ["vests", []];
 _loadoutData setVariable ["backpacks", []];
 _loadoutData setVariable ["longRangeRadios", []];

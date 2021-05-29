@@ -46,6 +46,7 @@ if(_abort) exitWith {};
 {
 	private _index = _forEachIndex;
 	private _position = _x select 0;
+	if (count _position < 3) then { _position set [2, 0] };				// expand to ATL with global effect
 	private _mainMarkers = [_position] call A3A_fnc_getMainPositions;
 	{
 		[_index, _x] call A3A_fnc_setNavData;

@@ -1,10 +1,10 @@
-params ["_mrkDest"];
+params ["_mrkDest", ["_possibleBases", airportsX + outposts]];
 
-_posDest = getMarkerPos _mrkDest;
-_side = sidesX getVariable [_mrkDest,sideUnknown];
+private _posDest = getMarkerPos _mrkDest;
+private _side = sidesX getVariable [_mrkDest,sideUnknown];
 if (_mrkDest in citiesX and _side == teamPlayer) then {_side = Occupants};
 
-_bases = (airportsX + outposts) select {
+private _bases = _possiblebases select {
     (sidesX getVariable [_x,sideUnknown] == _side)
     and (_posDest distance getMarkerPos _x > 1000)
     and (_posDest distance getMarkerPos _x < 3000)

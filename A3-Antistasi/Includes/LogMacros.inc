@@ -78,7 +78,7 @@
     #define Log_Trace
 #endif
 
-if (isNil "LogLevel") then {LogLevel = 2};
+if (isNil "LogLevel") then {LogLevel = 4};
 
 //Log standard format
 #define LogMessage(Level, Message) diag_log text ((systemTimeUTC call A3A_fnc_systemTime_format_S) + " | " + _LOG_prefix + " | "+ Level \

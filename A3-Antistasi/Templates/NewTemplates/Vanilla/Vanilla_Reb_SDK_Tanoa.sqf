@@ -48,11 +48,13 @@
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////
-//Greenfor uniforms
-allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1",
+
+["uniforms", ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1",
 "U_IG_leader","U_IG_Guerrilla_6_1","U_I_C_Soldier_Bandit_4_F","U_I_C_Soldier_Bandit_1_F","U_I_C_Soldier_Bandit_2_F",
 "U_I_C_Soldier_Bandit_5_F","U_I_C_Soldier_Bandit_3_F","U_I_C_Soldier_Para_2_F","U_I_C_Soldier_Para_3_F","U_I_C_Soldier_Para_5_F",
-"U_I_C_Soldier_Para_4_F","U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Camo_F"];
+"U_I_C_Soldier_Para_4_F","U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Camo_F"]] call _fnc_saveToTemplate;
+
+["headgear", [""]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
 "hgun_Pistol_01_F","hgun_P07_khk_F",
@@ -108,8 +110,8 @@ _loadoutData setVariable ["smokeGrenades", []]; 		//this line determines smoke g
 _loadoutData setVariable ["maps", ["ItemMap"]];
 _loadoutData setVariable ["watches", ["ItemWatch"]];
 _loadoutData setVariable ["compasses", ["ItemCompass"]];
-_loadoutData setVariable ["radios", ["ItemRadio"]];
-_loadoutData setVariable ["gpses", ["ItemGPS"]];
+_loadoutData setVariable ["radios", []];
+_loadoutData setVariable ["gpses", []];
 _loadoutData setVariable ["NVGs", []]; //this line determines NVGs -- Array, can contain multiple assets
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 

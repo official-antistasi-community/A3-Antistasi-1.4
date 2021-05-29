@@ -50,12 +50,17 @@ private _allowed = true;
 {
     if ((_x#0) isEqualTo _model) exitWith {
         _weapon = true;
-        if (_vehModel in (_x#1)) then {_allowed = false};
+        if (_vehModel in (_x#1)) exitWith {_allowed = false};
+        if (typeOf _vehicle in A3A_logistics_coveredVehicles) then {_allowed = false};
     };
 } forEach A3A_logistics_weapons;
 if !(_allowed) exitWith {-5}; //weapon not allowed on vehicle
 
-if ((_object isKindOf "CAManBase") and !(([_object] call A3A_fnc_canFight) or !(isNull (_object getVariable ["helped",objNull])) or !(isNull attachedTo _object))) exitWith {-6}; //conscious man
+if ((_object isKindOf "CAManBase") and (
+    ( [_object] call A3A_fnc_canFight )
+    or !( isNull (_object getVariable ["helped",objNull]) )
+    or !( isNull attachedTo _object )
+)) exitWith {-6}; //conscious man
 
 //get vehicle nodes
 private _nodes = _vehicle getVariable ["logisticsCargoNodes",nil];

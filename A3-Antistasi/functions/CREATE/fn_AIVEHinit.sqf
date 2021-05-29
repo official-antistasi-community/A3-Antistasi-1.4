@@ -22,7 +22,7 @@ _veh setVariable ["originalSide", _side, true];
 _veh setVariable ["ownerSide", _side, true];
 
 // probably just shouldn't be called for these
-if ((_veh isKindOf "FlagCarrier") or (_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
+if ((_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
 //if (_veh isKindOf "ReammoBox_F") exitWith {[_veh] call A3A_fnc_NATOcrate};
 
 // this might need moving into a different function later

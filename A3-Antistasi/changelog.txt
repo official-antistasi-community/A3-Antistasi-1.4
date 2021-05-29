@@ -1,4 +1,99 @@
-Version 2.4.1 - ##th April 2021
+Version 2.4.1.VN.02 - 15th May 2021
+
+Changes from version 2.4.1.VN.01 to 2.4.1.VN.02 Antistasi Community Edition
+
+
+================ Major ================
+
+  GAMEPLAY CHANGES
+  - none
+
+  PARAMETER CHANGES
+  - none
+
+  MAP CHANGES
+  - small adaptations to Cam Lao Nam
+
+  OTHER CHANGES
+  - none
+
+================ Minor ================
+  - expanded starting gear with VN modset
+
+================ Groundwork ================
+  - none
+
+================ Refactor ================
+  - none
+
+================ Bugfixes ================
+  - fixed FirstAidKits not available
+  - adapted DLC filtering
+  - fixed error from equipmentIsValidForCurrentmodset
+  - fixed references to FlagCarrier so VN flagpoles are working
+  - for the time being changed loot boxes to plastic boxes from vanilla as the VN boxes have infinite inventory space
+  - fixed AI medical functionality so it works with VN medic assets
+  - adapted VN weapon category filtering
+  - fixed revive animation not stopping when cancelled
+
+================ Code ================
+  - none
+
+ ================ DISCLAIMER ================
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
+Version 2.4.1.VN.01 - 06th May 2021
+
+Changes from version 2.4.1 to 2.4.1.VN.01 Antistasi Community Edition
+
+
+================  Most significant changes with description  ================
+
+  --> S.O.G. Prairie Fire compatibility <--
+  - adaptation of the CDLC map Cam Lao Nam
+  - generation of templates based on the CDLC assets including logistic nodes
+  - compatibility with milbuildings, radiotowers, AA-spawnplaces etc.
+  - removal of vanilla items when VN enabled (medical, engineer,..)
+  - adaptation for intel system
+
+================ Major ================
+
+  GAMEPLAY CHANGES
+  - none
+
+  PARAMETER CHANGES
+  - added parameter for VN (needs to be enabled to play Cam Lao Nam with the CDLC assets)
+
+  MAP CHANGES
+  - NEW MAP - Cam Lao Nam ... duuh
+
+  OTHER CHANGES
+  - none
+
+================ Minor ================
+  - disabled VN dynamic radio music at bases and such
+  - disabled flyGear and diveGear when VN active
+  - helicopters can now perform airstrikes
+  - VN radios are recogniced as radios.
+
+================ Groundwork ================
+  - adaptation of FSMs from 3D to 2D nav grids.
+
+================ Refactor ================
+  - improved mod autodetection item sorting for VN
+
+================ Bugfixes ================
+  - fix for tree-hugging helis
+
+================ Code ================
+  - implemented script that changes the aperture to make the map more playable at night
+
+ ================ DISCLAIMER ================
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
+Version 2.4.1 - 30th April 2021
 
 Changes from version 2.4.0 to 2.4.1 Antistasi Community Edition
 

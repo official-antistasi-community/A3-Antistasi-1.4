@@ -134,6 +134,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"_state = ""FOLLOW"";" \n
                          "" \n
                          "private _nextPos = _route # _currentNode;" \n
+                         "_nextPos set [2, 0];" \n
                          "" \n
                          "//Move all of the groups, as we don't know who is in command." \n
                          "{" \n

@@ -6,7 +6,8 @@ private _lastSupport = server getVariable ["lastSupport", ["", 0]];
 if((_lastSupport select 0) == "GUNSHIP" && {(_lastSupport select 1) > time}) exitWith {-1};
 
 //Vehicles not available, block support
-if(A3A_hasRHS || A3A_hasFFAA) exitWith {-1};
+private _loadedTemplate = if (_side isEqualTo Occupants) then {A3A_Occ_template} else {A3A_Inv_template};
+if !(toLower _loadedTemplate isEqualTo "vanilla") exitWith {-1};
 
 private _timerIndex = -1;
 private _playerAdjustment = (floor ((count allPlayers)/10)) + 1;

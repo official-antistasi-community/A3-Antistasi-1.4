@@ -2,7 +2,7 @@
 name: Game Balance
 about: Suggest changes to the balance of the mission
 title: ''
-labels: Suggestion, Balance
+labels: Balance, Suggestion
 assignees: ''
 
 ---

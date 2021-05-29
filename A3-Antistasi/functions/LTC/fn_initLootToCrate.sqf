@@ -73,7 +73,7 @@ player addAction [
     "(
         ((typeof cursorObject) in [NATOSurrenderCrate, CSATSurrenderCrate])
         and (cursorObject distance _this < 3)
-        and ({!(_x isEqualTo objNull)} count attachedObjects _this isEqualTo 0)
+        and (([_this] call A3A_fnc_countAttachedObjects) isEqualTo 0)
         and (attachedTo cursorObject isEqualTo objNull)
     )"
 ];

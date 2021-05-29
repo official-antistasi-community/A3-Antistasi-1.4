@@ -13,6 +13,11 @@ fireX allowDamage false;
 mapX allowDamage false;
 teamPlayer = side group petros; 				// moved here because it must be initialized before accessing any saved vars
 
+//Disable VN music
+if (isClass (configFile/"CfgVehicles"/"vn_module_dynamicradiomusic_disable")) then {
+    A3A_VN_MusicModule = (createGroup sideLogic) createUnit ["vn_module_dynamicradiomusic_disable", [worldSize, worldSize,0], [],0,"NONE"];
+};
+
 //Load server id
 serverID = profileNameSpace getVariable ["ss_ServerID",nil];
 if(isNil "serverID") then {

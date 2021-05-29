@@ -1,4 +1,5 @@
 /*
+
  * File: fn_compatabilityLoadFaction.sqf
  * Author: Spoffy
  * Description:
@@ -17,23 +18,49 @@ params ["_file", "_side"];
 
 Info_2("Compatibility loading template: '%1' as side %2", _file, _side);
 
-private _faction = [_file] call A3A_fnc_loadFaction;
+private _factionDefaultFile = ["EnemyDefaults","EnemyDefaults","RebelDefaults","CivilianDefaults"] #([west, east, independent, civilian] find _side);
+_factionDefaultFile = "Templates\NewTemplates\FactionDefaults\" + _factionDefaultFile + ".sqf";
 
-private _factionPrefix =
-	["occ", "inv", "rebel", "civ"]
-	select
-	([west, east, independent, civilian] find _side);
+private _faction = [[_factionDefaultFile,_file]] call A3A_fnc_loadFaction;
+private _factionPrefix = ["occ", "inv", "reb", "civ"] #([west, east, independent, civilian] find _side);
+missionNamespace setVariable ["A3A_faction_" + _factionPrefix, _faction, true];  // ["A3A_faction_occ", "A3A_faction_inv", "A3A_faction_reb", "A3A_faction_civ"]
 
-missionNamespace setVariable ["faction_" + _factionPrefix, _faction, true];
+private _baseUnitClass = switch (_side) do {
+	case west: { "B_G_Soldier_F" };
+	case east: { "O_G_Soldier_F" };
+	case independent: { "I_G_Soldier_F" };
+	case civilian: { "C_Man_1" };
+};
+
+private _unitClassMap = if (_side isNotEqualTo independent) then { createHashMap } else {
+	createHashMapFromArray [				// Cases matter. Lower case here because allVariables on namespace returns lowercase
+		["militia_unarmed", "I_G_Survivor_F"],
+		["militia_rifleman", "I_G_Soldier_F"],
+		["militia_staticcrew", "I_G_Soldier_F"],
+		["militia_medic", "I_G_medic_F"],
+		["militia_sniper", "I_G_Sharpshooter_F"],
+		["militia_marksman", "I_G_Soldier_M_F"],
+		["militia_lat", "I_G_Soldier_LAT_F"],
+		["militia_machinegunner", "I_G_Soldier_AR_F"],
+		["militia_explosivesexpert", "I_G_Soldier_exp_F"],
+		["militia_grenadier", "I_G_Soldier_GL_F"],
+		["militia_squadleader", "I_G_Soldier_SL_F"],
+		["militia_engineer", "I_G_engineer_F"],
+		["militia_at", "I_Soldier_AT_F"],
+		["militia_aa", "I_Soldier_AA_F"],
+		["militia_petros", "I_G_officer_F"]
+	]
+};
 
 //Register loadouts globally.
 private _loadoutsPrefix = format ["loadouts_%1_", _factionPrefix];
-private _allLoadouts = _faction getVariable "loadouts";
+private _allDefinitions = _faction getVariable "loadouts";
 {
 	private _loadoutName = _x;
-	private _loadouts = _allLoadouts getVariable _loadoutName;
-	[_loadoutsPrefix + _loadoutName, _loadouts] call A3A_fnc_registerUnitType;
-} forEach allVariables _allLoadouts;
+	private _definition = _allDefinitions getVariable _loadoutName;
+	private _unitClass = _unitClassMap getOrDefault [_loadoutName, _baseUnitClass];
+	[_loadoutsPrefix + _loadoutName, _definition + [_unitClass]] call A3A_fnc_registerUnitType;
+} forEach allVariables _allDefinitions;
 
 if (_side isEqualTo east) then {
 	nameInvaders = _faction getVariable "name";
@@ -420,19 +447,21 @@ if (_side isEqualTo independent) then {
 	//Flag images
 	SDKFlag = _faction getVariable "flag";
 	SDKFlagTexture = _faction getVariable "flagTexture";
-	typePetros = "loadouts_rebel_militia_Petros";
+	SDKFlagMarkerType = _faction getVariable "flagMarkerType";
 
-	staticCrewTeamPlayer = "loadouts_rebel_militia_staticCrew";
-	SDKUnarmed = "loadouts_rebel_militia_Unarmed";
-	SDKSniper = ["loadouts_rebel_militia_sniper", "loadouts_rebel_militia_sniper"];
-	SDKATman = ["loadouts_rebel_militia_lat", "loadouts_rebel_militia_lat"];
-	SDKMedic = ["loadouts_rebel_militia_medic", "loadouts_rebel_militia_medic"];
-	SDKMG = ["loadouts_rebel_militia_MachineGunner", "loadouts_rebel_militia_MachineGunner"];
-	SDKExp = ["loadouts_rebel_militia_ExplosivesExpert", "loadouts_rebel_militia_ExplosivesExpert"];
-	SDKGL = ["loadouts_rebel_militia_Grenadier", "loadouts_rebel_militia_Grenadier"];
-	SDKMil = ["loadouts_rebel_militia_Rifleman", "loadouts_rebel_militia_Rifleman"];
-	SDKSL = ["loadouts_rebel_militia_SquadLeader", "loadouts_rebel_militia_SquadLeader"];
-	SDKEng = ["loadouts_rebel_militia_Engineer", "loadouts_rebel_militia_Engineer"];
+	typePetros = "loadouts_reb_militia_Petros";
+
+	staticCrewTeamPlayer = "loadouts_reb_militia_staticCrew";
+	SDKUnarmed = "loadouts_reb_militia_Unarmed";
+	SDKSniper = ["loadouts_reb_militia_sniper", "loadouts_reb_militia_sniper"];
+	SDKATman = ["loadouts_reb_militia_lat", "loadouts_reb_militia_lat"];
+	SDKMedic = ["loadouts_reb_militia_medic", "loadouts_reb_militia_medic"];
+	SDKMG = ["loadouts_reb_militia_MachineGunner", "loadouts_reb_militia_MachineGunner"];
+	SDKExp = ["loadouts_reb_militia_ExplosivesExpert", "loadouts_reb_militia_ExplosivesExpert"];
+	SDKGL = ["loadouts_reb_militia_Grenadier", "loadouts_reb_militia_Grenadier"];
+	SDKMil = ["loadouts_reb_militia_Rifleman", "loadouts_reb_militia_Rifleman"];
+	SDKSL = ["loadouts_reb_militia_SquadLeader", "loadouts_reb_militia_SquadLeader"];
+	SDKEng = ["loadouts_reb_militia_Engineer", "loadouts_reb_militia_Engineer"];
 
 	groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
 	groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
@@ -495,3 +524,5 @@ if (_side isEqualTo civilian) then {
 	civBoatData = _faction getVariable "vehiclesCivBoat";
 	civVehIndustrialData = _faction getVariable "vehiclesCivIndustrial";
 };
+
+_faction;

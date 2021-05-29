@@ -192,6 +192,12 @@ _assignedItems = ((_inventory select 9) + [_inventory select 3] + [_inventory se
 			_item =_radioName;
 		};
 
+		//ACRE fix
+		private _radioName = getText(configfile >> "CfgVehicles" >> _item >> "acre_baseClass");
+		if!(_radioName isEqualTo "")then{
+			_item =_radioName;
+		};
+		
 		_isBino = _item call _isItemBino;
 
 		call {

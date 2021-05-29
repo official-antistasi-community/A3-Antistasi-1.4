@@ -165,4 +165,8 @@ switch _typeX do
     {
         _flag addAction ["Download Intel", A3A_fnc_searchIntelOnLaptop, nil, 4, true, false, "", "isPlayer _this", 4];
     };
+    case "Intel_Encrypted":
+    {
+        _flag addAction ["Decifer Intel", A3A_fnc_searchEncryptedIntel, nil, 4, true, false, "", "isPlayer _this", 4];
+    };
 };

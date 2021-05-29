@@ -4,13 +4,19 @@
  * Description:
  *    Loads a faction definition file
  * Params:
- *    _file - Faction definition file path
+ *    _filepaths - Single or array of faction definition filepath
  * Returns:
  *    Namespace containing faction information
  * Example Usage:
  */
 
-params ["_file"];
+#include "..\..\Includes\common.inc"
+params [
+	["_filepaths",[],["",[]]]
+];
+
+if (_filepaths isEqualType "") then {_filepaths = [_filepaths]};
+if (count _filepaths == 0) then {Error("No filepaths provided.")};
 
 //Create a global namespace to store faction data in.
 private _dataStore = true call A3A_fnc_createNamespace;
@@ -71,7 +77,9 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	} forEach _unitTemplates;
 };
 
-call compile preprocessFileLineNumbers _file;
+{
+	call compile preprocessFileLineNumbers _x;
+} forEach _filepaths;
 
 //Clear up used loadout namespaces.
 {

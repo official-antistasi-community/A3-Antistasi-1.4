@@ -51,6 +51,7 @@ _mrkDest setMarkerColorLocal "ColorRed";
 _mrkDest setMarkerTextLocal "Bomb Run Exit";
 
 //openMap false;
+private _isHelicopter = vehSDKPlane isKindOf "helicopter";
 
 _angorig = _ang - 180;
 
@@ -62,7 +63,7 @@ _plane = _planefn select 0;
 _planeCrew = _planefn select 1;
 _groupPlane = _planefn select 2;
 
-_plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
+_plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, if (_isHelicopter) then {100} else {1000}];
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
 _plane flyInHeight 100;
@@ -72,7 +73,7 @@ _plane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (
 driver _plane sideChat "Starting Bomb Run. ETA 30 seconds.";
 _wp1 = group _plane addWaypoint [_pos1, 0];
 _wp1 setWaypointType "MOVE";
-_wp1 setWaypointSpeed "LIMITED";
+if (!_isHelicopter) then { _wp1 setWaypointSpeed "LIMITED" };
 _wp1 setWaypointBehaviour "CARELESS";
 
 if(_typeX == "NAPALM" && !napalmEnabled) then {_typeX == "HE"};
@@ -88,7 +89,7 @@ private _bombParams = [_plane, _typeX, 4, (_pos1 distance2D _pos2)];
 };
 
 _wp2 = group _plane addWaypoint [_pos2, 1];
-_wp2 setWaypointSpeed "LIMITED";
+if (!_isHelicopter) then { _wp2 setWaypointSpeed "LIMITED" };
 _wp2 setWaypointType "MOVE";
 
 _wp3 = group _plane addWaypoint [_finpos, 2];

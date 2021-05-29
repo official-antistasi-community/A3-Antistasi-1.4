@@ -3,7 +3,7 @@ FIX_LINE_NUMBERS()
 
 //Mission: Capture/destroy the convoy
 if (!isServer and hasInterface) exitWith {};
-params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""]];
+params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""], ["_startDelay", -1]];
 
 private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
@@ -21,7 +21,7 @@ private _reinforcementsX = [];
 
 // Setup start time
 
-private _startDelay = random 5 + ([15, 5] select _difficult); 		// start delay, 5-10 or 15-20 mins real time
+if (_startDelay < 0) then { _startDelay = random 5 + ([15, 5] select _difficult) }; 		// start delay, 5-10 or 15-20 mins real time
 private _startDateNum = dateToNumber date + _startDelay * timeMultiplier / (365*24*60);
 private _startDate = numberToDate [date select 0, _startDateNum];
 private _displayTime = [_startDate] call A3A_fnc_dateToTimeString;
@@ -252,7 +252,7 @@ reverse _convoyVehicles;
 {
     (driver _x) stop false;
     [_x, _route, _convoyVehicles, 30, _x == _vehObj] spawn A3A_fnc_vehicleConvoyTravel;
-//	[_x, _markNames#_forEachIndex] spawn A3A_fnc_inmuneConvoy;			// Check whether this is going to interfere
+	[_x, _markNames#_forEachIndex, false] spawn A3A_fnc_inmuneConvoy;			// Disabled the stuck-vehicle hacks
     sleep 3;
 } forEach _convoyVehicles;
 
@@ -372,7 +372,7 @@ if (_convoyType == "Reinforcements") then
         [false, true, 0, -10*_bonus, -10, 60, "reinforcement"] call _fnc_applyResults;
         _countX = {alive _x} count _reinforcementsX;
         if (_countX <= 8) then {_taskState1 = "FAILED"};
-        if (sidesX getVariable [_mrkDest,sideUnknown] != teamPlayer) then
+        if (sidesX getVariable [_mrkDest,sideUnknown] == _sideX) then
         {
             _typesX = [];
             {_typesX pushBack (_x getVariable "unitType")} forEach (_reinforcementsX select {alive _x});

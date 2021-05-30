@@ -10,7 +10,7 @@ if (isNull _veh) exitWith {
 
 if (!alive _veh) then
 {
-    Debug_1("%1 destroyed on spawn", typeof _veh);
+    Debug_2("%1 destroyed on spawn at %2", typeof _veh, getpos _veh);
 	_veh hideObjectGlobal true;
 	deleteVehicle _veh;
 };

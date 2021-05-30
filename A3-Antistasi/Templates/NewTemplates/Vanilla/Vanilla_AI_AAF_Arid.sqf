@@ -46,8 +46,8 @@
 ["vehiclesHelisAttack", ["I_Heli_light_03_dynamicLoadout_F"]] call _fnc_saveToTemplate; 		//this line determines attack helis -- Example: ["vehiclesHelisAttack", ["B_Heli_Attack_01_F"]] -- Array, can contain multiple assets
 
 ["vehiclesArtillery", [
-["B_MBT_01_arty_F",["32Rnd_155mm_Mo_shells"]],
-["I_Truck_02_MRL_F", ["12Rnd_230mm_rockets"]]
+["I_Truck_02_MRL_F", ["12Rnd_230mm_rockets"]],
+["B_MBT_01_arty_F",["32Rnd_155mm_Mo_shells"]]
 ]] call _fnc_saveToTemplate; 		//this line determines artillery vehicles -- Example: ["vehiclesArtillery", [["B_MBT_01_arty_F", ["32Rnd_155mm_Mo_shells"]]]] -- Array, can contain multiple assets
 
 ["uavsAttack", ["I_UAV_02_dynamicLoadout_F"]] call _fnc_saveToTemplate; 				//this line determines attack UAVs -- Example: ["uavsAttack", ["B_UAV_02_CAS_F"]] -- Array, can contain multiple assets
@@ -322,6 +322,7 @@ _militiaLoadoutData setVariable ["machineGuns", [
 ["LMG_Mk200_F", "", "", "", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_03_f_blk"]
 ]];
 _militiaLoadoutData setVariable ["marksmanRifles", [["srifle_EBR_F", "", "", "optic_MRCO", [], [], ""] ]];
+_militiaLoadoutData setVariable ["sniperRifles", [["srifle_EBR_F", "", "", "optic_SOS", [], [], ""] ]];
 _militiaLoadoutData setVariable ["sidearms", ["hgun_ACPC2_F"]];
 
 //////////////////////////

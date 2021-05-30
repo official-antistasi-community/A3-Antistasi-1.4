@@ -2,6 +2,9 @@
 FIX_LINE_NUMBERS()
 params ["_veh"];
 
+private _vehpos = getpos _veh;
+private _near = ([markersX, _vehpos] call BIS_fnc_nearestPosition);
+
 sleep 5;
 
 if (isNull _veh) exitWith {
@@ -10,7 +13,7 @@ if (isNull _veh) exitWith {
 
 if (!alive _veh) then
 {
-    Debug_2("%1 destroyed on spawn at %2", typeof _veh, getpos _veh);
+    Debug_4("%1 destroyed on spawn at %2, %3 Meters from %4", typeof _veh, _vehpos, _vehpos distance getmarkerpos _near, _near);
 	_veh hideObjectGlobal true;
 	deleteVehicle _veh;
 };

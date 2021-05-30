@@ -121,8 +121,8 @@ _loadoutData setVariable ["heavyExplosives", ["rhs_ec400_sand_mag"]];
 
 _loadoutData setVariable ["antiTankGrenades", []];
 _loadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_rgn", "rhs_mag_rgo"]];
-_loadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_white", "rhs_mag_rdg2_black"]];
-
+_loadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_white"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["rhs_mag_nspd"]];
 
 //Basic equipment. Shouldn't need touching most of the time.
 //Mods might override this, or certain mods might want items removed (No GPSs in WW2, for example)
@@ -411,7 +411,7 @@ private _squadLeaderTemplate = {
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

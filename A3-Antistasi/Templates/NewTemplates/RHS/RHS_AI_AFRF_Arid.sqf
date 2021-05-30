@@ -118,8 +118,8 @@ _loadoutData setVariable ["heavyExplosives", ["rhs_ec400_mag"]]; 			//this line 
 
 _loadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_rgn", "rhs_mag_rgo"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
 _loadoutData setVariable ["antiTankGrenades", []]; 			//this line determines anti tank grenades. Leave empty when not available. -- Array, can contain multiple assets
-_loadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_white", "rhs_mag_rdg2_black"]]; 			//this line determines smoke grenades -- Example: ["SmokeShell", "SmokeShellRed"] -- Array, can contain multiple assets
-
+_loadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_white"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["rhs_mag_nspd"]];
 
 //Basic equipment. Shouldn't need touching most of the time.
 //Mods might override this, or certain mods might want items removed (No GPSs in WW2, for example)
@@ -402,7 +402,7 @@ private _squadLeaderTemplate = {
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	//["antiTankGrenades", 1] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

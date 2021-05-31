@@ -39,7 +39,7 @@ private _destination = _route select (count _route - 1);
 private _accuracy = 50;
 private _currentNode = 0;
 private _nextPos = _route select _currentNode;
-private _waypoint = _driverGroup addWaypoint [AGLToASL _nextPos, -1, 0];
+private _waypoint = _driverGroup addWaypoint [ATLToASL _nextPos, -1, 0];
 _driverGroup setCurrentWaypoint _waypoint;
 private _timeout = time + (_vehicle distance2d _nextPos);
 
@@ -62,12 +62,19 @@ while {true} do
     {
         _currentNode = _currentNode + 1;
         _nextPos = _route select _currentNode;
-        _waypoint setWaypointPosition [AGLToASL _nextPos, -1];
+        _waypoint setWaypointPosition [ATLToASL _nextPos, -1];
         _driverGroup setCurrentWaypoint _waypoint;
         _timeout = time + (_vehicle distance2d _nextPos);
     };
     if (!_critical && time > _timeout) exitWith {
         [2, "Vehicle stuck during travel, abandoning", _filename] call A3A_fnc_log;
+    };
+
+    // Hack to work around Arma bugging out and refusing to path
+    // Moves vehicle 1m forwards and tries the same waypoint again
+    if (unitReady driver _vehicle) then {
+        _vehicle setPosWorld (getPosWorld _vehicle vectorAdd vectorDir _vehicle);
+        _driverGroup setCurrentWaypoint _waypoint;
     };
 
     // Adjust speed by distance to vehicle in front

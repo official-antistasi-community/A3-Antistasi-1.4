@@ -50,30 +50,30 @@
 ///////////////////////////
 
 ["uniforms", [
-	"U_IG_Guerilla1_1",
-	"U_IG_Guerilla2_1",
-	"U_IG_Guerilla2_2",
-	"U_IG_Guerilla2_3",
-	"U_IG_Guerilla3_1",
-	"U_IG_leader",
-	"U_IG_Guerrilla_6_1",
-	"U_I_G_resistanceLeader_F",
-	"U_I_L_Uniform_01_camo_F",
-	"U_I_L_Uniform_01_deserter_F"
-	]] call _fnc_saveToTemplate;
+    "U_IG_Guerilla1_1",
+    "U_IG_Guerilla2_1",
+    "U_IG_Guerilla2_2",
+    "U_IG_Guerilla2_3",
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1",
+    "U_I_G_resistanceLeader_F",
+    "U_I_L_Uniform_01_camo_F",
+    "U_I_L_Uniform_01_deserter_F"
+]] call _fnc_saveToTemplate;
 
-	["headgear", [
-	"H_Booniehat_khk_hs",
-	"H_Booniehat_oli",
-	"H_Cap_oli_hs",
-	"H_Cap_blk",
-	"H_Cap_headphones",
-	"H_Shemag_olive_hs",
-	"H_Bandanna_gry",
-	"H_Bandanna_khk_hs",
-	"H_Bandanna_sgg",
-	"H_Bandanna_camo"
-	]] call _fnc_saveToTemplate;
+    ["headgear", [
+    "H_Booniehat_khk_hs",
+    "H_Booniehat_oli",
+    "H_Cap_oli_hs",
+    "H_Cap_blk",
+    "H_Cap_headphones",
+    "H_Shemag_olive_hs",
+    "H_Bandanna_gry",
+    "H_Bandanna_khk_hs",
+    "H_Bandanna_sgg",
+    "H_Bandanna_camo"
+]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
 "hgun_Pistol_heavy_02_F","hgun_Pistol_heavy_01_green_F",
@@ -134,13 +134,13 @@ _loadoutData setVariable ["NVGs", []]; //this line determines NVGs -- Array, can
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 
 _loadoutData setVariable ["uniforms", [
-	"U_IG_Guerilla1_1",
-	"U_IG_Guerilla2_1",
-	"U_IG_Guerilla2_2",
-	"U_IG_Guerilla2_3",
-	"U_IG_Guerilla3_1",
-	"U_IG_leader",
-	"U_IG_Guerrilla_6_1"
+    "U_IG_Guerilla1_1",
+    "U_IG_Guerilla2_1",
+    "U_IG_Guerilla2_2",
+    "U_IG_Guerilla2_3",
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1"
 ]];
 _loadoutData setVariable ["vests", []];
 _loadoutData setVariable ["backpacks", []];

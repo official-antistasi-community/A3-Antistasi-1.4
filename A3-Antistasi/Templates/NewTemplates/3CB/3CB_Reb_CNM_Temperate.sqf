@@ -66,16 +66,16 @@
     "UK3CB_ADE_I_U_02_K",
     "UK3CB_ADM_I_U_Tshirt_01_TCC",
     "UK3CB_NAP_I_U_Tshirt_BLK",
-	"UK3CB_NAP_I_U_Tshirt_FLK",
+    "UK3CB_NAP_I_U_Tshirt_FLK",
     "UK3CB_NAP_I_U_Tshirt_FLR"
 ]] call _fnc_saveToTemplate;
 
 ["headgear", [
-	"UK3CB_H_Beanie_02_BLK",
-	"rhs_beanie",
-	"H_Cap_oli_hs",
-	"UK3CB_H_Ushanka_Cap_03",
-	"UK3CB_H_Ushanka_Cap_01"
+    "UK3CB_H_Beanie_02_BLK",
+    "rhs_beanie",
+    "H_Cap_oli_hs",
+    "UK3CB_H_Ushanka_Cap_03",
+    "UK3CB_H_Ushanka_Cap_01"
 ]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
@@ -137,7 +137,7 @@ _loadoutData setVariable ["NVGs", []]; //this line determines NVGs -- Array, can
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 
 _loadoutData setVariable ["uniforms", [
-	"UK3CB_CCM_I_U_COM_01",
+    "UK3CB_CCM_I_U_COM_01",
     "UK3CB_NAP_I_U_Officer_Uniform_GRN",
     "UK3CB_NAP_I_U_Officer_Uniform_FLK_GRN",
     "UK3CB_NAP_I_U_Officer_Uniform_WDL_GRN",
@@ -153,7 +153,7 @@ _loadoutData setVariable ["uniforms", [
     "UK3CB_ADE_I_U_02_K",
     "UK3CB_ADM_I_U_Tshirt_01_TCC",
     "UK3CB_NAP_I_U_Tshirt_BLK",
-	"UK3CB_NAP_I_U_Tshirt_FLK",
+    "UK3CB_NAP_I_U_Tshirt_FLK",
     "UK3CB_NAP_I_U_Tshirt_FLR"
 ]];
 _loadoutData setVariable ["vests", []];

@@ -16,12 +16,12 @@
 ]] call _fnc_saveToTemplate;
 
 ["headgear", [
-	"UK3CB_TKC_H_Turban_01_1",
-	"UK3CB_TKC_H_Turban_02_1",
-	"UK3CB_TKC_H_Turban_06_1",
-	"UK3CB_TKC_H_Turban_03_1",
-	"UK3CB_TKC_H_Turban_04_1",
-	"UK3CB_TKC_H_Turban_05_1"
+    "UK3CB_TKC_H_Turban_01_1",
+    "UK3CB_TKC_H_Turban_02_1",
+    "UK3CB_TKC_H_Turban_06_1",
+    "UK3CB_TKC_H_Turban_03_1",
+    "UK3CB_TKC_H_Turban_04_1",
+    "UK3CB_TKC_H_Turban_05_1"
 ]] call _fnc_saveToTemplate;
 
 

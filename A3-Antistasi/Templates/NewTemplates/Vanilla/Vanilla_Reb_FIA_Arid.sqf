@@ -49,28 +49,28 @@
 //  Rebel Starting Gear  //
 ///////////////////////////
 ["uniforms", [
-	"U_IG_Guerilla1_1",
-	"U_IG_Guerilla2_1",
-	"U_IG_Guerilla2_2",
-	"U_IG_Guerilla2_3",
-	"U_IG_Guerilla3_1",
-	"U_IG_leader",
-	"U_IG_Guerrilla_6_1",
-	"U_I_G_resistanceLeader_F"
+    "U_IG_Guerilla1_1",
+    "U_IG_Guerilla2_1",
+    "U_IG_Guerilla2_2",
+    "U_IG_Guerilla2_3",
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1",
+    "U_I_G_resistanceLeader_F"
 ]] call _fnc_saveToTemplate;
 
 ["headgear", [
-	"H_Booniehat_khk_hs",
-	"H_Booniehat_tan",
-	"H_Cap_tan",
-	"H_Cap_oli_hs",
-	"H_Cap_blk",
-	"H_Cap_headphones",
-	"H_ShemagOpen_tan",
-	"H_Shemag_olive_hs",
-	"H_Bandanna_khk_hs",
-	"H_Bandanna_sand",
-	"H_Bandanna_cbr"
+    "H_Booniehat_khk_hs",
+    "H_Booniehat_tan",
+    "H_Cap_tan",
+    "H_Cap_oli_hs",
+    "H_Cap_blk",
+    "H_Cap_headphones",
+    "H_ShemagOpen_tan",
+    "H_Shemag_olive_hs",
+    "H_Bandanna_khk_hs",
+    "H_Bandanna_sand",
+    "H_Bandanna_cbr"
 ]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
@@ -132,13 +132,13 @@ _loadoutData setVariable ["NVGs", []]; //this line determines NVGs -- Array, can
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 
 _loadoutData setVariable ["uniforms", [
-	"U_IG_Guerilla1_1",
-	"U_IG_Guerilla2_1",
-	"U_IG_Guerilla2_2",
-	"U_IG_Guerilla2_3",
-	"U_IG_Guerilla3_1",
-	"U_IG_leader",
-	"U_IG_Guerrilla_6_1"
+    "U_IG_Guerilla1_1",
+    "U_IG_Guerilla2_1",
+    "U_IG_Guerilla2_2",
+    "U_IG_Guerilla2_3",
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1"
 ]];
 _loadoutData setVariable ["vests", []];
 _loadoutData setVariable ["backpacks", []];

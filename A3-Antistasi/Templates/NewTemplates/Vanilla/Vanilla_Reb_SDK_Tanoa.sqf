@@ -50,38 +50,38 @@
 ///////////////////////////
 
 ["uniforms", [
-	"U_IG_Guerilla1_1",
-	"U_IG_Guerilla2_1",
-	"U_IG_Guerilla2_2",
-	"U_IG_Guerilla2_3",
-	"U_IG_Guerilla3_1",
-	"U_IG_leader",
-	"U_IG_Guerrilla_6_1",
-	"U_I_G_resistanceLeader_F",
-	"U_I_C_Soldier_Bandit_4_F",
-	"U_I_C_Soldier_Bandit_1_F",
-	"U_I_C_Soldier_Bandit_2_F",
-	"U_I_C_Soldier_Bandit_5_F",
-	"U_I_C_Soldier_Bandit_3_F",
-	"U_I_C_Soldier_Para_2_F",
-	"U_I_C_Soldier_Para_3_F",
-	"U_I_C_Soldier_Para_5_F",
-	"U_I_C_Soldier_Para_4_F",
-	"U_I_C_Soldier_Para_1_F",
-	"U_I_C_Soldier_Camo_F"
+    "U_IG_Guerilla1_1",
+    "U_IG_Guerilla2_1",
+    "U_IG_Guerilla2_2",
+    "U_IG_Guerilla2_3",
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1",
+    "U_I_G_resistanceLeader_F",
+    "U_I_C_Soldier_Bandit_4_F",
+    "U_I_C_Soldier_Bandit_1_F",
+    "U_I_C_Soldier_Bandit_2_F",
+    "U_I_C_Soldier_Bandit_5_F",
+    "U_I_C_Soldier_Bandit_3_F",
+    "U_I_C_Soldier_Para_2_F",
+    "U_I_C_Soldier_Para_3_F",
+    "U_I_C_Soldier_Para_5_F",
+    "U_I_C_Soldier_Para_4_F",
+    "U_I_C_Soldier_Para_1_F",
+    "U_I_C_Soldier_Camo_F"
 ]] call _fnc_saveToTemplate;
 
-	["headgear", [
-	"H_Booniehat_khk_hs",
-	"H_Booniehat_oli",
-	"H_Cap_oli_hs",
-	"H_Cap_blk",
-	"H_Cap_headphones",
-	"H_Shemag_olive_hs",
-	"H_Bandanna_gry",
-	"H_Bandanna_khk_hs",
-	"H_Bandanna_sgg",
-	"H_Bandanna_camo"
+    ["headgear", [
+    "H_Booniehat_khk_hs",
+    "H_Booniehat_oli",
+    "H_Cap_oli_hs",
+    "H_Cap_blk",
+    "H_Cap_headphones",
+    "H_Shemag_olive_hs",
+    "H_Bandanna_gry",
+    "H_Bandanna_khk_hs",
+    "H_Bandanna_sgg",
+    "H_Bandanna_camo"
 ]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
@@ -144,17 +144,17 @@ _loadoutData setVariable ["NVGs", []]; //this line determines NVGs -- Array, can
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 
 _loadoutData setVariable ["uniforms", [
-	"U_I_C_Soldier_Bandit_4_F",
-	"U_I_C_Soldier_Bandit_1_F",
-	"U_I_C_Soldier_Bandit_2_F",
-	"U_I_C_Soldier_Bandit_5_F",
-	"U_I_C_Soldier_Bandit_3_F",
-	"U_I_C_Soldier_Para_2_F",
-	"U_I_C_Soldier_Para_3_F",
-	"U_I_C_Soldier_Para_5_F",
-	"U_I_C_Soldier_Para_4_F",
-	"U_I_C_Soldier_Para_1_F",
-	"U_I_C_Soldier_Camo_F"
+    "U_I_C_Soldier_Bandit_4_F",
+    "U_I_C_Soldier_Bandit_1_F",
+    "U_I_C_Soldier_Bandit_2_F",
+    "U_I_C_Soldier_Bandit_5_F",
+    "U_I_C_Soldier_Bandit_3_F",
+    "U_I_C_Soldier_Para_2_F",
+    "U_I_C_Soldier_Para_3_F",
+    "U_I_C_Soldier_Para_5_F",
+    "U_I_C_Soldier_Para_4_F",
+    "U_I_C_Soldier_Para_1_F",
+    "U_I_C_Soldier_Camo_F"
 ]];
 _loadoutData setVariable ["vests", []];
 _loadoutData setVariable ["backpacks", []];

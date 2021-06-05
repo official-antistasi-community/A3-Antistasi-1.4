@@ -93,7 +93,7 @@ _loadoutData setVariable ["rifles", []];
 _loadoutData setVariable ["carbines", []];
 _loadoutData setVariable ["grenadeLaunchers", []];
 _loadoutData setVariable ["SMGs", []];
-_loadoutData setVariable ["shotgun", []];
+_loadoutData setVariable ["shotguns", []];
 _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanRifles", []];
 _loadoutData setVariable ["sniperRifles", []];
@@ -316,7 +316,7 @@ _policeLoadoutData setVariable ["helmets", ["rhs_cossack_visor_cap", "rhs_cossac
 _policeLoadoutData setVariable ["rifles", [
 ["rhs_weap_akmn", "rhs_acc_dtk", "", "", ["rhs_10Rnd_762x39mm"], [], ""]
 ]];
-_policeLoadoutData setVariable ["shotgun", [
+_policeLoadoutData setVariable ["shotguns", [
 ["rhs_weap_Izh18", "", "", "", ["rhsgref_1Rnd_00Buck", "rhsgref_1Rnd_Slug"], [], ""]
 ]];
 _policeLoadoutData setVariable ["smgs", ["rhs_weap_pp2000"]];
@@ -722,7 +722,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[selectRandom ["smgs", "rifles", "shotgun"]] call _fnc_setPrimary;
+	[selectRandom ["smgs", "rifles", "shotguns"]] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

@@ -379,7 +379,7 @@ _policeLoadoutData setVariable ["uniforms", ["UK3CB_TKP_B_U_CombatUniform_TAN", 
 _policeLoadoutData setVariable ["vests", ["UK3CB_TKP_B_V_TacVest_Tan"]];
 _policeLoadoutData setVariable ["helmets", ["UK3CB_TKP_B_H_Patrolcap_TAN"]];
 
-_policeLoadoutData setVariable ["shotgun", [
+_policeLoadoutData setVariable ["shotguns", [
 ["rhs_weap_M590_8RD", "", "", "", ["rhsusf_8Rnd_00Buck", "rhsusf_8Rnd_Slug"], [], ""],
 ["rhs_weap_M590_5RD", "", "", "", ["rhsusf_5Rnd_00Buck", "rhsusf_5Rnd_Slug"], [], ""]
 ]];
@@ -800,7 +800,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[selectRandom ["smgs", "shotgun"]] call _fnc_setPrimary;
+	[selectRandom ["smgs", "shotguns"]] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

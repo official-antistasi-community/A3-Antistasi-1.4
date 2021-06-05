@@ -342,7 +342,7 @@ _policeLoadoutData setVariable ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Comma
 _policeLoadoutData setVariable ["vests", ["V_TacVest_blk_POLICE"]];			//this line determines vests for police loadouts -- Example: ["V_TacVest_gen_F"] -- Array, can contain multiple assets
 _policeLoadoutData setVariable ["helmets", ["H_Cap_police"]];			//this line determines helmets for police loadouts -- Example: ["H_Beret_gen_F"] -- Array, can contain multiple assets
 
-_policeLoadoutData setVariable ["shotgun", [
+_policeLoadoutData setVariable ["shotguns", [
 ["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_eotech_xps3", ["UK3CB_BAF_12G_Pellets", "UK3CB_BAF_12G_Slugs"], [], ""],
 ["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_T1_high", ["UK3CB_BAF_12G_Pellets", "UK3CB_BAF_12G_Slugs"], [], ""]
 ]];
@@ -760,7 +760,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[selectRandom ["SMGs", "shotgun"]] call _fnc_setPrimary;
+	[selectRandom ["SMGs", "shotguns"]] call _fnc_setPrimary;
 	["primary", 4] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

@@ -367,7 +367,7 @@ private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch an
 _policeLoadoutData setVariable ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
 _policeLoadoutData setVariable ["vests", ["V_TacVest_blk_POLICE"]];
 _policeLoadoutData setVariable ["helmets", ["H_Cap_police"]];
-_policeLoadoutData setVariable ["shotgun", [
+_policeLoadoutData setVariable ["shotguns", [
 ["rhs_weap_M590_8RD", "", "", "", ["rhsusf_8Rnd_00Buck", "rhsusf_8Rnd_Slug"], [], ""],
 ["rhs_weap_M590_5RD", "", "", "", ["rhsusf_5Rnd_00Buck", "rhsusf_5Rnd_Slug"], [], ""]
 ]];
@@ -798,7 +798,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[selectRandom ["SMGs", "shotgun"]] call _fnc_setPrimary;
+	[selectRandom ["SMGs", "shotguns"]] call _fnc_setPrimary;
 	["primary", 5] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

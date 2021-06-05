@@ -92,6 +92,7 @@ if (staticCrewTeamPlayer in _garrison) then
 
 // Move riflemen into saved static weapons in area
 {
+	if !(isNil {_x getVariable "lockedForAI"}) then { continue };
 	private _index = _garrison findIf {_x in SDKMil};
 	if (_index == -1) exitWith {};
 	private _unit = objNull;

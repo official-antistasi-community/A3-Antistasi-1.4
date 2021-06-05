@@ -77,6 +77,7 @@ class A3A
 		class keys {};
 		class localizar {};
 		class location {};
+        class lockStatic {};
 		class logPerformance {};
 		class markerChange {};
 		class moveHQ {};
@@ -116,7 +117,9 @@ class A3A
         class teleportVehicleToBase {};
         class timingCA {};
         class translateVariable {};
+        class unlockStatic {};
         class unlockVehicle {};
+        class updateRebelStatics {};
         class zoneCheck {};
     };
 
@@ -384,6 +387,7 @@ class A3A
         class logistics_addLoadAction {};
         class logistics_getVehCapacity {};
         class logistics_initNodes {};
+        class logistics_isLoadable {};
     };
 
     class LogisticsFunctions

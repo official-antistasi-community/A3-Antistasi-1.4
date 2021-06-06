@@ -6,7 +6,8 @@ private _lastSupport = server getVariable ["lastSupport", ["", 0]];
 if((_lastSupport select 0) == "ASF" && {(_lastSupport select 1) > time}) exitWith {-1};
 
 //Make sure the vehicle are available
-if(vehNATOPlaneAA == "" || vehCSATPlaneAA == "") exitWith {-1};
+private _planeType = if (_side isEqualTo Occupants) then {vehNATOPlane} else {vehCSATPlane};
+if !(_planeType isKindOf "Plane") exitWith {-1};
 
 //Select a timer index and the max number of timers available
 private _timerIndex = -1;

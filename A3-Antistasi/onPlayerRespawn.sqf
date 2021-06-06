@@ -76,15 +76,10 @@ if (side group player == teamPlayer) then
 		{
 		[_newUnit, true] remoteExec ["A3A_fnc_theBossTransfer", 2];
 		};
-
-
-	removeAllItemsWithMagazines _newUnit;
-	{_newUnit removeWeaponGlobal _x} forEach weapons _newUnit;
-	removeBackpackGlobal _newUnit;
-	removeVest _newUnit;
-	removeAllAssignedItems _newUnit;
 	//Give them a map, in case they're commander and need to replace petros.
-	_newUnit linkItem "ItemMap";
+	_newUnit setUnitLoadout [[],[],[],[selectRandom ((A3A_faction_civ getVariable "uniforms") + (A3A_faction_reb getVariable "uniforms")), []],[],[],selectRandom (A3A_faction_civ getVariable "headgear"),"",[],
+	[(selectRandom unlockedmaps),"","",(selectRandom unlockedCompasses),(selectRandom unlockedwatches),""]];
+
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{

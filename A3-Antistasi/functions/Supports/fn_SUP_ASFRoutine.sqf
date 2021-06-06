@@ -106,6 +106,7 @@ _strikePlane addEventHandler
                 };
             };
         };
+        nil; //HandleDamage must return Nothing for damage to apply normally.
     }
 ];
 

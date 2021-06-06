@@ -51,11 +51,11 @@ private _nameX = "";
 	{
 		_nameX = [_nameX] call BIS_fnc_baseWeapon;
 	};
-	
+
 	private _item = [_nameX] call A3A_fnc_itemType;
 	private _itemType = _item select 1;
-	
-	if !([_x, _item] call _filter) then
+
+	if ([_x, _item] call _filter) then
 	{
 		private _categories = _nameX call A3A_fnc_equipmentClassToCategories;
 		{

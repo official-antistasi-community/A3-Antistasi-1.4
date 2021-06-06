@@ -309,11 +309,11 @@ switch _mode do {
 			//Arsenal gives players base TFAR radio items. TFAR will, at some point, replace this with an 'instanced' version.
 			//This can cause freq to reset. To fix, check if we have a radio first, and wait around if we do, but TFAR isn't showing it.
 			//Spawn so we can sleep without bothering the arsenal.
-			private _hasRadio =	player call A3A_fnc_getRadio != "";
+			private _hasRadio = player call A3A_fnc_hasARadio;
 			if (_hasRadio) then {
 				[] spawn {
 					//Wait around until TFAR has done its work. Frequent checks - we shouldn't have to wait more than a handful of seconds for TFAR;
-					waitUntil {sleep 1; player call A3A_fnc_getRadio != "" && call TFAR_fnc_haveSWRadio};
+					waitUntil {sleep 1; player call A3A_fnc_hasARadio && call TFAR_fnc_haveSWRadio};
 					private _swRadio = if (call TFAR_fnc_haveSWRadio) then { call TFAR_fnc_activeSwRadio } else { nil };
 					//Doesn't hurt to be careful!
 					if (!isNil "_swRadio") then {
@@ -1035,7 +1035,15 @@ switch _mode do {
 				if!(_radioName isEqualTo "")then{_return1 = _radioName};
 
 				_return1;
+
+								//ACRE FIX
+				_radioName = getText(configfile >> "CfgVehicles" >> _return1 >> "acre_baseClass");
+				if!(_radioName isEqualTo "")then{_return1 = _radioName};
+
+				_return1;
+
 			};
+
 			case IDC_RSCDISPLAYARSENAL_TAB_MAP;
 			case IDC_RSCDISPLAYARSENAL_TAB_GPS;
 			case IDC_RSCDISPLAYARSENAL_TAB_COMPASS;
@@ -1924,6 +1932,15 @@ switch _mode do {
 				_OldItemUnequal = _oldItem;
 				if(_index == IDC_RSCDISPLAYARSENAL_TAB_COMPASS)then{
 					_radioName = getText(configfile >> "CfgWeapons" >> _oldItem >> "tf_parent");
+					if!(_radioName isEqualTo "")exitWith{
+						_OldItemUnequal = _radioName;
+					};
+				};
+
+				//ACRE FIX
+				_OldItemUnequal = _oldItem;
+				if(_index == IDC_RSCDISPLAYARSENAL_TAB_COMPASS)then{
+					_radioName = getText(configfile >> "CfgVehicles" >> _oldItem >> "acre_baseClass");
 					if!(_radioName isEqualTo "")exitWith{
 						_OldItemUnequal = _radioName;
 					};

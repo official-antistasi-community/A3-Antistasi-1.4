@@ -231,7 +231,7 @@ if (_secondaryWeapon != "") then {
 };
 
 _foundItem = false;
-if (!haveRadio && {_unit call A3A_fnc_getRadio == ""}) then {
+if (!haveRadio && {!(_unit call A3A_fnc_hasARadio)}) then {
 	_needsRearm = true;
 	_foundItem = false;
 	_deadBodies = allDead select {(_x distance _unit < _maxDistance) && (!(_x getVariable ["busy",false]))};

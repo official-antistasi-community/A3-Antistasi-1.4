@@ -305,6 +305,13 @@ class Params
         texts[] =  {$STR_antistasi_param_default_no,$STR_lib_info_yes,$STR_lib_info_no};
         default = 9999;
     };
+        class VN
+    {
+        title = "Allow VN DLC (S.O.G. PRAIRIE FIRE)?";
+        values[] = {9999,1,0};
+        texts[] =  {"Default (Yes)","Yes","No"};
+        default = 9999;
+    };
     class Spacer0
     {
         title = "";

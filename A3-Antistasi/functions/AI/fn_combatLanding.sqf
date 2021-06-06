@@ -17,7 +17,15 @@ private _endPos = getPosASL _landingPad;
 private _startPos = getPosASL _helicopter;
 
 private _midPos = +_endPos;
-_midPos set [2, (_endPos select 2) + 100];
+if(toLower worldName in tropicalmaps) then
+{
+    _midPos set [2, (_endPos select 2) + 250];
+}
+else
+{
+    _midPos set [2, (_endPos select 2) + 100];
+};
+
 
 private _initialVelocity = (velocity _helicopter);
 _initialVelocity set [2, 0];
@@ -26,7 +34,7 @@ _initialVelocity = vectorMagnitude _initialVelocity;
 private _initialSpeed = speed _helicopter/3.6;
 //We got the initial velocity of the heli
 
-private _distance = _startPos distance2D _midPos;
+private _distance = _startPos distance _midPos;
 private _landingTime = _distance/_initialVelocity * 1.35;
 
 private _maxAngle = ((_initialVelocity * _initialVelocity/3600) * 35) min 35;

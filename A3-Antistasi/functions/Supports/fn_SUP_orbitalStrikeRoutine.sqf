@@ -96,7 +96,7 @@ private _destroyCounter = 0;
     {
         if !(_x in [mapX,flagX,vehicleBox,boxX,fireX]) then
         {
-            if !(_x isKindOf "FlagCarrier") then
+            if !(_x isKindOf "FlagCarrierCore") then
             {
                 _x setDamage [1, false];
             };

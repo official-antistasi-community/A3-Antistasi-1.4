@@ -21,6 +21,8 @@
 #include "config.inc"
 #include "defines.inc"
 FIX_LINE_NUMBERS()
+if (!isServer) exitWith {};
+
 Trace("Running server init");
 if (!isNil "HR_GRG_Init") exitWith {};//init already run.
 

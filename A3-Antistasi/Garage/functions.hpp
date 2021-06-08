@@ -77,7 +77,9 @@ class HR_GRG
         class callbackHandler {};
         class getSaveData {};
         class initGarage {};
-        class initServer {};
+        class initServer {
+            preInit = 1;
+        };
         class loadSaveData {};
     };
 };

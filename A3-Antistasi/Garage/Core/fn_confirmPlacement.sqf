@@ -23,30 +23,38 @@
     License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
 #include "\a3\ui_f\hpp\definedikcodes.inc"
-params [ ["_class", "", [""]], ["_mounts", [], [[]]], ["_pylons", [], [[]]], "_state", ["_useGRGPool", true, [true]], ["_callBack", ""] ];
-if (!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {HR_GRG_Placing = false};
-if (isNil "HR_GRG_CurTexture") then {HR_GRG_CurTexture = []};
-if (isNil "HR_GRG_CurAnims") then {HR_GRG_CurAnims = []};
-HR_GRG_Placing = true;
+params [
+    ["_class", "", [""]]
+    , ["_mounts", [], [[]]]
+    , ["_pylons", [], [[]]]
+    , "_state"
+    , ["_useGRGPool", true, [true]]
+    , ["_callBack", ""]
+];
+
+if (!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {HR_GRG_placing = false};
+if (isNil "HR_GRG_curTexture") then {HR_GRG_curTexture = []};
+if (isNil "HR_GRG_curAnims") then {HR_GRG_curAnims = []};
+HR_GRG_placing = true;
 
 //define global variables
 HR_GRG_pos = screenToWorld [0.5,0.5];
 HR_GRG_dir = 0;
-RB_KeyPause = time;
-HR_GRG_KeyQ = false;
-HR_GRG_KeyE = false;
+HR_GRG_keyPause = time;
+HR_GRG_keyQ = false;
+HR_GRG_keyE = false;
 HR_GRG_validPlacement = 0;
-HR_GRG_Mounts_ = _mounts; //HR_GRG_Mounts is used in garage internaly
-HR_GRG_Pylons_ = if (!isNil "_pylons") then {_pylons} else {[]}; //same for HR_GRG_Pylons
+HR_GRG_CP_mounts = _mounts;
+HR_GRG_CP_pylons = if (!isNil "_pylons") then {_pylons} else {[]};
 HR_GRG_usePool = _useGRGPool;
-HR_GRG_placement_callBack = if (HR_GRG_usePool) then {""} else {_callBack};
+HR_GRG_CP_callBack = if (HR_GRG_usePool) then {""} else {_callBack};
 HR_GRG_callBackFeedback = "";
 
 //define private use function
 HR_GRG_cleanUp = {
     //remove EH's
     removeMissionEventHandler ["EachFrame", HR_GRG_EH_EF];
-    findDisplay 46 displayRemoveEventHandler ["KeyDown", HR_GRG_EH_KeyDown];
+    findDisplay 46 displayRemoveEventHandler ["KeyDown", HR_GRG_EH_keyDown];
     terminate HR_GRG_keyHint;
 
     //remove display vehicle
@@ -58,23 +66,14 @@ HR_GRG_cleanUp = {
     HR_GRG_pos = nil;
     HR_GRG_dir = nil;
     HR_GRG_bb = nil;
-    RB_KeyPause = nil;
-    HR_GRG_KeyQ = nil;
-    HR_GRG_KeyE = nil;
+    HR_GRG_keyPause = nil;
+    HR_GRG_keyQ = nil;
+    HR_GRG_keyE = nil;
     HR_GRG_EH_EF = nil;
-    HR_GRG_EH_KeyDown = nil;
+    HR_GRG_EH_keyDown = nil;
     HR_GRG_keyHint = nil;
-    HR_GRG_Placing = false;
-    HR_GRG_AccessPoint = objNull;
-};
-
-HR_GRG_fnc_execForGarageUsers = {
-    params ["_client", "_player", "_fnc"];
-    private _UID = getPlayerUID _player;
-    private _recipients = +HR_GRG_Users;
-    _recipients pushBackUnique 2;
-    _recipients pushBackUnique _client;
-    [_UID, _player] remoteExecCall [_fnc,_recipients];
+    HR_GRG_placing = false;
+    HR_GRG_accessPoint = objNull;
 };
 
 //create display vehicle localy
@@ -87,7 +86,7 @@ HR_GRG_dispVehicle allowDamage false;
 HR_GRG_dispVehicle lock true;
 HR_GRG_dispVehicle lockInventory true;
 HR_GRG_dispVehicle setDir HR_GRG_dir;
-[HR_GRG_dispVehicle, HR_GRG_CurTexture, HR_GRG_CurAnims] call BIS_fnc_initVehicle;
+[HR_GRG_dispVehicle, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
 HR_GRG_dispMounts = [];
 {
     private _static = (_x#0) createVehicleLocal HR_GRG_pos;
@@ -107,16 +106,21 @@ HR_GRG_dispMounts = [];
         private _offsetOne = (_node#0#1);
         private _offsetTwo = (_node#_lastNode#1);
         private _diff = _offsetOne vectorDiff _offsetTwo;
-        _offsetTwo vectorAdd [0,(_diff#1)/2,0];
-    } else { _node#1 };
+        _offsetTwo vectorAdd [0,(_diff#1)/2,0];//middle of nodes
+    } else { _node#1 };//only one node so on node
 
-    HR_GRG_dispMounts pushBack [_static, _nodeOffset vectorAdd (_offsetAndDir#0), _offsetAndDir#1, _x ];
-} forEach HR_GRG_Mounts_;
+    HR_GRG_dispMounts pushBack [
+        _static
+        , _nodeOffset vectorAdd (_offsetAndDir#0)//vector add static offset
+        , _offsetAndDir#1
+        , _x
+    ]; //format [static object, attachment offset, rotation, static data]
+} forEach HR_GRG_CP_mounts;
 
 {
     _x params ["_pylonIndex", "_mag", "_forced", "_turret"];
     HR_GRG_dispVehicle setPylonLoadout [_pylonIndex, _mag, _forced, _turret];
-} forEach HR_GRG_Pylons_;
+} forEach HR_GRG_CP_pylons;
 
 {
     _x hideObject true;
@@ -199,29 +203,29 @@ private _adjustment = (_bb#1) vectorDiff _diff;
 HR_GRG_dispSquare = [_adjustment, _diff apply {_x + 0.6}, (_bb#2)]; //square offset from center, square radius [x,y], bb diameter
 
 //add EH's (data is set on the display vehicle)
-HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
+HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
     params ["", "_key"];
     private _return = false;
 
     //rotate vehicle
-    if (_key isEqualTo DIK_Q && RB_KeyPause < time) then {
+    if (_key isEqualTo DIK_Q && HR_GRG_keyPause < time) then {
         _return = true;
-        RB_KeyPause = time + 0.01;
-        HR_GRG_KeyQ = true;
+        HR_GRG_keyPause = time + 0.01;
+        HR_GRG_keyQ = true;
     };
 
-    if (_key isEqualTo DIK_E && RB_KeyPause < time) then {
+    if (_key isEqualTo DIK_E && HR_GRG_keyPause < time) then {
         _return = true;
-        RB_KeyPause = time + 0.01;
-        HR_GRG_KeyE = true;
+        HR_GRG_keyPause = time + 0.01;
+        HR_GRG_keyE = true;
     };
 
     if (HR_GRG_validPlacement > 0) exitWith { // 0 is valid placement, 1 too far away, 2 colision
         if (_key in [DIK_ESCAPE, DIK_RETURN]) then {
             _return = true;
             call HR_GRG_cleanUp;
-            [[clientOwner, player, "HR_GRG_fnc_releaseAllVehicles"], HR_GRG_fnc_execForGarageUsers] remoteExecCall ["call", 2];
-            HR_GRG_Placing = false;
+            [clientOwner, player, "HR_GRG_fnc_releaseAllVehicles"] remoteExecCall ["HR_GRG_fnc_execForGarageUsers", 2];
+            HR_GRG_placing = false;
         };
         _return
     };
@@ -245,7 +249,7 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             [_veh, _state] call HR_GRG_fnc_setState;
             _veh enableSimulation false;
             _veh allowDamage false;
-            [_veh, HR_GRG_CurTexture, HR_GRG_CurAnims] call BIS_fnc_initVehicle;
+            [_veh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
             _veh setDir _dir;
             _veh setPos _pos;
             _veh setVectorUp surfaceNormal position _veh;
@@ -259,25 +263,25 @@ HR_GRG_EH_KeyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
                 if (_nodes isEqualType 0) exitWith {};
                 (_nodes + [true]) call A3A_fnc_logistics_load;
                 _static call HR_GRG_fnc_vehInit;
-            } forEach HR_GRG_Mounts_;
+            } forEach HR_GRG_CP_mounts;
 
             //set pylons loudout
-            if !(HR_GRG_Pylons_ isEqualTo []) then {
+            if !(HR_GRG_CP_pylons isEqualTo []) then {
                 {
                     _x params ["_pylonIndex", "_mag", "_forced", "_turret"];
                     _veh setPylonLoadout [_pylonIndex, _mag, _forced, _turret]
-                } forEach HR_GRG_Pylons_;
+                } forEach HR_GRG_CP_pylons;
             };
             _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
             _veh call HR_GRG_fnc_vehInit;
-            if !(HR_GRG_usePool) then { [_veh,HR_GRG_placement_callBack, "Placed"] call HR_GRG_fnc_callbackHandler };
+            if !(HR_GRG_usePool) then { [_veh,HR_GRG_CP_callBack, "Placed"] call HR_GRG_fnc_callbackHandler };
 
             true;
         } else { false };
         //handle garage pool changes
         if (HR_GRG_usePool) then {
             private _fnc = if (_placed) then {"HR_GRG_fnc_removeFromPool"} else {"HR_GRG_fnc_releaseAllVehicles"};
-            [[clientOwner, player, _fnc], HR_GRG_fnc_execForGarageUsers] remoteExecCall ["call", 2]; //run code on server as HR_GRG_Users is maintained ONLY on the server
+            [clientOwner, player, _fnc] remoteExecCall ["HR_GRG_fnc_execForGarageUsers", 2]; //run code on server as HR_GRG_Users is maintained ONLY on the server
         };
     };
 
@@ -294,14 +298,14 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         _updateState = true;
     };
 
-    if (HR_GRG_KeyQ) then {
-        HR_GRG_KeyQ = false;
+    if (HR_GRG_keyQ) then {
+        HR_GRG_keyQ = false;
         HR_GRG_dir = HR_GRG_dir - 1;
         _updateState = true;
     };
 
-    if (HR_GRG_KeyE) then {
-        HR_GRG_KeyE = false;
+    if (HR_GRG_keyE) then {
+        HR_GRG_keyE = false;
         HR_GRG_dir = HR_GRG_dir + 1;
         _updateState = true;
     };
@@ -329,7 +333,7 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         if (_exit) exitWith { true call _hide };
 
         //callback check
-        private _callBack = [HR_GRG_dispVehicle,HR_GRG_placement_callBack, "invalidPlacement"] call HR_GRG_fnc_callbackHandler;
+        private _callBack = [HR_GRG_dispVehicle,HR_GRG_CP_callBack, "invalidPlacement"] call HR_GRG_fnc_callbackHandler;
         private _callbackCheck = _callBack param [0, false, [false]];
         HR_GRG_callBackFeedback = _callBack param [1, "", [""]];
         if ( _callbackCheck ) exitWith { true call _hide ; HR_GRG_validPlacement = 3 };

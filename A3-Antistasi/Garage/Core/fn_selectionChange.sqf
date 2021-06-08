@@ -28,7 +28,7 @@ private _newVehUID = _ctrl lbValue _curSel;
 private _newCat = HR_GRG_Cats find _ctrl;
 _ctrl lbSetCurSel -1;
 
-HR_GRG_SelectedVehicles params ["_cat", ""];
+private _cat = HR_GRG_SelectedVehicles#0;
 if (_cat != -1) then {
     (HR_GRG_Cats#_cat) lbSetCurSel -1;
 };

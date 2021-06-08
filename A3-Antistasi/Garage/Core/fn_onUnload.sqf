@@ -47,13 +47,5 @@ if (!isNull HR_GRG_previewVeh) then {
 if (HR_GRG_Placing) exitWith {};
 
 //remove check out
-private _fnc = "HR_GRG_fnc_releaseAllVehicles";
-private _code = {
-    params ["_client", "_UID", "_fnc"];
-    private _recipients = +HR_GRG_Users;
-    _recipients pushBackUnique 2;
-    _recipients pushBackUnique _client;
-    [_UID] remoteExecCall [_fnc,_recipients];
-};
-HR_GRG_AccessPoint = objNull;
-[[clientOwner, getPlayerUID player, _fnc], _code] remoteExecCall ["call", 2]; //run code on server as HR_GRG_Users is maintained ONLY on the server
+[clientOwner, getPlayerUID player, "HR_GRG_fnc_releaseAllVehicles"] remoteExecCall ["HR_GRG_fnc_execForGarageUsers", 2]; //run code on server as HR_GRG_Users is maintained ONLY on the server
+HR_GRG_accessPoint = objNull;

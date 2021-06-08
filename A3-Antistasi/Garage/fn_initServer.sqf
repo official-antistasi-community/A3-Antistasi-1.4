@@ -22,6 +22,7 @@
 #include "defines.inc"
 FIX_LINE_NUMBERS()
 Trace("Running server init");
+if (!isNil "HR_GRG_Init") exitWith {};//init already run.
 
 if (isNil "HR_GRG_Vehicles") then {[] call HR_GRG_fnc_loadSaveData};
 if (isNil "HR_GRG_Users") then {HR_GRG_Users = []};

@@ -33,6 +33,6 @@ for "_i" from 0 to (lbsize _ctrl - 1) do {
     _anims pushback (_ctrl lbdata _i);
     _anims pushback (checkboxTextures find (_ctrl lbpicture _i));
 };
-HR_GRG_CurAnims = _anims;
+HR_GRG_curAnims = _anims;
 
-[HR_GRG_previewVeh, HR_GRG_CurTexture, HR_GRG_CurAnims] call BIS_fnc_initVehicle;
+[HR_GRG_previewVeh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;

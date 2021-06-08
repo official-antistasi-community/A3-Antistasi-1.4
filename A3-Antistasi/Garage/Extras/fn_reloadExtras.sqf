@@ -71,8 +71,8 @@ if (_reloadMounts) then { [] call HR_GRG_fnc_reloadMounts };
 
 private _customisation = [HR_GRG_previewVeh] call BIS_fnc_getVehicleCustomization;
 //textures
-HR_GRG_CurTexture = _customisation#0;
-private _badInit = HR_GRG_CurTexture isEqualTo [];
+HR_GRG_curTexture = _customisation#0;
+private _badInit = HR_GRG_curTexture isEqualTo [];
 private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraTexture;
 lbClear _ctrl;
 {
@@ -84,7 +84,7 @@ lbClear _ctrl;
         if (_badInit) then {
             _ctrl lbsetpicture [_index,checkboxTextures#0];
         } else {
-            _ctrl lbsetpicture [_index,checkboxTextures select ((HR_GRG_CurTexture#0) isEqualTo _cfgName)];
+            _ctrl lbsetpicture [_index,checkboxTextures select ((HR_GRG_curTexture#0) isEqualTo _cfgName)];
         };
     };
 } foreach (configProperties [(configfile >> "CfgVehicles" >> _class >> "textureSources"),"isclass _x",true]);
@@ -106,9 +106,9 @@ lbClear _ctrl;
     };
 } foreach (configProperties [(configfile >> "CfgVehicles" >> _class >> "animationSources"),"isclass _x",true]);
 lbSort _ctrl;
-HR_GRG_CurAnims = _anims;
+HR_GRG_curAnims = _anims;
 
-[HR_GRG_previewVeh, HR_GRG_CurTexture, HR_GRG_CurAnims] call BIS_fnc_initVehicle;
+[HR_GRG_previewVeh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
 
 //update source panel
 private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelAmmo;

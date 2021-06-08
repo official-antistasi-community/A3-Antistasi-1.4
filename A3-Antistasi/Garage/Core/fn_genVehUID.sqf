@@ -19,5 +19,5 @@
 
     License: Håkon Rydland Garage SHARED SOURCE LICENSE
 */
-HR_GRG_UID = HR_GRG_UID + 1 % 10000000;
+HR_GRG_UID = (HR_GRG_UID + 1) % 1e7;
 HR_GRG_UID

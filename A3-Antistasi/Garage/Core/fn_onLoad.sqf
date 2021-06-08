@@ -28,6 +28,7 @@ Trace("Opening Garage");
 
 //if for some reason the server init has not been done, do it now
 if (isNil "HR_GRG_Init") then {remoteExecCall ["HR_GRG_fnc_initServer",2]};
+waitUntil {!isNil "HR_GRG_Init"};
 
 //dont allow opening when placing a vehicle
 if (isNil "HR_GRG_Placing") then { HR_GRG_Placing = false };
@@ -44,7 +45,7 @@ HR_GRG_Mounts = [];
 HR_GRG_usedCapacity = 0;
 HR_GRG_LockedSeats = 0;
 HR_GRG_ReloadMounts = false;
-HR_GRG_CurTexture = [];
+HR_GRG_curTexture = [];
 HR_GRG_Pylons = [];
 HR_GRG_UpdatePylons = false;
 
@@ -79,8 +80,6 @@ _disp displayAddEventHandler ["MouseZChanged","if !(HR_GRG_RMouseBtnDown) exitWi
     (_this#1) call HR_GRG_fnc_reciveBroadcast;
 };
 "HR_GRG_Vehicles" addPublicVariableEventHandler {
-    #include "defines.inc"
-FIX_LINE_NUMBERS()
     private _disp = findDisplay HR_GRG_IDD_Garage;
     private _index = HR_GRG_Cats findIf {ctrlShown _x};
     private _ctrl = HR_GRG_Cats#_index;

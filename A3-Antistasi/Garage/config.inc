@@ -25,13 +25,13 @@ if (isNil "HR_GRG_cmdClient") then { HR_GRG_cmdClient = {
 //condition to automatically close garage/placement as if canceled
 if (isNil "HR_GRG_CP_closeCnd") then { HR_GRG_CP_closeCnd = {
     (!([player] call A3A_fnc_canFight))
-    || {(!isNull HR_GRG_AccessPoint)
-        && {player distance HR_GRG_AccessPoint > 25}
+    || {(!isNull HR_GRG_accessPoint)
+        && {player distance HR_GRG_accessPoint > 25}
     }
 }; publicVariable "HR_GRG_CP_closeCnd"};
 
 if (isNil "HR_GRG_Cnd_canAccessAir") then { HR_GRG_Cnd_canAccessAir = {
-    count (airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (HR_GRG_AccessPoint inArea _x)}) > 0
+    count (airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (HR_GRG_accessPoint inArea _x)}) > 0
 }; publicVariable "HR_GRG_Cnd_canAccessAir"};
 
 //Lock on garaged vehicles ( Values: [{""}, { getPlayerUID player }] )

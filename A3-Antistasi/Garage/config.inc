@@ -67,12 +67,10 @@ if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {
 
     ["HR_GRG_PoolBase", "SLIDER", ["Base Capacity", "Garage base capacity"], [HR_GRG_Prefix,"Garage"], [0, 50, HR_GRG_PoolBase, 0], true, {
         HR_GRG_PoolBase = round _this;
-        HR_GRG_VehCap = { HR_GRG_PoolBase + warTier * HR_GRG_PoolIncr };
     }] call CBA_fnc_addSetting;
 
     ["HR_GRG_PoolIncr", "SLIDER", ["Capacity increase", "Capacity increase per war level"], [HR_GRG_Prefix,"Garage"], [0, 10, HR_GRG_PoolIncr, 0], true, {
         HR_GRG_PoolIncr = round _this;
-        HR_GRG_VehCap = { HR_GRG_PoolBase + warTier * HR_GRG_PoolIncr };
     }] call CBA_fnc_addSetting;
 
 };

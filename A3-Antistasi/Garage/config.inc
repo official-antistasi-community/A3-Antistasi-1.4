@@ -7,7 +7,7 @@
 
     Return Value:
 
-    Scope: Server
+    Scope: Any
     Environment: Any
     Public: [No]
     Dependencies:

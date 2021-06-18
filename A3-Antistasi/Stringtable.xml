@@ -2726,10 +2726,6 @@
         <Original>Buy Boat</Original>
         <Russian>Купить лодку</Russian>
       </Key>
-      <Key ID="STR_antistasi_addAction_sleep">
-        <Original>Rest for 8 Hours</Original>
-        <Russian>Отдых 8 часов</Russian>
-      </Key>
       <Key ID="STR_antistasi_addAction_cleanForest">
         <Original>Clear Nearby Forest</Original>
         <Russian>Убрать лес</Russian>
@@ -2845,7 +2841,7 @@
         <Russian>%2, я отправляю %1 обратно на базу</Russian>
       </Key>
     </Container>
-    <Container name="cutText">
+    <Container name="Sleep">
       <Key ID="STR_antistasi_cutText_sleep">
         <Original>You decided to rest for some time</Original>
         <Russian>Вы решили немного отдохнуть</Russian>
@@ -2854,31 +2850,9 @@
         <Original>Time to go</Original>
         <Russian>Пора идти</Russian>
       </Key>
-      <Key ID="STR_antistasi_cutText_SP_detect">
-        <Original>Single player modus detected! \n\n For the best experience please play as a local hosted game. SP support will end in the near future. \n\n You can still play as SP modus for now, this screen will vanish in a few seconds!</Original>
-        <Russian>Обнаружен режим одиночной игры! \n\n Для максимального удобства играйте в локальную игру. Поддержка SP прекратится в ближайшее время. \n\n Вы все еще можете играть в режиме одиночной игры, этот экран исчезнет через несколько секунд!</Russian>
-      </Key>
-    </Container>
-    <Container name="ctrlSetTooltip">
-      <Key ID="STR_antistasi_tooltip_cost">
-        <Original>Cost: %1 €</Original>
-        <Russian>Цена: %1 €</Russian>
-      </Key>
-      <Key ID="STR_antistasi_tooltip_cost_HR">
-        <Original>Cost: %1 €\nHR: %2</Original>
-        <Russian>Цена: %1 €\nHR: %2</Russian>
-      </Key>
-      <Key ID="STR_antistasi_tooltip_cost_upgrade">
-        <Original>Current level: %2\nNext Level Training Cost: %1 €</Original>
-        <Russian>Текущий уровень: %2\nСтоимость обучения следующего уровня: %1 €</Russian>
-      </Key>
-      <Key ID="STR_antistasi_tooltip_cost_veh">
-        <Original>Buy a vehicle for this squad for %1 €</Original>
-        <Russian>Купите технику для этого отряда за %1 €</Russian>
-      </Key>
-      <Key ID="STR_antistasi_tooltip_cost_noVeh">
-        <Original>Barefoot Infantry</Original>
-        <Russian>Пешая пехота</Russian>
+      <Key ID="STR_antistasi_addAction_sleep">
+        <Original>Rest for 8 Hours</Original>
+        <Russian>Отдых 8 часов</Russian>
       </Key>
     </Container>
     <Container name="Mission">
@@ -4882,6 +4856,22 @@
         <Original>We are attacking an %2 from the %1. Help the operation if you can</Original>
         <Russian>Мы атакуем %2 из %1. Помогите операции, если можете</Russian>
       </Key>
+      <Key ID="STR_antistasi_tooltip_cost">
+        <Original>Cost: %1 €</Original>
+        <Russian>Цена: %1 €</Russian>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_HR">
+        <Original>Cost: %1 €\nHR: %2</Original>
+        <Russian>Цена: %1 €\nHR: %2</Russian>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_veh">
+        <Original>Buy a vehicle for this squad for %1 €</Original>
+        <Russian>Купите технику для этого отряда за %1 €</Russian>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_noVeh">
+        <Original>Barefoot Infantry</Original>
+        <Russian>Пешая пехота</Russian>
+      </Key>
     </Container>
     <Container name="Loot">
       <Key ID="STR_antistasi_journal_entry_header_AI_5">
@@ -5736,6 +5726,10 @@
         <Original>Mod cars will be added to civilian car spawns</Original>
         <Russian>Автомобили с модификациями будут добавлены в места появления гражданских автомобилей.</Russian>
       </Key>
+      <Key ID="STR_antistasi_cutText_SP_detect">
+        <Original>Single player modus detected! \n\n For the best experience please play as a local hosted game. SP support will end in the near future. \n\n You can still play as SP modus for now, this screen will vanish in a few seconds!</Original>
+        <Russian>Обнаружен режим одиночной игры! \n\n Для максимального удобства играйте в локальную игру. Поддержка SP прекратится в ближайшее время. \n\n Вы все еще можете играть в режиме одиночной игры, этот экран исчезнет через несколько секунд!</Russian>
+      </Key>
     </Container>
     <Container name="Vehicle\Garage">
       <Key ID="STR_antistasi_dialogs_vehicle_manager">
@@ -6480,6 +6474,10 @@
       <Key ID="STR_antistasi_customHint_skill_upgrade">
         <Original>%2 Skill Level has been Upgraded&lt;br/&gt;Current level is %1</Original>
         <Russian>%2 Уровень умения был повышен&lt;br/&gt;Текущий уровень - %1</Russian>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_upgrade">
+        <Original>Current level: %2\nNext Level Training Cost: %1 €</Original>
+        <Russian>Текущий уровень: %2\nСтоимость обучения следующего уровня: %1 €</Russian>
       </Key>
     </Container>
     <Container name="Member">

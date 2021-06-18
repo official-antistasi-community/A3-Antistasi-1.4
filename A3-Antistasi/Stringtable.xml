@@ -5166,6 +5166,14 @@
         <Original>Garrison men: %1&lt;br/&gt;&lt;br/&gt;Squad Leaders: %2&lt;br/&gt;%11: %3&lt;br/&gt;Riflemen: %4&lt;br/&gt;Autoriflemen: %5&lt;br/&gt;Medics: %6&lt;br/&gt;Grenadiers: %7&lt;br/&gt;Marksmen: %8&lt;br/&gt;AT Men: %9&lt;br/&gt;Static Weap: %10</Original>
         <Russian>Гарнизон: %1&lt;br/&gt;&lt;br/&gt;Командиры: %2 &lt;br/&gt;%11: %3&lt;br/&gt; Стрелки: %4&lt;br/&gt;Пулеметчики: %5&lt;br/&gt;Медики: %6&lt;br/&gt;ГП Стрелки: %7&lt;br/&gt;Стрелки: %8&lt;br/&gt;Гранатаметчики: %9&lt;br/&gt;Статическое орудие: %10</Russian>
       </Key>
+      <Key ID="STR_antistasi_garrisons_mortars">
+        <Original>Mortars</Original>
+        <Russian>Минометы</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_technicals">
+        <Original>Technicals</Original>
+        <Russian>Транспорт</Russian>
+      </Key>
       <Key ID="STR_antistasi_garrisons_moveHQ_remove">
         <Original>Garrison removed&lt;br/&gt;&lt;br/&gt;Recovered Money: %1 €&lt;br/&gt;Recovered HR: %2</Original>
         <Russian>Гарнизон удален&lt;br/&gt;&lt;br/&gt;Деньги: %1 €&lt;br/&gt;HR: %2</Russian>

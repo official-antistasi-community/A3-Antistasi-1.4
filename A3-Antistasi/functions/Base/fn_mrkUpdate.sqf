@@ -26,7 +26,7 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 			{
 			 if (_markerX in resourcesX) then
 			 	{
-			 	_textX = format [localize "STR_antistasi_journal_entry_header_tutorial_5"+"%1",_textX];
+			 	_textX = format [localize "STR_antistasi_resources"+"%1",_textX];
 			 	}
 			 else
 			 	{
@@ -81,7 +81,7 @@ else
 		};
 	if (_markerX in resourcesX) then
 	 	{
-			_mrkD setMarkerText localize "STR_antistasi_journal_entry_header_tutorial_5";
+			_mrkD setMarkerText localize "STR_antistasi_resources";
 	 	}
 	 else
 	 	{

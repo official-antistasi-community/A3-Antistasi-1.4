@@ -7,7 +7,7 @@ class set_params {
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -57,7 +57,7 @@ class HQ_menu 			{
 		class HQ_box: BOX
 		{
 			idc = 101;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -103,7 +103,7 @@ class HQ_menu 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (player == theBoss) then {nul=CreateDialog ""build_menu""} else {[localize ""STR_antistasi_journal_entry_header_commander_2"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (player == theBoss) then {nul=CreateDialog ""build_menu""} else {[localize ""STR_antistasi_garrisons"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_moveHQ: RscButton
 		{
@@ -171,7 +171,7 @@ class build_menu  			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -251,7 +251,7 @@ class garrison_recruit 			{
 		class HQ_box: BOX
 		{
 			idc = 101;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -368,7 +368,7 @@ class minebuild_menu 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -435,7 +435,7 @@ class unit_recruit 		{
 		class HQ_box: BOX
 		{
 			idc = 101;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -552,7 +552,7 @@ class vehicle_option 	{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -609,7 +609,7 @@ class buy_vehicle 			{
 		class HQ_box: BOX
 		{
 			idc = 101;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -729,7 +729,7 @@ class civ_vehicle 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -807,7 +807,7 @@ class game_options 		{
 		class 8slots_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -881,7 +881,7 @@ class game_options 		{
 		class 8slots_L3: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -892,7 +892,7 @@ class game_options 		{
 		class 8slots_R3: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -904,7 +904,7 @@ class game_options 		{
 		class 8slots_L4: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -915,7 +915,7 @@ class game_options 		{
 		class 8slots_R4: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -946,7 +946,7 @@ class fps_limiter 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1001,7 +1001,7 @@ class spawn_config 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1057,7 +1057,7 @@ class civ_config 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1114,7 +1114,7 @@ class mission_menu 		{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1147,7 +1147,7 @@ class mission_menu 		{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""AS"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_customHint_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""AS"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_CONV: RscButton
 		{
@@ -1157,7 +1157,7 @@ class mission_menu 		{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CONVOY"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_customHint_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CONVOY"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_DES: RscButton
 		{
@@ -1167,7 +1167,7 @@ class mission_menu 		{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""DES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_customHint_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""DES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_vehicle: RscButton
 		{
@@ -1177,7 +1177,7 @@ class mission_menu 		{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CON"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_customHint_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CON"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_LOG: RscButton
 		{
@@ -1188,7 +1188,7 @@ class mission_menu 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_mission_menu_logistics_missions_tooltip;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""LOG"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_customHint_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""LOG"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_SUPP: RscButton
 		{
@@ -1199,7 +1199,7 @@ class mission_menu 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_mission_menu_support_missions_tooltip;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""SUPP"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_customHint_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""SUPP"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_RES: RscButton
 		{
@@ -1209,7 +1209,7 @@ class mission_menu 		{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""RES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_customHint_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""RES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[localize ""STR_antistasi_mission_request"", localize ""STR_antistasi_customHint_only_comander""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_exit: RscButton
 		{
@@ -1234,7 +1234,7 @@ class radio_comm 		{
 		class 8slots_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1285,7 +1285,7 @@ class radio_comm 		{
 		class 8slots_L2: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_radio_comm_undercover;
+			text = $STR_antistasi_undercover_ON;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -1358,7 +1358,7 @@ class vehicle_manager 		{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1438,7 +1438,7 @@ class veh_query 				{
 		class HQ_box: BOX
 		{
 			idc = 101;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1493,7 +1493,7 @@ class squad_manager 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1572,7 +1572,7 @@ class AI_management 		{
 		class 8slots_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1651,7 +1651,7 @@ class AI_management 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_garrison_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\addToGarrison.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\addToGarrison.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_journal_entry_header_commander_2"", localize ""STR_antistasi_customHint_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\addToGarrison.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\addToGarrison.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_garrisons"", localize ""STR_antistasi_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
 		};
 		class 8slots_R3: RscButton
 		{
@@ -1673,7 +1673,7 @@ class AI_management 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_dismiss_units_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\dismissPlayerGroup.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\dismissSquad.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_customHint_dismiss"", localize ""STR_antistasi_customHint_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\dismissPlayerGroup.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\dismissSquad.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_customHint_dismiss"", localize ""STR_antistasi_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
 		};
 		class 8slots_R4: RscButton
 		{
@@ -1696,7 +1696,7 @@ class commander_comm 		{
 		class 8slots_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1820,7 +1820,7 @@ class carpet_bombing 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1901,7 +1901,7 @@ class dismiss_menu 				{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -1925,7 +1925,7 @@ class dismiss_menu 				{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_dismiss_units_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\dismissPlayerGroup.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\dismissSquad.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_journal_entry_header_commander_2"", localize ""STR_antistasi_customHint_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\dismissPlayerGroup.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\dismissSquad.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_garrisons"", localize ""STR_antistasi_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -1936,7 +1936,7 @@ class dismiss_menu 				{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_garrison_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\addToGarrison.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\addToGarrison.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_journal_entry_header_commander_2"", localize ""STR_antistasi_customHint_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\addToGarrison.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\addToGarrison.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[localize ""STR_antistasi_garrisons"", localize ""STR_antistasi_garrisons_noUnitsSelected""] call A3A_fnc_customHint;}";
 		};
 		/*
 		class HQ_button_Gremove: RscButton
@@ -1960,7 +1960,7 @@ class construction_menu 	{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2041,7 +2041,7 @@ class bunker_menu 				{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2100,7 +2100,7 @@ class squad_recruit 			{
 		class HQ_box: BOX
 		{
 			idc = 101;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2216,7 +2216,7 @@ class player_money 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2294,7 +2294,7 @@ class garage_sell 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2362,7 +2362,7 @@ class garage_check 				{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2429,7 +2429,7 @@ class tu_madre 				{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2513,7 +2513,7 @@ class mortar_type {
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2580,7 +2580,7 @@ class rounds_number {
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2696,7 +2696,7 @@ class strike_type {
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2765,7 +2765,7 @@ class NATO_player {
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2823,7 +2823,7 @@ class mbt_type {
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2889,7 +2889,7 @@ class squad_options 	{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2966,7 +2966,7 @@ class diff_menu 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -2994,7 +2994,7 @@ class diff_menu 			{
 		class HQ_button_MG: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_difficulty_normal;
+			text = $STR_antistasi_param_diff_normal;
 			x = 0.37749 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -3004,7 +3004,7 @@ class diff_menu 			{
 		class HQ_button_AT: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_difficulty_hard;
+			text = $STR_antistasi_param_diff_hard;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -3022,7 +3022,7 @@ class gameMode_menu 			{
 		class HQ_box: BOX
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
+			text = $STR_antistasi_space;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
@@ -3031,7 +3031,7 @@ class gameMode_menu 			{
 		class HQ_frame: RscFrame
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_gameMode_menu;
+			text = $STR_antistasi_param_dialog_gameMenu;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
@@ -3040,7 +3040,7 @@ class gameMode_menu 			{
 		class HQ_button_Gsquad: RscButton
 		{
 			idc = 104;
-			text = $STR_antistasi_gameMode_Reb_vs_Gov_vs_Inv;
+			text = $STR_antistasi_param_gameMode_Reb_vs_Gov_vs_Inv;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -3050,7 +3050,7 @@ class gameMode_menu 			{
 		class HQ_button_Gstatic: RscButton
 		{
 			idc = 105;
-			text = $STR_antistasi_gameMode_Reb_vs_Gov_and_Inv;
+			text = $STR_antistasi_param_gameMode_Reb_vs_Gov_and_Inv;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -3060,7 +3060,7 @@ class gameMode_menu 			{
 		class HQ_button_Gremove: RscButton
 		{
 			idc = 106;
-			text = $STR_antistasi_gameMode_Reb_vs_Gov;
+			text = $STR_antistasi_param_gameMode_Reb_vs_Gov;
 			//x = 0.37749 * safezoneW + safezoneX;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
@@ -3071,7 +3071,7 @@ class gameMode_menu 			{
 		class HQ_button_offroad: RscButton
 		{
 			idc = 107;
-		 	text = $STR_antistasi_gameMode_Reb_vs_Inv;
+		 	text = $STR_antistasi_param_gameMode_Reb_vs_Inv;
 			x = 0.272481 * safezoneW + safezoneX;
 		 	y = 0.415981 * safezoneH + safezoneY;
 		 	w = 0.175015 * safezoneW;

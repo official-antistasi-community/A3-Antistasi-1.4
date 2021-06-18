@@ -33,10 +33,10 @@ _truckX = "Land_FoodSacks_01_cargo_brown_F" createVehicle _pos;
 _truckX enableRopeAttach true;
 _truckX allowDamage false;
 [_truckX] call A3A_fnc_logistics_addLoadAction;
-_truckX addAction [localize "STR_antistasi_addAction_deliveryInfo",
+_truckX addAction [localize "STR_antistasi_logistics_info",
 	{
-		_text = format [localize "STR_antistasi_customHint_logistics_mission_text",(_this select 0) getVariable "destinationX"]; //This need a rework
-		[localize "STR_antistasi_customHint_logistics_mission", _text] remoteExecCall ["A3A_fnc_customHint",_this select 2];	//This need a rework
+		_text = format [localize "STR_antistasi_mission_logistics_text",(_this select 0) getVariable "destinationX"]; //This need a rework
+		[localize "STR_antistasi_mission_logistics_name", _text] remoteExecCall ["A3A_fnc_customHint",_this select 2];	//This need a rework
 	},
 	nil,
 	0,
@@ -49,7 +49,7 @@ _truckX addAction [localize "STR_antistasi_addAction_deliveryInfo",
 //{_x reveal _truckX} forEach (allPlayers - (entities "HeadlessClient_F"));
 _truckX setVariable ["destinationX",_nameDest,true];
 
-[_truckX,"Supply Box"] spawn A3A_fnc_inmuneConvoy;
+[_truckX,localize"STR_antistasi_markers_supplyBox"] spawn A3A_fnc_inmuneConvoy;
 
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _positionX < 40) and (isNull attachedTo _truckX) and (isNull ropeAttachedTo _truckX)) or (isNull _truckX)};
 _bonus = if (_difficultX) then {2} else {1};
@@ -81,8 +81,8 @@ else
 		{
 		while {(_countX > 0) and (_truckX distance _positionX < 40) and ({[_x] call A3A_fnc_canFight} count ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits) == count ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) and ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits == 0) and (dateToNumber date < _dateLimitNum) and (isNull attachedTo _truckX)} do
 			{
-			_formatX = format [localize "STR_antistasi_customHint_logistics_mission_areaClear", _countX];
-			{if (isPlayer _x) then {[petros,"hint",_formatX,localize "STR_antistasi_customHint_logistics_mission"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
+			_formatX = format [localize "STR_antistasi_mission_logistics_areaClear", _countX];
+			{if (isPlayer _x) then {[petros,"hint",_formatX,localize "STR_antistasi_mission_logistics_name"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
 			sleep 1;
 			_countX = _countX - 1;
 			};
@@ -96,7 +96,7 @@ else
 		};
 		if ((dateToNumber date < _dateLimitNum) and !(isNull _truckX)) then
 			{
-			[petros,"hint",localize "STR_antistasi_customHint_logistics_mission_Delivered",localize "STR_antistasi_customHint_logistics_mission"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+			[petros,"hint",localize "STR_antistasi_mission_logistics_delivered",localize "STR_antistasi_mission_logistics_name"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 			[_taskId, "SUPP", "SUCCEEDED"] call A3A_fnc_taskSetState;
 			{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

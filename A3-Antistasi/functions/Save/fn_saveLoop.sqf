@@ -244,6 +244,6 @@ _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlaye
 
 saveProfileNamespace;
 savingServer = false;
-_saveHintText = ["<t size='1.5'>",nameTeamPlayer," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
+_saveHintText = ["<t size='1.5'>",nameTeamPlayer,localize "STR_antistasi_customHint_save_hint1",str _hrBackground,localize "STR_antistasi_customHint_save_hint2",str _resourcesBackground,localize "STR_antistasi_customHint_save_hint3"] joinString "";
 [localize "STR_antistasi_customHint_save_head",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
 Info("Persistent Save Completed");

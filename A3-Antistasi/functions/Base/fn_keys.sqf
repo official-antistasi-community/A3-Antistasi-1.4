@@ -29,12 +29,12 @@ else
 			if (soundVolume <= 0.5) then
 				{
 				0.5 fadeSound 1;
-				[localize "STR_antistasi_journal_entry_header_SpecialK_5", localize "STR_antistasi_customHint_ear_off", true] call A3A_fnc_customHint;
+				[localize "STR_antistasi_earplugs", localize "STR_antistasi_earplugs_off", true] call A3A_fnc_customHint;
 				}
 			else
 				{
 				0.5 fadeSound 0.1;
-				[localize "STR_antistasi_journal_entry_header_SpecialK_5", localize "STR_antistasi_customHint_ear_on", true] call A3A_fnc_customHint;
+				[localize "STR_antistasi_earplugs", localize "STR_antistasi_earplugs_on", true] call A3A_fnc_customHint;
 				};
 			};
 		};

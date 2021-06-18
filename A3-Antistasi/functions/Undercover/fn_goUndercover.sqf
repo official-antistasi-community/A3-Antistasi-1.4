@@ -58,7 +58,7 @@ if(!(_result select 0)) exitWith
     };
 };
 
-[localize "STR_antistasi_dialogs_radio_comm_undercover", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
+[localize "STR_antistasi_undercover_ON", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
 
 [player, true] remoteExec["setCaptive", 0, player];
 player setCaptive true;
@@ -219,14 +219,14 @@ if !(isNull (objectParent player)) then
     } forEach((assignedCargo(vehicle player)) + (crew(vehicle player)) - [player]);
 };
 
-[localize "STR_antistasi_dynamicText_undercover_OFF", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
+[localize "STR_antistasi_undercover_OFF", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
 [] spawn A3A_fnc_statistics;
 
 switch (_reason) do
 {
     case "Reported":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_RepSpot"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_RepSpot"] call A3A_fnc_customHint;
         if (vehicle player != player) then
         {
             reportedVehs pushBackUnique (objectParent player);
@@ -239,49 +239,49 @@ switch (_reason) do
     };
     case "VNoCivil":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_noCivVeh_enter"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_noCivVeh"] call A3A_fnc_customHint;
     };
     case "VCompromised":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_repVeh"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_repVeh"] call A3A_fnc_customHint;
     };
     case "SpotBombTruck":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_explo"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_explo"] call A3A_fnc_customHint;
         reportedVehs pushBackUnique (objectParent player);
         publicVariable "reportedVehs";
     };
     case "Highway":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_road"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_road"] call A3A_fnc_customHint;
         reportedVehs pushBackUnique (objectParent player);
         publicVariable "reportedVehs";
     };
     case "clothes":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_info"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_info"] call A3A_fnc_customHint;
     };
     case "clothes2":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_info_wanted"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_info_wanted"] call A3A_fnc_customHint;
         player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
     };
     case "BadMedic":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_heal"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_heal"] call A3A_fnc_customHint;
     };
     case "BadMedic2":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_heal_wanted"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_heal_wanted"] call A3A_fnc_customHint;
         player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
     };
     case "Compromised":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_vehStill"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_vehStill"] call A3A_fnc_customHint;
     };
     case "distanceX":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_zone_gotten"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_zone_gotten"] call A3A_fnc_customHint;
         if !(isNull objectParent player) then
         {
             reportedVehs pushBackUnique (objectParent player);
@@ -296,20 +296,20 @@ switch (_reason) do
     {
         private _veh = objectParent player;
         private _detectedBy = _veh getVariable "NoFlyZoneDetected";
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", format [localize "STR_antistasi_customHint_undercover_zoneAir", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", format [localize "STR_antistasi_undercover_zoneAir", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
         reportedVehs pushBackUnique _veh;
         publicVariable "reportedVehs";
         _veh setVariable ["NoFlyZoneDetected", nil, true];
     };
     case "Control":
     {
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_recognised"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_recognised"] call A3A_fnc_customHint;
         reportedVehs pushBackUnique(vehicle player);
         publicVariable "reportedVehs";
     };
     default
     {
         Error_1("Unknown reason given, was %1", _reason);
-        [localize "STR_antistasi_journal_entry_header_tutorial_7", localize "STR_antistasi_customHint_undercover_error!"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_undercover", localize "STR_antistasi_undercover_error"] call A3A_fnc_customHint;
     };
 };

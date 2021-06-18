@@ -6,7 +6,7 @@ private _autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
 	localize"str_cfg_markers_warning",
 	[localize"STR_antistasi_customHint_save_info",
 	localize "STR_antistasi_customHint_save_info2",
-	"STR_antistasi_customHint_autosave_info"+" <t color='#f0d498'>",(_autoSaveInterval/60) toFixed 0," "+localize"str_a3_rscattributeskiptime_minutes"+"</t>."] joinString ""
+	localize "STR_antistasi_customHint_autosave_info"+" <t color='#f0d498'>",(_autoSaveInterval/60) toFixed 0," "+localize"str_a3_rscattributeskiptime_minutes"+"</t>."] joinString ""
 ] call A3A_fnc_customHint;
 waitUntil {!dialog};
 

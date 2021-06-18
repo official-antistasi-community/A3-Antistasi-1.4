@@ -137,7 +137,7 @@ if (not alive _traitor || traitorIntel) then
 	[_taskId, "AS", "SUCCEEDED", true] call A3A_fnc_taskSetState;
 	if(traitorIntel && (alive _traitor)) then
 	{
-		{[petros,"hint",localize "STR_antistasi_chat_petros_intelTraitor"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits);
+		{[petros,"hint",localize "STR_antistasi_intel_petrosTraitor"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits);
 
 		moveOut _traitor;
 		_traitor join grpNull;

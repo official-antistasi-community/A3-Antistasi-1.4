@@ -163,8 +163,8 @@ while {!(isNull _vehicle) && {alive _vehicle && {count (crew _vehicle) != 0}}} d
 
         {
             //Assuming you only get a single one each second, need to split it otherwise
-            private _warningText = format [localize "STR_antistasi_customHint_undercover_air_warningText", [_x] call A3A_fnc_localizar];
-            [localize "STR_antistasi_journal_entry_header_tutorial_7", _warningText] remoteExec ["A3A_fnc_customHint", (crew _vehicle)];
+            private _warningText = format [localize "STR_antistasi_undercover_air_warningText", [_x] call A3A_fnc_localizar];
+            [localize "STR_antistasi_undercover", _warningText] remoteExec ["A3A_fnc_customHint", (crew _vehicle)];
         } forEach (_newAirports + _newOutposts);
 
         //Check if the aircraft got to close to any airport in which warning zone it already is

@@ -12,7 +12,7 @@ if (_typeX == "sideChat") then
 if (_typeX == "hint") then {[_titleX, format ["%1",_textX]] call A3A_fnc_customHint;};
 if (_typeX == "hintCS") then {hintC format ["%1",_textX]};
 if (_typeX == "hintS") then {[_titleX, format ["%1",_textX], true] call A3A_fnc_customHint;};
-if (_typeX == "intelError") then {[_titleX, format [localize "STR_antistasi_addAction_intelDownload_error",_textX]] call A3A_fnc_customHint;};
+if (_typeX == "intelError") then {[_titleX, format [localize "STR_antistasi_intel_download_error",_textX]] call A3A_fnc_customHint;};
 if (_typeX == "globalChat") then
 	{
 	_unit globalChat format ["%1", _textX];

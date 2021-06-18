@@ -41,12 +41,12 @@ _truckX addEventHandler ["GetIn",
 	{
 	if (_this select 1 == "driver") then
 		{
-		_textX = format [localize "STR_antistasi_customHint_mission_bank_text",(_this select 0) getVariable "destinationX"];
-		[localize "STR_antistasi_customHint_mission_bank", _textX] remoteExecCall ["A3A_fnc_customHint", _this select 2];
+		_textX = format [localize "STR_antistasi_mission_bank_customhint",(_this select 0) getVariable "destinationX"];
+		[localize "STR_antistasi_mission_bank_name", _textX] remoteExecCall ["A3A_fnc_customHint", _this select 2];
 		};
 	}];
 
-[_truckX,"Mission Vehicle"] spawn A3A_fnc_inmuneConvoy;
+[_truckX,localize "STR_antistasi_markers_missionVehicle"] spawn A3A_fnc_inmuneConvoy;
 
 private _taskId = "LOG" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[format [localize "STR_antistasi_mission_bank_text",_nameDest,_displayTime],localize "STR_antistasi_mission_bank",_mrkFinal],_positionX,false,0,true,"Interact",true] call BIS_fnc_taskCreate;
@@ -108,14 +108,14 @@ else
 		if (_countX > 0) then
 			{
 			_countX = 120*_bonus;//120
-			if (_truckX distance _positionX > 6) then {{[petros,"hint",localize "STR_antistasi_customHint_mission_bank_truckFar",localize "STR_antistasi_customHint_mission_bank"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([200,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
+			if (_truckX distance _positionX > 6) then {{[petros,"hint",localize "STR_antistasi_mission_bank_truckFar",localize "STR_antistasi_mission_bank_name"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([200,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
 			waitUntil {sleep 1; (!alive _truckX) or (_truckX distance _positionX < 7) or (dateToNumber date < _dateLimitNum)};
 			}
 		else
 			{
 			if (alive _truckX) then
 				{
-				{if (isPlayer _x) then {[petros,"hint",localize "STR_antistasi_customHint_mission_bank_truckBase",localize "STR_antistasi_customHint_mission_bank"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
+				{if (isPlayer _x) then {[petros,"hint",localize "STR_antistasi_mission_bank_truckBase",localize "STR_antistasi_mission_bank_name"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
 				_exit = true;
 				};
 			//waitUntil {sleep 1; (!alive _truckX) or (_truckX distance _positionX > 7) or (dateToNumber date < _dateLimitNum)};

@@ -35,7 +35,7 @@ if (!(_canPlaceArray select 0))	exitWith {
 };
 
 //Only show text after we've checked all of the failure conditions above.
-["<t size='0.6'>" + localize "STR_antistasi_dynamicText_vehPlaced",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
+["<t size='0.6'>" + localize "STR_antistasi_notification_vehPlaced",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
 
 waitUntil {isNull vehPlace_previewVeh};
 

@@ -744,23 +744,23 @@ SA_Set_Owner = {
 
 SA_Add_Player_Tow_Actions = {
 
-	player addAction [localize "STR_antistasi_addAction_deployRopes", {
+	player addAction [localize "STR_antistasi_logistics_deployRopes", {
 		[] call SA_Take_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Take_Tow_Ropes_Action_Check"];
 
-	player addAction [localize "STR_antistasi_addAction_putRopes", {
+	player addAction [localize "STR_antistasi_logistics_putRopes", {
 		[] call SA_Put_Away_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Put_Away_Tow_Ropes_Action_Check"];
 
-	player addAction [localize "STR_antistasi_addAction_attachRopes", {
+	player addAction [localize "STR_antistasi_logistics_attachRopes", {
 		[] call SA_Attach_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Attach_Tow_Ropes_Action_Check"];
 
-	player addAction [localize "STR_antistasi_addAction_dropRopes", {
+	player addAction [localize "STR_antistasi_logistics_dropRopes", {
 		[] call SA_Drop_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Drop_Tow_Ropes_Action_Check"];
 
-	player addAction [localize "STR_antistasi_addAction_pickupRopes", {
+	player addAction [localize "STR_antistasi_logistics_pickupRopes", {
 		[] call SA_Pickup_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Pickup_Tow_Ropes_Action_Check"];
 

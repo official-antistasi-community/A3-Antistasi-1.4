@@ -25,13 +25,13 @@ switch _typeX do
     };
     case "mission":
     {
-        petros addAction [localize "STR_antistasi_customHint_mission_request", {CreateDialog "mission_menu";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and ([_this] call A3A_fnc_isMember) and (petros == leader group petros)",4];
+        petros addAction [localize "STR_antistasi_mission_request", {CreateDialog "mission_menu";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and ([_this] call A3A_fnc_isMember) and (petros == leader group petros)",4];
         petros addAction [localize "STR_antistasi_addAction_HQ_management", A3A_fnc_dialogHQ,nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros)", 4];
-        petros addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"];
+        petros addAction [localize "STR_antistasi_logistics_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"];
     };
     case "truckX":
     {
-        actionX = _flag addAction [localize "STR_antistasi_addAction_trans_ammo_to_truck" + "<img image='\A3\ui_f\data\igui\cfg\actions\unloadVehicle_ca.paa' size='1.8' shadow=2 />", A3A_fnc_transfer,nil,6,true,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])"]
+        actionX = _flag addAction [localize "STR_antistasi_logistics_box_to_truck" + "<img image='\A3\ui_f\data\igui\cfg\actions\unloadVehicle_ca.paa' size='1.8' shadow=2 />", A3A_fnc_transfer,nil,6,true,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])"]
     };
     //case "heal": {if (player != _flag) then {_flag addAction [format ["Revive %1",name _flag], { _this spawn A3A_fnc_actionRevive; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])"]}};
     case "heal":
@@ -132,7 +132,7 @@ switch _typeX do
         fireX addAction [localize "STR_antistasi_addAction_cleanForest", A3A_fnc_clearForest,nil,0,false,true,"","(_this == theBoss)",4];
         fireX addAction [localize "STR_antistasi_addAction_fog", { [10,0] remoteExec ["setFog",2]; },nil,0,false,true,"","(_this == theBoss)",4];
         fireX addAction [localize "STR_antistasi_addAction_rain", { [10,0] remoteExec ["setRain",2]; },nil,0,false,true,"","(_this == theBoss)",4];
-        fireX addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)",4];
+        fireX addAction [localize "STR_antistasi_logistics_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)",4];
     };
     case "SDKFlag":
     {
@@ -163,14 +163,14 @@ switch _typeX do
     };
     case "Intel_Encrypted":
     {
-        _flag addAction ["Decifer Intel", A3A_fnc_searchEncryptedIntel, nil, 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction [localize "STR_antistasi_intel_decifer", A3A_fnc_searchEncryptedIntel, nil, 4, true, false, "", "isPlayer _this", 4];
     };
     case "static":
     {
         private _cond = "(_target getVariable ['ownerSide', teamPlayer] == teamPlayer) and (isNull attachedTo _target) and ([_this] call A3A_fnc_isMember) and ";
-        _flag addAction ["Allow AIs to use this weapon", A3A_fnc_unlockStatic, nil, 1, false, false, "", _cond+"!isNil {_target getVariable 'lockedForAI'}", 4];
-        _flag addAction ["Prevent AIs using this weapon", A3A_fnc_lockStatic, nil, 1, false, false, "", _cond+"isNil {_target getVariable 'lockedForAI'}", 4];
+        _flag addAction [localize "STR_antistasi_addAction_allowAIUseWeapon", A3A_fnc_unlockStatic, nil, 1, false, false, "", _cond+"!isNil {_target getVariable 'lockedForAI'}", 4];
+        _flag addAction [localize "STR_antistasi_addAction_preventAIUseWeapon", A3A_fnc_lockStatic, nil, 1, false, false, "", _cond+"isNil {_target getVariable 'lockedForAI'}", 4];
     //    _flag addAction ["Kick AI off this weapon", A3A_fnc_lockStatic, nil, 1, true, false, "", _cond+"isNil {_target getVariable 'lockedForAI'} and !(isNull gunner _target) and !(isPlayer gunner _target)}", 4];
-        _flag addAction ["Move this asset", A3A_fnc_moveHQObject, nil, 1.5, false, false, "",  _cond+"(count crew _target == 0)", 4];
+        _flag addAction [localize "STR_antistasi_logistics_move", A3A_fnc_moveHQObject, nil, 1.5, false, false, "",  _cond+"(count crew _target == 0)", 4];
     };
 };

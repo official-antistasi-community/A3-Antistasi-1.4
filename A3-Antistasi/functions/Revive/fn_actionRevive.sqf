@@ -75,7 +75,7 @@ if (!_player) then
 }
 else
 {
-    _actionX = _medic addAction ["Cancel Revive", {(_this select 1) setVariable ["cancelRevive",true]},nil,6,true,true,"",""];
+    _actionX = _medic addAction [localize "STR_antistasi_medical_cancel", {(_this select 1) setVariable ["cancelRevive",true]},nil,6,true,true,"",""];
     _cured setVariable ["helped",_medic,true];
 };
 

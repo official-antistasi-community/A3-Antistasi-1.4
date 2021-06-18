@@ -21,7 +21,7 @@
 //check if action already on player
 if ((actionIDs Player) findIf {
     _params = player actionParams _x;
-    (_params#0) isEqualTo "Load loot to crate"
+    (_params#0) isEqualTo localize "STR_antistasi_addAction_lootCrate"
 } != -1) exitWith {};
 
 //add load actions

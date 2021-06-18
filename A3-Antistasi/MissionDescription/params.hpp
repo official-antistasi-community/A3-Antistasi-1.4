@@ -43,7 +43,7 @@ class Params
     {
         title = $STR_antistasi_param_gameMode;
         values[] = {9999,1,2,3};
-        texts[] = {$STR_antistasi_param_gameMode_default, $STR_antistasi_gameMode_Reb_vs_Gov_vs_Inv, $STR_antistasi_gameMode_Reb_vs_Gov_and_Inv, $STR_antistasi_gameMode_Reb_vs_Gov};
+        texts[] = {$STR_antistasi_param_gameMode_default, $STR_antistasi_param_gameMode_Reb_vs_Gov_vs_Inv, $STR_antistasi_param_gameMode_Reb_vs_Gov_and_Inv, $STR_antistasi_param_gameMode_Reb_vs_Gov};
         default = 9999;
     };
     class autoSave
@@ -99,7 +99,7 @@ class Params
     {
         title = $STR_antistasi_param_AISkill;
         values[] = {9999,1,2,3};
-        texts[] = {$STR_antistasi_param_AISkill_default,$STR_antistasi_difficulty_easy,$STR_antistasi_difficulty_normal,$STR_antistasi_difficulty_hard};
+        texts[] = {$STR_antistasi_param_AISkill_default,$STR_antistasi_param_diff_easy,$STR_antistasi_param_diff_normal,$STR_antistasi_param_diff_hard};
         default = 9999;
     };
     class unlockItem
@@ -307,9 +307,9 @@ class Params
     };
         class VN
     {
-        title = "Allow VN DLC (S.O.G. PRAIRIE FIRE)?";
+        title = $STR_antistasi_param_SOG;
         values[] = {9999,1,0};
-        texts[] =  {"Default (Yes)","Yes","No"};
+        texts[] =  {$STR_antistasi_param_default_yes,$STR_lib_info_yes,$STR_lib_info_no};
         default = 9999;
     };
     class Spacer0

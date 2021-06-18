@@ -70,7 +70,7 @@ private _fnc_placeObject = {
 	_thingX setVariable ["objectBeingMoved", false];
 };
 
-private _actionX = _playerX addAction [localize "STR_antistasi_addAction_drop", {
+private _actionX = _playerX addAction [localize "STR_antistasi_logistics_drop", {
 	(_this select 3) params ["_thingX", "_fnc_placeObject"];
 
 	[_thingX, player, (_this select 2)] call _fnc_placeObject;
@@ -86,7 +86,7 @@ waitUntil {sleep 1;
 };
 
 [_thingX, _playerX, _actionX] call _fnc_placeObject;
-if !(_isStatic) then { _thingX addAction [localize "STR_antistasi_addAction_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"] };
+if !(_isStatic) then { _thingX addAction [localize "STR_antistasi_logistics_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"] };
 
 if (vehicle _playerX != _playerX) exitWith {[localize "STR_antistasi_journal_entry_header_commander_5", localize "STR_antistasi_customHint_moveHQ_veh"] call A3A_fnc_customHint;};
 

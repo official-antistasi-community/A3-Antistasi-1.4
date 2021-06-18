@@ -4,9 +4,9 @@ waitUntil {!isNull player};
 if (side player == teamPlayer) then
 {
 _index =player createDiarySubject ["Tutorial", localize "STR_antistasi_journal_entry_header_tutorial"];
-player createDiaryRecord ["Tutorial",[localize "STR_antistasi_journal_entry_header_tutorial_7",localize "STR_antistasi_journal_entry_text_tutorial_7"]];
+player createDiaryRecord ["Tutorial",[localize "STR_antistasi_undercover",localize "STR_antistasi_journal_entry_text_tutorial_7"]];
 player createDiaryRecord ["Tutorial",[localize "STR_a3_cfgvehicles_modulerespawnvehicle_f_arguments_position_values_start_0",localize "STR_antistasi_journal_entry_text_tutorial_6"]];
-player createDiaryRecord ["Tutorial",[localize "STR_antistasi_journal_entry_header_tutorial_5",localize "STR_antistasi_journal_entry_text_tutorial_5"]];
+player createDiaryRecord ["Tutorial",[localize "STR_antistasi_resources",localize "STR_antistasi_journal_entry_text_tutorial_5"]];
 player createDiaryRecord ["Tutorial",[localize "STR_antistasi_journal_entry_header_tutorial_4",localize "STR_antistasi_journal_entry_text_tutorial_4"]];
 player createDiaryRecord ["Tutorial",[localize "STR_a3_wl_menu_strategy",localize "STR_antistasi_journal_entry_text_tutorial_3"]];
 player createDiaryRecord ["Tutorial",[localize "STR_antistasi_journal_entry_header_tutorial_2",localize "STR_antistasi_journal_entry_text_tutorial_2"]];
@@ -26,12 +26,12 @@ player createDiaryRecord ["Commander",[localize "STR_antistasi_journal_entry_hea
 player createDiaryRecord ["Commander",[localize "STR_antistasi_journal_entry_header_commander_5",localize "STR_antistasi_journal_entry_text_commander_5"]];
 player createDiaryRecord ["Commander",[localize "STR_antistasi_journal_entry_header_commander_4",localize "STR_antistasi_journal_entry_text_commander_4"]];
 player createDiaryRecord ["Commander",[localize "STR_antistasi_journal_entry_header_commander_3",localize "STR_antistasi_journal_entry_text_commander_3"]];
-player createDiaryRecord ["Commander",[localize "STR_antistasi_journal_entry_header_commander_2",localize "STR_antistasi_journal_entry_text_commander_2"]];
+player createDiaryRecord ["Commander",[localize "STR_antistasi_garrisons",localize "STR_antistasi_journal_entry_text_commander_2"]];
 player createDiaryRecord ["Commander",[localize "STR_a3_rscdisplayconfigure_textgeneral",localize "STR_antistasi_journal_entry_text_commander_1"]];
 
 
 _index =player createDiarySubject ["SpecialK",localize "STR_antistasi_journal_entry_header_SpecialK"];
-player createDiaryRecord ["SpecialK",[localize "STR_antistasi_journal_entry_header_SpecialK_5",localize "STR_antistasi_journal_entry_text_SpecialK_5"]];
+player createDiaryRecord ["SpecialK",[localize "STR_antistasi_earplugs",localize "STR_antistasi_journal_entry_text_SpecialK_5"]];
 player createDiaryRecord ["SpecialK",[localize "STR_antistasi_journal_entry_header_SpecialK_4",localize "STR_antistasi_journal_entry_text_SpecialK_4"]];
 player createDiaryRecord ["SpecialK",[localize "STR_a3_cfgmarkers_nato_art",localize "STR_antistasi_journal_entry_text_SpecialK_3"]];
 player createDiaryRecord ["SpecialK",[localize "STR_a3_cfghints_highcommand1",localize "STR_antistasi_journal_entry_text_SpecialK_2"]];
@@ -50,7 +50,7 @@ player createDiaryRecord ["Features",[localize "STR_dn_vehicles",localize "STR_a
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_6",format [localize "STR_antistasi_journal_entry_text_Features_6",worldName]]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_5",localize "STR_antistasi_journal_entry_text_Features_5"]];
 player createDiaryRecord ["Features",[localize "STR_A3_Arsenal",localize "STR_antistasi_journal_entry_text_Features_4"]];
-player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_tutorial_7",localize "STR_antistasi_journal_entry_text_Features_3"]];
+player createDiaryRecord ["Features",[localize "STR_antistasi_undercover",localize "STR_antistasi_journal_entry_text_Features_3"]];
 player createDiaryRecord ["Features",[localize "STR_a3_garage",localize "STR_antistasi_journal_entry_text_Features_2"]];
 player createDiaryRecord ["Features",[localize "STR_antistasi_journal_entry_header_Features_1",localize "STR_antistasi_journal_entry_text_Features_1"]];
 
@@ -77,7 +77,7 @@ player createDiaryRecord ["Options",[localize "STR_antistasi_journal_entry_heade
 
 //Default Diary entries (Found in "Briefing" box)
 player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_Diary_6",localize "STR_antistasi_journal_entry_text_Diary_6"]];
-player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_tutorial_5",localize "STR_antistasi_journal_entry_text_Diary_5"]];
+player createDiaryRecord ["Diary",[localize "STR_antistasi_resources",localize "STR_antistasi_journal_entry_text_Diary_5"]];
 player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_Diary_4",localize "STR_antistasi_journal_entry_text_Diary_4"]];
 player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_Diary_3",localize "STR_antistasi_journal_entry_text_Diary_3"]];
 player createDiaryRecord ["Diary",[localize "STR_antistasi_journal_entry_header_Diary_2",localize "STR_antistasi_journal_entry_text_Diary_2"]];

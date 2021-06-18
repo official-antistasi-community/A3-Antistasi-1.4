@@ -179,7 +179,7 @@ private _fnc_spawnConvoyVehicle = {
 private _fnc_spawnEscortVehicle = {
 
 	private _typeVehEsc = selectRandomWeighted _vehPool;
-	private _veh = [_typeVehEsc, "Convoy Escort"] call _fnc_spawnConvoyVehicle;
+	private _veh = [_typeVehEsc, localize "STR_antistasi_markers_convoyEscort"] call _fnc_spawnConvoyVehicle;
 
 	if (!_isMilitia) then
 	{
@@ -212,7 +212,7 @@ private _fnc_spawnEscortVehicle = {
 
 // Lead vehicle
 private _typeVehX = if (_sideX == Occupants) then {if (!_isMilitia) then {selectRandom vehNATOLightArmed} else {vehPoliceCar}} else {selectRandom vehCSATLightArmed};
-private _vehLead = [_typeVehX, "Convoy Lead"] call _fnc_spawnConvoyVehicle;
+private _vehLead = [_typeVehX, localize "STR_antistasi_markers_convoyLead"] call _fnc_spawnConvoyVehicle;
 
 
 // Initial escort vehicles
@@ -225,7 +225,7 @@ for "_i" from 1 to _countX do
 
 //Objective creation starts here ----------------------------------------------
 sleep 2;
-private _objText = if (_difficult) then {" Convoy Objective"} else {"Convoy Objective"};
+private _objText = if (_difficult) then {localize "STR_antistasi_markers_convoy"} else {localize "STR_antistasi_markers_convoy"};
 private _vehObj = [_typeVehObj, _objText] call _fnc_spawnConvoyVehicle;
 
 if (_convoyType == "Armor") then {_vehObj lock 3};// else {_vehObj forceFollowRoad true};

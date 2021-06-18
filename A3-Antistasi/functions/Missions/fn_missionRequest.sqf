@@ -15,7 +15,7 @@ if(isNil "_type") then {
 };
 if (isNil "_type" or leader group petros != petros) exitWith { A3A_missionRequestInProgress = nil };
 if (_type in A3A_activeTasks) exitWith {
-	if (!_silent) then {[petros,"globalChat",localize "STR_antistasi_chat_petros_missionType"] remoteExec ["A3A_fnc_commsMP",_requester]};
+	if (!_silent) then {[petros,"globalChat",localize "STR_antistasi_mission_petros_already"] remoteExec ["A3A_fnc_commsMP",_requester]};
 	A3A_missionRequestInProgress = nil;
 };
 
@@ -51,8 +51,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_AssasMission"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",format [localize "STR_antistasi_chat_petros_AssasMission_hint", 4], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_mission_petros_AssasMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_mission_petros_AssasMission_hint", 4], localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -68,8 +68,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_ConqMission"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",format [localize "STR_antistasi_chat_petros_ConqMission_hint", 4], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_mission_petros_ConqMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_mission_petros_ConqMission_hint", 4], localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -92,8 +92,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_DestrMission"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",format [localize "STR_antistasi_chat_petros_DestrMission_hint", 4], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_mission_petros_DestrMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_mission_petros_DestrMission_hint", 4], localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -120,8 +120,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_LogMission"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",format [localize "STR_antistasi_chat_petros_LogMission_hint", 4], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_mission_petros_LogMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_mission_petros_LogMission_hint", 4], localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -146,8 +146,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_SupMission"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",format [localize "STR_antistasi_chat_petros_SupMission_hint", 4], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_mission_petros_SupMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_mission_petros_SupMission_hint", 4], localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
             Debug_1("City weights: %1", _weightedMarkers);
@@ -165,8 +165,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_RescMission"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",format [localize "STR_antistasi_chat_petros_RescMission_hint", 4], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_mission_petros_RescMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_mission_petros_RescMission_hint", 4], localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -177,8 +177,8 @@ switch (_type) do {
 	case "CONVOY": {
 		if (bigAttackInProgress) exitWith {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_ConvMission"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize "STR_antistasi_chat_petros_ConvMission_hint", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_mission_petros_ConvMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_antistasi_mission_petros_ConvMission_hint", localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		};
 		//prety mutch untuched, not mutch in common with the others
@@ -201,8 +201,8 @@ switch (_type) do {
 		if (count _possibleMarkers == 0) then
 		{
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_chat_petros_noConvMission"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",format [localize "STR_antistasi_chat_petros_noConvMission_hint", 5], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_antistasi_mission_petros_noConvMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_mission_petros_noConvMission_hint", 5], localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -217,7 +217,7 @@ switch (_type) do {
 };
 
 if (count _possibleMarkers > 0) then {
-	if (!_silent) then {[petros,"globalChat",localize "STR_antistasi_chat_petros_mission"] remoteExec ["A3A_fnc_commsMP",_requester]};
+	if (!_silent) then {[petros,"globalChat",localize "STR_antistasi_mission_petros_missionForYou"] remoteExec ["A3A_fnc_commsMP",_requester]};
 	sleep 3;			// delay lockout until the mission is registered
 };
 A3A_missionRequestInProgress = nil;

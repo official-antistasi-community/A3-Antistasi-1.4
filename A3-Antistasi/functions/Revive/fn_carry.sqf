@@ -15,7 +15,7 @@ _carryX setVariable ["helped",_carrierX,true];
 _carryX attachTo [_carrierX, [0,1.1,0.092]];
 _carryX setDir 180;
 _timeOut = time + 60;
-_action = _carrierX addAction [format [localize "STR_antistasi_addAction_release",name _carryX], {{detach _x} forEach (attachedObjects player)},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])"];
+_action = _carrierX addAction [format [localize "STR_antistasi_logistics_release",name _carryX], {{detach _x} forEach (attachedObjects player)},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])"];
 
 waitUntil {sleep 0.5; (!alive _carryX) or !([_carrierX] call A3A_fnc_canFight) or !(_carryX getVariable ["incapacitated",false]) or ({!isNull _x} count attachedObjects _carrierX == 0) or (time > _timeOut) or (vehicle _carrierX != _carrierX)};
 

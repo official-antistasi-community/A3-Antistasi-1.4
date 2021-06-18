@@ -133,15 +133,15 @@ A3A_SR_attachRope = {
 
 //adding of actions
 A3A_SR_addplayerWinchActions = {
-    player addAction [localize "STR_antistasi_addAction_deployWinch", {
+    player addAction [localize "STR_antistasi_logistics_deployWinch", {
         [player] call A3A_SR_DeployWinch;
     }, nil, 0, false, true, "", "call A3A_SR_canDeployWinch"];
 
-    player addAction [localize "STR_antistasi_addAction_stowWinch", {
+    player addAction [localize "STR_antistasi_logistics_stowWinch", {
         [player] call A3A_SR_stowRope;
     }, nil, 0, false, true, "", "call A3A_SR_canStow"];
 
-    player addAction [localize "STR_antistasi_addAction_attachRope", {
+    player addAction [localize "STR_antistasi_logistics_attachWinch", {
         [player] call A3A_SR_attachRope;
     }, nil, 0, false, true, "", "call A3A_SR_canAttach"];
 

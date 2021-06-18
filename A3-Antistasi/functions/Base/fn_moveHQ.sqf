@@ -55,7 +55,7 @@ if (count _garrison > 0) then
     private _hr = 0;
     if (allUnits findIf {(alive _x) && (!captive _x) && ((side (group _x) == Occupants) || (side (group _x) == Invaders)) && {_x distance2D _posHQ < 500}} != -1) then
     {
-        [localize "STR_antistasi_journal_entry_header_commander_2", localize "STR_antistasi_customHint_moveHQ_garrison"] call A3A_fnc_customHint;
+        [localize "STR_antistasi_garrisons", localize "STR_antistasi_customHint_moveHQ_garrison"] call A3A_fnc_customHint;
         //Is there a despawn routine attached to them?
         //Why are they getting refunded if they stay?
     }
@@ -96,7 +96,7 @@ if (count _garrison > 0) then
     } forEach _garrison;
     [_hr,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
     garrison setVariable ["Synd_HQ",[],true];
-    [localize "STR_antistasi_journal_entry_header_commander_2", format [localize "STR_antistasi_customHint_moveHQ_garrison_remove",_costs,_hr]] call A3A_fnc_customHint;
+    [localize "STR_antistasi_garrisons", format [localize "STR_antistasi_garrisons_moveHQ_remove",_costs,_hr]] call A3A_fnc_customHint;
 };
 
 sleep 5;

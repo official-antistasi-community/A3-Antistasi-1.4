@@ -209,16 +209,6 @@
       </Key>
     </Container>
     <Container name="dialog_build_menu">
-      <Key ID="STR_antistasi_dialogs_build_frame_text">
-        <Original>Building - Garrison Options</Original>
-        <English>Building - Garrison Options</English>
-        <French>Construction - Options de Garnison</French>
-        <Russian>Построение Обороны</Russian>
-        <German>Bauen - Garnisonsoptionen</German>
-        <Czech>Budování- Možnosti posádky</Czech>
-        <Chinesesimp>建造 - 驻军选项</Chinesesimp>
-        <Korean>건축 - 주둔지 설정</Korean>
-      </Key>
       <Key ID="STR_antistasi_dialogs_build_minefield_button_text">
         <Original>Minefield Options</Original>
         <English>Minefield Options</English>
@@ -258,138 +248,6 @@
         <Czech>Zřiďte Předsunutou hlídku nebo Zátaras v závislosti na vybraném místě.</Czech>
         <Chinesesimp>根据您选择的地形, 建立新的岗哨或路障。</Chinesesimp>
         <Korean>지정한 구역에 감시초소 또는 검문소를 설치합니다.</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_build_recruit_units_button_text">
-        <Original>Recruit Units</Original>
-        <English>Recruit Units</English>
-        <French>Recruter des unités</French>
-        <Russian>Добавить в гарнизон</Russian>
-        <German>Rekrutierung</German>
-        <Czech>Naverbovat jednotky</Czech>
-        <Chinesesimp>招募单位</Chinesesimp>
-        <Korean>병력 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_build_recruit_units_button_tooltip">
-        <Original>Add units to an existing garrison.</Original>
-        <English>Add units to an existing garrison.</English>
-        <French>Ajouter des unités à une garnison existante</French>
-        <Russian>Добавить добровольца в гарнизон.</Russian>
-        <German>Füge Einheiten einer existierenden Garnison hinzu.</German>
-        <Czech>Přidejte jednotky do stávající posádky.</Czech>
-        <Chinesesimp>将单位添加到现有的驻军。</Chinesesimp>
-        <Korean>기존 주둔지에 병력 추가</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_build_disband_units_button_text">
-        <Original>Disband Units or Posts</Original>
-        <English>Disband Units or Posts</English>
-        <French>Dissoudre des unités ou rôles</French>
-        <Russian>Удалить Гарнизон или Пост</Russian>
-        <German>Einheiten/Posten auflösen</German>
-        <Czech>Rozpustěte jednotky nebo hlídky</Czech>
-        <Chinesesimp>解散单位或岗哨</Chinesesimp>
-        <Korean>해당 병력 또는 초소 해산</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_build_disband_units_button_tooltip">
-        <Original>Remove whole garrisons or posts.</Original>
-        <English>Remove whole garrisons or posts.</English>
-        <French>Supprimer des garnisons ou rôles entiers</French>
-        <Russian>Распустить весь Гарнизон или Пост.</Russian>
-        <German>Löse komplette Garnisonen oder Posten auf.</German>
-        <Czech>Rozpustit celou posádku nebo hlídky.</Czech>
-        <Chinesesimp>删除整个驻军或岗哨。</Chinesesimp>
-        <Korean>주둔지 또는 초소 전체 해산</Korean>
-      </Key>
-    </Container>
-    <Container name="dialog_garrison_recruit">
-      <Key ID="STR_antistasi_dialogs_garrison_recruit_frame_text">
-        <Original>Garrison Recruitment Options</Original>
-        <English>Garrison Recruitment Options</English>
-        <French>Options de recrutement de la Garnison</French>
-        <Russian>Добавить в гарнизон</Russian>
-        <German>Garnisonsrekrutierungsoptionen</German>
-        <Czech>Možnosti naverbování posádky</Czech>
-        <Chinesesimp>驻军招募选项</Chinesesimp>
-        <Korean>주둔지 모집 설정</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_rifleman_text">
-        <Original>Recruit Rifleman</Original>
-        <English>Recruit Rifleman</English>
-        <French>Recruter un Fusillier</French>
-        <Russian>Стрелок</Russian>
-        <German>Schütze rekrutieren</German>
-        <Czech>Střelec</Czech>
-        <Chinesesimp>招募步枪手</Chinesesimp>
-        <Korean>소총수 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_autorifleman_text">
-        <Original>Recruit Autorifleman</Original>
-        <English>Recruit Autorifleman</English>
-        <French>Recruter un Mitrailleur</French>
-        <Russian>Пулемётчик</Russian>
-        <German>Maschinengewehrschütze rekrutieren</German>
-        <Czech>Kulometník</Czech>
-        <Chinesesimp>招募自动步枪手</Chinesesimp>
-        <Korean>자동화기 사수 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_medic_text">
-        <Original>Recruit Medic</Original>
-        <English>Recruit Medic</English>
-        <French>Recruter un Médecin</French>
-        <Russian>Медик</Russian>
-        <German>Sanitäter rekrutieren</German>
-        <Czech>Zdravotník</Czech>
-        <Chinesesimp>招募医疗兵</Chinesesimp>
-        <Korean>의무병 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_squad_lead_text">
-        <Original>Recruit Squad Leader</Original>
-        <English>Recruit Squad Leader</English>
-        <French>Recruter un Chef d'Escouade</French>
-        <Russian>Лидер отряда</Russian>
-        <German>Gruppenführer rekrutieren</German>
-        <Czech>Velitel jednotky</Czech>
-        <Chinesesimp>招募班长</Chinesesimp>
-        <Korean>분대장 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
-        <Original>Recruit Mortar</Original>
-        <English>Recruit Mortar</English>
-        <French>Recruter un Mortier</French>
-        <Russian>Миномётчик</Russian>
-        <German>Mörser rekrutieren</German>
-        <Czech>Minometník</Czech>
-        <Chinesesimp>招募迫击炮</Chinesesimp>
-        <Korean>박격포병 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
-        <Original>Recruit Grenadier</Original>
-        <English>Recruit Grenadier</English>
-        <French>Recruter un Grenadier</French>
-        <Russian>Стрелок с ГП</Russian>
-        <German>Grenadier rekrutieren</German>
-        <Czech>Granátometník</Czech>
-        <Chinesesimp>招募掷弹手</Chinesesimp>
-        <Korean>유탄수 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_marksman_text">
-        <Original>Recruit Marksman</Original>
-        <English>Recruit Marksman</English>
-        <French>Recruter un Tireur d'Elite</French>
-        <Russian>Снайпер</Russian>
-        <German>Scharfschütze rekrutieren</German>
-        <Czech>Odstřelovač</Czech>
-        <Chinesesimp>招募精准射手</Chinesesimp>
-        <Korean>지정사수 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
-        <Original>Recruit AT</Original>
-        <English>Recruit AT</English>
-        <French>Recruter un AT</French>
-        <Russian>Гранатомётчик</Russian>
-        <German>Panzerabwehr rekrutieren</German>
-        <Czech>Raketometník</Czech>
-        <Chinesesimp>招募反坦克手</Chinesesimp>
-        <Korean>대전차화기병 모집</Korean>
       </Key>
     </Container>
     <Container name="dialog_build_minefield">
@@ -1743,15 +1601,6 @@
         <Korean>지휘관 전용. HQ 지역 안에서 게임 저장이 가능합니다. 현재 모든 상황을 저장합니다.</Korean>
         <Russian>Вы можете сохранить игру на карте у штаба. Это позволит вам продолжить игру после обновления миссии или перезапуска сервера, сохраняя статистику, экипировку игрока, захваченные зоны, доступность вражеских ресурсов и многое другое. ВНИМАНИЕ: Нормальное сохранение и загрузка в этой миссии работают плохо. Эта система - ваша единственная гарантия правильного сохранения игры.</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Options_4">
-        <Original>Music ON/OFF</Original>
-        <French>Musique ON/OFF</French>
-        <German>Musik An/Aus</German>
-        <Czech>Hudba ZAPNUTO/VYPNUTO</Czech>
-        <Chinesesimp>音乐开/关</Chinesesimp>
-        <Korean>배경음 켜기 / 끄기</Korean>
-        <Russian>Музыка ВКЛ/ВЫКЛ</Russian>
-      </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_4">
         <Original>Antistasi has a situational music script, depending on a player's stance and time of day. The default in Multiplayer is OFF, and ON in Singleplayer</Original>
         <French>Antistasi a un script de musique situationnelle, selon la position du joueur et l'heure de la journée. La valeur par défaut en mode multijoueur est désactivée et activée en mode solo.</French>
@@ -2018,169 +1867,6 @@
         <Chinesesimp>LanCommi 的美术设计。&lt;br/&gt;Goon 和 jw custom: 部分凝固汽油弹(NAPALM)脚本。&lt;br/&gt;rebel12340: 无线电阻塞脚本。&lt;br/&gt;Manko: 耳塞脚本。&lt;br/&gt;bobchaos: 尽管困难重重, 但仍在管理社区。&lt;br/&gt;以及所有花时间在Steam、Github和BIS论坛上发表评论、建议和报告的玩家。</Chinesesimp>
       </Key>
     </Container>
-    <Container name="game_options">
-      <Key ID="STR_antistasi_journal_entry_header_SpecialK_1">
-        <Original>Battle Options</Original>
-        <French>Options de combat</French>
-        <German>Schlachtoptionen</German>
-        <Czech>Možnosti bitvy</Czech>
-        <Chinesesimp>作战选项</Chinesesimp>
-        <Korean>전투 설정</Korean>
-        <Russian>Управление</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Options_6">
-        <Original>Spawn Distance</Original>
-        <French>Distance d'apparition</French>
-        <German>Spawnentfernung</German>
-        <Czech>Vzdálenost Vzniku</Czech>
-        <Chinesesimp>生成距离</Chinesesimp>
-        <Korean>스폰 거리</Korean>
-        <Russian>Дистанция спавна</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_civ_limit">
-        <Original>Civilian Limit</Original>
-        <Russian>Лимит гражданских</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_civ_limit_tooltip">
-        <Original>Set the max number of spawned civilians. Affects game performance.</Original>
-        <Chinesesimp>设置平民的最大生成数量。影响游戏性能。</Chinesesimp>
-        <Russian>Установите максимальное количество мирных жителей. Влияет на производительность игры.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_spawn_distance_tooltip">
-        <Original>Affects performance. Please use this with caution. Set it to lower distances if you feel Antistasi is running bad.</Original>
-        <Chinesesimp>影响性能。请小心使用。如果你觉得 Antistasi 运行不够流畅, 把它调到更低的距离。</Chinesesimp>
-        <Russian>Влияет на производительность. Пожалуйста, используйте это с осторожностью. Установите меньшее расстояние, если чувствуете, что Antistasi работает плохо.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_ai_limiter_tooltip">
-        <Original>Sets how much local and simulated AI can spawn in the map. Affects performance and AI ""intelligence"". Use with caution. This is not an exact number as vehicles and squad leaders will allways spawn.</Original>
-        <Chinesesimp>设置地图中可以生成多少本地和模拟AI。影响性能和AI"智能"。小心使用。这不是一个准确的数字, 因为载具和班长始终会生成。</Chinesesimp>
-        <Russian>Устанавливает, сколько локальных и смоделированных ИИ может появиться на карте. Влияет на производительность и «интеллект» ИИ. Используйте с осторожностью. Это не точное число, поскольку всегда будут появляться машины и лидеры отрядов.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_music_tooltip">
-        <Original>Disables/Enable situational music.</Original>
-        <Chinesesimp>禁用/启用背景音乐</Chinesesimp>
-        <Russian>Отключение/включение музыки</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_save_tooltip">
-        <Original>Use this option to save your current game. It does save the most important data in a ""Grand Theft Auto"" way. This opnion allows good MP save and independent saves of any version update. Vanilla saves are disabled because of lack of several features.</Original>
-        <Chinesesimp>使用此选项保存当前游戏进度。它确实以"侠盗猎车手"的方式保存了绝大多数重要数据。此功能实现了优秀的多人游戏存档功能, 并确保存档不受版本更新影响。由于缺少某些特性, 游戏原生的存档功能被禁用。</Chinesesimp>
-        <Russian>Используйте эту опцию, чтобы сохранить вашу текущую игру. Он действительно сохраняет самые важные данные способом "Grand Theft Auto". Этот вариант обеспечивает хорошее сохранение MP и независимое сохранение любого обновления версии. Ванильные сохранения отключены из-за отсутствия некоторых функций.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_fps_limiter_plus">
-        <Original>+10 AI Limit</Original>
-        <Chinesesimp>+10 AI上限</Chinesesimp>
-        <Russian>+10 к лимиту ИИ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_fps_limiter_minus">
-        <Original>-10 AI Limit</Original>
-        <Chinesesimp>-10 AI上限</Chinesesimp>
-        <Russian>-10 к лимиту ИИ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_spawn_config">
-        <Original>Spawn Distance Config</Original>
-        <Chinesesimp>生成距离配置</Chinesesimp>
-        <Russian>Настройка дистаниции спавна</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_spawn_config_plus">
-        <Original>+100 Spawn Dist.</Original>
-        <Chinesesimp>+100米生成距离</Chinesesimp>
-        <Russian>+100 метров</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_spawn_config_minus">
-        <Original>-100 Spawn Dist.</Original>
-        <Chinesesimp>-100米生成距离</Chinesesimp>
-        <Russian>-100 метров</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_civ_config">
-        <Original>Civ Presence Config</Original>
-        <Chinesesimp>平民存在配置</Chinesesimp>
-        <Russian>Настройка гражданского насиления</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_civ_config_plus">
-        <Original>+1 Max Civs</Original>
-        <Chinesesimp>+1 平民上限</Chinesesimp>
-        <Russian>+1 к лимиту</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_maps_civ_config_minus">
-        <Original>-1 Max Civs</Original>
-        <Chinesesimp>-1 平民上限</Chinesesimp>
-        <Russian>-1 к лимиту</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Options_2">
-        <Original>AI Limiter</Original>
-        <French>Limiteur d'IA</French>
-        <German>KI Begrenzung</German>
-        <Czech>Omezení AI</Czech>
-        <Chinesesimp>AI限制器</Chinesesimp>
-        <Korean>AI 갯수 제한</Korean>
-        <Russian>Лимит ИИ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_AI_limit">
-        <Original>AI Limit</Original>
-        <Russian>Лимит ИИ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Options_5">
-        <Original>Civ Spawn</Original>
-        <French>Apparition des Civils</French>
-        <German>Zivilbevölkerung</German>
-        <Czech>Počet civilistů</Czech>
-        <Chinesesimp>平民生成</Chinesesimp>
-        <Korean>시민 스폰</Korean>
-        <Russian>Лимит Гражд.</Russian>
-      </Key>
-    </Container>
-    <Container name="radio_comm">
-      <Key ID="STR_antistasi_dialogs_radio_comm_player_money_tooltip">
-        <Original>Look at some player and interact with him</Original>
-        <Chinesesimp>面向玩家并与其互动</Chinesesimp>
-        <Russian>Посмотрите на игрока чтобы взаимодействовать с ним</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_undercover_tooltip">
-        <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you</Original>
-        <Chinesesimp>满足条件时可进入伪装状态。敌方AI在识破你之前不会攻击你</Chinesesimp>
-        <Russian>Станьте скрытным, если вы соответствуете требованиям. Вражеский ИИ не нападет на вас, пока не обнаружит вас</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_garage_tooltip">
-        <Original>Vehicle or Static gun you're looking at will be garaged, interact with Flag to retrieve</Original>
-        <Chinesesimp>你面前的载具或固定式武器将被存放至车库, 与旗帜来取出</Chinesesimp>
-        <Russian>Автомобиль или статическая пушка, на которую вы смотрите, будут помещены в гараж, взаимодействуйте с Флагом, чтобы получить</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_construct">
-        <Original>Construct Here</Original>
-        <Chinesesimp>建造</Chinesesimp>
-        <Russian>Строительство</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_construct_tooltip">
-        <Original>Construct in the spot where you are a selected building facing this direction</Original>
-        <Chinesesimp>在你所在的位置, 朝向此方向建造所选建筑</Chinesesimp>
-        <Russian>Постройте в том месте, где вы выбрали здание, обращенное в этом направлении</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
-        <Original>Unlock Vehicle</Original>
-        <Chinesesimp>解锁载具</Chinesesimp>
-        <Russian>Разблокировать технику</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle_tooltip">
-        <Original>Allow other groups to mount this vehicle</Original>
-        <Chinesesimp>允许其他小队搭乘该载具</Chinesesimp>
-        <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_ai_management_tooltip">
-        <Original>Several AI options</Original>
-        <Chinesesimp>AI选项</Chinesesimp>
-        <Russian>Управление ИИ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_commander">
-        <Original>Commander</Original>
-        <Chinesesimp>指挥官</Chinesesimp>
-        <Russian>Командующий</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_commander_tooltip">
-        <Original>Open commander options</Original>
-        <Chinesesimp>打开指挥官选项</Chinesesimp>
-        <Russian>Открыть меню командования</Russian>
-      </Key>
-    </Container>
     <Container name="squad_manager">
       <Key ID="STR_antistasi_dialogs_squad_manager">
         <Original>HC Squad Options</Original>
@@ -2227,6 +1913,11 @@
         <Original>AI Management</Original>
         <Russian>Управление ИИ</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_ai_management_tooltip">
+        <Original>Several AI options</Original>
+        <Chinesesimp>AI选项</Chinesesimp>
+        <Russian>Управление ИИ</Russian>
+      </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm_tooltip">
         <Original>AI will search for better weapons, vests, helmets etc. If they are in a vehicle, they will just store what they scavenge in the vehicle. If not, they will equip them</Original>
         <Chinesesimp>AI将会搜寻更好的武器, 背心, 头盔等。如果他们在载具载具内, 他们就会把捡到的物品存放至载具内。否则, AI将会装备它们。</Chinesesimp>
@@ -2241,6 +1932,16 @@
         <Original>Commander Battle Options</Original>
         <Chinesesimp>指挥官作战选项</Chinesesimp>
         <Russian>Меню командущего</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_commander_tooltip">
+        <Original>Open commander options</Original>
+        <Chinesesimp>打开指挥官选项</Chinesesimp>
+        <Russian>Открыть меню командования</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_commander">
+        <Original>Commander</Original>
+        <Chinesesimp>指挥官</Chinesesimp>
+        <Russian>Командующий</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_recruit_tooltip">
         <Original>Recruit new squads and manage them with the HC Module (CTRL + SPACE)</Original>
@@ -2442,163 +2143,6 @@
         <Russian>Бригада артилерии убита</Russian>
       </Key>
     </Container>
-    <Container name="construction_menu">
-      <Key ID="STR_antistasi_dialogs_construction_menu">
-        <Original>Construction Menu</Original>
-        <Chinesesimp>建造菜单</Chinesesimp>
-        <Russian>Меню строительства</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_small_trench">
-        <Original>Small Trench</Original>
-        <Chinesesimp>小型战壕</Chinesesimp>
-        <Russian>Малая траншея</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_small_trench_tooltip">
-        <Original>Make a quick small trench for one man</Original>
-        <Chinesesimp>建造单人小型战壕</Chinesesimp>
-        <Russian>Сделайте быстрый небольшой окоп для одного человека</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_medium_trench">
-        <Original>Medium Trench</Original>
-        <Chinesesimp>中型战壕</Chinesesimp>
-        <Russian>Средняя траншея</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_medium_trench_tooltip">
-        <Original>A mid sized trench with capabilities for more than one soldier</Original>
-        <Chinesesimp>建造可供多人使用的中型战壕</Chinesesimp>
-        <Russian>Окоп среднего размера, вмещающий более одного солдата</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_vehicle_obstacles">
-        <Original>Vehicle obstacles</Original>
-        <Chinesesimp>行车障碍</Chinesesimp>
-        <Russian>Транспортные препятствия</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_vehicle_obstacles_tooltip">
-        <Original>Build some obstacles for vehicles</Original>
-        <Chinesesimp>建造一些阻碍行车的障碍物</Chinesesimp>
-        <Russian>Постройте препятствия для транспортных средств</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_options">
-        <Original>Bunker Options</Original>
-        <Chinesesimp>掩体选项</Chinesesimp>
-        <Russian>Бункер</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_options_tooltip">
-        <Original>Need to be built in garrison controlled zones and cost money</Original>
-        <Chinesesimp>需要在占领区花费资金才能建造</Chinesesimp>
-        <Russian>Должен быть построен в зонах, контролируемых гарнизоном, и стоит денег.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_type">
-        <Original>Select Bunker Type</Original>
-        <Chinesesimp>选择掩体类型</Chinesesimp>
-        <Russian>Выберите тип бункера</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_sandbag">
-        <Original>Sandbag Bunker</Original>
-        <Chinesesimp>沙包掩体</Chinesesimp>
-        <Russian>Мешки с песком</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_concrete">
-        <Original>Concrete Bunker</Original>
-        <Chinesesimp>混凝土掩体</Chinesesimp>
-        <Russian>Бетонный бункер</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_tooltip">
-        <Original>Requires to be in a garrisoned zone. It will be permanent</Original>
-        <Chinesesimp>需要在占领区才能建造。建造的掩体将永久存在</Chinesesimp>
-        <Russian>Требуется находиться в гарнизонной зоне. Это будет навсегда</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_construct">
-        <Original>Construction</Original>
-        <Russian>Строительство</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_construct_cancel">
-        <Original>Construction cancelled</Original>
-        <Russian>Строительство отменено</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build">
-        <Original>Build Info</Original>
-        <Russian>Строительство</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_noMoney">
-        <Original>You do not have enough money for this construction (%1 € needed)</Original>
-        <Russian>У вас недостаточно денег на это строительство (требуется %1 €)</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_outside">
-        <Original>You cannot build a bunker outside a controlled zone</Original>
-        <Russian>Вы не можете построить бункер за пределами контролируемой зоны.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_placing">
-        <Original>You can't build while placing something</Original>
-        <Russian>Вы не можете строить, пока что-то планируете</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_ctrlAI">
-        <Original>You cannot construct anything while controlling AI</Original>
-        <Russian>Вы не можете ничего построить, управляя ИИ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_undercover">
-        <Original>You are an engineer, but not in a state to build: you may be unconscious or undercover</Original>
-        <Russian>Вы инженер, но не в состоянии строить, пока вы без сознания или под прикрытием</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_noEng">
-        <Original>You are not an engineer</Original>
-        <Russian>Ты не инженер</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_noPlayer">
-        <Original>There is a human engineer in your squad. Ask them to build.</Original>
-        <Russian>В вашем отряде есть инженер-человек. Попросите их построить.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_noLeader">
-        <Original>Only squad leaders can order AI to build</Original>
-        <Russian>Только командиры отрядов могут приказать ИИ строить</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_order">
-        <Original>Ordering %1 to build</Original>
-        <Russian>Строительство %1</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_noEng_SQ">
-        <Original>You have no available engineers in your squad. They may be unconscious or busy.</Original>
-        <Russian>В вашем отряде нет доступных инженеров. Они могут быть без сознания или заняты.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_start">
-        <Original>Walk to the selected position to start building</Original>
-        <Russian>Подойдите к выбранной позиции, чтобы начать строительство</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_build_timeout">
-        <Original>You didn't move to the position, construction has timed out</Original>
-        <Russian>Вы не переместились на позицию, время строительства истекло</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_rebuild_no_money">
-        <Original>You do not have enough money to rebuild any Asset. You need %1 €</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_rebuild_map">
-        <Original>Click on the zone you want to rebuild</Original>
-        <Russian>Нажмите на зону, которую хотите перестроить.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_rebuild_near">
-        <Original>You must click near a map marker</Original>
-        <Russian>Вы должны щелкнуть рядом с маркером на карте</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_rebuild_cannot">
-        <Original>You cannot rebuild that</Original>
-        <Russian>Вы не можете восстановить это</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_rebuild_rebuild">
-        <Original>%1 Rebuilt</Original>
-        <Russian>%1 перестроен</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_rebuild_radio">
-        <Original>Radio Tower rebuilt</Original>
-        <Russian>Радиовышка восстановлена</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_rebuild_noDestroyed">
-        <Original>That Outpost does not have a destroyed Radio Tower</Original>
-        <Russian>На этой заставе нет разрушенной радиовышки</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_rebuild_noBelong">
-        <Original>You cannot rebuild a Radio Tower in an Outpost which does not belong to %1</Original>
-      </Key>
-    </Container>
     <Container name="squad_recruit">
       <Key ID="STR_antistasi_journal_entry_header_AI_1">
         <Original>Recruit</Original>
@@ -2776,18 +2320,6 @@
       <Key ID="STR_antistasi_customHint_only_leader">
         <Original>Only group leaders has access to this function</Original>
         <Russian>Только лидер отряда имеет доступ к этой функции</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_music_off">
-        <Original>Music turned OFF</Original>
-        <Russian>Музыка выключена</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_music_on">
-        <Original>Music turned ON</Original>
-        <Russian>Музыка включена</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_civ_limit_set">
-        <Original>Maximum Number of Civilians Set to %1</Original>
-        <Russian>Максимальное кол-во гражданских установлено на %1</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_air_support_noSupport">
         <Original>You lack of enough Air Support to make this request</Original>
@@ -5019,6 +4551,11 @@
         <Original>Shit, they have spotted me!</Original>
         <Russian>Черт, они меня заметили!</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_undercover_tooltip">
+        <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you</Original>
+        <Chinesesimp>满足条件时可进入伪装状态。敌方AI在识破你之前不会攻击你</Chinesesimp>
+        <Russian>Станьте скрытным, если вы соответствуете требованиям. Вражеский ИИ не нападет на вас, пока не обнаружит вас</Russian>
+      </Key>
     </Container>
     <Container name="garrisons">
       <Key ID="STR_antistasi_garrisons">
@@ -5171,6 +4708,26 @@
         <Chinesesimp>驻军单位/班组</Chinesesimp>
         <Russian>Добавить в гарнизон</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_build_recruit_units_button_text">
+        <Original>Recruit Units</Original>
+        <English>Recruit Units</English>
+        <French>Recruter des unités</French>
+        <Russian>Добавить в гарнизон</Russian>
+        <German>Rekrutierung</German>
+        <Czech>Naverbovat jednotky</Czech>
+        <Chinesesimp>招募单位</Chinesesimp>
+        <Korean>병력 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_build_recruit_units_button_tooltip">
+        <Original>Add units to an existing garrison.</Original>
+        <English>Add units to an existing garrison.</English>
+        <French>Ajouter des unités à une garnison existante</French>
+        <Russian>Добавить добровольца в гарнизон.</Russian>
+        <German>Füge Einheiten einer existierenden Garnison hinzu.</German>
+        <Czech>Přidejte jednotky do stávající posádky.</Czech>
+        <Chinesesimp>将单位添加到现有的驻军。</Chinesesimp>
+        <Korean>기존 주둔지에 병력 추가</Korean>
+      </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_garrison_tooltip">
         <Original>Adds selected units or squads to a map selected garrison</Original>
         <Chinesesimp>将选定的单位或班组编入在地图上选定的驻军</Chinesesimp>
@@ -5185,6 +4742,116 @@
         <Original>Dimiss selected units or squads, recovering it's cost to the proper resource pool</Original>
         <Chinesesimp>解散选定的单位或班组, 回收其成本至对应的资源池</Chinesesimp>
         <Russian>Распустить выбранные отряды или отряды, вернув их стоимость в соответствующий пул ресурсов.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_build_disband_units_button_text">
+        <Original>Disband Units or Posts</Original>
+        <English>Disband Units or Posts</English>
+        <French>Dissoudre des unités ou rôles</French>
+        <Russian>Удалить Гарнизон или Пост</Russian>
+        <German>Einheiten/Posten auflösen</German>
+        <Czech>Rozpustěte jednotky nebo hlídky</Czech>
+        <Chinesesimp>解散单位或岗哨</Chinesesimp>
+        <Korean>해당 병력 또는 초소 해산</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_build_disband_units_button_tooltip">
+        <Original>Remove whole garrisons or posts.</Original>
+        <English>Remove whole garrisons or posts.</English>
+        <French>Supprimer des garnisons ou rôles entiers</French>
+        <Russian>Распустить весь Гарнизон или Пост.</Russian>
+        <German>Löse komplette Garnisonen oder Posten auf.</German>
+        <Czech>Rozpustit celou posádku nebo hlídky.</Czech>
+        <Chinesesimp>删除整个驻军或岗哨。</Chinesesimp>
+        <Korean>주둔지 또는 초소 전체 해산</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_recruit_frame_text">
+        <Original>Garrison Recruitment Options</Original>
+        <English>Garrison Recruitment Options</English>
+        <French>Options de recrutement de la Garnison</French>
+        <Russian>Добавить в гарнизон</Russian>
+        <German>Garnisonsrekrutierungsoptionen</German>
+        <Czech>Možnosti naverbování posádky</Czech>
+        <Chinesesimp>驻军招募选项</Chinesesimp>
+        <Korean>주둔지 모집 설정</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_rifleman_text">
+        <Original>Recruit Rifleman</Original>
+        <English>Recruit Rifleman</English>
+        <French>Recruter un Fusillier</French>
+        <Russian>Стрелок</Russian>
+        <German>Schütze rekrutieren</German>
+        <Czech>Střelec</Czech>
+        <Chinesesimp>招募步枪手</Chinesesimp>
+        <Korean>소총수 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_autorifleman_text">
+        <Original>Recruit Autorifleman</Original>
+        <English>Recruit Autorifleman</English>
+        <French>Recruter un Mitrailleur</French>
+        <Russian>Пулемётчик</Russian>
+        <German>Maschinengewehrschütze rekrutieren</German>
+        <Czech>Kulometník</Czech>
+        <Chinesesimp>招募自动步枪手</Chinesesimp>
+        <Korean>자동화기 사수 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_medic_text">
+        <Original>Recruit Medic</Original>
+        <English>Recruit Medic</English>
+        <French>Recruter un Médecin</French>
+        <Russian>Медик</Russian>
+        <German>Sanitäter rekrutieren</German>
+        <Czech>Zdravotník</Czech>
+        <Chinesesimp>招募医疗兵</Chinesesimp>
+        <Korean>의무병 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_squad_lead_text">
+        <Original>Recruit Squad Leader</Original>
+        <English>Recruit Squad Leader</English>
+        <French>Recruter un Chef d'Escouade</French>
+        <Russian>Лидер отряда</Russian>
+        <German>Gruppenführer rekrutieren</German>
+        <Czech>Velitel jednotky</Czech>
+        <Chinesesimp>招募班长</Chinesesimp>
+        <Korean>분대장 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
+        <Original>Recruit Mortar</Original>
+        <English>Recruit Mortar</English>
+        <French>Recruter un Mortier</French>
+        <Russian>Миномётчик</Russian>
+        <German>Mörser rekrutieren</German>
+        <Czech>Minometník</Czech>
+        <Chinesesimp>招募迫击炮</Chinesesimp>
+        <Korean>박격포병 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
+        <Original>Recruit Grenadier</Original>
+        <English>Recruit Grenadier</English>
+        <French>Recruter un Grenadier</French>
+        <Russian>Стрелок с ГП</Russian>
+        <German>Grenadier rekrutieren</German>
+        <Czech>Granátometník</Czech>
+        <Chinesesimp>招募掷弹手</Chinesesimp>
+        <Korean>유탄수 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_marksman_text">
+        <Original>Recruit Marksman</Original>
+        <English>Recruit Marksman</English>
+        <French>Recruter un Tireur d'Elite</French>
+        <Russian>Снайпер</Russian>
+        <German>Scharfschütze rekrutieren</German>
+        <Czech>Odstřelovač</Czech>
+        <Chinesesimp>招募精准射手</Chinesesimp>
+        <Korean>지정사수 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
+        <Original>Recruit AT</Original>
+        <English>Recruit AT</English>
+        <French>Recruter un AT</French>
+        <Russian>Гранатомётчик</Russian>
+        <German>Panzerabwehr rekrutieren</German>
+        <Czech>Raketometník</Czech>
+        <Chinesesimp>招募反坦克手</Chinesesimp>
+        <Korean>대전차화기병 모집</Korean>
       </Key>
     </Container>
     <Container name="todo">
@@ -6022,6 +5689,11 @@
         <Chinesesimp>加载以前的个人存档?</Chinesesimp>
         <Korean>이전 저장 데이터를 로드 하시겠습니까?</Korean>
       </Key>
+      <Key ID="STR_antistasi_dialogs_maps_save_tooltip">
+        <Original>Use this option to save your current game. It does save the most important data in a ""Grand Theft Auto"" way. This opnion allows good MP save and independent saves of any version update. Vanilla saves are disabled because of lack of several features.</Original>
+        <Chinesesimp>使用此选项保存当前游戏进度。它确实以"侠盗猎车手"的方式保存了绝大多数重要数据。此功能实现了优秀的多人游戏存档功能, 并确保存档不受版本更新影响。由于缺少某些特性, 游戏原生的存档功能被禁用。</Chinesesimp>
+        <Russian>Используйте эту опцию, чтобы сохранить вашу текущую игру. Он действительно сохраняет самые важные данные способом "Grand Theft Auto". Этот вариант обеспечивает хорошее сохранение MP и независимое сохранение любого обновления версии. Ванильные сохранения отключены из-за отсутствия некоторых функций.</Russian>
+      </Key>
     </Container>
     <Container name="Detect_mods">
       <Key ID="STR_antistasi_cutText_detect_head">
@@ -6511,6 +6183,21 @@
         <Chinesesimp>出售面前的载具以换取资金</Chinesesimp>
         <Russian>Посмотрите на автомобиль и продайте его за деньги</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_garage_tooltip">
+        <Original>Vehicle or Static gun you're looking at will be garaged, interact with Flag to retrieve</Original>
+        <Chinesesimp>你面前的载具或固定式武器将被存放至车库, 与旗帜来取出</Chinesesimp>
+        <Russian>Автомобиль или статическая пушка, на которую вы смотрите, будут помещены в гараж, взаимодействуйте с Флагом, чтобы получить</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
+        <Original>Unlock Vehicle</Original>
+        <Chinesesimp>解锁载具</Chinesesimp>
+        <Russian>Разблокировать технику</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle_tooltip">
+        <Original>Allow other groups to mount this vehicle</Original>
+        <Chinesesimp>允许其他小队搭乘该载具</Chinesesimp>
+        <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
+      </Key>
     </Container>
     <Container name="SITREP">
       <Key ID="STR_antistasi_dialogs_squad_manager_squad_sitrep">
@@ -6944,6 +6631,11 @@
         <Original>You have donated 100 € to %1</Original>
         <Russian>Вы пожертвовали 100 € %1</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_player_money_tooltip">
+        <Original>Look at some player and interact with him</Original>
+        <Chinesesimp>面向玩家并与其互动</Chinesesimp>
+        <Russian>Посмотрите на игрока чтобы взаимодействовать с ним</Russian>
+      </Key>
     </Container>
     <Container name="Move_HQ">
       <Key ID="STR_antistasi_journal_entry_header_commander_5">
@@ -7030,6 +6722,308 @@
       <Key ID="STR_antistasi_customHint_startPosition">
         <Original>Initial HQ Placement Selection</Original>
         <Russian>Первоначальный выбор размещения штаб-квартиры</Russian>
+      </Key>
+    </Container>
+    <Container name="Game_options">
+      <Key ID="STR_antistasi_journal_entry_header_SpecialK_1">
+        <Original>Battle Options</Original>
+        <French>Options de combat</French>
+        <German>Schlachtoptionen</German>
+        <Czech>Možnosti bitvy</Czech>
+        <Chinesesimp>作战选项</Chinesesimp>
+        <Korean>전투 설정</Korean>
+        <Russian>Управление</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_6">
+        <Original>Spawn Distance</Original>
+        <French>Distance d'apparition</French>
+        <German>Spawnentfernung</German>
+        <Czech>Vzdálenost Vzniku</Czech>
+        <Chinesesimp>生成距离</Chinesesimp>
+        <Korean>스폰 거리</Korean>
+        <Russian>Дистанция спавна</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_5">
+        <Original>Civ Spawn</Original>
+        <French>Apparition des Civils</French>
+        <German>Zivilbevölkerung</German>
+        <Czech>Počet civilistů</Czech>
+        <Chinesesimp>平民生成</Chinesesimp>
+        <Korean>시민 스폰</Korean>
+        <Russian>Лимит Гражд.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_2">
+        <Original>AI Limiter</Original>
+        <French>Limiteur d'IA</French>
+        <German>KI Begrenzung</German>
+        <Czech>Omezení AI</Czech>
+        <Chinesesimp>AI限制器</Chinesesimp>
+        <Korean>AI 갯수 제한</Korean>
+        <Russian>Лимит ИИ</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_civ_limit_tooltip">
+        <Original>Set the max number of spawned civilians. Affects game performance.</Original>
+        <Chinesesimp>设置平民的最大生成数量。影响游戏性能。</Chinesesimp>
+        <Russian>Установите максимальное количество мирных жителей. Влияет на производительность игры.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_spawn_distance_tooltip">
+        <Original>Affects performance. Please use this with caution. Set it to lower distances if you feel Antistasi is running bad.</Original>
+        <Chinesesimp>影响性能。请小心使用。如果你觉得 Antistasi 运行不够流畅, 把它调到更低的距离。</Chinesesimp>
+        <Russian>Влияет на производительность. Пожалуйста, используйте это с осторожностью. Установите меньшее расстояние, если чувствуете, что Antistasi работает плохо.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_ai_limiter_tooltip">
+        <Original>Sets how much local and simulated AI can spawn in the map. Affects performance and AI ""intelligence"". Use with caution. This is not an exact number as vehicles and squad leaders will allways spawn.</Original>
+        <Chinesesimp>设置地图中可以生成多少本地和模拟AI。影响性能和AI"智能"。小心使用。这不是一个准确的数字, 因为载具和班长始终会生成。</Chinesesimp>
+        <Russian>Устанавливает, сколько локальных и смоделированных ИИ может появиться на карте. Влияет на производительность и «интеллект» ИИ. Используйте с осторожностью. Это не точное число, поскольку всегда будут появляться машины и лидеры отрядов.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_fps_limiter_plus">
+        <Original>+10 AI Limit</Original>
+        <Chinesesimp>+10 AI上限</Chinesesimp>
+        <Russian>+10 к лимиту ИИ</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_fps_limiter_minus">
+        <Original>-10 AI Limit</Original>
+        <Chinesesimp>-10 AI上限</Chinesesimp>
+        <Russian>-10 к лимиту ИИ</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_spawn_config">
+        <Original>Spawn Distance Config</Original>
+        <Chinesesimp>生成距离配置</Chinesesimp>
+        <Russian>Настройка дистаниции спавна</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_spawn_config_plus">
+        <Original>+100 Spawn Dist.</Original>
+        <Chinesesimp>+100米生成距离</Chinesesimp>
+        <Russian>+100 метров</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_spawn_config_minus">
+        <Original>-100 Spawn Dist.</Original>
+        <Chinesesimp>-100米生成距离</Chinesesimp>
+        <Russian>-100 метров</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_civ_config">
+        <Original>Civ Presence Config</Original>
+        <Chinesesimp>平民存在配置</Chinesesimp>
+        <Russian>Настройка гражданского насиления</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_civ_config_plus">
+        <Original>+1 Max Civs</Original>
+        <Chinesesimp>+1 平民上限</Chinesesimp>
+        <Russian>+1 к лимиту</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_civ_config_minus">
+        <Original>-1 Max Civs</Original>
+        <Chinesesimp>-1 平民上限</Chinesesimp>
+        <Russian>-1 к лимиту</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_civ_limit_set">
+        <Original>Maximum Number of Civilians Set to %1</Original>
+        <Russian>Максимальное кол-во гражданских установлено на %1</Russian>
+      </Key>
+      <Key ID="STR_antistasi_limit_set">
+        <Original>set to</Original>
+      </Key>
+      <Key ID="STR_antistasi_limit_already">
+        <Original>is already at</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_maps_music_tooltip">
+        <Original>Disables/Enable situational music.</Original>
+        <Chinesesimp>禁用/启用背景音乐</Chinesesimp>
+        <Russian>Отключение/включение музыки</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_4">
+        <Original>Music ON/OFF</Original>
+        <French>Musique ON/OFF</French>
+        <German>Musik An/Aus</German>
+        <Czech>Hudba ZAPNUTO/VYPNUTO</Czech>
+        <Chinesesimp>音乐开/关</Chinesesimp>
+        <Korean>배경음 켜기 / 끄기</Korean>
+        <Russian>Музыка ВКЛ/ВЫКЛ</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_music_off">
+        <Original>Music turned OFF</Original>
+        <Russian>Музыка выключена</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_music_on">
+        <Original>Music turned ON</Original>
+        <Russian>Музыка включена</Russian>
+      </Key>
+    </Container>
+    <Container name="Construction">
+      <Key ID="STR_antistasi_dialogs_construction_menu">
+        <Original>Construction Menu</Original>
+        <Chinesesimp>建造菜单</Chinesesimp>
+        <Russian>Меню строительства</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_build_frame_text">
+        <Original>Building - Garrison Options</Original>
+        <English>Building - Garrison Options</English>
+        <French>Construction - Options de Garnison</French>
+        <Russian>Построение Обороны</Russian>
+        <German>Bauen - Garnisonsoptionen</German>
+        <Czech>Budování- Možnosti posádky</Czech>
+        <Chinesesimp>建造 - 驻军选项</Chinesesimp>
+        <Korean>건축 - 주둔지 설정</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_construct">
+        <Original>Construct Here</Original>
+        <Chinesesimp>建造</Chinesesimp>
+        <Russian>Строительство</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_construct_tooltip">
+        <Original>Construct in the spot where you are a selected building facing this direction</Original>
+        <Chinesesimp>在你所在的位置, 朝向此方向建造所选建筑</Chinesesimp>
+        <Russian>Постройте в том месте, где вы выбрали здание, обращенное в этом направлении</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_small_trench">
+        <Original>Small Trench</Original>
+        <Chinesesimp>小型战壕</Chinesesimp>
+        <Russian>Малая траншея</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_small_trench_tooltip">
+        <Original>Make a quick small trench for one man</Original>
+        <Chinesesimp>建造单人小型战壕</Chinesesimp>
+        <Russian>Сделайте быстрый небольшой окоп для одного человека</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_medium_trench">
+        <Original>Medium Trench</Original>
+        <Chinesesimp>中型战壕</Chinesesimp>
+        <Russian>Средняя траншея</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_medium_trench_tooltip">
+        <Original>A mid sized trench with capabilities for more than one soldier</Original>
+        <Chinesesimp>建造可供多人使用的中型战壕</Chinesesimp>
+        <Russian>Окоп среднего размера, вмещающий более одного солдата</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_vehicle_obstacles">
+        <Original>Vehicle obstacles</Original>
+        <Chinesesimp>行车障碍</Chinesesimp>
+        <Russian>Транспортные препятствия</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_vehicle_obstacles_tooltip">
+        <Original>Build some obstacles for vehicles</Original>
+        <Chinesesimp>建造一些阻碍行车的障碍物</Chinesesimp>
+        <Russian>Постройте препятствия для транспортных средств</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_options">
+        <Original>Bunker Options</Original>
+        <Chinesesimp>掩体选项</Chinesesimp>
+        <Russian>Бункер</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_options_tooltip">
+        <Original>Need to be built in garrison controlled zones and cost money</Original>
+        <Chinesesimp>需要在占领区花费资金才能建造</Chinesesimp>
+        <Russian>Должен быть построен в зонах, контролируемых гарнизоном, и стоит денег.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_type">
+        <Original>Select Bunker Type</Original>
+        <Chinesesimp>选择掩体类型</Chinesesimp>
+        <Russian>Выберите тип бункера</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_sandbag">
+        <Original>Sandbag Bunker</Original>
+        <Chinesesimp>沙包掩体</Chinesesimp>
+        <Russian>Мешки с песком</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_concrete">
+        <Original>Concrete Bunker</Original>
+        <Chinesesimp>混凝土掩体</Chinesesimp>
+        <Russian>Бетонный бункер</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_menu_bunker_tooltip">
+        <Original>Requires to be in a garrisoned zone. It will be permanent</Original>
+        <Chinesesimp>需要在占领区才能建造。建造的掩体将永久存在</Chinesesimp>
+        <Russian>Требуется находиться в гарнизонной зоне. Это будет навсегда</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_construct">
+        <Original>Construction</Original>
+        <Russian>Строительство</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_construct_cancel">
+        <Original>Construction cancelled</Original>
+        <Russian>Строительство отменено</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build">
+        <Original>Build Info</Original>
+        <Russian>Строительство</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_noMoney">
+        <Original>You do not have enough money for this construction (%1 € needed)</Original>
+        <Russian>У вас недостаточно денег на это строительство (требуется %1 €)</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_outside">
+        <Original>You cannot build a bunker outside a controlled zone</Original>
+        <Russian>Вы не можете построить бункер за пределами контролируемой зоны.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_placing">
+        <Original>You can't build while placing something</Original>
+        <Russian>Вы не можете строить, пока что-то планируете</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_ctrlAI">
+        <Original>You cannot construct anything while controlling AI</Original>
+        <Russian>Вы не можете ничего построить, управляя ИИ</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_undercover">
+        <Original>You are an engineer, but not in a state to build: you may be unconscious or undercover</Original>
+        <Russian>Вы инженер, но не в состоянии строить, пока вы без сознания или под прикрытием</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_noEng">
+        <Original>You are not an engineer</Original>
+        <Russian>Ты не инженер</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_noPlayer">
+        <Original>There is a human engineer in your squad. Ask them to build.</Original>
+        <Russian>В вашем отряде есть инженер-человек. Попросите их построить.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_noLeader">
+        <Original>Only squad leaders can order AI to build</Original>
+        <Russian>Только командиры отрядов могут приказать ИИ строить</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_order">
+        <Original>Ordering %1 to build</Original>
+        <Russian>Строительство %1</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_noEng_SQ">
+        <Original>You have no available engineers in your squad. They may be unconscious or busy.</Original>
+        <Russian>В вашем отряде нет доступных инженеров. Они могут быть без сознания или заняты.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_start">
+        <Original>Walk to the selected position to start building</Original>
+        <Russian>Подойдите к выбранной позиции, чтобы начать строительство</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_build_timeout">
+        <Original>You didn't move to the position, construction has timed out</Original>
+        <Russian>Вы не переместились на позицию, время строительства истекло</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_rebuild_no_money">
+        <Original>You do not have enough money to rebuild any Asset. You need %1 €</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_rebuild_map">
+        <Original>Click on the zone you want to rebuild</Original>
+        <Russian>Нажмите на зону, которую хотите перестроить.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_rebuild_near">
+        <Original>You must click near a map marker</Original>
+        <Russian>Вы должны щелкнуть рядом с маркером на карте</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_rebuild_cannot">
+        <Original>You cannot rebuild that</Original>
+        <Russian>Вы не можете восстановить это</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_rebuild_rebuild">
+        <Original>%1 Rebuilt</Original>
+        <Russian>%1 перестроен</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_rebuild_radio">
+        <Original>Radio Tower rebuilt</Original>
+        <Russian>Радиовышка восстановлена</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_rebuild_noDestroyed">
+        <Original>That Outpost does not have a destroyed Radio Tower</Original>
+        <Russian>На этой заставе нет разрушенной радиовышки</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_rebuild_noBelong">
+        <Original>You cannot rebuild a Radio Tower in an Outpost which does not belong to %1</Original>
       </Key>
     </Container>
   </Package>

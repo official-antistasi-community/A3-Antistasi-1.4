@@ -836,7 +836,7 @@ class game_options 		{
 		class 8slots_L1: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_maps_civ_limit;
+			text = $STR_antistasi_journal_entry_header_Options_5;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;

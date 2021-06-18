@@ -49,11 +49,12 @@ if (side (group _killer) == teamPlayer) then
 	if (count weapons _victim < 1 && !(_victim getVariable ["isAnimal", false])) then
     {
         //This doesn't trigger for dogs, only for surrendered units
-        Debug(" aggroEvent | Rebels killed a surrendered unit");
+        Debug("aggroEvent | Rebels killed a surrendered unit");
 		if (_victimSide == Occupants) then
 		{
 			[0,-2,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 		};
+        [_victimSide, 20, 30] remoteExec ["A3A_fnc_addAggression", 2];
 	}
 	else
 	{

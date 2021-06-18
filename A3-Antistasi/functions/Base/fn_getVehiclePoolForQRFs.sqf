@@ -264,8 +264,7 @@ switch (tierWar) do
                 [vehNATOPatrolHeli, 10],
                 [vehNATOTransportHelis, 40],
                 [vehNATOTransportPlanes, 25],
-                [vehNATOAttackHelis, 20],
-                [vehNATOPlaneAA, 5]
+                [vehNATOAttackHelis, 20]
             ];
         };
         if(_side == Invaders) then
@@ -281,8 +280,7 @@ switch (tierWar) do
                 [vehCSATPatrolHeli, 5],
                 [vehCSATTransportHelis, 40],
                 [vehCSATTransportPlanes, 25],
-                [vehCSATAttackHelis, 25],
-                [vehCSATPlaneAA, 5]
+                [vehCSATAttackHelis, 25]
             ];
         };
     };
@@ -302,9 +300,7 @@ switch (tierWar) do
                 [vehNATOPatrolHeli, 5],
                 [vehNATOTransportHelis, 35],
                 [vehNATOTransportPlanes, 25],
-                [vehNATOAttackHelis, 25],
-                [vehNATOPlane, 5],
-                [vehNATOPlaneAA, 5]
+                [vehNATOAttackHelis, 25]
             ];
         };
         if(_side == Invaders) then
@@ -320,9 +316,7 @@ switch (tierWar) do
                 [vehCSATPatrolHeli, 5],
                 [vehCSATTransportHelis, 35],
                 [vehCSATTransportPlanes, 25],
-                [vehCSATAttackHelis, 30],
-                [vehCSATPlane, 5],
-                [vehCSATPlaneAA, 5]
+                [vehCSATAttackHelis, 30]
             ];
         };
     };
@@ -342,9 +336,7 @@ switch (tierWar) do
                 [vehNATOPatrolHeli, 5],
                 [vehNATOTransportHelis, 30],
                 [vehNATOTransportPlanes, 25],
-                [vehNATOAttackHelis, 25],
-                [vehNATOPlane, 10],
-                [vehNATOPlaneAA, 5]
+                [vehNATOAttackHelis, 25]
             ];
         };
         if(_side == Invaders) then
@@ -360,9 +352,7 @@ switch (tierWar) do
                 [vehCSATPatrolHeli, 5],
                 [vehCSATTransportHelis, 30],
                 [vehCSATTransportPlanes, 25],
-                [vehCSATAttackHelis, 30],
-                [vehCSATPlane, 10],
-                [vehCSATPlaneAA, 5]
+                [vehCSATAttackHelis, 30]
             ];
         };
     };

@@ -30,7 +30,7 @@ A3A_Reb_template = switch(true) do {
                 ["Templates\NewTemplates\3CB\3CB_Reb_CNM_Temperate.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
-                Info("Using arid TKM Templates");
+                Info("Using arid TKM Template");
                 ["Templates\NewTemplates\3CB\3CB_Reb_TKM_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
         };
@@ -45,7 +45,7 @@ A3A_Reb_template = switch(true) do {
                 ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
-                Info("Using arid Napa Templates");
+                Info("Using arid Napa Template");
                 ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
         };
@@ -53,7 +53,7 @@ A3A_Reb_template = switch(true) do {
     };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_Reb_POF.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using Pissed off Farmers Templates");
+        Info("Using Pissed off Farmers Template");
         "VN"
     };
     /* disabled until imtegrated
@@ -90,7 +90,7 @@ A3A_Reb_template = switch(true) do {
                 ["Templates\NewTemplates\Vanilla\Vanilla_Reb_SDK_Tanoa.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
-                Info("Using arid FIA Templates");
+                Info("Using arid FIA Template");
                 ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
         };
@@ -176,7 +176,7 @@ A3A_Occ_template = switch(true) do {
                 ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
-                Info("Using arid USAF Templates");
+                Info("Using arid USAF Template");
                 ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
         };
@@ -184,7 +184,7 @@ A3A_Occ_template = switch(true) do {
     };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_PAVN.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN PAVN Templates");
+        Info("Using VN PAVN Template");
         "VN"
     };
     /* disabled until imtegrated
@@ -217,13 +217,17 @@ A3A_Occ_template = switch(true) do {
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_LDF_Enoch.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName == "tanoa"): {
-                Info("Using tropical NATO Templates");
+                Info("Using tropical NATO Template");
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Tropical.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             case (toLower worldName in temperatemaps);
             case (toLower worldName in tropicalmaps): {
                 Info("Using temperate NATO Template");
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+            };
+            case (toLower worldName == "altis"): {
+                Info("Using Arid AAF Template");
+                ["Templates\NewTemplates\Vanilla\Vanilla_AI_AAF_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
             default {
                 Info("Using arid NATO Template");
@@ -270,7 +274,7 @@ A3A_Inv_template = switch(true) do {
     };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_MACV.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN MACV Templates");
+        Info("Using VN MACV Template");
         "VN"
     };
     /* disabled until imtegrated
@@ -338,7 +342,7 @@ A3A_Civ_template = switch(true) do {
     };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_CIV.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN CIV Templates");
+        Info("Using VN CIV Template");
         "VN"
     };
     /* disabled until imtegrated

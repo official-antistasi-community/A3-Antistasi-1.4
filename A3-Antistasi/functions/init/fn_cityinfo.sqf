@@ -83,7 +83,7 @@ while {visibleMap} do
 			{
 			if (not(sidesX getVariable [_siteX,sideUnknown] == teamPlayer)) then
 				{
-				_textX = format ["%1"+localize "STR_antistasi_markers_airport",_nameFaction];
+				_textX = format ["%1"+localize "STR_A3_malden_c_airport0",_nameFaction];
 				_busy = [_siteX,true] call A3A_fnc_airportCanAttack;
 				if (_busy) then {_textX = format ["%1<br/>"+localize "STR_antistasi_customHint_stat_idle",_textX]} else {_textX = format ["%1<br/>"+localize "STR_antistasi_customHint_stat_busy",_textX]};
 				_garrison = count (garrison getVariable [_siteX, []]);
@@ -91,7 +91,7 @@ while {visibleMap} do
 				}
 			else
 				{
-				_textX = format ["%2 "+localize "STR_antistasi_markers_airport"+"%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
+				_textX = format ["%2 "+localize "STR_A3_malden_c_airport0"+"%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
 				};
 			};
 		if (_siteX in resourcesX) then
@@ -126,7 +126,7 @@ while {visibleMap} do
 			{
 			if (not(sidesX getVariable [_siteX,sideUnknown] == teamPlayer)) then
 				{
-				_textX = format ["%1 "+localize "STR_antistasi_markers_GrandOutpost",_nameFaction];
+				_textX = format ["%1 "+localize "str_a3_exp_m01_respawnoutpost",_nameFaction];
 				_busy = [_siteX,true] call A3A_fnc_airportCanAttack;
 				if (_busy) then {_textX = format ["%1<br/>"+localize "STR_antistasi_customHint_stat_idle",_textX]} else {_textX = format ["%1<br/>"+localize "STR_antistasi_customHint_stat_busy",_textX]};
 				_garrison = count (garrison getVariable [_siteX, []]);
@@ -134,7 +134,7 @@ while {visibleMap} do
 				}
 			else
 				{
-				_textX = format ["%2 "+localize "STR_antistasi_markers_GrandOutpost"+"%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
+				_textX = format ["%2 "+localize "str_a3_exp_m01_respawnoutpost"+"%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
 				};
 			};
 		if (_siteX in seaports) then

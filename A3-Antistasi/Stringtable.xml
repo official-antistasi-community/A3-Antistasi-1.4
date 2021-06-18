@@ -4083,21 +4083,9 @@
         <Korean>자원</Korean>
         <Russian>Ресурсы</Russian>
       </Key>
-      <Key ID="STR_antistasi_markers_airport">
-        <Original>Airport</Original>
-        <Russian>Авиабаза</Russian>
-      </Key>
-      <Key ID="STR_antistasi_markers_GrandOutpost">
-        <Original>Grand Outpost</Original>
-        <Russian>Большой Форпост</Russian>
-      </Key>
       <Key ID="STR_antistasi_markers_watchpost">
         <Original>Watchpost</Original>
         <Russian>Лагерь</Russian>
-      </Key>
-      <Key ID="STR_antistasi_markers_OP">
-        <Original>%1 Observation Post</Original>
-        <Russian>%1 Лагерь</Russian>
       </Key>
       <Key ID="STR_antistasi_markers_art_begin">
         <Original>Artillery Barrage Begin</Original>

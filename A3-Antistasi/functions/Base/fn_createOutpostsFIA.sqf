@@ -9,7 +9,7 @@ if (_typeX == "delete") exitWith {[localize "STR_antistasi_customHint_op_rb", lo
 
 _isRoad = isOnRoad _positionTel;
 
-_textX = format [localize "STR_antistasi_markers_OP",nameTeamPlayer];
+_textX = format ["%1 "+localize "STR_antistasi_markers_watchpost",nameTeamPlayer];
 _typeGroup = groupsSDKSniper;
 _typeVehX = vehSDKBike;
 private _tsk = "";

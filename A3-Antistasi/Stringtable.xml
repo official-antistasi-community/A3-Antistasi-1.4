@@ -56,180 +56,6 @@
         <Korean>저항세력의 지도자가 되고 영웅이 되십시오.</Korean>
       </Key>
     </Container>
-    <Container name="dialog_headquarters">
-      <Key ID="STR_antistasi_dialogs_hq_frame_text">
-        <Original>HQ Options: Commander Only</Original>
-        <English>HQ Options: Commander Only</English>
-        <French>Options du QG: Commandant Uniquement</French>
-        <Russian>Опции Штаба: Только для Командира</Russian>
-        <German>HQ Optionen: Nur Kommandant</German>
-        <Czech>Možnosti velitelství: Pouze pro velitel</Czech>
-        <Chinesesimp>总部选项: 仅限指挥官使用</Chinesesimp>
-        <Korean>HQ 옵션: 지휘관 전용</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_withdraw_text">
-        <Original>Grab 100€ from Pool</Original>
-        <English>Grab 100€ from Pool</English>
-        <French>Prendre 100€ de la cagnotte</French>
-        <Russian>Взять 100 € из фонда</Russian>
-        <German>Entnehme 100€ aus der Kasse</German>
-        <Czech>Vzít 100€ ze společného fondu</Czech>
-        <Chinesesimp>从资金池中拿取100€</Chinesesimp>
-        <Korean>팩션 자금에서 100€ 가져가기</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_withdraw_tooltip">
-        <Original>Take 100€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</Original>
-        <English>Take 100€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</English>
-        <French>Prendre 100€ de la cagnotte de la faction pour l'ajouter sur votre compte. Cela va nuire à votre réputation au sein de la faction et ralentir votre progression des rangs.</French>
-        <Russian>Перевести 100 € из фонда сопротивления себе на счёт. Это вредит вашей репутации как командира</Russian>
-        <German>Transferiere 100€ aus der Fraktionskasse zu deinem persönlichen Konto. Dies wird deiner Reputation bezüglich deiner Karriere innerhalb der Fraktion schaden.</German>
-        <Czech>Převod 100€ ze společného fondu na váš účet.Poškodí vaši pozici mezi frakcí a též vaší kariéru velitele</Czech>
-        <Chinesesimp>从阵营的资金池中拿取100€并将其添加到您的个人帐户中。这会损害您在指挥官生涯中的地位</Chinesesimp>
-        <Korean>팩션 자금 100€를 당신의 계좌에 가져가면 횡령이기때문에 팩션내 당신의 평판이 내려갈 것입니다.</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_garrisons_text">
-        <Original>Manage Garrisons</Original>
-        <English>Manage Garrisons</English>
-        <French>Gérer Garnisons</French>
-        <Russian>Управление гарнизоном</Russian>
-        <German>Garnisonsverwaltung</German>
-        <Czech>Spravovat posádku</Czech>
-        <Chinesesimp>管理驻军</Chinesesimp>
-        <Korean>주둔지 관리</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_garrisons_tooltip">
-        <Original>Add or remove units to garrisons</Original>
-        <English>Add or remove units to garrisons</English>
-        <French>Ajouter ou supprimer une garnison</French>
-        <Russian>Добавление или удаление юнитов в гарнизон</Russian>
-        <German>Einheiten der Garnison hinzufügen oder entfernen.</German>
-        <Czech>Přidejte nebo odeberte jednotky z posádky</Czech>
-        <Chinesesimp>向驻军增派或删除单位</Chinesesimp>
-        <Korean>주둔지에 병력을 추가하거나 줄입니다.</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_text">
-        <Original>Move HQ to another Zone</Original>
-        <English>Move HQ to another Zone</English>
-        <French>Déplacer le QG vers une autre zone</French>
-        <Russian>Переместить Штаб</Russian>
-        <German>HQ verlegen</German>
-        <Czech>Přesuňte velitelství</Czech>
-        <Chinesesimp>将总部转移到其他区域</Chinesesimp>
-        <Korean>HQ 이사하기</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
-        <Original>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</Original>
-        <English>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</English>
-        <French>Petros va rejoindre votre groupe. L'Arsenal doit être vide. Pour reconstruire, sélectionnez l'action "Construire" à côté de Petros.</French>
-        <Russian>Петрос присоединится к вашей группе. Чтобы построить Штаб, выберите на нём пункт "Построить Штаб". Арсенал должен быть пуст.</Russian>
-        <German>Maru/Petros tritt deiner Gruppe bei. Munitionskiste muss leer sein. Zur Neuerrichtung die Bauaktion in der Nähe von Maru/Petros auswählen.</German>
-        <Czech>Petros se připojí k vaší skupině. Chcete-li vytvořit velitelství, vyberte možnost u Petrose „Zřídit velitelství“. Arzenál musí být prázdný.</Czech>
-        <Chinesesimp>Maru将会加入您的小队。弹药箱必须为空。在Maru附近选择"建造"选项来重建总部。</Chinesesimp>
-        <Korean>페트로스가 당신의 그룹에 참가할 것입니다. 탄약상자는 비워져 있어야합니다. 재건축하려면 페트로스 근처에서 건축하기를 선택하시오.</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_members_list_text">
-        <Original>Ingame Member List</Original>
-        <English>Ingame Member List</English>
-        <French>Liste des membres en ligne</French>
-        <Russian>Список Игроков</Russian>
-        <German>Mitgliederliste</German>
-        <Czech>Seznam členů</Czech>
-        <Chinesesimp>在线会员列表</Chinesesimp>
-        <Korean>인게임 멤버 목록</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_members_list_tooltip">
-        <Original>Displays which server members are currently playing</Original>
-        <English>Displays which server members are currently playing</English>
-        <French>Affiche quels membres du serveur sont actuellement en jeu</French>
-        <Russian>Показывает, кто из Игроков сейчас на сервере</Russian>
-        <German>Zeigt, welche Servermitglieder momentan im Spiel sind.</German>
-        <Czech>Zobrazuje, kteří členové serveru aktuálně hrají</Czech>
-        <Chinesesimp>显示哪些服务器会员正在游玩</Chinesesimp>
-        <Korean>현재 플레이중인 서버 맴버 표시</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_text">
-        <Original>Rebuild Assets</Original>
-        <English>Rebuild Assets</English>
-        <French>Reconstruire les (biens)</French>
-        <Russian>Восстановление объектов</Russian>
-        <German>Anlagen wiederherstellen</German>
-        <Czech>Znovu vybudovat objekt</Czech>
-        <Chinesesimp>重建资产</Chinesesimp>
-        <Korean>재건축</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_tooltip">
-        <Original>Cost: €5000</Original>
-        <English>Cost: €5000</English>
-        <French>Coût : 5000€</French>
-        <Russian>Цена: 5000 €</Russian>
-        <German>Kosten: 5.000€</German>
-        <Czech>Cena: 5000€</Czech>
-        <Chinesesimp>花费: 5000€</Chinesesimp>
-        <Korean>가격: 5000€</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_train_ai_text">
-        <Original>Train FIA Troops</Original>
-        <English>Train FIA Troops</English>
-        <French>Entrainer les troupes de la FIA</French>
-        <Russian>Тренировать Войска</Russian>
-        <German>FIA Truppen ausbilden</German>
-        <Czech>Vycvičit jednotky FIA</Czech>
-        <Chinesesimp>训练FIA部队</Chinesesimp>
-        <Korean>FIA 부대 훈련</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_train_ai_tooltip">
-        <Original>Upgrades the AI skill level</Original>
-        <English>Upgrades the AI skill level</English>
-        <French>Améliorer le niveau de l'IA</French>
-        <Russian>Увеличивает уровень готовности войск</Russian>
-        <German>Erhöht den KI Fähigkeitslevel.</German>
-        <Czech>Vylepší úroveň dovednosti AI</Czech>
-        <Chinesesimp>提升AI技能等级</Chinesesimp>
-        <Korean>AI 스킬 레벨 업그레이드</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_garage_text">
-        <Original>Garage Access</Original>
-        <English>Garage Access</English>
-        <French>Accès au garage</French>
-        <Russian>Гараж Сопротивления</Russian>
-        <German>Fuhrparkzugriff</German>
-        <Czech>Přístup do garáže</Czech>
-        <Chinesesimp>车库存取</Chinesesimp>
-        <Korean>차고 열기</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_garage_tooltip">
-        <Original>Check Faction garage</Original>
-        <English>Check Faction garage</English>
-        <French>Examiner le garage de la faction</French>
-        <Russian>Проверить Гараж Сопротивления</Russian>
-        <German>Fuhrpark der Fraktion einsehen.</German>
-        <Czech>Zkontrolujte frakční garáž</Czech>
-        <Chinesesimp>检查阵营车库</Chinesesimp>
-        <Korean>팩션 차고 확인</Korean>
-      </Key>
-    </Container>
-    <Container name="dialog_build_menu">
-      <Key ID="STR_antistasi_dialogs_build_outpost_button_text">
-        <Original>Outpost or Roadblock</Original>
-        <English>Outpost or Roadblock</English>
-        <French>Avant-Poste ou Barrage Routier</French>
-        <Russian>БП или НП</Russian>
-        <German>Außenposten oder Straßensperre</German>
-        <Czech>Předsunutá hlídka nebo Zátaras</Czech>
-        <Chinesesimp>前哨或路障</Chinesesimp>
-        <Korean>전초기지 또는 검문소</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_build_outpost_button_tooltip">
-        <Original>Establish a new watchpost or roadblock depending on the type of terrain you select.</Original>
-        <English>Establish a new watchpost or roadblock depending on the type of terrain you select.</English>
-        <French>Créer un nouvel avant-poste ou barrage routier en fonction du type de terrain sélectionné</French>
-        <Russian>Установить Наблюдательный Пост или Блок Пост в зависимости от выбранного места.</Russian>
-        <German>Errichte, abhängig vom gewählten Gelände, einen neuen Außenposten oder eine neue Straßensperre.</German>
-        <Czech>Zřiďte Předsunutou hlídku nebo Zátaras v závislosti na vybraném místě.</Czech>
-        <Chinesesimp>根据您选择的地形, 建立新的岗哨或路障。</Chinesesimp>
-        <Korean>지정한 구역에 감시초소 또는 검문소를 설치합니다.</Korean>
-      </Key>
-    </Container>
     <Container name="dialog_unit_recruit">
       <Key ID="STR_antistasi_dialogs_unit_recruit_frame_text">
         <Original>Recruitment Options</Original>
@@ -1815,6 +1641,16 @@
         <Original>HQ Management</Original>
         <Russian>Управление штабом</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_hq_frame_text">
+        <Original>HQ Options: Commander Only</Original>
+        <English>HQ Options: Commander Only</English>
+        <French>Options du QG: Commandant Uniquement</French>
+        <Russian>Опции Штаба: Только для Командира</Russian>
+        <German>HQ Optionen: Nur Kommandant</German>
+        <Czech>Možnosti velitelství: Pouze pro velitel</Czech>
+        <Chinesesimp>总部选项: 仅限指挥官使用</Chinesesimp>
+        <Korean>HQ 옵션: 지휘관 전용</Korean>
+      </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI">
         <Original>AI Management</Original>
         <Russian>Управление ИИ</Russian>
@@ -2230,10 +2066,6 @@
       <Key ID="STR_antistasi_customHint_air_support_selectVector">
         <Original>Select the map position to which the plane will exit to calculate plane's route vector</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_op_rb">
-        <Original>Watchpost/Roadblocks</Original>
-        <Russian>НП/БП</Russian>
-      </Key>
       <Key ID="STR_antistasi_customHint_auto_target">
         <Original>Static Auto Target</Original>
       </Key>
@@ -2307,27 +2139,6 @@
         <Original>The enemy still outnumber us, check the map and clear the rest of the area</Original>
         <Russian>Противник по-прежнему численно превосходит нас, проверьте карту и очистите остальную территорию</Russian>
       </Key>
-      <Key ID="STR_antistasi_customHint_outpost_one">
-        <Original>We can only deploy / delete one Observation Post or Roadblock at a time.</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_outpost_map">
-        <Original>Click on the position you wish to build the Observation Post or Roadblock.&lt;br/&gt;&lt;br/&gt;Remember: to build Roadblocks you must click exactly on a road map section</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_outpost_delete">
-        <Original>Click on the Observation Post or Roadblock to delete</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_outpost_no_post">
-        <Original>No Posts or Roadblocks deployed to delete</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_outpost_enemy">
-        <Original>You cannot delete a Post while enemies are near it</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_outpost_no_nearby">
-        <Original>No post nearby</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_outpost_no_resources">
-        <Original>You lack of resources to build this Outpost or Roadblock&lt;br/&gt;&lt;br/&gt;%1 HR and %2 € needed</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_breach_veh">
         <Original>Breach Vehicle</Original>
         <Russian>Выкурить из техники</Russian>
@@ -2394,21 +2205,6 @@
       <Key ID="STR_antistasi_customHint_radio">
         <Original>Radio Required</Original>
         <Russian>Требуется радио</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_skipTime_enemy">
-        <Original>You cannot rest while enemies are near our units</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_skipTime_counterattack">
-        <Original>You cannot rest while the enemy is counterattacking</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_skipTime_attack">
-        <Original>You cannot rest while citizens are under attack</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_skipTime_attackHQ">
-        <Original>You cannot rest while your HQ is under attack</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_skipTime_radius">
-        <Original>All players must be in a %1m radius from HQ to be able to rest</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_static_deployed">
         <Original>Static Deployed</Original>
@@ -2545,10 +2341,6 @@
       <Key ID="STR_antistasi_customHint_steal_despawn">
         <Original>Weapon Stolen. It won't despawn when you assemble it again</Original>
         <Russian>Орудие украдено. Оно не исчезнет, когда вы его снова соберете</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_difficulty">
-        <Original>Choose a difficulty level</Original>
-        <Russian>Выберите уровень сложности</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_render1">
         <Original>Press</Original>
@@ -2729,6 +2521,21 @@
       <Key ID="STR_antistasi_addAction_sleep">
         <Original>Rest for 8 Hours</Original>
         <Russian>Отдых 8 часов</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_skipTime_enemy">
+        <Original>You cannot rest while enemies are near our units</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_skipTime_counterattack">
+        <Original>You cannot rest while the enemy is counterattacking</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_skipTime_attack">
+        <Original>You cannot rest while citizens are under attack</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_skipTime_attackHQ">
+        <Original>You cannot rest while your HQ is under attack</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_skipTime_radius">
+        <Original>All players must be in a %1m radius from HQ to be able to rest</Original>
       </Key>
     </Container>
     <Container name="Mission">
@@ -3627,6 +3434,10 @@
         <Original>Allow Friendly Player Markers</Original>
         <Russian>Разрешить маркеры дружественных игроков</Russian>
       </Key>
+      <Key ID="STR_antistasi_customHint_difficulty">
+        <Original>Choose a difficulty level</Original>
+        <Russian>Выберите уровень сложности</Russian>
+      </Key>
       <Key ID="STR_antistasi_param_AISkill">
         <Original>Mission Difficulty</Original>
         <Russian>Сложность миссии</Russian>
@@ -4416,6 +4227,26 @@
         <Chinesesimp>驻军</Chinesesimp>
         <Korean>주둔지</Korean>
         <Russian>Гарнизон</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_garrisons_text">
+        <Original>Manage Garrisons</Original>
+        <English>Manage Garrisons</English>
+        <French>Gérer Garnisons</French>
+        <Russian>Управление гарнизоном</Russian>
+        <German>Garnisonsverwaltung</German>
+        <Czech>Spravovat posádku</Czech>
+        <Chinesesimp>管理驻军</Chinesesimp>
+        <Korean>주둔지 관리</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_garrisons_tooltip">
+        <Original>Add or remove units to garrisons</Original>
+        <English>Add or remove units to garrisons</English>
+        <French>Ajouter ou supprimer une garnison</French>
+        <Russian>Добавление или удаление юнитов в гарнизон</Russian>
+        <German>Einheiten der Garnison hinzufügen oder entfernen.</German>
+        <Czech>Přidejte nebo odeberte jednotky z posádky</Czech>
+        <Chinesesimp>向驻军增派或删除单位</Chinesesimp>
+        <Korean>주둔지에 병력을 추가하거나 줄입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_garrisons_AI_Recruit">
         <Original>AI Recruitment</Original>
@@ -6068,6 +5899,26 @@
         <Chinesesimp>允许其他小队搭乘该载具</Chinesesimp>
         <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_garage_text">
+        <Original>Garage Access</Original>
+        <English>Garage Access</English>
+        <French>Accès au garage</French>
+        <Russian>Гараж Сопротивления</Russian>
+        <German>Fuhrparkzugriff</German>
+        <Czech>Přístup do garáže</Czech>
+        <Chinesesimp>车库存取</Chinesesimp>
+        <Korean>차고 열기</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_garage_tooltip">
+        <Original>Check Faction garage</Original>
+        <English>Check Faction garage</English>
+        <French>Examiner le garage de la faction</French>
+        <Russian>Проверить Гараж Сопротивления</Russian>
+        <German>Fuhrpark der Fraktion einsehen.</German>
+        <Czech>Zkontrolujte frakční garáž</Czech>
+        <Chinesesimp>检查阵营车库</Chinesesimp>
+        <Korean>팩션 차고 확인</Korean>
+      </Key>
     </Container>
     <Container name="SITREP">
       <Key ID="STR_antistasi_dialogs_squad_manager_squad_sitrep">
@@ -6331,6 +6182,26 @@
       </Key>
     </Container>
     <Container name="Skill">
+      <Key ID="STR_antistasi_dialogs_hq_button_train_ai_text">
+        <Original>Train FIA Troops</Original>
+        <English>Train FIA Troops</English>
+        <French>Entrainer les troupes de la FIA</French>
+        <Russian>Тренировать Войска</Russian>
+        <German>FIA Truppen ausbilden</German>
+        <Czech>Vycvičit jednotky FIA</Czech>
+        <Chinesesimp>训练FIA部队</Chinesesimp>
+        <Korean>FIA 부대 훈련</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_train_ai_tooltip">
+        <Original>Upgrades the AI skill level</Original>
+        <English>Upgrades the AI skill level</English>
+        <French>Améliorer le niveau de l'IA</French>
+        <Russian>Увеличивает уровень готовности войск</Russian>
+        <German>Erhöht den KI Fähigkeitslevel.</German>
+        <Czech>Vylepší úroveň dovednosti AI</Czech>
+        <Chinesesimp>提升AI技能等级</Chinesesimp>
+        <Korean>AI 스킬 레벨 업그레이드</Korean>
+      </Key>
       <Key ID="STR_antistasi_customHint_skill">
         <Original>Skill Add</Original>
         <Russian>Обучение бойцов</Russian>
@@ -6441,6 +6312,26 @@
         <Chinesesimp>使用该选项将你面前的玩家从会员列表中移除</Chinesesimp>
         <Russian>Используйте эту опцию, чтобы удалить игрока, которого вы сейчас ищете, из списка участников.</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_members_list_text">
+        <Original>Ingame Member List</Original>
+        <English>Ingame Member List</English>
+        <French>Liste des membres en ligne</French>
+        <Russian>Список Игроков</Russian>
+        <German>Mitgliederliste</German>
+        <Czech>Seznam členů</Czech>
+        <Chinesesimp>在线会员列表</Chinesesimp>
+        <Korean>인게임 멤버 목록</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_members_list_tooltip">
+        <Original>Displays which server members are currently playing</Original>
+        <English>Displays which server members are currently playing</English>
+        <French>Affiche quels membres du serveur sont actuellement en jeu</French>
+        <Russian>Показывает, кто из Игроков сейчас на сервере</Russian>
+        <German>Zeigt, welche Servermitglieder momentan im Spiel sind.</German>
+        <Czech>Zobrazuje, kteří členové serveru aktuálně hrají</Czech>
+        <Chinesesimp>显示哪些服务器会员正在游玩</Chinesesimp>
+        <Korean>현재 플레이중인 서버 맴버 표시</Korean>
+      </Key>
     </Container>
     <Container name="Money">
       <Key ID="STR_antistasi_journal_entry_header_Features_15">
@@ -6510,6 +6401,26 @@
         <Chinesesimp>面向玩家并与其互动</Chinesesimp>
         <Russian>Посмотрите на игрока чтобы взаимодействовать с ним</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_withdraw_text">
+        <Original>Grab 100€ from Pool</Original>
+        <English>Grab 100€ from Pool</English>
+        <French>Prendre 100€ de la cagnotte</French>
+        <Russian>Взять 100 € из фонда</Russian>
+        <German>Entnehme 100€ aus der Kasse</German>
+        <Czech>Vzít 100€ ze společného fondu</Czech>
+        <Chinesesimp>从资金池中拿取100€</Chinesesimp>
+        <Korean>팩션 자금에서 100€ 가져가기</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_withdraw_tooltip">
+        <Original>Take 100€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</Original>
+        <English>Take 100€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</English>
+        <French>Prendre 100€ de la cagnotte de la faction pour l'ajouter sur votre compte. Cela va nuire à votre réputation au sein de la faction et ralentir votre progression des rangs.</French>
+        <Russian>Перевести 100 € из фонда сопротивления себе на счёт. Это вредит вашей репутации как командира</Russian>
+        <German>Transferiere 100€ aus der Fraktionskasse zu deinem persönlichen Konto. Dies wird deiner Reputation bezüglich deiner Karriere innerhalb der Fraktion schaden.</German>
+        <Czech>Převod 100€ ze společného fondu na váš účet.Poškodí vaši pozici mezi frakcí a též vaší kariéru velitele</Czech>
+        <Chinesesimp>从阵营的资金池中拿取100€并将其添加到您的个人帐户中。这会损害您在指挥官生涯中的地位</Chinesesimp>
+        <Korean>팩션 자금 100€를 당신의 계좌에 가져가면 횡령이기때문에 팩션내 당신의 평판이 내려갈 것입니다.</Korean>
+      </Key>
     </Container>
     <Container name="Move_HQ">
       <Key ID="STR_antistasi_journal_entry_header_commander_5">
@@ -6520,6 +6431,26 @@
         <Chinesesimp>转移总部</Chinesesimp>
         <Korean>HQ 이동하기</Korean>
         <Russian>Переместить штаб</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_text">
+        <Original>Move HQ to another Zone</Original>
+        <English>Move HQ to another Zone</English>
+        <French>Déplacer le QG vers une autre zone</French>
+        <Russian>Переместить Штаб</Russian>
+        <German>HQ verlegen</German>
+        <Czech>Přesuňte velitelství</Czech>
+        <Chinesesimp>将总部转移到其他区域</Chinesesimp>
+        <Korean>HQ 이사하기</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
+        <Original>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</Original>
+        <English>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</English>
+        <French>Petros va rejoindre votre groupe. L'Arsenal doit être vide. Pour reconstruire, sélectionnez l'action "Construire" à côté de Petros.</French>
+        <Russian>Петрос присоединится к вашей группе. Чтобы построить Штаб, выберите на нём пункт "Построить Штаб". Арсенал должен быть пуст.</Russian>
+        <German>Maru/Petros tritt deiner Gruppe bei. Munitionskiste muss leer sein. Zur Neuerrichtung die Bauaktion in der Nähe von Maru/Petros auswählen.</German>
+        <Czech>Petros se připojí k vaší skupině. Chcete-li vytvořit velitelství, vyberte možnost u Petrose „Zřídit velitelství“. Arzenál musí být prázdný.</Czech>
+        <Chinesesimp>Maru将会加入您的小队。弹药箱必须为空。在Maru附近选择"建造"选项来重建总部。</Chinesesimp>
+        <Korean>페트로스가 당신의 그룹에 참가할 것입니다. 탄약상자는 비워져 있어야합니다. 재건축하려면 페트로스 근처에서 건축하기를 선택하시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_customHint_moveHQ_ammobox">
         <Original>You must first empty your Ammobox in order to move the HQ</Original>
@@ -6899,6 +6830,26 @@
       <Key ID="STR_antistasi_customHint_rebuild_noBelong">
         <Original>You cannot rebuild a Radio Tower in an Outpost which does not belong to %1</Original>
       </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_text">
+        <Original>Rebuild Assets</Original>
+        <English>Rebuild Assets</English>
+        <French>Reconstruire les (biens)</French>
+        <Russian>Восстановление объектов</Russian>
+        <German>Anlagen wiederherstellen</German>
+        <Czech>Znovu vybudovat objekt</Czech>
+        <Chinesesimp>重建资产</Chinesesimp>
+        <Korean>재건축</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_tooltip">
+        <Original>Cost: €5000</Original>
+        <English>Cost: €5000</English>
+        <French>Coût : 5000€</French>
+        <Russian>Цена: 5000 €</Russian>
+        <German>Kosten: 5.000€</German>
+        <Czech>Cena: 5000€</Czech>
+        <Chinesesimp>花费: 5000€</Chinesesimp>
+        <Korean>가격: 5000€</Korean>
+      </Key>
     </Container>
     <Container name="Minefield">
       <Key ID="STR_antistasi_dialogs_build_minefield_button_text">
@@ -7022,6 +6973,53 @@
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_map">
         <Original>Click on the position you wish to build the minefield</Original>
+      </Key>
+    </Container>
+    <Container name="OP\RB">
+      <Key ID="STR_antistasi_customHint_op_rb">
+        <Original>Watchpost/Roadblocks</Original>
+        <Russian>НП/БП</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_build_outpost_button_text">
+        <Original>Outpost or Roadblock</Original>
+        <English>Outpost or Roadblock</English>
+        <French>Avant-Poste ou Barrage Routier</French>
+        <Russian>БП или НП</Russian>
+        <German>Außenposten oder Straßensperre</German>
+        <Czech>Předsunutá hlídka nebo Zátaras</Czech>
+        <Chinesesimp>前哨或路障</Chinesesimp>
+        <Korean>전초기지 또는 검문소</Korean>
+      </Key>
+      <Key ID="STR_antistasi_customHint_outpost_one">
+        <Original>We can only deploy / delete one Observation Post or Roadblock at a time.</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_outpost_map">
+        <Original>Click on the position you wish to build the Observation Post or Roadblock.&lt;br/&gt;&lt;br/&gt;Remember: to build Roadblocks you must click exactly on a road map section</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_outpost_delete">
+        <Original>Click on the Observation Post or Roadblock to delete</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_outpost_no_post">
+        <Original>No Posts or Roadblocks deployed to delete</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_outpost_enemy">
+        <Original>You cannot delete a Post while enemies are near it</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_outpost_no_nearby">
+        <Original>No post nearby</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_outpost_no_resources">
+        <Original>You lack of resources to build this Outpost or Roadblock&lt;br/&gt;&lt;br/&gt;%1 HR and %2 € needed</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_build_outpost_button_tooltip">
+        <Original>Establish a new watchpost or roadblock depending on the type of terrain you select.</Original>
+        <English>Establish a new watchpost or roadblock depending on the type of terrain you select.</English>
+        <French>Créer un nouvel avant-poste ou barrage routier en fonction du type de terrain sélectionné</French>
+        <Russian>Установить Наблюдательный Пост или Блок Пост в зависимости от выбранного места.</Russian>
+        <German>Errichte, abhängig vom gewählten Gelände, einen neuen Außenposten oder eine neue Straßensperre.</German>
+        <Czech>Zřiďte Předsunutou hlídku nebo Zátaras v závislosti na vybraném místě.</Czech>
+        <Chinesesimp>根据您选择的地形, 建立新的岗哨或路障。</Chinesesimp>
+        <Korean>지정한 구역에 감시초소 또는 검문소를 설치합니다.</Korean>
       </Key>
     </Container>
   </Package>

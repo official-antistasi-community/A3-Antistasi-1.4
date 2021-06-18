@@ -209,26 +209,6 @@
       </Key>
     </Container>
     <Container name="dialog_build_menu">
-      <Key ID="STR_antistasi_dialogs_build_minefield_button_text">
-        <Original>Minefield Options</Original>
-        <English>Minefield Options</English>
-        <French>Options de Champ de Mines</French>
-        <Russian>Минные поля</Russian>
-        <German>Minenfeldoptionen</German>
-        <Czech>Možnosti minového pole</Czech>
-        <Chinesesimp>雷区选项</Chinesesimp>
-        <Korean>지뢰지대 설정</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_build_minefield_button_tooltip">
-        <Original>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</Original>
-        <English>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</English>
-        <French>L'IA va déployer ou retirer des mines sur les objectifs désirés, en utilisant le stock disponible dans l'arsenal</French>
-        <Russian>Инженеры установят или удалят мины на выбранной позиции, используя мины из арсенала</Russian>
-        <German>Die KI wird Minen um die ausgewählten Ziele legen oder räumen. Sie nutzt dabei den aktuellen Minenvorrat.</German>
-        <Czech>AI rozmístí nebo odstraní miny na požadovaných místech za použití současné zásoby arzenálu</Czech>
-        <Chinesesimp>AI将使用现有的军火库中地雷, 在预期目标位置部署或拆除地雷</Chinesesimp>
-        <Korean>AI는 현재 아스널의 지뢰 재고를 이용하여, 목표물에 지뢰를 심거나 제거합니다.</Korean>
-      </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_text">
         <Original>Outpost or Roadblock</Original>
         <English>Outpost or Roadblock</English>
@@ -248,80 +228,6 @@
         <Czech>Zřiďte Předsunutou hlídku nebo Zátaras v závislosti na vybraném místě.</Czech>
         <Chinesesimp>根据您选择的地形, 建立新的岗哨或路障。</Chinesesimp>
         <Korean>지정한 구역에 감시초소 또는 검문소를 설치합니다.</Korean>
-      </Key>
-    </Container>
-    <Container name="dialog_build_minefield">
-      <Key ID="STR_antistasi_dialogs_minefield_frame_text">
-        <Original>Build Minefield</Original>
-        <English>Build Minefield</English>
-        <French>Construire un Champ de Mines</French>
-        <Russian>Минное Поле</Russian>
-        <German>Minenfeld legen</German>
-        <Czech>Zřídit minové pole</Czech>
-        <Chinesesimp>建造雷区</Chinesesimp>
-        <Korean>지뢰지대 만들기</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_text">
-        <!-- TODO str_a3_cfgmagazines_classicminerangemagazine0 -->
-        <Original>APERS Mines</Original>
-        <English>APERS Mines</English>
-        <French>APERS Mines</French>
-        <Russian>ПП Мины</Russian>
-        <German>APERS Minen</German>
-        <Czech>Protipěchotní miny</Czech>
-        <Chinesesimp>反人员(APRES)地雷</Chinesesimp>
-        <Korean>APERS 지뢰</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_tooltip">
-        <Original>Creates an APERS Minefield in the designated location</Original>
-        <English>Creates an APERS Minefield in the designated location</English>
-        <French>Créer un Champ de Mines APERS sur le lieu indiqué</French>
-        <Russian>Создаёт Минное Поле с противопехотными минами на выбранной позиции</Russian>
-        <German>Legt ein APERS-Minenfeld an der ausgewählten Position.</German>
-        <Czech>Zvolit pozici pro minové pole</Czech>
-        <Chinesesimp>在指定地点布设反人员雷区</Chinesesimp>
-        <Korean>지정된 위치에 APERS 지뢰지대를 만듭니다.</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_minefield_button_remove_text">
-        <Original>Remove Minefield</Original>
-        <English>Remove Minefield</English>
-        <French>Supprimer un Champ de Mines</French>
-        <Russian>Удалить Минное Поле</Russian>
-        <German>Minenfeld räumen</German>
-        <Czech>Odstranit minové pole</Czech>
-        <Chinesesimp>删除雷区</Chinesesimp>
-        <Korean>지뢰지대 제거</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_minefield_button_remove_tooltip">
-        <Original>Spawn an AI Engineer which will clear any mine in it's surroundings</Original>
-        <English>Spawn an AI Engineer which will clear any mine in it's surroundings</English>
-        <French>Fait apparaître un Ingénieur contrôllé par l'IA qui va retirer toutes les mines dans ses alentours</French>
-        <Russian>Создаёт Инженера, который разминирует все мины вокруг себя</Russian>
-        <German>Ein KI Sprengstoffspezialist wird alle Minen in der Umgebung räumen.</German>
-        <Czech>Vytvoří inženýra, který vyčistí všechny miny kolem sebe</Czech>
-        <Chinesesimp>生成一名AI工程师来清除周围的地雷</Chinesesimp>
-        <Korean>주변 지뢰지대를 제거할 AI 공병을 소환합니다.</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_text">
-        <!-- TODO STR_a3_cfgmagazines_mine0 -->
-        <Original>AT Mines</Original>
-        <English>AT Mines</English>
-        <French>Mines AT</French>
-        <Russian>ПТ Мины</Russian>
-        <German>Panzerabwehrminen</German>
-        <Czech>Protitankové miny</Czech>
-        <Chinesesimp>反坦克(AT)地雷</Chinesesimp>
-        <Korean>대전차 지뢰</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_tooltip">
-        <Original>Creates an Anti Tank minefield at designated location</Original>
-        <English>Creates an Anti Tank minefield at designated location</English>
-        <French>Créer un Champ de Mines AT sur le lieu indiqué</French>
-        <Russian>Создаёт Минное Поле с противотанковыми минами на выбранной позиции</Russian>
-        <German>Legt ein Panzerabwehrminenfeld an der ausgewählten Position.</German>
-        <Czech>Umístí protitankové minové pole na určenou pozici</Czech>
-        <Chinesesimp>在指定地点布设反坦克雷区</Chinesesimp>
-        <Korean>지정된 위치에 대전차 지뢰지대를 만듭니다.</Korean>
       </Key>
     </Container>
     <Container name="dialog_unit_recruit">
@@ -2023,15 +1929,6 @@
       </Key>
     </Container>
     <Container name="mortar">
-      <Key ID="STR_antistasi_journal_entry_header_commander_10">
-        <Original>Minefields</Original>
-        <French>Champs de mines</French>
-        <German>Minenfelder</German>
-        <Czech>Minové pole</Czech>
-        <Chinesesimp>雷区</Chinesesimp>
-        <Korean>지뢰지대</Korean>
-        <Russian>Минные поля</Russian>
-      </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing">
         <Original>Carpet Bombing Strike</Original>
         <Chinesesimp>地毯式轰炸</Chinesesimp>
@@ -2494,30 +2391,9 @@
       <Key ID="STR_antistasi_customHint_cleared_forest">
         <Original>You've cleared the surroundings of trees and bushes</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_minefields_one">
-        <Original>We can only deploy one minefield at a time</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_radio">
         <Original>Radio Required</Original>
         <Russian>Требуется радио</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_minefields_noradio">
-        <Original>You need a radio in your inventory to be able to give orders to other squads</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_minefields_no_radioman">
-        <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_minefields_no_resources">
-        <Original>Not enough resources to recruit a mine deploying team (%1 € and %2 HR needed)</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_minefields_HC">
-        <Original>An Explosive Specialist is available on your High Command bar.&lt;br/&gt;&lt;br/&gt;Send him anywhere on the map to deactivate mines. He will load his truck with mines he found.&lt;br/&gt;&lt;br/&gt;Upon returning back to HQ he will unload mines stored in his vehicle</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_minefields_no_mine">
-        <Original>You need at least %1 mines of this type to build a Minefield</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_minefields_map">
-        <Original>Click on the position you wish to build the minefield</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_skipTime_enemy">
         <Original>You cannot rest while enemies are near our units</Original>
@@ -7022,6 +6898,130 @@
       </Key>
       <Key ID="STR_antistasi_customHint_rebuild_noBelong">
         <Original>You cannot rebuild a Radio Tower in an Outpost which does not belong to %1</Original>
+      </Key>
+    </Container>
+    <Container name="Minefield">
+      <Key ID="STR_antistasi_dialogs_build_minefield_button_text">
+        <Original>Minefield Options</Original>
+        <English>Minefield Options</English>
+        <French>Options de Champ de Mines</French>
+        <Russian>Минные поля</Russian>
+        <German>Minenfeldoptionen</German>
+        <Czech>Možnosti minového pole</Czech>
+        <Chinesesimp>雷区选项</Chinesesimp>
+        <Korean>지뢰지대 설정</Korean>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_10">
+        <Original>Minefields</Original>
+        <French>Champs de mines</French>
+        <German>Minenfelder</German>
+        <Czech>Minové pole</Czech>
+        <Chinesesimp>雷区</Chinesesimp>
+        <Korean>지뢰지대</Korean>
+        <Russian>Минные поля</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_frame_text">
+        <Original>Build Minefield</Original>
+        <English>Build Minefield</English>
+        <French>Construire un Champ de Mines</French>
+        <Russian>Минное Поле</Russian>
+        <German>Minenfeld legen</German>
+        <Czech>Zřídit minové pole</Czech>
+        <Chinesesimp>建造雷区</Chinesesimp>
+        <Korean>지뢰지대 만들기</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_build_minefield_button_tooltip">
+        <Original>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</Original>
+        <English>AI will deploy or remove mines on desired objectives, using current arsenal mine stock</English>
+        <French>L'IA va déployer ou retirer des mines sur les objectifs désirés, en utilisant le stock disponible dans l'arsenal</French>
+        <Russian>Инженеры установят или удалят мины на выбранной позиции, используя мины из арсенала</Russian>
+        <German>Die KI wird Minen um die ausgewählten Ziele legen oder räumen. Sie nutzt dabei den aktuellen Minenvorrat.</German>
+        <Czech>AI rozmístí nebo odstraní miny na požadovaných místech za použití současné zásoby arzenálu</Czech>
+        <Chinesesimp>AI将使用现有的军火库中地雷, 在预期目标位置部署或拆除地雷</Chinesesimp>
+        <Korean>AI는 현재 아스널의 지뢰 재고를 이용하여, 목표물에 지뢰를 심거나 제거합니다.</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_remove_text">
+        <Original>Remove Minefield</Original>
+        <English>Remove Minefield</English>
+        <French>Supprimer un Champ de Mines</French>
+        <Russian>Удалить Минное Поле</Russian>
+        <German>Minenfeld räumen</German>
+        <Czech>Odstranit minové pole</Czech>
+        <Chinesesimp>删除雷区</Chinesesimp>
+        <Korean>지뢰지대 제거</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_remove_tooltip">
+        <Original>Spawn an AI Engineer which will clear any mine in it's surroundings</Original>
+        <English>Spawn an AI Engineer which will clear any mine in it's surroundings</English>
+        <French>Fait apparaître un Ingénieur contrôllé par l'IA qui va retirer toutes les mines dans ses alentours</French>
+        <Russian>Создаёт Инженера, который разминирует все мины вокруг себя</Russian>
+        <German>Ein KI Sprengstoffspezialist wird alle Minen in der Umgebung räumen.</German>
+        <Czech>Vytvoří inženýra, který vyčistí všechny miny kolem sebe</Czech>
+        <Chinesesimp>生成一名AI工程师来清除周围的地雷</Chinesesimp>
+        <Korean>주변 지뢰지대를 제거할 AI 공병을 소환합니다.</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_text">
+        <!-- TODO str_a3_cfgmagazines_classicminerangemagazine0 -->
+        <Original>APERS Mines</Original>
+        <English>APERS Mines</English>
+        <French>APERS Mines</French>
+        <Russian>ПП Мины</Russian>
+        <German>APERS Minen</German>
+        <Czech>Protipěchotní miny</Czech>
+        <Chinesesimp>反人员(APRES)地雷</Chinesesimp>
+        <Korean>APERS 지뢰</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_text">
+        <!-- TODO STR_a3_cfgmagazines_mine0 -->
+        <Original>AT Mines</Original>
+        <English>AT Mines</English>
+        <French>Mines AT</French>
+        <Russian>ПТ Мины</Russian>
+        <German>Panzerabwehrminen</German>
+        <Czech>Protitankové miny</Czech>
+        <Chinesesimp>反坦克(AT)地雷</Chinesesimp>
+        <Korean>대전차 지뢰</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_personel_tooltip">
+        <Original>Creates an APERS Minefield in the designated location</Original>
+        <English>Creates an APERS Minefield in the designated location</English>
+        <French>Créer un Champ de Mines APERS sur le lieu indiqué</French>
+        <Russian>Создаёт Минное Поле с противопехотными минами на выбранной позиции</Russian>
+        <German>Legt ein APERS-Minenfeld an der ausgewählten Position.</German>
+        <Czech>Zvolit pozici pro minové pole</Czech>
+        <Chinesesimp>在指定地点布设反人员雷区</Chinesesimp>
+        <Korean>지정된 위치에 APERS 지뢰지대를 만듭니다.</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_tooltip">
+        <Original>Creates an Anti Tank minefield at designated location</Original>
+        <English>Creates an Anti Tank minefield at designated location</English>
+        <French>Créer un Champ de Mines AT sur le lieu indiqué</French>
+        <Russian>Создаёт Минное Поле с противотанковыми минами на выбранной позиции</Russian>
+        <German>Legt ein Panzerabwehrminenfeld an der ausgewählten Position.</German>
+        <Czech>Umístí protitankové minové pole na určenou pozici</Czech>
+        <Chinesesimp>在指定地点布设反坦克雷区</Chinesesimp>
+        <Korean>지정된 위치에 대전차 지뢰지대를 만듭니다.</Korean>
+      </Key>
+      <Key ID="STR_antistasi_customHint_minefields_one">
+        <Original>We can only deploy one minefield at a time</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_minefields_noradio">
+        <Original>You need a radio in your inventory to be able to give orders to other squads</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_minefields_no_radioman">
+        <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_minefields_no_resources">
+        <Original>Not enough resources to recruit a mine deploying team (%1 € and %2 HR needed)</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_minefields_HC">
+        <Original>An Explosive Specialist is available on your High Command bar.&lt;br/&gt;&lt;br/&gt;Send him anywhere on the map to deactivate mines. He will load his truck with mines he found.&lt;br/&gt;&lt;br/&gt;Upon returning back to HQ he will unload mines stored in his vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_minefields_no_mine">
+        <Original>You need at least %1 mines of this type to build a Minefield</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_minefields_map">
+        <Original>Click on the position you wish to build the minefield</Original>
       </Key>
     </Container>
   </Package>

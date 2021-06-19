@@ -77,6 +77,3 @@ private _usedCapacity = 0;
 } forEach HR_GRG_Mounts;
 HR_GRG_usedCapacity = _usedCapacity;
 HR_GRG_LockedSeats = _lockedSeats;
-
-//clear any loading hints
-hintSilent "";

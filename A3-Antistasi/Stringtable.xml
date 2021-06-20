@@ -6999,38 +6999,6 @@
       <Key ID="STR_antistasi_customHint_general_only_player">
         <Original>Only Humans can pilot an air vehicle</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_clean_forest">
-        <Original>Clean Forest</Original>
-        <Russian>Отчистка местности</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cleared_forest">
-        <Original>You've cleared the surroundings of trees and bushes</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_clean">
-        <Original>Garbage Clean</Original>
-        <Chinesesimp>清理垃圾</Chinesesimp>
-        <Russian>Очистка мусора</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Options_7">
-        <Original>Garbage Cleaner</Original>
-        <French>Nettoyeur d'ordures</French>
-        <German>Aufräumen</German>
-        <Czech>Čistič odpadků</Czech>
-        <Chinesesimp>垃圾清理器</Chinesesimp>
-        <Korean>바닥 쓰레기 정리</Korean>
-        <Russian>Удаление мусора</Russian>
-      </Key>
-      <Key ID="STR_antistasi_cleanForest_wait">
-        <Original>Deleting Garbage. Please wait</Original>
-      </Key>
-      <Key ID="STR_antistasi_cleanForest_deleted">
-        <Original>Garbage deleted</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
-        <Original>Cleans several things in game. Use with caution as it freezes the mission</Original>
-        <Chinesesimp>清理游戏中的一些东西。谨慎使用, 因为它可能导致任务卡死</Chinesesimp>
-        <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
-      </Key>
       <Key ID="STR_antistasi_customHint_radio">
         <Original>Radio Required</Original>
         <Russian>Требуется радио</Russian>
@@ -7077,22 +7045,6 @@
       <Key ID="STR_antistasi_addAction_takeFlag">
         <Original>Take the Flag</Original>
         <Russian>Сменить флаг</Russian>
-      </Key>
-      <Key ID="STR_antistasi_Headless_head">
-        <Original>Headless Client</Original>
-      </Key>
-      <Key ID="STR_antistasi_addAction_AI_info">
-        <Original>AI Load Information</Original>
-        <Russian>Информация о загрузке AI</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_Headless_no">
-        <Original>No Headless Client Detected</Original>
-      </Key>
-      <Key ID="STR_antistasi_addAction_Headless_info">
-        <Original>%1SDK: %2&lt;br/&gt;West:%3&lt;br/&gt;East:%4&lt;br/&gt;Civ:%5&lt;br/&gt;TOTAL:%6&lt;br/&gt;&lt;br/&gt;</Original>
-      </Key>
-      <Key ID="STR_antistasi_Headless_disconnected">
-        <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart</Original>
       </Key>
       <Key ID="STR_antistasi_addAction_buyBoat">
         <Original>Buy Boat</Original>
@@ -7152,6 +7104,58 @@
       <Key ID="STR_antistasi_chat_radiocheck">
         <Original>This is %1, radiocheck OK</Original>
         <Russian>Это %1, радиопроверка ОК</Russian>
+      </Key>
+    </Container>
+    <Container name="Headless">
+      <Key ID="STR_antistasi_Headless_head">
+        <Original>Headless Client</Original>
+      </Key>
+      <Key ID="STR_antistasi_addAction_AI_info">
+        <Original>AI Load Information</Original>
+        <Russian>Информация о загрузке AI</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_Headless_no">
+        <Original>No Headless Client Detected</Original>
+      </Key>
+      <Key ID="STR_antistasi_addAction_Headless_info">
+        <Original>%1SDK: %2&lt;br/&gt;West:%3&lt;br/&gt;East:%4&lt;br/&gt;Civ:%5&lt;br/&gt;TOTAL:%6&lt;br/&gt;&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_antistasi_Headless_disconnected">
+        <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart</Original>
+      </Key>
+    </Container>
+    <Container name="Clean_forest">
+      <Key ID="STR_antistasi_customHint_clean_forest">
+        <Original>Clean Forest</Original>
+        <Russian>Отчистка местности</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_clean">
+        <Original>Garbage Clean</Original>
+        <Chinesesimp>清理垃圾</Chinesesimp>
+        <Russian>Очистка мусора</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_7">
+        <Original>Garbage Cleaner</Original>
+        <French>Nettoyeur d'ordures</French>
+        <German>Aufräumen</German>
+        <Czech>Čistič odpadků</Czech>
+        <Chinesesimp>垃圾清理器</Chinesesimp>
+        <Korean>바닥 쓰레기 정리</Korean>
+        <Russian>Удаление мусора</Russian>
+      </Key>
+      <Key ID="STR_antistasi_cleanForest_wait">
+        <Original>Deleting Garbage. Please wait</Original>
+      </Key>
+      <Key ID="STR_antistasi_cleanForest_deleted">
+        <Original>Garbage deleted</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
+        <Original>Cleans several things in game. Use with caution as it freezes the mission</Original>
+        <Chinesesimp>清理游戏中的一些东西。谨慎使用, 因为它可能导致任务卡死</Chinesesimp>
+        <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_cleared_forest">
+        <Original>You've cleared the surroundings of trees and bushes</Original>
       </Key>
     </Container>
   </Package>

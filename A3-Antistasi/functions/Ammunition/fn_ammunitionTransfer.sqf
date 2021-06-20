@@ -179,7 +179,7 @@ if (_destinationX == boxX) then
 	}
 else
 	{
-	[petros,"hint","Truck Loaded", "Cargo"] remoteExec ["A3A_fnc_commsMP",driver _destinationX];
+	[petros,"hint",localize "STR_antistasi_logistics_TruckLoaded", localize "STR_antistasi_logistics_cargo"] remoteExec ["A3A_fnc_commsMP",driver _destinationX];
 	};
 
 if (!isNull _originX) then {

@@ -1611,25 +1611,6 @@
         <Chinesesimp>招募新的班组, 并使用指挥部模块(CTRL + SPACE)进行管理</Chinesesimp>
         <Russian>Набирайте новые отряды и управляйте ими с помощью модуля HC (CTRL + SPACE)</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_clean">
-        <Original>Garbage Clean</Original>
-        <Chinesesimp>清理垃圾</Chinesesimp>
-        <Russian>Очистка мусора</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Options_7">
-        <Original>Garbage Cleaner</Original>
-        <French>Nettoyeur d'ordures</French>
-        <German>Aufräumen</German>
-        <Czech>Čistič odpadků</Czech>
-        <Chinesesimp>垃圾清理器</Chinesesimp>
-        <Korean>바닥 쓰레기 정리</Korean>
-        <Russian>Удаление мусора</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
-        <Original>Cleans several things in game. Use with caution as it freezes the mission</Original>
-        <Chinesesimp>清理游戏中的一些东西。谨慎使用, 因为它可能导致任务卡死</Chinesesimp>
-        <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
-      </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_resign">
         <Original>Resign / Eligible</Original>
         <Chinesesimp>辞职/竞选</Chinesesimp>
@@ -2616,6 +2597,10 @@
         <Original>Money: %4%2 €</Original>
         <Russian>Деньги: %4%2 €</Russian>
       </Key>
+      <Key ID="STR_antistasi_notification_playerAddMoney">
+        <Original>&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;Money %1 €</Original>
+        <Russian>&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;Деньги %1 €</Russian>
+      </Key>
       <Key ID="STR_antistasi_dynamicText_resource_income_HR_money">
         <Original>HR: %1&lt;br/&gt;Money: %2 €</Original>
         <Russian>HR: %1&lt;br/&gt;Деньги: %2 €</Russian>
@@ -3442,6 +3427,10 @@
       <Key ID="STR_antistasi_customHint_cancel">
         <Original>Transfer cancelled due to movement of Truck or Player</Original>
         <Russian>Трансфер отменен из-за движения грузовика или игрока</Russian>
+      </Key>
+      <Key ID="STR_antistasi_logistics_TruckLoaded">
+        <Original>Truck Loaded</Original>
+        <Russian>Грузовик загружен</Russian>
       </Key>
     </Container>
     <Container name="Undercover">
@@ -4567,12 +4556,12 @@
         <Russian>Сохранить игру</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_save_hint1">
-        <Original>&lt;br/&gt;Assets:&lt;br/&gt;&lt;br/&gt;&lt;t color='f0d498'&gt;HR: </Original>
-        <Russian>&lt;br/&gt;Активы:&lt;br/&gt;&lt;br/&gt;&lt;t color='f0d498'&gt;HR: </Russian>
+        <Original>Assets:&lt;br/&gt;&lt;br/&gt;&lt;t color='f0d498'&gt;HR:</Original>
+        <Russian>Активы:&lt;br/&gt;&lt;br/&gt;&lt;t color='f0d498'&gt;HR:</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_save_hint2">
-        <Original>&lt;br/&gt;Money: </Original>
-        <Russian>&lt;br/&gt;Деньги: </Russian>
+        <Original>&lt;br/&gt;Money:</Original>
+        <Russian>&lt;br/&gt;Деньги:</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_save_hint3">
         <Original> €&lt;/t&gt;&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;Further infomation is provided in &lt;t color='#f0d498'&gt;&gt;Map Screen &gt; Game Options &gt; Persistent Save-game&lt;/t&gt;.</Original>
@@ -5576,6 +5565,9 @@
         <Czech>Zobrazuje, kteří členové serveru aktuálně hrají</Czech>
         <Chinesesimp>显示哪些服务器会员正在游玩</Chinesesimp>
         <Korean>현재 플레이중인 서버 맴버 표시</Korean>
+      </Key>
+      <Key ID="STR_antistasi_Membership_empty">
+        <Original>Membership is enabled but members list is empty. Current players will be added to the member list</Original>
       </Key>
     </Container>
     <Container name="Money">
@@ -6762,6 +6754,26 @@
         <Original>%1 hurt you!</Original>
         <Russian>%1 ранил вас!</Russian>
       </Key>
+      <Key ID="STR_antistasi_FF_ExplOfBase">
+        <Original>You cannot throw grenades or place explosives within 75m of base</Original>
+        <Russian>Вы не можете бросать гранаты или закладывать взрывчатку в пределах 75 м от базы.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_FF_artSupport">
+        <Original>You damaged a friendly as arty support</Original>
+        <Russian>Вы ранили товарища артиллерийской поддержкой</Russian>
+      </Key>
+      <Key ID="STR_antistasi_FF_CAS">
+        <Original>You damaged a friendly as CAS support</Original>
+        <Russian>Вы ранили товарища авиационной поддержкой</Russian>
+      </Key>
+      <Key ID="STR_antistasi_FF_admin">
+        <Original>You damaged a friendly as admin</Original>
+        <Russian>Вы ранили товарища админкой</Russian>
+      </Key>
+      <Key ID="STR_antistasi_FF_driver">
+        <Original>You damaged a friendly as a driver</Original>
+        <Russian>Вы ранили товарища транспортом</Russian>
+      </Key>
     </Container>
     <Container name="Breach">
       <Key ID="STR_antistasi_customHint_breach_veh">
@@ -6846,6 +6858,77 @@
         <Russian>Спасибо. Я обязан тебе жизнью!</Russian>
       </Key>
     </Container>
+    <Container name="endGame">
+      <Key ID="STR_antistasi_endGame_mods_title">
+        <Original>Incompatible Mods</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_mods_subtitle">
+        <Original>Incompatible Mods detected</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_mods_description">
+        <Original>An incompatible mod installed on the server or your PC has been detected. To avoid support problems the mission is finished. Please uninstall unsupported (IFA, ASR AI, aLIVE, MCC or any AI behaviour) mods from your computer or server to be able to play Antistasi</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_slots_title">
+        <Original>Reserved Slot</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_slots_subtitle">
+        <Original>This slot is reserved</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_slots_description">
+        <Original>Sorry, the server is nearly full and the remaining slots have been reserved for Server Members. To become a member, please contact the server admin or clan</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_noPvP_title">
+        <Original>PvP Disabled</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_noPvP_subtitle">
+        <Original>This slot is unavailable</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_noPvP_description">
+        <Original>PvP is not enabled on this server</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_noJip_title">
+        <Original>Can't startup as PvP</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_noJip_subtitle">
+        <Original>This slot is unavailable</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_noJip_description">
+        <Original>You can't choose PvP until the mission has been started. If you didn't intentionally choose a PvP role, make sure you pick the rebel side (usually green)</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_pvpMem_title">
+        <Original>You are not a Member</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_pvpMem_subtitle">
+        <Original>This slot is unavailable</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_pvpMem_description">
+        <Original>You need to be a Member to use PvP</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_pvpCount_title">
+        <Original>PvP Player Overflow</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_pvpCount_subtitle">
+        <Original>This slot is unavailable</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_pvpCount_description">
+        <Original>PvP is not available as there are too many PvP slots in use, or not enough Rebels online</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_BossMiss_title">
+        <Original>MIA Rebel Commander</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_BossMiss_subtitle">
+        <Original>This slot is unavailable</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_BossMiss_description">
+        <Original>PvP is not available as there is no Commander for the Rebels</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_hcDown_title">
+        <Original>HC Disconnected</Original>
+      </Key>
+      <Key ID="STR_antistasi_endGame_hcDown_subtitle">
+        <Original>Some Headless Client has been disconnected and mission has to stop to avoid malfunctions</Original>
+      </Key>
+    </Container>
     <Container name="Other">
       <Key ID="STR_antistasi_customHint_only_comander">
         <Original>Only Commander has access to this function</Original>
@@ -6923,6 +7006,31 @@
       <Key ID="STR_antistasi_customHint_cleared_forest">
         <Original>You've cleared the surroundings of trees and bushes</Original>
       </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_clean">
+        <Original>Garbage Clean</Original>
+        <Chinesesimp>清理垃圾</Chinesesimp>
+        <Russian>Очистка мусора</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_7">
+        <Original>Garbage Cleaner</Original>
+        <French>Nettoyeur d'ordures</French>
+        <German>Aufräumen</German>
+        <Czech>Čistič odpadků</Czech>
+        <Chinesesimp>垃圾清理器</Chinesesimp>
+        <Korean>바닥 쓰레기 정리</Korean>
+        <Russian>Удаление мусора</Russian>
+      </Key>
+      <Key ID="STR_antistasi_cleanForest_wait">
+        <Original>Deleting Garbage. Please wait</Original>
+      </Key>
+      <Key ID="STR_antistasi_cleanForest_deleted">
+        <Original>Garbage deleted</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
+        <Original>Cleans several things in game. Use with caution as it freezes the mission</Original>
+        <Chinesesimp>清理游戏中的一些东西。谨慎使用, 因为它可能导致任务卡死</Chinesesimp>
+        <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
+      </Key>
       <Key ID="STR_antistasi_customHint_radio">
         <Original>Radio Required</Original>
         <Russian>Требуется радио</Russian>
@@ -6970,9 +7078,21 @@
         <Original>Take the Flag</Original>
         <Russian>Сменить флаг</Russian>
       </Key>
+      <Key ID="STR_antistasi_Headless_head">
+        <Original>Headless Client</Original>
+      </Key>
       <Key ID="STR_antistasi_addAction_AI_info">
-        <Original>AI Load Info</Original>
+        <Original>AI Load Information</Original>
         <Russian>Информация о загрузке AI</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_Headless_no">
+        <Original>No Headless Client Detected</Original>
+      </Key>
+      <Key ID="STR_antistasi_addAction_Headless_info">
+        <Original>%1SDK: %2&lt;br/&gt;West:%3&lt;br/&gt;East:%4&lt;br/&gt;Civ:%5&lt;br/&gt;TOTAL:%6&lt;br/&gt;&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_antistasi_Headless_disconnected">
+        <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart</Original>
       </Key>
       <Key ID="STR_antistasi_addAction_buyBoat">
         <Original>Buy Boat</Original>

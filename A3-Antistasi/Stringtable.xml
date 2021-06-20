@@ -1861,60 +1861,6 @@
         <Russian>Ранг: %1 | Ваши деньги: %2 € | %3 Деньги: %4 € | %5 Аггр: %6 | Уровень войны: %9 | Скрытность: %10</Russian>
       </Key>
     </Container>
-    <Container name="chat">
-      <Key ID="STR_antistasi_chat_joinEnemy">
-        <Original>How about joining the good guys?</Original>
-        <Russian>Как насчет того, чтобы присоединиться к хорошим парням?</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_joinEnemy_yes">
-        <Original>Why not? It can't be any worse</Original>
-        <Russian>Почему нет? Не может быть хуже</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_joinEnemy_no">
-        <Original>Screw you!</Original>
-        <Russian>Да пошел ты!</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_captureX">
-        <Original>Go back to your base and tell your comrades we are not enemies. We just want to live in peace</Original>
-        <Russian>Вернитесь на свою базу и скажите товарищам, что мы не враги. Мы просто хотим жить в мире</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_captureX_random1">
-        <Original>Okay, thank you. I owe you my life</Original>
-        <Russian>Хорошо, спасибо. Я обязан тебе своей жизнью</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_captureX_random2">
-        <Original>Thank you. I swear you won't regret it!</Original>
-        <Russian>Спасибо. Клянусь, ты не пожалеешь!</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_captureX_random3">
-        <Original>Thank you, I won't forget this!</Original>
-        <Russian>Спасибо, я этого не забуду!</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_liberate_free">
-        <Original>You are free. Come with us!</Original>
-        <Russian>Ты свободен. Пойдем с нами!</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_liberate_thank">
-        <Original>Thank you. I owe you my life!</Original>
-        <Russian>Спасибо. Я обязан тебе жизнью!</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_petros_promoted">
-        <Original>Promoted Players:</Original>
-        <Russian>Игроки:</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_petros_promotion">
-        <Original>Promotion</Original>
-        <Russian>Продвижение</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_petros_congratulation">
-        <Original>!CONGRATULATIONS!</Original>
-        <Russian>! ПОЗДРАВЛЯЕМ !</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_radiocheck">
-        <Original>This is %1, radiocheck OK</Original>
-        <Russian>Это %1, радиопроверка ОК</Russian>
-      </Key>
-    </Container>
     <Container name="Sleep">
       <Key ID="STR_antistasi_cutText_sleep">
         <Original>You decided to rest for some time</Original>
@@ -6854,6 +6800,52 @@
         <Original>Breaching in %1 seconds</Original>
       </Key>
     </Container>
+    <Container name="Liberate">
+      <Key ID="STR_antistasi_addAction_liberate">
+        <Original>Liberate</Original>
+        <Russian>Освободить</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_liberate_POW">
+        <Original>Liberate POW</Original>
+        <Russian>Освободить</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_joinEnemy">
+        <Original>How about joining the good guys?</Original>
+        <Russian>Как насчет того, чтобы присоединиться к хорошим парням?</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_joinEnemy_yes">
+        <Original>Why not? It can't be any worse</Original>
+        <Russian>Почему нет? Не может быть хуже</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_joinEnemy_no">
+        <Original>Screw you!</Original>
+        <Russian>Да пошел ты!</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_captureX">
+        <Original>Go back to your base and tell your comrades we are not enemies. We just want to live in peace</Original>
+        <Russian>Вернитесь на свою базу и скажите товарищам, что мы не враги. Мы просто хотим жить в мире</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_captureX_random1">
+        <Original>Okay, thank you. I owe you my life</Original>
+        <Russian>Хорошо, спасибо. Я обязан тебе своей жизнью</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_captureX_random2">
+        <Original>Thank you. I swear you won't regret it!</Original>
+        <Russian>Спасибо. Клянусь, ты не пожалеешь!</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_captureX_random3">
+        <Original>Thank you, I won't forget this!</Original>
+        <Russian>Спасибо, я этого не забуду!</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_liberate_free">
+        <Original>You are free. Come with us!</Original>
+        <Russian>Ты свободен. Пойдем с нами!</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_liberate_thank">
+        <Original>Thank you. I owe you my life!</Original>
+        <Russian>Спасибо. Я обязан тебе жизнью!</Russian>
+      </Key>
+    </Container>
     <Container name="Other">
       <Key ID="STR_antistasi_customHint_only_comander">
         <Original>Only Commander has access to this function</Original>
@@ -6982,14 +6974,6 @@
         <Original>AI Load Info</Original>
         <Russian>Информация о загрузке AI</Russian>
       </Key>
-      <Key ID="STR_antistasi_addAction_liberate">
-        <Original>Liberate</Original>
-        <Russian>Освободить</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_liberate_POW">
-        <Original>Liberate POW</Original>
-        <Russian>Освободить</Russian>
-      </Key>
       <Key ID="STR_antistasi_addAction_buyBoat">
         <Original>Buy Boat</Original>
         <Russian>Купить лодку</Russian>
@@ -7032,6 +7016,22 @@
       <Key ID="STR_antistasi_tooltip_cost_HR">
         <Original>Cost: %1 €\nHR: %2</Original>
         <Russian>Цена: %1 €\nHR: %2</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_petros_promoted">
+        <Original>Promoted Players:</Original>
+        <Russian>Игроки:</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_petros_promotion">
+        <Original>Promotion</Original>
+        <Russian>Продвижение</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_petros_congratulation">
+        <Original>!CONGRATULATIONS!</Original>
+        <Russian>! ПОЗДРАВЛЯЕМ !</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_radiocheck">
+        <Original>This is %1, radiocheck OK</Original>
+        <Russian>Это %1, радиопроверка ОК</Russian>
       </Key>
     </Container>
   </Package>

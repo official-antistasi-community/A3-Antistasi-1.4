@@ -1886,37 +1886,6 @@
         <Original>The enemy still outnumber us, check the map and clear the rest of the area</Original>
         <Russian>Противник по-прежнему численно превосходит нас, проверьте карту и очистите остальную территорию</Russian>
       </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh">
-        <Original>Breach Vehicle</Original>
-        <Russian>Выкурить из техники</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh_only_player">
-        <Original>Only players are currently able to breach vehicles!</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh_no_eng">
-        <Original>You have to be an engineer to breach a vehicle!</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh_destr">
-        <Original>Why would you want to breach a destroyed vehicle?</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh_no_need">
-        <Original>There is no living crew left, no need for breaching!</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh_rebels">
-        <Original>You cannot breach a vehicle which is controlled by the rebels!</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh_no_explosives">
-        <Original>You carry no explosives. You will need some to breach vehicles!</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh_type_explosives">
-        <Original>You don't have the right explosives, check the briefing notes to see what you need!</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh_cancel">
-        <Original>Breaching cancelled</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_breach_veh_wait">
-        <Original>Breaching in %1 seconds</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_general">
         <Original>General Info</Original>
         <Russian>Общая информация</Russian>
@@ -2041,10 +2010,6 @@
       <Key ID="STR_antistasi_addAction_rain">
         <Original>Rain rain go away</Original>
         <Russian>Убрать дождь</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_breach_cancel">
-        <Original>Cancel Breaching</Original>
-        <Russian>Отменить выкуривание</Russian>
       </Key>
     </Container>
     <Container name="chat">
@@ -7034,6 +6999,43 @@
       <Key ID="STR_antistasi_customHint_punish_hurt">
         <Original>%1 hurt you!</Original>
         <Russian>%1 ранил вас!</Russian>
+      </Key>
+    </Container>
+    <Container name="Breach">
+      <Key ID="STR_antistasi_customHint_breach_veh">
+        <Original>Breach Vehicle</Original>
+        <Russian>Выкурить из техники</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_breach_veh_only_player">
+        <Original>Only players are currently able to breach vehicles!</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_breach_veh_no_eng">
+        <Original>You have to be an engineer to breach a vehicle!</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_breach_veh_destr">
+        <Original>Why would you want to breach a destroyed vehicle?</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_breach_veh_no_need">
+        <Original>There is no living crew left, no need for breaching!</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_breach_veh_rebels">
+        <Original>You cannot breach a vehicle which is controlled by the rebels!</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_breach_veh_no_explosives">
+        <Original>You carry no explosives. You will need some to breach vehicles!</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_breach_veh_type_explosives">
+        <Original>You don't have the right explosives, check the briefing notes to see what you need!</Original>
+      </Key>
+      <Key ID="STR_antistasi_addAction_breach_cancel">
+        <Original>Cancel Breaching</Original>
+        <Russian>Отменить выкуривание</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_breach_veh_cancel">
+        <Original>Breaching cancelled</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_breach_veh_wait">
+        <Original>Breaching in %1 seconds</Original>
       </Key>
     </Container>
   </Package>

@@ -21,18 +21,40 @@ else
 	{
 	if (_player != theBoss) then
 		{
-		private _nameC = if !(isNull theBoss) then {name theBoss} else {"None"};
-		_textX = format ["<t size='0.67' shadow='2'>" + localize"STR_antistasi_statistics_noBoss", server getVariable "hr", rank _player, _nameC, _player getVariable "moneyX",[aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,nameOccupants,nameInvaders,_ucovertxt];
+			if (gameMode != 3) then
+			{
+				private _nameC = if !(isNull theBoss) then {name theBoss} else {"None"};
+				_textX = format ["<t size='0.67' shadow='2'>" + localize"STR_antistasi_statistics_noBoss", server getVariable "hr", rank _player, _nameC, _player getVariable "moneyX",[aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,nameOccupants,nameInvaders,_ucovertxt];
+			}
+			else
+			{
+				private _nameC = if !(isNull theBoss) then {name theBoss} else {"None"};
+				_textX = format ["<t size='0.67' shadow='2'>" + localize"STR_antistasi_statistics_noBoss_gameMode3", server getVariable "hr", rank _player, _nameC, _player getVariable "moneyX",[aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,nameOccupants,nameInvaders,_ucovertxt];
+			};
 		}
 	else
 		{
 		if ([_player] call A3A_fnc_isMember) then
 			{
-			_textX = format ["<t size='0.67' shadow='2'>" + localize"STR_antistasi_statistics_Member", server getVariable "hr", server getVariable "resourcesFIA", [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,rank _player, _player getVariable "moneyX",floor bombRuns,tierWar,nameOccupants,nameInvaders,nameTeamPlayer,_ucovertxt];
+				if (gameMode != 3) then
+				{
+					_textX = format ["<t size='0.67' shadow='2'>" + localize"STR_antistasi_statistics_Member", server getVariable "hr", server getVariable "resourcesFIA", [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,rank _player, _player getVariable "moneyX",floor bombRuns,tierWar,nameOccupants,nameInvaders,nameTeamPlayer,_ucovertxt];
+				}
+				else
+				{
+					_textX = format ["<t size='0.67' shadow='2'>" + localize"STR_antistasi_statistics_Member_gameMode3", server getVariable "hr", server getVariable "resourcesFIA", [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,rank _player, _player getVariable "moneyX",floor bombRuns,tierWar,nameOccupants,nameInvaders,nameTeamPlayer,_ucovertxt];
+				};
 			}
 		else
 			{
-			_textX = format ["<t size='0.67' shadow='2'>" + localize"STR_antistasi_statistics_noMember",rank _player,_player getVariable "moneyX",nameTeamPlayer,server getVariable "resourcesFIA", nameOccupants, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString, nameInvaders,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,_ucovertxt];
+				if (gameMode != 3) then
+				{
+					_textX = format ["<t size='0.67' shadow='2'>" + localize"STR_antistasi_statistics_noMember",rank _player,_player getVariable "moneyX",nameTeamPlayer,server getVariable "resourcesFIA", nameOccupants, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString, nameInvaders,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,_ucovertxt];
+				}
+				else
+				{
+					_textX = format ["<t size='0.67' shadow='2'>" + localize"STR_antistasi_statistics_noMember_gameMode3",rank _player,_player getVariable "moneyX",nameTeamPlayer,server getVariable "resourcesFIA", nameOccupants, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString, nameInvaders,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,_ucovertxt];
+				};
 			};
 		};
 	};

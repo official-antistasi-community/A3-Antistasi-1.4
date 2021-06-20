@@ -2205,13 +2205,25 @@
         <Original>Commander: %3 | Rank: %2 | HR: %1 | Your Money: %4 € | %8 Aggr: %5 | %9 Aggr: %6 | War Level: %7 | Undercover Mode: %10</Original>
         <Russian>Командир: %3 | Ранг: %2 | HR: %1 | Ваши деньги: %4 € | %8 Аггр: %5 | %9 Аггр: %6 | Уровень войны: %7 | Скрытность: %10</Russian>
       </Key>
+      <Key ID="STR_antistasi_statistics_noBoss_gameMode3">
+        <Original>Commander: %3 | Rank: %2 | HR: %1 | Your Money: %4 € | %8 Aggr: %5 | War Level: %7 | Undercover Mode: %10</Original>
+        <Russian>Командир: %3 | Ранг: %2 | HR: %1 | Ваши деньги: %4 € | %8 Аггр: %5 | Уровень войны: %7 | Скрытность: %10</Russian>
+      </Key>
       <Key ID="STR_antistasi_statistics_Member">
         <Original>Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | %10 Aggr: %4 | War Level: %8 | Undercover Mode: %12</Original>
         <Russian>Ранг: %5 | HR: %1 | Ваши деньги: %6 € | %11 Деньги: %2 € | Авиаудары: %7 | %9 Аггр: %3 | %10 Аггр: %4 | Уровень войны: %8 | Скрытность: %12</Russian>
       </Key>
+      <Key ID="STR_antistasi_statistics_Member_gameMode3">
+        <Original>Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | War Level: %8 | Undercover Mode: %12</Original>
+        <Russian>Ранг: %5 | HR: %1 | Ваши деньги: %6 € | %11 Деньги: %2 € | Авиаудары: %7 | %9 Аггр: %3 | Уровень войны: %8 | Скрытность: %12</Russian>
+      </Key>
       <Key ID="STR_antistasi_statistics_noMember">
         <Original>Rank: %1 | Your Money: %2 € | %3 Money: %4 € | %5 Aggr: %6 | %7 Aggr: %8 | War Level: %9 | Undercover Mode: %10</Original>
-        <Russian>Ранг: %1 | Ваши деньги: %2 € | %3 Деньги: %4 € | %5 Аггр: %6 | %7 Aggr: %8 | Уровень войны: %9 | Скрытность: %10</Russian>
+        <Russian>Ранг: %1 | Ваши деньги: %2 € | %3 Деньги: %4 € | %5 Аггр: %6 | %7 Аггр: %8 | Уровень войны: %9 | Скрытность: %10</Russian>
+      </Key>
+      <Key ID="STR_antistasi_statistics_noMember_gameMode3">
+        <Original>Rank: %1 | Your Money: %2 € | %3 Money: %4 € | %5 Aggr: %6 | War Level: %9 | Undercover Mode: %10</Original>
+        <Russian>Ранг: %1 | Ваши деньги: %2 € | %3 Деньги: %4 € | %5 Аггр: %6 | Уровень войны: %9 | Скрытность: %10</Russian>
       </Key>
     </Container>
     <Container name="addAction">

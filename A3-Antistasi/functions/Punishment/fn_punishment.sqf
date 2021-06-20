@@ -86,7 +86,7 @@ _varspace setVariable ["player",_originalBody];
 private _injuredComrade = "";
 private _victimStats = "damaged systemPunished [AI]";
 if (_victim isKindOf "Man") then {
-	_injuredComrade = [localize "STR_antistasi_customHint_FF_injured",name _victim] joinString "";
+	_injuredComrade = [localize "STR_antistasi_customHint_FF_injured"+" ",name _victim] joinString "";
 	[localize "str_cfg_markers_warning", format [localize "STR_antistasi_customHint_punish_hurt",_name]] remoteExecCall ["A3A_fnc_customHint", _victim, false];
 	private _UIDVictim = ["AI", getPlayerUID _victim] select (isPlayer _victim);
 	_victimStats = ["damaged ",name _victim," [",_UIDVictim,"]"] joinString "";

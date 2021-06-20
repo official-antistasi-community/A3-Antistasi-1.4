@@ -1904,34 +1904,6 @@
       <Key ID="STR_antistasi_customHint_out_of_bounds_return">
         <Original>Return to the AO before your blown up, you have %1 seconds</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_punish_hurt">
-        <Original>%1 hurt you!</Original>
-        <Russian>%1 ранил вас!</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_FF_Punishment">
-        <Original>FF Punishment</Original>
-        <Russian>Огонь по своим</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_friendlyFire">
-        <Original>Watch your fire!</Original>
-        <Russian>Следи за своим огнем!</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_FF_enough">
-        <Original>Enough then</Original>
-        <Russian>Тогда хватит</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_FF_forgiven">
-        <Original>An admin looks with pity upon your soul.&lt;br/&gt;You have been forgiven.</Original>
-        <Russian>Админ с жалостью смотрит на твою душу.&lt;br/&gt;Ты прощен.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_FF_wait">
-        <Original>Please do not teamkill. Stare at the turtles for %1 more seconds</Original>
-        <Russian>Пожалуйста, не стреляйте по своим. Время наказания: %1 сек.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_FF_injured">
-        <Original>Injured comrade: </Original>
-        <Russian>Раненый товарищ: </Russian>
-      </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
         <Original>Air Support</Original>
         <Chinesesimp>空中支援</Chinesesimp>
@@ -7032,6 +7004,36 @@
         <Original>Dimiss selected units or squads, recovering it's cost to the proper resource pool</Original>
         <Chinesesimp>解散选定的单位或班组, 回收其成本至对应的资源池</Chinesesimp>
         <Russian>Распустить выбранные отряды или отряды, вернув их стоимость в соответствующий пул ресурсов.</Russian>
+      </Key>
+    </Container>
+    <Container name="FriendlyFire">
+      <Key ID="STR_antistasi_customHint_FF_Punishment">
+        <Original>FF Punishment</Original>
+        <Russian>Огонь по своим</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_friendlyFire">
+        <Original>Watch your fire!</Original>
+        <Russian>Следи за своим огнем!</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_FF_enough">
+        <Original>Enough then</Original>
+        <Russian>Тогда cтрелять</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_FF_forgiven">
+        <Original>An admin looks with pity upon your soul.&lt;br/&gt;You have been forgiven.</Original>
+        <Russian>Админ с жалостью смотрит на твою душу.&lt;br/&gt;Ты прощен.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_FF_wait">
+        <Original>Please do not teamkill. Stare at the turtles for %1 more seconds</Original>
+        <Russian>Пожалуйста, не стреляйте по своим. Время наказания: %1 сек.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_FF_injured">
+        <Original>Injured comrade:</Original>
+        <Russian>Раненый товарищ:</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_punish_hurt">
+        <Original>%1 hurt you!</Original>
+        <Russian>%1 ранил вас!</Russian>
       </Key>
     </Container>
   </Package>

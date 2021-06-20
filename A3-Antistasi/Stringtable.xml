@@ -56,48 +56,6 @@
         <Korean>저항세력의 지도자가 되고 영웅이 되십시오.</Korean>
       </Key>
     </Container>
-    <Container name="dialog_unit_recruit">
-      <Key ID="STR_antistasi_dialogs_unit_recruit_frame_text">
-        <Original>Recruitment Options</Original>
-        <English>Recruitment Options</English>
-        <French>Options de Recrutement</French>
-        <Russian>Призвать Добровольца по специальности</Russian>
-        <German>Rekrutierungsoptionen</German>
-        <Czech>Možnosti náboru</Czech>
-        <Chinesesimp>招募选项</Chinesesimp>
-        <Korean>모집 설정</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_unit_recruit_militiaman_text">
-        <Original>Recruit Militiaman</Original>
-        <English>Recruit Militiaman</English>
-        <French>Recruter un Milicien</French>
-        <Russian>Новобранец</Russian>
-        <German>Miliz rekrutieren</German>
-        <Czech>Milicionář</Czech>
-        <Chinesesimp>招募民兵</Chinesesimp>
-        <Korean>민병대원 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_unit_recruit_engineer_text">
-        <Original>Recruit Engineer</Original>
-        <English>Recruit Engineer</English>
-        <French>Recruter un Ingénieur</French>
-        <Russian>Инженер</Russian>
-        <German>Ingenieur rekrutieren</German>
-        <Czech>Inženýr</Czech>
-        <Chinesesimp>招募工程师</Chinesesimp>
-        <Korean>공병 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_unit_recruit_explosive_text">
-        <Original>Recruit Bomb Specialist</Original>
-        <English>Recruit Bomb Specialist</English>
-        <French>Recruter un Expert en Démolition</French>
-        <Russian>Подрывник</Russian>
-        <German>Sprengstoffspezialist rekrutieren</German>
-        <Czech>Specialista na výbušniny</Czech>
-        <Chinesesimp>招募炸弹专家</Chinesesimp>
-        <Korean>폭탄 전문가 모집</Korean>
-      </Key>
-    </Container>
     <Container name="mission_info">
       <Key ID="STR_antistasi_mission_info_altis_mapname_text">
         <Original>Antistasi - Liberation of Altis</Original>
@@ -1625,16 +1583,6 @@
         <Chinesesimp>强制班组搭乘或离开他们分配的车辆</Chinesesimp>
         <Russian>Заставить отряд сесть или слезть с назначенной машины</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget">
-        <Original>Static Autotarget</Original>
-        <Chinesesimp>自动对准目标</Chinesesimp>
-        <Russian>Автонаведение установок</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget_tooltip">
-        <Original>Use this option on AT / AA mounted squads. The truck driver will try to point his truck's back to any detected enemy</Original>
-        <Chinesesimp>对部署了反坦克/防空武器的班组使用此选项。卡车驾驶员会试图将车尾对准任何被发现的敌人</Chinesesimp>
-        <Russian>Используйте эту опцию для ПТ / ПВО отрядов. Отряд попытается направить свое орудие на любого обнаруженного врага.</Russian>
-      </Key>
     </Container>
     <Container name="HQ">
       <Key ID="STR_antistasi_addAction_HQ_management">
@@ -1690,26 +1638,6 @@
         <Chinesesimp>招募新的班组, 并使用指挥部模块(CTRL + SPACE)进行管理</Chinesesimp>
         <Russian>Набирайте новые отряды и управляйте ими с помощью модуля HC (CTRL + SPACE)</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
-        <Original>Air Support</Original>
-        <Chinesesimp>空中支援</Chinesesimp>
-        <Russian>Авиаподдержка</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_air_support_tooltip">
-        <Original>Ask for Air Support (uses Airstrike points)</Original>
-        <Chinesesimp>呼叫空中支援(消耗空袭点数)</Chinesesimp>
-        <Russian>Запросить авиаподдержку (использует очки авиаподдержки)</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_roadblock">
-        <Original>W.Post - Roadblock</Original>
-        <Chinesesimp>观察哨 - 路障</Chinesesimp>
-        <Russian>Добавить БП / НП</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_tooltip">
-        <Original>Establish a new watchpost or roadblock depending on the type of terrain you select</Original>
-        <Chinesesimp>根据您选择的地形类型, 建立新的观察哨或路障</Chinesesimp>
-        <Russian>Установите новый наблюдательный пост или блокпост в зависимости от выбранного типа местности.</Russian>
-      </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_clean">
         <Original>Garbage Clean</Original>
         <Chinesesimp>清理垃圾</Chinesesimp>
@@ -1728,14 +1656,6 @@
         <Original>Cleans several things in game. Use with caution as it freezes the mission</Original>
         <Chinesesimp>清理游戏中的一些东西。谨慎使用, 因为它可能导致任务卡死</Chinesesimp>
         <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete">
-        <Original>W.Post-Roadblock Delete</Original>
-        <Russian>Удалить БП / НП</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete_tooltip">
-        <Original>Remove selected watchpost or roadblock, money will be refunded</Original>
-        <Russian>Удалите выбранный наблюдательный пункт или блокпост, деньги будут возвращены</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_resign">
         <Original>Resign / Eligible</Original>
@@ -1997,10 +1917,6 @@
         <Original>AT Trucks are disabled in RHS - GREF</Original>
         <Russian>ПТ грузовики отключены в RHS - GREF</Russian>
       </Key>
-      <Key ID="STR_antistasi_customHint_recruit_modset_static">
-        <Original>Your current modset doesn't support packing/unpacking static weapons</Original>
-        <Russian>Ваш текущий модсет не поддерживает упаковку/распаковку статического оружия.</Russian>
-      </Key>
       <Key ID="STR_antistasi_customHint_recruit_noHR">
         <Original>You do not have enough HR for this request (%1 required)</Original>
         <Russian>У вас недостаточно HR для этого запроса (требуется %1 HR)</Russian>
@@ -2039,6 +1955,9 @@
         <Original>Only Commander has access to this function</Original>
         <Russian>Только командующий имеет доступ к этой функции</Russian>
       </Key>
+      <Key ID="STR_antistasi_customHint_clean_forest_only_comander">
+        <Original>Only Commanders can order to clean the forest</Original>
+      </Key>
       <Key ID="STR_antistasi_customHint_only_admin">
         <Original>Only Admin has access to this function</Original>
         <Russian>Только админ имеет доступ к этой функции</Russian>
@@ -2054,46 +1973,9 @@
         <Original>Only group leaders has access to this function</Original>
         <Russian>Только лидер отряда имеет доступ к этой функции</Russian>
       </Key>
-      <Key ID="STR_antistasi_customHint_air_support_noSupport">
-        <Original>You lack of enough Air Support to make this request</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_air_support_noAirport">
-        <Original>You need to control an airport in order to fulfill this request</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_air_support_select">
-        <Original>Select the spot from which the plane will start to drop the bombs</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_air_support_selectVector">
-        <Original>Select the map position to which the plane will exit to calculate plane's route vector</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_auto_target">
-        <Original>Static Auto Target</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_auto_target_no_select">
-        <Original>You must select one group on the HC bar</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_auto_target_no_type">
-        <Original>Selected squad is not a mounted static type</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_auto_target_MP">
-        <Original>Static Auto Target is not available for Mortar Squads in Multiplayer</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_auto_target_off">
-        <Original>Mounted Static Squad %1 set to Auto Target Mode OFF</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_auto_target_on">
-        <Original>Mounted Static Squad %1 set to Auto Target Mode ON</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_time_remaining">
         <Original>Time Remaining: %1 secs</Original>
         <Russian>Оставшееся время: %1 сек.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cancel">
-        <Original>Transfer cancelled due to movement of Truck or Player</Original>
-        <Russian>Трансфер отменен из-за движения грузовика или игрока</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_op_rb_deprecated">
-        <Original>Deprecated option. Use Remove Garrison from HQ instead</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_unit_recruit_enemies">
         <Original>You cannot recruit units while there are enemies near you</Original>
@@ -2170,21 +2052,6 @@
       <Key ID="STR_antistasi_customHint_breach_veh_wait">
         <Original>Breaching in %1 seconds</Original>
       </Key>
-      <Key ID="STR_antistasi_customHint_unlocked">
-        <Original>Vehicle Unlocked</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_unlock_destroy">
-        <Original>You cannot unlock destroyed</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_unlock_no_used">
-        <Original>The vehicle you are looking at cannot be used</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_unlock_already">
-        <Original>The vehicle you are looking at is already unlocked</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_unlock_own">
-        <Original>You cannot unlock vehicles which you do not own</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_general">
         <Original>General Info</Original>
         <Russian>Общая информация</Russian>
@@ -2196,9 +2063,6 @@
         <Original>Clean Forest</Original>
         <Russian>Отчистка местности</Russian>
       </Key>
-      <Key ID="STR_antistasi_customHint_clean_forest_only_comander">
-        <Original>Only Commanders can order to clean the forest</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_cleared_forest">
         <Original>You've cleared the surroundings of trees and bushes</Original>
       </Key>
@@ -2206,24 +2070,11 @@
         <Original>Radio Required</Original>
         <Russian>Требуется радио</Russian>
       </Key>
-      <Key ID="STR_antistasi_customHint_static_deployed">
-        <Original>Static Deployed</Original>
-        <Russian>Статика развернута</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_static_deployed_use">
-        <Original>Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns</Original>
-      </Key>
       <Key ID="STR_antistasi_customHint_other_group">
         <Original>You cannot board other player vehicle if you are not in the same group</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_welcome_guest">
         <Original>Welcome Guest&lt;br/&gt;&lt;br/&gt;You have joined this server as guest</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_grab_noMoney">
-        <Original>FIA has not enough resources to grab</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_grabed">
-        <Original>You grabbed %2 € from the %1 Money Pool.&lt;br/&gt;&lt;br/&gt;This will affect your prestige and status among %1 forces</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_eligible_suc">
         <Original>You resign from being commander, choosing %1 as your successor</Original>
@@ -2274,6 +2125,28 @@
         <Original>Injured comrade: </Original>
         <Russian>Раненый товарищ: </Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
+        <Original>Air Support</Original>
+        <Chinesesimp>空中支援</Chinesesimp>
+        <Russian>Авиаподдержка</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_air_support_tooltip">
+        <Original>Ask for Air Support (uses Airstrike points)</Original>
+        <Chinesesimp>呼叫空中支援(消耗空袭点数)</Chinesesimp>
+        <Russian>Запросить авиаподдержку (использует очки авиаподдержки)</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_air_support_noSupport">
+        <Original>You lack of enough Air Support to make this request</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_air_support_noAirport">
+        <Original>You need to control an airport in order to fulfill this request</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_air_support_select">
+        <Original>Select the spot from which the plane will start to drop the bombs</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_air_support_selectVector">
+        <Original>Select the map position to which the plane will exit to calculate plane's route vector</Original>
+      </Key>
       <Key ID="STR_antistasi_customHint_airstrike">
         <Original>Airstrike</Original>
         <Russian>Авиаудар</Russian>
@@ -2313,34 +2186,6 @@
       <Key ID="STR_antistasi_customHint_noComm">
         <Original>%1 lost communication, he will come back with you if possible</Original>
         <Russian>%1 потерял связь, он вернется с вами, если возможно</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_steal">
-        <Original>Steal Static</Original>
-        <Russian>Украсть статику</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_steal_destroy">
-        <Original>You cannot steal a destroyed static weapon</Original>
-        <Russian>Вы не можете украсть разрушенное статическое оружие</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_steal_use">
-        <Original>You cannot steal a static weapon when someone is using it</Original>
-        <Russian>Вы не можете украсть статическое оружие, когда его кто-то использует</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_steal_alive">
-        <Original>The gunner of this static weapon is still alive</Original>
-        <Russian>Стрелок этого статического оружия еще жив</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_steal_noDissassembled">
-        <Original>This weapon cannot be dissassembled</Original>
-        <Russian>Это оружие нельзя разобрать</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_steal_conquer">
-        <Original>You have to conquer this zone in order to be able to steal this Static Weapon</Original>
-        <Russian>Вы должны захватить эту зону, чтобы украсть статическое оружие.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_steal_despawn">
-        <Original>Weapon Stolen. It won't despawn when you assemble it again</Original>
-        <Russian>Орудие украдено. Оно не исчезнет, когда вы его снова соберете</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_render1">
         <Original>Press</Original>
@@ -4075,6 +3920,10 @@
         <Original>Move this asset</Original>
         <Russian>Переместить</Russian>
       </Key>
+      <Key ID="STR_antistasi_customHint_cancel">
+        <Original>Transfer cancelled due to movement of Truck or Player</Original>
+        <Russian>Трансфер отменен из-за движения грузовика или игрока</Russian>
+      </Key>
     </Container>
     <Container name="Undercover">
       <Key ID="STR_antistasi_undercover">
@@ -4218,7 +4067,7 @@
         <Russian>Станьте скрытным, если вы соответствуете требованиям. Вражеский ИИ не нападет на вас, пока не обнаружит вас</Russian>
       </Key>
     </Container>
-    <Container name="garrisons">
+    <Container name="Garrisons\Units">
       <Key ID="STR_antistasi_garrisons">
         <Original>Garrisons</Original>
         <French>Garnisons</French>
@@ -4384,6 +4233,9 @@
         <Original>Garrison removed&lt;br/&gt;&lt;br/&gt;Recovered Money: %1 €&lt;br/&gt;Recovered HR: %2</Original>
         <Russian>Гарнизон удален&lt;br/&gt;&lt;br/&gt;Деньги: %1 €&lt;br/&gt;HR: %2</Russian>
       </Key>
+      <Key ID="STR_antistasi_customHint_op_rb_deprecated">
+        <Original>Deprecated option. Use Remove Garrison from HQ instead</Original>
+      </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_garrison">
         <Original>Garrison Units / Squads</Original>
         <Chinesesimp>驻军单位/班组</Chinesesimp>
@@ -4533,6 +4385,46 @@
         <Czech>Raketometník</Czech>
         <Chinesesimp>招募反坦克手</Chinesesimp>
         <Korean>대전차화기병 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_frame_text">
+        <Original>Recruitment Options</Original>
+        <English>Recruitment Options</English>
+        <French>Options de Recrutement</French>
+        <Russian>Призвать Добровольца по специальности</Russian>
+        <German>Rekrutierungsoptionen</German>
+        <Czech>Možnosti náboru</Czech>
+        <Chinesesimp>招募选项</Chinesesimp>
+        <Korean>모집 설정</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_militiaman_text">
+        <Original>Recruit Militiaman</Original>
+        <English>Recruit Militiaman</English>
+        <French>Recruter un Milicien</French>
+        <Russian>Новобранец</Russian>
+        <German>Miliz rekrutieren</German>
+        <Czech>Milicionář</Czech>
+        <Chinesesimp>招募民兵</Chinesesimp>
+        <Korean>민병대원 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_engineer_text">
+        <Original>Recruit Engineer</Original>
+        <English>Recruit Engineer</English>
+        <French>Recruter un Ingénieur</French>
+        <Russian>Инженер</Russian>
+        <German>Ingenieur rekrutieren</German>
+        <Czech>Inženýr</Czech>
+        <Chinesesimp>招募工程师</Chinesesimp>
+        <Korean>공병 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_explosive_text">
+        <Original>Recruit Bomb Specialist</Original>
+        <English>Recruit Bomb Specialist</English>
+        <French>Recruter un Expert en Démolition</French>
+        <Russian>Подрывник</Russian>
+        <German>Sprengstoffspezialist rekrutieren</German>
+        <Czech>Specialista na výbušniny</Czech>
+        <Chinesesimp>招募炸弹专家</Chinesesimp>
+        <Korean>폭탄 전문가 모집</Korean>
       </Key>
     </Container>
     <Container name="todo">
@@ -5919,6 +5811,21 @@
         <Chinesesimp>检查阵营车库</Chinesesimp>
         <Korean>팩션 차고 확인</Korean>
       </Key>
+      <Key ID="STR_antistasi_customHint_unlocked">
+        <Original>Vehicle Unlocked</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_unlock_destroy">
+        <Original>You cannot unlock destroyed</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_unlock_no_used">
+        <Original>The vehicle you are looking at cannot be used</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_unlock_already">
+        <Original>The vehicle you are looking at is already unlocked</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_unlock_own">
+        <Original>You cannot unlock vehicles which you do not own</Original>
+      </Key>
     </Container>
     <Container name="SITREP">
       <Key ID="STR_antistasi_dialogs_squad_manager_squad_sitrep">
@@ -6420,6 +6327,12 @@
         <Czech>Převod 100€ ze společného fondu na váš účet.Poškodí vaši pozici mezi frakcí a též vaší kariéru velitele</Czech>
         <Chinesesimp>从阵营的资金池中拿取100€并将其添加到您的个人帐户中。这会损害您在指挥官生涯中的地位</Chinesesimp>
         <Korean>팩션 자금 100€를 당신의 계좌에 가져가면 횡령이기때문에 팩션내 당신의 평판이 내려갈 것입니다.</Korean>
+      </Key>
+      <Key ID="STR_antistasi_customHint_grab_noMoney">
+        <Original>FIA has not enough resources to grab</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_grabed">
+        <Original>You grabbed %2 € from the %1 Money Pool.&lt;br/&gt;&lt;br/&gt;This will affect your prestige and status among %1 forces</Original>
       </Key>
     </Container>
     <Container name="Move_HQ">
@@ -7020,6 +6933,93 @@
         <Czech>Zřiďte Předsunutou hlídku nebo Zátaras v závislosti na vybraném místě.</Czech>
         <Chinesesimp>根据您选择的地形, 建立新的岗哨或路障。</Chinesesimp>
         <Korean>지정한 구역에 감시초소 또는 검문소를 설치합니다.</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_roadblock">
+        <Original>W.Post - Roadblock</Original>
+        <Chinesesimp>观察哨 - 路障</Chinesesimp>
+        <Russian>Добавить БП / НП</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_tooltip">
+        <Original>Establish a new watchpost or roadblock depending on the type of terrain you select</Original>
+        <Chinesesimp>根据您选择的地形类型, 建立新的观察哨或路障</Chinesesimp>
+        <Russian>Установите новый наблюдательный пост или блокпост в зависимости от выбранного типа местности.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete">
+        <Original>W.Post-Roadblock Delete</Original>
+        <Russian>Удалить БП / НП</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete_tooltip">
+        <Original>Remove selected watchpost or roadblock, money will be refunded</Original>
+        <Russian>Удалите выбранный наблюдательный пункт или блокпост, деньги будут возвращены</Russian>
+      </Key>
+    </Container>
+    <Container name="Statics">
+      <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget">
+        <Original>Static Autotarget</Original>
+        <Chinesesimp>自动对准目标</Chinesesimp>
+        <Russian>Автонаведение установок</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget_tooltip">
+        <Original>Use this option on AT / AA mounted squads. The truck driver will try to point his truck's back to any detected enemy</Original>
+        <Chinesesimp>对部署了反坦克/防空武器的班组使用此选项。卡车驾驶员会试图将车尾对准任何被发现的敌人</Chinesesimp>
+        <Russian>Используйте эту опцию для ПТ / ПВО отрядов. Отряд попытается направить свое орудие на любого обнаруженного врага.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_auto_target">
+        <Original>Static Auto Target</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_auto_target_no_select">
+        <Original>You must select one group on the HC bar</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_auto_target_no_type">
+        <Original>Selected squad is not a mounted static type</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_auto_target_MP">
+        <Original>Static Auto Target is not available for Mortar Squads in Multiplayer</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_auto_target_off">
+        <Original>Mounted Static Squad %1 set to Auto Target Mode OFF</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_auto_target_on">
+        <Original>Mounted Static Squad %1 set to Auto Target Mode ON</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_modset_static">
+        <Original>Your current modset doesn't support packing/unpacking static weapons</Original>
+        <Russian>Ваш текущий модсет не поддерживает упаковку/распаковку статического оружия.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_static_deployed">
+        <Original>Static Deployed</Original>
+        <Russian>Статика развернута</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_static_deployed_use">
+        <Original>Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_steal">
+        <Original>Steal Static</Original>
+        <Russian>Украсть статику</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_steal_destroy">
+        <Original>You cannot steal a destroyed static weapon</Original>
+        <Russian>Вы не можете украсть разрушенное статическое оружие</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_steal_use">
+        <Original>You cannot steal a static weapon when someone is using it</Original>
+        <Russian>Вы не можете украсть статическое оружие, когда его кто-то использует</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_steal_alive">
+        <Original>The gunner of this static weapon is still alive</Original>
+        <Russian>Стрелок этого статического оружия еще жив</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_steal_noDissassembled">
+        <Original>This weapon cannot be dissassembled</Original>
+        <Russian>Это оружие нельзя разобрать</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_steal_conquer">
+        <Original>You have to conquer this zone in order to be able to steal this Static Weapon</Original>
+        <Russian>Вы должны захватить эту зону, чтобы украсть статическое оружие.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_steal_despawn">
+        <Original>Weapon Stolen. It won't despawn when you assemble it again</Original>
+        <Russian>Орудие украдено. Оно не исчезнет, когда вы его снова соберете</Russian>
       </Key>
     </Container>
   </Package>

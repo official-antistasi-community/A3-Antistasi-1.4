@@ -1657,7 +1657,7 @@
         <Russian>Уйти в отставку</Russian>
       </Key>
     </Container>
-    <Container name="mortar">
+    <Container name="Art\Air_Support">
       <Key ID="STR_antistasi_dialogs_carpet_bombing">
         <Original>Carpet Bombing Strike</Original>
         <Chinesesimp>地毯式轰炸</Chinesesimp>
@@ -1667,6 +1667,11 @@
         <Original>HE Bombs</Original>
         <Chinesesimp>高爆炸弹</Chinesesimp>
         <Russian>ОФ бомбы</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mortar_type_he">
+        <Original>HE</Original>
+        <Chinesesimp>高爆弹</Chinesesimp>
+        <Russian>ОФ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_napalm">
         <Original>NAPALM Bombs</Original>
@@ -1678,6 +1683,11 @@
         <Chinesesimp>消耗: 1 点</Chinesesimp>
         <Russian>Цена: 1 очко</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_carpet_bombing_he_tooltip">
+        <Original>Cost: 10 points</Original>
+        <Chinesesimp>消耗: 10 点</Chinesesimp>
+        <Russian>Цена: 10 Очков</Russian>
+      </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_add_tooltip">
         <Original>Gain Airstrike points giving this aircraft to the faction Air pool</Original>
         <Chinesesimp>将这架飞机添加至阵营空军, 并获得空袭点数</Chinesesimp>
@@ -1687,16 +1697,6 @@
         <Original>Select Mortar Ammo</Original>
         <Chinesesimp>选择炮击弹药类型</Chinesesimp>
         <Russian>Выберите боеприпасы для минометов</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_mortar_type_he">
-        <Original>HE</Original>
-        <Chinesesimp>高爆弹</Chinesesimp>
-        <Russian>ОФ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_carpet_bombing_he_tooltip">
-        <Original>Cost: 10 points</Original>
-        <Chinesesimp>消耗: 10 点</Chinesesimp>
-        <Russian>Цена: 10 Очков</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_rounds_number">
         <Original>Select No. Rounds to be fired</Original>
@@ -1755,6 +1755,64 @@
       </Key>
       <Key ID="STR_antistasi_notification_setupCall_MORTAR">
         <Original>%1 is setting up a mortar position</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
+        <Original>Air Support</Original>
+        <Chinesesimp>空中支援</Chinesesimp>
+        <Russian>Авиаподдержка</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_airstrike">
+        <Original>Airstrike</Original>
+        <Russian>Авиаудар</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_air_support_tooltip">
+        <Original>Ask for Air Support (uses Airstrike points)</Original>
+        <Chinesesimp>呼叫空中支援(消耗空袭点数)</Chinesesimp>
+        <Russian>Запросить авиаподдержку (использует очки авиаподдержки)</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_air_support_noSupport">
+        <Original>You lack of enough Air Support to make this request</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_air_support_noAirport">
+        <Original>You need to control an airport in order to fulfill this request</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_air_support_select">
+        <Original>Select the spot from which the plane will start to drop the bombs</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_air_support_selectVector">
+        <Original>Select the map position to which the plane will exit to calculate plane's route vector</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_airstrike_noLook">
+        <Original>You are not looking to any vehicle</Original>
+        <Russian>Вы не смотрите на какой-либо автомобиль</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_airstrike_empty">
+        <Original>In order to sell, vehicle must be empty</Original>
+        <Russian>Для продажи автомобиль должен быть пустым.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_airstrike_owner">
+        <Original>You are not the owner of this vehicle. Therefore, you can't convert it</Original>
+        <Russian>Вы не являетесь владельцем этого автомобиля. Следовательно, вы не можете его преобразовать</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_airstrike_onlyAir">
+        <Original>Only Air Vehicles can be used to increase Airstrike points</Original>
+        <Russian>Для увеличения очков авиаудара можно использовать только воздушную технику.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_airstrike_drone">
+        <Original>Backpack drones can't be used to increase Airstrike points</Original>
+        <Russian>Дроны-рюкзаки нельзя использовать для увеличения очков авиаудара.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_airstrike_add">
+        <Original>Air Support increased in %1 points</Original>
+        <Russian>Поддержка с воздуха увеличена на %1 балла</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_airstrike_destroyed">
+        <Original>You can't convert destroyed Air vehicle to Airstrikes</Original>
+        <Russian>Вы не можете преобразовать уничтоженный воздушный транспорт в авиаудары.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_airstrike_airport">
+        <Original>You and the Air vehicle need to be in the Area of an %1 Airport or HQ in order to convert it to Airstrikes</Original>
+        <Russian>Вы и воздушное транспортное средство должны находиться в зоне аэропорта или штаб-квартиры %1, чтобы преобразовать его в авиаудары.</Russian>
       </Key>
     </Container>
     <Container name="customHint">
@@ -1903,64 +1961,6 @@
       </Key>
       <Key ID="STR_antistasi_customHint_out_of_bounds_return">
         <Original>Return to the AO before your blown up, you have %1 seconds</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
-        <Original>Air Support</Original>
-        <Chinesesimp>空中支援</Chinesesimp>
-        <Russian>Авиаподдержка</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_air_support_tooltip">
-        <Original>Ask for Air Support (uses Airstrike points)</Original>
-        <Chinesesimp>呼叫空中支援(消耗空袭点数)</Chinesesimp>
-        <Russian>Запросить авиаподдержку (использует очки авиаподдержки)</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_air_support_noSupport">
-        <Original>You lack of enough Air Support to make this request</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_air_support_noAirport">
-        <Original>You need to control an airport in order to fulfill this request</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_air_support_select">
-        <Original>Select the spot from which the plane will start to drop the bombs</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_air_support_selectVector">
-        <Original>Select the map position to which the plane will exit to calculate plane's route vector</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_airstrike">
-        <Original>Airstrike</Original>
-        <Russian>Авиаудар</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_airstrike_noLook">
-        <Original>You are not looking to any vehicle</Original>
-        <Russian>Вы не смотрите на какой-либо автомобиль</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_airstrike_empty">
-        <Original>In order to sell, vehicle must be empty</Original>
-        <Russian>Для продажи автомобиль должен быть пустым.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_airstrike_owner">
-        <Original>You are not the owner of this vehicle. Therefore, you can't convert it</Original>
-        <Russian>Вы не являетесь владельцем этого автомобиля. Следовательно, вы не можете его преобразовать</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_airstrike_onlyAir">
-        <Original>Only Air Vehicles can be used to increase Airstrike points</Original>
-        <Russian>Для увеличения очков авиаудара можно использовать только воздушную технику.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_airstrike_drone">
-        <Original>Backpack drones can't be used to increase Airstrike points</Original>
-        <Russian>Дроны-рюкзаки нельзя использовать для увеличения очков авиаудара.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_airstrike_add">
-        <Original>Air Support increased in %1 points</Original>
-        <Russian>Поддержка с воздуха увеличена на %1 балла</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_airstrike_destroyed">
-        <Original>You can't convert destroyed Air vehicle to Airstrikes</Original>
-        <Russian>Вы не можете преобразовать уничтоженный воздушный транспорт в авиаудары.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_airstrike_airport">
-        <Original>You and the Air vehicle need to be in the Area of an %1 Airport or HQ in order to convert it to Airstrikes</Original>
-        <Russian>Вы и воздушное транспортное средство должны находиться в зоне аэропорта или штаб-квартиры %1, чтобы преобразовать его в авиаудары.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_noComm">
         <Original>%1 lost communication, he will come back with you if possible</Original>

@@ -1814,134 +1814,21 @@
         <Original>You and the Air vehicle need to be in the Area of an %1 Airport or HQ in order to convert it to Airstrikes</Original>
         <Russian>Вы и воздушное транспортное средство должны находиться в зоне аэропорта или штаб-квартиры %1, чтобы преобразовать его в авиаудары.</Russian>
       </Key>
-    </Container>
-    <Container name="customHint">
-      <Key ID="STR_antistasi_customHint_only_comander">
-        <Original>Only Commander has access to this function</Original>
-        <Russian>Только командующий имеет доступ к этой функции</Russian>
+      <Key ID="STR_antistasi_chat_airSupport_request">
+        <Original>Requesting fire support on Grid %1. %2 Rounds</Original>
+        <Russian>Запрос огневой поддержки в %1. %2 ударов</Russian>
       </Key>
-      <Key ID="STR_antistasi_customHint_clean_forest_only_comander">
-        <Original>Only Commanders can order to clean the forest</Original>
+      <Key ID="STR_antistasi_chat_airSupport_fire">
+        <Original>Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact</Original>
+        <Russian>Подтверждено. Огненная миссия прибывает. Осталось %1 сек до первого удара</Russian>
       </Key>
-      <Key ID="STR_antistasi_customHint_only_admin">
-        <Original>Only Admin has access to this function</Original>
-        <Russian>Только админ имеет доступ к этой функции</Russian>
+      <Key ID="STR_antistasi_chat_airSupport_fire_time">
+        <Original>Acknowledged. Fire mission is inbound. %2 Rounds fired. ETA %1 secs</Original>
+        <Russian>Подтверждено. Огненная миссия прибывает. %2 ударов будет произведено. Осталось %1 сек.</Russian>
       </Key>
-      <Key ID="STR_antistasi_customHint_only_admin_or_comander_to">
-        <Original>Only our Commander or admin has access to </Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_only_mp">
-        <Original>This function is MP only</Original>
-        <Russian>Эта функция работает только в мультиплеере</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_only_leader">
-        <Original>Only group leaders has access to this function</Original>
-        <Russian>Только лидер отряда имеет доступ к этой функции</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_time_remaining">
-        <Original>Time Remaining: %1 secs</Original>
-        <Russian>Оставшееся время: %1 сек.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_unit_recruit_enemies">
-        <Original>You cannot recruit units while there are enemies near you</Original>
-        <Russian>Вы не можете нанимать юнитов, пока рядом с вами есть враги</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_buy_vehicle_enemies">
-        <Original>You cannot buy vehicles while there are enemies near you</Original>
-        <Russian>Вы не можете покупать технику, пока рядом с вами враги.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_healRepairRearm">
-        <Original>Heal, Repair and Rearm</Original>
-        <Russian>Лечение, Ремонт, Перезарядка</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_heal_repair">
-        <Original>Heal And Repair</Original>
-        <Russian>Лечение и ремонт</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_heal_repair_wait">
-        <Original>The repair box has been used in the last %1 seconds! Please wait for a bit.</Original>
-        <Russian>Ремонтный ящик использовался последние %1 секунды! Подождите немного.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_heal_repair_text">
-        <Original>Nearby units have been healed, refreshed, and can go undercover again.&lt;br/&gt;&lt;br/&gt;Nearby vehicles have been repaired, rearmed, and are no longer reported</Original>
-        <Russian>Близлежащие юниты были исцелены, обновлены и снова могут работать под прикрытием.&lt;br/&gt;&lt;br/&gt;Близлежащие машины отремонтированы, перевооружены, о них больше не сообщается.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_capture">
-        <Original>Capture</Original>
-        <Russian>Захват</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_capture_undercover">
-        <Original>You cannot Capture the Flag while Undercover</Original>
-        <Russian>Вы не можете захватить флаг, находясь в режиме скрытности</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_capture_warlevel">
-        <Original>You cannot capture Airports until you reach War Level 3</Original>
-        <Russian>Вы не можете захватывать аэропорты, пока не достигнете уровня войны 3.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_capture_wait">
-        <Original>This flag pole is locked, try again in %1 seconds</Original>
-        <Russian>Этот флагшток заблокирован. Повторите попытку через %1 сек.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_capture_enemy">
-        <Original>The enemy still outnumber us, check the map and clear the rest of the area</Original>
-        <Russian>Противник по-прежнему численно превосходит нас, проверьте карту и очистите остальную территорию</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_general">
-        <Original>General Info</Original>
-        <Russian>Общая информация</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_general_only_player">
-        <Original>Only Humans can pilot an air vehicle</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_clean_forest">
-        <Original>Clean Forest</Original>
-        <Russian>Отчистка местности</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cleared_forest">
-        <Original>You've cleared the surroundings of trees and bushes</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_radio">
-        <Original>Radio Required</Original>
-        <Russian>Требуется радио</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_other_group">
-        <Original>You cannot board other player vehicle if you are not in the same group</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_welcome_guest">
-        <Original>Welcome Guest&lt;br/&gt;&lt;br/&gt;You have joined this server as guest</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_eligible_suc">
-        <Original>You resign from being commander, choosing %1 as your successor</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_eligible_suc_noChosen">
-        <Original>You resign from being commander. Your chosen successor (%1) was not eligible</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_eligible_noSuc">
-        <Original>You resign from being Commander. Others will take the command if there is someone suitable</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_eligible_no">
-        <Original>You decided not to be eligible for commander</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_eligible">
-        <Original>You are now eligible to be commander of our forces</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_out_of_bounds">
-        <Original>Out of bounds</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_out_of_bounds_return">
-        <Original>Return to the AO before your blown up, you have %1 seconds</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_noComm">
-        <Original>%1 lost communication, he will come back with you if possible</Original>
-        <Russian>%1 потерял связь, он вернется с вами, если возможно</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_render1">
-        <Original>Press</Original>
-        <Russian>Нажмите</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_render2">
-        <Original>to dismiss notification. +</Original>
-        <Russian>чтобы закрыть уведомление. +</Russian>
+      <Key ID="STR_antistasi_chat_startBomb">
+        <Original>Starting Bomb Run. ETA %1 seconds.</Original>
+        <Russian>Запуск бомбы. Осталось %1 сек.</Russian>
       </Key>
     </Container>
     <Container name="Statistics">
@@ -1974,57 +1861,7 @@
         <Russian>Ранг: %1 | Ваши деньги: %2 € | %3 Деньги: %4 € | %5 Аггр: %6 | Уровень войны: %9 | Скрытность: %10</Russian>
       </Key>
     </Container>
-    <Container name="addAction">
-      <Key ID="STR_antistasi_addAction_takeFlag">
-        <Original>Take the Flag</Original>
-        <Russian>Сменить флаг</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_AI_info">
-        <Original>AI Load Info</Original>
-        <Russian>Информация о загрузке AI</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_liberate">
-        <Original>Liberate</Original>
-        <Russian>Освободить</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_liberate_POW">
-        <Original>Liberate POW</Original>
-        <Russian>Освободить</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_interrogate">
-        <Original>Interrogate</Original>
-        <Russian>Допросить</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_buyBoat">
-        <Original>Buy Boat</Original>
-        <Russian>Купить лодку</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_cleanForest">
-        <Original>Clear Nearby Forest</Original>
-        <Russian>Убрать лес</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_fog">
-        <Original>I hate the fog</Original>
-        <Russian>Убрать туман</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_rain">
-        <Original>Rain rain go away</Original>
-        <Russian>Убрать дождь</Russian>
-      </Key>
-    </Container>
     <Container name="chat">
-      <Key ID="STR_antistasi_chat_airSupport_request">
-        <Original>Requesting fire support on Grid %1. %2 Rounds</Original>
-        <Russian>Запрос огневой поддержки в %1. %2 ударов</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_airSupport_fire">
-        <Original>Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact</Original>
-        <Russian>Подтверждено. Огненная миссия прибывает. Осталось %1 сек до первого удара</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_airSupport_fire_time">
-        <Original>Acknowledged. Fire mission is inbound. %2 Rounds fired. ETA %1 secs</Original>
-        <Russian>Подтверждено. Огненная миссия прибывает. %2 ударов будет произведено. Осталось %1 сек.</Russian>
-      </Key>
       <Key ID="STR_antistasi_chat_joinEnemy">
         <Original>How about joining the good guys?</Original>
         <Russian>Как насчет того, чтобы присоединиться к хорошим парням?</Russian>
@@ -2053,26 +1890,6 @@
         <Original>Thank you, I won't forget this!</Original>
         <Russian>Спасибо, я этого не забуду!</Russian>
       </Key>
-      <Key ID="STR_antistasi_chat_inter_tellMe">
-        <Original>You imperialist! Tell me what you know!</Original>
-        <Russian>Ты империалист! Расскажи мне, что ты знаешь!</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_inter_cooperative">
-        <Original>Okay, I tell you what I know</Original>
-        <Russian>Хорошо, я скажу тебе то, что знаю</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_inter_iDontKnow">
-        <Original>I would, but I don't know anything</Original>
-        <Russian>Я бы, но я ничего не знаю</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_inter_noLeader">
-        <Original>I would, but only our squadleader may knows something</Original>
-        <Russian>Я бы хотел, но только ваш командир отряда может что-то знать</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_inter_no">
-        <Original>Screw you, I am not telling anything!</Original>
-        <Russian>Да пошел ты, я ничего не скажу!</Russian>
-      </Key>
       <Key ID="STR_antistasi_chat_liberate_free">
         <Original>You are free. Come with us!</Original>
         <Russian>Ты свободен. Пойдем с нами!</Russian>
@@ -2096,18 +1913,6 @@
       <Key ID="STR_antistasi_chat_radiocheck">
         <Original>This is %1, radiocheck OK</Original>
         <Russian>Это %1, радиопроверка ОК</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_startBomb">
-        <Original>Starting Bomb Run. ETA %1 seconds.</Original>
-        <Russian>Запуск бомбы. Осталось %1 сек.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_dismissGroup">
-        <Original>Get out of my sight you useless scum!</Original>
-        <Russian>Убирайся с глаз моих, бесполезная сволочь!</Russian>
-      </Key>
-      <Key ID="STR_antistasi_chat_dismissSquad">
-        <Original>%2, I'm sending %1 back to base</Original>
-        <Russian>%2, я отправляю %1 обратно на базу</Russian>
       </Key>
     </Container>
     <Container name="Sleep">
@@ -4031,51 +3836,6 @@
         <Korean>모집 설정</Korean>
       </Key>
     </Container>
-    <Container name="todo">
-      <Key ID="STR_antistasi_addAction_allowAIUseWeapon">
-        <Original>Allow AIs to use this weapon</Original>
-        <Russian>Разрешить ИИ использовать это оружие</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_preventAIUseWeapon">
-        <Original>Prevent AIs using this weapon</Original>
-        <Russian>Запретить ИИ использовать это оружие</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_nato_player_specop">
-        <Original>SpecOp Menu</Original>
-        <Chinesesimp>特殊行动菜单</Chinesesimp>
-        <Russian>Меню СпН</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_pvp_info">
-        <Original>PvP Information</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_pvp_info_text">
-        <Original>PvP players are only allowed to use their own or other PvP player vehicles</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_attackPVP_text">
-        <Original>We are attacking %2 from the %1. Help the operation if you can</Original>
-        <Russian>Мы атакуем %2 из %1. Помогите операции, если можете</Russian>
-      </Key>
-      <Key ID="STR_antistasi_mission_attackPVP_text2">
-        <Original>We are attacking an %2 from the %1. Help the operation if you can</Original>
-        <Russian>Мы атакуем %2 из %1. Помогите операции, если можете</Russian>
-      </Key>
-      <Key ID="STR_antistasi_tooltip_cost">
-        <Original>Cost: %1 €</Original>
-        <Russian>Цена: %1 €</Russian>
-      </Key>
-      <Key ID="STR_antistasi_tooltip_cost_HR">
-        <Original>Cost: %1 €\nHR: %2</Original>
-        <Russian>Цена: %1 €\nHR: %2</Russian>
-      </Key>
-      <Key ID="STR_antistasi_tooltip_cost_veh">
-        <Original>Buy a vehicle for this squad for %1 €</Original>
-        <Russian>Купите технику для этого отряда за %1 €</Russian>
-      </Key>
-      <Key ID="STR_antistasi_tooltip_cost_noVeh">
-        <Original>Barefoot Infantry</Original>
-        <Russian>Пешая пехота</Russian>
-      </Key>
-    </Container>
     <Container name="Loot">
       <Key ID="STR_antistasi_journal_entry_header_AI_5">
         <Original>Auto Rearm \ Loot</Original>
@@ -4291,6 +4051,10 @@
         <Original>Cancel Search</Original>
         <Russian>Отменить поиск</Russian>
       </Key>
+      <Key ID="STR_antistasi_addAction_interrogate">
+        <Original>Interrogate</Original>
+        <Russian>Допросить</Russian>
+      </Key>
       <Key ID="STR_antistasi_intel_completed_found">
         <Original>Search completed, intel found!</Original>
         <Russian>Поиск завершен, документы найдены</Russian>
@@ -4458,6 +4222,26 @@
       <Key ID="STR_antistasi_intel_petrosTraitor">
         <Original>Someone found some intel on the traitors family, he will not cause any problems any more!</Original>
         <Russian>Кто-то нашел информацию о семье предателей, он больше не вызовет никаких проблем!</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_inter_tellMe">
+        <Original>You imperialist! Tell me what you know!</Original>
+        <Russian>Ты империалист! Расскажи мне, что ты знаешь!</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_inter_cooperative">
+        <Original>Okay, I tell you what I know</Original>
+        <Russian>Хорошо, я скажу тебе то, что знаю</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_inter_iDontKnow">
+        <Original>I would, but I don't know anything</Original>
+        <Russian>Я бы, но я ничего не знаю</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_inter_noLeader">
+        <Original>I would, but only our squadleader may knows something</Original>
+        <Russian>Я бы хотел, но только ваш командир отряда может что-то знать</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_inter_no">
+        <Original>Screw you, I am not telling anything!</Original>
+        <Russian>Да пошел ты, я ничего не скажу!</Russian>
       </Key>
     </Container>
     <Container name="Medical">
@@ -5031,6 +4815,10 @@
       </Key>
       <Key ID="STR_antistasi_customHint_garage_enemy">
         <Original>You can't garage vehicles that are more than %1m away from you</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_buy_vehicle_enemies">
+        <Original>You cannot buy vehicles while there are enemies near you</Original>
+        <Russian>Вы не можете покупать технику, пока рядом с вами враги.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_no_garrisons">
         <Original>You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage</Original>
@@ -5738,7 +5526,7 @@
         <Russian>Текущий уровень: %2\nСтоимость обучения следующего уровня: %1 €</Russian>
       </Key>
     </Container>
-    <Container name="Member">
+    <Container name="Membership">
       <Key ID="STR_antistasi_customHint_membership">
         <Original>Membership</Original>
         <Russian>Членство</Russian>
@@ -6625,6 +6413,14 @@
         <Original>Weapon Stolen. It won't despawn when you assemble it again</Original>
         <Russian>Орудие украдено. Оно не исчезнет, когда вы его снова соберете</Russian>
       </Key>
+      <Key ID="STR_antistasi_addAction_allowAIUseWeapon">
+        <Original>Allow AIs to use this weapon</Original>
+        <Russian>Разрешить ИИ использовать это оружие</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_preventAIUseWeapon">
+        <Original>Prevent AIs using this weapon</Original>
+        <Russian>Запретить ИИ использовать это оружие</Russian>
+      </Key>
     </Container>
     <Container name="Squad_Manager">
       <Key ID="STR_antistasi_dialogs_squad_manager">
@@ -6791,6 +6587,18 @@
         <Original>You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads</Original>
         <Russian>Вы не можете распустить отряды, возглавляемые игроком, заставы, блокпосты или минные поля</Russian>
       </Key>
+      <Key ID="STR_antistasi_tooltip_cost_veh">
+        <Original>Buy a vehicle for this squad for %1 €</Original>
+        <Russian>Купите технику для этого отряда за %1 €</Russian>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_noVeh">
+        <Original>Barefoot Infantry</Original>
+        <Russian>Пешая пехота</Russian>
+      </Key>
+      <Key ID="STR_antistasi_chat_dismissSquad">
+        <Original>%2, I'm sending %1 back to base</Original>
+        <Russian>%2, я отправляю %1 обратно на базу</Russian>
+      </Key>
     </Container>
     <Container name="Units">
       <Key ID="STR_antistasi_journal_entry_header_AI_1">
@@ -6809,6 +6617,10 @@
       <Key ID="STR_antistasi_garrisons_AI_Recruit">
         <Original>AI Recruitment</Original>
         <Russian>Найм ИИ</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_unit_recruit_enemies">
+        <Original>You cannot recruit units while there are enemies near you</Original>
+        <Russian>Вы не можете нанимать юнитов, пока рядом с вами есть враги</Russian>
       </Key>
       <Key ID="STR_antistasi_garrisons_AI_Recruit_onlyMember">
         <Original>Only Server Members can recruit AI units</Original>
@@ -6970,6 +6782,10 @@
         <Chinesesimp>解散选定的单位或班组, 回收其成本至对应的资源池</Chinesesimp>
         <Russian>Распустить выбранные отряды или отряды, вернув их стоимость в соответствующий пул ресурсов.</Russian>
       </Key>
+      <Key ID="STR_antistasi_chat_dismissGroup">
+        <Original>Get out of my sight you useless scum!</Original>
+        <Russian>Убирайся с глаз моих, бесполезная сволочь!</Russian>
+      </Key>
     </Container>
     <Container name="FriendlyFire">
       <Key ID="STR_antistasi_customHint_FF_Punishment">
@@ -7036,6 +6852,186 @@
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_wait">
         <Original>Breaching in %1 seconds</Original>
+      </Key>
+    </Container>
+    <Container name="Other">
+      <Key ID="STR_antistasi_customHint_only_comander">
+        <Original>Only Commander has access to this function</Original>
+        <Russian>Только командующий имеет доступ к этой функции</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_clean_forest_only_comander">
+        <Original>Only Commanders can order to clean the forest</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_only_admin">
+        <Original>Only Admin has access to this function</Original>
+        <Russian>Только админ имеет доступ к этой функции</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_only_admin_or_comander_to">
+        <Original>Only our Commander or admin has access to </Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_only_mp">
+        <Original>This function is MP only</Original>
+        <Russian>Эта функция работает только в мультиплеере</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_only_leader">
+        <Original>Only group leaders has access to this function</Original>
+        <Russian>Только лидер отряда имеет доступ к этой функции</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_general">
+        <Original>General Info</Original>
+        <Russian>Общая информация</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_time_remaining">
+        <Original>Time Remaining: %1 secs</Original>
+        <Russian>Оставшееся время: %1 сек.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_healRepairRearm">
+        <Original>Heal, Repair and Rearm</Original>
+        <Russian>Лечение, Ремонт, Перезарядка</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_heal_repair">
+        <Original>Heal And Repair</Original>
+        <Russian>Лечение и ремонт</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_heal_repair_wait">
+        <Original>The repair box has been used in the last %1 seconds! Please wait for a bit.</Original>
+        <Russian>Ремонтный ящик использовался последние %1 секунды! Подождите немного.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_heal_repair_text">
+        <Original>Nearby units have been healed, refreshed, and can go undercover again.&lt;br/&gt;&lt;br/&gt;Nearby vehicles have been repaired, rearmed, and are no longer reported</Original>
+        <Russian>Близлежащие юниты были исцелены, обновлены и снова могут работать под прикрытием.&lt;br/&gt;&lt;br/&gt;Близлежащие машины отремонтированы, перевооружены, о них больше не сообщается.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_capture">
+        <Original>Capture</Original>
+        <Russian>Захват</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_capture_undercover">
+        <Original>You cannot Capture the Flag while Undercover</Original>
+        <Russian>Вы не можете захватить флаг, находясь в режиме скрытности</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_capture_warlevel">
+        <Original>You cannot capture Airports until you reach War Level 3</Original>
+        <Russian>Вы не можете захватывать аэропорты, пока не достигнете уровня войны 3.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_capture_wait">
+        <Original>This flag pole is locked, try again in %1 seconds</Original>
+        <Russian>Этот флагшток заблокирован. Повторите попытку через %1 сек.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_capture_enemy">
+        <Original>The enemy still outnumber us, check the map and clear the rest of the area</Original>
+        <Russian>Противник по-прежнему численно превосходит нас, проверьте карту и очистите остальную территорию</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_general_only_player">
+        <Original>Only Humans can pilot an air vehicle</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_clean_forest">
+        <Original>Clean Forest</Original>
+        <Russian>Отчистка местности</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_cleared_forest">
+        <Original>You've cleared the surroundings of trees and bushes</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_radio">
+        <Original>Radio Required</Original>
+        <Russian>Требуется радио</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_other_group">
+        <Original>You cannot board other player vehicle if you are not in the same group</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_welcome_guest">
+        <Original>Welcome Guest&lt;br/&gt;&lt;br/&gt;You have joined this server as guest</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_eligible_suc">
+        <Original>You resign from being commander, choosing %1 as your successor</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_eligible_suc_noChosen">
+        <Original>You resign from being commander. Your chosen successor (%1) was not eligible</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_eligible_noSuc">
+        <Original>You resign from being Commander. Others will take the command if there is someone suitable</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_eligible_no">
+        <Original>You decided not to be eligible for commander</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_eligible">
+        <Original>You are now eligible to be commander of our forces</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_out_of_bounds">
+        <Original>Out of bounds</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_out_of_bounds_return">
+        <Original>Return to the AO before your blown up, you have %1 seconds</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_noComm">
+        <Original>%1 lost communication, he will come back with you if possible</Original>
+        <Russian>%1 потерял связь, он вернется с вами, если возможно</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_render1">
+        <Original>Press</Original>
+        <Russian>Нажмите</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_render2">
+        <Original>to dismiss notification. +</Original>
+        <Russian>чтобы закрыть уведомление. +</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_takeFlag">
+        <Original>Take the Flag</Original>
+        <Russian>Сменить флаг</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_AI_info">
+        <Original>AI Load Info</Original>
+        <Russian>Информация о загрузке AI</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_liberate">
+        <Original>Liberate</Original>
+        <Russian>Освободить</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_liberate_POW">
+        <Original>Liberate POW</Original>
+        <Russian>Освободить</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_buyBoat">
+        <Original>Buy Boat</Original>
+        <Russian>Купить лодку</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_cleanForest">
+        <Original>Clear Nearby Forest</Original>
+        <Russian>Убрать лес</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_fog">
+        <Original>I hate the fog</Original>
+        <Russian>Убрать туман</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_rain">
+        <Original>Rain rain go away</Original>
+        <Russian>Убрать дождь</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_nato_player_specop">
+        <Original>SpecOp Menu</Original>
+        <Chinesesimp>特殊行动菜单</Chinesesimp>
+        <Russian>Меню СпН</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_pvp_info">
+        <Original>PvP Information</Original>
+      </Key>
+      <Key ID="STR_antistasi_customHint_pvp_info_text">
+        <Original>PvP players are only allowed to use their own or other PvP player vehicles</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_attackPVP_text">
+        <Original>We are attacking %2 from the %1. Help the operation if you can</Original>
+        <Russian>Мы атакуем %2 из %1. Помогите операции, если можете</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_attackPVP_text2">
+        <Original>We are attacking an %2 from the %1. Help the operation if you can</Original>
+        <Russian>Мы атакуем %2 из %1. Помогите операции, если можете</Russian>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost">
+        <Original>Cost: %1 €</Original>
+        <Russian>Цена: %1 €</Russian>
+      </Key>
+      <Key ID="STR_antistasi_tooltip_cost_HR">
+        <Original>Cost: %1 €\nHR: %2</Original>
+        <Russian>Цена: %1 €\nHR: %2</Russian>
       </Key>
     </Container>
   </Package>

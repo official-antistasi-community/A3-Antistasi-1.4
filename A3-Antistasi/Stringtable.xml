@@ -1557,33 +1557,6 @@
         <Chinesesimp>LanCommi 的美术设计。&lt;br/&gt;Goon 和 jw custom: 部分凝固汽油弹(NAPALM)脚本。&lt;br/&gt;rebel12340: 无线电阻塞脚本。&lt;br/&gt;Manko: 耳塞脚本。&lt;br/&gt;bobchaos: 尽管困难重重, 但仍在管理社区。&lt;br/&gt;以及所有花时间在Steam、Github和BIS论坛上发表评论、建议和报告的玩家。</Chinesesimp>
       </Key>
     </Container>
-    <Container name="squad_manager">
-      <Key ID="STR_antistasi_dialogs_squad_manager">
-        <Original>HC Squad Options</Original>
-        <Chinesesimp>指挥部班组选项</Chinesesimp>
-        <Russian>Управление отрядами</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle">
-        <Original>Squad Add Vehicle</Original>
-        <Russian>Добавить технику отряду</Russian>
-        <Chinesesimp>为班组分配载具</Chinesesimp>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_add_vehicle_tooltip">
-        <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
-        <Chinesesimp>将面前的载具分配给选定的班组使用</Chinesesimp>
-        <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_manager_mount">
-        <Original>Mount / Dismount</Original>
-        <Chinesesimp>搭乘/离开</Chinesesimp>
-        <Russian>Погрузка / Разгрузка</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_manager_mount_tooltip">
-        <Original>Force squad to mount or dismount their assigned vehicle</Original>
-        <Chinesesimp>强制班组搭乘或离开他们分配的车辆</Chinesesimp>
-        <Russian>Заставить отряд сесть или слезть с назначенной машины</Russian>
-      </Key>
-    </Container>
     <Container name="HQ">
       <Key ID="STR_antistasi_addAction_HQ_management">
         <Original>HQ Management</Original>
@@ -1782,172 +1755,6 @@
       </Key>
       <Key ID="STR_antistasi_notification_setupCall_MORTAR">
         <Original>%1 is setting up a mortar position</Original>
-      </Key>
-      <Key ID="STR_antistasi_notification_mortar_destroyed">
-        <Original>Mortar Support Destroyed</Original>
-        <Russian>Артилерия уничтожена</Russian>
-      </Key>
-      <Key ID="STR_antistasi_notification_mortar_stolen">
-        <Original>Mortar Support Stolen</Original>
-        <Russian>Артелерия украдена</Russian>
-      </Key>
-      <Key ID="STR_antistasi_notification_mortar_crewKilled">
-        <Original>Mortar Support crew killed</Original>
-        <Russian>Бригада артилерии убита</Russian>
-      </Key>
-    </Container>
-    <Container name="squad_recruit">
-      <Key ID="STR_antistasi_journal_entry_header_AI_1">
-        <Original>Recruit</Original>
-        <French>Recruter</French>
-        <German>Rekrutieren</German>
-        <Czech>Naverbovat</Czech>
-        <Chinesesimp>招募</Chinesesimp>
-        <Korean>모집</Korean>
-        <Russian>Найм ИИ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_unit_recruit">
-        <Original>Unit Recruitment</Original>
-        <Russian>Найм бойцов</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_commander_9">
-        <Original>Recruit Squad</Original>
-        <French>Recruter une escouade</French>
-        <German>Gruppen rekrutieren</German>
-        <Czech>Nábor družstva</Czech>
-        <Chinesesimp>招募班组</Chinesesimp>
-        <Korean>분대 모집</Korean>
-        <Russian>Найм отряда</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_squad_recruit">
-        <Original>Squad Recruit</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_recruit">
-        <Original>Squad Recruitment Options</Original>
-        <Chinesesimp>小队招募选项</Chinesesimp>
-        <Russian>Меню найма отряда</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_recruit_inf">
-        <Original>Recruit Inf. Squad</Original>
-        <Chinesesimp>招募步兵班</Chinesesimp>
-        <Russian>Отряд</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_recruit_inf_team">
-        <Original>Recruit Inf. Team</Original>
-        <Chinesesimp>招募步兵小组</Chinesesimp>
-        <Russian>Группа</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_recruit_at">
-        <Original>Recruit AT Team</Original>
-        <Chinesesimp>招募反坦克小组</Chinesesimp>
-        <Russian>Группа ПТ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_recruit_sniper">
-        <Original>Recruit Sniper Team</Original>
-        <Chinesesimp>招募狙击小组</Chinesesimp>
-        <Russian>Группа снайперов</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_recruit_mg">
-        <Original>Recruit MG Team</Original>
-        <Chinesesimp>招募机枪小组</Chinesesimp>
-        <Russian>Группа пулеметчиков</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_recruit_at_car">
-        <Original>Recruit AT Car</Original>
-        <Chinesesimp>招募反坦克车辆</Chinesesimp>
-        <Russian>ПТ Техника</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_recruit_aa_car">
-        <Original>Recruit AA Truck</Original>
-        <Chinesesimp>招募防空卡车</Chinesesimp>
-        <Russian>ПВО Техника</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_recruit_mortar">
-        <Original>Recruit Mortar Team</Original>
-        <Chinesesimp>招募迫击炮小组</Chinesesimp>
-        <Russian>Артилерия</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_options_mortar">
-        <Original>Mortar Squad</Original>
-        <Chinesesimp>迫击炮班组</Chinesesimp>
-        <Russian>Минометчики</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_dismiss_menu">
-        <Original>Dismiss Options</Original>
-        <Chinesesimp>解散选项</Chinesesimp>
-        <Russian>Меню роспуска</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_options_engineer">
-        <Original>Engineer Squad</Original>
-        <Chinesesimp>工程师班组</Chinesesimp>
-        <Russian>Инженеры</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_options_mg">
-        <Original>MG Squad</Original>
-        <Chinesesimp>机枪班组</Chinesesimp>
-        <Russian>Пулеметчики</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_options">
-        <Original>Squad Options</Original>
-        <Chinesesimp>小队选项</Chinesesimp>
-        <Russian>Назначение отряда</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_squad_options_normal">
-        <Original>Normal Squad</Original>
-        <Chinesesimp>普通班组</Chinesesimp>
-        <Russian>Стандарт</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_dismiss">
-        <Original>Dismiss Squad</Original>
-        <Russian>Распустить команду</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_recruit_moveHQ">
-        <Original>You cannot recruit a new squad while you are moving your HQ</Original>
-        <Russian>Вы не можете набрать новый отряд, пока перемещаете свой штаб.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_recruit_enemy">
-        <Original>You cannot recruit squads with enemies near your HQ</Original>
-        <Russian>Вы не можете набирать отряды с врагами рядом с вашим штабом.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_recruit_modset">
-        <Original>The group or vehicle type you requested is not supported in your modset</Original>
-        <Russian>Запрошенный тип группы или транспортного средства не поддерживается в вашем модсете.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_recruit_gref">
-        <Original>AT Trucks are disabled in RHS - GREF</Original>
-        <Russian>ПТ грузовики отключены в RHS - GREF</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_recruit_noHR">
-        <Original>You do not have enough HR for this request (%1 required)</Original>
-        <Russian>У вас недостаточно HR для этого запроса (требуется %1 HR)</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_recruit_noMoney">
-        <Original>You do not have enough money for this request (%1 € required)</Original>
-        <Russian>У вас недостаточно денег для этого запроса (требуется %1 €)</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_recruit_info">
-        <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</Original>
-        <Russian>Отряд %1 в вашем распоряжении.&lt;br/&gt;&lt;br/&gt;Отряды управляются из панели HC (по умолчанию: CTRL + SPACE)&lt;br/&gt;&lt;br/&gt;Если Отряд застревает, используйте функцию "Управление ИИ", чтобы заставить их двигаться. Смонтированные статические команды имеют тенденцию застревать&lt;br/&gt;&lt;br/&gt;Чтобы назначить машину для этой группы, посмотрите на какую-нибудь машину и используйте опцию "Техника отряда" в меню клавиши Y</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_dismissGroup">
-        <Original>Dismiss Group</Original>
-        <Russian>Распустить отряд</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_dismissGroup_onlyLeader">
-        <Original>You cannot dismiss anyone if you are not the squad leader</Original>
-        <Russian>Вы не можете распустить никого, если вы не командир отряда.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_dismissGroup_undercover">
-        <Original>You cannot disband supressed, undercover or unconscious units</Original>
-        <Russian>Вы не можете распустить раненые, скрытые или отряды находящиеся в бою.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_dismissSquad_nato">
-        <Original>You cannot dismiss NATO groups</Original>
-        <Russian>Вы не можете распускать отряды НАТО</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_dismissSquad_player">
-        <Original>You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads</Original>
-        <Russian>Вы не можете распустить отряды, возглавляемые игроком, заставы, блокпосты или минные поля</Russian>
       </Key>
     </Container>
     <Container name="customHint">
@@ -3069,6 +2876,18 @@
         <Original>Gunship Destroyed</Original>
         <Russian>Боевой корабль уничтожен</Russian>
       </Key>
+      <Key ID="STR_antistasi_notification_mortar_destroyed">
+        <Original>Mortar Support Destroyed</Original>
+        <Russian>Артилерия уничтожена</Russian>
+      </Key>
+      <Key ID="STR_antistasi_notification_mortar_stolen">
+        <Original>Mortar Support Stolen</Original>
+        <Russian>Артелерия украдена</Russian>
+      </Key>
+      <Key ID="STR_antistasi_notification_mortar_crewKilled">
+        <Original>Mortar Support crew killed</Original>
+        <Russian>Бригада артилерии убита</Russian>
+      </Key>
       <Key ID="STR_antistasi_notification_aggression_reduced">
         <Original>%1 aggression level reduced to %2</Original>
         <Russian>Уровень агрессии %1 снижен до %2</Russian>
@@ -4079,7 +3898,7 @@
         <Russian>Станьте скрытным, если вы соответствуете требованиям. Вражеский ИИ не нападет на вас, пока не обнаружит вас</Russian>
       </Key>
     </Container>
-    <Container name="Garrisons\Units">
+    <Container name="Garrisons">
       <Key ID="STR_antistasi_garrisons">
         <Original>Garrisons</Original>
         <French>Garnisons</French>
@@ -4108,50 +3927,6 @@
         <Czech>Přidejte nebo odeberte jednotky z posádky</Czech>
         <Chinesesimp>向驻军增派或删除单位</Chinesesimp>
         <Korean>주둔지에 병력을 추가하거나 줄입니다.</Korean>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_AI_Recruit">
-        <Original>AI Recruitment</Original>
-        <Russian>Найм ИИ</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_AI_Recruit_onlyMember">
-        <Original>Only Server Members can recruit AI units</Original>
-        <Russian>Только участники сервера могут нанимать отряды ИИ.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_AI_Recruit_wait">
-        <Original>You need to wait %1 seconds to be able to recruit units again</Original>
-        <Russian>Вам нужно подождать %1 секунды, чтобы снова набрать юниты</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_AI_Recruit_ctrlAI">
-        <Original>You cannot buy units while you are controlling AI</Original>
-        <Russian>Вы не можете покупать юнитов, пока управляете AI.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_AI_Recruit_enemy">
-        <Original>You cannot Recruit Units with enemies nearby</Original>
-        <Russian>Вы не можете нанимать отряды с врагами поблизости</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_AI_Recruit_noLeader">
-        <Original>You cannot recruit units as you are not your group leader</Original>
-        <Russian>Вы не можете нанимать отряды, так как вы не являетесь лидером группы.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_AI_Recruit_noHR">
-        <Original>You do not have enough HR for this request</Original>
-        <Russian>У вас недостаточно HR для этого запроса</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_AI_Recruit_full">
-        <Original>Your squad is full or you have too many scattered units with no radio contact</Original>
-        <Russian>Ваш отряд полон или у вас слишком много разбросанных отрядов без радиосвязи</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_AI_Recruit_recruit">
-        <Original>Soldier Recruited.&lt;br/&gt;&lt;br/&gt;Remember: if you use the group menu to switch groups you will lose control of your recruited AI</Original>
-        <Russian>Солдат завербован.&lt;br/&gt;&lt;br/&gt;Помните: если вы используете групповое меню для переключения групп, вы потеряете контроль над нанятым вами ИИ.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_noHR">
-        <Original>You lack of HR to make a new recruitment</Original>
-        <Russian>Вам не хватает HR для найма бойца</Russian>
-      </Key>
-      <Key ID="STR_antistasi_garrisons_noMoney">
-        <Original>You do not have enough money for this kind of unit (%1 € needed)</Original>
-        <Russian>У вас недостаточно денег для найма бойца(требуется %1 €)</Russian>
       </Key>
       <Key ID="STR_antistasi_garrisons_mortar">
         <Original>You cannot add mortars to a Roadblock garrison</Original>
@@ -4278,16 +4053,6 @@
         <Chinesesimp>将选定的单位或班组编入在地图上选定的驻军</Chinesesimp>
         <Russian>Добавляет выбранные юниты или отряды в выбранный на карте гарнизон</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units">
-        <Original>Dismiss Units / Squad</Original>
-        <Chinesesimp>解散单位/班组</Chinesesimp>
-        <Russian>В запас</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units_tooltip">
-        <Original>Dimiss selected units or squads, recovering it's cost to the proper resource pool</Original>
-        <Chinesesimp>解散选定的单位或班组, 回收其成本至对应的资源池</Chinesesimp>
-        <Russian>Распустить выбранные отряды или отряды, вернув их стоимость в соответствующий пул ресурсов.</Russian>
-      </Key>
       <Key ID="STR_antistasi_dialogs_build_disband_units_button_text">
         <Original>Disband Units or Posts</Original>
         <English>Disband Units or Posts</English>
@@ -4318,86 +4083,6 @@
         <Chinesesimp>驻军招募选项</Chinesesimp>
         <Korean>주둔지 모집 설정</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_rifleman_text">
-        <Original>Recruit Rifleman</Original>
-        <English>Recruit Rifleman</English>
-        <French>Recruter un Fusillier</French>
-        <Russian>Стрелок</Russian>
-        <German>Schütze rekrutieren</German>
-        <Czech>Střelec</Czech>
-        <Chinesesimp>招募步枪手</Chinesesimp>
-        <Korean>소총수 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_autorifleman_text">
-        <Original>Recruit Autorifleman</Original>
-        <English>Recruit Autorifleman</English>
-        <French>Recruter un Mitrailleur</French>
-        <Russian>Пулемётчик</Russian>
-        <German>Maschinengewehrschütze rekrutieren</German>
-        <Czech>Kulometník</Czech>
-        <Chinesesimp>招募自动步枪手</Chinesesimp>
-        <Korean>자동화기 사수 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_medic_text">
-        <Original>Recruit Medic</Original>
-        <English>Recruit Medic</English>
-        <French>Recruter un Médecin</French>
-        <Russian>Медик</Russian>
-        <German>Sanitäter rekrutieren</German>
-        <Czech>Zdravotník</Czech>
-        <Chinesesimp>招募医疗兵</Chinesesimp>
-        <Korean>의무병 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_squad_lead_text">
-        <Original>Recruit Squad Leader</Original>
-        <English>Recruit Squad Leader</English>
-        <French>Recruter un Chef d'Escouade</French>
-        <Russian>Лидер отряда</Russian>
-        <German>Gruppenführer rekrutieren</German>
-        <Czech>Velitel jednotky</Czech>
-        <Chinesesimp>招募班长</Chinesesimp>
-        <Korean>분대장 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
-        <Original>Recruit Mortar</Original>
-        <English>Recruit Mortar</English>
-        <French>Recruter un Mortier</French>
-        <Russian>Миномётчик</Russian>
-        <German>Mörser rekrutieren</German>
-        <Czech>Minometník</Czech>
-        <Chinesesimp>招募迫击炮</Chinesesimp>
-        <Korean>박격포병 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
-        <Original>Recruit Grenadier</Original>
-        <English>Recruit Grenadier</English>
-        <French>Recruter un Grenadier</French>
-        <Russian>Стрелок с ГП</Russian>
-        <German>Grenadier rekrutieren</German>
-        <Czech>Granátometník</Czech>
-        <Chinesesimp>招募掷弹手</Chinesesimp>
-        <Korean>유탄수 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_marksman_text">
-        <Original>Recruit Marksman</Original>
-        <English>Recruit Marksman</English>
-        <French>Recruter un Tireur d'Elite</French>
-        <Russian>Снайпер</Russian>
-        <German>Scharfschütze rekrutieren</German>
-        <Czech>Odstřelovač</Czech>
-        <Chinesesimp>招募精准射手</Chinesesimp>
-        <Korean>지정사수 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
-        <Original>Recruit AT</Original>
-        <English>Recruit AT</English>
-        <French>Recruter un AT</French>
-        <Russian>Гранатомётчик</Russian>
-        <German>Panzerabwehr rekrutieren</German>
-        <Czech>Raketometník</Czech>
-        <Chinesesimp>招募反坦克手</Chinesesimp>
-        <Korean>대전차화기병 모집</Korean>
-      </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_frame_text">
         <Original>Recruitment Options</Original>
         <English>Recruitment Options</English>
@@ -4407,36 +4092,6 @@
         <Czech>Možnosti náboru</Czech>
         <Chinesesimp>招募选项</Chinesesimp>
         <Korean>모집 설정</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_unit_recruit_militiaman_text">
-        <Original>Recruit Militiaman</Original>
-        <English>Recruit Militiaman</English>
-        <French>Recruter un Milicien</French>
-        <Russian>Новобранец</Russian>
-        <German>Miliz rekrutieren</German>
-        <Czech>Milicionář</Czech>
-        <Chinesesimp>招募民兵</Chinesesimp>
-        <Korean>민병대원 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_unit_recruit_engineer_text">
-        <Original>Recruit Engineer</Original>
-        <English>Recruit Engineer</English>
-        <French>Recruter un Ingénieur</French>
-        <Russian>Инженер</Russian>
-        <German>Ingenieur rekrutieren</German>
-        <Czech>Inženýr</Czech>
-        <Chinesesimp>招募工程师</Chinesesimp>
-        <Korean>공병 모집</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_unit_recruit_explosive_text">
-        <Original>Recruit Bomb Specialist</Original>
-        <English>Recruit Bomb Specialist</English>
-        <French>Recruter un Expert en Démolition</French>
-        <Russian>Подрывник</Russian>
-        <German>Sprengstoffspezialist rekrutieren</German>
-        <Czech>Specialista na výbušniny</Czech>
-        <Chinesesimp>招募炸弹专家</Chinesesimp>
-        <Korean>폭탄 전문가 모집</Korean>
       </Key>
     </Container>
     <Container name="todo">
@@ -7032,6 +6687,351 @@
       <Key ID="STR_antistasi_customHint_steal_despawn">
         <Original>Weapon Stolen. It won't despawn when you assemble it again</Original>
         <Russian>Орудие украдено. Оно не исчезнет, когда вы его снова соберете</Russian>
+      </Key>
+    </Container>
+    <Container name="Squad_Manager">
+      <Key ID="STR_antistasi_dialogs_squad_manager">
+        <Original>HC Squad Options</Original>
+        <Chinesesimp>指挥部班组选项</Chinesesimp>
+        <Russian>Управление отрядами</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle">
+        <Original>Squad Add Vehicle</Original>
+        <Russian>Добавить технику отряду</Russian>
+        <Chinesesimp>为班组分配载具</Chinesesimp>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_add_vehicle_tooltip">
+        <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
+        <Chinesesimp>将面前的载具分配给选定的班组使用</Chinesesimp>
+        <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_manager_mount">
+        <Original>Mount / Dismount</Original>
+        <Chinesesimp>搭乘/离开</Chinesesimp>
+        <Russian>Погрузка / Разгрузка</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_manager_mount_tooltip">
+        <Original>Force squad to mount or dismount their assigned vehicle</Original>
+        <Chinesesimp>强制班组搭乘或离开他们分配的车辆</Chinesesimp>
+        <Russian>Заставить отряд сесть или слезть с назначенной машины</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_9">
+        <Original>Recruit Squad</Original>
+        <French>Recruter une escouade</French>
+        <German>Gruppen rekrutieren</German>
+        <Czech>Nábor družstva</Czech>
+        <Chinesesimp>招募班组</Chinesesimp>
+        <Korean>분대 모집</Korean>
+        <Russian>Найм отряда</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_squad_recruit">
+        <Original>Squad Recruit</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruit">
+        <Original>Squad Recruitment Options</Original>
+        <Chinesesimp>小队招募选项</Chinesesimp>
+        <Russian>Меню найма отряда</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruit_inf">
+        <Original>Recruit Inf. Squad</Original>
+        <Chinesesimp>招募步兵班</Chinesesimp>
+        <Russian>Отряд</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruit_inf_team">
+        <Original>Recruit Inf. Team</Original>
+        <Chinesesimp>招募步兵小组</Chinesesimp>
+        <Russian>Группа</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_options_normal">
+        <Original>Normal Squad</Original>
+        <Chinesesimp>普通班组</Chinesesimp>
+        <Russian>Стандарт</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruit_at">
+        <Original>Recruit AT Team</Original>
+        <Chinesesimp>招募反坦克小组</Chinesesimp>
+        <Russian>Группа ПТ</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruit_sniper">
+        <Original>Recruit Sniper Team</Original>
+        <Chinesesimp>招募狙击小组</Chinesesimp>
+        <Russian>Группа снайперов</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruit_mg">
+        <Original>Recruit MG Team</Original>
+        <Chinesesimp>招募机枪小组</Chinesesimp>
+        <Russian>Группа пулеметчиков</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruit_at_car">
+        <Original>Recruit AT Car</Original>
+        <Chinesesimp>招募反坦克车辆</Chinesesimp>
+        <Russian>ПТ Техника</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruit_aa_car">
+        <Original>Recruit AA Truck</Original>
+        <Chinesesimp>招募防空卡车</Chinesesimp>
+        <Russian>ПВО Техника</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruit_mortar">
+        <Original>Recruit Mortar Team</Original>
+        <Chinesesimp>招募迫击炮小组</Chinesesimp>
+        <Russian>Артилерия</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_options_mortar">
+        <Original>Mortar Squad</Original>
+        <Chinesesimp>迫击炮班组</Chinesesimp>
+        <Russian>Минометчики</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_options_engineer">
+        <Original>Engineer Squad</Original>
+        <Chinesesimp>工程师班组</Chinesesimp>
+        <Russian>Инженеры</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_options_mg">
+        <Original>MG Squad</Original>
+        <Chinesesimp>机枪班组</Chinesesimp>
+        <Russian>Пулеметчики</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_enemy">
+        <Original>You cannot recruit squads with enemies near your HQ</Original>
+        <Russian>Вы не можете набирать отряды с врагами рядом с вашим штабом.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_modset">
+        <Original>The group or vehicle type you requested is not supported in your modset</Original>
+        <Russian>Запрошенный тип группы или транспортного средства не поддерживается в вашем модсете.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_gref">
+        <Original>AT Trucks are disabled in RHS - GREF</Original>
+        <Russian>ПТ грузовики отключены в RHS - GREF</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_noHR">
+        <Original>You do not have enough HR for this request (%1 required)</Original>
+        <Russian>У вас недостаточно HR для этого запроса (требуется %1 HR)</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_noMoney">
+        <Original>You do not have enough money for this request (%1 € required)</Original>
+        <Russian>У вас недостаточно денег для этого запроса (требуется %1 €)</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_info">
+        <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</Original>
+        <Russian>Отряд %1 в вашем распоряжении.&lt;br/&gt;&lt;br/&gt;Отряды управляются из панели HC (по умолчанию: CTRL + SPACE)&lt;br/&gt;&lt;br/&gt;Если Отряд застревает, используйте функцию "Управление ИИ", чтобы заставить их двигаться. Смонтированные статические команды имеют тенденцию застревать&lt;br/&gt;&lt;br/&gt;Чтобы назначить машину для этой группы, посмотрите на какую-нибудь машину и используйте опцию "Техника отряда" в меню клавиши Y</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dismiss_menu">
+        <Original>Dismiss Options</Original>
+        <Chinesesimp>解散选项</Chinesesimp>
+        <Russian>Меню роспуска</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_moveHQ">
+        <Original>You cannot recruit a new squad while you are moving your HQ</Original>
+        <Russian>Вы не можете набрать новый отряд, пока перемещаете свой штаб.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_options">
+        <Original>Squad Options</Original>
+        <Chinesesimp>小队选项</Chinesesimp>
+        <Russian>Назначение отряда</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_dismiss">
+        <Original>Dismiss Squad</Original>
+        <Russian>Распустить команду</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_dismissGroup">
+        <Original>Dismiss Group</Original>
+        <Russian>Распустить отряд</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_dismissGroup_onlyLeader">
+        <Original>You cannot dismiss anyone if you are not the squad leader</Original>
+        <Russian>Вы не можете распустить никого, если вы не командир отряда.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_dismissGroup_undercover">
+        <Original>You cannot disband supressed, undercover or unconscious units</Original>
+        <Russian>Вы не можете распустить раненые, скрытые или отряды находящиеся в бою.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_dismissSquad_nato">
+        <Original>You cannot dismiss NATO groups</Original>
+        <Russian>Вы не можете распускать отряды НАТО</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_dismissSquad_player">
+        <Original>You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads</Original>
+        <Russian>Вы не можете распустить отряды, возглавляемые игроком, заставы, блокпосты или минные поля</Russian>
+      </Key>
+    </Container>
+    <Container name="Units">
+      <Key ID="STR_antistasi_journal_entry_header_AI_1">
+        <Original>Recruit</Original>
+        <French>Recruter</French>
+        <German>Rekrutieren</German>
+        <Czech>Naverbovat</Czech>
+        <Chinesesimp>招募</Chinesesimp>
+        <Korean>모집</Korean>
+        <Russian>Найм ИИ</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_unit_recruit">
+        <Original>Unit Recruitment</Original>
+        <Russian>Найм бойцов</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_AI_Recruit">
+        <Original>AI Recruitment</Original>
+        <Russian>Найм ИИ</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_AI_Recruit_onlyMember">
+        <Original>Only Server Members can recruit AI units</Original>
+        <Russian>Только участники сервера могут нанимать отряды ИИ.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_AI_Recruit_wait">
+        <Original>You need to wait %1 seconds to be able to recruit units again</Original>
+        <Russian>Вам нужно подождать %1 секунды, чтобы снова набрать юниты</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_AI_Recruit_ctrlAI">
+        <Original>You cannot buy units while you are controlling AI</Original>
+        <Russian>Вы не можете покупать юнитов, пока управляете AI.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_AI_Recruit_enemy">
+        <Original>You cannot Recruit Units with enemies nearby</Original>
+        <Russian>Вы не можете нанимать отряды с врагами поблизости</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_AI_Recruit_noLeader">
+        <Original>You cannot recruit units as you are not your group leader</Original>
+        <Russian>Вы не можете нанимать отряды, так как вы не являетесь лидером группы.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_AI_Recruit_noHR">
+        <Original>You do not have enough HR for this request</Original>
+        <Russian>У вас недостаточно HR для этого запроса</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_AI_Recruit_full">
+        <Original>Your squad is full or you have too many scattered units with no radio contact</Original>
+        <Russian>Ваш отряд полон или у вас слишком много разбросанных отрядов без радиосвязи</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_AI_Recruit_recruit">
+        <Original>Soldier Recruited.&lt;br/&gt;&lt;br/&gt;Remember: if you use the group menu to switch groups you will lose control of your recruited AI</Original>
+        <Russian>Солдат завербован.&lt;br/&gt;&lt;br/&gt;Помните: если вы используете групповое меню для переключения групп, вы потеряете контроль над нанятым вами ИИ.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_noHR">
+        <Original>You lack of HR to make a new recruitment</Original>
+        <Russian>Вам не хватает HR для найма бойца</Russian>
+      </Key>
+      <Key ID="STR_antistasi_garrisons_noMoney">
+        <Original>You do not have enough money for this kind of unit (%1 € needed)</Original>
+        <Russian>У вас недостаточно денег для найма бойца(требуется %1 €)</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_rifleman_text">
+        <Original>Recruit Rifleman</Original>
+        <English>Recruit Rifleman</English>
+        <French>Recruter un Fusillier</French>
+        <Russian>Стрелок</Russian>
+        <German>Schütze rekrutieren</German>
+        <Czech>Střelec</Czech>
+        <Chinesesimp>招募步枪手</Chinesesimp>
+        <Korean>소총수 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_autorifleman_text">
+        <Original>Recruit Autorifleman</Original>
+        <English>Recruit Autorifleman</English>
+        <French>Recruter un Mitrailleur</French>
+        <Russian>Пулемётчик</Russian>
+        <German>Maschinengewehrschütze rekrutieren</German>
+        <Czech>Kulometník</Czech>
+        <Chinesesimp>招募自动步枪手</Chinesesimp>
+        <Korean>자동화기 사수 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_medic_text">
+        <Original>Recruit Medic</Original>
+        <English>Recruit Medic</English>
+        <French>Recruter un Médecin</French>
+        <Russian>Медик</Russian>
+        <German>Sanitäter rekrutieren</German>
+        <Czech>Zdravotník</Czech>
+        <Chinesesimp>招募医疗兵</Chinesesimp>
+        <Korean>의무병 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_squad_lead_text">
+        <Original>Recruit Squad Leader</Original>
+        <English>Recruit Squad Leader</English>
+        <French>Recruter un Chef d'Escouade</French>
+        <Russian>Лидер отряда</Russian>
+        <German>Gruppenführer rekrutieren</German>
+        <Czech>Velitel jednotky</Czech>
+        <Chinesesimp>招募班长</Chinesesimp>
+        <Korean>분대장 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
+        <Original>Recruit Mortar</Original>
+        <English>Recruit Mortar</English>
+        <French>Recruter un Mortier</French>
+        <Russian>Миномётчик</Russian>
+        <German>Mörser rekrutieren</German>
+        <Czech>Minometník</Czech>
+        <Chinesesimp>招募迫击炮</Chinesesimp>
+        <Korean>박격포병 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
+        <Original>Recruit Grenadier</Original>
+        <English>Recruit Grenadier</English>
+        <French>Recruter un Grenadier</French>
+        <Russian>Стрелок с ГП</Russian>
+        <German>Grenadier rekrutieren</German>
+        <Czech>Granátometník</Czech>
+        <Chinesesimp>招募掷弹手</Chinesesimp>
+        <Korean>유탄수 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_marksman_text">
+        <Original>Recruit Marksman</Original>
+        <English>Recruit Marksman</English>
+        <French>Recruter un Tireur d'Elite</French>
+        <Russian>Снайпер</Russian>
+        <German>Scharfschütze rekrutieren</German>
+        <Czech>Odstřelovač</Czech>
+        <Chinesesimp>招募精准射手</Chinesesimp>
+        <Korean>지정사수 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
+        <Original>Recruit AT</Original>
+        <English>Recruit AT</English>
+        <French>Recruter un AT</French>
+        <Russian>Гранатомётчик</Russian>
+        <German>Panzerabwehr rekrutieren</German>
+        <Czech>Raketometník</Czech>
+        <Chinesesimp>招募反坦克手</Chinesesimp>
+        <Korean>대전차화기병 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_militiaman_text">
+        <Original>Recruit Militiaman</Original>
+        <English>Recruit Militiaman</English>
+        <French>Recruter un Milicien</French>
+        <Russian>Новобранец</Russian>
+        <German>Miliz rekrutieren</German>
+        <Czech>Milicionář</Czech>
+        <Chinesesimp>招募民兵</Chinesesimp>
+        <Korean>민병대원 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_engineer_text">
+        <Original>Recruit Engineer</Original>
+        <English>Recruit Engineer</English>
+        <French>Recruter un Ingénieur</French>
+        <Russian>Инженер</Russian>
+        <German>Ingenieur rekrutieren</German>
+        <Czech>Inženýr</Czech>
+        <Chinesesimp>招募工程师</Chinesesimp>
+        <Korean>공병 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_explosive_text">
+        <Original>Recruit Bomb Specialist</Original>
+        <English>Recruit Bomb Specialist</English>
+        <French>Recruter un Expert en Démolition</French>
+        <Russian>Подрывник</Russian>
+        <German>Sprengstoffspezialist rekrutieren</German>
+        <Czech>Specialista na výbušniny</Czech>
+        <Chinesesimp>招募炸弹专家</Chinesesimp>
+        <Korean>폭탄 전문가 모집</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units">
+        <Original>Dismiss Units / Squad</Original>
+        <Chinesesimp>解散单位/班组</Chinesesimp>
+        <Russian>В запас</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units_tooltip">
+        <Original>Dimiss selected units or squads, recovering it's cost to the proper resource pool</Original>
+        <Chinesesimp>解散选定的单位或班组, 回收其成本至对应的资源池</Chinesesimp>
+        <Russian>Распустить выбранные отряды или отряды, вернув их стоимость в соответствующий пул ресурсов.</Russian>
       </Key>
     </Container>
   </Package>

@@ -1706,36 +1706,47 @@
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_no_select">
         <Original>You must select an artillery group</Original>
+        <Russian>Вы должны выбрать артиллерийскую группу</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_no_select_2">
         <Original>You must select an artillery group or it is a Mobile Mortar and it's moving</Original>
+        <Russian>Вы должны выбрать артиллерийскую группу или подвижный миномет</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_off">
         <Original>All elements in this Batery cannot fire or are disabled</Original>
+        <Russian>Батарея не может стрелять или отключена</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_no_ammo">
         <Original>The Battery has no ammo to fire. Reload it on HQ</Original>
+        <Russian>У батареи нет боеприпасов для стрельбы. Пополните боезапас в штабе</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_busy">
         <Original>Selected Battery is busy right now</Original>
+        <Russian>Выбранная батарея сейчас занята</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_type">
         <Original>Your current modset doesent support this strike type</Original>
+        <Russian>Вашы моды не поддерживает этот тип удара</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_map">
         <Original>Select the position on map where to perform the Artillery strike</Original>
+        <Russian>Выберите позицию на карте, где нанести артиллерийский удар</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_bounds">
         <Original>The position you marked is out of bounds for that Battery</Original>
+        <Russian>Позиция, которую вы отметили, находится за пределами этой батареи</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_artillery_barrage">
         <Original>Select the position to finish the barrage</Original>
+        <Russian>Выберите позицию, чтобы закончить заградительный огонь</Russian>
       </Key>
       <Key ID="STR_antistasi_notification_supportCall_mortar">
         <Original>A %1 mortar has opened fire</Original>
+        <Russian>Миномет %1 открыл огонь</Russian>
       </Key>
       <Key ID="STR_antistasi_notification_setupCall_MORTAR">
         <Original>%1 is setting up a mortar position</Original>
+        <Russian>%1 устанавливает позицию для огня артиллерии</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
         <Original>Air Support</Original>
@@ -1753,15 +1764,19 @@
       </Key>
       <Key ID="STR_antistasi_customHint_air_support_noSupport">
         <Original>You lack of enough Air Support to make this request</Original>
+        <Russian>У вас недостаточно поддержки с воздуха, чтобы сделать этот запрос</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_air_support_noAirport">
         <Original>You need to control an airport in order to fulfill this request</Original>
+        <Russian>Вам необходимо контролировать аэропорт, чтобы выполнить этот запрос.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_air_support_select">
         <Original>Select the spot from which the plane will start to drop the bombs</Original>
+        <Russian>Выберите место, с которого самолет начнет сбрасывать бомбы.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_air_support_selectVector">
         <Original>Select the map position to which the plane will exit to calculate plane's route vector</Original>
+        <Russian>Выберите положение на карте, в которое вылетает самолет, чтобы рассчитать вектор маршрута самолета.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_airstrike_noLook">
         <Original>You are not looking to any vehicle</Original>
@@ -1867,18 +1882,23 @@
       </Key>
       <Key ID="STR_antistasi_customHint_skipTime_enemy">
         <Original>You cannot rest while enemies are near our units</Original>
+        <Russian>Вы не можете отдыхать, пока враги рядом</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_skipTime_counterattack">
         <Original>You cannot rest while the enemy is counterattacking</Original>
+        <Russian>Вы не можете отдыхать, пока противник контратакует</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_skipTime_attack">
         <Original>You cannot rest while citizens are under attack</Original>
+        <Russian>Вы не можете отдыхать, пока города подвергаются нападению</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_skipTime_attackHQ">
         <Original>You cannot rest while your HQ is under attack</Original>
+        <Russian>Вы не можете отдыхать, пока ваш штаб находится под атакой</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_skipTime_radius">
         <Original>All players must be in a %1m radius from HQ to be able to rest</Original>
+        <Russian>Все игроки должны находиться в радиусе %1 м от штаб-квартиры, чтобы иметь возможность отдыхать.</Russian>
       </Key>
     </Container>
     <Container name="Mission">
@@ -2830,7 +2850,7 @@
       </Key>
       <Key ID="STR_antistasi_param_civTraffic_default">
         <Original>Default (Medium)</Original>
-        <Russian>Стандарт(Средне)</Russian>
+        <Russian>Стандарт (Средне)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_memberSlots">
         <Original>Percentage of Reserved Slots for Members</Original>
@@ -2838,7 +2858,7 @@
       </Key>
       <Key ID="STR_antistasi_param_memberSlots_default">
         <Original>Default (20%)</Original>
-        <Russian>Стандарт(20%)</Russian>
+        <Russian>Стандарт (20%)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_memberDistance">
         <Original>Max distance non members can be from the closest member or HQ (they will be teleported to HQ after some timeout)</Original>
@@ -2914,39 +2934,39 @@
       </Key>
       <Key ID="STR_antistasi_param_Kart">
         <Original>Allow Items and Vehicles from Karts DLC?</Original>
-        <Russian>Разрешить предметы и транспортные средства из Karts DLC?</Russian>
+        <Russian>Разрешить Karts DLC?</Russian>
       </Key>
       <Key ID="STR_antistasi_param_Mark">
         <Original>Allow Items and Vehicles from Marksman DLC?</Original>
-        <Russian>Разрешить предметы и транспортные средства из Marksman DLC?</Russian>
+        <Russian>Разрешить Marksman DLC?</Russian>
       </Key>
       <Key ID="STR_antistasi_param_Heli">
         <Original>Allow Items and Vehicles from Heli DLC?</Original>
-        <Russian>Разрешить предметы и транспортные средства из Heli DLC?</Russian>
+        <Russian>Разрешить Heli DLC?</Russian>
       </Key>
       <Key ID="STR_antistasi_param_Expansion">
         <Original>Allow Items and Vehicles from Apex DLC?</Original>
-        <Russian>Разрешить предметы и транспортные средства из Apex DLC?</Russian>
+        <Russian>Разрешить Apex DLC?</Russian>
       </Key>
       <Key ID="STR_antistasi_param_Jets">
         <Original>Allow Items and Vehicles from Jets DLC?</Original>
-        <Russian>Разрешить предметы и транспортные средства из Jets DLC?</Russian>
+        <Russian>Разрешить Jets DLC?</Russian>
       </Key>
       <Key ID="STR_antistasi_param_Orange">
         <Original>Allow Items and Vehicles from Laws of War DLC?</Original>
-        <Russian>Разрешить предметы и транспортные средства из Laws of War DLC?</Russian>
+        <Russian>Разрешить Laws of War DLC?</Russian>
       </Key>
       <Key ID="STR_antistasi_param_Tanks">
         <Original>Allow Items and Vehicles from Tanks DLC?</Original>
-        <Russian>Разрешить предметы и транспортные средства из Tanks DLC?</Russian>
+        <Russian>Разрешить Tanks DLC?</Russian>
       </Key>
       <Key ID="STR_antistasi_param_GlobMob">
         <Original>Allow Items and Vehicles from Global Mobilization DLC?</Original>
-        <Russian>Разрешить предметы и транспортные средства из Global Mobilization DLC?</Russian>
+        <Russian>Разрешить Global Mobilization DLC?</Russian>
       </Key>
       <Key ID="STR_antistasi_param_Enoch">
         <Original>Allow Items and Vehicles from Contact DLC?</Original>
-        <Russian>Разрешить предметы и транспортные средства из Contact DLC?</Russian>
+        <Russian>Разрешить Contact DLC?</Russian>
       </Key>
       <Key ID="STR_antistasi_param_OfficialMod">
         <Original>Allow ADR-97 DLC?</Original>
@@ -3082,107 +3102,107 @@
       </Key>
       <Key ID="STR_antistasi_param_default_yes">
         <Original>Default (Yes)</Original>
-        <Russian>Стандарт(Да)</Russian>
+        <Russian>Стандарт (Да)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_no">
         <Original>Default (No)</Original>
-        <Russian>Стандарт(Нет)</Russian>
+        <Russian>Стандарт (Нет)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_enabled">
         <Original>Default (Enabled)</Original>
-        <Russian>Стандарт(ВКЛ)</Russian>
+        <Russian>Стандарт (ВКЛ)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_disabled">
         <Original>Default (Disabled)</Original>
-        <Russian>Стандарт(ВЫКЛ)</Russian>
+        <Russian>Стандарт (ВЫКЛ)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_true">
         <Original>Default (True)</Original>
-        <Russian>Стандарт(ВКЛ)</Russian>
+        <Russian>Стандарт (ВКЛ)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_false">
         <Original>Default (False)</Original>
-        <Russian>Стандарт(ВЫКЛ)</Russian>
+        <Russian>Стандарт (ВЫКЛ)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_notAllowed">
         <Original>Default (Not Allowed)</Original>
-        <Russian>Стандарт(Не разрешается)</Russian>
+        <Russian>Стандарт (Не разрешается)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_0">
         <Original>Default (0)</Original>
-        <Russian>Стандарт(0)</Russian>
+        <Russian>Стандарт (0)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_2">
         <Original>Default (2)</Original>
-        <Russian>Стандарт(2)</Russian>
+        <Russian>Стандарт (2)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_3">
         <Original>Default (3)</Original>
-        <Russian>Стандарт(3)</Russian>
+        <Russian>Стандарт (3)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_5">
         <Original>Default (5)</Original>
-        <Russian>Стандарт(5)</Russian>
+        <Russian>Стандарт (5)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_7">
         <Original>Default (7)</Original>
-        <Russian>Стандарт(7)</Russian>
+        <Russian>Стандарт (7)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_8">
         <Original>Default (8)</Original>
-        <Russian>Стандарт(8)</Russian>
+        <Russian>Стандарт (8)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_9">
         <Original>Default (9)</Original>
-        <Russian>Стандарт(9)</Russian>
+        <Russian>Стандарт (9)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_15">
         <Original>Default (15)</Original>
-        <Russian>Стандарт(15)</Russian>
+        <Russian>Стандарт (15)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_20">
         <Original>Default (20)</Original>
-        <Russian>Стандарт(20)</Russian>
+        <Russian>Стандарт (20)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_25">
         <Original>Default (25)</Original>
-        <Russian>Стандарт(25)</Russian>
+        <Russian>Стандарт (25)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_40">
         <Original>Default (40)</Original>
-        <Russian>Стандарт(40)</Russian>
+        <Russian>Стандарт (40)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_60">
         <Original>Default (60)</Original>
-        <Russian>Стандарт(60)</Russian>
+        <Russian>Стандарт (60)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_default_4000">
         <Original>Default (4000)</Original>
-        <Russian>Стандарт(4000)</Russian>
+        <Russian>Стандарт (4000)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_LogLevel_default">
         <Original>Default (Debug)</Original>
-        <Russian>Стандарт(Debug)</Russian>
+        <Russian>Стандарт (Debug)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_teamSwitchDelay_default">
         <Original>Default (60 mins)</Original>
-        <Russian>Стандарт(60мин)</Russian>
+        <Russian>Стандарт (60мин)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_allowFT_default">
         <Original>Default (Airports and HQ)</Original>
-        <Russian>Стандарт(Авиабаза и Штаб)</Russian>
+        <Russian>Стандарт (Авиабаза и Штаб)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_memberDistance_default">
         <Original>Default (5km)</Original>
-        <Russian>Стандарт(5км)</Russian>
+        <Russian>Стандарт (5км)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_AISkill_default">
         <Original>Default (Normal)</Original>
-        <Russian>Стандарт(Обычный)</Russian>
+        <Russian>Стандарт (Обычный)</Russian>
       </Key>
       <Key ID="STR_antistasi_param_helmetLossChance_default">
         <Original>Default (Sometimes)</Original>
-        <Russian>Стандарт(Иногда)</Russian>
+        <Russian>Стандарт (Иногда)</Russian>
       </Key>
     </Container>
     <Container name="Logistics">
@@ -4786,66 +4806,87 @@
       </Key>
       <Key ID="STR_antistasi_customHint_garage_unable_open">
         <Original>Unable to open garage, you are already placing something</Original>
+        <Russian>Невозможно открыть гараж, вы уже что-то ставите</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_rope">
         <Original>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</Original>
+        <Russian>Вы не можете поставить автомобиль в гараж с вытянутым буксирным тросом или прикрепленным к нему транспортным средством.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_cant">
         <Original>Sorry you can't Garage %1.</Original>
+        <Russian>К сожалению, вы не можете поставить в гараж %1</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_guest">
         <Original>You cannot access the Garage as you are guest in this server</Original>
+        <Russian>Вы не можете получить доступ к гаражу, так как вы являетесь гостем на этом сервере</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_member_off">
         <Original>Member access to the faction garage is disabled. You must be the commander.</Original>
+        <Russian>Доступ участников в гараж фракции отключен. Вы должны быть командиром.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_control_ai">
         <Original>You cannot access the Garage while you are controlling AI</Original>
+        <Russian>Вы не можете получить доступ к гаражу, пока управляете ИИ.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_enemy">
         <Original>You can't garage vehicles that are more than %1m away from you</Original>
+        <Russian>Вы не можете припарковать машины, которые находятся на расстоянии более %1 м от вас</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_no_garrisons">
         <Original>You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage</Original>
+        <Russian>Вы должны находиться рядом с одним из своих гарнизонов, чтобы иметь возможность забрать машину из гаража.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_accessing">
         <Original>%1 is accessing the garage right now. Please try again later. If this is broken, ask the player to log out.</Original>
+        <Russian>%1 сейчас использует гараж. Пожалуйста, повторите попытку позже. Если это не работает, попросите игрока выйти из системы.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_no_rebels">
         <Original>Only rebels can add vehicles to the garage</Original>
+        <Russian>Только повстанцы могут добавлять машины в гараж.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_member_on">
         <Original>Only server members have the garage feature enabled</Original>
+        <Russian>Только у участников сервера включена функция гаража</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_destr">
         <Original>You cannot add destroyed vehicles to your garage</Original>
+        <Russian>Вы не можете добавить разрушенную технику в свой гараж.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_no_garrison">
         <Original>You and the vehicle need to be in a %1 garrison surrounding in order to garage a it</Original>
+        <Russian>Вы и машина должны находиться в окружении гарнизона %1, чтобы поставить его в гараж.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_no_empty">
         <Original>In order to store a vehicle, its crew must disembark.</Original>
+        <Russian>Для хранения машины ее экипаж должен высадиться.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_loot">
         <Original>Loot crate stored</Original>
+        <Russian>Ящик с добычей в технику</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_cannot_stored">
         <Original>The vehicle you are looking can't be stored in our Garage</Original>
+        <Russian>Автомобиль, который вы ищете, нельзя хранить в нашем гараже.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_away">
         <Original>You can't garage vehicles that are more than 25m away from you</Original>
+        <Russian>Вы не можете ставить в гараж автомобили, которые находятся на расстоянии более 25м от вас</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_warlevel">
         <Original>You can't garage more vehicles at your current War Level</Original>
+        <Russian>Вы не можете припарковать больше машин на текущем уровне войны.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_personal_full">
         <Original>Personal garage is full, you can't add more vehicles to it</Original>
+        <Russian>Личный гараж заполнен, больше машин в него добавить нельзя.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_owner">
         <Original>You are not owner of this vehicle and you cannot sell it</Original>
+        <Russian>Вы не являетесь владельцем этого автомобиля и не можете его продать</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_air">
         <Original>You can't garage a Plane while you are not near an Aiport which belongs to %1. Please move your Plane to an Airport to garage it</Original>
+        <Russian>Вы не можете поставить самолет в гараж, пока не находитесь рядом с аэропортом, принадлежащим %1. Пожалуйста, переместите свой самолет в аэропорт и поставьте его в гараж.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_add">
         <Original>Vehicle added to %1 Garage</Original>
@@ -4857,9 +4898,11 @@
       </Key>
       <Key ID="STR_antistasi_customHint_garage_already">
         <Original>Unable to place vehicle, already placing a vehicle</Original>
+        <Russian>Невозможно разместить автомобиль, автомобиль уже размещен</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_look">
         <Original>Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle</Original>
+        <Russian>Наведите указатель мыши на нужное место. Если это безопасно и удобно, вы увидите автомобиль</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_faction_garage_tooltip">
         <Original>Look at a vehicle and garage it into faction garage (shared among commanders)</Original>
@@ -5090,18 +5133,23 @@
       </Key>
       <Key ID="STR_antistasi_customHint_unlocked">
         <Original>Vehicle Unlocked</Original>
+        <Russian>Автомобиль разблокирован</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_unlock_destroy">
         <Original>You cannot unlock destroyed</Original>
+        <Russian>Вы не можете разблокировать разрушенный транспорт</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_unlock_no_used">
         <Original>The vehicle you are looking at cannot be used</Original>
+        <Russian>Автомобиль, на который вы смотрите, нельзя использовать</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_unlock_already">
         <Original>The vehicle you are looking at is already unlocked</Original>
+        <Russian>Автомобиль, на который вы смотрите, уже разблокирован</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_unlock_own">
         <Original>You cannot unlock vehicles which you do not own</Original>
+        <Russian>Вы не можете разблокировать технику, которой не владеете</Russian>
       </Key>
     </Container>
     <Container name="SITREP">
@@ -5518,6 +5566,7 @@
       </Key>
       <Key ID="STR_antistasi_Membership_empty">
         <Original>Membership is enabled but members list is empty. Current players will be added to the member list</Original>
+        <Russian>Членство включено, но список участников пуст. Текущие игроки будут добавлены в список участников</Russian>
       </Key>
     </Container>
     <Container name="Money">
@@ -5610,9 +5659,11 @@
       </Key>
       <Key ID="STR_antistasi_customHint_grab_noMoney">
         <Original>FIA has not enough resources to grab</Original>
+        <Russian>У фракции недостаточно денег, чтобы присвоить себе</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_grabed">
         <Original>You grabbed %2 € from the %1 Money Pool.&lt;br/&gt;&lt;br/&gt;This will affect your prestige and status among %1 forces</Original>
+        <Russian>Вы взяли %2 € денег фракции %1.&lt;br/&gt;&lt;br/&gt;Это повлияет на ваш престиж и статус среди сил %1.</Russian>
       </Key>
     </Container>
     <Container name="Move_HQ">
@@ -5820,9 +5871,11 @@
       </Key>
       <Key ID="STR_antistasi_limit_set">
         <Original>set to</Original>
+        <Russian>установлено</Russian>
       </Key>
       <Key ID="STR_antistasi_limit_already">
         <Original>is already at</Original>
+        <Russian>уже</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_music_tooltip">
         <Original>Disables/Enable situational music.</Original>
@@ -5995,6 +6048,7 @@
       </Key>
       <Key ID="STR_antistasi_customHint_rebuild_no_money">
         <Original>You do not have enough money to rebuild any Asset. You need %1 €</Original>
+        <Russian>У вас недостаточно денег, чтобы восстановить какую-либо постройку. Вам нужен %1 €</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_rebuild_map">
         <Original>Click on the zone you want to rebuild</Original>
@@ -6022,6 +6076,7 @@
       </Key>
       <Key ID="STR_antistasi_customHint_rebuild_noBelong">
         <Original>You cannot rebuild a Radio Tower in an Outpost which does not belong to %1</Original>
+        <Russian>Вы не можете восстановить радиовышку на аванпосте, который не принадлежит %1</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_text">
         <Original>Rebuild Assets</Original>
@@ -6130,7 +6185,7 @@
         <Original>Creates an APERS Minefield in the designated location</Original>
         <English>Creates an APERS Minefield in the designated location</English>
         <French>Créer un Champ de Mines APERS sur le lieu indiqué</French>
-        <Russian>Создаёт Минное Поле с противопехотными минами на выбранной позиции</Russian>
+        <Russian>Создаёт минное поле с ПП минами на выбранной позиции</Russian>
         <German>Legt ein APERS-Minenfeld an der ausgewählten Position.</German>
         <Czech>Zvolit pozici pro minové pole</Czech>
         <Chinesesimp>在指定地点布设反人员雷区</Chinesesimp>
@@ -6140,7 +6195,7 @@
         <Original>Creates an Anti Tank minefield at designated location</Original>
         <English>Creates an Anti Tank minefield at designated location</English>
         <French>Créer un Champ de Mines AT sur le lieu indiqué</French>
-        <Russian>Создаёт Минное Поле с противотанковыми минами на выбранной позиции</Russian>
+        <Russian>Создаёт минное поле с ПТ минами на выбранной позиции</Russian>
         <German>Legt ein Panzerabwehrminenfeld an der ausgewählten Position.</German>
         <Czech>Umístí protitankové minové pole na určenou pozici</Czech>
         <Chinesesimp>在指定地点布设反坦克雷区</Chinesesimp>
@@ -6148,24 +6203,31 @@
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_one">
         <Original>We can only deploy one minefield at a time</Original>
+        <Russian>Мы можем установить только одно минное поле за раз</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_noradio">
         <Original>You need a radio in your inventory to be able to give orders to other squads</Original>
+        <Russian>Вам понадобится радио в вашем инвентаре, чтобы иметь возможность отдавать приказы другим отрядам.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_no_radioman">
         <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
+        <Russian>Вам нужен радист в вашей группе, чтобы иметь возможность отдавать приказы другим отрядам.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_no_resources">
         <Original>Not enough resources to recruit a mine deploying team (%1 € and %2 HR needed)</Original>
+        <Russian>Недостаточно ресурсов для набора команды развертывания рудника (требуется %1 € и %2 HR)</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_HC">
         <Original>An Explosive Specialist is available on your High Command bar.&lt;br/&gt;&lt;br/&gt;Send him anywhere on the map to deactivate mines. He will load his truck with mines he found.&lt;br/&gt;&lt;br/&gt;Upon returning back to HQ he will unload mines stored in his vehicle</Original>
+        <Russian>Сапер доступен на панели высшего командования(HC).&lt;br/&gt;&lt;br/&gt;Отправьте его в любое место на карте, чтобы обезвредить мины. Он загрузит свой грузовик найденными минами.&lt;br/&gt;&lt;br/&gt;По возвращении в штаб он разгрузит мины, хранившиеся в его машине.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_no_mine">
         <Original>You need at least %1 mines of this type to build a Minefield</Original>
+        <Russian>Для постройки минного поля вам понадобится не менее %1 мин этого типа.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_minefields_map">
         <Original>Click on the position you wish to build the minefield</Original>
+        <Russian>Нажмите на позицию, на которой хотите построить минное поле.</Russian>
       </Key>
     </Container>
     <Container name="OP\RB">
@@ -6185,24 +6247,31 @@
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_one">
         <Original>We can only deploy / delete one Observation Post or Roadblock at a time.</Original>
+        <Russian>Мы можем развернуть / удалить только один лагерь или блокпост за раз.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_map">
         <Original>Click on the position you wish to build the Observation Post or Roadblock.&lt;br/&gt;&lt;br/&gt;Remember: to build Roadblocks you must click exactly on a road map section</Original>
+        <Russian>Нажмите на место, где вы хотите построить лагерь или блокпост.&lt;br/&gt;&lt;br/&gt;Помните: чтобы построить блокпост, вы должны щелкнуть точно на дорогу.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_delete">
         <Original>Click on the Observation Post or Roadblock to delete</Original>
+        <Russian>Нажмите на лагерь или блокпост, чтобы удалить</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_no_post">
         <Original>No Posts or Roadblocks deployed to delete</Original>
+        <Russian>Нет лагерей или блокпостов для удаления</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_enemy">
         <Original>You cannot delete a Post while enemies are near it</Original>
+        <Russian>Вы не можете удалить пост, пока враги рядом с ним.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_no_nearby">
         <Original>No post nearby</Original>
+        <Russian>Рядом нет постов</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_outpost_no_resources">
         <Original>You lack of resources to build this Outpost or Roadblock&lt;br/&gt;&lt;br/&gt;%1 HR and %2 € needed</Original>
+        <Russian>Вам не хватает ресурсов для создания этого лагеря или блокпоста&lt;br/&gt;&lt;br/&gt;Требуется %1 HR и %2 €</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_tooltip">
         <Original>Establish a new watchpost or roadblock depending on the type of terrain you select.</Original>
@@ -6246,21 +6315,26 @@
       </Key>
       <Key ID="STR_antistasi_customHint_auto_target">
         <Original>Static Auto Target</Original>
+        <Russian>Автонаведение установок</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_auto_target_no_select">
         <Original>You must select one group on the HC bar</Original>
+        <Russian>Вы должны выбрать одну группу в панели HC</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_auto_target_no_type">
         <Original>Selected squad is not a mounted static type</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_auto_target_MP">
         <Original>Static Auto Target is not available for Mortar Squads in Multiplayer</Original>
+        <Russian>Статическая автоматическая цель недоступна для минометных отрядов в сетевой игре.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_auto_target_off">
         <Original>Mounted Static Squad %1 set to Auto Target Mode OFF</Original>
+        <Russian>Отряд с станкачом %1 установлен НЕ в режим автоматического наведения</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_auto_target_on">
         <Original>Mounted Static Squad %1 set to Auto Target Mode ON</Original>
+        <Russian>Отряд с станкачом %1 установлен в режим автоматического наведения</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_recruit_modset_static">
         <Original>Your current modset doesn't support packing/unpacking static weapons</Original>
@@ -6272,6 +6346,7 @@
       </Key>
       <Key ID="STR_antistasi_customHint_static_deployed_use">
         <Original>Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns</Original>
+        <Russian>Статическое оружие было развернуто для использования и будет использоваться гарнизоном, если вы оставите его здесь.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_steal">
         <Original>Steal Static</Original>
@@ -6713,7 +6788,7 @@
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units">
         <Original>Dismiss Units / Squad</Original>
         <Chinesesimp>解散单位/班组</Chinesesimp>
-        <Russian>В запас</Russian>
+        <Russian>Распустить бойца\отряд</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units_tooltip">
         <Original>Dimiss selected units or squads, recovering it's cost to the proper resource pool</Original>
@@ -6782,24 +6857,31 @@
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_only_player">
         <Original>Only players are currently able to breach vehicles!</Original>
+        <Russian>Только игроки в настоящее время могут выкуривать из техники!</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_no_eng">
         <Original>You have to be an engineer to breach a vehicle!</Original>
+        <Russian>Чтобы выкуривать из техники, нужно быть инженером!</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_destr">
         <Original>Why would you want to breach a destroyed vehicle?</Original>
+        <Russian>Зачем вам выкуривать из уничтоженной техники?</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_no_need">
         <Original>There is no living crew left, no need for breaching!</Original>
+        <Russian>Экипаж мертв, выкуривать не надо!</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_rebels">
         <Original>You cannot breach a vehicle which is controlled by the rebels!</Original>
+        <Russian>Вы не можете выкуривать из техники, которой управляют повстанцы!</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_no_explosives">
         <Original>You carry no explosives. You will need some to breach vehicles!</Original>
+        <Russian>У вас нет взрывчатки. Вам понадобятся взрывчатка, чтобы выкурить из техники!</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_type_explosives">
         <Original>You don't have the right explosives, check the briefing notes to see what you need!</Original>
+        <Russian>У вас нет подходящей взрывчатки, проверьте информационные заметки, чтобы узнать, что вам нужно!</Russian>
       </Key>
       <Key ID="STR_antistasi_addAction_breach_cancel">
         <Original>Cancel Breaching</Original>
@@ -6807,9 +6889,11 @@
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_cancel">
         <Original>Breaching cancelled</Original>
+        <Russian>Выкуривание отменено</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_breach_veh_wait">
         <Original>Breaching in %1 seconds</Original>
+        <Russian>Выкуривание через %1 сек</Russian>
       </Key>
     </Container>
     <Container name="Liberate">
@@ -6861,72 +6945,151 @@
     <Container name="endGame">
       <Key ID="STR_antistasi_endGame_mods_title">
         <Original>Incompatible Mods</Original>
+        <Russian>Несовместимые моды</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_mods_subtitle">
         <Original>Incompatible Mods detected</Original>
+        <Russian>Обнаружены несовместимые моды</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_mods_description">
         <Original>An incompatible mod installed on the server or your PC has been detected. To avoid support problems the mission is finished. Please uninstall unsupported (IFA, ASR AI, aLIVE, MCC or any AI behaviour) mods from your computer or server to be able to play Antistasi</Original>
+        <Russian>Обнаружен несовместимый мод, установленный на сервере или вашем ПК. Чтобы избежать проблем с поддержкой, миссия завершена. Пожалуйста, удалите неподдерживаемые моды (IFA, ASR AI, aLIVE, MCC или любое другое поведение AI) со своего компьютера или сервера, чтобы иметь возможность играть в Antistasi.</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_slots_title">
         <Original>Reserved Slot</Original>
+        <Russian>Зарезервированный слот</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_slots_subtitle">
         <Original>This slot is reserved</Original>
+        <Russian>Этот слот зарезервирован</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_slots_description">
         <Original>Sorry, the server is nearly full and the remaining slots have been reserved for Server Members. To become a member, please contact the server admin or clan</Original>
+        <Russian>К сожалению, сервер почти заполнен, а оставшиеся слоты зарезервированы для участников сервера. Чтобы стать участником, обратитесь к администратору сервера или клану</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_noPvP_title">
         <Original>PvP Disabled</Original>
+        <Russian>PvP отключен</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_noPvP_subtitle">
         <Original>This slot is unavailable</Original>
+        <Russian>Этот слот недоступен</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_noPvP_description">
         <Original>PvP is not enabled on this server</Original>
+        <Russian>PvP не включен на этом сервере</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_noJip_title">
         <Original>Can't startup as PvP</Original>
+        <Russian>Невозможно запустить как PvP</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_noJip_subtitle">
         <Original>This slot is unavailable</Original>
+        <Russian>Этот слот недоступен</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_noJip_description">
         <Original>You can't choose PvP until the mission has been started. If you didn't intentionally choose a PvP role, make sure you pick the rebel side (usually green)</Original>
+        <Russian>Вы не можете выбрать PvP, пока миссия не будет запущена. Если вы не выбрали роль PvP намеренно, убедитесь, что вы выбрали сторону мятежников (обычно зеленую).</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_pvpMem_title">
         <Original>You are not a Member</Original>
+        <Russian>Вы не в списке членов сервера</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_pvpMem_subtitle">
         <Original>This slot is unavailable</Original>
+        <Russian>Этот слот недоступен</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_pvpMem_description">
         <Original>You need to be a Member to use PvP</Original>
+        <Russian>Вы должны быть участником, чтобы использовать PvP</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_pvpCount_title">
         <Original>PvP Player Overflow</Original>
+        <Russian>Переполнение PvP-игроков</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_pvpCount_subtitle">
         <Original>This slot is unavailable</Original>
+        <Russian>Этот слот недоступен</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_pvpCount_description">
         <Original>PvP is not available as there are too many PvP slots in use, or not enough Rebels online</Original>
+        <Russian>PvP недоступен, так как используется слишком много слотов для PvP или недостаточно повстанцев в сети.</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_BossMiss_title">
         <Original>MIA Rebel Commander</Original>
+        <Russian>Слот командующего повстанцами</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_BossMiss_subtitle">
         <Original>This slot is unavailable</Original>
+        <Russian>Этот слот недоступен</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_BossMiss_description">
         <Original>PvP is not available as there is no Commander for the Rebels</Original>
+        <Russian>PvP недоступен, так как у повстанцев нет командира.</Russian>
       </Key>
       <Key ID="STR_antistasi_endGame_hcDown_title">
         <Original>HC Disconnected</Original>
       </Key>
       <Key ID="STR_antistasi_endGame_hcDown_subtitle">
         <Original>Some Headless Client has been disconnected and mission has to stop to avoid malfunctions</Original>
+      </Key>
+    </Container>
+    <Container name="Headless">
+      <Key ID="STR_antistasi_Headless_head">
+        <Original>Headless Client</Original>
+      </Key>
+      <Key ID="STR_antistasi_addAction_AI_info">
+        <Original>AI Load Information</Original>
+        <Russian>Информация о загрузке AI</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_Headless_no">
+        <Original>No Headless Client Detected</Original>
+      </Key>
+      <Key ID="STR_antistasi_addAction_Headless_info">
+        <Original>%1SDK: %2&lt;br/&gt;West:%3&lt;br/&gt;East:%4&lt;br/&gt;Civ:%5&lt;br/&gt;TOTAL:%6&lt;br/&gt;&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_antistasi_Headless_disconnected">
+        <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart</Original>
+      </Key>
+    </Container>
+    <Container name="Cleaner">
+      <Key ID="STR_antistasi_customHint_clean_forest">
+        <Original>Clean Forest</Original>
+        <Russian>Отчистка местности</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_clean">
+        <Original>Garbage Clean</Original>
+        <Chinesesimp>清理垃圾</Chinesesimp>
+        <Russian>Очистка мусора</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_Options_7">
+        <Original>Garbage Cleaner</Original>
+        <French>Nettoyeur d'ordures</French>
+        <German>Aufräumen</German>
+        <Czech>Čistič odpadků</Czech>
+        <Chinesesimp>垃圾清理器</Chinesesimp>
+        <Korean>바닥 쓰레기 정리</Korean>
+        <Russian>Удаление мусора</Russian>
+      </Key>
+      <Key ID="STR_antistasi_cleanForest_wait">
+        <Original>Deleting Garbage. Please wait</Original>
+        <Russian>Удаление мусора. Пожалуйста, подождите</Russian>
+      </Key>
+      <Key ID="STR_antistasi_cleanForest_deleted">
+        <Original>Garbage deleted</Original>
+        <Russian>Мусор удален</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
+        <Original>Cleans several things in game. Use with caution as it freezes the mission</Original>
+        <Chinesesimp>清理游戏中的一些东西。谨慎使用, 因为它可能导致任务卡死</Chinesesimp>
+        <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_cleanForest">
+        <Original>Clear Nearby Forest</Original>
+        <Russian>Убрать лес</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_cleared_forest">
+        <Original>You've cleared the surroundings of trees and bushes</Original>
       </Key>
     </Container>
     <Container name="Other">
@@ -6998,6 +7161,7 @@
       </Key>
       <Key ID="STR_antistasi_customHint_general_only_player">
         <Original>Only Humans can pilot an air vehicle</Original>
+        <Russian>Только люди могут управлять воздушным транспортным средством</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_radio">
         <Original>Radio Required</Original>
@@ -7005,30 +7169,39 @@
       </Key>
       <Key ID="STR_antistasi_customHint_other_group">
         <Original>You cannot board other player vehicle if you are not in the same group</Original>
+        <Russian>Вы не можете сесть на машину другого игрока, если вы не в той же группе</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_welcome_guest">
         <Original>Welcome Guest&lt;br/&gt;&lt;br/&gt;You have joined this server as guest</Original>
+        <Russian>Добро пожаловать, гость&lt;br/&gt;&lt;br/&gt;Вы присоединились к этому серверу в качестве гостя</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_eligible_suc">
         <Original>You resign from being commander, choosing %1 as your successor</Original>
+        <Russian>Вы уходите с должности командира, выбирая% 1 своим преемником</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_eligible_suc_noChosen">
         <Original>You resign from being commander. Your chosen successor (%1) was not eligible</Original>
+        <Russian>Вы уходите с должности командира. Выбранный вами преемник (%1) не соответствует требованиям</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_eligible_noSuc">
         <Original>You resign from being Commander. Others will take the command if there is someone suitable</Original>
+        <Russian>Вы уходите с должности командира. Другие возьмут на себя командование, если найдется подходящий</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_eligible_no">
         <Original>You decided not to be eligible for commander</Original>
+        <Russian>Вы решили не претендовать на должность командира</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_eligible">
         <Original>You are now eligible to be commander of our forces</Original>
+        <Russian>Теперь вы имеете право быть командующим нашими войсками</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_out_of_bounds">
         <Original>Out of bounds</Original>
+        <Russian>За границами</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_out_of_bounds_return">
         <Original>Return to the AO before your blown up, you have %1 seconds</Original>
+        <Russian>Вы вылетели за карту вернитесь иначе вас взорвут, у вас есть %1 сек</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_noComm">
         <Original>%1 lost communication, he will come back with you if possible</Original>
@@ -7050,10 +7223,6 @@
         <Original>Buy Boat</Original>
         <Russian>Купить лодку</Russian>
       </Key>
-      <Key ID="STR_antistasi_addAction_cleanForest">
-        <Original>Clear Nearby Forest</Original>
-        <Russian>Убрать лес</Russian>
-      </Key>
       <Key ID="STR_antistasi_addAction_fog">
         <Original>I hate the fog</Original>
         <Russian>Убрать туман</Russian>
@@ -7069,17 +7238,19 @@
       </Key>
       <Key ID="STR_antistasi_customHint_pvp_info">
         <Original>PvP Information</Original>
+        <Russian>Информация о PvP</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_pvp_info_text">
         <Original>PvP players are only allowed to use their own or other PvP player vehicles</Original>
+        <Russian>Игрокам в PvP разрешается использовать только свою собственную или другую технику PvP-игроков.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_attackPVP_text">
-        <Original>We are attacking %2 from the %1. Help the operation if you can</Original>
-        <Russian>Мы атакуем %2 из %1. Помогите операции, если можете</Russian>
+        <Original>We are attacking %2  from the %1. Help the operation if you can</Original>
+        <Russian>Мы атакуем %2  из %1. Помогите операции, если можете</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_attackPVP_text2">
-        <Original>We are attacking an %2 from the %1. Help the operation if you can</Original>
-        <Russian>Мы атакуем %2 из %1. Помогите операции, если можете</Russian>
+        <Original>We are attacking an %2  from the %1. Help the operation if you can</Original>
+        <Russian>Мы атакуем %2  из %1. Помогите операции, если можете</Russian>
       </Key>
       <Key ID="STR_antistasi_tooltip_cost">
         <Original>Cost: %1 €</Original>
@@ -7104,58 +7275,6 @@
       <Key ID="STR_antistasi_chat_radiocheck">
         <Original>This is %1, radiocheck OK</Original>
         <Russian>Это %1, радиопроверка ОК</Russian>
-      </Key>
-    </Container>
-    <Container name="Headless">
-      <Key ID="STR_antistasi_Headless_head">
-        <Original>Headless Client</Original>
-      </Key>
-      <Key ID="STR_antistasi_addAction_AI_info">
-        <Original>AI Load Information</Original>
-        <Russian>Информация о загрузке AI</Russian>
-      </Key>
-      <Key ID="STR_antistasi_addAction_Headless_no">
-        <Original>No Headless Client Detected</Original>
-      </Key>
-      <Key ID="STR_antistasi_addAction_Headless_info">
-        <Original>%1SDK: %2&lt;br/&gt;West:%3&lt;br/&gt;East:%4&lt;br/&gt;Civ:%5&lt;br/&gt;TOTAL:%6&lt;br/&gt;&lt;br/&gt;</Original>
-      </Key>
-      <Key ID="STR_antistasi_Headless_disconnected">
-        <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart</Original>
-      </Key>
-    </Container>
-    <Container name="Clean_forest">
-      <Key ID="STR_antistasi_customHint_clean_forest">
-        <Original>Clean Forest</Original>
-        <Russian>Отчистка местности</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_clean">
-        <Original>Garbage Clean</Original>
-        <Chinesesimp>清理垃圾</Chinesesimp>
-        <Russian>Очистка мусора</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Options_7">
-        <Original>Garbage Cleaner</Original>
-        <French>Nettoyeur d'ordures</French>
-        <German>Aufräumen</German>
-        <Czech>Čistič odpadků</Czech>
-        <Chinesesimp>垃圾清理器</Chinesesimp>
-        <Korean>바닥 쓰레기 정리</Korean>
-        <Russian>Удаление мусора</Russian>
-      </Key>
-      <Key ID="STR_antistasi_cleanForest_wait">
-        <Original>Deleting Garbage. Please wait</Original>
-      </Key>
-      <Key ID="STR_antistasi_cleanForest_deleted">
-        <Original>Garbage deleted</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
-        <Original>Cleans several things in game. Use with caution as it freezes the mission</Original>
-        <Chinesesimp>清理游戏中的一些东西。谨慎使用, 因为它可能导致任务卡死</Chinesesimp>
-        <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_cleared_forest">
-        <Original>You've cleared the surroundings of trees and bushes</Original>
       </Key>
     </Container>
   </Package>

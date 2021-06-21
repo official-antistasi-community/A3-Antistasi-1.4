@@ -1811,6 +1811,16 @@
         <Original>Starting Bomb Run. ETA %1 seconds.</Original>
         <Russian>Запуск бомбы. Осталось %1 сек.</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support">
+        <Original>Add to Air Support</Original>
+        <Chinesesimp>增加至空中支援</Chinesesimp>
+        <Russian>Добавить в воздушную поддержку</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support_tooltip">
+        <Original>Gain Airstrike points giving this vehicle to the faction Air pool</Original>
+        <Chinesesimp>将此载具捐献给阵营空军以换取空袭点数</Chinesesimp>
+        <Russian>Получите очки авиаудара, отдав этот автомобиль в запас воздуха фракции</Russian>
+      </Key>
     </Container>
     <Container name="Statistics">
       <Key ID="STR_antistasi_statistics_SinglePlayer">
@@ -4653,7 +4663,7 @@
         <Russian>Обнаружен режим одиночной игры! \n\n Для максимального удобства играйте в локальную игру. Поддержка SP прекратится в ближайшее время. \n\n Вы все еще можете играть в режиме одиночной игры, этот экран исчезнет через несколько секунд!</Russian>
       </Key>
     </Container>
-    <Container name="Vehicle\Garage">
+    <Container name="Vehicle">
       <Key ID="STR_antistasi_dialogs_vehicle_manager">
         <Original>Vehicle Manager</Original>
         <Chinesesimp>载具管理</Chinesesimp>
@@ -4667,40 +4677,6 @@
         <Original>Garage Vehicle</Original>
         <Chinesesimp>载具仓库</Chinesesimp>
         <Russian>Гараж</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle">
-        <Original>Garage\Sell Vehicle</Original>
-        <Chinesesimp>存储\出售载具</Chinesesimp>
-        <Russian>Гараж\Продать технику</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle_tooltip">
-        <Original>Add to garage / sell the vehicle you are currently looking at</Original>
-        <Chinesesimp>将面前的载具添加到车库或出售</Chinesesimp>
-        <Russian>Добавить в гараж/продать технику, на которую сейчас смотрите</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads">
-        <Original>Vehicles and Squads</Original>
-        <Chinesesimp>载具和班组</Chinesesimp>
-        <Russian>Техника и отряды</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads_tooltip">
-        <Original>Options related to vehicle management in HC controlled squads</Original>
-        <Chinesesimp>与指挥部班组车辆管理相关的选项</Chinesesimp>
-        <Russian>Варианты, связанные с управлением транспортными средствами в отрядах, контролируемых HC</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support">
-        <Original>Add to Air Support</Original>
-        <Chinesesimp>增加至空中支援</Chinesesimp>
-        <Russian>Добавить в воздушную поддержку</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support_tooltip">
-        <Original>Gain Airstrike points giving this vehicle to the faction Air pool</Original>
-        <Chinesesimp>将此载具捐献给阵营空军以换取空袭点数</Chinesesimp>
-        <Russian>Получите очки авиаудара, отдав этот автомобиль в запас воздуха фракции</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_vehicle_manager_veh_query">
-        <Original>Add Vehicle to Squad?</Original>
-        <Russian>Добавить машину отряду?</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_sell">
         <Original>Sell or Garage Vehicle?</Original>
@@ -4716,19 +4692,97 @@
         <Original>Personal Garage</Original>
         <Russian>Личный гараж</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_commander_11">
-        <Original>Sell Vehicle</Original>
-        <French>Vendre le véhicule</French>
-        <German>Fahrzeuge verkaufen</German>
-        <Czech>Prodat vozidlo</Czech>
-        <Chinesesimp>出售载具</Chinesesimp>
-        <Korean>차량 판매</Korean>
-        <Russian>Продажа техники</Russian>
-      </Key>
       <Key ID="STR_antistasi_faction_garage">
         <Original>Faction Garage</Original>
         <Chinesesimp>阵营车库</Chinesesimp>
         <Russian>Гараж фракции</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_garage_text">
+        <Original>Garage Access</Original>
+        <English>Garage Access</English>
+        <French>Accès au garage</French>
+        <Russian>Гараж фракции</Russian>
+        <German>Fuhrparkzugriff</German>
+        <Czech>Přístup do garáže</Czech>
+        <Chinesesimp>车库存取</Chinesesimp>
+        <Korean>차고 열기</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_garage_tooltip">
+        <Original>Check Faction garage</Original>
+        <English>Check Faction garage</English>
+        <French>Examiner le garage de la faction</French>
+        <Russian>Проверить Гараж фракции</Russian>
+        <German>Fuhrpark der Fraktion einsehen.</German>
+        <Czech>Zkontrolujte frakční garáž</Czech>
+        <Chinesesimp>检查阵营车库</Chinesesimp>
+        <Korean>팩션 차고 확인</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle">
+        <Original>Garage\Sell Vehicle</Original>
+        <Chinesesimp>存储\出售载具</Chinesesimp>
+        <Russian>Гараж\Продать технику</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle_tooltip">
+        <Original>Add to garage / sell the vehicle you are currently looking at</Original>
+        <Chinesesimp>将面前的载具添加到车库或出售</Chinesesimp>
+        <Russian>Добавить в гараж/продать технику, на которую сейчас смотрите</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_veh">
+        <Original>Vehicle Purchased</Original>
+        <Russian>Автомобиль куплен</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_veh">
+        <Original>Add Vehicle</Original>
+        <Russian>Покупка техники</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_veh_placing">
+        <Original>Unable to buy vehicle, you are already placing something</Original>
+        <Russian>Невозможно купить автомобиль, вы уже что-то размещаете</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_veh_ctrlAI">
+        <Original>You cannot buy vehicles while you are controlling AI</Original>
+        <Russian>Вы не можете покупать автомобили, пока управляете ИИ.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_veh_enemy">
+        <Original>You cannot buy vehicles with enemies nearby</Original>
+        <Russian>Вы не можете покупать технику с врагами поблизости</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_veh_modset">
+        <Original>The vehicle you requested is not supported in your current modset</Original>
+        <Russian>Запрошенный вами автомобиль не поддерживается в вашем текущем наборе модов.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_veh_noMoney">
+        <Original>You do not have enough money for this vehicle: %1 € required</Original>
+        <Russian>У вас недостаточно денег на этот автомобиль: требуется %1 €</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_veh_noFlag">
+        <Original>You need to be close to the flag to be able to purchase a vehicle</Original>
+        <Russian>Вы должны быть рядом с флагом, чтобы иметь возможность приобрести транспортное средство.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_transport_noZone">
+        <Original>You need to be close to a zone belonging to %1 in order to request a vehicle</Original>
+        <Russian>Чтобы запросить автомобиль, вам необходимо находиться рядом с зоной, принадлежащей %1.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_transport_noZoneSide">
+        <Original>You need to be close to an Airbase, Seaport or Outpost of your side in order to request a vehicle</Original>
+        <Russian>Вы должны находиться рядом с авиабазой, морским портом или заставой своей стороны, чтобы запросить транспортное средство.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_transport_noZoneOrder">
+        <Original>You need to be close to an Airbase, Seaport or Outpost in order to request a vehicle</Original>
+        <Russian>Чтобы запросить автомобиль, вам необходимо находиться рядом с авиабазой, морским портом или заставой.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_buy_vehicle_enemies">
+        <Original>You cannot buy vehicles while there are enemies near you</Original>
+        <Russian>Вы не можете покупать технику, пока рядом с вами враги.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_transport_available">
+        <Original>Vehicle available</Original>
+        <Russian>Автомобиль доступен</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_radio_comm_garage_tooltip">
+        <Original>Vehicle or Static gun you're looking at will be garaged, interact with Flag to retrieve</Original>
+        <Chinesesimp>你面前的载具或固定式武器将被存放至车库, 与旗帜来取出</Chinesesimp>
+        <Russian>Автомобиль или статическая пушка, на которую вы смотрите, будут помещены в гараж, взаимодействуйте с Флагом, чтобы получить</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_unable_open">
         <Original>Unable to open garage, you are already placing something</Original>
@@ -4750,10 +4804,6 @@
       </Key>
       <Key ID="STR_antistasi_customHint_garage_enemy">
         <Original>You can't garage vehicles that are more than %1m away from you</Original>
-      </Key>
-      <Key ID="STR_antistasi_customHint_buy_vehicle_enemies">
-        <Original>You cannot buy vehicles while there are enemies near you</Original>
-        <Russian>Вы не можете покупать технику, пока рядом с вами враги.</Russian>
       </Key>
       <Key ID="STR_antistasi_customHint_garage_no_garrisons">
         <Original>You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage</Original>
@@ -4811,6 +4861,11 @@
       <Key ID="STR_antistasi_customHint_garage_look">
         <Original>Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle</Original>
       </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_faction_garage_tooltip">
+        <Original>Look at a vehicle and garage it into faction garage (shared among commanders)</Original>
+        <Chinesesimp>将面前的载具存放至阵营车库(与指挥官共享)</Chinesesimp>
+        <Russian>Посмотрите на машину и поставьте ее в гараж фракции (общий для командиров)</Russian>
+      </Key>
       <Key ID="STR_antistasi_dynamicText_garage">
         <Original>SPACE to place vehicle &lt;br/&gt; Arrow Left-Right to rotate &lt;br/&gt; %3 for Precision (Less Safe) Placement &lt;br/&gt; ENTER to Exit</Original>
         <Russian>ПРОБЕЛ для размещения транспортного средства &lt;br/&gt; Стрелка влево-вправо для поворота &lt;br/&gt; %3 для точного (менее безопасного) размещения &lt;br/&gt; ENTER для выхода</Russian>
@@ -4830,10 +4885,6 @@
       <Key ID="STR_antistasi_notification_vehPlaced_noPos">
         <Original>The current position is not suitable for the vehicle. Try another</Original>
         <Russian>Текущее положение не подходит для автомобиля. Попробуй другой</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_recruit_vehicle">
-        <Original>Recruit Vehicle</Original>
-        <Russian>Покупка техники</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_text">
         <Original>Buy Vehicle</Original>
@@ -4985,6 +5036,20 @@
         <Chinesesimp>购买民用载具</Chinesesimp>
         <Korean>민수차량 구입</Korean>
       </Key>
+      <Key ID="STR_antistasi_journal_entry_header_commander_11">
+        <Original>Sell Vehicle</Original>
+        <French>Vendre le véhicule</French>
+        <German>Fahrzeuge verkaufen</German>
+        <Czech>Prodat vozidlo</Czech>
+        <Chinesesimp>出售载具</Chinesesimp>
+        <Korean>차량 판매</Korean>
+        <Russian>Продажа техники</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_comm_sell_tooltip">
+        <Original>Look at a vehicle and sell it for money</Original>
+        <Chinesesimp>出售面前的载具以换取资金</Chinesesimp>
+        <Russian>Посмотрите на автомобиль и продайте его за деньги</Russian>
+      </Key>
       <Key ID="STR_antistasi_customHint_sell_veh_no_look">
         <Original>You are not looking at a vehicle</Original>
         <Russian>Вы не смотрите на автомобиль</Russian>
@@ -5013,101 +5078,6 @@
         <Original>Vehicle Sold</Original>
         <Russian>Автомобиль продан</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_faction_garage_tooltip">
-        <Original>Look at a vehicle and garage it into faction garage (shared among commanders)</Original>
-        <Chinesesimp>将面前的载具存放至阵营车库(与指挥官共享)</Chinesesimp>
-        <Russian>Посмотрите на машину и поставьте ее в гараж фракции (общий для командиров)</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_recruit_veh">
-        <Original>Vehicle Purchased</Original>
-        <Russian>Автомобиль куплен</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_veh">
-        <Original>Add Vehicle</Original>
-        <Russian>Добавление техники</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_veh_placing">
-        <Original>Unable to buy vehicle, you are already placing something</Original>
-        <Russian>Невозможно купить автомобиль, вы уже что-то размещаете</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_veh_ctrlAI">
-        <Original>You cannot buy vehicles while you are controlling AI</Original>
-        <Russian>Вы не можете покупать автомобили, пока управляете ИИ.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_veh_enemy">
-        <Original>You cannot buy vehicles with enemies nearby</Original>
-        <Russian>Вы не можете покупать технику с врагами поблизости</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_veh_modset">
-        <Original>The vehicle you requested is not supported in your current modset</Original>
-        <Russian>Запрошенный вами автомобиль не поддерживается в вашем текущем наборе модов.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_veh_noMoney">
-        <Original>You do not have enough money for this vehicle: %1 € required</Original>
-        <Russian>У вас недостаточно денег на этот автомобиль: требуется %1 €</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_veh_noFlag">
-        <Original>You need to be close to the flag to be able to purchase a vehicle</Original>
-        <Russian>Вы должны быть рядом с флагом, чтобы иметь возможность приобрести транспортное средство.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_vehSq">
-        <Original>Add Squad Vehicle</Original>
-        <Russian>Добавление машины отряду</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_vehSq_already">
-        <Original>This group has a vehicle already and their mission depends on it</Original>
-        <Russian>У этой группы уже есть машина, и от нее зависит их миссия.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_vehSq_destroy">
-        <Original>The selected vehicle is destroyed or cannot move</Original>
-        <Russian>Выбранная машина уничтожена или не может двигаться</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_vehSq_noEmpty">
-        <Original>Selected vehicle is not empty</Original>
-        <Russian>Выбранный автомобиль не пуст</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_vehSq_static">
-        <Original>You cannot assign a Static Weapon to a Squad</Original>
-        <Russian>Вы не можете назначить статическое оружие отряду.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_vehSq_noChange">
-        <Original>Static Weapon Squads cannot change of vehicle</Original>
-        <Russian>Отряды со статическим оружием не могут сменить технику</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_vehSq_noRoom">
-        <Original>The vehicle selected has no room for this squad</Original>
-        <Russian>На выбранной технике нет места для этого отряда.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_vehSq_assigned">
-        <Original>Vehicle Assigned to %1 Squad</Original>
-        <Russian>Машина назначена отряду %1</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_transport_noZone">
-        <Original>You need to be close to a zone belonging to %1 in order to request a vehicle</Original>
-        <Russian>Чтобы запросить автомобиль, вам необходимо находиться рядом с зоной, принадлежащей %1.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_transport_noZoneSide">
-        <Original>You need to be close to an Airbase, Seaport or Outpost of your side in order to request a vehicle</Original>
-        <Russian>Вы должны находиться рядом с авиабазой, морским портом или заставой своей стороны, чтобы запросить транспортное средство.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_transport_noZoneOrder">
-        <Original>You need to be close to an Airbase, Seaport or Outpost in order to request a vehicle</Original>
-        <Russian>Чтобы запросить автомобиль, вам необходимо находиться рядом с авиабазой, морским портом или заставой.</Russian>
-      </Key>
-      <Key ID="STR_antistasi_customHint_transport_available">
-        <Original>Vehicle available</Original>
-        <Russian>Автомобиль доступен</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_commander_comm_sell_tooltip">
-        <Original>Look at a vehicle and sell it for money</Original>
-        <Chinesesimp>出售面前的载具以换取资金</Chinesesimp>
-        <Russian>Посмотрите на автомобиль и продайте его за деньги</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_radio_comm_garage_tooltip">
-        <Original>Vehicle or Static gun you're looking at will be garaged, interact with Flag to retrieve</Original>
-        <Chinesesimp>你面前的载具或固定式武器将被存放至车库, 与旗帜来取出</Chinesesimp>
-        <Russian>Автомобиль или статическая пушка, на которую вы смотрите, будут помещены в гараж, взаимодействуйте с Флагом, чтобы получить</Russian>
-      </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
         <Chinesesimp>解锁载具</Chinesesimp>
@@ -5117,26 +5087,6 @@
         <Original>Allow other groups to mount this vehicle</Original>
         <Chinesesimp>允许其他小队搭乘该载具</Chinesesimp>
         <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_garage_text">
-        <Original>Garage Access</Original>
-        <English>Garage Access</English>
-        <French>Accès au garage</French>
-        <Russian>Гараж Сопротивления</Russian>
-        <German>Fuhrparkzugriff</German>
-        <Czech>Přístup do garáže</Czech>
-        <Chinesesimp>车库存取</Chinesesimp>
-        <Korean>차고 열기</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_garage_tooltip">
-        <Original>Check Faction garage</Original>
-        <English>Check Faction garage</English>
-        <French>Examiner le garage de la faction</French>
-        <Russian>Проверить Гараж Сопротивления</Russian>
-        <German>Fuhrpark der Fraktion einsehen.</German>
-        <Czech>Zkontrolujte frakční garáž</Czech>
-        <Chinesesimp>检查阵营车库</Chinesesimp>
-        <Korean>팩션 차고 확인</Korean>
       </Key>
       <Key ID="STR_antistasi_customHint_unlocked">
         <Original>Vehicle Unlocked</Original>
@@ -6537,8 +6487,58 @@
         <Original>%2, I'm sending %1 back to base</Original>
         <Russian>%2, я отправляю %1 обратно на базу</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads">
+        <Original>Vehicles and Squads</Original>
+        <Chinesesimp>载具和班组</Chinesesimp>
+        <Russian>Техника и отряды</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads_tooltip">
+        <Original>Options related to vehicle management in HC controlled squads</Original>
+        <Chinesesimp>与指挥部班组车辆管理相关的选项</Chinesesimp>
+        <Russian>Варианты, связанные с управлением транспортными средствами в отрядах, контролируемых HC</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_manager_veh_query">
+        <Original>Add Vehicle to Squad?</Original>
+        <Russian>Добавить машину отряду?</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_recruit_vehicle">
+        <Original>Recruit Vehicle</Original>
+        <Russian>Покупка техники</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_vehSq">
+        <Original>Add Squad Vehicle</Original>
+        <Russian>Добавление машины отряду</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_vehSq_already">
+        <Original>This group has a vehicle already and their mission depends on it</Original>
+        <Russian>У этой группы уже есть машина, и от нее зависит их миссия.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_vehSq_destroy">
+        <Original>The selected vehicle is destroyed or cannot move</Original>
+        <Russian>Выбранная машина уничтожена или не может двигаться</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_vehSq_noEmpty">
+        <Original>Selected vehicle is not empty</Original>
+        <Russian>Выбранный автомобиль не пуст</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_vehSq_static">
+        <Original>You cannot assign a Static Weapon to a Squad</Original>
+        <Russian>Вы не можете назначить статическое оружие отряду.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_vehSq_noChange">
+        <Original>Static Weapon Squads cannot change of vehicle</Original>
+        <Russian>Отряды со статическим оружием не могут сменить технику</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_vehSq_noRoom">
+        <Original>The vehicle selected has no room for this squad</Original>
+        <Russian>На выбранной технике нет места для этого отряда.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_customHint_vehSq_assigned">
+        <Original>Vehicle Assigned to %1 Squad</Original>
+        <Russian>Машина назначена отряду %1</Russian>
+      </Key>
     </Container>
-    <Container name="Units">
+    <Container name="Unit_Manager">
       <Key ID="STR_antistasi_journal_entry_header_AI_1">
         <Original>Recruit</Original>
         <French>Recruter</French>

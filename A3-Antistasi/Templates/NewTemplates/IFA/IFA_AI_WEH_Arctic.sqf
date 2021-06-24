@@ -2,12 +2,12 @@
 //   Side Information   //
 //////////////////////////
 
-["name", ""] call _fnc_saveToTemplate;
-["spawnMarkerName", ""] call _fnc_saveToTemplate;
+["name", "Wehrmacht"] call _fnc_saveToTemplate;
+["spawnMarkerName", "Wehrmacht Reinforcements"] call _fnc_saveToTemplate;
 
-["flag", ""] call _fnc_saveToTemplate;
-["flagTexture", ""] call _fnc_saveToTemplate;
-["flagMarkerType", ""] call _fnc_saveToTemplate;
+["flag", "LIB_FlagCarrier_GER"] call _fnc_saveToTemplate;
+["flagTexture", "ww2\core_t\if_decals_t\german\flag_ger_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "LIB_faction_WEHRMACHT"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -17,64 +17,64 @@
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
-["vehiclesBasic", []] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", []] call _fnc_saveToTemplate;
-["vehiclesLightArmed",[]] call _fnc_saveToTemplate;
-["vehiclesTrucks", []] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", []] call _fnc_saveToTemplate;
-["vehiclesAmmoTrucks", []] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", []] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", []] call _fnc_saveToTemplate;
-["vehiclesMedical", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", []] call _fnc_saveToTemplate;
-["vehiclesTanks", []] call _fnc_saveToTemplate;
-["vehiclesAA", []] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
-["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
+["vehiclesBasic", ["LIB_Kfz1_w"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["LIB_Kfz1_w","LIB_Kfz1_Hood_w"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["LIB_Kfz1_MG42_sernyt"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["LIB_OpelBlitz_Open_Y_Camo_w","LIB_OpelBlitz_Tent_Y_Camo_w"]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", ["LIB_OpelBlitz_Open_Y_Camo_w"]] call _fnc_saveToTemplate;
+["vehiclesAmmoTrucks", ["LIB_OpelBlitz_Ammo_w"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["LIB_OpelBlitz_Parm_w"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["LIB_OpelBlitz_Fuel_w"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["LIB_OpelBlitz_Ambulance_w"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["LIB_SdKfz251_FFV_w","LIB_SdKfz251_w"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["LIB_PzKpfwVI_E_w","LIB_PzKpfwIV_H_w","LIB_StuG_III_G_w","LIB_PzKpfwV_w","LIB_PzKpfwVI_B_w"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["LIB_FlakPanzerIV_Wirbelwind_w"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["not_supported"]] call _fnc_saveToTemplate;			//this line determines light APCs
+["vehiclesIFVs", ["not_supported"]] call _fnc_saveToTemplate;				//this line determines IFVs
 
 
-["vehiclesTransportBoats", []] call _fnc_saveToTemplate;
-["vehiclesGunBoats", []] call _fnc_saveToTemplate;
+["vehiclesTransportBoats", ["LIB_LCA"]] call _fnc_saveToTemplate;
+["vehiclesGunBoats", ["LIB_UK_LCI"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", []] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", []] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["LIB_Ju87_w"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["LIB_FW190F8_2_w"]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["LIB_C47_RAF_snafu"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", []] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["not_supported"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", []] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", []] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["not_supported"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", []] call _fnc_saveToTemplate;
+["vehiclesArtillery", [["LIB_leFH18", ["LIB_20x_Shell_105L28_Gr39HlC_HE","LIB_20x_Shell_105L28_Gr38_HE"]]]] call _fnc_saveToTemplate;
 
-["uavsAttack", []] call _fnc_saveToTemplate;
-["uavsPortable", []] call _fnc_saveToTemplate;
+["uavsAttack", ["not_supported"]] call _fnc_saveToTemplate;
+["uavsPortable", ["not_supported"]] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", []] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", []] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", []] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["LIB_Kfz1_MG42_sernyt"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["LIB_OpelBlitz_Open_Y_Camo_w","LIB_OpelBlitz_Tent_Y_Camo_w"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["LIB_Kfz1_w","LIB_Kfz1_Hood_w"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", []] call _fnc_saveToTemplate;
+["vehiclesPolice", ["LIB_Kfz1_w"]] call _fnc_saveToTemplate;
 
-["staticMGs", []] call _fnc_saveToTemplate;
-["staticAT", []] call _fnc_saveToTemplate;
-["staticAA", []] call _fnc_saveToTemplate;
-["staticMortars", []] call _fnc_saveToTemplate;
+["staticMGs", ["LIB_MG42_Lafette_Deployed"]] call _fnc_saveToTemplate;
+["staticAT", ["LIB_Pak40_w"]] call _fnc_saveToTemplate;
+["staticAA", ["LIB_Flakvierling_38_w"]] call _fnc_saveToTemplate;
+["staticMortars", ["LIB_GrWr34"]] call _fnc_saveToTemplate;
 
-["mortarMagazineHE", ""] call _fnc_saveToTemplate;
-["mortarMagazineSmoke", ""] call _fnc_saveToTemplate;
+["mortarMagazineHE", "LIB_1rnd_81mmHE_GRWR34"] call _fnc_saveToTemplate;
+["mortarMagazineSmoke", "LIB_81mm_GRWR34_SmokeShell"] call _fnc_saveToTemplate;
 
 //Bagged weapon definitions
-["baggedMGs", [[]]] call _fnc_saveToTemplate;
+["baggedMGs", [["Weapon_LIB_Laffete_Tripod", "Weapon_LIB_MG42"]]] call _fnc_saveToTemplate;
 ["baggedAT", [[]]] call _fnc_saveToTemplate;
 ["baggedAA", [[]]] call _fnc_saveToTemplate;
-["baggedMortars", [[]]] call _fnc_saveToTemplate;
+["baggedMortars", [["LIB_GrWr34_Barrel","LIB_GrWr34_Tripod_Deployed"]]] call _fnc_saveToTemplate;
 
 //Minefield definition
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
-["minefieldAT", []] call _fnc_saveToTemplate;
-["minefieldAPERS", []] call _fnc_saveToTemplate;
+["minefieldAT", ["LIB_TMI_42_MINE"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["LIB_shumine_42_MINE"]] call _fnc_saveToTemplate;
 
 //PvP definitions
 ["playerDefaultLoadout", []] call _fnc_saveToTemplate;
@@ -94,19 +94,21 @@ _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanRifles", []];
 _loadoutData setVariable ["sniperRifles", []];
 
-_loadoutData setVariable ["lightATLaunchers", []];
+_loadoutData setVariable ["lightATLaunchers", [
+["LIB_RPzB", "", "", "",["LIB_1Rnd_RPzB"], [], ""]]];
 _loadoutData setVariable ["ATLaunchers", []];
-_loadoutData setVariable ["missileATLaunchers", []];
+_loadoutData setVariable ["missileATLaunchers", [
+["LIB_RPzB", "", "", "",["LIB_1Rnd_RPzB"], [], ""]]];
 _loadoutData setVariable ["AALaunchers", []];
-_loadoutData setVariable ["sidearms", []];
+_loadoutData setVariable ["sidearms", ["Weapon_LIB_P08"]];
 
-_loadoutData setVariable ["ATMines", []];
-_loadoutData setVariable ["APMines", []];
-_loadoutData setVariable ["lightExplosives", []];
-_loadoutData setVariable ["heavyExplosives", []];
+_loadoutData setVariable ["ATMines", ["LIB_STMI_MINE_mag"]];
+_loadoutData setVariable ["APMines", ["LIB_SMI_35_MINE_mag"]];
+_loadoutData setVariable ["lightExplosives", ["LIB_Ladung_Small_MINE_mag"]];
+_loadoutData setVariable ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag"]];
 
-_loadoutData setVariable ["antiTankGrenades", []];
-_loadoutData setVariable ["antiInfantryGrenades", []];
+_loadoutData setVariable ["antiTankGrenades", ["lib_shg24x7"]];
+_loadoutData setVariable ["antiInfantryGrenades", ["lib_shg24"]];
 _loadoutData setVariable ["smokeGrenades", []];
 
 
@@ -116,10 +118,10 @@ _loadoutData setVariable ["maps", ["ItemMap"]];
 _loadoutData setVariable ["watches", ["ItemWatch"]];
 _loadoutData setVariable ["compasses", ["ItemCompass"]];
 _loadoutData setVariable ["radios", ["ItemRadio"]];
-_loadoutData setVariable ["gpses", ["ItemGPS"]];
-_loadoutData setVariable ["NVGs", ["NVGoggles_INDEP"]];
-_loadoutData setVariable ["binoculars", ["Binocular"]];
-_loadoutData setVariable ["rangefinder", ["Rangefinder"]];
+_loadoutData setVariable ["gpses", []];
+_loadoutData setVariable ["NVGs", []];
+_loadoutData setVariable ["binoculars", ["LIB_Binocular_GER"]];
+_loadoutData setVariable ["rangefinder", []];
 
 _loadoutData setVariable ["uniforms", []];
 _loadoutData setVariable ["vests", []];
@@ -157,40 +159,42 @@ _loadoutData setVariable ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData setVariable ["uniforms", []];
-_sfLoadoutData setVariable ["vests", []];
-_sfLoadoutData setVariable ["backpacks", []];
-_sfLoadoutData setVariable ["helmets", []];
-_sfLoadoutData setVariable ["binoculars", []];
+_sfLoadoutData setVariable ["uniforms", ["U_LIB_GER_Scharfschutze_w","U_LIB_GER_Scharfschutze_2_w"]];
+_sfLoadoutData setVariable ["vests", ["V_LIB_DAK_VestMP40","V_LIB_DAK_VestKar98","V_LIB_DAK_VestG43","V_LIB_GER_OfficerVest"]];
+_sfLoadoutData setVariable ["backpacks", ["B_LIB_GER_Tonister34_cowhide","B_LIB_GER_Backpack"]];
+_sfLoadoutData setVariable ["helmets", ["H_LIB_GER_FSJ_M44_Helmet_Winter"]];
+_sfLoadoutData setVariable ["binoculars", ["LIB_Binocular_GER"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
-_sfLoadoutData setVariable ["rifles", []];
-_sfLoadoutData setVariable ["carbines", []];
-_sfLoadoutData setVariable ["grenadeLaunchers", []];
-_sfLoadoutData setVariable ["SMGs", []];
-_sfLoadoutData setVariable ["machineGuns", []];
-_sfLoadoutData setVariable ["marksmanRifles", []];
-_sfLoadoutData setVariable ["sniperRifles", []];
-_sfLoadoutData setVariable ["sidearms", []];
+_sfLoadoutData setVariable ["rifles", [["LIB_K98", "", "", "", ["LIB_5Rnd_792x57"], [], ""]]];
+_sfLoadoutData setVariable ["carbines", [["LIB_G41", "", "", "", ["LIB_10Rnd_792x57_clip"], [], ""]]];
+_sfLoadoutData setVariable ["grenadeLaunchers", [["LIB_MP44", "", "", "", ["LIB_30Rnd_792x33"], [], ""]]];
+_sfLoadoutData setVariable ["SMGs", [["LIB_MP40", "", "", "", ["LIB_32rnd_9x19"], [], ""]]];
+_sfLoadoutData setVariable ["machineGuns", [["LIB_MG42", "", "", "", ["LIB_50Rnd_792x57"], [], ""]]];
+_sfLoadoutData setVariable ["marksmanRifles", [["LIB_MP40", "", "", "", ["LIB_32rnd_9x19"], [], ""]]];
+_sfLoadoutData setVariable ["sniperRifles", [["LIB_K98ZF39", "", "", "", ["LIB_5Rnd_792x57"], [], ""]]];
+_sfLoadoutData setVariable ["sidearms", [["LIB_P08", "", "", "", ["LIB_8Rnd_9x19_P08"], [], ""]]];
+
+
 /////////////////////////////////
 //    Military Loadout Data    //
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData setVariable ["uniforms", []];
-_militaryLoadoutData setVariable ["vests", []];
-_militaryLoadoutData setVariable ["backpacks", []];
-_militaryLoadoutData setVariable ["helmets", []];
-_militaryLoadoutData setVariable ["binoculars", []];
+_militaryLoadoutData setVariable ["uniforms", ["U_LIB_GER_Scharfschutze_w","U_LIB_GER_Scharfschutze_2_w"]];
+_militaryLoadoutData setVariable ["vests", ["V_LIB_GER_VestSTG","V_LIB_GER_VestMP40","V_LIB_GER_VestMG","V_LIB_GER_VestKar98","V_LIB_GER_VestG43"]];
+_militaryLoadoutData setVariable ["backpacks", ["B_LIB_GER_A_frame","B_LIB_GER_SapperBackpack_empty","B_LIB_GER_Tonister34_cowhide"]];
+_militaryLoadoutData setVariable ["helmets", ["H_LIB_GER_Helmet_ns_w","H_LIB_GER_Helmet_w"]];
+_militaryLoadoutData setVariable ["binoculars", ["LIB_Binocular_GER"]];
 
-_militaryLoadoutData setVariable ["rifles", []];
-_militaryLoadoutData setVariable ["carbines", []];
-_militaryLoadoutData setVariable ["grenadeLaunchers", []];
-_militaryLoadoutData setVariable ["SMGs", []];
-_militaryLoadoutData setVariable ["machineGuns", []];
-_militaryLoadoutData setVariable ["marksmanRifles", []];
-_militaryLoadoutData setVariable ["sniperRifles", []];
-_militaryLoadoutData setVariable ["sidearms", []];
+_militaryLoadoutData setVariable ["rifles", [["LIB_K98", "", "", "", ["LIB_5Rnd_792x57"], [], ""]]];
+_militaryLoadoutData setVariable ["carbines", [["LIB_G41", "", "", "", ["LIB_10Rnd_792x57_clip"], [], ""]]];
+_militaryLoadoutData setVariable ["grenadeLaunchers", [["LIB_MP44", "", "", "", ["LIB_30Rnd_792x33"], [], ""]]];
+_militaryLoadoutData setVariable ["SMGs", [["LIB_MP40", "", "", "", ["LIB_32rnd_9x19"], [], ""]]];
+_militaryLoadoutData setVariable ["machineGuns", [["LIB_MG42", "", "", "", ["LIB_50Rnd_792x57"], [], ""]]];
+_militaryLoadoutData setVariable ["marksmanRifles", [["LIB_K98", "", "", "", ["LIB_5Rnd_792x57"], [], ""]]];
+_militaryLoadoutData setVariable ["sniperRifles", [["LIB_K98ZF39", "", "", "", ["LIB_5Rnd_792x57"], [], ""]]];
+_militaryLoadoutData setVariable ["sidearms", [["LIB_P08", "", "", "", ["LIB_8Rnd_9x19_P08"], [], ""]]];
 
 ///////////////////////////////
 //    Police Loadout Data    //
@@ -198,44 +202,49 @@ _militaryLoadoutData setVariable ["sidearms", []];
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 
-_policeLoadoutData setVariable ["uniforms", []];
-_policeLoadoutData setVariable ["vests", []];
-_policeLoadoutData setVariable ["helmets", []];
+_policeLoadoutData setVariable ["uniforms", ["U_LIB_GER_Tank_crew_leutnant"]];
+_policeLoadoutData setVariable ["vests", ["V_LIB_GER_TankPrivateBelt"]];
+_policeLoadoutData setVariable ["helmets", ["H_LIB_GER_TankPrivateCap"]];
 
-_policeLoadoutData setVariable ["smgs", []];
-_policeLoadoutData setVariable ["sidearms", []];
+_policeLoadoutData setVariable ["SMGs", [["LIB_MP40", "", "", "", ["LIB_32rnd_9x19"], [], ""]]];
+_policeLoadoutData setVariable ["sidearms", [
+	["LIB_P08", "", "", "", ["LIB_8Rnd_9x19_P08"], [], ""],
+    ["LIB_P38", "", "", "", ["LIB_8Rnd_9x19"], [], ""],
+	["LIB_M1896", "", "", "", ["LIB_10Rnd_9x19_M1896"], [], ""]
+]];
 
 ////////////////////////////////
 //    Militia Loadout Data    //
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData setVariable ["uniforms", []];
-_militiaLoadoutData setVariable ["vests", []];
-_militiaLoadoutData setVariable ["backpacks", []];
-_militiaLoadoutData setVariable ["helmets", []];
+_militiaLoadoutData setVariable ["uniforms", ["U_LIB_GER_Schutze_w","U_LIB_GER_Soldier_camo_w"]];
+_militiaLoadoutData setVariable ["vests", ["V_LIB_GER_VestKar98","V_LIB_GER_VestMP40"]];
+_militiaLoadoutData setVariable ["backpacks", ["B_LIB_GER_A_frame"]];
+_militiaLoadoutData setVariable ["helmets", ["H_LIB_GER_Helmet_w"]];
 
-_militiaLoadoutData setVariable ["rifles", []];
-_militiaLoadoutData setVariable ["carbines", []];
-_militiaLoadoutData setVariable ["grenadeLaunchers", []];
-_militiaLoadoutData setVariable ["smgs", []];
-_militiaLoadoutData setVariable ["machineGuns", []];
-_militiaLoadoutData setVariable ["marksmanRifles", []];
-_militiaLoadoutData setVariable ["sidearms", []];
+_militiaLoadoutData setVariable ["rifles", [["LIB_K98", "", "", "", ["LIB_5Rnd_792x57"], [], ""]]];
+_militiaLoadoutData setVariable ["carbines", [["LIB_G41", "", "", "", ["LIB_10Rnd_792x57_clip"], [], ""]]];
+_militiaLoadoutData setVariable ["grenadeLaunchers", [["LIB_MP40", "", "", "", ["LIB_32rnd_9x19"], [], ""]]];
+_militiaLoadoutData setVariable ["SMGs", [["LIB_MP40", "", "", "", ["LIB_32rnd_9x19"], [], ""]]];
+_militiaLoadoutData setVariable ["machineGuns", [["LIB_MG42", "", "", "", ["LIB_50Rnd_792x57"], [], ""]]];
+_militiaLoadoutData setVariable ["marksmanRifles", [["LIB_K98", "", "", "", ["LIB_5Rnd_792x57"], [], ""]]];
+_militiaLoadoutData setVariable ["sidearms", [["LIB_P08", "", "", "", ["LIB_8Rnd_9x19_P08"], [], ""]]];
+
 
 //////////////////////////
 //    Misc Loadouts     //
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_crewLoadoutData setVariable ["uniforms", []];
-_crewLoadoutData setVariable ["vests", []];
-_crewLoadoutData setVariable ["helmets", []];
+_crewLoadoutData setVariable ["uniforms", ["U_LIB_GER_Spg_crew_private","U_LIB_GER_Spg_crew_leutnant","U_LIB_GER_Spg_crew_unterofficer"]];
+_crewLoadoutData setVariable ["vests", ["V_LIB_GER_TankPrivateBelt"]];
+_crewLoadoutData setVariable ["helmets", ["H_LIB_GER_Cap"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_pilotLoadoutData setVariable ["uniforms", []];
-_pilotLoadoutData setVariable ["vests", []];
-_pilotLoadoutData setVariable ["helmets", []];
+_pilotLoadoutData setVariable ["uniforms", ["U_LIB_GER_LW_pilot","U_LIB_GER_LW_pilot"]];
+_pilotLoadoutData setVariable ["vests", ["V_LIB_GER_OfficerBelt"]];
+_pilotLoadoutData setVariable ["helmets", ["H_LIB_GER_LW_PilotHelmet"]];
 
 
 /////////////////////////////////

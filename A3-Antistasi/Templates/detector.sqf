@@ -25,12 +25,9 @@ A3A_hasRDS = false;
 
 //Actual Detection
 //IFA Detection
-//Deactivated for now, as IFA is having some IP problems (08.05.2020 european format)
 if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
-    //A3A_hasIFA = true;
-    //Info("IFA Detected");
-    Error("IFA detected, but it is no longer supported, please remove this mod");
-    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+    A3A_hasIFA = true;
+    Info("IFA Detected");
 };
 
 //RHS Detection

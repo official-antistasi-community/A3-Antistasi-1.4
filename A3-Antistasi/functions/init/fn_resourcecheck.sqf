@@ -1,6 +1,7 @@
-private _filename = "fn_citySupportChange";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer) exitWith {
-	[1, "Server-only function miscalled", _filename] call A3A_fnc_log;
+    Error("Server-only function miscalled");
 };
 
 while {true} do
@@ -62,13 +63,13 @@ while {true} do
 		{
 			["TaskSucceeded", ["", format ["%1 joined %2",[_city, false] call A3A_fnc_location,nameTeamPlayer]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,teamPlayer,true];
-			[[10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+			[Occupants, 10, 60] remoteExec ["A3A_fnc_addAggression",2];
 			_mrkD = format ["Dum%1",_city];
 			_mrkD setMarkerColor colorTeamPlayer;
 			garrison setVariable [_city,[],true];
 			sleep 5;
 			{_nul = [_city,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
-			if ((!(["CONVOY"] call BIS_fnc_taskExists)) and (!bigAttackInProgress)) then
+			if (!("CONVOY" in A3A_activeTasks) and (!bigAttackInProgress)) then
 			{
 				_base = [_city] call A3A_fnc_findBasesForConvoy;
 				if (_base != "") then
@@ -82,7 +83,7 @@ while {true} do
 		{
 			["TaskFailed", ["", format ["%1 joined %2",[_city, false] call A3A_fnc_location,nameOccupants]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,Occupants,true];
-			[[-10, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+			[Occupants, -10, 45] remoteExec ["A3A_fnc_addAggression",2];
 			_mrkD = format ["Dum%1",_city];
 			_mrkD setMarkerColor colorOccupants;
 			garrison setVariable [_city,[],true];
@@ -127,7 +128,8 @@ while {true} do
 		publicVariable "difficultyCoef";
 	};
 
-	if ((!bigAttackInProgress) and (random 100 < 50)) then {[] call A3A_fnc_missionRequest};
+	private _missionChance = 5 * count (allPlayers - (entities "HeadlessClient_F"));
+	if ((!bigAttackInProgress) and (random 100 < _missionChance)) then {[] spawn A3A_fnc_missionRequest};
 	//Removed from scheduler for now, as it errors on Headless Clients.
 	//[[],"A3A_fnc_reinforcementsAI"] call A3A_fnc_scheduler;
 	[] spawn A3A_fnc_reinforcementsAI;
@@ -143,7 +145,7 @@ while {true} do
     _numWreckedAntennas = count antennasDead;
 	//Probability of spawning a mission in.
     _shouldSpawnRepairThisTick = round(random 100) < 20;
-    if ((_numWreckedAntennas > 0) && _shouldSpawnRepairThisTick && !(["REP"] call BIS_fnc_taskExists)) then
+    if ((_numWreckedAntennas > 0) && _shouldSpawnRepairThisTick && !("REP" in A3A_activeTasks)) then
 		{
 		_potentials = [];
 		{
@@ -186,7 +188,7 @@ while {true} do
 				{
 				if (local _x) then
 					{
-					if ((typeOf _x) in arrayCivs) then
+					if ((_x getVariable "unitType") in arrayCivs) then
 						{
 						if (vehicle _x == _x) then
 							{

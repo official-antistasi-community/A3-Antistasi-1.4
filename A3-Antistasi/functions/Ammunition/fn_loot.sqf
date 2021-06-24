@@ -76,7 +76,7 @@ lootDevice append _lootDeviceBag + allBackpacksRadio;
 ////////////////////////////////////
 //KEEP AT BOTTOM!!!
 initialRebelEquipment append lootBasicItem;
-initialRebelEquipment append allRebelUniforms;
-initialRebelEquipment append allCivilianUniforms;
-initialRebelEquipment append allCivilianHeadgear;
-initialRebelEquipment append allCivilianGlasses;
+initialRebelEquipment append (A3A_faction_reb getVariable "uniforms");
+initialRebelEquipment append (A3A_faction_civ getVariable "uniforms");
+initialRebelEquipment append allCosmeticHeadgear;
+initialRebelEquipment append allCosmeticGlasses;

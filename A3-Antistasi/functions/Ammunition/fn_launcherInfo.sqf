@@ -68,7 +68,7 @@ private _airMagazines = [];
 	if (_ammoType isKindOf "MissileCore") then {
 		private _ammoConfig = configFile >> "CfgAmmo" >> _ammoType;
 		//If have ACE and ACE Guidance is enabled, then it can target whatever it damn well likes. ACE isn't picky.
-		if(hasACE && {isClass (_ammoConfig >> "ace_missileguidance") && {getNumber (_ammoConfig >> "ace_missileguidance" >> "enabled") == 1}}) exitWith {
+		if(A3A_hasACE && {isClass (_ammoConfig >> "ace_missileguidance") && {getNumber (_ammoConfig >> "ace_missileguidance" >> "enabled") == 1}}) exitWith {
 			_targetGround = true;
 			_targetAir = true;
 			_groundMagazines pushBackUnique _mag;

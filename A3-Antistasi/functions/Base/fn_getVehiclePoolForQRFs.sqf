@@ -13,11 +13,12 @@
 */
 
 params ["_side", ["_filter", []]];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
-private _fileName = "getVehiclePoolForQRFs";
 private _vehicleSelection = [];
 
-[3, format ["Now searching for QRF vehicle pool for %1 with filter %2", _side, _filter], _fileName] call A3A_fnc_log;
+Debug_2("Now searching for QRF vehicle pool for %1 with filter %2", _side, _filter);
 //In general is Invaders always a bit less chill than the occupants, they will use heavier vehicles more often and earlier
 switch (tierWar) do
 {
@@ -164,7 +165,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehCSATTruck, 10],
+                [vehCSATTrucks, 10],
                 [vehCSATLightArmed, 30],
                 [vehCSATAPC, 40],
                 [vehCSATTank, 20],
@@ -198,7 +199,7 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehCSATTruck, 5],
+                [vehCSATTrucks, 5],
                 [vehCSATLightArmed, 25],
                 [vehCSATAPC, 45],
                 [vehCSATAA, 5],
@@ -263,8 +264,7 @@ switch (tierWar) do
                 [vehNATOPatrolHeli, 10],
                 [vehNATOTransportHelis, 40],
                 [vehNATOTransportPlanes, 25],
-                [vehNATOAttackHelis, 20],
-                [vehNATOPlaneAA, 5]
+                [vehNATOAttackHelis, 20]
             ];
         };
         if(_side == Invaders) then
@@ -280,8 +280,7 @@ switch (tierWar) do
                 [vehCSATPatrolHeli, 5],
                 [vehCSATTransportHelis, 40],
                 [vehCSATTransportPlanes, 25],
-                [vehCSATAttackHelis, 25],
-                [vehCSATPlaneAA, 5]
+                [vehCSATAttackHelis, 25]
             ];
         };
     };
@@ -301,9 +300,7 @@ switch (tierWar) do
                 [vehNATOPatrolHeli, 5],
                 [vehNATOTransportHelis, 35],
                 [vehNATOTransportPlanes, 25],
-                [vehNATOAttackHelis, 25],
-                [vehNATOPlane, 5],
-                [vehNATOPlaneAA, 5]
+                [vehNATOAttackHelis, 25]
             ];
         };
         if(_side == Invaders) then
@@ -319,9 +316,7 @@ switch (tierWar) do
                 [vehCSATPatrolHeli, 5],
                 [vehCSATTransportHelis, 35],
                 [vehCSATTransportPlanes, 25],
-                [vehCSATAttackHelis, 30],
-                [vehCSATPlane, 5],
-                [vehCSATPlaneAA, 5]
+                [vehCSATAttackHelis, 30]
             ];
         };
     };
@@ -341,9 +336,7 @@ switch (tierWar) do
                 [vehNATOPatrolHeli, 5],
                 [vehNATOTransportHelis, 30],
                 [vehNATOTransportPlanes, 25],
-                [vehNATOAttackHelis, 25],
-                [vehNATOPlane, 10],
-                [vehNATOPlaneAA, 5]
+                [vehNATOAttackHelis, 25]
             ];
         };
         if(_side == Invaders) then
@@ -359,9 +352,7 @@ switch (tierWar) do
                 [vehCSATPatrolHeli, 5],
                 [vehCSATTransportHelis, 30],
                 [vehCSATTransportPlanes, 25],
-                [vehCSATAttackHelis, 30],
-                [vehCSATPlane, 10],
-                [vehCSATPlaneAA, 5]
+                [vehCSATAttackHelis, 30]
             ];
         };
     };
@@ -377,11 +368,7 @@ _fn_checkElementAgainstFilter =
         if(_element isKindOf _x) exitWith
         {
             _passed = false;
-            [
-                3,
-                format ["%1 didnt passed filter %2", _element, _x],
-                _fileName
-            ] call A3A_fnc_log;
+            Debug_2("%1 didnt passed filter %2", _element, _x);
         };
     } forEach _filter;
 
@@ -401,7 +388,7 @@ private _vehiclePool = [];
         }
         else
         {
-            [1, "Found vehicle array with no defined vehicles!", _fileName] call A3A_fnc_log;
+            Error("Found vehicle array with no defined vehicles!");
         };
         {
             if(([_x, _filter] call _fn_checkElementAgainstFilter) && {[_x] call A3A_fnc_vehAvailable}) then
@@ -421,10 +408,6 @@ private _vehiclePool = [];
     };
 } forEach _vehicleSelection;
 
-[
-    3,
-    format ["For %1 and war level %2 selected units are %3, filter was %4", _side, tierWar, _vehiclePool, _filter],
-    _fileName
-] call A3A_fnc_log;
+Debug_4("For %1 and war level %2 selected units are %3, filter was %4", _side, tierWar, _vehiclePool, _filter);
 
 _vehiclePool;

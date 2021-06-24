@@ -1,71 +1,4 @@
-////////////////////////////////////
-//      Uniforms Sorting        ///
-////////////////////////////////////
-{
-	private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
-	private _uniformSide = getNumber (configfile >> "CfgVehicles" >> _originUnit >> "side");
-	switch (_uniformSide) do {
-		case 3: {allCivilianUniforms pushBack _x};
-	};
-} forEach allUniforms;
-
-{
-	private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
-	private _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
-	switch (_uniformFaction) do {
-		//RHS
-		case "rhsgref_faction_nationalist": {if ((!A3A_has3CB) and nameTeamPlayer isEqualTo "NAPA") then {allRebelUniforms pushBack _x};};
-		case "rhsgref_faction_hidf": {if ((!A3A_has3CB) and nameTeamPlayer isEqualTo "Rebels") then {allRebelUniforms pushBack _x};};
-		//3CB These dont actually work, added TKM manually in Template, CCM Uniforms are the same as the Civilian ones.
-		//case "UK3CB_CCM_I": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
-		//case "UK3CB_TKM_B": {if (teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
-		//IFA
-		case "LIB_GUER": {if (A3A_hasIFA) then {allRebelUniforms pushBack _x};};
-		//Tanoa/ApexDLC
-		case "IND_C_F": {if ((!A3A_hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
-		//Contact DLC Looters
-		case "IND_L_F": {if ((!A3A_hasIFA) and teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
-		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1 ----> Added Green Via Templates.
-		case "BLU_G_F": {if ((!A3A_hasIFA) and teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
-	};
-} forEach allUniforms;
-
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_Protagonist_VR");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_LIB_CIV_Priest");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_PriestBody");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_B_U_PRIEST_03");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_B_U_PRIEST_02");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_B_U_PRIEST_01");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_C_U_PRIEST_03");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_C_U_PRIEST_02");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_C_U_PRIEST_01");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_I_U_PRIEST_03");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_I_U_PRIEST_02");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_I_U_PRIEST_01");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_O_U_PRIEST_03");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_O_U_PRIEST_02");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_O_U_PRIEST_01");
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_pol_uniform_suit_80_grn");	//Gmob PoliceUniform
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_gc_pol_uniform_dress_80_blu");
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_pol_uniform_blouse_80_blk");
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_ff_uniform_man_80_orn");	//Gmob Firefighter
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_camo_F");	//LDF Deserter Jacket
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_deserter_F");	//LDF Desserter T-Shirt
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_olive_F"); //Looter Clothes (T-Shirt Olive)
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_sport_F"); //Looter Clothes (T-Shirt Sport)
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_black_F"); //Looter Clothes (T-Shirt Black)
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_skull_F"); //Looter Clothes (T-Shirt Skull)
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_shorts_F");	//Idap Worker Uniforms
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_casual_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_cargo_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_Tee_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_Jeans_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_TeeShorts_F");
-allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_Story_Protagonist_F");
-allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_resistanceLeader_F");
-allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_01_BLK");
-allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_02_BLK");
-
+#include "..\..\Includes\common.inc"
 ////////////////////////////////////
 //      Backpacks Sorting        ///
 ////////////////////////////////////
@@ -124,40 +57,44 @@ allCivilianVests deleteAt (allCivilianVests find "V_RebreatherIA");
 ////////////////////////////////////
 //WHY is there no clean list?
 //allArmoredHeadgear = allHeadgear select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0};
-allCivilianHeadgear = allHeadgear - allArmoredHeadgear;
+allCosmeticHeadgear = allHeadgear - allArmoredHeadgear;
 
 //////////////////
 //   Glasses   ///
 //////////////////
-allCivilianGlasses append allGlasses;
+allCosmeticGlasses append allGlasses;
 
-allCivilianGlasses deleteAt (allCivilianGlasses find "None");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_Goggles_VR");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_I_Diving");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_O_Diving");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_B_Diving");
-allCivilianGlasses deleteAt (allCivilianGlasses find "LIB_Glasses");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "None");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_Goggles_VR");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_I_Diving");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_O_Diving");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_B_Diving");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "LIB_Glasses");
 
 ////////////////
 //   Radios   //
 ////////////////
-If (hasTFAR) then {
-private _encryptRebel = if (teamPlayer == west) then { ["tf_west_radio_code"] } else { ["tf_guer_radio_code", "tf_independent_radio_code"] };
-allRadios = allRadios select {
-    private _encrypt = getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode");
-    (_encrypt in _encryptRebel);
-};
+If (A3A_hasTFAR || A3A_hasTFARBeta) then {
+	private _allRadioItems = allRadios;
+	private _encryptRebel = ["tf_guer_radio_code", "tf_independent_radio_code"];  // tf_independent_radio_code may not exist. More investigation needed.
+	private _encryptEnemy = ["tf_west_radio_code", "tf_east_radio_code"];
 
-private _encrypthostile = if (teamPlayer == west) then { ["tf_guer_radio_code", "tf_independent_radio_code", "tf_east_radio_code"] } else { ["tf_west_radio_code", "tf_east_radio_code"] };
-private _allHostileRadio = [];
-{
-    private _encrypt = getText (configFile >> "CfgVehicles" >> _x >> "tf_encryptionCode");
-  	if (_encrypt in _encryptRebel) then {allBackpacksRadio pushBack _x};
-    if (_encrypt in _encrypthostile) then {_allHostileRadio pushBack _x};
-} forEach allBackpacksEmpty;
+	allRadios = _allRadioItems select { getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode") in _encryptRebel };
+	if (count allRadios == 0) then { ["_encryptRebel","_encryptEnemy"] call BIS_fnc_swapVars };    // Fallback to east and west.
+	allRadios = _allRadioItems select { getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode") in _encryptRebel };
+	if (count allRadios == 0) then {
+		Error("No TFAR radios with matching encryption codes found. Recommendation is to remove TFAR from the mod-set, and use the vanilla radio channel system.");
+	};
 
-//Removes Radios from allBackpacksEmpty
-allBackpacksEmpty = allBackpacksEmpty - _allHostileRadio - allBackpacksRadio;
+	private _allHostileRadio = [];
+	private _backpacksToDelete = [];
+	{
+		private _encrypt = getText (configFile >> "CfgVehicles" >> _x >> "tf_encryptionCode");
+		if (_encrypt in _encryptRebel) then { allBackpacksRadio pushBack _x; _backpacksToDelete insert [0,[_forEachIndex]] } else {
+			if (_encrypt in _encryptEnemy) then { _allHostileRadio pushBack _x; _backpacksToDelete insert [0,[_forEachIndex]] };
+		};
+	} forEach allBackpacksEmpty;
+	{ allBackpacksEmpty deleteAt _x } forEach _backpacksToDelete;  // Removes Radios from allBackpacksEmpty
 };
 /////////////////
 // UAVTerminal //
@@ -167,3 +104,20 @@ allUAVTerminals = allUAVTerminals select {
     private _encrypt = getNumber  (configFile >> "CfgWeapons" >> _x >> "ItemInfo" >> "side");
     (_encrypt isEqualTo "") or (_encrypt isEqualTo _encryptRebel);
 };
+
+//Remove Prop Food
+allMagBullet = allMagBullet select { getText (configFile >> "CfgMagazines" >> _x >> "ammo") isNotEqualTo "FakeAmmo"; };
+
+private _removableDefaultItems = [
+	[allFirstAidKits,"FirstAidKit","firstAidKits"],
+	[allMedikits,"Medikit","mediKits"],
+	[allToolkits,"ToolKit","toolKits"],
+	[allMaps,"ItemMap","itemMaps"]
+];
+{
+	_x params ["_itemCategoryArray","_vanillaItem","_templateVariable"];
+	private _allowedItems = A3A_faction_reb getVariable _templateVariable;
+	if !(_vanillaItem in _allowedItems) then {
+		_itemCategoryArray deleteAt (_itemCategoryArray find _vanillaItem);
+	};
+} forEach _removableDefaultItems;

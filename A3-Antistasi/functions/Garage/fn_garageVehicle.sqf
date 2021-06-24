@@ -11,6 +11,8 @@ _veh = cursorTarget;
 
 if (isNull _veh) exitWith {["Garage", "You are not looking at a vehicle"] call A3A_fnc_customHint;};
 
+if !((_veh getVariable "SA_Tow_Ropes") isEqualTo objNull) exitWith {["Garage", "You can't garage a Vehicle with your Tow Rope out or a Vehicle attached"] call A3A_fnc_customHint;};
+
 if (!alive _veh) exitWith {["Garage", "You can't add destroyed vehicles to your garage"] call A3A_fnc_customHint;};
 _closeX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 _closeX = _closeX select {(player inArea _x) and (_veh inArea _x)};
@@ -25,7 +27,7 @@ _typeVehX = typeOf _veh;
 
 if (_veh isKindOf "Man") exitWith {["Garage", format ["Sorry you can't Garage %1.",name _veh]] call A3A_fnc_customHint;};
 
-if ((typeOf _veh) isEqualTo "Box_IND_Wps_F") exitWith {
+if ((typeOf _veh) in [NATOSurrenderCrate, CSATSurrenderCrate]) exitWith {
 	_veh addMagazineCargoGlobal [unlockedMagazines#0,1];// so fnc_empty will delete the crate
 	_transferLoot = [_veh] spawn A3A_fnc_empty;
 	[10] call A3A_fnc_resourcesPlayer;

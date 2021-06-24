@@ -1,5 +1,6 @@
 params ["_unit", ["_marker", ""], "_isSpawner"];
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 /*  Inits the given unit with all needed data, flags and weapons
 *   Params:
 *       _unit : OBJECT : The unit that needs to be initialized
@@ -11,15 +12,18 @@ params ["_unit", ["_marker", ""], "_isSpawner"];
 */
 
 //TODO we may want to rename that file to AIinit or something
-private _fileName = "NATOinit";
-
 if ((isNil "_unit") || (isNull _unit)) exitWith
 {
-    [1, format ["Bad init parameter: %1", _this], _fileName] call A3A_fnc_log;
+    Error_1("Bad init parameter: %1", _this);
 };
 
-private _type = typeOf _unit;
+private _type = _unit getVariable "unitType";
 private _side = side (group _unit);
+
+if (isNil "_type") then {
+    Error_2("Unit does not have a type assigned: %1, vehicle: %2", typeOf _unit, typeOf vehicle _unit);
+    _type = typeOf _unit;
+};
 
 if (_type == "Fin_random_F") exitWith {};
 
@@ -72,31 +76,13 @@ else
 
 //Calculates the skill of the given unit
 private _skill = (0.15 + (0.02 * difficultyCoef) + (0.01 * tierWar)) * skillMult;
-if (faction _unit isEqualTo factionFIA) then
+if ("militia_" in (_unit getVariable "unitType")) then
 {
     _skill = _skill min (0.2 * skillMult);
 };
-if (faction _unit isEqualTo factionGEN) then
+if ("police" in (_unit getVariable "unitType")) then
 {
     _skill = _skill min (0.12 * skillMult);
-    if (!A3A_hasIFA) then
-    {
-        private _rifleFinal = primaryWeapon _unit;
-        private _magazines = getArray (configFile / "CfgWeapons" / _rifleFinal / "magazines");
-        {
-            _unit removeMagazines _x;			// Broken, doesn't remove mags globally. Pain to fix.
-        } forEach _magazines;
-        _unit removeWeaponGlobal (_rifleFinal);
-        if (tierWar < 5) then
-        {
-            [_unit, (selectRandom allSMGs), 6, 0] call BIS_fnc_addWeapon;
-        }
-        else
-        {
-            [_unit, (selectRandom allRifles), 6, 0] call BIS_fnc_addWeapon;
-        };
-        _unit selectWeapon (primaryWeapon _unit);
-    };
 };
 _unit setSkill _skill;
 
@@ -105,7 +91,7 @@ if (_type in squadLeaders) then
 {
     _unit setskill ["courage",_skill + 0.2];
     _unit setskill ["commanding",_skill + 0.2];
-    private _hasIntel = ((random 100) < 40);
+    private _hasIntel = ((random 100) < 80);
     _unit setVariable ["hasIntel", _hasIntel, true];
     _unit setVariable ["side", _side, true];
     [_unit, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian], _unit];
@@ -117,9 +103,7 @@ if !(A3A_hasIFA) then
 {
     if (sunOrMoon < 1) then
     {
-        if (!A3A_hasRHS) then
-        {
-            if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders) and (_unit != leader (group _unit))) then
+        if (!("SF_" in (_unit getVariable "unitType")) and (_unit != leader (group _unit))) then
             {
                 if (_hmd != "") then
                 {
@@ -130,8 +114,7 @@ if !(A3A_hasIFA) then
                         _hmd = "";
                     };
                 };
-            };
-        }
+            }
         else
         {
             private _arr = (allNVGs arrayIntersect (items _unit));
@@ -200,17 +183,14 @@ if !(A3A_hasIFA) then
     }
     else
     {
-        if (!A3A_hasRHS) then
-        {
-            if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders)) then
+        if !("SF_" in (_unit getVariable "unitType")) then
             {
                 if (_hmd != "") then
                 {
                     _unit unassignItem _hmd;
                     _unit removeItem _hmd;
                 };
-            };
-        }
+            }
         else
         {
             private _arr = (allNVGs arrayIntersect (items _unit));

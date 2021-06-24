@@ -1,7 +1,8 @@
 if (!isServer and hasInterface) exitWith{};
 
 private ["_mrkOrigin","_pos","_attackingSide","_countX","_mrkDestination","_veh","_posOrigin","_sideTargets","_posDestination","_typeVehX","_typeAmmunition","_size","_vehicle","_vehCrew","_groupVeh","_roundsX","_objectiveX","_objectivesX","_timeX"];
-private _filename = "fn_artillery";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 _mrkOrigin = _this select 0;
 _posOrigin = if (_mrkOrigin isEqualType "") then {getMarkerPos _mrkOrigin} else {_mrkOrigin};
@@ -17,7 +18,7 @@ _typeAmmunition = if (_attackingSide == Occupants) then {vehNATOMRLSMags} else {
 
 _pos = [_posOrigin, 50,100, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
 
-_vehicle=[_pos, random 360,_typeVehX, _attackingSide] call bis_fnc_spawnvehicle;
+_vehicle=[_pos, random 360,_typeVehX, _attackingSide] call A3A_fnc_spawnVehicle;
 _veh = _vehicle select 0;
 _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
@@ -25,7 +26,7 @@ _vehCrew = _vehicle select 1;
 _groupVeh = _vehicle select 2;
 _size = [_mrkDestination] call A3A_fnc_sizeMarker;
 
-if (!alive _veh) exitWith {[1, "Arty piece destroyed on spawn, fire mission canceled", _filename] call A3A_fnc_log};
+if (!alive _veh) exitWith {Error("Arty piece destroyed on spawn, fire mission canceled")};
 if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) select 0)]) then
 	{
 	while {(alive _veh) and ({_x select 0 == _typeAmmunition} count magazinesAmmo _veh > 0) and (_mrkDestination in forcedSpawn)} do

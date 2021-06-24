@@ -1,8 +1,9 @@
-private _filename = "fn_surrenderAction";
 params ["_unit"];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 if !(local _unit) exitWith {
-	[1, "Function miscalled with non-local unit", _filename] call A3A_fnc_log;
+    Error("Function miscalled with non-local unit");
 	[_unit] remoteExec ["A3A_fnc_surrenderAction", _unit];
 };
 
@@ -13,7 +14,7 @@ if (typeOf _unit == "Fin_random_F") exitWith {};		// dogs do not surrender?
 
 if (!alive _unit) exitWith {};							// Used to happen with ACE, seems to be fixed
 if (lifeState _unit == "INCAPACITATED") exitWith {
-	[2, "Unit attempted to surrender while incapacitated", _filename] call A3A_fnc_log;		// If not rare, probably a sync bug
+    Info("Unit attempted to surrender while incapacitated"); // If not rare, probably a sync bug
 	_unit setVariable ["surrendered", false, true];
 };
 
@@ -46,7 +47,8 @@ if (_grpIdx == -1) then {
 };
 
 // create surrender box
-private _boxX = "Box_IND_Wps_F" createVehicle position _unit;
+private _surrenderCrateType = [NATOSurrenderCrate, CSATSurrenderCrate] select (side group _unit isEqualTo Invaders);
+private _boxX = _surrenderCrateType createVehicle position _unit;
 _boxX allowDamage false;
 clearMagazineCargoGlobal _boxX;
 clearWeaponCargoGlobal _boxX;

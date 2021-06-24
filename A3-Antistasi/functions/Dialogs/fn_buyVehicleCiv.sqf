@@ -19,5 +19,5 @@ if (str (_display) != "no display") then
 	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> civHeli >> "displayName")];
 	_ChildControl = _display displayCtrl 107;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[civBoat] call A3A_fnc_vehiclePrice];
-	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> vehSDKBoat >> "displayName")];
+	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> civBoat >> "displayName")];
 };

@@ -17,7 +17,7 @@ Scope: _victim, Local Arguments, Global Effect
 Environment: Any
 Public: Yes. Can be called on objects independently, might make for an "interesting" punishment.
 Dependencies:
-    <BOOL> hasACEMedical
+    <BOOL> A3A_hasACEMedical
 
 Example:
     [cursorObject, true] call A3A_fnc_napalmDamage;  // Burn whatever you are looking at.
@@ -32,12 +32,12 @@ private _filename = "functions\AI\fn_napalmDamage.sqf";
 if (isNull _victim) exitWith {false};  // Silent, likely for script to find some null objects somehow.
 
 if (isNil {
-    if (!alive _victim || {!isDamageAllowed _victim}) exitWith {nil};
+    if (!alive _victim || {!isDamageAllowed _victim} || {isObjectHidden _victim}) exitWith {nil};   // Hidden objects could be Zeus or other important mission things.
     1;
 }) exitWith {true};
-private _overKill = 5;  // In case the the unit starts getting healed.
+private _overKill = 3;  // In case the the unit starts getting healed.
 private _timeToLive = 6;  // Higher number causes damage to be dealt more slowly.
-private _totalTicks = 12;  // Higher number gives more detail.
+private _totalTicks = 3;  // Higher number gives more detail.
 
 private _timeBetweenTicks = _timeToLive/_totalTicks;
 private _damagePerTick = 1/_totalTicks;
@@ -50,7 +50,7 @@ private _fnc_final = 'params ["_victim"];';                 // params ["_victim"
 private _invalidVictim = false;
 switch (true) do {
     case (_victim isKindOf "CAManBase"): {  // Man includes everything biological, even animals such as goats ect...
-        if (hasACEMedical) then {
+        if (A3A_hasACEMedical) then {
             _fnc_onTick = _fnc_onTick +
             'if (alive _victim) then {
                 [ _victim, 1*' + str _damagePerTick + ' , "Body", "grenade"] call ace_medical_fnc_addDamageToUnit;'+  // Multiplier might need to be raised for ACE.
@@ -74,7 +74,7 @@ switch (true) do {
         };
     };
     case (_victim isKindOf "Man"): {_invalidVictim = true;};  // Goats, Sneks, butterflies, Rabbits can be blessed by Petros himself.
-    case (_victim isKindOf "AllVehicles" && {isClass (configFile >> "cfgVehicles" >> typeOf _victim >> "HitPoints" >> "HitHull")}): {
+    case (_victim isKindOf "AllVehicles"): {
         // Vehicles should be damaged as much as possible but salvageable. This would give napalm a unique tactic of clearing AI from vehicles allowing them to be repaired, refuelled and requestioned.
         _fnc_init = _fnc_init +
             'clearMagazineCargoGlobal _victim;
@@ -82,13 +82,18 @@ switch (true) do {
             clearItemCargoGlobal _victim;
             clearBackpackCargoGlobal _victim;';
 
-        _fnc_onTick = _fnc_onTick +
-            '_victim setHitPointDamage ["HitHull",(((_victim getHitPointDamage "HitHull") + ' + str _damagePerTick + ') min 0.8) max (_victim getHitPointDamage "HitHull")];'+ // Limited to avoid vehicle being destroyed. Will not decrease vehicle damage if it was initially above 80%
-            '{
-                _victim setHitPointDamage [_x,((_victim getHitPointDamage _x) + ' + str _damagePerTick + ') min 1];
-            } forEach ' + str ((getAllHitPointsDamage _victim)#0 - ["hithull"]) + ';
+        if !(getAllHitPointsDamage _victim isEqualTo []) then { // The static has a class entry, but its empty and getAllHitPointsDamage will return empty array
+            _fnc_onTick = _fnc_onTick +
+                '_victim setHitPointDamage ["HitHull",(((_victim getHitPointDamage "HitHull") + ' + str _damagePerTick + ') min 0.8) max (_victim getHitPointDamage "HitHull")];'+ // Limited to avoid vehicle being destroyed. Will not decrease vehicle damage if it was initially above 80%
+                '{
+                    _victim setHitPointDamage [_x,((_victim getHitPointDamage _x) + ' + str _damagePerTick + ') min 1];
+                } forEach ' + str ((getAllHitPointsDamage _victim)#0 - ["hithull"]) + ';';
+        } else {
+            _fnc_onTick = _fnc_onTick + '_victim setDamage (((damage _victim + ' + str _damagePerTick + ') min 0.8) max damage _victim);'; // Limited to avoid vehicle being destroyed. Will not decrease vehicle damage if it was initially above 80%
+        };
 
-            private _thermalHeat = 0.75*(_tickCount/'+ str _totalTicks +') + 0.25;'+  // The vehicles shouldn't snap to cold when the napalm effect starts begin.
+        _fnc_onTick = _fnc_onTick +
+            'private _thermalHeat = 0.75*(_tickCount/'+ str _totalTicks +') + 0.25;'+  // The vehicles shouldn't snap to cold when the napalm effect starts begin.
             '_victim setVehicleTIPars [_thermalHeat, _thermalHeat, _thermalHeat];';
 
         private _horn = getArray (configFile >> "cfgVehicles" >> typeOf _victim >> "weapons");

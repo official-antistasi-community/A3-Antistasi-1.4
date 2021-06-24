@@ -40,7 +40,7 @@ if (_part == "" && _damage > 0.1) then
 
 
 // Let ACE medical handle the rest (inc return value) if it's running
-if (hasACEMedical) exitWith {};
+if (A3A_hasACEMedical) exitWith {};
 
 
 private _makeUnconscious =

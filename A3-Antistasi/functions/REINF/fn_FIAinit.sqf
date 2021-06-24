@@ -6,7 +6,7 @@ private _unit = _this select 0;
 _unit setVariable ["spawner",true,true];
 
 _unit allowFleeing 0;
-private _typeX = typeOf _unit;
+private _typeX = _unit getVariable "unitType";
 private _skill = (0.6 / skillMult + 0.015 * skillFIA);
 _unit setSkill _skill;
 
@@ -41,10 +41,10 @@ if (player == leader _unit) then {
 		if !(A3A_hasIFA) then {arrayids pushBackUnique (name _victim)};
 		if (side _killer == Occupants) then {
 			_nul = [0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-			[[-1, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+			[Occupants, -1, 30] remoteExec ["A3A_fnc_addAggression",2];
 		} else {
 			if (side _killer == Invaders) then {
-				[[0, 0], [-1, 30]] remoteExec ["A3A_fnc_prestige",2]
+				[Invaders, -1, 30] remoteExec ["A3A_fnc_addAggression",2]
 			} else {
 				if (isPlayer _killer) then {
 					_killer addRating 1000;
@@ -53,7 +53,7 @@ if (player == leader _unit) then {
 		};
 		_victim setVariable ["spawner",nil,true];
 	}];
-	if ((typeOf _unit != SDKUnarmed) and !A3A_hasIFA) then {
+	if (((_unit getVariable "unitType") != SDKUnarmed) and !A3A_hasIFA) then {
 		private _idUnit = selectRandom arrayids;
 		arrayids = arrayids - [_idunit];
 		_unit setIdentity _idUnit;
@@ -64,7 +64,7 @@ if (player == leader _unit) then {
 	if ((!haveRadio) and !(A3A_hasIFA)) then {
 		while {alive _unit} do {
 			sleep 10;
-			if (([player] call A3A_fnc_hasRadio) && (_unit call A3A_fnc_getRadio != "")) exitWith {_unit groupChat format ["This is %1, radiocheck OK",name _unit]};
+			if (([player] call A3A_fnc_hasRadio) && (_unit call A3A_fnc_hasARadio)) exitWith {_unit groupChat format ["This is %1, radiocheck OK",name _unit]};
 			if (unitReady _unit) then {
 				if ((alive _unit) and (_unit distance (getMarkerPos respawnTeamPlayer) > 50) and (_unit distance leader group _unit > 500) and ((vehicle _unit == _unit) or ((typeOf (vehicle _unit)) in arrayCivVeh))) then {
 					["", format ["%1 lost communication, he will come back with you if possible", name _unit]] call A3A_fnc_customHint;
@@ -92,10 +92,10 @@ if (player == leader _unit) then {
 		} else {
 			if (side _killer == Occupants) then {
 				_nul = [0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-				[[-1, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+				[Occupants, -1, 30] remoteExec ["A3A_fnc_addAggression",2];
 			} else {
 				if (side _killer == Invaders) then {
-					[[0, 0], [-1, 30]] remoteExec ["A3A_fnc_prestige",2]
+					[Invaders, -1, 30] remoteExec ["A3A_fnc_addAggression",2]
 				} else {
 					if (isPlayer _killer) then {
 						_killer addRating 1000;

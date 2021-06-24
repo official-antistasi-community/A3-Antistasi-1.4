@@ -31,23 +31,23 @@ params [
     ["_player",objNull,[objNull]],
     ["_veh",objNull,[objNull]]
 ];
-private _filename = "fn_sellVehicle";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
-if (isNull _player) exitWith {[1,"_player is null.",_filename] call A3A_fnc_log;};
+if (isNull _player) exitWith { Error("_player is null.") };
 if (isNull _veh) exitWith {["Sell Vehicle", "You are not looking at a vehicle."] remoteExecCall ["A3A_fnc_customHint",_player];};
 
-if (_veh getVariable ["A3A_sellVehicle_inProgress",false]) exitWith {["Sell Vehicle", "Vehicle sale already in progress."] remoteExecCall ["A3A_fnc_customHint",_player];};
-_veh setVariable ["A3A_sellVehicle_inProgress",true,false];  // Only processed on the server. It is absolutely pointless trying to network this due to race conditions.
-
-if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {["Sell Vehicle", "Vehicle must be closer than 50 meters to the flag marker."] remoteExecCall ["A3A_fnc_customHint",_player];};
+if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {["Sell Vehicle", "Vehicle must be closer than 50 meters to the headquarters marker."] remoteExecCall ["A3A_fnc_customHint",_player];};
 
 if ({isPlayer _x} count crew _veh > 0) exitWith {["Sell Vehicle", "In order to sell the vehicle, it must be empty."] remoteExecCall ["A3A_fnc_customHint",_player];};
 
 _owner = _veh getVariable ["ownerX",""];
 if !(_owner isEqualTo "" || {getPlayerUID _player isEqualTo _owner}) exitWith {  // Vehicle cannot be sold if owned by another player.
-    _veh setVariable ["A3A_sellVehicle_inProgress",false,false];
     ["Sell Vehicle", "You are not the owner of this vehicle. Therefore, you cannot sell it."] remoteExecCall ["A3A_fnc_customHint",_player];
 };
+
+if (_veh getVariable ["A3A_sellVehicle_inProgress",false]) exitWith {["Sell Vehicle", "Vehicle sale already in progress."] remoteExecCall ["A3A_fnc_customHint",_player];};
+_veh setVariable ["A3A_sellVehicle_inProgress",true,false];  // Only processed on the server. It is absolutely pointless trying to network this due to race conditions.
 
 private _typeX = typeOf _veh;
 private _costs = call {

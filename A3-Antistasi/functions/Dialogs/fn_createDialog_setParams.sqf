@@ -16,17 +16,21 @@ if (!isNil "loadLastSave" && {!loadLastSave}) then {
 	["Load Save", "Choose a difficulty level"] call A3A_fnc_customHint;
 	waitUntil {!dialog};
 
+	// Set default SP params before initParams runs, where different from MP
+	if (isNil "skillMult") then {skillMult = 2};
+	minWeaps = [15,15,25,40] select skillMult;
+	membershipEnabled = false;
+	tkPunish = false;
+
 	[] spawn {
 		waitUntil {(!isNil "serverInitDone")};			// need following params to be initialized
-		if (isNil "skillMult") exitWith {};
 		if (skillMult == 1) then
 			{
 			//Easy Difficulty Tweaks
 			server setVariable ["hr",25,true];
 			server setVariable ["resourcesFIA",5000,true];
 			vehInGarage = [vehSDKTruck,vehSDKTruck,SDKMortar,SDKMGStatic,staticAAteamPlayer];
-			minWeaps = 15;
-			if !(hasTFAR) then
+			if !(A3A_hasTFAR || A3A_hasTFARBeta) then
 				{
 				["ItemRadio"] call A3A_fnc_unlockEquipment;
 				haveRadio = true;
@@ -37,13 +41,13 @@ if (!isNil "loadLastSave" && {!loadLastSave}) then {
 			//Hard Difficulty Tweaks
 			server setVariable ["hr",0,true];
 			server setVariable ["resourcesFIA",200,true];
-			minWeaps = 40;
 			};
 		[] call A3A_fnc_statistics;
 		};
+
 	_nul= createDialog "gameMode_menu";
 	waitUntil {dialog};
 	["Load Save", "Choose a Game Mode"] call A3A_fnc_customHint;
 	waitUntil {!dialog};
+	if (isNil "gamemode") then {gamemode = 1};
 };
-

@@ -8,25 +8,16 @@ params["_marker", "_isLarge"];
 *   Returns:
 *       Nothing
 */
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _intelSize = if (_isLarge) then {"large"} else {"medium"};
-private _fileName = "placeIntel";
-[
-    3,
-    format ["Spawning %2 intel on marker %1", _marker, _intelSize],
-    _fileName,
-    true
-] call A3A_fnc_log;
+Debug_2("Spawning %2 intel on marker %1", _marker, _intelSize);
 
 //Catch invalid cases
 if(!(_marker  in airportsX || {_marker in outposts})) exitWith
 {
-    [
-        1,
-        format ["Marker %1 is not suited to have intel!", _marker, true],
-        _fileName,
-        true
-    ] call A3A_fnc_log;
+    Error_1("Marker %1 is not suited to have intel!", _marker);
 };
 
 //Search for building to place intel in
@@ -37,107 +28,116 @@ private _radius = sqrt ((_size select 0) * (_size select 0) + (_size select 1) *
 private _listStaticTower = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F"];
 private _listStaticHQ = ["Land_Cargo_HQ_V1_F", "Land_Cargo_HQ_V2_F", "Land_Cargo_HQ_V3_F"];
 private _listEnochRadar = ["Land_Radar_01_HQ_F"];
+private _listvnbarracks06f = ["Land_vn_barracks_06_f"];
+private _listvncontroltower01F = ["Land_vn_controltower_01_f"];
+private _listControlTower02F = ["Land_ControlTower_02_F"];
+private _listvnslum = ["Land_vn_slum_03_01_f","Land_vn_slum_03_f"];
 
-private _allBuildings = nearestObjects [getMarkerPos _marker, _listStaticHQ + _listStaticTower + _listEnochRadar, _radius, true];
+private _allBuildings = nearestObjects [getMarkerPos _marker, _listStaticHQ + _listStaticTower + _listEnochRadar + _listvnbarracks06f + _listvncontroltower01F + _listControlTower02F, _radius, true];
 
 if(count _allBuildings == 0) exitWith
 {
-    [
-        2,
-        format ["No suitable buildings found on marker %1", _marker],
-        _fileName,
-        true
-    ] call A3A_fnc_log;
+	Info_1("No suitable buildings found on marker %1", _marker);
 };
 
 private _building = selectRandom _allBuildings;
 
 //Placing the intel desk
 private _spawnParameters = switch (true) do {
-case ((typeOf _building) in _listStaticTower): {[_building buildingPos 9, -90]};
-case ((typeof _building) in _listStaticHQ): {[_building buildingPos 1, -180]};
-case ((typeof _building) in _listEnochRadar): {[_building buildingPos 24, -90]};
+	case ((typeOf _building) in _listStaticTower): {[_building buildingPos 9, -90]};
+	case ((typeof _building) in _listStaticHQ): {[_building buildingPos 1, -180]};
+	case ((typeof _building) in _listEnochRadar): {[_building buildingPos 24, -90]};
+	case ((typeof _building) in _listvnbarracks06f): {[_building buildingPos 7, 0]};
+	case ((typeof _building) in _listvncontroltower01F): {[_building buildingPos 13, -0.5]};
+	case ((typeof _building) in _listControlTower02F): {[_building buildingPos 6, -0.3]};
+	case ((typeof _building) in _listvnslum): {
+		private _zpos = _building buildingPos 21;
+		private _pos = _zpos getPos [0.5, (getDir _building) + 110]; //first 0 added distance, secodn 0 moving direction
+		_pos set[2, _zpos #2];
+		[_pos, 0]
+	}; //0 is table rotation
 };
+if (_spawnParameters isEqualType true) exitWith { [1, format ["No spawn parameters for building %1", typeOf _building], _fileName] call A3A_fnc_Log };
 
-private _desk = createVehicle ["Land_CampingTable_F", [0, 0, 0], [], 0, "CAN_COLLIDE"];
-_desk setDir (getDir _building + (_spawnParameters select 1));
-_desk setPosATL (_spawnParameters select 0);
+
+private _factionData = [A3A_faction_occ,A3A_faction_inv] select (_side == east);
+(_factionData getVariable "placeIntel_desk") params ["_classname_desk","_azimuth"];
+private _desk = createVehicle [_classname_desk, [0, 0, 0], [], 0, "CAN_COLLIDE"];
+_desk setDir (getDir _building + (_spawnParameters select 1) + _azimuth);
+if (surfaceIsWater (_spawnParameters select 0)) then {
+	_desk setPosASLW (_spawnParameters select 0);
+} else {
+	_desk setPosATL (_spawnParameters select 0);
+};
 _desk setVelocity [0, 0, -1];
 
-//Await until desk have hit the group, it tend to stuck in the air otherwise
+//Await until desk have hit the group, it tend to stuck in the air otherwise  // Let the desk to settle on the floor, otherwise it's likely that it will be floating.
 sleep 5;
 _desk enableSimulation false;
 
-private _intelType = "";
-if(_isLarge) then
-{
-    _intelType = "Land_Laptop_unfolded_F";
-    _spawnParameters = -25;
-}
-else
-{
-    _intelType = "Land_Document_01_F";
-    _spawnParameters = -155;
-};
+(
+	_factionData getVariable (["placeIntel_itemMedium","placeIntel_itemLarge"] select _isLarge)
+) params ["_intelType","_azimuth","_isComputer"];
 
 private _intel = createVehicle [_intelType, [0,0,0], [], 0, "CAN_COLLIDE"];
-[_desk, _intel, [0.5, 0, 0.82], _spawnParameters] call BIS_fnc_relPosObject;
+[_desk, _intel, [0.5, 0, 0.82], _azimuth] call BIS_fnc_relPosObject;
 _intel enableSimulation false;
 _intel allowDamage false;
 _intel setVariable ["side", _side, true];
+_intel setVariable ["marker", _marker, true];
 
-if(_isLarge) then
-{
-    //Place light on laptop
-    private _light = "#lightpoint" createVehicle (getPos _intel);
-    _light setLightBrightness 1.0;
-    _light setLightAmbient [0.005, 0.05, 0.07];
-    _light setLightColor [0.05, 0.05, 0.07];
-    _light setLightAttenuation [1,90,90,85,0,1];
-    _light lightAttachObject [_intel, [0,0,0]];
+private _intelSize = switch (true) do {
+	case (!_isLarge): { "Intel_Medium" };
+	case (!_isComputer): { "Intel_Encrypted" };
+	default { "Intel_Large" };	// isLarge and isComputer
+};
+[_intel, _intelSize] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_intel];
 
-    private _isTrap = (random 100 < (20 + (4 * tierWar)));
-    if(_isTrap) then
-    {
-        [3, format ["Large intel on %1 is selected as trap, spawning explosives", _marker], _fileName, true] call A3A_fnc_log;
-        private _bomb = "DemoCharge_F" createVehicle [0,0,0];
-        _bomb setVectorDirAndUp [(vectorDir _intel), [0,0,-1]];
-        _bomb setPosWorld ((getPosWorld _intel) vectorAdd [0,0,-0.2]);
-        _intel setVariable ["trapBomb", _bomb, true];
+if (_isLarge && _isComputer) then {
+	//Place light on laptop
+	private _light = "#lightpoint" createVehicle (getPos _intel);
+	_light setLightBrightness 1.0;
+	_light setLightAmbient [0.005, 0.05, 0.07];
+	_light setLightColor [0.05, 0.05, 0.07];
+	_light setLightAttenuation [1,90,90,85,0,1];
+	_light lightAttachObject [_intel, [0,0,0]];
+
+	private _isTrap = (random 100 < (20 + (4 * tierWar)));
+	if(_isTrap) then
+	{
+		Debug_1("Large intel on %1 is selected as trap, spawning explosives", _marker);
+		private _bomb = "DemoCharge_F" createVehicle [0,0,0];
+		_bomb setVectorDirAndUp [(vectorDir _intel), [0,0,-1]];
+		_bomb setPosWorld ((getPosWorld _intel) vectorAdd [0,0,-0.2]);
+		_intel setVariable ["trapBomb", _bomb, true];
 		[
-		    _bomb,
-		    "Disarm bomb",
-		    "\Orange\Addons\ui_f_orange\Data\CfgVehicleIcons\iconExplosiveUXO_ca.paa",
+			_bomb,
+			"Disarm bomb",
 			"\Orange\Addons\ui_f_orange\Data\CfgVehicleIcons\iconExplosiveUXO_ca.paa",
-		    "(_this distance _target < 3) and (_this getUnitTrait 'engineer')",
-		    "_caller distance _target < 3",
-		    {},
-		    {},
-		    { deleteVehicle _target },
-		    {},
-		    [],
-		    12,
-		    0,
-		    true,
-		    false
+			"\Orange\Addons\ui_f_orange\Data\CfgVehicleIcons\iconExplosiveUXO_ca.paa",
+			"(_this distance _target < 3) and (_this getUnitTrait 'engineer')",
+			"_caller distance _target < 3",
+			{},
+			{},
+			{ deleteVehicle _target },
+			{},
+			[],
+			12,
+			0,
+			true,
+			false
 		] remoteExec ["BIS_fnc_holdActionAdd", 0, _bomb];
-    };
-    _intel setVariable ["marker", _marker, true];
-    [_intel, "Intel_Large"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian], _intel];
-}
-else
-{
-    [_intel, "Intel_Medium"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_intel];
+	};
 };
 
 [_marker, _desk, _intel] spawn
 {
-    waitUntil{sleep 10; (spawner getVariable (_this select 0) == 2)};
-    deleteVehicle (_this select 1);
-    if(!isNil {_this select 2}) then
-    {
-        _bomb = (_this select 2) getVariable ["trapBomb", objNull];
-        deleteVehicle _bomb;
-        deleteVehicle (_this select 2)
-    };
+	waitUntil{sleep 10; (spawner getVariable (_this select 0) == 2)};
+	deleteVehicle (_this select 1);
+	if(!isNil {_this select 2}) then
+	{
+		_bomb = (_this select 2) getVariable ["trapBomb", objNull];
+		deleteVehicle _bomb;
+		deleteVehicle (_this select 2)
+	};
 };

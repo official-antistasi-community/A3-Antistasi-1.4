@@ -79,6 +79,7 @@ _cargo setVariable ["AttachmentOffset", _location];
 //block seats
 [_cargo, true] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _cargo];
 [_vehicle, true, _seats] remoteExecCall ["A3A_fnc_logistics_toggleLock", 0, _vehicle];
+_cargo engineOn false;
 
 //break undercover
 if (_weapon && !_instant) then {

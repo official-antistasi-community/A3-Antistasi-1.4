@@ -10,7 +10,8 @@
     Returns:
         Nothing
 */
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 while {true} do
 {
     sleep 60;
@@ -36,8 +37,6 @@ while {true} do
 
     prestigeIsChanging = false;
     [] call A3A_fnc_calculateAggression;
-
-    [3, format ["Occupants:%1 Invaders:%2 Warlevel:%3", aggressionOccupants, aggressionInvaders, tierWar], "aggressionUpdateLoop"] call A3A_fnc_log;
 
     if(gameMode != 4) then
     {

@@ -1,16 +1,22 @@
 if (!(isNil "serverInitDone")) exitWith {};
-private _fileName = "initServer.sqf";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 scriptName "initServer.sqf";
 //Define logLevel first thing, so we can start logging appropriately.
 logLevel = "LogLevel" call BIS_fnc_getParamValue; publicVariable "logLevel"; //Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
-[2,"Dedicated server detected",_fileName] call A3A_fnc_log;
-[2,"Server init started",_fileName] call A3A_fnc_log;
+Info("Dedicated server detected");
+Info("Server init started");
 boxX allowDamage false;
 flagX allowDamage false;
 vehicleBox allowDamage false;
 fireX allowDamage false;
 mapX allowDamage false;
 teamPlayer = side group petros; 				// moved here because it must be initialized before accessing any saved vars
+
+//Disable VN music
+if (isClass (configFile/"CfgVehicles"/"vn_module_dynamicradiomusic_disable")) then {
+    A3A_VN_MusicModule = (createGroup sideLogic) createUnit ["vn_module_dynamicradiomusic_disable", [worldSize, worldSize,0], [],0,"NONE"];
+};
 
 //Load server id
 serverID = profileNameSpace getVariable ["ss_ServerID",nil];
@@ -20,68 +26,12 @@ if(isNil "serverID") then {
 };
 publicVariable "serverID";
 
+
+// Read loadLastSave param directly, SP handles this in createDialog_setParams
 if (isMultiplayer) then {
 	//Load server parameters
 	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	gameMode = "gameMode" call BIS_fnc_getParamValue; publicVariable "gameMode";
-	autoSave = if ("autoSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
-	membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	switchCom = if ("switchComm" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	distanceMission = "mRadius" call BIS_fnc_getParamValue; publicVariable "distanceMission";
-	pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "pvpEnabled";
-	skillMult = "AISkill" call BIS_fnc_getParamValue; publicVariable "skillMult";
-	minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
-	memberOnlyMagLimit = "MemberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
-	allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
-	personalGarageMax = "personalGarageMax" call BIS_fnc_getParamValue; publicVariable "personalGarageMax";
-	civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
-	memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
-	limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
-	napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
-	startWithLongRangeRadio = if ("startWithLongRangeRadio" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "startWithLongRangeRadio";
-	teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
-	playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
-	minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
-	helmetLossChance = "helmetLossChance" call BIS_fnc_getParamValue; publicVariable "helmetLossChance";
-	LootToCrateEnabled = if ("EnableLootToCrate" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "LootToCrateEnabled";
-	LTCLootUnlocked = if ("LTCLootUnlocked" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "LTCLootUnlocked";
-} else {
-	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
-	//These should be set in the set parameters dialog.
-	//This is just a fallback so we don't break
-	loadLastSave = if (isNil "loadLastSave") then {[1, "No loadLastSave setting", _fileName] call A3A_fnc_log; true} else {loadLastSave};
-	gameMode = if (isNil "gameMode") then {[1, "No gameMode setting", _fileName] call A3A_fnc_log; 1} else {gameMode};
-	autoSave = false;
-	autoSaveInterval = 3600;
-	membershipEnabled = false;
-	switchCom = false;
-	tkPunish = false;
-	distanceMission = 4000;
-	pvpEnabled = false;
-	skillMult = if (isNil "skillMult") then {2} else {skillMult};
-	//Acceptable to default this one.
-	minWeaps = if (isNil "minWeaps") then {25} else {minWeaps};
-	memberOnlyMagLimit = 0;
-	allowMembersFactionGarageAccess = true;
-	personalGarageMax = 2;
-	civTraffic = 1;
-	memberDistance = 10;
-	limitedFT = false;
-	napalmEnabled = false;
-	teamSwitchDelay = 0;
-	playerMarkersEnabled = true;
-	minPlayersRequiredforPVP = 2;
-	helmetLossChance = 33;
-	startWithLongRangeRadio = true;
-	LootToCrateEnabled = true;
-	LTCLootUnlocked = false;
-    startWithLongRangeRadio = true;
 };
-
-[] call A3A_fnc_crateLootParams;
-
 
 // Maintain a profilenamespace array called antistasiSavedGames
 // Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
@@ -91,7 +41,7 @@ call
 {
 	// If the legacy campaign ID is valid for this map/mode, just use that
 	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
-		[2, "Loading last campaign, ID " + campaignID, _filename] call A3A_fnc_log;
+        Info("Loading last campaign, ID " + campaignID);
 	};
 
 	// Otherwise, check through the saved game list for matches and build existing ID list
@@ -110,7 +60,7 @@ call
 
 	// If valid save found, exit with that
 	if (loadLastSave && !isNil {["membersX"] call A3A_fnc_returnSavedStat}) exitWith {
-		[2, "Loading campaign from saved list, ID " + campaignID, _filename] call A3A_fnc_log;
+        Info("Loading campaign from saved list, ID " + campaignID);
 	};
 
 	// Otherwise start a new campaign
@@ -118,10 +68,13 @@ call
 	while {campaignID in _existingIDs} do {
 		campaignID = str(floor(random(90000) + 10000));		// guaranteed five digits
 	};
-	[2, "Creating new campaign with ID " + campaignID, _fileName] call A3A_fnc_log;
+    Info("Creating new campaign with ID " + campaignID);
 };
 publicVariable "loadLastSave";
 publicVariable "campaignID";
+
+// Now load all other parameters, loading from save if available
+call A3A_fnc_initParams;
 
 //JNA, JNL and UPSMON. Shouldn't have any Antistasi dependencies except on parameters.
 call A3A_fnc_initFuncs;
@@ -131,12 +84,12 @@ _nul = call A3A_fnc_initVar;
 call A3A_fnc_logistics_initNodes;
 
 savingServer = true;
-[2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
-bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
-if (hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
+Info_2("%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text");
+bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
+if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 call A3A_fnc_loadNavGrid;
 call A3A_fnc_initZones;
-if (gameMode != 1) then {
+if (gameMode != 1) then {			// probably shouldn't be here...
 	Occupants setFriend [Invaders,1];
 	Invaders setFriend [Occupants,1];
 	if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
@@ -161,8 +114,8 @@ if (loadLastSave) then {
 	};
 	if (membershipEnabled and (membersX isEqualTo [])) then {
 		[petros,"hint","Membership is enabled but members list is empty. Current players will be added to the member list", "Membership"] remoteExec ["A3A_fnc_commsMP"];
-		[2,"Previous data loaded",_fileName] call A3A_fnc_log;
-		[2,"Membership enabled, adding current players to list",_fileName] call A3A_fnc_log;
+        Info("Previous data loaded");
+        Info("Membership enabled, adding current players to list");
 		membersX = [];
 		{
 			membersX pushBack (getPlayerUID _x);
@@ -187,7 +140,7 @@ else {
 			} forEach playableUnits;
 	}
 	else {
-		[2,"New session selected",_fileName] call A3A_fnc_log;
+        Info("New session selected");
 		if (isNil "commanderX" || {isNull commanderX}) then {commanderX = (call A3A_fnc_playableUnits) select 0};
 		theBoss = commanderX;
 		theBoss setRank "CORPORAL";
@@ -199,12 +152,12 @@ else {
 	publicVariable "membersX";
 };
 
-[2,"Accepting players",_fileName] call A3A_fnc_log;
+Info("Accepting players");
 if !(loadLastSave) then {
 	{
 		_x call A3A_fnc_unlockEquipment;
 	} foreach initialRebelEquipment;
-	[2,"Initial arsenal unlocks completed",_fileName] call A3A_fnc_log;
+    Info("Initial arsenal unlocks completed");
 };
 call A3A_fnc_createPetros;
 
@@ -230,15 +183,15 @@ addMissionEventHandler ["BuildingChanged", {
 }];
 
 serverInitDone = true; publicVariable "serverInitDone";
-[2,"Setting serverInitDone as true",_fileName] call A3A_fnc_log;
+Info("Setting serverInitDone as true");
 
-
-[2, "Waiting for HQ placement", _fileName] call A3A_fnc_log;
+Info("Waiting for HQ placement");
 waitUntil {sleep 1;!(isNil "placementDone")};
-[2, "HQ Placed, continuing init", _fileName] call A3A_fnc_log;
+Info("HQ Placed, continuing init");
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] spawn A3A_fnc_aggressionUpdateLoop;
+[] spawn A3A_fnc_initSupportCooldowns;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
 
@@ -274,5 +227,4 @@ savingServer = false;
 		sleep _logPeriod;
 	};
 };
-execvm "functions\init\fn_initSnowFall.sqf";
-[2,"initServer completed",_fileName] call A3A_fnc_log;
+Info("initServer completed");

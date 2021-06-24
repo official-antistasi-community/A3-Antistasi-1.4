@@ -39,8 +39,8 @@ if (_medicX != _unit) then
 	_medicX doMove getPosATL _unit;
 	while {true} do
 		{
-		if (!([_medicX] call A3A_fnc_canFight) or (!alive _unit) or (_medicX distance _unit <= 3) or (_timeOut < time) or (_unit != vehicle _unit) or (_medicX != vehicle _medicX) or (_medicX != _unit getVariable ["helped",objNull]) or !(isNull attachedTo _unit) or (_medicX getVariable ["cancelRevive",false])) exitWith {};
 		sleep 1;
+		if (!([_medicX] call A3A_fnc_canFight) or (!alive _unit) or (unitReady _medicX) or (_medicX distance _unit <= 3) or (_timeOut < time) or (_unit != vehicle _unit) or (_medicX != vehicle _medicX) or (_medicX != _unit getVariable ["helped",objNull]) or !(isNull attachedTo _unit) or (_medicX getVariable ["cancelRevive",false])) exitWith {};
 		};
 	if ((isPlayer _unit) and !(isMultiplayer))  then
 		{

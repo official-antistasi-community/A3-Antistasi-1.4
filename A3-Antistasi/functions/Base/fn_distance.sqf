@@ -249,6 +249,8 @@ private _processFIAMarker = {
                             && { _x distance2D _position < distanceSPWN }} != -1
                         || { _marker in forcedSpawn } })
                     then { [[_marker], "A3A_fnc_createCIV"] call A3A_fnc_scheduler; };
+
+                    [[_marker], "A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in outpostsFIA):

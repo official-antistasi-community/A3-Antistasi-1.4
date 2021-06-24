@@ -32,18 +32,14 @@ if (isNil "_defaultMass") then {
     _vehicle setVariable ["default_mass", _defaultMass, true];
 };
 
-private _objectMass = getMass _object;
-private _currentMass = getMass _vehicle;
-
-private _newMass = _currentMass;
+private _cargo = (attachedObjects _vehicle) select { !isNil {_x getVariable "AttachmentOffset"}};
 
 //Figure out our new mass value
-if (_removeObject) then {
-    //Never go lower than the base vehicle's mass.
-    _newMass = (_currentMass - _objectMass) max _defaultMass;
-} else {
-    _newMass = _currentMass + _objectMass;
-};
+private _newMass = _defaultMass;
+{
+    _newMass = _newMass + getMass _x;
+} forEach _cargo;
+_newMass = _newMass max _defaultMass; //never set it bellow the default mass
 
 [_vehicle, _newMass] remoteExec ["setMass", _vehicle];
 if (_dontMsg) exitWith {};

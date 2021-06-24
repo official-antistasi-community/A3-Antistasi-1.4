@@ -34,14 +34,15 @@ else
 	_taskName = "Take the Outpost";
 	};
 
+private _taskId = "CON" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,[_textX,_taskName,_markerX],_positionX,false,0,true,"Target",true] call BIS_fnc_taskCreate;
+[_taskId, "CON", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-[[teamPlayer,civilian],"CON",[_textX,_taskName,_markerX],_positionX,false,0,true,"Target",true] call BIS_fnc_taskCreate;
-missionsX pushBack ["CON","CREATED"]; publicVariable "missionsX";
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)};
 
 if (dateToNumber date > _dateLimitNum) then
 	{
-	["CON",[_textX,_taskName,_markerX],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
+	[_taskId, "CON", "FAILED"] call A3A_fnc_taskSetState;
 	if (_difficultX) then
 		{
 		[10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -58,7 +59,7 @@ if (dateToNumber date > _dateLimitNum) then
 else
 	{
 	sleep 10;
-	["CON",[_textX,_taskName,_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	[_taskId, "CON", "SUCCEEDED"] call A3A_fnc_taskSetState;
 	if (_difficultX) then
 		{
 		[0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
@@ -77,4 +78,4 @@ else
 		};
 	};
 
-_nul = [1200,"CON"] spawn A3A_fnc_deleteTask;
+[_taskId, "CON", 1200] spawn A3A_fnc_taskDelete;

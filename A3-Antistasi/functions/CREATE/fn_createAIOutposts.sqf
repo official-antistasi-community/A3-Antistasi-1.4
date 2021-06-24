@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!isServer and hasInterface) exitWith{};
 private ["_markerX","_vehiclesX","_groups","_soldiers","_positionX","_pos","_size","_frontierX","_sideX","_cfg","_isFIA","_garrison","_antenna","_radiusX","_buildings","_mrk","_countX","_typeGroup","_groupX","_typeUnit","_typeVehX","_veh","_unit","_flagX","_boxX","_roads","_mrkMar","_vehicle","_vehCrew","_groupVeh","_dist","_road","_roadCon","_dirVeh","_bunker","_dir","_posF"];
 _markerX = _this select 0;
@@ -12,7 +14,7 @@ _soldiers = [];
 _positionX = getMarkerPos (_markerX);
 _pos = [];
 
-diag_log format ["[Antistasi] Spawning Outpost %1 (createAIOutposts.sqf)", _markerX];
+Debug_1("Spawning Outpost %1", _markerX);
 
 _size = [_markerX] call A3A_fnc_sizeMarker;
 
@@ -140,7 +142,7 @@ _vehiclesX pushBack _flagX;
 private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 {
 	private _ammoBoxType = if (_sideX == Occupants) then {NATOAmmoBox} else {CSATAmmoBox};
-	private _ammoBox = _ammoBoxType createVehicle _positionX;
+	private _ammoBox = [_ammoBoxType, _positionX, 15, 5, true] call A3A_fnc_safeVehicleSpawn;
 	// Otherwise when destroyed, ammoboxes sink 100m underground and are never cleared up
 	_ammoBox addEventHandler ["Killed", { [_this#0] spawn { sleep 10; deleteVehicle (_this#0) } }];
 	[_ammoBox] spawn A3A_fnc_fillLootCrate;
@@ -168,7 +170,7 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 		if(count _mrkMar > 0) then
 		{
 			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
-			_vehicle=[_pos, 0,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
+			_vehicle=[_pos, 0,_typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 			_veh = _vehicle select 0;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 			_vehCrew = _vehicle select 1;
@@ -181,7 +183,7 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 		}
 		else
 		{
-			diag_log format ["createAIOutposts: Could not find seaSpawn marker on %1!", _markerX];
+			Error_1("Could not find seaSpawn marker on %1!", _markerX);
 		};
 	};
 }

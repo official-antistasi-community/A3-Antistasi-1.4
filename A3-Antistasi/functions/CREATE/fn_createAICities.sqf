@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //NOTA: TAMBIÉN LO USO PARA FIA
 if (!isServer and hasInterface) exitWith{};
 
@@ -14,7 +16,7 @@ _sideX = sidesX getVariable [_markerX,sideUnknown];
 if ({if ((getMarkerPos _x inArea _markerX) and (sidesX getVariable [_x,sideUnknown] != _sideX)) exitWith {1}} count markersX > 0) exitWith {};
 _num = round (_num / 100);
 
-diag_log format ["[Antistasi] Spawning City Patrol in %1 (createAICities.sqf)", _markerX];
+Debug_1("Spawning City Patrol in %1", _markerX);
 
 _dataX = server getVariable _markerX;
 //_prestigeOPFOR = _dataX select 3;
@@ -82,13 +84,6 @@ else
 	{
 	{_grp = _x;
 	{[_x] spawn A3A_fnc_FIAinitBases; _soldiers pushBack _x} forEach units _grp;} forEach _groups;
-	};
-
-waitUntil {sleep 1;((spawner getVariable _markerX == 2)) or ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0)};
-
-if (({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0) and (_esAAF)) then
-	{
-	[[_positionX,Occupants,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
 	};
 
 waitUntil {sleep 1;(spawner getVariable _markerX == 2)};

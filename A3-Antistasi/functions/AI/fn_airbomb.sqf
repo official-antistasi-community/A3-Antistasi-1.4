@@ -1,56 +1,74 @@
-private _filename = "fn_airbomb";
-[3, format ["Executing on: %1", clientOwner], _filename, true] call A3A_fnc_log;
-private ["_countX","_plane","_typeX","_ammo","_cluster","_sleep","_bomb"];
-_plane = vehicle (_this select 0);
-_typeX = _this select 1;
-_countX = 4;
-_cluster = false;
+#define OFFSET      250
 
-switch (_typeX) do {
-    case ("HE"): {
+/*  Creates the bombs for airstrikes, should be started 250 meters before the actual bomb run
+
+*/
+
+params ["_pilot", "_bombType", "_bombCount", "_bombRunLength"];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Debug_1("Executing on: %1", clientOwner);
+
+//Ensure reasonable bomb run lenght
+if(_bombRunLength < 100) then {_bombRunLength = 100};
+
+private _ammo = "";
+private _bombOffset = 0;
+switch (_bombType) do
+{
+    case ("HE"):
+    {
         _ammo = "Bo_Mk82";
-		_sleep = 0.25
+        _bombOffset = 180;
     };
-	case ("CLUSTER"): {
-		_ammo = "BombCluster_03_Ammo_F";
-		_sleep = 0.5
-	};
-	case ("NAPALM"): {
-		_ammo = "ammo_Bomb_SDB";
-		_sleep = 0.5
-	};
-	default {
-		[1, "Invalid bomb type", _filename] call A3A_fnc_log;
-	};
+    case ("CLUSTER"):
+    {
+        _ammo = "BombCluster_03_Ammo_F";
+        _bombOffset = 10;
+    };
+    case ("NAPALM"):
+    {
+        _ammo = "ammo_Bomb_SDB";
+        _bombOffset = 170;
+    };
+    default
+    {
+        Error_1("Invalid bomb type, given was %1", _bombType);
+    };
 };
 
-if (typeOf _plane == vehSDKPlane) then {_countX = round (_countX / 2)};
-sleep random 5;
+if(_ammo == "") exitWith {};
 
-[3, format ["Dropping %1 bombs of type %2 at %3 (near %4)", _countX, _typeX, getPos _plane,text nearestLocation [getPos _plane, "NameCity"]], _filename, true] call A3A_fnc_log;
-for "_i" from 1 to _countX do
-	{
-	sleep _sleep;
-	if (alive _plane) then
-		{
-		_bomb = _ammo createvehicle ([getPos _plane select 0,getPos _plane select 1,(getPos _plane select 2)- 5]);
-		waituntil {!isnull _bomb};
-		_bomb setDir (getDir _plane);
-		_bomb setVelocity [0,0,-50];
-		if (_typeX == "NAPALM") then
-			{
-				_nul = [_bomb] spawn
-				{
-					_bomba = _this select 0;
-					_pos = [];
-					while {!isNull _bomba} do
-					{
-						_pos = getPos _bomba;
-						sleep 0.1;
-					};
-					[_pos] remoteExec ["A3A_fnc_napalm",2];
-				};
-			};
-		};
-	};
+private _speedInMeters = (speed _pilot) / 3.6;
+private _metersPerBomb = _bombRunLength / _bombCount;
+//Decrease it a bit, to avoid scheduling erros
+private _timeBetweenBombs = (_metersPerBomb / _speedInMeters) - 0.05;
+
+sleep ((_timeBetweenBombs/2) + (_bombOffset/_speedInMeters));
+for "_i" from 1 to _bombCount do
+{
+    sleep _timeBetweenBombs;
+    if (alive _pilot) then
+    {
+        private _bombPos = (getPos _pilot) vectorAdd [0, 0, -5];
+        _bomb = _ammo createvehicle _bombPos;
+        waituntil {!isnull _bomb};
+        _bomb setDir (getDir _pilot);
+        _bomb setVelocity [0,0,-50];
+        if (_bombType == "NAPALM") then
+        {
+            [_bomb] spawn
+            {
+                private _bomba = _this select 0;
+                private _pos = [];
+                while {!isNull _bomba} do
+                {
+                    _pos = getPos _bomba;
+                    sleep 0.1;
+                };
+                [_pos] remoteExec ["A3A_fnc_napalm",2];
+            };
+        };
+    };
+};
 //_bomba is used to track when napalm bombs hit the ground in order to call the napalm script on the correct position

@@ -1,80 +1,48 @@
-private ["_unit","_distanceX","_hasMedic","_medicX","_units","_helping","_askingForHelp"];
-_unit = _this select 0;
-_helped = _unit getVariable ["helped",objNull];
-if (!isNull _helped) exitWith {};
-//if (!(isMultiplayer) and (isPlayer _unit) and (_unit getVariable ["incapacitated",false])) then {_unit setVariable ["incapacitated",false]};
-_enemy = _unit findNearestEnemy _unit;
-_distanceX = 81;
-_medicX = objNull;
-_units = units group _unit;
-if ((([objNull, "VIEW"] checkVisibility [eyePos _enemy, eyePos _unit]) > 0) or (_unit distance _enemy < 100) and (!isPlayer _unit)) then
-	{
-	{
-	if (!isPlayer _x) then
-		{
-		if (([_x] call A3A_fnc_canFight) and ("FirstAidKit" in (items _x)) and (vehicle _x == _x) and (_x distance _unit < _distanceX) and !(_x getVariable ["maneuvering",false])) then
-			{
-			_medicX == _unit;
-			};
-		};
-	} forEach _units;
-	}
-else
-	{
-	{
-	if (!isPlayer _x) then
-		{
-		if ([_x] call A3A_fnc_isMedic) then
-			{
-			if (([_x] call A3A_fnc_canFight) and ("FirstAidKit" in (items _x)) and (vehicle _x == _x) and (_x distance _unit < 81) and !(_x getVariable ["maneuvering",false])) then
-				{
-				//_helping = _x getVariable "helping";
-				if (!(_x getVariable ["helping",false]) and (!(_x getVariable ["rearming",false]))) then
-					{
-					_medicX = _x;
-					_distanceX = _x distance _unit;
-					};
-				};
-			};
-		};
-	} forEach _units;
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
-	if (((isNull _medicX) or (_unit getVariable ["incapacitated",false])) and !([_unit] call A3A_fnc_fatalWound)) then
-		{
-		{
-		if (!isPlayer _x) then
-			{
-			if !([_x] call A3A_fnc_isMedic) then
-				{
-				if (([_x] call A3A_fnc_canFight) and ("FirstAidKit" in (items _x)) and (vehicle _x == _x) and (_x distance _unit < _distanceX) and !(_x getVariable ["maneuvering",false])) then
-					{
-					//_helping = _x getVariable "helping";
-					if (!(_x getVariable ["helping",false]) and (!(_x getVariable ["rearming",false]))) then
-						{
-						_medicX = _x;
-						_distanceX = _x distance _unit;
-						};
-					};
-				};
-			};
-		} forEach _units;
-		};
-	if (!isNull _medicX) then
-		{
-		if (isNull(_unit getVariable ["helped",objNull])) then {[_unit,_medicX] spawn A3A_fnc_help};
-		}
-	else
-		{
-		_distanceX = 81;
-		{
-		if (!isPlayer _x) then
-			{
-			if (([_x] call A3A_fnc_canFight) and ("FirstAidKit" in (items _x)) and (vehicle _x == _x) and (_x distance _unit < _distanceX)) then
-				{
-				_medicX == _unit;
-				};
-			};
-		} forEach _units;
-		};
-	};
-_medicX
+params ["_target"];
+
+private _helped = _unit getVariable ["helped", objNull];
+if !(isNull _helped) exitWith { _helped };
+
+// If the target is in a dangerous position and not a player, ignore them for the moment
+private _enemy = _target findNearestEnemy _target;
+if (!isPlayer _target and (([objNull, "VIEW"] checkVisibility [eyePos _enemy, eyePos _target] > 0) or (_target distance _enemy < 100))) exitWith { objNull };
+
+private _firstAidKits = ["FirstAidKit"] + (A3A_faction_reb getVariable "firstAidKits");    // FirstAidKit is kept in case a unit still got hold of it.
+private _unitNeedsFAK = count (_firstAidKits arrayIntersect items _target) == 0;
+
+private _units = units group _target;
+private _medics = _units select { [_x] call A3A_fnc_isMedic };
+_units = _units - _medics;
+
+private _fnc_canHelp = {
+    params ["_unit"];
+    if ((isPlayer _unit) or (vehicle _unit != _unit) or (_unit distance _target > 100)) exitWith { false };
+    if !([_unit] call A3A_fnc_canFight) exitWith { false };
+    if ((_unit getVariable ["maneuvering", false]) or (_unit getVariable ["helping", false]) or (_unit getVariable ["rearming", false])) exitWith { false };
+    if (_unitNeedsFAK and {count (_firstAidKits arrayIntersect items _unit) == 0}) exitWith { false };
+    true;
+};
+
+// Use available medics as priority
+private _index = _medics findIf { _x call _fnc_canHelp };
+if (_index != -1) exitWith {
+    ServerDebug_2("Sending medic %1 to assist target %2", _medics select _index, _target);
+    [_target, _medics select _index] spawn A3A_fnc_help;
+    _medics select _index;
+};
+
+// Only medics will deal with fatal wounds and non-incapped
+private _needsMedic = ([_target] call A3A_fnc_fatalWound) or !(_target getVariable ["incapacitated", false]);
+if (_needsMedic) exitWith { objNull };
+
+private _index = _units findIf { _x call _fnc_canHelp };
+if (_index != -1) exitWith {
+    ServerDebug_2("Sending non-medic %1 to assist target %2", _units select _index, _target);
+    [_target, _units select _index] spawn A3A_fnc_help;
+    _units select _index;
+};
+
+objNull;

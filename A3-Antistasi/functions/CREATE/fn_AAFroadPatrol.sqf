@@ -1,6 +1,8 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private ["_soldiers","_vehiclesX","_groups","_base","_posBase","_roads","_typeCar","_arrayAirports","_arrayDestinations","_radiusX","_road","_veh","_vehCrew","_groupVeh","_groupX","_groupP","_distanceX","_spawnPoint"];
 
-diag_log "[Antistasi] Spawning AAF Road Patrol (AAFroadPatrol.sqf)";
+Debug("Spawning AAF Road Patrol");
 
 _soldiers = [];
 _vehiclesX = [];
@@ -112,7 +114,7 @@ if (_typePatrol != "AIR") then
 		};
 	};
 
-_vehicle=[_posBase, 0,_typeCar, _sideX] call bis_fnc_spawnvehicle;
+_vehicle=[_posBase, 0,_typeCar, _sideX] call A3A_fnc_spawnVehicle;
 _veh = _vehicle select 0;
 [_veh, _sideX] call A3A_fnc_AIVEHinit;
 [_veh,"Patrol"] spawn A3A_fnc_inmuneConvoy;
@@ -179,7 +181,7 @@ while {alive _veh} do
 		};
 	};
 
-{ 
+{
 	private _wp = _x addWaypoint [getMarkerPos _base, 50];
 	_wp setWaypointType "MOVE";
 	_x setCurrentWaypoint _wp;

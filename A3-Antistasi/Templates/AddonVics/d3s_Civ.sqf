@@ -600,7 +600,7 @@ civVehRepairData append [
 	,"d3s_kamaz_4350_kung", 0.3
 	,"d3s_next_kung", 0.3
 ];
-/* Commented out until logistics nodes are added
+
 civVehIndustrialData append [
 	"d3s_baumaschinen", 0.5
 	,"d3s_scania_16", 0.5
@@ -615,8 +615,8 @@ civVehIndustrialData append [
 	,"d3s_peterbilt_579_dryvan", 0.5
 	,"d3s_peterbilt_579_dump", 0.5
 	,"d3s_scania_16_30", 0.5
-	,"d3s_scania_16_30reef", 0.5       */
-	/*Russian*/                        /*
+	,"d3s_scania_16_30reef", 0.5
+	/*Russian*/
 	,"d3s_zil_130_01", 0.5
 	,"d3s_zil_130_02", 0.5
 	,"d3s_zil_130", 0.5
@@ -646,7 +646,7 @@ civVehIndustrialData append [
 	,"d3s_ural_tent", 0.5
 	,"d3s_next", 0.5
 ];
-*/
+
 civVehRefuelData append [
 	"d3s_SRlonghorn_4520_fuel", 0.2
 	,"d3s_SRmh_9500_fuel", 0.2

@@ -1,5 +1,6 @@
 if (!isServer and hasInterface) exitWith{};
-private _filename = "fn_createAIcontrols";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private ["_pos","_veh","_roads","_conquered","_dirVeh","_markerX","_positionX","_vehiclesX","_soldiers","_radiusX","_bunker","_groupE","_unit","_typeGroup","_groupX","_timeLimit","_dateLimit","_dateLimitNum","_base","_dog","_sideX","_cfg","_isFIA","_leave","_isControl","_radiusX","_typeVehX","_typeUnit","_markersX","_frontierX","_uav","_groupUAV","_allUnits","_closest","_winner","_timeLimit","_dateLimit","_dateLimitNum","_size","_base","_mineX","_loser","_sideX"];
 
@@ -7,7 +8,7 @@ _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 
-[2, format ["Spawning Control Point %1", _markerX], _filename] call A3A_fnc_log;
+Info_1("Spawning Control Point %1", _markerX);
 
 if ((_sideX == teamPlayer) or (_sideX == sideUnknown)) exitWith {};
 if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea _x)) exitWith {1}} count markersX >1) exitWith {};
@@ -56,7 +57,7 @@ if (_isControl) then
 
 	if (_radiusX >= 100) then {
 		// fallback case, shouldn't happen unless the map is very broken
-		[1, format ["Roadblock error for %1 at %2", _markerX, _positionX], _filename] call A3A_fnc_log;
+        Error_2("Roadblock error for %1 at %2", _markerX, _positionX);
 		_roads = _positionX nearRoads 20;		// guaranteed due to isOnRoad check
 		_dirveh = random 360;
 	} else {
@@ -165,13 +166,13 @@ else
 			};
 		_groupX = [_positionX,_sideX, _cfg] call A3A_fnc_spawnGroup;
 		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
-		if !(A3A_hasIFA) then
+		_typeVehX = if (_sideX == Occupants) then {vehNATOUAVSmall} else {vehCSATUAVSmall};
+		if (_typeVehX != "not_supported") then
 			{
 			sleep 1;
 			{_soldiers pushBack _x} forEach units _groupX;
-			_typeVehX = if (_sideX == Occupants) then {vehNATOUAVSmall} else {vehCSATUAVSmall};
 			_uav = createVehicle [_typeVehX, _positionX, [], 0, "FLY"];
-			createVehicleCrew _uav;
+			[_sideX, _uav] call A3A_fnc_createVehicleCrew;
 			_vehiclesX pushBack _uav;
 			_groupUAV = group (crew _uav select 1);
 			{[_x] joinSilent _groupX; _pilots pushBack _x} forEach units _groupUAV;
@@ -232,7 +233,7 @@ if (spawner getVariable _markerX != 2) then
 	_closest = [_allUnits,_positionX] call BIS_fnc_nearestPosition;
 	_winner = side _closest;
 	_loser = Occupants;
-	diag_log format ["%1: [Antistasi]: Server | Control %2 captured by %3. Is Roadblock: %4",servertime, _markerX, _winner, _isControl];
+    Debug_3("Control %1 captured by %2. Is Roadblock: %3", _markerX, _winner, _isControl);
 	if (_isControl) then
 		{
 		["TaskSucceeded", ["", "Roadblock Destroyed"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -264,7 +265,6 @@ if (spawner getVariable _markerX != 2) then
 			_nul = [0,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 			};
 		};
-	if (_winner == teamPlayer) then {[[_positionX,_sideX,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
 	};
 
 waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
@@ -279,6 +279,12 @@ deleteGroup _groupX;
 		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
+} forEach _vehiclesX;
+
+
+{
+	// delete all vehicles that haven't been captured
+	if !(_x getVariable ["inDespawner", false]) then { deleteVehicle _x };
 } forEach _vehiclesX;
 
 

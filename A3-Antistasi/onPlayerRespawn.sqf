@@ -69,22 +69,17 @@ if (side group player == teamPlayer) then
 
 
 	// don't reinit revive because damage handlers are respawn-persistent
-	//if (!hasACEMedical) then {[_newUnit] call A3A_fnc_initRevive};
+	//if (!A3A_hasACEMedical) then {[_newUnit] call A3A_fnc_initRevive};
 	disableUserInput false;
 	//_newUnit enableSimulation true;
 	if (_oldUnit == theBoss) then
 		{
 		[_newUnit, true] remoteExec ["A3A_fnc_theBossTransfer", 2];
 		};
-
-
-	removeAllItemsWithMagazines _newUnit;
-	{_newUnit removeWeaponGlobal _x} forEach weapons _newUnit;
-	removeBackpackGlobal _newUnit;
-	removeVest _newUnit;
-	removeAllAssignedItems _newUnit;
 	//Give them a map, in case they're commander and need to replace petros.
-	_newUnit linkItem "ItemMap";
+	_newUnit setUnitLoadout [[],[],[],[selectRandom ((A3A_faction_civ getVariable "uniforms") + (A3A_faction_reb getVariable "uniforms")), []],[],[],selectRandom (A3A_faction_civ getVariable "headgear"),"",[],
+	[(selectRandom unlockedmaps),"","",(selectRandom unlockedCompasses),(selectRandom unlockedwatches),""]];
+
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{
@@ -235,7 +230,7 @@ if (side group player == teamPlayer) then
 			}
 		];
 	[true] spawn A3A_fnc_reinitY;
-	[player] execVM "OrgPlayers\unitTraits.sqf";
+	[] execVM "OrgPlayers\unitTraits.sqf";
 	[] spawn A3A_fnc_statistics;
 	if (LootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
 	}
@@ -244,5 +239,5 @@ else
 	_oldUnit setVariable ["spawner",nil,true];
 	_newUnit setVariable ["spawner",true,true];
 	[player] call A3A_fnc_dress;
-	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
+	if (A3A_hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	};

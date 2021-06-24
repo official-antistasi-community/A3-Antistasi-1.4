@@ -2,6 +2,8 @@
 //el sitio de la boxX es el 21
 if (!isServer and hasInterface) exitWith {};
 private ["_banco","_markerX","_difficultX","_leave","_contactX","_groupContact","_tsk","_posHQ","_citiesX","_city","_radiusX","_positionX","_posHouse","_nameDest","_timeLimit","_dateLimit","_dateLimitNum","_posBase","_pos","_truckX","_countX","_mrkFinal","_mrk","_soldiers"];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 _banco = _this select 0;
 _markerX = [citiesX,_banco] call BIS_fnc_nearestPosition;
 
@@ -46,8 +48,10 @@ _truckX addEventHandler ["GetIn",
 
 [_truckX,"Mission Vehicle"] spawn A3A_fnc_inmuneConvoy;
 
-[[teamPlayer,civilian],"LOG",[format ["We know Gendarmes are guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,false,0,true,"Interact",true] call BIS_fnc_taskCreate;
-missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";
+private _taskId = "LOG" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,[format ["We know Gendarmes are guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,false,0,true,"Interact",true] call BIS_fnc_taskCreate;
+[_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
+
 _mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], _positionX];
 _mrk setMarkerShapeLocal "RECTANGLE";
 _mrk setMarkerSizeLocal [30,30];
@@ -73,14 +77,15 @@ waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (!alive _truckX) or (
 _bonus = if (_difficultX) then {2} else {1};
 if ((dateToNumber date > _dateLimitNum) or (!alive _truckX)) then
 	{
-	["LOG",[format ["We know Gendarmes is guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,"FAILED","Interact"] call A3A_fnc_taskUpdate;
+	[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
 	[-1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	}
 else
 	{
 	_countX = 120*_bonus;//120
-	[[_positionX,Occupants,"",true],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
+    private _reveal = [_positionX , Invaders] call A3A_fnc_calculateSupportCallReveal;
+    [_positionX, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
 	[10*_bonus,-20*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
 	["TaskFailed", ["", format ["Bank of %1 being assaulted",_nameDest]]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	{_friendX = _x;
@@ -124,15 +129,10 @@ else
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (!alive _truckX) or (_truckX distance _posbase < 50)};
 if ((_truckX distance _posbase < 50) and (dateToNumber date < _dateLimitNum)) then
 	{
-	["LOG",[format ["We know Gendarmes is guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,"SUCCEEDED","Interact"] call A3A_fnc_taskUpdate;
+	[_taskId, "LOG", "SUCCEEDED"] call A3A_fnc_taskSetState;
 	[0,5000*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-    [
-        3,
-        "Rebels won a bank mission",
-        "aggroEvent",
-        true
-    ] call A3A_fnc_log;
-	[[20 * _bonus, 120], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+    Debug("aggroEvent | Rebels won a bank mission");
+	[Occupants, 20 * _bonus, 120] remoteExec ["A3A_fnc_addAggression",2];
 	[1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _truckX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
@@ -142,7 +142,7 @@ if ((_truckX distance _posbase < 50) and (dateToNumber date < _dateLimitNum)) th
 	};
 if (!alive _truckX) then
 	{
-	["LOG",[format ["We know Gendarmes is guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,"FAILED","Interact"] call A3A_fnc_taskUpdate;
+	[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
 	[1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};
@@ -150,11 +150,9 @@ if (!alive _truckX) then
 
 deleteVehicle _truckX;
 
-_nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
+[_taskId, "LOG", 1200] spawn A3A_fnc_taskDelete;
 
 { [_x] spawn A3A_fnc_groupDespawner } forEach _groups;
 
-//sleep (600 + random 1200);
-//_nul = [_tsk,true] call BIS_fnc_deleteTask;
 deleteMarker _mrk;
 deleteMarker _mrkFinal;

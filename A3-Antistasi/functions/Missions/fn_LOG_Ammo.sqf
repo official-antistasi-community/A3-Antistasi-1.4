@@ -28,10 +28,11 @@ _pos = position _road;
 _pos = _pos findEmptyPosition [1,60,_typeVehX];
 if (count _pos == 0) then {_pos = position _road};
 
-[[teamPlayer,civilian],"LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_pos,false,0,true,"rearm",true] call BIS_fnc_taskCreate;
-_truckCreated = false;
-missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";
+private _taskId = "LOG" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_pos,false,0,true,"rearm",true] call BIS_fnc_taskCreate;
+[_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
+_truckCreated = false;
 waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer))};
 _bonus = if (_difficultX) then {2} else {1};
 if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) then
@@ -85,8 +86,6 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 			["TaskFailed", ["", format ["Ammotruck Stolen in an %1",(_vehicle getVariable ["ammoTruckLocation", ""])]]] remoteExec ["BIS_fnc_showNotification",_owningSide];
 		};
 
-		[getPosASL _vehicle, _owningSide, "", false] spawn A3A_fnc_patrolCA;
-
 		_truckX removeEventHandler ["GetIn", _thisEventHandler];
 	}];
 
@@ -94,14 +93,14 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 
 	if (dateToNumber date > _dateLimitNum) then
 		{
-		["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_positionX,"FAILED","rearm"] call A3A_fnc_taskUpdate;
+		[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
 		[-1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	if ((not alive _truckX) or (call _fnc_truckReturnedToBase)) then
 		{
 
-			["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_positionX,"SUCCEEDED","rearm"] call A3A_fnc_taskUpdate;
+			[_taskId, "LOG", "SUCCEEDED"] call A3A_fnc_taskSetState;
 			[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 			[1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 			{if (_x distance _truckX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
@@ -110,12 +109,12 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	}
 else
 	{
-	["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.",_nameDest,_displayTime],"Steal or Destroy Ammotruck",_markerX],_positionX,"FAILED","rearm"] call A3A_fnc_taskUpdate;
+	[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
 	[-1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};
 
-_nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
+[_taskId, "LOG", 1200] spawn A3A_fnc_taskDelete;
 if (_truckCreated) then
 {
 	// TODO: Head off to nearby base

@@ -4,8 +4,9 @@
  * We also initialise anything in here that we don't want a client that's joining to overwrite, as JIP happens before initVar.
  */
 scriptName "initVarServer.sqf";
-private _fileName = "initVarServer.sqf";
-[2,"initVarServer started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Info("initVarServer started");
 
 
 //Little bit meta.
@@ -31,22 +32,23 @@ private _declareServerVariable = {
 ////////////////////////////////////////
 //     GENERAL SERVER VARIABLES      ///
 ////////////////////////////////////////
-[2,"initialising general server variables",_fileName] call A3A_fnc_log;
+Info("initialising general server variables");
 
 //time to delete dead bodies, vehicles etc..
 DECLARE_SERVER_VAR(cleantime, 3600);
 //initial spawn distance. Less than 1Km makes parked vehicles spawn in your nose while you approach.
-DECLARE_SERVER_VAR(distanceSPWN, 1000);
-DECLARE_SERVER_VAR(distanceSPWN1, 1300);
-DECLARE_SERVER_VAR(distanceSPWN2, 500);
+//User-adjustable variables are now declared in initParams
+//DECLARE_SERVER_VAR(distanceSPWN, 1000);
+DECLARE_SERVER_VAR(distanceSPWN1, distanceSPWN*1.3);
+DECLARE_SERVER_VAR(distanceSPWN2, distanceSPWN*0.5);
 //Quantity of Civs to spawn in (most likely per client - Bob Murphy 26.01.2020)
-DECLARE_SERVER_VAR(civPerc, 5);
+//DECLARE_SERVER_VAR(civPerc, 5);
 //The furthest distance the AI can attack from using helicopters or planes
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
 DECLARE_SERVER_VAR(distanceForLandAttack, if (A3A_hasIFA) then {5000} else {3000});
 //Max units we aim to spawn in. It's not very strictly adhered to.
-DECLARE_SERVER_VAR(maxUnits, 140);
+//DECLARE_SERVER_VAR(maxUnits, 140);
 
 //Disabled DLC according to server parameters
 DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
@@ -64,6 +66,15 @@ DECLARE_SERVER_VAR(smallCApos, []);
 DECLARE_SERVER_VAR(attackPos, []);
 DECLARE_SERVER_VAR(attackMrk, []);
 DECLARE_SERVER_VAR(airstrike, []);
+
+//Variables used for the internal support system
+DECLARE_SERVER_VAR(occupantsSupports, []);
+DECLARE_SERVER_VAR(invadersSupports, []);
+
+DECLARE_SERVER_VAR(supportTargetsChanging, false);
+
+DECLARE_SERVER_VAR(occupantsRadioKeys, 0);
+DECLARE_SERVER_VAR(invaderRadioKeys, 0);
 
 //Vehicles currently in the garage
 DECLARE_SERVER_VAR(vehInGarage, []);
@@ -87,11 +98,12 @@ DECLARE_SERVER_VAR(bombRuns, 0);
 DECLARE_SERVER_VAR(revealX, false);
 //Whether the players have Nightvision unlocked
 DECLARE_SERVER_VAR(haveNV, false);
-DECLARE_SERVER_VAR(missionsX, []);
+DECLARE_SERVER_VAR(A3A_activeTasks, []);
+DECLARE_SERVER_VAR(A3A_taskCount, 0);
 //List of statics (MGs, AA, etc) that will be saved and loaded.
 DECLARE_SERVER_VAR(staticsToSave, []);
 //Whether the players have access to radios.
-DECLARE_SERVER_VAR(haveRadio, hasTFAR || hasACRE);
+DECLARE_SERVER_VAR(haveRadio, call A3A_fnc_checkRadiosUnlocked);
 //List of vehicles that are reported (I.e - Players can't go undercover in them)
 DECLARE_SERVER_VAR(reportedVehs, []);
 //Currently destroyed buildings.
@@ -105,7 +117,7 @@ server setVariable ["resourcesFIA",1000,true];
 //     SERVER ONLY VARIABLES     ///
 ////////////////////////////////////
 //We shouldn't need to sync these.
-[2,"Setting server only variables",_fileName] call A3A_fnc_log;
+Info("Setting server only variables");
 
 playerStartingMoney = 100;			// should probably be a parameter
 
@@ -133,10 +145,12 @@ destroyedBuildings = [];		// synced only on join, to avoid spam on change
 
 testingTimerIsActive = false;
 
+A3A_tasksData = [];
+
 ///////////////////////////////////////////
 //     INITIALISING ITEM CATEGORIES     ///
 ///////////////////////////////////////////
-[2,"Initialising item categories",__FILE__] call A3A_fnc_log;
+Info("Initialising item categories");
 
 //We initialise a LOT of arrays based on the categories. Every category gets a 'allX' variables and an 'unlockedX' variable.
 
@@ -184,28 +198,33 @@ everyEquipmentRelatedArrayName = allEquipmentArrayNames + unlockedEquipmentArray
 	DECLARE_SERVER_VAR_FROM_VARIABLE(_x, []);
 } forEach everyEquipmentRelatedArrayName;
 
+//Create a global namespace for custom unit types.
+DECLARE_SERVER_VAR(A3A_customUnitTypes, [true] call A3A_fnc_createNamespace);
+
 ////////////////////////////////////
 //          MOD CONFIG           ///
 ////////////////////////////////////
-[2,"Setting mod configs",_fileName] call A3A_fnc_log;
+Info("Setting mod configs");
 
 //TFAR config
-if (hasTFAR) then
+if (A3A_hasTFAR) then
 {
 	if (isServer) then
 	{
 		[] spawn {
+            #include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 			waitUntil {sleep 1; !isNil "TF_server_addon_version"};
-			[2,"Initializing TFAR settings","initVar.sqf"] call A3A_fnc_log;
+            Info("Initializing TFAR settings");
 			["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;						//set to false and players will spawn with LR radio.
 			if (A3A_hasIFA) then
 				{
 				["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
 				["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
 				};
-			//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";								//to make enemy vehicles usable as LR radio
-			//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";					//to make enemy vehicles usable as LR radio
-			//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";					//to make enemy vehicles usable as LR radio
+			tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";								//to make enemy vehicles usable as LR radio
+			tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";					//to make enemy vehicles usable as LR radio
+			tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";					//to make enemy vehicles usable as LR radio
 			["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;						//synchronize SR default frequencies
 			["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;						//synchronize LR default frequencies
 		};
@@ -215,7 +234,7 @@ if (hasTFAR) then
 ////////////////////////////////////
 //      CIVILIAN UNITS LIST      ///
 ////////////////////////////////////
-[2,"Creating civilians",_fileName] call A3A_fnc_log;
+Info("Creating civilians");
 
 //No real reason we initialise this on the server right now...
 private _arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
@@ -225,13 +244,14 @@ DECLARE_SERVER_VAR(arrayCivs, _arrayCivs);
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
 //////////////////////////////////////
-[2,"Reading templates",_fileName] call A3A_fnc_log;
+Info("Reading templates");
 
 private _templateVariables = [
 	//Rebels
 	"nameTeamPlayer",
 	"SDKFlag",
 	"SDKFlagTexture",
+	"SDKFlagMarkerType",
 	"typePetros",
 	"staticCrewTeamPlayer",
 	"SDKUnarmed",
@@ -290,13 +310,12 @@ private _templateVariables = [
 
 	//Occupants
 	"nameOccupants",
-	"factionGEN",
-	"factionMaleOccupants",
-	"factionFIA",
 	"NATOFlag",
 	"NATOFlagTexture",
 	"flagNATOmrk",
 	"NATOAmmobox",
+    "NATOSurrenderCrate",
+    "NATOEquipmentBox",
 	"NATOPlayerLoadouts",
 	"vehNATOPVP",
 	"NATOGrunt",
@@ -361,21 +380,23 @@ private _templateVariables = [
 	"staticATOccupants",
 	"staticAAOccupants",
 	"NATOMortar",
+	"NATOmortarMagazineHE",
 
 	//Invaders
 	"nameInvaders",
-	"factionMaleInvaders",
-	"factionFIA",
 	"CSATFlag",
 	"CSATFlagTexture",
 	"flagCSATmrk",
 	"CSATAmmoBox",
+    "CSATSurrenderCrate",
+    "CSATEquipmentBox",
 	"CSATPlayerLoadouts",
 	"vehCSATPVP",
 	"CSATGrunt",
 	"CSATOfficer",
 	"CSATBodyG",
 	"CSATCrew",
+	"CSATUnarmed",
 	"CSATMarksman",
 	"staticCrewInvaders",
 	"CSATPilot",
@@ -426,7 +447,8 @@ private _templateVariables = [
 	"CSATMG",
 	"staticATInvaders",
 	"staticAAInvaders",
-	"CSATMortar"
+	"CSATMortar",
+	"CSATmortarMagazineHE"
 ];
 
 {
@@ -434,16 +456,17 @@ private _templateVariables = [
 } forEach _templateVariables;
 
 call compile preProcessFileLineNumbers "Templates\selector.sqf";
+//Set SDKFlagTexture on FlagX
+if (local flagX) then { flagX setFlagTexture SDKFlagTexture } else { [flagX, SDKFlagTexture] remoteExec ["setFlagTexture", owner flagX] };
 
 ////////////////////////////////////
 //     TEMPLATE SANITY CHECK      //
 ////////////////////////////////////
-[2,"Sanity-checking templates",_fileName] call A3A_fnc_log;
+Info("Sanity-checking templates");
 
 // modify these appropriately when adding new template vars
 private _nonClassVars = ["nameTeamPlayer", "SDKFlagTexture", "nameOccupants", "NATOPlayerLoadouts", "NATOFlagTexture", "flagNATOmrk", "nameInvaders", "CSATPlayerLoadouts", "CSATFlagTexture", "flagCSATmrk"];
-private _factionVars = ["factionGEN", "factionMaleOccupants", "factionFIA", "factionMaleInvaders"];
-private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "ATMineMag", "APERSMineMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank"];
+private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "ATMineMag", "APERSMineMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank", "NATOmortarMagazineHE", "CSATmortarMagazineHE"];
 
 private _missingVars = [];
 private _badCaseVars = [];
@@ -451,7 +474,7 @@ private _badCaseVars = [];
 	call {
 		private _varName = _x;
 		private _var = missionNamespace getVariable _varName;
-		if (isNil "_var") exitWith { [1, "Missing template var " + _varName, _filename] call A3A_fnc_log };
+		if (isNil "_var") exitWith { Error("Missing template var " + _varName) };
 
 		if !(_var isEqualType []) then {_var = [_var]};									// plain string case, eg factions, some units
 		if (_varname find "breachingExplosives" != -1) then { _var = _var apply {_x#0} };		// ["class", n] case for breaching explosives
@@ -461,10 +484,11 @@ private _badCaseVars = [];
 			_var = _classes;
 		};
 
-		private _section = if (_x in _factionVars) then {"CfgFactionClasses"}
-			else { if (_x in _magazineVars) then {"CfgMagazines"} else {"CfgVehicles"} };
+		private _section = if (_x in _magazineVars) then {"CfgMagazines"} else {"CfgVehicles"};
 		{
-			if !(_x isEqualType "") exitWith { [1, "Bad template var " + _varName, _filename] call A3A_fnc_log };
+			if ("loadouts_" in _x) then {continue};
+			if ("not_supported" in _x) then {continue};
+			if !(_x isEqualType "") exitWith { Error("Bad template var " + _varName) };
 			if !(_x isEqualTo configName (configFile >> _section >> _x)) then
 			{
 			    if !(isClass (configFile >> _section >> _x)) then {
@@ -478,22 +502,22 @@ private _badCaseVars = [];
 } forEach (_templateVariables - _nonClassVars);
 
 if (count _missingVars > 0) then {
-	[1, format ["Missing classnames: %1", _missingVars], _filename] call A3A_fnc_log;
+    Error_1("Missing classnames: %1", _missingVars);
 };
 if (count _badCaseVars > 0) then {
-	[1, format ["Miscased classnames: %1", _badCaseVars], _filename] call A3A_fnc_log;
+    Error_1("Miscased classnames: %1", _badCaseVars);
 };
 
 ////////////////////////////////////
 //      CIVILIAN VEHICLES       ///
 ////////////////////////////////////
-[2,"Creating civilian vehicles lists",_fileName] call A3A_fnc_log;
+Info("Creating civilian vehicles lists");
 
 private _fnc_vehicleIsValid = {
 	params ["_type"];
 	private _configClass = configFile >> "CfgVehicles" >> _type;
 	if !(isClass _configClass) exitWith {
-		[1, format ["Vehicle class %1 not found", _type], _filename] call A3A_fnc_Log;
+        Error_1("Vehicle class %1 not found", _type);
 		false;
 	};
 	if (_configClass call A3A_fnc_getModOfConfigClass in disabledMods) then {false} else {true};
@@ -566,7 +590,7 @@ DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///
 //////////////////////////////////////
-[2,"Identifying unit types",_fileName] call A3A_fnc_log;
+Info("Identifying unit types");
 //Identify Squad Leader Units
 private _squadLeaders = (SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)]);
 DECLARE_SERVER_VAR(squadLeaders, _squadLeaders);
@@ -583,23 +607,23 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 //This is all very tightly coupled.
 //Beware when changing these, or doing anything with them, really.
 
-[2,"Initializing hardcoded categories",_fileName] call A3A_fnc_log;
+Info("Initializing hardcoded categories");
 [] call A3A_fnc_categoryOverrides;
-[2,"Scanning config entries for items",_fileName] call A3A_fnc_log;
+Info("Scanning config entries for items");
 [A3A_fnc_equipmentIsValidForCurrentModset] call A3A_fnc_configSort;
-[2,"Categorizing vehicle classes",_fileName] call A3A_fnc_log;
+Info("Categorizing vehicle classes");
 [] call A3A_fnc_vehicleSort;
-[2,"Categorizing equipment classes",_fileName] call A3A_fnc_log;
+Info("Categorizing equipment classes");
 [] call A3A_fnc_equipmentSort;
-[2,"Sorting grouped class categories",_fileName] call A3A_fnc_log;
+Info("Sorting grouped class categories");
 [] call A3A_fnc_itemSort;
-[2,"Building loot lists",_fileName] call A3A_fnc_log;
+Info("Building loot lists");
 [] call A3A_fnc_loot;
 
 ////////////////////////////////////
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////
-[2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
+Info("Identifying vehicle types");
 
 private _vehNormal = vehNATONormal + vehCSATNormal + vehNATOCargoTrucks;
 _vehNormal append [vehFIACar,vehFIATruck,vehFIAArmedCar,vehPoliceCar,vehNATOBike,vehCSATBike];
@@ -618,10 +642,13 @@ DECLARE_SERVER_VAR(vehPlanes, _vehPlanes);
 private _vehAttackHelis = vehCSATAttackHelis + vehNATOAttackHelis;
 DECLARE_SERVER_VAR(vehAttackHelis, _vehAttackHelis);
 
+private _vehHelis = vehNATOTransportHelis + vehCSATTransportHelis + vehAttackHelis + [vehNATOPatrolHeli,vehCSATPatrolHeli];
+DECLARE_SERVER_VAR(vehHelis, _vehHelis);
+
 private _vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
 DECLARE_SERVER_VAR(vehFixedWing, _vehFixedWing);
 
-private _vehUAVs = [vehNATOUAV,vehCSATUAV];
+private _vehUAVs = [vehNATOUAV,vehCSATUAV,vehNATOUAVSmall,vehCSATUAVSmall];
 DECLARE_SERVER_VAR(vehUAVs, _vehUAVs);
 
 private _vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
@@ -642,6 +669,9 @@ DECLARE_SERVER_VAR(vehAA, _vehAA);
 private _vehMRLS = [vehCSATMRLS, vehNATOMRLS];
 DECLARE_SERVER_VAR(vehMRLS, _vehMRLS);
 
+private _vehArmor = [vehTanks,vehAA,vehMRLS] + vehAPCs;
+DECLARE_SERVER_VAR(vehArmor, _vehArmor);
+
 private _vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis + vehNATOTransportPlanes + vehCSATTransportPlanes;
 DECLARE_SERVER_VAR(vehTransportAir, _vehTransportAir);
 
@@ -657,12 +687,15 @@ DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks) select { [_x] call A3A_fnc_logistics_getVehCapacity > 1 };
 DECLARE_SERVER_VAR(vehCargoTrucks, _vehCargoTrucks);
 
+private _vehClassToCrew = call A3A_fnc_initVehClassToCrew;
+DECLARE_SERVER_VAR(A3A_vehClassToCrew,_vehClassToCrew);
+
 ///////////////////////////
 //     MOD TEMPLATES    ///
 ///////////////////////////
 //Please respect the order in which these are called,
 //and add new entries to the bottom of the list.
-if (hasACE) then {
+if (A3A_hasACE) then {
 	[] call A3A_fnc_aceModCompat;
 };
 if (A3A_hasRHS) then {
@@ -675,12 +708,13 @@ if (A3A_hasIFA) then {
 ////////////////////////////////////
 //     ACRE ITEM MODIFICATIONS   ///
 ////////////////////////////////////
-if (hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];};
+if (A3A_hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_SEM52SL"];};
+if (A3A_hasACRE && startWithLongRangeRadio) then {initialRebelEquipment append ["ACRE_SEM70", "ACRE_PRC117F", "ACRE_PRC77"];};
 
 ////////////////////////////////////
 //    UNIT AND VEHICLE PRICES    ///
 ////////////////////////////////////
-[2,"Creating pricelist",_fileName] call A3A_fnc_log;
+Info("Creating pricelist");
 {server setVariable [_x,50,true]} forEach SDKMil;
 {server setVariable [_x,75,true]} forEach (sdkTier1 - SDKMil);
 {server setVariable [_x,100,true]} forEach  sdkTier2;
@@ -723,7 +757,7 @@ server setVariable [vehSDKTruck,300,true];											//300
 ///////////////////////
 //     GARRISONS    ///
 ///////////////////////
-[2,"Initialising Garrison Variables",_fileName] call A3A_fnc_log;
+Info("Initialising Garrison Variables");
 
 tierPreference = 1;
 cityUpdateTiers = [4, 8];
@@ -739,7 +773,7 @@ otherStaticsTiers = [0.3, 1];
 ////////////////////////////
 //     REINFORCEMENTS    ///
 ////////////////////////////
-[2,"Initialising Reinforcement Variables",_fileName] call A3A_fnc_log;
+Info("Initialising Reinforcement Variables");
 DECLARE_SERVER_VAR(reinforceMarkerOccupants, []);
 DECLARE_SERVER_VAR(reinforceMarkerInvader, []);
 DECLARE_SERVER_VAR(canReinforceOccupants, []);
@@ -748,7 +782,7 @@ DECLARE_SERVER_VAR(canReinforceInvader, []);
 /////////////////////////////////////////
 //     SYNCHRONISE SERVER VARIABLES   ///
 /////////////////////////////////////////
-[2,"Sending server variables",_fileName] call A3A_fnc_log;
+Info("Sending server variables");
 
 //Declare this last, so it syncs last.
 DECLARE_SERVER_VAR(initVarServerCompleted, true);
@@ -756,4 +790,4 @@ DECLARE_SERVER_VAR(initVarServerCompleted, true);
 	publicVariable _x;
 } forEach serverInitialisedVariables;
 
-[2,"initVarServer completed",_fileName] call A3A_fnc_log;
+Info("initVarServer completed");

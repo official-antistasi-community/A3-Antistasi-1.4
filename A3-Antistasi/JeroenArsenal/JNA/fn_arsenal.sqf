@@ -279,7 +279,7 @@ switch _mode do {
 	case "SaveTFAR": {
 		jna_backpackRadioSettings = nil;
 		jna_swRadioSettings = nil;
-		if (hasTFAR) then {
+		if (A3A_hasTFAR) then {
 			private _backpackRadio = player call TFAR_fnc_backpackLr;
 			if (!isNil "_backpackRadio" && {count _backpackRadio >= 2}) then {
 				jna_backpackRadioSettings = _backpackRadio call TFAR_fnc_getLrSettings;
@@ -295,7 +295,7 @@ switch _mode do {
 	//Restore TFAR radio settings
 
 	case "RestoreTFAR": {
-		if (hasTFAR) then {
+		if (A3A_hasTFAR) then {
 			private _backpackRadio = player call TFAR_fnc_backpackLr;
 			if (!isNil "_backpackRadio" && {count _backpackRadio >= 2}) then {
 				if (isNil "jna_backpackRadioSettings" || {typeName jna_backpackRadioSettings != typeName []}) exitWith {
@@ -309,11 +309,11 @@ switch _mode do {
 			//Arsenal gives players base TFAR radio items. TFAR will, at some point, replace this with an 'instanced' version.
 			//This can cause freq to reset. To fix, check if we have a radio first, and wait around if we do, but TFAR isn't showing it.
 			//Spawn so we can sleep without bothering the arsenal.
-			private _hasRadio =	player call A3A_fnc_getRadio != "";
+			private _hasRadio = player call A3A_fnc_hasARadio;
 			if (_hasRadio) then {
 				[] spawn {
 					//Wait around until TFAR has done its work. Frequent checks - we shouldn't have to wait more than a handful of seconds for TFAR;
-					waitUntil {sleep 1; player call A3A_fnc_getRadio != "" && call TFAR_fnc_haveSWRadio};
+					waitUntil {sleep 1; player call A3A_fnc_hasARadio && call TFAR_fnc_haveSWRadio};
 					private _swRadio = if (call TFAR_fnc_haveSWRadio) then { call TFAR_fnc_activeSwRadio } else { nil };
 					//Doesn't hurt to be careful!
 					if (!isNil "_swRadio") then {
@@ -1035,7 +1035,15 @@ switch _mode do {
 				if!(_radioName isEqualTo "")then{_return1 = _radioName};
 
 				_return1;
+
+								//ACRE FIX
+				_radioName = getText(configfile >> "CfgVehicles" >> _return1 >> "acre_baseClass");
+				if!(_radioName isEqualTo "")then{_return1 = _radioName};
+
+				_return1;
+
 			};
+
 			case IDC_RSCDISPLAYARSENAL_TAB_MAP;
 			case IDC_RSCDISPLAYARSENAL_TAB_GPS;
 			case IDC_RSCDISPLAYARSENAL_TAB_COMPASS;
@@ -1929,6 +1937,15 @@ switch _mode do {
 					};
 				};
 
+				//ACRE FIX
+				_OldItemUnequal = _oldItem;
+				if(_index == IDC_RSCDISPLAYARSENAL_TAB_COMPASS)then{
+					_radioName = getText(configfile >> "CfgVehicles" >> _oldItem >> "acre_baseClass");
+					if!(_radioName isEqualTo "")exitWith{
+						_OldItemUnequal = _radioName;
+					};
+				};
+
 				if (_oldItem != _item) then {
 					player unassignitem _OldItemUnequal;
 					player removeitem _OldItemUnequal;
@@ -2612,7 +2629,7 @@ switch _mode do {
 		/////////////////////////////////////////////////////////////////////////////////
 		// unifrom
 		_itemsUnifrom = [];
-		if(hasACEMedical)then{
+		if(A3A_hasACEMedical)then{
 			_itemsUnifrom pushBack ["ACE_elasticBandage",2];
 			_itemsUnifrom pushBack ["ACE_packingBandage",2];
 			_itemsUnifrom pushBack ["ACE_morphine",1];
@@ -2622,14 +2639,14 @@ switch _mode do {
 			_itemsUnifrom pushBack ["ACE_splint", 1];
 		}else{
 			_itemsUnifrom pushBack ["FirstAidKit",2];
-			if(hasACE) then {
+			if(A3A_hasACE) then {
 				_itemsUnifrom pushBack ["ACE_EarPlugs",1];
 				_itemsUnifrom pushBack ["ACE_MapTools",1];
 				_itemsUnifrom pushBack ["ACE_CableTie",2];
 			};
 		};
 
-		if ((hasACE) AND (sunOrMoon <1)) then {
+		if ((A3A_hasACE) AND (sunOrMoon <1)) then {
 			_itemsUnifrom pushback ["ACE_HandFlare_Red",1];
 			_itemsUnifrom pushback ["ACE_Chemlight_HiRed",1];
 			_itemsUnifrom pushBack ["ACE_Flashlight_MX991",1];
@@ -2661,7 +2678,7 @@ switch _mode do {
 
 		if([player] call A3A_fnc_isMedic)then{
 
-			if(hasACEMedical) then { //Medic equipment
+			if(A3A_hasACEMedical) then { //Medic equipment
 				_itemsBackpack pushBack ["ACE_elasticBandage",15];
 				_itemsBackpack pushBack ["ACE_packingBandage",15];
 				_itemsBackpack pushBack ["ACE_tourniquet",5];
@@ -2674,7 +2691,7 @@ switch _mode do {
 				_itemsBackpack pushBack ["FirstAidKit",1];
 			};
 		} else {
-		 		if(hasACEMedical) then {
+		 		if(A3A_hasACEMedical) then {
 					_itemsBackpack pushBack ["ACE_fieldDressing",5];
 					_itemsBackpack pushBack ["ACE_packingBandage",5];
 					_itemsBackpack pushBack ["ACE_elasticBandage",5];
@@ -2690,7 +2707,7 @@ switch _mode do {
 
 		if(player getUnitTrait "Engineer")then {
 					_itemsBackpack pushback ["ToolKit",1];
-					if(hasACE) then {
+					if(A3A_hasACE) then {
 						_itemsbackpack pushback ["ACE_Clacker",1];
 						_itemsbackpack pushback ["ACE_SpraypaintRed",4];
 					};

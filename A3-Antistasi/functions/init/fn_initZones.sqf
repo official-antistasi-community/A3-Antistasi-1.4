@@ -7,8 +7,9 @@
 //deletion of a marker in the array will require deletion of the corresponding marker in the editor
 //only touch the commented arrays
 scriptName "initZones.sqf";
-private _fileName = "initZones.sqf";
-[2,"initZones started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Info("initZones started");
 
 forcedSpawn = [];
 citiesX = [];
@@ -41,20 +42,20 @@ if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
 	};
 };  //this only for Altis and Cherno
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initZones | Setting Spawn Points for %2.", servertime, worldname];
+    Debug_1("Setting Spawn Points for %1.", worldname);
 };
 //We're doing it this way, because Dedicated servers world name changes case, depending on how the file is named.
 //And weirdly, == is not case sensitive.
 //this comments has not an information about the code
 
-(seaMarkers + seaSpawn + seaAttackSpawn + spawnPoints + detectionAreas + islands) apply {_x setMarkerAlpha 0};
+(seaMarkers + seaSpawn + seaAttackSpawn + spawnPoints + detectionAreas) apply {_x setMarkerAlpha 0};
 defaultControlIndex = (count controlsX) - 1;
 outpostsFIA = [];
 destroyedSites = [];
 garrison setVariable ["Synd_HQ", [], true];
 markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initZones | Building roads for %2.",servertime,worldname];
+    Debug_1("Building roads for %1.",worldname);
 };
 markersX apply {
 	_x setMarkerAlpha 0;
@@ -117,6 +118,18 @@ switch (toLower worldName) do {
 		["Sydankyla",150],["Tinkanen",80],["toipela",0],["uski",80],["Uutela",100],["Vilkkila",110],["Virojoki",500],["Ylapaa",80],["Ylapihlaja",80],
 		["Souvio",70]];
 	};
+	//Reduced Pop for performance 16761 to 15350, minimum Pop per Town set to 100 to ensure Vehicle spawning
+	case "cam_lao_nam": {
+		{server setVariable [_x select 0,_x select 1]} forEach
+		[["haiphong",500],["hanoi",1000],["hue",2000],["saigon",700],["sihanoukville",200],["nodallho",100],["bru",100],["attapeu",100],
+		["dakrong",100],["lumphat",100],["cuchi",100],["baria",100],["danang",600],["kenglat",100],["laichau",100],["paknoi",100],
+		["phuan",100],["xomram",120],["xomgia",100],["tongmoo",100],["donlac",100],["cangon",100],["nalai",100],["baichai",100],
+		["bachdang",100],["ketthuc",100],["vongxo",100],["banbon",100],["nongkhiaw",100],["horhog",100],["langmau",100],
+		["baria2",100],["anhoa",100],["binhminh",100],["buoisang",100],["hoalien",100],["lacmy",100],["cacan",100],["tanhop",100],
+		["hanoi2",1200],["gansong",100],["zokcarbora",100],["banhtrung",100],["yentinh",100],["thunglungcao",100],["baibiendep",100],
+		["phoduc",100],["baove",100],["ngatu",100],["binhyen",100],["bosong",100],["marble",180],["niemtin",100],
+		["krosang",100],["banlen",100],["comngon",100],["saigonport",100],["cauhai",100]];
+	};
 	default { _hardcodedPop = false };
 };
     //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
@@ -124,7 +137,15 @@ private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_inf
 
 "(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
 !(getText (_x >> ""Name"") isEqualTo """") &&
-!((configName _x) in [""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""Malden_C_Airport"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Kuusela"", ""Niemela""])"
+!((configName _x) in [""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""Malden_C_Airport"", ""FobNauzad"", ""FobObeh"", ""22"",
+""23"", ""toipela"", ""hirvela"", ""Kuusela"", ""Niemela"", ""fob4"", ""daumau"", ""fob1"", ""quanloi"", ""stagingarea"", ""fob2"",
+""pleimei"", ""fob6"", ""berchtesgaden"", ""fob3"", ""khegio"", ""fob5"", ""thudridge"", ""halongnavybase"", ""plainofjars"", ""pleikuboatbase"",
+""banhoang"", ""vinhau"", ""kechau"", ""quanbo"", ""huecitadel"", ""bimat"", ""danthemthem"", ""daophai"", ""phuquoc"", ""dharmadocks"",
+ ""dharma"", ""patmep"", ""phokham"", ""rungcung"", ""tiengtai"", ""vacang"", ""hanoi3"", ""saigonport"", ""ansungsong"", ""vanchu"",
+ ""sangha"", ""hoxanx"", ""congtroi"", ""boave"", ""longhai"", ""honba"", ""kiemtra"", ""baibiendiep"", ""nuocbun"", ""cantho"",
+ ""nhenden"", ""soctrang"", ""mekongdelta"", ""tampep"", ""segbegat"", ""che"", ""tandi"", ""lahot"", ""alieng"", ""thiengling"",
+ ""phaonoi"", ""timho"", ""quyen"", ""caloi"", ""thuphac"", ""diemdang"", ""bandao"", ""mantau"",""dongxa"", ""tauphabang"", ""horgoat"",
+ ""samsong"", ""muylai"", ""caymo"", ""docon"", ""paradiseisland"", ""mien"", ""giuaho"", ""daotrai""])"
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 	_nameX = configName _x;
@@ -132,32 +153,15 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	_sizeY = getNumber (_x >> "radiusB");
 	_size = [_sizeY, _sizeX] select (_sizeX > _sizeY);
 	_pos = getArray (_x >> "position");
-	_size = [_size, 400] select (_size < 400);		// Different from generateRoadsDB. Maybe not good.
-	_roads = [];
+	_size = [_size, 400] select (_size < 400);
 	_numCiv = 0;
-
-	_roads = roadsX getVariable [_nameX, []];
-	if (count _roads == 0) then
-	{
-		[2, format ["No roads found for marker %1, generating...", _nameX], _fileName] call A3A_fnc_log;
-		_roadsProv = _pos nearRoads _size;
-		_roadsProv apply
-		{
-			_roadcon = roadsConnectedto _x;
-			if (count _roadcon == 2) then
-			{
-				_roads pushBack (getPosATL _x);
-			};
-		};
-		roadsX setVariable [_nameX, _roads, true];
-	};
 
 	if (_hardcodedPop) then
 	{
 		_numCiv = server getVariable _nameX;
 		if (isNil "_numCiv" || {!(_numCiv isEqualType 0)}) then
 		{
-			[1, format ["Bad population count data for %1", _nameX], _fileName] call A3A_fnc_log;
+            Error_1("Bad population count data for %1", _nameX);
 			_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
 		};
 	}
@@ -165,15 +169,12 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 		_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
 	};
 
-	_numVeh = round (_numCiv / 3);
-	_nroads = count _roads;
-	if(_nroads > 0) then
-	{
-		//Fixed issue with a town on tembledan having no roads
-		_nearRoadsFinalSorted = [_roads, [], { _pos distance _x }, "ASCEND"] call BIS_fnc_sortBy;
-		_pos = _nearRoadsFinalSorted select 0;
+	_roads = nearestTerrainObjects [_pos, ["MAIN ROAD", "ROAD", "TRACK"], _size, true, true];
+	if (count _roads > 0) then {
+		// Move marker position to the nearest road, if any
+		_pos = _roads select 0;
 	};
-	if (_nroads < _numVeh) then {_numVeh = _nroads};
+	_numVeh = (count _roads) min (_numCiv / 3);
 
 	_mrk = createmarker [format ["%1", _nameX], _pos];
 	_mrk setMarkerSize [_size, _size];
@@ -194,7 +195,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	server setVariable [_nameX, _info, true];
 };	//find in congigs faster then find location in 25000 radius
 if (debug) then {
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Roads built in %2.",servertime,worldname];
+    Debug_1("Roads built in %1.", worldName);
 };
 
 
@@ -209,9 +210,12 @@ mrkAntennas = [];
 private _posAntennas = [];
 private _blacklistPos = [];
 private _posBank = [];
+private _banktypes = ["Land_Offices_01_V1_F"];
+private _antennatypes = ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F",
+"Land_Vysilac_FM","Land_A_TVTower_base","Land_Telek1", "Land_vn_tower_signal_01"];
 private ["_antenna", "_mrkFinal", "_antennaProv"];
 if (debug) then {
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Setting up Radio Towers.",servertime];
+    Debug("Setting up Radio Towers.");
 };
 
 // Land_A_TVTower_base can't be destroyed, Land_Communication_F and Land_Vysilac_FM are not replaced with "Ruins" when destroyed.
@@ -301,6 +305,17 @@ switch (toLower worldName) do {
 		_blacklistPos = [];
 		antennas = [];
 	};
+	case "cam_lao_nam": {
+		_posAntennas =
+		[[2247.39,3986.44,0.00225067], [6918.17,5419.54,0], [2947.57,8719.32,0.00744534], [3971.88,10207.1,0], [11382.5,5747.82,8.39233e-005],
+		[8700.25,10425.1,-0.00531006], [4898.78,13640.6,-0.120941], [3272.04,15538.2,0], [15266.2,4664.97,0.000167847], [13743.9,8425.6,-0.171967],
+		[14864.6,6866.28,-0.00304413], [16101.4,3639.34,-0.115108], [16074.1,7125.38,0.000450134], [5279.59,16872.8,0.446297], [16120.6,7510.5,0.00740814],
+		[16798.7,6349.54,-0.134335], [17358.3,5560.4,-0.15237], [16567.1,7649.92,-6.48499e-005], [16915.2,7431.9,-9.53674e-006], [11481,14497.6,0.093338],
+		[9002.38,16557.6,0.00338745], [16704,9187.21,-6.29425e-005], [14135,12825.5,0.106886], [16193.1,10991.2,-0.0359497], [16956.7,10360.2,-6.67572e-005],
+		[18696.2,8463.42,-0.26639], [20109.3,6538.61,9.53674e-007], [20062.7,7258.82,0.0105629], [14532.3,16441.8,-0.00198364], [14754.2,18335.2,0.000380516]];
+		_blackListPos = [11, 15, 17, 21, 24, 27];
+		antennas = [];
+	};
 	case "sara": {
 		_posAntennas =
 		[[3142.96,2739.15,0.18647], [8514.74,7996.98,0.0240936], [11464.1,6307.43,-0.0322723], [11885.1,6210.11,-15.4125],
@@ -312,9 +327,9 @@ switch (toLower worldName) do {
 		antennas = [];
 	};
 	default {
-		antennas = nearestObjects [[worldSize /2, worldSize/2], ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F", "Land_Vysilac_FM","Land_A_TVTower_base", "Land_Telek1"], worldSize];
+		antennas = nearestObjects [[worldSize /2, worldSize/2], _antennatypes, worldSize];
 
-		banks = nearestObjects [[worldSize /2, worldSize/2], ["Land_Offices_01_V1_F"], worldSize];
+		banks = nearestObjects [[worldSize /2, worldSize/2], _banktypes, worldSize];
 
 		private _replacedAntennas = [];
 		{ _replacedAntennas pushBack ([_x] call _replaceBadAntenna); } forEach antennas;
@@ -353,12 +368,12 @@ switch (toLower worldName) do {
 	};
 };
 if (debug) then {
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Radio Tower built.", servertime];
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Finding broken Radio Towers.", servertime];
+    Debug("Radio Tower built.");
+    Debug("Finding broken Radio Towers.");
 };
 if (count _posAntennas > 0) then {
 	for "_i" from 0 to (count _posAntennas - 1) do {
-		_antennaProv = nearestObjects [_posAntennas select _i, ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F", "Land_Vysilac_FM","Land_A_TVTower_base","Land_Telek1"], 35];
+		_antennaProv = nearestObjects [_posAntennas select _i, _antennaTypes, 35];
 
 		if (count _antennaProv > 0) then {
 			_antenna = _antennaProv select 0;
@@ -402,11 +417,11 @@ if (count _posAntennas > 0) then {
 	};
 };
 if (debug) then {
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Broken Radio Towers identified.",servertime];
+	Error("Broken Radio Towers identified.");
 };
 if (count _posBank > 0) then {
 	for "_i" from 0 to (count _posBank - 1) do {
-		_bankProv = nearestObjects [_posBank select _i, ["Land_Offices_01_V1_F"], 30];
+		_bankProv = nearestObjects [_posBank select _i, _banktypes, 30];
 
 		if (count _bankProv > 0) then {
 			private _banco = _bankProv select 0;
@@ -446,11 +461,9 @@ publicVariable "seaSpawn";
 publicVariable "seaAttackSpawn";
 publicVariable "defaultControlIndex";
 publicVariable "detectionAreas";
-publicVariable "islands";
-publicVariable "roadsMrk";
 
 if (isMultiplayer) then {
 	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]
 };
 
-[2,"initZones completed",_fileName] call A3A_fnc_log;
+Info("initZones completed");

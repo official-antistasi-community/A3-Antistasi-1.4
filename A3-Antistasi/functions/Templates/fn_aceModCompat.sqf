@@ -1,7 +1,9 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 ////////////////////////////////////
 //      ACE ITEMS LIST           ///
 ////////////////////////////////////
-diag_log format ["%1: [Antistasi] | INFO | initVar | Creating ACE Items List",servertime];
+Info("Creating ACE Items List");
 aceItems = [
 	"ACE_EarPlugs",
 	"ACE_RangeCard",
@@ -62,16 +64,16 @@ initialRebelEquipment append aceItems;
 
 
 //ACE medical starting items
-if (hasACEMedical) then {
+if (A3A_hasACEMedical) then {
 	initialRebelEquipment append aceMedItems;
 };
 
 if (A3A_hasADV) then {
 	initialRebelEquipment append advItems;
 };
-
-lootItem append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield","ACE_VMH3","ACE_VMM3"];
-
+if !(A3A_hasVN) then {
+	lootItem append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield","ACE_VMH3","ACE_VMM3"];
+};
 lootMagazine deleteAt (lootMagazine find "ACE_PreloadedMissileDummy");
 allLightAttachments deleteAt (allLightAttachments find "ACE_acc_pointer_green");
 lootItem deleteAt (lootItem find "MineDetector");

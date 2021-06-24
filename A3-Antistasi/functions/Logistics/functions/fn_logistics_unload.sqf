@@ -18,6 +18,8 @@
     Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
 */
 params ["_vehicle", ["_instant", false, [true]]];
+#include "..\..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _loaded = _vehicle getVariable ["Cargo", []];
 private _lastLoaded = false;
@@ -37,6 +39,7 @@ _updateList = {
     params ["_vehicle", "_node"];
     private _list = _vehicle getVariable ["logisticsCargoNodes",[]];
     private _index = _list find _node;
+    if (_index < 0) exitWith {Error_3("Bad _updateList call | Vehicle: %1 | Vehicle Nodes: %2 | Node: %3", _vehicle, _list, _node)};
     _node set [0,1];
     _list set [_index, _node];
     _vehicle setVariable ["logisticsCargoNodes", _list];

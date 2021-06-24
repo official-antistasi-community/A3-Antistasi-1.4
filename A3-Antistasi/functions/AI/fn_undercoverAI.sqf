@@ -19,7 +19,9 @@ _loadOut = getUnitLoadout _unit;
 removeAllItems _unit;
 removeAllAssignedItems _unit;
 removeAllWeapons _unit;
-_unit forceAddUniform (selectRandom allCivilianUniforms);
+_unit forceAddUniform (selectRandom (A3A_faction_civ getVariable "uniforms"));
+removeHeadgear _unit;
+removeGoggles _unit;
 
 //_airportsX = airportsX + outposts;// + (controlsX select {isOnRoad getMarkerPos _x});
 while {(captive _LeaderX) and (captive _unit)} do

@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 #define SPACING     1
 
 params ["_marker", "_placementMarker"];
@@ -32,7 +34,7 @@ _mainMarker = getMarkerPos _marker;
   _fullName = format ["%1%2", _markerPrefix, _x];
   if(debug && {_mainMarker distance (getMarkerPos _fullName) > 500}) then
   {
-    diag_log format ["Placementmarker %1 is more than 500 meter away from its mainMarker %2. You may want to check that!", _fullName, _marker];
+    Error_2("Placementmarker %1 is more than 500 meter away from its mainMarker %2. You may want to check that!", _fullName, _marker);
   };
   switch (_first) do
   {
@@ -46,7 +48,7 @@ _mainMarker = getMarkerPos _marker;
 
 if(count _vehicleMarker == 0) then
 {
-  diag_log format ["InitSpawnPlaces: Could not find any vehicle places on %1!", _marker];
+  Error_1("InitSpawnPlaces: Could not find any vehicle places on %1!", _marker);
 };
 
 private ["_markerSize", "_distance", "_buildings", "_hangars", "_helipads", "_markerX"];
@@ -54,7 +56,7 @@ private ["_markerSize", "_distance", "_buildings", "_hangars", "_helipads", "_ma
 _markerSize = markerSize _marker;
 _distance = sqrt ((_markerSize select 0) * (_markerSize select 0) + (_markerSize select 1) * (_markerSize select 1));
 
-_buildings = nearestObjects [getMarkerPos _marker, ["Helipad_Base_F", "Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F", "Land_Mil_hangar_EP1", "Land_Ss_hangar", "Land_Ss_hangard"], _distance, true];
+_buildings = nearestObjects [getMarkerPos _marker, ["Helipad_Base_F", "Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F", "Land_Mil_hangar_EP1", "Land_Ss_hangar", "Land_Ss_hangard", "Land_vn_helipad_base", "Land_vn_airport_01_hangar_f", "Land_vn_usaf_hangar_01", "Land_vn_usaf_hangar_02", "Land_vn_usaf_hangar_03"], _distance, true];
 
 _hangars = [];
 _helipads = [];
@@ -62,7 +64,7 @@ _helipads = [];
 {
   if((getPos _x) inArea _marker) then
   {
-    if(_x isKindOf "Helipad_Base_F") then
+    if((_x isKindOf "Helipad_Base_F") or (_x isKindOf "Land_vn_helipad_base")) then
     {
       _helipads pushBack _x;
     }
@@ -78,7 +80,7 @@ _helipads = [];
   _markerX = _x;
   _markerSize = markerSize _x;
   _distance = sqrt ((_markerSize select 0) * (_markerSize select 0) + (_markerSize select 1) * (_markerSize select 1));
-  _buildings = nearestObjects [getMarkerPos _x, ["Helipad_Base_F"], _distance, true];
+  _buildings = nearestObjects [getMarkerPos _x, ["Helipad_Base_F", "Land_vn_helipad_base"], _distance, true];
   {
     if((getPos _x) inArea _markerX) then
     {
@@ -91,7 +93,7 @@ _helipads = [];
   _markerX = _x;
   _markerSize = markerSize _x;
   _distance = sqrt ((_markerSize select 0) * (_markerSize select 0) + (_markerSize select 1) * (_markerSize select 1));
-  _buildings = nearestObjects [getMarkerPos _x, ["Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F", "Land_Mil_hangar_EP1", "Land_Ss_hangar", "Land_Ss_hangard"], _distance, true];
+  _buildings = nearestObjects [getMarkerPos _x, ["Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F", "Land_Mil_hangar_EP1", "Land_Ss_hangar", "Land_Ss_hangard", "Land_vn_airport_01_hangar_f", "Land_vn_usaf_hangar_01", "Land_vn_usaf_hangar_02", "Land_vn_usaf_hangar_03"], _distance, true];
   {
     if((getPos _x) inArea _markerX) then
     {
@@ -111,13 +113,13 @@ _vehicleSpawns = [];
     _width = (_size select 1) * 2;
     if(_width < (4 + 2 * SPACING)) then
     {
-      diag_log format ["InitSpawnPlaces: Marker %1 is not wide enough for vehicles, required are %2 meters!", _x , (4 + 2 * SPACING)];
+      Error_2("InitSpawnPlaces: Marker %1 is not wide enough for vehicles, required are %2 meters!", _x , (4 + 2 * SPACING));
     }
     else
     {
       if(_length < 10) then
       {
-          diag_log format ["InitSpawnPlaces: Marker %1 is not long enough for vehicles, required are 10 meters!", _x];
+        Error_1("InitSpawnPlaces: Marker %1 is not long enough for vehicles, required are 10 meters!", _x);
       }
       else
       {
@@ -161,7 +163,7 @@ _vehicleSpawns = [];
 _heliSpawns = [];
 {
     _pos = getPos _x;
-    _pos set [2, 0.1];
+    _pos set [2, 0.4];
     if (!isMultiplayer) then
     {
       {
@@ -183,7 +185,7 @@ _planeSpawns = [];
     _pos = getPos _x;
     _pos set [2, ((_pos select 2) + 0.1) max 0.1];
     _dir = direction _x;
-    if(_x isKindOf "Land_Hangar_F" || {_x isKindOf "Land_Airport_01_hangar_F" || {_x isKindOf "Land_Mil_hangar_EP1" || {_x isKindOf "Land_Ss_hangar" || {_x isKindOf "Land_Ss_hangard"}}}}) then
+    if(_x isKindOf "Land_Hangar_F" || {_x isKindOf "Land_Airport_01_hangar_F" || {_x isKindOf "Land_Mil_hangar_EP1" || {_x isKindOf "Land_Ss_hangar" || {_x isKindOf "Land_Ss_hangard" || {_x isKindOf "Land_vn_airport_01_hangar_f" || {_x isKindOf "Land_vn_usaf_hangar_01" || {_x isKindOf "Land_vn_usaf_hangar_02" || {_x isKindOf "Land_vn_usaf_hangar_03"}}}}}}}}) then
     {
       //This hangar is facing the wrong way...
       _dir = _dir + 180;
@@ -200,7 +202,7 @@ _mortarSpawns = [];
 
 _spawns = [_vehicleSpawns, _heliSpawns, _planeSpawns, _mortarSpawns];
 
-//diag_log format ["%1 set to %2", _marker, _spawns];
+//Debug_2("%1 set to %2", _marker, _spawns);
 
 //Saving the spawn places
 spawner setVariable [format ["%1_spawns", _marker], _spawns, true];

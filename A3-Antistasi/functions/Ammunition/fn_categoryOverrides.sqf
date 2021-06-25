@@ -108,9 +108,6 @@ private _categoryOverrideTable = [
 ["ACE_microDAGR", ["Gadgets","Items"]],
 ["ACE_DAGR", ["Gadgets","Items"]],
 
-["rhsusf_Rhino", ["Unknown", "Items"]],    //Just a Headmount not NVG
-["rhs_6m2_nvg", ["Unknown", "Items"]],    //a Headset not NVG
-["rhs_6m2_1_nvg", ["Unknown", "Items"]],    //a Headset not NVG
 ["LIB_PTRD", ["Unknown", "Weapons"]],
 ["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
 ["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat
@@ -167,18 +164,6 @@ private _categoryOverrideTable = [
 ["LIB_GrWr34_Barrel_g", ["StaticWeaponParts","Items"]],
 ["LIB_M2_60_Tripod", ["StaticWeaponParts","Items"]],
 ["LIB_M2_60_Barrel", ["StaticWeaponParts","Items"]]   ];
-
-/* Not sure if these are a problem
-["LIB_GER_Headset",["NVGs","Items"]],
-["LIB_Headwrap",["NVGs","Items"]],
-["LIB_Headwrap_gloves",["NVGs","Items"]],
-["LIB_Mohawk",["NVGs","Items"]],
-["LIB_GER_Gloves1",["NVGs","Items"]],
-["LIB_GER_Gloves2",["NVGs","Items"]],
-["LIB_GER_Gloves3",["NVGs","Items"]],
-["LIB_GER_Gloves4",["NVGs","Items"]],
-["LIB_GER_Gloves5",["NVGs","Items"]],
-*/
 
 //Create a local namespace. Should only run on the server.
 categoryOverrides = false call A3A_fnc_createNamespace;

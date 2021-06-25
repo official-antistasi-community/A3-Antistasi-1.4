@@ -24,14 +24,74 @@ Always think of the next guy that may have to work on your code. Chances are it 
 
 A3A_logistics_vehicleHardpoints append [
 // Trucks
-//OpelBlitz Open
+ //OpelBlitz Open
  ["LIB_OpelBlitz_Open_Y_Camo" call A3A_fnc_classNameToModel, [
     [1,             [-0.05,-1.3,-0.72],     [3,4]],
     [1,             [-0.05,-2.3,-0.72],     [1,2]]
     ]],
- 
+ ["LIB_OpelBlitz_Open_Y_Camo_w" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ ["LIB_OpelBlitz_Open_G_Camo_w" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ ["LIB_DAK_OpelBlitz_Open" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
  //OpelBlitz Closed
-  ["LIB_OpelBlitz_Tent_Y_Camo" call A3A_fnc_classNameToModel, [
+ ["LIB_OpelBlitz_Tent_Y_Camo" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ ["LIB_OpelBlitz_Tent_Y_Camo_w" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ ["LIB_DAK_OpelBlitz_Tent" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ //US6 Open
+ ["LIB_US6_Open_Cargo" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ ["LIB_US6_Open" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ //US6 Closed
+ ["LIB_US6_Tent" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ ["LIB_US6_Tent_Cargo" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ //SdKfz 7/1
+ ["LIB_SdKfz_7" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ //Zis5v
+ ["LIB_Zis5v" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ ["LIB_Zis5v_w" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ //GMC Truck
+ ["LIB_US_GMC_Tent" call A3A_fnc_classNameToModel, [
+    [1,             [-0.05,-1.3,-0.72],     [3,4]],
+    [1,             [-0.05,-2.3,-0.72],     [1,2]]
+    ]],
+ ["LIB_US_GMC_Open" call A3A_fnc_classNameToModel, [
     [1,             [-0.05,-1.3,-0.72],     [3,4]],
     [1,             [-0.05,-2.3,-0.72],     [1,2]]
     ]]
@@ -57,8 +117,10 @@ A3A_logistics_vehicleHardpoints append [
 A3A_logistics_attachmentOffset append [
 //model                                                                       //offset                    //rotation                  //size  //recoil (if weapon)
 // Static weapons
-  ["LIB_M1919_M2" call A3A_fnc_classNameToModel,                              [-0.2, 0, 1.3],             [0,-1,0],                   2,      100] // M2
-
+  ["LIB_M1919_M2" call A3A_fnc_classNameToModel,                              [-0.2, 0, 1.3],             [0,-1,0],                   2,      100], // M2
+  ["LIB_MG42_Lafette_Deployed" call A3A_fnc_classNameToModel,                              [-0.2, 0, 1.3],             [0,-1,0],                   2,      100], // MG42
+  ["LIB_Maxim_M30_base" call A3A_fnc_classNameToModel,                              [-0.2, 0, 1.3],             [0,-1,0],                   2,      100], // Maxim Floor
+  ["LIB_Maxim_M30_Trench" call A3A_fnc_classNameToModel,                              [-0.2, 0, 1.3],             [0,-1,0],                   2,      100] // Maxim Trench
   //Crates
   
   //Other    
@@ -68,15 +130,16 @@ A3A_logistics_attachmentOffset append [
 /*
     Next up is to add all covered or closed vehicles to this next section, this is needed to prevent statics being loaded inside of closed vehicles or covered vehicle, where they become usless, and it quite franckly looks silly.
 */
-A3A_logistics_coveredVehicles append [
-    "LIB_OpelBlitz_Tent_Y_Camo"
-];
+A3A_logistics_coveredVehicles append ["LIB_OpelBlitz_Tent_Y_Camo", "LIB_OpelBlitz_Tent_Y_Camo_w", "LIB_US6_Tent", "LIB_US6_Tent_Cargo", "LIB_US_GMC_Tent", "LIB_DAK_OpelBlitz_Tent"];
 
 /*
     Finally you need to declair weapons that you have added here, this is done with arrays consisting of pairs of the model of the weapon, and an array of all vehicle models the weapon is not allowed on.
     This blacklisted vehicles already include closed and covered vehicles so you don't have to add those
 */
 A3A_logistics_weapons append [
-    ["LIB_M1919_M2" call A3A_fnc_classNameToModel, []]
+    ["LIB_M1919_M2" call A3A_fnc_classNameToModel, []],
+	["LIB_MG42_Lafette_Deployed" call A3A_fnc_classNameToModel, []],
+	["LIB_Maxim_M30_base" call A3A_fnc_classNameToModel, []],
+	["LIB_Maxim_M30_Trench" call A3A_fnc_classNameToModel, []]
 ];
 //That covers everything, you should make you file by replacing values in an already complete file rather than using this as the active files will have the proper commenting there already. Using this one would leave a tonne of unnecessary comments in the file.

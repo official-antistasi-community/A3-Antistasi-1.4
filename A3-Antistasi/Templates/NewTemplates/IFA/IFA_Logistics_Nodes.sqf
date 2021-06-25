@@ -80,11 +80,11 @@ A3A_logistics_vehicleHardpoints append [
 A3A_logistics_attachmentOffset append [
 //model                                                                       //offset                    //rotation                  //size  //recoil (if weapon)
 // Static weapons
-  ["LIB_MG42_Lafette_Deployed" call A3A_fnc_classNameToModel,                              [-0.2, -1.5, 0],             [0,-1,0],                   2,      100], // MG42
-  ["LIB_GrWr34" call A3A_fnc_classNameToModel,                              [0, 0, 1],             [0,-1,0],                   3,      100], // German Mortar
-  ["LIB_FlaK_30" call A3A_fnc_classNameToModel,                              [0, -0.5, 0],             [0,-1,0],                   3,      100], // AK AA
-  ["LIB_Flakvierling_38" call A3A_fnc_classNameToModel,                              [0, -0.5, 0],             [0,-1,0],                   3,      100], // German AA
-  ["LIB_BM37" call A3A_fnc_classNameToModel,                              [0, 0, 1],             [0,-1,0],                   3,      100] // Soviet Mortar
+  ["LIB_MG42_Lafette_Deployed" call A3A_fnc_classNameToModel,                              [0, -1.5, 0],             [0,-1,0],                   4,      100], // MG42
+  ["LIB_GrWr34" call A3A_fnc_classNameToModel,                              [0, 0, 1],             [0,-1,0],                   4,      100], // German Mortar
+  ["LIB_FlaK_30" call A3A_fnc_classNameToModel,                              [0, -0.5, 0],             [0,-1,0],                   4,      100], // AK AA
+  ["LIB_Flakvierling_38" call A3A_fnc_classNameToModel,                              [0, -0.5, 0],             [0,-1,0],                   4,      100], // German AA
+  ["LIB_BM37" call A3A_fnc_classNameToModel,                              [0, 0, 1],             [0,-1,0],                   4,      100] // Soviet Mortar
   //Crates
   
   //Other    
@@ -101,10 +101,10 @@ A3A_logistics_coveredVehicles append ["LIB_OpelBlitz_Tent_Y_Camo", "LIB_OpelBlit
     This blacklisted vehicles already include closed and covered vehicles so you don't have to add those
 */
 A3A_logistics_weapons append [
-	["LIB_MG42_Lafette_Deployed" call A3A_fnc_classNameToModel, []],
-	["LIB_FlaK_30" call A3A_fnc_classNameToModel, ["LIB_US_GMC_Open", "LIB_US6_Open"]],
-	["LIB_Flakvierling_38" call A3A_fnc_classNameToModel, ["LIB_US_GMC_Open", "LIB_US6_Open"]],
-	["LIB_GrWr34" call A3A_fnc_classNameToModel, ["LIB_US_GMC_Open", "LIB_US6_Open"]],
-	["LIB_BM37" call A3A_fnc_classNameToModel, ["LIB_US_GMC_Open", "LIB_US6_Open"]]
+	["LIB_MG42_Lafette_Deployed" call A3A_fnc_classNameToModel, ["LIB_US_GMC_Open", "LIB_US6_Open","LIB_OpelBlitz_Open_Y_Camo"]],
+	["LIB_FlaK_30" call A3A_fnc_classNameToModel, ["LIB_US_GMC_Open", "LIB_US6_Open","LIB_OpelBlitz_Open_Y_Camo"]],
+	["LIB_Flakvierling_38" call A3A_fnc_classNameToModel, ["LIB_US_GMC_Open", "LIB_US6_Open","LIB_OpelBlitz_Open_Y_Camo"]],
+	["LIB_GrWr34" call A3A_fnc_classNameToModel, ["LIB_US_GMC_Open", "LIB_US6_Open","LIB_OpelBlitz_Open_Y_Camo"]],
+	["LIB_BM37" call A3A_fnc_classNameToModel, ["LIB_US_GMC_Open", "LIB_US6_Open","LIB_OpelBlitz_Open_Y_Camo"]]
 ];
 //That covers everything, you should make you file by replacing values in an already complete file rather than using this as the active files will have the proper commenting there already. Using this one would leave a tonne of unnecessary comments in the file.

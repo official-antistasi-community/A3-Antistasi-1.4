@@ -20,8 +20,8 @@
 ["vehiclesBasic", ["LIB_Kfz1_w"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["LIB_Kfz1_w","LIB_Kfz1_Hood_w"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed",["LIB_Kfz1_MG42_sernyt"]] call _fnc_saveToTemplate;
-["vehiclesTrucks", ["LIB_OpelBlitz_Open_Y_Camo_w","LIB_OpelBlitz_Tent_Y_Camo_w"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["LIB_OpelBlitz_Open_Y_Camo_w"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["LIB_OpelBlitz_Open_Y_Camo_w","LIB_OpelBlitz_Tent_Y_Camo_w","LIB_SdKfz_7_w"]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", ["LIB_OpelBlitz_Open_Y_Camo_w","LIB_SdKfz_7_w"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["LIB_OpelBlitz_Ammo_w"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["LIB_OpelBlitz_Parm_w"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["LIB_OpelBlitz_Fuel_w"]] call _fnc_saveToTemplate;

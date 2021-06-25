@@ -109,7 +109,7 @@ allUAVTerminals = allUAVTerminals select {
 allMagBullet = allMagBullet select { getText (configFile >> "CfgMagazines" >> _x >> "ammo") isNotEqualTo "FakeAmmo"; };
 
 //Remove False NVGs
-allnvgs = Allnvgs select { getarray (configFile >> "CfgWeapons" >> _x >> "visionMode") isnotequalto ["Normal","Normal"]};
+allNVGs = allNVGs select { getarray (configFile >> "CfgWeapons" >> _x >> "visionMode") isnotequalto ["Normal","Normal"]};
 
 private _removableDefaultItems = [
 	[allFirstAidKits,"FirstAidKit","firstAidKits"],

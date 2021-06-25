@@ -2,9 +2,17 @@
 //   Civilian Information   //
 //////////////////////////////
 
-["civilianUniforms", ["U_LIB_CIV_Citizen_1","U_LIB_CIV_Citizen_2","U_LIB_CIV_Citizen_3","U_LIB_CIV_Functionary_4","U_LIB_CIV_Villager_4","U_LIB_CIV_Villager_3","U_LIB_CIV_Woodlander_4","U_LIB_CIV_Woodlander_1"]] call _fnc_saveToTemplate;
+["uniforms", [
+    "U_LIB_CIV_Citizen_1",
+    "U_LIB_CIV_Citizen_2",
+    "U_LIB_CIV_Citizen_3",
+    "U_LIB_CIV_Functionary_4",
+    "U_LIB_CIV_Villager_4",
+    "U_LIB_CIV_Villager_3",
+    "U_LIB_CIV_Woodlander_4",
+    "U_LIB_CIV_Woodlander_1"]] call _fnc_saveToTemplate;
 
-["civilianHeadgear", []] call _fnc_saveToTemplate;
+["headgear", []] call _fnc_saveToTemplate;
 
 
 

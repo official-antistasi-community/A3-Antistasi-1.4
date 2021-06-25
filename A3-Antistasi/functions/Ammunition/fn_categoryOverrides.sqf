@@ -109,6 +109,8 @@ private _categoryOverrideTable = [
 ["ACE_DAGR", ["Gadgets","Items"]],
 
 ["rhsusf_Rhino", ["Unknown", "Items"]],    //Just a Headmount not NVG
+["rhs_6m2_nvg", ["Unknown", "Items"]],    //a Headset not NVG
+["rhs_6m2_1_nvg", ["Unknown", "Items"]],    //a Headset not NVG
 ["LIB_PTRD", ["Unknown", "Weapons"]],
 ["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
 ["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat

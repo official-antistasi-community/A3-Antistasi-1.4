@@ -24,6 +24,7 @@ if (_typeX isEqualType "") then
 	_unit = [_groupX, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 	//if (_typeX in SDKSL) then {_groupX selectLeader _unit};
 	[_unit,_markerX] call A3A_fnc_FIAinitBases;
+	if (_typeX in SDKMil) then { [_markerX] remoteExec ["A3A_fnc_updateRebelStatics", 2] };
 	if (_typeX == staticCrewTeamPlayer) then
 		{
 		private _veh = SDKMortar createVehicle _positionX;

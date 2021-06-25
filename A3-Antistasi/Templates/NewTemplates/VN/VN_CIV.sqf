@@ -14,7 +14,14 @@
     "vn_o_uniform_vc_03_03"
 ]] call _fnc_saveToTemplate;
 
-["headgear", [""]] call _fnc_saveToTemplate;
+["headgear", [
+    "vn_c_headband_04",
+    "vn_c_headband_03",
+    "vn_c_headband_02",
+    "vn_c_headband_01",
+    "vn_c_conehat_02",
+    "vn_c_conehat_01"
+]] call _fnc_saveToTemplate;
 
 // All of bellow are optional overrides.
 ["firstAidKits", ["vn_o_item_firstaidkit"]] call _fnc_saveToTemplate;  // Relies on autodetection. However, item is tested for for help and reviving.

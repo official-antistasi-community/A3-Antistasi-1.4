@@ -78,7 +78,15 @@
     "vn_o_uniform_vc_03_03"
 ]] call _fnc_saveToTemplate;
 
-["headgear", [""]] call _fnc_saveToTemplate;
+["headgear", [
+    "vn_c_conehat_02",
+    "vn_c_conehat_01",
+    "vn_b_headband_05",
+    "vn_b_headband_04",
+    "vn_b_headband_01",
+    "vn_o_boonie_vc_01_01",
+    "vn_o_boonie_vc_01_02"
+]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
 "vn_p38s","vn_welrod",
@@ -134,7 +142,17 @@ _loadoutData setVariable ["compasses", ["vn_b_item_compass"]];
 _loadoutData setVariable ["radios", []];
 _loadoutData setVariable ["binoculars", ["vn_m19_binocs_grey"]];
 
-_loadoutData setVariable ["uniforms", ["vn_o_uniform_vc_01_01", "vn_o_uniform_vc_01_02", "vn_o_uniform_vc_02_07", "vn_o_uniform_vc_03_02", "vn_o_uniform_vc_04_02", "vn_o_uniform_vc_05_01"]];
+_loadoutData setVariable ["uniforms", [
+    "vn_o_uniform_vc_01_01",
+    "vn_o_uniform_vc_01_02",
+    "vn_o_uniform_vc_02_07",
+    "vn_o_uniform_vc_03_02",
+    "vn_o_uniform_vc_04_02",
+    "vn_o_uniform_vc_05_01",
+    "vn_o_uniform_vc_02_05",
+    "vn_o_uniform_vc_04_03",
+    "vn_o_uniform_vc_03_03"
+]];
 _loadoutData setVariable ["vests", []];
 _loadoutData setVariable ["backpacks", []];
 _loadoutData setVariable ["longRangeRadios", []];

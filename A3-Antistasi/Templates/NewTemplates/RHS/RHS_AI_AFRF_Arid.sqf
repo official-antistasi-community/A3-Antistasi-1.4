@@ -93,6 +93,7 @@ _loadoutData setVariable ["rifles", []];
 _loadoutData setVariable ["carbines", []];
 _loadoutData setVariable ["grenadeLaunchers", []];
 _loadoutData setVariable ["SMGs", []];
+_loadoutData setVariable ["shotguns", []];
 _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanRifles", []];
 _loadoutData setVariable ["sniperRifles", []];
@@ -118,8 +119,8 @@ _loadoutData setVariable ["heavyExplosives", ["rhs_ec400_mag"]]; 			//this line 
 
 _loadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_rgn", "rhs_mag_rgo"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
 _loadoutData setVariable ["antiTankGrenades", []]; 			//this line determines anti tank grenades. Leave empty when not available. -- Array, can contain multiple assets
-_loadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_white", "rhs_mag_rdg2_black"]]; 			//this line determines smoke grenades -- Example: ["SmokeShell", "SmokeShellRed"] -- Array, can contain multiple assets
-
+_loadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_white"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["rhs_mag_nspd"]];
 
 //Basic equipment. Shouldn't need touching most of the time.
 //Mods might override this, or certain mods might want items removed (No GPSs in WW2, for example)
@@ -175,7 +176,7 @@ _loadoutData setVariable ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_sfLoadoutData setVariable ["uniforms", ["rhs_uniform_gorka_1_a"]];			//this line determines uniforms for special forces -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
+_sfLoadoutData setVariable ["uniforms", ["rhs_uniform_6sh122_gloves_v2"]];			//this line determines uniforms for special forces -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
 _sfLoadoutData setVariable ["vests", ["rhs_6b23_digi_6sh92_Spetsnaz", "rhs_6b23_digi_6sh92_spetsnaz2"]];
 _sfLoadoutData setVariable ["SLvests", ["rhs_6b23_digi_6sh92_headset_spetsnaz", "rhs_6b23_digi_6sh92_Vog_Radio_Spetsnaz"]];
 _sfLoadoutData setVariable ["GLvests", ["rhs_6b23_digi_6sh92_Vog_Spetsnaz", "rhs_6b23_digi_6sh92_Vog_Radio_Spetsnaz"]];
@@ -222,10 +223,10 @@ _sfLoadoutData setVariable ["carbines", [
 ]];
 _sfLoadoutData setVariable ["machineGuns", [
 
-["rhs_weap_ak105_zenitco01_b33", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_1p87", ["rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
-["rhs_weap_ak105_zenitco01", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_pkas", ["rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
-["rhs_weap_ak105_zenitco01", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_1p78", ["rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
-["rhs_weap_ak105_zenitco01", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_1p29", ["rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
+["rhs_weap_ak105_zenitco01_b33", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_1p87", ["rhs_60Rnd_545X39_7N22_AK", "rhs_60Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
+["rhs_weap_ak105_zenitco01", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_pkas", ["rhs_60Rnd_545X39_7N22_AK", "rhs_60Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
+["rhs_weap_ak105_zenitco01", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_1p78", ["rhs_60Rnd_545X39_7N22_AK", "rhs_60Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
+["rhs_weap_ak105_zenitco01", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_1p29", ["rhs_60Rnd_545X39_7N22_AK", "rhs_60Rnd_545X39_AK_Green"], [], "rhs_acc_grip_ffg2"],
 ["rhs_weap_ak104_zenitco01_b33", "rhs_acc_dtk1", "rhs_acc_perst3_2dp_h", "rhs_acc_1p87", ["rhs_75Rnd_762x39mm_89", "rhs_75Rnd_762x39mm_tracer"], [], "rhs_acc_grip_ffg2"],
 ["rhs_weap_ak104_zenitco01", "rhs_acc_dtk1", "rhs_acc_perst3_2dp_h", "rhs_acc_pkas", ["rhs_75Rnd_762x39mm_89", "rhs_75Rnd_762x39mm_tracer"], [], "rhs_acc_grip_ffg2"],
 ["rhs_weap_ak104_zenitco01", "rhs_acc_dtk1", "rhs_acc_perst3_2dp_h", "rhs_acc_1p78", ["rhs_75Rnd_762x39mm_89", "rhs_75Rnd_762x39mm_tracer"], [], "rhs_acc_grip_ffg2"],
@@ -254,15 +255,11 @@ _sfLoadoutData setVariable ["sidearms", [
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militaryLoadoutData setVariable ["uniforms", ["rhs_uniform_emr_des_patchless"]];
-_militaryLoadoutData setVariable ["vests", [
-"rhs_6b23_digi_6sh92", "rhs_6b23_digi_rifleman", "rhs_6b23_digi_vydra_3m"]];
-_militaryLoadoutData setVariable ["SLvests", ["rhs_6b23_digi_6sh92_headset_mapcase", "rhs_6b23_digi_6sh92_headset"]];
-_militaryLoadoutData setVariable ["GLvests", ["rhs_6b23_digi_6sh92_vog"]];
-_militaryLoadoutData setVariable ["backpacks", ["rhs_assault_umbts", "B_Kitbag_sgg", "rhs_sidor"]];
-_militaryLoadoutData setVariable ["helmets", [
-"rhs_6b27m_digi", "rhs_6b27m_digi_bala", "rhs_6b27m_digi_ess", "rhs_6b27m_digi_ess_bala",
-"rhs_6b7_1m_emr", "rhs_6b7_1m_bala1_emr", "rhs_6b7_1m_bala2_emr", "rhs_6b7_1m_emr_ess", "rhs_6b7_1m_emr_ess_bala"
-]];
+_militaryLoadoutData setVariable ["vests", ["rhs_6b45_rifleman", "rhs_6b45_rifleman_2"]];
+_militaryLoadoutData setVariable ["SLvests", ["rhs_6b45_off"]];
+_militaryLoadoutData setVariable ["GLvests", ["rhs_6b45_grn"]];
+_militaryLoadoutData setVariable ["backpacks", ["rhs_rk_sht_30_emr", "rhs_tortila_emr", "rhs_rk_sht_30_emr_engineer_empty"]];
+_militaryLoadoutData setVariable ["helmets", ["rhs_6b47", "rhs_6b47_6m2_1", "rhs_6b47_bala", "rhs_6b47_emr_1", "rhs_6b47_ess_bala", "rhs_6b47_6B50"]];
 _militaryLoadoutData setVariable ["binoculars", ["Laserdesignator"]];
 
 _militaryLoadoutData setVariable ["rifles", [
@@ -313,26 +310,28 @@ _militaryLoadoutData setVariable ["sniperRifles", [
 ///////////////////////////////
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_policeLoadoutData setVariable ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
-_policeLoadoutData setVariable ["vests", ["V_TacVest_blk_POLICE"]];
-_policeLoadoutData setVariable ["helmets", ["H_Cap_police"]];
+_policeLoadoutData setVariable ["uniforms", ["rhs_uniform_cossack"]];
+_policeLoadoutData setVariable ["vests", ["rhs_6b2_lifchik", "rhs_6b2_chicom"]];
+_policeLoadoutData setVariable ["helmets", ["rhs_cossack_visor_cap", "rhs_cossack_papakha"]];
 _policeLoadoutData setVariable ["rifles", [
-["rhs_weap_ak103_1", "rhs_acc_dtk", "", "", ["rhs_10Rnd_762x39mm"], [], ""]
-]];			//this line determines the rifles for police loadouts -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets
-_policeLoadoutData setVariable ["smgs", ["rhs_weap_pp2000"]];			//this line determines the smgs for police loadouts -- Example: ["SMG_01_F", "SMG_01_Holo_F"] -- Array, can contain multiple assets
-_policeLoadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_fakel", "rhs_mag_fakels", "rhs_mag_plamyam"]];
+["rhs_weap_akmn", "rhs_acc_dtk", "", "", ["rhs_10Rnd_762x39mm"], [], ""]
+]];
+_policeLoadoutData setVariable ["shotguns", [
+["rhs_weap_Izh18", "", "", "", ["rhsgref_1Rnd_00Buck", "rhsgref_1Rnd_Slug"], [], ""]
+]];
+_policeLoadoutData setVariable ["smgs", ["rhs_weap_pp2000"]];
 
 ////////////////////////////////
 //    Militia Loadout Data    //
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData setVariable ["uniforms", ["rhs_uniform_emr_des_patchless"]];
-_militiaLoadoutData setVariable ["vests", ["rhs_6sh92_digi"]];			//this line determines vests for militia loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
-_militiaLoadoutData setVariable ["SLvests", ["rhs_6sh92_digi_headset", "rhs_6sh92_digi_radio"]];
-_militiaLoadoutData setVariable ["GLvests", ["rhs_6sh92_digi_vog", "rhs_6sh92_digi_vog_headset"]];
-_militiaLoadoutData setVariable ["backpacks", ["rhs_sidor"]];
-_militiaLoadoutData setVariable ["helmets", ["rhs_fieldcap_digi", "rhs_beanie_green"]];
+_militiaLoadoutData setVariable ["uniforms", ["rhs_uniform_afghanka_para"]];
+_militiaLoadoutData setVariable ["vests", ["rhs_6b3_AK"]];
+_militiaLoadoutData setVariable ["SLvests", ["rhs_6b3_off", "rhs_6b3_R148"]];
+_militiaLoadoutData setVariable ["GLvests", ["rhs_6b3_VOG", "rhs_6b3_VOG_2"]];
+_militiaLoadoutData setVariable ["backpacks", ["rhs_rd54_vest"]];
+_militiaLoadoutData setVariable ["helmets", ["rhs_fieldcap_m88", "rhs_fieldcap_m88_back"]];
 _militiaLoadoutData setVariable ["rifles", [
 ["rhs_weap_ak74n", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
 ["rhs_weap_akmn", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
@@ -360,9 +359,9 @@ _militiaLoadoutData setVariable ["sniperRifles", ["rhs_weap_m38"]];
 //////////////////////////
 //The following lines are determining the loadout of the vehicle crew
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_crewLoadoutData setVariable ["uniforms", ["rhs_uniform_emr_des_patchless"]];			//this line determines uniforms for vehicle crew loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_crewLoadoutData setVariable ["vests", ["rhs_vest_commander"]];				//this line determines vests for vehicle crew loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
-_crewLoadoutData setVariable ["helmets", ["rhs_tsh4", "rhs_tsh4_bala", "rhs_tsh4_ess", "rhs_tsh4_ess_bala", "rhs_gssh18"]];			//this line determines backpacks for vehicle crew loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
+_crewLoadoutData setVariable ["uniforms", ["rhs_uniform_emr_des_patchless"]];
+_crewLoadoutData setVariable ["vests", ["rhs_6b45_light"]];
+_crewLoadoutData setVariable ["helmets", ["rhs_6b48"]];	
 
 //The following lines are determining the loadout of the pilots
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
@@ -402,7 +401,7 @@ private _squadLeaderTemplate = {
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	//["antiTankGrenades", 1] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;
@@ -723,7 +722,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[selectRandom ["smgs", "rifles"]] call _fnc_setPrimary;
+	[selectRandom ["smgs", "rifles", "shotguns"]] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

@@ -131,7 +131,8 @@ _loadoutData setVariable ["heavyExplosives", ["vn_mine_satchel_remote_02_mag"]];
 
 _loadoutData setVariable ["antiTankGrenades", []];
 _loadoutData setVariable ["antiInfantryGrenades", ["vn_m67_grenade_mag", "vn_m61_grenade_mag", "vn_m34_grenade_mag", "vn_m14_early_grenade_mag", "vn_m14_grenade_mag"]];
-_loadoutData setVariable ["smokeGrenades", ["vn_m18_white_mag", "vn_m18_yellow_mag", "vn_m18_red_mag", "vn_m18_purple_mag", "vn_m18_green_mag"]];
+_loadoutData setVariable ["smokeGrenades", ["vn_m18_white_mag"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["vn_m18_yellow_mag", "vn_m18_red_mag", "vn_m18_purple_mag", "vn_m18_green_mag"]];
 
 
 //Basic equipment. Shouldn't need touching most of the time.
@@ -448,7 +449,7 @@ private _squadLeaderTemplate = {
 	["items_squadLeader_extras"] call _fnc_addItemSet;
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;

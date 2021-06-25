@@ -23,7 +23,7 @@ if (haveRadio) then {_unit linkItem selectrandom (unlockedRadios)};
 
 // Chance of picking armored rather than random vests and headgear, rising with unlocked gear counts
 if !(unlockedHeadgear isEqualTo []) then {
-	if (count unlockedArmoredHeadgear * 20 < random(100)) then { _unit addHeadgear (selectRandom unlockedHeadgear) }
+	if (count unlockedArmoredHeadgear * 20 < random(100)) then { _unit addHeadgear (selectRandom (A3A_faction_reb getVariable "headgear")) }
 	else { _unit addHeadgear (selectRandom unlockedArmoredHeadgear) };
 };
 if !(unlockedVests isEqualTo []) then {

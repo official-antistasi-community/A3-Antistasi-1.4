@@ -108,8 +108,8 @@ _loadoutData setVariable ["heavyExplosives", ["rhsusf_m112x4_mag", "SatchelCharg
 
 _loadoutData setVariable ["antiInfantryGrenades", ["HandGrenade", "MiniGrenade"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
 _loadoutData setVariable ["antiTankGrenades", []]; 			//this line determines anti tank grenades. Leave empty when not available. -- Array, can contain multiple assets
-_loadoutData setVariable ["smokeGrenades", ["UK3CB_BAF_SmokeShell", "UK3CB_BAF_SmokeShellRed", "UK3CB_BAF_SmokeShellGreen", "UK3CB_BAF_SmokeShellYellow", "UK3CB_BAF_SmokeShellPurple", "UK3CB_BAF_SmokeShellBlue", "UK3CB_BAF_SmokeShellOrange"]]; 			//this line determines smoke grenades -- Example: ["SmokeShell", "SmokeShellRed"] -- Array, can contain multiple assets
-
+_loadoutData setVariable ["smokeGrenades", ["UK3CB_BAF_SmokeShell"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["UK3CB_BAF_SmokeShellRed", "UK3CB_BAF_SmokeShellGreen", "UK3CB_BAF_SmokeShellYellow", "UK3CB_BAF_SmokeShellPurple", "UK3CB_BAF_SmokeShellBlue", "UK3CB_BAF_SmokeShellOrange"]];
 
 //Basic equipment. Shouldn't need touching most of the time.
 //Mods might override this, or certain mods might want items removed (No GPSs in WW2, for example)
@@ -346,7 +346,7 @@ _policeLoadoutData setVariable ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Comma
 _policeLoadoutData setVariable ["vests", ["V_TacVest_blk_POLICE"]];			//this line determines vests for police loadouts -- Example: ["V_TacVest_gen_F"] -- Array, can contain multiple assets
 _policeLoadoutData setVariable ["helmets", ["H_Cap_police"]];			//this line determines helmets for police loadouts -- Example: ["H_Beret_gen_F"] -- Array, can contain multiple assets
 
-_policeLoadoutData setVariable ["shotgun", [
+_policeLoadoutData setVariable ["shotguns", [
 ["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_eotech_xps3", ["UK3CB_BAF_12G_Pellets", "UK3CB_BAF_12G_Slugs"], [], ""],
 ["UK3CB_BAF_L128A1", "", "", "rhsusf_acc_T1_high", ["UK3CB_BAF_12G_Pellets", "UK3CB_BAF_12G_Slugs"], [], ""]
 ]];
@@ -442,7 +442,7 @@ private _squadLeaderTemplate = {
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["antiTankGrenades", 1] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;
@@ -763,7 +763,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[selectRandom ["SMGs", "shotgun"]] call _fnc_setPrimary;
+	[selectRandom ["SMGs", "shotguns"]] call _fnc_setPrimary;
 	["primary", 4] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

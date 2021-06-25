@@ -106,12 +106,14 @@ else
 	{
 		if (_veh isKindOf "StaticWeapon") then
 		{
-			[_veh] call A3A_fnc_logistics_addLoadAction;
 			_veh setCenterOfMass [(getCenterOfMass _veh) vectorAdd [0, 0, -1], 0];
-			if ((not (_veh in staticsToSave)) and (side gunner _veh != teamPlayer)) then
-			{
-				if (A3A_hasRHS and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
+
+			if !(_typeX isKindOf "StaticMortar") then {
+				[_veh, "static"] remoteExec ["A3A_fnc_flagAction", [teamPlayer,civilian], _veh];
+				if (_side == teamPlayer && !isNil {serverInitDone}) then { [_veh] remoteExec ["A3A_fnc_updateRebelStatics", 2] };
 			};
+
+			// TODO: fix this shit so it's dependent on occupancy rather than type
 			if (_typeX == SDKMortar) then
 			{
 				_veh addEventHandler ["Fired",
@@ -252,8 +254,8 @@ _veh addEventHandler ["Dammaged", {
 	};
 }];
 
-//add JNL loading to quadbikes
-if(!A3A_hasIFA && typeOf _veh in [vehSDKBike,vehNATOBike,vehCSATBike]) then {[_veh] call A3A_fnc_logistics_addLoadAction;};
+//add logistics loading to loadable objects
+if([typeOf _veh] call A3A_fnc_logistics_isLoadable) then {[_veh] call A3A_fnc_logistics_addLoadAction;};
 
 // deletes vehicle if it exploded on spawn...
 [_veh] spawn A3A_fnc_cleanserVeh;

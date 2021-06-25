@@ -23,7 +23,7 @@
 ["vehiclesTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate; 			//this line determines the trucks -- Example: ["vehiclesTrucks", ["B_Truck_01_transport_F", "B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehiclesCargoTrucks", ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"]] call _fnc_saveToTemplate; 		//this line determines cargo trucks -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F", "B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehiclesAmmoTrucks", ["B_Truck_01_ammo_F"]] call _fnc_saveToTemplate; 		//this line determines ammo trucks -- Example: ["vehiclesAmmoTrucks", ["B_Truck_01_ammo_F"]] -- Array, can contain multiple assets
-["vehiclesRepairTrucks", ["B_Truck_01_ammo_F"]] call _fnc_saveToTemplate; 		//this line determines repair trucks -- Example: ["vehiclesRepairTrucks", ["B_Truck_01_Repair_F"]] -- Array, can contain multiple assets
+["vehiclesRepairTrucks", ["B_Truck_01_Repair_F"]] call _fnc_saveToTemplate; 		//this line determines repair trucks -- Example: ["vehiclesRepairTrucks", ["B_Truck_01_Repair_F"]] -- Array, can contain multiple assets
 ["vehiclesFuelTrucks", ["B_Truck_01_fuel_F"]] call _fnc_saveToTemplate;		//this line determines fuel trucks -- Array, can contain multiple assets
 ["vehiclesMedical", ["B_Truck_01_medical_F"]] call _fnc_saveToTemplate;			//this line determines medical vehicles -- Array, can contain multiple assets
 ["vehiclesAPCs", ["B_APC_Wheeled_01_cannon_F", "B_APC_Tracked_01_rcws_F", "B_APC_Tracked_01_CRV_F"]] call _fnc_saveToTemplate; 				//this line determines APCs -- Example: ["vehiclesAPCs", ["B_APC_Tracked_01_rcws_F", "B_APC_Tracked_01_CRV_F"]] -- Array, can contain multiple assets
@@ -119,7 +119,8 @@ _loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]]; 			/
 
 _loadoutData setVariable ["antiInfantryGrenades", ["HandGrenade", "MiniGrenade"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
 _loadoutData setVariable ["antiTankGrenades", []]; 			//this line determines anti tank grenades. Leave empty when not available. -- Array, can contain multiple assets
-_loadoutData setVariable ["smokeGrenades", ["SmokeShell", "SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
+_loadoutData setVariable ["smokeGrenades", ["SmokeShell"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
 
 
 //Basic equipment. Shouldn't need touching most of the time.
@@ -223,7 +224,7 @@ _sfLoadoutData setVariable ["sniperRifles", [
 ]];
 _sfLoadoutData setVariable ["sidearms", [
 ["hgun_Pistol_heavy_01_F", "muzzle_snds_acp", "acc_flashlight_pistol", "optic_MRD", [], [], ""],
-["hgun_P07_khk_F", "muzzle_snds_L", "", "", [], [], ""],
+["hgun_P07_F", "muzzle_snds_L", "", "", [], [], ""],
 ["hgun_ACPC2_F", "muzzle_snds_acp", "acc_flashlight_pistol", "", [], [], ""]
 ]];
 /////////////////////////////////
@@ -282,10 +283,10 @@ _militaryLoadoutData setVariable ["marksmanRifles", [
 ]];
 _militaryLoadoutData setVariable ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],
-["srifle_LRR_F", "", "", "optic_LRPS_tna_F", [], [], ""]
+["srifle_LRR_F", "", "", "optic_lrps", [], [], ""]
 ]];
 _militaryLoadoutData setVariable ["sidearms", [
-["hgun_Pistol_heavy_01_green_F", "", "acc_flashlight_pistol", "", [], [], ""],
+["hgun_Pistol_heavy_01_F", "", "acc_flashlight_pistol", "", [], [], ""],
 ["hgun_P07_F", "", "", "", [], [], ""],
 ["hgun_ACPC2_F", "", "acc_flashlight_pistol", "", [], [], ""]
 ]];
@@ -394,7 +395,7 @@ private _squadLeaderTemplate = {
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

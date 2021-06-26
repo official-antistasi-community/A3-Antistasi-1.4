@@ -1,14 +1,33 @@
-private _posHQ = getMarkerPos respawnTeamPlayer;
-private _time = if (isMultiplayer) then {serverTime} else {time};
+/*
+Author: Spoffy, jaj22, Håkon
+Description:
+    Heals rebel units near HQ, restores there stamina, and allows units and vehicles to go undercover again.
+    Ace compatible.
 
-if ((_time - (boxX getVariable ["lastUsed", -30])) < 30) exitWith {
+Arguments: <Nil>
+
+Return Value: <Nil>
+
+Scope: Any
+Environment: Any
+Public: Yes
+Dependencies:
+    <Object> boxX - Vehicle box at hq init to variable in init field in sqm
+    <Marker> respawnTeamPlayer - HQ marker
+
+Example:
+
+License: MIT License
+*/
+if ((serverTime - (boxX getVariable ["lastUsed", -30])) < 30) exitWith {
     if (hasInterface) then {
         ["Heal And Repair", "The repair box has been used in the last 30 seconds! Please wait for a bit."] call A3A_fnc_customHint;
     };
 };
-boxX setVariable ["lastUsed", _time, true];
+boxX setVariable ["lastUsed", serverTime, true];
 
 //Heal, restore stamina, and clear report for rebel units near HQ
+private _posHQ = getMarkerPos respawnTeamPlayer;
 {
     if ((side group _x == teamPlayer) and (_x distance _posHQ < 50)) then {
         if (!isNil "ace_advanced_fatigue_fnc_handlePlayerChanged") then {
@@ -41,3 +60,4 @@ private _reportCleared = false;
 if (_reportCleared) then { publicVariable "reportedVehs" };//spare publicVariable for every vehicle at hq
 
 ["Heal", "Nearby units have been healed, refreshed, and can go undercover again.<br/><br/> Nearby vehicles are no longer reported."] call A3A_fnc_customHint;
+nil

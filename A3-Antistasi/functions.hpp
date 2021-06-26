@@ -69,7 +69,7 @@ class A3A
         class getAggroLevelString {};
         class getVehiclePoolForAttacks {};
         class getVehiclePoolForQRFs {};
-		class healAndRepair {};
+		class vehicleBoxHeal {};
 		class initPetros {};
 		class isFrontline {};
 		class arePositionsConnected {};

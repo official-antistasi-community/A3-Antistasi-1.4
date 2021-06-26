@@ -102,14 +102,14 @@ _loadoutData setVariable ["missileATLaunchers", [
 _loadoutData setVariable ["AALaunchers", []];
 _loadoutData setVariable ["sidearms", ["Weapon_LIB_TT33"]];
 
-_loadoutData setVariable ["ATMines", ["LIB_US_M1A1_ATMINE"]];
-_loadoutData setVariable ["APMines", ["LIB_M3_MINE"]];
+_loadoutData setVariable ["ATMines", ["LIB_TM44_MINE_mag"]];
+_loadoutData setVariable ["APMines", ["LIB_PMD6_MINE_mag"]];
 _loadoutData setVariable ["lightExplosives", ["LIB_Ladung_Small_MINE_mag"]];
 _loadoutData setVariable ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag"]];
 
-_loadoutData setVariable ["antiTankGrenades", ["lib_shg24x7"]];
-_loadoutData setVariable ["antiInfantryGrenades", ["lib_shg24"]];
-_loadoutData setVariable ["smokeGrenades", []];
+_loadoutData setVariable ["antiTankGrenades", ["LIB_Rpg6"]];
+_loadoutData setVariable ["antiInfantryGrenades", ["LIB_Rg42"]];
+_loadoutData setVariable ["smokeGrenades", ["LIB_RDG"]];
 
 
 //Basic equipment. Shouldn't need touching most of the time.
@@ -120,7 +120,7 @@ _loadoutData setVariable ["compasses", ["ItemCompass"]];
 _loadoutData setVariable ["radios", ["ItemRadio"]];
 _loadoutData setVariable ["gpses", []];
 _loadoutData setVariable ["NVGs", []];
-_loadoutData setVariable ["binoculars", ["LIB_Binocular_GER"]];
+_loadoutData setVariable ["binoculars", ["LIB_Binocular_SU"]];
 _loadoutData setVariable ["rangefinder", []];
 
 _loadoutData setVariable ["uniforms", []];
@@ -168,7 +168,7 @@ _sfLoadoutData setVariable ["binoculars", ["LIB_Binocular_GER"]];
 
 _sfLoadoutData setVariable ["rifles", [["LIB_M9130", "", "", "", ["LIB_5Rnd_762x54"], [], ""]]];
 _sfLoadoutData setVariable ["carbines", [["LIB_SVT_40", "", "", "", ["LIB_10Rnd_762x54"], [], ""]]];
-_sfLoadoutData setVariable ["grenadeLaunchers", [["LIB_SVT_40", "", "", "", ["LIB_10Rnd_762x54"], [], ""]]];
+_sfLoadoutData setVariable ["grenadeLaunchers", [["LIB_M9130_DYAKONOV", "LIB_ACC_GL_DYAKONOV_Empty", "", "", ["LIB_5Rnd_762x54"], ["LIB_1Rnd_G_DYAKONOV"], ""]]];
 _sfLoadoutData setVariable ["SMGs", [["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]]];
 _sfLoadoutData setVariable ["machineGuns", [["LIB_DP28", "", "", "", ["LIB_47Rnd_762x54"], [], ""]]];
 _sfLoadoutData setVariable ["marksmanRifles", [["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]]];
@@ -187,7 +187,7 @@ _militaryLoadoutData setVariable ["binoculars", ["LIB_Binocular_GER"]];
 
 _militaryLoadoutData setVariable ["rifles", [["LIB_M9130", "", "", "", ["LIB_5Rnd_762x54"], [], ""]]];
 _militaryLoadoutData setVariable ["carbines", [["LIB_SVT_40", "", "", "", ["LIB_10Rnd_762x54"], [], ""]]];
-_militaryLoadoutData setVariable ["grenadeLaunchers", [["LIB_M9130", "", "", "", ["LIB_5Rnd_762x54"], [], ""]]];
+_militaryLoadoutData setVariable ["grenadeLaunchers", [["LIB_M9130_DYAKONOV", "LIB_ACC_GL_DYAKONOV_Empty", "", "", ["LIB_5Rnd_762x54"], ["LIB_1Rnd_G_DYAKONOV"], ""]]];
 _militaryLoadoutData setVariable ["SMGs", [["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]]];
 _militaryLoadoutData setVariable ["machineGuns", [["LIB_DP28", "", "", "", ["LIB_47Rnd_762x54"], [], ""]]];
 _militaryLoadoutData setVariable ["marksmanRifles", [["LIB_M9130", "", "", "", ["LIB_5Rnd_762x54"], [], ""]]];
@@ -219,7 +219,7 @@ _militiaLoadoutData setVariable ["helmets", ["H_LIB_SOV_Ushanka"]];
 
 _militiaLoadoutData setVariable ["rifles", [["LIB_M9130", "", "", "", ["LIB_5Rnd_762x54"], [], ""]]];
 _militiaLoadoutData setVariable ["carbines", [["LIB_SVT_40", "", "", "", ["LIB_10Rnd_762x54"], [], ""]]];
-_militiaLoadoutData setVariable ["grenadeLaunchers", [["LIB_M9130", "", "", "", ["LIB_5Rnd_762x54"], [], ""]]];
+_militiaLoadoutData setVariable ["grenadeLaunchers", [["LIB_M9130_DYAKONOV", "LIB_ACC_GL_DYAKONOV_Empty", "", "", ["LIB_5Rnd_762x54"], ["LIB_1Rnd_G_DYAKONOV"], ""]]];
 _militiaLoadoutData setVariable ["SMGs", [["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]]];
 _militiaLoadoutData setVariable ["machineGuns", [["LIB_DP28", "", "", "", ["LIB_47Rnd_762x54"], [], ""]]];
 _militiaLoadoutData setVariable ["marksmanRifles", [["LIB_M9130", "", "", "", ["LIB_5Rnd_762x54"], [], ""]]];

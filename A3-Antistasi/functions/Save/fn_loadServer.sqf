@@ -28,6 +28,7 @@ if (isServer) then {
 	["skillFIA"] call A3A_fnc_getStatVariable;
 	["membersX"] call A3A_fnc_getStatVariable;
 	["vehInGarage"] call A3A_fnc_getStatVariable;
+    ["HR_Garage"] call A3A_fnc_getStatVariable;
 	["destroyedBuildings"] call A3A_fnc_getStatVariable;
 	["idlebases"] call A3A_fnc_getStatVariable;
 	["idleassets"] call A3A_fnc_getStatVariable;

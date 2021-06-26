@@ -19,7 +19,6 @@ _unit setVariable ["moneyX", _money, true];
 _unit setVariable ["score", 0, true];
 _unit setVariable ["rankX", "PRIVATE", true];
 _unit setUnitRank "PRIVATE";
-[_unit, []] call A3A_fnc_setPersonalGarage;
 
 [] remoteExec ["A3A_fnc_statistics", _unit];
 _unit setVariable ["canSave", true, true];

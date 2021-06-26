@@ -29,4 +29,4 @@ if !(player inArea vehiclePurchase_nearestMarker) exitWith {["Add Vehicle", "You
 
 private _extraMessage =	format ["Buying vehicle for $%1", vehiclePurchase_cost];
 
-[_typeVehX, "BUYFIA", _extraMessage] call A3A_fnc_vehPlacementBegin;
+[_typeVehX, [], [], nil, false, "BUYFIA"] call HR_GRG_fnc_confirmPlacement;

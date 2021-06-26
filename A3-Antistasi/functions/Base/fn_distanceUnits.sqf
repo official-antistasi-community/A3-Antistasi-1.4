@@ -15,26 +15,8 @@
 
 params ["_distanceX","_modeX","_center","_targetSide"];
 
-private _result = false;
+if (_center isEqualType objNull) then { _center = getpos _center };
+private _allSideClose = units _targetSide inAreaArray [_center, _distanceX, _distanceX];
 
-//All units capable of triggering a marker to spawn.
-private _allUnits = allUnits select {_x getVariable ["spawner",false]};
-if (_modeX == 0) then
-	{
-	_result = [];
-	{
-	if (side group _x == _targetSide) then
-		{
-		if (_x distance2D _center < _distanceX) then
-			{
-			_result pushBack _x;
-			};
-		};
-	} forEach _allUnits;
-	}
-else
-	{
-	{if ((side group _x == _targetSide) and (_x distance2D _center < _distanceX)) exitWith {_result = true}} count _allUnits;
-	};
-
-_result
+if (_modeX == 0) exitWith { _allSideClose select {_x getVariable ["spawner",false]} };
+_allSideClose findIf { _x getVariable ["spawner",false] } != -1;

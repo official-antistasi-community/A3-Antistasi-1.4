@@ -1,5 +1,3 @@
-#include "..\Garage\defineGarage.inc"
-
 private ["_flag","_typeX"];
 
 if (!hasInterface) exitWith {};
@@ -116,15 +114,7 @@ switch _typeX do
     };
     case "garage":
     {
-        if (isMultiplayer) then
-        {
-            _flag addAction ["Personal Garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage;},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4];
-            _flag addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4];
-        }
-        else
-        {
-            _flag addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4]
-        };
+        [_flag] call HR_GRG_fnc_initGarage;
     };
     case "fireX":
     {
@@ -139,15 +129,7 @@ switch _typeX do
         removeAllActions _flag;
         _flag addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        if (isMultiplayer) then
-        {
-            _flag addAction ["Personal Garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-            _flag addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        }
-        else
-        {
-            _flag addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
-        };
+        [_flag] call HR_GRG_fnc_initGarage;
     };
     case "Intel_Small":
     {

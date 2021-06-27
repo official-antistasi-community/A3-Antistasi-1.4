@@ -6,9 +6,9 @@
 
 params [["_globalNamespace", false]];
 
-if (!_globalNamespace) exitWith 
+if (!_globalNamespace) exitWith
 {
-	createLocation ["Invisible", [-10, -10, 0], 0, 0]
+	createLocation ["Invisible", [-10, -10, 0], 0, 0];
 };
 
 createSimpleObject ["a3\weapons_f\empty.p3d", [-10, -10, 0], false]

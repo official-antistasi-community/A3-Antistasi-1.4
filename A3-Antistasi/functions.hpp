@@ -298,27 +298,6 @@ class A3A
         class addArtilleryTrailEH {};
     };
 
-    class Garage
-    {
-        class addToPersonalGarage {};
-        class addToPersonalGarageLocal {};
-        class attemptPlaceVehicle {};
-        class displayVehiclePlacementMessage {};
-        class garage {};
-        class garageVehicle {};
-        class getPersonalGarage {};
-        class getPersonalGarageLocal {};
-        class handleVehPlacementCancelled {};
-        class placeEmptyVehicle {};
-        class setPersonalGarage {};
-        class setPersonalGarageLocal {};
-        class vehPlacementBegin {};
-        class vehPlacementCallbacks {};
-        class vehPlacementCancel {};
-        class vehPlacementChangeVehicle {};
-        class vehPlacementCleanup {};
-    };
-
     class Garrison
     {
         class addGarrison {};

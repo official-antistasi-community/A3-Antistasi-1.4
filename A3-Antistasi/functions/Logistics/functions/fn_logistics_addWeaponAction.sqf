@@ -67,7 +67,7 @@ private _GetOutEH = _cargo addEventHandler ["GetOut", {
     if (isNull _vehicle) exitWith { _cargo removeEventHandler ["GetOut", _thisEventHandler] };
 
     private _bb = 3 boundingBoxReal _vehicle;
-    private _mPos = [_bb#0#0, (_vehicle worldToModel getPos _cargo)#1, _bb#0#2];
+    private _mPos = [(_bb#0#0) - 0.3, (_vehicle worldToModel getPos _cargo)#1, _bb#0#2]; //0.3m to the left of bounding box left, at the static pos along the vehicle, ground level
     private _newPos = _vehicle modelToWorld _mPos;
     _unit setPos _newPos;
 }];

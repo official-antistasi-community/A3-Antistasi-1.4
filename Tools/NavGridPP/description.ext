@@ -1,5 +1,0 @@
-#include "NG_importGUI.hpp"
-
-class CfgFunctions {
-    #include "functions.hpp"
-};

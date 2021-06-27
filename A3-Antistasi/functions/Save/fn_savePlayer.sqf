@@ -53,10 +53,9 @@ if (_shouldStripLoadout) then {
 
 if (isMultiplayer) then
 {
-	private _garage = [_playerUnit] call A3A_fnc_getPersonalGarage;
 	[_playerId, "scorePlayer", _playerUnit getVariable "score"] call A3A_fnc_savePlayerStat;
 	[_playerId, "rankPlayer", rank _playerUnit] call A3A_fnc_savePlayerStat;
-	[_playerId, "personalGarage", [_playerUnit] call A3A_fnc_getPersonalGarage] call A3A_fnc_savePlayerStat;
+	[_playerId, "personalGarage", []] call A3A_fnc_savePlayerStat;
 
 	_totalMoney = _playerUnit getVariable ["moneyX", 0];
 	if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
@@ -85,7 +84,7 @@ if (isMultiplayer) then
 	};
 	[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
 
-    Info_4("Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney, count _garage);
+    Info_3("Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney);
 };
 
 if (!_globalSave) then { saveProfileNamespace };

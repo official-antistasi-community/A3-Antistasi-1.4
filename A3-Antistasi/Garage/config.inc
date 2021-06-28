@@ -49,7 +49,6 @@ if (isNil "HR_GRG_Pylons_Enabled") then { HR_GRG_Pylons_Enabled = true }; //can 
 HR_GRG_blackListCamo = ["IDAP"];
 
 //proxies
-HR_GRG_fnc_Log = { [2,_this, "HR Garage"] call A3A_fnc_log }; //log text passed as _this
 HR_GRG_fnc_Hint = { ["Garage",_this#0] call A3A_fnc_customHint };
 HR_GRG_fnc_vehInit = { [_this, TeamPlayer] call A3A_fnc_AIVEHinit; }; //is passed vehicle as _this
 HR_GRG_onOpenEvent = { player setCaptive false; };

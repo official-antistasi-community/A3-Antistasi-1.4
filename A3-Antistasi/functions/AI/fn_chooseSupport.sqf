@@ -196,10 +196,22 @@ switch (true) do
     };
 };
 
+// Avoid making area attacks against friendlies, although "mistakes" can be made
+private _friendlyUnits = if (_side == Invaders) then { units Invaders } else { units Occupants + units civilian };
+private _friendlyCount = count (_friendlyUnits inAreaArray [getpos _enemy, 200, 200]);
+private _maxFriendlies = if (_side == Invaders) then { random [1, 2, 10] } else { random [0, 0, 5] };
+
+if (_friendlyCount > _maxFriendlies) then
+{
+    _supportTypes = _supportTypes - ["MORTAR", "AIRSTRIKE", "CARPETBOMB", "MISSILE", "ORBSTRIKE"];
+};
+
 if(_forceSupport) then
 {
     //Remove the slow QRF support if too far away, help needs to be there fast
     _supportTypes = _supportTypes - ["QRF"];
+    //meh, leave it as a fallback at least
+    _supportTypes pushBack "QRF";
 };
 
 _supportTypes;

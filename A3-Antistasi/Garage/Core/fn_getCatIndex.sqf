@@ -21,7 +21,7 @@
 #include "defines.inc"
 FIX_LINE_NUMBERS()
 params [["_class", "", [""]]];
-if ( !isClass (configFile >> "CfgVehicles" >> _class) ) exitWith { [0, "Invalid Input: " + _class, _filename] call HR_GRG_fnc_log; -1 };
+if ( !isClass (configFile >> "CfgVehicles" >> _class) ) exitWith { Error_1("Invalid Input: %1", _class); -1 };
 
 private _editorCat = cfgEditorCat(_class);
 switch (true) do {

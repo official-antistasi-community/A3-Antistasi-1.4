@@ -33,9 +33,9 @@ private _class = typeOf _vehicle;
 private _cat = [_class] call HR_GRG_fnc_getCatIndex;
 
 //LTC refund
-if (_class isEqualTo "Box_IND_Wps_F") exitWith {
+if (_class in [NATOSurrenderCrate, CSATSurrenderCrate]) exitWith {
     _vehicle addMagazineCargoGlobal [unlockedMagazines#0,1];// so fnc_empty will delete the crate
-    _transferLoot = [_vehicle] spawn A3A_fnc_empty;
+    [_vehicle] spawn A3A_fnc_empty;
     [10] call A3A_fnc_resourcesPlayer;
     [localize "STR_HR_GRG_Feedback_addVehicle_LTC"]  remoteExec ["HR_GRG_fnc_Hint", _client];
     true

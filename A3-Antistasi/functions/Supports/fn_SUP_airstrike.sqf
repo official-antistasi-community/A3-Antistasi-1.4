@@ -25,48 +25,17 @@ if(_airport == "") exitWith
     ["", 0, 0];
 };
 
-private _targetMarker = createMarker [format ["%1_coverage", _supportName], _supportPos];
-_targetMarker setMarkerShape "ELLIPSE";
-_targetMarker setMarkerBrush "Grid";
-_targetMarker setMarkerSize [25, 100];
-if(_side == Occupants) then
-{
-    _targetMarker setMarkerColor colorOccupants;
-};
-if(_side == Invaders) then
-{
-    _targetMarker setMarkerColor colorInvaders;
-};
-_targetMarker setMarkerAlpha 0;
+private _coverageMarker = createMarkerLocal [format ["%1_coverage", _supportName], _supportPos];
+_coverageMarker setMarkerShapeLocal "ELLIPSE";
+_coverageMarker setMarkerSizeLocal [200, 200];
+_coverageMarker setMarkerAlphaLocal 0;
 
-private _enemies = allUnits select
-{
-    (alive _x) &&
-    {(side (group _x) != _side) && (side (group _x) != civilian) &&
-    {((getPos _x) inArea _targetMarker)}}
-};
+private _aggroValue = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+private _weightHE = if (_side == Occupants) then {2} else {1};             // occupants less likely to use the wide-area stuff
+private _weightCluster = 0 max ((tierWar - 5) / 10 + _aggroValue / 200);           // 1 at max warlevel and aggro
+private _weightNapalm = if (napalmEnabled) then {_weightCluster} else {0};
 
-if(isNil "napalmEnabled") then
-{
-    Error("napalmEnabled does not containes a value, assuming false");
-    napalmEnabled = false;
-};
-
-private _bombType = if (napalmEnabled) then {"NAPALM"} else {"CLUSTER"};
-{
-    if (vehicle _x isKindOf "Tank") then
-    {
-        _bombType = "HE";
-    }
-    else
-    {
-        if (vehicle _x != _x) then
-        {
-            if !(vehicle _x isKindOf "StaticWeapon") then {_bombType = "CLUSTER"};
-        };
-    };
-    if (_bombType == "HE") exitWith {};
-} forEach _enemies;
+private _bombType = selectRandomWeighted ["HE", _weightHE, "CLUSTER", _weightCluster, "NAPALM", _weightNapalm];
 
 Info_1("Airstrike will be carried out with bombType %1", _bombType);
 
@@ -74,10 +43,7 @@ private _setupTime = 1200 - ((tierWar - 1) * 110);
 private _minSleepTime = (1 - (tierWar - 1) * 0.1) * _setupTime;
 private _sleepTime = _minSleepTime + random (_setupTime - _minSleepTime);
 
-private _markerDir = (getMarkerPos _airport) getDir _supportPos;
-_targetMarker setMarkerDir _markerDir;
-
 [_side, _timerIndex, _sleepTime, _bombType, _airport, _supportPos, _supportName] spawn A3A_fnc_SUP_airstrikeRoutine;
 
-private _result = [_targetMarker, _minSleepTime, _setupTime];
+private _result = [_coverageMarker, _minSleepTime, _setupTime];
 _result;

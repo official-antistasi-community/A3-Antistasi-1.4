@@ -235,4 +235,6 @@ if (debug) then {
 //New system, adding cities
 [citiesX, "City", [0,0,0]] call A3A_fnc_createGarrison;
 
+publicVariable "controlsX";		// because it adds to the array
+
 Info("InitGarrisons completed");

@@ -158,6 +158,7 @@ else
 		_size = [_markerX] call A3A_fnc_sizeMarker;
 		if ({if (_x inArea _markerX) exitWith {1}} count allMines == 0) then
 			{
+			Debug_1("Creating a Minefield at %1", _markerX);
 			for "_i" from 1 to 45 do
 				{
 				if (_sideX == Occupants) then {

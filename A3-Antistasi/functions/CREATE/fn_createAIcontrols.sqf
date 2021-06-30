@@ -160,7 +160,7 @@ else
 			{
 			for "_i" from 1 to 45 do
 				{
-				if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {
+				if (_sideX == Occupants) then {
 				_mineX = createMine [ selectRandom (A3A_faction_occ getVariable "minefieldAPERS") ,_positionX,[],_size];
    				Occupants revealMine _mineX;
 				} else {

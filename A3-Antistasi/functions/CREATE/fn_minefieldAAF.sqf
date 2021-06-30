@@ -47,11 +47,11 @@ while {_attempts < 37} do
     };
 
 if (_failure) exitWith {
-    Info_1("could not create a Minefield at %1", _markerX);
+    Info_1("could not create a Minefield at %1", _base);
     false;
 };
 
-Debug_1("Creating a Minefield at %1", _markerX);
+Debug_1("Creating a Minefield at %1", _base);
 
 for "_i" from 1 to 30 do
 {

@@ -30,7 +30,6 @@ A3A_paramTable = [
     ["autoSaveInterval", "autoSaveInterval", [], 3600],
     ["distanceMission", "mRadius", [], 4000],
     ["skillMult", "AISkill", [], 2],
-    ["personalGarageMax", "personalGarageMax", [], 2],
     ["civTraffic", "civTraffic", [], 2],
     ["limitedFT", "allowFT", [], true],									// backwards naming...
     ["napalmEnabled", "napalmEnabled", [], false],
@@ -54,7 +53,6 @@ A3A_paramTable = [
     ["membershipEnabled", "membership", [], true],
     ["switchCom", "switchComm", ["server"], true],						// dead param
     ["tkpunish", "tkPunish", [], true],
-    ["allowMembersFactionGarageAccess", "allowMembersFactionGarageAccess", [], true],
     ["memberDistance", "memberDistance", [], 5000],
     ["memberSlots", "memberSlots", ["server"], 20],
 

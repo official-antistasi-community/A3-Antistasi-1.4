@@ -17,8 +17,8 @@
 
     Example: [_object , _action] remoteExec ["A3A_fnc_logistics_addAction", 0, _object];
 */
-params ["_object", "_action"];
-
+params [["_object", objNull, [objNull]], "_action"];
+if (isNull _object) exitWith {};
 private _actionNames = (actionIDs _object) apply {(_object actionParams _x)#0};
 private _loadText = format [localize "STR_antistasi_logistics_loadIntoVeh", getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")];
 

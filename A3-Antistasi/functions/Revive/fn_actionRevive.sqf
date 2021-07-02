@@ -89,9 +89,11 @@ waitUntil {
     sleep 1;
     !([_medic] call A3A_fnc_canFight)
     or (time > _timer)
-    or (_medic getVariable "cancelRevive")
+    or (_medic getVariable ["cancelRevive", false])		// medic might get deleted
     or !(alive _cured)
 };
+
+if (isNull _medic) exitWith {};
 
 _medic removeEventHandler ["AnimDone", _animHandler];
 _medic setVariable ["helping",false];

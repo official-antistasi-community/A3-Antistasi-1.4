@@ -158,7 +158,7 @@ class HQ_menu 			{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = QUOTE(closeDialog 0;nul = [GARAGE_FACTION] spawn A3A_fnc_garage);
+			action = "";
 		};
 	};
 }; 										//slots: 6+1
@@ -1313,7 +1313,7 @@ class radio_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_radio_comm_garage_tooltip;
-			action = "closeDialog 0; if (isMultiplayer && [player] call A3A_fnc_isMember) then {_nul = createDialog ""garage_check""} else {nul = [false] call A3A_fnc_garageVehicle};";
+			action = "closeDialog 0; [cursorObject, clientOwner, call HR_GRG_dLock, player] remoteExecCall ['HR_GRG_fnc_addVehicle',2];";
 		};
 		class 8slots_R3: RscButton
 		{
@@ -1780,13 +1780,13 @@ class commander_comm 		{
 		class 8slots_R3: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_faction_garage;
+			text = "";//$STR_antistasi_faction_garage;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = $STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
-			action = "closeDialog 0; [true] call A3A_fnc_garageVehicle;";
+			tooltip = "";//$STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
+			action = "";
 		};
 		class 8slots_L4: RscButton
 		{
@@ -2322,12 +2322,12 @@ class garage_sell 			{
 		class HQ_button_Gsquad: RscButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_radio_comm_garage;
+			text = "";
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; if (isMultiplayer && [player] call A3A_fnc_isMember) then {_nul = createDialog ""garage_check""} else {nul = [false] call A3A_fnc_garageVehicle};";
+			action = "";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -2395,7 +2395,7 @@ class garage_check 				{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [false] call A3A_fnc_garageVehicle;";
+			action = "";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -2405,7 +2405,7 @@ class garage_check 				{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; nul = [true] call A3A_fnc_garageVehicle;";
+			action = "";
 		};
 		/*
 		class HQ_button_Gremove: RscButton

@@ -1,12 +1,10 @@
 if (!isServer and hasInterface) exitWith{};
 
-private ["_veh","_text","_pos","_side","_newPos","_road"];
+private ["_pos","_side","_newPos","_road"];
 
-_veh = _this select 0;
-_text = _this select 1;
-_convoy = false;
+params ["_veh", "_text", ["_stuckHacks", true]];
 
-if ((_text == localize "STR_antistasi_markers_convoy") or (_text == localize "STR_antistasi_markers_missionVehicle") or (_text == localize "STR_antistasi_markers_supplyBox")) then {_convoy = true};
+private _convoy = (_text == localize "STR_antistasi_markers_convoy") or (_text == localize "STR_antistasi_markers_missionVehicle") or (_text == localize "STR_antistasi_markers_supplyBox");
 
 waitUntil {sleep 1; (not(isNull driver _veh)) or _convoy};
 
@@ -35,7 +33,7 @@ while {alive _veh} do
 	_newPos = getPos _veh;
 
 	_driverX = driver _veh;
-	if ((_newPos distance _pos < 5) and (_text != localize "STR_antistasi_markers_supplyBox") and !(isNull _driverX)) then
+	if (_stuckHacks and (_newPos distance _pos < 5) and (_text != localize "STR_antistasi_markers_supplyBox") and !(isNull _driverX)) then
 		{
 		if (_veh isKindOf "Air") then
 			{

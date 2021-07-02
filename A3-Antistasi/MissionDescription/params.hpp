@@ -137,20 +137,6 @@ class Params
         texts[] = {$STR_antistasi_param_memberDistance_default,"4 Kmts","5 Kmts","6 Kmts","7 Kmts","8 Kmts",$STR_a3_ta_vanguard_unlimited};
         default = 9999;
     };
-    class allowMembersFactionGarageAccess
-    {
-        title = $STR_antistasi_param_allowMembersFactionGarageAccess;
-        values[] = {9999,1,0};
-        texts[] = {$STR_antistasi_param_default_yes,$STR_lib_info_yes,$STR_lib_info_no};
-        default = 9999;
-    };
-    class personalGarageMax
-    {
-        title = $STR_antistasi_param_personalGarageMax;
-        values[] = {9999,0,2,5,10};
-        texts[] = {$STR_antistasi_param_default_2,$STR_a3_ta_vanguard_unlimited,"2","5","10"};
-        default = 9999;
-    };
     class allowFT
     {
         title = $STR_antistasi_param_allowFT;

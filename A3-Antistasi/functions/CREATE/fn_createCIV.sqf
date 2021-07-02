@@ -5,6 +5,7 @@ FIX_LINE_NUMBERS()
 private ["_markerX","_dataX","_numCiv","_numVeh","_prestigeOPFOR","_prestigeBLUFOR","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_burst","_groupP","_wp","_wp1"];
 
 _markerX = _this select 0;
+private _spawnKey = _markerX + "_civ";				// civ part of cities has a separate spawn state from the garrison
 
 if (_markerX in destroyedSites) exitWith {};
 
@@ -50,7 +51,7 @@ _numTraffic = 1 max (round _numTraffic) min _maxRoads;
 
 private _countParked = 0;
 
-while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
+while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do
 	{
 	_p1 = _roads select _countParked;
 	_road = roadAt _p1;
@@ -98,7 +99,7 @@ if (count _mrkMar > 0) then
 	{
 	for "_i" from 0 to (round (random 3)) do
 		{
-		if (spawner getVariable _markerX != 2) then
+		if (spawner getVariable _spawnKey != 2) then
 			{
 			_typeVehX = selectRandomWeighted civBoatsWeighted;
 			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
@@ -116,7 +117,7 @@ if (count _mrkMar > 0) then
 		};
 	};
 
-if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _markerX != 2)) then
+if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _spawnKey != 2)) then
 	{
 	_pos = [];
 	while {true} do
@@ -140,7 +141,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 	private _patrolCities = [_markerX] call A3A_fnc_citiesToCivPatrol;
 	if (count _patrolCities > 0) then
 		{
-		while {(spawner getVariable _markerX != 2) and (_countTraffic < _numTraffic)} do
+		while {(spawner getVariable _spawnKey != 2) and (_countTraffic < _numTraffic)} do
 			{
 			_p1 = selectRandom _roads;
 			_road = roadAt _p1;
@@ -193,7 +194,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 		};
 	};
 
-waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
+waitUntil {sleep 1; (spawner getVariable _spawnKey == 2)};
 
 {deleteVehicle _x} forEach _civs;
 {deleteGroup _x} forEach _groups;

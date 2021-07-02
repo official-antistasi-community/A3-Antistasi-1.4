@@ -181,33 +181,31 @@ switch (_type) do {
 				[petros,"hint",localize "STR_antistasi_mission_petros_ConvMission_hint", localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		};
-		//prety mutch untuched, not mutch in common with the others
-		private _Markers = (airportsX + resourcesX + factories + seaports + outposts - blackListDest);
-		_Markers = _Markers select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
-		if (count _Markers > 0) then {
-			for "_i" from 0 to ((count _Markers) - 1) do {
-				private _site = _Markers select _i;
-				private _pos = getMarkerPos _site;
-				private _base = [_site] call A3A_fnc_findBasesForConvoy;
-				if ((_pos distance (getMarkerPos respawnTeamPlayer) < (distanceMission*2)) and (_base !="")) then {
-					if (
-						((sidesX getVariable [_site,sideUnknown] == Occupants) and (sidesX getVariable [_base,sideUnknown] == Occupants))
-						or ((sidesX getVariable [_site,sideUnknown] == Invaders) and (sidesX getVariable [_base,sideUnknown] == Invaders))
-					) then {_possibleMarkers pushBack _site};
-				};
+		// only do the city convoys on flip?
+		private _markers = (airportsX + resourcesX + factories + seaports + outposts - blackListDest);
+		// Pre-filter the possible source bases to make this less n-squared
+		private _possibleBases = (airportsX + outposts) select { (getMarkerPos _x) distance (getMarkerPos respawnTeamPlayer) < distanceMission + 3000 };
+		private _convoyPairs = [];
+		{
+			private _site = _x;
+			if ((getMarkerPos _site) distance (getMarkerPos respawnTeamPlayer) > distanceMission) then {continue};
+			if (sidesX getVariable [_site, teamPlayer] == teamPlayer) then {continue};
+			private _base = [_site, _possibleBases] call A3A_fnc_findBasesForConvoy;
+			if (_base != "") then {
+				_possibleMarkers pushBack _site;
+				_convoyPairs pushBack [_site, _base];
 			};
-		};
+		} forEach _markers;
 
 		if (count _possibleMarkers == 0) then
 		{
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_antistasi_mission_petros_noConvMission"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",format [localize "STR_antistasi_mission_petros_noConvMission_hint", 5], localize "STR_antistasi_missions"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize"STR_antistasi_mission_petros_noConvMission"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",format [localize "STR_antistasi_mission_petros_noConvMission_hint", 5], "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
-			private _site = selectRandom _possibleMarkers;
-			private _base = [_site] call A3A_fnc_findBasesForConvoy;
-			[[_site,_base],"A3A_fnc_convoy"] remoteExec ["A3A_fnc_scheduler",2];
+			private _convoyPair = selectRandom _convoyPairs;
+			[_convoyPair,"A3A_fnc_convoy"] remoteExec ["A3A_fnc_scheduler",2];
 		};
 	};
 

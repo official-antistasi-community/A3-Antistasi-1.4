@@ -81,7 +81,7 @@ private _openList = [];
 private _closedList = [];
 private _targetPos = _endNav select 0;
 private _startNavPos = _startNav select 0;
-private _maxDistance = 5 * ((_endNav select 0) distance (_startNav select 0));
+private _maxDistance = 10 * ((_endNav select 0) distance (_startNav select 0));
 private _lastNav = -1;
 
 _openList pushBack [_startNav, 0, [_startNav select 0, _endNav select 0] call A3A_fnc_calculateH, "Start"];

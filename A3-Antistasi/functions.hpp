@@ -69,7 +69,7 @@ class A3A
         class getAggroLevelString {};
         class getVehiclePoolForAttacks {};
         class getVehiclePoolForQRFs {};
-		class healAndRepair {};
+		class vehicleBoxHeal {};
 		class initPetros {};
 		class isFrontline {};
 		class arePositionsConnected {};
@@ -181,6 +181,7 @@ class A3A
         class unitGetToCover {};
         class useFlares {};
         class VANTinfo {};
+        class vehicleConvoyTravel {};
         class vehicleMarkers {};
     };
 
@@ -296,27 +297,6 @@ class A3A
     class EventHandler
     {
         class addArtilleryTrailEH {};
-    };
-
-    class Garage
-    {
-        class addToPersonalGarage {};
-        class addToPersonalGarageLocal {};
-        class attemptPlaceVehicle {};
-        class displayVehiclePlacementMessage {};
-        class garage {};
-        class garageVehicle {};
-        class getPersonalGarage {};
-        class getPersonalGarageLocal {};
-        class handleVehPlacementCancelled {};
-        class placeEmptyVehicle {};
-        class setPersonalGarage {};
-        class setPersonalGarageLocal {};
-        class vehPlacementBegin {};
-        class vehPlacementCallbacks {};
-        class vehPlacementCancel {};
-        class vehPlacementChangeVehicle {};
-        class vehPlacementCleanup {};
     };
 
     class Garrison
@@ -512,11 +492,15 @@ class A3A
         class findNodesInDistance {};
         class findPath {};
         class findPathPrecheck {};
+        class findPosOnRoute {};
         class getMainPositions {};
+        class getMarkerNavPoint {};
         class getNearestNavPoint {};
         class listInsert {};
         class loadNavGrid {};
         class markNode {};
+        class roadAStar {};
+        class roadConnPoint {};
         class setNavData {};
         class trimPath {};
     };

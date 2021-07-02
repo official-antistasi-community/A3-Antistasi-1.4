@@ -1,20 +1,22 @@
-private ["_markerX","_pos","_airportsAAF","_airportsX","_base","_posbase","_busy","_sideX"];
+params ["_mrkDest", ["_possibleBases", airportsX + outposts]];
 
-_markerX = _this select 0;
-_pos = getMarkerPos _markerX;
-_sideX = sidesX getVariable [_markerX,sideUnknown];
+private _posDest = getMarkerPos _mrkDest;
+private _side = sidesX getVariable [_mrkDest,sideUnknown];
+if (_mrkDest in citiesX and _side == teamPlayer) then {_side = Occupants};
 
-_airportsAAF = (airportsX + outposts) select {(spawner getVariable _x == 2) and (dateToNumber date > server getVariable _x) and ([_x,_markerX] call A3A_fnc_arePositionsConnected) and (!(_x in forcedSpawn)) and (sidesX getVariable [_x,sideUnknown] == _sideX) and !(_x in blackListDest) and (getMarkerPos _x distance _pos > distanceSPWN)};
-if (_markerX in citiesX) then {_airportsAAF = _airportsAAF select {sidesX getVariable [_x,sideUnknown] == Occupants}};
-_airportsX = [];
-_base = "";
-{
-  _base = _x;
-  _posbase = getMarkerPos _base;
-  if ((_pos distance _posbase < distanceForLandAttack) and (({_x == _markerX} count (killZones getVariable [_base,[]])) < 3)) then
-  {
-    _airportsX pushBack _base
-  };
-} forEach _airportsAAF;
-if (count _airportsX > 0) then {_base = [_airportsX,_pos] call BIS_fnc_nearestPosition} else {_base = ""};
-_base
+private _bases = _possiblebases select {
+    (sidesX getVariable [_x,sideUnknown] == _side)
+    and (_posDest distance getMarkerPos _x > 1000)
+    and (_posDest distance getMarkerPos _x < 3000)
+    and {
+        (spawner getVariable _x == 2)
+        and (dateToNumber date > server getVariable _x) 					// garrison not busy
+        and (count (garrison getVariable [_x,[]]) >= 16)					// sufficient garrison
+        and ([_x,_mrkDest] call A3A_fnc_arePositionsConnected)
+        and !(_x in forcedSpawn) and !(_x in blackListDest)
+        and ({_x == _mrkDest} count (killZones getVariable [_x,[]]) < 3)
+    };
+};
+
+if (count _bases == 0) exitWith {""};
+selectRandom _bases;

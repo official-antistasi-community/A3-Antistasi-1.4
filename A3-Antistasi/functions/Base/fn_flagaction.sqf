@@ -1,5 +1,3 @@
-#include "..\Garage\defineGarage.inc"
-
 private ["_flag","_typeX"];
 
 if (!hasInterface) exitWith {};
@@ -116,15 +114,7 @@ switch _typeX do
     };
     case "garage":
     {
-        if (isMultiplayer) then
-        {
-            _flag addAction [localize "STR_antistasi_personal_garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage;},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4];
-            _flag addAction [localize "STR_antistasi_faction_garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4];
-        }
-        else
-        {
-            _flag addAction [localize "STR_antistasi_faction_garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])", 4]
-        };
+        [_flag] call HR_GRG_fnc_initGarage;
     };
     case "fireX":
     {
@@ -138,16 +128,8 @@ switch _typeX do
     {
         removeAllActions _flag;
         _flag addAction [localize "STR_antistasi_customHint_unit_recruit", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_customHint_unit_recruit", localize "STR_antistasi_customHint_unit_recruit_enemies"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        _flag addAction [localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", {if ([player,300] call A3A_fnc_enemyNearCheck) then {[localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        if (isMultiplayer) then
-        {
-            _flag addAction [localize "STR_antistasi_personal_garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-            _flag addAction [localize "STR_antistasi_faction_garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        }
-        else
-        {
-            _flag addAction [localize "STR_antistasi_faction_garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
-        };
+        _flag addAction [localize "STR_antistasi_dialogs_vehicle_purchase_buy_text", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", localize "STR_antistasi_customHint_buy_vehicle_enemies"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+        [_flag] call HR_GRG_fnc_initGarage;
     };
     case "Intel_Small":
     {

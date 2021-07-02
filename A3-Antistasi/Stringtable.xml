@@ -2070,7 +2070,7 @@
         <Russian>Конвой военнопленных</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_convoyPrisoner_text">
-        <Original>A group os POW's is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</Original>
+        <Original>A group of POWs is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</Original>
         <Russian>Группа военнопленных транспортируется из %1 в %3, и вот-вот отправится в %2. Попробуйте его перехватить. Убейте или захватите водителя грузовика, чтобы он присоединился к вам и доставил в штаб-квартиру. Если возможно, живым.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_convoyReinforcements">
@@ -2086,7 +2086,7 @@
         <Russian>Конвой денег</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_convoyMoney_text">
-        <Original>A truck plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.</Original>
+        <Original>A truck with plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.</Original>
         <Russian>Грузовик с большим количеством денег перемещается из %1 в %3 и вот-вот отправится в %2. Украдите грузовик и отнесите его в штаб-квартиру. Эти средства будут очень кстати.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_convoySupply">
@@ -2326,7 +2326,7 @@
         <Russian>У меня нет для вас миссий конвоя. Переместите наш штаб ближе к врагу</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_petros_noConvMission_hint">
-        <Original>Convoy Missions require Airports or Cities closer than %1Km from your HQ, and they must have an idle friendly base in their surroundings</Original>
+        <Original>Convoy Missions require nearby enemy facilities, with a road route to an idle base within %1 km.</Original>
         <Russian>Для выполнения миссий конвоя требуются аэропорты или города, расположенные ближе, чем на %1 км от вашего штаба, и в их окрестностях должна быть свободная дружественная база.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_petros_missionForYou">
@@ -7126,6 +7126,9 @@
       <Key ID="STR_antistasi_addAction_healRepairRearm">
         <Original>Heal, Repair and Rearm</Original>
         <Russian>Лечение, Ремонт, Перезарядка</Russian>
+      </Key>
+      <Key ID="STR_antistasi_addAction_healNearbyUnits">
+        <Original>Heal nearby units</Original>
       </Key>
       <Key ID="STR_antistasi_customHint_heal_repair">
         <Original>Heal And Repair</Original>

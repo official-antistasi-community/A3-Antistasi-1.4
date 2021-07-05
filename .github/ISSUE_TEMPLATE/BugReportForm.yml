@@ -15,7 +15,7 @@ body:
     id: reproduce
     attributes:
       label: How to reproduce
-      description: How can wwe reproduce this bug?
+      description: How can we reproduce this bug?
       placeholder: By doing this when this is happening!
     validations:
       required: true

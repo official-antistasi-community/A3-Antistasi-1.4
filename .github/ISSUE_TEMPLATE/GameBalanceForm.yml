@@ -1,5 +1,5 @@
 name: Game balance
-description: Sugguest changes to the ballance of the mission.
+description: Suggest changes to the balance of the mission.
 title: "[Game balance]: "
 labels: [Suggestion, Balance, triage]
 body:
@@ -20,7 +20,7 @@ body:
   - type: textarea
     id: alternatives
     attributes:
-      label: Alternative soloutions
+      label: Alternative solutions
       description: Have you considered any alternatives to improve balance?
     validations:
       required: false

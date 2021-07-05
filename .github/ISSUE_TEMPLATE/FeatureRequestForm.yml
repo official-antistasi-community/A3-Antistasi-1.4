@@ -20,7 +20,7 @@ body:
   - type: textarea
     id: alternatives
     attributes:
-      label: Alternative soloutions
+      label: Alternative solutions
       description: Have you considered any alternatives to solve the problem?
     validations:
       required: false

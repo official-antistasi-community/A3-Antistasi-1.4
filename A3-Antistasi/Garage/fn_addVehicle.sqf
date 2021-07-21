@@ -34,7 +34,7 @@ private _class = typeOf _vehicle;
 if (_class in [NATOSurrenderCrate, CSATSurrenderCrate]) exitWith {
     _vehicle addMagazineCargoGlobal [unlockedMagazines#0,1];// so fnc_empty will delete the crate
     [_vehicle] spawn A3A_fnc_empty;
-    [10] call A3A_fnc_resourcesPlayer;
+    [10] remoteExec ["A3A_fnc_resourcesPlayer", _client];
     [localize "STR_HR_GRG_Feedback_addVehicle_LTC"]  remoteExec ["HR_GRG_fnc_Hint", _client];
     true
 };

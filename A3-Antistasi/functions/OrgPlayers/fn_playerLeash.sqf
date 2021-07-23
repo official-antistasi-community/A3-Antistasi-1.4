@@ -1,3 +1,23 @@
+/*
+Maintainer: Caleb Serafin
+    If the current player is not a member, it will loop every 60 seconds to check the distance from the player to HQ or any member.
+    However, if there are no members online, it will allow the player unlimited distance from HQ.
+    If there is a member online, it will warn the player and begin a 61 second countdown
+
+Return Value:
+    <ANY> Undefined
+
+Scope: Clients, Global Effect
+Environment: Scheduled
+Public: No (Only spawned once in initClient)
+Dependencies:
+    <SCALAR> memberDistance
+    <SIDE> teamPlayer
+
+Example:
+    [] spawn A3A_fnc_memberLeash;
+*/
+
 #define INITIAL_COUNT_TIME 61
 
 _countX = INITIAL_COUNT_TIME;

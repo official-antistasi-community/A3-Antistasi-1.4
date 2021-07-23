@@ -134,7 +134,7 @@ class Params
     {
         title = "Max distance non members can be from the closest member or HQ (they will be teleported to HQ after some timeout)";
         values[] = {9999,4000,5000,6000,7000,8000,10000,16000,-1};  // 16000 is left as backwards compatibility
-        texts[] = {"Default (5 km)","4 Km","5 Km","6 Km","7 Km","8 Km","10 Km","16 Km","Unlimited"};
+        texts[] = {"Default (5 km)","4 km","5 km","6 km","7 km","8 km","10 km","16 km","Unlimited"};
         default = 9999;
     };
     class allowFT

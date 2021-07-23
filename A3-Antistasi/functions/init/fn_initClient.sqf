@@ -327,7 +327,7 @@ if (isMultiplayer) then {
 			} else {
 				_nonMembers = {(side group _x == teamPlayer) and !([_x] call A3A_fnc_isMember)} count (call A3A_fnc_playableUnits);
 				if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
-				if (memberDistance != 16000) then {[] spawn A3A_fnc_playerLeash};
+				[] spawn A3A_fnc_playerLeash;
 
 				["General Info", "Welcome Guest<br/><br/>You have joined this server as guest"] call A3A_fnc_customHint;
 			};

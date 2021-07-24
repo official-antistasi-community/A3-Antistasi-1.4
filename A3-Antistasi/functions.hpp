@@ -471,6 +471,8 @@ class A3A
         class memberAdd {};
         class membersList {};
         class playerLeash {};
+        class playerLeashRefresh {};
+        class playerLeashCheckPosition {};
         class playerScoreAdd {};
         class promotePlayer {};
         class ranksMP {};

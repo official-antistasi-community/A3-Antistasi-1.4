@@ -54,6 +54,15 @@ A3A_logistics_vehicleHardpoints append [
         [1,             [-0.05,-1,-0.596],       [6,7,9]],
         [1,             [-0.05,-1.8,-0.596],     [8,11]]
     ]],
+    
+    //Kraz Open
+    ["rhs_kraz255b1_cargo_open_vdv" call A3A_fnc_classNameToModel, [
+        [1,             [0,0.4,-0.40],           [11,12,1,2]],
+        [1,             [0,-0.4,-0.40],          [3,4,5]],
+        [1,             [0,-1.2,-0.40],          [6,7]],
+        [1,             [0,-2,-0.40],            [8,9,10]],
+        [1,             [0,-2.8,-0.40],          [13,14]]
+    ]],
 
     //USAF 4x4 Trucks
     //Standard (covered)

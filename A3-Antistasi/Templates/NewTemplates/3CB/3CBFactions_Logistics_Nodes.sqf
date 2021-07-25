@@ -162,15 +162,31 @@ A3A_logistics_vehicleHardpoints append [
         // Small boat
     ["UK3CB_CHC_C_Small_Boat_Open" call A3A_fnc_classNameToModel,[
         [1,             [0,-0.7,-1],            [4,5]]
+    ]],
+        //3CB Double Cab Pickup
+    ["UK3CB_ADC_C_Pickup" call A3A_fnc_classNameToModel,[
+        [1,             [0,-0.95,-0.84],          [4,5,6]],
+        [1,             [0,-1.75,-0.84],          [7]]
     ]]
 ];
 
 //Offsets for adding new statics/boxes to the JNL script.
-A3A_logistics_attachmentOffset append [];
+A3A_logistics_attachmentOffset append [
+    ["UK3CB_MDF_B_RBS70" call A3A_fnc_classNameToModel,                          [0.0, -0.45, 1.3],             [0, 1, 0],                  2,      400],
+    ["UK3CB_ADA_B_M240_High" call A3A_fnc_classNameToModel,                      [0.2, -0.70, 1.60],             [0, 1, 0],                  4,      50]
+
+];
 
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
-A3A_logistics_coveredVehicles append ["UK3CB_B_M939_Closed_HIDF", "UK3CB_B_MTVR_Closed_WDL", "UK3CB_C_V3S_Closed"];
+A3A_logistics_coveredVehicles append [
+    "UK3CB_B_M939_Closed_HIDF" call A3A_fnc_classNameToModel
+    , "UK3CB_B_MTVR_Closed_WDL" call A3A_fnc_classNameToModel
+    , "UK3CB_C_V3S_Closed" call A3A_fnc_classNameToModel
+];
 
 //if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]],
 //if the vehicle is in the coveredVehicles array don't add it to the blacklist in this array.
-A3A_logistics_weapons append [];
+A3A_logistics_weapons append [
+    ["UK3CB_MDF_B_RBS70" call A3A_fnc_classNameToModel,[]],
+    ["UK3CB_ADA_B_M240_High" call A3A_fnc_classNameToModel,[]]
+];

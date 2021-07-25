@@ -48,7 +48,9 @@
 	,"UK3CB_CHC_C_UAZ_Closed", 0.5
 	,"UK3CB_CHC_C_UAZ_Open", 0.5
 	,"UK3CB_CHC_C_Gaz24", 0.5
-	,"UK3CB_CHC_C_Golf", 0.5]] call _fnc_saveToTemplate; 			//this line determines civilian cars -- Example: ["vehiclesCivCar", ["C_Offroad_01_F"]] -- Array, can contain multiple assets
+	,"UK3CB_CHC_C_Golf", 0.5
+	,"UK3CB_CHC_C_Landcruiser",0.5
+	,"UK3CB_CHC_C_Pickup",0.5]] call _fnc_saveToTemplate; 			//this line determines civilian cars -- Example: ["vehiclesCivCar", ["C_Offroad_01_F"]] -- Array, can contain multiple assets
 
 ["vehiclesCivIndustrial", ["UK3CB_CHC_C_Tractor", 0.2
 	,"UK3CB_CHC_C_Tractor_Old", 0.2

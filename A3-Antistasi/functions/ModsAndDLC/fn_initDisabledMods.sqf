@@ -12,7 +12,6 @@ if (!allowDLCOrange) then {_disabledMods pushBack "orange"};
 if (!allowDLCTanks) then {_disabledMods pushBack "tanks"};
 if (!allowDLCGlobMob) then {_disabledMods pushBack "gm"};
 if (!allowDLCEnoch) then {_disabledMods pushBack "enoch"};
-if (!allowDLCOfficialMod) then {_disabledMods pushBack "officialmod"};
 if (!allowDLCAoW) then {_disabledMods pushBack "aow"};
 if (!allowDLCVN) then {_disabledMods pushBack "vn"};
 

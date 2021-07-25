@@ -10,4 +10,4 @@
 
 params ["_modName"];
 
-_modName == "" || { toLower _modName in (allDLCMods apply {toLower (_x#1)}) };
+_modName == "" || _modName == toLower "officialmod" || { toLower _modName in (allDLCMods apply {toLower (_x#1)}) };

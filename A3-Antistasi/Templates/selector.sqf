@@ -146,6 +146,22 @@ A3A_Occ_template = switch(true) do {
     };
     case (A3A_has3CBFactions): {
         switch(true) do {
+            case (toLower worldName == "altis"): {
+                Info("Using 3CB AAF Template");
+                ["Templates\NewTemplates\3CB\3CB_AI_AAF.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+            };
+            case (toLower worldName == "malden"): {
+                Info("Using 3CB MDF Template");
+                ["Templates\NewTemplates\3CB\3CB_AI_MDF.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+            };
+            case (toLower worldName == "tanoa"): {
+                Info("Using 3CB HIDF Template");
+                ["Templates\NewTemplates\3CB\3CB_AI_HIDF.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+            };
+            case (toLower worldName == "kunduz"): {
+                Info("Using 3CB ANA Template");
+                ["Templates\NewTemplates\3CB\3CB_AI_ANA.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+            };
             case (toLower worldName in arcticmaps);
             case (toLower worldName in temperatemaps): {
                 Info("Using Temperate US Marines Template as Placeholder");

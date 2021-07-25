@@ -81,6 +81,27 @@ if (_type == "CAS") then
             _plane setVariable ["mainGun", "vn_ns23_v_01"];
             _plane setVariable ["rocketLauncher", ["vn_rocket_s5_heat_launcher"]];
         };
+        case "RHSGREF_A29B_HIDF":
+        {
+            _loadout = ["rhs_mag_AGM114K_2_plane","rhs_mag_FFAR_7_USAF","rhs_mag_mk82","rhs_mag_FFAR_7_USAF","rhs_mag_AGM114N_2_plane","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
+            _plane setVariable ["mainGun", "rhs_weap_M3W_A29"];
+            _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
+            _plane setVariable ["missileLauncher", ["rhs_weap_AGM114K_Launcher", "RHS_weap_AGM114N_Launcher"]];
+        };
+        case "UK3CB_MDF_B_Mystere_CAS1":
+        {
+            _loadout = ["PylonRack_3Rnd_Missile_AGM_02_F","PylonRack_12Rnd_missiles","PylonRack_12Rnd_missiles","PylonRack_3Rnd_Missile_AGM_02_F"];
+            _plane setVariable ["mainGun", "uk3cb_mystere_cannon_30mm"];
+            _plane setVariable ["rocketLauncher", ["missiles_DAR"]];
+            _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F"]];
+        };
+        case "UK3CB_AAF_B_L39_PYLON":
+        {
+            _loadout = ["PylonRack_7Rnd_Rocket_04_AP_F","PylonRack_3Rnd_LG_scalpel","PylonRack_12Rnd_missiles","PylonWeapon_300Rnd_20mm_shells","PylonRack_12Rnd_missiles","PylonRack_3Rnd_LG_scalpel","PylonRack_7Rnd_Rocket_04_AP_F"];
+            _plane setVariable ["mainGun", "Twin_Cannon_20mm"];
+            _plane setVariable ["rocketLauncher", ["Rocket_04_AP_Plane_CAS_01_F", "missiles_DAR"]];
+            _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
+        };
         default
         {
             Error_1("Plane type %1 currently not supported for CAS, please add the case!", typeOf _plane);
@@ -119,7 +140,8 @@ if (_type == "AA") then
         case "rhs_mig29s_vvs";
         case "rhsgref_cdf_b_mig29s";
         case "UK3CB_TKA_O_MIG29SM";
-        case "UK3CB_CW_SOV_O_LATE_MIG29S":
+        case "UK3CB_CW_SOV_O_LATE_MIG29S";
+        case "UK3CB_AAF_O_MIG29S":
         {
             _loadout = ["rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R77_AKU170_MIG29","rhs_mag_R77_AKU170_MIG29","","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
         };
@@ -138,6 +160,11 @@ if (_type == "AA") then
         case "vn_o_air_mi2_05_06":
         {
             _loadout = ["vn_missile_at3_mag_01_x1","vn_missile_at3_mag_01_x1","vn_missile_at3_mag_01_x1","vn_missile_at3_mag_01_x1","vn_missile_sa7b_mag_x2","vn_missile_sa7b_mag_x2"];
+        };
+        case "UK3CB_B_Mystere_HIDF_AA1";
+        case "UK3CB_MDF_B_Mystere_AA1":
+        {
+            _loadout = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_Missile_AA_04_F"];
         };
         default
         {

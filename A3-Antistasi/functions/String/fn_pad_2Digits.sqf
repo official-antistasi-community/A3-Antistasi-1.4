@@ -17,8 +17,10 @@ Public: Yes
 Example:
     str 2 call A3A_fnc_pad_2Digits;  // "02"
 */
+// A3A_fnc_pad_2Digits = {
 if (count _this == 1) then {
     "0"+_this;
 } else {
     _this;
 };
+// };

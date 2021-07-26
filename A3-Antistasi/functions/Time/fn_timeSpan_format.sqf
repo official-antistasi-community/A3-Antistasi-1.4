@@ -8,8 +8,8 @@ Maintainer: Caleb Serafin
 Arguments:
     <Timespan> Timespan.        isNegative is index 0, days are index 1, hours are index 2, and smaller units follow in order. May be any amount of fields as long as it starts with isNegative and is in order.
     <SCALAR> Symbol Set.        0 are full names with spacing. 1 are abbreviations with spacing only between each field. 2 are condensed colons & en-dash with no spacing.  [DEFAULT=0]
-    <BOOL> Show In-Between Zeros.false will only show non-zero-size fields. true will show in-between zero-size. Disables positive sign if Show All Fields is true.         [DEFAULT=false]
-    <BOOL> Show All Fields.     false will hide the positive sign. true will show all fields (and the positive sign if show in-between zeros is false.).                    [DEFAULT=false]
+    <SCALAR> Show Zeros.        0 will only show non-zero fields. 1 will show in-between zeros between non-zeros. 2 will show all zeros.                                    [DEFAULT=0]
+    <BOOL> Show Positive.       false will hide the positive sign. true will allow the positive sign all fields                                                             [DEFAULT=false]
     <SCALAR> Slice Start.       Index of first field to be displayed. Days are index 1, hours are index 2 ect.                                                              [DEFAULT=0]
     <SCALAR> Slice End.         Index of last field to be displayed. Days are index 1, hours are index 2 ect.                                                               [DEFAULT=1e7]
     <BOOL> Pad.                 All fields will be padded, Days will be padded to 2 characters.                                                                             [DEFAULT=false]
@@ -27,37 +27,37 @@ Example:
     DEV_timeSpan = [true,0,0,21,0,0,69,420];
     [DEV_timeSpan]                      call A3A_fnc_timeSpan_format;  // "(-) 21 Minutes 69 Microseconds 420 Nanoseconds"
     [DEV_timeSpan,1]                    call A3A_fnc_timeSpan_format;  // "(-) 21m 69µs 420ns"
-    [DEV_timeSpan,2,false,true]         call A3A_fnc_timeSpan_format;  // "-0:0:21:0–0:69:420"
+    [DEV_timeSpan,2,2]                  call A3A_fnc_timeSpan_format;  // "-0:0:21:0–0:69:420"
 
-    // Zeros, Note the negative marker in DEV_timeSpan.
-    DEV_timeSpan = [true,0,0,0,0,0,0,0];
+    // Zeros. Note the negative marker in DEV_timeSpan.
+    DEV_timeSpan = [true];
     [DEV_timeSpan]                      call A3A_fnc_timeSpan_format;  // "(Now)"
+    [DEV_timeSpan,0,0,true]             call A3A_fnc_timeSpan_format;  // "(+) (Now)"
     [DEV_timeSpan,1]                    call A3A_fnc_timeSpan_format;  // "0"
-    [DEV_timeSpan,0,false,true]         call A3A_fnc_timeSpan_format;  // "(+) 0 Days 0 Hours 0 Minutes 0 Seconds 0 Milliseconds 0 Microseconds 0 Nanoseconds"
-    [DEV_timeSpan,0,false,true,0,1e7,true]call A3A_fnc_timeSpan_format;// "(+) 00 Days 00 Hours 00 Minutes 00 Seconds 000 Milliseconds 000 Microseconds 000 Nanoseconds"
-    [DEV_timeSpan,1,false,true]         call A3A_fnc_timeSpan_format;  // "(+) 0d 0h 0m 0s 0ms 0µs 0ns"
-    [DEV_timeSpan,1,true,true]          call A3A_fnc_timeSpan_format;  // "0d 3h 54m 0s 152ms 0µs 0ns"
-    [DEV_timeSpan,2,false,true]         call A3A_fnc_timeSpan_format;  // "+0:0:0:0–0:0:0"
-    [DEV_timeSpan,2,false,true,0,1e7,true]call A3A_fnc_timeSpan_format;// "+00:00:00:00–000:000:000"
+    [DEV_timeSpan,1,0,true]             call A3A_fnc_timeSpan_format;  // "(+) 0"
+    [DEV_timeSpan,0,2,false]            call A3A_fnc_timeSpan_format;  // "0 Days 0 Hours 0 Minutes 0 Seconds 0 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0,2,false,0,1e7,true] call A3A_fnc_timeSpan_format;  // "00 Days 00 Hours 00 Minutes 00 Seconds 000 Milliseconds 000 Microseconds 000 Nanoseconds"
+    [DEV_timeSpan,1,2,false]            call A3A_fnc_timeSpan_format;  // "0d 0h 0m 0s 0ms 0µs 0ns"
+    [DEV_timeSpan,2,2,false]            call A3A_fnc_timeSpan_format;  // "0:0:0:0–0:0:0"
+    [DEV_timeSpan,2,2,false,0,1e7,true] call A3A_fnc_timeSpan_format;  // "00:00:00:00–000:000:000"
 
     // Field visibility.
-    DEV_timeSpan = [false,0,3,54,0,152];
+    DEV_timeSpan = [false,0,3,54,0,152,0];
     [DEV_timeSpan,0]                    call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 152 Milliseconds"
-    [DEV_timeSpan,0,true]               call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds 152 Milliseconds"
-    [DEV_timeSpan,0,true,true]          call A3A_fnc_timeSpan_format;  // "0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
-    [DEV_timeSpan,0,false,true]         call A3A_fnc_timeSpan_format;  // "(+) 0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0,1]                  call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds 152 Milliseconds"
+    [DEV_timeSpan,0,2]                  call A3A_fnc_timeSpan_format;  // "0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0,2,true]             call A3A_fnc_timeSpan_format;  // "(+) 0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
 
     // Slicing.
-    DEV_timeSpan = [false,0,3,54,0,152];
-    [DEV_timeSpan,0,false,true,1]       call A3A_fnc_timeSpan_format;  // "(+) 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
-    [DEV_timeSpan,0,false,true,0,4]     call A3A_fnc_timeSpan_format;  // "(+) 0 Days 3 Hours 54 Minutes 0 Seconds"
-    [DEV_timeSpan,0,false,true,1,4]     call A3A_fnc_timeSpan_format;  // "(+) 3 Hours 54 Minutes 0 Seconds"
+    DEV_timeSpan = [false,0,3,54,0,152,0];
+    [DEV_timeSpan,0,2,false,1]          call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0,2,false,0,4]        call A3A_fnc_timeSpan_format;  // "0 Days 3 Hours 54 Minutes 0 Seconds"
+    [DEV_timeSpan,0,2,false,1,4]        call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds"
 
-    // Slicing to get Digital Time.
-    DEV_timeSpan = [false,0,3,54,0,152];
-    [DEV_timeSpan,0,true,true,1,4]      call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds"
-    [DEV_timeSpan,2,true,true,1,4]      call A3A_fnc_timeSpan_format;  // "3:54:0"
-    [DEV_timeSpan,2,true,true,1,4,true] call A3A_fnc_timeSpan_format;  // "03:54:00"
+    // Slicing to get digital time.
+    DEV_timeSpan = [false,0,3,54,0,152,0];
+    [DEV_timeSpan,2,2,false,1,4]        call A3A_fnc_timeSpan_format;  // "3:54:0"
+    [DEV_timeSpan,2,2,false,1,4,true]   call A3A_fnc_timeSpan_format;  // "03:54:00"
 */
 
 // A3A_fnc_timeSpan_format = {
@@ -65,8 +65,8 @@ Example:
 params [
     ["_timeSpan",[], [ [] ]],
     ["_symbolSet", 0, [ 0 ]],
-    ["_showInBetweenZeros", false, [ false ]],
-    ["_showAllFields", false, [ false ]],
+    ["_showZeros", 0, [ 0 ]],
+    ["_showPositive", false, [ false ]],
     ["_sliceStart", 0, [ 0 ]],
     ["_sliceEnd", 1e7, [ 0 ]],
     ["_pad", false, [ false ]],
@@ -90,10 +90,20 @@ private _sizeFieldList = if (_localise) then {
 };
 // Warping in parenthesise prevents misidentification as hyphen or dash.
 private _signSet = [["(+) ", "(-) "], ["(+) ", "(-) "], ["+","-"]] #_symbolSet;
-
-if (_showAllFields) then {
-    _timeSpan = +_timeSpan;
+private _showInBetweenZeros = _showZeros > 0;
+private _showAllZeros = _showZeros > 1;
+_timeSpan = +_timeSpan;
+if (_showAllZeros) then {
     _timeSpan resize 8;
+} else {
+    //  Prevent trailing zeros.
+    private _lastNonZero = 8;
+    {
+        if (_x isNotEqualTo 0) then {
+            _lastNonZero = _forEachIndex;
+        };
+    } forEach _timeSpan;
+    _timeSpan resize (_lastNonZero + 1);
 };
 
 private _formattedText = "";
@@ -101,8 +111,8 @@ private _foundNonZero = false;
 {
     if (_forEachIndex < _sliceStart || _sliceEnd <= _forEachIndex) then { continue };
     if (isNil {_x}) then { _x = 0; };
-    if (_x > 0 || _showInBetweenZeros && _foundNonZero || _showAllFields) then {
-        _foundNonZero = _x > 0;
+    if (_x > 0 || _showInBetweenZeros && _foundNonZero || _showAllZeros) then {
+        _foundNonZero = _foundNonZero || _x > 0;
         private _amount = _x toFixed 0;
         if (_pad) then {
             if (_forEachIndex < 4) then {
@@ -114,7 +124,6 @@ private _foundNonZero = false;
         _formattedText = _formattedText + (_amount + (_sizeFieldList #_forEachIndex));
     };
 } forEach (_timeSpan select [1,1e7]);
-
 // If all displayed fields are empty, then display now without any other symbol.
 if (_formattedText isEqualTo "") then {
     if (_localise) then {
@@ -122,12 +131,12 @@ if (_formattedText isEqualTo "") then {
     } else {
         _formattedText = ["(Now) ","0 ","0 "] #_symbolSet;
     };
-} else {
-    // Prevent negative zeros.
-    private _negative = (_timeSpan #0) && _foundNonZero;
-    if (_negative || (_showAllFields && !_showInBetweenZeros)) then {
-        _formattedText = (_signSet select _negative) + _formattedText;
-    };
+};
+
+// Prevent negative zeros.
+private _negative = (_timeSpan #0) && _foundNonZero;
+if (_negative || _showPositive) then {
+    _formattedText = (_signSet select _negative) + _formattedText;
 };
 
 // Trim the end space (or ending colon).

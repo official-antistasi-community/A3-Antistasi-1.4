@@ -17,8 +17,10 @@ Public: Yes
 Example:
     str 3 call A3A_fnc_pad_3Digits;  // "002"
 */
+// A3A_fnc_pad_3Digits = {
 switch (count _this) do {
     case 1: {"00"+_this};
     case 2: {"0"+_this};
     default {_this};
 };
+// };

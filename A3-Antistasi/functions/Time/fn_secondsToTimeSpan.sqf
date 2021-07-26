@@ -21,7 +21,10 @@ Environment: Any
 Public: Yes
 
 Example:
-    ["something", player, 2.718281828, 4, nil, ["Tom","Dick","Harry"], ["UID123Money",0], "hint ""Hello World!"""] call A3A_fnc_secondsToTimeSpan; // false
+    [3463463] call A3A_fnc_secondsToTimeSpan;  // [false,40,2,4,23,0,0,0]
+    [[3463463] call A3A_fnc_secondsToTimeSpan] call A3A_fnc_timeSpan_format;  // ~"40 Days 2 Hours 4 Minutes 23 Seconds"
+
+    ([[serverTime] call A3A_fnc_secondsToTimeSpan] call A3A_fnc_timeSpan_format) + " since mission started.";  // ~ "9 Hours 30 Minutes 9 Seconds 812 Milliseconds 499 Microseconds 961 Nanoseconds since mission started."
 */
 params [
     ["_secondsIn",0,[ 0 ]]
@@ -44,6 +47,6 @@ private _milliseconds = floor (_secondsIn / 1e-3);
 _secondsIn = _secondsIn mod  1e-3;
 private _microseconds = floor (_secondsIn / 1e-6);
 _secondsIn = _secondsIn mod  1e-6;
-private nanoseconds = floor (_secondsIn / 1e-9);
+private _nanoseconds = floor (_secondsIn / 1e-9);
 
-[_negative,_days,_hours,_minutes,_seconds,_milliseconds,_microseconds,nanoseconds];
+[_negative,_days,_hours,_minutes,_seconds,_milliseconds,_microseconds,_nanoseconds];

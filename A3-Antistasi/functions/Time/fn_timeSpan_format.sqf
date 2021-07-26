@@ -6,14 +6,13 @@ Maintainer: Caleb Serafin
     Note: Sub seconds are used instead of fractions due to float's limited precision.
 
 Arguments:
-    <Timespan> Timespan.        isNegative is index 0, days are index 1, hours are index 2, and smaller units follow in order. May be any amount of fields as long as it starts with isNegative and is in order.
-    <SCALAR> Symbol Set.        0 are full names with spacing. 1 are abbreviations with spacing only between each field. 2 are condensed colons & en-dash with no spacing.  [DEFAULT=0]
-    <SCALAR> Show Zeros.        0 will only show non-zero fields. 1 will show in-between zeros between non-zeros. 2 will show all zeros.                                    [DEFAULT=0]
-    <BOOL> Show Positive.       false will hide the positive sign. true will allow the positive sign all fields                                                             [DEFAULT=false]
-    <SCALAR> Slice Start.       Index of first field to be displayed. Days are index 1, hours are index 2 ect.                                                              [DEFAULT=0]
-    <SCALAR> Slice End.         Index of last field to be displayed. Days are index 1, hours are index 2 ect.                                                               [DEFAULT=1e7]
-    <BOOL> Pad.                 All fields will be padded, Days will be padded to 2 characters.                                                                             [DEFAULT=false]
-    <BOOLEAN> Localise.         false for Great British English symbols, true for localised symbols.                                                                        [DEFAULT=false]
+    <Timespan> Timespan.    isNegative is index 0, days are index 1, hours are index 2, and smaller units follow in order. May be any amount of fields as long as it starts with isNegative and is in order.
+    <SCALAR> Symbol Set.    0 are full names. 1 are abbreviations. 2 are condensed colons & en-dash.                                                        [DEFAULT=0]
+    <SCALAR> Show Zeros.    0 will only show non-zero fields. 1 will show in-between zeros between non-zeros. 2 will show all zeros.                        [DEFAULT=0]
+    <BOOL> Show Positive.   false will hide the positive sign. true will allow the positive sign all fields                                                 [DEFAULT=false]
+    <SCALAR> Slice Count.   Number of significant fields to display | <SCALAR,SCALAR> Slice.    First & last Index to be displayed. Days #1, hours #2 ect.. [DEFAULT=1e7]
+    <BOOL> Pad.             All fields will be padded, Days will be padded to 2 characters.                                                                 [DEFAULT=false]
+    <BOOLEAN> Localise.     false for Great British English symbols, true for localised symbols.                                                            [DEFAULT=false]
 
 Return Value:
     <STRING> Timespan as human readable text.
@@ -36,10 +35,10 @@ Example:
     [DEV_timeSpan,1]                    call A3A_fnc_timeSpan_format;  // "0"
     [DEV_timeSpan,1,0,true]             call A3A_fnc_timeSpan_format;  // "(+) 0"
     [DEV_timeSpan,0,2,false]            call A3A_fnc_timeSpan_format;  // "0 Days 0 Hours 0 Minutes 0 Seconds 0 Milliseconds 0 Microseconds 0 Nanoseconds"
-    [DEV_timeSpan,0,2,false,0,1e7,true] call A3A_fnc_timeSpan_format;  // "00 Days 00 Hours 00 Minutes 00 Seconds 000 Milliseconds 000 Microseconds 000 Nanoseconds"
+    [DEV_timeSpan,0,2,false,nil,true]   call A3A_fnc_timeSpan_format;  // "00 Days 00 Hours 00 Minutes 00 Seconds 000 Milliseconds 000 Microseconds 000 Nanoseconds"
     [DEV_timeSpan,1,2,false]            call A3A_fnc_timeSpan_format;  // "0d 0h 0m 0s 0ms 0µs 0ns"
     [DEV_timeSpan,2,2,false]            call A3A_fnc_timeSpan_format;  // "0:0:0:0–0:0:0"
-    [DEV_timeSpan,2,2,false,0,1e7,true] call A3A_fnc_timeSpan_format;  // "00:00:00:00–000:000:000"
+    [DEV_timeSpan,2,2,false,nil,true]   call A3A_fnc_timeSpan_format;  // "00:00:00:00–000:000:000"
 
     // Field visibility.
     DEV_timeSpan = [false,0,3,54,0,152,0];
@@ -50,14 +49,15 @@ Example:
 
     // Slicing.
     DEV_timeSpan = [false,0,3,54,0,152,0];
-    [DEV_timeSpan,0,2,false,1]          call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
-    [DEV_timeSpan,0,2,false,0,4]        call A3A_fnc_timeSpan_format;  // "0 Days 3 Hours 54 Minutes 0 Seconds"
-    [DEV_timeSpan,0,2,false,1,4]        call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds"
+    [DEV_timeSpan,0,1,false,2]          call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes"
+    [DEV_timeSpan,0,2,false,[1,1e7]]    call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0,2,false,[0,4]]      call A3A_fnc_timeSpan_format;  // "0 Days 3 Hours 54 Minutes 0 Seconds"
+    [DEV_timeSpan,0,2,false,[1,4]]      call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds"
 
     // Slicing to get digital time.
     DEV_timeSpan = [false,0,3,54,0,152,0];
-    [DEV_timeSpan,2,2,false,1,4]        call A3A_fnc_timeSpan_format;  // "3:54:0"
-    [DEV_timeSpan,2,2,false,1,4,true]   call A3A_fnc_timeSpan_format;  // "03:54:00"
+    [DEV_timeSpan,2,2,false,[1,4]]      call A3A_fnc_timeSpan_format;  // "3:54:0"
+    [DEV_timeSpan,2,2,false,[1,4],true] call A3A_fnc_timeSpan_format;  // "03:54:00"
 */
 
 // A3A_fnc_timeSpan_format = {
@@ -67,8 +67,7 @@ params [
     ["_symbolSet", 0, [ 0 ]],
     ["_showZeros", 0, [ 0 ]],
     ["_showPositive", false, [ false ]],
-    ["_sliceStart", 0, [ 0 ]],
-    ["_sliceEnd", 1e7, [ 0 ]],
+    ["_slice", 1e7, [ 0, [] ], [2]],
     ["_pad", false, [ false ]],
     ["_localise", false, [ false ]]
 ];
@@ -106,13 +105,19 @@ if (_showAllZeros) then {
     _timeSpan resize (_lastNonZero + 1);
 };
 
+private _sliceIndexBased = _slice isEqualType [];
+private _slicesRemaining = if (_sliceIndexBased) then {1e7} else {_slice};
+private _sliceStart = if (_sliceIndexBased) then {_slice#0} else {0};
+private _sliceEnd = if (_sliceIndexBased) then {_slice#1} else {1e7};
+
 private _formattedText = "";
 private _foundNonZero = false;
 {
-    if (_forEachIndex < _sliceStart || _sliceEnd <= _forEachIndex) then { continue };
+    if (_forEachIndex < _sliceStart || _sliceEnd <= _forEachIndex || _slicesRemaining <= 0) then { continue };
     if (isNil {_x}) then { _x = 0; };
     if (_x > 0 || _showInBetweenZeros && _foundNonZero || _showAllZeros) then {
         _foundNonZero = _foundNonZero || _x > 0;
+        _slicesRemaining = _slicesRemaining - 1;
         private _amount = _x toFixed 0;
         if (_pad) then {
             if (_forEachIndex < 4) then {
@@ -134,7 +139,7 @@ if (_formattedText isEqualTo "") then {
 };
 
 // Prevent negative zeros.
-private _negative = (_timeSpan #0) && _foundNonZero;
+private _negative = (_timeSpan param [0,false]) && _foundNonZero;
 if (_negative || _showPositive) then {
     _formattedText = (_signSet select _negative) + _formattedText;
 };

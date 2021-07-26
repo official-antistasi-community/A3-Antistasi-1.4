@@ -116,8 +116,8 @@ if (_showAllZeros) then {
 // Determine whether a slice between two indices is desired, or a maximum amount of significant fields is desired.
 private _sliceIndexBased = _slice isEqualType [];
 private _fieldsAmount = if (_sliceIndexBased) then {1e7} else {_slice};
-private _sliceStart = if (_sliceIndexBased) then {_slice param [0,0]} else {0};
-private _sliceEnd = if (_sliceIndexBased) then {_slice param [1,1e7]} else {1e7};
+private _sliceStart = if (_sliceIndexBased) then {_slice param [0,0,[0]]} else {0};
+private _sliceEnd = if (_sliceIndexBased) then {_slice param [1,1e7,[0]]} else {1e7};
 
 private _formattedText = "";
 private _foundNonZero = false;

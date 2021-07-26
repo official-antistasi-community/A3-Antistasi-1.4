@@ -1,7 +1,7 @@
 /*
 Maintainer: Caleb Serafin
     Prints the given timeSpan as human readable text (Requires UTF-8 compliance).
-    Not designed for speed. Time in microseconds ≃ 15 + 10 × (No. printed fields);
+    Execution time in microseconds ≃ 15 + 10 • (No. printed fields);
     Note: Days are the largest unit used, because months and years are not fixed amounts and rely on time information to be accurate, and Weeks are not big-enough of a change from days.
     Note: Sub seconds are used instead of fractions due to float's limited precision.
 
@@ -12,6 +12,7 @@ Arguments:
     <BOOL> Show All Fields.     false will hide the positive sign. true will show all fields (and the positive sign if show in-between zeros is false.).                    [DEFAULT=false]
     <SCALAR> Slice Start.       Index of first field to be displayed. Days are index 1, hours are index 2 ect.                                                              [DEFAULT=0]
     <SCALAR> Slice End.         Index of last field to be displayed. Days are index 1, hours are index 2 ect.                                                               [DEFAULT=1e7]
+    <BOOL> Pad.                 All fields will be padded, Days will be padded to 2 characters.                                                                             [DEFAULT=false]
     <BOOLEAN> Localise.         false for Great British English symbols, true for localised symbols.                                                                        [DEFAULT=false]
 
 Return Value:
@@ -24,36 +25,39 @@ Public: Yes
 Example:
     // Negatives.
     DEV_timeSpan = [true,0,0,21,0,0,69,420];
-    [DEV_timeSpan]                  call A3A_fnc_timeSpan_format;  // "(-) 21 Minutes 69 Microseconds 420 Nanoseconds"
-    [DEV_timeSpan,1]                call A3A_fnc_timeSpan_format;  // "(-) 21m 69µs 420ns"
-    [DEV_timeSpan,2,false,true]     call A3A_fnc_timeSpan_format;  // "-0:0:21:0–0:69:420"
+    [DEV_timeSpan]                      call A3A_fnc_timeSpan_format;  // "(-) 21 Minutes 69 Microseconds 420 Nanoseconds"
+    [DEV_timeSpan,1]                    call A3A_fnc_timeSpan_format;  // "(-) 21m 69µs 420ns"
+    [DEV_timeSpan,2,false,true]         call A3A_fnc_timeSpan_format;  // "-0:0:21:0–0:69:420"
 
     // Zeros, Note the negative marker in DEV_timeSpan.
     DEV_timeSpan = [true,0,0,0,0,0,0,0];
-    [DEV_timeSpan]                  call A3A_fnc_timeSpan_format;  // "(Now)"
-    [DEV_timeSpan,1]                call A3A_fnc_timeSpan_format;  // "0"
-    [DEV_timeSpan,0,false,true]     call A3A_fnc_timeSpan_format;  // "(+) 0 Days 0 Hours 0 Minutes 0 Seconds 0 Milliseconds 0 Microseconds 0 Nanoseconds"
-    [DEV_timeSpan,1,false,true]     call A3A_fnc_timeSpan_format;  // "(+) 0d 0h 0m 0s 0ms 0µs 0ns"
-    [DEV_timeSpan,1,true,true]      call A3A_fnc_timeSpan_format;  // "0d 3h 54m 0s 152ms 0µs 0ns"
-    [DEV_timeSpan,2,false,true]     call A3A_fnc_timeSpan_format;  // "+0:0:0:0–0:0:0"
+    [DEV_timeSpan]                      call A3A_fnc_timeSpan_format;  // "(Now)"
+    [DEV_timeSpan,1]                    call A3A_fnc_timeSpan_format;  // "0"
+    [DEV_timeSpan,0,false,true]         call A3A_fnc_timeSpan_format;  // "(+) 0 Days 0 Hours 0 Minutes 0 Seconds 0 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0,false,true,0,1e7,true]call A3A_fnc_timeSpan_format;// "(+) 00 Days 00 Hours 00 Minutes 00 Seconds 000 Milliseconds 000 Microseconds 000 Nanoseconds"
+    [DEV_timeSpan,1,false,true]         call A3A_fnc_timeSpan_format;  // "(+) 0d 0h 0m 0s 0ms 0µs 0ns"
+    [DEV_timeSpan,1,true,true]          call A3A_fnc_timeSpan_format;  // "0d 3h 54m 0s 152ms 0µs 0ns"
+    [DEV_timeSpan,2,false,true]         call A3A_fnc_timeSpan_format;  // "+0:0:0:0–0:0:0"
+    [DEV_timeSpan,2,false,true,0,1e7,true]call A3A_fnc_timeSpan_format;// "+00:00:00:00–000:000:000"
 
     // Field visibility.
     DEV_timeSpan = [false,0,3,54,0,152];
-    [DEV_timeSpan,0]                call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 152 Milliseconds"
-    [DEV_timeSpan,0,true]           call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds 152 Milliseconds"
-    [DEV_timeSpan,0,true,true]      call A3A_fnc_timeSpan_format;  // "0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
-    [DEV_timeSpan,0,false,true]     call A3A_fnc_timeSpan_format;  // "(+) 0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0]                    call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 152 Milliseconds"
+    [DEV_timeSpan,0,true]               call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds 152 Milliseconds"
+    [DEV_timeSpan,0,true,true]          call A3A_fnc_timeSpan_format;  // "0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0,false,true]         call A3A_fnc_timeSpan_format;  // "(+) 0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
 
     // Slicing.
     DEV_timeSpan = [false,0,3,54,0,152];
-    [DEV_timeSpan,0,false,true,1]   call A3A_fnc_timeSpan_format;  // "(+) 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
-    [DEV_timeSpan,0,false,true,0,4] call A3A_fnc_timeSpan_format;  // "(+) 0 Days 3 Hours 54 Minutes 0 Seconds"
-    [DEV_timeSpan,0,false,true,1,4] call A3A_fnc_timeSpan_format;  // "(+) 3 Hours 54 Minutes 0 Seconds"
+    [DEV_timeSpan,0,false,true,1]       call A3A_fnc_timeSpan_format;  // "(+) 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0,false,true,0,4]     call A3A_fnc_timeSpan_format;  // "(+) 0 Days 3 Hours 54 Minutes 0 Seconds"
+    [DEV_timeSpan,0,false,true,1,4]     call A3A_fnc_timeSpan_format;  // "(+) 3 Hours 54 Minutes 0 Seconds"
 
     // Slicing to get Digital Time.
     DEV_timeSpan = [false,0,3,54,0,152];
-    [DEV_timeSpan,0,true,true,1,4]  call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds"
-    [DEV_timeSpan,2,true,true,1,4]  call A3A_fnc_timeSpan_format;  // "3:54:0"
+    [DEV_timeSpan,0,true,true,1,4]      call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds"
+    [DEV_timeSpan,2,true,true,1,4]      call A3A_fnc_timeSpan_format;  // "3:54:0"
+    [DEV_timeSpan,2,true,true,1,4,true] call A3A_fnc_timeSpan_format;  // "03:54:00"
 */
 
 // A3A_fnc_timeSpan_format = {
@@ -65,6 +69,7 @@ params [
     ["_showAllFields", false, [ false ]],
     ["_sliceStart", 0, [ 0 ]],
     ["_sliceEnd", 1e7, [ 0 ]],
+    ["_pad", false, [ false ]],
     ["_localise", false, [ false ]]
 ];
 
@@ -80,7 +85,7 @@ private _sizeFieldList = if (_localise) then {
     [
         [" Days "," Hours "," Minutes "," Seconds "," Milliseconds "," Microseconds "," Nanoseconds "],
         ["d ","h ","m ","s ","ms ","µs ","ns "],
-        [":",":",":","–",":",":",":"]  // Note En-Dash U+2013 (toString[8211]) is used to separate seconds from smaller parts &#8211;
+        [":",":",":","–",":",":",":"]  // Note En-Dash U+2013 (toString[8211]) is used to separate seconds from smaller parts.
     ] #_symbolSet;
 };
 // Warping in parenthesise prevents misidentification as hyphen or dash.
@@ -98,7 +103,15 @@ private _foundNonZero = false;
     if (isNil {_x}) then { _x = 0; };
     if (_x > 0 || _showInBetweenZeros && _foundNonZero || _showAllFields) then {
         _foundNonZero = _x > 0;
-        _formattedText = _formattedText + ((_x toFixed 0) + (_sizeFieldList #_forEachIndex));
+        private _amount = _x toFixed 0;
+        if (_pad) then {
+            if (_forEachIndex < 4) then {
+                _amount = _amount call A3A_fnc_pad_2Digits;
+            } else {
+                _amount = _amount call A3A_fnc_pad_3Digits;
+            };
+        };
+        _formattedText = _formattedText + (_amount + (_sizeFieldList #_forEachIndex));
     };
 } forEach (_timeSpan select [1,1e7]);
 

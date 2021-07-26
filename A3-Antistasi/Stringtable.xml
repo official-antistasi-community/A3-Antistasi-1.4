@@ -3904,5 +3904,102 @@
             <English>Driver</English>
         </Key>
         </Container>
+    <Container name="time_units">
+      <!--Note the lack of front spacing on abbreviations.-->
+      <!--Auto translated.-->>
+      <Key ID="STR_antistasi_timeSpan_days">
+        <Original>Days</Original>
+        <German>Tage</German>
+        <Russian>дней</Russian>
+        <French>jours</French>
+        <Czech>dní</Czech>
+        <Chinesesimp>天</Chinesesimp>
+        <Korean>일</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_hours">
+        <Original>Hours</Original>
+        <German>Stunden</German>
+        <Russian>часов</Russian>
+        <French>heures</French>
+        <Czech>hodin</Czech>
+        <Chinesesimp>小时</Chinesesimp>
+        <Korean>시간</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_minutes">
+        <Original>Minutes</Original>
+        <German>Minuten</German>
+        <Russian>минут</Russian>
+        <French>minutes</French>
+        <Czech>minut</Czech>
+        <Chinesesimp>分钟</Chinesesimp>
+        <Korean>분</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_seconds">
+        <Original>Seconds</Original>
+        <German>Sekunden</German>
+        <Russian>секунд</Russian>
+        <French>secondes</French>
+        <Czech>sekund</Czech>
+        <Chinesesimp>秒</Chinesesimp>
+        <Korean>초</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_milliseconds">
+        <Original>Milliseconds</Original>
+        <German>Millisekunden</German>
+        <Russian>миллисекунд</Russian>
+        <French>millisecondes</French>
+        <Czech>milisekund</Czech>
+        <Chinesesimp>毫秒</Chinesesimp>
+        <Korean>밀리초</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_microseconds">
+        <Original>Microseconds</Original>
+        <German>Mikrosekunden</German>
+        <Russian>микросекунд</Russian>
+        <French>microsecondes</French>
+        <Czech>mikrosekund</Czech>
+        <Chinesesimp>微秒</Chinesesimp>
+        <Korean>마이크로초</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_nanoseconds">
+        <Original>Nanoseconds</Original>
+        <German>Nanosekunden</German>
+        <Russian>наносекунд</Russian>
+        <French>nanosecondes</French>
+        <Czech>nanosekund</Czech>
+        <Chinesesimp>纳秒</Chinesesimp>
+        <Korean>나노초</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_days_abbr">
+        <Original>d</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_hours_abbr">
+        <Original>h</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_minutes_abbr">
+        <Original>m</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_seconds_abbr">
+        <Original>s</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_milliseconds_abbr">
+        <Original>ms</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_microseconds_abbr">
+        <Original>µs</Original>   <!--Note: Micro sign (µ) U+00B5, is completely different from Greek Mu (μ) U+-->
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_nanoseconds_abbr">
+        <Original>ns</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_now">
+        <Original>(Now)</Original>
+        <German>(Gegenwart)</German>
+        <Russian>(настоящее время)</Russian>
+        <French>(actuel maintenant)</French>
+        <Czech>(nyní)</Czech>
+        <Chinesesimp>(现在)</Chinesesimp>
+        <Korean>(현재)</Korean>
+      </Key>
+    </Container>
   </Package>
 </Project>

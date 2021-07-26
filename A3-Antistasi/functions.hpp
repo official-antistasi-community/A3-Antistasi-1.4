@@ -649,6 +649,11 @@ class A3A
         class saveLoop {};
     };
 
+    class String {
+        class pad_2Digits {};
+        class pad_3Digits {};
+    };
+
     class Templates
     {
         class aceModCompat {};

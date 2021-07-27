@@ -65,7 +65,7 @@
 //Config special vehicles
 ["vehiclesMilitiaLightArmed", ["UK3CB_ADR_I_LR_M2", "UK3CB_ADR_B_Offroad_M2", "UK3CB_ADR_B_LR_SPG9"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["UK3CB_ADR_I_V3S_Open", "UK3CB_ADR_I_V3S_Closed"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["UK3CB_ADR_I_LR_Closed", "UK3CB_ADR_I_LR_Open", "UK3CB_ADR_I_Hilux_Open", "UK3CB_ADR_I_Datsun_Open", "UK3CB_ADR_B_Offroad"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["UK3CB_ADR_I_LR_Closed", "UK3CB_ADR_I_LR_Open", "UK3CB_ADR_I_Hilux_Open", "UK3CB_ADR_I_Datsun_Pickup", "UK3CB_ADR_B_Offroad"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["UK3CB_ADP_I_Van_Transport"]] call _fnc_saveToTemplate;
 

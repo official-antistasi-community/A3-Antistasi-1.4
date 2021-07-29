@@ -726,7 +726,7 @@ private _machineGunnerTemplate = {
 
 private _marksmanTemplate = {
     ["snihat"] call _fnc_setHelmet;
-    ["vests"] call _fnc_setVest;
+    [["Snivests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
 

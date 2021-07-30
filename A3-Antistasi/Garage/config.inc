@@ -52,8 +52,11 @@ if (isNil "HR_GRG_ServiceDisabled_Repair") then {HR_GRG_ServiceDisabled_Repair =
 HR_GRG_blackListCamo = ["IDAP"];
 
 //proxies
-HR_GRG_fnc_Hint = { ["Garage",_this#0] call A3A_fnc_customHint };
-HR_GRG_fnc_vehInit = { 
+HR_GRG_fnc_Hint = {
+    params ["_key", ["_arguments", []]];
+    ["Garage",format ( [localize _key] + _arguments ) ] call A3A_fnc_customHint;
+};
+HR_GRG_fnc_vehInit = {
     if (_this isKindOf "StaticWeapon") then {staticsToSave pushBack _this; publicVariable "staticsToSave"};
     [_this, TeamPlayer] call A3A_fnc_AIVEHinit; }; //is passed vehicle as _this
 HR_GRG_onOpenEvent = { player setCaptive false; };

@@ -3818,6 +3818,10 @@
             <Original>You can't garage this</Original>
             <English>You can't garage this</English>
         </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_inVehicle">
+            <Original>You can't garage a vehicle while in another vehicle</Original>
+            <English>You can't garage a vehicle while in another vehicle</English>
+        </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Crewed">
             <Original>You can't garage a vehicle with crew inside</Original>
             <English>You can't garage a vehicle with crew inside</English>

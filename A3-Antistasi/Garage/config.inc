@@ -54,7 +54,9 @@ HR_GRG_blackListCamo = ["IDAP"];
 //proxies
 HR_GRG_fnc_Hint = {
     params ["_key", ["_arguments", []]];
-    ["Garage",format ( [localize _key] + _arguments ) ] call A3A_fnc_customHint;
+    ["Garage",
+        if (_arguments isEqualTo []) then {localize _key} else {format ( [localize _key] + _arguments )}
+    ] call A3A_fnc_customHint;
 };
 HR_GRG_fnc_vehInit = {
     if (_this isKindOf "StaticWeapon") then {staticsToSave pushBack _this; publicVariable "staticsToSave"};

@@ -25,9 +25,8 @@ params [ ["_vehicle", objNull, [objNull]], ["_client", 2, [0]], ["_lockUID", ""]
 #include "defines.inc"
 FIX_LINE_NUMBERS()
 
-if (isNil "HR_GRG_Vehicles") then {
-    if (isServer) then {[] call HR_GRG_fnc_initServer} else {[] remoteExec ["HR_GRG_fnc_initServer", 2]};
-};
+if (!isServer) exitWith { Error("called on client, this is a server only function") };
+if (isNil "HR_GRG_Vehicles") then { [] call HR_GRG_fnc_initServer };
 private _class = typeOf _vehicle;
 
 //LTC refund
@@ -86,6 +85,9 @@ if (
 ) exitWith {["STR_HR_GRG_Feedback_addVehicle_airBlocked", [nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
 //add vehicle
+if (_vehicel getVariable ["HR_GRG_Garaging", false]) exitWith {};
+_vehicle setVariable ["HR_GRG_Garaging", true];
+
 private _locking = if (_lockUID isEqualTo "") then {false} else {true};
 private _lockName = if (_locking) then { name _player } else { "" };
 {

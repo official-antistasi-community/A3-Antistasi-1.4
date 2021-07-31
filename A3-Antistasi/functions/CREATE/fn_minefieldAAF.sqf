@@ -53,15 +53,13 @@ if (_failure) exitWith {
 
 Debug_1("Creating a Minefield at %1", _base);
 
-for "_i" from 1 to 30 do
-{
-    if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {
-    _mineX = createMine [ selectRandom ((A3A_faction_inv getVariable "minefieldAT") + (A3A_faction_inv getVariable "minefieldAPERS")) ,_pos,[],50];
-    Invaders revealMine _mineX;
-    } else {
-    _mineX = createMine [ selectRandom ((A3A_faction_occ getVariable "minefieldAT") + (A3A_faction_occ getVariable "minefieldAPERS")) ,_pos,[],50];
-    Occupants revealMine _mineX;
-    };
+private _factionSide = [A3A_faction_occ,A3A_faction_inv] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
+private _mines = (_factionSide getVariable "minefieldAT") + (_factionSide getVariable "minefieldAPERS");
+private _revealTo = [Occupants,Invaders] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
+
+for "_i" from 1 to 30 do {
+	_mineX = createMine [ selectRandom _mines ,_pos,[],50];
+	_revealTo revealMine _mineX;
 };
 
 //[-4000] remoteExec ["resourcesAAF",2];

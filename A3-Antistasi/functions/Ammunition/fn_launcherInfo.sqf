@@ -1,10 +1,10 @@
 /**
 	Gets the targets (ground/air) a launcher can lock on to, as well as which magazines can lock which targets.
-	
+
 	Params:
 		launcherClassName: Class name of the launcher to test. DO NOT USE ON NON-LAUNCHERS.
 		disposable: Is the launcher disposable? This is for the recursive call.
-		
+
 	Returns:
 		[canLockGroundTargets, canLockAirTargets, unguidedMagazines, groundLockMagazines, airLockMagazines] - magazine arrays may overlap. No magazines are returned for disposables.
 
@@ -43,6 +43,7 @@ if (_fakeLauncher) exitWith {
 		if (_fireableLauncherName != "") exitWith {
 			[_fireableLauncherName, true] call A3A_fnc_launcherInfo;
 		};
+        [false, false, [], [], []];
 	};
 	[false, false, [], [], []];
 };
@@ -74,7 +75,7 @@ private _airMagazines = [];
 			_groundMagazines pushBackUnique _mag;
 			_airMagazines pushBackUnique _mag;
 		};
-	
+
 		private _airLock = getNumber (_ammoConfig >> "airLock");
 		switch (_airLock) do {
 			case 0: {
@@ -97,7 +98,7 @@ private _airMagazines = [];
 	};
 } forEach _magazineAmmo;
 
-//If we're a disposable, we don't want to spawn ammo. Claim none of it exists. 
+//If we're a disposable, we don't want to spawn ammo. Claim none of it exists.
 if (_disposable) then {
 	_unguidedMagazines = [];
 	_groundMagazines = [];

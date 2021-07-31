@@ -12,7 +12,7 @@
     Scope: Clients
     Environment: Any
     Public: [No]
-    Dependencies:
+    Dependencies: A3A_hasAce
 
     Example: [true] call HR_GRG_fnc_reloadExtras;
 
@@ -31,8 +31,7 @@ private _vehNodes = [HR_GRG_previewVeh] call A3A_fnc_logistics_getVehicleNodes;
 if (_vehNodes isEqualType []) then {
     private _capacity = count _vehNodes;
     {
-        _static = (HR_GRG_Vehicles#4) get _x;
-        _static params ["_displayName", "_staticClass", "_lockedUID", "_checkedOut"];
+        _y params ["_displayName", "_staticClass", "_lockedUID", "_checkedOut"];
 
         private _block =false;
         if !(_lockedUID in ["", HR_GRG_PlayerUID]) then {_block = true};
@@ -65,7 +64,7 @@ if (_vehNodes isEqualType []) then {
             _ctrl lbSetTextRight [_index, format ["Size: %1", _type]];
             Trace_4("Mount Added to list | Class: %1 | UID: %2 | Checked: %3 | Size: %4", _staticClass, _x, (_checkedOut isEqualTo HR_GRG_PlayerUID), _type);
         };
-    } forEach (keys (HR_GRG_Vehicles#4));//statics
+    } forEach (HR_GRG_Vehicles#4);//statics
 };
 if (_reloadMounts) then { [] call HR_GRG_fnc_reloadMounts };
 
@@ -92,7 +91,6 @@ lbSort _ctrl;
 
 //animations
 private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraAnim;
-private _anims = _customisation#1;
 lbClear _ctrl;
 {
     _configName = configname _x;
@@ -106,31 +104,34 @@ lbClear _ctrl;
     };
 } foreach (configProperties [(configfile >> "CfgVehicles" >> _class >> "animationSources"),"isclass _x",true]);
 lbSort _ctrl;
-HR_GRG_curAnims = _anims;
 
+HR_GRG_curAnims = _customisation#1;
 [HR_GRG_previewVeh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
 
 //update source panel
 private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelAmmo;
-_ctrl ctrlSetStructuredText composeText ["   ", image RearmIcon, " ", image (checkboxTextures select HR_GRG_hasAmmoSource)];
+_ctrl ctrlSetStructuredText composeText ["   ", image RearmIcon, " ", image (checkboxTextures select (HR_GRG_hasAmmoSource && !HR_GRG_ServiceDisabled_Rearm))];
 _ctrl ctrlSetTooltip ([
     localize "STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable"
     , localize "STR_HR_GRG_SourcePanel_toolTip_Ammo_Available"
-] select HR_GRG_hasAmmoSource);
+    , localize "STR_HR_GRG_SourcePanel_toolTip_Ammo_Disabled"
+] select (if (HR_GRG_ServiceDisabled_Rearm) then {2} else {HR_GRG_hasAmmoSource}));
 
 private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelFuel;
-_ctrl ctrlSetStructuredText composeText ["   ", image RefuelIcon, " ", image (checkboxTextures select HR_GRG_hasFuelSource)];
+_ctrl ctrlSetStructuredText composeText ["   ", image RefuelIcon, " ", image (checkboxTextures select (HR_GRG_hasFuelSource && !HR_GRG_ServiceDisabled_Refuel))];
 _ctrl ctrlSetTooltip ([
     localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Unavailable"
     , localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Available"
-] select HR_GRG_hasFuelSource);
+    , localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Disabled"
+] select (if (HR_GRG_ServiceDisabled_Refuel) then {2} else {HR_GRG_hasFuelSource}));
 
 private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelRepair;
-_ctrl ctrlSetStructuredText composeText ["   ", image RepairIcon, " ", image (checkboxTextures select HR_GRG_hasRepairSource)];
+_ctrl ctrlSetStructuredText composeText ["   ", image RepairIcon, " ", image (checkboxTextures select (HR_GRG_hasRepairSource && !HR_GRG_ServiceDisabled_Repair))];
 _ctrl ctrlSetTooltip ([
     localize "STR_HR_GRG_SourcePanel_toolTip_Repair_Unavailable"
     , localize "STR_HR_GRG_SourcePanel_toolTip_Repair_Available"
-] select HR_GRG_hasRepairSource);
+    , localize "STR_HR_GRG_SourcePanel_toolTip_Repair_Disabled"
+] select (if (HR_GRG_ServiceDisabled_Repair) then {2} else {HR_GRG_hasRepairSource}));
 
 if (isNull HR_GRG_previewVeh) exitWith {};
 //update info panel
@@ -192,7 +193,7 @@ if (isNil "_nodes") then {
 if (_nodes isEqualType 0) then {_nodes = []};
 private _cargoCapacity = count _nodes;
 private _availableCapacity = _cargoCapacity - HR_GRG_usedCapacity;
-private _aceCargo = if (hasAce) then {
+private _aceCargo = if (A3A_hasAce) then {
     composeText [lineBreak, "    ", localize "STR_HR_GRG_InfoPanel_AceCargo"," ", str cfgAceCargo(_class)]
 } else {""};
 

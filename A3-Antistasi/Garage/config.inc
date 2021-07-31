@@ -44,13 +44,23 @@ HR_GRG_VehCap = { HR_GRG_PoolBase + warTier * HR_GRG_PoolIncr };
 
 //Pylon config
 if (isNil "HR_GRG_Pylons_Enabled") then { HR_GRG_Pylons_Enabled = true }; //can be overwritten by CBA settings
+if (isNil "HR_GRG_ServiceDisabled_Rearm") then {HR_GRG_ServiceDisabled_Rearm = false};
+if (isNil "HR_GRG_ServiceDisabled_Refuel") then {HR_GRG_ServiceDisabled_Refuel = false};
+if (isNil "HR_GRG_ServiceDisabled_Repair") then {HR_GRG_ServiceDisabled_Repair = false};
 
 //camo blacklist (display name, case sensitive)
-HR_GRG_blackListCamo = ["IDAP"];
-
+HR_GRG_blackListCamo = ["IDAP", "African Desert Extremists", "African Desert Extremists 01", "African Desert Extremists 02", "African Desert Extremists Alt"];
 //proxies
-HR_GRG_fnc_Hint = { ["Garage",_this#0] call A3A_fnc_customHint };
-HR_GRG_fnc_vehInit = { [_this, TeamPlayer] call A3A_fnc_AIVEHinit; }; //is passed vehicle as _this
+HR_GRG_fnc_Hint = {
+    params ["_key", ["_arguments", []]];
+    ["Garage",
+        if (_arguments isEqualTo []) then {localize _key} else {format ( [localize _key] + _arguments )}
+    ] call A3A_fnc_customHint;
+};
+HR_GRG_fnc_vehInit = {
+    if (_this isKindOf "StaticWeapon") then {staticsToSave pushBack _this; publicVariable "staticsToSave"};
+    [_this, TeamPlayer] call A3A_fnc_AIVEHinit;
+}; //is passed vehicle as _this
 HR_GRG_onOpenEvent = { player setCaptive false; };
 
 //CBA settings
@@ -62,6 +72,17 @@ if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {
 
     ["HR_GRG_Pylons_Enabled", "CHECKBOX", ["Allow pylon editing", "Allows player to configure pylons in the garage"], [HR_GRG_Prefix,"Garage"], true, true, {
         HR_GRG_Pylons_Enabled = _this;
+    }] call CBA_fnc_addSetting;
+
+    //Service disablers
+    ["HR_GRG_ServiceDisabled_Rearm", "CHECKBOX", ["Disable garage rearm feature", "Prevent vehicles from being rearmed on ungarage"], [HR_GRG_Prefix,"Garage"], false, true, {
+        HR_GRG_ServiceDisabled_Rearm = _this;
+    }] call CBA_fnc_addSetting;
+    ["HR_GRG_ServiceDisabled_Refuel", "CHECKBOX", ["Disable garage refuel feature", "Prevent vehicles from being refueled on ungarage"], [HR_GRG_Prefix,"Garage"], false, true, {
+        HR_GRG_ServiceDisabled_Refuel = _this;
+    }] call CBA_fnc_addSetting;
+    ["HR_GRG_ServiceDisabled_Repair", "CHECKBOX", ["Disable garage repair feature", "Prevent vehicles from being repaired on ungarage"], [HR_GRG_Prefix,"Garage"], false, true, {
+        HR_GRG_ServiceDisabled_Repair = _this;
     }] call CBA_fnc_addSetting;
 
     ["HR_GRG_PoolBase", "SLIDER", ["Base Capacity", "Garage base capacity"], [HR_GRG_Prefix,"Garage"], [0, 50, HR_GRG_PoolBase, 0], true, {

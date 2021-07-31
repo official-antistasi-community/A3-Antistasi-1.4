@@ -33,16 +33,18 @@ private _vehicle = _cat get _vehUID;
 
 //set the new data
 if (_switch) then { [getPlayerUID _player] call HR_GRG_fnc_releaseAllVehicles };
+
 if (!isNil "_lockUID") then {
     _vehicle set [2, _lockUID];
+    _vehicle set [5, if (_lockUID isEqualTo "") then { "" } else { name _player }];
 };
+
 if (!isNil "_checkoutUID") then {
     _vehicle set [3, _checkoutUID];
 };
 
-private _isPlayer = _player isEqualTo player;
-
 //handle refreshing preview and extras
+private _isPlayer = _player isEqualTo player;
 if (_isPlayer) then {
     if (_switch) then {
         Trace_3("Setting selected vehicle | Cat: %1 | UID: %2 | Class: %3", _catIndex, _vehUID, _vehicles#1);

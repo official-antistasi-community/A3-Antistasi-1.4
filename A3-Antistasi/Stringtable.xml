@@ -3680,24 +3680,36 @@
             <English>Vehicles will be rearmed when ungaraged</English>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable">
-            <Original>Vehicles won't be rearmed when ungaraged</Original>
-            <English>Vehicles won't be rearmed when ungaraged</English>
+            <Original>Vehicles won't be rearmed when ungaraged as the garage lacks a ammo source</Original>
+            <English>Vehicles won't be rearmed when ungaraged as the garage lacks a ammo source</English>
+        </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Disabled">
+            <Original>Rearm disabled by server</Original>
+            <English>Rearm disabled by server</English>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Available">
             <Original>Vehicles will be refueled when ungaraged</Original>
             <English>Vehicles will be refueled when ungaraged</English>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Unavailable">
-            <Original>Vehicles won't be refueled when ungaraged</Original>
-            <English>Vehicles won't be refueled when ungaraged</English>
+            <Original>Vehicles won't be refueled when ungaraged as the garage lacks a fuel source</Original>
+            <English>Vehicles won't be refueled when ungaraged as the garage lacks a fuel source</English>
+        </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Disabled">
+            <Original>Refuel disabled by server settings</Original>
+            <English>Refuel disabled by server settings</English>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Available">
             <Original>Vehicles will be repaired when ungaraged</Original>
             <English>Vehicles will be repaired when ungaraged</English>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Unavailable">
-            <Original>Vehicles won't be repaired when ungaraged</Original>
-            <English>Vehicles won't be repaired when ungaraged</English>
+            <Original>Vehicles won't be repaired when ungaraged as the garage lacks a repair source</Original>
+            <English>Vehicles won't be repaired when ungaraged as the garage lacks a repair source</English>
+        </Key>
+        <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Disabled">
+            <Original>Repair disabled by server settings</Original>
+            <English>Repair disabled by server settings</English>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isAmmoSource">
             <Original>Vehicle is an ammo source</Original>
@@ -3760,6 +3772,10 @@
             <Original>You are not looking at a vehicle</Original>
             <English>You are not looking at a vehicle</English>
         </Key>
+        <Key ID="STR_HR_GRG_Feedback_confirm_NullSelection">
+            <Original>No vehicle selected</Original>
+            <English>No vehicle selected</English>
+        </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_SATow">
             <Original>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</Original>
             <English>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</English>
@@ -3802,6 +3818,10 @@
             <Original>You can't garage this</Original>
             <English>You can't garage this</English>
         </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_inVehicle">
+            <Original>You can't garage a vehicle while in another vehicle</Original>
+            <English>You can't garage a vehicle while in another vehicle</English>
+        </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Crewed">
             <Original>You can't garage a vehicle with crew inside</Original>
             <English>You can't garage a vehicle with crew inside</English>
@@ -3819,9 +3839,15 @@
             <Original>Cant mount static</Original>
             <English>Cant mount static</English>
         </Key>
+        <Key ID="STR_HR_GRG_Feedback_checkedOutToolTip">
+            <!-- name is appended on at the start with a spcae in between-->
+            <Original>is looking at this vehicle.</Original>
+            <English>is looking at this vehicle.</English>
+        </Key>
         <Key ID="STR_HR_GRG_Feedback_LockedToolTip">
-            <Original>This vehicle is locked by another player</Original>
-            <English>This vehicle is locked by another player</English>
+            <!-- name is appended on at the end with a spcae in between-->
+            <Original>Vehicle is locked by</Original>
+            <English>Vehicle is locked by</English>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_Rotation">
             <!--Keybinds are hardcoded to key DIK codes: DIK_E, DIK_Q, DIK_ESCAPE, DIK_RETURN, and DIK_SPACE-->
@@ -3882,5 +3908,102 @@
             <English>Driver</English>
         </Key>
         </Container>
+    <Container name="time_units">
+      <!--Note the lack of front spacing on abbreviations.-->
+      <!--Auto translated.-->>
+      <Key ID="STR_antistasi_timeSpan_days">
+        <Original>Days</Original>
+        <German>Tage</German>
+        <Russian>дней</Russian>
+        <French>jours</French>
+        <Czech>dní</Czech>
+        <Chinesesimp>天</Chinesesimp>
+        <Korean>일</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_hours">
+        <Original>Hours</Original>
+        <German>Stunden</German>
+        <Russian>часов</Russian>
+        <French>heures</French>
+        <Czech>hodin</Czech>
+        <Chinesesimp>小时</Chinesesimp>
+        <Korean>시간</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_minutes">
+        <Original>Minutes</Original>
+        <German>Minuten</German>
+        <Russian>минут</Russian>
+        <French>minutes</French>
+        <Czech>minut</Czech>
+        <Chinesesimp>分钟</Chinesesimp>
+        <Korean>분</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_seconds">
+        <Original>Seconds</Original>
+        <German>Sekunden</German>
+        <Russian>секунд</Russian>
+        <French>secondes</French>
+        <Czech>sekund</Czech>
+        <Chinesesimp>秒</Chinesesimp>
+        <Korean>초</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_milliseconds">
+        <Original>Milliseconds</Original>
+        <German>Millisekunden</German>
+        <Russian>миллисекунд</Russian>
+        <French>millisecondes</French>
+        <Czech>milisekund</Czech>
+        <Chinesesimp>毫秒</Chinesesimp>
+        <Korean>밀리초</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_microseconds">
+        <Original>Microseconds</Original>
+        <German>Mikrosekunden</German>
+        <Russian>микросекунд</Russian>
+        <French>microsecondes</French>
+        <Czech>mikrosekund</Czech>
+        <Chinesesimp>微秒</Chinesesimp>
+        <Korean>마이크로초</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_nanoseconds">
+        <Original>Nanoseconds</Original>
+        <German>Nanosekunden</German>
+        <Russian>наносекунд</Russian>
+        <French>nanosecondes</French>
+        <Czech>nanosekund</Czech>
+        <Chinesesimp>纳秒</Chinesesimp>
+        <Korean>나노초</Korean>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_days_abbr">
+        <Original>d</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_hours_abbr">
+        <Original>h</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_minutes_abbr">
+        <Original>m</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_seconds_abbr">
+        <Original>s</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_milliseconds_abbr">
+        <Original>ms</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_microseconds_abbr">
+        <Original>µs</Original>   <!--Note: Micro sign (µ) U+00B5, is completely different from Greek Mu (μ) U+-->
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_nanoseconds_abbr">
+        <Original>ns</Original>
+      </Key>
+      <Key ID="STR_antistasi_timeSpan_now">
+        <Original>(Now)</Original>
+        <German>(Gegenwart)</German>
+        <Russian>(настоящее время)</Russian>
+        <French>(actuel maintenant)</French>
+        <Czech>(nyní)</Czech>
+        <Chinesesimp>(现在)</Chinesesimp>
+        <Korean>(현재)</Korean>
+      </Key>
+    </Container>
   </Package>
 </Project>

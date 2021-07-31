@@ -29,8 +29,7 @@ lbClear _ctrl;
 private _selected = -1;
 private _HR_GRG_SelectedVehicles = [-1,-1,""];
 {
-    private _veh = (HR_GRG_Vehicles#_catIndex) get _x;
-    _veh params ["_displayName", "_class", "_lockedUID", "_checkedOut"];
+    _y params ["_displayName", "_class", "_lockedUID", "_checkedOut", "", ["_lockName", ""]];
     private _index = _ctrl lbAdd _displayName;
     _ctrl lbSetData [_index, str _x];
     _ctrl lbSetValue [_index, _x];
@@ -38,6 +37,7 @@ private _HR_GRG_SelectedVehicles = [-1,-1,""];
     _ctrl lbSetPictureColor [_index, [1, 1, 1, 1]];
     _ctrl lbSetPictureColorSelected [_index, [0.85, 0.85, 0.55, 1]];
 
+    private _tooltipText = "";
     if !( _checkedOut isEqualTo "" ) then {
         private _color = [1,0.1,0.1,1];
         if ( (HR_GRG_SelectedVehicles#1) isEqualTo _x ) then {
@@ -46,16 +46,17 @@ private _HR_GRG_SelectedVehicles = [-1,-1,""];
         };
         _ctrl lbSetPictureRight [_index, CheckOutIcon];
         _ctrl lbSetPictureRightColor [_index, _color];
+        _tooltipText = name (_checkedOut call BIS_fnc_getUnitByUID) +" "+( localize "STR_HR_GRG_Feedback_checkedOutToolTip" )+" ";
     };
 
     if !( _lockedUID isEqualTo "" ) then {
         private _color = if ( _lockedUID isEqualTo HR_GRG_PlayerUID ) then { [1,1,1,1] } else { [1,0.1,0.1,1] }; //white, red
-        private _toolTip = if ( _lockedUID isEqualTo HR_GRG_PlayerUID ) then { "" } else { localize "STR_HR_GRG_Feedback_LockedToolTip" };
         _ctrl lbSetPictureRight [_index, LockIcon];
         _ctrl lbSetPictureRightColor [_index, _color];
-        _ctrl lbSetTooltip [_index, _toolTip]; //for some reason dosnt apply
+        _tooltipText = _tooltipText + ( localize "STR_HR_GRG_Feedback_LockedToolTip" )+" "+ _lockName;
     };
+    _ctrl lbSetTooltip [_index, _tooltipText];
     _ctrl lbSetPictureRightColorSelected [_index, [0.85,0.85,0.55,1]];
 
-} forEach (keys (HR_GRG_Vehicles#_catIndex));
+} forEach (HR_GRG_Vehicles#_catIndex);
 _ctrl lbSetCurSel _selected;

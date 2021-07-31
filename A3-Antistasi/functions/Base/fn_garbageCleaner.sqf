@@ -1,6 +1,8 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-[petros,"hint","Deleting Garbage. Please wait", "Garbage Cleaner"] remoteExec ["A3A_fnc_commsMP", 0];
+// Do not localise timeSpan, it is broadcast to all connected clients.
+private _timeSinceLastGC = [[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
+["Garbage Cleaner","Please wait for GC to finish.<br/>Last GC was " + _timeSinceLastGC + " ago."] remoteExec ["A3A_fnc_customHint", 0];
 Info("Cleaning garbage...");
 
 private _rebelSpawners = allUnits select { side group _x == teamPlayer && {_x getVariable ["spawner",false]} };
@@ -49,5 +51,7 @@ if (A3A_hasRHS) then {
 
 };
 
-[petros,"hint","Garbage deleted", "Garbage Cleaner"] remoteExec ["A3A_fnc_commsMP", 0];
+// Do not localise timeSpan, it is broadcast to all connected clients.
+["Garbage Cleaner","Garbage Deleted.<br/>Last GC was " + _timeSinceLastGC + " ago."] remoteExec ["A3A_fnc_customHint", 0];
+missionNamespace setVariable ["A3A_lastGarbageCleanTime",serverTime,true];
 Info("Garbage clean completed");

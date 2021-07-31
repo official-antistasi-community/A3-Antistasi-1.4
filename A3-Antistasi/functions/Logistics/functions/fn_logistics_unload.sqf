@@ -17,14 +17,16 @@
 
     Example: [_target] remoteExec ["A3A_fnc_logistics_unload",2];
 */
-params ["_vehicle", ["_instant", false, [true]]];
+params [["_vehicle", objNull], ["_instant", false, [true]]];
 #include "..\..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 
 private _loaded = _vehicle getVariable ["Cargo", []];
 private _lastLoaded = false;
 if ((count _loaded) isEqualTo 1) then {_lastLoaded = true};
-(_loaded#0) params ["_cargo", "_node"];
+(_loaded#0) params [["_cargo", objNull], "_node"];
+
+if (isNull _vehicle) exitWith {};//vehicle deleted before unload was triggered
 
 if !(
     ((gunner _cargo) isEqualTo _cargo)
@@ -106,16 +108,19 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
     } else {
         while {(_location#1) > _yEnd} do {
             uiSleep 0.1;
+            if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted
             _location = _location vectorAdd [0,-0.1,0];
             _cargo attachto [_vehicle,_location];
         };
     };
+    if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted
     detach _cargo;
 
     [_cargo] call A3A_fnc_logistics_toggleAceActions;
     [_vehicle, _cargo, true, _instant] call A3A_fnc_logistics_addOrRemoveObjectMass;
     _cargo lockDriver false;
 } else {_keepUnloading = true};
+if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted
 
 //unlock seats
 [_cargo, false] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _cargo];

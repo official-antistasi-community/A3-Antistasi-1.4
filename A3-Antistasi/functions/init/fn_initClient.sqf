@@ -327,7 +327,7 @@ if (isMultiplayer) then {
 			} else {
 				_nonMembers = {(side group _x == teamPlayer) and !([_x] call A3A_fnc_isMember)} count (call A3A_fnc_playableUnits);
 				if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
-				if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
+				[] spawn A3A_fnc_playerLeash;
 
 				["General Info", "Welcome Guest<br/><br/>You have joined this server as guest"] call A3A_fnc_customHint;
 			};
@@ -440,7 +440,8 @@ mapX addAction ["Game Options", {
 		"<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
 		"<br/>AI Limit: "+ str maxUnits +
 		"<br/>Spawn Distance: "+ str distanceSPWN + "m" +
-		"<br/>Civilian Limit: "+ str civPerc
+		"<br/>Civilian Limit: "+ str civPerc +
+		"<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
 	] call A3A_fnc_customHint;
 	CreateDialog "game_options";
 	nil;

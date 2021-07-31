@@ -34,6 +34,7 @@ lightDetachObject HR_GRG_previewLight;
 deleteVehicle HR_GRG_previewLight;
 
 //destroy preview camera
+enableEnvironment true;
 HR_GRG_previewCam cameraEffect ["terminate","back"];
 camDestroy HR_GRG_previewCam;
 

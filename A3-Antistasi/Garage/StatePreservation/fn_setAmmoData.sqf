@@ -41,7 +41,7 @@
 */
 params ["_vehicle", "_ammoData"];
 if !(local _vehicle) exitWith {};
-if (HR_GRG_hasAmmoSource) exitWith {};
+if (HR_GRG_hasAmmoSource && !HR_GRG_ServiceDisabled_Rearm) exitWith {};
 private _weaponData = _ammoData select {!(_x#0)};
 private _pylonData = _ammoData - _weaponData;
 

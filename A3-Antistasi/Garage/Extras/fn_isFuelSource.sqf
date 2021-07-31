@@ -12,7 +12,7 @@
     Scope: Any
     Environment: Any
     Public: Yes
-    Dependencies: <Bool>hasAce
+    Dependencies: <Bool> A3A_hasAce
 
     Example: [_veh] call HR_GRG_fnc_isFuelSource;
 
@@ -21,7 +21,7 @@
 params [ ["_vehicle", objNull, [objNull]] ];
 if (isNull _vehicle) exitWith {false};
 
-if (hasAce) then { //Ace
+if (A3A_hasAce) then { //Ace
     private _vehCfg = configFile >> "CfgVehicles" >> typeOf _vehicle;
     _vehicle getVariable ["ace_refuel_currentFuelCargo", getNumber (_vehCfg >> "ace_refuel_fuelCargo")] > 0;
 } else { //Vanilla

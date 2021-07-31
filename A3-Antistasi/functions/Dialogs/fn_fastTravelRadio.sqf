@@ -16,7 +16,7 @@ if (({isPlayer _x} count units _groupX > 1) and (_esHC)) exitWith {["Fast Travel
 
 if (player != player getVariable ["owner",player]) exitWith {["Fast Travel", "You cannot Fast Travel while you are controlling AI"] call A3A_fnc_customHint;};
 
-if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) exitWith {["Fast Travel", "Nope. Not happening."] call A3A_fnc_customHint;};
+if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) exitWith {["Fast Travel", "You cannot fast travel while being FF Punished."] call A3A_fnc_customHint;};
 
 _checkX = false;
 //_distanceX = 500 - (([_boss,false] call A3A_fnc_fogCheck) * 450);
@@ -55,6 +55,7 @@ if (count _positionTel > 0) then
 	//if (_base in outpostsFIA) exitWith {hint "You cannot Fast Travel to roadblocks and watchposts"; openMap [false,false]};
 
 	if ([getMarkerPos _base,500] call A3A_fnc_enemyNearCheck) exitWith {["Fast Travel", "You cannot Fast Travel to an area under attack or with enemies in the surrounding"] call A3A_fnc_customHint; openMap [false,false]};
+	if (!([player] call A3A_fnc_isMember) && {!([_positionTel] call A3A_fnc_playerLeashCheckPosition)}) exitWith {["Fast Travel", format ["There are no members nearby the target location. You need to be within %1 km of HQ or a member.", ceil (memberDistance/1e3)]] call A3A_fnc_customHint;};
 
 	if (_positionTel distance getMarkerPos _base < 50) then
 		{
@@ -132,6 +133,7 @@ if (count _positionTel > 0) then
 		//if (!_esHC) then {sleep _distanceX};
 		if (!_esHC) then {disableUserInput false;cutText ["You arrived to destination","BLACK IN",1]} else {["Fast Travel", format ["Group %1 arrived to destination",groupID _groupX]] call A3A_fnc_customHint;};
 		if (_forcedX) then {forcedSpawn = forcedSpawn - [_base]};
+		[] call A3A_fnc_playerLeashRefresh;
 		sleep 5;
 		{_x allowDamage true} forEach units _groupX;
 		}

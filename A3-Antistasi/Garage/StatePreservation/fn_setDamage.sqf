@@ -24,11 +24,13 @@
 */
 params ["_vehicle", "_dmgStats"];
 if !(local _vehicle) exitWith {};
-_dmgStats params [["_dmg",0,[0]], ["_hitDmg", [[],[]], [[]]], ["_repairCargo", -1, [0]]];
-_vehicle setDamage ([_dmg,0] select HR_GRG_hasRepairSource);
-for "_i" from 0 to count (_hitDmg#1) - 1 do {
-    private _hit = _hitDmg#0#_i;
-    private _dmg = _hitDmg#1#_i;
-    _vehicle setHit [_hit, [_dmg, 0] select HR_GRG_hasRepairSource, false];
-};
+_dmgStats params [["_dmg",0,[0]], ["_hitDmg", [], [[]]], ["_repairCargo", -1, [0]]];
+private _restoreState = [0,1] select (HR_GRG_hasRepairSource && !HR_GRG_ServiceDisabled_Repair);
+_vehicle setDamage ([_dmg, 0] # _restoreState);
+
+if (_hitDmg#0 isEqualTo []) then {_hitDmg = _hitDmg#1}; //temp compat while testing, old had selection names we no longer care about those
+{
+    _vehicle setHitIndex [_forEachIndex, [_x, 0] # _restoreState , false];
+} forEach _hitDmg;
+
 _vehicle setRepairCargo _repairCargo;

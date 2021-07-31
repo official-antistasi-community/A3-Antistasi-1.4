@@ -133,8 +133,8 @@ class Params
     class memberDistance
     {
         title = "Max distance non members can be from the closest member or HQ (they will be teleported to HQ after some timeout)";
-        values[] = {9999,4000,5000,6000,7000,8000,16000};
-        texts[] = {"Default (5km)","4 Kmts","5 Kmts","6 Kmts","7 Kmts","8 Kmts","Unlimited"};
+        values[] = {9999,4000,5000,6000,7000,8000,10000,16000,-1};  // 16000 is left as backwards compatibility
+        texts[] = {"Default (5 km)","4 km","5 km","6 km","7 km","8 km","10 km","16 km","Unlimited"};
         default = 9999;
     };
     class allowFT
@@ -273,13 +273,6 @@ class Params
     class Enoch
     {
         title = "Allow Items and Vehicles from Contact DLC?";
-        values[] = {9999,1,0};
-        texts[] = {"Default (No)","Yes","No"};
-        default = 9999;
-    };
-    class OfficialMod
-    {
-        title = "Allow ADR-97 DLC?";
         values[] = {9999,1,0};
         texts[] = {"Default (No)","Yes","No"};
         default = 9999;

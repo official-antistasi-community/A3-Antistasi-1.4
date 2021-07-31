@@ -7,7 +7,7 @@ if (!isServer) exitWith {
 if (savingServer) exitWith {["Save Game", "Server data save is still in progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 Info("Starting persistent save");
-["Persistent Save Starting","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
+["Persistent Save","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
 
 // Set next autosave time, so that we won't run another shortly after a manual save
 autoSaveTime = time + autoSaveInterval;
@@ -246,5 +246,5 @@ _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlaye
 saveProfileNamespace;
 savingServer = false;
 _saveHintText = ["<t size='1.5'>",nameTeamPlayer," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
-["Persistent Save Completed",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
+["Persistent Save",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
 Info("Persistent Save Completed");

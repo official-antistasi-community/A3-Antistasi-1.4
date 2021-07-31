@@ -15,3 +15,9 @@ force TFAR_givePersonalRadioToRegularSoldier = false;
 force TFAR_SameLRFrequenciesForSide = false;
 force TFAR_SameSRFrequenciesForSide = false;
 
+// ACE Crew Served Weapons
+force ace_csw_defaultAssemblyMode = false;
+force ace_csw_handleExtraMagazines = false;
+
+// ACE User Interface
+force ace_ui_groupBar = true;

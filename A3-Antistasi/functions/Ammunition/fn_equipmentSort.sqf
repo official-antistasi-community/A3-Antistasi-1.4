@@ -108,6 +108,9 @@ allUAVTerminals = allUAVTerminals select {
 //Remove Prop Food
 allMagBullet = allMagBullet select { getText (configFile >> "CfgMagazines" >> _x >> "ammo") isNotEqualTo "FakeAmmo"; };
 
+//Remove False NVGs
+allNVGs = allNVGs select { getarray (configFile >> "CfgWeapons" >> _x >> "visionMode") isnotequalto ["Normal","Normal"]};
+
 private _removableDefaultItems = [
 	[allFirstAidKits,"FirstAidKit","firstAidKits"],
 	[allMedikits,"Medikit","mediKits"],

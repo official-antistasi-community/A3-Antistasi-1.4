@@ -26,11 +26,9 @@ Trace_1("Releasing all vehicles with UID: %1", _UID);
 
 //release all vehicles in all HR_GRG_categories
 {
-    private _hash = _x;
     {
-        _veh = _hash get _x;
-        if ( (_veh#3) isEqualTo _UID) then {_veh set [3, ""] };
-    } forEach (keys _x);
+        if ( (_y#3) isEqualTo _UID) then {_y set [3, ""] };
+    } forEach _x;
 } forEach HR_GRG_Vehicles;
 
 //refresh category if client

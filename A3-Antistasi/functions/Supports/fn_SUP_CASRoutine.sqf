@@ -19,7 +19,7 @@ while {_sleepTime > 0} do
 //150 is more likely to be in the actual viewcone of a player
 private _spawnPos = (getMarkerPos _airport);
 private _strikePlane = createVehicle [_plane, _spawnPos, [], 0, "FLY"];
-_strikePlane setDir (_spawnPos getDir _supportObj);
+_strikePlane setDir (_spawnPos getDir _setupPos);
 
 //Put it in the sky
 _strikePlane setPosATL (_spawnPos vectorAdd [0, 0, 1000]);

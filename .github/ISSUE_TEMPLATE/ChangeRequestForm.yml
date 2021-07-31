@@ -1,0 +1,33 @@
+name: Change request
+description: Request a change to an existing element of the mission.
+title: "[Change Request]: "
+labels: [Suggestion, change, triage]
+body:
+  - type: textarea
+    id: related-problem
+    attributes:
+      label: Is the requested change related to a problem?
+      description: Describe what and how the change relates to an issue.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like.
+      description: A clear and concise description of how and what you'd like to see changed.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative solutions
+      description: Have you considered any other alternatives?
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any additional context about the requested change here.
+    validations:
+      required: false

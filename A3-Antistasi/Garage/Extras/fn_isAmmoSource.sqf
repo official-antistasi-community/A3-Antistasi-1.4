@@ -12,7 +12,7 @@
     Scope: Any
     Environment: Any
     Public: Yes
-    Dependencies: <Bool>hasAce
+    Dependencies: <Bool> A3A_hasAce
 
     Example: [_veh] call HR_GRG_fnc_isAmmoSource;
 
@@ -21,7 +21,7 @@
 params [ ["_vehicle", objNull, [objNull]] ];
 if (isNull _vehicle) exitWith {false};
 
-if (hasAce) then { //Ace
+if (A3A_hasAce) then { //Ace
     private _aceCurrent = _vehicle getVariable ["ace_rearm_currentSupply", 0];
     if (_aceCurrent < 0) exitWith {false};
 

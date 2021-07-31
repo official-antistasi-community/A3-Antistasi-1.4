@@ -54,6 +54,7 @@ HR_GRG_previewCam = "camera" camCreate [10,0,100000];
 HR_GRG_previewCam enableSimulation false;
 HR_GRG_previewCam cameraEffect ["Internal", "Back"];
 showCinemaBorder false;
+enableEnvironment false; //wind sound
 HR_GRG_previewCam camCommit 0;
 HR_GRG_camDist = 1.3;
 HR_GRG_camDirX = 30;

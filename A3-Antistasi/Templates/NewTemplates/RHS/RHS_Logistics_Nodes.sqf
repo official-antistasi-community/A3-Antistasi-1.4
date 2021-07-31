@@ -249,6 +249,8 @@ A3A_logistics_coveredVehicles append [
     , "rhsusf_M1078A1P2_B_WD_fmtv_usarmy" call A3A_fnc_classNameToModel
     , "rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy" call A3A_fnc_classNameToModel
     , "rhsusf_M1083A1P2_WD_fmtv_usarmy" call A3A_fnc_classNameToModel
+    , "rhsusf_M1083A1P2_B_WD_fmtv_usarmy" call A3A_fnc_classNameToModel
+    , "rhsusf_M1083A1P2_B_M2_WD_fmtv_usarmy" call A3A_fnc_classNameToModel
 ];
 
 //if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]],

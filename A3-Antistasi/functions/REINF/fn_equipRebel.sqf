@@ -71,10 +71,13 @@ switch (true) do {
 		if (count unlockedAA > 0) then {
 			[_unit, selectRandom unlockedAA, 1] call _addWeaponAndMags;
 		};
+			_unit addItemToBackpack (selectRandom unlockedToolkits);
+			_unit addItemToBackpack (selectRandom unlockedMineDetectors);
 		// TODO: explosives. Not that they know what to do with them.
 	};
 	case (_unitClass in SDKEng): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		_unit addItemToBackpack (selectRandom unlockedToolkits);
 	};
 	case (_unitClass in SDKMedic): {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;

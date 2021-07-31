@@ -85,7 +85,7 @@ if (
 ) exitWith {["STR_HR_GRG_Feedback_addVehicle_airBlocked", [nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
 //add vehicle
-if (_vehicel getVariable ["HR_GRG_Garaging", false]) exitWith {};
+if (_vehicle getVariable ["HR_GRG_Garaging", false]) exitWith {};
 _vehicle setVariable ["HR_GRG_Garaging", true];
 
 private _locking = if (_lockUID isEqualTo "") then {false} else {true};

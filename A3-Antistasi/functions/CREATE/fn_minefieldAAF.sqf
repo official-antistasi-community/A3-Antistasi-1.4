@@ -53,9 +53,9 @@ if (_failure) exitWith {
 
 Debug_1("Creating a Minefield at %1", _base);
 
-private _factionSide = [A3A_faction_occ,A3A_faction_inv] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
+private _factionSide = [A3A_faction_inv,A3A_faction_occ] select (sidesX getVariable [_base,sideUnknown] == Occupants);
 private _mines = (_factionSide getVariable "minefieldAT") + (_factionSide getVariable "minefieldAPERS");
-private _revealTo = [Occupants,Invaders] select (sidesX getVariable [_markerX,sideUnknown] == Occupants);
+private _revealTo = [Invaders,Occupants] select (sidesX getVariable [_base,sideUnknown] == Occupants);
 
 for "_i" from 1 to 30 do {
 	_mineX = createMine [ selectRandom _mines ,_pos,[],50];

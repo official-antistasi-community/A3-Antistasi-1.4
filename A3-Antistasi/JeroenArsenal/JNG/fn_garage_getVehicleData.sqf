@@ -113,6 +113,14 @@ private _beingChanged = "";
 private _locked = getPlayerUID player;
 private _lockedName = name player;
 
+// add a time stamp in UTC to the name
+private _tempSystemTime = systemTimeUTC;  
+
+// day(2), hour(3), minute(3)	-> name date hour:min										
+_lockedName = _lockedName + format[" %1 %2:%3", _tempSystemTime select 2, _tempSystemTime select 3, _tempSystemTime select 4];
+
+
+
 //return
 COMPILE_SAVE
 

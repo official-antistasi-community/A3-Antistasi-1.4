@@ -455,6 +455,14 @@ switch _mode do {
 		_beingChangedUpdate = _this select 2;
 		_lockedUpdate = _this select 3;
 		_lockedNameUpdate = _this select 4;
+
+		// add a time stamp in UTC to the name
+		private _tempSystemTime = systemTimeUTC;  
+
+		// day(2), hour(3), minute(3)	-> name date hour:min										
+		_lockedNameUpdate = _lockedNameUpdate + format[" %1 %2:%3", _tempSystemTime select 2, _tempSystemTime select 3, _tempSystemTime select 4];
+
+
 		_display =  uiNamespace getVariable ["arsanalDisplay","No display"];
 
 		if (typeName _display == "STRING") exitWith {};

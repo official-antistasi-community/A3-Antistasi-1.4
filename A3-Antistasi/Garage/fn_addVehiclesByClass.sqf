@@ -17,7 +17,7 @@
 
     Example: [_classes, ""] call HR_GRG_fnc_addVehiclesByClass;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 params [["_vehicles", [], [[]]], ["_lockUID", "", [""]]];
 #include "defines.inc"

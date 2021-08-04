@@ -1,3 +1,104 @@
+Version 2.5.0 - xxth August 2021
+
+Changes from version 2.4.1 to 2.5.0 Antistasi Community Edition
+
+================ Major ================
+  - Implemented new Garage - explanation
+  - Implemented Street Artist Navigation Grid Editor (tool for map porting) and changed all systems to work with new navGrids
+  - Fully implemented the SOG Prairie Fire release into the main repo
+  - added new faction templates for 3CB mods
+
+================ Minor ================
+  - added ACRE2 items to be given/distributed correctly
+  - added dynamic crewing for rebel garrison statics
+  - added full TFAR BETA compatibility
+  - Convoy mission rework
+  - expanded starting gear for VN
+  - added CN weapon category filtering
+  - VN (Cam Lao Nam) map update
+  - Dressup Simulator - added uniforms, headgear, glasses to templates
+  - updated Simplified Chinese translation
+  - fully localised garage hints
+  - added garbage clean timer to game info
+  - updated RHS_AI_AFRF_temperate template
+
+================ Groundwork ================
+  - updated AI minefield stuff
+  - improved performance of distanceUnits
+  - added SignalSmokeGrenates and FlagMarkerType to templates
+  - improved logging for bad spawns
+  - renamed fn_compatibilityLoadFaction and all related references
+  - implemented type-dependent classes for rebel AIs
+  - implemented new issue forms on GitHub
+  - implemented time span types
+  - moved changelog to main folder
+
+================ Refactor ================
+  - refactors as preparation of the new UI
+  - adjusted healAndRepair for new garage system
+  - generalised hasVN to template variables
+
+================ Bugfixes ================
+  - fixed punishment missions spawning more than 40 civs
+  - adjusted spawn vehicle velocity for spawnVehicle
+  - fix error from equipmentIsValidForCurrentmodset
+  - fixed references to FlagCarrier for VN flagpoles
+  - changed VN lootboxes to vanilla lootboxes because of incorrect maximumLoad in configs
+  - fixed bug with maxunits code deleting cargoless vehicles
+  - fixed logistics issues for VN
+  - deleted unnecessary bak files
+  - set max civ amount for punishment-missions
+  - updated fn_SUP_CASRoutine
+  - fixed vanilla medical issues (like revive cancel) and implemented VN AI compatibility
+  - fixed missing aggro penalty for killing surrendered enemies
+  - spawn related optimizations and bugfixes
+  - fixed perma lockout in resourceFIA
+  - cleaned out NVGs
+  - fixed partial distribution of controlsX
+  - added isLoadable check and implemented it in AIVehInit
+  - fixed Support HandleDamage Eventhandlers
+  - fixed check-order in vehicle sales
+  - fixed fake launcher magazines being added to loadouts
+  - fixed a return case in configsorting
+  - fixed converted explosives from unlocking
+  - disabled problematic ACE settings
+  - added null check for logistics unload
+  - fixed incorrect remoteExec target in AILoadInfo
+  - fixed and improved FF scripts
+  - fixed equipRebell to assign correct tools
+  - fixed order in fastTravel checks
+  - fixed error in refund system
+  - fixed ADR DLC issue
+  - added safety checks to prevent duping
+  - unified persistent save titles
+
+================ DISCLAIMER ================
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
+Version 2.4.1.VN.03 - 29th June 2021
+
+Changes from version 2.4.1.VN.02 to 2.4.1.VN.03 Antistasi Community Edition
+
+================ Major ================
+  - none
+
+================ Minor ================
+  - none
+
+================ Groundwork ================
+  -  none
+
+================ Refactor ================
+  - none
+
+================ Bugfixes ================
+  - fixed punishment missions spawning more than 40 civs
+
+================ DISCLAIMER ================
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
 Version 2.4.1.VN.02 - 15th May 2021
 
 Changes from version 2.4.1.VN.01 to 2.4.1.VN.02 Antistasi Community Edition

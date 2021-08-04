@@ -37,7 +37,7 @@
 
     Example: [_vehicle, _ammoData] call HR_GRG_fnc_setAmmoData;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 params ["_vehicle", "_ammoData"];
 if !(local _vehicle) exitWith {};

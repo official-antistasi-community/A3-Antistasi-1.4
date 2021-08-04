@@ -16,7 +16,7 @@
 
     Example: [_object] call HR_GRG_fnc_initGarage;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 params [ ["_object", objNull, [objNull]] ];
 if (isNull _object) exitWith {false};

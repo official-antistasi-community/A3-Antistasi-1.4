@@ -16,7 +16,7 @@
 
     Example: [0] call HR_GRG_fnc_declairSources;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

@@ -20,7 +20,7 @@
 
     Example:
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 params ["_vehicle", "_dmgStats"];
 if !(local _vehicle) exitWith {};

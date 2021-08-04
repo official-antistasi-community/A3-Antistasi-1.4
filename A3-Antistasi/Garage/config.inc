@@ -14,7 +14,7 @@
 
     Example:
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: MIT
 */
 HR_GRG_Prefix = "Antistasi";
 //Overwrite client

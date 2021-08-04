@@ -3,7 +3,7 @@
     Description:
         Garage GUI
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 #include "CfgDefines.inc"
 #include "defines.hpp"

@@ -25,7 +25,7 @@
 
     Example:
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: MIT
 */
 params [["_vehicle", objNull, [objNull]], ["_callback",""], ["_action", ""]];
 

@@ -18,7 +18,7 @@
 
     Example: [HR_GRG_PlayerUID, player, HR_GRG_SelectedVehicles] remoteExecCall ["HR_GRG_fnc_toggleLock",2];
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

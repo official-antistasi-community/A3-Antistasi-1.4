@@ -18,7 +18,7 @@
 
     Example: [controlNull, -1, true] call HR_GRG_fnc_PylonsPresetChanged;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

@@ -1,4 +1,5 @@
 Arma Public License No Derivatives (APL-ND)
+For StreetArtist Tool.
 Copyright 2021 - Caleb Sebastian Serafin
 
 Brief summary of this Licence

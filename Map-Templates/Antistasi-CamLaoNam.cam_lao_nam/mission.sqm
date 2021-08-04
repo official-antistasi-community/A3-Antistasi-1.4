@@ -165,25 +165,17 @@ dlcs[]=
 	"Tank"
 };
 randomSeed=9319375;
-class ScenarioData
-{
-	author="Bob Murphy";
-};
 class Mission
 {
 	class Intel
 	{
+		briefingName=$STR_antistasi_mission_info_camlaonam_mapname_text;
 		resistanceWest=0;
-		startWind=0.1;
-		forecastWind=0.1;
-		forecastWaves=0.1;
 		year=1968;
 		month=7;
 		day=7;
 		hour=9;
 		minute=-7;
-		startFogDecay=0.0049333;
-		forecastFogDecay=0.0049333;
 	};
 	class Entities
 	{

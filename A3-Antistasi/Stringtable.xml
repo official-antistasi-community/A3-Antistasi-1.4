@@ -629,6 +629,50 @@
         <Original>2.5.0</Original>
       </Key>
     </Container>
+    <Container name="dialog_utilities">
+      <Key ID="STR_antistasi_utility_box_text">
+        <Original>utility items</Original>
+      </Key>
+      <Key ID = "STR_antistasi_dialogs_utility_buy_text">
+        <Original>Buy utilities</Original>
+        </Key>
+      <Key ID= "STR_antistasi_dialogs_utility_purchase_buy_tooltip">
+        <Original>Allow you to buy a utility item</Original>
+      </Key>
+      <Key ID = "STR_antistasi_dialogs_utility_purchase_text">
+        <Original>Utility Items</Original>
+      </Key>
+      <Key ID= "STR_antistasi_dialogs_utility_purchase_tooltip">
+        <Original>Utility Items are items like ammoboxes, jerrycans, and etc.</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_lootbox_text">
+        <Original>Lootbox</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_lootbox_tooltip">
+        <Original>Buy a loot box for 10€</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_utility_placeholder">
+        <Original>Utililty Placeholder</Original> 
+      </Key>
+      <Key ID="STR_antistasi_dialogs_utility_placeholder_tooltip">
+        <Original>For future use </Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_big_jerrycan_buy">
+        <Original>Fuel Tanker</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_big_jerrycan_buy_tooltip">
+        <Original>A large fuel source for refueling</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_jerrycan_buy">
+        <Original>Jerry Can</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_jerrycan_buy_tooltip">
+        <Original>A simple Jerry Can for refueling</Original>
+      </Key>
+
+
+
+      </Container>
     <Container name="dialog_vehicle_purchase">
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_text">
         <Original>Buy Vehicle</Original>

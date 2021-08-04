@@ -703,4 +703,11 @@ class A3A
         class vehicleWillCollideAtPosition {};
         class getRoadDirection {};
     };
+
+    class UtilityItems{
+        class spawnJerrycan{};
+        class addFuelToRefuelTank{};
+        class initRefuelingCargo{};
+        class canRefuel{};
+    };
 };

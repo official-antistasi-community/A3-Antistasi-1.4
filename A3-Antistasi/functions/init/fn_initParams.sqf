@@ -64,6 +64,7 @@ A3A_paramTable = [
     ["allowGuidedLaunchers", "allowGuidedLaunchers", [], 0],
     ["LootToCrateEnabled", "EnableLootToCrate", [], true],
     ["LTCLootUnlocked", "LTCLootUnlocked", [], false],
+    ["refuelingFuelCargoEnabled", "EnableFuelCargoRefuel",[],true],
 
     ["logLevel", "LogLevel", ["override"], 3],
 

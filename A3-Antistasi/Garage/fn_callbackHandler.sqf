@@ -77,5 +77,24 @@ switch _callback do {
         };
     };
 
+    case "FUELSTRUCTURE": {
+        switch _action do{
+            case "Placed": {
+                if (player == theBoss) then {
+                    [0,(-1 * 2000)] remoteExec ["A3A_fnc_resourcesFIA",2]; //hard coded value of 2000, this will never change for now.
+                } else {
+                    [-1 * 2000] call A3A_fnc_resourcesPlayer;
+                };
+                if(isNil "_vehicle")then{["Cargo Refueling", "The refueling source is empty"] call A3A_fnc_customHint;};
+                _vehicle allowDamage false;
+		        [_vehicle, 10000] call ace_refuel_fnc_makeSource;
+
+                //add an action to refuel the tank of a fuel truck's refuel tank when in the vehicle and looking at it.
+                //check that the variable ace_refuel_fuelCargo is not null 
+                //_vehicle addAction ["refuel tank",{[vehicle, _vehicle] call A3A_fnc_addFuelToRefuelTank}, nil ,0, true, false, "", "alive _target && vehicle _this != _this",10];
+            };
+            default {false};
+        }
+    };
     default {false};
 };

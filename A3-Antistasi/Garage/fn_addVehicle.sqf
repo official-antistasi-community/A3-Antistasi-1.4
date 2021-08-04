@@ -85,6 +85,7 @@ if (
 ) exitWith {["STR_HR_GRG_Feedback_addVehicle_airBlocked", [nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
 //---------------------------------------------------------|
+// Everything above this line is under the license: MIT    |
 // Everything under this line is under the license: APL-ND |
 //---------------------------------------------------------|
 

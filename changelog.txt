@@ -7,7 +7,12 @@ Changes from version 2.4.1 to 2.5.0 Antistasi Community Edition
   - implemented Street Artist Navigation Grid Editor (tool for map porting) and changed all systems to work with new navGrids (under SSL license, not MIT)
   - fully implemented the SOG Prairie Fire (VN) release into the main repo
   - added new faction templates for 3CB mods
-
+    -> MDF, New Default Occupants on Malden
+    -> HIDF, New Default Occupants on Tanoa
+    -> AAF, New Default Occuapnts on Altis
+    -> ANA, New Default Occuapnts on Kunduz (Since its Afganistan)
+    -> ADA, currently unused
+    
 ================ Minor ================
   - added ACRE2 items to be given/distributed correctly
   - added dynamic crewing for rebel garrison statics
@@ -17,9 +22,13 @@ Changes from version 2.4.1 to 2.5.0 Antistasi Community Edition
   - added VN weapon category filtering
   - Cam Lao Nam map update
   - Dressup Simulator - added uniforms, headgear, glasses to templates
+    -> direct lists for uniforms used by civs
+    -> rebell uniforms given to arsenal
+    -> headgear given to civs
+    -> headgear given to rebell AI
   - updated Simplified Chinese translation
   - added garbage clean timer to game info
-  - updated RHS_AI_AFRF_temperate template
+  - updated AFRF templates with content from RHS update
 
 ================ Groundwork ================
   - updated AI minefield stuff

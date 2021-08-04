@@ -18,7 +18,7 @@ Changes from version 2.4.1 to 2.5.0 Antistasi Community Edition
   - Cam Lao Nam map update
   - Dressup Simulator - added uniforms, headgear, glasses to templates
   - updated Simplified Chinese translation
-  - fully localised garage hints
+  - fully localised garage hints (no translations added yet)
   - added garbage clean timer to game info
   - updated RHS_AI_AFRF_temperate template
 

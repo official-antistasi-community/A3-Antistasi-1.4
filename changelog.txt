@@ -3,9 +3,9 @@ Version 2.5.0 - xxth August 2021
 Changes from version 2.4.1 to 2.5.0 Antistasi Community Edition
 
 ================ Major ================
-  - Implemented new Garage - explanation
-  - Implemented Street Artist Navigation Grid Editor (tool for map porting) and changed all systems to work with new navGrids
-  - Fully implemented the SOG Prairie Fire release into the main repo
+  - implemented new Garage - explanation
+  - implemented Street Artist Navigation Grid Editor (tool for map porting) and changed all systems to work with new navGrids
+  - fully implemented the SOG Prairie Fire release into the main repo
   - added new faction templates for 3CB mods
 
 ================ Minor ================

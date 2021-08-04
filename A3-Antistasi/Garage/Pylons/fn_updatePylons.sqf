@@ -16,7 +16,7 @@
 
     Example: [] call HR_GRG_fnc_updatePylons;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 HR_GRG_UpdatePylons = false;
 #include "defines.inc"

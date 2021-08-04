@@ -17,7 +17,7 @@
 
     Example: [] call HR_GRG_fnc_genVehUID;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 HR_GRG_UID = (HR_GRG_UID + 1) % 1e7;
 HR_GRG_UID

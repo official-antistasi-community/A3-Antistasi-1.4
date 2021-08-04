@@ -20,7 +20,7 @@
 
     Example: [_class, [], [], nil, false] call HR_GRG_fnc_confirmPlacement;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 params [

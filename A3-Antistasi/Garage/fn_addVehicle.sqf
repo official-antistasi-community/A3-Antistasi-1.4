@@ -19,7 +19,7 @@
 
     Example: [cursorObject, clientOwner, call HR_GRG_dLock, _player] remoteExecCall ["HR_GRG_fnc_addVehicle",2];
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: MIT / (APL-ND) the license switch is noted in the code
 */
 params [ ["_vehicle", objNull, [objNull]], ["_client", 2, [0]], ["_lockUID", ""], ["_player", objNull, [objNull]] ];
 #include "defines.inc"
@@ -83,6 +83,10 @@ if (
     (_class isKindOf "Air")
     && {count (airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (_player inArea _x)}) < 1} //no airports
 ) exitWith {["STR_HR_GRG_Feedback_addVehicle_airBlocked", [nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+
+//---------------------------------------------------------|
+// Everything under this line is under the license: APL-ND |
+//---------------------------------------------------------|
 
 //add vehicle
 if (_vehicle getVariable ["HR_GRG_Garaging", false]) exitWith {};

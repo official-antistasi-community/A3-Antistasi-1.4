@@ -52,7 +52,7 @@
 
     Example:
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 params [["_vehicle", objNull, [objNull]], "_state"];
 if (isNull _vehicle) exitWith {};

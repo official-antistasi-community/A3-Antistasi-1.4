@@ -16,7 +16,7 @@
 
     Example: [_UID] remoteExecCall ["HR_GRG_fnc_releaseAllVehicles",_recipients];
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

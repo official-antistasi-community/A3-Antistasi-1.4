@@ -18,7 +18,7 @@
 
     Example: [nil,0,0] call HR_GRG_fnc_updateCamPos;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 params ["", "_xPos","_yPos"];
 if (isNull HR_GRG_previewVeh) exitWith {};

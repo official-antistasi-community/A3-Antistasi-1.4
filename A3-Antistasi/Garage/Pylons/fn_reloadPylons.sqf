@@ -16,7 +16,7 @@
 
     Example: [] call HR_GRG_fnc_reloadPylons;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

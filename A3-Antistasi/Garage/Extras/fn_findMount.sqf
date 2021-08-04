@@ -22,7 +22,7 @@
 
     Example: [getPlayerUID player, _index, _newIconIndex, clientOwner, player] remoteExecCall ["HR_GRG_fnc_findMount",2];
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()

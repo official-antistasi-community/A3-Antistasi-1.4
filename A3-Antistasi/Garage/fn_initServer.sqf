@@ -16,7 +16,7 @@
 
     Example: [] call HR_GRG_fnc_initServer;
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 #include "config.inc"
 #include "defines.inc"

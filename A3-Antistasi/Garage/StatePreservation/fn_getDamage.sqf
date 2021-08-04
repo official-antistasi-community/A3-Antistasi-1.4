@@ -20,7 +20,7 @@
 
     Example:
 
-    License: Håkon Rydland Garage SHARED SOURCE LICENSE
+    License: APL-ND
 */
 params ["_vehicle"];
 private _dmg = damage _vehicle min 0.89;

@@ -3,8 +3,8 @@ Version 2.5.0 - xxth August 2021
 Changes from version 2.4.1 to 2.5.0 Antistasi Community Edition
 
 ================ Major ================
-  - implemented new Garage - explanation
-  - implemented Street Artist Navigation Grid Editor (tool for map porting) and changed all systems to work with new navGrids
+  - implemented new Garage (under SSL license, not MIT) - explanation
+  - implemented Street Artist Navigation Grid Editor (tool for map porting) and changed all systems to work with new navGrids (under SSL license, not MIT)
   - fully implemented the SOG Prairie Fire (VN) release into the main repo
   - added new faction templates for 3CB mods
 
@@ -18,7 +18,6 @@ Changes from version 2.4.1 to 2.5.0 Antistasi Community Edition
   - Cam Lao Nam map update
   - Dressup Simulator - added uniforms, headgear, glasses to templates
   - updated Simplified Chinese translation
-  - fully localised garage hints (no translations added yet)
   - added garbage clean timer to game info
   - updated RHS_AI_AFRF_temperate template
 

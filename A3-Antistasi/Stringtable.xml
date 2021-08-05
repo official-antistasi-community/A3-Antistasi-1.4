@@ -669,9 +669,6 @@
       <Key ID="STR_antistasi_dialogs_jerrycan_buy_tooltip">
         <Original>A simple Jerry Can for refueling</Original>
       </Key>
-
-
-
       </Container>
     <Container name="dialog_vehicle_purchase">
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_text">

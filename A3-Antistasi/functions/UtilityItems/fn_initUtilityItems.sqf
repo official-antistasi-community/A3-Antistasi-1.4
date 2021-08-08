@@ -27,7 +27,7 @@ player addAction [
     true,
     "",
     "(
-        ((typeof cursorObject) isEqualTo ""Land_LampShabby_F"")
+        ((typeof cursorObject) isEqualTo lightSource)
 		and (([_this] call A3A_fnc_countAttachedObjects) isEqualTo 0)
         and (attachedTo cursorObject isEqualTo objNull)
     )"
@@ -59,7 +59,7 @@ player addAction [
     true,
     "",
     "(
-		((typeof cursorObject) isEqualTo ""Land_LampShabby_F"")
+		((typeof cursorObject) isEqualTo lightSource)
     )"
 ];
 

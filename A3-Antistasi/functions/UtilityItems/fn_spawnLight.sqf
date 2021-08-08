@@ -34,7 +34,7 @@ _unit setVariable["LightCooldown",time + 5];
 
 
 //spawn the light
-private _lightType = "Land_LampShabby_F";
+private _lightType = lightSource;
 _position = (getPos _unit) findEmptyPosition [1,10,_lightType];
 if (_position isEqualTo []) then {_position = getPos _unit};
 private _light = _lightType createVehicle _position;

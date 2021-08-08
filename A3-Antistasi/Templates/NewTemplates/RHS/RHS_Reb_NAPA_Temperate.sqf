@@ -14,6 +14,7 @@
 ["vehicleTruck", "rhsgref_cdf_zil131"] call _fnc_saveToTemplate; 			//this line determines the trucks -- Example: ["vehiclesTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehicleAT", "rhsgref_nat_uaz_spg9"] call _fnc_saveToTemplate; 		//this line determines cargo trucks -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehicleAA", "rhsgref_nat_ural_Zu23"] call _fnc_saveToTemplate; 		//this line determines cargo trucks -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
+["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;
 
 ["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate; 	//this line determines transport boats -- Example: ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] -- Array, can contain multiple assets
 ["vehicleRepair", "rhsgref_cdf_gaz66_repair"] call _fnc_saveToTemplate; 			//this line determines gun boats -- Example: ["vehiclesGunboats", ["B_Boat_Armed_01_minigun_F"]] -- Array, can contain multiple assets

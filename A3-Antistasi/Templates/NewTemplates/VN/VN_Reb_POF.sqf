@@ -31,6 +31,7 @@
 ["vehicleTruck", "vn_i_wheeled_m54_01"] call _fnc_saveToTemplate; 			//this line determines the trucks -- Example: ["vehiclesTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehicleAT", "not_supported"] call _fnc_saveToTemplate; 		//this line determines AT vehicle -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehicleAA", "vn_b_wheeled_m54_mg_02"] call _fnc_saveToTemplate; 		//this line determines AA vehicle -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
+["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;  //this line determines the light source
 
 ["vehicleBoat", "vn_o_boat_02_01"] call _fnc_saveToTemplate; 	//this line determines transport boats -- Example: ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] -- Array, can contain multiple assets
 ["vehicleRepair", "vn_i_wheeled_m54_repair"] call _fnc_saveToTemplate; 			//this line determines gun boats -- Example: ["vehiclesGunboats", ["B_Boat_Armed_01_minigun_F"]] -- Array, can contain multiple assets

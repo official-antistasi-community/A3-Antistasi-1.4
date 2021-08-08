@@ -14,6 +14,7 @@
 ["vehicleTruck", "UK3CB_CCM_I_V3S_Closed"] call _fnc_saveToTemplate; 			//this line determines the trucks -- Example: ["vehiclesTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehicleAT", "UK3CB_I_G_Hilux_Spg9"] call _fnc_saveToTemplate; 		//this line determines cargo trucks -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehicleAA", "UK3CB_TKM_I_V3S_Zu23"] call _fnc_saveToTemplate; 		//this line determines cargo trucks -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
+["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;
 
 ["vehicleBoat", "UK3CB_I_G_Fishing_Boat_SPG9"] call _fnc_saveToTemplate; 	//this line determines transport boats -- Example: ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] -- Array, can contain multiple assets
 ["vehicleRepair", "UK3CB_CCM_I_V3S_Repair"] call _fnc_saveToTemplate; 			//this line determines gun boats -- Example: ["vehiclesGunboats", ["B_Boat_Armed_01_minigun_F"]] -- Array, can contain multiple assets

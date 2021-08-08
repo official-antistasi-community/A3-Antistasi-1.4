@@ -486,6 +486,7 @@ if (_side isEqualTo independent) then {
 	vehSDKPlane = _faction getVariable "vehiclePlane";
 	vehSDKBoat = _faction getVariable "vehicleBoat";
 	vehSDKRepair = _faction getVariable "vehicleRepair";
+	lightSource = _faction getVariable "vehicleLightSource";
 
 	SDKMGStatic = _faction getVariable "staticMG";
 	staticATteamPlayer = _faction getVariable "staticAT";

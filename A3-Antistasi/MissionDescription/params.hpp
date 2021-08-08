@@ -207,6 +207,13 @@ class Params
         texts[] = {"Default (Disabled)", "Disabled", "Enabled"};
         default = 9999;
     };
+    class EnableUtilityItems
+    {
+        title = "Enable Utility Items";
+        values[] = {9999, 0, 1};
+        texts[] = {"Default (Enabled)","Disabled", "Enabled"};
+        default = 9999;
+    };
     class Spacer11
     {
         title = "";

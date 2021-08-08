@@ -3913,11 +3913,11 @@
         </Key>
         </Container>
     <Container name="Utility_Items">
-        <Key ID="Utility_Items_Feedback_Normal">
+        <Key ID="STR_A3A_Utility_Items_Feedback_Normal">
             <Original>Q/E to rotate - Space/Enter to stop.</Original>
             <English>Q/E to rotate - Space/Enter to stop.</English>
         </Key>
-        <Key ID="Utility_Items_Feedback_Far">
+        <Key ID="STR_A3A_Utility_Items_Feedback_Far">
             <Original>You're Too Far</Original>
             <English>You're Too Far</English>
         </Key>

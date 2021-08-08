@@ -2,7 +2,7 @@
 Author: [Killerswin2]
     add actions for the to light the player
 Arguments:
-	<nil>
+    <nil>
 
 Return Value:
     <nil>
@@ -19,7 +19,7 @@ Example:
 player addAction [
     "carry light",
     {
-		[cursorObject, true] call A3A_fnc_carryCrate;
+        [cursorObject, true] call A3A_fnc_carryCrate;
     },
     nil,
     1.5,
@@ -28,7 +28,7 @@ player addAction [
     "",
     "(
         ((typeof cursorObject) isEqualTo (A3A_faction_reb getVariable [""vehicleLightSource"", """"]))
-		and (([_this] call A3A_fnc_countAttachedObjects) isEqualTo 0)
+        and (([_this] call A3A_fnc_countAttachedObjects) isEqualTo 0)
         and (attachedTo cursorObject isEqualTo objNull)
     )"
 ];
@@ -44,14 +44,14 @@ player addAction [
     true,
     "",
     "(
-		(_this getVariable ['carryingCrate', false])
+        (_this getVariable ['carryingCrate', false])
     )"
 ];
 
 player addAction [
     "rotate light",
     {
-    	[cursorObject] call A3A_fnc_rotateItem;
+        [cursorObject] call A3A_fnc_rotateItem;
     },
     nil,
     1.5,
@@ -59,7 +59,7 @@ player addAction [
     true,
     "",
     "(
-		((typeof cursorObject) isEqualTo (A3A_faction_reb getVariable [""vehicleLightSource"", """"]))
+        ((typeof cursorObject) isEqualTo (A3A_faction_reb getVariable [""vehicleLightSource"", """"]))
     )"
 ];
 

@@ -24,21 +24,13 @@ if(_lastTimePurchase > time) exitwith{["Light Purchase",format ["You already bou
 
 //find out if we have money
 private _resourceFIA = 0;
-if(player != theBoss) then{
-	_resourceFIA = player getVariable "moneyX";
-}else{
-	_resourceFIA = server getVariable "resourceFIA";
-};
+_resourceFIA = player getVariable "moneyX";
 
 if(_resourceFIA < 25) exitwith { ["Light Purchase","You can't afford a light."] call A3A_fnc_customHint};
 _unit setVariable["LightCooldown",time + 5];
 
 //take money away
-if (player == theBoss) then {
-    [0,-25] remoteExec ["A3A_fnc_resourcesFIA",2];
-} else {
-    [-25] call A3A_fnc_resourcesPlayer;
-};
+[-25] call A3A_fnc_resourcesPlayer;
 
 
 //spawn the light

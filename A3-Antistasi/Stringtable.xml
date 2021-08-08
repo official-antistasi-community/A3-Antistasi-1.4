@@ -3918,8 +3918,8 @@
             <English>Q/E to rotate - Space/Enter to stop.</English>
         </Key>
         <Key ID="STR_A3A_Utility_Items_Feedback_Far">
-            <Original>You're Too Far</Original>
-            <English>You're Too Far</English>
+            <Original>You're too far</Original>
+            <English>You're too far</English>
         </Key>
     </Container>
     <Container name="time_units">

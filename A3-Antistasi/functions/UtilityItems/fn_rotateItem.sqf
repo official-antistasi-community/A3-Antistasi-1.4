@@ -37,6 +37,7 @@ A3A_LightRotate_EHDB = [false, false, time, getDir _light, _light, "", {
     findDisplay 46 displayRemoveEventHandler ["KeyDown", A3A_LightRotate_EHDB # KEYDOWN_EH ];
     removeMissionEventHandler ["EachFrame", A3A_LightRotate_EHDB # EACHFRAME_EH ];
     terminate (A3A_LightRotate_EHDB # HINT_DISPLAY );
+    _light setVariable ["rotatingLight", false, true];
     A3A_LightRotate_EHDB = nil;
 }, -1, -1, controlNull];
 

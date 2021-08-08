@@ -29,7 +29,7 @@
 ["vehiclesMedical", ["UK3CB_AAF_B_M113_AMB"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_AAV", "UK3CB_AAF_B_LAV25_HQ", "UK3CB_AAF_B_M113_M2", "UK3CB_AAF_B_AAV"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["UK3CB_AAF_B_M60A3", "UK3CB_AAF_I_T72BC"]] call _fnc_saveToTemplate; 			
-["vehiclesAA", ["UK3CB_AAF_O_2S6M_Tunguska", "UK3CB_AAF_O_MTLB_ZU23", "UK3CB_AAF_O_ZsuTank"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["UK3CB_AAF_O_ZsuTank", "UK3CB_AAF_O_MTLB_ZU23"]] call _fnc_saveToTemplate; //UK3CB_AAF_O_2S6M_Tunguska
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 

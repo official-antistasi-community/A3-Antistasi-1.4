@@ -40,6 +40,8 @@ A3A_LightRotate_EHDB = [false, false, time, getDir _light, _light, "", {
     A3A_LightRotate_EHDB = nil;
 }, -1, -1, controlNull];
 
+_light setVariable ["rotatingLight", true, true];
+
 //event handlers    
 private _keyDownEH = findDisplay 46 displayAddEventHandler ["KeyDown", {
     params["","_key"];

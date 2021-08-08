@@ -60,6 +60,7 @@ player addAction [
     "",
     "(
         ((typeof cursorObject) isEqualTo (A3A_faction_reb getVariable [""vehicleLightSource"", """"]))
+        and !(_this getVariable['rotatingLight',false])
     )"
 ];
 

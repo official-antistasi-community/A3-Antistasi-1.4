@@ -421,11 +421,8 @@ vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, tru
 if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-
-if(UtilityItemsEnabled) then {
-	vehicleBox addAction ["Buy Light for 25€", {player call A3A_fnc_spawnLight},nil,0,false,true,"","true",4];
-	call A3A_fnc_initUtilityItems;
-};
+vehicleBox addAction ["Buy Light for 25€", {player call A3A_fnc_spawnLight},nil,0,false,true,"","true",4];
+call A3A_fnc_initUtilityItems;
 
 if (LootToCrateEnabled) then {
 	vehicleBox addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];

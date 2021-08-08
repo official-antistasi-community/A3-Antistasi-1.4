@@ -305,7 +305,6 @@ private _templateVariables = [
 	"supportStaticsSDKB3",
 	"ATMineMag",
 	"APERSMineMag",
-	"lightSource",
 
 	//@Spoffy, is the correct like this?
 	"breachingExplosivesAPC",

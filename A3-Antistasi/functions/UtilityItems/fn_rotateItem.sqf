@@ -1,5 +1,5 @@
 /*
-Author: [Killerswin2]
+Author: [Killerswin2, Hakon]
     rotates an item
 Arguments:
 	0.<Object> object that will be rotated;
@@ -18,88 +18,83 @@ Example:
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 params[["_light", objNull, [objNull]]];
 
-//globals
-PRESSED_E = false;
-PRESSED_Q = false;
-WAIT_TIME = time;
-DIR_OBJECT = getDir _light;
-LIGHT = _light;
-INFO_TEXT = "";
+#define E_PRESSED 0
+#define Q_PRESSED 1
+#define WAIT_TIME 2
+#define LIGHT_DIR 3
+#define LIGHT 4
+#define INFO_TEXT 5
+#define END_ROTATING 6
+#define KEYDOWN_EH 7
+#define EACHFRAME_EH 8
+#define HINT_DISPLAY 9
 
+A3A_LightRotate_EHDB = [false, false, time, getDir _light, _light, "", {
+    findDisplay 46 displayRemoveEventHandler ["KeyDown", A3A_LightRotate_EHDB select KEYDOWN_EH ];
+    removeMissionEventHandler ["EachFrame", A3A_LightRotate_EHDB select EACHFRAME_EH ];
+    terminate (A3A_LightRotate_EHDB select HINT_DISPLAY );
+    A3A_LightRotate_EHDB = nil;
+}, -1, -1, controlNull];
 
-//clean up items
-endRotating = {
-	findDisplay 46 displayRemoveEventHandler ["KeyDown", DISPLAY_HANDLER_UTILITY];
-	removeMissionEventHandler ["EachFrame", FRAME_HANDLER_UTILITY];
-	terminate CONTROL_HINT;
-
-	//variables
-	PRESSED_E = nil;
-	PRESSED_Q = nil;
-	WAIT_TIME = nil;
-	DIR_OBJECT = nil;
-	LIGHT = nil;
-	INFO_TEXT = nil;
-	CONTROL_HINT = nil;
-};
-
-//event handlers
-
-DISPLAY_HANDLER_UTILITY = findDisplay 46 displayAddEventHandler ["KeyDown", {
+//event handlers	
+private _keyDownEH = findDisplay 46 displayAddEventHandler ["KeyDown", {
 	params["","_key"];
 	private _return = false;
 
-	if(_key isEqualTo DIK_E && WAIT_TIME < time) then {
+	if(_key isEqualTo DIK_E && (A3A_LightRotate_EHDB select WAIT_TIME) < time) then {
 		_return = true;
-		PRESSED_E = true;
-		WAIT_TIME = time + 0.01;
+		A3A_LightRotate_EHDB set [E_PRESSED, true];
+		A3A_LightRotate_EHDB set [ WAIT_TIME , (A3A_LightRotate_EHDB select WAIT_TIME ) + 0.01];
 	};
 
-	if(_key isEqualTo DIK_Q && WAIT_TIME < time) then {
+	if(_key isEqualTo DIK_Q && (A3A_LightRotate_EHDB select WAIT_TIME) < time) then {
 		_return = true;
-		PRESSED_Q = true;
-		WAIT_TIME = time + 0.01;
+		A3A_LightRotate_EHDB set [Q_PRESSED, true];
+		A3A_LightRotate_EHDB set [WAIT_TIME , (A3A_LightRotate_EHDB select WAIT_TIME ) + 0.01];
 	};
 
 	if(_key in [DIK_SPACE,DIK_RETURN]) then{
 		_return = true;
-		call endRotating;
+		call (A3A_LightRotate_EHDB select END_ROTATING);
 	};
 	_return;
 }];
+A3A_LightRotate_EHDB set [ KEYDOWN_EH , _keyDownEH];
 
-FRAME_HANDLER_UTILITY= addMissionEventHandler ["EachFrame", {
+private _eachFrameEH  = addMissionEventHandler ["EachFrame", {
     private _directionChanged = false;
 
 	// rotation
-    if (PRESSED_Q) then {
-        PRESSED_Q = false;
-        DIR_OBJECT  = DIR_OBJECT  - 1;
+    if (A3A_LightRotate_EHDB select Q_PRESSED) then {
+        A3A_LightRotate_EHDB set [Q_PRESSED, false];
+		A3A_LightRotate_EHDB set [LIGHT_DIR, (A3A_LightRotate_EHDB # LIGHT_DIR) -1];
         _directionChanged = true;
     };
 
-    if (PRESSED_E) then {
-        PRESSED_E = false;
-        DIR_OBJECT  = DIR_OBJECT  + 1;
+	if (A3A_LightRotate_EHDB select E_PRESSED) then {
+        A3A_LightRotate_EHDB set [E_PRESSED, false];
+		A3A_LightRotate_EHDB set [LIGHT_DIR, (A3A_LightRotate_EHDB # LIGHT_DIR) +1];
         _directionChanged = true;
     };
 
 	//set dir
 	if(_directionChanged) then {
-		LIGHT setDir DIR_OBJECT;
+		(A3A_LightRotate_EHDB select LIGHT) setDir (A3A_LightRotate_EHDB select LIGHT_DIR);
 	};
 
-	if(player distance LIGHT > 5) then {
-		INFO_TEXT = "Your Too Far";
+	if((player distance (A3A_LightRotate_EHDB select LIGHT)) > 5) then {
+		A3A_LightRotate_EHDB set [INFO_TEXT, localize "Utility_Items_Feedback_Far"];
 	}else{
-		INFO_TEXT = "Q/E to rotate." + endl + "Space/Enter to stop.";
+		A3A_LightRotate_EHDB set [INFO_TEXT, localize "Utility_Items_Feedback_Normal"];
 	};
 
-	CONTROL_HINT = [INFO_TEXT, 0, 0.9, 0.2, 0, 0, 17001] spawn BIS_fnc_dynamicText;
+	CONTROL_HINT = [A3A_LightRotate_EHDB select INFO_TEXT , 0, 0.9, 0.2, 0, 0, 17001] spawn BIS_fnc_dynamicText;
+	A3A_LightRotate_EHDB set [HINT_DISPLAY, CONTROL_HINT];
 
-	if(!([player] call A3A_fnc_canFight)||(player distance LIGHT > 6)) then{
-		call endRotating;
+	if(!([player] call A3A_fnc_canFight)||((player distance (A3A_LightRotate_EHDB # LIGHT)) > 6)) then{
+		call (A3A_LightRotate_EHDB select END_ROTATING);
 	};
 
 }];
+A3A_LightRotate_EHDB set [EACHFRAME_EH , _eachFrameEH];
 

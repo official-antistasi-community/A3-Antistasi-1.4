@@ -64,7 +64,6 @@ A3A_paramTable = [
     ["allowGuidedLaunchers", "allowGuidedLaunchers", [], 0],
     ["LootToCrateEnabled", "EnableLootToCrate", [], true],
     ["LTCLootUnlocked", "LTCLootUnlocked", [], false],
-    ["UtilityItemsEnabled", "EnableUtilityItems", [], true],
 
     ["logLevel", "LogLevel", ["override"], 3],
 

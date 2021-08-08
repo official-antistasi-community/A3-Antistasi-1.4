@@ -3784,7 +3784,7 @@
             <Original>Loot crate stored</Original>
             <English>Loot crate stored</English>
         </Key>
-        <Key ID="STR_HR_GRG_Feedback_addVehicle_UtilityItems">
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_LightSource_Stored">
             <Original>Light stored</Original>
             <English>Light stored</English>
         </Key>
@@ -3912,6 +3912,16 @@
             <English>Driver</English>
         </Key>
         </Container>
+    <Container name="Utility_Items">
+        <Key ID="Utility_Items_Feedback_Normal">
+            <Original>Q/E to rotate - Space/Enter to stop.</Original>
+            <English>Q/E to rotate - Space/Enter to stop.</English>
+        </Key>
+        <Key ID="Utility_Items_Feedback_Far">
+            <Original>You're Too Far</Original>
+            <English>You're Too Far</English>
+        </Key>
+    </Container>
     <Container name="time_units">
       <!--Note the lack of front spacing on abbreviations.-->
       <!--Auto translated.-->>

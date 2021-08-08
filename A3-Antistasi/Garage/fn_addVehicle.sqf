@@ -38,9 +38,9 @@ if (_class in [NATOSurrenderCrate, CSATSurrenderCrate]) exitWith {
 };
 
 //Utility refund
-if(_class isEqualTo lightSource) exitwith{
+if(_class isEqualTo (A3A_faction_reb getVariable ["vehicleLightSource", ""])) exitwith{
     [25] remoteExec ["A3A_fnc_resourcesPlayer", _client];
-    ["STR_HR_GRG_Feedback_addVehicle_UtilityItems"] remoteExec ["HR_GRG_fnc_Hint", _client];
+    ["STR_HR_GRG_Feedback_addVehicle_LightSource_Stored"] remoteExec ["HR_GRG_fnc_Hint", _client];
     deleteVehicle _vehicle;
     true
 };

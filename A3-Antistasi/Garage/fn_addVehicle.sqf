@@ -37,6 +37,14 @@ if (_class in [NATOSurrenderCrate, CSATSurrenderCrate]) exitWith {
     true
 };
 
+//Utility refund
+if(_class isEqualTo "Land_LampShabby_F") exitwith{
+    [25] remoteExec ["A3A_fnc_resourcesPlayer", _client];
+    ["STR_HR_GRG_Feedback_addVehicle_UtilityItems"] remoteExec ["HR_GRG_fnc_Hint", _client];
+    deleteVehicle _vehicle;
+    true
+};
+
 //validate input
 if (isNull _vehicle) exitWith { ["STR_HR_GRG_Feedback_addVehicle_Null"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 if (!alive _vehicle) exitWith { ["STR_HR_GRG_Feedback_addVehicle_Destroyed"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };

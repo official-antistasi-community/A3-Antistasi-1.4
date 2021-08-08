@@ -706,5 +706,7 @@ class A3A
 
     class UtilityItems {
         class spawnLight {};
+        class initUtilityItems {};
+        class rotateItem {};
     };
 };

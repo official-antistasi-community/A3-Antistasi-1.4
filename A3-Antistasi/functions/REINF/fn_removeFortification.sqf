@@ -22,9 +22,6 @@
 
 params[["_veh", objNull, [objNull]], ["_player", objNull, [objNull]]];
 
-//if we change the medicAnims later, this will need to be changed also.  
-tempMedAnimationBecauseArmaLowerCasesFromAnimationState = ["ainvpknlmstpsnonwnondnon_medic_1","ainvpknlmstpsnonwnondnon_medic0","ainvpknlmstpsnonwnondnon_medic1","ainvpknlmstpsnonwnondnon_medic2"];
-
 //check if constructing
 if (_player getVariable ["deconstructing", false]) exitwith {};
 _player setVariable ["deconstructing", true];
@@ -34,8 +31,8 @@ private _lockOutTime = time + 30;
 
 _player playMoveNow selectRandom medicAnims;
 _player addEventHandler ["AnimDone",{
-	private _engineer = _this # 0; //person doing
-    if ( !((animationState _engineer) in tempMedAnimationBecauseArmaLowerCasesFromAnimationState)) then {
+    params["_engineer", "_anim"]; //person doing animation
+    if (!((animationState _engineer) in medicAnims)) then {
         _engineer playMoveNow selectRandom medicAnims;
      }; 
 	if (([_engineer] call A3A_fnc_canFight) and !(_engineer getVariable ["helping",false]) and !(_engineer getVariable ["rearming",false]) and (_engineer getVariable ["deconstructing",false])) then {

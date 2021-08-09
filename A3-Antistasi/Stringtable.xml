@@ -3911,15 +3911,12 @@
     <Container name="deconstruction_fortification">
         <Key ID="STR_A3A_Deconstruct_fortification_Done">
             <Original>fortification removed</Original>
-            <English>fortification removed</English>
         </Key>
         <Key ID="STR_A3A_Deconstruct_fortification_Cancelled">
             <Original>Deconstruction cancelled</Original>
-            <English>Deconstruction cancelled</English>
         </Key>
         <Key ID="STR_A3A_Deconstruct_fortification_Hint_Title">
             <Original>Build Info</Original>
-            <English>Build Info</English>
         </Key>
     </Container>
     <Container name="time_units">

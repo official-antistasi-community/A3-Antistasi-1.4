@@ -90,7 +90,7 @@ _veh setDir _dir;
 if((typeOf _veh) isEqualTo "Land_PillboxBunker_01_big_F") then {
     _veh addAction ["Remove Asset",{[_this # 0, _this # 1] call A3A_fnc_removefortification},nil,0,false,true,"","(_this == theBoss)", 4];
 } else {
-    _veh addAction ["Remove Asset",{[_this # 0, _this # 1] call A3A_fnc_removefortification},nil,0,false,true,"","true", 4];
+    _veh addAction ["Remove Asset",{[_this # 0, _this # 1] call A3A_fnc_removefortification},nil,0,false,true,"","!(_veh getVariable [""deconstructing"", false])", 4];
 };
 
 

@@ -32,7 +32,7 @@ private _lockOutTime = time + 30;
 _player playMoveNow selectRandom medicAnims;
 _player addEventHandler ["AnimDone",{
     params["_engineer", "_anim"]; //person doing animation
-    if (!((animationState _engineer) in medicAnims)) then {
+    if (!(_anim in medicAnims)) then {
         _engineer playMoveNow selectRandom medicAnims;
      }; 
 	if (([_engineer] call A3A_fnc_canFight) and !(_engineer getVariable ["helping",false]) and !(_engineer getVariable ["rearming",false]) and (_engineer getVariable ["deconstructing",false])) then {

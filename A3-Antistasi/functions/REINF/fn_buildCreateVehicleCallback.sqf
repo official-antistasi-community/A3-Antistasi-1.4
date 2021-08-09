@@ -84,6 +84,11 @@ if (!_isPlayer) then {build_engineerSelected doFollow (leader build_engineerSele
 
 private _veh = createVehicle [_structureType, _positionX, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
+//remove Fortifications all but CB
+_veh addAction ["Remove Asset",{[_this # 0, _this # 1] call A3A_fnc_removefortification},nil,0,false,true,"","!((typeOf cursorObject) isEqualTo ""Land_PillboxBunker_01_big_F"")", 4];
+
+// only commander can remove CB
+_veh addAction ["Remove Asset",{[_this # 0, _this # 1] call A3A_fnc_removefortification},nil,0,false,true,"","((typeOf cursorObject) isEqualTo ""Land_PillboxBunker_01_big_F"") and (_this == theBoss)", 4];
 
 if ((build_type == "SB") or (build_type == "CB")) exitWith
 {

@@ -21,7 +21,7 @@ License: MIT License
 */
 if ((serverTime - (boxX getVariable ["lastUsed", -30])) < 30) exitWith {
     if (hasInterface) then {
-        ["Heal And Repair", "The repair box has been used in the last 30 seconds! Please wait for a bit."] call A3A_fnc_customHint;
+        [localize "STR_antistasi_singleWord_Heal", localize "STR_antistasi_Base_vehicleBoxHeal_UsedRecently"] call A3A_fnc_customHint;
     };
 };
 boxX setVariable ["lastUsed", serverTime, true];
@@ -59,5 +59,5 @@ private _reportCleared = false;
 } forEach vehicles;
 if (_reportCleared) then { publicVariable "reportedVehs" };//spare publicVariable for every vehicle at hq
 
-["Heal", "Nearby units have been healed, refreshed, and can go undercover again.<br/><br/> Nearby vehicles are no longer reported."] call A3A_fnc_customHint;
+[localize "STR_antistasi_singleWord_Heal", localize "STR_antistasi_Base_vehicleBoxHeal_Healed"] call A3A_fnc_customHint;
 nil

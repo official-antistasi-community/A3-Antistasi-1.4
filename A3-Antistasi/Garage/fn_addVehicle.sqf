@@ -37,6 +37,14 @@ if (_class in [NATOSurrenderCrate, CSATSurrenderCrate]) exitWith {
     true
 };
 
+//Utility refund
+if (_class isEqualTo (A3A_faction_reb getVariable ["vehicleLightSource", ""])) exitwith{
+    [25] remoteExec ["A3A_fnc_resourcesPlayer", _client];
+    ["STR_HR_GRG_Feedback_addVehicle_LightSource_Stored"] remoteExec ["HR_GRG_fnc_Hint", _client];
+    deleteVehicle _vehicle;
+    true
+};
+
 //validate input
 if (isNull _vehicle) exitWith { ["STR_HR_GRG_Feedback_addVehicle_Null"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 if (!alive _vehicle) exitWith { ["STR_HR_GRG_Feedback_addVehicle_Destroyed"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
@@ -127,7 +135,7 @@ private _vehUID = [] call HR_GRG_fnc_genVehUID;
 if (_sourceIndex != -1) then {
     (HR_GRG_Sources#_sourceIndex) pushBack _vehUID;
     [_sourceIndex] call HR_GRG_fnc_declairSources;
-    }; //register vehicle as a source
+}; //register vehicle as a source
 Info_6("By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5 | Source: %6", name _player, getPlayerUID _player, cfgDispName(_class), _vehUID, _locking, _sourceIndex);
 
 //refresh category for active users

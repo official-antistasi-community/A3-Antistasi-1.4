@@ -61,7 +61,15 @@ HR_GRG_fnc_vehInit = {
     if (_this isKindOf "StaticWeapon") then {staticsToSave pushBack _this; publicVariable "staticsToSave"};
     [_this, TeamPlayer] call A3A_fnc_AIVEHinit;
 }; //is passed vehicle as _this
-HR_GRG_onOpenEvent = { player setCaptive false; };
+HR_GRG_onOpenEvent = { 
+    //hide Antistasi's top information string as it has no use in the Garage
+    ["GARAGE", true] call A3A_fnc_disableInfoBar; 
+    player setCaptive false; 
+};
+HR_GRG_onCloseEvent = { 
+    //show Antistasi's top information string
+    ["GARAGE", false] call A3A_fnc_disableInfoBar; 
+};
 
 //CBA settings
 if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {

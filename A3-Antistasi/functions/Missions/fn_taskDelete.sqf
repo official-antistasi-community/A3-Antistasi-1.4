@@ -15,6 +15,6 @@ params ["_taskID", "_taskType", "_delay", ["_isTwin", false]];
 
 if (_delay > 0) then {sleep ((_delay/2) + random _delay)};
 
-[_taskID, _taskType, "DELETED"] remoteExecCall ["A3A_fnc_taskUpdate"];
+[_taskID, _taskType, "DELETED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 [_taskID] call BIS_fnc_deleteTask;
 if (_isTwin) then { [_taskID+"B"] call BIS_fnc_deleteTask };

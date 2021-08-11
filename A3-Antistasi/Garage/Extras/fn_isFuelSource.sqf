@@ -18,12 +18,22 @@
 
     License: APL-ND
 */
-params [ ["_vehicle", objNull, [objNull]] ];
-if (isNull _vehicle) exitWith {false};
+params [ ["_vehicle", objNull, [objNull,""]] ];
+
+//handle obj input and class input
+private _vehType = if (_vehicle isEqualType objNull) then {typeOf _vehicle} else {_vehicle};
+if (_vehicle isEqualType "") then {_vehicle = objNull};
+
+if (_vehType isEqualTo "") exitWith {false}; //null obj passed
+private _vehCfg = configFile/"CfgVehicles"/_vehType;
+if (!isClass _vehCfg) exitWith {false}; //invalid class string passed
 
 if (A3A_hasAce) then { //Ace
-    private _vehCfg = configFile >> "CfgVehicles" >> typeOf _vehicle;
     _vehicle getVariable ["ace_refuel_currentFuelCargo", getNumber (_vehCfg >> "ace_refuel_fuelCargo")] > 0;
 } else { //Vanilla
-    getFuelCargo _vehicle > 0
+    if (isNull _vehicle) then {
+        getNumber (_vehCfg/"transportFuel") > 0
+    } else {
+        getFuelCargo _vehicle > 0
+    };
 };

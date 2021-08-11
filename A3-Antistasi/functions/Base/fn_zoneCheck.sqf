@@ -67,7 +67,7 @@ Debug_7("ZoneCheck at %1 found %2 friendly %5 units, %3 enemy %6 units and %4 en
 if (_enemy1UnitCount > 3 * _defenderUnitCount || {_enemy2UnitCount > 3 * _defenderUnitCount}) then
 {
     private _winner = if (_enemy1UnitCount > _enemy2UnitCount) then {_enemy1} else {_enemy2};
-    if (_winner isEqualTo teamPlayer) exitWith {Debug_2("Rebel auto capture of %1 was blocked, %1 reamains side %2", _marker, _side)};
+    if (_winner isEqualTo teamPlayer) exitWith {Debug_2("Rebel auto capture of %1 was blocked, %1 remains side %2", _marker, _side)};
     [_winner,_marker] remoteExec ["A3A_fnc_markerChange",2];
 };
 zoneCheckInProgress = false;

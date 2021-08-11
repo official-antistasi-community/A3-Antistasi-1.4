@@ -84,15 +84,15 @@ if (!_isPlayer) then {build_engineerSelected doFollow (leader build_engineerSele
 
 private _veh = createVehicle [_structureType, _positionX, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
-//remove Fortifications all but CB
-// only commander can remove CB
 
-if((typeOf _veh) isEqualTo "Land_PillboxBunker_01_big_F") then {
-    _veh addAction ["Remove Asset",{[_this # 0, _this # 1] call A3A_fnc_removefortification},nil,0,false,true,"","(_this == theBoss)", 4];
-} else {
-    _veh addAction ["Remove Asset",{[_this # 0, _this # 1] call A3A_fnc_removefortification},nil,0,false,true,"","!(_veh getVariable [""deconstructing"", false])", 4];
-};
-
+//add action to deconstruct, only commander can deconstruct a concrete bunker
+_veh addAction ["Remove Asset",{[_this # 0, _this # 1] call A3A_fnc_removefortification},nil,0,false,true,"","
+    !(_veh getVariable ['deconstructing', false])
+    && (
+        (typeOf cursorObject isNotEqualTo 'Land_PillboxBunker_01_big_F')
+        || (_this isEqualTo theBoss) && {typeOf cursorObject isEqualTo 'Land_PillboxBunker_01_big_F'}
+    )
+", 4];
 
 if ((build_type == "SB") or (build_type == "CB")) exitWith
 {

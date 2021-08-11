@@ -52,4 +52,6 @@ if (time <= _lockOutTime) exitWith {[localize "STR_A3A_Deconstruct_fortification
 [localize "STR_A3A_Deconstruct_fortification_Hint_Title", localize "STR_A3A_Deconstruct_fortification_Done"] call A3A_fnc_customHint;
 tempMedAnimationBecauseArmaLowerCasesFromAnimationState = nil;
 _veh setVariable ["deconstructing", false, true];
+staticsToSave deleteAt (staticsToSave find _veh);
+publicVariable "staticsToSave";
 deleteVehicle _veh;

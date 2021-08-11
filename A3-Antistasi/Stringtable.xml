@@ -4007,7 +4007,7 @@
     </Container>
     <Container name ="Base">
       <Key ID="STR_antistasi_Base_vehicleBoxHeal_Healed">
-        <Original>Nearby units have been healed, refreshed, and can go undercover again.<br/><br/> Nearby vehicles are no longer reported.</Original>
+        <Original>Nearby units have been healed, refreshed, and can go undercover again.&lt;br/&gt;&lt;br/&gt; Nearby vehicles are no longer reported.</Original>
       </Key>
       <Key ID="STR_antistasi_Base_vehicleBoxHeal_UsedRecently">
         <Original>The box has been used in the last 30 seconds! Please wait for a bit.</Original>

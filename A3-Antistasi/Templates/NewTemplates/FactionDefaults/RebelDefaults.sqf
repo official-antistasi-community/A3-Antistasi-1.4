@@ -11,3 +11,5 @@
 // This should be replaced by static loot lists.
 ["addDiveGear",true] call _fnc_saveToTemplate;
 ["addFlightGear",true] call _fnc_saveToTemplate;
+
+["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;

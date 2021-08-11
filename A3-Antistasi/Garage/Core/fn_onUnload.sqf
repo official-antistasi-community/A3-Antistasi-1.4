@@ -23,6 +23,9 @@
 #include "defines.inc"
 FIX_LINE_NUMBERS()
 Trace("Closing Garage");
+
+[] call HR_GRG_onCloseEvent;
+
 [clientOwner] remoteExecCall ["HR_GRG_fnc_removeUser",2];
 "HR_GRG_Event" addPublicVariableEventHandler {};
 "HR_GRG_Vehicles" addPublicVariableEventHandler {};

@@ -31,6 +31,7 @@ player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_e
 
 
 _index =player createDiarySubject ["SpecialK","Special Keys"];
+player createDiaryRecord ["SpecialK",[format [localize "STR_antistasi_journal_entry_header_SpecialK_6"],format [localize "STR_antistasi_journal_entry_text_SpecialK_6"]]];
 player createDiaryRecord ["SpecialK",[format [localize "STR_antistasi_journal_entry_header_SpecialK_5"],format [localize "STR_antistasi_journal_entry_text_SpecialK_5"]]];
 player createDiaryRecord ["SpecialK",[format [localize "STR_antistasi_journal_entry_header_SpecialK_4"],format [localize "STR_antistasi_journal_entry_text_SpecialK_4"]]];
 player createDiaryRecord ["SpecialK",[format [localize "STR_antistasi_journal_entry_header_SpecialK_3"],format [localize "STR_antistasi_journal_entry_text_SpecialK_3"]]];

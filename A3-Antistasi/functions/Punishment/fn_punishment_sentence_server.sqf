@@ -41,7 +41,7 @@ private _name = _varspace getVariable ["name","NO NAME"];
 private _detainee = _varspace getVariable ["player",objNull];
 
 [_detainee,_UID,_name,_sentenceEndTime,_timeTotal] spawn {
-    params ["_detainee","_UID","_name","_sentenceEndTime", "_timeTotal"];
+    params ["_detainee","_UID","_name","_sentenceEndTime","_timeTotal"];
     private _filename = "fn_punishment_sentence_server";
     scriptName "fn_punishment_sentence_server";
 

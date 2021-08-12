@@ -17,9 +17,6 @@ Example:
     [cursorObject] call A3A_fnc_carryItem; 
 
 Note: 
-    might rewrite to were the objects get recreated, becuase the object can drop or stand still.
-    If that is done. Don't call the function if an item as cargo, as that is not saved.
-    might use setVehiclepos
 */
 
 

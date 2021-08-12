@@ -1,5 +1,5 @@
 /*
-Author: [Killerswin2]
+Author: Killerswin2
     add actions for the to light the player
 Arguments:
     <nil>
@@ -19,7 +19,7 @@ Example:
 player addAction [
     "carry light",
     {
-        [cursorObject, true] call A3A_fnc_carryCrate;
+        [cursorObject, true] call A3A_fnc_carryItem;
     },
     nil,
     1.5,
@@ -36,7 +36,7 @@ player addAction [
 player addAction [
     "drop light",
     {
-        [nil, false] call A3A_fnc_carryCrate;;
+        [nil, false] call A3A_fnc_carryItem;
     },
     nil,
     1.5,
@@ -44,7 +44,7 @@ player addAction [
     true,
     "",
     "(
-        (_this getVariable ['carryingCrate', false])
+        (_this getVariable ['carryingLight', false])
     )"
 ];
 

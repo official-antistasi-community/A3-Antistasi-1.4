@@ -1,5 +1,5 @@
 /*
-Author: [Killerswin2, Hakon]
+Author: Killerswin2, Hakon
     rotates an item
 Arguments:
     0.<Object> object that will be rotated;

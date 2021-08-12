@@ -10,7 +10,7 @@ Return Value:
 
 Scope: Clients
 Environment: Unscheduled
-Public: No
+Public: yes
 Dependencies: 
 
 Example:

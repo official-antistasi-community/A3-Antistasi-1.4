@@ -31,6 +31,7 @@ player addAction [
         and (([_this] call A3A_fnc_countAttachedObjects) isEqualTo 0)
         and (attachedTo cursorObject isEqualTo objNull)
         and (cursorObject getVariable ['notWorld',false])
+        and (cursorObject distance player < 5)
     )"
 ];
 
@@ -63,6 +64,7 @@ player addAction [
         ((typeof cursorObject) isEqualTo (A3A_faction_reb getVariable [""vehicleLightSource"", """"]))
         and !(_this getVariable ['rotatingLight',false])
         and (cursorObject getVariable ['notWorld',false])
+        and (cursorObject distance player < 5)
     )"
 ];
 

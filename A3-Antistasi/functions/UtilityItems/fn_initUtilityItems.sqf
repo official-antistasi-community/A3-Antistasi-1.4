@@ -31,10 +31,7 @@ player addAction [
         and (([_this] call A3A_fnc_countAttachedObjects) isEqualTo 0)
         and (attachedTo cursorObject isEqualTo objNull)
         and (cursorObject getVariable ['notWorld',false])
-<<<<<<< HEAD
         and (cursorObject distance player < 5)
-=======
->>>>>>> fe83ade28619075cf16a2667c989acadbd7a2815
     )"
 ];
 

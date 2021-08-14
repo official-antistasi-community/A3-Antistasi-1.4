@@ -145,12 +145,18 @@ if (_varName in _specialVarLoads) then {
 	};
 	if (_varName == 'garrison') then {
 		{
-			private _garrison = +(_x select 1);
+			private _garrison = [];
 			{
-				// fix for 2.4 -> 2.5 rebel garrison incompatibity
-				if (_x find "loadouts_rebel" != 0) then { continue };
-				_garrison set [_forEachIndex, "loadouts_reb" + (_x select [14])];
-			} forEach _garrison;
+				if !(_x isEqualType "") then { continue };		// skip garbage created by old bugs
+				if (_x isEqualTo "") then { continue };
+				if (_x find "loadouts_rebel" == 0) then {
+					// fix for 2.4 -> 2.5 rebel garrison incompatibility
+					_garrison pushBack ("loadouts_reb" + (_x select [14]));
+				} else {
+					_garrison pushBack _x;
+				};
+			} forEach (_x select 1);
+
 			garrison setVariable [[_x select 0] call _translateMarker, _garrison, true];
 			if (count _x > 2) then { garrison setVariable [(_x select 0) + "_lootCD", _x select 2, true] };
 		} forEach _varvalue;

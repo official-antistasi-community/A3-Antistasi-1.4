@@ -38,4 +38,5 @@ _position = (getPos _unit) findEmptyPosition [1,10,_lightType];
 if (_position isEqualTo []) then {_position = getPos _unit};
 private _light = _lightType createVehicle _position;
 _light allowDamage false;
-_light setVariable ['notWorld',true];
+_light setVariable ['A3A_islight', true, true];
+[_light] call A3A_fnc_initLights;

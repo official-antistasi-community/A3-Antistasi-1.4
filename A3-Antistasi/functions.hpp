@@ -708,7 +708,7 @@ class A3A
 
     class UtilityItems {
         class carryItem {};
-        class initUtilityItems {};
+        class initLights {};
         class rotateItem {};
         class spawnLight {};
     };

@@ -3941,6 +3941,14 @@
             <Original>You're too far</Original>
             <English>You're too far</English>
         </Key>
+        <Key ID="STR_A3A_Utility_Items_Feedback_Title">
+            <Original>Utility items</Original>
+            <English>Utility items</English>
+        </Key>
+        <Key ID="STR_A3A_Utility_Items_Feedback_Attached_Objects">
+            <Original>You are already carrying something.</Original>
+            <English>You are already carrying something.</English>
+        </Key>
     </Container>
     <Container name="time_units">
       <!--Note the lack of front spacing on abbreviations.-->

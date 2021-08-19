@@ -18,6 +18,8 @@ Example:
 
 params[[_light, objNull,[objNull]]];
 
+if (isNil "_light") exitwith {}
+
 _light addAction [
     "Carry object",
     {
@@ -61,7 +63,7 @@ _light addAction [
     true,
     "",
     "(
-        !(_this getVariable ['rotatingLight',false])
+        !(_this getVariable ['A3A_rotatingObject',false])
     )",
     4
 ];

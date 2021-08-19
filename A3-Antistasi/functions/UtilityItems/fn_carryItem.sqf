@@ -23,7 +23,7 @@ Note:
 params [["_item", objNull], "_pickUp", ["_player", player]];
 
 if (_pickUp) then {
-    if (([_player] call A3A_fnc_countAttachedObjects) > 0) exitWith {systemChat "you are already carrying something."};
+    if (([_player] call A3A_fnc_countAttachedObjects) > 0) exitWith {[localize "STR_A3A_Utility_Title", localize "STR_A3A_Utility_Items_Feedback_Normal"] call A3A_fnc_customHint};
     _item attachTo [_player, [0, 1.5, 0], "Chest"];
     _player setVariable ["A3A_carryingObject", true];
     [_player ,_item] spawn {
@@ -34,7 +34,7 @@ if (_pickUp) then {
 } else {
     //re-add item if null
     if (isNull _item) then {
-        private _attached = (attachedObjects _player)select {(typeOf _x) isEqualTo "vehicleLightSource"};
+        private _attached = (attachedObjects _player) select {(typeOf _x) isEqualTo "vehicleLightSource"};
         if (_attached isEqualTo []) exitWith {};
         _item = _attached # 0;
     };

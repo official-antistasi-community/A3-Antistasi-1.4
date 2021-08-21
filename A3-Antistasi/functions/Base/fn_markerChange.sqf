@@ -305,11 +305,13 @@ if (_winner == teamPlayer) then
 	};
     ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
     ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
-	waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({((side group _x) in [_looser,_other]) and (_x getVariable ["spawner",false]) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits > 3*({(side _x == teamPlayer) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits))};
-	if (spawner getVariable _markerX != 2) then
-	{
-		sleep 10;
-		[_markerX,teamPlayer] remoteExec ["A3A_fnc_zoneCheck",2];
+	[_markerX] spawn {
+		params ["_markerX"];
+		// This allows enemies to retake rebel markers with random junk until the marker is despawned
+		while { spawner getVariable _markerX != 2 and sidesX getVariable _markerX == teamPlayer } do {
+			sleep 60;
+			[_markerX,teamPlayer] remoteExec ["A3A_fnc_zoneCheck",2];
+		};
 	};
 }
 else

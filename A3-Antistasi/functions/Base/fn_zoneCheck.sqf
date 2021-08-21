@@ -58,7 +58,7 @@ private _units = allUnits inAreaArray [_markerPos, _capRadius, _capRadius];
 {
     if !(_x call A3A_fnc_canFight) then { continue };
     private _value = linearConversion [_capRadius/2, _capRadius, _markerPos distance2d _x, 1, 0, true];
-    switch (side (group _x)) do
+    switch (side _x) do				// Not side group because we don't count undercover
     {
         case (_side): {_defenderUnitCount = _defenderUnitCount + _value};
         case (_enemy1): {_enemy1UnitCount = _enemy1UnitCount + _value};

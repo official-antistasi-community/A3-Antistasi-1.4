@@ -46,7 +46,7 @@ private _alreadyInGarrison = false;
 } forEach _unitsX;
 if _alreadyInGarrison exitWith {["Garrison", "The units selected already are in a garrison"] call A3A_fnc_customHint};
 
-if ((groupID _groupX == "MineF") or (groupID _groupX == "Watch") or (isPlayer(leader _groupX))) exitWith {["Garrison", "You cannot garrison player led, Watchpost, Roadblocks or Minefield building squads"] call A3A_fnc_customHint;};
+if ((groupID _groupX == "MineF") or (groupID _groupX == "Post") or (isPlayer(leader _groupX))) exitWith {["Garrison", "You cannot garrison player led, Watchpost, Roadblocks or Minefield building squads"] call A3A_fnc_customHint;};
 
 {
 	if (isPlayer _x or !alive _x) exitWith {_leave = true};

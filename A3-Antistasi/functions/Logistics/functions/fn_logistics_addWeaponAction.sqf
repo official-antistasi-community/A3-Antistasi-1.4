@@ -6,6 +6,7 @@
     Arguments:
     0. <Object> Weapon that's being attached
     1. <Object> Vehicle weapon is being attached to
+    2. <String> Custom JIP key to prevent overwriting (usually build with object string of cargo)
 
     Return Value:
     <nil>
@@ -15,9 +16,13 @@
     Public: [No]
     Dependencies:
 
-    Example: [_cargo, _vehicle] remoteExec ["A3A_fnc_logistics_addWeaponAction", 0, _cargo];
+    Example: [_cargo, _vehicle, _jipKey] remoteExec ["A3A_fnc_logistics_addWeaponAction", 0, _cargo];
 */
-params ["_cargo", "_vehicle"];
+params [["_cargo", objNull, [objNull]], ["_vehicle", objNull, [objNull]], ["_jipKey", "", [""]]];
+
+if (isNull _cargo || isNull _vehicle) exitWith {
+    remoteExec ["", _jipKey]; //clear custom JIP
+};
 
 //action to get into static
 private _name = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName");

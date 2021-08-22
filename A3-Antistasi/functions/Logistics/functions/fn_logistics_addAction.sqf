@@ -6,6 +6,7 @@
     Arguments:
     0. <Object> Object to add action to
     1. <String> Which action to add ("load"/"unload")
+    2. <String> Custom JIP key to prevent overwriting (usually build with object string of cargo)
 
     Return Value:
     <nil>

@@ -19,7 +19,7 @@
 */
 params [["_object", objNull, [objNull]], "_action", ["_jipKey", "", [""]]];
 if (isNull _object) exitWith {
-    remoteExec ["", 0, _jipKey]; //clear custom JIP
+    remoteExec ["", _jipKey]; //clear custom JIP
 };
 
 private _actionNames = (actionIDs _object) apply {(_object actionParams _x)#0};

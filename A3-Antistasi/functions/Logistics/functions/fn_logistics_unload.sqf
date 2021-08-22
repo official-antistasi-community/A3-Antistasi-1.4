@@ -36,6 +36,15 @@ if !(
 if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being unloaded from the vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
+//object string for jip
+private _objStringCargo = toArray str _cargo;
+_objStringCargo deleteAt (_objStringCargo find 58); //58 is ':'
+_objStringCargo = toString _objStringCargo;
+
+private _objStringVehicle = toArray str _vehicle;
+_objStringVehicle deleteAt (_objStringVehicle find 58); //58 is ':'
+_objStringVehicle = toString _objStringVehicle;
+
 //update list of nodes on vehicle
 _updateList = {
     params ["_vehicle", "_node"];
@@ -90,7 +99,7 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
     } forEach A3A_logistics_weapons;
 
     if (_weapon) then {
-        [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];
+        [_vehicle, _cargo, "A3A_Logistics_weaponAction_" + _objStringCargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];
         player setCaptive false; //break undercover for unloading weapon
     };
     _cargo setVariable ["AttachmentOffset", nil, true];
@@ -123,8 +132,8 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
 if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted
 
 //unlock seats
-[_cargo, false] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _cargo];
-[_vehicle, false, _seats] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _vehicle];
+[_cargo, false] remoteExec ["A3A_fnc_logistics_toggleLock", 0, "A3A_Logistics_toggleLock" + _objStringCargo];
+[_vehicle, false, _seats] remoteExec ["A3A_fnc_logistics_toggleLock", 0, "A3A_Logistics_toggleLock" + _objStringVehicle];
 
 //update list
 _loaded deleteAt 0;

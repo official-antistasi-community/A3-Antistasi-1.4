@@ -25,6 +25,15 @@ params ["_cargo", "_vehicle", "_node", "_weapon", ["_instant", false, [true]]];
 if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo is already being loaded into the vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]; nil};
 _vehicle setVariable ["LoadingCargo",true,true];
 
+//object string for jip
+private _objStringCargo = toArray str _cargo;
+_objStringCargo deleteAt (_objStringCargo find 58); //58 is ':'
+_objStringCargo = toString _objStringCargo;
+
+private _objStringVehicle = toArray str _vehicle;
+_objStringVehicle deleteAt (_objStringVehicle find 58); //58 is ':'
+_objStringVehicle = toString _objStringVehicle;
+
 //update list of nodes on vehicle
 _updateList = {
     params ["_vehicle", "_node"];
@@ -77,8 +86,8 @@ private _yEnd = _location#1;
 _cargo setVariable ["AttachmentOffset", _location];
 
 //block seats
-[_cargo, true] remoteExec ["A3A_fnc_logistics_toggleLock", 0, _cargo];
-[_vehicle, true, _seats] remoteExecCall ["A3A_fnc_logistics_toggleLock", 0, _vehicle];
+[_cargo, true] remoteExec ["A3A_fnc_logistics_toggleLock", 0, "A3A_Logistics_toggleLock" + _objStringCargo];
+[_vehicle, true, _seats] remoteExecCall ["A3A_fnc_logistics_toggleLock", 0, "A3A_Logistics_toggleLock" + _objStringVehicle];
 _cargo engineOn false;
 
 //break undercover
@@ -116,18 +125,12 @@ _vehicle setVariable ["Cargo", _loadedCargo, true];
 [_cargo] call A3A_fnc_logistics_toggleAceActions;
 [_vehicle, _cargo, nil, _instant] call A3A_fnc_logistics_addOrRemoveObjectMass;
 
-private _jipObject = toArray str _cargo;
-_jipObject deleteAt (_jipObject find 58); //58 is ':'
-private _jipKey = "A3A_Logistics_weaponAction_" + toString _jipObject;
 if (_weapon) then {
-    [_cargo, _vehicle, _jipKey] remoteExec ["A3A_fnc_logistics_addWeaponAction", 0, _jipKey];
+    [_cargo, _vehicle, _jipKey] remoteExec ["A3A_fnc_logistics_addWeaponAction", 0, "A3A_Logistics_weaponAction_" + _objStringCargo];
 };
 
 _vehicle setVariable ["LoadingCargo",nil,true];
 
-_jipObject = toArray str _vehicle;
-_jipObject deleteAt (_jipObject find 58); //58 is ':'
-_jipKey = "A3A_Logistics_" + _action + "_" + toString _jipObject;
-[_vehicle, "unload", _jipKey] remoteExec ["A3A_fnc_logistics_addAction", 0 , _jipKey];
+[_vehicle, "unload", _jipKey] remoteExec ["A3A_fnc_logistics_addAction", 0 , "A3A_Logistics_unload_" + _objStringVehicle];
 
 nil

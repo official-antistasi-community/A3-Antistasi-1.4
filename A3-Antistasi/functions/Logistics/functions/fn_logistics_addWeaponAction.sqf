@@ -60,7 +60,7 @@ _cargo setVariable ["getInAction", _actionID];
 private _KilledEH = _cargo addEventHandler ["Killed", {
     params ["_cargo"];
     private _vehicle = attachedTo _cargo;
-    [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0]
+    [_vehicle, _cargo, _jipKey] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0]
 }];
 _cargo setVariable ["KilledEH", _KilledEH];
 _cargo enableWeaponDisassembly false;

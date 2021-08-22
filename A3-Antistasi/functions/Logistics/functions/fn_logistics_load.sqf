@@ -120,5 +120,10 @@ if (_weapon) then {
 };
 
 _vehicle setVariable ["LoadingCargo",nil,true];
-[_vehicle, "unload"] remoteExec ["A3A_fnc_logistics_addAction", 0 ,_vehicle];
+
+private _jipObject = toArray str _vehicle;
+_jipObject deleteAt (_jipObject find 58); //58 is ':'
+private _jipKey = "A3A_Logistics_" + _action + "_" + toString _jipObject;
+[_vehicle, "unload", _jipKey] remoteExec ["A3A_fnc_logistics_addAction", 0 , _jipKey];
+
 nil

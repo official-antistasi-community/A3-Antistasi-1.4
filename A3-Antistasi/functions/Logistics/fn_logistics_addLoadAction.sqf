@@ -17,9 +17,10 @@
 
     Example: [_object] call A3A_fnc_logistics_addLoadAction;
 */
-params ["_object", ["_action", "load"]];
+params [["_object", objNull, [objNull]], ["_action", "load", [""]]];
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
+if (isNull _object) exitWith {};
 if (isNil "A3A_logistics_vehicleHardpoints") exitWith {
     Error("Logistics nodes not initialized");
     nil
@@ -32,5 +33,9 @@ if (_object isKindOf "StaticWeapon") then {
 };
 if (_nonSupportedStatic) exitWith {nil};
 
-[_object , _action] remoteExec ["A3A_fnc_logistics_addAction", 0, _object];
+private _jipObject = toArray str _vehicle;
+_jipObject deleteAt (_jipObject find 58); //58 is ':'
+private _jipKey = "A3A_Logistics_" + _action + "_" + toString _jipObject;
+[_object , _action, _jipKey] remoteExec ["A3A_fnc_logistics_addAction", 0, _jipKey];
+
 nil

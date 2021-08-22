@@ -73,7 +73,8 @@ else
     + ([0, 3] select _super)
     + ([0, 0.5, 1.5] select (skillMult - 1))
 };
-_vehicleCount = (round (_vehicleCount)) max 1;
+private _playerScale = exp((sqrt(count allPlayers)/3) - 1);
+_vehicleCount = (round (_vehicleCount * _playerScale)) max 1;
 
 Debug_2("Due to %1 aggression, sending %2 vehicles", (if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders}), _vehicleCount);
 

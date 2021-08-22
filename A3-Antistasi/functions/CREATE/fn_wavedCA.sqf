@@ -166,7 +166,8 @@ while {(_waves > 0)} do
 	_nVeh = 2 + random (2) + (_aggro / 25);
 	_nVeh = _nVeh + (skillMult - 2);
 	if (_firstWave) then { _nVeh = _nVeh + 2 };
-    _nVeh = (round (_nVeh)) max 1;
+    private _playerScale = exp((sqrt(count allPlayers)/3) - 1);
+    _nVeh = (round (_nVeh * _playerScale)) max 1;
 
     Debug_1("Wave will contain %1 vehicles", _nVeh);
 

@@ -8,7 +8,7 @@ _fnc_economics = {
     if (_typeX isEqualType "") then {
         _typeX  = [_typeX];
     };
-	
+
 	if (_typeX isEqualTo []) exitWith {};
 
     if (_random == "random") then {
@@ -33,35 +33,38 @@ private _airbases = { sidesX getVariable [_x, sideUnknown] == Occupants } count 
 private _outposts = { sidesX getVariable [_x, sideUnknown] == Occupants } count outposts;
 private _seaports = { sidesX getVariable [_x, sideUnknown] == Occupants } count seaports;
 private _accelerator = [1 + (tierWar + difficultyCoef) / 20, 0] select (tierWar == 1);
+private _capBalance = tierWar + 5;
+private _playerScale = exp((sqrt(count allPlayers)/3) - 1);
 
-[0.2, "", staticATOccupants, _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
-[0.1, "", staticAAOccupants, _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehNATOAPC, _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehNATOTank, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehNATOAA, _airbases, _accelerator] spawn _fnc_economics;
-[0.3, "", vehNATOBoat, _seaports, _accelerator] spawn _fnc_economics;
-[0.2, "", vehNATOPlane, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "", vehNATOPlaneAA, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehNATOTransportPlanes, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehNATOTransportHelis - [vehNATOPatrolHeli], _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehNATOAttackHelis, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "", vehNATOMRLS, _airbases + _outposts * 0.2, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "", staticATOccupants, _capBalance + _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
+[0.1 * _playerScale, "", staticAAOccupants, _capBalance + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "random", vehNATOAPC, _capBalance + _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1 * _playerScale, "", vehNATOTank, _capBalance + _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1 * _playerScale, "", vehNATOAA, _capBalance + _airbases, _accelerator] spawn _fnc_economics;
+[0.3 * _playerScale, "", vehNATOBoat, _capBalance + _seaports, _accelerator] spawn _fnc_economics; //Why on earth do they get as many boats but we cheat AA tanks????
+[0.2 * _playerScale, "", vehNATOPlane, _capBalance + _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "", vehNATOPlaneAA, _capBalance + _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "random", vehNATOTransportPlanes, _capBalance + _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "random", vehNATOTransportHelis - [vehNATOPatrolHeli], _capBalance + _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "random", vehNATOAttackHelis, _capBalance + _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "", vehNATOMRLS, _capBalance + _airbases + _outposts * 0.2, _accelerator] spawn _fnc_economics;
 
 //--------------------------------------Invaders---------------------------------------------------
 _airbases = { sidesX getVariable [_x, sideUnknown] == Invaders } count airportsX;
 _outposts = { sidesX getVariable [_x, sideUnknown] == Invaders } count outposts;
 _seaports = { sidesX getVariable [_x, sideUnknown] == Invaders } count seaports;
 _accelerator = 1.2 + (tierWar + difficultyCoef) / 20;
+_capBalance = tierWar * 2 + 10;
 
-[0.2, "", staticATInvaders, _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
-[0.1, "", staticAAInvaders, _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehCSATAPC, _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehCSATTank, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehCSATAA, _airbases, _accelerator] spawn _fnc_economics;
-[0.3, "", vehCSATBoat, _seaports, _accelerator] spawn _fnc_economics;
-[0.2, "", vehCSATPlane, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "", vehCSATPlaneAA, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehCSATTransportPlanes, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehCSATTransportHelis - [vehCSATPatrolHeli], _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehCSATAttackHelis, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "", vehCSATMRLS, _airbases + _outposts * 0.2, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "", staticATInvaders, _capBalance + _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
+[0.1 * _playerScale, "", staticAAInvaders, _capBalance + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "random", vehCSATAPC, _capBalance + _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1 * _playerScale, "", vehCSATTank, _capBalance + _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1 * _playerScale, "", vehCSATAA, _capBalance + _airbases, _accelerator] spawn _fnc_economics;
+[0.3 * _playerScale, "", vehCSATBoat, _capBalance + _seaports, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "", vehCSATPlane, _capBalance + _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "", vehCSATPlaneAA, _capBalance + _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "random", vehCSATTransportPlanes, _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "random", vehCSATTransportHelis - [vehCSATPatrolHeli], _capBalance + _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "random", vehCSATAttackHelis, _capBalance + _airbases * 4, _accelerator] spawn _fnc_economics;
+[0.2 * _playerScale, "", vehCSATMRLS, _capBalance + _airbases + _outposts * 0.2, _accelerator] spawn _fnc_economics;

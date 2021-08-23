@@ -17,7 +17,7 @@
 
     Example: [_vehicle, _cargo] remoteExecCall ["A3A_fnc_logistics_removeWeaponAction",0];
 */
-params [["_vehicle", objnull, [objNull]], ["_cargo", objnull, [objNull]], , ["_jipKey", "", [""]]];
+params [["_vehicle", objnull, [objNull]], ["_cargo", objnull, [objNull]], ["_jipKey", "", [""]]];
 
 //Remove action
 private _id = _cargo getVariable ["getInAction", -1];

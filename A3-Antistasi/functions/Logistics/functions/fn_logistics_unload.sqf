@@ -37,13 +37,8 @@ if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics", "Cargo
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //object string for jip
-private _objStringCargo = toArray str _cargo;
-_objStringCargo deleteAt (_objStringCargo find 58); //58 is ':'
-_objStringCargo = toString _objStringCargo;
-
-private _objStringVehicle = toArray str _vehicle;
-_objStringVehicle deleteAt (_objStringVehicle find 58); //58 is ':'
-_objStringVehicle = toString _objStringVehicle;
+private _objStringCargo = str _cargo splitString ":" joinString "";
+private _objStringVehicle = str _vehicle splitString ":" joinString "";
 
 //update list of nodes on vehicle
 _updateList = {

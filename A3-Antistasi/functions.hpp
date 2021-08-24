@@ -708,9 +708,9 @@ class A3A
 
     class UtilityItems {
         class carryItem {};
-        class initLights {};
+        class initMovableObject {};
         class rotateItem {};
         class spawnLight {};
-        class attachedObjectList {};
+        class attachedObjects {};
     };
 };

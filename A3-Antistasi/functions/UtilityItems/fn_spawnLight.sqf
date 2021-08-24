@@ -40,8 +40,6 @@ private _light = _lightType createVehicle _position;
 _light allowDamage false;
 _light setVariable ["A3A_islight", true, true];
 
-private _jipObject = toArray str _light;
-_jipObject deleteAt (_jipObject find 58); //58 is ':'
-private _jipKey = "A3A_UtilityItems_" +"spawn" "_" + toString _jipObject;
+private _jipKey = "A3A_utilityItems_Light_" + ((str _light splitString ":") joinString "");
 
-[_light] remoteExec ["A3A_fnc_initLights", 0, true];
+[_light, _jipKey] remoteExec ["A3A_fnc_initMovableObject", 0, _jipKey];

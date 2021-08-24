@@ -10,29 +10,24 @@ Return Value:
 
 Scope: Clients
 Environment: Unscheduled
-Public: No
+Public: yes
 Dependencies: 
 
 Example:
     [cursorObject] call A3A_fnc_carryItem; 
 
-Note: 
-    might rewrite to were the objects get recreated, becuase the object can drop or stand still.
-    If that is done. Don't call the function if an item as cargo, as that is not saved.
-    might use setVehiclepos
 */
 
 
-*/
 params [["_item", objNull], "_pickUp", ["_player", player]];
 
 if (_pickUp) then {
-    if (([_player] call A3A_fnc_countAttachedObjects) > 0) exitWith {systemChat "you are already carrying something."};
+    if (([_player] call A3A_fnc_countAttachedObjects) > 0) exitWith {[localize "STR_A3A_Utility_Title", localize "STR_A3A_Utility_Items_Feedback_Normal"] call A3A_fnc_customHint};
     _item attachTo [_player, [0, 1.5, 0.5], "Chest"];
-    _player setVariable ["carryingLight", true];
+    _player setVariable ["A3A_carryingObject", true];
     [_player ,_item] spawn {
         params ["_player", "_item"];
-        waitUntil {_player forceWalk true; !alive _item or !(_player getVariable ["carryingLight", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _item) };
+        waitUntil {_player forceWalk true; !alive _item or !(_player getVariable ["A3A_carryingObject", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _item) };
         [_item, false, _player] call A3A_fnc_carryItem;
     };
 } else {
@@ -46,8 +41,8 @@ if (_pickUp) then {
         _player setVelocity [0,0,0];
         detach _item;
         _item setVelocity [0,0,0];
-        _item setVehiclePosition [player getPos [1, 0]]
+        _item setPosATL [(getPosATL _item # 0) , (getPosATL _item # 1) , 0];
     };
-    _player setVariable ["carryingLight", nil];
+    _player setVariable ["A3A_carryingObject", nil];
     _player forceWalk false;
 };

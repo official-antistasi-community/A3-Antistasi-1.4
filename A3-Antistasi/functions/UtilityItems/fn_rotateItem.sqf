@@ -2,7 +2,7 @@
 Author: Killerswin2, Hakon
     rotates an item
 Arguments:
-    0.<Object> object that will be rotated;
+    0.<object> LIGHT that will be rotated;
 Return Value:
     <nil>
 
@@ -23,8 +23,8 @@ params[["_object", objNull, [objNull]]];
 #define E_PRESSED 0
 #define Q_PRESSED 1
 #define WAIT_TIME 2
-#define OBJECT_DIR 3
-#define OBJECT 4
+#define LIGHT_DIR 3
+#define LIGHT 4
 #define INFO_TEXT 5
 #define END_ROTATING 6
 #define KEYDOWN_EH 7
@@ -74,23 +74,23 @@ private _eachFrameEH  = addMissionEventHandler ["EachFrame", {
     // rotation
     if (A3A_LightRotate_EHDB # Q_PRESSED) then {
         A3A_LightRotate_EHDB set [Q_PRESSED, false];
-        A3A_LightRotate_EHDB set [OBJECT_DIR, (A3A_LightRotate_EHDB # OBJECT_DIR) -1];
+        A3A_LightRotate_EHDB set [LIGHT_DIR, (A3A_LightRotate_EHDB # LIGHT_DIR) -1];
         _directionChanged = true;
     };
 
     if (A3A_LightRotate_EHDB # E_PRESSED) then {
         A3A_LightRotate_EHDB set [E_PRESSED, false];
-        A3A_LightRotate_EHDB set [OBJECT_DIR, (A3A_LightRotate_EHDB # OBJECT_DIR) +1];
+        A3A_LightRotate_EHDB set [LIGHT_DIR, (A3A_LightRotate_EHDB # LIGHT_DIR) +1];
         _directionChanged = true;
     };
 
     //set dir
     if (_directionChanged) then {
-        (A3A_LightRotate_EHDB # OBJECT) setDir (A3A_LightRotate_EHDB # OBJECT_DIR);
-        (A3A_LightRotate_EHDB # OBJECT) setVectorUp surfaceNormal getPos (A3A_LightRotate_EHDB # OBJECT);
+        (A3A_LightRotate_EHDB # LIGHT) setDir (A3A_LightRotate_EHDB # LIGHT_DIR);
+        (A3A_LightRotate_EHDB # LIGHT) setVectorUp surfaceNormal getPos (A3A_LightRotate_EHDB # LIGHT);
     };
 
-    if ((player distance (A3A_LightRotate_EHDB # OBJECT)) > 5) then {
+    if ((player distance (A3A_LightRotate_EHDB # LIGHT)) > 5) then {
         A3A_LightRotate_EHDB set [INFO_TEXT, localize "STR_A3A_Utility_Items_Feedback_Far"];
     }else {
         A3A_LightRotate_EHDB set [INFO_TEXT, localize "STR_A3A_Utility_Items_Feedback_Normal"];
@@ -99,7 +99,7 @@ private _eachFrameEH  = addMissionEventHandler ["EachFrame", {
     private _control_Hint = [A3A_LightRotate_EHDB # INFO_TEXT , 0, 0.9, 0.2, 0, 0, 17001] spawn BIS_fnc_dynamicText;
     A3A_LightRotate_EHDB set [HINT_DISPLAY, _control_Hint];
 
-    if (!([player] call A3A_fnc_canFight)||((player distance (A3A_LightRotate_EHDB # OBJECT)) > 6)) then{
+    if (!([player] call A3A_fnc_canFight)||((player distance (A3A_LightRotate_EHDB # LIGHT)) > 6)) then{
         call (A3A_LightRotate_EHDB # END_ROTATING);
     };
 

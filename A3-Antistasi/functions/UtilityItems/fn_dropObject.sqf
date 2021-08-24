@@ -1,4 +1,4 @@
-*
+/*
 Author: Killerswin2
     add actions for dropping objects
 Arguments:
@@ -15,7 +15,6 @@ Dependencies:
 Example:
     [] call A3A_fnc_dropObject; 
 */
-
 
 player addAction [
     "Drop object",

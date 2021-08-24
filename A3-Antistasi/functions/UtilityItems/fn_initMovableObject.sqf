@@ -3,7 +3,7 @@ Author: Killerswin2
     add actions for the to light the player
 Arguments:
     0.<Object> Object that we try to add actions to 
-    1. <String> Custom JIP key to prevent overwriting 
+    1.<String> Custom JIP key to prevent overwriting 
 
 Return Value:
     <nil>
@@ -17,9 +17,9 @@ Example:
     [_object, ] call A3A_fnc_initMovableObject; 
 */
 
-params[["_object", objNull,[objNull]],["_jipKey", "", [""]]];
+params[["_object", objNull, [objNull]],["_jipKey", "", [""]]];
 
-if (isNil "_object") exitwith {remoteExec ["", _jipKey];}
+if (isNil "_object") exitwith {remoteExec ["", _jipKey];};
     
 _object addAction [
     "Carry object",

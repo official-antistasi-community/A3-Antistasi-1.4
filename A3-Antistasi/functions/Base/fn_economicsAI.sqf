@@ -114,4 +114,4 @@ _natoArray = [];
         _natoArray append (_array apply {[_x, timer getVariable [_x, 0]]});
     };
 } forEach [staticATInvaders, staticAAInvaders, vehCSATAPC, vehCSATTank, vehCSATAA, vehCSATBoat, vehCSATPlane, vehCSATPlaneAA, vehCSATTransportPlanes, (vehCSATTransportHelis - [vehCSATPatrolHeli]), vehCSATAttackHelis, vehCSATMRLS];
-DebugArray("Occupants arsenal", _natoArray);
+DebugArray("Invaders arsenal", _natoArray);

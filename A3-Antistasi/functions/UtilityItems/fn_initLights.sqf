@@ -16,9 +16,10 @@ Example:
     [_light] call A3A_fnc_initUtilityItems; 
 */
 
-params[[_light, objNull,[objNull]]];
+params[["_light", objNull,[objNull]]];
 
-if (isNil "_light") exitwith {}
+if (isNil "_light") exitwith {systemChat "light is nil"};
+
 
 _light addAction [
     "Carry object",

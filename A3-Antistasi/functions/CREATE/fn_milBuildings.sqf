@@ -1,4 +1,5 @@
-private _fileName = "milBuildings.sqf";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private ["_positionX","_size","_buildings","_groupX","_typeUnit","_sideX","_building","_typeB","_frontierX","_typeVehX","_veh","_vehiclesX","_soldiers","_pos","_ang","_markerX","_unit","_return"];
 _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
@@ -221,7 +222,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             private _pos = _zpos getPos [0, _dir];            // zeroes Z value because BIS
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             private _unit = [_type, _pos, _dir] call _fnc_spawnStaticUnit;
-            [2,format ["Marksman spawned | Unit: %1 | Pos: %2", _unit, _pos],_fileName] call A3A_fnc_log;
+            Debug_2("Marksman spawned | Unit: %1 | Pos: %2", _unit, _pos);
         };
     };
 };
@@ -243,7 +244,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             private _pos = _zpos getPos [0, _dir];            // zeroes Z value because BIS
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             private _unit = [_type, _pos, _dir] call _fnc_spawnStaticUnit;
-            [2,format ["Grunt spawned | Unit: %1 | Pos: %2", _unit, _pos],_fileName] call A3A_fnc_log;
+            Debug_2("Grunt spawned | Unit: %1 | Pos: %2", _unit, _pos)
         };
     };
 };

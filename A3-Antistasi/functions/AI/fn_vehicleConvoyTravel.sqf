@@ -9,7 +9,8 @@ Parameters:
     <NUMBER> Maximum convoy (lead) speed in km/h.
     <BOOLEAN> True if vehicle is critical (shouldn't give up even if timed out)
 */
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_vehicle", "_route", "_convoy", "_maxSpeed", ["_critical", false]];
 private _filename = "fn_vehicleConvoyTravel";
 
@@ -21,7 +22,7 @@ private _error = call {
 };
 if (!isNil "_error") exitWith {
     _convoy deleteAt (_convoy find _vehicle);
-    [1, _error, _filename] call A3A_fnc_log;
+    Error(_error);
 };
 
 // Split driver from crew and make them ignore enemies
@@ -50,11 +51,11 @@ while {true} do
 
     // Exit conditions
     if (!canMove _vehicle || !alive driver _vehicle || { lifestate driver _vehicle == "INCAPACITATED" }) exitWith {
-        [2, "Vehicle or driver died during travel, abandoning", _filename] call A3A_fnc_log;
+        Info("Vehicle or driver died during travel, abandoning");
     };
     if (_vehIndex == -1) exitWith {};				// external abort
     if (_vehicle distance _destination < 100) exitWith {
-        [3, "Vehicle arrived at destination", _filename] call A3A_fnc_log;
+        Debug("Vehicle arrived at destination");
     };
 
     // Transition to next waypoint if close
@@ -67,7 +68,7 @@ while {true} do
         _timeout = time + (_vehicle distance2d _nextPos);
     };
     if (!_critical && time > _timeout) exitWith {
-        [2, "Vehicle stuck during travel, abandoning", _filename] call A3A_fnc_log;
+        Info("Vehicle stuck during travel, abandoning");
     };
 
     // Hack to work around Arma bugging out and refusing to path

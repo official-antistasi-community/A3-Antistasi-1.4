@@ -57,7 +57,7 @@ private _spawnParameters = switch (true) do {
 		[_pos, 0]
 	}; //0 is table rotation
 };
-if (_spawnParameters isEqualType true) exitWith { [1, format ["No spawn parameters for building %1", typeOf _building], _fileName] call A3A_fnc_Log };
+if (_spawnParameters isEqualType true) exitWith { Error_1("No spawn parameters for building %1", typeOf _building) };
 
 
 private _factionData = [A3A_faction_occ,A3A_faction_inv] select (_side == east);

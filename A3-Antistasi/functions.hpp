@@ -711,5 +711,6 @@ class A3A
         class initLights {};
         class rotateItem {};
         class spawnLight {};
+        class attachedObjectList {};
     };
 };

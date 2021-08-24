@@ -12,4 +12,4 @@
 ["addDiveGear",true] call _fnc_saveToTemplate;
 ["addFlightGear",true] call _fnc_saveToTemplate;
 
-["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;
+["vehicleLightSource", "Land_PortableLight_double_F"] call _fnc_saveToTemplate;

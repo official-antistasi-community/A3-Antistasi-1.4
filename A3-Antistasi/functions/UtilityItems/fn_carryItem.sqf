@@ -33,7 +33,7 @@ if (_pickUp) then {
 } else {
     //re-add item if null
     if (isNull _item) then {
-        private _attached = ([_player] call A3A_fnc_attachedObjects) select {(typeOf _x) isEqualTo "vehicleLightSource"};
+        private _attached = ([_player] call A3A_fnc_attachedObjects);
         if (_attached isEqualTo []) exitWith {};
         _item = _attached # 0;
     };

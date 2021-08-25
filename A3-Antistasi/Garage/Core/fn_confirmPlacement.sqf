@@ -231,7 +231,7 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
     };
 
     //complete or cancel placement
-    if (_key in [DIK_ESCAPE, DIK_RETURN, DIK_SPACE]) then {
+    if (_key in [DIK_ESCAPE, DIK_RETURN, DIK_SPACE, DIK_Y]) then {
         _return = true;
 
         //get type from display vehicle, and private copies of pos and dir

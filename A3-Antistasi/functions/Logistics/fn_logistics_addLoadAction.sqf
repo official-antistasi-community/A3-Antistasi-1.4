@@ -35,7 +35,7 @@ if (_nonSupportedStatic) exitWith {nil};
 
 
 private _objStringCargo = str _object splitString ":" joinString "";
-private _jipKey = "A3A_Logistics_" + _action + "_" + toString _objStringCargo;
+private _jipKey = "A3A_Logistics_" + _action + "_" + _objStringCargo;
 [_object , _action, _jipKey] remoteExec ["A3A_fnc_logistics_addAction", 0, _jipKey];
 
 nil

@@ -41,7 +41,7 @@ if (_pickUp) then {
         _player setVelocity [0,0,0];
         detach _item;
         _item setVelocity [0,0,0];
-        _item setPos ((if (surfaceIsWater getPosASL _item) then {getPosASL _item} else {getPosATL _item}) vectorAdd [0,0,0.5]);
+        _item setPos [getPos player # 0, getPos player # 1, 0];
     };
     _player setVariable ["A3A_carryingObject", nil];
     _player forceWalk false;

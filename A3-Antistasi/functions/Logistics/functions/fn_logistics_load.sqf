@@ -121,11 +121,11 @@ _vehicle setVariable ["Cargo", _loadedCargo, true];
 [_vehicle, _cargo, nil, _instant] call A3A_fnc_logistics_addOrRemoveObjectMass;
 
 if (_weapon) then {
-    [_cargo, _vehicle, _jipKey] remoteExec ["A3A_fnc_logistics_addWeaponAction", 0, "A3A_Logistics_weaponAction_" + _objStringCargo];
+    [_cargo, _vehicle, "A3A_Logistics_weaponAction_" + _objStringCargo] remoteExec ["A3A_fnc_logistics_addWeaponAction", 0, "A3A_Logistics_weaponAction_" + _objStringCargo];
 };
 
 _vehicle setVariable ["LoadingCargo",nil,true];
 
-[_vehicle, "unload", _jipKey] remoteExec ["A3A_fnc_logistics_addAction", 0 , "A3A_Logistics_unload_" + _objStringVehicle];
+[_vehicle, "unload", "A3A_Logistics_unload_" + _objStringVehicle] remoteExec ["A3A_fnc_logistics_addAction", 0 , "A3A_Logistics_unload_" + _objStringVehicle];
 
 nil

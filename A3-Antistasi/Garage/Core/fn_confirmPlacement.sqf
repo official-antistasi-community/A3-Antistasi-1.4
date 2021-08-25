@@ -49,6 +49,8 @@ HR_GRG_CP_pylons = if (!isNil "_pylons") then {_pylons} else {[]};
 HR_GRG_usePool = _useGRGPool;
 HR_GRG_CP_callBack = if (HR_GRG_usePool) then {""} else {_callBack};
 HR_GRG_callBackFeedback = "";
+HR_GRG_EH_EF = -1;
+HR_GRG_EH_keyDown = -1;
 
 //define private use function
 HR_GRG_cleanUp = {
@@ -276,7 +278,7 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             _veh call HR_GRG_fnc_vehInit;
             if !(HR_GRG_usePool) then { [_veh,HR_GRG_CP_callBack, "Placed"] call HR_GRG_fnc_callbackHandler };
 
-            true;
+            true && (_key isNotEqualTo DIK_Y);
         } else { false };
         //handle garage pool changes
         if (HR_GRG_usePool) then {

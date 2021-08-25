@@ -33,9 +33,9 @@ if (_object isKindOf "StaticWeapon") then {
 };
 if (_nonSupportedStatic) exitWith {nil};
 
-private _jipObject = toArray str _object;
-_jipObject deleteAt (_jipObject find 58); //58 is ':'
-private _jipKey = "A3A_Logistics_" + _action + "_" + toString _jipObject;
+
+private _objStringCargo = str _object splitString ":" joinString "";
+private _jipKey = "A3A_Logistics_" + _action + "_" + toString _objStringCargo;
 [_object , _action, _jipKey] remoteExec ["A3A_fnc_logistics_addAction", 0, _jipKey];
 
 nil

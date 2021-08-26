@@ -22,6 +22,7 @@ A3A_hasTCGM = false;
 A3A_hasADV = false;
 A3A_hasD3S = false;
 A3A_hasRDS = false;
+A3A_hasKAT = false;
 
 //Actual Detection
 //IFA Detection
@@ -60,8 +61,12 @@ if (isClass (configfile >> "CfgPatches" >> "Ivory_Data")) then {A3A_hasIvory = t
 
 //TCGM_BikeBackpack Detection
 if (isClass (configfile >> "CfgPatches" >> "TCGM_BikeBackpack")) then {A3A_hasTCGM = true; Info("TCGM Detected.") };
+
 //ADV-CPR Pike Edition detection
 if (A3A_hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) then {A3A_hasADV = true; Info("ADV Detected.") };
+
+//KAT medical detection
+if(A3A_hasACEMedical && isClass (configFile >> "CfgVehicles" >> "Land_Defibrillator_F")) then {A3A_hasKAT = true; Info("KAT MED Detected.") };
 
 //D3S Car Pack Detection !!!--- Currently using vehicle classname check. Needs config viewer to work to find cfgPatches. ---!!!
 if (isClass (configfile >> "CfgVehicles" >> "d3s_baumaschinen")) then {A3A_hasD3S = true; Info("D3S Detected.") };
@@ -71,4 +76,4 @@ if (isClass (configfile >> "CfgPatches" >> "rds_A2_Civilians")) then {A3A_hasRDS
 
 //No Mods found logging
 if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_hasIFA && !A3A_has3CBBAF) then { Info("No Side Replacement Mods Detected.") };
-if (!A3A_hasIvory && !A3A_hasTCGM && !A3A_hasADV) then { Info("No Addon Mods Detected.") };
+if (!A3A_hasIvory && !A3A_hasTCGM && !A3A_hasADV && !A3A_hasKAT) then { Info("No Addon Mods Detected.") };

@@ -53,9 +53,23 @@ advItems = [
 	"adv_aceCPR_AED"
 ];
 
+katMedItems = [
+	"kat_aatKit",
+	"kat_accuvac",
+	"kat_X_AED",
+	"kat_AED",
+	"kat_crossPanel",
+	"kat_chestSeal",
+	"kat_guedel",
+	"kat_larynx",
+	"kat_Pulseoximeter",
+	"kat_Painkiller"
+];
+
 publicVariable "aceItems";
 publicVariable "aceMedItems";
 publicVariable "advItems";
+publicVariable "katMedItems";
 
 ////////////////////////////////////
 //   ACE ITEMS MODIFICATIONS     ///
@@ -71,6 +85,11 @@ if (A3A_hasACEMedical) then {
 if (A3A_hasADV) then {
 	initialRebelEquipment append advItems;
 };
+
+if(A3A_hasKAT) then {
+	initialRebelEquipment append katMedItems;
+};
+
 if !(A3A_hasVN) then {
 	lootItem append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield","ACE_VMH3","ACE_VMM3"];
 };

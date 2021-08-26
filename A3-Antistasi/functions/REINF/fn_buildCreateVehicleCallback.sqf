@@ -12,6 +12,7 @@ if (!_isPlayer) then
 else
 {
 	build_time = build_time / 2;
+	if ("ToolKit" in items player) then { build_time = build_time  * .6; }; // if toolkit in invertory then 40% reduction in time.
 	["Build Info", "Walk to the selected position to start building"] call A3A_fnc_customHint;
 };
 
@@ -84,6 +85,8 @@ if (!_isPlayer) then {build_engineerSelected doFollow (leader build_engineerSele
 
 private _veh = createVehicle [_structureType, _positionX, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
+//save performance by turning off simulations 
+_veh enableSimulationGlobal false;
 
 if ((build_type == "SB") or (build_type == "CB")) exitWith
 {

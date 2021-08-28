@@ -95,7 +95,7 @@ if (isNil "LogLevel") then {LogLevel = 4};
             _LOG_outputArray pushBack _LOG_tempLine; \
             _LOG_tempLine = _LOG_newLineIndicator; \
         }; \
-    } forEach (LOG_LINE splitString ""); \
+    } forEach (LOG_LINE splitString " ,"); \
     _LOG_outputArray pushBack _LOG_tempLine; \
     _LOG_outputArray \
 }

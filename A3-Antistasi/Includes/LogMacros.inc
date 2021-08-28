@@ -84,6 +84,7 @@ if (isNil "LogLevel") then {LogLevel = 4};
 
 //line limit handler
 #define _LOG_breakUpLogLine(LOG_LINE) call { \
+    if (count LOG_LINE < 1020) exitWith {[LOG_LINE]}; \
     private _LOG_tempLine = ""; \
     private _LOG_outputArray = []; \
     private _LOG_tempCount = 0; \

@@ -51,11 +51,11 @@ while {true} do
 
     // Exit conditions
     if (!canMove _vehicle || !alive driver _vehicle || { lifestate driver _vehicle == "INCAPACITATED" }) exitWith {
-        Info("Vehicle or driver died during travel, abandoning");
+        ServerInfo("Vehicle or driver died during travel, abandoning");
     };
     if (_vehIndex == -1) exitWith {};				// external abort
     if (_vehicle distance _destination < 100) exitWith {
-        Debug("Vehicle arrived at destination");
+        ServerDebug("Vehicle arrived at destination");
     };
 
     // Transition to next waypoint if close
@@ -68,7 +68,7 @@ while {true} do
         _timeout = time + (_vehicle distance2d _nextPos);
     };
     if (!_critical && time > _timeout) exitWith {
-        Info("Vehicle stuck during travel, abandoning");
+        ServerInfo("Vehicle stuck during travel, abandoning");
     };
 
     // Hack to work around Arma bugging out and refusing to path

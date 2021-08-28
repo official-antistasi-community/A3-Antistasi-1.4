@@ -222,7 +222,6 @@ for "_i" from 0 to (count _buildings) - 1 do
             private _pos = _zpos getPos [0, _dir];            // zeroes Z value because BIS
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             private _unit = [_type, _pos, _dir] call _fnc_spawnStaticUnit;
-            Debug_2("Marksman spawned | Unit: %1 | Pos: %2", _unit, _pos);
         };
     };
 };
@@ -244,7 +243,6 @@ for "_i" from 0 to (count _buildings) - 1 do
             private _pos = _zpos getPos [0, _dir];            // zeroes Z value because BIS
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             private _unit = [_type, _pos, _dir] call _fnc_spawnStaticUnit;
-            Debug_2("Grunt spawned | Unit: %1 | Pos: %2", _unit, _pos)
         };
     };
 };

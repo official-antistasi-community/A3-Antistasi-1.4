@@ -1,67 +1,80 @@
 //Original Author: Barbolani
 //Edited and updated by the Antstasi Community Development Team
 
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+
+// Increase one type by _increase*_typeCoeff, if total of types is lower than _baseCap*_typeCoeff
 _fnc_economics = {
-    params ["_coefficient", "_random", "_typeX", "_maxItems", "_accelerator"];
-    private ["_currentItems"];
+    params ["_types", "_typeCoeff", "_baseCap", "_increase"];
 
-    if (_typeX isEqualType "") then {
-        _typeX  = [_typeX];
-    };
-	
-	if (_typeX isEqualTo []) exitWith {};
+    if (_types isEqualTo []) exitWith {};
 
-    if (_random == "random") then {
-        private _selectedType = selectRandom _typeX;
-        _currentItems = timer getVariable [_selectedType, 0];
-        if (_currentItems < _maxItems) then {
-            timer setVariable [_selectedType, _currentItems + _coefficient * _accelerator, true];
-        };
-    } else {
-        _currentItems = 0;
-        {
-            _currentItems = _currentItems + (timer getVariable [_x, 0]);
-        } forEach _typeX;
-        if (_currentItems < _maxItems) then {
-            timer setVariable [selectRandom _typeX, _currentItems + _coefficient * _accelerator, true];
-        };
+    private _totalItems = 0;
+    {
+        // fractions don't count towards cap
+        _totalItems = _totalItems + floor (timer getVariable [_x, 0]);
+    } forEach _types;
+
+    if (_totalItems < ceil (_typeCoeff * _baseCap)) then {
+        private _type = selectRandom _types;
+        private _currentItems = timer getVariable [_type, 0];
+        timer setVariable [_type, _currentItems + _typeCoeff * _increase, true];
     };
 };
+
+// General balance calc. 9 players @ tierWar 7 => balanceScale 1
+private _playerScale = exp((sqrt(count allPlayers)/3) - 1);
+private _balanceScale = _playerScale * (3 + tierWar) / 10;
 
 //--------------------------------------Occupants--------------------------------------------------
 private _airbases = { sidesX getVariable [_x, sideUnknown] == Occupants } count airportsX;
 private _outposts = { sidesX getVariable [_x, sideUnknown] == Occupants } count outposts;
 private _seaports = { sidesX getVariable [_x, sideUnknown] == Occupants } count seaports;
-private _accelerator = [1 + (tierWar + difficultyCoef) / 20, 0] select (tierWar == 1);
 
-[0.2, "", staticATOccupants, _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
-[0.1, "", staticAAOccupants, _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehNATOAPC, _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehNATOTank, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehNATOAA, _airbases, _accelerator] spawn _fnc_economics;
-[0.3, "", vehNATOBoat, _seaports, _accelerator] spawn _fnc_economics;
-[0.2, "", vehNATOPlane, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "", vehNATOPlaneAA, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehNATOTransportPlanes, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehNATOTransportHelis - [vehNATOPatrolHeli], _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehNATOAttackHelis, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "", vehNATOMRLS, _airbases + _outposts * 0.2, _accelerator] spawn _fnc_economics;
+private _airCap = _balanceScale * (4 + _airbases*2);
+private _groundCap = _balanceScale * (4 + _airbases + _outposts*0.5);
+private _increase = _balanceScale / 6;      // Because it's called six times per hour. Could pass in a time instead...
+
+[[staticATOccupants], 1.0, _groundCap, _increase] call _fnc_economics;
+[[staticAAOccupants], 1.0, _groundCap, _increase] call _fnc_economics;
+[vehNATOAPC, 3.0, _groundCap, _increase] call _fnc_economics;
+[[vehNATOTank], 1.0, _groundCap, _increase] call _fnc_economics;
+[[vehNATOAA], 1.0, _groundCap, _increase] call _fnc_economics;
+[[vehNATOMRLS], 0.5, _groundCap, _increase] call _fnc_economics;           // not used atm?
+[[vehNATOBoat], 1.0, _balanceScale * (1 + _seaports), _increase] call _fnc_economics;
+[[vehNATOPlane], 0.5, _airCap, _increase] call _fnc_economics;             // only used for major attacks
+[[vehNATOPlaneAA], 0.5, _airCap, _increase] call _fnc_economics;           // only used for major attacks
+[vehNATOTransportPlanes, 2.0, _airCap, _increase] call _fnc_economics;
+[vehNATOTransportHelis - [vehNATOPatrolHeli], 2.0, _airCap, _increase] call _fnc_economics;
+[vehNATOAttackHelis, 1.5, _airCap, _increase] call _fnc_economics;
+
+private _natoArray = flatten [staticATOccupants, staticAAOccupants, vehNATOAPC, vehNATOTank, vehNATOAA, vehNATOBoat, vehNATOPlane, vehNATOPlaneAA, vehNATOTransportPlanes, (vehNATOTransportHelis - [vehNATOPatrolHeli]), vehNATOAttackHelis, vehNATOMRLS];
+_natoArray = _natoArray apply { [_x, timer getVariable [_x, 0]] };
+DebugArray("Occupants arsenal", _natoArray);
 
 //--------------------------------------Invaders---------------------------------------------------
 _airbases = { sidesX getVariable [_x, sideUnknown] == Invaders } count airportsX;
 _outposts = { sidesX getVariable [_x, sideUnknown] == Invaders } count outposts;
 _seaports = { sidesX getVariable [_x, sideUnknown] == Invaders } count seaports;
-_accelerator = 1.2 + (tierWar + difficultyCoef) / 20;
 
-[0.2, "", staticATInvaders, _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
-[0.1, "", staticAAInvaders, _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehCSATAPC, _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehCSATTank, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehCSATAA, _airbases, _accelerator] spawn _fnc_economics;
-[0.3, "", vehCSATBoat, _seaports, _accelerator] spawn _fnc_economics;
-[0.2, "", vehCSATPlane, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "", vehCSATPlaneAA, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehCSATTransportPlanes, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehCSATTransportHelis - [vehCSATPatrolHeli], _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "random", vehCSATAttackHelis, _airbases * 4, _accelerator] spawn _fnc_economics;
-[0.2, "", vehCSATMRLS, _airbases + _outposts * 0.2, _accelerator] spawn _fnc_economics;
+_airCap = _balanceScale * (4 + _airbases*2);
+_groundCap = _balanceScale * (4 + _airbases + _outposts*0.5);
+_increase = 1.2 * _increase;            // Invaders get a bit more of everything
+
+[[staticATInvaders], 1.0, _groundCap, _increase] call _fnc_economics;
+[[staticAAInvaders], 1.0, _groundCap, _increase] call _fnc_economics;
+[vehCSATAPC, 3.0, _groundCap, _increase] call _fnc_economics;
+[[vehCSATTank], 1.0, _groundCap, _increase] call _fnc_economics;
+[[vehCSATAA], 1.0, _groundCap, _increase] call _fnc_economics;
+[[vehCSATMRLS], 0.5, _groundCap, _increase] call _fnc_economics;           // not used atm?
+[[vehCSATBoat], 1.0, _balanceScale * (1 + _seaports), _increase] call _fnc_economics;
+[[vehCSATPlane], 0.5, _airCap, _increase] call _fnc_economics;             // only used for major attacks
+[[vehCSATPlaneAA], 0.5, _airCap, _increase] call _fnc_economics;           // only used for major attacks
+[vehCSATTransportPlanes, 2.0, _airCap, _increase] call _fnc_economics;
+[vehCSATTransportHelis - [vehCSATPatrolHeli], 2.0, _airCap, _increase] call _fnc_economics;
+[vehCSATAttackHelis, 1.5, _airCap, _increase] call _fnc_economics;
+
+private _csatArray = flatten [staticATInvaders, staticAAInvaders, vehCSATAPC, vehCSATTank, vehCSATAA, vehCSATBoat, vehCSATPlane, vehCSATPlaneAA, vehCSATTransportPlanes, (vehCSATTransportHelis - [vehCSATPatrolHeli]), vehCSATAttackHelis, vehCSATMRLS];
+_csatArray = _csatArray apply { [_x, timer getVariable [_x, 0]] };
+DebugArray("Invaders arsenal", _csatArray);

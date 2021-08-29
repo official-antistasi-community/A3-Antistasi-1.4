@@ -284,6 +284,7 @@ if (_varName in _specialVarLoads) then {
 			_posVeh = _varvalue select _i select 1;
 			_xVectorUp = _varvalue select _i select 2;
 			_xVectorDir = _varvalue select _i select 3;
+            private _state = _varvalue select _i select 4;
 			private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"CAN_COLLIDE"];
 			// This is only here to handle old save states. Could be removed after a few version itterations. -Hazey
 			if ((_varvalue select _i select 2) isEqualType 0) then { // We have to check number because old save state might still be using getDir. -Hazey
@@ -300,6 +301,7 @@ if (_varName in _specialVarLoads) then {
 				staticsToSave pushBack _veh;
 			}
 			else {
+                [_veh, _state] call HR_GRG_fnc_setState;
 				[_veh] spawn A3A_fnc_vehDespawner;
 			};
 		};

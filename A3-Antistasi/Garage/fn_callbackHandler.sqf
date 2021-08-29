@@ -12,7 +12,7 @@
 
     Arguments:
     0. <Object> Vehicle
-    1. <String> Callback owner
+    1. <Array> Callback owner, and the callback arguments
     2. <String> Callback action
 
     Return Value:
@@ -27,9 +27,10 @@
 
     License: MIT
 */
-params [["_vehicle", objNull, [objNull]], ["_callback",""], ["_action", ""]];
+params [["_vehicle", objNull, [objNull]], ["_callback",[], [[]]], ["_action", ""]];
+_callback params [["_callBackName", "", [""]], ["_arguments", []] ];
 
-switch _callback do {
+switch _callBackName do {
 
     case "BUYFIA": {
         switch _action do {
@@ -52,7 +53,7 @@ switch _callback do {
         switch _action do {
 
             case "invalidPlacement": {
-                switch (build_type) do { //return inverted here so true = can place
+                switch (build_type) do { //return inverted here so true = cant place
                     case "RB": {
                         [!(isOnRoad _vehicle), "Roadblocks can only be built on roads"];
                     };
@@ -72,6 +73,25 @@ switch _callback do {
                 private _dir = getDir _vehicle;
                 deleteVehicle _vehicle;
                 [_type, _pos, _dir] spawn A3A_fnc_buildCreateVehicleCallback;
+            };
+            default {false};
+        };
+    };
+
+    case "SquadVehicle": {
+        switch _action do {
+            case "Placed": {
+                //passed group as argument
+                [_vehicle, teamPlayer] call A3A_fnc_AIVEHinit;
+                [_vehicle] spawn A3A_fnc_vehDespawner;
+                _arguments addVehicle _vehicle;
+                _vehicle setVariable ["owner",_arguments,true];
+                private _cost = [typeOf _vehicle] call A3A_fnc_vehiclePrice;
+                [0, - _cost] remoteExec ["A3A_fnc_resourcesFIA",2];
+                leader _arguments assignAsDriver _vehicle;
+                {[_x] orderGetIn true; [_x] allowGetIn true} forEach units _arguments;
+                ["Recruit Squad", "Vehicle Purchased"] call A3A_fnc_customHint;
+                petros directSay "SentGenBaseUnlockVehicle";
             };
             default {false};
         };

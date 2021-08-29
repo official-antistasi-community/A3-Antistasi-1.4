@@ -197,16 +197,4 @@ waitUntil {(!dialog) or (!isNil "vehQuery")};
 if ((!dialog) and (isNil "vehQuery")) exitWith {};
 
 vehQuery = nil;
-
-_pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
-private _purchasedVehicle = _typeVehX createVehicle _pos;
-_purchasedVehicle setDir _roadDirection;
-[_purchasedVehicle, teamPlayer] call A3A_fnc_AIVEHinit;
-[_purchasedVehicle] spawn A3A_fnc_vehDespawner;
-_groupX addVehicle _purchasedVehicle;
-_purchasedVehicle setVariable ["owner",_groupX,true];
-[0, - _costs] remoteExec ["A3A_fnc_resourcesFIA",2];
-leader _groupX assignAsDriver _purchasedVehicle;
-{[_x] orderGetIn true; [_x] allowGetIn true} forEach units _groupX;
-["Recruit Squad", "Vehicle Purchased"] call A3A_fnc_customHint;
-petros directSay "SentGenBaseUnlockVehicle";
+["B_G_Van_01_transport_F", "SquadVehicle", _groupX] call HR_GRG_fnc_confirmPlacement;

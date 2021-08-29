@@ -9,6 +9,8 @@
     2. <Array>  Pylons
     2. <Struct/nil> Vehicle state (optional)
     3. <Bool>   use garage vehicle pool for placement (optional: default true)
+    4. <String> callback name (optional)(see HR_GRG_fnc_callbackHandler for code)
+    5. <Any>    Arguments for the callback (optional)
 
     Return Value:
     <nil>
@@ -25,11 +27,12 @@
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 params [
     ["_class", "", [""]]
+    , ["_callBack", ""]
+    , ["_callBackArgs", []]
     , ["_mounts", [], [[]]]
     , ["_pylons", [], [[]]]
     , "_state"
-    , ["_useGRGPool", true, [true]]
-    , ["_callBack", ""]
+    , ["_useGRGPool", false, [false]]
 ];
 
 if (!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {HR_GRG_placing = false};
@@ -45,9 +48,9 @@ HR_GRG_keyQ = false;
 HR_GRG_keyE = false;
 HR_GRG_validPlacement = 0;
 HR_GRG_CP_mounts = _mounts;
-HR_GRG_CP_pylons = if (!isNil "_pylons") then {_pylons} else {[]};
+HR_GRG_CP_pylons = _pylons;
 HR_GRG_usePool = _useGRGPool;
-HR_GRG_CP_callBack = if (HR_GRG_usePool) then {""} else {_callBack};
+HR_GRG_CP_callBack = [_callBack, _callBackArgs];
 HR_GRG_callBackFeedback = "";
 HR_GRG_EH_EF = -1;
 HR_GRG_EH_keyDown = -1;

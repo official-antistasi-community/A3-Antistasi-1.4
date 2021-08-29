@@ -170,4 +170,4 @@ if ((build_type == "SB") or (build_type == "CB")) then
 if (_leave) exitWith {["Build Info", format ["%1",_textX]] call A3A_fnc_customHint;};
 
 //START PLACEMENT HERE
-[_classX, [], [], nil, false, "BUILDSTRUCTURE"] call HR_GRG_fnc_confirmPlacement;
+[_classX, "BUILDSTRUCTURE"] call HR_GRG_fnc_confirmPlacement;

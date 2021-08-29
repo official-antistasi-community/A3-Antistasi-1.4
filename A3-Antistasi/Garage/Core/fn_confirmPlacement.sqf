@@ -5,12 +5,12 @@
 
     Arguments:
     0. <String> className of vehicle
-    1. <Array>  Arrays of [className of Mount, Index of mount in garage]
-    2. <Array>  Pylons
-    2. <Struct/nil> Vehicle state (optional)
-    3. <Bool>   use garage vehicle pool for placement (optional: default true)
-    4. <String> callback name (optional)(see HR_GRG_fnc_callbackHandler for code)
-    5. <Any>    Arguments for the callback (optional)
+    1. <String> callback name (optional)(see HR_GRG_fnc_callbackHandler for code)
+    2. <Any>    Arguments for the callback (optional)
+    3. <Array>  Arrays of [className of Mount, Index of mount in garage] (optional) (internal)
+    4. <Array>  Pylons (optional)
+    5. <Struct/nil> Vehicle state (optional)
+    6. <Bool>   use garage vehicle pool for placement (optional: default true)
 
     Return Value:
     <nil>

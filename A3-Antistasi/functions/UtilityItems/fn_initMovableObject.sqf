@@ -24,9 +24,9 @@ if (isNil "_object") exitwith {remoteExec ["", _jipKey];};
 _object addAction [
     "Carry object",
     {
-        [cursorObject, true] call A3A_fnc_carryItem;
+        [_this select 3,true] call A3A_fnc_carryItem;
     },
-    nil,
+    _object call BIS_fnc_netId,
     1.5,
     true,
     true,

@@ -18,7 +18,7 @@ Note:
 */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
-params[["_netId", "", [objNull]]];
+params[["_netId", ""]];
 private _object = _netId call BIS_fnc_objectFromNetId;
 
 #define E_PRESSED 0

@@ -2,7 +2,7 @@
 Author: Killerswin2,
     trys to carry an object to a place
 Arguments:
-    0.<String>  netId of object that will be carried
+    0.<String>  netId of the object that will be carried
     1.<Bool>    bool that determines if the object will be picked up
     2.<Object>  player that calls or holds object (optional)
 Return Value:

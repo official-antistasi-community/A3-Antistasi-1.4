@@ -2,7 +2,7 @@
 Author: Killerswin2, Hakon
     rotates an item
 Arguments:
-    0.<object> object that will be rotated;
+    0.<String> netId of the object that will be carried
 Return Value:
     <nil>
 
@@ -18,7 +18,8 @@ Note:
 */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
-params[["_object", objNull, [objNull]]];
+params[["_netId", "", [objNull]]];
+private _object = _netId call BIS_fnc_objectFromNetId;
 
 #define E_PRESSED 0
 #define Q_PRESSED 1

@@ -12,7 +12,7 @@ Public: No
 Dependencies: 
 
 Example:
-    [cursorObject] call A3A_fnc_rotateItem; 
+    [cursorObject call BIS_fnc_netId] call A3A_fnc_rotateItem; 
 
 Note: 
 */

@@ -66,7 +66,7 @@ if (isClass (configfile >> "CfgPatches" >> "TCGM_BikeBackpack")) then {A3A_hasTC
 if (A3A_hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) then {A3A_hasADV = true; Info("ADV Detected.") };
 
 //KAT medical detection
-if(A3A_hasACEMedical && isClass (configFile >> "CfgVehicles" >> "Land_Defibrillator_F")) then {A3A_hasKAT = true; Info("KAT MED Detected.") };
+if(A3A_hasACEMedical && isClass (configFile >> "CfgVehicles" >> "kat_PainkillerItem")) then {A3A_hasKAT = true; Info("KAT MED Detected.") };
 
 //D3S Car Pack Detection !!!--- Currently using vehicle classname check. Needs config viewer to work to find cfgPatches. ---!!!
 if (isClass (configfile >> "CfgVehicles" >> "d3s_baumaschinen")) then {A3A_hasD3S = true; Info("D3S Detected.") };

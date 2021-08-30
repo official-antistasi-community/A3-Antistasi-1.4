@@ -18,7 +18,7 @@ Note:
 */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
-params[["_object", objNull]];
+params[["_object", objNull, [objNull]]];
 
 #define E_PRESSED 0
 #define Q_PRESSED 1

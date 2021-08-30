@@ -19,7 +19,7 @@ Example:
 
 params[["_object", objNull, [objNull]],["_jipKey", "", [""]]];
 
-if (isNil "_object") exitwith {remoteExec ["", _jipKey];};
+if (isNil _object) exitwith {remoteExec ["", _jipKey];};
 
 _object addAction [
     "Carry object",

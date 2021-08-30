@@ -10,7 +10,7 @@
     3. <Array>  Arrays of [className of Mount, Index of mount in garage] (optional) (internal)
     4. <Array>  Pylons (optional)
     5. <Struct/nil> Vehicle state (optional)
-    6. <Bool>   use garage vehicle pool for placement (optional: default true)
+    6. <Bool>   use garage vehicle pool for placement (optional: default false)
 
     Return Value:
     <nil>

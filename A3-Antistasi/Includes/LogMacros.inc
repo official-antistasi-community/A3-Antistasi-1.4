@@ -108,8 +108,10 @@ if (isNil "LogLevel") then {LogLevel = 4};
 
 #define _LOG_Message(LEVEL, MESSAGE) private _LOG_logLine = _LOG_STANDARD_FORMAT(LEVEL, MESSAGE); {diag_log text _x} forEach _LOG_breakUpLogLine(_LOG_logLine);
 #define _LOG_ServerMessage(LEVEL, MESSAGE) \
+if (isServer) then { _LOG_Message(LEVEL, MESSAGE) } else { \
 private _LOG_LogLine = _LOG_STANDARD_FORMAT(LEVEL, MESSAGE) + format [" | Client: %1 [%2]", player, clientOwner]; \
-_LOG_breakUpLogLine(_LOG_logLine) remoteExec ["A3A_fnc_localLog", 2];
+_LOG_breakUpLogLine(_LOG_logLine) remoteExec ["A3A_fnc_localLog", 2]; \
+};
 
 //log macros
 #ifdef Log_Error

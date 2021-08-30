@@ -20,14 +20,13 @@ Example:
 params[["_object", objNull, [objNull]],["_jipKey", "", [""]]];
 
 if (isNil "_object") exitwith {remoteExec ["", _jipKey];};
-private _netId = _object call BIS_fnc_netId;
 
 _object addAction [
     "Carry object",
     {
-        [_this select 3, true] call A3A_fnc_carryItem;
+        [_this#3, true] call A3A_fnc_carryItem;
     },
-    _netId,
+    _object,
     1.5,
     true,
     true,
@@ -42,9 +41,9 @@ _object addAction [
 _object addAction [
     "Rotate object",
     {
-        [_this select 3] call A3A_fnc_rotateItem;
+        [_this#3] call A3A_fnc_rotateItem;
     },
-    _netId,
+    _object,
     1.5,
     true,
     true,

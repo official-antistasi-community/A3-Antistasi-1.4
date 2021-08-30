@@ -2,7 +2,7 @@
 Author: Killerswin2, Hakon
     rotates an item
 Arguments:
-    0.<String> netId of the object that will be carried
+    0.<Object> object that will be carried
 Return Value:
     <nil>
 
@@ -12,14 +12,13 @@ Public: No
 Dependencies: 
 
 Example:
-    [cursorObject call BIS_fnc_netId] call A3A_fnc_rotateItem; 
+    [cursorObject] call A3A_fnc_rotateItem; 
 
 Note: 
 */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
-params[["_netId", ""]];
-private _object = _netId call BIS_fnc_objectFromNetId;
+params[["_object", objNull]];
 
 #define E_PRESSED 0
 #define Q_PRESSED 1

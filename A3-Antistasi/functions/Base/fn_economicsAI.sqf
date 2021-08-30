@@ -28,7 +28,7 @@ _fnc_economics = {
 // Coeff 1.0 means one vehicle per hour with 9 players @ tierWar 7, or two vehicles per hour for 26 players.
 
 // 9 players @ tierWar 7 => balanceScale 1
-private _playerScale = exp((sqrt(count allPlayers)/3) - 1);
+private _playerScale = (8 + count (allPlayers - entities "HeadlessClient_F")) / 17;
 private _balanceScale = _playerScale * (3 + tierWar) / 10;
 
 //--------------------------------------Occupants--------------------------------------------------

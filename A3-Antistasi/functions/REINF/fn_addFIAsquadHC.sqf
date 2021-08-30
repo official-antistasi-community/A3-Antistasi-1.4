@@ -197,4 +197,4 @@ waitUntil {(!dialog) or (!isNil "vehQuery")};
 if ((!dialog) and (isNil "vehQuery")) exitWith {};
 
 vehQuery = nil;
-["B_G_Van_01_transport_F", "SquadVehicle", _groupX] call HR_GRG_fnc_confirmPlacement;
+[_typeVehX, "SquadVehicle", _groupX] call HR_GRG_fnc_confirmPlacement;

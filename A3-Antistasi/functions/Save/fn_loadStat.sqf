@@ -280,16 +280,11 @@ if (_varName in _specialVarLoads) then {
 	};
 	if (_varname == 'staticsX') then {
 		for "_i" from 0 to (count _varvalue) - 1 do {
-			_typeVehX = _varvalue select _i select 0;
-			_posVeh = _varvalue select _i select 1;
-			_xVectorUp = _varvalue select _i select 2;
-			_xVectorDir = _varvalue select _i select 3;
-            private _state = _varvalue select _i select 4;
+            (_varValue#_i) params ["_typeVehX", "_posVeh", "_xVectorUp", "_xVectorDir", "_state"];
 			private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"CAN_COLLIDE"];
 			// This is only here to handle old save states. Could be removed after a few version itterations. -Hazey
-			if ((_varvalue select _i select 2) isEqualType 0) then { // We have to check number because old save state might still be using getDir. -Hazey
-				_dirVeh = _varvalue select _i select 2;
-				_veh setDir _dirVeh;
+			if (_xVectorUp isEqualType 0) then { // We have to check number because old save state might still be using getDir. -Hazey
+				_veh setDir _xVectorUp; //is direction due to old save
 				_veh setVectorUp surfaceNormal (_posVeh);
 				_veh setPosATL _posVeh;
 			} else {

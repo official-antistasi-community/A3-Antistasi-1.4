@@ -228,7 +228,7 @@ if (count _availableTargets == 0) exitWith
     private _nearbyStatics = staticsToSave select {(_x distance2D (getMarkerPos _target)) < distanceSPWN};
     _targetPoints = _targetPoints + (10 * (count _garrison) + (50 * (count _nearbyStatics)));
 
-    if((count _garrison <= 8) && {(count _nearbyStatics <= 2) && {!(_target in citiesX)}}) then
+    if((count _garrison <= 8) && (_targetSide == teamPlayer) && {(count _nearbyStatics <= 2) && {!(_target in citiesX)}}) then
     {
         //Only minimal garrison, consider it an easy target
         Debug_1("%1 has only minimal garrison, considering easy target", _target);
@@ -248,13 +248,13 @@ to attack from which airport
 
 private _fnc_flipMarker =
 {
-    params ["_side", "_marker", "_minTroops", "_randomTroops"];
+    params ["_side", "_marker"];
     Info_2("Autowin %1 for side %2 to avoid unnecessary calculations", _marker, _side);
     [_side, _marker] spawn A3A_fnc_markerChange;
     sleep 10;
-    private _squads = _minTroops + round (random _randomTroops);
+    private _maxTroops = 12 max round ((0.5 + random 0.5) * ([_marker] call A3A_fnc_garrisonSize));
     private _soldiers = [];
-    for "_i" from 0 to _squads do
+    while {count _soldiers < _maxTroops} do
     {
         if (_side == Occupants) then
         {
@@ -265,6 +265,7 @@ private _fnc_flipMarker =
             _soldiers append (selectRandom (groupsCSATSquad + groupsCSATmid));
         };
     };
+    _soldiers resize _maxTroops;
     [_soldiers,_side,_marker,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 };
 
@@ -328,7 +329,7 @@ if(count _easyTargets >= 4) then
         else
         {
             private _side = sidesX getVariable (_x select 0);
-            [_side, _target, 2, 2] spawn _fnc_flipMarker;
+            [_side, _target] spawn _fnc_flipMarker;
         };
         sleep 15;
     } forEach _attackList;
@@ -424,7 +425,7 @@ else
         }
         else
         {
-            [_side, _attackTarget, 4, 3] spawn _fnc_flipMarker;
+            [_side, _attackTarget] spawn _fnc_flipMarker;
             [3600, _side] call A3A_fnc_timingCA;
         };
     }

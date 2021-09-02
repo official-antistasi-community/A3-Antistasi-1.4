@@ -18,8 +18,8 @@ _looser = sidesX getVariable [_markerX,sideUnknown];
 _sides = [teamPlayer,Occupants,Invaders];
 _other = "";
 _textX = "";
-_prestigeOccupants = [0, 0];
-_prestigeInvaders = [0, 0];
+_aggressionOccupants = [0, 0];
+_aggressionInvaders = [0, 0];
 _flagX = objNull;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 
@@ -140,13 +140,13 @@ if (_markerX in airportsX) then
         Debug("aggroEvent | Rebels took an airport");
 		if (_looser == Occupants) then
 		{
-			_prestigeOccupants = [50, 150];
-			_prestigeInvaders = [-25, 90];
+			_aggressionOccupants = [50, 150];
+			_aggressionInvaders = [-25, 90];
 		}
 		else
 		{
-			_prestigeOccupants = [-25, 90];
-			_prestigeInvaders = [50, 150];
+			_aggressionOccupants = [-25, 90];
+			_aggressionInvaders = [50, 150];
 		};
 	}
 	else
@@ -166,13 +166,13 @@ if (_markerX in airportsX) then
             Debug("aggroEvent | Rebels lost an airport");
             if(_winner == Occupants) then
             {
-                _prestigeOccupants = [-40, 90];
-                _prestigeInvaders = [-20, 90];
+                _aggressionOccupants = [-40, 90];
+                _aggressionInvaders = [-20, 90];
             }
             else
             {
-                _prestigeOccupants = [-20, 90];
-                _prestigeInvaders = [-40, 90];
+                _aggressionOccupants = [-20, 90];
+                _aggressionInvaders = [-40, 90];
             };
 		};
 	};
@@ -191,11 +191,11 @@ if (_markerX in outposts) then
             Debug("aggroEvent | Rebels lost an outpost");
 			if (_winner == Occupants) then
             {
-                _prestigeOccupants = [-10, 90];
+                _aggressionOccupants = [-10, 90];
             }
             else
             {
-                _prestigeInvaders = [-10, 90];
+                _aggressionInvaders = [-10, 90];
             };
 		};
 	}
@@ -204,13 +204,13 @@ if (_markerX in outposts) then
         Debug("aggroEvent | Rebels took an outpost");
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = [30, 150];
-            _prestigeInvaders = [-15, 90];
+            _aggressionOccupants = [30, 150];
+            _aggressionInvaders = [-15, 90];
         }
         else
         {
-            _prestigeOccupants = [-15, 90];
-            _prestigeInvaders = [30, 150];
+            _aggressionOccupants = [-15, 90];
+            _aggressionInvaders = [30, 150];
         };
 	};
 	["TaskSucceeded", ["", "Outpost Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -225,11 +225,11 @@ if (_markerX in seaports) then
         Debug("aggroEvent | Rebels took a seaport");
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = [20, 120];
+            _aggressionOccupants = [20, 120];
         }
         else
         {
-            _prestigeInvaders = [20, 120];
+            _aggressionInvaders = [20, 120];
         };
 	};
 	["TaskSucceeded", ["", "Seaport Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -243,11 +243,11 @@ if (_markerX in factories) then
         Debug("aggroEvent | Rebels took a factory");
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = [20, 120];
+            _aggressionOccupants = [20, 120];
         }
         else
         {
-            _prestigeInvaders = [20, 120];
+            _aggressionInvaders = [20, 120];
         };
 	};
 	["TaskSucceeded", ["", "Factory Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -261,11 +261,11 @@ if (_markerX in resourcesX) then
         Debug("aggroEvent | Rebels took a resource");
 		if (_looser == Occupants) then
         {
-            _prestigeOccupants = [20, 120];
+            _aggressionOccupants = [20, 120];
         }
         else
         {
-            _prestigeInvaders = [20, 120];
+            _aggressionInvaders = [20, 120];
         };
 	};
 	["TaskSucceeded", ["", "Resource Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -303,8 +303,8 @@ if (_winner == teamPlayer) then
 		//[_flagX,"garage"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 		if (_markerX in seaports) then {[_flagX,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX]};
 	};
-    ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
-    ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
+    ([Occupants] + _aggressionOccupants) spawn A3A_fnc_addAggression;
+    ([Invaders] + _aggressionInvaders) spawn A3A_fnc_addAggression;
 	[_markerX] spawn {
 		params ["_markerX"];
 		// This allows enemies to retake rebel markers with random junk until the marker is despawned
@@ -344,8 +344,8 @@ else
 	};
 	if (_looser == teamPlayer) then
 		{
-        ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
-        ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
+        ([Occupants] + _aggressionOccupants) spawn A3A_fnc_addAggression;
+        ([Invaders] + _aggressionInvaders) spawn A3A_fnc_addAggression;
 		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !("DEF_HQ" in A3A_activeTasks) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};

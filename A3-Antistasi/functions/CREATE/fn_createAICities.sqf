@@ -3,7 +3,7 @@ FIX_LINE_NUMBERS()
 //NOTA: TAMBIÉN LO USO PARA FIA
 if (!isServer and hasInterface) exitWith{};
 
-private ["_markerX","_groups","_soldiers","_positionX","_num","_dataX","_prestigeOPFOR","_prestigeBLUFOR","_esAAF","_params","_frontierX","_array","_countX","_groupX","_dog","_grp","_sideX"];
+private ["_markerX","_groups","_soldiers","_positionX","_num","_dataX","_aggressionOPFOR","_aggressionBLUFOR","_esAAF","_params","_frontierX","_array","_countX","_groupX","_dog","_grp","_sideX"];
 _markerX = _this select 0;
 
 _groups = [];
@@ -21,8 +21,8 @@ Debug_1("Spawning City Patrol in %1", _markerX);
 _dataX = server getVariable _markerX;
 //_prestigeOPFOR = _dataX select 3;
 //_prestigeBLUFOR = _dataX select 4;
-_prestigeOPFOR = _dataX select 2;
-_prestigeBLUFOR = _dataX select 3;
+_aggressionOPFOR = _dataX select 2;
+_aggressionBLUFOR = _dataX select 3;
 _esAAF = true;
 if (_markerX in destroyedSites) then
 	{
@@ -33,7 +33,7 @@ else
 	{
 	if (_sideX == Occupants) then
 		{
-		_num = round (_num * (_prestigeOPFOR + _prestigeBLUFOR)/100);
+		_num = round (_num * (_aggressionOPFOR + _aggressionBLUFOR)/100);
 		_frontierX = [_markerX] call A3A_fnc_isFrontline;
 		if (_frontierX) then
 			{
@@ -48,7 +48,7 @@ else
 	else
 		{
 		_esAAF = false;
-		_num = round (_num * (_prestigeBLUFOR/100));
+		_num = round (_num * (_aggressionBLUFOR/100));
 		_array = [];
 		{if (random 20 < skillFIA) then {_array pushBack (_x select 0)} else {_array pushBack (_x select 1)}} forEach groupsSDKSentry;
 		_params = [_positionX, teamPlayer, _array];

@@ -47,8 +47,8 @@ _fn_convertMinutesToDecayRate =
 if(_aggroChange == 0) exitWith {};
 
 //Wait until all other aggro change operations are done
-waitUntil {!prestigeIsChanging};
-prestigeIsChanging = true;
+waitUntil {!aggressionIsChanging};
+aggressionIsChanging = true;
 
 private _decayRate = [_aggroChange, _aggroTime] call _fn_convertMinutesToDecayRate;
 
@@ -63,4 +63,4 @@ if(gameMode != 3 && (_side == Invaders)) then
 };
 
 [] call A3A_fnc_calculateAggression;
-prestigeIsChanging = false;
+aggressionIsChanging = false;

@@ -71,7 +71,7 @@ private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
 ["aggressionOccupants", [aggressionLevelOccupants, aggressionStackOccupants]] call A3A_fnc_setStatVariable;
 ["aggressionInvaders", [aggressionLevelInvaders, aggressionStackInvaders]] call A3A_fnc_setStatVariable;
 
-private ["_hrBackground","_resourcesBackground","_veh","_typeVehX","_weaponsX","_ammunition","_items","_backpcks","_containers","_arrayEst","_posVeh","_dierVeh","_prestigeOPFOR","_prestigeBLUFOR","_city","_dataX","_markersX","_garrison","_arrayMrkMF","_arrayOutpostsFIA","_positionOutpost","_typeMine","_posMine","_detected","_typesX","_exists","_friendX"];
+private ["_hrBackground","_resourcesBackground","_veh","_typeVehX","_weaponsX","_ammunition","_items","_backpcks","_containers","_arrayEst","_posVeh","_dierVeh","_aggressionOPFOR","_aggressionBLUFOR","_city","_dataX","_markersX","_garrison","_arrayMrkMF","_arrayOutpostsFIA","_positionOutpost","_typeMine","_posMine","_detected","_typesX","_exists","_friendX"];
 
 _hrBackground = (server getVariable "hr") + ({(alive _x) and (not isPlayer _x) and (_x getVariable ["spawner",false]) and ((group _x in (hcAllGroups theBoss) or (isPlayer (leader _x))) and (side group _x == teamPlayer))} count allUnits);
 _resourcesBackground = server getVariable "resourcesFIA";
@@ -144,18 +144,18 @@ _jna_dataList = [];
 _jna_dataList = _jna_dataList + jna_dataList;
 ["jna_dataList", _jna_dataList] call A3A_fnc_setStatVariable;
 
-_prestigeOPFOR = [];
-_prestigeBLUFOR = [];
+_aggressionOPFOR = [];
+_aggressionBLUFOR = [];
 
 {
 	_city = _x;
 	_dataX = server getVariable _city;
-	_prestigeOPFOR = _prestigeOPFOR + [_dataX select 2];
-	_prestigeBLUFOR = _prestigeBLUFOR + [_dataX select 3];
+	_aggressionOPFOR = _aggressionOPFOR + [_dataX select 2];
+	_aggressionBLUFOR = _aggressionBLUFOR + [_dataX select 3];
 } forEach citiesX;
 
-["prestigeOPFOR", _prestigeOPFOR] call A3A_fnc_setStatVariable;
-["prestigeBLUFOR", _prestigeBLUFOR] call A3A_fnc_setStatVariable;
+["aggressionOPFOR", _aggressionOPFOR] call A3A_fnc_setStatVariable;
+["aggressionBLUFOR", _aggressionBLUFOR] call A3A_fnc_setStatVariable;
 
 _markersX = markersX - outpostsFIA - controlsX;
 _garrison = [];

@@ -22,6 +22,8 @@ if (isServer) then {
 	["weather"] call A3A_fnc_getStatVariable;
 	["prestigeOPFOR"] call A3A_fnc_getStatVariable;
 	["prestigeBLUFOR"] call A3A_fnc_getStatVariable;
+	["aggressionOPFOR"] call A3A_fnc_getStatVariable;
+	["aggressionBLUFOR"] call A3A_fnc_getStatVariable;
 	["resourcesFIA"] call A3A_fnc_getStatVariable;
 	["garrison"] call A3A_fnc_getStatVariable;
 	["usesWurzelGarrison"] call A3A_fnc_getStatVariable;

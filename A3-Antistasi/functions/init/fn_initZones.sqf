@@ -191,7 +191,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	_dmrk setMarkerColor colorOccupants;
 
 	sidesX setVariable [_mrk, Occupants, true];
-	_info = [_numCiv, _numVeh, prestigeOPFOR, prestigeBLUFOR];
+	_info = [_numCiv, _numVeh, aggressionOPFOR, aggressionBLUFOR];
 	server setVariable [_nameX, _info, true];
 };	//find in congigs faster then find location in 25000 radius
 if (debug) then {

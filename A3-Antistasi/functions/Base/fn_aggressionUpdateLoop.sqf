@@ -22,8 +22,8 @@ while {true} do
         waitUntil {sleep 10; (count (allPlayers - (entities "HeadlessClient_F")) > 0)};
     };
 
-    waitUntil {!prestigeIsChanging};
-    prestigeIsChanging = true;
+    waitUntil {!aggressionIsChanging};
+    aggressionIsChanging = true;
 
     //Calculate new values for each element
     aggressionStackOccupants = aggressionStackOccupants apply {[(_x select 0) + (_x select 1), (_x select 1)]};
@@ -35,7 +35,7 @@ while {true} do
     //Filter out all elements which have passed the 0 value
     aggressionStackInvaders = aggressionStackInvaders select {(_x select 0) * (_x select 1) < 0};
 
-    prestigeIsChanging = false;
+    aggressionIsChanging = false;
     [] call A3A_fnc_calculateAggression;
 
     if(gameMode != 4) then

@@ -1,3 +1,26 @@
+/*
+Maintainer: 
+
+Arguments:
+    <STRING> 	STRING OF WHAT VARIABLE WE ARE LOADING
+    <ANY> 		VALUE OF WHAT WE ARE LOADING
+
+Return Value:
+    <NIL> 
+
+Scope: Server
+Environment: Unscheduled
+Public: No
+Dependencies: 
+
+Example:
+    [_varName,_varValue] call A3A_fnc_loadStat;
+
+Note: 
+    Typically only called from getStatVariable, unless debugging.
+*/
+
+
 //===========================================================================
 //ADD VARIABLES TO THIS ARRAY THAT NEED SPECIAL SCRIPTING TO LOAD
 /*specialVarLoads =
@@ -20,15 +43,15 @@ private _translateMarker = {
 };
 
 private _specialVarLoads = [
-	"outpostsFIA","minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
-	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
-	"prestigeBLUFOR","resourcesFIA","skillFIA","destroyedSites",
+	"outpostsFIA","minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","aggressionNATO","aggressionCSAT",
+    "prestigeNATO","prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","aggressionOPFOR","aggressionBLUFOR",
+    "prestigeOPFOR","prestigeBLUFOR","resourcesFIA","skillFIA","destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
 	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
 	"countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage"
 ];
-
+params["_varName","_varValue"];
 private _varName = _this select 0;
 private _varValue = _this select 1;
 if (isNil '_varValue') exitWith {};
@@ -60,8 +83,8 @@ if (_varName in _specialVarLoads) then {
 	if (_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
 	if (_varName == 'jna_dataList') then {jna_dataList = +_varValue};
 	//Keeping these for older saves
-	if (_varName == 'prestigeNATO') then {[Occupants, _varValue, 120] call A3A_fnc_addAggression};
-	if (_varName == 'prestigeCSAT') then {[Invaders, _varValue, 120] call A3A_fnc_addAggression};
+	if (_varName == 'prestigeNATO' || _varName == 'aggressionNATO') then {[Occupants, _varValue, 120] call A3A_fnc_addAggression};
+	if (_varName == 'prestigeCSAT' || _varName == 'aggressionCSAT') then {[Invaders, _varValue, 120] call A3A_fnc_addAggression};
 	if (_varName == 'aggressionOccupants') then
 	{
 		aggressionLevelOccupants = _varValue select 0;
@@ -211,27 +234,28 @@ if (_varName in _specialVarLoads) then {
 		publicVariable "antennas";
 		publicVariable "antennasDead";
 	};
-	if (_varname == 'prestigeOPFOR') then {
+    //prestigeOPFOR prestigeBLUFOR kept for backwards compatiblity
+	if (_varname == 'prestigeOPFOR' || _varname == 'aggressionOPFOR') then {
 		for "_i" from 0 to (count citiesX) - 1 do {
 			_city = citiesX select _i;
 			_dataX = server getVariable _city;
 			_numCiv = _dataX select 0;
 			_numVeh = _dataX select 1;
-			_prestigeOPFOR = _varvalue select _i;
-			_prestigeBLUFOR = _dataX select 3;
-			_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
+			_aggressionOPFOR = _varvalue select _i;
+			_aggressionBLUFOR = _dataX select 3;
+			_dataX = [_numCiv,_numVeh,_aggressionOPFOR,_aggressionBLUFOR];
 			server setVariable [_city,_dataX,true];
 		};
 	};
-	if (_varname == 'prestigeBLUFOR') then {
+	if (_varname == 'prestigeBLUFOR' || _varname == 'aggressionBLUFOR') then {
 		for "_i" from 0 to (count citiesX) - 1 do {
 			_city = citiesX select _i;
 			_dataX = server getVariable _city;
 			_numCiv = _dataX select 0;
 			_numVeh = _dataX select 1;
-			_prestigeOPFOR = _dataX select 2;
-			_prestigeBLUFOR = _varvalue select _i;
-			_dataX = [_numCiv,_numVeh,_prestigeOPFOR,_prestigeBLUFOR];
+			_aggressionOPFOR = _dataX select 2;
+			_aggressionBLUFOR = _varvalue select _i;
+			_dataX = [_numCiv,_numVeh,_aggressionOPFOR,_aggressionBLUFOR];
 			server setVariable [_city,_dataX,true];
 		};
 	};

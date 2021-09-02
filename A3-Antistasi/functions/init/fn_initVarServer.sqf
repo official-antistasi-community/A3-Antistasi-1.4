@@ -123,8 +123,8 @@ Info("Setting server only variables");
 
 playerStartingMoney = 100;			// should probably be a parameter
 
-prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
-prestigeBLUFOR = 0;																	//Initial % FIA support on each city
+aggressionOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
+aggressionBLUFOR = 0;																	//Initial % FIA support on each city
 // Indicates time in seconds before next counter attack.
 attackCountdownOccupants = 600;
 attackCountdownInvaders = 600;
@@ -133,7 +133,7 @@ cityIsSupportChanging = false;
 resourcesIsChanging = false;
 savingServer = false;
 
-prestigeIsChanging = false;
+aggressionIsChanging = false;
 
 zoneCheckInProgress = false;
 garrisonIsChanging = false;

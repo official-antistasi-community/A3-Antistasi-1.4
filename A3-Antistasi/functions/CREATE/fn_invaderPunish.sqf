@@ -1,5 +1,5 @@
 if (!isServer and hasInterface) exitWith {};
-private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_typeAirVehicle","_vehicle","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_tanksX","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uav","_groupUAV","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_attackDestination","_posDestination","_prestigeCSAT","_base","_airportX","_nameDestination","_missionExpireTime","_soldiersSpawned","_nul","_pos","_timeOut"];
+private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_typeAirVehicle","_vehicle","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_tanksX","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uav","_groupUAV","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_attackDestination","_posDestination","_aggressionCSAT","_base","_airportX","_nameDestination","_missionExpireTime","_soldiersSpawned","_nul","_pos","_timeOut"];
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 _attackDestination = _this select 0;

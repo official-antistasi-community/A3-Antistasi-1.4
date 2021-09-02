@@ -31,11 +31,11 @@ private _savedPlayers = profileNamespace getVariable ["savedPlayers" + _postfix,
 } forEach ["countCA", "gameMode", "difficultyX", "bombRuns", "smallCAmrk", "membersX", "antennas",
 	"mrkSDK", "mrkCSAT", "posHQ", "dateX", "skillFIA", "destroyedSites", "distanceSPWN", "civPerc",
 	"chopForest", "maxUnits", "nextTick", "weather", "destroyedBuildings", "aggressionOccupants",
-	"aggressionInvaders", "resourcesFIA", "hr", "vehInGarage", "staticsX", "jna_datalist",
-	"prestigeOPFOR", "prestigeBLUFOR", "garrison", "wurzelGarrison", "usesWurzelGarrison", "minesX",
+	"aggressionInvaders", "resourcesFIA", "hr", "vehInGarage", "staticsX", "jna_datalist", "aggressionOPFOR", 
+	"aggressionBLUFOR","prestigeOPFOR", "prestigeBLUFOR", "garrison", "wurzelGarrison", "usesWurzelGarrison", "minesX",
 	"outpostsFIA", "tasks", "idlebases", "idleassets", "killZones", "controlsSDK", "params",
-	"attackCountdownOccupants", "attackCountdownInvaders", "prestigeNATO", "prestigeCSAT",
-	"savedPlayers", "testingTimerIsActive"];
+	"attackCountdownOccupants", "attackCountdownInvaders", "prestigeNATO", "prestigeCSAT", 
+	"aggressionNATO", "aggressionCSAT","savedPlayers", "testingTimerIsActive"];
 
 
 // Remove this campaign from the save list, if present

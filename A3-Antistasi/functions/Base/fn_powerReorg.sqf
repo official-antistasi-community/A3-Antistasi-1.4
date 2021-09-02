@@ -1,4 +1,4 @@
-private ["_markerX","_city","_pos","_power","_dataX","_powered","_numCiv","_numVeh","_roads","_prestigeOPFOR","_prestigeBLUFOR","_siteX"];
+private ["_markerX","_city","_pos","_power","_dataX","_powered","_numCiv","_numVeh","_roads","_aggressionOPFOR","_aggressionBLUFOR","_siteX"];
 
 _markerX = _this select 0;
 

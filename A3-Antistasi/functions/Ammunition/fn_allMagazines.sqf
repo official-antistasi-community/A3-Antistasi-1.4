@@ -5,7 +5,6 @@ Description:
 
 Arguments:
 0. <Config> Config of whatever you want to get the magazines for
-1. <Bool>   Perform only a shallow search (optional) (Default: false)
 
 Return Value: <Array> compatible magazines
 
@@ -18,32 +17,38 @@ Example:
     [configFile/"cfgVehicles"/"B_MBT_01_base_F"] call A3A_fnc_allMagazines;
     [configFile/"cfgWeapons"/"arifle_MX_GL_F"] call A3A_fnc_allMagazines;
 
-Note: None shallow search can take several millisecond, use it sparingly.
-
 License: MIT License
 */
 #include "..\..\Includes\common.inc"
-params ["_config", ["_shallow", false, [true]]];
+params ["_config"];
 if (!isClass _config) exitWith { Error_1("Not a config: ", _config); [] };
 
 //data store
 private _magazines = [];
 private _magazineWells = [];
-private _classes = [_config];
 
-//process
-while {_config isNotEqualTo []} do {
-    private _curClass = _classes#0;
-    if (isNil "_curClass") exitWith {};
-    if (!isClass _curClass) exitWith {};
+private _processVehicle = {
+    if (isArray (_config/"magazines")) then {_magazines append getArray (_config/"magazines")};
+    if (isArray (_config/"magazineWell")) then {_magazineWells append getArray (_config/"magazineWell")};
 
-    if (isArray (_curClass/"magazines")) then {_magazines append getArray (_curClass/"magazines")};
-    if (isArray (_curClass/"magazineWell")) then {_magazineWells append getArray (_curClass/"magazineWell")};
-
-    if (_shallow) exitWith {};
-    _classes append (configProperties [_curClass, "isClass _x"]);
-    _classes deleteAt (_classes find _curClass);
+    {
+        if (isArray (_x/"magazines")) then {_magazines append getArray (_x/"magazines")};
+        if (isArray (_x/"magazineWell")) then {_magazineWells append getArray (_x/"magazineWell")};
+    } forEach (configProperties [_config/"Turrets"]);
 };
+
+private _processWeapon = {
+    if (isArray (_config/"magazines")) then {_magazines append getArray (_config/"magazines")};
+    if (isArray (_config/"magazineWell")) then {_magazineWells append getArray (_config/"magazineWell")};
+
+    {
+        if (_x isEqualTo "this") then {continue};
+        if (isArray (_config/_x/"magazines")) then {_magazines append getArray (_config/_x/"magazines")};
+        if (isArray (_config/_x/"magazineWell")) then {_magazineWells append getArray (_config/_x/"magazineWell")};
+    } forEach (getArray (_config/"muzzles"));
+};
+
+if ((configFile/"cfgWeapons") in (configHierarchy _config)) then _processWeapon else _processVehicle;
 
 {
     {

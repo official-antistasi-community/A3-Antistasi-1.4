@@ -57,7 +57,7 @@ for "_i" from 1 to _numVehicles do
     _vehiclesX pushBack _veh;
 
     //If we're an attack vehicle.
-    if (not(_typeAirVehicle in _invaderAirTransport)) then {
+    if (_typeAirVehicle in _invaderAttackHelis) then {
         _wp1 = _crewGroup addWaypoint [_posDestination, 0];
         _wp1 setWaypointType "SAD";
         //[_veh,"Air Attack"] spawn A3A_fnc_inmuneConvoy;
@@ -127,11 +127,7 @@ while {count _civilians < _numCiv} do
         private _civ = [_groupCivil, SDKUnarmed, _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
         _civ forceAddUniform selectRandom (A3A_faction_civ getVariable "uniforms");
         _civ addHeadgear selectRandom (A3A_faction_civ getVariable "headgear");
-          if (random 100 < 75) then {
-            [_civ, selectRandom (unlockedsniperrifles + unlockedshotguns + Unlockedrifles + unlockedsmgs), 5, 0] call BIS_fnc_addWeapon;
-        } else {
-            [_civ, selectRandom (unlockedmachineguns + unlockedshotguns + Unlockedrifles + unlockedsmgs), 5, 0] call BIS_fnc_addWeapon;
-        };
+        [_civ, selectRandom (unlockedsniperrifles + unlockedmachineguns + unlockedshotguns + unlockedrifles + unlockedsmgs + unlockedhandguns), 5, 0] call BIS_fnc_addWeapon;
         _civ setSkill 0.5;
         _civilians pushBack _civ;
     };

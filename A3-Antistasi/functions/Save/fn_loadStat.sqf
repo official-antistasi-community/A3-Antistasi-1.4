@@ -124,23 +124,10 @@ if (_varName in _specialVarLoads) then {
 	};
 	if (_varName == 'minesX') then {
 		for "_i" from 0 to (count _varvalue) - 1 do {
-			_typeMine = _varvalue select _i select 0;
-			switch _typeMine do {
-				case "APERSMine_Range_Ammo": {_typeMine = "APERSMine"};
-				case "ATMine_Range_Ammo": {_typeMine = "ATMine"};
-				case "APERSBoundingMine_Range_Ammo": {_typeMine = "APERSBoundingMine"};
-				case "SLAMDirectionalMine_Wire_Ammo": {_typeMine = "SLAMDirectionalMine"};
-				case "APERSTripMine_Wire_Ammo": {_typeMine = "APERSTripMine"};
-				case "ClaymoreDirectionalMine_Remote_Ammo": {_typeMine = "Claymore_F"};
-			};
-			_posMine = _varvalue select _i select 1;
-			_mineX = createMine [_typeMine, _posMine, [], 0];
-			_detected = _varvalue select _i select 2;
+			(_varvalue select _i) params ["_typeMine", "_posMine", "_detected", "_dirMine"];
+			private _mineX = createVehicle [_typeMine, _posMine, [], 0, "CAN_COLLIDE"];
+			if !(isNil "_dirMine") then { _mineX setDir _dirMine };
 			{_x revealMine _mineX} forEach _detected;
-			if (count (_varvalue select _i) > 3) then {
-				_dirMine = _varvalue select _i select 3;
-				_mineX setDir _dirMine;
-			};
 		};
 	};
 	if (_varName == 'garrison') then {

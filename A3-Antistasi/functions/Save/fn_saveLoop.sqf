@@ -176,7 +176,10 @@ _wurzelGarrison = [];
 ["usesWurzelGarrison", true] call A3A_fnc_setStatVariable;
 
 _arrayMines = [];
+private _mineChance = 500 / count allMines;
 {
+	// randomly discard mines down to ~500 to avoid ballooning saves
+	if (random 1 > _mineChance) then { continue };
 	_typeMine = typeOf _x;
 	_posMine = getPos _x;
 	_dirMine = getDir _x;
@@ -190,7 +193,7 @@ _arrayMines = [];
 	if (_x mineDetectedBy Invaders) then {
 		_detected pushBack Invaders
 	};
-	_arrayMines = _arrayMines + [[_typeMine,_posMine,_detected,_dirMine]];
+	_arrayMines pushBack [_typeMine,_posMine,_detected,_dirMine];
 } forEach allMines;
 
 ["minesX", _arrayMines] call A3A_fnc_setStatVariable;

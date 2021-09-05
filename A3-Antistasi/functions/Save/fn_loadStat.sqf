@@ -296,7 +296,9 @@ if (_varName in _specialVarLoads) then {
 				staticsToSave pushBack _veh;
 			}
 			else {
-                [_veh, _state] call HR_GRG_fnc_setState;
+                if (!isNil "_state") then {
+                    [_veh, _state] call HR_GRG_fnc_setState;
+                };
 				[_veh] spawn A3A_fnc_vehDespawner;
 			};
 		};

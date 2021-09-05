@@ -2,7 +2,6 @@ params ["_typeGroup", ["_withBackpck", ""]];
 
 if (player != theBoss) exitWith {["Recruit Squad", "Only the Commander has access to this function"] call A3A_fnc_customHint;};
 if (markerAlpha respawnTeamPlayer == 0) exitWith {["Recruit Squad", "You cannot recruit a new squad while you are moving your HQ"] call A3A_fnc_customHint;};
-if (getMarkerPos respawnTeamPlayer distance player > 50) exitWith {["Recruit Squad", "You can only recruit a new squad while at HQ"] call A3A_fnc_customHint;};
 if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Recruit Squad", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;} else {["Recruit Squad", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
 
 private _exit = false;
@@ -90,7 +89,23 @@ private _special = if (_isInfantry) then {
     "VehicleSquad"
 };
 
-if (!_isInfantry) exitWith { [_vehType, "HCSquadVehicle", [_formatX, _idFormat, _special], _mounts] call HR_GRG_fnc_confirmPlacement };
+private _vehiclePlacementMethod = if (getMarkerPos respawnTeamPlayer distance player > 50) then {
+    {
+        private _spawnPos = (markerPos respawnTeamPlayer) findEmptyPosition [0, 100, _vehType];
+        private _vehicle = _vehType createVehicle _spawnPos;
+
+        if (_mounts isNotEqualTo []) then {
+            private _static = staticAAteamPlayer createVehicle _spawnPos;
+            private _nodes = [_vehicle, _static] call A3A_fnc_logistics_canLoad;
+            if (_nodes isEqualType 0) exitWith {};
+            (_nodes + [true]) call A3A_fnc_logistics_load;
+            _static call HR_GRG_fnc_vehInit;
+        };
+
+        [_formatX, _idFormat, _special, _vehicle] spawn A3A_fnc_spawnHCGroup;
+    }
+} else { HR_GRG_fnc_confirmPlacement };
+if (!_isInfantry) exitWith { [_vehType, "HCSquadVehicle", [_formatX, _idFormat, _special], _mounts] call _vehiclePlacementMethod };
 
 private _vehCost = [_vehType] call A3A_fnc_vehiclePrice;
 if ((_costs + _vehCost) > server getVariable "resourcesFIA") exitWith {
@@ -114,4 +129,4 @@ waitUntil {(!dialog) or (!isNil "vehQuery")};
 if ((!dialog) and (isNil "vehQuery")) exitWith { [_formatX, _idFormat, _special, objNull] spawn A3A_fnc_spawnHCGroup }; //spawn group call here
 
 vehQuery = nil;
-[_vehType, "HCSquadVehicle", [_formatX, _idFormat, _special], _mounts] call HR_GRG_fnc_confirmPlacement;
+[_vehType, "HCSquadVehicle", [_formatX, _idFormat, _special], _mounts] call _vehiclePlacementMethod;

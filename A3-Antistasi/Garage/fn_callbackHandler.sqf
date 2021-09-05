@@ -78,20 +78,13 @@ switch _callBackName do {
         };
     };
 
-    case "SquadVehicle": {
+    case "HCSquadVehicle": {
         switch _action do {
+            case "invalidPlacement": {
+                [getMarkerPos respawnTeamPlayer distance _vehicle > 50, "You cant place HC vehicles further than 50m from HQ"];
+            };
             case "Placed": {
-                //passed group as argument
-                [_vehicle, teamPlayer] call A3A_fnc_AIVEHinit;
-                [_vehicle] spawn A3A_fnc_vehDespawner;
-                _arguments addVehicle _vehicle;
-                _vehicle setVariable ["owner",_arguments,true];
-                private _cost = [typeOf _vehicle] call A3A_fnc_vehiclePrice;
-                [0, - _cost] remoteExec ["A3A_fnc_resourcesFIA",2];
-                leader _arguments assignAsDriver _vehicle;
-                {[_x] orderGetIn true; [_x] allowGetIn true} forEach units _arguments;
-                ["Recruit Squad", "Vehicle Purchased"] call A3A_fnc_customHint;
-                petros directSay "SentGenBaseUnlockVehicle";
+                (_arguments + [_vehicle]) spawn A3A_fnc_spawnHCGroup;
             };
             default {false};
         };

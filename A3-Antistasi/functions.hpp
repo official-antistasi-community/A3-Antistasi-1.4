@@ -551,6 +551,7 @@ class A3A
         class postmortem {};
         class reDress {};
         class reinfPlayer {};
+        class spawnHCGroup {};
         class stealStatic {};
         class vehiclePrice {};
         class vehStats {};

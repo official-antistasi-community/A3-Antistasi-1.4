@@ -16,12 +16,6 @@ if (_typeGroup isEqualType "") then {
 	if (A3A_hasIFA and ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) and !debug) then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset"] call A3A_fnc_customHint;};
 };
 
-if (A3A_hasRHS) then {
-	if (_typeGroup isEqualType objNull) then {
-		if (_typeGroup == staticATteamPlayer) then {["Recruit Squad", "AT Trucks are disabled in RHS - GREF"] call A3A_fnc_customHint; _exit = true};
-	};
-};
-
 if (_exit) exitWith {};
 private _isInfantry = false;
 private _typeVehX = "";

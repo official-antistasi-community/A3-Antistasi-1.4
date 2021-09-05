@@ -103,11 +103,21 @@ else
 			case (_markerX in citiesX): {_type = "City"};
 	};
 	private _preference = garrison getVariable (format ["%1_preference", _type]);
+	// pre-fill most of the garrison, because otherwise we're spamming a lot of fake reinf 
+	private _indexToReinf = floor (random count _preference);
+	private _garrison = [];
 	private _request = [];
-	for "_i" from 0 to ((count _preference) - 1) do
 	{
-		_request pushBack ([_preference select _i, _winner] call A3A_fnc_createGarrisonLine);
-	};
+		private _line = [_x, _winner] call A3A_fnc_createGarrisonLine;
+		if (_forEachIndex == _indexToReinf) then {
+			_garrison pushBack ["", [], []];		// empty garrison line
+			_request pushBack _line;
+		} else {
+			_garrison pushBack _line;
+			_request pushBack ["", [], []];
+		};
+	} forEach _preference;
+	garrison setVariable [format ["%1_garrison", _markerX], _garrison, true];
 	garrison setVariable [format ["%1_requested", _markerX], _request, true];
 	//End ========================================================================
 };

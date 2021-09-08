@@ -61,10 +61,6 @@ private _taskId = "rebelAttack" + str A3A_taskCount;
 [_sideTsk1,_taskId+"B",[format ["We are attacking %2 from the %1. Help the operation if you can",_nameOrigin,_nameDest],format ["%1 Attack",_nameENY],_mrkDestination],getMarkerPos _mrkDestination,false,0,true,"Attack",true] call BIS_fnc_taskCreate;
 [_taskId, "rebelAttack", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-// Use fixed aggro value for non-rebel targets for the moment
-private _aggro = if (_sideX == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-if !(_isSDK) then {_aggro = 100 - _aggro;};
-
 _timeX = time + 3600;
 
 private _vehPoolLand = [];
@@ -163,8 +159,8 @@ private _uav = objNull;
 while {(_waves > 0)} do
 {
 	_soldiers = [];
-	_nVeh = 2 + random (2) + (_aggro / 25);
-	_nVeh = _nVeh + (skillMult - 2);
+	private _playerScale = (8 + count (allPlayers - entities "HeadlessClient_F")) / 17;
+	_nVeh = 1.5 + random 1 + 3*_playerScale;
 	if (_firstWave) then { _nVeh = _nVeh + 2 };
     _nVeh = (round (_nVeh)) max 1;
 

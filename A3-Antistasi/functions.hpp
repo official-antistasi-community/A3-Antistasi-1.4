@@ -296,6 +296,7 @@ class A3A
 
     class EventHandler
     {
+        class addArtilleryDetectionEH {};
         class addArtilleryTrailEH {};
     };
 

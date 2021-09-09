@@ -112,46 +112,6 @@ else
 				[_veh, "static"] remoteExec ["A3A_fnc_flagAction", [teamPlayer,civilian], _veh];
 				if (_side == teamPlayer && !isNil {serverInitDone}) then { [_veh] remoteExec ["A3A_fnc_updateRebelStatics", 2] };
 			};
-
-			// TODO: fix this shit so it's dependent on occupancy rather than type
-			if (_typeX == SDKMortar) then
-			{
-				_veh addEventHandler ["Fired",
-				{
-					_mortarX = _this select 0;
-					_dataX = _mortarX getVariable ["detection",[position _mortarX,0]];
-					_positionX = position _mortarX;
-					_chance = _dataX select 1;
-					if ((_positionX distance (_dataX select 0)) < 300) then
-					{
-						_chance = _chance + 2;
-					}
-					else
-					{
-						_chance = 0;
-					};
-					if (random 100 < _chance) then
-					{
-						{if ((side _x == Occupants) or (side _x == Invaders)) then {_x reveal [_mortarX,4]}} forEach allUnits;
-						if (_mortarX distance posHQ < 300) then
-						{
-							if !("DEF_HQ" in A3A_activeTasks) then
-							{
-								_LeaderX = leader (gunner _mortarX);
-								if (!isPlayer _LeaderX) then
-								{
-									[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2];
-								}
-								else
-								{
-									if ([_LeaderX] call A3A_fnc_isMember) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
-								};
-							};
-						};
-					};
-					_mortarX setVariable ["detection",[_positionX,_chance]];
-				}];
-			};
 		};
 	};
 };
@@ -170,9 +130,10 @@ if (_side == civilian) then
 	}];
 };
 
-if(_typeX in vehMRLS + [CSATMortar, NATOMortar, SDKMortar]) then
+if(_typeX in vehMRLS + vehMortars) then
 {
     [_veh] call A3A_fnc_addArtilleryTrailEH;
+	[_veh] remoteExec ["A3A_fnc_addArtilleryDetectionEH", 2];
 };
 
 // EH behaviour:

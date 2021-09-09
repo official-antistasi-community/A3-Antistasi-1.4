@@ -42,16 +42,16 @@ private _increase = _balanceScale / 6;      // Because it's called six times per
 
 [[staticATOccupants], 1.0, _groundCap, _increase] call _fnc_economics;
 [[staticAAOccupants], 1.0, _groundCap, _increase] call _fnc_economics;
-[vehNATOAPC, 1.2, _groundCap, _increase] call _fnc_economics;
-[[vehNATOTank], 0.4, _groundCap, _increase] call _fnc_economics;
-[[vehNATOAA], 0.4, _groundCap, _increase] call _fnc_economics;
-[[vehNATOMRLS], 0.2, _groundCap, _increase] call _fnc_economics;           // not used atm?
+[vehNATOAPC, 1.8, _groundCap, _increase] call _fnc_economics;
+[[vehNATOTank], 0.6, _groundCap, _increase] call _fnc_economics;
+[[vehNATOAA], 0.6, _groundCap, _increase] call _fnc_economics;
+[[vehNATOMRLS], 0.3, _groundCap, _increase] call _fnc_economics;           // not used atm?
 [[vehNATOBoat], 1.0, _balanceScale * (1 + _seaports), _increase] call _fnc_economics;
 [[vehNATOPlane], 0.25, _airCap, _increase] call _fnc_economics;             // only used for major attacks
 [[vehNATOPlaneAA], 0.25, _airCap, _increase] call _fnc_economics;           // only used for major attacks
-[vehNATOTransportPlanes, 1.0, _airCap, _increase] call _fnc_economics;
-[vehNATOTransportHelis - [vehNATOPatrolHeli], 1.5, _airCap, _increase] call _fnc_economics;
-[vehNATOAttackHelis, 0.8, _airCap, _increase] call _fnc_economics;
+[vehNATOTransportPlanes, 1.5, _airCap, _increase] call _fnc_economics;
+[vehNATOTransportHelis - [vehNATOPatrolHeli], 2.5, _airCap, _increase] call _fnc_economics;
+[vehNATOAttackHelis, 1.2, _airCap, _increase] call _fnc_economics;
 
 private _natoArray = flatten [staticATOccupants, staticAAOccupants, vehNATOAPC, vehNATOTank, vehNATOAA, vehNATOBoat, vehNATOPlane, vehNATOPlaneAA, vehNATOTransportPlanes, (vehNATOTransportHelis - [vehNATOPatrolHeli]), vehNATOAttackHelis, vehNATOMRLS];
 _natoArray = _natoArray apply { [_x, timer getVariable [_x, 0]] };
@@ -68,16 +68,16 @@ _increase = 1.2 * _balanceScale / 6;            // Invaders get a bit more of ev
 
 [[staticATInvaders], 1.0, _groundCap, _increase] call _fnc_economics;
 [[staticAAInvaders], 1.0, _groundCap, _increase] call _fnc_economics;
-[vehCSATAPC, 1.2, _groundCap, _increase] call _fnc_economics;
-[[vehCSATTank], 0.4, _groundCap, _increase] call _fnc_economics;
-[[vehCSATAA], 0.4, _groundCap, _increase] call _fnc_economics;
-[[vehCSATMRLS], 0.2, _groundCap, _increase] call _fnc_economics;           // not used atm?
+[vehCSATAPC, 1.8, _groundCap, _increase] call _fnc_economics;
+[[vehCSATTank], 0.6, _groundCap, _increase] call _fnc_economics;
+[[vehCSATAA], 0.6, _groundCap, _increase] call _fnc_economics;
+[[vehCSATMRLS], 0.3, _groundCap, _increase] call _fnc_economics;           // not used atm?
 [[vehCSATBoat], 1.0, _balanceScale * (1 + _seaports), _increase] call _fnc_economics;
 [[vehCSATPlane], 0.25, _airCap, _increase] call _fnc_economics;             // only used for major attacks
 [[vehCSATPlaneAA], 0.25, _airCap, _increase] call _fnc_economics;           // only used for major attacks
-[vehCSATTransportPlanes, 1.0, _airCap, _increase] call _fnc_economics;
-[vehCSATTransportHelis - [vehCSATPatrolHeli], 1.5, _airCap, _increase] call _fnc_economics;
-[vehCSATAttackHelis, 0.8, _airCap, _increase] call _fnc_economics;
+[vehCSATTransportPlanes, 1.5, _airCap, _increase] call _fnc_economics;
+[vehCSATTransportHelis - [vehCSATPatrolHeli], 2.5, _airCap, _increase] call _fnc_economics;
+[vehCSATAttackHelis, 1.2, _airCap, _increase] call _fnc_economics;
 
 private _csatArray = flatten [staticATInvaders, staticAAInvaders, vehCSATAPC, vehCSATTank, vehCSATAA, vehCSATBoat, vehCSATPlane, vehCSATPlaneAA, vehCSATTransportPlanes, (vehCSATTransportHelis - [vehCSATPatrolHeli]), vehCSATAttackHelis, vehCSATMRLS];
 _csatArray = _csatArray apply { [_x, timer getVariable [_x, 0]] };

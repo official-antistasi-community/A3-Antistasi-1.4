@@ -249,7 +249,7 @@ private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 		sleep 1;    //make sure fillLootCrate finished clearing the crate
 		{
 			_this#0 addItemCargoGlobal [_x, round random [5,15,15]];
-		} forEach flyGear;
+		} forEach (A3A_faction_reb getVariable "flyGear");
 	};
 	_ammoBox;
 };

@@ -185,9 +185,7 @@ private _otherEquipmentArrayNames = [
 	"invaderBackpackDevice",
 	"occupantBackpackDevice",
 	"rebelBackpackDevice",
-	"civilianBackpackDevice",
-	"diveGear",
-	"flyGear"
+	"civilianBackpackDevice"
 ];
 
 DECLARE_SERVER_VAR(otherEquipmentArrayNames, _otherEquipmentArrayNames);

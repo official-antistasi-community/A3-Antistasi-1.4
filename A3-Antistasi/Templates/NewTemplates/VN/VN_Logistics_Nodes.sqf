@@ -16,6 +16,8 @@ A3A_logistics_vehicleHardpoints append [
     ,["vn\boat_f_vietnam\ptf\vn_boat_05.p3d",[[1,[1.2,-9.9,-0.3],[]],[1,[1.2,-10.7,-0.3],[]]]] // PTF Nasty Boat (Mortar/ Black)
     ,["vn\boat_f_vietnam\gunboat\vn_boat_04.p3d",[[1,[1,-10.4,-1.63],[]],[1,[1,-11.2,-1.63],[]]]] // Shantou Gunboat (ZPU-4/ Green)
     ,["vn\boat_f_vietnam\gunboat\vn_boat_03.p3d",[[1,[1,-10.4,-1.63],[]],[1,[1,-11.2,-1.63],[]]]] // Shantou Gunboat (V-11M/ Green)
+    ,["vn\wheeled_f_vietnam_02\car\vn_wheeled_car_04.p3d",[[1,[0,0.4,-0.62],[1]],[1,[0,-0.4,-0.62],[2]],[1,[0,-1.2,-0.62],[3,4]]]]
+    ,["vn\wheeled_f_vietnam_02\car\vn_wheeled_car_02.p3d",[[1,[0,-0.02,0.22],[]],[1,[0,-0.82,0.22],[]]]]
 ];
 A3A_logistics_attachmentOffset append [
     //Boxes
@@ -42,6 +44,8 @@ A3A_logistics_attachmentOffset append [
     ,["\vn\static_f_vietnam\rpd\vn_static_rpd_high.p3d",[-0.15,1,1.67],[0,-1,0],4,100]
     ,["\vn\static_f_vietnam\dshkm\vn_static_dshkm_low_01.p3d",[-0.3,0.8,1.21],[0,-1,0],4,150]
     ,["\vn\static_f_vietnam\PK\vn_static_PK_low.p3d",[-0.3,0,1.21],[0,-1,0],2,100]
+    ,["\vn\static_f_vietnam_02\l70mk2\vn_static_l70mk2.p3d",[0.2,0,1.58],[0,0,0],4,1500]
+    ,["\vn\static_f_vietnam_02\l60mk3\vn_static_l60mk3.p3d",[0,0,1.77],[0,0,0],7,3000]
 ];
 A3A_logistics_coveredVehicles append [
     "vn_b_wheeled_m54_03"
@@ -65,6 +69,8 @@ A3A_logistics_coveredVehicles append [
     ,"vn_i_wheeled_m54_repair"
     ,"vn_i_wheeled_m54_02"
     ,"vn_c_wheeled_m151_02"
+    ,"vn\wheeled_f_vietnam_02\car\vn_wheeled_car_02.p3d"
+    ,"vn\wheeled_f_vietnam_02\car\vn_wheeled_car_04.p3d"
 ];
 A3A_logistics_weapons append [
     ["\vn\static_f_vietnam\zpu4\vn_static_zpu4_01.p3d",[]]
@@ -97,4 +103,6 @@ A3A_logistics_weapons append [
     ,["\vn\static_f_vietnam\rpd\vn_static_rpd_high.p3d",[]]
     ,["\vn\static_f_vietnam\dshkm\vn_static_dshkm_low_01.p3d",[]]
     ,["\vn\static_f_vietnam\PK\vn_static_PK_low.p3d",[]]
+    ,["\vn\static_f_vietnam_02\l70mk2\vn_static_l70mk2.p3d",[]]
+    ,["\vn\static_f_vietnam_02\l60mk3\vn_static_l60mk3.p3d",[]]
 ];

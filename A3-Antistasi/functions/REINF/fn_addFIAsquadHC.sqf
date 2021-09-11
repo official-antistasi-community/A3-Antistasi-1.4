@@ -91,7 +91,9 @@ private _special = if (_isInfantry) then {
 
 private _vehiclePlacementMethod = if (getMarkerPos respawnTeamPlayer distance player > 50) then {
     {
-        private _spawnPos = (markerPos respawnTeamPlayer) findEmptyPosition [0, 100, _vehType];
+        private _searchCenter = getMarkerPos respawnTeamPlayer getPos [20 + random 30, random 360];
+        private _spawnPos = _searchCenter findEmptyPosition [0, 30, _vehType];
+        if (_spawnPos isEqualTo []) then {_spawnPos = _searchCenter};
         private _vehicle = _vehType createVehicle _spawnPos;
 
         if (_mounts isNotEqualTo []) then {

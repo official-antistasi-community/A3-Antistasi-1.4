@@ -156,7 +156,7 @@ private _fnc_spawnConvoyVehicle = {
     deleteWaypoint [_group, 0];													// groups often start with a bogus waypoint
 
     [_veh, _sideX] call A3A_fnc_AIVEHinit;
-    if (_veh in vehArmor) then { _veh allowCrewInImmobile true };			// move this to AIVEHinit at some point?
+    if (_vehType in vehArmor) then { _veh allowCrewInImmobile true };			// move this to AIVEHinit at some point?
     _vehiclesX pushBack _veh;
     _markNames pushBack _markName;
     _veh;

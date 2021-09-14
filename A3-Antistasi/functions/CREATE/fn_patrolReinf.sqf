@@ -6,7 +6,7 @@ _mrkDestination = _this select 0;
 _mrkOrigin = _this select 1;
 _numberX = _this select 2;
 _sideX = _this select 3;
-Info_4("Spawning PatrolReinf. Dest:%1, Orig:%2, Size:%3, Side: %4",_mrkDestination,_mrkOrigin,_numberX,_sideX);
+ServerInfo_4("Spawning PatrolReinf. Dest:%1, Orig:%2, Size:%3, Side: %4",_mrkDestination,_mrkOrigin,_numberX,_sideX);
 _posDestination = getMarkerPos _mrkDestination;
 _posOrigin = getMarkerPos _mrkOrigin;
 
@@ -145,7 +145,7 @@ else
 	};
 };
 
-Info_2("Spawn performed: Vehicle type %1 with %2 troops", _typeVehX, count units _groupX);
+ServerInfo_2("Spawn performed: Vehicle type %1 with %2 troops", _typeVehX, count units _groupX);
 
 
 // Allow the convoy a generous time to arrive
@@ -185,10 +185,10 @@ if (count _units == 0 || time > _timeout || _sideX != (sidesX getVariable _mrkDe
 		killZones setVariable [_mrkOrigin,_killzones,true];
 	};
 
-    Info_2("Reinf on %1 failed, returning with %2 units", _mrkDestination, count units _groupX);
+    ServerInfo_2("Reinf on %1 failed, returning with %2 units", _mrkDestination, count units _groupX);
 };
 
-Info_2("Reinf on %1 successful, adding %2 units", _mrkDestination, count units _groupX);
+ServerInfo_2("Reinf on %1 successful, adding %2 units", _mrkDestination, count units _groupX);
 
 // Arrived successfully, add units to garrison and despawn with it
 [_units, _sideX, _mrkDestination, 0] remoteExec ["A3A_fnc_garrisonUpdate", 2];

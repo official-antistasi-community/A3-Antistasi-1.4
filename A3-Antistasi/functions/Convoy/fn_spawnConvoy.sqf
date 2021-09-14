@@ -47,7 +47,7 @@ private _airVehicles = [];
 private _landVehicles = [];
 
 Info_1("Spawning in convoy %1", _convoyID);
-[_units, "Convoy Units"] call A3A_fnc_logArray;
+VerboseArray("Convoy Units", _units);
 
 for "_i" from 0 to ((count _units) - 1) do
 {

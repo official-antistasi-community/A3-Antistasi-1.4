@@ -674,7 +674,7 @@ DECLARE_SERVER_VAR(vehMRLS, _vehMRLS);
 private _vehMortars = [SDKMortar, NATOMortar, CSATMortar];
 DECLARE_SERVER_VAR(vehMortars, _vehMortars);
 
-private _vehArmor = [vehTanks,vehAA,vehMRLS] + vehAPCs;
+private _vehArmor = vehTanks + vehAA + vehMRLS + vehAPCs;
 DECLARE_SERVER_VAR(vehArmor, _vehArmor);
 
 private _vehTransportAir = vehNATOTransportHelis + vehCSATTransportHelis + vehNATOTransportPlanes + vehCSATTransportPlanes;

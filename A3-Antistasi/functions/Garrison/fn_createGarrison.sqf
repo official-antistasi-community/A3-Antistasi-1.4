@@ -58,8 +58,7 @@ while {!(_preferred isEqualType [])} do
 
   if(debug) then
   {
-      Debug_1("Garrison on %1 is now set", _marker);
-    [_garrison, format ["%1_garrison", _marker]] call A3A_fnc_logArray;
+      DebugArray("Garrison on "+_marker+" is now set", _garrison);
   };
 
   [_marker] call A3A_fnc_updateReinfState;

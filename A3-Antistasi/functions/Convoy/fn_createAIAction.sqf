@@ -244,7 +244,7 @@ if(_type == "reinforce") then
 
       //For debug is direct placement
       //Trace_2("Reinforce %1 from %2", _target, _selectedBase);
-      //[_units, "Reinf units"] call A3A_fnc_logArray;
+      //VerboseArray("Reinf units", _units);
       //[_target, _units] call A3A_fnc_addGarrison;
     };
   }

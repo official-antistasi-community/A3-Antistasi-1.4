@@ -4,6 +4,7 @@
 #include "..\defines.hpp"
 #include "..\dialogs.hpp"
 #include "..\Garage\Dialogs.hpp"
+#include "..\functions\Dialogs\ArsenalLimits\arsenalLimitsDialogs.hpp"
 
 author = $STR_antistasi_credits_generic_author_text;
 loadScreen = "Pictures\Mission\pic.jpg"; // NB, this will resolve from root

@@ -114,6 +114,8 @@ server setVariable ["hr",8,true];
 server setVariable ["resourcesFIA",1000,true];
 // Time of last garbage clean. Note: serverTime may not reset to zero if server was not restarted. Therefore, it should capture the time at start of mission.
 DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
+// Hash map of custom non-member/AI item thresholds
+DECLARE_SERVER_VAR(A3A_arsenalLimits, createHashMap);
 
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///

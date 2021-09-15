@@ -294,6 +294,13 @@ class A3A
         class unit_recruit {};
     };
 
+    class Dialogs_arsenalLimits
+    {
+        file = "functions\Dialogs\ArsenalLimits";
+        class arsenalLimits_listButton {};
+        class arsenalLimits_typeSelect {};
+    };
+
     class EventHandler
     {
         class addArtilleryTrailEH {};

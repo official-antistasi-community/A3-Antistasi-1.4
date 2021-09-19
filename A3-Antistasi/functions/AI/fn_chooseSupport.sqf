@@ -203,10 +203,7 @@ private _maxFriendlies = if (side _group == Invaders) then { random [1, 2, 10] }
 private _nearHouses = call {
 	if (side _group == Invaders) exitWith { 0 };		// invaders are fine with bombing towns
 	// many buildings within military facilities also count as HOUSE, so first check if we're inside a town radius
-	private _cityIndex = citiesX findIf {
-		private _dist = getMarkerPos _x distance2d getpos _enemy;
-		_dist < markerSize _x # 0;
-	};
+	private _cityIndex = citiesX findIf { _enemy inArea _x };
 	if (_cityIndex == -1) exitWith { 0 };
 	count nearestTerrainObjects [getpos _enemy, ["HOUSE"], 100, false];
 };

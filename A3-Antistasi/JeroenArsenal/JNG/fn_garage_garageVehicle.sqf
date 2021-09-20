@@ -29,4 +29,4 @@ deleteVehicle _vehicle;
 //set message it was saved
 _data = _dataAndIndex select 0;
 SPLIT_SAVE
-["Garage", (_name + " stored in garage")] call A3A_fnc_customHint;
+["Garage", (_name + " stored in garage.")] call A3A_fnc_customHint;

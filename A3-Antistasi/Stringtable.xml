@@ -217,14 +217,14 @@
         <Korean>AI는 현재 아스널의 지뢰 재고를 이용하여, 목표물에 지뢰를 심거나 제거합니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_text">
-        <Original>Outpost or Roadblock</Original>
-        <English>Outpost or Roadblock</English>
-        <French>Avant-Poste ou Barrage Routier</French>
+        <Original>Watchpost or Roadblock</Original>
+        <English>Watchpost or Roadblock</English>
+        <French>Poste de Garde ou Barrage Routier</French>
         <Russian>БП или НП</Russian>
-        <German>Außenposten oder Straßensperre</German>
+        <German>Wachposten oder Straßensperre</German>
         <Czech>Předsunutá hlídka nebo Zátaras</Czech>
-        <Chinesesimp>前哨或路障</Chinesesimp>
-        <Korean>전초기지 또는 검문소</Korean>
+        <Chinesesimp>岗哨或路障</Chinesesimp>
+        <Korean>경비초소 또는 검문소</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_tooltip">
         <Original>Establish a new watchpost or roadblock depending on the type of terrain you select.</Original>
@@ -2819,8 +2819,8 @@
         <Chinesesimp>可用任务</Chinesesimp>
         <Russian>Доступные миссии</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_mission_menu_assasination_missions">
-        <Original>Assasination Mission</Original>
+      <Key ID="STR_antistasi_dialogs_mission_menu_assassination_missions">
+        <Original>Assassination Mission</Original>
         <Chinesesimp>刺杀任务</Chinesesimp>
         <Russian>Миссия на убийство</Russian>
       </Key>

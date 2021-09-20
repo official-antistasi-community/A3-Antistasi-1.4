@@ -23,7 +23,7 @@ Example:
 private _result = [false];
 if (player != theBoss) then
 {
-    ["Move HQ", "Only our Commander has access to this function"] call A3A_fnc_customHint;
+    ["Move HQ", "Only our Commander has access to this function."] call A3A_fnc_customHint;
     _result pushBack "Commander only";
 };
 
@@ -31,7 +31,7 @@ if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemC
 {
     if(count _result == 1) then
     {
-        ["Move HQ", "You must first empty your Arsenal inventory in order to move the HQ"] call A3A_fnc_customHint;
+        ["Move HQ", "You must first empty your Arsenal inventory in order to move the HQ."] call A3A_fnc_customHint;
     };
     _result pushBack "Arsenal inventory must be empty";
 };

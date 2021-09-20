@@ -2,7 +2,7 @@ private ["_typeX","_costs","_positionTel","_quantity","_quantityMax"];
 
 if ("Mines" in A3A_activeTasks) exitWith {["Minefields", "We can only deploy one minefield at a time."] call A3A_fnc_customHint;};
 
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Minefields", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;} else {["Minefields", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Minefields", "You need a radio in your inventory to be able to give orders to other squads."] call A3A_fnc_customHint;} else {["Minefields", "You need a Radio Man in your group to be able to give orders to other squads."] call A3A_fnc_customHint;}};
 
 _typeX = _this select 0;
 
@@ -13,7 +13,7 @@ if (_typeX == "delete") then
 	_costs = _costs - (server getVariable (SDKExp select 0));
 	_hr = 1;
 	};
-if ((server getVariable "resourcesFIA" < _costs) or (server getVariable "hr" < _hr)) exitWith {["Minefields", format ["Not enough resources to recruit a mine deploying team (%1 € and %2 HR needed)",_costs,_hr]] call A3A_fnc_customHint;};
+if ((server getVariable "resourcesFIA" < _costs) or (server getVariable "hr" < _hr)) exitWith {["Minefields", format ["Not enough resources to recruit a mine deploying team (%1 € and %2 HR needed).",_costs,_hr]] call A3A_fnc_customHint;};
 
 if (_typeX == "delete") exitWith
 	{
@@ -37,7 +37,7 @@ if (_typeX == "ATMine") then
 if (_x select 0 == _typeM) exitWith {_quantity = _x select 1}
 } forEach _pool;
 
-if (_quantity < 5) exitWith {["Minefields", "You need at least 5 mines of this type to build a Minefield"] call A3A_fnc_customHint;};
+if (_quantity < 5) exitWith {["Minefields", "You need at least 5 mines of this type to build a Minefield."] call A3A_fnc_customHint;};
 
 if (!visibleMap) then {openMap true};
 positionTel = [];

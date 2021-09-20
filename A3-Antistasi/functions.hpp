@@ -67,6 +67,7 @@ class A3A
         class garbageCleaner {};
         class garrisonInfo {};
         class getAggroLevelString {};
+        class getPlayerScale {};
         class getVehiclePoolForAttacks {};
         class getVehiclePoolForQRFs {};
         class vehicleBoxHeal {};
@@ -296,6 +297,7 @@ class A3A
 
     class EventHandler
     {
+        class addArtilleryDetectionEH {};
         class addArtilleryTrailEH {};
     };
 
@@ -551,6 +553,7 @@ class A3A
         class postmortem {};
         class reDress {};
         class reinfPlayer {};
+        class spawnHCGroup {};
         class stealStatic {};
         class vehiclePrice {};
         class vehStats {};

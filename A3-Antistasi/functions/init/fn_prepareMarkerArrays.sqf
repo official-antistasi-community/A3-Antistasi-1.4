@@ -100,8 +100,7 @@ fnc_sortPlacementMarker =
   };
 } forEach _allMarker;
 
-//Debug("Marker setup done, placement marker are");
-//[_placementMarker, "Placements"] call A3A_fnc_logArray;
+//DebugArray("Marker setup done, placement marker are", _placementMarker);
 
 {
     [_x select 0, _x select 1] spawn A3A_fnc_initSpawnPlaces;

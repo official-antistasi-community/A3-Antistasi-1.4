@@ -52,19 +52,13 @@ _targetMarker setMarkerAlpha 0;
 private _vehicles = [];
 private _groups = [];
 private _landPosBlacklist = [];
-private _vehicleCount = if(_side == Occupants) then
-{
-    (aggressionOccupants/25)
-    + ([-0.5, 0, 0.5] select (skillMult - 1))
-}
-else
-{
-    (aggressionInvaders/25)
-    + ([0, 0.5, 1.5] select (skillMult - 1))
-};
+
+private _aggression = if (_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+private _playerScale = call A3A_fnc_getPlayerScale;
+private _vehicleCount = random 1 + _playerScale + _aggression/50;
 _vehicleCount = (round (_vehicleCount)) max 1;
 
-Debug_2("Due to %1 aggression, sending %2 vehicles", (if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders}), _vehicleCount);
+Debug_3("Due to %1 aggression and %2 player scale, sending %3 vehicles", _aggression, _playerScale, _vehicleCount);
 
 //Set idle times for marker
 if (_markerOrigin in airportsX) then

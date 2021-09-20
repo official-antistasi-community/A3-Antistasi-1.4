@@ -60,17 +60,17 @@ while {_positionIsInvalid} do {
 	_markerX = [_markersX,_positionClicked] call BIS_fnc_nearestPosition;
 
 	if (getMarkerPos _markerX distance _positionClicked < 500) then {
-		["HQ Position", "Place selected is very close to enemy zones.<br/><br/> Please select another position"] call A3A_fnc_customHint;
+		["HQ Position", "Place selected is very close to enemy zones.<br/><br/> Please select another position."] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
 
 	if (!_positionIsInvalid && {surfaceIsWater _positionClicked}) then {
-		["HQ Position", "Selected position cannot be in water"] call A3A_fnc_customHint;
+		["HQ Position", "Selected position cannot be in water."] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
 
 	if (!_positionIsInvalid && (_positionClicked findIf { (_x < 0) || (_x > worldSize)} != -1)) then {
-		["HQ Position", "Selected position cannot be outside the map"] call A3A_fnc_customHint;
+		["HQ Position", "Selected position cannot be outside the map."] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
 

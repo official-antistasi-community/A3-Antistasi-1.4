@@ -306,6 +306,11 @@ private _processInvaderMarker = {
             switch (true)
             do
             {
+                case (_marker in citiesX):
+                {
+                    [[_marker], "A3A_fnc_createAICities"] call A3A_fnc_scheduler;
+                };
+
                 case (_marker in controlsX):
                 {
                     [[_marker], "A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler;

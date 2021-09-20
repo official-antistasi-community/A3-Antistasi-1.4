@@ -5,7 +5,7 @@ private ["_typeX","_costs","_groupX","_unit","_radiusX","_roads","_road","_pos",
 _typeX = _this select 0;
 _positionTel = _this select 1;
 
-if (_typeX == "delete") exitWith {["Create Outpost", "Deprecated option. Use Remove Garrison from HQ instead"] call A3A_fnc_customHint;};
+if (_typeX == "delete") exitWith {["Create Outpost", "Deprecated option. Use Remove Garrison from HQ instead."] call A3A_fnc_customHint;};
 
 _isRoad = isOnRoad _positionTel;
 
@@ -26,7 +26,7 @@ _mrk setMarkerShape "ICON";
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + 60];
 _dateLimitNum = dateToNumber _dateLimit;
 private _taskId = "outpostsFIA" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,["We are sending a team to establish a Watchpost/Roadblock. Use HC to send the team to their destination","Post \ Roadblock Deploy",_mrk],_positionTel,false,0,true,"Move",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,["We are sending a team to establish a Watchpost/Roadblock. Use HC to send the team to their destination.","Post \ Roadblock Deploy",_mrk],_positionTel,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 [_taskId, "outpostsFIA", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _formatX = [];

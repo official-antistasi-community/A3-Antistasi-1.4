@@ -150,14 +150,13 @@ private _fnc_spawnConvoyVehicle = {
     _veh allowDamage false;
 
     private _group = [_sideX, _veh] call A3A_fnc_createVehicleCrew;
-    // might need to clear waypoints here?
     { [_x] call A3A_fnc_NATOinit; _x allowDamage false; } forEach (units _group);
     _soldiers append (units _group);
     (driver _veh) stop true;
     deleteWaypoint [_group, 0];													// groups often start with a bogus waypoint
 
     [_veh, _sideX] call A3A_fnc_AIVEHinit;
-    if (_veh in vehArmor) then { _vehObj allowCrewInImmobile true };			// move this to AIVEHinit at some point?
+    if (_vehType in vehArmor) then { _veh allowCrewInImmobile true };			// move this to AIVEHinit at some point?
     _vehiclesX pushBack _veh;
     _markNames pushBack _markName;
     _veh;

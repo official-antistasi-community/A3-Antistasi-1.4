@@ -359,6 +359,7 @@ else
 		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !("DEF_HQ" in A3A_activeTasks) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
+/*
 if ((_winner != teamPlayer) and (_looser != teamPlayer)) then
 	{
 	if (_markerX in outposts) then
@@ -378,6 +379,7 @@ if ((_winner != teamPlayer) and (_looser != teamPlayer)) then
 			};
 		};
 	};
+*/
 markersChanging = markersChanging - [_markerX];
 
 Debug_1("Finished marker change at %1", _markerX);

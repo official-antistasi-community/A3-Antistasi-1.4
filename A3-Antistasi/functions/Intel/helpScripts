@@ -63,7 +63,7 @@ _offsetVector = [_offsetVector, (getDir _desk)] call BIS_fnc_rotateVector2D;
 _intel setDir (getDir _desk + (_relValues select 1));
 _intel setPosWorld ((getPosWorld _desk) vectorAdd _offsetVector);
 
-_intel addAction ["Retrieve Intel", {["Search Intel", "You got the intel"] call A3A_fnc_customHint;},nil,4,false,true,"","(isPlayer _this)",4];
+_intel addAction ["Retrieve Intel", {["Search Intel", "You got the intel."] call A3A_fnc_customHint;},nil,4,false,true,"","(isPlayer _this)",4];
 
 ==================================================================================
 this setVariable ["side", WEST, true];

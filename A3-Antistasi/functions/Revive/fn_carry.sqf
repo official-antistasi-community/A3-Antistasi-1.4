@@ -3,9 +3,9 @@ _carryX = _this select 0;
 _carrierX = _this select 1;
 
 //if (_carryX getVariable ["carryX",false]) exitWith {hint "This soldier is being carried and you cannot help him"};
-if (!alive _carryX) exitWith {["Carry/Drag", format ["%1 is dead",name _carryX]] call A3A_fnc_customHint;};
-if !(_carryX getVariable ["incapacitated",false]) exitWith {["Carry/Drag", format ["%1 no longer needs your help",name _carryX]] call A3A_fnc_customHint;};
-if !(isNull attachedTo _carryX) exitWith {["Carry/Drag", format ["%1 is being carried or transported and you cannot carry him",name _carryX]] call A3A_fnc_customHint;};
+if (!alive _carryX) exitWith {["Carry/Drag", format ["%1 is dead.",name _carryX]] call A3A_fnc_customHint;};
+if !(_carryX getVariable ["incapacitated",false]) exitWith {["Carry/Drag", format ["%1 no longer needs your help.",name _carryX]] call A3A_fnc_customHint;};
+if !(isNull attachedTo _carryX) exitWith {["Carry/Drag", format ["%1 is being carried or transported and you cannot carry him.",name _carryX]] call A3A_fnc_customHint;};
 if (captive _carrierX) then {[_carrierX,false] remoteExec ["setCaptive",0,_carrierX]; _carrierX setCaptive false};
 _carrierX playMoveNow "AcinPknlMstpSrasWrflDnon";
 [_carryX,"AinjPpneMrunSnonWnonDb"] remoteExec ["switchMove"];

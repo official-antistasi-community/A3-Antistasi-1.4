@@ -12,7 +12,7 @@
 
     Arguments:
     0. <Object> Vehicle
-    1. <String> Callback owner
+    1. <Array> Callback owner, and the callback arguments
     2. <String> Callback action
 
     Return Value:
@@ -27,9 +27,10 @@
 
     License: MIT
 */
-params [["_vehicle", objNull, [objNull]], ["_callback",""], ["_action", ""]];
+params [["_vehicle", objNull, [objNull]], ["_callback",[], [[]]], ["_action", ""]];
+_callback params [["_callBackName", "", [""]], ["_arguments", []] ];
 
-switch _callback do {
+switch _callBackName do {
 
     case "BUYFIA": {
         switch _action do {
@@ -52,7 +53,7 @@ switch _callback do {
         switch _action do {
 
             case "invalidPlacement": {
-                switch (build_type) do { //return inverted here so true = can place
+                switch (build_type) do { //return inverted here so true = cant place
                     case "RB": {
                         [!(isOnRoad _vehicle), "Roadblocks can only be built on roads"];
                     };
@@ -72,6 +73,18 @@ switch _callback do {
                 private _dir = getDir _vehicle;
                 deleteVehicle _vehicle;
                 [_type, _pos, _dir] spawn A3A_fnc_buildCreateVehicleCallback;
+            };
+            default {false};
+        };
+    };
+
+    case "HCSquadVehicle": {
+        switch _action do {
+            case "invalidPlacement": {
+                [getMarkerPos respawnTeamPlayer distance _vehicle > 50, "You cant place HC vehicles further than 50m from HQ"];
+            };
+            case "Placed": {
+                (_arguments + [_vehicle]) spawn A3A_fnc_spawnHCGroup;
             };
             default {false};
         };

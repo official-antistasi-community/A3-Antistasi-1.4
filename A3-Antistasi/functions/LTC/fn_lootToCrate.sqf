@@ -196,9 +196,9 @@ _allUnlockedArray = [];
 } forEach _weaponHolders;
 
 if ((_allUnlockedArray findIf {!_x} isEqualTo -1)) then {
-    ["Loot crate", "Nearby loot transfered to crate"] call A3A_fnc_customHint;
+    ["Loot crate", "Nearby loot transfered to crate."] call A3A_fnc_customHint;
 } else {
-    ["Loot crate", "Unable to transfer all nearby loot"] call A3A_fnc_customHint;
+    ["Loot crate", "Unable to transfer all nearby loot."] call A3A_fnc_customHint;
 };
 
 [_container, clientOwner, true] remoteExecCall ["A3A_fnc_canLoot", 2];

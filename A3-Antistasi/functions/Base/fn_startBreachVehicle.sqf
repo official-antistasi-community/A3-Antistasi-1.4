@@ -154,7 +154,7 @@ if
   {_caller getVariable ["cancelBreach",false]}}}}
 ) exitWith
 {
-  ["Breach Vehicle", "Breaching cancelled"] call A3A_fnc_customHint;
+  ["Breach Vehicle", "Breaching cancelled."] call A3A_fnc_customHint;
   _caller setVariable ["cancelBreach",nil];
   if(alive _vehicle) then {
 	_vehicle call A3A_fnc_addActionBreachVehicle;

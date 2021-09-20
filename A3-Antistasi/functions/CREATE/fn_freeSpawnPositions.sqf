@@ -11,8 +11,7 @@ if(_spawns isEqualTo [[],[],[],[]]) exitWith
     Error_1("Marker %1 has no spawn places defined!", _marker);
 };
 
-Debug_1("Logging spawn places of %1", _marker);
-[_spawns, "Spawn places"] call A3A_fnc_logArray;
+DebugArray("Spawn places for "+_marker, _spawns);
 
 for "_i" from 0 to 3 do
 {

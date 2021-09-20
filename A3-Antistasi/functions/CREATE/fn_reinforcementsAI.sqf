@@ -44,7 +44,7 @@ private _reinfTargets = [];			// elements are [troopsNeeded, marker]
 
 	// Don't reinforce if marker has enemy-controlled airfields within spawn distance
 	private _siteSide = sidesX getVariable [_site, sideUnknown];
-	if ({(getMarkerPos _x distance2d getMarkerPos _site < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] != _siteSide)} count airportsX > 0) then { continue };
+	if (-1 != airportsX findIf {(markerPos _x distance2d markerPos _site < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] != _siteSide)}) then { continue };
 
 	_reinfTargets pushBack [_troopsNeeded, _site];
 } forEach (outposts + seaports + resourcesX + factories);

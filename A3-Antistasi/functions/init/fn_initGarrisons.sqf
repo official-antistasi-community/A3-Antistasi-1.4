@@ -68,7 +68,7 @@ _fnc_initGarrison =
 		}
 		else
 		{
-			if(_type != "Airport" && {_type != "Outpost"}) then
+			if !(_type in ["Airport", "Outpost"]) then
 			{
 				_groupsRandom = groupsFIASquad + groupsFIAMid;
 			}

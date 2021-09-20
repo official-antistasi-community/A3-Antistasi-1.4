@@ -1,9 +1,9 @@
-params ["_markerX"];
+params ["_markerX", ["_ignoreFrontier", false]];
 
 if ("carrier" in _markerX) exitWith { 0 };
 
 private _size = [_markerX] call A3A_fnc_sizeMarker;
-private _frontierX = [_markerX] call A3A_fnc_isFrontline;
+private _frontierX = if (_ignoreFrontier) then { false } else { [_markerX] call A3A_fnc_isFrontline };
 
 private _groups = 0;
 if (_markerX in airportsX) then

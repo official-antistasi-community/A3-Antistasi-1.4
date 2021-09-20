@@ -58,7 +58,7 @@ private _playerScale = (8 + count (allPlayers - entities "HeadlessClient_F")) / 
 private _vehicleCount = random 1 + _playerScale + _aggression/50;
 _vehicleCount = (round (_vehicleCount)) max 1;
 
-Debug_2("Due to %1 aggression, sending %2 vehicles", _aggression, _vehicleCount);
+Debug_3("Due to %1 aggression and %2 player scale, sending %3 vehicles", _aggression, _playerScale, _vehicleCount);
 
 //Set idle times for marker
 if (_markerOrigin in airportsX) then

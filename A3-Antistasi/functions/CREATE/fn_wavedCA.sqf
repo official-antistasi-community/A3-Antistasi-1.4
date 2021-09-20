@@ -160,11 +160,11 @@ while {(_waves > 0)} do
 {
 	_soldiers = [];
 	private _playerScale = (8 + count (allPlayers - entities "HeadlessClient_F")) / 17;
-	_nVeh = 1.5 + random 1 + 3*_playerScale;
+	if (!_isSDK) then { _playerScale = 1 };			// occ vs inv attacks shouldn't depend on player count
+	_nVeh = round (1.5 + random 1 + 3*_playerScale);
 	if (_firstWave) then { _nVeh = _nVeh + 2 };
-    _nVeh = (round (_nVeh)) max 1;
 
-    Debug_1("Wave will contain %1 vehicles", _nVeh);
+    Debug_2("Due to %1 player scale, wave will contain %2 vehicles", _playerScale, _nVeh);
 
 	_posOriginLand = [];
 	_pos = [];

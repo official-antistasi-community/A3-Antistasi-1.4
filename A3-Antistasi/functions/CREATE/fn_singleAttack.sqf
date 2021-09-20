@@ -59,12 +59,12 @@ private _groups = [];
 private _landPosBlacklist = [];
 
 private _aggression = if (_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-if (sidesX getVariable [_markerDestination, sideUnknown] != teamPlayer) then {_aggression = 100 - _aggression};
 private _playerScale = (8 + count (allPlayers - entities "HeadlessClient_F")) / 17;
+if (sidesX getVariable [_markerDestination, sideUnknown] != teamPlayer) then { _aggression = 100 - _aggression; _playerScale = 1; };
 private _vehicleCount = random 1 + 2*_playerScale + _aggression/33 + ([0, 2] select _super);
 _vehicleCount = (round (_vehicleCount)) max 1;
 
-ServerDebug_2("Due to %1 aggression, sending %2 vehicles", _aggression, _vehicleCount);
+ServerDebug_3("Due to %1 aggression and %2 player scale, sending %3 vehicles", _aggression, _playerScale, _vehicleCount);
 
 //Set idle times for marker
 if (_markerOrigin in airportsX) then

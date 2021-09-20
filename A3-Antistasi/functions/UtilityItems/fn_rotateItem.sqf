@@ -2,7 +2,7 @@
 Author: Killerswin2, Hakon
     rotates an item
 Arguments:
-    0.<object> object that will be rotated;
+    0.<Object> object that will be rotated
 Return Value:
     <nil>
 

@@ -85,6 +85,7 @@ if (isServer) then {
 
 	{
 		if (_x in destroyedSites) then {
+			sidesX setVariable [_x, Invaders, true];
 			[_x] call A3A_fnc_destroyCity
 		};
 	} forEach citiesX;

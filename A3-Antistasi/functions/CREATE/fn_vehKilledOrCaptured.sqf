@@ -21,7 +21,7 @@ ServerDebug_4("%1 of %2 %3 by %4", _type, _side, _act, _sideEnemy);
 
 if (_side == Occupants or _side == Invaders) then
 {
-	_type call A3A_fnc_removeVehFromPool;
+	_type remoteExecCall ["A3A_fnc_removeVehFromPool", 2];
 	if (_sideEnemy != teamPlayer) exitWith {};
 
 	private _value = call {

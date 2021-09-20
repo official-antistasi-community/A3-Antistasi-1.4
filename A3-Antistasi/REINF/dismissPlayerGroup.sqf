@@ -1,6 +1,6 @@
 //if (!isServer) exitWith{};
 
-if (player != leader group player) exitWith {["Dismiss Group", "You cannot dismiss anyone if you are not the squad leader"] call A3A_fnc_customHint;};
+if (player != leader group player) exitWith {["Dismiss Group", "You cannot dismiss anyone if you are not the squad leader."] call A3A_fnc_customHint;};
 
 private ["_units","_hr","_resourcesFIA","_unit","_newGroup"];
 
@@ -8,7 +8,7 @@ _units = _this select 0;
 _units = _units - [player];
 _units = _units select { !(isPlayer _x) && { !(_x == petros) } };
 if (_units isEqualTo []) exitWith {};
-if (_units findIf {!([_x] call A3A_fnc_canFight)} != -1) exitWith {["Dismiss Group", "You cannot disband supressed, undercover or unconscious units"] call A3A_fnc_customHint;};
+if (_units findIf {!([_x] call A3A_fnc_canFight)} != -1) exitWith {["Dismiss Group", "You cannot disband suppressed, undercover or unconscious units."] call A3A_fnc_customHint;};
 player globalChat "Get out of my sight you useless scum!";
 
 _newGroup = createGroup teamPlayer;

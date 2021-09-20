@@ -29,11 +29,14 @@ HR_GRG_Mounts apply {
 
 [
     _class
+    , nil //not used internaly
+    , nil //not used internaly
     , HR_GRG_Mounts
     , if (
             HR_GRG_Pylons_Enabled //Pylon editing enabled
             && { HR_GRG_hasAmmoSource } //or ammo source registered
     ) then {HR_GRG_Pylons} else {nil}
     , HR_GRG_previewVehState
+    , true
 ] call HR_GRG_fnc_confirmPlacement;
 closeDialog 2;

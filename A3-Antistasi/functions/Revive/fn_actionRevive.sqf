@@ -7,31 +7,31 @@ private _isMedic = [_medic] call A3A_fnc_isMedic;
 if (captive _medic) then { _medic setCaptive false };         // medic is will be local
 if !(alive _cured) exitWith
 {
-    if (_player) then {["Revive", format ["%1 is already dead",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["%1 is already dead",name _cured]};
+    if (_player) then {["Revive", format ["%1 is already dead.",name _cured]] call A3A_fnc_customHint;};
+    if (_inPlayerGroup) then {_medic groupChat format ["%1 is already dead.",name _cured]};
     false
 };
 if !([_medic] call A3A_fnc_canFight) exitWith
 {
-    if (_player) then { ["Revive", "You are not able to revive anyone"] call A3A_fnc_customHint };
+    if (_player) then { ["Revive", "You are not able to revive anyone."] call A3A_fnc_customHint };
     false
 };
 if (([_cured] call A3A_fnc_fatalWound) and !_isMedic) exitWith
 {
-    if (_player) then {["Revive", format ["%1 is injured by a fatal wound, only a medic can revive him",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["%1 is injured by a fatal wound, only a medic can revive him",name _cured]};
+    if (_player) then {["Revive", format ["%1 is injured by a fatal wound, only a medic can revive him.",name _cured]] call A3A_fnc_customHint;};
+    if (_inPlayerGroup) then {_medic groupChat format ["%1 is injured by a fatal wound, only a medic can revive him.",name _cured]};
     false
 };
 if !(isNull attachedTo _cured) exitWith
 {
-    if (_player) then {["Revive", format ["%1 is being carried or transported and you cannot heal him",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["%1 is being carried or transported and I cannot heal him",name _cured]};
+    if (_player) then {["Revive", format ["%1 is being carried or transported and you cannot heal him.",name _cured]] call A3A_fnc_customHint;};
+    if (_inPlayerGroup) then {_medic groupChat format ["%1 is being carried or transported and I cannot heal him.",name _cured]};
     false
 };
 if !(_cured getVariable ["incapacitated",false]) exitWith
 {
-    if (_player) then {["Revive", format ["%1 no longer needs your help",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["%1 no longer needs my help",name _cured]};
+    if (_player) then {["Revive", format ["%1 no longer needs your help.",name _cured]] call A3A_fnc_customHint;};
+    if (_inPlayerGroup) then {_medic groupChat format ["%1 no longer needs my help.",name _cured]};
     false
 };
 
@@ -43,7 +43,7 @@ private _curedFAKs = if (!_hasMedkit) then { _firstAidKits arrayIntersect items 
 
 if (!_hasMedkit && {count _medicFAKs == 0 && count _curedFAKs == 0}) exitWith
 {
-    if (_player) then {["Revive", format ["You or %1 need a First Aid Kit or Medikit to be able to revive",name _cured]] call A3A_fnc_customHint;};
+    if (_player) then {["Revive", format ["You or %1 need a First Aid Kit or Medikit to be able to revive.",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medic groupChat "I'm out of FA kits and I have no Medikit!"};
     false
 };
@@ -114,20 +114,20 @@ if (_medic getVariable ["cancelRevive",false]) exitWith
     // AI medics can be cancelled from A3A_fnc_help
     if (_player) then
     {
-        ["Revive", "Revive cancelled"] call A3A_fnc_customHint;
+        ["Revive", "Revive cancelled."] call A3A_fnc_customHint;
         _medic setVariable ["cancelRevive",nil];
     };
     false;
 };
 if !(alive _cured) exitWith
 {
-    if (_player) then {["Revive", format ["We lost %1",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["We lost %1",name _cured]};
+    if (_player) then {["Revive", format ["We lost %1.",name _cured]] call A3A_fnc_customHint;};
+    if (_inPlayerGroup) then {_medic groupChat format ["We lost %1.",name _cured]};
     false;
 };
 if (!([_medic] call A3A_fnc_canFight)) exitWith
 {
-    if (_player) then {["Revive", "Revive cancelled"] call A3A_fnc_customHint;};
+    if (_player) then {["Revive", "Revive cancelled."] call A3A_fnc_customHint;};
     false;
 };
 

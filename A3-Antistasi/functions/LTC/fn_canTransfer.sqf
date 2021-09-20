@@ -38,7 +38,7 @@ if (!_done) then {
             };
         };
     } else {
-        ["Loot crate", "Already transfering"] remoteExec ["A3A_fnc_customHint", _owner];
+        ["Loot crate", "Already transfering."] remoteExec ["A3A_fnc_customHint", _owner];
     };
 
 

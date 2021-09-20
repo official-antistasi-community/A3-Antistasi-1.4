@@ -12,7 +12,7 @@ if(isMultiplayer && {!isServer} && {!(call BIS_fnc_admin > 0)}) exitWith
 
 markedPos = [];
 
-["Convoy Test", "Select the spot from which the convoy will start"] call A3A_fnc_customHint;
+["Convoy Test", "Select the spot from which the convoy will start."] call A3A_fnc_customHint;
 
 if (!visibleMap) then {openMap true};
 onMapSingleClick "markedPos = _pos;";
@@ -31,7 +31,7 @@ _startMarker setMarkerTypeLocal "hd_destroy";
 _startMarker setMarkerColorLocal "ColorRed";
 _startMarker setMarkerTextLocal "Convoy Start";
 
-["Convoy Test", "Select the spot to which the convoy will go"] call A3A_fnc_customHint;
+["Convoy Test", "Select the spot to which the convoy will go."] call A3A_fnc_customHint;
 
 onMapSingleClick "markedPos = _pos;";
 

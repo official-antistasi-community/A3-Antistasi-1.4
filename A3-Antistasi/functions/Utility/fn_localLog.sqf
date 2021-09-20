@@ -3,7 +3,7 @@
     Description:
         logs argument as text
 
-    Argument: <String> Text to log
+    Argument: <Array> Texts to log
 
     Return Value:
     <nil>
@@ -17,4 +17,4 @@
 
     License: MIT License
 */
-diag_log text _this;
+{diag_log text _x} forEach _this;

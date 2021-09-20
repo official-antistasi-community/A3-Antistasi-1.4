@@ -1,4 +1,4 @@
-if !(membershipEnabled) exitWith {["Membership", "Server Member feature is disabled"] call A3A_fnc_customHint;};
+if !(membershipEnabled) exitWith {["Membership", "Server Member feature is disabled."] call A3A_fnc_customHint;};
 private ["_countX"];
 _textX = "In Game Members<br/><br/>";
 _countN = 0;

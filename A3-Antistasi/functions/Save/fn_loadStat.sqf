@@ -124,23 +124,10 @@ if (_varName in _specialVarLoads) then {
 	};
 	if (_varName == 'minesX') then {
 		for "_i" from 0 to (count _varvalue) - 1 do {
-			_typeMine = _varvalue select _i select 0;
-			switch _typeMine do {
-				case "APERSMine_Range_Ammo": {_typeMine = "APERSMine"};
-				case "ATMine_Range_Ammo": {_typeMine = "ATMine"};
-				case "APERSBoundingMine_Range_Ammo": {_typeMine = "APERSBoundingMine"};
-				case "SLAMDirectionalMine_Wire_Ammo": {_typeMine = "SLAMDirectionalMine"};
-				case "APERSTripMine_Wire_Ammo": {_typeMine = "APERSTripMine"};
-				case "ClaymoreDirectionalMine_Remote_Ammo": {_typeMine = "Claymore_F"};
-			};
-			_posMine = _varvalue select _i select 1;
-			_mineX = createMine [_typeMine, _posMine, [], 0];
-			_detected = _varvalue select _i select 2;
+			(_varvalue select _i) params ["_typeMine", "_posMine", "_detected", "_dirMine"];
+			private _mineX = createVehicle [_typeMine, _posMine, [], 0, "CAN_COLLIDE"];
+			if !(isNil "_dirMine") then { _mineX setDir _dirMine };
 			{_x revealMine _mineX} forEach _detected;
-			if (count (_varvalue select _i) > 3) then {
-				_dirMine = _varvalue select _i select 3;
-				_mineX setDir _dirMine;
-			};
 		};
 	};
 	if (_varName == 'garrison') then {
@@ -280,15 +267,11 @@ if (_varName in _specialVarLoads) then {
 	};
 	if (_varname == 'staticsX') then {
 		for "_i" from 0 to (count _varvalue) - 1 do {
-			_typeVehX = _varvalue select _i select 0;
-			_posVeh = _varvalue select _i select 1;
-			_xVectorUp = _varvalue select _i select 2;
-			_xVectorDir = _varvalue select _i select 3;
+            (_varValue#_i) params ["_typeVehX", "_posVeh", "_xVectorUp", "_xVectorDir", "_state"];
 			private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"CAN_COLLIDE"];
 			// This is only here to handle old save states. Could be removed after a few version itterations. -Hazey
-			if ((_varvalue select _i select 2) isEqualType 0) then { // We have to check number because old save state might still be using getDir. -Hazey
-				_dirVeh = _varvalue select _i select 2;
-				_veh setDir _dirVeh;
+			if (_xVectorUp isEqualType 0) then { // We have to check number because old save state might still be using getDir. -Hazey
+				_veh setDir _xVectorUp; //is direction due to old save
 				_veh setVectorUp surfaceNormal (_posVeh);
 				_veh setPosATL _posVeh;
 			} else {
@@ -300,6 +283,9 @@ if (_varName in _specialVarLoads) then {
 				staticsToSave pushBack _veh;
 			}
 			else {
+                if (!isNil "_state") then {
+                    [_veh, _state] call HR_GRG_fnc_setState;
+                };
 				[_veh] spawn A3A_fnc_vehDespawner;
 			};
 		};

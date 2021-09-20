@@ -793,10 +793,10 @@ sleep 30;
 [_taskId, "rebelAttack", 0, true] spawn A3A_fnc_taskDelete;
 
 [_mrkOrigin,60] call A3A_fnc_addTimeForIdle;
+[3600, _originalSide] remoteExec ["A3A_fnc_timingCA", 2];
 bigAttackInProgress = false; publicVariable "bigAttackInProgress";
 //forcedSpawn = forcedSpawn - _forced; publicVariable "forcedSpawn";
 forcedSpawn = forcedSpawn - [_mrkDestination]; publicVariable "forcedSpawn";
-[3600, _originalSide] remoteExec ["A3A_fnc_timingCA", 2];
 
 
 // Hand remaining aggressor units to the group despawner

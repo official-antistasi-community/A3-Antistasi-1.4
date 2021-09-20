@@ -159,8 +159,7 @@ private _uav = objNull;
 while {(_waves > 0)} do
 {
 	_soldiers = [];
-	private _playerScale = (8 + count (allPlayers - entities "HeadlessClient_F")) / 17;
-	if (!_isSDK) then { _playerScale = 1 };			// occ vs inv attacks shouldn't depend on player count
+	private _playerScale = if (_isSDK) then { call A3A_fnc_getPlayerScale } else { 1 };			// occ vs inv attacks shouldn't depend on player count
 	_nVeh = round (1.5 + random 1 + 3*_playerScale);
 	if (_firstWave) then { _nVeh = _nVeh + 2 };
 

@@ -59,7 +59,7 @@ private _groups = [];
 private _landPosBlacklist = [];
 
 private _aggression = if (_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-private _playerScale = (8 + count (allPlayers - entities "HeadlessClient_F")) / 17;
+private _playerScale = call A3A_fnc_getPlayerScale;
 if (sidesX getVariable [_markerDestination, sideUnknown] != teamPlayer) then { _aggression = 100 - _aggression; _playerScale = 1; };
 private _vehicleCount = random 1 + 2*_playerScale + _aggression/33 + ([0, 2] select _super);
 _vehicleCount = (round (_vehicleCount)) max 1;

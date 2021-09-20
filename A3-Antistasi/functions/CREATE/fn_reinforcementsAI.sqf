@@ -27,7 +27,7 @@ while {killZoneRemove >= 1} do
 
 // Handle the old reinforcements
 
-private _playerScale = (8 + count (allPlayers - entities "HeadlessClient_F")) / 17;
+private _playerScale = call A3A_fnc_getPlayerScale;
 private _totalReinf = 4 * round (3 * (1 + tierWar/10) * _playerScale * (0.5 + random 1));
 Debug_1("Sending %1 total troops to reinforce", _totalReinf);
 

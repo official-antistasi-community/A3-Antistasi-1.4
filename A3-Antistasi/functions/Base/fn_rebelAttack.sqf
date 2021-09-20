@@ -14,6 +14,8 @@ FIX_LINE_NUMBERS()
         Nothing
 */
 
+private _originalSide = _side;
+
 Info_1("Starting large attack script for side %1", _side);
 
 if (A3A_hasIFA and (sunOrMoon < 1)) exitWith
@@ -317,7 +319,7 @@ if(count _easyTargets >= 4) then
     DebugArray("Found four targets to attack, these are:", _attackList);
 
     //In case of four small attacks have 90 minutes break
-    [5400, _side] call A3A_fnc_timingCA;
+    [5400, _originalSide] call A3A_fnc_timingCA;
 
     //Execute the attacks from the given bases to the targets
     {
@@ -424,12 +426,12 @@ else
         {
             //Sending real attack, execute the fight
             Info_3("Starting waved attack with %1 waves from %2 to %3", _waves, _attackOrigin, _attackTarget);
-            [_attackTarget, _attackOrigin, _waves] spawn A3A_fnc_wavedCA;
+            [_attackTarget, _attackOrigin, _waves, _originalSide] spawn A3A_fnc_wavedCA;
         }
         else
         {
             [_side, _attackTarget] spawn _fnc_flipMarker;
-            [3600, _side] call A3A_fnc_timingCA;
+            [3600, _originalSide] call A3A_fnc_timingCA;
         };
     }
     else

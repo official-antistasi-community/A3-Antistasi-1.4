@@ -1,15 +1,16 @@
 if (!isServer and hasInterface) exitWith {};
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_typeVehX","_vehicle","_heli","_heliCrew","_groupHeli","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_mrkDestination","_posDestination","_prestigeCSAT","_mrkOrigin","_airportX","_nameDest","_timeX","_solMax","_nul","_costs","_typeX","_threatEvalAir","_threatEvalLand","_pos","_timeOut","_sideX","_waves","_countX","_tsk1","_spawnPoint","_vehPool", "_airportIndex"];
+private ["_posOrigin","_typeGroup","_nameOrigin","_markTsk","_wp1","_soldiers","_landpos","_pad","_vehiclesX","_wp0","_wp3","_wp4","_wp2","_groupX","_groups","_typeVehX","_vehicle","_heli","_heliCrew","_groupHeli","_pilots","_rnd","_resourcesAAF","_nVeh","_radiusX","_roads","_Vwp1","_road","_veh","_vehCrew","_groupVeh","_Vwp0","_size","_Hwp0","_groupX1","_uwp0","_tsk","_vehicle","_soldierX","_pilot","_posDestination","_prestigeCSAT","_airportX","_nameDest","_timeX","_solMax","_nul","_costs","_typeX","_threatEvalAir","_threatEvalLand","_pos","_timeOut","_sideX","_countX","_tsk1","_spawnPoint","_vehPool", "_airportIndex"];
 
 bigAttackInProgress = true;
 publicVariable "bigAttackInProgress";
-_firstWave = true;
-_mrkDestination = _this select 0;
+
 //_mrkOrigin can be an Airport or Carrier
-_mrkOrigin = _this select 1;
-_waves = _this select 2;
+//_originalSide is optional, side that should have their attack counter incremented
+params ["_mrkDestination", "_mrkOrigin", "_waves", "_originalSide"];
+
+_firstWave = true;
 if (_waves <= 0) then {_waves = -1};
 _size = [_mrkDestination] call A3A_fnc_sizeMarker;
 _tsk = "";
@@ -29,6 +30,7 @@ _nameDest = [_mrkDestination] call A3A_fnc_localizar;
 _nameOrigin = [_mrkOrigin] call A3A_fnc_localizar;
 
 _sideX = sidesX getVariable [_mrkOrigin,sideUnknown];
+if (isNil "_originalSide") then { _originalSide = _sideX };
 _sideTsk = [teamPlayer,civilian,Invaders];
 _sideTsk1 = [Occupants];
 _nameENY = nameOccupants;
@@ -64,8 +66,6 @@ private _taskId = "rebelAttack" + str A3A_taskCount;
 // Use fixed aggro value for non-rebel targets for the moment
 private _aggro = if (_sideX == Occupants) then {aggressionOccupants} else {aggressionInvaders};
 if !(_isSDK) then {_aggro = 100 - _aggro;};
-
-_timeX = time + 3600;
 
 private _vehPoolLand = [];
 private _vehPoolAirSupport = [];
@@ -140,17 +140,6 @@ call {
 Debug_1("Land vehicle pool: %1", _vehPoolLand);
 Debug_1("Air transport pool: %1", _vehPoolAirTransport);
 Debug_1("Air support pool: %1", _vehPoolAirSupport);
-
-private _fnc_remUnitCount = {
-	private _unitCount = {(local _x) and (alive _x)} count allUnits;
-	private _remUnitCount = maxUnits - _unitCount;
-	if (gameMode <3) then
-	{
-		private _sideCount = {(local _x) and (alive _x) and (side group _x == _sideX)} count allUnits;
-		_remUnitCount = _remUnitCount min (maxUnits * 0.7 - _sideCount);
-	};
-	_remUnitCount;
-};
 
 private _airSupport = [];
 private _uav = objNull;
@@ -317,7 +306,7 @@ while {(_waves > 0)} do
 				};
 			};
 
-			if ((count _soldiers >= 10) && (call _fnc_remUnitCount < 5)) exitWith {
+			if ((count _soldiers >= 10) && ([_sideX] call A3A_fnc_remUnitCount < 5)) exitWith {
                 Info_1("Ground wave reached maximum units count after %1 vehicles", _countX);
 			};
 			sleep 15;
@@ -624,7 +613,7 @@ while {(_waves > 0)} do
 					};
 				};
 			};
-		if ((_countX > _countNewSupport) && (count _soldiers >= 10) && (call _fnc_remUnitCount < 5)) exitWith {
+		if ((_countX > _countNewSupport) && (count _soldiers >= 10) && ([_sideX] call A3A_fnc_remUnitCount < 5)) exitWith {
             Info_1("Air wave reached maximum units count after %1 vehicles", _countX);
 		};
 		sleep 1;
@@ -675,6 +664,8 @@ while {(_waves > 0)} do
 				};
 			};
 		};
+
+	_timeX = time + 900;		// wave timeout, 15 mins after the wave has finished spawning
 
 	if (!_SDKShown) then
 		{
@@ -735,7 +726,6 @@ while {(_waves > 0)} do
 		sleep 10;
 		if (!(sidesX getVariable [_mrkDestination,sideUnknown] == Occupants)) then
 			{
-			_timeX = time + 3600;
 			if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then
 				{
 				_killZones = killZones getVariable [_mrkOrigin,[]];
@@ -764,7 +754,6 @@ while {(_waves > 0)} do
 		sleep 10;
 		if (!(sidesX getVariable [_mrkDestination,sideUnknown] == Invaders)) then
 			{
-			_timeX = time + 3600;
             Info_1("Wave number %1 lost",_waves);
 			if (sidesX getVariable [_mrkOrigin,sideUnknown] == Invaders) then
 				{
@@ -807,7 +796,7 @@ sleep 30;
 bigAttackInProgress = false; publicVariable "bigAttackInProgress";
 //forcedSpawn = forcedSpawn - _forced; publicVariable "forcedSpawn";
 forcedSpawn = forcedSpawn - [_mrkDestination]; publicVariable "forcedSpawn";
-[3600, _sideX] remoteExec ["A3A_fnc_timingCA", 2];
+[3600, _originalSide] remoteExec ["A3A_fnc_timingCA", 2];
 
 
 // Hand remaining aggressor units to the group despawner

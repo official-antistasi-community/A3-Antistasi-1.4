@@ -26,7 +26,7 @@ private _taskId = "invaderPunish" + str A3A_taskCount;
 [_taskId, "invaderPunish", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 // give smaller player groups a bit more time to respond
-private _playerScale = (8 + count (allPlayers - entities "HeadlessClient_F")) / 17;
+private _playerScale = call A3A_fnc_getPlayerScale;
 [_attackOrigin, (5 / _playerScale) + 10] call A3A_fnc_addTimeForIdle;        // Reserve airbase for this attack
 sleep (60*5 / _playerScale);
 

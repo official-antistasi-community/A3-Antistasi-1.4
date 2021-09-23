@@ -73,7 +73,7 @@ if (isNull build_engineerSelected ||
 };
 
 build_type = _this select 0;
-build_time = 45;
+A3A_build_time = 60;
 build_cost = 0;
 private _playerDir = getDir player;
 private _playerPosition = position player;
@@ -83,26 +83,27 @@ switch build_type do
 	case "ST":
 		{
 		_classX = "Land_Barricade_01_4m_F";
+		A3A_build_time = 45;
 		};
 	case "MT":
 		{
-		build_time = 60;
+		A3A_build_time = 60;
 		_classX = "Land_SandbagBarricade_01_half_F";
 		};
 	case "RB":
 		{
-		build_time = 100;	
+		A3A_build_time = 100;	
 		_classX = "Land_Tyres_F";
 		};
 	case "SB":
 		{
-		build_time = 60;
+		A3A_build_time = 60;
 		_classX = "Land_BagBunker_01_small_green_F";
 		build_cost = 100;
 		};
 	case "CB":
 		{
-		build_time = 120;
+		A3A_build_time = 120;
 		_classX = "Land_Bunker_01_tall_F";
 		build_cost = 300;
 		};

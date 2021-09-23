@@ -11,8 +11,8 @@ if (!_isPlayer) then
 }
 else
 {
-	build_time = build_time / 2;
-	if ("ToolKit" in items player) then { build_time = build_time  * .6; }; // if toolkit in invertory then 40% reduction in time.
+	A3A_build_time = A3A_build_time / 2;
+	if ("ToolKit" in items player) then { A3A_build_time = A3A_build_time  * .6; }; // if toolkit in invertory then 40% reduction in time.
 	["Build Info", "Walk to the selected position to start building"] call A3A_fnc_customHint;
 };
 
@@ -53,7 +53,7 @@ if (build_cost > 0) then
 
 build_engineerSelected setVariable ["constructing",true];
 
-_timeOut = time + build_time;
+_timeOut = time + A3A_build_time;
 
 if (!_isPlayer) then
 	{

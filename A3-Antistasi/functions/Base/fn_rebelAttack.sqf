@@ -167,11 +167,11 @@ private _availableTargets = [];
             _distance = _distance - (300 * (count _nearbyFriendlyMarkers));
             if (_distance < 0) then {_distance = 0};
 
-            if(count _nearbyFriendlyMarkers >= 5 && {!(_target in citiesX)}) then
-            {
-                Debug_1("%1 is surrounded by us, considering easy target", _target);
-                _easyTargets pushBack _target;
-            };
+            //if(count _nearbyFriendlyMarkers >= 5 && {!(_target in citiesX)}) then
+            //{
+            //    Debug_1("%1 is surrounded by us, considering easy target", _target);
+            //    _easyTargets pushBack _target;
+            //};
 
             //If in killzones, double the distance
             if (_target in _killZones) then
@@ -233,12 +233,12 @@ if (count _availableTargets == 0) exitWith
     private _nearbyStatics = staticsToSave select {(_x distance2D (getMarkerPos _target)) < distanceSPWN};
     _targetPoints = _targetPoints + (10 * (count _garrison) + (50 * (count _nearbyStatics)));
 
-    if((count _garrison <= 8) && (_targetSide == teamPlayer) && {(count _nearbyStatics <= 2) && {!(_target in citiesX)}}) then
-    {
+    //if((count _garrison <= 8) && (_targetSide == teamPlayer) && {(count _nearbyStatics <= 2) && {!(_target in citiesX)}}) then
+    //{
         //Only minimal garrison, consider it an easy target
-        Debug_1("%1 has only minimal garrison, considering easy target", _target);
-        _easyTargets pushBackUnique _target;
-    };
+    //    Debug_1("%1 has only minimal garrison, considering easy target", _target);
+    //    _easyTargets pushBackUnique _target;
+    //};
 
     //Apply the new points to the base array
     _baseArray = _baseArray apply {[_x select 0, ((_x select 1) + _targetPoints) * _targetMultiplier]};
@@ -275,6 +275,7 @@ private _fnc_flipMarker =
 };
 
 
+// JJ: Easy targets currently disabled due to overspawning/ineffectiveness
 if(count _easyTargets >= 4) then
 {
     //We got four easy targets, attacking them now
@@ -409,14 +410,15 @@ else
     _finalTarget params ["_attackOrigin", "_attackPoints", "_attackTarget"];
 
     //Select the number of waves based on the points as higher points mean higher difficulty
+    // JJ: Nope, degenerate behaviour with target distance. Revert to a dumb version for the moment.
     private _waves =
-		_attackPoints / 2500
-		+ ([0, 1] select (_attackTarget in airportsX))
-		+ (count allPlayers / 20)
-		+ (tierWar / 5);
+        0.5 + random 1 + 
+        + ([0, 1.5] select (_attackTarget in airportsX))
+        + ([0, 0.5] select (_attackTarget in outposts))
+        + ([0, 0.5] select (_side == Invaders))
+        + (tierWar / 10);
 
-	_waves = round _waves;
-    if(_waves < 1) then {_waves = 1};
+	_waves = 1 max (round _waves);
 
     //Send the actual attacks
     if (sidesX getVariable [_attackOrigin, sideUnknown] == Occupants || {!(_attackTarget in citiesX)}) then

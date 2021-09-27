@@ -1,5 +1,5 @@
 
-private ["_textX","_dataX","_numCiv","_aggressionOPFOR","_aggressionBLUFOR","_power","_busy","_siteX","_positionTel","_garrison"];
+private ["_textX","_dataX","_numCiv","_occupantSupport","_rebelSupport","_power","_busy","_siteX","_positionTel","_garrison"];
 positionTel = [];
 
 _popFIA = 0;
@@ -9,10 +9,10 @@ _pop = 0;
 {
 _dataX = server getVariable _x;
 _numCiv = _dataX select 0;
-_aggressionOPFOR = _dataX select 2;
-_aggressionBLUFOR = _dataX select 3;
-_popFIA = _popFIA + (_numCiv * (_aggressionBLUFOR / 100));
-_popAAF = _popAAF + (_numCiv * (_aggressionOPFOR / 100));
+_occupantSupport = _dataX select 2;
+_rebelSupport = _dataX select 3;
+_popFIA = _popFIA + (_numCiv * (_rebelSupport / 100));
+_popAAF = _popAAF + (_numCiv * (_occupantSupport / 100));
 _pop = _pop + _numCiv;
 if (_x in destroyedSites) then {_popCSAT = _popCSAT + _numCIV};
 } forEach citiesX;
@@ -44,10 +44,10 @@ while {visibleMap} do
 			_dataX = server getVariable _siteX;
 
 			_numCiv = _dataX select 0;
-			_aggressionOPFOR = round (_dataX select 2);
-			_aggressionBLUFOR = round (_dataX select 3);
+			_occupantSupport = round (_dataX select 2);
+			_rebelSupport = round (_dataX select 3);
 			_power = [_siteX] call A3A_fnc_getSideRadioTowerInfluence;
-			_textX = format ["%1<br/><br/>Pop %2<br/>%6 Support: %3 %5<br/>%7 Support: %4 %5",[_siteX,false] call A3A_fnc_location,_numCiv,_aggressionOPFOR,_aggressionBLUFOR,"%",nameOccupants,nameTeamPlayer];
+			_textX = format ["%1<br/><br/>Pop %2<br/>%6 Support: %3 %5<br/>%7 Support: %4 %5",[_siteX,false] call A3A_fnc_location,_numCiv,_occupantSupport,_rebelSupport,"%",nameOccupants,nameTeamPlayer];
 			_positionX = getMarkerPos _siteX;
 			_result = "NONE";
 			switch (_power) do

@@ -51,8 +51,8 @@ if (_side == civilian) then
 
 	private _city = [citiesX, _pos] call BIS_fnc_nearestPosition;
 	private _dataX = server getVariable _city;
-	private _aggressionOPFOR = _dataX select 2;		// government support?
-	if (random 100 > _aggressionOPFOR) exitWith {};
+	private _occupantSupport = _dataX select 2;		// government support?
+	if (random 100 > _occupantSupport) exitWith {};
 
 	{
 		private _thief = _x;

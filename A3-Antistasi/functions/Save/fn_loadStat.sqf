@@ -2,8 +2,8 @@
 Maintainer: 
 
 Arguments:
-    <STRING> 	STRING OF WHAT VARIABLE WE ARE LOADING
-    <ANY> 		VALUE OF WHAT WE ARE LOADING
+    <STRING> 	STRING INDENITIFER
+    <ANY> 		VALUE THAT IS LOADING INTO THE INDENITIFER
 
 Return Value:
     <NIL> 
@@ -18,6 +18,7 @@ Example:
 
 Note: 
     Typically only called from getStatVariable, unless debugging.
+	This function is a setter.
 */
 
 
@@ -241,9 +242,9 @@ if (_varName in _specialVarLoads) then {
 			_dataX = server getVariable _city;
 			_numCiv = _dataX select 0;
 			_numVeh = _dataX select 1;
-			_aggressionOPFOR = _varvalue select _i;
-			_aggressionBLUFOR = _dataX select 3;
-			_dataX = [_numCiv,_numVeh,_aggressionOPFOR,_aggressionBLUFOR];
+			_occupantSupport = _varvalue select _i;
+			_rebelSupport = _dataX select 3;
+			_dataX = [_numCiv,_numVeh,_occupantSupport,_rebelSupport];
 			server setVariable [_city,_dataX,true];
 		};
 	};
@@ -253,9 +254,9 @@ if (_varName in _specialVarLoads) then {
 			_dataX = server getVariable _city;
 			_numCiv = _dataX select 0;
 			_numVeh = _dataX select 1;
-			_aggressionOPFOR = _dataX select 2;
-			_aggressionBLUFOR = _varvalue select _i;
-			_dataX = [_numCiv,_numVeh,_aggressionOPFOR,_aggressionBLUFOR];
+			_occupantSupport = _dataX select 2;
+			_rebelSupport = _varvalue select _i;
+			_dataX = [_numCiv,_numVeh,_occupantSupport,_rebelSupport];
 			server setVariable [_city,_dataX,true];
 		};
 	};

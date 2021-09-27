@@ -29,7 +29,10 @@ params [
 ];
 
 //calculate cost
-private _cost = if (isNull _vehicle) then { 0 } else { [typeOf _vehicle] call A3A_fnc_vehiclePrice };
+private _cost = if (isNull _vehicle) then { 0 } else {
+    if (_special == "BuildAA" or typeOf _vehicle == vehSDKAA) exitWith { ([vehSDKTruck] call A3A_fnc_vehiclePrice) + ([staticAAteamPlayer] call A3A_fnc_vehiclePrice) }; 
+    [typeOf _vehicle] call A3A_fnc_vehiclePrice
+};
 private _costHR = 0;
 {
     _cost = _cost + (server getVariable _x); _costHR = _costHR +1

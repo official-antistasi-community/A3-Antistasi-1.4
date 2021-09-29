@@ -2,7 +2,7 @@
 Maintainer: Caleb Serafin
     Generates the tables for uintToHex. Generation can take up to 2 ms.
     Enviroment is forced into unsheduled to prevent double running, or running without tables fully initialised.
-Public: Yes, if you really need to inpliment your own hexidecimal formatter.
+Public: Yes, if you really need to inpliment your own hexadecimal formatter.
 Example:
     #include "fn_uintToHexGenTables.sqf"
     class fn_uintToHexGenTables { preinit = 1; };

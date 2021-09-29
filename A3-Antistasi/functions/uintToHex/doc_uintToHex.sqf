@@ -1,10 +1,10 @@
 /*
 Maintainer: Caleb Serafin
-    Formats a scalar as the specified length hexidecimal string.
-    This is included to multiple functions that divide functionality into 4, 8, 12, 16, 20, 24 bits.
+    Formats a scalar as the specified length hexadecimal string.
+    These lengths are divided into multiple functions for 4, 8, 12, 16, 20, 24 bits.
 
-Argument: <SCALAR> A numberic value to format as a hexidecimal string. Input must be integral.
-Return Value: <STRING> 1,2,3,4,5,6 wide hexidecimal string.
+Argument: <SCALAR> A numberic value to format as a hexadecimal string. Input must be integral.
+Return Value: <STRING> 1,2,3,4,5,6 wide hexadecimal string.
 Public: Yes
 */
 

@@ -684,6 +684,16 @@ class A3A
         class updateInfoBarShown {};
         class disableInfoBar {};
     };
+    class uintToHex
+    {
+        class uint4ToHex {};
+        class uint8ToHex {};
+        class uint12ToHex {};
+        class uint16ToHex {};
+        class uint20ToHex {};
+        class uint24ToHex {};
+        class uintToHexGenTables { preInit = 1; };
+    };
 
     class Undercover
     {

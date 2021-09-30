@@ -122,7 +122,7 @@ private _display = findDisplay 100;
 
 if (str (_display) != "no display") then {
 	private _ChildControl = _display displayCtrl 104;
-	_ChildControl  ctrlSetTooltip format ["Buy a vehicle for this squad for %1 €.",_costs];
+	_ChildControl  ctrlSetTooltip format ["Buy a vehicle for this squad for %1 €.", _vehCost];
 	_ChildControl = _display displayCtrl 105;
 	_ChildControl  ctrlSetTooltip "Barefoot Infantry";
 };

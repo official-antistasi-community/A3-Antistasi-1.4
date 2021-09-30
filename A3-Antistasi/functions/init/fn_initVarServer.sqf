@@ -687,6 +687,7 @@ private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPat
 DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
 private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
+if (vehSDKAA != "not_supported") then { _vehFIA pushBack vehSDKAA };
 DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
 private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks) select { [_x] call A3A_fnc_logistics_getVehCapacity > 1 };
@@ -758,6 +759,7 @@ server setVariable [vehSDKTruck,300,true];											//300
 {server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];
 {server setVariable [_x,400,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];			//400
 {server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];			//800
+server setVariable [vehSDKAA,1100,true];				// should be vehSDKTruck + staticAAteamPlayer otherwise things will break
 
 ///////////////////////
 //     GARRISONS    ///

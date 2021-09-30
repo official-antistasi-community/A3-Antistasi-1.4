@@ -42,7 +42,7 @@ private _assignedVehicles =	[];
 		{
 			_hr = _hr + 1;
 			_resourcesFIA = _resourcesFIA + (server getVariable [_x getVariable "unitType",0]);
-			if (!isNull (assignedVehicle _x)) then
+			if (!isNull (assignedVehicle _x) and {isNull attachedTo (assignedVehicle _x)}) then
 			{
 				_assignedVehicles pushBackUnique (assignedVehicle _x);
 			};
@@ -67,13 +67,11 @@ private _assignedVehicles =	[];
 	private _veh = _x;
 	if ((typeOf _veh) in vehFIA) then
 	{
-		_resourcesFIA = _resourcesFIA + ([(typeOf _veh)] call A3A_fnc_vehiclePrice);
-		if (count attachedObjects _veh > 0) then
+		_resourcesFIA = _resourcesFIA + ([typeOf _veh] call A3A_fnc_vehiclePrice);
 		{
-			_subVeh = (attachedObjects _veh) select 0;
-			_resourcesFIA = _resourcesFIA + ([(typeOf _subVeh)] call A3A_fnc_vehiclePrice);
-			deleteVehicle _subVeh;
-		};
+			_resourcesFIA = _resourcesFIA + ([typeOf _x] call A3A_fnc_vehiclePrice);
+			deleteVehicle _x;
+		} forEach attachedObjects _veh;
 		deleteVehicle _veh;
 	};
 } forEach _assignedVehicles;

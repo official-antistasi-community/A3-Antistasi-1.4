@@ -28,16 +28,12 @@ params [
     , ["_vehicle", objNull, [objNull]]
 ];
 
-//calculate cost
-private _cost = if (isNull _vehicle) then { 0 } else {
-    if (_special == "BuildAA" or typeOf _vehicle == vehSDKAA) exitWith { ([vehSDKTruck] call A3A_fnc_vehiclePrice) + ([staticAAteamPlayer] call A3A_fnc_vehiclePrice) }; 
-    [typeOf _vehicle] call A3A_fnc_vehiclePrice
-};
+//calculate base cost
+private _cost = if (isNull _vehicle) then { 0 } else { [typeOf _vehicle] call A3A_fnc_vehiclePrice };
 private _costHR = 0;
 {
     _cost = _cost + (server getVariable _x); _costHR = _costHR +1
 } forEach _unitTypes;
-[- _costHR, - _cost] remoteExec ["A3A_fnc_resourcesFIA", 2];
 
 //spawn group
 private _pos = [(getMarkerPos respawnTeamPlayer), 30, random 360] call BIS_Fnc_relPos;
@@ -85,6 +81,7 @@ switch _special do {
         call _initInfVeh;
         _group setVariable ["staticAutoT",false,true];
         [_group, _staticType] spawn A3A_fnc_MortyAI;
+        _cost = _cost + ([_staticType] call A3A_fnc_vehiclePrice);
     };
 
     //vehicle squad
@@ -93,6 +90,8 @@ switch _special do {
         (_units # (_countUnits -1)) assignAsDriver _vehicle;
         (_units # _countUnits) assignAsGunner _static;
         call _initVeh;
+        _cost = _cost + ([staticAAteamPlayer] call A3A_fnc_vehiclePrice);
+
     };
     case "VehicleSquad": {
         (_units # (_countUnits -1)) assignAsDriver _vehicle;
@@ -106,12 +105,16 @@ switch _special do {
     case "MG": {
         (_units # (_countUnits - 1)) addBackpackGlobal supportStaticsSDKB2;
         (_units # _countUnits) addBackpackGlobal MGStaticSDKB;
+        _cost = _cost + ([SDKMGStatic] call A3A_fnc_vehiclePrice);
     };
     case "Mortar": {
         (_units # (_countUnits - 1)) addBackpackGlobal supportStaticsSDKB3;
         (_units # _countUnits) addBackpackGlobal MortStaticSDKB;
+        _cost = _cost + ([SDKMortar] call A3A_fnc_vehiclePrice);
     };
 };
+
+[- _costHR, - _cost] remoteExec ["A3A_fnc_resourcesFIA", 2];
 
 if !(_bypassAI) then {_group spawn A3A_fnc_attackDrillAI};
 

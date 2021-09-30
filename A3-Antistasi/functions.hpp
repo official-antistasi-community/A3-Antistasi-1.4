@@ -686,6 +686,7 @@ class A3A
     };
     class uintToHex
     {
+        file = "functions\Utility\uintToHex";
         class uint4ToHex {};
         class uint8ToHex {};
         class uint12ToHex {};

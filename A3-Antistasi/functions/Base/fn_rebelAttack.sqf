@@ -215,7 +215,7 @@ if (count _availableTargets == 0) exitWith
         case (_target in resourcesX): {_targetMultiplier = 0.35};
         case (_target in factories): {_targetMultiplier = 0.5};
         case (_target in seaports): {_targetMultiplier = 0.7};
-        case (_target in citiesX): {_targetMultiplier = 2};
+        case (_target in citiesX): {_targetMultiplier = [2, 0.5] select (side == Invaders)};
         //If I have missed something, multiplier stays the same
         default {_targetMultiplier = 1};
     };

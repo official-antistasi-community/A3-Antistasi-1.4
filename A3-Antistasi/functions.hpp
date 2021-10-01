@@ -13,6 +13,7 @@ class A3A
         class initFuncs {};
         class initGarrisons {};
         class initParams {};
+        class initPreJIP { preInit = 1; };
         class initSpawnPlaces {};
 
         class initVar {};

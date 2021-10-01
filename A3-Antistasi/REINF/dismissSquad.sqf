@@ -65,15 +65,14 @@ private _assignedVehicles =	[];
 
 {
 	private _veh = _x;
-	if ((typeOf _veh) in vehFIA) then
+	if !(typeOf _veh in vehFIA) then { continue };
+	_resourcesFIA = _resourcesFIA + ([typeOf _veh] call A3A_fnc_vehiclePrice);
 	{
-		_resourcesFIA = _resourcesFIA + ([typeOf _veh] call A3A_fnc_vehiclePrice);
-		{
-			_resourcesFIA = _resourcesFIA + ([typeOf _x] call A3A_fnc_vehiclePrice);
-			deleteVehicle _x;
-		} forEach attachedObjects _veh;
-		deleteVehicle _veh;
-	};
+		if !(typeOf _x in vehFIA) then { continue };
+		_resourcesFIA = _resourcesFIA + ([typeOf _x] call A3A_fnc_vehiclePrice);
+		deleteVehicle _x;
+	} forEach attachedObjects _veh;
+	deleteVehicle _veh;
 } forEach _assignedVehicles;
 
 _nul = [_hr,_resourcesFIA] remoteExec ["A3A_fnc_resourcesFIA",2];

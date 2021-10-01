@@ -16,7 +16,7 @@ Scope: All
 Environment: Unscheduled
 Public: Yes
 */
-#include "Includes\common.inc"
+#include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 Debug("fn_initPreJIP Started");
 

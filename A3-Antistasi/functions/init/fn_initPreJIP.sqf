@@ -20,6 +20,7 @@ Public: Yes
 FIX_LINE_NUMBERS()
 Debug("fn_initPreJIP Started");
 
+call A3A_fnc_uintToHexGenTables;
 
 
 Debug("fn_initPreJIP Finished");

@@ -694,7 +694,7 @@ class A3A
         class uint16ToHex {};
         class uint20ToHex {};
         class uint24ToHex {};
-        class uintToHexGenTables { preInit = 1; };
+        class uintToHexGenTables {};
     };
 
     class Undercover

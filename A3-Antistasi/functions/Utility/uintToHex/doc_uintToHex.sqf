@@ -6,6 +6,10 @@ Maintainer: Caleb Serafin
 Argument: <SCALAR> A numberic value to format as a hexadecimal string. Input must be integral.
 Return Value: <STRING> 1,2,3,4,5,6 wide hexadecimal string.
 Public: Yes
+Dependency:
+    fn_uintToHexGenTables must initialise:
+    <ARRAY<STRING>> A3A_base16LookupTable
+    <ARRAY<STRING>> A3A_base16e2LookupTable
 */
 
 // Example:

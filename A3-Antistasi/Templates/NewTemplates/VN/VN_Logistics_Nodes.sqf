@@ -74,7 +74,7 @@ A3A_logistics_coveredVehicles append [
 ];
 A3A_logistics_weapons append [
     ["\vn\static_f_vietnam\zpu4\vn_static_zpu4_01.p3d",[]]
-    ,["\vn\static_f_vietnam\m45\vn_static_m45.p3d",[]]
+    ,["\vn\static_f_vietnam\m45\vn_static_m45.p3d",["vn\wheeled_f_vietnam\z157\vn_wheeled_z157_01.p3d","vn\wheeled_f_vietnam\m54\vn_wheeled_m54_01.p3d"]]
     ,["\vn\static_f_vietnam\m60\vn_static_m60_high.p3d",[]]
     ,["\vn\static_f_vietnam\m2\vn_static_m2_high.p3d",[]]
     ,["\vn\static_f_vietnam\m1919\vn_static_m1919a4_low.p3d",[]]

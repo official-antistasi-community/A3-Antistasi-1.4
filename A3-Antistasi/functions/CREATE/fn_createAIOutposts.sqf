@@ -154,9 +154,6 @@ private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 			{
 				_this#0 addItemCargoGlobal [_x, round random [2,6,8]];
 			} forEach (A3A_faction_reb getVariable "diveGear");
-			{
-				_this#0 addBackpackCargoGlobal [_x, round random [2,6,8]];
-			} forEach (A3A_faction_reb getVariable "diveBP");
 		};
 	};
 	_ammoBox;

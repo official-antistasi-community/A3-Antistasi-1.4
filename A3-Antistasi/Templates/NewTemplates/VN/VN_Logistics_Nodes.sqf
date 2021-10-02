@@ -46,6 +46,7 @@ A3A_logistics_attachmentOffset append [
     ,["\vn\static_f_vietnam\PK\vn_static_PK_low.p3d",[-0.3,0,1.21],[0,-1,0],2,100]
     ,["\vn\static_f_vietnam_02\l70mk2\vn_static_l70mk2.p3d",[0.2,0,1.58],[0,0,0],4,1500]
     ,["\vn\static_f_vietnam_02\l60mk3\vn_static_l60mk3.p3d",[0,0,1.77],[0,0,0],7,3000]
+    ,["\vn\static_f_vietnam_02\type56rr\vn_o_static_type56rr.p3d",[-0.55,0,1.48],[0,-1,0],4,250]
 ];
 A3A_logistics_coveredVehicles append [
     "vn_b_wheeled_m54_03"

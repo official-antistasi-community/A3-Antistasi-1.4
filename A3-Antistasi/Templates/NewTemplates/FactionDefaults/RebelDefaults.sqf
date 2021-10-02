@@ -10,8 +10,6 @@
 
 ["diveGear", ["U_I_Wetsuit","V_RebreatherIA","G_Diving"]] call _fnc_saveToTemplate;
 
-["diveBP", []] call _fnc_saveToTemplate;
-
 ["flyGear", ["U_I_pilotCoveralls"]] call _fnc_saveToTemplate;
 
 ["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;

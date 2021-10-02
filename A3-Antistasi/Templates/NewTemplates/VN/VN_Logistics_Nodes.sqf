@@ -29,7 +29,7 @@ A3A_logistics_attachmentOffset append [
     ,["\vn\static_f_vietnam\m2\vn_static_m2_high.p3d",[0.2,0,1.63],[0,1,0],4,100]
     ,["\vn\static_f_vietnam\m1919\vn_static_m1919a4_low.p3d",[-0.2,0,1.2],[0,-1,0],4,100]
     ,["\vn\static_f_vietnam\m1919\vn_static_m1919a4_high.p3d",[0.2,0,1.66],[0,1,0],4,100]
-    ,["\vn\static_f_vietnam\tow\vn_static_tow.p3d",[0.2,0,1.48],[-1,0,0],4,250]
+    ,["\vn\static_f_vietnam\tow\vn_static_tow.p3d",[0.2,0,1.19],[-1,0,0],4,250]
     ,["\vn\static_f_vietnam\m1919\vn_static_m1919a6.p3d",[0,0,1.15],[0,-1,0],5,100]
     ,["\vn\static_f_vietnam\mortar_m29\vn_static_mortar_m29",[-0.2,0,0.69],[0,-1,0],3,2000]
     ,["\vn\static_f_vietnam\mortar_m2\vn_static_mortar_m2",[-0.3,0,0.7],[0,-1,0],2,1500]

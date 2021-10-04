@@ -53,11 +53,13 @@ if (_shouldStripLoadout) then {
 
 if (isMultiplayer) then
 {
-	[_playerId, "scorePlayer", _playerUnit getVariable "score"] call A3A_fnc_savePlayerStat;
-	[_playerId, "rankPlayer", rank _playerUnit] call A3A_fnc_savePlayerStat;
-	[_playerId, "personalGarage", []] call A3A_fnc_savePlayerStat;
+	private _scorePlayer = _playerUnit getVariable ["score", 0];
+	private _rankPlayer = _playerUnit getVariable ["rankX", "PRIVATE"];		// rank _unit fails on corpses
+	[_playerId, "scorePlayer", _scorePlayer] call A3A_fnc_savePlayerStat;
+	[_playerId, "rankPlayer", _rankPlayer] call A3A_fnc_savePlayerStat;
+	[_playerId, "personalGarage", []] call A3A_fnc_savePlayerStat;			// legacy variable
 
-	_totalMoney = _playerUnit getVariable ["moneyX", 0];
+	private _totalMoney = _playerUnit getVariable ["moneyX", 0];
 	if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
 
 	if (_globalSave) then
@@ -84,7 +86,7 @@ if (isMultiplayer) then
 	};
 	[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
 
-    Info_3("Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney);
+    Info_3("Saved player %1: %2 rank, %3 money", _playerId, _rankPlayer, _totalMoney);
 };
 
 if (!_globalSave) then { saveProfileNamespace };

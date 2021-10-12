@@ -57,36 +57,34 @@ _fnc_initMarker =
 _fnc_initGarrison =
 {
 	params ["_markerArray", "_type"];
-	private ["_side", "_groupsRandom", "_garrNum", "_garrisonOld", "_marker"];
+	private ["_side", "_groupsRandom", "_garrNum", "_garrison", "_marker"];
 	{
 	    _marker = _x;
-			_garrNum = ([_marker] call A3A_fnc_garrisonSize) / 8;
-			_side = sidesX getVariable [_marker, sideUnknown];
-			if(_side != Occupants) then
+		_garrNum = [_marker] call A3A_fnc_garrisonSize;
+		_side = sidesX getVariable [_marker, sideUnknown];
+		if(_side != Occupants) then
+		{
+			_groupsRandom = groupsCSATSquad + groupsCSATMid;
+		}
+		else
+		{
+			if !(_type in ["Airport", "Outpost"]) then
 			{
-				_groupsRandom = [groupsCSATSquad, groupsFIASquad] select ((_marker in outposts) && (gameMode == 4));
+				_groupsRandom = groupsFIASquad + groupsFIAMid;
 			}
 			else
 			{
-				if(_type != "Airport" && {_type != "Outpost"}) then
-				{
-					_groupsRandom = groupsFIASquad;
-				}
-				else
-				{
-	 				_groupsRandom = groupsNATOSquad;
-				};
+ 				_groupsRandom = groupsNATOSquad + groupsNATOMid;
 			};
-			//Old system, keeping it intact for the moment
-			_garrisonOld = [];
-			for "_i" from 1 to _garrNum do
-			{
-				_garrisonOld append (selectRandom _groupsRandom);
-			};
-			//
+		};
 
-			//Old system, keeping it runing for now
-			garrison setVariable [_marker, _garrisonOld, true];
+		_garrison = [];
+		while {count _garrison < _garrNum} do
+		{
+			_garrison append (selectRandom _groupsRandom);
+		};
+		_garrison resize _garrNum;
+		garrison setVariable [_marker, _garrison, true];
 
 	} forEach _markerArray;
 };

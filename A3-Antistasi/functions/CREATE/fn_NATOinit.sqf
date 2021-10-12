@@ -75,7 +75,7 @@ else
 };
 
 //Calculates the skill of the given unit
-private _skill = (0.15 + (0.02 * difficultyCoef) + (0.01 * tierWar)) * skillMult;
+private _skill = (0.15 * skillMult) + (0.04 * difficultyCoef) + (0.02 * tierWar);
 if ("militia_" in (_unit getVariable "unitType")) then
 {
     _skill = _skill min (0.2 * skillMult);

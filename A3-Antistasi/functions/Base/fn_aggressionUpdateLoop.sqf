@@ -80,7 +80,7 @@ while {true} do
         else
         {
             //timingCA broadcasts the value in the if case
-            publicVariable "attackCountdownOccupants";
+            publicVariable "attackCountdownInvaders";
         };
     };
 };

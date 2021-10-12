@@ -66,7 +66,7 @@ _caller setVariable ["cancelIntelSearch", nil];
 
 if(_wasCancelled) exitWith
 {
-    ["Intel", "Search cancelled"] call A3A_fnc_customHint;
+    ["Intel", "Search cancelled."] call A3A_fnc_customHint;
     _caller setVariable ["intelFound", nil];
     [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
 };

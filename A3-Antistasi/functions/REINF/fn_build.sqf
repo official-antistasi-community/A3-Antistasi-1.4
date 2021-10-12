@@ -1,5 +1,5 @@
 if (!(isNil "placingVehicle") && {placingVehicle}) exitWith {["Build Info", "You can't build while placing something."] call A3A_fnc_customHint;};
-if (player != player getVariable ["owner",objNull]) exitWith {["Build Info", "You cannot construct anything while controlling AI"] call A3A_fnc_customHint;};
+if (player != player getVariable ["owner",objNull]) exitWith {["Build Info", "You cannot construct anything while controlling AI."] call A3A_fnc_customHint;};
 
 build_engineerSelected = objNull;
 
@@ -51,13 +51,13 @@ if (isNull build_engineerSelected && count _otherPlayerEngineers > 0) then {
 
 if (isNull build_engineerSelected) then {
 	if (count _aiEngineers > 0 && player != leader player) exitWith {
-		_abortMessage =	_abortMessage + "Only squad leaders can order AI to build";
+		_abortMessage =	_abortMessage + "Only squad leaders can order AI to build.";
 	};
 
 	{
 		if ([_x] call A3A_fnc_canFight && !([_x] call _engineerIsBusy)) exitWith {
 			build_engineerSelected = _x;
-			_abortMessage = _abortMessage + format ["Ordering %1 to build", _x];
+			_abortMessage = _abortMessage + format ["Ordering %1 to build.", _x];
 		};
 	} forEach _aiEngineers;
 
@@ -118,7 +118,7 @@ if ((build_type == "SB") or (build_type == "CB")) then
 	if (build_cost > _resourcesFIA) then
 		{
 		_leave = true;
-		_textX = format ["You do not have enough money for this construction (%1 € needed)",build_cost]
+		_textX = format ["You do not have enough money for this construction (%1 € needed).",build_cost]
 		}
 	else
 		{
@@ -127,7 +127,7 @@ if ((build_type == "SB") or (build_type == "CB")) then
 		if (!(_playerPosition inArea build_nearestFriendlyMarker)) then
 			{
 			_leave = true;
-			_textX = "You cannot build a bunker outside a controlled zone";
+			_textX = "You cannot build a bunker outside a controlled zone.";
 			build_nearestFriendlyMarker = nil;
 			};
 		};
@@ -136,4 +136,4 @@ if ((build_type == "SB") or (build_type == "CB")) then
 if (_leave) exitWith {["Build Info", format ["%1",_textX]] call A3A_fnc_customHint;};
 
 //START PLACEMENT HERE
-[_classX, [], [], nil, false, "BUILDSTRUCTURE"] call HR_GRG_fnc_confirmPlacement;
+[_classX, "BUILDSTRUCTURE"] call HR_GRG_fnc_confirmPlacement;

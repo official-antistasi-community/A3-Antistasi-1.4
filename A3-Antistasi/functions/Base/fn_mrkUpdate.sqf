@@ -45,6 +45,10 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 	}
 else
 	{
+	if (_markerX in citiesX) exitWith {
+		_mrkD setMarkerText "";
+		_mrkD setMarkerColor ([colorOccupants, "ColorBlack"] select (_markerX in destroyedSites));
+	};
 	if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 		{
 		if (_markerX in airportsX) then

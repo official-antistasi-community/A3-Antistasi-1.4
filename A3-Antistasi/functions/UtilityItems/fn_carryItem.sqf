@@ -2,7 +2,7 @@
 Author: Killerswin2,
     trys to carry an object to a place
 Arguments:
-    0.<Object>  object that will carried;
+    0.<Object>  object that will be carried
     1.<Bool>    bool that determines if the object will be picked up
     2.<Object>  player that calls or holds object (optional)
 Return Value:
@@ -19,7 +19,7 @@ Example:
 */
 
 
-params [["_item", objNull], "_pickUp", ["_player", player]];
+params [["_item", objNull, [objNull]], "_pickUp", ["_player", player]];
 
 if (_pickUp) then {
     if (([_player] call A3A_fnc_countAttachedObjects) > 0) exitWith {[localize "STR_A3A_Utility_Title", localize "STR_A3A_Utility_Items_Feedback_Normal"] call A3A_fnc_customHint};

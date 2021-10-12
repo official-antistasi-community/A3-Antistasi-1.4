@@ -33,11 +33,11 @@ private _class = typeOf _vehicle;
 if (isNull _vehicle) exitWith { ["STR_HR_GRG_Feedback_addVehicle_Null"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 if (!alive _vehicle) exitWith { ["STR_HR_GRG_Feedback_addVehicle_Destroyed"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 if (locked _vehicle > 1) exitWith { ["STR_HR_GRG_Feedback_addVehicle_Locked"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
-if (player isNotEqualTo vehicle player) exitWith { ["STR_HR_GRG_Feedback_addVehicle_inVehicle"] remoteExec ["HR_GRG_fnc_Hint"] ; false };
+if (_player isNotEqualTo vehicle _player) exitWith { ["STR_HR_GRG_Feedback_addVehicle_inVehicle"] remoteExec ["HR_GRG_fnc_Hint", _client] ; false };
 if (_player distance _vehicle > 25) exitWith {["STR_HR_GRG_Feedback_addVehicle_Distance"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
     //Valid area
-private _friendlyMarkers = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+private _friendlyMarkers = (["Synd_HQ"] +outposts + seaports + airportsX + factories + resourcesX) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}; //rebel locations with a flag
 private _inArea = _friendlyMarkers findIf { count ([_player, _vehicle] inAreaArray _x) > 1 };
 if !(_inArea > -1) exitWith {["STR_HR_GRG_Feedback_addVehicle_badLocation",[nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
@@ -91,6 +91,21 @@ if (
     && {count (airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (_player inArea _x)}) < 1} //no airports
 ) exitWith {["STR_HR_GRG_Feedback_addVehicle_airBlocked", [nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
+//here to allow adaption of external antistasi system without needing to addapt code under APL-ND
+private _broadcastReportedVehsAndStaticsToSave = {
+    publicVariable "staticsToSave";
+    publicVariable "reportedVehs";
+};
+//_this is vehicle
+private _deleteFromReportedVehsAndStaticsToSave = {
+    reportedVehs deleteAt (reportedVehs find _this);
+    staticsToSave deleteAt (staticsToSave find _this);
+};
+//_this is vehicle
+private _transferToArsenal = {
+    [_this,boxX] call A3A_fnc_ammunitionTransfer;
+};
+
 //---------------------------------------------------------|
 // Everything above this line is under the license: MIT    |
 // Everything under this line is under the license: APL-ND |
@@ -100,45 +115,54 @@ if (
 if (_vehicle getVariable ["HR_GRG_Garaging", false]) exitWith {};
 _vehicle setVariable ["HR_GRG_Garaging", true];
 
+private _addVehicle = {
+    //check if compatible with garage
+    private _class = typeOf _this;
+    private _cat = [_class] call HR_GRG_fnc_getCatIndex;
+    if (_cat isEqualTo -1) exitWith {};
+    _catsRequiringUpdate pushBackUnique _cat;
+
+    private _source = [
+        [_this] call HR_GRG_fnc_isAmmoSource
+        ,[_this] call HR_GRG_fnc_isFuelSource
+        ,[_this] call HR_GRG_fnc_isRepairSource
+    ];
+    private _sourceIndex = _source find true;
+
+    private _stateData = [_this] call HR_GRG_fnc_getState;
+    private _customisation = [_this] call BIS_fnc_getVehicleCustomization;
+
+    //Antistasi adaptions
+    _this call _transferToArsenal;
+    _this call _deleteFromReportedVehsAndStaticsToSave;
+
+    deleteVehicle _this;
+
+    //Add vehicle to garage
+    private _vehUID = [] call HR_GRG_fnc_genVehUID;
+    (HR_GRG_Vehicles#_cat) set [_vehUID, [cfgDispName(_class), _class, _lockUID, "", _stateData, _lockName, _customisation]];
+
+    //register vehicle as a source
+    if (_sourceIndex != -1) then {
+        (HR_GRG_Sources#_sourceIndex) pushBack _vehUID;
+        [_sourceIndex] call HR_GRG_fnc_declairSources;
+    };
+
+    Info_6("By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5 | Source: %6", name _player, getPlayerUID _player, cfgDispName(_class), _vehUID, _locking, _sourceIndex);
+};
+
 private _locking = if (_lockUID isEqualTo "") then {false} else {true};
 private _lockName = if (_locking) then { name _player } else { "" };
+private _catsRequiringUpdate = [];
 {
     detach _x;
-    if (_x isKindOf "StaticWeapon") then {
-        private _stateData = [_x] call HR_GRG_fnc_getState;
-        private _customisation = [_x] call BIS_fnc_getVehicleCustomization;
-        if (_x in staticsToSave) then {staticsToSave = staticsToSave - [_x]; publicVariable "staticsToSave"};
-        deleteVehicle _x;
-        private _vehUID = [] call HR_GRG_fnc_genVehUID;
-        (HR_GRG_Vehicles#4) set [_vehUID, [cfgDispName(typeOf _x), typeOf _x, _lockUID, "", _stateData, _lockName, _customisation]];
-        Info_5("By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5", name _player, getPlayerUID _player, cfgDispName(typeOf _x), _vehUID, _locking );
-    };
+    _x call _addVehicle;
 } forEach attachedObjects _vehicle;
+_vehicle call _addVehicle;
 
-private _source = [
-    [_vehicle] call HR_GRG_fnc_isAmmoSource
-    ,[_vehicle] call HR_GRG_fnc_isFuelSource
-    ,[_vehicle] call HR_GRG_fnc_isRepairSource
-];
-private _sourceIndex = _source find true;
-private _stateData = [_vehicle] call HR_GRG_fnc_getState;
-private _customisation = [_vehicle] call BIS_fnc_getVehicleCustomization;
-
-[_vehicle,true] call A3A_fnc_empty;
-if (_vehicle in staticsToSave) then {staticsToSave = staticsToSave - [_vehicle]; publicVariable "staticsToSave"};
-if (_vehicle in reportedVehs) then {reportedVehs = reportedVehs - [_vehicle]; publicVariable "reportedVehs"};
-
-deleteVehicle _vehicle;
-private _vehUID = [] call HR_GRG_fnc_genVehUID;
-(HR_GRG_Vehicles#_cat) set [_vehUID, [cfgDispName(_class), _class, _lockUID, "", _stateData, _lockName, _customisation]];
-if (_sourceIndex != -1) then {
-    (HR_GRG_Sources#_sourceIndex) pushBack _vehUID;
-    [_sourceIndex] call HR_GRG_fnc_declairSources;
-}; //register vehicle as a source
-Info_6("By: %1 [%2] | Type: %3 | Vehicle ID: %4 | Lock: %5 | Source: %6", name _player, getPlayerUID _player, cfgDispName(_class), _vehUID, _locking, _sourceIndex);
+if (_catsRequiringUpdate isNotEqualTo []) then _broadcastReportedVehsAndStaticsToSave;
 
 //refresh category for active users
-private _catToRefresh = if (_countStatics > 0) then {[_cat, 4]} else {[_cat]};
 private _refreshCode = {
     #include "defines.inc"
     FIX_LINE_NUMBERS()
@@ -150,7 +174,7 @@ private _refreshCode = {
         };
     } forEach _cats;
 };
-[ _catToRefresh, _refreshCode ] remoteExecCall ["call", HR_GRG_Users];
+[ _catsRequiringUpdate, _refreshCode ] remoteExecCall ["call", HR_GRG_Users];
 
 ["STR_HR_GRG_Feedback_addVehicle_Success", [cfgDispName(_class)] ] remoteExec ["HR_GRG_fnc_Hint", _client];
 true;

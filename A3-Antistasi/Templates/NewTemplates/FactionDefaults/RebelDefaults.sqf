@@ -8,8 +8,8 @@
 ["toolKits", ["ToolKit"]] call _fnc_saveToTemplate;  // Relies on autodetection.
 ["itemMaps", ["ItemMap"]] call _fnc_saveToTemplate;  // Relies on autodetection.
 
-// This should be replaced by static loot lists.
-["addDiveGear",true] call _fnc_saveToTemplate;
-["addFlightGear",true] call _fnc_saveToTemplate;
+["diveGear", ["U_I_Wetsuit","V_RebreatherIA","G_Diving"]] call _fnc_saveToTemplate;
+
+["flyGear", ["U_I_pilotCoveralls"]] call _fnc_saveToTemplate;
 
 ["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;

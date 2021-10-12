@@ -1,4 +1,4 @@
-if (count hcSelected player == 0) exitWith {["Vehicle Info", "You must select one group on the HC bar"] call A3A_fnc_customHint;};
+if (count hcSelected player == 0) exitWith {["Vehicle Info", "You must select one group on the HC bar."] call A3A_fnc_customHint;};
 
 private ["_groupX","_veh","_textX","_unitsX"];
 

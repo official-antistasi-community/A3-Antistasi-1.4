@@ -2,7 +2,7 @@ params ["_side", "_position"];
 
 /*  Checks if the QRF support is available
 
-    Execution on: HC or Server
+    Execution on: Server
 
     Scope: Internal
 
@@ -13,6 +13,22 @@ params ["_side", "_position"];
     Returns:
         0 if QRF is possible, -1 otherwise
 */
+
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+
+//QRFs always run on the server at the moment, so leave a buffer for wavedCAs
+if ([_side] call A3A_fnc_remUnitCount < 40) exitWith
+{
+    Debug("Blocked QRF because unit count on server is too high");
+    -1;
+};
+
+if ([_position,false] call A3A_fnc_fogCheck < 0.3) exitWith
+{
+    Debug("Blocked QRF to %1 due to heavy fog", _position);
+    -1;
+};
 
 //Do a quick check for at least one available airport
 private _index = airportsX findIf

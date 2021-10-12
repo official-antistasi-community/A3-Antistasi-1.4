@@ -57,6 +57,7 @@ private _markerPos = getMarkerPos _marker;
 private _units = allUnits inAreaArray [_markerPos, _capRadius, _capRadius];
 {
     if !(_x call A3A_fnc_canFight) then { continue };
+    if (vehicle _x isKindOf "Air") then { continue };
     private _value = linearConversion [_capRadius/2, _capRadius, _markerPos distance2d _x, 1, 0, true];
     switch (side _x) do				// Not side group because we don't count undercover
     {

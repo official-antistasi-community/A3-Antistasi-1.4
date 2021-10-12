@@ -102,11 +102,13 @@ if (_side isEqualTo east) then {
 	//TODO Add ammobearers
 	groupsCSATAA = [
 		"loadouts_inv_military_SquadLeader",
+		"loadouts_inv_military_Rifleman",
 		"loadouts_inv_military_AA",
 		"loadouts_inv_military_AA"
 	];
 	groupsCSATAT = [
 		"loadouts_inv_military_SquadLeader",
+		"loadouts_inv_military_Rifleman",
 		"loadouts_inv_military_AT",
 		"loadouts_inv_military_AT"
 	];
@@ -170,7 +172,6 @@ if (_side isEqualTo east) then {
 				"loadouts_inv_militia_Grenadier",
 				"loadouts_inv_militia_Rifleman",
 				selectRandomWeighted ["loadouts_inv_militia_Rifleman", 1, "loadouts_inv_militia_Marksman", 1],
-				selectRandomWeighted ["loadouts_inv_militia_Rifleman", 2, "loadouts_inv_militia_Marksman", 1],
 				selectRandomWeighted ["loadouts_inv_militia_Rifleman", 1, "loadouts_inv_militia_ExplosivesExpert", 1],
 				"loadouts_inv_militia_LAT",
 				"loadouts_inv_militia_Medic"
@@ -293,11 +294,13 @@ if (_side isEqualTo west) then {
 	//TODO Add ammobearers
 	groupsNATOAA = [
 		"loadouts_occ_military_SquadLeader",
+		"loadouts_occ_military_Rifleman",
 		"loadouts_occ_military_AA",
 		"loadouts_occ_military_AA"
 	];
 	groupsNATOAT = [
 		"loadouts_occ_military_SquadLeader",
+		"loadouts_occ_military_Rifleman",
 		"loadouts_occ_military_AT",
 		"loadouts_occ_military_AT"
 	];
@@ -361,7 +364,6 @@ if (_side isEqualTo west) then {
 				"loadouts_occ_militia_Grenadier",
 				"loadouts_occ_militia_Rifleman",
 				selectRandomWeighted ["loadouts_occ_militia_Rifleman", 1, "loadouts_occ_militia_Marksman", 1],
-				selectRandomWeighted ["loadouts_occ_militia_Rifleman", 2, "loadouts_occ_militia_Marksman", 1],
 				selectRandomWeighted ["loadouts_occ_militia_Rifleman", 1, "loadouts_occ_militia_ExplosivesExpert", 1],
 				"loadouts_occ_militia_LAT",
 				"loadouts_occ_militia_Medic"

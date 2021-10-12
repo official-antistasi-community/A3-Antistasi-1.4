@@ -226,7 +226,7 @@ switch (_reason) do
 {
     case "Reported":
     {
-        ["Undercover", "You have been reported or spotted by the enemy"] call A3A_fnc_customHint;
+        ["Undercover", "You have been reported or spotted by the enemy!"] call A3A_fnc_customHint;
         if (vehicle player != player) then
         {
             reportedVehs pushBackUnique (objectParent player);
@@ -239,49 +239,49 @@ switch (_reason) do
     };
     case "VNoCivil":
     {
-        ["Undercover", "You entered a non civilian vehicle"] call A3A_fnc_customHint;
+        ["Undercover", "You entered a non civilian vehicle!"] call A3A_fnc_customHint;
     };
     case "VCompromised":
     {
-        ["Undercover", "You entered a reported vehicle"] call A3A_fnc_customHint;
+        ["Undercover", "You entered a reported vehicle!"] call A3A_fnc_customHint;
     };
     case "SpotBombTruck":
     {
-        ["Undercover", "Explosives have been spotted on your vehicle"] call A3A_fnc_customHint;
+        ["Undercover", "Explosives have been spotted on your vehicle!"] call A3A_fnc_customHint;
         reportedVehs pushBackUnique (objectParent player);
         publicVariable "reportedVehs";
     };
     case "Highway":
     {
-        ["Undercover", "You went too far away from any roads and have been spotted"] call A3A_fnc_customHint;
+        ["Undercover", "You went too far away from any roads and have been spotted!"] call A3A_fnc_customHint;
         reportedVehs pushBackUnique (objectParent player);
         publicVariable "reportedVehs";
     };
     case "clothes":
     {
-        ["Undercover", "You cannot stay Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform"] call A3A_fnc_customHint;
+        ["Undercover", "You cannot stay Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform!"] call A3A_fnc_customHint;
     };
     case "clothes2":
     {
-        ["Undercover", "You cannot stay Undercover while showing:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform<br/><br/>The enemy added you to their Wanted List"] call A3A_fnc_customHint;
+        ["Undercover", "You cannot stay Undercover while showing:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform<br/><br/>The enemy added you to their Wanted List!"] call A3A_fnc_customHint;
         player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
     };
     case "BadMedic":
     {
-        ["Undercover", "You cannot stay Undercover while healing a compromised resistance member"] call A3A_fnc_customHint;
+        ["Undercover", "You cannot stay Undercover while healing a compromised resistance member!"] call A3A_fnc_customHint;
     };
     case "BadMedic2":
     {
-        ["Undercover", "You cannot stay Undercover while healing a compromised resistance member<br/><br/>The enemy added you to their Wanted List"] call A3A_fnc_customHint;
+        ["Undercover", "You cannot stay Undercover while healing a compromised resistance member<br/><br/>The enemy added you to their Wanted List!"] call A3A_fnc_customHint;
         player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
     };
     case "Compromised":
     {
-        ["Undercover", "You left your vehicle and you are still on the Wanted List"] call A3A_fnc_customHint;
+        ["Undercover", "You left your vehicle and you are still on the Wanted List!"] call A3A_fnc_customHint;
     };
     case "distanceX":
     {
-        ["Undercover", "You have gotten too close to an enemy Base, Outpost or Roadblock"] call A3A_fnc_customHint;
+        ["Undercover", "You have gotten too close to an enemy Base, Outpost or Roadblock!"] call A3A_fnc_customHint;
         if !(isNull objectParent player) then
         {
             reportedVehs pushBackUnique (objectParent player);
@@ -296,14 +296,14 @@ switch (_reason) do
     {
         private _veh = objectParent player;
         private _detectedBy = _veh getVariable "NoFlyZoneDetected";
-        ["Undercover", format ["You have violated the airspace of %1", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
+        ["Undercover", format ["You have violated the airspace of %1!", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
         reportedVehs pushBackUnique _veh;
         publicVariable "reportedVehs";
         _veh setVariable ["NoFlyZoneDetected", nil, true];
     };
     case "Control":
     {
-        ["Undercover", "The Installation Garrison has recognised you"] call A3A_fnc_customHint;
+        ["Undercover", "The Installation Garrison has recognised you!"] call A3A_fnc_customHint;
         reportedVehs pushBackUnique(vehicle player);
         publicVariable "reportedVehs";
     };

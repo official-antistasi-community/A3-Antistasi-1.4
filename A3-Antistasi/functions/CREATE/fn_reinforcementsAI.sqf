@@ -27,84 +27,87 @@ while {killZoneRemove >= 1} do
 
 // Handle the old reinforcements
 
-private ["_airportsX","_reinfPlaces","_airportX","_numberX","_numGarr","_numReal","_sideX","_potentials","_countX","_siteX","_positionX"];
-_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] != teamPlayer) and (spawner getVariable _x == 2)};
-if (count _airportsX == 0) exitWith {};
-_reinfPlaces = [];
+private _playerScale = call A3A_fnc_getPlayerScale;
+private _totalReinf = 4 * round (3 * (1 + tierWar/10) * _playerScale * (0.5 + random 1));
+Debug_1("Sending %1 total troops to reinforce", _totalReinf);
+
+private _airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] != teamPlayer) and (spawner getVariable _x != 0)};
+if (gameMode == 3) then { _airportsX pushBack "NATO_carrier" } else { _airportsX append ["NATO_carrier", "CSAT_carrier"] };
+
+// build list of markers that need reinforcement
+private _reinfTargets = [];			// elements are [troopsNeeded, marker]
 {
-	_airportX = _x;
-	_numberX = 8;
-	_numGarr = [_airportX] call A3A_fnc_garrisonSize;
-	_numReal = count (garrison getVariable [_airportX, []]);
-	_sideX = sidesX getVariable [_airportX,sideUnknown];
+	private _site = _x;
+	private _troopsNeeded = ([_site] call A3A_fnc_garrisonSize) - count (garrison getVariable [_site, []]);
+	if (_troopsNeeded <= 0) then { continue };
+	if (_site in forcedSpawn) then { continue };
+
+	// Don't reinforce if marker has enemy-controlled airfields within spawn distance
+	private _siteSide = sidesX getVariable [_site, sideUnknown];
+	if (-1 != airportsX findIf {(markerPos _x distance2d markerPos _site < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] != _siteSide)}) then { continue };
+
+	_reinfTargets pushBack [_troopsNeeded, _site];
+} forEach (outposts + seaports + resourcesX + factories);
+
+// prioritize bases with most troops needed
+_reinfTargets sort false;
+
+private _fnc_pickSquadType = {
+	params ["_count", "_side"];
+	if (_numTroops == 8) exitWith { selectRandom ([groupsNATOSquad, groupsCSATSquad] select (_side == Invaders))};
+	selectRandom ([groupsNATOmid, groupsCSATmid] select (_side == Invaders));
+};
+
+while {_totalReinf > 0} do
+{
+	if (_airportsX isEqualTo [] or _reinfTargets isEqualTo []) exitWith {};
+	private _airport = selectRandom _airportsX;
+	private _side = sidesX getVariable [_airport, sideUnknown];
 
 	//Self reinforce the airport if needed
-	if (_numReal + 4 <= _numGarr) then
-	{
-		if (_numReal + 8 <= _numGarr) then
-		{
-			if (_sideX == Occupants) then {[selectRandom groupsNATOSquad,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2]} else {[selectRandom groupsCSATSquad,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2]};
-			_numberX = 0;
-		}
-		else
-		{
-			if (_sideX == Occupants) then {[selectRandom groupsNATOmid,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2]} else {[selectRandom groupsCSATmid,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2]};
-			_numberX = 4;
-		};
+	if !("carrier" in _airport) then {
+		private _numNeeded = ([_airport] call A3A_fnc_garrisonSize) - count (garrison getVariable [_airport, []]);
+		if (_numNeeded <= 0) exitWith {};
+
+		private _numTroops = [4, 8] select (_numNeeded > 4 and _totalReinf >= 8 and random 1 > 0.3);
+		[[_numTroops, _side] call _fnc_pickSquadType, _side, _airport, 0] remoteExec ["A3A_fnc_garrisonUpdate",2];
+		Debug_2("Airport %1 self-reinforced with %2 troops", _airport, _numTroops);
+		_totalReinf = _totalReinf - _numTroops;
+		continue;
 	};
-	//Self reinforce done
 
-	//Reinforce nearby sides
-	if (_numberX >= 4) then
-	{
-		_potentials = (outposts + seaports - _reinfPlaces - (killZones getVariable [_airportX,[]])) select {sidesX getVariable [_x,sideUnknown] == _sideX};
-		if (_potentials isEqualTo []) then
-		{
-			_potentials = (resourcesX + factories - _reinfPlaces - (killZones getVariable [_airportX,[]])) select {sidesX getVariable [_x,sideUnknown] == _sideX};
-		};
-		_positionX = getMarkerPos _airportX;
-		_potentials = _potentials select {((getMarkerPos _x distance2D _positionX) < distanceForAirAttack) and !(_x in forcedSpawn)};
-		if (count _potentials > 0) then
-		{
-			_countX = 0;
-			_siteX = "";
-			{
-				_numGarr = [_x] call A3A_fnc_garrisonSize;
-				_numReal = count (garrison getVariable [_x, []]);
-				if (_numGarr - _numReal > _countX) then
-				{
-					_countX = _numGarr - _numReal;
-					_siteX = _x;
-				};
-			} forEach _potentials;
-			if (_siteX != "") then
-			{
-				if ({(getMarkerPos _x distance2d getMarkerPos _siteX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] != _sideX)} count airportsX == 0) then
-				{
-					if ({(_x distance2D _positionX < (2*distanceSPWN)) or (_x distance2D (getMarkerPos _siteX) < (2*distanceSPWN))} count allPlayers == 0) then
-					{
-						_typeGroup = if (_sideX == Occupants) then {if (_numberX == 4) then {selectRandom groupsNATOmid} else {selectRandom groupsNATOSquad}} else {if (_numberX == 4) then {selectRandom groupsCSATmid} else {selectRandom groupsCSATSquad}};
-						[_typeGroup,_sideX,_siteX,2] remoteExec ["A3A_fnc_garrisonUpdate",2];
-
-						//This line send a virtual convoy, execute [] execVM "Convoy\convoyDebug.sqf" as admin to see it
-						//If it breaks, it doesn't change anything
-						//If it works, it will not add any troups
-						//[_siteX, "Reinforce", _sideX, [(_numberX == 4)]] remoteExec ["A3A_fnc_createAIAction", 2];
-					}
-					else
-					{
-						_reinfPlaces pushBack _siteX;
-						[[_siteX,_airportX,_numberX,_sideX],"A3A_fnc_patrolReinf"] call A3A_fnc_scheduler;
-					};
-				};
-			};
-		};
+	//Find a suitable site to reinforce
+	private _killZones = killzones getVariable [_airport, []];
+	private _targIndex = _reinfTargets findIf {
+		(getMarkerPos (_x#1) distance2d getMarkerPos _airport < distanceForAirAttack)
+		and (sidesX getVariable [_x#1, sideUnknown] == _side)
+		and !((_x#1) in _killZones)
 	};
-	if (count _reinfPlaces > 3) exitWith {};
-} forEach _airportsX;
+	if (_targIndex == -1) then {
+		// Airport has nothing to do, remove it from the list
+		_airportsX deleteAt (_airportsX find _airport);
+		continue;
+	};
 
-if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFroadPatrol};
+	(_reinfTargets deleteAt _targIndex) params ["_numNeeded", "_target"];
+	private _numTroops = [4, 8] select (_numNeeded > 4 and _totalReinf >= 8 and random 1 > 0.3);
+	_totalReinf = _totalReinf - _numTroops;
 
+	Debug_3("Reinforcing garrison %1 from %2 with %3 troops", _target, _airport, _numTroops);
+	if ([distanceSPWN1, 1, getMarkerPos _target, teamPlayer] call A3A_fnc_distanceUnits) then {
+		// If rebels are near the target, send a real reinforcement
+		[[_target, _airport, _numTroops, _side], "A3A_fnc_patrolReinf"] call A3A_fnc_scheduler;
+		sleep 10;		// Might re-use this marker shortly, avoid collisions
+	} else {
+		// Otherwise just add troops directly
+		[[_numTroops, _side] call _fnc_pickSquadType, _side, _target, 2] remoteExec ["A3A_fnc_garrisonUpdate", 2];
+	};
+};
+
+// If there aren't too many road patrols around already, generate about 1.5 * playerScale per hour
+if (AAFpatrols < round (3 * _playerScale) and (random 4 < _playerScale)) then {
+	[] spawn A3A_fnc_AAFroadPatrol;
+};
 
 // Reduce loot crate cooldown if garrison is complete
 {

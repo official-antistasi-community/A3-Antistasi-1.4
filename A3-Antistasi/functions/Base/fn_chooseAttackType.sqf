@@ -17,30 +17,6 @@ params ["_posDestination", "_side", ["_supportName", "Small attack"]];
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 
-//Check if unit count isnt reached
-//There might be an exploit here with spawning alot of rebel units to prevent qrfs from happening
-private _allAIUnits = {(alive _x) && {!(isPlayer _x)}} count allUnits;
-private _allUnitsSide = 0;
-private _maxUnitsSide = maxUnits;
-
-if (gameMode <3) then
-{
-	_allUnitsSide = {(alive _x) && {(side group _x == _side) && {!(isPlayer _x)}}} count allUnits;
-	_maxUnitsSide = round (maxUnits * 0.7);
-};
-if ((_allAIUnits + 4 > maxUnits) || (_allUnitsSide + 4 > _maxUnitsSide)) exitWith
-{
-    Info_2("%1 to %2 cancelled because maximum unit count reached", _supportName, _posDestination);
-    ""
-};
-
-//If too foggy for anything abort here
-if ([_posDestination,false] call A3A_fnc_fogCheck < 0.3) exitWith
-{
-    Info_2("%1 to %1 cancelled due to heavy fog", _supportName, _posDestination);
-    ""
-};
-
 //Search for nearby enemies
 private _enemyGroups = allGroups select
 {

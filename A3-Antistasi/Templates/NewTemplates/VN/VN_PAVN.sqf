@@ -14,7 +14,7 @@
 //////////////////////////
 
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
-["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
+["surrenderCrate", "vn_o_ammobox_04"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 // All fo bellow are optional overrides
@@ -69,7 +69,7 @@
 ["vehiclesPolice", ["vn_i_wheeled_m151_02_mp"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["vn_o_nva_static_dshkm_high_01"]] call _fnc_saveToTemplate;
-["staticAT", ["vn_o_nva_static_at3"]] call _fnc_saveToTemplate;
+["staticAT", ["vn_o_vc_static_type56rr"]] call _fnc_saveToTemplate;
 ["staticAA", ["vn_o_nva_static_zpu4"]] call _fnc_saveToTemplate;
 ["staticMortars", ["vn_o_nva_65_static_mortar_type63"]] call _fnc_saveToTemplate;
 
@@ -81,7 +81,7 @@
 
 //Bagged weapon definitions
 ["baggedMGs", [["vn_o_pack_static_base_01", "vn_o_pack_static_dshkm_high_01"]]] call _fnc_saveToTemplate;
-["baggedAT", [["vn_o_pack_static_base_01", "vn_o_pack_static_at3_01"]]] call _fnc_saveToTemplate;
+["baggedAT", [["vn_o_pack_static_base_01", "vn_o_pack_static_type56rr_01"]]] call _fnc_saveToTemplate;
 ["baggedAA", [[]]] call _fnc_saveToTemplate;
 ["baggedMortars", [["vn_o_pack_static_base_01", "vn_o_pack_static_type63_01"]]] call _fnc_saveToTemplate;
 

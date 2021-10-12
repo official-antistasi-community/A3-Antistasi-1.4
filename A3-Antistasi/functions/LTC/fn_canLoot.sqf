@@ -40,7 +40,7 @@ if (!_done) then {
             };
         };
     } else {
-        ["Loot crate", "Cooldown still active"] remoteExec ["A3A_fnc_customHint", _owner];
+        ["Loot crate", "Cooldown still active."] remoteExec ["A3A_fnc_customHint", _owner];
     };
 
 } else {

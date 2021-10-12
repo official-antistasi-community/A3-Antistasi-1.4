@@ -48,14 +48,14 @@ _loadActionID = _object addAction [
 		_exit = false;
 		if(isNull _nearestVehicle) then
 		{
-			["Cargo Load", "Bring vehicle closer"] call A3A_fnc_customHint;
+			["Cargo Load", "Bring vehicle closer."] call A3A_fnc_customHint;
 			_exit = true;
 		};
 		if (_cargo isKindOf "CAManBase") then
 			{
 			if (([_cargo] call A3A_fnc_canFight) or !(isNull (_cargo getVariable ["helped",objNull])) or !(isNull attachedTo _cargo)) then
 				{
-				["Cargo Load", format ["%1 is being helped or no longer needs your help",name _cargo]] call A3A_fnc_customHint;
+				["Cargo Load", format ["%1 is being helped or no longer needs your help.",name _cargo]] call A3A_fnc_customHint;
 				_exit = true;
 				};
 			};

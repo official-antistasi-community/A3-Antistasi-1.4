@@ -55,7 +55,7 @@ if (count _garrison > 0) then
     private _hr = 0;
     if (allUnits findIf {(alive _x) && (!captive _x) && ((side (group _x) == Occupants) || (side (group _x) == Invaders)) && {_x distance2D _posHQ < 500}} != -1) then
     {
-        ["Garrison", "HQ Garrison will stay here and distract the enemy"] call A3A_fnc_customHint;
+        ["Garrison", "HQ Garrison will stay here and distract the enemy."] call A3A_fnc_customHint;
         //Is there a despawn routine attached to them?
         //Why are they getting refunded if they stay?
     }

@@ -51,6 +51,7 @@ allCivilianVests = allVests - allArmoredVests;
 allCivilianVests deleteAt (allCivilianVests find "V_RebreatherB");
 allCivilianVests deleteAt (allCivilianVests find "V_RebreatherIR");
 allCivilianVests deleteAt (allCivilianVests find "V_RebreatherIA");
+allCivilianVests deleteAt (allCivilianVests find "vn_b_vest_seal_01");
 
 ////////////////////////////////////
 //   ARMORED HELMETS LIST        ///
@@ -70,6 +71,7 @@ allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_I_Diving");
 allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_O_Diving");
 allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_B_Diving");
 allCosmeticGlasses deleteAt (allCosmeticGlasses find "LIB_Glasses");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "vn_b_acc_seal_01");
 
 ////////////////
 //   Radios   //

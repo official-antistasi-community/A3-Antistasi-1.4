@@ -15,11 +15,11 @@ switch _typeX do
     };
     case "unit":
     {
-        _flag addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
+        _flag addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
     };
     case "vehicle":
     {
-        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
+        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
     };
     case "mission":
     {
@@ -77,7 +77,7 @@ switch _typeX do
             {
                 removeAllActions _flag;
                 if (player == player getVariable ["owner",player]) then {[] call SA_Add_Player_Tow_Actions};
-                call A3A_fnc_initLootToCrate;
+                if (lootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
                 call A3A_fnc_dropObject;
             }
             else
@@ -122,14 +122,14 @@ switch _typeX do
         fireX addAction ["Rest for 8 Hours", A3A_fnc_skiptime,nil,0,false,true,"","(_this == theBoss)",4];
         fireX addAction ["Clear Nearby Forest", A3A_fnc_clearForest,nil,0,false,true,"","(_this == theBoss)",4];
         fireX addAction ["I hate the fog", { [10,[0,0,0]] remoteExec ["setFog",2]; },nil,0,false,true,"","(_this == theBoss)",4];
-        fireX addAction ["Rain rain go away", { [10,0] remoteExec ["setRain",2]; },nil,0,false,true,"","(_this == theBoss)",4];
+        fireX addAction ["Rain rain go away", { [10,0] remoteExec ["setRain",2]; [60,0.25] remoteExec ["setOvercast",2] },nil,0,false,true,"","(_this == theBoss)",4];
         fireX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)",4];
     };
     case "SDKFlag":
     {
         removeAllActions _flag;
-        _flag addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+        _flag addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         [_flag] call HR_GRG_fnc_initGarage;
     };
     case "Intel_Small":

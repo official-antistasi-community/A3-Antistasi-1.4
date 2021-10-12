@@ -29,34 +29,32 @@ while {true} do
 		_cityData params ["_numCiv", "_numVeh", "_supportGov", "_supportReb"];
 
 		_popTotal = _popTotal + _numCiv;
+		if (_city in destroyedSites) then { _popKilled = _popKilled + _numCiv; continue };
+
 		_popReb = _popReb + (_numCiv * (_supportReb / 100));
 		_popGov = _popGov + (_numCiv * (_supportGov / 100));
 
 		private _radioTowerSide = [_city] call A3A_fnc_getSideRadioTowerInfluence;
-		_multiplyRes = if (_radioTowerSide != teamPlayer) then {0.5} else {1};
-
-		if (_city in destroyedSites) then
+		switch (_radioTowerSide) do
 		{
-			_popKilled = _popKilled + _numCIV;
-		}
-		else
-		{
-			_resAddCity = _numciv * _multiplyRes * (_supportReb / 100) / 3;
-			_hrAddCity = _numciv * (_supportReb / 10000);
-			switch (_radioTowerSide) do
-			{
-				case teamPlayer: {[-1,_suppBoost,_city,false,true] spawn A3A_fnc_citySupportChange};
-				case Occupants: {[1,-1,_city,false,true] spawn A3A_fnc_citySupportChange};
-				case Invaders: {[-1,-1,_city,false,true] spawn A3A_fnc_citySupportChange};
-			};
-			if (sidesX getVariable [_city,sideUnknown] == Occupants) then
-			{
-				_resAddCity = _resAddCity / 2;
-				_hrAddCity = _hrAddCity / 2;
-			};
+			case teamPlayer: {[-1,_suppBoost,_city,false,true] spawn A3A_fnc_citySupportChange};
+			case Occupants: {[1,-1,_city,false,true] spawn A3A_fnc_citySupportChange};
+			case Invaders: {[-1,-1,_city,false,true] spawn A3A_fnc_citySupportChange};
 		};
+
+		_resAddCity = _numCiv * (_supportReb / 100) / 3;
+		_hrAddCity = _numCiv * (_supportReb / 10000);
+
+		if (sidesX getVariable [_city,sideUnknown] == Occupants) then
+		{
+			_resAddCity = _resAddCity / 2;
+			_hrAddCity = _hrAddCity / 2;
+		};
+		if (_radioTowerSide != teamPlayer) then { _resAddCity = _resAddCity / 2 };
+
 		_resAdd = _resAdd + _resAddCity;
 		_hrAdd = _hrAdd + _hrAddCity;
+
 
 		// revuelta civil!!
 		if ((_supportGov < _supportReb) and (sidesX getVariable [_city,sideUnknown] == Occupants)) then

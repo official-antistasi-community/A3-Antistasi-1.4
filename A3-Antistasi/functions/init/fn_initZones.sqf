@@ -16,9 +16,9 @@ citiesX = [];
 
 [] call A3A_fnc_prepareMarkerArrays;
 
-private _fileName = "Map\" + toLower worldName + "Zone.sqf";
+private _fileName = "Map\" + toLower worldName + "Info.sqf";
 
-call compile preProcessFileLineNumbers _filename;
+["zone"] call compile preProcessFileLineNumbers _filename;
 
 private ["_name", "_sizeX", "_sizeY", "_size", "_pos", "_mrk"];
 

@@ -26,7 +26,18 @@ switch (_filename) do {
 		A3A_blackListPos = [2, 3, 4, 6, 8, 11, 12, 13, 14, 15];
 		antennas = [];
 	};
-	case "garrison": {};
-	case "selector": {};
+	case "garrison": {
+		A3A_mrkNATO = [];
+		A3A_mrkCSAT = [];
+		A3A_controlsNATO = [];
+		A3A_controlsCSAT = [];
+
+		A3A_mrkCSAT = ["airport_3", "control_14"];
+		A3A_controlsCSAT = ["control_14"];
+		};
+	};
+	case "selector": {
+		A3A_terrain = "temperate";
+	};
 	default {};
 };

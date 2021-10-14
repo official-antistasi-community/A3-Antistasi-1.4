@@ -30,8 +30,18 @@ switch (_filename) do {
 		A3A_posBank = [[5893.41,10253.1,-0.687263], [9507.5,13572.9,0.133848]];	// same as RT for Bank buildings, select the biggest buildings in your island, and make a DB with their positions.
 		antennas = [];
 	};
-	case "garrison": {};
-	case "selector": {};
+	case "garrison": {
+		A3A_mrkNATO = [];
+		A3A_mrkCSAT = [];
+		A3A_controlsNATO = [];
+		A3A_controlsCSAT = [];
+
+		_mrkCSAT = ["airport_1", "seaport_5", "outpost_10", "control_20"];
+		_controlsCSAT = ["control_20"];
+	};
+	case "selector": {
+		A3A_terrain = "tropical";
+	};
 	default {};
 };
 

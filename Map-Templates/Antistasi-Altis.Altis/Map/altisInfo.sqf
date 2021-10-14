@@ -29,7 +29,17 @@ switch (_filename) do {
 		A3A_posBank = [[16586.6,12834.5,-0.638584], [16545.8,12784.5,-0.485485], [16633.3,12807,-0.635017], [3717.34,13391.2,-0.164862], [3692.49,13158.3,-0.0462074], [3664.31,12826.5,-0.379545], [3536.99,13006.6,-0.508585], [3266.42,12969.9,-0.549738]];
 		antennas = [];
 	};
-	case "garrison": {};
-	case "selector": {};
+	case "garrison": {
+		A3A_mrkNATO = [];
+		A3A_mrkCSAT = [];
+		A3A_controlsNATO = [];
+		A3A_controlsCSAT = [];
+
+		A3A_mrkCSAT = ["airport_2", "seaport_4", "outpost_5", "control_52", "control_33"];
+		A3A_controlsCSAT = ["control_52", "control_33"];
+	};
+	case "selector": {
+		A3A_terrain = "arid";
+	};
 	default {};
 };

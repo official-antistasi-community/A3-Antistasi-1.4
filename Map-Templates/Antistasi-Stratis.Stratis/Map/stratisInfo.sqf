@@ -11,7 +11,16 @@ switch (_filename) do {
 		A3A_hardcodedPop = false;
 		A3A_hardCodedAntennas = false;
 	};
-	case "garrison": {};
-	case "selector": {};
+	case "garrison": {
+		A3A_mrkNATO = [];
+		A3A_mrkCSAT = [];
+		A3A_controlsNATO = [];
+		A3A_controlsCSAT = [];
+
+		A3A_mrkCSAT = ["outpost_3"];
+	};
+	case "selector": {
+		A3A_terrain = "";
+	};
 	default {};
 };

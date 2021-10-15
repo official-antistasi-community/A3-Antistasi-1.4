@@ -10,6 +10,7 @@ switch (_filename) do {
 		A3A_posBank = [];
 		A3A_hardcodedPop = false;
 		A3A_hardCodedAntennas = false;
+		A3A_disableTowns = true;
 	};
 	case "garrison": {
 		A3A_mrkNATO = [];

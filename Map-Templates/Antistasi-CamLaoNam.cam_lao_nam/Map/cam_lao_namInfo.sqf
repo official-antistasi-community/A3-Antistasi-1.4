@@ -10,6 +10,7 @@ switch (_filename) do {
 		A3A_posBank = [];
 		A3A_hardcodedPop = true;
 		A3A_hardCodedAntennas = true;
+		A3A_disableTowns = true;
 
 
 		//Reduced Pop for performance 16761 to 15350, minimum Pop per Town set to 100 to ensure Vehicle spawning

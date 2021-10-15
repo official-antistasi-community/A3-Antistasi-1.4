@@ -10,6 +10,7 @@ switch (_filename) do {
 		A3A_posBank = [];
 		A3A_hardcodedPop = true;
 		A3A_hardCodedAntennas = true;
+		A3A_disableTowns = true;
 
 
 		//To improve Performance, reduces pop from 13972 to 4850

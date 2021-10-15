@@ -10,6 +10,7 @@ switch (_filename) do {
 		A3A_posBank = [];
 		A3A_hardcodedPop = false;
 		A3A_hardCodedAntennas = true;
+		A3A_disableTowns = true;
 
 		A3A_posAntennas =
 		[[502.398,348.476,0.000190735], [4310.99,844.668,0.0271759], [1724.15,4777.62,-1.14441e-005], [2916.02,4174.11,1.14441e-005],

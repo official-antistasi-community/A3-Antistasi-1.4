@@ -10,6 +10,7 @@ switch (_filename) do {
 		A3A_posBank = [];
 		A3A_hardcodedPop = true;
 		A3A_hardCodedAntennas = true;
+		A3A_disableTowns = true;
 
 		{server setVariable [_x select 0,_x select 1]} forEach
 		[["vill_NovySobor",129],["city_StarySobor",149],["vill_Guglovo",26],["vill_Vyshnoye",41],["vill_Kabanino",86],["vill_Rogovo",66],["vill_Mogilevka",104],["city_Gorka",115],

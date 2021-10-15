@@ -70,9 +70,9 @@ markersX apply {
  //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
 private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_info"];
 
-(if (A3A_disableTowns) then {"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
 !(getText (_x >> ""Name"") isEqualTo """") &&
-!((configName _x) in A3A_disableTownName)"})
+!((configName _x) in A3A_disableTownName)"
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 	_nameX = configName _x;
@@ -120,7 +120,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	sidesX setVariable [_mrk, Occupants, true];
 	_info = [_numCiv, _numVeh, prestigeOPFOR, prestigeBLUFOR];
 	server setVariable [_nameX, _info, true];
-};;	//find in congigs faster then find location in 25000 radius
+};	//find in congigs faster then find location in 25000 radius
 if (debug) then {
     Debug_1("Roads built in %1.", worldName);
 };

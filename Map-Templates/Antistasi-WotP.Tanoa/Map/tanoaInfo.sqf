@@ -1,3 +1,23 @@
+/*
+    Author: []
+    [Description]
+        Adds globals to the misson that are used in initZones, selector, and initGarrison, depends on what the parameter is.
+
+    Arguments:
+    0. <String> key for globals need in file
+
+    Scope: Server
+    Environment: scheduled 
+    Public: [no]
+    Dependencies:
+
+    Example:
+	private _fileName = "Map\" + toLower worldName + "Info.sqf";
+	["garrison"] call compile preProcessFileLineNumbers _filename;
+
+    License: MIT the license switch is noted in the code
+*/
+
 params["_filename", ""];
 
 switch (_filename) do {
@@ -10,7 +30,6 @@ switch (_filename) do {
 		A3A_posBank = [];
 		A3A_hardcodedPop = true;
 		A3A_hardCodedAntennas = true;
-		A3A_disableTowns = true;
 		A3A_disableTownName = [];
 
 		{server setVariable [_x select 0,_x select 1]} forEach

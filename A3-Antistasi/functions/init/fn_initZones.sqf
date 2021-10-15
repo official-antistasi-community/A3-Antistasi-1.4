@@ -70,7 +70,7 @@ markersX apply {
  //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
 private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_info"];
 
-"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+(if (A3A_disableTowns) then {"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
 !(getText (_x >> ""Name"") isEqualTo """") &&
 !((configName _x) in [""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""Malden_C_Airport"", ""FobNauzad"", ""FobObeh"", ""22"",
 ""23"", ""toipela"", ""hirvela"", ""Kuusela"", ""Niemela"", ""fob4"", ""daumau"", ""fob1"", ""quanloi"", ""stagingarea"", ""fob2"",
@@ -80,7 +80,7 @@ private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_inf
  ""sangha"", ""hoxanx"", ""congtroi"", ""boave"", ""longhai"", ""honba"", ""kiemtra"", ""baibiendiep"", ""nuocbun"", ""cantho"",
  ""nhenden"", ""soctrang"", ""mekongdelta"", ""tampep"", ""segbegat"", ""che"", ""tandi"", ""lahot"", ""alieng"", ""thiengling"",
  ""phaonoi"", ""timho"", ""quyen"", ""caloi"", ""thuphac"", ""diemdang"", ""bandao"", ""mantau"",""dongxa"", ""tauphabang"", ""horgoat"",
- ""samsong"", ""muylai"", ""caymo"", ""docon"", ""paradiseisland"", ""mien"", ""giuaho"", ""daotrai""])"
+ ""samsong"", ""muylai"", ""caymo"", ""docon"", ""paradiseisland"", ""mien"", ""giuaho"", ""daotrai""])"})
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 	_nameX = configName _x;
@@ -128,7 +128,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	sidesX setVariable [_mrk, Occupants, true];
 	_info = [_numCiv, _numVeh, prestigeOPFOR, prestigeBLUFOR];
 	server setVariable [_nameX, _info, true];
-};	//find in congigs faster then find location in 25000 radius
+};;	//find in congigs faster then find location in 25000 radius
 if (debug) then {
     Debug_1("Roads built in %1.", worldName);
 };

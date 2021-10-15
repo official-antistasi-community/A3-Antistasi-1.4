@@ -11,6 +11,7 @@ switch (_filename) do {
 		A3A_hardcodedPop = true;
 		A3A_hardCodedAntennas = true;
 		A3A_disableTowns = true;
+		A3A_disableTownName = [];
 
 
 		//To improve Performance, reduces pop from 13972 to 4850
@@ -18,6 +19,16 @@ switch (_filename) do {
 		[["Adamow",200],["Bielawa",150],["Borek",150],["Brena",150],["Dolnik",100],["Gieraltow",400],["Gliniska",150],["Grabin",250],["Huta",150],["Karlin",50],["Kolembrody",100],
 		["Lembork",50],["Lipina",100],["Lukow",200],["Muratyn",50],["Nadbor",600],["Nidek",100],["Olszanka",100],["Polana",100],["Radacz",150],["Radunin",150],["Roztoka",50],
 		["Sitnik",150],["Sobotka",100],["Tarnow",200],["Topolin",650],["Zalesie",150],["Zapadlisko",100]];
+
+		A3A_disableTownName = ["Lakatoro01", "Galili01","Sosovu01", "Ipota01", "Malden_C_Airport", "FobNauzad", "FobObeh", "22",
+		"23", "toipela", "hirvela", "Kuusela", "Niemela", "fob4", "daumau", "fob1", "quanloi", "stagingarea", "fob2",
+		"pleimei", "fob6", "berchtesgaden", "fob3", "khegio", "fob5", "thudridge", "halongnavybase", "plainofjars", "pleikuboatbase",
+		"banhoang", "vinhau", "kechau", "quanbo", "huecitadel", "bimat", "danthemthem", "daophai", "phuquoc", "dharmadocks",
+ 		"dharma", "patmep", "phokham", "rungcung", "tiengtai", "vacang", "hanoi3", "saigonport", "ansungsong", "vanchu",
+ 		"sangha", "hoxanx", "congtroi", "boave", "longhai", "honba", "kiemtra", "baibiendiep", "nuocbun", "cantho",
+ 		"nhenden", "soctrang", "mekongdelta", "tampep", "segbegat", "che", "tandi", "lahot", "alieng", "thiengling",
+ 		"phaonoi", "timho", "quyen", "caloi", "thuphac", "diemdang", "bandao", "mantau","dongxa", "tauphabang", "horgoat",
+ 		"samsong", "muylai", "caymo", "docon", "paradiseisland", "mien", "giuaho", "daotrai"];
 
 		A3A_posAntennas =
 		[[3830.61,1827.19,0], [5007.39,2131.27,0], [1583.47,7162.08,0.000152588], [3146.07,7024.41,0.00133514],

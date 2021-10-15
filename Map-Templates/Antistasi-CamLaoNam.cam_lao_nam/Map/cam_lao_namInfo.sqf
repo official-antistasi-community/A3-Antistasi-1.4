@@ -11,6 +11,7 @@ switch (_filename) do {
 		A3A_hardcodedPop = true;
 		A3A_hardCodedAntennas = true;
 		A3A_disableTowns = true;
+		A3A_disableTownName = [];
 
 
 		//Reduced Pop for performance 16761 to 15350, minimum Pop per Town set to 100 to ensure Vehicle spawning
@@ -23,6 +24,16 @@ switch (_filename) do {
 		["hanoi2",300],["gansong",100],["zokcarbora",100],["banhtrung",100],["yentinh",100],["thunglungcao",100],["baibiendep",100],
 		["phoduc",100],["baove",100],["ngatu",100],["binhyen",100],["bosong",100],["marble",180],["niemtin",100],
 		["krosang",100],["banlen",100],["comngon",100],["saigonport",100],["cauhai",100]];
+
+		A3A_disableTownName = ["Lakatoro01", "Galili01","Sosovu01", "Ipota01", "Malden_C_Airport", "FobNauzad", "FobObeh", "22",
+		"23", "toipela", "hirvela", "Kuusela", "Niemela", "fob4", "daumau", "fob1", "quanloi", "stagingarea", "fob2",
+		"pleimei", "fob6", "berchtesgaden", "fob3", "khegio", "fob5", "thudridge", "halongnavybase", "plainofjars", "pleikuboatbase",
+		"banhoang", "vinhau", "kechau", "quanbo", "huecitadel", "bimat", "danthemthem", "daophai", "phuquoc", "dharmadocks",
+ 		"dharma", "patmep", "phokham", "rungcung", "tiengtai", "vacang", "hanoi3", "saigonport", "ansungsong", "vanchu",
+ 		"sangha", "hoxanx", "congtroi", "boave", "longhai", "honba", "kiemtra", "baibiendiep", "nuocbun", "cantho",
+ 		"nhenden", "soctrang", "mekongdelta", "tampep", "segbegat", "che", "tandi", "lahot", "alieng", "thiengling",
+ 		"phaonoi", "timho", "quyen", "caloi", "thuphac", "diemdang", "bandao", "mantau","dongxa", "tauphabang", "horgoat",
+ 		"samsong", "muylai", "caymo", "docon", "paradiseisland", "mien", "giuaho", "daotrai"];
 
 
 		A3A_posAntennas =

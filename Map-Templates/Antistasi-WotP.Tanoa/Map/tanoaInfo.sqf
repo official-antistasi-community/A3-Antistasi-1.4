@@ -73,6 +73,8 @@ switch (_filename) do {
 	case "selector": {
 		A3A_terrain = "tropical";
 	};
-	default {};
+	default {
+		Info("Map Info given unknown parameter");
+	};
 };
 

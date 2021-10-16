@@ -134,7 +134,7 @@ sidesX setVariable ["NATO_carrier", Occupants, true];
 sidesX setVariable ["CSAT_carrier", Invaders, true];
 
 A3A_antennasDead = [];
-banks = [];
+A3A_banks = [];
 mrkAntennas = [];
 antennas = [];
 
@@ -172,7 +172,7 @@ private _replaceBadAntenna = {
 if (!_hardCodedAntennas) then {
 	antennas = nearestObjects [[worldSize /2, worldSize/2], _antennatypes, worldSize];
 
-	banks = nearestObjects [[worldSize /2, worldSize/2], _banktypes, worldSize];
+	A3A_banks = nearestObjects [[worldSize /2, worldSize/2], _banktypes, worldSize];
 
 	private _replacedAntennas = [];
 	{ _replacedAntennas pushBack ([_x] call _replaceBadAntenna); } forEach antennas;
@@ -267,7 +267,7 @@ if (count _posBank > 0) then {
 
 		if (count _bankProv > 0) then {
 			private _banco = _bankProv select 0;
-			banks = banks + [_banco];
+			A3A_banks = A3A_banks + [_banco];
 		};
 	};
 };
@@ -298,7 +298,7 @@ publicVariable "spawnPoints";
 publicVariable "antennas";
 publicVariable "A3A_antennasDead";
 publicVariable "mrkAntennas";
-publicVariable "banks";
+publicVariable "A3A_banks";
 publicVariable "seaSpawn";
 publicVariable "seaAttackSpawn";
 publicVariable "defaultControlIndex";

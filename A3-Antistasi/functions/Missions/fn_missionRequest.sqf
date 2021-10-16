@@ -107,7 +107,7 @@ switch (_type) do {
 		_possibleMarkers = [seaports + outposts] call _findIfNearAndHostile;
 		_possibleMarkers = _possibleMarkers select {(_x in seaports) or (spawner getVariable _x != 0)};
 
-		//append banks in hostile cities
+		//append A3A_banks in hostile cities
 		if (random 100 < 20) then {
 			{
 				private _nearbyMarker = [markersX, getPos _x] call BIS_fnc_nearestPosition;
@@ -115,7 +115,7 @@ switch (_type) do {
 					(sidesX getVariable [_nearbyMarker,sideUnknown] != teamPlayer)
 					&& (getPos _x distance getMarkerPos respawnTeamPlayer < distanceMission)
 					) then {_possibleMarkers pushBack _x};
-			}forEach banks;
+			}forEach A3A_banks;
 		};
 
 		if (count _possibleMarkers == 0) then {
@@ -126,7 +126,7 @@ switch (_type) do {
 		} else {
 			private _site = selectRandom _possibleMarkers;
 			if (_site in outposts) then {[[_site],"A3A_fnc_LOG_Ammo"] remoteExec ["A3A_fnc_scheduler",2]};
-			if (_site in banks) then {[[_site],"A3A_fnc_LOG_Bank"] remoteExec ["A3A_fnc_scheduler",2]};
+			if (_site in A3A_banks) then {[[_site],"A3A_fnc_LOG_Bank"] remoteExec ["A3A_fnc_scheduler",2]};
 			if (_site in Seaports) then {[[_site],"A3A_fnc_LOG_Salvage"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};

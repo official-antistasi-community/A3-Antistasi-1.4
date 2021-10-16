@@ -1,21 +1,24 @@
 /*
     Author: []
     [Description]
-        Adds globals to the misson that are used in initZones, selector, and initGarrison, depends on what the parameter is.
+        data getter
 
     Arguments:
     0. <String> key for globals need in file
 
+	Return:
+	0. <any> data returned
+
     Scope: Server
     Environment: scheduled 
-    Public: [no]
+    Public: [yes]
     Dependencies:
 
     Example:
-	private _fileName = "Map\" + toLower worldName + "Info.sqf";
-	["garrison"] call compile preProcessFileLineNumbers _filename;
+	private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
+	("antennas" call _fnc_mapInfo) params [["_posAntennas", [], [[]]], ["_blacklistIndex",[],[[]]]];
 
-    License: MIT the license 
+    License: MIT license 
 */
 #include "..\Includes\common.inc"
 

@@ -142,6 +142,7 @@ antennas = [];
 private _hardCodedAntennas = _posAntennas isNotEqualTo [];
 
 ("bank" call _fnc_mapInfo) params [["_posBank", [], [[]]]];
+if ( _posBank EqualTo []) then {A3A_banks = nearestObjects [[worldSize /2, worldSize/2], _banktypes, worldSize];}; 
 
 
 private _banktypes = ["Land_Offices_01_V1_F"];
@@ -173,8 +174,6 @@ private _replaceBadAntenna = {
 
 if (!_hardCodedAntennas) then {
 	antennas = nearestObjects [[worldSize /2, worldSize/2], _antennatypes, worldSize];
-
-	A3A_banks = nearestObjects [[worldSize /2, worldSize/2], _banktypes, worldSize];
 
 	private _replacedAntennas = [];
 	{ _replacedAntennas pushBack ([_x] call _replaceBadAntenna); } forEach antennas;

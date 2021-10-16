@@ -135,7 +135,7 @@ sidesX setVariable ["CSAT_carrier", Invaders, true];
 
 A3A_antennasDead = [];
 A3A_banks = [];
-mrkAntennas = [];
+A3A_mrkAntennas = [];
 antennas = [];
 
 ("zone" call _fnc_mapInfo) params [["_posAntennas", [], [[]]], ["_blacklistPos",[],[[]]], ["_posBank", [], [[]]]];
@@ -184,7 +184,7 @@ if (!_hardCodedAntennas) then {
 		_mrkFinal setMarkerType "loc_Transmitter";
 		_mrkFinal setMarkerColor "ColorBlack";
 		_mrkFinal setMarkerText "Radio Tower";
-		mrkAntennas pushBack _mrkFinal;
+		A3A_mrkAntennas pushBack _mrkFinal;
 		_x addEventHandler [
 			"Killed",
 			{
@@ -197,7 +197,7 @@ if (!_hardCodedAntennas) then {
 					};
 				};
 
-				_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
+				_mrk = [A3A_mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
 				antennas = antennas - [_antenna];
 				A3A_antennasDead pushBack _antenna;
 				deleteMarker _mrk;
@@ -230,7 +230,7 @@ if (count _posAntennas > 0) then {
 				_mrkFinal setMarkerType "loc_Transmitter";
 				_mrkFinal setMarkerColor "ColorBlack";
 				_mrkFinal setMarkerText "Radio Tower";
-				mrkAntennas pushBack _mrkFinal;
+				A3A_mrkAntennas pushBack _mrkFinal;
 
 				_antenna addEventHandler [
 					"Killed",
@@ -244,7 +244,7 @@ if (count _posAntennas > 0) then {
 							};
 						};
 
-						_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
+						_mrk = [A3A_mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
 						antennas = antennas - [_antenna];
 						A3A_antennasDead pushBack  _antenna;
 						deleteMarker _mrk;
@@ -297,7 +297,7 @@ publicVariable "seaMarkers";
 publicVariable "spawnPoints";
 publicVariable "antennas";
 publicVariable "A3A_antennasDead";
-publicVariable "mrkAntennas";
+publicVariable "A3A_mrkAntennas";
 publicVariable "A3A_banks";
 publicVariable "seaSpawn";
 publicVariable "seaAttackSpawn";

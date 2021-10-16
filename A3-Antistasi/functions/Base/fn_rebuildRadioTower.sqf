@@ -20,18 +20,18 @@ _mrkFinal setMarkerShape "ICON";
 _mrkFinal setMarkerType "loc_Transmitter";
 _mrkFinal setMarkerColor "ColorBlack";
 _mrkFinal setMarkerText "Radio Tower";
-mrkAntennas pushBack _mrkFinal;
-publicVariable "mrkAntennas";
+A3A_mrkAntennas pushBack _mrkFinal;
+publicVariable "A3A_mrkAntennas";
 
 _antenna addEventHandler ["Killed",
 	{
 	params ["_antenna"];
 	_antenna removeAllEventHandlers "Killed";
 	{if ([antennas,_x] call BIS_fnc_nearestPosition == _antenna) then {[_x,false] spawn A3A_fnc_blackout}} forEach citiesX;
-	_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
-	mrkAntennas = mrkAntennas - [_mrk]; deleteMarker _mrk;
+	_mrk = [A3A_mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
+	A3A_mrkAntennas = A3A_mrkAntennas - [_mrk]; deleteMarker _mrk;
 	antennas = antennas - [_antenna]; A3A_antennasDead = A3A_antennasDead + [_antenna];
-	publicVariable "antennas"; publicVariable "A3A_antennasDead"; publicVariable "mrkAntennas";
+	publicVariable "antennas"; publicVariable "A3A_antennasDead"; publicVariable "A3A_mrkAntennas";
 	["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 	["TaskFailed",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	}

@@ -16,9 +16,7 @@ citiesX = [];
 
 [] call A3A_fnc_prepareMarkerArrays;
 
-private _fileName = "Map\" + toLower worldName + "Info.sqf";
-
-["zone"] call compile preProcessFileLineNumbers _filename;
+private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
 
 private ["_name", "_sizeX", "_sizeY", "_size", "_pos", "_mrk"];
 
@@ -70,9 +68,13 @@ markersX apply {
  //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
 private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_info"];
 
+("population" call _fnc_mapInfo) params [["_townPopulations", [], [[]]], ["_disabledTowns",[],[[]]]];
+{server setVariable [_x select 0,_x select 1]} forEach _townPopulations;
+private _hardCodedPopulation = _townPopulations isNotEqualTo [];
+
 "(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
 !(getText (_x >> ""Name"") isEqualTo """") &&
-!((configName _x) in A3A_disableTownName)"
+!((configName _x) in _disabledTowns)"
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 	_nameX = configName _x;
@@ -83,7 +85,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	_size = [_size, 400] select (_size < 400);
 	_numCiv = 0;
 
-	if (A3A_hardcodedPop) then
+	if (_hardCodedPopulation) then
 	{
 		_numCiv = server getVariable _nameX;
 		if (isNil "_numCiv" || {!(_numCiv isEqualType 0)}) then
@@ -131,12 +133,14 @@ sidesX setVariable ["Synd_HQ", teamPlayer, true];
 sidesX setVariable ["NATO_carrier", Occupants, true];
 sidesX setVariable ["CSAT_carrier", Invaders, true];
 
-antennasDead = A3A_antennasDead;
-banks = A3A_banks;
-mrkAntennas = A3A_mrkAntennas;
-private _posAntennas = A3A_posAntennas;
-private _blacklistPos = A3A_blacklistPos;
-private _posBank = A3A_posBank;
+antennasDead = [];
+banks = [];
+mrkAntennas = [];
+antennas = [];
+
+("zone" call _fnc_mapInfo) params [["_posAntennas", [], [[]]], ["_blacklistPos",[],[[]]], ["_posBank", [], [[]]]];
+private _hardCodedAntennas = _posAntennas isNotEqualTo [];
+
 
 private _banktypes = ["Land_Offices_01_V1_F"];
 private _antennatypes = ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F",
@@ -165,7 +169,7 @@ private _replaceBadAntenna = {
 	_antenna;
 };
 
-if (!A3A_hardCodedAntennas) then {
+if (!_hardCodedAntennas) then {
 	antennas = nearestObjects [[worldSize /2, worldSize/2], _antennatypes, worldSize];
 
 	banks = nearestObjects [[worldSize /2, worldSize/2], _banktypes, worldSize];

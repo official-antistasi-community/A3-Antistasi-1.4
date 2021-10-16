@@ -6,8 +6,8 @@ FIX_LINE_NUMBERS()
 Info("InitGarrisons started");
 
 // get terrain specific info
-private _fileName = "Map\" + toLower worldName + "Info.sqf";
-["garrison"] call compile preProcessFileLineNumbers _filename;
+
+private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
 
 _fnc_initMarker =
 {
@@ -93,10 +93,7 @@ _fnc_initGarrison =
 	} forEach _markerArray;
 };
 
-private _mrkNATO = A3A_mrkNATO;
-private _mrkCSAT = A3A_mrkCSAT;
-private _controlsNATO = A3A_controlsNATO;
-private _controlsCSAT = A3A_controlsCSAT;
+("garrison" call _fnc_mapInfo) params [["_mrkNATO", [], [[]]], ["_mrkCSAT",[],[[]]], ["_controlsNATO", [], [[]]], ["_controlsCSAT",[],[[]]]];
 
 if (debug) then
 {

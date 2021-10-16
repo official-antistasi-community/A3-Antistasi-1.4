@@ -49,7 +49,7 @@ private ["_garrison"];
 ["smallCAmrk", smallCAmrk] call A3A_fnc_setStatVariable;
 ["membersX", membersX] call A3A_fnc_setStatVariable;
 private _antennasDeadPositions = [];
-{ _antennasDeadPositions pushBack getPos _x; } forEach antennasDead;
+{ _antennasDeadPositions pushBack getPos _x; } forEach A3A_antennasDead;
 ["antennas", _antennasDeadPositions] call A3A_fnc_setStatVariable;
 //["mrkNATO", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Occupants}] call A3A_fnc_setStatVariable;
 ["mrkSDK", (markersX - controlsX - outpostsFIA) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}] call A3A_fnc_setStatVariable;

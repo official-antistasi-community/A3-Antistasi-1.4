@@ -140,7 +140,7 @@ while {true} do
 		};
 	} forEach vehicles;
 	sleep 3;
-    _numWreckedAntennas = count antennasDead;
+    _numWreckedAntennas = count A3A_antennasDead;
 	//Probability of spawning a mission in.
     _shouldSpawnRepairThisTick = round(random 100) < 20;
     if ((_numWreckedAntennas > 0) && _shouldSpawnRepairThisTick && !("REP" in A3A_activeTasks)) then
@@ -152,7 +152,7 @@ while {true} do
 			{
 			_potentials pushBack [_markerX,_x];
 			};
-		} forEach antennasDead;
+		} forEach A3A_antennasDead;
 		if (count _potentials > 0) then
 			{
 			_potential = selectRandom _potentials;

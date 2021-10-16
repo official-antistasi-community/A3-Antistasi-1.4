@@ -57,7 +57,7 @@ while {visibleMap} do
 				case Invaders: {_result = format ["%1",nameInvaders]};
 				};
 			/*_ant1 = [antennas,_positionX] call BIS_fnc_nearestPosition;
-			_ant2 = [antennasDead, _positionX] call BIS_fnc_nearestPosition;
+			_ant2 = [A3A_antennasDead, _positionX] call BIS_fnc_nearestPosition;
 			if (_ant1 distance _positionX > _ant2 distance _positionX) then
 				{
 				_result = "NONE";

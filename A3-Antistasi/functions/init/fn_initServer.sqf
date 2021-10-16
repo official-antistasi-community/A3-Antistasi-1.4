@@ -176,7 +176,7 @@ addMissionEventHandler ["BuildingChanged", {
 		_newBuilding setVariable ["building", _oldBuilding];
 
 		// Antenna dead/alive status is handled separately
-		if !(_oldBuilding in antennas || _oldBuilding in antennasDead) then {
+		if !(_oldBuilding in antennas || _oldBuilding in A3A_antennasDead) then {
 			destroyedBuildings pushBack _oldBuilding;
 		};
 	};

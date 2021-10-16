@@ -29,7 +29,7 @@ _antennaDead = objNull;
 _textX = "That Outpost does not have a destroyed Radio Tower.";
 if (_siteX in outposts) then
 	{
-	_antennasDead = antennasDead select {_x inArea _siteX};
+	_antennasDead = A3A_antennasDead select {_x inArea _siteX};
 	if (count _antennasDead > 0) then
 		{
 		if (sidesX getVariable [_siteX, sideUnknown] != teamPlayer) then

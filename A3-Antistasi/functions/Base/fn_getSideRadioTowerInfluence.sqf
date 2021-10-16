@@ -15,7 +15,7 @@ if (count antennas == 0) exitWith {sideUnknown};
 _positionX = getMarkerPos _markerX;
 
 _aliveRadioTower = [antennas,_positionX] call BIS_fnc_nearestPosition;
-_destroyedRadioTower = [antennasDead, _positionX] call BIS_fnc_nearestPosition;
+_destroyedRadioTower = [A3A_antennasDead, _positionX] call BIS_fnc_nearestPosition;
 
 // If destroyed radio tower is closer to alive radio tower then this position is under influence of no1.
 if (_aliveRadioTower distance _positionX > _destroyedRadioTower distance _positionX) exitWith {sideUnknown};

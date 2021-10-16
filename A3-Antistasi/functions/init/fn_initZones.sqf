@@ -133,7 +133,7 @@ sidesX setVariable ["Synd_HQ", teamPlayer, true];
 sidesX setVariable ["NATO_carrier", Occupants, true];
 sidesX setVariable ["CSAT_carrier", Invaders, true];
 
-antennasDead = [];
+A3A_antennasDead = [];
 banks = [];
 mrkAntennas = [];
 antennas = [];
@@ -199,10 +199,10 @@ if (!_hardCodedAntennas) then {
 
 				_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
 				antennas = antennas - [_antenna];
-				antennasDead pushBack _antenna;
+				A3A_antennasDead pushBack _antenna;
 				deleteMarker _mrk;
 				publicVariable "antennas";
-				publicVariable "antennasDead";
+				publicVariable "A3A_antennasDead";
 				["TaskSucceeded", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
 				["TaskFailed", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", Occupants];
 			}
@@ -246,10 +246,10 @@ if (count _posAntennas > 0) then {
 
 						_mrk = [mrkAntennas, _antenna] call BIS_fnc_nearestPosition;
 						antennas = antennas - [_antenna];
-						antennasDead pushBack  _antenna;
+						A3A_antennasDead pushBack  _antenna;
 						deleteMarker _mrk;
 						publicVariable "antennas";
-						publicVariable "antennasDead";
+						publicVariable "A3A_antennasDead";
 						["TaskSucceeded", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
 						["TaskFailed", ["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification", Occupants];
 					}
@@ -296,7 +296,7 @@ publicVariable "outpostsFIA";
 publicVariable "seaMarkers";
 publicVariable "spawnPoints";
 publicVariable "antennas";
-publicVariable "antennasDead";
+publicVariable "A3A_antennasDead";
 publicVariable "mrkAntennas";
 publicVariable "banks";
 publicVariable "seaSpawn";

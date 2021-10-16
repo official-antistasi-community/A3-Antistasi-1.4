@@ -1,7 +1,7 @@
 /*
     Author: []
     [Description]
-        data getter
+    	map data getter
 
     Arguments:
     0. <String> key for globals need in file

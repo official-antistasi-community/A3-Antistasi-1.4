@@ -138,8 +138,10 @@ A3A_banks = [];
 A3A_mrkAntennas = [];
 antennas = [];
 
-("zone" call _fnc_mapInfo) params [["_posAntennas", [], [[]]], ["_blacklistPos",[],[[]]], ["_posBank", [], [[]]]];
+("antennas" call _fnc_mapInfo) params [["_posAntennas", [], [[]]], ["_blacklistIndex",[],[[]]]];
 private _hardCodedAntennas = _posAntennas isNotEqualTo [];
+
+("bank" call _fnc_mapInfo) params [["_posBank", [], [[]]]];
 
 
 private _banktypes = ["Land_Offices_01_V1_F"];
@@ -220,7 +222,7 @@ if (count _posAntennas > 0) then {
 		if (count _antennaProv > 0) then {
 			_antenna = _antennaProv select 0;
 
-			if (_i in _blacklistPos) then {
+			if (_i in _blacklistIndex) then {
 				_antenna setdamage 1;
 			} else {
 				_antenna = ([_antenna] call _replaceBadAntenna);

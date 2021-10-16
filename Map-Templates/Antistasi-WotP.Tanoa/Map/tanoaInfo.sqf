@@ -44,27 +44,31 @@ switch (_filename) do {
 		//[_popValue, _disableTownName];
 		[_popValue, _disableTownName];
 	};
-	case "zone": { 
+	case "antennas": { 
 		private _posAntennas =
 		[[2682.94,2592.64,-0.000686646], [4701.6,3165.23,0.0633469], [2437.25,7224.06,0.0264893], [2563.15,9017.1,0.291538],
 		[6617.95,7853.57,0.200073], [11008.8,4211.16,-0.00154114], [6005.47,10420.9,0.20298], [7486.67,9651.9,1.52588e-005],
 		[2690.54,12323,0.0372467], [2965.33,13087.1,0.191544], [7278.8,12846.6,0.0838776], [12889.2,8578.86,0.228729],
 		[10114.3,11743.1,9.15527e-005], [10949.8,11517.3,0.14209], [11153.3,11435.2,0.210876], [13775.8,10976.8,0.170441]];	// All antennas to be bases or to ignore.
-		private _blacklistPos = [9, 14];		// Ignore Antenna at <Index> in A3A_posAntennas.
-		private _posBank = [[5893.41,10253.1,-0.687263], [9507.5,13572.9,0.133848]];	// same as RT for Bank buildings, select the biggest buildings in your island, and make a DB with their positions.
+		private _blacklistIndex = [9, 14];		// Ignore Antenna at <Index> in A3A_posAntennas.
 	
-		//[_posAntennas, _blacklistPos, _posBank];
-		[_posAntennas, _blacklistPos, _posBank];
+		//[_posAntennas, _blacklistIndex,]
+		[_posAntennas, _blacklistIndex];
+	};
+	case "bank": {
+		//_posBank
+		private _posBank = [[5893.41,10253.1,-0.687263], [9507.5,13572.9,0.133848]];	// same as RT for Bank buildings, select the biggest buildings in your island, and make a DB with their positions.
+		[_posBank];
 	};
 	case "garrison": {
 		_mrkCSAT = ["airport_1", "seaport_5", "outpost_10", "control_20"];
 		_controlsCSAT = ["control_20"];
 
 		//[_mrkNATO, _mrkCSAT, _controlsNATO, _controlsCSAT];
-		[nil, _mrkCSAT, nil, A3A_controlsCSAT]
+		[nil, _mrkCSAT, nil, _controlsCSAT];
 	};
-	case "selector": {
-		A3A_terrain = "tropical";
+	case "climate": {
+	"tropical";
 	};
 	default {
 		Info("Map Info given unknown parameter");

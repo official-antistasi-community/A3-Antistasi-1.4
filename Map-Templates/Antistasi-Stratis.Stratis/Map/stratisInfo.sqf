@@ -36,9 +36,13 @@ switch (_filename) do {
 		  //[_popValue, _disableTownName];
 		[nil, _disableTownName];
 	};
-	case "zone": {
-		//[_posAntennas, _blacklistPos, _posBank];
-		[nil, nil, nil];
+	case "antennas": {
+		//[_posAntennas, _blacklistIndex,]
+		[nil, nil];
+	};
+	case "bank": {
+		//_posBank
+		[nil];
 	};
 	case "garrison": {
 		private _mrkCSAT = ["outpost_3"];
@@ -46,8 +50,8 @@ switch (_filename) do {
 		//[_mrkNATO, _mrkCSAT, _controlsNATO, _controlsCSAT];
 		[nil, _mrkCSAT, nil, nil];
 	};
-	case "selector": {
-		A3A_terrain = "";
+	case "climate": {
+	"";
 	};
 	default {
 		Info("Map Info given unknown parameter");

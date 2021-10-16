@@ -36,16 +36,20 @@ switch (_filename) do {
 		  //[_popValue, _disableTownName];
 		[nil, _disableTownName];
 	};
-	case "zone": {
+	case "antennas": {
 
 		private _posAntennas =
 		[[502.398,348.476,0.000190735], [4310.99,844.668,0.0271759], [1724.15,4777.62,-1.14441e-005], [2916.02,4174.11,1.14441e-005],
 		[3020.15,8111.37,0.517868], [4133.57,8028.41,0.30658], [7080.68,5748.77,0.500134], [9160.06,4707.45,0.19401],
 		[9542.17,5029,0.0381298], [9191.69,6012.89,0], [9238.39,6075.66,0.160484]];
-		private _blackListPos = [1, 4, 6, 8, 9];
+		private _blacklistIndex = [1, 4, 6, 8, 9];
 
-		//[_posAntennas, _blacklistPos, _posBank];
-		[_posAntennas, _blackListPos, nil];
+		//[_posAntennas, _blacklistIndex,]
+		[_posAntennas, _blacklistIndex];
+	};
+	case "bank": {
+		//_posBank
+		[nil];
 	};
 	case "garrison": {
 		private _mrkCSAT = ["airport_4"];
@@ -53,8 +57,8 @@ switch (_filename) do {
 		//[_mrkNATO, _mrkCSAT, _controlsNATO, _controlsCSAT];
 		[nil, _mrkCSAT, nil, nil];
 	};
-	case "selector": {
-		A3A_terrain = "temperate";
+	case "climate": {
+	"temperate";
 	};
 	default {
 		Info("Map Info given unknown parameter");

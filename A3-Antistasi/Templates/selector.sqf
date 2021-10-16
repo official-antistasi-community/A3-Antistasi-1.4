@@ -14,7 +14,7 @@ Dependencies:
 FIX_LINE_NUMBERS()
 //Map checker
 private _fileName = "Map\" + toLower worldName + "Info.sqf";
-["selector"] call compile preProcessFileLineNumbers _filename;
+A3A_climate = ["climate"] call compile preProcessFileLineNumbers _filename;
 
 //Mod selector
 
@@ -22,9 +22,9 @@ private _fileName = "Map\" + toLower worldName + "Info.sqf";
 A3A_Reb_template = switch(true) do {
     case (A3A_has3CBFactions): {
         switch(true) do {
-            case (A3A_terrain isEqualTo "arctic");
-            case (A3A_terrain isEqualTo "temperate");
-            case (A3A_terrain isEqualTo "tropical"): {
+            case (A3A_climate isEqualTo "arctic");
+            case (A3A_climate isEqualTo "temperate");
+            case (A3A_climate isEqualTo "tropical"): {
                 Info("Using Temperate CNM Template");
                 ["Templates\NewTemplates\3CB\3CB_Reb_CNM_Temperate.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
@@ -37,9 +37,9 @@ A3A_Reb_template = switch(true) do {
     };
     case (A3A_hasRHS): {
         switch(true) do {
-            case (A3A_terrain isEqualTo "arctic");
-            case (A3A_terrain isEqualTo "temperate");
-            case (A3A_terrain isEqualTo "tropical"): {
+            case (A3A_climate isEqualTo "arctic");
+            case (A3A_climate isEqualTo "temperate");
+            case (A3A_climate isEqualTo "tropical"): {
                 Info("Using Temperate Napa Template");
                 ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
             };
@@ -123,16 +123,16 @@ A3A_Occ_template = switch(true) do {
     */
     case (A3A_has3CBBAF): {
         switch(true) do {
-            case (A3A_terrain isEqualTo "arctic"): {
+            case (A3A_climate isEqualTo "arctic"): {
                 Info("Using arctic BAF Template");
                 ["Templates\NewTemplates\3CB\3CB_AI_BAF_Arctic.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
-            case (A3A_terrain isEqualTo "temperate"): {
+            case (A3A_climate isEqualTo "temperate"): {
 
                 Info("Using temperate BAF Template");
                 ["Templates\NewTemplates\3CB\3CB_AI_BAF_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
-            case (A3A_terrain isEqualTo "tropical"): {
+            case (A3A_climate isEqualTo "tropical"): {
                 Info("Using tropical BAF Template");
                 ["Templates\NewTemplates\3CB\3CB_AI_BAF_Tropical.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
@@ -161,12 +161,12 @@ A3A_Occ_template = switch(true) do {
                 Info("Using 3CB ANA Template");
                 ["Templates\NewTemplates\3CB\3CB_AI_ANA.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
-            case (A3A_terrain isEqualTo "arctic");
-            case (A3A_terrain isEqualTo "temperate"): {
+            case (A3A_climate isEqualTo "arctic");
+            case (A3A_climate isEqualTo "temperate"): {
                 Info("Using Temperate US Marines Template as Placeholder");
                 ["Templates\NewTemplates\RHS\RHS_AI_USAF_Marines_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
-            case (A3A_terrain isEqualTo "tropical"): {
+            case (A3A_climate isEqualTo "tropical"): {
                 Info("Using Coldwar US Template");
                 ["Templates\NewTemplates\3CB\3CB_AI_CW_US.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
@@ -184,9 +184,9 @@ A3A_Occ_template = switch(true) do {
                 Info("Using CDF Temperate Template");
                 ["Templates\NewTemplates\RHS\RHS_AI_CDF_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
-            case (A3A_terrain isEqualTo "arctic");
-            case (A3A_terrain isEqualTo "temperate");
-            case (A3A_terrain isEqualTo "tropical"): {
+            case (A3A_climate isEqualTo "arctic");
+            case (A3A_climate isEqualTo "temperate");
+            case (A3A_climate isEqualTo "tropical"): {
                 Info("Using arctic USAF Template");
                 ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
@@ -235,8 +235,8 @@ A3A_Occ_template = switch(true) do {
                 Info("Using tropical NATO Template");
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Tropical.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
-            case (A3A_terrain isEqualTo "temperate");
-            case (A3A_terrain isEqualTo "tropical"): {
+            case (A3A_climate isEqualTo "temperate");
+            case (A3A_climate isEqualTo "tropical"): {
                 Info("Using temperate NATO Template");
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
             };
@@ -256,12 +256,12 @@ A3A_Occ_template = switch(true) do {
 A3A_Inv_template = switch(true) do {
     case (A3A_has3CBFactions): {
         switch(true) do {
-            case (A3A_terrain isEqualTo "arctic");
-            case (A3A_terrain isEqualTo "temperate"): {
+            case (A3A_climate isEqualTo "arctic");
+            case (A3A_climate isEqualTo "temperate"): {
                 Info("Using RHS AFRF as Placeholder Template");
                 ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
-            case (A3A_terrain isEqualTo "tropical"): {
+            case (A3A_climate isEqualTo "tropical"): {
                 Info("Using Coldwar Soviets Template");
                 ["Templates\NewTemplates\3CB\3CB_AI_CW_SOV.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
@@ -274,9 +274,9 @@ A3A_Inv_template = switch(true) do {
     };
     case (A3A_hasRHS): {
         switch(true) do {
-            case (A3A_terrain isEqualTo "arctic");
-            case (A3A_terrain isEqualTo "temperate");
-            case (A3A_terrain isEqualTo "tropical"): {
+            case (A3A_climate isEqualTo "arctic");
+            case (A3A_climate isEqualTo "temperate");
+            case (A3A_climate isEqualTo "tropical"): {
                 Info("Using temperate AFRF Template");
                 ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
@@ -337,9 +337,9 @@ A3A_Inv_template = switch(true) do {
 A3A_Civ_template = switch(true) do {
     case (A3A_has3CBFactions): {
         switch(true) do {
-            case (A3A_terrain isEqualTo "arctic");
-            case (A3A_terrain isEqualTo "temperate");
-            case (A3A_terrain isEqualTo "tropical"): {
+            case (A3A_climate isEqualTo "arctic");
+            case (A3A_climate isEqualTo "temperate");
+            case (A3A_climate isEqualTo "tropical"): {
                 ["Templates\NewTemplates\3CB\3CB_Civ_Temperate.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
                 Info("Using 3CB Civ Temperate Template");
             };

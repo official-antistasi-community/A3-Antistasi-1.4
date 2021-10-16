@@ -46,7 +46,7 @@ switch (_filename) do {
 		//[_popValue, _disableTownName];
 		[_popValue, _disableTownName];
 	};
-	case "zone": {
+	case "antennas": {
 		private _posAntennas =
 		[[2247.39,3986.44,0.00225067], [6918.17,5419.54,0], [2947.57,8719.32,0.00744534], [3971.88,10207.1,0], [11382.5,5747.82,8.39233e-005],
 		[8700.25,10425.1,-0.00531006], [4898.78,13640.6,-0.120941], [3272.04,15538.2,0], [15266.2,4664.97,0.000167847], [13743.9,8425.6,-0.171967],
@@ -54,10 +54,14 @@ switch (_filename) do {
 		[16798.7,6349.54,-0.134335], [17358.3,5560.4,-0.15237], [16567.1,7649.92,-6.48499e-005], [16915.2,7431.9,-9.53674e-006], [11481,14497.6,0.093338],
 		[9002.38,16557.6,0.00338745], [16704,9187.21,-6.29425e-005], [14135,12825.5,0.106886], [16193.1,10991.2,-0.0359497], [16956.7,10360.2,-6.67572e-005],
 		[18696.2,8463.42,-0.26639], [20109.3,6538.61,9.53674e-007], [20062.7,7258.82,0.0105629], [14532.3,16441.8,-0.00198364], [14754.2,18335.2,0.000380516]];
-		private _blackListPos = [11, 15, 17, 21, 24, 27];
+		private _blacklistIndex = [11, 15, 17, 21, 24, 27];
 	
-		//[_posAntennas, _blacklistPos, _posBank];
-		[_posAntennas, _blackListPos, nil];
+		//[_posAntennas, _blacklistIndex,]
+		[_posAntennas, _blacklistIndex];
+	};
+	case "bank": {
+		//_posBank
+		[nil];
 	};
 	case "garrison": {
 
@@ -67,8 +71,8 @@ switch (_filename) do {
 		//[_mrkNATO, _mrkCSAT, _controlsNATO, _controlsCSAT];
 		[nil, _mrkCSAT, nil, _controlsCSAT];
 	};
-	case "selector": {
-		A3A_terrain = "tropical";
+	case "climate": {
+	"tropical";
 	};
 	default {
 		Info("Map Info given unknown parameter");

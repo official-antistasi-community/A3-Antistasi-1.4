@@ -15,24 +15,15 @@
 	private _fileName = "Map\" + toLower worldName + "Info.sqf";
 	["garrison"] call compile preProcessFileLineNumbers _filename;
 
-    License: MIT the license switch is noted in the code
+    License: MIT the license 
 */
+#include "..\Includes\common.inc"
 
 params["_filename", ""];
 
 switch (_filename) do {
-	case "zone": {
-		A3A_antennasDead = [];
-		A3A_banks = [];
-		A3A_mrkAntennas = [];
-		A3A_posAntennas = [];
-		A3A_blacklistPos = [];
-		A3A_posBank = [];
-		A3A_hardcodedPop = false;
-		A3A_hardCodedAntennas = false;
-		A3A_disableTownName = [];
-
-		A3A_disableTownName = ["Lakatoro01", "Galili01","Sosovu01", "Ipota01", "Malden_C_Airport", "FobNauzad", "FobObeh", "22",
+	case "population": {
+		private _disableTownName = ["Lakatoro01", "Galili01","Sosovu01", "Ipota01", "Malden_C_Airport", "FobNauzad", "FobObeh", "22",
 		"23", "toipela", "hirvela", "Kuusela", "Niemela", "fob4", "daumau", "fob1", "quanloi", "stagingarea", "fob2",
 		"pleimei", "fob6", "berchtesgaden", "fob3", "khegio", "fob5", "thudridge", "halongnavybase", "plainofjars", "pleikuboatbase",
 		"banhoang", "vinhau", "kechau", "quanbo", "huecitadel", "bimat", "danthemthem", "daophai", "phuquoc", "dharmadocks",
@@ -41,14 +32,19 @@ switch (_filename) do {
  		"nhenden", "soctrang", "mekongdelta", "tampep", "segbegat", "che", "tandi", "lahot", "alieng", "thiengling",
  		"phaonoi", "timho", "quyen", "caloi", "thuphac", "diemdang", "bandao", "mantau","dongxa", "tauphabang", "horgoat",
  		"samsong", "muylai", "caymo", "docon", "paradiseisland", "mien", "giuaho", "daotrai"];
+
+		  //[_popValue, _disableTownName];
+		[nil, _disableTownName];
+	};
+	case "zone": {
+		//[_posAntennas, _blacklistPos, _posBank];
+		[nil, nil, nil];
 	};
 	case "garrison": {
-		A3A_mrkNATO = [];
-		A3A_mrkCSAT = [];
-		A3A_controlsNATO = [];
-		A3A_controlsCSAT = [];
+		private _mrkCSAT = ["outpost"];
 
-		A3A_mrkCSAT = ["outpost"];
+        //[_mrkNATO, _mrkCSAT, _controlsNATO, _controlsCSAT];
+		[nil, _mrkCSAT, nil, nil]
 	};
 	case "selector": {
 		A3A_terrain = "arid";

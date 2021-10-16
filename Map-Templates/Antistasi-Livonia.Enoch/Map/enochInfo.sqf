@@ -15,31 +15,20 @@
 	private _fileName = "Map\" + toLower worldName + "Info.sqf";
 	["garrison"] call compile preProcessFileLineNumbers _filename;
 
-    License: MIT the license switch is noted in the code
+    License: MIT the license 
 */
+#include "..\Includes\common.inc"
 
 params["_filename", ""];
 
 switch (_filename) do {
-	case "zone": {
-		A3A_antennasDead = [];
-		A3A_banks = [];
-		A3A_mrkAntennas = [];
-		A3A_posAntennas = [];
-		A3A_blacklistPos = [];
-		A3A_posBank = [];
-		A3A_hardcodedPop = true;
-		A3A_hardCodedAntennas = true;
-		A3A_disableTownName = [];
-
-
+	case "population": {
 		//To improve Performance, reduces pop from 13972 to 4850
-		{server setVariable [_x select 0,_x select 1]} forEach
-		[["Adamow",200],["Bielawa",150],["Borek",150],["Brena",150],["Dolnik",100],["Gieraltow",400],["Gliniska",150],["Grabin",250],["Huta",150],["Karlin",50],["Kolembrody",100],
+		private _popValue = [["Adamow",200],["Bielawa",150],["Borek",150],["Brena",150],["Dolnik",100],["Gieraltow",400],["Gliniska",150],["Grabin",250],["Huta",150],["Karlin",50],["Kolembrody",100],
 		["Lembork",50],["Lipina",100],["Lukow",200],["Muratyn",50],["Nadbor",600],["Nidek",100],["Olszanka",100],["Polana",100],["Radacz",150],["Radunin",150],["Roztoka",50],
 		["Sitnik",150],["Sobotka",100],["Tarnow",200],["Topolin",650],["Zalesie",150],["Zapadlisko",100]];
 
-		A3A_disableTownName = ["Lakatoro01", "Galili01","Sosovu01", "Ipota01", "Malden_C_Airport", "FobNauzad", "FobObeh", "22",
+		private _disableTownName = ["Lakatoro01", "Galili01","Sosovu01", "Ipota01", "Malden_C_Airport", "FobNauzad", "FobObeh", "22",
 		"23", "toipela", "hirvela", "Kuusela", "Niemela", "fob4", "daumau", "fob1", "quanloi", "stagingarea", "fob2",
 		"pleimei", "fob6", "berchtesgaden", "fob3", "khegio", "fob5", "thudridge", "halongnavybase", "plainofjars", "pleikuboatbase",
 		"banhoang", "vinhau", "kechau", "quanbo", "huecitadel", "bimat", "danthemthem", "daophai", "phuquoc", "dharmadocks",
@@ -48,24 +37,27 @@ switch (_filename) do {
  		"nhenden", "soctrang", "mekongdelta", "tampep", "segbegat", "che", "tandi", "lahot", "alieng", "thiengling",
  		"phaonoi", "timho", "quyen", "caloi", "thuphac", "diemdang", "bandao", "mantau","dongxa", "tauphabang", "horgoat",
  		"samsong", "muylai", "caymo", "docon", "paradiseisland", "mien", "giuaho", "daotrai"];
-
-		A3A_posAntennas =
+		
+		//[_popValue, _disableTownName];
+		[_popValue, _disableTownName];
+	};
+	case "zone": {
+		private _posAntennas =
 		[[3830.61,1827.19,0], [5007.39,2131.27,0], [1583.47,7162.08,0.000152588], [3146.07,7024.41,0.00133514],
 		[1408.43,8675.08,-1.00183], [8894.99,2049.1,0.00387573], [2382.53,11479.5,3.05176e-005], [6293.86,9910.17,-7.62939e-006],
 		[3585.76,11540.7,-0.000236511], [7906.11,9917.2,0.0120544], [7776.88,10082.3,0.0262146], [7866.34,10102.5,3.05176e-005],
 		[6908.45,11119.5,-2.40052], [9257.02,10282.7,0.0631027], [10610.4,10890.6,0.166985], [11172.6,11424.1,-2.82624]];
-		A3A_blackListPos = [2, 3, 4, 6, 8, 11, 12, 13, 14, 15];
-		antennas = [];
+		private _blackListPos = [2, 3, 4, 6, 8, 11, 12, 13, 14, 15];
+
+		//[_posAntennas, _blacklistPos, _posBank];
+		[_posAntennas, _blackListPos, nil];
 	};
 	case "garrison": {
-		A3A_mrkNATO = [];
-		A3A_mrkCSAT = [];
-		A3A_controlsNATO = [];
-		A3A_controlsCSAT = [];
+		private _mrkCSAT = ["airport_3", "control_14"];
+		private _controlsCSAT = ["control_14"];
 
-		A3A_mrkCSAT = ["airport_3", "control_14"];
-		A3A_controlsCSAT = ["control_14"];
-		};
+		//[_mrkNATO, _mrkCSAT, _controlsNATO, _controlsCSAT];
+		[nil, _mrkCSAT, nil, A3A_controlsCSAT]
 	};
 	case "selector": {
 		A3A_terrain = "temperate";

@@ -16,7 +16,6 @@ params ["_vehPool", "_side", ["_isAir", false]];
 */
 
 private _faction = Faction(_side);
-private _groupData = FactionGetGroups(_side);
 
 if(isNil "_side") exitWith
 {
@@ -31,7 +30,7 @@ if(isNil "_vehPool" || {!(_vehPool isEqualType []) || {count _vehPool == 0}}) ex
 private ["_selectedVehicle"];
 _selectedVehicle = selectRandom _vehPool;
 
-_crewUnits = _groupData get "crew";
+_crewUnits = _faction get "unitCrew";
 
 while{!([_selectedVehicle] call A3A_fnc_vehAvailable)} do
 {
@@ -67,10 +66,10 @@ else
 {
   if (not(_selectedVehicle == (_faction get "vehiclesMilitiaLightArmed"))) then
   {
-    _typeGroup = selectRandom (_groupData get "militia_Squads");
+    _typeGroup = selectRandom (_faction get "groupsMilitiaSquad");
     if (_selectedVehicle == (_faction get "vehiclesMilitiaCars")) then
     {
-      _typeGroup = selectRandom (_groupData get "medium");
+      _typeGroup = selectRandom (_faction get "groupsMilitiaMedium");
     };
   };
 };

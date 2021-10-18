@@ -1,8 +1,7 @@
 if (!isServer and hasInterface) exitWith{};
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private _groupData = FactionGet(reb,"groups");
-#define OccAndInv(VAR) (FactionGet(occ,VAR) + FactionGet(inv,VAR))
+
 private ["_markerX","_vehiclesX","_groups","_soldiers","_positionX","_staticsX","_garrison"];
 
 _markerX = _this select 0;
@@ -76,11 +75,12 @@ private _groupStatics = grpNull;
 private _groupMortars = grpNull;
 
 // Create the purchased mortars
-if ((_groupData get "staticCrew") in _garrison) then
+private _typeCrew = FactionGet(reb,"unitCrew");
+if (_typeCrew in _garrison) then
 {
 	_groupMortars = createGroup teamPlayer;
 	{
-		private _unit = [_groupMortars, _groupData get "staticCrew", _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
+		private _unit = [_groupMortars, _typeCrew, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		private _pos = [_positionX] call A3A_fnc_mortarPos;
 		private _veh = FactionGet(reb,"staticMortar") createVehicle _pos;
 		_vehiclesX pushBack _veh;
@@ -89,17 +89,17 @@ if ((_groupData get "staticCrew") in _garrison) then
 		_unit moveInGunner _veh;
 		[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
 		_soldiers pushBack _unit;
-	} forEach (_garrison select {_x == (_groupData get "staticCrew")});
-	_garrison = _garrison - [_groupData get "staticCrew"];
+	} forEach (_garrison select {_x == _typeCrew});
+	_garrison = _garrison - [_typeCrew];
 };
 
 // Move riflemen into saved static weapons in area
 {
 	if !(isNil {_x getVariable "lockedForAI"}) then { continue };
-	private _index = _garrison findIf {_x isEqualTo (_groupData get "Mil")};
+	private _index = _garrison findIf {_x isEqualTo FactionGet(reb,"unitRifle")};
 	if (_index == -1) exitWith {};
 	private _unit = objNull;
-	if (typeOf _x in ( OccAndInv("vehiclesArtillery") + FactionGet(all,"staticMortars") )) then
+	if (typeOf _x in FactionGet(all,"staticMortars")) then
 	{
 		if (isNull _groupMortars) then { _groupMortars = createGroup teamPlayer };
 		_unit = [_groupMortars, (_garrison select _index), _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
@@ -136,7 +136,7 @@ while {(spawner getVariable _markerX != 2) and (_countUnits < _totalUnits)} do
 	};
 	private _typeX = _garrison select _countUnits;
 	private _unit = [_groupX, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-	if (_typeX isEqualTo (_groupData get "SL")) then {_groupX selectLeader _unit};
+	if (_typeX isEqualTo FactionGet(reb,"unitSL")) then {_groupX selectLeader _unit};
 	[_unit,_markerX] call A3A_fnc_FIAinitBases;
 	_soldiers pushBack _unit;
 	_countUnits = _countUnits + 1;

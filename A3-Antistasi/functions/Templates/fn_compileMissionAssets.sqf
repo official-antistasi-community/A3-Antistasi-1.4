@@ -19,16 +19,6 @@ License: MIT License
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 
-//group macros
-private _groupsOcc = FactionGet(occ, "groups");
-private _groupsInv = FactionGet(inv, "groups");
-private _groupsReb = FactionGet(reb, "groups");
-private _groupsCiv = FactionGet(civ, "groups");
-#define GroupOcc(VAR) (_groupsOcc get VAR)
-#define GroupInv(VAR) (_groupsInv get VAR)
-#define GroupReb(VAR) (_groupsReb get VAR)
-#define GroupCiv(VAR) (_groupsCiv get VAR)
-
 #define OccAndInv(VAR) (FactionGetOrDefault(occ, VAR, []) + FactionGetOrDefault(inv, VAR, []))
 #define Reb(VAR) FactionGetOrDefault(reb, VAR, [])
 

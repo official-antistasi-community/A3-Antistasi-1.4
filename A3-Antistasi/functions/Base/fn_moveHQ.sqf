@@ -32,7 +32,6 @@ private _possible = [] call A3A_fnc_canMoveHQ;
 if !(_possible#0) exitWith {};
 
 [petros,"remove"] remoteExec ["A3A_fnc_flagaction",0];
-private _groupData = FactionGet(reb,"groups");
 private _groupPetros = group petros;
 [petros] join theBoss;
 deleteGroup _groupPetros;
@@ -68,9 +67,9 @@ if (count _garrison > 0) then
                 if (!alive _x) then
                 {
                     private _unitType = _x getVariable "unitType";
-                    if (_unitType in (_groupData get "soldiers")) then
+                    if (_unitType in FactionGet(reb,"unitsSoldiers")) then
                     {
-                        if (_unitType == (_groupData get "staticCrew")) then
+                        if (_unitType == FactionGet(reb,"unitCrew")) then
                         {
                             _costs = _costs - ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)
                         };
@@ -87,7 +86,7 @@ if (count _garrison > 0) then
         } forEach allUnits;
     };
     {
-        if (_x == (_groupData get "staticCrew")) then
+        if (_x == FactionGet(reb,"unitCrew")) then
         {
             _costs = _costs + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)
         };

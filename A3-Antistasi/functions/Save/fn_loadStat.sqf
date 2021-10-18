@@ -93,7 +93,7 @@ if (_varName in _specialVarLoads) then {
                 _costs = round (_costs + (_costs * (_i/280)));
             };
             server setVariable [_x,_costs,true];
-        } forEach (FactionGet(reb,"groups") get "soldiers");
+        } forEach FactionGet(reb,"unitsSoldiers");
     };
     if (_varname == "HR_Garage") then {
         [_varValue] call HR_GRG_fnc_loadSaveData;

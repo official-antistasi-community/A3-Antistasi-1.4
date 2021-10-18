@@ -10,7 +10,6 @@ _contactX = objNull;
 _groupContact = grpNull;
 _tsk = "";
 _tsk1 = "";
-private _groupData = FactionGet(occ,"groups");
 
 _positionX = getMarkerPos _markerX;
 
@@ -46,11 +45,11 @@ _arrayAirports = airportsX select {sidesX getVariable [_x,sideUnknown] == Occupa
 _base = [_arrayAirports, _positionX] call BIS_Fnc_nearestPosition;
 _posBase = getMarkerPos _base;
 
-_traitor = [_groupTraitor, _groupData get "traitor", _posTraitor, [], 0, "NONE"] call A3A_fnc_createUnit;
+_traitor = [_groupTraitor, FactionGet(occ,"unitTraitor"), _posTraitor, [], 0, "NONE"] call A3A_fnc_createUnit;
 _traitor allowDamage false;
 _traitor setPos _posTraitor;
-_sol1 = [_groupTraitor, _groupData get "bodyGuard", _posSol1, [], 0, "NONE"] call A3A_fnc_createUnit;
-_sol2 = [_groupTraitor, _groupData get "bodyGuard", _posSol2, [], 0, "NONE"] call A3A_fnc_createUnit;
+_sol1 = [_groupTraitor, FactionGet(occ,"unitBodyguard"), _posSol1, [], 0, "NONE"] call A3A_fnc_createUnit;
+_sol2 = [_groupTraitor, FactionGet(occ,"unitBodyguard"), _posSol2, [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupTraitor selectLeader _traitor;
 
 _posTsk = (position _houseX) getPos [random 100, random 360];
@@ -105,7 +104,7 @@ _mrk setMarkerColorLocal "ColorRed";
 _mrk setMarkerBrushLocal "DiagGrid";
 _mrk setMarkerAlphaLocal 0;
 
-_typeGroup = if (random 10 < tierWar) then {_groupData get "squad"} else {_groupData get "police_Squad"};
+_typeGroup = if (random 10 < tierWar) then {selectRandom FactionGet(occ,"groupsSquad")} else {FactionGet(occ,"groupPoliceSquad")};
 _groupX = [_positionX,Occupants, _typeGroup] call A3A_fnc_spawnGroup;
 sleep 1;
 if (random 10 < 2.5) then

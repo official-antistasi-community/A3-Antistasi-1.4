@@ -15,7 +15,6 @@ _tsk = "";
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX);
 _timeLimit = if (_difficultX) then {30} else {60};
 if (A3A_hasIFA) then {_timeLimit = _timeLimit * 2};
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
@@ -56,7 +55,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	_mrk setMarkerColorLocal "ColorRed";
 	_mrk setMarkerBrushLocal "DiagGrid";
 	if (!debug) then {_mrk setMarkerAlphaLocal 0};
-	_typeGroup = _groups get if (_difficultX) then {"squad"} else {"sentry"};
+	_typeGroup = if (_difficultX) then {selectRandom (_faction get "groupsSquad")} else {_faction get "groupSentry"};
 	//_cfg = if (_sideX == Occupants) then {cfgNATOInf} else {cfgCSATInf};
 	_groupX = [_pos,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 	sleep 1;

@@ -1,7 +1,5 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private _groupData = FactionGet(reb,"groups");
-#define GROUP(VAR) (_groupData get VAR)
 if (!isServer and hasInterface) exitWith {};
 
 private ["_markerX","_destinationX","_originX","_groups","_soldiers","_vehiclesX","_size","_groupX","_truckX","_radiusX","_roads","_road","_pos"];
@@ -26,7 +24,7 @@ _size = round (_size / _divisor);
 
 if (_size == 0) then {_size = 1};
 
-_typesGroup = [GROUP("medium"),GROUP("AT"),GROUP("squad"),GROUP("Sniper")];
+_typesGroup = [FactionGet(reb,"groupMedium"), FactionGet(reb,"groupAT"), FactionGet(reb,"groupSquad"), FactionGet(reb,"groupSniper")];
 
 while {(_size > 0)} do
 	{

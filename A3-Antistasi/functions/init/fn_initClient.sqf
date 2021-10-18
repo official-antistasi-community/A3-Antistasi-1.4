@@ -49,8 +49,6 @@ else {
 	waitUntil {sleep 0.5;(!isNil "serverInitDone")};
 };
 private _side = side group player;
-private _faction = Faction(_side);
-private _groupData = FactionGet(reb,"groups");
 [] execVM "briefing.sqf";
 
 _isJip = _this select 1;
@@ -358,19 +356,13 @@ if (A3A_hasACE) then
 	};
 	// Remove group join action from all rebel unit types
 	// Need to compile the menus first, because ACE delays creating menus until a unit of that class is created
-	private _playerUnits = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_GL_F" /*greenfor*/,
-		"B_G_soldier_F", "B_G_Soldier_TL_F", "B_G_Soldier_AR_F", "B_G_medic_F", "B_G_engineer_F", "B_G_Soldier_GL_F" /*bluefor*/];
+	private _unitTypes = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_GL_F"];
 	{
 		[_x] call ace_interact_menu_fnc_compileMenu;
 		[_x] call ace_interact_menu_fnc_compileMenuSelfAction;
 		[_x, 1,["ACE_SelfActions", "ACE_TeamManagement", "ACE_LeaveGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
 		[_x, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
-	} forEach (
-        _playerUnits
-        + (_groupData get "squadEng") // SL, GL, militia, mg, exp, lat, eng, medic
-        + (_groupData get "Sniper")
-        + [_groupData get "Unarmed", _groupData get "staticCrew", _groupData get "Petros"]
-    );
+	} forEach _unitTypes;			// TODO: add raw unit types from new templates
 };
 
 boxX allowDamage false;

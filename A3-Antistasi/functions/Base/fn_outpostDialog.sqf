@@ -1,6 +1,5 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private _groupData = FactionGet(reb,"groups");
 private ["_typeX","_costs","_groupX","_unit","_radiusX","_roads","_road","_pos","_truckX","_textX","_mrk","_hr","_exists","_positionTel","_isRoad","_typeGroup","_resourcesFIA","_hrFIA"];
 
 if ("outpostsFIA" in A3A_activeTasks) exitWith {["Watchposts/Roadblocks", "We can only deploy / delete one Watchpost or Roadblock at a time."] call A3A_fnc_customHint;};
@@ -32,12 +31,12 @@ if (_typeX != "delete") then
 	{
 	_isRoad = isOnRoad _positionTel;
 
-	_typeGroup = _groupData get "groupsSnipers";
+	_typeGroup = FactionGet(reb,"groupSniper");
 
 	if (_isRoad) then
 		{
-		_typeGroup = _groupData get "AT";
-		_costs = _costs + ([FactionGet(reb,"vehicleLightArmed")] call A3A_fnc_vehiclePrice) + (server getVariable (_groupData get "staticCrew"));
+		_typeGroup = FactionGet(reb,"groupAT");
+		_costs = _costs + ([FactionGet(reb,"vehicleLightArmed")] call A3A_fnc_vehiclePrice) + (server getVariable FactionGet(reb,"unitCrew"));
 		_hr = _hr + 1;
 		};
 

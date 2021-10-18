@@ -12,7 +12,7 @@ _groupContact = grpNull;
 _tsk = "";
 
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
-private _groupData = FactionGetGroups(_sideX);
+private _faction = Faction(_sideX);
 _positionX = getMarkerPos _markerX;
 
 _timeLimit = if (_difficultX) then {15} else {30};//120
@@ -29,9 +29,9 @@ private _taskId = "AS" + str A3A_taskCount;
 [_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _grp = createGroup _sideX;
-_typeX = _groupData get "official";
+_typeX = _faction get "unitOfficial";
 _official = [_grp, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-_typeX = _groupData get "bodyGuard";
+_typeX = _faction get "unitBodyguard";
 _pilot = [_grp, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 if (_difficultX) then
 	{

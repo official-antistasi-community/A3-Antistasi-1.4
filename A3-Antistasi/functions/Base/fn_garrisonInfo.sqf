@@ -11,18 +11,17 @@ _positionX = getMarkerPos _siteX;
 _estatic = if (_siteX in outpostsFIA) then {"Technicals"} else {"Mortars"};
 
 //sort garrison into unit types
-private _groupData = FactionGet(reb,"groups");
 private _units = [ [],[],[],[],[],[],[],[] ];
 {
     _units # (switch _x do {
-    case (_groupData get "SL"): {0};
-    case (_groupData get "staticCrew"): {1};
-    case (_groupData get "Mil"): {2};
-    case (_groupData get "MG"): {3};
-    case (_groupData get "Medic"): {4};
-    case (_groupData get "GL"): {5};
-    case (_groupData get "Sniper"): {6};
-    case (_groupData get "LAT"): {7};
+    case (FactionGet(reb,"unitSL")): {0};
+    case (FactionGet(reb,"unitCrew")): {1};
+    case (FactionGet(reb,"unitRifle")): {2};
+    case (FactionGet(reb,"unitMG")): {3};
+    case (FactionGet(reb,"unitMedic")): {4};
+    case (FactionGet(reb,"unitGL")): {5};
+    case (FactionGet(reb,"unitSniper")): {6};
+    case (FactionGet(reb,"unitLAT")): {7};
     }) pushBack _x;
 } forEach _garrison;
 

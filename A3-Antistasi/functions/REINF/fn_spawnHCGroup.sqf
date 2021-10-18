@@ -75,8 +75,8 @@ switch _special do {
     //static squad
     case "staticAutoT": {
         private _staticType = switch _idFormat do {
-            case "Mort-": {FactionGet(reb,"StaticMortar")};
-            case "MG-": {FactionGet(reb,"StaticMG")};
+            case "Mort-": {FactionGet(reb,"staticMortar")};
+            case "MG-": {FactionGet(reb,"staticMG")};
             default {""};
         };
 
@@ -88,11 +88,11 @@ switch _special do {
 
     //vehicle squad
     case "BuildAA": {
-        private _static = ((attachedObjects _vehicle) select {typeOf _x == FactionGet(reb,"StaticAA")})#0;
+        private _static = ((attachedObjects _vehicle) select {typeOf _x == FactionGet(reb,"staticAA")})#0;
         (_units # (_countUnits -1)) assignAsDriver _vehicle;
         (_units # _countUnits) assignAsGunner _static;
         call _initVeh;
-        _cost = _cost + ([FactionGet(reb,"StaticAA")] call A3A_fnc_vehiclePrice);
+        _cost = _cost + ([FactionGet(reb,"staticAA")] call A3A_fnc_vehiclePrice);
 
     };
     case "VehicleSquad": {
@@ -105,16 +105,16 @@ switch _special do {
     _bypassAI = false;
     call _initInfVeh;
     case "MG": {
-        private _backpacks = getArray (configFile/"CfgVehicles"/FactionGet(reb,"StaticMG")/"assembleInfo"/"dissasembleTo");
+        private _backpacks = getArray (configFile/"CfgVehicles"/FactionGet(reb,"staticMG")/"assembleInfo"/"dissasembleTo");
         (_units # (_countUnits - 1)) addBackpackGlobal (_backpacks#1);
         (_units # _countUnits) addBackpackGlobal (_backpacks#0);
-        _cost = _cost + (FactionGet(reb,"StaticMG") call A3A_fnc_vehiclePrice);
+        _cost = _cost + (FactionGet(reb,"staticMG") call A3A_fnc_vehiclePrice);
     };
     case "Mortar": {
         private _backpacks = getArray (configFile/"CfgVehicles"/FactionGet(reb,"StaticMortar")/"assembleInfo"/"dissasembleTo");
         (_units # (_countUnits - 1)) addBackpackGlobal (_backpacks#1);
         (_units # _countUnits) addBackpackGlobal (_backpacks#0);
-        _cost = _cost + ([FactionGet(reb,"StaticMortar")] call A3A_fnc_vehiclePrice);
+        _cost = _cost + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice);
     };
 };
 

@@ -10,9 +10,8 @@ while {_sleepTime > 0} do
 };
 
 private _faction = Faction(_side);
-private _groupData = FactionGetGroups(_side);
 private _plane = selectRandom (_faction get "vehiclesPlanesCAS");
-private _crewUnits = _groupData get "pilot";
+private _crewUnits = _faction get "unitPilot";
 private _isHelicopter = _plane isKindOf "Helicopter";
 
 private _spawnPos = (getMarkerPos _airport) vectorAdd [0, 0, if (_isHelicopter) then {150} else {500}];

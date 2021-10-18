@@ -6,7 +6,6 @@ private ["_banco","_markerX","_difficultX","_leave","_contactX","_groupContact",
 FIX_LINE_NUMBERS()
 _banco = _this select 0;
 _markerX = [citiesX,_banco] call BIS_fnc_nearestPosition;
-private _groupData = FactionGet(occ, "groups");
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};
 _leave = false;
@@ -65,7 +64,8 @@ _groups = [];
 _soldiers = [];
 for "_i" from 1 to 4 do
 	{
-	_groupX = if (_difficultX) then {[_positionX,Occupants, _groupData get "sentry"] call A3A_fnc_spawnGroup} else {[_positionX,Occupants, _groupData get "police"] call A3A_fnc_spawnGroup};
+	private _groupType = if (_difficultX) then { FactionGet(occ, "groupSentry") } else { FactionGet(occ, "groupPolice") };
+	_groupX = [_positionX,Occupants,_groupType] call A3A_fnc_spawnGroup;
 	sleep 1;
 	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "FORTIFY"] execVM "scripts\UPSMON.sqf";
 	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;

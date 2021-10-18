@@ -1,18 +1,17 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private _groupData = FactionGet(reb,"groups");
-#define GROUP(VAR) (_groupData get VAR)
 if (!isServer and hasInterface) exitWith {};
 
 private ["_costs","_groupX","_unit","_minesX","_radiusX","_roads","_truckX","_mineX","_countX"];
 
-_costs = server getVariable GROUP("Exp") + ([FactionGet(reb,"vehicleRepair")] call A3A_fnc_vehiclePrice);
+private _typeExp = FactionGet(reb,"unitExp");
+_costs = server getVariable _typeExp + ([FactionGet(reb,"vehicleRepair")] call A3A_fnc_vehiclePrice);
 
 [-1,-1*_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 _groupX = createGroup teamPlayer;
 
-_unit = [_groupX, GROUP("Exp"), getMarkerPos respawnTeamPlayer, [], 0, "NONE"] call A3A_fnc_createUnit;
+_unit = [_groupX, _typeExp, getMarkerPos respawnTeamPlayer, [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupX setGroupIdGlobal [format ["MineSw%1",{side (leader _x) == teamPlayer} count allGroups]];
 _minesX = [];
 sleep 1;

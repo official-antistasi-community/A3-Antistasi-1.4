@@ -10,7 +10,7 @@ lootBackpack = [];
 lootHelmet = [];
 lootVest = [];
 allArmoredHeadgear = [];
-{allArmoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;//old template var, new template data in "faction" -> "groups" -> "squad"
+{allArmoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;//old template var, new template data in "faction" -> "groupsSquad"
 */
 if (A3A_hasACE) then {
 	lootItem append ["ACE_LIB_LadungPM","ACE_SpareBarrel"];

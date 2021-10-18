@@ -1,7 +1,7 @@
 /*
 Author: Håkon
 Description:
-    Adds the group definitions hashmap to the faction data hashmap under "groups"
+    Adds the unit and group definitions to the faction hashmap
 
     note this is only the name of the data for unit creation, not the actuall unit data.
     as all factions group data is generated with this file some groups do not have coresponding loadout data.
@@ -26,12 +26,6 @@ params ["_faction", "_prefix"];
 //Defines
 #define unit(SECTION, TYPE) ("loadouts_"+_prefix+"_"+ #SECTION +"_"+ TYPE)
 #define double(X) [X, X]
-#define SaveGroupData _faction set ["groups", _groups]; nil;
-
-//===========================|
-// Define group compositions |
-//===========================|
-private _groups = createHashmap;
 
 //---------------|
 // AI Group data |
@@ -39,33 +33,32 @@ private _groups = createHashmap;
 if (_prefix in ["occ", "inv"]) exitWith {
 
 //singular units
-_groups set ["grunt", unit(military, "Rifleman")];
-_groups set ["bodyGuard", unit(military, "Rifleman")];
-_groups set ["Marksman", unit(military, "Marksman")];
-_groups set ["staticCrew", unit(military, "Rifleman")];
+_faction set ["unitGrunt", unit(military, "Rifleman")];
+_faction set ["unitBodyguard", unit(military, "Rifleman")];
+_faction set ["unitMarksman", unit(military, "Marksman")];
+_faction set ["unitStaticCrew", unit(military, "Rifleman")];
 
-_groups set ["official", unit(other, "Official")];
-_groups set ["traitor", unit(other, "Traitor")];
-_groups set ["crew", unit(other, "Crew")];
-_groups set ["Unarmed", unit(other, "Unarmed")];
-_groups set ["pilot", unit(other, "Pilot")];
+_faction set ["unitOfficial", unit(other, "Official")];
+_faction set ["unitTraitor", unit(other, "Traitor")];
+_faction set ["unitCrew", unit(other, "Crew")];
+_faction set ["unitUnarmed", unit(other, "Unarmed")];
+_faction set ["unitPilot", unit(other, "Pilot")];
 
-_groups set ["militia_Rifleman", unit(militia, "Rifleman")];
-_groups set ["militia_Marksman", unit(militia, "Marksman")];
+_faction set ["unitMilitiaGrunt", unit(militia, "Rifleman")];
+_faction set ["unitMilitiaMarksman", unit(militia, "Marksman")];
 
-_groups set ["police_Officer", unit(police, "SquadLeader")];
-_groups set ["police_Grunt", unit(police, "Standard")];
+_faction set ["unitPoliceOfficer", unit(police, "SquadLeader")];
+_faction set ["unitPoliceGrunt", unit(police, "Standard")];
 
 //military
-_groups set ["sentry", [unit(military, "Grenadier"), unit(military, "Rifleman")]];
-_groups set ["Sniper", [unit(military, "Sniper"), unit(military, "Rifleman")]];
-_groups set ["pilots", double( _groups get "pilot" )];
-_groups set ["small", [_groups get "sentry", _groups get "Sniper"]];
-_groups set ["AA", [unit(military, "SquadLeader"), unit(military, "AA"), unit(military, "AA"), unit(military, "Rifleman")]];
-_groups set ["AT", [unit(military, "SquadLeader"), unit(military, "AT"), unit(military, "AT"), unit(military, "Rifleman")]];
-_groups set ["medium", [
+_faction set ["groupSentry", [unit(military, "Grenadier"), unit(military, "Rifleman")]];
+_faction set ["groupSniper", [unit(military, "Sniper"), unit(military, "Rifleman")]];
+_faction set ["groupsSmall", [_faction get "groupSentry", _faction get "groupSniper"]];
+_faction set ["groupAA", [unit(military, "SquadLeader"), unit(military, "AA"), unit(military, "AA"), unit(military, "Rifleman")]];
+_faction set ["groupAT", [unit(military, "SquadLeader"), unit(military, "AT"), unit(military, "AT"), unit(military, "Rifleman")]];
+_faction set ["groupsMedium", [
     [unit(military, "SquadLeader"), unit(military, "MachineGunner"), unit(military, "Grenadier"), unit(military, "LAT")]
-    , _groups get "AA", _groups get "AT"
+    , _faction get "groupAA", _faction get "groupAT"
 ]];
 
 //old randomised behaviour maintained because... reasons
@@ -82,11 +75,10 @@ for "_i" from 1 to 5 do {
         unit(military, "Medic")
     ];
 };
-_groups set ["squads", _squads];
-_groups set ["squad", _squads#0];
+_faction set ["groupsSquad", _squads];
 
 //specops
-_groups set ["specOps", [
+_faction set ["groupSpecOps", [
     unit(SF, "SquadLeader")
     , unit(SF, "Rifleman")
     , unit(SF, "MachineGunner")
@@ -96,7 +88,7 @@ _groups set ["specOps", [
 ]];
 
 //militia
-_groups set ["militia_Small", [
+_faction set ["groupsMilitiaSmall", [
     [unit(militia, "Grenadier"), unit(militia, "Rifleman")]
     , [unit(militia, "Marksman"), unit(militia, "Rifleman")]
     , [unit(militia, "Marksman"), unit(militia, "Grenadier")]
@@ -115,7 +107,7 @@ for "_i" from 1 to 6 do {
         ]
     ];
 };
-_groups set ["militia_Medium", _militiaMid];
+_faction set ["groupsMilitiaMedium", _militiaMid];
 
 private _militiaSquads = [];
 for "_i" from 1 to 5 do {
@@ -131,17 +123,15 @@ for "_i" from 1 to 5 do {
         unit(militia, "Medic")
     ];
 };
-_groups set ["militia_Squads", _militiaSquads];
-_groups set ["militia_Squad", _militiaSquads#0];
+_faction set ["groupsMilitiaSquad", _militiaSquads];
 
 //police
-_groups set ["police", [_groups get "police_Officer", _groups get "police_Grunt"]];
-_groups set ["police_Squad", [
-    _groups get "police_Officer", _groups get "police_Grunt", _groups get "police_Grunt", _groups get "police_Grunt"
-    , _groups get "police_Grunt", _groups get "police_Grunt", _groups get "police_Grunt", _groups get "police_Grunt"
+_faction set ["groupPolice", [_faction get "unitPoliceOfficer", _faction get "unitPoliceGrunt"]];
+_faction set ["groupPoliceSquad", [
+    _faction get "unitPoliceOfficer", _faction get "unitPoliceGrunt", _faction get "unitPoliceGrunt", _faction get "unitPoliceGrunt"
+    , _faction get "unitPoliceGrunt", _faction get "unitPoliceGrunt", _faction get "unitPoliceGrunt", _faction get "unitPoliceGrunt"
 ]];
 
-SaveGroupData
 };
 
 //------------------|
@@ -149,76 +139,54 @@ SaveGroupData
 //------------------|
 
 //singular units
-_groups set ["Petros", unit(militia, "Petros")];
-_groups set ["staticCrew", unit(militia, "staticCrew")];
-_groups set ["Unarmed", unit(militia, "Unarmed")];
-_groups set ["Sniper", unit(militia, "Sniper")];
-_groups set ["LAT", unit(militia, "LAT")];
-_groups set ["Medic", unit(militia, "Medic")];
-_groups set ["MG", unit(militia, "MachineGunner")];
-_groups set ["Exp", unit(militia, "ExplosivesExpert")];
-_groups set ["GL", unit(militia, "Grenadier")];
-_groups set ["Mil", unit(militia, "Rifleman")];
-_groups set ["SL", unit(militia, "SquadLeader")];
-_groups set ["Eng", unit(militia, "Engineer")];
+_faction set ["unitPetros", unit(militia, "Petros")];
+_faction set ["unitCrew", unit(militia, "staticCrew")];
+_faction set ["unitUnarmed", unit(militia, "Unarmed")];
+_faction set ["unitSniper", unit(militia, "Sniper")];
+_faction set ["unitLAT", unit(militia, "LAT")];
+_faction set ["unitMedic", unit(militia, "Medic")];
+_faction set ["unitMG", unit(militia, "MachineGunner")];
+_faction set ["unitExp", unit(militia, "ExplosivesExpert")];
+_faction set ["unitGL", unit(militia, "Grenadier")];
+_faction set ["unitRifle", unit(militia, "Rifleman")];
+_faction set ["unitSL", unit(militia, "SquadLeader")];
+_faction set ["unitEng", unit(militia, "Engineer")];
 
 //groups
-_groups set ["medium", [_groups get "SL", _groups get "GL", _groups get "MG", _groups get "Mil"]];
-_groups set ["AT", [_groups get "SL", _groups get "MG", _groups get "LAT", _groups get "LAT", _groups get "LAT"]];
-_groups set ["squad", [
-    _groups get "SL"
-    , _groups get "GL"
-    , _groups get "Mil"
-    , _groups get "MG"
-    , _groups get "Mil"
-    , _groups get "LAT"
-    , _groups get "Mil"
-    , _groups get "Medic"
+_faction set ["groupMedium", [_faction get "unitSL", _faction get "unitGL", _faction get "unitMG", _faction get "unitRifle"]];
+_faction set ["groupAT", [_faction get "unitSL", _faction get "unitMG", _faction get "unitLAT", _faction get "unitLAT", _faction get "unitLAT"]];
+_faction set ["groupSquad", [
+    _faction get "unitSL"
+    , _faction get "unitGL"
+    , _faction get "unitRifle"
+    , _faction get "unitMG"
+    , _faction get "unitRifle"
+    , _faction get "unitLAT"
+    , _faction get "unitRifle"
+    , _faction get "unitMedic"
 ]];
-_groups set ["squadEng", [
-    _groups get "SL"
-    , _groups get "GL"
-    , _groups get "Mil"
-    , _groups get "MG"
-    , _groups get "Exp"
-    , _groups get "LAT"
-    , _groups get "Eng"
-    , _groups get "Medic"
+_faction set ["groupSquadEng", [
+    _faction get "unitSL"
+    , _faction get "unitGL"
+    , _faction get "unitRifle"
+    , _faction get "unitMG"
+    , _faction get "unitExp"
+    , _faction get "unitLAT"
+    , _faction get "unitEng"
+    , _faction get "unitMedic"
 ]];
-_groups set ["squadSupp", [
-    _groups get "SL"
-    , _groups get "GL"
-    , _groups get "Mil"
-    , _groups get "MG"
-    , _groups get "LAT"
-    , _groups get "Medic"
-    , _groups get "staticCrew"
-    , _groups get "staticCrew"
+_faction set ["groupSquadSupp", [
+    _faction get "unitSL"
+    , _faction get "unitGL"
+    , _faction get "unitRifle"
+    , _faction get "unitMG"
+    , _faction get "unitLAT"
+    , _faction get "unitMedic"
+    , _faction get "unitCrew"
+    , _faction get "unitCrew"
 ]];
-_groups set ["groupsSnipers", double( _groups get "Sniper" )];
-_groups set ["groupsSentry", [ _groups get "GL", _groups get "Mil"]];
+_faction set ["groupSniper", double( _faction get "unitSniper" )];
+_faction set ["groupSentry", [_faction get "unitGL", _faction get "unitRifle"]];
 
-//Tiers (for costs)
-_groups set ["Tier1", [
-    _groups get "Mil"
-    , _groups get "staticCrew"
-    , _groups get "MG"
-    , _groups get "GL"
-    , _groups get "LAT"
-]];
-_groups set ["Tier2", [
-    _groups get "Medic"
-    , _groups get "Exp"
-    , _groups get "Eng"
-]];
-_groups set ["Tier3", [
-    _groups get "SL"
-    , _groups get "Sniper"
-]];
-_groups set ["soldiers",
-    (_groups get "Tier1")
-    + (_groups get "Tier2")
-    + (_groups get "Tier3")
-];
+_faction set ["unitsSoldiers", (_faction get "groupSquadEng") + [_faction get "unitSniper", _faction get "unitCrew"]];
 
-SaveGroupData

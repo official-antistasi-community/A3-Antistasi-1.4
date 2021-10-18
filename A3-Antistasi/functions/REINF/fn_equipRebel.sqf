@@ -37,11 +37,9 @@ private _unlockedSmokes = allSmokeGrenades arrayIntersect unlockedMagazines;
 if !(_unlockedSmokes isEqualTo []) then { _unit addMagazines [selectRandom _unlockedSmokes, 2] };
 
 
-private _unitClass = _unit getVariable "unitType";
-private _groupData = FactionGet(reb,"groups");
-#define GROUP(VAR) (_groupData get VAR)
+private _unitType = _unit getVariable "unitType";
 switch (true) do {
-	case (_unitClass isEqualTo GROUP("Sniper")): {
+	case (_unitType isEqualTo FactionGet(reb,"unitSniper")): {
 		if (count unlockedSniperRifles > 0) then {
 			[_unit, selectRandom unlockedSniperRifles, 8] call _addWeaponAndMags;
 			if (count unlockedOptics > 0) then {
@@ -53,20 +51,20 @@ switch (true) do {
 			[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		};
 	};
-	case (_unitClass isEqualTo GROUP("Mil")): {
+	case (_unitType isEqualTo FactionGet(reb,"unitRifle")): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		// Adding AA launchers to garrison riflemen because explosives guys can't currently be purchased there
 		if (_recruitType == 2 && {count unlockedAA > 0}) then {
 			[_unit, selectRandom unlockedAA, 1] call _addWeaponAndMags;
 		};
 	};
-	case (_unitClass isEqualTo GROUP("MG")): {
+	case (_unitType isEqualTo FactionGet(reb,"unitMG")): {
 		[_unit,unlockedMachineGuns] call A3A_fnc_randomRifle;
 	};
-	case (_unitClass isEqualTo GROUP("GL")): {
+	case (_unitType isEqualTo FactionGet(reb,"unitGL")): {
 		[_unit,unlockedGrenadeLaunchers] call A3A_fnc_randomRifle;
 	};
-	case (_unitClass isEqualTo GROUP("Exp")): {
+	case (_unitType isEqualTo FactionGet(reb,"unitExp")): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
 		if (count unlockedAA > 0) then {
@@ -76,11 +74,11 @@ switch (true) do {
 			_unit addItemToBackpack (selectRandom unlockedMineDetectors);
 		// TODO: explosives. Not that they know what to do with them.
 	};
-	case (_unitClass isEqualTo GROUP("Eng")): {
+	case (_unitType isEqualTo FactionGet(reb,"unitEng")): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		_unit addItemToBackpack (selectRandom unlockedToolKits);
 	};
-	case (_unitClass isEqualTo GROUP("Medic")): {
+	case (_unitType isEqualTo FactionGet(reb,"unitMedic")): {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;
 		// temporary hack
 		private _medItems = [];
@@ -94,7 +92,7 @@ switch (true) do {
 			_unit addItemToBackpack _x;
 		} forEach _medItems;
 	};
-	case (_unitClass isEqualTo GROUP("LAT")): {
+	case (_unitType isEqualTo FactionGet(reb,"unitLAT")): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		if !(unlockedAT isEqualTo []) then {
 			[_unit, selectRandom unlockedAT, 4] call _addWeaponAndMags;
@@ -105,17 +103,17 @@ switch (true) do {
 		};
 	};
 	// squad leaders and
-	case (_unitClass isEqualTo GROUP("SL")): {
+	case (_unitType isEqualTo FactionGet(reb,"unitSL")): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		if (_recruitType == 1) then {_unit linkItem selectrandom (unlockedRadios)};
 	};
- 	case (_unitClass isEqualTo GROUP("staticCrew")): {
+ 	case (_unitType isEqualTo FactionGet(reb,"unitCrew")): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		if (_recruitType == 1) then {_unit linkItem selectrandom (unlockedRadios)};
 	};
 	default {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;
-        Error_1("Unknown unit class: %1", _unitClass);
+        Error_1("Unknown unit class: %1", _unitType);
 	};
 };
 
@@ -154,4 +152,4 @@ if (!A3A_hasIFA && sunOrMoon < 1) then {
 // remove backpack if empty, otherwise squad troops will throw it on the ground
 if (backpackItems _unit isEqualTo []) then { removeBackpack _unit };
 
-Verbose_3("Class %1, type %2, loadout %3", _unitClass, _recruitType, str (getUnitLoadout _unit));
+Verbose_3("Class %1, type %2, loadout %3", _unitType, _recruitType, str (getUnitLoadout _unit));

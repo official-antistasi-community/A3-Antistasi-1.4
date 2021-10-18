@@ -1,7 +1,6 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private _groupData = FactionGet(reb,"groups");
-#define GROUP(VAR) (_groupData get VAR)
+
 if (player != theBoss) exitWith {["Skill Add", "Only our Commander has access to this function."] call A3A_fnc_customHint;};
 
 if (skillFIA > 20) exitWith {["Skill Add", "Your troops have the maximum training."] call A3A_fnc_customHint;};
@@ -17,7 +16,7 @@ publicVariable "skillFIA";
 server setVariable ["resourcesFIA",_resourcesFIA,true];
 [] spawn A3A_fnc_statistics;
 {
-_costs = server getVariable _x;
-_costs = round (_costs + (_costs * (skillFIA/280)));
-server setVariable [_x,_costs,true];
-} forEach GROUP("soldiers");
+    _costs = server getVariable _x;
+    _costs = round (_costs + (_costs * (skillFIA/280)));
+    server setVariable [_x,_costs,true];
+} forEach FactionGet(reb,"unitsSoldiers");

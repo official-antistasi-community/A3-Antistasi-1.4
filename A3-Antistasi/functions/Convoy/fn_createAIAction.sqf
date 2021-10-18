@@ -13,7 +13,6 @@ params ["_destination", "_type", "_side", ["_arguments", []]];
 *     Nothing
 */
 private _faction = Faction(_side);
-private _groupData = FactionGetGroups(_side);
 
 if(!serverInitDone) then
 {
@@ -287,7 +286,7 @@ if(_type == "airstrike") then
     if((_side == Occupants && {count _friendlies < 3}) || {_side == Invaders && {count _friendlies < 8}}) then
     {
       _plane = selectRandom (_faction get "vehiclesPlanesCAS");
-      _crewUnits = _groupData get "crew";
+      _crewUnits = _faction get "unitPilot";
     	if ([_plane] call A3A_fnc_vehAvailable) then
     	{
         _bombType = "";

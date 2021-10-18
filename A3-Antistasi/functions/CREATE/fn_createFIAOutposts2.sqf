@@ -1,6 +1,6 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private _groupData = FactionGet(reb,"groups");
+
 if (!isServer and hasInterface) exitWith {};
 
 private ["_markerX","_positionX","_isRoad","_radiusX","_road","_veh","_groupX","_unit","_roadcon"];
@@ -19,8 +19,8 @@ if (_isRoad) then
 
 	if (isNil "_garrison") then
 		{//this is for backward compatibility, remove after v12
-		_garrison = [_groupData get "staticCrew"];
-		_garrison append (_groupData get "AT");
+		_garrison = FactionGet(reb,"groupAT");
+		_garrison pushBack FactionGet(reb,"unitCrew");
 		garrison setVariable [_markerX,_garrison,true];
 		};
 	while {true} do
@@ -29,7 +29,7 @@ if (_isRoad) then
 		if (count _road > 0) exitWith {};
 		_radiusX = _radiusX + 5;
 		};
-	if ((_groupData get "staticCrew") in _garrison) then
+	if (FactionGet(reb,"unitCrew") in _garrison) then
 		{
 		_roadcon = roadsConnectedto (_road select 0);
 		_dirveh = [_road select 0, _roadcon select 0] call BIS_fnc_DirTo;
@@ -41,11 +41,11 @@ if (_isRoad) then
 		};
 	_groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
 	//_unit moveInGunner _veh;
-	{[_x,_markerX] spawn A3A_fnc_FIAinitBases; if ((_x getVariable "unitType") == (_groupData get "staticCrew")) then {_x moveInGunner _veh}} forEach units _groupX;
+	{[_x,_markerX] spawn A3A_fnc_FIAinitBases; if ((_x getVariable "unitType") == FactionGet(reb,"unitCrew")) then {_x moveInGunner _veh}} forEach units _groupX;
 	}
 else
 	{
-	_groupX = [_positionX, teamPlayer, _groupData get "groupsSnipers"] call A3A_fnc_spawnGroup;
+	_groupX = [_positionX, teamPlayer, FactionGet(reb,"groupSniper")] call A3A_fnc_spawnGroup;
 	_groupX setBehaviour "STEALTH";
 	_groupX setCombatMode "GREEN";
 	{[_x,_markerX] spawn A3A_fnc_FIAinitBases;} forEach units _groupX;

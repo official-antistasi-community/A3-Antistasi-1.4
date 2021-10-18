@@ -1,6 +1,5 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private _groupData = FactionGet(reb,"groups");
 if (!isServer) exitWith {};
 
 private ["_typeX","_costs","_groupX","_unit","_radiusX","_roads","_road","_pos","_truckX","_textX","_mrk","_hr","_unitsX","_formatX"];
@@ -13,13 +12,13 @@ if (_typeX == "delete") exitWith {["Create Outpost", "Deprecated option. Use Rem
 _isRoad = isOnRoad _positionTel;
 
 _textX = format ["%1 Observation Post",FactionGet(reb,"name")];
-_typeGroup = _groupData get "groupsSnipers";
+_typeGroup = FactionGet(reb,"groupSniper");
 _typeVehX = FactionGet(reb,"vehicleBasic");
 private _tsk = "";
 if (_isRoad) then
 	{
 	_textX = format ["%1 Roadblock",FactionGet(reb,"name")];
-	_typeGroup = _groupData get "AT";
+	_typeGroup = FactionGet(reb,"groupAT");
 	_typeVehX = FactionGet(reb,"vehicleTruck");
 	};
 
@@ -70,7 +69,8 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 	_mrk setMarkerText _textX;
 	if (_isRoad) then
 		{
-		_garrison = (_groupData get "staticCrew") + (_groupData get "AT");
+		_garrison = FactionGet(reb,"groupAT");
+		_garrison pushBack FactionGet(reb,"unitCrew");
 		garrison setVariable [_mrk,_garrison,true];
 		};
 	}

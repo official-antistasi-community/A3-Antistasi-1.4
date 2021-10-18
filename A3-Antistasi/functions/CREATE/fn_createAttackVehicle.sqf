@@ -21,7 +21,7 @@ FIX_LINE_NUMBERS()
         OBJECT : objNull if the spawning did not worked
 */
 
-private _groupData = FactionGetGroups(_side);
+private _faction = Faction(_side);
 private _vehicle = [_markerOrigin, _vehicleType] call A3A_fnc_spawnVehicleAtMarker;
 
 if(isNull _vehicle) exitWith {objNull};
@@ -45,11 +45,11 @@ if (_expectedCargo > 0) then
     {
         if (_typeOfAttack == "Air") then
         {
-            _groupData get "AA";
+            _faction get "groupAA";
         }
         else
         {
-            _groupData get "AT";
+            _faction get "groupAT";
         };
     };
 

@@ -9,7 +9,7 @@ _markerX = _this select 0;
 //Not sure if that ever happens, but it reduces redundance
 if(spawner getVariable _markerX == 2) exitWith {};
 
-Debug_1("Spawning Airbase %1", _markerX);
+ServerDebug_1("Spawning Airbase %1", _markerX);
 
 _vehiclesX = [];
 _groups = [];
@@ -27,7 +27,6 @@ _nVeh = round (_size/60);
 
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX); //retrive group data from the faction data
 
 _typeVehX = selectRandom (_faction get "vehiclesAA");
 _max = if (_frontierX && {[_typeVehX] call A3A_fnc_vehAvailable}) then {2} else {1};
@@ -80,7 +79,7 @@ if (_frontierX) then
 		_vehiclesX pushBack _veh;
 		_veh setDir _dirVeh + 180;
 		_veh setPos _pos;
-		_typeUnit = _groupData get "staticCrew";
+		_typeUnit = _faction get "unitStaticCrew";
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -117,14 +116,14 @@ if (_patrol) then
 	_countX = 0;
 	while {_countX < 4} do
 	{
-		_arraygroups = _groupData get "small";
-		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_groupData get "Sniper")};
+		_arraygroups = _faction get "groupsSmall";
+		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_faction get "groupSniper")};
 		_typeGroup = selectRandom _arraygroups;
 		_groupX = [_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 		{
 			sleep 1;
-			if ((random 10 < 2.5) and (not(_typeGroup in (_groupData get "Sniper")))) then
+			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then
 			{
 				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				[_dog] spawn A3A_fnc_guardDog;
@@ -141,7 +140,7 @@ _countX = 0;
 
 _groupX = createGroup _sideX;
 _groups pushBack _groupX;
-_typeUnit = _groupData get "staticCrew";
+_typeUnit = _faction get "unitStaticCrew";
 _typeVehX = selectRandom (_faction get "staticMortars");
 
 _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;

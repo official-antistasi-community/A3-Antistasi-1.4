@@ -3,9 +3,8 @@ params ["_side", "_sleepTime", "_timerIndex", "_airport", "_supportName", "_setu
 FIX_LINE_NUMBERS()
 
 private _faction = Faction(_side);
-private _groupData = FactionGetGroups(_side);
 private _plane = _faction get "vehiclesPlanesCAS";
-private _crewUnits = _groupData get "pilot";
+private _crewUnits = _faction get "unitPilot";
 
 //Sleep to simulate preparetion time
 while {_sleepTime > 0} do

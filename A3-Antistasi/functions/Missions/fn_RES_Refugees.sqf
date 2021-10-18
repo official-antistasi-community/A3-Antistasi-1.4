@@ -40,8 +40,6 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX);
-private _rebGroupData = FactionGet(reb, "groups");
 _textX = if (_sideX == Occupants) then {format ["A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2",_nameDest,_displayTime]} else {format ["A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ",_nameDest,FactionGet(inv,"name"),FactionGet(reb,"name")]};
 _posTsk = if (_sideX == Occupants) then {(position _houseX) getPos [random 100, random 360]} else {position _houseX};
 
@@ -52,7 +50,7 @@ private _taskId = "RES" + str A3A_taskCount;
 _groupPOW = createGroup teamPlayer;
 for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	{
-	_unit = [_groupPOW, _rebGroupData get "Unarmed", _posHouse select _i, [], 0, "NONE"] call A3A_fnc_createUnit;
+	_unit = [_groupPOW, FactionGet(reb,"unitUnarmed"), _posHouse select _i, [], 0, "NONE"] call A3A_fnc_createUnit;
 	_unit allowdamage false;
 	_unit disableAI "MOVE";
 	_unit disableAI "AUTOTARGET";
@@ -130,13 +128,13 @@ else
 	_mrk setMarkerAlphaLocal 0;
 	if ((random 100 < aggressionOccupants) or (_difficultX)) then
 		{
-		_groupX = [getPos _houseX,Occupants, _groupData get "squad"] call A3A_fnc_spawnGroup;
+		_groupX = [getPos _houseX,Occupants,  selectRandom (_faction get "groupsSquad")] call A3A_fnc_spawnGroup;
 		sleep 1;
 		}
 	else
 		{
 		_groupX = createGroup Occupants;
-		_groupX = [getPos _houseX,Occupants,_groupData get "police_Squad"] call A3A_fnc_spawnGroup;
+		_groupX = [getPos _houseX,Occupants, _faction get "groupPoliceSquad"] call A3A_fnc_spawnGroup;
 		};
 	if (random 10 < 2.5) then
 		{
@@ -145,7 +143,7 @@ else
 		};
 	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2","RANDOM", "NOFOLLOW"] execVM "scripts\UPSMON.sqf";
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
-	_groupX1 = [_houseX buildingExit 0, Occupants, _groupData get "police"] call A3A_fnc_spawnGroup;
+	_groupX1 = [_houseX buildingExit 0, Occupants, _faction get "groupPolice"] call A3A_fnc_spawnGroup;
 	};
 
 _bonus = if (_difficultX) then {2} else {1};

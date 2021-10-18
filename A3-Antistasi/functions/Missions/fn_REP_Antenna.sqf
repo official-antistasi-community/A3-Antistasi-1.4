@@ -3,8 +3,6 @@ if (!isServer and hasInterface) exitWith{};
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 
-private _groupData = FactionGet(occ,"groups");
-
 private ["_markerX","_antennaDead","_dateLimit","_dateLimitNum","_nameDest","_truckCreated","_size","_pos","_veh","_groupX","_unit"];
 
 _markerX = _this select 0;
@@ -53,7 +51,7 @@ if (spawner getVariable _markerX != 2) then
 
 	for "_i" from 1 to 3 do
 		{
-		_unit = [_groupX, _groupData get "crew", _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
+		_unit = [_groupX, FactionGet(occ,"unitCrew"), _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,""] call A3A_fnc_NATOinit;
 		sleep 2;
 		};

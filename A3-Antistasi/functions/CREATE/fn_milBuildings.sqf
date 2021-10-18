@@ -11,14 +11,13 @@ if (count _buildings == 0) exitWith {[grpNull,[],[]]};
 
 _sideX = _this select 2;
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX); //retrive group data from the faction data
 _frontierX = _this select 3;
 
 _vehiclesX = [];
 _soldiers = [];
 
 _groupX = createGroup _sideX;
-_typeUnit = _groupData get "staticCrew";
+_typeUnit = _faction get "unitStaticCrew";
 
 //New system to place helis, does not care about heli types currently
 private _helicopterTypes = [];
@@ -219,7 +218,7 @@ for "_i" from 0 to (count _buildings) - 1 do
         if (isObjectHidden _building) exitWith {};            // don't put statics on destroyed buildings
         if     ((_typeB == "Land_vn_o_snipertree_01") or (_typeB == "Land_vn_o_snipertree_02") or (_typeB == "Land_vn_o_snipertree_03") or (_typeB == "Land_vn_o_snipertree_04") or (_typeB == "Land_vn_o_platform_01") or (_typeB == "Land_vn_o_platform_02") or (_typeB == "Land_vn_o_platform_03")) exitWith
         {
-            private _type = _groupData get "Marksman";
+            private _type = _faction get "unitMarksman";
             private _dir = (getDir _building) - 180;
             private _zpos = AGLToASL (_building buildingPos 0);
             private _pos = _zpos getPos [0, _dir];            // zeroes Z value because BIS
@@ -240,7 +239,7 @@ for "_i" from 0 to (count _buildings) - 1 do
         if (isObjectHidden _building) exitWith {};            // don't put statics on destroyed buildings
         if     ((_typeB == "Land_vn_b_tower_01")) exitWith
         {
-            private _type = _groupData get "grunt";
+            private _type = _faction get "unitGrunt";
             private _dir = (getDir _building) - 180;
             private _zpos = AGLToASL (_building buildingPos 0);
             private _pos = _zpos getPos [0, _dir];            // zeroes Z value because BIS

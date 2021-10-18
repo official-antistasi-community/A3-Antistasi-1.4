@@ -1,7 +1,5 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private _groupData = FactionGet(reb,"groups");
-#define GROUP(VAR) (_groupData get VAR)
 if (!isServer and hasInterface) exitWith {};
 
 private ["_typeX","_quantity","_typeAmmunition","_groupX","_unit","_radiusX","_roads","_road","_pos","_truckX","_textX","_mrk","_ATminesAdd","_APminesAdd","_positionTel","_tsk","_magazines","_typeMagazines","_cantMagazines","_newCantMagazines","_mineX","_typeX","_truckX"];
@@ -9,7 +7,8 @@ private ["_typeX","_quantity","_typeAmmunition","_groupX","_unit","_radiusX","_r
 _typeX = _this select 0;
 _positionTel = _this select 1;
 _quantity = _this select 2;
-_costs = (2*(server getVariable GROUP("Exp"))) + ([FactionGet(reb,"vehicleTruck")] call A3A_fnc_vehiclePrice);
+private _typeExp = FactionGet(reb,"unitExp");
+_costs = 2*(server getVariable _typeExp) + ([FactionGet(reb,"vehicleTruck")] call A3A_fnc_vehiclePrice);
 [-2,(-1*_costs)] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 if (_typeX == "ATMine") then
@@ -70,9 +69,9 @@ private _taskId = "Mines" + str A3A_taskCount;
 
 _groupX = createGroup teamPlayer;
 
-_unit = [_groupX, GROUP("Exp"), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
+_unit = [_groupX, _typeExp, (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
 sleep 1;
-_unit = [_groupX, GROUP("Exp"), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
+_unit = [_groupX, _typeExp, (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupX setGroupId ["MineF"];
 
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;

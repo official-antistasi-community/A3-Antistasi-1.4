@@ -9,8 +9,7 @@ while {_sleepTime > 0} do
     if((spawner getVariable _airport) != 2) exitWith {};
 };
 
-private _groupData = FactionGet(inv, "groups");
-private _gunshipData = [Invaders, _airport, _timerIndex, "O_T_VTOL_02_vehicle_dynamicLoadout_F", _groupData get "pilot", _supportPos] call A3A_fnc_SUP_gunshipSpawn;
+private _gunshipData = [Invaders, _airport, _timerIndex, "O_T_VTOL_02_vehicle_dynamicLoadout_F", FactionGet(inv,"unitPilot"), _supportPos] call A3A_fnc_SUP_gunshipSpawn;
 _gunshipData params ["_gunship", "_strikeGroup"];
 
 {
@@ -18,7 +17,7 @@ _gunshipData params ["_gunship", "_strikeGroup"];
 } forEach ["PylonRack_19Rnd_Rocket_Skyfire","PylonRack_19Rnd_Rocket_Skyfire","PylonRack_19Rnd_Rocket_Skyfire","PylonRack_19Rnd_Rocket_Skyfire"];
 
 //Prepare crew units and spawn them in
-private _mainGunner = [_strikeGroup, _groupData get "pilot", getPos _gunship] call A3A_fnc_createUnit;
+private _mainGunner = [_strikeGroup, FactionGet(inv,"unitPilot"), getPos _gunship] call A3A_fnc_createUnit;
 _mainGunner moveInAny _gunship;
 
 _gunship addEventHandler

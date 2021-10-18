@@ -31,7 +31,6 @@ if (_arrayAirports1 isEqualTo []) exitWith {};
 _base = selectRandom _arrayAirports1;
 _sideX = sidesX getVariable [_base,sideUnknown];
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX);
 
 _typeCar = "";
 _typePatrol = "LAND";
@@ -116,7 +115,7 @@ _vehiclesX = _vehiclesX + [_veh];
 if (_typeCar in (_faction get "vehiclesLightUnarmed")) then
 	{
 	sleep 1;
-	_groupX = [_posbase, _sideX, _groupData get "sentry"] call A3A_fnc_spawnGroup;
+	_groupX = [_posbase, _sideX, _faction get "groupSentry"] call A3A_fnc_spawnGroup;
 	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x,"",false] call A3A_fnc_NATOinit} forEach units _groupX;
 	deleteGroup _groupX;
 	};

@@ -15,7 +15,6 @@ _tsk = "";
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX);
 _timeLimit = if (_difficultX) then {30} else {120};
 if (A3A_hasIFA) then {_timeLimit = _timeLimit * 2};
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
@@ -25,7 +24,7 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 
-_typeVehX = _faction get "vehiclesAA";
+_typeVehX = selectRandom (_faction get "vehiclesAA");
 
 private _taskId = "DES" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[format ["We know an enemy armor (%3) is stationed in %1. It is a good chance to destroy or steal it before it causes more damage. Do it before %2.",_nameDest,_displayTime,getText (configFile >> "CfgVehicles" >> (_typeVehX) >> "displayName")],"Steal or Destroy Armor",_markerX],_positionX,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
@@ -49,7 +48,7 @@ if (spawner getVariable _markerX == 0) then
 
 	sleep 5;
 	_veh allowDamage true;
-	_typeX = _groupData get "crew";
+	_typeX = _faction get "unitCrew";
 	for "_i" from 1 to 3 do
 		{
 		_unit = [_groupX, _typeX, _pos, [], 0, "NONE"] call A3A_fnc_createUnit;

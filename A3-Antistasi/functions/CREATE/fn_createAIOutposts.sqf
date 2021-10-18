@@ -14,7 +14,7 @@ _soldiers = [];
 _positionX = getMarkerPos (_markerX);
 _pos = [];
 
-Debug_1("Spawning Outpost %1", _markerX);
+ServerDebug_1("Spawning Outpost %1", _markerX);
 
 _size = [_markerX] call A3A_fnc_sizeMarker;
 
@@ -30,7 +30,6 @@ if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 	};
 };
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX); //retrive group data from the faction data
 
 _antenna = objNull;
 
@@ -74,14 +73,14 @@ if (_patrol) then
 	_countX = 0;
 	while {_countX < 4} do //Fixed number of patrols?
 	{
-        _arrayGroups = _groupData get (if (_isFIA) then {"militia_Small"} else {"small"});
-		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_groupData get "Sniper")};
+        _arrayGroups = _faction get (if (_isFIA) then {"groupsMilitiaSmall"} else {"groupsSmall"});
+		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_faction get "groupSniper")};
 		_typeGroup = selectRandom _arraygroups;
 		_groupX = [_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 		{
 			sleep 1;
-			if ((random 10 < 2.5) and (!(_typeGroup in (_groupData get "Sniper")))) then
+			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then
 			{
 				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				[_dog] spawn A3A_fnc_guardDog;
@@ -97,7 +96,7 @@ if (_patrol) then
 
 if ((_frontierX) and (_markerX in outposts)) then
 {
-	_typeUnit = _groupData get "staticCrew";
+	_typeUnit = _faction get "unitStaticCrew";
 	_typeVehX = selectRandom (_faction get "staticMortars");
 	_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	if(_spawnParameter isEqualType []) then
@@ -222,7 +221,7 @@ else
 			_vehiclesX pushBack _veh;
 			_veh setPos _pos;
 			_veh setDir _dirVeh + 180;
-			_typeUnit = _groupData get "staticCrew";
+			_typeUnit = _faction get "unitStaticCrew";
 			_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			[_unit,_markerX] call A3A_fnc_NATOinit;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -270,7 +269,7 @@ if (!isNull _antenna) then
 			_posF = _pos getPos [1,_dir];
 			_posF set [2,24.3];
 		};
-        _typeUnit = _groupData get (if (_isFIA) then {"militia_Marksman"} else {"Marksman"});
+        _typeUnit = _faction get (if (_isFIA) then {"unitMilitiaMarksman"} else {"unitMarksman"});
 		_unit = [_groupX, _typeUnit, _positionX, [], _dir, "NONE"] call A3A_fnc_createUnit;
 		_unit setPosATL _posF;
 		_unit forceSpeed 0;

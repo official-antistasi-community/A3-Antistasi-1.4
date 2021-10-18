@@ -11,17 +11,17 @@ params ["_vehicle", "_preference", "_side"];
 *   Returns:
 *     _group : ARRAY of STRINGS : The selected group
 */
-private _groupData = FactionGetGroups(_side);
+private _faction = Faction(_side);
 #define OccAndInv(VAR) (FactionGet(occ, VAR) + FactionGet(inv, VAR))
 
 //If preference is empty, return empty
 if(_preference == "Empty") exitWith {[]};
 
 //If tank, select AT team
-if(_vehicle in OccAndInv("vehiclesTanks")) exitWith {_groupData getOrDefault ["AT", []]};
+if(_vehicle in OccAndInv("vehiclesTanks")) exitWith {_faction get "groupAT"};
 
 //If AA-tank, select AA team
-if(_vehicle in OccAndInv("vehiclesAA")) exitWith {_groupData getOrDefault ["AA", []]};
+if(_vehicle in OccAndInv("vehiclesAA")) exitWith {_faction get "groupAA"};
 
 _result = "";
 //If no vehicle return preference
@@ -57,7 +57,7 @@ else
 
 if(_result != "EMPTY") exitWith
 {
-    if(_result == "SQUAD") then {selectRandom (_groupData getOrDefault ["squads", []])} else {selectRandom (_groupData getOrDefault ["medium", []])};
+    if(_result == "SQUAD") then {selectRandom (_faction get "groupsSquad")} else {selectRandom (_faction get "groupsMedium")};
 };
 
 [];

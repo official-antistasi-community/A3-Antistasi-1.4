@@ -1,6 +1,5 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private _groupData = FactionGet(reb, "groups");
 params ["_typeGroup", ["_withBackpck", ""]];
 
 if (player != theBoss) exitWith {["Recruit Squad", "Only the Commander has access to this function."] call A3A_fnc_customHint;};
@@ -30,19 +29,18 @@ private _hr = server getVariable "hr";
 private _resourcesFIA = server getVariable "resourcesFIA";
 
 if (_typeGroup isEqualType []) then {
-	{
-		_formatX pushBack _x;
-		_costs = _costs + (server getVariable _typeUnit); _costHR = _costHR +1
-	} forEach _typeGroup;
+    _formatX = _typeGroup;
+	{ _costs = _costs + (server getVariable _x); _costHR = _costHR +1 } forEach _typeGroup;
 
 	if (_withBackpck == "MG") then {_costs = _costs + ([FactionGet(reb,"staticMG")] call A3A_fnc_vehiclePrice)};
 	if (_withBackpck == "Mortar") then {_costs = _costs + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)};
 	_isInfantry = true;
 
 } else {
-	_costs = _costs + (2*(server getVariable (_groupData get "staticCrew"))) + ([_typeGroup] call A3A_fnc_vehiclePrice);
+    private _typeCrew = FactionGet(reb,"unitCrew");
+	_costs = 2*(server getVariable _typeCrew) + ([_typeGroup] call A3A_fnc_vehiclePrice);
 	if (_typeGroup == FactionGet(reb,"staticAA")) then { _costs = _costs + ([FactionGet(reb,"vehicleTruck")] call A3A_fnc_vehiclePrice) };
-    _formatX = [(_groupData get "staticCrew"),(_groupData get "staticCrew")];
+    _formatX = [_typeCrew, _typeCrew];
 	_costHR = 2;
 
 	if ((_typeGroup == FactionGet(reb,"staticMortar")) or (_typeGroup == FactionGet(reb,"staticMG"))) exitWith { _isInfantry = true };
@@ -58,7 +56,7 @@ if (_exit) exitWith {};
 
 private _mounts = [];
 private _vehType = switch true do {
-    case (!_isInfantry && _typeGroup == FactionGet(reb,"staticAA")): {
+    case (!_isInfantry && {_typeGroup isEqualTo FactionGet(reb,"staticAA")}): {
         if (FactionGet(reb,"vehicleAA") isEqualTo "") exitWith {_mounts pushBack [FactionGet(reb,"staticAA"),-1,[[1],[],[]]]; FactionGet(reb,"vehicleTruck")};
         FactionGet(reb,"vehicleAA")
     };
@@ -68,14 +66,14 @@ private _vehType = switch true do {
     default {FactionGet(reb,"vehicleLightUnarmed")};
 };
 private _idFormat = switch _typeGroup do {
-    case groupsSDKmid: {"Tm-"};
-    case groupsSDKAT: {"AT-"};
-    case groupsSDKSniper: {"Snpr-"};
-    case groupsSDKSentry: {"Stry-"};
-    case SDKMortar: {"Mort-"};
-    case SDKMGStatic: {"MG-"};
-    case vehSDKAT: {"M.AT-"};
-    case staticAAteamPlayer: {"M.AA-"};
+    case FactionGet(reb,"groupMedium"): {"Tm-"};
+    case FactionGet(reb,"groupAT"): {"AT-"};
+    case FactionGet(reb,"groupSniper"): {"Snpr-"};
+    case FactionGet(reb,"groupSentry"): {"Stry-"};
+    case FactionGet(reb,"staticMortar"): {"Mort-"};
+    case FactionGet(reb,"staticMG"): {"MG-"};
+    case FactionGet(reb,"vehicleAT"): {"M.AT-"};
+    case FactionGet(reb,"staticAA"): {"M.AA-"};
     default {
         switch _withBackpck do {
             case "MG": {"SqMG-"};

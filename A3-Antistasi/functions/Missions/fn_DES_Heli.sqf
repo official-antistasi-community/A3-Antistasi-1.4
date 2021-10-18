@@ -9,7 +9,6 @@ private _bonus = if (_difficult) then {2} else {1};
 private _missionOriginPos = getMarkerPos _missionOrigin;
 private _sideX = if (sidesX getVariable [_missionOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX);
 Debug_3("Origin: %1, Hardmode: %2, Controlling Side: %3", _missionOrigin, _difficult, _sideX);
 
 //finding crash position
@@ -123,7 +122,7 @@ _vehicles pushBack _vehE;
 Debug_2("Crash Location: %1, Lite Vehicle: %2", _posCrash, _typeVeh);
 
 //spawning escort inf
-private _typeGroup = _groupData get "sentry";
+private _typeGroup = _faction get "groupSentry";
 private _groupX = [_missionOriginPos, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 {_x assignAsCargo _vehE; _x moveInCargo _vehE; [_x] join _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
 deleteGroup _groupX;
@@ -170,7 +169,7 @@ if (!debug) then {_mrkCrash setMarkerAlphaLocal 0};
 
 //creating guard
 private ["_guard", "_guardWP", "_vehGuard"];
-_typeGroup = _groupData get "squad";
+_typeGroup = selectRandom (_faction get "groupsSquad");
 //if not patrol heli
 if !(_typeVehH in (_faction get "vehiclesHelisLight")) then {
     //spawning guard inf
@@ -196,7 +195,7 @@ if !(_typeVehH in (_faction get "vehiclesHelisLight")) then {
 };
 
 //spawning pilots
-_typeGroup = _groupData get "pilots";
+_typeGroup = [_faction get "unitPilot", _faction get "unitPilot"];
 _pilots = [_posCrash,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
 {[_x,""] call A3A_fnc_NATOinit} forEach units _pilots;
 _groups pushBack _pilots;

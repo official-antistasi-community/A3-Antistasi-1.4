@@ -8,9 +8,8 @@ _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX); //retrive group data from the faction data
 
-Info_1("Spawning Control Point %1", _markerX);
+ServerInfo_1("Spawning Control Point %1", _markerX);
 
 if ((_sideX == teamPlayer) or (_sideX == sideUnknown)) exitWith {};
 if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea _x)) exitWith {1}} count markersX >1) exitWith {};
@@ -84,7 +83,7 @@ if (_isControl) then
 			_veh setDir _dirVeh;
 
 			_groupE = createGroup _sideX;
-			_typeUnit = _groupData get "staticCrew";
+			_typeUnit = _faction get "unitStaticCrew";
 			_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
@@ -107,7 +106,7 @@ if (_isControl) then
 			sleep 1;
 			{ [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
 			};
-        _typeGroup = selectRandom (_groupData get "medium");
+        _typeGroup = selectRandom (_faction get "groupsMedium");
 		_groupX = [_positionX,_sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
@@ -134,11 +133,11 @@ if (_isControl) then
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
-		_typeGroup = selectRandom (_groupData get "militia_Medium");
+		_typeGroup = selectRandom (_faction get "groupsMilitiaMedium");
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
-			_unit = [_groupX, _groupData get "militia_Rifleman", _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
+			_unit = [_groupX, _faction get "unitMilitiaGrunt", _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			{_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
 			};
@@ -151,7 +150,7 @@ else
 	_frontierX = if (count _markersX > 0) then {true} else {false};
 	if (_frontierX) then
 		{
-		_cfg = _groupData get "specOps";
+		_cfg = _faction get "groupSpecOps";
 		if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 			{
 			_sideX = Occupants;

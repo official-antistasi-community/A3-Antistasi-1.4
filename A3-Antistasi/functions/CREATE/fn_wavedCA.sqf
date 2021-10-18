@@ -31,7 +31,6 @@ _nameOrigin = [_mrkOrigin] call A3A_fnc_localizar;
 
 _sideX = sidesX getVariable [_mrkOrigin,sideUnknown];
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX);
 if (isNil "_originalSide") then { _originalSide = _sideX };
 _sideTsk = [teamPlayer,civilian,Invaders];
 _sideTsk1 = [Occupants];

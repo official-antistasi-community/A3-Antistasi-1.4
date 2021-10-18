@@ -172,7 +172,8 @@ Info_2("Template validation for side: %1 | Template: %2",_side, _templatePath);
 private _invalidReasons = [];
 {
     _x params ["_entry"];
-    if (_entry in ["groups", "loadouts"]) then {continue};
+    if (_entry in ["loadouts"]) then {continue};
+    if (_entry find "group" == 0 or _entry find "unit" == 0) then {continue};       // Could cross-check these later if set in templates
 
     switch true do {
         case ("Mag" in _entry): _validateMagazine;

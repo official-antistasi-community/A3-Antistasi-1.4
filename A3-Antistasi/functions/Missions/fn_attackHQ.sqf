@@ -18,7 +18,6 @@ _airportX = [_airportsX,_positionX] call BIS_fnc_nearestPosition;
 _posOrigin = getMarkerPos _airportX;
 _sideX = if (sidesX getVariable [_airportX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
-private _groupData = FactionGetGroups(_sideX);
 
 private _taskId = "DEF_HQ" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[format ["Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_positionX,true,10,true,"Defend",true] call BIS_fnc_taskCreate;
@@ -48,7 +47,7 @@ if (count _typesVeh > 0) then
 	};
 _typesVeh = (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport");
 if (_typesVeh isEqualTo []) then {_typesVeh = _faction get "vehiclesPlanesTransport"};
-_typeGroup = _groupData get "specOps";
+_typeGroup = _faction get "groupSpecOps";
 
 for "_i" from 0 to (round random 2) do
 	{

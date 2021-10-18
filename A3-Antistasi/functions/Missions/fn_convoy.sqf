@@ -189,7 +189,7 @@ if (_convoyType == "Prisoners") then
     private _grpPOW = createGroup teamPlayer;
     for "_i" from 1 to (1+ round (random 11)) do
     {
-        private _unit = [_grpPOW, FactionGet(reb,"groups") get "Unarmed", _posSpawn, [], 0, "NONE"] call A3A_fnc_createUnit;
+        private _unit = [_grpPOW, FactionGet(reb,"unitUnarmed"), _posSpawn, [], 0, "NONE"] call A3A_fnc_createUnit;
         _unit setCaptive true;
         _unit disableAI "MOVE";
         _unit setBehaviour "CARELESS";

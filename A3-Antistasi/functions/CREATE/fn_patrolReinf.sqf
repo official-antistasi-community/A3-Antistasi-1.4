@@ -16,7 +16,7 @@ if ([_sideX] call A3A_fnc_remUnitCount < _numberX) exitWith {
 };
 
 _land = if (_posOrigin distance _posDestination > distanceForLandAttack) then {false} else {true};
-_typeGroup = selectRandom (_groupData get (if (_numberX == 4) then {"medium"} else {"squads"}));
+_typeGroup = selectRandom (_faction get (if (_numberX == 4) then {"groupsMedium"} else {"groupsSquad"}));
 _typeVehX = "";
 if (_land) then
 {

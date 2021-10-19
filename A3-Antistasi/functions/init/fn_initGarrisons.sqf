@@ -57,24 +57,25 @@ _fnc_initMarker =
 _fnc_initGarrison =
 {
 	params ["_markerArray", "_type"];
-	private ["_side", "_groupsRandom", "_garrNum", "_garrison", "_marker"];
+	private ["_side", "_faction", "_groupsRandom", "_garrNum", "_garrison", "_marker"];
 	{
 	    _marker = _x;
 		_garrNum = [_marker] call A3A_fnc_garrisonSize;
 		_side = sidesX getVariable [_marker, sideUnknown];
+		_faction = Faction(_side);
 		if(_side != Occupants) then
 		{
-			_groupsRandom = _groupData get "squads" + _groupData get "medium";
+			_groupsRandom = (_faction get "groupsSquad") + (_faction get "groupsMedium");
 		}
 		else
 		{
 			if !(_type in ["Airport", "Outpost"]) then
 			{
-				_groupsRandom = _groupData get "militia_Squads" + _groupData get "militia_Medium";
+				_groupsRandom = (_faction get "groupsMilitiaSquad") + (_faction get "groupsMilitiaMedium");
 			}
 			else
 			{
- 				_groupsRandom = _groupData get "squads" + _groupData get "medium";
+ 				_groupsRandom = (_faction get "groupsSquad") + (_faction get "groupsMedium");
 			};
 		};
 

@@ -1,10 +1,9 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-private ["_typeX","_costs"];
 
-_typeX = _this select 0;
+params ["_typeX"];
 
-_costs = server getVariable _typeX;
+private _costs = server getVariable _typeX;
 
 if (isNil "_costs") then
 	{

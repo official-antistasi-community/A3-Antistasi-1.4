@@ -508,7 +508,7 @@ class unit_recruit 		{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "nul = [A3A_faction_reb 'unitExp'] spawn A3A_fnc_reinfPlayer";
+			action = "nul = [A3A_faction_reb get 'unitExp'] spawn A3A_fnc_reinfPlayer";
 		};
 		class HQ_button_grenadier: RscButton
 		{

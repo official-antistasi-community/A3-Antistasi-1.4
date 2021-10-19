@@ -108,7 +108,7 @@ switch _special do {
         private _backpacks = getArray (configFile/"CfgVehicles"/FactionGet(reb,"staticMG")/"assembleInfo"/"dissasembleTo");
         (_units # (_countUnits - 1)) addBackpackGlobal (_backpacks#1);
         (_units # _countUnits) addBackpackGlobal (_backpacks#0);
-        _cost = _cost + (FactionGet(reb,"staticMG") call A3A_fnc_vehiclePrice);
+        _cost = _cost + ([FactionGet(reb,"staticMG")] call A3A_fnc_vehiclePrice);
     };
     case "Mortar": {
         private _backpacks = getArray (configFile/"CfgVehicles"/FactionGet(reb,"StaticMortar")/"assembleInfo"/"dissasembleTo");

@@ -28,7 +28,7 @@ if (_side == Occupants or _side == Invaders) then
 		if (_type in FactionGet(all,"vehiclesAPCs")) exitWith {5};
 		if (_type in FactionGet(all,"vehiclesTanks")) exitWith {10};
 		if (_type in FactionGet(all,"vehiclesAA") or _type in FactionGet(all,"vehiclesArtillery")) exitWith {10};
-		if (_type in FactionGet(all,"vehiclesAttackHelis")) exitWith {10};
+		if (_type in FactionGet(all,"vehiclesHelisAttack")) exitWith {10};
 		if (_type in FactionGet(all,"vehiclesTransportAir")) exitWith {4};
 		if (_type in FactionGet(all,"vehiclesFixedWing")) exitWith {10};		// transportAir must be before this
 		if (_type isKindOf "StaticWeapon") exitWith {1};

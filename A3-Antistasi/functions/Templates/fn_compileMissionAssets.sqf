@@ -61,15 +61,18 @@ Info("Identifying vehicle types");
 //Occ&Inv X vehicles
 setVar("vehiclesPolice", OccAndInv("vehiclesPolice"));
 setVar("vehiclesAttack", OccAndInv("vehiclesAttack") );
-setVar("vehiclesPlanes", OccAndInv("vehiclesPlanesCAS") + OccAndInv("vehiclesPlanesAA") + OccAndInv("vehiclesPlanesTransport") + [Reb("vehiclePlane")] );
-setVar("vehiclesAttackHelis", OccAndInv("vehiclesHelisAttack") );
 setVar("vehiclesUAVs", OccAndInv("uavsAttack")+ OccAndInv("uavsPortable") );
 setVar("vehiclesAmmoTrucks", OccAndInv("vehiclesAmmoTrucks") );
 setVar("vehiclesAPCs", OccAndInv("vehiclesAPCs") );
 setVar("vehiclesTanks", OccAndInv("vehiclesTanks"));
 setVar("vehiclesAA", OccAndInv("vehiclesAA") );
-setVar("vehiclesTransportAir", OccAndInv("vehiclesTransportHelis") + OccAndInv("vehiclesPlanesTransport") );
 setVar("vehiclesArtillery", OccAndInv("vehiclesArtillery"));
+setVar("vehiclesTransportAir", OccAndInv("vehiclesHelisLight") + OccAndInv("vehiclesHelisTransport") + OccAndInv("vehiclesPlanesTransport") );
+setVar("vehiclesHelisLight", OccAndInv("vehiclesHelisLight"));
+setVar("vehiclesHelisAttack", OccAndInv("vehiclesHelisAttack"));
+setVar("vehiclesHelisTransport", OccAndInv("vehiclesHelisTransport"));
+setVar("vehiclesPlanesTransport", OccAndInv("vehiclesPlanesTransport"));
+setVar("staticMortars", OccAndInv("staticMortars") + [Reb("staticMortar")]);
 
 private _vehMilitia = OccAndInv("vehiclesMilitiaCars")
 + OccAndInv("vehiclesMilitiaTrucks")
@@ -82,8 +85,8 @@ setVar("vehiclesBoats", _vehBoats);
 
 //Occ&Inv helicopters
 private _vehHelis =
-OccAndInv("vehiclesTransportHelis")
-+ OccAndInv("vehiclesAttackHelis")
+OccAndInv("vehiclesHelisTransport")
++ OccAndInv("vehiclesHelisAttack")
 + OccAndInv("vehiclesHelisLight");
 setVar("vehiclesHelis", _vehHelis);
 

@@ -47,9 +47,7 @@ if (
         + OccAndInv("vehiclesFuelTrucks")
         + OccAndInv("vehiclesMedical")
     )
-    or (_typeX in FactionGet(all,"vehiclesAttack"))
-    or (_typeX in FactionGet(all,"vehiclesBoats"))
-    or (_typeX in FactionGet(all,"vehiclesAA"))) then
+    or (_typeX in FactionGet(all,"vehiclesArmor"))) then
 {
 	_veh call A3A_fnc_addActionBreachVehicle;
 
@@ -77,13 +75,13 @@ if (
 		}
 		else
 		{//vehiclesAttack is occ&inv tank and apc, so this is for occ&inv tanks
-				_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto;  _veh removeEventHandler ["HandleDamage",_thisEventHandler]}}];
+			_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto; _veh removeEventHandler ["HandleDamage",_thisEventHandler]}; _this select 2}];
 		};
 	};
 }
 else
 {
-	if ( _typeX in (FactionGet(all,"vehiclesPlanes") + FactionGet(all,"vehiclesHelisLight") + FactionGet(all,"vehiclesHelisTransport")) ) then
+	if ( _typeX in (FactionGet(all,"vehiclesFixedWing") + FactionGet(all,"vehiclesHelis")) ) then
 	{
 		_veh addEventHandler ["GetIn",
 		{
@@ -134,7 +132,7 @@ if (_side == civilian) then
 	}];
 };
 
-if(_typeX in (OccAndInv("vehiclesArtillery") + FactionGet(all, "staticMortars")) ) then
+if(_typeX in (FactionGet(all, "vehiclesArtillery") + FactionGet(all, "staticMortars")) ) then
 {
     [_veh] call A3A_fnc_addArtilleryTrailEH;
 	[_veh] remoteExec ["A3A_fnc_addArtilleryDetectionEH", 2];

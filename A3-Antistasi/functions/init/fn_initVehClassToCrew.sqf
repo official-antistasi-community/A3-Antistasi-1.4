@@ -39,7 +39,7 @@ private _allVehClassToCrew = [
 // So if "Tank_F" is in both NATOLand and NATOTanks, NATOTanks should be ABOVE NATOLand, as NATOTanks is a specialised child.
 
     [FactionGet(all,"vehiclesFixedWing"),[FactionGet(occ,"unitPilot"), FactionGet(inv,"unitPilot"), FactionGet(reb,"unitCrew"), "C_Man_1"]],
-    [flatten FactionGet(all,"vehiclesArmor"), [FactionGet(occ,"unitCrew"), FactionGet(inv,"unitCrew"), FactionGet(reb,"unitCrew"), "C_Man_1"]],          // <- vehiclesArmor has nested arrays; therefore, it needs to be flattened. (will change with arty template change)
+    [FactionGet(all,"vehiclesArmor"), [FactionGet(occ,"unitCrew"), FactionGet(inv,"unitCrew"), FactionGet(reb,"unitCrew"), "C_Man_1"]],          // <- vehiclesArmor has nested arrays; therefore, it needs to be flattened. (will change with arty template change)
     [FactionGet(all,"vehiclesHelis"), [FactionGet(occ,"unitPilot"), FactionGet(inv,"unitPilot"), FactionGet(reb,"unitCrew"), "C_Man_1"]],
     [FactionGet(all,"vehiclesUAVs"), ["B_UAV_AI", "O_UAV_AI", "I_UAV_AI", "C_UAV_AI"]],
     [FactionGet(all,"vehiclesMilitia"), [FactionGet(occ,"unitMilitiaGrunt"), FactionGet(inv,"unitMilitiaGrunt"), FactionGet(reb,"unitCrew"), "C_Man_1"]],

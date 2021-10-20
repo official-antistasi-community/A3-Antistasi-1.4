@@ -71,7 +71,6 @@ if (_side in [Occupants, Invaders]) then {
     _faction set ["vehiclesLight", (_faction get "vehiclesLightArmed") + (_faction get "vehiclesLightUnarmed")];
     _faction set ["vehiclesAttack", (_faction get "vehiclesAPCs") + (_faction get "vehiclesTanks")];
     _faction set ["vehiclesBoats", (_faction get "vehiclesGunBoats") + (_faction get "vehiclesTransportBoats")];
-    _faction set ["vehiclesTransportHelis", (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport")];
 };
 
 _faction;

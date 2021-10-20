@@ -227,7 +227,7 @@ _dataX = [];
 _dataX = [];
 {
 	_dataX pushBack [_x,timer getVariable _x];
-} forEach (FactionGet(all,"vehiclesAttack") + FactionGet(all,"vehiclesArtillery") + FactionGet(reb,"vehiclesAA") + FactionGet(all,"vehiclesPlanes") + FactionGet(all,"vehiclesHelisTransport") + FactionGet(all,"vehiclesHelisAttack") + FactionGet(occ,"staticAT") + FactionGet(occ,"staticAA") + FactionGet(inv,"staticAT") + FactionGet(inv,"staticAA") + FactionGet(occ,"vehiclesGunBoats") + FactionGet(inv,"vehiclesGunBoats"));
+} forEach (FactionGet(all,"vehiclesArmor") + FactionGet(all,"vehiclesFixedWing") + FactionGet(all,"vehiclesHelisTransport") + FactionGet(all,"vehiclesHelisAttack") + FactionGet(occ,"staticAT") + FactionGet(occ,"staticAA") + FactionGet(inv,"staticAT") + FactionGet(inv,"staticAA") + FactionGet(occ,"vehiclesGunBoats") + FactionGet(inv,"vehiclesGunBoats"));
 
 ["idleassets",_dataX] call A3A_fnc_setStatVariable;
 

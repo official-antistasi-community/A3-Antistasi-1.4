@@ -21,7 +21,7 @@ private _vehicleSelection = [];
 
 Debug_2("Now searching for attack vehicle pool for %1 with filter %2", _side, _filter);
 //In general is Invaders always a bit less chill than the occupants, they will use heavier vehicles more often and earlier
-private_vehicleSelection = switch (tierWar) do {
+private _vehicleSelection = switch (tierWar) do {
     case (1): {
         [
             [_faction get "vehiclesLightArmed", if (_isOcc) then {15} else {5}],

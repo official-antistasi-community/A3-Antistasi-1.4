@@ -8,8 +8,7 @@ private _lastSupport = server getVariable ["lastSupport", ["", 0]];
 if((_lastSupport select 0) == "AIRSTRIKE" && {(_lastSupport select 1) > time}) exitWith {-1};
 
 //Vehicles not available, block support
-private _planeType = selectRandom (_faction get "vehiclesPlanesCAS");
-if !(_planeType isKindOf "Air") exitWith {-1}; //allow helicopters to also drop bombs as airstrikes
+if (_faction get "vehiclesPlanesCAS" isEqualTo []) exitWith {-1};
 
 //Select a timer index and the max number of timers available
 private _timerIndex = -1;

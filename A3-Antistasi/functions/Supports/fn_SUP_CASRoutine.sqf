@@ -3,7 +3,7 @@ params ["_side", "_sleepTime", "_timerIndex", "_airport", "_supportName", "_setu
 FIX_LINE_NUMBERS()
 
 private _faction = Faction(_side);
-private _plane = _faction get "vehiclesPlanesCAS";
+private _plane = selectRandom (_faction get "vehiclesPlanesCAS");
 private _crewUnits = _faction get "unitPilot";
 
 //Sleep to simulate preparetion time

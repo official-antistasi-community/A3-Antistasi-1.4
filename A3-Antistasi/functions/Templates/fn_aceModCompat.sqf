@@ -86,8 +86,8 @@ if (A3A_hasADV) then {
 	FactionGet(reb,"initialRebelEquipment") append advItems;
 };
 
-if(A3A_hasKAT) then {
-	initialRebelEquipment append katMedItems;
+if (A3A_hasKAT) then {
+	FactionGet(reb,"initialRebelEquipment") append katMedItems;
 };
 
 if !(A3A_hasVN) then {

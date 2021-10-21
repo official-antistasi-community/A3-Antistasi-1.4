@@ -75,7 +75,7 @@ for "_i" from 1 to 5 do {
         unit(military, "Medic")
     ];
 };
-_faction set ["groupsSquad", _squads];
+_faction set ["groupsSquads", _squads];
 
 //specops
 _faction set ["groupSpecOps", [
@@ -123,7 +123,7 @@ for "_i" from 1 to 5 do {
         unit(militia, "Medic")
     ];
 };
-_faction set ["groupsMilitiaSquad", _militiaSquads];
+_faction set ["groupsMilitiaSquads", _militiaSquads];
 
 //police
 _faction set ["groupPolice", [_faction get "unitPoliceOfficer", _faction get "unitPoliceGrunt"]];

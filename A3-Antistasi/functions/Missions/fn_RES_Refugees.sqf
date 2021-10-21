@@ -128,7 +128,7 @@ else
 	_mrk setMarkerAlphaLocal 0;
 	if ((random 100 < aggressionOccupants) or (_difficultX)) then
 		{
-		_groupX = [getPos _houseX,Occupants,  selectRandom (_faction get "groupsSquad")] call A3A_fnc_spawnGroup;
+		_groupX = [getPos _houseX,Occupants,  selectRandom (_faction get "groupsSquads")] call A3A_fnc_spawnGroup;
 		sleep 1;
 		}
 	else

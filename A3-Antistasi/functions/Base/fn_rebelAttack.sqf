@@ -262,7 +262,7 @@ private _fnc_flipMarker =
     private _soldiers = [];
     while {count _soldiers < _maxTroops} do
     {
-        _soldiers append selectRandom ((_faction get "groupsSquad") + (_faction get "groupsMedium"));
+        _soldiers append selectRandom ((_faction get "groupsSquads") + (_faction get "groupsMedium"));
     };
     _soldiers resize _maxTroops;
     [_soldiers,_side,_marker,0] remoteExec ["A3A_fnc_garrisonUpdate",2];

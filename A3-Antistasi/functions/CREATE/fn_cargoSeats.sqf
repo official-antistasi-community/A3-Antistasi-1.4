@@ -28,8 +28,8 @@ if (_cargoSeats < 7) exitWith			// fudge for Warrior
 };
 
 private _squad = call {
-	if (_isMilitia) exitWith { selectRandom (_faction get "groupsMilitiaSquad") };
-    selectRandom (_faction get "groupsSquad")
+	if (_isMilitia) exitWith { selectRandom (_faction get "groupsMilitiaSquads") };
+    selectRandom (_faction get "groupsSquads")
 };
 if (_cargoSeats == 7) then { _squad deleteAt 7 };
 _squad;

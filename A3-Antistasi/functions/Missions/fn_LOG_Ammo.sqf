@@ -55,7 +55,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	_mrk setMarkerColorLocal "ColorRed";
 	_mrk setMarkerBrushLocal "DiagGrid";
 	if (!debug) then {_mrk setMarkerAlphaLocal 0};
-	_typeGroup = if (_difficultX) then {selectRandom (_faction get "groupsSquad")} else {_faction get "groupSentry"};
+	_typeGroup = if (_difficultX) then {selectRandom (_faction get "groupsSquads")} else {_faction get "groupSentry"};
 	//_cfg = if (_sideX == Occupants) then {cfgNATOInf} else {cfgCSATInf};
 	_groupX = [_pos,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 	sleep 1;

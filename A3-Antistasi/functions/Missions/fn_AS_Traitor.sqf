@@ -104,7 +104,7 @@ _mrk setMarkerColorLocal "ColorRed";
 _mrk setMarkerBrushLocal "DiagGrid";
 _mrk setMarkerAlphaLocal 0;
 
-_typeGroup = if (random 10 < tierWar) then {selectRandom FactionGet(occ,"groupsSquad")} else {FactionGet(occ,"groupPoliceSquad")};
+_typeGroup = if (random 10 < tierWar) then {selectRandom FactionGet(occ,"groupsSquads")} else {FactionGet(occ,"groupPoliceSquad")};
 _groupX = [_positionX,Occupants, _typeGroup] call A3A_fnc_spawnGroup;
 sleep 1;
 if (random 10 < 2.5) then

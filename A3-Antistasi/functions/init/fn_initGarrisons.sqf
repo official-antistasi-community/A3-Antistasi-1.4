@@ -65,17 +65,17 @@ _fnc_initGarrison =
 		_faction = Faction(_side);
 		if(_side != Occupants) then
 		{
-			_groupsRandom = (_faction get "groupsSquad") + (_faction get "groupsMedium");
+			_groupsRandom = (_faction get "groupsSquads") + (_faction get "groupsMedium");
 		}
 		else
 		{
 			if !(_type in ["Airport", "Outpost"]) then
 			{
-				_groupsRandom = (_faction get "groupsMilitiaSquad") + (_faction get "groupsMilitiaMedium");
+				_groupsRandom = (_faction get "groupsMilitiaSquads") + (_faction get "groupsMilitiaMedium");
 			}
 			else
 			{
- 				_groupsRandom = (_faction get "groupsSquad") + (_faction get "groupsMedium");
+ 				_groupsRandom = (_faction get "groupsSquads") + (_faction get "groupsMedium");
 			};
 		};
 

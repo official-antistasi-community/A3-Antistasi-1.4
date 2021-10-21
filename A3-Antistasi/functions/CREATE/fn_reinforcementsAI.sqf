@@ -55,7 +55,7 @@ _reinfTargets sort false;
 private _fnc_pickSquadType = {
 	params ["_count", "_side"];
     private _faction = Faction(_side);
-	if (_numTroops == 8) exitWith { selectRandom (_faction get "groupsSquad")};
+	if (_numTroops == 8) exitWith { selectRandom (_faction get "groupsSquads")};
 	selectRandom (_faction get "groupsMedium");
 };
 

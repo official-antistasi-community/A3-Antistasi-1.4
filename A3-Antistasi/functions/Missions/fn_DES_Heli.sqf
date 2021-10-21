@@ -169,7 +169,7 @@ if (!debug) then {_mrkCrash setMarkerAlphaLocal 0};
 
 //creating guard
 private ["_guard", "_guardWP", "_vehGuard"];
-_typeGroup = selectRandom (_faction get "groupsSquad");
+_typeGroup = selectRandom (_faction get "groupsSquads");
 //if not patrol heli
 if !(_typeVehH in (_faction get "vehiclesHelisLight")) then {
     //spawning guard inf

@@ -66,7 +66,7 @@ else
 {
   if (not(_selectedVehicle == (_faction get "vehiclesMilitiaLightArmed"))) then
   {
-    _typeGroup = selectRandom (_faction get "groupsMilitiaSquad");
+    _typeGroup = selectRandom (_faction get "groupsMilitiaSquads");
     if (_selectedVehicle == (_faction get "vehiclesMilitiaCars")) then
     {
       _typeGroup = selectRandom (_faction get "groupsMilitiaMedium");

@@ -57,7 +57,7 @@ else
 
 if(_result != "EMPTY") exitWith
 {
-    if(_result == "SQUAD") then {selectRandom (_faction get "groupsSquad")} else {selectRandom (_faction get "groupsMedium")};
+    if(_result == "SQUAD") then {selectRandom (_faction get "groupsSquads")} else {selectRandom (_faction get "groupsMedium")};
 };
 
 [];

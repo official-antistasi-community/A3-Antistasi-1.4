@@ -333,15 +333,15 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 _militaryLoadoutData set ["machineGuns", [
 ["UK3CB_MG3_Railed", "", "", "rhsusf_acc_eotech_552", ["UK3CB_MG3_100rnd_762x51_GT"], [], ""],
 ["UK3CB_MG3_Railed", "", "", "rhsusf_acc_su230a_mrds", ["UK3CB_MG3_100rnd_762x51_GT"], [], ""],
-["UK3CB_MG3_Railed", "", "", "rhsusf_acc_acog_mdo", ["UK3CB_MG3_100rnd_762x51_GT"], [], ""]
+["UK3CB_MG3_Railed", "", "", "rhsusf_acc_ACOG_MDO", ["UK3CB_MG3_100rnd_762x51_GT"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
 ["UK3CB_G3SG1_RIS", "", "", "rhsusf_acc_nxs_3515x50f1_h58", ["UK3CB_G3_20rnd_762x51_GT", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G"], [], ""],
-["UK3CB_G3SG1_RIS", "", "", "rhsusf_acc_leupoldmk4_2_mrds", ["UK3CB_G3_20rnd_762x51_GT", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G"], [], ""]
+["UK3CB_G3SG1_RIS", "", "", "rhsusf_acc_LEUPOLDMK4_2_mrds", ["UK3CB_G3_20rnd_762x51_GT", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G"], [], ""]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_nxs_3515x50f1_h58", ["UK3CB_G3_20rnd_762x51_GT", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_leupoldmk4_2_mrds", ["UK3CB_G3_20rnd_762x51_GT", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G"], [], "rhsusf_acc_harris_bipod"]
+["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_LEUPOLDMK4_2_mrds", ["UK3CB_G3_20rnd_762x51_GT", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G"], [], "rhsusf_acc_harris_bipod"]
 ]];
 _militaryLoadoutData set ["lightATLaunchers", [
 "rhs_weap_m72a7"

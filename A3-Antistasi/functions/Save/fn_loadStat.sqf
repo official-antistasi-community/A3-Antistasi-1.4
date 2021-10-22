@@ -137,11 +137,17 @@ if (_varName in _specialVarLoads) then {
                 + keys FactionGetOrDefault(reb,"loadouts",createHashMap)
                 + keys FactionGetOrDefault(civ,"loadouts",createHashMap)
             ) apply {[toLower _x, _x]} );
-
         {
+            private _marker = [_x select 0] call _translateMarker;
             private _garrison = [];
+            private _replacements = switch (sidesX getVariable _marker) do {
+                case (Occupants): { (A3A_faction_occ get "groupsSquads") select 0 };
+                case (Invaders): { (A3A_faction_inv get "groupsSquads") select 0 };
+                default { A3A_faction_reb get "groupSquad" };
+            };
             {
                 // skip garbage created by old bugs
+                if (isNil "_x") then { Debug("Garrison load | Removed nil entry"); continue };
                 if !(_x isEqualType "") then { Debug_2("Garrison load | Removed bad entry: %1 | Type %2", _x, typeName _x); continue };
                 if (_x isEqualTo "") then { Debug("Garrison load | Removed empty entry"); continue };
 
@@ -152,13 +158,17 @@ if (_varName in _specialVarLoads) then {
                 //templates move to hashmap case compat
                 private _loadoutName = toLower (_x select [13]);
                 _x = ( (_x select [0,13]) + (_loadoutNames getOrDefault [_loadoutName, ""]) );
-                if ( (_x select [0,13]) isEqualTo _x ) then { Debug_1("Garrison load | Bad loadout name: %1", _x + _loadoutName); continue };
+                if ( (_x select [0,13]) isEqualTo _x ) then {
+                    Debug_1("Garrison load | Replacing bad loadout name: %1", _x + _loadoutName);
+                    _x = selectRandom _replacements;					// Fix for pre-2.4 garrisons
+
+                };
                 //loadout name valid, add to garrison
                 _garrison pushBack _x;
             } forEach (_x select 1);
 
-            garrison setVariable [[_x select 0] call _translateMarker, _garrison, true];
-            if (count _x > 2) then { garrison setVariable [(_x select 0) + "_lootCD", _x select 2, true] };
+            garrison setVariable [_marker, _garrison, true];
+            if (count _x > 2) then { garrison setVariable [_marker + "_lootCD", _x select 2, true] };
         } forEach _varvalue;
     };
     if (_varName == 'wurzelGarrison') then {

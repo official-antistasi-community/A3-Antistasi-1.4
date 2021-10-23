@@ -1,5 +1,6 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
+#define OccAndInv(VAR) (FactionGet(occ,VAR) + FactionGet(inv,VAR))
 
 //Make sure logLevel is always initialised.
 //This should be overridden by the server, as appropriate. Hence the nil check.
@@ -33,6 +34,7 @@ if (!hasInterface) exitWith {
 
 waitUntil {!isNull player};
 waitUntil {player == player};
+
 //Disable player saving until they're fully ready, and have chosen whether to load their save.
 player setVariable ["canSave", false, true];
 
@@ -46,6 +48,7 @@ else {
 	// SP or hosted, initFuncs/var run in serverInit
 	waitUntil {sleep 0.5;(!isNil "serverInitDone")};
 };
+private _side = side group player;
 [] execVM "briefing.sqf";
 
 _isJip = _this select 1;
@@ -96,46 +99,6 @@ if (!A3A_hasACE) then {
 	[] spawn A3A_fnc_tags;
 };
 
-if (player getVariable ["pvp",false]) exitWith {
-	lastVehicleSpawned = objNull;
-	[player] call A3A_fnc_pvpCheck;
-	[player] call A3A_fnc_dress;
-	if (A3A_hasACE) then {[] call A3A_fnc_ACEpvpReDress};
-	respawnTeamPlayer setMarkerAlphaLocal 0;
-
-	player addEventHandler ["GetInMan", {_this call A3A_fnc_ejectPvPPlayerIfInvalidVehicle}];
-	player addEventHandler ["SeatSwitchedMan", {[_this select 0, assignedVehicleRole (_this select 0) select 0, _this select 2] call A3A_fnc_ejectPvPPlayerIfInvalidVehicle}];
-	player addEventHandler ["InventoryOpened", {
-		_override = false;
-		_boxX = typeOf (_this select 1);
-		if ((_boxX == NATOAmmoBox) or (_boxX == CSATAmmoBox)) then {_override = true};
-		_override
-	}];
-	_nameX = if (side player == Occupants) then {nameOccupants} else {nameInvaders};
-	waituntil {!isnull (finddisplay 46)};
-	gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
-		_handled = FALSE;
-		if (_this select 1 == 207) then {
-			if (!A3A_hasACEhearing) then {
-				if (soundVolume <= 0.5) then {
-					0.5 fadeSound 1;
-					["Ear Plugs", "You've taken out your ear plugs.", true] call A3A_fnc_customHint;
-				}
-				else {
-					0.5 fadeSound 0.1;
-					["Ear Plugs", "You've inserted your ear plugs.", true] call A3A_fnc_customHint;
-				};
-			};
-		}
-		else {
-			if (_this select 1 == 21) then {
-				closedialog 0;
-				_nul = createDialog "NATO_player";
-			};
-		};
-		_handled
-	}];
-};
 
 // Placeholders, should get replaced globally by the server
 player setVariable ["score",0];
@@ -185,7 +148,7 @@ player addEventHandler ["InventoryOpened", {
 	if (captive _playerX) then {
 		_containerX = _this select 1;
 		_typeX = typeOf _containerX;
-		if (((_containerX isKindOf "Man") and (!alive _containerX)) or (_typeX == NATOAmmoBox) or (_typeX == CSATAmmoBox)) then {
+		if (((_containerX isKindOf "Man") and (!alive _containerX)) or (_typeX isEqualTo OccAndInv("ammoBox"))) then {
 			if ({if (((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout _playerX > 1.4)) exitWith {1}} count allUnits > 0) then{
 				[_playerX,false] remoteExec ["setCaptive",0,_playerX];
 				_playerX setCaptive false;
@@ -394,14 +357,13 @@ if (A3A_hasACE) then
 	};
 	// Remove group join action from all rebel unit types
 	// Need to compile the menus first, because ACE delays creating menus until a unit of that class is created
-	private _playerUnits = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_GL_F" /*greenfor*/,
-		"B_G_soldier_F", "B_G_Soldier_TL_F", "B_G_Soldier_AR_F", "B_G_medic_F", "B_G_engineer_F", "B_G_Soldier_GL_F" /*bluefor*/];
+	private _unitTypes = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_GL_F"];
 	{
 		[_x] call ace_interact_menu_fnc_compileMenu;
 		[_x] call ace_interact_menu_fnc_compileMenuSelfAction;
 		[_x, 1,["ACE_SelfActions", "ACE_TeamManagement", "ACE_LeaveGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
 		[_x, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
-	} forEach (_playerUnits + [typePetros, staticCrewTeamPlayer, SDKUnarmed] + SDKSniper + SDKATman + SDKMedic + SDKMG + SDKExp + SDKGL + SDKMil + SDKSL + SDKEng);
+	} forEach _unitTypes;			// TODO: add raw unit types from new templates
 };
 
 boxX allowDamage false;
@@ -409,7 +371,10 @@ boxX addAction ["Transfer Vehicle cargo to Ammobox", {[] spawn A3A_fnc_empty;}, 
 boxX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (A3A_hasACE) then { [boxX, boxX] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 flagX allowDamage false;
-flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Recruit Unit", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
+// TODO UI-update: This addAction differs from the one in A3A_fnc_flagAction. Why?
+flagX addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Recruit Unit", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else {createDialog "A3A_RecruitDialog";};},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
+// TODO UI-update: Add commander check for squad recruitment / only show addAction for commander if possible?
+flagX addAction ["Squad Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Recruit Squad", "You cannot recruit squads while there are enemies near you."] call A3A_fnc_customHint;} else {createDialog "A3A_RecruitSquadDialog";};},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 flagX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 //Adds a light to the flag
@@ -426,7 +391,7 @@ vehicleBox addAction ["Heal nearby units", A3A_fnc_vehicleBoxHeal,nil,0,false,tr
 vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 [vehicleBox] call HR_GRG_fnc_initGarage;
 if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
-vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {nul = createDialog "A3A_BuyVehicleDialog"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 vehicleBox addAction ["Buy Light for 25€", {player call A3A_fnc_spawnLight},nil,0,false,true,"","true",4];
 call A3A_fnc_dropObject;
@@ -440,7 +405,8 @@ fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 
 mapX allowDamage false;
-mapX addAction ["Game Options", {
+// TODO UI-update: This has been mostly moved to Admin dialog, but there's currently no other way for players to view options than this:
+mapX addAction ["View Game Options", {
 	[
 		"Game Options",
 		"Version: "+ antistasiVersion +
@@ -452,10 +418,11 @@ mapX addAction ["Game Options", {
 		"<br/>Civilian Limit: "+ str civPerc +
 		"<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
 	] call A3A_fnc_customHint;
-	CreateDialog "game_options";
 	nil;
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+// UI-update Save moved out of the menu to addaction for quicker access
+mapX addAction ["Save", A3A_fnc_persistentSave,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 [] execVM "OrgPlayers\unitTraits.sqf";
@@ -470,9 +437,9 @@ petros setIdentity "friendlyX";
 if (worldName == "Tanoa") then {petros setName "Maru"} else {petros setName "Petros"};
 
 disableSerialization;
-//1 cutRsc ["H8erHUD","PLAIN",0,false];
+//1 cutRsc ["A3A_StatusBar","PLAIN",0,false];
 _layer = ["statisticsX"] call bis_fnc_rscLayer;
-_layer cutRsc ["H8erHUD","PLAIN",0,false];
+_layer cutRsc ["A3A_StatusBar","PLAIN",0,false];
 [] spawn A3A_fnc_statistics;
 
 //Check if we need to relocate HQ
@@ -486,7 +453,7 @@ if (isNil "placementDone") then {
 
 //Load the player's personal save.
 if (isMultiplayer) then {
-	[] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
+	[] spawn A3A_fnc_shouldLoadPersonalSave;
 }
 else
 {

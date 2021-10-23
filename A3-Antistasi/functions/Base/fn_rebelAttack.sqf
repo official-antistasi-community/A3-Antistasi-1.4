@@ -256,19 +256,13 @@ private _fnc_flipMarker =
     params ["_side", "_marker"];
     Info_2("Autowin %1 for side %2 to avoid unnecessary calculations", _marker, _side);
     [_side, _marker] spawn A3A_fnc_markerChange;
+    private _faction = Faction(_side);
     sleep 10;
     private _maxTroops = 12 max round ((0.5 + random 0.5) * ([_marker] call A3A_fnc_garrisonSize));
     private _soldiers = [];
     while {count _soldiers < _maxTroops} do
     {
-        if (_side == Occupants) then
-        {
-            _soldiers append (selectRandom (groupsNATOSquad + groupsNATOmid));
-        }
-        else
-        {
-            _soldiers append (selectRandom (groupsCSATSquad + groupsCSATmid));
-        };
+        _soldiers append selectRandom ((_faction get "groupsSquads") + (_faction get "groupsMedium"));
     };
     _soldiers resize _maxTroops;
     [_soldiers,_side,_marker,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
@@ -412,7 +406,7 @@ else
     //Select the number of waves based on the points as higher points mean higher difficulty
     // JJ: Nope, degenerate behaviour with target distance. Revert to a dumb version for the moment.
     private _waves =
-        0.5 + random 1 + 
+        0.5 + random 1 +
         + ([0, 1.5] select (_attackTarget in airportsX))
         + ([0, 0.5] select (_attackTarget in outposts))
         + ([0, 0.5] select (_side == Invaders))

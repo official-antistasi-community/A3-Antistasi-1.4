@@ -1,5 +1,6 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
+
 private ["_unit","_skill"];
 _unit = _this select 0;
 if (debug) then {
@@ -32,11 +33,11 @@ _typeX = _unit getVariable "unitType";
 _skill = (0.6 / skillMult + 0.015 * skillFIA);
 _unit setSkill _skill;
 
-if (_typeX in squadLeaders) then {
+if (_typeX isEqualTo FactionGet(reb,"unitSL")) then {
 	_unit setskill ["courage",_skill + 0.2];
 	_unit setskill ["commanding",_skill + 0.2];
 };
-if (_typeX in SDKSniper) then {
+if (_typeX isEqualTo FactionGet(reb,"unitSniper")) then {
 	_unit setskill ["aimingAccuracy",_skill + 0.2];
 	_unit setskill ["aimingShake",_skill + 0.2];
 };

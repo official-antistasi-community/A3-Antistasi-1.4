@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private ["_hr","_resourcesFIA","_typeX","_costs","_markerX","_garrison","_positionX","_unit","_groupX","_veh","_pos"];
 
 _hr = server getVariable "hr";
@@ -10,22 +12,19 @@ _typeX = _this select 0;
 
 _costs = 0;
 
-if (_typeX isEqualType "") then
-	{
-	_costs = server getVariable _typeX;
-	_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice);
-	}
-else
-	{
-	_typeX = if (random 20 <= skillFIA) then {_typeX select 1} else {_typeX select 0};
-	_costs = server getVariable _typeX;
-	};
+_costs = server getVariable _typeX;
+if (_typeX == FactionGet(reb,"unitCrew")) then {_costs = _costs + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)};
 
 if (_costs > _resourcesFIA) exitWith {["Garrisons", format ["You do not have enough money for this kind of unit (%1 € needed).",_costs]] call A3A_fnc_customHint;};
 
-_markerX = positionXGarr;
+_markerX = _this select 1;
 
-if ((_typeX == staticCrewTeamPlayer) and (_markerX in outpostsFIA)) exitWith {["Garrisons", "You cannot add mortars to a Roadblock garrison."] call A3A_fnc_customHint;};
+if (not(sidesX getVariable [_markerX,sideUnknown] == teamPlayer)) exitWith
+{
+    ["Garrisons", format ["That zone does not belong to %1.",nameTeamPlayer]] call A3A_fnc_customHint;
+};
+
+if ((_typeX == FactionGet(reb,"unitCrew")) and (_markerX in outpostsFIA)) exitWith {["Garrisons", "You cannot add mortars to a Roadblock garrison."] call A3A_fnc_customHint;};
 
 _positionX = getMarkerPos _markerX;
 
@@ -45,7 +44,8 @@ waitUntil {(_countX < count (garrison getVariable [_markerX, []])) or (sidesX ge
 
 if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
 	{
-	["Garrisons", format ["Soldier recruited.%1",[_markerX] call A3A_fnc_garrisonInfo]] call A3A_fnc_customHint;
+    // TODO UI-update: remove this eventually
+	//["Garrisons", format ["Soldier recruited.%1",[_markerX] call A3A_fnc_garrisonInfo]] call A3A_fnc_customHint;
 
 	if (spawner getVariable _markerX != 2) then
 		{

@@ -2,38 +2,34 @@
 FIX_LINE_NUMBERS()
 if (!isServer) exitWith {};
 private ["_typeX","_sideX","_markerX","_modeX","_garrison","_subType"];
-_typeX = _this select 0;
-if (_typeX isEqualType []) then
-	{
-	if ((_typeX select 0) isEqualType objNull) then
-		{
+//ModeX: -1 to remove 1 unbit (killed EHs etc). 1 add 1 single classname / object. 2 adds a hole array and admits classnames or objects
+params ["_typeX", "_sideX", "_markerX", "_modeX"];
+if (isNil "_typeX") exitWith {};
+if (_typeX isEqualType []) then {
+	if ((_typeX select 0) isEqualType objNull) then {
 		_subType = [];
 		{
-		_subType pushBack (_x getVariable "unitType");
+		    _subType pushBack (_x getVariable "unitType");
 		} forEach _typeX;
 		_typeX = _subType;
-		};
-	}
-else
-	{
+	};
+} else {
 	if (_typeX isEqualType objNull) then {_typeX = _typeX getVariable "unitType"};
-	};
-_sideX = _this select 1;
-_markerX = _this select 2;
+};
+
 if !(_markerX isEqualType "") exitWith {
-		Error_1("Failed to update Garrison at Position:%1", _this);
-		};
-_modeX = _this select 3;//-1 to remove 1 unbit (killed EHs etc). 1 add 1 single classname / object. 2 adds a hole array and admits classnames or objects
+	Error_1("Failed to update Garrison at Position:%1", _this);
+};
+
 _exit = false;
-{if (isNil _x) exitWith {_exit = true}} forEach ["_typeX","_sideX","_markerX","_modeX"];
+{
+    if (isNil _x) exitWith {_exit = true}
+} forEach ["_typeX","_sideX","_markerX","_modeX"];
 if (_exit) exitWith {
-    Error_4("Failed to update Garrison with params:%1,%2,%3,%4",_typeX,_sideX,_markerX,_modeX);
-	};
+    Error_1("Failed to update Garrison with params:%1",_this);
+};
+
 waitUntil {!garrisonIsChanging};
-{if (isNil _x) exitWith {_exit = true}} forEach ["_typeX","_sideX","_markerX","_modeX"];
-if (_exit) exitWith {
-    Error_4("Failed to update Garrison with params:%1,%2,%3,%4",_typeX,_sideX,_markerX,_modeX);
-	};
 garrisonIsChanging = true;
 if ((_sideX == Occupants) and (!(sidesX getVariable [_markerX,sideUnknown] == Occupants))) exitWith {garrisonIsChanging = false};
 if ((_sideX == Invaders) and (!(sidesX getVariable [_markerX,sideUnknown] == Invaders))) exitWith {garrisonIsChanging = false};

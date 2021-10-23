@@ -27,7 +27,7 @@ if(isNil "serverID") then {
 publicVariable "serverID";
 
 
-// Read loadLastSave param directly, SP handles this in createDialog_setParams
+// Read loadLastSave param directly
 if (isMultiplayer) then {
 	//Load server parameters
 	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
@@ -156,7 +156,7 @@ Info("Accepting players");
 if !(loadLastSave) then {
 	{
 		_x call A3A_fnc_unlockEquipment;
-	} foreach initialRebelEquipment;
+	} foreach FactionGet(reb,"initialRebelEquipment");
     Info("Initial arsenal unlocks completed");
 };
 call A3A_fnc_createPetros;

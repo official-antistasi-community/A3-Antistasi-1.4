@@ -1,5 +1,6 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
+
 params ["_units", "_roadblockMarker"];
 
 _nightTimeBonus = if (daytime < 6 || {daytime > 22}) then {0.25} else {0};
@@ -11,7 +12,7 @@ _garrison = garrison getVariable [_roadblockMarker, []];
 
 _roadblockCount = 0;
 {
-    if(_x == staticCrewTeamPlayer) then
+    if(_x == FactionGet(reb,"unitCrew")) then
     {
       _roadblockCount = _roadblockCount + 3;
     };

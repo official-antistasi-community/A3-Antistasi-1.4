@@ -20,7 +20,7 @@ _fnc_initMarker =
 			killZones setVariable [_x, [], true];
 			server setVariable [_x, 0, true];
 
-			private _sideName = if (_x in _mrkCSAT) then {nameInvaders} else {nameOccupants};
+			private _sideName = if (_x in _mrkCSAT) then {FactionGet(inv,"name")} else {FactionGet(occ,"name")};
 			_mrk setMarkerText format [_mrkText, _sideName];
 		}
 		else
@@ -30,7 +30,7 @@ _fnc_initMarker =
 
 		if (_x in airportsX) then
 		{
-			private _flagType = if (_x in _mrkCSAT) then {flagCSATmrk} else {flagNATOmrk};
+			private _flagType = if (_x in _mrkCSAT) then {FactionGet(inv,"flagMarkerType")} else {FactionGet(occ,"flagMarkerType")};
 			_mrk setMarkerType _flagType;
 		}
 		else
@@ -57,24 +57,25 @@ _fnc_initMarker =
 _fnc_initGarrison =
 {
 	params ["_markerArray", "_type"];
-	private ["_side", "_groupsRandom", "_garrNum", "_garrison", "_marker"];
+	private ["_side", "_faction", "_groupsRandom", "_garrNum", "_garrison", "_marker"];
 	{
 	    _marker = _x;
 		_garrNum = [_marker] call A3A_fnc_garrisonSize;
 		_side = sidesX getVariable [_marker, sideUnknown];
+		_faction = Faction(_side);
 		if(_side != Occupants) then
 		{
-			_groupsRandom = groupsCSATSquad + groupsCSATMid;
+			_groupsRandom = (_faction get "groupsSquads") + (_faction get "groupsMedium");
 		}
 		else
 		{
 			if !(_type in ["Airport", "Outpost"]) then
 			{
-				_groupsRandom = groupsFIASquad + groupsFIAMid;
+				_groupsRandom = (_faction get "groupsMilitiaSquads") + (_faction get "groupsMilitiaMedium");
 			}
 			else
 			{
- 				_groupsRandom = groupsNATOSquad + groupsNATOMid;
+ 				_groupsRandom = (_faction get "groupsSquads") + (_faction get "groupsMedium");
 			};
 		};
 
@@ -183,7 +184,7 @@ else
 {sidesX setVariable [_x, Occupants, true]} forEach _controlsNATO;
 {sidesX setVariable [_x, Invaders, true]} forEach _controlsCSAT;
 
-[_mrkCSAT, airportsX, flagCSATmrk, "%1 Airbase", true] call _fnc_initMarker;
+[_mrkCSAT, airportsX, FactionGet(inv,"flagMarkerType"), "%1 Airbase", true] call _fnc_initMarker;
 [_mrkCSAT, resourcesX, "loc_rock", "Resources"] call _fnc_initMarker;
 [_mrkCSAT, factories, "u_installation", "Factory"] call _fnc_initMarker;
 [_mrkCSAT, outposts, "loc_bunker", "%1 Outpost", true] call _fnc_initMarker;
@@ -192,8 +193,8 @@ else
 if (!(isNil "loadLastSave") && {loadLastSave}) exitWith {};
 
 //Set carrier markers to the same as airbases below.
-if (isServer) then {"NATO_carrier" setMarkertype flagNATOmrk};
-if (isServer) then {"CSAT_carrier" setMarkertype flagCSATmrk};
+if (isServer) then {"NATO_carrier" setMarkertype FactionGet(occ,"flagMarkerType")};
+if (isServer) then {"CSAT_carrier" setMarkertype FactionGet(inv,"flagMarkerType")};
 
 if (debug) then {
     Debug("Setting up Airbase stuff.");

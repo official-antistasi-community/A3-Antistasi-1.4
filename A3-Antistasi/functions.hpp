@@ -13,6 +13,7 @@ class A3A
         class initFuncs {};
         class initGarrisons {};
         class initParams {};
+        class initPreJIP { preInit = 1; };
         class initSpawnPlaces {};
 
         class initVar {};
@@ -57,7 +58,6 @@ class A3A
         class distance {};
         class distanceUnits {};
         class economicsAI {};
-        class ejectPvPPlayerIfInvalidVehicle {};
         class FIAradio {};
         class findBaseForQRF {};
         class findBasesForConvoy {};
@@ -68,6 +68,8 @@ class A3A
         class garrisonInfo {};
         class getAggroLevelString {};
         class getPlayerScale {};
+        class getLocationMarkerName {};
+        class getLocationMarkerType {};
         class getVehiclePoolForAttacks {};
         class getVehiclePoolForQRFs {};
         class vehicleBoxHeal {};
@@ -82,6 +84,7 @@ class A3A
         class logPerformance {};
         class markerChange {};
         class moveHQ {};
+        class moveHqObject {};
         class mrkUpdate {};
         class mrkWIN {};
         class NATOFT {};
@@ -186,6 +189,22 @@ class A3A
         class vehicleMarkers {};
     };
 
+    class AIManagement
+    {
+        class addToGarrison {};
+        class controlHCsquad {};
+        class controlUnit {};
+        class dismissPlayerGroup {};
+        class dismissSquad {};
+    };
+
+    class Build
+    {
+        class build {};
+        class canBuild {};
+        class initBuildableObjects {};
+    };
+
     class Collections
     {
         class getNestedObject {};
@@ -275,30 +294,18 @@ class A3A
         class spawnDebuggingLoop {};
     };
 
-    class Dialogs
-    {
-        class buyVehicle {};
-        class buyVehicleCiv {};
-        class clearForest {};
-        class createDialog_setParams {};
-        class createDialog_shouldLoadPersonalSave {};
-        class dialogHQ {};
-        class fastTravelRadio {};
-        class HQGameOptions {};
-        class loadPreviousSession {};
-        class mineDialog {};
-        class moveHQObject {};
-        class persistentSave {};
-        class skiptime {};
-        class squadOptions {};
-        class squadRecruit {};
-        class unit_recruit {};
-    };
-
     class EventHandler
     {
         class addArtilleryDetectionEH {};
         class addArtilleryTrailEH {};
+    };
+
+    class FastTravel
+    {
+        class canFastTravel {};
+        class canFastTravelToLocation {};
+        class fastTravel {};
+        class getFastTravelTime {};
     };
 
     class Garrison
@@ -326,6 +333,34 @@ class A3A
         class updatePreference {};
         class updateReinfState {};
         class updateVehicles {};
+    };
+
+    class GUI
+    {
+        class adminTab {};
+        class aiManagementTab {};
+        class airSupportTab {};
+        class buyVehicleDialog {};
+        class commanderTab {};
+        class configColorToArray {};
+        class constructTab {};
+        class donateTab {};
+        class fastTravelTab {};
+        class fireMissionEH {};
+        class getGroupInfo {};
+        class getGroupVehicle {};
+        class getVehicleCrewCount {};
+        class hqDialog {};
+        class mainDialog {};
+        class mapDrawHcGroupsEH {};
+        class mapDrawOutpostsEH {};
+        class mapDrawSelectEH {};
+        class mapDrawUserMarkersEH {};
+        class playerManagementTab {};
+        class playerTab {};
+        class recruitDialog {};
+        class recruitSquadDialog {};
+        class requestMissionDialog {};
     };
 
     class Intel
@@ -362,6 +397,14 @@ class A3A
         class loadout_createBase {};
         class loadout_defaultWeaponMag {};
         class loadout_itemLoad {};
+    };
+
+    class TemplateVerification
+    {
+        file = "functions\Templates\Verification";
+        class TV_verifyLoadout {};
+        class TV_verifyLoadoutsData {};
+        class TV_verifyAssets {};
     };
 
     class Logistics
@@ -440,6 +483,7 @@ class A3A
     class Ammunition
     {
         class ACEpvpReDress {};
+        class allMagazines {};
         class ammunitionTransfer {};
         class arsenalManage {};
         class categoryOverrides {};
@@ -539,17 +583,20 @@ class A3A
         class addFIAveh {};
         class addSquadVeh {};
         class autoGarrison {};
-        class build {};
+        // class build {}; // Moved to functions/Build
         class buildCreateVehicleCallback {};
         class buildMinefield {};
+        class dismissGarrison {};
         class enemyNearCheck {};
         class equipRebel {};
         class FIAinit {};
         class FIAskillAdd {};
         class garrisonAdd {};
-        class garrisonDialog {};
+        class garrisonRemove {};
+        class getHCsquadPrice {};
+        class getHCSquadVehicleType {};
+        class mineDialog {};
         class NATObomb {};
-        class NATOQuadbike {};
         class postmortem {};
         class reDress {};
         class reinfPlayer {};
@@ -650,6 +697,9 @@ class A3A
         class setStatVariable {};
         class varNameToSaveName {};
         class saveLoop {};
+        class shouldLoadPersonalSave {};
+        class loadPreviousSession {};
+        class persistentSave {};
     };
 
     class String {
@@ -661,9 +711,12 @@ class A3A
     {
         class aceModCompat {};
         class compatibilityLoadFaction {};
+        class compileGroups {};
+        class compileMissionAssets {};
         class getLoadout {};
         class loadFaction {};
         class ifaModCompat {};
+        class loadAddon {};
         class rhsModCompat {};
     };
 
@@ -684,6 +737,15 @@ class A3A
         class updateInfoBarShown {};
         class disableInfoBar {};
     };
+    class uintToHex
+    {
+        file = "functions\Utility\uintToHex";
+        class uint12ToHex {};
+        class uint16ToHex {};
+        class uint20ToHex {};
+        class uint24ToHex {};
+        class uintToHexGenTables {};
+    };
 
     class Undercover
     {
@@ -700,6 +762,7 @@ class A3A
         class createDataObject {};
         class createNamespace {};
         class deleteNamespace {};
+        class formatTime {};
         class getAdmin {};
         class localLog {};
         class log {};
@@ -707,6 +770,7 @@ class A3A
         class vehicleTextureSync {};
         class vehicleWillCollideAtPosition {};
         class getRoadDirection {};
+        class clearForest {};
     };
 
     class UtilityItems {

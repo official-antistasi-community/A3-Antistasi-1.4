@@ -1,3 +1,5 @@
+// TODO UI-update: probably belongs in UI folder
+
 _title = if (worldName == "Tanoa") then {
 	"Warlords of the Pacific"
 } else {
@@ -39,11 +41,11 @@ _duration = 5;
 		//_width = (abs safeZoneX) max (0.5);
 		//_height = ctrltextheight _ctrlText;
 		//_pos = [safezoneX + _offsetX, safezoneY + _offsetY,_width,_height];
-		
+
 		_width = safeZoneW;
 		_height = ctrltextheight _ctrlText;
 		_pos = [safezoneX, safeZoneY + _offsetY,_width,_height];
-		
+
 		//_pos = [safezoneX + safezoneW - _width - _offsetX,safezoneY + safezoneH - _height,_width,_height]
 		_ctrlText ctrlsetposition _pos;
 		_ctrlText ctrlsetfade 1;

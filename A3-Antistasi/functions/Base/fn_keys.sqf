@@ -8,14 +8,8 @@ _key = _this select 1;
 switch (_key) do {
     case DIK_Y: {
         if (isNil"garageVeh") then {
-            if (_this select 2) then {
-                if (player == theBoss) then {
-                    [] spawn A3A_fnc_artySupport;
-                };
-            } else {
-                closedialog 0;
-                createDialog "radio_comm";
-            };
+            closedialog 0;
+            if (!dialog) then {createDialog "A3A_MainDialog";};
         };
     };
 
@@ -25,13 +19,13 @@ switch (_key) do {
 
         private _display = uiNameSpace getVariable "H8erHUD";
         private _infoBarControl = _display displayCtrl 1001;
-        
+
         if (ctrlShown _infoBarControl) then {
-            ["KEYS", true] call A3A_fnc_disableInfoBar; 
-            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_off", false] call A3A_fnc_customHint; 
+            ["KEYS", true] call A3A_fnc_disableInfoBar;
+            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_off", false] call A3A_fnc_customHint;
         } else {
-            ["KEYS", false] call A3A_fnc_disableInfoBar; 
-            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_on", false] call A3A_fnc_customHint; 
+            ["KEYS", false] call A3A_fnc_disableInfoBar;
+            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_on", false] call A3A_fnc_customHint;
         };
     };
 

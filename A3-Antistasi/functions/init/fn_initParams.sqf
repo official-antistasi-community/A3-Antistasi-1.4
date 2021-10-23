@@ -37,6 +37,11 @@ A3A_paramTable = [
     ["allowUnfairSupports", "allowUnfairSupports", [], false],
     ["allowFuturisticSupports", "allowFuturisticSupports", [], false],
 
+    ["A3A_rebTemplateFactionEnum", "RebelFactionEnum",["locked"], 0],
+    ["A3A_occTemplateFactionEnum", "OccupantsFactionEnum",["locked"], 0],
+    ["A3A_invTemplateFactionEnum", "InvadersFactionEnum",["locked"], 0],
+    ["A3A_civTemplateFactionEnum", "CivFactionEnum",["locked"], 0],
+
     ["allowDLCKart", "Kart", ["server"], false],
     ["allowDLCMark", "Mark", ["server"], false],
     ["allowDLCHeli", "Heli", ["server"], false],

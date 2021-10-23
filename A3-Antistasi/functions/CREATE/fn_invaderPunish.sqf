@@ -22,7 +22,7 @@ private _landingPads = [];
 
 private _nameDestination = [_attackDestination] call A3A_fnc_localizar;
 private _taskId = "invaderPunish" + str A3A_taskCount;
-[[teamPlayer,civilian,Occupants],_taskId,[format ["%2 is attacking critical positions within %1! Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian,Occupants],_taskId,[format ["%2 is attacking critical positions within %1! Defend the city at all costs",_nameDestination,FactionGet(inv,"name")],format ["%1 Punishment",FactionGet(inv,"name")],_attackDestination],getMarkerPos _attackDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 [_taskId, "invaderPunish", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 // give smaller player groups a bit more time to respond
@@ -35,8 +35,8 @@ private _reveal = [_posDestination, Invaders] call A3A_fnc_calculateSupportCallR
 private _missionExpireTime = time + 3600;
 private _missionMinTime = time + 600;
 
-private _invaderAirTransport = (vehCSATTransportHelis + vehCSATTransportPlanes) select {[_x] call A3A_fnc_vehAvailable};
-private _invaderAttackHelis = vehCSATAttackHelis select {[_x] call A3A_fnc_vehAvailable};
+private _invaderAirTransport = (FactionGet(inv, "vehiclesHelisLight") + FactionGet(inv, "vehiclesHelisTransport") + FactionGet(inv, "vehiclesPlanesTransport")) select {[_x] call A3A_fnc_vehAvailable};
+private _invaderAttackHelis = FactionGet(inv, "vehiclesHelisAttack") select {[_x] call A3A_fnc_vehAvailable};
 
 // probably doesn't make much sense to aggro-scale this one as it's not a response
 private _numVehicles = round (2 + random 1 + _playerScale);
@@ -124,9 +124,9 @@ while {count _civilians < _numCiv} do
     };
     for "_i" from 1 to (4 min (_numCiv - count _civilians)) do
     {
-        private _civ = [_groupCivil, SDKUnarmed, _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
-        _civ forceAddUniform selectRandom (A3A_faction_civ getVariable "uniforms");
-        _civ addHeadgear selectRandom (A3A_faction_civ getVariable "headgear");
+        private _civ = [_groupCivil, FactionGet(reb, "unitUnarmed"), _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
+        _civ forceAddUniform selectRandom (A3A_faction_civ get "uniforms");
+        _civ addHeadgear selectRandom (A3A_faction_civ get "headgear");
         [_civ, selectRandom (unlockedsniperrifles + unlockedmachineguns + unlockedshotguns + unlockedrifles + unlockedsmgs + unlockedhandguns), 5, 0] call BIS_fnc_addWeapon;
         _civ setSkill 0.5;
         _civilians pushBack _civ;
@@ -137,7 +137,7 @@ while {count _civilians < _numCiv} do
 
 if (tierWar >= 5) then {
     for "_i" from 0 to round random 1 do {
-        if ([vehCSATPlane] call A3A_fnc_vehAvailable) then {
+        if (FactionGet(inv,"vehiclesPlanesCAS") findIf { [_x] call A3A_fnc_vehAvailable } > -1) then {
             private _reveal = [_posDestination, Invaders] call A3A_fnc_calculateSupportCallReveal;
             [_posDestination, 4, ["AIRSTRIKE"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
             sleep 30;
@@ -177,7 +177,7 @@ if (({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3) or (time 
 
     destroyedSites = destroyedSites + [_attackDestination];
     publicVariable "destroyedSites";
-    private _mineTypes = A3A_faction_inv getVariable "minefieldAPERS";
+    private _mineTypes = A3A_faction_inv get "minefieldAPERS";
     for "_i" from 1 to 60 do {
         private _mineX = createMine [selectRandom _mineTypes,_posDestination,[],_size];
         Invaders revealMine _mineX;

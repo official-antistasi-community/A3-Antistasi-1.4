@@ -13,13 +13,6 @@ Scope: Any
 Environment: Any
 Public: No
 Dependencies:
-    Old template system that uses global variable assignment.
-        ////////////////////////////////////
-        //             UNITS             ///
-        ////////////////////////////////////
-        //Military Units
-        CSATGrunt = "LIB_SOV_rifleman";
-        ...etc
 
 Example:
     How to init (inside fn_initVarServer.sqf):
@@ -29,7 +22,7 @@ Example:
     How to use:
         private _sideIndex = [west,east,resistance,civilian] find (side player);
         private _typeX = typeOf _vehicle;
-        private _crewLoadout = A3A_vehClassToCrew getOrDefault [_typeX,[NATOGrunt, CSATGrunt, staticCrewTeamPlayer, "C_Man_1"]] select _sideIndex;
+        private _crewLoadout = A3A_vehClassToCrew getOrDefault [_typeX,[_groupsOcc get "grunt", _groupsInv get "grunt", _groupsReb get "staticCrew", "C_Man_1"]] select _sideIndex;
         //        ^-returned loadout to be used                        ^-----Default load-outs if veh not in templates-----^
 */
 #include "..\..\Includes\common.inc"
@@ -38,19 +31,19 @@ FIX_LINE_NUMBERS()
 // ⬇ EDIT HERE 👇 TO ADD TEMPLATE LOAD-OUTS ⬇
 private _allVehClassToCrew = [
 
-//  [           vehFixedWing            ,[  NATOPilot,    CSATPilot,     staticCrewTeamPlayer,     "C_Man_1"  ]    ],
-//     ^---A template category or an---^    ^--Gov--^    ^--Invade--^        ^---Rebel---^         ^--Civ--^
-//     ^--array of vehicle classnames--^ ^----------Array of load-outs, one loadout for each faction----------^
+//  [ FactionGet(all,"vehiclesFixedWing"), [_occGroups get "pilot", _invGroups get "pilot", _rebGroups get "staticCrew", "C_Man_1" ]    ],
+//     ^---A template category or an---^    ^--Gov--^               ^--Invade--^             ^---Rebel---^               ^--Civ--^
+//     ^--array of vehicle classnames--^ ^--------------------Array of load-outs, one loadout for each faction-------------------^
 
 // Vehicles categories at the top have higher priority than bellow.
 // So if "Tank_F" is in both NATOLand and NATOTanks, NATOTanks should be ABOVE NATOLand, as NATOTanks is a specialised child.
 
-    [vehFixedWing,[NATOPilot, CSATPilot, staticCrewTeamPlayer, "C_Man_1"]],
-    [vehArmor, [NATOCrew, CSATCrew, staticCrewTeamPlayer, "C_Man_1"]],
-    [vehHelis, [NATOPilot, CSATPilot, staticCrewTeamPlayer, "C_Man_1"]],
-    [vehUAVs, ["B_UAV_AI", "O_UAV_AI", "I_UAV_AI", "C_UAV_AI"]],
-    [vehFIA, [FIARifleman, FIARifleman, staticCrewTeamPlayer, "C_Man_1"]],
-    [[vehPoliceCar], [policeGrunt, policeGrunt, staticCrewTeamPlayer, "C_Man_1"]]       // < vehPoliceCar is a single classname; therefore, it needs to be put into an array.
+    [FactionGet(all,"vehiclesFixedWing"),[FactionGet(occ,"unitPilot"), FactionGet(inv,"unitPilot"), FactionGet(reb,"unitCrew"), "C_Man_1"]],
+    [FactionGet(all,"vehiclesArmor"), [FactionGet(occ,"unitCrew"), FactionGet(inv,"unitCrew"), FactionGet(reb,"unitCrew"), "C_Man_1"]],          // <- vehiclesArmor has nested arrays; therefore, it needs to be flattened. (will change with arty template change)
+    [FactionGet(all,"vehiclesHelis"), [FactionGet(occ,"unitPilot"), FactionGet(inv,"unitPilot"), FactionGet(reb,"unitCrew"), "C_Man_1"]],
+    [FactionGet(all,"vehiclesUAVs"), ["B_UAV_AI", "O_UAV_AI", "I_UAV_AI", "C_UAV_AI"]],
+    [FactionGet(all,"vehiclesMilitia"), [FactionGet(occ,"unitMilitiaGrunt"), FactionGet(inv,"unitMilitiaGrunt"), FactionGet(reb,"unitCrew"), "C_Man_1"]],
+    [FactionGet(all, "vehiclesPolice"), [FactionGet(occ,"unitPoliceGrunt"), FactionGet(inv,"unitPoliceGrunt"), FactionGet(reb,"unitCrew"), "C_Man_1"]]       // < vehiclesPolice is a single classname; therefore, it needs to be put into an array.
 ];
 // ⬆ STOP EDITING HERE 👋 THANK YOU, COME AGAIN ⬆
 
@@ -71,7 +64,7 @@ reverse _allVehClassToCrew;     // Does it in reverse so that items on the top o
             } else {
                 _vehClassToCrew set [_x,_currentVehClassToCrew#1];      // _currentVehClassToCrew#1 is all crew load-outs that should be worn in this category's vehicles.
             };
-        } forEach (_currentVehClassToCrew#0);                       // _currentVehClassToCrew#0 is all vehicle classnames in this category. ie "Hunter_GMG_F" and "Hunter_HMG_F" are in vehNATOLight.
+        } forEach (_currentVehClassToCrew#0);                       // _currentVehClassToCrew#0 is all vehicle classnames in this category. ie "Hunter_GMG_F" and "Hunter_HMG_F" are in vehiclesLightArmed + vehiclesLightUnarmed.
     }
 } forEach _allVehClassToCrew;
 

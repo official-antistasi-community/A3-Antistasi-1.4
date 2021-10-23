@@ -9,12 +9,12 @@ if (isMultiplayer) then {
     [] call A3A_fnc_initServer;
 } else {
     [] spawn {
+        // TODO UI-update: add black screen telling users to run as LAN host
         #include "Includes\common.inc"
-FIX_LINE_NUMBERS()
+        FIX_LINE_NUMBERS()
         waitUntil {!isNull player && player == player && !isNull (finddisplay 46)};
-        Info("Opening Singleplayer Parameter Dialog");
-        [] call A3A_fnc_createDialog_setParams;
-        Info("Proceeding to initServer");
-        [] call A3A_fnc_initServer;
+        Info("Opening No Singleplayer Dialog");
+        // TODO UI-update: Open black screen here
+        Info("Ending mission");
     };
 };

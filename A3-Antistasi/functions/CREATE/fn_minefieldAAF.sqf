@@ -7,6 +7,9 @@ _markerX = _this select 0;
 
 _base = _this select 1;
 
+_sideX = sidesX getVariable [_base,sideUnknown];
+private _faction = Faction(_sideX);
+
 if (spawner getVariable _base != 2) exitWith {false};
 _posbase = getMarkerPos _base;
 _posMarker = getMarkerPos _markerX;
@@ -53,13 +56,11 @@ if (_failure) exitWith {
 
 Debug_1("Creating a Minefield at %1", _base);
 
-private _factionSide = [A3A_faction_inv,A3A_faction_occ] select (sidesX getVariable [_base,sideUnknown] == Occupants);
-private _mines = (_factionSide getVariable "minefieldAT") + (_factionSide getVariable "minefieldAPERS");
-private _revealTo = [Invaders,Occupants] select (sidesX getVariable [_base,sideUnknown] == Occupants);
+private _mines = (_faction get "minefieldAT") + (_faction get "minefieldAPERS");
 
 for "_i" from 1 to 30 do {
 	_mineX = createMine [ selectRandom _mines ,_pos,[],50];
-	_revealTo revealMine _mineX;
+	_sideX revealMine _mineX;
 };
 
 //[-4000] remoteExec ["resourcesAAF",2];

@@ -12,7 +12,7 @@ Scope: Client
 Environment: Unscheduled
 Public: No
 Dependencies:
-    <DISPLAY> H8erHUD
+    <DISPLAY> A3A_StatusBar
     <HASHMAP> A3A_InfoBarRegistre
 
 Example:
@@ -22,6 +22,6 @@ Example:
 if (isNil "A3A_InfoBarRegistre") exitWith {};
 private _state = if (count A3A_InfoBarRegistre isEqualTo 0) then {true} else {false};
 
-private _display = uiNameSpace getVariable "H8erHUD";
+private _display = uiNameSpace getVariable "A3A_StatusBar";
 private _control = _display displayCtrl 1001;
 _control ctrlShow _state;

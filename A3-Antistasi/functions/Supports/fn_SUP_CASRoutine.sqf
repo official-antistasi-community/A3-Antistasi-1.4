@@ -2,8 +2,9 @@ params ["_side", "_sleepTime", "_timerIndex", "_airport", "_supportName", "_setu
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 
-private _plane = if (_side == Occupants) then {vehNATOPlane} else {vehCSATPlane};
-private _crewUnits = if(_side == Occupants) then {NATOPilot} else {CSATPilot};
+private _faction = Faction(_side);
+private _plane = selectRandom (_faction get "vehiclesPlanesCAS");
+private _crewUnits = _faction get "unitPilot";
 
 //Sleep to simulate preparetion time
 while {_sleepTime > 0} do
@@ -385,7 +386,7 @@ while {_timeAlive > 0} do
                     }
                     else
                     {
-                        if((typeOf _targetObj) in (vehCSATAPC + vehNATOAPC)) then
+                        if ( (typeOf _targetObj) in FactionGet(all,"vehiclesAPCs") ) then
                         {
                             if(_allowHeavyWeapon) then
                             {

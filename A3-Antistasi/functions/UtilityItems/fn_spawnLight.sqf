@@ -15,12 +15,12 @@ Dependencies:
 Example:
     [player] call A3A_fnc_spawnLight;
 */
-
+#include "..\..\Includes\common.inc"
 params ["_unit"];
 
 //check to make sure that the player is not spamming
 private _lastTimePurchase = _unit getVariable["LightCooldown",time];
-if (_lastTimePurchase > time) exitwith {["Light Purchase", format ["You already bought one, wait %1 seconds before you can buy another.", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};                               
+if (_lastTimePurchase > time) exitwith {["Light Purchase", format ["You already bought one, wait %1 seconds before you can buy another.", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};
 
 //find out if we have money
 private _resourceFIA = player getVariable ["moneyX", 0];
@@ -33,7 +33,7 @@ _unit setVariable["LightCooldown", time + 5];
 
 
 //spawn the light
-private _lightType = A3A_faction_reb getVariable ["vehicleLightSource", ""];
+private _lightType = FactionGet(reb,"vehicleLightSource");
 _position = (getPos _unit) findEmptyPosition [1,10,_lightType];
 if (_position isEqualTo []) then {_position = getPos _unit};
 private _light = _lightType createVehicle _position;

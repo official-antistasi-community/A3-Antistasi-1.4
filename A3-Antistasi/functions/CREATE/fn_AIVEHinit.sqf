@@ -11,6 +11,7 @@
 FIX_LINE_NUMBERS()
 params ["_veh", "_side"];
 if (isNil "_veh") exitWith {};
+#define OccAndInv(VAR) (FactionGet(occ,VAR) + FactionGet(inv,VAR))
 
 if !(isNil { _veh getVariable "ownerSide" }) exitWith
 {
@@ -38,11 +39,19 @@ if (_side == teamPlayer) then
 _veh call A3A_fnc_vehicleTextureSync;
 
 private _typeX = typeOf _veh;
-if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats) or (_typeX in vehAA)) then
+if (
+    _typeX in (OccAndInv("vehiclesLight")
+        + OccAndInv("vehiclesTrucks")
+        + OccAndInv("vehiclesAmmoTrucks")
+        + OccAndInv("vehiclesRepairTrucks")
+        + OccAndInv("vehiclesFuelTrucks")
+        + OccAndInv("vehiclesMedical")
+    )
+    or (_typeX in FactionGet(all,"vehiclesArmor"))) then
 {
 	_veh call A3A_fnc_addActionBreachVehicle;
 
-	if !(_typeX in vehAttack) then
+	if !(_typeX in FactionGet(all,"vehiclesAttack")) then
 	{
 		if (_veh isKindOf "Car") then
 		{
@@ -57,7 +66,7 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats) or (_
 	}
 	else
 	{
-		if (_typeX in vehAPCs) then
+		if (_typeX in FactionGet(all,"vehiclesAPCs")) then
 		{
 			_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto; _veh removeEventHandler ["HandleDamage",_thisEventHandler]};if (((_this select 1) find "wheel" != -1) and (_this select 4=="") and (!isPlayer driver (_veh))) then {0;} else {(_this select 2);}}];
 			_veh setVariable ["within",true];
@@ -65,21 +74,14 @@ if ((_typeX in vehNormal) or (_typeX in vehAttack) or (_typeX in vehBoats) or (_
 			_veh addEventHandler ["GetIn", {private ["_veh"];_veh = _this select 0; if (side (_this select 2) != teamPlayer) then {_veh setVariable ["within",true]}}];
 		}
 		else
-		{
-			if (_typeX in vehTanks) then
-			{
-				_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto;  _veh removeEventHandler ["HandleDamage",_thisEventHandler]}}];
-			}
-			else		// never called? vehAttack is APCs+tank
-			{
-				_veh addEventHandler ["HandleDamage",{if (((_this select 1) find "wheel" != -1) and ((_this select 4=="") or (side (_this select 3) != teamPlayer)) and (!isPlayer driver (_this select 0))) then {0} else {(_this select 2)}}];
-			};
+		{//vehiclesAttack is occ&inv tank and apc, so this is for occ&inv tanks
+			_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto; _veh removeEventHandler ["HandleDamage",_thisEventHandler]}; _this select 2}];
 		};
 	};
 }
 else
 {
-	if (_typeX in vehPlanes) then
+	if ( _typeX in (FactionGet(all,"vehiclesFixedWing") + FactionGet(all,"vehiclesHelis")) ) then
 	{
 		_veh addEventHandler ["GetIn",
 		{
@@ -94,7 +96,7 @@ else
 
 		if (_veh isKindOf "Helicopter") then
 		{
-			if (_typeX in vehTransportAir) then
+			if (_typeX in FactionGet(all,"vehiclesTransportAir")) then
 			{
 				_veh setVariable ["within",true];
 				_veh addEventHandler ["GetOut", {private ["_veh"];_veh = _this select 0; if ((isTouchingGround _veh) and (isEngineOn _veh)) then {if (side (_this select 2) != teamPlayer) then {if (_veh getVariable "within") then {_veh setVariable ["within",false]; [_veh] call A3A_fnc_smokeCoverAuto}}}}];
@@ -130,7 +132,7 @@ if (_side == civilian) then
 	}];
 };
 
-if(_typeX in vehMRLS + vehMortars) then
+if(_typeX in (FactionGet(all, "vehiclesArtillery") + FactionGet(all, "staticMortars")) ) then
 {
     [_veh] call A3A_fnc_addArtilleryTrailEH;
 	[_veh] remoteExec ["A3A_fnc_addArtilleryDetectionEH", 2];

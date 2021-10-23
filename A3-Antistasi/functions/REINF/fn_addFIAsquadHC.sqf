@@ -1,3 +1,10 @@
+// TODO UI-update: needs a bit of a cleanup:
+// Put strings in stringtable
+// Make vehicle selection use A3A_fnc_getHCsquadVehicleType
+// Make price calculation use A3A_fnc_getHCsquadPrice
+
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_typeGroup", ["_withBackpck", ""]];
 
 if (player != theBoss) exitWith {["Recruit Squad", "Only the Commander has access to this function."] call A3A_fnc_customHint;};
@@ -11,8 +18,8 @@ private _exit = false;
 if (_exit) exitWith {["Recruit Squad", "You cannot recruit squads with enemies near your HQ."] call A3A_fnc_customHint;};
 
 if (_typeGroup isEqualType "") then {
-	if (_typeGroup == "not_supported") then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset."] call A3A_fnc_customHint;};
-	if (A3A_hasIFA and ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) and !debug) then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset."] call A3A_fnc_customHint;};
+	if (_typeGroup == "") then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset."] call A3A_fnc_customHint;};
+	if (A3A_hasIFA and ((_typeGroup == FactionGet(reb,"staticMortar")) or (_typeGroup == FactionGet(reb,"staticMG"))) and !debug) then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset."] call A3A_fnc_customHint;};
 };
 
 if (_exit) exitWith {};
@@ -27,23 +34,21 @@ private _hr = server getVariable "hr";
 private _resourcesFIA = server getVariable "resourcesFIA";
 
 if (_typeGroup isEqualType []) then {
-	{
-		private _typeUnit = if (random 20 <= skillFIA) then {_x select 1} else {_x select 0};
-		_formatX pushBack _typeUnit;
-		_costs = _costs + (server getVariable _typeUnit); _costHR = _costHR +1
-	} forEach _typeGroup;
+    _formatX = _typeGroup;
+	{ _costs = _costs + (server getVariable _x); _costHR = _costHR +1 } forEach _typeGroup;
 
-	if (_withBackpck == "MG") then {_costs = _costs + ([SDKMGStatic] call A3A_fnc_vehiclePrice)};
-	if (_withBackpck == "Mortar") then {_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice)};
+	if (_withBackpck == "MG") then {_costs = _costs + ([FactionGet(reb,"staticMG")] call A3A_fnc_vehiclePrice)};
+	if (_withBackpck == "Mortar") then {_costs = _costs + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)};
 	_isInfantry = true;
 
 } else {
-	_costs = _costs + (2*(server getVariable staticCrewTeamPlayer)) + ([_typeGroup] call A3A_fnc_vehiclePrice);
-	if (_typeGroup == staticAAteamPlayer) then { _costs = _costs + ([vehSDKTruck] call A3A_fnc_vehiclePrice) };
-    _formatX = [staticCrewTeamPlayer,staticCrewTeamPlayer];
+    private _typeCrew = FactionGet(reb,"unitCrew");
+	_costs = 2*(server getVariable _typeCrew) + ([_typeGroup] call A3A_fnc_vehiclePrice);
+	if (_typeGroup == FactionGet(reb,"staticAA")) then { _costs = _costs + ([FactionGet(reb,"vehicleTruck")] call A3A_fnc_vehiclePrice) };
+    _formatX = [_typeCrew, _typeCrew];
 	_costHR = 2;
 
-	if ((_typeGroup == SDKMortar) or (_typeGroup == SDKMGStatic)) exitWith { _isInfantry = true };
+	if ((_typeGroup == FactionGet(reb,"staticMortar")) or (_typeGroup == FactionGet(reb,"staticMG"))) exitWith { _isInfantry = true };
 };
 
 if ((_withBackpck != "") and A3A_hasIFA) exitWith {["Recruit Squad", "Your current modset doesn't support packing/unpacking static weapons."] call A3A_fnc_customHint;};
@@ -56,24 +61,24 @@ if (_exit) exitWith {};
 
 private _mounts = [];
 private _vehType = switch true do {
-    case (!_isInfantry && _typeGroup isEqualTo staticAAteamPlayer): {
-        if (vehSDKAA isEqualTo "not_supported") exitWith {_mounts pushBack [staticAAteamPlayer,-1,[[1],[],[]]]; vehSDKTruck};
-        vehSDKAA
+    case (!_isInfantry && {_typeGroup isEqualTo FactionGet(reb,"staticAA")}): {
+        if (FactionGet(reb,"vehicleAA") isEqualTo "") exitWith {_mounts pushBack [FactionGet(reb,"staticAA"),-1,[[1],[],[]]]; FactionGet(reb,"vehicleTruck")};
+        FactionGet(reb,"vehicleAA")
     };
     case (!_isInfantry): {_typeGroup};
-    case (count _formatX isEqualTo 2): {vehSDKBike};
-    case (count _formatX > 4): {vehSDKTruck};
-    default {vehSDKLightUnarmed};
+    case (count _formatX isEqualTo 2): {FactionGet(reb,"vehicleBasic")};
+    case (count _formatX > 4): {FactionGet(reb,"vehicleTruck")};
+    default {FactionGet(reb,"vehicleLightUnarmed")};
 };
 private _idFormat = switch _typeGroup do {
-    case groupsSDKmid: {"Tm-"};
-    case groupsSDKAT: {"AT-"};
-    case groupsSDKSniper: {"Snpr-"};
-    case groupsSDKSentry: {"Stry-"};
-    case SDKMortar: {"Mort-"};
-    case SDKMGStatic: {"MG-"};
-    case vehSDKAT: {"M.AT-"};
-    case staticAAteamPlayer: {"M.AA-"};
+    case FactionGet(reb,"groupMedium"): {"Tm-"};
+    case FactionGet(reb,"groupAT"): {"AT-"};
+    case FactionGet(reb,"groupSniper"): {"Snpr-"};
+    case FactionGet(reb,"groupSentry"): {"Stry-"};
+    case FactionGet(reb,"staticMortar"): {"Mort-"};
+    case FactionGet(reb,"staticMG"): {"MG-"};
+    case FactionGet(reb,"vehicleAT"): {"M.AT-"};
+    case FactionGet(reb,"staticAA"): {"M.AA-"};
     default {
         switch _withBackpck do {
             case "MG": {"SqMG-"};
@@ -115,7 +120,8 @@ if (_isInfantry and (_costs + _vehCost) > server getVariable "resourcesFIA") exi
     [_formatX, _idFormat, _special, objNull] spawn A3A_fnc_spawnHCGroup;
 };
 
-createDialog "veh_query";
+// TODO UI-update: clean up this mess
+/* createDialog "veh_query";
 sleep 1;
 disableSerialization;
 private _display = findDisplay 100;
@@ -127,8 +133,10 @@ if (str (_display) != "no display") then {
 	_ChildControl  ctrlSetTooltip "Barefoot Infantry";
 };
 
-waitUntil {(!dialog) or (!isNil "vehQuery")};
-if ((!dialog) and (isNil "vehQuery")) exitWith { [_formatX, _idFormat, _special, objNull] spawn A3A_fnc_spawnHCGroup }; //spawn group call here
+waitUntil {(!dialog) or (!isNil "vehQuery")}; */
+
+// if ((!dialog) and (isNil "vehQuery")) exitWith { [_formatX, _idFormat, _special, objNull] spawn A3A_fnc_spawnHCGroup }; //spawn group call here
+if (isNil "vehQuery") exitWith { [_formatX, _idFormat, _special, objNull] spawn A3A_fnc_spawnHCGroup }; //spawn group call here
 
 vehQuery = nil;
 [_vehType, "HCSquadVehicle", [_formatX, _idFormat, _special], _mounts] call _vehiclePlacementMethod;

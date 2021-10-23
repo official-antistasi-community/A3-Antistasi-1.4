@@ -1,3 +1,6 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+
 if (player != theBoss) exitWith {["Skill Add", "Only our Commander has access to this function."] call A3A_fnc_customHint;};
 
 if (skillFIA > 20) exitWith {["Skill Add", "Your troops have the maximum training."] call A3A_fnc_customHint;};
@@ -8,12 +11,12 @@ if (_resourcesFIA < _costs) exitWith {["Skill Add", format ["You do not have eno
 
 _resourcesFIA = _resourcesFIA - _costs;
 skillFIA = skillFIA + 1;
-["Skill Add", format ["%2 Skill Level has been Upgraded.<br/>Current level is %1.",skillFIA,nameTeamPlayer]] call A3A_fnc_customHint;
+["Skill Add", format ["%2 Skill Level has been Upgraded.<br/>Current level is %1.",skillFIA,FactionGet(reb,"name")]] call A3A_fnc_customHint;
 publicVariable "skillFIA";
 server setVariable ["resourcesFIA",_resourcesFIA,true];
 [] spawn A3A_fnc_statistics;
 {
-_costs = server getVariable _x;
-_costs = round (_costs + (_costs * (skillFIA/280)));
-server setVariable [_x,_costs,true];
-} forEach soldiersSDK;
+    _costs = server getVariable _x;
+    _costs = round (_costs + (_costs * (skillFIA/280)));
+    server setVariable [_x,_costs,true];
+} forEach FactionGet(reb,"unitsSoldiers");

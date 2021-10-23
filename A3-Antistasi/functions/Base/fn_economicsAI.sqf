@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Original Author: Barbolani
 //Edited and updated by the Antstasi Community Development Team
 
@@ -45,20 +47,20 @@ private _airCap = _occScale * _balanceScale * (4 + _airbases*2);
 private _groundCap = _occScale * _balanceScale * (4 + _airbases + _outposts*0.5);
 private _increase = _occScale * _balanceScale * _timeInHours;
 
-[[staticATOccupants], 1.0, _groundCap, _increase] call _fnc_economics;
-[[staticAAOccupants], 1.0, _groundCap, _increase] call _fnc_economics;
-[vehNATOAPC, 1.8, _groundCap, _increase] call _fnc_economics;
-[[vehNATOTank], 0.6, _groundCap, _increase] call _fnc_economics;
-[[vehNATOAA], 0.6, _groundCap, _increase] call _fnc_economics;
-[[vehNATOMRLS], 0.3, _groundCap, _increase] call _fnc_economics;           // not used atm?
-[[vehNATOBoat], 1.0, _balanceScale * (2 + _seaports*2), _increase] call _fnc_economics;
-[[vehNATOPlane], 0.25, _airCap, _increase] call _fnc_economics;             // only used for major attacks
-[[vehNATOPlaneAA], 0.25, _airCap, _increase] call _fnc_economics;           // only used for major attacks
-[vehNATOTransportPlanes, 1.5, _airCap, _increase] call _fnc_economics;
-[vehNATOTransportHelis - [vehNATOPatrolHeli], 2.5, _airCap, _increase] call _fnc_economics;
-[vehNATOAttackHelis, 1.2, _airCap, _increase] call _fnc_economics;
+[FactionGet(occ,"staticAT"), 1.0, _groundCap, _increase] call _fnc_economics;
+[FactionGet(occ,"staticAA"), 1.0, _groundCap, _increase] call _fnc_economics;
+[FactionGet(occ,"vehiclesAPCs"), 1.8, _groundCap, _increase] call _fnc_economics;
+[FactionGet(occ,"vehiclesTanks"), 0.6, _groundCap, _increase] call _fnc_economics;
+[FactionGet(occ,"vehiclesAA"), 0.6, _groundCap, _increase] call _fnc_economics;
+[FactionGet(occ,"vehiclesArtillery"), 0.3, _groundCap, _increase] call _fnc_economics;           // not used atm?
+[FactionGet(occ,"vehiclesGunBoats"), 1.0, _balanceScale * (2 + _seaports*2), _increase] call _fnc_economics;
+[FactionGet(occ,"vehiclesPlanesCAS"), 0.25, _airCap, _increase] call _fnc_economics;             // only used for major attacks
+[FactionGet(occ,"vehiclesPlanesAA"), 0.25, _airCap, _increase] call _fnc_economics;           // only used for major attacks
+[FactionGet(occ,"vehiclesPlanesTransport"), 1.5, _airCap, _increase] call _fnc_economics;
+[FactionGet(occ,"vehiclesHelisTransport"), 2.5, _airCap, _increase] call _fnc_economics;
+[FactionGet(occ,"vehiclesHelisAttack"), 1.2, _airCap, _increase] call _fnc_economics;
 
-private _natoArray = flatten [staticATOccupants, staticAAOccupants, vehNATOAPC, vehNATOTank, vehNATOAA, vehNATOBoat, vehNATOPlane, vehNATOPlaneAA, vehNATOTransportPlanes, (vehNATOTransportHelis - [vehNATOPatrolHeli]), vehNATOAttackHelis, vehNATOMRLS];
+private _natoArray = flatten [FactionGet(occ,"staticAT"), FactionGet(occ,"staticAA"), FactionGet(occ,"vehiclesAPCs"), FactionGet(occ,"vehiclesTanks"), FactionGet(occ,"vehiclesAA"), FactionGet(occ,"vehiclesGunBoats"), FactionGet(occ,"vehiclesPlanesCAS"), FactionGet(occ,"vehiclesPlanesAA"), FactionGet(occ,"vehiclesPlanesTransport"), FactionGet(occ,"vehiclesHelisTransport"), FactionGet(occ,"vehiclesHelisAttack"), FactionGet(occ,"vehiclesArtillery")];
 _natoArray = _natoArray apply { [_x, timer getVariable [_x, 0]] };
 DebugArray("Occupants arsenal", _natoArray);
 
@@ -71,19 +73,19 @@ _airCap = _invScale * _balanceScale * (4 + _airbases*2);
 _groundCap = _invScale * _balanceScale * (4 + _airbases + _outposts*0.5);
 _increase = _invScale * _balanceScale * _timeInHours;
 
-[[staticATInvaders], 1.0, _groundCap, _increase] call _fnc_economics;
-[[staticAAInvaders], 1.0, _groundCap, _increase] call _fnc_economics;
-[vehCSATAPC, 1.8, _groundCap, _increase] call _fnc_economics;
-[[vehCSATTank], 0.6, _groundCap, _increase] call _fnc_economics;
-[[vehCSATAA], 0.6, _groundCap, _increase] call _fnc_economics;
-[[vehCSATMRLS], 0.3, _groundCap, _increase] call _fnc_economics;           // not used atm?
-[[vehCSATBoat], 1.0, _balanceScale * (2 + _seaports*2), _increase] call _fnc_economics;
-[[vehCSATPlane], 0.25, _airCap, _increase] call _fnc_economics;             // only used for major attacks
-[[vehCSATPlaneAA], 0.25, _airCap, _increase] call _fnc_economics;           // only used for major attacks
-[vehCSATTransportPlanes, 1.5, _airCap, _increase] call _fnc_economics;
-[vehCSATTransportHelis - [vehCSATPatrolHeli], 2.5, _airCap, _increase] call _fnc_economics;
-[vehCSATAttackHelis, 1.2, _airCap, _increase] call _fnc_economics;
+[FactionGet(inv,"staticAT"), 1.0, _groundCap, _increase] call _fnc_economics;
+[FactionGet(inv,"staticAA"), 1.0, _groundCap, _increase] call _fnc_economics;
+[FactionGet(inv,"vehiclesAPCs"), 1.8, _groundCap, _increase] call _fnc_economics;
+[FactionGet(inv,"vehiclesTanks"), 0.6, _groundCap, _increase] call _fnc_economics;
+[FactionGet(inv,"vehiclesAA"), 0.6, _groundCap, _increase] call _fnc_economics;
+[FactionGet(inv,"vehiclesArtillery"), 0.3, _groundCap, _increase] call _fnc_economics;           // not used atm?
+[FactionGet(inv,"vehiclesGunBoats"), 1.0, _balanceScale * (2 + _seaports*2), _increase] call _fnc_economics;
+[FactionGet(inv,"vehiclesPlanesCAS"), 0.25, _airCap, _increase] call _fnc_economics;             // only used for major attacks
+[FactionGet(inv,"vehiclesPlanesAA"), 0.25, _airCap, _increase] call _fnc_economics;           // only used for major attacks
+[FactionGet(inv,"vehiclesPlanesTransport"), 1.5, _airCap, _increase] call _fnc_economics;
+[FactionGet(inv,"vehiclesHelisTransport"), 2.5, _airCap, _increase] call _fnc_economics;
+[FactionGet(inv,"vehiclesHelisAttack"), 1.2, _airCap, _increase] call _fnc_economics;
 
-private _csatArray = flatten [staticATInvaders, staticAAInvaders, vehCSATAPC, vehCSATTank, vehCSATAA, vehCSATBoat, vehCSATPlane, vehCSATPlaneAA, vehCSATTransportPlanes, (vehCSATTransportHelis - [vehCSATPatrolHeli]), vehCSATAttackHelis, vehCSATMRLS];
+private _csatArray = flatten [FactionGet(inv,"staticAT"), FactionGet(inv,"staticAA"), FactionGet(inv,"vehiclesAPCs"), FactionGet(inv,"vehiclesTanks"), FactionGet(inv,"vehiclesAA"), FactionGet(inv,"vehiclesGunBoats"), FactionGet(inv,"vehiclesPlanesCAS"), FactionGet(inv,"vehiclesPlanesAA"), FactionGet(inv,"vehiclesPlanesTransport"), FactionGet(inv,"vehiclesHelisTransport"), FactionGet(inv,"vehiclesHelisAttack"), FactionGet(inv,"vehiclesArtillery")];
 _csatArray = _csatArray apply { [_x, timer getVariable [_x, 0]] };
 DebugArray("Invaders arsenal", _csatArray);

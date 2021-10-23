@@ -1,8 +1,11 @@
 // In map template description.ext use:
 // #include "MissionDescription\master.hpp"
 // Whether order should be maintained is unknown.
-#include "..\defines.hpp"
-#include "..\dialogs.hpp"
+#include "..\GUI\defines.hpp"
+#include "..\GUI\textures.inc"
+#include "..\GUI\controls.hpp"
+#include "..\GUI\dialogs.hpp"
+#include "..\GUI\statusBar.hpp"
 #include "..\Garage\Dialogs.hpp"
 
 author = $STR_antistasi_credits_generic_author_text;

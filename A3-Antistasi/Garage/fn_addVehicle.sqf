@@ -15,7 +15,7 @@
     Scope: Server
     Environment: Any
     Public: [Yes]
-    Dependencies: TeamPlayer, nameTeamPlayer, Invaders, Occupants, HR_GRG_Sources, HR_GRG_Vehicles
+    Dependencies: TeamPlayer, FactionGet(reb,"name"), Invaders, Occupants, HR_GRG_Sources, HR_GRG_Vehicles
 
     Example: [cursorObject, clientOwner, call HR_GRG_dLock, _player] remoteExecCall ["HR_GRG_fnc_addVehicle",2];
 
@@ -39,7 +39,7 @@ if (_player distance _vehicle > 25) exitWith {["STR_HR_GRG_Feedback_addVehicle_D
     //Valid area
 private _friendlyMarkers = (["Synd_HQ"] +outposts + seaports + airportsX + factories + resourcesX) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}; //rebel locations with a flag
 private _inArea = _friendlyMarkers findIf { count ([_player, _vehicle] inAreaArray _x) > 1 };
-if !(_inArea > -1) exitWith {["STR_HR_GRG_Feedback_addVehicle_badLocation",[nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+if !(_inArea > -1) exitWith {["STR_HR_GRG_Feedback_addVehicle_badLocation",[FactionGet(reb,"name")]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
     //No hostiles near
 private _units = (_player nearEntities ["Man",300]) select {([_x] call A3A_fnc_CanFight) && (side _x isEqualTo Occupants || side _x isEqualTo Invaders)};
@@ -50,7 +50,7 @@ if (_units findIf {_unit = _x; _players = allPlayers select {(side _x isEqualTo 
 if (_units findIf{_player distance _x < 100} != -1) exitWith {["STR_HR_GRG_Feedback_addVehicle_enemiesNear"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
 //LTC refund
-if (_class in [NATOSurrenderCrate, CSATSurrenderCrate]) exitWith {
+if (_class in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate")]) exitWith {
     [_vehicle,boxX,true] call A3A_fnc_ammunitionTransfer;
     [10] remoteExec ["A3A_fnc_resourcesPlayer", _client];
     ["STR_HR_GRG_Feedback_addVehicle_LTC"] remoteExec ["HR_GRG_fnc_Hint", _client];
@@ -89,7 +89,7 @@ if ((call HR_GRG_VehCap - _capacity) < (_countStatics + 1)) exitWith { ["STR_HR_
 if (
     (_class isKindOf "Air")
     && {count (airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (_player inArea _x)}) < 1} //no airports
-) exitWith {["STR_HR_GRG_Feedback_addVehicle_airBlocked", [nameTeamPlayer]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+) exitWith {["STR_HR_GRG_Feedback_addVehicle_airBlocked", [FactionGet(reb,"name")]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
 //here to allow adaption of external antistasi system without needing to addapt code under APL-ND
 private _broadcastReportedVehsAndStaticsToSave = {

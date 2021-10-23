@@ -8,6 +8,8 @@
 
     Scope: Wherever you want to put garrison groups, probably server or HC
 */
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 params ["_target"];
 
@@ -42,7 +44,7 @@ if (count _freeStatics == 0) exitWith {};
 private _possibleCrew = allUnits inAreaArray _marker;
 _possibleCrew = _possibleCrew select {
     _x getVariable ["markerX", ""] isEqualTo _marker
-    and _x getVariable ["UnitType", ""] in SDKMil
+    and _x getVariable ["UnitType", ""] isEqualTo FactionGet(reb,"unitRifle")
     and isNull objectParent _x
     and [_x] call A3A_fnc_canFight
 };

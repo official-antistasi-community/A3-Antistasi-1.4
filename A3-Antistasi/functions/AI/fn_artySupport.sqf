@@ -1,85 +1,90 @@
+// TODO UI-update: Add header
+// TODO UI-update: Get _typeArty, _typeAmmunition, _roundsX, _positionTel, _positionTel2 from params rather than global variables
+
+params [["_groups", [[grpNull]]]];
+
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-if (count hcSelected player == 0) exitWith {["Artillery Support", "You must select an artillery group."] call A3A_fnc_customHint;};
 
-private ["_groups","_artyArray","_artyRoundsArr","_hasAmmunition","_areReady","_hasArtillery","_areAlive","_soldierX","_veh","_typeAmmunition","_typeArty","_positionTel","_artyArrayDef1","_artyRoundsArr1","_piece","_isInRange","_positionTel2","_rounds","_roundsMax","_markerX","_size","_forcedX","_textX","_mrkFinal","_mrkFinal2","_timeX","_eta","_countX","_pos","_ang"];
+private ["_typeArty","_positionTel","_artyArrayDef1","_artyRoundsArr1","_piece","_isInRange","_positionTel2","_rounds","_roundsMax","_markerX","_size","_forcedX","_textX","_mrkFinal","_mrkFinal2","_timeX","_eta","_countX","_pos","_ang"];
 
-_groups = hcSelected player;
-_unitsX = [];
-{_groupX = _x;
-{_unitsX pushBack _x} forEach units _groupX;
+private _unitsX = [];
+{
+    _groupX = _x;
+    {_unitsX pushBack _x} forEach units _groupX;
 } forEach _groups;
-typeAmmunition = nil;
-_artyArray = [];
-_artyRoundsArr = [];
+// typeAmmunition = nil;
+private _artyArray = [];
+private _artyRoundsArr = [];
 
-_hasAmmunition = 0;
-_areReady = false;
-_hasArtillery = false;
-_areAlive = false;
+private _hasAmmunition = 0;
+private _areReady = false;
+private _hasArtillery = false;
+private _areAlive = false;
+private _typeAmmunition = nil;
 
 {
-_soldierX = _x;
-_veh = vehicle _soldierX;
-if ((_veh != _soldierX) and (not(_veh in _artyArray))) then
-	{
-	if (( "Artillery" in (getArray (configfile >> "CfgVehicles" >> typeOf _veh >> "availableForSupportTypes")))) then
-		{
-		_hasArtillery = true;
-		if ((canFire _veh) and (alive _veh) and (isNil "typeAmmunition")) then
-			{
-			_areAlive = true;
-			_nul = createDialog "mortar_type";
-			waitUntil {!dialog or !(isNil "typeAmmunition")};
-			if !(isNil "typeAmmunition") then
-				{
-				_typeAmmunition = typeAmmunition;
-				//typeAmmunition = nil;
-			//	};
-			//if (! isNil "_typeAmmunition") then
-				//{
-				{
-				if (_x select 0 == _typeAmmunition) then
-					{
-					_hasAmmunition = _hasAmmunition + 1;
-					};
-				} forEach magazinesAmmo _veh;
-				};
-			if (_hasAmmunition > 0) then
-				{
-				if (unitReady _veh) then
-					{
-					_areReady = true;
-					_artyArray pushBack _veh;
-					_artyRoundsArr pushBack (((magazinesAmmo _veh) select 0)select 1);
-					};
-				};
-			};
-		};
-	};
+    private _soldierX = _x;
+    private _veh = vehicle _soldierX;
+    if ((_veh != _soldierX) and (not(_veh in _artyArray))) then
+    {
+        if (( "Artillery" in (getArray (configfile >> "CfgVehicles" >> typeOf _veh >> "availableForSupportTypes")))) then
+        {
+            _hasArtillery = true;
+            if ((canFire _veh) and (alive _veh) and !(isNil "typeAmmunition")) then
+            {
+                _areAlive = true;
+                if !(isNil "typeAmmunition") then
+                {
+                    _typeAmmunition = typeAmmunition;
+
+                    {
+                        if (_x select 0 == _typeAmmunition) then
+                        {
+                            _hasAmmunition = _hasAmmunition + 1;
+                        };
+                    } forEach magazinesAmmo _veh;
+                };
+                if (_hasAmmunition > 0) then
+                {
+                    if (unitReady _veh) then
+                    {
+                        _areReady = true;
+                        _artyArray pushBack _veh;
+                        _artyRoundsArr pushBack (((magazinesAmmo _veh) select 0)select 1);
+                    };
+                };
+            };
+        };
+    };
 } forEach _unitsX;
 
-if (!_hasArtillery) exitWith {["Artillery Support", "You must select an artillery group or it is a Mobile Mortar and it's moving."] call A3A_fnc_customHint;};
-if (!_areAlive) exitWith {["Artillery Support", "All elements in this Battery cannot fire or are disabled."] call A3A_fnc_customHint;};
-if ((_hasAmmunition < 2) and (!_areReady)) exitWith {["Artillery Support", "The Battery has no ammo to fire. Reload it on HQ."] call A3A_fnc_customHint;};
-if (!_areReady) exitWith {["Artillery Support", "Selected Battery is busy right now."] call A3A_fnc_customHint;};
-if (_typeAmmunition == "not_supported") exitWith {["Artillery Support", "Your current modset doesent support this strike type."] call A3A_fnc_customHint;};
+if (!_hasArtillery) exitWith {["Artillery Support", "You must select an artillery group or it is a Mobile Mortar and it's moving"] call A3A_fnc_customHint;};
+if (!_areAlive) exitWith {["Artillery Support", "All elements in this Battery cannot fire or are disabled"] call A3A_fnc_customHint;};
+if ((_hasAmmunition < 2) and (!_areReady)) exitWith {["Artillery Support", "The Battery has no ammo to fire. Reload it on HQ"] call A3A_fnc_customHint;};
+if (!_areReady) exitWith {["Artillery Support", "Selected Battery is busy right now"] call A3A_fnc_customHint;};
+if (_typeAmmunition == "") exitWith {["Artillery Support", "Your current modset doesent support this strike type"] call A3A_fnc_customHint;};
 if (isNil "_typeAmmunition") exitWith {};
 
-hcShowBar false;
-hcShowBar true;
+// Why do this?
+// hcShowBar false;
+// hcShowBar true;
 
-if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
-	{
-	closedialog 0;
-	_nul = createDialog "strike_type";
-	}
-else
-	{
-	typeArty = "NORMAL";
-	};
+// Why the hardcoded ammo type?
+/* if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
+{
+    closedialog 0;
+    _nul = createDialog "strike_type";
+} else {
+    typeArty = "NORMAL";
+}; */
 
-waitUntil {!dialog or (!isNil "typeArty")};
+if (_typeAmmunition == "2Rnd_155mm_Mo_LG") then
+{
+    typeArty = "NORMAL";
+};
+
+// waitUntil {!dialog or (!isNil "typeArty")};
 
 if (isNil "typeArty") exitWith {};
 
@@ -87,7 +92,7 @@ _typeArty = typeArty;
 typeArty = nil;
 
 
-positionTel = [];
+/* positionTel = [];
 
 ["Artillery Support", "Select the position on map where to perform the Artillery strike."] call A3A_fnc_customHint;
 
@@ -97,7 +102,7 @@ onMapSingleClick "positionTel = _pos;";
 waitUntil {sleep 1; (count positionTel > 0) or (!visibleMap)};
 onMapSingleClick "";
 
-if (!visibleMap) exitWith {};
+if (!visibleMap) exitWith {}; */
 
 _positionTel = positionTel;
 
@@ -123,9 +128,9 @@ _mrkFinal setMarkerTypeLocal "hd_destroy";
 _mrkFinal setMarkerColorLocal "ColorRed";
 
 if (_typeArty == "BARRAGE") then
-	{
+{
 	_mrkFinal setMarkerTextLocal "Artillery Barrage Begin";
-	positionTel = [];
+	/* positionTel = [];
 
 	["Artillery Support", "Select the position to finish the barrage."] call A3A_fnc_customHint;
 
@@ -133,52 +138,56 @@ if (_typeArty == "BARRAGE") then
 	onMapSingleClick "positionTel = _pos;";
 
 	waitUntil {sleep 1; (count positionTel > 0) or (!visibleMap)};
-	onMapSingleClick "";
+	onMapSingleClick ""; */
 
-	_positionTel2 = positionTel;
-	};
+	_positionTel2 = positionTel2;
+};
 
 if ((_typeArty == "BARRAGE") and (isNil "_positionTel2")) exitWith {deleteMarkerLocal _mrkFinal};
 
+/* if (_typeArty != "BARRAGE") then
+{
+    if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
+    {
+    	closedialog 0;
+    	_nul = createDialog "rounds_number";
+    } else {
+    	roundsX = 1;
+    };
+    waitUntil {!dialog or (!isNil "roundsX")};
+}; */
+
 if (_typeArty != "BARRAGE") then
-	{
-	if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
-		{
-		closedialog 0;
-		_nul = createDialog "rounds_number";
-		}
-	else
-		{
-		roundsX = 1;
-		};
-	waitUntil {!dialog or (!isNil "roundsX")};
-	};
+{
+    if (_typeAmmunition == "2Rnd_155mm_Mo_LG") then
+    {
+    	roundsX = 1;
+    };
+};
 
 if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarkerLocal _mrkFinal};
 
 if (_typeArty != "BARRAGE") then
-	{
+{
 	_mrkFinal setMarkerTextLocal "Arty Strike";
 	_rounds = roundsX;
 	_roundsMax = _rounds;
 	roundsX = nil;
-	}
-else
-	{
+} else {
 	_rounds = round (_positionTel distance _positionTel2) / 10;
 	_roundsMax = _rounds;
-	};
+};
 
 _markerX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 _forcedX = false;
 
 if ((not(_markerX in forcedSpawn)) and (_positionTel distance (getMarkerPos _markerX) < _size) and ((spawner getVariable _markerX != 0))) then
-	{
+{
 	_forcedX = true;
 	forcedSpawn pushBack _markerX;
 	publicVariable "forcedSpawn";
-	};
+};
 
 _textX = format ["Requesting fire support on Grid %1. %2 Rounds.", mapGridPosition _positionTel, round _rounds];
 [theBoss,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];

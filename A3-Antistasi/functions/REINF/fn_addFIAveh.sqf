@@ -1,11 +1,12 @@
-
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if (!(isNil "placingVehicle") && {placingVehicle}) exitWith {["Add Vehicle", "Unable to buy vehicle, you are already placing something."] call A3A_fnc_customHint;};
 if (player != player getVariable ["owner",player]) exitWith {["Add Vehicle", "You cannot buy vehicles while you are controlling AI."] call A3A_fnc_customHint;};
 if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {["Add Vehicle", "You cannot buy vehicles with enemies nearby."] call A3A_fnc_customHint;};
 
 
 private _typeVehX = _this select 0;
-if (_typeVehX == "not_supported") exitWith {["Add Vehicle", "The vehicle you requested is not supported in your current modset."] call A3A_fnc_customHint;};
+if (_typeVehX == "") exitWith {["Add Vehicle", "The vehicle you requested is not supported in your current modset."] call A3A_fnc_customHint;};
 
 vehiclePurchase_cost = [_typeVehX] call A3A_fnc_vehiclePrice;
 
@@ -19,7 +20,6 @@ if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} els
 	else
 		{
 		_resourcesFIA = server getVariable "resourcesFIA";
-		//if ((_typeVehX == SDKMortar) or (_typeVehX == staticATteamPlayer) or (_typeVehX == staticAAteamPlayer) or (_typeVehX == SDKMGStatic)) then {_resourcesFIA = server getVariable "resourcesFIA"} else {_resourcesFIA = player getVariable "moneyX"};
 		};
 	};
 

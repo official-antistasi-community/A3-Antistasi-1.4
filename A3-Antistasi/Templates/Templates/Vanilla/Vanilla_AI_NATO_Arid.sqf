@@ -208,9 +208,9 @@ _sfLoadoutData set ["marksmanRifles", [
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["srifle_GM6_F", "", "", "optic_SOS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
-["srifle_GM6_F", "", "", "optic_lrps", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
+["srifle_GM6_F", "", "", "optic_LRPS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],
-["srifle_LRR_F", "", "", "optic_lrps", [], [], ""]
+["srifle_LRR_F", "", "", "optic_LRPS", [], [], ""]
 ]];
 _sfLoadoutData set ["sidearms", [
 ["hgun_Pistol_heavy_01_F", "muzzle_snds_acp", "acc_flashlight_pistol", "optic_MRD", [], [], ""],
@@ -273,7 +273,7 @@ _militaryLoadoutData set ["marksmanRifles", [
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],
-["srifle_LRR_F", "", "", "optic_lrps", [], [], ""]
+["srifle_LRR_F", "", "", "optic_LRPS", [], [], ""]
 ]];
 _militaryLoadoutData set ["sidearms", [
 ["hgun_Pistol_heavy_01_F", "", "acc_flashlight_pistol", "", [], [], ""],
@@ -335,7 +335,7 @@ _militiaLoadoutData set ["marksmanRifles", [
 ]];
 _militiaLoadoutData set ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],
-["srifle_LRR_F", "", "", "optic_lrps", [], [], ""]
+["srifle_LRR_F", "", "", "optic_LRPS", [], [], ""]
 ]];
 _militiaLoadoutData set ["sidearms", ["hgun_P07_F"]];
 

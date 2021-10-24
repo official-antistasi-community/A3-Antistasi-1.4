@@ -231,16 +231,6 @@ FIX_LINE_NUMBERS()
 	};
 };
 
-////////////////////////////////////
-//      CIVILIAN UNITS LIST      ///
-////////////////////////////////////
-Info("Creating civilians");
-
-//No real reason we initialise this on the server right now...
-private _arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
-DECLARE_SERVER_VAR(arrayCivs, _arrayCivs);
-
-
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
 //////////////////////////////////////
@@ -420,7 +410,9 @@ Info("Creating pricelist");
 
 server setVariable [FactionGet(reb,"vehicleCivCar"),200,true];
 server setVariable [FactionGet(reb,"vehicleCivTruck"),600,true];
+if (FactionGet(reb,"vehicleCivHeli") isNotEqualTo "") then {
 server setVariable [FactionGet(reb,"vehicleCivHeli"),5000,true];
+};
 server setVariable [FactionGet(reb,"vehicleCivBoat"),200,true];
 server setVariable [FactionGet(reb,"vehicleBasic") ,50,true];
 server setVariable [FactionGet(reb,"vehicleLightUnarmed"),200,true];

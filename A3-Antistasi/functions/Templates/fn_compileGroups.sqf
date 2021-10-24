@@ -190,3 +190,11 @@ _faction set ["groupSentry", [_faction get "unitGL", _faction get "unitRifle"]];
 
 _faction set ["unitsSoldiers", (_faction get "groupSquadEng") + [_faction get "unitSniper", _faction get "unitCrew"]];
 
+//------------------|
+// Civ Group data |
+//------------------|
+
+//singular units
+_faction set ["unitMan", unit(militia, "Man")];
+_faction set ["unitPress", unit(militia, "Press")];
+_faction set ["unitWorker", unit(militia, "Worker")];

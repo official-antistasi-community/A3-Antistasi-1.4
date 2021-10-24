@@ -138,6 +138,8 @@ _faction set ["groupPoliceSquad", [
 // Rebel Group data |
 //------------------|
 
+if (_prefix isEqualTo "reb") exitWith {
+
 //singular units
 _faction set ["unitPetros", unit(militia, "Petros")];
 _faction set ["unitCrew", unit(militia, "staticCrew")];
@@ -189,6 +191,8 @@ _faction set ["groupSniper", double( _faction get "unitSniper" )];
 _faction set ["groupSentry", [_faction get "unitGL", _faction get "unitRifle"]];
 
 _faction set ["unitsSoldiers", (_faction get "groupSquadEng") + [_faction get "unitSniper", _faction get "unitCrew"]];
+
+};
 
 //------------------|
 // Civ Group data |

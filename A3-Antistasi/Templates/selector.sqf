@@ -1,8 +1,9 @@
 /*
-Author: Meerkat
+Author: Meerkat & Håkon
   This file controls the selection of templates based on the mods loaded and map used.
-  When porting new mods/maps be sure to add them to their respective sections!
-
+  - When porting new mods/maps be sure to add them to their respective sections!
+  - when adding a faction add it to the faction enums (ln 114), the autopick functions (ln 35), the _pick{Reb/AI/Civ}Template function (ln 153), and the params (initParams.sqf & params.hpp)
+  - when new vehicles are added add a logistics node file and load it when the mod its dependant on is loaded
 Scope: Server
 Environment: Any (Inherits scheduled from initVarServer)
 Public: No
@@ -12,403 +13,379 @@ Dependencies:
 */
 #include "..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-//Map checker
+
+//======================|
+// Climate Getter       |
+//======================|
+
 private _fileName = "Map\" + toLower worldName + "Info.sqf";
 A3A_climate = ["climate"] call compile preProcessFileLineNumbers _filename;
 
-//Mod selector
+//======================|
+// Autopick Functions   |
+//======================|
+// side passed as _this
 
-//Reb Templates
-A3A_Reb_template = switch(true) do {
-    case (A3A_has3CBFactions): {
-        switch(true) do {
-            case (A3A_climate isEqualTo "arctic");
-            case (A3A_climate isEqualTo "temperate");
-            case (A3A_climate isEqualTo "tropical"): {
-                Info("Using Temperate CNM Template");
-                ["Templates\NewTemplates\3CB\3CB_Reb_CNM_Temperate.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
+private _autoPickAI = {
+    //occ
+    if (_this isEqualTo west) exitWith {
+        switch (true) do {
+            case (A3A_has3CBBAF): {"BAF"};
+            case (A3A_has3CBFactions): {
+                switch(true) do {
+                    case (A3A_climate isEqualTo "arctic");
+                    case (A3A_climate isEqualTo "temperate"): {"US Marines"};
+                    case (A3A_climate isEqualTo "tropical"): {"Coldwar US"};
+                    case (toLower worldName == "kunduz"): {"ANA"};
+                    case (toLower worldName == "altis"): {"3CB AAF"};
+                    case (toLower worldName == "tanoa"): {"HIDF"};
+                    case (toLower worldName == "malden"): {"MDF"};
+                    default {"TKA West"};
+                };
             };
+            case (A3A_hasRHS): {
+                switch(true) do {
+                    case (toLower worldName == "chernarus_summer");
+                    case (toLower worldName == "chernarus_winter"): {"CDF"};
+                    default {"USAF"};
+                };
+            };
+            case (A3A_hasVN): {"PAVN"};
             default {
-                Info("Using arid TKM Template");
-                ["Templates\NewTemplates\3CB\3CB_Reb_TKM_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
+                switch(true) do {
+                    case (toLower worldName == "altis"): {"AAF"};
+                    case (toLower worldName == "enoch"): {"LDF"};
+                    default {"NATO"};
+                };
             };
         };
-        "3CBFactions"
     };
-    case (A3A_hasRHS): {
-        switch(true) do {
-            case (A3A_climate isEqualTo "arctic");
-            case (A3A_climate isEqualTo "temperate");
-            case (A3A_climate isEqualTo "tropical"): {
-                Info("Using Temperate Napa Template");
-                ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
-            };
-            default {
-                Info("Using arid Napa Template");
-                ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
-            };
-        };
-        "RHS"
-    };
-    case (A3A_hasVN): {
-        ["Templates\NewTemplates\VN\VN_Reb_POF.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using Pissed off Farmers Template");
-        "VN"
-    };
-    /* disabled until imtegrated
-    case (A3A_hasIFA): {
-      switch(true) do {
-        case (toLower worldName in arcticmaps): {
-          call compile preProcessFileLineNumbers "Templates\IFA\IFA_Reb_POL_Arct.sqf";
-          Info("Using arctic POL Template");
-        };
-        case (toLower worldName in temperatemaps): {
-          call compile preProcessFileLineNumbers "Templates\IFA\IFA_Reb_POL_Temp.sqf";
-          Info("Using temperate POL Templates");
-        };
-        case (toLower worldName in tropicalmaps): {
-          call compile preProcessFileLineNumbers "Templates\IFA\IFA_Reb_POL_Temp.sqf";
-          Info("Using tropical POL Templates");
-        };
-        default {
-          call compile preProcessFileLineNumbers "Templates\IFA\IFA_Reb_POL_Arid.sqf";
-          Info("Using arid POL Templates");
-        };
-      };
-      "IFA"
-    };
-    */
-    default {
-        switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
-            case (toLower worldName == "enoch"): {
-                Info("Using Enoch FIA Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Enoch.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (toLower worldName == "tanoa"): {
-                Info("Using tanoa SDK Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_SDK_Tanoa.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
-            };
-            default {
-                Info("Using arid FIA Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
-            };
-        };
-        "Vanilla"
-    };
-};
-  //Occ Templates
-A3A_Occ_template = switch(true) do {
-    /* disabled until imtegrated
-    case (A3A_hasFFAA): {
-        switch(true) do {
-        case (toLower worldName in arcticmaps): {
-            call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Occ_FFAA_Temp.sqf";
-            Info("Using arctic FFAA Template");
-        };
-        case (toLower worldName in temperatemaps): {
-            call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Occ_FFAA_Temp.sqf";
-            Info("Using temperate FFAA Template");
-        };
-        case (toLower worldName in tropicalmaps): {
-            call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Occ_FFAA_Temp.sqf";
-            Info("Using tropical FFAA Template");
-        };
-        default {
-            call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Occ_FFAA_Arid.sqf";
-            Info("Using arid FFAA Template");
-        };
-        };
-        "FFAA"
-    };
-    */
-    case (A3A_has3CBBAF): {
-        switch(true) do {
-            case (A3A_climate isEqualTo "arctic"): {
-                Info("Using arctic BAF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Arctic.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (A3A_climate isEqualTo "temperate"): {
 
-                Info("Using temperate BAF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (A3A_climate isEqualTo "tropical"): {
-                Info("Using tropical BAF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Tropical.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            default {
-                Info("Using arid BAF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+    //inv
+    switch (true) do {
+        case (A3A_has3CBFactions): {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate"): {"AFRF"};
+                case (A3A_climate isEqualTo "tropical"): {"Coldwar Soviets"};
+                default {"TKA East"};
             };
         };
-        "3CBBAF"
+        case (A3A_hasRHS): {"AFRF"};
+        case (A3A_hasVN): {"MACV"};
+        default {"CSAT"};
     };
-    case (A3A_has3CBFactions): {
-        switch(true) do {
-            case (toLower worldName == "altis"): {
-                Info("Using 3CB AAF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_AAF.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (toLower worldName == "malden"): {
-                Info("Using 3CB MDF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_MDF.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (toLower worldName == "tanoa"): {
-                Info("Using 3CB HIDF Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_HIDF.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (toLower worldName == "kunduz"): {
-                Info("Using 3CB ANA Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_ANA.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (A3A_climate isEqualTo "arctic");
-            case (A3A_climate isEqualTo "temperate"): {
-                Info("Using Temperate US Marines Template as Placeholder");
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Marines_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (A3A_climate isEqualTo "tropical"): {
-                Info("Using Coldwar US Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_CW_US.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            default {
-                Info("Using TKA_West Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_TKA_West.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+};
+private _autoPickReb = {
+    switch (true) do {
+        case (A3A_has3CBFactions): {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "CNM" };
+                default { "TKM" };
             };
         };
-        "3CBFactions"
-    };
-    case (A3A_hasRHS): {
-        switch(true) do {
-            case (toLower worldName == "chernarus_summer");
-            case (toLower worldName == "chernarus_winter"): {
-                Info("Using CDF Temperate Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_CDF_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (A3A_climate isEqualTo "arctic");
-            case (A3A_climate isEqualTo "temperate");
-            case (A3A_climate isEqualTo "tropical"): {
-                Info("Using arctic USAF Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            default {
-                Info("Using arid USAF Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-        };
-        "RHS"
-    };
-    case (A3A_hasVN): {
-        ["Templates\NewTemplates\VN\VN_PAVN.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN PAVN Template");
-        "VN"
-    };
-    /* disabled until imtegrated
-    case (A3A_hasIFA): {
-        switch(true) do {
-        case (toLower worldName in arcticmaps): {
-            call compile preProcessFileLineNumbers "Templates\IFA\IFA_Occ_WEH_Arct.sqf";
-            Info("Using arctic WEH Template");
-        };
-        case (toLower worldName in temperatemaps): {
-            call compile preProcessFileLineNumbers "Templates\IFA\IFA_Occ_WEH_Temp.sqf";
-            Info("Using temperate WEH Template");
-        };
-        case (toLower worldName in tropicalmaps): {
-            call compile preProcessFileLineNumbers "Templates\IFA\IFA_Occ_WEH_Temp.sqf";
-            Info("Using tropical WEH Template");
-        };
+        case (A3A_hasRHS): {"NAPA"};
+        case (A3A_hasVN): {"POF"};
         default {
-            call compile preProcessFileLineNumbers "Templates\IFA\IFA_Occ_WEH_Arid.sqf";
-            Info("Using arid WEH Templates");
-        };
-        };
-        "IFA"
-    };
-    */
-    default {
-        switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
-            case (toLower worldName == "enoch"): {
-                Info("Using Enoch LDF Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_LDF_Enoch.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (toLower worldName == "tanoa"): {
-                Info("Using tropical NATO Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Tropical.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (A3A_climate isEqualTo "temperate");
-            case (A3A_climate isEqualTo "tropical"): {
-                Info("Using temperate NATO Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (toLower worldName == "altis"): {
-                Info("Using Arid AAF Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_AAF_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-            };
-            default {
-                Info("Using arid NATO Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+            switch(true) do {
+                case (toLower worldName == "tanoa"): { "SDK" };
+                default { "FIA" };
             };
         };
-        "Vanilla"
     };
 };
-//Inv Templates
-A3A_Inv_template = switch(true) do {
-    case (A3A_has3CBFactions): {
-        switch(true) do {
-            case (A3A_climate isEqualTo "arctic");
-            case (A3A_climate isEqualTo "temperate"): {
-                Info("Using RHS AFRF as Placeholder Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (A3A_climate isEqualTo "tropical"): {
-                Info("Using Coldwar Soviets Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_CW_SOV.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-            };
-            default {
-                Info("Using TKA_East Template");
-                ["Templates\NewTemplates\3CB\3CB_AI_TKA_East.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-            };
-        };
-        "3CBFactions"
-    };
-    case (A3A_hasRHS): {
-        switch(true) do {
-            case (A3A_climate isEqualTo "arctic");
-            case (A3A_climate isEqualTo "temperate");
-            case (A3A_climate isEqualTo "tropical"): {
-                Info("Using temperate AFRF Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-            };
-            default {
-                Info("Using arid AFRF Template");
-                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Arid.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-            };
-        };
-        "RHS"
-    };
-    case (A3A_hasVN): {
-        ["Templates\NewTemplates\VN\VN_MACV.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN MACV Template");
-        "VN"
-    };
-    /* disabled until imtegrated
-    case (A3A_hasIFA): {
-        switch(true) do {
-        case (toLower worldName in arcticmaps): {
-            call compile preProcessFileLineNumbers "Templates\IFA\IFA_Inv_SOV_Arct.sqf";
-            Info("Using arctic SOV Template");
-        };
-        case (toLower worldName in temperatemaps): {
-            call compile preProcessFileLineNumbers "Templates\IFA\IFA_Inv_SOV_Temp.sqf";
-            Info("Using temperate SOV Template");
-        };
-        case (toLower worldName in tropicalmaps): {
-            call compile preProcessFileLineNumbers "Templates\IFA\IFA_Inv_SOV_Temp.sqf";
-            Info("Using tropical SOV Template");
-        };
-        default {
-            call compile preProcessFileLineNumbers "Templates\IFA\IFA_Inv_SOV_Arid.sqf";
-            Info("Using arid SOV Template");
-        };
-        };
-        "IFA"
-    };
-    */
-    default {
-        switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
-            case (toLower worldName == "enoch"): {
-                Info("Using Enoch CSAT Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Enoch.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-            };
-            case (toLower worldName == "tanoa"): {
-                Info("Using tanoa CSAT Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Tropical.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-            };
-            default {
-                Info("Using arid CSAT Template");
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Arid.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-            };
-        };
-        "Vanilla"
+private _autoPickCiv = {
+    switch (true) do {
+        case (A3A_has3CBFactions): { "Factions" };
+        case (A3A_hasRHS): { "RHS" };
+        case (A3A_hasVN): { "VN" };
+        default { "Vanilla" };
     };
 };
-//Civ Templates
-A3A_Civ_template = switch(true) do {
-    case (A3A_has3CBFactions): {
-        switch(true) do {
-            case (A3A_climate isEqualTo "arctic");
-            case (A3A_climate isEqualTo "temperate");
-            case (A3A_climate isEqualTo "tropical"): {
-                ["Templates\NewTemplates\3CB\3CB_Civ_Temperate.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
-                Info("Using 3CB Civ Temperate Template");
+
+//======================|
+// Factions enums       |
+//======================|
+
+private _AIFactionEnums = [
+    [_autoPickAI, true]
+    ,["NATO", true]
+    , ["CSAT", true]
+    , ["AAF", true]
+    , ["LDF" , true] //ToDo: add contact dlc check
+    , ["USAF", A3A_hasRHS]
+    , ["AFRF", A3A_hasRHS]
+    , ["CDF", A3A_hasRHS]
+    , ["US Marines", A3A_hasRHS]
+    , ["BAF", A3A_has3CBBAF]
+    , ["Coldwar US", A3A_has3CBFactions]
+    , ["Coldwar Soviets", A3A_has3CBFactions]
+    , ["TKA West", A3A_has3CBFactions]
+    , ["TKA East", A3A_has3CBFactions]
+    , ["ADA", A3A_has3CBFactions]
+    , ["ANA", A3A_has3CBFactions]
+    , ["3CB AAF", A3A_has3CBFactions]
+    , ["MDF", A3A_has3CBFactions]
+    , ["HIDF", A3A_has3CBFactions]
+    , ["MACV", A3A_hasVN]
+    , ["PAVN", A3A_hasVN]
+];
+private _rebFactionEnums = [
+    [_autoPickReb, true]
+    ,["FIA", true]
+    , ["SDK", true]
+    , ["NAPA", A3A_hasRHS]
+    , ["CNM", A3A_has3CBFactions]
+    , ["TKM", A3A_has3CBFactions]
+    , ["POF", A3A_hasVN]
+];
+private _civFactionEnums = [
+    [_autoPickCiv, true]
+    ,["Vanilla", true]
+    , ["RHS", A3A_hasRHS]
+    , ["Factions", A3A_has3CBFactions]
+    , ["VN", A3A_hasVN]
+];
+
+//======================|
+// Faction to template  |
+//======================|
+
+private _pickAITemplate = {
+    switch _this do {
+        case "BAF": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\3CB\3CB_AI_BAF_Arctic.sqf" };
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\3CB\3CB_AI_BAF_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\3CB\3CB_AI_BAF_Tropical.sqf" };
+                default { "Templates\Templates\3CB\3CB_AI_BAF_Arid.sqf" };
             };
-            default {
-                ["Templates\NewTemplates\3CB\3CB_Civ_Arid.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
-                Info("Using 3CB Civ Arid Template");
-                "3CBFactions"
+        };
+
+        //Factions
+        case "Coldwar US": { "Templates\Templates\3CB\3CB_AI_CW_US.sqf" };
+        case "Coldwar Soviets": { "Templates\Templates\3CB\3CB_AI_CW_SOV.sqf" };
+        case "TKA West": { "Templates\Templates\3CB\3CB_AI_TKA_West.sqf" };
+        case "TKA East": { "Templates\Templates\3CB\3CB_AI_TKA_East.sqf" };
+        case "ADA": { "Templates\Templates\3CB\3CB_AI_ADA.sqf" };
+        case "ANA": { "Templates\Templates\3CB\3CB_AI_ANA.sqf" };
+        case "3CB AAF": { "Templates\Templates\3CB\3CB_AI_AAF.sqf" };
+        case "HIDF": { "Templates\Templates\3CB\3CB_AI_HIDF.sqf" };
+        case "MDF": { "Templates\Templates\3CB\3CB_AI_MDF.sqf" };
+
+        //RHS
+        case "US Marines": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\RHS\RHS_AI_USAF_Marines_Temperate.sqf" };
+                default { "Templates\Templates\RHS\RHS_AI_USAF_Marines_Arid.sqf" };
+            };
+        };
+        case "CDF": { "Templates\Templates\RHS\RHS_AI_CDF_Temperate.sqf" };
+        case "USAF": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\RHS\RHS_AI_USAF_Army_Temperate.sqf" };
+                default { "Templates\Templates\RHS\RHS_AI_USAF_Army_Arid.sqf" };
+            };
+        };
+        case "AFRF": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\RHS\RHS_AI_AFRF_Temperate.sqf" };
+                default { "Templates\Templates\RHS\RHS_AI_AFRF_Arid.sqf" };
+            };
+        };
+
+        //VN
+        case "PAVN": { "Templates\Templates\VN\VN_PAVN.sqf" };
+        case "MACV": { "Templates\Templates\VN\VN_MACV.sqf" };
+
+        //Vanilla & DLC
+        case "LDF": { "Templates\Templates\Vanilla\Vanilla_AI_LDF_Enoch.sqf" };
+        case "AAF": { "Templates\Templates\Vanilla\Vanilla_AI_AAF_Arid.sqf" };
+        case "NATO": {
+            switch(true) do {
+                case (toLower worldName == "tanoa"): { "Templates\Templates\Vanilla\Vanilla_AI_NATO_Tropical.sqf" };
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\Vanilla\Vanilla_AI_NATO_Temperate.sqf" };
+                default { "Templates\Templates\Vanilla\Vanilla_AI_NATO_Arid.sqf" };
+            };
+        };
+        case "CSAT": {
+            switch(true) do {
+                case (toLower worldName == "enoch"): { "Templates\Templates\Vanilla\Vanilla_AI_CSAT_Enoch.sqf" };
+                case (toLower worldName == "tanoa"): { "Templates\Templates\Vanilla\Vanilla_AI_CSAT_Tropical.sqf" };
+                default { "Templates\Templates\Vanilla\Vanilla_AI_CSAT_Arid.sqf" };
             };
         };
     };
-    case (A3A_hasRHS): {
-        ["Templates\NewTemplates\RHS\RHS_Civ.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using RHS Civ Template");
-        "RHS"
-    };
-    case (A3A_hasVN): {
-        ["Templates\NewTemplates\VN\VN_CIV.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN CIV Template");
-        "VN"
-    };
-    /* disabled until imtegrated
-    case (A3A_hasIFA): {
-        call compile preProcessFileLineNumbers "Templates\IFA\IFA_Civ.sqf";
-        Info("Using IFA Civ Template");
-        "IFA"
-    };
-    */
-    default {
-        ["Templates\NewTemplates\Vanilla\Vanilla_Civ.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using Vanilla Civ Template");
-        "Vanilla"
+};
+
+private _pickRebTemplate = {
+    switch _this do {
+
+        //3cb Factions
+        case "CNM": { "Templates\Templates\3CB\3CB_Reb_CNM_Temperate.sqf" };
+        case "TKM": { "Templates\Templates\3CB\3CB_Reb_TKM_Arid.sqf" };
+
+        //RHS
+        case "NAPA": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\RHS\RHS_Reb_NAPA_Temperate.sqf" };
+                default { "Templates\Templates\RHS\RHS_Reb_NAPA_Arid.sqf" };
+            };
+        };
+
+        //VN
+        case "POF": { "Templates\Templates\VN\VN_Reb_POF.sqf" };
+
+        //Vanilla
+        case "FIA": {
+            switch (true) do {
+                case (toLower worldName == "enoch"): { "Templates\Templates\Vanilla\Vanilla_Reb_FIA_Enoch.sqf" };
+                default { "Templates\Templates\Vanilla\Vanilla_Reb_FIA_Arid.sqf" };
+            };
+        };
+        case "SDK": { "Templates\Templates\Vanilla\Vanilla_Reb_SDK_Tanoa.sqf" };
     };
 };
+
+private _pickCIVTemplate = {
+    switch _this do {
+        case "Factions": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\3CB\3CB_Civ_Temperate.sqf" };
+                default { "Templates\Templates\3CB\3CB_Civ_Arid.sqf" };
+            };
+        };
+        case "RHS": { "Templates\Templates\RHS\RHS_Civ.sqf" };
+        case "VN": { "Templates\Templates\VN\VN_CIV.sqf" };
+        case "Vanilla": { "Templates\Templates\Vanilla\Vanilla_Civ.sqf" };
+    };
+};
+
+//======================|
+// Template selection   |
+//======================|
+
+//reb
+_rebFactionEnums#A3A_rebTemplateFactionEnum params ["_template", "_condition"];
+if !(_condition) then {
+    Error_1("Invalid mods loaded, failed to load choosen template: %1", _template);
+    _template = (_rebFactionEnums#(_rebFactionEnums findIf {_x#1}))#0
+};
+if (_template isEqualType {}) then {
+    Info("Autopicking Reb template");
+    _template = resistance call _template
+};
+private _path = _template call _pickRebTemplate;
+
+[_path, resistance] call A3A_fnc_compatibilityLoadFaction;
+Info_2("Loaded Reb template: %1 | Path: %2", _template, _path);
+A3A_Reb_template = _template;
+
+//occ
+_AIFactionEnums#A3A_occTemplateFactionEnum params ["_template", "_condition"];
+if !(_condition) then {
+    Error_1("Invalid mods loaded, failed to load choosen template: %1", _template);
+    _template = (_AIFactionEnums#(_AIFactionEnums findIf {_x#1}))#0
+};
+if (_template isEqualType {}) then {
+    Info("Autopicking Occ template");
+    _template = west call _template
+};
+private _path = _template call _pickAITemplate;
+
+[_path, west] call A3A_fnc_compatibilityLoadFaction;
+Info_2("Loaded Occ template: %1 | Path: %2", _template, _path);
+A3A_Occ_template = _template;
+
+//inv
+_AIFactionEnums#A3A_invTemplateFactionEnum params ["_template", "_condition"];
+if !(_condition) then {
+    Error_1("Invalid mods loaded, failed to load choosen template: %1", _template);
+    _template = (_AIFactionEnums#(_AIFactionEnums findIf {_x#1}))#0
+};
+if (_template isEqualType {}) then {
+    Info("Autopicking Inv template");
+    _template = east call _template
+};
+private _path = _template call _pickAITemplate;
+
+[_path, east] call A3A_fnc_compatibilityLoadFaction;
+Info_2("Loaded Inv template: %1 | Path: %2", _template, _path);
+A3A_Inv_template = _template;
+
+//civ
+_civFactionEnums#A3A_civTemplateFactionEnum params ["_template", "_condition"];
+if !(_condition) then {
+    Error_1("Invalid mods loaded, failed to load choosen template: %1", _template);
+    _template = _civFactionEnums#((_civFactionEnums findIf {_x#1}))#0
+};
+if (_template isEqualType {}) then {
+    Info("Autopicking Civ template");
+    _template = civilian call _template
+};
+private _path = _template call _pickCIVTemplate;
+
+[_path, civilian] call A3A_fnc_compatibilityLoadFaction;
+Info_2("Loaded Civ template: %1 | Path: %2", _template, _path);
+A3A_Civ_template = _template;
+
+//======================|
+// Addon mods           |
+//======================|
 
 // This will be adapted at a later step
 Info("Reading Addon mod files.");
 //Addon pack loading goes here.
 A3A_LoadedContentAddons = [];
 if (A3A_hasIvory) then {
-  call compile preProcessFileLineNumbers "Templates\AddonVics\ivory_Civ.sqf";
-  A3A_LoadedContentAddons pushBack "IvoryCars";
-  Info("Using Addon Ivory Cars Template");
+    [civilian, "Templates\AddonVics\ivory_Civ.sqf"] call A3A_fnc_loadAddon;
+    A3A_LoadedContentAddons pushBack "IvoryCars";
+    Info("Using Addon Ivory Cars Template");
 };
 if (A3A_hasTCGM) then {
-  call compile preProcessFileLineNumbers "Templates\AddonVics\tcgm_Civ.sqf";
-  A3A_LoadedContentAddons pushBack "TCGM_BikeBackPack";
-  Info("Using Addon TCGM_BikeBackPack Template");
+    [civilian, "Templates\AddonVics\tcgm_Civ.sqf"] call A3A_fnc_loadAddon;
+    A3A_LoadedContentAddons pushBack "TCGM_BikeBackPack";
+    Info("Using Addon TCGM_BikeBackPack Template");
 };
 if (A3A_hasD3S) then {
-  call compile preProcessFileLineNumbers "Templates\AddonVics\d3s_Civ.sqf";
-  A3A_LoadedContentAddons pushBack "D3SCars";
-  Info("Using Addon D3S Cars Template");
+    [civilian, "Templates\AddonVics\d3s_Civ.sqf"] call A3A_fnc_loadAddon;
+    A3A_LoadedContentAddons pushBack "D3SCars";
+    Info("Using Addon D3S Cars Template");
 };
 if (A3A_hasRDS) then {
-  call compile preProcessFileLineNumbers "Templates\AddonVics\rds_Civ.sqf";
-  A3A_LoadedContentAddons pushBack "RDSCars";
-  Info("Using Addon RDS Cars Template");
+    [civilian, "Templates\AddonVics\rds_Civ.sqf"] call A3A_fnc_loadAddon;
+    A3A_LoadedContentAddons pushBack "RDSCars";
+    Info("Using Addon RDS Cars Template");
 };
 A3A_LoadedContentAddons = A3A_LoadedContentAddons apply {toLower _x};
 
-//Logistics node loading is done here
+//======================|
+// Logistics nodes      |
+//======================|
+
 Info("Reading Logistics Node files.");
-call compile preProcessFileLineNumbers "Templates\NewTemplates\Vanilla\Vanilla_Logistics_Nodes.sqf";//Always call vanilla as it initialises the arrays.
-if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\RHS\RHS_Logistics_Nodes.sqf"};
-if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\3CB\3CBFactions_Logistics_Nodes.sqf"};
-if (A3A_has3CBBAF) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\3CB\3CBBAF_Logistics_Nodes.sqf"};
-if (A3A_hasVN) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\VN\VN_Logistics_Nodes.sqf"};
+call compile preProcessFileLineNumbers "Templates\Templates\Vanilla\Vanilla_Logistics_Nodes.sqf";//Always call vanilla as it initialises the arrays.
+if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\Templates\RHS\RHS_Logistics_Nodes.sqf"};
+if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBFactions_Logistics_Nodes.sqf"};
+if (A3A_has3CBBAF) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBBAF_Logistics_Nodes.sqf"};
+if (A3A_hasVN) then {call compile preProcessFileLineNumbers "Templates\Templates\VN\VN_Logistics_Nodes.sqf"};
 
 //if (A3A_hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_Logistics_Nodes.sqf"};		//disabled until imtegrated
 //if (A3A_hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Logistics_Nodes.sqf"};		//disabled until imtegrated
 //if (A3A_hasD3S) then {call compile preProcessFileLineNumbers "Templates\AddonVics\d3s_Logi_Nodes.sqf";};		//disabled until imtegrated
 //if (A3A_hasRDS) then {call compile preProcessFileLineNumbers "Templates\AddonVics\rds_Logi_Nodes.sqf";};		//disabled until imtegrated
+
+call A3A_fnc_compileMissionAssets;

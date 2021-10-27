@@ -36,6 +36,8 @@ switch (_filename) do {
  		"phaonoi", "timho", "quyen", "caloi", "thuphac", "diemdang", "bandao", "mantau","dongxa", "tauphabang", "horgoat",
  		"samsong", "muylai", "caymo", "docon", "paradiseisland", "mien", "giuaho", "daotrai"];
 
+		private _disableTownName = [ "22", "23"];
+
 		  //[_popValue, _disableTownName];
 		[nil, _disableTownName];
 	};

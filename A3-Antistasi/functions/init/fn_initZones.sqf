@@ -149,7 +149,7 @@ if (debug) then {
 private _hardCodedAntennas = _posAntennas isNotEqualTo [];
 
 ("bank" call _fnc_mapInfo) params [["_posBank", [], [[]]]];
-if ( _posBank isEqualTo []) then {banks = nearestObjects [[worldSize, worldSize], _banktypes, worldSize]}; 
+if ( _posBank isEqualTo []) then {banks = nearestObjects [[worldSize/2, worldSize/2], _banktypes, worldSize]}; 
 
 // Land_A_TVTower_base can't be destroyed, Land_Communication_F and Land_Vysilac_FM are not replaced with "Ruins" when destroyed.
 // This causes issues with persistent load and rebuild scripts, so we replace those with antennas that work properly.

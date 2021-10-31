@@ -37,13 +37,13 @@ private _autoPickAI = {
             case (A3A_has3CBBAF): {"BAF"};
             case (A3A_has3CBFactions): {
                 switch(true) do {
-                    case (A3A_climate isEqualTo "arctic");
-                    case (A3A_climate isEqualTo "temperate"): {"US Marines"};
-                    case (A3A_climate isEqualTo "tropical"): {"Coldwar US"};
                     case (toLower worldName == "kunduz"): {"ANA"};
                     case (toLower worldName == "altis"): {"3CB AAF"};
                     case (toLower worldName == "tanoa"): {"HIDF"};
                     case (toLower worldName == "malden"): {"MDF"};
+                    case (A3A_climate isEqualTo "arctic");
+                    case (A3A_climate isEqualTo "temperate"): {"US Marines"};
+                    case (A3A_climate isEqualTo "tropical"): {"Coldwar US"};
                     default {"TKA West"};
                 };
             };

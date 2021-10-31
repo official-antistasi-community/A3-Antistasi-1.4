@@ -273,7 +273,7 @@ if (!_busy) then
 	};
 };
 
-_arrayVehAAF = OccAndInv("vehiclesLight") + OccAndInv("vehiclesTrucks") + OccAndInv("vehiclesAmmoTrucks") + OccAndInv("vehiclesRepairTrucks") + OccAndInv("vehiclesFuelTrucks") + OccAndInv("vehiclesMedical");
+_arrayVehAAF = (_faction get "vehiclesLight") + (_faction get "vehiclesTrucks") + (_faction get "vehiclesAmmoTrucks") + (_faction get "vehiclesRepairTrucks") + (_faction get "vehiclesFuelTrucks") + (_faction get "vehiclesMedical");
 _countX = 0;
 
 while {_countX < _nVeh && {_countX < 3}} do

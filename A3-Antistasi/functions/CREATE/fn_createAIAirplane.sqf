@@ -1,6 +1,5 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-#define OccAndInv(VAR) (FactionGet(occ, VAR) + FactionGet(inv, VAR))
 if (!isServer and hasInterface) exitWith{};
 
 private ["_pos","_markerX","_vehiclesX","_groups","_soldiers","_busy","_buildings","_pos1","_pos2","_groupX","_countX","_typeVehX","_veh","_unit","_arrayVehAAF","_nVeh","_frontierX","_size","_ang","_mrk","_typeGroup","_flagX","_dog","_typeUnit","_garrison","_sideX","_cfg","_max","_vehicle","_vehCrew","_groupVeh","_roads","_dist","_road","_roadscon","_roadcon","_dirveh","_bunker","_typeGroup"];

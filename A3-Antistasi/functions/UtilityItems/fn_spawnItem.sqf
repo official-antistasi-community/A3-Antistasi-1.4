@@ -24,7 +24,6 @@ params  [
     ["_spawnItem", "", [""]],
     ["_price", 0, [0]],
     ["_callbacks", [], [[]]]
-
 ];
 
 // error checking, _unit, _spawnItem, and _callbacks
@@ -59,13 +58,6 @@ _item setVariable ["A3A_itemPrice", _price, true];
 
 {
     private _func_name = ((_x) #0);
-    switch ((_x) #1) do {
-      case 0 : {
-            private _jipKey = "A3A_utilityItems_item_" + ((str _item splitString ":") joinString "");
-            [_item, _jipKey] remoteExec [_func_name, 0, _jipKey];
-        };
-        case 1 : {
-            [_item] call compile preProcessFileLineNumbers (_func_name +"Info.sqf");
-        };
-    };
+    private _jipKey = "A3A_utilityItems_item_" + ((str _item splitString ":") joinString "");
+    [_item, _jipKey] remoteExec [_func_name, (_x) #1, _jipKey];
 } foreach (_callbacks);

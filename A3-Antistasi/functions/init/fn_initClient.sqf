@@ -390,6 +390,9 @@ if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//D
 vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 vehicleBox addAction ["Buy Light for 25€", {[player, 'vehicleLightSource', 25, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_spawnItem},nil,0,false,true,"","true",4];
+vehicleBox addAction ["Buy Fuel Canister for 40€", {[player, 'vehicleFuelSourceSmall', 40, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_spawnItem},nil,0,false,true,"","true",4];
+vehicleBox addAction ["Buy Flexible Tank for 80€", {[player, 'vehicleFuelSourceMed', 80, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_spawnItem},nil,0,false,true,"","true",4];
+vehicleBox addAction ["Buy Huron Container for 1000€", {[player, 'vehicleFuelSourceLarge', 1000, [['A3A_fnc_logistics_addLoadAction', 0]]] call A3A_fnc_spawnItem},nil,0,false,true,"","true",4];
 call A3A_fnc_dropObject;
 
 if (LootToCrateEnabled) then {

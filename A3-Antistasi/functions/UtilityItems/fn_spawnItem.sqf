@@ -2,7 +2,10 @@
 Author: [Killerswin2, Håkon]
     trys to purchase a light source and places it near the player
 Arguments:
-0.  <object> Unit that will be buying a light
+0.  <object>    Unit that will be buying a light
+1.  <string>    Item classname or template name
+2.  <number>    price of item
+3.  <array>     callback functions, [[name, (0 run on remoteExec or 1 call)]]
 
 Return Value:
     <nil>

@@ -60,7 +60,7 @@ if (_class in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate"
 //Utility refund
 if (_vehicle getVariable ['A3A_canGarage', false]) exitwith{
     [_vehicle getVariable ['A3A_itemPrice', 0]] remoteExec ["A3A_fnc_resourcesPlayer", _client]; // later make this a function call for percentage of fuel remaining
-    ["STR_HR_GRG_Feedback_addVehicle_LightSource_Stored"] remoteExec ["HR_GRG_fnc_Hint", _client];
+    ["STR_HR_GRG_Feedback_addVehicle_Item_Stored"] remoteExec ["HR_GRG_fnc_Hint", _client];
     deleteVehicle _vehicle;
     true
 };

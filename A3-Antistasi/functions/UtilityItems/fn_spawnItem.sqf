@@ -3,7 +3,7 @@ Author: [Killerswin2, Håkon]
     trys to purchase a item and places it near the player
 Arguments:
 0.  <object>    Unit that will be buying a light
-1.  <string>    Item classname or template name
+1.  <array>     Item classname and position in class name [classname, position]
 2.  <number>    price of item
 3.  <array>     callback functions, [[name, (0 run on remoteExec or 1 call)]]
 
@@ -16,7 +16,7 @@ Public: yes
 Dependencies:
 
 Example:
-    [player, "object", 65, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_spawnLight;
+    [player, ["object", 2], 65, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_spawnLight;
 */
 #include "..\..\Includes\common.inc"
 params  [

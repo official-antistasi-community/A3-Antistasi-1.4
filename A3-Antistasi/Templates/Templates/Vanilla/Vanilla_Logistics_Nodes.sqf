@@ -179,9 +179,8 @@ A3A_logistics_attachmentOffset = [
     ["\A3\weapons_F\AmmoBoxes\WpnsBox_F",                                       [0,0,0.17],                 [0,1,0],                    1],                         //surrender crates
     
     //fuel containers
-    ["Land_CanisterFuel_F" call A3A_fnc_classNameToModel ,                      [0,0,0.37],                 [0,1,0],                    1],
     ["FlexibleTank_01_forest_F"call A3A_fnc_classNameToModel,                   [0,0,0.37],                 [1,0,0],                    1],
-    ["B_Slingload_01_Fuel_F"call A3A_fnc_classNameToModel,                      [0,-0.25,1.35],                 [0,1,0],                    7]
+    ["B_Slingload_01_Fuel_F"call A3A_fnc_classNameToModel,                      [0,-0.25,1.35],             [0,1,0],                    7]
 ];
 
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.

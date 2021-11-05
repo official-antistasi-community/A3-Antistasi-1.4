@@ -13,4 +13,4 @@
 ["flyGear", ["U_I_pilotCoveralls"]] call _fnc_saveToTemplate;
 
 ["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;
-["vehicleFuelSource", ["Land_CanisterFuel_F", "FlexibleTank_01_forest_F", "B_Slingload_01_Fuel_F"]] call _fnc_saveToTemplate;
+["vehicleFuelSource", ["FlexibleTank_01_forest_F", "B_Slingload_01_Fuel_F"]] call _fnc_saveToTemplate;

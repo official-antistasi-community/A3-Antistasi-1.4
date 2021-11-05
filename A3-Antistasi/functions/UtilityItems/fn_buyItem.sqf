@@ -1,6 +1,6 @@
 /*
 Author: [Killerswin2, Håkon]
-    trys to purchase a item and places it near the player
+    trys to purchase a item and places it near the player. Damage for the object is disabled.
 Arguments:
 0.  <object>    Unit that will be buying a light
 1.  <array>     Item classname and position in class name [classname, position]
@@ -16,7 +16,7 @@ Public: yes
 Dependencies:
 
 Example:
-    [player, ["object", 2], 65, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_spawnLight;
+    [player, ['vehicleFuelSource', 1], 1000, [['A3A_fnc_logistics_addLoadAction', 1]]] call A3A_fnc_buyItem;
 */
 #include "..\..\Includes\common.inc"
 params  [
@@ -29,14 +29,14 @@ params  [
 // error checking, _unit, _spawnItem, and _callbacks
 
 //check to make sure that the player is not spamming
-private _lastTimePurchase = _unit getVariable["LightCooldown",time];
+private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
 if (_lastTimePurchase > time) exitwith {["Item Purchase", format ["You already bought one, wait %1 seconds before you can buy another.", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};
 
 //find out if we have money
-private _resourceFIA = player getVariable ["moneyX", 0];
+private _money = player getVariable ["moneyX", 0];
 
-if (_resourceFIA < _price) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
-_unit setVariable["LightCooldown", time + 5];
+if (_money < _price) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
+_unit setVariable["A3A_spawnItem_cooldown", time + 15];
 
 //take money away
 [-_price] call A3A_fnc_resourcesPlayer;
@@ -44,7 +44,7 @@ _unit setVariable["LightCooldown", time + 5];
 
 //spawn the Item
 private _spawnType = FactionGet(reb, _spawnItem # 0) # (_spawnItem # 1);
-_position = (getPos _unit) findEmptyPosition [1,10,_spawnType];
+_position = (getPos _unit vectorAdd [3,0,0]) findEmptyPosition [1,10,_spawnType];
 if (_position isEqualTo []) then {_position = getPos _unit};
 private _item = _spawnType createVehicle _position;
 _item allowDamage false;
@@ -63,7 +63,7 @@ _item setVariable ["A3A_itemPrice", _price, true];
             [_item, _jipKey] remoteExec [_func_name, (_x) #1, _jipKey];
         };
         case 1 : {
-            [_item] remoteExec [_func_name, clientOwner];
+            [_item] spawn (missionNamespace getVariable _func_name);
         };
     };
 } foreach (_callbacks);

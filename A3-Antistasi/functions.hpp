@@ -743,5 +743,6 @@ class A3A
         class spawnItem {};
         class attachedObjects {};
         class dropObject {};
+        class remainingFuel {}
     };
 };

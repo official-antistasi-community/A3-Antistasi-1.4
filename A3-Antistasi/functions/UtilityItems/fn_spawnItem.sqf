@@ -21,7 +21,7 @@ Example:
 #include "..\..\Includes\common.inc"
 params  [
     ["_unit", objNull, [objNull]], 
-    ["_spawnItem", "", [""]],
+    ["_spawnItem", [], [[]]],
     ["_price", 0, [0]],
     ["_callbacks", [], [[]]]
 ];
@@ -43,7 +43,7 @@ _unit setVariable["LightCooldown", time + 5];
 
 
 //spawn the Item
-private _spawnType = FactionGet(reb, _spawnItem);
+private _spawnType = FactionGet(reb, _spawnItem # 0) # (_spawnItem # 1);
 _position = (getPos _unit) findEmptyPosition [1,10,_spawnType];
 if (_position isEqualTo []) then {_position = getPos _unit};
 private _item = _spawnType createVehicle _position;

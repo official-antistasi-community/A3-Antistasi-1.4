@@ -19,13 +19,11 @@ Dependencies:
 FIX_LINE_NUMBERS()
 
 //======================|
-// Map categories       |
+// Climate Getter       |
 //======================|
 
-aridmaps = ["altis","kunduz","malden","tem_anizay","takistan","sara"];
-tropicalmaps = ["tanoa","cam_lao_nam"];
-temperatemaps = ["enoch","chernarus_summer","vt7","tembelan"];
-arcticmaps = ["chernarus_winter"];
+private _fileName = "Map\" + toLower worldName + "Info.sqf";
+A3A_climate = ["climate"] call compile preProcessFileLineNumbers _filename;
 
 //======================|
 // Autopick Functions   |
@@ -39,13 +37,13 @@ private _autoPickAI = {
             case (A3A_has3CBBAF): {"BAF"};
             case (A3A_has3CBFactions): {
                 switch(true) do {
-                    case (toLower worldName in arcticmaps);
-                    case (toLower worldName in temperatemaps): {"US Marines"};
-                    case (toLower worldName in tropicalmaps): {"Coldwar US"};
                     case (toLower worldName == "kunduz"): {"ANA"};
                     case (toLower worldName == "altis"): {"3CB AAF"};
                     case (toLower worldName == "tanoa"): {"HIDF"};
                     case (toLower worldName == "malden"): {"MDF"};
+                    case (A3A_climate isEqualTo "arctic");
+                    case (A3A_climate isEqualTo "temperate"): {"US Marines"};
+                    case (A3A_climate isEqualTo "tropical"): {"Coldwar US"};
                     default {"TKA West"};
                 };
             };
@@ -71,9 +69,9 @@ private _autoPickAI = {
     switch (true) do {
         case (A3A_has3CBFactions): {
             switch(true) do {
-                case (toLower worldName in arcticmaps);
-                case (toLower worldName in temperatemaps): {"AFRF"};
-                case (toLower worldName in tropicalmaps): {"Coldwar Soviets"};
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate"): {"AFRF"};
+                case (A3A_climate isEqualTo "tropical"): {"Coldwar Soviets"};
                 default {"TKA East"};
             };
         };
@@ -86,9 +84,9 @@ private _autoPickReb = {
     switch (true) do {
         case (A3A_has3CBFactions): {
             switch(true) do {
-                case (toLower worldName in arcticmaps);
-                case (toLower worldName in temperatemaps);
-                case (toLower worldName in tropicalmaps): { "CNM" };
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "CNM" };
                 default { "TKM" };
             };
         };
@@ -163,9 +161,9 @@ private _pickAITemplate = {
     switch _this do {
         case "BAF": {
             switch(true) do {
-                case (toLower worldName in arcticmaps): { "Templates\Templates\3CB\3CB_AI_BAF_Arctic.sqf" };
-                case (toLower worldName in temperatemaps): { "Templates\Templates\3CB\3CB_AI_BAF_Temperate.sqf" };
-                case (toLower worldName in tropicalmaps): { "Templates\Templates\3CB\3CB_AI_BAF_Tropical.sqf" };
+                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\3CB\3CB_AI_BAF_Arctic.sqf" };
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\3CB\3CB_AI_BAF_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\3CB\3CB_AI_BAF_Tropical.sqf" };
                 default { "Templates\Templates\3CB\3CB_AI_BAF_Arid.sqf" };
             };
         };
@@ -184,26 +182,26 @@ private _pickAITemplate = {
         //RHS
         case "US Marines": {
             switch(true) do {
-                case (toLower worldName in arcticmaps);
-                case (toLower worldName in temperatemaps);
-                case (toLower worldName in tropicalmaps): { "Templates\Templates\RHS\RHS_AI_USAF_Marines_Temperate.sqf" };
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\RHS\RHS_AI_USAF_Marines_Temperate.sqf" };
                 default { "Templates\Templates\RHS\RHS_AI_USAF_Marines_Arid.sqf" };
             };
         };
         case "CDF": { "Templates\Templates\RHS\RHS_AI_CDF_Temperate.sqf" };
         case "USAF": {
             switch(true) do {
-                case (toLower worldName in arcticmaps);
-                case (toLower worldName in temperatemaps);
-                case (toLower worldName in tropicalmaps): { "Templates\Templates\RHS\RHS_AI_USAF_Army_Temperate.sqf" };
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\RHS\RHS_AI_USAF_Army_Temperate.sqf" };
                 default { "Templates\Templates\RHS\RHS_AI_USAF_Army_Arid.sqf" };
             };
         };
         case "AFRF": {
             switch(true) do {
-                case (toLower worldName in arcticmaps);
-                case (toLower worldName in temperatemaps);
-                case (toLower worldName in tropicalmaps): { "Templates\Templates\RHS\RHS_AI_AFRF_Temperate.sqf" };
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\RHS\RHS_AI_AFRF_Temperate.sqf" };
                 default { "Templates\Templates\RHS\RHS_AI_AFRF_Arid.sqf" };
             };
         };
@@ -218,8 +216,8 @@ private _pickAITemplate = {
         case "NATO": {
             switch(true) do {
                 case (toLower worldName == "tanoa"): { "Templates\Templates\Vanilla\Vanilla_AI_NATO_Tropical.sqf" };
-                case (toLower worldName in temperatemaps);
-                case (toLower worldName in tropicalmaps): { "Templates\Templates\Vanilla\Vanilla_AI_NATO_Temperate.sqf" };
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\Vanilla\Vanilla_AI_NATO_Temperate.sqf" };
                 default { "Templates\Templates\Vanilla\Vanilla_AI_NATO_Arid.sqf" };
             };
         };
@@ -243,9 +241,9 @@ private _pickRebTemplate = {
         //RHS
         case "NAPA": {
             switch(true) do {
-                case (toLower worldName in arcticmaps);
-                case (toLower worldName in temperatemaps);
-                case (toLower worldName in tropicalmaps): { "Templates\Templates\RHS\RHS_Reb_NAPA_Temperate.sqf" };
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\RHS\RHS_Reb_NAPA_Temperate.sqf" };
                 default { "Templates\Templates\RHS\RHS_Reb_NAPA_Arid.sqf" };
             };
         };
@@ -268,9 +266,9 @@ private _pickCIVTemplate = {
     switch _this do {
         case "Factions": {
             switch(true) do {
-                case (toLower worldName in arcticmaps);
-                case (toLower worldName in temperatemaps);
-                case (toLower worldName in tropicalmaps): { "Templates\Templates\3CB\3CB_Civ_Temperate.sqf" };
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\3CB\3CB_Civ_Temperate.sqf" };
                 default { "Templates\Templates\3CB\3CB_Civ_Arid.sqf" };
             };
         };

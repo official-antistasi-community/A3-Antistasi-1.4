@@ -5,6 +5,9 @@ scriptName "fn_initGarrisons";
 FIX_LINE_NUMBERS()
 Info("InitGarrisons started");
 
+//get terrain specific info
+private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
+
 _fnc_initMarker =
 {
 	params ["_mrkCSAT", "_target", "_mrkType", "_mrkText", ["_useSideName", false]];
@@ -90,10 +93,8 @@ _fnc_initGarrison =
 	} forEach _markerArray;
 };
 
-private _mrkNATO = [];
-private _mrkCSAT = [];
-private _controlsNATO = [];
-private _controlsCSAT = [];
+("garrison" call _fnc_mapInfo) params [["_mrkNATO", [], [[]]], ["_mrkCSAT",[],[[]]], ["_controlsNATO", [], [[]]], ["_controlsCSAT",[],[[]]]];
+
 
 if (debug) then
 {
@@ -103,62 +104,6 @@ if (debug) then
 if (gameMode == 1) then
 {
 	_controlsNATO = controlsX;
-	switch (toLower worldName) do {
-		case "tanoa": {
-			_mrkCSAT = ["airport_1", "seaport_5", "outpost_10", "control_20"];
-			_controlsCSAT = ["control_20"];
-		};
-		case "altis": {
-			_mrkCSAT = ["airport_2", "seaport_4", "outpost_5", "control_52", "control_33"];
-			_controlsCSAT = ["control_52", "control_33"];
-		};
-		case "chernarus_summer": {
-			_mrkCSAT = ["outpost_21"];
-		};
-		case "tem_anizay": {
-			_mrkCSAT = ["outpost_8", "control_19", "control_44", "control_45"];
-			_controlsCSAT = ["control_19", "control_44", "control_45"];
-		};
-		case "chernarus_winter": {
-			_mrkCSAT = ["outpost_21", "control_30"];
-			_controlsCSAT = ["control_30"];
-		};
-		case "kunduz": {
-			_mrkCSAT = ["outpost"];
-		};
-		case "enoch": {
-			_mrkCSAT = ["airport_3", "control_14"];
-			_controlsCSAT = ["control_14"];
-		};
-		case "tembelan": {
-			_mrkCSAT = ["airport_4"];
-		};
-		case "malden": {
-			_mrkCSAT = ["airport", "seaport_7"];
-		};
-		case "tem_kujari": {
-			_mrkCSAT = [];
-		};
-		case "vt7": {
-			_mrkCSAT = ["airport_2", "control_25", "control_29", "control_30", "control_31", "control_32", "Seaport_1", "Outpost_3"];
-			_controlsCSAT = ["control_25", "control_29", "control_30", "control_31", "control_32"];
-		};
-		case "stratis": {
-			_mrkCSAT = ["outpost_3"];
-		};
-		case "takistan": {
-			_mrkCSAT = ["airport_1", "outpost_5", "outpost_6", "outpost_7", "outpost_8", "resource", "resource_5", "resource_6"];
-			_controlsCSAT = ["control", "control_1", "control_2", "control_5", "control_13", "control_20", "control_21", "control_22", "control_24", "control_25", "control_31"];
-		};
-		case "sara": {
-			_mrkCSAT = ["airport_1", "seaport_6", "outpost_22", "outpost_15", "resource_9", "outpost_19", "outpost_14", "resource_11"];
-			_controlsCSAT = ["control_28", "control_27"];
-		};
-		case "cam_lao_nam": {
-			_mrkCSAT = ["airport_5", "outpost_33", "outpost_34", "resource_4", "seaport_3", "outpost_15", "outpost_22", "outpost_8", "outpost_4", "resource_9", "outpost_21", "resource_14", "outpost_3", "outpost_2", "factory_3", "outpost_1", "outpost_7", "seaport_2", "outpost_32", "airport_1", "outpost_23", "outpost_10", "outpost_5", "outpost_16", "outpost_6", "outpost_11", "resource_6", "resource_20", "outpost_9", "outpost_38"];
-            _controlsCSAT = ["control_1", "control_2", "control_3", "control_4", "control_5", "control_6", "control_7", "control_8", "control_9", "control_10", "control_11", "control_12", "control_13", "control_14", "control_15", "control_16", "control_17", "control_18", "control_19", "control_20", "control_21", "control_22", "control_23", "control_24", "control_25", "control_26", "control_27", "control_28", "control_29"];
-		}
-	};
     _controlsNATO = _controlsNATO - _controlsCSAT;
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
 

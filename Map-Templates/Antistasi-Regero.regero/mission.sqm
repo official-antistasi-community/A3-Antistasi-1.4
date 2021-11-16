@@ -12,14 +12,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=117;
+		nextID=126;
 	};
 	class Camera
 	{
-		pos[]={7169.8291,996.63257,7632.4229};
-		dir[]={-0.035201207,-0.57610148,0.81662023};
-		up[]={-0.024810381,0.8173781,0.57556713};
-		aside[]={0.99907255,-2.4738256e-010,0.043066017};
+		pos[]={7420.7314,1308.1398,7356.165};
+		dir[]={-0.5551542,-0.65447634,0.51329136};
+		up[]={-0.48054883,0.756082,0.44431186};
+		aside[]={0.67888272,-4.8370566e-008,0.73425049};
 	};
 };
 binarizationWanted=0;
@@ -64,7 +64,6 @@ addons[]=
 	"A3_Weapons_F",
 	"A3_Structures_F_Exp_Military_ContainerBases",
 	"A3_Props_F_Exp_Civilian_Garbage",
-	"cba_xeh",
 	"A3_Structures_F_Tank_Military_RepairDepot",
 	"A3_Structures_F_Ind_Tank",
 	"A3_Structures_F_Civ_Accessories",
@@ -260,35 +259,9 @@ class ScenarioData
 {
 	author="The Official Antistasi Community ";
 };
-class CustomAttributes
-{
-	class Category0
-	{
-		name="Scenario";
-		class Attribute0
-		{
-			property="cba_settings_hasSettingsFile";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"BOOL"
-						};
-					};
-					value=1;
-				};
-			};
-		};
-		nAttributes=1;
-	};
-};
 class Mission
 {
+	assetType="Free";
 	class Intel
 	{
 		resistanceWest=0;
@@ -15452,7 +15425,7 @@ class Mission
 					colorName="ColorBrown";
 					a=74.379013;
 					b=79.141182;
-					angle=178.83867;
+					angle=178.83865;
 					id=833;
 				};
 				class Item12

@@ -1397,8 +1397,8 @@
         <Chinesesimp>成为抵抗军领袖。与技术、数量、资产和载具远胜于你的强大敌人作战。面对完全动态的世界和大约18种支线任务, 任何时间, 任何地点, 任何情况, 运用游击战术。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_regero_blurb_text">
-        <Original>In the Heat of the Takistani Desert</Original>
-        <English>In the Heat of the Takistani Desert</English>
+        <Original>We bear this liberation</Original>
+        <English>We bear this liberation</English>
       </Key>
     </Container>
     <Container name="journal_entries">

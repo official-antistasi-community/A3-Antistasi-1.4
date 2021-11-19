@@ -66,7 +66,7 @@ if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) selec
 			{
 			_veh commandArtilleryFire [position _objectiveX,_typeAmmunition,_roundsX];
 			_timeX = _veh getArtilleryETA [position _objectiveX, ((getArtilleryAmmo [_veh]) select 0)];
-			sleep 9 + ((_roundsX - 1) * 3);
+			sleep (9 + (_roundsX - 1) * 3);
 			}
 		else
 			{

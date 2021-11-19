@@ -133,5 +133,5 @@ if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
             };
 		};
 	};
-    sleep 1 + (random 1);
+    sleep (1 + random 1);
 } forEach _aliveGroupMembers;

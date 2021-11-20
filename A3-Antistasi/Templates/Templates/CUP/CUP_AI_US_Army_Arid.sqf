@@ -79,16 +79,16 @@ _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
 _loadoutData set ["lightATLaunchers", [
-["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
-["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEDP_M", "MRAWS_HEAT55_F"], [], ""]
+	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
+	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
+	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEDP_M", "MRAWS_HEAT55_F"], [], ""]
 ]];
-_loadoutData set ["ATLaunchers", ["CUP_launch_NLAW"]];
+_loadoutData set ["ATLaunchers", ["CUP_launch_M47"]];
 _loadoutData set ["missileATLaunchers", [
-["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEDP_M", "MRAWS_HEAT55_F"], [], ""]
+	["CUP_launch_Javelin", "", "", "", ["CUP_Javelin_M", "CUP_Javelin_M"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
-["CUP_launch_FIM92Stinger_Loaded","","","",["CUP_Stinger_M"],[],""]
+	["CUP_launch_FIM92Stinger_Loaded","","","",["CUP_Stinger_M"],[],""]
 ]];
 _loadoutData set ["sidearms", []];
 

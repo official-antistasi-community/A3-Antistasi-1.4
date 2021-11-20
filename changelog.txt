@@ -1,4 +1,4 @@
-Version 2.5.3 - 10th October 2021
+Version 2.5.3 - 11th October 2021
 
 Changes from version 2.5.2 to 2.5.3 Antistasi Community Edition
 

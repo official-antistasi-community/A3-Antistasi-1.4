@@ -5,6 +5,7 @@ Maintainer: Caleb Serafin
 Arguments:
     <NavRoad> NavRoad 1
     <NavRoad> NavRoad 2
+    <BOOLEAN> true to set forced connection. Will result in a middle node being added.
     <STRING> Calling function's name (Default = nil)
     <NavRoadHM> Parent hashmap, Used for assertions, optional. (Default = nil)
 
@@ -18,6 +19,7 @@ Example:
 params [
     "_leftStruct",
     "_rightStruct",
+    "_forcedConnection",
     ["_callingFunctionTitle", "NavRoad Disconnect", [""]],
     ["_navRoadHM", nil]
 ];
@@ -59,13 +61,12 @@ if (_rightRoad in _leftConnections) then {
     _leftDistances pushBack _distance;
 };
 
-/*
-private _leftForcedConnections = _leftStruct#3;
-private _rightForcedConnections = _rightStruct#3;
-_leftForcedConnections pushBackUnique _rightRoad;
-_rightForcedConnections pushBackUnique _leftRoad;
-*/
-
+if (_forcedConnection) then {
+    private _leftForcedConnections = _leftStruct#3;
+    private _rightForcedConnections = _rightStruct#3;
+    _leftForcedConnections pushBackUnique _rightRoad;
+    _rightForcedConnections pushBackUnique _leftRoad;
+};
 
 [_leftStruct,_navRoadHM, "fn_NG_navRoad_connect"] call A3A_fnc_NG_navRoad_assert;
 [_rightStruct,_navRoadHM, "fn_NG_navRoad_connect"] call A3A_fnc_NG_navRoad_assert;

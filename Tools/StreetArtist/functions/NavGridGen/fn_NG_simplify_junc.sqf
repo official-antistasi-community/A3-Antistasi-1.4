@@ -44,7 +44,7 @@ private _fnc_consumeStruct = {
 
     {
         if !(_myStruct isEqualTo _x || [_myStruct, _x] call A3A_fnc_NG_navRoad_isConnected) then {
-            [_myStruct,_x,"fn_NG_simplify_junc",_navRoadHM] call A3A_fnc_NG_navRoad_connect;
+            [_myStruct,_x,false,"fn_NG_simplify_junc",_navRoadHM] call A3A_fnc_NG_navRoad_connect;
         };
     } forEach _targetNavRoadPeers;
 
@@ -80,13 +80,13 @@ private _diag_currentJob = 0;
         _diag_step_sub = "Completion &lt;" + ((100*_diag_currentJob /_diag_totalJobs) toFixed 1) + "% &gt; Node &lt;" + (str _diag_currentJob) + " / " + (str _diag_totalJobs) + "&gt;";;
         call _fnc_diag_render;
     };
-    if !(_x in _navRoadHM) then { diag_log "I continued"; continue; };  // If it is nil, it has been previously deleted.
-    if (isNil{_navRoadHM get _x}) then { diag_log "I continued"; continue; };  // If it is nil, it has been previously deleted.
+    if !(_x in _navRoadHM) then { /*diag_log "I continued";*/ continue; };  // If it is nil, it has been previously deleted.
+    if (isNil{_navRoadHM get _x}) then { diag_log "in Failed, but I continued"; continue; };  // If it is nil, it has been previously deleted.
 
     private _myStruct = _navRoadHM get _x;
     private _myConnections = _myStruct#1;
     if (count _myConnections <= 2) then { continue; };
-    
+
     private _myRoad = _myStruct#0;
     private _connectedJuncStructs = _myConnections
         select {_myRoad distance _x < _juncMergeDistance}                           // Only within small junction proximity
@@ -104,7 +104,7 @@ private _diag_currentJob = 0;
             [_centreStruct,_x,_navRoadHM] call _fnc_consumeStruct;
         } forEach _connectedJuncStructs;
     };
-    
+
 } forEach keys _navRoadHM;
 
 _navRoadHM;

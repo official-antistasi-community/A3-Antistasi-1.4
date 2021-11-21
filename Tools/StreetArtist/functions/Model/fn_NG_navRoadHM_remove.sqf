@@ -46,7 +46,7 @@ private _road = _navRoad#0;
 
 if ([_navRoad, _navRoadHM, _callingFunctionTitle + ".fn_NG_navRoadHM_remove"] call A3A_fnc_NG_navRoad_assert) then {
     _navRoadHM deleteAt (str _road);
-    diag_log ("Deleted. " + str _road);
+    //diag_log ("Deleted: " + str _road);
     if (str _road in _navRoadHM) then {
         diag_log "Why not deleted??";
     };

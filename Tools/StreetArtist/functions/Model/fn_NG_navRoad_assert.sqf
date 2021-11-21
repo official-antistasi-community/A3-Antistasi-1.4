@@ -3,12 +3,12 @@ Maintainer: Caleb Serafin
     Checks that the passed navRoad class instance is not malformed.
     Logs errors tp RPT and hint display.
 
-Arguments: 
+Arguments:
     <NavRoad> The tested navigation road.
     <NavRoadHM> To test known connections and back connections (default: nil)
     <STRING> Calling function's name (default: nil)
 
-Return Value: <BOOL> If arrsetion passed.
+Return Value: <BOOL> If assertion passed.
 
 Environment: Any
 Public: No

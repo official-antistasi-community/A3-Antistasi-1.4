@@ -27,13 +27,15 @@ __keyCache_setVar(A3A_keyCache_init, true);
 // Main Key DB used for translations
 __keyCache_setVar(A3A_keyCache_DB, createHashMap);
 
+// Prevent double additions to GC
+__keyCache_setVar(A3A_keyCache_GC_registeredItems, createHashMap);
+
 // Default Time to live.
 private _keyCache_defaultTTL = 120;
-if (isServer) then {
-    // A little longer to ensure that the client's translations go stale before the server.
-    _keyCache_defaultTTL = 1.20 * _keyCache_defaultTTL;
-};
 __keyCache_setVar(A3A_keyCache_defaultTTL, _keyCache_defaultTTL);
+
+private _keyCache_defaultTranslateSetTTL = 1.20 * _keyCache_defaultTTL;
+__keyCache_setVar(A3A_keyCache_defaultTranslateSetTTL, _keyCache_defaultTranslateSetTTL);
 
 // Minimum amount of items in a processed span of a chunk
 private _keyCache_GC_minSpanSize = 10;

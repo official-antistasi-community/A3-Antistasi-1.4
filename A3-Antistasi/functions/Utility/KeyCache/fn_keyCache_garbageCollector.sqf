@@ -100,15 +100,23 @@ while {true} do {
     private _allocatedTime = serverTime + _bucketPeriod;
     for "_span" from 0 to _count step _spanSize do {
         {
-            private _translation = _keyCache_DB getOrDefault [_x, false];
-            if (_translation isEqualType false) then { /*__inc_skipped;*/ continue; };
+            // If the key has expired or deleted, another key may be added to replace it and update the expiry before this block finishes.
+            // So it should be in an unscheduled block.
+            isNil {
+                if !(_x in _keyCache_DB) then {
+                    __keyCache_getVar(A3A_keyCache_GC_registeredItems) deleteAt _x;
+                    /*__inc_skipped;*/
+                    continue;
+                };
 
-            if (_translation#2 > serverTime) then {
-                _promotedGenerationReference#1 pushBack _x;  /*__inc_promoted;*/
-                continue;
+                if ((_keyCache_DB get _x)#2 > serverTime) then {
+                    _promotedGenerationReference#1 pushBack _x;  /*__inc_promoted;*/
+                    continue;
+                };
+
+                __keyCache_getVar(A3A_keyCache_GC_registeredItems) deleteAt _x;
+                _keyCache_DB deleteAt _x;  /*__inc_deleted;*/
             };
-
-            _keyCache_DB deleteAt _x;  /*__inc_deleted;*/
         } forEach (_currentBucket select [_span, _spanSize]);
         uiSleep (_allocatedTime - serverTime);  // uiSleep does not crash from negative input.
     };

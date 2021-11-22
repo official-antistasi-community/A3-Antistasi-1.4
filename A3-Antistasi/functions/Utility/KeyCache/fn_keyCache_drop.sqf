@@ -11,7 +11,7 @@ Dependencies:
     <HASHMAP> A3A_keyCache_DB
 
 Example:
-    "HelloWorld" call A3A_fnc_keyCache_delete;
+    "HelloWorld" call A3A_fnc_keyCache_drop;
 */
 #include "config.hpp"
 // Garbage Cleaner will take care of the GC_registeredItems entry

@@ -349,7 +349,7 @@ class A3A
 
     class KeyCache {
         file = "functions\Utility\KeyCache";
-        class keyCache_delete {};
+        class keyCache_drop {};
         class keyCache_garbageCollector {};
         class keyCache_has {};
         class keyCache_init {};

@@ -280,6 +280,35 @@ blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
 	if (_idx == -1) then {true} else {false};
 };
 
+private _fuelStationTypes = ["Land_Fuelstation_Feed_F", "Land_fs_feed_F", "Land_FuelStation_01_pump_F", "Land_FuelStation_01_pump_malevil_F", "Land_FuelStation_03_pump_F", "Land_FuelStation_02_pump_F"];
+("fuelStation" call _fnc_mapInfo) params [["_posFuelStation", [], [[]]], ["_blacklistIndexFuel",[],[[]]]];
+if ( _posFuelStation isEqualTo []) then {A3A_fuelStations = nearestObjects [[worldSize/2, worldSize/2], _fuelStationTypes, worldSize]};  
+
+if (_posFuelStation isNotEqualTo []) then {
+	for "_i" from 0 to (count _posFuelStation - 1) do {
+		_fuelStations = nearestObjects [_posFuelStation select _i, _banktypes, 30];
+		if(!(_i in _fuelStationBlacklist)) then {
+			// not in the index
+			{ A3A_fuelStations pushBack _x } forEach _fuelStations;
+			_mrkFinal = createMarker [format ["Ant%1", mapGridPosition _fuelStations # 0], position select _i];
+			_mrkFinal setMarkerShape "ICON"; 
+			_mrkFinal setMarkerType "loc_Fuelstation";
+			_mrkFinal setMarkerColor "ColorPink"; 
+			_mrkFinal setMarkerText "fuel station";
+		};
+	};
+} else {
+	A3A_fuelStations apply {
+		_mrkFinal = createMarker [format ["Ant%1", mapGridPosition _x], position _x];
+		_mrkFinal setMarkerShape "ICON"; 
+		_mrkFinal setMarkerType "loc_Fuelstation";
+		_mrkFinal setMarkerColor "ColorPink"; 
+		_mrkFinal setMarkerText "fuel station";
+	}
+};
+
+
+
 publicVariable "blackListDest";
 publicVariable "markersX";
 publicVariable "citiesX";
@@ -302,6 +331,7 @@ publicVariable "seaSpawn";
 publicVariable "seaAttackSpawn";
 publicVariable "defaultControlIndex";
 publicVariable "detectionAreas";
+publicvariable "A3A_fuelStations"
 
 if (isMultiplayer) then {
 	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]

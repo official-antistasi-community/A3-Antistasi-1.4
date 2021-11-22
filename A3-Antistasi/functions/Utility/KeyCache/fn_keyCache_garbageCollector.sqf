@@ -29,11 +29,11 @@ params [
 uiSleep random 10;
 #endif
 FIX_LINE_NUMBERS()
-private _keyCache_GC_generations = __keyCache_getVar(A3A_keyCache_GC_generations);
 
 // Keep reference to local variable to avoid continuously using getVariable
+private _keyCache_GC_generations = __keyCache_getVar(A3A_keyCache_GC_generations);
 private _keyCache_DB = __keyCache_getVar(A3A_keyCache_DB);
-
+private _keyCache_GC_registeredItems = __keyCache_getVar(A3A_keyCache_GC_registeredItems);
 
 
 if (_generationNumber >= count _keyCache_GC_generations) exitWith {
@@ -41,6 +41,7 @@ if (_generationNumber >= count _keyCache_GC_generations) exitWith {
 };
 
 private _GC_generation = _keyCache_GC_generations #_generationNumber;
+private _const_nullTranslation = [nil,nil,-1];
 
 // Whole process is thread-safe, no isNil blocks needed.
 while {true} do {
@@ -84,17 +85,15 @@ while {true} do {
     if (_spanPeriod < _averageFrameTime) then {
         _spanAmount = 1 + floor (_bucketPeriod / _averageFrameTime);
         _spanSize = ceil (_count / _spanAmount);
-        _spanPeriod = 0.001;  // Try sleep just 1 frame, setting it to _averageFrameTime may result in more than 1 frame.
+        _spanPeriod = 0.001;  // Try sleep just 1 frame, setting it to _averageFrameTime may result in more than 1 frame due to rounding and FPS fluctuations.
     };
 
     /*
 #define __inc_deleted _GCDeleted = _GCDeleted +1;
 #define __inc_promoted _GCPromoted = _GCPromoted +1;
-#define __inc_skipped _GCSkipped = _GCSkipped +1;
     //Info_2("Gen%1 GC processing bucket size %2.",_generationNumber,_count);
     private _GCDeleted = 0;
     private _GCPromoted = 0;
-    private _GCSkipped = 0;
     */
     // Process each span. Eventually finishing the whole bucket within _bucketPeriod;
     private _allocatedTime = serverTime + _bucketPeriod;
@@ -103,18 +102,11 @@ while {true} do {
             // If the key has expired or deleted, another key may be added to replace it and update the expiry before this block finishes.
             // So it should be in an unscheduled block.
             isNil {
-                if !(_x in _keyCache_DB) then {
-                    __keyCache_getVar(A3A_keyCache_GC_registeredItems) deleteAt _x;
-                    /*__inc_skipped;*/
-                    continue;
-                };
-
-                if ((_keyCache_DB get _x)#2 > serverTime) then {
+                if ((_keyCache_DB getOrDefault [_x,_const_nullTranslation])#2 > serverTime) then {
                     _promotedGenerationReference#1 pushBack _x;  /*__inc_promoted;*/
                     continue;
                 };
-
-                __keyCache_getVar(A3A_keyCache_GC_registeredItems) deleteAt _x;
+                _keyCache_GC_registeredItems deleteAt _x;
                 _keyCache_DB deleteAt _x;  /*__inc_deleted;*/
             };
         } forEach (_currentBucket select [_span, _spanSize]);
@@ -124,5 +116,5 @@ while {true} do {
     /*if (_allocatedTime < serverTime) then {
         Debug_3("Gen%1 GC bucket processing exceeded allocated time of %2s by %3s.",_generationNumber,_spanPeriod,serverTime-_allocatedTime);
     };
-    Info_4("Gen%1 GC Deleted %2, Promoted %3, Skipped %4. ",_generationNumber,_GCDeleted,_GCPromoted,_GCSkipped);*/
+    Info_4("Gen%1 GC Deleted/Skipped %2, Promoted %3. ",_generationNumber,_GCDeleted,_GCPromoted);*/
 };

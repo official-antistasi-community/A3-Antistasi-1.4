@@ -20,11 +20,10 @@ Example:
 #include "config.hpp"
 params [
     ["_keyName", ""],
-    ["_translation", ""],
+    "_translation",
     ["_lifeTime", __keyCache_getVar(A3A_keyCache_defaultTTL), [0]]
 ];
 
-private _keyCache_DB = __keyCache_getVar(A3A_keyCache_DB);
-// This should be thread safe. Do not change the set and GC order, as that will not make it thread safe.
-_keyCache_DB set [_keyName, [_translation, _lifeTime, serverTime + _lifeTime]];
+// This is thread safe. Do not change the DB set and GC order, as that will make it thread unsafe.
+__keyCache_getVar(A3A_keyCache_DB) set [_keyName, [_translation, _lifeTime, serverTime + _lifeTime]];
 _keyName call A3A_fnc_keyCache_registerForGC;

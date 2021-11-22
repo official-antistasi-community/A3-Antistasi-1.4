@@ -21,14 +21,14 @@ Dependencies:
 
 Example:
     "HelloWorld" call A3A_fnc_keyCache_translate;
-    ["HelloWorld", parseText "Lol<br/>XD"] call A3A_fnc_keyCache_translate;
+    ["HelloWorld", "CS"] call A3A_fnc_keyCache_translate;
 */
 
 #include "config.hpp"
 params [
     ["_keyName", ""],
-    ["_newTranslation", nil],
-    ["_lifeTime", __keyCache_getVar(A3A_keyCache_defaultTranslateSetTTL), [0]]
+    "_newTranslation",
+    ["_newLifeTime", __keyCache_getVar(A3A_keyCache_defaultTranslateSetTTL), [0]]
 ];
 
 private _keyCache_DB = __keyCache_getVar(A3A_keyCache_DB);
@@ -41,10 +41,9 @@ if (_expiryTime > serverTime) exitWith {
 };
 // Key not in DB or expired.
 
-if (isNil {_newTranslation}) then {
+if (isNil "_newTranslation") then {
     _newTranslation = call A3A_fnc_shortID_create;
 };
-private _newLifeTime = __keyCache_getVar(A3A_keyCache_defaultTranslateSetTTL);
 
 _keyCache_DB set [_keyName, [_newTranslation, _newLifeTime, serverTime + _newLifeTime]];
 _keyName call A3A_fnc_keyCache_registerForGC;

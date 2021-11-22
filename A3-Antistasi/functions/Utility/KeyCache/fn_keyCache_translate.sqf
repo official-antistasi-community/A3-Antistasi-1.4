@@ -10,7 +10,7 @@ Maintainer: Caleb Serafin
 
 Arguments:
     <HASHMAPKEY> Translation Key
-    <ANY> Translation Value
+    <ANY> Translation Value to set if one does not already exist
     <SCALAR> Time to live from each refresh.
 
 Scope: Any, Local Effect
@@ -27,7 +27,7 @@ Example:
 #include "config.hpp"
 params [
     ["_keyName", ""],
-    ["_translation", ""],
+    ["_newTranslation", nil],
     ["_lifeTime", __keyCache_getVar(A3A_keyCache_defaultTranslateSetTTL), [0]]
 ];
 
@@ -39,9 +39,11 @@ if (_expiryTime > serverTime) exitWith {
     _cachedStruct set [2, serverTime + _lifeTime];
     _translation;
 };
-
 // Key not in DB or expired.
-private _newTranslation = call A3A_fnc_shortID_create;
+
+if (isNil {_newTranslation}) then {
+    _newTranslation = call A3A_fnc_shortID_create;
+};
 private _newLifeTime = __keyCache_getVar(A3A_keyCache_defaultTranslateSetTTL);
 
 _keyCache_DB set [_keyName, [_newTranslation, _newLifeTime, serverTime + _newLifeTime]];

@@ -55,8 +55,8 @@
 ["vehiclesPolice",["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 
 ["staticMGs",["CUP_B_DSHKM_ACR"]] call _fnc_saveToTemplate;
-["staticAT",["CUP_B_RBS70_ACR"]] call _fnc_saveToTemplate;
-["staticAA",["CUP_B_Igla_AA_pod_CDF"]] call _fnc_saveToTemplate;
+["staticAT",["CUP_B_TOW2_TriPod_US"]] call _fnc_saveToTemplate;
+["staticAA",["CUP_B_RBS70_ACR"]] call _fnc_saveToTemplate;
 
 ["staticMortars",["CUP_B_2b14_82mm_ACR"]] call _fnc_saveToTemplate;
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate; 			//this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION

@@ -65,8 +65,8 @@
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate; 			//this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
-["minefieldAT",[]] call _fnc_saveToTemplate;
-["minefieldAPERS",[]] call _fnc_saveToTemplate;
+["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -81,11 +81,11 @@ _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
 _loadoutData set ["lightATLaunchers", [
-	["launch_RPG7_F", "", "", "", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""],
-	["launch_RPG7_F", "", "", "", ["CUP_OG7_M", "CUP_PG7VL_M"], [], ""],
-	["launch_RPG7_F", "", "", "", ["CUP_OG7_M", "CUP_PG7VM_M"], [], ""],
-	["launch_RPG7_F", "", "", "", ["CUP_OG7_M", "RPG7_F"], [], ""],
-	["launch_RPG7_F", "", "", "", ["CUP_OG7_M", "CUP_PG7VR_M"], [], ""]
+	["CUP_launch_RPG7V", "", "", "cup_optic_pgo7v3", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""],
+	["CUP_launch_RPG7V", "", "", "cup_optic_pgo7v3", ["CUP_OG7_M", "CUP_PG7VL_M"], [], ""],
+	["CUP_launch_RPG7V", "", "", "cup_optic_pgo7v3", ["CUP_OG7_M", "CUP_PG7VM_M"], [], ""],
+	["CUP_launch_RPG7V", "", "", "cup_optic_pgo7v3", ["CUP_OG7_M", "RPG7_F"], [], ""],
+	["CUP_launch_RPG7V", "", "", "cup_optic_pgo7v3", ["CUP_OG7_M", "CUP_PG7VR_M"], [], ""]
 ]];
 _loadoutData set ["ATLaunchers", []];
 _loadoutData set ["missileATLaunchers", []];

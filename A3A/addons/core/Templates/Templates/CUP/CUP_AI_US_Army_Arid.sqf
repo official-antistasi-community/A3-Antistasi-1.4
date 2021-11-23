@@ -321,7 +321,7 @@ _policeLoadoutData set ["SMGs", [
 	["CUP_smg_MP5A5","","","CUP_optic_Eotech553_Coyote",["CUP_30Rnd_Red_Tracer_9x19_MP5"],[],""]
 ]];
 _policeLoadoutData set ["sidearms", [
-	["CUP_hgun_Colt1911","","","",["CUP_7Rnd_45ACP_1911",7],[],""]
+	["CUP_hgun_Colt1911","","","",["CUP_7Rnd_45ACP_1911"],[],""]
 ]];
 
 ////////////////////////////////

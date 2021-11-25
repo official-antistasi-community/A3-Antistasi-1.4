@@ -80,7 +80,7 @@ _loadoutData set ["sniperRifles", []];
 _loadoutData set ["lightATLaunchers", [
 	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEDP_M", "MRAWS_HEAT55_F"], [], ""]
+	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
 ]];
 _loadoutData set ["ATLaunchers", ["CUP_launch_M47"]];
 _loadoutData set ["missileATLaunchers", [

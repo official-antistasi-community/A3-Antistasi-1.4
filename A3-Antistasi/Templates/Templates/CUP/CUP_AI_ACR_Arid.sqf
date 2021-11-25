@@ -25,11 +25,11 @@
 ["vehiclesFuelTrucks",["CUP_B_T810_Refuel_CZ_DES"]] call _fnc_saveToTemplate;
 ["vehiclesMedical",["CUP_B_LR_Ambulance_CZ_D","CUP_B_BMP2_AMB_CZ_Des"]] call _fnc_saveToTemplate;
 
-["vehiclesAPCs",["CUP_B_BRDM2_CZ_Des","CUP_B_BRDM2_HQ_CZ_Des"]] call _fnc_saveToTemplate;
+["vehiclesAPCs",["CUP_B_BRDM2_CZ_Des","CUP_B_BRDM2_HQ_CZ_Des","CUP_B_BMP2_CZ_Des"]] call _fnc_saveToTemplate;
 ["vehiclesTanks",["CUP_B_T72_CZ"]] call _fnc_saveToTemplate;
 ["vehiclesAA",["CUP_B_nM1097_AVENGER_USA_DES"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs",[]] call _fnc_saveToTemplate;
-["vehiclesIFVs",["CUP_B_BMP2_CZ_Des"]] call _fnc_saveToTemplate;
+["vehiclesIFVs",[]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats",["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats",["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -85,7 +85,7 @@ _loadoutData set ["lightATLaunchers", [
 	["CUP_launch_RPG7V", "", "", "cup_optic_pgo7v3", ["CUP_OG7_M", "CUP_PG7VR_M"], [], ""],
 	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEDP_M", "MRAWS_HEAT55_F"], [], ""]
+	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
 ]];
 _loadoutData set ["ATLaunchers", []];
 _loadoutData set ["missileATLaunchers", [

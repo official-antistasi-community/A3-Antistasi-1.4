@@ -24,11 +24,11 @@
 ["vehiclesFuelTrucks",["CUP_B_MTVR_Refuel_USA"]] call _fnc_saveToTemplate;
 ["vehiclesMedical",["CUP_B_nM997_DF_USA_WDL","CUP_B_nM997_USA_WDL","CUP_B_M1133_MEV_Woodland"]] call _fnc_saveToTemplate;
 
-["vehiclesAPCs",["CUP_B_M1126_ICV_M2_Woodland","CUP_B_M1126_ICV_MK19_Woodland","CUP_B_M1128_MGS_Woodland","CUP_B_M1130_CV_M2_Woodland","CUP_B_M1135_ATGMV_Woodland","CUP_B_M1129_MC_MK19_Woodland"]] call _fnc_saveToTemplate;
+["vehiclesAPCs",["CUP_B_M6LineBacker_USA_W","CUP_B_M7Bradley_USA_W","CUP_B_M2A3Bradley_USA_W","CUP_B_M2Bradley_USA_W","CUP_B_M1126_ICV_M2_Woodland","CUP_B_M1126_ICV_MK19_Woodland","CUP_B_M1128_MGS_Woodland","CUP_B_M1130_CV_M2_Woodland","CUP_B_M1135_ATGMV_Woodland","CUP_B_M1129_MC_MK19_Woodland"]] call _fnc_saveToTemplate;
 ["vehiclesTanks",["CUP_B_M1A2C_TUSK_Woodland_US_Army","CUP_B_M1A2C_TUSK_II_Woodland_US_Army","CUP_B_M1A2C_Woodland_US_Army","CUP_B_M1A2SEP_TUSK_Woodland_US_Army","CUP_B_M1A2SEP_TUSK_II_Woodland_US_Army","CUP_B_M1A2SEP_Woodland_US_Army","CUP_B_M1A1SA_TUSK_Woodland_US_Army","CUP_B_M1A1SA_Woodland_US_Army"]] call _fnc_saveToTemplate;
 ["vehiclesAA",["CUP_B_nM1097_AVENGER_USA_WDL"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs",[]] call _fnc_saveToTemplate;
-["vehiclesIFVs",["CUP_B_M6LineBacker_USA_W","CUP_B_M7Bradley_USA_W","CUP_B_M2A3Bradley_USA_W","CUP_B_M2Bradley_USA_W"]] call _fnc_saveToTemplate;
+["vehiclesIFVs",[]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats",["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats",["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;

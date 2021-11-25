@@ -25,11 +25,11 @@
 ["vehiclesFuelTrucks",["CUP_B_Kamaz_Refuel_CDF","CUP_B_Ural_Refuel_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesMedical",["CUP_B_S1203_Ambulance_CDF","CUP_B_BMP2_AMB_CDF"]] call _fnc_saveToTemplate;
 
-["vehiclesAPCs",["CUP_B_BRDM2_CDF","CUP_B_BRDM2_ATGM_CDF","CUP_B_BRDM2_HQ_CDF","CUP_B_BTR60_CDF","CUP_B_BTR80_CDF","CUP_B_BTR80A_CDF","CUP_B_MTLB_pk_CDF"]] call _fnc_saveToTemplate;
+["vehiclesAPCs",["CUP_B_BRDM2_CDF","CUP_B_BRDM2_ATGM_CDF","CUP_B_BRDM2_HQ_CDF","CUP_B_BTR60_CDF","CUP_B_BTR80_CDF","CUP_B_BTR80A_CDF","CUP_B_MTLB_pk_CDF","CUP_B_BMP2_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesTanks",["CUP_B_T72_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesAA",["CUP_B_ZSU23_CDF","CUP_B_ZSU23_Afghan_CDF","CUP_B_Ural_ZU23_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs",[]] call _fnc_saveToTemplate;
-["vehiclesIFVs",["CUP_B_BMP2_CDF","CUP_B_BMP_HQ_CDF"]] call _fnc_saveToTemplate;
+["vehiclesIFVs",[]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats",["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats",["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;

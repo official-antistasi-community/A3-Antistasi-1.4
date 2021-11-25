@@ -25,11 +25,11 @@
 ["vehiclesFuelTrucks",["CUP_B_MTVR_Refuel_USA"]] call _fnc_saveToTemplate;
 ["vehiclesMedical",["CUP_B_nM997_DF_USA_DES","CUP_B_nM997_USA_DES","CUP_B_M1133_MEV_Desert"]] call _fnc_saveToTemplate;
 
-["vehiclesAPCs",["CUP_B_M1126_ICV_M2_Desert","CUP_B_M1126_ICV_MK19_Desert","CUP_B_M1128_MGS_Desert","CUP_B_M1130_CV_M2_Desert","CUP_B_M1135_ATGMV_Desert","CUP_B_M1129_MC_MK19_Desert"]] call _fnc_saveToTemplate;
+["vehiclesAPCs",["CUP_B_M2Bradley_USA_D","CUP_B_M2A3Bradley_USA_D","CUP_B_M7Bradley_USA_D","CUP_B_M6LineBacker_USA_D","CUP_B_M1126_ICV_M2_Desert","CUP_B_M1126_ICV_MK19_Desert","CUP_B_M1128_MGS_Desert","CUP_B_M1130_CV_M2_Desert","CUP_B_M1135_ATGMV_Desert","CUP_B_M1129_MC_MK19_Desert"]] call _fnc_saveToTemplate;
 ["vehiclesTanks",["CUP_B_M1A1SA_Desert_US_Army","CUP_B_M1A1SA_Desert_TUSK_US_Army","CUP_B_M1A2SEP_Desert_US_Army","CUP_B_M1A2SEP_TUSK_II_Desert_US_Army","CUP_B_M1A2SEP_TUSK_Desert_US_Army","CUP_B_M1A2C_Desert_US_Army","CUP_B_M1A2C_TUSK_II_Desert_US_Army","CUP_B_M1A2C_TUSK_Desert_US_Army"]] call _fnc_saveToTemplate;
 ["vehiclesAA",["CUP_B_nM1097_AVENGER_USA_DES"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs",[]] call _fnc_saveToTemplate;
-["vehiclesIFVs",["CUP_B_M2Bradley_USA_D","CUP_B_M2A3Bradley_USA_D","CUP_B_M7Bradley_USA_D","CUP_B_M6LineBacker_USA_D"]] call _fnc_saveToTemplate;
+["vehiclesIFVs",[]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats",["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats",["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;

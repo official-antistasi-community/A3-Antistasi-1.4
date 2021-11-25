@@ -25,11 +25,11 @@
 ["vehiclesFuelTrucks",["CUP_B_T810_Refuel_CZ_WDL"]] call _fnc_saveToTemplate;
 ["vehiclesMedical",["CUP_B_LR_Ambulance_CZ_W","CUP_B_BMP2_AMB_CZ"]] call _fnc_saveToTemplate;
 
-["vehiclesAPCs",["CUP_B_BRDM2_HQ_CZ","CUP_B_BRDM2_CZ"]] call _fnc_saveToTemplate;
+["vehiclesAPCs",["CUP_B_BRDM2_HQ_CZ","CUP_B_BRDM2_CZ","CUP_B_BMP2_CZ"]] call _fnc_saveToTemplate;
 ["vehiclesTanks",["CUP_B_T72_CZ"]] call _fnc_saveToTemplate;
 ["vehiclesAA",["CUP_B_nM1097_AVENGER_USA_WDL"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs",[]] call _fnc_saveToTemplate;
-["vehiclesIFVs",["CUP_B_BMP2_CZ"]] call _fnc_saveToTemplate;
+["vehiclesIFVs",[]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats",["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats",["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;

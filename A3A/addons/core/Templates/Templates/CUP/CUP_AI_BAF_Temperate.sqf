@@ -25,11 +25,11 @@
 ["vehiclesFuelTrucks",["CUP_B_MTVR_Refuel_BAF_WOOD"]] call _fnc_saveToTemplate;
 ["vehiclesMedical",["CUP_B_LR_Ambulance_GB_W"]] call _fnc_saveToTemplate;
 
-["vehiclesAPCs",["CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV432_Bulldog_GB_W"]] call _fnc_saveToTemplate;
+["vehiclesAPCs",["CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV432_Bulldog_GB_W","CUP_B_FV510_GB_W_SLAT","CUP_B_FV510_GB_W","CUP_B_MCV80_GB_W_SLAT","CUP_B_MCV80_GB_W"]] call _fnc_saveToTemplate;
 ["vehiclesTanks",["CUP_B_Challenger2_Woodland_BAF"]] call _fnc_saveToTemplate;
 ["vehiclesAA",["B_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs",[]] call _fnc_saveToTemplate;
-["vehiclesIFVs",["CUP_B_FV510_GB_W_SLAT","CUP_B_FV510_GB_W","CUP_B_MCV80_GB_W_SLAT","CUP_B_MCV80_GB_W"]] call _fnc_saveToTemplate;
+["vehiclesIFVs",[]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats",["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats",["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;

@@ -52,9 +52,9 @@
 ["uavsAttack",[]] call _fnc_saveToTemplate;
 ["uavsPortable",[]] call _fnc_saveToTemplate;
 
-["vehiclesMilitiaLightArmed",["CUP_B_UAZ_MG_CDF"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks",["CUP_B_Ural_CDF"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars",["CUP_B_UAZ_Open_CDF"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed",["CUP_B_UAZ_MG_ACR"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks",["CUP_B_T810_Unarmed_CZ_WDL"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars",["CUP_B_LR_Transport_CZ_W"]] call _fnc_saveToTemplate;
 ["vehiclesPolice",["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 
 ["staticMGs",["CUP_B_DSHKM_CDF"]] call _fnc_saveToTemplate;

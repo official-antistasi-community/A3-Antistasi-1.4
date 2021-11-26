@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_group", "_vehicle", "_preference"];
 
 /*  Checks if the given group matches the given vehicle and preference
@@ -14,10 +16,10 @@ private ["_result", "_vehicleSeats"];
 _result = false;
 
 //Tanks are always combined with an AT team
-if(_vehicle == "LAND_TANK") exitWith {(_group == groupsNATOAT || {_group == groupsCSATAT})};
+if(_vehicle == "LAND_TANK") exitWith {_group == FactionGet(occ,"groupAT") || _group == FactionGet(inv,"groupAT")};
 
 //AA is always combined with an AA team
-if(_vehicle == "LAND_AIR") exitWith {(_group == groupsNATOAA || {_group == groupsCSATAA})};
+if(_vehicle == "LAND_AIR") exitWith {_group == FactionGet(occ,"groupAA") || _group == FactionGet(inv,"groupAA")};
 
 //Check group size to determine
 if(_preference == "SQUAD") then

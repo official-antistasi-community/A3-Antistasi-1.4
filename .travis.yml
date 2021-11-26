@@ -3,6 +3,7 @@ branches:
   only:
     - master
     - unstable
+    - bugfix
 python: "3.6"
 install:
   - pip3 install sqflint

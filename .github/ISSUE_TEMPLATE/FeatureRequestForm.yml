@@ -1,0 +1,33 @@
+name: Feature Request
+description: Request a feature addition
+title: "[Feature Request]: "
+labels: [Suggestion, enhancement, triage]
+body:
+  - type: textarea
+    id: related-problem
+    attributes:
+      label: Related problem
+      description: If the request is related to a problem, please describe how.
+    validations:
+      required: true
+  - type: textarea
+    id: feature
+    attributes:
+      label: Proposed feature
+      description: Describe the feature and how it would solve the problem. (if any)
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative solutions
+      description: Have you considered any alternatives to solve the problem?
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any additional context about the requested feature here.
+    validations:
+      required: false

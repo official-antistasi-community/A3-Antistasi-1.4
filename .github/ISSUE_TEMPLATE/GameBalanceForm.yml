@@ -1,0 +1,33 @@
+name: Game balance
+description: Suggest changes to the balance of the mission.
+title: "[Game balance]: "
+labels: [Suggestion, Balance, triage]
+body:
+  - type: textarea
+    id: imbalance
+    attributes:
+      label: What is wrong with the balance currently?
+      description: Describe what in your opinion is wrong with the current balance of the mission.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like.
+      description: A clear and concise description of how you'd like us to correct the balance.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative solutions
+      description: Have you considered any alternatives to improve balance?
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any additional context about the balance issue here.
+    validations:
+      required: false

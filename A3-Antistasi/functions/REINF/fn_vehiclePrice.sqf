@@ -1,12 +1,13 @@
-private ["_typeX","_costs"];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
-_typeX = _this select 0;
+params ["_typeX"];
 
-_costs = server getVariable _typeX;
+private _costs = server getVariable _typeX;
 
 if (isNil "_costs") then
 	{
-	diag_log format ["%1: [Antistasi] | ERROR | vehiclePrice.sqf | Invalid vehicle price :%2.",servertime,_typeX];
+        Error_1("Invalid vehicle price :%1.", _typeX);
 	_costs = 0;
 	}
 else

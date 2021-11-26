@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 if(!isServer && hasInterface) exitWith {};
 
 params ["_marker"];
@@ -14,11 +16,12 @@ _markerLength = (_markerSize select 0) max (_markerSize select 1);
 _isFrontline = [_marker] call A3A_fnc_isFrontline;
 
 _side = sidesX getVariable [_marker, sideUnknown];
+private _faction = Faction(_side);
 _isMilitia = false;
 
 if(_side == sideUnknown) exitWith
 {
-  diag_log format ["CreateAISide: Could not get side of %1", _marker];
+    Error_1("Could not get side of %1", _marker);
 };
 
 //Check if the outpost is hold by militia
@@ -36,13 +39,13 @@ _patrolMarkerSize = [0,0];
 if(_isFrontline || _isMilitia) then
 {
   //Cannot risk to spread to thin, stay close
-  diag_log format ["Decided smaller radius for patrol, due to %1!",if(_isFrontline) then {if(_isMilitia) then {"both"} else {"frontline"};} else {"militia"}];
+  Debug_1("Decided smaller radius for patrol, due to %1!", if(_isFrontline) then {if(_isMilitia) then {"frontline and militia"} else {"frontline"};} else {"militia"});
   _patrolMarkerSize = [(distanceSPWN/8), (distanceSPWN/8)];
 }
 else
 {
   //Full patrol way, not so extrem like in the original
-  diag_log "Decided larger radius for patrol!";
+  Debug("Decided larger radius for patrol!");
   _patrolMarkerSize = [(distanceSPWN/4), (distanceSPWN/4)];
 };
 
@@ -64,7 +67,7 @@ if(!debug) then
   _patrolMarker setMarkerAlphaLocal 0;
 };
 
-_typeFlag = if (_side == Occupants) then {NATOFlag} else {CSATFlag};
+_typeFlag = _faction get "flag";
 _flag = createVehicle [_typeFlag, _markerPos, [], 0, "NONE"];
 _flag allowDamage false;
 [_flag,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flag];
@@ -72,25 +75,11 @@ _flag allowDamage false;
 _box = objNull;
 if(_marker in airportsX || {_marker in seaports || {_marker in outposts}}) then
 {
-  if (_side == Occupants) then
-  {
-  	_box = NATOAmmoBox createVehicle _markerPos;
-    [_box] spawn A3A_fnc_NATOcrate;
-  }
-  else
-  {
-  	_box = CSATAmmoBox createVehicle _markerPos;
-    [_box] spawn A3A_fnc_CSATcrate;
-  };
-  _box call jn_fnc_logistics_addAction;
-
-  if (_marker in seaports) then
-  {
-  	_box addItemCargo ["V_RebreatherIA", round (random 5)];
-  	_box addItemCargo ["G_I_Diving", round (random 5)];
-  };
+    _box = [_faction get "ammobox", _markerPos, 15, 5, true] call A3A_fnc_safeVehicleSpawn;
+    [_box] spawn A3A_fnc_fillLootCrate;
+    [_box] call A3A_fnc_logistics_addLoadAction;
 };
 
 [_marker, _patrolMarker, _flag, _box] call A3A_fnc_cycleSpawn;
 
-diag_log "Marker spawn prepared!";
+Debug("Marker spawn prepared!");

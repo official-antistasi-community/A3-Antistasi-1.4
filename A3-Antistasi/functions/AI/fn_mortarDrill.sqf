@@ -3,6 +3,7 @@ private ["_morty","_helperX"];
 {if (_x getVariable ["typeOfSoldier",""] == "StaticMortar") then {_morty = _x} else {_helperX = _x}} forEach _this;
 
 private _groupX = group _morty;
+private _faction = Faction(side _groupX);
 while {true} do
 	{
 	_enemyX = _groupX call A3A_fnc_nearEnemy;
@@ -12,7 +13,7 @@ while {true} do
 	sleep 30;
 	};
 if ((!alive _morty) or (!alive _helperX)) exitWith {};
-private _typeVehX = if (side _morty == Occupants) then {NATOMortar} else {CSATMortar};
+private _typeVehX = selectRandom (_faction get "staticMortars"); //this should use the bacpack assembleInfo to get static class
 private _pos = [];
 while {true} do
 	{
@@ -64,7 +65,7 @@ _groupX addVehicle _mortarX;
 _morty assignAsGunner _mortarX;
 [_morty] orderGetIn true;
 [_morty] allowGetIn true;
-_nul = [_mortarX] call A3A_fnc_AIVEHinit;
+[_mortarX, side _groupX] call A3A_fnc_AIVEHinit;
 _movable = _groupX getVariable ["movable",[]];
 _movable pushBack _helperX;
 _groupX setVariable ["movable",_movable];

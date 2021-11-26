@@ -1,24 +1,26 @@
+#include "..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //if (!isServer) exitWith{};
 
-if (player != leader group player) exitWith {hint "You cannot dismiss anyone if you are not the squad leader"};
+if (player != leader group player) exitWith {["Dismiss Group", "You cannot dismiss anyone if you are not the squad leader."] call A3A_fnc_customHint;};
 
 private ["_units","_hr","_resourcesFIA","_unit","_newGroup"];
 
 _units = _this select 0;
 _units = _units - [player];
-_units = _units select {!(isPlayer _x)};
+_units = _units select { !(isPlayer _x) && { !(_x == petros) } };
 if (_units isEqualTo []) exitWith {};
-if (_units findIf {!([_x] call A3A_fnc_canFight)} != -1) exitWith {hint "You cannot disband supressed, undercover or unconscious units"};
+if (_units findIf {!([_x] call A3A_fnc_canFight)} != -1) exitWith {["Dismiss Group", "You cannot disband suppressed, undercover or unconscious units."] call A3A_fnc_customHint;};
 player globalChat "Get out of my sight you useless scum!";
 
 _newGroup = createGroup teamPlayer;
 //if ({isPlayer _x} count units group player == 1) then {_ai = true; _newGroup = createGroup teamPlayer};
 
 {
-if (typeOf _x != SDKUnarmed) then
+if ((_x getVariable "unitType") != FactionGet(reb,"unitUnarmed")) then
 	{
 	[_x] join _newGroup;
-	if !(hasIFA) then {arrayids = arrayids + [name _x]};
+	if !(A3A_hasIFA) then {arrayids = arrayids + [name _x]};
 	};
 } forEach _units;
 
@@ -42,7 +44,7 @@ _weaponsX = [];
 {_unit = _x;
 if ([_unit] call A3A_fnc_canFight) then
 	{
-	_resourcesFIA = _resourcesFIA + (server getVariable (typeOf _unit));
+	_resourcesFIA = _resourcesFIA + (server getVariable (_unit getVariable "unitType"));
 	_hr = _hr +1;
 	{if (not(([_x] call BIS_fnc_baseWeapon) in unlockedWeapons)) then {_weaponsX pushBack ([_x] call BIS_fnc_baseWeapon)}} forEach weapons _unit;
 	{if (not(_x in unlockedMagazines)) then {_ammunition pushBack _x}} forEach magazines _unit;
@@ -55,5 +57,3 @@ if (!isMultiplayer) then {_nul = [_hr,_resourcesFIA] remoteExec ["A3A_fnc_resour
 {boxX addMagazineCargoGlobal [_x,1]} forEach _ammunition;
 {boxX addItemCargoGlobal [_x,1]} forEach _items;
 deleteGroup _newGroup;
-
-

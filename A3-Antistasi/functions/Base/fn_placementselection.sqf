@@ -1,10 +1,11 @@
-private _fileName = "fn_placementSelection.sqf";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 scriptName "fn_placementSelection.sqf";
 private _newGame = isNil "placementDone";
 private _disabledPlayerDamage = false;
 
 if (_newGame) then {
-	[2,"New session selected",_fileName] call A3A_fnc_log;
+    Info("New session selected");
 	"Initial HQ Placement Selection" hintC ["Click on the Map Position you want to start the Game.","Close the map with M to start in the default position.","Don't select areas with enemies nearby!!\n\nGame experience changes a lot on different starting positions."];
 } else {
 	player allowDamage false;
@@ -48,30 +49,35 @@ while {_positionIsInvalid} do {
 	onMapSingleClick "positionClickedDuringHQPlacement = _pos;";
 	waitUntil {sleep 1; (count positionClickedDuringHQPlacement > 0) or (not visiblemap)};
 	onMapSingleClick "";
-	
+
 	//If they quit the map, keep HQ where it is.
 	if (not visiblemap) exitWith {};
-	
+
 	//Assume the position chosen is valid.
 	_positionIsInvalid = false;
-	
+
 	_positionClicked = positionClickedDuringHQPlacement;
 	_markerX = [_markersX,_positionClicked] call BIS_fnc_nearestPosition;
-	
+
 	if (getMarkerPos _markerX distance _positionClicked < 500) then {
-		hint "Place selected is very close to enemy zones.\n\n Please select another position";
+		["HQ Position", "Place selected is very close to enemy zones.<br/><br/> Please select another position."] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
-	
+
 	if (!_positionIsInvalid && {surfaceIsWater _positionClicked}) then {
-		hint "Selected position cannot be in water";
+		["HQ Position", "Selected position cannot be in water."] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
-	
+
+	if (!_positionIsInvalid && (_positionClicked findIf { (_x < 0) || (_x > worldSize)} != -1)) then {
+		["HQ Position", "Selected position cannot be outside the map."] call A3A_fnc_customHint;
+		_positionIsInvalid = true;
+	};
+
 	if (!_positionIsInvalid && !_newGame) then {
 		//Invalid if enemies nearby
 		_positionIsInvalid = (allUnits findIf {(side _x == Occupants || side _x == Invaders) && {_x distance _positionClicked < 500}}) > -1;
-		if (_positionIsInvalid) then {hint "There are enemies in the surroundings of that area, please select another.";};
+		if (_positionIsInvalid) then {["HQ Position", "There are enemies in the surroundings of that area, please select another."] call A3A_fnc_customHint;};
 	};
 	sleep 0.1;
 };

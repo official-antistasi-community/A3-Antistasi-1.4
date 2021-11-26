@@ -1,29 +1,33 @@
 if (!isServer and hasInterface) exitWith{};
 
 private ["_mrkOrigin","_pos","_attackingSide","_countX","_mrkDestination","_veh","_posOrigin","_sideTargets","_posDestination","_typeVehX","_typeAmmunition","_size","_vehicle","_vehCrew","_groupVeh","_roundsX","_objectiveX","_objectivesX","_timeX"];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 _mrkOrigin = _this select 0;
 _posOrigin = if (_mrkOrigin isEqualType "") then {getMarkerPos _mrkOrigin} else {_mrkOrigin};
 _mrkDestination = _this select 1;
 _attackingSide = _this select 2;
+private _faction = Faction(_attackingSide);
 _sideTargets = _attackingSide call BIS_fnc_enemySides;
 _posDestination = getMarkerPos _mrkDestination;
-_typeVehX = if (_attackingSide == Occupants) then {vehNATOMRLS} else {vehCSATMRLS};
+_typeVehX = (_faction get "vehiclesArtillery");
 
 if !([_typeVehX] call A3A_fnc_vehAvailable) exitWith {};
 
-_typeAmmunition = if (_attackingSide == Occupants) then {vehNATOMRLSMags} else {vehCSATMRLSMags};
+_typeAmmunition = ((_faction get "magazines") get _typeVehX) #0;
 
 _pos = [_posOrigin, 50,100, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
 
-_vehicle=[_pos, random 360,_typeVehX, _attackingSide] call bis_fnc_spawnvehicle;
+_vehicle=[_pos, random 360,_typeVehX, _attackingSide] call A3A_fnc_spawnVehicle;
 _veh = _vehicle select 0;
 _vehCrew = _vehicle select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
-[_veh] call A3A_fnc_AIVEHinit;
+[_veh, _attackingSide] call A3A_fnc_AIVEHinit;
 _groupVeh = _vehicle select 2;
 _size = [_mrkDestination] call A3A_fnc_sizeMarker;
 
+if (!alive _veh) exitWith {Error("Arty piece destroyed on spawn, fire mission canceled")};
 if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) select 0)]) then
 	{
 	while {(alive _veh) and ({_x select 0 == _typeAmmunition} count magazinesAmmo _veh > 0) and (_mrkDestination in forcedSpawn)} do
@@ -34,7 +38,7 @@ if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) selec
 		if (count _objectivesX > 0) then
 			{
 			{
-			if (typeOf _x in vehAttack) exitWith {_objectiveX = _x; _roundsX = 4};
+			if (typeOf _x in FactionGet(all,"vehiclesAttack")) exitWith {_objectiveX = _x; _roundsX = 4};
 			} forEach _objectivesX;
 			if (isNull _objectiveX) then {_objectiveX = selectRandom _objectivesX};
 			}
@@ -72,12 +76,5 @@ if (_posDestination inRangeOfArtillery [[_veh], ((getArtilleryAmmo [_veh]) selec
 		};
 	};
 
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _veh};
-
-{
-_veh = _x;
-waitUntil {sleep 1; !([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)};
-deleteVehicle _veh;
-} forEach _vehCrew;
-
-deleteGroup _groupVeh;
+[_groupVeh] spawn A3A_fnc_groupDespawner;
+[_veh] spawn A3A_fnc_vehDespawner;

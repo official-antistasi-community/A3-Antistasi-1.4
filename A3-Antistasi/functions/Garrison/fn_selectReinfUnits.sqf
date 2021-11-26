@@ -9,13 +9,13 @@ params ["_base", "_target", ["_isAir", false], ["_bypass", false]];
 *   Returns:
 *     _unitsSend : ARRAY : The units in the correct format
 */
-
-private _fileName = "fn_selectReinfUnits";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 private _maxUnitSend = garrison getVariable [format ["%1_recruit", _base], 0];
 if(_maxUnitSend < 3 && {!_bypass}) exitWith
 {
-    diag_log "Can't select units with less than 3 slots, would be an vehicle only with crew!";
+    Debug("Can't select units with less than 3 slots, would be an vehicle only with crew!");
     [];
 };
 
@@ -24,19 +24,15 @@ private _unitsSend = [];
 //Hard copy, need to work on this
 private _reinf = +([_target] call A3A_fnc_getRequested);
 private _side = sidesX getVariable [_base, sideUnknown];
+private _faction = Faction(_side);
 
 private _maxRequested = [_reinf, false] call A3A_fnc_countGarrison;
 private _maxVehiclesNeeded = _maxRequested select 0;
 private _maxCargoSpaceNeeded = _maxRequested select 2;
 private _currentUnitCount = 0;
 
-[
-    3,
-    format ["Gathered data for unit selection, available are %1, %3 cargo units needed", _maxUnitSend, _maxCargoSpaceNeeded],
-    _fileName
-] call A3A_fnc_log;
-[_reinf, "Reinforcement"] call A3A_fnc_logArray;
-
+Verbose_2("Gathered data for unit selection, available are %1, %2 cargo units needed", _maxUnitSend, _maxCargoSpaceNeeded);
+Verbose_2("Reinforcments requested from %1 for: %2", _target, _reinf);
 
 private _finishedSelection = false;
 
@@ -81,7 +77,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
         }
         else
         {
-            [1, format ["Tried to delete reinf vehicle, but couldn't find it after selection, vehicle was %1!", _currentSelected], _fileName] call A3A_fnc_log;
+            Error_1("Tried to delete reinf vehicle, but couldn't find it after selection, vehicle was %1!", _currentSelected);
         };
     };
 
@@ -94,44 +90,44 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
 
         if(_neededCargoSpace == 0) then
         {
-            [1, "_neededCargoSpace is 0, something went really wrong!", _fileName] call A3A_fnc_log;
+            Error("_neededCargoSpace is 0, something went really wrong!");
         }
         else
         {
-            [3, format ["No reinf vehicle found, selecting not needed transport vehicle, needs space for %1 passengers", _neededCargoSpace], _fileName] call A3A_fnc_log;
+            Verbose_1("No reinf vehicle found, selecting not needed transport vehicle, needs space for %1 passengers", _neededCargoSpace);
             if (_isAir) then
             {
                 if (_neededCargoSpace <= 4) then
                 {
-                    _currentSelected = if (_side ==	Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli};
+                    _currentSelected = selectRandom (_faction get "vehiclesHelisLight");
                 }
                 else
                 {
-                    _currentSelected = if (_side ==	Occupants) then {selectRandom vehNATOTransportHelis} else {selectRandom vehCSATTransportHelis};
+                    _currentSelected = selectRandom ((_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport"));
                 };
-                [3, format ["Selected %1 as an air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
+                Verbose_1("Selected %1 as an air transport vehicle", _currentSelected);
             }
             else
             {
                 if(_neededCargoSpace == 1) then
                 {
                     //Vehicle, crew and one person, selecting quad
-                    _currentSelected = if(_side == Occupants) then {vehNATOBike} else {vehCSATBike};
+                    _currentSelected = selectRandom (_faction get "vehiclesBasic");
                 }
                 else
                 {
                     if(_neededCargoSpace <= 5) then
                     {
                         //Select light unarmed vehicle (as the armed uses three crew)
-                        _currentSelected = if(_side == Occupants) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};
+                        _currentSelected = selectRandom (_faction get "vehiclesLightUnarmed");
                     }
                     else
                     {
                         //Select random truck or helicopter
-                        _currentSelected = if(_side == Occupants) then {selectRandom (vehNATOTrucks + vehNATOTransportHelis)} else {selectRandom (vehCSATTrucks + vehCSATTransportHelis)};
+                        _currentSelected = selectRandom ((_faction get "vehiclesLightUnarmed") + (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport"));
                     };
                 };
-                [3, format ["Selected %1 as an ground or air transport vehicle", _currentSelected], _fileName] call A3A_fnc_log;
+                Verbose_1("Selected %1 as an ground or air transport vehicle", _currentSelected);
             };
             _seatCount = [_currentSelected, true] call BIS_fnc_crewCount;
             _crewSeats = [_currentSelected, false] call BIS_fnc_crewCount;
@@ -141,7 +137,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
     if(_currentSelected != "") then
     {
         //Assigning crew
-        private _crewMember = if(_side == Occupants) then {NATOCrew} else {CSATCrew};
+        private _crewMember = _faction get "unitCrew";
         private _crew = [_currentSelected, _crewMember] call A3A_fnc_getVehicleCrew;
         _currentUnitCount = _currentUnitCount + 1 + _crewSeats;
 
@@ -177,7 +173,7 @@ while {_currentUnitCount < (_maxUnitSend - 2) && {_maxCargoSpaceNeeded+_maxVehic
             if(_abort) exitWith {};
         };
         _unitsSend pushBack [_currentSelected, _crew, _cargo];
-        [3, format ["Units selected, crew is %1, cargo is %2", _crew, _cargo], _fileName] call A3A_fnc_log;
+        Debug_3("Units selected, Vehicle is %1, crew is %2, cargo is %3", _currentSelected, _crew, _cargo);
     }
     else
     {

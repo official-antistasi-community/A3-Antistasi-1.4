@@ -1,3 +1,5 @@
+#include "..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //if (!isServer) exitWith{};
 private ["_groups","_hr","_resourcesFIA","_wp","_groupX","_veh","_leave"];
 
@@ -5,17 +7,21 @@ _groups = _this select 0;
 _hr = 0;
 _resourcesFIA = 0;
 _leave = false;
+
 {
-if ((groupID _x == "MineF") or (groupID _x == "Watch") or (isPlayer(leader _x))) then {_leave = true};
+	if ((groupID _x) in ["MineF", "Watch"]
+		|| { isPlayer (leader _x)
+		|| { (units _x) findIf { _x == petros } != -1 }})
+	exitWith { _leave = true; };
 } forEach _groups;
 
-if (_leave) exitWith {hint "You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads"};
+if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads."] call A3A_fnc_customHint;};
 
 {
 if (_x getVariable ["esNATO",false]) then {_leave = true};
 } forEach _groups;
 
-if (_leave) exitWith {hint "You cannot dismiss NATO groups"};
+if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss NATO groups."] call A3A_fnc_customHint;};
 
 _pos = getMarkerPos respawnTeamPlayer;
 
@@ -37,20 +43,21 @@ private _assignedVehicles =	[];
 		if (alive _x) then
 		{
 			_hr = _hr + 1;
-			_resourcesFIA = _resourcesFIA + (server getVariable [typeOf _x,0]);
-			if (!isNull (assignedVehicle _x)) then
+			_resourcesFIA = _resourcesFIA + (server getVariable [_x getVariable "unitType",0]);
+			if (!isNull (assignedVehicle _x) and {isNull attachedTo (assignedVehicle _x)}) then
 			{
 				_assignedVehicles pushBackUnique (assignedVehicle _x);
 			};
 			_backpck = backpack _x;
 			if (_backpck != "") then
 			{
-				switch (_backpck) do
+                private _assemblesTo = getText (configFile/"CfgVehicles"/_backpck/"assembleInfo"/"assembleTo");
+				switch (_assemblesTo) do
 				{
-					case MortStaticSDKB: {_resourcesFIA = _resourcesFIA + ([SDKMortar] call A3A_fnc_vehiclePrice)};
-					case AAStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticAAteamPlayer] call A3A_fnc_vehiclePrice)};
-					case MGStaticSDKB: {_resourcesFIA = _resourcesFIA + ([SDKMGStatic] call A3A_fnc_vehiclePrice)};
-					case ATStaticSDKB: {_resourcesFIA = _resourcesFIA + ([staticATteamPlayer] call A3A_fnc_vehiclePrice)};
+					case FactionGet(reb,"staticMortar"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)/2};
+					case FactionGet(reb,"staticAA"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticAA")] call A3A_fnc_vehiclePrice)/2};
+					case FactionGet(reb,"staticMG"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticMG")] call A3A_fnc_vehiclePrice)/2};
+					case FactionGet(reb,"staticAT"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticAT")] call A3A_fnc_vehiclePrice)/2};
 				};
 			};
 		};
@@ -61,19 +68,14 @@ private _assignedVehicles =	[];
 
 {
 	private _veh = _x;
-	if ((typeOf _veh) in vehFIA) then
+	if !(typeOf _veh in FactionGet(all,"vehiclesReb")) then { continue };
+	_resourcesFIA = _resourcesFIA + ([typeOf _veh] call A3A_fnc_vehiclePrice);
 	{
-		_resourcesFIA = _resourcesFIA + ([(typeOf _veh)] call A3A_fnc_vehiclePrice);
-		if (count attachedObjects _veh > 0) then
-		{
-			_subVeh = (attachedObjects _veh) select 0;
-			_resourcesFIA = _resourcesFIA + ([(typeOf _subVeh)] call A3A_fnc_vehiclePrice);
-			deleteVehicle _subVeh;
-		};
-		deleteVehicle _veh;
-	};
+		if !(typeOf _x in FactionGet(all,"vehiclesReb")) then { continue };
+		_resourcesFIA = _resourcesFIA + ([typeOf _x] call A3A_fnc_vehiclePrice);
+		deleteVehicle _x;
+	} forEach attachedObjects _veh;
+	deleteVehicle _veh;
 } forEach _assignedVehicles;
 
 _nul = [_hr,_resourcesFIA] remoteExec ["A3A_fnc_resourcesFIA",2];
-
-

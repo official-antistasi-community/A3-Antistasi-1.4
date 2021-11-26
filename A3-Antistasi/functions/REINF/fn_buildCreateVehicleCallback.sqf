@@ -11,8 +11,9 @@ if (!_isPlayer) then
 }
 else
 {
-	build_time = build_time / 2;
-	hint "Walk to the selected position to start building";
+	A3A_build_time = A3A_build_time / 2;
+	if ("ToolKit" in items player) then { A3A_build_time = A3A_build_time  * .6; }; // if toolkit in invertory then 40% reduction in time.
+	["Build Info", "Walk to the selected position to start building"] call A3A_fnc_customHint;
 };
 
 build_targetLocation = _positionX;
@@ -28,10 +29,10 @@ addMissionEventHandler ["Draw3D", {
 
 waitUntil {sleep 1;(time > _timeOut) or (build_engineerSelected distance _positionX < 3)};
 
-if (time > _timeOut) exitWith 
+if (time > _timeOut) exitWith
 {
 	build_cancelBuild = true;
-	hint "You didn't move to the position, construction has timed out.";
+	["Build Info", "You didn't move to the position, construction has timed out."] call A3A_fnc_customHint;
 };
 
 build_atBuildLocation = true;
@@ -47,13 +48,12 @@ if (build_cost > 0) then
 	else
 		{
 		[-build_cost] call A3A_fnc_resourcesPlayer;
-		["moneyX",player getVariable ["moneyX",0]] call fn_SaveStat;
 		};
 	};
 
 build_engineerSelected setVariable ["constructing",true];
 
-_timeOut = time + build_time;
+_timeOut = time + A3A_build_time;
 
 if (!_isPlayer) then
 	{
@@ -80,11 +80,13 @@ waitUntil  {sleep 5; !([build_engineerSelected] call A3A_fnc_canFight) or (build
 build_engineerSelected setVariable ["constructing",false];
 if (!_isPlayer) then {{build_engineerSelected enableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"]};
 
-if (time <= _timeOut) exitWith {hint "Construction cancelled"};
+if (time <= _timeOut) exitWith {["Build Info", "Construction cancelled."] call A3A_fnc_customHint;};
 if (!_isPlayer) then {build_engineerSelected doFollow (leader build_engineerSelected)};
 
 private _veh = createVehicle [_structureType, _positionX, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
+//save performance by turning off simulations 
+_veh enableSimulationGlobal false;
 
 if ((build_type == "SB") or (build_type == "CB")) exitWith
 {
@@ -122,7 +124,7 @@ if (build_type == "RB") then
 
 build_nearestFriendlyMarker = nil;
 build_engineerSelected = nil;
-	
+
 while {alive _veh} do
 	{
 	if ((not([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) and (_veh distance getMarkerPos respawnTeamPlayer > 100)) then

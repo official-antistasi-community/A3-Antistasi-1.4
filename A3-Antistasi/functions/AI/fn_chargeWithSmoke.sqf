@@ -1,4 +1,4 @@
-private ["_unit","_muzzle","_enemy","_return"];
+private ["_unit","_helped","_muzzle","_enemy","_return"];
 
 _unit = _this select 0;
 if !([_unit] call A3A_fnc_canFight) exitWith {};

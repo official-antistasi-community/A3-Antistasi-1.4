@@ -1,0 +1,19 @@
+How to include finles:
+
+to include files use the preprocessor command "#include {filepath}"
+Example: #include "Includes\common.inc"
+FIX_LINE_NUMBERS()
+
+includes are folder relative, meening it paths from where the file using it is located.
+therefore if you want to include a file located in a higher folder u need to go up the folder tree.
+you can do this by usin "..\"
+
+Example: #include "..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+ will move up to the folder above, then in to the folder called "includes" then grabing the contents of the file "LogMacros.inc"
+ and putting it into the file in place of the preproccesor command.
+
+For general use in Functions/{Folder}/{File}
+using: #include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+would include the new logging macros for antistasi

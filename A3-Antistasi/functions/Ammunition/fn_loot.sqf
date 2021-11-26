@@ -1,7 +1,9 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //////////////////
 // Basic Items ///
 //////////////////
-lootBasicItem append allMaps + allToolkits + allWatches + allCompasses + allMedikits + allFirstAidKits;
+lootBasicItem append allMaps + allToolKits + allWatches + allCompasses + allMedikits + allFirstAidKits;
 
 /////////////////
 //    NVG'S   ///
@@ -11,7 +13,7 @@ lootNVG append allNVGs;
 /////////////////////
 // Assigned Items ///
 /////////////////////
-lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG;
+lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG + allGadgets;
 
 ////////////////////
 //    Weapons    ///
@@ -69,14 +71,15 @@ switch (teamPlayer) do {
      case independent: {_lootDeviceBag append rebelBackpackDevice};
      default {_lootDeviceBag append occupantBackpackDevice};
 };
-lootDevice append _lootDeviceBag;
+lootDevice append _lootDeviceBag + allBackpacksRadio;
 
 ////////////////////////////////////
 //      REBEL STARTING ITEMS     ///
 ////////////////////////////////////
 //KEEP AT BOTTOM!!!
-initialRebelEquipment append lootBasicItem;
-initialRebelEquipment append allRebelUniforms;
-initialRebelEquipment append allCivilianUniforms;
-initialRebelEquipment append allCivilianHeadgear;
-initialRebelEquipment append allCivilianGlasses;
+private _initialEquipment = FactionGet(reb,"initialRebelEquipment");
+_initialEquipment append lootBasicItem;
+_initialEquipment append (A3A_faction_reb get "uniforms");
+_initialEquipment append (A3A_faction_civ get "uniforms");
+_initialEquipment append allCosmeticHeadgear;
+_initialEquipment append allCosmeticGlasses;

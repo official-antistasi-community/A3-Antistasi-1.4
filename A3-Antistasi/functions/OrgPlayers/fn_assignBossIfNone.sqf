@@ -1,30 +1,23 @@
-// Dont' run if a Boss exists.
-private _filename = "fn_assignBossIfNone";
+if !(isServer) exitWith {};
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
-if (!isNil "theBoss" && {!isNull theBoss}) exitWith {
-	[3, format ["Not attempting to assign new boss - player %1 is the boss", theBoss],_filename] call A3A_fnc_log;
+// Don't run if a Boss exists and is still eligible
+if (!isNil "theBoss" && {!isNull theBoss && (theBoss getVariable ["eligible", false])}) exitWith {
+    Debug_1("Not attempting to assign new boss - player %1 is the boss", theBoss);
 };
 
-private _members = [];
+private _members = (call A3A_fnc_playableUnits) select { [_x] call A3A_fnc_isMember };
+Debug_1("Attempting to assign new boss, checking %1 members for next Boss.", count _members);
+
 private _nextBoss = objNull;
-
-[3, format ["Attempting to assign new boss, checking % members for next Boss.", count membersX],_filename] call A3A_fnc_log;
-// Are there any members online.
-
-private _BossRank = 0;
+private _bossRank = 0;
 {
-	private _isMember = [_x] call A3A_fnc_isMember;
-	if (_isMember) then {
-		_members pushBack _x;
-	};
-	
-	if ((_x getVariable ["eligible",true]) && ({(side (group _x) == teamPlayer)}) && _isMember) then
-	{
-		[3, format ["Player %1 is eligible", name _x],_filename] call A3A_fnc_log;
-		[3, format ["Current Boss Rank: %1.", _BossRank],_filename] call A3A_fnc_log;
+	if ((_x getVariable ["eligible", false]) && (side group _x == teamPlayer)) then {
+        Debug_1("Player %1 is eligible", _x);
 		private _dataX = [_x] call A3A_fnc_numericRank;
 		private _playerRank = _dataX select 0;
-		[3, format ["Players rank is: %1", _playerRank],_filename] call A3A_fnc_log;
+        Debug_2("Current boss rank: %1, player rank: %2", _bossRank, _playerRank);
 		if (_playerRank > _BossRank) then
 		{
 			_nextBoss = _x;
@@ -32,20 +25,18 @@ private _BossRank = 0;
 		};
 	}
 	else {
-		[3, format ["Player is not eligible: %1", _x],_filename] call A3A_fnc_log;
+        Debug_1("Player %1 is not eligible", _x);
 	};
-} forEach (call A3A_fnc_playableUnits);
+} forEach _members;
 
 if (!isNull _nextBoss) then
 {
-	[2, format ["Player chosen for Boss: %1", name _nextBoss],_filename] call A3A_fnc_log;
-	_textX = format ["%1 is the new leader of our forces. Greet them!", name _nextBoss];
-	[_nextBoss] call A3A_fnc_theBossInit;
-	sleep 5;
-	[[petros,"hint",_textX],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+    Info_1("Player chosen for Boss: %1", _nextBoss);
+	[_nextBoss] call A3A_fnc_theBossTransfer;
 }
 else
 {
-	[2, "Couldn't select a new boss - no eligible candidates.",_filename] call A3A_fnc_log;
+    Info("Couldn't select a new boss - no eligible candidates.");
+	// Remove current boss if any, as they're ineligible
+	if (!isNil "theBoss" && {!isNull theBoss}) then { [] call A3A_fnc_theBossTransfer };
 };
-

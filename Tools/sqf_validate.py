@@ -83,8 +83,6 @@ def check_sqf_syntax(filepath):
                         if (c == '"' or c == "'"):
                             isInString = True
                             inStringType = c
-                        elif (c == '#'):
-                            ignoreTillEndOfLine = True
                         elif (c == '/'):
                             checkIfInComment = True
                         elif (c == '('):
@@ -142,6 +140,8 @@ def check_sqf_syntax(filepath):
     return bad_count_file
 
 def main():
+    print("SQF validation disabled, please update checker before re-enabling.")
+    return 0 #Temporarily Disable for now.
 
     print("Validating SQF")
 

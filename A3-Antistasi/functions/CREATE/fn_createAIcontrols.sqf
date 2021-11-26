@@ -1,12 +1,15 @@
 if (!isServer and hasInterface) exitWith{};
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
-private ["_pos","_roadscon","_veh","_roads","_conquered","_dirVeh","_markerX","_positionX","_vehiclesX","_soldiers","_radiusX","_bunker","_groupE","_unit","_typeGroup","_groupX","_timeLimit","_dateLimit","_dateLimitNum","_base","_dog","_sideX","_cfg","_isFIA","_leave","_isControl","_radiusX","_typeVehX","_typeUnit","_markersX","_frontierX","_uav","_groupUAV","_allUnits","_closest","_winner","_timeLimit","_dateLimit","_dateLimitNum","_size","_base","_mineX","_loser","_sideX"];
+private ["_pos","_veh","_roads","_conquered","_dirVeh","_markerX","_positionX","_vehiclesX","_soldiers","_radiusX","_bunker","_groupE","_unit","_typeGroup","_groupX","_timeLimit","_dateLimit","_dateLimitNum","_base","_dog","_sideX","_cfg","_isFIA","_leave","_isControl","_radiusX","_typeVehX","_typeUnit","_markersX","_frontierX","_uav","_groupUAV","_allUnits","_closest","_winner","_timeLimit","_dateLimit","_dateLimitNum","_size","_base","_mineX","_loser","_sideX"];
 
 _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
+private _faction = Faction(_sideX);
 
-diag_log format ["[Antistasi] Spawning Control Point %1 (createAIControls.sqf)", _markerX];
+ServerInfo_1("Spawning Control Point %1", _markerX);
 
 if ((_sideX == teamPlayer) or (_sideX == sideUnknown)) exitWith {};
 if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea _x)) exitWith {1}} count markersX >1) exitWith {};
@@ -43,40 +46,45 @@ if (_isControl) then
 			};
 		};
 
+	// Attempt to find nearby road with two connected roads
 	_radiusX = 20;
-	while {true} do
-		{
+	while {_radiusX < 100} do
+	{
 		_roads = _positionX nearRoads _radiusX;
-		if (count _roads > 1) exitWith {};
-		_radiusX = _radiusX + 5;
-		};
+		_roads = _roads select { count (roadsConnectedTo _x) == 2 };
+		if (count _roads > 0) exitWith {};
+		_radiusX = _radiusX + 10;
+	};
 
-	_roadscon = roadsConnectedto (_roads select 0);
-
-	_dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
-	if ((isNull (_roads select 0)) or (isNull (_roadscon select 0))) then {
-		diag_log format ["%1: [Antistasi] | ERROR | createAIcontrols.sqf | Roadblock error: %2 bad position.",servertime, _markerX];
-		};
+	if (_radiusX >= 100) then {
+		// fallback case, shouldn't happen unless the map is very broken
+        Error_2("Roadblock error for %1 at %2", _markerX, _positionX);
+		_roads = _positionX nearRoads 20;		// guaranteed due to isOnRoad check
+		_dirveh = random 360;
+	} else {
+		private _roadscon = roadsConnectedto (_roads select 0);
+		_dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
+	};
 
 	if (!_isFIA) then
 		{
 		_groupE = grpNull;
-		if !(hasIFA) then
+		if !(A3A_hasIFA) then
 			{
 			_pos = [getPos (_roads select 0), 7, _dirveh + 270] call BIS_Fnc_relPos;
 			_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
 			_vehiclesX pushBack _bunker;
 			_bunker setDir _dirveh;
 			_pos = getPosATL _bunker;
-			_typeVehX = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+			_typeVehX = selectRandom (_faction get "staticMGs");
 			_veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
 			_veh setPosATL _pos;
 			_veh setDir _dirVeh;
 
 			_groupE = createGroup _sideX;
-			_typeUnit = if (_sideX == Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
-			_unit = _groupE createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+			_typeUnit = _faction get "unitStaticCrew";
+			_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 			sleep 1;
@@ -86,51 +94,52 @@ if (_isControl) then
 			_bunker setDir _dirveh + 180;
 			_pos = getPosATL _bunker;
 			_pos = [getPos _bunker, 6, getDir _bunker] call BIS_fnc_relPos;
-			_typeVehX = if (_sideX == Occupants) then {NATOFlag} else {CSATFlag};
+			_typeVehX = _faction get "flag";
 			_veh = createVehicle [_typeVehX, _pos, [],0, "NONE"];
 			_vehiclesX pushBack _veh;
 			_veh setPosATL _pos;
 			_veh setDir _dirVeh;
 			sleep 1;
-			_unit = _groupE createUnit [_typeUnit, _positionX, [], 0, "NONE"];
+			_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 			sleep 1;
-			{_nul = [_x] call A3A_fnc_AIVEHinit} forEach _vehiclesX;
+			{ [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
 			};
-		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsNATOmid} else {selectRandom groupsCSATmid};
+        _typeGroup = selectRandom (_faction get "groupsMedium");
 		_groupX = [_positionX,_sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
-			if !(hasIFA) then
+			if !(A3A_hasIFA) then
 				{
 				{[_x] join _groupX} forEach units _groupE;
 				deleteGroup _groupE;
 				};
 			if (random 10 < 2.5) then
 				{
-				_dog = _groupX createUnit ["Fin_random_F",_positionX,[],0,"FORM"];
+				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				[_dog,_groupX] spawn A3A_fnc_guardDog;
 				};
 			_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
-			{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
+			// Forced non-spawner as they're very static.
+			{[_x,"",false] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 			};
 		}
 	else
 		{
-		_typeVehX = if !(hasIFA) then {vehFIAArmedCar} else {vehFIACar};
+		_typeVehX = selectRandom (_faction get (if !(A3A_hasIFA) then {"vehiclesMilitiaLightArmed"} else {"vehiclesMilitiaCars"}));
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
 		_veh setDir _dirveh + 90;
-		_nul = [_veh] call A3A_fnc_AIVEHinit;
+		[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
-		_typeGroup = selectRandom groupsFIAMid;
+		_typeGroup = selectRandom (_faction get "groupsMilitiaMedium");
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
-			_unit = _groupX createUnit [FIARifleman, _positionX, [], 0, "NONE"];
+			_unit = [_groupX, _faction get "unitMilitiaGrunt", _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
-			{_soldiers pushBack _x; [_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
+			{_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
 			};
 		};
 	}
@@ -141,30 +150,30 @@ else
 	_frontierX = if (count _markersX > 0) then {true} else {false};
 	if (_frontierX) then
 		{
-		_cfg = CSATSpecOp;
+		_cfg = _faction get "groupSpecOps";
 		if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 			{
-			_cfg = NATOSpecOp;
 			_sideX = Occupants;
 			};
 		_size = [_markerX] call A3A_fnc_sizeMarker;
 		if ({if (_x inArea _markerX) exitWith {1}} count allMines == 0) then
 			{
-			for "_i" from 1 to 60 do
-				{
-				_mineX = createMine ["APERSMine",_positionX,[],_size];
-				if (_sideX == Occupants) then {Occupants revealMine _mineX} else {Invaders revealMine _mineX};
+			Debug_1("Creating a Minefield at %1", _markerX);
+				private _mines = (_faction get "minefieldAPERS");
+				for "_i" from 1 to 45 do {
+					_mineX = createMine [ selectRandom _mines ,_positionX,[],_size];
+					_sideX revealMine _mineX;
 				};
 			};
 		_groupX = [_positionX,_sideX, _cfg] call A3A_fnc_spawnGroup;
 		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
-		if !(hasIFA) then
+		_typeVehX = selectRandom (_faction get "uavsPortable");
+		if !(isNil "_typeVehX") then
 			{
 			sleep 1;
 			{_soldiers pushBack _x} forEach units _groupX;
-			_typeVehX = if (_sideX == Occupants) then {vehNATOUAVSmall} else {vehCSATUAVSmall};
 			_uav = createVehicle [_typeVehX, _positionX, [], 0, "FLY"];
-			createVehicleCrew _uav;
+			[_sideX, _uav] call A3A_fnc_createVehicleCrew;
 			_vehiclesX pushBack _uav;
 			_groupUAV = group (crew _uav select 1);
 			{[_x] joinSilent _groupX; _pilots pushBack _x} forEach units _groupUAV;
@@ -178,6 +187,9 @@ else
 		};
 	};
 if (_leave) exitWith {};
+
+{ _x setVariable ["originalPos", getPos _x] } forEach _vehiclesX;
+
 _spawnStatus = 0;
 while {(spawner getVariable _markerX != 2) and ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers > 0)} do
 	{
@@ -222,7 +234,7 @@ if (spawner getVariable _markerX != 2) then
 	_closest = [_allUnits,_positionX] call BIS_fnc_nearestPosition;
 	_winner = side _closest;
 	_loser = Occupants;
-	diag_log format ["%1: [Antistasi]: Server | Control %1 captured by %2. Is Roadblock: %3",servertime, _markerX, _winner, _isControl];
+    Debug_3("Control %1 captured by %2. Is Roadblock: %3", _markerX, _winner, _isControl);
 	if (_isControl) then
 		{
 		["TaskSucceeded", ["", "Roadblock Destroyed"]] remoteExec ["BIS_fnc_showNotification",_winner];
@@ -254,25 +266,28 @@ if (spawner getVariable _markerX != 2) then
 			_nul = [0,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 			};
 		};
-	if (_winner == teamPlayer) then {[[_positionX,_sideX,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2]};
 	};
 
 waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
-{_veh = _x;
-if (not(_veh in staticsToSave)) then
-	{
-	if ((!([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits))) then {deleteVehicle _x}
+
+{ if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
+deleteGroup _groupX;
+
+{
+	// delete all vehicles that haven't been captured
+	if (_x getVariable ["ownerSide", _sideX] == _sideX) then {
+		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
+		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;
+
+
 {
-if (alive _x) then
-	{
-	if (_x != vehicle _x) then {deleteVehicle (vehicle _x)};
-	deleteVehicle _x
-	}
-} forEach (_soldiers + _pilots);
-deleteGroup _groupX;
+	// delete all vehicles that haven't been captured
+	if !(_x getVariable ["inDespawner", false]) then { deleteVehicle _x };
+} forEach _vehiclesX;
+
 
 if (_conquered) then
 	{

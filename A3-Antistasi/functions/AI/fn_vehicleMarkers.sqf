@@ -8,7 +8,7 @@ _side = side (group (driver _veh));
 _typeX = "_unknown";
 _formatX = "";
 _color = colorOccupants;
-if (_veh isKindOf "Truck") then {_typeX = "_motor_inf"}
+if (_veh isKindOf "Truck" or _veh isKindOf "Car") then {_typeX = "_motor_inf"}
 	else
 		{
 		if (_veh isKindOf "Wheeled_APC_F") then {_typeX = "_mech_inf"}
@@ -42,7 +42,8 @@ if ((_side == teamPlayer) or (_side == sideUnknown)) then
 	}
 else
 	{
-	if (_side == Occupants) then
+	// Civilian hack to prevent errors with convoy missions. Replace once we have proper vehicle spawning functions.
+	if ((_side == Occupants) or (_side == civilian)) then
 		{
 		_formatX = "b";
 		}

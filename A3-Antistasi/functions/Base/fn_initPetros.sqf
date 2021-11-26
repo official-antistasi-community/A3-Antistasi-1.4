@@ -1,13 +1,19 @@
-private _fileName = "fn_initPetros";
-[2,"initPetros started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Info("initPetros started");
 scriptName "fn_initPetros";
 removeHeadgear petros;
 removeGoggles petros;
 petros setSkill 1;
 petros setVariable ["respawning",false];
 petros allowDamage false;
-[petros,(selectRandom unlockedRifles), 8, 0] call BIS_fnc_addWeapon;
+if !(unlockedVests isEqualTo []) then {
+	if (count unlockedArmoredVests * 20 < random(100)) then { petros addVest (selectRandom unlockedVests) }
+	else { petros addVest (selectRandom unlockedArmoredVests); };
+};
+[petros,unlockedRifles] call A3A_fnc_randomRifle;
 petros selectWeapon (primaryWeapon petros);
+[petros,true] call A3A_fnc_punishment_FF_addEH;
 petros addEventHandler
 [
     "HandleDamage",
@@ -18,10 +24,6 @@ petros addEventHandler
 
     _victim = _this select 0;
     _instigator = _this select 6;
-    if(!isNull _instigator && isPlayer _instigator && _victim != _instigator && side _instigator == teamPlayer && _damage > 0.1) then
-    {
-        [_instigator, 60, 1, _victim] remoteExec ["A3A_fnc_punishment",_instigator];
-    };
     if (isPlayer _injurer) then
     {
         _damage = (_this select 0) getHitPointDamage (_this select 7);
@@ -31,9 +33,9 @@ petros addEventHandler
         {
             if (_damage > 1) then
             {
-                if (!(petros getVariable ["INCAPACITATED",false])) then
+                if (!(petros getVariable ["incapacitated",false])) then
                 {
-                    petros setVariable ["INCAPACITATED",true,true];
+                    petros setVariable ["incapacitated",true,true];
                     _damage = 0.9;
                     if (!isNull _injurer) then {[petros,side _injurer] spawn A3A_fnc_unconscious} else {[petros,sideUnknown] spawn A3A_fnc_unconscious};
                 }
@@ -78,7 +80,7 @@ petros addMPEventHandler ["mpkilled",
 						select {(side (group _x) == teamPlayer) && isPlayer _x && _x == _x getVariable ["owner", _x]}
 						apply {[([_x] call A3A_fnc_numericRank) select 0, _x]};
 					_playersWithRank sort false;
-					
+
 					 [] remoteExec ["A3A_fnc_placementSelection", _playersWithRank select 0 select 1];
 				};
 			};
@@ -96,10 +98,10 @@ petros addMPEventHandler ["mpkilled",
 
 private _removeProblematicAceInteractions = {
     _this spawn {
-        //Wait until we've got hasACE initialised fully
+        //Wait until we've got A3A_hasACE initialised fully
         waitUntil {!isNil "initVar"};
         //Disable ACE Interactions
-        if (hasInterface && hasACE) then {
+        if (hasInterface && A3A_hasACE) then {
             [typeOf _this, 0,["ACE_ApplyHandcuffs"]] call ace_interact_menu_fnc_removeActionFromClass;
             [typeOf _this, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
         };
@@ -110,4 +112,4 @@ private _removeProblematicAceInteractions = {
 //This'll prevent it breaking in the future.
 [petros, _removeProblematicAceInteractions] remoteExec ["call", 0, petros];
 
-[2,"initPetros completed",_fileName] call A3A_fnc_log;
+Info("initPetros completed");

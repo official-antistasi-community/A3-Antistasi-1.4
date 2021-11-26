@@ -1,19 +1,21 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_marker", "_patrolMarker", "_flag", "_box"];
 
-if(isNil "_marker") exitWith {diag_log "CycleSpawn: No marker given!"};
+if(isNil "_marker") exitWith {Error("No marker given!")};
 
 private ["_side", "_garrison", "_unitX", "_allSoldiers", "_allVehicles", "_allGroups", "_groupX", "_vehicleType", "_crewArray", "_cargoArray", "_skip"];
 
 _side = sidesX getVariable [_marker, sideUnknown];
-if(_side == sideUnknown) exitWith {diag_log "CycleSpawn: Marker side resulted in sideUnknown!"};
+if(_side == sideUnknown) exitWith {Error("Marker side resulted in sideUnknown!")};
 
-diag_log "CycleSpawn: Spawning in now!";
+Debug("Spawning in now!");
 
 _garrison = [_marker] call A3A_fnc_getGarrison;
 _garCount = [_garrison, false] call A3A_fnc_countGarrison;
 _patrolSize = [_patrolMarker] call A3A_fnc_calculateMarkerArea;
 
-[_garrison, "Garrison"] call A3A_fnc_logArray;
+VerboseArray("Garrison", _garrison);
 
 _allSoldiers = [];
 _allVehicles = [];
@@ -86,9 +88,8 @@ _lineIndex = 0;
   if(!_skip) then
   {
     _spawnParameter = [getMarkerPos _marker, objNull];
-    //_spawnParameter = [_marker, NATOCrew] call A3A_fnc_findSpawnPosition;
     {
-      _unitX = _groupX createUnit [_x, (_spawnParameter select 0), [], 5, "NONE"];
+      _unitX = [_groupX, _x, (_spawnParameter select 0), [], 5, "NONE"] call A3A_fnc_createUnit;
       _allSoldiers pushBack _unitX;
         //Should work as a local variable needs testing
       _unitX setVariable ["UnitIndex", (_lineIndex * 10 + 1)];
@@ -100,7 +101,7 @@ _lineIndex = 0;
             _unitX = _this select 0;
             _id = _unitX getVariable "UnitIndex";
             _marker = _unitX getVariable "UnitMarker";
-            [_marker, typeOf _unitX, _id] call A3A_fnc_addRequested;
+            [_marker, _unitX getVariable "unitType", _id] call A3A_fnc_addRequested;
           }
         ];
         sleep 0.25;
@@ -114,7 +115,7 @@ _lineIndex = 0;
     _allGroups pushBack _groupSoldier;
     _stayGroups pushBack _groupSoldier;
     {
-      _unitX = _groupSoldier createUnit [_x, (_spawnParameter select 0), [], 5, "NONE"];
+      _unitX = [_groupSoldier, _x, (_spawnParameter select 0), [], 5, "NONE"] call A3A_fnc_createUnit;
       _allSoldiers pushBack _unitX;
 
       //Should work as a local variable needs testing
@@ -127,7 +128,7 @@ _lineIndex = 0;
           _unitX = _this select 0;
           _id = _unitX getVariable "UnitIndex";
           _marker = _unitX getVariable "UnitMarker";
-          [_marker, typeOf _unitX, _id] call A3A_fnc_addRequested;
+          [_marker, _unitX getVariable "unitType", _id] call A3A_fnc_addRequested;
         }
       ];
       sleep 0.25;
@@ -151,13 +152,13 @@ if(count _allSoldiers != 0) then
   _sizePerUnit = _patrolSize / (count _allSoldiers);
 };
 
-diag_log format ["The size is %1/ Unit count is %2/ Per Unit is %3", _patrolSize, count _allSoldiers, _sizePerUnit];
+Debug_3("The size is %1/ Unit count is %2/ Per Unit is %3", _patrolSize, count _allSoldiers, _sizePerUnit);
 
 //Every unit can search a area of 12500 m^2, if the unit is bigger, reduce patrol area
 _patrolMarkerSize = getMarkerSize _patrolMarker;
 if(_sizePerUnit > 12500) then
 {
-  diag_log "The area is to large, make it smaller";
+    Debug("The area is to large, make it smaller");
   _patrolMarkerSize set [0, (_patrolMarkerSize select 0) * (12500/_sizePerUnit)];
   _patrolMarkerSize set [1, (_patrolMarkerSize select 1) * (12500/_sizePerUnit)];
 };
@@ -165,7 +166,7 @@ if(_sizePerUnit > 12500) then
 _mainMarkerSize = getMarkerSize _marker;
 if(((_patrolMarkerSize select 0) < (_mainMarkerSize select 0)) || {(_patrolMarkerSize select 1) < (_mainMarkerSize select 1)}) then
 {
-  diag_log "Resizing to marker size";
+    Debug("Resizing to marker size");
   _patrolMarkerSize = _mainMarkerSize;
 };
 _patrolMarker setMarkerSizeLocal _patrolMarkerSize;

@@ -1,17 +1,20 @@
 //Original Author: Barbolani
 //Edited and updated by the Antistasi Community Development Team
 scriptName "fn_initGarrisons";
-private _fileName = "fn_initGarrisons";
-[2,"InitGarrisons started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Info("InitGarrisons started");
+
+//get terrain specific info
+private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
 
 _fnc_initMarker =
 {
 	params ["_mrkCSAT", "_target", "_mrkType", "_mrkText", ["_useSideName", false]];
-	private ["_pos", "_mrk", "_garrNum", "_garrison", "_groupsRandom"];
 
 	{
-		_pos = getMarkerPos _x;
-		_mrk = createMarker [format ["Dum%1", _x], _pos];
+		private _pos = getMarkerPos _x;
+		private _mrk = createMarker [format ["Dum%1", _x], _pos];
 		//TODO Multilanguage variable insted text
 		_mrk setMarkerShape "ICON";
 
@@ -20,37 +23,34 @@ _fnc_initMarker =
 			killZones setVariable [_x, [], true];
 			server setVariable [_x, 0, true];
 
-			if (_x in _mrkCSAT) then
-			{
-				_mrkText = format [_mrkText, nameInvaders];
-				if(_x in airportsX) then
-				{
-					_mrkType = flagCSATmrk;
-				};
-			}
-			else
-			{
-				_mrkText = format [_mrkText, nameOccupants];
-				if(_x in airportsX) then
-				{
-					_mrkType = flagNATOmrk;
-				};
-			};
+			private _sideName = if (_x in _mrkCSAT) then {FactionGet(inv,"name")} else {FactionGet(occ,"name")};
+			_mrk setMarkerText format [_mrkText, _sideName];
+		}
+		else
+		{
+			_mrk setMarkerText _mrkText;
+		};
+
+		if (_x in airportsX) then
+		{
+			private _flagType = if (_x in _mrkCSAT) then {FactionGet(inv,"flagMarkerType")} else {FactionGet(occ,"flagMarkerType")};
+			_mrk setMarkerType _flagType;
+		}
+		else
+		{
+			_mrk setMarkerType _mrkType;
 		};
 
 		if (_x in _mrkCSAT) then
 		{
-			_mrk setMarkerColor colorInvaders;
+			if !(_x in airportsX) then {_mrk setMarkerColor colorInvaders;} else {_mrk setMarkerColor "Default"};
 			sidesX setVariable [_x, Invaders, true];
 		}
 		else
 		{
-			_mrk setMarkerColor colorOccupants;
+			if !(_x in airportsX) then {_mrk setMarkerColor colorOccupants;} else {_mrk setMarkerColor "Default"};
 			sidesX setVariable [_x, Occupants, true];
 		};
-
-		_mrk setMarkerType _mrkType;
-		_mrk setMarkerText _mrkText;
 
 		[_x] call A3A_fnc_createControls;
 	} forEach _target;
@@ -60,93 +60,56 @@ _fnc_initMarker =
 _fnc_initGarrison =
 {
 	params ["_markerArray", "_type"];
-	private ["_side", "_groupsRandom", "_garrNum", "_garrisonOld", "_marker"];
+	private ["_side", "_faction", "_groupsRandom", "_garrNum", "_garrison", "_marker"];
 	{
 	    _marker = _x;
-			_garrNum = ([_marker] call A3A_fnc_garrisonSize) / 8;
-			_side = sidesX getVariable [_marker, sideUnknown];
-			if(_side != Occupants) then
+		_garrNum = [_marker] call A3A_fnc_garrisonSize;
+		_side = sidesX getVariable [_marker, sideUnknown];
+		_faction = Faction(_side);
+		if(_side != Occupants) then
+		{
+			_groupsRandom = (_faction get "groupsSquads") + (_faction get "groupsMedium");
+		}
+		else
+		{
+			if !(_type in ["Airport", "Outpost"]) then
 			{
-				_groupsRandom = [groupsCSATSquad, groupsFIASquad] select ((_marker in outposts) && (gameMode == 4));
+				_groupsRandom = (_faction get "groupsMilitiaSquads") + (_faction get "groupsMilitiaMedium");
 			}
 			else
 			{
-				if(_type != "Airport" && {_type != "Outpost"}) then
-				{
-					_groupsRandom = groupsFIASquad;
-				}
-				else
-				{
-	 				_groupsRandom = groupsNATOSquad;
-				};
+ 				_groupsRandom = (_faction get "groupsSquads") + (_faction get "groupsMedium");
 			};
-			//Old system, keeping it intact for the moment
-			_garrisonOld = [];
-			for "_i" from 1 to _garrNum do
-			{
-				_garrisonOld append (selectRandom _groupsRandom);
-			};
-			//
+		};
 
-			//Old system, keeping it runing for now
-			garrison setVariable [_marker, _garrisonOld, true];
+		_garrison = [];
+		while {count _garrison < _garrNum} do
+		{
+			_garrison append (selectRandom _groupsRandom);
+		};
+		_garrison resize _garrNum;
+		garrison setVariable [_marker, _garrison, true];
 
 	} forEach _markerArray;
 };
 
-private _mrkNATO = [];
-private _mrkCSAT = [];
-private _controlsNATO = [];
-private _controlsCSAT = [];
+("garrison" call _fnc_mapInfo) params [["_mrkNATO", [], [[]]], ["_mrkCSAT",[],[[]]], ["_controlsNATO", [], [[]]], ["_controlsCSAT",[],[[]]]];
+
 
 if (debug) then
 {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting Control Marks for Worldname: %2  .", servertime, worldName];
+    Debug_1("Setting Control Marks for Worldname: %1", worldName);
 };
 
 if (gameMode == 1) then
 {
 	_controlsNATO = controlsX;
-	switch (toLower worldName) do {
-		case "tanoa": {
-			_mrkCSAT = ["airport_1", "seaport_5", "outpost_10", "control_20"];
-			_controlsCSAT = ["control_20"];
-		};
-		case "altis": {
-			_mrkCSAT = ["airport_2", "seaport_4", "outpost_5", "control_52", "control_33"];
-			_controlsCSAT = ["control_52", "control_33"];
-		};
-		case "chernarus_summer": {
-			_mrkCSAT = ["outpost_21"];
-		};
-		case "tem_anizay": {
-			_mrkCSAT = ["outpost_8", "control_19", "control_44", "control_45"];
-			_controlsCSAT = ["control_19", "control_44", "control_45"];
-		};
-		case "chernarus_winter": {
-			_mrkCSAT = ["outpost_21", "control_30"];
-			_controlsCSAT = ["control_30"];
-		};
-		case "kunduz": {
-			_mrkCSAT = ["outpost"];
-		};
-		case "enoch": {
-			_mrkCSAT = ["airport_3", "control_14"];
-			_controlsCSAT = ["control_14"];
-		};
-		case "tembelan": {
-			_mrkCSAT = ["airport_4"];
-		};
-		case "malden": {
-			_mrkCSAT = ["airport", "seaport_7"];
-		};
-	};
     _controlsNATO = _controlsNATO - _controlsCSAT;
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
 
 	if (debug) then {
-		diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | _mrkCSAT: %2.", servertime, _mrkCSAT];
-		diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | _mrkNATO: %2.", servertime, _mrkNATO];
+        Debug_1("_mrkCSAT: %1", _mrkCSAT);
+        Debug_1("_mrkNATO: %1", _mrkNATO);
 	};
 }
 else
@@ -166,7 +129,7 @@ else
 {sidesX setVariable [_x, Occupants, true]} forEach _controlsNATO;
 {sidesX setVariable [_x, Invaders, true]} forEach _controlsCSAT;
 
-[_mrkCSAT, airportsX, flagCSATmrk, "%1 Airbase", true] call _fnc_initMarker;
+[_mrkCSAT, airportsX, FactionGet(inv,"flagMarkerType"), "%1 Airbase", true] call _fnc_initMarker;
 [_mrkCSAT, resourcesX, "loc_rock", "Resources"] call _fnc_initMarker;
 [_mrkCSAT, factories, "u_installation", "Factory"] call _fnc_initMarker;
 [_mrkCSAT, outposts, "loc_bunker", "%1 Outpost", true] call _fnc_initMarker;
@@ -174,37 +137,40 @@ else
 
 if (!(isNil "loadLastSave") && {loadLastSave}) exitWith {};
 
+//Set carrier markers to the same as airbases below.
+if (isServer) then {"NATO_carrier" setMarkertype FactionGet(occ,"flagMarkerType")};
+if (isServer) then {"CSAT_carrier" setMarkertype FactionGet(inv,"flagMarkerType")};
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Airbase stuff.", servertime];
+    Debug("Setting up Airbase stuff.");
 };
 
 [airportsX, "Airport"] call _fnc_initGarrison;								//Old system
 [airportsX, "Airport", [0,0,0]] call A3A_fnc_createGarrison;	//New system
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Resource stuff.", servertime];
+    Debug("Setting up Resource stuff.");
 };
 
 [resourcesX, "Resource"] call _fnc_initGarrison;							//Old system
 [resourcesX, "Other", [0,0,0]] call A3A_fnc_createGarrison;	//New system
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Factory stuff.", servertime];
+    Debug("Setting up Factory stuff.");
 };
 
 [factories, "Factory"] call _fnc_initGarrison;
 [factories, "Other", [0,0,0]] call A3A_fnc_createGarrison;
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Outpost stuff.", servertime];
+    Debug("Setting up Outpost stuff.");
 };
 
 [outposts, "Outpost"] call _fnc_initGarrison;
 [outposts, "Outpost", [1,1,0]] call A3A_fnc_createGarrison;
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Seaport stuff.", servertime];
+    Debug("Setting up Seaport stuff.");
 };
 
 [seaports, "Seaport"] call _fnc_initGarrison;
@@ -213,4 +179,6 @@ if (debug) then {
 //New system, adding cities
 [citiesX, "City", [0,0,0]] call A3A_fnc_createGarrison;
 
-[2,"InitGarrisons completed",_fileName] call A3A_fnc_log;
+publicVariable "controlsX";		// because it adds to the array
+
+Info("InitGarrisons completed");

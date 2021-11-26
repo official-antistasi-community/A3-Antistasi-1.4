@@ -61,8 +61,8 @@
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate; 			//this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
-["minefieldAT",[]] call _fnc_saveToTemplate;
-["minefieldAPERS",[]] call _fnc_saveToTemplate;
+["minefieldAT",["CUP_Mine"]] call _fnc_saveToTemplate;
+["minefieldAPERS",["APERSMine"]] call _fnc_saveToTemplate;
 
 
 //////////////////////////

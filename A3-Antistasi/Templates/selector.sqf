@@ -51,6 +51,11 @@ A3A_Reb_template = switch(true) do {
         };
         "RHS"
     };
+    case (A3A_hasUNS): {
+        ["Templates\NewTemplates\UNSUNG\Unsung_Reb_VC_Tropical.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
+        Info("Using Unsung Viet Cong Template");
+        "UNS"
+    };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_Reb_POF.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
         Info("Using Pissed off Farmers Template");
@@ -198,6 +203,11 @@ A3A_Occ_template = switch(true) do {
         };
         "RHS"
     };
+    case (A3A_hasUNS): {
+        ["Templates\NewTemplates\UNSUNG\Unsung_AI_NVA_Tropical.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+        Info("Using Unsung NVA Template");
+        "UNS"
+    };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_PAVN.sqf", west] call A3A_fnc_compatibilityLoadFaction;
         Info("Using VN PAVN Template");
@@ -288,6 +298,11 @@ A3A_Inv_template = switch(true) do {
         };
         "RHS"
     };
+    case (A3A_hasUNS): {
+        ["Templates\NewTemplates\UNSUNG\Unsung_AI_US_Tropical.sqf", east] call A3A_fnc_compatibilityLoadFaction;
+        Info("Using Unsung US Template");
+        "UNS"
+    };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_MACV.sqf", east] call A3A_fnc_compatibilityLoadFaction;
         Info("Using VN MACV Template");
@@ -361,6 +376,11 @@ A3A_Civ_template = switch(true) do {
         Info("Using VN CIV Template");
         "VN"
     };
+    case (A3A_hasUNS): {
+        ["Templates\NewTemplates\UNSUNG\Unsung_Civ.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
+        Info("Using Unsung CIV Template");
+        "UNS"
+    };
     /* disabled until imtegrated
     case (A3A_hasIFA): {
         call compile preProcessFileLineNumbers "Templates\IFA\IFA_Civ.sqf";
@@ -408,6 +428,7 @@ if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\NewTempl
 if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\3CB\3CBFactions_Logistics_Nodes.sqf"};
 if (A3A_has3CBBAF) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\3CB\3CBBAF_Logistics_Nodes.sqf"};
 if (A3A_hasVN) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\VN\VN_Logistics_Nodes.sqf"};
+if (A3A_hasUNS) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\UNSUNG\Unsung_Logistics_Nodes.sqf"};
 
 //if (A3A_hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_Logistics_Nodes.sqf"};		//disabled until imtegrated
 //if (A3A_hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Logistics_Nodes.sqf"};		//disabled until imtegrated

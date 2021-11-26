@@ -371,15 +371,15 @@ A3A_Civ_template = switch(true) do {
         Info("Using RHS Civ Template");
         "RHS"
     };
-    case (A3A_hasVN): {
-        ["Templates\NewTemplates\VN\VN_CIV.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN CIV Template");
-        "VN"
-    };
     case (A3A_hasUNS): {
         ["Templates\NewTemplates\UNSUNG\Unsung_Civ.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
         Info("Using Unsung CIV Template");
         "UNS"
+    };
+    case (A3A_hasVN): {
+        ["Templates\NewTemplates\VN\VN_CIV.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
+        Info("Using VN CIV Template");
+        "VN"
     };
     /* disabled until imtegrated
     case (A3A_hasIFA): {

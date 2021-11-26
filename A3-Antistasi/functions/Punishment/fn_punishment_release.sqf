@@ -1,21 +1,81 @@
-params["_detainee"];
+/*
+Function:
+	A3A_fnc_punishment_release
 
-_punishment_vars = _detainee getVariable ["punishment_vars", [0,0,[0,0],[scriptNull,scriptNull]]];		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
-_punishmentPlatform = _detainee getVariable ["punishment_platform",objNull];
-_lastOffenceData = _punishment_vars select 2;
-_punishment_warden = (_punishment_vars select 3) select 0;
-_punishment_sentence = (_punishment_vars select 3) select 1;
+Description:
+	Releases a detainee from his sentence if he is incarcerated.
+	Forgives all punishment stats.
 
-if !(scriptDone _punishment_warden || isNull _punishment_warden) then {terminate _punishment_warden;};
-if !(scriptDone _punishment_sentence || isNull _punishment_sentence) then {terminate _punishment_sentence;};
+Scope:
+	<SERVER> Execute on server.
 
-_detainee switchMove "";
-_detainee setPos posHQ;
-deleteVehicle _punishmentPlatform;
+Environment:
+	<UNSCHEDULED>
 
-_punishment_timeTotal = 0;
-_punishment_offenceTotal = 0.1;
-_lastOffenceData set [1,0];		//[lastTime,overhead]
-_punishment_vars = [_punishment_timeTotal,_punishment_offenceTotal,_lastOffenceData,[scriptNull,scriptNull]];;		//[timeTotal,offenceTotal,_lastOffenceData,[wardenHandle,sentenceHandle]]
-_detainee setVariable ["punishment_vars", _punishment_vars, true];		//[timeTotal,offenceTotal,[wardenHandle,sentenceHandle]]
-_detainee setVariable ["punishment_coolDown",0,true];
+Parameters:
+	<STRING> The detainee's UID.
+	<STRING> Who is calling the function. All external calls should only use "forgive".
+
+Returns:
+	<BOOLEAN> true if it hasn't crashed; false if invalid params; nil if it has crashed.
+
+Examples:
+	[_UID,"forgive"] remoteExecCall ["A3A_fnc_punishment_release",2]; // Forgive all sins and release from Ocean Gulag.
+
+Author: Caleb Serafin
+License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+*/
+params ["_UID",["_source",""]];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+
+if (!isServer) exitWith {
+    Error("NOT SERVER");
+	false;
+};
+
+private _varspace = [missionNamespace,"A3A_FFPun",_UID,locationNull] call A3A_fnc_getNestedObject;
+private _name = _varspace getVariable ["name","NO NAME"];
+private _detainee = _varspace getVariable ["player",objNull];
+
+private _playerStats = format["Player: %1 [%2]", _name, _UID];
+
+private _releaseFromSentence = {
+	[_name] remoteExecCall ["A3A_fnc_punishment_removeActionForgive",0,false];
+	[_UID,"remove"] call A3A_fnc_punishment_oceanGulag;
+};
+private _forgiveStats = {
+	private _varspace = [missionNamespace,"A3A_FFPun",_UID,"timeTotal",nil] call A3A_fnc_setNestedObject;
+	_varspace setVariable ["offenceTotal",nil];
+	_varspace setVariable ["overhead",nil];
+	_varspace setVariable ["sentenceEndTime",nil];
+};
+
+switch (_source) do {
+	case "punishment_warden": {
+		call _forgiveStats;
+		call _releaseFromSentence;
+        Info_1("RELEASE | %1", _playerStats);
+		if (isPlayer _detainee) then {
+			["FF Punishment", "Enough then."] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
+		};
+		true;
+	};
+	case "punishment_warden_manual": {
+		call _forgiveStats;
+		call _releaseFromSentence;
+        Info("FORGIVE | %1", _playerStats);
+		if (isPlayer _detainee) then {
+			["FF Punishment", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
+		};
+		true;
+	};
+	case "forgive": {
+		[missionNamespace,"A3A_FFPun",_UID,"sentenceEndTime",0] call A3A_fnc_setNestedObject;
+		true;
+	};
+	default {
+        Error_1("INVALID PARAMS | _source=""%1""", _source);
+		false;
+	};
+};

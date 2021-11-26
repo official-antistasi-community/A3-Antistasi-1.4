@@ -9,7 +9,8 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-
+#include "..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 #define SA_Find_Surface_ASL_Under_Position(_object,_positionAGL,_returnSurfaceASL,_canFloat) \
 _objectASL = AGLToASL (_object modelToWorldVisual (getCenterOfMass _object)); \
 _surfaceIntersectStartASL = [_positionAGL select 0, _positionAGL select 1, (_objectASL select 2) + 1]; \
@@ -57,7 +58,7 @@ scriptName "fn_advancedTowingInit.sqf";
 private _fileName = "fn_advancedTowingInit.sqf";
 SA_TOW_INIT = true;
 
-[2,"Loading advanced towing",_fileName] call A3A_fnc_log;
+Info("Loading advanced towing");
 
 SA_Simulate_Towing_Speed = {
 
@@ -247,7 +248,7 @@ SA_Simulate_Towing = {
 			_lastMovedCargoPosition = _cargoPosition;
 
 			_massAdjustedMaxSpeed = _vehicle getVariable ["SA_Max_Tow_Speed",_maxVehicleSpeed];
-			if(speed _vehicle > (_massAdjustedMaxSpeed)+0.1) then {
+			if(speed _vehicle^2 > (_massAdjustedMaxSpeed+0.1)^2) then { //square to ensure positive number
 				_vehicle setVelocity ((vectorNormalized (velocity _vehicle)) vectorMultiply (_massAdjustedMaxSpeed/3.6));
 			};
 
@@ -377,6 +378,11 @@ SA_Attach_Tow_Ropes = {
 					[[_helper],"SA_Hide_Object_Global"] call SA_RemoteExecServer;
 					[_helper, [0,0,0], [0,0,-1]] ropeAttachTo (_towRopes select 0);
 					[_vehicle,_vehicleHitch,_cargo,_cargoHitch,_ropeLength] spawn SA_Simulate_Towing;
+
+					// capture empty vehicles when attached
+					if (count crew _cargo == 0) then {
+						[_cargo, side group _player, true] remoteExec ["A3A_fnc_vehKilledOrCaptured", 2];
+					};
 				};
 			};
 		} else {
@@ -412,6 +418,7 @@ SA_Pickup_Tow_Ropes = {
 			{
 				_attachedObj ropeDetach _x;
 			} forEach (_vehicle getVariable ["SA_Tow_Ropes",[]]);
+			detach _attachedObj;
 			deleteVehicle _attachedObj;
 		} forEach ropeAttachedObjects _vehicle;
 		_helper = "Land_Can_V2_F" createVehicle position _player;
@@ -719,7 +726,7 @@ SA_Hint = {
 			["Whoops", [_msg]] call ExileClient_gui_notification_event_addNotification;
 		};
     } else {
-        hint _msg;
+		["Advanced Towing", _msg] call A3A_fnc_customHint;
     };
 };
 
@@ -867,7 +874,7 @@ if (isServer) then {
 
 };
 
-[2,"Loaded advanced towing",_fileName] call A3A_fnc_log;
+Info("Loaded advanced towing");
 
 };
 

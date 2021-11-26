@@ -1,4 +1,7 @@
 params ["_base", "_target"];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Verbose_2("Checking if %1 should reinforce %2", _base, _target);
 
 //Bases cannot reinforce themselves
 if(_base isEqualTo _target) exitWith {false};
@@ -12,10 +15,13 @@ _side = sidesX getVariable [_base, sideUnknown];
 if (spawner getVariable _base != 2 || {_base in forcedSpawn}) exitWith {false};
 
 //To far away for land convoy or not the same island
-if(!_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > distanceForLandAttack || {!([_base, _target] call A3A_fnc_isTheSameIsland)}}) exitWith {false};
+if(!_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > distanceForLandAttack || {!([_base, _target] call A3A_fnc_arePositionsConnected)}}) exitWith {false};
 
 //To far away for air convoy
 if(_isAirport && {(getMarkerPos _base) distance2D (getMarkerPos _target) > distanceForAirAttack}) exitWith {false};
+
+//Base/target combination is in killzones (other reinforcements or attacks failed recently)
+if (_target in (killZones getVariable [_base, []])) exitWith {false};
 
 _targetIsBase = _target in outposts;
 _reinfMarker = if(_side == Occupants) then {reinforceMarkerOccupants} else {reinforceMarkerInvader};

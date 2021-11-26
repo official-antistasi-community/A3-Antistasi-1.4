@@ -16,6 +16,10 @@ if (isNil "jnl_initCompleted") then {
 //Check if this vehicle can be loaded with JNL
 if((_object call jn_fnc_logistics_getCargoType) == -1) exitWith {};
 
+//dont add for pvp
+waitUntil { !isNull player }; //wait for player unit to be local and valid
+if !((side group player) isEqualTo teamPlayer) exitWith {};
+
 _text = "";
 
 if (_object isKindOf "CAManBase") then {_text = format ["<img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa' />  Load %1 in Vehicle</t>",name _object]} else {_text = "<img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa' />  Load Cargo in Vehicle</t>"};
@@ -44,14 +48,14 @@ _loadActionID = _object addAction [
 		_exit = false;
 		if(isNull _nearestVehicle) then
 		{
-			hint 'Bring vehicle closer';
+			["Cargo Load", "Bring vehicle closer."] call A3A_fnc_customHint;
 			_exit = true;
 		};
 		if (_cargo isKindOf "CAManBase") then
 			{
 			if (([_cargo] call A3A_fnc_canFight) or !(isNull (_cargo getVariable ["helped",objNull])) or !(isNull attachedTo _cargo)) then
 				{
-				hint format ["%1 is being helped or no longer needs your help",name _cargo];
+				["Cargo Load", format ["%1 is being helped or no longer needs your help.",name _cargo]] call A3A_fnc_customHint;
 				_exit = true;
 				};
 			};
@@ -60,22 +64,23 @@ _loadActionID = _object addAction [
 		switch (_nodeID) do {
 			case -4:
 			{
-				hint 'Can not load cargo: passengers have occupied cargo space!';
+				["Cargo Load", "Cannot load cargo: passengers have occupied cargo space!"] call A3A_fnc_customHint;
 			};
 			case -3:
 			{
-				hint 'This vehicle can not carry this cargo!';
+				["Cargo Load", "This vehicle can not carry this cargo!"] call A3A_fnc_customHint;
 			};
 		    case -2:
 		    {
-		   	hint 'There is no space for this cargo!'
+			   ["Cargo Load", "There is no space for this cargo!"] call A3A_fnc_customHint;
 		    };
 		    case -1:
 		    {
-		   	hint 'Can not load this type of cargo!';
+			   ["Cargo Load", "Can not load this type of cargo!"] call A3A_fnc_customHint;
 		    };
 		    default
 		    {
+			_player setCaptive false;			// break undercover
 		   	[_nearestVehicle, _cargo, true, true] remoteexec ["jn_fnc_logistics_load", 2];
 		    };
 			};
@@ -91,4 +96,3 @@ _object setUserActionText [
 ];
 
 _object setVariable ["jnl_loadActionID", _loadActionID, false];
-

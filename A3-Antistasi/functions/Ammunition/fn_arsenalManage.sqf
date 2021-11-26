@@ -25,7 +25,7 @@ private _count = objNull;
 {
 	_type = _x select 0;
 	_magConfig = configFile >> "CfgMagazines" >> _type;
-	_capacity = getNumber (_magConfig >> "count");
+	_capacity = 1 max getNumber (_magConfig >> "count");			// Avoid div-by-zero on broken/missing config
 
 	// control unlocking missile launcher magazines
 	// the capacity check is an optimisation to bypass the config check. ~18% perf gain on the loop.
@@ -40,66 +40,66 @@ private _count = objNull;
 private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics + _helmets + _vests + _magazine;
 
 {
-	private _item = _x select 0;
-	if (_x select 1 >= minWeaps) then {
+	call {
+		if (_x select 1 < minWeaps) exitWith {};
+		private _item = _x select 0;
+
 		private _categories = _item call A3A_fnc_equipmentClassToCategories;
-		
-		if ((allowGuidedLaunchers isEqualTo 1 || {!("MissileLaunchers" in _categories)}) &&
-		    (allowUnlockedExplosives isEqualTo 1 || !("Explosives" in _categories))) then {
-			
-			_item call A3A_fnc_unlockEquipment;
-			
-			private _name = switch (true) do {
-				case ("Magazines" in _categories): {getText (configFile >> "CfgMagazines" >> _item >> "displayName")};
-				case ("Backpacks" in _categories): {getText (configFile >> "CfgVehicles" >> _item >> "displayName")};
-				default {getText (configFile >> "CfgWeapons" >> _item >> "displayName")};
-			};
-			
-			//Update the 'Updated' text with the name of the new item.
-			_updated = format ["%1%2<br/>",_updated,_name];
-			
-			//Unlock ammo for guns, if appropriate.
-			if (unlockedUnlimitedAmmo == 1 && ("Weapons" in _categories)) then {
-				private _weaponMagazine = (getArray (configFile / "CfgWeapons" / _item / "magazines") select 0);
-				if (!isNil "_weaponMagazine") then {
-					if (not(_weaponMagazine in unlockedMagazines)) then {
-						_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")];
-						[_weaponMagazine] call A3A_fnc_unlockEquipment;
-					};
+		if ("MissileLaunchers" in _categories && {allowGuidedLaunchers == 0}) exitWith {};
+		if ("Explosives" in _categories && {allowUnlockedExplosives == 0}) exitWith {};
+		if ("Backpacks" in _categories && {_item in allBackpacksTool}) exitWith {};			// should be UAV & static backpacks
+		if ("StaticWeaponParts" in _categories) exitWith {};
+
+		_item call A3A_fnc_unlockEquipment;
+
+		private _name = switch (true) do {
+			case ("Magazines" in _categories): {getText (configFile >> "CfgMagazines" >> _item >> "displayName")};
+			case ("Backpacks" in _categories): {getText (configFile >> "CfgVehicles" >> _item >> "displayName")};
+			default {getText (configFile >> "CfgWeapons" >> _item >> "displayName")};
+		};
+
+		//Update the 'Updated' text with the name of the new item.
+		_updated = format ["%1%2<br/>",_updated,_name];
+
+		//Unlock ammo for guns, if appropriate.
+		if (unlockedUnlimitedAmmo == 1 && ("Weapons" in _categories)) then {
+			private _weaponMagazine = (getArray (configFile / "CfgWeapons" / _item / "magazines") select 0);
+			if (!isNil "_weaponMagazine") then {
+				if (not(_weaponMagazine in unlockedMagazines)) then {
+					_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgMagazines" >> _weaponMagazine >> "displayName")];
+					[_weaponMagazine] call A3A_fnc_unlockEquipment;
 				};
 			};
-			
-			
 		};
 	};
-
 } forEach _allExceptNVs;
 
 call A3A_fnc_checkRadiosUnlocked;
 unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
 
 //NVG Unlocking is special
-//Unlock a random NVG per X non-unlocked NVG we have, from the list we've collected.
-private _countX = 0;
-private _lockedNvs = [];
+//Unlock the non-thermal NVG with the highest count if the total is greater than minWeaps
 
-//Add up how many non-unlocked NVGs we have.
+private _totalNV = 0;
+private _sortedNVs = [];
 {
 	private _amount = (_x select 1);
-	if (_amount > 0) then {
-		_countX = _countX + _amount;
-		_lockedNvs pushBack (_x select 0);
+	private _thermal = getArray (configFile >> "CfgWeapons" >> (_x select 0) >> "thermalMode");	// only exists for ENVGs
+	if (_amount > 0 && _thermal isEqualTo []) then {
+		_totalNV = _totalNV + _amount;
+		_sortedNVs pushBack [_amount, _x select 0];		// sort param in the first element
 	};
 } forEach _nv;
 
-//Implicitly, we have locked NVGs if we've counted more than 0 locked NVGs in the box.
-//Might need to unlock several NVGs at once, hence the while loop.
-while {_countX >= minWeaps} do {
-	private _nvToUnlock = selectRandom _lockedNvs;
+_sortedNVs sort true;		// sort by count, ascending
+
+while {_totalNV >= minWeaps} do {
+	private _nvToUnlock = (_sortedNVs deleteAt (count _sortedNVs - 1)) select 1;
 	haveNV = true; publicVariable "haveNV";
 	[_nvToUnlock] call A3A_fnc_unlockEquipment;
 	_updated = format ["%1%2<br/>",_updated,getText (configFile >> "CfgWeapons" >> _nvToUnlock >> "displayName")];
-	_countX =_countX - minWeaps;
+	_totalNV =_totalNV - minWeaps;		// arguably wrong but doesn't matter in practice
 };
+
 
 _updated

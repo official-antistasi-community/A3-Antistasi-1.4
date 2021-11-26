@@ -1,8 +1,9 @@
 //Original Author: Barbolani
 //Edited and updated by the Antstasi Community Development Team
 scriptName "initVar.sqf";
-private _fileName = "initVar.sqf";
-[2,"initVar started",_fileName] call A3A_fnc_log;
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Info("initVar started");
 
 call A3A_fnc_initVarCommon;
 
@@ -17,5 +18,5 @@ call A3A_fnc_initVarClient;
 
 //Marks initVar as finished.
 initVar = true;
-if (isMultiplayer) then {[[petros,"hint","Variables Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP;};
-[2,"initVar completed",_fileName] call A3A_fnc_log;
+["Server Information", "Variables Init Completed"] call A3A_fnc_customHint;
+Info("initVar completed");

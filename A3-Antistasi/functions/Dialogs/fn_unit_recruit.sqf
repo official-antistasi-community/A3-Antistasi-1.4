@@ -20,7 +20,7 @@ if (str (_display) != "no display") then
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable (SDKExp select 0)];
 	_ChildControl = _display displayCtrl 109;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable (SDKGL select 0)];
-	if (hasIFA) then {_childControl ctrlSetText "Radio Operator"};
+	if (A3A_hasIFA) then {_childControl ctrlSetText "Radio Operator"};
 	_ChildControl = _display displayCtrl 110;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable (SDKSniper select 0)];
 	_ChildControl = _display displayCtrl 111;

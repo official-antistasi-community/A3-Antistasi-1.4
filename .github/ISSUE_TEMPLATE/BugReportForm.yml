@@ -1,0 +1,91 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: [bug, triage]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Describe the bug
+      description: Also tell us, what did you expect to happen?
+      placeholder: A bug happened! I think this is what should have happened.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: How can we reproduce this bug?
+      placeholder: By doing this when this is happening!
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: If applicable, add screenshots to help explain your problem.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version did the bug occure with?
+      placeholder: "Example: 2.4.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: code-altered
+    attributes:
+      label: Have you altered the code?
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
+  - type: textarea
+    id: changed-code
+    attributes:
+      label: What i have changed
+      placeholder: If you have altered the code, describe what you have changed?
+      render: markdown
+    validations:
+      required: false
+  - type: input
+    id: Map
+    attributes:
+      label: Map
+      description: On what map did this occur?
+      placeholder: "Example: Altis"
+    validations:
+      required: true
+  - type: dropdown
+    id: server
+    attributes:
+      label: What server?
+      description: What Server did the bug occur on?
+      multiple: true
+      options:
+        - LAN Hosted
+        - Private dedicated server
+        - Private dedicated server with Headless client(s)
+        - Community Server 1
+        - Community Server 2
+        - Community Test Server
+        - Community Test Server 2
+    validations:
+      required: true
+  - type: input
+    id: Time
+    attributes:
+      label: Time bug occured (Server time/UTC)
+      placeholder: "Example: 10:45 (UTC)"
+    validations:
+      required: false
+  - type: textarea
+    id: Mods
+    attributes:
+      label: Mods
+      description: Please copy and paste the mods loaded when the bug occured. (preset html exported from launcher, or mods loaded from server command line.)
+      render: html
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Additional context you think might help like the `.rpt` file.

@@ -31,6 +31,7 @@ player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_e
 
 
 _index =player createDiarySubject ["SpecialK","Special Keys"];
+player createDiaryRecord ["SpecialK",[format [localize "STR_antistasi_journal_entry_header_SpecialK_6"],format [localize "STR_antistasi_journal_entry_text_SpecialK_6"]]];
 player createDiaryRecord ["SpecialK",[format [localize "STR_antistasi_journal_entry_header_SpecialK_5"],format [localize "STR_antistasi_journal_entry_text_SpecialK_5"]]];
 player createDiaryRecord ["SpecialK",[format [localize "STR_antistasi_journal_entry_header_SpecialK_4"],format [localize "STR_antistasi_journal_entry_text_SpecialK_4"]]];
 player createDiaryRecord ["SpecialK",[format [localize "STR_antistasi_journal_entry_header_SpecialK_3"],format [localize "STR_antistasi_journal_entry_text_SpecialK_3"]]];
@@ -115,7 +116,7 @@ switch (gameMode) do {
 player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_Default_3"],format [localize "STR_antistasi_journal_entry_text_Default_3",nameInvaders]]];
 player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_Default_2"],format [localize "STR_antistasi_journal_entry_text_Default_2"]]];
 
-_nameXMiss = if (hasIFA) then {"Armia Krajowa"} else {if (worldName == "Tanoa") then {"Warlords of the Pacific"} else {"Antistasi"}};
+_nameXMiss = if (A3A_hasIFA) then {"Armia Krajowa"} else {if (worldName == "Tanoa") then {"Warlords of the Pacific"} else {"Antistasi"}};
 player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_Default_1"],format [localize "STR_antistasi_journal_entry_text_Default_1",_nameXMiss]]];
 
 // Always include the Credits. It's important!

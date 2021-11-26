@@ -12,7 +12,7 @@ lootVest = [];
 allArmoredHeadgear = [];
 {allArmoredHeadgear pushBackUnique (getUnitLoadout _x select 6)} forEach NATOSquad;
 */
-if (hasACE) then {
+if (A3A_hasACE) then {
 	lootItem append ["ACE_LIB_LadungPM","ACE_SpareBarrel"];
 };
 
@@ -27,6 +27,3 @@ private _libStaticParts = [];
 lootWeapon deleteAt (lootWeapon find _x);
 } forEach _libStaticParts;
 
-//Add some more variety to the civilian vehicles.
-arrayCivVeh append ["LIB_Zis5v_w","LIB_Kfz1_Hood_sernyt"];
-publicVariable "arrayCivVeh";

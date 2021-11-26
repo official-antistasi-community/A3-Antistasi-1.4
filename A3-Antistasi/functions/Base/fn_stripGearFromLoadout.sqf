@@ -26,7 +26,7 @@ private _newSpecialItems = _newLoadout select 9;
 } forEach [0,1,2,3,4];
 
 //Keep our radio, if we have TFAR or ACRE.
-if (hasTFAR || hasACRE) then {
+if (A3A_hasTFAR || A3A_hasACRE || A3A_hasTFARBeta) then {
 	_newSpecialItems set [2, _oldSpecialItems select 2];
 };
 

@@ -1,53 +1,47 @@
-params [["_playerId", ""], ["_unit", objNull]];
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+if (!isServer) exitWith {
+    Error("Miscalled server-only function");
+};
+waitUntil {(!isNil "initVar")};		// hmm...
 
-if (hasInterface) then {
-	if (count _playerId == 0 || isNull _unit) then {
-		_playerId = getPlayerUID player;
-		_unit = player;
-		[format ["[Antistasi] Telling server to load player %1 into %2", _playerId, _unit]] remoteExec ["diag_log", 2];
-	};
+params ["_playerId", "_unit"];
+
+if !([_playerId] call A3A_fnc_playerHasSave) exitWith {
+    Info_1("No save found for player ID %1", _playerId);
+	[_playerId, _unit] call A3A_fnc_resetPlayer;
 };
 
-if (isMultiplayer && !isServer) exitwith {
-	[_playerId, _unit] remoteExec ["A3A_fnc_loadPlayer", 2];
-};
+Info_2("Loading player data for ID %1 into unit %2", _playerId, _unit);
 
-waitUntil {(!isNil "initVar")};
+private _loadout = [_playerId, "loadoutPlayer"] call A3A_fnc_retrievePlayerStat;
+if (!isNil "_loadout") then { _unit setUnitLoadout _loadout };
 
-if ([_playerId] call A3A_fnc_playerHasSave) then {
-	diag_log format ["[Antistasi] Server loading player %1 into unit %2", _playerId, _unit];
-} else {
-	diag_log format ["[Antistasi] No save found for player %1 into unit %2", _playerId, _unit];
-};
+private _score = 0;
+private _rank = "PRIVATE";
 
-private _loadoutInfo =	[_playerId, "loadoutPlayer"] call fn_RetrievePlayerStat;
-	
-if (!isNil "_loadoutInfo") then {
-	_unit setUnitLoadout _loadoutInfo;
-};
-
-if (isMultiplayer && side _unit == teamPlayer) then
+if ([_unit] call A3A_fnc_isMember) then
 {
-	//player setPos getMarkerPos respawnTeamPlayer;
-	if ([_unit] call A3A_fnc_isMember) then
-	{
-		private _score = ([_playerId, "scorePlayer"] call fn_RetrievePlayerStat);
-		_score = if (isNil "_score") then {0} else {_score};
-		_unit setVariable ["score",_score,true];
-		
-		private _rank = [_playerId, "rankPlayer"] call fn_RetrievePlayerStat;
-		_rank = if (isNil "_rank" || {count _rank == 0}) then {"PRIVATE"} else {_rank};
-		[_unit, _rank] remoteExec ["A3A_fnc_ranksMP"]; 
-		_unit setVariable ["rankX",_rank,true];
-	};
-	
-	private _money = ([_playerId, "moneyX"] call fn_RetrievePlayerStat);
-	_money = if (isNil "_money" || {typeName _money != typeName 0}) then {100} else {_money};
-	_unit setVariable ["moneyX",_money,true];
-	
-	//Personal garage has a nil check built in
-	[_unit, [_playerId, "personalGarage"] call fn_RetrievePlayerStat] call A3A_fnc_setPersonalGarage;
+	private _saveScore = [_playerId, "scorePlayer"] call A3A_fnc_retrievePlayerStat;
+	if (!isNil "_saveScore" && { _saveScore isEqualType 0 }) then {_score = _saveScore};
+
+	private _saveRank = [_playerId, "rankPlayer"] call A3A_fnc_retrievePlayerStat;
+	if (!isNil "_saveRank" && { _saveRank isEqualType "" }) then {_rank = _saveRank};
 };
-diag_log format ["%1: [Antistasi] | INFO | Personal player stats loaded.",servertime];
+
+private _money = [_playerId, "moneyX"] call A3A_fnc_retrievePlayerStat;
+if (isNil "_money" || {!(_money isEqualType 0)}) then {_money = playerStartingMoney};
+
+private _garage = [_playerId, "personalGarage"] call A3A_fnc_retrievePlayerStat;
+if (isNil "_garage" || {!(_garage isEqualType [])}) then {_garage = []};
+[_garage, _playerId] call HR_GRG_fnc_addVehiclesByClass;
+
+_unit setVariable ["score", _score, true];
+_unit setUnitRank _rank;
+_unit setVariable ["rankX", _rank, true];
+_unit setVariable ["moneyX", _money, true];
 
 [] remoteExec ["A3A_fnc_statistics", _unit];
+_unit setVariable ["canSave", true, true];
+
+Info_5("Player %1: Score %2, rank %3, money %4, garage count %5", _playerId, _score, _rank, _money, count _garage);

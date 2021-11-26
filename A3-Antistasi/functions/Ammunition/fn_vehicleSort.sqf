@@ -22,4 +22,3 @@ allUnknown deleteAt (allUnknown find _x);
 ///////////////////////////////////
 //      Civilian Vehicles       ///
 ///////////////////////////////////
-arrayCivVeh deleteAt (arrayCivVeh find "C_Quadbike_01_F");

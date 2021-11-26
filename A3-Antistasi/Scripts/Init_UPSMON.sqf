@@ -55,7 +55,7 @@ UPSMON_GUER_HM = 100;
 //////////////////////// ////////////////////////////////////////////
 
 //Height that heli will fly this input will be randomised in a 10%
-UPSMON_flyInHeight = 40; //80;
+UPSMON_flyInHeight = 60; //80;
 
 //Max distance to target for doing para-drop, will be randomised between 0 and 100% of this value.
 UPSMON_paradropdist = 400;

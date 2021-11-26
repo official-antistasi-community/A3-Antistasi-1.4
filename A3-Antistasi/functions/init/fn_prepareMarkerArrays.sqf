@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 private ["_allMarker", "_placementMarker", "_split", "_start", "_data"];
 
 _allMarker = allMapMarkers;
@@ -14,8 +16,6 @@ seaMarkers = [];
 seaSpawn = [];
 seaAttackSpawn = [];
 detectionAreas = [];
-islands = [];
-roadsMrk = [];
 
 fnc_sortPlacementMarker =
 {
@@ -78,12 +78,6 @@ fnc_sortPlacementMarker =
     case ("seaspawn"): {seaSpawn pushBack _x;};
     case ("seaattackspawn"): {seaAttackSpawn pushBack _x;};
     case ("detectplayer"): {detectionAreas pushBack _x;};
-    case ("island"): {islands pushBack _x;};
-    case ("road"):
-    {
-      _x setMarkerAlpha 0;
-      roadsMrk pushBack _x;
-    };
 
     //Following marker are handled elsewhere
     case ("respawn");
@@ -101,13 +95,12 @@ fnc_sortPlacementMarker =
 
     default
     {
-      diag_log format ["ERROR: Could not resolve marker %1", _x];
+        Error_1("Could not resolve marker %1", _x);
     };
   };
 } forEach _allMarker;
 
-//diag_log "Marker setup done, placement marker are";
-//[_placementMarker, "Placements"] call A3A_fnc_logArray;
+//DebugArray("Marker setup done, placement marker are", _placementMarker);
 
 {
     [_x select 0, _x select 1] spawn A3A_fnc_initSpawnPlaces;

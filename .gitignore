@@ -11,6 +11,11 @@ A3-Antistasi/mission.sqm
 A3-Antistasi/roadsDB*.sqf
 A3-Antistasi/PIC.jpg
 A3-Antistasi/ak.jpg
+A3-Antistasi/Navigation/
+A3-Antistasi/Pictures/Mission/
 
 #Ignore packaged missions
 PreparedMissions/
+
+#Ignore test templates
+Map-Templates/Antistasi-TEST-**

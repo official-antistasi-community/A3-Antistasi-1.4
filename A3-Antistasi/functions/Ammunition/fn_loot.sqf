@@ -11,7 +11,7 @@ lootNVG append allNVGs;
 /////////////////////
 // Assigned Items ///
 /////////////////////
-lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG;
+lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG + allGadgets;
 
 ////////////////////
 //    Weapons    ///
@@ -69,14 +69,14 @@ switch (teamPlayer) do {
      case independent: {_lootDeviceBag append rebelBackpackDevice};
      default {_lootDeviceBag append occupantBackpackDevice};
 };
-lootDevice append _lootDeviceBag;
+lootDevice append _lootDeviceBag + allBackpacksRadio;
 
 ////////////////////////////////////
 //      REBEL STARTING ITEMS     ///
 ////////////////////////////////////
 //KEEP AT BOTTOM!!!
 initialRebelEquipment append lootBasicItem;
-initialRebelEquipment append allRebelUniforms;
-initialRebelEquipment append allCivilianUniforms;
-initialRebelEquipment append allCivilianHeadgear;
-initialRebelEquipment append allCivilianGlasses;
+initialRebelEquipment append (A3A_faction_reb getVariable "uniforms");
+initialRebelEquipment append (A3A_faction_civ getVariable "uniforms");
+initialRebelEquipment append allCosmeticHeadgear;
+initialRebelEquipment append allCosmeticGlasses;

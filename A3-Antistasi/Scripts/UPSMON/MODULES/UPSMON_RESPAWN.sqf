@@ -111,7 +111,7 @@ If (!_removeunit) then
 
 			if (isMultiplayer) then
 			{
-				[[netid _newunit, _initstr], "UPSMON_fnc_setVehicleInit", true, true] spawn BIS_fnc_MP;
+				[netid _newunit, _initstr] remoteExec ["UPSMON_fnc_setVehicleInit", 0,true];
 			} else
 			{
 				_unitstr = "_newunit";

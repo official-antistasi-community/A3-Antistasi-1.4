@@ -13,26 +13,28 @@ _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occup
 _positionX = getMarkerPos _markerX;
 
 _timeLimit = if (_difficultX) then {15} else {30};//120
-if (hasIFA) then {_timeLimit = _timeLimit * 2};
+if (A3A_hasIFA) then {_timeLimit = _timeLimit * 2};
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _naming = if (_sideX == Occupants) then {"NATO"} else {"CSAT"};
+private _taskString = format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming];
 
-[[teamPlayer,civilian],"AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
-missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
+private _taskId = "AS" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,[_taskString,"Kill the Officer",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
+[_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
+
 _grp = createGroup _sideX;
-
 _typeX = if (_sideX == Occupants) then {NATOOfficer} else {CSATOfficer};
-_official = _grp createUnit [_typeX, _positionX, [], 0, "NONE"];
+_official = [_grp, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 _typeX = if (_sideX == Occupants) then {NATOBodyG} else {CSATBodyG};
-_pilot = _grp createUnit [_typeX, _positionX, [], 0, "NONE"];
+_pilot = [_grp, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 if (_difficultX) then
 	{
 	for "_i" from 1 to 4 do
 		{
-		_pilot = _grp createUnit [_typeX, _positionX, [], 0, "NONE"];
+		_pilot = [_grp, _typeX, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		};
 	};
 
@@ -46,11 +48,11 @@ waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (not alive _official)
 
 if (not alive _official) then
 	{
-	["AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	[_taskId, "AS", "SUCCEEDED"] call A3A_fnc_taskSetState;
 	if (_difficultX) then
 		{
 		[0,600] remoteExec ["A3A_fnc_resourcesFIA",2];
-		[2400] remoteExec ["A3A_fnc_timingCA",2];
+		[2400, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		{if (isPlayer _x) then {[20,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
 		[10,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,60] call A3A_fnc_addTimeForIdle;
@@ -58,7 +60,7 @@ if (not alive _official) then
 	else
 		{
 		[0,300] remoteExec ["A3A_fnc_resourcesFIA",2];
-		[1800] remoteExec ["A3A_fnc_timingCA",2];
+		[1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,30] call A3A_fnc_addTimeForIdle;
@@ -67,16 +69,16 @@ if (not alive _official) then
 	}
 else
 	{
-	["AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
+	[_taskId, "AS", "FAILED"] call A3A_fnc_taskSetState;
 	if (_difficultX) then
 		{
-		[-1200] remoteExec ["A3A_fnc_timingCA",2];
+		[-1200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		[-20,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,-60] call A3A_fnc_addTimeForIdle;
 		}
 	else
 		{
-		[-600] remoteExec ["A3A_fnc_timingCA",2];
+		[-600, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		[-10,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,-30] call A3A_fnc_addTimeForIdle;
 		};
@@ -85,4 +87,4 @@ else
 {deleteVehicle _x} forEach units _grp;
 deleteGroup _grp;
 
-_nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
+[_taskId, "AS", 1200] spawn A3A_fnc_taskDelete;

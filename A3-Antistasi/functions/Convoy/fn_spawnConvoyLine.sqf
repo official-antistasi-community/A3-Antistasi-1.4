@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_data", "_side", "_pos", "_dir"];
 
 private _vehicleType = _data select 0;
@@ -34,7 +36,7 @@ if(_vehicleType != "") then
   _vehicleGroup addVehicle _vehicleObj;
 
   //Init vehicle
-  [_vehicleObj] call A3A_fnc_AIVEHinit;
+  [_vehicleObj, _side] call A3A_fnc_AIVEHinit;
 };
 
 //Sleep to decrease spawn lag
@@ -46,8 +48,8 @@ private _nextTurretIndex = 0;
 //Spawning in crew
 private _crewObjs = [];
 {
-    private _unit = _vehicleGroup createUnit [_x, _pos, [], 0, "NONE"];
-	diag_log format ["Convoy: Moving %1 into %2 of type %3 with %4 crew turrets", _unit, _vehicleObj, _vehicleType, _turretCount];
+    private _unit = [_vehicleGroup, _x, _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
+    Debug_4("Convoy: Moving %1 into %2 of type %3 with %4 crew turrets", _unit, _vehicleObj, _vehicleType, _turretCount);
     if(!isNull _vehicleObj) then
     {
 	  if (isNull driver _vehicleObj) then {
@@ -93,7 +95,7 @@ else
 private _unit = objNull;
 //Spawning in cargo
 {
-    _unit = _cargoGroup createUnit [_x, _pos, [], 0, "NONE"];
+    _unit = [_cargoGroup, _x, _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
     if (!isNull _vehicleObj) then
     {
       _unit assignAsCargo _vehicleObj;

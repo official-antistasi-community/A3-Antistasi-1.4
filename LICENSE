@@ -20,21 +20,48 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+###########################
 
+## PLEASE NOTE THAT FOLLOWING INTEGRATED SCRIPTS, FOLDERS AND FILES ARE UNDER A DIFFERENT LICENSE:
 
-PLEASE NOTE THAT FOLLOWING INTEGRATED SCRIPTS, FOLDERS AND FILES ARE UNDER A DIFFERENT LICENSE:
+# StreetArtist:
+    Owner:
+        Caleb Sebastian Serafin
 
-Snow Storm Script by aliascartoons
-	
-	located in:
-		- A3-Antistasi\Map-Templates\Antistasi-ChernarusWinter.chernarus_winter\AL_snowstorm
-		- A3-Antistasi\Map-Templates\Antistasi-ChernarusWinter.chernarus_winter\sound
-	
-	License:
-		As from what we can see his script is not published under a certain license. Nevertheless, it was posted and published with following "License / Disclaimer":
-		"You can use, adapt and/or modify the script as you see fit.
-		DO NOT INCORPORATE THIS SCRIPT OR PORTIONS OF IT IN MONETIZED PRODUCTS OR SERVERS WITHOUT ASKING FOR PERMISSION AND OBTAINING APPROVAL FROM ME!!!"
-	
-	You can find more information to this script behind following links:
-		- http://www.armaholic.com/page.php?id=31841
-		- https://steamcommunity.com/sharedfiles/filedetails/?id=786813177
+    Located in:
+        Tools\StreetArtist
+
+    License:
+        ARMA PUBLIC LICENSE NO DERIVATIVES (APL-ND)
+
+    Summary:
+		PLEASE, NOTE THAT THIS SUMMARY HAS NO LEGAL EFFECT AND IS ONLY OF AN INFORMATORY NATURE DESIGNED FOR YOU TO GET THE BASIC INFORMATION ABOUT THE CONTENT OF THIS LICENCE. THE ONLY LEGALLY BINDING PROVISIONS ARE THOSE IN THE ORIGINAL AND FULL TEXT OF THIS LICENCE.
+
+		With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
+
+		Attribution - You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).
+		Noncommercial - You may not use this material for any commercial purposes.
+		Arma Only - You may not convert or adapt this material to be used in other games than Arma.
+		No Derivatives - If you remix, transform, or build upon the material, you may not distribute the modified material.
+
+###########################
+
+# Håkon Rydland Garage:
+    Owner:
+        Håkon Rydland
+
+    Located in:
+        A3-Antistasi\Garage
+
+    License:
+        ARMA PUBLIC LICENSE NO DERIVATIVES (APL-ND)
+
+    Summary:
+		PLEASE, NOTE THAT THIS SUMMARY HAS NO LEGAL EFFECT AND IS ONLY OF AN INFORMATORY NATURE DESIGNED FOR YOU TO GET THE BASIC INFORMATION ABOUT THE CONTENT OF THIS LICENCE. THE ONLY LEGALLY BINDING PROVISIONS ARE THOSE IN THE ORIGINAL AND FULL TEXT OF THIS LICENCE.
+
+	    With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
+
+	    Attribution - You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).
+	    Noncommercial - You may not use this material for any commercial purposes.
+	    Arma Only - You may not convert or adapt this material to be used in other games than Arma.
+	    No Derivatives - If you remix, transform, or build upon the material, you may not distribute the modified material.

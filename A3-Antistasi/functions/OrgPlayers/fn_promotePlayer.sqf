@@ -1,10 +1,11 @@
-private _filename = "fn_promotePlayer";
-[3, format ["Working on player ranks"],_filename] call A3A_fnc_log;
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
+Debug("Working on player ranks");
 private ["_puntMax","_textX","_multiplier","_newRank","_selectable","_disconnected","_owner","_pointsX","_dataX"];
 _puntMax = 0;
 _multiplier = 1;
 
-private _textX = "Promoted Players:\n\n";
+private _textX = "Promoted Players:<br/><br/>";
 
 _promoted = false;
 {
@@ -14,7 +15,7 @@ _promoted = false;
 	private _multiplier = _dataX select 0;
 	private _newRank = _dataX select 1;
 	private _rank = _x getVariable ["rankX","PRIVATE"];
-	
+
 	if (_rank != "COLONEL") then
 	{
 		if (_pointsX >= 50*_multiplier) then
@@ -22,7 +23,7 @@ _promoted = false;
 			_promoted = true;
 			[_player,_newRank] remoteExec ["A3A_fnc_ranksMP"];
 			_player setVariable ["rankX",_newRank,true];
-			_textX = format ["%1%2: %3.\n",_textX, name _player, _newRank];
+			_textX = format ["%1%2: %3.<br/>",_textX, name _player, _newRank];
 			[-1*(50*_multiplier),_player] call A3A_fnc_playerScoreAdd;
 			_multiplier = _multiplier + 1;
 			sleep 5;
@@ -30,10 +31,10 @@ _promoted = false;
 	};
 } forEach ((call A3A_fnc_playableUnits) select {(side (group _x) == teamPlayer)});
 
-[3, _textX, _filename] call A3A_fnc_log;
+Debug(_textX);
 
 if (_promoted) then
 {
-	_textX = format ["%1\n\nCONGRATULATIONS!!",_textX];
-	[petros,"hint",_textX] remoteExec ["A3A_fnc_commsMP"];
+	_textX = format ["%1<br/><br/>CONGRATULATIONS!!",_textX];
+	[petros,"hint",_textX, "Promotion"] remoteExec ["A3A_fnc_commsMP"];
 };

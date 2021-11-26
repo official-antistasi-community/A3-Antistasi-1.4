@@ -1,17 +1,17 @@
 params["_vehicle", "_caller", "_actionID"];
 
-if(!isPlayer _caller) exitWith {hint "Only players are currently able to breach vehicles!";};
+if(!isPlayer _caller) exitWith {["Breach Vehicle", "Only players are currently able to breach vehicles!"] call A3A_fnc_customHint;};
 
 //Only engineers should be able to breach a vehicle
 private _isEngineer = _caller getUnitTrait "engineer";
 if(!_isEngineer) exitWith
 {
-    hint "You have to be an engineer to breach a vehicle!";
+    ["Breach Vehicle", "You have to be an engineer to breach a vehicle!"] call A3A_fnc_customHint;;
 };
 
 if(!alive _vehicle) exitWith
 {
-    hint "Why would you want to breach a destroyed vehicle?";
+    ["Breach Vehicle", "Why would you want to breach a destroyed vehicle?"] call A3A_fnc_customHint;
     _vehicle removeAction _actionID;
 };
 
@@ -19,25 +19,18 @@ private _vehCrew = crew _vehicle;
 private _aliveCrew = _vehCrew select {alive _x};
 if(count _aliveCrew == 0) exitWith
 {
-    hint "There is no living crew left, no need for breaching!";
+    ["Breach Vehicle", "There is no living crew left, no need for breaching!"] call A3A_fnc_customHint;
     _vehicle lock false;
     _vehicle removeAction _actionID;
 };
 
 if(side (_aliveCrew select 0) == teamPlayer) exitWith
 {
-    hint "You cannot breach a vehicle which is controlled by the rebels!";
+    ["Breach Vehicle", "You cannot breach a vehicle which is controlled by the rebels!"] call A3A_fnc_customHint;
     _vehicle removeAction _actionID;
 };
 
-
-private _isAPC = (typeOf _vehicle) in vehAPCs;
 private _isTank = (typeOf _vehicle) in vehTanks;
-
-if(!_isAPC && !_isTank) exitWith
-{
-    hint "You can only breach APCs and Tanks.";
-};
 
 private _magazines = magazines _caller;
 private _magazineArray = [];
@@ -61,7 +54,7 @@ private _index = -1;
 //Abort if no explosives found
 if(_magazineArray isEqualTo []) exitWith
 {
-    hint "You carry no explosives. You will need some to breach vehicles!";
+    ["Breach Vehicle", "You carry no explosives. You will need some to breach vehicles!"] call A3A_fnc_customHint;
 };
 
 private _explosive = "";
@@ -88,7 +81,7 @@ private _fn_selectExplosive =
 
 _index = -1;
 
-private _needed = if(_isAPC) then {breachingExplosivesAPC} else {breachingExplosivesTank};
+private _needed = if(_isTank) then {breachingExplosivesTank} else {breachingExplosivesAPC};
 private _explo = [_needed, _magazineArray] call _fn_selectExplosive;
 if(!(_explo isEqualTo [])) then
 {
@@ -98,20 +91,20 @@ if(!(_explo isEqualTo [])) then
 
 if(_explosiveCount == 0) exitWith
 {
-    hint "You don't have the right explosives, check the briefing notes to see what you need!";
+    ["Breach Vehicle", "You don't have the right explosives, check the briefing notes to see what you need!"] call A3A_fnc_customHint;
 };
 
 private _time = 15 + (random 5);
 private _damageDealt = 0;
-if(_isAPC) then
-{
-    _time = 25 + (random 10);
-    _damageDealt = 0.15 + random 0.15;
-};
 if(_isTank) then
 {
     _time = 45 + (random 15);
     _damageDealt = 0.25 + random 0.25;
+}
+else
+{
+    _time = 25 + (random 10);
+    _damageDealt = 0.15 + random 0.15;
 };
 
 _caller setVariable ["timeToBreach",time + _time];
@@ -161,7 +154,7 @@ if
   {_caller getVariable ["cancelBreach",false]}}}}
 ) exitWith
 {
-	hint "Breaching cancelled";
+  ["Breach Vehicle", "Breaching cancelled."] call A3A_fnc_customHint;
   _caller setVariable ["cancelBreach",nil];
   if(alive _vehicle) then {
 	_vehicle call A3A_fnc_addActionBreachVehicle;
@@ -171,12 +164,12 @@ if
 //Remove the correct amount of explosives
 for "_count" from 1 to _explosiveCount do
 {
-    _caller removeMagazine _explosive;
+    _caller removeMagazineGlobal _explosive;
 };
 
 //Added as the vehicle might blow up. Best not to blow up in the player's face.
 //Pause AFTER removing the explosive in case they decide to drop it or something.
-hint "Breaching in 10 seconds.";
+["Breach Vehicle", "Breaching in 10 seconds."] call A3A_fnc_customHint;
 sleep 10;
 
 private _hitPointsConfigPath = configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "HitPoints";
@@ -226,8 +219,7 @@ private _crew = crew _vehicle;
     if(alive _x) then
     {
         moveOut _x;
-        _x setVariable ["surrendered",true,true];
-        [_x] spawn A3A_fnc_surrenderAction;
+        [_x] remoteExec ["A3A_fnc_surrenderAction", _x];		// execute local to crewman
     }
     else
     {
@@ -236,15 +228,4 @@ private _crew = crew _vehicle;
     };
 } forEach _crew;
 
-if((_isAPC && {(typeOf _vehicle) in vehNATOAPC}) || {_isTank && {(typeOf _vehicle) in vehNATOTank}}) then
-{
-  [1,0] remoteExec ["A3A_fnc_prestige",2];
-  if(citiesX findIf {(getMarkerPos _x) distance _vehicle < 300} != -1) then
-  {
-    [-1, 1, getPos _vehicle] remoteExec ["A3A_fnc_citySupportChange",2];
-  };
-}
-else
-{
-  [0,1] remoteExec ["A3A_fnc_prestige",2];
-};
+[_vehicle, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;

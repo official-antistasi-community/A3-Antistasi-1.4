@@ -20,13 +20,13 @@ if (isMultiplayer) exitWith
 	};
 private ["_positionX","_radiusX","_roads","_road","_pos"];
 _positionX = getMarkerPos respawnTeamPlayer;
-if (lifeState _unit == "INCAPACITATED") then {_unit setUnconscious false};
+if (lifeState _unit == "incapacitated") then {_unit setUnconscious false};
 _unit setVariable ["helped",objNull];
 _unit setVariable ["helping",false];
 _unit setDamage 0;
 _unit setVariable ["compromised",0];
 _unit setVariable ["disguised",false];
-_unit setVariable ["INCAPACITATED",false];
+_unit setVariable ["incapacitated",false];
 
 if (rating _unit < 0) then {_unit addRating (rating _unit * -1)};
 _nul = [0,-1,getPos _unit] remoteExec ["A3A_fnc_citySupportChange",2];

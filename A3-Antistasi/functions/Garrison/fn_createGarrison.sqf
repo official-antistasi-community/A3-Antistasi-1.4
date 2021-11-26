@@ -1,3 +1,5 @@
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 params ["_markerArray", "_type", ["_lose", [0, 0, 0]]];
 
 /*  Creates the initial garrison for a set a marker of a specific type
@@ -15,7 +17,7 @@ private ["_losses", "_preferred", "_garrison", "_requested", "_marker", "_side",
 _preferred = garrison getVariable [format ["%1_preference", _type], objNull];
 while {!(_preferred isEqualType [])} do
 {
-  diag_log format ["CreateGarrison: Preference %1_preference not set yet, waiting for 1 second", _type];
+    Debug_1("Preference %1_preference not set yet, waiting for 1 second", _type);
   sleep 1;
   _preferred = garrison getVariable [format ["%1_preference", _type], objNull];
 };
@@ -27,7 +29,7 @@ while {!(_preferred isEqualType [])} do
   _side = sidesX getVariable [_marker, sideUnknown];
   while {_side == sideUnknown} do
   {
-    diag_log format ["Side unknown for %1, sleeping 1!", _marker];
+      Debug_1("Side unknown for %1, sleeping 1!", _marker);
     sleep 1;
     _side = sidesX getVariable [_marker, sideUnknown];
   };
@@ -37,7 +39,7 @@ while {!(_preferred isEqualType [])} do
 
     _start = ((_preferred select _i) select 0) select [0,3];
     _index = ["LAN", "HEL", "AIR"] findIf {_x == _start};
-    //diag_log format ["Start %1 Index %2 Preference %3", _start, _index, str (_preferred select _i)];
+    //Debug_3("Start %1 Index %2 Preference %3", _start, _index, str (_preferred select _i));
     if(_index == -1 || {(_losses select _index) <= 0}) then
     {
       //TODO init arrays with specific size to avoid resize operations
@@ -56,8 +58,7 @@ while {!(_preferred isEqualType [])} do
 
   if(debug) then
   {
-    diag_log format ["Garrison on %1 is now set", _marker];
-    [_garrison, format ["%1_garrison", _marker]] call A3A_fnc_logArray;
+      DebugArray("Garrison on "+_marker+" is now set", _garrison);
   };
 
   [_marker] call A3A_fnc_updateReinfState;

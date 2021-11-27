@@ -1,3 +1,20 @@
+/*  
+Arguments:
+	0.  <String>    variable name or identifier for subroutine to run 
+    1.  <any>       data that will be set
+Return Value:
+    nil
+
+Scope: Server
+Environment: unscheduled
+Public: yes
+Dependencies:
+
+Example:
+    [_varName,_varValue] call A3A_fnc_loadStat;
+*/
+
+
 //===========================================================================
 //ADD VARIABLES TO THIS ARRAY THAT NEED SPECIAL SCRIPTING TO LOAD
 /*specialVarLoads =
@@ -26,7 +43,7 @@ private _specialVarLoads = [
     "garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
     "idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
     "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-    "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage"
+    "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage","A3A_fuelAmountleftArray"
 ];
 
 private _varName = _this select 0;
@@ -333,6 +350,17 @@ if (_varName in _specialVarLoads) then {
                 };
             };
         } forEach _varvalue;
+    };
+
+    if(_varname == 'A3A_fuelAmountleftArray') then {
+        A3A_fuelAmountleftArray = _varValue;
+        for "_i" from 0 to (count A3A_fuelAmountleftArray - 1) do {
+            if(A3A_hasACE) then {
+		        [A3A_fuelStations # _i, A3A_fuelAmountleftArray # _i] call ace_refuel_fnc_setFuel;
+	        } else {
+	            (A3A_fuelStations # _i) setFuelCargo (A3A_fuelAmountleftArray # _i);
+	        };
+        };
     };
     if(_varname == 'testingTimerIsActive') then
     {

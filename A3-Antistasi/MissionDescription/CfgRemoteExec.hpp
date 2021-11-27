@@ -5,11 +5,12 @@ class CfgRemoteExec {
         jip = 1;            // 0: No JIP,               1: JIP Allowed
         allowedTargets = 0; // 0: All machines,         1: Only to other clients,   2: Only to server
 
-        class A3A_fnc_keyCache_delete           { mode = 0; };
+        class A3A_fnc_keyCache_drop             { mode = 0; };
         class A3A_fnc_keyCache_garbageCollector { mode = 0; };
         class A3A_fnc_keyCache_has              { mode = 0; };
         class A3A_fnc_keyCache_init             { mode = 0; };
         class A3A_fnc_keyCache_lookup           { mode = 0; };
+        class A3A_fnc_keyCache_pop              { mode = 0; };
         class A3A_fnc_keyCache_registerForGC    { mode = 0; };
         class A3A_fnc_keyCache_set              { mode = 0; };
         class A3A_fnc_keyCache_startGarbageCollectors { mode = 0; };

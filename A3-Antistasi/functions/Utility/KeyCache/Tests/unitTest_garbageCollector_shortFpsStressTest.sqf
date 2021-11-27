@@ -51,7 +51,7 @@ Dev_shortFpsStressTestHandle = [_fnc_reporter,_reporterContext] spawn {
             for "_l" from _k to _k + 10000-1 do {
                 private _name = (str _j) + (_l toFixed 0);
                 private _TTL = selectRandomWeighted _randomTTLsWeighted;
-                _keyCache_DB set [_name, [nil,_TTL,serverTime + _TTL]];
+                _keyCache_DB set [_name, [nil,_TTL,serverTime + _TTL, nil]];
                 _name call A3A_fnc_keyCache_registerForGC;
             };
             //uiSleep 0.01; Processed at max speed anyway.

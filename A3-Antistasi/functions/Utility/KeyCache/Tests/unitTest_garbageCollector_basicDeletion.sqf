@@ -27,7 +27,8 @@ Dev_basicDeletionTestHandle = [_fnc_reporter,_reporterContext] spawn {
     _keyCache_DB set ["Test123", [
         "value",
         100,
-        0
+        0,
+        nil
     ]];
 
     private _keyCache_GC_gen0NewestBucket = [];

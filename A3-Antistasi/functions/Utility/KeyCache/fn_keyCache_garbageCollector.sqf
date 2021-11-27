@@ -43,7 +43,6 @@ if (_generationNumber >= count _keyCache_GC_generations) exitWith {
 private _GC_generation = _keyCache_GC_generations #_generationNumber;
 private _const_nullTranslation = [nil,nil,-1];
 
-// Whole process is thread-safe, no isNil blocks needed.
 while {true} do {
     // Reload config every cycle.
     _GC_generation params ["_allBuckets","_newestBucket","_totalPeriod","_bucketsAmount","_promotedGeneration"];
@@ -107,7 +106,7 @@ while {true} do {
                     continue;
                 };
                 _keyCache_GC_registeredItems deleteAt _x;
-                _keyCache_DB deleteAt _x;  /*__inc_deleted;*/
+                _x call A3A_fnc_keyCache_drop;  /*__inc_deleted;*/
             };
         } forEach (_currentBucket select [_span, _spanSize]);
         uiSleep (_allocatedTime - serverTime);  // uiSleep does not crash from negative input.

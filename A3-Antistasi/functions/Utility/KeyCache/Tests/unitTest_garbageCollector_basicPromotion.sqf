@@ -27,7 +27,8 @@ Dev_basicPromotionTestHandle = [_fnc_reporter,_reporterContext] spawn {
     _keyCache_DB set ["Test123", [
         "value",
         100,
-        serverTime + 100
+        serverTime + 100,
+        nil
     ]];
 
     private _keyCache_GC_gen0NewestBucket = [];

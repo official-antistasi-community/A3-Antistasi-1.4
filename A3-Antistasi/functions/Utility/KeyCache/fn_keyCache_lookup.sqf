@@ -21,7 +21,7 @@ Example:
 #include "config.hpp"
 
 private _cachedStruct = __keyCache_getVar(A3A_keyCache_DB) getOrDefault [_this,[_this,0,-1]];
-_cachedStruct params ["_translation","_lifeTime","_expiryTime"];
+_cachedStruct params ["_translation","_lifeTime","_expiryTime","_fnc_onDispose"];
 
 if (_expiryTime <= serverTime) exitWith {_this};
 _cachedStruct set [2, serverTime + _lifeTime];

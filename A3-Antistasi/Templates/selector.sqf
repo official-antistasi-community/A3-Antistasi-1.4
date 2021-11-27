@@ -54,6 +54,7 @@ private _autoPickAI = {
                     default {"USAF"};
                 };
             };
+            case (A3A_hasUNS): {"NVA"};
             case (A3A_hasVN): {"PAVN"};
             default {
                 switch(true) do {
@@ -76,6 +77,7 @@ private _autoPickAI = {
             };
         };
         case (A3A_hasRHS): {"AFRF"};
+        case (A3A_hasUNS): {"Viet US"};
         case (A3A_hasVN): {"MACV"};
         default {"CSAT"};
     };
@@ -91,6 +93,7 @@ private _autoPickReb = {
             };
         };
         case (A3A_hasRHS): {"NAPA"};
+        case (A3A_hasUNS): {"VC"};
         case (A3A_hasVN): {"POF"};
         default {
             switch(true) do {
@@ -135,6 +138,8 @@ private _AIFactionEnums = [
     , ["HIDF", A3A_has3CBFactions]
     , ["MACV", A3A_hasVN]
     , ["PAVN", A3A_hasVN]
+    , ["NVA", A3A_hasUNS]
+    , ["Viet US", A3A_hasUNS]
 ];
 private _rebFactionEnums = [
     [_autoPickReb, true]
@@ -144,6 +149,7 @@ private _rebFactionEnums = [
     , ["CNM", A3A_has3CBFactions]
     , ["TKM", A3A_has3CBFactions]
     , ["POF", A3A_hasVN]
+    , ["VC", A3A_hasUNS]
 ];
 private _civFactionEnums = [
     [_autoPickCiv, true]
@@ -151,6 +157,7 @@ private _civFactionEnums = [
     , ["RHS", A3A_hasRHS]
     , ["Factions", A3A_has3CBFactions]
     , ["VN", A3A_hasVN]
+    , ["UNS", A3A_hasUNS]
 ];
 
 //======================|
@@ -206,6 +213,10 @@ private _pickAITemplate = {
             };
         };
 
+        //UNS
+        case "NVA": { "Templates\Templates\UNSUNG\Unsung_AI_NVA_Tropical.sqf" };
+        case "Viet US": { "Templates\Templates\UNSUNG\Unsung_AI_US_Tropical.sqf" };
+   
         //VN
         case "PAVN": { "Templates\Templates\VN\VN_PAVN.sqf" };
         case "MACV": { "Templates\Templates\VN\VN_MACV.sqf" };
@@ -248,6 +259,9 @@ private _pickRebTemplate = {
             };
         };
 
+        //UNS
+        case "VC": { "Templates\Templates\Unsung\Unsung_Reb_VC_Tropical.sqf" };
+
         //VN
         case "POF": { "Templates\Templates\VN\VN_Reb_POF.sqf" };
 
@@ -273,6 +287,7 @@ private _pickCIVTemplate = {
             };
         };
         case "RHS": { "Templates\Templates\RHS\RHS_Civ.sqf" };
+        case "UNS": { "Templates\Templates\UNSUNG\Unsung_Civ.sqf" };
         case "VN": { "Templates\Templates\VN\VN_CIV.sqf" };
         case "Vanilla": { "Templates\Templates\Vanilla\Vanilla_Civ.sqf" };
     };
@@ -386,6 +401,7 @@ if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\Template
 if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBFactions_Logistics_Nodes.sqf"};
 if (A3A_has3CBBAF) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBBAF_Logistics_Nodes.sqf"};
 if (A3A_hasVN) then {call compile preProcessFileLineNumbers "Templates\Templates\VN\VN_Logistics_Nodes.sqf"};
+if (A3A_hasUNS) then {call compile preProcessFileLineNumbers "Templates\Templates\UNS\Unsung_Logistics_Nodes.sqf"};
 
 //if (A3A_hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_Logistics_Nodes.sqf"};		//disabled until imtegrated
 //if (A3A_hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Logistics_Nodes.sqf"};		//disabled until imtegrated

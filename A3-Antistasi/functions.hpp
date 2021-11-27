@@ -354,11 +354,9 @@ class A3A
         class keyCache_has {};
         class keyCache_init {};
         class keyCache_lookup {};
-        class keyCache_pop {};
         class keyCache_registerForGC {};
         class keyCache_set {};
         class keyCache_startGarbageCollectors {};
-        class keyCache_translate {};
     };
 
     class Loadouts

@@ -238,37 +238,37 @@ class Params
     class RebelFactionEnum
     {
         title = "Rebel faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6};
-        texts[] = {"Default (Auto)", "FIA", "SDK", "NAPA (RHS)", "CNM (Factions)", "TKM (Factions)", "POF (SOG:PF)"};
+        values[] = {9999, 1,2,3,4,5,6,7};
+        texts[] = {"Default (Auto)", "FIA", "SDK", "NAPA (RHS)", "CNM (Factions)", "TKM (Factions)", "POF (SOG:PF)", "VC (UNS)"};
         default = 9999;
     };
     class OccupantsFactionEnum
     {
         title = "Occupants faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+        values[] = {9999, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22};
         texts[] = {
             "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
             , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
-            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)"
+            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF), "NVA (UNS)", "Viet US (UNS)"
         };
         default = 9999;
     };
     class InvadersFactionEnum
     {
         title = "Invaders faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+        values[] = {9999, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22};
         texts[] = {
             "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
             , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
-            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)"
+            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF), "NVA (UNS)", "Viet US (UNS)"
         };
         default = 9999;
     };
     class CivFactionEnum
     {
         title = "Civilian faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4};
-        texts[] = {"Default (Auto)", "Vanilla", "RHS", "Factions", "VN"};
+        values[] = {9999, 1,2,3,4,5};
+        texts[] = {"Default (Auto)", "Vanilla", "RHS", "Factions", "VN", "UNS"};
         default = 9999;
     };
     class Spacer13

@@ -23,6 +23,7 @@ A3A_hasADV = false;
 A3A_hasD3S = false;
 A3A_hasRDS = false;
 A3A_hasKAT = false;
+A3A_hasUNS = false;
 
 //Actual Detection
 //IFA Detection
@@ -33,6 +34,9 @@ if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
     Error("IFA detected, but it is no longer supported, please remove this mod");
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
+
+//Unsung Detection
+if (isClass (configfile >> "CfgFactionClasses" >> "UNSUNG_W")) then {A3A_hasUNS = true; Info("Unsung Detected.") };
 
 //RHS Detection
 if (isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") && isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") && isClass (configFile >> "CfgFactionClasses" >> "rhsgref_faction_tla")) then {
@@ -75,5 +79,5 @@ if (isClass (configfile >> "CfgVehicles" >> "d3s_baumaschinen")) then {A3A_hasD3
 if (isClass (configfile >> "CfgPatches" >> "rds_A2_Civilians")) then {A3A_hasRDS = true; Info("RDS Cars Detected.") };
 
 //No Mods found logging
-if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_hasIFA && !A3A_has3CBBAF) then { Info("No Side Replacement Mods Detected.") };
+if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_hasIFA && !A3A_has3CBBAF && !A3A_hasUNS) then { Info("No Side Replacement Mods Detected.") };
 if (!A3A_hasIvory && !A3A_hasTCGM && !A3A_hasADV && !A3A_hasKAT) then { Info("No Addon Mods Detected.") };

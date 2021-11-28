@@ -38,7 +38,7 @@
 ["vehiclesAmphibious", ["uns_M113_XM182","uns_M113_M60","uns_M113_M134","uns_M113A1_M2","uns_M113_30cal","uns_M113_transport","uns_M577_amb","uns_m163"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["uns_A1J_CAS","uns_A7_CAS"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["uns_F4E_CAP","UNS_F111_D_CAP"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["uns_F4E_CAP","uns_f100b_CAP"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["uns_c1a5cargo","uns_C130_H"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["uns_H13_transport_Army","uns_H13_gunship_Army","uns_oh6_transport","uns_oh6_m27"]] call _fnc_saveToTemplate;

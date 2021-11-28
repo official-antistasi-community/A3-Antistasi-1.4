@@ -107,6 +107,7 @@ private _autoPickCiv = {
     switch (true) do {
         case (A3A_has3CBFactions): { "Factions" };
         case (A3A_hasRHS): { "RHS" };
+        case (A3A_hasUNS): { "UNS" };
         case (A3A_hasVN): { "VN" };
         default { "Vanilla" };
     };

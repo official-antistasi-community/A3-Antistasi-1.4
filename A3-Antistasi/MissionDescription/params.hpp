@@ -249,7 +249,7 @@ class Params
         texts[] = {
             "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
             , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
-            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF), "NVA (UNS)", "Viet US (UNS)"
+            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)", "NVA (UNS)", "Viet US (UNS)"
         };
         default = 9999;
     };
@@ -260,7 +260,7 @@ class Params
         texts[] = {
             "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
             , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
-            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF), "NVA (UNS)", "Viet US (UNS)"
+            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)", "NVA (UNS)", "Viet US (UNS)"
         };
         default = 9999;
     };

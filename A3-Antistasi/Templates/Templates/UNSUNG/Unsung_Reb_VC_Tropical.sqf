@@ -527,7 +527,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-	[selectRandom ["smgs", "carbines"]] call _fnc_setPrimary;
+	[selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
 	["primary", 5] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
@@ -549,7 +549,7 @@ private _crewTemplate = {
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
-	["smgs"] call _fnc_setPrimary;
+	["SMGs"] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

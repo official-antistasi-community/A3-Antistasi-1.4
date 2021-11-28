@@ -1,17 +1,18 @@
 //Each element is: [model name, [nodes]]
 //Nodes are build like this: [Available(internal use,  always 1), Hardpoint location, Seats locked when node is in use]
 A3A_logistics_vehicleHardpoints = [
-
+	//Cars
 	["\uns_m274\uns_m274.p3d",[
 		[1,[0.13,-0.4,-0.71],[0,1,2]]
 	]],
 
+	//Small Trucks
 	["\uns_wheeled_w\m37b\uns_m37b1.p3d",[
 		[1,[0,-1.25,-0.82],[1,2,6]],
 		[1,[0,-2.05,-0.82],[3,4,5]]
 	]],
 
-    //Small Truck
+        //Trucks
 	["uns_m35\uns_M35A2",[
 		[1,[0,-0.4,-0.5],[3,4]],
 		[1,[0,-1.2,-0.5],[5,6,7,8]],
@@ -33,10 +34,11 @@ A3A_logistics_vehicleHardpoints = [
 		[1,[0,-2.1,1.4],[7,8]]
 	]],
 
-    ["\A3\boat_f\Boat_Transport_01\Boat_Transport_01_F.p3d", [
-        [1,             [0,0.7575,-1.045],        [0,1,2,3]],
-        [1,             [0,-0.0725,-1.045],       []]
-    ]],
+	//Boats
+        ["\A3\boat_f\Boat_Transport_01\Boat_Transport_01_F.p3d", [
+        	[1,             [0,0.7575,-1.045],        [0,1,2,3]],
+        	[1,             [0,-0.0725,-1.045],       []]
+        ]],
 
 	["uns_boats\skiff\uns_skiff_1",[
 		[1,[0,0.6,-0.675],[0,1]]
@@ -66,6 +68,7 @@ A3A_logistics_vehicleHardpoints = [
 		[1,[0,-0.1,-1.2],[]]
 	]],
 
+	//Helicopters
 	["\uns_ch47a\uns_ch47a.p3d",[
 		[1,[0.01,3.6,-2.71],[]],
 		[1,[0.01,2.8,-2.71],[]],

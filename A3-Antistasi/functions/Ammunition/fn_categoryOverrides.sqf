@@ -99,6 +99,17 @@ private _categoryOverrideTable = [
 ["ace_compat_rhs_usf3_tow_carry" , ["StaticWeaponParts","Items"]],
 ["ace_compat_rhs_gref3_dshkm_carry" , ["StaticWeaponParts","Items"]],
 
+["CUP_2b14_carry", ["StaticWeaponParts","Items"]],
+["CUP_AGS30_carry" , ["StaticWeaponParts","Items"]],
+["CUP_TOW_carry" , ["StaticWeaponParts","Items"]],
+["CUP_TOW2_carry" , ["StaticWeaponParts","Items"]],
+["CUP_DSHKM_carry" , ["StaticWeaponParts","Items"]],
+["CUP_KORD_carry" , ["StaticWeaponParts","Items"]],
+["CUP_m2_carry" , ["StaticWeaponParts","Items"]],
+["CUP_m252_carry" , ["StaticWeaponParts","Items"]],
+["CUP_MK19_carry" , ["StaticWeaponParts","Items"]],
+["CUP_SPG9_carry" , ["StaticWeaponParts","Items"]],
+
 ["ace_dragon_super", ["MissileLaunchers","Weapons","AT"]],
 ["ace_dragon_sight", ["Binoculars","Items"]],
 

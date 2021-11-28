@@ -34,11 +34,18 @@ private _autoPickAI = {
     //occ
     if (_this isEqualTo west) exitWith {
         switch (true) do {
+            case (A3A_hasCUP): {
+                switch(true) do {
+                    case (toLower worldName == "chernarus_summer");
+                    case (toLower worldName == "chernarus_winter"): {"CDF"};
+                    default {"USAF"};
+                };
+            };
             case (A3A_has3CBBAF): {"BAF"};
             case (A3A_has3CBFactions): {
                 switch(true) do {
                     case (toLower worldName == "kunduz"): {"ANA"};
-                    case (toLower worldName == "altis"): {"3CB AAF"};
+                    case (toLower worldName == "altis"): {"AAF"};
                     case (toLower worldName == "tanoa"): {"HIDF"};
                     case (toLower worldName == "malden"): {"MDF"};
                     case (A3A_climate isEqualTo "arctic");
@@ -75,6 +82,7 @@ private _autoPickAI = {
                 default {"TKA East"};
             };
         };
+        case (A3A_hasCUP): {"ACR"};      //ACR as Placeholder INV
         case (A3A_hasRHS): {"AFRF"};
         case (A3A_hasVN): {"MACV"};
         default {"CSAT"};
@@ -130,11 +138,16 @@ private _AIFactionEnums = [
     , ["TKA East", A3A_has3CBFactions]
     , ["ADA", A3A_has3CBFactions]
     , ["ANA", A3A_has3CBFactions]
-    , ["3CB AAF", A3A_has3CBFactions]
+    , ["AAF", A3A_has3CBFactions]
     , ["MDF", A3A_has3CBFactions]
     , ["HIDF", A3A_has3CBFactions]
     , ["MACV", A3A_hasVN]
     , ["PAVN", A3A_hasVN]
+    , ["ACR", A3A_hasCUP]
+    , ["BAF", A3A_hasCUP]
+    , ["CDF", A3A_hasCUP]
+    , ["USAF", A3A_hasCUP]
+    , ["USMC", A3A_hasCUP]
 ];
 private _rebFactionEnums = [
     [_autoPickReb, true]
@@ -159,6 +172,41 @@ private _civFactionEnums = [
 
 private _pickAITemplate = {
     switch _this do {
+        //CUP
+        case "ACR": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\CUP\CUP_AI_ACR_Temperate.sqf" };
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_ACR_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_ACR_Temperate.sqf" };
+                default { "Templates\Templates\CUP\CUP_AI_ACR_Arid.sqf" };
+            };
+        };
+        case "BAF": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\CUP\CUP_AI_BAF_Temperate.sqf" };
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_BAF_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_BAF_Temperate.sqf" };
+                default { "Templates\Templates\CUP\CUP_AI_BAF_Arid.sqf" };
+            };
+        };
+        case "CDF": { "Templates\Templates\CUP\CUP_AI_CDF_Temperate.sqf" };
+        case "USAF": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\CUP\CUP_AI_US_Army_Temperate.sqf" };
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_US_Army_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_US_Army_Temperate.sqf" };
+                default { "Templates\Templates\CUP\CUP_AI_US_Army_Arid.sqf" };
+            };
+        };
+        case "USMC": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
+                default { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
+            };
+        };
+        //3CB BAF
         case "BAF": {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\3CB\3CB_AI_BAF_Arctic.sqf" };
@@ -178,7 +226,6 @@ private _pickAITemplate = {
         case "3CB AAF": { "Templates\Templates\3CB\3CB_AI_AAF.sqf" };
         case "HIDF": { "Templates\Templates\3CB\3CB_AI_HIDF.sqf" };
         case "MDF": { "Templates\Templates\3CB\3CB_AI_MDF.sqf" };
-
         //RHS
         case "US Marines": {
             switch(true) do {

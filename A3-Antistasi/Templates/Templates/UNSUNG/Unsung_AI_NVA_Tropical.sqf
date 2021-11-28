@@ -37,7 +37,7 @@
 ["vehiclesGunBoats", ["UNS_PATROL_BOAT_NVA","UNS_ASSAULT_BOAT_NVA"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["uns_Type63_mg","uns_pt76"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["uns_an2_cas","uns_Mig21_CAS"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["uns_Mig21_CAS"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["uns_Mig21_CAP"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["uns_an2_transport"]] call _fnc_saveToTemplate;
 

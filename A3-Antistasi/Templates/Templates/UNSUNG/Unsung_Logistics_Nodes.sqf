@@ -133,7 +133,5 @@ A3A_logistics_weapons = [
     ["uns_m1941_82mm_mortarVC" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck", "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "UNS_sampan_fish1" call A3A_fnc_classNameToModel]],
     ["uns_m2_high" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck"]],
     ["uns_M2_60mm_mortar" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck", "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "UNS_sampan_fish1" call A3A_fnc_classNameToModel]],
-    ["uns_m1941_82mm_mortarNVA" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck", "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "UNS_sampan_fish1" call A3A_fnc_classNameToModel]],
-    ["B_Mortar_01_F" call A3A_fnc_classNameToModel,["C_Boat_Civil_01_F" call A3A_fnc_classNameToModel, "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "C_Boat_Transport_02_F" call A3A_fnc_classNameToModel]],
-    ["B_HMG_02_F" call A3A_fnc_classNameToModel,[]]
+    ["uns_m1941_82mm_mortarNVA" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck", "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "UNS_sampan_fish1" call A3A_fnc_classNameToModel]]
 ];

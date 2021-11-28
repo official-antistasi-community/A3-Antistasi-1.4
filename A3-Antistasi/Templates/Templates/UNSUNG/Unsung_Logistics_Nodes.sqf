@@ -115,8 +115,8 @@ A3A_logistics_attachmentOffset = [
 
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
 A3A_logistics_coveredVehicles = [
-	"uns_Mi8_VPAF_MG" call A3A_fnc_classNameToModel
-    , "uns_Mi8_VPAF" call A3A_fnc_classNameToModel
+    "uns_Mi8T_VPAF" call A3A_fnc_classNameToModel
+    , "uns_Mi8TV_VPAF_MG" call A3A_fnc_classNameToModel
     , "uns_M35A2"
     , "uns_nvatruck"
     , "UNS_sampan_large" call A3A_fnc_classNameToModel

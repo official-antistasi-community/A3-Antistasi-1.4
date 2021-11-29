@@ -70,7 +70,7 @@
 
 ["vehiclesArtillery", ["vn_b_army_static_m101_02"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["vn_b_army_static_m101_02", ["vn_cannon_m101_mag_he_x8", "vn_cannon_m101_mag_ab_x8", "vn_cannon_m101_mag_wp_x8"]],
+["vn_b_army_static_m101_02", ["vn_cannon_m101_mag_he_x8", "vn_cannon_m101_mag_ab_x8", "vn_cannon_m101_mag_wp_x8"]]
 ]] call _fnc_saveToTemplate;
 
 ["uavsAttack", []] call _fnc_saveToTemplate;

@@ -1,9 +1,9 @@
 #include "MissionDescription\master.hpp"
 
-OnLoadName = $STR_antistasi_mission_info_cherna_mapname_short_text;
-OnLoadMission = $STR_antistasi_mission_info_cherna_blurb_text;
-briefingName = $STR_antistasi_mission_info_cherna_mapname_text;
-overviewText = $STR_antistasi_mission_info_cherna_description_text;
+OnLoadName = $STR_antistasi_mission_info_redux_mapname_short_text;
+OnLoadMission = $STR_antistasi_mission_info_redux_blurb_text;
+briefingName = $STR_antistasi_mission_info_redux_mapname_text;
+overviewText = $STR_antistasi_mission_info_redux_description_text;
 
 class CfgFunctions
 {

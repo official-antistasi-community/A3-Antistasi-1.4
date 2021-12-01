@@ -1299,16 +1299,16 @@
         <English>Redux</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_redux_mapname_text">
-        <Original>Chernarus Redux</Original>
-        <English>Chernarus Redux</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_redux_description_text">
         <Original>Antistasi - Liberation of Chernarus Redux</Original>
         <English>Antistasi - Liberation of Chernarus Redux</English>
       </Key>
-      <Key ID="STR_antistasi_mission_info_redux_blurb_text">
+      <Key ID="STR_antistasi_mission_info_redux_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_redux_blurb_text">
+        <Original>New world, new chaos</Original>
+        <English>New world, new chaos</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_3_mapname_short_text">
         <Original>Placeholder</Original>

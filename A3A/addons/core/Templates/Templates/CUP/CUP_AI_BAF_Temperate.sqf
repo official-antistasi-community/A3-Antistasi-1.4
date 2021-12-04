@@ -154,10 +154,10 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["CUP_U_B_BAF_MTP_UBACSLONG","CUP_U_B_BAF_MTP_UBACSLONG_Gloves","CUP_U_B_BAF_MTP_UBACSLONGKNEE","CUP_U_B_BAF_MTP_UBACSLONGKNEE_Gloves","CUP_U_B_BAF_MTP_UBACSROLLED_Gloves"]];
-_sfLoadoutData set ["vests", ["CUP_V_B_BAF_MTP_Osprey_Mk4_Scout","CUP_V_B_BAF_DDPM_Osprey_Mk3_Scout"]];
+_sfLoadoutData set ["uniforms", ["CUP_U_B_BAF_MTP_UBACSLONG","CUP_U_B_BAF_MTP_UBACSLONG_Gloves"]];
+_sfLoadoutData set ["vests", ["CUP_V_B_BAF_MTP_Osprey_Mk4_Scout"]];
 _sfLoadoutData set ["backpacks", ["B_AssaultPack_cbr","B_Kitbag_cbr"]];
-_sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Black","CUP_H_OpsCore_Green","CUP_H_OpsCore_Grey","CUP_H_OpsCore_Tan","CUP_H_OpsCore_Black_SF","CUP_H_OpsCore_Tan_SF"]];
+_sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Green","CUP_H_OpsCore_Tan_SF"]];
 _sfLoadoutData set ["binoculars", ["CUP_LRTV"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
@@ -216,9 +216,9 @@ _sfLoadoutData set ["sidearms", [
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["CUP_U_B_BAF_DPM_UBACSLONGKNEE","CUP_U_B_BAF_DPM_UBACSLONGKNEE_Gloves","CUP_U_B_BAF_DPM_UBACSROLLED","CUP_U_B_BAF_DPM_UBACSROLLED_Gloves","CUP_U_B_BAF_DPM_UBACSROLLEDKNEE"]];
-_militaryLoadoutData set ["vests", ["CUP_V_B_BAF_DDPM_Osprey_Mk3_AutomaticRifleman","CUP_V_B_BAF_DDPM_Osprey_Mk3_Engineer","CUP_V_B_BAF_DDPM_Osprey_Mk3_Grenadier","CUP_V_B_BAF_DDPM_Osprey_Mk3_Medic","CUP_V_B_BAF_DDPM_Osprey_Mk3_Officer","CUP_V_B_BAF_DDPM_Osprey_Mk3_Rifleman","CUP_V_B_BAF_DDPM_Osprey_Mk3_Scout","CUP_V_B_BAF_MTP_Osprey_Mk4_AutomaticRifleman","CUP_V_B_BAF_MTP_Osprey_Mk4_Engineer","CUP_V_B_BAF_MTP_Osprey_Mk4_Grenadier","CUP_V_B_BAF_MTP_Osprey_Mk4_Medic","CUP_V_B_BAF_MTP_Osprey_Mk4_Officer","CUP_V_B_BAF_MTP_Osprey_Mk4_Rifleman","CUP_V_B_BAF_MTP_Osprey_Mk4_Scout"]];
-_militaryLoadoutData set ["backpacks", ["B_Carryall_cbr","B_FieldPack_cbr","B_Kitbag_cbr","CUP_B_Bergen_BAF","CUP_B_Motherlode_MTP","CUP_B_Motherlode_Radio_MTP","CUP_B_Predator_MTP","CUP_B_Predator_Radio_MTP"]];
-_militaryLoadoutData set ["helmets", ["CUP_H_BAF_DPM_Mk6_NETTING_PRR","CUP_H_BAF_DPM_Mk6_GOGGLES_PRR","CUP_H_BAF_DDPM_Mk6_GLASS_PRR","CUP_H_BAF_DPM_Mk6_GLASS_PRR","CUP_H_BAF_DPM_Mk6_CREW_PRR"]];
+_militaryLoadoutData set ["vests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_AutomaticRifleman","CUP_V_B_BAF_DPM_Osprey_Mk3_Engineer","CUP_V_B_BAF_DPM_Osprey_Mk3_Grenadier","CUP_V_B_BAF_DPM_Osprey_Mk3_Medic","CUP_V_B_BAF_DPM_Osprey_Mk3_Officer","CUP_V_B_BAF_DPM_Osprey_Mk3_Rifleman","CUP_V_B_BAF_DPM_Osprey_Mk3_Scout"]];
+_militaryLoadoutData set ["backpacks", ["B_Carryall_cbr","B_FieldPack_cbr","B_Kitbag_cbr","CUP_B_Bergen_BAF"]];
+_militaryLoadoutData set ["helmets", ["CUP_H_BAF_DPM_Mk6_NETTING_PRR","CUP_H_BAF_DPM_Mk6_GOGGLES_PRR","CUP_H_BAF_DPM_Mk6_GLASS_PRR","CUP_H_BAF_DPM_Mk6_CREW_PRR"]];
 _militaryLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
 _militaryLoadoutData set ["rifles", [

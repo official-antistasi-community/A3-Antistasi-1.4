@@ -121,6 +121,7 @@ _loadoutData set ["glVests", []];
 _loadoutData set ["engVests", []];
 _loadoutData set ["vests", []];
 _loadoutData set ["backpacks", []];
+_loadoutData set ["longRangeRadios", []];
 _loadoutData set ["atBackpacks", []];
 _loadoutData set ["slBackpacks", []];
 _loadoutData set ["helmets", []];

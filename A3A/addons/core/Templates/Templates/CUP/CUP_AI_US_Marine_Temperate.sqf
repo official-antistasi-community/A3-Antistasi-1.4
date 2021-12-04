@@ -75,9 +75,7 @@
 //////////////////////////
 private _loadoutData = call _fnc_createLoadoutData;
 _loadoutData set ["lightATLaunchers", [
-    ["CUP_launch_Mk153Mod0_blk", "", "", "cup_optic_smaw_scope", ["CUP_SMAW_HEAA_M", "CUP_SMAW_HEDP_M"], [], ""],
-    ["CUP_launch_Mk153Mod0_blk", "", "", "cup_optic_smaw_scope", ["CUP_SMAW_HEAA_M", "CUP_SMAW_HEAA_M"], [], ""],
-    ["CUP_launch_Mk153Mod0_blk", "", "", "cup_optic_smaw_scope", ["CUP_SMAW_HEAA_M", "CUP_SMAW_NE_M"], [], ""]
+    ["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEDP_M", "CUP_MAAWS_HEAT_M"], [], ""]
 ]];
 _loadoutData set ["ATLaunchers", ["CUP_launch_M47"]];
 _loadoutData set ["missileATLaunchers", [
@@ -93,7 +91,6 @@ _loadoutData set ["APMines", ["APERSMine_Range_Mag"]];
 _loadoutData set ["lightExplosives", ["DemoCharge_Remote_Mag"]];
 _loadoutData set ["heavyExplosives", ["SatchelCharge_Remote_Mag"]];
 
-_loadoutData set ["antiTankGrenades", []];
 _loadoutData set ["antiInfantryGrenades", ["CUP_HandGrenade_M67"]];
 _loadoutData set ["smokeGrenades", ["SmokeShell"]];
 _loadoutData set ["signalsmokeGrenades", ["SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
@@ -175,14 +172,14 @@ _sfLoadoutData set ["carbines", [
     ["CUP_arifle_M4A1_standard_short_wdl","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_Elcan_SpecterDR_coyote",["CUP_30Rnd_556x45_Emag_Tracer_Red"],[],""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
-    ["CUP_arifle_HK_M27_AG36","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_Elcan_SpecterDR_coyote",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_HK_M27_AG36","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_Eotech553_Coyote",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_HK_M27_AG36","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_SB_11_4x20_PM",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_HK_M27_AG36","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_ACOG_TA01B_Black",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_mk18_m203_black","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_ACOG_TA01B_Black",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_mk18_m203_black","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_SB_11_4x20_PM",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_mk18_m203_black","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_Eotech553_Coyote",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_mk18_m203_black","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_Elcan_SpecterDR_coyote",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""]
+    ["CUP_arifle_HK_M27_AG36","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_Elcan_SpecterDR_coyote",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_HK_M27_AG36","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_Eotech553_Coyote",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_HK_M27_AG36","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_SB_11_4x20_PM",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_HK_M27_AG36","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_ACOG_TA01B_Black",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_mk18_m203_black","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_ACOG_TA01B_Black",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_mk18_m203_black","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_SB_11_4x20_PM",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_mk18_m203_black","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_Eotech553_Coyote",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_mk18_m203_black","CUP_muzzle_snds_M16","CUP_acc_ANPEQ_15","CUP_optic_Elcan_SpecterDR_coyote",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""]
 ]];
 _sfLoadoutData set ["SMGs", [
     ["CUP_smg_MP5A5","CUP_muzzle_snds_MP5","CUP_acc_Flashlight_MP5","CUP_optic_Eotech553_Coyote",["CUP_30Rnd_Red_Tracer_9x19_MP5"],[],""],
@@ -251,12 +248,12 @@ _militaryLoadoutData set ["carbines", [
     ["CUP_arifle_M4A1_standard_short_black","","","CUP_optic_CompM2_low",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-    ["CUP_arifle_M4A1_GL_carryhandle","","","CUP_optic_CompM2_low",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_M4A1_BUIS_GL","","","CUP_optic_CompM2_low",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_M4A1_BUIS_GL","","","CUP_optic_ACOG2",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_M4A1_GL_carryhandle","","","CUP_optic_ACOG2",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_HK_M27_AG36","","","CUP_optic_ACOG2",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_HK_M27_AG36","","","CUP_optic_CompM2_low",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""]
+    ["CUP_arifle_M4A1_GL_carryhandle","","","CUP_optic_CompM2_low",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_M4A1_BUIS_GL","","","CUP_optic_CompM2_low",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_M4A1_BUIS_GL","","","CUP_optic_ACOG2",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_M4A1_GL_carryhandle","","","CUP_optic_ACOG2",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_HK_M27_AG36","","","CUP_optic_ACOG2",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_HK_M27_AG36","","","CUP_optic_CompM2_low",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""]
 ]];
 _militaryLoadoutData set ["SMGs", [
     ["CUP_smg_MP5A5","","","CUP_optic_CompM2_low",["CUP_30Rnd_9x19_MP5"],[],""],
@@ -327,10 +324,10 @@ _militiaLoadoutData set ["carbines", [
     ["CUP_arifle_Colt727","","","",["CUP_30Rnd_556x45_Stanag"],[],""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-    ["CUP_arifle_Colt727_M203","","","",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_M16A1E1GL","","","",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_M16A2_GL","","","",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""],
-    ["CUP_arifle_M16A4_GL","","","",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["1Rnd_HE_Grenade_shell", "CUP_1Rnd_HEDP_M203", "1Rnd_Smoke_Grenade_shell"],""]
+    ["CUP_arifle_Colt727_M203","","","",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_M16A1E1GL","","","",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_M16A2_GL","","","",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
+    ["CUP_arifle_M16A4_GL","","","",["CUP_30Rnd_556x45_Stanag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""]
 ]];
 _militiaLoadoutData set ["SMGs", [
     ["CUP_smg_MP5A5_Rail","","","",["CUP_30Rnd_9x19_MP5"],[],""],

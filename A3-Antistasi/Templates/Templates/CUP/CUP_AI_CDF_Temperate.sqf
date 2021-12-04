@@ -102,7 +102,6 @@ _loadoutData set ["APMines", ["APERSMine_Range_Mag"]];
 _loadoutData set ["lightExplosives", ["DemoCharge_Remote_Mag"]];
 _loadoutData set ["heavyExplosives", ["SatchelCharge_Remote_Mag"]];
 
-_loadoutData set ["antiTankGrenades", []];
 _loadoutData set ["antiInfantryGrenades", ["CUP_HandGrenade_RGO"]];
 _loadoutData set ["smokeGrenades", ["SmokeShell"]];
 _loadoutData set ["signalsmokeGrenades", ["SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];

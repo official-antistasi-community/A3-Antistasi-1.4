@@ -463,16 +463,16 @@ _militiaLoadoutData set ["backpacks", ["B_Carryall_cbr", "B_FieldPack_cbr", "B_T
 _militiaLoadoutData set ["helmets", ["CUP_H_CZ_Helmet01","CUP_H_CZ_Helmet02","CUP_H_CZ_Helmet07","CUP_H_CZ_Helmet08"]];
 
 _militiaLoadoutData set ["rifles", [
-    ["CUP_arifle_Sa58P_rearris","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_ACOG2",["CUP_30Rnd_Sa58_M_TracerR"],[],""]
+    ["CUP_arifle_Sa58P_rearris","","","",["CUP_30Rnd_Sa58_M_TracerR"],[],""]
 ]];
 _militiaLoadoutData set ["carbines", [
-    ["CUP_arifle_Sa58s_rearris","","","cup_optic_aimm_compm4_blk",["CUP_30Rnd_Sa58_M_TracerR"],[],""]
+    ["CUP_arifle_Sa58s_rearris","","","",["CUP_30Rnd_Sa58_M_TracerR"],[],""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-    ["CUP_arifle_Sa58RIS2_gl","","","cup_optic_acog2",["CUP_30Rnd_Sa58_M_TracerR"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""]
+    ["CUP_arifle_Sa58RIS2_gl","","","",["CUP_30Rnd_Sa58_M_TracerR"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""]
 ]];
 _militiaLoadoutData set ["SMGs", [
-    ["CUP_smg_EVO","","","CUP_optic_Eotech553_Black",["CUP_30Rnd_9x19_EVO"],[],""]
+    ["CUP_smg_EVO","","","",["CUP_30Rnd_9x19_EVO"],[],""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
     ["CUP_lmg_M60E4","","","",["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M"],[],""]

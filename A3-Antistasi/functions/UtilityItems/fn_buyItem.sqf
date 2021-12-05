@@ -27,6 +27,8 @@ params  [
 ];
 
 // error checking, _unit, _spawnItem, and _callbacks
+if(!canSuspend) exitwith{};
+if(!hasInterface) exitwith{};
 if(isNil "_unit") exitwith {};
 if(isNil "_spawnItem") exitwith {};
 if(isNil "_price") exitwith {};

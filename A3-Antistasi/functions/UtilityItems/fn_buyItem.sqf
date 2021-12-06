@@ -27,11 +27,11 @@ params  [
 ];
 
 // error checking, _unit, _spawnItem, and _callbacks
-if(!canSuspend) exitwith{};
-if(!hasInterface) exitwith{};
-if(isNil "_unit") exitwith {};
-if(isNil "_spawnItem") exitwith {};
-if(isNil "_price") exitwith {};
+if (!canSuspend) exitwith{};
+if (!hasInterface) exitwith{};
+if (isNull _unit) exitwith {};
+if (!isClass (configFile/"CfgVehicles"/_spawnItem)) exitwith {};
+if (_price == 0) exitwith {};
 
 //check to make sure that the player is not spamming
 private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
@@ -58,7 +58,6 @@ _item setVariable ["A3A_canGarage", true, true];
 _item setVariable ["A3A_itemPrice", _price, true];
 
 // callbacks
-if(isNil "_callbacks") exitwith {};
 {
     private _func_name = (_x #0);
     if (_x #1) then {

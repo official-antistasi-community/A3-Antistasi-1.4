@@ -343,6 +343,9 @@ _militiaLoadoutData set ["machineGuns", [
 _militiaLoadoutData set ["marksmanRifles", [
     ["CUP_srifle_SVD","","","CUP_optic_PSO_1_1",["CUP_10Rnd_762x54_SVD_M"],[],""]
 ]];
+_militiaLoadoutData set ["sniperRifles", [
+    ["CUP_srifle_SVD","","","CUP_optic_PSO_1_1",["CUP_10Rnd_762x54_SVD_M"],[],""]
+]];
 _militiaLoadoutData set ["lightATLaunchers", [
     ["CUP_launch_RPG7V", "", "", "cup_optic_pgo7v3", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""],
     ["CUP_launch_RPG7V", "", "", "cup_optic_pgo7v3", ["CUP_OG7_M", "CUP_PG7VL_M"], [], ""],

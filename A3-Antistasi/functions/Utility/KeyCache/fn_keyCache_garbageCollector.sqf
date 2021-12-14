@@ -101,8 +101,14 @@ while {true} do {
             // If the key has expired or deleted, another key may be added to replace it and update the expiry before this block finishes.
             // So it should be in an unscheduled block.
             isNil {
-                if ((_keyCache_DB getOrDefault [_x,_const_nullTranslation])#2 > serverTime) then {
-                    _promotedGenerationReference#1 pushBack _x;  /*__inc_promoted;*/
+                private _expiryTime = (_keyCache_DB getOrDefault [_x,_const_nullTranslation])#2;
+                if (_expiryTime > serverTime) then {
+                    if (finite _expiryTime) then {
+                        _promotedGenerationReference#1 pushBack _x;  /*__inc_promoted;*/
+                    } else {
+                        // Expiry was updated to be infinite.
+                        _keyCache_GC_registeredItems deleteAt _x;
+                    };
                     continue;
                 };
                 _keyCache_GC_registeredItems deleteAt _x;

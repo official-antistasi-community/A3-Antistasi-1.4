@@ -28,4 +28,6 @@ params [
 
 // This is thread safe. Do not change the DB set and GC order, as that will make it thread unsafe.
 __keyCache_getVar(A3A_keyCache_DB) set [_keyName, [_translation, _lifeTime, serverTime + _lifeTime, _fnc_onDispose]];
-_keyName call A3A_fnc_keyCache_registerForGC;
+if (finite _lifeTime) then {
+    _keyName call A3A_fnc_keyCache_registerForGC;
+};

@@ -22,5 +22,6 @@ Debug("fn_initPreJIP Started");
 
 call A3A_fnc_uintToHexGenTables;
 call A3A_fnc_shortID_init;
-
+call A3A_fnc_keyCache_init;
+call A3A_fnc_keyCache_startGarbageCollectors;
 Debug("fn_initPreJIP Finished");

@@ -1,6 +1,6 @@
 
 // Disables startGarbageCollectors.
-#define __keyCache_unitTestMode
+//#define __keyCache_unitTestMode
 
 // Default Time to live for translations.
 #define __keyCache_defaultTTL 120

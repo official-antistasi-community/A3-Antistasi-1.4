@@ -24,40 +24,37 @@ FIX_LINE_NUMBERS()
 if (!isNil {__keyCache_getVar(A3A_keyCache_init)}) exitWith { ServerError("Invoked Twice"); };
 __keyCache_setVar(A3A_keyCache_init, true);
 
-// Main Key DB used for translations
+// Main translation DB
+/*
+    Key: Key <HASHMAPKEY>
+    Value:
+    0. Translation <ANY>
+    1. LifeTime <SCALAR> (seconds)
+    2. Expiry <SCALAR> (serverTime)
+    3. OnGC <CODE> (nil or Code) (Code is scheduled with params ["_key","_translation"])
+*/
 __keyCache_setVar(A3A_keyCache_DB, createHashMap);
 
-// Prevent double additions to GC
+// A set of all registered items prevent duplicate registrations for GC
 __keyCache_setVar(A3A_keyCache_GC_registeredItems, createHashMap);
-
-// Default Time to live.
-private _keyCache_defaultTTL = 120;
-__keyCache_setVar(A3A_keyCache_defaultTTL, _keyCache_defaultTTL);
-
-private _keyCache_defaultTranslateSetTTL = 1.20 * _keyCache_defaultTTL;
-__keyCache_setVar(A3A_keyCache_defaultTranslateSetTTL, _keyCache_defaultTranslateSetTTL);
-
-// Minimum amount of items in a processed span of a chunk
-private _keyCache_GC_minSpanSize = 10;
-__keyCache_setVar(A3A_keyCache_GC_minSpanSize, _keyCache_GC_minSpanSize);
 
 // Settings for Each garbage collector generation.
 //  _x params ["_allBuckets","_newestBucket","_totalPeriod","_bucketsAmount","_promotedGeneration"];  // <ARRAY>, <ARRAY>, <SCALAR>, <SCALAR>, <SCALAR>
 private _keyCache_GC_generations = [
     [  // Gen0
-        [], [], 2*_keyCache_defaultTTL, 3, 1
+        [], [], 2*__keyCache_defaultTTL, 3, 1
     ],
     [  // Gen1
-        [], [], 5*_keyCache_defaultTTL, 3, 2
+        [], [], 5*__keyCache_defaultTTL, 3, 2
     ],
     [  // Gen2
-        [], [], 12.5*_keyCache_defaultTTL, 1, 2
+        [], [], 12.5*__keyCache_defaultTTL, 1, 2
     ]
 ];
 {
     _x params ["_allBuckets","_newestBucket","_totalPeriod","_bucketsAmount","_promotedGeneration"];
 
-    for "_c" from 1 to _bucketsAmount do {
+    for "_counter" from 1 to _bucketsAmount do {
         _allBuckets pushBack [];
     };
     _x set [1, _allBuckets #(_bucketsAmount -1)];

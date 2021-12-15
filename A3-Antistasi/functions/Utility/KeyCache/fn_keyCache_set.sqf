@@ -22,7 +22,7 @@ Example:
 params [
     ["_keyName", ""],
     "_translation",
-    ["_lifeTime", __keyCache_getVar(A3A_keyCache_defaultTTL), [0]],
+    ["_lifeTime", __keyCache_defaultTTL, [0]],
     ["_fnc_onDispose", nil, [nil, {}]]
 ];
 

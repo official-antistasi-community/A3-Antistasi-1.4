@@ -75,7 +75,7 @@ while {true} do {
 
 
     // Calculate span sizes
-    private _spanSize = __keyCache_getVar(A3A_keyCache_GC_minSpanSize);
+    private _spanSize = 10;  // Minimum amount of items in a processed span of a chunk
     private _spanAmount = ceil (_count / _spanSize);
     private _spanPeriod = _bucketPeriod / _spanAmount;
 
@@ -112,7 +112,12 @@ while {true} do {
                     continue;
                 };
                 _keyCache_GC_registeredItems deleteAt _x;
-                _x call A3A_fnc_keyCache_drop;  /*__inc_deleted;*/
+                private _cacheStruct = __keyCache_getVar(A3A_keyCache_DB) deleteAt _x;
+                /*__inc_deleted;*/
+                // Spawn on GC event
+                private _fnc_onGC = _cacheStruct#3;
+                if (isNil "_fnc_onGC") then {continue};
+                [_this, _cacheStruct#0] spawn _fnc_onGC;
             };
         } forEach (_currentBucket select [_span, _spanSize]);
         uiSleep (_allocatedTime - serverTime);  // uiSleep does not crash from negative input.

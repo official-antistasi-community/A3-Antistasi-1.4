@@ -1,4 +1,4 @@
-// call compileScript ["functions\Utility\KeyCache\Tests\unitTest_garbageCollector_longFpsStressTest.sqf"];
+// call compileScript ["functions\Utility\KeyCache\Tests\stressTest_garbageCollector_long.sqf"];
 
 #include "..\config.hpp"
 #include "..\..\..\..\Includes\common.inc"

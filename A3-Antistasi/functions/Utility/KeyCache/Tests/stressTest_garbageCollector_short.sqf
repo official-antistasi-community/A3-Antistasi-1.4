@@ -8,7 +8,7 @@ private _reporterContext = [];
 private _fnc_reporter = {
     params ["_context","_text"];
     ["UnitTest KeyCache-GC", _text] call A3A_fnc_customHint;
-    Info("UnitTest | KeyCache GarbageCollector | " + _text);
+    Info("UnitTest, KeyCache GarbageCollector, " + _text);
 };
 A3A_keyCache_unitTest_directoryPath = "functions\Utility\KeyCache\Tests\";
 

@@ -14,6 +14,7 @@ Example:
     "HelloWorld" call A3A_fnc_keyCache_drop;
 */
 #include "config.hpp"
+__fixLineNumbers
 // Garbage Cleaner will take care of the GC_registeredItems entry
 private _cacheStruct = __keyCache_getVar(A3A_keyCache_DB) deleteAt _this;
 

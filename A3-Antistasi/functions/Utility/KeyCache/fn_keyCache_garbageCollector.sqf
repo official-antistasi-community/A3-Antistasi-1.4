@@ -17,8 +17,7 @@ Example:
     [] spawn A3A_fnc_keyCache_garbageCollection;
 */
 #include "config.hpp"
-#include "..\..\..\Includes\common.inc"
-FIX_LINE_NUMBERS()
+__fixLineNumbers
 
 params [
     ["_generationNumber", 0, [0]]
@@ -28,7 +27,7 @@ params [
 // Offset start of different generations.
 uiSleep random 10;
 #endif
-FIX_LINE_NUMBERS()
+__fixLineNumbers
 
 // Keep reference to local variable to avoid continuously using getVariable
 private _keyCache_GC_generations = __keyCache_getVar(A3A_keyCache_GC_generations);
@@ -37,7 +36,7 @@ private _keyCache_GC_registeredItems = __keyCache_getVar(A3A_keyCache_GC_registe
 
 
 if (_generationNumber >= count _keyCache_GC_generations) exitWith {
-    ServerError_1("Invalid Generation (%1)", _generationNumber);
+    __log_error("Invalid Generation ("+str _generationNumber+")");
 };
 
 private _GC_generation = _keyCache_GC_generations #_generationNumber;

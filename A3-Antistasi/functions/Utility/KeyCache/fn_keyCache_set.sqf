@@ -19,6 +19,7 @@ Example:
     ["HelloWorld", parseText "Lol<br/>XD"] call A3A_fnc_keyCache_set;
 */
 #include "config.hpp"
+__fixLineNumbers
 params [
     ["_keyName", ""],
     "_translation",

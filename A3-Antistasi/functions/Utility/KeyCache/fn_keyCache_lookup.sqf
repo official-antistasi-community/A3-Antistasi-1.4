@@ -19,6 +19,7 @@ Example:
     "HelloWorld" call A3A_fnc_keyCache_lookup;  // "HelloWorld"
 */
 #include "config.hpp"
+__fixLineNumbers
 
 private _cachedStruct = __keyCache_getVar(A3A_keyCache_DB) getOrDefault [_this,[_this,0,-1]];
 _cachedStruct params ["_translation","_lifeTime","_expiryTime","_fnc_onDispose"];

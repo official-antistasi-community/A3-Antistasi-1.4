@@ -1,20 +1,13 @@
 // call compileScript ["functions\Utility\KeyCache\Tests\unitTest_garbageCollector_basicDeletion.sqf"];
 
 #include "..\config.hpp"
-#include "..\..\..\..\Includes\common.inc"
-FIX_LINE_NUMBERS()
+__fixLineNumbers
 
-private _reporterContext = [];
-private _fnc_reporter = {
-    params ["_context","_text"];
-    ["UnitTest KeyCache-GC", _text] call A3A_fnc_customHint;
-    Info("UnitTest, KeyCache GarbageCollector, " + _text);
-};
-A3A_keyCache_unitTest_directoryPath = "functions\Utility\KeyCache\Tests\";
-
+private _fnc_reporter = compileScript [__keyCache_testDirectoryPath+"testReporter.sqf"];
+private _reporterContext = createHashmapFromArray [["_componentName","Garbage Collector"],["_componentNameShort","GC"]];
 
 if (!isNil {Dev_unitTestInProgress}) exitWith {
-    Error("Previous unit test still running");
+    __log_error("Previous unit test still running");
     "Previous unit test still running";
 };
 Dev_unitTestInProgress = true;
@@ -65,7 +58,7 @@ Dev_basicDeletionTestHandle = [_fnc_reporter,_reporterContext] spawn {
 
     //// Clean Up
     terminate _GCHandle;
-    call compileScript [A3A_keyCache_unitTest_directoryPath+"unitTestUtility_revertInit.sqf"];
+    call compileScript [__keyCache_testDirectoryPath+"unitTestUtility_revertInit.sqf"];
     Dev_unitTestInProgress = nil;
 };
 "Unit Test Started";

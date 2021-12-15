@@ -16,6 +16,7 @@ Example:
     "HelloWorld" call A3A_fnc_keyCache_registerForGC;
 */
 #include "config.hpp"
+__fixLineNumbers
 // set returns true if a key was overwritten. This is used to exit before adding the item to the GC bucket.
 if (__keyCache_getVar(A3A_keyCache_GC_registeredItems) set [_this, true]) exitWith {};
 __keyCache_getVar(A3A_keyCache_GC_gen0NewestBucket) pushBack _this;

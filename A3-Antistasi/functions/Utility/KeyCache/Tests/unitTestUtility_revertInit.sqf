@@ -1,7 +1,6 @@
 
 #include "..\config.hpp"
-#include "..\..\..\..\Includes\common.inc"
-FIX_LINE_NUMBERS()
+__fixLineNumbers
 
 __keyCache_setVar(A3A_keyCache_DB, nil);
 __keyCache_setVar(A3A_keyCache_GC_registeredItems, nil);

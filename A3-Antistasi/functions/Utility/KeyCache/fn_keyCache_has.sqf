@@ -17,6 +17,7 @@ Example:
     "HelloWorld" call A3A_fnc_keyCache_has;  // false
 */
 #include "config.hpp"
+__fixLineNumbers
 (
     __keyCache_getVar(A3A_keyCache_DB) getOrDefault [
         _this,

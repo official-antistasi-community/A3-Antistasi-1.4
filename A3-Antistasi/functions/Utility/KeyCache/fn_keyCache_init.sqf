@@ -11,17 +11,16 @@ Example:
     call A3A_fnc_keyCache_init;
 */
 #include "config.hpp"
-#include "..\..\..\Includes\common.inc"
-FIX_LINE_NUMBERS()
+__fixLineNumbers
 
 #ifdef __keyCache_unitTestMode
     params [["_confirmUnitTest", "", [""]]];
-    if (_confirmUnitTest isEqualTo "") exitWith { ServerInfo("Standard Insertion Protocol Aborted due to Unit Test Mode Active."); };
-    if (_confirmUnitTest isNotEqualTo "confirmUnitTest") exitWith { ServerError_1("Unknown Code: %1", _confirmUnitTest); };
+    if (_confirmUnitTest isEqualTo "" || _confirmUnitTest isEqualTo "preInit") exitWith { __log_info("Standard Insertion Protocol Aborted due to Unit Test Mode Active."); };
+    if (_confirmUnitTest isNotEqualTo "confirmUnitTest") exitWith { __log_error("Unknown Code: "+str _confirmUnitTest) };
 #endif
-FIX_LINE_NUMBERS()
+__fixLineNumbers
 
-if (!isNil {__keyCache_getVar(A3A_keyCache_init)}) exitWith { ServerError("Invoked Twice"); };
+if (!isNil {__keyCache_getVar(A3A_keyCache_init)}) exitWith { __log_error("Invoked Twice"); };
 __keyCache_setVar(A3A_keyCache_init, true);
 
 // Main translation DB

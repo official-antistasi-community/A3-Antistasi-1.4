@@ -1,20 +1,13 @@
 // call compileScript ["functions\Utility\KeyCache\Tests\unitTest_drop_expired.sqf"];
 
 #include "..\config.hpp"
-#include "..\..\..\..\Includes\common.inc"
-FIX_LINE_NUMBERS()
+__fixLineNumbers
 
-private _reporterContext = [];
-private _fnc_reporter = {
-    params ["_context","_text"];
-    ["UnitTest KeyCache-Drop Expired", _text] call A3A_fnc_customHint;
-    Info("UnitTest, KeyCache Drop Expired, " + _text);
-};
-A3A_keyCache_unitTest_directoryPath = "functions\Utility\KeyCache\Tests\";
-
+private _fnc_reporter = compileScript [__keyCache_testDirectoryPath+"testReporter.sqf"];
+private _reporterContext = createHashmapFromArray [["_componentName","Drop-Expired"]];
 
 if (!isNil {Dev_unitTestInProgress}) exitWith {
-    Error("Previous unit test still running");
+    __log_error("Previous unit test still running");
     "Previous unit test still running";
 };
 Dev_unitTestInProgress = true;
@@ -44,7 +37,7 @@ Dev_testHandle = [_fnc_reporter,_reporterContext] spawn {
 
     //// Clean Up
     Dev_keyCacheDropUnitTest_expired_onGCRan = nil;
-    call compileScript [A3A_keyCache_unitTest_directoryPath+"unitTestUtility_revertInit.sqf"];
+    call compileScript [__keyCache_testDirectoryPath+"unitTestUtility_revertInit.sqf"];
     Dev_unitTestInProgress = nil;
 };
 "Unit Test Started";

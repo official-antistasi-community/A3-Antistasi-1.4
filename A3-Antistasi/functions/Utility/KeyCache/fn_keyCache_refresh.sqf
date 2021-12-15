@@ -15,6 +15,7 @@ Example:
     "HelloWorld" call A3A_fnc_keyCache_refresh;
 */
 #include "config.hpp"
+__fixLineNumbers
 
 private _cachedStruct = __keyCache_getVar(A3A_keyCache_DB) getOrDefault [_this,[nil,nil,-1,nil]];
 if (_cachedStruct#2 <= serverTime) exitWith {};

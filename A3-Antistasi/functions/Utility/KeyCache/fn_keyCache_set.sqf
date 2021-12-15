@@ -6,8 +6,8 @@ Maintainer: Caleb Serafin
 Arguments:
     <HASHMAPKEY> Translation Key
     <ANY> Translation Value
-    <SCALAR> Time to live from each refresh.
-    <CODE> Event run if garbage cleaned or dropped. Scheduled environment. params ["_keyName","_translation"]. (Default = nil)
+    <SCALAR> | <NotANumber> Time to live from each refresh. (Infinity is inserted by 1e39)
+    <CODE> Event run if garbage cleaned. Scheduled environment. params ["_keyName","_translation"]. (Default = nil)
 
 Scope: Any, Local Effect
 Environment: Any
@@ -22,12 +22,12 @@ Example:
 params [
     ["_keyName", ""],
     "_translation",
-    ["_lifeTime", __keyCache_defaultTTL, [0]],
-    ["_fnc_onDispose", nil, [nil, {}]]
+    ["_lifeTime", __keyCache_defaultTTL, [0,1e39]],
+    ["_fnc_onGC", nil, [nil, {}]]
 ];
 
 // This is thread safe. Do not change the DB set and GC order, as that will make it thread unsafe.
-__keyCache_getVar(A3A_keyCache_DB) set [_keyName, [_translation, _lifeTime, serverTime + _lifeTime, _fnc_onDispose]];
+__keyCache_getVar(A3A_keyCache_DB) set [_keyName, [_translation, _lifeTime, serverTime + _lifeTime, _fnc_onGC]];
 if (finite _lifeTime) then {
     _keyName call A3A_fnc_keyCache_registerForGC;
 };

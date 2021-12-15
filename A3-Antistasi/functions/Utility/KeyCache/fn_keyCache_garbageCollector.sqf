@@ -41,7 +41,7 @@ if (_generationNumber >= count _keyCache_GC_generations) exitWith {
 };
 
 private _GC_generation = _keyCache_GC_generations #_generationNumber;
-private _const_nullTranslation = [nil,nil,-1];
+private _const_nullTranslation = [nil,nil,-1,nil];
 
 while {true} do {
     // Reload config every cycle.
@@ -112,12 +112,8 @@ while {true} do {
                     continue;
                 };
                 _keyCache_GC_registeredItems deleteAt _x;
-                private _cacheStruct = __keyCache_getVar(A3A_keyCache_DB) deleteAt _x;
+                _x call A3A_fnc_keyCache_drop;
                 /*__inc_deleted;*/
-                // Spawn on GC event
-                private _fnc_onGC = _cacheStruct#3;
-                if (isNil "_fnc_onGC") then {continue};
-                [_this, _cacheStruct#0] spawn _fnc_onGC;
             };
         } forEach (_currentBucket select [_span, _spanSize]);
         uiSleep (_allocatedTime - serverTime);  // uiSleep does not crash from negative input.

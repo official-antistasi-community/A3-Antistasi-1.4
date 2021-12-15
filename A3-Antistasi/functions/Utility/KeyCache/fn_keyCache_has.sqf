@@ -1,6 +1,6 @@
 /*
 Maintainer: Caleb Serafin
-    Checks if the translation DB has a given translation.
+    Checks if the translation DB has a given translation whom has not expired.
 
 Argument:  <HASHMAPKEY> Translation Key
 
@@ -17,4 +17,9 @@ Example:
     "HelloWorld" call A3A_fnc_keyCache_has;  // false
 */
 #include "config.hpp"
-_this in __keyCache_getVar(A3A_keyCache_DB);
+(
+    __keyCache_getVar(A3A_keyCache_DB) getOrDefault [
+        _this,
+        [nil,nil,-1,nil]
+    ]
+)#2 > serverTime;

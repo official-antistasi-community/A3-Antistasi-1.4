@@ -8,6 +8,18 @@ If the previous test failed, it's likely that the following will too.
 call compileScript ["functions\Utility\KeyCache\Tests\unitTest_garbageCollector_basicPromotion.sqf"];
 call compileScript ["functions\Utility\KeyCache\Tests\unitTest_garbageCollector_timedPromotion.sqf"];
 call compileScript ["functions\Utility\KeyCache\Tests\unitTest_garbageCollector_basicDeletion.sqf"];
+
+call compileScript ["functions\Utility\KeyCache\Tests\unitTest_set_noExpiry.sqf"];
+call compileScript ["functions\Utility\KeyCache\Tests\unitTest_set_expiry.sqf"];
+call compileScript ["functions\Utility\KeyCache\Tests\unitTest_has_unexpired.sqf"];
+call compileScript ["functions\Utility\KeyCache\Tests\unitTest_has_expired.sqf"];
+
+call compileScript ["functions\Utility\KeyCache\Tests\unitTest_lookup_unexpired.sqf"];
+call compileScript ["functions\Utility\KeyCache\Tests\unitTest_lookup_expired.sqf"];
+call compileScript ["functions\Utility\KeyCache\Tests\unitTest_drop_unexpired.sqf"];
+call compileScript ["functions\Utility\KeyCache\Tests\unitTest_drop_expired.sqf"];
+call compileScript ["functions\Utility\KeyCache\Tests\unitTest_refresh.sqf"];
+
 // Will take ≈10 minutes. Game will still run at 60fps.
 call compileScript ["functions\Utility\KeyCache\Tests\stressTest_garbageCollector_short.sqf"];
 

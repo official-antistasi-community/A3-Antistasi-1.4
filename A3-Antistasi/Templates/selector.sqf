@@ -36,6 +36,7 @@ private _autoPickAI = {
         switch (true) do {
             case (A3A_hasCUP): {
                 switch(true) do {
+                    case (toLower worldName == "sara"): {"RAS"};
                     case (toLower worldName == "chernarus_summer");
                     case (toLower worldName == "chernarus_winter"): {"CDF"};
                     default {"USAF"};
@@ -82,7 +83,13 @@ private _autoPickAI = {
                 default {"TKA East"};
             };
         };
-        case (A3A_hasCUP): {"ACR"};      //ACR as Placeholder INV
+        case (A3A_hasCUP): {
+            switch(true) do {
+                case (toLower worldName == "chernarus_summer"): {"ChDKZ"};
+                case (toLower worldName == "sara"): {"SLA"};
+                default {"AFRF"};
+            };
+        ];      
         case (A3A_hasRHS): {"AFRF"};
         case (A3A_hasVN): {"MACV"};
         default {"CSAT"};
@@ -98,6 +105,13 @@ private _autoPickReb = {
                 default { "TKM" };
             };
         };
+        case (A3A_hasCUP): {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate"): { "NPC" }
+                case (A3A_climate isEqualTo "tropical");
+                default { "TKL" };
+            };
         case (A3A_hasRHS): {"NAPA"};
         case (A3A_hasVN): {"POF"};
         default {
@@ -148,22 +162,31 @@ private _AIFactionEnums = [
     , ["CDF", A3A_hasCUP]
     , ["USAF", A3A_hasCUP]
     , ["USMC", A3A_hasCUP]
+    , ["AFRF", A3A_hasCUP]
+    , ["ChDKZ", A3A_hasCUP]
+    , ["RAS", A3A_hasCUP]
+    , ["SLA", A3A_hasCUP]
+    , ["TA", A3A_hasCUP]
+    , ["BW", A3A_hasBWMOD]
 ];
 private _rebFactionEnums = [
     [_autoPickReb, true]
-    ,["FIA", true]
+    , ["FIA", true]
     , ["SDK", true]
     , ["NAPA", A3A_hasRHS]
     , ["CNM", A3A_has3CBFactions]
     , ["TKM", A3A_has3CBFactions]
     , ["POF", A3A_hasVN]
+    , ["NPC", A3A_hasCUP]
+    , ["TKL", A3A_hasCUP]
 ];
 private _civFactionEnums = [
     [_autoPickCiv, true]
-    ,["Vanilla", true]
+    , ["Vanilla", true]
     , ["RHS", A3A_hasRHS]
     , ["Factions", A3A_has3CBFactions]
     , ["VN", A3A_hasVN]
+    , ["CUP", A3A_hasCUP]
 ];
 
 //======================|
@@ -175,35 +198,55 @@ private _pickAITemplate = {
         //CUP
         case "ACR": {
             switch(true) do {
-                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\CUP\CUP_AI_ACR_Temperate.sqf" };
+                case (A3A_climate isEqualTo "arctic");
                 case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_ACR_Temperate.sqf" };
-                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_ACR_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical");
                 default { "Templates\Templates\CUP\CUP_AI_ACR_Arid.sqf" };
             };
         };
         case "BAF": {
             switch(true) do {
-                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\CUP\CUP_AI_BAF_Temperate.sqf" };
+                case (A3A_climate isEqualTo "arctic");
                 case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_BAF_Temperate.sqf" };
-                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_BAF_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical");
                 default { "Templates\Templates\CUP\CUP_AI_BAF_Arid.sqf" };
             };
         };
         case "CDF": { "Templates\Templates\CUP\CUP_AI_CDF_Temperate.sqf" };
         case "USAF": {
             switch(true) do {
-                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\CUP\CUP_AI_US_Army_Temperate.sqf" };
+                case (A3A_climate isEqualTo "arctic");
                 case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_US_Army_Temperate.sqf" };
-                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_US_Army_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical");
                 default { "Templates\Templates\CUP\CUP_AI_US_Army_Arid.sqf" };
             };
         };
         case "USMC": {
             switch(true) do {
-                case (A3A_climate isEqualTo "arctic"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
-                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
-                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Temperate.sqf.sqf" };
+                case (A3A_climate isEqualTo "tropical");
                 default { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
+            };
+        };
+        case "AFRF": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_AFRF_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical");
+                default { "Templates\Templates\CUP\CUP_AI_AFRF_Arid.sqf" };
+            };
+        };
+        case "ChDKZ": { "Templates\Templates\CUP\CUP_AI_ChDKZ_Temperate.sqf" };
+        case "RAS": { "Templates\Templates\CUP\CUP_AI_RAS_Temperate.sqf" };
+        case "SLA": { "Templates\Templates\CUP\CUP_AI_SLA_Temperate.sqf" };
+        case "TA": { "Templates\Templates\CUP\CUP_AI_TA_Arid.sqf" };
+        case "BW": {
+            switch(true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_BW_AI_BW_Temperate.sqf" };
+                case (A3A_climate isEqualTo "tropical");
+                default { "Templates\Templates\CUP\CUP_BW_AI_BW_Arid.sqf" };
             };
         };
         //3CB BAF
@@ -298,6 +341,9 @@ private _pickRebTemplate = {
         //VN
         case "POF": { "Templates\Templates\VN\VN_Reb_POF.sqf" };
 
+        // CUP
+        case "NPC": { "Templates\Templates\CUP\CUP_Reb_NPC_Temperate.sqf" };
+        case "TKL": { "Templates\Templates\CUP\CUP_Reb_TKL_Arid.sqf" };
         //Vanilla
         case "FIA": {
             switch (true) do {
@@ -322,6 +368,14 @@ private _pickCIVTemplate = {
         case "RHS": { "Templates\Templates\RHS\RHS_Civ.sqf" };
         case "VN": { "Templates\Templates\VN\VN_CIV.sqf" };
         case "Vanilla": { "Templates\Templates\Vanilla\Vanilla_Civ.sqf" };
+        case "CUP" : {
+            switch (true) do {
+                case (A3A_climate isEqualTo "arctic");
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_Civ_Temperate.sqf" }
+                case (A3A_climate isEqualTo "tropical");
+                default { "Templates\Templates\CUP\CUP_Civ_Arid.sqf" };
+            };
+        }
     };
 };
 
@@ -433,6 +487,8 @@ if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\Template
 if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBFactions_Logistics_Nodes.sqf"};
 if (A3A_has3CBBAF) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBBAF_Logistics_Nodes.sqf"};
 if (A3A_hasVN) then {call compile preProcessFileLineNumbers "Templates\Templates\VN\VN_Logistics_Nodes.sqf"};
+if (A3A_hasCUP) then {call compile preProcessFileLineNumbers "Templates\Templates\CUP\CUP_Logistics_Nodes.sqf"};
+if (A3A_hasBWMOD) then {call compile preProcessFileLineNumbers "Templates\Templates\CUP\CUP_BW_Logistics_Nodes.sqf"};
 
 //if (A3A_hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_Logistics_Nodes.sqf"};		//disabled until imtegrated
 //if (A3A_hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Logistics_Nodes.sqf"};		//disabled until imtegrated

@@ -269,8 +269,8 @@ class Params
     class CivFactionEnum
     {
         title = "Civilian faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4};
-        texts[] = {"Default (Auto)", "Vanilla", "RHS", "Factions", "VN"};
+        values[] = {9999, 1,2,3,4,5};
+        texts[] = {"Default (Auto)", "Vanilla", "RHS", "Factions", "VN", "CUP"};
         default = 9999;
     };
     class Spacer13

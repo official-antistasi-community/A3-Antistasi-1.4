@@ -250,7 +250,7 @@ _militaryLoadoutData set ["medVests", ["CUP_V_B_Eagle_SPC_Corpsman"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_B_Eagle_SPC_Officer","CUP_V_B_Eagle_SPC_SL","CUP_V_B_Eagle_SPC_TL"]];
 _militaryLoadoutData set ["glVests", ["CUP_V_B_Eagle_SPC_GL"]];
 _militaryLoadoutData set ["engVests", ['CUP_V_B_Eagle_SPC_AT']];
-_militaryLoadoutData set ["backpacks", "B_Carryall_cbr","CUP_B_USPack_Coyote","CUP_B_USMC_AssaultPack"]];
+_militaryLoadoutData set ["backpacks", ["B_Carryall_cbr","CUP_B_USPack_Coyote","CUP_B_USMC_AssaultPack"]];
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militaryLoadoutData set ["atBackpacks", ["CUP_B_USMC_MOLLE"]];
 _militaryLoadoutData set ["helmets", ["CUP_H_LWHv2_MARPAT_des","CUP_H_LWHv2_MARPAT_des_comms","CUP_H_USArmy_ECH_MARPAT_des","CUP_H_USArmy_ECH_GCOVERED_Headset_MARPAT_des"]];

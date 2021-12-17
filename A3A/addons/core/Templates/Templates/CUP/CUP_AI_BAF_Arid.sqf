@@ -196,7 +196,7 @@ _sfLoadoutData set ["rifles", [
 ]];
 _sfLoadoutData set ["carbines", [
     ["CUP_arifle_L85A2","CUP_muzzle_snds_L85","","CUP_optic_CompM2_OD",["CUP_30Rnd_556x45_Emag_Tracer_Red"],[],""],
-    ["CUP_arifle_L85A2","CUP_muzzle_snds_L85","","CUP_optic_Eotech553_OD",["CUP_30Rnd_556x45_Emag_Tracer_Red"],[],""],
+    ["CUP_arifle_L85A2","CUP_muzzle_snds_L85","","CUP_optic_Eotech553_OD",["CUP_30Rnd_556x45_Emag_Tracer_Red"],[],""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
     ["CUP_arifle_L85A2_GL","","","CUP_optic_Aimpoint_5000",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],

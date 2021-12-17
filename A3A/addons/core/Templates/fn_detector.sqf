@@ -63,13 +63,13 @@ if (
   isClass (configFile >> "cfgPatches" >> "CUP_Creatures_People_Civil_Russia") && // cup units
   isClass (configFile >> "cfgPatches" >> "CUP_BaseConfigs") &&                   // cup weapons
   isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core")                 // cup vehicles
-) then {A3A_hasCUP = true; Info("CUP Detected.")};
+) then {A3A_hasCUP = true; Info("CUP Detected.") };
 
 // BWMOD Detection with Project Tornado Dectection
 if ( A3A_hasCUP && 
   isClass (configfile >> "CfgPatches" >> "Tornado_AWS") &&
   isClass (configfile >> "CfgPatches" >> "bwa3_common")
-) then {A3A_hasBWMOD = true; Info("BWMOD and Project Tornado Detected.")}
+) then {A3A_hasBWMOD = true; Info("BWMOD and Project Tornado Detected.") };
 //Ivory Car Pack Detection
 if (isClass (configfile >> "CfgPatches" >> "Ivory_Data")) then {A3A_hasIvory = true; Info("Ivory Cars Detected.") };
 

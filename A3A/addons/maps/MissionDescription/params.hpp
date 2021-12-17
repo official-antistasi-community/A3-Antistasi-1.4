@@ -238,8 +238,8 @@ class Params
     class RebelFactionEnum
     {
         title = "Rebel faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6};
-        texts[] = {"Default (Auto)", "FIA", "SDK", "NAPA (RHS)", "CNM (Factions)", "TKM (Factions)", "POF (SOG:PF)"};
+        values[] = {9999, 1,2,3,4,5,6,7,8};
+        texts[] = {"Default (Auto)", "FIA", "SDK", "NAPA (RHS)", "CNM (Factions)", "TKM (Factions)", "POF (SOG:PF)", "NPC (CUP)", "TKL (CUP)"};
         default = 9999;
     };
     class OccupantsFactionEnum

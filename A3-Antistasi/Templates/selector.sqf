@@ -89,7 +89,7 @@ private _autoPickAI = {
                 case (toLower worldName == "sara"): {"SLA"};
                 default {"AFRF"};
             };
-        ];      
+        };      
         case (A3A_hasRHS): {"AFRF"};
         case (A3A_hasVN): {"MACV"};
         default {"CSAT"};
@@ -108,7 +108,7 @@ private _autoPickReb = {
         case (A3A_hasCUP): {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "NPC" }
+                case (A3A_climate isEqualTo "temperate"): { "NPC" };
                 case (A3A_climate isEqualTo "tropical");
                 default { "TKL" };
             };
@@ -118,6 +118,7 @@ private _autoPickReb = {
             switch(true) do {
                 case (toLower worldName == "tanoa"): { "SDK" };
                 default { "FIA" };
+                };
             };
         };
     };
@@ -199,16 +200,16 @@ private _pickAITemplate = {
         case "ACR": {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_ACR_Temperate.sqf" };
-                case (A3A_climate isEqualTo "tropical");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_ACR_Temperate.sqf" };
                 default { "Templates\Templates\CUP\CUP_AI_ACR_Arid.sqf" };
             };
         };
         case "BAF": {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_BAF_Temperate.sqf" };
-                case (A3A_climate isEqualTo "tropical");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_BAF_Temperate.sqf" };
                 default { "Templates\Templates\CUP\CUP_AI_BAF_Arid.sqf" };
             };
         };
@@ -216,24 +217,24 @@ private _pickAITemplate = {
         case "USAF": {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_US_Army_Temperate.sqf" };
-                case (A3A_climate isEqualTo "tropical");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_US_Army_Temperate.sqf" };
                 default { "Templates\Templates\CUP\CUP_AI_US_Army_Arid.sqf" };
             };
         };
         case "USMC": {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Temperate.sqf.sqf" };
-                case (A3A_climate isEqualTo "tropical");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Temperate.sqf.sqf" };
                 default { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
             };
         };
         case "AFRF": {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_AI_AFRF_Temperate.sqf" };
-                case (A3A_climate isEqualTo "tropical");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_AFRF_Temperate.sqf" };
                 default { "Templates\Templates\CUP\CUP_AI_AFRF_Arid.sqf" };
             };
         };
@@ -244,8 +245,8 @@ private _pickAITemplate = {
         case "BW": {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_BW_AI_BW_Temperate.sqf" };
-                case (A3A_climate isEqualTo "tropical");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_BW_AI_BW_Temperate.sqf" };
                 default { "Templates\Templates\CUP\CUP_BW_AI_BW_Arid.sqf" };
             };
         };
@@ -371,11 +372,11 @@ private _pickCIVTemplate = {
         case "CUP" : {
             switch (true) do {
                 case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_Civ_Temperate.sqf" }
+                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_Civ_Temperate.sqf" };
                 case (A3A_climate isEqualTo "tropical");
                 default { "Templates\Templates\CUP\CUP_Civ_Arid.sqf" };
             };
-        }
+        };
     };
 };
 
@@ -487,8 +488,8 @@ if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\Template
 if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBFactions_Logistics_Nodes.sqf"};
 if (A3A_has3CBBAF) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBBAF_Logistics_Nodes.sqf"};
 if (A3A_hasVN) then {call compile preProcessFileLineNumbers "Templates\Templates\VN\VN_Logistics_Nodes.sqf"};
-if (A3A_hasCUP) then {call compile preProcessFileLineNumbers "Templates\Templates\CUP\CUP_Logistics_Nodes.sqf"};
-if (A3A_hasBWMOD) then {call compile preProcessFileLineNumbers "Templates\Templates\CUP\CUP_BW_Logistics_Nodes.sqf"};
+//if (A3A_hasCUP) then {call compile preProcessFileLineNumbers "Templates\Templates\CUP\CUP_Logistics_Nodes.sqf"};
+//if (A3A_hasBWMOD) then {call compile preProcessFileLineNumbers "Templates\Templates\CUP\CUP_BW_Logistics_Nodes.sqf"};
 
 //if (A3A_hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_Logistics_Nodes.sqf"};		//disabled until imtegrated
 //if (A3A_hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Logistics_Nodes.sqf"};		//disabled until imtegrated

@@ -187,7 +187,7 @@ _sfLoadoutData set ["slRifles", [
 ]];
 
 _sfLoadoutData set ["rifles", [
-    ["CUP_arifle_AK74","CUP_muzzle_TGPA","","cup_optic_1p63",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],[],""],,
+    ["CUP_arifle_AK74","CUP_muzzle_TGPA","","cup_optic_1p63",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],[],""],
     ["CUP_arifle_AK74M","CUP_muzzle_TGPA","","cup_optic_1p63",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],[],""],
     ["CUP_arifle_AKS74","CUP_muzzle_TGPA","","CUP_optic_Kobra",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],[],""],
     ["CUP_arifle_AKS74","CUP_muzzle_TGPA","","cup_optic_1p63",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],[],""],

@@ -367,6 +367,9 @@ _militiaLoadoutData set ["machineGuns", [
 _militiaLoadoutData set ["marksmanRifles", [
     ["CUP_srifle_L129A1","","","CUP_optic_Leupold_VX3",["CUP_20Rnd_762x51_L129_M"],[],""]
 ]];
+_militiaLoadoutData set ["sniperRifles", [
+    ["CUP_srifle_AWM_blk","","","CUP_optic_Leupold_VX3",["CUP_5Rnd_86x70_L115A1"],[],"bipod_01_F_khk"]
+]];
 _militiaLoadoutData set ["lightATLaunchers", [
     ["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEDP_M", "CUP_MAAWS_HEAT_M"], [], ""]
 ]];

@@ -126,7 +126,7 @@ _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["atBackpacks", []];
 _loadoutData set ["slBackpacks", []];
 _loadoutData set ["helmets", []];
-_loadoutData set ["slHat", []];
+_loadoutData set ["slHat", ["H_Beret_02"]];
 _loadoutData set ["sniHats", []];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.

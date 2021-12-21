@@ -72,7 +72,7 @@ if ( isClass (configfile >> "CfgPatches" >> "bwa3_common")) then { A3A_hasBWMOD 
 //ADDONS BELOW 
 
 //Project Tornado Dectection
-if (isClass (configfile >> "CfgPatches" >> "Tornado_AWS")) then {A3A_hasTornado = true; Info("Project Tornado Detected.")}
+if (isClass (configfile >> "CfgPatches" >> "Tornado_AWS")) then {A3A_hasTornado = true; Info("Project Tornado Detected.")};
 
 //Ivory Car Pack Detection
 if (isClass (configfile >> "CfgPatches" >> "Ivory_Data")) then {A3A_hasIvory = true; Info("Ivory Cars Detected.") };

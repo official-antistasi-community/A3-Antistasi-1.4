@@ -393,7 +393,7 @@ _militiaLoadoutData set ["marksmanRifles", [
     ["CUP_arifle_M4A1_black","","","CUP_optic_elcan_specterdr_black",["CUP_30Rnd_556x45_Stanag"],[],""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-    ["CUP_srifle_M24_wdl","","","CUP_optic_LeupoldM3LR",["CUP_5Rnd_762x51_M24"],[],""],
+    ["CUP_srifle_M24_wdl","","","CUP_optic_LeupoldM3LR",["CUP_5Rnd_762x51_M24"],[],""]
 ]];
 _militiaLoadoutData set ["lightATLaunchers", [
     ["CUP_launch_M72A6", "", "", "", ["CUP_M72A6_M"], [], ""]

@@ -226,7 +226,7 @@ private _pickAITemplate = {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic");
                 case (A3A_climate isEqualTo "temperate");
-                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Temperate.sqf.sqf" };
+                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_AI_US_Marine_Temperate.sqf" };
                 default { "Templates\Templates\CUP\CUP_AI_US_Marine_Arid.sqf" };
             };
         };

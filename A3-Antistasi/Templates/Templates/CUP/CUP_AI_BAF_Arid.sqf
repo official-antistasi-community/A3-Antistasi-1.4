@@ -295,13 +295,12 @@ _militaryLoadoutData set ["machineGuns", [
     ["CUP_lmg_L7A2","","","CUP_optic_CompM2_OD",["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M"],[],""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
-    ["CUP_srifle_L129A1","","","CUP_optic_LeupoldMk4",["CUP_20Rnd_762x51_L129_M"],[],"bipod_01_F_khk"],
-    ["CUP_srifle_L129A1","","","CUP_optic_LeupoldMk4_MRT_tan",["CUP_20Rnd_762x51_L129_M"],[],"bipod_01_F_khk"],
-    ["CUP_srifle_L129A1","","","CUP_optic_LeupoldM3LR",["CUP_20Rnd_762x51_L129_M"],[],"bipod_01_F_khk"],
-    ["CUP_srifle_L129A1","","","CUP_optic_Leupold_VX3",["CUP_20Rnd_762x51_L129_M"],[],"bipod_01_F_khk"]
+    ["CUP_srifle_L129A1","","","CUP_optic_LeupoldMk4",["CUP_20Rnd_762x51_L129_M"],[],"bipod_01_F_blk"],
+    ["CUP_srifle_L129A1","","","CUP_optic_LeupoldM3LR",["CUP_20Rnd_762x51_L129_M"],[],"bipod_01_F_blk"],
+    ["CUP_srifle_L129A1","","","CUP_optic_Leupold_VX3",["CUP_20Rnd_762x51_L129_M"],[],"bipod_01_F_blk"]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
-    ["CUP_srifle_AWM_blk","","","CUP_optic_Leupold_VX3",["CUP_5Rnd_86x70_L115A1"],[],"bipod_01_F_khk"],
+    ["CUP_srifle_AWM_blk","","","CUP_optic_Leupold_VX3",["CUP_5Rnd_86x70_L115A1"],[],"bipod_01_F_blk"],
     ["CUP_srifle_AWM_blk","","","CUP_optic_LeupoldMk4_25x50_LRT",["CUP_5Rnd_86x70_L115A1"],[],"bipod_01_F_blk"],
     ["CUP_srifle_AWM_blk","","","CUP_optic_LeupoldMk4_20x40_LRT",["CUP_5Rnd_86x70_L115A1"],[],"bipod_01_F_blk"]
 ]];
@@ -329,7 +328,7 @@ _policeLoadoutData set ["shotGuns", [
 _policeLoadoutData set ["SMGs", [
     ["CUP_smg_M3A1_blk","","","",["CUP_30Rnd_45ACP_M3A1_BLK_M"],[],""],
     ["CUP_smg_MP5A5","","","CUP_optic_CompM2_low",["CUP_30Rnd_Red_Tracer_9x19_MP5"],[],""],
-    ["CUP_smg_MP5A5","","","CUP_optic_Eotech553_Coyote",["CUP_30Rnd_Red_Tracer_9x19_MP5"],[],""]
+    ["CUP_smg_MP5A5","","","CUP_optic_eotech553_black",["CUP_30Rnd_Red_Tracer_9x19_MP5"],[],""]
 ]];
 _policeLoadoutData set ["sidearms", [
     ["CUP_hgun_Colt1911","","","",["CUP_7Rnd_45ACP_1911"],[],""]

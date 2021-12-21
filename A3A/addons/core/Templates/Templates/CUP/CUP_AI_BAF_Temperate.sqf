@@ -339,12 +339,12 @@ _policeLoadoutData set ["sidearms", [
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_U_B_BAF_DPM_UBACSROLLED_Gloves","CUP_U_B_BAF_DPM_UBACSLONGKNEE","CUP_U_B_BAF_DPM_UBACSROLLED"]];
-_militiaLoadoutData set ["vests", ["CUP_V_B_BAF_DDPM_Osprey_Mk3_Rifleman"]];
+_militiaLoadoutData set ["vests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_Rifleman"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_Scout"]];
 _militiaLoadoutData set ["backpacks", ["B_FieldPack_cbr","B_Carryall_cbr"]];
 _militiaLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_B_Bergen_BAF"]];
-_militiaLoadoutData set ["helmets", ["CUP_H_BAF_DDPM_Mk6_EMPTY"]];
+_militiaLoadoutData set ["helmets", ["CUP_H_BAF_DPM_Mk6_EMPTY"]];
 _militiaLoadoutData set ["sniHats", ["CUP_H_FR_PRR_BoonieWDL"]];
 
 _militiaLoadoutData set ["rifles", [[
@@ -378,12 +378,12 @@ _militiaLoadoutData set ["sidearms", [
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["CUP_U_B_BAF_DPM_UBACSLONGKNEE"]];
-_crewLoadoutData set ["vests", ["CUP_V_B_BAF_DDPM_Osprey_Mk3_Crewman"]];
-_crewLoadoutData set ["helmets", ["CUP_H_BAF_DDPM_Mk6_CREW_PRR"]];
+_crewLoadoutData set ["vests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_Crewman"]];
+_crewLoadoutData set ["helmets", ["CUP_H_BAF_DPM_Mk6_CREW_PRR"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["CUP_U_B_BAF_DPM_UBACSLONGKNEE_Gloves"]];
-_pilotLoadoutData set ["vests", ["CUP_V_B_BAF_DDPM_Osprey_Mk3_Crewman"]];
+_pilotLoadoutData set ["vests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_Pilot"]];
 _pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_B"]];
 
 

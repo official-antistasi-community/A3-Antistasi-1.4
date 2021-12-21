@@ -163,7 +163,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["CUP_U_B_CZ_WDL_NoKneepads","CUP_U_B_CZ_WDL_Kneepads","CUP_U_B_CZ_WDL_Kneepads_Gloves","CUP_U_CRYE_ATACSAU_Full","CUP_U_CRYE_ATACSAU_Roll"]];
-_sfLoadoutData set ["vests", ["CUP_V_CZ_vest04","CUP_V_CPC_Fastbelt_rngr",,"CUP_V_CZ_vest16"]];
+_sfLoadoutData set ["vests", ["CUP_V_CZ_vest04","CUP_V_CPC_Fastbelt_rngr","CUP_V_CZ_vest16"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_CZ_vest12"]];
 _sfLoadoutData set ["medVests", ["CUP_V_CZ_vest17"]];
 _sfLoadoutData set ["glVests", ["CUP_V_CZ_vest06"]];
@@ -173,7 +173,7 @@ _sfLoadoutData set ["atBackpacks", ["B_Kitbag_cbr"]];
 _sfLoadoutData set ["helmets", ["CUP_H_CZ_Helmet10","CUP_H_CZ_Helmet09","CUP_H_OpsCore_Spray","CUP_H_OpsCore_Tan"]];
 _sfLoadoutData set ["slHat", ["CUP_H_CZ_Cap_Headphones"]];
 _sfLoadoutData set ["sniHats", ["CUP_H_CZ_Hat03"]];
-_sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_tan"]];
+_sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
 _sfLoadoutData set ["binoculars", ["CUP_LRTV"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
@@ -210,7 +210,7 @@ _sfLoadoutData set ["grenadeLaunchers", [
     ["CUP_CZ_BREN2_556_14_GL","CUP_muzzle_snds_M16","","CUP_optic_CompM4",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
     ["CUP_arifle_CZ805_GL","CUP_muzzle_snds_M16","","CUP_optic_Eotech553_Black",["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
     ["CUP_CZ_BREN2_762_14_GL","CUP_muzzle_snds_SCAR_H","","CUP_optic_Eotech553_Black",["CUP_30Rnd_762x39_CZ807"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
-    ["CUP_CZ_BREN2_556_14_GL","CUP_muzzle_snds_M16","","CUP_optic_Eotech553_Black",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],],
+    ["CUP_CZ_BREN2_556_14_GL","CUP_muzzle_snds_M16","","CUP_optic_Eotech553_Black",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
     ["CUP_arifle_M4A1_BUIS_GL","CUP_muzzle_snds_M16","","CUP_optic_CompM4",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""],
     ["CUP_arifle_M4A1_BUIS_GL","CUP_muzzle_snds_M16","","CUP_optic_Eotech553_Black",["CUP_30Rnd_556x45_Emag_Tracer_Red"],["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"],""]
 ]];

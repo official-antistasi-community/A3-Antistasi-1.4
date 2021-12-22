@@ -369,14 +369,7 @@ private _pickCIVTemplate = {
         case "RHS": { "Templates\Templates\RHS\RHS_Civ.sqf" };
         case "VN": { "Templates\Templates\VN\VN_CIV.sqf" };
         case "Vanilla": { "Templates\Templates\Vanilla\Vanilla_Civ.sqf" };
-        case "CUP" : {
-            switch (true) do {
-                case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "Templates\Templates\CUP\CUP_Civ_Temperate.sqf" };
-                case (A3A_climate isEqualTo "tropical");
-                default { "Templates\Templates\CUP\CUP_Civ_Arid.sqf" };
-            };
-        };
+        case "CUP" : { "Templates\Templates\CUP\CUP_Civ.sqf" };    
     };
 };
 

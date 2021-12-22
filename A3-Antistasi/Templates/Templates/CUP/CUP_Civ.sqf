@@ -2,30 +2,61 @@
 //       Vehicles       //
 //////////////////////////    
 
-["vehiclesCivCar", []] call _fnc_saveToTemplate;             //this line determines civilian cars -- Example: ["vehiclesCivCar", ["C_Offroad_01_F"]] -- Array, can contain multiple assets
+["vehiclesCivCar",[
+    "CUP_O_Hilux_unarmed_TK_CIV", 0.5
+    ,"CUP_C_LR_Transport_CTK", 0.5
+    ,"CUP_C_Bus_City_TKCIV", 0.2
+    ,"CUP_C_SUV_TK", 0.5
+    ,"CUP_C_Datsun_4seat", 0.5
+    ,"CUP_C_Golf4_black_Civ", 0.5
+    ,"CUP_C_Golf4_random_Civ", 0.5
+    ,"CUP_C_Octavia_CIV", 0.5
+    ,"CUP_C_Pickup_unarmed_CIV", 0.5
+    ,"CUP_C_TowingTractor_CIV", 0.5
+    ]] call _fnc_saveToTemplate;
 
-["vehiclesCivIndustrial", []] call _fnc_saveToTemplate;             //this line determines civilian trucks -- Example: ["vehiclesCivIndustrial", ["C_Truck_02_transport_F"]] -- Array, can contain multiple assets
+["vehiclesCivIndustrial",[
+    ,"CUP_C_V3S_Open_TKC", 0.2
+    ,"CUP_C_V3S_Covered_TKC", 0.2
+    ,"CUP_C_Ural_Civ_01", 0.2
+]] call _fnc_saveToTemplate;
 
-["vehiclesCivHeli", []] call _fnc_saveToTemplate;             //this line determines civilian helis -- Example: ["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] -- Array, can contain multiple assets
+["vehiclesCivHeli",[
+    ,"CUP_C_412", 0.1
+    ,"CUP_C_412_Sheriff", 0.1
+]] call _fnc_saveToTemplate;
 
-["vehiclesCivBoat", []] call _fnc_saveToTemplate;             //this line determines civilian boats -- Example: ["vehiclesCivBoat", ["C_Boat_Civil_01_F"]] -- Array, can contain multiple assets
+["vehiclesCivBoat",[
+    ,"CUP_C_Fishing_Boat_Chernarus", 0.2
+    ,"CUP_C_PBX_CIV", 0.7
+    ,"CUP_C_Zodiac_CIV", 0.7
+]] call _fnc_saveToTemplate;
 
-["vehiclesCivRepair", []] call _fnc_saveToTemplate;            //this line determines civilian repair vehicles
+["vehiclesCivRepair",[
+    ,"C_Truck_02_box_F", 0.1
+    ,"C_Offroad_01_repair_F", 0.1
+]] call _fnc_saveToTemplate;
 
-["vehiclesCivMedical", []] call _fnc_saveToTemplate;        //this line determines civilian medic vehicles
+["vehiclesCivMedical",[
+    ,"CUP_C_S1203_Ambulance_CIV", 0.1
+]] call _fnc_saveToTemplate;
 
-["vehiclesCivFuel", []] call _fnc_saveToTemplate;            //this line determines civilian fuel vehicles
+["vehiclesCivFuel",[
+    ,"C_Truck_02_fuel_F", 0.1
+    ,"C_Van_01_fuel_F", 0.1
+]] call _fnc_saveToTemplate;
+
 
 
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
 
-private _civUniforms = [];          //Uniforms given to Normal Civs
+private _civUniforms = ["CUP_U_C_Citizen_02","CUP_U_C_Citizen_01","CUP_U_C_Citizen_04","CUP_U_C_Citizen_03"];          //Uniforms given to Normal Civs
 
-private _pressUniforms = [];            //Uniforms given to Press/Journalists
+private _pressUniforms = ["U_C_Journalist","U_Marshal"];            //Uniforms given to Press/Journalists
 
-private _workerUniforms = [];           //Uniforms given to Workers at Factories/Resources
+private _workerUniforms = ["CUP_U_C_Worker_03","CUP_U_C_Worker_04","CUP_U_C_Worker_02", "CUP_U_C_Worker_01"];           //Uniforms given to Workers at Factories/Resources
 
 private _dlcUniforms = [];          //Uniforms given if DLCs are enabled, only given to the Arsenal not Civilians
 
@@ -37,7 +68,7 @@ if (allowDLCOrange) then {_dlcUniforms append [];
 
 ["uniforms", _civUniforms + _pressUniforms + _workerUniforms + _dlcUniforms] call _fnc_saveToTemplate;          //Uniforms given to the Arsenal, Allowed for Undercover and given to Rebel Ai that go Undercover
 
-_civhats = [];
+_civhats = ["H_Cap_tan", "CUP_H_TKI_SkullCap_01", "CUP_H_TKI_SkullCap_02"];
 
 ["headgear", _civHats] call _fnc_saveToTemplate;            //Headgear given to Normal Civs, Workers, Undercover Rebels.
 
@@ -46,9 +77,9 @@ private _loadoutData = call _fnc_createLoadoutData;
 _loadoutData set ["uniforms", _civUniforms];
 _loadoutData set ["pressUniforms", _pressUniforms];
 _loadoutData set ["workerUniforms", _workerUniforms];
-_loadoutData set ["pressVests", []];
+_loadoutData set ["pressVests", ["V_Press_F"]];
 _loadoutData set ["helmets", _civHats];
-_loadoutData set ["pressHelmets", []];
+_loadoutData set ["pressHelmets", ["H_Cap_press"]];
 
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];

@@ -52,7 +52,44 @@
 //       Loadouts       //
 //////////////////////////
 
-private _civUniforms = ["CUP_U_C_Citizen_02","CUP_U_C_Citizen_01","CUP_U_C_Citizen_04","CUP_U_C_Citizen_03"];          //Uniforms given to Normal Civs
+private _civUniforms = ["CUP_U_C_Citizen_02",
+    "CUP_U_C_Citizen_01",
+    "CUP_U_C_Citizen_04",
+    "CUP_U_C_Citizen_03",
+    "U_C_Man_casual_1_F",
+    "U_C_Man_casual_2_F",
+    "U_C_Man_casual_3_F",
+    "U_C_Man_casual_4_F",
+    "U_C_Man_casual_5_F",
+    "U_C_Man_casual_6_F",
+    "U_C_ArtTShirt_01_v1_F",
+    "U_C_ArtTShirt_01_v2_F",
+    "U_C_ArtTShirt_01_v3_F",
+    "U_C_ArtTShirt_01_v4_F",
+    "U_C_ArtTShirt_01_v5_F",
+    "U_C_ArtTShirt_01_v6_F",
+    "U_NikosBody",
+    "U_NikosAgedBody",
+    "U_C_Journalist",
+    "U_C_Poloshirt_blue",
+    "U_C_Poloshirt_burgundy",
+    "U_C_Poloshirt_stripped",
+    "U_C_Poloshirt_tricolour",
+    "U_C_Poloshirt_salmon",
+    "U_C_Poloshirt_redwhite",
+    "U_OrestesBody",
+    "U_C_Poor_1",
+    "U_C_WorkerCoveralls",
+    "U_C_HunterBody_grn",
+    "U_C_Uniform_Farmer_01_F",
+    "U_I_L_Uniform_01_tshirt_skull_F",
+    "U_I_L_Uniform_01_tshirt_black_F",
+    "U_I_L_Uniform_01_tshirt_sport_F",
+    "U_C_Scientist",
+    "U_C_Uniform_Scientist_02_formal_F",
+    "U_C_Uniform_Scientist_02_F",
+    "U_C_Uniform_Scientist_01_F"
+];          //Uniforms given to Normal Civs
 
 private _pressUniforms = ["U_C_Journalist","U_Marshal"];            //Uniforms given to Press/Journalists
 

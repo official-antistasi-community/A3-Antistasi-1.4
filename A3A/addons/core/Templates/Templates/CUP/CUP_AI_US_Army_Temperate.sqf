@@ -264,16 +264,16 @@ _militaryLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
 _militaryLoadoutData set ["slRifles", [
     ["CUP_arifle_M4A3_black","","","CUP_optic_ACOG",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
-    ["CUP_arifle_Mk16_STD","","","CUP_optic_ACOG",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
+    ["CUP_arifle_Mk16_STD_black","","","CUP_optic_ACOG",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
     ["CUP_arifle_M4A1_standard_black","","","CUP_optic_ACOG",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
     ["CUP_arifle_M4A3_black","","","CUP_optic_elcan_specterdr_black",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
-    ["CUP_arifle_Mk16_STD","","","CUP_optic_elcan_specterdr_black",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
+    ["CUP_arifle_Mk16_STD_black","","","CUP_optic_elcan_specterdr_black",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
     ["CUP_arifle_M4A1_standard_black","","","CUP_optic_elcan_specterdr_black",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
     ["CUP_arifle_Mk17_STD_black","","","CUP_optic_elcan_specterdr_black",["CUP_20Rnd_762x51_B_SCAR_bkl","CUP_20Rnd_TE1_Red_Tracer_762x51_SCAR_bkl"],[],""]
 ]];
 _militaryLoadoutData set ["rifles", [
     ["CUP_arifle_M4A3_black","","","CUP_optic_compm2_low",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
-    ["CUP_arifle_Mk16_STD","","","CUP_optic_compm2_low",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
+    ["CUP_arifle_Mk16_STD_black","","","CUP_optic_compm2_low",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
     ["CUP_arifle_M4A1_standard_black","","","CUP_optic_compm2_low",["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_Stanag_Tracer_Red"],[],""],
     ["CUP_arifle_Mk17_STD_black","","","CUP_optic_compm2_low",["CUP_20Rnd_762x51_B_SCAR_bkl","CUP_20Rnd_TE1_Red_Tracer_762x51_SCAR_bkl"],[],""]
 ]];

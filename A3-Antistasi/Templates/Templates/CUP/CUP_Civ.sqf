@@ -52,10 +52,19 @@
 //       Loadouts       //
 //////////////////////////
 
-private _civUniforms = ["CUP_U_C_Citizen_02",
+private _civUniforms = [
+    "CUP_U_C_Citizen_02",
     "CUP_U_C_Citizen_01",
     "CUP_U_C_Citizen_04",
     "CUP_U_C_Citizen_03",
+    "CUP_U_C_Rocker_01",
+    "CUP_U_C_Rocker_02",
+    "CUP_U_C_Rocker_03",
+    "CUP_U_C_Rocker_04",
+    "CUP_U_C_AirMedic_yellow_01",
+    "CUP_U_C_Tracksuit_02",
+    "CUP_U_C_Tracksuit_01",
+    "CUP_U_C_Priest_01",
     "U_C_Man_casual_1_F",
     "U_C_Man_casual_2_F",
     "U_C_Man_casual_3_F",

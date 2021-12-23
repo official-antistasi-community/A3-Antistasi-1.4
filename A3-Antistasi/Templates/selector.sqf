@@ -108,8 +108,10 @@ private _autoPickReb = {
         case (A3A_hasCUP): {
             switch(true) do {
                 case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate"): { "NPC" };
-                case (A3A_climate isEqualTo "tropical");
+                case (A3A_climate isEqualTo "temperate");
+                case (A3A_climate isEqualTo "tropical"): { "NPC" };
+                case (toLower worldName == "chernarus_summer"): { "NPC" };
+                case (toLower worldName == "chernarus_winter"): { "NPC" };
                 default { "TKL" };
             };
         case (A3A_hasRHS): {"NAPA"};
@@ -128,6 +130,7 @@ private _autoPickCiv = {
         case (A3A_has3CBFactions): { "Factions" };
         case (A3A_hasRHS): { "RHS" };
         case (A3A_hasVN): { "VN" };
+        case (A3A_hasCUP): {"CUP"};
         default { "Vanilla" };
     };
 };

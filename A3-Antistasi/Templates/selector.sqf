@@ -240,7 +240,7 @@ private _pickAITemplate = {
                 default { "Templates\Templates\CUP\CUP_AI_AFRF_Arid.sqf" };
             };
         };
-        case "RAS": { "Templates\Templates\CUP\CUP_AI_RAS_Temperate.sqf" };
+        case "RAS": { "Templates\Templates\CUP\CUP_AI_RAS_Arid.sqf" };
         case "SLA": { "Templates\Templates\CUP\CUP_AI_SLA_Temperate.sqf" };
         case "TA": { "Templates\Templates\CUP\CUP_AI_TA_Arid.sqf" };
         case "BW": {

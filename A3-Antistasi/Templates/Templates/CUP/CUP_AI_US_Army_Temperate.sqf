@@ -47,7 +47,7 @@
 ["vehiclesHelisAttack",["CUP_B_AH6M_USA","CUP_B_AH6J_USA","CUP_B_AH64D_DL_USA"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery",["CUP_B_M270_HE_USA"]] call _fnc_saveToTemplate;
-["magazines", createHashMapFromArray [["CUP_B_M270_HE_USA",["CUP_R_MLRS_HE"]]]] call _fnc_saveToTemplate;
+["magazines", createHashMapFromArray [["CUP_B_M270_HE_USA",["CUP_12Rnd_MLRS_HE"]]]] call _fnc_saveToTemplate;
 
 ["uavsAttack",[]] call _fnc_saveToTemplate;
 ["uavsPortable",[]] call _fnc_saveToTemplate;

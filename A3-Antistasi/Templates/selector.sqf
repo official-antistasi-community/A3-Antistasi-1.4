@@ -85,8 +85,8 @@ private _autoPickAI = {
         };
         case (A3A_hasCUP): {
             switch(true) do {
-                case (toLower worldName == "chernarus_summer"): {"ChDKZ"};
                 case (toLower worldName == "sara"): {"SLA"};
+                case (toLower worldName == tak)
                 default {"AFRF"};
             };
         };      
@@ -167,7 +167,6 @@ private _AIFactionEnums = [
     , ["USAF", A3A_hasCUP]
     , ["USMC", A3A_hasCUP]
     , ["AFRF", A3A_hasCUP]
-    , ["ChDKZ", A3A_hasCUP]
     , ["RAS", A3A_hasCUP]
     , ["SLA", A3A_hasCUP]
     , ["TA", A3A_hasCUP]
@@ -241,7 +240,6 @@ private _pickAITemplate = {
                 default { "Templates\Templates\CUP\CUP_AI_AFRF_Arid.sqf" };
             };
         };
-        case "ChDKZ": { "Templates\Templates\CUP\CUP_AI_ChDKZ_Temperate.sqf" };
         case "RAS": { "Templates\Templates\CUP\CUP_AI_RAS_Temperate.sqf" };
         case "SLA": { "Templates\Templates\CUP\CUP_AI_SLA_Temperate.sqf" };
         case "TA": { "Templates\Templates\CUP\CUP_AI_TA_Arid.sqf" };

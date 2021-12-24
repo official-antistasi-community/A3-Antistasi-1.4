@@ -310,7 +310,7 @@ _policeLoadoutData set ["SMGs", [
     ["CUP_arifle_AKS74U","","","",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],[],""]
 ]];
 _policeLoadoutData set ["sidearms", [
-    ["CUP_srifle_SVD","","","",["CUP_8Rnd_9x18_Makarov_M"],[],""]
+    ["CUP_hgun_Makarov","","","",["CUP_8Rnd_9x18_Makarov_M"],[],""]
 ]];
 
 ////////////////////////////////

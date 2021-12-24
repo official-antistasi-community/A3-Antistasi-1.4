@@ -195,12 +195,12 @@ _sfLoadoutData set ["carbines", [
     ["CUP_arifle_AKS74U","CUP_muzzle_TGPA","","CUP_optic_1p63",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],[],""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
-    ["CUP_arifle_AK107_GL","CUP_muzzle_TGPA","","CUP_optic_1p63",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],[],""],
-    ["CUP_arifle_AK107_GL","CUP_muzzle_TGPA","","CUP_optic_Kobra",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],[],""],
-    ["CUP_arifle_AK109_GL","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_1p63",["CUP_30Rnd_762x39_AK103_bakelite_M"],[],""],
-    ["CUP_arifle_AK109_GL","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_Kobra",["CUP_30Rnd_762x39_AK103_bakelite_M"],[],""],
-    ["CUP_arifle_AK103_GL","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_Kobra",["CUP_30Rnd_762x39_AK103_bakelite_M"],[],""],
-    ["CUP_arifle_AK103_GL","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_1p63",["CUP_30Rnd_762x39_AK103_bakelite_M"],[],""]
+    ["CUP_arifle_AK107_GL","CUP_muzzle_TGPA","","CUP_optic_1p63",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK107_GL","CUP_muzzle_TGPA","","CUP_optic_Kobra",["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK109_GL","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_1p63",["CUP_30Rnd_762x39_AK103_bakelite_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK109_GL","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_Kobra",["CUP_30Rnd_762x39_AK103_bakelite_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK103_GL","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_Kobra",["CUP_30Rnd_762x39_AK103_bakelite_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK103_GL","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_1p63",["CUP_30Rnd_762x39_AK103_bakelite_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""]
 ]];
 _sfLoadoutData set ["SMGs", [
     ["CUP_smg_bizon","CUP_muzzle_snds_KZRZP_AK762","","CUP_optic_1p63",["CUP_64Rnd_Red_Tracer_9x19_Bizon_M"],[],""],
@@ -276,13 +276,13 @@ _militaryLoadoutData set ["carbines", [
     ["CUP_arifle_AKS74","","","CUP_optic_Kobra",["CUP_30Rnd_545x39_AK74_plum_M"],[],""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-    ["CUP_arifle_AKS74_GL","","","CUP_optic_Kobra",["CUP_30Rnd_545x39_AK74_plum_M"],[],""],
-    ["CUP_arifle_AK107_GL","","","CUP_optic_Kobra",["CUP_30Rnd_545x39_AK74_plum_M"],[],""],
-    ["CUP_arifle_AK108_GL","","","CUP_optic_Kobra",["CUP_30Rnd_556x45_AK"],[],""],
-    ["CUP_arifle_AK109_GL","","","CUP_optic_Kobra",["CUP_30Rnd_762x39_AK103_bakelite_M"],[],""],
-    ["CUP_arifle_AK109_GL","","","CUP_optic_1p63",["CUP_30Rnd_762x39_AK103_bakelite_M"],[],""],
-    ["CUP_arifle_AK108_GL","","","CUP_optic_1p63",["CUP_30Rnd_556x45_AK"],[],""],
-    ["CUP_arifle_AK107_GL","","","CUP_optic_1p63",["CUP_30Rnd_545x39_AK74M_M"],[],""]
+    ["CUP_arifle_AKS74_GL","","","CUP_optic_Kobra",["CUP_30Rnd_545x39_AK74_plum_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK107_GL","","","CUP_optic_Kobra",["CUP_30Rnd_545x39_AK74_plum_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK108_GL","","","CUP_optic_Kobra",["CUP_30Rnd_556x45_AK"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK109_GL","","","CUP_optic_Kobra",["CUP_30Rnd_762x39_AK103_bakelite_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK109_GL","","","CUP_optic_1p63",["CUP_30Rnd_762x39_AK103_bakelite_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK108_GL","","","CUP_optic_1p63",["CUP_30Rnd_556x45_AK"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""],
+    ["CUP_arifle_AK107_GL","","","CUP_optic_1p63",["CUP_30Rnd_545x39_AK74M_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""]
 ]];
 _militaryLoadoutData set ["SMGs", [
     ["CUP_smg_bizon","","","CUP_optic_1p63",["CUP_64Rnd_9x19_Bizon_M"],[],""],
@@ -353,7 +353,7 @@ _militiaLoadoutData set ["carbines", [
     ["CUP_arifle_AK104","","","CUP_optic_1p63",["CUP_30Rnd_762x39_AK103_bakelite_M"],[],""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-    ["CUP_arifle_AK103_GL","","","CUP_optic_1p63",["CUP_30Rnd_762x39_AK103_bakelite_M"],[],""]
+    ["CUP_arifle_AK103_GL","","","CUP_optic_1p63",["CUP_30Rnd_762x39_AK103_bakelite_M"],["CUP_1Rnd_HE_GP25_M","CUP_1Rnd_SmokeRed_GP25_M"],""]
 ]];
 _militiaLoadoutData set ["SMGs", [
     ["CUP_smg_bizon","","","CUP_optic_1p63",["CUP_64Rnd_9x19_Bizon_M"],[],""]

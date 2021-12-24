@@ -86,7 +86,7 @@ private _autoPickAI = {
         case (A3A_hasCUP): {
             switch(true) do {
                 case (toLower worldName == "sara"): {"SLA"};
-                case (toLower worldName == tak)
+                case (toLower worldName == takistan);
                 default {"AFRF"};
             };
         };      

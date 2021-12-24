@@ -220,8 +220,8 @@ _sfLoadoutData set ["machineGuns", [
 _sfLoadoutData set ["marksmanRifles", [
     ["CUP_arifle_Mk20_black","CUP_muzzle_snds_SCAR_H","CUP_acc_ANPEQ_15","CUP_optic_LeupoldM3LR",["CUP_30Rnd_TE1_Red_Tracer_762x51_2_SCAR", "CUP_30Rnd_TE1_White_Tracer_762x51_2_SCAR"],[],"bipod_01_F_blk"],
     ["CUP_arifle_Mk20_black","CUP_muzzle_snds_SCAR_H","CUP_acc_ANPEQ_15","CUP_optic_leupoldmk4",["CUP_30Rnd_TE1_Red_Tracer_762x51_2_SCAR", "CUP_30Rnd_TE1_White_Tracer_762x51_2_SCAR"],[],"bipod_01_F_blk"],
-    ["CUP_srifle_m110_kac_black","CUP_muzzle_snds_M110","CUP_acc_ANPEQ_15","CUP_optic_LeupoldMk4",["CUP_20Rnd_762x51_B_M110", "CUP_20Rnd_TE1_Red_Tracer_762x51_M110"],[],"bipod_01_F_blk"],
-    ["CUP_srifle_m110_kac_black","CUP_muzzle_snds_M110","CUP_acc_ANPEQ_15","CUP_optic_LeupoldM3LR",["CUP_20Rnd_762x51_B_M110", "CUP_20Rnd_TE1_Red_Tracer_762x51_M110"],[],"bipod_01_F_blk"],
+    ["CUP_srifle_m110_kac_black","CUP_muzzle_snds_M110_black","CUP_acc_ANPEQ_15","CUP_optic_LeupoldMk4",["CUP_20Rnd_762x51_B_M110", "CUP_20Rnd_TE1_Red_Tracer_762x51_M110"],[],"bipod_01_F_blk"],
+    ["CUP_srifle_m110_kac_black","CUP_muzzle_snds_M110_black","CUP_acc_ANPEQ_15","CUP_optic_LeupoldM3LR",["CUP_20Rnd_762x51_B_M110", "CUP_20Rnd_TE1_Red_Tracer_762x51_M110"],[],"bipod_01_F_blk"],
     ["CUP_srifle_RSASS_Black","CUP_muzzle_snds_SCAR_H","CUP_acc_ANPEQ_15","CUP_optic_LeupoldMk4",["CUP_20Rnd_762x51_B_M110", "CUP_20Rnd_TE1_Red_Tracer_762x51_M110"],[],"bipod_01_F_blk"],
     ["CUP_srifle_RSASS_Black","CUP_muzzle_snds_SCAR_H","CUP_acc_ANPEQ_15","CUP_optic_LeupoldM3LR",["CUP_20Rnd_762x51_B_M110", "CUP_20Rnd_TE1_Red_Tracer_762x51_M110"],[],"bipod_01_F_blk"]
 ]];

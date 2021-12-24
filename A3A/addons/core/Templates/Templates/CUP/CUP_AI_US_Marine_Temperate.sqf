@@ -47,7 +47,7 @@
 ["vehiclesHelisTransport",["CUP_B_MV22_USMC_RAMPGUN","CUP_MH60S_Unarmed_USN","CUP_MH60S_Unarmed_FFV_USN","CUP_B_MH60S_USMC","CUP_B_UH60S_USN","CUP_B_CH53E_USMC","CUP_B_MH60L_DAP_4x_USN","CUP_B_MH60L_DAP_2x_USN"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack",["CUP_B_AH1Z_Dynamic_USMC","CUP_B_MH60L_DAP_4x_USN","CUP_B_UH1Y_Gunship_Dynamic_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesArtillery",["CUP_B_M270_HE_USMC"]] call _fnc_saveToTemplate;
-["magazines", createHashMapFromArray [["CUP_B_M270_HE_USA",["CUP_R_MLRS_HE"]]]] call _fnc_saveToTemplate;
+["magazines", createHashMapFromArray [["CUP_B_M270_HE_USMC",["CUP_12Rnd_MLRS_HE"]]]] call _fnc_saveToTemplate;
 
 ["uavsAttack",[]] call _fnc_saveToTemplate;
 ["uavsPortable",[]] call _fnc_saveToTemplate;

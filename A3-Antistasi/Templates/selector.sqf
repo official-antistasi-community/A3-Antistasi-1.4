@@ -86,7 +86,7 @@ private _autoPickAI = {
         case (A3A_hasCUP): {
             switch(true) do {
                 case (toLower worldName == "sara"): {"SLA"};
-                case (toLower worldName == takistan);
+                case (toLower worldName == "takistan");
                 default {"AFRF"};
             };
         };      
@@ -114,13 +114,13 @@ private _autoPickReb = {
                 case (toLower worldName == "chernarus_winter"): { "NPC" };
                 default { "TKL" };
             };
+        };
         case (A3A_hasRHS): {"NAPA"};
         case (A3A_hasVN): {"POF"};
         default {
             switch(true) do {
                 case (toLower worldName == "tanoa"): { "SDK" };
                 default { "FIA" };
-                };
             };
         };
     };
@@ -170,7 +170,6 @@ private _AIFactionEnums = [
     , ["RAS", A3A_hasCUP]
     , ["SLA", A3A_hasCUP]
     , ["TA", A3A_hasCUP]
-    , ["BW", A3A_hasBWMOD]
 ];
 private _rebFactionEnums = [
     [_autoPickReb, true]
@@ -243,14 +242,6 @@ private _pickAITemplate = {
         case "RAS": { "Templates\Templates\CUP\CUP_AI_RAS_Arid.sqf" };
         case "SLA": { "Templates\Templates\CUP\CUP_AI_SLA_Temperate.sqf" };
         case "TA": { "Templates\Templates\CUP\CUP_AI_TA_Arid.sqf" };
-        case "BW": {
-            switch(true) do {
-                case (A3A_climate isEqualTo "arctic");
-                case (A3A_climate isEqualTo "temperate");
-                case (A3A_climate isEqualTo "tropical"): { "Templates\Templates\CUP\CUP_BW_AI_BW_Temperate.sqf" };
-                default { "Templates\Templates\CUP\CUP_BW_AI_BW_Arid.sqf" };
-            };
-        };
         //3CB BAF
         case "BAF": {
             switch(true) do {
@@ -325,7 +316,7 @@ private _pickAITemplate = {
 
 private _pickRebTemplate = {
     switch _this do {
-
+    
         //3cb Factions
         case "CNM": { "Templates\Templates\3CB\3CB_Reb_CNM_Temperate.sqf" };
         case "TKM": { "Templates\Templates\3CB\3CB_Reb_TKM_Arid.sqf" };

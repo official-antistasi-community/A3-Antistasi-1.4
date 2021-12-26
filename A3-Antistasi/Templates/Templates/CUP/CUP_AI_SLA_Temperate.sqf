@@ -87,8 +87,7 @@ _loadoutData set ["missileATLaunchers", [
     ["CUP_launch_Metis", "", "", "", ["CUP_AT13_M"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
-    ["CUP_launch_9K32Strela","","","",["CUP_Strela_2_M"],[],""],
-    ["CUP_launch_FIM92Stinger_Loaded","","","",["CUP_Stinger_M"],[],""]
+    ["CUP_launch_9K32Strela","","","",["CUP_Strela_2_M"],[],""]
 ]];
 
 _loadoutData set ["sidearms", []];
@@ -387,9 +386,9 @@ _militiaLoadoutData set ["sidearms", [
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_crewLoadoutData set ["uniforms", ["CUP_H_SLA_Helmet_BLK"]];
+_crewLoadoutData set ["uniforms", ["CUP_U_O_SLA_Green"]];
 _crewLoadoutData set ["vests", []];
-_crewLoadoutData set ["helmets", ["CUP_H_RUS_6B47"]];
+_crewLoadoutData set ["helmets", ["CUP_H_SLA_Helmet_BLK"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["CUP_U_O_SLA_Overalls_Pilot"]];

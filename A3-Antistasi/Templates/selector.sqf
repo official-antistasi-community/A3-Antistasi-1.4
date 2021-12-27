@@ -473,8 +473,7 @@ if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\Template
 if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBFactions_Logistics_Nodes.sqf"};
 if (A3A_has3CBBAF) then {call compile preProcessFileLineNumbers "Templates\Templates\3CB\3CBBAF_Logistics_Nodes.sqf"};
 if (A3A_hasVN) then {call compile preProcessFileLineNumbers "Templates\Templates\VN\VN_Logistics_Nodes.sqf"};
-//if (A3A_hasCUP) then {call compile preProcessFileLineNumbers "Templates\Templates\CUP\CUP_Logistics_Nodes.sqf"};
-//if (A3A_hasBWMOD) then {call compile preProcessFileLineNumbers "Templates\Templates\CUP\CUP_BW_Logistics_Nodes.sqf"};
+if (A3A_hasCUP) then {call compile preProcessFileLineNumbers "Templates\Templates\CUP\CUP_Logistics_Nodes.sqf"};
 
 //if (A3A_hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_Logistics_Nodes.sqf"};		//disabled until imtegrated
 //if (A3A_hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Logistics_Nodes.sqf"};		//disabled until imtegrated

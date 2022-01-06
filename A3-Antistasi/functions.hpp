@@ -347,6 +347,19 @@ class A3A
         class itemset_miscEssentials {};
     };
 
+    class KeyCache {
+        file = "functions\Utility\KeyCache";
+        class keyCache_delete {};
+        class keyCache_garbageCollector {};
+        class keyCache_has {};
+        class keyCache_init {};
+        class keyCache_lookup {};
+        class keyCache_registerForGC {};
+        class keyCache_set {};
+        class keyCache_startGarbageCollectors {};
+        class keyCache_translate {};
+    };
+
     class Loadouts
     {
         file = "functions\Templates\Loadouts";
@@ -658,6 +671,13 @@ class A3A
         class setStatVariable {};
         class varNameToSaveName {};
         class saveLoop {};
+    };
+
+    class ShortID {
+        file = "functions\Utility\ShortID";
+        class shortID_create {};
+        class shortID_format {};
+        class shortID_init {};
     };
 
     class String {

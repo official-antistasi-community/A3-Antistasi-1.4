@@ -1,6 +1,5 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
-#define OccAndInv(VAR) (FactionGet(occ, VAR) + FactionGet(inv, VAR))
 if (!isServer and hasInterface) exitWith{};
 
 private ["_pos","_markerX","_vehiclesX","_groups","_soldiers","_busy","_buildings","_pos1","_pos2","_groupX","_countX","_typeVehX","_veh","_unit","_arrayVehAAF","_nVeh","_frontierX","_size","_ang","_mrk","_typeGroup","_flagX","_dog","_typeUnit","_garrison","_sideX","_cfg","_max","_vehicle","_vehCrew","_groupVeh","_roads","_dist","_road","_roadscon","_roadcon","_dirveh","_bunker","_typeGroup"];
@@ -74,7 +73,7 @@ if (_frontierX) then
 		_vehiclesX pushBack _bunker;
 		_bunker setDir _dirveh;
 		_pos = getPosATL _bunker;
-		_typeVehX = _faction get "staticAT";
+		_typeVehX = selectRandom (_faction get "staticAT");
 		_veh = _typeVehX createVehicle _positionX;
 		_vehiclesX pushBack _veh;
 		_veh setDir _dirVeh + 180;
@@ -273,7 +272,7 @@ if (!_busy) then
 	};
 };
 
-_arrayVehAAF = OccAndInv("vehiclesLight") + OccAndInv("vehiclesTrucks") + OccAndInv("vehiclesAmmoTrucks") + OccAndInv("vehiclesRepairTrucks") + OccAndInv("vehiclesFuelTrucks") + OccAndInv("vehiclesMedical");
+_arrayVehAAF = (_faction get "vehiclesLight") + (_faction get "vehiclesTrucks") + (_faction get "vehiclesAmmoTrucks") + (_faction get "vehiclesRepairTrucks") + (_faction get "vehiclesFuelTrucks") + (_faction get "vehiclesMedical");
 _countX = 0;
 
 while {_countX < _nVeh && {_countX < 3}} do

@@ -66,10 +66,35 @@ katMedItems = [
 	"kat_Painkiller"
 ];
 
+aceCoolingItems = [
+	"ACE_Canteen",
+	"ACE_Canteen_Half",
+	"ACE_Canteen_Empty",
+	"ACE_WaterBottle",
+	"ACE_WaterBottle_Half",
+	"ACE_WaterBottle_Empty",
+	"ACE_Can_Franta",
+	"ACE_Can_RedGull",
+	"ACE_Can_Spirit"
+];
+
+aceFoodItems = [
+	"ACE_MRE_BeefStew",
+	"ACE_MRE_ChickenTikkaMasala",
+	"ACE_MRE_ChickenHerbDumplings",
+	"ACE_MRE_CreamChickenSoup",
+	"ACE_MRE_CreamTomatoSoup",
+	"ACE_MRE_LambCurry",
+	"ACE_MRE_MeatballsPasta",
+	"ACE_MRE_SteakVegetables"
+];
+
 publicVariable "aceItems";
 publicVariable "aceMedItems";
 publicVariable "advItems";
 publicVariable "katMedItems";
+publicVariable "aceCoolingItems";
+publicVariable "aceFoodItems";
 
 ////////////////////////////////////
 //   ACE ITEMS MODIFICATIONS     ///
@@ -88,6 +113,12 @@ if (A3A_hasADV) then {
 
 if (A3A_hasKAT) then {
 	FactionGet(reb,"initialRebelEquipment") append katMedItems;
+};
+
+FactionGet(reb,"initialRebelEquipment") append aceCoolingItems;
+
+if (aceFood) then {
+	FactionGet(reb,"initialRebelEquipment") append aceFoodItems;
 };
 
 if !(A3A_hasVN) then {

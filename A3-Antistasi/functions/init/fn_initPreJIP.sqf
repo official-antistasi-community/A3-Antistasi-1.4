@@ -21,6 +21,6 @@ FIX_LINE_NUMBERS()
 Debug("fn_initPreJIP Started");
 
 call A3A_fnc_uintToHexGenTables;
-
+call A3A_fnc_shortID_init;
 
 Debug("fn_initPreJIP Finished");

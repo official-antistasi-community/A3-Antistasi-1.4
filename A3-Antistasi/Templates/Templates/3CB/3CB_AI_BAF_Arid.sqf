@@ -44,7 +44,7 @@
 ["vehiclesHelisTransport", ["UK3CB_BAF_Wildcat_AH1_TRN_8A_DDPM_RM", "UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM", "UK3CB_BAF_Chinook_HC1_DDPM"]] call _fnc_saveToTemplate; 	//this line determines transport helis -- Example: ["vehiclesHelisTransport", ["B_Heli_Transport_01_F"]] -- Array, can contain multiple assets
 ["vehiclesHelisAttack", ["UK3CB_BAF_Apache_AH1_CAS_DDPM_RM", "UK3CB_BAF_Apache_AH1_DDPM_RM", "UK3CB_BAF_Wildcat_AH1_CAS_6A_DDPM_RM", "UK3CB_BAF_Wildcat_AH1_CAS_8A"]] call _fnc_saveToTemplate; 		//this line determines attack helis -- Example: ["vehiclesHelisAttack", ["B_Heli_Attack_01_F"]] -- Array, can contain multiple assets
 
-["vehiclesArtillery", ["rhsusf_m109d_usarmy"] call _fnc_saveToTemplate; 		//this line determines artillery vehicles -- Example: ["vehiclesArtillery", ["B_MBT_01_arty_F"]] -- Array, can contain multiple assets
+["vehiclesArtillery", ["rhsusf_m109d_usarmy"]] call _fnc_saveToTemplate; 		//this line determines artillery vehicles -- Example: ["vehiclesArtillery", ["B_MBT_01_arty_F"]] -- Array, can contain multiple assets
 ["magazines", createHashMapFromArray [
 ["rhsusf_m109d_usarmy", ["rhs_mag_155mm_m795_28"]]
 ]] call _fnc_saveToTemplate;

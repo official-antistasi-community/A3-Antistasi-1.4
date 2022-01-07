@@ -8,27 +8,27 @@
 ["flagTexture", ""] call _fnc_saveToTemplate;                 //this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
 ["flagMarkerType", "Faction_CUP_NAPA"] call _fnc_saveToTemplate;             //this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
 
-["vehicleBasic","I_Quadbike_01_F"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed","CUP_I_Hilux_unarmed_NAPA"] call _fnc_saveToTemplate;
-["vehicleLightArmed","CUP_I_Hilux_DSHKM_NAPA"] call _fnc_saveToTemplate;
-["vehicleTruck","CUP_V3S_Open_NAPA"] call _fnc_saveToTemplate;
-["vehicleAT","CUP_I_Hilux_SPG9_NAPA"] call _fnc_saveToTemplate;
-["vehicleAA","CUP_I_Hilux_zu23_NAPA"] call _fnc_saveToTemplate;
-["vehicleBoat","I_G_Boat_Transport_01_F"] call _fnc_saveToTemplate;
-["vehicleRepair","CUP_I_V3S_Repair_TKG"] call _fnc_saveToTemplate;
-["vehiclePlane","CUP_C_DC3_CIV"] call _fnc_saveToTemplate;
-["vehicleHeli",""] call _fnc_saveToTemplate;
+["vehicleBasic", "I_Quadbike_01_F"] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", "CUP_I_Hilux_unarmed_NAPA"] call _fnc_saveToTemplate;
+["vehicleLightArmed", "CUP_I_Hilux_DSHKM_NAPA"] call _fnc_saveToTemplate;
+["vehicleTruck", "CUP_V3S_Open_NAPA"] call _fnc_saveToTemplate;
+["vehicleAT", "CUP_I_Hilux_SPG9_NAPA"] call _fnc_saveToTemplate;
+["vehicleAA", "CUP_I_Hilux_zu23_NAPA"] call _fnc_saveToTemplate;
+["vehicleBoat", "I_G_Boat_Transport_01_F"] call _fnc_saveToTemplate;
+["vehicleRepair", "CUP_I_V3S_Repair_TKG"] call _fnc_saveToTemplate;
+["vehiclePlane", "CUP_C_DC3_CIV"] call _fnc_saveToTemplate;
+["vehicleHeli", ""] call _fnc_saveToTemplate;
 
-["vehicleCivCar","CUP_O_Hilux_unarmed_CR_CIV"] call _fnc_saveToTemplate;
-["vehicleCivTruck","CUP_C_Ural_Civ_03"] call _fnc_saveToTemplate;
-["vehicleCivHeli","CUP_C_412"] call _fnc_saveToTemplate;
-["vehicleCivBoat","C_Rubberboat"] call _fnc_saveToTemplate;
+["vehicleCivCar", "CUP_O_Hilux_unarmed_CR_CIV"] call _fnc_saveToTemplate;
+["vehicleCivTruck", "CUP_C_Ural_Civ_03"] call _fnc_saveToTemplate;
+["vehicleCivHeli", "CUP_C_412"] call _fnc_saveToTemplate;
+["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
 
-["staticMG","CUP_I_DSHKM_NAPA"] call _fnc_saveToTemplate;
-["staticAT","CUP_I_SPG9_NAPA"] call _fnc_saveToTemplate;
-["staticAA","CUP_I_ZU23_NAPA"] call _fnc_saveToTemplate;
+["staticMG", "CUP_I_DSHKM_NAPA"] call _fnc_saveToTemplate;
+["staticAT", "CUP_I_SPG9_NAPA"] call _fnc_saveToTemplate;
+["staticAA", "CUP_I_ZU23_NAPA"] call _fnc_saveToTemplate;
 
-["staticMortar","CUP_I_2b14_82mm_NAPA"] call _fnc_saveToTemplate;
+["staticMortar", "CUP_I_2b14_82mm_NAPA"] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
@@ -43,18 +43,18 @@
 ///////////////////////////
 
 private _initialRebelEquipment = [
-    "CUP_sgun_CZ584","CUP_srifle_CZ550_rail","CUP_srifle_Remington700","CUP_1Rnd_12Gauge_Pellets_No00_Buck","CUP_1Rnd_12Gauge_Pellets_No3_Buck","CUP_5x_22_LR_17_HMR_M","CUP_6Rnd_762x51_R700",
-    "CUP_hgun_M9","CUP_hgun_TaurusTracker455","CUP_15Rnd_9x19_M9","CUP_6Rnd_45ACP_M",
+    "CUP_sgun_CZ584", "CUP_srifle_CZ550_rail", "CUP_srifle_Remington700", "CUP_1Rnd_12Gauge_Pellets_No00_Buck", "CUP_1Rnd_12Gauge_Pellets_No3_Buck", "CUP_5x_22_LR_17_HMR_M", "CUP_6Rnd_762x51_R700",
+    "CUP_hgun_M9", "CUP_hgun_TaurusTracker455", "CUP_15Rnd_9x19_M9", "CUP_6Rnd_45ACP_M",
     "CUP_launch_RPG18",
-    "CUP_HandGrenade_RGD5","SmokeShell",
-    "CUP_V_I_Carrier_Belt","CUP_V_I_Guerilla_Jacket","CUP_V_I_RACS_Carrier_Rig_2","CUP_V_I_RACS_Carrier_Rig_wdl_2",
-    "CUP_V_RUS_Smersh_New_Light","CUP_V_OI_TKI_Jacket1_06","CUP_V_OI_TKI_Jacket5_05","CUP_V_OI_TKI_Jacket5_06","CUP_V_OI_TKI_Jacket3_04",
+    "CUP_HandGrenade_RGD5", "SmokeShell",
+    "CUP_V_I_Carrier_Belt", "CUP_V_I_Guerilla_Jacket", "CUP_V_I_RACS_Carrier_Rig_2", "CUP_V_I_RACS_Carrier_Rig_wdl_2",
+    "CUP_V_RUS_Smersh_New_Light", "CUP_V_OI_TKI_Jacket1_06", "CUP_V_OI_TKI_Jacket5_05", "CUP_V_OI_TKI_Jacket5_06", "CUP_V_OI_TKI_Jacket3_04",
     "Binocular"
 ];
 
-if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
+if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155"};
-if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
+if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "TFAR_anprc154"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "TFAR_anprc155"};
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;

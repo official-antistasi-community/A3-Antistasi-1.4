@@ -2,48 +2,48 @@
 //       Vehicles       //
 //////////////////////////    
 
-["vehiclesCivCar",[
+["vehiclesCivCar", [
     "CUP_O_Hilux_unarmed_TK_CIV", 0.5
-    ,"CUP_C_LR_Transport_CTK", 0.5
-    ,"CUP_C_Bus_City_TKCIV", 0.2
-    ,"CUP_C_SUV_TK", 0.3
-    ,"CUP_C_Datsun_4seat", 0.5
-    ,"CUP_C_Golf4_black_Civ", 0.5
-    ,"CUP_C_Golf4_random_Civ", 0.5
-    ,"CUP_C_Octavia_CIV", 0.5
-    ,"CUP_C_Pickup_unarmed_CIV", 0.5
-    ,"CUP_C_TowingTractor_CIV", 0.3
+    , "CUP_C_LR_Transport_CTK", 0.5
+    , "CUP_C_Bus_City_TKCIV", 0.2
+    , "CUP_C_SUV_TK", 0.3
+    , "CUP_C_Datsun_4seat", 0.5
+    , "CUP_C_Golf4_black_Civ", 0.5
+    , "CUP_C_Golf4_random_Civ", 0.5
+    , "CUP_C_Octavia_CIV", 0.5
+    , "CUP_C_Pickup_unarmed_CIV", 0.5
+    , "CUP_C_TowingTractor_CIV", 0.3
     ]] call _fnc_saveToTemplate;
 
-["vehiclesCivIndustrial",[
+["vehiclesCivIndustrial", [
     "CUP_C_V3S_Open_TKC", 0.3
-    ,"CUP_C_V3S_Covered_TKC", 0.2
-    ,"CUP_C_Ural_Civ_01", 0.2
+    , "CUP_C_V3S_Covered_TKC", 0.2
+    , "CUP_C_Ural_Civ_01", 0.2
 ]] call _fnc_saveToTemplate;
 
-["vehiclesCivHeli",[
+["vehiclesCivHeli", [
     "CUP_C_412", 0.1
-    ,"CUP_C_412_Sheriff", 0.1
+    , "CUP_C_412_Sheriff", 0.1
 ]] call _fnc_saveToTemplate;
 
-["vehiclesCivBoat",[
+["vehiclesCivBoat", [
     "CUP_C_Fishing_Boat_Chernarus", 0.2
-    ,"CUP_C_PBX_CIV", 0.7
-    ,"CUP_C_Zodiac_CIV", 0.7
+    , "CUP_C_PBX_CIV", 0.7
+    , "CUP_C_Zodiac_CIV", 0.7
 ]] call _fnc_saveToTemplate;
 
-["vehiclesCivRepair",[
+["vehiclesCivRepair", [
     "C_Truck_02_box_F", 0.1
-    ,"C_Offroad_01_repair_F", 0.1
+    , "C_Offroad_01_repair_F", 0.1
 ]] call _fnc_saveToTemplate;
 
-["vehiclesCivMedical",[
+["vehiclesCivMedical", [
     "CUP_C_S1203_Ambulance_CIV", 0.1
 ]] call _fnc_saveToTemplate;
 
-["vehiclesCivFuel",[
+["vehiclesCivFuel", [
     "C_Truck_02_fuel_F", 0.1
-    ,"C_Van_01_fuel_F", 0.1
+    , "C_Van_01_fuel_F", 0.1
 ]] call _fnc_saveToTemplate;
 
 
@@ -64,7 +64,6 @@ private _civUniforms = [
     "CUP_U_C_AirMedic_yellow_01",
     "CUP_U_C_Tracksuit_02",
     "CUP_U_C_Tracksuit_01",
-    "CUP_U_C_Priest_01",
     "U_C_Man_casual_1_F",
     "U_C_Man_casual_2_F",
     "U_C_Man_casual_3_F",
@@ -100,9 +99,9 @@ private _civUniforms = [
     "U_C_Uniform_Scientist_01_F"
 ];          //Uniforms given to Normal Civs
 
-private _pressUniforms = ["U_C_Journalist","U_Marshal"];            //Uniforms given to Press/Journalists
+private _pressUniforms = ["U_C_Journalist", "U_Marshal"];            //Uniforms given to Press/Journalists
 
-private _workerUniforms = ["CUP_U_C_Worker_03","CUP_U_C_Worker_04","CUP_U_C_Worker_02", "CUP_U_C_Worker_01"];           //Uniforms given to Workers at Factories/Resources
+private _workerUniforms = ["CUP_U_C_Worker_03", "CUP_U_C_Worker_04", "CUP_U_C_Worker_02", "CUP_U_C_Worker_01"];           //Uniforms given to Workers at Factories/Resources
 
 private _dlcUniforms = [];          //Uniforms given if DLCs are enabled, only given to the Arsenal not Civilians
 

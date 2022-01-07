@@ -12,79 +12,79 @@ A3A_logistics_vehicleHardpoints append [
       ]],*/
       
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_v3s\cup_v3s_open.p3d",[
-        [1,[0,0.6,-0.3],[10,11]],
-        [1,[0,-0.2,-0.3],[9]],
-        [1,[0,-1,-0.3],[7,8]],
-        [1,[0,-1.8,-0.3],[5,6]],
-        [1,[0,-2.6,-0.3],[3,4,12,13]]
+        [1,         [0,0.6,-0.3],           [10,11]],
+        [1,         [0,-0.2,-0.3],          [9]],
+        [1,         [0,-1,-0.3],            [7,8]],
+        [1,         [0,-1.8,-0.3],          [5,6]],
+        [1,         [0,-2.6,-0.3],          [3,4,12,13]]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_v3s\cup_v3s_transport.p3d",[
-        [1,[0,0.6,-0.3],[10,11]],
-        [1,[0,-0.2,-0.3],[9]],
-        [1,[0,-1,-0.3],[7,8]],
-        [1,[0,-1.8,-0.3],[5,6]],
-        [1,[0,-2.6,-0.3],[3,4,12,13]]
+        [1,         [0,0.6,-0.3],           [10,11]],
+        [1,         [0,-0.2,-0.3],          [9]],
+        [1,         [0,-1,-0.3],            [7,8]],
+        [1,         [0,-1.8,-0.3],          [5,6]],
+        [1,         [0,-2.6,-0.3],          [3,4,12,13]]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Ural\cup_Ural_open2.p3d",[
-        [1,[0,0.3,-0.3],[2,3]],
-        [1,[0,-0.5,-0.3],[4,5]],
-        [1,[0,-1.3,-0.3],[6,7]],
-        [1,[0,-2.1,-0.3],[8,9]],
-        [1,[0,-2.9,-0.3],[10,11,12,13]]
+        [1,         [0,0.3,-0.3],           [2,3]],
+        [1,         [0,-0.5,-0.3],          [4,5]],
+        [1,         [0,-1.3,-0.3],          [6,7]],
+        [1,         [0,-2.1,-0.3],          [8,9]],
+        [1,         [0,-2.9,-0.3],          [10,11,12,13]]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Ural\cup_Ural.p3d",[
-        [1,[0,0.3,-0.3],[2,3]],
-        [1,[0,-0.5,-0.3],[4,5]],
-        [1,[0,-1.3,-0.3],[6,7]],
-        [1,[0,-2.1,-0.3],[8,9]],
-        [1,[0,-2.9,-0.3],[10,11,12,13]]
+        [1,         [0,0.3,-0.3],           [2,3]],
+        [1,         [0,-0.5,-0.3],          [4,5]],
+        [1,         [0,-1.3,-0.3],          [6,7]],
+        [1,         [0,-2.1,-0.3],          [8,9]],
+        [1,         [0,-2.9,-0.3],          [10,11,12,13]]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_MTVR\CUP_MTVR.p3d",[
-        [1,[0,0.1,-0.2],[10,11]],
-        [1,[0,-0.7,-0.2],[8,9]],
-        [1,[0,-1.5,-0.2],[6,7]],
-        [1,[0,-2.3,-0.2],[4,5]],
-        [1,[0,-3.1,-0.2],[2,3]]
+        [1,         [0,0.1,-0.2],           [10,11]],
+        [1,         [0,-0.7,-0.2],          [8,9]],
+        [1,         [0,-1.5,-0.2],          [6,7]],
+        [1,         [0,-2.3,-0.2],          [4,5]],
+        [1,         [0,-3.1,-0.2],          [2,3]]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_T810\CUP_t810_vp2.p3d",[
-        [1,[-0,0.5,-0.8],[9,10]],
-        [1,[-0,-0.3,-0.8],[7,8]],
-        [1,[-0,-1.1,-0.8],[2,6]],
-        [1,[-0,-1.9,-0.8],[1,3]],
-        [1,[-0,-2.7,-0.8],[4,5]]
+        [1,         [-0,0.5,-0.8],          [9,10]],
+        [1,         [-0,-0.3,-0.8],         [7,8]],
+        [1,         [-0,-1.1,-0.8],         [2,6]],
+        [1,         [-0,-1.9,-0.8],         [1,3]],
+        [1,         [-0,-2.7,-0.8],         [4,5]]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_T810\CUP_t810_v.p3d",[
-        [1,[-0,0.5,-0.7],[9,10]],
-        [1,[-0,-0.3,-0.7],[7,8]],
-        [1,[-0,-1.1,-0.7],[2,6]],
-        [1,[-0,-1.9,-0.7],[1,3]],
-        [1,[-0,-2.7,-0.7],[4,5]]
+        [1,         [-0,0.5,-0.7],          [9,10]],
+        [1,         [-0,-0.3,-0.7],         [7,8]],
+        [1,         [-0,-1.1,-0.7],         [2,6]],
+        [1,         [-0,-1.9,-0.7],         [1,3]],
+        [1,         [-0,-2.7,-0.7],         [4,5]]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_UpHMMWV\CUP_M1152.p3d",[
-        [1,[0,-0.8,-1.5],[]],
-        [1,[0,-1.6,-1.5],[]]
+        [1,         [0,-0.8,-1.5],          []],
+        [1,         [0,-1.6,-1.5],          []]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_NewM998\model\CUP_nM1038.p3d",[
-        [1,[-0.15,-0.5,-1],[3,5,6]],
-        [1,[-0.15,-1.3,-1],[0,1,4]]
+        [1,         [-0.15,-0.5,-1],        [3,5,6]],
+        [1,         [-0.15,-1.3,-1],        [0,1,4]]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Pickup\CUP_Pickup.p3d",[
-        [1,[0,-1,-0.6],[1,2]],
-        [1,[0,-1.8,-0.6],[0]]
+        [1,         [0,-1,-0.6],            [1,2]],
+        [1,         [0,-1.8,-0.6],          [0]]
     ]],
 
     ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_unarmed",[
-      [1,[0,-1.2,-0.6],[1,1]],
-      [1,[0,-2,-0.6],[3,4]]
+      [1,           [0,-1.2,-0.6],          [1,1]],
+      [1,           [0,-2,-0.6],            [3,4]]
     ]]
 
 ];//To make it easier to navigate, it is a good idea to keep the lines for similar vehicles together. Usually, we list 4 wheeled vehicles, then 6 wheeled, then 8 wheeled, then boats. It is also good to keep multiple versions of the same vehicle together, such as covered and open versions of the same truck.
@@ -101,20 +101,20 @@ A3A_logistics_vehicleHardpoints append [
 */
 A3A_logistics_attachmentOffset append [
 //model                                                                     //offset  //rotation            //size //recoil (if weapon)
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\DShKM\CUP_DShKM_mg.p3d", 			[0,0,0],    [0,0,0],   2, 	    100],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\KORD\CUP_KORD_6u16sp.p3d", 		[0,0,0],    [0,0,0],   2, 	    200],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\ZU23\CUP_zu23.p3d",				[0,0,0],    [0,0,0],   4, 	    1000],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\SPG9\CUP_spg9.p3d", 				[0,0,0],    [0,0,0],   2, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\M2\CUP_m2_mg.p3d", 				[0,0,0],    [0,0,0],   2, 	    100],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\DShKM\CUP_DShKM_mg.p3d", 			[0,0,0],    [0,0,0],   4, 	    100],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\KORD\CUP_KORD_6u16sp.p3d", 		[0,0,0],    [0,0,0],   4, 	    200],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\ZU23\CUP_zu23.p3d",				[0,0,0],    [0,0,0],   7, 	    1000],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\SPG9\CUP_spg9.p3d", 				[0,0,0],    [0,0,0],   4, 	    250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\M2\CUP_m2_mg.p3d", 				[0,0,0],    [0,0,0],   4, 	    100],
 ["\CUP\Weapons\CUP_Weapons_StaticWeapons\IglaPod\CUP_igla_AA_pod.p3d", 		[0,0,0],    [0,0,0],   4, 	    250],
 ["\CUP\Weapons\CUP_Weapons_StaticWeapons\FIM92Pod\CUP_FIM92_AA_Pod.p3d", 	[0,0,0],    [0,0,0],   4, 	    250],
 ["\CUP\Weapons\CUP_Weapons_StaticWeapons\M252\CUP_81Mortar.p3d", 			[0,0,0],    [0,0,0],   2, 	    2000],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\TOW\CUP_TOW_static.p3d", 			[0,0,0],    [0,0,0],   2, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\Kornet\CUP_Kornet.p3d", 			[0,0,0],    [0,0,0],   2, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\Podnos\CUP_podnos_2b14_82mm.p3d", 	[0,0,0],    [0,0,0],   2, 	    2000],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\M2\CUP_L111A1_mg.p3d", 			[0,0,0],    [0,0,0],   2, 	    100],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\Metis\CUP_metis.p3d", 				[0,0,0],    [0,0,0],   2, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\RBS70\CUP_RBS70.p3d", 				[0,0,0],    [0,0,0],   2, 	    250]
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\TOW\CUP_TOW_static.p3d", 			[0,0,0],    [0,0,0],   4, 	    250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\Kornet\CUP_Kornet.p3d", 			[0,0,0],    [0,0,0],   4, 	    250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\Podnos\CUP_podnos_2b14_82mm.p3d", 	[0,0,0],    [0,0,0],   4, 	    2000],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\M2\CUP_L111A1_mg.p3d", 			[0,0,0],    [0,0,0],   4, 	    100],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\Metis\CUP_metis.p3d", 				[0,0,0],    [0,0,0],   4, 	    250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\RBS70\CUP_RBS70.p3d", 				[0,0,0],    [0,0,0],   4, 	    250]
 ];
 
 /*

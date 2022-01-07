@@ -250,7 +250,7 @@ class Params
             "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
             , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
             , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)"
-            , "ACR (CUP)", "BAF (CUP)", "CDF (CUP)", "USAF (CUP)", "USMC (CUP)", "AFRF (CUP)", "RAS (CUP)", "SLA (CUP)", "TA (CUP)"
+            , "ACR (CUP)", "BAF (CUP)", "CDF (CUP)", "USAF (CUP)", "USMC (CUP)", "AFRF (CUP)", "RACS (CUP)", "SLA (CUP)", "TKA (CUP)"
         };
         default = 9999;
     };
@@ -262,7 +262,7 @@ class Params
             "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
             , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
             , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)"
-            ,"ACR (CUP)", "BAF (CUP)", "CDF (CUP)", "USAF (CUP)", "USMC (CUP)", "AFRF (CUP)", "RAS (CUP)", "SLA (CUP)", "TA (CUP)"
+            ,"ACR (CUP)", "BAF (CUP)", "CDF (CUP)", "USAF (CUP)", "USMC (CUP)", "AFRF (CUP)", "RACS (CUP)", "SLA (CUP)", "TKA (CUP)"
         };
         default = 9999;
     };

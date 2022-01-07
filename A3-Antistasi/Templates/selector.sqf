@@ -167,9 +167,9 @@ private _AIFactionEnums = [
     , ["USAF", A3A_hasCUP]
     , ["USMC", A3A_hasCUP]
     , ["AFRF", A3A_hasCUP]
-    , ["RAS", A3A_hasCUP]
+    , ["RACS", A3A_hasCUP]
     , ["SLA", A3A_hasCUP]
-    , ["TA", A3A_hasCUP]
+    , ["TKA", A3A_hasCUP]
 ];
 private _rebFactionEnums = [
     [_autoPickReb, true]
@@ -239,9 +239,9 @@ private _pickAITemplate = {
                 default { "Templates\Templates\CUP\CUP_AI_AFRF_Arid.sqf" };
             };
         };
-        case "RAS": { "Templates\Templates\CUP\CUP_AI_RAS_Arid.sqf" };
+        case "RACS": { "Templates\Templates\CUP\CUP_AI_RACS_Arid.sqf" };
         case "SLA": { "Templates\Templates\CUP\CUP_AI_SLA_Temperate.sqf" };
-        case "TA": { "Templates\Templates\CUP\CUP_AI_TA_Arid.sqf" };
+        case "TKA": { "Templates\Templates\CUP\CUP_AI_TKA_Arid.sqf" };
         //3CB BAF
         case "BAF": {
             switch(true) do {

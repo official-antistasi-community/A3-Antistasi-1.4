@@ -250,7 +250,7 @@ _militaryLoadoutData set ["backpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital"]];
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _militaryLoadoutData set ["atBackpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital_Shovel"]];
 _militaryLoadoutData set ["helmets", ["CUP_H_RUS_6B27_cover_BeigeDigital", "CUP_H_RUS_6B27_cover_BeigeDigital_goggles", "CUP_H_RUS_6B27_cover_BeigeDigital_headset_goggles", "CUP_H_RUS_6B27_cover_BeigeDigital_headset", "CUP_H_RUS_6B47_v2_BeigeDigital", "CUP_H_RUS_6B47_headset_desert"]];
-_militaryLoadoutData set ["sniHat", ["CUP_H_RUS_Bandana_GSSh_Headphones"]];
+_militaryLoadoutData set ["sniHat", ["H_Booniehat_tan"]];
 _militaryLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
 _militaryLoadoutData set ["slRifles", [
@@ -342,7 +342,7 @@ _militiaLoadoutData set ["backpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital"]];
 _militiaLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital_Shovel"]];
 _militiaLoadoutData set ["helmets", ["CUP_H_RUS_6B27_cover_BeigeDigital", "CUP_H_RUS_6B27_cover_BeigeDigital_goggles"]];
-_militiaLoadoutData set ["sniHat", ["CUP_H_RUS_Bandana_GSSh_Headphones"]];
+_militiaLoadoutData set ["sniHat", ["H_Booniehat_tan"]];
 
 _militiaLoadoutData set ["rifles", [
     ["CUP_arifle_AK103", "", "", "CUP_optic_1p63", ["CUP_30Rnd_762x39_AK103_bakelite_M"], [], ""],
@@ -385,13 +385,13 @@ _militiaLoadoutData set ["sidearms", [
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_crewLoadoutData set ["uniforms", ["CUP_U_O_RUS_EMR_1"]];
-_crewLoadoutData set ["vests", ["CUP_V_RUS_6B45_1"]];
+_crewLoadoutData set ["uniforms", ["CUP_U_O_RUS_BeigeDigital_MSV_gloves_pads"]];
+_crewLoadoutData set ["vests", ["CUP_V_RUS_6B45_1_BeigeDigital"]];
 _crewLoadoutData set ["helmets", ["CUP_H_RUS_6B47"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_pilotLoadoutData set ["uniforms", ["CUP_U_O_RUS_EMR_1"]];
-_pilotLoadoutData set ["vests", ["CUP_V_RUS_6B45_1"]];
+_pilotLoadoutData set ["uniforms", ["CUP_U_O_RUS_BeigeDigital_MSV_gloves_pads"]];
+_pilotLoadoutData set ["vests", ["CUP_V_RUS_6B45_1_BeigeDigital"]];
 _pilotLoadoutData set ["helmets", ["CUP_H_RUS_ZSH_Shield_Down"]];
 
 

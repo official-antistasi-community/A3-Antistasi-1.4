@@ -390,8 +390,16 @@ if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//D
 vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 vehicleBox addAction ["Buy Light for 25€", {[player, 'vehicleLightSource', 25, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
-vehicleBox addAction ["Buy Flexible Tank for 80€", {[player, ['vehicleFuelSource', 0], 80, [['A3A_fnc_initMovableObject', 0], ['A3A_fnc_logistics_addLoadAction', 1]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
-vehicleBox addAction ["Buy Huron Container for 1000€", {[player, ['vehicleFuelSource', 1], 1000, [['A3A_fnc_logistics_addLoadAction', 1]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
+private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");
+private _fuelTank = FactionGet(reb,"vehicleFuelTank");
+if (isClass (configFile/"CfgVehicles"/_fuelDrum # 0)) then {
+    private _dispName = getText (configFile/"CfgVehicles"/_fuelDrum # 0/"displayName");
+    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","true",4];
+};
+if (isClass (configFile/"CfgVehicles"/_fuelTank # 0)) then {
+    private _dispName = getText (configFile/"CfgVehicles"/_fuelTank # 0/"displayName");
+    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelTank # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelTank,0,false,true,"","true",4];
+};
 call A3A_fnc_dropObject;
 
 if (LootToCrateEnabled) then {

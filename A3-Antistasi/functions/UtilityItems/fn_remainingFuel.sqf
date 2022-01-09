@@ -6,7 +6,7 @@ Arguments:
 
 
 Return Value:
-    <number>
+    <number>    percentile remaining fuel 0 -> 1
 
 Scope: Clients
 Environment: Unscheduled
@@ -19,8 +19,13 @@ Example:
 
 params [["_vehicle", objNull, [objNull]]];
 
+private _vehType = if (_vehicle isEqualType objNull) then {typeOf _vehicle} else {_vehicle};
+private _vehCfg = configFile/"CfgVehicles"/_vehType;
+
 if(A3A_hasACE) then {
-	(_vehicle getVariable ["ace_refuel_currentFuelCargo"] / getNumber (_vehCfg >> "ace_refuel_fuelCargo"));
+    private _ace_refuel_cargo = getNumber (_vehCfg >> "ace_refuel_fuelCargo");
+    if(_ace_refuel_cargo == 0) exitwith {};
+	(_vehicle getVariable ["ace_refuel_currentFuelCargo"] / _ace_refuel_cargo);
 } else {
 	getFuelCargo _vehicle;
 };

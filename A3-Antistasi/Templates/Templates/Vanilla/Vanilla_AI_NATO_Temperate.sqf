@@ -204,8 +204,8 @@ _sfLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_03_multicam_F", "muzzle_snds_B", "", "optic_AMS_khk", [], [], "bipod_01_F_mtp"]
 ]]; 			//this line determines markman rifles -- Example: ["arifle_MXM_F", "arifle_MXM_Hamr_pointer_F"] -- Array, can contain multiple assets
 _sfLoadoutData set ["sniperRifles", [
-["srifle_LRR_F", "", "", "optic_lrps", [], [], ""],
-["srifle_LRR_camo_F", "", "", "optic_lrps", [], [], ""],
+["srifle_LRR_F", "", "", "optic_LRPS", [], [], ""],
+["srifle_LRR_camo_F", "", "", "optic_LRPS", [], [], ""],
 ["srifle_DMR_02_camo_F", "muzzle_snds_338_green", "", "optic_AMS_khk", [], [], "bipod_01_F_mtp"]
 ]]; 				//this line determines sniper rifles -- Example: ["srifle_LRR_camo_F", "srifle_LRR_camo_SOS_F"] -- Array, can contain multiple assets
 _sfLoadoutData set ["sidearms", [

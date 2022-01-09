@@ -57,6 +57,7 @@ if (_class in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate"
     true
 };
 
+
 //Utility refund and Fuel refund
 if (_vehicle getVariable ['A3A_canGarage', false]) exitwith{
     if (_class in [FactionGet(reb,"vehicleFuelDrum"), FactionGet(reb,"vehicleFuelTank")]) then {
@@ -71,6 +72,7 @@ if (_vehicle getVariable ['A3A_canGarage', false]) exitwith{
         ["STR_HR_GRG_Feedback_addVehicle_Item_Stored"] remoteExec ["HR_GRG_fnc_Hint", _client];
         deleteVehicle _vehicle;
     };
+
     true
 };
 

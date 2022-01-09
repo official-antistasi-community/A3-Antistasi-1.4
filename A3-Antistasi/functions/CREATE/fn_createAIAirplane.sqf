@@ -73,7 +73,7 @@ if (_frontierX) then
 		_vehiclesX pushBack _bunker;
 		_bunker setDir _dirveh;
 		_pos = getPosATL _bunker;
-		_typeVehX = _faction get "staticAT";
+		_typeVehX = selectRandom (_faction get "staticAT");
 		_veh = _typeVehX createVehicle _positionX;
 		_vehiclesX pushBack _veh;
 		_veh setDir _dirVeh + 180;

@@ -128,7 +128,7 @@ _loadoutData set ["atBackpacks", []];
 _loadoutData set ["slBackpacks", []];
 _loadoutData set ["helmets", []];
 _loadoutData set ["slHat", ["CUP_H_CDF_OfficerCap_MNT"]];
-_loadoutData set ["sniHats", []];
+_loadoutData set ["sniHats", ["H_Booniehat_khk"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
@@ -171,7 +171,6 @@ _sfLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _sfLoadoutData set ["atBackpacks", ["CUP_B_RPGPack_Khaki"]];
 _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Black", "CUP_H_OpsCore_Spray", "CUP_H_CDF_H_PASGT_FST"]];
 _sfLoadoutData set ["slHat", ["CUP_H_CDF_OfficerCap_FST"]];
-_sfLoadoutData set ["sniHats", ["H_Booniehat_khk"]];
 _sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
 _sfLoadoutData set ["binoculars", ["CUP_LRTV"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
@@ -244,7 +243,6 @@ _militaryLoadoutData set ["backpacks", ["B_AssaultPack_cbr", "CUP_O_RUS_Patrol_b
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militaryLoadoutData set ["atBackpacks", ["CUP_B_RPGPack_Khaki"]];
 _militaryLoadoutData set ["helmets", ["CUP_H_CDF_H_PASGT_FST"]];
-_militaryLoadoutData set ["sniHats", ["H_Booniehat_khk"]];
 _militaryLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
 _militaryLoadoutData set ["slRifles", [

@@ -128,7 +128,7 @@ _loadoutData set ["atBackpacks", []];
 _loadoutData set ["slBackpacks", []];
 _loadoutData set ["helmets", []];
 _loadoutData set ["slHat", ["H_Beret_02"]];
-_loadoutData set ["sniHats", []];
+_loadoutData set ["sniHats", ["CUP_H_USMC_BOONIE_2_DES"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
@@ -170,7 +170,6 @@ _sfLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _sfLoadoutData set ["atBackpacks", ["CUP_B_USPack_Coyote"]];
 _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Tan_SF", "CUP_H_USArmy_ECH_MARPAT_des"]];
 _sfLoadoutData set ["slHat", ["CUP_H_USA_Cap_MARSOC_DEF"]];
-_sfLoadoutData set ["sniHats", ["CUP_H_USMC_BOONIE_2_DES"]];
 _sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
 _sfLoadoutData set ["binoculars", ["CUP_LRTV"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
@@ -255,7 +254,6 @@ _militaryLoadoutData set ["backpacks", ["B_Carryall_cbr", "CUP_B_USPack_Coyote",
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militaryLoadoutData set ["atBackpacks", ["CUP_B_USMC_MOLLE"]];
 _militaryLoadoutData set ["helmets", ["CUP_H_LWHv2_MARPAT_des", "CUP_H_LWHv2_MARPAT_des_comms", "CUP_H_USArmy_ECH_MARPAT_des", "CUP_H_USArmy_ECH_GCOVERED_Headset_MARPAT_des"]];
-_militaryLoadoutData set ["sniHats", ["CUP_H_USMC_BOONIE_2_DES"]];
 _militaryLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
 _militaryLoadoutData set ["slRifles", [
@@ -365,7 +363,6 @@ _militiaLoadoutData set ["backpacks", ["CUP_B_AlicePack_Khaki", "B_AssaultPack_c
 _militiaLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_B_USMC_MOLLE"]];
 _militiaLoadoutData set ["helmets", ["CUP_H_LWHv2_MARPAT_des"]];
-_militiaLoadoutData set ["sniHats", ["CUP_H_USMC_BOONIE_2_DES"]];
 
 _militiaLoadoutData set ["rifles", [
     ["CUP_arifle_M16A2", "", "", "", ["CUP_30Rnd_556x45_Stanag"], [], ""],

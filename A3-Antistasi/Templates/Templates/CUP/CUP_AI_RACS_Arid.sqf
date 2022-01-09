@@ -127,7 +127,7 @@ _loadoutData set ["atBackpacks", []];
 _loadoutData set ["slBackpacks", []];
 _loadoutData set ["helmets", []];
 _loadoutData set ["slHat", ["CUP_H_RACS_Beret_Blue"]];
-_loadoutData set ["sniHats", []];
+_loadoutData set ["sniHats", ["H_Booniehat_tan"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
@@ -159,11 +159,11 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["CUP_U_CRYE_G3C_MC_US", "CUP_U_CRYE_G3C_MC_V2", "CUP_U_CRYE_G3C_MC", "CUP_U_CRYE_V1_Full"]];
-_sfLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_mc", "CUP_V_CPC_Fast_mc", "CUP_V_CPC_tlbelt_coy", "CUP_V_CPC_Fast_coy"]];
-_sfLoadoutData set ["mgVests", ["CUP_V_CPC_weapons_coy"]];
-_sfLoadoutData set ["medVests", ["CUP_V_JPC_medicalbelt_coy"]];
-_sfLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_Coyote_Grenadier"]];
+_sfLoadoutData set ["uniforms", ["CUP_U_CRYE_G3C_MC_V2", "CUP_U_CRYE_G3C_MC", "CUP_U_CRYE_V1_Full"]];
+_sfLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_mc", "CUP_V_CPC_Fast_mc"]];
+_sfLoadoutData set ["mgVests", ["CUP_V_CPC_weapons_mc"]];
+_sfLoadoutData set ["medVests", ["CUP_V_JPC_medicalbelt_mc"]];
+_sfLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_Khaki_Grenadier"]];
 _sfLoadoutData set ["backpacks", ["B_AssaultPack_blk", "B_Carryall_cbr"]];
 _sfLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _sfLoadoutData set ["atBackpacks", ["CUP_B_US_IIID_OEFCP"]];
@@ -263,7 +263,6 @@ _militaryLoadoutData set ["backpacks", ["B_Carryall_cbr", "CUP_B_AssaultPack_Coy
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militaryLoadoutData set ["atBackpacks", ["B_AssaultPack_cbr"]];
 _militaryLoadoutData set ["helmets", ["CUP_H_LWHv2_desert", "CUP_H_LWHv2_desert_comms", "CUP_H_LWHv2_desert_ess_comms"]];
-_militaryLoadoutData set ["sniHats", ["CUP_H_USArmy_Boonie_hs_OEFCP"]];
 _militaryLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
 _militaryLoadoutData set ["slRifles", [
@@ -358,7 +357,7 @@ _policeLoadoutData set ["shotGuns", [
     ["CUP_sgun_M1014", "", "", "", ["CUP_8Rnd_12Gauge_Slug"], [], ""]
 ]];
 _policeLoadoutData set ["SMGs", [
-["CUP_smg_M3A1_blk", "", "", "", ["CUP_30Rnd_45ACP_M3A1_BLK_M"], [], ""],
+    ["CUP_smg_M3A1_blk", "", "", "", ["CUP_30Rnd_45ACP_M3A1_BLK_M"], [], ""],
     ["CUP_smg_MP5A5", "", "", "CUP_optic_CompM2_low", ["CUP_30Rnd_Red_Tracer_9x19_MP5"], [], ""],
     ["CUP_smg_MP5A5", "", "", "CUP_optic_eotech553_black", ["CUP_30Rnd_Red_Tracer_9x19_MP5"], [], ""]
 ]];

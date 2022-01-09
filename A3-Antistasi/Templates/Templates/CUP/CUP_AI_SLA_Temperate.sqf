@@ -252,7 +252,7 @@ _militaryLoadoutData set ["backpacks", ["CUP_O_RUS_Patrol_bag_Green"]];
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _militaryLoadoutData set ["atBackpacks", ["CUP_O_RUS_Patrol_bag_Green_Shovel"]];
 _militaryLoadoutData set ["helmets", ["CUP_H_SLA_Helmet_OD_worn", "CUP_H_SLA_Helmet_OD_worn"]];
-_militaryLoadoutData set ["sniHat", ["CUP_H_SLA_Boonie"]];
+_militaryLoadoutData set ["sniHats", ["CUP_H_SLA_Boonie"]];
 _militaryLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
 _militaryLoadoutData set ["slRifles", [
@@ -344,7 +344,7 @@ _militiaLoadoutData set ["backpacks", ["CUP_O_RUS_Patrol_bag_Green"]];
 _militiaLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_O_RUS_Patrol_bag_Green_Shovel"]];
 _militiaLoadoutData set ["helmets", ["CUP_H_SLA_Helmet", "CUP_H_SLA_Helmet_OD_worn"]];
-_militiaLoadoutData set ["sniHat", ["CUP_H_SLA_Boonie"]];
+_militiaLoadoutData set ["sniHats", ["CUP_H_SLA_Boonie"]];
 
 _militiaLoadoutData set ["rifles", [
     ["CUP_arifle_AKM", "", "", "CUP_optic_1p63", ["CUP_30Rnd_762x39_AK103_bakelite_M"], [], ""],

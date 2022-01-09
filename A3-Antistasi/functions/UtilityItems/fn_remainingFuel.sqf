@@ -19,13 +19,12 @@ Example:
 
 params [["_vehicle", objNull, [objNull]]];
 
-private _vehType = if (_vehicle isEqualType objNull) then {typeOf _vehicle} else {_vehicle};
-private _vehCfg = configFile/"CfgVehicles"/_vehType;
+private _vehCfg = configFile/"CfgVehicles"/typeOf _vehicle;
 
 if(A3A_hasACE) then {
-    private _ace_refuel_cargo = getNumber (_vehCfg >> "ace_refuel_fuelCargo");
-    if(_ace_refuel_cargo == 0) exitwith {};
-	(_vehicle getVariable ["ace_refuel_currentFuelCargo"] / _ace_refuel_cargo);
+    private _vehicleMaxFuel = getNumber (_vehCfg >> "ace_refuel_fuelCargo");
+    if(_vehicleMaxFuel == 0) exitwith {0};
+	(_vehicle getVariable ["ace_refuel_currentFuelCargo"] / _vehicleMaxFuel);
 } else {
 	getFuelCargo _vehicle;
 };

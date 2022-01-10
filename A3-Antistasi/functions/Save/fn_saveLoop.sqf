@@ -241,12 +241,15 @@ _dataX = [];
 _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (controlsX find _x < defaultControlIndex)};
 ["controlsSDK",_controlsX] call A3A_fnc_setStatVariable;
 
+// fuel rework
 _fuelAmountleftArray = [];
 {
 	if (A3A_hasACE) then { 
-		_fuelAmountleftArray pushback ([_x] call ace_refuel_fnc_getFuel);
+		private _keyPairsFuel = [position _x, [_x] call ace_refuel_fnc_getFuel, typeOf _x];
+		_fuelAmountleftArray pushback _keyPairsFuel;
 	} else {
-		_fuelAmountleftArray pushback (getFuelCargo _x);
+		private _keyPairsFuel = [position _x, getFuelCargo _x, typeOf _x];
+		_fuelAmountleftArray pushback _keyPairsFuel;
 	};
 
 } forEach A3A_fuelStations;

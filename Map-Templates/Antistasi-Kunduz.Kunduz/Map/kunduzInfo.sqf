@@ -58,6 +58,10 @@ switch (_filename) do {
 	case "climate": {
 	"arid";
 	};
+	case "fuelStationTypes":{
+		//_fuelStationTypes
+		[nil];
+	};
 	default {
 		Info("Map Info given unknown parameter");
 	};

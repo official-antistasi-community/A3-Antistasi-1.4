@@ -76,6 +76,11 @@ switch (_filename) do {
 	case "climate": {
 	"tropical";
 	};
+	case "fuelStationTypes":{
+		private _fuelStationTypes = ["Land_vn_fuelstation_01_pump_f", "Land_vn_fuelstation_02_pump_f", "Land_vn_fuelstation_feed_f"];
+		//_fuelStationTypes
+		[_fuelStationTypes];
+	};
 	default {
 		Info("Map Info given unknown parameter");
 	};

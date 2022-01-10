@@ -51,6 +51,11 @@ switch (_filename) do {
 	case "climate": {
 	"arid";
 	};
+	case "fuelStationTypes":{
+		private _fuelStationTypes = ["Land_Ind_FuelStation_Feed_EP1"];
+		//_fuelStationTypes
+		[_fuelStationTypes];
+	};
 	default {
 		Info("Map Info given unknown parameter");
 	};

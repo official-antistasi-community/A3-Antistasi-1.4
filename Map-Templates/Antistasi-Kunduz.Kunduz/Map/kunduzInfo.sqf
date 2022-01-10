@@ -39,7 +39,7 @@ switch (_filename) do {
 		private _disableTownName = [ "22", "23"];
 
 		  //[_popValue, _disableTownName];
-		[nil, _disableTownName];
+		[_popValue, _disableTownName];
 	};
 	case "antennas": {
 		//[_posAntennas, _blacklistIndex,]

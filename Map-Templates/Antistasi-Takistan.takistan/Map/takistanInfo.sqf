@@ -27,7 +27,7 @@ params["_filename", ""];
 switch (_filename) do {
 	case "population": {
 		//[_popValue, _disableTownName];
-		[nil, _disableTownName];
+		[nil, nil];
 	};
 	case "antennas": {
 		private _posAntennas =

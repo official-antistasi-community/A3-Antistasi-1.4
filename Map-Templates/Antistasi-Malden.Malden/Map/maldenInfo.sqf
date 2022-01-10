@@ -33,7 +33,7 @@ switch (_filename) do {
 	};
 	case "antennas": {
 		//[_posAntennas, _blacklistIndex,]
-		[nil, nil, nil];
+		[nil, nil];
 	};
 	case "bank": {
 		//_posBank

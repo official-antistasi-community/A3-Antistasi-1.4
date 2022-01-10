@@ -353,10 +353,12 @@ if (_varName in _specialVarLoads) then {
     };
 
     if(_varname == 'A3A_fuelAmountleftArray') then {
-        //[position _x, [_x] call ace_refuel_fnc_getFuel, typeOf _x]
+        //[position _x, [_x] call ace_refuel_fnc_getFuel]
         A3A_fuelAmountleftArray = _varValue;
         for "_i" from 0 to (count A3A_fuelAmountleftArray - 1) do {
-            private _fuelStation = nearestObjects [A3A_fuelAmountleftArray # _i # 0, [A3A_fuelAmountleftArray # _i # 2], 1] select 0;
+            private _nearFuelStations = nearestObjects [A3A_fuelAmountleftArray # _i # 0, A3A_fuelStationTypes, 1];
+            if (count _nearFuelStations == 0) then { continue };
+            private _fuelStation = _nearFuelStations#0;
             if(A3A_hasACE) then {
 		        [_fuelStation, A3A_fuelAmountleftArray # _i # 1] call ace_refuel_fnc_setFuel;
 	        } else {

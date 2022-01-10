@@ -245,10 +245,10 @@ _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlaye
 _fuelAmountleftArray = [];
 {
 	if (A3A_hasACE) then { 
-		private _keyPairsFuel = [position _x, [_x] call ace_refuel_fnc_getFuel, typeOf _x];
+		private _keyPairsFuel = [position _x, [_x] call ace_refuel_fnc_getFuel];
 		_fuelAmountleftArray pushback _keyPairsFuel;
 	} else {
-		private _keyPairsFuel = [position _x, getFuelCargo _x, typeOf _x];
+		private _keyPairsFuel = [position _x, getFuelCargo _x];
 		_fuelAmountleftArray pushback _keyPairsFuel;
 	};
 

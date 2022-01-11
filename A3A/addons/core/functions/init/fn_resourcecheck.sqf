@@ -186,7 +186,7 @@ while {true} do
 				{
 				if (local _x) then
 					{
-					if ((_x getVariable "unitType") in arrayCivs) then
+					if ((_x getVariable "unitType") in (FactionGet(civ, "unitMan") + FactionGet(civ, "unitPress") + FactionGet(civ, "unitWorker"))) then
 						{
 						if (vehicle _x == _x) then
 							{

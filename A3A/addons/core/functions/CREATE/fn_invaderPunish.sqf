@@ -98,7 +98,7 @@ for "_i" from 1 to _numVehicles do
         _vehWP0 setWaypointBehaviour "CARELESS";
 
         // Hack for tree-dodging on landing path
-        if(toLower worldName in tropicalmaps) then { _veh flyInHeight 250 };
+        if(A3A_climate isEqualTo "tropical") then { _veh flyInHeight 250 };
 
         [_veh, _landPos] spawn
         {

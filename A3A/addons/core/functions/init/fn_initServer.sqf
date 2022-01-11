@@ -84,7 +84,8 @@ _nul = call A3A_fnc_initVar;
 call A3A_fnc_logistics_initNodes;
 
 savingServer = true;
-Info_2("%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text");
+#define MODE_ARRAY ["SP","MP"]
+Info_2("%1 server version: %2", MODE_ARRAY select isMultiplayer, localize "STR_antistasi_credits_generic_version_text");
 bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 call A3A_fnc_loadNavGrid;

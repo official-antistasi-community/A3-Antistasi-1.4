@@ -2,11 +2,11 @@
 FIX_LINE_NUMBERS()
 private _worldName = toLower worldName;
 
-//old compat to be removed
-aridmaps = ["altis","kunduz","malden","tem_anizay","takistan","sara"];
-tropicalmaps = ["tanoa","cam_lao_nam"];
-temperatemaps = ["enoch","chernarus_summer","vt7","tembelan"];
-arcticmaps = ["chernarus_winter"];
+//======================|
+// Climate Getter       |
+//======================|
+private _fileName = "Map\" + toLower worldName + "Info.sqf"; //can be moved away as it has nothing to do with selector anymore
+A3A_climate = ["climate"] call compile preProcessFileLineNumbers _filename;
 
 private _fnc_requirementMeet = { getArray (_this/"requiredAddons") findIf { !(isClass (configFile/"CfgPatches"/_x)) } == -1 };
 

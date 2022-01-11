@@ -134,7 +134,7 @@ if (not(_markerX in destroyedSites)) then
 		_groups pushBack _groupX;
 		for "_i" from 1 to 4 do
 		{
-			_civ = [_groupX, "C_man_w_worker_F", _positionX, [],0, "NONE"] call A3A_fnc_createUnit;
+			_civ = [_groupX, FactionGet(civ, "unitWorker"), _positionX, [],0, "NONE"] call A3A_fnc_createUnit;
 			_nul = [_civ] spawn A3A_fnc_CIVinit;
 			_civs pushBack _civ;
 			_civ setVariable ["markerX",_markerX,true];

@@ -24,6 +24,7 @@ if !(isClass (missionConfigFile/"A3A")) exitWith {};//not A3 Antistasi mission
 Debug("fn_initPreJIP Started");
 
 call A3A_fnc_uintToHexGenTables;
+call A3A_fnc_shortID_init;
 
 
 Debug("fn_initPreJIP Finished");

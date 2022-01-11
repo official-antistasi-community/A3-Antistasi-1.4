@@ -171,9 +171,13 @@
             <Original>Loot crate stored</Original>
             <English>Loot crate stored</English>
         </Key>
-        <Key ID="STR_HR_GRG_Feedback_addVehicle_LightSource_Stored">
-            <Original>Light stored</Original>
-            <English>Light stored</English>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Item_Stored">
+            <Original>Item stored</Original>
+            <English>Item stored</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Fuel_sold">
+            <Original>Fuel sold</Original>
+            <English>Fuel sold</English>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Distance">
             <Original>You can't garage vehicles that are more than 25m away from you</Original>

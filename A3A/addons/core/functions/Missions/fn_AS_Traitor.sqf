@@ -75,7 +75,7 @@ while {count _roads == 0} do
 _road = _roads select 0;
 _posroad = getPos _road;
 _roadcon = roadsConnectedto _road; if (count _roadCon == 0) then {
-    Error("Road has no connection :%1.",position _road);
+    Error_1("Road has no connection :%1.",position _road);
 	};
 if (count _roadCon > 0) then
 	{

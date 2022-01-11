@@ -61,6 +61,7 @@ A3A_paramTable = [
     ["memberSlots", "memberSlots", ["server"], 20],
 
     ["startWithLongRangeRadio", "startWithLongRangeRadio", [], true],
+    ["aceFood", "aceFood", [], false],
     ["helmetLossChance", "helmetLossChance", [], 33],
     ["minWeaps", "unlockItem", [], 25],
     ["memberOnlyMagLimit", "memberOnlyMagLimit", [], 40],				// dead param

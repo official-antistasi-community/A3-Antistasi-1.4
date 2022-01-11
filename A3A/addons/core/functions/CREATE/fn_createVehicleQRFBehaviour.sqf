@@ -110,7 +110,7 @@ switch (true) do
             _vehWP0 setWaypointCompletionRadius 150;
             _vehWP0 setWaypointBehaviour "CARELESS";
 
-            if(toLower worldName in tropicalmaps) then
+            if(A3A_climate isEqualTo "tropical") then
             {
                 _vehicle flyInHeight 250;
             };

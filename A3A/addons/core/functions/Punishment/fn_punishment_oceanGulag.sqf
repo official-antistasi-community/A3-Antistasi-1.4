@@ -42,7 +42,7 @@ private _detainee = _varspace getVariable ["player",objNull];
 private _playerPos = [0,0,0];
 
 if (!isPlayer _detainee) then { // Prevents punishing AI
-    Info_2("DETAINEE MIA | UID:%1 matches no in-game player. Cleaning up.", _UID);
+    Info_1("DETAINEE MIA | UID:%1 matches no in-game player. Cleaning up.", _UID);
 	_operation = "remove";
 } else {
 	_playerPos = getPosASL _detainee;

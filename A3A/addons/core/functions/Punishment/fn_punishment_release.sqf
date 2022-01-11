@@ -64,7 +64,7 @@ switch (_source) do {
 	case "punishment_warden_manual": {
 		call _forgiveStats;
 		call _releaseFromSentence;
-        Info("FORGIVE | %1", _playerStats);
+        Info_1("FORGIVE | %1", _playerStats);
 		if (isPlayer _detainee) then {
 			["FF Punishment", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
 		};

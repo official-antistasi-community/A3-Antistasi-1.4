@@ -55,7 +55,7 @@ if ((groupID _groupX == "MineF") or (groupID _groupX == "Post") or (isPlayer(lea
 } forEach _unitsX;
 if (_leave) exitWith {["Garrison", "Dead or player-controlled units cannot be added to any garrison."] call A3A_fnc_customHint;};
 
-private _bannedTypes = arrayCivs + [FactionGet(reb,"unitCrew"), FactionGet(reb,"unitUnarmed"), FactionGet(reb,"unitPetros")];
+private _bannedTypes = FactionGet(civ, "unitMan") + FactionGet(civ, "unitPress") + FactionGet(civ, "unitWorker") + FactionGet(reb,"unitCrew"), FactionGet(reb,"unitUnarmed"), FactionGet(reb,"unitPetros");
 {
 	private _unitType = _x getVariable "unitType";
 	if (_unitType in _bannedTypes) exitWith {_leave = true};

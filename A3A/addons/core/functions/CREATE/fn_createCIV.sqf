@@ -81,6 +81,7 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do
 		    */
 			_veh = _typeVehX createVehicle _pos;
 			_veh setDir _dirveh;
+            _veh setFuel random [0.10, 0.30, 0.50];
 			clearMagazineCargoGlobal _veh;
 			clearWeaponCargoGlobal _veh;
 			clearItemCargoGlobal _veh;

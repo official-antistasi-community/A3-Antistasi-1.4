@@ -603,6 +603,13 @@ class CfgFunctions
             class pad_3Digits {};
         };
 
+        class ShortID {
+        file = QPATHTOFOLDER(functions\Utility\ShortID);
+        class shortID_create {};
+        class shortID_format {};
+        class shortID_init {};
+    };
+
         class Supports {
             file = QPATHTOFOLDER(functions\Supports);
             class addSupportTarget {};
@@ -757,9 +764,10 @@ class CfgFunctions
             class carryItem {};
             class initMovableObject {};
             class rotateItem {};
-            class spawnLight {};
+            class buyItem {};
             class attachedObjects {};
             class dropObject {};
+            class remainingFuel {};
         };
     };
 };

@@ -76,7 +76,7 @@ while {true} do
 
     if !(_groupAlive) exitWith
     {
-        Info_1("%1 has been eliminated, starting despawn routines");
+        Info_1("%1 has been eliminated, starting despawn routines", _supportName);
         [_side, 10, 60] remoteExec ["A3A_fnc_addAggression", 2];
     };
 

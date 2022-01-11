@@ -283,7 +283,8 @@ private _fnc_applyResults =
         killZones setVariable [_mrkOrigin,_killZones,true];
     };
 
-    ServerDebug_2("Rebels %1 a %2 convoy mission", ["lost", "won"] select _success, _type);
+#define CONVOY_MISSION_STATUS_ARRAY ["lost", "won"]
+    ServerDebug_2("Rebels %1 a %2 convoy mission", CONVOY_MISSION_STATUS_ARRAY select _success, _type);
 };
 
 if (_convoyType == "Ammunition") then

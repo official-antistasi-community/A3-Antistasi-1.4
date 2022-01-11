@@ -1,4 +1,5 @@
 #include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 private _houses = [];
 private _mrk = createMarkerLocal ["ambientCiv", position player];
 _mrk setMarkerShapeLocal "RECTANGLE";
@@ -44,8 +45,7 @@ while {true} do {
 						if (count units _groupX > 2) then {_groupX = createGroup civilian};
 					};
 					_posHouse = selectRandom (_houseX buildingPos -1);
-					_unit = selectRandom arrayCivs;
-					_civ = [_groupX, _unit, _posHouse, [],0, "NONE"] call A3A_fnc_createUnit;
+					_civ = [_groupX, FactionGet(civ, "unitMan"), _posHouse, [],0, "NONE"] call A3A_fnc_createUnit;
 					_civ setPosATL _posHouse;
 					[_civ] spawn A3A_fnc_CIVinit;
 					_civs pushBack _civ;

@@ -251,7 +251,7 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["CUP_U_B_BDUv2_gloves_desert", "CUP_U_B_BDUv2_gloves_dirty_desert", "CUP_U_B_BDUv2_roll2_desert"]];
+_militaryLoadoutData set ["uniforms", ["CUP_U_I_RACS_Desert_1", "CUP_U_I_RACS_Desert_2"]];
 _militaryLoadoutData set ["slUniforms", ["CUP_U_B_BDUv2_roll2_gloves_desert"]];
 _militaryLoadoutData set ["vests", ["CUP_V_B_Ciras_Coyote2"]];
 _militaryLoadoutData set ["mgVests", ["CUP_V_B_Ciras_Coyote"]];
@@ -370,7 +370,7 @@ _policeLoadoutData set ["sidearms", [
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", ["CUP_U_B_BDUv2_desert", "CUP_U_B_BDUv2_dirty_desert"]];
+_militiaLoadoutData set ["uniforms", ["CUP_U_I_RACS_Desert_1", "CUP_U_I_RACS_Desert_2"]];
 _militiaLoadoutData set ["vests", ["CUP_V_I_RACS_Carrier_Vest_2", "CUP_V_I_RACS_Carrier_Vest_3"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_PMC_IOTV_Coyote_Patrol"]];
 _militiaLoadoutData set ["backpacks", ["B_AssaultPack_cbr", "B_FieldPack_cbr"]];
@@ -419,7 +419,7 @@ _militiaLoadoutData set ["sidearms", [
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_crewLoadoutData set ["uniforms", ["CUP_U_B_BDUv2_desert"]];
+_crewLoadoutData set ["uniforms", ["CUP_U_I_RACS_Desert_1"]];
 _crewLoadoutData set ["vests", ["CUP_V_B_IOTV_OCP_TL_USArmy"]];
 _crewLoadoutData set ["helmets", ["CUP_H_CVCH_des"]];
 

@@ -36,7 +36,7 @@ private _autoPickAI = {
         switch (true) do {
             case (A3A_hasCUP): {
                 switch(true) do {
-                    case (toLower worldName == "sara"): {"RAS"};
+                    case (toLower worldName == "sara"): {"RACS"};
                     case (toLower worldName == "chernarus_summer");
                     case (toLower worldName == "chernarus_winter"): {"CDF"};
                     default {"USAF"};
@@ -86,7 +86,7 @@ private _autoPickAI = {
         case (A3A_hasCUP): {
             switch(true) do {
                 case (toLower worldName == "sara"): {"SLA"};
-                case (toLower worldName == "takistan");
+                case (toLower worldName == "takistan"): {"TKA"};
                 default {"AFRF"};
             };
         };      

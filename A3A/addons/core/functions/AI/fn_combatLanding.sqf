@@ -17,7 +17,7 @@ private _endPos = getPosASL _landingPad;
 private _startPos = getPosASL _helicopter;
 
 private _midPos = +_endPos;
-if(toLower worldName in tropicalmaps) then
+if(A3A_climate isEqualTo "tropical") then
 {
     _midPos set [2, (_endPos select 2) + 250];
 }

@@ -49,7 +49,7 @@ private _baseCategory = switch (_itemType select 1) do
         case "MineDetector": {"MineDetectors"};
         case "NVGoggles": {"NVGs"};
         case "Radio": {"Radios"};
-        case "ToolKit": {"ToolKits"};
+        case "Toolkit": {"Toolkits"};
         case "UAVTerminal": {"UAVTerminals"};
         case "Unknown": {"Unknown"};
         case "UnknownEquipment": {"Unknown"};

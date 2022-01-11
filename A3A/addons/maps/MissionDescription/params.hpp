@@ -186,6 +186,13 @@ class Params
         texts[] = {"Load from save (Default: Yes)","Yes","No"};
         default = 9999;
     };
+    class aceFood
+    {
+        title = "[ACE] Start with Food Items";
+        values[] = {9999,1,0};
+        texts[] = {"Load from save (Default: No)","Yes","No"};
+        default = 9999;
+    };
     class helmetLossChance
     {
         title = "Chance of helmet loss on headshots";

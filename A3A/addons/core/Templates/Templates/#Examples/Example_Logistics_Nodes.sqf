@@ -22,7 +22,7 @@ Always think of the next guy that may have to work on your code. Chances are it 
 */
 A3A_logistics_vehicleHardpoints append [
   ["modelpath", [
-    [1, [0,0,0], [1,2,3,4]]//This line would assign a cargo node at 0,0,0 on the model, and block seats 1-4 when in use.
+    [1, [0,0,0], [1,2,3,4]],//This line would assign a cargo node at 0,0,0 on the model, and block seats 1-4 when in use.
     [1, [0,0,0], [1,2,3,4]]//This line would assign a cargo node at 0,0,0 on the model, and block seats 1-4 when in use.
   ]]
 ];//To make it easier to navigate, it is a good idea to keep the lines for similar vehicles together. Usually, we list 4 wheeled vehicles, then 6 wheeled, then 8 wheeled, then boats. It is also good to keep multiple versions of the same vehicle together, such as covered and open versions of the same truck.

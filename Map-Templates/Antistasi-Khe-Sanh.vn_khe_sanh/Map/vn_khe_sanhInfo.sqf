@@ -40,10 +40,10 @@ switch (_filename) do {
 		private _disableTownName = ["Paca", "Kate", "Hinlap", "XomBau", "XingEa", "AnMy", "That", "Tanloan", "Avian", "Kengkep", "MuTa",
 		"KoNo", "Paxia", "KoWe", "LiemCong", "SonGiang", "Nongno", "Tansoum", "Hindam", "AnDinh", "Lapoung", "Xingwe",
 		"Bengdan", "Napang", "Khoyamep", "Donvay", "Palo", "Lukdong", "Xino", "Xombatu", "Xombolu", "Gnavay",
-		"Xombolou", "Xomcon", "Pakpong", "XiMi", "Xeku", "Xombong", "Phailom"];
+		"Xombolou", "Xomcon", "Pakpong", "XiMi", "Xeku", "Xombong", "Phailom", "Pasom"];
 
 		//[_popValue, _disableTownName];
-		[_popValue, nil];
+		[_popValue, _disableTownName];
 	};
 	case "antennas": {
 		private _posAntennas =
@@ -68,6 +68,11 @@ switch (_filename) do {
 	};
 	case "climate": {
 	"tropical";
+	};
+	case "fuelStationTypes":{
+		private _fuelStationTypes = ["Land_vn_fuelstation_01_pump_f", "Land_vn_fuelstation_02_pump_f", "Land_vn_fuelstation_feed_f"];
+		//_fuelStationTypes
+		[_fuelStationTypes];
 	};
 	default {
 		Info("Map Info given unknown parameter");

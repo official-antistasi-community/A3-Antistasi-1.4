@@ -81,6 +81,7 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do
 		    */
 			_veh = _typeVehX createVehicle _pos;
 			_veh setDir _dirveh;
+			_veh setFuel random [0.10, 0.30, 0.50];
 			clearMagazineCargoGlobal _veh;
 			clearWeaponCargoGlobal _veh;
 			clearItemCargoGlobal _veh;
@@ -127,7 +128,7 @@ if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner g
 		};
 	_groupX = createGroup civilian;
 	_groups pushBack _groupX;
-	_civ = [_groupX, "C_journalist_F", _pos, [],0, "NONE"] call A3A_fnc_createUnit;
+	_civ = [_groupX, FactionGet(civ, "unitPress"), _pos, [],0, "NONE"] call A3A_fnc_createUnit;
 	_nul = [_civ] spawn A3A_fnc_CIVinit;
 	_civs pushBack _civ;
 	_nul = [_civ, _markerX, "SAFE", "SPAWNED","NOFOLLOW", "NOVEH2","NOSHARE","DoRelax"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
@@ -158,6 +159,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_typeVehX = selectRandomWeighted civVehiclesWeighted;
 					_veh = _typeVehX createVehicle (getPos _p1);
 					_veh setDir _dirveh;
+					_veh setFuel random [0.10, 0.30, 0.50];
 					clearMagazineCargoGlobal _veh;
 					clearWeaponCargoGlobal _veh;
 					clearItemCargoGlobal _veh;
@@ -165,8 +167,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 
 					//_veh forceFollowRoad true;
 					_vehPatrol = _vehPatrol + [_veh];
-					_typeCiv = selectRandom arrayCivs;
-					_civ = [_groupP, _typeCiv, (getPos _p1), [],0, "NONE"] call A3A_fnc_createUnit;
+					_civ = [_groupP, FactionGet(civ, "unitMan"), (getPos _p1), [],0, "NONE"] call A3A_fnc_createUnit;
 					_nul = [_civ] spawn A3A_fnc_CIVinit;
 					_civsPatrol = _civsPatrol + [_civ];
 					_civ moveInDriver _veh;

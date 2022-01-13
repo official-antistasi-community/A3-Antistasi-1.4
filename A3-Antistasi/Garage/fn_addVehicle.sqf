@@ -57,11 +57,21 @@ if (_class in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate"
     true
 };
 
-//Utility refund
-if (_vehicle getVariable['A3A_islight',false]) exitwith{
-    [25] remoteExec ["A3A_fnc_resourcesPlayer", _client];
-    ["STR_HR_GRG_Feedback_addVehicle_LightSource_Stored"] remoteExec ["HR_GRG_fnc_Hint", _client];
-    deleteVehicle _vehicle;
+
+//Utility refund and Fuel refund
+if (_vehicle getVariable ['A3A_canGarage', false]) exitwith{
+    if (_class in [FactionGet(reb,"vehicleFuelDrum"), FactionGet(reb,"vehicleFuelTank")]) then {
+        [floor (
+            [_vehicle] call A3A_fnc_remainingFuel * 
+            (_vehicle getVariable ['A3A_itemPrice', 0])
+        )] remoteExec ["A3A_fnc_resourcesPlayer", _client];
+        ["STR_HR_GRG_Feedback_addVehicle_Fuel_sold"] remoteExec ["HR_GRG_fnc_Hint", _client];
+        deleteVehicle _vehicle;
+    } else {
+        [_vehicle getVariable ['A3A_itemPrice', 0]] remoteExec ["A3A_fnc_resourcesPlayer", _client];
+        ["STR_HR_GRG_Feedback_addVehicle_Item_Stored"] remoteExec ["HR_GRG_fnc_Hint", _client];
+        deleteVehicle _vehicle;
+    };
     true
 };
 

@@ -1,27 +1,6 @@
-//////////////////////////
-//       Loadout        //
-//////////////////////////
-
-["uniforms", [
-    "vn_o_uniform_vc_01_01",
-    "vn_o_uniform_vc_01_02",
-    "vn_o_uniform_vc_02_07",
-    "vn_o_uniform_vc_03_02",
-    "vn_o_uniform_vc_04_02",
-    "vn_o_uniform_vc_05_01",
-    "vn_o_uniform_vc_02_05",
-    "vn_o_uniform_vc_04_03",
-    "vn_o_uniform_vc_03_03"
-]] call _fnc_saveToTemplate;
-
-["headgear", [
-    "vn_c_headband_04",
-    "vn_c_headband_03",
-    "vn_c_headband_02",
-    "vn_c_headband_01",
-    "vn_c_conehat_02",
-    "vn_c_conehat_01"
-]] call _fnc_saveToTemplate;
+//////////////////////////////
+//   Civilian Information   //
+//////////////////////////////
 
 // All of bellow are optional overrides.
 ["firstAidKits", ["vn_o_item_firstaidkit"]] call _fnc_saveToTemplate;  // Relies on autodetection. However, item is tested for for help and reviving.
@@ -55,3 +34,105 @@
 ["vehiclesCivMedical", []] call _fnc_saveToTemplate;
 
 ["vehiclesCivFuel", ["vn_b_wheeled_m54_fuel_airport", 0.2]] call _fnc_saveToTemplate;
+
+["uniforms", [
+    "vn_o_uniform_vc_01_01",
+    "vn_o_uniform_vc_01_02",
+    "vn_o_uniform_vc_02_07",
+    "vn_o_uniform_vc_03_02",
+    "vn_o_uniform_vc_04_02",
+    "vn_o_uniform_vc_05_01",
+    "vn_o_uniform_vc_02_05",
+    "vn_o_uniform_vc_04_03",
+    "vn_o_uniform_vc_03_03"
+]] call _fnc_saveToTemplate;
+
+["headgear", [
+    "vn_c_headband_04",
+    "vn_c_headband_03",
+    "vn_c_headband_02",
+    "vn_c_headband_01",
+    "vn_c_conehat_02",
+    "vn_c_conehat_01"
+]] call _fnc_saveToTemplate;
+
+//////////////////////////
+//       Loadouts       //
+//////////////////////////
+
+private _civUniforms = [
+    "vn_o_uniform_vc_01_01",
+    "vn_o_uniform_vc_01_02",
+    "vn_o_uniform_vc_02_07",
+    "vn_o_uniform_vc_03_02",
+    "vn_o_uniform_vc_04_02",
+    "vn_o_uniform_vc_05_01",
+    "vn_o_uniform_vc_02_05",
+    "vn_o_uniform_vc_04_03",
+    "vn_o_uniform_vc_03_03"
+];
+
+private _pressUniforms = [
+    "U_Marshal"
+    ];
+
+["uniforms", _civUniforms + _pressUniforms] call _fnc_saveToTemplate;
+
+private _civhats = [
+    "vn_c_headband_04",
+    "vn_c_headband_03",
+    "vn_c_headband_02",
+    "vn_c_headband_01"
+];
+
+["headgear", _civHats] call _fnc_saveToTemplate;
+
+private _loadoutData = call _fnc_createLoadoutData;
+
+_loadoutData set ["uniforms", _civUniforms];
+_loadoutData set ["pressUniforms", _pressUniforms];
+_loadoutData set ["workerHelmets", ["vn_c_conehat_02"]];
+_loadoutData set ["helmets", _civHats];
+
+_loadoutData set ["maps", ["ItemMap"]];
+_loadoutData set ["watches", ["ItemWatch"]];
+_loadoutData set ["compasses", ["ItemCompass"]];
+
+
+private _manTemplate = {
+    ["helmets"] call _fnc_setHelmet;
+    ["uniforms"] call _fnc_setUniform;
+
+    ["items_medical_standard"] call _fnc_addItemSet;
+
+    ["maps"] call _fnc_addMap;
+    ["watches"] call _fnc_addWatch;
+    ["compasses"] call _fnc_addCompass;
+};
+private _workerTemplate = {
+    ["workerHelmets"] call _fnc_setHelmet;
+    ["uniforms"] call _fnc_setUniform;
+
+    ["items_medical_standard"] call _fnc_addItemSet;
+
+    ["maps"] call _fnc_addMap;
+    ["watches"] call _fnc_addWatch;
+    ["compasses"] call _fnc_addCompass;
+};
+private _pressTemplate = {
+    ["pressUniforms"] call _fnc_setUniform;
+
+    ["items_medical_standard"] call _fnc_addItemSet;
+
+    ["maps"] call _fnc_addMap;
+    ["watches"] call _fnc_addWatch;
+    ["compasses"] call _fnc_addCompass;
+};
+private _prefix = "militia";
+private _unitTypes = [
+    ["Press", _pressTemplate],
+    ["Worker", _workerTemplate],
+    ["Man", _manTemplate]
+];
+
+[_prefix, _unitTypes, _loadoutData] call _fnc_generateAndSaveUnitsToTemplate;

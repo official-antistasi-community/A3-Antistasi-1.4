@@ -3,11 +3,6 @@ private ["_unit","_enemiesX"];
 FIX_LINE_NUMBERS()
 _unit = _this select 0;
 
-//dress unit
-_unit setUnitLoadout (configFile >> "EmptyLoadout");
-_unit forceAddUniform selectRandom (A3A_faction_civ get "uniforms");
-_unit addHeadgear selectRandom (A3A_faction_civ get "headgear");
-
 _unit setSkill 0;
 _unit disableAI "TARGET";
 _unit disableAI "AUTOTARGET";
@@ -56,11 +51,11 @@ _EHkilledIdx = _unit addEventHandler
 		{
 			if (isPlayer _killer) then
 			{
-				if (_victim getVariable "unitType" == "C_man_w_worker_F") then {_killer addRating 1000};
+				if (_victim getVariable "unitType" == FactionGet(civ, "unitWorker")) then {_killer addRating 1000};
 				[-10,_killer] call A3A_fnc_playerScoreAdd;
 			};
 			_multiplier = 1;
-			if ((_victim getVariable "unitType") == "C_journalist_F") then {_multiplier = 3};
+			if ((_victim getVariable "unitType") == FactionGet(civ, "unitPress")) then {_multiplier = 3};
 			//Must be group, in case they're undercover.
 			if (side group _killer == teamPlayer) then
 			{

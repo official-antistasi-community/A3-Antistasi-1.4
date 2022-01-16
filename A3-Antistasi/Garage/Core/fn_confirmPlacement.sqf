@@ -252,12 +252,17 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             private _veh = _class createVehicle [0,0,10000];
             [_veh] call HR_GRG_fnc_prepPylons;
             [_veh, _state] call HR_GRG_fnc_setState;
-            _veh enableSimulation false;
-            _veh allowDamage false;
-            [_veh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
+            if (HR_GRG_usePool && !HR_GRG_ServiceDisabled_Refuel) then {
+                [_veh] remoteExecCall ["HR_GRG_fnc_refuelVehicleFromSources", 2];
+            };
+
             _veh setDir _dir;
             _veh setPos _pos;
             _veh setVectorUp surfaceNormal position _veh;
+
+            _veh enableSimulation false;
+            _veh allowDamage false;
+            [_veh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
 
             //create and load cargo
             {
@@ -279,7 +284,7 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             };
             _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
             _veh call HR_GRG_fnc_vehInit;
-            if !(HR_GRG_usePool) then { [_veh,HR_GRG_CP_callBack, "Placed"] call HR_GRG_fnc_callbackHandler };
+            if !(HR_GRG_usePool) then {[_veh,HR_GRG_CP_callBack, "Placed"] call HR_GRG_fnc_callbackHandler};
 
             true && (_key isNotEqualTo DIK_Y);
         } else { false };

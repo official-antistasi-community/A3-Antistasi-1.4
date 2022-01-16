@@ -54,6 +54,14 @@ class HR_GRG
         class reloadPylons {};
         class updatePylons {};
     };
+    class Refuel
+    {
+        file = "Garage\Refuel";
+        class broadcastStateUpdate {};
+        class getTotalFuelCargo {};
+        class reciveStateUpdate {};
+        class refuelVehicleFromSources {};
+    };
     class StatePreservation
     {
         file = "Garage\StatePreservation";

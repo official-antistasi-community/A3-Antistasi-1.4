@@ -108,6 +108,10 @@ lbSort _ctrl;
 HR_GRG_curAnims = _customisation#1;
 [HR_GRG_previewVeh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
 
+// update remainingfuel from sources available for refueling
+private _ctrl = _disp displayCtrl HR_GRG_IDC_FactionFuelText;
+_ctrl ctrlSetStructuredText composeText [image RefuelIcon, " ", localize "STR_HR_GRG_FactionFuel", " ", str (call HR_GRG_fnc_getTotalFuelCargo), "L"];
+
 //update source panel
 private _ctrl = _disp displayCtrl HR_GRG_IDC_SourcePanelAmmo;
 _ctrl ctrlSetStructuredText composeText ["   ", image RearmIcon, " ", image (checkboxTextures select (HR_GRG_hasAmmoSource && !HR_GRG_ServiceDisabled_Rearm))];

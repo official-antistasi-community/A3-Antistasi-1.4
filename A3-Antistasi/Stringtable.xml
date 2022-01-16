@@ -3762,6 +3762,9 @@
             <Original>Mass:</Original>
             <English>Mass:</English>
         </Key>
+        <Key ID ="STR_HR_GRG_FactionFuel">
+            <Original>Faction fuel:</Original>
+        </Key>
         <Key ID="STR_HR_GRG_openGarage_Action">
             <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</Original>
             <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</English>

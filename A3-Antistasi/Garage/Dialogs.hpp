@@ -21,9 +21,20 @@ class HR_GRG_VehicleSelect
             idc = HR_GRG_IDC_CatText;
             x = SCREEN_LEFT;
             y = SCREEN_TOP;
-            w = 39 * GRID_NOUISCALE_W;
+            w = 30 * GRID_NOUISCALE_W;
             h = 4 * GRID_NOUISCALE_H;
             size = TEXT_SIZE_LARGE;
+        };
+        class HR_GRG_CapacityCount: HR_GRG_RscStructuredText
+        {
+            idc = HR_GRG_IDC_CapacityCount;
+            x = SCREEN_LEFT + 30 * GRID_NOUISCALE_W;
+            y = SCREEN_TOP;
+            w = 9 * GRID_NOUISCALE_W;
+            h = 4 * GRID_NOUISCALE_H;
+            size = TEXT_SIZE_SMALL;
+            tooltip = $STR_HR_GRG_Generic_capacity;
+            align = "right";
         };
 
         // Vehicle listboxes
@@ -336,14 +347,26 @@ class HR_GRG_VehicleSelect
         };
 
         // Info Panel
-        class HR_GRG_InfoPanel: HR_GRG_RscStructuredText
+        class HR_GRG_InfoPanelWrapper: HR_GRG_RscControlsGroup
         {
-            idc = HR_GRG_IDC_InfoPanel;
             x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
             y = SCREEN_BOTTOM - 45 * GRID_NOUISCALE_H;
             w = 39 * GRID_NOUISCALE_W;
             h = 45 * GRID_NOUISCALE_H;
             size = TEXT_SIZE_MEDIUM;
+
+            class controls
+            {
+                class HR_GRG_InfoPanel: HR_GRG_RscStructuredText
+                {
+                    idc = HR_GRG_IDC_InfoPanel;
+                    x = 0;
+                    y = 0;
+                    w = 39 * GRID_NOUISCALE_W;
+                    h = 45 * GRID_NOUISCALE_H;
+                    size = TEXT_SIZE_MEDIUM;
+                };
+            };
         };
 
         // Camera controls hint
@@ -355,15 +378,6 @@ class HR_GRG_VehicleSelect
             w = 36 * GRID_NOUISCALE_W;
             h = 7 * GRID_NOUISCALE_H;
             size = TEXT_SIZE_SMALL;
-        };
-
-        class HR_GRG_FactionFuelText : HR_GRG_RscStructuredText
-        {
-            idc = HR_GRG_IDC_FactionFuelText;
-            x = SCREEN_RIGHT - 67 * GRID_NOUISCALE_W;
-            y = SCREEN_BOTTOM - 3 * GRID_NOUISCALE_H;
-            w = 28 * GRID_NOUISCALE_W;
-            h = (3 * GRID_NOUISCALE_H);
         };
     };
 };

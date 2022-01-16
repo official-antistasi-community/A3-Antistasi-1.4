@@ -56,7 +56,7 @@
 #define HR_GRG_IDC_CatText 170016
 #define HR_GRG_IDC_ExtrasText 170017
 #define HR_GRG_IDC_KeyBindHint 170018
-#define HR_GRG_IDC_FactionFuelText 170019
+#define HR_GRG_IDC_CapacityCount 170019
 
 //icons
 #define CheckOutIcon "\a3\ui_f\data\Map\Diary\Icons\diaryLocateTask_ca.paa"

@@ -46,4 +46,19 @@ private _cfg = configFile >> "CfgVehicles";
 
     Info_2("Vehicle added to garage: %1 | Lock UID: %2", str _x, str _lockUID);
 } forEach _vehicles;
+
+//refresh category for active users
+private _refreshCode = {
+    #include "defines.inc"
+    FIX_LINE_NUMBERS()
+    private _disp = findDisplay HR_GRG_IDD_Garage;
+    private _cats = _this apply { HR_GRG_Cats#_x };
+    {
+        if (ctrlEnabled _x) then {
+            [_x, _this#_forEachIndex] call HR_GRG_fnc_reloadCategory;
+        };
+    } forEach _cats;
+    call HR_GRG_fnc_updateVehicleCount;
+};
+[ _catsRequiringUpdate, _refreshCode ] remoteExecCall ["call", HR_GRG_Users];
 true

@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=640;
+		nextID=635;
 	};
 	class Camera
 	{
@@ -1160,7 +1160,7 @@ class Mission
 			type="rectangle";
 			a=15;
 			b=15;
-			angle=28.413349;
+			angle=28.413351;
 			id=1133;
 		};
 		class Item74
@@ -1184,7 +1184,7 @@ class Mission
 			type="rectangle";
 			a=15;
 			b=15;
-			angle=220.91069;
+			angle=220.91071;
 			id=1135;
 			atlOffset=3.9974327;
 		};
@@ -1246,7 +1246,7 @@ class Mission
 			type="rectangle";
 			a=15;
 			b=15;
-			angle=201.84416;
+			angle=201.84418;
 			id=1140;
 		};
 		class Item81
@@ -3192,7 +3192,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.529018;
 					b=5.5;
-					angle=56.906025;
+					angle=56.906029;
 					id=1646;
 					atlOffset=-0.15297318;
 				};
@@ -4401,7 +4401,7 @@ class Mission
 					colorName="ColorGreen";
 					a=16;
 					b=6;
-					angle=3.5407565;
+					angle=3.5407567;
 					id=1684;
 					atlOffset=0.75311279;
 				};

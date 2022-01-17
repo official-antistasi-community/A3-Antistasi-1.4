@@ -291,10 +291,11 @@ A3A_fuelStations apply {
 	_mrkFinalFuel = createMarker [format ["Ant%1", mapGridPosition _x], position _x];
 	_mrkFinalFuel setMarkerShape "ICON"; 
 	_mrkFinalFuel setMarkerType "loc_Fuelstation";
-	_mrkFinalFuel setMarkerColor "ColorPink"; 
-	_mrkFinalFuel setMarkerText "fuel station";
+	_mrkFinalFuel setMarkerColor "ColorGrey"; 
+	_mrkFinalFuel setMarkerText "Fuel station";
+	_mrkFinalFuel setMarkerAlpha 0.75;
 	if(A3A_hasACE) then {
-		[_x, 10000] call ace_refuel_fnc_setFuel; // only call on fuels that are not blacklisted and first zone init.
+		[_x, 2500] call ace_refuel_fnc_setFuel; // only call on fuels that are not blacklisted and first zone init.
 	};
 };
 

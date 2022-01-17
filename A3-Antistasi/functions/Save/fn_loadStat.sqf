@@ -127,7 +127,7 @@ if (_varName in _specialVarLoads) then {
 
             private _building = nearestObjects [_x, ["House"], 1, true] select 0;
             call {
-                if (isNil "_building") exitWith { Error("No building found at %1", _x)};
+                if (isNil "_building") exitWith { Error_1("No building found at %1", _x)};
                 if (_building in antennas) exitWith { Info("Antenna in destroyed building list, ignoring")};
 
                 private _ruin = [_building] call BIS_fnc_createRuin;
@@ -230,7 +230,7 @@ if (_varName in _specialVarLoads) then {
                 //JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
                 [_antenna, true] remoteExec ["hideObject", 0, _ruin];
             } else {
-                Error("Loading Antennas: Unable to create ruin for %1", typeOf _antenna);
+                Error_1("Loading Antennas: Unable to create ruin for %1", typeOf _antenna);
             };
 
             deleteMarker _mrk;

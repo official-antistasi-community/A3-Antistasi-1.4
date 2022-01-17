@@ -37,7 +37,7 @@ for "_i" from (tierPreference + 1) to tierWar do
 
     if(true || debug) then
     {
-        Debug("Airport_preference hit level %1", tierWar)
+        Debug_1("Airport_preference hit level %1", tierWar)
         DebugArray("Airport_preference",_preference);
     };
     garrison setVariable ["Airport_preference", _preference, true];
@@ -62,7 +62,7 @@ for "_i" from (tierPreference + 1) to tierWar do
     };
     if(true || debug) then
     {
-        Debug("Outpost_preference hit level %1", tierWar)
+        Debug_1("Outpost_preference hit level %1", tierWar)
         DebugArray("Outpost_preference",_preference);
     };
     garrison setVariable ["Outpost_preference", _preference, true];
@@ -77,7 +77,7 @@ for "_i" from (tierPreference + 1) to tierWar do
 
     if(true || debug) then
     {
-        Debug("City_preference hit level %1", tierWar)
+        Debug_1("City_preference hit level %1", tierWar)
         DebugArray("City_preference",_preference);
     };
     garrison setVariable ["City_preference", _preference, true];
@@ -98,7 +98,7 @@ for "_i" from (tierPreference + 1) to tierWar do
 
     if(true || debug) then
     {
-        Debug("Other_preference hit level %1", tierWar)
+        Debug_1("Other_preference hit level %1", tierWar)
         DebugArray("Other_preference",_preference);
     };
     garrison setVariable ["Other_preference", _preference, true];

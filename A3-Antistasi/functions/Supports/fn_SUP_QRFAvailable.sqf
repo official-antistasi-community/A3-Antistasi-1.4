@@ -26,7 +26,7 @@ if ([_side] call A3A_fnc_remUnitCount < 40) exitWith
 
 if ([_position,false] call A3A_fnc_fogCheck < 0.3) exitWith
 {
-    Debug("Blocked QRF to %1 due to heavy fog", _position);
+    Debug_1("Blocked QRF to %1 due to heavy fog", _position);
     -1;
 };
 

@@ -1,3 +1,22 @@
+/*
+Author: Håkon
+Description:
+    Sums the total available fuel from sources in the garage
+
+Arguments: <nil>
+
+Return Value:
+<Number> The total fuel from sources in the garage (in liters)
+
+Scope: Any
+Environment: unscheduled
+Public: Yes
+Dependencies:
+
+Example:
+
+License: APL-ND
+*/
 private _totalFuelCargo = 0;
 {
     private "_vehData";

@@ -173,10 +173,10 @@ private _getPrecentageAmmo = {
     _sumPercent / count _this;
 };
 
-private _hasAmmo = (HR_GRG_previewVehState#2) isNotEqualTo [];
-private _avgAmmo = (HR_GRG_previewVehState#2) call _getPrecentageAmmo;
-private _avgFuel = HR_GRG_previewVehState#0#0;
-private _avgDmg = 1 - (HR_GRG_previewVehState#1#0);
+private _hasAmmo = (HR_GRG_previewVehState#2) isNotEqualTo [];//Preview state >> Ammo data
+private _avgAmmo = (HR_GRG_previewVehState#2) call _getPrecentageAmmo; //Preview state >> Ammo data
+private _avgFuel = HR_GRG_previewVehState#0#0; //Preview state >> Fuel data >> Fuel
+private _avgDmg = 1 - (HR_GRG_previewVehState#1#0); //Preview state >> Damage data >> Damage
 private _selectStateColor = {
     switch true do {
         case (_this > 0.5): {"#ffffff"}; // white

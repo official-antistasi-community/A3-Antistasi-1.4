@@ -73,25 +73,7 @@ private _nearbyEnemies = [];
 
 if (count _nearbyEnemies != 0) exitWith
 {
-    private _selectedEnemy = selectRandom _nearbyEnemies;
-    [getPosASL _selectedEnemy, _enemyScanRadius] spawn
-    {
-        params ["_enemyPosASL", "_enemyScanRadius"];
-        // Audio and Visual aid.
-
-        private _enemyPosAGL = ASLToAGL _enemyPosASL;
-        // Base distance plus 10 ensures that the flag capturer can hear the sound faintly.
-        // Total distance multiply by 10 extends the range enough so that it can be herd. Arma's calculation is the range at which the sound cannot be herd.
-        // The volume serves more as loudness, since it does not affect range much.
-        "SmokeShell" createVehicle _enemyPosAGL;
-        uiSleep 2;
-        private _soundSettings = [objNull, false, _enemyPosASL, 1.5, 1, 10*_enemyScanRadius, 0, false];
-        playSound3D (["A3\Sounds_F\characters\human-sfx\Person0\P0_choke_02.wss"] + _soundSettings);
-        uiSleep 8;
-        playSound3D (["A3\Sounds_F\characters\human-sfx\Person0\P0_choke_03.wss"] + _soundSettings);
-        uiSleep 8;
-        playSound3D(["A3\Sounds_F\characters\human-sfx\Person0\P0_choke_04.wss"] + _soundSettings);
-    };
+    [getPosASL selectRandom _nearbyEnemies, _enemyScanRadius] call A3A_fnc_smokeAndCough;
 
     ServerInfo_3("Outpost at %1 (%2): Flag capture cancelled due to %3 enemies nearby", _outpostGridSquare, _markerX, count _nearbyEnemies);
     if (playerMarkersEnabled) then {

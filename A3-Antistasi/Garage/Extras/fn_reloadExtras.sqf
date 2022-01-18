@@ -210,7 +210,7 @@ private _refuelHintText = if (_requiredFuel < _availableFuel) then {
         localize "STR_HR_GRG_Refuel_noRefuel"
     }
 };
-private _refuelInfo = composeText [_refuelHintText, lineBreak, localize "STR_HR_GRG_Refuel_factionFuel", " ", str _availableFuel, "L"];
+private _refuelInfo = composeText [_refuelHintText, lineBreak, localize "STR_HR_GRG_Refuel_factionFuel", " ", [_availableFuel, "L"] call HR_GRG_fnc_prefix];
 
 //Crew
 private _fullCrew = fullCrew [HR_GRG_previewVeh, "", true];

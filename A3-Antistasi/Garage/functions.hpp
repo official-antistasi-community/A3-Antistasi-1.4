@@ -60,6 +60,7 @@ class HR_GRG
         file = "Garage\Refuel";
         class broadcastStateUpdate {};
         class getTotalFuelCargo {};
+        class prefix {};
         class reciveStateUpdate {};
         class refuelVehicleFromSources {};
     };

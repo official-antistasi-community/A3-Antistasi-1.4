@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=2730;
+		nextID=2734;
 	};
 	class MarkerIDProvider
 	{
@@ -16,18 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=413;
+		nextID=463;
 	};
 	class Camera
 	{
-		pos[]={1375.7101,391.04224,4011.0901};
-		dir[]={0.76204091,-0.64082783,0.093073644};
-		up[]={0.63610154,0.76768148,0.077691346};
-		aside[]={0.12123779,2.0180596e-007,-0.99263936};
+		pos[]={9007.2363,310.80487,2396.8723};
+		dir[]={0.1633976,-0.25861144,-0.95207644};
+		up[]={0.043744523,0.96597993,-0.25489208};
+		aside[]={-0.98560524,-1.645094e-007,-0.16914849};
 	};
 };
 binarizationWanted=0;
-sourceName="Antistasi-Anizay-2-4-1";
+sourceName="Antistasi-Anizay-2-5-3";
 addons[]=
 {
 	"A3_Ui_F",
@@ -226,6 +226,10 @@ class AddonsMetaData
 	};
 };
 randomSeed=10030831;
+class ScenarioData
+{
+	wreckRemovalMaxTime=3600;
+};
 class Mission
 {
 	assetType="Free";
@@ -233,14 +237,19 @@ class Mission
 	{
 		briefingName=$STR_antistasi_mission_info_anizay_mapname_text;
 		resistanceWest=0;
+		startWind=0.1;
+		forecastWind=0.1;
+		forecastWaves=0.1;
 		year=2035;
 		month=6;
 		hour=10;
 		minute=0;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
 	};
 	class Entities
 	{
-		items=725;
+		items=728;
 		class Item0
 		{
 			dataType="Layer";
@@ -296,7 +305,7 @@ class Mission
 					colorName="ColorGreen";
 					a=10.743834;
 					b=5.5253859;
-					angle=339.52756;
+					angle=339.5275;
 					id=783;
 					atlOffset=-4.6454468;
 				};
@@ -337,7 +346,7 @@ class Mission
 					colorName="ColorGreen";
 					a=22.499552;
 					b=10.184525;
-					angle=171.74924;
+					angle=171.74921;
 					id=789;
 					atlOffset=-0.51271057;
 				};
@@ -481,7 +490,7 @@ class Mission
 					colorName="ColorGreen";
 					a=10.743834;
 					b=5.5253859;
-					angle=159.18233;
+					angle=159.1823;
 					id=2728;
 					atlOffset=-4.6316681;
 				};
@@ -560,7 +569,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.425463;
 					b=6.3796358;
-					angle=282.4704;
+					angle=282.47037;
 					id=801;
 					atlOffset=0.020370483;
 				};
@@ -682,7 +691,7 @@ class Mission
 					colorName="ColorGreen";
 					a=9.4041376;
 					b=6.3964081;
-					angle=273.38562;
+					angle=273.38556;
 					id=821;
 					atlOffset=0.0599823;
 				};
@@ -817,7 +826,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.487929;
 					b=4.7173686;
-					angle=91.191101;
+					angle=91.191086;
 					id=841;
 				};
 				class Item24
@@ -973,7 +982,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.043173;
 					b=10.875315;
-					angle=251.89124;
+					angle=251.89122;
 					id=865;
 					atlOffset=-1.4993439;
 				};
@@ -1026,7 +1035,7 @@ class Mission
 					colorName="ColorGreen";
 					a=11.432511;
 					b=7.1751351;
-					angle=63.478359;
+					angle=63.478355;
 					id=893;
 				};
 				class Item8
@@ -1064,7 +1073,7 @@ class Mission
 					colorName="ColorGreen";
 					a=6.6992302;
 					b=8.030777;
-					angle=172.48624;
+					angle=172.48622;
 					id=877;
 					atlOffset=-0.84118652;
 				};
@@ -1134,7 +1143,7 @@ class Mission
 					colorName="ColorGreen";
 					a=10;
 					b=6;
-					angle=22.194048;
+					angle=22.194044;
 					id=897;
 					atlOffset=1.0401154;
 				};
@@ -7523,7 +7532,7 @@ class Mission
 			flags=1;
 			id=1295;
 			type="ModuleHideTerrainObjects_F";
-			atlOffset=1.5998383;
+			atlOffset=1.6001892;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -7787,7 +7796,7 @@ class Mission
 			flags=1;
 			id=1304;
 			type="ModuleHideTerrainObjects_F";
-			atlOffset=5.5194855;
+			atlOffset=5.5196228;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -7858,7 +7867,7 @@ class Mission
 			flags=1;
 			id=1306;
 			type="ModuleHideTerrainObjects_F";
-			atlOffset=2.3108521;
+			atlOffset=2.3106995;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -19384,7 +19393,7 @@ class Mission
 			};
 			id=2578;
 			type="Land_A_FuelStation_Feed";
-			atlOffset=0.00086212158;
+			atlOffset=0.00088500977;
 		};
 		class Item639
 		{
@@ -21575,6 +21584,57 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item725
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3025.4688,162.66431,8501.9541};
+				angles[]={0,1.2284681,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=2730;
+			type="Land_TTowerBig_1_F";
+			atlOffset=1.5258789e-005;
+		};
+		class Item726
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4956.5625,156.29117,5344.3354};
+				angles[]={0,5.7275238,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=2731;
+			type="Land_TTowerBig_2_F";
+			atlOffset=0.37368774;
+		};
+		class Item727
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9143.1484,111.64617,1949.3423};
+				angles[]={0,0.14152984,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=2733;
+			type="Land_TTowerBig_1_F";
+			atlOffset=0.49783325;
 		};
 	};
 	class Connections

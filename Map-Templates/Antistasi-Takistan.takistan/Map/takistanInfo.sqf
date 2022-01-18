@@ -27,7 +27,7 @@ params["_filename", ""];
 switch (_filename) do {
 	case "population": {
 		//[_popValue, _disableTownName];
-		[nil, _disableTownName];
+		[nil, nil];
 	};
 	case "antennas": {
 		private _posAntennas =
@@ -50,6 +50,11 @@ switch (_filename) do {
 	};
 	case "climate": {
 	"arid";
+	};
+	case "fuelStationTypes":{
+		private _fuelStationTypes = ["Land_Ind_FuelStation_Feed_EP1"];
+		//_fuelStationTypes
+		[_fuelStationTypes];
 	};
 	default {
 		Info("Map Info given unknown parameter");

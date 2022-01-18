@@ -1,3 +1,20 @@
+/*  
+Arguments:
+	0.  <String>    variable name or identifier for subroutine to run 
+    1.  <any>       data that will be set
+Return Value:
+    nil
+
+Scope: Server
+Environment: unscheduled
+Public: yes
+Dependencies:
+
+Example:
+    [_varName,_varValue] call A3A_fnc_loadStat;
+*/
+
+
 //===========================================================================
 //ADD VARIABLES TO THIS ARRAY THAT NEED SPECIAL SCRIPTING TO LOAD
 /*specialVarLoads =
@@ -26,7 +43,7 @@ private _specialVarLoads = [
     "garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
     "idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
     "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-    "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage"
+    "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage","A3A_fuelAmountleftArray"
 ];
 
 private _varName = _this select 0;
@@ -110,7 +127,7 @@ if (_varName in _specialVarLoads) then {
 
             private _building = nearestObjects [_x, ["House"], 1, true] select 0;
             call {
-                if (isNil "_building") exitWith { Error("No building found at %1", _x)};
+                if (isNil "_building") exitWith { Error_1("No building found at %1", _x)};
                 if (_building in antennas) exitWith { Info("Antenna in destroyed building list, ignoring")};
 
                 private _ruin = [_building] call BIS_fnc_createRuin;
@@ -213,7 +230,7 @@ if (_varName in _specialVarLoads) then {
                 //JIP on the _ruin, as repairRuinedBuilding will delete the ruin.
                 [_antenna, true] remoteExec ["hideObject", 0, _ruin];
             } else {
-                Error("Loading Antennas: Unable to create ruin for %1", typeOf _antenna);
+                Error_1("Loading Antennas: Unable to create ruin for %1", typeOf _antenna);
             };
 
             deleteMarker _mrk;
@@ -333,6 +350,21 @@ if (_varName in _specialVarLoads) then {
                 };
             };
         } forEach _varvalue;
+    };
+
+    if(_varname == 'A3A_fuelAmountleftArray') then {
+        //[position _x, [_x] call ace_refuel_fnc_getFuel]
+        A3A_fuelAmountleftArray = _varValue;
+        for "_i" from 0 to (count A3A_fuelAmountleftArray - 1) do {
+            private _nearFuelStations = nearestObjects [A3A_fuelAmountleftArray # _i # 0, A3A_fuelStationTypes, 1];
+            if (count _nearFuelStations == 0) then { continue };
+            private _fuelStation = _nearFuelStations#0;
+            if(A3A_hasACE) then {
+		        [_fuelStation, A3A_fuelAmountleftArray # _i # 1] call ace_refuel_fnc_setFuel;
+	        } else {
+	            _fuelStation setFuelCargo (A3A_fuelAmountleftArray # _i # 1);
+	        };
+        };
     };
     if(_varname == 'testingTimerIsActive') then
     {

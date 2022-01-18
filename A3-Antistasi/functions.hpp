@@ -743,5 +743,6 @@ class A3A
         class buyItem {};
         class attachedObjects {};
         class dropObject {};
+        class remainingFuel {}
     };
 };

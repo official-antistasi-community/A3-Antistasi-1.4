@@ -3791,6 +3791,10 @@
             <Original>Item stored</Original>
             <English>Item stored</English>
         </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Fuel_sold">
+            <Original>Fuel sold</Original>
+            <English>Fuel sold</English>
+        </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Distance">
             <Original>You can't garage vehicles that are more than 25m away from you</Original>
             <English>You can't garage vehicles that are more than 25m away from you</English>

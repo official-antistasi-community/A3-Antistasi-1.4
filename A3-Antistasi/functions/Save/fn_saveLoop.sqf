@@ -241,6 +241,20 @@ _dataX = [];
 _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (controlsX find _x < defaultControlIndex)};
 ["controlsSDK",_controlsX] call A3A_fnc_setStatVariable;
 
+// fuel rework
+_fuelAmountleftArray = [];
+{
+	if (A3A_hasACE) then { 
+		private _keyPairsFuel = [position _x, [_x] call ace_refuel_fnc_getFuel];
+		_fuelAmountleftArray pushback _keyPairsFuel;
+	} else {
+		private _keyPairsFuel = [position _x, getFuelCargo _x];
+		_fuelAmountleftArray pushback _keyPairsFuel;
+	};
+
+} forEach A3A_fuelStations;
+["A3A_fuelAmountleftArray",_fuelAmountleftArray] call A3A_fnc_setStatVariable;
+
 //Saving the state of the testing timer
 ["testingTimerIsActive", testingTimerIsActive] call A3A_fnc_setStatVariable;
 

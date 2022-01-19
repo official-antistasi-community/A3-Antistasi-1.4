@@ -43,6 +43,7 @@ switch _callBackName do {
                     _vehicle setVariable ["ownerX",getPlayerUID player,true];
                 };
                 vehiclePurchase_cost = 0;
+                _vehicle setFuel random [0.10, 0.175, 0.25];
             };
 
             default {false};

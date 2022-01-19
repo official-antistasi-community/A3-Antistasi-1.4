@@ -209,7 +209,7 @@ _sfLoadoutData set ["machineGuns", [
 ["arifle_CTARS_blk_F", "muzzle_snds_58_blk_F", "acc_pointer_IR", "optic_Arco_blk_F", ["100Rnd_580x42_Mag_F", "100Rnd_580x42_Mag_Tracer_F"], [], ""]
 ]]; 				//this line determines machine guns -- Example: ["arifle_MX_SW_F", "arifle_MX_SW_Hamr_pointer_F"] -- Array, can contain multiple assets
 _sfLoadoutData set ["marksmanRifles", [
-["srifle_DMR_01_F", "muzzle_snds_B", "acc_pointer_IR", "optic_dms", [], [], "bipod_02_F_hex"],
+["srifle_DMR_01_F", "muzzle_snds_B", "acc_pointer_IR", "optic_DMS", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_01_F", "muzzle_snds_B", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_01_F", "muzzle_snds_B", "acc_pointer_IR", "optic_SOS", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_07_ghex_F", "muzzle_snds_H", "acc_pointer_IR", "optic_DMS_ghex_F", [], [], ""],
@@ -269,7 +269,7 @@ _militaryLoadoutData set ["machineGuns", [
 ["LMG_Zafir_F", "", "acc_pointer_IR", "optic_MRCO", ["150Rnd_762x54_Box", "150Rnd_762x54_Box_Tracer"], [], ""]
 ]]; 				//this line determines machine guns -- Example: ["arifle_MX_SW_F", "arifle_MX_SW_Hamr_pointer_F"] -- Array, can contain multiple assets
 _militaryLoadoutData set ["marksmanRifles", [
-["srifle_DMR_01_F", "", "acc_pointer_IR", "optic_dms", [], [], "bipod_02_F_hex"],
+["srifle_DMR_01_F", "", "acc_pointer_IR", "optic_DMS", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_01_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_01_F", "", "acc_pointer_IR", "optic_SOS", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_07_ghex_F", "", "acc_pointer_IR", "optic_DMS_ghex_F", [], [], ""],

@@ -21,7 +21,18 @@ params [
 
 private _fnc_diag_render = { // ["Hi"] call _fnc_diag_render;
     params ["_diag_step_sub"];
-    ["Converting navGrid to navFlatHM",_diag_step_sub,true,400] call A3A_fnc_customHint;
+    ["Converting navRoadHM to navGridHM",_diag_step_sub,true,400] call A3A_fnc_customHint;
+};
+
+private _fnc_reportHaltingError = {
+    params [["_details","!Sub Error, error details failed to created.", [ "" ]]];
+    private _errorTitle = "navRoadHM to Grid";
+    [1,_errorTitle+" | "+_details,"fn_NG_convert_navRoadHM_navGridHM"] call A3A_fnc_log;
+    [_errorTitle,"Please check RPT.<br/>" + _details,true,600] call A3A_fnc_customHint;
+};
+private _fnc_reportMinorError = {
+    params [["_details","!Sub Error, error details failed to created.", [ "" ]]];
+    [1,"navRoadHM to Grid | "+_details,"fn_NG_convert_navRoadHM_navGridHM"] call A3A_fnc_log;
 };
 
 ["Creating hashMaps"] call _fnc_diag_render;
@@ -38,12 +49,17 @@ private _fnc_convert_NGStruct_NFStructKV = {
     private _connections = [];
     {
         private _roadType = (A3A_NG_const_roadTypeEnum find (getRoadInfo _road #0)) max (A3A_NG_const_roadTypeEnum find (getRoadInfo _x #0));   // Take the best type
-        private _position = _namePosHM get str _x;
+        private _roadName = str _x;
+        if !(_roadName in _namePosHM) then {
+            ["Removed road at "+ str getPosATL _x + " because it's absent from _namePosHM. Warning: This may introduce one-ways!"] call _fnc_reportHaltingError;
+            continue;
+        };
+        private _position = _namePosHM get _roadName;
         private _distance = _connectedDistances#_forEachIndex;
         if (_roadType == -1) then {
             _roadType = 0;
-            [1,"Road at "+str _roadPos + " had type of following line: (If missing then nil)","fn_NG_convert_navRoadHM_navGridHM"] call A3A_fnc_log;
-            [1,"Road at "+str _roadPos + " had getRoadInfo of "+str (getRoadInfo _road),"fn_NG_convert_navRoadHM_navGridHM"] call A3A_fnc_log;
+            ["Road at "+str _roadPos + " had type of following line: (If missing then nil)"] call _fnc_reportMinorError;
+            ["Road at "+str _roadPos + " had getRoadInfo of "+str (getRoadInfo _road)] call _fnc_reportMinorError;
         };
         if (_x in _forcedConnections) then {    // Insert a midpoint that has no road assigned.
             _position = _roadPos vectorAdd _position vectorMultiply 0.5;
@@ -67,8 +83,8 @@ while {count _nameUnprocessedHM != 0} do {
     private _nextNames = [_newName];// Array<road string>
 
     while {count _nextNames != 0} do {
-        //private _diag_sub_counter = count _navFlatHM;
-        //("Completion &lt;" + ((100 * _diag_sub_counter /_diag_totalSegments) toFixed 1) + "% &gt; Processing segment &lt;" + (str _diag_sub_counter) + " / " + (str _diag_totalSegments) + "&gt;") call _fnc_diag_render;
+        private _diag_sub_counter = count _navFlatHM;
+        ("Completion &lt;" + ((100 * _diag_sub_counter /_diag_totalSegments) toFixed 1) + "% &gt; Node &lt;" + (str _diag_sub_counter) + " / " + (str _diag_totalSegments) + "&gt;") call _fnc_diag_render;
 
         private _currentNames = _nextNames; // Array<struct>
         _nextNames = [];

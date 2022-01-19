@@ -28,7 +28,7 @@ if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {["Garrison", "You ca
 //if (((_nearX in outpostsFIA) and !(isOnRoad _positionX)) /*or (_nearX in citiesX)*/ or (_nearX in controlsX)) exitWith {hint "You cannot manage garrisons on this kind of zone"; _nul=CreateDialog "garrison_menu"};
 _outpostFIA = if (_nearX in outpostsFIA) then {true} else {false};
 _wPost = if (_outpostFIA and !(isOnRoad getMarkerPos _nearX)) then {true} else {false};
-_garrison = if (! _wpost) then {garrison getVariable [_nearX,[]]} else {Faction(reb,"groupSniper")};
+_garrison = if (! _wpost) then {garrison getVariable [_nearX,[]]} else {FactionGet(reb,"groupSniper")};
 
 if (_typeX == "rem") then
 	{

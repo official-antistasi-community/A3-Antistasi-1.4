@@ -52,7 +52,7 @@ if (_turret isEqualTo [0]) then {
     _ctrl ctrlSetText GunnerIcon;
     _ctrl ctrlSetTooltip localize "STR_HR_GRG_Pylons_Gunner";
 } else {
-    Trace("Turret switched to Driver, Ctrl: %1",_ctrl);
+    Trace_1("Turret switched to Driver, Ctrl: %1",_ctrl);
     _ctrl ctrlSetText DriverIcon;
     _ctrl ctrlSetTooltip localize "STR_HR_GRG_Pylons_Driver";
 };

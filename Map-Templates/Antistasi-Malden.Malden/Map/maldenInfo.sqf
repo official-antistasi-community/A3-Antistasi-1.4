@@ -33,7 +33,7 @@ switch (_filename) do {
 	};
 	case "antennas": {
 		//[_posAntennas, _blacklistIndex,]
-		[nil, nil, nil];
+		[nil, nil];
 	};
 	case "bank": {
 		//_posBank
@@ -47,6 +47,11 @@ switch (_filename) do {
 	};
 	case "climate": {
 	"arid";
+	};
+	case "fuelStationTypes":{
+		private _fuelStationTypes = ["Land_fs_feed_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_Feed_F"];
+		//_fuelStationTypes
+		[_fuelStationTypes];
 	};
 	default {
 		Info("Map Info given unknown parameter");

@@ -220,7 +220,7 @@ _sfLoadoutData set ["marksmanRifles", [
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["srifle_GM6_F", "", "", "optic_SOS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
-["srifle_GM6_F", "", "", "optic_lrps", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
+["srifle_GM6_F", "", "", "optic_LRPS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
 ["srifle_LRR_tna_F", "", "", "optic_SOS", [], [], ""],
 ["srifle_LRR_tna_F", "", "", "optic_LRPS_tna_F", [], [], ""]
 ]];

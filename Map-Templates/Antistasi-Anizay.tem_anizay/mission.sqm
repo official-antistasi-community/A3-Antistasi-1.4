@@ -226,10 +226,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=10030831;
-class ScenarioData
-{
-	wreckRemovalMaxTime=3600;
-};
 class Mission
 {
 	assetType="Free";
@@ -237,15 +233,10 @@ class Mission
 	{
 		briefingName=$STR_antistasi_mission_info_anizay_mapname_text;
 		resistanceWest=0;
-		startWind=0.1;
-		forecastWind=0.1;
-		forecastWaves=0.1;
 		year=2035;
 		month=6;
 		hour=10;
 		minute=0;
-		startFogDecay=0.0049333;
-		forecastFogDecay=0.0049333;
 	};
 	class Entities
 	{

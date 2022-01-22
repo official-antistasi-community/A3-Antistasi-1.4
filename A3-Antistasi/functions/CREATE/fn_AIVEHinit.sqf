@@ -13,6 +13,8 @@ params ["_veh", "_side"];
 if (isNil "_veh") exitWith {};
 #define OccAndInv(VAR) (FactionGet(occ,VAR) + FactionGet(inv,VAR))
 
+Debug_2("Initialising vehicle %1 on client %2 now", typeOf _veh, clientOwner);
+
 if !(isNil { _veh getVariable "ownerSide" }) exitWith
 {
 	// vehicle already initialized, just swap side and exit
@@ -37,6 +39,9 @@ if (_side == teamPlayer) then
 
 // Sync the vehicle textures if necessary
 _veh call A3A_fnc_vehicleTextureSync;
+
+//Adds the vehicle weapon nerf
+[_veh] call A3A_fnc_addSprayEH;
 
 private _typeX = typeOf _veh;
 if (

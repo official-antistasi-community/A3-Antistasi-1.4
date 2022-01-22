@@ -30,6 +30,7 @@ A3A_paramTable = [
     ["autoSaveInterval", "autoSaveInterval", [], 3600],
     ["distanceMission", "mRadius", [], 4000],
     ["skillMult", "AISkill", [], 2],
+    ["accuracyMult", "VehicleNerf", [], 0],
     ["civTraffic", "civTraffic", [], 2],
     ["limitedFT", "allowFT", [], true],									// backwards naming...
     ["napalmEnabled", "napalmEnabled", [], false],

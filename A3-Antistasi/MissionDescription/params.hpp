@@ -109,6 +109,13 @@ class Params
         texts[] = {"Load from save (Default: Normal)","Easy","Normal","Hard"};
         default = 9999;
     };
+    class VehicleNerf
+    {
+        title = "Vehicle Accuracy";
+        values[] = {9999,0,250,1000,2500,5000};
+        texts[] = {"Load from save (No nerf - Normal behaviour)", "No nerf - Normal behaviour", "Slight nerf", "Balanced nerf - Makes infantry viable", "Heavy nerf", "Extreme nerf - Vehicles will nearly never hit"};
+        default = 9999;
+    };
     class unlockItem
     {
         title = "Number of the same item required to unlock";

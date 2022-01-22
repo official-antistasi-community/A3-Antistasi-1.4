@@ -284,7 +284,7 @@ blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
 
 // fuel rework
 ("fuelStationTypes" call _fnc_mapInfo) params [["_fuelStationTypes", [], [[]]]];
-if( "_fuelStationTypes" isEqualTo [] ) then {_fuelStationTypes = ["Land_Fuelstation_Feed_F", "Land_fs_feed_F", "Land_FuelStation_01_pump_F", "Land_FuelStation_01_pump_malevil_F", "Land_FuelStation_03_pump_F", "Land_FuelStation_02_pump_F"]}; 
+if( _fuelStationTypes isEqualTo [] ) then {_fuelStationTypes = ["Land_Fuelstation_Feed_F", "Land_fs_feed_F", "Land_FuelStation_01_pump_F", "Land_FuelStation_01_pump_malevil_F", "Land_FuelStation_03_pump_F", "Land_FuelStation_02_pump_F"]}; 
 A3A_fuelStationTypes = _fuelStationTypes;
 A3A_fuelStations = nearestObjects [[worldSize/2, worldSize/2], _fuelStationTypes, worldSize];
 A3A_fuelStations apply {

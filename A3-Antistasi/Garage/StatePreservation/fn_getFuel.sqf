@@ -24,4 +24,5 @@
 */
 params [["_vehicle", objNull, [objNull]]];
 private _fuelCargo = getFuelCargo _vehicle;
-[fuel _vehicle, _fuelCargo, _vehicle getVariable ["ace_refuel_currentFuelCargo",-2]];
+private _maxAceFuelCargo = getNumber (configOf _vehicle/"ace_refuel_fuelCargo");
+[fuel _vehicle, _fuelCargo, if (A3A_hasAce) then { _vehicle getVariable ["ace_refuel_currentFuelCargo",_maxAceFuelCargo] } else {nil} ];

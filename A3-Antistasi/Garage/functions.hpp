@@ -27,6 +27,7 @@ class HR_GRG
         class toggleConfirmBttn {};
         class toggleLock {};
         class updateCamPos {};
+        class updateVehicleCount {};
         class validateGarage {};
     };
     class Extras
@@ -53,6 +54,15 @@ class HR_GRG
         class pylonToggleMirror {};
         class reloadPylons {};
         class updatePylons {};
+    };
+    class Refuel
+    {
+        file = "Garage\Refuel";
+        class broadcastStateUpdate {};
+        class getTotalFuelCargo {};
+        class prefix {};
+        class reciveStateUpdate {};
+        class refuelVehicleFromSources {};
     };
     class StatePreservation
     {

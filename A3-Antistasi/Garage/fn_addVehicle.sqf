@@ -174,6 +174,7 @@ private _refreshCode = {
             [_x, _this#_forEachIndex] call HR_GRG_fnc_reloadCategory;
         };
     } forEach _cats;
+    call HR_GRG_fnc_updateVehicleCount;
 };
 [ _catsRequiringUpdate, _refreshCode ] remoteExecCall ["call", HR_GRG_Users];
 

@@ -56,6 +56,7 @@ private _toRemove = [];
 //refresh category if client
 if (!isNull player) then {
     {
+        call HR_GRG_fnc_updateVehicleCount;
         if (ctrlEnabled _x) then {
             [_x, _forEachIndex] call HR_GRG_fnc_reloadCategory;
         };

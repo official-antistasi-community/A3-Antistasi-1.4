@@ -65,6 +65,7 @@ if (_vehNodes isEqualType []) then {
             Trace_4("Mount Added to list | Class: %1 | UID: %2 | Checked: %3 | Size: %4", _staticClass, _x, (_checkedOut isEqualTo HR_GRG_PlayerUID), _type);
         };
     } forEach (HR_GRG_Vehicles#4);//statics
+    lbSort _ctrl;
 };
 if (_reloadMounts) then { [] call HR_GRG_fnc_reloadMounts };
 
@@ -154,6 +155,63 @@ private _typeSource = switch (_source find true) do {
     default {localize "STR_HR_GRG_InfoPanel_isNotSource"};
 };
 
+
+//state indicator
+private _getPrecentageAmmo = {
+    if (count _this isEqualTo 0) exitWith {0};
+    private _sumPercent = 0;
+    {
+        (if (_x#0) then { //pylon
+            [_x#1#3, _x#1#4]
+        } else { //muzzle
+            [_x#1#0,_x#1#2]
+        }) params ["_mag", "_count"];
+
+        private _maxAmmo = getNumber (configFile/"CfgMagazines"/_mag/"count");
+        _sumPercent = _sumPercent + (_count/_maxAmmo);
+    } forEach _this;
+    _sumPercent / count _this;
+};
+
+private _hasAmmo = (HR_GRG_previewVehState#2) isNotEqualTo [];//Preview state >> Ammo data
+private _avgAmmo = (HR_GRG_previewVehState#2) call _getPrecentageAmmo; //Preview state >> Ammo data
+private _avgFuel = HR_GRG_previewVehState#0#0; //Preview state >> Fuel data >> Fuel
+private _avgDmg = 1 - (HR_GRG_previewVehState#1#0); //Preview state >> Damage data >> Damage
+private _selectStateColor = {
+    switch true do {
+        case (_this > 0.5): {"#ffffff"}; // white
+        case (_this > 0.25): {"#edc80e"}; // yellow
+        default            {"#e00202"}; // red
+    };
+};
+
+private _vehAmmoState = composeText [image RearmIcon, " " + (if (_hasAmmo) then {str round (_avgAmmo * 100) + " %"} else {"-"})];
+private _vehFuelState = composeText [image RefuelIcon, " " + str round (_avgFuel * 100) + " %"];
+private _vehDmgState = composeText [image RepairIcon, " " + str round (_avgDmg * 100) + " %"];
+
+private _vehicleState = composeText [
+    _vehAmmoState setAttributes ["color", (if (_hasAmmo) then {_avgAmmo} else {1}) call _selectStateColor]
+    , "    "
+    , _vehFuelState setAttributes ["color", _avgFuel call _selectStateColor]
+    , "    "
+    , _vehDmgState setAttributes ["color", _avgDmg call _selectStateColor]
+] setAttributes ["align", "center"];
+
+// update remainingfuel from sources available for refueling
+private _availableFuel = call HR_GRG_fnc_getTotalFuelCargo;
+private _maxFuel = getNumber ( configOf HR_GRG_previewVeh / (if (A3A_hasACE) then {"ace_refuel_fuelCapacity"} else {"fuelCapacity"}) );
+private _requiredFuel = _maxFuel - (fuel HR_GRG_previewVeh * _maxFuel);
+private _refuelHintText = if (_requiredFuel < _availableFuel) then {
+    localize "STR_HR_GRG_Refuel_fullRefuel" + " " + str _requiredFuel + "L"
+} else {
+    if (_availableFuel > 0) then {
+        (localize "STR_HR_GRG_Refuel_partialRefuel") + " " + str((_maxFuel - _requiredFuel) + (_availableFuel/_maxFuel*100)) + "% "
+    } else {
+        localize "STR_HR_GRG_Refuel_noRefuel"
+    }
+};
+private _refuelInfo = composeText [_refuelHintText, lineBreak, localize "STR_HR_GRG_Refuel_factionFuel", " ", [_availableFuel, "L"] call HR_GRG_fnc_prefix];
+
 //Crew
 private _fullCrew = fullCrew [HR_GRG_previewVeh, "", true];
 private _driver = [];
@@ -214,4 +272,4 @@ _generalInfo = composeText [
     ,image MassIcon," ",localize "STR_HR_GRG_InfoPanel_Mass"," ", str _mass
 ];
 
-_ctrl ctrlSetStructuredText composeText [_topBar, lineBreak, _typeSource, _spacer, _seatsInfo, _spacer, _cargoInfo, _spacer, _generalInfo];
+_ctrl ctrlSetStructuredText composeText [_topBar, lineBreak, _typeSource, _spacer, "Vehicle state:", lineBreak, _vehicleState,lineBreak,_refuelInfo, _spacer, _seatsInfo, _spacer, _cargoInfo, _spacer, _generalInfo];

@@ -68,7 +68,8 @@ private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_inf
 {server setVariable [_x select 0,_x select 1]} forEach _townPopulations;
 private _hardCodedPopulation = _townPopulations isNotEqualTo [];
 
-"!(getText (_x >> ""Name"") isEqualTo """") &&
+"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+!(getText (_x >> ""Name"") isEqualTo """") &&
 !((configName _x) in _disabledTowns)"
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 

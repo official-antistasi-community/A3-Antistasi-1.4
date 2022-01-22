@@ -20,7 +20,6 @@ private _fnc_mapInfo = compile preProcessFileLineNumbers format [ EQPATHTOFOLDER
 private ["_name", "_sizeX", "_sizeY", "_size", "_pos", "_mrk"];
 
 if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
-
 	"((getText (_x >> ""type"")) == ""Hill"") &&
 	!((getText (_x >> ""name"")) isEqualTo """") &&
 	!(configName _x isEqualTo ""Magos"")"
@@ -73,7 +72,7 @@ private _hardCodedPopulation = _townPopulations isNotEqualTo [];
 !((configName _x) in _disabledTowns)"
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
-	_nameX = configName _x;
+	_nameX = getText (_x >> "Name");
 	_sizeX = getNumber (_x >> "radiusA");
 	_sizeY = getNumber (_x >> "radiusB");
 	_size = [_sizeY, _sizeX] select (_sizeX > _sizeY);

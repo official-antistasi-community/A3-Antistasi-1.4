@@ -10,15 +10,15 @@
 	0. <any> data returned
 
     Scope: Server
-    Environment: scheduled 
+    Environment: scheduled
     Public: [yes]
     Dependencies:
 
     Example:
-	private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
+	private _fnc_mapInfo = compile preProcessFileLineNumbers format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];;
 	("antennas" call _fnc_mapInfo) params [["_posAntennas", [], [[]]], ["_blacklistIndex",[],[[]]]];
 
-    License: MIT license 
+    License: MIT license
 */
 #include "..\Includes\common.inc"
 
@@ -32,7 +32,7 @@ switch (_filename) do {
 		["vill_Sosnovka",54],["vill_Msta",96],["vill_Lopatino",159],["city_Zelenogorsk",280],["vill_Orlovets",65],["city_Berezino",340],["vill_Myshkino",49],["vill_Petrovka",45],
 		["city_Chernogorsk",761],["vill_Bor",46],["vill_Nizhnoye",146],["vill_Balota",147],["vill_Khelm",110],["city_Krasnostav",194],["vill_Komarovo",127],["city_Elektrozavodsk",745],
 		["city_Solnychniy",224],["vill_Kamyshovo",196],["vill_Tulga",35],["vill_Pavlovo",99],["vill_Kamenka",127],["vill_Olsha",20]];
-		
+
 		//[_popValue, _disableTownName];
 		[_popValue, nil];
 	};
@@ -43,7 +43,7 @@ switch (_filename) do {
 		[5264.35,5314.45,-0.00253296], [6443.78,6545.48,0.0928955], [4967.81,9966.56,0], [8127.52,9151.57,0],
 		[13477.6,3345.84,0.0730896], [13010.1,5964.96,-0.0163116], [12937,12763.6,0.164017]];
 		private _blacklistIndex = [0, 4, 8, 9];
-		
+
 		//[_posAntennas, _blacklistIndex,]
 		[_posAntennas, _blacklistIndex];
 	};

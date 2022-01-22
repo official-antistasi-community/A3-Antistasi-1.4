@@ -5,7 +5,7 @@ private _worldName = toLower worldName;
 //======================|
 // Climate Getter       |
 //======================|
-private _fileName = "Map\" + toLower worldName + "Info.sqf"; //can be moved away as it has nothing to do with selector anymore
+private _fileName = format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];; //can be moved away as it has nothing to do with selector anymore
 A3A_climate = ["climate"] call compile preProcessFileLineNumbers _filename;
 
 private _fnc_requirementMeet = { getArray (_this/"requiredAddons") findIf { !(isClass (configFile/"CfgPatches"/_x)) } == -1 };

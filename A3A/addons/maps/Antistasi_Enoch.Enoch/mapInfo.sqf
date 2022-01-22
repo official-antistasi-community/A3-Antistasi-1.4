@@ -10,15 +10,15 @@
 	0. <any> data returned
 
     Scope: Server
-    Environment: scheduled 
+    Environment: scheduled
     Public: [yes]
     Dependencies:
 
     Example:
-	private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
+	private _fnc_mapInfo = compile preProcessFileLineNumbers format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];;
 	("antennas" call _fnc_mapInfo) params [["_posAntennas", [], [[]]], ["_blacklistIndex",[],[[]]]];
 
-    License: MIT license 
+    License: MIT license
 */
 #include "..\Includes\common.inc"
 
@@ -31,7 +31,7 @@ switch (_filename) do {
 		["Lembork",50],["Lipina",100],["Lukow",200],["Muratyn",50],["Nadbor",600],["Nidek",100],["Olszanka",100],["Polana",100],["Radacz",150],["Radunin",150],["Roztoka",50],
 		["Sitnik",150],["Sobotka",100],["Tarnow",200],["Topolin",650],["Zalesie",150],["Zapadlisko",100]];
 
-		
+
 		//[_popValue, _disableTownName];
 		[_popValue, nil];
 	};

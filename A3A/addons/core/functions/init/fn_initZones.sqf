@@ -16,7 +16,7 @@ citiesX = [];
 
 [] call A3A_fnc_prepareMarkerArrays;
 
-private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
+private _fnc_mapInfo = compile preProcessFileLineNumbers format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];;
 private ["_name", "_sizeX", "_sizeY", "_size", "_pos", "_mrk"];
 
 if ((toLower worldName) in ["altis", "chernarus_summer"]) then {

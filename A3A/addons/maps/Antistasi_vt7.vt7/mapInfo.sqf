@@ -10,15 +10,15 @@
 	0. <any> data returned
 
     Scope: Server
-    Environment: scheduled 
+    Environment: scheduled
     Public: [yes]
     Dependencies:
 
     Example:
-	private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
+	private _fnc_mapInfo = compile preProcessFileLineNumbers format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];;
 	("antennas" call _fnc_mapInfo) params [["_posAntennas", [], [[]]], ["_blacklistIndex",[],[[]]]];
 
-    License: MIT license 
+    License: MIT license
 */
 #include "..\Includes\common.inc"
 
@@ -41,7 +41,7 @@ switch (_filename) do {
 		private _posAntennas =
 		[[907.35,2955.65,0], [6644.62,7275.58,0.00256348], [6242.47,13009.4,0.39426], [13061.2,6487.81,0.760155],
 		[1768.36,15526.1,0.00277328], [15449.2,16603.3,0]];
-	
+
 		//[_posAntennas, _blacklistIndex,]
 		[_posAntennas, nil];
 	};

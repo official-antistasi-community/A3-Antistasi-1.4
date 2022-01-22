@@ -6,7 +6,7 @@ FIX_LINE_NUMBERS()
 Info("InitGarrisons started");
 
 //get terrain specific info
-private _fnc_mapInfo = compile preProcessFileLineNumbers ("Map\"+ toLower worldName +"Info.sqf");
+private _fnc_mapInfo = compile preProcessFileLineNumbers format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];;
 
 _fnc_initMarker =
 {

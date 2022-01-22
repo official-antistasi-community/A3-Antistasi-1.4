@@ -4,11 +4,8 @@ OnLoadName = $STR_antistasi_mission_info_vn_khe_sanh_mapname_short_text;
 OnLoadMission = $STR_antistasi_mission_info_vn_khe_sanh_blurb_text;
 briefingName = $STR_antistasi_mission_info_vn_khe_sanh_mapname_text;
 overviewText = $STR_antistasi_mission_info_vn_khe_sanh_description_text;
-
-class CfgFunctions
-{
-    #include "..\MissionDescription\CfgFunctionsContents.hpp"
-};
+loadScreen = "Pictures\Mission\pic.jpg"; // NB, this will resolve from mission root
+overviewPicture = "Pictures\Mission\pic.jpg"; // NB, this will resolve from mission root
 
 class CfgNotifications
 {

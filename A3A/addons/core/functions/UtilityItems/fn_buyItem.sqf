@@ -18,9 +18,9 @@ Dependencies:
 Example:
     [player, _fuelDrum # 0, _fuelDrum # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem
 */
-#include "..\..\Includes\common.inc"
+#include "..\..\script_component.hpp"
 params  [
-    ["_unit", objNull, [objNull]], 
+    ["_unit", objNull, [objNull]],
     ["_spawnItem", "", [""]],
     ["_price", 0, [0]],
     ["_callbacks", [], [[]]]
@@ -54,7 +54,7 @@ private _item = _spawnItem createVehicle _position;
 _item allowDamage false;
 
 //object globals
-_item setVariable ["A3A_canGarage", true, true]; 
+_item setVariable ["A3A_canGarage", true, true];
 _item setVariable ["A3A_itemPrice", _price, true];
 
 // callbacks
@@ -65,5 +65,5 @@ _item setVariable ["A3A_itemPrice", _price, true];
             [_item, _jipKey] remoteExecCall [_func_name, 0, _jipKey];
     } else {
         [_item] spawn (missionNamespace getVariable _func_name);
-    };    
+    };
 } foreach (_callbacks);

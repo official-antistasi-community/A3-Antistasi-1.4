@@ -20,7 +20,7 @@
 
     License: MIT license
 */
-#include "..\Includes\common.inc"
+#include "..\script_component.hpp"
 
 params["_filename", ""];
 

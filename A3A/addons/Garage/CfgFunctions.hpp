@@ -29,6 +29,7 @@ class CfgFunctions
             class toggleConfirmBttn {};
             class toggleLock {};
             class updateCamPos {};
+            class updateVehicleCount {};
             class validateGarage {};
         };
         class Extras
@@ -68,6 +69,16 @@ class CfgFunctions
             class setDamage {};
             class setFuel {};
             class setState {};
+        };
+
+        class Refuel
+        {
+            file = QPATHTOFOLDER(Refuel);
+            class broadcastStateUpdate {};
+            class getTotalFuelCargo {};
+            class prefix {};
+            class reciveStateUpdate {};
+            class refuelVehicleFromSources {};
         };
 
         class Public

@@ -59,4 +59,14 @@ private _HR_GRG_SelectedVehicles = [-1,-1,""];
     _ctrl lbSetPictureRightColorSelected [_index, [0.85,0.85,0.55,1]];
 
 } forEach (HR_GRG_Vehicles#_catIndex);
+
+//sort and find selected item to re-select it after the clear
+lbSort _ctrl;
+private _selected = -1;
+for "_i" from 0 to (lbSize _ctrl) -1 do {
+    if ( (HR_GRG_SelectedVehicles#1) isEqualTo (_ctrl lbValue _i) ) then {
+        _selected = _i;
+    };
+};
+
 _ctrl lbSetCurSel _selected;

@@ -21,9 +21,20 @@ class HR_GRG_VehicleSelect
             idc = HR_GRG_IDC_CatText;
             x = SCREEN_LEFT;
             y = SCREEN_TOP;
-            w = 39 * GRID_NOUISCALE_W;
+            w = 30 * GRID_NOUISCALE_W;
             h = 4 * GRID_NOUISCALE_H;
             size = TEXT_SIZE_LARGE;
+        };
+        class HR_GRG_CapacityCount: HR_GRG_RscStructuredText
+        {
+            idc = HR_GRG_IDC_CapacityCount;
+            x = SCREEN_LEFT + 30 * GRID_NOUISCALE_W;
+            y = SCREEN_TOP;
+            w = 9 * GRID_NOUISCALE_W;
+            h = 4 * GRID_NOUISCALE_H;
+            size = TEXT_SIZE_SMALL;
+            tooltip = $STR_HR_GRG_Generic_capacity;
+            align = "right";
         };
 
         // Vehicle listboxes
@@ -287,16 +298,6 @@ class HR_GRG_VehicleSelect
         };
 
         // Source pannel
-        /*
-        class HR_GRG_SourcePanel: HR_GRG_RscStructuredText
-        {
-            idc = HR_GRG_IDC_SourcePanel;
-            x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
-            y = SCREEN_BOTTOM - 52 * GRID_NOUISCALE_H;
-            w = 39 * GRID_NOUISCALE_W;
-            h = 6 * GRID_NOUISCALE_H;
-            size = TEXT_SIZE_MEDIUM;
-        };*/
         class HR_GRG_SourcePanel: HR_GRG_RscControlsGroup
         {
             x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
@@ -346,21 +347,32 @@ class HR_GRG_VehicleSelect
         };
 
         // Info Panel
-        class HR_GRG_InfoPanel: HR_GRG_RscStructuredText
+        class HR_GRG_InfoPanelWrapper: HR_GRG_RscControlsGroup
         {
-            idc = HR_GRG_IDC_InfoPanel;
             x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
             y = SCREEN_BOTTOM - 45 * GRID_NOUISCALE_H;
             w = 39 * GRID_NOUISCALE_W;
             h = 45 * GRID_NOUISCALE_H;
             size = TEXT_SIZE_MEDIUM;
+
+            class controls
+            {
+                class HR_GRG_InfoPanel: HR_GRG_RscStructuredText
+                {
+                    idc = HR_GRG_IDC_InfoPanel;
+                    x = 0;
+                    y = 0;
+                    w = 39 * GRID_NOUISCALE_W;
+                    h = 45 * GRID_NOUISCALE_H;
+                    size = TEXT_SIZE_MEDIUM;
+                };
+            };
         };
 
         // Camera controls hint
         class HR_GRG_KeyBindHint: HR_GRG_RscStructuredText
         {
             idc = HR_GRG_IDC_KeyBindHint;
-            // size = safeZoneW / safeZoneH min 1.2 / 1.2 / 37.5;
             x = SCREEN_LEFT + 39 * GRID_NOUISCALE_W;
             y = SCREEN_BOTTOM - 7 * GRID_NOUISCALE_H;
             w = 36 * GRID_NOUISCALE_W;

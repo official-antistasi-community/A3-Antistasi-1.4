@@ -40,7 +40,7 @@ HR_GRG_dLock = {""};
 //garage pool cap
 if (isNil "HR_GRG_PoolBase") then { HR_GRG_PoolBase = 10 }; //can be overwritten by CBA settings
 if (isNil "HR_GRG_PoolIncr") then { HR_GRG_PoolIncr = 2 }; //can be overwritten by CBA settings
-HR_GRG_VehCap = { HR_GRG_PoolBase + warTier * HR_GRG_PoolIncr };
+HR_GRG_VehCap = { HR_GRG_PoolBase + tierWar * HR_GRG_PoolIncr };
 
 //Pylon config
 if (isNil "HR_GRG_Pylons_Enabled") then { HR_GRG_Pylons_Enabled = true }; //can be overwritten by CBA settings
@@ -61,14 +61,14 @@ HR_GRG_fnc_vehInit = {
     if (_this isKindOf "StaticWeapon") then {staticsToSave pushBack _this; publicVariable "staticsToSave"};
     [_this, TeamPlayer] call A3A_fnc_AIVEHinit;
 }; //is passed vehicle as _this
-HR_GRG_onOpenEvent = { 
+HR_GRG_onOpenEvent = {
     //hide Antistasi's top information string as it has no use in the Garage
-    ["GARAGE", true] call A3A_fnc_disableInfoBar; 
-    player setCaptive false; 
+    ["GARAGE", true] call A3A_fnc_disableInfoBar;
+    player setCaptive false;
 };
-HR_GRG_onCloseEvent = { 
+HR_GRG_onCloseEvent = {
     //show Antistasi's top information string
-    ["GARAGE", false] call A3A_fnc_disableInfoBar; 
+    ["GARAGE", false] call A3A_fnc_disableInfoBar;
 };
 
 //CBA settings

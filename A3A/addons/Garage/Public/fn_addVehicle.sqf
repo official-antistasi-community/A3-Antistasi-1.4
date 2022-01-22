@@ -62,7 +62,7 @@ if (_class in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate"
 if (_vehicle getVariable ['A3A_canGarage', false]) exitwith{
     if (_class in [FactionGet(reb,"vehicleFuelDrum"), FactionGet(reb,"vehicleFuelTank")]) then {
         [floor (
-            [_vehicle] call A3A_fnc_remainingFuel * 
+            [_vehicle] call A3A_fnc_remainingFuel *
             (_vehicle getVariable ['A3A_itemPrice', 0])
         )] remoteExec ["A3A_fnc_resourcesPlayer", _client];
         ["STR_HR_GRG_Feedback_addVehicle_Fuel_sold"] remoteExec ["HR_GRG_fnc_Hint", _client];
@@ -183,6 +183,7 @@ private _refreshCode = {
             [_x, _this#_forEachIndex] call HR_GRG_fnc_reloadCategory;
         };
     } forEach _cats;
+    call HR_GRG_fnc_updateVehicleCount;
 };
 [ _catsRequiringUpdate, _refreshCode ] remoteExecCall ["call", HR_GRG_Users];
 

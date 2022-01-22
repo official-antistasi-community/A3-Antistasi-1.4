@@ -18,6 +18,10 @@
             <Original>Cars</Original>
             <English>Cars</English>
         </Key>
+        <Key ID="STR_HR_Garage_Generic_capacity">
+            <Original>Available space in garage</Original>
+            <English>Available space in garage</English>
+        </Key>
         <Key ID="STR_HR_GRG_Generic_Armored">
             <Original>Armor</Original>
             <English>Armor</English>
@@ -57,6 +61,14 @@
         <Key ID="STR_HR_GRG_Generic_PylonDisabled">
             <Original>Pylons require an ammo source to edit</Original>
             <English>Pylons require an ammo source to edit</English>
+        </Key>
+                <Key ID="STR_HR_GRG_Generic_full">
+            <Original>full</Original>
+            <English>full</English>
+        </Key>
+        <Key ID="STR_HR_GRG_Generic_capacity">
+            <Original>Available space in garage</Original>
+            <English>Available space in garage</English>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_Header">
             <Original>Sources:</Original>
@@ -145,6 +157,18 @@
         <Key ID="STR_HR_GRG_InfoPanel_Mass">
             <Original>Mass:</Original>
             <English>Mass:</English>
+        </Key>
+        <Key ID ="STR_HR_GRG_Refuel_fullRefuel">
+            <Original>Vehicle can be fully refueled with</Original>
+        </Key>
+        <Key ID ="STR_HR_GRG_Refuel_partialRefuel">
+            <Original>Vehicle can only be partially refueled to</Original>
+        </Key>
+        <Key ID ="STR_HR_GRG_Refuel_noRefuel">
+            <Original>Vehicle can not be refueled</Original>
+        </Key>
+        <Key ID ="STR_HR_GRG_Refuel_factionFuel">
+            <Original>Factions has</Original>
         </Key>
         <Key ID="STR_HR_GRG_openGarage_Action">
             <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</Original>

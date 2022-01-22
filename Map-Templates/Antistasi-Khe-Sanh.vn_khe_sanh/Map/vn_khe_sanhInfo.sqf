@@ -70,7 +70,7 @@ switch (_filename) do {
 	"tropical";
 	};
 	case "fuelStationTypes":{
-		private _fuelStationTypes = ["Land_vn_fuelstation_01_pump_f", "Land_vn_fuelstation_02_pump_f", "Land_vn_fuelstation_feed_f"];
+		private _fuelStationTypes = ["Land_vn_fuelstation_01_pump_f", "Land_vn_fuelstation_02_pump_f", "Land_vn_fuelstation_feed_f", "Land_vn_usaf_fueltank_75_01"];
 		//_fuelStationTypes
 		[_fuelStationTypes];
 	};

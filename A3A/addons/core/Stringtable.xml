@@ -15,7 +15,7 @@
     </Container>
     <Container name="dialog_headquarters">
       <Key ID="STR_antistasi_dialogs_hq_frame_text">
-        <Original>HQ Options: Commander Only</Original>
+        <Original>HQ Options: Member Only</Original>
         <English>HQ Options: Commander Only</English>
         <French>Options du QG: Commandant Uniquement</French>
         <Russian>Опции Штаба: Только для Командира</Russian>

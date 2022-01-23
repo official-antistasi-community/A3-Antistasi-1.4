@@ -3719,7 +3719,6 @@ class Mission
 							text="Your Headquarters";
 							type="hd_flag";
 							colorName="ColorGUER";
-							angle=62.260929;
 							id=1263;
 							atlOffset=2.7037606e+012;
 						};

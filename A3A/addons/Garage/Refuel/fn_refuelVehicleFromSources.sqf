@@ -65,7 +65,7 @@ while {count (HR_GRG_Sources#1) > 0} do {
         };
         _neededCapacity = 0;
     };
-    _stateChanges pushBack [_sourceUID, _fuelData, 1];
+    _stateChanges pushBack [_sourceUID, _fuelData, 0];
 };
 
 //broadcast source vehicle changes to clinets

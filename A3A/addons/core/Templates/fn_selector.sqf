@@ -96,7 +96,7 @@ private _addons = [];
 private _addonVics = configFile/"A3A"/"AddonVics";
 {
     if !(_x call _fnc_requirementMeet) then { continue };
-    private _root = getText (_x/"path");
+    private _root = getText (_x/"path") + "\";
     _nodes append (getArray (_x/"Nodes") apply {_root + _x});
     _addons append (getArray (_x/"files") apply {
         private _side = switch (toLower (_x#0)) do {
@@ -147,7 +147,7 @@ call compile preprocessFileLineNumbers (_nodes deleteAt _vanillaNodes);
 
 {
     _x call A3A_fnc_loadAddon;
-    Info_2("Loading addon: %1 for side: %2",_this#1,_this#0);
+    Info_2("Loading addon: %1 for side: %2",_x#1,_x#0);
 } forEach _addons;
 
 call A3A_fnc_compileMissionAssets;

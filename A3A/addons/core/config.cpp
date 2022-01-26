@@ -36,5 +36,7 @@ class A3A {
     #include "CfgFunctions.hpp"
 #endif
 
-#include "defines.hpp"
-#include "dialogs.hpp"
+#ifndef UseDoomGUI
+    #include "defines.hpp"
+    #include "dialogs.hpp"
+#endif

@@ -1,6 +1,9 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 if (!hasInterface) exitWith {};
+#ifdef UseDoomGUI
+    if (true) exitWith { ERROR("Disabled due to UseDoomGUI Switch.") };
+#endif
 private ["_textX","_display","_setText"];
 //sleep 3;
 disableSerialization;

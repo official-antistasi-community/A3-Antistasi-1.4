@@ -14,25 +14,37 @@ switch (_key) do {
                 };
             } else {
                 closedialog 0;
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
                 createDialog "radio_comm";
+#endif
             };
         };
     };
 
     case DIK_HOME: {
         if (!(_this select 4)) exitWith {};
-        if (isNull (uiNameSpace getVariable "H8erHUD")) exitWith {};
+        if (isNull (uiNameSpace getVariable "H8erHUD")) exitWith {
+#ifdef UseDoomGUI
+    if (true) exitWith { ERROR("Disabled due to UseDoomGUI Switch.") };
+#endif
+        };
 
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
         private _display = uiNameSpace getVariable "H8erHUD";
         private _infoBarControl = _display displayCtrl 1001;
-        
+
         if (ctrlShown _infoBarControl) then {
-            ["KEYS", true] call A3A_fnc_disableInfoBar; 
-            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_off", false] call A3A_fnc_customHint; 
+            ["KEYS", true] call A3A_fnc_disableInfoBar;
+            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_off", false] call A3A_fnc_customHint;
         } else {
-            ["KEYS", false] call A3A_fnc_disableInfoBar; 
-            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_on", false] call A3A_fnc_customHint; 
+            ["KEYS", false] call A3A_fnc_disableInfoBar;
+            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_on", false] call A3A_fnc_customHint;
         };
+#endif
     };
 
     case DIK_END: {

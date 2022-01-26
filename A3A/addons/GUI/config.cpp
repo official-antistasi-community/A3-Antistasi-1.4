@@ -23,8 +23,8 @@ class CfgPatches {
 #endif
 
 // Whether order should be maintained is unknown.
-#include "..\dialogs\defines.hpp"
-#include "..\dialogs\textures.inc"
-#include "..\dialogs\controls.hpp"
-#include "..\dialogs\dialogs.hpp"
-#include "..\dialogs\statusBar.hpp"
+#include "dialogues\defines.hpp"
+#include "dialogues\textures.inc"
+#include "dialogues\controls.hpp"
+#include "dialogues\dialogs.hpp"
+#include "dialogues\statusBar.hpp"

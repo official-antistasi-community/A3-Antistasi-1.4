@@ -21,3 +21,10 @@ class CfgPatches {
 #else
     #include "CfgFunctions.hpp"
 #endif
+
+// Whether order should be maintained is unknown.
+#include "..\dialogs\defines.hpp"
+#include "..\dialogs\textures.inc"
+#include "..\dialogs\controls.hpp"
+#include "..\dialogs\dialogs.hpp"
+#include "..\dialogs\statusBar.hpp"

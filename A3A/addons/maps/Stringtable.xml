@@ -48,16 +48,6 @@
         <Chinesesimp>因为没有什么比自由更重要。</Chinesesimp>
         <Russian>Потому что нет ничего важнее свободы.</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
-        <Original>Antistasi Altis (BLUFOR)</Original>
-        <English>Antistasi Altis (BLUFOR)</English>
-        <Chinesesimp>Antistasi Altis (蓝方)</Chinesesimp>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
-        <Original>Antistasi - Liberation of Altis (BLUFOR)</Original>
-        <English>Antistasi - Liberation of Altis (BLUFOR)</English>
-        <Chinesesimp>Antistasi - 解放 Altis (蓝方)</Chinesesimp>
-      </Key>
       <Key ID="STR_antistasi_mission_info_stratis_mapname_short_text">
         <Original>Antistasi Stratis</Original>
         <English>Antistasi Stratis</English>
@@ -441,38 +431,6 @@
         <Original>Tree? Which tree?!?</Original>
         <English>Tree? Which tree?!?</English>
         <Chinesesimp>树? 哪棵树?!?</Chinesesimp>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_2_mapname_short_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_2_mapname_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_2_description_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_2_blurb_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_3_mapname_short_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_3_mapname_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_3_description_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_3_blurb_text">
-        <Original>Placeholder</Original>
-        <English>Placeholder</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_sahrani_mapname_short_text">
         <Original>Antistasi Sahrani</Original>

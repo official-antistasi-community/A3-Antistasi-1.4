@@ -47,7 +47,6 @@ switch (_filename) do {
 		//[_mrkNATO, _mrkCSAT, _controlsNATO, _controlsCSAT];
 		[nil, _mrkCSAT, nil, _controlsCSAT];
 	};
-	};
 	case "climate": {
 	"arid";
 	};

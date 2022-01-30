@@ -30,16 +30,13 @@ private _fnc_gatherTemplates = {
                     _fileNameComposition pushBack _faction;
                 };
 
-                if (isClass (_x/"file")) then { //file overwrite (absolute path, excluding file extention)
-                    _fileNameComposition = [getText (_x/"file")];
-                };
-
                 if (isClass (_x/"camo")) then { //example: Vanilla_AI_CSAT_Arid.sqf
                     private _camo = if (getText (_x/"camo"/_worldName) isNotEqualTo "") then { getText (_x/"camo"/_worldName) } else { getText (_x/"camo"/"Default") };
                     _fileNameComposition pushBack _camo;
                 };
-                if (isClass (_x/"file")) then { //file overwrite (absolute path, excluding file extention)
-                    _pool pushBackUnique getText (_x/"file");
+
+                if (isText (_x/"file")) then { //file overwrite (absolute path)
+                    _pool pushBackUnique ((getText (_x/"file")) + ".sqf");
                 } else {
                     _pool pushBackUnique (_rootPath + (_fileNameComposition joinString "_") + ".sqf");
                 };

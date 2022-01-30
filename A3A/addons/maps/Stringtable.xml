@@ -14,6 +14,33 @@
       </Key>
     </Container>
     <Container name="mission_info">
+    <!--> Example of mission info:
+        String uses in description.exe:
+        briefingName = $STR_antistasi_mission_info_${worldname}_mapname_text;
+        OnLoadName = $STR_antistasi_mission_info_${worldname}_mapname_short_text;
+        OnLoadMission = $STR_antistasi_mission_info_${worldname}_blurb_text;
+        overviewText = $STR_antistasi_mission_info_${worldname}_description_text;
+
+        $STR_antistasi_mission_info_${worldname}_mapname_text is used for config.cpp CfgMissions entry for the world and mission.sqm briefingName entry
+        cfgPaths:
+            CfgMissions >> MPMissions >> Antistasi_${worldname} >> briefingName
+            Mission >> Intel >> briefingName
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        <Key ID="STR_antistasi_mission_info_${worldname}_mapname_short_text">
+        <Original>Antistasi Altis</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_${worldname}_mapname_text">
+        <Original>Antistasi - Liberation of Altis</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_${worldname}_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_${worldname}_blurb_text">
+        <Original>Because nothing is more important than Freedom.</Original>
+      </Key>
+    //////////////////////////////////////////////////////////////////////////////////
+    </-->
       <Key ID="STR_antistasi_mission_info_Altis_mapname_short_text">
         <Original>Antistasi Altis</Original>
         <English>Antistasi Altis</English>

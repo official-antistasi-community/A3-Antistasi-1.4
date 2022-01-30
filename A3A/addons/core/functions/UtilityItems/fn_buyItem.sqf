@@ -44,11 +44,7 @@ if (_money < _price) exitwith {["Item Purchase", "You can't afford this Item."] 
 _unit setVariable["A3A_spawnItem_cooldown", time + 15];
 
 //take money away
-if (player == theBoss) then {
-    [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
-} else {
-    [-_price] call A3A_fnc_resourcesPlayer;
-};
+[-_price] call A3A_fnc_resourcesPlayer;
 
 
 //spawn the Item

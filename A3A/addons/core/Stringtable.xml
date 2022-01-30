@@ -615,9 +615,6 @@
         <Chinesesimp>成为抵抗军领袖, 成为英雄。</Chinesesimp>
         <Korean>저항세력의 지도자가 되고 영웅이 되십시오.</Korean>
       </Key>
-      <Key ID="STR_antistasi_credits_generic_version_text">
-        <Original>2.5.3</Original>
-      </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_text">

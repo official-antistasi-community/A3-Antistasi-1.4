@@ -169,7 +169,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_camlaonam_mapname_text;
+		briefingName=$STR_antistasi_mission_info_cam_lao_nam_mapname_text;
 		resistanceWest=0;
 		year=1968;
 		month=7;

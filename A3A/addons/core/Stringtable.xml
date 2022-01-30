@@ -2195,96 +2195,115 @@
     <Container name="game_options">
       <Key ID="STR_antistasi_dialogs_maps_game_options">
         <Original>Game Options</Original>
+        <French>Options de jeu</French>
         <Chinesesimp>游戏选项</Chinesesimp>
         <Russian>Параметры</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_limit">
         <Original>Civ Limit</Original>
+        <French>Limite civile</French>
         <Chinesesimp>平民限制</Chinesesimp>
         <Russian>Лимит гражданских</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_limit_tooltip">
         <Original>Set the max number of spawned civilians. Affects game performance.</Original>
+        <French>Définit le nombre maximum de civils. Affecte les performances du jeu.</French>
         <Chinesesimp>设置平民的最大生成数量。影响游戏性能。</Chinesesimp>
         <Russian>Установите максимальное количество мирных жителей. Влияет на производительность игры.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_distance">
         <Original>Spawn Distance</Original>
+        <French>Distance d'apparition</French>
         <Chinesesimp>生成距离</Chinesesimp>
         <Russian>Дистанция спавна</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_distance_tooltip">
         <Original>Affects performance. Please use this with caution. Set it to lower distances if you feel Antistasi is running bad.</Original>
+        <French>Affecte les performances. Veuillez l'utiliser avec prudence. Réglez-le sur des distances plus basses si vous pensez qu'Antistasi fonctionne mal.</French>
         <Chinesesimp>影响性能。请小心使用。如果你觉得 Antistasi 运行不够流畅, 把它调到更低的距离。</Chinesesimp>
         <Russian>Влияет на производительность. Пожалуйста, используйте это с осторожностью. Установите меньшее расстояние, если чувствуете, что Antistasi работает плохо.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_ai_limiter">
         <Original>AI Limiter</Original>
+        <French>Limiteur d'IA</French>
         <Chinesesimp>AI限制</Chinesesimp>
         <Russian>Лимит ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_ai_limiter_tooltip">
-        <Original>Sets how much local and simulated AI can spawn in the map. Affects performance and AI ""intelligence"". Use with caution. This is not an exact number as vehicles and squad leaders will allways spawn.</Original>
+        <Original>Sets how much local and simulated AI can spawn in the map. Affects performance and AI ""intelligence"". Use with caution. This is not an exact number as vehicles and squad leaders will always spawn.</Original>
+        <French>Définit la quantité d'IA locale et simulée pouvant apparaître sur la carte. Affecte les performances et l'""intelligence"" de l'IA. Utiliser avec précaution. Ce n'est pas un nombre exact car les véhicules et les chefs d'escouade apparaîtront toujours.</French>
         <Chinesesimp>设置地图中可以生成多少本地和模拟AI。影响性能和AI"智能"。小心使用。这不是一个准确的数字, 因为载具和班长始终会生成。</Chinesesimp>
         <Russian>Устанавливает, сколько локальных и смоделированных ИИ может появиться на карте. Влияет на производительность и «интеллект» ИИ. Используйте с осторожностью. Это не точное число, поскольку всегда будут появляться машины и лидеры отрядов.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_music">
         <Original>Music ON/OFF</Original>
+        <French>Musique ON/OFF</French>
         <Chinesesimp>音乐播放/关闭</Chinesesimp>
         <Russian>Музыка ВКЛ / ВЫКЛ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_music_tooltip">
         <Original>Disables/Enable situational music.</Original>
+        <French>Désactive/Active la musique de situation.</French>
         <Chinesesimp>禁用/启用背景音乐</Chinesesimp>
         <Russian>Отключение/включение музыки</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_save">
         <Original>Persistent Save</Original>
+        <French>Sauvegarde persistante</French>
         <Chinesesimp>持久化存档</Chinesesimp>
         <Russian>Сохранение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_save_tooltip">
-        <Original>Use this option to save your current game. It does save the most important data in a ""Grand Theft Auto"" way. This opnion allows good MP save and independent saves of any version update. Vanilla saves are disabled because of lack of several features.</Original>
+        <Original>Use this option to save your current game. It does save the most important data in a ""Grand Theft Auto"" way. This option allows good MP save and independent saves of any version update. Vanilla saves are disabled because of lack of several features.</Original>
+        <French>Utilisez cette option pour sauvegarder votre partie en cours. Il enregistre les données les plus importantes à la manière de "" Grand Theft Auto "". Cette option permet une bonne sauvegarde MP et des sauvegardes indépendantes de toute mise à jour de version. Les sauvegardes Vanilla sont désactivées en raison du manque de plusieurs fonctionnalités.</French>
         <Chinesesimp>使用此选项保存当前游戏进度。它确实以"侠盗猎车手"的方式保存了绝大多数重要数据。此功能实现了优秀的多人游戏存档功能, 并确保存档不受版本更新影响。由于缺少某些特性, 游戏原生的存档功能被禁用。</Chinesesimp>
         <Russian>Используйте эту опцию, чтобы сохранить вашу текущую игру. Он действительно сохраняет самые важные данные способом "Grand Theft Auto". Этот вариант обеспечивает хорошее сохранение MP и независимое сохранение любого обновления версии. Ванильные сохранения отключены из-за отсутствия некоторых функций.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_fps_limiter_plus">
         <Original>+10 AI Limit</Original>
+        <French>+10 limite d'IA</French>
         <Chinesesimp>+10 AI上限</Chinesesimp>
         <Russian>+10 к лимиту ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_fps_limiter_minus">
         <Original>-10 AI Limit</Original>
+        <French>-10 limite d'IA</French>
         <Chinesesimp>-10 AI上限</Chinesesimp>
         <Russian>-10 к лимиту ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_config">
         <Original>Spawn Distance Config</Original>
+        <French>Configuration de la distance d'apparition</French>
         <Chinesesimp>生成距离配置</Chinesesimp>
         <Russian>Настройка дистаниции спавна</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_config_plus">
         <Original>+100 Spawn Dist.</Original>
+        <French>+100 distance d'apparition</French>
         <Chinesesimp>+100米生成距离</Chinesesimp>
         <Russian>+100 метров</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_config_minus">
         <Original>-100 Spawn Dist.</Original>
+        <French>-100 distance d'apparition</French>
         <Chinesesimp>-100米生成距离</Chinesesimp>
         <Russian>-100 метров</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_config">
         <Original>Civ Presence Config</Original>
+        <French>Configuration de la présence civile</French>
         <Chinesesimp>平民存在配置</Chinesesimp>
         <Russian>Настройка гражданского насиления</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_config_plus">
         <Original>+1 Max Civs</Original>
+        <French>+1 Civil max</French>
         <Chinesesimp>+1 平民上限</Chinesesimp>
         <Russian>+1 к лимиту</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_config_minus">
         <Original>-1 Max Civs</Original>
+        <French>-1 Civil max</French>
         <Chinesesimp>-1 平民上限</Chinesesimp>
         <Russian>-1 к лимиту</Russian>
       </Key>
@@ -2292,51 +2311,61 @@
     <Container name="mission_menu">
       <Key ID="STR_antistasi_dialogs_mission_menu_available_missions">
         <Original>Available Missions</Original>
+        <French>Missions disponibles</French>
         <Chinesesimp>可用任务</Chinesesimp>
         <Russian>Доступные миссии</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_assassination_missions">
         <Original>Assassination Mission</Original>
+        <French>Mission d'assassinat</French>
         <Chinesesimp>刺杀任务</Chinesesimp>
         <Russian>Миссия на убийство</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_convoy_ambush">
         <Original>Convoy Ambush</Original>
+        <French>Embuscade de convoi</French>
         <Chinesesimp>车队伏击</Chinesesimp>
         <Russian>Засада конвоя</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_destroy_missions">
         <Original>Destroy Missions</Original>
+        <French>Mission de destruction</French>
         <Chinesesimp>摧毁任务</Chinesesimp>
         <Russian>Миссия на уничтожение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_conquest_missions">
         <Original>Conquest Missions</Original>
+        <French>Missions de conquête</French>
         <Chinesesimp>攻占任务</Chinesesimp>
         <Russian>Миссия захвата</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_logistics_missions">
         <Original>Logistics Missions</Original>
+        <French>Missions logistiques</French>
         <Chinesesimp>后勤任务</Chinesesimp>
         <Russian>Миссия перевозки</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_logistics_missions_tooltip">
         <Original>Missions to acquire money or equipment</Original>
+        <French>Missions pour acquérir de l'argent ou du matériel</French>
         <Chinesesimp>获取资金和装备的任务</Chinesesimp>
         <Russian>Миссии по добыче денег или оборудования</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_support_missions">
         <Original>Support Missions</Original>
+        <French>Missions de soutien</French>
         <Chinesesimp>支援任务</Chinesesimp>
         <Russian>Миссия поддержки</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_support_missions_tooltip">
         <Original>Missions to increase your support within the population</Original>
+        <French>Des missions pour augmenter votre soutien au sein de la population</French>
         <Chinesesimp>增加民众支持度的任务</Chinesesimp>
         <Russian>Миссии по увеличению вашей поддержки среди населения</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_rescue_missions">
         <Original>Rescue Missions</Original>
+        <French>Missions de sauvetage</French>
         <Chinesesimp>救援任务</Chinesesimp>
         <Russian>Спасательные миссии</Russian>
       </Key>
@@ -2344,86 +2373,103 @@
     <Container name="radio_comm">
       <Key ID="STR_antistasi_dialogs_radio_comm">
         <Original>Battle Options</Original>
+        <French>Options de combat</French>
         <Chinesesimp>作战选项</Chinesesimp>
         <Russian>Управление</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel">
         <Original>Fast Travel</Original>
+        <French>Téléportation</French>
         <Chinesesimp>快速旅行</Chinesesimp>
         <Russian>Быстрое Перемещение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel_tooltip">
         <Original>Teleport your squad or a HC selected squad to a friendly zone depending on several factors</Original>
+        <French>Téléportez votre équipe ou une équipe sélectionnée avec HC dans une zone amie en fonction de plusieurs facteurs</French>
         <Chinesesimp>满足条件时, 将您的班组或指挥部小队传送至友军占领区</Chinesesimp>
         <Russian>Телепортируйте свой отряд или отряд, выбранный HC, в дружественную зону в зависимости от нескольких факторов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_player_money">
         <Original>Player and Money</Original>
+        <French>Joueur et argent</French>
         <Chinesesimp>玩家与资金</Chinesesimp>
         <Russian>Игрок и деньги</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_player_money_tooltip">
         <Original>Look at some player and interact with him</Original>
+        <French>Regardez un joueur et interagissez avec lui</French>
         <Chinesesimp>面向玩家并与其互动</Chinesesimp>
         <Russian>Посмотрите на игрока чтобы взаимодействовать с ним</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover">
         <Original>Undercover ON</Original>
+        <French>Incognito ON</French>
         <Chinesesimp>启用伪装</Chinesesimp>
         <Russian>Скрытность ВКЛ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover_tooltip">
         <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you</Original>
+        <French>Devenez Incognito si vous remplissez les conditions. L'IA ennemie ne vous attaquera pas tant qu'elle ne vous aura pas découverte</French>
         <Chinesesimp>满足条件时可进入伪装状态。敌方AI在识破你之前不会攻击你</Chinesesimp>
         <Russian>Станьте скрытным, если вы соответствуете требованиям. Вражеский ИИ не нападет на вас, пока не обнаружит вас</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_garage">
         <Original>Garage Vehicle</Original>
+        <French>Ranger Véhicule</French>
         <Chinesesimp>载具仓库</Chinesesimp>
         <Russian>Гараж</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_garage_tooltip">
         <Original>Vehicle or Static gun you're looking at will be garaged, interact with Flag to retrieve</Original>
+        <French>Le véhicule ou l'arme statique que vous regardez sera rangé, interagissez avec le drapeau pour le récupérer</French>
         <Chinesesimp>你面前的载具或固定式武器将被存放至车库, 与旗帜来取出</Chinesesimp>
         <Russian>Автомобиль или статическая пушка, на которую вы смотрите, будут помещены в гараж, взаимодействуйте с Флагом, чтобы получить</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_construct">
         <Original>Construct Here</Original>
+        <French>Construire ici</French>
         <Chinesesimp>建造</Chinesesimp>
         <Russian>Строительство</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_construct_tooltip">
         <Original>Construct in the spot where you are a selected building facing this direction</Original>
+        <French>Construire à l'endroit où vous vous trouvez un bâtiment sélectionné faisant face à cette direction</French>
         <Chinesesimp>在你所在的位置, 朝向此方向建造所选建筑</Chinesesimp>
         <Russian>Постройте в том месте, где вы выбрали здание, обращенное в этом направлении</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
+        <French>Déverrouiller véhicule</French>
         <Chinesesimp>解锁载具</Chinesesimp>
         <Russian>Разблокировать технику</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle_tooltip">
         <Original>Allow other groups to mount this vehicle</Original>
+        <French>Autoriser d'autres groupes à monter sur ce véhicule</French>
         <Chinesesimp>允许其他小队搭乘该载具</Chinesesimp>
         <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_ai_management">
         <Original>AI Management</Original>
+        <French>Gestion de l'IA</French>
         <Chinesesimp>AI管理</Chinesesimp>
         <Russian>Управление ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_ai_management_tooltip">
         <Original>Several AI options</Original>
+        <French>Plusieurs options d'IA</French>
         <Chinesesimp>AI选项</Chinesesimp>
         <Russian>Управление ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_commander">
         <Original>Commander</Original>
+        <French>Commandant</French>
         <Chinesesimp>指挥官</Chinesesimp>
         <Russian>Командующий</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_commander_tooltip">
         <Original>Open commander options</Original>
+        <French>Ouvrir les options du commandant</French>
         <Chinesesimp>打开指挥官选项</Chinesesimp>
         <Russian>Открыть меню командования</Russian>
       </Key>
@@ -2431,51 +2477,61 @@
     <Container name="vehicle_manager">
       <Key ID="STR_antistasi_dialogs_vehicle_manager">
         <Original>Vehicle Manager</Original>
+        <French>Gestionnaire de véhicules</French>
         <Chinesesimp>载具管理</Chinesesimp>
         <Russian>Техника</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle">
         <Original>Garage\Sell Vehicle</Original>
+        <French>Ranger\Vendre Véhicule</French>
         <Chinesesimp>存储\出售载具</Chinesesimp>
         <Russian>Гараж\Продать технику</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle_tooltip">
         <Original>Add to garage / sell the vehicle you are currently looking at</Original>
+        <French>Ajouter au garage / vendre le véhicule que vous regardez actuellement</French>
         <Chinesesimp>将面前的载具添加到车库或出售</Chinesesimp>
         <Russian>Добавить в гараж/продать технику, на которую сейчас смотрите</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads">
         <Original>Vehicles and Squads</Original>
+        <French>Véhicules et escouades</French>
         <Chinesesimp>载具和班组</Chinesesimp>
         <Russian>Техника и отряды</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads_tooltip">
         <Original>Options related to vehicle management in HC controlled squads</Original>
+        <French>Options liées à la gestion des véhicules dans les escouades contrôlées par HC</French>
         <Chinesesimp>与指挥部班组车辆管理相关的选项</Chinesesimp>
         <Russian>Варианты, связанные с управлением транспортными средствами в отрядах, контролируемых HC</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support">
         <Original>Add to Air Support</Original>
+        <French>Ajouter au soutien aérien</French>
         <Chinesesimp>增加至空中支援</Chinesesimp>
         <Russian>Добавить в воздушную поддержку</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support_tooltip">
         <Original>Gain Airstrike points giving this vehicle to the faction Air pool</Original>
+        <French>Gagnez des points de frappe aérienne en donnant ce véhicule à la réserve aérienne de la faction</French>
         <Chinesesimp>将此载具捐献给阵营空军以换取空袭点数</Chinesesimp>
         <Russian>Получите очки авиаудара, отдав этот автомобиль в запас воздуха фракции</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
+        <French>Déverrouiller le véhicule</French>
         <Chinesesimp>解锁载具</Chinesesimp>
         <Russian>Разблокировать технику</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_unlock_vehicle_tooltip">
         <Original>Allow other groups to mount this vehicle</Original>
+        <French>Autoriser d'autres groupes à monter dans ce véhicule</French>
         <Chinesesimp>允许其他小队搭乘该载具</Chinesesimp>
         <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_veh_query">
         <Original>Add Vehicle to Squad?</Original>
+        <French>Ajouter un véhicule à l'escouade ?</French>
         <Chinesesimp>将载具分配给班组?</Chinesesimp>
         <Russian>Добавить машину в отряд?</Russian>
       </Key>
@@ -2530,16 +2586,19 @@
     <Container name="AI_management">
       <Key ID="STR_antistasi_dialogs_AI_management">
         <Original>Battle Options</Original>
+        <French>Options de combat</French>
         <Chinesesimp>作战选项</Chinesesimp>
         <Russian>Управление ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_AI_control">
         <Original>Temp. AI Control</Original>
+        <French>Contrôle temporaire de l'IA</French>
         <Chinesesimp>临时控制AI</Chinesesimp>
         <Russian>Временный контроль ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_AI_control_tooltip">
         <Original>Take personal control of the selected squad member or HC squad leader and be able to perform any kind of actions for 60 seconds. Control state will be cancelled if the player or the controlled unit receives any kind of damage</Original>
+        <French>Prenez le contrôle personnel du membre d'escouade sélectionné ou du chef d'escouade HC et soyez capable d'effectuer n'importe quel type d'actions pendant 60 secondes. L'état de contrôle sera annulé si le joueur ou l'unité contrôlée subit tout type de dommage</French>
         <Chinesesimp>亲自控制选定的班组成员或指挥部班组的班长, 并可在60秒内执行任何动作。如果玩家或受控单位受到任何伤害, 控制状态将被取消</Chinesesimp>
         <Russian>Возьмите под личный контроль выбранного члена отряда или лидера отряда HC и получите возможность выполнять любые действия в течение 60 секунд. Состояние контроля будет отменено, если игрок или управляемый юнит получит какой-либо урон.</Russian>
       </Key>
@@ -2617,11 +2676,13 @@
     <Container name="commander_comm">
       <Key ID="STR_antistasi_dialogs_commander_comm">
         <Original>Commander Battle Options</Original>
+        <French>Options de combat du commandant</French>
         <Chinesesimp>指挥官作战选项</Chinesesimp>
         <Russian>Меню командущего</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_recruit">
         <Original>Recruit Squad</Original>
+        <French>Recruter une escouade</French>
         <Chinesesimp>招募班组</Chinesesimp>
         <Russian>Набрать отряд</Russian>
       </Key>
@@ -2632,11 +2693,13 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
         <Original>Air Support</Original>
+        <French>Appui aérien</French>
         <Chinesesimp>空中支援</Chinesesimp>
         <Russian>Авиаподдержка</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support_tooltip">
         <Original>Ask for Air Support (uses Airstrike points)</Original>
+        <French>Demander un soutien aérien (utilise des points de frappe aérienne)</French>
         <Chinesesimp>呼叫空中支援(消耗空袭点数)</Chinesesimp>
         <Russian>Запросить авиаподдержку (использует очки авиаподдержки)</Russian>
       </Key>
@@ -2692,6 +2755,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_sell">
         <Original>Sell Vehicle</Original>
+        <French>Vendre Véhicule</French>
         <Chinesesimp>出售载具</Chinesesimp>
         <Russian>Продать технику</Russian>
       </Key>
@@ -2768,6 +2832,7 @@
     <Container name="construction_menu">
       <Key ID="STR_antistasi_dialogs_construction_menu">
         <Original>Construction Menu</Original>
+        <French>Menu Construction</French>
         <Chinesesimp>建造菜单</Chinesesimp>
         <Russian>Меню строительства</Russian>
       </Key>
@@ -2936,16 +3001,19 @@
     <Container name="garage_sell">
       <Key ID="STR_antistasi_dialogs_garage_sell">
         <Original>Sell or Garage Vehicle?</Original>
+        <French>Vendre ou Ranger le Véhicule?</French>
         <Chinesesimp>出售或存储车辆</Chinesesimp>
         <Russian>Продать или поставить в гараж?</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_sell_add">
         <Original>Garage Vehicle</Original>
+        <French>Ranger Véhicule</French>
         <Chinesesimp>存储车辆</Chinesesimp>
         <Russian>В гараж</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_sell_sell">
         <Original>Sell Vehicle</Original>
+        <French>Vendre Véhicule</French>
         <Chinesesimp>出售车辆</Chinesesimp>
         <Russian>Продать</Russian>
       </Key>

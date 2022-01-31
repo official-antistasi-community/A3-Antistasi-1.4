@@ -427,4 +427,112 @@ class Templates
 
         Nodes[] = {"3CBBAF_Logistics_Nodes.sqf"};
     };
+    class CUP
+    {
+        priorityOcc = 6;
+        priorityInv = 6;
+        priorityReb = 6;
+        priorityCiv = 6;
+
+        requiredAddons[] = {"CUP_BaseConfigs"};
+        path = QPATHTOFOLDER(Templates\Templates\CUP);
+
+        class AI
+        {
+            class ACR
+			{
+				class camo {
+					Default = "Arid";
+				};
+			};
+			class AFRF
+			{
+				class camo {
+					Default = "Arid";
+				};
+			};
+			class BAF
+			{
+				class camo {
+					Default = "Arid";
+				};
+			};
+			class CDF
+			{
+				class camo {
+					Default = "Temperate";
+				};
+			};
+			class RACS
+			{
+				class camo {
+					Default = "Arid";
+				};
+			};
+			class SLA
+			{
+				class camo {
+					Default = "Temperate";
+				};
+			};
+			class TKA
+			{
+				class camo {
+					Default = "Arid";
+				};
+			};
+			class US_Army
+			{
+				displayName = "USAF"
+				class camo {
+					Default = "Arid";
+				};
+			};
+			class US_Marine
+			{
+				displayName = "USMC"
+				class camo {
+					Default = "Arid";
+				};
+			};
+        };
+
+        class Reb
+        {
+            class NPC
+            {
+                class camo
+                {
+                    Default = "Temperate";
+                };
+            };
+			class TKL
+            {
+                class camo
+                {
+                    Default = "Arid";
+                };
+            };
+        };
+
+        class Civ {};
+
+        class worldDefaults
+        {
+            class Default
+            {
+                Occ = "USAF";
+                Inv = "AFRF";
+                Reb = "NPC";
+            };
+
+            class chernarus_summer : Default
+            {
+                Occ = "CDF";
+            };
+            class chernarus_winter : chernarus_summer {};
+        };
+
+        Nodes[] = {"CUP_Logistics_Nodes.sqf"};
+    };
 };

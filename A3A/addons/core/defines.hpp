@@ -101,7 +101,7 @@
 //Base Classes//
 ////////////////
 
-class RscText
+class A3A_core_BattleMenuText
 {
     access = 0;
     idc = -1;
@@ -122,7 +122,7 @@ class RscText
 
 };
 
-class RscPicture
+class A3A_core_BattleMenuPicture
 {
     access = 0;
     idc = -1;
@@ -142,7 +142,7 @@ class RscPicture
     h = 0.15;
 };
 
-class RscButton
+class A3A_core_BattleMenuRedButton
 {
 
 access = 0;
@@ -177,7 +177,7 @@ access = 0;
     onMouseExit = "(_this select 0) ctrlSetTextColor [0.73,0,0,1]";
 };
 
-class RscFrame
+class A3A_core_BattleMenuFrame
 {
     type = CT_STATIC;
     idc = -1;
@@ -189,7 +189,7 @@ class RscFrame
     sizeEx = 0.03;
     text = "";
 };
-class BOX
+class A3A_core_BattleMenuBOX
 {
    type = CT_STATIC;
     idc = -1;
@@ -213,7 +213,7 @@ class ScrollBar
   thumb = "#(argb,8,8,3)color(1,1,1,1)";
  };
 */
-class RscListBox
+class A3A_core_BattleMenuListBox
 {
      access = 0;
      type = 5;

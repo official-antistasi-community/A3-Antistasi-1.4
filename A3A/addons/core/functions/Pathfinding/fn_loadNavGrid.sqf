@@ -28,20 +28,12 @@ if !(isNil "roadDataDone") exitWith
 
 Info("Started loading nav grid");
 
-private _path = format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\navGrid.sqf), worldName];
-private _abort = false;
-try
-{
-	//Load in the nav grid array
-	[] call compile preprocessFileLineNumbers _path;
-}
-catch
-{
-    Error_1("Road database at %1 could not be loaded", _path);
+NavGrid = getArray (missionConfigFile/"A3A"/"Navgrid");
+if (NavGrid isEqualTo []) then {NavGrid = getArray (configFile/"A3A"/"Navgrid"/worldName)};
+if (NavGrid isEqualTo []) exitWith {
+    Error_1("Road database for %1 could not be loaded", worldName);
     Error("Nav Grid with the name format navGrid<WorldName> are no longer compatible! DO NOT LOAD THEM!");
-	_abort = true;
 };
-if(_abort) exitWith {};
 
 {
 	private _index = _forEachIndex;

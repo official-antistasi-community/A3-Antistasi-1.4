@@ -44,7 +44,7 @@ switch (_filename) do {
 		[nil, _mrkCSAT, nil, nil];
 	};
 	case "climate": {
-	"";
+	"arid";
 	};
 	case "fuelStationTypes":{
 		private _fuelStationTypes = ["Land_FuelStation_Feed_F"];

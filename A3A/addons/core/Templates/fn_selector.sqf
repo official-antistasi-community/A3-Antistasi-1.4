@@ -1,12 +1,12 @@
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _worldName = toLower worldName;
 
-//======================|
-// Climate Getter       |
-//======================|
-private _fileName = format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];; //can be moved away as it has nothing to do with selector anymore
-A3A_climate = ["climate"] call compile preProcessFileLineNumbers _filename;
+private _worldName = toLower worldName;
+A3A_climate = if (isText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")) then {
+    getText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")
+} else {
+    getText (configFile/"A3A"/"mapInfo"/_worldName/"climate")
+};
 
 private _fnc_requirementMeet = { getArray (_this/"requiredAddons") findIf { !(isClass (configFile/"CfgPatches"/_x)) } == -1 };
 

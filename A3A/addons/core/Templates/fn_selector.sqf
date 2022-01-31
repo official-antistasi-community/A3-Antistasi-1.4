@@ -24,14 +24,14 @@ private _fnc_gatherTemplates = {
                 if (toLower _faction isEqualTo "camo") then {
                     if (_countClasses > 1) then { continue };
 
-                    private _camo = if (getText (_x/_worldName) isNotEqualTo "") then { getText (_x/_worldName) } else { getText (_x/"Default") };
+                    private _camo = if (getText (_x/A3A_climate) isNotEqualTo "") then { getText (_x/A3A_climate) } else { getText (_x/"Default") };
                     _fileNameComposition pushBack _camo;
                 } else {
                     _fileNameComposition pushBack _faction;
                 };
 
                 if (isClass (_x/"camo")) then { //example: Vanilla_AI_CSAT_Arid.sqf
-                    private _camo = if (getText (_x/"camo"/_worldName) isNotEqualTo "") then { getText (_x/"camo"/_worldName) } else { getText (_x/"camo"/"Default") };
+                    private _camo = if (getText (_x/"camo"/A3A_climate) isNotEqualTo "") then { getText (_x/"camo"/A3A_climate) } else { getText (_x/"camo"/"Default") };
                     _fileNameComposition pushBack _camo;
                 };
 

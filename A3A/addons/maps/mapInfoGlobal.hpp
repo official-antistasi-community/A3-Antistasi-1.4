@@ -1,5 +1,5 @@
 class mapInfo {
-    class Altis {
+    class altis {
         population[] = {
             {"Therisa",154},{"Zaros",371},{"Poliakko",136},{"Katalaki",95},{"Alikampos",115},{"Neochori",309},{"Stavros",122},{"Lakka",173},{"AgiosDionysios",84},{"Panochori",264},{"Topolia",33},{"Ekali",9},{"Pyrgos",531},{"Orino",45},{"Neri",242},{"Kore",133},{"Kavala",660},{"Aggelochori",395},{"Koroni",32},{"Gravia",291},{"Anthrakia",143},{"Syrta",151},{"Negades",120},{"Galati",151},{"Telos",84},{"Charkia",246},{"Athira",342},{"Dorida",168},{"Ifestiona",48},{"Chalkeia",214},{"AgiosKonstantinos",39},{"Abdera",89},{"Panagia",91},{"Nifi",24},{"Rodopoli",212},{"Kalithea",36},{"Selakano",120},{"Frini",69},{"AgiosPetros",11},{"Feres",92},{"AgiaTriada",8},{"Paros",396},{"Kalochori",189},{"Oreokastro",63},{"Ioannina",48},{"Delfinaki",29},{"Sofia",179},{"Molos",188}
         };
@@ -71,7 +71,7 @@ class mapInfo {
         climate = "arctic";
     };
 
-    class Enoch {
+    class enoch {
         population[] = {
             {"Adamow",200},{"Bielawa",150},{"Borek",150},{"Brena",150},{"Dolnik",100},{"Gieraltow",400},{"Gliniska",150},{"Grabin",250},{"Huta",150},{"Karlin",50},{"Kolembrody",100},{"Lembork",50},{"Lipina",100},{"Lukow",200},{"Muratyn",50},{"Nadbor",600},{"Nidek",100},{"Olszanka",100},{"Polana",100},{"Radacz",150},{"Radunin",150},{"Roztoka",50},{"Sitnik",150},{"Sobotka",100},{"Tarnow",200},{"Topolin",650},{"Zalesie",150},{"Zapadlisko",100}
         };
@@ -88,7 +88,7 @@ class mapInfo {
         climate = "temperate";
     };
 
-    class Kunduz {
+    class kunduz {
         population[] = {};
         disabledTowns[] = {"22","23"};
         antennas[] = {};
@@ -99,7 +99,7 @@ class mapInfo {
         climate = "arid";
     };
 
-    class Malden {
+    class malden {
         population[] = {};
         disabledTowns[] = {"Malden_C_Airport"};
         antennas[] = {};
@@ -125,7 +125,7 @@ class mapInfo {
         climate = "arid";
     };
 
-    class Stratis {
+    class stratis {
         population[] = {};
         disabledTowns[] = {};
         antennas[] = {};
@@ -151,7 +151,7 @@ class mapInfo {
         climate = "arid";
     };
 
-    class Tanoa {
+    class tanoa {
         population[] = {
             {"Lami01",277},{"Lifou01",350},{"Lobaka01",64},{"LaFoa01",38},{"Savaka01",33},{"Regina01",303},{"Katkoula01",413},{"Moddergat01",195},{"Losi01",83},{"Tanouka01",380},{"Tobakoro01",45},{"Georgetown01",347},{"Kotomo01",160},{"Rautake01",113},{"Harcourt01",325},{"Buawa01",44},{"SaintJulien01",353},{"Balavu01",189},{"Namuvaka01",45},{"Vagalala01",174},{"Imone01",31},{"Leqa01",45},{"Blerick01",71},{"Yanukka01",189},{"OuaOue01",200},{"Cerebu01",22},{"Laikoro01",29},{"Saioko01",46},{"Belfort01",240},{"Oumere01",333},{"Muaceba01",18},{"Nicolet01",224},{"Lailai01",23},{"Doodstil01",101},{"Tavu01",178},{"Lijnhaven01",610},{"Nani01",19},{"PetitNicolet01",135},{"PortBoise01",28},{"SaintPaul01",136},{"Nasua01",60},{"Savu01",184},{"Murarua01",258},{"Momea01",159},{"LaRochelle01",532},{"Koumac01",51},{"Taga01",31},{"Buabua01",27},{"Penelo01",189},{"Vatukoula01",15},{"Nandai01",130},{"Tuvanaka01",303},{"Rereki01",43},{"Ovau01",226},{"IndPort01",420},{"Ba01",106}
         };
@@ -185,7 +185,7 @@ class mapInfo {
         climate = "arid";
     };
 
-    class Tembelan {
+    class tembelan {
         population[] = {};
         disabledTowns[] = {
             "DefaultKeyPoint1","DefaultKeyPoint2","DefaultKeyPoint21","DefaultKeyPoint49","DefaultKeyPoint58","DefaultKeyPoint60","DefaultKeyPoint79"

@@ -2,11 +2,11 @@
 FIX_LINE_NUMBERS()
 
 private _worldName = toLower worldName;
-A3A_climate = if (isText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")) then {
+A3A_climate = toLower (if (isText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")) then {
     getText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")
 } else {
     getText (configFile/"A3A"/"mapInfo"/_worldName/"climate")
-};
+});
 
 private _fnc_requirementMeet = { getArray (_this/"requiredAddons") findIf { !(isClass (configFile/"CfgPatches"/_x)) } == -1 };
 

@@ -27,7 +27,7 @@ if (!hasInterface) exitWith {
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
 	call A3A_fnc_loadNavGrid;
-    Info_1("Headless client version: %1",localize "STR_antistasi_credits_generic_version_text");
+    Info_1("Headless client version: %1",QUOTE(VERSION));
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 };
 
@@ -42,7 +42,7 @@ if (!isServer) then {
 	waitUntil {!isNil "initParamsDone"};
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
-    Info_1("MP client version: %1",localize "STR_antistasi_credits_generic_version_text");
+    Info_1("MP client version: %1",QUOTE(VERSION));
 }
 else {
 	// SP or hosted, initFuncs/var run in serverInit

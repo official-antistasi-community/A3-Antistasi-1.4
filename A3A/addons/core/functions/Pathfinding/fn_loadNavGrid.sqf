@@ -35,6 +35,12 @@ if (NavGrid isEqualTo []) exitWith {
     Error("Nav Grid with the name format navGrid<WorldName> are no longer compatible! DO NOT LOAD THEM!");
 };
 
+NavGrid = NavGrid apply {
+    if ((_x#2) isEqualType true) exitWith {}; // safety if were loading from file ever again
+    _x set [2, (_x#2) > 0]; //config cant store bool, so convert int bool flag to bool
+    _x;
+};
+
 {
 	private _index = _forEachIndex;
 	private _position = _x select 0;

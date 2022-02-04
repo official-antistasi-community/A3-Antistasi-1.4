@@ -1,3 +1,6 @@
+//config needs binary true/false
+#define true 1
+#define false 0
 class NavGrid {
     #include "Antistasi_Altis.Altis\navGrid.hpp"
     #include "Antistasi_cam_lao_nam.cam_lao_nam\navGrid.hpp"
@@ -14,3 +17,5 @@ class NavGrid {
     #include "Antistasi_Tembelan.Tembelan\navGrid.hpp"
     #include "Antistasi_vt7.vt7\navGrid.hpp"
 };
+#undef true
+#undef false

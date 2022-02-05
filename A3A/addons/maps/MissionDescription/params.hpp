@@ -228,58 +228,6 @@ class Params
         texts[] = {""};
         default = "";
     };
-    class Spacer12
-    {
-        title = "Factions templates - Do NOT change this mid mission";
-        values[] = {""};
-        texts[] = {"Mixing modsets can cause broken behaviour"};
-        default = "";
-    };
-    class RebelFactionEnum
-    {
-        title = "Rebel faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6,7,8};
-        texts[] = {"Default (Auto)", "FIA", "SDK", "NAPA (RHS)", "CNM (Factions)", "TKM (Factions)", "POF (SOG:PF)", "NPC (CUP)", "TKL (CUP)"};
-        default = 9999;
-    };
-    class OccupantsFactionEnum
-    {
-        title = "Occupants faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29};
-        texts[] = {
-            "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
-            , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
-            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)"
-            , "ACR (CUP)", "BAF (CUP)", "CDF (CUP)", "USAF (CUP)", "USMC (CUP)", "AFRF (CUP)", "RACS (CUP)", "SLA (CUP)", "TKA (CUP)"
-        };
-        default = 9999;
-    };
-    class InvadersFactionEnum
-    {
-        title = "Invaders faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29};
-        texts[] = {
-            "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
-            , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
-            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)"
-            ,"ACR (CUP)", "BAF (CUP)", "CDF (CUP)", "USAF (CUP)", "USMC (CUP)", "AFRF (CUP)", "RACS (CUP)", "SLA (CUP)", "TKA (CUP)"
-        };
-        default = 9999;
-    };
-    class CivFactionEnum
-    {
-        title = "Civilian faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5};
-        texts[] = {"Default (Auto)", "Vanilla", "RHS", "Factions", "VN", "CUP"};
-        default = 9999;
-    };
-    class Spacer13
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
     class Kart
     {
         title = "Allow Items and Vehicles from Karts DLC?";

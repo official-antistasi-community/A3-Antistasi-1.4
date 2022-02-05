@@ -441,56 +441,63 @@ class Templates
         {
             class ACR
 			{
+                displayName = "ACR CUP";
 				class camo {
 					Default = "Arid";
 				};
 			};
 			class AFRF
 			{
+                displayName = "AFRF CUP";
 				class camo {
 					Default = "Arid";
 				};
 			};
 			class BAF
 			{
+                displayName = "BAF CUP";
 				class camo {
 					Default = "Arid";
 				};
 			};
 			class CDF
 			{
+                displayName = "CDF CUP";
 				class camo {
 					Default = "Temperate";
 				};
 			};
 			class RACS
 			{
+                displayName = "RACS CUP";
 				class camo {
 					Default = "Arid";
 				};
 			};
 			class SLA
 			{
+                displayName = "SLA CUP";
 				class camo {
 					Default = "Temperate";
 				};
 			};
 			class TKA
 			{
+                displayName = "TKA CUP";
 				class camo {
 					Default = "Arid";
 				};
 			};
 			class US_Army
 			{
-				displayName = "USAF"
+				displayName = "USAF CUP";
 				class camo {
 					Default = "Arid";
 				};
 			};
 			class US_Marine
 			{
-				displayName = "USMC"
+				displayName = "USMC CUP";
 				class camo {
 					Default = "Arid";
 				};
@@ -501,6 +508,7 @@ class Templates
         {
             class NPC
             {
+                displayName = "NPC CUP";
                 class camo
                 {
                     Default = "Temperate";
@@ -508,6 +516,7 @@ class Templates
             };
 			class TKL
             {
+                displayName = "TKL CUP";
                 class camo
                 {
                     Default = "Arid";
@@ -521,7 +530,7 @@ class Templates
         {
             class Default
             {
-                Occ = "USAF";
+                Occ = "US_Army";
                 Inv = "AFRF";
                 Reb = "NPC";
             };

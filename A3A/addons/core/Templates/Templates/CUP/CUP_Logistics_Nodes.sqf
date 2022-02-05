@@ -112,20 +112,20 @@ A3A_logistics_vehicleHardpoints append [
 */
 A3A_logistics_attachmentOffset append [
 //model                                                                     //offset  //rotation            //size //recoil (if weapon)
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\DShKM\CUP_DShKM_mg.p3d", 			[0.25,-1,1.62],    [0,0,0],   4, 	    100],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\KORD\CUP_KORD_6u16sp.p3d", 		[0.05,-0.3,0.97],    [0,0,0],   4, 	    200],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\ZU23\CUP_zu23.p3d",				[-0.11,0,1.93],    [0,0,0],   7, 	    1000],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\SPG9\CUP_spg9.p3d", 				[0.04,0,0],    [-3,0.25,0],   4, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\M2\CUP_m2_mg.p3d", 				[0.399,-0.4,1.04],    [0,0,0],   4, 	    100],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\IglaPod\CUP_igla_AA_pod.p3d", 		[0.35,-0,1.56],    [0,0,0],   4, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\FIM92Pod\CUP_FIM92_AA_Pod.p3d", 	[0.04,-0.1,1.64],    [0,0,0],   4, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\M252\CUP_81Mortar.p3d", 			[0.02,-0.25,0.69],    [0,0,0],   2, 	    2000],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\TOW\CUP_TOW_static.p3d", 			[0.03,-0.1,1.05],    [0,0,0],   4, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\Kornet\CUP_Kornet.p3d", 			[-0.13,-0.15,0.744],    [0,0,0],   4, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\Podnos\CUP_podnos_2b14_82mm.p3d", 	[-0.03,-0.1,0.74],    [0,0,0],   2, 	    2000],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\M2\CUP_L111A1_mg.p3d", 			[0.398,-0.2,1.01],    [0,0,0],   4, 	    100],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\Metis\CUP_metis.p3d", 				[-0,-0.15,1.01],    [-3,0.25,0],   4, 	    250],
-["\CUP\Weapons\CUP_Weapons_StaticWeapons\RBS70\CUP_RBS70.p3d", 				[0.12,-0.15,1.35],    [0,0,0],   4, 	    250]
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\DShKM\CUP_DShKM_mg.p3d", 			[0.25,-1,1.62],         [0,0,0],        4, 	        100],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\KORD\CUP_KORD_6u16sp.p3d", 		[0.05,-0.3,0.97],       [0,0,0],        4, 	        200],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\ZU23\CUP_zu23.p3d",				[-0.11,0,1.93],         [0,0,0],        7, 	        1000],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\SPG9\CUP_spg9.p3d", 				[0.04,0,0],             [-3,0.25,0],    4, 	        250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\M2\CUP_m2_mg.p3d", 				[0.399,-0.4,1.04],      [0,0,0],        4, 	        100],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\IglaPod\CUP_igla_AA_pod.p3d", 		[0.35,-0,1.56],         [0,0,0],        4, 	        250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\FIM92Pod\CUP_FIM92_AA_Pod.p3d", 	[0.04,-0.1,1.64],       [0,0,0],        4, 	        250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\M252\CUP_81Mortar.p3d", 			[0.02,-0.25,0.69],      [0,0,0],        2, 	        2000],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\TOW\CUP_TOW_static.p3d", 			[0.03,-0.1,1.05],       [0,0,0],        4, 	        250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\Kornet\CUP_Kornet.p3d", 			[-0.13,-0.15,0.744],    [0,0,0],        4, 	        250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\Podnos\CUP_podnos_2b14_82mm.p3d", 	[-0.03,-0.1,0.74],      [0,0,0],        2, 	        2000],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\M2\CUP_L111A1_mg.p3d", 			[0.398,-0.2,1.01],      [0,0,0],        4, 	        100],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\Metis\CUP_metis.p3d", 				[-0,-0.15,1.01],        [-3,0.25,0],    4, 	        250],
+["\CUP\Weapons\CUP_Weapons_StaticWeapons\RBS70\CUP_RBS70.p3d", 				[0.12,-0.15,1.35],      [0,0,0],        4, 	        250]
 ];
 
 /*

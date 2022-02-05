@@ -7,7 +7,7 @@ params ["_plane", "_type"];
     Returns:
         Nothing
 */
-#include "..\..\Includes\common.inc"
+#include "..\..\Includes\script_component.hpp"
 FIX_LINE_NUMBERS()
 
 private _validInput = false;

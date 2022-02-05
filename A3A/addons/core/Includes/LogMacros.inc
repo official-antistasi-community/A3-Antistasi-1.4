@@ -75,10 +75,9 @@
 #define Log_Debug
 #define Log_Verbose
 
-//A3 Debug mode logging
-#if __A3_DEBUG__
+
     #define Log_Trace
-#endif
+
 
 #ifndef VARDEF
     #define VARDEF(Var, Def) (if (isNil #Var) then {Def} else {Var})

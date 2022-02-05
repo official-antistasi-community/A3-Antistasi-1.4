@@ -24,7 +24,7 @@ if ((invalidArguments.length !== 0)) {
     invalidArguments.forEach(e => {
         let index = arguments.indexOf('-b')
         let indexElement = arguments.indexOf(e);
-        if ((index +1 ) !== indexElement) {
+        if (index === -1 || (index +1 ) !== indexElement || e.length < 7) {
             console.error(`Unknown arguments detected: ${invalidArguments}`);
             blockRunning = true;
         } else {
@@ -44,19 +44,19 @@ function incrementBuild() { curBuild = buildV.substring(0,7); };
 let scriptVersion = fs.readFileSync(pathScriptVersion);
 
 //exstract current version
-let index = scriptVersion.indexOf('MAJOR') + 6;
+let index = scriptVersion.indexOf('#define MAJOR') + 14;
 let eol = scriptVersion.indexOf('\n', index);
 let curMajor = parseInt(scriptVersion.slice(index, eol).toString());
 
-index = scriptVersion.indexOf('MINOR') + 6;
+index = scriptVersion.indexOf('#define MINOR') + 14;
 eol = scriptVersion.indexOf('\n', index);
 let curMinor = parseInt(scriptVersion.slice(index, eol).toString());
 
-index = scriptVersion.indexOf('PATCHLVL') + 9;
+index = scriptVersion.indexOf('#define PATCHLVL') + 17;
 eol = scriptVersion.indexOf('\n', index);
 let curPatch = parseInt(scriptVersion.slice(index, eol).toString());
 
-index = scriptVersion.indexOf('BUILD') + 6;
+index = scriptVersion.indexOf('#define BUILD') + 14;
 let curBuild = scriptVersion.slice(index).toString();
 
 
@@ -86,5 +86,7 @@ let line = `#define MAJOR ${curMajor}\n#define MINOR ${curMinor}\n#define PATCHL
 fs.writeFileSync(pathScriptVersion,line)
 console.debug(line);
 
+/*
 gitAdd();
 gitCommit();
+*/

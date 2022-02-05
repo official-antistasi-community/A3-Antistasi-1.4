@@ -15,7 +15,7 @@ class CfgPatches {
 };
 
 class A3A {
-    #include "mapInfoGlobal.hpp"
+    #include "mapInfo.hpp"
     #include "NavGrid.hpp"
 };
 

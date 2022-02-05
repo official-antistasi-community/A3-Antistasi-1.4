@@ -443,6 +443,13 @@ class Templates
 			{
                 displayName = "ACR CUP";
 				class camo {
+                    tanoa = "Temperate";
+                    cam_lao_nam = "Temperate";
+                    enoch = "Temperate";
+                    chernarus_summer = "Temperate";
+                    vt7 = "Temperate";
+                    tembelan = "Temperate";
+                    chernarus_winter = "Temperate";
 					Default = "Arid";
 				};
 			};
@@ -450,6 +457,13 @@ class Templates
 			{
                 displayName = "AFRF CUP";
 				class camo {
+                    tanoa = "Temperate";
+                    cam_lao_nam = "Temperate";
+                    enoch = "Temperate";
+                    chernarus_summer = "Temperate";
+                    vt7 = "Temperate";
+                    tembelan = "Temperate";
+                    chernarus_winter = "Temperate";
 					Default = "Arid";
 				};
 			};
@@ -457,6 +471,13 @@ class Templates
 			{
                 displayName = "BAF CUP";
 				class camo {
+                    tanoa = "Temperate";
+                    cam_lao_nam = "Temperate";
+                    enoch = "Temperate";
+                    chernarus_summer = "Temperate";
+                    vt7 = "Temperate";
+                    tembelan = "Temperate";
+                    chernarus_winter = "Temperate";
 					Default = "Arid";
 				};
 			};
@@ -492,14 +513,28 @@ class Templates
 			{
 				displayName = "USAF CUP";
 				class camo {
-					Default = "Arid";
+                    tanoa = "Temperate";
+                    cam_lao_nam = "Temperate";
+                    enoch = "Temperate";
+                    chernarus_summer = "Temperate";
+                    vt7 = "Temperate";
+                    tembelan = "Temperate";
+                    chernarus_winter = "Temperate";
+                    Default = "Arid";
 				};
 			};
 			class US_Marine
 			{
 				displayName = "USMC CUP";
 				class camo {
-					Default = "Arid";
+					tanoa = "Temperate";
+                    cam_lao_nam = "Temperate";
+                    enoch = "Temperate";
+                    chernarus_summer = "Temperate";
+                    vt7 = "Temperate";
+                    tembelan = "Temperate";
+                    chernarus_winter = "Temperate";
+                    Default = "Arid";
 				};
 			};
         };

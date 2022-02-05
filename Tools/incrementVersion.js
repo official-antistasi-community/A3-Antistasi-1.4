@@ -6,7 +6,8 @@ const { spawnSync } = require("child_process")
 //git actions
 const pathScriptVersion = '../A3A/addons/core/Includes/script_version.hpp';
 const gitAdd = () => spawnSync("git", ["add", pathScriptVersion])
-const gitCommit = () => spawnSync("git", ["commit", `-m 'Update version number'`])
+const gitCommit = () => spawnSync("git", ["commit", `-m 'Automated version bump'`])
+const gitCurrCommit = () => spawnSync("git", ["rev-parse", "--short", "HEAD"]);
 
 //argument validation
 const validArguments = [
@@ -15,8 +16,7 @@ const validArguments = [
     , '-min', '-minor'
     , '-maj', '-major'
 ]
-
-let buildV = '';
+let buildV = gitCurrCommit().stdout.toString();
 
 const invalidArguments = arguments.filter(n => !validArguments.includes(n));
 let blockRunning = false;
@@ -85,3 +85,6 @@ if (arguments.includes('-maj'||'-major')) {
 let line = `#define MAJOR ${curMajor}\n#define MINOR ${curMinor}\n#define PATCHLVL ${curPatch}\n#define BUILD ${curBuild}`;
 fs.writeFileSync(pathScriptVersion,line)
 console.debug(line);
+
+gitAdd();
+gitCommit();

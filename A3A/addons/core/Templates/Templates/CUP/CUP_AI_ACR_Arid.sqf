@@ -162,13 +162,13 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["CUP_U_B_CZ_DST_NoKneepads", "CUP_U_B_CZ_DST_Kneepads", "CUP_U_B_CZ_DST_Kneepads_Gloves", "CUP_U_B_CZ_DST_Kneepads_Sleeve", "CUP_U_B_CZ_DST_TShirt", "CUP_U_CRYE_ATACSAU_Full", "CUP_U_CRYE_ATACSAU_Roll"]];
-_sfLoadoutData set ["vests", ["CUP_V_CZ_NPP2006_co_des", "CUP_V_CZ_NPP2006_nk_des", "CUP_V_CZ_vest19", "CUP_V_CZ_vest16"]];
+_sfLoadoutData set ["uniforms", ["CUP_U_B_CZ_DST_NoKneepads", "CUP_U_B_CZ_DST_Kneepads", "CUP_U_B_CZ_DST_Kneepads_Gloves", "CUP_U_B_CZ_DST_Kneepads_Sleeve", "CUP_U_B_CZ_DST_TShirt"]];
+_sfLoadoutData set ["vests", ["CUP_V_CZ_NPP2006_co_des", "CUP_V_CZ_NPP2006_nk_des"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_B_Ciras_Coyote2"]];
 _sfLoadoutData set ["medVests", ["CUP_V_CPC_medical_coy"]];
 _sfLoadoutData set ["glVests", ["CUP_V_B_Ciras_Coyote"]];
-_sfLoadoutData set ["backpacks", ["B_AssaultPack_cbr", "B_Kitbag_cbr"]];
-_sfLoadoutData set ["slBackpacks", ["B_FieldPack_cbr"]];
+_sfLoadoutData set ["backpacks", ["B_AssaultPack_cbr"]];
+_sfLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _sfLoadoutData set ["atBackpacks", ["B_Kitbag_cbr"]];
 _sfLoadoutData set ["helmets", ["CUP_H_CZ_Helmet07", "CUP_H_CZ_Helmet08", "CUP_H_OpsCore_Spray", "CUP_H_OpsCore_Tan"]];
 _sfLoadoutData set ["slHat", ["CUP_H_CZ_Cap_Headphones_des"]];
@@ -263,7 +263,7 @@ _militaryLoadoutData set ["uniforms", ["CUP_U_B_CZ_DST_NoKneepads", "CUP_U_B_CZ_
 _militaryLoadoutData set ["vests", ["CUP_V_CZ_NPP2006_des", "CUP_V_CZ_NPP2006_nk_des", "CUP_V_CZ_NPP2006_ok_des"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_CZ_NPP2006_co_des"]];
 _militaryLoadoutData set ["backpacks", ["B_Carryall_cbr", "B_FieldPack_cbr"]];
-_militaryLoadoutData set ["slBackpacks", ["B_TacticalPack_blk"]];
+_militaryLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militaryLoadoutData set ["atBackpacks", ["B_Kitbag_cbr"]];
 _militaryLoadoutData set ["helmets", ["CUP_H_CZ_Helmet01", "CUP_H_CZ_Helmet02", "CUP_H_CZ_Helmet07", "CUP_H_CZ_Helmet08"]];
 _militaryLoadoutData set ["sniHats", ["CUP_H_CZ_Booniehat_vz95_des"]];
@@ -374,8 +374,8 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_U_B_CZ_DST_TShirt"]];
 _militiaLoadoutData set ["vests", ["CUP_V_CZ_NPP2006_nk_des"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_CZ_NPP2006_co_des"]];
-_militiaLoadoutData set ["backpacks", ["B_Carryall_cbr", "B_FieldPack_cbr", "B_TacticalPack_blk"]];
-_militiaLoadoutData set ["slBackpacks", ["CUP_B_Kombat_Radio_Olive"]];
+_militiaLoadoutData set ["backpacks", ["B_Carryall_cbr", "B_FieldPack_cbr"]];
+_militiaLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_B_RPGPack_Khaki"]];
 _militiaLoadoutData set ["helmets", ["CUP_H_CZ_Helmet01", "CUP_H_CZ_Helmet02", "CUP_H_CZ_Helmet07", "CUP_H_CZ_Helmet08"]];
 _militiaLoadoutData set ["sniHats", ["CUP_H_CZ_Booniehat_vz95_des"]];

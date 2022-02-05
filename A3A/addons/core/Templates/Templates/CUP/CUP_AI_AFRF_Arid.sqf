@@ -339,7 +339,7 @@ _militiaLoadoutData set ["uniforms", ["CUP_U_O_RUS_BeigeDigital_MSV", "CUP_U_O_R
 _militiaLoadoutData set ["vests", ["CUP_Vest_RUS_6B45_Sh117_BeigeDigital"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_RUS_6B45_1_BeigeDigital"]];
 _militiaLoadoutData set ["backpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital"]];
-_militiaLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
+_militiaLoadoutData set ["slBackpacks", ["B_Kitbag_mcamo"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital_Shovel"]];
 _militiaLoadoutData set ["helmets", ["CUP_H_RUS_6B27_cover_BeigeDigital", "CUP_H_RUS_6B27_cover_BeigeDigital_goggles"]];
 _militiaLoadoutData set ["sniHats", ["H_Booniehat_tan"]];

@@ -379,7 +379,7 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_U_B_CZ_WDL_NoKneepads"]];
 _militiaLoadoutData set ["vests", ["CUP_V_CZ_vest02"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_CZ_vest16"]];
-_militiaLoadoutData set ["backpacks", ["B_Carryall_cbr", "B_FieldPack_cbr", "B_TacticalPack_blk"]];
+_militiaLoadoutData set ["backpacks", ["CUP_O_RUS_Patrol_bag_Green", "B_AssaultPack_rgr"]];
 _militiaLoadoutData set ["slBackpacks", ["CUP_B_Kombat_Radio_Olive"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_B_RPGPack_Khaki"]];
 _militiaLoadoutData set ["helmets", ["CUP_H_CZ_Helmet10", "CUP_H_CZ_Helmet09", "CUP_H_CZ_Helmet03"]];

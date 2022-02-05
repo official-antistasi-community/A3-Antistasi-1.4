@@ -58,13 +58,13 @@ class CfgMissions
             briefingName = $STR_antistasi_mission_info_sara_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_sara.sara";
         };
-
+#if __A3_DEBUG__
         class Antistasi_Stratis
         {
             briefingName = $STR_antistasi_mission_info_Stratis_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_Stratis.Stratis";
         };
-
+#endif
         class Antistasi_takistan
         {
             briefingName = $STR_antistasi_mission_info_takistan_mapname_text;

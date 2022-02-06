@@ -217,7 +217,7 @@ _sfLoadoutData set ["marksmanRifles", [
     ["CUP_srifle_SVD", "CUP_muzzle_snds_kzrzp_svd", "CUP_SVD_camo_g", "CUP_optic_PSO_1_1", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _sfLoadoutData set ["sniperRifles", [
-    ["CUP_srifle_SVD", "CUP_muzzle_snds_kzrzp_svd", "CUP_SVD_camo_g", "CUP_optic_pso_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
+    ["CUP_srifle_SVD", "CUP_muzzle_snds_kzrzp_svd", "CUP_SVD_camo_g", "CUP_optic_PSO_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _loadoutData set ["lightATLaunchers", [
     ["CUP_launch_RPG7V", "", "", "CUP_optic_PGO7V3", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""],
@@ -282,7 +282,7 @@ _militaryLoadoutData set ["marksmanRifles", [
     ["CUP_srifle_SVD", "", "", "CUP_optic_PSO_1_1", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
-    ["CUP_srifle_SVD", "", "", "CUP_optic_pso_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
+    ["CUP_srifle_SVD", "", "", "CUP_optic_PSO_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _militaryLoadoutData set ["lightATLaunchers", [
     ["CUP_launch_RPG7V", "", "", "CUP_optic_PGO7V3", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""],

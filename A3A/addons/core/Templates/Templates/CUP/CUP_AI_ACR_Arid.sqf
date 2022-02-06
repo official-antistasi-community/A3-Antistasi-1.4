@@ -228,7 +228,7 @@ _sfLoadoutData set ["machineGuns", [
 _sfLoadoutData set ["marksmanRifles", [
     ["CUP_arifle_HK417_20", "", "", "CUP_optic_LeupoldMk4", ["CUP_20Rnd_762x51_HK417_Camo_Desert"], [], ""],
     ["CUP_arifle_HK417_20", "", "", "CUP_optic_LeupoldM3LR", ["CUP_20Rnd_762x51_HK417_Camo_Desert"], [], ""],
-    ["CUP_srifle_SVD", "CUP_muzzle_snds_kzrzp_svd", "", "CUP_optic_pso_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
+    ["CUP_srifle_SVD", "CUP_muzzle_snds_kzrzp_svd", "", "CUP_optic_PSO_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _sfLoadoutData set ["sniperRifles", [
     ["CUP_srifle_CZ750", "", "", "CUP_optic_LeupoldMk4_20x40_LRT", ["CUP_10Rnd_762x51_CZ750_Tracer"], [], "bipod_01_F_blk"],
@@ -318,7 +318,7 @@ _militaryLoadoutData set ["machineGuns", [
 _militaryLoadoutData set ["marksmanRifles", [
     ["CUP_arifle_HK417_20", "", "", "CUP_optic_LeupoldMk4", ["CUP_20Rnd_762x51_HK417_Camo_Desert"], [], ""],
     ["CUP_arifle_HK417_20", "", "", "CUP_optic_LeupoldM3LR", ["CUP_20Rnd_762x51_HK417_Camo_Desert"], [], ""],
-    ["CUP_srifle_SVD", "", "", "CUP_optic_pso_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
+    ["CUP_srifle_SVD", "", "", "CUP_optic_PSO_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
     ["CUP_srifle_CZ750", "", "", "CUP_optic_LeupoldMk4_20x40_LRT", ["CUP_10Rnd_762x51_CZ750_Tracer"], [], "bipod_01_F_blk"],
@@ -400,10 +400,10 @@ _militiaLoadoutData set ["machineGuns", [
     ["CUP_lmg_M60E4", "", "", "", ["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
-    ["CUP_srifle_SVD", "", "", "CUP_optic_pso_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
+    ["CUP_srifle_SVD", "", "", "CUP_optic_PSO_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-    ["CUP_srifle_SVD", "", "", "CUP_optic_pso_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
+    ["CUP_srifle_SVD", "", "", "CUP_optic_PSO_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _militiaLoadoutData set ["lightATLaunchers", [
     ["CUP_launch_RPG18", "", "", "", ["CUP_RPG18_M"], [], ""]

@@ -179,7 +179,7 @@ _sfLoadoutData set ["slRifles", [
     ["CUP_arifle_AKS74", "CUP_muzzle_TGPA", "", "CUP_optic_PSO_1", ["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"], [], ""],
     ["CUP_arifle_AK47", "CUP_muzzle_snds_KZRZP_AK762", "", "CUP_optic_PSO_1_1", ["CUP_30Rnd_TE1_Red_Tracer_762x39_AK103_bakelite_M"], [], ""],
     ["CUP_arifle_AK47", "CUP_muzzle_snds_KZRZP_AK762", "", "CUP_optic_PechenegScope", ["CUP_30Rnd_TE1_Red_Tracer_762x39_AK103_bakelite_M"], [], ""],
-    ["CUP_arifle_FNFAL5060_railed", "CUP_muzzle_snds_SCAR_H", "", "CUP_optic_holoblack", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
+    ["CUP_arifle_FNFAL5060_railed", "CUP_muzzle_snds_SCAR_H", "", "CUP_optic_HoloBlack", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
     ["CUP_arifle_FNFAL5060_railed", "CUP_muzzle_snds_SCAR_H", "", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
     ["CUP_arifle_M16A2", "CUP_muzzle_snds_M16", "", "", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""]
 
@@ -189,7 +189,7 @@ _sfLoadoutData set ["rifles", [
     ["CUP_arifle_AK47", "CUP_muzzle_snds_KZRZP_AK762", "", "CUP_optic_ekp_8_02", ["CUP_30Rnd_TE1_Red_Tracer_762x39_AK103_bakelite_M"], [], ""],
     ["CUP_arifle_AK74", "CUP_muzzle_TGPA", "", "CUP_optic_ekp_8_02", ["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"], [], ""],
     ["CUP_arifle_AK74", "CUP_muzzle_TGPA", "", "CUP_optic_1p63", ["CUP_30Rnd_TE1_Red_Tracer_545x39_AK74_plum_M"], [], ""],
-    ["CUP_arifle_FNFAL5060_railed", "CUP_muzzle_snds_SCAR_H", "", "CUP_optic_holoblack", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
+    ["CUP_arifle_FNFAL5060_railed", "CUP_muzzle_snds_SCAR_H", "", "CUP_optic_HoloBlack", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
     ["CUP_arifle_FNFAL5060_railed", "CUP_muzzle_snds_SCAR_H", "", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
     ["CUP_arifle_M16A2", "CUP_muzzle_snds_M16", "", "", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""]
 

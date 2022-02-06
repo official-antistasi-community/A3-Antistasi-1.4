@@ -166,7 +166,7 @@ _sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_mc"]];
 _sfLoadoutData set ["medVests", ["CUP_V_B_Ciras_MCam2"]];
 _sfLoadoutData set ["glVests", ["CUP_V_CPC_weaponsbelt_mc"]];
 _sfLoadoutData set ["backpacks", ["B_AssaultPack_khk"]];
-_sfLoadoutData set ["slBackpacks", ["B_Kitbag_khk"]];
+_sfLoadoutData set ["slBackpacks", ["B_Carryall_khk"]];
 _sfLoadoutData set ["atBackpacks", ["B_FieldPack_khk"]];
 _sfLoadoutData set ["helmets", ["CUP_H_RUS_K6_3_Goggles", "CUP_H_RUS_Altyn_Goggles_black"]];
 _sfLoadoutData set ["slHat", ["CUP_H_RUS_Beret_Spetsnaz"]];

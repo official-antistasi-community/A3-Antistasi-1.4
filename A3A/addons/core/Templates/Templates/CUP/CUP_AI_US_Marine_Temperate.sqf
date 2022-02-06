@@ -361,7 +361,7 @@ _militiaLoadoutData set ["uniforms", ["CUP_U_B_USMC_MCCUU_gloves", "CUP_U_B_USMC
 _militiaLoadoutData set ["vests", ["CUP_V_B_Eagle_SPC_Rifleman", "CUP_V_B_Eagle_SPC_RTO"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_B_Eagle_SPC_DMR"]];
 _militiaLoadoutData set ["backpacks", ["CUP_B_AlicePack_Khaki"]];
-_militiaLoadoutData set ["slBackpacks", ["B_Kitbag_khk"]];
+_militiaLoadoutData set ["slBackpacks", ["B_Carryall_khk"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_B_USMC_MOLLE"]];
 _militiaLoadoutData set ["helmets", ["CUP_H_LWHv2_MARPAT"]];
 

@@ -181,9 +181,9 @@ _sfLoadoutData set ["slRifles", [
     ["CUP_arifle_CZ805_A2", "CUP_muzzle_snds_M16", "", "CUP_optic_ACOG2", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_ACOG2", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "CUP_muzzle_snds_M16", "", "CUP_optic_ACOG2", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
-    ["CUP_arifle_CZ805_A2", "CUP_muzzle_snds_M16", "", "cup_optic_elcan_specterdr_black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
-    ["CUP_CZ_BREN2_762_14", "", "", "cup_optic_elcan_specterdr_black", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
-    ["CUP_CZ_BREN2_556_14", "CUP_muzzle_snds_M16", "", "cup_optic_elcan_specterdr_black", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""]
+    ["CUP_arifle_CZ805_A2", "CUP_muzzle_snds_M16", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
+    ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
+    ["CUP_CZ_BREN2_556_14", "CUP_muzzle_snds_M16", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""]
 ]];
 _sfLoadoutData set ["rifles", [
     ["CUP_arifle_CZ805_A2", "CUP_muzzle_snds_M16", "", "cup_optic_eotech553_black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
@@ -278,9 +278,9 @@ _militaryLoadoutData set ["slRifles", [
     ["CUP_arifle_CZ805_A2", "", "", "CUP_optic_ACOG2", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_ACOG2", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "", "", "CUP_optic_ACOG2", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-    ["CUP_arifle_CZ805_A2", "", "", "cup_optic_elcan_specterdr_black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
-    ["CUP_CZ_BREN2_762_14", "", "", "cup_optic_elcan_specterdr_black", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
-    ["CUP_CZ_BREN2_556_14", "", "", "cup_optic_elcan_specterdr_black", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+    ["CUP_arifle_CZ805_A2", "", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
+    ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
+    ["CUP_CZ_BREN2_556_14", "", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
 _militaryLoadoutData set ["rifles", [
     ["CUP_arifle_CZ805_A2", "", "", "cup_optic_eotech553_black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],

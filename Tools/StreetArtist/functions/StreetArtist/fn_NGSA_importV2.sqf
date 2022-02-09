@@ -85,10 +85,8 @@ switch (true) do {
     };
 
     case ("navGrid = [" in _fileContents): {
-        private _startIndex = (_fileContents find "=") + 1;
-        private _endIndex = (_fileContents find [";", _startIndex]) - 1;
-        private _count = _endIndex - _startIndex + 1;
-        private _navGridDBLegacy = parseSimpleArray (_fileContents select [_startIndex, _count]);
+        private _trimmedFileContents = _fileContents call _fnc_cropToBrackets;
+        private _navGridDBLegacy = parseSimpleArray _trimmedFileContents;
         if (isNil '_navGridDBLegacy' || { _navGridDBLegacy isEqualTo [] }) then {
             ["Failed to parse string as navGrid v1.", _documentObjectModel] breakOut "return";
         };
@@ -178,6 +176,30 @@ private _loadedHash = _documentObjectModel getOrDefault ["integrity", ""];
 if (_generatedHash isNotEqualTo _loadedHash) then {
     ["navGridDB integrity check failed, likely due to incomplete copy and paste.", _documentObjectModel] breakOut "return";
 };
+
+/// --- Validate and Correct Schema --- ///
+// Current: schema_arma3_streetArtist_metadata_v2
+
+{
+    _x params ["_key", "_value"];
+    if (_key in _documentObjectModel && {_documentObjectModel get _key isEqualType _value}) then { continue };
+    _documentObjectModel set [_key, _value];
+} forEach [
+    ["schema_arma3_streetArtist_metadata_version", "schema_arma3_streetArtist_metadata_v2"],
+    ["originalVersion",     "undefined"],
+
+    ["navGridDB",           [] ],
+    ["integrity",           ""],
+
+    ["worldName",           ""],
+    ["flatMaxDrift",        -1],
+    ["juncMergeDistance",   -1],
+
+    ["dateTimeCreated",     [1984,1,22,12,00,0,0] ],
+    ["dateTimeModified",    [1984,1,22,12,00,0,0] ],
+    ["createdBy",           "Unknown Author"],
+    ["modifiedBy",          ""]
+];
 
 /// --- Successful Return --- ///
 

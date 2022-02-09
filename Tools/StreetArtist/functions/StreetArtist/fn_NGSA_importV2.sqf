@@ -53,8 +53,6 @@ private _fnc_cropToBrackets = {
 
 switch (true) do {
     case ('"schema_SQF_hashMap_joinedKeyValue"' in _fileContents): {
-        diag_log "schema_SQF_hashMap_joinedKeyValue NavGrid";
-
         private _trimmedFileContents = _fileContents call _fnc_cropToBrackets;
         private _map = parseSimpleArray _trimmedFileContents;
         if (isNil '_map' || { _map isEqualTo [] }) then {
@@ -71,8 +69,6 @@ switch (true) do {
     };
 
     case ('"schema_SQF_hashMap_parallelKeyValue"' in _fileContents): {
-        diag_log "schema_SQF_hashMap_parallelKeyValue NavGrid";
-
         private _trimmedFileContents = _fileContents call _fnc_cropToBrackets;
         private _parallelMap = parseSimpleArray _trimmedFileContents;
         if (isNil '_parallelMap' || { _parallelMap isEqualTo [] }) then {
@@ -89,8 +85,6 @@ switch (true) do {
     };
 
     case ("navGrid = [" in _fileContents): {
-        diag_log "Legacy NavGrid";
-
         private _startIndex = (_fileContents find "=") + 1;
         private _endIndex = (_fileContents find [";", _startIndex]) - 1;
         private _count = _endIndex - _startIndex + 1;
@@ -139,7 +133,6 @@ if (_loadedVersion isEqualTo "") then {
 };
 
 /// --- Forward Updater --- ///
-
 if (_loadedVersion isNotEqualTo _currentVersion) then {
     private _forwardUpdaterHM = createHashMapFromArray [
         ["schema_arma3_streetArtist_metadata_v1", {createHashMapFromArray [

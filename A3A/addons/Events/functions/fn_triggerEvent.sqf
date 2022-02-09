@@ -3,7 +3,7 @@
 params [
       ["_event", "", [""]]
     , ["_arguments", [], [[]]]
-    , ["_targets", true, [true,0,sideUnknown,grpNull,objNull,"",[]]]
+    , ["_targets", 0, [0,sideUnknown,grpNull,objNull,"",[]]]
 ];
 
 if (

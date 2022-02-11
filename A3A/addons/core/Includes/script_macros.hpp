@@ -7,3 +7,6 @@
 
 #undef VARDEF
 #define VARDEF(Var, Def) (if (isNil #Var) then {Def} else {Var})
+
+#define ADDONLOADED(addon) EADDONLOADED(A3A,addon)
+#define EADDONLOADED(prefix,addon)(isClass (configFile/QUOTE(CfgPatches)/QDOUBLES(prefix,addon)))

@@ -1,11 +1,13 @@
 #include "..\script_component.hpp"
-
+FIX_LINE_NUMBERS()
 params [
       ["_event", "", [""]]
     , ["_arguments", [], [[]]]
 ];
 
-if (isNil QGVAR(EventRegistry)) exitWith { Warning_2("Attempt to trigger event: %1 before Event registry is initilized", _event) };
+if (isNil QGVAR(EventRegistry)) exitWith { Warning_1("Attempt to trigger event: %1 before Event registry is initilized", _event) };
+
+if (isNil { GVAR(EventRegistry) get _event }) exitWith { Warning_1("No event of type %1 exists on this client", _event) };
 
 Verbose_2("Event triggered: %1 | Arguments: %2", _event, _arguments);
 {

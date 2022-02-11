@@ -17,6 +17,13 @@ Info("Setting initial variables");
 debug = false;
 A3A_customHintEnable = false; // Disables custom hints for boot duration. Is set to true in initClient.
 
+//register event types for core
+if ADDONLOADED(Events) then {
+    { _x call EFUNC(Events,registerEvent) } forEach [
+        "AIVehInit"
+    ];
+};
+
 ////////////////////////////////////
 //     BEGIN SIDES AND COLORS    ///
 ////////////////////////////////////

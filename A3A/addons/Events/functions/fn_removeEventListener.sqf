@@ -1,5 +1,5 @@
 #include "..\script_component.hpp"
-
+FIX_LINE_NUMBERS()
 params [
       ["_event", "", [""]]
     , ["_id", "", [""]]
@@ -12,4 +12,6 @@ if (
     && { !isNil { (GVAR(EventRegistry) get _event) get _id } }
 ) then {
     (GVAR(EventRegistry) get _event) deleteAt _id;
+} else {
+    Warning_2("No listner for event %1 with ID %2 exists", _event, _id)
 };

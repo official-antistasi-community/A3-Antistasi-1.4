@@ -37,3 +37,5 @@ class A3A {
 
 #include "defines.hpp"
 #include "dialogs.hpp"
+
+#include "keybinds.hpp"

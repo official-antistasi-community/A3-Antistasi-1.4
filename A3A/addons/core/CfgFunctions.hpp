@@ -374,6 +374,11 @@ class CfgFunctions
             class showIntel {};
         };
 
+        class keybinds {
+            file = QPATHTOFOLDER(keybinds);
+            class keyActions {};
+        };
+
         class Logistics {
             file = QPATHTOFOLDER(functions\Logistics);
             class logistics_addLoadAction {};

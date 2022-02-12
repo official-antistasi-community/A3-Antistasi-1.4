@@ -39,7 +39,7 @@ switch (_key) do {
         };
     };
 
-    case QGVAR(earPluggs): {
+    case QGVAR(earPlugs): {
         if (!A3A_hasACEHearing) then {
             if (soundVolume <= 0.5) then {
                 0.5 fadeSound 1;

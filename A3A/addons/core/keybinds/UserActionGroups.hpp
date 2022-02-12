@@ -6,7 +6,7 @@ class UserActionGroups {
             QGVAR(battleMenu),
             QGVAR(artyMenu),
             QGVAR(infoBar),
-            QGVAR(earPluggs)
+            QGVAR(earPlugs)
         };
     };
 };

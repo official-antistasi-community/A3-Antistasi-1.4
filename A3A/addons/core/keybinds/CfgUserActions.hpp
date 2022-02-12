@@ -15,14 +15,14 @@ class CfgUserActions {
 
     class GVAR(infoBar) {
         displayName = "Toggle info bar";
-        tooltip = "Toggle visability of Antistasis information bar at the top of the screen";
+        tooltip = "Toggle visibility of Antistasis information bar at the top of the screen";
         onActivate = ACTION(infoBar);
     };
 
-    class GVAR(earPluggs) {
-        displayName = "Toggle ear pluggs";
-        tooltip = "Toggle use of ear pluggs (no effect when using ace)";
-        onActivate = ACTION(earPluggs);
+    class GVAR(earPlugs) {
+        displayName = "Toggle ear plugs";
+        tooltip = "Toggle use of ear plugs (no effect when using ace)";
+        onActivate = ACTION(earplugs);
     };
 };
 #undef ACTION

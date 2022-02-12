@@ -344,7 +344,6 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 
 waituntil {!isnull (finddisplay 46)};
 GVAR(keys_battleMenu) = false; //initilize key flags to false
-//gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",A3A_fnc_keys];
 //removeAllActions boxX;
 
 //if ((!isServer) and (isMultiplayer)) then {boxX call jn_fnc_arsenal_init};

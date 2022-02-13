@@ -8,22 +8,29 @@ switch (_key) do {
         if (player getVariable ["incapacitated",false]) exitWith {};
         if (player getVariable ["owner",player] != player) exitWith {};
         GVAR(keys_battleMenu) = true; //used to block certain actions when menu is open
+    #ifdef UseDoomGUI
+        ERROR("Disabled due to UseDoomGUI Switch.")
+    #else
         closeDialog 0;
         createDialog "radio_comm";
+    #endif
         [] spawn { sleep 1; GVAR(keys_battleMenu) = false; };
     };
 
     case QGVAR(artyMenu): {
         if (player getVariable ["incapacitated",false]) exitWith {};
         if (player getVariable ["owner",player] != player) exitWith {};
-        GVAR(keys_battleMenu) = true; //used to block certain actions when menu is open
         if (player isEqualTo theBoss) then {
+            GVAR(keys_battleMenu) = true; //used to block certain actions when menu is open
             [] spawn A3A_fnc_artySupport;
+            [] spawn { sleep 1; GVAR(keys_battleMenu) = false; };
         };
-        [] spawn { sleep 1; GVAR(keys_battleMenu) = false; };
     };
 
     case QGVAR(infoBar): {
+    #ifdef UseDoomGUI
+        ERROR("Disabled due to UseDoomGUI Switch.")
+    #else
         if (isNull (uiNameSpace getVariable "H8erHUD")) exitWith {};
 
         private _display = uiNameSpace getVariable "H8erHUD";
@@ -38,6 +45,7 @@ switch (_key) do {
             ["KEYS", false] call A3A_fnc_disableInfoBar;
             [localize "STR_antistasi_dialogs_toggle_info_bar_title", format [localize "STR_antistasi_dialogs_toggle_info_bar_body_on", _keyName] , false] call A3A_fnc_customHint;
         };
+    #endif
     };
 
     case QGVAR(earPlugs): {

@@ -47,6 +47,7 @@ class A3A {
         class NGSA_hover_modeBrush {};
         class NGSA_hover_modeConnect {};
         class NGSA_import {};
+        class NGSA_importV2 {};
         class NGSA_insertMiddleNode {};
         class NGSA_main {};
         class NGSA_mainDialog {};

@@ -1,6 +1,11 @@
 /*
 Maintainer: Caleb Serafin
     Loads a file and returns a status with documentObjectModel that contains navGridDB and metadata.
+    For metadata V1 compatibility (legacy navgrid), loadFile should be used instead of preprocessFileLineNumbers.
+    If preprocessFileLineNumbers is used, then additional data contained inside the comment will be ignored.
+
+Argument:
+    <string> String to parse and load data from. Ether loaded from a file, or from a text box that was pasted into.
 
 Return Value:
     <string> Status, if empty, everything went okay and you can use the DOM. If non-empty, report value in error message.

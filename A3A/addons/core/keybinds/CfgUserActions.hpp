@@ -22,7 +22,7 @@ class CfgUserActions {
     class GVAR(earPlugs) {
         displayName = "Toggle ear plugs";
         tooltip = "Toggle use of ear plugs (no effect when using ace)";
-        onActivate = ACTION(earplugs);
+        onActivate = ACTION(earPlugs);
     };
 };
 #undef ACTION

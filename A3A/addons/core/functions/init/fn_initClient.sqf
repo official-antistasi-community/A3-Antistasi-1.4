@@ -387,7 +387,19 @@ vehicleBox addAction ["Heal nearby units", A3A_fnc_vehicleBoxHeal,nil,0,false,tr
 vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 [vehicleBox] call HR_GRG_fnc_initGarage;
 if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
-vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {
+		["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
+	} else {
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+		nul = createDialog "vehicle_option"
+#endif
+	}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+#endif
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 vehicleBox addAction ["Buy Light for 25€", {[player, 'vehicleLightSource', 25, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
 private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");
@@ -423,7 +435,11 @@ mapX addAction ["Game Options", {
 		"<br/>Civilian Limit: "+ str civPerc +
 		"<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
 	] call A3A_fnc_customHint;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
 	CreateDialog "game_options";
+#endif
 	nil;
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
@@ -444,7 +460,11 @@ if (worldName == "Tanoa") then {petros setName "Maru"} else {petros setName "Pet
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];
 _layer = ["statisticsX"] call bis_fnc_rscLayer;
-_layer cutRsc ["H8erHUD","PLAIN",0,false];
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_layer cutRsc ["H8erHUD","PLAIN",0,false];
+#endif
 [] spawn A3A_fnc_statistics;
 
 //Check if we need to relocate HQ

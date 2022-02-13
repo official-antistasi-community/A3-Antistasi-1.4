@@ -1,6 +1,11 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-_nul=createDialog "set_params";
+
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_nul=createDialog "set_params";
+#endif
 
 waitUntil {dialog};
 private _autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
@@ -13,7 +18,11 @@ private _autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
 waitUntil {!dialog};
 
 if (!isNil "loadLastSave" && {!loadLastSave}) then {
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
 	_nul=createDialog "diff_menu";
+#endif
 	waitUntil {dialog};
 	["Load Save", "Choose a difficulty level."] call A3A_fnc_customHint;
 	waitUntil {!dialog};
@@ -47,7 +56,11 @@ if (!isNil "loadLastSave" && {!loadLastSave}) then {
 		[] call A3A_fnc_statistics;
 		};
 
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
 	_nul= createDialog "gameMode_menu";
+#endif
 	waitUntil {dialog};
 	["Load Save", "Choose a Game Mode."] call A3A_fnc_customHint;
 	waitUntil {!dialog};

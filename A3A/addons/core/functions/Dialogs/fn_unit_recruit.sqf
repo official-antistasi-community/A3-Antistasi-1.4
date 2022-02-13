@@ -2,7 +2,11 @@
 FIX_LINE_NUMBERS()
 
 private ["_display","_childControl"];
-_nul = createDialog "unit_recruit";
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_nul = createDialog "unit_recruit";
+#endif
 
 sleep 1;
 disableSerialization;

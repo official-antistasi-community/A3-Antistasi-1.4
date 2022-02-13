@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases/latest">
-        <img src="https://img.shields.io/badge/Latest_Version-2.4-blue.svg?style=flat-square" alt="Antistasi Version">
+        <img src="https://img.shields.io/badge/Latest_Version-2.5.3-blue.svg?style=flat-square" alt="Antistasi Version">
     </a>
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/issues">
         <img src="https://img.shields.io/github/issues/official-antistasi-community/A3-Antistasi?style=flat-square" alt="Issues">
@@ -87,17 +87,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Supports up to 3 Headless Clients.
 - Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [3CB](https://steamcommunity.com/sharedfiles/filedetails/?id=1834976313), [GRAD Trenches](https://steamcommunity.com/sharedfiles/filedetails/?id=1224892496&searchtext=grad+trenches), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=2158809703). None of them mandatory.
 
-### How to build from GIT -PowerShell
-- Download ZIP file
-- Extract ZIP
-- Right click on `PrepareMissionsForPacking.ps1` and select 'Open with PowerShell'
-- The script will create a new folder called `PreparedMissions/`
-- Inside this folder you will find multiple subfolders, labeled `Antistasi-VersionNumber.MapName`
-- Use a PBO Packager to pack the any of these mission folders
+## [🛠 Building the Mod](https://github.com/official-antistasi-community/A3-Antistasi/wiki/Building-the-Mod)
 
-### Alternative: Build with Antistasi Dev Deploy
-- Download & Extract the ZIP file or Clone Repository.
-- Follow [Getting Started](https://github.com/official-antistasi-community/A3-Antistasi/wiki/Build-With-ADD)
-
-### Known Issues:
+## Known Issues:
 For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi/issues).

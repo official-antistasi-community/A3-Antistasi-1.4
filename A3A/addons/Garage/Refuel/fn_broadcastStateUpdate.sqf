@@ -26,4 +26,5 @@ if (HR_GRG_Users isNotEqualTo []) then {
     private _recipiants = +HR_GRG_Users;
     _recipiants pushBackUnique 2;
     [_vUID, _stateIndex, _state] remoteExecCall ["HR_GRG_fnc_reciveStateUpdate", _recipiants];
+    {_x publicVariableClient "HR_GRG_Sources"} forEach _recipiants;
 };

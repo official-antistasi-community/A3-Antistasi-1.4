@@ -187,7 +187,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_cherna_mapname_text;
+		briefingName=$STR_antistasi_mission_info_chernarus_summer_mapname_text;
 		resistanceWest=0;
 		year=2035;
 		month=7;

@@ -1,7 +1,11 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 private ["_display","_childControl"];
-_nul = createDialog "civ_vehicle";
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_nul = createDialog "civ_vehicle";
+#endif
 
 //sleep 1;
 disableSerialization;

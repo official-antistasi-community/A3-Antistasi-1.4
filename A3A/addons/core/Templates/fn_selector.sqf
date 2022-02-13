@@ -1,12 +1,12 @@
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _worldName = toLower worldName;
 
-//======================|
-// Climate Getter       |
-//======================|
-private _fileName = format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];; //can be moved away as it has nothing to do with selector anymore
-A3A_climate = ["climate"] call compile preProcessFileLineNumbers _filename;
+private _worldName = toLower worldName;
+A3A_climate = toLower (if (isText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")) then {
+    getText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")
+} else {
+    getText (configFile/"A3A"/"mapInfo"/_worldName/"climate")
+});
 
 private _fnc_requirementMeet = { getArray (_this/"requiredAddons") findIf { !(isClass (configFile/"CfgPatches"/_x)) } == -1 };
 
@@ -24,22 +24,19 @@ private _fnc_gatherTemplates = {
                 if (toLower _faction isEqualTo "camo") then {
                     if (_countClasses > 1) then { continue };
 
-                    private _camo = if (getText (_x/_worldName) isNotEqualTo "") then { getText (_x/_worldName) } else { getText (_x/"Default") };
+                    private _camo = if (getText (_x/A3A_climate) isNotEqualTo "") then { getText (_x/A3A_climate) } else { getText (_x/"Default") };
                     _fileNameComposition pushBack _camo;
                 } else {
                     _fileNameComposition pushBack _faction;
                 };
 
-                if (isClass (_x/"file")) then { //file overwrite (absolute path, excluding file extention)
-                    _fileNameComposition = [getText (_x/"file")];
-                };
-
                 if (isClass (_x/"camo")) then { //example: Vanilla_AI_CSAT_Arid.sqf
-                    private _camo = if (getText (_x/"camo"/_worldName) isNotEqualTo "") then { getText (_x/"camo"/_worldName) } else { getText (_x/"camo"/"Default") };
+                    private _camo = if (getText (_x/"camo"/A3A_climate) isNotEqualTo "") then { getText (_x/"camo"/A3A_climate) } else { getText (_x/"camo"/"Default") };
                     _fileNameComposition pushBack _camo;
                 };
-                if (isClass (_x/"file")) then { //file overwrite (absolute path, excluding file extention)
-                    _pool pushBackUnique getText (_x/"file");
+
+                if (isText (_x/"file")) then { //file overwrite (absolute path)
+                    _pool pushBackUnique ((getText (_x/"file")) + ".sqf");
                 } else {
                     _pool pushBackUnique (_rootPath + (_fileNameComposition joinString "_") + ".sqf");
                 };
@@ -96,7 +93,7 @@ private _addons = [];
 private _addonVics = configFile/"A3A"/"AddonVics";
 {
     if !(_x call _fnc_requirementMeet) then { continue };
-    private _root = getText (_x/"path");
+    private _root = getText (_x/"path") + "\";
     _nodes append (getArray (_x/"Nodes") apply {_root + _x});
     _addons append (getArray (_x/"files") apply {
         private _side = switch (toLower (_x#0)) do {
@@ -147,7 +144,7 @@ call compile preprocessFileLineNumbers (_nodes deleteAt _vanillaNodes);
 
 {
     _x call A3A_fnc_loadAddon;
-    Info_2("Loading addon: %1 for side: %2",_this#1,_this#0);
+    Info_2("Loading addon: %1 for side: %2",_x#1,_x#0);
 } forEach _addons;
 
 call A3A_fnc_compileMissionAssets;

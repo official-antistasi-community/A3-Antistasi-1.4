@@ -23,10 +23,10 @@ private _factionPrefix = ["occ", "inv", "reb", "civ"] # ([west,east,resistance,c
 
 //get the addon data
 private _addon = createHashMap;
-call preprocessFileLineNumbers _path;
+call compile preprocessFileLineNumbers _path;
 
 //add the addon data to the faction data
-private _faction = missionNamespace getVariable ["A3A_faction"+_factionPrefix, createHashMap];
+private _faction = missionNamespace getVariable ["A3A_faction_"+_factionPrefix, createHashMap];
 {
     _faction set [_x, (_faction get _x) + _y];
 } forEach _addon;

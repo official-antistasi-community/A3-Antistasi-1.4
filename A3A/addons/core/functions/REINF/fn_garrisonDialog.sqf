@@ -21,10 +21,31 @@ positionXGarr = "";
 _nearX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
 _positionX = getMarkerPos _nearX;
 
-if (getMarkerPos _nearX distance _positionTel > 40) exitWith {["Garrison", "You must click near a marked zone."] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
+if (getMarkerPos _nearX distance _positionTel > 40) exitWith {
+	["Garrison", "You must click near a marked zone."] call A3A_fnc_customHint;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_nul=CreateDialog "build_menu";
+#endif
+};
 
-if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {["Garrison", format ["That zone does not belong to %1.",FactionGet(reb,"name")]] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
-if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {["Garrison", "You cannot manage this garrison while there are enemies nearby."] call A3A_fnc_customHint; _nul=CreateDialog "build_menu"};
+if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {
+	["Garrison", format ["That zone does not belong to %1.",FactionGet(reb,"name")]] call A3A_fnc_customHint;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_nul=CreateDialog "build_menu";
+#endif
+};
+if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {
+	["Garrison", "You cannot manage this garrison while there are enemies nearby."] call A3A_fnc_customHint;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+_nul=CreateDialog "build_menu";
+#endif
+};
 //if (((_nearX in outpostsFIA) and !(isOnRoad _positionX)) /*or (_nearX in citiesX)*/ or (_nearX in controlsX)) exitWith {hint "You cannot manage garrisons on this kind of zone"; _nul=CreateDialog "garrison_menu"};
 _outpostFIA = if (_nearX in outpostsFIA) then {true} else {false};
 _wPost = if (_outpostFIA and !(isOnRoad getMarkerPos _nearX)) then {true} else {false};
@@ -32,7 +53,14 @@ _garrison = if (! _wpost) then {garrison getVariable [_nearX,[]]} else {FactionG
 
 if (_typeX == "rem") then
 	{
-	if ((count _garrison == 0) and !(_nearX in outpostsFIA)) exitWith {["Garrison", "The place has no garrisoned troops to remove."] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
+	if ((count _garrison == 0) and !(_nearX in outpostsFIA)) exitWith {
+		["Garrison", "The place has no garrisoned troops to remove."] call A3A_fnc_customHint;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+		_nul=CreateDialog "build_menu";
+#endif
+	};
 	_costs = 0;
 	_hr = 0;
 	{
@@ -58,7 +86,11 @@ if (_typeX == "rem") then
 		};
 	[_nearX] call A3A_fnc_mrkUpdate;
 	["Garrison", format ["Garrison removed<br/><br/>Recovered Money: %1 €<br/>Recovered HR: %2",_costs,_hr]] call A3A_fnc_customHint;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
 	_nul=CreateDialog "build_menu";
+#endif
 	}
 else
 	{
@@ -66,7 +98,11 @@ else
 	publicVariable "positionXGarr";
 	["Garrison", format ["Info%1",[_nearX] call A3A_fnc_garrisonInfo]] call A3A_fnc_customHint;
 	closeDialog 0;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
 	_nul=CreateDialog "garrison_recruit";
+#endif
 	sleep 1;
 	disableSerialization;
 

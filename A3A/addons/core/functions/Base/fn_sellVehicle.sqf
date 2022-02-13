@@ -86,6 +86,10 @@ private _costs = call {
     if (_typeX in (OccAndInv("vehiclesPlanesCAS") + OccAndInv("vehiclesPlanesAA"))) exitWith {4000};
     0;
 };
+if (_typeX in [FactionGet(reb,"vehicleFuelDrum"), FactionGet(reb,"vehicleFuelTank")] 
+        && _veh getVariable ['A3A_canGarage', false]) exitwith {
+            floor ([_veh] call A3A_fnc_remainingFuel * (_veh getVariable ['A3A_itemPrice', 0]));
+    };
 
 if (_costs == 0) exitWith {
     _veh setVariable ["A3A_sellVehicle_inProgress",false,false];

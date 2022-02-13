@@ -44,7 +44,11 @@ if (_money < _price) exitwith {["Item Purchase", "You can't afford this Item."] 
 _unit setVariable["A3A_spawnItem_cooldown", time + 15];
 
 //take money away
-[-_price] call A3A_fnc_resourcesPlayer;
+if (player == theBoss) then {
+    [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
+} else {
+    [-_price] call A3A_fnc_resourcesPlayer;
+};
 
 
 //spawn the Item
@@ -57,7 +61,7 @@ _item allowDamage false;
 _item setVariable ["A3A_canGarage", true, true];
 _item setVariable ["A3A_itemPrice", _price, true];
 
-// callbacks
+    // callbacks
 {
     private _func_name = (_x #0);
     if (_x #1) then {

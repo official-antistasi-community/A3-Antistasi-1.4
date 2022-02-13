@@ -43,7 +43,7 @@ if (A3A_customHint_MSGs isEqualTo []) then {
     private _keyBind = if (_dismissKey isEqualTo "") then {
         "<br/><t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top' >"+  // No alphaHex fading to allow longer reading time.
             str _topMSGIndex+" Previous Hints<br/>"+
-            "Bind dismiss key by: <t color='#f0d498'>Escape Manu</t> &gt; <t color='#f0d498'>CONFIGURE</t> &gt; <t color='#f0d498'>CONTROLS</t> &gt; <t color='#f0d498'>SHOW: Antistasi</t> &gt; <t color='#f0d498'>Dismiss Previous Hint</t>"+
+            "Bind dismiss key by: <t color='#f0d498'>Escape Menu</t> &gt; <t color='#f0d498'>CONFIGURE</t> &gt; <t color='#f0d498'>CONTROLS</t> &gt; <t color='#f0d498'>SHOW: Antistasi</t> &gt; <t color='#f0d498'>Dismiss Previous Hint</t>"+
         "</t>"
     } else {
         "<br/><t size='0.8' color='#"+_alphaHex+"e5b348' shadow='1' shadowColor='#"+_alphaHex+"000000' valign='top' >"+

@@ -24,5 +24,11 @@ class CfgUserActions {
         tooltip = "Toggle use of ear plugs (no effect when using ace)";
         onActivate = ACTION(earPlugs);
     };
+
+    class GVAR(customHintDismiss) {
+        displayName = "Dismiss Previous Hint";
+        tooltip = "Clears the last hint notification.";
+        onActivate = ACTION(customHintDismiss);
+    };
 };
 #undef ACTION

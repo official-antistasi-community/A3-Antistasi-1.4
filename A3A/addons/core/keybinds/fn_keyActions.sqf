@@ -60,6 +60,10 @@ switch (_key) do {
         };
     };
 
+    case QGVAR(customHintDismiss): {
+        [] call A3A_fnc_customHintDismiss;
+    };
+
     Default {
         Error_1("Key action not registered: %1", _key)
     };

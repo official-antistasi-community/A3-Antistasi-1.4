@@ -4,7 +4,8 @@ class UserActionsConflictsGroups {
             QGVAR(battleMenu),
             QGVAR(artyMenu),
             QGVAR(infoBar),
-            QGVAR(earPlugs)
+            QGVAR(earPlugs),
+            QGVAR(customHintDismiss)
         };
     };
 

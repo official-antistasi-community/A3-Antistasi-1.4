@@ -3,11 +3,10 @@ FIX_LINE_NUMBERS()
 params ["_key"];
 if !(isClass (missionConfigFile/"A3A")) exitWith {}; //not a3a mission
 
-if (player getVariable ["incapacitated",false]) exitWith {};
-if (player getVariable ["owner",player] != player) exitWith {};
-
 switch (_key) do {
     case QGVAR(battleMenu): {
+        if (player getVariable ["incapacitated",false]) exitWith {};
+        if (player getVariable ["owner",player] != player) exitWith {};
         GVAR(keys_battleMenu) = true; //used to block certain actions when menu is open
         closeDialog 0;
         createDialog "radio_comm";
@@ -15,6 +14,8 @@ switch (_key) do {
     };
 
     case QGVAR(artyMenu): {
+        if (player getVariable ["incapacitated",false]) exitWith {};
+        if (player getVariable ["owner",player] != player) exitWith {};
         GVAR(keys_battleMenu) = true; //used to block certain actions when menu is open
         if (player isEqualTo theBoss) then {
             [] spawn A3A_fnc_artySupport;
@@ -32,10 +33,10 @@ switch (_key) do {
 
         if (ctrlShown _infoBarControl) then {
             ["KEYS", true] call A3A_fnc_disableInfoBar;
-            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_off" + " " + _keyName, false] call A3A_fnc_customHint;
+            [localize "STR_antistasi_dialogs_toggle_info_bar_title", format [localize "STR_antistasi_dialogs_toggle_info_bar_body_off", _keyName], false] call A3A_fnc_customHint;
         } else {
             ["KEYS", false] call A3A_fnc_disableInfoBar;
-            [localize "STR_antistasi_dialogs_toggle_info_bar_title", localize "STR_antistasi_dialogs_toggle_info_bar_body_on" + " " + _keyName, false] call A3A_fnc_customHint;
+            [localize "STR_antistasi_dialogs_toggle_info_bar_title", format [localize "STR_antistasi_dialogs_toggle_info_bar_body_on", _keyName] , false] call A3A_fnc_customHint;
         };
     };
 

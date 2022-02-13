@@ -1,9 +1,9 @@
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params [
+if !(params [
       ["_event", "", [""]]
     , ["_id", "", [""]]
-];
+]) exitWith { Error_1("Invalid params passed: %1", _this)};
 
 if (isNil QGVAR(EventRegistry)) exitWith { Warning_2("Attempt to remove listener for event: %1 with ID: %2 before Event registry is initilized", _event, _id) };
 

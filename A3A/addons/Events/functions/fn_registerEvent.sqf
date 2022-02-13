@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params [["_event", "", [""]]];
+if !(params [["_event", "", [""]]]) exitWith { Error_1("Invalid params passed: %1", _this)};
 
 if (isNil QGVAR(EventRegistry)) then {
     GVAR(EventRegistry) = createHashMap;

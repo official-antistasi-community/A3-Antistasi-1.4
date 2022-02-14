@@ -401,7 +401,7 @@ if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//D
 	}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 #endif
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-vehicleBox addAction ["Buy Light for 25€", {[player, 'vehicleLightSource', 25, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
+vehicleBox addAction ["Buy Light for 25€", {[player, FactionGet(reb,"vehicleLightSource"), 25, [['A3A_fnc_initMovableObject', false]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
 private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");
 private _fuelTank = FactionGet(reb,"vehicleFuelTank");
 if (isClass (configFile/"CfgVehicles"/_fuelDrum # 0)) then {

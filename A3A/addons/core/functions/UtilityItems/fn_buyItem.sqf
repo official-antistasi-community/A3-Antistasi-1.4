@@ -3,7 +3,7 @@ Author: [Killerswin2, Håkon]
     trys to purchase a item and places it near the player. Damage for the object is disabled.
 Arguments:
 0.  <object>    Unit that will be buying a light
-1.  <array>     Item classname
+1.  <string>    Item classname
 2.  <number>    price of item
 3.  <array>     callback functions, [[name, isGlobal - > true if need exec]]
 
@@ -32,7 +32,6 @@ if (!hasInterface) exitwith{};
 if (isNull _unit) exitwith {};
 if (!isClass (configFile/"CfgVehicles"/_spawnItem)) exitwith {};
 if (_price == 0) exitwith {};
-systemChat _spawnItem;
 
 //check to make sure that the player is not spamming
 private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
@@ -41,24 +40,23 @@ if (_lastTimePurchase > time) exitwith {["Item Purchase", format ["You already b
 
 //try to take money away 😞
 private _noMoneyNoProblems = isNil {
-    if (player == theBoss && (server getVariable ["resourcesFIA", 0]) >= _price) exitwith {
+    if (_unit == theBoss && (server getVariable ["resourcesFIA", 0]) >= _price) then {
         [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
-        false
+        true;
+    } else {
+        if ((_unit getVariable ["moneyX", 0]) >= _price) then {
+            [-_price] call A3A_fnc_resourcesPlayer;
+            true;
+        };
     };
-    if ((player getVariable ["moneyX", 0]) >= _price) exitwith { 
-        [-_price] call A3A_fnc_resourcesPlayer;
-        false
-    };
-    nil
 };
-systemChat "made past take money way";
 if (_noMoneyNoProblems) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
 
 //had money for item
-_unit setVariable["A3A_spawnItem_cooldown", time + 15];
+_unit setVariable ["A3A_spawnItem_cooldown", time + 15];
 
-//spawn the Item 👀
-_position = (getPos _unit vectorAdd [3,0,0]) findEmptyPosition [1,10,_spawnItem];
+//spawn the Item
+private _position = (getPos _unit vectorAdd [3,0,0]) findEmptyPosition [1,10,_spawnItem];
 if (_position isEqualTo []) then {_position = getPos _unit};
 private _item = _spawnItem createVehicle _position;
 _item allowDamage false;
@@ -67,13 +65,13 @@ _item allowDamage false;
 _item setVariable ["A3A_canGarage", true, true];
 _item setVariable ["A3A_itemPrice", _price, true];
 
-    // callbacks
+// callbacks
 {
     private _func_name = (_x #0);
     if (_x #1) then {
             private _jipKey = "A3A_utilityItems_item_" + ((str _item splitString ":") joinString "");
             [_item, _jipKey] remoteExecCall [_func_name, 0, _jipKey];
     } else {
-        [_item] spawn (missionNamespace getVariable _func_name);
+        [_item] call (missionNamespace getVariable _func_name);
     };
 } foreach (_callbacks);

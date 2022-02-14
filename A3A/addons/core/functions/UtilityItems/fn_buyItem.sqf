@@ -39,7 +39,7 @@ if (_lastTimePurchase > time) exitwith {["Item Purchase", format ["You already b
 
 
 //try to take money away 😞
-private _noMoneyNoProblems = isNil {
+private _insufficientFunds = isNil {
     if (_unit == theBoss && (server getVariable ["resourcesFIA", 0]) >= _price) then {
         [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
         true;
@@ -50,7 +50,7 @@ private _noMoneyNoProblems = isNil {
         };
     };
 };
-if (_noMoneyNoProblems) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
+if (_insufficientFunds) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
 
 //had money for item
 _unit setVariable ["A3A_spawnItem_cooldown", time + 15];

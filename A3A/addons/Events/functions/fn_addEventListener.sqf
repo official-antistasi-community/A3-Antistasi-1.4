@@ -12,8 +12,8 @@ if (isNil QGVAR(EventRegistry)) then {
     GVAR(EventRegistry) = createHashMap;
 };
 
-if !(_event in GVAR(EventRegistry)) exitWith {
-    Error_2("%1 is not a registerd event | ID: %2", _event, _id)
+if !(_event in GVAR(EventRegistry)) then {
+    GVAR(EventRegistry) set [_event, createHashMap];
 };
 
 if (!isNil ((GVAR(EventRegistry) get _event) get _id)) then {

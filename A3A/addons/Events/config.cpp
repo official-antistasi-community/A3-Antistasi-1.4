@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3A_core"};
+        requiredAddons[] = {};
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";
@@ -14,10 +14,14 @@ class CfgPatches {
     };
 };
 
+class A3A {
+    #include "Events.hpp"
+
 #if __A3_DEBUG__
-    class A3A {
-        #include "CfgFunctions.hpp"
-    };
+    #include "CfgFunctions.hpp"
+};
+#endif
+#if __A3_DEBUG__
 #else
     #include "CfgFunctions.hpp"
 #endif

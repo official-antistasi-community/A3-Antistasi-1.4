@@ -37,21 +37,29 @@ if (_price == 0) exitwith {};
 private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
 if (_lastTimePurchase > time) exitwith {["Item Purchase", format ["You already bought one, wait %1 seconds before you can buy another.", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};
 
-//find out if we have money
-private _money = player getVariable ["moneyX", 0];
 
 if (_money < _price) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
 _unit setVariable["A3A_spawnItem_cooldown", time + 15];
 
-//take money away
-if (player == theBoss) then {
+//try to take money away 😞
+private _noMoneyNoProblems = isNil {
+    if (player == theBoss && (server getVariable ["resourcesFIA", 0] > _price)) exitwith {
     [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
-} else {
-    [-_price] call A3A_fnc_resourcesPlayer;
+    false
+    };
+    if ((player getVariable ["moneyX", 0]) >= _price) exitwith { 
+        [-_price] call A3A_fnc_resourcesPlayer;
+        flase
+    };
+    nil
 };
 
+if (_noMoneyNoProblems) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
 
-//spawn the Item
+//had money for item
+_unit setVariable["A3A_spawnItem_cooldown", time + 15];
+
+//spawn the Item 👀
 _position = (getPos _unit vectorAdd [3,0,0]) findEmptyPosition [1,10,_spawnItem];
 if (_position isEqualTo []) then {_position = getPos _unit};
 private _item = _spawnItem createVehicle _position;

@@ -32,28 +32,26 @@ if (!hasInterface) exitwith{};
 if (isNull _unit) exitwith {};
 if (!isClass (configFile/"CfgVehicles"/_spawnItem)) exitwith {};
 if (_price == 0) exitwith {};
+systemChat _spawnItem;
 
 //check to make sure that the player is not spamming
 private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
 if (_lastTimePurchase > time) exitwith {["Item Purchase", format ["You already bought one, wait %1 seconds before you can buy another.", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};
 
 
-if (_money < _price) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
-_unit setVariable["A3A_spawnItem_cooldown", time + 15];
-
 //try to take money away 😞
 private _noMoneyNoProblems = isNil {
-    if (player == theBoss && (server getVariable ["resourcesFIA", 0] > _price)) exitwith {
-    [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
-    false
+    if (player == theBoss && (server getVariable ["resourcesFIA", 0]) >= _price) exitwith {
+        [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
+        false
     };
     if ((player getVariable ["moneyX", 0]) >= _price) exitwith { 
         [-_price] call A3A_fnc_resourcesPlayer;
-        flase
+        false
     };
     nil
 };
-
+systemChat "made past take money way";
 if (_noMoneyNoProblems) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
 
 //had money for item

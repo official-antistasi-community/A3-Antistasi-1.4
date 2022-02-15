@@ -1,3 +1,24 @@
+/*
+Author: Håkon
+Description:
+    Validates the arguments of a triggered event
+
+Arguments:
+0. <String> Event identifier
+1. <Array>  Event arguments
+
+Return Value:
+<Bool> Event arguments valid
+
+Scope: Any
+Environment: unscheduled
+Public: No
+Dependencies:
+
+Example: private _valid = ["AIVehInit", _arguments] call A3A_Events_fnc_validateEventArguments;
+
+License: MIT License
+*/
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
 params [["_event","",[""]], ["_args", [], [[]]]];

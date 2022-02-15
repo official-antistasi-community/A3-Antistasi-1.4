@@ -1,3 +1,24 @@
+/*
+Author: Håkon
+Description:
+    Removes a event listener
+
+Arguments:
+0. <String> Event the listener is subscribed to
+1. <String> The event listeners unique identifier
+
+Return Value:
+<Nil|Array> Nil if failed, deleted event listener otherwise
+
+Scope: Any
+Environment: unscheduled
+Public: Yes
+Dependencies:
+
+Example: ["AIVehInit", "A3A_Events_example"] call A3A_Events_fnc_removeEventListener;
+
+License: MIT License
+*/
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
 if !(params [

@@ -1,3 +1,23 @@
+/*
+Author: Håkon
+Description:
+    Triggers an event
+
+Arguments:
+0. <String> Event identifier
+
+Return Value:
+<Nil|Bool> Nil if failed, otherwise true
+
+Scope: Any
+Environment: unscheduled
+Public: Yes
+Dependencies:
+
+Example: ["AIVehInit", [_veh, _side]] call A3A_Events_fnc_triggerEvent;
+
+License: MIT License
+*/
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
 params [
@@ -23,3 +43,4 @@ Verbose_2("Event triggered: %1 | Arguments: %2", _event, _arguments);
         if (_func isEqualType {}) then {_arguments call _func} else { Error_2("Callback not a function for Event listener ID: %1 | callback type: %2", _x, typeName _func) };
     };
 } forEach (GVAR(EventRegistry) getOrDefault [_event, createHashMap]);
+true

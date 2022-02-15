@@ -51,7 +51,6 @@ class CfgFunctions
             class paradrop {};
             class rearmCall {};
             class recallGroup {};
-            class smokeAndCough {};
             class smokeCoverAuto {};
             class staticAutoT {};
             class staticMGDrill {};

@@ -56,26 +56,27 @@ _flagX setVariable ["A3A_flagCaptureETA", serverTime + 10, true];
 ServerInfo_3("Outpost at %1 (%2): Flag capture initiated by %3", _outpostGridSquare, _markerX, str player);
 
 private _capRadius = ((markerSize _markerX select 0) + (markerSize _markerX select 1)) / 2;
-_capRadius = _capRadius max 50;
+_capRadius = 50 max _capRadius;
 
-private _enemyScanRadius = _capRadius + 50;  // The additional meters compensate for enemies that might walk in.
-
-private _nearbyEnemies = [];
+private _rebelValue = 0;
+private _enemyValue = 0;
 {
     if !(_x call A3A_fnc_canFight) then { continue };
-    if (side _x == teamPlayer) then { continue };
+    private _value = linearConversion [_capRadius/2, _capRadius, _markerPos distance2d _x, 1, 0, true];
+    if (side _x == teamPlayer) then {
+        _rebelValue = _rebelValue + _value;
+        continue;
+    };
     if (side _x == Occupants or side _x == Invaders) then {
-        _nearbyEnemies pushBack _x;
+        _enemyValue = _enemyValue + _value;
         player reveal _x;
     };
-} forEach (allUnits inAreaArray [_markerPos, _enemyScanRadius, _enemyScanRadius]);
+} forEach (allUnits inAreaArray [_markerPos, _capRadius, _capRadius]);
 
 
-if (count _nearbyEnemies != 0) exitWith
+if (_enemyValue > 2*_rebelValue) exitWith
 {
-    [getPosASL selectRandom _nearbyEnemies, _enemyScanRadius] call A3A_fnc_smokeAndCough;
-
-    ServerInfo_3("Outpost at %1 (%2): Flag capture cancelled due to %3 enemies nearby", _outpostGridSquare, _markerX, count _nearbyEnemies);
+    ServerInfo_4("Outpost at %1 (%2): Flag capture cancelled due to enemy value (%3) greater than 2*rebel value (%4)", _outpostGridSquare, _markerX, _enemyValue, _rebelValue);
     if (playerMarkersEnabled) then {
         ["Capture", "The enemy still lurks about. Check your map and clear the area."] call A3A_fnc_customHint;
     } else {

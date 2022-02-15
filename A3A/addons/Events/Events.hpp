@@ -4,6 +4,7 @@ class Events {
 			This Event registry shows that the event expects two arguments, the first should be an object, the second should be a side
 			both arguments are required in this case
 		*/
+		isLocal = 1; //flag to show that this function is only triggered on local machine (for end user)
 		class params {
 			// naming scheme of elements: _{Index}
 			class _0 {

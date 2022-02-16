@@ -108,9 +108,10 @@ Maintainer: DoomMetal
 // PIXELGRID //
 ///////////////
 
-#define pixelScale 0.75 // Was originally 0.5. So now it's 1.5 * 0.5
-#define GRID_W (pixelW * pixelGrid * pixelScale)
-#define GRID_H (pixelH * pixelGrid * pixelScale)
+#define pixelScale 0.5  // Was originally 0.5.
+#define PixelGridScaler pixelGridNoUIScale
+#define GRID_W (pixelW * PixelGridScaler * pixelScale)
+#define GRID_H (pixelH * PixelGridScaler * pixelScale)
 
 // Converts pixelGrid units to GUI coordinates
 #define PX_W(n) n*GRID_W

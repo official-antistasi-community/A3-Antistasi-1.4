@@ -167,7 +167,7 @@ class A3A_ListNBox : A3A_Text
 
     period = 1;
     disableOverflow = 0;
-    rowHeight = "4.32 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+    rowHeight = "4.32 * (1 / (getResolution select 3)) * pixelGridNoUIScale * 0.5";
     maxHistoryDelay = 1;
     columns[] = {0};
 

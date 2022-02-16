@@ -387,19 +387,19 @@ vehicleBox addAction ["Heal nearby units", A3A_fnc_vehicleBoxHeal,nil,0,false,tr
 vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 [vehicleBox] call HR_GRG_fnc_initGarage;
 if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
-#ifdef UseDoomGUI
-    ERROR("Disabled due to UseDoomGUI Switch.")
-#else
-	vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {
+
+vehicleBox addAction ["Buy Vehicle", {
+	if ([player,300] call A3A_fnc_enemyNearCheck) then {
 		["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
 	} else {
-#ifdef UseDoomGUI
-    ERROR("Disabled due to UseDoomGUI Switch.")
-#else
-		nul = createDialog "vehicle_option"
-#endif
-	}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-#endif
+		if (A3A_GUIDevPreview) then {
+			createDialog "A3A_BuyVehicleDialog";
+		} else {
+			createDialog "vehicle_option";
+		};
+	}
+},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 vehicleBox addAction ["Buy Light for 25€", {[player, FactionGet(reb,"vehicleLightSource"), 25, [['A3A_fnc_initMovableObject', false]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
 private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");

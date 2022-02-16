@@ -67,6 +67,7 @@ A3A_paramTable = [
     ["LTCLootUnlocked", "LTCLootUnlocked", [], false],
 
     ["logLevel", "LogLevel", ["override"], 3],
+    ["GUIDevPreview", "GUIDevPreview", [], false],
 
     ["bobChaosCrates", "truelyRandomCrates", [], false],
     ["cratePlayerScaling", "cratePlayerScaling", [], true],

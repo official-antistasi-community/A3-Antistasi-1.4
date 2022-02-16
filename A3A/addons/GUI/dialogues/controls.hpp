@@ -1066,8 +1066,8 @@ class A3A_DefaultDialog
 {
     idd = -1;
 
-    #define DIALOG_W 1.5 * 160 // Width of dialog in pixelGrid units
-    #define DIALOG_H 1.5 * 100 // Height of dialog in pixelGrid units
+    #define DIALOG_W 160 // Width of dialog in pixelGrid units
+    #define DIALOG_H 100 // Height of dialog in pixelGrid units
     #define DIALOG_X CENTER_X(DIALOG_W) // Global x pos of dialog
     #define DIALOG_Y CENTER_Y(DIALOG_H) // Global y pos of dialog
 

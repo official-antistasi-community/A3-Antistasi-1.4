@@ -3,6 +3,13 @@ Maintainer: DoomMetal
     Contains constants and macros for the GUI.
 */
 
+//////////////////
+// HEADER GUARD //
+//////////////////
+
+#define INCLUDED_DEFINES_HPP
+
+
 ///////////////////
 // CONTROL TYPES //
 ///////////////////
@@ -101,7 +108,7 @@ Maintainer: DoomMetal
 // PIXELGRID //
 ///////////////
 
-#define pixelScale 0.50
+#define pixelScale 0.75 // Was originally 0.5. So now it's 1.5 * 0.5
 #define GRID_W (pixelW * pixelGrid * pixelScale)
 #define GRID_H (pixelH * pixelGrid * pixelScale)
 
@@ -186,3 +193,7 @@ Maintainer: DoomMetal
 #define A3A_DEFAULT_FONT "RobotoCondensed"
 #define A3A_BUTTON_FONT "PuristaLight"
 #define A3A_TITLEBAR_FONT "PuristaMedium"
+
+#define TexturePathOf(Filename) x\A3A\addons\GUI\dialogues\textures\##Filename
+#define Quote(Text) #Text
+#define QTexturePathOf(Filename) Quote(TexturePathOf(Filename))

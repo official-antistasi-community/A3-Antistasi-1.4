@@ -382,32 +382,32 @@ switch (_mode) do
                     };
 
                     case ("at"): {
-                        _iconPath = "GUI\textures\icon_has_at.paa";
+                        _iconPath = A3A_Icon_Has_AT;
                         _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_at";
                     };
 
                     case ("aa"): {
-                        _iconPath = "GUI\textures\icon_has_aa.paa";
+                        _iconPath = A3A_Icon_Has_AA;
                         _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_aa";
                     };
 
                     case ("mortarDeployed"): {
-                        _iconPath = "GUI\textures\icon_has_mortar.paa";
+                        _iconPath = A3A_Icon_Has_Mortar;
                         _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_mortar_deployed";
                     };
 
                     case ("mortar"): {
-                        _iconPath = "GUI\textures\icon_has_mortar.paa";
+                        _iconPath = A3A_Icon_Has_Mortar;
                         _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_mortar_not_deployed";
                     };
 
                     case ("staticDeployed"): {
-                        _iconPath = "GUI\textures\icon_has_static.paa";
+                        _iconPath = A3A_Icon_Has_Static;
                         _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_static_weapon_deployed";
                     };
 
                     case ("static"): {
-                        _iconPath = "GUI\textures\icon_has_static.paa";
+                        _iconPath = A3A_Icon_Has_Static;
                         _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_static_weapon_not_deployed";
                     };
                 };

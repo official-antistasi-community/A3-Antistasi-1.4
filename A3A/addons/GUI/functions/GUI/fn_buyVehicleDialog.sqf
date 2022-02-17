@@ -106,6 +106,7 @@ switch (_mode) do
             private _button = _display ctrlCreate ["A3A_ShortcutButton", -1, _itemControlsGroup];
             _button ctrlSetPosition [0, 25 * GRID_H, 44 * GRID_W, 12 * GRID_H];
             _button ctrlSetText _displayName;
+            _button ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_vehicle_button_tooltip", _displayName, _price, "€"];
             _button setVariable ["className", _className];
             _button ctrlAddEventHandler ["ButtonClick", {closeDialog 2; [(_this # 0) getVariable "className"] spawn A3A_fnc_addFIAveh}];
             _button ctrlCommit 0;
@@ -201,29 +202,39 @@ switch (_mode) do
                     _passengersText ctrlSetPosition [3 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
                     _passengersText ctrlSetText str _passengers;
                     _passengersText ctrlCommit 0;
+                    _passengerIcon ctrlSetTooltip format[localize "STR_antistasi_dialogs_buy_vehicle_passenger_tooltip_amount", _passengers];
+                    _passengerIcon ctrlCommit 0;
                 };
+                // _crewInfoAdded placement incremented later
+            };
 
-                if (_passengersFFV > 0) then
+            if (_passengersFFV > 0) then
+            {
+                private _ffvIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
+                _ffvIcon ctrlSetPosition [7 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+                _ffvIcon ctrlSetText A3A_Icon_FFV;
+                _ffvIcon ctrlSetTextColor [0.8,0.8,0.8,1];
+                _ffvIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_ffv_tooltip";
+                _ffvIcon ctrlCommit 0;
+
+                if (_passengersFFV > 1) then
                 {
-                    private _ffvIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
-                    _ffvIcon ctrlSetPosition [7 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-                    _ffvIcon ctrlSetText A3A_Icon_FFV;
-                    _ffvIcon ctrlSetTextColor [0.8,0.8,0.8,1];
-                    _ffvIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_ffv_tooltip";
+                    private _ffvText = _display ctrlCreate ["A3A_InfoTextLeft", -1, _crewControlsGroup];
+                    _ffvText ctrlSetPosition [10 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
+                    _ffvText ctrlSetText str _passengersFFV;
+                    _ffvText ctrlSetTextColor [0.8,0.8,0.8,1];
+                    _ffvText ctrlCommit 0;
+                    _ffvIcon ctrlSetTooltip format[localize "STR_antistasi_dialogs_buy_vehicle_ffv_tooltip_amount", _passengersFFV];
                     _ffvIcon ctrlCommit 0;
-
-                    if (_passengersFFV > 1) then
-                    {
-                        private _ffvText = _display ctrlCreate ["A3A_InfoTextLeft", -1, _crewControlsGroup];
-                        _ffvText ctrlSetPosition [10 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
-                        _ffvText ctrlSetText str _passengersFFV;
-                        _ffvText ctrlSetTextColor [0.8,0.8,0.8,1];
-                        _ffvText ctrlCommit 0;
-                    };
                 };
+                // _crewInfoAdded placement incremented later
+            };
 
+            if (_passengers > 0 || _passengersFFV > 0) then
+            {
                 _crewInfoAdded = _crewInfoAdded + 1;
             };
+
             // Show item
             _itemControlsGroup ctrlSetFade 0;
             _itemControlsGroup ctrlCommit 0.1;

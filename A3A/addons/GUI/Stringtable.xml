@@ -273,18 +273,22 @@
         <English>Gunner</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_tooltip">
-        <Original>Passenger seats</Original>
-        <English>Passenger seats</English>
+        <Original>Passenger seat</Original>
+        <English>Passenger seat</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip">
-        <Original>FFV seats</Original>
-        <English>FFV seats</English>
+        <Original>FFV seat</Original>
+        <English>FFV seat</English>
       </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_tooltip_amount">
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_amount_tooltip">
+        <Original>%1 Gunners</Original>
+        <English>%1 Gunners</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_amount_tooltip">
         <Original>%1 Passenger seats</Original>
         <English>%1 Passenger seats</English>
       </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip_amount">
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_amount_tooltip">
         <Original>%1 FFV seats</Original>
         <English>%1 FFV seats</English>
       </Key>

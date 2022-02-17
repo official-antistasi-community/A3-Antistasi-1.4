@@ -13,6 +13,7 @@ ServerDebug_1("Spawning Airbase %1", _markerX);
 _vehiclesX = [];
 _groups = [];
 _soldiers = [];
+private _dogs = [];
 
 _positionX = getMarkerPos (_markerX);
 _pos = [];
@@ -125,6 +126,7 @@ if (_patrol) then
 			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then
 			{
 				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
+				_dogs pushBack _dog;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
@@ -316,6 +318,7 @@ waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
 deleteMarker _mrk;
 { if (alive _x) then { deleteVehicle _x } } forEach _soldiers;
+{ deleteVehicle _x } forEach _dogs;
 { deleteGroup _x } forEach _groups;
 
 {

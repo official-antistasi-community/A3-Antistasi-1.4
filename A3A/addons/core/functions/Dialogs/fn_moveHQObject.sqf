@@ -16,7 +16,13 @@ _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 _markerX = [_sites,_playerX] call BIS_fnc_nearestPosition;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 _positionX = getMarkerPos _markerX;
-if (_playerX distance2D _positionX > _size) exitWith {["Move HQ", "This asset needs to be closer to it relative zone center to be able to be moved."] call A3A_fnc_customHint;};
+
+if(_playerX distance2D _positionX > _size) then {
+	if (_thingX getVariable ['A3A_OutOfBoundsCheck', false]) exitWith {["Move HQ", "Object out of movable area"] call A3A_fnc_customHint;};
+	_thingX setVariable ['A3A_OutOfBoundsCheck', true, true]; //outofbounds
+} else {
+	_thingX setVariable ['A3A_OutOfBoundsCheck', false, true]; //inbounds
+};
 
 if (captive _playerX) then { _playerX setCaptive false };
 

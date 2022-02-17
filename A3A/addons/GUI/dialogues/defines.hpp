@@ -9,6 +9,20 @@ Maintainer: DoomMetal
 
 #define INCLUDED_DEFINES_HPP
 
+/////////////
+// IMPORTS //
+/////////////
+
+#ifndef GUI_BCG_COLOR
+    #include "\a3\ui_f\hpp\definecommoncolors.inc"
+#endif
+
+
+////////////////////
+// GENERIC MACROS //
+////////////////////
+#define QUOTE(Text) #Text
+
 
 ///////////////////
 // CONTROL TYPES //
@@ -135,13 +149,16 @@ Maintainer: DoomMetal
 #define A3A_COLOR_BACKGROUND {0.2,0.2,0.2,0.75}
 
 // Titlebar background
-#define A3A_COLOR_TITLEBAR_BACKGROUND {0.13,0.54,0.21,0.8}
+#define A3A_COLOR_TITLEBAR_BACKGROUND GUI_BCG_COLOR
 
 // Tabs Background
 #define A3A_COLOR_TABS_BACKGROUND {0.2,0.2,0.2,0.9}
 
 // Default text
 #define A3A_COLOR_TEXT {1,1,1,1}
+
+// Default text
+#define A3A_COLOR_TITLEBAR_TEXT GUI_TITLETEXT_COLOR
 
 // Darker text
 #define A3A_COLOR_TEXT_DARKER {0.7,0.7,0.7,1}
@@ -150,10 +167,10 @@ Maintainer: DoomMetal
 #define A3A_COLOR_ACTIVE {0.95,0.95,0.95,1}
 
 // Warning / Accents
-#define A3A_COLOR_WARNING {0.8,0.5,0,1}
+#define A3A_COLOR_WARNING IGUI_WARNING_COLOR
 
 // Error / Strong accents
-#define A3A_COLOR_ERROR {0.8,0,0,1}
+#define A3A_COLOR_ERROR IGUI_ERROR_COLOR
 
 // Shadows / Outlines
 #define A3A_COLOR_SHADOW {0,0,0,0.5}
@@ -195,6 +212,10 @@ Maintainer: DoomMetal
 #define A3A_BUTTON_FONT "PuristaLight"
 #define A3A_TITLEBAR_FONT "PuristaMedium"
 
-#define TexturePathOf(Filename) x\A3A\addons\GUI\dialogues\textures\##Filename
-#define Quote(Text) #Text
-#define QTexturePathOf(Filename) Quote(TexturePathOf(Filename))
+
+//////////////
+// TEXTURES //
+//////////////
+
+#define A3A_GUI_TEXTURE_PATH_OF(Filename) x\A3A\addons\GUI\dialogues\textures\##Filename
+#define A3A_GUI_QTEXTURE_PATH_OF(Filename) QUOTE(A3A_GUI_TEXTURE_PATH_OF(Filename))

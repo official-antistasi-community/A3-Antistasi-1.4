@@ -83,6 +83,7 @@ class A3A_TitlebarText : A3A_Text
 {
     font = A3A_TITLEBAR_FONT;
     sizeEx = GUI_TEXT_SIZE_LARGE;
+    colorText[] = A3A_COLOR_TITLEBAR_TEXT;
 };
 
 class A3A_SectionLabelLeft : A3A_Text

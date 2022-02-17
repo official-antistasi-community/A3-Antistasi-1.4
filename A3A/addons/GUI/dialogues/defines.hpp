@@ -21,6 +21,8 @@ Maintainer: DoomMetal
 ////////////////////
 // GENERIC MACROS //
 ////////////////////
+#define REFLECT(Text) Text
+#define SHARP REFLECT(#)
 #define QUOTE(Text) #Text
 
 
@@ -150,6 +152,7 @@ Maintainer: DoomMetal
 
 // Titlebar background
 #define A3A_COLOR_TITLEBAR_BACKGROUND GUI_BCG_COLOR
+#define A3A_COLOR_TITLEBAR_BACKGROUND_SQF [GUI_BCG_RGB, GUI_BCG_ALPHA]
 
 // Tabs Background
 #define A3A_COLOR_TABS_BACKGROUND {0.2,0.2,0.2,0.9}

@@ -17,11 +17,11 @@ class CfgPatches {
 class A3A {
     #include "Templates.hpp"
 
-
+#if __A3_DEBUG__
     #include "CfgFunctions.hpp"
-
+#endif
 };
-
+#if __A3_DEBUG__
     class CfgFunctions {
         class A3A {
             class debug {
@@ -31,7 +31,13 @@ class A3A {
             };
         };
     };
+#else
+    #include "CfgFunctions.hpp"
+#endif
 
+#ifndef UseDoomGUI
+    #include "defines.hpp"
+    #include "dialogs.hpp"
+#endif
 
-#include "defines.hpp"
-#include "dialogs.hpp"
+#include "keybinds.hpp"

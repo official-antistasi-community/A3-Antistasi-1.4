@@ -233,7 +233,6 @@ if (side group player == teamPlayer) then
 			[_bag2] remoteExec ["A3A_fnc_postmortem", 2];
 			}
 		];
-	[true] spawn A3A_fnc_reinitY;
 	[] spawn A3A_fnc_unitTraits;
 	[] spawn A3A_fnc_statistics;
 	if (LootToCrateEnabled) then {call A3A_fnc_initLootToCrate};

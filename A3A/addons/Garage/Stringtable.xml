@@ -203,6 +203,10 @@
             <Original>Fuel sold</Original>
             <English>Fuel sold</English>
         </Key>
+        <Key ID="STR_HR_GRG_Feedback_addVehicle_Fuel_commander_only">
+            <Original>Fuel sources can only be garaged by commander</Original>
+            <English>Fuel sources can only be garaged by commander</English>
+        </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Distance">
             <Original>You can't garage vehicles that are more than 25m away from you</Original>
             <English>You can't garage vehicles that are more than 25m away from you</English>

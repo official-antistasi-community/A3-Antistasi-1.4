@@ -395,7 +395,7 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         call HR_GRG_cleanUp
     };
 
-    #ifdef Debug //Debug render
+    #if __A3_DEBUG__ //Debug render
     HR_GRG_dispSquare params ["_adjustment", "_square"];
     _square params ["_a","_b"];
     drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [_a,0,0]), [0.9,0,0,1]];

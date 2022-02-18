@@ -766,26 +766,14 @@ switch _mode do {
 		_type = (ctrltype _ctrlList == 102);
 
 
-		_inventory = if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG)then{
-
+		_inventory = if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG) then
+		{
 			_usableMagazines = [];
 			{
-				_cfgWeapon = configfile >> "cfgweapons" >> _x;
-				{
-					_cfgMuzzle = if (_x == "this") then {_cfgWeapon} else {_cfgWeapon >> _x};
-					{
-						_usableMagazines pushBackUnique _x;
-					} foreach getarray (_cfgMuzzle >> "magazines");
-				} foreach getarray (_cfgWeapon >> "muzzles");
+				private _cfgWeapon = configfile >> "cfgweapons" >> _x;
+				private _mags = _cfgWeapon call A3A_fnc_allMagazines;
+				{ _usableMagazines pushBackUnique _x } forEach _mags;
 			} foreach (weapons player - ["Throw","Put"]);
-
-
-
-			{
-				{
-					_usableMagazines pushBackUnique _x;
-				} forEach (getarray (configfile >> "cfgweapons" >> _x >> "magazines"));
-			}forEach [primaryweapon player, secondaryweapon player, handgunweapon player];
 
 			//loop all magazines and find usable
 			_magazines = [];

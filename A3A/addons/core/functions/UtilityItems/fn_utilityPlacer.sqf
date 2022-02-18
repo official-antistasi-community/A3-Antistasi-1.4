@@ -13,7 +13,7 @@ Environment: Unscheduled
 Public: 
 no
 Example:
-[] call fnc_utilityPlacer.sqf
+[] call A3A_fnc_utilityPlacer.sqf
 */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"

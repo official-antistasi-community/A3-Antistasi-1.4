@@ -225,8 +225,8 @@
         </Key>
         <!--%1 is faction name-->
         <Key ID="STR_HR_GRG_Feedback_addVehicle_badLocation">
-            <Original>You and the vehicle need to be in a %1 garrison surroundings in order to garage a it</Original>
-            <English>You and the vehicle need to be in a %1 garrison surroundings in order to garage a it</English>
+            <Original>You and the vehicle need to be in a %1 garrisons surroundings in order to garage a it</Original>
+            <English>You and the vehicle need to be in a %1 garrisons surroundings in order to garage a it</English>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_enemiesEngaging">
             <Original>You can't garage vehicles while enemies are engaging you</Original>

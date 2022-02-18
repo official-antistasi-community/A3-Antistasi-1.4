@@ -65,7 +65,12 @@ private _updatePreferedFaction = {
     private _side = ["Occ","Inv","Reb","Civ"] # _this;
     if (getNumber (_x/_entryName) > (_prioritisations#_this#0)) then {
         private _defaultFaction = if (getText (_x/"worldDefaults"/_worldName/_side) isNotEqualTo "") then { getText (_x/"worldDefaults"/_worldName/_side) } else { getText (_x/"worldDefaults"/"Default"/_side) };
-        if (_defaultFaction isEqualTo "") exitWith {};
+        if (_defaultFaction isEqualTo "") exitWith {
+            private _pool = ["AI","AI","Reb","Civ"] # _this;
+            if (isClass (_x/_pool)) then { // single civ template defined for modset
+                _prioritisations set [_this, [getNumber (_x/_entryName), "", _modset]]; //_modset hacked from parent scope
+            };
+        };
 
         _prioritisations set [_this, [getNumber (_x/_entryName), _defaultFaction, _modset]]; //_modset hacked from parent scope
     };

@@ -14,7 +14,7 @@ class altis {
 		{},{"airport_2","seaport_4","outpost_5","control_52","control_33"},{},{"control_52","control_33"}
 	};
 	fuelStationTypes[] = {
-		"Land_Fuelstation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_03_pump_F","Land_FuelStation_02_pump_F"
+		"Land_FuelStation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_01_pump_F","Land_FuelStation_02_pump_F","Land_FuelStation_03_pump_F"
 	};
 	climate = "arid";
 };

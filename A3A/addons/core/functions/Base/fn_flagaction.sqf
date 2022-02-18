@@ -127,7 +127,7 @@ switch _typeX do
     };
     case "seaport":
     {
-        _flag addAction ["Buy Boat", {[FactionGet(reb,"vehicleBoat")] spawn A3A_fnc_addFIAVeh},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
+        // No additional actions assigned.
     };
     case "garage":
     {

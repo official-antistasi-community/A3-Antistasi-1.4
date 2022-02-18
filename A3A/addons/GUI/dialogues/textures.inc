@@ -113,3 +113,6 @@ Maintainer: DoomMetal
 #define A3A_Icon_PlayerCommander    "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa"
 #define A3A_Icon_PlayerEligible     "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa"
 #define A3A_Icon_PlayerIneligible   A3A_GUI_QTEXTURE_PATH_OF(icon_ineligible.paa)
+
+// Place Holders
+#define A3A_PlaceHolder_NoVehiclePreview   A3A_GUI_QTEXTURE_PATH_OF(placeholder_no_vehicle_preview.paa)

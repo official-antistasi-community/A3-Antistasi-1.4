@@ -87,6 +87,10 @@ switch (_mode) do
             private _displayName = getText (_configClass >> "displayName");
             private _editorPreview = getText (_configClass >> "editorPreview");
 
+            if (!fileExists _editorPreview) then {
+                _editorPreview = A3A_PlaceHolder_NoVehiclePreview;
+            };
+
             // Add some extra padding to the top if there are 2 rows or less
             private _topPadding = if (count _buyableVehiclesList < 7) then {5 * GRID_H} else {0};
 

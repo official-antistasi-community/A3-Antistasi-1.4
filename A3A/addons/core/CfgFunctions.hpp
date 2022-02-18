@@ -771,6 +771,7 @@ class CfgFunctions
             class attachedObjects {};
             class dropObject {};
             class remainingFuel {};
+            class utilityPlacer {};
         };
     };
 };

@@ -1,7 +1,7 @@
 
 /*
 Author: [Killerswin2]
-    A prettier logistics placer 
+	A prettier logistics placer 
 Arguments:
 0: vehicle class name to place down <STRING>
 
@@ -23,7 +23,7 @@ Example:
 #define VEHICLE_OBJ_DIR 3
 #define VEHICLE_OBJ 4
 #define INFO_TEXT 5
-#define END_ROTATING 6
+#define END_PLACEMENT 6
 #define KEYDOWN_EH 7
 #define EACHFRAME_EH 8
 #define HINT_DISPLAY 9
@@ -38,33 +38,33 @@ A3A_objectColor = [1,0,0,1];
 
 A3A_boundingCircle = [];
 for "_i" from 1 to 36 do {
-	private _posStart = [50*(cos(10*_i)),50*(sin(10*_i)),0] vectorAdd getPosATL flagX;
+	private _posStart = [50*(cos(10*_i)),50*(sin(10*_i)),0] vectorAdd getPos player;
 	private _piece = "Sign_Sphere100cm_F" createVehicleLocal _posStart;
 	_piece enableSimulation false;
 	A3A_boundingCircle pushBack _piece;
 };
-if(!isNil "A3A_objectRotate_EHDB") exitwith {};
+if(!isNil "A3A_object_EHDB") exitwith {};
 
-A3A_objectRotate_EHDB = [false,
+A3A_object_EHDB = [false,
 false, time, getDir A3A_dispVehicle, A3A_dispVehicle, "", {
-	findDisplay 46 displayRemoveEventHandler ["KeyDown", A3A_objectRotate_EHDB # KEYDOWN_EH ];
-	removeMissionEventHandler ["EachFrame", A3A_objectRotate_EHDB # EACHFRAME_EH ];
-	terminate (A3A_objectRotate_EHDB # HINT_DISPLAY );
-	A3A_dispVehicle setVariable ["A3A_rotatingObject", false, true];
+	findDisplay 46 displayRemoveEventHandler ["KeyDown", A3A_object_EHDB # KEYDOWN_EH ];
+	removeMissionEventHandler ["EachFrame", A3A_object_EHDB # EACHFRAME_EH ];
+	//terminate (A3A_object_EHDB # HINT_DISPLAY );
+	(A3A_object_EHDB # VEHICLE_OBJ) setVariable ["A3A_rotatingObject", false, true];
 	{deleteVehicle _x} forEach A3A_boundingCircle;
 	A3A_vehiclePos = nil;
 	A3A_dispVehicle = nil;
 	A3A_objectIcon = nil;
 	A3A_objectIcon = nil;
 	A3A_objectColor = nil;
-	A3A_boundingCircle = nil;	
-	A3A_objectRotate_EHDB = nil;
-	A3A_placementLines = nil;
+	A3A_boundingCircle = nil;
+	A3A_placementLines = nil;	
+	A3A_object_EHDB = nil;
 }, -1, -1, controlNull];
 
-A3A_dispVehicle setVariable ["A3A_rotatingObject", true, true];
+(A3A_object_EHDB # VEHICLE_OBJ) setVariable ["A3A_rotatingObject", true, true];
 
-private _boundingBoxArray = 0 boundingBoxReal A3A_dispVehicle;
+private _boundingBoxArray = 0 boundingBoxReal (A3A_object_EHDB # VEHICLE_OBJ);
 
 
 private ["_rightFrontBottom","_rightRearBottom","_leftRearBottom","_leftFrontBottom",
@@ -103,28 +103,33 @@ private _keyDownEH = findDisplay 46 displayAddEventHandler ["KeyDown", {
 	params["","_key"];
 	private _return = false;
 
-	if (_key isEqualTo DIK_E && (A3A_objectRotate_EHDB # WAIT_TIME) < time) then {
+	if (_key isEqualTo DIK_E && (A3A_object_EHDB # WAIT_TIME) < time) then {
 		_return = true;
-		A3A_objectRotate_EHDB set [E_PRESSED, true];
-		A3A_objectRotate_EHDB set [ WAIT_TIME , (A3A_objectRotate_EHDB # WAIT_TIME ) + 0.01];
+		A3A_object_EHDB set [E_PRESSED, true];
+		A3A_object_EHDB set [ WAIT_TIME , (A3A_object_EHDB # WAIT_TIME ) + 0.01];
 	};
 
-	if (_key isEqualTo DIK_Q && (A3A_objectRotate_EHDB # WAIT_TIME) < time) then {
+	if (_key isEqualTo DIK_Q && (A3A_object_EHDB # WAIT_TIME) < time) then {
 		_return = true;
-		A3A_objectRotate_EHDB set [Q_PRESSED, true];
-		A3A_objectRotate_EHDB set [WAIT_TIME , (A3A_objectRotate_EHDB # WAIT_TIME ) + 0.01];
+		A3A_object_EHDB set [Q_PRESSED, true];
+		A3A_object_EHDB set [WAIT_TIME , (A3A_object_EHDB # WAIT_TIME ) + 0.01];
 	};
 
 	if (_key in [DIK_SPACE,DIK_RETURN]) then{
 		_return = true;
-		
+
 		//vehicle stats
-		private _vehDir = (A3A_objectRotate_EHDB # VEHICLE_OBJ_DIR);
+		private _vehDir = (A3A_object_EHDB # VEHICLE_OBJ_DIR);
 		private _vehPos = A3A_vehiclePos;
-		private _vehClass = typeOf (A3A_objectRotate_EHDB # VEHICLE_OBJ);
+		private _vehClass = typeOf (A3A_object_EHDB # VEHICLE_OBJ);
+
+		if(_vehPos distance player  > 50 ) exitWith {
+			deleteVehicle (A3A_object_EHDB # VEHICLE_OBJ);
+			call (A3A_object_EHDB # END_PLACEMENT);
+		};
 
 		//createVehicle
-		deleteVehicle (A3A_objectRotate_EHDB # VEHICLE_OBJ);
+		deleteVehicle (A3A_object_EHDB # VEHICLE_OBJ);
 
 		private _veh = _vehClass createVehicle _vehPos;
 		_veh setDir _vehDir;
@@ -133,35 +138,44 @@ private _keyDownEH = findDisplay 46 displayAddEventHandler ["KeyDown", {
 		A3A_returnVehicle = _veh;
 		
 		
-		call (A3A_objectRotate_EHDB # END_ROTATING);
+		call (A3A_object_EHDB # END_PLACEMENT);
 	};
 	_return;
 }];
-A3A_objectRotate_EHDB set [ KEYDOWN_EH , _keyDownEH];
+A3A_object_EHDB set [ KEYDOWN_EH , _keyDownEH];
 
 private _eachFrameEH  = addMissionEventHandler ["EachFrame", {
 
 	private _stateChange = false;
-	private _pos = screenToWorld [0.5, 0.5];
+	private _pos = getPos (A3A_object_EHDB # VEHICLE_OBJ);	
+	private _objectsThatAreInTheWay = [];
+	_objectsThatAreInTheWay = (_pos nearObjects ["thingX", ((A3A_object_EHDB # VEHICLE_OBJ) call BIS_fnc_boundingCircle)]);
+	_objectsThatAreInTheWay = _objectsThatAreInTheWay + (_pos nearObjects ["AllVehicles", ((A3A_object_EHDB # VEHICLE_OBJ) call BIS_fnc_boundingCircle)]);
+	_objectsThatAreInTheWay = _objectsThatAreInTheWay + (_pos nearObjects ["CAManBase", ((A3A_object_EHDB # VEHICLE_OBJ) call BIS_fnc_boundingCircle)]);
 	
 
-	private _objectsThatAreInTheWay = (_pos nearObjects ["thingX", 0.55 * (A3A_dispVehicle call BIS_fnc_boundingCircle)]);
-	_objectsThatAreInTheWay = _objectsThatAreInTheWay + (_pos nearObjects ["AllVehicles", 0.55 *(A3A_dispVehicle call BIS_fnc_boundingCircle)]);
-	_objectsThatAreInTheWay = _objectsThatAreInTheWay + (_pos nearObjects ["CAManBase", 0.55 *(A3A_dispVehicle call BIS_fnc_boundingCircle)]);
-	
+	//making the icons on top of the placement.
 	if(count _objectsThatAreInTheWay > 0) then {
 		{
-			if (alive _x && _x isNotEqualTo A3A_dispVehicle) then {
+			if (alive _x && _x isNotEqualTo (A3A_object_EHDB # VEHICLE_OBJ)) then {
 				drawIcon3D [A3A_objectIcon, A3A_objectColor,(getPos _x vectorAdd[0,0,2]),
 				1,1,0,format["%1",getText(configFile >> "CfgVehicles" >> typeOf _x >> "displayName")],
 				2,0.06,"RobotoCondensedLight"];
 			};
-			if(_x isEqualTo A3A_dispVehicle) then {
+			if(_x isEqualTo (A3A_object_EHDB # VEHICLE_OBJ)) then {
 				drawIcon3D [A3A_objectIcon, [0,0,1,1],(getPos _x vectorAdd[0,0,2]),
 				1,1,0,format["%1",getText(configFile >> "CfgVehicles" >> typeOf _x >> "displayName")],
 				2,0.06,"RobotoCondensedLight"];
 			}
 		} forEach _objectsThatAreInTheWay;
+	};
+
+	//3d lines if wanted 
+	if(A3A_debugLines) then {
+		{
+		_x params ["_start", "_end"];
+		drawLine3D [(A3A_object_EHDB # VEHICLE_OBJ) modelToWorldVisual _start, (A3A_object_EHDB # VEHICLE_OBJ) modelToWorldVisual _end, [0.9,0,0,1]];
+		} forEach A3A_placementLines;
 	};
 
 	//change in position
@@ -171,20 +185,20 @@ private _eachFrameEH  = addMissionEventHandler ["EachFrame", {
 	};
 
 	// rotation
-	if (A3A_objectRotate_EHDB # Q_PRESSED) then {
-		A3A_objectRotate_EHDB set [Q_PRESSED, false];
-		A3A_objectRotate_EHDB set [VEHICLE_OBJ_DIR, (A3A_objectRotate_EHDB # VEHICLE_OBJ_DIR) -1];
+	if (A3A_object_EHDB # Q_PRESSED) then {
+		A3A_object_EHDB set [Q_PRESSED, false];
+		A3A_object_EHDB set [VEHICLE_OBJ_DIR, (A3A_object_EHDB # VEHICLE_OBJ_DIR) -1];
 		_stateChange = true;
 	};
 
-	if (A3A_objectRotate_EHDB # E_PRESSED) then {
-		A3A_objectRotate_EHDB set [E_PRESSED, false];
-		A3A_objectRotate_EHDB set [VEHICLE_OBJ_DIR, (A3A_objectRotate_EHDB # VEHICLE_OBJ_DIR) +1];
+	if (A3A_object_EHDB # E_PRESSED) then {
+		A3A_object_EHDB set [E_PRESSED, false];
+		A3A_object_EHDB set [VEHICLE_OBJ_DIR, (A3A_object_EHDB # VEHICLE_OBJ_DIR) +1];
 		_stateChange = true;
 	};
 
 	private _hide = {
-		(A3A_objectRotate_EHDB # VEHICLE_OBJ) hideObject _this;
+		(A3A_object_EHDB # VEHICLE_OBJ) hideObject _this;
 	};
 
 	if (_stateChange) then {
@@ -196,35 +210,32 @@ private _eachFrameEH  = addMissionEventHandler ["EachFrame", {
 		//check for collisons with lines / bounding box
 		{
 			_x params ["_start", "_end"];
-			systemChat str _start;
-			//drawLine3D [A3A_dispVehicle modelToWorldVisual _start, A3A_dispVehicle modelToWorldVisual _end, [0.9,0,0,1]];
-			if (lineIntersects [A3A_dispVehicle modelToWorldVisualWorld _start, A3A_dispVehicle modelToWorldVisual _end, A3A_dispVehicle]) then {
+			if (lineIntersects [(A3A_object_EHDB # VEHICLE_OBJ) modelToWorldVisualWorld _start, (A3A_object_EHDB # VEHICLE_OBJ) modelToWorldVisualWorld _end, (A3A_object_EHDB # VEHICLE_OBJ)]) then {
 				_exit = true;
-				systemChat "collison";
 			};
 		} forEach A3A_placementLines;
-		if (_exit) exitWith {systemChat "exit"; true call _hide };
+		if (_exit) exitWith {true call _hide};
 		false call _hide;
 	};
 
 	//set dir and pos
 	if (_stateChange) then {
-		(A3A_objectRotate_EHDB # VEHICLE_OBJ) setPos A3A_vehiclePos;
-		(A3A_objectRotate_EHDB # VEHICLE_OBJ) setDir (A3A_objectRotate_EHDB # VEHICLE_OBJ_DIR);
-		(A3A_objectRotate_EHDB # VEHICLE_OBJ) setVectorUp surfaceNormal getPos (A3A_objectRotate_EHDB # VEHICLE_OBJ);
+		(A3A_object_EHDB # VEHICLE_OBJ) setPos A3A_vehiclePos;
+		(A3A_object_EHDB # VEHICLE_OBJ) setDir (A3A_object_EHDB # VEHICLE_OBJ_DIR);
+		(A3A_object_EHDB # VEHICLE_OBJ) setVectorUp surfaceNormal getPos (A3A_object_EHDB # VEHICLE_OBJ);
 	};
 
-	if ((player distance (A3A_objectRotate_EHDB # VEHICLE_OBJ)) > 5) then {
-		A3A_objectRotate_EHDB set [INFO_TEXT, localize "STR_A3A_Utility_Items_Feedback_Far"];
+	if ((player distance (A3A_object_EHDB # VEHICLE_OBJ)) > 5) then {
+		A3A_object_EHDB set [INFO_TEXT, localize "STR_A3A_Utility_Items_Feedback_Far"];
 	}else {
-		A3A_objectRotate_EHDB set [INFO_TEXT, localize "STR_A3A_Utility_Items_Feedback_Normal"];
+		A3A_object_EHDB set [INFO_TEXT, localize "STR_A3A_Utility_Items_Feedback_Normal"];
 	};
 
-	private _control_Hint = [A3A_objectRotate_EHDB # INFO_TEXT , 0, 0.9, 0.2, 0, 0, 17001] spawn BIS_fnc_dynamicText;
-	A3A_objectRotate_EHDB set [HINT_DISPLAY, _control_Hint];
+	//private _control_Hint = [(A3A_object_EHDB # INFO_TEXT) , 0, 0.9, 0.2, 0, 0, 17001] spawn BIS_fnc_dynamicText;
+	//A3A_object_EHDB set [HINT_DISPLAY, _control_Hint];
 
-	if (!([player] call A3A_fnc_canFight)||((player distance (A3A_objectRotate_EHDB # VEHICLE_OBJ)) > 6)) then{
-		call (A3A_objectRotate_EHDB # END_ROTATING);
+	if (!([player] call A3A_fnc_canFight)) then{
+		call (A3A_object_EHDB # END_PLACEMENT);
 	};
 
 }];

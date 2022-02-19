@@ -65,6 +65,20 @@ private _updatePreferedFaction = {
     private _side = ["Occ","Inv","Reb","Civ"] # _this;
     if (getNumber (_x/_entryName) > (_prioritisations#_this#0)) then {
         private _defaultFaction = if (getText (_x/"worldDefaults"/_worldName/_side) isNotEqualTo "") then { getText (_x/"worldDefaults"/_worldName/_side) } else { getText (_x/"worldDefaults"/"Default"/_side) };
+        if (_defaultFaction isEqualTo "") exitWith {
+            private _pool = ["AI","AI","Reb","Civ"] # _this;
+            if (isClass (_x/_pool) && {
+                (count ("true" configClasses (_x/_pool)) == 0)
+                || (
+                    (count ("true" configClasses (_x/_pool)) == 1)
+                    && (toLower configName (_x/_pool)) isEqualTo "camo"
+                )//no factions defined
+            }) then { // single civ template defined for modset, but no faction defined
+                Debug_2("No worldDefault for side %1 on modset: %2", _side, _modset);
+                _prioritisations set [_this, [getNumber (_x/_entryName), "", _modset]]; //_modset hacked from parent scope
+            };
+        };
+
         _prioritisations set [_this, [getNumber (_x/_entryName), _defaultFaction, _modset]]; //_modset hacked from parent scope
     };
 };
@@ -131,6 +145,8 @@ call compile preprocessFileLineNumbers (_nodes deleteAt _vanillaNodes);
     private _side = [west, east, resistance, civilian] # _forEachIndex;
     private _templateName = ([_modset, _type, _faction] select {_x isNotEqualTo ""}) joinString "_";
     private _index = _templatePool findIf {_templateName in _x};
+    Debug_2("Available templates for faction %1: %2", _type, _templatePool);
+    Debug_1("Looking for template with name: %1", _templateName);
     [_templatePool # _index, _side] call A3A_fnc_compatibilityLoadFaction;
 
     Info_2("Loading template: %1 for side: %2", _templatePool#_index, _side);

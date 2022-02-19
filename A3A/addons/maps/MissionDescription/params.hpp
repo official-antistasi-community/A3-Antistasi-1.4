@@ -326,6 +326,13 @@ class Params
         texts[] = {"Load from save (Default: Debug)", "Error", "Info", "Debug"};
         default = 9999;
     };
+    class A3A_GUIDevPreview
+    {
+        title = "Use In-Development UI Preview.";
+        values[] = {9999,0,1};
+        texts[] = {"Load from save (Default: No)", "No", "Yes"};
+        default = 9999;
+    };
     class SupportOptions
     {
         title = "SUPPORT OPTIONS";

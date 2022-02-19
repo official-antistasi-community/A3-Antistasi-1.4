@@ -2062,7 +2062,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class HeBombsIcon : A3A_Picture
                 {
                     idc = A3A_IDC_AIRSUPPORTHEICON;
-                    text = "GUI\textures\icon_he_bombs.paa";
+                    text = A3A_Icon_HE_Bombs;
                     x = 24 * GRID_W;
                     y = 54 * GRID_H;
                     w = 16 * GRID_W;
@@ -2083,7 +2083,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class CarpetBombingIcon : A3A_Picture
                 {
                     idc = A3A_IDC_AIRSUPPORTCARPETICON;
-                    text = "GUI\textures\icon_carpet_bombing.paa";
+                    text = A3A_Icon_Carpet_Bombing;
                     x = 72 * GRID_W;
                     y = 54 * GRID_H;
                     w = 16 * GRID_W;
@@ -2104,7 +2104,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class NapalmBombIcon : A3A_Picture
                 {
                     idc = A3A_IDC_AIRSUPPORTNAPALMICON;
-                    text = "GUI\textures\icon_napalm_bomb.paa";
+                    text = A3A_Icon_Napalm_Bomb;
                     x = 120 * GRID_W;
                     y = 54 * GRID_H;
                     w = 16 * GRID_W;

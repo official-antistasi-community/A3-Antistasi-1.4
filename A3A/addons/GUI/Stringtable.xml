@@ -248,6 +248,10 @@
         <Original>BUY VEHICLE</Original>
         <English>BUY VEHICLE</English>
       </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_button_tooltip">
+        <Original>Buy %1 for %2 %3</Original>
+        <English>Buy %1 for %2 %3</English>
+      </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_undercover_tooltip">
         <Original>This vehicle can go undercover</Original>
         <English>This vehicle can go undercover</English>
@@ -269,12 +273,24 @@
         <English>Gunner</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_tooltip">
-        <Original>Passenger seats</Original>
-        <English>Passenger seats</English>
+        <Original>Passenger seat</Original>
+        <English>Passenger seat</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip">
-        <Original>FFV seats</Original>
-        <English>FFV seats</English>
+        <Original>FFV seat</Original>
+        <English>FFV seat</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_amount_tooltip">
+        <Original>%1 Gunners</Original>
+        <English>%1 Gunners</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_amount_tooltip">
+        <Original>%1 Passenger seats</Original>
+        <English>%1 Passenger seats</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_amount_tooltip">
+        <Original>%1 FFV seats</Original>
+        <English>%1 FFV seats</English>
       </Key>
     </Container>
     <Container name="dialog_main_player">
@@ -561,10 +577,6 @@
       <Key ID="STR_antistasi_dialogs_main_hc_no_groups">
         <Original>&lt;t align='center'&gt;You have no high command groups.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;You can recruit them at the flag.&lt;/t&gt;</Original>
         <English>&lt;t align='center'&gt;You have no high command groups.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;You can recruit them at the flag.&lt;/t&gt;</English>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_start_label">
-        <Original>Start</Original>
-        <English>Start</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_barrage_tooltip">
         <Original>Number of rounds set by barrage length</Original>

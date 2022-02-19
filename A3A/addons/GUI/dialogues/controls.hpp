@@ -83,6 +83,7 @@ class A3A_TitlebarText : A3A_Text
 {
     font = A3A_TITLEBAR_FONT;
     sizeEx = GUI_TEXT_SIZE_LARGE;
+    colorText[] = A3A_COLOR_TITLEBAR_TEXT;
 };
 
 class A3A_SectionLabelLeft : A3A_Text
@@ -167,7 +168,7 @@ class A3A_ListNBox : A3A_Text
 
     period = 1;
     disableOverflow = 0;
-    rowHeight = "4.32 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+    rowHeight = "4.32 * (1 / (getResolution select 3)) * pixelGridNoUIScale * 0.5";
     maxHistoryDelay = 1;
     columns[] = {0};
 
@@ -327,7 +328,7 @@ class A3A_ShortcutButton : A3A_CtrlDefault
     colorBackgroundFocused[] = A3A_COLOR_BUTTON_BACKGROUND; // Focused
 
     // Hack to get around blinking and remaining focus colors
-    onMouseEnter = "_this#0 ctrlSetBackgroundColor [0.13,0.54,0.21,0.8];";
+    onMouseEnter = "_this#0 ctrlSetBackgroundColor [(profilenamespace getvariable ['GUI_BCG_RGB_R',0.13]), (profilenamespace getvariable ['GUI_BCG_RGB_G',0.54]), (profilenamespace getvariable ['GUI_BCG_RGB_B',0.21]), (profilenamespace getvariable ['GUI_BCG_RGB_A',0.8])];";
     onMouseExit = "_this#0 ctrlSetBackgroundColor [0,0,0,1];";
 
     animTextureDefault = "#(argb,1,1,1)color(0,0,0,1)";

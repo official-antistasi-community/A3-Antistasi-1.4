@@ -9,7 +9,7 @@
 ["flagMarkerType", "Faction_CUP_TKG"] call _fnc_saveToTemplate;             //this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
 
 ["vehicleBasic", "I_Quadbike_01_F"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "CUP_I_Hilux_unarmed_TK"] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", "CUP_I_Hilux_armored_unarmed_TK"] call _fnc_saveToTemplate;
 ["vehicleLightArmed", "CUP_I_Hilux_DSHKM_TK"] call _fnc_saveToTemplate;
 ["vehicleTruck", "CUP_I_V3S_Covered_TKG"] call _fnc_saveToTemplate;
 ["vehicleAT", "CUP_I_Hilux_SPG9_TK"] call _fnc_saveToTemplate;

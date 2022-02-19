@@ -408,48 +408,32 @@ class Templates
 			{
                 displayName = "ACR CUP";
 				class camo {
-                    tanoa = "Temperate";
-                    cam_lao_nam = "Temperate";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
-                    chernarus_winter = "Temperate";
-					Default = "Arid";
+                    temperate = "Temperate";
+                    Default = "Arid";
 				};
 			};
 			class AFRF
 			{
                 displayName = "AFRF CUP";
 				class camo {
-                    tanoa = "Temperate";
-                    cam_lao_nam = "Temperate";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
-                    chernarus_winter = "Temperate";
-					Default = "Arid";
+                    arctic = "Arctic";
+                    temperate = "Temperate";
+                    Default = "Arid";
 				};
 			};
 			class BAF
 			{
                 displayName = "BAF CUP";
 				class camo {
-                    tanoa = "Temperate";
-                    cam_lao_nam = "Temperate";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
-                    chernarus_winter = "Temperate";
-					Default = "Arid";
+                    temperate = "Temperate";
+                    Default = "Arid";
 				};
 			};
 			class CDF
 			{
                 displayName = "CDF CUP";
 				class camo {
+                    arctic = "Arctic";
 					Default = "Temperate";
 				};
 			};
@@ -478,13 +462,7 @@ class Templates
 			{
 				displayName = "USAF CUP";
 				class camo {
-                    tanoa = "Temperate";
-                    cam_lao_nam = "Temperate";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
-                    chernarus_winter = "Temperate";
+                    temperate = "Temperate";
                     Default = "Arid";
 				};
 			};
@@ -492,13 +470,7 @@ class Templates
 			{
 				displayName = "USMC CUP";
 				class camo {
-					tanoa = "Temperate";
-                    cam_lao_nam = "Temperate";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
-                    chernarus_winter = "Temperate";
+                    temperate = "Temperate";
                     Default = "Arid";
 				};
 			};
@@ -528,19 +500,43 @@ class Templates
 
         class worldDefaults
         {
+            class enoch
+            {
+                Occ = "ACR";
+                Inv = "AFRF";
+            };
+            class chernarus_summer
+            {
+                Occ = "CDF";
+                Inv = "AFRF";
+            };
+            class vt7
+            {
+                Occ = "ACR";
+                Inv = "AFRF";
+            };
+            class chernarus_winter : chernarus_summer {};
+            class takistan
+            {
+                Occ = "TKA";
+                Inv = "AFRF";
+                Reb = "TKL";
+            };
+            class kunduz : takistan {};
+
+            class sara
+            {
+                Occ = "RACS";
+                Inv = "SLA";
+            };
             class Default
             {
                 Occ = "US_Army";
                 Inv = "AFRF";
                 Reb = "NPC";
             };
-
-            class chernarus_summer : Default
-            {
-                Occ = "CDF";
-            };
-            class chernarus_winter : chernarus_summer {};
         };
+
 
         Nodes[] = {"CUP_Logistics_Nodes.sqf"};
     };

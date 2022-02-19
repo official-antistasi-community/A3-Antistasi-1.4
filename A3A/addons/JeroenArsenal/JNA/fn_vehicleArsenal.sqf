@@ -362,22 +362,22 @@ switch _mode do {
 
 			_usableMagazines = [];
 			{
-				_weapons = jnva_loadout select _x;
+				private _weapons = jnva_loadout select _x;
 				{
-					_weapon = _x select 0;
-					_cfgWeapon = configfile >> "cfgweapons" >> _weapon;
-					{
-						_cfgMuzzle = if (_x == "this") then {_cfgWeapon} else {_cfgWeapon >> _x};
-						{
-							_usableMagazines pushBackUnique _x;
-						} foreach getarray (_cfgMuzzle >> "magazines");
-					} foreach getarray (_cfgWeapon >> "muzzles");
+					private _cfgWeapon = configfile >> "cfgweapons" >> (_x select 0);
+					private _mags = _cfgWeapon call A3A_fnc_allMagazines;
+					{ _usableMagazines pushBackUnique _x } forEach _mags;
 				} forEach _weapons;
 			}forEach [
 				IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON,
 				IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON,
 				IDC_RSCDISPLAYARSENAL_TAB_HANDGUN
 			];
+
+			// Add vehicle magazines for 3CB-style ammunition systems
+			private _cfgVehicle = configFile >> "cfgVehicles" >> typeof _veh;
+			private _vehMags = _cfgVehicle call A3A_fnc_allMagazines;
+			{ _usableMagazines pushBackUnique _x } forEach _vehMags;
 
 			//loop all magazines and find usable
 			//First, search mags in Arsenal

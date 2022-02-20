@@ -474,6 +474,13 @@ class Templates
                     Default = "Arid";
 				};
 			};
+            class ION
+			{
+				displayName = "ION CUP";
+				class camo {
+                    Default = "Arid";
+				};
+			};
         };
 
         class Reb

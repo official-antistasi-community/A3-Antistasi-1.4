@@ -77,10 +77,10 @@ private _enemyValue = 0;
 if (_enemyValue > 2*_rebelValue) exitWith
 {
     ServerInfo_4("Outpost at %1 (%2): Flag capture cancelled due to enemy value (%3) greater than 2*rebel value (%4)", _outpostGridSquare, _markerX, _enemyValue, _rebelValue);
-    if (playerMarkersEnabled) then {
+    if (difficultyOption "mapContentEnemy" == 1) then {
         ["Capture", "The enemy still lurks about. Check your map and clear the area."] call A3A_fnc_customHint;
     } else {
-        // Remove map quote due to immersion setting.
+        // Remove map quote due to immersive difficulty.
         ["Capture", "The enemy still lurks about. Hunt them down and clear the area."] call A3A_fnc_customHint;
     }
 };

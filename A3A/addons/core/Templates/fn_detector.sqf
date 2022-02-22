@@ -24,8 +24,6 @@ A3A_hasD3S = false;
 A3A_hasRDS = false;
 A3A_hasKAT = false;
 A3A_hasCUP = false;
-A3A_hasBWMOD = false;
-A3A_hasTornado = false;
 
 //Actual Detection
 //IFA Detection
@@ -66,13 +64,7 @@ if (
   isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core")                 // cup vehicles
 ) then {A3A_hasCUP = true; Info("CUP Detected.") };
 
-// BWMOD Detection
-if ( isClass (configfile >> "CfgPatches" >> "bwa3_common")) then { A3A_hasBWMOD = true; Info("BWMOD.") };
-
 //ADDONS BELOW 
-
-//Project Tornado Dectection
-if (isClass (configfile >> "CfgPatches" >> "Tornado_AWS")) then {A3A_hasTornado = true; Info("Project Tornado Detected.")};
 
 //Ivory Car Pack Detection
 if (isClass (configfile >> "CfgPatches" >> "Ivory_Data")) then {A3A_hasIvory = true; Info("Ivory Cars Detected.") };

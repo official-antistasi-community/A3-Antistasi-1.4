@@ -29,8 +29,8 @@
 ["vehiclesAPCs", ["CUP_I_BTR80A_ION", "CUP_I_BTR80_ION"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_Challenger2_NATO"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_I_Hilux_zu23_TK"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["CUP_I_RG31E_M2_ION"]] call _fnc_saveToTemplate;			//this line determines light APCs
-["vehiclesIFVs", ["CUP_I_FENNEK_GMG_ION", "CUP_I_MATV_HMG_ION", "CUP_I_FENNEK_HMG_ION", "CUP_I_MATV_GMG_ION"]] call _fnc_saveToTemplate;				//this line determines IFVs
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
+["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
 
 
 ["vehiclesTransportBoats", ["CUP_B_Zodiac_USMC"]] call _fnc_saveToTemplate;

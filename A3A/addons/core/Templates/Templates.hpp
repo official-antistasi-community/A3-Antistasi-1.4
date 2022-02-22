@@ -479,6 +479,7 @@ class Templates
 				displayName = "ION CUP";
 				class camo {
                     Default = "Arid";
+                    arctic = "Arctic";
 				};
 			};
         };

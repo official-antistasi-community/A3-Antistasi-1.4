@@ -523,7 +523,11 @@ class Templates
                 Occ = "ACR";
                 Inv = "AFRF";
             };
-            class chernarus_winter : chernarus_summer {};
+            class chernarus_winter
+            {
+                Occ = "ION";
+                Inv = "AFRF";
+            };
             class takistan
             {
                 Occ = "TKA";

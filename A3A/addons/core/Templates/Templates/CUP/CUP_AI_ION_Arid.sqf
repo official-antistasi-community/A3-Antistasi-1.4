@@ -402,8 +402,12 @@ _militiaLoadoutData set ["sniperRifles", [
 	["CUP_srifle_G22_blk", "", "CUP_bipod_harris_1a2_l_blk", "CUP_optic_leupoldmk4", ["CUP_5Rnd_762x67_G22"], [], ""]
 ]];
 
-_militiaLoadoutData set ["lightATLaunchers", []];
-_militiaLoadoutData set ["ATLaunchers", []];
+_militiaLoadoutData set ["lightATLaunchers", [
+    ["CUP_launch_M72A6", "", "", "", ["CUP_M72A6_M"], [], ""]
+]];
+_militiaLoadoutData set ["ATLaunchers", [
+    ["CUP_launch_MAAWS", "", "", "", ["CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEDP_M"], [], ""]
+]];
 _militiaLoadoutData set ["sidearms", [
     ["CUP_hgun_Colt1911", "", "", "", ["CUP_7Rnd_45ACP_1911"], [], ""]
 ]];

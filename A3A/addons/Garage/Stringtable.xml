@@ -5,110 +5,137 @@
         <Key ID="STR_HR_GRG_Generic_Cancel">
             <Original>Cancel</Original>
             <English>Cancel</English>
+            <French>Annuler</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Lock">
             <Original>(Un)Lock</Original>
             <English>(Un)Lock</English>
+            <French>(Dé)Verrouiller</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Confirm">
             <Original>Confirm</Original>
             <English>Confirm</English>
+            <French>Confirmer</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Cars">
             <Original>Cars</Original>
             <English>Cars</English>
+            <French>Voitures</French>
         </Key>
         <Key ID="STR_HR_Garage_Generic_capacity">
             <Original>Available space in garage</Original>
             <English>Available space in garage</English>
+            <French>Espace disponible dans le garage</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Armored">
             <Original>Armor</Original>
             <English>Armor</English>
+            <French>Blindés</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Air">
             <Original>Aircraft</Original>
             <English>Aircraft</English>
+            <French>Aéronefs</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_AirDisabled">
             <Original>You can only access aircrafts from a friendly airbase</Original>
             <English>You can only access aircrafts from a friendly airbase</English>
+            <French>Vous ne pouvez accéder aux aéronefs qu'à partir d'une base aérienne alliée</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Boat">
             <Original>Ships</Original>
             <English>Ships</English>
+            <French>Navires /French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Static">
             <Original>Statics</Original>
             <English>Statics</English>
+            <French>Statique </French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Mounts">
             <Original>Mounts</Original>
             <English>Mounts</English>
+            <French>Montures</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Texture">
             <Original>Texture</Original>
             <English>Texture</English>
+            <French>Texture</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Anim">
             <Original>Customize</Original>
             <English>Customize</English>
+            <French>Personnaliser</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Pylons">
             <Original>Pylons</Original>
             <English>Pylons</English>
+            <French>Pylônes</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_PylonDisabled">
             <Original>Pylons require an ammo source to edit</Original>
             <English>Pylons require an ammo source to edit</English>
+            <French>Les pylônes nécessitent une source de munitions pour être modifiés</French>
         </Key>
                 <Key ID="STR_HR_GRG_Generic_full">
             <Original>full</Original>
             <English>full</English>
+            <French>plein</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_capacity">
             <Original>Available space in garage</Original>
             <English>Available space in garage</English>
+            <French>Espace disponible dans le garage</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_Header">
             <Original>Sources:</Original>
             <English>Sources:</English>
+            <French>Sources:</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Available">
             <Original>Vehicles will be rearmed when ungaraged</Original>
             <English>Vehicles will be rearmed when ungaraged</English>
+            <French>Les véhicules seront réarmés lorsqu'ils sortiront du garage</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable">
             <Original>Vehicles won't be rearmed when ungaraged as the garage lacks an ammo source</Original>
             <English>Vehicles won't be rearmed when ungaraged as the garage lacks an ammo source</English>
+            <French>Les véhicules ne seront pas réarmés lorsqu'ils sortiront du garage car le garage n'a pas de source de munitions</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Disabled">
             <Original>Rearm disabled by server</Original>
             <English>Rearm disabled by server</English>
+            <French>Réarmement désactivé par le serveur</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Available">
             <Original>Vehicles will be refueled when ungaraged</Original>
             <English>Vehicles will be refueled when ungaraged</English>
+            <French>Les véhicules seront ravitaillés en carburant lorsqu'ils sortiront du garage</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Unavailable">
             <Original>Vehicles won't be refueled when ungaraged as the garage lacks a fuel source</Original>
             <English>Vehicles won't be refueled when ungaraged as the garage lacks a fuel source</English>
+            <French>Les véhicules ne seront pas ravitaillées en carburant lorsqu'ils sortiront du garage car le garage n'a pas de source de carburant</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Disabled">
             <Original>Refuel disabled by server settings</Original>
             <English>Refuel disabled by server settings</English>
+            <French>Ravitaillement désactivé par le serveur </French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Available">
             <Original>Vehicles will be repaired when ungaraged</Original>
             <English>Vehicles will be repaired when ungaraged</English>
+            <French>Les véhicules seront réparés lorsqu'ils sortiront du garage</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Unavailable">
             <Original>Vehicles won't be repaired when ungaraged as the garage lacks a repair source</Original>
             <English>Vehicles won't be repaired when ungaraged as the garage lacks a repair source</English>
+            <French>Les véhicules ne seront pas réparés lorsqu'ils sortiront du garage, car le garage n'a pas de source de réparation</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Disabled">
             <Original>Repair disabled by server settings</Original>
             <English>Repair disabled by server settings</English>
+            <French>Réparation désactivée par le serveur </French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isAmmoSource">
             <Original>Vehicle is an ammo source</Original>

@@ -24,6 +24,7 @@
 
     License: APL-ND
 */
+#include "..\script_component.hpp"
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 params [
     ["_class", "", [""]]
@@ -236,7 +237,7 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
     };
 
     //complete or cancel placement
-    if (_key in [DIK_ESCAPE, DIK_RETURN, DIK_SPACE, DIK_Y]) then {
+    if (_key in [DIK_ESCAPE, DIK_RETURN, DIK_SPACE]) then {
         _return = true;
 
         //get type from display vehicle, and private copies of pos and dir
@@ -286,7 +287,7 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             _veh call HR_GRG_fnc_vehInit;
             if !(HR_GRG_usePool) then {[_veh,HR_GRG_CP_callBack, "Placed"] call HR_GRG_fnc_callbackHandler};
 
-            true && (_key isNotEqualTo DIK_Y);
+            true;
         } else { false };
         //handle garage pool changes
         if (HR_GRG_usePool) then {
@@ -389,17 +390,20 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         ,17001
     ] spawn BIS_fnc_dynamicText;
 
-    if (call HR_GRG_CP_closeCnd) exitWith {call HR_GRG_cleanUp};
+    if (call HR_GRG_CP_closeCnd || EGVAR(core,keys_battleMenu)) exitWith {
+        [clientOwner, player, "HR_GRG_fnc_releaseAllVehicles"] remoteExecCall ["HR_GRG_fnc_execForGarageUsers", 2];
+        call HR_GRG_cleanUp
+    };
 
-    #ifdef Debug //Debug render
-    HR_GRG_dispSquare params ["_adjustment", "_square"];
-    _square params ["_a","_b"];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [_a,0,0]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,_b,0]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,0,_c]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [-_a,0,0]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,-_b,0]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,0,-_c]), [0.9,0,0,1]];
-    { drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _x#0,HR_GRG_dispVehicle modelToWorldVisual _x#1, [0.9,0,0,1]] } forEach HR_GRG_rays;
-    #endif
+    if (HR_GRG_renderPlacementRays) then { //Debug render
+        HR_GRG_dispSquare params ["_adjustment", "_square"];
+        _square params ["_a","_b"];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [_a,0,0]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,_b,0]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,0,_c]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [-_a,0,0]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,-_b,0]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,0,-_c]), [0.9,0,0,1]];
+        { drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _x#0,HR_GRG_dispVehicle modelToWorldVisual _x#1, [0.9,0,0,1]] } forEach HR_GRG_rays;
+    };
 }];

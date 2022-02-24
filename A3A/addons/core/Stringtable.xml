@@ -615,9 +615,6 @@
         <Chinesesimp>成为抵抗军领袖, 成为英雄。</Chinesesimp>
         <Korean>저항세력의 지도자가 되고 영웅이 되십시오.</Korean>
       </Key>
-      <Key ID="STR_antistasi_credits_generic_version_text">
-        <Original>2.6.0</Original>
-      </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_text">
@@ -2173,7 +2170,7 @@
         <German>Integrierte (optionale) Mods:&lt;br/&gt;TFAR: Funkgerät in Arsenal integriert. Sound deaktiviert, wenn der Spieler bewusstlos ist.&lt;br/&gt;ACE Medical: Deaktiviert das Antistasi Revive System.&lt;br/&gt;VORSICHT: Die Speicherung des Spielstands mit TFAR oder jedglicher Mod für Waffen führt dazu, dass diese Mods bis zum Ende notwendig sind.&lt;br/&gt;&lt;br/&gt;Jeder clientseitige Mod, wie z.B. JSRS, Blastcore oder UI Mod sollte funktionieren.&lt;br/&gt;Einheiten und Fahrzeuge aus Mods funktionieren nicht. KI Mods können zu Fehlern führen. (Antistasi hat in jedem Fall viel am KI Verhalten geändert)</German>
         <Czech>Integrované (volitelné) Módy:&lt;br/&gt;TFAR: Rádio integrované v Arsenalu. Zvuk je deaktivován, když je hráč v bezvědomí.&lt;br/&gt;ACE Lékař: Vypne Antistasi revive system.&lt;br/&gt;&lt;br/&gt;UPOZORNĚNÍ: Používání systému Uložení hry s TFAR a jakýmkoli aktivovaným módem zbraně je v budoucnosti povinné.&lt;br/&gt;&lt;br/&gt; Mód by měl fungovat. Módy pro jednotky a vozidla nebudou fungovat.&lt;br/&gt;&lt;br/&gt; Režimy AI mohou způsobit poruchy (v každém případě má Antistasi těžké vylepšení AI).</Czech>
         <Korean>추가적인 모드들&lt;br/&gt;TFAR: 라디오 대체, 쓰러졌을 경우 라디오 비활성화&lt;br/&gt;ACE Medical: 안티스타시 기존 리바이브 시스템 대체.&lt;br/&gt;&lt;br/&gt;주의: 해당 모드들을 사용 한 채로 저장을 하면, 그 이후에도 계속 사용해야 함.&lt;br/&gt;&lt;br/&gt;클라이언트 사이드 모드, 가령 jsrs, 블라스트 코어, UI 모드들은 상관 없음..&lt;br/&gt;&lt;br/&gt;유닛과 차량 모드들은 적용되지 않고, AI 모드는 적용시 불량이 날수 있습니다.</Korean>
-        <Original>内置支持的(可选)模组: &lt;br/&gt;TFAR: 无线电已集成至军火库。玩家失去意识时将会禁用声音。&lt;br/&gt;ACE医疗: 将会禁用 Antistasi 复苏系统。&lt;br/&gt;&lt;br/&gt;注意: 进行永久性存储时使用TFAR和任何武器模组, 将使它们成为强制性模组。&lt;br/&gt;&lt;br/&gt;任何客户端模组, 如JSRS, Blastcore, 用户界面模组都应当能够正常使用。&lt;br/&gt;&lt;br/&gt;单位和载具模组不会正常工作。AI模组可能会导致任务异常(在绝大多数情况下, Antistasi 对AI逻辑进行了重度调整)。</Original>
+        <Chinesesimp>内置支持的(可选)模组: &lt;br/&gt;TFAR: 无线电已集成至军火库。玩家失去意识时将会禁用声音。&lt;br/&gt;ACE医疗: 将会禁用 Antistasi 复苏系统。&lt;br/&gt;&lt;br/&gt;注意: 进行永久性存储时使用TFAR和任何武器模组, 将使它们成为强制性模组。&lt;br/&gt;&lt;br/&gt;任何客户端模组, 如JSRS, Blastcore, 用户界面模组都应当能够正常使用。&lt;br/&gt;&lt;br/&gt;单位和载具模组不会正常工作。AI模组可能会导致任务异常(在绝大多数情况下, Antistasi 对AI逻辑进行了重度调整)。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Credits_3">
         <Original>Thanks</Original>
@@ -2189,7 +2186,7 @@
         <French>LanCommi pour son artwork.&lt;br/&gt;Goon et jw custom: pour une partie du code du script NAPALM.&lt;br/&gt;rebel12340: pour le script de brouillage radio.&lt;br/&gt;Manko: pour le morceau de code pour les bouchons d'oreilles.&lt;br/&gt;bobchaos: pour avoir gérer la communauté malgré toutes les difficultés.&lt;br/&gt;Et à tous les joueurs qui passent leur temps à faire des commentaires, des suggestions et des rapports sur les forums Steam, Github et BIS.</French>
         <Czech>LanCommi za jeho umělecké dílo.&lt;br/&gt;Goon a jw vlastní: Část kódu pro skript NAPALM.&lt;br/&gt;rebel12340: Radio Jam script&lt;br/&gt;Manko: Sniper snippet&lt;br/&gt;bobchaos: Správa komunity i přes všechny obtíže.&lt;br/&gt;A všichni hráči, kteří tráví čas přípravou komentářů, návrhů a zpráv na fórech Steam, Github a BIS</Czech>
         <Korean>LanCommi : 이미지 지원&lt;br/&gt;Goon and jw custom: 네이팜 코드 일부 제공&lt;br/&gt;rebel12340:라디오 먹통 스크립트 제공&lt;br/&gt;Manko: 이어플러그 제공&lt;br/&gt;bobchaos: 커뮤니티 관리&lt;br/&gt;그리고 그 외 모든 Github와 스팀 커뮤니티에서 관심을 가져주신 분들.</Korean>
-        <Original>LanCommi 的美术设计。&lt;br/&gt;Goon 和 jw custom: 部分凝固汽油弹(NAPALM)脚本。&lt;br/&gt;rebel12340: 无线电阻塞脚本。&lt;br/&gt;Manko: 耳塞脚本。&lt;br/&gt;bobchaos: 尽管困难重重, 但仍在管理社区。&lt;br/&gt;以及所有花时间在Steam、Github和BIS论坛上发表评论、建议和报告的玩家。</Original>
+        <Chinesesimp>LanCommi 的美术设计。&lt;br/&gt;Goon 和 jw custom: 部分凝固汽油弹(NAPALM)脚本。&lt;br/&gt;rebel12340: 无线电阻塞脚本。&lt;br/&gt;Manko: 耳塞脚本。&lt;br/&gt;bobchaos: 尽管困难重重, 但仍在管理社区。&lt;br/&gt;以及所有花时间在Steam、Github和BIS论坛上发表评论、建议和报告的玩家。</Chinesesimp>
       </Key>
     </Container>
     <Container name="game_options">
@@ -2990,12 +2987,12 @@
         <Russian>Информационная строка</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
-        <Original>You've turned off top information bar. To enable it, press ALT+HOME.</Original>
-        <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите ALT+HOME.</Russian>
+        <Original>You've turned off top information bar. To enable it, press %1.</Original>
+        <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите %1.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
-        <Original>You've turned on top information bar. To disable it, press ALT+HOME.</Original>
-        <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите ALT+HOME.</Russian>
+        <Original>You've turned on top information bar. To disable it, press %1.</Original>
+        <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите %1.</Russian>
       </Key>
     </Container>
     <Container name="garage_sell">

@@ -21,7 +21,6 @@ class A3A {
     #include "CfgFunctions.hpp"
 #endif
 };
-
 #if __A3_DEBUG__
     class CfgFunctions {
         class A3A {
@@ -36,5 +35,9 @@ class A3A {
     #include "CfgFunctions.hpp"
 #endif
 
-#include "defines.hpp"
-#include "dialogs.hpp"
+#ifndef UseDoomGUI
+    #include "defines.hpp"
+    #include "dialogs.hpp"
+#endif
+
+#include "keybinds.hpp"

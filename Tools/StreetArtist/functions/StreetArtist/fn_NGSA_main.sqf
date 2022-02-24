@@ -53,7 +53,7 @@ if !(_startEmpty) then {
                 "Please only copy the array from the navGridDB file. Paste your clipboard into a file and REMOVE other code from it.<br/>"+
                 "(If you intended to start with an empty grid, use `[true] spawn A3A_fnc_NGSA_main`)<br/>",
                 false,  // Make ping noise
-                200
+                300
             ] call A3A_fnc_customHint;
         };
         _navGridHM = _navGridDBAndHM#1;

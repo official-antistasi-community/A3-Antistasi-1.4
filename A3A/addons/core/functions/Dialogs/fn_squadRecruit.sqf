@@ -2,7 +2,11 @@
 FIX_LINE_NUMBERS()
 private ["_display","_childControl","_costs","_costHR","_unitsX","_formatX"];
 if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Squad Recruit", "You need a radio in your inventory to be able to give orders to other squads."] call A3A_fnc_customHint;} else {["Squad Recruit", "You need a Radio Man in your group to be able to give orders to other squads."] call A3A_fnc_customHint;}};
-_nul = createDialog "squad_recruit";
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_nul = createDialog "squad_recruit";
+#endif
 
 sleep 1;
 disableSerialization;

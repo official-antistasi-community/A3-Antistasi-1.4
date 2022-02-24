@@ -28,7 +28,7 @@ foreach ($module in $modules) {
     $pboName = "$($module.Name).pbo"
     #"Building $pboName...  $addonLocation\addons\$($module.Name)   -> $addonsOutLocation\$pboName"
     "Building $pboName ..."
-    .$PSScriptRoot\hemtt armake build --force -i include  $module.fullName "$addonsOutLocation\$pboName" -w unquoted-string -w redefinition-wo-undef -w excessive-concatenation
+    .$PSScriptRoot\hemtt armake pack --force $module.fullName "$addonsOutLocation\$pboName"
 }
 
 "`nCopy mod.cpp..."

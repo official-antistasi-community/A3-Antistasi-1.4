@@ -8,6 +8,7 @@ _markerX = _this select 0;
 
 _groups = [];
 _soldiers = [];
+private _dogs = [];
 
 _positionX = getMarkerPos (_markerX);
 
@@ -58,6 +59,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 		if (random 10 < 2.5) then
 			{
 			_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
+			_dogs pushBack _dog;
 			[_dog] spawn A3A_fnc_guardDog;
 			};
 		};
@@ -69,4 +71,5 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 {if (alive _x) then {deleteVehicle _x}} forEach _soldiers;
+{deleteVehicle _x} forEach _dogs;
 {deleteGroup _x} forEach _groups;

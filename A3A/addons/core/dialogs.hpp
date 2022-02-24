@@ -4,7 +4,7 @@ class set_params {
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -13,7 +13,7 @@ class set_params {
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_lps_frame_text;
@@ -22,7 +22,7 @@ class set_params {
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_yes_text;
@@ -33,7 +33,7 @@ class set_params {
 			h = 0.0560125 * safezoneH;
 			action = "loadLastSave = true; closeDialog 0;";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_no_text;
@@ -54,7 +54,7 @@ class HQ_menu 			{
 
 	class controls {
 		//Structure
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = 101;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -63,7 +63,7 @@ class HQ_menu 			{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = 102;
 			text = $STR_antistasi_dialogs_hq_frame_text;
@@ -72,7 +72,7 @@ class HQ_menu 			{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = 103;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -83,7 +83,7 @@ class HQ_menu 			{
 			action = "closeDialog 0";
 		};
 		//Buttons L and R
-		class HQ_button_load: RscButton
+		class HQ_button_load: A3A_core_BattleMenuRedButton
 		{
 			idc = 104; 	//L1
 			text = $STR_antistasi_dialogs_hq_button_withdraw_text;
@@ -94,7 +94,7 @@ class HQ_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "if (isMultiPlayer) then {if (player == theBoss) then {nul=call A3A_fnc_theBossSteal} else {[""Money Grab"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;}} else {[""Money Grab"", ""This function is MP only.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_savegame: RscButton
+		class HQ_button_savegame: A3A_core_BattleMenuRedButton
 		{
 			idc = 105; 	//L2
 			text = $STR_antistasi_dialogs_hq_button_garrisons_text;
@@ -105,7 +105,7 @@ class HQ_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;if (player == theBoss) then {nul=CreateDialog ""build_menu""} else {[""Garrisons"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_moveHQ: RscButton
+		class HQ_button_moveHQ: A3A_core_BattleMenuRedButton
 		{
 			idc = 106;	//L3
 			text = $STR_antistasi_dialogs_hq_button_move_headquarters_text;
@@ -116,7 +116,7 @@ class HQ_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;if (player == theBoss) then {nul = [] spawn A3A_fnc_moveHQ;} else {[""Move HQ"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_recruitUnit: RscButton
+		class HQ_button_recruitUnit: A3A_core_BattleMenuRedButton
 		{
 			idc = 107;	//R1
 			text = $STR_antistasi_dialogs_hq_button_members_list_text;
@@ -127,7 +127,7 @@ class HQ_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "if (player == theBoss) then {if (isMultiplayer) then {nul = [] call A3A_fnc_membersList} else {[""Members List"", ""This function is MP only.""] call A3A_fnc_customHint;}} else {[""Members List"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_recruitSquad: RscButton
+		class HQ_button_recruitSquad: A3A_core_BattleMenuRedButton
 		{
 			idc = 108;	//R2
 			text = $STR_antistasi_dialogs_hq_button_rebuild_assets_text;
@@ -138,7 +138,7 @@ class HQ_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;if (player == theBoss) then {nul=[] spawn A3A_fnc_rebuildAssets} else {[""Recruit Squad"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_vehicle: RscButton
+		class HQ_button_vehicle: A3A_core_BattleMenuRedButton
 		{
 			idc = 109;	//R3
 			text = $STR_antistasi_dialogs_hq_button_train_ai_text;
@@ -149,7 +149,7 @@ class HQ_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;if (player == theBoss) then {nul = [] call A3A_fnc_FIAskillAdd} else {[""Recruit Vehicle"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_skill: RscButton
+		class HQ_button_skill: A3A_core_BattleMenuRedButton
 		{
 			idc = 110;	//M4
 			text = $STR_antistasi_dialogs_hq_button_garage_text;
@@ -168,7 +168,7 @@ class build_menu  			{
 
 	class controls {
 		//Structure
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -177,7 +177,7 @@ class build_menu  			{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_build_frame_text;
@@ -186,7 +186,7 @@ class build_menu  			{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -197,7 +197,7 @@ class build_menu  			{
 			action = "closeDialog 0;_nul = createDialog ""HQ_menu"";";
 		};
 		//Action Buttons
-		class 4slots_L1: RscButton
+		class 4slots_L1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_build_minefield_button_text;
@@ -208,7 +208,7 @@ class build_menu  			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""minebuild_menu"";";
 		};
-		class 4slots_R1: RscButton
+		class 4slots_R1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_build_outpost_button_text;
@@ -219,7 +219,7 @@ class build_menu  			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0; [""create""] spawn A3A_fnc_outpostDialog";
 		};
-		class 4slots_L2: RscButton
+		class 4slots_L2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_build_recruit_units_button_text;
@@ -230,7 +230,7 @@ class build_menu  			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0; [""add""] spawn A3A_fnc_garrisonDialog";
 		};
-		class 4slots_R2: RscButton
+		class 4slots_R2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_build_disband_units_button_text;
@@ -248,7 +248,7 @@ class garrison_recruit 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = 101;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -257,7 +257,7 @@ class garrison_recruit 			{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = 102;
 			text = $STR_antistasi_dialogs_garrison_recruit_frame_text;
@@ -266,7 +266,7 @@ class garrison_recruit 			{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = 103;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -277,7 +277,7 @@ class garrison_recruit 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""build_menu"";";
 		};
-		class HQ_button_rifleman: RscButton
+		class HQ_button_rifleman: A3A_core_BattleMenuRedButton
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_garrison_spawn_rifleman_text;
@@ -287,7 +287,7 @@ class garrison_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitRifle'] spawn A3A_fnc_garrisonAdd";
 		};
-		class HQ_button_autorifleman: RscButton
+		class HQ_button_autorifleman: A3A_core_BattleMenuRedButton
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_garrison_spawn_autorifleman_text;
@@ -297,7 +297,7 @@ class garrison_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitMG'] spawn A3A_fnc_garrisonAdd";
 		};
-		class HQ_button_medic: RscButton
+		class HQ_button_medic: A3A_core_BattleMenuRedButton
 		{
 			idc = 126;
 			text = $STR_antistasi_dialogs_garrison_spawn_medic_text;
@@ -307,7 +307,7 @@ class garrison_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitMedic'] spawn A3A_fnc_garrisonAdd";
 		};
-		class HQ_button_engineer: RscButton
+		class HQ_button_engineer: A3A_core_BattleMenuRedButton
 		{
 			idc = 107;
 			text = $STR_antistasi_dialogs_garrison_spawn_squad_lead_text;
@@ -317,7 +317,7 @@ class garrison_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitSL'] spawn A3A_fnc_garrisonAdd";
 		};
-		class HQ_button_explosive: RscButton
+		class HQ_button_explosive: A3A_core_BattleMenuRedButton
 		{
 			idc = 108;
 			text = $STR_antistasi_dialogs_garrison_spawn_mortar_text;
@@ -327,7 +327,7 @@ class garrison_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitCrew'] spawn A3A_fnc_garrisonAdd";
 		};
-		class HQ_button_grenadier: RscButton
+		class HQ_button_grenadier: A3A_core_BattleMenuRedButton
 		{
 			idc = 109;
 			text = $STR_antistasi_dialogs_garrison_spawn_grenadier_text;
@@ -337,7 +337,7 @@ class garrison_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitGL'] spawn A3A_fnc_garrisonAdd";
 		};
-		class HQ_button_marksman: RscButton
+		class HQ_button_marksman: A3A_core_BattleMenuRedButton
 		{
 			idc = 110;
 			text = $STR_antistasi_dialogs_garrison_spawn_marksman_text;
@@ -348,7 +348,7 @@ class garrison_recruit 			{
 			action = "nul = [A3A_faction_reb get 'unitSniper'] spawn A3A_fnc_garrisonAdd";
 		};
 
-		class HQ_button_AT: RscButton
+		class HQ_button_AT: A3A_core_BattleMenuRedButton
 		{
 			idc = 111;
 			text = $STR_antistasi_dialogs_garrison_spawn_at_text;
@@ -365,7 +365,7 @@ class minebuild_menu 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -374,7 +374,7 @@ class minebuild_menu 			{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_minefield_frame_text;
@@ -383,7 +383,7 @@ class minebuild_menu 			{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -393,7 +393,7 @@ class minebuild_menu 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""build_menu"";";
 		};
-		class HQ_button_mortar: RscButton
+		class HQ_button_mortar: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_minefield_button_anti_personel_text;
@@ -404,7 +404,7 @@ class minebuild_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;[""APERSMine""] spawn A3A_fnc_mineDialog";
 		};
-		class HQ_button_MG: RscButton
+		class HQ_button_MG: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_minefield_button_remove_text;
@@ -415,7 +415,7 @@ class minebuild_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0; [""delete""] spawn A3A_fnc_mineDialog;";
 		};
-		class HQ_button_AT: RscButton
+		class HQ_button_AT: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_minefield_button_anti_tank_text;
@@ -432,7 +432,7 @@ class unit_recruit 		{
 	idd= 100;
 	movingenable=false;
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = 101;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -441,7 +441,7 @@ class unit_recruit 		{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = 102;
 			text = $STR_antistasi_dialogs_unit_recruit_frame_text;
@@ -450,7 +450,7 @@ class unit_recruit 		{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = 103;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -460,7 +460,7 @@ class unit_recruit 		{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0";
 		};
-		class HQ_button_rifleman: RscButton
+		class HQ_button_rifleman: A3A_core_BattleMenuRedButton
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_unit_recruit_militiaman_text;
@@ -470,7 +470,7 @@ class unit_recruit 		{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitRifle'] spawn A3A_fnc_reinfPlayer";
 		};
-		class HQ_button_autorifleman: RscButton
+		class HQ_button_autorifleman: A3A_core_BattleMenuRedButton
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_unit_recruit_mg_text;
@@ -480,7 +480,7 @@ class unit_recruit 		{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitMG'] spawn A3A_fnc_reinfPlayer";
 		};
-		class HQ_button_medic: RscButton
+		class HQ_button_medic: A3A_core_BattleMenuRedButton
 		{
 			idc = 126;
 			text = $STR_antistasi_dialogs_unit_recruit_medic_text;
@@ -490,7 +490,7 @@ class unit_recruit 		{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitMedic'] spawn A3A_fnc_reinfPlayer";
 		};
-		class HQ_button_engineer: RscButton
+		class HQ_button_engineer: A3A_core_BattleMenuRedButton
 		{
 			idc = 107;
 			text = $STR_antistasi_dialogs_unit_recruit_engineer_text;
@@ -500,7 +500,7 @@ class unit_recruit 		{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitEng'] spawn A3A_fnc_reinfPlayer";
 		};
-		class HQ_button_explosive: RscButton
+		class HQ_button_explosive: A3A_core_BattleMenuRedButton
 		{
 			idc = 108;
 			text = $STR_antistasi_dialogs_unit_recruit_explosive_text;
@@ -510,7 +510,7 @@ class unit_recruit 		{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitExp'] spawn A3A_fnc_reinfPlayer";
 		};
-		class HQ_button_grenadier: RscButton
+		class HQ_button_grenadier: A3A_core_BattleMenuRedButton
 		{
 			idc = 109;
 			text = $STR_antistasi_dialogs_unit_recruit_grenadier_text;
@@ -520,7 +520,7 @@ class unit_recruit 		{
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitGL'] spawn A3A_fnc_reinfPlayer";
 		};
-		class HQ_button_marksman: RscButton
+		class HQ_button_marksman: A3A_core_BattleMenuRedButton
 		{
 			idc = 110;
 			text = $STR_antistasi_dialogs_unit_recruit_marksman_text;
@@ -531,7 +531,7 @@ class unit_recruit 		{
 			action = "nul = [A3A_faction_reb get 'unitSniper'] spawn A3A_fnc_reinfPlayer";
 		};
 
-		class HQ_button_AT: RscButton
+		class HQ_button_AT: A3A_core_BattleMenuRedButton
 		{
 			idc = 111;
 			text = $STR_antistasi_dialogs_unit_recruit_antitank_text;
@@ -549,7 +549,7 @@ class vehicle_option 	{
 
 	class controls {
 
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -558,7 +558,7 @@ class vehicle_option 	{
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_vehicle_purchase_buy_text;
@@ -567,7 +567,7 @@ class vehicle_option 	{
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -577,7 +577,7 @@ class vehicle_option 	{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_vehicle_purchase_civie_text;
@@ -588,7 +588,7 @@ class vehicle_option 	{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0; [] spawn A3A_fnc_buyVehicleCiv;";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_vehicle_purchase_military_text;
@@ -606,7 +606,7 @@ class buy_vehicle 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = 101;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -615,7 +615,7 @@ class buy_vehicle 			{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = 102;
 			text = $STR_antistasi_dialogs_vehicle_purchase_military_text;
@@ -624,7 +624,7 @@ class buy_vehicle 			{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = 103;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -634,7 +634,7 @@ class buy_vehicle 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0; nul = createDialog ""vehicle_option"";";
 		};
-		class HQ_button_quad: RscButton
+		class HQ_button_quad: A3A_core_BattleMenuRedButton
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_quad_text;
@@ -644,7 +644,7 @@ class buy_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closedialog 0; nul = [A3A_faction_reb get 'vehicleBasic'] spawn A3A_fnc_addFIAveh";
 		};
-		class HQ_button_offroad: RscButton
+		class HQ_button_offroad: A3A_core_BattleMenuRedButton
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_offroad_text;
@@ -654,7 +654,7 @@ class buy_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleLightUnarmed'] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_truck: RscButton
+		class HQ_button_truck: A3A_core_BattleMenuRedButton
 		{
 			idc = 106;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_truck_text;
@@ -664,7 +664,7 @@ class buy_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleTruck'] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_Aoffroad: RscButton
+		class HQ_button_Aoffroad: A3A_core_BattleMenuRedButton
 		{
 			idc = 107;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_a_offroad_text;
@@ -674,7 +674,7 @@ class buy_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleLightArmed'] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_MG: RscButton
+		class HQ_button_MG: A3A_core_BattleMenuRedButton
 		{
 			idc = 108;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mg_text;
@@ -685,7 +685,7 @@ class buy_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticMG'] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_mortar: RscButton
+		class HQ_button_mortar: A3A_core_BattleMenuRedButton
 		{
 			idc = 109;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_text;
@@ -696,7 +696,7 @@ class buy_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticMortar'] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_AT: RscButton
+		class HQ_button_AT: A3A_core_BattleMenuRedButton
 		{
 			idc = 110;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_text;
@@ -708,7 +708,7 @@ class buy_vehicle 			{
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticAT'] spawn A3A_fnc_addFIAveh;";
 		};
 
-		class HQ_button_AA: RscButton
+		class HQ_button_AA: A3A_core_BattleMenuRedButton
 		{
 			idc = 111;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_aa_text;
@@ -726,7 +726,7 @@ class civ_vehicle 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -735,7 +735,7 @@ class civ_vehicle 			{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_text;
@@ -744,7 +744,7 @@ class civ_vehicle 			{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -754,7 +754,7 @@ class civ_vehicle 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0; nul = createDialog ""vehicle_option"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_offroad_text;
@@ -764,7 +764,7 @@ class civ_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleCivCar'] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_truck_text;
@@ -774,7 +774,7 @@ class civ_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleCivTruck'] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = 106;
 			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_heli_text;
@@ -785,7 +785,7 @@ class civ_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleCivHeli'] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_offroad: RscButton
+		class HQ_button_offroad: A3A_core_BattleMenuRedButton
 		{
 			idc = 107;
 		 	text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_boat_text;
@@ -804,7 +804,7 @@ class game_options 		{
 	movingenable=false;
 	class controls {
 		//Menu Structure
-		class 8slots_box: BOX
+		class 8slots_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -813,7 +813,7 @@ class game_options 		{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class 8slots_frame: RscFrame
+		class 8slots_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_game_options;
@@ -822,7 +822,7 @@ class game_options 		{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class 8slots_Back: RscButton
+		class 8slots_Back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -833,7 +833,7 @@ class game_options 		{
 			action = "closeDialog 0";
 		};
 		//Action Buttons
-		class 8slots_L1: RscButton
+		class 8slots_L1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_civ_limit;
@@ -844,7 +844,7 @@ class game_options 		{
 			tooltip = $STR_antistasi_dialogs_maps_civ_limit_tooltip;
 			action = "if (player == theBoss || call BIS_fnc_admin > 0 || isServer) then {closeDialog 0; nul = createDialog ""civ_config""} else {[""Civilian Spawn"", ""Only our Commander or admin has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_R1: RscButton
+		class 8slots_R1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_spawn_distance;
@@ -855,7 +855,7 @@ class game_options 		{
 			tooltip = $STR_antistasi_dialogs_maps_spawn_distance_tooltip;
 			action = "if (player == theBoss || call BIS_fnc_admin > 0 || isServer) then {closeDialog 0; nul = createDialog ""spawn_config""} else {[""Spawn Distance"", ""Only our Commander or admin has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_L2: RscButton
+		class 8slots_L2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_ai_limiter;
@@ -866,7 +866,7 @@ class game_options 		{
 			tooltip = $STR_antistasi_dialogs_maps_ai_limiter_tooltip;
 			action = "if (player == theBoss || call BIS_fnc_admin > 0 || isServer) then {closeDialog 0; nul = createDialog ""fps_limiter""} else {[""AI Limiter"", ""Only our Commander or admin has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_R2: RscButton
+		class 8slots_R2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_music;
@@ -875,10 +875,10 @@ class game_options 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_maps_music_tooltip;
-			action = "closedialog 0; if (musicON) then {musicON = false; [""Music"", ""Music turned OFF""] call A3A_fnc_customHint;} else {musicON = true; [""Music"", ""Music turned ON""] call A3A_fnc_customHint;}; nul = spawn A3A_fnc_musica"";";
+			action = "closedialog 0; if (musicON) then {musicON = false; [""Music"", ""Music turned OFF""] call A3A_fnc_customHint;} else {musicON = true; [""Music"", ""Music turned ON""] call A3A_fnc_customHint;}; nul = [] spawn A3A_fnc_musica;";
 		};
 		/*
-		class 8slots_L3: RscButton
+		class 8slots_L3: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -889,7 +889,7 @@ class game_options 		{
 			tooltip = "";
 			action = "";
 		};
-		class 8slots_R3: RscButton
+		class 8slots_R3: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -901,7 +901,7 @@ class game_options 		{
 			action = "";
 		};
 
-		class 8slots_L4: RscButton
+		class 8slots_L4: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -912,7 +912,7 @@ class game_options 		{
 			tooltip = "";
 			action = "";
 		};
-		class 8slots_R4: RscButton
+		class 8slots_R4: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -924,7 +924,7 @@ class game_options 		{
 			action = "";
 		};
 		*/
-		class 8slots_M4: RscButton
+		class 8slots_M4: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_save;
@@ -943,7 +943,7 @@ class fps_limiter 			{
 
 	class controls {
 
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -952,7 +952,7 @@ class fps_limiter 			{
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_ai_limiter;
@@ -961,7 +961,7 @@ class fps_limiter 			{
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -971,7 +971,7 @@ class fps_limiter 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""game_options"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_fps_limiter_plus;
@@ -981,7 +981,7 @@ class fps_limiter 			{
 			h = 0.0560125 * safezoneH;
 			action = "[player,'maxUnits','increase'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_fps_limiter_minus;
@@ -998,7 +998,7 @@ class spawn_config 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1007,7 +1007,7 @@ class spawn_config 			{
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_spawn_config;
@@ -1016,7 +1016,7 @@ class spawn_config 			{
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1026,7 +1026,7 @@ class spawn_config 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""game_options"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_spawn_config_plus;
@@ -1037,7 +1037,7 @@ class spawn_config 			{
 			action = "[player,'distanceSPWN','increase'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
 
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_spawn_config_minus;
@@ -1054,7 +1054,7 @@ class civ_config 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1063,7 +1063,7 @@ class civ_config 			{
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_civ_config;
@@ -1072,7 +1072,7 @@ class civ_config 			{
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1082,7 +1082,7 @@ class civ_config 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""game_options"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_civ_config_plus;
@@ -1092,7 +1092,7 @@ class civ_config 			{
 			h = 0.0560125 * safezoneH;
 			action = "[player,'civPerc','increase'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_maps_civ_config_minus;
@@ -1111,7 +1111,7 @@ class mission_menu 		{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1120,7 +1120,7 @@ class mission_menu 		{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mission_menu_available_missions;
@@ -1129,7 +1129,7 @@ class mission_menu 		{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1139,7 +1139,7 @@ class mission_menu 		{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0";
 		};
-		class HQ_button_AS: RscButton
+		class HQ_button_AS: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mission_menu_assassination_missions;
@@ -1149,7 +1149,7 @@ class mission_menu 		{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""AS"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_CONV: RscButton
+		class HQ_button_CONV: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mission_menu_convoy_ambush;
@@ -1159,7 +1159,7 @@ class mission_menu 		{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CONVOY"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_DES: RscButton
+		class HQ_button_DES: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mission_menu_destroy_missions;
@@ -1169,7 +1169,7 @@ class mission_menu 		{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""DES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_vehicle: RscButton
+		class HQ_button_vehicle: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mission_menu_conquest_missions;
@@ -1179,7 +1179,7 @@ class mission_menu 		{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CON"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_LOG: RscButton
+		class HQ_button_LOG: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mission_menu_logistics_missions;
@@ -1190,7 +1190,7 @@ class mission_menu 		{
 			tooltip = $STR_antistasi_dialogs_mission_menu_logistics_missions_tooltip;
 			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""LOG"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_SUPP: RscButton
+		class HQ_button_SUPP: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mission_menu_support_missions;
@@ -1201,7 +1201,7 @@ class mission_menu 		{
 			tooltip = $STR_antistasi_dialogs_mission_menu_support_missions_tooltip;
 			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""SUPP"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_RES: RscButton
+		class HQ_button_RES: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mission_menu_rescue_missions;
@@ -1211,7 +1211,7 @@ class mission_menu 		{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""RES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_exit: RscButton
+		class HQ_button_exit: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1231,7 +1231,7 @@ class radio_comm 		{
 	movingenable=false;
 	class controls {
 		//Menu Structure
-		class 8slots_box: BOX
+		class 8slots_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1240,7 +1240,7 @@ class radio_comm 		{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class 8slots_frame: RscFrame
+		class 8slots_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_radio_comm;
@@ -1249,7 +1249,7 @@ class radio_comm 		{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class 8slots_Back: RscButton
+		class 8slots_Back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1260,7 +1260,7 @@ class radio_comm 		{
 			action = "closeDialog 0";
 		};
 		//Action Buttons
-		class 8slots_L1: RscButton
+		class 8slots_L1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_radio_comm_fast_travel;
@@ -1271,7 +1271,7 @@ class radio_comm 		{
 			tooltip = $STR_antistasi_dialogs_radio_comm_fast_travel_tooltip;
 			action = "closeDialog 0; [] spawn A3A_fnc_fastTravelRadio;";
 		};
-		class 8slots_R1: RscButton
+		class 8slots_R1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_radio_comm_player_money;
@@ -1282,7 +1282,7 @@ class radio_comm 		{
 			tooltip = $STR_antistasi_dialogs_radio_comm_player_money_tooltip;
 			action = "closeDialog 0;if (isMultiPlayer) then {nul = createDialog ""player_money""} else {[""Money"", ""MP Only Menu""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_L2: RscButton
+		class 8slots_L2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_radio_comm_undercover;
@@ -1293,7 +1293,7 @@ class radio_comm 		{
 			tooltip = $STR_antistasi_dialogs_radio_comm_undercover_tooltip;
 			action = "closeDialog 0;nul = [] spawn A3A_fnc_goUndercover";
 		};
-		class 8slots_R2: RscButton
+		class 8slots_R2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_radio_comm_construct;
@@ -1304,7 +1304,7 @@ class radio_comm 		{
 			tooltip = $STR_antistasi_dialogs_radio_comm_construct_tooltip;
 			action = "closeDialog 0;_nul = createDialog ""construction_menu"";";
 		};
-		class 8slots_L3: RscButton
+		class 8slots_L3: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_radio_comm_garage;
@@ -1315,7 +1315,7 @@ class radio_comm 		{
 			tooltip = $STR_antistasi_dialogs_radio_comm_garage_tooltip;
 			action = "closeDialog 0; [cursorObject, clientOwner, call HR_GRG_dLock, player] remoteExecCall ['HR_GRG_fnc_addVehicle',2];";
 		};
-		class 8slots_R3: RscButton
+		class 8slots_R3: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_radio_comm_unlock_vehicle;
@@ -1326,7 +1326,7 @@ class radio_comm 		{
 			tooltip = $STR_antistasi_dialogs_radio_comm_unlock_vehicle_tooltip;
 			action = "closeDialog 0;[] call A3A_fnc_unlockVehicle";
 		};
-		class 8slots_L4: RscButton
+		class 8slots_L4: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_radio_comm_ai_management;
@@ -1337,7 +1337,7 @@ class radio_comm 		{
 			tooltip = $STR_antistasi_dialogs_radio_comm_ai_management_tooltip;
 			action = "if (player == leader group player) then {closeDialog 0;nul = createDialog ""AI_management""} else {[""AI Management"", ""Only group leaders may access to this option.""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_R4: RscButton
+		class 8slots_R4: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_radio_comm_commander;
@@ -1355,7 +1355,7 @@ class vehicle_manager 		{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1364,7 +1364,7 @@ class vehicle_manager 		{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_vehicle_manager;
@@ -1373,7 +1373,7 @@ class vehicle_manager 		{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1383,7 +1383,7 @@ class vehicle_manager 		{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""radio_comm"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle;
@@ -1394,7 +1394,7 @@ class vehicle_manager 		{
 			tooltip = $STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle_tooltip;
 			action = "closeDialog 0;nul = createDialog ""garage_sell"";";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_vehicle_manager_vehicles_squads;
@@ -1406,7 +1406,7 @@ class vehicle_manager 		{
 			action = "closeDialog 0; if (player == theBoss) then {nul = createDialog ""squad_manager""} else {[""Vehicle Management"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
 
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_vehicle_manager_add_air_support;
@@ -1417,7 +1417,7 @@ class vehicle_manager 		{
 			tooltip = $STR_antistasi_dialogs_vehicle_manager_add_air_support_tooltip;
 			action = "closeDialog 0;nul = [] call A3A_fnc_addBombRun";
 		};
-		class HQ_button_unlock: RscButton
+		class HQ_button_unlock: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_vehicle_manager_unlock_vehicle;
@@ -1435,7 +1435,7 @@ class veh_query 				{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = 101;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1444,7 +1444,7 @@ class veh_query 				{
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = 102;
 			text = $STR_antistasi_dialogs_vehicle_manager_veh_query;
@@ -1453,7 +1453,7 @@ class veh_query 				{
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = 103;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1463,7 +1463,7 @@ class veh_query 				{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;vehQuery = nil; if (player == theBoss) then { [] spawn A3A_fnc_squadRecruit; } else {[""Recruit Squad"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_generic_button_yes_text;
@@ -1473,7 +1473,7 @@ class veh_query 				{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0; vehQuery = true";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_generic_button_no_text;
@@ -1490,7 +1490,7 @@ class squad_manager 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1499,7 +1499,7 @@ class squad_manager 			{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_squad_manager;
@@ -1508,7 +1508,7 @@ class squad_manager 			{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1518,7 +1518,7 @@ class squad_manager 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""radio_comm"";";
 		};
-		class HQ_button_mortar: RscButton
+		class HQ_button_mortar: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_squad_manager_add_vehicle;
@@ -1529,7 +1529,7 @@ class squad_manager 			{
 			tooltip = $STR_antistasi_dialogs_squad_manager_add_vehicle_tooltip;
 			action = "closeDialog 0;[] call A3A_fnc_addSquadVeh;";
 		};
-		class HQ_button_MG: RscButton
+		class HQ_button_MG: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_squad_manager_squad_sitrep;
@@ -1540,7 +1540,7 @@ class squad_manager 			{
 			tooltip = $STR_antistasi_dialogs_squad_manager_squad_sitrep_tooltip;
 			action = "[""stats""] call A3A_fnc_vehStats;";
 		};
-		class HQ_button_AT: RscButton
+		class HQ_button_AT: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_squad_manager_mount;
@@ -1551,7 +1551,7 @@ class squad_manager 			{
 			tooltip = $STR_antistasi_dialogs_squad_manager_mount_tooltip;
 			action = "[""mount""] call A3A_fnc_vehStats";
 		};
-		class HQ_button_AA: RscButton
+		class HQ_button_AA: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_squad_manager_static_autotarget;
@@ -1569,7 +1569,7 @@ class AI_management 		{
 	movingenable=false;
 	class controls {
 		//Menu Structure
-		class 8slots_box: BOX
+		class 8slots_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1578,7 +1578,7 @@ class AI_management 		{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class 8slots_frame: RscFrame
+		class 8slots_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_AI_management;
@@ -1587,7 +1587,7 @@ class AI_management 		{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class 8slots_Back: RscButton
+		class 8slots_Back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1598,7 +1598,7 @@ class AI_management 		{
 			action = "closeDialog 0;nul = createDialog ""radio_comm"";";
 		};
 		//Action Buttons
-		class 8slots_L1: RscButton
+		class 8slots_L1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_AI_management_AI_control;
@@ -1607,9 +1607,9 @@ class AI_management 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_AI_control_tooltip;
-		action = "closeDialog 0; if ((count groupselectedUnits player > 0) and (count hcSelected player > 0)) exitWith {[""AI Control"", ""You must select from HC or Squad Bars, not both.""] call A3A_fnc_customHint;}; if (count groupselectedUnits player == 1) then {nul = [groupselectedUnits player] spawn A3A_fnc_controlunit""}; if (count hcSelected player == 1) then {nul = [hcSelected player] spawn A3A_fnc_controlHCsquad"";};";
+		action = "closeDialog 0; if ((count groupselectedUnits player > 0) and (count hcSelected player > 0)) exitWith {[""AI Control"", ""You must select from HC or Squad Bars, not both.""] call A3A_fnc_customHint;}; if (count groupselectedUnits player == 1) then {nul = [groupselectedUnits player] spawn A3A_fnc_controlunit}; if (count hcSelected player == 1) then {nul = [hcSelected player] spawn A3A_fnc_controlHCsquad;};";
 		};
-		class 8slots_R1: RscButton
+		class 8slots_R1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_AI_management_auto_rearm;
@@ -1620,7 +1620,7 @@ class AI_management 		{
 			tooltip = $STR_antistasi_dialogs_AI_management_auto_rearm_tooltip;
 			action = "closeDialog 0; if (count groupselectedUnits player == 0) then {nul = (units group player) spawn A3A_fnc_rearmCall} else {nul = (groupselectedUnits player) spawn A3A_fnc_rearmCall};";
 		};
-		class 8slots_L2: RscButton
+		class 8slots_L2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_AI_management_auto_heal;
@@ -1631,7 +1631,7 @@ class AI_management 		{
 			tooltip = $STR_antistasi_dialogs_AI_management_auto_heal_tooltip;
 			action = "if (autoHeal) then {autoHeal = false; [""AI Auto Heal"", ""Auto Healing disabled.""] call A3A_fnc_customHint;} else {autoHeal = true; [""AI Auto Heal"", ""Auto Heal enabled.""] call A3A_fnc_customHint; nul = [] spawn A3A_fnc_autoHealFnc}";
 		};
-		class 8slots_R2: RscButton
+		class 8slots_R2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_AI_management_SITREP;
@@ -1642,7 +1642,7 @@ class AI_management 		{
 			tooltip = $STR_antistasi_dialogs_AI_management_SITREP_tooltip;
 			action = "[""stats""] call A3A_fnc_vehStats;";
 		};
-		class 8slots_L3: RscButton
+		class 8slots_L3: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_AI_management_garrison;
@@ -1651,9 +1651,9 @@ class AI_management 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_garrison_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_addToGarrison""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_addToGarrison""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison"", ""No units or squads selected""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_addToGarrison} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_addToGarrison}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison"", ""No units or squads selected""] call A3A_fnc_customHint;}";
 		};
-		class 8slots_R3: RscButton
+		class 8slots_R3: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_AI_management_squad_add_vehicle;
@@ -1664,7 +1664,7 @@ class AI_management 		{
 			tooltip = $STR_antistasi_dialogs_AI_management_squad_add_vehicle_tooltip;
 			action = "closeDialog 0;[] call A3A_fnc_addSquadVeh;";
 		};
-		class 8slots_L4: RscButton
+		class 8slots_L4: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_AI_management_dismiss_units;
@@ -1673,9 +1673,9 @@ class AI_management 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_dismiss_units_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_dismissPlayerGroup""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_dismissSquad""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Dismiss Squad"", ""No units or squads selected""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_dismissPlayerGroup} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_dismissSquad}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Dismiss Squad"", ""No units or squads selected""] call A3A_fnc_customHint;}";
 		};
-		class 8slots_R4: RscButton
+		class 8slots_R4: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_AI_management_mount;
@@ -1693,7 +1693,7 @@ class commander_comm 		{
 	movingenable=false;
 	class controls {
 		//Menu Structure
-		class 8slots_box: BOX
+		class 8slots_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1702,7 +1702,7 @@ class commander_comm 		{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class 8slots_frame: RscFrame
+		class 8slots_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_commander_comm;
@@ -1711,7 +1711,7 @@ class commander_comm 		{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class 8slots_Back: RscButton
+		class 8slots_Back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1722,7 +1722,7 @@ class commander_comm 		{
 			action = "closeDialog 0;nul = createDialog ""radio_comm"";";
 		};
 		//Action Buttons
-		class 8slots_L1: RscButton
+		class 8slots_L1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_commander_comm_recruit;
@@ -1733,7 +1733,7 @@ class commander_comm 		{
 			tooltip = $STR_antistasi_dialogs_commander_comm_recruit_tooltip;
 			action = "closeDialog 0;if (player == theBoss) then { [] spawn A3A_fnc_squadRecruit; } else {[""Recruit Squad"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_R1: RscButton
+		class 8slots_R1: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_commander_comm_air_support;
@@ -1744,7 +1744,7 @@ class commander_comm 		{
 			tooltip = $STR_antistasi_dialogs_commander_comm_air_support_tooltip;
 			action = "closeDialog 0;if (player == theBoss) then {_nul = createDialog ""carpet_bombing""} else {[""Air Support"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_L2: RscButton
+		class 8slots_L2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_commander_comm_roadblock;
@@ -1755,7 +1755,7 @@ class commander_comm 		{
 			tooltip = $STR_antistasi_dialogs_commander_comm_roadblock_tooltip;
 			action = "if (player == theBoss) then {closeDialog 0;[""create""] spawn A3A_fnc_outpostDialog} else {[""Outposts/Roadblocks"", ""You're not the Commander!""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_R2: RscButton
+		class 8slots_R2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_commander_comm_clean;
@@ -1766,7 +1766,7 @@ class commander_comm 		{
 			tooltip = $STR_antistasi_dialogs_commander_comm_clean_tooltip;
 			action = "if (player == theBoss) then {closedialog 0;[] remoteExec [""A3A_fnc_garbageCleaner"",2]} else {[""Garbage Cleaner"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_L3: RscButton
+		class 8slots_L3: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_commander_comm_roadblock_delete;
@@ -1777,7 +1777,7 @@ class commander_comm 		{
 			tooltip = $STR_antistasi_dialogs_commander_comm_roadblock_delete_tooltip;
 			action = "if (player == theBoss) then {closeDialog 0; [""delete""] spawn A3A_fnc_outpostDialog} else {[""Outposts/Roadblocks"", ""You're not the Commander!""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_R3: RscButton
+		class 8slots_R3: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "";//$STR_antistasi_dialogs_commander_comm_faction_garage;
@@ -1788,7 +1788,7 @@ class commander_comm 		{
 			tooltip = "";//$STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
 			action = "";
 		};
-		class 8slots_L4: RscButton
+		class 8slots_L4: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_commander_comm_resign;
@@ -1799,7 +1799,7 @@ class commander_comm 		{
 			tooltip = $STR_antistasi_dialogs_commander_comm_resign_tooltip;
 			action = "if (isMultiplayer) then {closedialog 0;[player, cursorTarget] remoteExec [""A3A_fnc_theBossToggleEligibility"", 2]} else {[""Resign Commander"", ""This feature is MP Only.""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_R4: RscButton
+		class 8slots_R4: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_commander_comm_sell;
@@ -1817,7 +1817,7 @@ class carpet_bombing 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1826,7 +1826,7 @@ class carpet_bombing 			{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_carpet_bombing;
@@ -1835,7 +1835,7 @@ class carpet_bombing 			{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1845,7 +1845,7 @@ class carpet_bombing 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0; nul = createDialog ""radio_comm"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_carpet_bombing_HE;
@@ -1856,7 +1856,7 @@ class carpet_bombing 			{
 			tooltip = $STR_antistasi_dialogs_carpet_bombing_tooltip;
 			action = "closeDialog 0;[""HE""] spawn A3A_fnc_NATObomb;";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_carpet_bombing_cluster;
@@ -1867,7 +1867,7 @@ class carpet_bombing 			{
 			tooltip = $STR_antistasi_dialogs_carpet_bombing_tooltip;
 			action = "closeDialog 0;[""CLUSTER""] spawn A3A_fnc_NATObomb;";
 		};
-		class 4slots_L2: RscButton
+		class 4slots_L2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_carpet_bombing_napalm;
@@ -1878,7 +1878,7 @@ class carpet_bombing 			{
 			tooltip = $STR_antistasi_dialogs_carpet_bombing_tooltip;
 			action = "closeDialog 0;[""NAPALM""] spawn A3A_fnc_NATObomb;";
 		};
-		class 4slots_R2: RscButton
+		class 4slots_R2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_carpet_bombing_add;
@@ -1898,7 +1898,7 @@ class dismiss_menu 				{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1907,7 +1907,7 @@ class dismiss_menu 				{
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_dismiss_menu;
@@ -1916,7 +1916,7 @@ class dismiss_menu 				{
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_dismiss_menu_dismiss;
@@ -1925,9 +1925,9 @@ class dismiss_menu 				{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_dismiss_menu_dismiss_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_dismissPlayerGroup""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_dismissSquad""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison Squad"", ""No units or squads selected.""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_dismissPlayerGroup} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_dismissSquad}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison Squad"", ""No units or squads selected.""] call A3A_fnc_customHint;}";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_dismiss_menu_garrison;
@@ -1936,10 +1936,10 @@ class dismiss_menu 				{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_dismiss_menu_garrison_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_addToGarrison""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_addToGarrison""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison Static"", ""No units or squads selected.""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_addToGarrison} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_addToGarrison}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison Static"", ""No units or squads selected.""] call A3A_fnc_customHint;}";
 		};
 		/*
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "Remove Garrison Squads"; //--- ToDo: Localize;
@@ -1957,7 +1957,7 @@ class construction_menu 	{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -1966,7 +1966,7 @@ class construction_menu 	{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_construction_menu;
@@ -1975,7 +1975,7 @@ class construction_menu 	{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1985,7 +1985,7 @@ class construction_menu 	{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""radio_comm"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_construction_menu_small_trench;
@@ -1996,7 +1996,7 @@ class construction_menu 	{
 			tooltip = $STR_antistasi_dialogs_construction_menu_small_trench_tooltip;
 			action = "closeDialog 0;nul = [""ST""] spawn A3A_fnc_build;";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_construction_menu_medium_trench;
@@ -2008,7 +2008,7 @@ class construction_menu 	{
 			action = "closeDialog 0; nul = [""MT""] spawn A3A_fnc_build;";
 		};
 
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_construction_menu_vehicle_obstacles;
@@ -2019,7 +2019,7 @@ class construction_menu 	{
 			tooltip = $STR_antistasi_dialogs_construction_menu_vehicle_obstacles_tooltip;
 			action = "closeDialog 0;nul = [""RB""] spawn A3A_fnc_build;";
 		};
-		class HQ_button_unlock: RscButton
+		class HQ_button_unlock: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_construction_menu_bunker_options;
@@ -2038,7 +2038,7 @@ class bunker_menu 				{
 
 	class controls {
 
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2047,7 +2047,7 @@ class bunker_menu 				{
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_construction_menu_bunker_type;
@@ -2056,7 +2056,7 @@ class bunker_menu 				{
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_construction_menu_sandbag;
@@ -2067,7 +2067,7 @@ class bunker_menu 				{
 			tooltip = $STR_antistasi_dialogs_construction_menu_bunker_tooltip;
 			action = "closeDialog 0;nul = [""SB""] spawn A3A_fnc_build;";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_construction_menu_bunker_concrete;
@@ -2079,7 +2079,7 @@ class bunker_menu 				{
 			action = "closeDialog 0;nul = [""CB""] spawn A3A_fnc_build;";
 		};
 		/*
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "Remove Garrison Squads"; //--- ToDo: Localize;
@@ -2097,7 +2097,7 @@ class squad_recruit 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = 101;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2106,7 +2106,7 @@ class squad_recruit 			{
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = 102;
 			text = $STR_antistasi_dialogs_squad_recruit;
@@ -2115,7 +2115,7 @@ class squad_recruit 			{
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = 103;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2125,7 +2125,7 @@ class squad_recruit 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0; _nul = createDialog ""radio_comm"";";
 		};
-		class HQ_button_infsquad: RscButton
+		class HQ_button_infsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_squad_recruit_inf;
@@ -2135,7 +2135,7 @@ class squad_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0; [] spawn A3A_fnc_squadOptions;";
 		};
-		class HQ_button_infteam: RscButton
+		class HQ_button_infteam: A3A_core_BattleMenuRedButton
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_squad_recruit_inf_team;
@@ -2145,7 +2145,7 @@ class squad_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'groupMedium'] spawn A3A_fnc_addFIAsquadHC";
 		};
-		class HQ_button_ATteam: RscButton
+		class HQ_button_ATteam: A3A_core_BattleMenuRedButton
 		{
 			idc = 106;
 			text = $STR_antistasi_dialogs_squad_recruit_at;
@@ -2155,7 +2155,7 @@ class squad_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'groupAT'] spawn A3A_fnc_addFIAsquadHC";
 		};
-		class HQ_button_sniperTeam: RscButton
+		class HQ_button_sniperTeam: A3A_core_BattleMenuRedButton
 		{
 			idc = 107;
 			text = $STR_antistasi_dialogs_squad_recruit_sniper;
@@ -2165,7 +2165,7 @@ class squad_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'groupSniper'] spawn A3A_fnc_addFIAsquadHC";
 		};
-		class HQ_button_infsquadM: RscButton
+		class HQ_button_infsquadM: A3A_core_BattleMenuRedButton
 		{
 			idc = 108;
 			text = $STR_antistasi_dialogs_squad_recruit_mg;
@@ -2175,7 +2175,7 @@ class squad_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticMG'] spawn A3A_fnc_addFIAsquadHC";
 		};
-		class HQ_button_infteamM: RscButton
+		class HQ_button_infteamM: A3A_core_BattleMenuRedButton
 		{
 			idc = 109;
 			text = $STR_antistasi_dialogs_squad_recruit_at_car;
@@ -2185,7 +2185,7 @@ class squad_recruit 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleAT'] spawn A3A_fnc_addFIAsquadHC";
 		};
-		class HQ_button_ATteamM: RscButton
+		class HQ_button_ATteamM: A3A_core_BattleMenuRedButton
 		{
 			idc = 110;
 			text = $STR_antistasi_dialogs_squad_recruit_aa_car;
@@ -2196,7 +2196,7 @@ class squad_recruit 			{
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticAA'] spawn A3A_fnc_addFIAsquadHC";
 		};
 
-		class HQ_button_mortar: RscButton
+		class HQ_button_mortar: A3A_core_BattleMenuRedButton
 		{
 			idc = 111;
 			text = $STR_antistasi_dialogs_squad_recruit_mortar;
@@ -2213,7 +2213,7 @@ class player_money 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2222,7 +2222,7 @@ class player_money 			{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_player_money;
@@ -2231,7 +2231,7 @@ class player_money 			{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2241,7 +2241,7 @@ class player_money 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""radio_comm"";";
 		};
-		class HQ_button_mortar: RscButton
+		class HQ_button_mortar: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_player_money_add_member;
@@ -2252,7 +2252,7 @@ class player_money 			{
 			tooltip = $STR_antistasi_dialogs_player_money_add_member_tooltip;
 			action = "if (isMultiplayer) then {closeDialog 0;nul = [""add""] call A3A_fnc_memberAdd;} else {[""Membership"", ""This function is MP only.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_MG: RscButton
+		class HQ_button_MG: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_player_money_remove_member;
@@ -2263,7 +2263,7 @@ class player_money 			{
 			tooltip = $STR_antistasi_dialogs_player_money_remove_member_tooltip;
 			action = "if (isMultiplayer) then {closeDialog 0;nul = [""remove""] call A3A_fnc_memberAdd;} else {[""Membership"", ""This function is MP only.""] call A3A_fnc_customHint;};";
 		};
-		class HQ_button_AT: RscButton
+		class HQ_button_AT: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_player_money_donate_player;
@@ -2273,7 +2273,7 @@ class player_money 			{
 			h = 0.0560125 * safezoneH;
 			action = "[true] call A3A_fnc_donateMoney;";
 		};
-		class HQ_button_AA: RscButton
+		class HQ_button_AA: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_player_money_donate_faction;
@@ -2291,7 +2291,7 @@ class garage_sell 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2300,7 +2300,7 @@ class garage_sell 			{
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_garage_sell;
@@ -2309,7 +2309,7 @@ class garage_sell 			{
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2319,7 +2319,7 @@ class garage_sell 			{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""vehicle_manager"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "";
@@ -2329,7 +2329,7 @@ class garage_sell 			{
 			h = 0.0560125 * safezoneH;
 			action = "";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_garage_sell_sell;
@@ -2340,7 +2340,7 @@ class garage_sell 			{
 			action = "closeDialog 0; if (player == theBoss) then {nul = [player,cursorObject] remoteExecCall [""A3A_fnc_sellVehicle"",2]} else {[""Sell Vehicle"", ""Only the Commander can sell vehicles.""] call A3A_fnc_customHint;};";
 		};
 		/*
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "Remove Garrison Squads"; //--- ToDo: Localize;
@@ -2359,7 +2359,7 @@ class garage_check 				{
 
 	class controls {
 
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2368,7 +2368,7 @@ class garage_check 				{
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_garage_check;
@@ -2377,7 +2377,7 @@ class garage_check 				{
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2387,7 +2387,7 @@ class garage_check 				{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""radio_comm"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_garage_personal;
@@ -2397,7 +2397,7 @@ class garage_check 				{
 			h = 0.0560125 * safezoneH;
 			action = "";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_garage_faction;
@@ -2408,7 +2408,7 @@ class garage_check 				{
 			action = "";
 		};
 		/*
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "Remove Garrison Squads"; //--- ToDo: Localize;
@@ -2426,7 +2426,7 @@ class tu_madre 				{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2435,7 +2435,7 @@ class tu_madre 				{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_carpet_bombing;
@@ -2444,7 +2444,7 @@ class tu_madre 				{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;//28
 		};
-		class HQ_button_back: RscListBox
+		class HQ_button_back: A3A_core_BattleMenuListBox
 		{
 			idc = -1;
 			//text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2465,7 +2465,7 @@ class tu_madre 				{
 
 			//action = "closeDialog 0; nul = createDialog ""NATO_Options"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_carpet_bombing_he;
@@ -2476,7 +2476,7 @@ class tu_madre 				{
 			tooltip = $STR_antistasi_dialogs_carpet_bombing_he_tooltip;
 			action = "closeDialog 0;[""HE""] spawn A3A_fnc_NATObomb;";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_carpet_bombing_cluster;
@@ -2488,7 +2488,7 @@ class tu_madre 				{
 			action = "closeDialog 0;[""CLUSTER""] spawn A3A_fnc_NATObomb;";
 		};
 
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_carpet_bombing_napalm;
@@ -2510,7 +2510,7 @@ class mortar_type {
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2519,7 +2519,7 @@ class mortar_type {
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mortar_type;
@@ -2528,7 +2528,7 @@ class mortar_type {
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2538,7 +2538,7 @@ class mortar_type {
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mortar_type_he;
@@ -2548,7 +2548,7 @@ class mortar_type {
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0; typeAmmunition = A3A_faction_reb get 'staticMortarMagHE';";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mortar_type_smoke;
@@ -2559,7 +2559,7 @@ class mortar_type {
 			action = "closeDialog 0; typeAmmunition = A3A_faction_reb get 'staticMortarMagSmoke';";
 		};
 		/*
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "Remove Garrison Squads"; //--- ToDo: Localize;
@@ -2577,7 +2577,7 @@ class rounds_number {
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2586,7 +2586,7 @@ class rounds_number {
 			w = 0.445038 * safezoneW;
 			h = 0.492103 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_rounds_number;
@@ -2595,7 +2595,7 @@ class rounds_number {
 			w = 0.425038 * safezoneW;
 			h = 0.462103 * safezoneH;
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2605,7 +2605,7 @@ class rounds_number {
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0";
 		};
-		class HQ_button_AS: RscButton
+		class HQ_button_AS: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "1";
@@ -2615,7 +2615,7 @@ class rounds_number {
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;roundsX = 1;";
 		};
-		class HQ_button_CONV: RscButton
+		class HQ_button_CONV: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "2";
@@ -2625,7 +2625,7 @@ class rounds_number {
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;roundsX = 2";
 		};
-		class HQ_button_DES: RscButton
+		class HQ_button_DES: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "3";
@@ -2635,7 +2635,7 @@ class rounds_number {
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0; roundsX = 3";
 		};
-		class HQ_button_LOG: RscButton
+		class HQ_button_LOG: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "5";
@@ -2645,7 +2645,7 @@ class rounds_number {
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;roundsX = 5";
 		};
-		class HQ_button_RES: RscButton
+		class HQ_button_RES: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "7";
@@ -2655,7 +2655,7 @@ class rounds_number {
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;roundsX = 7";
 		};
-		class HQ_button_vehicle: RscButton
+		class HQ_button_vehicle: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "6";
@@ -2665,7 +2665,7 @@ class rounds_number {
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;roundsX = 6";
 		};
-		class HQ_button_fpsplus: RscButton
+		class HQ_button_fpsplus: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "4";
@@ -2676,7 +2676,7 @@ class rounds_number {
 			action = "closeDialog 0; roundsX = 4";
 		};
 
-		class HQ_button_AA: RscButton
+		class HQ_button_AA: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "8";
@@ -2693,7 +2693,7 @@ class strike_type {
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2702,7 +2702,7 @@ class strike_type {
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_strike_type;
@@ -2711,7 +2711,7 @@ class strike_type {
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2721,7 +2721,7 @@ class strike_type {
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_strike_type_single;
@@ -2731,7 +2731,7 @@ class strike_type {
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;typeArty = ""NORMAL"";";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_strike_type_barrage;
@@ -2742,7 +2742,7 @@ class strike_type {
 			action = "closeDialog 0; typeArty = ""BARRAGE"";";
 		};
 		/*
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = "Remove Garrison Squads"; //--- ToDo: Localize;
@@ -2762,7 +2762,7 @@ class mbt_type {
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2771,7 +2771,7 @@ class mbt_type {
 			w = 0.445038 * safezoneW;
 			h = 0.20 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mbt_type;
@@ -2780,7 +2780,7 @@ class mbt_type {
 			w = 0.425038 * safezoneW;
 			h = 0.18 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2790,7 +2790,7 @@ class mbt_type {
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mortar_type_he;
@@ -2800,7 +2800,7 @@ class mbt_type {
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0; typeAmmunition = ""32Rnd_155mm_Mo_shells"";";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mortar_type_laser;
@@ -2811,7 +2811,7 @@ class mbt_type {
 			action = "closeDialog 0; typeAmmunition = ""2Rnd_155mm_Mo_LG"";";
 		};
 
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_mortar_type_smoke;
@@ -2828,7 +2828,7 @@ class squad_options 	{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2837,7 +2837,7 @@ class squad_options 	{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;//30
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_squad_options;
@@ -2846,7 +2846,7 @@ class squad_options 	{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;//28
 		};
-		class HQ_button_back: RscButton
+		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -2856,7 +2856,7 @@ class squad_options 	{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""squad_recruit"";";
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_squad_options_normal;
@@ -2867,7 +2867,7 @@ class squad_options 	{
 			//tooltip = "";
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'groupSquad'] spawn A3A_fnc_addFIAsquadHC;";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_squad_options_engineer;
@@ -2878,7 +2878,7 @@ class squad_options 	{
 			action = "closeDialog 0; nul = [A3A_faction_reb get 'groupSquadEng'] spawn A3A_fnc_addFIAsquadHC;";
 		};
 
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = 106;
 			text = $STR_antistasi_dialogs_squad_options_mg;
@@ -2888,7 +2888,7 @@ class squad_options 	{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;nul = [A3A_faction_reb get 'groupSquadSupp','MG'] spawn A3A_fnc_addFIAsquadHC;";
 		};
-		class HQ_button_unlock: RscButton
+		class HQ_button_unlock: A3A_core_BattleMenuRedButton
 		{
 			idc = 107;
 			text = $STR_antistasi_dialogs_squad_options_mortar;
@@ -2905,7 +2905,7 @@ class diff_menu 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2914,7 +2914,7 @@ class diff_menu 			{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_diff_menu;
@@ -2923,7 +2923,7 @@ class diff_menu 			{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;
 		};
-		class HQ_button_mortar: RscButton
+		class HQ_button_mortar: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_diff_menu_easy;
@@ -2933,7 +2933,7 @@ class diff_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "skillMult = 1; closeDialog 0;";
 		};
-		class HQ_button_MG: RscButton
+		class HQ_button_MG: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_diff_menu_normal;
@@ -2943,7 +2943,7 @@ class diff_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "skillMult = 2; closeDialog 0;";
 		};
-		class HQ_button_AT: RscButton
+		class HQ_button_AT: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_diff_menu_hard;
@@ -2961,7 +2961,7 @@ class gameMode_menu 			{
 	movingenable=false;
 
 	class controls {
-		class HQ_box: BOX
+		class HQ_box: A3A_core_BattleMenuBOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
@@ -2970,7 +2970,7 @@ class gameMode_menu 			{
 			w = 0.445038 * safezoneW;
 			h = 0.30 * safezoneH;
 		};
-		class HQ_frame: RscFrame
+		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_gameMode_menu;
@@ -2979,7 +2979,7 @@ class gameMode_menu 			{
 			w = 0.425038 * safezoneW;
 			h = 0.28 * safezoneH;
 		};
-		class HQ_button_Gsquad: RscButton
+		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_vs_Inv;
@@ -2989,7 +2989,7 @@ class gameMode_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;gameMode = 1;";
 		};
-		class HQ_button_Gstatic: RscButton
+		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_and_Inv;
@@ -2999,7 +2999,7 @@ class gameMode_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;gameMode = 2;";
 		};
-		class HQ_button_Gremove: RscButton
+		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
 			idc = 106;
 			text = $STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov;
@@ -3010,7 +3010,7 @@ class gameMode_menu 			{
 			h = 0.0560125 * safezoneH;
 			action = "closeDialog 0;gameMode = 3;";
 		};
-		class HQ_button_offroad: RscButton
+		class HQ_button_offroad: A3A_core_BattleMenuRedButton
 		{
 			idc = 107;
 		 	text = $STR_antistasi_dialogs_gameMode_menu_Reb_vs_Inv;

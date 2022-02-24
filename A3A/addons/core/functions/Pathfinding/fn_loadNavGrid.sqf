@@ -28,20 +28,27 @@ if !(isNil "roadDataDone") exitWith
 
 Info("Started loading nav grid");
 
-private _path = format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\navGrid.sqf), worldName];
-private _abort = false;
-try
-{
-	//Load in the nav grid array
-	[] call compile preprocessFileLineNumbers _path;
-}
-catch
-{
-    Error_1("Road database at %1 could not be loaded", _path);
-    Error("Nav Grid with the name format navGrid<WorldName> are no longer compatible! DO NOT LOAD THEM!");
-	_abort = true;
+private _path = if (isText (missionConfigFile/"A3A"/"Navgrid"/worldName)) then {
+    getText (missionConfigFile/"A3A"/"Navgrid"/worldName);
+} else {
+    getText (configFile/"A3A"/"Navgrid"/worldName);
 };
-if(_abort) exitWith {};
+
+if (!fileExists _path) exitWith { Error_1("Invalid path to navgird: %1", _path); };
+private _navGridDB_formatted = preprocessFileLineNumbers _path;
+if ("navGrid" in _navGridDB_formatted) then {   // Try to remove assignment code
+    private _startIndex = (_navGridDB_formatted find "=") + 1;
+    _navGridDB_formatted = _navGridDB_formatted select [_startIndex,count _navGridDB_formatted - _startIndex];
+
+    private _endCount = (_navGridDB_formatted find ";");
+    _navGridDB_formatted = _navGridDB_formatted select [0,_endCount];
+};
+
+NavGrid = parseSimpleArray _navGridDB_formatted;
+if (NavGrid isEqualTo []) exitWith {
+    Error_1("Road database for %1 could not be loaded", worldName);
+    Error("Nav Grid with the name format navGrid<WorldName> are no longer compatible! DO NOT LOAD THEM!");
+};
 
 {
 	private _index = _forEachIndex;

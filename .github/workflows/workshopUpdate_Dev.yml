@@ -1,18 +1,49 @@
 on:
+  workflow_dispatch:
   push:
     branches:
     - unstable
+    paths:
+    - 'A3A/**'
 
 jobs:
+  merge-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       
+      - name: Merge unstable -> steam-staging
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: steam-staging
+          github_token: ${{ github.token }}
+    
+  version:
+    runs-on: windows-latest
+    timeout-minutes: 2
+    needs: [merge-branch]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: steam-staging
+
+      - run: chmod +x ./tools/incrementVersion.js
+      - run: node ./tools/incrementVersion.js -b ${{github.sha}}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Automated version bump to: ${{github.sha}}"
+
   build:
     runs-on: windows-latest
-    timeout-minutes: 1
+    timeout-minutes: 5
+    needs: [version]
     steps:
     - name: Checkout the code
       uses: actions/checkout@v2
       with:
-        ref: 'unstable'
+        ref: 'steam-staging'
 
     - name: Build addons
       run: '.\tools\Builder\buildAddons.ps1 -metaFileName meta_dev.cpp'
@@ -22,10 +53,10 @@ jobs:
       with:
         name: A3A
         path: build\A3A
-        
+
   upload:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
+    timeout-minutes: 10
     needs: [build]
     steps:
     - name: Download addon artifact
@@ -36,7 +67,7 @@ jobs:
 
     - name: Publish to Steam Workshop
       uses: arma-actions/workshop-upload@v1
-      with: 
+      with:
         appId: '107410'      # default
         itemId: '2729074499' # https://steamcommunity.com/sharedfiles/filedetails/?id=2729074499
         contentPath: 'A3A'

@@ -27,7 +27,7 @@ if (!hasInterface) exitWith {
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
 	call A3A_fnc_loadNavGrid;
-    Info_1("Headless client version: %1",localize "STR_antistasi_credits_generic_version_text");
+    Info_1("Headless client version: %1",QUOTE(VERSION));
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 };
 
@@ -42,7 +42,7 @@ if (!isServer) then {
 	waitUntil {!isNil "initParamsDone"};
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
-    Info_1("MP client version: %1",localize "STR_antistasi_credits_generic_version_text");
+    Info_1("MP client version: %1",QUOTE(VERSION));
 }
 else {
 	// SP or hosted, initFuncs/var run in serverInit
@@ -343,7 +343,7 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 };
 
 waituntil {!isnull (finddisplay 46)};
-gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",A3A_fnc_keys];
+GVAR(keys_battleMenu) = false; //initilize key flags to false
 //removeAllActions boxX;
 
 //if ((!isServer) and (isMultiplayer)) then {boxX call jn_fnc_arsenal_init};
@@ -387,18 +387,30 @@ vehicleBox addAction ["Heal nearby units", A3A_fnc_vehicleBoxHeal,nil,0,false,tr
 vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 [vehicleBox] call HR_GRG_fnc_initGarage;
 if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
-vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+
+vehicleBox addAction ["Buy Vehicle", {
+	if ([player,300] call A3A_fnc_enemyNearCheck) then {
+		["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
+	} else {
+		if (A3A_GUIDevPreview) then {
+			createDialog "A3A_BuyVehicleDialog";
+		} else {
+			createDialog "vehicle_option";
+		};
+	}
+},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-vehicleBox addAction ["Buy Light for 25€", {[player, 'vehicleLightSource', 25, [['A3A_fnc_initMovableObject', 0]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
+vehicleBox addAction ["Buy Light for 25€", {[player, FactionGet(reb,"vehicleLightSource"), 25, [['A3A_fnc_initMovableObject', false]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
 private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");
 private _fuelTank = FactionGet(reb,"vehicleFuelTank");
 if (isClass (configFile/"CfgVehicles"/_fuelDrum # 0)) then {
     private _dispName = getText (configFile/"CfgVehicles"/_fuelDrum # 0/"displayName");
-    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","true",4];
+    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","_this == theBoss",4];
 };
 if (isClass (configFile/"CfgVehicles"/_fuelTank # 0)) then {
     private _dispName = getText (configFile/"CfgVehicles"/_fuelTank # 0/"displayName");
-    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelTank # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelTank,0,false,true,"","true",4];
+    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelTank # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelTank,0,false,true,"","_this == theBoss",4];
 };
 call A3A_fnc_dropObject;
 
@@ -423,7 +435,11 @@ mapX addAction ["Game Options", {
 		"<br/>Civilian Limit: "+ str civPerc +
 		"<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
 	] call A3A_fnc_customHint;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
 	CreateDialog "game_options";
+#endif
 	nil;
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
@@ -444,7 +460,11 @@ if (worldName == "Tanoa") then {petros setName "Maru"} else {petros setName "Pet
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];
 _layer = ["statisticsX"] call bis_fnc_rscLayer;
-_layer cutRsc ["H8erHUD","PLAIN",0,false];
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_layer cutRsc ["H8erHUD","PLAIN",0,false];
+#endif
 [] spawn A3A_fnc_statistics;
 
 //Check if we need to relocate HQ

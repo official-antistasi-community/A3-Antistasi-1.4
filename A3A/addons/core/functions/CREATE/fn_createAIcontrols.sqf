@@ -15,6 +15,7 @@ if ((_sideX == teamPlayer) or (_sideX == sideUnknown)) exitWith {};
 if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea _x)) exitWith {1}} count markersX >1) exitWith {};
 _vehiclesX = [];
 _soldiers = [];
+private _dogs = [];
 _pilots = [];
 _conquered = false;
 _groupX = grpNull;
@@ -118,6 +119,7 @@ if (_isControl) then
 			if (random 10 < 2.5) then
 				{
 				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
+				_dogs pushBack _dog;
 				[_dog,_groupX] spawn A3A_fnc_guardDog;
 				};
 			_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
@@ -272,6 +274,7 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 
 { if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
+{ deleteVehicle _x } forEach _dogs;
 deleteGroup _groupX;
 
 {

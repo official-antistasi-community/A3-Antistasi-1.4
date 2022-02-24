@@ -22,13 +22,13 @@ class Templates
                 //optional file overwrite set the `file` attribute here, whitout file extension
                 // note if `file` is set it becomes the following: {file}.sqf
 
-                //if multiple cammo variations exist add the worldname (all lower case) to camo list like so
+                // camo determined by climate. climates: arid, tropical, temperate, arctic
                 class camo
                 { //template file name would follow: {path}\{Modset}_{Type}_{Faction}_{camo}.sqf
                 // note if `file` is set it becomes the following: {file}_{camo}.sqf
-                    tanoa = "Tropical";
-                    enoch = "Enoch";
-                    Default = "Arid"; //default is the fallback if the worldname is not in this class
+                    tropical = "Tropical";
+                    temperate = "Enoch";
+                    Default = "Arid"; //default is the fallback if the climate is not in this class
                 };
             };
 
@@ -44,12 +44,8 @@ class Templates
             {
                 class camo
                 {
-                    tanoa = "Tropical";
-                    cam_lao_nam = "Temperate";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
+                    tropical = "Tropical";
+                    temperate = "Temperate";
                     Default = "Arid";
                 };
             };
@@ -70,7 +66,7 @@ class Templates
             {
                 class camo
                 {
-                    enoch = "Enoch";
+                    temperate = "Enoch";
                     Default = "Arid";
                 };
             };
@@ -164,10 +160,7 @@ class Templates
             {
                 class camo
                 {
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
+                    temperate = "Temperate";
                     Default = "Arid";
                 };
             };
@@ -185,13 +178,7 @@ class Templates
                 displayName = "USAF";
                 class camo
                 {
-                    tanoa = "Temperate";
-                    cam_lao_nam = "Temperate";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
-                    chernarus_winter = "Temperate";
+                    temperate = "Temperate";
                     Default = "Arid";
                 };
             };
@@ -200,13 +187,7 @@ class Templates
                 displayName = "US Marines";
                 class camo
                 {
-                    tanoa = "Temperate";
-                    cam_lao_nam = "Temperate";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
-                    chernarus_winter = "Temperate";
+                    temperate = "Temperate";
                     Default = "Arid";
                 };
             };
@@ -218,13 +199,7 @@ class Templates
             {
                 class camo
                 {
-                    tanoa = "Temperate";
-                    cam_lao_nam = "Temperate";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
-                    chernarus_winter = "Temperate";
+                    temperate = "Temperate";
                     Default = "Arid";
                 };
             };
@@ -301,13 +276,7 @@ class Templates
         {
             class camo //reserved classname will treate it like camo class in faction rather than faction class
             {
-                tanoa = "Temperate";
-                cam_lao_nam = "Temperate";
-                enoch = "Temperate";
-                chernarus_summer = "Temperate";
-                vt7 = "Temperate";
-                tembelan = "Temperate";
-                chernarus_winter = "Temperate";
+                temperate = "Temperate";
                 Default = "Arid";
             };
         };
@@ -406,13 +375,9 @@ class Templates
             class BAF {
                 class camo
                 {
-                    chernarus_winter = "Arctic";
-                    enoch = "Temperate";
-                    chernarus_summer = "Temperate";
-                    vt7 = "Temperate";
-                    tembelan = "Temperate";
-                    cam_lao_nam = "Tropical";
-                    tanoa = "Tropical";
+                    arctic = "Arctic";
+                    temperate = "Temperate";
+                    tropical = "Tropical";
                     Default = "Arid";
                 };
             };

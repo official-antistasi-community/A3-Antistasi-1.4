@@ -228,56 +228,6 @@ class Params
         texts[] = {""};
         default = "";
     };
-    class Spacer12
-    {
-        title = "Factions templates - Do NOT change this mid mission";
-        values[] = {""};
-        texts[] = {"Mixing modsets can cause broken behaviour"};
-        default = "";
-    };
-    class RebelFactionEnum
-    {
-        title = "Rebel faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6};
-        texts[] = {"Default (Auto)", "FIA", "SDK", "NAPA (RHS)", "CNM (Factions)", "TKM (Factions)", "POF (SOG:PF)"};
-        default = 9999;
-    };
-    class OccupantsFactionEnum
-    {
-        title = "Occupants faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-        texts[] = {
-            "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
-            , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
-            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)"
-        };
-        default = 9999;
-    };
-    class InvadersFactionEnum
-    {
-        title = "Invaders faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-        texts[] = {
-            "Default (Auto)", "NATO", "CSAT", "AAF", "LDF (Contact)", "USAF (RHS)", "AFRF (RHS)","CDF (RHS)"
-            , "US Marines (RHS)", "BAF (BAF)", "Coldwar US (Factions)", "Coldwar Soviets (Factions)"
-            , "TKA West (Factions)", "TKA East (Factions)", "ADA (Factions)", "ANA (Factions)", "3CB AAF (Factions)", "MDF (Factions)", "HIDF (Factions)", "MACV (SOG:PF)", "PAVN (SOG:PF)"
-        };
-        default = 9999;
-    };
-    class CivFactionEnum
-    {
-        title = "Civilian faction (Required content for faction in parentheses)";
-        values[] = {9999, 1,2,3,4};
-        texts[] = {"Default (Auto)", "Vanilla", "RHS", "Factions", "VN"};
-        default = 9999;
-    };
-    class Spacer13
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
     class Kart
     {
         title = "Allow Items and Vehicles from Karts DLC?";
@@ -376,6 +326,13 @@ class Params
         texts[] = {"Load from save (Default: Debug)", "Error", "Info", "Debug"};
         default = 9999;
     };
+    class A3A_GUIDevPreview
+    {
+        title = "Use In-Development UI Preview.";
+        values[] = {9999,0,1};
+        texts[] = {"Load from save (Default: No)", "No", "Yes"};
+        default = 9999;
+    };
     class SupportOptions
     {
         title = "SUPPORT OPTIONS";
@@ -389,14 +346,14 @@ class Params
         values[] = {9999, 0, 1};
         texts[] = {"Load from save (Default: Not Allowed)", "Not allowed", "Allowed"};
         default = 9999;
-    }
+    };
     class allowFuturisticSupports
     {
         title = "[Experimental - Use at own risk](Requires unfair supports) Allow futuristic supports to be used by the enemy";
         values[] = {9999, 0, 1};
         texts[] = {"Load from save (Default: Not Allowed)", "Not allowed", "Allowed"};
         default = 9999;
-    }
+    };
     class CrateOptions
     {
         title = "LOOT CRATE OPTIONS";

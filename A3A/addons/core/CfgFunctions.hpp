@@ -138,7 +138,6 @@ class CfgFunctions
             class isFrontline {};
             class arePositionsConnected {};
             class joinMultipleGroups {};
-            class keys {};
             class localizar {};
             class location {};
             class lockStatic {};
@@ -357,7 +356,6 @@ class CfgFunctions
             class modBlacklist {};
             class playerMarkers {};
             class prepareMarkerArrays {};
-            class reinitY {};
             class resourcecheck {};
             class tags {};
         };
@@ -372,6 +370,11 @@ class CfgFunctions
             class searchIntelOnLeader {};
             class selectIntel {};
             class showIntel {};
+        };
+
+        class keybinds {
+            file = QPATHTOFOLDER(keybinds);
+            class keyActions {};
         };
 
         class Logistics {

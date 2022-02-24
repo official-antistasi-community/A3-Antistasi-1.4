@@ -14,33 +14,38 @@ class CfgPatches {
     };
 };
 
+class A3A {
+    #include "mapInfo.hpp"
+    #include "NavGrid.hpp"
+};
+
 class CfgMissions
 {
     class MPMissions
     {
         class Antistasi_Altis
         {
-            briefingName = $STR_antistasi_mission_info_altis_mapname_text;
+            briefingName = $STR_antistasi_mission_info_Altis_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_Altis.Altis";
         };
         class Antistasi_cam_lao_nam
         {
-            briefingName = $STR_antistasi_mission_info_camlaonam_mapname_text;
+            briefingName = $STR_antistasi_mission_info_cam_lao_nam_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_cam_lao_nam.cam_lao_nam";
         };
         class Antistasi_chernarus_summer
         {
-            briefingName = $STR_antistasi_mission_info_cherna_mapname_text;
+            briefingName = $STR_antistasi_mission_info_chernarus_summer_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_chernarus_summer.chernarus_summer";
         };
         class Antistasi_chernarus_winter
         {
-            briefingName = $STR_antistasi_mission_info_chernawinter_mapname_text;
+            briefingName = $STR_antistasi_mission_info_chernarus_winter_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_chernarus_winter.chernarus_winter";
         };
         class Antistasi_Enoch
         {
-            briefingName = $STR_antistasi_mission_info_livonia_mapname_text;
+            briefingName = $STR_antistasi_mission_info_Enoch_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_Enoch.Enoch";
         };
         class Antistasi_Kunduz
@@ -50,21 +55,21 @@ class CfgMissions
         };
         class Antistasi_Malden
         {
-            briefingName = $STR_antistasi_mission_info_malden_mapname_text;
+            briefingName = $STR_antistasi_mission_info_Malden_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_Malden.Malden";
         };
         class Antistasi_sara
         {
-            briefingName = $STR_antistasi_mission_info_sahrani_mapname_text;
+            briefingName = $STR_antistasi_mission_info_sara_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_sara.sara";
         };
-    #if __A3_DEBUG__
+#if __A3_DEBUG__
         class Antistasi_Stratis
         {
-            briefingName = $STR_antistasi_mission_info_stratis_mapname_text;
+            briefingName = $STR_antistasi_mission_info_Stratis_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_Stratis.Stratis";
         };
-    #endif
+#endif
         class Antistasi_takistan
         {
             briefingName = $STR_antistasi_mission_info_takistan_mapname_text;
@@ -72,7 +77,7 @@ class CfgMissions
         };
         class Antistasi_Tanoa
         {
-            briefingName = $STR_antistasi_mission_info_tanoa_mapname_text;
+            briefingName = $STR_antistasi_mission_info_Tanoa_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_Tanoa.Tanoa";
         };
         class Antistasi_tem_anizay
@@ -82,12 +87,12 @@ class CfgMissions
         };
         class Antistasi_Tembelan
         {
-            briefingName = $STR_antistasi_mission_info_tembelan_mapname_text;
+            briefingName = $STR_antistasi_mission_info_Tembelan_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_Tembelan.Tembelan";
         };
         class Antistasi_vt7
         {
-            briefingName = $STR_antistasi_mission_info_virolahti_mapname_text;
+            briefingName = $STR_antistasi_mission_info_vt7_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_vt7.vt7";
         };
     };

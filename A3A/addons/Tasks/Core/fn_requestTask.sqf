@@ -12,23 +12,32 @@ if (isNil QGVAR(ActiveTasks)) then { GVAR(ActiveTasks) = [] };
 if (isNil QGVAR(Settings)) then { call FUNC(getSettings)};
 if (_taskTypes isEqualType createHashMap) exitWith { [_taskTypes] spawn FUNC(runTask); "13" }; //loading task from save
 
-// select task type from the ones we can create more of atm
-if (_taskTypes isEqualTo []) then {_taskTypes = "true" configClasses TASKS_CFG};
+// gather tasks pool
+private _allTasks = ("true" configClasses TASKS_CFG) apply {configName _x};
+private _tasksOfCat = _allTasks select {
+    getText (TASKS_CFG/_x/"Category") in _taskTypes;
+};
+if (_taskTypes isEqualTo []) then { _taskTypes = _allTasks };
+{
+    _taskTypes deleteAt (_taskTypes find (getText (TASKS_CFG/_x/"Category")));
+    _taskTypes pushBackUnique _x;
+} forEach _tasksOfCat;
+
+//filter task that can be run
 _taskTypes = _taskTypes select {
-    // Task type missconfigured
-    if (!isClass _x) then { Error_1("Invalid task type: %1", configName _x); continueWith false };
+    private _cfg = TASKS_CFG / _x;
 
     //Common criterias
-    private _cat = getText (_x/"Category");
+    private _cat = getText (_cfg/"Category");
     if !(
         { (_x get "Category") isEqualTo _cat } count GVAR(ActiveTasks)
         < ( GVAR(Settings) get ("MaxTasksOfCat_" + _cat) )
-    ) then { Debug_1("Max tasks of type %1 active", configName _x); continueWith false};
+    ) then { Debug_1("Max tasks of type %1 active", _x); continueWith false};
 
     //parameters getters of the mission type should handle mission type specific criterias
-    private _paramsGetter = missionNamespace getVariable getText (_x / "Params");
-    if (isNil "_paramsGetter") then { Debug_1("No params getter for task %1", configName _x); continueWith false; };
-    if ((call _paramsGetter) isEqualType false) then { Debug_1("No valid params for task %1",configName _x); continueWith false };
+    private _paramsGetter = missionNamespace getVariable getText (_cfg / "Params");
+    if (isNil "_paramsGetter") then { Debug_1("No params getter for task %1", _x); continueWith false; };
+    if ((call _paramsGetter) isEqualType false) then { Debug_1("No valid params for task %1", _x); continueWith false };
 
     true; //ToDo: add more criterias
 };

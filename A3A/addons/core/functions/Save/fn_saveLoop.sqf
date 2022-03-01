@@ -258,6 +258,8 @@ _fuelAmountleftArray = [];
 //Saving the state of the testing timer
 ["testingTimerIsActive", testingTimerIsActive] call A3A_fnc_setStatVariable;
 
+[QEGVAR(Tasks,ActiveTasks), +EGVAR(Tasks,ActiveTasks)] call A3A_fnc_setStatVariable;
+
 saveProfileNamespace;
 savingServer = false;
 _saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";

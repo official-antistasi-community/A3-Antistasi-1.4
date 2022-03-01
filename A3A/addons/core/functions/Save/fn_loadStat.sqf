@@ -42,7 +42,7 @@ private _specialVarLoads = [
     "garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
     "idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
     "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-    "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage","A3A_fuelAmountleftArray"
+    "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage","A3A_fuelAmountleftArray", QEGVAR(Tasks,ActiveTasks)
 ];
 
 private _varName = _this select 0;
@@ -374,6 +374,10 @@ if (_varName in _specialVarLoads) then {
             [] spawn A3A_fnc_startTestingTimer;
         };
         testingTimerIsActive = _varValue;
+    };
+
+    if (_varname == QEGVAR(Tasks,ActiveTasks)) then {
+        {_x call EFUNC(Tasks,requestTask)} forEach _varValue;
     };
 } else {
     call compile format ["%1 = %2",_varName,_varValue];

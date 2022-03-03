@@ -90,7 +90,7 @@ class CfgFunctions
             class getSaveData {};
             class initGarage {};
             class initServer {
-                preInit = 1;
+                postInit = 1;
             };
             class loadSaveData {};
         };

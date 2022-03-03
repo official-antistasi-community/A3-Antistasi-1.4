@@ -288,7 +288,7 @@ if (_winner == teamPlayer) then
 	if (!isNull _flagX) then
 	{
 		//[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
-		//_flagX setVariable ["isGettingCaptured", nil, true];
+		//_flagX setVariable ["A3A_flagCaptureETA", nil, true];
 		[_flagX,"SDKFlag"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
 		[_flagX,FactionGet(reb,"flagTexture")] remoteExec ["setFlagTexture",_flagX];
 		sleep 2;
@@ -320,7 +320,7 @@ else
 
 	if (!isNull _flagX) then
 	{
-		//_flagX setVariable ["isGettingCaptured", nil, true];
+		//_flagX setVariable ["A3A_flagCaptureETA", nil, true];
 		if (_looser == teamPlayer) then
 		{
 			[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];

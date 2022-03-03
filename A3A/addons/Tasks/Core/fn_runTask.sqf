@@ -33,6 +33,7 @@ _taskHM set ["Rewards",[]];
 
     private _endTime = time + (_x getOrDefault ["Timeout", 1e12]);
     call (_x get "Action");
+    _taskHM call FUNC(updateTaskState);
 
     waitUntil {
         sleep 1;
@@ -71,7 +72,20 @@ _taskHM set ["Rewards",[]];
 } forEach _stages;
 
 if (_taskHM getOrDefault ["Successful", true]) then {
-    _taskHM set ["state", "SUCCEEDED"]
+    _taskHM set ["state", "SUCCEEDED"];
+
+    if (isClass ((_taskHM get "Cfg")/"chain")) then {
+        private _chain = (_taskHM get "Cfg")/"chain";
+        private _name = _chain/"name";
+
+        if (getNumber (_chain/"blockProgress") < 1) then {
+            GVAR(ChainStates) set [_name, (GVAR(ChainStates) getOrDefault [_name, 1]) +1];
+        };
+
+        if (getNumber (_chain/"lastStage") > 0) then { //reset chain when last stage hit
+            GVAR(ChainStates) deleteAt _name;
+        };
+    };
 };
 
 call (_taskHM getOrDefault ["Destructor", {}]);

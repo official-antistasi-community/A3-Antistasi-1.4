@@ -1,12 +1,12 @@
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
 if (isNil QGVAR(TaskID)) then { GVAR(TaskID) = 0 };
-
-GVAR(Settings) = createHashMap;
+if (isNil QGVAR(ChainStates)) then { GVAR(ChainStates) = createHashMap };
+if (isNil QGVAR(Settings)) then { GVAR(Settings) = createHashMap };
 
 //no cba fallback
-GVAR(Settings) set ["TaskLingerTime", 180];
-GVAR(Settings) set ["MaxTestMissions", 3];
+if !("TaskLingerTime" in GVAR(Settings)) then { GVAR(Settings) set ["TaskLingerTime", 180] };
+if !("MaxTestMissions" in GVAR(Settings)) then { GVAR(Settings) set ["MaxTestMissions", 3] };
 
 //CBA settings
 if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {

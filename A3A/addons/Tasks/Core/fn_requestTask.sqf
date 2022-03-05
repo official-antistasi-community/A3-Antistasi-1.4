@@ -37,13 +37,13 @@ _taskTypes = _taskTypes select {
     //chained tasks
     if (isClass (_cfg/"chain")) then {
         private _chain = getText (_cfg/"chain"/"name");
-        if (_chain isEqualTo "") then { Error_1("Missconfigured task %1, lacking name of chain", _x); continueWith false; };
+        if (_chain isEqualTo "") then { Error_1("Misconfigured task %1, lacking name of chain", _x); continueWith false; };
         private _requiredStage = getNumber (_cfg/"chain"/"stage");
-        if (_requiredStage < 1) then { Error_1("Missconfigured task %1, chain stage requirement: >=1", _x); continueWith false; };
+        if (_requiredStage < 1) then { Error_1("Misconfigured task %1, chain stage requirement: >=1", _x); continueWith false; };
 
         private _stage = GVAR(ChainStates) getOrDefault [_chain, 1];
         if (_stage isNotEqualTo _requiredStage) then {
-            Debug_1("%1 Chain not at the required stage for task %2 | Current: %3 | Required: %4", _chain, _x, _stage, _requiredStage);
+            Debug_1("%1 chain not at the required stage for task %2 | Current: %3 | Required: %4", _chain, _x, _stage, _requiredStage);
             continueWith false;
         };
     };

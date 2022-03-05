@@ -143,8 +143,7 @@ if (A3A_hasACE) then {
 	_eeItems append ["ACE_Clacker", "ACE_DefusalKit"];
 	_mmItems append ["ACE_RangeCard", "ACE_ATragMX", "ACE_Kestrel4500"];
 };
-
-_loadoutData set ["items_sl_extras", _slItems];
+_loadoutData set ["items_squadLeader_extras", _slItems];
 _loadoutData set ["items_rifleman_extras", []];
 _loadoutData set ["items_medic_extras", []];
 _loadoutData set ["items_grenadier_extras", []];

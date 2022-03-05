@@ -19,25 +19,43 @@ Environment: Scheduled
 Public: Yes
 
 Example:
-    Tweak parameters:
-    [50,35] spawn A3A_fnc_NG_main;
+    Default:
+    [] spawn A3A_fnc_NG_main;
 
-    Or edit when finished:
-    [nil,nil,true] spawn A3A_fnc_NG_main;
+    Tweak parameters: IE For use on Regero's spider webs on straight roads. (until the spider-web algorith was addded).
+    A3A_NGSA_generation_simplifyLoops = 10;  // Run the simplification loops multiple times to cut down on some nodes. Default is 1, you will get dimishing returns.
+    [nil,20] spawn A3A_fnc_NG_main;
+
+    Assert to hell like your life depends on it.
+    A3A_NGSA_navRoad_assert = true;  // Allow the basic navRoad assetions, ussually sprinkled throught functions.
+    A3A_NGSA_navRoadHM_assert = true;  // Allow the the batch assertions in main generation.
+    [] spawn A3A_fnc_NG_main;
 
     To avoid regenerating the nev grid for drawing, you can omit A3A_fnc_NG_main after running it once. Or import from clipboard if this is a new map load.
     [] spawn A3A_fnc_NGSA_import_clipboard;
 */
+if (!canSuspend) exitWith {
+    private _arguments = [_this,[]] select (isNil {_this});
+    _arguments spawn A3A_fnc_NG_main;
+};
+private _exit = isNil {
+    if (isNil {A3A_NG_instanceLock}) then {
+        A3A_NG_instanceLock = true;
+        false;  // make isNil false.
+    } else {
+        nil;
+    };
+};
+if (_exit) exitWith {
+    ["Already Running", "The Navgrid Generator editor has already started.", false, 600] call A3A_fnc_customHint;
+};
+
 
 params [
     ["_flatMaxDrift",50,[ 0 ]],
     ["_juncMergeDistance",15,[ 0 ]],
     ["_autoEdit",true,[ true ]]
 ];
-
-if (!canSuspend) exitWith {
-    throw ["NotScheduledEnvironment","Please execute NG_main in a scheduled environment as it is a long process: `[] spawn A3A_fnc_NG_main;`."];
-};
 
 private _fnc_diag_report = {
     params ["_diag_step_main","_diag_step_sub"];
@@ -79,13 +97,21 @@ try {
     ["Fixing","Dead Ends"] call _fnc_diag_report;
     [_navRoadHM] call A3A_fnc_NG_fix_deadEnds;
 
-    ["Simplification","Simplifying "+str count _navRoadHM+" straight roads."] call _fnc_diag_report;
-    [_navRoadHM,_flatMaxDrift] call A3A_fnc_NG_simplify_flat;    // Gives less markers for junc to work on. (junc is far more expensive)
-    ["Simplification","Simplification returned "+str count _navRoadHM+" straight roads."] call _fnc_diag_report;
+    ["Assertion","Checking NavRoad types."] call _fnc_diag_report;
+    [_navRoadHM] call A3A_fnc_NG_navRoadHM_assert;
 
-    ["Simplification","Simplifying "+str count _navRoadHM+" junctions."] call _fnc_diag_report;
-    [_navRoadHM,_juncMergeDistance] call A3A_fnc_NG_simplify_junc;
-    ["Simplification","Simplification returned "+str count _navRoadHM+" road segments."] call _fnc_diag_report;
+    for "_i" from 1 to A3A_NGSA_generation_simplifyLoops do {
+        ["Simplification","Simplifying "+str count _navRoadHM+" straight roads."] call _fnc_diag_report;
+        [_navRoadHM,_flatMaxDrift] call A3A_fnc_NG_simplify_flat;    // Gives less markers for junc to work on. (junc is far more expensive)
+        ["Simplification","Simplification returned "+str count _navRoadHM+" straight roads."] call _fnc_diag_report;
+
+        ["Simplification","Simplifying "+str count _navRoadHM+" junctions."] call _fnc_diag_report;
+        [_navRoadHM,_juncMergeDistance] call A3A_fnc_NG_simplify_junc;
+        ["Simplification","Simplification returned "+str count _navRoadHM+" road segments."] call _fnc_diag_report;
+
+        ["Assertion","Checking NavRoad types."] call _fnc_diag_report;
+        [_navRoadHM] call A3A_fnc_NG_navRoadHM_assert;
+    };
 
     ["Format Conversion","Converting navRoadHM to navGridHM."] call _fnc_diag_report;
     private _navGridHM = [_navRoadHM] call A3A_fnc_NG_convert_navRoadHM_navGridHM;

@@ -39,8 +39,8 @@ Verbose_2("Event triggered: %1 | Arguments: %2", _event, _arguments);
     if (_y isEqualType {}) then {_arguments call _y} else {
         //config.cpp functions are stored in uiNamespace as missionNamespace is not available at compile time, most mods get around this by compiling on mission load with xeh preInit eh and functions prep file
         private _func = missionNamespace getVariable [_y, uiNamespace getVariable _y];
-        if (isNil _func) then { Error_2("None existant callback function %1, Event listener ID: %2", _y, _x) };
-        if (_func isEqualType {}) then {_arguments call _func} else { Error_2("Callback not a function for Event listener ID: %1 | callback type: %2", _x, typeName _func) };
+        if (isNil _func) then { Error_2("None existant callback function %1, event listener ID: %2", _y, _x) };
+        if (_func isEqualType {}) then {_arguments call _func} else { Error_2("Callback not a function for event listener ID: %1 | Callback type: %2", _x, typeName _func) };
     };
 } forEach (GVAR(EventRegistry) getOrDefault [_event, createHashMap]);
 true

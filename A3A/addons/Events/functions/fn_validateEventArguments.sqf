@@ -23,7 +23,7 @@ License: MIT License
 FIX_LINE_NUMBERS()
 params [["_event","",[""]], ["_args", [], [[]]]];
 if (_event isEqualTo "") exitWith {
-    Error_1("Event type missing\invalid: %1", _this#0);
+    Error_1("Event type missing/invalid: %1", _this#0);
     false;
 };
 

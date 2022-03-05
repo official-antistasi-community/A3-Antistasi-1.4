@@ -26,7 +26,7 @@ if !(params [
     , ["_id", "", [""]]
 ]) exitWith { Error_1("Invalid params passed: %1", _this)};
 
-if (isNil QGVAR(EventRegistry)) exitWith { Warning_2("Attempt to remove listener for event: %1 with ID: %2 before Event registry is initilized", _event, _id) };
+if (isNil QGVAR(EventRegistry)) exitWith { Warning_2("Attempt to remove listener for event: %1 with ID: %2 before event registry is initilized", _event, _id) };
 
 if (
     _event in GVAR(EventRegistry)
@@ -34,5 +34,5 @@ if (
 ) then {
     (GVAR(EventRegistry) get _event) deleteAt _id;
 } else {
-    Warning_2("No listner for event %1 with ID %2 exists", _event, _id)
+    Warning_2("No listener for event %1 with ID %2 exists", _event, _id)
 };

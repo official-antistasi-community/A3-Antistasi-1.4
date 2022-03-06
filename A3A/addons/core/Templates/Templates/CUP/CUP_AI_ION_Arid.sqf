@@ -340,13 +340,12 @@ _policeLoadoutData set ["uniforms", ["U_B_GEN_Commander_F", "U_B_GEN_Soldier_F"]
 _policeLoadoutData set ["vests", ["V_TacVest_gen_F"]];
 _policeLoadoutData set ["helmets", ["H_Beret_gen_F", "H_MilCap_gen_F"]];
 _policeLoadoutData set ["shotGuns", [
-["CUP_sgun_AA12", "", "", "", ["CUP_20Rnd_B_AA12_Buck_00", "CUP_20Rnd_B_AA12_Slug"], [], ""],
-["CUP_sgun_SPAS12", "", "", "", ["CUP_8Rnd_12Gauge_Pellets_No00_Buck", "CUP_8Rnd_12Gauge_Slug"], [], ""]
+    ["CUP_sgun_AA12", "", "", "", ["CUP_20Rnd_B_AA12_Buck_00", "CUP_20Rnd_B_AA12_Slug"], [], ""],
+    ["CUP_sgun_SPAS12", "", "", "", ["CUP_8Rnd_12Gauge_Pellets_No00_Buck", "CUP_8Rnd_12Gauge_Slug"], [], ""]
 ]];
 
 _policeLoadoutData set ["SMGs", [
-["CUP_smg_bizon", "", "", "", ["CUP_64Rnd_9x19_Bizon_M", "CUP_64Rnd_Yellow_Tracer_9x19_Bizon_M"], [], ""],
-["CUP_smg_BallisticShield_MP7", "", "", "", ["CUP_40Rnd_46x30_MP7", "CUP_40Rnd_46x30_MP7_Green_Tracer"], [], ""]
+    ["CUP_smg_bizon", "", "", "", ["CUP_64Rnd_9x19_Bizon_M", "CUP_64Rnd_Yellow_Tracer_9x19_Bizon_M"], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", [
 	["CUP_hgun_CZ75", "", "", "", ["CUP_16Rnd_9x19_cz75"], [], ""]
@@ -644,6 +643,7 @@ private _atTemplate = {
     [selectRandom ["missileATLaunchers", "ATLaunchers"]] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
     ["launcher", 2] call _fnc_addMagazines;
+    ["launcher", 2] call _fnc_addAdditionalMuzzleMagazines;
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
 

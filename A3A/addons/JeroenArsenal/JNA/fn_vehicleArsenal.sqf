@@ -631,7 +631,7 @@ switch _mode do {
 			_count = _count * 10;
 		};
 		if(_shift && _ctrl) then {
-			_count = _count * 50;
+			_count = _count * 25;
 		};
 
 		if(((_amount > 0 || _amount == -1) || _add < 0) && (_add != 0))then{

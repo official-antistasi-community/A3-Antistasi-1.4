@@ -258,7 +258,7 @@ _fuelAmountleftArray = [];
 //Saving the state of the testing timer
 ["testingTimerIsActive", testingTimerIsActive] call A3A_fnc_setStatVariable;
 
-[QEGVAR(Tasks,ActiveTasks), +EGVAR(Tasks,ActiveTasks)] call A3A_fnc_setStatVariable;
+[QEGVAR(Tasks,ActiveTasks), call EFUNC(Tasks,getSaveData)] call A3A_fnc_setStatVariable;
 
 saveProfileNamespace;
 savingServer = false;

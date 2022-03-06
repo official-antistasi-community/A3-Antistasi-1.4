@@ -3,6 +3,8 @@ class Tasks {
         Category = "Test"; // what Category the task bellongs to
         Func = QFUNC(testTask); // the task information needed to run the task
         Params = QFUNC(testTask_p); // determines the parameters for a task, if no valid ones can be genereated return false
+        Version = 1; //version number of task, update when compatibility is broken between last version and new update
+        Weight = 1;
 
         /* Make the task a part of a chain of tasks to only run after other task have been succeded
         class chain {

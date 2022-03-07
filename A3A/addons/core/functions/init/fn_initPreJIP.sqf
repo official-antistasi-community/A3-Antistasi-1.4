@@ -19,8 +19,6 @@ Public: Yes
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-if !(isClass (missionConfigFile/"A3A")) exitWith {};//not A3 Antistasi mission
-
 Debug("fn_initPreJIP Started");
 
 call A3A_fnc_uintToHexGenTables;

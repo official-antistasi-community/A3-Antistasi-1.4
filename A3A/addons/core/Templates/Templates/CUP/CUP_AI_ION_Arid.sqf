@@ -221,14 +221,14 @@ _sfLoadoutData set ["machineGuns", [
 ]];
 
 _sfLoadoutData set ["marksmanRifles", [
-	["CUP_srifle_RSASS_Black", "CUP_muzzle_snds_socom762rc", "CUP_bipod_Harris_1A2_L_BLK", "CUP_optic_LeupoldM3LR", ["CUP_20Rnd_762x51_B_M110","CUP_20Rnd_TE1_Green_Tracer_762x51_M110" ], [], ""],
-    ["CUP_arifle_HK417_20", "CUP_muzzle_snds_socom762rc", "CUP_bipod_Harris_1A2_L_BLK", "CUP_optic_LeupoldM3LR", ["CUP_20Rnd_762x51_HK417", "CUP_20Rnd_TE1_Green_Tracer_762x51_HK417"], [], ""]
+	["CUP_srifle_RSASS_Black", "CUP_muzzle_snds_socom762rc", "", "CUP_optic_LeupoldM3LR", ["CUP_20Rnd_762x51_B_M110","CUP_20Rnd_TE1_Green_Tracer_762x51_M110" ], [], "CUP_bipod_Harris_1A2_L_BLK"],
+    ["CUP_arifle_HK417_20", "CUP_muzzle_snds_socom762rc", "", "CUP_optic_LeupoldM3LR", ["CUP_20Rnd_762x51_HK417", "CUP_20Rnd_TE1_Green_Tracer_762x51_HK417"], [], "CUP_bipod_Harris_1A2_L_BLK"]
 
 ]];
 
 _sfLoadoutData set ["sniperRifles", [
-	["CUP_srifle_M2010_blk", "muzzle_snds_b", "CUP_bipod_Harris_1A2_L_BLK", "CUP_optic_leupoldmk4_25x50_lrt", ["CUP_5Rnd_762x67_M2010_M"], [], ""],
-    ["CUP_srifle_AWM_blk", "CUP_muzzle_snds_awm", "CUP_bipod_Harris_1A2_L_BLK", "CUP_optic_leupoldmk4_25x50_lrt", ["CUP_5Rnd_86x70_L115A1"], [], ""]
+	["CUP_srifle_M2010_blk", "muzzle_snds_b", "", "CUP_optic_leupoldmk4_25x50_lrt", ["CUP_5Rnd_762x67_M2010_M"], [], "CUP_bipod_Harris_1A2_L_BLK"],
+    ["CUP_srifle_AWM_blk", "CUP_muzzle_snds_awm", "", "CUP_optic_leupoldmk4_25x50_lrt", ["CUP_5Rnd_86x70_L115A1"], [], "CUP_bipod_Harris_1A2_L_BLK"]
 ]];
 
 _sfLoadoutData set ["lightATLaunchers",[
@@ -323,7 +323,7 @@ _militaryLoadoutData set ["marksmanRifles", [
 ]];
 
 _militaryLoadoutData set ["sniperRifles", [
-	["CUP_srifle_M2010_blk", "", "CUP_bipod_Harris_1A2_L_BLK", "CUP_optic_LeupoldM3LR", ["CUP_5Rnd_762x67_M2010_M"], [], ""]
+	["CUP_srifle_M2010_blk", "", "", "CUP_optic_LeupoldM3LR", ["CUP_5Rnd_762x67_M2010_M"], [], "CUP_bipod_Harris_1A2_L_BLK"]
 ]];
 
 _militaryLoadoutData set ["sidearms", [
@@ -398,7 +398,7 @@ _militiaLoadoutData set ["marksmanRifles", [
 ]];
 
 _militiaLoadoutData set ["sniperRifles", [
-	["CUP_srifle_G22_blk", "", "", "CUP_optic_leupoldmk4", ["CUP_5Rnd_762x67_G22"], [], ""]
+	["CUP_srifle_G22_blk", "", "", "CUP_optic_leupoldmk4", ["CUP_5Rnd_762x67_G22"], [], "CUP_bipod_Harris_1A2_L_BLK"]
 ]];
 
 _militiaLoadoutData set ["lightATLaunchers", [

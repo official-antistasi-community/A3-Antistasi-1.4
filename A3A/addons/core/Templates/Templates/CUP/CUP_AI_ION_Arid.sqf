@@ -171,7 +171,7 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_11", "CUP_I_B_PMC_Unit_24", "CUP_I_B_PMC_Unit_42"]];
+_sfLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_11", "CUP_I_B_PMC_Unit_20", "CUP_I_B_PMC_Unit_42"]];
 _sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_Black_TL", "CUP_V_PMC_CIRAS_Black_Patrol"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_B_Armatus_BB_Black"]];
 _sfLoadoutData set ["medVests", ["CUP_V_B_Armatus_Black"]];

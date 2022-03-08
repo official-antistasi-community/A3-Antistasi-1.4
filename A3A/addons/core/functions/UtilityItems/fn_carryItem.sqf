@@ -29,7 +29,6 @@ if (_pickUp) then {
         params ["_unit", "_role", "_vehicle", "_turret"];
         // get variables
         private _objectCarrying = _unit getVariable ['A3A_objectCarrying', nil];
-        systemChat str _objectCarrying;
 
         //remove object and find safe placement
         private _pos = [_unit, 1, 10, 3, 0, 20, 0] call BIS_fnc_findSafePos;

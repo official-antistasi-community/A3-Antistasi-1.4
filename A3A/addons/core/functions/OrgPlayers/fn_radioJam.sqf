@@ -5,7 +5,7 @@ _strength = 49;
 _isJammed = false;
 _interference = 1;
 _sendInterference = 1;
-private _bases = outposts + airportsx + seaports;
+private _bases = outposts + airportsX + seaports;
 while {true} do
 	{
 	private _antennas = [];
@@ -24,8 +24,21 @@ while {true} do
 			_interference = _strength - (_distPercent * _strength) + 1; // Calculate the recieving interference, which has to be above 1 to have any effect.
 			_sendInterference = 1/_interference; //Calculate the sending interference, which needs to be below 1 to have any effect.
 			if (!_isJammed) then {_isJammed = true};
-			player setVariable ["tf_receivingDistanceMultiplicator", _interference];
-			player setVariable ["tf_sendingDistanceMultiplicator", _sendInterference];
+			if(A3A_hasTFAR || A3A_hasTFARBeta) then {
+				player setVariable ["tf_receivingDistanceMultiplicator", _interference];
+				player setVariable ["tf_sendingDistanceMultiplicator", _sendInterference];
+			};
+			if (A3A_hasACRE) then {
+				[{
+					private _defaultSignal = _this call acre_sys_signal_fnc_getSignalCore;
+					_defaultSignal params ["_powerX","_maxSignal"];
+
+					private _distancePercentageFromTower = [] call A3A_radioJamACRE;
+
+					_powerX = 1 - _distancePercentageFromTower;
+					[_powerX, _maxSignal];
+				}] call acre_api_fnc_setCustomSignalFunc;
+			};
 	    	}
 	    else
 	    	{
@@ -34,9 +47,14 @@ while {true} do
 	    		_isJammed = false;
 	    		_interference = 1;
 				_sendInterference = 1;
-				player setVariable ["tf_receivingDistanceMultiplicator", _interference];
-				player setVariable ["tf_sendingDistanceMultiplicator", _sendInterference];
-	    		};
+				if (A3A_hasTFAR || A3A_hasTFARBeta) then {
+					player setVariable ["tf_receivingDistanceMultiplicator", _interference];
+					player setVariable ["tf_sendingDistanceMultiplicator", _sendInterference];
+				};
+				if (A3A_hasACRE) then {
+					[{}] call acre_api_fnc_setCustomSignalFunc;
+				};
+				};
 	    	};
 	    // Set the TF receiving and sending distance multipliers
 

@@ -200,7 +200,7 @@ _sfLoadoutData set ["rifles", [
     ["CUP_arifle_M4A1_SOMMOD_snow", "CUP_muzzle_snds_M16", "", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
     ["CUP_arifle_mk18_black", "CUP_muzzle_snds_M16", "", "CUP_optic_compm4", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
     ["CUP_arifle_mk18_black", "CUP_muzzle_snds_M16", "", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
-    ["CUP_arifle_AK19_AFG_winter", "CUP_muzzle_snds_M16", "", "CUP_optic_compm2_low", ["CUP_30Rnd_556x45_Tracer_Red_AK19_M"], [], ""]
+    ["CUP_arifle_AK19_AFG_winter", "CUP_muzzle_snds_M16", "", "CUP_optic_CompM2_low", ["CUP_30Rnd_556x45_Tracer_Red_AK19_M"], [], ""]
 ]];
 
 _sfLoadoutData set ["carbines", [

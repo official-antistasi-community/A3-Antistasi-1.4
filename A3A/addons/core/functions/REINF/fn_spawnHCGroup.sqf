@@ -55,7 +55,7 @@ private _bypassAI = true;
 //vehicle init funcs
 private _initInfVeh = {
     if (isNull _vehicle) exitWith {};
-    leader _group assignAsDriver _vehicle;
+    leader _group moveInDriver _vehicle;
     call _initVeh;
     ["Recruit Squad", "Vehicle Purchased"] call A3A_fnc_customHint;
     petros directSay "SentGenBaseUnlockVehicle";
@@ -67,7 +67,7 @@ private _initVeh = {
     _group addVehicle _vehicle;
     _vehicle setVariable ["owner",_group,true];
     driver _vehicle action ["engineOn", _vehicle];
-    {[_x] orderGetIn true; [_x] allowGetIn true} forEach units _group;
+    { if (vehicle _x == _x) then { _x moveInAny _vehicle } } forEach units _group;
 };
 
 // special handling
@@ -89,15 +89,15 @@ switch _special do {
     //vehicle squad
     case "BuildAA": {
         private _static = ((attachedObjects _vehicle) select {typeOf _x == FactionGet(reb,"staticAA")})#0;
-        (_units # (_countUnits -1)) assignAsDriver _vehicle;
-        (_units # _countUnits) assignAsGunner _static;
+        (_units # (_countUnits -1)) moveInDriver _vehicle;
+        (_units # _countUnits) moveInGunner _static;
         call _initVeh;
         _cost = _cost + ([FactionGet(reb,"staticAA")] call A3A_fnc_vehiclePrice);
 
     };
     case "VehicleSquad": {
-        (_units # (_countUnits -1)) assignAsDriver _vehicle;
-        (_units # _countUnits) assignAsGunner _vehicle;
+        (_units # (_countUnits -1)) moveInDriver _vehicle;
+        (_units # _countUnits) moveInGunner _vehicle;
         call _initVeh;
     };
 

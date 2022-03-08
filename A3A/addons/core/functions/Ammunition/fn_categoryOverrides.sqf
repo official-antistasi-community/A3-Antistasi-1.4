@@ -39,6 +39,8 @@ private _categoryOverrideTable = [
 ["rhs_weap_m32", ["GrenadeLaunchers","Weapons"]],
 ["rhs_weap_m79", ["GrenadeLaunchers","Weapons"]],
 
+["B_rhsusf_B_BACKPACK", ["Unknown","Items"]],
+
 ["UK3CB_Enfield", ["SniperRifles","Weapons"]],
 ["UK3CB_Enfield_rail", ["SniperRifles","Weapons"]],
 ["UK3CB_M14DMR", ["SniperRifles","Weapons"]],

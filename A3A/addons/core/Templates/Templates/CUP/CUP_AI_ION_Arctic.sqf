@@ -679,7 +679,7 @@ private _aaTemplate = {
     ["primary", 5] call _fnc_addMagazines;
 
     ["AALaunchers"] call _fnc_setLauncher;
-    ["launcher", 2] call _fnc_addMagazines;
+    ["launcher", 1] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;

@@ -50,8 +50,8 @@
     ["uns_m110sp",["uns_30Rnd_203mmHE"]]
 ]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
 
-["uavsAttack", ["not_supported"]] call _fnc_saveToTemplate;
-["uavsPortable", ["not_supported"]] call _fnc_saveToTemplate;
+["uavsAttack", []] call _fnc_saveToTemplate;
+["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
 ["vehiclesMilitiaLightArmed", ["uns_m274_m60"]] call _fnc_saveToTemplate;
@@ -125,18 +125,27 @@ _loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalS
 _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
 
 //Unit type specific item sets. Add or remove these, depending on the unit types in use.
-_loadoutData set ["items_squadleader_extras", []];
+
+private _eeItems = ["ToolKit", "UNS_TrapKit"];
+private _mmItems = [];
+
+if (A3A_hasACE) then {
+	_eeItems append ["ACE_Clacker", "ACE_DefusalKit"];
+	_mmItems append ["ACE_RangeCard"];
+};
+
+_loadoutData set ["items_squadLeader_extras", []];
 _loadoutData set ["items_rifleman_extras", []];
 _loadoutData set ["items_medic_extras", []];
 _loadoutData set ["items_grenadier_extras", []];
-_loadoutData set ["items_explosivesExpert_extras", ["ToolKit", "MineDetector"]];
-_loadoutData set ["items_engineer_extras", ["ToolKit", "MineDetector"]];
+_loadoutData set ["items_explosivesExpert_extras", _eeItems];
+_loadoutData set ["items_engineer_extras", _eeItems];
 _loadoutData set ["items_lat_extras", []];
 _loadoutData set ["items_at_extras", []];
 _loadoutData set ["items_aa_extras", []];
 _loadoutData set ["items_machineGunner_extras", []];
-_loadoutData set ["items_marksman_extras", []];
-_loadoutData set ["items_sniper_extras", []];
+_loadoutData set ["items_marksman_extras", _mmItems];
+_loadoutData set ["items_sniper_extras", _mmItems];
 _loadoutData set ["items_police_extras", []];
 _loadoutData set ["items_crew_extras", []];
 _loadoutData set ["items_unarmed_extras", []];
@@ -235,7 +244,7 @@ _militiaLoadoutData set ["machineGuns", [["uns_bar", "", "", "", ["uns_barmag"],
 _militiaLoadoutData set ["marksmanRifles", [["uns_m1garand", "", "", "uns_o_m84", ["uns_m1garandmag"], [], ""],
 		["uns_m1garand", "", "", "", ["uns_m1garandmag"], [], ""]]];
 _militiaLoadoutData set ["sniperRifles", [["uns_m1903", "", "", "", ["uns_springfieldmag_T"], [], ""],
-		["uns_m1903", "", "", "uns_o_unertl8x", ["uns_springfieldmag_T"], [], ""]]];
+		["uns_m1903", "", "", "uns_o_Unertl8x", ["uns_springfieldmag_T"], [], ""]]];
 _militiaLoadoutData set ["sidearms", [["uns_m1911", "", "", "", ["uns_m1911mag"], [], ""]]];
 
 //////////////////////////

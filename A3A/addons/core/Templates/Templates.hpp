@@ -392,4 +392,39 @@ class Templates
 
         Nodes[] = {"3CBBAF_Logistics_Nodes.sqf"};
     };
+    class UNS
+    {
+        priorityOcc = 5;
+        priorityInv = 5;
+        priorityReb = 5;
+        priorityCiv = 5;
+
+        requiredAddons[] = {
+            "uns_weap_w"
+        };
+        path = QPATHTOFOLDER(Templates\Templates\UNS);
+
+        class AI
+        {
+            class NVA {};
+            class US {};
+        };
+        class Reb
+        {
+            class VC {};
+        };
+
+        class Civ {};
+        
+        class worldDefaults
+        {
+            class Default {
+                Occ = "NVA";
+                Inv = "US";
+                Reb = "VC"
+            };
+        };
+
+        Nodes[] = {"UNS_Logistics_Nodes.sqf"};
+    };
 };

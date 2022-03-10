@@ -541,6 +541,13 @@ class Templates
                 Occ = "RACS";
                 Inv = "SLA";
             };
+
+            class malden
+            {
+                Occ = "ION";
+                Inv = "US_Marine";
+            };
+
             class Default
             {
                 Occ = "US_Army";

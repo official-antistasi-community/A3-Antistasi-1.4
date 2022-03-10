@@ -160,13 +160,13 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["CUP_U_CRYE_MCAM_RUS_Roll", "CUP_U_CRYE_MCAM_RUS_Full", "CUP_U_CRYE_MCAM_RUS2_Full", "CUP_U_CRYE_MCAM_RUS2_Roll"]];
-_sfLoadoutData set ["vests", ["CUP_V_B_Ciras_MCam"]];
-_sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_mc"]];
-_sfLoadoutData set ["medVests", ["CUP_V_B_Ciras_MCam2"]];
-_sfLoadoutData set ["glVests", ["CUP_V_CPC_weaponsbelt_mc"]];
+_sfLoadoutData set ["uniforms", ["CUP_U_O_RUS_EMR_1_VDV", "CUP_U_O_RUS_EMR_VDV_gloves_pads", "CUP_U_O_RUS_EMR_2_VDV", "CUP_U_O_RUS_EMR_VDV_rolled_up_gloves_pads"]];
+_sfLoadoutData set ["vests", ["CUP_V_B_Ciras_Olive"]];
+_sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_rngr"]];
+_sfLoadoutData set ["medVests", ["CUP_V_B_Ciras_Olive2"]];
+_sfLoadoutData set ["glVests", ["CUP_V_CPC_weaponsbelt_rngr"]];
 _sfLoadoutData set ["backpacks", ["B_AssaultPack_khk", "B_FieldPack_khk"]];
-_sfLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
+_sfLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _sfLoadoutData set ["atBackpacks", ["CUP_O_RUS_Patrol_bag_Green"]];
 _sfLoadoutData set ["helmets", ["CUP_H_RUS_K6_3_Goggles", "CUP_H_RUS_Altyn_Goggles_khaki"]];
 _sfLoadoutData set ["slHat", ["CUP_H_RUS_Beret_Spetsnaz"]];
@@ -238,7 +238,7 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["CUP_U_O_RUS_EMR_1", "CUP_U_O_RUS_EMR_gloves_pads", "CUP_U_O_RUS_EMR_2", "CUP_U_O_RUS_EMR_rolled_up_gloves_pads", "CUP_U_O_RUS_EMR_1_VDV", "CUP_U_O_RUS_EMR_VDV_gloves_pads", "CUP_U_O_RUS_EMR_2_VDV", "CUP_U_O_RUS_EMR_VDV_rolled_up_gloves_pads"]];
+_militaryLoadoutData set ["uniforms", ["CUP_U_O_RUS_EMR_1", "CUP_U_O_RUS_EMR_gloves_pads", "CUP_U_O_RUS_EMR_2", "CUP_U_O_RUS_EMR_rolled_up_gloves_pads"]];
 _militaryLoadoutData set ["slUniform", ["CUP_U_O_RUS_Soldier_VKPO_VDV_EMR_rolled_up_gloves_pads"]];
 _militaryLoadoutData set ["vests", ["CUP_Vest_RUS_6B45_Sh117", "CUP_Vest_RUS_6B45_Sh117_PKP", "CUP_Vest_RUS_6B45_Sh117_PKP_Del"]];
 _militaryLoadoutData set ["mgVests", ["CUP_Vest_RUS_6B45_Sh117_PKP_Nut"]];

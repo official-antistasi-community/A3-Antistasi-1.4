@@ -245,6 +245,8 @@ call A3A_fnc_selector;
 if (local flagX) then { flagX setFlagTexture FactionGet(reb,"flagTexture") } else { [flagX, FactionGet(reb,"flagTexture")] remoteExec ["setFlagTexture", owner flagX] };
 "NATO_carrier" setMarkerText FactionGet(occ,"spawnMarkerName");
 "CSAT_carrier" setMarkerText FactionGet(inv,"spawnMarkerName");
+"NATO_carrier" setMarkertype FactionGet(occ,"flagMarkerType");
+"CSAT_carrier" setMarkertype FactionGet(inv,"flagMarkerType");
 
 ////////////////////////////////////
 //      CIVILIAN VEHICLES       ///

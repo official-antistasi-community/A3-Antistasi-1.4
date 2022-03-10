@@ -231,8 +231,8 @@ _sfLoadoutData set ["marksmanRifles", [
 ]];
 
 _sfLoadoutData set ["sniperRifles", [
-	["CUP_srifle_M2010_blk", "muzzle_snds_B", "", "CUP_optic_LeupoldMk4_25x50_lrt", ["CUP_5Rnd_762x67_M2010_M"], [], "CUP_bipod_Harris_1A2_L_BLK"],
-    ["CUP_srifle_AWM_blk", "CUP_muzzle_snds_awm", "", "CUP_optic_LeupoldMk4_25x50_lrt", ["CUP_5Rnd_86x70_L115A1"], [], "CUP_bipod_Harris_1A2_L_BLK"]
+	["CUP_srifle_M2010_blk", "muzzle_snds_B", "", "CUP_optic_LeupoldMk4_25x50_LRT", ["CUP_5Rnd_762x67_M2010_M"], [], "CUP_bipod_Harris_1A2_L_BLK"],
+    ["CUP_srifle_AWM_blk", "CUP_muzzle_snds_awm", "", "CUP_optic_LeupoldMk4_25x50_LRT", ["CUP_5Rnd_86x70_L115A1"], [], "CUP_bipod_Harris_1A2_L_BLK"]
 ]];
 
 _sfLoadoutData set ["lightATLaunchers",[
@@ -272,7 +272,7 @@ _militaryLoadoutData set ["slRifles", [
     ["CUP_arifle_M4A1_standard_black", "", "", "CUP_optic_Elcan_pip", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Green"], [], ""],
     ["CUP_arifle_M4A3_black", "", "", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Green"], [], ""],
     ["CUP_arifle_M4A3_black", "", "", "CUP_optic_Elcan_pip", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Green"], [], ""],
-    ["CUP_arifle_AK101_top_rail", "", "", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_AK", "CUP_30Rnd_TE1_Green_Tracer_556x45_AK"], [], ""],
+    ["CUP_arifle_AK101_top_rail", "", "", "CUP_optic_AIMM_MICROT1_BLK", ["CUP_30Rnd_556x45_AK", "CUP_30Rnd_TE1_Green_Tracer_556x45_AK"], [], ""],
     ["CUP_arifle_AK101_top_rail", "", "", "CUP_optic_Elcan_pip", ["CUP_30Rnd_556x45_AK", "CUP_30Rnd_TE1_Green_Tracer_556x45_AK"], [], ""]
 ]];
 

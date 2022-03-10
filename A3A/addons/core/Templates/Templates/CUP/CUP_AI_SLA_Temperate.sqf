@@ -169,13 +169,13 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["CUP_U_CRYE_MCAM_NP2_Full", "CUP_U_CRYE_MCAM_NP2_Roll"]];
-_sfLoadoutData set ["vests", ["CUP_V_B_Ciras_MCam"]];
-_sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_mc"]];
-_sfLoadoutData set ["medVests", ["CUP_V_B_Ciras_MCam2"]];
-_sfLoadoutData set ["glVests", ["CUP_V_CPC_weaponsbelt_mc"]];
-_sfLoadoutData set ["backpacks", ["B_AssaultPack_khk", "B_FieldPack_khk"]];
-_sfLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
+_sfLoadoutData set ["uniforms", ["CUP_U_B_BDUv2_roll2_gloves_CEU", "CUP_U_B_BDUv2_roll2_dirty_CEU"]];
+_sfLoadoutData set ["vests", ["CUP_V_B_Ciras_Olive"]];
+_sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_rngr"]];
+_sfLoadoutData set ["medVests", ["CUP_V_B_Ciras_Olive2"]];
+_sfLoadoutData set ["glVests", ["CUP_V_CPC_weaponsbelt_rngr"]];
+_sfLoadoutData set ["backpacks", ["B_AssaultPack_rgr", "B_FieldPack_khk"]];
+_sfLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _sfLoadoutData set ["atBackpacks", ["CUP_O_RUS_Patrol_bag_Green"]];
 _sfLoadoutData set ["helmets", ["CUP_H_RUS_K6_3_Goggles", "CUP_H_RUS_Altyn_Goggles_khaki"]];
 _sfLoadoutData set ["slHat", ["CUP_H_SLA_Beret"]];

@@ -165,13 +165,13 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["CUP_U_CRYE_MCAM_NP2_Full", "CUP_U_CRYE_MCAM_NP2_Roll"]];
-_sfLoadoutData set ["vests", ["CUP_V_B_Ciras_MCam"]];
-_sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_mc"]];
-_sfLoadoutData set ["medVests", ["CUP_V_B_Ciras_MCam2"]];
-_sfLoadoutData set ["glVests", ["CUP_V_CPC_weaponsbelt_mc"]];
+_sfLoadoutData set ["uniforms", ["CUP_U_O_TK_MixedCamo", "CUP_U_O_TK_Green"]];
+_sfLoadoutData set ["vests", ["CUP_V_B_Ciras_Olive"]];
+_sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_rngr"]];
+_sfLoadoutData set ["medVests", ["CUP_V_B_Ciras_Olive2"]];
+_sfLoadoutData set ["glVests", ["CUP_V_CPC_weaponsbelt_rngr"]];
 _sfLoadoutData set ["backpacks", ["B_AssaultPack_khk", "B_FieldPack_khk"]];
-_sfLoadoutData set ["slBackpacks", ["B_Kitbag_mcamo"]];
+_sfLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _sfLoadoutData set ["atBackpacks", ["CUP_O_RUS_Patrol_bag_Green"]];
 _sfLoadoutData set ["helmets", ["CUP_H_RUS_K6_3_Goggles", "CUP_H_RUS_Altyn_Goggles_khaki"]];
 _sfLoadoutData set ["slHat", ["CUP_H_TK_Beret"]];
@@ -247,12 +247,12 @@ _sfLoadoutData set ["sidearms", [
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["CUP_U_O_TK_MixedCamo", "CUP_U_O_TK_Green"]];
-_militaryLoadoutData set ["vests", ["CUP_V_B_Ciras_Coyote2"]];
-_militaryLoadoutData set ["mgVests", ["CUP_V_B_Ciras_Coyote"]];
-_militaryLoadoutData set ["medVests", ["CUP_V_PMC_CIRAS_Coyote_Patrol"]];
-_militaryLoadoutData set ["slVests", ["CUP_V_PMC_CIRAS_Coyote_TL"]];
-_militaryLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_Coyote_Grenadier"]];
-_militaryLoadoutData set ["engVests", ["CUP_V_B_Ciras_Coyote4"]];
+_militaryLoadoutData set ["vests", ["CUP_V_B_Ciras_Khaki2"]];
+_militaryLoadoutData set ["mgVests", ["CUP_V_B_Ciras_Khaki"]];
+_militaryLoadoutData set ["medVests", ["CUP_V_PMC_CIRAS_Khaki_TL"]];
+_militaryLoadoutData set ["slVests", ["CUP_V_PMC_CIRAS_Khaki_TL"]];
+_militaryLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_Khaki_Grenadier"]];
+_militaryLoadoutData set ["engVests", ["CUP_V_B_Ciras_Khaki4"]];
 _militaryLoadoutData set ["backpacks", ["B_Carryall_cbr", "CUP_B_AssaultPack_Coyote", "B_AssaultPack_cbr"]];
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militaryLoadoutData set ["atBackpacks", ["B_AssaultPack_cbr"]];

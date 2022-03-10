@@ -49,6 +49,9 @@ A3A_NGSA_baseTextSize = (0.7 / A3A_NGSA_ArmaUIScale) min 1;
 // Code searches for a Node in a radius of 300m from a road. There is a 100m safety margin.
 A3A_NGSA_const_maxConnectionLength = 400;
 
+// Running the simplification loop can help cutting down on unessary road segments aaround junction dense areas. Increasing this amount should be reserved for thick maps.
+A3A_NGSA_generation_simplifyLoops = 1;
+
 // All pallets should have at least 2 accents
 //                    Black      Dark Grey    Light Grey     White
 private _greys = ["ColorBlack","Color6_FD_F","ColorGrey","ColorWhite"];

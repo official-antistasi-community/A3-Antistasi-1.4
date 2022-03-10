@@ -1,2 +1,0 @@
-UPSMON_DORELAX = compile preProcessFileLineNumbers "Scripts\UPSMON\MODULES\ORDERS\UPSMON_RELAX\fnc\UPSMON_DORELAX.sqf";
-UPSMON_Civaction = compile preProcessFileLineNumbers "Scripts\UPSMON\MODULES\ORDERS\UPSMON_RELAX\fnc\UPSMON_Civaction.sqf";

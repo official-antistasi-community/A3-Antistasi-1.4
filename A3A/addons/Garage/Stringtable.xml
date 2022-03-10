@@ -140,115 +140,143 @@
         <Key ID="STR_HR_GRG_InfoPanel_isAmmoSource">
             <Original>Vehicle is an ammo source</Original>
             <English>Vehicle is an ammo source</English>
+            <French>Le véhicule est une source de munitions</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isFuelSource">
             <Original>Vehicle is a fuel source</Original>
             <English>Vehicle is a fuel source</English>
+            <French>Le véhicule est une source de carburant</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isRepairSource">
             <Original>Vehicle is a repair source</Original>
             <English>Vehicle is a repair source</English>
+            <French>Le véhicule est une source de réparation</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isNotSource">
             <Original>Vehicle is not a source</Original>
             <English>Vehicle is not a source</English>
+            <French>Le véhicule n'est pas une source</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Seats">
             <Original>Seats:</Original>
             <English>Seats:</English>
+            <French>Sièges:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Cargo">
             <Original>Cargo:</Original>
             <English>Cargo:</English>
+            <French>Cargo:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_AceCargo">
             <Original>Ace Cargo:</Original>
             <English>Ace Cargo:</English>
+            <French>Cargo d'Ace:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Capacity">
             <Original>Capacity:</Original>
             <English>Capacity:</English>
+            <French>Capacité:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Available">
             <Original>Available:</Original>
             <English>Available:</English>
+            <French>Disponible:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Speed">
             <Original>Top speed:</Original>
             <English>Top speed:</English>
+            <French>Vitesse de pointe:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_HP">
             <Original>Horse power:</Original>
             <English>Horse power:</English>
+            <French>Puissance:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Mass">
             <Original>Mass:</Original>
             <English>Mass:</English>
+            <French>Masse:</French>
         </Key>
         <Key ID ="STR_HR_GRG_Refuel_fullRefuel">
             <Original>Vehicle can be fully refueled with</Original>
             <English>Vehicle can be fully refueled with</English>
+            <French>Le véhicule peut être entièrement alimenté avec</French>
         </Key>
         <Key ID ="STR_HR_GRG_Refuel_partialRefuel">
             <Original>Vehicle can only be partially refueled to</Original>
             <English>Vehicle can only be partially refueled to</English>
+            <French>Le véhicule ne peut être ravitaillé que partiellement à</French>
         </Key>
         <Key ID ="STR_HR_GRG_Refuel_noRefuel">
             <Original>Vehicle can not be refueled</Original>
             <English>Vehicle can not be refueled</English>
+            <French>Le véhicule ne peut pas être ravitaillé</French>
         </Key>
         <Key ID ="STR_HR_GRG_Refuel_factionFuel">
             <Original>Factions has</Original>
             <English>Factions has</English>
+            <French>Les factions ont</French>
         </Key>
         <Key ID="STR_HR_GRG_openGarage_Action">
             <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</Original>
             <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</English>
+            <French>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Ouvrir Garage</French>
         </Key>
         <Key ID="STR_HR_GRG_addVehicle_Action">
             <!--%1 is display name of vehicle-->
             <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</Original>
             <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</English>
+            <French>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Null">
             <Original>You are not looking at a vehicle</Original>
             <English>You are not looking at a vehicle</English>
+            <French>Vous ne regardez pas un véhicule</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_confirm_NullSelection">
             <Original>No vehicle selected</Original>
             <English>No vehicle selected</English>
+            <French>Aucun véhicule sélectionné</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_SATow">
             <Original>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</Original>
             <English>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</English>
+            <French>Vous ne pouvez pas garer un véhicule avec votre câble de remorquage hors d'un véhicule attaché</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_LTC">
             <Original>Loot crate stored</Original>
             <English>Loot crate stored</English>
+            <French>Caisse de butin stockée</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Item_Stored">
             <Original>Item stored</Original>
             <English>Item stored</English>
+            <French>Article stocké</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Fuel_sold">
             <Original>Fuel sold</Original>
             <English>Fuel sold</English>
+            <French>Carburant vendu</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Fuel_commander_only">
             <Original>Fuel sources can only be garaged by commander</Original>
             <English>Fuel sources can only be garaged by commander</English>
+            <French>Les sources de carburant ne peuvent être garées que par le commandant</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Distance">
             <Original>You can't garage vehicles that are more than 25m away from you</Original>
             <English>You can't garage vehicles that are more than 25m away from you</English>
+            <French>Vous ne pouvez pas garer des véhicules à plus de 25 mètres de vous</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Destroyed">
             <Original>You can't garage a destroyed vehicle</Original>
             <English>You can't garage a destroyed vehicle</English>
+            <French>Vous ne pouvez pas garer un véhicule détruit</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Locked">
             <Original>You can't garage a locked vehicle</Original>
             <English>You can't garage a locked vehicle</English>
+            <French>Vous ne pouvez pas garer un véhicule verrouillé</French>
         </Key>
         <!--%1 is faction name-->
         <Key ID="STR_HR_GRG_Feedback_addVehicle_badLocation">
@@ -258,36 +286,44 @@
         <Key ID="STR_HR_GRG_Feedback_addVehicle_enemiesEngaging">
             <Original>You can't garage vehicles while enemies are engaging you</Original>
             <English>You can't garage vehicles while enemies are engaging you</English>
+            <French>Vous ne pouvez pas garer des véhicules pendant que des ennemis vous attaquent</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_enemiesNear">
             <Original>You can't garage vehicles while enemies are near you</Original>
             <English>You can't garage vehicles while enemies are near you</English>
+            <French>Vous ne pouvez pas garer des véhicules lorsque des ennemis sont près de vous</French>
         </Key>
         <!--%1 is faction name-->
         <Key ID="STR_HR_GRG_Feedback_addVehicle_airBlocked">
             <Original>You can't garage an aircraft while you are not near an Airport which belongs to %1. Please move your aircraft to an Airport under your control to garage it</Original>
             <English>You can't garage an aircraft while you are not near an Airport which belongs to %1. Please move your aircraft to an Airport under your control to garage it</English>
+            <French>Vous ne pouvez pas garer un aéronef tant que vous n'êtes pas à proximité d'un aéroport appartenant à %1. Veuillez déplacer votre aéronef vers un aéroport sous votre contrôle pour le garer</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_GenericFail">
             <Original>You can't garage this</Original>
             <English>You can't garage this</English>
+            <French>Vous ne pouvez pas ranger ça</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_inVehicle">
             <Original>You can't garage a vehicle while in another vehicle</Original>
             <English>You can't garage a vehicle while in another vehicle</English>
+            <French>Vous ne pouvez pas garer un véhicule en étant dans un véhicule</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Crewed">
             <Original>You can't garage a vehicle with crew inside</Original>
             <English>You can't garage a vehicle with crew inside</English>
+            <French>Vous ne pouvez pas garer un véhicule avec un équipage à l'intérieur</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Capacity">
             <Original>There's not enough room to garage this vehicle</Original>
             <English>There's not enough room to garage this vehicle</English>
+            <French>Il n'y a pas assez de place pour garer ce véhicule</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Success">
             <!--%1 is display name of vehicle-->
             <Original>%1 Garaged</Original>
             <English>%1 Garaged</English>
+            <French>%1 garé</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_requestMount_Denied">
             <Original>Can't mount static</Original>
@@ -302,23 +338,28 @@
             <!-- name is appended on at the end with a spcae in between-->
             <Original>Vehicle is locked by</Original>
             <English>Vehicle is locked by</English>
+            <French>Le véhicule est verrouillé par</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_Rotation">
             <!--Keybinds are hardcoded to key DIK codes: DIK_E, DIK_Q, DIK_ESCAPE, DIK_RETURN, and DIK_SPACE-->
             <Original>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</Original>
             <English>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</English>
+            <French>&lt;t size='0.6'&gt;Tourner à gauche: Q &lt;br/&gt;Tourner à droite: E &lt;br/&gt;Annuler: Entrer/ESC &lt;br/&gt;Placer: Espace&lt;/t&gt;</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_TooFar">
             <Original>&lt;t size='0.6'&gt;Can't place vehicle that far away &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
             <English>&lt;t size='0.6'&gt;Can't place vehicle that far away &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+            <French>&lt;t size='0.6'&gt;Impossible de placer un véhicule aussi loin &lt;br/&gt;Annuler: Entrer/ESC &lt;/t&gt;</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_Blocked">
             <Original>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
             <English>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+            <French>&lt;t size='0.6'&gt;Quelque chose bloque l'emplacement &lt;br/&gt; Tourner à gauche: Q &lt;br/&gt;Tourner à droite: E &lt;br/&gt;Annuler: Entrer/ESC &lt;/t&gt;</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CallbackFailed">
             <Original>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
             <English>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+            <French>&lt;t size='0.6'&gt;Quelque chose bloque l'emplacement &lt;br/&gt; Tourner à gauche: Q &lt;br/&gt;Tourner à droite: E &lt;br/&gt;Annuler: Entrer/ESC &lt;/t&gt;</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_Cam_Controls">
             <Original>Camera controls</Original>

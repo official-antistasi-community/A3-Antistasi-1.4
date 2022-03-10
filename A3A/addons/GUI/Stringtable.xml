@@ -42,7 +42,7 @@
         <Original>Medic</Original>
         <English>Medic</English>
         <Czech />
-        <French />
+        <French>Médecin</French>
         <Spanish />
         <Italian />
         <Polish />
@@ -54,7 +54,7 @@
         <Original>Engineer</Original>
         <English>Engineer</English>
         <Czech />
-        <French />
+        <French>Ingénieur</French>
         <Spanish />
         <Italian />
         <Polish />
@@ -66,7 +66,7 @@
         <Original>Bomb Specialist</Original>
         <English>Bomb Specialist</English>
         <Czech />
-        <French />
+        <French>Spécialiste des bombes</French>
         <Spanish />
         <Italian />
         <Polish />
@@ -78,7 +78,7 @@
         <Original>Grenadier</Original>
         <English>Grenadier</English>
         <Czech />
-        <French />
+        <French>Grenadier</French>
         <Spanish />
         <Italian />
         <Polish />
@@ -90,7 +90,7 @@
         <Original>Marksman</Original>
         <English>Marksman</English>
         <Czech />
-        <French />
+        <French>Tireur d'élite</French>
         <Spanish />
         <Italian />
         <Polish />
@@ -102,7 +102,7 @@
         <Original>Antitank</Original>
         <English>Antitank</English>
         <Czech />
-        <French />
+        <French>Anti-char</French>
         <Spanish />
         <Italian />
         <Polish />
@@ -119,18 +119,22 @@
       <Key ID="STR_antistasi_dialogs_main_player_tab_button">
         <Original>Player</Original>
         <English>Player</English>
+        <French>Joueur</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_tab_button">
         <Original>Commander</Original>
         <English>Commander</English>
+        <French>Commandant</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tab_button">
         <Original>Admin</Original>
         <English>Admin</English>
+        <French>Admin</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_tab_disabled_tooltip">
         <Original>Only the commander can access the commander tab</Original>
         <English>Only the commander can access the commander tab</English>
+        <French>Seul le commandant peut accéder à l'onglet commandant</French>
       </Key>
     </Container>
     <Container name="dialog_recruit_squad">
@@ -179,102 +183,126 @@
       <Key ID="STR_antistasi_dialogs_generic_yes">
         <Original>Yes</Original>
         <English>Yes</English>
+        <French>Oui</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_no">
         <Original>No</Original>
         <English>No</English>
+        <French>Non</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_days">
         <Original>days</Original>
         <English>days</English>
+        <French>jours</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_hours">
         <Original>hours</Original>
         <English>hours</English>
+        <French>heures</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_minutes">
         <Original>minutes</Original>
         <English>minutes</English>
+        <French>minutes</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_seconds">
         <Original>seconds</Original>
         <English>seconds</English>
+        <French>secondes</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_day">
         <Original>day</Original>
         <English>day</English>
+        <French>jour</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_hour">
         <Original>hour</Original>
         <English>hour</English>
+        <French>heure</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_minute">
         <Original>minute</Original>
         <English>minute</English>
+        <French>minute</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_second">
         <Original>second</Original>
         <English>second</English>
+        <French>seconde</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_days_short">
         <Original>d</Original>
         <English>d</English>
+        <French>j</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_hours_short">
         <Original>h</Original>
         <English>h</English>
+        <French>h</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_minutes_short">
         <Original>m</Original>
         <English>m</English>
+        <French>m</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_seconds_short">
         <Original>s</Original>
         <English>s</English>
+        <French>s</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_aggression">
         <Original>aggression</Original>
         <English>aggression</English>
+        <French>agression</French>
       </Key>
     </Container>
     <Container name="dialog_load_last_save">
       <Key ID="STR_antistasi_dialogs_load_last_save_titlebar">
         <Original>LOAD LAST SAVE?</Original>
         <English>LOAD LAST SAVE?</English>
+        <French>CHARGER LA DERNIÈRE SAUVEGARDE ?</French>
       </Key>
     </Container>
     <Container name="dialog_buy_vehicle">
       <Key ID="STR_antistasi_dialogs_buy_vehicle_titlebar">
         <Original>BUY VEHICLE</Original>
         <English>BUY VEHICLE</English>
+        <French>ACHETER UN VÉHICULE</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_button_tooltip">
         <Original>Buy %1 for %2 %3</Original>
         <English>Buy %1 for %2 %3</English>
+        <French>Acheter %1 pour %2 %3</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_undercover_tooltip">
         <Original>This vehicle can go undercover</Original>
         <English>This vehicle can go undercover</English>
+        <French>Ce véhicule peut passer incognito</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_driver_tooltip">
         <Original>Driver / Pilot</Original>
         <English>Driver / Pilot</English>
+        <French>Chauffeur / Pilote</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_copilot_tooltip">
         <Original>Co-Pilot</Original>
         <English>Co-Pilot</English>
+        <French>Copilote</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_commander_tooltip">
         <Original>Commander</Original>
         <English>Commander</English>
+        <French>Commandant</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_tooltip">
         <Original>Gunner</Original>
         <English>Gunner</English>
+        <French>Tireur</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_tooltip">
         <Original>Passenger seat</Original>
         <English>Passenger seat</English>
+        <French>Siège passager</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip">
         <Original>FFV seat</Original>
@@ -297,6 +325,7 @@
       <Key ID="STR_antistasi_dialogs_main_fast_travel">
         <Original>Fast Travel</Original>
         <English>Fast Travel</English>
+        <French>Voyage rapide</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_fast_travel_tooltip">
         <Original>This is a placeholder</Original>
@@ -305,18 +334,22 @@
       <Key ID="STR_antistasi_dialogs_main_undercover">
         <Original>Go Undercover</Original>
         <English>Go Undercover</English>
+        <French>Passer incognito</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_construct">
         <Original>Construct</Original>
         <English>Construct</English>
+        <French>Construction</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management">
         <Original>AI Management</Original>
         <English>AI Management</English>
+        <French>Gestion de l'IA</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_text_commander">
         <Original>Commander</Original>
         <English>Commander</English>
+        <French>Commandant</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_text_eligible">
         <Original>Eligible</Original>

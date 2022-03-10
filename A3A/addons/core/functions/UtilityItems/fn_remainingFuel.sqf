@@ -24,7 +24,7 @@ private _vehCfg = configFile/"CfgVehicles"/typeOf _vehicle;
 if(A3A_hasACE) then {
     private _vehicleMaxFuel = getNumber (_vehCfg >> "ace_refuel_fuelCargo");
     if(_vehicleMaxFuel == 0) exitwith {0};
-	(_vehicle getVariable ["ace_refuel_currentFuelCargo"] / _vehicleMaxFuel);
+	((_vehicle getVariable ["ace_refuel_currentFuelCargo"]) / _vehicleMaxFuel);
 } else {
 	getFuelCargo _vehicle;
 };

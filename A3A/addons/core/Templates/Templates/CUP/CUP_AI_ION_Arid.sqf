@@ -198,7 +198,7 @@ _sfLoadoutData set ["rifles", [
     ["CUP_arifle_M4A1_SOMMOD_black", "CUP_muzzle_snds_M16", "", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
     ["CUP_arifle_mk18_black", "CUP_muzzle_snds_M16", "", "CUP_optic_CompM4", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
     ["CUP_arifle_mk18_black", "CUP_muzzle_snds_M16", "", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
-    ["CUP_arifle_AK19_bicolor", "CUP_muzzle_snds_M16", "", "CUP_optic_compm2_low", ["CUP_30Rnd_556x45_Tracer_Red_AK19_M"], [], ""]
+    ["CUP_arifle_AK19_bicolor", "CUP_muzzle_snds_M16", "", "CUP_optic_CompM2_low", ["CUP_30Rnd_556x45_Tracer_Red_AK19_M"], [], ""]
 ]];
 
 _sfLoadoutData set ["carbines", [
@@ -232,7 +232,7 @@ _sfLoadoutData set ["marksmanRifles", [
 
 _sfLoadoutData set ["sniperRifles", [
 	["CUP_srifle_M2010_blk", "muzzle_snds_B", "", "CUP_optic_LeupoldMk4_25x50_LRT", ["CUP_5Rnd_762x67_M2010_M"], [], "CUP_bipod_Harris_1A2_L_BLK"],
-    ["CUP_srifle_AWM_blk", "CUP_muzzle_snds_awm", "", "CUP_optic_LeupoldMk4_25x50_LRT", ["CUP_5Rnd_86x70_L115A1"], [], "CUP_bipod_Harris_1A2_L_BLK"]
+    ["CUP_srifle_AWM_blk", "CUP_muzzle_snds_AWM", "", "CUP_optic_LeupoldMk4_25x50_LRT", ["CUP_5Rnd_86x70_L115A1"], [], "CUP_bipod_Harris_1A2_L_BLK"]
 ]];
 
 _sfLoadoutData set ["lightATLaunchers",[

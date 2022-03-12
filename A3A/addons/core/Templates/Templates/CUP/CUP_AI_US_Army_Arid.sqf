@@ -358,7 +358,7 @@ _policeLoadoutData set ["sidearms", [
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_U_B_USArmy_ACU_OCP", "CUP_U_B_USArmy_ACU_OEFCP"]];
-_militiaLoadoutData set ["vests", ["CUP_V_B_IOTV_OCP_Rifleman_USArmy", "CUP_V_B_IOTV_OCP_Rifleman_Deltoid_USArmy"]];
+_militiaLoadoutData set ["vests", ["CUP_V_B_IOTV_OCP_Rifleman_USArmy"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_B_IOTV_OEFCP_TL_USArmy"]];
 _militiaLoadoutData set ["backpacks", ["B_AssaultPack_cbr", "B_FieldPack_cbr", "CUP_B_AlicePack_OD"]];
 _militiaLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];

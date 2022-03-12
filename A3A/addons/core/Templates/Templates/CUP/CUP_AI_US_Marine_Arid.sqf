@@ -254,9 +254,9 @@ _militaryLoadoutData set ["medVests", ["CUP_V_B_Eagle_SPC_Corpsman"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_B_Eagle_SPC_Officer"]];
 _militaryLoadoutData set ["glVests", ["CUP_V_B_Eagle_SPC_GL"]];
 _militaryLoadoutData set ["engVests", ['CUP_V_B_Eagle_SPC_AT']];
-_militaryLoadoutData set ["backpacks", ["B_Carryall_cbr", "CUP_B_USPack_Coyote", "CUP_B_USMC_AssaultPack"]];
+_militaryLoadoutData set ["backpacks", ["B_Carryall_cbr", "CUP_B_USPack_Coyote"]];
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
-_militaryLoadoutData set ["atBackpacks", ["CUP_B_USMC_MOLLE"]];
+_militaryLoadoutData set ["atBackpacks", ["CUP_B_USPack_Coyote"]];
 _militaryLoadoutData set ["helmets", ["CUP_H_LWHv2_MARPAT_des", "CUP_H_LWHv2_MARPAT_des_comms", "CUP_H_USArmy_ECH_MARPAT_des", "CUP_H_USArmy_ECH_GCOVERED_Headset_MARPAT_des"]];
 _militaryLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
@@ -359,9 +359,9 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_U_B_USMC_MCCUU_des_gloves", "CUP_U_B_USMC_MCCUU_des_roll_2_gloves"]];
 _militiaLoadoutData set ["vests", ["CUP_V_B_Eagle_SPC_Rifleman"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_B_Eagle_SPC_DMR"]];
-_militiaLoadoutData set ["backpacks", ["CUP_B_AlicePack_Khaki", "B_AssaultPack_cbr"]];
+_militiaLoadoutData set ["backpacks", [ "B_AssaultPack_cbr"]];
 _militiaLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
-_militiaLoadoutData set ["atBackpacks", ["CUP_B_USMC_MOLLE"]];
+_militiaLoadoutData set ["atBackpacks", ["CUP_B_USPack_Coyote"]];
 _militiaLoadoutData set ["helmets", ["CUP_H_LWHv2_MARPAT_des"]];
 
 _militiaLoadoutData set ["rifles", [

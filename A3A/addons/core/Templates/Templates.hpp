@@ -521,7 +521,7 @@ class Templates
             class vt7
             {
                 Occ = "ACR";
-                Inv = "AFRF";
+                Inv = "BAF";
             };
             class chernarus_winter
             {
@@ -531,23 +531,20 @@ class Templates
             class takistan
             {
                 Occ = "TKA";
-                Inv = "AFRF";
+                Inv = "US_Army";
                 Reb = "TKL";
             };
             class kunduz : takistan {};
-
             class sara
             {
                 Occ = "RACS";
                 Inv = "SLA";
             };
-
             class malden
             {
                 Occ = "ION";
                 Inv = "US_Marine";
             };
-
             class Default
             {
                 Occ = "US_Army";

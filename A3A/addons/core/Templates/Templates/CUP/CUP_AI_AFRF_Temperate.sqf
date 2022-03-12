@@ -387,7 +387,7 @@ _militiaLoadoutData set ["sidearms", [
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["CUP_U_O_RUS_EMR_1"]];
 _crewLoadoutData set ["vests", ["CUP_V_RUS_6B45_1"]];
-_crewLoadoutData set ["helmets", ["CUP_H_RUS_6B47"]];
+_crewLoadoutData set ["helmets", ["H_Tank_black_F"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["CUP_U_O_RUS_EMR_1"]];

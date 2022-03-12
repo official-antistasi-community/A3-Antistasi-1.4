@@ -346,12 +346,12 @@ _militiaLoadoutData set ["sidearms", [
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["CUP_U_B_CDF_FST_1"]];
-_crewLoadoutData set ["vests", ["CUP_V_CDF_6B3_2_Green"]];
-_crewLoadoutData set ["helmets", ["CUP_H_CDF_H_PASGT_FST"]];
+_crewLoadoutData set ["vests", []];
+_crewLoadoutData set ["helmets", ["CUP_H_RUS_TSH_4_Brown"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["CUP_U_B_CDF_FST_1"]];
-_pilotLoadoutData set ["vests", ["CUP_V_CDF_6B3_2_Green"]];
+_pilotLoadoutData set ["vests", []];
 _pilotLoadoutData set ["helmets", ["CUP_H_RUS_ZSH_Shield_Down"]];
 
 

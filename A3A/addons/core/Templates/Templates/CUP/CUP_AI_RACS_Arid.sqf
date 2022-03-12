@@ -416,7 +416,7 @@ _militiaLoadoutData set ["sidearms", [
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["CUP_U_I_RACS_Desert_1"]];
-_crewLoadoutData set ["vests", ["CUP_V_B_IOTV_OCP_TL_USArmy"]];
+_crewLoadoutData set ["vests", []];
 _crewLoadoutData set ["helmets", ["CUP_H_CVCH_des"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;

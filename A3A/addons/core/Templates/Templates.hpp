@@ -441,6 +441,7 @@ class Templates
 			{
                 displayName = "RACS CUP";
 				class camo {
+                    tropical = "Tropical";
 					Default = "Arid";
 				};
 			};
@@ -539,6 +540,11 @@ class Templates
             {
                 Occ = "RACS";
                 Inv = "SLA";
+            };
+            class tanoa
+            {
+                Occ = "RACS";
+                Inv = "US_Army";
             };
             class malden
             {

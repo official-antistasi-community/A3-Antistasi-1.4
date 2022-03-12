@@ -172,7 +172,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_11", "CUP_I_B_PMC_Unit_20", "CUP_I_B_PMC_Unit_42"]];
-_sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_Black_TL", "CUP_V_PMC_CIRAS_Black_Patrol"]];
+_sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_Black_TL"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_B_Armatus_BB_Black"]];
 _sfLoadoutData set ["medVests", ["CUP_V_B_Armatus_Black"]];
 _sfLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_Black_Grenadier"]];
@@ -254,7 +254,7 @@ _sfLoadoutData set ["glSidearms", []];
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_9", "CUP_I_B_PMC_Unit_40", "CUP_I_B_PMC_Unit_43"]];
 _militaryLoadoutData set ["slUniforms", ["CUP_I_B_PMC_Unit_21"]];
-_militaryLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_coy", "CUP_V_CPC_lightbelt_coy"]];
+_militaryLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_coy"]];
 _militaryLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_coy"]];
 _militaryLoadoutData set ["medVests", ["CUP_V_CPC_medicalbelt_coy"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_CPC_tlbelt_coy"]];
@@ -361,7 +361,7 @@ _policeLoadoutData set ["sidearms", [
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_40", "CUP_I_B_PMC_Unit_39", "CUP_I_B_PMC_Unit_38", "CUP_I_B_PMC_Unit_1", "CUP_I_B_PMC_Unit_21"]];
-_militiaLoadoutData set ["vests", ["CUP_V_I_RACS_Carrier_Rig_2", "CUP_V_I_RACS_Carrier_Rig_3", "CUP_V_B_JPC_Tan_Light"]];
+_militiaLoadoutData set ["vests", ["CUP_V_I_RACS_Carrier_Rig_2"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_B_GER_Carrier_Rig_3_Brown"]];
 _militiaLoadoutData set ["backpacks", ["CUP_B_AssaultPack_Coyote", "B_AssaultPack_cbr"]];
 _militiaLoadoutData set ["slBackpacks", ["CUP_B_USPack_Coyote", "B_Carryall_cbr"]];

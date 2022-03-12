@@ -174,7 +174,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_30", "CUP_I_B_PMC_Unit_27", "CUP_I_B_PMC_Unit_34"]];
-_sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_Winter_TL", "CUP_V_PMC_CIRAS_Winter_Patrol"]];
+_sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_Winter_TL"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_PMC_CIRAS_Winter_Patrol"]];
 _sfLoadoutData set ["medVests", ["CUP_V_PMC_CIRAS_Winter_Patrol"]];
 _sfLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_Winter_Patrol"]];
@@ -256,7 +256,7 @@ _sfLoadoutData set ["glSidearms", []];
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_29", "CUP_I_B_PMC_Unit_26", "CUP_I_B_PMC_Unit_18"]];
 _militaryLoadoutData set ["slUniforms", ["CUP_I_B_PMC_Unit_27"]];
-_militaryLoadoutData set ["vests", ["CUP_V_B_Armatus_Black", "CUP_V_B_Armatus_Black"]];
+_militaryLoadoutData set ["vests", ["CUP_V_B_Armatus_Black"]];
 _militaryLoadoutData set ["mgVests", ["CUP_V_B_Armatus_BB_Black"]];
 _militaryLoadoutData set ["medVests", ["CUP_V_B_Armatus_BB_Black"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_B_Armatus_BB_Black"]];
@@ -363,7 +363,7 @@ _policeLoadoutData set ["sidearms", [
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_23", "CUP_I_B_PMC_Unit_42", "CUP_I_B_PMC_Unit_20", "CUP_I_B_PMC_Unit_41"]];
-_militiaLoadoutData set ["vests", ["CUP_V_I_RACS_Carrier_Rig_2", "CUP_V_I_RACS_Carrier_Rig_3", "CUP_V_B_JPC_Tan_Light"]];
+_militiaLoadoutData set ["vests", ["CUP_V_I_RACS_Carrier_Rig_2"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_B_GER_Carrier_Rig_3_Brown"]];
 _militiaLoadoutData set ["backpacks", ["CUP_B_AssaultPack_Coyote", "B_AssaultPack_cbr"]];
 _militiaLoadoutData set ["slBackpacks", ["CUP_B_USPack_Coyote", "B_Carryall_cbr"]];

@@ -360,7 +360,7 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_U_B_USArmy_ACU_OEFCP"]];
 _militiaLoadoutData set ["vests", ["CUP_V_B_IOTV_OEFCP_Rifleman_USArmy"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_B_IOTV_OEFCP_TL_USArmy"]];
-_militiaLoadoutData set ["backpacks", ["B_AssaultPack_cbr", "B_FieldPack_cbr", "CUP_B_AlicePack_OD"]];
+_militiaLoadoutData set ["backpacks", ["B_AssaultPack_cbr", "B_FieldPack_cbr"]];
 _militiaLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_B_US_Assault_OEFCP"]];
 _militiaLoadoutData set ["helmets", ["CUP_H_USArmy_HelmetACH_OEFCP"]];

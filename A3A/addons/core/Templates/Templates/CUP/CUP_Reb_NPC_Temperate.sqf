@@ -43,7 +43,7 @@
 ///////////////////////////
 
 private _initialRebelEquipment = [
-    "CUP_sgun_CZ584", "CUP_srifle_CZ550_rail", "CUP_srifle_Remington700", "CUP_1Rnd_12Gauge_Pellets_No00_Buck", "CUP_1Rnd_12Gauge_Pellets_No3_Buck", "CUP_5x_22_LR_17_HMR_M", "CUP_6Rnd_762x51_R700",
+    "CUP_sgun_CZ584", "CUP_srifle_CZ550_rail", "CUP_srifle_Remington700", "CUP_1Rnd_12Gauge_Pellets_No00_Buck", "CUP_1Rnd_12Gauge_Pellets_No3_Buck", "CUP_5x_22_LR_17_HMR_M", "CUP_6Rnd_762x51_R700", "CUP_1Rnd_762x51_CZ584",
     "CUP_hgun_M9", "CUP_hgun_TaurusTracker455", "CUP_15Rnd_9x19_M9", "CUP_6Rnd_45ACP_M",
     "CUP_launch_RPG18",
     "CUP_HandGrenade_RGD5", "SmokeShell",

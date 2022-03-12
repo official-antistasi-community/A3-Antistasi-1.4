@@ -164,7 +164,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["CUP_U_CRYE_G3C_MC_US", "CUP_U_CRYE_G3C_MC_V2", "CUP_U_CRYE_G3C_MC", "CUP_U_CRYE_V1_Full"]];
-_sfLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_mc", "CUP_V_CPC_Fast_mc", "CUP_V_CPC_tlbelt_coy", "CUP_V_CPC_Fast_coy"]];
+_sfLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_mc"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_CPC_weapons_coy"]];
 _sfLoadoutData set ["medVests", ["CUP_V_JPC_medicalbelt_coy"]];
 _sfLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_Coyote_Grenadier"]];

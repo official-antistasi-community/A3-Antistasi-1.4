@@ -249,7 +249,7 @@ _sfLoadoutData set ["sidearms", [
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["CUP_U_B_BAF_DDPM_UBACSLONG", "CUP_U_B_BAF_DDPM_UBACSLONG_Gloves", "CUP_U_B_BAF_DDPM_UBACSLONGKNEE", "CUP_U_B_BAF_DDPM_UBACSLONGKNEE_Gloves", "CUP_U_B_BAF_DDPM_UBACSROLLED_Gloves", "CUP_U_B_BAF_DDPM_UBACSROLLEDKNEE", "CUP_U_B_BAF_DDPM_UBACSTSHIRT", "CUP_U_B_BAF_DDPM_UBACSTSHIRT_Gloves", "CUP_U_B_BAF_DDPM_UBACSTSHIRTKNEE"]];
 _militaryLoadoutData set ["slUniforms", ["CUP_U_B_BAF_DDPM_UBACSROLLED"]];
-_militaryLoadoutData set ["vests", ["CUP_V_B_BAF_DDPM_Osprey_Mk3_Rifleman", "CUP_V_B_BAF_DDPM_Osprey_Mk3_Scout"]]; 
+_militaryLoadoutData set ["vests", ["CUP_V_B_BAF_DDPM_Osprey_Mk3_Rifleman"]]; 
 _militaryLoadoutData set ["mgVests", ["CUP_V_B_BAF_DDPM_Osprey_Mk3_AutomaticRifleman"]];
 _militaryLoadoutData set ["medVests", ["CUP_V_B_BAF_DDPM_Osprey_Mk3_Medic"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_B_BAF_DDPM_Osprey_Mk3_Officer"]];

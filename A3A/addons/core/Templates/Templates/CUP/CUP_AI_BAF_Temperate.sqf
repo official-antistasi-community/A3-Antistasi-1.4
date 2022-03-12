@@ -245,7 +245,7 @@ _sfLoadoutData set ["sidearms", [
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["CUP_U_B_BAF_DPM_UBACSLONGKNEE", "CUP_U_B_BAF_DPM_UBACSLONGKNEE_Gloves", "CUP_U_B_BAF_DPM_UBACSROLLED_Gloves", "CUP_U_B_BAF_DPM_UBACSROLLEDKNEE"]];
 _militaryLoadoutData set ["slUniforms", ["CUP_U_B_BAF_DPM_UBACSROLLED"]];
-_militaryLoadoutData set ["vests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_Rifleman", "CUP_V_B_BAF_DPM_Osprey_Mk3_Scout"]];
+_militaryLoadoutData set ["vests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_Rifleman"]];
 _militaryLoadoutData set ["mgVests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_AutomaticRifleman"]];
 _militaryLoadoutData set ["medVests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_Medic"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_B_BAF_DPM_Osprey_Mk3_Officer"]];

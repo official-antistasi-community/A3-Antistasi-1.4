@@ -169,7 +169,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["CUP_U_B_CZ_DST_NoKneepads", "CUP_U_B_CZ_DST_Kneepads", "CUP_U_B_CZ_DST_Kneepads_Gloves", "CUP_U_B_CZ_DST_Kneepads_Sleeve", "CUP_U_B_CZ_DST_TShirt"]];
-_sfLoadoutData set ["vests", ["CUP_V_CZ_NPP2006_co_des", "CUP_V_CZ_NPP2006_nk_des"]];
+_sfLoadoutData set ["vests", ["CUP_V_CZ_NPP2006_co_des"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_B_Ciras_Coyote2"]];
 _sfLoadoutData set ["medVests", ["CUP_V_CPC_medical_coy"]];
 _sfLoadoutData set ["glVests", ["CUP_V_B_Ciras_Coyote"]];
@@ -259,7 +259,7 @@ _sfLoadoutData set ["sidearms", [
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["CUP_U_B_CZ_DST_NoKneepads", "CUP_U_B_CZ_DST_Kneepads", "CUP_U_B_CZ_DST_Kneepads_Sleeve"]];
-_militaryLoadoutData set ["vests", ["CUP_V_CZ_NPP2006_des", "CUP_V_CZ_NPP2006_nk_des", "CUP_V_CZ_NPP2006_ok_des"]];
+_militaryLoadoutData set ["vests", ["CUP_V_CZ_NPP2006_nk_des"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_CZ_NPP2006_co_des"]];
 _militaryLoadoutData set ["backpacks", ["B_Carryall_cbr", "B_FieldPack_cbr"]];
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];

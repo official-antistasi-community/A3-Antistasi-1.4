@@ -241,7 +241,7 @@ _sfLoadoutData set ["sidearms", [
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["CUP_U_B_BDUv2_CEU", "CUP_U_B_BDUv2_dirty_CEU", "CUP_U_B_BDUv2_gloves_CEU", "CUP_U_B_BDUv2_gloves_dirty_CEU", "CUP_U_B_BDUv2_roll2_gloves_CEU", "CUP_U_B_BDUv2_roll_gloves_dirty_CEU"]];
 _militaryLoadoutData set ["slUniform", ["CUP_U_B_BDUv2_roll2_CEU"]];
-_militaryLoadoutData set ["vests", ["CUP_Vest_RUS_6B45_Sh117", "CUP_Vest_RUS_6B45_Sh117_PKP", "CUP_Vest_RUS_6B45_Sh117_PKP_Del"]];
+_militaryLoadoutData set ["vests", ["CUP_Vest_RUS_6B45_Sh117"]];
 _militaryLoadoutData set ["mgVests", ["CUP_Vest_RUS_6B45_Sh117_PKP_Nut"]];
 _militaryLoadoutData set ["medVests", ["CUP_Vest_RUS_6B45_Sh117_Nut"]];
 _militaryLoadoutData set ["slVests", ["CUP_Vest_RUS_6B45_Sh117_Del"]];

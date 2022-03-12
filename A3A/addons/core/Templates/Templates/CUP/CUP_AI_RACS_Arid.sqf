@@ -168,7 +168,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["CUP_U_I_RACS_Desert_1", "CUP_U_I_RACS_Desert_2"]];
-_sfLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_coy", "CUP_V_CPC_Fast_coy"]];
+_sfLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_coy"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_CPC_weapons_coy"]];
 _sfLoadoutData set ["medVests", ["CUP_V_JPC_medicalbelt_coy"]];
 _sfLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_Khaki_Grenadier"]];
@@ -371,7 +371,7 @@ _policeLoadoutData set ["sidearms", [
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_U_I_RACS_Desert_1", "CUP_U_I_RACS_Desert_2"]];
-_militiaLoadoutData set ["vests", ["CUP_V_I_RACS_Carrier_Vest_2", "CUP_V_I_RACS_Carrier_Vest_3"]];
+_militiaLoadoutData set ["vests", ["CUP_V_I_RACS_Carrier_Vest_2"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_PMC_IOTV_Coyote_Patrol"]];
 _militiaLoadoutData set ["backpacks", ["B_AssaultPack_cbr", "B_FieldPack_cbr"]];
 _militiaLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];

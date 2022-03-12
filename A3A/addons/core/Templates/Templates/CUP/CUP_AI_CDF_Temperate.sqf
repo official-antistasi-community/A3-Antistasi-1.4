@@ -120,7 +120,7 @@ _loadoutData set ["NVGs", ["CUP_NVG_1PN138"]];
 _loadoutData set ["binoculars", ["Binocular"]];
 _loadoutData set ["rangefinders", ["Rangefinder"]];
 
-_loadoutData set ["uniforms", []];
+_loadoutData set ["uniforms", ["CUP_U_B_CDF_FST_1", "CUP_U_B_CDF_MNT_1", "CUP_U_B_CDF_MNT_2"]];
 _loadoutData set ["slUniforms", []];
 _loadoutData set ["mgVests", []];
 _loadoutData set ["medVests", []];
@@ -168,13 +168,12 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["CUP_U_CRYE_MCAM_NP2_Roll", "CUP_U_CRYE_MCAM_NP_Roll"]];
-_sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_OD_Patrol", "CUP_V_JPC_Fast_mc"]];
-_sfLoadoutData set ["mgVests", ["CUP_V_JPC_weapons_mc"]];
-_sfLoadoutData set ["medVests", ["CUP_V_JPC_medical_mc"]];
+_sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_OD_Patrol"]];
+_sfLoadoutData set ["mgVests", ["CUP_V_JPC_weapons_rngr"]];
+_sfLoadoutData set ["medVests", ["CUP_V_JPC_medical_rngr"]];
 _sfLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_OD_Grenadier"]];
 _sfLoadoutData set ["backpacks", ["B_AssaultPack_khk", "B_FieldPack_khk"]];
-_sfLoadoutData set ["slBackpacks", ["B_Kitbag_mcamo"]];
+_sfLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _sfLoadoutData set ["atBackpacks", ["CUP_B_RPGPack_Khaki"]];
 _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Black", "CUP_H_OpsCore_Spray", "CUP_H_CDF_H_PASGT_FST"]];
 _sfLoadoutData set ["slHat", ["CUP_H_CDF_OfficerCap_FST"]];
@@ -235,11 +234,10 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["CUP_U_B_CDF_FST_1", "CUP_U_B_CDF_MNT_1", "CUP_U_B_CDF_MNT_2"]];
 _militaryLoadoutData set ["slUniforms", ["CUP_U_B_CDF_FST_2"]];
-_militaryLoadoutData set ["vests", ["CUP_V_CDF_6B3_1_Green", "CUP_V_CDF_6B3_2_Green", "CUP_V_CDF_6B3_1_FST", "CUP_V_CDF_6B3_2_FST", "CUP_V_CDF_6B3_4_Green"]];
-_militaryLoadoutData set ["mgVests", ["CUP_V_CDF_6B3_3_Green", "CUP_V_CDF_6B3_3_FST"]];
-_militaryLoadoutData set ["slVests", ["CUP_V_CDF_6B3_5_FST", "CUP_V_CDF_6B3_5_Green"]];
+_militaryLoadoutData set ["vests", ["CUP_V_CDF_6B3_1_Green"]];
+_militaryLoadoutData set ["mgVests", ["CUP_V_CDF_6B3_3_Green"]];
+_militaryLoadoutData set ["slVests", ["CUP_V_CDF_6B3_5_FST"]];
 _militaryLoadoutData set ["glVests", ["CUP_V_CDF_6B3_4_FST"]];
 _militaryLoadoutData set ["backpacks", ["B_AssaultPack_rgr", "CUP_O_RUS_Patrol_bag_Green"]];
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
@@ -311,7 +309,6 @@ _policeLoadoutData set ["sidearms", [
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", ["CUP_U_B_CDF_FST_1"]];
 _militiaLoadoutData set ["vests", ["CUP_V_CDF_6B3_1_Green"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_CDF_6B3_5_FST"]];
 _militiaLoadoutData set ["backpacks", ["B_AssaultPack_rgr"]];

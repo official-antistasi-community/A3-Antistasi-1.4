@@ -169,7 +169,7 @@ _sfLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_mc"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_CPC_weapons_coy"]];
 _sfLoadoutData set ["medVests", ["CUP_V_JPC_medicalbelt_coy"]];
 _sfLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_Coyote_Grenadier"]];
-_sfLoadoutData set ["backpacks", ["B_AssaultPack_blk", "B_Carryall_cbr"]];
+_sfLoadoutData set ["backpacks", ["B_AssaultPack_cbr", "B_Carryall_cbr"]];
 _sfLoadoutData set ["slBackpacks", ["B_Kitbag_cbr"]];
 _sfLoadoutData set ["atBackpacks", ["CUP_B_US_IIID_OEFCP"]];
 _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Spray_SF", "CUP_H_OpsCore_Covered_MTP_SF", "CUP_H_OpsCore_Covered_MTP"]];

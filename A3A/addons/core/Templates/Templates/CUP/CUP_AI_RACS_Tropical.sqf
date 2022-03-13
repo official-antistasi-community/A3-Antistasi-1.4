@@ -18,8 +18,8 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["CUP_B_nM1025_Unarmed_DF_USA_DES", "CUP_B_nM1025_Unarmed_USA_DES", "CUP_B_nM1025_Unarmed_DF_USA_DES", "CUP_B_nM1038_DF_USA_DES", "CUP_B_nM1038_USA_DES", "CUP_B_nM1038_4s_DF_USA_DES", "CUP_B_nM1038_4s_USA_DES", "CUP_B_M1151_USA"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["CUP_B_nM1025_M2_USA_DES", "CUP_B_nM1025_M2_DF_USA_DES", "CUP_B_nM1025_M240_USA_DES", "CUP_B_nM1025_M240_DF_USA_DES", "CUP_B_nM1025_Mk19_USA_DES", "CUP_B_nM1025_Mk19_DF_USA_DES", "CUP_B_nM1025_SOV_M2_USA_DES", "CUP_B_nM1025_SOV_Mk19_USA_DES", "CUP_B_nM1036_TOW_USA_DES", "CUP_B_nM1036_TOW_DF_USA_DES", "CUP_B_M1151_M2_USA", "CUP_B_M1151_Deploy_USA", "CUP_B_M1151_Mk19_USA", "CUP_B_M1165_GMV_USA", "CUP_B_M1167_USA", "CUP_B_RG31_Mk19_USA", "CUP_B_RG31E_M2_USA", "CUP_B_RG31_M2_USA", "CUP_B_RG31_M2_GC_USA"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["CUP_B_nM1025_Unarmed_DF_USA_WDL", "CUP_B_nM1025_Unarmed_USA_WDL", "CUP_B_nM1038_DF_USA_WDL", "CUP_B_nM1038_USA_WDL", "CUP_B_nM1038_4s_DF_USA_WDL", "CUP_B_nM1038_4s_USA_WDL", "CUP_B_M1151_WDL_USA"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["CUP_B_nM1025_M2_USA_WDL", "CUP_B_nM1025_M2_DF_USA_WDL", "CUP_B_nM1025_M240_USA_WDL", "CUP_B_nM1025_M240_DF_USA_WDL", "CUP_B_nM1025_Mk19_USA_WDL", "CUP_B_nM1025_Mk19_DF_USA_WDL", "CUP_B_nM1025_SOV_M2_USA_WDL", "CUP_B_nM1025_SOV_Mk19_USA_WDL", "CUP_B_nM1036_TOW_USA_WDL", "CUP_B_nM1036_TOW_DF_USA_WDL", "CUP_B_M1151_M2_WDL_USA", "CUP_B_M1151_Deploy_WDL_USA", "CUP_B_M1151_Mk19_WDL_USA", "CUP_B_M1165_GMV_WDL_USA", "CUP_B_M1167_WDL_USA", "CUP_B_RG31_Mk19_OD_USA", "CUP_B_RG31E_M2_OD_USA", "CUP_B_RG31_M2_OD_USA", "CUP_B_RG31_M2_OD_GC_USA"]] call _fnc_saveToTemplate;
 
 ["vehiclesTrucks", ["CUP_I_MTVR_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_Truck_01_flatbed_F"]] call _fnc_saveToTemplate;
@@ -28,8 +28,8 @@
 ["vehiclesFuelTrucks", ["CUP_I_MTVR_Refuel_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_I_LR_Ambulance_RACS", "CUP_I_M113A1_Med_RACS"]] call _fnc_saveToTemplate;
 
-["vehiclesAPCs", ["CUP_B_M2Bradley_USA_D", "CUP_B_M2A3Bradley_USA_D", "CUP_B_M7Bradley_USA_D", "CUP_B_M6LineBacker_USA_D", "CUP_B_M1126_ICV_M2_Desert", "CUP_B_M1126_ICV_MK19_Desert", "CUP_B_M1135_ATGMV_Desert", "CUP_B_M1129_MC_MK19_Desert", "CUP_I_LAV25_RACS", "CUP_I_M113A1_RACS", "CUP_I_M113A1_RACS_URB"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["CUP_B_M1A2C_Desert_US_Army", "CUP_B_M1A2C_TUSK_II_Desert_US_Army", "CUP_B_M1A2C_TUSK_Desert_US_Army", "CUP_I_M60A3_RACS", "CUP_I_M60A3_TTS_RACS", "CUP_B_M1A2SEP_RACS", "CUP_B_M1A2SEP_TUSK_RACS", "CUP_I_T72_RACS"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_B_M2Bradley_USA_W", "CUP_B_M2A3Bradley_USA_W", "CUP_B_M7Bradley_USA_W", "CUP_B_M6LineBacker_USA_W", "CUP_B_M1126_ICV_M2_Woodland", "CUP_B_M1126_ICV_MK19_Woodland", "CUP_B_M1135_ATGMV_Woodland", "CUP_I_LAV25_RACS", "CUP_I_M113A1_RACS", "CUP_I_M113A1_RACS_URB"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["CUP_B_M1A2C_OD_US_Army", "CUP_B_M1A2SEP_TUSK_II_OD_US_Army", "CUP_B_M1A1SA_TUSK_OD_US_Army", "CUP_I_M60A3_RACS", "CUP_I_M60A3_TTS_RACS", "CUP_B_M1A2SEP_RACS", "CUP_B_M1A2SEP_TUSK_RACS", "CUP_I_T72_RACS"]] call _fnc_saveToTemplate;
 
 ["vehiclesAA", ["CUP_I_M163_Vulcan_RACS", "CUP_I_LR_AA_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;

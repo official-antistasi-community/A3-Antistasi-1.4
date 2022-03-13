@@ -171,7 +171,7 @@ _sfLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_rngr"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_CPC_weapons_rngr"]];
 _sfLoadoutData set ["medVests", ["CUP_V_JPC_medicalbelt_rngr"]];
 _sfLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_OD_Grenadier"]];
-_sfLoadoutData set ["backpacks", ["B_AssaultPack_rgr", "B_Carryall_oli"]];
+_sfLoadoutData set ["backpacks", ["B_AssaultPack_rgr", "B_Carryall_green_F"]];
 _sfLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _sfLoadoutData set ["atBackpacks", ["B_Kitbag_rgr"]];
 _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Spray_SF", "CUP_H_OpsCore_Green_SF", "CUP_H_OpsCore_Tan_SF"]];
@@ -183,10 +183,10 @@ _sfLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
 _sfLoadoutData set ["slRifles", [
     ["CUP_arifle_M4A1_SOMMOD_Grip_black", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_Elcan_SpecterDR_KF", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
-    ["CUP_arifle_G36KA3_grip", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_Elcan_SpecterDR_KF", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""],
-    ["CUP_arifle_G36KA3_grip", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_SB_11_4x20_PM", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""],
-    ["CUP_arifle_G36K_KSK_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_SB_11_4x20_PM", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""],
-    ["CUP_arifle_G36K_KSK_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_Elcan_SpecterDR_KF", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""],
+    ["CUP_arifle_G36KA3_grip", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_Elcan_SpecterDR_KF", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
+    ["CUP_arifle_G36KA3_grip", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_SB_11_4x20_PM", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
+    ["CUP_arifle_G36K_KSK_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_SB_11_4x20_PM", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
+    ["CUP_arifle_G36K_KSK_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_Elcan_SpecterDR_KF", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
     ["CUP_arifle_DSA_SA58_OSW_M203", "CUP_muzzle_snds_SCAR_H", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
     ["CUP_arifle_DSA_SA58_OSW_M203", "CUP_muzzle_snds_SCAR_H", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
     ["CUP_arifle_M4A1_SOMMOD_Grip_black", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_SB_11_4x20_PM", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""]
@@ -195,24 +195,24 @@ _sfLoadoutData set ["slRifles", [
 _sfLoadoutData set ["rifles", [
     ["CUP_arifle_M4A1_SOMMOD_Grip_black", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
     ["CUP_arifle_M4A1_SOMMOD_Grip_black", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
-    ["CUP_arifle_G36KA3_grip", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""],
-    ["CUP_arifle_G36KA3_grip", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""],
+    ["CUP_arifle_G36KA3_grip", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
+    ["CUP_arifle_G36KA3_grip", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
     ["CUP_arifle_DSA_SA58_OSW_M203", "CUP_muzzle_snds_SCAR_H", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
     ["CUP_arifle_DSA_SA58_OSW_M203", "CUP_muzzle_snds_SCAR_H", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
-    ["CUP_arifle_G36K_KSK_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""],
-    ["CUP_arifle_G36K_KSK_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""]
+    ["CUP_arifle_G36K_KSK_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
+    ["CUP_arifle_G36K_KSK_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
 _sfLoadoutData set ["carbines", [
-    ["CUP_arifle_G36C_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""],
-    ["CUP_arifle_G36C_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], [], ""]
+    ["CUP_arifle_G36C_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
+    ["CUP_arifle_G36C_VFG", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
     ["CUP_arifle_M4A1_GL_carryhandle", "CUP_muzzle_snds_M16", "", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_arifle_M4A1_GL_carryhandle", "CUP_muzzle_snds_M16", "", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_Emag", "CUP_30Rnd_556x45_Emag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_arifle_DSA_SA58_OSW_M203", "CUP_muzzle_snds_SCAR_H", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_arifle_DSA_SA58_OSW_M203", "CUP_muzzle_snds_SCAR_H", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_762x51_FNFAL_M", "CUP_30Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
-    ["CUP_arifle_G36K_RIS_AG36", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
-    ["CUP_arifle_G36K_RIS_AG36", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_G36_hex", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36_hex"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""]
+    ["CUP_arifle_G36K_RIS_AG36", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_G33_HWS_BLK", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
+    ["CUP_arifle_G36K_RIS_AG36", "CUP_muzzle_snds_M16", "CUP_acc_ANPEQ_15_Black", "CUP_optic_HoloBlack", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_Stanag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""]
 ]];
 _sfLoadoutData set ["SMGs", [
     ["CUP_smg_MP5SD6", "", "", "CUP_optic_CompM2_low", ["CUP_30Rnd_Subsonic_9x19_MP5", "CUP_30Rnd_Red_Tracer_9x19_MP5"], [], ""],
@@ -260,7 +260,7 @@ _militaryLoadoutData set ["medVests", ["CUP_V_PMC_CIRAS_OD_Patrol"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_PMC_CIRAS_OD_TL"]];
 _militaryLoadoutData set ["glVests", ["CUP_V_PMC_CIRAS_OD_Grenadier"]];
 _militaryLoadoutData set ["engVests", ["CUP_V_B_Ciras_Olive4"]];
-_militaryLoadoutData set ["backpacks", ["B_Carryall_khk","B_AssaultPack_rgr"]];
+_militaryLoadoutData set ["backpacks", ["B_Carryall_green_F","B_AssaultPack_rgr"]];
 _militaryLoadoutData set ["slBackpacks", ["B_Kitbag_rgr"]];
 _militaryLoadoutData set ["atBackpacks", ["B_AssaultPack_rgr"]];
 _militaryLoadoutData set ["helmets", ["CUP_H_LWHv2_tigerstripe", "CUP_H_LWHv2_tigerstripe_comms", "CUP_H_LWHv2_tigerstripe_ess_comms"]];

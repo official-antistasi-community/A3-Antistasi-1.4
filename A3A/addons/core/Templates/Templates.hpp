@@ -408,8 +408,8 @@ class Templates
 			{
                 displayName = "ACR CUP";
 				class camo {
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    arid = "Arid";
+                    Default = "Temperate";
 				};
 			};
 			class AFRF
@@ -417,16 +417,16 @@ class Templates
                 displayName = "AFRF CUP";
 				class camo {
                     arctic = "Arctic";
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    arid = "Arid";
+                    Default = "Temperate";
 				};
 			};
 			class BAF
 			{
                 displayName = "BAF CUP";
 				class camo {
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    arid = "Arid";
+                    Default = "Temperate";
 				};
 			};
 			class CDF
@@ -441,8 +441,8 @@ class Templates
 			{
                 displayName = "RACS CUP";
 				class camo {
-                    tropical = "Tropical";
-					Default = "Arid";
+                    arid = "Arid";
+					Default = "Tropical";
 				};
 			};
 			class SLA
@@ -463,24 +463,24 @@ class Templates
 			{
 				displayName = "USAF CUP";
 				class camo {
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    arid = "Arid"
+                    Default = "Temperate";
 				};
 			};
 			class US_Marine
 			{
 				displayName = "USMC CUP";
 				class camo {
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    arid = "Arid"
+                    Default = "Temperate";
 				};
 			};
             class ION
 			{
 				displayName = "ION CUP";
 				class camo {
-                    Default = "Arid";
                     arctic = "Arctic";
+                    Default = "Arid";
 				};
 			};
         };

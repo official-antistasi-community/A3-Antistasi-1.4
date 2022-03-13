@@ -47,6 +47,7 @@ private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics +
 				_hasFactory = true;
 			};
 		} forEach factories;
+		if ((_x select 1 < minWeaps) && !_hasFactory) exitWith {};
 		private _item = _x select 0;
 
 		private _categories = _item call A3A_fnc_equipmentClassToCategories;

@@ -41,7 +41,12 @@ private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics +
 
 {
 	call {
-		if (_x select 1 < minWeaps) exitWith {};
+		private _hasFactory = false;
+		{
+			if (sidesX getVariable [_x,sideUnknown] = teamPlayer) then {
+				_hasFactory = true;
+			};
+		} forEach factories;
 		private _item = _x select 0;
 
 		private _categories = _item call A3A_fnc_equipmentClassToCategories;

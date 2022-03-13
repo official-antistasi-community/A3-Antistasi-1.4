@@ -38,7 +38,7 @@
 ["vehiclesAmphibious", ["CUP_I_FENNEK_HMG_ION", "CUP_I_FENNEK_GMG_ION"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["CUP_B_AV8B_DYN_USMC"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["CUP_B_F35B_BAF"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["CUP_B_SU34_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["CUP_B_C130J_USMC"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["CUP_I_MH6M_ION", "CUP_I_412_Mil_Utility_PMC"]] call _fnc_saveToTemplate;

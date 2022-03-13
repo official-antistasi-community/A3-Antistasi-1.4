@@ -40,7 +40,7 @@
 ["vehiclesAmphibious", ["CUP_I_LAV25_RACS", "CUP_I_LAV25M240_RACS", "CUP_I_AAV_RACS"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["CUP_B_A10_DYN_USA"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["CUP_B_F35B_USMC"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["CUP_I_JAS39_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["CUP_B_MV22_USMC_RAMPGUN"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["CUP_I_MH6J_RACS", "CUP_I_UH1H_RACS"]] call _fnc_saveToTemplate;

@@ -544,7 +544,7 @@ class Templates
             class tanoa
             {
                 Occ = "RACS";
-                Inv = "US_Army";
+                Inv = "US_Marine";
             };
             class malden
             {

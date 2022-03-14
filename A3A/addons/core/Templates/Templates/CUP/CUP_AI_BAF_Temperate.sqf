@@ -90,7 +90,7 @@ _loadoutData set ["missileATLaunchers", [
     ["CUP_launch_Javelin", "", "", "", ["CUP_Javelin_M"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
-    ["CUP_launch_FIM92Stinger_Loaded", "", "", "", [""], [], ""]
+    ["CUP_launch_FIM92Stinger", "", "", "", [""], [], ""]
 ]];
 _loadoutData set ["ATLaunchers", [
     ["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEDP_M", "CUP_MAAWS_HEAT_M"], [], ""]

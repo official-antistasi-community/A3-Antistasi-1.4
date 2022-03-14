@@ -95,7 +95,7 @@ _loadoutData set ["missileATLaunchers", [
 ]];
 _loadoutData set ["AALaunchers", [
     ["CUP_launch_9K32Strela", "", "", "", [""], [], ""],
-    ["CUP_launch_FIM92Stinger_Loaded", "", "", "", [""], [], ""]
+    ["CUP_launch_FIM92Stinger", "", "", "", [""], [], ""]
 ]];
 _loadoutData set ["sidearms", []];
 

@@ -82,6 +82,12 @@ private _validMuzzle = { //valid class and muzzle compatible with weapon
     if !(["CfgWeapons",_muzzle] call _validClassCaseSensitive) exitWith {false};
 
     private _compatibleMuzzles = [configFile/"CfgWeapons"/_weapon/"WeaponSlotsInfo"/"MuzzleSlot"/"compatibleItems", "CfgWeapons"] call _getCompatibleAttachements;
+
+    // cup config check 🤦
+    if (A3A_hasCUP) then { 
+        _compatibleMuzzles append ([_weapon, "muzzle"] call CBA_fnc_compatibleItems);
+    };
+
     if !(_muzzle in _compatibleMuzzles) exitWith {
         _invalidReasons pushBack ("Muzzle: "+_muzzle+" is incompatible with "+_weapon+" | Comaptible muzzles: "+ str _compatibleMuzzles);
         false;
@@ -95,6 +101,12 @@ private _validRail = { //valid class and rail compatible with weapon
 
     private _compatibleRails = [configFile/"CfgWeapons"/_weapon/"WeaponSlotsInfo"/"PointerSlot"/"compatibleItems", "CfgWeapons"] call _getCompatibleAttachements;
     _compatibleRails append ([configFile/"CfgWeapons"/_weapon/"WeaponSlotsInfo"/"AuxPointerSlot"/"compatibleItems","CfgWeapons"] call _getCompatibleAttachements);
+    
+    // cup config check 🤦
+    if (A3A_hasCUP) then { 
+        _compatibleRails append ([_weapon, "pointer"] call CBA_fnc_compatibleItems);
+    };
+
     if !(_rail in _compatibleRails) exitWith {
         _invalidReasons pushBack ("Rail: "+_rail+" is incompatible with "+_weapon+" | Comaptible rails: "+ str _compatibleRails);
         false;
@@ -106,6 +118,12 @@ private _validOptic = { //valid class and optic compatible with weapon
     if (_optic isEqualTo "") exitWith {true};
     if !(["CfgWeapons",_optic] call _validClassCaseSensitive) exitWith {false};
     private _compatibleOptics = [configFile/"CfgWeapons"/_weapon/"WeaponSlotsInfo"/"CowsSlot"/"compatibleItems", "CfgWeapons"] call _getCompatibleAttachements;
+
+    // cup config check 🤦
+    if (A3A_hasCUP) then { 
+        _compatibleOptics append ([_weapon, "optic"] call CBA_fnc_compatibleItems);
+    };
+
     if !(_optic in _compatibleOptics) exitWith {
         _invalidReasons pushBack ("Optic: "+_optic+" is incompatible with "+_weapon+" | Comaptible optics: "+ str _compatibleOptics);
         false;
@@ -154,6 +172,12 @@ private _validBipod = { //valid class and optic compatible with weapon
     if !(["CfgWeapons",_bipod] call _validClassCaseSensitive) exitWith {false};
     private _compatibleBipods = [configFile/"CfgWeapons"/_weapon/"WeaponSlotsInfo"/"UnderBarrelSlot"/"compatibleItems","CfgWeapons"] call _getCompatibleAttachements;
     _compatibleBipods append ([configFile/"CfgWeapons"/_weapon/"WeaponSlotsInfo"/"GripodSlot"/"compatibleItems","CfgWeapons"] call _getCompatibleAttachements);
+
+    // cup config check 🤦
+    if (A3A_hasCUP) then { 
+        _compatibleBipods append ([_weapon, "bipod"] call CBA_fnc_compatibleItems);
+    };
+
     if !(_bipod in _compatibleBipods) exitWith {
         _invalidReasons pushBack ("Bipod: "+_bipod+" is incompatible with "+_weapon+" | Comaptible bipods: "+ str _compatibleBipods);
         false;

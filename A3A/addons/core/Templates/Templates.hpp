@@ -392,4 +392,174 @@ class Templates
 
         Nodes[] = {"3CBBAF_Logistics_Nodes.sqf"};
     };
+    class CUP
+    {
+        priorityOcc = 6;
+        priorityInv = 6;
+        priorityReb = 6;
+        priorityCiv = 6;
+
+        requiredAddons[] = {"CUP_BaseConfigs"};
+        path = QPATHTOFOLDER(Templates\Templates\CUP);
+
+        class AI
+        {
+            class ACR
+			{
+                displayName = "ACR CUP";
+				class camo {
+                    arid = "Arid";
+                    Default = "Temperate";
+				};
+			};
+			class AFRF
+			{
+                displayName = "AFRF CUP";
+				class camo {
+                    arctic = "Arctic";
+                    arid = "Arid";
+                    Default = "Temperate";
+				};
+			};
+			class BAF
+			{
+                displayName = "BAF CUP";
+				class camo {
+                    arid = "Arid";
+                    Default = "Temperate";
+				};
+			};
+			class CDF
+			{
+                displayName = "CDF CUP";
+				class camo {
+                    arctic = "Arctic";
+					Default = "Temperate";
+				};
+			};
+			class RACS
+			{
+                displayName = "RACS CUP";
+				class camo {
+                    arid = "Arid";
+					Default = "Tropical";
+				};
+			};
+			class SLA
+			{
+                displayName = "SLA CUP";
+				class camo {
+					Default = "Temperate";
+				};
+			};
+			class TKA
+			{
+                displayName = "TKA CUP";
+				class camo {
+					Default = "Arid";
+				};
+			};
+			class US_Army
+			{
+				displayName = "USAF CUP";
+				class camo {
+                    arid = "Arid"
+                    Default = "Temperate";
+				};
+			};
+			class US_Marine
+			{
+				displayName = "USMC CUP";
+				class camo {
+                    arid = "Arid"
+                    Default = "Temperate";
+				};
+			};
+            class ION
+			{
+				displayName = "ION CUP";
+				class camo {
+                    arctic = "Arctic";
+                    Default = "Arid";
+				};
+			};
+        };
+
+        class Reb
+        {
+            class NPC
+            {
+                displayName = "NPC CUP";
+                class camo
+                {
+                    Default = "Temperate";
+                };
+            };
+			class TKL
+            {
+                displayName = "TKL CUP";
+                class camo
+                {
+                    Default = "Arid";
+                };
+            };
+        };
+
+        class Civ {};
+
+        class worldDefaults
+        {
+            class enoch
+            {
+                Occ = "ACR";
+                Inv = "AFRF";
+            };
+            class chernarus_summer
+            {
+                Occ = "CDF";
+                Inv = "AFRF";
+            };
+            class vt7
+            {
+                Occ = "ACR";
+                Inv = "BAF";
+            };
+            class chernarus_winter
+            {
+                Occ = "CDF";
+                Inv = "ION";
+            };
+            class takistan
+            {
+                Occ = "TKA";
+                Inv = "US_Army";
+                Reb = "TKL";
+            };
+            class kunduz : takistan {};
+            class sara
+            {
+                Occ = "RACS";
+                Inv = "SLA";
+            };
+            class tanoa
+            {
+                Occ = "RACS";
+                Inv = "US_Marine";
+            };
+            class malden
+            {
+                Occ = "ION";
+                Inv = "US_Marine";
+            };
+            class Default
+            {
+                Occ = "ACR";
+                Inv = "ION";
+                Reb = "NPC";
+            };
+        };
+
+
+        Nodes[] = {"CUP_Logistics_Nodes.sqf"};
+    };
 };

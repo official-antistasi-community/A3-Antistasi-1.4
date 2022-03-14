@@ -94,8 +94,8 @@ _loadoutData set ["missileATLaunchers", [
     ["CUP_launch_Javelin", "", "", "", ["CUP_Javelin_M"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
-    ["CUP_launch_9K32Strela", "", "", "", ["CUP_Strela_2_M"], [], ""],
-    ["CUP_launch_FIM92Stinger_Loaded", "", "", "", ["CUP_Stinger_M"], [], ""]
+    ["CUP_launch_9K32Strela", "", "", "", [""], [], ""],
+    ["CUP_launch_FIM92Stinger_Loaded", "", "", "", [""], [], ""]
 ]];
 _loadoutData set ["sidearms", []];
 
@@ -252,8 +252,8 @@ _sfLoadoutData set ["sniperRifles", [
     ["CUP_srifle_CZ750", "", "", "CUP_optic_LeupoldMk4", ["CUP_10Rnd_762x51_CZ750_Tracer"], [], "bipod_01_F_blk"]
 ]];
 _sfLoadoutData set ["lightATLaunchers", [
-    ["CUP_launch_RPG18", "", "", "", ["CUP_RPG18_M"], [], ""],
-    ["CUP_launch_M72A6", "", "", "", ["CUP_M72A6_M"], [], ""],
+    ["CUP_launch_RPG18", "", "", "", [""], [], ""],
+    ["CUP_launch_M72A6", "", "", "", [""], [], ""],
     ["CUP_launch_M136", "", "", "", [""], [], ""]
 ]];
 _sfLoadoutData set ["sidearms", [
@@ -335,8 +335,8 @@ _militaryLoadoutData set ["sniperRifles", [
     ["CUP_srifle_CZ750", "", "", "CUP_optic_LeupoldMk4", ["CUP_10Rnd_762x51_CZ750_Tracer"], [], "bipod_01_F_blk"]
 ]];
 _militaryLoadoutData set ["lightATLaunchers", [
-    ["CUP_launch_RPG18", "", "", "", ["CUP_RPG18_M"], [], ""],
-    ["CUP_launch_M72A6", "", "", "", ["CUP_M72A6_M"], [], ""]
+    ["CUP_launch_RPG18", "", "", "", [""], [], ""],
+    ["CUP_launch_M72A6", "", "", "", [""], [], ""]
 ]];
 _militaryLoadoutData set ["sidearms", [
     ["CUP_hgun_CZ75", "", "", "", ["CUP_16Rnd_9x19_cz75"], [], ""],
@@ -408,7 +408,7 @@ _militiaLoadoutData set ["sniperRifles", [
     ["CUP_srifle_SVD", "", "", "CUP_optic_PSO_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _militiaLoadoutData set ["lightATLaunchers", [
-    ["CUP_launch_RPG18", "", "", "", ["CUP_RPG18_M"], [], ""]
+    ["CUP_launch_RPG18", "", "", "", [""], [], ""]
 ]];
 _militiaLoadoutData set ["ATLaunchers", [
     ["CUP_launch_RPG7V", "", "", "CUP_optic_PGO7V3", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""],

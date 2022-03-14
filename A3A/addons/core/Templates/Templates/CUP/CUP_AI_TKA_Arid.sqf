@@ -90,7 +90,7 @@ _loadoutData set ["ATLaunchers", [
     ["CUP_launch_RPG7V", "", "", "CUP_optic_PGO7V3", ["CUP_OG7_M", "CUP_PG7VR_M"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
-    ["CUP_launch_9K32Strela", "", "", "", ["CUP_Strela_2_M"], [], ""]
+    ["CUP_launch_9K32Strela", "", "", "", [""], [], ""]
 ]];
 
 _loadoutData set ["sidearms", []];

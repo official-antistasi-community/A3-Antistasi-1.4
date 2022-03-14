@@ -87,7 +87,7 @@ _loadoutData set ["missileATLaunchers", [
     ["CUP_launch_M47", "", "", "", ["CUP_Dragon_EP1_M"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
-    ["CUP_launch_FIM92Stinger_Loaded", "", "", "", ["CUP_Stinger_M"], [], ""]
+    ["CUP_launch_FIM92Stinger_Loaded", "", "", "", [""], [], ""]
 ]];
 _loadoutData set ["ATLaunchers", [
     ["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEDP_M", "CUP_MAAWS_HEAT_M"], [], ""]
@@ -246,8 +246,8 @@ _sfLoadoutData set ["sniperRifles", [
     ["CUP_srifle_M24_wdl", "", "", "CUP_optic_LeupoldM3LR", ["CUP_5Rnd_762x51_M24"], [], "bipod_01_F_blk"]
 ]];
 _sfLoadoutData set ["lightATLaunchers", [
-    ["CUP_launch_M72A6", "", "", "", ["CUP_M72A6_M"], [], ""],
-    ["CUP_launch_M136", "", "", "", ["CUP_M136_M"], [], ""]
+    ["CUP_launch_M72A6", "", "", "", [""], [], ""],
+    ["CUP_launch_M136", "", "", "", [""], [], ""]
 ]];
 _sfLoadoutData set ["sidearms", [
     ["CUP_hgun_M9", "CUP_muzzle_snds_M9", "", "", ["CUP_15Rnd_9x19_M9"], [], ""]
@@ -333,7 +333,7 @@ _militaryLoadoutData set ["sniperRifles", [
     ["CUP_srifle_M40A3", "", "", "CUP_optic_LeupoldMk4_20x40_LRT", ["CUP_5Rnd_762x51_M24"], [], ""]
 ]];
 _militaryLoadoutData set ["lightATLaunchers", [
-    ["CUP_launch_M72A6", "", "", "", ["CUP_M72A6_M"], [], ""]
+    ["CUP_launch_M72A6", "", "", "", [""], [], ""]
 ]];
 _militaryLoadoutData set ["sidearms", [
     ["CUP_hgun_M9", "", "", "", ["CUP_15Rnd_9x19_M9"], [], ""],
@@ -401,7 +401,7 @@ _militiaLoadoutData set ["sniperRifles", [
     ["CUP_srifle_M24_wdl", "", "", "CUP_optic_LeupoldM3LR", ["CUP_5Rnd_762x51_M24"], [], ""]
 ]];
 _militiaLoadoutData set ["lightATLaunchers", [
-    ["CUP_launch_M72A6", "", "", "", ["CUP_M72A6_M"], [], ""]
+    ["CUP_launch_M72A6", "", "", "", [""], [], ""]
 ]];
 _militiaLoadoutData set ["sidearms", [
     ["CUP_hgun_Colt1911", "", "", "", ["CUP_7Rnd_45ACP_1911",7], [], ""]

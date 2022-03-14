@@ -85,7 +85,7 @@ _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
 _loadoutData set ["lightATLaunchers", [
-    ["CUP_launch_M72A6", "", "", "", ["CUP_M72A6_M"], [], ""]
+    ["CUP_launch_M72A6", "", "", "", [""], [], ""]
 ]];
 _loadoutData set ["ATLaunchers", [
     ["CUP_launch_Mk153Mod0_blk", "", "", "CUP_optic_SMAW_Scope", ["CUP_SMAW_HEAA_M", "CUP_SMAW_HEDP_M"], ["CUP_SMAW_Spotting"], ""],
@@ -246,7 +246,7 @@ _sfLoadoutData set ["sniperRifles", [
 ]];
 
 _sfLoadoutData set ["lightATLaunchers",[
-    ["CUP_launch_M136", "", "", "", ["CUP_M136_M"], [], ""]
+    ["CUP_launch_M136", "", "", "", [""], [], ""]
 ]];
 
 _sfLoadoutData set ["ATLaunchers", [
@@ -416,7 +416,7 @@ _militiaLoadoutData set ["sniperRifles", [
 ]];
 
 _militiaLoadoutData set ["lightATLaunchers", [
-    ["CUP_launch_M72A6", "", "", "", ["CUP_M72A6_M"], [], ""]
+    ["CUP_launch_M72A6", "", "", "", [""], [], ""]
 ]];
 _militiaLoadoutData set ["ATLaunchers", [
     ["CUP_launch_MAAWS", "", "", "", ["CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEDP_M"], [], ""]

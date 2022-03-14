@@ -553,8 +553,8 @@ class Templates
             };
             class Default
             {
-                Occ = "US_Army";
-                Inv = "AFRF";
+                Occ = "ACR";
+                Inv = "ION";
                 Reb = "NPC";
             };
         };

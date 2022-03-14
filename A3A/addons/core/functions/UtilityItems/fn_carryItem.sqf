@@ -42,14 +42,14 @@ if (_pickUp) then {
 
         _unit setVariable ["A3A_carryingObject", nil];
         _unit setVariable ['A3A_objectCarrying', nil];
-        _unit removeEventHandler ['GetInMan', _thisEventHandler];
 
     }];
 
     _player setVariable ['A3A_eventIDcarry', _eventIDcarry];
     _player setVariable ['A3A_objectCarrying', _item];
 
-    _item enableSimulationGlobal false; // prevent killing players with item
+    // prevent killing players with item
+    [_item, false] remoteExec ["enableSimulationGlobal", 0];
     _item attachTo [_player, [0, 1.5, 0.5], "Chest"];
     _player setVariable ["A3A_carryingObject", true];
     [_player ,_item] spawn {
@@ -70,7 +70,8 @@ if (_pickUp) then {
         _item setVelocity [0,0,0];
         _item setPos [getPos _item # 0, getPos _item # 1, 0];
         [_item, true] remoteExec ["enableSimulationGlobal", 0];
-        _player removeEventHandler ["GetInMan", _player getVariable ['A3A_eventIDcarry']];
+        _eventIDcarry = _player getVariable 'A3A_eventIDcarry';
+        _player removeEventHandler ["GetInMan", _eventIDcarry];
     };
     _player setVariable ["A3A_carryingObject", nil];
 };

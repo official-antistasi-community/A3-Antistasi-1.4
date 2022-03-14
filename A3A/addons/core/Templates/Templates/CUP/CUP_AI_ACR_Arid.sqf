@@ -189,7 +189,7 @@ _sfLoadoutData set ["atBackpacks", ["B_Kitbag_cbr"]];
 _sfLoadoutData set ["helmets", ["CUP_H_CZ_Helmet07", "CUP_H_CZ_Helmet08", "CUP_H_OpsCore_Spray", "CUP_H_OpsCore_Tan"]];
 _sfLoadoutData set ["slHat", ["CUP_H_CZ_Cap_Headphones_des"]];
 _sfLoadoutData set ["sniHats", ["CUP_H_CZ_Booniehat_fold_des"]];
-_sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_tan"]];
+_sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
 _sfLoadoutData set ["binoculars", ["CUP_LRTV"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 

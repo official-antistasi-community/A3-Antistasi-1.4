@@ -233,7 +233,7 @@ _sfLoadoutData set ["SMGs", [
 
 _sfLoadoutData set ["machineGuns", [
     ["CUP_lmg_Mk48", "muzzle_snds_H_MG_blk_F", "", "CUP_optic_CompM2_Black", ["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"], [], ""],
-    ["CUP_lmg_Mk48", "muzzle_snds_H_MG_blk_F", "", "CUP_optic_HensoldtZO_low_rds", ["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"], [], ""]
+    ["CUP_lmg_Mk48", "muzzle_snds_H_MG_blk_F", "", "CUP_optic_HensoldtZO_low_RDS", ["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"], [], ""]
 ]];
 
 _sfLoadoutData set ["marksmanRifles", [
@@ -405,7 +405,7 @@ _militiaLoadoutData set ["SMGs", [
 
 _militiaLoadoutData set ["machineGuns", [
     ["CUP_arifle_HK_M27_VFG", "", "", "CUP_optic_Eotech553_Black", ["CUP_60Rnd_556x45_SureFire", "CUP_60Rnd_556x45_SureFire_Tracer_Green"], [], ""],
-    ["CUP_arifle_HK_M27_VFG", "", "", "CUO_optic_vortexrazor_uh1_black", ["CUP_60Rnd_556x45_SureFire", "CUP_60Rnd_556x45_SureFire_Tracer_Green"], [], ""]
+    ["CUP_arifle_HK_M27_VFG", "", "", "CUP_optic_vortexrazor_uh1_black", ["CUP_60Rnd_556x45_SureFire", "CUP_60Rnd_556x45_SureFire_Tracer_Green"], [], ""]
 ]];
 
 _militiaLoadoutData set ["marksmanRifles", [

@@ -31,19 +31,18 @@ if (_pickUp) then {
         private _objectCarrying = _unit getVariable ['A3A_objectCarrying', nil];
 
         //remove object and find safe placement
-        private _pos = [_unit, 1, 10, 3, 0, 20, 0] call BIS_fnc_findSafePos;
-
         detach _objectCarrying;
         _unit setVelocity [0,0,0];
         _objectCarrying setVelocity [0,0,0];
-        _objectCarrying setPos [_pos # 0, _pos # 1 , 0];
+        _objectCarrying setVehiclePosition [position _unit, [], 10,"NONE"];
 
-        _objectCarrying enableSimulationGlobal true;
+        [_objectCarrying, true] remoteExec ["enableSimulationGlobal", 0];
+        
 
 
         _unit setVariable ["A3A_carryingObject", nil];
         _unit setVariable ['A3A_objectCarrying', nil];
-        _unit removeEventHandler ['GetIn', _thisEventHandler];
+        _unit removeEventHandler ['GetInMan', _thisEventHandler];
 
     }];
 
@@ -70,7 +69,7 @@ if (_pickUp) then {
         detach _item;
         _item setVelocity [0,0,0];
         _item setPos [getPos _item # 0, getPos _item # 1, 0];
-        _item enableSimulationGlobal true;
+        [_item, true] remoteExec ["enableSimulationGlobal", 0];
         _player removeEventHandler ["GetInMan", _player getVariable ['A3A_eventIDcarry']];
     };
     _player setVariable ["A3A_carryingObject", nil];

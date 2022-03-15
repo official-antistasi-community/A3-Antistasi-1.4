@@ -25,7 +25,7 @@ if(A3A_hasACE) then {
     private _vehicleMaxFuel = getNumber (_vehCfg >> "ace_refuel_fuelCargo");
     if(_vehicleMaxFuel == 0) exitwith {0};
     private _currentFuelCargo = [_vehicle] call ace_refuel_fnc_getFuel;
-	( _currentFuelCargo / _vehicleMaxFuel);
+    (_currentFuelCargo / _vehicleMaxFuel);
 } else {
-	getFuelCargo _vehicle;
+    getFuelCargo _vehicle;
 };

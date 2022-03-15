@@ -29,6 +29,7 @@ if (_pickUp) then {
         params ["_unit", "_role", "_vehicle", "_turret"];
         // get variables
         private _objectCarrying = _unit getVariable ['A3A_objectCarrying', nil];
+        if (isNil _objectCarrying) exitwith {_player removeEventHandler ["GetInMan", _thisEventHandler]};
 
         //remove object and find safe placement
         detach _objectCarrying;
@@ -49,7 +50,7 @@ if (_pickUp) then {
     _player setVariable ['A3A_objectCarrying', _item];
 
     // prevent killing players with item
-    [_item, false] remoteExec ["enableSimulationGlobal", 0];
+    [_item, false] remoteExec ["enableSimulationGlobal", 2];
     _item attachTo [_player, [0, 1.5, 0.5], "Chest"];
     _player setVariable ["A3A_carryingObject", true];
     [_player ,_item] spawn {
@@ -69,7 +70,7 @@ if (_pickUp) then {
         detach _item;
         _item setVelocity [0,0,0];
         _item setPos [getPos _item # 0, getPos _item # 1, 0];
-        [_item, true] remoteExec ["enableSimulationGlobal", 0];
+        [_item, true] remoteExec ["enableSimulationGlobal", 2];
         _eventIDcarry = _player getVariable 'A3A_eventIDcarry';
         _player removeEventHandler ["GetInMan", _eventIDcarry];
     };

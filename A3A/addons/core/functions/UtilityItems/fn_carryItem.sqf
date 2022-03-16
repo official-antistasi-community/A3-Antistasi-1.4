@@ -29,7 +29,7 @@ if (_pickUp) then {
         params ["_unit", "_role", "_vehicle", "_turret"];
         // get variables
         private _objectCarrying = _unit getVariable ['A3A_objectCarrying', nil];
-        if (isNil _objectCarrying) exitwith {_player removeEventHandler ["GetInMan", _thisEventHandler]};
+        if (isNil "_objectCarrying") exitwith {_unit removeEventHandler ["GetInMan", _thisEventHandler]};
 
         //remove object and find safe placement
         detach _objectCarrying;

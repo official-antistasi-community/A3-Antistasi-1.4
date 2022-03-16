@@ -76,7 +76,7 @@ publicVariable "campaignID";
 // Now load all other parameters, loading from save if available
 call A3A_fnc_initParams;
 
-//JNA, JNL and UPSMON. Shouldn't have any Antistasi dependencies except on parameters.
+//JNA, JNL. Shouldn't have any Antistasi dependencies except on parameters.
 call A3A_fnc_initFuncs;
 
 //Initialise variables needed by the mission.

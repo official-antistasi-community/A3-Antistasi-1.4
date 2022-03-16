@@ -65,11 +65,14 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 		[_dog] spawn A3A_fnc_guardDog;
 		};
 
-	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+	//_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+	//todo Hazey to replace this function
 
 	_groupX1 = [_pos,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
 	sleep 1;
-	_nul = [leader _groupX1, _mrk, "SAFE","SPAWNED", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+
+	//_nul = [leader _groupX1, _mrk, "SAFE","SPAWNED", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+	//todo Hazey to replace this function
 
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX1;

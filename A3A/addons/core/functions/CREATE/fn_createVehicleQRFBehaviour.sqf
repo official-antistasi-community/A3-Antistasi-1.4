@@ -51,7 +51,6 @@ switch (true) do
         private _vehWP2 = _crewGroup addWaypoint [_posDestination, 0];
         //Ever wondered why AI have instant pinpoint accuracy?
         //_vehWP2 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
-        //We could add the UPSMON routines here
         _vehWP2 setWaypointType "SAD";
         _vehWP2 setWaypointBehaviour "COMBAT";
         [_vehicle, "Inf Truck."] spawn A3A_fnc_inmuneConvoy;

@@ -7,7 +7,7 @@ _mrk setMarkerSizeLocal [300,300];
 _mrk setMarkerTypeLocal "hd_warning";
 _mrk setMarkerColorLocal "ColorRed";
 _mrk setMarkerBrushLocal "DiagGrid";
-_mrk setMarkerAlphaLocal 0;
+_mrk setMarkerAlphaLocal 1;
 private _groupX = grpNull;
 private _reset = true;
 private _civs = [];
@@ -49,8 +49,14 @@ while {true} do {
 					_civ setPosATL _posHouse;
 					[_civ] spawn A3A_fnc_CIVinit;
 					_civs pushBack _civ;
-					if (_civ == leader _civ) then {_nul = [_civ, "ambientCiv", "SAFE", "SPAWNED","NOFOLLOW", "NOVEH2","NOSHARE","DoRelax"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf)};
-					//TODO delete UPSMON
+
+					//if (_civ == leader _civ) then {_nul = [_civ, "ambientCiv", "SAFE", "SPAWNED","NOFOLLOW", "NOVEH2","NOSHARE","DoRelax"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf)};
+					//TODO Hazey To replace this function
+
+					if (_civ == leader _civ) then {
+
+					}
+
 				};
 			};
 		};

@@ -2150,11 +2150,11 @@
         <Russian>Авторы сценария</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Credits_1">
-        <Original>UPSMon by Monsada, Kronzy and Cool=Azroul13.&lt;br/&gt;Persistent Save by zooloo75.&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;JAS by Jeroen (sorry for including you that late)&lt;br/&gt;Advanced Towing by Seth Duda.</Original>
-        <German>UPSMon von Monsada, Kronzy und Cool=Azroul13.&lt;br/&gt;Persistent Save von zooloo75.&lt;br/&gt;Tags von Marker und Melbo.&lt;br/&gt;JAS von Jeroen (Entschuldige, dass es so lange gedauert hat dich hinzuzufügen)&lt;br/&gt;Advanced Towing von Seth Duda.</German>
-        <Czech>UPSMon od Monsada, Kronzy and Cool = Azroul13 &lt;br/&gt;Trvalé Uložit podle zooloo75.&lt;br/&gt;Štítky Marker a Melbo.&lt;br/&gt;JAS od Jeroen (omlouvám se za to, že jste byli pozdě)&lt;br/&gt;Štítky od Markera a Melba.&lt;br/&gt;Rozšířené tažení od Setha Dudy.</Czech>
-        <Korean>UPSMon 제공 : Monsada, Kronzy and Cool=Azroul13.&lt;br/&gt;Persistent Save 제공 : zooloo75.&lt;br/&gt;태그 제공 : Marker and Melbo.&lt;br/&gt;JAS 제공: Jeroen &lt;br/&gt;Advanced Towing 제공 : Seth Duda.</Korean>
-        <Chinesesimp>UPSMon by Monsada, Kronzy 和 Cool=Azroul13。&lt;br/&gt;Persistent Save by zooloo75。&lt;br/&gt;Tags by Marker 和 Melbo。&lt;br/&gt;JAS by Jeroen (抱歉这么晚才把你添加进来)。&lt;br/&gt;Advanced Towing by Seth Duda。</Chinesesimp>
+        <Original>Persistent Save by zooloo75.&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;JAS by Jeroen (sorry for including you that late)&lt;br/&gt;Advanced Towing by Seth Duda.</Original>
+        <German>Persistent Save von zooloo75.&lt;br/&gt;Tags von Marker und Melbo.&lt;br/&gt;JAS von Jeroen (Entschuldige, dass es so lange gedauert hat dich hinzuzufügen)&lt;br/&gt;Advanced Towing von Seth Duda.</German>
+        <Czech>Trvalé Uložit podle zooloo75.&lt;br/&gt;Štítky Marker a Melbo.&lt;br/&gt;JAS od Jeroen (omlouvám se za to, že jste byli pozdě)&lt;br/&gt;Štítky od Markera a Melba.&lt;br/&gt;Rozšířené tažení od Setha Dudy.</Czech>
+        <Korean>Persistent Save 제공 : zooloo75.&lt;br/&gt;태그 제공 : Marker and Melbo.&lt;br/&gt;JAS 제공: Jeroen &lt;br/&gt;Advanced Towing 제공 : Seth Duda.</Korean>
+        <Chinesesimp>Persistent Save by zooloo75。&lt;br/&gt;Tags by Marker 和 Melbo。&lt;br/&gt;JAS by Jeroen (抱歉这么晚才把你添加进来)。&lt;br/&gt;Advanced Towing by Seth Duda。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Credits_2">
         <Original>Mods</Original>

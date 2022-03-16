@@ -81,7 +81,6 @@ fnc_sortPlacementMarker =
 
     //Following marker are handled elsewhere
     case ("respawn");
-    case ("dummyupsmonmarker");
     case ("nato");
     case ("csat");
     case ("synd"): {};

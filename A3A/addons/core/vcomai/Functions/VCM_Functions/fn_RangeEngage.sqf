@@ -19,7 +19,7 @@ if (count _NearestEnemy > 0) then
 
 	private _ShootArray = [];
 	{
-		if (_x # 0 < 15) then
+		if (_Group knowsAbout (_x # 1) > 1.5) then
 		{
 			_ShootArray pushback (_x # 1);
 		};

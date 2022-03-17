@@ -230,6 +230,9 @@ class VCOM
 		
 		//["_Unit","_Array"] spawn VCM_fnc_3DPathDebug;
 		class 3DPathDebug {};
+		
+		//[side1, side2] call VCM_fnc_SideIsEnemy
+		class SideIsEnemy {};
 	};		
 
 };

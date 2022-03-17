@@ -17,7 +17,7 @@ private _targetSide = "";
 private _array1 = [];
 {
 	_targetSide = side _x;
-	if ([_unitSide, _targetSide] call BIS_fnc_sideIsEnemy) then {_array1 pushback _x;};
+	if ([_unitSide, _targetSide] call VCM_fnc_SideIsEnemy) then {_array1 pushback _x;};
 
 } forEach allUnits;
 _array1

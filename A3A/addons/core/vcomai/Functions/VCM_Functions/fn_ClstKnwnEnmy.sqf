@@ -13,7 +13,7 @@
 
 private _leader = leader _this;
 
-private _NearTargets = _leader nearEntities ["Man", 1000] select {[side _leader, side _x] call BIS_fnc_sideIsEnemy} apply {[_x distance2D _leader, _x]};
+private _NearTargets = _leader nearEntities ["Man", 1000] select {[side _leader, side _x] call VCM_fnc_SideIsEnemy} apply {[_x distance2D _leader, _x]};
 
 _NearTargets sort true;
 

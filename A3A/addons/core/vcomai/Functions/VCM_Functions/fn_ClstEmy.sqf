@@ -19,7 +19,7 @@ private _unitSide = (side _this);
 private _a1 = [];
 {
 	private _targetSide = side _x;
-	if ([_unitSide, _targetSide] call BIS_fnc_sideIsEnemy && {!(vehicle _X isKindOf "Air")}) then {_a1 pushback _x;};
+	if ([_unitSide, _targetSide] call VCM_fnc_SideIsEnemy && {!(vehicle _X isKindOf "Air")}) then {_a1 pushback _x;};
 } forEach allUnits;
 
 private _rtrn = [_a1,_this,true,"1"] call VCM_fnc_ClstObj;

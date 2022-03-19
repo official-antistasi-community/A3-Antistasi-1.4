@@ -71,6 +71,7 @@ class CfgFunctions
             class allMagazines {};
             class ammunitionTransfer {};
             class arsenalManage {};
+            class arsenalWarLevelUnlockIncrease {};
             class categoryOverrides {};
             class checkRadiosUnlocked {};
             class configSort {};

@@ -21,7 +21,7 @@ if (_taskTypes isEqualTypeParams ["",[],0,0]) exitWith {
     private _taskHM = createHashMapFromArray [
           ["Cfg", _cfg]
         , ["Params", _taskTypes#1]
-    ]
+    ];
 
     [_taskHM] spawn FUNC(runTask);
     true
@@ -59,7 +59,7 @@ _taskTypes = _taskTypes select {
 
         private _stage = GVAR(ChainStates) getOrDefault [_chain, 1];
         if (_stage isNotEqualTo _requiredStage) then {
-            Debug_1("%1 chain not at the required stage for task %2 | Current: %3 | Required: %4", _chain, _x, _stage, _requiredStage);
+            Debug_4("%1 chain not at the required stage for task %2 | Current: %3 | Required: %4", _chain, _x, _stage, _requiredStage);
             continueWith false;
         };
     };
@@ -68,7 +68,7 @@ _taskTypes = _taskTypes select {
     private _paramsGetter = missionNamespace getVariable getText (_cfg / "Params");
     if (isNil "_paramsGetter") then { Debug_1("No params getter for task %1", _x); continueWith false; };
     private _taskParam = call _paramsGetter;
-    private _taskParams = set [_x, _taskParam];
+    _taskParams set [_x, _taskParam];
 
     if (_taskParam isEqualType false) then { Debug_1("No valid params for task %1", _x); continueWith false; };
 

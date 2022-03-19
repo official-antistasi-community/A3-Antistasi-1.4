@@ -24,7 +24,7 @@ Vcm_Settings =
 	VCM_ARTYET = -(VCM_ARTYDELAY);
 	VCM_ARTYRT = -(VCM_ARTYDELAY);
 	VCM_ARTYSIDES = [west,east];  //Sides that will use VCOM artillery
-	VCM_AIMagLimit = 5; //Number of mags remaining before AI looks for ammo.
+	VCM_AIMagLimit = 1; //Number of mags remaining before AI looks for ammo.
 	VCM_Debug = true; //Enable debug mode.
 	VCM_MINECHANCE = 75; //Chance to lay a mine every 30 seconds or so
 	VCM_MINEENABLED = true; //Enable AI placing mines
@@ -32,18 +32,18 @@ Vcm_Settings =
 	VCM_RAGDOLL = false; //Should AI have a chance to ragdoll when hit
 	VCM_RAGDOLLCHC = 100; //CHANCE AI RAGDOLL
 	VCM_FullSpeed = false; //Enforce full speedmode during combat (Does not reset after combat end)
-	VCM_HEARINGDISTANCE = 1200; //Distance AI hear unsuppressed gunshots.
-	VCM_SUPDIST = 100; //Distance AI will hear suppressed gunshots.
-	VCM_WARNDIST = 1000; //How far AI can request help from other groups.
+	VCM_HEARINGDISTANCE = 500; //Distance AI hear unsuppressed gunshots.
+	VCM_SUPDIST = 25; //Distance AI will hear suppressed gunshots.
+	VCM_WARNDIST = 400; //How far AI can request help from other groups.
 	VCM_WARNDELAY = 30; //How long the AI have to survive before they can call in for support. This activates once the AI enter combat.
 	VCM_STATICARMT = 300; //How long AI stay on static weapons when initially arming them. This is just for AI WITHOUT static bags. They will stay for this duration when NO ENEMIES ARE SEEN, or their group gets FAR away.
 	VCM_StealVeh = false; //Will the AI steal vehicles.
 	VCM_ClassSteal = false; //If true, crewmen are required to steal tracked vehicles. Pilots are required to steal aircraft. false = anyone can steal any vehicle.
 	VCM_AIDISTANCEVEHPATH = 100; //Distance AI check from the squad leader to steal vehicles
-	VCM_ADVANCEDMOVEMENT = true; //True means AI will actively generate waypoints if no other waypoints are generated for the AI group (2 or more). False disables this advanced movements.
+	VCM_ADVANCEDMOVEMENT = false; //True means AI will actively generate waypoints if no other waypoints are generated for the AI group (2 or more). False disables this advanced movements.
 	VCM_FRMCHANGE = true; //AI GROUPS WILL CHANGE FORMATIONS TO THEIR BEST GUESS.
 	VCM_SKILLCHANGE = false; //AI Groups will have their skills changed by Vcom.
-	VCM_USECBASETTINGS = true;//If CBA is enabled on the host, use the CBA default settings. If false, use the filepatching settings instead.
+	VCM_USECBASETTINGS = false;//If CBA is enabled on the host, use the CBA default settings. If false, use the filepatching settings instead.
 	VCM_CARGOCHNG = true; //If true, Vcom will handle disembarking/re-embarking orders instead of vanilla. This is with the intention to prevent the endless embark/disembark loops AI are given.
 	VCM_TURRETUNLOAD = true;//If true = Prevents AI vehicle turret positions from leaving a vehicle just beecause it is slightly damaged. Example: leaving a tank when just the tracks are damaged.
 	VCM_DISEMBARKRANGE = 500; //How far AI will disembark from their enemies. If the vehicle is damaged, they will disembark.
@@ -54,8 +54,8 @@ Vcm_Settings =
 	Vcm_GrenadeChance = 10; //Chance the AI will throw a grenade.
 	Vcm_SmokeChance = 10; //Chance the AI will throw a smoke grenade.
 	Vcm_AI_EM = true; //Will the AI use enhanced movement to navigate around.
-	Vcm_AI_EM_CHN = 10; //Chance a group will attempt to jump over an obstacle  - every 0.5 secs
-	VCM_AI_EM_CLDWN = 10; //Time in seconds before a group will consider jumping over obstacles;
+	Vcm_AI_EM_CHN = 25; //Chance a group will attempt to jump over an obstacle  - every 0.5 secs
+	VCM_AI_EM_CLDWN = 25; //Time in seconds before a group will consider jumping over obstacles;
 
 	//AI SKILL SETTINGS HERE!!!!!!!!!!!!
 	//LOW DIFFICULTY

@@ -5,10 +5,10 @@ _group = _group call A3A_fnc_getObjectGroup;
 // Don't create waypoints on each machine
 if !(local _group) exitWith {};
 
-// Get nearestBuilding ground group leader to search.
+// Get nearestBuilding around group leader to search.
 private _building = nearestBuilding (leader _group);
 
-if ((leader _group) distanceSqr _building > 250e3) exitwith {};
+if ((leader _group) distance _building > 500) exitwith {};
 
 [_group, _building] spawn {
     params ["_group", "_building"];
@@ -19,6 +19,7 @@ if ((leader _group) distanceSqr _building > 250e3) exitwith {};
     private _wp = _group addWaypoint [getPosASL _leader, -1, currentWaypoint _group];
     private _cond = "({unitReady _x || !(alive _x)} count thisList) == count thisList";
     private _comp = format ["this setFormation '%1'; this setBehaviour '%2'; deleteWaypoint [group this, currentWaypoint (group this)];", formation _group, behaviour _leader];
+	//private _comp = deleteWaypoint [group this, currentWaypoint (group this)];
     _wp setWaypointStatements [_cond, _comp];
 
     // Prepare group to search
@@ -50,4 +51,6 @@ if ((leader _group) distanceSqr _building > 250e3) exitwith {};
         } forEach _units;
     };
     _group lockWP false;
+	_index = currentWaypoint _group;
+	_group setCurrentWaypoint [_group, _index + 1];
 };

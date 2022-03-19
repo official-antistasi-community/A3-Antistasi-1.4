@@ -31,7 +31,7 @@ _waypoint setWaypointBehaviour _behaviour;
 _waypoint setWaypointCombatMode _combat;
 _waypoint setWaypointSpeed _speed;
 _waypoint setWaypointFormation _formation;
-_waypoint setWaypointStatements ["TRUE", _onComplete];
+_waypoint setWaypointStatements ["true", _onComplete];
 _waypoint setWaypointTimeout _timeout;
 _waypoint setWaypointCompletionRadius _compRadius;
 

@@ -90,6 +90,7 @@ class CfgFunctions
             class launcherInfo {};
             class loot {};
             class randomRifle {};
+            class spawnRandomCrate {};
             class transfer {};
             class unlockEquipment {};
             class vehicleSort {};

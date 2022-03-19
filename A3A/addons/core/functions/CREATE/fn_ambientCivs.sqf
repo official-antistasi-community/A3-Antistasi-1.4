@@ -55,6 +55,7 @@ while {true} do {
 
 					if (_civ == leader _civ) then {
 						[_civ, _houseX, 100, 4, "MOVE", "SAFE", "BLUE", "NORMAL", "NO CHANGE", "this call A3A_fnc_searchNearbyBuilding", [0, 2, 16], 50] call A3A_fnc_createPatrol;
+						//[_civ, _houseX] call A3A_fnc_searchNearbyArea;
 					}
 
 				};

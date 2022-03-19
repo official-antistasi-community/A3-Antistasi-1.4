@@ -70,6 +70,8 @@ class CfgFunctions
             class clearWaypoints {};
             class createWaypoint {};
             class searchNearbyBuilding {};
+            class searchNearbyArea {};
+            class randPosArea {};
         };
 
         class Ammunition {

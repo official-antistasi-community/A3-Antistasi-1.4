@@ -91,7 +91,13 @@ if (allowDLCExpansion) then {_dlcUniforms append [];
 
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;         //These Items get added to the Arsenal
 
-["headgear", []] call _fnc_saveToTemplate;          //Headgear used by Rebell Ai until you have Armored Headgear.
+["headgear", [
+   "CUP_H_NAPA_Fedora",
+   "CUP_H_FR_BandanaGreen",
+   "CUP_H_RUS_Bandana_HS",
+   "CUP_H_C_Beanie_04",
+   "CUP_H_C_Beret_04"
+]] call _fnc_saveToTemplate;          //Headgear used by Rebell Ai until you have Armored Headgear.
 
 //////////////////////////
 //       Loadouts       //

@@ -76,7 +76,7 @@ _taskTypes = _taskTypes select {
 };
 
 private _taskTypesWeighted = [];
-{ _taskTypesWeighted append [getNumber (TASKS_CFG/_x/"Weight"), _x] } forEach _taskTypes;
+{ _taskTypesWeighted append [_x, getNumber (TASKS_CFG/_x/"Weight")] } forEach _taskTypes;
 private _selectedTask = selectRandomWeighted _taskTypesWeighted;
 if (isNil "_selectedTask") exitWith { Info_1("Unable to start a task of types: ", if ((_this#0) isEqualTo []) then {"All", _this#0}); false };
 

@@ -64,6 +64,12 @@ class CfgFunctions
             class VANTinfo {};
             class vehicleConvoyTravel {};
             class vehicleMarkers {};
+            class createPatrol {};
+            class getPosHandler {};
+            class getObjectGroup {};
+            class clearWaypoints {};
+            class createWaypoint {};
+            class searchNearbyBuilding {};
         };
 
         class Ammunition {

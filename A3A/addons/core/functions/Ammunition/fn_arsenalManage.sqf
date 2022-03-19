@@ -41,7 +41,7 @@ private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics +
 
 {
 	call {
-		if (_x select 1 < minWeaps) exitWith {};
+		if (_x select 1 < (minWeaps + (A3A_arsenalIncrease * tierWar)) exitWith {};
 		private _item = _x select 0;
 
 		private _categories = _item call A3A_fnc_equipmentClassToCategories;

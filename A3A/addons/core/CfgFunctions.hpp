@@ -149,7 +149,6 @@ class CfgFunctions
             class arePositionsConnected {};
             class joinMultipleGroups {};
             class localizar {};
-            class location {};
             class lockStatic {};
             class logPerformance {};
             class markerChange {};

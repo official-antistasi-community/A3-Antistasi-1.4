@@ -32,52 +32,27 @@ class Templates
                 };
             };
 
-            class LDF
-            {
-                class camo
-                {
-                    Default = "Enoch";
-                };
-            };
+            class LDF {};
 
             class NATO
             {
                 class camo
                 {
+                    arid = "Arid"
                     tropical = "Tropical";
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    Default = "Temperate";
                 };
             };
 
-            class AAF
-            {
-                class camo
-                {
-                    Default = "Arid";
-                };
-            };
+            class AAF {};
 
         };
 
         class Reb
         {
-            class FIA
-            {
-                class camo
-                {
-                    temperate = "Enoch";
-                    Default = "Arid";
-                };
-            };
+            class FIA {};
 
-            class SDK
-            {
-                class camo
-                {
-                    Default = "Tanoa";
-                };
-            };
+            class SDK {};
         };
 
         class Civ {}; //leave empty for a single template for this modset, file name would follow: {path}\{Modset}_{Type}.sqf
@@ -101,6 +76,11 @@ class Templates
             class tanoa: Default
             {
                 Reb = "SDK";
+            };
+
+            class enoch: Default
+            {
+                Occ = "LDF";
             };
         };
 
@@ -160,26 +140,20 @@ class Templates
             {
                 class camo
                 {
-                    temperate = "Temperate";
-                    Default = "Arid";
-                };
-            };
-
-            class CDF
-            {
-                class camo
-                {
+                    arid = "Arid";
                     Default = "Temperate";
                 };
             };
+
+            class CDF {};
 
             class USAF_Army
             {
                 displayName = "USAF";
                 class camo
                 {
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    arid = "Arid";
+                    Default = "Temperate";
                 };
             };
             class USAF_Marines
@@ -187,22 +161,15 @@ class Templates
                 displayName = "US Marines";
                 class camo
                 {
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    arid = "Arid";
+                    Default = "Temperate";
                 };
             };
         };
 
         class Reb
         {
-            class NAPA
-            {
-                class camo
-                {
-                    temperate = "Temperate";
-                    Default = "Arid";
-                };
-            };
+            class NAPA {};
         };
 
         class Civ {};
@@ -248,7 +215,6 @@ class Templates
             class TKA_East {};
             class TKA_Mix {};
             class TKA_West {};
-            class AAD {};
             class AAF {
                 displayName = "3CB AAF";
             };
@@ -256,98 +222,61 @@ class Templates
 
         class Reb
         {
-            class CNM
-            {
-                class camo
-                {
-                    Default = "Temperate";
-                };
-            };
-            class TKM
-            {
-                class camo
-                {
-                    Default = "Arid";
-                };
-            };
+            class CNM {};
+            class TKM {};
         };
 
         class Civ
         {
-            class camo //reserved classname will treate it like camo class in faction rather than faction class
-            {
-                temperate = "Temperate";
-                Default = "Arid";
+            class CHC {
+                displayName = "Chernarussian Civilians";
+            };
+            class TKC {
+                displayName = "Takistani Civilians";
             };
         };
 
         class worldDefaults
         {
-            class enoch
-            {
-                Occ = "USAF_Marines";
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
-            class chernarus_summer
-            {
-                Occ = "USAF_Marines";
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
-            class vt7
-            {
-                Occ = "USAF_Marines";
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
-            class tembelan
-            {
-                Occ = "USAF_Marines";
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
-            class chernarus_winter
-            {
-                Occ = "USAF_Marines"; //3cb factions depends on rhs and we nativly support this rhs template so this is safe
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
             class cam_lao_nam
             {
                 Occ = "CW_US";
                 Inv = "CW_SOV";
-                Reb = "CNM";
             };
             class kunduz
             {
                 Occ = "ANA";
                 Inv = "TKA_East";
                 Reb = "TKM";
+                Civ = "TKC"
             };
+            class tem_anizay : kunduz {};
             class altis
             {
                 Occ = "AAF";
+                Inv = "ADA";
+            };
+            class takistan
+            {
+                Occ = "TKA_West";
                 Inv = "TKA_East";
                 Reb = "TKM";
+                Civ = "TKC"
             };
             class tanoa
             {
                 Occ = "HIDF";
                 Inv = "CW_SOV";
-                Reb = "CNM";
             };
             class malden
             {
                 Occ = "MDF";
-                Inv = "TKA_East";
-                Reb = "TKM";
+                Inv = "ANA";
             };
             class Default
             {
-                Occ = "TKA_West";
-                Inv = "TKA_East";
-                Reb = "TKM";
+                Reb = "CNM";
+                Civ = "CHC";
             };
         };
 
@@ -376,9 +305,9 @@ class Templates
                 class camo
                 {
                     arctic = "Arctic";
-                    temperate = "Temperate";
+                    arid = "Arid";
                     tropical = "Tropical";
-                    Default = "Arid";
+                    Default = "Temperate";
                 };
             };
         };

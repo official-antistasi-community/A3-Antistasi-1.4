@@ -3,7 +3,7 @@
 * install Arma 3 Tools in the same steam library that Arma 3 is installed
 ## With Vs code Arma Dev Extension
 ### First time setup
-* Install extension from [markedplace](https://marketplace.visualstudio.com/items?itemName=ole1986.arma-dev)
+* Install extension from [marketplace](https://marketplace.visualstudio.com/items?itemName=ole1986.arma-dev)
 * configure the extension from the Antistasi workspace by opening the command pallet <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>P</kbd> and running the `Arma 3: configure` command
 * fill in the configuration `.json` file something like this
 ```json

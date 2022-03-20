@@ -46,6 +46,7 @@ sleep 1;
 
 //_nul = [leader _grp, _markerX, "SAFE", "SPAWNED", "NOVEH", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 //todo Hazey to replace this function
+diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_AS_Official#1"];
 
 {_nul = [_x,""] call A3A_fnc_NATOinit; _x allowFleeing 0} forEach units _grp;
 

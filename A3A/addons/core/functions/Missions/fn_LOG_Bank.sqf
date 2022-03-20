@@ -70,6 +70,7 @@ for "_i" from 1 to 4 do
 
 	//_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "FORTIFY"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 	//todo Hazey to replace this function
+	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_LOG_Bank#1"];
 
 	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 	_groups pushBack _groupX;

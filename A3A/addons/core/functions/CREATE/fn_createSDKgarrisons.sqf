@@ -59,6 +59,7 @@ if (_markerX != "Synd_HQ") then
 				};
 				//_nul = [leader _groupCiv, _markerX, "SAFE", "SPAWNED","NOFOLLOW", "NOSHARE","DORELAX","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 				//todo Hazey to replace this function
+				diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createSDKgarrisons#1"];
 			};
 		};
 	};
@@ -87,6 +88,7 @@ if (_typeCrew in _garrison) then
 
 		//_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: MON_artillery_add FROM: fn_createSDKgarrisons#1"];
 
 		_unit assignAsGunner _veh;
 		_unit moveInGunner _veh;
@@ -110,6 +112,7 @@ if (_typeCrew in _garrison) then
 
 		//_nul=[_x] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: MON_artillery_add FROM: fn_createSDKgarrisons#2"];
 	}
 	else
 	{
@@ -156,11 +159,13 @@ for "_i" from 0 to (count _groups) - 1 do
 	{
 		//_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOMUP","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createSDKgarrisons#2"];
 	}
 	else
 	{
 		//_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createSDKgarrisons#3"];
 	};
 };
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};

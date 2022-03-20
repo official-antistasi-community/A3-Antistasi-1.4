@@ -134,6 +134,7 @@ while {count _civilians < _numCiv} do
 
     //[leader _groupCivil, _attackDestination, "AWARE","SPAWNED","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
     //todo Hazey to replace this function
+    diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_invaderPunish#1"];
 };
 
 

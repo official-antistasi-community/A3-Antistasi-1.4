@@ -115,6 +115,7 @@ if (random 10 < 2.5) then
 
 //_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 //todo Hazey to replace this function
+diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_AS_Traitor#1"];
 
 {[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 

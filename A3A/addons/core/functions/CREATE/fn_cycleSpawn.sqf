@@ -109,6 +109,7 @@ _lineIndex = 0;
 
     //[leader _groupX, _marker, "SAFE", "RANDOMUP", "SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
     //todo Hazey to replace this function
+    diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_cycleSpawn#1"];
 
 
     private _forcePatrol = ((count _allGroups) > ((count _patrolGroups) * 3));
@@ -176,12 +177,14 @@ _patrolMarker setMarkerSizeLocal _patrolMarkerSize;
 {
   //[leader _x, _marker, "SAFE", "SPAWNED", "RANDOM", "NOFOLLOW", "NOVEH"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
   //todo Hazey to replace this function
+  diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_cycleSpawn#2"];
 
 } forEach _stayGroups;
 
 {
   //[leader _x, _patrolMarker, "SAFE", "SPAWNED", "RANDOM","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
   //todo Hazey to replace this function
+  diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_cycleSpawn#3"];
 
 } forEach _patrolGroups;
 

@@ -134,6 +134,7 @@ if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner g
 
 	//_nul = [_civ, _markerX, "SAFE", "SPAWNED","NOFOLLOW", "NOVEH2","NOSHARE","DoRelax"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 	//todo Hazey to replace this function
+	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createCIV"];
 
 	};
 

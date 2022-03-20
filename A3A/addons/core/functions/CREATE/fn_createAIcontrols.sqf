@@ -126,6 +126,7 @@ if (_isControl) then
 
 			//_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 			//todo Hazey to replace this function
+			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#1"];
 
 			// Forced non-spawner as they're very static.
 			{[_x,"",false] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
@@ -175,6 +176,7 @@ else
 
 		//_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#2"];
 
 		_typeVehX = selectRandom (_faction get "uavsPortable");
 		if !(isNil "_typeVehX") then

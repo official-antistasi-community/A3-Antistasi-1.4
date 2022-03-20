@@ -72,6 +72,7 @@ class CfgFunctions
             class searchNearbyBuilding {};
             class searchNearbyArea {};
             class randPosArea {};
+            class waypointGarrison {};
         };
 
         class Ammunition {

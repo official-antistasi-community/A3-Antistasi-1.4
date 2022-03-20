@@ -117,6 +117,7 @@ if (_patrol) then
 
 			//_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 			//todo Hazey to replace this function
+			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIResources#1"];
 
 			_groups pushBack _groupX;
 			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
@@ -158,6 +159,7 @@ if (not(_markerX in destroyedSites)) then
 		};
 		//_nul = [leader _groupX, _markerX, "SAFE", "SPAWNED","NOFOLLOW", "NOSHARE","DORELAX","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIResources#2"];
 	};
 };
 
@@ -214,11 +216,13 @@ for "_i" from 0 to (count _array - 1) do
 		//Can't we just precompile this and call this like every other funtion? Would save some time
 		//_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP","SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIResources#3"];
 	}
 	else
 	{
 		//_nul = [leader _groupX, _markerX, "SAFE","SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIResources#4"];
 	};
 	};
 

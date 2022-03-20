@@ -26,6 +26,8 @@ _groupX setVariable ["staticAutoT",true,true];
 
 //if (typeOf _static == FactionGet(reb,"staticMortar")) exitWith {_nul=[_static] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);};
 //todo Hazey to replace this function
+diag_log text format["Hazey Debug--- CALL ATTEMPT: MON_artillery_add FROM: fn_staticAutoT"];
+
 // I need to replace this with something functional
 _LeaderX = leader _groupX;
 _truckX = vehicle _LeaderX;

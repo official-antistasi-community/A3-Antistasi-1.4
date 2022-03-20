@@ -91,6 +91,8 @@ if (_patrol) then
 
 			//[leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 			//todo Hazey to replace this function
+			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIOutposts#1"];
+			[_groupX, getMarkerPos _mrk, 200, 5, "MOVE", "SAFE", "BLUE", "NORMAL", "NO CHANGE", "", [0, 2, 16]] call A3A_fnc_createPatrol;
 
 			_groups pushBack _groupX;
 			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
@@ -111,6 +113,7 @@ if ((_frontierX) and (_markerX in outposts)) then
 
 		//_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: MON_artillery_add FROM: fn_createAIOutposts#1"];
 
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
@@ -322,11 +325,15 @@ for "_i" from 0 to (count _array - 1) do
 		//Can't we just precompile this and call this like every other funtion? Would save some time
 		//_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP", "SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIOutposts#2"];
+		[_groupX, 200] call A3A_fnc_waypointGarrison;
 	}
 	else
 	{
 		//_nul = [leader _groupX, _markerX, "SAFE", "SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 		//todo Hazey to replace this function
+		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIOutposts#3"];
+		[_groupX, 200] call A3A_fnc_waypointGarrison;
 	};
 };//TODO need delete UPSMON link
 

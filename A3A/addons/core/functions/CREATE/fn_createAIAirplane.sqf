@@ -133,6 +133,8 @@ if (_patrol) then
 
 			//_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 			//todo Hazey to replace this function
+			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAiAirplane#1"];
+			[_groupX, getMarkerPos _mrk, 300, 5, "MOVE", "SAFE", "BLUE", "NORMAL", "NO CHANGE", "", [0, 2, 16]] call A3A_fnc_createPatrol;
 
 			_groups pushBack _groupX;
 			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
@@ -151,6 +153,7 @@ _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 
 	//_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
 	//todo Hazey to replace this function
+	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAiAirplane#2"];
 
 	_unit = [_groupX, _typeUnit, _positionX, [], 0, "CAN_COLLIDE"] call A3A_fnc_createUnit;
 	[_unit,_markerX] call A3A_fnc_NATOinit;
@@ -307,7 +310,7 @@ _countX = 0;
 _radiusX = _radiusX -1;
 while {_countX <= _radiusX} do
 	{
-	_array pushBack (_garrison select [_countX,7]);
+	_array pushBack (_garrison select [_countX, 7]);
 	_countX = _countX + 8;
 	};
 for "_i" from 0 to (count _array - 1) do
@@ -317,6 +320,9 @@ for "_i" from 0 to (count _array - 1) do
 	{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 
 	//if (_i == 0) then {_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP","SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf)} else {_nul = [leader _groupX, _markerX, "SAFE","SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf)};
+	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAiAirplane#3"];
+	//[_groupX, getMarkerPos _markerX, 200, 4, "MOVE", "SAFE", "BLUE", "FULL", "NO CHANGE", "[this, 100] call A3A_fnc_waypointGarrison", [0, 2, 16]] call A3A_fnc_createPatrol;
+	[_groupX, 300] call A3A_fnc_waypointGarrison;
 	};
 	//todo Hazey to replace this function
 

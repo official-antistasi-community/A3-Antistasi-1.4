@@ -30,6 +30,14 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 				private _radioName = getText(configfile >> "CfgWeapons" >> _item >> "tf_parent");
 				if!(_radioName isEqualTo "")then{_item = _radioName};
 
+				//Weapon Stack fix
+				private _weaponname = getText(configfile >> "CfgWeapons" >> _item >> "baseWeapon");
+				if!(_weaponname isEqualTo "")then{_item = _weaponname};
+
+				//RHS Sight Stack fix
+				private _sightname = getText(configfile >> "CfgWeapons" >> _item >> "rhs_optic_base");
+				if!(_sightname isEqualTo "")then{_item = _sightname};
+				
 				//ACRE fix
 				private _radioName = getText(configfile >> "CfgVehicles" >> _item >> "acre_baseClass");
 				if!(_radioName isEqualTo "")then{_item = _radioName};
@@ -42,3 +50,4 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 		};
 	} forEach _x;
 }foreach _array;
+

@@ -5,13 +5,11 @@ _group = _group call A3A_fnc_getObjectGroup;
 // Don't create waypoints on each machine.
 if !(local _group) exitWith {};
 
-diag_log text format["Hazey Debug--- Building Search Started: %1", _group];
-
 // Get nearestBuilding around group leader to search.
 private _buildings = nearestObjects [leader _group, ["House", "Building"], 50];
 
 // Exit if no buildings are found around group leader.
-if (count _buildings == 0) exitwith {diag_log text format["Hazey Debug--- No buildings found near group: %1 - Exiting", _group];};
+if (count _buildings == 0) exitwith {};
 
 // Get random building inside the building array.
 private _building = selectRandom _buildings;
@@ -55,7 +53,6 @@ if ((leader _group) distance _building > 250) exitwith {};
             if (unitReady _x) then {
                 private _pos = _positions deleteAt 0;
                 _x commandMove _pos;
-                diag_log text format["Hazey Debug--- Searching Building pos: %1, Group: %2", _pos, _group];
                 sleep 5;
             };
         } forEach _units;
@@ -66,5 +63,4 @@ if ((leader _group) distance _building > 250) exitwith {};
     // If current waypoint is not advanced +1 the group will bounce back to the initial waypoint and call search again.
 	_index = currentWaypoint _group;
 	_group setCurrentWaypoint [_group, _index + 1];
-    diag_log text format["Hazey Debug--- Building Search Completed: %1", _group];
 };

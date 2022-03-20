@@ -21,23 +21,15 @@ _position = _position call A3A_fnc_getPosHandler;
 
 // Can pass parameters straight through to createWaypoint
 _this =+ _this;
-_this set [2,-1];
+_this set [2, -1];
 if (count _this > 3) then {
     _this deleteAt 3;
 };
 
-// Using angles create better patrol patterns
-// Also fixes weird editor bug where all WP are on same position
-private _step = 360 / _count;
-private _offset = random _step;
 for "_i" from 1 to _count do {
-    // Gaussian distribution avoids all waypoints ending up in the center
-    private _rad = _radius * random [0.1, 0.75, 1];
+    _randomPosMapNoWater = [[[_position, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
 
-    // Alternate sides of circle & modulate offset
-    private _theta = (_i % 2) * 180 + sin (deg (_step * _i)) * _offset + _step * _i;
-
-    _this set [1, _position getPos [_rad, _theta]];
+    _this set [1, _randomPosMapNoWater];
     _this call A3A_fnc_createWaypoint;
 };
 

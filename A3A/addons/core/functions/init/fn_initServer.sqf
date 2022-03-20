@@ -240,4 +240,7 @@ savingServer = false;
 		sleep _logPeriod;
 	};
 };
+
+[] spawn VCM_fnc_VcomInit;
+
 Info("initServer completed");

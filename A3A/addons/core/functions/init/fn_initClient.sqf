@@ -82,7 +82,7 @@ else {
 	waitUntil {!isNil "serverInitDone"};
 };
 
-[] spawn A3A_fnc_ambientCivs;
+//[] spawn A3A_fnc_ambientCivs;
 
 disableUserInput false;
 player setVariable ["spawner",true,true];

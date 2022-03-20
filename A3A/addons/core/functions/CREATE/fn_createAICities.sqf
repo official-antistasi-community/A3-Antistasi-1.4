@@ -64,8 +64,10 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 			};
 		};
 
-	//_nul = [leader _groupX, _markerX, "SAFE", "RANDOM", "SPAWNED","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+	//_nul = [leader _groupX, _markerX, "SAFE", "RANDOM", "SPAWNED","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 	//todo Hazey to replace this function
+
+	[_groupX, getMarkerPos _markerX, 300, 5, "MOVE", "SAFE", "BLUE", "NORMAL", "NO CHANGE", "this call A3A_fnc_searchNearbyBuilding", [0, 2, 16]] call A3A_fnc_createPatrol;
 
 	_groups pushBack _groupX;
 	_countX = _countX + 1;

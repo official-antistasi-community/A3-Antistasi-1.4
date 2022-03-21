@@ -14,7 +14,8 @@
 
 private _hasMine = false;
 private _magsAmmo = magazinesAmmo _this;
-private "_pushArray";
+private _pushArray = [];
+
 if (isNil "_magsAmmo") exitWith {_pushArray = [false,[],false,[]];_pushArray};
 private _hasSatchel = false;
 private _actualObj = [];
@@ -22,19 +23,20 @@ private _satchelArray = [];
 
 {
 	private _mag = _x select 0;
-	private _value = (configfile >> "CfgMagazines" >> _mag >> "nameSound") call BIS_fnc_getCfgData;
+	private _Ammo = (configfile >> "CfgMagazines" >> _mag >> "ammo") call BIS_fnc_getCfgData;
+	private _AmmoType = (configfile >> "CfgAmmo" >> _Ammo >> "explosionType") call BIS_fnc_getCfgData;
 	
-	if (_value isEqualTo "satchelcharge") then 
+	if (!(isNil "_AmmoType") && {_AmmoType isEqualTo "bomb"}) then 
 	{
 		
-		_satchelArray pushback [((configfile >> "CfgMagazines" >> _mag >> "ammo") call BIS_fnc_getCfgData),_mag];
+		_satchelArray pushback [_Ammo,_mag];
 		_hasSatchel = true;
 
 	};
-	if (_value isEqualTo "mine") then
+	if (!(isNil "_AmmoType") && {_AmmoType isEqualTo "mine"}) then
 	{
 		_hasMine = true;
-		_actualObj pushback [((configfile >> "CfgMagazines" >> _mag >> "ammo") call BIS_fnc_getCfgData),_mag];		
+		_actualObj pushback [_Ammo,_mag];		
 	};
 	
 	
@@ -43,3 +45,4 @@ private _satchelArray = [];
 _pushArray = [_hasSatchel,_actualObj,_hasMine,_satchelArray];
 
 _pushArray
+

@@ -3,8 +3,6 @@ params [
     ["_position", [], [[], objNull, grpNull, locationNull], [2, 3]],
     ["_radius", 100, [0]],
     ["_count", 3, [0]],
-    ["_blackList"],
-    ["_optionalCode"],
     ["_type", "MOVE", [""]],
     ["_behaviour", "UNCHANGED", [""]],
     ["_combat", "NO CHANGE", [""]],
@@ -12,7 +10,9 @@ params [
     ["_formation", "NO CHANGE", [""]],
     ["_onComplete", "", [""]],
     ["_timeout", [0,0,0], [[]], 3],
-    ["_compRadius", 25, [0]]
+    ["_compRadius", 25, [0]],
+    ["_blackList", "", [""]],
+    ["_onRoad", false, [false]]
 ];
 
 _group = _group call A3A_fnc_getObjectGroup;
@@ -32,8 +32,13 @@ _position = _position call A3A_fnc_getPosHandler;
 private _possibleWaypointLocations = [];
 
 for "_i" from 1 to _count + 5 do {
-    private _randomPosMapNoWater = [[[_position, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
-
+    private _randomPosMapNoWater = [];
+    if (_onRoad) then {
+        _randomPosMapNoWater = [[[_position, _radius]], [_blackList], { isOnRoad _this }] call BIS_fnc_randomPos;
+    } else { 
+        _randomPosMapNoWater = [[[_position, _radius]], [_blackList], {}] call BIS_fnc_randomPos;
+    };
+   
     if ((count _randomPosMapNoWater) == 3) then {
         _possibleWaypointLocations pushBack _randomPosMapNoWater;
     };

@@ -45,6 +45,8 @@ if (count _assignedPairs isEqualTo 0) exitWith {};
 		private _assignedGunner = assignedGunner _weap;
 		if (isNull _assignedGunner) then
 		{
+			_unit setCombatBehaviour "SAFE"; 
+			_unit setUnitCombatMode "BLUE";		
 			_unit doMove (getposATL _weap);
 			_unit assignAsGunner _weap;
 			[_unit] orderGetIn true;
@@ -54,6 +56,8 @@ if (count _assignedPairs isEqualTo 0) exitWith {};
 				sleep 1;
 			};
 			_unit moveInGunner _weap;
+			_unit setCombatBehaviour "AWARE"; 
+			_unit setUnitCombatMode "YELLOW";					
 			[_unit,_weap] spawn
 			{
 				params ["_unit","_weap"];

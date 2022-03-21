@@ -1,0 +1,226 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, ForceMoveFSM">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin_State",0,250,0.000000,700.000000,100.000000,750.000000,0.000000,"Begin State"};
+item1[] = {"True",8,218,0.000000,600.000000,100.000000,650.000000,0.000000,"True"};
+item2[] = {"Check_State",2,250,0.000000,500.000000,100.000000,550.000000,0.000000,"Check State"};
+item3[] = {"Wait",4,218,125.000000,500.000000,225.000000,550.000000,1.000000,"Wait"};
+item4[] = {"At_Point",4,218,0.000000,400.000000,100.000000,450.000000,3.000000,"At" \n "Point"};
+item5[] = {"Dead",4,218,-100.000000,400.000000,0.000000,450.000000,4.000000,"Dead"};
+item6[] = {"End",1,4346,0.000000,225.000000,100.000000,275.000000,0.000000,"End"};
+item7[] = {"Timeout",4,218,100.000000,400.000000,200.000000,450.000000,2.000000,"Timeout"};
+item8[] = {"Near_Enemy",4,218,200.000000,400.000000,300.000000,450.000000,1.000000,"Near" \n "Enemy"};
+item9[] = {"End_1",1,250,200.000000,225.000000,300.000000,275.000000,0.000000,"End"};
+item10[] = {"Clearing_Structu",4,218,-200.000000,400.000000,-100.000000,450.000000,0.000000,"Clearing" \n "Structure"};
+item11[] = {"End_2",1,250,-200.000000,225.000000,-100.000000,275.000000,0.000000,"End"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,4};
+link4[] = {2,5};
+link5[] = {2,7};
+link6[] = {2,8};
+link7[] = {2,10};
+link8[] = {3,2};
+link9[] = {4,6};
+link10[] = {5,6};
+link11[] = {7,6};
+link12[] = {8,9};
+link13[] = {10,11};
+globals[] = {0.000000,0,0,0,0,640,480,2,668,6316128,1,-225.417191,475.136780,786.542908,204.325745,740,615,1};
+window[] = {0,-1,-1,-1,-1,1021,234,1689,234,1,758};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "ForceMoveFSM";
+        class States
+        {
+                /*%FSM<STATE "Begin_State">*/
+                class Begin_State
+                {
+                        name = "Begin_State";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"params [""_Unit"",""_Position"",""_Perc"",""_Timeout"",[""_forcespeed"",-1],[""_NoWait"",false],[""_ClearingStructure"",false]];" \n
+                         "private _TimeOut = time + _Timeout;" \n
+                         "" \n
+                         "private _Squad = group _Unit;" \n
+                         "_Unit disableAI ""AUTOCOMBAT"";" \n
+                         "_Unit doWatch objNull;" \n
+                         "_Unit forcespeed _forcespeed;" \n
+                         "_Unit setCombatBehaviour ""AWARE""; " \n
+                         "_Unit setUnitCombatMode ""BLUE"";" \n
+                         "private _EngagedEnemy = getAttackTarget _unit;" \n
+                         "private _SquadFSM = _Squad getvariable ""VCOM_FSMH"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "True">*/
+                                class True
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Check_State";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[_Unit,_Position] spawn {params [""_Unit"",""_Position""];sleep 1;_Unit domove _Position;" \n
+                                         "_Unit moveto _Position;};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_State">*/
+                class Check_State
+                {
+                        name = "Check_State";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
+                         "_t = time;" \n
+                         "" \n
+                         "private _SeeValue = [];" \n
+                         "private _AreaCnt = (allunits select {[(side _Unit), (side _x)] call BIS_fnc_sideIsEnemy}) inAreaArray [(getpos _Unit), 50, 50, 0, false, -1];" \n
+                         "" \n
+                         "private _NrstEnemy = objnull;" \n
+                         "if (count _AreaCnt > 0) then" \n
+                         "{" \n
+                         "	_NrstEnemy = [_AreaCnt,_Unit,true] call VCM_fnc_ClstObj;" \n
+                         "	_SeeValue = lineIntersectsSurfaces [eyePos _NrstEnemy, eyepos _Unit, _NrstEnemy, _Unit, true, 1];" \n
+                         "};" \n
+                         "" \n
+                         "" \n
+                         "if (VCM_DebugCombatMove) then" \n
+                         "{" \n
+                         "	_CustomPos = [(_Position#0),(_Position#1),((_Position#2)+15)];" \n
+                         "	private _veh = createVehicle [""Sign_Arrow_Large_Green_F"", _CustomPos, [], 0, ""CAN_COLLIDE""];" \n
+                         "	_veh enablesimulation false;" \n
+                         "	_veh spawn {sleep 30;deletevehicle _this};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Dead">*/
+                                class Dead
+                                {
+                                        itemno = 5;
+                                        priority = 4.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive _Unit)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "At_Point">*/
+                                class At_Point
+                                {
+                                        itemno = 4;
+                                        priority = 3.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_Unit distance2d _Position < _Perc"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 7;
+                                        priority = 2.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _TimeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Near_Enemy">*/
+                                class Near_Enemy
+                                {
+                                        itemno = 8;
+                                        priority = 1.000000;
+                                        to="End_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count _SeeValue) > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 3;
+                                        priority = 1.000000;
+                                        to="Check_State";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 0.25"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Clearing_Structu">*/
+                                class Clearing_Structu
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="End_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_ClearingStructure) && {_SquadFSM getFSMVariable [""_ActivelyClearing"",false]}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"if !(_NoWait) then {_Unit spawn {sleep 1.5;_this forcespeed 0;};} else {_Unit forcespeed 0;};" \n
+                         "_Unit setCombatBehaviour ""COMBAT""; " \n
+                         "_Unit setUnitCombatMode ""YELLOW"";" \n
+                         "_Unit enableAI ""AUTOCOMBAT"";" \n
+                         "if (VCM_DebugCombatMove) then{[_Unit,""MADE TO POSITION"",10] call VCM_fnc_DebugText;};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End_1">*/
+                class End_1
+                {
+                        name = "End_1";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"_Unit setCombatBehaviour ""AWARE""; " \n
+                         "_Unit setUnitCombatMode ""YELLOW"";" \n
+                         "_Unit enableAI ""AUTOCOMBAT"";" \n
+                         "_Unit forcespeed -1;" \n
+                         "_Unit dotarget _NrstEnemy;" \n
+                         "if (VCM_DebugCombatMove) then{[_Unit,(format [""SEEN TARGET: %1"",_NrstEnemy]),10] call VCM_fnc_DebugText;};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End_2">*/
+                class End_2
+                {
+                        name = "End_2";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"_Unit setUnitCombatMode ""YELLOW"";" \n
+                         "_Unit forcespeed -1;" \n
+                         "if (VCM_DebugCombatMove) then{[_Unit,""CLEARING STRUCTURE"",10] call VCM_fnc_DebugText;};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin_State";
+        finalStates[] =
+        {
+                "End",
+                "End_1",
+                "End_2",
+        };
+};
+/*%FSM</COMPILE>*/

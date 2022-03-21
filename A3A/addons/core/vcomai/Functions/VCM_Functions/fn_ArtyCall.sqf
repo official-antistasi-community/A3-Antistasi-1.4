@@ -25,7 +25,7 @@ VLS fireAtTarget [TARGET, "weapon_vls_01"];
 params ["_callGrp","_enemyGrp","_AvgKnw","_PredictedLoc"];
 private _CallSide = (side _callGrp);
 
-private _LazClass = "LaserTargetE";
+private _LazClass = "";
 switch (_CallSide) do 
 {
 	case (west): {_LazClass = "LaserTargetE";};
@@ -104,7 +104,7 @@ switch (true) do
 	case (_AvgKnw > 100): {_MinRDist = 1;_MaxRDist = 25;_RndNumber = 3;};
 };
 
-	if (VCM_Debug) then {systemChat (format ["_AvgKnw: %1  _RndNumber: %2",_AvgKnw,_RndNumber])};
+	if (VCM_DebugOld) then {systemChat (format ["_AvgKnw: %1  _RndNumber: %2",_AvgKnw,_RndNumber])};
 
 {
 	if (_x isKindOf "LandVehicle") then
@@ -121,7 +121,7 @@ switch (true) do
 private _FinalArtyArray = [];
 private _FinalAmmoType = [];
 private _SmokeArray = [];
-if (VCM_Debug) then {systemChat (format ["count _VCnt: %1",(count _VCnt)])};
+if (VCM_DebugOld) then {systemChat (format ["count _VCnt: %1",(count _VCnt)])};
 if (count _VCnt > 0) then
 {
 	{
@@ -141,7 +141,7 @@ if (count _VCnt > 0) then
 	_CallSide reportRemoteTarget [_VAttached, 120];
 	_VAttached confirmSensorTarget [_CallSide, true];
 	
-	if (VCM_Debug) then {systemChat (format ["_LazTarget: %1 Attached To: %2",_LazTarget,(typeOf _VAttached)])};
+	if (VCM_DebugOld) then {systemChat (format ["_LazTarget: %1 Attached To: %2",_LazTarget,(typeOf _VAttached)])};
 }
 else
 {
@@ -152,11 +152,7 @@ else
 		{
 			{
 				private _Type = getText(configfile/"CfgMagazines"/_x/"displayNameShort");
-				if (!(["AT", _Type] call BIS_fnc_inString) && !(["Smoke", _Type] call BIS_fnc_inString)) then 
-				{
-					_FinalArtyArray pushBackUnique _Unit;
-					_FinalAmmoType pushBackUnique _x;
-				};
+				if (["HE", _Type] call BIS_fnc_inString || ["Cluster", _Type] call BIS_fnc_inString && !(["AT", _Type] call BIS_fnc_inString)) then {_FinalArtyArray pushBackUnique _Unit;_FinalAmmoType pushBackUnique _x;};
 				if (["Smoke", _Type] call BIS_fnc_inString) then {_SmokeArray pushBackUnique _x;};
 			} foreach _ammoArray;		
 		};	
@@ -165,7 +161,7 @@ else
 };
 
 
-if (VCM_Debug) then {systemChat (format ["_clstGrp: %1  _FinalAmmoType: %2",_clstGrp,_FinalAmmoType])};
+if (VCM_DebugOld) then {systemChat (format ["_clstGrp: %1  _FinalAmmoType: %2",_clstGrp,_FinalAmmoType])};
 
 //Now let's fire
 private _RndSelEnmy = selectRandom _AllEmyUnits;
@@ -175,12 +171,12 @@ private _PredictedLoc2 = ((leader _callGrp) targetKnowledge (vehicle _RndSelEnmy
 private _aVehGrpUnits = [];
 {_aVehGrpUnits pushback (vehicle _x)} foreach _FinalArtyArray;
 private _randomAmmoArray = selectRandom _FinalAmmoType;
-if (isNil "_randomAmmoArray") exitWith {If (VCM_Debug) then {[(leader _clstGrp),"NO AMMO"] call VCM_fnc_DebugText;};};
+if (isNil "_randomAmmoArray") exitWith {If (VCM_DebugOld) then {[(leader _clstGrp),"NO AMMO"] call VCM_fnc_DebugText;};};
 
 
 //Exit if group cannot reach.
 private _continueFiring = _PredictedLoc2 inRangeOfArtillery [_aVehGrpUnits,_randomAmmoArray];
-if !(_continueFiring) exitWith {If (VCM_Debug) then {[(leader _clstGrp),"NOT APPROPRIATE RANGE"] call VCM_fnc_DebugText;};};
+if !(_continueFiring) exitWith {If (VCM_DebugOld) then {[(leader _clstGrp),"NOT APPROPRIATE RANGE"] call VCM_fnc_DebugText;};};
 
 
 //Make sure we do minimal friendly fire.
@@ -194,14 +190,14 @@ if (_RndNumber isEqualTo 1) then
 		private _pos = _PredictedLoc2;		
 		private _positions = _pos getPos [_dist,(random 360)];
 		private _CF = [_FriendlyArray,_positions,true,"Arty1"] call VCM_fnc_ClstObj;
-		if (_CF distance2D _positions > 50) then
+		if (_CF distance2D _positions > 100) then
 		{
 			_FireUnit doArtilleryFire [_positions,_randomAmmoArray,_RndNumber];	
-			If (VCM_Debug) then {[(leader _clstGrp),"DO FIRE"] call VCM_fnc_DebugText;};
+			If (VCM_DebugOld) then {[(leader _clstGrp),"DO FIRE"] call VCM_fnc_DebugText;};
 		}
 		else
 		{
-			If (VCM_Debug) then {[(leader _clstGrp),"SMOKE FIRE"] call VCM_fnc_DebugText;};
+			If (VCM_DebugOld) then {[(leader _clstGrp),"SMOKE FIRE"] call VCM_fnc_DebugText;};
 			if (count _SmokeArray > 0) then
 			{
 				_FireUnit doArtilleryFire [_positions,(selectRandom _SmokeArray),_RndNumber];	
@@ -215,10 +211,10 @@ else
 		private _pos = _PredictedLoc2;
 		private _positions = _pos getPos [_dist,(random 360)];
 		private _CF = [_FriendlyArray,_positions,true,"Arty1"] call VCM_fnc_ClstObj;
-		If (VCM_Debug) then {[(leader _clstGrp),"DO FIRE 2"] call VCM_fnc_DebugText;};
+		If (VCM_DebugOld) then {[(leader _clstGrp),"DO FIRE 2"] call VCM_fnc_DebugText;};
 		if (_CF distance2D _positions > 50) then
 		{
-			_x doArtilleryFire [_positions,_randomAmmoArray,_RndNumber];
+			_x doArtilleryFire [_positions,_randomAmmoArray,_RndNumber];	
 		}
 		else
 		{

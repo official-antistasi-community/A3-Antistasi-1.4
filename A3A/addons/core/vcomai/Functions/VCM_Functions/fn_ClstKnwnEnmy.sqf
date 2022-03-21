@@ -11,10 +11,23 @@
 		nil
 */
 
-private _leader = leader _this;
+private _NearTargets = (leader _this) neartargets 2000; 
 
-private _NearTargets = _leader nearEntities ["Man", 1000] select {[side _leader, side _x] call VCM_fnc_SideIsEnemy} apply {[_x distance2D _leader, _x]};
+private _unitSide = side _this;
+private _a1 = [];
+{
 
-_NearTargets sort true;
+	if ([_unitSide, (_x # 2)] call BIS_fnc_sideIsEnemy && {!((_x # 1) isKindOf "Air")}) then
+	{
+		_a1 pushback [(_x # 5),(_x # 4)];
+	};
+} foreach _NearTargets;
 
-_NearTargets
+
+if (count _a1 > 0) then
+{
+	_a1 sort true;
+};
+
+
+_a1

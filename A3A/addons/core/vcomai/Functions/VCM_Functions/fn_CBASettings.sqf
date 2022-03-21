@@ -1,9 +1,25 @@
-[] spawn
-{
-	sleep 1;
-	waitUntil {!(isNil "CBAACT")};
-	if (CBAACT && VCM_USECBASETTINGS) then
+	/*
+	sleep 5;
+	waitUntil 
 	{
+		//CBA CHECK
+		if (isClass(configFile >> "CfgPatches" >> "cba_main")) then {CBAACT = true;} else {CBAACT = false;};
+		sleep 1;
+		!(isNil "CBAACT")
+	};
+	waituntil
+	{
+		time > 1
+	};
+	*/
+	
+	//CBA CHECK
+	if (isClass(configFile >> "CfgPatches" >> "cba_main")) then {CBAACT = true;} else {CBAACT = false;};	
+	if (CBAACT) then
+	{
+		Vcm_ConfigVersion="3.4.1 CBA Settings";
+
+		
 		[
 			"VCM_ActivateAI", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
 			"CHECKBOX", // setting type
@@ -32,18 +48,70 @@
 		] call CBA_Settings_fnc_init;	
 		
 		[
-			"VCM_Debug", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"VCM_DebugOld", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
 			"CHECKBOX", // setting type
-			"Enable Debug Mode. Mostly systemchat messages.", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"Old Debug Code Variable - Placeholder.", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			false,// data for this setting:
 			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{  
 				params ["_value"];
-				VCM_Debug = _value;
+				VCM_DebugOld = _value;
 			} // function that will be executed once on mission start and every time the setting is changed.
 		] call CBA_Settings_fnc_init;
-		
+
+		[
+			"VCM_DebugFSM", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"CHECKBOX", // setting type
+			"Enable FSM Debug Code", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			false,// data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{  
+				params ["_value"];
+				VCM_DebugFSM = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;
+	
+		[
+			"VCM_DebugAIPathing", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"CHECKBOX", // setting type
+			"Enable AI Pathing Debug", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			false,// data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{  
+				params ["_value"];
+				VCM_DebugAIPathing = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;
+	
+		[
+			"VCM_DebugSuppression", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"CHECKBOX", // setting type
+			"Enable AI Suppression Debug", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			false,// data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{  
+				params ["_value"];
+				VCM_DebugSuppression = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;	
+
+		[
+			"VCM_DebugCombatMove", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"CHECKBOX", // setting type
+			"Enable AI Combat Movement Debug", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			false,// data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{  
+				params ["_value"];
+				VCM_DebugCombatMove = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;	
+
 		[
 			"VCM_SIDEENABLED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
 			"LIST", // setting type
@@ -81,19 +149,7 @@
 				params ["_value"];
 				VCM_ARTYSIDES = _this;
 			} // function that will be executed once on mission start and every time the setting is changed.
-		] call CBA_Settings_fnc_init;		
-		[
-			"VCM_MEDICALACTIVE", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-			"CHECKBOX", // setting type
-			"AI attempt to heal themselves. Medics heal others.", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-			true,// data for this setting:
-			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-			{  
-				params ["_value"];
-				VCM_MEDICALACTIVE = _value;
-			} // function that will be executed once on mission start and every time the setting is changed.
-		] call CBA_Settings_fnc_init;		
+		] call CBA_Settings_fnc_init;
 		
 		[
 			"VCM_CARGOCHNG", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
@@ -136,6 +192,44 @@
 		] call CBA_Settings_fnc_init;
 		
 		
+		[
+			"VCM_AISkills_General_EM", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"CHECKBOX", // setting type
+			"AI will use Enhanced Movement", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			true,// data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{  
+				params ["_value"];
+				Vcm_AI_EM = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;	
+		
+		[
+			"VCM_AISkills_General_EM_CHN", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"SLIDER", // setting type
+			"Chance AI use EM - checks every 0.5 secs", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			[0,100,10,0], // data for this setting: [min, max, default, number of shown trailing decimals]
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{  
+				params ["_value"];
+				Vcm_AI_EM_CHN = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;		
+	
+		[
+			"VCM_AISkills_General_EM_CLDWN", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"SLIDER", // setting type
+			"Cool down on Enhanced Movement - in secs", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			[0,1000,10,0], // data for this setting: [min, max, default, number of shown trailing decimals]
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{  
+				params ["_value"];
+				VCM_AI_EM_CLDWN = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;
 		
 		[
 			"VCM_StealVeh", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
@@ -188,6 +282,33 @@
 				VCM_ADVANCEDMOVEMENT = _value;
 			} // function that will be executed once on mission start and every time the setting is changed.
 		] call CBA_Settings_fnc_init;
+		
+		[
+			"Vcm_IdleAnimationsEnabled", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"CHECKBOX", // setting type
+			"AI use additional idle animations", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			true,// data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{  
+				params ["_value"];
+				Vcm_IdleAnimationsEnabled = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;		
+	
+		[
+			"Vcm_IdleAnimationChnc", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"SLIDER", // setting type
+			"Chance an AI will play an idle animation.	", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			[0,100,2,0], // data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{  
+				params ["_value"];
+				Vcm_IdleAnimationChnc = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;	
+
 		
 		[
 			"VCM_FRMCHANGE", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
@@ -269,19 +390,6 @@
 		] call CBA_Settings_fnc_init;
 		
 		[
-			"VCM_SUPDIST", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-			"SLIDER", // setting type
-			"Distance AI can hear suppressed gunfire.", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-			[0,10000,200,0], // data for this setting:
-			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-			{  
-				params ["_value"];
-				VCM_SUPDIST = _value;
-			} // function that will be executed once on mission start and every time the setting is changed.
-		] call CBA_Settings_fnc_init;		
-		
-		[
 			"VCM_WARNDIST", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
 			"SLIDER", // setting type
 			"Distance AI will call for reinforcements from.", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
@@ -320,18 +428,6 @@
 			} // function that will be executed once on mission start and every time the setting is changed.
 		] call CBA_Settings_fnc_init;
 		
-		[
-			"VCM_MINEENABLED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-			"CHECKBOX", // setting type
-			"Enable AI placing mines", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-			true,// data for this setting:
-			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-			{  
-				params ["_value"];
-				VCM_MINEENABLED = _value;
-			} // function that will be executed once on mission start and every time the setting is changed.
-		] call CBA_Settings_fnc_init;
 		
 		[
 			"VCM_MINECHANCE", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
@@ -385,7 +481,7 @@
 				VCM_AISNIPERS = _value;
 			} // function that will be executed once on mission start and every time the setting is changed.
 		] call CBA_Settings_fnc_init;
-		
+		/*
 		[
 			"VCM_AISUPPRESS", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
 			"CHECKBOX", // setting type
@@ -398,7 +494,7 @@
 				VCM_AISUPPRESS = _value;
 			} // function that will be executed once on mission start and every time the setting is changed.
 		] call CBA_Settings_fnc_init;
-		
+		*/
 		[
 			"VCM_ADVANCEDMOVEMENT", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
 			"CHECKBOX", // setting type
@@ -425,7 +521,7 @@
 			} // function that will be executed once on mission start and every time the setting is changed.
 		] call CBA_Settings_fnc_init;
 		
-		
+		/*
 		[
 			"Vcm_PlayerAISkills", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
 			"CHECKBOX", // setting type
@@ -438,6 +534,7 @@
 				Vcm_PlayerAISkills = _value;
 			} // function that will be executed once on mission start and every time the setting is changed.
 		] call CBA_Settings_fnc_init;
+		*/
 		
 		[
 			"Vcm_SmokeGrenadeChance", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
@@ -464,8 +561,59 @@
 				Vcm_GrenadeChance = _value;
 			} // function that will be executed once on mission start and every time the setting is changed.
 		] call CBA_Settings_fnc_init;			
-		
+	
 
+		[
+			"Vcm_AISkills_General_GrenadeCoolDown", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"SLIDER", // setting type
+			"Grenade Cooldown", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			[0,1000,60,2], // data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{
+				params ["_value"];
+				Vcm_GrenadeCoolDown = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;		
+
+		[
+			"Vcm_AISkills_General_SmokeCoolDown", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"SLIDER", // setting type
+			"Smoke Grenade Cooldown", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			[0,1000,60,2], // data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{
+				params ["_value"];
+				Vcm_SmokeCooldown = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;	
+
+		[
+			"Vcm_RadioChatter", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"CHECKBOX", // setting type
+			"Disable AI Radio Chatter", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			false,// data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{
+				params ["_value"];
+				Vcm_DisableAIRadio = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;
+
+		[
+			"Vcm_StaticWeapons", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+			"CHECKBOX", // setting type
+			"Disable Static Weapon Use", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+			false,// data for this setting:
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			{
+				params ["_value"];
+				Vcm_UseStaticWeapons = _value;
+			} // function that will be executed once on mission start and every time the setting is changed.
+		] call CBA_Settings_fnc_init;
 		
 		//SKILL SETTINGS
 		[
@@ -492,7 +640,7 @@
 			"West aiming accuracy", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI West Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.25,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFWEST set [0,['aimingAccuracy',_value]];
@@ -505,7 +653,7 @@
 			"West aiming shake", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI West Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.15,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFWEST set [1,['aimingShake',_value]];
@@ -518,7 +666,7 @@
 			"West aiming speed", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI West Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.15,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFWEST set [2,['aimingSpeed',_value]];
@@ -531,7 +679,7 @@
 			"West commanding", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI West Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFWEST set [3,['commanding',_value]];
@@ -544,7 +692,7 @@
 			"West courage", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI West Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.5,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFWEST set [4,['courage',_value]];
@@ -557,7 +705,7 @@
 			"West general", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI West Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.5,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFWEST set [5,['general',_value]];
@@ -570,7 +718,7 @@
 			"West reloadSpeed", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI West Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,1,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFWEST set [6,['reloadSpeed',_value]];
@@ -583,7 +731,7 @@
 			"West spotDistance", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI West Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFWEST set [7,['spotDistance',_value]];
@@ -596,7 +744,7 @@
 			"West spotTime", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI West Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFWEST set [8,['spotTime',_value]];
@@ -617,7 +765,7 @@
 			"East aiming accuracy", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI East Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.25,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFEast set [0,['aimingAccuracy',_value]];
@@ -630,7 +778,7 @@
 			"East aiming shake", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI East Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.15,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFEast set [1,['aimingShake',_value]];
@@ -643,7 +791,7 @@
 			"East aiming speed", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI East Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.15,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFEast set [2,['aimingSpeed',_value]];
@@ -656,7 +804,7 @@
 			"East commanding", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI East Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFEast set [3,['commanding',_value]];
@@ -669,7 +817,7 @@
 			"East courage", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI East Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.5,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFEast set [4,['courage',_value]];
@@ -682,7 +830,7 @@
 			"East general", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI East Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.5,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFEast set [5,['general',_value]];
@@ -695,7 +843,7 @@
 			"East reloadSpeed", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI East Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,1,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFEast set [6,['reloadSpeed',_value]];
@@ -708,7 +856,7 @@
 			"East spotDistance", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI East Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFEast set [7,['spotDistance',_value]];
@@ -721,7 +869,7 @@
 			"East spotTime", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI East Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFEast set [8,['spotTime',_value]];
@@ -742,7 +890,7 @@
 			"Resistance aiming accuracy", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI Resistance Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.25,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFResistance set [0,['aimingAccuracy',_value]];
@@ -755,7 +903,7 @@
 			"Resistance aiming shake", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI Resistance Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.15,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFResistance set [1,['aimingShake',_value]];
@@ -768,7 +916,7 @@
 			"Resistance aiming speed", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI Resistance Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.15,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFResistance set [2,['aimingSpeed',_value]];
@@ -781,7 +929,7 @@
 			"Resistance commanding", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI Resistance Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFResistance set [3,['commanding',_value]];
@@ -794,7 +942,7 @@
 			"Resistance courage", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI Resistance Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.5,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFResistance set [4,['courage',_value]];
@@ -807,7 +955,7 @@
 			"Resistance general", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI Resistance Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.5,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFResistance set [5,['general',_value]];
@@ -820,7 +968,7 @@
 			"Resistance reloadSpeed", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI Resistance Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,1,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFResistance set [6,['reloadSpeed',_value]];
@@ -833,7 +981,7 @@
 			"Resistance spotDistance", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI Resistance Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFResistance set [7,['spotDistance',_value]];
@@ -846,7 +994,7 @@
 			"Resistance spotTime", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI Resistance Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFResistance set [8,['spotTime',_value]];
@@ -866,7 +1014,7 @@
 			"General aiming accuracy", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.25,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFA set [0,['aimingAccuracy',_value]];
@@ -879,7 +1027,7 @@
 			"General aiming shake", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.15,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFA set [1,['aimingShake',_value]];
@@ -892,7 +1040,7 @@
 			"General aiming speed", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.35,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFA set [2,['aimingSpeed',_value]];
@@ -905,7 +1053,7 @@
 			"General commanding", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFA set [3,['commanding',_value]];
@@ -918,7 +1066,7 @@
 			"General courage", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.5,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFA set [4,['courage',_value]];
@@ -931,7 +1079,7 @@
 			"General general", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.5,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFA set [5,['general',_value]];
@@ -944,7 +1092,7 @@
 			"General reloadSpeed", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,1,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFA set [6,['reloadSpeed',_value]];
@@ -957,7 +1105,7 @@
 			"General spotDistance", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFA set [7,['spotDistance',_value]];
@@ -970,7 +1118,7 @@
 			"General spotTime", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
 			"VCOM AI General Skill", // Pretty name of the category where the setting can be found. Can be stringtable entry.
 			[0,1,0.85,2], // data for this setting:
-			false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 			{
 				params ["_value"];
 				VCM_AIDIFA set [8,['spotTime',_value]];
@@ -978,53 +1126,13 @@
 			} // function that will be executed once on mission start and every time the setting is changed.
 		] call CBA_Settings_fnc_init;
 		
-		[
-			"VCM_AISkills_General_EM", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-			"CHECKBOX", // setting type
-			"AI will use Enhanced Movement", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-			true,// data for this setting:
-			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-			{  
-				params ["_value"];
-				Vcm_AI_EM = _value;
-			} // function that will be executed once on mission start and every time the setting is changed.
-		] call CBA_Settings_fnc_init;	
-		[
-			"VCM_AISkills_General_EM_CHN", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-			"SLIDER", // setting type
-			"Chance AI squads will use Enhanced Movement - every 0.5 secs", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-			[0,100,10,0], // data for this setting: [min, max, default, number of shown trailing decimals]
-			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-			{  
-				params ["_value"];
-				Vcm_AI_EM_CHN = _value;
-			} // function that will be executed once on mission start and every time the setting is changed.
-		] call CBA_Settings_fnc_init;		
-		[
-			"VCM_AISkills_General_EM_CLDWN", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-			"SLIDER", // setting type
-			"Cool down on Enhanced Movement - in secs", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-			"VCOM SETTINGS", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-			[0,1000,10,0], // data for this setting: [min, max, default, number of shown trailing decimals]
-			true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-			{  
-				params ["_value"];
-				VCM_AI_EM_CLDWN = _value;
-			} // function that will be executed once on mission start and every time the setting is changed.
-		] call CBA_Settings_fnc_init;			
-	//VCM_AIDIFA
-	
+
 	
 	
 	
 	};
 	
-	diag_log "VCOM: Loaded CBA settings";
+	diag_log "VCOM: Finished loading CBA settings";
 	
 	
 	
-	
-	
-};

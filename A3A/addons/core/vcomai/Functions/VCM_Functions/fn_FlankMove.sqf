@@ -12,10 +12,12 @@
 		NOTHING
 */
 
-params ["_leader","_MedList"];
+params ["_leader"];
 
 private _grp = group _leader;
 if (_grp getVariable ["VCM_NOFLANK",false]) exitWith {};
+
+
 
 
 private _nearestEnemy = _leader findNearestEnemy _leader;
@@ -35,7 +37,7 @@ if (_knows < 2) exitwith
 	[_leader] spawn VCM_fnc_FlankMove;
 };
 
-if (getpos _nearestEnemy isEqualTo [0,0,0]) exitWith {};
+
 if !((waypointPosition [_grp,(currentWaypoint _grp)]) isEqualTo [0,0,0]) exitWith {};
 //If first waypoint is DESTROY, DO NOT change waypoints.
 private _index = currentWaypoint _grp;
@@ -54,13 +56,13 @@ private _EnemyGroup = group _nearestEnemy;
 private _AssignedWaypoints = _EnemyGroup getvariable ["VCM_WAYPOINTS",[]];
 
 //Lets define types of attack we can do.
-private _wayPointTypes = ["Assault","High","Low","Overwatch","Flank","FlankL"];
+private _wayPointTypes = ["Assault","High","Low","Flank","FlankL"];
 
 if (count _AssignedWaypoints > 0) then
 {
 	//If the waypoint is 2 minutes old, remove it from the group.
 	{
-		if ((_x#1) > (diag_ticktime - 120)) then
+		if ((_x#1) > (time - 120)) then
 		{
 			_wayPointTypes = _wayPointTypes - [_x#0];
 		}
@@ -73,14 +75,12 @@ if (count _AssignedWaypoints > 0) then
 
 if (count _wayPointTypes isEqualTo 0) then
 {
-	_wayPointTypes = ["Assault","High","Low","Overwatch","Flank","FlankL"];
+	_wayPointTypes = ["Assault","High","Low","Flank","FlankL"];
 };
 
 private _WayPointType = selectRandom _waypointTypes;
-_AssignedWaypoints pushback [_waypointtype,diag_ticktime];
+_AssignedWaypoints pushback [_waypointtype,time];
 _EnemyGroup setVariable ["VCM_WAYPOINTS",_AssignedWaypoints,true];
-
-if ((getpos _nearestEnemy) isEqualTo [0,0,0]) exitWith {};
 
 switch (_wayPointType) do {
     case "Assault": 
@@ -98,7 +98,8 @@ switch (_wayPointType) do {
     case "High": 
 		{
 			private _highP = ([_leader,500,50,false] call VCM_fnc_Heights) select 0 select 1;
-			private _finalP = [[[_highP, 50]],["water"]] call BIS_fnc_randomPos;
+			//private _finalP = [[[_highP, 50]],["water"]] call BIS_fnc_randomPos;
+			private _finalP = _highp getpos [(random 50),(random 360)];
 			_finalP set [2,0];
 			private _waypoint0 = _grp addwaypoint [_finalP,0];
 			_waypoint0 setwaypointtype "MOVE";
@@ -113,7 +114,7 @@ switch (_wayPointType) do {
     case "Low": 
 		{
 			private _highP = ([_leader,500,50,true] call VCM_fnc_Heights) select 0 select 1;
-			private _finalP = [[[_highP, 50]],["water"]] call BIS_fnc_randomPos;
+			private _finalP = _highp getpos [(random 50),(random 360)];
 			_finalP set [2,0];
 			private _waypoint0 = _grp addwaypoint [_finalP,0];
 			_waypoint0 setwaypointtype "MOVE";
@@ -128,7 +129,7 @@ switch (_wayPointType) do {
     case "Retreat": 
 		{
 			private _MovePosition = [_nearestEnemy,(_nearestEnemy distance2D _leader),([_nearestEnemy, _leader] call BIS_fnc_dirTo)] call BIS_fnc_relPos;
-			private _finalP = [[[_MovePosition, 50]],["water"]] call BIS_fnc_randomPos;
+			private _finalP = _MovePosition getpos [(random 50),(random 360)];
 			_finalP set [2,0];
 			private _waypoint0 = _grp addwaypoint [_finalP,0];
 			_waypoint0 setwaypointtype "MOVE";
@@ -152,8 +153,9 @@ switch (_wayPointType) do {
 			private _RandomArray = _myPlaces call BIS_fnc_selectrandom;
 			private _RandomLocation = _RandomArray select 0;
 			_RandomLocation set [2,0];
-			private _finalP = [[[_RandomLocation, 50]],["water"]] call BIS_fnc_randomPos;
+			private _finalP = _RandomLocation getpos [(random 50),(random 360)];
 			_finalP set [2,0];
+			if (_finalP isEqualTo [0,0]) then {_finalP = _RandomLocation;};
 			_waypoint0 = _grp addwaypoint [_finalP,0];	
 			//_waypoint0 setWaypointSpeed "FULL";
 			[_grp, (_waypoint0 select 1)] setWaypointCompletionRadius 50;	
@@ -181,8 +183,8 @@ switch (_wayPointType) do {
 			private _RandomLocationL = _RandomArray2 select 0;
 			_RandomLocation set [2,0];
 			_RandomLocationL set [2,0];
-			private _finalP = [[[_RandomLocationL, 50]],["water"]] call BIS_fnc_randomPos;
-			private _finalP2 = [[[_RandomLocation, 50]],["water"]] call BIS_fnc_randomPos;
+			private _finalP = _RandomLocationL getpos [(random 50),(random 360)];
+			private _finalP2 = _RandomLocation getpos [(random 50),(random 360)];
 			_finalP set [2,0];
 			_finalP2 set [2,0];
 			_waypoint0 = _grp addwaypoint [_finalP,0];	

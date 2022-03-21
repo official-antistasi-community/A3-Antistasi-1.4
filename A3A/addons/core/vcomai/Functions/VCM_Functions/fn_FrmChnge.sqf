@@ -20,7 +20,7 @@ _unit = _this;
 _group = group _unit;
 
 //Vehicular groups in "SAFE" behaviour will move in convoys
-if (!isNull objectParent _unit && {behaviour _unit == "SAFE"}) exitWith 
+if (!isNull objectParent _unit && {behaviour _unit isEqualTo "SAFE"}) exitWith 
 {
 	_group setFormation "FILE";
 	//Set the units variable so they dont try changing formations too frequently.

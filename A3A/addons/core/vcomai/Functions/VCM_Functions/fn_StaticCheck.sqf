@@ -1,6 +1,6 @@
 //[_x,_CurrentBackPack,_VCOM_HASUAV]
 params ["_StaticList"];
-copyToClipboard str _StaticList;
+
 {
 	private _Unit = _x select 0;
 	private _Foot = isNull objectParent _Unit;

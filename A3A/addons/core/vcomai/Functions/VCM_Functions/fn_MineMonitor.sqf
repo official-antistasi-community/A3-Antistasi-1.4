@@ -27,7 +27,7 @@ private _RemoveLst = [];
 		{
 			{
 				_TargetSide = side _x;
-				if ([_Side, _TargetSide] call VCM_fnc_SideIsEnemy) then {_EL pushback _x;};
+				if ([_Side, _TargetSide] call BIS_fnc_sideIsEnemy) then {_EL pushback _x;};
 			} forEach _Nearbylist;
 			
 			if (count _EL > 0) then 

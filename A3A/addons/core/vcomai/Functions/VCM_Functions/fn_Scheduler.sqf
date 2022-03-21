@@ -1,11 +1,10 @@
-private _T1 = diag_ticktime + 1;
-private _T2 = diag_ticktime + 10;
+private _T1 = time + 1;
+private _T2 = time + 10;
 
 waituntil
 {
-	
 	//Every 10 seconds
-	if (diag_ticktime > _T2) then
+	if (time > _T2) then
 	{
 		if (Vcm_ActivateAI) then
 		{
@@ -23,7 +22,7 @@ waituntil
 				};
 			} foreach allGroups;
 		};
-		_T2 = diag_ticktime + 10;
+		_T2 = time + 10;
 	};	
 	sleep 1;
 	false;

@@ -30,7 +30,7 @@ if (_Transport) then
 {
 	//Exit the function if the driver is NOT in the leaders group
 	If !(driver (vehicle _leader) in _Units) exitWith {};
-	If (VCM_Debug) then {[_Leader,"TRANSPORT VEHICLE"] call VCM_fnc_DebugText;};
+	If (VCM_DebugOld) then {[_Leader,"TRANSPORT VEHICLE"] call VCM_fnc_DebugText;};
 	
 	//Let's find the nearest enemies and friendlies!	
 	private _nearestEnemy = _leader call VCM_fnc_ClstEmy;	
@@ -49,6 +49,6 @@ if (_Transport) then
 }
 else
 {
-	If (VCM_Debug) then {[_Leader,"VEHICLE FLANK MOVE"] call VCM_fnc_DebugText;};
+	If (VCM_DebugOld) then {[_Leader,"VEHICLE FLANK MOVE"] call VCM_fnc_DebugText;};
 	[_Leader] spawn VCM_fnc_FlankMove;
 };

@@ -28,18 +28,21 @@ if !(isNull _testMine) then
 
 
 
-private _point = _unit call VCM_fnc_ClstEmy;
-if (_point isEqualTo [] || {isNil "_point"}) exitWith {};
+//private _point = _unit call VCM_fnc_ClstEmy;
+private _UnitSide = side (group _Unit);
+private _PointA = (allunits select {[_UnitSide, (side (group _x))] call BIS_fnc_sideIsEnemy}) inAreaArray [(getpos _Unit), 50, 50, 0, false, -1];
 
-if ((_unit distance _point) < 200) then 
-{
+if (count _PointA < 1) exitWith {};
+
+private _point = [_PointA,_unit,true] call VCM_fnc_ClstObj;
+
 
 	private _vehicle = vehicle _point;
 	
 	if (_point isEqualTo _vehicle) then 
 	{
 
-		private _nBuilding = (nearestObjects [_point, ["House", "Building"], 50]) select 0;
+		private _nBuilding = (nearestObjects [_point, ["House", "Building"], 50]) # 0;
 		if (isNil "_nBuilding") exitWith {};
 		if ((_nBuilding distance _point) > 40) exitWith {};	
 		[_unit,_nBuilding,(group _unit),_satchelObj,_satchelMag] spawn 
@@ -104,4 +107,3 @@ if ((_unit distance _point) < 200) then
 			
 		};
 	};
-};

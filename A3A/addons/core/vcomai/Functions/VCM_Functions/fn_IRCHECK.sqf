@@ -27,7 +27,7 @@ while {alive player && {Vcm_ActivateAI}} do
 		if !(_lineInter isEqualTo []) then
 		{
 			private _finalPos = (_lineInter select 0 select 0);
-			private _enemies = allUnits select {[_side,(side _x)] call VCM_fnc_SideIsEnemy && (currentVisionMode _x isEqualTo 1)};
+			private _enemies = allUnits select {[_side,(side _x)] call BIS_fnc_sideIsEnemy && (currentVisionMode _x isEqualTo 1)};
 			private _dirPlayer = getdir Player;
 			if !(_enemies isEqualTo []) then
 			{

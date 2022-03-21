@@ -13,11 +13,7 @@
 */
 
 private _unitSide = side (group _this);
-private _targetSide = "";
-private _array1 = [];
-{
-	_targetSide = side _x;
-	if ([_unitSide, _targetSide] call VCM_fnc_SideIsEnemy) then {_array1 pushback _x;};
 
-} forEach allUnits;
+private _array1 = (allunits select {[_unitSide, (side (group _x))] call BIS_fnc_sideIsEnemy});
+
 _array1

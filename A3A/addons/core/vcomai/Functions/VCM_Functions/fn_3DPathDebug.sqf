@@ -42,9 +42,9 @@ _VisualA = [];
 		"	
 			private _Cam = player;
 			if !(isNull curatorCamera) then {_Cam = curatorCamera;};
-			private _WH = linearConversion[0, 50, _Cam distance2D %1, 2, 0, true];
+			private _WH = linearConversion[0, 50, _Cam distance2D %1, 1, 0, true];
 			private _TS = linearConversion[0, 50, _Cam distance2D %1, 0.05, 0, true];
-			drawIcon3D ['\a3\characters_f_enoch\headgear\data\ui\icon_h_hat_tinfoil_f_ca.paa', [1,1,1,0.7], %1, _WH, _WH, 0, 'Point', 2, _TS, 'PuristaMedium'];
+			drawIcon3D ['a3\ui_f\data\map\mapcontrol\waypoint_ca.paa', [1,1,1,0.5], %1, _WH, _WH, 0, '', 2, _TS, 'PuristaMedium'];
 		",
 		_NextPoint
 		]];

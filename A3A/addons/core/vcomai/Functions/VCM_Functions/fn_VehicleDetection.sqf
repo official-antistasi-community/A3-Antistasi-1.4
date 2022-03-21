@@ -16,7 +16,7 @@
 {
 	private _PredictPos = [_x,3] call VCM_fnc_MovePrediction;
 	_PredictPos set [2,0.1];
-	if (VCM_Debug) then 
+	if (VCM_DebugOld) then 
 	{
 		_PredictPos spawn 
 		{
@@ -98,7 +98,7 @@
 				} forEach _hlpPosArray;
 				
 				//Spawn debug objects
-				if (VCM_Debug) then
+				if (VCM_DebugOld) then
 				{
 					
 					{

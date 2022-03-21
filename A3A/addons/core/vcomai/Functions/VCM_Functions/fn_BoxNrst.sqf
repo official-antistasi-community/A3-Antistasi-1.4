@@ -13,11 +13,13 @@
 		ARRAY - Position
 		
 	Note:
-		DEPRECATED
 */
 
 params ["_ent","_unit"];
 private _div = 1;
+
+if (isNil "_ent" || {_ent isEqualType []}) exitwith {_ClstPos = getposATL _unit;_ClstPos};
+
 if (_ent isKindOf "landvehicle" || _ent isKindOf "air") then {_div = 2;};
 
 //First we need to get all the positions around the object, and mark each as front,rear,left,right.
@@ -31,7 +33,18 @@ private _left =  _ent modelToWorld [-((_maxWidth)/_div),0,0];
 private _right = _ent modelToWorld [(_maxWidth/_div),0,0];
 private _front = _ent modelToWorld [0,(_maxLength/_div),0];
 private _behind = _ent modelToWorld [0,(-(_maxLength)/_div),0];
-private _ClstPos = [[_left,_right,_front,_behind],_unit,true,"NrstPos"] call DGN_fnc_ClosestObj;
+private _ClstPos = [[_left,_right,_front,_behind],_unit,true,"NrstPos"] call VCM_fnc_ClstObj;
+
+
+if (VCM_DebugOld) then
+{
+	{
+		_CustomPos = [(_x#0),(_x#1),((_x#2)+15)];
+		private _veh = createVehicle ["Sign_Arrow_F", _CustomPos, [], 0, "CAN_COLLIDE"];
+		_veh enablesimulation false;
+		_veh spawn {sleep 30;deletevehicle _this};
+	} foreach [_left,_right,_front,_behind];
+};
 
 
 _ClstPos

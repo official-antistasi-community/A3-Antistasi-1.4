@@ -43,19 +43,19 @@ if (count _VehArr > 0) then
 				if (_NE distance2D _leader <= VCM_DISEMBARKRANGE) then
 				{
 					_x setUnloadInCombat [true, VCM_TURRETUNLOAD];
-					if (VCM_Debug) then {diag_log format ["VEHICLECHECK: Group can unload! %1",_group];};
+					if (VCM_DebugOld) then {diag_log format ["VEHICLECHECK: Group can unload! %1",_group];};
 				}
 				else
 				{
 					if (damage _x > 0.2) then
 					{
 						_x setUnloadInCombat [true, VCM_TURRETUNLOAD];
-						if (VCM_Debug) then {diag_log format ["VEHICLECHECK: Group can unload! Damaged vehicle! %1",_group];};
+						if (VCM_DebugOld) then {diag_log format ["VEHICLECHECK: Group can unload! Damaged vehicle! %1",_group];};
 					}
 					else
 					{
 						_x setUnloadInCombat [false, false];
-						if (VCM_Debug) then {diag_log format ["VEHICLECHECK: Group cant unload! %1",_group];};					
+						if (VCM_DebugOld) then {diag_log format ["VEHICLECHECK: Group cant unload! %1",_group];};					
 					};
 				};
 			};

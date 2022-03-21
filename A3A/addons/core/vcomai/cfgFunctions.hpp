@@ -23,7 +23,11 @@ class VCOM
 		{
 			ext = ".fsm";
 		};		
-		
+		// [] spawn VCM_fnc_ForceMoveFSM;
+		class ForceMoveFSM
+		{
+			ext = ".fsm";
+		};
 	};
 	
 	class Functions 
@@ -31,8 +35,11 @@ class VCOM
 		file = QPATHTOFOLDER(vcomai\Functions\VCM_Functions);
 		
 		//[] spawn VCM_fnc_VcomInit;
-		class VcomInit {};
+		class VcomInit {preInit = 1;};
 		
+		//[] spawn VCM_fnc_AfterInit;
+		class AfterInit {postInit = 1;};
+
 		// [unitToRearm, rearmLocation] spawn VCM_fnc_ActRearm
 		class ActRearm {};
 		
@@ -216,23 +223,29 @@ class VCOM
 		//[squadleader] call VCM_fnc_AISpeed;
 		class AISpeed {};
 				
-		//[_StaticList] call VCM_fnc_StaticCheck;
+		//[_StaticList] call VCM_fnc_StaticCheck.sqf;
 		class StaticCheck {};
 		
-		//[_Unit,_Pos OR Obj] spawn VCM_fnc_DebugLine;
-		class DebugLine {};
+		//[] spawn VCM_fnc_MonitorDist;
+		class MonitorDist {};
 				
-		//[_unit, true] spawn VCM_fnc_BabeOver; 
-		class BabeOver {};
-		
-		//_Group spawn VCM_fnc_UseEM;
-		class UseEM {};
-		
-		//["_Unit","_Array"] spawn VCM_fnc_3DPathDebug;
+		//[] spawn VCM_fnc_3DPathDebug;
 		class 3DPathDebug {};
 		
-		//[side1, side2] call VCM_fnc_SideIsEnemy
-		class SideIsEnemy {};
+		//[] spawn VCM_fnc_UseEM;
+		class UseEM {};
+		
+		//[] spawn VCM_fnc_BabeOver;
+		class BabeOver {};
+		
+		//[] spawn VCM_fnc_UseEMExec;
+		class UseEMExec {};
+		
+		//[] spawn VCM_fnc_AISuppressed;
+		class AISuppressed {};
+		
+		//[] call VCM_fnc_WeaponDefine;
+		class WeaponDefine {postInit = 1;};
 	};		
 
 };

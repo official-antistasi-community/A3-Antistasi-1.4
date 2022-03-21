@@ -36,7 +36,7 @@ for "_i" from 1 to _count + 5 do {
     if (_onRoad) then {
         _randomPosMapNoWater = [[[_position, _radius]], [_blackList], { isOnRoad _this }] call BIS_fnc_randomPos;
     } else { 
-        _randomPosMapNoWater = [[[_position, _radius]], [_blackList], {}] call BIS_fnc_randomPos;
+        _randomPosMapNoWater = [[[_position, _radius]], [_blackList]] call BIS_fnc_randomPos;
     };
    
     if ((count _randomPosMapNoWater) == 3) then {

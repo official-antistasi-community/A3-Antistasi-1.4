@@ -17,6 +17,6 @@ private _UnitSide = side (group _this);
 private _Array1 = [];
 {
 	private _TargetSide = side _x;
-	if (!([_UnitSide, _TargetSide] call BIS_fnc_sideIsEnemy) && {!(_x in (units (group _this)))} && {alive _x}) then {_Array1 pushback _x;};
+	if (!([_UnitSide, _TargetSide] call VCM_fnc_SideIsEnemy) && {!(_x in (units (group _this)))} && {alive _x}) then {_Array1 pushback _x;};
 } forEach allUnits;
 _Array1

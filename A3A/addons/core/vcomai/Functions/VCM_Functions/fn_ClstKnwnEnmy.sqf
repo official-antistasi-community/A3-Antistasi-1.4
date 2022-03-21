@@ -17,7 +17,7 @@ private _unitSide = side _this;
 private _a1 = [];
 {
 
-	if ([_unitSide, (_x # 2)] call BIS_fnc_sideIsEnemy && {!((_x # 1) isKindOf "Air")}) then
+	if ([_unitSide, (_x # 2)] call VCM_fnc_SideIsEnemy && {!((_x # 1) isKindOf "Air")}) then
 	{
 		_a1 pushback [(_x # 5),(_x # 4)];
 	};

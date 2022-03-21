@@ -82,7 +82,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 		[0, 2, 16],
 		25,
 		"water",
-		true
+		false
 	] call A3A_fnc_createPatrol;
 
 	_groups pushBack _groupX;

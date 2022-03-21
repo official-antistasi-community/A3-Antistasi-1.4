@@ -246,6 +246,9 @@ class VCOM
 		
 		//[] call VCM_fnc_WeaponDefine;
 		class WeaponDefine {postInit = 1;};
+
+		//[] call VCM_fnc_SideIsEnemy;
+		class SideIsEnemy {};
 	};		
 
 };

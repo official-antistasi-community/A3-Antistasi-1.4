@@ -14,6 +14,6 @@
 
 private _unitSide = side (group _this);
 
-private _array1 = (allunits select {[_unitSide, (side (group _x))] call BIS_fnc_sideIsEnemy});
+private _array1 = (allunits select {[_unitSide, (side (group _x))] call VCM_fnc_SideIsEnemy});
 
 _array1

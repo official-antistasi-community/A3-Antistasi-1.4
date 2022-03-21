@@ -198,6 +198,18 @@ _assignedItems = ((_inventory select 9) + [_inventory select 3] + [_inventory se
 			_item =_radioName;
 		};
 		
+        //Weapon Stack fix
+        private _weaponname = getText(configfile >> "CfgWeapons" >> _item >> "baseWeapon");
+        if!(_weaponname isEqualTo "")then{
+            _item = _weaponname
+        };
+
+        //RHS Sight Stack fix
+        private _sightname = getText(configfile >> "CfgWeapons" >> _item >> "rhs_optic_base");
+        if!(_sightname isEqualTo "")then{
+            _item = _sightname
+        };
+
 		_isBino = _item call _isItemBino;
 
 		call {

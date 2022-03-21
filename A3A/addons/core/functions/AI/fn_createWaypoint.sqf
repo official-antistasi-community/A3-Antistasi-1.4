@@ -9,7 +9,7 @@ params [
     ["_formation", "NO CHANGE", [""]],
     ["_onComplete", "", [""]],
     ["_timeout", [0,0,0], [[]], 3],
-    ["_compRadius", 0, [0]]
+    ["_compRadius", 25, [0]]
 ];
 
 // Sanitize Group
@@ -17,6 +17,8 @@ _group = _group call A3A_fnc_getObjectGroup;
 
 // Sanitize Position Call
 _position = _position call A3A_fnc_getPosHandler;
+
+if (count _position <= 2) exitWith {};
 
 // addWaypoint expects ASL when a negative radius is provided for exact placement
 // otherwise waypoints will be placed under the ground

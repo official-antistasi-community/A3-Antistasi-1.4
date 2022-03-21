@@ -146,6 +146,11 @@ if (_isControl) then
 			{
 			_unit = [_groupX, _faction get "unitMilitiaGrunt", _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
+			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#extra1 %1", _groupX];
+
+			// Disable VCOM on Unit as we don't want it wandering off.
+			(_groupX) setVariable ["Vcm_Disable", true];
+
 			{_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
 			};
 		};

@@ -2,7 +2,17 @@ params [
     ["_group", grpNull, [grpNull, objNull]],
     ["_position", [], [[], objNull, grpNull, locationNull], [2, 3]],
     ["_radius", 100, [0]],
-    ["_count", 3, [0]]
+    ["_count", 3, [0]],
+    ["_blackList"],
+    ["_optionalCode"],
+    ["_type", "MOVE", [""]],
+    ["_behaviour", "UNCHANGED", [""]],
+    ["_combat", "NO CHANGE", [""]],
+    ["_speed", "UNCHANGED", [""]],
+    ["_formation", "NO CHANGE", [""]],
+    ["_onComplete", "", [""]],
+    ["_timeout", [0,0,0], [[]], 3],
+    ["_compRadius", 25, [0]]
 ];
 
 _group = _group call A3A_fnc_getObjectGroup;
@@ -19,22 +29,24 @@ _position = _position call A3A_fnc_getPosHandler;
     _x enableAI "PATH";
 } forEach units _group;
 
-// Can pass parameters straight through to createWaypoint
-_this =+ _this;
-_this set [2, -1];
-if (count _this > 3) then {
-    _this deleteAt 3;
+private _possibleWaypointLocations = [];
+
+for "_i" from 1 to _count + 5 do {
+    private _randomPosMapNoWater = [[[_position, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
+
+    if ((count _randomPosMapNoWater) == 3) then {
+        _possibleWaypointLocations pushBack _randomPosMapNoWater;
+    };
+};
+
+if ((count _possibleWaypointLocations) < _count) exitWith {
+    diag_log text format["Hazey Debug--- Not enough waypoints to generate correctly"];
 };
 
 for "_i" from 1 to _count do {
-    _randomPosMapNoWater = [[[_position, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
-
-    _this set [1, _randomPosMapNoWater];
-    _this call A3A_fnc_createWaypoint;
+    private _randomPosMapNoWater = selectRandom _possibleWaypointLocations;
+    [_group, _randomPosMapNoWater, -1, _type, _behaviour, _combat, _speed, _formation, _onComplete, _timeout, _compRadius] call A3A_fnc_createWaypoint;
 };
 
 // Close the patrol loop
-_this set [1, _position];
-_this set [2, _radius];
-_this set [3, "CYCLE"];
-_this call A3A_fnc_createWaypoint;
+[_group, _position, -1, "CYCLE", _behaviour, _combat, _speed, _formation, _onComplete, _timeout, _compRadius] call A3A_fnc_createWaypoint;

@@ -106,6 +106,8 @@ if (_isControl) then
 			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 			sleep 1;
+			// Disable VCOM on Unit as we don't want it wandering off.
+			(_groupE) setVariable ["Vcm_Disable", true];
 			{ [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
 			};
         _typeGroup = selectRandom (_faction get "groupsMedium");
@@ -127,6 +129,23 @@ if (_isControl) then
 			//_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 			//todo Hazey to replace this function
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#1"];
+
+			[
+				_groupX,
+				getMarkerPos _markerX,
+				100,
+				5,
+				"MOVE",
+				"SAFE",
+				"BLUE",
+				"NORMAL",
+				"NO CHANGE",
+				"",
+				[0, 2, 16],
+				25,
+				"water",
+				false
+			] call A3A_fnc_createPatrol;
 
 			// Forced non-spawner as they're very static.
 			{[_x,"",false] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;

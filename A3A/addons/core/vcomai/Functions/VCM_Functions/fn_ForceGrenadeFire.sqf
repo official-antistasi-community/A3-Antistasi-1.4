@@ -2,8 +2,8 @@ params ["_Unit","_Grenade",["_Force",false]];
 
 
 //Get group FSM EH
-private _FSMID = (group _Unit) getVariable "VCOM_FSMH";
-
+private _FSMID = (group _Unit) getVariable ["VCOM_FSMH", nil];
+if (isNil "_FSMID") exitWith {};
 
 private _SmokeGrenadeCoolDownChk = _FSMID getFSMVariable "_SmokeGrenadeCoolDownChk";
  

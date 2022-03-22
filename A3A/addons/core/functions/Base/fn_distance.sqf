@@ -112,6 +112,7 @@ private _processOccupantMarker = {
                 case (_marker in citiesX):
                 {
                     [[_marker], "A3A_fnc_createAICities"] call A3A_fnc_scheduler;
+                    [[_marker], "A3A_fnc_createAmbientCivs"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in controlsX):
@@ -309,6 +310,7 @@ private _processInvaderMarker = {
                 case (_marker in citiesX):
                 {
                     [[_marker], "A3A_fnc_createAICities"] call A3A_fnc_scheduler;
+                    [[_marker], "A3A_fnc_createAmbientCivs"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in controlsX):

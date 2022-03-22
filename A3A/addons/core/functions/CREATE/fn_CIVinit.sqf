@@ -9,7 +9,18 @@ _unit disableAI "AUTOTARGET";
 //Stops civilians from shouting out commands.
 [_unit, "NoVoice"] remoteExec ["setSpeaker", 0, _unit];
 
-_unit addEventHandler
+// Function to be added later to handle CIV's reacting to fire near them
+/*
+_EHFiredNearIdx = _unit addEventHandler
+[
+	"FiredNear",
+	{
+		params ["_civ"];
+	}
+];
+*/
+
+_EHInjuredIdx = _unit addEventHandler
 [
 	"HandleDamage",
 	{

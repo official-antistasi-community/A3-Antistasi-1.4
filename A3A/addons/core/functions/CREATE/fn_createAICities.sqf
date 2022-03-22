@@ -21,53 +21,42 @@ _num = round (_num / 100);
 ServerDebug_1("Spawning City Patrol in %1", _markerX);
 
 _dataX = server getVariable _markerX;
-//_prestigeOPFOR = _dataX select 3;
-//_prestigeBLUFOR = _dataX select 4;
 _prestigeOPFOR = _dataX select 2;
 _prestigeBLUFOR = _dataX select 3;
 _esAAF = true;
-if (_markerX in destroyedSites) then
-	{
+
+if (_markerX in destroyedSites) then {
 	_esAAF = false;
 	_params = [_positionX,Invaders,_faction get "groupSpecOps"];
-	}
-else
-	{
+} else {
 	_num = round (_num * (_prestigeOPFOR + _prestigeBLUFOR)/100);
 	_frontierX = [_markerX] call A3A_fnc_isFrontline;
-	if (_frontierX) then
-		{
+	if (_frontierX) then {
 		_num = _num * 2;
 		_params = [_positionX, Occupants, _faction get "groupSentry"];
-		}
-	else
-		{
+	} else {
 		_params = [_positionX, Occupants, _faction get "groupPolice"];
-		};
 	};
+};
+
 if (_num < 1) then {_num = 1};
 
 _countX = 0;
-while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
-	{
+while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	_groupX = _params call A3A_fnc_spawnGroup;
 	// Forced non-spawner for performance and consistency with other garrison patrols
 	{[_x,"",false] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 	sleep 1;
-	if (_esAAF) then
-		{
-		if (random 10 < 2.5) then
-			{
+	if (_esAAF) then {
+		if (random 10 < 2.5) then {
 			_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 			_dogs pushBack _dog;
 			[_dog] spawn A3A_fnc_guardDog;
-			};
 		};
-
-	//_nul = [leader _groupX, _markerX, "SAFE", "RANDOM", "SPAWNED","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
-	//todo Hazey to replace this function
+	};
 	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAICities#1"];
-
+	
+	// This function replaces the old UPSMON Call for patrol
 	[
 		_groupX,
 		getMarkerPos _markerX,
@@ -87,7 +76,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 
 	_groups pushBack _groupX;
 	_countX = _countX + 1;
-	};
+};
 
 waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 

@@ -22,8 +22,11 @@ class CfgFunctions
             class captureX {};
             class chargeWithSmoke {};
             class chooseSupport {};
+            class clearWaypoints {};
             class combatLanding {};
             class coverage {};
+            class createPatrol {};
+            class createWaypoint {};
             class destroyBuilding {};
             class doFlank {};
             class enemyList {};
@@ -31,6 +34,8 @@ class CfgFunctions
             class fastrope {};
             class findSafeRoadToUnload {};
             class fleeToSide {};
+            class getObjectGroup {};
+            class getPosHandler {};
             class guardDog {};
             class hasRadio {};
             class help {};
@@ -50,8 +55,11 @@ class CfgFunctions
             class nearEnemy {};
             class occupantInvaderUnitKilledEH {};
             class paradrop {};
+            class randPosArea {};
             class rearmCall {};
             class recallGroup {};
+            class searchNearbyArea {};
+            class searchNearbyBuilding {};
             class smokeCoverAuto {};
             class staticAutoT {};
             class staticMGDrill {};
@@ -64,14 +72,6 @@ class CfgFunctions
             class VANTinfo {};
             class vehicleConvoyTravel {};
             class vehicleMarkers {};
-            class createPatrol {};
-            class getPosHandler {};
-            class getObjectGroup {};
-            class clearWaypoints {};
-            class createWaypoint {};
-            class searchNearbyBuilding {};
-            class searchNearbyArea {};
-            class randPosArea {};
             class waypointGarrison {};
         };
 
@@ -230,6 +230,8 @@ class CfgFunctions
             class CIVinit {};
             class civVEHinit {};
             class cleanserVeh {};
+            class clientCreateRoomLight {};
+            class createAmbientCivs {};
             class createAIAirplane {};
             class createAICities {};
             class createAIcontrols {};
@@ -239,6 +241,7 @@ class CfgFunctions
             class createAttackVehicle {};
             class createCIV {};
             class createFIAOutposts2 {};
+            class createRoomLight {};
             class createSDKGarrisons {};
             class createSDKgarrisonsTemp {};
             class createUnit {};
@@ -763,12 +766,13 @@ class CfgFunctions
             class createNamespace {};
             class deleteNamespace {};
             class getAdmin {};
+            class getDayState {};
+            class getRoadDirection {};
             class localLog {};
             class log {};
             class setPos {};
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};
-            class getRoadDirection {};
         };
 
         class UtilityItems {

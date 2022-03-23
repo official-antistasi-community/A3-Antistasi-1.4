@@ -85,10 +85,8 @@ for "_i" from 1 to _civilianPopulation do {
 	};
 
 	if (_dayState == "DAY") then {
-		// --- Disabled for now while I CfgSounds is broken.
-		//private _building = _posHouse nearestObject "House";
-		//_musicSource = [_building] call A3A_fnc_createMusicSource;
-		// ---
+		private _building = _posHouse nearestObject "House";
+		_musicSource = [_building] call A3A_fnc_createMusicSource;
 
 		[
 			_groupX,

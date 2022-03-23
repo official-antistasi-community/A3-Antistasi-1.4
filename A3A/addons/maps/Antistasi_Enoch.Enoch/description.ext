@@ -12,11 +12,6 @@ class CfgNotifications
     #include "..\missionDescription\CfgNotificationsContents.hpp"
 };
 
-class CfgSounds
-{
-    #include "..\missionDescription\CfgSoundsContents.hpp"
-};
-
 class CfgDebriefing {
     #include "..\missionDescription\CfgDebriefingContents.hpp"
 	class End1

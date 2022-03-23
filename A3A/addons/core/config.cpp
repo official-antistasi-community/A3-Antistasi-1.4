@@ -14,11 +14,14 @@ class CfgPatches {
     };
 };
 
+#include "CfgSounds.hpp"
+
 class A3A {
     #include "Templates.hpp"
 
 #if __A3_DEBUG__
     #include "CfgFunctions.hpp"
+    #include "Extended_PreInit_EventHandlers.hpp"
 #endif
 };
 #if __A3_DEBUG__
@@ -33,6 +36,7 @@ class A3A {
     };
 #else
     #include "CfgFunctions.hpp"
+    #include "Extended_PreInit_EventHandlers.hpp"
 #endif
 
 #ifndef UseDoomGUI

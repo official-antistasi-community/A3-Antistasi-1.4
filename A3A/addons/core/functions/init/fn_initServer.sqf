@@ -241,6 +241,4 @@ savingServer = false;
 	};
 };
 
-[] spawn VCM_fnc_VcomInit;
-
 Info("initServer completed");

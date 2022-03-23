@@ -24,8 +24,10 @@ private _colours = [[255,217,66],[255,162,41],[221,219,206]];
 private _colour = _colours select (random((count _colours)-1));
 private _brightness = random 10 / 100;
 
+// Create light source
 private _light = "#lightpoint" createVehicle getPos _building;
 
+// Create Lightpoint on Multiplayer else create it for single player use.
 if(isMultiplayer) then {
     [_building, _light, _brightness, _colour] remoteExec ["A3A_fnc_clientCreateRoomLight"];
 } else {

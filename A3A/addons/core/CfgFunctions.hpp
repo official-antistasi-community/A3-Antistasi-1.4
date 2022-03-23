@@ -195,6 +195,18 @@ class CfgFunctions
             class zoneCheck {};
         };
 
+        class Civilian {
+            file = QPATHTOFOLDER(functions\Civilian);
+            class CIVinit {};
+            class civVEHinit {};
+            class clientCreateMusicSource {};
+            class clientCreateRoomLight {};
+            class createAmbientCivs {};
+            class createCIV {};
+            class createMusicSource {};
+            class createRoomLight {};
+        };
+
         class Collections {
             file = QPATHTOFOLDER(functions\Collections);
             class getNestedObject {};
@@ -224,14 +236,9 @@ class CfgFunctions
             class AAFroadPatrol {};
             class airportCanAttack {};
             class AIVEHinit {};
-            class ambientCivs {};
             class calculateMarkerArea {};
             class cargoSeats {};
-            class CIVinit {};
-            class civVEHinit {};
             class cleanserVeh {};
-            class clientCreateRoomLight {};
-            class createAmbientCivs {};
             class createAIAirplane {};
             class createAICities {};
             class createAIcontrols {};
@@ -239,9 +246,7 @@ class CfgFunctions
             class createAIResources {};
             class createAISite {};
             class createAttackVehicle {};
-            class createCIV {};
             class createFIAOutposts2 {};
-            class createRoomLight {};
             class createSDKGarrisons {};
             class createSDKgarrisonsTemp {};
             class createUnit {};

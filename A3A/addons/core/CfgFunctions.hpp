@@ -205,6 +205,7 @@ class CfgFunctions
             class createCIV {};
             class createMusicSource {};
             class createRoomLight {};
+            class getSoundTracks {};
         };
 
         class Collections {

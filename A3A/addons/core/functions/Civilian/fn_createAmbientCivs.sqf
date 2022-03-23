@@ -33,11 +33,9 @@ private _civilianPopulation = 0;
 private _positionX = getMarkerPos (_markerX);
 private _locationRadius = [_markerX] call A3A_fnc_sizeMarker;
 private _dayState = [] call A3A_fnc_getDayState;
-
-_locationRadius = round (_locationRadius / 100);
 private _buildings = nearestObjects [_positionX, ["House"], _locationRadius];
 
-ServerDebug_1("Spawning City Civilians in %1", _markerX);
+ServerDebug_1("Spawning City Civilians in %1 with a radius of %2", _markerX, _locationRadius);
 
 private _city = if (_positionX isEqualType "") then {_positionX} else {[citiesX, _positionX] call BIS_fnc_nearestPosition};
 private _cityData = server getVariable _city;

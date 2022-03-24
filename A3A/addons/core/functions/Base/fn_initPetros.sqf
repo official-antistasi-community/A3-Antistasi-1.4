@@ -7,11 +7,10 @@ removeGoggles petros;
 petros setSkill 1;
 petros setVariable ["respawning",false];
 petros allowDamage false;
-if !(unlockedVests isEqualTo []) then {
-	if (count unlockedArmoredVests * 20 < random(100)) then { petros addVest (selectRandom unlockedVests) }
-	else { petros addVest (selectRandom unlockedArmoredVests); };
-};
-[petros,unlockedRifles] call A3A_fnc_randomRifle;
+private _vest = selectRandomWeighted (A3A_rebelGear get "ArmoredVests");
+if (_vest == "") then { _vest = selectRandomWeighted (A3A_rebelGear get "UnarmoredVests") };
+petros addVest _vest;
+[petros, "Rifles"] call A3A_fnc_randomRifle;
 petros selectWeapon (primaryWeapon petros);
 [petros,true] call A3A_fnc_punishment_FF_addEH;
 petros addEventHandler

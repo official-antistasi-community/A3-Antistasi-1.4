@@ -113,6 +113,7 @@ while {true} do
 	if (_textArsenal != "") then {_textX = format ["%1<br/>Arsenal Updated<br/><br/>%2", _textX, _textArsenal]};
 	[petros, "taxRep", _textX] remoteExec ["A3A_fnc_commsMP", [teamPlayer, civilian]];
 
+	[] call A3A_fnc_generateRebelGear;
 
 	[] call A3A_fnc_FIAradio;
 	[] call A3A_fnc_economicsAI;

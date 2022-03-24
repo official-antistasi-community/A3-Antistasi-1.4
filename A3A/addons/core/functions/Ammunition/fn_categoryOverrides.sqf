@@ -112,13 +112,17 @@ private _categoryOverrideTable = [
 ["CUP_MK19_carry" , ["StaticWeaponParts","Items"]],
 ["CUP_SPG9_carry" , ["StaticWeaponParts","Items"]],
 
-["CUP_launch_M136", ["RocketLaunchers","Weapons"]],
-["CUP_launch_NLAW", ["RocketLaunchers","Weapons"]],
+
+["CUP_launch_M136", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_NLAW", ["RocketLaunchers","Weapons","AT"]],
+/*
+// These work correctly now
 ["CUP_launch_FIM92Stinger", ["AA","Weapons"]],
 ["CUP_launch_Igla", ["AA","Weapons"]],
 ["CUP_launch_9K32Strela", ["MissileLaunchers","Weapons"]],
 ["CUP_launch_Metis", ["MissileLaunchers","Weapons"]],
 ["CUP_launch_Javelin", ["MissileLaunchers","Weapons"]],
+*/
 
 ["CUP_item_Money", ["Unknown","Items"]],
 ["CUP_item_Kostey_photos", ["Unknown","Items"]],
@@ -154,7 +158,7 @@ private _categoryOverrideTable = [
 ["vn_default_helmetbase_09", ["Unknown","Headgear"]],	//Goat Hat
 ["vn_m1897", ["Shotguns","Weapons"]],
 ["vn_izh54", ["Shotguns","Weapons"]],
-["vn_izh54_shorty", ["Shotguns","Weapons"]],
+["vn_izh54_shorty", ["Shotguns","Weapons"]],		// might be a handgun...
 ["vn_pps52", ["SMGs","Weapons"]],
 ["vn_pps43", ["SMGs","Weapons"]],
 ["vn_mc10", ["SMGs","Weapons"]],
@@ -169,7 +173,7 @@ private _categoryOverrideTable = [
 ["vn_sa7b", ["MissileLaunchers","Weapons"]],
 ["vn_sa7", ["MissileLaunchers","Weapons"]],
 ["vn_m4956_gl", ["GrenadeLaunchers","Weapons"]],
-["vn_m2carbine_gl", ["GrenadeLaunchers","Weapons"]],
+["vn_m2carbine_gl", ["GrenadeLaunchers","Weapons"]],		// some of these should be rifles/weapons/grenadelaunchers...
 ["vn_m1carbine_gl", ["GrenadeLaunchers","Weapons"]],
 ["vn_sks_gl", ["GrenadeLaunchers","Weapons"]],
 ["vn_type56", ["Rifles","Weapons"]],

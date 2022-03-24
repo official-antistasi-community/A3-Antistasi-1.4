@@ -1,3 +1,4 @@
+/*
 //Lights Vs Laser ID
 {
 if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "Attenuation")) then
@@ -9,7 +10,8 @@ if (isClass(configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "FlashLight" >> "A
      allLaserAttachments pushBack _x;
      };
 } forEach allPointerAttachments;
-
+*/
+/*
 //Signal Mags ID
 {
 if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "Chemlight") then
@@ -25,6 +27,7 @@ if (getText(configfile >> "CfgMagazines" >> _x >> "nameSound") isEqualTo "") the
      allLaunchedSmokeGrenades pushback _x;
      };
 } forEach allMagSmokeShell;
+*/
 
 //Flares ID
 //PBP - NOT WORKING

@@ -12,7 +12,7 @@
 
     Scope: Any
     Environment: Any
-    Public: Yes
+    Public: No
 
     Example: 
 		[[_marker], "A3A_fnc_createAmbientCivs"] call A3A_fnc_scheduler;
@@ -27,7 +27,10 @@ params ["_markerX"];
 // We only want to run on the server and not on the players
 if (!isServer and hasInterface) exitWith{};
 
+private _maxSpawnedCivilians = 6;
 private _civilianGroups = [];
+private _soundSources = [];
+private _civilians = [];
 private _civilianPopulation = 0;
 private _positionX = getMarkerPos (_markerX);
 private _locationRadius = [_markerX] call A3A_fnc_sizeMarker;
@@ -40,43 +43,64 @@ private _city = if (_positionX isEqualType "") then {_positionX} else {[citiesX,
 private _cityData = server getVariable _city;
 
 // This is just for testing purposes, will math better.
-_civilianPopulation = round ((_cityData#0) / 30);
+_civilianPopulation = round ((_cityData select 0) / 25);
+
+
+// We don't want to add too many civ's.
+if (_civilianPopulation > __maxSpawnedCivilians) then {
+	_civilianPopulation = _maxSpawnedCivilians;
+};
 
 for "_i" from 1 to _civilianPopulation do {
 	private _posHouse = [];
 
 	while {true} do {
 		private _building = selectRandom _buildings;
-
 		private _housePositions = [_building] call BIS_fnc_buildingPositions;
 
-		if !(_housePositions isEqualTo []) exitWith {
-			_posHouse = selectRandom _housePositions;};
+		if !(_housePositions isEqualTo []) exitWith {_posHouse = selectRandom _housePositions};
 	};
 
 	private _groupX = createGroup civilian;
 	private _civUnit = [_groupX, FactionGet(civ, "unitMan"), _posHouse, [],0, "NONE"] call A3A_fnc_createUnit;
-	_civUnit setPosATL _posHouse;
-	_civUnit setVariable ["A3A_civHomePosition", _posHouse, false];
-	[_civUnit] spawn A3A_fnc_CIVinit;
-	_civUnit forceWalk true;
 
+	_civilianGroups pushBack _groupX;
+	_civilians pushBack _civUnit;
+	_civUnit setPosATL _posHouse;
+	_civUnit setVariable ["A3A_civHomePosition", _posHouse];
+
+	// Add event handlers to civilian units.
+	[_civUnit] spawn A3A_fnc_CIVinit;
+
+	// Actions to do during the evening hours of spawn.
 	if (_dayState == "EVENING" || {_dayState == "NIGHT"}) then {
 		private _building = _posHouse nearestObject "House";
 		_light = [_building] call A3A_fnc_createRoomLight;
 	};
 
+	// Actions to do during the morning hours of spawn.
 	if (_dayState == "MORNING") then {
-
+		if (4 > random 10) {
+			private _building = _posHouse nearestObject "House";
+			private _soundSource = [_building] call A3A_fnc_createMusicSource;
+			
+			_light = [_building] call A3A_fnc_createRoomLight;
+			_soundSources pushBack _soundSource;
+		};
 	};
 
+	// Actions to do during the day hours of spawn
 	if (_dayState == "DAY") then {
-		private _building = _posHouse nearestObject "House";
-		_musicSource = [_building] call A3A_fnc_createMusicSource;
+		if (7 > random 10) {
+			private _building = _posHouse nearestObject "House";
+			private _soundSource = [_building] call A3A_fnc_createMusicSource;
+			_soundSources pushBack _soundSource;
+		};
 	};
-
-	_civilianGroups pushBack _groupX;
 };
 
+// Handle removal of civ's.
 waitUntil {sleep 30;(spawner getVariable _markerX == 2)};
+{if (alive _x) then {deleteVehicle _x};} forEach _civilians;
 {deleteGroup _x} forEach _civilianGroups;
+{deleteVehicle _x} forEach _soundSources;

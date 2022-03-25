@@ -1,33 +1,41 @@
+/*
+    Author: [Hazey]
+    Description:
+		Create a civilian sound source at a provided building.
+
+    Arguments:
+    	<Object> Building you want to sttach it to.
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		_musicSource = [_building] call A3A_fnc_createMusicSource;
+
+    License: MIT License
+*/
+
 #include "..\..\script_component.hpp"
 params ["_building"];
 
 // We add the music source to a RoadCone rather than the building itself.
 // This is so we can delete the source later in a easier fashion.
 private _musicSource = "RoadCone_L_F" createVehicle position _building;
-private _tracks = [];
-private _locationType = "default";
 
 // Attach Cone to building.
 _musicSource attachTo [_building, [1,1,1]];
 
-private _worldName = worldName;
-switch (_worldName) do {
-	case "Altis": {
-		_locationType = "Mediterranean";
-	};
-	default {
-		_locationType = "default";
-	};
-};
-
 // Hide the cone, we don't want to see it!
 hideObjectGlobal _musicSource;
 
-[_building, _musicSource, _locationType] spawn {
-    params ["_building", "_musicSource", "_locationType"];
-
-    private _tracksPlayed = 1;
-	_tracks = [_locationType] call A3A_fnc_getSoundTracks;
+[_building, _musicSource] spawn {
+	params ["_building", "_musicSource", "_locationType"];
+	private _tracksPlayed = 1;
+	private _tracks = keys A3A_Civilian_Amb_Tracks;
 
 	if (count _tracks == 0) exitWith {
 		Error("No Tracks found to create a music source");
@@ -38,12 +46,12 @@ hideObjectGlobal _musicSource;
     while { (alive _musicSource) } do {
         while { _tracksPlayed < _totalTracks } do {
 			private _track = selectRandom (_tracks);
-			private _trackDuration = (_track#1);
+			private _trackDuration = A3A_Civilian_Amb_Tracks get _track;
 
 			if(isMultiplayer) then {
-				[_building, _musicSource, (_track#0)] remoteExec ["A3A_fnc_clientCreateMusicSource"];
+				[_building, _musicSource, _track] remoteExec ["A3A_fnc_clientCreateMusicSource"];
 			}else{
-				_musicSource say3d (_track#0);
+				_musicSource say3d (_track);
 			};
 
 			sleep _trackDuration;

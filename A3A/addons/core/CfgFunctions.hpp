@@ -196,6 +196,7 @@ class CfgFunctions
             class clientCreateRoomLight {};
             class createAmbientCivs {};
             class createCIV {};
+            class createCivilianTracks {};
             class createMusicSource {};
             class createRoomLight {};
             class getSoundTracks {};

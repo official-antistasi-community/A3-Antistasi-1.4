@@ -44,9 +44,10 @@ private _dataX = server getVariable _markerX;
 private _prestigeOPFOR = (_dataX#2);
 private _prestigeBLUFOR = (_dataX#3);
 private _isAAF = true;
+private _spawnParams = [];
 
 if (_markerX in destroyedSites) then {
-	private _params = [_positionX, Invaders, _faction get "groupSpecOps"];
+	_spawnParams = [_positionX, Invaders, _faction get "groupSpecOps"];
 	_isAAF = false;
 } else {
 	private _frontierX = [_markerX] call A3A_fnc_isFrontline;
@@ -54,9 +55,9 @@ if (_markerX in destroyedSites) then {
 
 	if (_frontierX) then {
 		_num = _num * 2;
-		private _params = [_positionX, Occupants, _faction get "groupSentry"];
+		_spawnParams = [_positionX, Occupants, _faction get "groupSentry"];
 	} else {
-		private _params = [_positionX, Occupants, _faction get "groupPolice"];
+		_spawnParams = [_positionX, Occupants, _faction get "groupPolice"];
 	};
 };
 
@@ -64,7 +65,7 @@ if (_num < 1) then {_num = 1};
 
 private _countX = 0;
 while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
-	private _groupX = _params call A3A_fnc_spawnGroup;
+	private _groupX = _spawnParams call A3A_fnc_spawnGroup;
 
 	// Forced non-spawner for performance and consistency with other garrison patrols
 	{

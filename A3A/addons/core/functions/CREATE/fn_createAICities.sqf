@@ -56,23 +56,8 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	};
 	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAICities#1"];
 	
-	// This function replaces the old UPSMON Call for patrol
-	[
-		_groupX,
-		getMarkerPos _markerX,
-		300,
-		5,
-		"MOVE",
-		"SAFE",
-		"BLUE",
-		"NORMAL",
-		"NO CHANGE",
-		"this call A3A_fnc_searchNearbyBuilding",
-		[0, 2, 16],
-		25,
-		"water",
-		false
-	] call A3A_fnc_createPatrol;
+	//todo Hazey to replace this function
+	//this was guard patrols
 
 	_groups pushBack _groupX;
 	_countX = _countX + 1;

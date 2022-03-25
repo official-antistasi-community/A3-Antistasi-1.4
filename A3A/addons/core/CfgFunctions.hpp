@@ -22,11 +22,8 @@ class CfgFunctions
             class captureX {};
             class chargeWithSmoke {};
             class chooseSupport {};
-            class clearWaypoints {};
             class combatLanding {};
             class coverage {};
-            class createPatrol {};
-            class createWaypoint {};
             class destroyBuilding {};
             class doFlank {};
             class enemyList {};
@@ -55,11 +52,8 @@ class CfgFunctions
             class nearEnemy {};
             class occupantInvaderUnitKilledEH {};
             class paradrop {};
-            class randPosArea {};
             class rearmCall {};
             class recallGroup {};
-            class searchNearbyArea {};
-            class searchNearbyBuilding {};
             class smokeCoverAuto {};
             class staticAutoT {};
             class staticMGDrill {};
@@ -72,7 +66,6 @@ class CfgFunctions
             class VANTinfo {};
             class vehicleConvoyTravel {};
             class vehicleMarkers {};
-            class waypointGarrison {};
         };
 
         class Ammunition {

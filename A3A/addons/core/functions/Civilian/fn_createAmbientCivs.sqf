@@ -1,6 +1,3 @@
-#include "..\..\script_component.hpp"
-FIX_LINE_NUMBERS()
-
 /*
     Author: [Hazey]
     Description:
@@ -23,6 +20,8 @@ FIX_LINE_NUMBERS()
     License: MIT License
 */
 
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 params ["_markerX"];
 
 // We only want to run on the server and not on the players
@@ -74,23 +73,6 @@ for "_i" from 1 to _civilianPopulation do {
 	if (_dayState == "DAY") then {
 		private _building = _posHouse nearestObject "House";
 		_musicSource = [_building] call A3A_fnc_createMusicSource;
-
-		[
-			_groupX,
-			_posHouse,
-			50,
-			3,
-			"MOVE",
-			"CARELESS",
-			"BLUE",
-			"NORMAL",
-			"NO CHANGE",
-			"",
-			[10, 20, 30],
-			25,
-			"water",
-			false
-		] call A3A_fnc_createPatrol;
 	};
 
 	_civilianGroups pushBack _groupX;

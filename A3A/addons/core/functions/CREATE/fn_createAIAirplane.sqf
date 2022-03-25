@@ -134,7 +134,6 @@ if (_patrol) then
 			//_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 			//todo Hazey to replace this function
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAiAirplane#1"];
-			[_groupX, getMarkerPos _mrk, 300, 5, "MOVE", "SAFE", "BLUE", "NORMAL", "NO CHANGE", "", [0, 2, 16]] call A3A_fnc_createPatrol;
 
 			_groups pushBack _groupX;
 			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
@@ -319,11 +318,11 @@ for "_i" from 0 to (count _array - 1) do
 	_groups pushBack _groupX;
 	{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 
+	//todo Hazey to replace this function
 	//if (_i == 0) then {_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP","SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf)} else {_nul = [leader _groupX, _markerX, "SAFE","SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf)};
 	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAiAirplane#3"];
-	[_groupX, 300] call A3A_fnc_waypointGarrison;
+	
 	};
-	//todo Hazey to replace this function
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 

@@ -130,23 +130,6 @@ if (_isControl) then
 			//todo Hazey to replace this function
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#1"];
 
-			[
-				_groupX,
-				getMarkerPos _markerX,
-				100,
-				5,
-				"MOVE",
-				"SAFE",
-				"BLUE",
-				"NORMAL",
-				"NO CHANGE",
-				"",
-				[0, 2, 16],
-				25,
-				"water",
-				false
-			] call A3A_fnc_createPatrol;
-
 			// Forced non-spawner as they're very static.
 			{[_x,"",false] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 			};

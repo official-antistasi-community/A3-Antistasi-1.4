@@ -1,21 +1,20 @@
 /*
     Author: [Hazey]
     Description:
-		Create Ambient Civ's within city
+      Creates a HashMap of playable tracks with their durations
 
     Arguments:
-    	<Marker> City Marker where you would like the Ambient Civilians created.
-		Note, the marker must be provided from citiesX
+    	N/A
 
     Return Value:
-    	N/A
+    	No Return, but it does set a hashmap variable of A3A_Civilian_Amb_Tracks
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[[_marker], "A3A_fnc_createAmbientCivs"] call A3A_fnc_scheduler;
+		[] call A3A_fnc_createCivilianTracks;
 
     License: MIT License
 */

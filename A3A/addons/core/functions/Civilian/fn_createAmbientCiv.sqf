@@ -15,7 +15,7 @@
     Public: No
 
     Example: 
-		[[_marker], "A3A_fnc_createAmbientCivs"] call A3A_fnc_scheduler;
+		[[_marker], "A3A_fnc_createAmbientCiv"] call A3A_fnc_scheduler;
 
     License: MIT License
 */

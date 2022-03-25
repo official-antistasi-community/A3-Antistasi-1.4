@@ -14,7 +14,7 @@ Public: No
 Dependencies:
     Occupants, Invaders, teamPlayer, markersX, forcedSpawn, spawner,
     controlsX, airportsX, resourcesX, factories, outposts, seports,
-    A3A_fnc_createAICities, A3A_fnc_createCIV, A3A_fnc_createAIcontrols,
+    A3A_fnc_createAICities, A3A_fnc_createAmbientCivTraffic, A3A_fnc_createAIcontrols,
     A3A_fnc_createAIAirplane, A3A_fnc_createAIresources, A3A_fnc_createAIOutposts,
     A3A_fnc_createFIAOutposts2, A3A_fnc_createSDKGarrisons
 
@@ -112,7 +112,6 @@ private _processOccupantMarker = {
                 case (_marker in citiesX):
                 {
                     [[_marker], "A3A_fnc_createAICities"] call A3A_fnc_scheduler;
-                    [[_marker], "A3A_fnc_createAmbientCivs"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in controlsX):
@@ -310,7 +309,6 @@ private _processInvaderMarker = {
                 case (_marker in citiesX):
                 {
                     [[_marker], "A3A_fnc_createAICities"] call A3A_fnc_scheduler;
-                    [[_marker], "A3A_fnc_createAmbientCivs"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in controlsX):
@@ -372,7 +370,8 @@ private _processCityCivMarker = {
 
             if !(_marker in destroyedSites) then
             {
-                [[_marker], "A3A_fnc_createCIV"] call A3A_fnc_scheduler;
+                [[_marker], "A3A_fnc_createAmbientCiv"] call A3A_fnc_scheduler;
+                [[_marker], "A3A_fnc_createAmbientCivTraffic"] call A3A_fnc_scheduler;
             };
         };
     };

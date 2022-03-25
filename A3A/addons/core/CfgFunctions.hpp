@@ -194,12 +194,11 @@ class CfgFunctions
             class civVEHinit {};
             class clientCreateMusicSource {};
             class clientCreateRoomLight {};
-            class createAmbientCivs {};
-            class createCIV {};
+            class createAmbientCiv {};
+            class createAmbientCivTraffic {};
             class createCivilianTracks {};
             class createMusicSource {};
             class createRoomLight {};
-            class getSoundTracks {};
         };
 
         class Collections {

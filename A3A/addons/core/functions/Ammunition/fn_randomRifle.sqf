@@ -27,7 +27,7 @@ if (_pool isEqualTo []) then {
     if (_pool isEqualTo []) then {
         _pool = A3A_rebelGear get "SMGs";
         if (_pool isEqualTo []) then {
-            _pool = A3A_rebelGear get "Shotguns" + A3A_rebelGear get "SniperRifles";
+            _pool = (A3A_rebelGear get "Shotguns") + (A3A_rebelGear get "SniperRifles");
         };
     };
 };

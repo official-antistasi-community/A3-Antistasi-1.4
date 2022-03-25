@@ -27,7 +27,7 @@ private _fnc_addSecondaryAndMags = {
 
     private _magazine = getArray (configFile / "CfgWeapons" / _weapon / "magazines") select 0;
     _unit addSecondaryWeaponItem _magazine;
-    private _magWeight = getNumber (configFile / "CfgMagazines" / _magazine / "mass");
+    private _magWeight = 10 max getNumber (configFile / "CfgMagazines" / _magazine / "mass");
     _unit addMagazines [_magazine, round (random 0.5 + _totalMagWeight / _magWeight)];
 
     private _compatOptics = A3A_rebelOpticsCache get _weapon;

@@ -39,7 +39,8 @@ private _categoryOverrideTable = [
 ["rhs_weap_m32", ["GrenadeLaunchers","Weapons"]],
 ["rhs_weap_m79", ["GrenadeLaunchers","Weapons"]],
 
-["B_rhsusf_B_BACKPACK", ["Unknown","Items"]],
+["B_rhsusf_B_BACKPACK", ["Unknown","Items"]],		// Drone backpack
+["UK3CB_BAF_L103A2", ["Unknown","Items"]],			// Drill practice rifle, no mags
 
 ["UK3CB_Enfield", ["SniperRifles","Weapons"]],
 ["UK3CB_Enfield_rail", ["SniperRifles","Weapons"]],
@@ -50,7 +51,7 @@ private _categoryOverrideTable = [
 
 ["UK3CB_BAF_Javelin_Launcher", ["MissileLaunchers","Weapons","AT"]],
 ["UK3CB_BAF_Javelin_CLU", ["Binoculars","Items"]],
-["UK3CB_BAF_Javelin_Slung_Tube", ["MissileLaunchers","Weapons","AT"]],
+["UK3CB_BAF_Javelin_Slung_Tube", ["StaticWeaponParts","Items"]],
 ["UK3CB_M79", ["GrenadeLaunchers","Weapons"]],
 ["UK3CB_BAF_AT4_CS_AT_Launcher", ["RocketLaunchers","Weapons","AT"]],
 ["UK3CB_BAF_AT4_CS_AP_Launcher", ["RocketLaunchers","Weapons","AT"]],
@@ -134,7 +135,7 @@ private _categoryOverrideTable = [
 
 ["CUP_smg_BallisticShield_MP7", ["Unknown","Weapons"]],
 
-["ace_dragon_super", ["MissileLaunchers","Weapons","AT"]],
+["ace_dragon_super", ["StaticWeaponParts","Items"]],
 ["ace_dragon_sight", ["Binoculars","Items"]],
 
 ["ACE_Kestrel4500", ["Gadgets","Items"]],

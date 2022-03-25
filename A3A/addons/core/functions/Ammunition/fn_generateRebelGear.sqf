@@ -31,6 +31,13 @@ private _fnc_addItemUnlocks = {
     if (_amount < 0) exitWith { _array append [_class, 1] };
 };
 
+private _fnc_magCount = {
+    private _defaultMag = getArray (configFile >> "CfgWeapons" >> _this >> "Magazines") # 0;
+    if (isNil "_defaultMag") exitWith { Error_1("Weapon class %1 has no magazines", _this); 0 };
+    private _magcount = _magLookup getOrDefault [_defaultMag, 0];
+    [_magCount, 1e6] select (_magCount < 0);
+};
+
 private _fnc_addItem = [_fnc_addItemUnlocks, _fnc_addItemNoUnlocks] select (minWeaps < 0);
 
 // First make a lookup for magazines
@@ -50,8 +57,7 @@ private _gl = [];
 {
     _x params ["_class", "_amount"];
     private _categories = _class call A3A_fnc_equipmentClassToCategories;
-    private _bullets = _magLookup getOrDefault [getArray (configFile >> "CfgWeapons" >>_class >> "Magazines") # 0, 0];
-    if (_bullets < 0) then { _bullets = 1e6 };
+    private _bullets = _class call _fnc_magCount;
 
     call {
         if ("GrenadeLaunchers" in _categories) exitWith { [_gl, _class, _amount min _bullets/150] call _fnc_addItem };       // call before rifles
@@ -78,8 +84,7 @@ private _mlaunchersAA = [];
     _x params ["_class", "_amount"];
     private _categories = _class call A3A_fnc_equipmentClassToCategories;
     if !("Disposable" in _categories) then {
-        private _magcount = _magLookup getOrDefault [getArray (configFile >> "CfgWeapons" >>_class >> "Magazines") # 0, 0];
-        if (_magCount < 0) then { _magCount = 1e6 };
+        private _magcount = _class call _fnc_magCount;
         _amount = _amount min (_magcount/2);
     };
 

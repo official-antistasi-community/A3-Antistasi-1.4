@@ -143,7 +143,7 @@ call {
         private _maxzoom = 0.25;
         { _maxzoom = _maxzoom min getNumber (_x >> "opticsZoomMin") } forEach _configs;
         if (_maxzoom >= 0.2 ) exitWith { _categories pushBack "OpticsClose" };         // reflex typically 0.25
-        if (_maxzoom >= 0.0625 ) exitWith { _categories pushBack "OpticsMid" };        // su230 etc
+        if (_maxzoom >= 0.04 ) exitWith { _categories pushBack "OpticsMid" };        // 6.25x, includes RHS SU260/MDO
         _categories pushBack "OpticsLong";
     };
 

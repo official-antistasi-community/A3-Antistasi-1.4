@@ -43,11 +43,11 @@ private _city = if (_positionX isEqualType "") then {_positionX} else {[citiesX,
 private _cityData = server getVariable _city;
 
 // This is just for testing purposes, will math better.
-_civilianPopulation = round ((_cityData select 0) / 25);
+_civilianPopulation = round ((_cityData#0) / 25);
 
 
 // We don't want to add too many civ's.
-if (_civilianPopulation > __maxSpawnedCivilians) then {
+if (_civilianPopulation > _maxSpawnedCivilians) then {
 	_civilianPopulation = _maxSpawnedCivilians;
 };
 
@@ -80,7 +80,7 @@ for "_i" from 1 to _civilianPopulation do {
 
 	// Actions to do during the morning hours of spawn.
 	if (_dayState == "MORNING") then {
-		if (4 > random 10) {
+		if (4 > random 10) then {
 			private _building = _posHouse nearestObject "House";
 			private _soundSource = [_building] call A3A_fnc_createMusicSource;
 			
@@ -91,7 +91,7 @@ for "_i" from 1 to _civilianPopulation do {
 
 	// Actions to do during the day hours of spawn
 	if (_dayState == "DAY") then {
-		if (7 > random 10) {
+		if (7 > random 10) then {
 			private _building = _posHouse nearestObject "House";
 			private _soundSource = [_building] call A3A_fnc_createMusicSource;
 			_soundSources pushBack _soundSource;

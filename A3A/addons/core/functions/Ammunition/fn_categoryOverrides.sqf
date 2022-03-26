@@ -159,7 +159,7 @@ private _categoryOverrideTable = [
 ["vn_default_helmetbase_09", ["Unknown","Headgear"]],	//Goat Hat
 ["vn_m1897", ["Shotguns","Weapons"]],
 ["vn_izh54", ["Shotguns","Weapons"]],
-["vn_izh54_shorty", ["Shotguns","Weapons"]],		// might be a handgun...
+["vn_izh54_shorty", ["Shotguns","Weapons"]],
 ["vn_pps52", ["SMGs","Weapons"]],
 ["vn_pps43", ["SMGs","Weapons"]],
 ["vn_mc10", ["SMGs","Weapons"]],
@@ -170,14 +170,24 @@ private _categoryOverrideTable = [
 ["vn_mat49_vc", ["SMGs","Weapons"]],
 ["vn_m3a1", ["SMGs","Weapons"]],
 ["vn_sten", ["SMGs","Weapons"]],
+["vn_mpu", ["SMGs","Weapons"]],
+["vn_vz61", ["SMGs","Weapons"]],
+["vn_m72", ["RocketLaunchers","Weapons","AT","Disposable"];
 ["vn_m79", ["GrenadeLaunchers","Weapons"]],
-["vn_sa7b", ["MissileLaunchers","Weapons"]],
-["vn_sa7", ["MissileLaunchers","Weapons"]],
-["vn_m4956_gl", ["GrenadeLaunchers","Weapons"]],
-["vn_m2carbine_gl", ["GrenadeLaunchers","Weapons"]],		// some of these should be rifles/weapons/grenadelaunchers...
-["vn_m1carbine_gl", ["GrenadeLaunchers","Weapons"]],
-["vn_sks_gl", ["GrenadeLaunchers","Weapons"]],
+["vn_sa7b", ["MissileLaunchers","Weapons","AA"]],
+["vn_sa7", ["MissileLaunchers","Weapons","AA"]],
+["vn_m2carbine", ["Rifles","Weapons"]],
+["vn_m2carbine_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_m1carbine", ["Rifles","Weapons"]],
+["vn_m1carbine_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_m3carbine", ["Rifles","Weapons"]],
+["vn_m4956_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_sks_gl", ["Rifles","Weapons","GrenadeLaunchers"]],				// plain versions left as SniperRifles. This is fine
 ["vn_type56", ["Rifles","Weapons"]],
+["vn_m63a_lmg", ["MachineGuns","Weapons"]],
+["vn_m63a_cdo", ["MachineGuns","Weapons"]],
+["vn_m127", ["Unknown","Weapons"]],								// flare launcher secondary
+["vn_mk1_udg", ["Unknown","Weapons"]],							// underwater defence gun
 
 //ACRE Radios
 //Using Gadgets instead of Radios to prevent future issues as they don't use the Radio Slot

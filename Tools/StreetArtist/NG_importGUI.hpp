@@ -65,3 +65,83 @@ class A3A_NG_import_dialogue {
         };
     };
 };
+
+#define NGSA_FRAME_X (0.375 * safezoneW + safezoneX)
+#define NGSA_FRAME_Y (0.2 * safezoneH + safezoneY)
+#define NGSA_FRAME_WIDTH (0.25 * safezoneW)
+#define NGSA_FRAME_HEIGHT (0.6 * safezoneH)
+
+#define NGSA_CONTENTS_X (NGSA_FRAME_X + NGSA_FRAME_WIDTH * 0.05)
+#define NGSA_CONTENTS_Y (NGSA_FRAME_Y + NGSA_FRAME_HEIGHT * 0.10)
+#define NGSA_CONTENTS_WIDTH (NGSA_FRAME_WIDTH * 0.90)
+#define NGSA_CONTENTS_HEIGHT (NGSA_FRAME_HEIGHT * 0.85)
+
+class A3A_NGSA_startup_dialogue {
+    idd = -1;
+    access = 0;
+    movingEnable = true;
+    enableSimulation = true;
+    class Controls {
+        class GreyBox : RscText {
+            moving = true;
+            colorBackground[] = { 0.2,0.2,0.2, 0.9 };
+
+            x = NGSA_FRAME_X - NGSA_FRAME_WIDTH * 0.0125;
+            y = NGSA_FRAME_Y - NGSA_FRAME_HEIGHT * 0.0125;
+            w = NGSA_FRAME_WIDTH * 1.025;
+            h = NGSA_FRAME_HEIGHT * 1.025;
+        };
+
+        class Frame : RscFrame {
+            moving = true;
+            colorBackground[] = {1,1,1,1};
+            sizeEx = 0.05;
+
+            text = "Hello! What would you like to do?";
+            x = NGSA_FRAME_X;
+            y = NGSA_FRAME_Y;
+            w = NGSA_FRAME_WIDTH;
+            h = NGSA_FRAME_HEIGHT;
+        };
+
+        class BtnGenerate : RscButton {
+            text = "Generate NavGridDB with Default Settings";
+            sizeEx = 0.05;
+            x = NGSA_CONTENTS_X;
+            y = NGSA_CONTENTS_Y + NGSA_CONTENTS_HEIGHT * 0.00;
+            w = NGSA_CONTENTS_WIDTH;
+            h = NGSA_CONTENTS_HEIGHT * 0.24;
+            action = "[] spawn A3A_fnc_NG_main; closeDialog 1;";
+        };
+
+        class BtnImport : RscButton {
+            text = "Import Existing NavGridDB";
+            sizeEx = 0.05;
+            x = NGSA_CONTENTS_X;
+            y = NGSA_CONTENTS_Y + NGSA_CONTENTS_HEIGHT * 0.25;
+            w = NGSA_CONTENTS_WIDTH;
+            h = NGSA_CONTENTS_HEIGHT * 0.24;
+            action = "[] spawn A3A_fnc_NGSA_main; closeDialog 1;";
+        };
+
+        class BtnStartEmpty : RscButton {
+            text = "Start Fresh from an Empty Grid";
+            sizeEx = 0.05;
+            x = NGSA_CONTENTS_X;
+            y = NGSA_CONTENTS_Y + NGSA_CONTENTS_HEIGHT * 0.50;
+            w = NGSA_CONTENTS_WIDTH;
+            h = NGSA_CONTENTS_HEIGHT * 0.24;
+            action = "[true] spawn A3A_fnc_NGSA_main; closeDialog 1;";
+        };
+
+        class BtnCLI : RscButton {
+            text = "Close Menu to use Command Line";
+            sizeEx = 0.05;
+            x = NGSA_CONTENTS_X;
+            y = NGSA_CONTENTS_Y + NGSA_CONTENTS_HEIGHT * 0.75;
+            w = NGSA_CONTENTS_WIDTH;
+            h = NGSA_CONTENTS_HEIGHT * 0.24;
+            action = "closeDialog 2;";
+        };
+    };
+};

@@ -1,0 +1,11 @@
+name = "A3 Antistasi";
+author = "A3-Antistasi dev team";
+logo = "";
+logoOver = "";
+logoSmall = "";
+picture = "";
+description = "";
+tooltip = "Antistasi";
+overview = "";
+actionName = "GitHub";
+action = "https://github.com/";

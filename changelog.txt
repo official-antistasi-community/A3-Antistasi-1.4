@@ -1,3 +1,78 @@
+Version 2.5.3 - 10th October 2021
+
+Changes from version 2.5.2 to 2.5.3 Antistasi Community Edition
+
+================ Major ================
+  - Rework of punishment attacks #2119
+  --> Punishment attacks no longer sent against occupant-controlled towns.
+  --> Player scaling added to delay time and attacker vehicle count.
+  --> Improved vehicle choice and maxUnits control, ensure 2+ transports.
+  --> Defender ("civilian") count non-linearised, splits to groups of 4.
+  --> Removed civInit from defenders, so that they shoot and don't affect aggro.
+  --> Use combat landing in preference to fastrope, remove slow landing.
+  --> Simplified termination conditions.
+  --> Results now only adjust support of nearby cities.
+  --> Destroyed cities are now coloured black on the map.
+  --> Destroyed cities are now invader-side, to prevent some weird spawning.
+  --> Destroyed cities no longer switch side, provide rebel HR or resources.
+  - Rebalanced reinforcements #2121
+  --> Balance reinforcement system for player count.
+  --> Enable reinforcing from "carriers".
+  --> Separate road patrol generation from reinforcements and rebalance.
+  --> Sanitize garrison sizes (fewer giant and tiny garrisons, units of 4 rather than 8).
+  --> Use more 4-man teams in garrisons for both init and reinf.
+  --> Prevent new reinf convoys spamming after a recapture.
+  --> Fill out the AA & AT squads with a fourth soldier, cap militia squads to 8.
+  - Added player-count based balance for QRFs / singleAttack / wavedCA #2124
+
+================ Minor ================
+  - Garaging now only is possible at locations with flipable flags and at HQ #2107
+  --> Airports, outposts, Seaports, Factories, Resources
+  - Updated the VN templates based on the SOG Prairie Fire update 1.1 #2126
+
+================ Groundwork ================
+  - Implements logging of logs over the char limit and arrays #2081 - #2137
+  - Changed Civ detection for support-choosing to city+house detection #2112
+  --> Occupants are not bombing as much cities anymore
+
+================ Refactor ================
+  - Converted functions.hpp tabs to spaces
+
+================ Bugfixes ================
+
+  - Fixed inability to garage vehicles when player host was inside a vehicle #2100
+  - Moved singleAttack and patrolReinf logging to server #2102
+  - Fixed fastrope spawning corpses underground after being hit whilst fastroping #2103
+  - Fixed allowCrewInImmobile not being applied to convoy vehicles #2105
+  - Fixed vehicle pools not being properly saved #2106
+  - Vehicles near HQ now also have state preservation #2107
+  - Made HC squad vehicle placement use the garage placing code #2109
+  - Fixed broken object carrying #2109
+  - Fixed scaling and bugs plus added logging on economicsAI #2110
+  - Fixed Petros having no ammunition by giving him a vest #2111
+  - Fixed QRFs and singleAttacks being limited by incorrect maxUnits check #2113
+  - Fixed simulated attacks massively overfilling garrisons #2116
+  - Added more explanations to parameters #2120
+  - Fixed multiple issues regarding mortar type checking and locality #2125
+  - Fixed typos and punctuations in customHints #2131
+  - Fixed incorrect attack countdown incrementing #2135
+  - Fixed imbalance between the difficulty settings #2136
+  - Fixed bad exitWith in resourceCheck causing incorrect losses #2141
+  - Fixed degenerate behaviour in rebelAttack #2144
+  - Reduced capture response delay time #2147
+  - Fixed airborne troops being able to flip flags #2148
+  - Fixed exploit where commander could become permanently undercover #2149
+  - Fixed multiple bugs with squad/vehicle pricing #2151
+  - Fixed garage feedback displaying on wrong clients #2156
+  - Added setOvercast functionality on rain-removal #2157
+  - Fixed lamp drop action not being added after respawn #2157
+  - Fixed not removing undercover status when placing ACE explosives #2158
+  - Fixed Nato gunship support #2160
+
+================ DISCLAIMER ================
+  - Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+
 Version 2.5.2 - 27th August 2021
 
 Changes from version 2.5.1 to 2.5.2 Antistasi Community Edition
@@ -84,7 +159,7 @@ Changes from version 2.4.1 to 2.5.0 Antistasi Community Edition
     -> ANA, New Default Occupants on Kunduz (Since its Afghanistan)
     -> ADA, currently unused
   - adapted main license - please read when planning to rework and publish this mission
-    
+
 ================ Minor ================
   - added ACRE2 items to be given/distributed correctly
   - added dynamic crewing for rebel garrison statics

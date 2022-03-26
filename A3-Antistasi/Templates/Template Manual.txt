@@ -1,9 +1,0 @@
-Hi! And welcome to the template folder.
-This folder contains ALL of the units and vehicles that are recognized and used by the mission.
-The template names follow a common structure: Modset _ Side(mission logic [Rebel, Occupant, Invader]) _ Side(name, e.g. NATO) _ Environment (or map for vanilla as each one will have dlc dependancies)
-
-To see how the various files should be made, look at the files in the Example folder.
-
-Integrated mods should be detected in the same way as any other in detector.sqf
-
-Templates should be selected in the same way as any other in selector.sqf, also make sure you add the call to your JNL nodes file.

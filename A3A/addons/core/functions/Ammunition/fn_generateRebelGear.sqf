@@ -110,7 +110,7 @@ private _uvests = [];
 } forEach (jna_datalist select IDC_RSCDISPLAYARSENAL_TAB_VEST);
 
 _rebelGear set ["ArmoredVests", _avests];
-_rebelGear set ["UnarmoredVests", _uvests];          // not a category name, but whatever
+_rebelGear set ["CivilianVests", _uvests];
 
 // Helmet filtering
 private _aheadgear = ["", [1.5,0.5] select (minWeaps < 0)];     // blank entry to phase in armour use gradually
@@ -123,7 +123,7 @@ private _uheadgear = [];
 } forEach (jna_datalist select IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR);
 
 _rebelGear set ["ArmoredHeadgear", _aheadgear];
-//_rebelGear set ["UnarmoredHeadgear", _uheadgear];           // not used, rebels have template-defined basic headgear
+//_rebelGear set ["CosmeticHeadgear", _uheadgear];           // not used, rebels have template-defined basic headgear
 
 // Backpack filtering
 private _backpacks = [];

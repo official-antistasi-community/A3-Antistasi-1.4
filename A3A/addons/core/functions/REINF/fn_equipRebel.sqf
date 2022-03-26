@@ -61,7 +61,7 @@ if (_helmet == "") then { _helmet = selectRandom (A3A_faction_reb get "headgear"
 _unit addHeadgear _helmet;
 
 private _vest = selectRandomWeighted (A3A_rebelGear get "ArmoredVests");
-if (_vest == "") then { _vest = selectRandomWeighted (A3A_rebelGear get "UnarmoredVests") };
+if (_vest == "") then { _vest = selectRandomWeighted (A3A_rebelGear get "CivilianVests") };
 _unit addVest _vest;
 
 private _backpack = selectRandomWeighted (A3A_rebelGear get "BackpacksCargo");

@@ -8,6 +8,9 @@
         Array of appropriate categories, selected from allCategories.
 **/
 
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 params ["_className"];
 
 // First check if the item has hardcoded categories
@@ -137,14 +140,17 @@ call {
     };
 
     if (_basecategory == "Optics") exitWith {
-        // Do we care about anything except the max range optic here?
         if !(isClass (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "OpticsModes")) exitWith {};
         private _configs = "true" configClasses (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "OpticsModes");
-        private _maxzoom = 0.25;
-        { _maxzoom = _maxzoom min getNumber (_x >> "opticsZoomMin") } forEach _configs;
-        if (_maxzoom >= 0.2 ) exitWith { _categories pushBack "OpticsClose" };         // reflex typically 0.25
-        if (_maxzoom >= 0.04 ) exitWith { _categories pushBack "OpticsMid" };        // 6.25x, includes RHS SU260/MDO
-        _categories pushBack "OpticsLong";
+        private _rangeCat = "OpticsClose";
+        {
+            // Assume it's a sniper/marksman optic if it has ranging and zoom. Zoom level alone isn't enough because RHS MDO > PSO-1 & DMS/SOS
+            if (getNumber (_x >> "opticsZoomMin") < 0.2) exitWith {
+                if (count getArray (_x >> "discreteDistance") >= 2) exitWith { _rangeCat = "OpticsLong" };
+                _rangeCat = "OpticsMid";
+            };
+        } forEach _configs;
+        _categories pushBack _rangeCat;
     };
 
     if (_baseCategory == "RocketLaunchers") exitWith {

@@ -172,7 +172,7 @@ private _categoryOverrideTable = [
 ["vn_sten", ["SMGs","Weapons"]],
 ["vn_mpu", ["SMGs","Weapons"]],
 ["vn_vz61", ["SMGs","Weapons"]],
-["vn_m72", ["RocketLaunchers","Weapons","AT","Disposable"];
+["vn_m72", ["RocketLaunchers","Weapons","AT","Disposable"]],
 ["vn_m79", ["GrenadeLaunchers","Weapons"]],
 ["vn_sa7b", ["MissileLaunchers","Weapons","AA"]],
 ["vn_sa7", ["MissileLaunchers","Weapons","AA"]],

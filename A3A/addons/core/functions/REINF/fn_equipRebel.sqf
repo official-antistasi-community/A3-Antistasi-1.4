@@ -24,7 +24,7 @@ private _fnc_addSecondaryAndMags = {
 
     _unit addWeapon _weapon;
     private _magazine = getArray (configFile / "CfgWeapons" / _weapon / "magazines") select 0;
-    _unit addSecondaryWeaponItem _magazine;         // probably harmless at worst for CBA disposables
+    _unit addSecondaryWeaponItem _magazine;
 
     if ("Disposable" in (_weapon call A3A_fnc_equipmentClassToCategories)) exitWith {};
     private _magWeight = 20 max getNumber (configFile / "CfgMagazines" / _magazine / "mass");

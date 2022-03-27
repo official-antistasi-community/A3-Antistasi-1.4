@@ -280,4 +280,46 @@ class CfgSounds
         sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\Dogs\dog20.ogg), 1, 1, 30};
         titles[] = {};
     };
+
+    class A3A_Audio_Civ_Fear1
+    {
+        name = "A3A_Audio_Civ_Fear1";
+        sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\Fear\fear1.ogg), 1, 1, 50};
+        titles[] = {};
+    };
+
+    class A3A_Audio_Civ_Fear2
+    {
+        name = "A3A_Audio_Civ_Fear2";
+        sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\Fear\fear2.ogg), 1, 1, 50};
+        titles[] = {};
+    };
+
+    class A3A_Audio_Civ_Fear3
+    {
+        name = "A3A_Audio_Civ_Fear3";
+        sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\Fear\fear3.ogg), 1, 1, 50};
+        titles[] = {};
+    };
+
+    class A3A_Audio_Civ_Fear4
+    {
+        name = "A3A_Audio_Civ_Fear4";
+        sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\Fear\fear4.ogg), 1, 1, 50};
+        titles[] = {};
+    };
+
+    class A3A_Audio_Civ_Fear5
+    {
+        name = "A3A_Audio_Civ_Fear5";
+        sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\Fear\fear5.ogg), 1, 1, 50};
+        titles[] = {};
+    };
+
+    class A3A_Audio_Civ_Fear6
+    {
+        name = "A3A_Audio_Civ_Fear6";
+        sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\Fear\fear6.ogg), 1, 1, 50};
+        titles[] = {};
+    };
 };

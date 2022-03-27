@@ -19,14 +19,13 @@
     License: MIT License
 */
 
-diag_log text format["Hazey Debug--- Creating hashmap for Civilian Ambient Tracks"];
-
 // This really shouldn't be called again, also it really doesn't matter as if a key already exists
 // It will just overwrite the current key, not create a new one.
 if !(isNil "A3A_Civilian_Amb_Tracks") exitWith {};
 
 // Create Public HashMap for Civilian Audio Tracks
 A3A_Civilian_Amb_Tracks = createHashMap;
+A3A_Civilian_Amb_Fear_Tracks = createHashMap;
 
 // Songs
 A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song1", 180];
@@ -66,4 +65,9 @@ A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Dog18", 7];
 A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Dog19", 7];
 A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Dog20", 7];
 
-diag_log text format["Hazey Debug--- Hashmap A3A_Civilian_Amb_Tracks: %1", A3A_Civilian_Amb_Tracks];
+A3A_Civilian_Amb_Fear_Tracks set ["A3A_Audio_Civ_Fear1", 3];
+A3A_Civilian_Amb_Fear_Tracks set ["A3A_Audio_Civ_Fear2", 6];
+A3A_Civilian_Amb_Fear_Tracks set ["A3A_Audio_Civ_Fear3", 8];
+A3A_Civilian_Amb_Fear_Tracks set ["A3A_Audio_Civ_Fear4", 8];
+A3A_Civilian_Amb_Fear_Tracks set ["A3A_Audio_Civ_Fear5", 6];
+A3A_Civilian_Amb_Fear_Tracks set ["A3A_Audio_Civ_Fear6", 7];

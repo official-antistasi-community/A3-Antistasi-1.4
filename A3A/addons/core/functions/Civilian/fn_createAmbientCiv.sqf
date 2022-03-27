@@ -68,7 +68,8 @@ for "_i" from 1 to _civilianPopulation do {
 	_civilianGroups pushBack _groupX;
 	_civilians pushBack _civUnit;
 	_civUnit setPosATL _posHouse;
-	_civUnit setVariable ["A3A_civHomePosition", _posHouse];
+	_civUnit setVariable ["homePosition", _posHouse];
+	_civUnit setVariable ["isScared", false];
 
 	// Add event handlers to civilian units.
 	[_civUnit] spawn A3A_fnc_CIVinit;
@@ -98,6 +99,8 @@ for "_i" from 1 to _civilianPopulation do {
 			private _soundSource = [_building] call A3A_fnc_createMusicSource;
 			_soundSources pushBack _soundSource;
 		};
+
+		[_civUnit, _groupX, _posHouse, 100, 4, "", [10, 20, 30]] call A3A_fnc_createCivilianPatrol;
 	};
 };
 

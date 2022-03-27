@@ -192,8 +192,6 @@ class CfgFunctions
             class CIVinit {};
             class civVEHinit {};
             class clearCivilianWaypoints {};
-            class clientCreateMusicSource {};
-            class clientCreateRoomLight {};
             class createAmbientCiv {};
             class createAmbientCivTraffic {};
             class createCivilianPatrol {};

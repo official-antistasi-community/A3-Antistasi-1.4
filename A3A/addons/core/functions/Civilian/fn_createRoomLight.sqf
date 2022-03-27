@@ -27,13 +27,9 @@ private _brightness = random 10 / 100;
 // Create light source
 private _light = "#lightpoint" createVehicle getPos _building;
 
-// Create Lightpoint on Multiplayer else create it for single player use.
-if(isMultiplayer) then {
-    [_building, _light, _brightness, _colour] remoteExec ["A3A_fnc_clientCreateRoomLight"];
-} else {
-    _light setLightBrightness _brightness;
-    _light setLightColor _colour;
-    _light lightAttachObject [_building, [1,1,1]];
-};
+[_light, _brightness] remoteExec ["setLightBrightness"];
+[_light, _colour] remoteExec ["setLightColor"];
+[_light, [_building, [1,1,1]]] remoteExec ["lightAttachObject"];
+
 
 _light

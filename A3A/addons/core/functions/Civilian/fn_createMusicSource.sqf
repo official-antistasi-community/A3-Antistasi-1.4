@@ -48,11 +48,7 @@ hideObjectGlobal _musicSource;
 			private _track = selectRandom (_tracks);
 			private _trackDuration = A3A_Civilian_Amb_Tracks get _track;
 
-			if(isMultiplayer) then {
-				[_building, _musicSource, _track] remoteExec ["A3A_fnc_clientCreateMusicSource"];
-			}else{
-				_musicSource say3d (_track);
-			};
+			[_musicSource, _track] remoteExec ["say3D"];
 
 			sleep _trackDuration;
 

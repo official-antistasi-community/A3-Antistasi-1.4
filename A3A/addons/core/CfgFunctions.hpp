@@ -300,6 +300,7 @@ class CfgFunctions
         {
             file = QPATHTOFOLDER(functions\Dialogs\ArsenalLimits);
             class arsenalLimits_listButton {};
+            class arsenalLimits_resetButton {};
             class arsenalLimits_typeSelect {};
         };
 

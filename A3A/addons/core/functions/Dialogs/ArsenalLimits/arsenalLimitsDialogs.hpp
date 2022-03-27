@@ -107,9 +107,15 @@ class ArsenalLimitsDialog {
         };
         class StepButton : CloseButton {
             idc = IDC_stepButton;
-            x = CENTER_X + 40*GRID_W;
+            x = CENTER_X - 20*GRID_W;
             text = "STEP ±5";
             onButtonClick = "_ctrl = (_this#0); _ctrl ctrlSetText (['STEP ±5', 'STEP ±1'] select ('5' in ctrlText _ctrl))";
+        };
+        class ResetButton : CloseButton {
+            idc = IDC_resetButton;
+            x = CENTER_X + 40*GRID_W;
+            text = "RESET";
+            onButtonClick = "[ctrlParent (_this#0)] call A3A_fnc_arsenalLimits_resetButton";
         };
 
         class TypeSelection : RscControlsGroup {
@@ -121,7 +127,7 @@ class ArsenalLimitsDialog {
             sizeEx = GUI_GRID_H;
             class controls {
                 class buttonPrimaryWeapon : RscButton {
-					style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
+                    style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
                     idc = IDC_typesBase + 0;
                     text="\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\PrimaryWeapon_ca.paa";
                     tooltip="$STR_A3_RscDisplayArsenal_tab_PrimaryWeapon";

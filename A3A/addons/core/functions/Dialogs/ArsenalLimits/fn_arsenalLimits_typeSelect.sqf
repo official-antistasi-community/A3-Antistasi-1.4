@@ -13,7 +13,7 @@ private _cfgCat = switch (_typeIndex) do {
     case 22; case 23; case 26: { configFile / "cfgMagazines" };
     default { configFile / "cfgWeapons" };
 };
-private _defaultLimit = [minWeaps, minWeaps*3] select (_typeIndex == 26);
+private _defaultLimit = [A3A_guestItemLimit, 3*A3A_guestItemLimit] select (_typeIndex == 26);
 
 {
     _x params ["_class", "_count"];

@@ -31,7 +31,6 @@ class CfgFunctions
             class fastrope {};
             class findSafeRoadToUnload {};
             class fleeToSide {};
-            class getPosHandler {};
             class guardDog {};
             class hasRadio {};
             class help {};

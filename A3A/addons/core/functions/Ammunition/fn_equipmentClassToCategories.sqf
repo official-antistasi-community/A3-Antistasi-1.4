@@ -140,6 +140,7 @@ call {
     };
 
     if (_basecategory == "Optics") exitWith {
+        if (isArray (configFile >> "CfgWeapons" >> _className >> "ace_scopeAdjust_vertical")) exitWith { _categories pushBack "OpticsLong" };
         if !(isClass (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "OpticsModes")) exitWith {};
         private _configs = "true" configClasses (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "OpticsModes");
         private _rangeCat = "OpticsClose";

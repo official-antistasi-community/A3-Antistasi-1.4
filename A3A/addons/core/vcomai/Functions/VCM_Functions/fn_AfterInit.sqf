@@ -7,8 +7,6 @@
 	[] call Vcm_Settings;	
 	sleep 2;
 	
-
-	
 	[] call VCM_fnc_WeaponDefine;
 	[] spawn VCM_fnc_AIDRIVEBEHAVIOR;
 	[] spawn VCM_fnc_Scheduler;
@@ -21,10 +19,5 @@
 		player addEventHandler ["Respawn",{_this spawn VCM_fnc_IRCHECK;}];
 		//if (Vcm_PlayerAISkills) then {[] spawn VCM_fnc_PLAYERSQUAD;};
 	};
-	
-	
-	
-	//OnEachFrame monitor for mines. Should make them more responsive, without a significant impact on FPS.
-	["VCMMINEMONITOR", "onEachFrame", {[] call VCM_fnc_MineMonitor}] call BIS_fnc_addStackedEventHandler;
-	
+
 };

@@ -129,13 +129,7 @@ class VCOM
 		
 		//[medic, injuredUnit] spawn VCM_fnc_MedicHeal;
 		class MedicHeal {};
-		
-		// [] spawn VCM_fnc_MineMonitor;
-		class MineMonitor {};
-		
-		// [unit, mineArray] spawn VCM_fnc_MinePlant;
-		class MinePlant {};
-		
+
 		// [gunner, backpackClassname, staticWeapon] call VCM_fnc_PackStatic;
 		class PackStatic {};
 		
@@ -147,10 +141,7 @@ class VCOM
 		
 		// group call VCM_fnc_RStatics;
 		class RStatics {};
-		
-		// [unit, satchelArray] spawn VCM_fnc_SatchelPlant;
-		class SatchelPlant {};
-		
+
 		// group call VCM_fnc_SquadExc;
 		class SquadExc {};
 		

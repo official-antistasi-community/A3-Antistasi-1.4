@@ -30,6 +30,7 @@ if (!isServer and hasInterface) exitWith{};
 private _maxSpawnedCivilians = 6;
 private _civilianGroups = [];
 private _soundSources = [];
+private _lightSources = [];
 private _civilians = [];
 private _civilianPopulation = 0;
 private _positionX = getMarkerPos (_markerX);
@@ -43,7 +44,7 @@ private _city = if (_positionX isEqualType "") then {_positionX} else {[citiesX,
 private _cityData = server getVariable _city;
 
 // This is just for testing purposes, will math better.
-_civilianPopulation = round ((_cityData#0) / 25);
+_civilianPopulation = round ( sqrt (_cityData#0));
 
 
 // We don't want to add too many civ's.
@@ -76,6 +77,7 @@ for "_i" from 1 to _civilianPopulation do {
 	if (_dayState == "EVENING" || {_dayState == "NIGHT"}) then {
 		private _building = _posHouse nearestObject "House";
 		_light = [_building] call A3A_fnc_createRoomLight;
+		_lightSources pushBack _light;
 	};
 
 	// Actions to do during the morning hours of spawn.
@@ -83,10 +85,10 @@ for "_i" from 1 to _civilianPopulation do {
 		if (4 > random 10) then {
 			private _building = _posHouse nearestObject "House";
 			private _soundSource = [_building] call A3A_fnc_createMusicSource;
-			
-			_light = [_building] call A3A_fnc_createRoomLight;
 			_soundSources pushBack _soundSource;
 		};
+		_light = [_building] call A3A_fnc_createRoomLight;
+		_lightSources pushBack _light;
 	};
 
 	// Actions to do during the day hours of spawn
@@ -104,3 +106,4 @@ waitUntil {sleep 30;(spawner getVariable _markerX == 2)};
 {if (alive _x) then {deleteVehicle _x};} forEach _civilians;
 {deleteGroup _x} forEach _civilianGroups;
 {deleteVehicle _x} forEach _soundSources;
+{deleteVehicle _x} forEach _lightSources;

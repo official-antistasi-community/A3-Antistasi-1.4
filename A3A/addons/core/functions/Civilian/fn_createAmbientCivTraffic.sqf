@@ -2,204 +2,182 @@ if (!isServer and hasInterface) exitWith{};
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-private ["_markerX","_dataX","_numCiv","_numVeh","_prestigeOPFOR","_prestigeBLUFOR","_civs","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_groupX","_size","_road","_typeVehX","_dirVeh","_positionX","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_burst","_groupP","_wp","_wp1"];
-
-_markerX = _this select 0;
-private _spawnKey = _markerX + "_civ";				// civ part of cities has a separate spawn state from the garrison
-
+private _markerX = (_this#0);
 if (_markerX in destroyedSites) exitWith {};
 
-_dataX = server getVariable _markerX;
+// civ part of cities has a separate spawn state from the garrison
+private _spawnKey = _markerX + "_civ";
 
-_numCiv = _dataX select 0;
-_numVeh = _dataX select 1;
+private _civs = [];
+private _groups = [];
+private _vehiclesX = [];
+private _groupsPatrol = [];
+private _vehPatrol = [];
+private _dataX = server getVariable _markerX;
+private _area = [_markerX] call A3A_fnc_sizeMarker;
+private _positionX = getMarkerPos (_markerX);
+private _numCiv = (_dataX#0);
+private _numVeh = (_dataX#1);
+private _prestigeOPFOR = (_dataX#2);
+private _prestigeBLUFOR = (_dataX#3);
+private _typeCiv = "";
+private _typeVehX = "";
+private _dirVeh = 0;
 
 private _roads = nearestTerrainObjects [getMarkerPos _markerX, ["MAIN ROAD", "ROAD", "TRACK"], 250, false, true];
 if (count _roads == 0) exitWith
 {
     Error_1("Roads not found for marker %1", _markerX);
 };
-
-_prestigeOPFOR = _dataX select 2;
-_prestigeBLUFOR = _dataX select 3;
-
-_civs = [];
-_groups = [];
-_vehiclesX = [];
-_civsPatrol = [];
-_groupsPatrol = [];
-_vehPatrol = [];
-_size = [_markerX] call A3A_fnc_sizeMarker;
-
-_typeCiv = "";
-_typeVehX = "";
-_dirVeh = 0;
-
-_positionX = getMarkerPos (_markerX);
-
-_area = [_markerX] call A3A_fnc_sizeMarker;
-
 _roads = _roads call BIS_fnc_arrayShuffle;
+
 private _maxRoads = count _roads;
 
-private _numParked = _numCiv * (1/60) * civTraffic;		// civTraffic is 0,1,2(default),4
+private _numParked = _numCiv * (1/60) * civTraffic;
 private _numTraffic = _numCiv * (1/300) * civTraffic;
 
-if ((daytime < 8) or (daytime > 21)) then {_numParked = _numParked * 1.5; _numTraffic = _numTraffic / 4 };
+if ((daytime < 8) or (daytime > 21)) then {
+	_numParked = _numParked * 1.5; 
+	_numTraffic = _numTraffic / 4 ;
+};
 _numParked = 1 max (round _numParked) min _maxRoads;
 _numTraffic = 1 max (round _numTraffic) min _maxRoads;
 
 private _countParked = 0;
-
-while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do
-	{
-	_p1 = _roads select _countParked;
-	_road = roadAt _p1;
-	if (!isNull _road) then
-		{
-		if ((count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) and !([50,1,_road,teamPlayer] call A3A_fnc_distanceUnits)) then
-			{
+while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do {
+	private _p1 = _roads select _countParked;
+	private _road = roadAt _p1;
+	
+	if (!isNull _road) then {
+		if ((count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) and !([50,1,_road,teamPlayer] call A3A_fnc_distanceUnits)) then {
 			_dirveh = 0;
-			_roadcon = roadsConnectedTo [_road, true];
+			private _roadcon = roadsConnectedTo [_road, true];
 
-			if (count _roadcon != 0)
-			then
-			{
-				_p2 = getPos (_roadcon # 0);
+			if (count _roadcon != 0) then {
+				private _p2 = getPos (_roadcon # 0);
 				_dirveh = _p1 getDir _p2;
 			};
 
-			_pos = [_p1, 3, _dirveh + 90] call BIS_Fnc_relPos;
+			private _pos = [_p1, 3, _dirveh + 90] call BIS_Fnc_relPos;
 			_typeVehX = selectRandomWeighted civVehiclesWeighted;
-			/*
-			_mrk = createmarker [format ["%1", count vehicles], _p1];
-		    _mrk setMarkerSize [5, 5];
-		    _mrk setMarkerShape "RECTANGLE";
-		    _mrk setMarkerBrush "SOLID";
-		    _mrk setMarkerColor colorTeamPlayer;
-		    //_mrk setMarkerText _nameX;
-		    */
-			_veh = _typeVehX createVehicle _pos;
+
+			private _veh = _typeVehX createVehicle _pos;
 			_veh setDir _dirveh;
             _veh setFuel random [0.10, 0.30, 0.50];
-			clearMagazineCargoGlobal _veh;
-			clearWeaponCargoGlobal _veh;
-			clearItemCargoGlobal _veh;
-			clearBackpackCargoGlobal _veh;
+
+			// Magazine, Weapon, Item, Backpack, True = Clear
+			[true, true, true, true, _veh] call A3A_fnc_clearVehicleCargo;
+
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
 			_veh setVariable ["originalPos", getPos _veh];
 			};
 		};
+
 	sleep 0.5;
 	_countParked = _countParked + 1;
-	};
+};
 
-_mrkMar = if !(A3A_hasIFA) then {seaSpawn select {getMarkerPos _x inArea _markerX}} else {[]};
-if (count _mrkMar > 0) then
-	{
-	for "_i" from 0 to (round (random 3)) do
-		{
-		if (spawner getVariable _spawnKey != 2) then
-			{
+private _mrkMar = if !(A3A_hasIFA) then {seaSpawn select {getMarkerPos _x inArea _markerX}} else {[]};
+if (count _mrkMar > 0) then {
+	for "_i" from 0 to (round (random 3)) do {
+		if (spawner getVariable _spawnKey != 2) then {
 			_typeVehX = selectRandomWeighted civBoatsWeighted;
-			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
-			_veh = _typeVehX createVehicle _pos;
+			private _pos = [(getMarkerPos (_mrkMar select 0)), 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafeSpawnPos;
+			private _veh = _typeVehX createVehicle _pos;
 			_veh setDir (random 360);
-			clearMagazineCargoGlobal _veh;
-			clearWeaponCargoGlobal _veh;
-			clearItemCargoGlobal _veh;
-			clearBackpackCargoGlobal _veh;
+
+			// Magazine, Weapon, Item, Backpack, True = Clear
+			[true, true, true, true, _veh] call A3A_fnc_clearVehicleCargo;
+
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
 			_veh setVariable ["originalPos", getPos _veh];
-			sleep 0.5;
-			};
+
+			sleep 1;
 		};
 	};
+};
 
-if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _spawnKey != 2)) then
-	{
-	_pos = [];
-	while {true} do
-		{
-		_pos = [_positionX, round (random _area), random 360] call BIS_Fnc_relPos;
-		if (!surfaceIsWater _pos) exitWith {};
-		};
-	_groupX = createGroup civilian;
-	_groups pushBack _groupX;
-	_civ = [_groupX, FactionGet(civ, "unitPress"), _pos, [],0, "NONE"] call A3A_fnc_createUnit;
-	_nul = [_civ] spawn A3A_fnc_CIVinit;
-	_civs pushBack _civ;
-
-	//_nul = [_civ, _markerX, "SAFE", "SPAWNED","NOFOLLOW", "NOVEH2","NOSHARE","DoRelax"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
-	//todo Hazey to replace this function
-	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createCIV"];
-
-	};
-
-
-if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
-	{
+if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
 	private _countTraffic = 0;
-
 	private _patrolCities = [_markerX] call A3A_fnc_citiesToCivPatrol;
-	if (count _patrolCities > 0) then
-		{
-		while {(spawner getVariable _spawnKey != 2) and (_countTraffic < _numTraffic)} do
-			{
-			_p1 = selectRandom _roads;
-			_road = roadAt _p1;
-			if (!isNull _road) then
-				{
-				if (count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) then
-					{
-					_groupP = createGroup civilian;
-					_groupsPatrol = _groupsPatrol + [_groupP];
-					_roadcon = roadsConnectedto _road;
-					//_p1 = getPos (_roads select _countX);
-					_p2 = getPos (_roadcon select 0);
-					_dirveh = [_p1,_p2] call BIS_fnc_DirTo;
-					_typeVehX = selectRandomWeighted civVehiclesWeighted;
-					_veh = _typeVehX createVehicle (getPos _p1);
-					_veh setDir _dirveh;
-					clearMagazineCargoGlobal _veh;
-					clearWeaponCargoGlobal _veh;
-					clearItemCargoGlobal _veh;
-					clearBackpackCargoGlobal _veh;
 
-					//_veh forceFollowRoad true;
+	if (count _patrolCities > 0) then {
+		while {(spawner getVariable _spawnKey != 2) and (_countTraffic < _numTraffic)} do {
+			private _p1 = selectRandom _roads;
+			private _road = roadAt _p1;
+			
+			if (!isNull _road) then {
+				if (count (nearestObjects [_p1, ["Car", "Truck"], 5]) == 0) then {
+
+					// Create group and add them to patrol array for deletion later
+					private _groupP = createGroup civilian;
+					_groupsPatrol = _groupsPatrol + [_groupP];
+
+					// Get connected road and direction for use with facing the vehicle.
+					private _roadcon = roadsConnectedto _road;
+					private _p2 = getPos (_roadcon select 0);
+
+					// Face Vehicle to road direction.
+					_dirveh = [_p1, _p2] call BIS_fnc_DirTo;
+
+					// Get vehicle type based on weighted value.
+					_typeVehX = selectRandomWeighted civVehiclesWeighted;
+
+					// Create Civilian Vehicle
+					private _veh = _typeVehX createVehicle (getPos _p1);
+
+					// Set Vehicle direction to that of the road.
+					_veh setDir _dirveh;
+
+					// Magazine, Weapon, Item, Backpack, True = Clear
+					[true, true, true, true, _veh] call A3A_fnc_clearVehicleCargo;
+
+					// Add vehicle to currently spawned vehicles patrolling array. Used for deletion later.
 					_vehPatrol = _vehPatrol + [_veh];
-					_civ = [_groupP, FactionGet(civ, "unitMan"), (getPos _p1), [],0, "NONE"] call A3A_fnc_createUnit;
-					_nul = [_civ] spawn A3A_fnc_CIVinit;
-					_civsPatrol = _civsPatrol + [_civ];
+
+					// Creat AI Unit to add into Civilian Vehicle
+					private _civ = [_groupP, FactionGet(civ, "unitMan"), (getPos _p1), [],0, "NONE"] call A3A_fnc_createUnit;
+
+					// Add Event Handlers to Civilian inside vehicle
+					[_civ] spawn A3A_fnc_CIVinit;
+
+					// Move drive into the vehicle
 					_civ moveInDriver _veh;
+
+					// Add event handlers to vehicle
 					[_veh, civilian] call A3A_fnc_AIVEHInit;
 
+					// Add Civilian to vehicle
 					_groupP addVehicle _veh;
+
+					// Setup Vehicle Bahaviour
 					_groupP setBehaviour "CARELESS";
 					_veh limitSpeed 50;
+
+
+					// Create Vehicle waypoints
 					_posDestination = getPos (selectRandom (nearestTerrainObjects [getMarkerPos (selectRandom _patrolCities), ["ROAD", "TRACK"], 250, false, true]));
-					_wp = _groupP addWaypoint [_posDestination,0];
+					private _wp = _groupP addWaypoint [_posDestination,0];
 					_wp setWaypointType "MOVE";
 					_wp setWaypointSpeed "LIMITED";
 					_wp setWaypointTimeout [30, 45, 60];
 					_wp = _groupP addWaypoint [_positionX,1];
 					_wp setWaypointType "MOVE";
 					_wp setWaypointTimeout [30, 45, 60];
-					_wp1 = _groupP addWaypoint [_positionX,2];
+					private _wp1 = _groupP addWaypoint [_positionX,2];
 					_wp1 setWaypointType "CYCLE";
 					_wp1 synchronizeWaypoint [_wp];
-					};
 				};
+			};
 			_countTraffic = _countTraffic + 1;
 			sleep 5;
-			};
 		};
 	};
+};
 
 waitUntil {sleep 1; (spawner getVariable _spawnKey == 2)};
-
 {deleteVehicle _x} forEach _civs;
 {deleteGroup _x} forEach _groups;
 

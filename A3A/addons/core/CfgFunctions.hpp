@@ -760,6 +760,7 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\Utility);
             class basicBackpack {};
             class classNameToModel {};
+            class clearVehicleCargo {};
             class countAttachedObjects {};
             class createDataObject {};
             class createNamespace {};
@@ -767,6 +768,7 @@ class CfgFunctions
             class getAdmin {};
             class getDayState {};
             class getRoadDirection {};
+            class getSafeSpawnPos {};
             class localLog {};
             class log {};
             class setPos {};

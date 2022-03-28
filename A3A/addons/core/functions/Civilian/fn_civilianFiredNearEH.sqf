@@ -1,39 +1,52 @@
 #include "..\..\script_component.hpp"
 params ["_unit", "_firer", "_distance"];
 
+// This only works for civilian units.
 if (side group _firer == civilian) exitWith {};
 
+// Get a list of tracks from the Civilian Fear tracks hashmap
 private _tracks = keys A3A_Civilian_Amb_Fear_Tracks;
 
+// If we don't have scream effects, why even bother!
 if (count _tracks == 0) exitWith {
 	Error("No Tracks found to make the unit scream");
 };
 
+// Check if shots being fired is from a distance of 50 and closer
 if (_distance < 50) then {
+	private _isScared = _unit getVariable ["isScared", false];
 
-	private _anim = "ApanPercMstpSnonWnonDnon_ApanPknlMstpSnonWnonDnon";
+	if (!_isScared) then {
+		private _anim = "ApanPercMstpSnonWnonDnon_ApanPknlMstpSnonWnonDnon";
+		[_unit, _anim] remoteExec ["switchMove"];
 
-	if (random 1 > 0.4) then {
-		if (isMultiplayer) then {
-			[_unit, _anim] remoteExec ["switchMove"];
-		} else {
-			_unit switchMove _anim;
+		// We set this variable to true to avoid running this portion of the event handler again.
+		_unit setVariable ["isScared", true];
+
+		// We let the waypoint stuff happen in scheduled space.
+		[_unit] spawn {
+			params ["_unit"];
+			private _positionX = [getPos _unit, 100, 200, 0, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+			_unit doMove _positionX;
+			_unit forceWalk false;
+			_unit setSpeedMode "FULL";
+
+			// moveTo didn't work correctly, so we can't use moveToCompleted and a waitUntil here.
+			// We settle for a 60 second sleep timer.
+			sleep 60;
+
+			_unit setVariable ["isScared", false];
+			[_unit, ""] remoteExec ["switchMove"];
+			_unit setSpeedMode "LIMITED";
+			_unit forceWalk true;
 		};
 	};
 
+	// Set random chance to play scream/panic sound.
 	if (random 1 > 0.3) then {
-
 		if (count _tracks > 0) then {
 			private _panicNoise = selectRandom _tracks;
-			if (isMultiplayer) then {
-				[_unit, _panicNoise] remoteExec ["say3D"];
-			} else {
-				_unit say3D _panicNoise;
-			};
+			[_unit, _panicNoise] remoteExec ["say3D"];
 		};
 	};
-
-	_unit setSpeedMode "FULL";
-	_unit forceWalk false;
-
 };

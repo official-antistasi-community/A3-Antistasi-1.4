@@ -15,4 +15,13 @@ class Tasks {
         };
         */
     };
+
+    //Legacy tasks
+    class L_AS_Official {
+        Category = "AS"; // what Category the task bellongs to
+        Func = QFUNC(AS_Official); // the task information needed to run the task
+        Params = QFUNC(AS_Official_p); // determines the parameters for a task, if no valid ones can be genereated return false
+        Version = 1; //version number of task, update when compatibility is broken between last version and new update
+        Weight = 1;
+    };
 };

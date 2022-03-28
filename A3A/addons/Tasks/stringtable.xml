@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3-Antistasi">
+  <Package name="A3-Antistasi Mission">
+    <Container name="Legacy tasks">
+      <Key ID="STR_antistasi_LTasks_AS_official_title">
+        <Original>Kill the Officer</Original>
+      </Key>
+      <Key ID="STR_antistasi_LTasks_AS_official_description">
+      <!-- %1 = Faction name | %2 = Location name | %3 = time in format H:M -->
+        <Original>A %1 officer is inspecting %2. Go there and kill him before %3.</Original>
+      </Key>
+    </Container>
+  </Package>
+</Project>

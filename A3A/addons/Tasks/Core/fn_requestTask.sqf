@@ -39,11 +39,17 @@ if (_taskTypes isEqualTo []) then { _taskTypes = _allTasks };
 } forEach _tasksOfCat;
 
 //filter task that can be run
+private _fnc_requirementMeet = { getArray (_this/"requiredAddons") findIf { !(isClass (configFile/"CfgPatches"/_x)) } == -1 };
 private _taskParams = createHashMap;
 _taskTypes = _taskTypes select {
     private _cfg = TASKS_CFG / _x;
 
     //Common criterias
+    private _requiredAddons = getArray (_cfg/"requiredAddons");
+    if (_requiredAddons findIf {!([_x] call _fnc_requirementMeet)} < 0) then {
+        Debug_2("Task %1 is missing one or more required addons: %2", _x, _requiredAddons); continueWith false;
+    };
+
     private _cat = getText (_cfg/"Category");
     if !(
         { (_x get "Category") isEqualTo _cat } count GVAR(ActiveTasks)

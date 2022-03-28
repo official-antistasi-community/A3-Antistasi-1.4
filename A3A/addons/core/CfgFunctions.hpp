@@ -189,8 +189,7 @@ class CfgFunctions
         class Civilian {
             file = QPATHTOFOLDER(functions\Civilian);
             class civilianFiredNearEH {};
-            class CIVinit {};
-            class civVEHinit {};
+            class civilianInitEH {};
             class clearCivilianWaypoints {};
             class createAmbientCiv {};
             class createAmbientCivTraffic {};

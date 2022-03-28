@@ -40,7 +40,7 @@ if (_markerX != "Synd_HQ") then
 					if (spawner getVariable _markerX != 2) then
 					{
 						private _civ = [_groupCiv, FactionGet(civ, "unitWorker"), _positionX, [],0, "NONE"] call A3A_fnc_createUnit;
-						_nul = [_civ] spawn A3A_fnc_CIVinit;
+						_nul = [_civ] spawn A3A_fnc_civilianInitEH;
 						_civs pushBack _civ;
 						_civ setVariable ["markerX",_markerX,true];
 						sleep 0.5;

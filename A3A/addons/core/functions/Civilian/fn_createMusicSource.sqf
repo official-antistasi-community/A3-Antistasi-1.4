@@ -4,10 +4,10 @@
 		Create a civilian sound source at a provided building.
 
     Arguments:
-    	<Object> Building you want to sttach it to.
+    	<Object> Building you want to attach it to.
 
     Return Value:
-    	N/A
+    	<Object> Sound Source
 
     Scope: Any
     Environment: Any

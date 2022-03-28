@@ -4,10 +4,10 @@
 		Add Ambient room light to civilian house
 
     Arguments:
-    	N/A
+    	<Object> Building to add light to.
 
     Return Value:
-    	<Object> Building to add light to.
+      <Object> Light Source
 
     Scope: Any
     Environment: Any

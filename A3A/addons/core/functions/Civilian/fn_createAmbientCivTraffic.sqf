@@ -1,8 +1,31 @@
+/*
+    Author: [Unknown] [Hazey]
+    Description:
+		Create Ambient Civ Vehicles within city
+
+    Arguments:
+    	<String> City Marker where you would like the Ambient Civilians traffic created.
+		Note, the marker must be provided from citiesX
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		[[_marker], "A3A_fnc_createAmbientCivTraffic"] call A3A_fnc_scheduler;
+
+    License: MIT License
+*/
+
 if (!isServer and hasInterface) exitWith{};
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-private _markerX = (_this#0);
+params ["_markerX"];
+
 if (_markerX in destroyedSites) exitWith {};
 
 // civ part of cities has a separate spawn state from the garrison
@@ -66,7 +89,7 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do 
             _veh setFuel random [0.10, 0.30, 0.50];
 
 			// Magazine, Weapon, Item, Backpack, True = Clear
-			[true, true, true, true, _veh] call A3A_fnc_clearVehicleCargo;
+			[_veh, true, true, true, true] call A3A_fnc_clearVehicleCargo;
 
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
@@ -88,7 +111,7 @@ if (count _mrkMar > 0) then {
 			_veh setDir (random 360);
 
 			// Magazine, Weapon, Item, Backpack, True = Clear
-			[true, true, true, true, _veh] call A3A_fnc_clearVehicleCargo;
+			[_veh, true, true, true, true] call A3A_fnc_clearVehicleCargo;
 
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
@@ -132,7 +155,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
 					_veh setDir _dirveh;
 
 					// Magazine, Weapon, Item, Backpack, True = Clear
-					[true, true, true, true, _veh] call A3A_fnc_clearVehicleCargo;
+					[_veh, true, true, true, true] call A3A_fnc_clearVehicleCargo;
 
 					// Add vehicle to currently spawned vehicles patrolling array. Used for deletion later.
 					_vehPatrol = _vehPatrol + [_veh];
@@ -141,7 +164,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
 					private _civ = [_groupP, FactionGet(civ, "unitMan"), (getPos _p1), [],0, "NONE"] call A3A_fnc_createUnit;
 
 					// Add Event Handlers to Civilian inside vehicle
-					[_civ] spawn A3A_fnc_CIVinit;
+					[_civ] spawn A3A_fnc_civilianInitEH;
 
 					// Move drive into the vehicle
 					_civ moveInDriver _veh;

@@ -4,6 +4,7 @@
 		Simple utility function to clear the vehicle cargo.
 
     Arguments:
+		<Object> Vehicle to remove cargo from
     	<Bool> Magazine Cargo Clear
 		<Bool> Weapon Cargo Clear
 		<Bool> Item Cargo Clear
@@ -17,12 +18,12 @@
     Public: No
 
     Example: 
-		[false, false, false, false, _veh] call A3A_fnc_clearVehicleCargo;
+		[_veh, false, false, false, false] call A3A_fnc_clearVehicleCargo;
 
     License: MIT License
 */
 
-params ["_magazineCargo", "_weaponCargo", "_itemCargo", "_backpackCargo", "_veh"];
+params ["_veh", "_magazineCargo", "_weaponCargo", "_itemCargo", "_backpackCargo"];
 
 if (_magazineCargo) then {
 	clearMagazineCargoGlobal _veh;

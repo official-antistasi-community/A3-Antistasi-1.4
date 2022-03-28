@@ -4,7 +4,7 @@
 		Create Ambient Civ's within city
 
     Arguments:
-    	<Marker> City Marker where you would like the Ambient Civilians created.
+    	<String> City Marker where you would like the Ambient Civilians created.
 		Note, the marker must be provided from citiesX
 
     Return Value:
@@ -72,7 +72,7 @@ for "_i" from 1 to _civilianPopulation do {
 	_civUnit setVariable ["isScared", false];
 
 	// Add event handlers to civilian units.
-	[_civUnit] spawn A3A_fnc_CIVinit;
+	[_civUnit] spawn A3A_fnc_civilianInitEH;
 
 	// Actions to do during the evening hours of spawn.
 	if (_dayState == "EVENING" || {_dayState == "NIGHT"}) then {

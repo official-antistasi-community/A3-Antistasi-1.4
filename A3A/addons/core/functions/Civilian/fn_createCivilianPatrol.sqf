@@ -1,3 +1,30 @@
+/*
+    Author: [Hazey]
+    Description:
+		Add Patrol waypoints to Civilians
+
+    Arguments:
+    	<Object> Civilian Unit to get home point from.
+        <Group> Civilian Group to add waypoints to.
+        <Array> Center position to find safe spot for marker creation.
+        <Number> How far you want to search for a safe spawn location.
+        <Number> How many waypoints you want created.
+        <Code> Code you want executed at the end of a waypoint.
+        <Array> How long you want the unit to stay at a given waypoint before proceeding.
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		[_unit, _group, _pos, 100, 4, "", [10, 20, 30]] call A3A_fnc_createCivilianPatrol;
+
+    License: MIT License
+*/
+
 params [
     "_civUnit",
     ["_group", grpNull, [grpNull, objNull]],

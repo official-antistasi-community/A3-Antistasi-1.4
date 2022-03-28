@@ -1,3 +1,24 @@
+/*
+    Author: [Hazey]
+    Description:
+		Clear Waypoints on Civilian group
+
+    Arguments:
+		<Group> Group you want to clear the waypoints for.
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+        [_group] call A3A_fnc_clearCivilianWaypoints;
+
+    License: MIT License
+*/
+
 params ["_group"];
 
 private _waypoints = waypoints _group;

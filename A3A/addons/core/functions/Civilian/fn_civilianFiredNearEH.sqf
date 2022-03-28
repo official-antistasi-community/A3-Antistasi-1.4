@@ -1,3 +1,26 @@
+/*
+    Author: [Hazey]
+    Description:
+		Civilian Event Handler Actions.
+
+    Arguments:
+    	<Object> Unit this action is called on.
+		<Object> Person who did the firing.
+		<Number> Distance from the fired shot.
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		_unit addEventHandler["FiredNear", A3A_fnc_civilianFiredNearEH];
+
+    License: MIT License
+*/
+
 #include "..\..\script_component.hpp"
 params ["_unit", "_firer", "_distance"];
 

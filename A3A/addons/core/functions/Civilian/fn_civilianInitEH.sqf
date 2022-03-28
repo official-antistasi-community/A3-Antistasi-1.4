@@ -1,4 +1,25 @@
-private ["_unit","_enemiesX"];
+/*
+    Author: [Unknown] [Hazey]
+    Description:
+		Add event handlers to called units. This will generally be Civilian units.
+
+    Arguments:
+		<Object> Unit event handlers will be added to.
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		[_civUnit] spawn A3A_fnc_civilianInitEH;
+
+    License: MIT License
+*/
+
+private ["_unit"];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 _unit = _this select 0;

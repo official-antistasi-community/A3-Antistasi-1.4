@@ -260,7 +260,9 @@ switch _mode do {
 
 		//Keys
 		_display displayRemoveAllEventHandlers "keydown";
+		_display displayRemoveAllEventHandlers "keyup";
 		_display displayAddEventHandler ["keydown",{['KeyDown',_this] call jn_fnc_arsenal;}];
+		_display displayAddEventHandler ["keyup",{['KeyUp',_this] call jn_fnc_arsenal;}];
 
 		//--- UI event handlers
 		_ctrlButtonRandom = _display displayctrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONRANDOM;
@@ -356,17 +358,17 @@ switch _mode do {
 		_isSelectedLeft = _index in [IDCS_LEFT];
 		_listSelected = [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL] select _isSelectedLeft;
 
+		_inventory = if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG) then {
 
-		//add items to list that are in the vehicle
-		_inventory = if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG)then{
-
-			_usableMagazines = [];
+			// Find compatible magazines for all primary weapons in vehicle
+			// Use toLower because modsets are bugged, eg. rhs_45Rnd_545x39_AK vs rhs_45Rnd_545X39_AK
+			private _usableMagazines = [];
 			{
 				private _weapons = jnva_loadout select _x;
 				{
 					private _cfgWeapon = configfile >> "cfgweapons" >> (_x select 0);
 					private _mags = _cfgWeapon call A3A_fnc_allMagazines;
-					{ _usableMagazines pushBackUnique _x } forEach _mags;
+					{ _usableMagazines pushBackUnique toLower _x } forEach _mags;
 				} forEach _weapons;
 			}forEach [
 				IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON,
@@ -374,85 +376,43 @@ switch _mode do {
 				IDC_RSCDISPLAYARSENAL_TAB_HANDGUN
 			];
 
-			// Add vehicle magazines for 3CB-style ammunition systems
+			// Add compatible vehicle magazines for 3CB-style ammunition systems
 			private _cfgVehicle = configFile >> "cfgVehicles" >> typeof _veh;
-			private _vehMags = _cfgVehicle call A3A_fnc_allMagazines;
-			{ _usableMagazines pushBackUnique _x } forEach _vehMags;
+			private _vehMagTypes = _cfgVehicle call A3A_fnc_allMagazines;
+			{ _usableMagazines pushBackUnique toLower _x } forEach _vehMagTypes;
 
-			//loop all magazines and find usable
-			//First, search mags in Arsenal
-			_magazines = [];
+			// Get magazine counts from arsenal that are compatible
+			private _magsArsenal = [];
+			private _magsVehicle = [];
 			{
-				_itemAvailable = _x select 0;
-				_amountAvailable = _x select 1;
-
-				if(_itemAvailable in _usableMagazines)then{
-					_magazines set [count _magazines,[_itemAvailable, _amountAvailable]];
-				};
+				if !(toLower (_x select 0) in _usableMagazines) then { continue };
+				_magsArsenal pushBack _x;
+				_magsVehicle pushBack [_x select 0, 0];
 			} forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
 			
-			//Then add mags in the car, but say we have none available - we'll add available number later
+			// Then add compatible mags from the vehicle cargo
 			{
-				_itemAvailable = _x select 0;
-
-				if(_itemAvailable in _usableMagazines)then{
-					//Use addToArray to avoid duplicating the type if they're already in the arsenal
-					_magazines = [_magazines, [_itemAvailable,0]] call jn_fnc_arsenal_addToArray
-				};
+				if !(toLower (_x select 0) in _usableMagazines) then { continue };
+				// Use addToArray to avoid duplicating the type if they're already in the arsenal
+				_magsArsenal = [_magsArsenal, [_x select 0, 0]] call jn_fnc_arsenal_addToArray;
+				_magsVehicle = [_magsVehicle, _x] call jn_fnc_arsenal_addToArray;
 			} forEach (jnva_loadout select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
-			//return
-			_magazines;
-		}else{
-			(jna_dataList select _index);
+
+			jnva_loadout set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG, _magsVehicle];
+			_magsArsenal;
+		}
+		else {
+			private _items = jna_dataList select _index;
+			// Add entries from vehicle with zero count
+			{
+				_items = [_items, [_x select 0, 0]] call jn_fnc_arsenal_addToArray;
+			} forEach (jnva_loadout select _index);
+			_items;
 		};
 
 		//update list
 		["CreateList",[_display,_index,_inventory,_listSelected]] call jn_fnc_vehicleArsenal;
 		["updateItemInfo",[ _display,_ctrlList,_index]] call jn_fnc_arsenal;
-
-
-		//add items to list that are in the vehicle
-		if(_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG)then{
-			_items = jnva_loadout select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL;
-
-			_itemsUnique = [];
-			{
-				_itemsUnique pushBackUnique (_x select 0);
-			}foreach _items;
-
-			_itemsUnique2 = [];
-			{
-				_weapons = jnva_loadout select _x;
-				{
-					_weapon = _x select 0;
-					{
-
-						if(_x in _itemsUnique)then{
-							_itemsUnique2 pushBackUnique _x;
-							["UpdateItemAdd",[_index,_x,0]] call jn_fnc_arsenal;
-						}
-					} forEach (getarray (configfile >> "cfgweapons" >> _weapon >> "magazines"));
-				} forEach _weapons;
-			}forEach [
-				IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON,
-				IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON,
-				IDC_RSCDISPLAYARSENAL_TAB_HANDGUN
-			];
-			
-			private _magazineItemsInTab = [];
-			{
-				_item = _x;
-				_amount = [_items, _item] call jn_fnc_arsenal_itemCount;
-				_magazineItemsInTab	= [_magazineItemsInTab, [_item,_amount]] call jn_fnc_arsenal_addToArray;
-			} forEach _itemsUnique2;
-			jnva_loadout set [_index,_magazineItemsInTab];
-
-		}else{
-			{
-				_item = _x select 0;
-				["UpdateItemAdd",[_index,_item,0]] call jn_fnc_arsenal;
-			} forEach (jnva_loadout select _index);
-		};
 
 		{
 			_idc = _x;
@@ -660,6 +620,20 @@ switch _mode do {
 		_amountOld = parseNumber (_ctrlList lnbtext [_lbcursel,2]);
 		//remove or add
 		_count = 1;
+
+		private _shift = uiNamespace getVariable ["arsenalShift", false];
+		private _ctrl = uiNamespace getVariable ["arsenalCtrl", false];
+
+		if(_shift && !_ctrl) then {
+			_count = _count * 5;
+		};
+		if(!_shift && _ctrl) then {
+			_count = _count * 10;
+		};
+		if(_shift && _ctrl) then {
+			_count = _count * 25;
+		};
+
 		if(((_amount > 0 || _amount == -1) || _add < 0) && (_add != 0))then{
 
 			if (_add > 0) then {//add
@@ -673,10 +647,11 @@ switch _mode do {
 				//magazines are handeld by bullet count
 				if(_index in [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL])then{
 					//check if full mag can be optaind
-					_count = getNumber (configfile >> "CfgMagazines" >> _item >> "count");
-					if(_amount != -1)then{
-						if(_amount<_count)then{_count = _amount};
-					};
+					_count = _count * getNumber (configfile >> "CfgMagazines" >> _item >> "count");
+				};
+
+				if(_amount != -1) then {
+					_count = _count min _amount;
 				};
 
 				if(_count > 0)then{
@@ -772,7 +747,18 @@ switch _mode do {
 			case (_key == DIK_TAB): {
 			};
 
-
+			case (_key == DIK_LSHIFT): {
+				uiNamespace setVariable ["arsenalShift", true];
+				_return = true;
+			};
+			case (_key == DIK_LCONTROL): {
+				uiNamespace setVariable ["arsenalCtrl", true];
+				_return = true;
+			};
+			case (_key == DIK_LALT): {
+				uiNamespace setVariable ["arsenalAlt", true];
+				_return = true;
+			};
 
 			//--- Save
 			case (_key == DIK_S): {
@@ -808,6 +794,30 @@ switch _mode do {
 				playsound ["RscDisplayCurator_visionMode",true];
 				_return = true;
 
+			};
+		};
+		_return
+	};
+
+    /////////////////////////////////////////////////////////////////////////////////////////// event
+ 	case "KeyUp": {
+		_display = _this select 0;
+		_key = _this select 1;
+		_shift = _this select 2;
+		_ctrl = _this select 3;
+		_alt = _this select 4;
+		switch true do {
+			case (_key == DIK_LSHIFT): {
+				uiNamespace setVariable ["arsenalShift", false];
+				_return = true;
+			};
+			case (_key == DIK_LCONTROL): {
+				uiNamespace setVariable ["arsenalCtrl", false];
+				_return = true;
+			};
+			case (_key == DIK_LALT): {
+				uiNamespace setVariable ["arsenalAlt", false];
+				_return = true;
 			};
 		};
 		_return

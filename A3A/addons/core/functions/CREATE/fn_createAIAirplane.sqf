@@ -231,6 +231,7 @@ _flagX = createVehicle [_typeVehX, _positionX, [],0, "NONE"];
 _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;
+if (flagTexture _flagX != (_faction get "flagTexture")) then {[_flagX,(_faction get "flagTexture")] remoteExec ["setFlagTexture",_flagX]};
 
 // Only create ammoBox if it's been recharged (see reinforcementsAI)
 private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then

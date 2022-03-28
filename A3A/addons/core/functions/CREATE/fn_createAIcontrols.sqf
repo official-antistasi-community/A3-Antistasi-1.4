@@ -98,6 +98,7 @@ if (_isControl) then
 			_typeVehX = _faction get "flag";
 			_veh = createVehicle [_typeVehX, _pos, [],0, "NONE"];
 			_vehiclesX pushBack _veh;
+			if (flagTexture _veh != (_faction get "flagTexture")) then {[_veh,(_faction get "flagTexture")] remoteExec ["setFlagTexture",_veh]};
 			_veh setPosATL _pos;
 			_veh setDir _dirVeh;
 			sleep 1;

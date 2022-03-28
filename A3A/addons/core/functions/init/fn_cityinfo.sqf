@@ -19,9 +19,9 @@ if (_x in destroyedSites) then {_popCSAT = _popCSAT + _numCIV};
 } forEach citiesX;
 _popFIA = round _popFIA;
 _popAAF = round _popAAF;
-["City Information", format ["%7<br/><br/>Total pop: %1<br/>%6 Support: %2<br/>%5 Support: %3 <br/><br/>Murdered Pop: %4<br/><br/>Click on the zone",_pop, _popFIA, _popAAF, _popCSAT,FactionGet(occ,"name"),FactionGet(reb,"name"),worldName]] call A3A_fnc_customHint;
+["City Information", format ["%7<br/><br/>Total pop: %1<br/>%6 Support: %2<br/>%5 Support: %3 <br/><br/>Murdered Pop: %4<br/><br/>Click on the zone",_pop, _popFIA, _popAAF, _popCSAT,FactionGet(occ,"name"),FactionGet(reb,"name"),getText (configfile >> "CfgWorlds" >> worldname >> "description")]] call A3A_fnc_customHint;
 
-if (!visibleMap) then {openMap true};
+if (!visibleMap) then {openMap true}; 
 
 onMapSingleClick "positionTel = _pos;";
 
@@ -50,7 +50,7 @@ while {visibleMap} do
 			_prestigeOPFOR = round (_dataX select 2);
 			_prestigeBLUFOR = round (_dataX select 3);
 			_power = [_siteX] call A3A_fnc_getSideRadioTowerInfluence;
-			_textX = format ["%1<br/><br/>Pop %2<br/>%6 Support: %3 %5<br/>%7 Support: %4 %5",[_siteX,false] call A3A_fnc_location,_numCiv,_prestigeOPFOR,_prestigeBLUFOR,"%",FactionGet(occ,"name"),FactionGet(reb,"name")];
+			_textX = format ["%1<br/><br/>Pop %2<br/>%6 Support: %3 %5<br/>%7 Support: %4 %5",_siteX,_numCiv,_prestigeOPFOR,_prestigeBLUFOR,"%",FactionGet(occ,"name"),FactionGet(reb,"name")];
 			_positionX = getMarkerPos _siteX;
 			_result = "NONE";
 			_result = switch (_power) do

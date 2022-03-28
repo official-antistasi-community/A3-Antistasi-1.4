@@ -39,6 +39,8 @@ private _categoryOverrideTable = [
 ["rhs_weap_m32", ["GrenadeLaunchers","Weapons"]],
 ["rhs_weap_m79", ["GrenadeLaunchers","Weapons"]],
 
+["B_rhsusf_B_BACKPACK", ["Unknown","Items"]],
+
 ["UK3CB_Enfield", ["SniperRifles","Weapons"]],
 ["UK3CB_Enfield_rail", ["SniperRifles","Weapons"]],
 ["UK3CB_M14DMR", ["SniperRifles","Weapons"]],
@@ -98,6 +100,35 @@ private _categoryOverrideTable = [
 ["ace_compat_rhs_usf3_mk19_carry" , ["StaticWeaponParts","Items"]],
 ["ace_compat_rhs_usf3_tow_carry" , ["StaticWeaponParts","Items"]],
 ["ace_compat_rhs_gref3_dshkm_carry" , ["StaticWeaponParts","Items"]],
+
+["CUP_2b14_carry", ["StaticWeaponParts","Items"]],
+["CUP_AGS30_carry" , ["StaticWeaponParts","Items"]],
+["CUP_TOW_carry" , ["StaticWeaponParts","Items"]],
+["CUP_TOW2_carry" , ["StaticWeaponParts","Items"]],
+["CUP_DSHKM_carry" , ["StaticWeaponParts","Items"]],
+["CUP_KORD_carry" , ["StaticWeaponParts","Items"]],
+["CUP_m2_carry" , ["StaticWeaponParts","Items"]],
+["CUP_m252_carry" , ["StaticWeaponParts","Items"]],
+["CUP_MK19_carry" , ["StaticWeaponParts","Items"]],
+["CUP_SPG9_carry" , ["StaticWeaponParts","Items"]],
+
+["CUP_launch_M136", ["RocketLaunchers","Weapons"]],
+["CUP_launch_NLAW", ["RocketLaunchers","Weapons"]],
+["CUP_launch_FIM92Stinger", ["AA","Weapons"]],
+["CUP_launch_Igla", ["AA","Weapons"]],
+["CUP_launch_9K32Strela", ["MissileLaunchers","Weapons"]],
+["CUP_launch_Metis", ["MissileLaunchers","Weapons"]],
+["CUP_launch_Javelin", ["MissileLaunchers","Weapons"]],
+
+["CUP_item_Money", ["Unknown","Items"]],
+["CUP_item_Kostey_photos", ["Unknown","Items"]],
+["CUP_item_Kostey_map_case", ["Unknown","Items"]],
+["CUP_item_Kostey_notebook", ["Unknown","Items"]],
+["CUP_item_CDF_dogtags", ["Unknown","Items"]],
+["CUP_item_Moscow_Bombing_File", ["Unknown","Items"]],
+["CUP_item_Cobalt_File", ["Unknown","Items"]],
+
+["CUP_smg_BallisticShield_MP7", ["Unknown","Weapons"]],
 
 ["ace_dragon_super", ["MissileLaunchers","Weapons","AT"]],
 ["ace_dragon_sight", ["Binoculars","Items"]],

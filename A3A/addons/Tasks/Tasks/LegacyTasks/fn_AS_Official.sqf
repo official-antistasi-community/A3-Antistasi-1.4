@@ -72,14 +72,19 @@ _stages = [
         }],
         ["Reward", { //Type: code | Optional | the reward given for completing the stage
             private _multiplier = if (_this get "isDifficult") then {2} else {1};
-
-            [0,300 * _multiplier] remoteExec ["A3A_fnc_resourcesFIA",2];
-            [1200 + 600 * _multiplier, _this get "side"] remoteExec ["A3A_fnc_timingCA",2];
-            {
-                if (isPlayer _x) then {[10 * _multiplier,_x] call A3A_fnc_playerScoreAdd};
-            } forEach ([500,0,getMarkerPos (_this get "marker"),teamPlayer] call A3A_fnc_distanceUnits);
-            [5 * _multiplier,theBoss] call A3A_fnc_playerScoreAdd;
-            [_this get "marker",30 * _multiplier] call A3A_fnc_addTimeForIdle;
+            if ((_this get "state") isEqualTo "SUCCEEDED") then {
+                [0,300 * _multiplier] remoteExec ["A3A_fnc_resourcesFIA",2];
+                [1200 + 600 * _multiplier, _this get "side"] remoteExec ["A3A_fnc_timingCA",2];
+                {
+                    if (isPlayer _x) then {[10 * _multiplier,_x] call A3A_fnc_playerScoreAdd};
+                } forEach ([500,0,getMarkerPos (_this get "marker"),teamPlayer] call A3A_fnc_distanceUnits);
+                [5 * _multiplier,theBoss] call A3A_fnc_playerScoreAdd;
+                [_this get "marker",30 * _multiplier] call A3A_fnc_addTimeForIdle;
+            } else {
+                [-600 * _multiplier, _this get "side"] remoteExec ["A3A_fnc_timingCA",2];
+                [-10 * _multiplier,theBoss] call A3A_fnc_playerScoreAdd;
+                [_this get "marker",-30 * _multiplier] call A3A_fnc_addTimeForIdle;
+            };
         }],
         ["Timeout", (if (_this get "isDifficult") then {15} else {30}) * 60] //Type: number | Optional | Time limit for the stage before auto fail
     ]

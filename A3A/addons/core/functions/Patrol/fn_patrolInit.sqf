@@ -1,20 +1,20 @@
 /*
     Author: [Hazey]
     Description:
-		
+		PATCOM Init, starts the Patrol Commander Logic
 
     Arguments:
-    	
+    	N/A
 
     Return Value:
-    	
+    	N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		
+		[] call A3A_fnc_patrolInit;
 
     License: MIT License
 */

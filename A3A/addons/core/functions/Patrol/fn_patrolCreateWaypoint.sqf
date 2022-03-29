@@ -1,28 +1,37 @@
 /*
     Author: [Hazey]
     Description:
-		
+		Create Waypoint for Group.
 
     Arguments:
-    	
+    	<Group> Group waypoint should be added to.
+		<String> Waypoint Type, Typically "MOVE".
+		<String> Waypoint Name, used to verify current waypoint.
+		<Array> Position to create waypoint at.
+		<Number> Radius of waypoint.
+		<Number> Distance to ignore newly created waypoint.
 
     Return Value:
-    	
+    	<Array> Waypoint
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		
+		[_group, "MOVE", "PATCOM_PATROL_AREA", _nextWaypointPos, -1, 50] call A3A_fnc_patrolCreateWaypoint;
 
     License: MIT License
 */
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
-params ["_group", "_waypointType", "_waypointName", "_position", ["_radius", -1], ["_distance", 10]];
+params ["_group", "_waypointType", "_waypointName", "_position", ["_radius", -1], ["_distance", 50]];
 
+// Avoid breaking how A3 handles waypointing.
 private _waypoint = [_group, count waypoints _group - 1];
 
+// Convert position to ASL
 private _position = AGLToASL _position;
 
 // Check if current waypoints is more than 1 and current waypoint name is as defined.

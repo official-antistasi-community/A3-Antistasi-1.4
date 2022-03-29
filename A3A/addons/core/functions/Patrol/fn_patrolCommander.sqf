@@ -1,20 +1,20 @@
 /*
     Author: [Hazey]
     Description:
-		
+		Main Patrol Logic
 
     Arguments:
-    	
+    	<Group> Group to handle orders on.
 
     Return Value:
-    	
+    	N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		
+		[_group] call A3A_fnc_patrolCommander;
 
     License: MIT License
 */

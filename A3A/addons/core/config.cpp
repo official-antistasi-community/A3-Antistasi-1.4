@@ -38,7 +38,6 @@ class A3A {
 #ifndef UseDoomGUI
     #include "defines.hpp"
     #include "dialogs.hpp"
-    #include "functions\Dialogs\ArsenalLimits\arsenalLimitsDialogs.hpp"
 #endif
 
 #include "keybinds.hpp"

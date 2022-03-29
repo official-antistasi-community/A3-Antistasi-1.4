@@ -296,14 +296,6 @@ class CfgFunctions
             class unit_recruit {};
         };
 
-        class Dialogs_arsenalLimits
-        {
-            file = QPATHTOFOLDER(functions\Dialogs\ArsenalLimits);
-            class arsenalLimits_listButton {};
-            class arsenalLimits_resetButton {};
-            class arsenalLimits_typeSelect {};
-        };
-
         class EventHandler {
             file = QPATHTOFOLDER(functions\EventHandler);
             class addArtilleryDetectionEH {};

@@ -450,12 +450,6 @@ DECLARE_SERVER_VAR(reinforceMarkerInvader, []);
 DECLARE_SERVER_VAR(canReinforceOccupants, []);
 DECLARE_SERVER_VAR(canReinforceInvader, []);
 
-////////////////////////////
-//     CIVILIANS         ///
-////////////////////////////
-Info("Initialising Civilian Variables");
-[] call A3A_fnc_createCivilianTracks;
-
 /////////////////////////////////////////
 //     SYNCHRONISE SERVER VARIABLES   ///
 /////////////////////////////////////////

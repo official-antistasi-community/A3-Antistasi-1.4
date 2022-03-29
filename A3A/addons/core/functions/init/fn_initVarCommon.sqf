@@ -129,6 +129,8 @@ A3A_sounds_soundInjured_low = [];
 A3A_sounds_soundInjured_mid = [];
 A3A_sounds_soundInjured_max = [];
 
+[] call A3A_fnc_createCivilianTracks;
+
 private _soundPersonParent = "a3\sounds_f\characters\human-sfx\";
 for "_person" from 1 to 18 do {
 	private _personFolder = str _person;

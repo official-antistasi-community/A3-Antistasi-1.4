@@ -241,4 +241,7 @@ savingServer = false;
 	};
 };
 
+// PATCOM
+[] call A3A_fnc_patrolInit;
+
 Info("initServer completed");

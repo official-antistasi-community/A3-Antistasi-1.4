@@ -44,10 +44,12 @@ private _dataX = server getVariable _markerX;
 private _prestigeOPFOR = (_dataX#2);
 private _prestigeBLUFOR = (_dataX#3);
 private _isAAF = true;
-private _spawnParams = [];
+private _factionType = [];
+private _factionSide = "";
 
 if (_markerX in destroyedSites) then {
-	_spawnParams = [_positionX, Invaders, _faction get "groupSpecOps"];
+	_factionType = _faction get "groupSpecOps";
+	_factionSide = Invaders;
 	_isAAF = false;
 } else {
 	private _frontierX = [_markerX] call A3A_fnc_isFrontline;
@@ -55,17 +57,22 @@ if (_markerX in destroyedSites) then {
 
 	if (_frontierX) then {
 		_num = _num * 2;
-		_spawnParams = [_positionX, Occupants, _faction get "groupSentry"];
+		_factionType = _faction get "groupSentry";
+		_factionSide = Occupants;
 	} else {
-		_spawnParams = [_positionX, Occupants, _faction get "groupPolice"];
+		_factionType = _faction get "groupPolice";
+		_factionSide = Occupants;
 	};
 };
 
 if (_num < 1) then {_num = 1};
 
 private _countX = 0;
+private _radius = [_markerX] call A3A_fnc_sizeMarker;
+_radius = round (_radius / 2);
 while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
-	private _groupX = _spawnParams call A3A_fnc_spawnGroup;
+	private _spawnPosition = [_positionX, 10, _radius, 0, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+	private _groupX = [_spawnPosition, _factionSide, _factionType] call A3A_fnc_spawnGroup;
 
 	// Forced non-spawner for performance and consistency with other garrison patrols
 	{
@@ -78,7 +85,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	// Only spawn dog units with Occupant forces.
 	if (_isAAF) then {
 		if (random 10 < 2.5) then {
-			private _dog = [_groupX, "Fin_random_F", _positionX, [], 0, "FORM"] call A3A_fnc_createUnit;
+			private _dog = [_groupX, "Fin_random_F", _spawnPosition, [], 0, "FORM"] call A3A_fnc_createUnit;
 			_dogs pushBack _dog;
 			[_dog] spawn A3A_fnc_guardDog;
 		};
@@ -88,6 +95,9 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	//todo Hazey to replace this function
 	//this was guard patrols
 
+	_groupX setVariable ["PATCOM_Controlled", false];
+	A3A_Patrol_Controlled_AI pushBack _groupX;
+
 	_groups pushBack _groupX;
 	_countX = _countX + 1;
 };
@@ -96,4 +106,8 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 {if (alive _x) then {deleteVehicle _x}} forEach _soldiers;
 {deleteVehicle _x} forEach _dogs;
-{deleteGroup _x} forEach _groups;
+
+{
+	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
+	deleteGroup _x;
+} forEach _groups;

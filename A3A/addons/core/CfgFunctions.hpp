@@ -508,6 +508,16 @@ class CfgFunctions
             class trimPath {};
         };
 
+        class Patrol {
+            file = QPATHTOFOLDER(functions\Patrol);
+            class patrolArea {};
+            class patrolCommander {};
+            class patrolCreateWaypoint {};
+            class patrolGroupVariables {};
+            class patrolInit {};
+            class patrolLoop {};
+        };
+
         class proxy {
             file = QPATHTOFOLDER(functions\proxy);
             class init {};

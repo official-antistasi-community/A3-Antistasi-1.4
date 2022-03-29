@@ -49,9 +49,26 @@ private _VANILLAtemplates = [
 	["NATO (TROPICAL)", "\A3\Data_F\Flags\Flag_NATO_CO.paa"]
 ];
 
+private _VANILLArebtemplates = [
+	["FIA", "a3\data_f\flags\flag_fia_co.paa"],
+	["SDK", "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa"]
+];
+
+private _VANILLAcivtemplates = [
+	["VANILLA","a3\ui_f\data\logos\arma3_white_ca.paa"]
+];
+
 private _VNtemplates = [
 	["MACV","vn\objects_f_vietnam\flags\data\vn_flag_01_usa_co.paa"],
 	["PAVN","vn\objects_f_vietnam\flags\data\vn_flag_01_pavn_co.paa"]
+];
+
+private _VNrebtemplates = [
+	["POF", "vn\objects_f_vietnam\flags\data\vn_flag_01_lao_dmg_ca.paa"]
+];
+
+private _VNcivtemplates = [
+	["VN","\vn\data_f_vietnam\logos\vn_sml_ca.paa"]
 ];
 
 private _RHStemplates = [
@@ -62,6 +79,14 @@ private _RHStemplates = [
 	["USAF ARMY", "a3\data_f\flags\flag_us_co.paa"],
 	["USAF MARINES", "a3\data_f\flags\flag_us_co.paa"],
 	["USAF MARINES", "a3\data_f\flags\flag_us_co.paa"]
+];
+
+private _RHSrebtemplates = [
+	["NAPA", "a3\data_f\flags\flag_fia_co.paa"]
+];
+
+private _RHScivtemplates = [
+	["CUP","\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"]
 ];
 
 private _3CBtemplates = [
@@ -106,70 +131,70 @@ if (A3A_hasRHS) then {
 		private _indexOccupants = _occupantsList lbAdd _x # 0;
 		_occupantsList lbSetPicture [_indexOccupants, _x # 1];
 		_occupantsList lbSetPictureRight [_indexOccupants, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPtemplates;
+	} forEach _RHStemplates;
 
 	{
 		private _indexRebels = _rebelsList lbAdd _x # 0;
 		_rebelsList lbSetPicture [_indexRebels, _x # 1];
 		_rebelsList lbSetPictureRight [_indexRebels, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPrebtemplates;
+	} forEach _RHSrebtemplates;
 
 	{
 		private _indexCivs = _civiliansList lbAdd _x # 0;
 		_civiliansList lbSetPicture [_indexCivs, _x # 1];
 		_civiliansList lbSetPictureRight [_indexCivs, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPcivtemplates;
+	} forEach _RHScivtemplates;
 };
 
-if (A3A_has3CBFactions) then {
-	_infoTextField = _infoTextField + "3CB Factions DETECTED \n";
-		{
-		private _indexInvaders = _invadersList lbAdd _x # 0;
-		_invadersList lbSetPicture [_indexInvaders, _x # 1];
-		_invadersList lbSetPictureRight [_indexInvaders, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
+// if (A3A_has3CBFactions) then {
+// 	_infoTextField = _infoTextField + "3CB Factions DETECTED \n";
+// 		{
+// 		private _indexInvaders = _invadersList lbAdd _x # 0;
+// 		_invadersList lbSetPicture [_indexInvaders, _x # 1];
+// 		_invadersList lbSetPictureRight [_indexInvaders, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
 
-		private _indexOccupants = _occupantsList lbAdd _x # 0;
-		_occupantsList lbSetPicture [_indexOccupants, _x # 1];
-		_occupantsList lbSetPictureRight [_indexOccupants, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPtemplates;
+// 		private _indexOccupants = _occupantsList lbAdd _x # 0;
+// 		_occupantsList lbSetPicture [_indexOccupants, _x # 1];
+// 		_occupantsList lbSetPictureRight [_indexOccupants, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
+// 	} forEach _CUPtemplates;
 
-	{
-		private _indexRebels = _rebelsList lbAdd _x # 0;
-		_rebelsList lbSetPicture [_indexRebels, _x # 1];
-		_rebelsList lbSetPictureRight [_indexRebels, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPrebtemplates;
+// 	{
+// 		private _indexRebels = _rebelsList lbAdd _x # 0;
+// 		_rebelsList lbSetPicture [_indexRebels, _x # 1];
+// 		_rebelsList lbSetPictureRight [_indexRebels, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
+// 	} forEach _CUPrebtemplates;
 
-	{
-		private _indexCivs = _civiliansList lbAdd _x # 0;
-		_civiliansList lbSetPicture [_indexCivs, _x # 1];
-		_civiliansList lbSetPictureRight [_indexCivs, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPcivtemplates;
-};
+// 	{
+// 		private _indexCivs = _civiliansList lbAdd _x # 0;
+// 		_civiliansList lbSetPicture [_indexCivs, _x # 1];
+// 		_civiliansList lbSetPictureRight [_indexCivs, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
+// 	} forEach _CUPcivtemplates;
+// };
 
-if (A3A_has3CBBAF) then {
-	_infoTextField = _infoTextField + "3CB BAF DETECTED \n";
-		{
-		private _indexInvaders = _invadersList lbAdd _x # 0;
-		_invadersList lbSetPicture [_indexInvaders, _x # 1];
-		_invadersList lbSetPictureRight [_indexInvaders, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
+// if (A3A_has3CBBAF) then {
+// 	_infoTextField = _infoTextField + "3CB BAF DETECTED \n";
+// 		{
+// 		private _indexInvaders = _invadersList lbAdd _x # 0;
+// 		_invadersList lbSetPicture [_indexInvaders, _x # 1];
+// 		_invadersList lbSetPictureRight [_indexInvaders, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
 
-		private _indexOccupants = _occupantsList lbAdd _x # 0;
-		_occupantsList lbSetPicture [_indexOccupants, _x # 1];
-		_occupantsList lbSetPictureRight [_indexOccupants, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPtemplates;
+// 		private _indexOccupants = _occupantsList lbAdd _x # 0;
+// 		_occupantsList lbSetPicture [_indexOccupants, _x # 1];
+// 		_occupantsList lbSetPictureRight [_indexOccupants, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
+// 	} forEach _CUPtemplates;
 
-	{
-		private _indexRebels = _rebelsList lbAdd _x # 0;
-		_rebelsList lbSetPicture [_indexRebels, _x # 1];
-		_rebelsList lbSetPictureRight [_indexRebels, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPrebtemplates;
+// 	{
+// 		private _indexRebels = _rebelsList lbAdd _x # 0;
+// 		_rebelsList lbSetPicture [_indexRebels, _x # 1];
+// 		_rebelsList lbSetPictureRight [_indexRebels, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
+// 	} forEach _CUPrebtemplates;
 
-	{
-		private _indexCivs = _civiliansList lbAdd _x # 0;
-		_civiliansList lbSetPicture [_indexCivs, _x # 1];
-		_civiliansList lbSetPictureRight [_indexCivs, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPcivtemplates;
-};
+// 	{
+// 		private _indexCivs = _civiliansList lbAdd _x # 0;
+// 		_civiliansList lbSetPicture [_indexCivs, _x # 1];
+// 		_civiliansList lbSetPictureRight [_indexCivs, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
+// 	} forEach _CUPcivtemplates;
+// };
 
 if (A3A_hasVN) then {
 	_infoTextField = _infoTextField + "VN (SOG) DETECTED \n";
@@ -181,19 +206,19 @@ if (A3A_hasVN) then {
 		private _indexOccupants = _occupantsList lbAdd _x # 0;
 		_occupantsList lbSetPicture [_indexOccupants, _x # 1];
 		_occupantsList lbSetPictureRight [_indexOccupants, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPtemplates;
+	} forEach _VNtemplates;
 
 	{
 		private _indexRebels = _rebelsList lbAdd _x # 0;
 		_rebelsList lbSetPicture [_indexRebels, _x # 1];
 		_rebelsList lbSetPictureRight [_indexRebels, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPrebtemplates;
+	} forEach _VNrebtemplates;
 
 	{
 		private _indexCivs = _civiliansList lbAdd _x # 0;
 		_civiliansList lbSetPicture [_indexCivs, _x # 1];
 		_civiliansList lbSetPictureRight [_indexCivs, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
-	} forEach _CUPcivtemplates;
+	} forEach _VNcivtemplates;
 };
 
 if (A3A_hasCUP) then {
@@ -219,7 +244,31 @@ if (A3A_hasCUP) then {
 		_civiliansList lbSetPicture [_indexCivs, _x # 1];
 		_civiliansList lbSetPictureRight [_indexCivs, "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa"];
 	} forEach _CUPcivtemplates;
-}; 
+};
+
+
+// vanilla
+{
+	private _indexInvaders = _invadersList lbAdd _x # 0;
+	_invadersList lbSetPicture [_indexInvaders, _x # 1];
+	_invadersList lbSetPictureRight [_indexInvaders, "a3\ui_f\data\logos\arma3_white_ca.paa"];
+
+	private _indexOccupants = _occupantsList lbAdd _x # 0;
+	_occupantsList lbSetPicture [_indexOccupants, _x # 1];
+	_occupantsList lbSetPictureRight [_indexOccupants, "a3\ui_f\data\logos\arma3_white_ca.paa"];
+} forEach _VANILLAtemplates;
+
+{
+	private _indexRebels = _rebelsList lbAdd _x # 0;
+	_rebelsList lbSetPicture [_indexRebels, _x # 1];
+	_rebelsList lbSetPictureRight [_indexRebels, "a3\ui_f\data\logos\arma3_white_ca.paa"];
+} forEach _VANILLArebtemplates;
+
+{
+	private _indexCivs = _civiliansList lbAdd _x # 0;
+	_civiliansList lbSetPicture [_indexCivs, _x # 1];
+	_civiliansList lbSetPictureRight [_indexCivs, "a3\ui_f\data\logos\arma3_white_ca.paa"];
+} forEach _VANILLAcivtemplates;
 
 // addInfo to addonPacks
 _addonPackText ctrlSetText _infoTextField;

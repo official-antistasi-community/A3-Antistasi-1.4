@@ -15,7 +15,7 @@ class A3A_ArsenalLimitsDialog {
     idd = A3A_IDD_ARSENALLIMITSDIALOG;
     movingenable = false;
 
-    onLoad = "['typeSelect', nil, _this#0] call A3A_fnc_arsenalLimitsDialog";
+    onLoad = "['typeSelect'] spawn A3A_fnc_arsenalLimitsDialog";
     onUnload = "publicVariable 'A3A_arsenalLimits'";
 
     class ControlsBackground {
@@ -112,7 +112,7 @@ class A3A_ArsenalLimitsDialog {
             x = AL_CENTER_X - 20*AL_GRID_W;
             text = "";              // stringtable combination doesn't work so prep in onLoad instead
             onButtonClick = "['stepButton'] call A3A_fnc_arsenalLimitsDialog";
-            onLoad = "['stepButton', nil, ctrlParent (_this#0)] call A3A_fnc_arsenalLimitsDialog";
+            onLoad = "['stepButton'] spawn A3A_fnc_arsenalLimitsDialog";
         };
         class ResetButton : CloseButton {
             idc = A3A_IDC_ARSLIMRESETBUTTON;

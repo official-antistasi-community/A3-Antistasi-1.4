@@ -7,18 +7,20 @@ Arguments:
 
 Returns:
     Nothing
+
+Environment: 
+    Should not be called by onLoad because findDisplay and ctrlParent do not work in that context.
 */
 
 #include "..\..\dialogues\ids.inc"
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params ["_mode", "_params", "_display"];
+params ["_mode", "_params"];
 
 private _fnc_defaultLimit = { [A3A_guestItemLimit, 3*A3A_guestItemLimit] select (_this == 26) };
 
-// Doesn't work during onLoads so we pass it in there
-if (isNil "_display") then { _display = findDisplay A3A_IDD_ARSENALLIMITSDIALOG };
+private _display = findDisplay A3A_IDD_ARSENALLIMITSDIALOG;
 private _listBox = _display displayCtrl A3A_IDC_ARSLIMLISTBOX;
 
 switch (_mode) do
@@ -59,7 +61,8 @@ switch (_mode) do
 
     case ("listButton"):
     {
-        private _stepSize = _display getVariable ["stepSize", 5];
+        if (isNil {_display getVariable "stepSize"}) exitWith {};
+        private _stepSize = _display getVariable "stepSize";
         private _curRow = lnbCurSelRow _listBox;
         private _class = _listBox lnbData [_curRow, 0];
 
@@ -72,6 +75,7 @@ switch (_mode) do
 
     case ("resetButton"):
     {
+        if (isNil {_display getVariable "typeIndex"}) exitWith {};
         private _defaultLimit = (_display getVariable "typeIndex") call _fnc_defaultLimit;
 
         private _rowCount = lnbSize _listBox select 0;

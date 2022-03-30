@@ -29,6 +29,7 @@ A3A_Patrol_Loop = [] spawn {
 				[_x] call A3A_fnc_patrolGroupVariables;
 			};
 		} forEach A3A_Patrol_Controlled_AI;
+        
 		sleep 5;
 	};
 };

@@ -91,9 +91,6 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 		};
 	};
 	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAICities#1"];
-	
-	//todo Hazey to replace this function
-	//this was guard patrols
 
 	_groupX setVariable ["PATCOM_Controlled", false];
 	A3A_Patrol_Controlled_AI pushBack _groupX;

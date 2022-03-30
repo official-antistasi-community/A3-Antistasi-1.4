@@ -28,6 +28,10 @@ params ["_group"];
 A3A_PATCOM_Commander = [_group] spawn {
 	while {true} do {
 		params ["_group"];
+
+		// We exit here if the group is empty. It's a waste of performance to handle empty groups.
+		if (count units _group <= 0) exitWith {};
+
 		ServerDebug_1("PATCOM | Executing Patrol Task to: %1", _group);
 
 		// Get current orders if set. If not set, we handle first orders below.
@@ -44,7 +48,7 @@ A3A_PATCOM_Commander = [_group] spawn {
 			};
 		};
 
-		ServerDebug_1("PATCOM | Group: %1 | Current Orders: %2", _group, _currentOrders);
+		ServerDebug_2("PATCOM | Group: %1 | Current Orders: %2", _group, _currentOrders);
 
 		if (_currentOrders == "Attack") then {
 
@@ -68,7 +72,11 @@ A3A_PATCOM_Commander = [_group] spawn {
 
 		if (_currentOrders == "Patrol") then {
 			if ((_currentOrders == "Patrol") && (_patrolType == "Area")) then {
-				[_group] call A3A_fnc_patrolArea;
+				if ((side leader _group) == civilian) then {
+					[_group, 0, 100] call A3A_fnc_patrolArea;
+				} else {
+					[_group] call A3A_fnc_patrolArea;
+				};
 			};
 
 			if ((_currentOrders == "Patrol") && (_patrolType == "Road")) then {

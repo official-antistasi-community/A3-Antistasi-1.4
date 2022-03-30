@@ -190,12 +190,9 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\Civilian);
             class civilianFiredNearEH {};
             class civilianInitEH {};
-            class clearCivilianWaypoints {};
             class createAmbientCiv {};
             class createAmbientCivTraffic {};
-            class createCivilianPatrol {};
             class createCivilianTracks {};
-            class createCivilianWaypoint {};
             class createMusicSource {};
             class createRoomLight {};
         };
@@ -516,6 +513,7 @@ class CfgFunctions
             class patrolGroupVariables {};
             class patrolInit {};
             class patrolLoop {};
+            class patrolSetCombatModes {};
         };
 
         class proxy {

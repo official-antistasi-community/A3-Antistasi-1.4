@@ -43,9 +43,7 @@ ServerDebug_1("Spawning City Civilians in %1 with a radius of %2", _markerX, _lo
 private _city = if (_positionX isEqualType "") then {_positionX} else {[citiesX, _positionX] call BIS_fnc_nearestPosition};
 private _cityData = server getVariable _city;
 
-// This is just for testing purposes, will math better.
-_civilianPopulation = round ( sqrt (_cityData#0));
-
+_civilianPopulation = round ((sqrt (_cityData#0)) / 2);
 
 // We don't want to add too many civ's.
 if (_civilianPopulation > _maxSpawnedCivilians) then {
@@ -100,7 +98,8 @@ for "_i" from 1 to _civilianPopulation do {
 			_soundSources pushBack _soundSource;
 		};
 
-		[_civUnit, _groupX, _posHouse, 100, 4, "", [10, 20, 30]] call A3A_fnc_createCivilianPatrol;
+		_civUnit setVariable ["PATCOM_Controlled", false];
+		A3A_Patrol_Controlled_AI pushBack _groupX;
 	};
 };
 

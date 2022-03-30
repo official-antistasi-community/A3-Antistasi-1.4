@@ -30,10 +30,9 @@ Vcm_Settings =
 	VCM_DebugAIPathing = true; //Enable FSM debug code.
 	VCM_DebugSuppression = false; //Enable debug code for suppression
 	VCM_DebugCombatMove = true; //Enable debuging of combat movement.	
-	VCM_MINECHANCE = 75; //Chance to lay a mine every 30 seconds or so
 	VCM_SIDEENABLED = [west,east,resistance]; //Sides that will activate Vcom AI
 	VCM_RAGDOLL = false; //Should AI have a chance to ragdoll when hit
-	VCM_RAGDOLLCHC = 100; //CHANCE AI RAGDOLL	
+	VCM_RAGDOLLCHC = 100; //CHANCE AI RAGDOLL
 	VCM_FullSpeed = false; //Enforce full speedmode during combat (Does not reset after combat end)
 	VCM_HEARINGDISTANCE = 600; //Distance AI hear unsuppressed gunshots.
 	VCM_WARNDIST = 400; //How far AI can request help from other groups.
@@ -44,10 +43,10 @@ Vcm_Settings =
 	VCM_AIDISTANCEVEHPATH = 100; //Distance AI check from the squad leader to steal vehicles
 	VCM_ADVANCEDMOVEMENT = false; //True means AI will actively generate waypoints if no other waypoints are generated for the AI group (2 or more). False disables this advanced movements.
 	VCM_FRMCHANGE = true; //AI GROUPS WILL CHANGE FORMATIONS TO THEIR BEST GUESS.
-	VCM_SKILLCHANGE = false; //AI Groups will have their skills changed by Vcom.
-	VCM_USECBASETTINGS = true;//If CBA is enabled on the host, use the CBA default settings. If false, use the filepatching settings instead.
+	VCM_SKILLCHANGE = true; //AI Groups will have their skills changed by Vcom.
+	VCM_USECBASETTINGS = false;//If CBA is enabled on the host, use the CBA default settings. If false, use the filepatching settings instead.
 	VCM_CARGOCHNG = true; //If true, Vcom will handle disembarking/re-embarking orders instead of vanilla. This is with the intention to prevent the endless embark/disembark loops AI are given.	
-	VCM_TURRETUNLOAD = true;//If true = Prevents AI vehicle turret positions from leaving a vehicle just beecause it is slightly damaged. Example: leaving a tank when just the tracks are damaged.	
+	VCM_TURRETUNLOAD = true; //If true = Prevents AI vehicle turret positions from leaving a vehicle just beecause it is slightly damaged. Example: leaving a tank when just the tracks are damaged.	
 	VCM_DISEMBARKRANGE = 500; //How far AI will disembark from their vehicles. If the vehicle is damaged, they will disembark.
 	VCM_AISNIPERS = false; //Special sniper AI
 	Vcm_DrivingActivated = true; //AI will use experimental driving improvements.
@@ -64,27 +63,19 @@ Vcm_Settings =
 	Vcm_IdleAnimationsEnabled = true; //Enable or disable idle animations. Idle animations only play when AI are standing up and not in combat.
 	
 	//AI SKILL SETTINGS HERE!!!!!!!!!!!!
-	//LOW DIFFICULTY
-	//VCM_AIDIFA = [['aimingAccuracy',0.15],['aimingShake',0.1],['aimingSpeed',0.25],['commanding',1],['courage',1],['endurance',1],['general',0.5],['reloadSpeed',1],['spotDistance',0.8],['spotTime',0.8]];
-		
-	//MEDIUM DIFFICULTY
-	VCM_AIDIFA = [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
-	
-	//HIGH DIFFICULTY
-	//VCM_AIDIFA = [['aimingAccuracy',0.35],['aimingShake',0.4],['aimingSpeed',0.45],['commanding',1],['courage',1],['endurance',1],['general',0.5],['reloadSpeed',1],['spotDistance',0.8],['spotTime',0.8]];
-	
+	VCM_AIDIFA = [['aimingAccuracy', 0.15],['aimingShake', 0.90],['aimingSpeed', 0.75],['commanding', 1],['courage', 1],['general', 1],['reloadSpeed', 1],['spotDistance', 1],['spotTime', 1]];
+
 	//SIDE SPECIFIC
-	VCM_AIDIFWEST = [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
-	VCM_AIDIFEAST = [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
-	VCM_AIDIFRESISTANCE = [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
+	VCM_AIDIFWEST = [['aimingAccuracy', 0.15],['aimingShake', 0.90],['aimingSpeed', 0.75],['commanding', 1],['courage', 1],['general', 1],['reloadSpeed', 1],['spotDistance', 1],['spotTime', 1]];
+	VCM_AIDIFEAST = [['aimingAccuracy', 0.15],['aimingShake', 0.90],['aimingSpeed', 0.75],['commanding', 1],['courage', 1],['general', 1],['reloadSpeed', 1],['spotDistance', 1],['spotTime', 1]];
+	VCM_AIDIFRESISTANCE = [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance', 1],['spotTime', 1]];
 	
 	//PLAYER SQUAD SPECIFIC
-	VCM_PSQUADW= [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];	
-	VCM_PSQUADE= [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];	
-	VCM_PSQUADR= [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
+	VCM_PSQUADW= [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance', 1],['spotTime', 1]];	
+	VCM_PSQUADE= [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance', 1],['spotTime', 1]];	
+	VCM_PSQUADR= [['aimingAccuracy',0.25],['aimingShake',0.15],['aimingSpeed',0.35],['commanding',0.85],['courage',0.5],['general',1],['reloadSpeed',1],['spotDistance', 1],['spotTime', 1]];
 	
-	VCM_AISIDESPEC =
-	{
+	VCM_AISIDESPEC = {
 		private _Side = (side (group _this));
 		switch (_Side) do {
 			case west: 
@@ -108,25 +99,11 @@ Vcm_Settings =
 		};		
 	};
 	
-	
 	VCM_CLASSNAMESPECIFIC = false; //Do you want the AI to have classname specific skill settings?
 	VCM_SIDESPECIFICSKILL = false; //Do you want the AI to have side specific skill settings? This overrides classname specific skills.
 	VCM_SKILL_CLASSNAMES = []; //Here you can assign certain unit classnames to specific skill levels. This will override the AI skill level above.
-	
-	/*
-	EXAMPLE FOR VCM_SKILL_CLASSNAMES
-	
-	VCM_SKILL_CLASSNAMES = [["Classname1",[aimingaccuracy,aimingshake,spotdistance,spottime,courage,commanding,aimingspeed,general,endurance,reloadspeed]],["Classname2",[aimingaccuracy,aimingshake,spotdistance,spottime,courage,commanding,aimingspeed,general,endurance,reloadspeed]]];
-	VCM_SKILL_CLASSNAMES = 	[
-														["B_GEN_Soldier_F",[0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.1]],
-														["B_G_Soldier_AR_F",[0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.1]]
-													]; 
-	
-	*/
 
-		
-	VCM_AIDIFSET =
-	{
+	VCM_AIDIFSET = {
 		{
 			private _unit = _x;
 			_unit allowFleeing 0;			

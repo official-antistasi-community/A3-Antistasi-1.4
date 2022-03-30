@@ -69,9 +69,17 @@ if (_num < 1) then {_num = 1};
 
 private _countX = 0;
 private _radius = [_markerX] call A3A_fnc_sizeMarker;
-_radius = round (_radius / 2);
+//_radius = round (_radius / 2);
 while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
-	private _spawnPosition = [_positionX, 10, _radius, 0, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+	// private _spawnPosition = [_positionX, 10, _radius, 0, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+	// We Opt to use this method over the above. This will provide road positions for spawning rather than a random position.
+	// We want to keep these units within the city for the most part.
+	private _spawnPosition = [];
+
+	while {(count _spawnPosition <= 2)} do {
+		_spawnPosition = [[[_positionX, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
+		sleep 0.50;
+	};
 	private _groupX = [_spawnPosition, _factionSide, _factionType] call A3A_fnc_spawnGroup;
 
 	// Forced non-spawner for performance and consistency with other garrison patrols
@@ -90,8 +98,8 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 			[_dog] spawn A3A_fnc_guardDog;
 		};
 	};
-	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAICities#1"];
 
+	// Give group control over to PATCOM
 	_groupX setVariable ["PATCOM_Controlled", false];
 	A3A_Patrol_Controlled_AI pushBack _groupX;
 
@@ -99,12 +107,13 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	_countX = _countX + 1;
 };
 
-waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
+waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
 
 {if (alive _x) then {deleteVehicle _x}} forEach _soldiers;
 {deleteVehicle _x} forEach _dogs;
 
 {
 	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
+	_x setVariable ["PATCOM_Controlled", ""];
 	deleteGroup _x;
 } forEach _groups;

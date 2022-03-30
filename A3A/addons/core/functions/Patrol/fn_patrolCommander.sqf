@@ -22,7 +22,6 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-scopeName "PATCOM_Commander";
 params ["_group"];
 
 A3A_PATCOM_Commander = [_group] spawn {
@@ -31,8 +30,6 @@ A3A_PATCOM_Commander = [_group] spawn {
 
 		// We exit here if the group is empty. It's a waste of performance to handle empty groups.
 		if (count units _group <= 0) exitWith {};
-
-		ServerDebug_1("PATCOM | Executing Patrol Task to: %1", _group);
 
 		// Get current orders if set. If not set, we handle first orders below.
 		private _currentOrders = _group getVariable ["PATCOM_Current_Orders", ""];
@@ -73,9 +70,9 @@ A3A_PATCOM_Commander = [_group] spawn {
 		if (_currentOrders == "Patrol") then {
 			if ((_currentOrders == "Patrol") && (_patrolType == "Area")) then {
 				if ((side leader _group) == civilian) then {
-					[_group, 0, 100] call A3A_fnc_patrolArea;
+					[_group, 100, 5, 100] call A3A_fnc_patrolArea;
 				} else {
-					[_group] call A3A_fnc_patrolArea;
+					[_group, 500] call A3A_fnc_patrolArea;
 				};
 			};
 

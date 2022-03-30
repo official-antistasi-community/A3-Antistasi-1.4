@@ -66,7 +66,6 @@ for "_i" from 1 to _civilianPopulation do {
 	_civilianGroups pushBack _groupX;
 	_civilians pushBack _civUnit;
 	_civUnit setPosATL _posHouse;
-	_civUnit setVariable ["homePosition", _posHouse];
 	_civUnit setVariable ["isScared", false];
 
 	// Add event handlers to civilian units.
@@ -104,8 +103,12 @@ for "_i" from 1 to _civilianPopulation do {
 };
 
 // Handle removal of civ's.
-waitUntil {sleep 30;(spawner getVariable _markerX == 2)};
+waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
 {if (alive _x) then {deleteVehicle _x};} forEach _civilians;
-{deleteGroup _x} forEach _civilianGroups;
+{
+	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
+	_x setVariable ["PATCOM_Controlled", ""];
+	deleteGroup _x;
+} forEach _civilianGroups;
 {deleteVehicle _x} forEach _soundSources;
 {deleteVehicle _x} forEach _lightSources;

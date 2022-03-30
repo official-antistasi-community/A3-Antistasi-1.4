@@ -26,15 +26,15 @@ params ["_group"];
 
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
 if (count units _group <= 0) exitWith {
-    diag_log text format["Hazey Debug--- Group is Empty - Group: ", _group];
+    ServerDebug_1("Group is Empty - Group: %1", _group);
 };
 
 // Skip if Group is already being controlled by the PATCOM or is Civilian Controlled.
 if (_group getVariable "PATCOM_Controlled") exitWith {
-    diag_log text format["Hazey Debug--- Group is already controlled - Group: ", _group];
+    ServerDebug_1("Group is already controlled - Group: %1", _group);
 };
 
-ServerDebug_1("Setting up PATCOM Variables on group: %1", _group);
+ServerDebug_2("Setting up PATCOM Variables on group: %1 - side: %2", _group, side (leader _group));
 
 if ((side leader _group) == civilian) then {
     // Setup Variable for use later.
@@ -51,7 +51,6 @@ if ((side leader _group) == civilian) then {
 
     // Set Group to being controlled by PATCOM so we don't init variables again.
     _group setVariable ["PATCOM_Controlled", true];
-    diag_log text format["Hazey Debug--- Finished Setting up Civilian Group - Group: ", _group];
 } else {
     // Setup Variable for use later.
     _group setVariable ["PATCOM_Known_Enemy_Positions", []];
@@ -62,7 +61,6 @@ if ((side leader _group) == civilian) then {
 
     // Set Group to being controlled by PATCOM so we don't init variables again.
     _group setVariable ["PATCOM_Controlled", true];
-    diag_log text format["Hazey Debug--- Finished Setting up Combatant Group - Group: ", _group];
 };
 
 // Start PATCOM for unit.

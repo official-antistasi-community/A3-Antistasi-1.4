@@ -30,10 +30,9 @@ A3A_Civilian_Amb_Fear_Tracks = createHashMap;
 // Songs
 A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song1", 180];
 A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song2", 188];
-A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song3", 199];
-A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song4", 246];
-A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song5", 335];
-A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song6", 199];
+A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song3", 246];
+A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song4", 335];
+A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Song5", 199];
 
 // Radio Broadcasts
 A3A_Civilian_Amb_Tracks set ["A3A_Audio_Civ_Radio1", 177];

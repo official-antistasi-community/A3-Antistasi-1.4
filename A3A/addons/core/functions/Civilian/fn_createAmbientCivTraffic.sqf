@@ -106,8 +106,16 @@ if (count _mrkMar > 0) then {
 	for "_i" from 0 to (round (random 3)) do {
 		if (spawner getVariable _spawnKey != 2) then {
 			_typeVehX = selectRandomWeighted civBoatsWeighted;
-			private _pos = [(getMarkerPos (_mrkMar select 0)), 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafeSpawnPos;
-			private _veh = _typeVehX createVehicle _pos;
+
+			// Getting spawn positions can sometimes return empty array.
+			// We keep trying to get a safe pos until one is found.
+			private _spawnPosition = [];
+			while {(count _spawnPosition <= 2)} do {
+				_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafeSpawnPos;
+				sleep 0.001;
+			};
+
+			private _veh = _typeVehX createVehicle _spawnPosition;
 			_veh setDir (random 360);
 
 			// Magazine, Weapon, Item, Backpack, True = Clear

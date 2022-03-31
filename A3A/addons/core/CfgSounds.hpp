@@ -1,7 +1,7 @@
 class CfgSounds
 {
-	sounds[] = {};
-	class fire
+	  sounds[] = {};
+    class fire
     {
         name="fire";
         sound[]={EQPATHTOFOLDER(core,Music\fire.ogg),db+12,1.0};
@@ -57,47 +57,47 @@ class CfgSounds
         titles[] = {};
     };
 
-	class A3A_Audio_Civ_Song1
-	{
-		name = "A3A_Audio_Civ_Song1";
-		sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song1.ogg), 1, 1, 50};
-		titles[] = {};
-	};
+    class A3A_Audio_Civ_Song1
+    {
+      name = "A3A_Audio_Civ_Song1";
+      sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song1.ogg), 1, 1, 50};
+      titles[] = {};
+    };
 
-	class A3A_Audio_Civ_Song2
-	{
-		name = "A3A_Audio_Civ_Song2";
-		sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song2.ogg), 1, 1, 50};
-		titles[] = {};
-	};
+    class A3A_Audio_Civ_Song2
+    {
+      name = "A3A_Audio_Civ_Song2";
+      sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song2.ogg), 1, 1, 50};
+      titles[] = {};
+    };
 
-	class A3A_Audio_Civ_Song3
-	{
-		name = "A3A_Audio_Civ_Song3";
-		sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song3.ogg), 1, 1, 50};
-		titles[] = {};
-	};
+    class A3A_Audio_Civ_Song3
+    {
+      name = "A3A_Audio_Civ_Song3";
+      sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song3.ogg), 1, 1, 50};
+      titles[] = {};
+    };
 
-	class A3A_Audio_Civ_Song4
-	{
-		name = "A3A_Audio_Civ_Song4";
-		sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song4.ogg), 1, 1, 50};
-		titles[] = {};
-	};
+    class A3A_Audio_Civ_Song4
+    {
+      name = "A3A_Audio_Civ_Song4";
+      sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song4.ogg), 1, 1, 50};
+      titles[] = {};
+    };
 
-	class A3A_Audio_Civ_Song5
-	{
-		name = "A3A_Audio_Civ_Song5";
-		sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song5.ogg), 1, 1, 50};
-		titles[] = {};
-	};
+    class A3A_Audio_Civ_Song5
+    {
+      name = "A3A_Audio_Civ_Song5";
+      sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song5.ogg), 1, 1, 50};
+      titles[] = {};
+    };
 
-	class A3A_Audio_Civ_Song6
-	{
-		name = "A3A_Audio_Civ_Song6";
-		sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song6.ogg), 1, 1, 50};
-		titles[] = {};
-	};
+    class A3A_Audio_Civ_Song6
+    {
+      name = "A3A_Audio_Civ_Song6";
+      sound[] = {EQPATHTOFOLDER(core,Sounds\Civilian\song6.ogg), 1, 1, 50};
+      titles[] = {};
+    };
 
     class A3A_Audio_Civ_Radio1
     {

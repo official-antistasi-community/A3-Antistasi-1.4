@@ -40,7 +40,7 @@
     License: MIT License
 */
 
-params ["_checkPos","_minDistance","_maxDistance","_objectProximity","_waterMode","_maxGradient","_shoreMode","_defaultPos"];
+params ["_checkPos",["_minDistance", 50],["_maxDistance", 100],["_objectProximity", 0],["_waterMode", 0],["_maxGradient", -1],["_shoreMode", 0],["_defaultPos", []]];
 
 // support object for center pos as well
 if (_checkPos isEqualType objNull) then {_checkPos = getPos _checkPos};

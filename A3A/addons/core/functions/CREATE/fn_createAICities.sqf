@@ -100,6 +100,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	};
 
 	// Give group control over to PATCOM
+	_groupX setVariable ["PATCOM_Search_Buildings", true];
 	_groupX setVariable ["PATCOM_Controlled", false];
 	A3A_Patrol_Controlled_AI pushBack _groupX;
 

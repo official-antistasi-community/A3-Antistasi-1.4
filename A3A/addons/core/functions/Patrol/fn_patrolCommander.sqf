@@ -85,6 +85,6 @@ A3A_PATCOM_Commander = [_group] spawn {
 			};
 		};
 
-		sleep 30;
+		sleep 10;
 	};
 };

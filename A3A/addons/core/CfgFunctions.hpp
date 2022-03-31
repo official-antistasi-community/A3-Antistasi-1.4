@@ -513,6 +513,7 @@ class CfgFunctions
             class patrolGroupVariables {};
             class patrolInit {};
             class patrolLoop {};
+            class patrolSearchBuilding {}
             class patrolSetCombatModes {};
         };
 

@@ -28,11 +28,18 @@ FIX_LINE_NUMBERS()
 
 params ["_group", "_waypointType", "_waypointName", "_position", ["_radius", -1], ["_distance", 50]];
 
-// Avoid breaking how A3 handles waypointing.
-private _waypoint = [_group, count waypoints _group - 1];
+// This is the only way I know how to reindex the waypoints on a group.
+for "_i" from count waypoints _group - 1 to 0 step -1 do
+{
+	deleteWaypoint [_group, _i];
+};
 
 // Convert position to ASL
 private _position = AGLToASL _position;
+
+// Avoid breaking how A3 handles waypointing.
+private _waypointCount = count waypoints _group;
+private _waypoint = [_group, _waypointCount];
 
 // Check if current waypoints is more than 1 and current waypoint name is as defined.
 if (count waypoints _group > 1 && waypointName _waypoint isEqualTo _waypointName) then {
@@ -63,5 +70,3 @@ if ((_waypoint#1) != currentWaypoint _group) then {
 if (waypointType _waypoint != _waypointType) then {
 	_waypoint setWaypointType _waypointType;
 };
-
-_waypoint

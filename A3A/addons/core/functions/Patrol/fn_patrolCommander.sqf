@@ -45,7 +45,12 @@ A3A_PATCOM_Commander = [_group] spawn {
 			};
 		};
 
-		ServerDebug_2("PATCOM | Group: %1 | Current Orders: %2", _group, _currentOrders);
+		private _knownEnemies = [_group, 1200] call A3A_fnc_patrolClosestKnownEnemy;
+		if (count _knownEnemies <= 1) then {
+			
+		};
+
+		ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2 | Known Enemies: %3", _group, _currentOrders, (count _knownEnemies));
 
 		if (_currentOrders == "Attack") then {
 

@@ -19,7 +19,7 @@ Vcm_Settings =
 	//VCOM ARTILLERY. Only one kind of advanced artillery can be used at a time.
 	VCM_ARTYENABLE = true; //Enable improved artillery handling from Vcom.
 	VCM_ARTYLST = []; //List of all AI inside of artillery pieces, leave this alone.
-	VCM_ARTYDELAY = 60; //Delay between squads requesting artillery
+	VCM_ARTYDELAY = 30; //Delay between squads requesting artillery
 	VCM_ARTYWT = -(VCM_ARTYDELAY);
 	VCM_ARTYET = -(VCM_ARTYDELAY);
 	VCM_ARTYRT = -(VCM_ARTYDELAY);
@@ -55,7 +55,7 @@ Vcm_Settings =
 	Vcm_SmokeChance = 5; 		//Chance the AI will throw a smoke grenade.
 	Vcm_SmokeCooldown = 60;		//Cooldown between each smoke grenade throw. This does not impact vanilla throwing.
 	Vcm_DisableAIRadio = false; //Setting this to true will disable AI talking to each other via the radio. This is only a sound effect, and will make the AI execute orders faster if disabled.	
-	Vcm_UseStaticWeapons = true; //AI will deploy/garrison static weapons	
+	Vcm_UseStaticWeapons = true; //AI will deploy/garrison static weapons
 	Vcm_AI_EM = true; //Will the AI use enhanced movement to navigate around.
 	Vcm_AI_EM_CHN = 50; //Chance a group will attempt to jump over an obstacle  - every 0.5 secs
 	VCM_AI_EM_CLDWN = 15; //Time in seconds before a group will consider jumping over obstacles;	
@@ -131,8 +131,6 @@ Vcm_Settings =
 		} forEach (units _this);
 	};
 	
-	diag_log "VCOM: Using default Settings";
-
 	if (VCM_USECBASETTINGS) then {
 		diag_log "VCOM: Loading CBA settings from Default Settings config";
 		[] call VCM_fnc_CBASettings;

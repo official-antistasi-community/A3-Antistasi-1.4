@@ -35,10 +35,10 @@ class VCOM
 		file = QPATHTOFOLDER(vcomai\Functions\VCM_Functions);
 		
 		//[] spawn VCM_fnc_VcomInit;
-		class VcomInit {preInit = 1;};
+		class VcomInit {};
 		
 		//[] spawn VCM_fnc_AfterInit;
-		class AfterInit {postInit = 1;};
+		class AfterInit {};
 
 		// [unitToRearm, rearmLocation] spawn VCM_fnc_ActRearm
 		class ActRearm {};

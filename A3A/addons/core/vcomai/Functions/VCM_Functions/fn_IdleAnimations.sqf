@@ -6,7 +6,7 @@ private _CombatCheck = _Group getVariable "VCOM_FSMH";
 //Incase the group is dead
 if (isNil "_CombatCheck") exitWith {};
 
-if !(_CombatCheck getFSMVariable ["_CNow",false]) then
+if !(_CombatCheck getFSMVariable ["_CNOW",false]) then
 {
 	
 	private _rndanims= [

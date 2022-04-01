@@ -241,7 +241,12 @@ savingServer = false;
 	};
 };
 
+//VCOM
+[] call VCM_fnc_VcomInit;
+Debug("Starting VCOM INIT Process");
+
 // PATCOM
 [] call A3A_fnc_patrolInit;
+Debug("Starting PATCOM INIT Process");
 
 Info("initServer completed");

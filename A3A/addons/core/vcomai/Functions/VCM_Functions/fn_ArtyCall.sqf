@@ -33,7 +33,6 @@ switch (_CallSide) do
 	case (resistance): {_LazClass = "LaserTargetE";};
 };
 
-
 //First let's go ahead and make sure we clear any dead artillery units.
 private _RemoveList = [];
 
@@ -69,17 +68,19 @@ private _artyArray = [];
 if (_artyArray isEqualTo []) exitWith {};
 
 //Now with our completed array, lets find positions that can support.
-private _clstGrp = [_artyArray,(leader _callGrp),true,"Arty1"] call VCM_fnc_ClstObj;
+private _clstGrp = [_artyArray, (leader _callGrp), true, "Arty1"] call VCM_fnc_ClstObj;
 if (isNil "_clstGrp") exitWith {};
 
 //Now we need to see how much we know about the enemy.
 
+if (({alive _x} count units _enemyGrp) == 0) exitWith {
+	If (VCM_DebugOld) then {[(leader _clstGrp),"Target Dead"] call VCM_fnc_DebugText;
+}; 
+
 private _EnemyGrpLeader = leader _enemyGrp;
-//Find any friendlies within 50 meters.
 private _AllEmyUnits = _EnemyGrpLeader nearEntities [["Man","LandVehicle"], 50];
 
 if (count _AllEmyUnits < 1) exitWith {};
-
 
 //Now that we passed basic checks, let's collect more information to do the damage.
 private _VCnt = [];

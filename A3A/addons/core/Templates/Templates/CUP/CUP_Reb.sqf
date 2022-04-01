@@ -5,7 +5,7 @@
 ["name", "NAPA"] call _fnc_saveToTemplate;                         //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
 
 ["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;                         //this line determines the flag -- Example: ["flag", "Flag_NATO_F"] - ENTER ONLY ONE OPTION
-["flagTexture", "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_napa_co.paa"] call _fnc_saveToTemplate;                 //this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
+["flagTexture", "cup\baseconfigs\cup_baseconfigs\data\flags\flag_napa_co.paa"] call _fnc_saveToTemplate;                 //this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
 ["flagMarkerType", "Faction_CUP_NAPA"] call _fnc_saveToTemplate;             //this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
 
 ["vehicleBasic", "I_Quadbike_01_F"] call _fnc_saveToTemplate;
@@ -55,9 +55,15 @@ private _initialRebelEquipment = [
 ];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "tf_anprc154"]};
-if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "TFAR_anprc155_coyote"};
+if (A3A_hasTFAR && startWithLongRangeRadio) then {
+    _initialRebelEquipment pushBack "tf_anprc155";
+    _initialRebelEquipment pushBack "tf_anprc155_coyote";
+};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "TFAR_anprc154"]};
-if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "TFAR_anprc155_coyote"};
+if (A3A_hasTFARBeta && startWithLongRangeRadio) then {
+    _initialRebelEquipment pushBack "TFAR_anprc155";
+    _initialRebelEquipment pushBack "TFAR_anprc155_coyote";
+};
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 

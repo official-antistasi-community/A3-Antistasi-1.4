@@ -145,13 +145,4 @@ for "_person" from 1 to 18 do {
 
 medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic0","AinvPknlMstpSnonWnonDnon_medic1","AinvPknlMstpSnonWnonDnon_medic2"];
 
-////////////////////////////////////
-//     ID LIST FOR UNIT NAMES    ///
-////////////////////////////////////
-Info("Creating unit identities");
-if !(A3A_hasIFA) then {
-	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
-	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
-};
-
 Info("initVarCommon completed");

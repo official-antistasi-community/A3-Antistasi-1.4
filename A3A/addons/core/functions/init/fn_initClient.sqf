@@ -68,18 +68,6 @@ if (isMultiplayer) then {
         [] spawn A3A_fnc_radioJam;
 	};
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
-}
-else {
-	player setVariable ["eligible",true];
-	theBoss = player;
-	groupX = group player;
-	if (worldName == "Tanoa") then {groupX setGroupId ["Pulu","GroupColor4"]} else {groupX setGroupId ["Stavros","GroupColor4"]};
-	player setIdentity "protagonista";
-	player setUnitRank "COLONEL";
-	player hcSetGroup [group player];		// why?
-	player setUnitTrait ["medic", true];
-	player setUnitTrait ["engineer", true];
-	waitUntil {!isNil "serverInitDone"};
 };
 
 [] spawn A3A_fnc_ambientCivs;
@@ -111,6 +99,8 @@ stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
 player setUnitTrait ["camouflageCoef",0.8];
 player setUnitTrait ["audibleCoef",0.8];
+if ("ace_noradio_enabled" isEqualTo false) then {
+[player, nil, selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity};
 
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;
@@ -454,8 +444,6 @@ if (petros == leader group petros) then {
 	[petros,"remove"] call A3A_fnc_flagaction;		// in case we already created them in initserver
 	[petros,"mission"] call A3A_fnc_flagaction;
 };
-petros setIdentity "friendlyX";
-if (worldName == "Tanoa") then {petros setName "Maru"} else {petros setName "Petros"};
 
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];

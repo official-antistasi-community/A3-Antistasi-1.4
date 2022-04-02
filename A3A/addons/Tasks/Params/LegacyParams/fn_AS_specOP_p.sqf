@@ -1,7 +1,7 @@
 
 private _possibleMarkers = [];
-private _controlsX = [controlsX] FUNC(nearHostileMarkers);
-private _nearbyFriendlyMarkers = FUNC(nearFriendlyMarkers);
+private _controlsX = [controlsX] call FUNC(nearHostileMarkers);
+private _nearbyFriendlyMarkers = call FUNC(nearFriendlyMarkers);
 {
     private _pos = getmarkerPos _x;
     if !(isOnRoad _pos) then {

@@ -2,42 +2,42 @@
 //   Rebel Information   //
 ///////////////////////////
 
-["name", ""] call _fnc_saveToTemplate;                         //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
+["name", ""] call _fnc_saveToTemplate;
 
-["flag", ""] call _fnc_saveToTemplate;                         //this line determines the flag -- Example: ["flag", "Flag_NATO_F"] - ENTER ONLY ONE OPTION
-["flagTexture", ""] call _fnc_saveToTemplate;                 //this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
-["flagMarkerType", ""] call _fnc_saveToTemplate;             //this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
+["flag", ""] call _fnc_saveToTemplate;
+["flagTexture", ""] call _fnc_saveToTemplate;
+["flagMarkerType", ""] call _fnc_saveToTemplate;
 
-["vehicleBasic", ""] call _fnc_saveToTemplate;             //this line determines basic vehicles, the lightest kind available. -- Example: ["vehiclesBasic", ["B_Quadbike_01_F"]] -- String, can only use one
-["vehicleLightUnarmed", ""] call _fnc_saveToTemplate;         //this line determines light and unarmed vehicles. -- Example: ["vehiclesLightUnarmed", ["B_MRAP_01_F"]] -- String, can only use one
-["vehicleLightArmed", ""] call _fnc_saveToTemplate;         //this line determines light and armed vehicles -- Example: ["vehiclesLightArmed",["B_MRAP_01_hmg_F","B_MRAP_01_gmg_F"]] -- String, can only use one
-["vehicleTruck", ""] call _fnc_saveToTemplate;             //this line determines the trucks -- Example: ["vehiclesTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- String, can only use one
-["vehicleAT", ""] call _fnc_saveToTemplate;         //this line determines AT vehicle -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- String, can only use one
-["vehicleAA", ""] call _fnc_saveToTemplate;         //this line determines AA vehicle -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- String, can only use one
+["vehicleBasic", ""] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", ""] call _fnc_saveToTemplate;
+["vehicleLightArmed", ""] call _fnc_saveToTemplate;
+["vehicleTruck", ""] call _fnc_saveToTemplate;
+["vehicleAT", ""] call _fnc_saveToTemplate;
+["vehicleAA", ""] call _fnc_saveToTemplate;
 
-["vehicleBoat", ""] call _fnc_saveToTemplate;     //this line determines transport boats -- Example: ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] -- String, can only use one
-["vehicleRepair", ""] call _fnc_saveToTemplate;             //this line determines gun boats -- Example: ["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F"]] -- String, can only use one
+["vehicleBoat", ""] call _fnc_saveToTemplate;
+["vehicleRepair", ""] call _fnc_saveToTemplate;
 
-["vehiclePlane", ""] call _fnc_saveToTemplate;         //this line determines CAS planes -- Example: ["vehiclesPlanesCAS", ["B_Plane_CAS_01_dynamicLoadout_F"]] -- String, can only use one
-["vehicleHeli", ""] call _fnc_saveToTemplate;         //this line determines light helis -- Example: ["vehiclesHelisLight", ["B_Heli_Light_01_F"]] -- String, can only use one
+["vehiclePlane", ""] call _fnc_saveToTemplate;
+["vehicleHeli", ""] call _fnc_saveToTemplate;
 
 ["vehicleCivCar", ""] call _fnc_saveToTemplate;
 ["vehicleCivTruck", ""] call _fnc_saveToTemplate;
 ["vehicleCivHeli", ""] call _fnc_saveToTemplate;
 ["vehicleCivBoat", ""] call _fnc_saveToTemplate;
 
-["staticMG", ""] call _fnc_saveToTemplate;                     //this line determines static MGs -- Example: ["staticMG", ["B_HMG_01_high_F"]] -- String, can only use one
-["staticAT", ""] call _fnc_saveToTemplate;                     //this line determinesstatic ATs -- Example: ["staticAT", ["B_static_AT_F"]] -- String, can only use one
-["staticAA", ""] call _fnc_saveToTemplate;                     //this line determines static AAs -- Example: ["staticAA", ["B_static_AA_F"]] -- String, can only use one
-["staticMortar", ""] call _fnc_saveToTemplate;                 //this line determines static mortars -- Example: ["staticMortar", ["B_Mortar_01_F"]] -- String, can only use one
+["staticMG", ""] call _fnc_saveToTemplate;
+["staticAT", ""] call _fnc_saveToTemplate;
+["staticAA", ""] call _fnc_saveToTemplate;
+["staticMortar", ""] call _fnc_saveToTemplate;
 ["staticMortarMagHE", ""] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", ""] call _fnc_saveToTemplate;
 
-["mineAT", ""] call _fnc_saveToTemplate;                 //this line determines AT mines needed for spawning in minefields -- Example: ["minefieldAT", ["ATMine_Range_Mag"]] -- String, can only use one
-["mineAPERS", ""] call _fnc_saveToTemplate;             //this line determines APERS mines needed for spawning in minefields -- Example: ["minefieldAPERS", ["APERSMine_Range_Mag"]] -- String, can only use one
+["mineAT", ""] call _fnc_saveToTemplate;
+["mineAPERS", ""] call _fnc_saveToTemplate;
 
-["breachingExplosivesAPC", []] call _fnc_saveToTemplate;            //this line determines explosives needed for breaching APCs -- Example: ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] -- Array, can use Multiple
-["breachingExplosivesTank", []] call _fnc_saveToTemplate;           //this line determines explosives needed for breaching Tanks -- Example: [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] -- Array, can use Multiple
+["breachingExplosivesAPC", []] call _fnc_saveToTemplate;
+["breachingExplosivesTank", []] call _fnc_saveToTemplate;
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -46,10 +46,9 @@
 private _initialRebelEquipment = [];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
-if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155"};
+if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
-if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "TFAR_anprc155"};
-
+if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155","TFAR_anprc155_coyote"]};
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 private _rebUniforms = [];          //Uniforms given to Normal Rebels
@@ -65,6 +64,14 @@ if (allowDLCExpansion) then {_dlcUniforms append [];
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;         //These Items get added to the Arsenal
 
 ["headgear", []] call _fnc_saveToTemplate;          //Headgear used by Rebell Ai until you have Armored Headgear.
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+//Faces and Voices given to Rebell AI
+["faces", []] call _fnc_saveToTemplate;
+["voices", []] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

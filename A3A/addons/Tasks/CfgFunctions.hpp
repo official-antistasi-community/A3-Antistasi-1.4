@@ -28,10 +28,12 @@ class CfgFunctions {
         class LegacyParams {
             file = QPATHTOFOLDER(Params\LegacyParams);
             class AS_Official_p {};
+            class AS_specOP_p {};
         };
         class LegacyTasks {
             file = QPATHTOFOLDER(Tasks\LegacyTasks);
             class AS_Official {};
+            class AS_specOP {};
         };
     };
 };

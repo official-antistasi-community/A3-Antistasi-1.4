@@ -9,6 +9,13 @@
       <!-- %1 = Faction name | %2 = Location name | %3 = time in format H:M -->
         <Original>A %1 officer is inspecting %2. Go there and kill him before %3.</Original>
       </Key>
+      <Key ID="STR_antistasi_LTasks_AS_specOp_title">
+        <Original>SpecOps</Original>
+      </Key>
+      <Key ID="STR_antistasi_LTasks_AS_specOP_description">
+      <!-- %1 = Faction name | %2 = Location name | %3 = time in format H:M -->
+        <Original>We have spotted a %1 SpecOp team patrolling around a %2. Ambush them and we will have one less problem. Do this before %3. Be careful, they are tough boys.</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

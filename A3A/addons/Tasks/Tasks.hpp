@@ -24,4 +24,11 @@ class Tasks {
         Version = 1; //version number of task, update when compatibility is broken between last version and new update
         Weight = 1;
     };
+    class L_AS_specOP {
+        Category = "AS"; // what Category the task bellongs to
+        Func = QFUNC(AS_specOP); // the task information needed to run the task
+        Params = QFUNC(AS_specOP_p); // determines the parameters for a task, if no valid ones can be genereated return false
+        Version = 1; //version number of task, update when compatibility is broken between last version and new update
+        Weight = 1;
+    };
 };

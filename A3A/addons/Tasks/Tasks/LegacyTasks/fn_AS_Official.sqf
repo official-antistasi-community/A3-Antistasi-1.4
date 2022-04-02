@@ -86,7 +86,7 @@ _stages = [
                 [_this get "marker",-30 * _multiplier] call A3A_fnc_addTimeForIdle;
             };
         }],
-        ["Timeout", (if (_this get "isDifficult") then {15} else {30}) * 60] //Type: number | Optional | Time limit for the stage before auto fail
+        ["Timeout", _timeLimit * 60] //Type: number | Optional | Time limit for the stage before auto fail
     ]
 ];
 _this set ["Stages", _stages];

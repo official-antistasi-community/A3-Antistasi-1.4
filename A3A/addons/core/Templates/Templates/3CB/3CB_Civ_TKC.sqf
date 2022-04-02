@@ -67,6 +67,12 @@
     ,"UK3CB_TKC_C_V3S_Refuel", 0.1]] call _fnc_saveToTemplate;
 
 //////////////////////////
+///  Identitiy Stuff   ///
+//////////////////////////
+
+["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;
+
+//////////////////////////
 //       Loadouts       //
 //////////////////////////
 

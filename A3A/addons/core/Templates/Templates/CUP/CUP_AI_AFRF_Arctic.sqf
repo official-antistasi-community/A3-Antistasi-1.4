@@ -67,6 +67,18 @@
 ["minefieldAT", ["CUP_MineE"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["LivonianHead_1","LivonianHead_2","LivonianHead_3","LivonianHead_4","LivonianHead_5",
+"LivonianHead_6","LivonianHead_7","LivonianHead_8","LivonianHead_9",
+"RussianHead_1","RussianHead_2","RussianHead_3","Sturrock",
+"WhiteHead_01","WhiteHead_02","WhiteHead_03","WhiteHead_04",
+"WhiteHead_07","WhiteHead_08","WhiteHead_09","WhiteHead_12",
+"WhiteHead_13","WhiteHead_14","WhiteHead_17","WhiteHead_18",
+"WhiteHead_21","WhiteHead_30"]] call _fnc_saveToTemplate;
+["voices", ["Male01RUS","Male02RUS","Male03RUS"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

@@ -45,7 +45,7 @@
 
 ["vehiclesHelisLight", ["CUP_B_Mi171Sh_Unarmed_ACR"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_B_Mi171Sh_Unarmed_ACR"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["CUP_B_Mi35_Dynamic_CZ", "CUP_B_Mi35_Dynamic_CZ_Dark", "CUP_B_Mi35_Dynamic_CZ_Ram", "CUP_B_Mi35_Dynamic_CZ_Tiger"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["CUP_B_Mi35_Dynamic_CZ", "CUP_B_Mi35_Dynamic_CZ_Dark"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_B_RM70_CZ"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["CUP_B_RM70_CZ", ["CUP_40Rnd_GRAD_HE"]]]] call _fnc_saveToTemplate;
@@ -189,25 +189,20 @@ _sfLoadoutData set ["helmets", ["CUP_H_CZ_Helmet10", "CUP_H_CZ_Helmet09", "CUP_H
 _sfLoadoutData set ["slHat", ["CUP_H_CZ_Cap_Headphones"]];
 _sfLoadoutData set ["sniHats", ["CUP_H_CZ_Hat03"]];
 _sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
-_sfLoadoutData set ["binoculars", ["CUP_LRTV"]];
+_sfLoadoutData set ["binoculars", ["CUP_SOFLAM"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slRifles", [
-    ["CUP_arifle_CZ805_A2", "CUP_muzzle_snds_M16", "", "CUP_optic_ACOG2", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_ACOG2", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "CUP_muzzle_snds_M16", "", "CUP_optic_ACOG2", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
-    ["CUP_arifle_CZ805_A2", "CUP_muzzle_snds_M16", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "CUP_muzzle_snds_M16", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""]
 ]];
 _sfLoadoutData set ["rifles", [
-    ["CUP_arifle_CZ805_A2", "CUP_muzzle_snds_M16", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "CUP_muzzle_snds_M16", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
-    ["CUP_arifle_CZ805_A2", "CUP_muzzle_snds_M16", "", "CUP_optic_Aimpoint_5000", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_Aimpoint_5000", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "CUP_muzzle_snds_M16", "", "CUP_optic_Aimpoint_5000", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""],
-    ["CUP_arifle_CZ805_A2", "CUP_muzzle_snds_M16", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "CUP_muzzle_snds_M16", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], [], ""]
 ]];
@@ -220,10 +215,8 @@ _sfLoadoutData set ["carbines", [
     ["CUP_arifle_Sa58_Carbine_RIS_VFG", "CUP_muzzle_snds_KZRZP_AK762", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_Sa58_M_TracerR"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
-    ["CUP_arifle_CZ805_GL", "CUP_muzzle_snds_M16", "", "CUP_optic_CompM4", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_762_14_GL", "CUP_muzzle_snds_SCAR_H", "", "CUP_optic_CompM4", ["CUP_30Rnd_762x39_CZ807"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_556_14_GL", "CUP_muzzle_snds_M16", "", "CUP_optic_CompM4", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
-    ["CUP_arifle_CZ805_GL", "CUP_muzzle_snds_M16", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_762_14_GL", "CUP_muzzle_snds_SCAR_H", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_762x39_CZ807"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_556_14_GL", "CUP_muzzle_snds_M16", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_arifle_M4A1_BUIS_GL", "CUP_muzzle_snds_M16", "", "CUP_optic_CompM4", ["CUP_30Rnd_556x45_Emag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
@@ -283,21 +276,16 @@ _militaryLoadoutData set ["sniHats", ["CUP_H_CZ_Hat03"]];
 _militaryLoadoutData set ["binoculars", ["CUP_LRTV"]];
 
 _militaryLoadoutData set ["slRifles", [
-    ["CUP_arifle_CZ805_A2", "", "", "CUP_optic_ACOG2", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_ACOG2", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "", "", "CUP_optic_ACOG2", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-    ["CUP_arifle_CZ805_A2", "", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "", "", "CUP_optic_Elcan_SpecterDR_black", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
 _militaryLoadoutData set ["rifles", [
-    ["CUP_arifle_CZ805_A2", "", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-    ["CUP_arifle_CZ805_A2", "", "", "CUP_optic_Aimpoint_5000", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_Aimpoint_5000", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "", "", "CUP_optic_Aimpoint_5000", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-    ["CUP_arifle_CZ805_A2", "", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], [], ""],
     ["CUP_CZ_BREN2_762_14", "", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""],
     ["CUP_CZ_BREN2_556_14", "", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
@@ -308,10 +296,8 @@ _militaryLoadoutData set ["carbines", [
     ["CUP_CZ_BREN2_762_8", "", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-    ["CUP_arifle_CZ805_GL", "", "", "CUP_optic_CompM4", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_762_14_GL", "", "", "CUP_optic_CompM4", ["CUP_30Rnd_762x39_CZ807"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_556_14_GL", "", "", "CUP_optic_CompM4", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
-    ["CUP_arifle_CZ805_GL", "", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_TE1_Red_Tracer_556x45_CZ805"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_762_14_GL", "", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_762x39_CZ807"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_556_14_GL", "", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""]
 ]];

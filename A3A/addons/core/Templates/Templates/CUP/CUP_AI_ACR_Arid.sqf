@@ -291,7 +291,7 @@ _militaryLoadoutData set ["carbines", [
     ["CUP_CZ_BREN2_556_8", "", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
     ["CUP_CZ_BREN2_762_8", "", "", "CUP_optic_AIMM_COMPM4_BLK", ["CUP_30Rnd_TE1_Red_Tracer_762x39_CZ807"], [], ""]
 ]];
-_militaryLoadoutData set ["grenadeLaunchers", [,
+_militaryLoadoutData set ["grenadeLaunchers", [
     ["CUP_CZ_BREN2_762_14_GL", "", "", "CUP_optic_CompM4", ["CUP_30Rnd_762x39_CZ807"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_556_14_GL", "", "", "CUP_optic_CompM4", ["CUP_30Rnd_556x45_Stanag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],
     ["CUP_CZ_BREN2_762_14_GL", "", "", "CUP_optic_Eotech553_Black", ["CUP_30Rnd_762x39_CZ807"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HEDP_M203", "CUP_1Rnd_Smoke_M203"], ""],

@@ -87,7 +87,6 @@ _faction set ["groupSpecOps", [
     , unit(SF, "Medic")
 ]];
 
-_faction set ["groupSpecOpsSniper", [unit(SF, "Sniper"), unit(SF, "Rifleman")]];
 
 private _specOpsRandom = [];
 for "_i" from 1 to 6 do {

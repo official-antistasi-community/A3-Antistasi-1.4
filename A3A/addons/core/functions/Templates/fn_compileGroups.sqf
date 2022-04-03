@@ -89,7 +89,6 @@ _faction set ["groupSpecOps", [
 
 _faction set ["groupSpecOpsSniper", [unit(SF, "Sniper"), unit(SF, "Rifleman")]];
 
-
 private _specOpsRandom = [];
 for "_i" from 1 to 6 do {
     _specOpsRandom pushBack [
@@ -109,6 +108,8 @@ for "_i" from 1 to 6 do {
 };
 
 _faction set ["groupSpecOpsRandom", _specOpsRandom];
+
+_faction set [""]
 
 //militia
 _faction set ["groupsMilitiaSmall", [

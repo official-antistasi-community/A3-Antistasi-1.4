@@ -18,7 +18,7 @@ License: MIT License
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _possibleMarkers = [citiesX] call FUNC(nearHostileMarkers);
+private _possibleMarkers = [airportsX] call FUNC(nearHostileMarkers);
 private _marker = selectRandom _possibleMarkers;
 if (isNil "_marker") exitWith {false};
 [_marker];

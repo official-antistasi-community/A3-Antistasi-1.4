@@ -87,6 +87,29 @@ _faction set ["groupSpecOps", [
     , unit(SF, "Medic")
 ]];
 
+_faction set ["groupSpecOpsSniper", [unit(SF, "Sniper"), unit(SF, "Rifleman")]];
+
+
+private _specOpsRandom = [];
+for "_i" from 1 to 6 do {
+    _specOpsRandom pushBack [
+        unit(SF, "SquadLeader"),
+        unit(SF, "Rifleman"),
+        unit(SF, "MachineGunner"),
+        unit(SF, "Medic"),
+        unit(SF, "Marksman"),
+        selectRandom [
+            unit(SF, "ExplosivesExpert")
+            , unit(SF, "LAT")
+            , unit(SF, "Grenadier")
+            , unit(SF, "Sniper")
+            , unit(SF, "Engineer")
+        ]
+    ];
+};
+
+_faction set ["groupSpecOpsRandom", _specOpsRandom];
+
 //militia
 _faction set ["groupsMilitiaSmall", [
     [unit(militia, "Grenadier"), unit(militia, "Rifleman")]

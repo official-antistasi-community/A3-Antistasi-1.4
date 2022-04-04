@@ -245,13 +245,14 @@ player addEventHandler ["GetInMan", {
 	_unit = _this select 0;
 	_veh = _this select 2;
 	_exit = false;
-	if (isMultiplayer) then {
 		if !([player] call A3A_fnc_isMember) then {
 			_owner = _veh getVariable "ownerX";
-			if (!isNil "_owner") then {
-				if (_owner isEqualType "") then {
-					if ({getPlayerUID _x == _owner} count (units group player) == 0) then {
-						["Warning", "You cannot board other player vehicle if you are not in the same group."] call A3A_fnc_customHint;
+			_locked = _veh getVariable "locked";
+			if (_locked isequalto true) then {
+				if (!isNil "_owner") then {
+					if (_owner isEqualType "") then {
+						if ({getPlayerUID _x == _owner} count (units group player) == 0) then {
+						["Warning", "This Vehicle is locked, ask the Owner to unlock it."] call A3A_fnc_customHint;
 						moveOut _unit;
 						_exit = true;
 					};

@@ -40,7 +40,7 @@ private _posHQ = getMarkerPos respawnTeamPlayer;
             [_x, _x] call ace_medical_treatment_fnc_fullHeal;
         };
         if (A3A_hasACEHearing) then {
-            ["antistasi_heal", 1, true] remoteExec ["ace_common_fnc_setHearingCapability", _x]
+            ["antistasi_heal", 1, false] remoteExec ["ace_common_fnc_setHearingCapability", _x];
         };
         _x setDamage 0;
         _x setVariable ["incapacitated",false,true];

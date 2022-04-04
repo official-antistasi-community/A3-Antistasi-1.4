@@ -107,7 +107,7 @@ if (_isControl) then
 			_soldiers pushBack _unit;
 			sleep 1;
 			// Disable VCOM on Unit as we don't want it wandering off.
-			(_groupE) setVariable ["Vcm_Disable", true];
+			_groupE setVariable ["Vcm_Disable", true];
 			{ [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
 			};
         _typeGroup = selectRandom (_faction get "groupsMedium");
@@ -151,7 +151,7 @@ if (_isControl) then
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#extra1 %1", _groupX];
 
 			// Disable VCOM on Unit as we don't want it wandering off.
-			(_groupX) setVariable ["Vcm_Disable", true];
+			_groupX setVariable ["Vcm_Disable", true];
 
 			{_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
 			};

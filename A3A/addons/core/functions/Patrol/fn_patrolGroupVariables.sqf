@@ -26,15 +26,15 @@ params ["_group"];
 
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
 if (count units _group <= 0) exitWith {
-    ServerDebug_1("Group is Empty - Group: %1", _group);
+    ServerDebug_1("PATCOM | Group: %1 is Empty", _group);
 };
 
 // Skip if Group is already being controlled by the PATCOM or is Civilian Controlled.
 if (_group getVariable "PATCOM_Controlled") exitWith {
-    ServerDebug_1("Group is already controlled - Group: %1", _group);
+    ServerDebug_1("PATCOM | Group: %1 is already controlled", _group);
 };
 
-ServerDebug_2("Setting up PATCOM Variables on group: %1 - side: %2", _group, side (leader _group));
+ServerDebug_2("PATCOM | Setting up Variables on group: %1 - side: %2", _group, side (leader _group));
 
 if ((side leader _group) == civilian) then {
     // Setup Variable for use later.
@@ -51,17 +51,23 @@ if ((side leader _group) == civilian) then {
 
     // Set Group to being controlled by PATCOM so we don't init variables again.
     _group setVariable ["PATCOM_Controlled", true];
-} else {
+
+    // Start PATCOM for unit.
+    [_group] call A3A_fnc_patrolCivilianCommander;
+};
+
+if ((side leader _group) == west || (side leader _group) == east) then {
     // Setup Variable for use later.
     _group setVariable ["PATCOM_Known_Enemy_Positions", []];
     _group setVariable ["PATCOM_Current_Orders", ""];
+    _group setVariable ["PATCOM_Previous_Orders", ""];
     _group setVariable ["PATCOM_Patrol_Type", ""];
     _group setVariable ["PATCOM_Patrol_Radius", 0];
     _group setVariable ["PATCOM_Patrol_Home_Position", getPos (leader _group)];
 
     // Set Group to being controlled by PATCOM so we don't init variables again.
     _group setVariable ["PATCOM_Controlled", true];
-};
 
-// Start PATCOM for unit.
-[_group] call A3A_fnc_patrolCommander;
+    // Start PATCOM for unit.
+    [_group] call A3A_fnc_patrolCommander;
+};

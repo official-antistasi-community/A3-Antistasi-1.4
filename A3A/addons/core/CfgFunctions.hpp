@@ -508,12 +508,17 @@ class CfgFunctions
         class Patrol {
             file = QPATHTOFOLDER(functions\Patrol);
             class patrolArea {};
+            class patrolAttack {};
+            class patrolCivilianCommander {};
             class patrolClosestEnemy {};
             class patrolClosestKnownEnemy {};
             class patrolClosestObject {};
             class patrolCommander {};
             class patrolCreateWaypoint {};
+            class patrolEnterableBuildings {};
+            class patrolGroupGarrison {};
             class patrolGroupVariables {};
+            class patrolBuildingEnterable {};
             class patrolInit {};
             class patrolLoop {};
             class patrolSearchBuilding {};

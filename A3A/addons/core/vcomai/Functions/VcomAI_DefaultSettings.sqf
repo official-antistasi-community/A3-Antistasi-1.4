@@ -41,7 +41,7 @@ Vcm_Settings =
 	VCM_StealVeh = false; //Will the AI steal vehicles.
 	VCM_ClassSteal = false; //If true, crewmen are required to steal tracked vehicles. Pilots are required to steal aircraft. false = anyone can steal any vehicle.
 	VCM_AIDISTANCEVEHPATH = 100; //Distance AI check from the squad leader to steal vehicles
-	VCM_ADVANCEDMOVEMENT = true; //True means AI will actively generate waypoints if no other waypoints are generated for the AI group (2 or more). False disables this advanced movements.
+	VCM_ADVANCEDMOVEMENT = false; //True means AI will actively generate waypoints if no other waypoints are generated for the AI group (2 or more). False disables this advanced movements.
 	VCM_FRMCHANGE = true; //AI GROUPS WILL CHANGE FORMATIONS TO THEIR BEST GUESS.
 	VCM_SKILLCHANGE = true; //AI Groups will have their skills changed by Vcom.
 	VCM_USECBASETTINGS = false;//If CBA is enabled on the host, use the CBA default settings. If false, use the filepatching settings instead.
@@ -57,7 +57,7 @@ Vcm_Settings =
 	Vcm_DisableAIRadio = false; //Setting this to true will disable AI talking to each other via the radio. This is only a sound effect, and will make the AI execute orders faster if disabled.	
 	Vcm_UseStaticWeapons = true; //AI will deploy/garrison static weapons
 	Vcm_AI_EM = true; //Will the AI use enhanced movement to navigate around.
-	Vcm_AI_EM_CHN = 50; //Chance a group will attempt to jump over an obstacle  - every 0.5 secs
+	Vcm_AI_EM_CHN = 5; //Chance a group will attempt to jump over an obstacle  - every 0.5 secs
 	VCM_AI_EM_CLDWN = 15; //Time in seconds before a group will consider jumping over obstacles;	
 	Vcm_IdleAnimationChnc = 2; //Chance an AI will play an idle animation.
 	Vcm_IdleAnimationsEnabled = true; //Enable or disable idle animations. Idle animations only play when AI are standing up and not in combat.

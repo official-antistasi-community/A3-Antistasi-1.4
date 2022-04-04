@@ -4,12 +4,12 @@
 		Set bulky combat modes.
 
     Arguments:
-    	<Group> Group to handle orders on.
+    <Group> Group to handle orders on.
 		<String> Behaviour to set on group
 		<String> Speed Mode to set on group
 		<String> Formation to give group
 		<String> Combat Mode to set on group
-        <String> Set the units stance "AUTO" default.
+    <String> Set the units stance "AUTO" default.
 
     Return Value:
     	N/A
@@ -25,6 +25,10 @@
 */
 
 params ["_group", ["_behaviour", "SAFE"], ["_speedMode", "NORMAL"], ["_formation", "COLUMN"], ["_combatMode", "GREEN"], ["_stance", "AUTO"]];
+
+if ((behaviour leader _group != _behaviour) || (speedMode _group != _speedMode) || (formation _group != _formation) || (combatMode _group != _combatMode)) then {
+    _group setVariable ["PATCOM_Combat_Modes_Set", false];
+};
 
 // Avoid Changing the units combat modes unless we set the variable to false again to change stance.
 if (_group getVariable "PATCOM_Combat_Modes_Set") exitWith {};

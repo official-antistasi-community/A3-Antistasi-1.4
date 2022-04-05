@@ -77,42 +77,41 @@ else
 
 //Calculates the skill of the given unit
 private _skill = (0.15 * skillMult) + (0.04 * difficultyCoef) + (0.02 * tierWar);
+
+private _regularFaces = (_faction get "faces");
+private _regularVoices = (_faction get "voices");
+private _face = selectRandom (_faction get "faces");
+private _voice = selectRandom (_faction get "voices");
 switch (true) do {
 case ("militia_" in (_unit getVariable "unitType")): 
     {
     _skill = _skill min (0.2 * skillMult);
-    _faces = selectRandom (_faction  get "milFaces");
-    if (isNil "_faces") then {_faces = selectRandom (_faction get "faces")};
-    _voices = selectRandom (_faction  get "milVoices");
-    if (isNil "_voices") then {_voices = selectRandom (_faction get "voices")};
-    [_unit, _faces, _voices] call BIS_fnc_setIdentity;
+    _face = selectRandom (_faction getOrDefault ["milFaces", _regularFaces]);
+    _voice = selectRandom (_faction getOrDefault ["milVoices", _regularVoices]);
     };
 case ("police" in (_unit getVariable "unitType")):
     {
     _skill = _skill min (0.12 * skillMult);
-    _faces = selectRandom (_faction  get "polFaces");
-    if (isNil "_faces") then {_faces = selectRandom (_faction get "faces")};
-    _voices = selectRandom (_faction  get "polVoices");
-    if (isNil "_voices") then {_voices = selectRandom (_faction get "voices")};
-    [_unit, _faces, _voices] call BIS_fnc_setIdentity;
+    _face = selectRandom (_faction getOrDefault ["polFaces", _regularFaces]);
+    _voice = selectRandom (_faction getOrDefault ["polVoices", _regularVoices]);
     };
 case ("SF" in (_unit getVariable "unitType")):
     {
     _skill = _skill min (0.12 * skillMult);
-    _faces = selectRandom (_faction  get "sfFaces");
-    if (isNil "_faces") then {_faces = selectRandom (_faction get "faces")};
-    _voices = selectRandom (_faction  get "sfVoices");
-    if (isNil "_voices") then {_voices = selectRandom (_faction get "voices")};
-    [_unit, _faces, _voices] call BIS_fnc_setIdentity;
+    _face = selectRandom (_faction getOrDefault ["sfFaces", _regularFaces]);
+    _voice = selectRandom (_faction getOrDefault ["sfVoices", _regularVoices]);
     };
 case ("Traitor" in (_unit getVariable "unitType")):
     {
-    [_unit, selectRandom (A3A_faction_reb  get "faces"),"NoVoice"] call BIS_fnc_setIdentity;
+    _face = selectRandom (A3A_faction_reb  get "faces");
+    _voice = "NoVoice";
     };
 default {
-    [_unit, selectRandom (_faction get "faces"), selectRandom (_faction get "voices")] call BIS_fnc_setIdentity;
+    _face = selectRandom _regularFaces;
+    _voice = selectRandom _regularVoices;
     };
 };
+[_unit, _face, _voice] call BIS_fnc_setIdentity;
 _unit setSkill _skill;
 //Adjusts squadleaders with improved skill and adds intel action
 if (_type in FactionGet(all,"SquadLeaders")) then

@@ -99,8 +99,8 @@ stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
 player setUnitTrait ["camouflageCoef",0.8];
 player setUnitTrait ["audibleCoef",0.8];
-if ("ace_noradio_enabled" isEqualTo false) then {
-[player, nil, selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity};
+
+[player, nil, selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity;
 
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;

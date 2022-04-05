@@ -27,7 +27,7 @@
 ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivBoat", [
-    "CUP_C_Fishing_Boat_ChernaRUS", 0.2
+    "CUP_C_Fishing_Boat_Chernarus", 0.2
     , "CUP_C_PBX_CIV", 0.7
     , "CUP_C_Zodiac_CIV", 0.7
 ]] call _fnc_saveToTemplate;

@@ -33,7 +33,7 @@ params [
     "_group", 
     ["_maxPatrolDistance", 200], 
     ["_minimumRadius", 50], 
-    ["_patrolRadius", 100 + random 150], 
+    ["_patrolRadius", 0], 
     ["_objectDistance", 0], 
     ["_waterMode", 0], 
     ["_maxGradient", -1], 
@@ -43,9 +43,14 @@ params [
 // Get home position of the unit.
 private _groupHomePosition = _group getVariable "PATCOM_Patrol_Home_Position";
 
+// If this group is a Garrison patrol, we want them to stick close.
+if (_group getVariable "PATCOM_Garrison_Patrol" == true) then {
+    _maxPatrolDistance = _group getVariable "PATCOM_Garrison_Patrol_Distance";
+};
+
 // Add a default patrol radius if we don't have one already specified.
 if (_group getVariable ["PATCOM_Patrol_Radius", 0] == 0) then {
-	_group setVariable ["PATCOM_Patrol_Radius", _patrolRadius];
+	_group setVariable ["PATCOM_Patrol_Radius", 100 + random 150];
 };
 
 // If no patrol radius is specified in the param, use default patrol radius for the unit.
@@ -53,6 +58,7 @@ if (_patrolRadius == 0) then {
 	_patrolRadius = _group getVariable "PATCOM_Patrol_Radius";
 };
 
+// This is the only place we handle civilians in this Commander.
 if ((side leader _group) == civilian) then {
     [_group, "CARELESS", "NORMAL", "LINE", "BLUE", "AUTO"] call A3A_fnc_patrolSetCombatModes;
 } else {

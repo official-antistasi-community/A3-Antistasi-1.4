@@ -31,23 +31,19 @@ FIX_LINE_NUMBERS()
 params [
     "_group", 
     "_knownEnemies",
-    ["_minimumRadius", 0], 
-    ["_maximumRadius", 25 + random 50], 
-    ["_objectDistance", 0], 
+    ["_minimumRadius", 50], 
+    ["_maximumRadius", 150], 
+    ["_objectDistance", 10], 
     ["_waterMode", 0], 
     ["_maxGradient", -1], 
     ["_shoreMode", 0]
 ];
-
-ServerDebug_2("PATCOM | patrolAttack | Known Enemies: %1 | Group: %2", _knownEnemies, _group);
 
 if (count _knownEnemies <= 1) exitWith {
     ServerDebug_1("PATCOM | patrolAttack | Previous orders on Group: %1", _group);
 	private _previousOrders = _group getVariable "PATCOM_Previous_Orders";
 	_group setVariable ["PATCOM_Current_Orders", _previousOrders];
 };
-
-ServerDebug_1("PATCOM | patrolAttack on Group: %1", _group);
 
 [_group, "AWARE", "FULL", "COLUMN", "RED", "AUTO"] call A3A_fnc_patrolSetCombatModes;
 

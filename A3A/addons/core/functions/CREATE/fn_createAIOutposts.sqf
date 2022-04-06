@@ -101,8 +101,11 @@ if (_patrol) then {
 
 		private _groupType = selectRandom _groupTypes;
 
-		// We check for SafeSpawnPositions.
-		private _spawnPosition = [_positionX, 50, 150, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+		private _spawnPosition = [];
+		while {(count _spawnPosition <= 2)} do {
+			_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafeSpawnPos;
+			sleep 0.001;
+		};
 		// We run a final check to see if the position is actually valid. If its not, we just exit.
 		if (count _spawnPosition <= 2) exitWith {};
 
@@ -266,9 +269,6 @@ if ((_markerX in seaports) and !A3A_hasIFA) then {
 				};
 			} forEach _roadscon;
 			private _dirveh = [_roadcon, _road] call BIS_fnc_DirTo;
-				//if (!_isFIA) then		_isFIA can only be true if _frontierX (line 167) is false, if unneeded, else case not possible
-			//{
-
 			private _groupX = createGroup _sideX;
 			_groups pushBack _groupX;
 			private _pos = [getPos _road, 7, _dirveh + 270] call BIS_Fnc_relPos;
@@ -379,9 +379,16 @@ for "_i" from 0 to (count _array - 1) do {
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIOutposts#2"];
 		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
 
+		// Disable VCOM. It gives weird behaviour if enabled.
+		_groupX setVariable ["Vcm_Disable", true];
+
 	} else {
 		// GIVE UNIT PATCOM CONTROL
 		_groupX setVariable ["PATCOM_Controlled", false];
+		_groupX setVariable ["PATCOM_Garrison_Patrol", true];
+		_groupX setVariable ["PATCOM_Garrison_Patrol_Distance", 150];
+		_groupX setVariable ["PATCOM_Patrol_Radius", 50 + random 100];
+
 		A3A_Patrol_Controlled_AI pushBack _groupX;
 		_groups pushBack _groupX;
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIOutposts#3"];

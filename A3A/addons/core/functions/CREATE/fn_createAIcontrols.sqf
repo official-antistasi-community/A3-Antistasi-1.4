@@ -287,12 +287,6 @@ deleteGroup _groupX;
 } forEach _vehiclesX;
 
 
-{
-	// delete all vehicles that haven't been captured
-	if !(_x getVariable ["inDespawner", false]) then { deleteVehicle _x };
-} forEach _vehiclesX;
-
-
 if (_conquered) then
 	{
 	_indexX = controlsX find _markerX;

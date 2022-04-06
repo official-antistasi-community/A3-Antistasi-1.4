@@ -100,13 +100,9 @@ if (_patrol) then {
 		};
 
 		private _groupType = selectRandom _groupTypes;
-		private _spawnPosition = [];
 
 		// We check for SafeSpawnPositions.
-		while {(count _spawnPosition <= 2)} do {
-			_spawnPosition = [_positionX, 25, 100, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
-			sleep 0.001;
-		};
+		private _spawnPosition = [_positionX, 50, 150, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
 		// We run a final check to see if the position is actually valid. If its not, we just exit.
 		if (count _spawnPosition <= 2) exitWith {};
 
@@ -351,7 +347,7 @@ if (!isNull _antenna) then {
 };
 
 ///////////////////
-// Garrison?
+// Garrison
 ///////////////////
 private _array = [];
 private _subArray = [];
@@ -364,10 +360,12 @@ while {_countX <= _garrisonCount} do {
 
 for "_i" from 0 to (count _array - 1) do {
 	//What is so special about the first?
+	// ^^ It makes the first group the group that gets moved into a position.
 	_groupX = if (_i == 0) then {
-		[_positionX,_sideX, (_array select _i),true,false] call A3A_fnc_spawnGroup
+		[_positionX, _sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup
 	} else {
-		[_positionX,_sideX, (_array select _i),false,true] call A3A_fnc_spawnGroup
+		private _spawnPosition = [_positionX, 50, 100, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup
 	};
 
 	_groups pushBack _groupX;
@@ -376,11 +374,10 @@ for "_i" from 0 to (count _array - 1) do {
 		_soldiers pushBack _x;
 	} forEach units _groupX;
 
+	// Garrison the first group into buildings
 	if (_i == 0) then {
-		//_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP", "SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
-		//todo Hazey to replace this function
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIOutposts#2"];
-		[_groupX, getMarkerPos _markerX, _size, true] call A3A_fnc_patrolGroupGarrison;
+		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
 
 	} else {
 		// GIVE UNIT PATCOM CONTROL

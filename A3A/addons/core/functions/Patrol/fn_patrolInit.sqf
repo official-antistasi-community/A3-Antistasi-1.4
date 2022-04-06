@@ -27,7 +27,6 @@ A3A_Patrol_Controlled_AI = [];
 
 // This Array acts as a blacklist to remove unwanted buildings
 PATCOM_Building_Blacklist = [];
-
 PATCOM_Garrison_Positions = createHashMap;
 PATCOM_Garrison_Positions set ["Land_Cargo_HQ_V1_F", [6,7,8]];
 PATCOM_Garrison_Positions set ["Land_Cargo_HQ_V2_F", [6,7,8]];
@@ -36,9 +35,9 @@ PATCOM_Garrison_Positions set ["Land_Medevac_HQ_V1_F", [6,7,8]];
 PATCOM_Garrison_Positions set ["Land_Cargo_Tower_V3_F", [15,12,8]];
 PATCOM_Garrison_Positions set ["Land_Cargo_Tower_V2_F", [15,12,8]];
 PATCOM_Garrison_Positions set ["Land_Cargo_Tower_V1_F", [15,12,8]];
-PATCOM_Garrison_Positions set ["Land_Cargo_Patrol_V1_F", [1]];
-PATCOM_Garrison_Positions set ["Land_Cargo_Patrol_V2_F", [1]];
-PATCOM_Garrison_Positions set ["Land_Cargo_Patrol_V3_F", [1]];
+PATCOM_Garrison_Positions set ["Land_Cargo_Patrol_V1_F", [0,1]];
+PATCOM_Garrison_Positions set ["Land_Cargo_Patrol_V2_F", [0,1]];
+PATCOM_Garrison_Positions set ["Land_Cargo_Patrol_V3_F", [0,1]];
 PATCOM_Garrison_Positions set ["Land_CarService_F", [2,5]];
 PATCOM_Garrison_Positions set ["Land_u_Barracks_V2_F", [36,37,35,34,32,33,40,44]];
 PATCOM_Garrison_Positions set ["Land_i_Barracks_V1_F", [36,37,35,34,32,33,40,44]];

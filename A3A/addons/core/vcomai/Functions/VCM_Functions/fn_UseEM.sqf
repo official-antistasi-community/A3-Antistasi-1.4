@@ -17,6 +17,6 @@ waitUntil
 			};
 		} foreach (units _Group);
 	};
-	sleep 1;
+	sleep 5;
 	{alive _x} count (units _Group) < 1
 };

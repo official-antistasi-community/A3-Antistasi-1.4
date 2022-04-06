@@ -1,11 +1,13 @@
 params ["_climber", "_climbonly"];
 
-if (isNil "_climber") then
-{
+if (isNil "_climber") then {
 	_climber = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player]; //player;
 };
 
+if (isNil {_climber getvariable "babe_em_vars"}) exitWith {};
+
 _babe_em_vars = _climber getvariable "babe_em_vars";
+
 if !(_babe_em_vars select 2) exitwith {};
 
 _v1 = (asltoagl(atltoasl(_climber modeltoworld (_climber selectionPosition "Head"))) vectorfromto (positioncameratoworld [0,0,5]));

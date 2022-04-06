@@ -101,11 +101,7 @@ if (_patrol) then {
 
 		private _groupType = selectRandom _groupTypes;
 
-		private _spawnPosition = [];
-		while {(count _spawnPosition <= 2)} do {
-			_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafeSpawnPos;
-			sleep 0.001;
-		};
+		private _spawnPosition = [_positionX, 50, 150, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
 		// We run a final check to see if the position is actually valid. If its not, we just exit.
 		if (count _spawnPosition <= 2) exitWith {};
 

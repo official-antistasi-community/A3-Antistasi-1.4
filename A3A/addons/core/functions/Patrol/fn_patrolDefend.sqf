@@ -31,7 +31,6 @@ params [
 
 if (_group getVariable "PATCOM_Defense_Patrol_Active" == true) exitWith {};
 
-private _defenseWeapons = [];
 private _leader = leader _group;
 private _position = getPos _leader;
 private _units = (units _group) - [_leader];

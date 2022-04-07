@@ -1,3 +1,23 @@
+/*
+    Author: [Hazey]
+    Description:
+		Checks if building is enterable and validates it with a blacklist
+
+    Arguments:
+        <Object> House/Object you want to check if its enterable
+
+    Return Value:
+    	<Bool> Returns True or False if house is enterable
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+        [_x] call A3A_fnc_patrolBuildingEnterable
+
+    License: MIT License
+*/
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

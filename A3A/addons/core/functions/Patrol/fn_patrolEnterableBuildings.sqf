@@ -1,3 +1,25 @@
+/*
+    Author: [Hazey]
+    Description:
+		Returns an array of enterable buildings
+
+    Arguments:
+        <Array> Position you want to check for enterable houses
+        <Number> How far you want to check for enterable houses
+
+    Return Value:
+    	<Array> List of enterable houses.
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+        _buildings = [_position, _radius] call A3A_fnc_patrolEnterableBuildings;
+
+    License: MIT License
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

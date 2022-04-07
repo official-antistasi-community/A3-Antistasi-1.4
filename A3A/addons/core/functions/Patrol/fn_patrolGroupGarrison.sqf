@@ -1,3 +1,26 @@
+/*
+    Author: [Hazey]
+    Description:
+		Sends group directly to garrison positions
+
+    Arguments:
+        <Group> Group to run action on.
+        <Array> Position you want group to look for garrison positions.
+        <Number> How far you want to look for potential positions
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+        [_group, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+
+    License: MIT License
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
@@ -19,8 +42,10 @@ private _buildings = [];
 _buildings = nearestObjects [_position, keys PATCOM_Garrison_Positions, _radius];
 
 if (count _buildings == 0) then {
-    _buildings = [_position, floor(_radius/2)] call A3A_fnc_patrolEnterableBuildings;
+    _buildings = [_position, _radius] call A3A_fnc_patrolEnterableBuildings;
 };
+
+_buildings = _buildings call BIS_fnc_arrayShuffle;
 
 {
     if (count _units == 0) exitWith {};

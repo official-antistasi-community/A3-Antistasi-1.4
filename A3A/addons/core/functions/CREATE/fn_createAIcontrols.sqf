@@ -129,6 +129,8 @@ if (_isControl) then {
 
 			// GIVE UNIT PATCOM CONTROL
 			_groupX setVariable ["PATCOM_Controlled", false];
+			_groupX setVariable ["PATCOM_Defense_Patrol", true];
+			_groupX setVariable ["PATCOM_Defense_Patrol_Distance", 50];
 			A3A_Patrol_Controlled_AI pushBack _groupX;
 			_groups pushBack _groupX;
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#1"];
@@ -145,16 +147,26 @@ if (_isControl) then {
 		sleep 1;
 		private _typeGroup = selectRandom (_faction get "groupsMilitiaMedium");
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
+
+		// Disable VCOM on Unit as we don't want it wandering off.
+		_groupX setVariable ["Vcm_Disable", true];
 		
 		if !(isNull _groupX) then {
 			_unit = [_groupX, _faction get "unitMilitiaGrunt", _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#extra1 %1", _groupX];
-
-			// Disable VCOM on Unit as we don't want it wandering off.
-			_groupX setVariable ["Vcm_Disable", true];
+			_groupX setVariable ["PATCOM_Controlled", false];
+			_groupX setVariable ["PATCOM_Defense_Patrol", true];
+			_groupX setVariable ["PATCOM_Defense_Patrol_Distance", 50];
+			A3A_Patrol_Controlled_AI pushBack _groupX;
 			_groups pushBack _groupX;
-			{_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
+			
+			{
+				// The AI run away for some reason. They should stay near the checkpoint
+				_x disableAI "TARGET";
+				_soldiers pushBack _x; 
+				[_x,"", false] call A3A_fnc_NATOinit;
+			} forEach units _groupX;
 		};
 	};
 } else {

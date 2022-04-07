@@ -4,8 +4,8 @@
 		Group Patrol Attack
 
     Arguments:
-        <Group> Group you want to run a Patrol Area.
-        <Bool> Should group search buildings?
+        <Group> Group you want to run an attack.
+        <Array> List of KnownEnemies.
         <Number> Max Distance the unit should venture before returning home.
         <Number> Minimum Radius from Center to Patrol.
         <Number> Maximum Radius from Center to Patrol.
@@ -22,7 +22,7 @@
     Public: No
 
     Example: 
-		[_group] call A3A_fnc_patrolArea;
+		[_group, _knownEnemies] call A3A_fnc_patrolArea;
 
     License: MIT License
 */

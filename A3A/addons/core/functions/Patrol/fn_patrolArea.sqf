@@ -5,7 +5,6 @@
 
     Arguments:
         <Group> Group you want to run a Patrol Area.
-        <Bool> Should group search buildings?
         <Number> Max Distance the unit should venture before returning home.
         <Number> Minimum Radius from Center to Patrol.
         <Number> Maximum Radius from Center to Patrol.

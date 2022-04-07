@@ -7,7 +7,7 @@
         <Group> Group you want to search building.
 
     Return Value:
-    	<BOOL>
+    	N/A
 
     Scope: Any
     Environment: Any

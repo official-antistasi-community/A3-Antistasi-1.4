@@ -1,3 +1,26 @@
+/*
+    Author: [Hazey]
+    Description:
+		Group Defend Area
+
+    Arguments:
+        <Group> Group you want to defend an area.
+        <Number> Minimum Radius from Center to Defend.
+        <Number> Maximum Radius from Center to Defend.
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		[_group, 20, 50] call A3A_fnc_patrolDefend;
+
+    License: MIT License
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 params [
@@ -12,22 +35,6 @@ private _defenseWeapons = [];
 private _leader = leader _group;
 private _position = getPos _leader;
 private _units = (units _group) - [_leader];
-private _defenseWeapons = nearestObjects [_position, ["StaticWeapon", "LandVehicle"], 100];
-
-if (count _defenseWeapons > 0) then {
-	{
-		if ((_x emptyPositions "Gunner") > 0) then {
-			if ((count _units) > 0) then {
-				private _unit = (_units select ((count _units) - 1));
-				_unit assignAsGunner _x;
-				[_unit] orderGetIn true;
-				_unit moveInGunner _x;
-
-				_units resize ((count _units) - 1);
-			};
-		};
-	} foreach _defenseWeapons;
-};
 
 [_group, "SAFE", "LIMITED", "COLUMN", "YELLOW", "AUTO"] call A3A_fnc_patrolSetCombatModes;
 

@@ -110,7 +110,7 @@ class Templates
 
         requiredAddons[] = {"vn_weapons"};
         path = QPATHTOFOLDER(Templates\Templates\VN);
-
+        logo = "\vn\data_f_vietnam\logos\vn_sml_ca.paa";
         class AI
         {
             class MACV {
@@ -154,6 +154,7 @@ class Templates
 
         requiredAddons[] = {"rhsgref_main"};// this requires usaf and afrf internaly so coveres all 3
         path = QPATHTOFOLDER(Templates\Templates\RHS);
+        logo = "rhssaf\addons\rhssaf_main\data\rhs_logo_ca.paa";
 
         class AI
         {
@@ -233,7 +234,7 @@ class Templates
 
         requiredAddons[] = {"UK3CB_Factions_Vehicles_SUV"};
         path = QPATHTOFOLDER(Templates\Templates\3CB);
-
+        logo = "logo_small_3cb_ca.paa"; // that probably won't work
         class AI
         {
             class ADA {
@@ -352,6 +353,7 @@ class Templates
             ,"UK3CB_BAF_Equipment"
         };
         path = QPATHTOFOLDER(Templates\Templates\3CB);
+        logo = "logo_small_3cb_ca.paa"; // that probably won't work
 
         class AI
         {
@@ -385,6 +387,7 @@ class Templates
 
         requiredAddons[] = {"CUP_BaseConfigs"};
         path = QPATHTOFOLDER(Templates\Templates\CUP);
+        logo = "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa";
 
         class AI
         {

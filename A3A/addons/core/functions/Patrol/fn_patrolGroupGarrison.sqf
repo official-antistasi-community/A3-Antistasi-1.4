@@ -58,6 +58,7 @@ if (count _buildings == 0) then {
             _unit setposATL _position;
 			_unit setdir ((_unit getRelDir _building)-180);
             _unit disableAI "PATH";
+            _unit setUnitPos "UP";
 
 			dostop _unit;
 

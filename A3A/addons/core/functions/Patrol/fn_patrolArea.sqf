@@ -43,11 +43,6 @@ params [
 // Get home position of the unit.
 private _groupHomePosition = _group getVariable "PATCOM_Patrol_Home_Position";
 
-// If this group is a Garrison patrol, we want them to stick close.
-if (_group getVariable "PATCOM_Garrison_Patrol" == true) then {
-    _maxPatrolDistance = _group getVariable "PATCOM_Garrison_Patrol_Distance";
-};
-
 // Add a default patrol radius if we don't have one already specified.
 if (_group getVariable ["PATCOM_Patrol_Radius", 0] == 0) then {
 	_group setVariable ["PATCOM_Patrol_Radius", 100 + random 150];

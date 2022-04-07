@@ -513,6 +513,7 @@ class CfgFunctions
             class patrolClosestKnownEnemy {};
             class patrolCommander {};
             class patrolCreateWaypoint {};
+            class patrolDefend {};
             class patrolEnterableBuildings {};
             class patrolGroupGarrison {};
             class patrolGroupVariables {};

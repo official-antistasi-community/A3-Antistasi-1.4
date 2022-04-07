@@ -10,6 +10,7 @@ private _sideX = sidesX getVariable [_markerX,sideUnknown];
 private _faction = Faction(_sideX);
 private _vehiclesX = [];
 private _soldiers = [];
+private _groups = [];
 private _dogs = [];
 private _pilots = [];
 private _roads = [];
@@ -106,6 +107,7 @@ if (_isControl) then {
 
 			// Disable VCOM on Unit as we don't want it wandering off.
 			_groupE setVariable ["Vcm_Disable", true];
+			_groups pushBack _groupE;
 			{ [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
 		};
 
@@ -128,7 +130,7 @@ if (_isControl) then {
 			// GIVE UNIT PATCOM CONTROL
 			_groupX setVariable ["PATCOM_Controlled", false];
 			A3A_Patrol_Controlled_AI pushBack _groupX;
-
+			_groups pushBack _groupX;
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#1"];
 
 			// Forced non-spawner as they're very static.
@@ -151,7 +153,7 @@ if (_isControl) then {
 
 			// Disable VCOM on Unit as we don't want it wandering off.
 			_groupX setVariable ["Vcm_Disable", true];
-
+			_groups pushBack _groupX;
 			{_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
 		};
 	};
@@ -181,6 +183,7 @@ if (_isControl) then {
 		// GIVE UNIT PATCOM CONTROL
 		_groupX setVariable ["PATCOM_Controlled", false];
 		A3A_Patrol_Controlled_AI pushBack _groupX;
+		_groups pushBack _groupX;
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#2"];
 
 		private _typeVehX = selectRandom (_faction get "uavsPortable");
@@ -268,7 +271,12 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 { if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
 { deleteVehicle _x } forEach _dogs;
-deleteGroup _groupX;
+
+{ 
+	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
+	_x setVariable ["PATCOM_Controlled", ""];
+	deleteGroup _x ;
+} forEach _groups;
 
 {
 	// delete all vehicles that haven't been captured

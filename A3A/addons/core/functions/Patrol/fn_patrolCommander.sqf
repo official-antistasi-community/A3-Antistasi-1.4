@@ -37,20 +37,25 @@ PATCOM_Commander = [_group] spawn {
 		private _currentOrders = _group getVariable "PATCOM_Current_Orders";
 		private _patrolType = "";
 
-		// Check if enemy combat is near.
-		private _knownEnemies = [_group, 400] call A3A_fnc_patrolClosestKnownEnemy;
-
-		if ((count _knownEnemies >= 1) && (((_knownEnemies # 0)# 0) >= 4)) then {
-			if !(_currentOrders == "Attack") then {
-				_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
-			};
-			// Set Current Orders to Attack.
-			_currentOrders = "Attack";
-			// Set current orders to Attack.
+		if (_group getVariable "PATCOM_Defense_Patrol") then {
+			_currentOrders = "Defend";
 			_group setVariable ["PATCOM_Current_Orders", _currentOrders];
+		} else {
+			// Check if enemy combat is near.
+			private _knownEnemies = [_group, 400] call A3A_fnc_patrolClosestKnownEnemy;
+
+			if ((count _knownEnemies >= 1) && (((_knownEnemies # 0)# 0) >= 4)) then {
+				if !(_currentOrders == "Attack") then {
+					_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
+				};
+				// Set Current Orders to Attack.
+				_currentOrders = "Attack";
+				// Set current orders to Attack.
+				_group setVariable ["PATCOM_Current_Orders", _currentOrders];
+			};
 		};
 
-		ServerDebug_4("PATCOM | Group: %1 | Current Orders: %2 | Known Enemies: %3 | Percentage: %4", _group, _currentOrders, (count _knownEnemies), ((_knownEnemies # 0)# 0));
+		ServerDebug_2("PATCOM | Group: %1 | Current Orders: %2", _group, _currentOrders);
 
 		if (_currentOrders == "Attack") then {
 			// Give group waypoint to nearest Known Enemy.
@@ -70,7 +75,7 @@ PATCOM_Commander = [_group] spawn {
 		};
 
 		if (_currentOrders == "Defend") then {
-
+			[_group] call A3A_fnc_patrolDefend;
 		};
 
 		if ((_currentOrders == "Patrol") || (_currentOrders == "")) then {

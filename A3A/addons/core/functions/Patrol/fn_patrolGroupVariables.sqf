@@ -40,7 +40,7 @@ if ((side leader _group) == civilian) then {
     // Setup Variable for use later.
     _group setVariable ["PATCOM_Current_Orders", "Patrol"];
     _group setVariable ["PATCOM_Patrol_Type", "Area"];
-    _group setVariable ["PATCOM_Patrol_Radius", 100 + random 100];
+    _group setVariable ["PATCOM_Patrol_Radius", 50 + random 50];
     _group setVariable ["PATCOM_Patrol_Home_Position", getPos (leader _group)];
 
     {

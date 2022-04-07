@@ -150,7 +150,7 @@ switch (_wayPointType) do {
 			private _positions = [(_myEnemyPos select 0) + (sin _dir) * _dist, (_myEnemyPos select 1) + (cos _dir) * _dist, 0];
 			private _myPlaces = selectBestPlaces [_myEnemyPos, 250,"((6*hills + 2*forest + 4*houses + 2*meadow) - sea + (2*trees)) - (1000*deadbody)", 100, 5];
 			if (_myPlaces isEqualTo []) then {_myPlaces = [_positions];};
-			private _RandomArray = _myPlaces call BIS_fnc_selectrandom;
+			private _RandomArray = selectRandom _myPlaces;
 			private _RandomLocation = _RandomArray select 0;
 			_RandomLocation set [2,0];
 			private _finalP = _RandomLocation getpos [(random 50),(random 360)];
@@ -177,8 +177,8 @@ switch (_wayPointType) do {
 			private _myPlacesL = selectBestPlaces [_leaderPos, 250,"((6*hills + 2*forest + 4*houses + 2*meadow) - sea + (2*trees)) - (1000*deadbody)", 100, 5];
 			if (_myPlaces isEqualTo []) then {_myPlaces = [_positions];};
 			if (_myPlacesL isEqualTo []) then {_myPlaces = [_positionsL];};
-			private _RandomArray = _myPlaces call BIS_fnc_selectrandom;
-			private _RandomArray2 = _myPlacesL call BIS_fnc_selectrandom;
+			private _RandomArray = selectRandom _myPlaces;
+			private _RandomArray2 = selectRandom _myPlacesL;
 			private _RandomLocation = _RandomArray select 0;
 			private _RandomLocationL = _RandomArray2 select 0;
 			_RandomLocation set [2,0];

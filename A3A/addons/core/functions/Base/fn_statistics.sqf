@@ -18,6 +18,9 @@ _setText ctrlSetBackgroundColor [0,0,0,0];
 private _player = player getVariable ["owner",player];		// different, if remote-controlling
 private _ucovertxt = ["Off", "<t color='#1DA81D'>On</t>"] select ((captive _player) and !(_player getVariable ["incapacitated",false]));
 
+// Convert int to string. Used to avoid cases where int goes greater than 6 digits
+private _factionMoneyString = (server getVariable "resourcesFIA") call A3A_fnc_intToString;
+
 if (!isMultiplayer) then
 	{
 	_textX = format ["<t size='0.67' shadow='2'>" + "HR: %1 | %9 Money: %2 € | Airstrikes: %5 | %7 Aggr: %3 | %8 Aggr: %4 | War Level: %6 | Undercover Mode: %10", server getVariable "hr", server getVariable "resourcesFIA",[aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,floor bombRuns,tierWar,FactionGet(occ,"name"),FactionGet(inv,"name"),FactionGet(reb,"name"),_ucovertxt];
@@ -33,11 +36,11 @@ else
 		{
 		if ([_player] call A3A_fnc_isMember) then
 			{
-			_textX = format ["<t size='0.67' shadow='2'>" + "Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | %10 Aggr: %4 | War Level: %8 | Undercover Mode: %12", server getVariable "hr", server getVariable "resourcesFIA", [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,rank _player, _player getVariable "moneyX",floor bombRuns,tierWar,FactionGet(occ,"name"),FactionGet(inv,"name"),FactionGet(reb,"name"),_ucovertxt];
+			_textX = format ["<t size='0.67' shadow='2'>" + "Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | %10 Aggr: %4 | War Level: %8 | Undercover Mode: %12", server getVariable "hr", _factionMoneyString, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,rank _player, _player getVariable "moneyX",floor bombRuns,tierWar,FactionGet(occ,"name"),FactionGet(inv,"name"),FactionGet(reb,"name"),_ucovertxt];
 			}
 		else
 			{
-			_textX = format ["<t size='0.67' shadow='2'>" + "Rank: %1 | Your Money: %2 € | %3 Money: %4 € | %5 Aggr: %6 | %7 Aggr: %8 | War Level: %9 | Undercover Mode: %10",rank _player,_player getVariable "moneyX",FactionGet(reb,"name"),server getVariable "resourcesFIA", FactionGet(occ,"name"), [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString, FactionGet(inv,"name"),[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,_ucovertxt];
+			_textX = format ["<t size='0.67' shadow='2'>" + "Rank: %1 | Your Money: %2 € | %3 Money: %4 € | %5 Aggr: %6 | %7 Aggr: %8 | War Level: %9 | Undercover Mode: %10",rank _player,_player getVariable "moneyX",FactionGet(reb,"name"),_factionMoneyString, FactionGet(occ,"name"), [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString, FactionGet(inv,"name"),[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,_ucovertxt];
 			};
 		};
 	};

@@ -753,6 +753,7 @@ class CfgFunctions
             class createNamespace {};
             class deleteNamespace {};
             class getAdmin {};
+            class intToString {};
             class localLog {};
             class log {};
             class setPos {};

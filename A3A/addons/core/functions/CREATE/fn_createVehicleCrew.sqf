@@ -42,17 +42,19 @@ if (getNumber (_config >> "hasDriver") > 0 && isNull driver _vehicle) then {
 
 private _fnc_addCrewToTurrets = {
 	params ["_config", ["_path", []]];
-	private _turrets = "getNumber (_x >> 'hasGunner') > 0 && getNumber (_x >> 'dontCreateAI') == 0" configClasses (_config >> "Turrets");
+	private _turrets = "true" configClasses (_config >> "Turrets");
 	{
 		private _turretConfig = _x;
 		private _turretPath = _path + [_forEachIndex];
+		//Handle nested turrets
+		[_turretConfig, _turretPath] call _fnc_addCrewToTurrets;
+
+		if (getNumber (_turretConfig >> "hasGunner") == 0 || getNumber (_turretConfig >> "dontCreateAI") != 0) then { continue };
 		if (isNull (_vehicle turretUnit _turretPath)) then {
 			private _gunner = [_group, _unitType, getPos _vehicle, [], 10] call A3A_fnc_createUnit;
 			_gunner assignAsTurret [_vehicle, _turretPath];
 			_gunner moveInTurret [_vehicle, _turretPath];
 		};
-		//Handle nested turrets
-		[_turretConfig, _turretPath] call _fnc_addCrewToTurrets;
 	} forEach _turrets;
 };
 

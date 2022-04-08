@@ -774,6 +774,7 @@ class CfgFunctions
 
         class Utility {
             file = QPATHTOFOLDER(functions\Utility);
+            class arrayShuffle {};
             class basicBackpack {};
             class classNameToModel {};
             class clearVehicleCargo {};

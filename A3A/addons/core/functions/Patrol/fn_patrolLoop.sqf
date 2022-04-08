@@ -26,7 +26,14 @@ A3A_Patrol_Loop = [] spawn {
 		{
 			private _patcomControlled = _x getVariable ["PATCOM_Controlled", false];
 			if (!_patcomControlled) then {
-				[_x] call A3A_fnc_patrolGroupVariables;
+				private _scriptComplete = [_x] call A3A_fnc_patrolGroupVariables;
+				waituntil {sleep 1; _scriptComplete};
+			};
+
+			if ((side leader _x) == civilian) then {
+				[_x] call A3A_fnc_patrolCivilianCommander;
+			} else {
+				[_x] call A3A_fnc_patrolCommander;
 			};
 		} forEach A3A_Patrol_Controlled_AI;
         

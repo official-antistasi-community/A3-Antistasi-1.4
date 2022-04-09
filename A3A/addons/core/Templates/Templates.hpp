@@ -443,6 +443,7 @@ class Templates
 				class camo {
 					Default = "Temperate";
 				};
+                flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_sla_co.paa";
 			};
 			class TKA
 			{
@@ -450,7 +451,7 @@ class Templates
 				class camo {
 					Default = "Arid";
 				};
-                flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_sla_co.paa";
+                flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_tka_co.paa";
 			};
 			class US_Army
 			{

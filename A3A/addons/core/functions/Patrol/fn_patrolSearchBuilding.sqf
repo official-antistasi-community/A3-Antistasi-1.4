@@ -43,7 +43,7 @@ if ((leader _group) distance _building > 250) exitwith {};
 	_group lockWP true;
 
     // Add a waypoint to regroup after the search
-	[_group, "MOVE", "PATCOM_HOUSE_SEARCH", getPos _building, -1, 50] call A3A_fnc_patrolCreateWaypoint;
+	[_group, getPos _building, "MOVE", "PATCOM_HOUSE_SEARCH", -1, 50] call A3A_fnc_patrolCreateWaypoint;
 
     // Prepare group to search
     _group setBehaviour "AWARE";
@@ -75,5 +75,5 @@ if ((leader _group) distance _building > 250) exitwith {};
 
 	// We set this waypoint quickly to leave the area. Hopefully this will help with units that get stuck
 	private _nextWaypoint = [getPos (leader _group), 50, 100, 0, 0, -1, 0, getPos (leader _group)] call A3A_fnc_getSafeSpawnPos;
-	[_group, "MOVE", "PATCOM_PATROL_AREA", _nextWaypoint, -1, 50] call A3A_fnc_patrolCreateWaypoint;
+	[_group, _nextWaypoint, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };

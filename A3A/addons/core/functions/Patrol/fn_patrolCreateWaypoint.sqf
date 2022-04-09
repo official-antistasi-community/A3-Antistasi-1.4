@@ -26,15 +26,15 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params ["_group", "_waypointType", "_waypointName", "_position", ["_radius", -1], ["_distance", 50]];
+params ["_group", "_position", "_waypointType", "_waypointName", ["_radius", -1], ["_distance", 50]];
 
 // This is the only way I know how to reindex the waypoints on a group.
 for "_i" from count waypoints _group - 1 to 0 step -1 do {
 	deleteWaypoint [_group, _i];
 };
 
-// Convert position to ASL
-private _position = AGLToASL _position;
+// Waypoint Position
+private _waypointPos = [];
 
 // Avoid breaking how A3 handles waypointing.
 private _waypointCount = count waypoints _group - 1;
@@ -42,11 +42,13 @@ private _waypoint = [_group, _waypointCount];
 
 // Check if current waypoints is more than 1 and current waypoint name is as defined.
 if (count waypoints _group > 1 && waypointName _waypoint isEqualTo _waypointName) then {
-	private _waypointPos = [];
 
 	// If radius is -1, we set to exact position.
 	if (_radius == -1) then {
+		// When using negative radius, the center position supplied must be PositionASL, 
+		// only then the resulting waypointPosition will be in format PositionAGL and not buried under the ground ¯\_(ツ)_/¯ Thanks Bi.
 		_waypointPos = AGLtoASL waypointPosition _waypoint;
+		_position = AGLtoASL _position;
 	} else {
 		_waypointPos = waypointPosition _waypoint;
 	};
@@ -56,7 +58,7 @@ if (count waypoints _group > 1 && waypointName _waypoint isEqualTo _waypointName
 		_waypoint setWaypointPosition [_position, _radius];
 	};
 } else {
-	_waypoint = _group addWaypoint [_position, _radius];
+	_waypoint = _group addWaypoint [AGLtoASL _position, _radius];
 	_waypoint setWaypointName _waypointName;
 };
 
@@ -69,3 +71,7 @@ if ((_waypoint#1) != currentWaypoint _group) then {
 if (waypointType _waypoint != _waypointType) then {
 	_waypoint setWaypointType _waypointType;
 };
+
+// Set Waypoint time 3 minutes into the future.
+private _waypointTime = serverTime + 180;
+_group setVariable ["PATCOM_WaypointTime", _waypointTime];

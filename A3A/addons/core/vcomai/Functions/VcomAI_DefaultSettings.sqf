@@ -60,7 +60,7 @@ Vcm_Settings =
 	Vcm_AI_EM_CHN = 5; //Chance a group will attempt to jump over an obstacle  - every 0.5 secs
 	VCM_AI_EM_CLDWN = 15; //Time in seconds before a group will consider jumping over obstacles;	
 	Vcm_IdleAnimationChnc = 2; //Chance an AI will play an idle animation.
-	Vcm_IdleAnimationsEnabled = true; //Enable or disable idle animations. Idle animations only play when AI are standing up and not in combat.
+	Vcm_IdleAnimationsEnabled = false; //Enable or disable idle animations. Idle animations only play when AI are standing up and not in combat.
 	
 	//AI SKILL SETTINGS HERE!!!!!!!!!!!!
 	VCM_AIDIFA = [['aimingAccuracy', 0.15],['aimingShake', 0.90],['aimingSpeed', 0.75],['commanding', 1],['courage', 1],['general', 1],['reloadSpeed', 1],['spotDistance', 1],['spotTime', 1]];

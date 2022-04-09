@@ -60,7 +60,36 @@ PATCOM_Garrison_Positions set ["Land_PillboxBunker_01_big_F", [2,0,3,1,4,5]];
 PATCOM_Garrison_Positions set ["Land_PillboxBunker_01_hex_F", [0,2,3,1,4]];
 PATCOM_Garrison_Positions set ["Land_PillboxBunker_01_rectangle_F", [2,3,4]];
 
-Info("PATCOM | Starting Patrol Loop");
+PATCOM_Patrol_Animations = [
+	"acts_rifle_operations_back",
+	"acts_rifle_operations_barrel",
+	"acts_rifle_operations_checking_chamber",
+	"acts_rifle_operations_front",
+	"acts_rifle_operations_right",
+	"acts_rifle_operations_left",
+	"acts_rifle_operations_zeroing",
+	"acts_peering_up",
+	"acts_peering_right",
+	"acts_peering_left",
+	"acts_peering_front",
+	"acts_peering_down",
+	"acts_peering_back",
+	"acts_ambient_cleaning_nose",
+	"acts_ambient_gestures_sneeze",
+	"acts_ambient_gestures_tired",
+	"acts_ambient_gestures_yawn",
+	"acts_ambient_picking_up",
+	"acts_ambient_relax_1",
+	"acts_ambient_relax_2",
+	"acts_ambient_relax_3",
+	"acts_ambient_relax_4",
+	"acts_ambient_rifle_drop",
+	"acts_ambient_shoelaces",
+	"acts_ambient_stretching",
+	"acts_shieldfromsun_in"
+];
+
+Info("PATCOM | Init Complete, Starting Main Patrol Loop");
 
 // Power up the main thrusters. We got some Arma to play.
 [] call A3A_fnc_patrolLoop;

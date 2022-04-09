@@ -63,5 +63,5 @@ if ((waypointType [_group, currentWaypoint _group] != "MOVE") || ((waypointName 
     // Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode
     private _nextWaypointPos = [_perceivedPosition, _minimumRadius, _maximumRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;
     
-    [_group, "MOVE", _waypointName, _perceivedPosition, -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    [_group, _perceivedPosition, "MOVE", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };

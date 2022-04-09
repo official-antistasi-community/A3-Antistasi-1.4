@@ -109,8 +109,6 @@ player setVariable ["punish",0,true];
 
 stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
-player setUnitTrait ["camouflageCoef",0.8];
-player setUnitTrait ["audibleCoef",0.8];
 
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;

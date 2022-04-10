@@ -77,11 +77,10 @@ else
 
 //Calculates the skill of the given unit
 private _skill = (0.15 * skillMult) + (0.04 * difficultyCoef) + (0.02 * tierWar);
-
 private _regularFaces = (_faction get "faces");
 private _regularVoices = (_faction get "voices");
-private _face = selectRandom (_faction get "faces");
-private _voice = selectRandom (_faction get "voices");
+private ["_face", "_voice"];
+
 switch (true) do {
 case ("militia_" in (_unit getVariable "unitType")): 
     {

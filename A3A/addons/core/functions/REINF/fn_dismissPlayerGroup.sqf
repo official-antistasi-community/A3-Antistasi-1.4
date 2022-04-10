@@ -20,7 +20,6 @@ _newGroup = createGroup teamPlayer;
 if ((_x getVariable "unitType") != FactionGet(reb,"unitUnarmed")) then
 	{
 	[_x] join _newGroup;
-	if !(A3A_hasIFA) then {arrayids = arrayids + [name _x]};
 	};
 } forEach _units;
 

@@ -28,6 +28,7 @@ _unit setUnitTrait ["audibleCoef",0.8];
 // FIAinit is called for liberated refugees/hostages. Don't equip them.
 if !(_typeX isEqualTo FactionGet(reb,"unitUnarmed")) then {
 	[_unit, [0,1] select (leader _unit != player)] call A3A_fnc_equipRebel;
+	[_unit, selectRandom (A3A_faction_reb get "faces"), selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity;
 };
 _unit selectWeapon (primaryWeapon _unit);
 
@@ -41,7 +42,6 @@ if (player == leader _unit) then {
 		_victim = _this select 0;
 		[_victim] spawn A3A_fnc_postmortem;
 		_killer = _this select 1;
-		if !(A3A_hasIFA) then {arrayids pushBackUnique (name _victim)};
 		if (side _killer == Occupants) then {
 			_nul = [0.25,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 			[Occupants, -1, 30] remoteExec ["A3A_fnc_addAggression",2];
@@ -56,11 +56,6 @@ if (player == leader _unit) then {
 		};
 		_victim setVariable ["spawner",nil,true];
 	}];
-	if (_typeX != FactionGet(reb,"unitUnarmed") and !A3A_hasIFA) then {
-		private _idUnit = selectRandom arrayids;
-		arrayids = arrayids - [_idunit];
-		_unit setIdentity _idUnit;
-	};
 	if (captive player) then {[_unit] spawn A3A_fnc_undercoverAI};
 
 	_unit setVariable ["rearming",false];

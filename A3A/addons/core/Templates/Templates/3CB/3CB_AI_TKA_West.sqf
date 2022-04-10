@@ -75,6 +75,13 @@
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
 
 //////////////////////////
+///  Identitiy Stuff   ///
+//////////////////////////
+
+["voices", ["Male01PER","Male02PER","Male03PER"]] call _fnc_saveToTemplate;
+["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;
+
+//////////////////////////
 //       Loadouts       //
 //////////////////////////
 private _loadoutData = call _fnc_createLoadoutData;

@@ -39,7 +39,8 @@ private _categoryOverrideTable = [
 ["rhs_weap_m32", ["GrenadeLaunchers","Weapons"]],
 ["rhs_weap_m79", ["GrenadeLaunchers","Weapons"]],
 
-["B_rhsusf_B_BACKPACK", ["Unknown","Items"]],
+["B_rhsusf_B_BACKPACK", ["Unknown","Items"]],		// Drone backpack
+["UK3CB_BAF_L103A2", ["Unknown","Items"]],			// Drill practice rifle, no mags
 
 ["UK3CB_Enfield", ["SniperRifles","Weapons"]],
 ["UK3CB_Enfield_rail", ["SniperRifles","Weapons"]],
@@ -50,7 +51,7 @@ private _categoryOverrideTable = [
 
 ["UK3CB_BAF_Javelin_Launcher", ["MissileLaunchers","Weapons","AT"]],
 ["UK3CB_BAF_Javelin_CLU", ["Binoculars","Items"]],
-["UK3CB_BAF_Javelin_Slung_Tube", ["MissileLaunchers","Weapons","AT"]],
+["UK3CB_BAF_Javelin_Slung_Tube", ["StaticWeaponParts","Items"]],
 ["UK3CB_M79", ["GrenadeLaunchers","Weapons"]],
 ["UK3CB_BAF_AT4_CS_AT_Launcher", ["RocketLaunchers","Weapons","AT"]],
 ["UK3CB_BAF_AT4_CS_AP_Launcher", ["RocketLaunchers","Weapons","AT"]],
@@ -112,13 +113,17 @@ private _categoryOverrideTable = [
 ["CUP_MK19_carry" , ["StaticWeaponParts","Items"]],
 ["CUP_SPG9_carry" , ["StaticWeaponParts","Items"]],
 
-["CUP_launch_M136", ["RocketLaunchers","Weapons"]],
-["CUP_launch_NLAW", ["RocketLaunchers","Weapons"]],
+
+["CUP_launch_M136", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_NLAW", ["RocketLaunchers","Weapons","AT"]],
+/*
+// These work correctly now
 ["CUP_launch_FIM92Stinger", ["AA","Weapons"]],
 ["CUP_launch_Igla", ["AA","Weapons"]],
 ["CUP_launch_9K32Strela", ["MissileLaunchers","Weapons"]],
 ["CUP_launch_Metis", ["MissileLaunchers","Weapons"]],
 ["CUP_launch_Javelin", ["MissileLaunchers","Weapons"]],
+*/
 
 ["CUP_item_Money", ["Unknown","Items"]],
 ["CUP_item_Kostey_photos", ["Unknown","Items"]],
@@ -130,7 +135,7 @@ private _categoryOverrideTable = [
 
 ["CUP_smg_BallisticShield_MP7", ["Unknown","Weapons"]],
 
-["ace_dragon_super", ["MissileLaunchers","Weapons","AT"]],
+["ace_dragon_super", ["StaticWeaponParts","Items"]],
 ["ace_dragon_sight", ["Binoculars","Items"]],
 
 ["ACE_Kestrel4500", ["Gadgets","Items"]],
@@ -165,14 +170,24 @@ private _categoryOverrideTable = [
 ["vn_mat49_vc", ["SMGs","Weapons"]],
 ["vn_m3a1", ["SMGs","Weapons"]],
 ["vn_sten", ["SMGs","Weapons"]],
+["vn_mpu", ["SMGs","Weapons"]],
+["vn_vz61", ["SMGs","Weapons"]],
+["vn_m72", ["RocketLaunchers","Weapons","AT","Disposable"]],
 ["vn_m79", ["GrenadeLaunchers","Weapons"]],
-["vn_sa7b", ["MissileLaunchers","Weapons"]],
-["vn_sa7", ["MissileLaunchers","Weapons"]],
-["vn_m4956_gl", ["GrenadeLaunchers","Weapons"]],
-["vn_m2carbine_gl", ["GrenadeLaunchers","Weapons"]],
-["vn_m1carbine_gl", ["GrenadeLaunchers","Weapons"]],
-["vn_sks_gl", ["GrenadeLaunchers","Weapons"]],
+["vn_sa7b", ["MissileLaunchers","Weapons","AA"]],
+["vn_sa7", ["MissileLaunchers","Weapons","AA"]],
+["vn_m2carbine", ["Rifles","Weapons"]],
+["vn_m2carbine_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_m1carbine", ["Rifles","Weapons"]],
+["vn_m1carbine_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_m3carbine", ["Rifles","Weapons"]],
+["vn_m4956_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_sks_gl", ["Rifles","Weapons","GrenadeLaunchers"]],				// plain versions left as SniperRifles. This is fine
 ["vn_type56", ["Rifles","Weapons"]],
+["vn_m63a_lmg", ["MachineGuns","Weapons"]],
+["vn_m63a_cdo", ["MachineGuns","Weapons"]],
+["vn_m127", ["Unknown","Weapons"]],								// flare launcher secondary
+["vn_mk1_udg", ["Unknown","Weapons"]],							// underwater defence gun
 
 //ACRE Radios
 //Using Gadgets instead of Radios to prevent future issues as they don't use the Radio Slot

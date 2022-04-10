@@ -116,11 +116,11 @@ class Params
         texts[] = {"Load from save (Default: 25)","15","25","40","1 000 000"};
         default = 9999;
     };
-    class memberOnlyMagLimit
+    class guestItemLimit
     {
-        title = "Number of magazines needed for guests to be able to use them";
-        values[] = {9999,10,20,30,40,50,60};
-        texts[] = {"Load from save (Default: 40)","10","20","30","40","50","60"};
+        title = "Default number of items needed for guests to be able to use them";
+        values[] = {9999,0,10,15,25,40};
+        texts[] = {"Load from save (Default: 25)","No limit","10","15","25","40"};
         default = 9999;
     };
     class civTraffic

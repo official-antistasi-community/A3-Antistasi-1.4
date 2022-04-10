@@ -20,20 +20,15 @@
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["CUP_B_UAZ_Open_ACR", "CUP_B_UAZ_Unarmed_ACR", "CUP_B_LR_Transport_CZ_D"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["CUP_B_Dingo_GL_CZ_Des", "CUP_B_Dingo_CZ_Des", "CUP_B_HMMWV_AGS_GPK_ACR", "CUP_B_HMMWV_DSHKM_GPK_ACR", "CUP_B_HMMWV_M2_GPK_ACR", "CUP_B_LR_Special_Des_CZ_D", "CUP_B_UAZ_SPG9_ACR", "CUP_B_UAZ_METIS_ACR", "CUP_B_UAZ_MG_ACR", "CUP_B_UAZ_AGS30_ACR"]] call _fnc_saveToTemplate;
-
 ["vehiclesTrucks", ["CUP_B_T810_Unarmed_CZ_DES", "CUP_B_T810_Armed_CZ_DES"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["CUP_B_T810_Unarmed_CZ_DES", "B_Truck_01_flatbed_F"]] call _fnc_saveToTemplate;
-
+["vehiclesCargoTrucks", []] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["CUP_B_T810_Reammo_CZ_DES"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_B_T810_Repair_CZ_DES"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_B_T810_Refuel_CZ_DES"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_B_LR_Ambulance_CZ_D", "CUP_B_BMP2_AMB_CZ_Des"]] call _fnc_saveToTemplate;
-
 ["vehiclesAPCs", ["CUP_B_BRDM2_CZ_Des", "CUP_B_BRDM2_HQ_CZ_Des", "CUP_B_BMP2_CZ_Des"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_T72_CZ"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_B_nM1097_AVENGER_USA_DES"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -50,8 +45,8 @@
 ["vehiclesArtillery", ["CUP_B_RM70_CZ"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["CUP_B_RM70_CZ", ["CUP_40Rnd_GRAD_HE"]]]] call _fnc_saveToTemplate;
 
-["uavsAttack", []] call _fnc_saveToTemplate;
-["uavsPortable", []] call _fnc_saveToTemplate;
+["uavsAttack", ["CUP_B_USMC_DYN_MQ9"]] call _fnc_saveToTemplate;
+["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesMilitiaLightArmed", ["CUP_B_nM1025_M2_USA_DES"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["CUP_B_MTVR_USA"]] call _fnc_saveToTemplate;
@@ -63,7 +58,7 @@
 ["staticAA", ["CUP_B_RBS70_ACR"]] call _fnc_saveToTemplate;
 
 ["staticMortars", ["CUP_B_2b14_82mm_ACR"]] call _fnc_saveToTemplate;
-["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;             //this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
+["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
 ["minefieldAT", ["CUP_Mine"]] call _fnc_saveToTemplate;

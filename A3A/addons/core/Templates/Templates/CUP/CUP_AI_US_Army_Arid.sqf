@@ -2,12 +2,12 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "US Army"] call _fnc_saveToTemplate;                         //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
-["spawnMarkerName", "US support corridor"] call _fnc_saveToTemplate;             //this line determines the name tag for the "carrier" on the map -- Example: ["spawnMarkerName", "NATO support corridor"] - ENTER ONLY ONE OPTION
+["name", "US Army"] call _fnc_saveToTemplate;
+["spawnMarkerName", "US support corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_US_F"] call _fnc_saveToTemplate;                         //this line determines the flag -- Example: ["flag", "Flag_NATO_F"] - ENTER ONLY ONE OPTION
-["flagTexture", "a3\data_f\flags\flag_us_co.paa"] call _fnc_saveToTemplate;                 //this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
-["flagMarkerType", "flag_USA"] call _fnc_saveToTemplate;             //this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
+["flag", "Flag_US_F"] call _fnc_saveToTemplate;
+["flagTexture", "a3\data_f\flags\flag_us_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_USA"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -20,26 +20,21 @@
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["CUP_B_nM1025_Unarmed_DF_USA_DES", "CUP_B_nM1025_Unarmed_USA_DES", "CUP_B_nM1025_Unarmed_DF_USA_DES", "CUP_B_nM1038_DF_USA_DES", "CUP_B_nM1038_USA_DES", "CUP_B_nM1038_4s_DF_USA_DES", "CUP_B_nM1038_4s_USA_DES", "CUP_B_M1151_USA", "CUP_B_M1152_USA"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["CUP_B_HMMWV_Crows_M2_USA", "CUP_B_HMMWV_Crows_MK19_USA", "CUP_B_HMMWV_M2_GPK_USA", "CUP_B_nM1025_M2_USA_DES", "CUP_B_nM1025_M2_DF_USA_DES", "CUP_B_nM1025_M240_USA_DES", "CUP_B_nM1025_M240_DF_USA_DES", "CUP_B_nM1025_Mk19_USA_DES", "CUP_B_nM1025_Mk19_DF_USA_DES", "CUP_B_nM1025_SOV_M2_USA_DES", "CUP_B_nM1025_SOV_Mk19_USA_DES", "CUP_B_nM1036_TOW_USA_DES", "CUP_B_nM1036_TOW_DF_USA_DES", "CUP_B_M1151_M2_USA", "CUP_B_M1151_Deploy_USA", "CUP_B_M1151_Mk19_USA", "CUP_B_M1165_GMV_USA", "CUP_B_M1167_USA", "CUP_B_RG31_Mk19_USA", "CUP_B_RG31E_M2_USA", "CUP_B_RG31_M2_USA", "CUP_B_RG31_M2_GC_USA"]] call _fnc_saveToTemplate;
-
 ["vehiclesTrucks", ["CUP_B_MTVR_USA"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_Truck_01_flatbed_F"]] call _fnc_saveToTemplate;
-
 ["vehiclesAmmoTrucks", ["CUP_B_MTVR_Ammo_USA", "CUP_B_nM1038_Ammo_USA_DES", "CUP_B_nM1038_Ammo_DF_USA_DES"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_B_nM1038_Repair_USA_DES", "CUP_B_nM1038_Repair_DF_USA_DES", "CUP_B_MTVR_Repair_USA"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_B_MTVR_Refuel_USA"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_B_nM997_DF_USA_DES", "CUP_B_nM997_USA_DES", "CUP_B_M1133_MEV_Desert"]] call _fnc_saveToTemplate;
-
 ["vehiclesAPCs", ["CUP_B_M2Bradley_USA_D", "CUP_B_M2A3Bradley_USA_D", "CUP_B_M7Bradley_USA_D", "CUP_B_M6LineBacker_USA_D", "CUP_B_M1126_ICV_M2_Desert", "CUP_B_M1126_ICV_MK19_Desert", "CUP_B_M1128_MGS_Desert", "CUP_B_M1130_CV_M2_Desert", "CUP_B_M1135_ATGMV_Desert", "CUP_B_M1129_MC_MK19_Desert"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_M1A1SA_Desert_US_Army", "CUP_B_M1A1SA_Desert_TUSK_US_Army", "CUP_B_M1A2SEP_Desert_US_Army", "CUP_B_M1A2SEP_TUSK_II_Desert_US_Army", "CUP_B_M1A2SEP_TUSK_Desert_US_Army", "CUP_B_M1A2C_Desert_US_Army", "CUP_B_M1A2C_TUSK_II_Desert_US_Army", "CUP_B_M1A2C_TUSK_Desert_US_Army"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["CUP_B_nM1097_AVENGER_USA_DES"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
+["vehiclesAA", ["CUP_B_M6LineBacker_USA_D", "CUP_B_nM1097_AVENGER_USA_DES", "CUP_B_M163_Vulcan_USA"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["CUP_B_A10_DYN_USA"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["CUP_B_A10_AT_USA"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["CUP_B_AV8B_DYN_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["CUP_B_C130J_USMC", "CUP_B_MV22_USMC_RAMPGUN"]] call _fnc_saveToTemplate;
 
@@ -50,8 +45,8 @@
 ["vehiclesArtillery", ["CUP_B_M270_HE_USA"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["CUP_B_M270_HE_USA", ["CUP_12Rnd_MLRS_HE"]]]] call _fnc_saveToTemplate;
 
-["uavsAttack", []] call _fnc_saveToTemplate;
-["uavsPortable", []] call _fnc_saveToTemplate;
+["uavsAttack", ["CUP_B_USMC_DYN_MQ9"]] call _fnc_saveToTemplate;
+["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesMilitiaLightArmed", ["CUP_B_nM1025_M2_USMC_DES"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["CUP_B_MTVR_USMC"]] call _fnc_saveToTemplate;
@@ -63,7 +58,7 @@
 ["staticAA", ["CUP_B_CUP_Stinger_AA_pod_US"]] call _fnc_saveToTemplate;
 
 ["staticMortars", ["CUP_B_M252_US"]] call _fnc_saveToTemplate;
-["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;             //this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
+["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
 ["minefieldAT", ["CUP_Mine"]] call _fnc_saveToTemplate;

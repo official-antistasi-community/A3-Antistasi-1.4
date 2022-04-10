@@ -1,3 +1,26 @@
+/*
+    Author: [Hazey] [Genesis]
+
+    Description:
+		Make unit do idle animation when called
+
+    Arguments:
+    	<Object> Unit you want to do the animation.
+		<Number> Chance that the animation will play.
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		[_unit, 25] call A3A_fnc_patrolAnimation;
+
+    License: MIT License
+*/
+
 params ["_unit", ["_chance", 25]];
 
 private _group = group _unit;

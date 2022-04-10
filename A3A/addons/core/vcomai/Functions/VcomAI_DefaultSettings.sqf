@@ -12,7 +12,7 @@ Vcm_Settings =
 	*/	
 
 	Vcm_ConfigVersion="3.4.1 Default Settings";
-	Vcm_ActivateAI = true; //Set this to false to disable VcomAI. It can be set to true at any time to re-enable Vcom AI
+	Vcm_ActivateAI = false; //Set this to false to disable VcomAI. It can be set to true at any time to re-enable Vcom AI
 	VcmAI_ActiveList = []; //Leave this alone.
 	Vcm_ArtilleryArray = []; //Leave this alone
 	

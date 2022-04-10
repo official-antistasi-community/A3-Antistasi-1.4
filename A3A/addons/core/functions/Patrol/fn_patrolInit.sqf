@@ -22,6 +22,8 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
+PATCOM_DEBUG = true; // Enable PATCOM specific debug.
+
 // This Array holds all the currently controlled groups
 A3A_Patrol_Controlled_AI = [];
 

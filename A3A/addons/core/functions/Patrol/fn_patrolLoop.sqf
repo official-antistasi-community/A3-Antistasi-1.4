@@ -24,6 +24,9 @@ FIX_LINE_NUMBERS()
 A3A_Patrol_Loop = [] spawn {
 	while {true} do {
 		{
+			if ((isNull _x) || (({alive _x} count units _x) < 1)) exitWith {
+				A3A_Patrol_Controlled_AI deleteAt _forEachIndex;
+			};
 			private _patcomControlled = _x getVariable ["PATCOM_Controlled", false];
 			if (!_patcomControlled) then {
 				private _scriptComplete = [_x] call A3A_fnc_patrolGroupVariables;

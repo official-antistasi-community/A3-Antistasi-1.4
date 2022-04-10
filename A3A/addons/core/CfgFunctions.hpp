@@ -277,6 +277,7 @@ class CfgFunctions
 
         class debug {
             file = QPATHTOFOLDER(functions\debug);
+            class debugText3D {};
             class deleteEmptyGroupsOnSide {};
             class installSchrodingersBuildingFix {};
             class prepFunctions {};
@@ -510,6 +511,8 @@ class CfgFunctions
             class patrolAnimation {};
             class patrolArea {};
             class patrolAttack {};
+            class patrolBuildingEnterable {};
+            class patrolCallForHelp {};
             class patrolCivilianCommander {};
             class patrolClosestKnownEnemy {};
             class patrolCommander {};
@@ -518,12 +521,15 @@ class CfgFunctions
             class patrolEnterableBuildings {};
             class patrolGroupGarrison {};
             class patrolGroupVariables {};
-            class patrolBuildingEnterable {};
+            class patrolHandleFormation {};
+            class patrolHealSelf {};
             class patrolInit {};
             class patrolLoop {};
             class patrolSearchBuilding {};
             class patrolSetCombatModes {};
             class patrolSideIsEnemy {};
+            class patrolSuppressionEH {};
+            class patrolUnitHitEH {};
         };
 
         class proxy {

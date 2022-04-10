@@ -38,26 +38,29 @@ if (count units _group <= 0) exitWith {
 
 // Get current orders if set. If not set, we handle first orders below.
 private _currentOrders = _group getVariable "PATCOM_Current_Orders";
+private _knownEnemies = [_group, 600] call A3A_fnc_patrolClosestKnownEnemy;
 
-if (_group getVariable "PATCOM_Defense_Patrol") then {
+if (_group getVariable ["PATCOM_Defense_Patrol", false]) then {
 	_currentOrders = "Defend";
 	_group setVariable ["PATCOM_Current_Orders", _currentOrders];
-} else {
-	// Check if enemy combat is near.
-	private _knownEnemies = [_group, 400] call A3A_fnc_patrolClosestKnownEnemy;
-
-	if ((count _knownEnemies >= 1) && (((_knownEnemies # 0)# 0) >= 4)) then {
-		if !(_currentOrders == "Attack") then {
-			_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
-		};
-		// Set Current Orders to Attack.
-		_currentOrders = "Attack";
-		// Set current orders to Attack.
-		_group setVariable ["PATCOM_Current_Orders", _currentOrders];
-	};
 };
 
-ServerDebug_2("PATCOM | Group: %1 | Current Orders: %2", _group, _currentOrders);
+// Handle Patrol Formations, Exits if already set and time not expired.
+[leader _group] call A3A_fnc_patrolHandleFormation;
+
+// Check if enemy combat is near.
+if (count _knownEnemies >= 1) then {
+	if !(_currentOrders == "Attack") then {
+		_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
+	};
+	// Set Current Orders to Attack.
+	_currentOrders = "Attack";
+	// Set current orders to Attack.
+	_group setVariable ["PATCOM_Current_Orders", _currentOrders];
+	_group setVariable ["PATCOM_Group_State", "COMBAT"];
+};
+
+ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2, Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");
 
 if (_currentOrders == "Attack") exitWith {
 	// Give group waypoint to nearest Known Enemy.
@@ -77,11 +80,12 @@ if (_currentOrders == "Chase") exitWith {
 };
 
 if (_currentOrders == "Defend") exitWith {
-	[_group] call A3A_fnc_patrolDefend;
+	private _center = _group getVariable "PATCOM_Patrol_Home";
+	[_group, _center] call A3A_fnc_patrolDefend;
 };
 
 if (_currentOrders == "Patrol_Area") exitWith {
-	[_group, 500] call A3A_fnc_patrolArea;
+	[_group, 300] call A3A_fnc_patrolArea;
 };
 
 if (_currentOrders == "Patrol_Road") exitWith {

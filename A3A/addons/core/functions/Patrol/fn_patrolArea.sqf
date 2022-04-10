@@ -40,7 +40,7 @@ params [
 ];
 
 // Get home position of the unit.
-private _groupHomePosition = _group getVariable "PATCOM_Patrol_Home_Position";
+private _groupHomePosition = _group getVariable "PATCOM_Patrol_Home";
 
 // Add a default patrol radius if we don't have one already specified.
 if (_group getVariable ["PATCOM_Patrol_Radius", 0] == 0) then {
@@ -59,8 +59,8 @@ if ((side leader _group) == civilian) then {
     [_group, "SAFE", "LIMITED", "COLUMN", "RED", "AUTO"] call A3A_fnc_patrolSetCombatModes;
 };
 
-// We check to see if the waypoint is still active after 2 minutes. If waypoint isn't complete the unit is likely stuck.
-if (_group getVariable "PATCOM_WaypointTime" < serverTime) then {
+// We check to see if the waypoint is still active after 3 minutes. If waypoint isn't complete the unit is likely stuck.
+if (_group getVariable "PATCOM_WaypointTime" < serverTime) exitWith {
     [_group, _groupHomePosition, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };
 

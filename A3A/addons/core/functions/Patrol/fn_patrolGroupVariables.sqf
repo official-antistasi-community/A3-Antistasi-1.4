@@ -45,7 +45,7 @@ if ((side leader _group) == civilian) then {
     };
 
     _group setVariable ["PATCOM_Patrol_Radius", 50 + random 50];
-    _group setVariable ["PATCOM_Patrol_Home_Position", getPos (leader _group)];
+    _group setVariable ["PATCOM_Patrol_Home", getPos (leader _group)];
 
     {
         _x forceWalk true;
@@ -61,18 +61,25 @@ if ((side leader _group) == civilian) then {
 } else {
 
     // Setup Variable for use later.
-    _group setVariable ["PATCOM_Known_Enemy_Positions", []];
+    _group setVariable ["PATCOM_Known_Enemy", []];
     if (_group getVariable ["PATCOM_Current_Orders", ""] == "") then {
         _group setVariable ["PATCOM_Current_Orders", "Patrol_Area"];
     };
 
     _group setVariable ["PATCOM_Previous_Orders", ""];
     _group setVariable ["PATCOM_Patrol_Radius", 0];
-    _group setVariable ["PATCOM_Patrol_Home_Position", getPos (leader _group)];
+    _group setVariable ["PATCOM_Patrol_Home", getPos (leader _group)];
     _group setVariable ["PATCOM_Group_State", "CALM"];
 
     // Set Group to being controlled by PATCOM so we don't init variables again.
     _group setVariable ["PATCOM_Controlled", true];
+
+    {
+        private _hitEH = _x addEventHandler ["Hit", {_this call A3A_fnc_patrolUnitHitEH;}];
+        private _suppressionEH = _x addEventHandler ["Suppressed", {_this call A3A_fnc_patrolSuppressionEH;}];
+        private _KilledEH = _x addEventHandler ["Killed",{_this spawn A3A_fnc_patrolCallForHelp;}];
+
+    } forEach units _group;
 
     _scriptComplete = true;
 };

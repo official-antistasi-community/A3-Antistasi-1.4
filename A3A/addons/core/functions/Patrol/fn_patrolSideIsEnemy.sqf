@@ -1,5 +1,6 @@
 /*
     Author: [Spoffy]
+
     Description:
 		Check if side is enemy.
 
@@ -16,6 +17,7 @@
 
     Example: 
 		[_unitSide, _otherSide] call A3A_fnc_patrolSideIsEnemy;
+		
     License: MIT License
 */
 

@@ -233,11 +233,10 @@ player addEventHandler ["GetInMan", {
 	_unit = _this select 0;
 	_veh = _this select 2;
 	_exit = false;
-		if !([player] call A3A_fnc_isMember) then {
+	if !([player] call A3A_fnc_isMember) then {
+		if (!isNil {_veh getVariable "A3A_locked"}) then {
 			_owner = _veh getVariable "ownerX";
-			_A3A_locked = _veh getVariable "A3A_locked";
-			if (_A3A_locked) then {
-				if ({getPlayerUID _x == _owner} count (units group player) == 0) then {
+			if ({getPlayerUID _x == _owner} count (units group player) == 0) then {
 				["Warning", "This Vehicle is locked, ask the Owner to unlock it."] call A3A_fnc_customHint;
 				moveOut _unit;
 				_exit = true;

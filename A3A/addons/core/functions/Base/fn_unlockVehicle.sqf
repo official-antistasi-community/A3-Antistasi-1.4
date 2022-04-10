@@ -15,11 +15,10 @@ if (isNil "_ownerX") exitWith {["Unlock Vehicle", "The vehicle you are looking d
 
 if (_ownerX != getPlayerUID player) exitWith {["Unlock Vehicle", "You cannot unlock/lock vehicles which you do not own."] call A3A_fnc_customHint;};
 
-_A3A_locked = _veh getVariable "A3A_locked";
-if ((!_A3A_locked) || (isNil "_A3A_locked")) then {
+if (isNil { _veh getVariable "A3A_locked"} ) then {
     _veh setVariable ["A3A_locked",true,true];
     ["Unlock Vehicle", "Vehicle locked."] call A3A_fnc_customHint;
 } else {
-    _veh setVariable ["A3A_locked",false,true];
+    _veh setVariable ["A3A_locked",nil,true];
     ["Unlock Vehicle", "Vehicle unlocked."] call A3A_fnc_customHint;	
 };

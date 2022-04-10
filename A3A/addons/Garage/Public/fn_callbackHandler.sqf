@@ -41,7 +41,6 @@ switch _callBackName do {
                 } else {
                     [-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
                     _vehicle setVariable ["ownerX",getPlayerUID player,true];
-                    _vehicle setVariable ["A3A_locked",false,true];
                 };
                 vehiclePurchase_cost = 0;
                 _vehicle setFuel random [0.10, 0.175, 0.25];

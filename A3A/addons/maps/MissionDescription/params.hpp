@@ -112,8 +112,8 @@ class Params
     class unlockItem
     {
         title = "Number of the same item required to unlock";
-        values[] = {9999,15,25,40,1e6};
-        texts[] = {"Load from save (Default: 25)","15","25","40","1 000 000"};
+        values[] = {9999,15,25,40,-1};
+        texts[] = {"Load from save (Default: 25)","15","25","40","No unlocks"};
         default = 9999;
     };
     class guestItemLimit

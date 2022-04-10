@@ -60,7 +60,7 @@ if (count _knownEnemies >= 1) then {
 	_group setVariable ["PATCOM_Group_State", "COMBAT"];
 };
 
-ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2, Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");
+ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");
 
 if (_currentOrders == "Attack") exitWith {
 	// Give group waypoint to nearest Known Enemy.

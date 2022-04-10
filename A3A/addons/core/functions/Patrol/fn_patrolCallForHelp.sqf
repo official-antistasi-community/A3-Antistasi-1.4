@@ -38,9 +38,14 @@ if (_group getVariable ["PATCOM_Radio_Help", false]) exitWith {};
 // Set group radio for help flag to true so we don't keep asking other groups for help.
 _group setVariable ["PATCOM_Radio_Help", true];
 
+if (PATCOM_DEBUG) then {
+	private _leader = leader _group;
+	[_leader, "Requesting Help", 10] call A3A_fnc_debugText3D;
+};
+
 // After five minutes we reset the group to allow them to make another radio call
 [_group] spawn {
-	param ["_group"];
+	params ["_group"];
 	sleep 300;
 	_group setVariable ["PATCOM_Radio_Help", false];
 };

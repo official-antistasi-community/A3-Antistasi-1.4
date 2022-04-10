@@ -139,7 +139,7 @@ class A3A_FactionSelectorDialog: A3A_DefaultDialog {
 				class SelectFactionsButton: A3A_Button{
                     idc = A3A_IDC_SELECTFACTIONSBUTTON;
                     text = "Select Factions";
-                    onButtonClick = "";
+                    onButtonClick = "[""selection""] call A3A_fnc_factionSelectorDialog";
                     x = 121 * GRID_W;
                     y = 55 * GRID_H;
                     w = 35 * GRID_W;

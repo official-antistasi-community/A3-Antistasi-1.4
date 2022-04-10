@@ -482,7 +482,9 @@ class Templates
 			};
         };
 
-        class Reb {};
+        class Reb {
+            flagTexture = "cup\baseconfigs\cup_baseconfigs\data\flags\flag_napa_co.paa";
+        };
     
 
         class Civ {

@@ -236,7 +236,9 @@ FIX_LINE_NUMBERS()
 //////////////////////////////////////
 Info("Reading templates");
 
-call A3A_fnc_selector;
+createDialog "A3A_FactionSelectorDialog";
+waitUntil{ sleep 1; A3A_factionSelectorIsDone };
+//call A3A_fnc_selector;
 { //broadcast the templates to the clients
     publicVariable ("A3A_faction_"+_x);
 } forEach ["occ", "inv", "reb", "civ", "all"]; // ["A3A_faction_occ", "A3A_faction_inv", "A3A_faction_reb", "A3A_faction_civ", "A3A_faction_all"]

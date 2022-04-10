@@ -1,9 +1,24 @@
+/*
+    Author: [Håkon, Killerswin2]
+    Description:
+        Faction selector gui
 
+    Arguments:
+    0. <String> is the change done string 
 
+    Return Value:
+	NONE
 
+    Scope: Scheduled 
+    Environment: SERVER
+    Public: NO
+    Dependencies:
 
+    Example: ["selection"] call A3A_factionSelectorDialog;
 
+    License: MIT License
 
+*/
 
 
 params ["_status"];
@@ -59,7 +74,6 @@ if (_status isEqualTo "selection") exitWith {
 	private _dataCiv = (_civiliansList lbData _civiliansSelection#0) splitString ",";
 	_selectionArray pushBack [_dataCiv#0, civilian,_dataCiv#1];
 
-	copyToClipboard str _selectionArray;
 
 
 	// close the Dialog if they picked all templates
@@ -182,8 +196,6 @@ private _templates = configFile/"A3A"/"Templates";
 	_invandoccTemplates append [_aiFactions];
 	_rebTemplates append [_rebFactions];
 	_civTemplates append [_civFaction];	
-	//debug
-	//copyToClipboard str (); 
 	
 } forEach ("true" configClasses _templates);
 

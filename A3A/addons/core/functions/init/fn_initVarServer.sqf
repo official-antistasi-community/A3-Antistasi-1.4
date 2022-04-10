@@ -236,6 +236,7 @@ FIX_LINE_NUMBERS()
 //////////////////////////////////////
 Info("Reading templates");
 
+waitUntil {sleep 1; !isNull findDisplay 46};
 createDialog "A3A_FactionSelectorDialog";
 waitUntil{ sleep 1; A3A_factionSelectorIsDone };
 //call A3A_fnc_selector;

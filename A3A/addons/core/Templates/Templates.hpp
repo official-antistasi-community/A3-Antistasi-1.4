@@ -154,7 +154,7 @@ class Templates
 
         requiredAddons[] = {"rhsgref_main"};// this requires usaf and afrf internaly so coveres all 3
         path = QPATHTOFOLDER(Templates\Templates\RHS);
-        logo = "rhssaf\addons\rhssaf_main\data\rhs_logo_ca.paa";
+        logo = "\rhsusf\addons\rhsusf_main\data\rhs_logo_ca.paa";
 
         class AI
         {

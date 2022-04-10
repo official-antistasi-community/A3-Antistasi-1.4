@@ -439,7 +439,7 @@ class Templates
             class chernarus_winter
             {
                 Occ = "CDF";
-                Inv = "ION";
+                Inv = "AFRF";
             };
             class takistan
             {

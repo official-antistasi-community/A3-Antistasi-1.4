@@ -2,10 +2,10 @@
 //   Rebel Information   //
 ///////////////////////////
 
-["name", "NPC"] call _fnc_saveToTemplate;                         //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
+["name", "NAPA"] call _fnc_saveToTemplate;                         //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
 
 ["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;                         //this line determines the flag -- Example: ["flag", "Flag_NATO_F"] - ENTER ONLY ONE OPTION
-["flagTexture", ""] call _fnc_saveToTemplate;                 //this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
+["flagTexture", "cup\baseconfigs\cup_baseconfigs\data\flags\flag_napa_co.paa"] call _fnc_saveToTemplate;                 //this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
 ["flagMarkerType", "Faction_CUP_NAPA"] call _fnc_saveToTemplate;             //this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
 
 ["vehicleBasic", "I_Quadbike_01_F"] call _fnc_saveToTemplate;
@@ -43,9 +43,9 @@
 ///////////////////////////
 
 private _initialRebelEquipment = [
-    "CUP_sgun_CZ584", "CUP_srifle_CZ550_rail", "CUP_srifle_Remington700", "CUP_sgun_slamfire",
-    "CUP_1Rnd_12Gauge_Pellets_No00_Buck", "CUP_1Rnd_12Gauge_Pellets_No3_Buck", "CUP_5x_22_LR_17_HMR_M", "CUP_6Rnd_762x51_R700", "CUP_1Rnd_762x51_CZ584",
-    "CUP_hgun_M9", "CUP_hgun_TaurusTracker455", "CUP_15Rnd_9x19_M9", "CUP_6Rnd_45ACP_M",
+    "CUP_sgun_slamfire", "CUP_srifle_LeeEnfield", "CUP_srifle_LeeEnfield_rail",
+    "CUP_1Rnd_12Gauge_Pellets_No00_Buck", "CUP_1Rnd_12Gauge_Pellets_No3_Buck", "CUP_10x_303_M",
+    "CUP_hgun_TaurusTracker455", "CUP_6Rnd_45ACP_M",
     "CUP_launch_RPG18",
     "CUP_HandGrenade_RGD5", "SmokeShell",
     "CUP_V_I_Carrier_Belt", "CUP_V_I_Guerilla_Jacket", "CUP_V_I_RACS_Carrier_Rig_2", "CUP_V_I_RACS_Carrier_Rig_wdl_2",
@@ -55,16 +55,22 @@ private _initialRebelEquipment = [
 ];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "tf_anprc154"]};
-if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155"};
+if (A3A_hasTFAR && startWithLongRangeRadio) then {
+    _initialRebelEquipment pushBack "tf_anprc155";
+    _initialRebelEquipment pushBack "tf_anprc155_coyote";
+};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "TFAR_anprc154"]};
-if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "TFAR_anprc155"};
+if (A3A_hasTFARBeta && startWithLongRangeRadio) then {
+    _initialRebelEquipment pushBack "TFAR_anprc155";
+    _initialRebelEquipment pushBack "TFAR_anprc155_coyote";
+};
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 private _rebUniforms = [
-    "CUP_O_TKI_Khet_Partug_05",
-    "CUP_O_TKI_Khet_Partug_04",
-    "CUP_I_B_PARA_Unit_8",
+    "CUP_I_B_PARA_Unit_2",
+    "CUP_I_B_PARA_Unit_6",
+    "CUP_I_B_PARA_Unit_9",
     "CUP_U_I_GUE_Anorak_01",
     "CUP_U_I_GUE_Woodland1",
     "CUP_U_I_GUE_WorkU_02",
@@ -94,14 +100,11 @@ if (allowDLCExpansion) then {_dlcUniforms append [];
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;         //These Items get added to the Arsenal
 
 ["headgear", [
-    "CUP_H_TKI_Lungee_Open_05",
-    "CUP_H_TKI_Lungee_Open_01",
-    "CUP_H_TKI_Lungee_Open_03",
-    "CUP_H_TKI_Lungee_Open_04",
-    "CUP_H_TKI_Pakol_1_01",
-    "CUP_H_TKI_Pakol_1_02",
-    "CUP_H_TKI_Pakol_1_03",
-    "CUP_H_TKI_Pakol_1_04"
+   "CUP_H_NAPA_Fedora",
+   "CUP_H_FR_BandanaGreen",
+   "CUP_H_RUS_Bandana_HS",
+   "CUP_H_C_Beanie_04",
+   "CUP_H_C_Beret_04"
 ]] call _fnc_saveToTemplate;          //Headgear used by Rebell Ai until you have Armored Headgear.
 
 /////////////////////

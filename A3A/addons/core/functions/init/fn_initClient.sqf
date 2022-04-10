@@ -97,8 +97,6 @@ player setVariable ["punish",0,true];
 
 stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
-player setUnitTrait ["camouflageCoef",0.8];
-player setUnitTrait ["audibleCoef",0.8];
 
 [player, nil, selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity;
 

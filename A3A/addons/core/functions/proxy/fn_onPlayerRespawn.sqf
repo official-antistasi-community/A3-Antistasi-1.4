@@ -60,8 +60,6 @@ if (side group player == teamPlayer) then
 	_newUnit setCaptive false;
 	_newUnit setRank (_rankX);
 	_newUnit setVariable ["rankX",_rankX,true];
-	_newUnit setUnitTrait ["camouflageCoef",0.8];
-	_newUnit setUnitTrait ["audibleCoef",0.8];
 	_speaker = speaker _oldUnit;
 	[_newUnit,_speaker] remoteExec ["setSpeaker",0,_newUnit];
 	{

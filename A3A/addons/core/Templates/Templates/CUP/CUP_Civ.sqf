@@ -12,7 +12,6 @@
     , "CUP_C_Golf4_random_Civ", 0.5
     , "CUP_C_Octavia_CIV", 0.5
     , "CUP_C_Pickup_unarmed_CIV", 0.5
-    , "CUP_C_TowingTractor_CIV", 0.3
     ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivIndustrial", [

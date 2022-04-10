@@ -157,9 +157,10 @@ private _typeSource = switch (_source find true) do {
 
 
 //state indicator
-private _getPrecentageAmmo = {
+private _getPercentageAmmo = {
     if (count _this isEqualTo 0) exitWith {0};
     private _sumPercent = 0;
+    private _weaponsWithAmmo = 0;
     {
         (if (_x#0) then { //pylon
             [_x#1#3, _x#1#4]
@@ -168,13 +169,15 @@ private _getPrecentageAmmo = {
         }) params ["_mag", "_count"];
 
         private _maxAmmo = getNumber (configFile/"CfgMagazines"/_mag/"count");
+        if (_maxAmmo <= 0) then { continue };
         _sumPercent = _sumPercent + (_count/_maxAmmo);
+        _weaponsWithAmmo = _weaponsWithAmmo + 1;
     } forEach _this;
-    _sumPercent / count _this;
+    if (_weaponsWithAmmo > 0) then { _sumPercent / _weaponsWithAmmo } else { 1 };
 };
 
 private _hasAmmo = (HR_GRG_previewVehState#2) isNotEqualTo [];//Preview state >> Ammo data
-private _avgAmmo = (HR_GRG_previewVehState#2) call _getPrecentageAmmo; //Preview state >> Ammo data
+private _avgAmmo = (HR_GRG_previewVehState#2) call _getPercentageAmmo; //Preview state >> Ammo data
 private _avgFuel = HR_GRG_previewVehState#0#0; //Preview state >> Fuel data >> Fuel
 private _avgDmg = 1 - (HR_GRG_previewVehState#1#0); //Preview state >> Damage data >> Damage
 private _selectStateColor = {

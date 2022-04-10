@@ -6,7 +6,7 @@
 ["spawnMarkerName", "SLA Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;
-["flagTexture", "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_sla_co.paa"] call _fnc_saveToTemplate;
+["flagTexture", "cup\baseconfigs\cup_baseconfigs\data\flags\flag_sla_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "Faction_CUP_SLA"] call _fnc_saveToTemplate;
 
 //////////////////////////
@@ -21,18 +21,14 @@
 ["vehiclesLightUnarmed", ["CUP_O_UAZ_Unarmed_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["CUP_O_UAZ_AGS30_SLA", "CUP_O_UAZ_MG_SLA", "CUP_O_UAZ_METIS_SLA", "CUP_O_UAZ_SPG9_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["CUP_O_Ural_SLA"]] call _fnc_saveToTemplate;
-
 ["vehiclesCargoTrucks", ["CUP_O_Ural_Open_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["CUP_O_Ural_Reammo_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_O_Ural_Repair_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_O_Ural_Refuel_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_O_UAZ_AMB_RU", "CUP_O_BMP2_AMB_sla"]] call _fnc_saveToTemplate;
-
 ["vehiclesAPCs", ["CUP_O_BMP2_SLA", "CUP_O_BRDM2_SLA", "CUP_O_BRDM2_ATGM_SLA", "CUP_O_BTR60_SLA", "CUP_O_BTR80_SLA", "CUP_O_BTR80A_SLA", "CUP_O_MTLB_pk_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_O_T72_RU", "CUP_O_T55_CHDKZ"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_O_ZSU23_ChDKZ"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["CUP_O_PBX_RU"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -40,8 +36,8 @@
 
 ["vehiclesPlanesCAS", ["CUP_O_Su25_Dyn_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["CUP_O_SU34_SLA"]] call _fnc_saveToTemplate;
-
 ["vehiclesPlanesTransport", ["CUP_O_C47_SLA"]] call _fnc_saveToTemplate;
+
 ["vehiclesHelisLight", ["CUP_O_UH1H_SLA", "CUP_O_UH1H_slick_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_O_Mi8_SLA_1"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_O_Mi8_SLA_2", "CUP_O_Mi24_D_Dynamic_SLA", "CUP_O_Ka50_DL_SLA", "CUP_O_UH1H_gunship_SLA"]] call _fnc_saveToTemplate;
@@ -63,7 +59,7 @@
 ["staticAA", ["CUP_O_Igla_AA_pod_SLA"]] call _fnc_saveToTemplate;
 
 ["staticMortars", ["CUP_O_2b14_82mm_SLA"]] call _fnc_saveToTemplate;
-["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;             //this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
+["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
 ["minefieldAT", ["CUP_MineE"]] call _fnc_saveToTemplate;

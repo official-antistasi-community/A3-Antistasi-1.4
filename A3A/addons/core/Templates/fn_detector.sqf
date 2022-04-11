@@ -24,6 +24,7 @@ A3A_hasD3S = false;
 A3A_hasRDS = false;
 A3A_hasKAT = false;
 A3A_hasCUP = false;
+A3A_hasAegisAtlas = false;
 
 //Actual Detection
 //IFA Detection
@@ -33,6 +34,15 @@ if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
     //Info("IFA Detected");
     Error("IFA detected, but it is no longer supported, please remove this mod");
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+};
+
+//AegisAtlas Detection
+if (
+  isClass (configFile >> "CfgPatches" >> "A3_Aegis_BaseConfig_F_Aegis") &&
+  isClass (configFile >> "CfgPatches" >> "A3_Atlas_BaseConfig_F_Atlas")
+  ) then {
+    A3A_hasAegisAtlas = true;
+    Info("Aegis and Atlas Detected.");
 };
 
 //RHS Detection
@@ -64,7 +74,7 @@ if (
   isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core")                 // cup vehicles
 ) then {A3A_hasCUP = true; Info("CUP Detected.") };
 
-//ADDONS BELOW 
+//ADDONS BELOW
 
 //Ivory Car Pack Detection
 if (isClass (configfile >> "CfgPatches" >> "Ivory_Data")) then {A3A_hasIvory = true; Info("Ivory Cars Detected.") };

@@ -415,7 +415,7 @@ class Templates
         };
 
         class Reb {};
-    
+
 
         class Civ {};
 
@@ -472,4 +472,104 @@ class Templates
 
         Nodes[] = {"CUP_Logistics_Nodes.sqf"};
     };
+
+    class AegisAtlas
+    {
+        priorityOcc = 7; //highest is favored when auto picking
+        priorityInv = 7; //highest is favored when auto picking
+        priorityReb = 7; //highest is favored when auto picking
+        priorityCiv = 7; //highest is favored when auto picking
+
+        requiredAddons[] = {"A3_Aegis_BaseConfig_F_Aegis", "A3_Atlas_BaseConfig_F_Atlas"}; //the cfgPatches class of the mod these templates are depending on
+        path = QPATHTOFOLDER(Templates\Templates\AegisAtlas); //the path to the template folder
+
+        //Type class: AI, Reb, Civ
+        class AI
+        {
+            /*
+            //optional file overwrite set the `file` attribute here, whitout file extension, overwrites path aswell (ignored in this scope when factions calsses are defined)
+            // note if `file` is set it becomes the following: {file}.sqf
+
+            //for multiple templates per modset add the classes of faction names in the type class
+            class CSAT
+            { //template file name would follow: {path}\{Modset}_{Type}_{Faction}.sqf
+                //optional file overwrite set the `file` attribute here, whitout file extension
+                // note if `file` is set it becomes the following: {file}.sqf
+
+                // camo determined by climate. climates: arid, tropical, temperate, arctic
+                class camo
+                { //template file name would follow: {path}\{Modset}_{Type}_{Faction}_{camo}.sqf
+                // note if `file` is set it becomes the following: {file}_{camo}.sqf
+                    tropical = "Tropical";
+                    temperate = "Enoch";
+                    Default = "Arid"; //default is the fallback if the climate is not in this class
+                };
+            };
+            */
+
+            class Iran {};
+
+            class China {};
+
+            class Russia {};
+
+            class LDF {};
+
+            class US
+            {
+                class camo
+                {
+                    arid = "Arid"
+                    tropical = "Tropical";
+                    Default = "Temperate";
+                };
+            };
+
+            class AAF {};
+
+        };
+
+        class Reb
+        {
+            class FIA {};
+
+            class SDK {};
+        };
+
+        class Civ {}; //leave empty for a single template for this modset, file name would follow: {path}\{Modset}_{Type}.sqf
+
+        //default template selection, classes within are worldname with side properties with faction name assigned to it (or empty when only one available)
+        class worldDefaults
+        {
+            class Default
+            {
+                Occ = "US";
+                Inv = "Iran";
+                Reb = "FIA";
+                //Civ left out because we use only one available as there are not multiple civ factions
+            };
+
+            class altis: Default
+            {
+                Occ = "AAF";
+            };
+
+            class tanoa: Default
+            {
+                Occ = "China";
+                Inv = "US";
+                Reb = "SDK";
+            };
+
+            class enoch: Default
+            {
+                Occ = "LDF";
+                Inv = "Russia";
+            };
+        };
+
+        //temporary soulution to load logistics nodes (pending logistics data convertion to class based) add full filename
+        Nodes[] = {"AegisAtlas_Logistics_Nodes.sqf"};
+    };
+
 };

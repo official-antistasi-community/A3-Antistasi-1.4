@@ -75,6 +75,13 @@
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
 
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["AfricanHead_01","AfricanHead_02","AfricanHead_03","Barklem"]] call _fnc_saveToTemplate;
+["voices", ["Male01FRE","Male02FRE","Male03FRE"]] call _fnc_saveToTemplate;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////

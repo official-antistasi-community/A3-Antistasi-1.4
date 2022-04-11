@@ -71,6 +71,20 @@
 ["minefieldAT", []] call _fnc_saveToTemplate;
 ["minefieldAPERS", []] call _fnc_saveToTemplate;
 
+/////////////////////
+///  Identities   ///
+/////////////////////
+//Faces and Voices given to AI Factions.
+["faces", []] call _fnc_saveToTemplate;
+["voices", []] call _fnc_saveToTemplate;
+//SpecialForces, Militia, Police Faces and Voices, these are Optional if there is no reason to Include them, leave them out.
+["sfVoices", []] call _fnc_saveToTemplate;
+["sfFaces", []] call _fnc_saveToTemplate;
+["milVoices", []] call _fnc_saveToTemplate;
+["milFaces", []] call _fnc_saveToTemplate;
+["polVoices", []] call _fnc_saveToTemplate;
+["polFaces", []] call _fnc_saveToTemplate;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////

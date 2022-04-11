@@ -74,6 +74,13 @@
 ["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhs_mine_pmn2"]] call _fnc_saveToTemplate;
 
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;
+["voices", ["Male01PER","Male02PER","Male03PER"]] call _fnc_saveToTemplate;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////

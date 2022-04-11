@@ -234,7 +234,7 @@ class Templates
 
         requiredAddons[] = {"UK3CB_Factions_Vehicles_SUV"};
         path = QPATHTOFOLDER(Templates\Templates\3CB);
-        logo = "\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_Ammo\data\ui\logo_small_3cb_ca.paa";
+        logo = "\UK3CB_Factions\addons\uk3cb_factions_Common\data\ui\logo_3cb_ca.paa";
         class AI
         {
             class ADA {

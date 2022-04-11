@@ -27,8 +27,13 @@ PATCOM_DEBUG = true; // Enable PATCOM specific debug.
 // This Array holds all the currently controlled groups
 A3A_Patrol_Controlled_AI = [];
 
-// This Array acts as a blacklist to remove unwanted buildings
-PATCOM_Building_Blacklist = [];
+// This Hashmap acts as a blacklist to remove unwanted buildings
+PATCOM_Building_Blacklist = createHashMap;
+
+// Get bad buildings from VarsCommon
+{
+	PATCOM_Building_Blacklist set [_x, "REMOVED"];
+} forEach bld_remove;
 
 // This HashMap contains a list of valid garrison positions.
 PATCOM_Garrison_Positions = createHashMap;

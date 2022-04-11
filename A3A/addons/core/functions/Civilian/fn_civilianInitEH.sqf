@@ -28,7 +28,7 @@ _unit setSkill 0;
 _unit disableAI "TARGET";
 _unit disableAI "AUTOTARGET";
 //Stops civilians from shouting out commands.
-[_unit, "NoVoice"] remoteExec ["setSpeaker", 0, _unit];
+[_unit, selectRandom (A3A_faction_civ get "faces"), "NoVoice"] call BIS_fnc_setIdentity;
 
 _EHFiredNearIdx = _unit addEventHandler["FiredNear", A3A_fnc_civilianFiredNearEH];
 

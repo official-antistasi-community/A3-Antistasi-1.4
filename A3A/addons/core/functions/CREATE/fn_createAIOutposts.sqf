@@ -62,6 +62,9 @@ if (_sideX == Occupants) then {
 	};
 };
 
+///////////////////
+// Markers
+///////////////////
 private _mrk = createMarkerLocal [format ["%1patrolarea", random 100], _positionX];
 private _ang = markerDir _markerX;
 _mrk setMarkerShapeLocal "RECTANGLE";
@@ -73,10 +76,16 @@ _mrk setMarkerDirLocal _ang;
 
 if (!debug) then {_mrk setMarkerAlphaLocal 0};
 
+///////////////////
+// Setup Garrisons
+///////////////////
 private _garrison = garrison getVariable [_markerX,[]];
 _garrison = _garrison call A3A_fnc_garrisonReorg;
 private _garrisonCount = count _garrison;
 
+///////////////////
+// Setup Patrols
+///////////////////
 private _patrol = true;
 //If one is missing, there are no patrols??
 if (_garrisonCount < ([_markerX] call A3A_fnc_garrisonSize)) then {
@@ -318,6 +327,9 @@ if (_spawnParameter isEqualType []) then {
 	_x setVariable ["originalPos", getPos _x] 
 } forEach _vehiclesX;
 
+///////////////////
+// Antenna
+///////////////////
 if (!isNull _antenna) then {
 	if ((typeOf _antenna == "Land_TTowerBig_1_F") or (typeOf _antenna == "Land_TTowerBig_2_F")) then {
 		private _groupX = createGroup _sideX;
@@ -394,7 +406,7 @@ for "_i" from 0 to (count _array - 1) do {
 ///////////////////
 // Handle Deletion
 ///////////////////
-waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
+waitUntil {sleep 10; (spawner getVariable _markerX == 2)};
 
 [_markerX] call A3A_fnc_freeSpawnPositions;
 deleteMarker _mrk;

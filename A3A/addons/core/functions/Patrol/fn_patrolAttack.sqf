@@ -59,7 +59,7 @@ private _perceivedPosition = (_closestEnemy # 2);
 // Set Waypoint Name
 private _waypointName = "PATCOM_PATROL_ATTACK";
 
-if ((waypointType [_group, currentWaypoint _group] != "SAD") || ((waypointName [_group, 0]) != _waypointName)) then {
+if ((waypointType [_group, currentWaypoint _group] != "SAD") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
     // Instead of taking the Perceived Position and creating a waypoint from there. We opt to get our own waypoint so we can add some variation.
     // Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode
     private _nextWaypointPos = [_perceivedPosition, _minimumRadius, _maximumRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;

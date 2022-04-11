@@ -52,12 +52,13 @@ if (_group getVariable ["PATCOM_Defense_Patrol", false]) then {
 if (count _knownEnemies >= 1) then {
 	if !(_currentOrders == "Attack") then {
 		_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
+
+		// Set Current Orders to Attack.
+		_currentOrders = "Attack";
+		// Set current orders to Attack.
+		_group setVariable ["PATCOM_Current_Orders", _currentOrders];
+		_group setVariable ["PATCOM_Group_State", "COMBAT"];
 	};
-	// Set Current Orders to Attack.
-	_currentOrders = "Attack";
-	// Set current orders to Attack.
-	_group setVariable ["PATCOM_Current_Orders", _currentOrders];
-	_group setVariable ["PATCOM_Group_State", "COMBAT"];
 };
 
 ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");

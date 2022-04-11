@@ -1,3 +1,25 @@
+/*
+    Author: [Unknown] / [Hazey]
+
+    Description:
+		
+
+    Arguments:
+    	
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		[[_marker], "A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler;
+
+    License: MIT License
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
@@ -241,7 +263,7 @@ while {(spawner getVariable _markerX != 2) and ({[_x,_markerX] call A3A_fnc_canC
 	sleep 3;
 };
 
-waitUntil {sleep 1;((spawner getVariable _markerX == 2))  or ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0)};
+waitUntil {sleep 10;((spawner getVariable _markerX == 2))  or ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0)};
 
 _conquered = false;
 private _winner = Occupants;
@@ -278,9 +300,10 @@ if (spawner getVariable _markerX != 2) then {
 	};
 };
 
-waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
-
-
+///////////////////
+// Handle Removal
+///////////////////
+waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
 { if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
 { deleteVehicle _x } forEach _dogs;
 

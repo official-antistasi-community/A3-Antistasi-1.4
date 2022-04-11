@@ -1,3 +1,25 @@
+/*
+    Author: [Unknown] / [Hazey]
+
+    Description:
+		
+
+    Arguments:
+    	
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		[[_marker], "A3A_fnc_createAIResources"] call A3A_fnc_scheduler;
+
+    License: MIT License
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 if (!isServer and hasInterface) exitWith{};
@@ -195,20 +217,19 @@ for "_i" from 0 to (count _array - 1) do {
 		// Disable VCOM. It gives weird behaviour if enabled.
 		_groupX setVariable ["Vcm_Disable", true];
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIResources#3"];
+
 	} else {
 		// GIVE UNIT PATCOM CONTROL
 		_groupX setVariable ["PATCOM_Controlled", false];
 		_groupX setVariable ["PATCOM_Defense_Patrol", true];
 		_groupX setVariable ["PATCOM_Defense_Patrol_Distance", 150];
-
 		A3A_Patrol_Controlled_AI pushBack _groupX;
-		_groups pushBack _groupX;
 
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIResources#4"];
 	};
 };
 
-waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
+waitUntil {sleep 10; (spawner getVariable _markerX == 2)};
 
 [_markerX] call A3A_fnc_freeSpawnPositions;
 

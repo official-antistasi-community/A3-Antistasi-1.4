@@ -28,10 +28,12 @@ FIX_LINE_NUMBERS()
 
 params ["_group", "_position", "_waypointType", "_waypointName", ["_radius", -1], ["_distance", 50]];
 
+/*
 // This is the only way I know how to reindex the waypoints on a group.
 for "_i" from count waypoints _group - 1 to 0 step -1 do {
 	deleteWaypoint [_group, _i];
 };
+*/
 
 // Waypoint Position
 private _waypointPos = [];

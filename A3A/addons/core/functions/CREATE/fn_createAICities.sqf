@@ -47,6 +47,9 @@ private _isAAF = true;
 private _factionType = [];
 private _factionSide = "";
 
+///////////////////
+// Side Controlling City
+///////////////////
 if (_markerX in destroyedSites) then {
 	_factionType = _faction get "groupSpecOps";
 	_factionSide = Invaders;
@@ -67,9 +70,12 @@ if (_markerX in destroyedSites) then {
 
 if (_num < 1) then {_num = 1};
 
+///////////////////
+// Patrols
+///////////////////
 private _countX = 0;
 private _radius = [_markerX] call A3A_fnc_sizeMarker;
-//_radius = round (_radius / 2);
+_radius = round (_radius / 2);
 while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	// private _spawnPosition = [_positionX, 10, _radius, 0, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
 	// We Opt to use this method over the above. This will provide road positions for spawning rather than a random position.
@@ -108,8 +114,10 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	_countX = _countX + 1;
 };
 
+///////////////////
+// Handle Removal
+///////////////////
 waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
-
 {if (alive _x) then {deleteVehicle _x}} forEach _soldiers;
 {deleteVehicle _x} forEach _dogs;
 

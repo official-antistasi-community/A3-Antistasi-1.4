@@ -44,7 +44,7 @@ if (_group getVariable ["PATCOM_Defense_Patrol_Distance", 0] == 0) then {
 
 private _waypointName = "PATCOM_PATROL_DEFEND";
 
-if ((waypointType [_group, currentWaypoint _group] != "MOVE") || ((waypointName [_group, 0]) != _waypointName)) then {
+if ((waypointType [_group, currentWaypoint _group] != "MOVE") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
     private _nextWaypointPos = [_center, _minimumRadius, _maximumRadius, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
     
     [_group, _nextWaypointPos, "MOVE", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;

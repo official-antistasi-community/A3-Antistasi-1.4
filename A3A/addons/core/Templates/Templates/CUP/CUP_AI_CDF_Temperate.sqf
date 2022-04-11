@@ -2,12 +2,12 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "CDF"] call _fnc_saveToTemplate;                         //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
-["spawnMarkerName", "CDF support corridor"] call _fnc_saveToTemplate;             //this line determines the name tag for the "carrier" on the map -- Example: ["spawnMarkerName", "NATO support corridor"] - ENTER ONLY ONE OPTION
+["name", "CDF"] call _fnc_saveToTemplate;
+["spawnMarkerName", "CDF support corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;                         //this line determines the flag -- Example: ["flag", "Flag_NATO_F"] - ENTER ONLY ONE OPTION
-["flagTexture", "cup\baseconfigs\cup_baseconfigs\data\flags\flag_cdf_co.paa"] call _fnc_saveToTemplate;                 //this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
-["flagMarkerType", "Faction_CUP_CDF"] call _fnc_saveToTemplate;         //this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
+["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;
+["flagTexture", "cup\baseconfigs\cup_baseconfigs\data\flags\flag_cdf_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "Faction_CUP_CDF"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -20,20 +20,16 @@
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["CUP_B_UAZ_Unarmed_CDF", "CUP_B_UAZ_Open_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["CUP_B_UAZ_AGS30_CDF", "CUP_B_UAZ_MG_CDF", "CUP_B_UAZ_METIS_CDF", "CUP_B_UAZ_SPG9_CDF", "CUP_B_UAZ_AA_CDF"]] call _fnc_saveToTemplate;
-
 ["vehiclesTrucks", ["CUP_B_Kamaz_CDF", "CUP_B_Ural_CDF", "CUP_B_Kamaz_Open_CDF"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["CUP_B_Kamaz_Open_CDF", "CUP_B_Ural_Empty_CDF"]] call _fnc_saveToTemplate;
-
+["vehiclesCargoTrucks", ["CUP_B_Kamaz_Open_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["CUP_B_Kamaz_Reammo_CDF", "CUP_B_Ural_Reammo_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_B_Kamaz_Repair_CDF", "CUP_B_Ural_Repair_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_B_Kamaz_Refuel_CDF", "CUP_B_Ural_Refuel_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_B_S1203_Ambulance_CDF", "CUP_B_BMP2_AMB_CDF"]] call _fnc_saveToTemplate;
-
 ["vehiclesAPCs", ["CUP_B_BRDM2_CDF", "CUP_B_BRDM2_ATGM_CDF", "CUP_B_BRDM2_HQ_CDF", "CUP_B_BTR60_CDF", "CUP_B_BTR80_CDF", "CUP_B_BTR80A_CDF", "CUP_B_MTLB_pk_CDF", "CUP_B_BMP2_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_T72_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_B_ZSU23_CDF", "CUP_B_ZSU23_Afghan_CDF", "CUP_B_Ural_ZU23_CDF"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
+
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -51,10 +47,10 @@
 ["magazines", createHashMapFromArray [
     ["CUP_B_BM21_CDF", ["CUP_40Rnd_GRAD_HE"]],
     ["CUP_B_D30_CDF", ["CUP_30Rnd_122mmHE_D30_M", "CUP_30Rnd_122mmWP_D30_M"]]
-]] call _fnc_saveToTemplate;//this line determines artillery magazines -- Example: ["magazines", createHashMapFromArray [["B_MBT_01_arty_F", ["32Rnd_155mm_Mo_shells"]]]] -- Array, can contain multiple assets
+]] call _fnc_saveToTemplate;
 
 ["uavsAttack", []] call _fnc_saveToTemplate;
-["uavsPortable", []] call _fnc_saveToTemplate;
+["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesMilitiaLightArmed", ["CUP_B_UAZ_MG_ACR"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["CUP_B_T810_Unarmed_CZ_WDL"]] call _fnc_saveToTemplate;
@@ -66,11 +62,24 @@
 ["staticAA", ["CUP_B_Igla_AA_pod_CDF"]] call _fnc_saveToTemplate;
 
 ["staticMortars", ["CUP_B_2b14_82mm_CDF"]] call _fnc_saveToTemplate;
-["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;             //this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
+["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
 ["minefieldAT", ["CUP_MineE"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["AfricanHead_01","AfricanHead_02","AfricanHead_03","Barklem","GreekHead_A3_05",
+"GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08","GreekHead_A3_09",
+"Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03","WhiteHead_04",
+"WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08","WhiteHead_09",
+"WhiteHead_10","WhiteHead_11","WhiteHead_12","WhiteHead_13","WhiteHead_14",
+"WhiteHead_15","WhiteHead_16","WhiteHead_17","WhiteHead_19","WhiteHead_20",
+"WhiteHead_21"]] call _fnc_saveToTemplate;
+["voices", ["CUP_D_Male01_CZ_ACR","CUP_D_Male02_CZ_ACR","CUP_D_Male03_CZ_ACR","CUP_D_Male04_CZ_ACR","CUP_D_Male05_CZ_ACR"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

@@ -59,7 +59,7 @@ A3A_paramTable = [
     ["aceFood", "aceFood", [], false],
     ["helmetLossChance", "helmetLossChance", [], 33],
     ["minWeaps", "unlockItem", [], 25],
-    ["memberOnlyMagLimit", "memberOnlyMagLimit", [], 40],				// dead param
+    ["A3A_guestItemLimit", "guestItemLimit", [], 25],
     ["unlockedUnlimitedAmmo", "unlockedUnlimitedAmmo", [], 0],			// these three are not bool for some reason
     ["allowUnlockedExplosives", "allowUnlockedExplosives", [], 0],
     ["allowGuidedLaunchers", "allowGuidedLaunchers", [], 0],

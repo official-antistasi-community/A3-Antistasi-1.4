@@ -80,7 +80,9 @@ class CfgFunctions
             class equipmentClassToCategories {};
             class equipmentIsValidForCurrentModset {};
             class equipmentSort {};
+            class fetchRebelGear {};
             class fillLootCrate {};
+            class generateRebelGear {};
             class getRadio {};
             class hasARadio {};
             class itemConfig {};

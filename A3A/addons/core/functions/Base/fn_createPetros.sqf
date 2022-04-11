@@ -23,9 +23,7 @@ publicVariable "petros";
 
 deleteVehicle _oldPetros;		// Petros should now be leader unless there's a player in the group
 
-private _name = if (worldName == "Tanoa") then {"Maru"} else {"Petros"};
-[petros, "friendlyX"] remoteExec ["setIdentity", 0];
-[petros, _name] remoteExec ["setName", 0];
+[petros, "GreekHead_A3_01", "Male06GRE", 1.1, "Petros", "Petros"] call BIS_fnc_setIdentity;
 
 if (petros == leader _groupPetros) then {
 	_groupPetros setGroupIdGlobal ["Petros","GroupColor4"];

@@ -149,7 +149,6 @@ if (not alive _traitor || traitorIntel) then
 		_traitor stop true;
 		_traitor setUnitPos "UP";
 		_traitor playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";
-		_traitor setSpeaker "NoVoice";
 
 		_wp1 = _groupTraitor addWaypoint [_posBase];
 		_wp1 setWaypointType "MOVE";

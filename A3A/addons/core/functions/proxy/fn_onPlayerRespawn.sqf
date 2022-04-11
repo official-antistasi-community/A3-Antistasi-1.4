@@ -60,6 +60,8 @@ if (side group player == teamPlayer) then
 	_newUnit setCaptive false;
 	_newUnit setRank (_rankX);
 	_newUnit setVariable ["rankX",_rankX,true];
+	_speaker = speaker _oldUnit;
+	[_newUnit,_speaker] remoteExec ["setSpeaker",0,_newUnit];
 	{
     _newUnit addOwnedMine _x;
     } count (getAllOwnedMines (_oldUnit));

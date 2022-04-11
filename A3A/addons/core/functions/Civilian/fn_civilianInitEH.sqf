@@ -32,8 +32,7 @@ _unit disableAI "AUTOTARGET";
 
 _EHFiredNearIdx = _unit addEventHandler["FiredNear", A3A_fnc_civilianFiredNearEH];
 
-_EHInjuredIdx = _unit addEventHandler
-[
+_EHInjuredIdx = _unit addEventHandler [
 	"HandleDamage",
 	{
 		private _unit = _this select 0;

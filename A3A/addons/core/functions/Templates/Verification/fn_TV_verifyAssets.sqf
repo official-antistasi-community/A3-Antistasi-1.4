@@ -115,7 +115,6 @@ private _handleUniqueCases = { //handles unique name cases that the stored value
 
         //array of vehicle class names
         case "minefieldAT";
-        case "flyGear";
         case "minefieldAPERS";
         case "uavsAttack";
         case "uavsPortable": _validateArrayOfClasses;
@@ -160,6 +159,7 @@ private _handleUniqueCases = { //handles unique name cases that the stored value
             } forEach _y;
         };
         case "diveGear"; //Mixed CFGVehicles and CFGGlasses
+        case "flyGear";
         case "voices"; //CfgVoice maybe later
         case "faces": {continue};
         default { Info("Entry: "+(str _entry)+" is lacking validation") };

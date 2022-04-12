@@ -2,6 +2,8 @@
 //   Side Information   //
 //////////////////////////
 
+//ENTER ONLY ONE OPTION IN EVERYTHING WITHIN THIS BLOCK
+
 ["name", "US"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "US Support Corridor"] call _fnc_saveToTemplate;
 
@@ -13,9 +15,11 @@
 //       Vehicles       //
 //////////////////////////
 
-["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
+["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;	//Don't touch or you die a sad and lonely death!
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
+
+//Nearly everything below this line is an Array, which can contain multiple assets
 
 ["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["B_T_MRAP_01_F", "B_T_MRAP_01_F", "B_T_LSV_01_light_F"]] call _fnc_saveToTemplate;
@@ -26,11 +30,11 @@
 ["vehiclesRepairTrucks", ["B_T_Truck_01_Repair_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["B_T_Truck_01_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["B_T_Truck_01_medical_F"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["B_T_APC_Wheeled_01_cannon_v2_F", "B_T_APC_Tracked_01_rcws_F", "B_T_APC_Tracked_01_CRV_F"]] call _fnc_saveToTemplate;
+private _APCs = ["B_T_APC_Wheeled_01_cannon_v2_F", "B_T_APC_Tracked_01_rcws_F", "B_T_APC_Tracked_01_CRV_F"];
 ["vehiclesTanks", ["B_T_MBT_01_TUSK_F", "B_T_MBT_01_cannon_F", "B_T_AFV_Wheeled_01_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["B_T_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
-["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs, SO IT DOES NOTHING
+["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs, SO IT DOES NOTHING
 
 
 ["vehiclesTransportBoats", ["B_T_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
@@ -54,7 +58,7 @@
 ["uavsAttack", ["B_T_UAV_02_dynamicLoadout_F", "B_T_UAV_03_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["uavsPortable", ["B_T_UAV_01_F"]] call _fnc_saveToTemplate;
 
-//Config special vehicles
+//Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities.
 ["vehiclesMilitiaLightArmed", ["B_T_LSV_01_armed_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["B_T_Truck_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["B_T_LSV_01_light_F"]] call _fnc_saveToTemplate;
@@ -66,13 +70,19 @@
 ["staticAA", ["B_T_Static_AA_F"]] call _fnc_saveToTemplate;
 ["staticMortars", ["B_T_Mortar_01_F"]] call _fnc_saveToTemplate;
 
-["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
-["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate; 			// ENTER ONLY ONE OPTION
+["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate; 		// ENTER ONLY ONE OPTION
 
 //Minefield definition
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+//If Western Sahara DLC
+if (allowDLCWS) then {
+		_APCs append ["B_T_APC_Wheeled_01_atgm_lxWS_v2", "B_T_APC_Wheeled_01_command_lxWS"];
+};
+["vehiclesAPCs", [_APCs]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -93,11 +103,11 @@ _loadoutData set ["lightATLaunchers", [
 ["launch_MRAWS_olive_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_olive_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_olive_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
-]]; 			//this line determines light AT launchers -- Example: ["launch_NLAW_F"] -- Array, can contain multiple assets
-_loadoutData set ["ATLaunchers", ["launch_NLAW_F"]]; 				//this line determines light AT launchers -- Example: ["launch_NLAW_F"] -- Array, can contain multiple assets
+]];
+_loadoutData set ["ATLaunchers", ["launch_NLAW_F"]];
 _loadoutData set ["missileATLaunchers", [
 ["launch_I_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
-]]; 		//this line determines missile AT launchers -- Example: ["launch_B_Titan_short_F"] -- Array, can contain multiple assets
+]];
 _loadoutData set ["AALaunchers", [
 ["launch_B_Titan_tna_F", "", "acc_pointer_IR", "", ["Titan_AA"], [], ""]
 ]];
@@ -122,9 +132,11 @@ _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", ["ItemGPS"]];
 _loadoutData set ["NVGs", ["NVGoggles_tna_F"]];
-_loadoutData set ["binoculars", ["Binocular"]];		//this line determines the binoculars
+_loadoutData set ["binoculars", ["Binocular"]];
 _loadoutData set ["rangefinders", ["Rangefinder"]];
 
+//Basically all the clothing which the units use.
+//don't fill these lines - this is only to set the variables.
 _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
 _loadoutData set ["Hvests", []];
@@ -172,11 +184,11 @@ _loadoutData set ["items_unarmed_extras", []];
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
 
-private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["U_B_T_Soldier_F", "U_B_T_Soldier_SL_F", "U_B_T_Soldier_AR_F"]];			//this line determines uniforms for special forces -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_sfLoadoutData set ["vests", ["V_PlateCarrier1_tna_F", "V_TacVest_grn"]];				//this line determines vests for special forces -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+_sfLoadoutData set ["uniforms", ["U_B_T_Soldier_F", "U_B_T_Soldier_SL_F", "U_B_T_Soldier_AR_F"]];
+_sfLoadoutData set ["vests", ["V_PlateCarrier1_tna_F", "V_TacVest_grn"]];
 _sfLoadoutData set ["Hvests", ["V_PlateCarrier2_tna_F"]];
-_sfLoadoutData set ["backpacks", ["B_Kitbag_tna_F", "B_Carryall_tna_F", "B_AssaultPack_tna_F", "B_AssaultPack_Enh_tna_F"]];			//this line determines backpacks for special forces -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
+_sfLoadoutData set ["backpacks", ["B_Kitbag_tna_F", "B_Carryall_tna_F", "B_AssaultPack_tna_F", "B_AssaultPack_Enh_tna_F"]];
 _sfLoadoutData set ["helmets", ["H_HelmetB_Light_tna_F", "H_HelmetB_Enh_Light_tna_F", "H_Booniehat_tna_hs_F", "H_Watchcap_camo_hs", "H_Cap_tna_hs_F"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_01_khk_F"]];
 
@@ -211,16 +223,18 @@ _sfLoadoutData set ["sniperRifles", [
 _sfLoadoutData set ["sidearms", [
 ["hgun_P07_khk_F", "muzzle_snds_L", "", "", [], [], ""]
 ]];
+
 /////////////////////////////////
 //    Military Loadout Data    //
 /////////////////////////////////
 
-_militaryLoadoutData set ["uniforms", ["U_B_T_Soldier_F", "U_B_T_Soldier_SL_F", "U_B_T_Soldier_AR_F"]];		//this line determines uniforms for military loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_militaryLoadoutData set ["vests", ["V_PlateCarrier1_tna_F", "V_PlateCarrier2_tna_F"]];			//this line determines vests for military loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+_militaryLoadoutData set ["uniforms", ["U_B_T_Soldier_F", "U_B_T_Soldier_SL_F", "U_B_T_Soldier_AR_F"]];
+_militaryLoadoutData set ["vests", ["V_PlateCarrier1_tna_F", "V_PlateCarrier2_tna_F"]];
 _militaryLoadoutData set ["Hvests", ["V_PlateCarrierSpec_tna_F"]];
 _militaryLoadoutData set ["glVests", ["V_PlateCarrierGL_tna_F"]];
-_militaryLoadoutData set ["backpacks", ["B_Kitbag_tna_F", "B_Carryall_tna_F", "B_AssaultPack_tna_F", "B_AssaultPack_Enh_tna_F", "B_TacticalPack_tna_F"]];		//this line determines backpacks for military loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
-_militaryLoadoutData set ["helmets", ["H_HelmetB_Camo_tna_F", "H_HelmetB_tna_F", "H_HelmetB_Enh_tna_F"]];			//this line determines helmets for military loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
+_militaryLoadoutData set ["backpacks", ["B_Kitbag_tna_F", "B_Carryall_tna_F", "B_AssaultPack_tna_F", "B_AssaultPack_Enh_tna_F", "B_TacticalPack_tna_F"]];	s
+_militaryLoadoutData set ["helmets", ["H_HelmetB_Camo_tna_F", "H_HelmetB_tna_F", "H_HelmetB_Enh_tna_F"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator_01_khk_F"]];
 
 _militaryLoadoutData set ["rifles", [
@@ -253,6 +267,7 @@ _militaryLoadoutData set ["marksmanRifles", [
 ["arifle_MXM_khk_F", "", "acc_pointer_IR", "optic_Hamr_khk_F", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], "bipod_01_F_khk"],
 ["srifle_DMR_03_khaki_F", "", "acc_pointer_IR", "optic_SOS_khk_F", [], [], "bipod_01_F_khk"],
 ["srifle_DMR_03_khaki_F", "", "acc_pointer_IR", "optic_AMS_khk", [], [], "bipod_01_F_khk"]
+]];
 _militaryLoadoutData set ["sniperRifles", [
 ["srifle_LRR_tna_F", "", "", "optic_SOS_khk_F", [], [], ""],
 ["srifle_LRR_tna_F", "", "", "optic_LRPS_tna_F", [], [], ""]
@@ -265,8 +280,7 @@ _militaryLoadoutData set ["sidearms", [
 //    Police Loadout Data    //
 ///////////////////////////////
 
-private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-
+private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _policeLoadoutData set ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
 _policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
 _policeLoadoutData set ["helmets", ["H_Cap_police"]];
@@ -306,7 +320,7 @@ _militiaLoadoutData set ["machineGuns", [
 ["arifle_MX_SW_khk_F", "", "acc_flashlight", "", ["100Rnd_65x39_caseless_khaki_mag", "100Rnd_65x39_caseless_khaki_mag", "100Rnd_65x39_caseless_khaki_mag_tracer"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
-["arifle_MXM_khk_F", "", "acc_flashlight", "optic_Hamr_khk_F", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], ""]
+["arifle_MXM_khk_F", "", "acc_flashlight", "optic_Hamr_khk_F", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], ""],
 ["srifle_DMR_03_khaki_F", "", "acc_flashlight", "optic_Hamr_khk_F", [], [], "bipod_01_F_khk"]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
@@ -319,15 +333,18 @@ _militiaLoadoutData set ["sidearms", ["hgun_ACPC2_black_F"]];
 //    Misc Loadouts     //
 //////////////////////////
 
-private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+//The following lines are determining the loadout of the vehicle crew
+private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _crewLoadoutData set ["uniforms", ["U_B_T_Soldier_SL_F"]];
 _crewLoadoutData set ["vests", ["V_PlateCarrier1_wdl"]];
 _crewLoadoutData set ["helmets", ["H_HelmetCrew_B"]];
 
-private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+//The following lines are determining the loadout of the pilots
+private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _pilotLoadoutData set ["uniforms", ["U_B_HeliPilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_TacVest_blk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_B", "H_PilotHelmetHeli_B", "H_PilotHelmetHeli_B_visor_up"]];
+
 // ##################### DO NOT TOUCH ANYTHING BELOW THIS LINE #####################
 
 /////////////////////////////////

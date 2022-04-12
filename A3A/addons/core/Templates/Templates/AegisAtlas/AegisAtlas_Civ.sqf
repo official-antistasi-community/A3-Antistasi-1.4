@@ -84,7 +84,7 @@ private _civUniforms = [
     "U_C_Uniform_Scientist_01_F",
     "U_C_Poor_2", //this and below be Aegis and Atlas
     "Atlas_U_C_Uniform_01_tshirt_white_F",
-    "U_jayholder",
+    "U_Jayholder",
     "U_C_Man_casual_7_F",
     "U_C_Man_casual_8_F",
     "U_C_Man_casual_9_F",
@@ -125,6 +125,28 @@ if (allowDLCOrange) then {
     "U_C_ConstructionCoverall_Blue_F",
     "U_C_ConstructionCoverall_Red_F",
     "U_C_ConstructionCoverall_Vrana_F"
+  ];
+};
+
+if (allowDLCWS) then {
+  _dlcUniforms append [
+    "U_lxWS_C_Djella_01",
+    "U_lxWS_C_Djella_02",
+    "U_lxWS_C_Djella_02a",
+    "U_lxWS_C_Djella_03",
+    "U_lxWS_C_Djella_04",
+    "U_lxWS_C_Djella_05",
+    "U_lxWS_C_Djella_06",
+    "U_lxWS_C_Djella_07",
+    "U_lxWS_C_Tak_01_A",
+    "U_lxWS_C_Tak_01_B",
+    "U_lxWS_C_Tak_01_C",
+    "U_lxWS_C_Tak_02_A",
+    "U_lxWS_C_Tak_02_B",
+    "U_lxWS_C_Tak_02_C",
+    "U_lxWS_C_Tak_03_A",
+    "U_lxWS_C_Tak_03_B",
+    "U_lxWS_C_Tak_03_C"
   ];
 };
 

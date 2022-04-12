@@ -13,7 +13,7 @@
 ["vehicleLightArmed", "I_G_Offroad_01_armed_F"] call _fnc_saveToTemplate;
 ["vehicleTruck", "I_G_Van_01_transport_F"] call _fnc_saveToTemplate;
 ["vehicleAT", "I_G_Offroad_01_AT_F"] call _fnc_saveToTemplate;
-["vehicleAA", ""] call _fnc_saveToTemplate;
+private _vehicleAA = [""];
 
 ["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
 ["vehicleRepair", "I_G_Offroad_01_repair_F"] call _fnc_saveToTemplate;
@@ -28,7 +28,7 @@
 
 ["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate;
 ["staticAT", "I_static_AT_F"] call _fnc_saveToTemplate;
-["staticAA", "I_static_AA_F"] call _fnc_saveToTemplate;
+private _staticAA = ["I_static_AA_F"];
 ["staticMortar", "I_G_Mortar_01_F"] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
@@ -38,6 +38,13 @@
 
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
+
+if (allowDLCWS) then {
+  _vehicleAA = ["I_Tura_Truck_02_aa_lxWS"];
+  _staticAA = ["I_G_ZU23_lxWS_F"];
+};
+["vehicleAA", [_vehicleAA]] call _fnc_saveToTemplate;
+["staticAA", [_staticAA]] call _fnc_saveToTemplate;
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -58,6 +65,7 @@ if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc15
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155","TFAR_anprc155_coyote"]};
+if (allowDLCWS) then {_initialRebelEquipment append ["Camera_lxWS"]};
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 private _rebUniforms = [
@@ -96,6 +104,21 @@ if (allowDLCExpansion) then {_dlcUniforms append [
     "U_I_C_Soldier_Para_4_F",
     "U_I_C_Soldier_Para_1_F",
     "U_I_C_Soldier_Camo_F"
+];
+};
+
+if (allowDLCAoW) then {_dlcUniforms append [
+    "U_IG_Guerilla1_2_F"
+];
+};
+
+if (allowDLCWS) then {_dlcUniforms append [
+    "U_lxWS_ION_Casual1",
+    "U_lxWS_ION_Casual2",
+    "U_lxWS_ION_Casual3",
+    "U_lxWS_ION_Casual4",
+    "U_lxWS_ION_Casual5",
+    "U_lxWS_SFIA_deserter"
 ];
 };
 

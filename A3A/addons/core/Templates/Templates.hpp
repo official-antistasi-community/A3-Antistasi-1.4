@@ -475,10 +475,10 @@ class Templates
 
     class AegisAtlas
     {
-        priorityOcc = 7; //highest is favored when auto picking
-        priorityInv = 7; //highest is favored when auto picking
-        priorityReb = 7; //highest is favored when auto picking
-        priorityCiv = 7; //highest is favored when auto picking
+        priorityOcc = 7;
+        priorityInv = 7;
+        priorityReb = 7;
+        priorityCiv = 7;
 
         requiredAddons[] = {"A3_Aegis_BaseConfig_F_Aegis", "A3_Atlas_BaseConfig_F_Atlas"}; //the cfgPatches class of the mod these templates are depending on
         path = QPATHTOFOLDER(Templates\Templates\AegisAtlas); //the path to the template folder
@@ -486,33 +486,14 @@ class Templates
         //Type class: AI, Reb, Civ
         class AI
         {
-            /*
-            //optional file overwrite set the `file` attribute here, whitout file extension, overwrites path aswell (ignored in this scope when factions calsses are defined)
-            // note if `file` is set it becomes the following: {file}.sqf
-
-            //for multiple templates per modset add the classes of faction names in the type class
-            class CSAT
-            { //template file name would follow: {path}\{Modset}_{Type}_{Faction}.sqf
-                //optional file overwrite set the `file` attribute here, whitout file extension
-                // note if `file` is set it becomes the following: {file}.sqf
-
-                // camo determined by climate. climates: arid, tropical, temperate, arctic
-                class camo
-                { //template file name would follow: {path}\{Modset}_{Type}_{Faction}_{camo}.sqf
-                // note if `file` is set it becomes the following: {file}_{camo}.sqf
-                    tropical = "Tropical";
-                    temperate = "Enoch";
-                    Default = "Arid"; //default is the fallback if the climate is not in this class
-                };
-            };
-            */
-
             class Iran {};
-
             class China {};
-
             class Russia {};
+            class Argana {};
+            class Belarus {};
+            class Takistani {};
 
+            class AAF {};
             class LDF {};
 
             class US
@@ -524,19 +505,16 @@ class Templates
                     Default = "Temperate";
                 };
             };
-
-            class AAF {};
-
+            class Bundeswehr {};
         };
 
         class Reb
         {
             class FIA {};
-
             class SDK {};
         };
 
-        class Civ {}; //leave empty for a single template for this modset, file name would follow: {path}\{Modset}_{Type}.sqf
+        class Civ {};
 
         //default template selection, classes within are worldname with side properties with faction name assigned to it (or empty when only one available)
         class worldDefaults
@@ -546,7 +524,6 @@ class Templates
                 Occ = "US";
                 Inv = "Iran";
                 Reb = "FIA";
-                //Civ left out because we use only one available as there are not multiple civ factions
             };
 
             class altis: Default
@@ -554,7 +531,7 @@ class Templates
                 Occ = "AAF";
             };
 
-            class tanoa: Default
+            class tanoa
             {
                 Occ = "China";
                 Inv = "US";
@@ -564,11 +541,28 @@ class Templates
             class enoch: Default
             {
                 Occ = "LDF";
+                Inv = "Belarus";
+            };
+
+            class malden: Default
+            {
+                Occ = "Argana";
+                Inv = "US";
+            };
+
+            class vt7: Default
+            {
+                Occ = "Bundeswehr";
                 Inv = "Russia";
+            };
+
+            class takistan: Default
+            {
+                Occ = "Takistani";
+                Inv = "US";
             };
         };
 
-        //temporary soulution to load logistics nodes (pending logistics data convertion to class based) add full filename
         Nodes[] = {"AegisAtlas_Logistics_Nodes.sqf"};
     };
 

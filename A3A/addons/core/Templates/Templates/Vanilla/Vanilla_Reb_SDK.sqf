@@ -90,6 +90,16 @@ if (allowDLCEnoch) then {_dlcUniforms append [
 ];
 };
 
+if (allowDLCWS) then {_dlcUniforms append [
+    "U_lxWS_ION_Casual1",
+    "U_lxWS_ION_Casual2",
+    "U_lxWS_ION_Casual3",
+    "U_lxWS_ION_Casual4",
+    "U_lxWS_ION_Casual5",
+    "U_lxWS_SFIA_deserter"
+];
+};
+
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;
 
 ["headgear", [

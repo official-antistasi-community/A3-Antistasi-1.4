@@ -9,11 +9,11 @@
 ["flagMarkerType", "flag_Syndicat"] call _fnc_saveToTemplate;
 
 ["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "I_G_Offroad_01_F"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "I_G_Offroad_01_armed_F"] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", "I_C_Offroad_02_unarmed_F"] call _fnc_saveToTemplate;
+["vehicleLightArmed", "I_C_Offroad_02_LMG_F"] call _fnc_saveToTemplate;
 ["vehicleTruck", "I_C_Van_01_transport_F"] call _fnc_saveToTemplate;
 ["vehicleAT", "I_C_Offroad_02_AT_F"] call _fnc_saveToTemplate;
-["vehicleAA", ""] call _fnc_saveToTemplate;
+private _vehicleAA = [""];
 
 ["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
 ["vehicleRepair", "I_G_Offroad_01_repair_F"] call _fnc_saveToTemplate;
@@ -28,7 +28,7 @@
 
 ["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate;
 ["staticAT", "I_static_AT_F"] call _fnc_saveToTemplate;
-["staticAA", "I_static_AA_F"] call _fnc_saveToTemplate;
+private _staticAA = ["I_static_AA_F"];
 ["staticMortar", "I_G_Mortar_01_F"] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
@@ -38,6 +38,13 @@
 
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
+
+if (allowDLCWS) then {
+  _vehicleAA = ["I_Tura_Truck_02_aa_lxWS"];
+  _staticAA = ["I_G_ZU23_lxWS_F"];
+};
+["vehicleAA", [_vehicleAA]] call _fnc_saveToTemplate;
+["staticAA", [_staticAA]] call _fnc_saveToTemplate;
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -53,7 +60,6 @@ private _initialRebelEquipment = [
 "V_Rangemaster_belt","V_Rangemaster_belt_blk","V_Rangemaster_belt_cbr","V_Rangemaster_belt_ghex_F","V_Rangemaster_belt_khk","V_Rangemaster_belt_oli","V_Rangemaster_belt_taiga_F","V_Rangemaster_belt_tna_F",
 "Binocular",
 "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
-];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
@@ -83,7 +89,7 @@ private _rebUniforms = [
     "U_I_C_Soldier_Para_4_F",
     "U_I_C_Soldier_Para_1_F",
     "U_I_C_Soldier_Camo_F",
-    "U_I_L_Uniform_01_deserter_F"
+    "U_I_L_Uniform_01_deserter_F",
     "U_B_ION_Uniform_01_poloshirt_blue_F", //Aegis
     "U_B_ION_Uniform_01_poloshirt_wdl_F", //Aegis
     "U_B_ION_Uniform_01_tshirt_black_F" //Aegis
@@ -93,6 +99,22 @@ private _dlcUniforms = [];
 
 if (allowDLCEnoch) then {_dlcUniforms append [
     "U_I_L_Uniform_01_camo_F"
+];
+};
+
+
+if (allowDLCAoW) then {_dlcUniforms append [
+    "U_IG_Guerilla1_2_F"
+];
+};
+
+if (allowDLCWS) then {_dlcUniforms append [
+    "U_lxWS_ION_Casual1",
+    "U_lxWS_ION_Casual2",
+    "U_lxWS_ION_Casual3",
+    "U_lxWS_ION_Casual4",
+    "U_lxWS_ION_Casual5",
+    "U_lxWS_SFIA_deserter"
 ];
 };
 

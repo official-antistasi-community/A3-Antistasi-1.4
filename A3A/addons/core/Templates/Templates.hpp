@@ -561,6 +561,14 @@ class Templates
                 Occ = "Takistani";
                 Inv = "US";
             };
+
+            class chernarus_summer: Default
+            {
+                Occ = "Russia";
+                Inv = "US";
+            };
+            
+            class chernarus_winter: chernarus_summer {};
         };
 
         Nodes[] = {"AegisAtlas_Logistics_Nodes.sqf"};

@@ -102,10 +102,7 @@ class VCOM
 		
 		// group call VCM_fnc_GarrisonLight;
 		class GarrisonLight {};
-		
-		// unit call VCM_fnc_HasMine;
-		class HasMine {};
-		
+
 		// unit call VCM_fnc_HealSelf;
 		class HealSelf {};
 		
@@ -165,18 +162,9 @@ class VCOM
 
 		//[] call VCM_fnc_CBASettings;
 		class CBASettings {};
-		
-		//[] call VCM_fnc_SniperList
-		class SniperList {};
-		
-		//[] spawn VCM_fnc_SniperEngage;
-		class SniperEngage;
-		
-		//[] spawn VCM_fnc_RangeEngage;
-		class RangeEngage;
 
 		//[] call VCM_fnc_ClstKnwnEnmy;
-		class ClstKnwnEnmy;
+		class ClstKnwnEnmy {};
 
 		// unit call VCM_fnc_IsDriver;
 		class IsDriver {};			

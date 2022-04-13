@@ -23,6 +23,7 @@
 FIX_LINE_NUMBERS()
 
 PATCOM_DEBUG = true; // Enable PATCOM specific debug.
+PATCOM_VISUAL_RANGE = 600; // How far should PATCOM look for Enemies.
 
 // This Array holds all the currently controlled groups
 A3A_Patrol_Controlled_AI = [];

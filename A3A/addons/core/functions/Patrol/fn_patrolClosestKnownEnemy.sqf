@@ -22,19 +22,10 @@
 
 params ["_group", "_targetDistance"];
 
-private _nearTargets = (leader _group) neartargets _targetDistance; 
-private _unitSide = side _group;
+private _leader = leader _group;
 
-private _knownTargets = [];
-{
-	if ([_unitSide, (_x # 2)] call A3A_fnc_patrolSideIsEnemy && {!((_x # 1) isKindOf "Air")}) then {
-		_knownTargets pushback [(_x # 5), (_x # 4), (_x # 0)];
-	};
-} foreach _nearTargets;
+private _NearTargets = _leader nearEntities ["Man", _targetDistance] select {[side _leader, side _x] call A3A_fnc_patrolSideIsEnemy} apply {[_x distance2D _leader, _x]};
 
+_NearTargets sort true;
 
-if (count _knownTargets > 0) then {
-	_knownTargets sort false;
-};
-
-_knownTargets
+_NearTargets;

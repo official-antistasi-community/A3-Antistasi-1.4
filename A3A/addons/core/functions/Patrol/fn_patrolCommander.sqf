@@ -38,7 +38,7 @@ if (count units _group <= 0) exitWith {
 
 // Get current orders if set. If not set, we handle first orders below.
 private _currentOrders = _group getVariable "PATCOM_Current_Orders";
-private _knownEnemies = [_group, 600] call A3A_fnc_patrolClosestKnownEnemy;
+private _knownEnemies = [_group, PATCOM_VISUAL_RANGE] call A3A_fnc_patrolClosestKnownEnemy;
 
 if (_group getVariable ["PATCOM_Defense_Patrol", false]) then {
 	_currentOrders = "Defend";
@@ -48,16 +48,25 @@ if (_group getVariable ["PATCOM_Defense_Patrol", false]) then {
 // Handle Patrol Formations, Exits if already set and time not expired.
 [leader _group] call A3A_fnc_patrolHandleFormation;
 
+private _enemyArray = [];
 // Check if enemy combat is near.
-if (count _knownEnemies >= 1) then {
-	if !(_currentOrders == "Attack") then {
-		_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
+if (count _knownEnemies > 0) then {
+	{
+		if (_x#0 < PATCOM_VISUAL_RANGE) then {
+			_enemyArray pushback (_x#1);
+		};
+    } foreach _knownEnemies;
 
-		// Set Current Orders to Attack.
-		_currentOrders = "Attack";
-		// Set current orders to Attack.
-		_group setVariable ["PATCOM_Current_Orders", _currentOrders];
-		_group setVariable ["PATCOM_Group_State", "COMBAT"];
+	if (count _enemyArray > 0) then {
+		if !(_currentOrders == "Attack") then {
+			_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
+
+			// Set Current Orders to Attack.
+			_currentOrders = "Attack";
+			// Set current orders to Attack.
+			_group setVariable ["PATCOM_Current_Orders", _currentOrders];
+			_group setVariable ["PATCOM_Group_State", "COMBAT"];
+		};
 	};
 };
 
@@ -65,7 +74,7 @@ ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3", _grou
 
 if (_currentOrders == "Attack") exitWith {
 	// Give group waypoint to nearest Known Enemy.
-	[_group, _knownEnemies] call A3A_fnc_patrolAttack;
+	[_group, _enemyArray] call A3A_fnc_patrolAttack;
 };
 
 if (_currentOrders == "Hold") exitWith {

@@ -12,7 +12,7 @@ Vcm_Settings =
 	*/	
 
 	Vcm_ConfigVersion="3.4.1 Default Settings";
-	Vcm_ActivateAI = false; //Set this to false to disable VcomAI. It can be set to true at any time to re-enable Vcom AI
+	Vcm_ActivateAI = true; //Set this to false to disable VcomAI. It can be set to true at any time to re-enable Vcom AI
 	VcmAI_ActiveList = []; //Leave this alone.
 	Vcm_ArtilleryArray = []; //Leave this alone
 	
@@ -23,16 +23,14 @@ Vcm_Settings =
 	VCM_ARTYWT = -(VCM_ARTYDELAY);
 	VCM_ARTYET = -(VCM_ARTYDELAY);
 	VCM_ARTYRT = -(VCM_ARTYDELAY);
-	VCM_ARTYSIDES = [west,east];  //Sides that will use VCOM artillery
+	VCM_ARTYSIDES = [west, east];  //Sides that will use VCOM artillery
 	VCM_AIMagLimit = 2; //Number of mags remaining before AI looks for ammo.
 	VCM_DebugOld = true; //Enable debug mode.
 	VCM_DebugFSM = true; //Enable FSM debug code.
 	VCM_DebugAIPathing = true; //Enable FSM debug code.
 	VCM_DebugSuppression = false; //Enable debug code for suppression
 	VCM_DebugCombatMove = true; //Enable debuging of combat movement.	
-	VCM_SIDEENABLED = [west,east,resistance]; //Sides that will activate Vcom AI
-	VCM_RAGDOLL = false; //Should AI have a chance to ragdoll when hit
-	VCM_RAGDOLLCHC = 100; //CHANCE AI RAGDOLL
+	VCM_SIDEENABLED = [west, east, resistance]; //Sides that will activate Vcom AI
 	VCM_FullSpeed = true; //Enforce full speedmode during combat (Does not reset after combat end)
 	VCM_HEARINGDISTANCE = 800; //Distance AI hear unsuppressed gunshots.
 	VCM_WARNDIST = 600; //How far AI can request help from other groups.
@@ -48,7 +46,6 @@ Vcm_Settings =
 	VCM_CARGOCHNG = true; //If true, Vcom will handle disembarking/re-embarking orders instead of vanilla. This is with the intention to prevent the endless embark/disembark loops AI are given.	
 	VCM_TURRETUNLOAD = true; //If true = Prevents AI vehicle turret positions from leaving a vehicle just beecause it is slightly damaged. Example: leaving a tank when just the tracks are damaged.	
 	VCM_DISEMBARKRANGE = 500; //How far AI will disembark from their vehicles. If the vehicle is damaged, they will disembark.
-	VCM_AISNIPERS = false; //Special sniper AI
 	Vcm_DrivingActivated = true; //AI will use experimental driving improvements.
 	Vcm_GrenadeChance = 10; 	//Chance the AI will throw a grenade.
 	Vcm_GrenadeCoolDown = 60; 	//Cooldown between each grenade throw. This does not impact vanilla throwing.	

@@ -48,21 +48,16 @@ if (count _knownEnemies < 1) exitWith {
 
 [_group, "COMBAT", "FULL", "COLUMN", "RED", "AUTO"] call A3A_fnc_patrolSetCombatModes;
 
-// First group in array will always be closest.
-private _closestEnemy = (_knownEnemies # 0);
-// We get the closest enemy group.
-private _enemyUnit = (_closestEnemy # 1);
-// We get how accurate their position is.
-private _positionAccuracy = (_closestEnemy # 0);
-// We get an perceived position.
-private _perceivedPosition = (_closestEnemy # 2);
 // Set Waypoint Name
 private _waypointName = "PATCOM_PATROL_ATTACK";
 
 if ((waypointType [_group, currentWaypoint _group] != "SAD") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
+    // Select random group in the array to attack.
+    private _targetGroup = selectRandom _knownEnemies;
+
     // Instead of taking the Perceived Position and creating a waypoint from there. We opt to get our own waypoint so we can add some variation.
     // Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode
-    private _nextWaypointPos = [_perceivedPosition, _minimumRadius, _maximumRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;
+    private _nextWaypointPos = [getPos (leader _targetGroup), _minimumRadius, _maximumRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;
     
     [_group, _nextWaypointPos, "SAD", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };

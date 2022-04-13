@@ -74,9 +74,11 @@ if ((side leader _group) == civilian) then {
     // Set Group to being controlled by PATCOM so we don't init variables again.
     _group setVariable ["PATCOM_Controlled", true];
 
-    {
-        private _hitEH = _x addEventHandler ["Hit", {_this call A3A_fnc_patrolUnitHitEH;}];
-        private _suppressionEH = _x addEventHandler ["Suppressed", {_this call A3A_fnc_patrolSuppressionEH;}];
+    {   
+        if !(Vcm_ActivateAI) then {
+            private _hitEH = _x addEventHandler ["Hit", {_this call A3A_fnc_patrolUnitHitEH;}];
+            private _suppressionEH = _x addEventHandler ["Suppressed", {_this call A3A_fnc_patrolSuppressionEH;}];
+        };
         private _KilledEH = _x addEventHandler ["Killed",{_this spawn A3A_fnc_patrolCallForHelp;}];
 
     } forEach units _group;

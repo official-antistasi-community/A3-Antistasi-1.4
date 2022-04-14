@@ -29,28 +29,17 @@
 FIX_LINE_NUMBERS()
 
 params [
-    "_group", 
-    ["_maxPatrolDistance", 200], 
+    "_group",  
     ["_minimumRadius", 50], 
-    ["_patrolRadius", 0], 
-    ["_objectDistance", 0], 
-    ["_waterMode", 0], 
-    ["_maxGradient", -1], 
-    ["_shoreMode", 0]
+    ["_maxiumumRadius", 100], 
+    ["_maxPatrolDistance", -1],
+    ["_fromCenter", false],
+    ["_centerPos", []],
+    ["_searchBuildings", false]
 ];
 
 // Get home position of the unit.
 private _groupHomePosition = _group getVariable "PATCOM_Patrol_Home";
-
-// Add a default patrol radius if we don't have one already specified.
-if (_group getVariable ["PATCOM_Patrol_Radius", 0] == 0) then {
-	_group setVariable ["PATCOM_Patrol_Radius", 100 + random 150];
-};
-
-// If no patrol radius is specified in the param, use default patrol radius for the unit.
-if (_patrolRadius == 0) then {
-	_patrolRadius = _group getVariable "PATCOM_Patrol_Radius";
-};
 
 // This is the only place we handle civilians in this Commander.
 if ((side leader _group) == civilian) then {
@@ -67,7 +56,6 @@ if (_group getVariable "PATCOM_WaypointTime" < serverTime) exitWith {
 
 // Check for current waypoints and make sure they are type MOVE for patrol
 if (currentWaypoint _group == count waypoints _group || waypointType [_group, currentWaypoint _group] != "MOVE") then {
-    private _searchBuildings = _group getVariable ["PATCOM_Search_Buildings", false];
     if (_searchBuildings) then {
 
         // Percentage chance on searching a nearby building.
@@ -76,21 +64,20 @@ if (currentWaypoint _group == count waypoints _group || waypointType [_group, cu
         };
     };
 
-    if ((leader _group) distance _groupHomePosition > _maxPatrolDistance) exitWith {
-        // Return home
-        [_group, _groupHomePosition, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    if (_maxPatrolDistance != -1) then {
+        if ((leader _group) distance _groupHomePosition > _maxPatrolDistance) exitWith {
+            // Return home
+            [_group, _groupHomePosition, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
+        };
     };
 
-    private _markerPos = _group getVariable "PATCOM_Patrol_Marker";
-    ServerDebug_1("%1", _markerPos);
-    
-    if (_markerPos#0) then {
+    if (_fromCenter) then {
         // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
-        private _nextWaypointPos = [_markerPos#1, _minimumRadius, _patrolRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;
+        private _nextWaypointPos = [_centerPos, _minimumRadius, _maxiumumRadius, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
         [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
     } else {
         // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
-        private _nextWaypointPos = [getPos (leader _group), _minimumRadius, _patrolRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;
+        private _nextWaypointPos = [getPos (leader _group), _minimumRadius, _maxiumumRadius, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
         [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
     };
 };

@@ -529,6 +529,7 @@ class CfgFunctions
             class patrolLoop {};
             class patrolSearchBuilding {};
             class patrolSetCombatModes {};
+            class patrolSetParams {};
             class patrolSideIsEnemy {};
             class patrolSuppressionEH {};
             class patrolUnitHitEH {};

@@ -36,14 +36,9 @@ if (count units _group <= 0) exitWith {
 	ServerDebug_1("PATCOM | Group Eliminated, Exiting PATCOM Group: %1", _group);
 };
 
-// Get current orders if set. If not set, we handle first orders below.
-private _currentOrders = _group getVariable "PATCOM_Current_Orders";
 private _knownEnemies = [_group, PATCOM_VISUAL_RANGE] call A3A_fnc_patrolClosestKnownEnemy;
-
-if (_group getVariable ["PATCOM_Defense_Patrol", false]) then {
-	_currentOrders = "Defend";
-	_group setVariable ["PATCOM_Current_Orders", _currentOrders];
-};
+private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
+private _currentOrders = _patrolParams#0;
 
 // Handle Patrol Formations, Exits if already set and time not expired.
 [leader _group] call A3A_fnc_patrolHandleFormation;
@@ -58,13 +53,12 @@ if (count _knownEnemies > 0) then {
     } foreach _knownEnemies;
 
 	if (count _enemyArray > 0) then {
-		if !(_currentOrders == "Attack") then {
+		if !(_currentOrders == "Patrol_Attack") then {
 			_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
 
 			// Set Current Orders to Attack.
-			_currentOrders = "Attack";
-			// Set current orders to Attack.
-			_group setVariable ["PATCOM_Current_Orders", _currentOrders];
+			_currentOrders = "Patrol_Attack";
+
 			_group setVariable ["PATCOM_Group_State", "COMBAT"];
 		};
 	};
@@ -72,31 +66,31 @@ if (count _knownEnemies > 0) then {
 
 ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");
 
-if (_currentOrders == "Attack") exitWith {
+if (_currentOrders == "Patrol_Attack") exitWith {
 	// Give group waypoint to nearest Known Enemy.
 	[_group, _enemyArray] call A3A_fnc_patrolAttack;
 };
 
-if (_currentOrders == "Hold") exitWith {
+if (_currentOrders == "Patrol_Hold") exitWith {
 
 };
 
-if (_currentOrders == "Ambush") exitWith {
+if (_currentOrders == "Patrol_Ambush") exitWith {
 
 };
 
-if (_currentOrders == "Chase") exitWith {
+if (_currentOrders == "Patrol_Chase") exitWith {
 
 };
 
-if (_currentOrders == "Defend") exitWith {
+if (_currentOrders == "Patrol_Defend") exitWith {
 	// Defend will always use center
 	private _center = _group getVariable "PATCOM_Patrol_Home";
 	[_group, _center] call A3A_fnc_patrolDefend;
 };
 
 if (_currentOrders == "Patrol_Area") exitWith {
-	[_group, 300] call A3A_fnc_patrolArea;
+	[_group, _patrolParams#1, _patrolParams#2, _patrolParams#3, _patrolParams#4, _patrolParams#5, _patrolParams#6] call A3A_fnc_patrolArea;
 };
 
 if (_currentOrders == "Patrol_Road") exitWith {

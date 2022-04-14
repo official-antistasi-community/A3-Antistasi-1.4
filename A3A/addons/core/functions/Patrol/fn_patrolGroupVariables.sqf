@@ -39,16 +39,11 @@ if (_group getVariable "PATCOM_Controlled") exitWith {
 ServerDebug_2("PATCOM | Setting up Variables on group: %1 - side: %2", _group, side (leader _group));
 
 if ((side leader _group) == civilian) then {
-    // Setup Variable for use later.
-    if (_group getVariable ["PATCOM_Current_Orders", ""] == "") then {
-        _group setVariable ["PATCOM_Current_Orders", "Patrol_Area"];
+    // Patrol Type, Min Patrol, Max Patrol, Max Distance, From Center, Center Pos, Search Buildings
+    if ((count (_group getVariable ["PATCOM_Patrol_Params", []])) == 0) then {
+        _group setVariable ["PATCOM_Patrol_Params", ["Civilian", 5, 50 + (random 50), 100, false, [], false]];
     };
 
-    if ((count (_group getVariable ["PATCOM_Patrol_Marker", []])) == 0) then {
-        _group setVariable ["PATCOM_Patrol_Marker", [false, []]];
-    };
-    
-    _group setVariable ["PATCOM_Patrol_Radius", 50 + random 50];
     _group setVariable ["PATCOM_Patrol_Home", getPos (leader _group)];
 
     {
@@ -67,34 +62,28 @@ if ((side leader _group) == civilian) then {
     // Setup Variable for use later.
     _group setVariable ["PATCOM_Known_Enemy", []];
     
-    if (_group getVariable ["PATCOM_Current_Orders", ""] == "") then {
-        _group setVariable ["PATCOM_Current_Orders", "Patrol_Area"];
-    };
-
+    // Units previous orders.
     _group setVariable ["PATCOM_Previous_Orders", ""];
 
-    if ((count (_group getVariable ["PATCOM_Patrol_Marker", []])) == 0) then {
-        _group setVariable ["PATCOM_Patrol_Marker", [false, []]];
+    // Patrol Type, Min Patrol, Max Patrol, Max Distance, From Center, Center Pos, Search Buildings
+    if ((count (_group getVariable ["PATCOM_Patrol_Params", []])) == 0) then {
+        _group setVariable ["PATCOM_Patrol_Params", ["Patrol_Area", 50, 100, -1, true, getPos (leader _group), false]];
     };
 
-    if (_group getVariable ["PATCOM_Patrol_Radius", 0] == 0) then {
-        _group setVariable ["PATCOM_Patrol_Radius", 0];
-    };
-    
     _group setVariable ["PATCOM_Patrol_Home", getPos (leader _group)];
+
     _group setVariable ["PATCOM_Group_State", "CALM"];
 
     // Set Group to being controlled by PATCOM so we don't init variables again.
     _group setVariable ["PATCOM_Controlled", true];
 
-    {   
-        if !(Vcm_ActivateAI) then {
+    if !(Vcm_ActivateAI) then {
+        {   
             private _hitEH = _x addEventHandler ["Hit", {_this call A3A_fnc_patrolUnitHitEH;}];
             private _suppressionEH = _x addEventHandler ["Suppressed", {_this call A3A_fnc_patrolSuppressionEH;}];
-        };
-        private _KilledEH = _x addEventHandler ["Killed",{_this spawn A3A_fnc_patrolCallForHelp;}];
-
-    } forEach units _group;
+            private _KilledEH = _x addEventHandler ["Killed",{_this spawn A3A_fnc_patrolCallForHelp;}];
+        } forEach units _group;
+    };
 
     _scriptComplete = true;
 };

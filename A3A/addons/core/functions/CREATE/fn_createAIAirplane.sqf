@@ -177,6 +177,7 @@ if (_patrol) then {
 			};
 
 			// GIVE UNIT PATCOM CONTROL
+			_groupX setVariable ["PATCOM_Patrol_Radius", 300];
 			_groupX setVariable ["PATCOM_Controlled", false];
 			A3A_Patrol_Controlled_AI pushBack _groupX;
 			_groups pushBack _groupX;
@@ -398,7 +399,7 @@ for "_i" from 0 to (count _array - 1) do {
 ///////////////////
 // Handle Unit Removal
 ///////////////////
-waitUntil {sleep 10; (spawner getVariable _markerX == 2)};
+waitUntil {sleep 5; (spawner getVariable _markerX == 2)};
 
 [_markerX] call A3A_fnc_freeSpawnPositions;
 

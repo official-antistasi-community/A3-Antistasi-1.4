@@ -263,7 +263,7 @@ while {(spawner getVariable _markerX != 2) and ({[_x,_markerX] call A3A_fnc_canC
 	sleep 3;
 };
 
-waitUntil {sleep 10;((spawner getVariable _markerX == 2))  or ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0)};
+waitUntil {sleep 5;((spawner getVariable _markerX == 2))  or ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0)};
 
 _conquered = false;
 private _winner = Occupants;

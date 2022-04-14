@@ -78,7 +78,7 @@ for "_i" from 1 to _civilianPopulation do {
 				_civUnit addEventHandler ["Killed",
 					{
 						if (({alive _x} count (units group (_this select 0))) == 0) then {
-							_markerX = (_this select 0) getVariable "markerX";
+							private _markerX = (_this select 0) getVariable "markerX";
 							private _nameX = [_markerX] call A3A_fnc_localizar;
 							destroyedSites pushBackUnique _markerX;
 							publicVariable "destroyedSites";

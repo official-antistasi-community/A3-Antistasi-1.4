@@ -119,7 +119,7 @@ while {count _civilians < _numCiv} do
     private _groupCivil = createGroup teamPlayer;
     _civGroups pushBack _groupCivil;
     private _pos = while {true} do {
-        private _pos = _posDestination getPos [random _size / 2,random 360];
+        private _pos = _posDestination getPos [random _size / 2, random 360];
         if (!surfaceIsWater _pos) exitWith { _pos };
     };
     for "_i" from 1 to (4 min (_numCiv - count _civilians)) do
@@ -135,6 +135,8 @@ while {count _civilians < _numCiv} do
 
     //[leader _groupCivil, _attackDestination, "AWARE","SPAWNED","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
     //todo Hazey to replace this function
+    [_groupCivil, "AWARE", "FULL", "COLUMN", "RED", "AUTO"] call A3A_fnc_patrolSetCombatModes;
+    [_groupCivil, _attackDestination, "SAD", "ATTACK", -1, 50] call A3A_fnc_patrolCreateWaypoint;
     diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_invaderPunish#1"];
 };
 

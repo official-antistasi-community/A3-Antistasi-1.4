@@ -44,6 +44,10 @@ if ((side leader _group) == civilian) then {
         _group setVariable ["PATCOM_Current_Orders", "Patrol_Area"];
     };
 
+    if ((count (_group getVariable ["PATCOM_Patrol_Marker", []])) == 0) then {
+        _group setVariable ["PATCOM_Patrol_Marker", [false, []]];
+    };
+    
     _group setVariable ["PATCOM_Patrol_Radius", 50 + random 50];
     _group setVariable ["PATCOM_Patrol_Home", getPos (leader _group)];
 
@@ -62,12 +66,21 @@ if ((side leader _group) == civilian) then {
 
     // Setup Variable for use later.
     _group setVariable ["PATCOM_Known_Enemy", []];
+    
     if (_group getVariable ["PATCOM_Current_Orders", ""] == "") then {
         _group setVariable ["PATCOM_Current_Orders", "Patrol_Area"];
     };
 
     _group setVariable ["PATCOM_Previous_Orders", ""];
-    _group setVariable ["PATCOM_Patrol_Radius", 0];
+
+    if ((count (_group getVariable ["PATCOM_Patrol_Marker", []])) == 0) then {
+        _group setVariable ["PATCOM_Patrol_Marker", [false, []]];
+    };
+
+    if (_group getVariable ["PATCOM_Patrol_Radius", 0] == 0) then {
+        _group setVariable ["PATCOM_Patrol_Radius", 0];
+    };
+    
     _group setVariable ["PATCOM_Patrol_Home", getPos (leader _group)];
     _group setVariable ["PATCOM_Group_State", "CALM"];
 

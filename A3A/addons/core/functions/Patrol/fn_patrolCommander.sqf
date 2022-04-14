@@ -90,6 +90,7 @@ if (_currentOrders == "Chase") exitWith {
 };
 
 if (_currentOrders == "Defend") exitWith {
+	// Defend will always use center
 	private _center = _group getVariable "PATCOM_Patrol_Home";
 	[_group, _center] call A3A_fnc_patrolDefend;
 };

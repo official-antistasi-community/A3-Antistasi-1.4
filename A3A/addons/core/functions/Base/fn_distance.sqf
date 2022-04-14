@@ -230,6 +230,7 @@ private _processFIAMarker = {
                 case !(_marker in controlsX):
                 {
                     [[_marker], "A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler;
+                    [[_marker, "Resource", 4], "A3A_fnc_createAmbientCiv"] call A3A_fnc_scheduler;
                 };
             };
         };

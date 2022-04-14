@@ -61,6 +61,7 @@ if ((side leader _group) == civilian) then {
 
 // We check to see if the waypoint is still active after 3 minutes. If waypoint isn't complete the unit is likely stuck.
 if (_group getVariable "PATCOM_WaypointTime" < serverTime) exitWith {
+    // Return home
     [_group, _groupHomePosition, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };
 
@@ -76,11 +77,20 @@ if (currentWaypoint _group == count waypoints _group || waypointType [_group, cu
     };
 
     if ((leader _group) distance _groupHomePosition > _maxPatrolDistance) exitWith {
-        // Return Home
+        // Return home
         [_group, _groupHomePosition, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
-    }; 
+    };
+
+    private _markerPos = _group getVariable "PATCOM_Patrol_Marker";
+    ServerDebug_1("%1", _markerPos);
     
-    // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
-    private _nextWaypointPos = [getPos (leader _group), _minimumRadius, _patrolRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;
-    [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    if (_markerPos#0) then {
+        // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
+        private _nextWaypointPos = [_markerPos#1, _minimumRadius, _patrolRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;
+        [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    } else {
+        // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
+        private _nextWaypointPos = [getPos (leader _group), _minimumRadius, _patrolRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;
+        [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    };
 };

@@ -143,6 +143,8 @@ if (_patrol) then {
 
 			// GIVE UNIT PATCOM CONTROL
 			_groupX setVariable ["PATCOM_Controlled", false];
+			_groupX setVariable ["PATCOM_Patrol_Marker", [true, _positionX]];
+			_groupX setVariable ["PATCOM_Patrol_Radius", _size];
 			A3A_Patrol_Controlled_AI pushBack _groupX;
 
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIResources#1"];
@@ -230,7 +232,7 @@ for "_i" from 0 to (count _array - 1) do {
 	};
 };
 
-waitUntil {sleep 10; (spawner getVariable _markerX == 2)};
+waitUntil {sleep 5; (spawner getVariable _markerX == 2)};
 
 [_markerX] call A3A_fnc_freeSpawnPositions;
 

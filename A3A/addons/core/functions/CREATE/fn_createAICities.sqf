@@ -31,6 +31,7 @@ private _soldiers = [];
 private _dogs = [];
 private _positionX = getMarkerPos (_markerX);
 private _num = [_markerX] call A3A_fnc_sizeMarker;
+private _patrolSize = [_markerX] call A3A_fnc_sizeMarker;
 private _sideX = sidesX getVariable [_markerX, sideUnknown];
 private _faction = Faction(_sideX);
 
@@ -107,6 +108,8 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 
 	// GIVE UNIT PATCOM CONTROL
 	_groupX setVariable ["PATCOM_Search_Buildings", true];
+	_groupX setVariable ["PATCOM_Patrol_Marker", [true, _positionX]];
+	_groupX setVariable ["PATCOM_Patrol_Radius", _patrolSize];
 	_groupX setVariable ["PATCOM_Controlled", false];
 	A3A_Patrol_Controlled_AI pushBack _groupX;
 
@@ -117,7 +120,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 ///////////////////
 // Handle Removal
 ///////////////////
-waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
+waitUntil {sleep 5;(spawner getVariable _markerX == 2)};
 {if (alive _x) then {deleteVehicle _x}} forEach _soldiers;
 {deleteVehicle _x} forEach _dogs;
 

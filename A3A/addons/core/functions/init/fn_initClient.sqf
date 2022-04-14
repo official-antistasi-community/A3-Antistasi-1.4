@@ -98,7 +98,7 @@ player setVariable ["punish",0,true];
 stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
 
-if (isNil "ace_radio_enabled" or {!ace_radio_enabled}) then {
+if (isNil "ace_noradio_enabled" or {!ace_noradio_enabled}) then {
     [player, nil, selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity
 };
 //Give the player the base loadout.

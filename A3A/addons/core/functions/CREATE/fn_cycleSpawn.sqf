@@ -165,9 +165,8 @@ _patrolMarker setMarkerSizeLocal _patrolMarkerSize;
 
 {
   // GIVE UNIT PATCOM CONTROL
+	[_x, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
 	_x setVariable ["PATCOM_Controlled", false];
-	_x setVariable ["PATCOM_Defense_Patrol", true];
-	_x setVariable ["PATCOM_Defense_Patrol_Distance", 300];
 	A3A_Patrol_Controlled_AI pushBack _x;
   	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_cycleSpawn#2"];
 
@@ -175,9 +174,8 @@ _patrolMarker setMarkerSizeLocal _patrolMarkerSize;
 
 {
   	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_cycleSpawn#3"];
+	[_x, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolSetParams;
 	_x setVariable ["PATCOM_Controlled", false];
-	_x setVariable ["PATCOM_Patrol_Marker", [true, _positionX]];
-	_x setVariable ["PATCOM_Patrol_Radius", _size];
 	A3A_Patrol_Controlled_AI pushBack _x;
 } forEach _patrolGroups;
 

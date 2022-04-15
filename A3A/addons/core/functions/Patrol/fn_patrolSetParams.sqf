@@ -2,7 +2,11 @@
 FIX_LINE_NUMBERS()
 params ["_group", "_patrolType", "_minDist", "_maxDist", "_dist", "_fromCenter", "_centerPos", "_searchBuildings"];
 
-private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
+private _patrolParams = _group getVariable ["PATCOM_Patrol_Params", []];
+
+if ((count _patrolParams) == 0) exitWith {
+	_group setVariable ["PATCOM_Patrol_Params", [_patrolType, _minDist, _maxDist, _dist, _fromCenter, _centerPos, _searchBuildings]];
+};
 
 private _param0 = "";
 private _param1 = 0;

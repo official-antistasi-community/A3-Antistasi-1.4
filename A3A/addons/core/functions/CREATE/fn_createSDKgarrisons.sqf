@@ -115,10 +115,8 @@ for "_i" from 0 to (count _groups) - 1 do {
 	} else {
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createSDKgarrisons#3"];
 		// GIVE UNIT PATCOM CONTROL
+		[_groupX, "Patrol_Defend", 0, 150, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
 		_groupX setVariable ["PATCOM_Controlled", false];
-		_groupX setVariable ["PATCOM_Defense_Patrol", true];
-		_groupX setVariable ["PATCOM_Defense_Patrol_Distance", 150];
-
 		A3A_Patrol_Controlled_AI pushBack _groupX;
 		_groups pushBack _groupX;
 	};

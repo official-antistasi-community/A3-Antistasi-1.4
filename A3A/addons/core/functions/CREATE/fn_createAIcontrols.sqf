@@ -150,11 +150,11 @@ if (_isControl) then {
 			};
 
 			// GIVE UNIT PATCOM CONTROL
+			[_groupX, "Patrol_Defend", 0, 50, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
 			_groupX setVariable ["PATCOM_Controlled", false];
-			_groupX setVariable ["PATCOM_Defense_Patrol", true];
-			_groupX setVariable ["PATCOM_Defense_Patrol_Distance", 50];
 			A3A_Patrol_Controlled_AI pushBack _groupX;
 			_groups pushBack _groupX;
+
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#1"];
 
 			// Forced non-spawner as they're very static.
@@ -177,9 +177,7 @@ if (_isControl) then {
 			_unit = [_groupX, _faction get "unitMilitiaGrunt", _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#extra1 %1", _groupX];
-			_groupX setVariable ["PATCOM_Controlled", false];
-			_groupX setVariable ["PATCOM_Defense_Patrol", true];
-			_groupX setVariable ["PATCOM_Defense_Patrol_Distance", 50];
+			[_groupX, "Patrol_Defend", 0, 50, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
 			A3A_Patrol_Controlled_AI pushBack _groupX;
 			_groups pushBack _groupX;
 			
@@ -215,8 +213,10 @@ if (_isControl) then {
 		_groupX = [_positionX,_sideX, _cfg] call A3A_fnc_spawnGroup;
 
 		// GIVE UNIT PATCOM CONTROL
+		[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolSetParams;
 		_groupX setVariable ["PATCOM_Controlled", false];
 		A3A_Patrol_Controlled_AI pushBack _groupX;
+		
 		_groups pushBack _groupX;
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#2"];
 

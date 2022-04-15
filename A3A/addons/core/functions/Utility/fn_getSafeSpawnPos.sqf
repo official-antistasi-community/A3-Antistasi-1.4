@@ -68,7 +68,10 @@ private _FinalResult = _checkPos;
 private _Pass = true;
 for "_i" from 1 to 3000 do {
 	_Pass = true;
+	
 	_FinalResult = _checkPos getPos [(random _maxdistance), random 360];
+
+	if ((_FinalResult distance _checkPos) < _minDistance) then {_Pass = false;};
 
 	// Find a position that is roughly suitable.
 	if (_FinalResult isFlatEmpty [-1, -1, _maxGradient, _gradientRadius, _waterMode, _shoreMode] isEqualTo []) then {_Pass = false;};

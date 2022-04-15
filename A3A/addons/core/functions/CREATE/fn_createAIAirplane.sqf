@@ -70,6 +70,7 @@ for "_i" from 1 to _vehiclesAvilable do {
 		_groups pushBack _groupVeh;
 		
 		// GIVE UNIT PATCOM CONTROL
+		[_groupVeh, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolSetParams;
 		_groupVeh setVariable ["PATCOM_Controlled", false];
 		A3A_Patrol_Controlled_AI pushBack _groupVeh;
 
@@ -177,7 +178,7 @@ if (_patrol) then {
 			};
 
 			// GIVE UNIT PATCOM CONTROL
-			_groupX setVariable ["PATCOM_Patrol_Radius", 300];
+			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolSetParams;
 			_groupX setVariable ["PATCOM_Controlled", false];
 			A3A_Patrol_Controlled_AI pushBack _groupX;
 			_groups pushBack _groupX;
@@ -376,7 +377,7 @@ for "_i" from 0 to (count _array - 1) do {
 	private _groupX = if (_i == 0) then {
 		[_positionX,_sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup;
 	} else {
-		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+		private _spawnPosition = [_positionX, 50, 100, 20, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
 		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup;
 	};
 	_groups pushBack _groupX;
@@ -387,11 +388,13 @@ for "_i" from 0 to (count _array - 1) do {
 
 	if (_i == 0) then {
 		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		
+		// Disable VCOM. It gives weird behaviour if enabled.
+		_groupX setVariable ["Vcm_Disable", true];
 	} else {
 		// GIVE UNIT PATCOM CONTROL
+		[_groupX, "Patrol_Defend", 0, 200, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
 		_groupX setVariable ["PATCOM_Controlled", false];
-		_groupX setVariable ["PATCOM_Defense_Patrol", true];
-		_groupX setVariable ["PATCOM_Defense_Patrol_Distance", 300];
 		A3A_Patrol_Controlled_AI pushBack _groupX;
 	};
 };

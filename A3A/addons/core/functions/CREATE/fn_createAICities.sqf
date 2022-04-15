@@ -107,9 +107,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	};
 
 	// GIVE UNIT PATCOM CONTROL
-	_groupX setVariable ["PATCOM_Search_Buildings", true];
-	_groupX setVariable ["PATCOM_Patrol_Marker", [true, _positionX]];
-	_groupX setVariable ["PATCOM_Patrol_Radius", _patrolSize];
+	[_groupX, "Patrol_Area", 25, _patrolSize, -1, true, _positionX, true] call A3A_fnc_patrolSetParams;
 	_groupX setVariable ["PATCOM_Controlled", false];
 	A3A_Patrol_Controlled_AI pushBack _groupX;
 

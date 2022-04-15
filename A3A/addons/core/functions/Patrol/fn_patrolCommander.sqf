@@ -28,7 +28,6 @@
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-
 params ["_group"];
 
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
@@ -84,9 +83,7 @@ if (_currentOrders == "Patrol_Chase") exitWith {
 };
 
 if (_currentOrders == "Patrol_Defend") exitWith {
-	// Defend will always use center
-	private _center = _group getVariable "PATCOM_Patrol_Home";
-	[_group, _center] call A3A_fnc_patrolDefend;
+	[_group, _patrolParams#1, _patrolParams#2, _patrolParams#4, _patrolParams#5] call A3A_fnc_patrolDefend;
 };
 
 if (_currentOrders == "Patrol_Area") exitWith {

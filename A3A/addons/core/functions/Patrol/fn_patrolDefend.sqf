@@ -26,26 +26,19 @@
 FIX_LINE_NUMBERS()
 params [
     "_group",
-    "_center", 
     ["_minimumRadius", 20], 
-    ["_maximumRadius", 100]
+    ["_maximumRadius", 100],
+    ["_fromCenter", false],
+    ["_centerPos", []]
 ];
 
-private _availableUnits = [];
 private _leader = leader _group;
 
 [_group, "SAFE", "LIMITED", "COLUMN", "YELLOW", "AUTO"] call A3A_fnc_patrolSetCombatModes;
 
-if (_group getVariable ["PATCOM_Defense_Patrol_Distance", 0] == 0) then {
-	_group setVariable ["PATCOM_Defense_Patrol_Distance", _maximumRadius];
-} else {
-    _maximumRadius = _group getVariable ["PATCOM_Defense_Patrol_Distance", _maximumRadius];
-};
-
 private _waypointName = "PATCOM_PATROL_DEFEND";
 
 if ((waypointType [_group, currentWaypoint _group] != "MOVE") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
-    private _nextWaypointPos = [_center, _minimumRadius, _maximumRadius, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
-    
+    private _nextWaypointPos = [_centerPos, _minimumRadius, _maximumRadius, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
     [_group, _nextWaypointPos, "MOVE", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };

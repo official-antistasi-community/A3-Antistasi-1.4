@@ -35,6 +35,8 @@ for "_i" from count waypoints _group - 1 to 0 step -1 do {
 };
 */
 
+if ((count _position) < 3) exitWith {};
+
 // Waypoint Position
 private _waypointPos = [];
 
@@ -74,6 +76,6 @@ if (waypointType _waypoint != _waypointType) then {
 	_waypoint setWaypointType _waypointType;
 };
 
-// Set Waypoint time 3 minutes into the future.
-private _waypointTime = serverTime + 180;
+// Set Waypoint time 5 minutes into the future.
+private _waypointTime = serverTime + 300;
 _group setVariable ["PATCOM_WaypointTime", _waypointTime];

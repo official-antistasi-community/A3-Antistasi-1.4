@@ -142,9 +142,8 @@ if (_patrol) then {
 			};
 
 			// GIVE UNIT PATCOM CONTROL
+			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolSetParams;
 			_groupX setVariable ["PATCOM_Controlled", false];
-			_groupX setVariable ["PATCOM_Patrol_Marker", [true, _positionX]];
-			_groupX setVariable ["PATCOM_Patrol_Radius", _size];
 			A3A_Patrol_Controlled_AI pushBack _groupX;
 
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIResources#1"];
@@ -223,9 +222,7 @@ for "_i" from 0 to (count _array - 1) do {
 
 	} else {
 		// GIVE UNIT PATCOM CONTROL
-		_groupX setVariable ["PATCOM_Controlled", false];
-		_groupX setVariable ["PATCOM_Defense_Patrol", true];
-		_groupX setVariable ["PATCOM_Defense_Patrol_Distance", 150];
+		[_groupX, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
 		A3A_Patrol_Controlled_AI pushBack _groupX;
 
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIResources#4"];

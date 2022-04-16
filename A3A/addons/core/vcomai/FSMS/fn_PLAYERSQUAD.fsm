@@ -1,0 +1,181 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, PLAYERSQUAD">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin_State",0,250,0.000000,700.000000,100.000000,750.000000,0.000000,"Begin State"};
+item1[] = {"True",8,218,0.000000,625.000000,100.000000,675.000000,0.000000,"True"};
+item2[] = {"Check_AI_squads",2,250,0.000000,500.000000,100.000000,550.000000,0.000000,"Check AI squads"};
+item3[] = {"Count_Check",4,218,150.000000,500.000000,250.000000,550.000000,100.000000,"Count Check"};
+item4[] = {"Wait",4,218,-150.000000,500.000000,-50.000000,550.000000,5.000000,"Wait"};
+item5[] = {"Cooldown",2,250,150.000000,375.000000,250.000000,425.000000,0.000000,"Cooldown"};
+item6[] = {"Wait",4,218,0.000000,375.000000,100.000000,425.000000,5.000000,"Wait"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,4};
+link4[] = {3,5};
+link5[] = {4,2};
+link6[] = {5,6};
+link7[] = {6,2};
+globals[] = {0.000000,0,0,0,0,640,480,2,654,6316128,1,-422.084045,383.828247,868.606079,203.408875,1070,884,1};
+window[] = {2,-1,-1,-1,-1,1094,2024,3842,104,3,1088};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "PLAYERSQUAD";
+        class States
+        {
+                /*%FSM<STATE "Begin_State">*/
+                class Begin_State
+                {
+                        name = "Begin_State";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private _Group = group player;" \n
+                         "private _AIUnits = [];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "True">*/
+                                class True
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Check_AI_squads";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_AI_squads">*/
+                class Check_AI_squads
+                {
+                        name = "Check_AI_squads";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "_Group = group player;	" \n
+                         "" \n
+                         "private _RemoveUnits = [];" \n
+                         "{" \n
+                         "	if (!alive _x || {isNull _x}) then" \n
+                         "	{" \n
+                         "		_RemoveUnits pushback _x;" \n
+                         "	};" \n
+                         "} foreach _AIUnits;" \n
+                         "" \n
+                         "" \n
+                         "//Remove indexing errors." \n
+                         "{" \n
+                         "	private _Obj = _x;" \n
+                         "	private _Index = _AIUnits findIf {_x isEqualTo _Obj};" \n
+                         "	_AIUnits deleteAt _Index;" \n
+                         "} foreach _RemoveUnits;" \n
+                         "" \n
+                         "//systemchat format [""_AIUnits: %1"",_AIUnits];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Count_Check">*/
+                                class Count_Check
+                                {
+                                        itemno = 3;
+                                        priority = 100.000000;
+                                        to="Cooldown";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(leader _group) isEqualTo player && {(local _group)} && {(count _AIUnits) < ((count (units _Group)) - 1)}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"private _Side = (side _Group);" \n
+                                         "switch (_Side) do {" \n
+                                         "	case west: " \n
+                                         "	{" \n
+                                         "		{" \n
+                                         "			if !(isplayer _x) then" \n
+                                         "			{" \n
+                                         "				private _Unit = _x;" \n
+                                         "				_AIUnits pushbackunique _Unit;" \n
+                                         "				{" \n
+                                         "					_Unit setSkill _x;" \n
+                                         "				} forEach VCM_PSQUADW;" \n
+                                         "			};" \n
+                                         "		} forEach (units _Group);				" \n
+                                         "	};" \n
+                                         "	case east: " \n
+                                         "	{" \n
+                                         "		{" \n
+                                         "			if !(isplayer _x) then" \n
+                                         "			{" \n
+                                         "				private _Unit = _x;" \n
+                                         "				_AIUnits pushbackunique _Unit;" \n
+                                         "				{" \n
+                                         "					_Unit setSkill _x;" \n
+                                         "				} forEach VCM_PSQUADE;" \n
+                                         "			};" \n
+                                         "		} forEach (units _Group);							" \n
+                                         "	}; " \n
+                                         "	case resistance: " \n
+                                         "	{" \n
+                                         "		{" \n
+                                         "			if !(isplayer _x) then" \n
+                                         "			{" \n
+                                         "				private _Unit = _x;" \n
+                                         "				_AIUnits pushbackunique _Unit;" \n
+                                         "				{" \n
+                                         "					_Unit setSkill _x;" \n
+                                         "				} forEach VCM_PSQUADR;" \n
+                                         "			};" \n
+                                         "		} forEach (units _Group);						" \n
+                                         "	}; " \n
+                                         "};	" \n
+                                         "" \n
+                                         "//systemchat ""RAN!"";" \n
+                                         "_t = time;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 4;
+                                        priority = 5.000000;
+                                        to="Check_AI_squads";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 10" \n
+                                         "" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cooldown">*/
+                class Cooldown
+                {
+                        name = "Cooldown";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 6;
+                                        priority = 5.000000;
+                                        to="Check_AI_squads";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 10" \n
+                                         "" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin_State";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

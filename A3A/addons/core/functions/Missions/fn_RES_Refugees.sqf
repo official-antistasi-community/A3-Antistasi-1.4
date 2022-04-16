@@ -17,7 +17,7 @@ _POWs = [];
 
 _radiusX = [_markerX] call A3A_fnc_sizeMarker;
 //_houses = nearestObjects [_positionX, ["house"], _radiusX];
-_houses = (nearestObjects [_positionX, ["house"], _radiusX]) select {!((typeOf _x) in UPSMON_Bld_remove)};
+_houses = (nearestObjects [_positionX, ["house"], _radiusX]) select {!((typeOf _x) in bld_remove)};
 _posHouse = [];
 _houseX = _houses select 0;
 while {count _posHouse < 3} do

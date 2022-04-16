@@ -70,8 +70,6 @@ if (isMultiplayer) then {
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 };
 
-[] spawn A3A_fnc_ambientCivs;
-
 disableUserInput false;
 player setVariable ["spawner",true,true];
 

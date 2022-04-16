@@ -27,6 +27,10 @@ deleteVehicle _oldPetros;		// Petros should now be leader unless there's a playe
 
 if (petros == leader _groupPetros) then {
 	_groupPetros setGroupIdGlobal ["Petros","GroupColor4"];
+
+	// Disable VCOM on Petros. We don't want him suddenly having his own thoughts.
+	(_groupPetros) setVariable ["Vcm_Disable", true];
+	
 	petros disableAI "MOVE";
 	petros disableAI "AUTOTARGET";
 	petros setBehaviour "SAFE";

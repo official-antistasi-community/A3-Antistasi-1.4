@@ -22,7 +22,7 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-PATCOM_DEBUG = true; // Enable PATCOM specific debug.
+PATCOM_DEBUG = false; // Enable PATCOM specific debug.
 PATCOM_VISUAL_RANGE = 400; // How far should PATCOM look for Enemies.
 
 // This Array holds all the currently controlled groups

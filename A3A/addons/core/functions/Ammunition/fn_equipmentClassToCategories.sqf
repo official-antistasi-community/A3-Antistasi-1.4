@@ -14,7 +14,7 @@ FIX_LINE_NUMBERS()
 params ["_className"];
 
 // First check if the item has hardcoded categories
-private _categories = categoryOverrides getVariable [_className, []];
+private _categories = A3A_categoryOverrides getVariable [_className, []];
 if (count _categories > 0) exitWith { _categories };
 
 private _itemType = [_className] call A3A_fnc_itemType;
@@ -203,6 +203,6 @@ call {
 };
 
 // Add to cache for future use
-categoryOverrides setVariable [_classname, _categories];
+A3A_categoryOverrides setVariable [_classname, _categories];
 
 _categories;

@@ -73,6 +73,9 @@ specialCategories = ["AA", "AT", "GrenadeLaunchers", "LightAttachments", "LaserA
 allCategoriesExceptSpecial = weaponCategories + itemCategories + magazineCategories + explosiveCategories + otherCategories + aggregateCategories;
 allCategories = allCategoriesExceptSpecial + specialCategories;
 
+// Initialize categoryOverrides. Clients need this for equipmentClassToCategories to work.
+[] call A3A_fnc_categoryOverrides;
+
 ////////////////////////////////////
 //     BEGIN MOD DETECTION       ///
 ////////////////////////////////////

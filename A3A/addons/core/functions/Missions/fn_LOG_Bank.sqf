@@ -60,8 +60,9 @@ for "_i" from 1 to 4 do {
 	private _groupX = [_positionX, Occupants, _groupType] call A3A_fnc_spawnGroup;
 	sleep 1;
 
-	//_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "FORTIFY"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
-	//todo Hazey to replace this function
+	[_groupX, "Patrol_Area", 25, 50, 100, true, _mrk, true] call A3A_fnc_patrolSetParams;
+	_groupX setVariable ["PATCOM_Controlled", false];
+	A3A_Patrol_Controlled_AI pushBack _groupX;
 	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_LOG_Bank#1"];
 
 	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;

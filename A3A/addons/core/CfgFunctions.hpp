@@ -1,6 +1,7 @@
 // note use of preInit & postInit will run for EVERY mission, use sparingly or with non a3a mission aborts in place, example check if the class (missionConfigFile >> "A3A") exists
 class CfgFunctions
 {
+	#include "vcomai\cfgFunctions.hpp"
     class A3A
     {
         class AI {
@@ -187,6 +188,17 @@ class CfgFunctions
             class zoneCheck {};
         };
 
+        class Civilian {
+            file = QPATHTOFOLDER(functions\Civilian);
+            class civilianFiredNearEH {};
+            class civilianInitEH {};
+            class createAmbientCiv {};
+            class createAmbientCivTraffic {};
+            class createCivilianTracks {};
+            class createMusicSource {};
+            class createRoomLight {};
+        };
+
         class Collections {
             file = QPATHTOFOLDER(functions\Collections);
             class getNestedObject {};
@@ -216,11 +228,8 @@ class CfgFunctions
             class AAFroadPatrol {};
             class airportCanAttack {};
             class AIVEHinit {};
-            class ambientCivs {};
             class calculateMarkerArea {};
             class cargoSeats {};
-            class CIVinit {};
-            class civVEHinit {};
             class cleanserVeh {};
             class createAIAirplane {};
             class createAICities {};
@@ -229,7 +238,6 @@ class CfgFunctions
             class createAIResources {};
             class createAISite {};
             class createAttackVehicle {};
-            class createCIV {};
             class createFIAOutposts2 {};
             class createSDKGarrisons {};
             class createSDKgarrisonsTemp {};
@@ -271,6 +279,7 @@ class CfgFunctions
 
         class debug {
             file = QPATHTOFOLDER(functions\debug);
+            class debugText3D {};
             class deleteEmptyGroupsOnSide {};
             class installSchrodingersBuildingFix {};
             class prepFunctions {};
@@ -497,6 +506,33 @@ class CfgFunctions
             class roadConnPoint {};
             class setNavData {};
             class trimPath {};
+        };
+
+        class Patrol {
+            file = QPATHTOFOLDER(functions\Patrol);
+            class patrolAnimation {};
+            class patrolArea {};
+            class patrolAttack {};
+            class patrolBuildingEnterable {};
+            class patrolCallForHelp {};
+            class patrolCivilianCommander {};
+            class patrolClosestKnownEnemy {};
+            class patrolCommander {};
+            class patrolCreateWaypoint {};
+            class patrolDefend {};
+            class patrolEnterableBuildings {};
+            class patrolGroupGarrison {};
+            class patrolGroupVariables {};
+            class patrolHandleFormation {};
+            class patrolHealSelf {};
+            class patrolInit {};
+            class patrolLoop {};
+            class patrolSearchBuilding {};
+            class patrolSetCombatModes {};
+            class patrolSetParams {};
+            class patrolSideIsEnemy {};
+            class patrolSuppressionEH {};
+            class patrolUnitHitEH {};
         };
 
         class proxy {
@@ -748,19 +784,23 @@ class CfgFunctions
 
         class Utility {
             file = QPATHTOFOLDER(functions\Utility);
+            class arrayShuffle {};
             class basicBackpack {};
             class classNameToModel {};
+            class clearVehicleCargo {};
             class countAttachedObjects {};
             class createDataObject {};
             class createNamespace {};
             class deleteNamespace {};
             class getAdmin {};
+            class getDayState {};
+            class getRoadDirection {};
+            class getSafeSpawnPos {};
             class localLog {};
             class log {};
             class setPos {};
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};
-            class getRoadDirection {};
         };
 
         class UtilityItems {

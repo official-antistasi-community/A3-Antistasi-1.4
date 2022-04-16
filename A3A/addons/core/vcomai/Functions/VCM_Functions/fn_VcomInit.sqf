@@ -5,10 +5,7 @@
 VCM_PublicScript = compileFinal "[] call (_this select 0);";
 VCM_ServerAsk = compileFinal "(_this select 1) publicVariableClient (_this select 0);";
 
-/*
-"AwareFormationSoft" enableAIFeature false;
-"CombatFormationSoft" enableAIFeature false;
-*/
+[] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\Functions\VCM_Functions\fn_CBASettings.sqf);
 
 if (isServer) then
 {

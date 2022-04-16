@@ -87,6 +87,8 @@ _faction set ["groupSpecOps", [
     , unit(SF, "Medic")
 ]];
 
+
+
 //militia
 _faction set ["groupsMilitiaSmall", [
     [unit(militia, "Grenadier"), unit(militia, "Rifleman")]

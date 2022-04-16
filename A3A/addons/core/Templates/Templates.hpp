@@ -38,7 +38,7 @@ class Templates
             {
                 class camo
                 {
-                    arid = "Arid"
+                    arid = "Arid";
                     tropical = "Tropical";
                     Default = "Temperate";
                 };

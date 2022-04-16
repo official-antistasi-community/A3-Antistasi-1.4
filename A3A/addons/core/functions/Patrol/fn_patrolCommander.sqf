@@ -31,7 +31,7 @@ FIX_LINE_NUMBERS()
 params ["_group"];
 
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
-if (count units _group <= 0) exitWith {
+if (count units _group == 0) exitWith {
 	ServerDebug_1("PATCOM | Group Eliminated, Exiting PATCOM Group: %1", _group);
 };
 

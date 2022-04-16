@@ -84,7 +84,9 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	private _spawnPosition = [];
 
 	while {(count _spawnPosition <= 2)} do {
-		_spawnPosition = [[[_positionX, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
+		//_spawnPosition = [[[_positionX, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
+		_spawnPosition = [[[_positionX, _radius]], ["water"]] call BIS_fnc_randomPos;
+		//_spawnPosition = [_positionX, 50 + (random 50), 200, 20, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
 		sleep 0.50;
 	};
 	private _groupX = [_spawnPosition, _factionSide, _factionType] call A3A_fnc_spawnGroup;

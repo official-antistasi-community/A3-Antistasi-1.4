@@ -40,14 +40,14 @@
     License: MIT License
 */
 
-params ["_checkPos",["_minDistance", 50],["_maxDistance", 100],["_objectProximity", 0],["_waterMode", 0],["_maxGradient", -1],["_shoreMode", 0],["_defaultPos", []]];
+params ["_checkPos","_minDistance","_maxDistance","_objectProximity","_waterMode","_maxGradient","_shoreMode","_defaultPos"];
 
 // support object for center pos as well
 if (_checkPos isEqualType objNull) then {_checkPos = getPos _checkPos};
 
 private _defaultMaxDistance = worldSize / 2;
 
-if (_maxDistance < 0) then {
+if (_maxDistance < 0) then  {
 	_maxDistance = getNumber (configFile >> "CfgWorlds" >> worldName >> "safePositionRadius");
 	if (_maxDistance <= 0) then {_maxDistance = _defaultMaxDistance};
 };
@@ -56,8 +56,6 @@ private _checkProximity = _objectProximity > 0;
 
 _shoreMode = _shoreMode != 0;
 
-private _off = (_minDistance / _maxDistance) ^ 2;
-private _rem = 1 - _off;
 private _gradientRadius = 1 max _objectProximity * 0.1;
 
 private _FinalResult = _checkPos;
@@ -66,20 +64,18 @@ private _FinalResult = _checkPos;
 // We add a limit of 3000 to avoid locking up the game if improper params are passed.
 // It is possible a while loop could lock up if bad params are provided.
 private _Pass = true;
-for "_i" from 1 to 3000 do {
+for "_i" from 1 to 1000 do {
 	_Pass = true;
 	
-	_FinalResult = _checkPos getPos [(random _maxdistance), random 360];
+	_FinalResult = _checkPos getPos [(_minDistance + (random _maxdistance)), random 360];
 
-	if ((_FinalResult distance _checkPos) < _minDistance) then {_Pass = false;};
-
-	// Find a position that is roughly suitable.
+	// position is roughly suitable
 	if (_FinalResult isFlatEmpty [-1, -1, _maxGradient, _gradientRadius, _waterMode, _shoreMode] isEqualTo []) then {_Pass = false;};
 	
-	// Spawn away from other objects.
-	if (_checkProximity && {!(nearestTerrainObjects [_FinalResult, ["HOUSE", "BUILDING", "TREE", "SMALL TREE", "BUSH", "BUILDING", "HOUSE", "FOREST BORDER", "FOREST TRIANGLE", "FOREST SQUARE", "CHURCH", "CHAPEL", "CROSS", "BUNKER", "FORTRESS", "FOUNTAIN", "VIEW-TOWER", "LIGHTHOUSE", "QUAY", "FUELSTATION", "HOSPITAL", "FENCE", "WALL", "HIDE", "BUSSTOP", "ROAD", "FOREST", "TRANSMITTER", "STACK", "RUIN", "TOURISM", "WATERTOWER", "TRACK", "MAIN ROAD", "ROCK", "ROCKS", "POWER LINES", "RAILWAY", "POWERSOLAR", "POWERWAVE", "POWERWIND", "SHIPWRECK", "TRAIL"], _objectProximity, false, true] isEqualTo [])}) then {_Pass = false;};	
+	// away from other objects
+	if (_checkProximity && {!(nearestTerrainObjects [_FinalResult, ["TREE", "SMALL TREE", "BUSH", "BUILDING", "HOUSE", "FOREST BORDER", "FOREST TRIANGLE", "FOREST SQUARE", "CHURCH", "CHAPEL", "CROSS", "BUNKER", "FORTRESS", "FOUNTAIN", "VIEW-TOWER", "LIGHTHOUSE", "QUAY", "FUELSTATION", "HOSPITAL", "FENCE", "WALL", "HIDE", "BUSSTOP", "ROAD", "FOREST", "TRANSMITTER", "STACK", "RUIN", "TOURISM", "WATERTOWER", "TRACK", "MAIN ROAD", "ROCK", "ROCKS", "POWER LINES", "RAILWAY", "POWERSOLAR", "POWERWAVE", "POWERWIND", "SHIPWRECK", "TRAIL"], _objectProximity, false, true] isEqualTo [])}) then {_Pass = false;};	
 	
-	// Do not spawn inside another object.
+	// not inside something
 	if !(lineIntersectsSurfaces [AGLtoASL _FinalResult, AGLtoASL _FinalResult vectorAdd [0, 0, 50], objNull, objNull, false, 1, "GEOM", "NONE"] isEqualTo []) then {_Pass = false};
 	
 	if (_Pass) exitWith {};
@@ -89,4 +85,4 @@ if !(_Pass) then {
 	_FinalResult = _defaultPos;
 };
 
-_FinalResult
+_FinalResult		

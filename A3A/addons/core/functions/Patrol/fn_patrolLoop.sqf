@@ -17,6 +17,9 @@
 		[] call A3A_fnc_patrolLoop;
 
     License: MIT License
+
+	Todo: 
+		Giddi: Make sleep dynamic with AI population - hazey: Good idea.
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

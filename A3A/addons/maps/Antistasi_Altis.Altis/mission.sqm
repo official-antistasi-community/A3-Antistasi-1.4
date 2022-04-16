@@ -8,7 +8,7 @@ class EditorData
 	toggles=514;
 	class ItemIDProvider
 	{
-		nextID=2400;
+		nextID=2399;
 	};
 	class MarkerIDProvider
 	{
@@ -16,23 +16,22 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=775;
+		nextID=635;
 	};
 	class Camera
 	{
-		pos[]={5455.751,101.17218,17513.273};
-		dir[]={-0.17061563,-0.36624727,0.91474217};
-		up[]={-0.067153499,0.93051761,0.36003816};
-		aside[]={0.98304671,0,0.18335563};
+		pos[]={12127.538,73.716003,17402.166};
+		dir[]={0,-0.70710683,0.70710671};
+		up[]={0,0.70710665,0.70710677};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
-sourceName="Antistasi_Altis";
+sourceName="Antistasi-Altis-Dev";
 addons[]=
 {
 	"A3_Ui_F",
 	"A3_Structures_F_Ind_Cargo",
-	"ace_cargo",
 	"A3_Modules_F",
 	"A3_Weapons_F_Ammoboxes",
 	"A3_Characters_F",
@@ -49,7 +48,6 @@ addons[]=
 	"A3_Structures_F_Ind_Transmitter_Tower",
 	"A3_Modules_F_Hc",
 	"A3_Weapons_F",
-	"ace_explosives",
 	"A3_Structures_F_Mil_Helipads",
 	"A3_Structures_F_Mil_BagFence"
 };
@@ -57,7 +55,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=13;
+		items=11;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -74,80 +72,66 @@ class AddonsMetaData
 		};
 		class Item2
 		{
-			className="ace_cargo";
-			name="ACE3 - Cargo";
-			author="ACE-Team";
-			url="http://ace3mod.com/";
-		};
-		class Item3
-		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item4
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item5
 		{
 			className="A3_Structures_F_EPC";
 			name="Arma 3 Win Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item6
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item8
+		class Item7
 		{
 			className="A3_Structures_F_Exp_Infrastructure";
 			name="Arma 3 Apex - Infrastructure Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item9
+		class Item8
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item10
+		class Item9
 		{
 			className="A3_Props_F_Enoch";
 			name="Arma 3 Contact Platform - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item11
+		class Item10
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
-		};
-		class Item12
-		{
-			className="ace_explosives";
-			name="ACE3 - Explosives";
-			author="ACE-Team";
-			url="http://ace3mod.com/";
 		};
 	};
 };
@@ -161,38 +145,11 @@ class ScenarioData
 {
 	author="IgnorantSole92";
 };
-class CustomAttributes
-{
-	class Category0
-	{
-		name="Scenario";
-		class Attribute0
-		{
-			property="cba_settings_hasSettingsFile";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"BOOL"
-						};
-					};
-					value=1;
-				};
-			};
-		};
-		nAttributes=1;
-	};
-};
 class Mission
 {
 	class Intel
 	{
-		briefingName="Antistasi - Liberation of Altis";
+        briefingName=$STR_antistasi_mission_info_Altis_mapname_text;
 		resistanceWest=0;
 		startWind=0.1;
 		forecastWind=0.1;
@@ -206,7 +163,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=389;
+		items=388;
 		class Item0
 		{
 			dataType="Marker";
@@ -769,7 +726,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression="                            if (isNil 'CBA_fnc_setCallsign') then {                                _this setGroupID [_value];                            } else {                                [_this, _value] call CBA_fnc_setCallsign;                            };                        ";
+					expression="_this setGroupID [_value];";
 					class Value
 					{
 						class data
@@ -1204,7 +1161,7 @@ class Mission
 			type="rectangle";
 			a=15;
 			b=15;
-			angle=28.413315;
+			angle=28.413351;
 			id=1133;
 		};
 		class Item74
@@ -1228,7 +1185,7 @@ class Mission
 			type="rectangle";
 			a=15;
 			b=15;
-			angle=220.91068;
+			angle=220.91071;
 			id=1135;
 			atlOffset=3.9974327;
 		};
@@ -1290,7 +1247,7 @@ class Mission
 			type="rectangle";
 			a=15;
 			b=15;
-			angle=201.84416;
+			angle=201.84418;
 			id=1140;
 		};
 		class Item81
@@ -1749,7 +1706,7 @@ class Mission
 			name="seaSpawn_8";
 			type="mil_objective";
 			id=1186;
-			atlOffset=4.5166793;
+			atlOffset=5.0577831;
 		};
 		class Item122
 		{
@@ -3141,7 +3098,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.722984;
 					b=5.5;
-					angle=107.31903;
+					angle=107.31905;
 					id=1661;
 					atlOffset=-0.63444233;
 				};
@@ -3236,7 +3193,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.529018;
 					b=5.5;
-					angle=56.905949;
+					angle=56.906029;
 					id=1646;
 					atlOffset=-0.15297318;
 				};
@@ -4445,7 +4402,7 @@ class Mission
 					colorName="ColorGreen";
 					a=16;
 					b=6;
-					angle=3.5407531;
+					angle=3.5407567;
 					id=1684;
 					atlOffset=0.75311279;
 				};
@@ -11522,17 +11479,6 @@ class Mission
 				};
 				nAttributes=1;
 			};
-		};
-		class Item388
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={5412.6343,77.135429,17926.662};
-			};
-			init="if (isServer) then { " \n " [] spawn { " \n "  while {true} do { " \n "   { " \n "    _x addCuratorEditableObjects [allUnits, true]; " \n "    _x addCuratorEditableObjects [vehicles, true]; " \n "    sleep 5; " \n "   } forEach allCurators;  " \n "  }; " \n " };  " \n "};";
-			id=2399;
-			type="Logic";
 		};
 	};
 	class Connections

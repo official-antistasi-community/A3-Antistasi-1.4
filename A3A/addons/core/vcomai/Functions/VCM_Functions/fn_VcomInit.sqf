@@ -5,24 +5,30 @@
 VCM_PublicScript = compileFinal "[] call (_this select 0);";
 VCM_ServerAsk = compileFinal "(_this select 1) publicVariableClient (_this select 0);";
 
-[] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\Functions\VCM_Functions\fn_CBASettings.sqf);
-
+/*
 if (isServer) then {
 	if (isFilePatchingEnabled) then {
 		private _path = QPATHTOFOLDER(vcomai\userconfig\VCOM_AI\AISettingsV3.4.1.hpp);
 
 		if (fileExists _path) then {
 			[] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\userconfig\VCOM_AI\AISettingsV3.4.1.hpp);
-			[Vcm_Settings] remoteExec ["VCM_PublicScript",0,false];		
+			[Vcm_Settings] remoteExec ["VCM_PublicScript",0,false];
 		} else {
 			[] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\Functions\VCOMAI_DefaultSettings.sqf);
-			[Vcm_Settings] remoteExec ["VCM_PublicScript",0,false];			
+			[Vcm_Settings] remoteExec ["VCM_PublicScript",0,false];
 		};
 	} else {
 		[] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\Functions\VCOMAI_DefaultSettings.sqf);
 		[Vcm_Settings] remoteExec ["VCM_PublicScript",0,false];
 	};
 };
+*/
+
+// Just run this everywhere for the moment
+[] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\Functions\VCOMAI_DefaultSettings.sqf);
+[] call Vcm_Settings;
+
+[] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\Functions\VCM_Functions\fn_CBASettings.sqf);
 
 //waitUntil {!(isNil "VCM_AIMagLimit")};
 

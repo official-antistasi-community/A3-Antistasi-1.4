@@ -1,10 +1,10 @@
 
 [] spawn
 {
-	private _id = clientOwner;
-	["Vcm_Settings",_id] remoteExec ["VCM_ServerAsk",2,false];
-	waitUntil {!(isNil "Vcm_Settings")};
-	[] call Vcm_Settings;	
+//	private _id = clientOwner;
+//	["Vcm_Settings",_id] remoteExec ["VCM_ServerAsk",2,false];
+//	waitUntil {!(isNil "Vcm_Settings")};
+//	[] call Vcm_Settings;	
 	sleep 5;
 	
 	[] call VCM_fnc_WeaponDefine;

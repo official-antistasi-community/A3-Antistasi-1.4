@@ -153,6 +153,7 @@ class Templates
                 class camo
                 {
                     arid = "Arid";
+                    arctic = "Arctic";
                     Default = "Temperate";
                 };
             };

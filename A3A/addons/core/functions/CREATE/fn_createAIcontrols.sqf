@@ -74,6 +74,8 @@ if (_isControl) then
 			{
 			_pos = [getPos (_roads select 0), 7, _dirveh + 270] call BIS_Fnc_relPos;
 			_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+			private _truckX = createVehicle ["B_supplyCrate_F", _pos, [],0, "NONE"];
+			[_truckX] spawn A3A_fnc_fillLootCrate; 
 			_vehiclesX pushBack _bunker;
 			_bunker setDir _dirveh;
 			_pos = getPosATL _bunker;

@@ -1,35 +1,30 @@
 params ["_AIArray"];
 
-private _RndAnims= [
-"Acts_Rifle_Operations_Back",
-"Acts_Rifle_Operations_Barrel",
-"Acts_Rifle_Operations_Checking_Chamber",
-"Acts_Rifle_Operations_Front",
-"Acts_Rifle_Operations_Right",
-"Acts_Rifle_Operations_Left",
-"Acts_Rifle_Operations_Zeroing",
-"Acts_Peering_Up",
-"Acts_Peering_Right",
-"Acts_Peering_Left",
-"Acts_Peering_Front",
-"Acts_Peering_Down",
-"Acts_Peering_Back",
-"Acts_Ambient_Cleaning_Nose",
-"Acts_Ambient_Gestures_Sneeze",
-"Acts_Ambient_Gestures_Tired",
-"Acts_Ambient_Gestures_Yawn",
-"Acts_Ambient_Picking_Up",
-"Acts_Ambient_Relax_1",
-"Acts_Ambient_Relax_2",
-"Acts_Ambient_Relax_3",
-"Acts_Ambient_Relax_4",
-"Acts_Ambient_Rifle_Drop",
-"Acts_Ambient_Shoelaces",
-"Acts_Ambient_Stretching"
+private _animations = [
+	"acts_rifle_operations_back",
+	"acts_rifle_operations_barrel",
+	"acts_rifle_operations_checking_chamber",
+	"acts_rifle_operations_front",
+	"acts_rifle_operations_right",
+	"acts_rifle_operations_left",
+	"acts_rifle_operations_zeroing",
+	"acts_ambient_cleaning_nose",
+	"acts_ambient_gestures_sneeze",
+	"acts_ambient_gestures_tired",
+	"acts_ambient_gestures_yawn",
+	"acts_ambient_picking_up",
+	"acts_ambient_relax_1",
+	"acts_ambient_relax_2",
+	"acts_ambient_relax_3",
+	"acts_ambient_relax_4",
+	"acts_ambient_rifle_drop",
+	"acts_ambient_shoelaces",
+	"acts_ambient_stretching",
+	"acts_shieldfromsun_in"
 ];
 	
 {
-	if (animationState _x in _RndAnims) then
+	if (animationState _x in _animations) then
 	{
 		_x switchmove "";
 	};

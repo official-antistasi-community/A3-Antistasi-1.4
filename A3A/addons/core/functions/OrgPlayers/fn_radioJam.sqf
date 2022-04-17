@@ -33,9 +33,8 @@ while {true} do
 					private _defaultSignal = _this call acre_sys_signal_fnc_getSignalCore;
 					_defaultSignal params ["_powerX","_maxSignal"];
 
-					private _distancePercentageFromTower = [] call A3A_radioJamACRE;
+					_powerX = [] call A3A_radioJamACRE;
 
-					_powerX = 1 - _distancePercentageFromTower;
 					[_powerX, _maxSignal];
 				}] call acre_api_fnc_setCustomSignalFunc;
 			};

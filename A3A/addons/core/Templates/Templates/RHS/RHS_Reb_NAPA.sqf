@@ -19,7 +19,6 @@
 ["vehicleRepair", "rhsgref_cdf_gaz66_repair"] call _fnc_saveToTemplate;
 
 ["vehiclePlane", "RHS_AN2"] call _fnc_saveToTemplate;
-["vehicleHeli", ""] call _fnc_saveToTemplate;
 
 ["vehicleCivCar", "C_Offroad_01_F"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "RHS_Ural_Open_Civ_03"] call _fnc_saveToTemplate;

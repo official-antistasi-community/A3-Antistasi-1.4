@@ -114,6 +114,8 @@ server setVariable ["hr",8,true];
 server setVariable ["resourcesFIA",1000,true];
 // Time of last garbage clean. Note: serverTime may not reset to zero if server was not restarted. Therefore, it should capture the time at start of mission.
 DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
+// Hash map of custom non-member/AI item thresholds
+DECLARE_SERVER_VAR(A3A_arsenalLimits, createHashMap);
 
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///
@@ -245,6 +247,8 @@ call A3A_fnc_selector;
 if (local flagX) then { flagX setFlagTexture FactionGet(reb,"flagTexture") } else { [flagX, FactionGet(reb,"flagTexture")] remoteExec ["setFlagTexture", owner flagX] };
 "NATO_carrier" setMarkerText FactionGet(occ,"spawnMarkerName");
 "CSAT_carrier" setMarkerText FactionGet(inv,"spawnMarkerName");
+"NATO_carrier" setMarkertype FactionGet(occ,"flagMarkerType");
+"CSAT_carrier" setMarkertype FactionGet(inv,"flagMarkerType");
 
 ////////////////////////////////////
 //      CIVILIAN VEHICLES       ///
@@ -331,8 +335,6 @@ DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 //This is all very tightly coupled.
 //Beware when changing these, or doing anything with them, really.
 
-Info("Initializing hardcoded categories");
-[] call A3A_fnc_categoryOverrides;
 Info("Scanning config entries for items");
 [A3A_fnc_equipmentIsValidForCurrentModset] call A3A_fnc_configSort;
 Info("Categorizing vehicle classes");

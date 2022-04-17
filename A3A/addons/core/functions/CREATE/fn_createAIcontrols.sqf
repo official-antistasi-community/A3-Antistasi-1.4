@@ -98,6 +98,7 @@ if (_isControl) then
 			_typeVehX = _faction get "flag";
 			_veh = createVehicle [_typeVehX, _pos, [],0, "NONE"];
 			_vehiclesX pushBack _veh;
+			if (flagTexture _veh != (_faction get "flagTexture")) then {[_veh,(_faction get "flagTexture")] remoteExec ["setFlagTexture",_veh]};
 			_veh setPosATL _pos;
 			_veh setDir _dirVeh;
 			sleep 1;
@@ -283,12 +284,6 @@ deleteGroup _groupX;
 		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
-} forEach _vehiclesX;
-
-
-{
-	// delete all vehicles that haven't been captured
-	if !(_x getVariable ["inDespawner", false]) then { deleteVehicle _x };
 } forEach _vehiclesX;
 
 

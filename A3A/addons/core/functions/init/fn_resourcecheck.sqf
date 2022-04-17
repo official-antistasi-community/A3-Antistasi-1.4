@@ -59,7 +59,7 @@ while {true} do
 		// revuelta civil!!
 		if ((_supportGov < _supportReb) and (sidesX getVariable [_city,sideUnknown] == Occupants)) then
 		{
-			["TaskSucceeded", ["", format ["%1 joined %2",[_city, false] call A3A_fnc_location,FactionGet(reb,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+			["TaskSucceeded", ["", format ["%1 joined %2",_city,FactionGet(reb,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,teamPlayer,true];
 			[Occupants, 10, 60] remoteExec ["A3A_fnc_addAggression",2];
 			_mrkD = format ["Dum%1",_city];
@@ -79,7 +79,7 @@ while {true} do
 		};
 		if ((_supportGov > _supportReb) and (sidesX getVariable [_city,sideUnknown] == teamPlayer)) then
 		{
-			["TaskFailed", ["", format ["%1 joined %2",[_city, false] call A3A_fnc_location,FactionGet(occ,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+			["TaskFailed", ["", format ["%1 joined %2",_city,FactionGet(occ,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,Occupants,true];
 			[Occupants, -10, 45] remoteExec ["A3A_fnc_addAggression",2];
 			_mrkD = format ["Dum%1",_city];
@@ -113,6 +113,7 @@ while {true} do
 	if (_textArsenal != "") then {_textX = format ["%1<br/>Arsenal Updated<br/><br/>%2", _textX, _textArsenal]};
 	[petros, "taxRep", _textX] remoteExec ["A3A_fnc_commsMP", [teamPlayer, civilian]];
 
+	[] call A3A_fnc_generateRebelGear;
 
 	[] call A3A_fnc_FIAradio;
 	[] call A3A_fnc_economicsAI;

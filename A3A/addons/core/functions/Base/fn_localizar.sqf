@@ -9,12 +9,11 @@ _textX = "";
 
 if (_siteX in citiesX) then
 	{
-	_textX = format ["%1",[_siteX,false] call A3A_fnc_location];
+	_textX = format ["%1",_siteX];
 	}
 else
 	{
 	_city = [citiesX,_pos] call BIS_fnc_nearestPosition;
-	_city = [_city,false] call A3A_fnc_location;
 	if (_siteX in airportsX) then {_textX = format ["%1 Airbase",_city]};
 	if (_siteX in resourcesX) then {_textX = format ["Resource near %1",_city]};
 	if (_siteX in factories) then {_textX = format ["Factory near %1",_city]};

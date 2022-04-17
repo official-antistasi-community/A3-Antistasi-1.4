@@ -71,6 +71,20 @@
 ["minefieldAT", []] call _fnc_saveToTemplate;
 ["minefieldAPERS", []] call _fnc_saveToTemplate;
 
+/////////////////////
+///  Identities   ///
+/////////////////////
+//Faces and Voices given to AI Factions.
+["faces", []] call _fnc_saveToTemplate;
+["voices", []] call _fnc_saveToTemplate;
+//SpecialForces, Militia, Police Faces and Voices, these are Optional if there is no reason to Include them, leave them out.
+["sfVoices", []] call _fnc_saveToTemplate;
+["sfFaces", []] call _fnc_saveToTemplate;
+["milVoices", []] call _fnc_saveToTemplate;
+["milFaces", []] call _fnc_saveToTemplate;
+["polVoices", []] call _fnc_saveToTemplate;
+["polFaces", []] call _fnc_saveToTemplate;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
@@ -124,7 +138,7 @@ _loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalS
 _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
 
 //Unit type specific item sets. Add or remove these, depending on the unit types in use.
-_loadoutData set ["items_squadleader_extras", []];
+_loadoutData set ["items_squadLeader_extras", []];
 _loadoutData set ["items_rifleman_extras", []];
 _loadoutData set ["items_medic_extras", []];
 _loadoutData set ["items_grenadier_extras", []];

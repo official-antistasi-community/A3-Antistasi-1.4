@@ -43,7 +43,7 @@ private _assignedVehicles =	[];
 		if (alive _x) then
 		{
 			_hr = _hr + 1;
-			_resourcesFIA = _resourcesFIA + (server getVariable [_x getVariable "unitType",0]);
+			_resourcesFIA = _resourcesFIA + (server getVariable [_x getVariable "unitType",0]) / 2;
 			if (!isNull (assignedVehicle _x) and {isNull attachedTo (assignedVehicle _x)}) then
 			{
 				_assignedVehicles pushBackUnique (assignedVehicle _x);

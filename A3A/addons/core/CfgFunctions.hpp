@@ -79,7 +79,9 @@ class CfgFunctions
             class equipmentClassToCategories {};
             class equipmentIsValidForCurrentModset {};
             class equipmentSort {};
+            class fetchRebelGear {};
             class fillLootCrate {};
+            class generateRebelGear {};
             class getRadio {};
             class hasARadio {};
             class itemConfig {};
@@ -139,7 +141,6 @@ class CfgFunctions
             class arePositionsConnected {};
             class joinMultipleGroups {};
             class localizar {};
-            class location {};
             class lockStatic {};
             class logPerformance {};
             class markerChange {};

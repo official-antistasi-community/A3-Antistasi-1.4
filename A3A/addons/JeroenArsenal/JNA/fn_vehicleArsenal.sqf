@@ -118,6 +118,7 @@ disableserialization;
 private _minItemsMember = {
 	params ["_index", "_item"];					// Arsenal tab index, item classname
 	private _min = jna_minItemMember select _index;
+	_min = A3A_arsenalLimits getOrDefault [_item, _min];
 	if (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG || _index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) then {
 		_min = _min * getNumber (configfile >> "CfgMagazines" >> _item >> "count");
 	};
@@ -260,7 +261,9 @@ switch _mode do {
 
 		//Keys
 		_display displayRemoveAllEventHandlers "keydown";
+		_display displayRemoveAllEventHandlers "keyup";
 		_display displayAddEventHandler ["keydown",{['KeyDown',_this] call jn_fnc_arsenal;}];
+		_display displayAddEventHandler ["keyup",{['KeyUp',_this] call jn_fnc_arsenal;}];
 
 		//--- UI event handlers
 		_ctrlButtonRandom = _display displayctrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONRANDOM;
@@ -618,6 +621,20 @@ switch _mode do {
 		_amountOld = parseNumber (_ctrlList lnbtext [_lbcursel,2]);
 		//remove or add
 		_count = 1;
+
+		private _shift = uiNamespace getVariable ["arsenalShift", false];
+		private _ctrl = uiNamespace getVariable ["arsenalCtrl", false];
+
+		if(_shift && !_ctrl) then {
+			_count = _count * 5;
+		};
+		if(!_shift && _ctrl) then {
+			_count = _count * 10;
+		};
+		if(_shift && _ctrl) then {
+			_count = _count * 25;
+		};
+
 		if(((_amount > 0 || _amount == -1) || _add < 0) && (_add != 0))then{
 
 			if (_add > 0) then {//add
@@ -631,10 +648,11 @@ switch _mode do {
 				//magazines are handeld by bullet count
 				if(_index in [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL])then{
 					//check if full mag can be optaind
-					_count = getNumber (configfile >> "CfgMagazines" >> _item >> "count");
-					if(_amount != -1)then{
-						if(_amount<_count)then{_count = _amount};
-					};
+					_count = _count * getNumber (configfile >> "CfgMagazines" >> _item >> "count");
+				};
+
+				if(_amount != -1) then {
+					_count = _count min _amount;
 				};
 
 				if(_count > 0)then{
@@ -730,7 +748,18 @@ switch _mode do {
 			case (_key == DIK_TAB): {
 			};
 
-
+			case (_key == DIK_LSHIFT): {
+				uiNamespace setVariable ["arsenalShift", true];
+				_return = true;
+			};
+			case (_key == DIK_LCONTROL): {
+				uiNamespace setVariable ["arsenalCtrl", true];
+				_return = true;
+			};
+			case (_key == DIK_LALT): {
+				uiNamespace setVariable ["arsenalAlt", true];
+				_return = true;
+			};
 
 			//--- Save
 			case (_key == DIK_S): {
@@ -766,6 +795,30 @@ switch _mode do {
 				playsound ["RscDisplayCurator_visionMode",true];
 				_return = true;
 
+			};
+		};
+		_return
+	};
+
+    /////////////////////////////////////////////////////////////////////////////////////////// event
+ 	case "KeyUp": {
+		_display = _this select 0;
+		_key = _this select 1;
+		_shift = _this select 2;
+		_ctrl = _this select 3;
+		_alt = _this select 4;
+		switch true do {
+			case (_key == DIK_LSHIFT): {
+				uiNamespace setVariable ["arsenalShift", false];
+				_return = true;
+			};
+			case (_key == DIK_LCONTROL): {
+				uiNamespace setVariable ["arsenalCtrl", false];
+				_return = true;
+			};
+			case (_key == DIK_LALT): {
+				uiNamespace setVariable ["arsenalAlt", false];
+				_return = true;
 			};
 		};
 		_return

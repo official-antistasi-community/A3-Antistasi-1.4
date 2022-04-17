@@ -30,15 +30,28 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 				private _radioName = getText(configfile >> "CfgWeapons" >> _item >> "tf_parent");
 				if!(_radioName isEqualTo "")then{_item = _radioName};
 
+				//Weapon Stack fix
+				private _weaponname = getText(configfile >> "CfgWeapons" >> _item >> "baseWeapon");
+				if!(_weaponname isEqualTo "")then{_item = _weaponname};
+
+				//RHS Sight Stack fix
+				private _sightname = getText(configfile >> "CfgWeapons" >> _item >> "rhs_optic_base");
+				if!(_sightname isEqualTo "")then{_item = _sightname};
+				
 				//ACRE fix
 				private _radioName = getText(configfile >> "CfgVehicles" >> _item >> "acre_baseClass");
 				if!(_radioName isEqualTo "")then{_item = _radioName};
 
-				//update
-				private _playersInArsenal = +(server getVariable ["jna_playersInArsenal",[]]);
-				if!(0 in _playersInArsenal)then{_playersInArsenal pushBackUnique 2;};
+				// Update server immediately if local. Avoids lag after unlockEquipment
+				if (isServer) then { ["UpdateItemAdd",[_index, _item, _amount,true]] call jn_fnc_arsenal }
+				else { ["UpdateItemAdd",[_index, _item, _amount,true]] remoteExecCall ["jn_fnc_arsenal",2] };
+
+				// then update other players. Don't execute on server twice
+				private _playersInArsenal = +(server getVariable ["jna_playersInArsenal",[]]) - [2];
+				if (0 in _playersInArsenal) then { _playersInArsenal = -2 };
 				["UpdateItemAdd",[_index, _item, _amount,true]] remoteExecCall ["jn_fnc_arsenal",_playersInArsenal];
 			};
 		};
 	} forEach _x;
 }foreach _array;
+

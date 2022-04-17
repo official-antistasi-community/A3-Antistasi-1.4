@@ -2,11 +2,11 @@
 //   Rebel Information   //
 ///////////////////////////
 
-["name", "TKM"] call _fnc_saveToTemplate;
+["name", "CCM"] call _fnc_saveToTemplate;
 
-["flag", "Flag_TKM_B"] call _fnc_saveToTemplate;
-["flagTexture", "uk3cb_factions\addons\uk3cb_factions_tkm\flag\tkm_b_flag_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "UK3CB_MARKER_B_TKM"] call _fnc_saveToTemplate;
+["flag", "Flag_CCM_B"] call _fnc_saveToTemplate;
+["flagTexture", "\UK3CB_Factions\addons\UK3CB_Factions_CCM\Flag\ccm_i_flag_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "UK3CB_MARKER_CCM_B"] call _fnc_saveToTemplate;
 
 ["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate;
 ["vehicleLightUnarmed", "UK3CB_CCM_I_Datsun_Open"] call _fnc_saveToTemplate;
@@ -23,7 +23,7 @@
 
 ["vehicleCivCar", "UK3CB_C_Hilux_Open"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "UK3CB_TKC_C_Kamaz_Open"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "UK3CB_TKC_C_Mi8AMT"] call _fnc_saveToTemplate;
+["vehicleCivHeli", "UK3CB_CHC_C_Mi8AMT"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
 
 ["staticMG", "UK3CB_NAP_I_DSHKM"] call _fnc_saveToTemplate;
@@ -50,44 +50,54 @@ private _initialRebelEquipment = [
 "UK3CB_BHP_9_13Rnd","rhs_mag_762x25_8","UK3CB_Enfield_Mag","rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_mag_rdg2_black","rhs_grenade_m15_mag",
 "UK3CB_CHC_C_B_MED","UK3CB_B_Bedroll_Backpack","UK3CB_TKC_C_B_Sidor_MED","UK3CB_CW_SOV_O_LATE_B_Sidor_RIF","UK3CB_CW_SOV_O_EARLY_B_Sidor_RIF",
 "UK3CB_V_CW_Chestrig","UK3CB_V_CW_Chestrig_2_Small","UK3CB_V_Belt_KHK","UK3CB_V_Belt_Rig_KHK","UK3CB_V_Belt_Rig_Lite_KHK","UK3CB_V_Pouch","UK3CB_V_Chestrig_TKA_OLI","UK3CB_V_Chestrig_2_Small_OLI","UK3CB_V_Chestrig_TKA_BRUSH","UK3CB_V_Chestrig_Lite_KHK","UK3CB_V_Chestrig_Lite_2_Small_KHK",
-"rhs_acc_2dpZenit","Binocular"
-];
+"rhs_acc_2dpZenit","Binocular"];
+
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
-if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155_coyote"};
+if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
-if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "TFAR_anprc155_coyote"};
+if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155","TFAR_anprc155_coyote"]};
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 private _rebUniforms = [
+    "UK3CB_CCM_I_U_COM_01",
+    "UK3CB_NAP_I_U_Officer_Uniform_GRN",
+    "UK3CB_NAP_I_U_Officer_Uniform_FLK_GRN",
+    "UK3CB_NAP_I_U_Officer_Uniform_WDL_GRN",
+    "UK3CB_ADE_I_U_02_B",
+    "UK3CB_ADE_I_U_02_C",
+    "UK3CB_ADE_I_U_02_D",
+    "UK3CB_ADE_I_U_02_E",
+    "UK3CB_ADE_I_U_02_F",
+    "UK3CB_ADE_I_U_02_G",
+    "UK3CB_ADE_I_U_02_H",
+    "UK3CB_ADE_I_U_02_I",
     "UK3CB_ADE_I_U_02_J",
-    "UK3CB_ADM_I_U_Tshirt_01_WDL_03",
-    "UK3CB_ADM_B_U_Tshirt_01_WDL",
-    "UK3CB_TKM_I_U_01",
-    "UK3CB_TKM_I_U_01_B",
-    "UK3CB_TKM_I_U_01_C",
-    "UK3CB_TKM_I_U_03",
-    "UK3CB_TKM_I_U_03_B",
-    "UK3CB_TKM_I_U_03_C",
-    "UK3CB_TKM_I_U_04",
-    "UK3CB_TKM_I_U_04_B",
-    "UK3CB_TKM_I_U_04_C",
-    "UK3CB_TKM_I_U_05",
-    "UK3CB_TKM_I_U_05_B",
-    "UK3CB_TKM_I_U_05_C",
-    "UK3CB_TKM_I_U_06",
-    "UK3CB_TKM_I_U_06_B",
-    "UK3CB_TKM_I_U_06_C"
+    "UK3CB_ADE_I_U_02_K",
+    "UK3CB_ADM_I_U_Tshirt_01_TCC",
+    "UK3CB_NAP_I_U_Tshirt_BLK",
+    "UK3CB_NAP_I_U_Tshirt_FLK",
+    "UK3CB_NAP_I_U_Tshirt_FLR"
 ];
 
 ["uniforms", _rebUniforms] call _fnc_saveToTemplate;
 
 ["headgear", [
-    "UK3CB_TKC_H_Turban_01_1",
-    "UK3CB_TKC_H_Turban_02_1",
-    "UK3CB_TKC_H_Turban_06_1",
-    "UK3CB_TKC_H_Turban_04_1",
-    "UK3CB_TKC_H_Turban_05_1"
+    "UK3CB_H_Beanie_02_BLK",
+    "rhs_beanie",
+    "H_Cap_oli_hs",
+    "UK3CB_H_Ushanka_Cap_03",
+    "UK3CB_H_Ushanka_Cap_01"
 ]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["LivonianHead_6","Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03",
+"WhiteHead_05","WhiteHead_07","WhiteHead_08","WhiteHead_09","WhiteHead_10",
+"WhiteHead_12","WhiteHead_13","WhiteHead_14","WhiteHead_15","WhiteHead_16",
+"WhiteHead_17","WhiteHead_19","WhiteHead_20","WhiteHead_21"]] call _fnc_saveToTemplate;
+["voices", ["RHS_Male01CZ","RHS_Male02CZ","RHS_Male03CZ","RHS_Male04CZ","RHS_Male05CZ"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

@@ -127,6 +127,7 @@ _arrayContains = {
 private _minItemsMember = {
 	params ["_index", "_item"];					// Arsenal tab index, item classname
 	private _min = jna_minItemMember select _index;
+	_min = A3A_arsenalLimits getOrDefault [_item, _min];
 	if (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG || _index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) then {
 		_min = _min * getNumber (configfile >> "CfgMagazines" >> _item >> "count");
 	};
@@ -336,8 +337,9 @@ switch _mode do {
 
 		//Keys
 		_display displayRemoveAllEventHandlers "keydown";
+		_display displayRemoveAllEventHandlers "keyup";
 		_display displayAddEventHandler ["keydown",{['KeyDown',_this] call jn_fnc_arsenal;}];
-
+		_display displayAddEventHandler ["keyup",{['KeyUp',_this] call jn_fnc_arsenal;}];
 		//--- UI event handlers
 		_ctrlButtonClose = _display displayctrl (getnumber (configfile >> "RscDisplayArsenal" >> "Controls" >> "ControlBar" >> "controls" >> "ButtonClose" >> "idc"));
 		_ctrlButtonClose ctrlRemoveAllEventHandlers "buttonclick";
@@ -2124,6 +2126,7 @@ switch _mode do {
 
 		//remove or add
 		_count = 1;
+
 		if(((_amount > 0 || _amount == -1) || _add < 0) && (_add != 0))then{
 
 			if (_add > 0) then {//add
@@ -2556,7 +2559,18 @@ switch _mode do {
 			case (_key == DIK_TAB): {
 			};
 
-
+			case (_key == DIK_LSHIFT): {
+				uiNamespace setVariable ["arsenalShift", true];
+				_return = true;
+			};
+			case (_key == DIK_LCONTROL): {
+				uiNamespace setVariable ["arsenalCtrl", true];
+				_return = true;
+			};
+			case (_key == DIK_LALT): {
+				uiNamespace setVariable ["arsenalAlt", true];
+				_return = true;
+			};
 
 			//--- Save
 			case (_key == DIK_S): {
@@ -2592,6 +2606,30 @@ switch _mode do {
 				playsound ["RscDisplayCurator_visionMode",true];
 				_return = true;
 
+			};
+		};
+		_return
+	};
+
+	/////////////////////////////////////////////////////////////////////////////////////////// event
+ 	case "KeyUp": {
+		_display = _this select 0;
+		_key = _this select 1;
+		_shift = _this select 2;
+		_ctrl = _this select 3;
+		_alt = _this select 4;
+		switch true do {
+			case (_key == DIK_LSHIFT): {
+				uiNamespace setVariable ["arsenalShift", false];
+				_return = true;
+			};
+			case (_key == DIK_LCONTROL): {
+				uiNamespace setVariable ["arsenalCtrl", false];
+				_return = true;
+			};
+			case (_key == DIK_LALT): {
+				uiNamespace setVariable ["arsenalAlt", false];
+				_return = true;
 			};
 		};
 		_return

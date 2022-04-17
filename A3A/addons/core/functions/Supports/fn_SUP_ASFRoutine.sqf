@@ -56,29 +56,6 @@ _strikePlane addEventHandler
     }
 ];
 
-_strikePlane addEventHandler
-[
-    "IncomingMissile",
-    {
-        params ["_plane", "_ammo", "_vehicle"];
-        if !(_vehicle isKindOf "Man") then
-        {
-            //Vehicle fired a missile against the plane, add to target list if ground, no warning for players as this is an internal decision of the pilot
-            if(_vehicle isKindOf "Air") then
-            {
-                private _supportName = _plane getVariable "supportName";
-                [_supportName, [_vehicle, 3], 0] spawn A3A_fnc_addSupportTarget;
-            }
-            else
-            {
-                //Send support against ground based vehicles, retreat
-                [_vehicle, 4, ["SEAD", "CAS", "MISSILE"], side group (driver _plane), random 1] spawn A3A_fnc_sendSupport;
-                _plane setVariable ["Retreat", true, true];
-            };
-        };
-        //Else case handled in client init
-    }
-];
 
 _strikePlane addEventHandler
 [

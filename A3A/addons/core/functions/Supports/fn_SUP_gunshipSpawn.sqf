@@ -44,28 +44,6 @@ _strikePlane addEventHandler
     }
 ];
 
-_strikePlane addEventHandler
-[
-    "IncomingMissile",
-    {
-        //Missile launch against this plane detected, attack if vehicle, send other support if manpads
-        params ["_plane", "_ammo", "_vehicle"];
-        if !(_vehicle isKindOf "Man") then
-        {
-            //Vehicle fired a missile against the plane, add to target list if ground, no warning for players as this is an internal decision of the pilot
-            if(_vehicle isKindOf "Air") then
-            {
-                [group driver _plane, ["ASF", "SAM"], _vehicle] spawn A3A_fnc_callForSupport;
-                _plane setVariable ["Retreat", true, true];
-            }
-            else
-            {
-                private _supportName = _plane getVariable "supportName";
-                [_supportName, [_vehicle, 3], 0] spawn A3A_fnc_addSupportTarget;
-            };
-        };
-    }
-];
 
 _strikePlane addEventHandler
 [

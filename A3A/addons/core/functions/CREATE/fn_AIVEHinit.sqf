@@ -178,19 +178,6 @@ if(_veh isKindOf "Air") then
         }
     ];
 
-
-    _veh addEventHandler
-    [
-        "IncomingMissile",
-        {
-            params ["_target", "_ammo", "_vehicle", "_instigator"];
-            private _group = group driver _target;
-            private _supportTypes = [_group, _vehicle] call A3A_fnc_chooseSupport;
-            _supportTypes = _supportTypes - ["QRF"];
-            private _reveal = [getPos _vehicle, side _group] call A3A_fnc_calculateSupportCallReveal;
-            [_vehicle, 4, _supportTypes, side _group, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
-        }
-    ]
 };
 
 // Handler to prevent vehDespawner deleting vehicles for an hour after rebels exit them

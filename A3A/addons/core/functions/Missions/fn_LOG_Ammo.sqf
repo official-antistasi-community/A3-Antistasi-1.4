@@ -66,9 +66,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 		[_dog] spawn A3A_fnc_guardDog;
 	};
 
-	[_groupX, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolSetParams;
-	_groupX setVariable ["PATCOM_Controlled", false];
-	A3A_Patrol_Controlled_AI pushBack _groupX;
+	[_groupX, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolLoop;
 
 	//todo Hazey to replace this function
 	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_LOG_Ammo#1"];
@@ -77,9 +75,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 
 	sleep 1;
 
-	[_groupX1, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolSetParams;
-	_groupX1 setVariable ["PATCOM_Controlled", false];
-	A3A_Patrol_Controlled_AI pushBack _groupX1;
+	[_groupX1, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolLoop;
 
 	//todo Hazey to replace this function
 	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_LOG_Ammo#2"];

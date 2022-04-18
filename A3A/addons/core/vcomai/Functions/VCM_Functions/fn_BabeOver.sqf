@@ -123,7 +123,7 @@ for "_i" from 0 to 60 do
 	{
 		_obj = (_int select 0) select 3;
 
-		if (EM_debug) then
+		if (PATCOM_DEBUG) then
 		{
 			drawLine3D [_posa, _posb, [1,0,0,1]];
 		};
@@ -146,7 +146,7 @@ for "_i" from 0 to 60 do
 
 			_dst = (_ppWT max _tpWT) - (_ppWT min _tpWT);
 
-			if (EM_debug) then
+			if (PATCOM_DEBUG) then
 			{	
 				drawLine3D [_posa, _posb, [0,1,1,1]];
 			};
@@ -300,7 +300,7 @@ if (!_top) then
 
 };
 
-if (EM_debug) then
+if (PATCOM_DEBUG) then
 {
 	systemchat str [(count _int2), (count _int3), _wide, _top, _pos];
 	babe_em_debug_a setposasl (_poses select 0);
@@ -325,7 +325,7 @@ if (str _pos != "[0,0,0]" && count _poses > 0) then
 
 		_int4 = lineintersectsSurfaces [_posa, _posb, _climber, objNull, true, 1, "GEOM", "FIRE"];
 		
-		if (EM_debug) then
+		if (PATCOM_DEBUG) then
 		{
 			_a = createVehicle ["Sign_Arrow_F", _posa, [], 0, "can_collide"];
 			_a setposasl _posa;
@@ -344,7 +344,7 @@ if (str _pos != "[0,0,0]" && count _poses > 0) then
 
 		_int5 = lineintersectsSurfaces [_posa, _posb, _climber, objNull, true, 1, "GEOM", "FIRE"];
 		
-		if (EM_debug) then
+		if (PATCOM_DEBUG) then
 		{
 			_a = createVehicle ["Sign_Arrow_F", _posa, [], 0, "can_collide"];
 			_a setposasl _posa;

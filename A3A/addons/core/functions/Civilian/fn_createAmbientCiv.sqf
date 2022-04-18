@@ -87,8 +87,7 @@ for "_i" from 1 to _civilianPopulation do {
 					}
 				];
 
-				_civUnit setVariable ["PATCOM_Controlled", false];
-				A3A_Patrol_Controlled_AI pushBack _groupX;
+				[_groupX] call A3A_fnc_patrolLoop;
 			};
 		};
 	};
@@ -139,8 +138,7 @@ for "_i" from 1 to _civilianPopulation do {
 				_soundSources pushBack _soundSource;
 			};
 
-			_civUnit setVariable ["PATCOM_Controlled", false];
-			A3A_Patrol_Controlled_AI pushBack _groupX;
+			[_groupX] call A3A_fnc_patrolLoop;
 		};
 	};
 };
@@ -149,8 +147,7 @@ for "_i" from 1 to _civilianPopulation do {
 waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
 {if (alive _x) then {deleteVehicle _x};} forEach _civilians;
 {
-	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
-	_x setVariable ["PATCOM_Controlled", ""];
+	_x setVariable ["PATCOM_Controlled", false];
 	deleteGroup _x;
 } forEach _civilianGroups;
 

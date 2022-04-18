@@ -1,14 +1,9 @@
 
-[] spawn
-{
-//	private _id = clientOwner;
-//	["Vcm_Settings",_id] remoteExec ["VCM_ServerAsk",2,false];
-//	waitUntil {!(isNil "Vcm_Settings")};
-//	[] call Vcm_Settings;	
+[] spawn {
 	sleep 5;
 	
 	[] call VCM_fnc_WeaponDefine;
-	[] spawn VCM_fnc_AIDRIVEBEHAVIOR;
+	//[] spawn VCM_fnc_AIDRIVEBEHAVIOR;
 	[] spawn VCM_fnc_Scheduler;
 	
 	if (hasInterface) then {

@@ -29,9 +29,6 @@
 ["vehiclesAPCs", ["rhsgref_hidf_m113a3_m2", "rhsgref_hidf_m113a3_m2", "rhsgref_hidf_m113a3_mk19", "UK3CB_B_LAV25_HIDF", "UK3CB_B_LAV25_HIDF", "UK3CB_B_LAV25_HQ_HIDF", "UK3CB_B_AAV_HIDF", "UK3CB_B_AAV_HIDF"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_B_M60A3_HIDF", "UK3CB_B_M60A1_HIDF", "UK3CB_CW_US_B_EARLY_M1A1"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
-["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
-
 
 ["vehiclesTransportBoats", ["rhsgref_hidf_assault_boat", "rhsgref_hidf_rhib"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_TKA_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
@@ -149,9 +146,9 @@ private _eeItems = ["ToolKit", "MineDetector"];
 private _mmItems = [];
 
 if (A3A_hasACE) then {
-	_slItems append ["ACE_microDAGR", "ACE_DAGR"];
-	_eeItems append ["ACE_Clacker", "ACE_DefusalKit"];
-	_mmItems append ["ACE_RangeCard", "ACE_ATragMX", "ACE_Kestrel4500"];
+    _slItems append ["ACE_microDAGR", "ACE_DAGR"];
+    _eeItems append ["ACE_Clacker", "ACE_DefusalKit"];
+    _mmItems append ["ACE_RangeCard", "ACE_ATragMX", "ACE_Kestrel4500"];
 };
 
 _loadoutData set ["items_squadLeader_extras", _slItems];

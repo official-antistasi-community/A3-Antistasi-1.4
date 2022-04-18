@@ -30,7 +30,6 @@
 ["vehiclesTanks", ["UK3CB_MDF_B_M60A3"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
 
-
 ["vehiclesTransportBoats", ["UK3CB_MDF_B_RHIB"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_MDF_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["UK3CB_MDF_B_M113_M2", "UK3CB_MDF_B_M113_M240", "UK3CB_MDF_B_M113_MK19"]] call _fnc_saveToTemplate;
@@ -158,9 +157,9 @@ private _eeItems = ["ToolKit", "MineDetector"];
 private _mmItems = [];
 
 if (A3A_hasACE) then {
-	_slItems append ["ACE_microDAGR", "ACE_DAGR"];
-	_eeItems append ["ACE_Clacker", "ACE_DefusalKit"];
-	_mmItems append ["ACE_RangeCard", "ACE_ATragMX", "ACE_Kestrel4500"];
+    _slItems append ["ACE_microDAGR", "ACE_DAGR"];
+    _eeItems append ["ACE_Clacker", "ACE_DefusalKit"];
+    _mmItems append ["ACE_RangeCard", "ACE_ATragMX", "ACE_Kestrel4500"];
 };
 
 _loadoutData set ["items_squadLeader_extras", _slItems];
@@ -281,15 +280,15 @@ _sfLoadoutData set ["marksmanRifles", [
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_premier_mrds", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
 ["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_m8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_leupoldmk4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
+["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_M8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
+["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_LEUPOLDMK4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m14_socom_rail", "rhsusf_acc_aac_762sdn6_silencer", "", "rhsusf_acc_M8541", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_m14_bipod"],
 ["rhs_weap_m14_socom_rail", "rhsusf_acc_aac_762sdn6_silencer", "", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_m14_bipod"],
 ["rhs_weap_m14_socom_rail", "rhsusf_acc_aac_762sdn6_silencer", "", "rhsusf_acc_premier_mrds", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_m14_bipod"]
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["rhs_weap_XM2010_sa", "rhsusf_acc_m2010s_sa", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_M8541_d", [], [], "rhsusf_acc_harris_bipod"],
-["rhs_weap_XM2010_sa", "rhsusf_acc_m2010s_sa", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_leupoldmk4_2_d", [], [], "rhsusf_acc_harris_bipod"],
+["rhs_weap_XM2010_sa", "rhsusf_acc_m2010s_sa", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_LEUPOLDMK4_2_d", [], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m24sws", "rhsusf_acc_m24_silencer_black", "", "rhsusf_acc_M8541", ["rhsusf_5Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_swivel"],
 ["rhs_weap_m24sws", "rhsusf_acc_m24_silencer_black", "", "rhsusf_acc_premier", ["rhsusf_5Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_swivel"],
 ["rhs_weap_m24sws", "rhsusf_acc_m24_silencer_black", "", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_5Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_swivel"],
@@ -352,8 +351,8 @@ _militaryLoadoutData set ["marksmanRifles", [
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_m8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_leupoldmk4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"]
+["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_M8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
+["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_LEUPOLDMK4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"]
 ]];
 
 ///////////////////////////////

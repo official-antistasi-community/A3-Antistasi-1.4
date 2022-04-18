@@ -38,8 +38,6 @@
     ,"UK3CB_CHC_C_V3S_Closed", 0.3
     ,"UK3CB_CHC_C_V3S_Open", 0.3]] call _fnc_saveToTemplate;
 
-["vehiclesCivHeli", []] call _fnc_saveToTemplate;
-
 ["vehiclesCivBoat", [
     "C_Boat_Civil_01_rescue_F", 0.1            // motorboats
     ,"C_Boat_Civil_01_police_F", 0.1

@@ -30,9 +30,6 @@
 ["vehiclesAPCs", ["UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_AAV", "UK3CB_AAF_B_LAV25_HQ", "UK3CB_AAF_B_M113_M2", "UK3CB_AAF_B_AAV"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_AAF_B_M60A3", "UK3CB_AAF_I_T72BC"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_AAF_O_ZsuTank", "UK3CB_AAF_O_MTLB_ZU23"]] call _fnc_saveToTemplate; //UK3CB_AAF_O_2S6M_Tunguska
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
-
 
 ["vehiclesTransportBoats", ["UK3CB_AAF_B_RHIB"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_AAF_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
@@ -262,8 +259,8 @@ _sfLoadoutData set ["machineGuns", [
 ]];
 _sfLoadoutData set ["marksmanRifles", [
 ["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_m8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_leupoldmk4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
+["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_M8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
+["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_LEUPOLDMK4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_M8541", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_premier_mrds", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
@@ -276,7 +273,7 @@ _sfLoadoutData set ["marksmanRifles", [
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["rhs_weap_XM2010_d", "rhsusf_acc_M2010S_d", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_M8541_d", [], [], "rhsusf_acc_harris_bipod"],
-["rhs_weap_XM2010_d", "rhsusf_acc_M2010S_d", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_leupoldmk4_2_d", [], [], "rhsusf_acc_harris_bipod"],
+["rhs_weap_XM2010_d", "rhsusf_acc_M2010S_d", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_LEUPOLDMK4_2_d", [], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m24sws", "rhsusf_acc_m24_silencer_black", "", "rhsusf_acc_M8541", ["rhsusf_5Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_swivel"],
 ["rhs_weap_m24sws", "rhsusf_acc_m24_silencer_black", "", "rhsusf_acc_premier", ["rhsusf_5Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_swivel"],
 ["rhs_weap_m24sws", "rhsusf_acc_m24_silencer_black", "", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_5Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_swivel"],

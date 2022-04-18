@@ -26,7 +26,7 @@ class Templates
                 class camo
                 { //template file name would follow: {path}\{Modset}_{Type}_{Faction}_{camo}.sqf
                 // note if `file` is set it becomes the following: {file}_{camo}.sqf
-                    arid = "Arid"
+                    arid = "Arid";
                     Default = "Temperate"; //default is the fallback if the climate is not in this class
                 };
             };
@@ -41,7 +41,7 @@ class Templates
             {
                 class camo
                 {
-                    arid = "Arid"
+                    arid = "Arid";
                     tropical = "Tropical";
                     Default = "Temperate";
                 };

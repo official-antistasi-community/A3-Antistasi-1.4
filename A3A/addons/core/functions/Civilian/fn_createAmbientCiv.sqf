@@ -64,6 +64,8 @@ if (_type == "City") then {
 for "_i" from 1 to _civilianPopulation do {
 
 	if (_type == "Resource") then {
+		if !((_markerX in resourcesX) or (_markerX in factories)) exitWith {};
+
 		if (not(_markerX in destroyedSites)) then {
 			if ((daytime > 8) and (daytime < 18)) then {
 				private _groupX = createGroup civilian;

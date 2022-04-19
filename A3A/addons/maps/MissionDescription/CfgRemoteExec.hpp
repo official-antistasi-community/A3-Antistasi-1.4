@@ -4,6 +4,5 @@ class CfgRemoteExec {
         mode = 2;           // 0: Completely blocked,   1: Blocked by default,      2: Allow All
         jip = 1;            // 0: No JIP,               1: JIP Allowed
         allowedTargets = 0; // 0: All machines,         1: Only to other clients,   2: Only to server
-
     };
 };

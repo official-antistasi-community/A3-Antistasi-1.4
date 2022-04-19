@@ -46,8 +46,8 @@ private _enemyArray = [];
 // Check if enemy combat is near.
 if (count _knownEnemies > 0) then {
 	{
-		if (_x#0 < PATCOM_VISUAL_RANGE) then {
-			_enemyArray pushback (_x#1);
+		if ((_x # 0) < PATCOM_VISUAL_RANGE) then {
+			_enemyArray pushback (_x # 1);
 		};
     } foreach _knownEnemies;
 
@@ -61,6 +61,8 @@ if (count _knownEnemies > 0) then {
 			_group setVariable ["PATCOM_Group_State", "COMBAT"];
 		};
 	};
+	
+	_group setVariable ["PATCOM_Known_Enemy", _enemyArray];
 };
 
 ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");

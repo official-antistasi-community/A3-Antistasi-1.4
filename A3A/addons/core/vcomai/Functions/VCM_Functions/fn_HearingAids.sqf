@@ -64,7 +64,6 @@ if ((_timeShot + 2) < time) then
 		if (count _array1 > 0) then
 		{
 			[_array1,_unit,1] remoteExec ["VCM_fnc_KnowAbout",0];	
-			//[_array1] remoteExec ["VCM_fnc_ResetAnimation",0];	
 		};
 		
 	};

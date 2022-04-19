@@ -510,11 +510,13 @@ class CfgFunctions
 
         class Patrol {
             file = QPATHTOFOLDER(functions\Patrol);
+            class patrolAILoad {};
             class patrolAnimation {};
             class patrolArea {};
             class patrolAttack {};
             class patrolBuildingEnterable {};
             class patrolCallForHelp {};
+            class patrolCanSee {};
             class patrolCivilianCommander {};
             class patrolClosestKnownEnemy {};
             class patrolCommander {};

@@ -70,9 +70,7 @@ for "_i" from 1 to _vehiclesAvilable do {
 		_groups pushBack _groupVeh;
 		
 		// GIVE UNIT PATCOM CONTROL
-		[_groupVeh, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolSetParams;
-		_groupVeh setVariable ["PATCOM_Controlled", false];
-		A3A_Patrol_Controlled_AI pushBack _groupVeh;
+		[_groupVeh, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolLoop;
 
 		_vehiclesX pushBack _veh;
 		sleep 1;
@@ -178,9 +176,7 @@ if (_patrol) then {
 			};
 
 			// GIVE UNIT PATCOM CONTROL
-			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolSetParams;
-			_groupX setVariable ["PATCOM_Controlled", false];
-			A3A_Patrol_Controlled_AI pushBack _groupX;
+			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
 			_groups pushBack _groupX;
 
 			{
@@ -393,9 +389,7 @@ for "_i" from 0 to (count _array - 1) do {
 		_groupX setVariable ["Vcm_Disable", true];
 	} else {
 		// GIVE UNIT PATCOM CONTROL
-		[_groupX, "Patrol_Defend", 0, 200, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
-		_groupX setVariable ["PATCOM_Controlled", false];
-		A3A_Patrol_Controlled_AI pushBack _groupX;
+		[_groupX, "Patrol_Defend", 0, 200, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 	};
 };
 
@@ -411,7 +405,6 @@ deleteMarker _mrk;
 { deleteVehicle _x } forEach _dogs;
 
 {
-	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
 	_x setVariable ["PATCOM_Controlled", ""];
 	deleteGroup _x;
 } forEach _groups;

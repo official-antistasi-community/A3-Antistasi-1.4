@@ -4,7 +4,7 @@
 item0[] = {"Begin_State",0,250,0.000000,700.000000,100.000000,750.000000,0.000000,"Begin State"};
 item1[] = {"Cond",4,218,-125.000000,700.000000,-25.000000,750.000000,1.000000,"Cond"};
 item2[] = {"Exit_FSM",1,250,-250.000000,700.000000,-175.000000,750.000000,0.000000,"Exit FSM"};
-item3[] = {"Continue",8,4314,0.000000,575.000000,100.000000,625.000000,0.000000,"Continue"};
+item3[] = {"Continue",8,218,0.000000,575.000000,100.000000,625.000000,0.000000,"Continue"};
 item4[] = {"Start_Point",2,250,50.000000,400.000000,150.000000,450.000000,0.000000,"Start Point"};
 item5[] = {"Exit_Cond",4,218,-100.000000,475.000000,0.000000,525.000000,3.000000,"Exit Cond"};
 item6[] = {"Exit_FSM_1",1,250,-250.000000,475.000000,-175.000000,525.000000,0.000000,"Exit FSM"};
@@ -26,7 +26,7 @@ item21[] = {"Combat",4,218,675.000000,225.000000,775.000000,275.000000,3.000000,
 item22[] = {"Inf_Combat_Brain",2,250,1000.000000,325.000000,1100.000000,375.000000,0.000000,"Inf Combat Brain"};
 item23[] = {"Combat_BEGIN",4,218,675.000000,300.000000,775.000000,350.000000,4.000000,"Combat BEGIN"};
 item24[] = {"Return",8,218,487.195618,99.391296,587.195618,149.391296,0.000000,"Return"};
-item25[] = {"Arty_Check",4,218,1100.000000,250.000000,1200.000000,300.000000,4.000000,"Arty Check"};
+item25[] = {"Arty_Check",4,4314,1100.000000,250.000000,1200.000000,300.000000,4.000000,"Arty Check"};
 item26[] = {"",7,210,1258.500000,21.000000,1266.500000,29.000000,0.000000,""};
 item27[] = {"Flank_Orders",4,218,1050.000000,225.000000,1150.000000,275.000000,5.000000,"Flank Orders"};
 item28[] = {"",7,210,296.000000,21.000000,304.000000,29.000000,0.000000,""};
@@ -144,8 +144,8 @@ link81[] = {54,26};
 link82[] = {55,26};
 link83[] = {56,26};
 link84[] = {57,26};
-globals[] = {0.000000,0,0,0,0,640,480,2,652,6316128,1,-203.768066,514.832764,817.182495,269.968994,1174,894,1};
-window[] = {2,-1,-1,-1,-1,1104,78,2530,78,3,1192};
+globals[] = {0.000000,0,0,0,0,640,480,2,652,6316128,1,526.990845,1409.557373,735.601440,63.529022,1174,894,1};
+window[] = {2,-1,-1,-32000,-32000,1208,182,2634,182,3,1192};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -627,42 +627,15 @@ class FSM
                                          "" \n
                                          "if (VCM_FullSpeed) then {_Group setSpeedMode ""FULL"";};" \n
                                          "" \n
-                                         "private _rndanims= [" \n
-                                         """acts_rifle_operations_back""," \n
-                                         """acts_rifle_operations_barrel""," \n
-                                         """acts_rifle_operations_checking_chamber""," \n
-                                         """acts_rifle_operations_front""," \n
-                                         """acts_rifle_operations_right""," \n
-                                         """acts_rifle_operations_left""," \n
-                                         """acts_rifle_operations_zeroing""," \n
-                                         """acts_peering_up""," \n
-                                         """acts_peering_right""," \n
-                                         """acts_peering_left""," \n
-                                         """acts_peering_front""," \n
-                                         """acts_peering_down""," \n
-                                         """acts_peering_back""," \n
-                                         """acts_ambient_cleaning_nose""," \n
-                                         """acts_ambient_gestures_sneeze""," \n
-                                         """acts_ambient_gestures_tired""," \n
-                                         """acts_ambient_gestures_yawn""," \n
-                                         """acts_ambient_picking_up""," \n
-                                         """acts_ambient_relax_1""," \n
-                                         """acts_ambient_relax_2""," \n
-                                         """acts_ambient_relax_3""," \n
-                                         """acts_ambient_relax_4""," \n
-                                         """acts_ambient_rifle_drop""," \n
-                                         """acts_ambient_shoelaces""," \n
-                                         """acts_ambient_stretching""" \n
-                                         "];" \n
-                                         "" \n
-                                         "{" \n
-                                         "	private _unit = _x;" \n
-                                         "	private _animchk = animationstate _unit;" \n
-                                         "	if (_rndanims findIf {_x isEqualTo _animchk} > 0) then" \n
+                                         "if (Vcm_IdleAnimationsEnabled) then {" \n
                                          "	{" \n
-                                         "		[_unit,""""] remoteExec [""switchmove"",0];" \n
-                                         "	};" \n
-                                         "} foreach (units _Group);"/*%FSM</ACTION""">*/;
+                                         "		private _unit = _x;" \n
+                                         "		private _animchk = animationState _unit;" \n
+                                         "		if (PATCOM_Patrol_Animations findIf {_x isEqualTo _animchk} > 0) then {" \n
+                                         "			[_unit, """"] remoteExec [""switchMove""];" \n
+                                         "		};" \n
+                                         "	} foreach (units _Group);" \n
+                                         "};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Combat">*/
@@ -691,8 +664,9 @@ class FSM
                                          "if (VCM_DebugFSM) then {systemchat ""COMBAT END"";};" \n
                                          "" \n
                                          "{" \n
-                                         "_x setUnitCombatMode ""YELLOW"";" \n
-                                         "_x enableAI ""AUTOCOMBAT"";" \n
+                                         "	_x setUnitCombatMode ""YELLOW"";" \n
+                                         "	_x setBehaviour ""SAFE"";" \n
+                                         "	_x enableAI ""AUTOCOMBAT"";" \n
                                          "} foreach (units _Group);" \n
                                          "" \n
                                          "" \n

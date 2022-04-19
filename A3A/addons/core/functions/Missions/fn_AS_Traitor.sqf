@@ -127,9 +127,7 @@ if (random 10 < 2.5) then {
 };
 
 //todo Hazey to replace this function
-[_groupX, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolSetParams;
-_groupX setVariable ["PATCOM_Controlled", false];
-A3A_Patrol_Controlled_AI pushBack _groupX;
+[_groupX, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolLoop;
 
 diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_AS_Traitor#1"];
 

@@ -42,9 +42,8 @@ _grp selectLeader _official;
 sleep 1;
 
 //todo Hazey to replace this function
-[_grp, "Patrol_Area", 25, 50, 100, false, [], true] call A3A_fnc_patrolSetParams;
-_grp setVariable ["PATCOM_Controlled", false];
-A3A_Patrol_Controlled_AI pushBack _grp;
+[_grp, "Patrol_Area", 25, 50, 100, false, [], true] call A3A_fnc_patrolLoop;
+
 diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_AS_Official#1"];
 
 {_nul = [_x,""] call A3A_fnc_NATOinit; _x allowFleeing 0} forEach units _grp;

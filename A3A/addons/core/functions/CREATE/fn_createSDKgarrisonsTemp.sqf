@@ -40,9 +40,8 @@ if (_typeX isEqualType "") then {
     if (_groups isEqualTo []) then {
 
         // GIVE UNIT PATCOM CONTROL
-        [_groupX, "Patrol_Defend", 0, 150, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
-		_groupX setVariable ["PATCOM_Controlled", false];
-		A3A_Patrol_Controlled_AI pushBack _groupX;
+        [_groupX, "Patrol_Defend", 0, 150, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
+
         diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createSDKgarrisonsTemp#1"];
 
     };

@@ -88,7 +88,7 @@ if (_Engaged) then
 			
 			
 			//Find closest cover		
-			private _Go2Pos = [0,0,0];
+			private _Go2Pos = (getpos _Unit);
 			if !(_NoCover) then
 			{
 				private _ClstCover = [_CoverObjects,_ClstEnemy,true] call VCM_fnc_ClstObj;		

@@ -57,7 +57,7 @@ _buildings = _buildings call BIS_fnc_arrayShuffle;
         if ((_x getVariable ["PATCOM_Garrison_buildings", []]) find _building != -1) exitWith {
             _buildingIsEmpty = false;
         };
-    } forEach A3A_Patrol_Controlled_AI;
+    } forEach (allGroups select {_x getVariable ["PATCOM_Controlled", false]});
 
 	if (_buildingIsEmpty) then {
     	private _buildingPositions = [];

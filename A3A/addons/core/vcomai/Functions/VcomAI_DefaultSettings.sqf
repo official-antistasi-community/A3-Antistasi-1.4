@@ -25,17 +25,17 @@ Vcm_Settings =
 	VCM_ARTYRT = -(VCM_ARTYDELAY);
 	VCM_ARTYSIDES = [west, east];  //Sides that will use VCOM artillery
 	VCM_AIMagLimit = 2; //Number of mags remaining before AI looks for ammo.
-	VCM_DebugOld = true; //Enable debug mode.
-	VCM_DebugFSM = true; //Enable FSM debug code.
-	VCM_DebugAIPathing = true; //Enable FSM debug code.
+	VCM_DebugOld = false; //Enable debug mode.
+	VCM_DebugFSM = false; //Enable FSM debug code.
+	VCM_DebugAIPathing = false; //Enable FSM debug code.
 	VCM_DebugSuppression = false; //Enable debug code for suppression
-	VCM_DebugCombatMove = true; //Enable debuging of combat movement.	
+	VCM_DebugCombatMove = false; //Enable debuging of combat movement.	
 	VCM_SIDEENABLED = [west, east, resistance]; //Sides that will activate Vcom AI
-	VCM_FullSpeed = true; //Enforce full speedmode during combat (Does not reset after combat end)
+	VCM_FullSpeed = false; //Enforce full speedmode during combat (Does not reset after combat end)
 	VCM_HEARINGDISTANCE = 800; //Distance AI hear unsuppressed gunshots.
 	VCM_WARNDIST = 600; //How far AI can request help from other groups.
 	VCM_WARNDELAY = 30; //How long the AI have to survive before they can call in for support. This activates once the AI enter combat.
-	VCM_STATICARMT = 300; //How long AI stay on static weapons when initially arming them. This is just for AI WITHOUT static bags. They will stay for this duration when NO ENEMIES ARE SEEN, or their group gets FAR away.	
+	VCM_STATICARMT = 120; //How long AI stay on static weapons when initially arming them. This is just for AI WITHOUT static bags. They will stay for this duration when NO ENEMIES ARE SEEN, or their group gets FAR away.	
 	VCM_StealVeh = false; //Will the AI steal vehicles.
 	VCM_ClassSteal = false; //If true, crewmen are required to steal tracked vehicles. Pilots are required to steal aircraft. false = anyone can steal any vehicle.
 	VCM_AIDISTANCEVEHPATH = 100; //Distance AI check from the squad leader to steal vehicles
@@ -54,10 +54,10 @@ Vcm_Settings =
 	Vcm_DisableAIRadio = false; //Setting this to true will disable AI talking to each other via the radio. This is only a sound effect, and will make the AI execute orders faster if disabled.	
 	Vcm_UseStaticWeapons = true; //AI will deploy/garrison static weapons
 	Vcm_AI_EM = true; //Will the AI use enhanced movement to navigate around.
-	Vcm_AI_EM_CHN = 10; //Chance a group will attempt to jump over an obstacle  - every 0.5 secs
-	VCM_AI_EM_CLDWN = 15; //Time in seconds before a group will consider jumping over obstacles;	
+	Vcm_AI_EM_CHN = 25; //Chance a group will attempt to jump over an obstacle  - every 0.5 secs
+	VCM_AI_EM_CLDWN = 30; //Time in seconds before a group will consider jumping over obstacles;	
 	Vcm_IdleAnimationChnc = 2; //Chance an AI will play an idle animation.
-	Vcm_IdleAnimationsEnabled = true; //Enable or disable idle animations. Idle animations only play when AI are standing up and not in combat.
+	Vcm_IdleAnimationsEnabled = false; //Enable or disable idle animations. Idle animations only play when AI are standing up and not in combat.
 	
 	//AI SKILL SETTINGS HERE!!!!!!!!!!!!
 	VCM_AIDIFA = [['aimingAccuracy', 0.15],['aimingShake', 0.90],['aimingSpeed', 0.75],['commanding', 1],['courage', 1],['general', 1],['reloadSpeed', 1],['spotDistance', 1],['spotTime', 1]];

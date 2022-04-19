@@ -9,7 +9,7 @@ VCM_ServerAsk = compileFinal "(_this select 1) publicVariableClient (_this selec
 [] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\Functions\VCOMAI_DefaultSettings.sqf);
 [] call Vcm_Settings;
 
-[] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\Functions\VCM_Functions\fn_CBASettings.sqf);
+//[] call compile preprocessFileLineNumbers QPATHTOFOLDER(vcomai\Functions\VCM_Functions\fn_CBASettings.sqf);
 
 //Mod checks
 //ACE CHECK

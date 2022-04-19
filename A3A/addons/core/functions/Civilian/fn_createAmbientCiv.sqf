@@ -22,7 +22,7 @@
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params ["_markerX", "_type", ["_maxSpawnedCivilians", 6]];
+params ["_markerX", "_type", ["_maxSpawnedCivilians", 6], ["_civilianPopulation", 4]];
 
 // We only want to run on the server and not on the players
 if (!isServer and hasInterface) exitWith{};
@@ -32,7 +32,6 @@ private _soundSources = [];
 private _lightSources = [];
 private _civilians = [];
 private _buildings = [];
-private _civilianPopulation = 0;
 private _positionX = getMarkerPos (_markerX);
 private _locationRadius = [_markerX] call A3A_fnc_sizeMarker;
 private _dayState = [] call A3A_fnc_getDayState;
@@ -40,7 +39,10 @@ private _dayState = [] call A3A_fnc_getDayState;
 if (_type == "Resource") then {
 	ServerDebug_2("Spawning Resource Civilians in %1 with a radius of %2", _markerX, _locationRadius);
 
-	_civilianPopulation = random _maxSpawnedCivilians;
+	// We don't want to add too many civ's.
+	if (_civilianPopulation > _maxSpawnedCivilians) then {
+		_civilianPopulation = _maxSpawnedCivilians;
+	};
 };
 
 if (_type == "City") then {
@@ -68,13 +70,14 @@ for "_i" from 1 to _civilianPopulation do {
 				private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
 				private _civUnit = [_groupX, FactionGet(civ, "unitWorker"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
 				_civUnit setVariable ["isScared", false];
-
+				_civUnit setVariable ["markerX", _markerX, true];
 				_civilianGroups pushBack _groupX;
 				_civilians pushBack _civUnit;
 
 				// Add event handlers to civilian units.
 				[_civUnit] spawn A3A_fnc_civilianInitEH;
 
+				sleep 0.5;
 				_civUnit addEventHandler ["Killed",
 					{
 						if (({alive _x} count (units group (_this select 0))) == 0) then {

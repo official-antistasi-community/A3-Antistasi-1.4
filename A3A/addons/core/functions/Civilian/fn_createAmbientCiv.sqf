@@ -22,7 +22,7 @@
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params ["_markerX", "_type", ["_maxSpawnedCivilians", 6]];
+params ["_markerX", "_type", ["_maxSpawnedCivilians", 6], ["_civilianPopulation", 4]];
 
 // We only want to run on the server and not on the players
 if (!isServer and hasInterface) exitWith{};
@@ -32,7 +32,6 @@ private _soundSources = [];
 private _lightSources = [];
 private _civilians = [];
 private _buildings = [];
-private _civilianPopulation = 0;
 private _positionX = getMarkerPos (_markerX);
 private _locationRadius = [_markerX] call A3A_fnc_sizeMarker;
 private _dayState = [] call A3A_fnc_getDayState;
@@ -40,7 +39,10 @@ private _dayState = [] call A3A_fnc_getDayState;
 if (_type == "Resource") then {
 	ServerDebug_2("Spawning Resource Civilians in %1 with a radius of %2", _markerX, _locationRadius);
 
-	_civilianPopulation = random _maxSpawnedCivilians;
+	// We don't want to add too many civ's.
+	if (_civilianPopulation > _maxSpawnedCivilians) then {
+		_civilianPopulation = _maxSpawnedCivilians;
+	};
 };
 
 if (_type == "City") then {
@@ -57,24 +59,37 @@ if (_type == "City") then {
 	if (_civilianPopulation > _maxSpawnedCivilians) then {
 		_civilianPopulation = _maxSpawnedCivilians;
 	};
+
+	if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _markerX != 2)) then {
+		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+		_groupX = createGroup civilian;
+		_civilianGroups pushBack _groupX;
+		_civPress = [_groupX, FactionGet(civ, "unitPress"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
+		[_civPress] spawn A3A_fnc_CIVinit;
+		_civilians pushBack _civPress;
+		[_groupX, "Patrol_Area", 5, 50, 300, false, [], true] call A3A_fnc_patrolLoop;
+	};
 };
 
 for "_i" from 1 to _civilianPopulation do {
 
 	if (_type == "Resource") then {
+		if !((_markerX in resourcesX) or (_markerX in factories)) exitWith {};
+
 		if (not(_markerX in destroyedSites)) then {
 			if ((daytime > 8) and (daytime < 18)) then {
 				private _groupX = createGroup civilian;
 				private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
 				private _civUnit = [_groupX, FactionGet(civ, "unitWorker"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
 				_civUnit setVariable ["isScared", false];
-
+				_civUnit setVariable ["markerX", _markerX, true];
 				_civilianGroups pushBack _groupX;
 				_civilians pushBack _civUnit;
 
 				// Add event handlers to civilian units.
 				[_civUnit] spawn A3A_fnc_civilianInitEH;
 
+				sleep 0.5;
 				_civUnit addEventHandler ["Killed",
 					{
 						if (({alive _x} count (units group (_this select 0))) == 0) then {
@@ -87,8 +102,7 @@ for "_i" from 1 to _civilianPopulation do {
 					}
 				];
 
-				_civUnit setVariable ["PATCOM_Controlled", false];
-				A3A_Patrol_Controlled_AI pushBack _groupX;
+				[_groupX] call A3A_fnc_patrolLoop;
 			};
 		};
 	};
@@ -139,8 +153,7 @@ for "_i" from 1 to _civilianPopulation do {
 				_soundSources pushBack _soundSource;
 			};
 
-			_civUnit setVariable ["PATCOM_Controlled", false];
-			A3A_Patrol_Controlled_AI pushBack _groupX;
+			[_groupX] call A3A_fnc_patrolLoop;
 		};
 	};
 };
@@ -149,8 +162,7 @@ for "_i" from 1 to _civilianPopulation do {
 waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
 {if (alive _x) then {deleteVehicle _x};} forEach _civilians;
 {
-	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
-	_x setVariable ["PATCOM_Controlled", ""];
+	_x setVariable ["PATCOM_Controlled", false];
 	deleteGroup _x;
 } forEach _civilianGroups;
 

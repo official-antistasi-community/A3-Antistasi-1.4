@@ -1,7 +1,6 @@
 //Function for handling ambient animations. This makes AI feel more human while not in combat mode.
 params ["_Group"];
 
-
 private _CombatCheck = _Group getVariable "VCOM_FSMH";
 //Incase the group is dead
 if (isNil "_CombatCheck") exitWith {};

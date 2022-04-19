@@ -150,9 +150,7 @@ if (_isControl) then {
 			};
 
 			// GIVE UNIT PATCOM CONTROL
-			[_groupX, "Patrol_Defend", 0, 50, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
-			_groupX setVariable ["PATCOM_Controlled", false];
-			A3A_Patrol_Controlled_AI pushBack _groupX;
+			[_groupX, "Patrol_Defend", 0, 50, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 			_groups pushBack _groupX;
 
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#1"];
@@ -177,8 +175,10 @@ if (_isControl) then {
 			_unit = [_groupX, _faction get "unitMilitiaGrunt", _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#extra1 %1", _groupX];
-			[_groupX, "Patrol_Defend", 0, 50, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
-			A3A_Patrol_Controlled_AI pushBack _groupX;
+
+			// GIVE UNIT PATCOM CONTROL
+			[_groupX, "Patrol_Defend", 0, 50, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
+
 			_groups pushBack _groupX;
 			
 			{
@@ -213,9 +213,7 @@ if (_isControl) then {
 		_groupX = [_positionX,_sideX, _cfg] call A3A_fnc_spawnGroup;
 
 		// GIVE UNIT PATCOM CONTROL
-		[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolSetParams;
-		_groupX setVariable ["PATCOM_Controlled", false];
-		A3A_Patrol_Controlled_AI pushBack _groupX;
+		[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
 		
 		_groups pushBack _groupX;
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIcontrols#2"];
@@ -308,7 +306,6 @@ waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
 { deleteVehicle _x } forEach _dogs;
 
 { 
-	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
 	_x setVariable ["PATCOM_Controlled", ""];
 	deleteGroup _x ;
 } forEach _groups;

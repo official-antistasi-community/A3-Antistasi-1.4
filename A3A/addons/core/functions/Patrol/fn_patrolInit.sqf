@@ -23,10 +23,10 @@
 FIX_LINE_NUMBERS()
 
 PATCOM_DEBUG = true; // Enable PATCOM specific debug.
-PATCOM_VISUAL_RANGE = 400; // How far should PATCOM look for Enemies.
+publicVariable "PATCOM_DEBUG";
 
-// This Array holds all the currently controlled groups
-A3A_Patrol_Controlled_AI = [];
+PATCOM_VISUAL_RANGE = 400; // How far should PATCOM look for Enemies.
+publicVariable "PATCOM_VISUAL_RANGE";
 
 // This Hashmap acts as a blacklist to remove unwanted buildings
 PATCOM_Building_Blacklist = createHashMap;
@@ -35,6 +35,8 @@ PATCOM_Building_Blacklist = createHashMap;
 {
 	PATCOM_Building_Blacklist set [_x, "REMOVED"];
 } forEach bld_remove;
+
+publicVariable "PATCOM_Building_Blacklist";
 
 // This HashMap contains a list of valid garrison positions.
 PATCOM_Garrison_Positions = createHashMap;
@@ -68,6 +70,8 @@ PATCOM_Garrison_Positions set ["Land_PillboxBunker_01_big_F", [2,0,3,1,4,5]];
 PATCOM_Garrison_Positions set ["Land_PillboxBunker_01_hex_F", [0,2,3,1,4]];
 PATCOM_Garrison_Positions set ["Land_PillboxBunker_01_rectangle_F", [2,3,4]];
 
+publicVariable "PATCOM_Garrison_Positions";
+
 PATCOM_Patrol_Animations = [
 	"acts_rifle_operations_back",
 	"acts_rifle_operations_barrel",
@@ -91,7 +95,14 @@ PATCOM_Patrol_Animations = [
 	"acts_shieldfromsun_in"
 ];
 
-Info("PATCOM | Init Complete, Starting Main Patrol Loop");
+publicVariable "PATCOM_Patrol_Animations";
 
-// Power up the main thrusters. We got some Arma to play.
-[] call A3A_fnc_patrolLoop;
+[] spawn {
+	while {true} do {
+		PATCOM_AI_LOAD = (count allunits);
+		publicVariable "PATCOM_AI_LOAD";
+		sleep 30;
+	};
+};
+
+Info("PATCOM | Init Complete");

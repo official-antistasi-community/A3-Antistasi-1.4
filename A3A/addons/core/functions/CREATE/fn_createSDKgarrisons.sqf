@@ -115,9 +115,7 @@ for "_i" from 0 to (count _groups) - 1 do {
 	} else {
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createSDKgarrisons#3"];
 		// GIVE UNIT PATCOM CONTROL
-		[_groupX, "Patrol_Defend", 0, 150, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
-		_groupX setVariable ["PATCOM_Controlled", false];
-		A3A_Patrol_Controlled_AI pushBack _groupX;
+		[_groupX, "Patrol_Defend", 0, 150, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 		_groups pushBack _groupX;
 	};
 };
@@ -127,7 +125,6 @@ waitUntil {sleep 5; (spawner getVariable _markerX == 2)};
 { if (alive _x) then { deleteVehicle _x }; } forEach _soldiers;
 
 { 
-	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
 	_x setVariable ["PATCOM_Controlled", ""];
 	deleteGroup _x ;
 } forEach _groups;

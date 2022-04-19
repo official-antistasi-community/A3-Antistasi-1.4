@@ -128,9 +128,7 @@ if (_patrol) then {
 			diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIOutposts#1"];
 
 			// GIVE UNIT PATCOM CONTROL
-			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolSetParams;
-			_groupX setVariable ["PATCOM_Controlled", false];
-			A3A_Patrol_Controlled_AI pushBack _groupX;
+			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
 			_groups pushBack _groupX;
 
 			{
@@ -392,8 +390,7 @@ for "_i" from 0 to (count _array - 1) do {
 		_groupX setVariable ["Vcm_Disable", true];
 
 	} else {
-		[_groupX, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolSetParams;
-		A3A_Patrol_Controlled_AI pushBack _groupX;
+		[_groupX, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 		_groups pushBack _groupX;
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createAIOutposts#3"];
 
@@ -411,7 +408,6 @@ deleteMarker _mrk;
 { if (alive _x) then { deleteVehicle _x } } forEach _soldiers;
 { deleteVehicle _x } forEach _dogs;
 { 
-	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
 	_x setVariable ["PATCOM_Controlled", ""];
 	deleteGroup _x ;
 } forEach _groups;

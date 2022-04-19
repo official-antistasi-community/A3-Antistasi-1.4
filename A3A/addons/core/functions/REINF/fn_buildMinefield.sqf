@@ -73,9 +73,8 @@ if ((_truckX distance _positionTel < 50) and ({alive _x} count units _groupX > 0
 
 	//_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "SHOWMARKER"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 	//todo Hazey to replace this function
-	[_groupX, "Patrol_Area", 25, 100, -1, true, _mrk, false] call A3A_fnc_patrolSetParams;
-	_groupX setVariable ["PATCOM_Controlled", false];
-	A3A_Patrol_Controlled_AI pushBack _groupX;
+	[_groupX, "Patrol_Area", 25, 100, -1, true, _mrk, false] call A3A_fnc_patrolLoop;
+
 	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_buildMinefield#1"];
 
 	sleep 30*_quantity;

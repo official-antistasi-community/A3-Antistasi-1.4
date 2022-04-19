@@ -51,7 +51,7 @@ if (count _knownEnemies < 1) exitWith {
 // Set Waypoint Name
 private _waypointName = "PATCOM_PATROL_ATTACK";
 
-if ((waypointType [_group, currentWaypoint _group] != "SAD") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
+if ((waypointType [_group, currentWaypoint _group] != "MOVE") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
     // Select random group in the array to attack.
     private _targetGroup = selectRandom _knownEnemies;
 
@@ -59,5 +59,5 @@ if ((waypointType [_group, currentWaypoint _group] != "SAD") || ((waypointName [
     // Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode
     private _nextWaypointPos = [getPos (leader _targetGroup), _minimumRadius, _maximumRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafeSpawnPos;
     
-    [_group, _nextWaypointPos, "SAD", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    [_group, _nextWaypointPos, "MOVE", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };

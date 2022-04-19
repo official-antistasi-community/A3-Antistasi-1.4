@@ -450,6 +450,12 @@ DECLARE_SERVER_VAR(reinforceMarkerInvader, []);
 DECLARE_SERVER_VAR(canReinforceOccupants, []);
 DECLARE_SERVER_VAR(canReinforceInvader, []);
 
+////////////////////////////
+//         PATCOM        ///
+////////////////////////////
+Info("Initialising PATCOM Variables");
+[] call A3A_fnc_patrolInit;
+
 /////////////////////////////////////////
 //     SYNCHRONISE SERVER VARIABLES   ///
 /////////////////////////////////////////

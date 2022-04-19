@@ -108,11 +108,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 		};
 	};
 
-	// GIVE UNIT PATCOM CONTROL
-	[_groupX, "Patrol_Area", 25, _patrolSize, -1, true, _positionX, true] call A3A_fnc_patrolSetParams;
-	_groupX setVariable ["PATCOM_Controlled", false];
-	A3A_Patrol_Controlled_AI pushBack _groupX;
-
+	[_groupX, "Patrol_Area", 25, _patrolSize, -1, true, _positionX, true] call A3A_fnc_patrolLoop;
 	_groups pushBack _groupX;
 	_countX = _countX + 1;
 };
@@ -125,7 +121,6 @@ waitUntil {sleep 5;(spawner getVariable _markerX == 2)};
 {deleteVehicle _x} forEach _dogs;
 
 {
-	A3A_Patrol_Controlled_AI = A3A_Patrol_Controlled_AI - [_x];
 	_x setVariable ["PATCOM_Controlled", ""];
 	deleteGroup _x;
 } forEach _groups;

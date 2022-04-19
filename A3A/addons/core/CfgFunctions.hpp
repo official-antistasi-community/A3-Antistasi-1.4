@@ -516,6 +516,7 @@ class CfgFunctions
             class patrolAttack {};
             class patrolBuildingEnterable {};
             class patrolCallForHelp {};
+            class patrolCanSee {};
             class patrolCivilianCommander {};
             class patrolClosestKnownEnemy {};
             class patrolCommander {};

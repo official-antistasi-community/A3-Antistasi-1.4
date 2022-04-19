@@ -144,8 +144,8 @@ link81[] = {54,26};
 link82[] = {55,26};
 link83[] = {56,26};
 link84[] = {57,26};
-globals[] = {0.000000,0,0,0,0,640,480,2,652,6316128,1,737.408447,1466.801392,608.122314,52.690224,1174,894,1};
-window[] = {2,-1,-1,-1,-1,1104,78,2530,78,3,1192};
+globals[] = {0.000000,0,0,0,0,640,480,2,652,6316128,1,526.990845,1409.557373,735.601440,63.529022,1174,894,1};
+window[] = {2,-1,-1,-32000,-32000,1208,182,2634,182,3,1192};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -627,42 +627,15 @@ class FSM
                                          "" \n
                                          "if (VCM_FullSpeed) then {_Group setSpeedMode ""FULL"";};" \n
                                          "" \n
-                                         "private _rndanims= [" \n
-                                         """acts_rifle_operations_back""," \n
-                                         """acts_rifle_operations_barrel""," \n
-                                         """acts_rifle_operations_checking_chamber""," \n
-                                         """acts_rifle_operations_front""," \n
-                                         """acts_rifle_operations_right""," \n
-                                         """acts_rifle_operations_left""," \n
-                                         """acts_rifle_operations_zeroing""," \n
-                                         """acts_peering_up""," \n
-                                         """acts_peering_right""," \n
-                                         """acts_peering_left""," \n
-                                         """acts_peering_front""," \n
-                                         """acts_peering_down""," \n
-                                         """acts_peering_back""," \n
-                                         """acts_ambient_cleaning_nose""," \n
-                                         """acts_ambient_gestures_sneeze""," \n
-                                         """acts_ambient_gestures_tired""," \n
-                                         """acts_ambient_gestures_yawn""," \n
-                                         """acts_ambient_picking_up""," \n
-                                         """acts_ambient_relax_1""," \n
-                                         """acts_ambient_relax_2""," \n
-                                         """acts_ambient_relax_3""," \n
-                                         """acts_ambient_relax_4""," \n
-                                         """acts_ambient_rifle_drop""," \n
-                                         """acts_ambient_shoelaces""," \n
-                                         """acts_ambient_stretching""" \n
-                                         "];" \n
-                                         "" \n
-                                         "{" \n
-                                         "	private _unit = _x;" \n
-                                         "	private _animchk = animationstate _unit;" \n
-                                         "	if (_rndanims findIf {_x isEqualTo _animchk} > 0) then" \n
+                                         "if (Vcm_IdleAnimationsEnabled) then {" \n
                                          "	{" \n
-                                         "		[_unit,""""] remoteExec [""switchmove"",0];" \n
-                                         "	};" \n
-                                         "} foreach (units _Group);"/*%FSM</ACTION""">*/;
+                                         "		private _unit = _x;" \n
+                                         "		private _animchk = animationState _unit;" \n
+                                         "		if (PATCOM_Patrol_Animations findIf {_x isEqualTo _animchk} > 0) then {" \n
+                                         "			[_unit, """"] remoteExec [""switchMove""];" \n
+                                         "		};" \n
+                                         "	} foreach (units _Group);" \n
+                                         "};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Combat">*/
@@ -691,8 +664,9 @@ class FSM
                                          "if (VCM_DebugFSM) then {systemchat ""COMBAT END"";};" \n
                                          "" \n
                                          "{" \n
-                                         "_x setUnitCombatMode ""YELLOW"";" \n
-                                         "_x enableAI ""AUTOCOMBAT"";" \n
+                                         "	_x setUnitCombatMode ""YELLOW"";" \n
+                                         "	_x setBehaviour ""SAFE"";" \n
+                                         "	_x enableAI ""AUTOCOMBAT"";" \n
                                          "} foreach (units _Group);" \n
                                          "" \n
                                          "" \n
@@ -869,17 +843,14 @@ class FSM
                                         to="Return";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"VCM_ARTYENABLE && {(_ArtyT + VCM_ARTYDELAY) < time} && {side _Group in VCM_ARTYSIDES} && {!(_NearestEnemy isEqualTo [0,0,0])}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"// Hazey to rewrite how ArtyCalls are handled." \n
-                                         "/*" \n
-                                         "[_Group,(group _NearestEnemy),_LocKnown,_PredictedLoc] call VCM_fnc_ArtyCall;" \n
+                                        action=/*%FSM<ACTION""">*/"[_Group,(group _NearestEnemy),_LocKnown,_PredictedLoc] call VCM_fnc_ArtyCall;" \n
                                          "switch ((side _Group)) do {" \n
                                          "	case west: {VCM_ARTYWT = time;};" \n
                                          "	case east: {VCM_ARTYET = time;}; " \n
                                          "	case resistance: {VCM_ARTYRT = time;}; " \n
                                          "};" \n
                                          "" \n
-                                         "if (VCM_DebugFSM) then {systemchat ""ARTY CHECK"";};" \n
-                                         "*/"/*%FSM</ACTION""">*/;
+                                         "if (VCM_DebugFSM) then {systemchat ""ARTY CHECK"";};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "CheckIfStatic">*/

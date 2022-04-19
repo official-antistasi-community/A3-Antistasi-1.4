@@ -59,6 +59,16 @@ if (_type == "City") then {
 	if (_civilianPopulation > _maxSpawnedCivilians) then {
 		_civilianPopulation = _maxSpawnedCivilians;
 	};
+
+	if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _markerX != 2)) then {
+		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+		_groupX = createGroup civilian;
+		_civilianGroups pushBack _groupX;
+		_civPress = [_groupX, FactionGet(civ, "unitPress"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
+		[_civPress] spawn A3A_fnc_CIVinit;
+		_civilians pushBack _civPress;
+		[_groupX, "Patrol_Area", 5, 50, 300, false, [], true] call A3A_fnc_patrolLoop;
+	};
 };
 
 for "_i" from 1 to _civilianPopulation do {

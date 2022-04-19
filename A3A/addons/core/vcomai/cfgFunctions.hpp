@@ -190,9 +190,6 @@ class VCOM
 		//[] call VCM_fnc_Scheduler;
 		class Scheduler {};
 		
-		//[AIArray] call VCM_fnc_ResetAnimation;
-		class ResetAnimation {};
-		
 		//[AI,TRUE] call VCM_fnc_ForceGrenadeFire; //0 = Unit to throw the grenade 1=true, throw grenade, false, throw smoke 
 		class ForceGrenadeFire {};
 		

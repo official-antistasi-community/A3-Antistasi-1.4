@@ -30,6 +30,8 @@ private _staticList = [];
 				};
 			};
 		};
+
+		if (VCM_ARTYENABLE) then {_x call VCM_fnc_CheckArty;};
 	};
 } forEach (units _this);
 

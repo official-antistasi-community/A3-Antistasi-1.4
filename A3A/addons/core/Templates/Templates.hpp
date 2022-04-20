@@ -38,7 +38,7 @@ class Templates
             {
                 class camo
                 {
-                    arid = "Arid"
+                    arid = "Arid";
                     tropical = "Tropical";
                     Default = "Temperate";
                 };
@@ -439,7 +439,7 @@ class Templates
             class chernarus_winter
             {
                 Occ = "CDF";
-                Inv = "ION";
+                Inv = "AFRF";
             };
             class takistan
             {

@@ -70,6 +70,9 @@ PATCOM_Garrison_Positions set ["Land_PillboxBunker_01_big_F", [2,0,3,1,4,5]];
 PATCOM_Garrison_Positions set ["Land_PillboxBunker_01_hex_F", [0,2,3,1,4]];
 PATCOM_Garrison_Positions set ["Land_PillboxBunker_01_rectangle_F", [2,3,4]];
 
+// CHERNARUS
+PATCOM_Garrison_Positions set ["", []];
+
 publicVariable "PATCOM_Garrison_Positions";
 
 PATCOM_Patrol_Animations = [

@@ -33,6 +33,11 @@ class CfgMissions
             briefingName = $STR_antistasi_mission_info_cam_lao_nam_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_cam_lao_nam.cam_lao_nam";
         };
+        class Antistasi_chernarus_2020
+        {
+            briefingName = $STR_antistasi_mission_info_chernarus_2020_mapname_text;
+            directory = "x\A3A\addons\maps\Antistasi_chernarus_2020.cup_chernarus_A3";
+        };
         class Antistasi_chernarus_summer
         {
             briefingName = $STR_antistasi_mission_info_chernarus_summer_mapname_text;

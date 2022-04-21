@@ -68,17 +68,17 @@ class chernarus_2020 {
 		{6443.78,6545.48,0.0928955},
 		{4967.81,9966.56,0},
 		{8127.52,9151.57,0},
-		{13477.6,3345.84,0.0730896},
 		{13010.1,5964.96,-0.0163116},
 		{12937,12763.6,0.164017},
 		{12004.3,14776.9,0},
-		{14126.9,13852.3,0}
+		{14126.9,13852.3,0},
+		{13326.7,3256.9,63}
 	};
 	antennasBlacklistIndex[] = {0,4,8,9};
 	banks[] = {}; //no suitable building available
 	garrison[] = {
 		{},{"outpost_21","control_30","resource_5"},{},{"control_30"}
 	};
-	fuelStationTypes[] = {"Land_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC","Land_Fuelstation","Land_Fuelstation_army","Land_Benzina_schnell"};
+	fuelStationTypes[] = {"Land_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC","Land_Fuelstation","Land_Fuelstation_army","Land_Benzina_schnell","Land_Fuelstation_Feed_F", "Land_fs_feed_F", "Land_FuelStation_01_pump_F", "Land_FuelStation_01_pump_malevil_F", "Land_FuelStation_03_pump_F", "Land_FuelStation_02_pump_F"};
 	climate = "temperate";
 };

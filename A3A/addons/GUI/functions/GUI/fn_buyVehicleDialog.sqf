@@ -148,7 +148,7 @@ switch (_mode) do
                     private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
                     _mouseAbsolutePos vectorDiff _mouseRelativePos params ["_objPreview_x", "_objPreview_y"];
 
-                    _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 2, _objPreview_y];
+                    _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 2, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale)];
 
                     _editorPreviewPicture ctrlShow false;
                     _editorPreviewPicture ctrlCommit 1;

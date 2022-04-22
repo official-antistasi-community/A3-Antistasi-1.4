@@ -71,19 +71,19 @@ if (_type == "City") then {
 	};
 };
 
-for "_i" from 1 to _civilianPopulation do {
+if (_type == "Resource") then {
+	if !((_markerX in resourcesX) or (_markerX in factories)) exitWith {};
 
-	if (_type == "Resource") then {
-		if !((_markerX in resourcesX) or (_markerX in factories)) exitWith {};
-
-		if (not(_markerX in destroyedSites)) then {
-			if ((daytime > 8) and (daytime < 18)) then {
-				private _groupX = createGroup civilian;
+	if (not(_markerX in destroyedSites)) then {
+		if ((daytime > 8) and (daytime < 18)) then {
+			private _groupX = createGroup civilian;
+			_civilianGroups pushBack _groupX;
+			
+			for "_i" from 1 to _civilianPopulation do {
 				private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
 				private _civUnit = [_groupX, FactionGet(civ, "unitWorker"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
 				_civUnit setVariable ["isScared", false];
 				_civUnit setVariable ["markerX", _markerX, true];
-				_civilianGroups pushBack _groupX;
 				_civilians pushBack _civUnit;
 
 				// Add event handlers to civilian units.
@@ -101,13 +101,16 @@ for "_i" from 1 to _civilianPopulation do {
 						};
 					}
 				];
-
-				[_groupX] call A3A_fnc_patrolLoop;
 			};
+
+			[_groupX] call A3A_fnc_patrolLoop;
 		};
 	};
+};
 
-	if (_type == "City") then {
+
+if (_type == "City") then {
+	for "_i" from 1 to _civilianPopulation do {
 		private _posHouse = [];
 
 		while {true} do {

@@ -43,6 +43,9 @@ private _overheadPercent = 0.3;		// Percentage of _offenceAdded that does not ge
 
 //////////Fetches punishment values/////////
 private _originalBody = _instigator getVariable ["owner",_instigator];
+if (isPlayer _instigator && isPlayer _originalBody) then {
+	Error("Post Original Body Set: "+name _instigator+" ["+getPlayerUID _instigator+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
+};
 private _UID = getPlayerUID _instigator;
 private _name = name _instigator;
 private _currentTime = (floor serverTime);
@@ -105,18 +108,25 @@ if (_offenceTotal < 1) exitWith {"WARNING";};
 if (_instigator isEqualTo _originalBody) then {
 	[_UID,_timeTotal] spawn A3A_fnc_punishment_sentence_server;  // Scope is within unscheduled space.
 } else {
+	if (isPlayer _instigator && isPlayer _originalBody) then {
+		Error("Pre UAV set: "+name _instigator+" ["+getPlayerUID _instigator+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
+	};
 	(units group _originalBody) joinSilent group _originalBody;  // Refer to controlunit.sqf for source of this *function*
 	group _instigator selectLeader _originalBody;
 	["Control Unit", "Returned to original Unit due to FF."] remoteExecCall ["A3A_fnc_customHint",_instigator,false];
 	[_originalBody] remoteExec ["selectPlayer",_instigator,false];
 
-	[_instigator,_originalBody,_UID,_timeTotal,_name] spawn {  // Waits for player to control original body. This will be relocated to sentence_client in the future allowing for snappy execution server-side.
-		params ["_instigator","_originalBody","_UID","_timeTotal","_name"];
+	[_instigator,_originalBody,_UID,_timeTotal,_name,_customMessage] spawn {  // Waits for player to control original body. This will be relocated to sentence_client in the future allowing for snappy execution server-side.
+		params ["_instigator","_originalBody","_UID","_timeTotal","_name","_customMessage"];
+
+		if (isPlayer _instigator && isPlayer _originalBody) then {
+			Error("Post UAV set: "+name _instigator+" ["+getPlayerUID _instigator+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
+		};
 		private _timeOut = serverTime + 20;
 		waitUntil {isPlayer _originalBody || _timeOut < serverTime};
 		if !(isPlayer _originalBody) exitWith {
-            private _timeOutLog = ["TIMED-OUT | Gave up waiting for ",_name," [",_UID,"] to exit remote control."] joinString "";
-            Error(_timeOutLog);
+			private _timeOutLog = ["TIMED-OUT | Gave up waiting for ",_name," [",_UID,"] to exit remote control."] joinString "";
+			Error(_timeOutLog);
 		};
 		[_UID,_timeTotal] call A3A_fnc_punishment_sentence_server; // Scope is within scheduled space.
 	};

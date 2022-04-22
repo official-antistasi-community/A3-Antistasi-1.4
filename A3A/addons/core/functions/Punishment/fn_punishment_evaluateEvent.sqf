@@ -26,8 +26,8 @@ Returns:
 Examples <OBJECT>:
     [_instigator, 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_evaluateEvent",2,false];   // How it should be called from another object.
     // Unit Tests:
-    [player, 0, 0, objNull] remoteExec ["A3A_fnc_punishment_release",2];          // Test self with no victim
-    [player, 0, 0, cursorObject] remoteExec ["A3A_fnc_punishment_release",2];     // Test self with victim
+    [player, 0, 0, objNull] remoteExec ["A3A_fnc_punishment_evaluateEvent",2];          // Test self with no victim
+    [player, 0, 0, cursorObject] remoteExec ["A3A_fnc_punishment_evaluateEvent",2];     // Test self with victim
     [getPlayerUID player,"forgive"] remoteExec ["A3A_fnc_punishment_release",2];  // Self forgive all sins
 
 Examples <ARRAY<OBJECT,OBJECT>>:

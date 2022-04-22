@@ -4,7 +4,7 @@ Function:
 
 Description:
 	Punishes the player given for FF.
-	Doesn't do the checking itself, refer to A3A_fnc_punishment_FF.
+	Doesn't do the checking itself, refer to A3A_fnc_punishment_evaluateEvent.
 
 Scope:
 	<SERVER>
@@ -22,7 +22,7 @@ Returns:
 	<STRING> Either an exemption type or a return from fn_punishment.sqf.
 
 Examples:
-	[_instigator,_timeAdded,_offenceAdded,_victim] remoteExecCall ["A3A_fnc_punishment",2,false]; // How it should be called from another A3A_fnc_punishment_FF.
+	[_instigator,_timeAdded,_offenceAdded,_victim] remoteExecCall ["A3A_fnc_punishment",2,false]; // How it should be called from another A3A_fnc_punishment_evaluateEvent.
 	// Unit Tests:
 	[cursorObject, 0, 0] remoteExecCall ["A3A_fnc_punishment",2];                                 // Ping with FF Warning
 	[cursorObject,120, 1] remoteExecCall ["A3A_fnc_punishment",2];                                // Punish, 120 additional seconds

@@ -109,18 +109,19 @@ if (_instigator isEqualTo _originalBody) then {
 	[_UID,_timeTotal] spawn A3A_fnc_punishment_sentence_server;  // Scope is within unscheduled space.
 } else {
 	if (isPlayer _instigator && isPlayer _originalBody && _instigator isNotEqualTo _originalBody) then {
-		Error("Pre UAV set: "+name _instigator+" ["+getPlayerUID _instigator+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
+		Error("Pre UAV set: "+_name+" ["+_UID+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
 	};
 	(units group _originalBody) joinSilent group _originalBody;  // Refer to controlunit.sqf for source of this *function*
 	group _instigator selectLeader _originalBody;
 	["Control Unit", "Returned to original Unit due to FF."] remoteExecCall ["A3A_fnc_customHint",_instigator,false];
+	Info("Returned "+_name+" ["+_UID+"]'s UAV to original Unit due to FF.")
 	[_originalBody] remoteExec ["selectPlayer",_instigator,false];
 
 	[_instigator,_originalBody,_UID,_timeTotal,_name,_customMessage] spawn {  // Waits for player to control original body. This will be relocated to sentence_client in the future allowing for snappy execution server-side.
 		params ["_instigator","_originalBody","_UID","_timeTotal","_name","_customMessage"];
 
 		if (isPlayer _instigator && isPlayer _originalBody && _instigator isNotEqualTo _originalBody) then {
-			Error("Post UAV set: "+name _instigator+" ["+getPlayerUID _instigator+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
+			Error("Post UAV set: "+_name+" ["+_UID+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
 		};
 		private _timeOut = serverTime + 20;
 		waitUntil {isPlayer _originalBody || _timeOut < serverTime};

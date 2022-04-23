@@ -39,6 +39,7 @@ params [
 if (!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {HR_GRG_placing = false};
 if (isNil "HR_GRG_curTexture") then {HR_GRG_curTexture = []};
 if (isNil "HR_GRG_curAnims") then {HR_GRG_curAnims = []};
+if (VARDEF(HR_GRG_placing,false)) exitWith {Debug_1("already placeing, params: %1", _this)};
 HR_GRG_placing = true;
 
 //define global variables

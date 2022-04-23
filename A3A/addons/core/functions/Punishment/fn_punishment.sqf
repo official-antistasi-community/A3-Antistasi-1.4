@@ -43,7 +43,7 @@ private _overheadPercent = 0.3;		// Percentage of _offenceAdded that does not ge
 
 //////////Fetches punishment values/////////
 private _originalBody = _instigator getVariable ["owner",_instigator];
-if (isPlayer _instigator && isPlayer _originalBody) then {
+if (isPlayer _instigator && isPlayer _originalBody && _instigator isNotEqualTo _originalBody) then {
 	Error("Post Original Body Set: "+name _instigator+" ["+getPlayerUID _instigator+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
 };
 private _UID = getPlayerUID _instigator;
@@ -108,7 +108,7 @@ if (_offenceTotal < 1) exitWith {"WARNING";};
 if (_instigator isEqualTo _originalBody) then {
 	[_UID,_timeTotal] spawn A3A_fnc_punishment_sentence_server;  // Scope is within unscheduled space.
 } else {
-	if (isPlayer _instigator && isPlayer _originalBody) then {
+	if (isPlayer _instigator && isPlayer _originalBody && _instigator isNotEqualTo _originalBody) then {
 		Error("Pre UAV set: "+name _instigator+" ["+getPlayerUID _instigator+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
 	};
 	(units group _originalBody) joinSilent group _originalBody;  // Refer to controlunit.sqf for source of this *function*
@@ -119,7 +119,7 @@ if (_instigator isEqualTo _originalBody) then {
 	[_instigator,_originalBody,_UID,_timeTotal,_name,_customMessage] spawn {  // Waits for player to control original body. This will be relocated to sentence_client in the future allowing for snappy execution server-side.
 		params ["_instigator","_originalBody","_UID","_timeTotal","_name","_customMessage"];
 
-		if (isPlayer _instigator && isPlayer _originalBody) then {
+		if (isPlayer _instigator && isPlayer _originalBody && _instigator isNotEqualTo _originalBody) then {
 			Error("Post UAV set: "+name _instigator+" ["+getPlayerUID _instigator+"]'s owner variable indicates that " + name _originalBody+" ["+getPlayerUID _originalBody+"] is the original body. customMessage: "+_customMessage)
 		};
 		private _timeOut = serverTime + 20;

@@ -194,7 +194,7 @@ if (_isControl) then {
 	_markersX = _markersX - ["Synd_HQ"] - outpostsFIA;
 	private _frontierX = if (count _markersX > 0) then {true} else {false};
 	if (_frontierX) then {
-		private _cfg = _faction get "groupSpecOps";
+		private _cfg =  selectRandom (_faction get "groupSpecOpsRandom");
 		if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {
 			_sideX = Occupants;
 		};

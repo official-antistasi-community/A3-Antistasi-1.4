@@ -1,12 +1,12 @@
 /*
 Function:
-    A3A_fnc_punishment_FF
+    A3A_fnc_punishment_evaluateEvent
 
 Description:
     Checks if incident reported is indeed a rebel Friendly Fire event.
     Refer to A3A_fnc_punishment.sqf for actual punishment logic.
     NOTE: When called from an Hit type of EH, use Example 2 in order to detect collisions.
-
+evaluate
 Scope:
     <SERVER> Execute on server only.
 
@@ -24,14 +24,14 @@ Returns:
     <STRING> Either a exemption type or "PROSECUTED".
 
 Examples <OBJECT>:
-    [_instigator, 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",2,false];   // How it should be called from another object.
+    [_instigator, 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_evaluateEvent",2,false];   // How it should be called from another object.
     // Unit Tests:
-    [player, 0, 0, objNull] remoteExec ["A3A_fnc_punishment_release",2];          // Test self with no victim
-    [player, 0, 0, cursorObject] remoteExec ["A3A_fnc_punishment_release",2];     // Test self with victim
+    [player, 0, 0, objNull] remoteExec ["A3A_fnc_punishment_evaluateEvent",2];          // Test self with no victim
+    [player, 0, 0, cursorObject] remoteExec ["A3A_fnc_punishment_evaluateEvent",2];     // Test self with victim
     [getPlayerUID player,"forgive"] remoteExec ["A3A_fnc_punishment_release",2];  // Self forgive all sins
 
 Examples <ARRAY<OBJECT,OBJECT>>:
-    [[_instigator,_source], 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_FF",2,false]; // How it should be called from an EH.
+    [[_instigator,_source], 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_evaluateEvent",2,false]; // How it should be called from an EH.
 
 Author: Caleb Serafin
 License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community

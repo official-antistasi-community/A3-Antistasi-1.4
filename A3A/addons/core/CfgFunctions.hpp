@@ -558,7 +558,7 @@ class CfgFunctions
             class punishment {};
             class punishment_addActionForgive {};
             class punishment_checkStatus {};
-            class punishment_FF {};
+            class punishment_evaluateEvent {};
             class punishment_FF_checkNearHQ {};
             class punishment_FF_addEH {};
             class punishment_oceanGulag {};

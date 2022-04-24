@@ -52,8 +52,7 @@ private _factionSide = "";
 // Side Controlling City
 ///////////////////
 if (_markerX in destroyedSites) then {
-	_factionType = _faction get "groupSpecOps";
-	_factionSide = Invaders;
+	_params = [_positionX, Invaders, selectRandom (_faction get "groupSpecOpsRandom")];
 	_isAAF = false;
 } else {
 	private _frontierX = [_markerX] call A3A_fnc_isFrontline;

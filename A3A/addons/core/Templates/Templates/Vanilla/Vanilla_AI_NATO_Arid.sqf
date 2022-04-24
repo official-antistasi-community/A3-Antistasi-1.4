@@ -74,9 +74,9 @@
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
-//////////////////////////
-///  Identitiy Stuff   ///
-//////////////////////////
+/////////////////////
+///  Identities   ///
+/////////////////////
 
 ["voices", ["Male01ENG","Male02ENG","Male03ENG","Male04ENG","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG","Male10ENG","Male11ENG","Male12ENG"]] call _fnc_saveToTemplate;
 ["faces", ["AfricanHead_01","AfricanHead_02","AfricanHead_03","Barklem",
@@ -90,6 +90,7 @@
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
+
 private _loadoutData = call _fnc_createLoadoutData;
 _loadoutData set ["slRifles", []];
 _loadoutData set ["rifles", []];

@@ -73,6 +73,17 @@
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
 //////////////////////////
+///  Identitiy Stuff   ///
+//////////////////////////
+
+["voices", ["Male01RUS","Male02RUS","Male03RUS"]] call _fnc_saveToTemplate;
+["faces", ["AsianHead_A3_02","AsianHead_A3_04","AsianHead_A3_07","LivonianHead_1","LivonianHead_10",
+"LivonianHead_2","LivonianHead_3","LivonianHead_4","LivonianHead_5","LivonianHead_8","LivonianHead_9",
+"RussianHead_3","RussianHead_4","RussianHead_5","WhiteHead_01","WhiteHead_02",
+"WhiteHead_04","WhiteHead_08","WhiteHead_09","WhiteHead_10","WhiteHead_13",
+"WhiteHead_14","WhiteHead_15","WhiteHead_18","WhiteHead_21","WhiteHead_30"]] call _fnc_saveToTemplate;
+
+//////////////////////////
 //       Loadouts       //
 //////////////////////////
 private _loadoutData = call _fnc_createLoadoutData;

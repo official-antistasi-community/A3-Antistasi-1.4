@@ -96,6 +96,29 @@
 ["minefieldAT", ["vn_mine_m15"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["vn_mine_m14"]] call _fnc_saveToTemplate;
 
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["AfricanHead_01","AfricanHead_02","AfricanHead_03","Barklem","GreekHead_A3_05",
+"GreekHead_A3_06","GreekHead_A3_08","GreekHead_A3_09","Sturrock","WhiteHead_01",
+"WhiteHead_02","WhiteHead_04","WhiteHead_05","WhiteHead_06","WhiteHead_07",
+"WhiteHead_08","WhiteHead_09","WhiteHead_10","WhiteHead_11","WhiteHead_12",
+"WhiteHead_13","WhiteHead_15","WhiteHead_16","WhiteHead_17","WhiteHead_18",
+"WhiteHead_20","WhiteHead_21"]] call _fnc_saveToTemplate;
+["voices", ["Male01ENG","Male02ENG","Male03ENG","Male04ENG","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG","Male10ENG","Male11ENG","Male12ENG"]] call _fnc_saveToTemplate;
+["sfFaces", ["GreekHead_A3_09","Sturrock","vn_b_AsianHead_A3_01_02","vn_b_AsianHead_A3_01_04",
+"vn_b_AsianHead_A3_01_07","vn_b_AsianHead_A3_01_08","vn_b_AsianHead_A3_01_10","vn_b_AsianHead_A3_02_01",
+"vn_b_AsianHead_A3_02_03","vn_b_AsianHead_A3_02_04","vn_b_AsianHead_A3_02_05","vn_b_AsianHead_A3_02_09",
+"vn_b_AsianHead_A3_03_05","vn_b_AsianHead_A3_03_07","vn_b_AsianHead_A3_03_09","vn_b_AsianHead_A3_03_11",
+"vn_b_AsianHead_A3_04_05","vn_b_AsianHead_A3_04_09","vn_b_AsianHead_A3_04_11","vn_b_AsianHead_A3_05_02",
+"vn_b_AsianHead_A3_05_04","vn_b_AsianHead_A3_05_05","vn_b_AsianHead_A3_05_07","vn_b_AsianHead_A3_05_08",
+"vn_b_AsianHead_A3_05_10","vn_b_AsianHead_A3_06_04","vn_b_AsianHead_A3_06_06","vn_b_AsianHead_A3_06_09",
+"vn_b_AsianHead_A3_07_03","vn_b_AsianHead_A3_07_05","vn_b_AsianHead_A3_07_07","vn_b_AsianHead_A3_07_11",
+"vn_b_GreekHead_A3_11_11","vn_b_GreekHead_A3_12_11","vn_b_LivonianHead_10_09","vn_b_LivonianHead_2_04",
+"vn_b_TanoanHead_A3_06_11","vn_b_TanoanHead_A3_07_10","vn_b_WhiteHead_19_08","vn_b_WhiteHead_26_02",
+"vn_b_WhiteHead_27_01","WhiteHead_08","WhiteHead_10","WhiteHead_11","WhiteHead_12"]] call _fnc_saveToTemplate;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////

@@ -139,8 +139,6 @@ private _handleUniqueCases = { //handles unique name cases that the stored value
         case "initialRebelEquipment": { { [_x] call _genericClassExists } forEach _y };
 
         //bool
-        case "addDiveGear";
-        case "addFlightGear": { if !(_y isEqualType true) then {_invalidReasons pushBack ("Entry: "+(str _entry)+" is not of type bool")} };
 
         //truly unique cases
         case "magazines": _validateMagazinesHM;
@@ -160,7 +158,10 @@ private _handleUniqueCases = { //handles unique name cases that the stored value
                 ["CfgMagazines",(_x#0),_entry] call _validClassCaseSensitive;
             } forEach _y;
         };
-
+        case "diveGear"; //Mixed CFGVehicles and CFGGlasses
+        case "flyGear";
+        case "voices"; //CfgVoice maybe later
+        case "faces": {continue};
         default { Info("Entry: "+(str _entry)+" is lacking validation") };
     };
 };

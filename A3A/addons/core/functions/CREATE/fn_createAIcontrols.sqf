@@ -153,7 +153,7 @@ else
 	_frontierX = if (count _markersX > 0) then {true} else {false};
 	if (_frontierX) then
 		{
-		_cfg = _faction get "groupSpecOps";
+		_cfg =  selectRandom (_faction get "groupSpecOpsRandom");
 		if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 			{
 			_sideX = Occupants;
@@ -284,12 +284,6 @@ deleteGroup _groupX;
 		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
-} forEach _vehiclesX;
-
-
-{
-	// delete all vehicles that haven't been captured
-	if !(_x getVariable ["inDespawner", false]) then { deleteVehicle _x };
 } forEach _vehiclesX;
 
 

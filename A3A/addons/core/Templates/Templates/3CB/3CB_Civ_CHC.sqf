@@ -67,6 +67,15 @@
     ,"UK3CB_CHC_C_V3S_Refuel", 0.1]] call _fnc_saveToTemplate;
 
 //////////////////////////
+///  Identitiy Stuff   ///
+//////////////////////////
+
+["faces", ["LivonianHead_6","Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03",
+"WhiteHead_04","WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08",
+"WhiteHead_09","WhiteHead_11","WhiteHead_12","WhiteHead_14","WhiteHead_15",
+"WhiteHead_16","WhiteHead_17","WhiteHead_18","WhiteHead_19","WhiteHead_20"]] call _fnc_saveToTemplate;
+
+//////////////////////////
 //       Loadouts       //
 //////////////////////////
 

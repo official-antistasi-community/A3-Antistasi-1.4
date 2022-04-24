@@ -336,7 +336,7 @@ class Templates
         priorityReb = 6;
         priorityCiv = 6;
 
-        requiredAddons[] = {"CUP_BaseConfigs"};
+        requiredAddons[] = {"CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core"};        // units, weapons, vehicles
         path = QPATHTOFOLDER(Templates\Templates\CUP);
 
         class AI
@@ -422,25 +422,8 @@ class Templates
 			};
         };
 
-        class Reb
-        {
-            class NPC
-            {
-                displayName = "NPC CUP";
-                class camo
-                {
-                    Default = "Temperate";
-                };
-            };
-			class TKL
-            {
-                displayName = "TKL CUP";
-                class camo
-                {
-                    Default = "Arid";
-                };
-            };
-        };
+        class Reb {};
+    
 
         class Civ {};
 
@@ -464,13 +447,12 @@ class Templates
             class chernarus_winter
             {
                 Occ = "CDF";
-                Inv = "ION";
+                Inv = "AFRF";
             };
             class takistan
             {
                 Occ = "TKA";
                 Inv = "US_Army";
-                Reb = "TKL";
             };
             class kunduz : takistan {};
             class sara
@@ -492,7 +474,6 @@ class Templates
             {
                 Occ = "ACR";
                 Inv = "ION";
-                Reb = "NPC";
             };
         };
 

@@ -97,6 +97,15 @@ class CfgFunctions
             class vehicleSort {};
         };
 
+        class Artillery {
+            file = QPATHTOFOLDER(functions\Artillery);
+            class artilleryAdd {};
+            class artilleryDangerClose {};
+            class artilleryFireMission {};
+            class artilleryGetBattery {};
+            class artilleryGetRounds {};
+        };
+
         class Base {
             file = QPATHTOFOLDER(functions\Base);
             class addActionBreachVehicle {};
@@ -549,7 +558,7 @@ class CfgFunctions
             class punishment {};
             class punishment_addActionForgive {};
             class punishment_checkStatus {};
-            class punishment_FF {};
+            class punishment_evaluateEvent {};
             class punishment_FF_checkNearHQ {};
             class punishment_FF_addEH {};
             class punishment_oceanGulag {};

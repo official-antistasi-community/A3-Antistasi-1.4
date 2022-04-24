@@ -43,8 +43,7 @@ if (_typeCrew in _garrison) then {
 		private _veh = FactionGet(reb,"staticMortar") createVehicle _pos;
 		_vehiclesX pushBack _veh;
 
-		//_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
-		//todo Hazey to replace this function
+		[_groupMortars] call A3A_fnc_artilleryAdd;
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: MON_artillery_add FROM: fn_createSDKgarrisons#1"];
 
 		_unit assignAsGunner _veh;
@@ -66,8 +65,7 @@ if (_typeCrew in _garrison) then {
 		_unit = [_groupMortars, (_garrison select _index), _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _x;
 
-		//_nul=[_x] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
-		//todo Hazey to replace this function
+		[_groupMortars] call A3A_fnc_artilleryAdd;
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: MON_artillery_add FROM: fn_createSDKgarrisons#2"];
 	} else {
 		if (isNull _groupStatics) then { _groupStatics = createGroup teamPlayer };

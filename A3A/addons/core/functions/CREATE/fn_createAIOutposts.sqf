@@ -143,8 +143,7 @@ if (_patrol) then {
 ///////////////////
 // Mortars / Support
 ///////////////////
-//if ((_frontierX) and (_markerX in outposts)) then {
-if ((_markerX in outposts)) then {
+if ((_frontierX) and (_markerX in outposts)) then {
 	private _typeUnit = _faction get "unitStaticCrew";
 	private _typeVehX = selectRandom (_faction get "staticMortars");
 	private _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;

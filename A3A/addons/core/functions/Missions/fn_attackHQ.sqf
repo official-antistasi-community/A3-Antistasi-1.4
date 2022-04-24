@@ -47,7 +47,7 @@ if (count _typesVeh > 0) then
 	};
 _typesVeh = (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport");
 if (_typesVeh isEqualTo []) then {_typesVeh = _faction get "vehiclesPlanesTransport"};
-_typeGroup = _faction get "groupSpecOps";
+_typeGroup = selectRandom (_faction get "groupSpecOpsRandom");
 
 for "_i" from 0 to (round random 2) do
 	{

@@ -6,14 +6,14 @@ item1[] = {"Cond",4,218,-125.000000,700.000000,-25.000000,750.000000,1.000000,"C
 item2[] = {"Exit_FSM",1,250,-250.000000,700.000000,-175.000000,750.000000,0.000000,"Exit FSM"};
 item3[] = {"Continue",8,218,0.000000,575.000000,100.000000,625.000000,0.000000,"Continue"};
 item4[] = {"Start_Point",2,250,50.000000,400.000000,150.000000,450.000000,0.000000,"Start Point"};
-item5[] = {"Exit_Cond",4,218,-100.000000,475.000000,0.000000,525.000000,3.000000,"Exit Cond"};
+item5[] = {"Exit_Cond",4,218,-100.000000,475.000000,0.000000,525.000000,1.000000,"Exit Cond"};
 item6[] = {"Exit_FSM_1",1,250,-250.000000,475.000000,-175.000000,525.000000,0.000000,"Exit FSM"};
-item7[] = {"Simulation_Pause",4,218,250.000000,475.000000,350.000000,525.000000,9.000000,"Simulation Pause"};
+item7[] = {"Simulation_Pause",4,218,250.000000,475.000000,350.000000,525.000000,6.000000,"Simulation Pause"};
 item8[] = {"Simulation_Pause",2,250,427.475037,497.553406,550.309753,545.922485,0.000000,"Simulation Pause"};
-item9[] = {"Simulation_Enabl",4,218,200.000000,500.000000,300.000000,550.000000,8.000000,"Simulation Enable"};
+item9[] = {"Simulation_Enabl",4,218,200.000000,500.000000,300.000000,550.000000,2.000000,"Simulation Enable"};
 item10[] = {"Wait",4,218,350.000000,575.000000,450.000000,625.000000,0.000000,"Wait"};
-item11[] = {"Frequent_Checks",4,218,-100.000000,300.000000,0.000000,350.000000,7.000000,"Frequent Checks"};
-item12[] = {"RearmCheck",4,218,-200.000000,300.000000,-100.000000,350.000000,6.000000,"RearmCheck"};
+item11[] = {"Frequent_Checks",4,218,-100.000000,300.000000,0.000000,350.000000,5.000000,"Frequent Checks"};
+item12[] = {"RearmCheck",4,218,-200.000000,300.000000,-100.000000,350.000000,4.000000,"RearmCheck"};
 item13[] = {"Continue2LeaderC",8,218,350.000000,350.000000,450.000000,400.000000,0.000000,"Continue2LeaderCycle"};
 item14[] = {"Hold_WP",4,218,400.000000,200.000000,500.000000,250.000000,1.000000,"Hold WP"};
 item15[] = {"RearmCheck",2,250,-200.000000,150.000000,-100.000000,200.000000,0.000000,"RearmCheck"};
@@ -30,10 +30,10 @@ item25[] = {"Arty_Check",4,4314,1100.000000,250.000000,1200.000000,300.000000,4.
 item26[] = {"",7,210,1258.500000,21.000000,1266.500000,29.000000,0.000000,""};
 item27[] = {"Flank_Orders",4,218,1050.000000,225.000000,1150.000000,275.000000,5.000000,"Flank Orders"};
 item28[] = {"",7,210,296.000000,21.000000,304.000000,29.000000,0.000000,""};
-item29[] = {"Five_Minute_Chec",4,218,-300.000000,300.000000,-200.000000,350.000000,5.000000,"Five Minute Checks"};
+item29[] = {"Five_Minute_Chec",4,218,-300.000000,300.000000,-200.000000,350.000000,3.000000,"Five Minute Checks"};
 item30[] = {"Five_Minute_Chec",2,250,-300.000000,150.000000,-200.000000,200.000000,0.000000,"Five Minute Checks"};
 item31[] = {"CheckIfStatic",4,218,950.000000,175.000000,1050.000000,225.000000,3.000000,"CheckIfStatic"};
-item32[] = {"TwoMinuteChecks",4,218,-400.000000,300.000000,-300.000000,350.000000,4.000000,"TwoMinuteChecks"};
+item32[] = {"TwoMinuteChecks",4,218,-400.000000,300.000000,-300.000000,350.000000,2.000000,"TwoMinuteChecks"};
 item33[] = {"Two_Minute_Check",2,250,-400.000000,150.000000,-300.000000,200.000000,0.000000,"Two Minute Checks"};
 item34[] = {"ArmStatics",4,218,899.957336,149.035675,999.957336,199.035675,7.000000,"ArmStatics"};
 item35[] = {"True",8,218,849.957397,124.035683,949.957397,174.035660,0.000000,"True"};
@@ -42,23 +42,19 @@ item37[] = {"Exit_FSM_2",1,250,693.269287,595.961548,768.269287,645.961548,0.000
 item38[] = {"Clear_Building",4,218,1200.000000,300.000000,1300.000000,350.000000,6.000000,"Clear Building"};
 item39[] = {"Combat_END",4,218,675.000000,400.000000,775.000000,450.000000,2.000000,"Combat END"};
 item40[] = {"Exit_Cond",4,218,525.000000,700.000000,625.000000,750.000000,1.000000,"Exit Cond"};
-item41[] = {"Arty_Pause",4,218,150.000000,525.000000,250.000000,575.000000,2.000000,"Arty Pause"};
-item42[] = {"Artillery_Pause",2,250,225.000000,625.000000,325.000000,675.000000,0.000000,"Artillery Pause"};
-item43[] = {"Wait",4,218,225.000000,700.000000,325.000000,750.000000,0.000000,"Wait"};
-item44[] = {"Arty_Disabled",4,218,100.000000,550.000000,200.000000,600.000000,1.000000,"Arty Disabled"};
-item45[] = {"Veh",4,218,950.000000,425.000000,1050.000000,475.000000,1.000000,"Veh"};
-item46[] = {"Veh_Combat_Brain",2,250,1130.064575,478.102203,1262.637939,522.673096,0.000000,"Veh Combat Brain"};
-item47[] = {"Checks",2,250,800.000000,250.000000,875.000000,275.000000,0.000000,"Checks"};
-item48[] = {"Not_All_Vehicle",8,218,900.000000,300.000000,1000.000000,325.000000,0.000000,"Not All Vehicle"};
-item49[] = {"True",8,218,1250.000000,600.000000,1350.000000,650.000000,0.000000,"True"};
-item50[] = {"Transport_Orders",4,218,1150.000000,600.000000,1250.000000,650.000000,2.000000,"Transport Orders"};
-item51[] = {"Attack_Orders",4,218,1050.000000,600.000000,1150.000000,650.000000,1.000000,"Attack Orders"};
-item52[] = {"",7,210,1221.000000,771.000000,1229.000000,779.000000,0.000000,""};
-item53[] = {"",7,210,1658.500000,771.000061,1666.500000,779.000000,0.000000,""};
-item54[] = {"",7,210,1653.571289,21.000000,1661.571289,29.000000,0.000000,""};
-item55[] = {"Too_Far",4,218,1250.000000,325.000000,1350.000000,375.000000,1.000000,"Too Far"};
-item56[] = {"Combat_Movement",4,218,1150.000000,275.000000,1250.000000,325.000000,5.000000,"Combat" \n "Movement"};
-item57[] = {"Grenade_Check",4,218,1000.000000,200.000000,1100.000000,250.000000,2.000000,"Grenade" \n "Check"};
+item41[] = {"Veh",4,218,950.000000,425.000000,1050.000000,475.000000,1.000000,"Veh"};
+item42[] = {"Veh_Combat_Brain",2,250,1130.064575,478.102203,1262.637939,522.673096,0.000000,"Veh Combat Brain"};
+item43[] = {"Checks",2,250,800.000000,250.000000,875.000000,275.000000,0.000000,"Checks"};
+item44[] = {"Not_All_Vehicle",8,218,900.000000,300.000000,1000.000000,325.000000,0.000000,"Not All Vehicle"};
+item45[] = {"True",8,218,1250.000000,600.000000,1350.000000,650.000000,0.000000,"True"};
+item46[] = {"Transport_Orders",4,218,1150.000000,600.000000,1250.000000,650.000000,2.000000,"Transport Orders"};
+item47[] = {"Attack_Orders",4,218,1050.000000,600.000000,1150.000000,650.000000,1.000000,"Attack Orders"};
+item48[] = {"",7,210,1221.000000,771.000000,1229.000000,779.000000,0.000000,""};
+item49[] = {"",7,210,1658.500000,771.000061,1666.500000,779.000000,0.000000,""};
+item50[] = {"",7,210,1653.571289,21.000000,1661.571289,29.000000,0.000000,""};
+item51[] = {"Too_Far",4,218,1250.000000,325.000000,1350.000000,375.000000,1.000000,"Too Far"};
+item52[] = {"Combat_Movement",4,218,1150.000000,275.000000,1250.000000,325.000000,5.000000,"Combat" \n "Movement"};
+item53[] = {"Grenade_Check",4,218,1000.000000,200.000000,1100.000000,250.000000,2.000000,"Grenade" \n "Check"};
 link0[] = {0,1};
 link1[] = {0,3};
 link2[] = {1,2};
@@ -70,82 +66,75 @@ link7[] = {4,12};
 link8[] = {4,13};
 link9[] = {4,29};
 link10[] = {4,32};
-link11[] = {4,41};
-link12[] = {5,6};
-link13[] = {7,8};
-link14[] = {8,9};
-link15[] = {8,10};
-link16[] = {8,40};
-link17[] = {9,4};
-link18[] = {10,8};
-link19[] = {11,17};
-link20[] = {12,15};
-link21[] = {13,20};
-link22[] = {14,16};
-link23[] = {15,18};
-link24[] = {16,19};
-link25[] = {17,18};
-link26[] = {18,4};
-link27[] = {19,4};
-link28[] = {20,14};
-link29[] = {20,21};
-link30[] = {20,23};
-link31[] = {20,24};
-link32[] = {20,36};
-link33[] = {20,39};
-link34[] = {21,47};
-link35[] = {22,25};
-link36[] = {22,27};
-link37[] = {22,31};
-link38[] = {22,34};
-link39[] = {22,35};
-link40[] = {22,36};
-link41[] = {22,38};
-link42[] = {22,55};
-link43[] = {22,56};
-link44[] = {22,57};
-link45[] = {23,47};
-link46[] = {24,16};
-link47[] = {25,26};
-link48[] = {26,28};
-link49[] = {27,26};
-link50[] = {28,16};
-link51[] = {29,30};
-link52[] = {30,18};
-link53[] = {31,26};
-link54[] = {32,33};
-link55[] = {33,18};
-link56[] = {34,26};
-link57[] = {35,26};
-link58[] = {36,37};
-link59[] = {38,26};
-link60[] = {39,26};
-link61[] = {40,37};
-link62[] = {41,42};
-link63[] = {42,40};
-link64[] = {42,43};
-link65[] = {42,44};
-link66[] = {43,42};
-link67[] = {44,4};
-link68[] = {45,46};
-link69[] = {46,36};
-link70[] = {46,49};
-link71[] = {46,50};
-link72[] = {46,51};
-link73[] = {47,45};
-link74[] = {47,48};
-link75[] = {48,22};
-link76[] = {49,26};
-link77[] = {50,52};
-link78[] = {51,52};
-link79[] = {52,53};
-link80[] = {53,54};
-link81[] = {54,26};
-link82[] = {55,26};
-link83[] = {56,26};
-link84[] = {57,26};
-globals[] = {0.000000,0,0,0,0,640,480,2,652,6316128,1,526.990845,1409.557373,735.601440,63.529022,1174,894,1};
-window[] = {2,-1,-1,-32000,-32000,1208,182,2634,182,3,1192};
+link11[] = {5,6};
+link12[] = {7,8};
+link13[] = {8,9};
+link14[] = {8,10};
+link15[] = {8,40};
+link16[] = {9,4};
+link17[] = {10,8};
+link18[] = {11,17};
+link19[] = {12,15};
+link20[] = {13,20};
+link21[] = {14,16};
+link22[] = {15,18};
+link23[] = {16,19};
+link24[] = {17,18};
+link25[] = {18,4};
+link26[] = {19,4};
+link27[] = {20,14};
+link28[] = {20,21};
+link29[] = {20,23};
+link30[] = {20,24};
+link31[] = {20,36};
+link32[] = {20,39};
+link33[] = {21,43};
+link34[] = {22,25};
+link35[] = {22,27};
+link36[] = {22,31};
+link37[] = {22,34};
+link38[] = {22,35};
+link39[] = {22,36};
+link40[] = {22,38};
+link41[] = {22,51};
+link42[] = {22,52};
+link43[] = {22,53};
+link44[] = {23,43};
+link45[] = {24,16};
+link46[] = {25,26};
+link47[] = {26,28};
+link48[] = {27,26};
+link49[] = {28,16};
+link50[] = {29,30};
+link51[] = {30,18};
+link52[] = {31,26};
+link53[] = {32,33};
+link54[] = {33,18};
+link55[] = {34,26};
+link56[] = {35,26};
+link57[] = {36,37};
+link58[] = {38,26};
+link59[] = {39,26};
+link60[] = {40,37};
+link61[] = {41,42};
+link62[] = {42,36};
+link63[] = {42,45};
+link64[] = {42,46};
+link65[] = {42,47};
+link66[] = {43,41};
+link67[] = {43,44};
+link68[] = {44,22};
+link69[] = {45,26};
+link70[] = {46,48};
+link71[] = {47,48};
+link72[] = {48,49};
+link73[] = {49,50};
+link74[] = {50,26};
+link75[] = {51,26};
+link76[] = {52,26};
+link77[] = {53,26};
+globals[] = {0.000000,0,0,0,0,640,480,2,652,6316128,1,568.424805,1674.378906,777.971069,-64.211777,1174,894,1};
+window[] = {2,-1,-1,-1,-1,1052,26,2478,26,3,1192};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -291,7 +280,6 @@ class FSM
                          "if !(_NewUnit isEqualTo -1) then" \n
                          "{" \n
                          "	if (VCM_SKILLCHANGE && {!(_Group getVariable [""VCM_Skilldisable"", false])}) then {_Group call VCM_AIDIFSET};" \n
-                         "	_ArtyGroupBool = _Group call VCM_fnc_ArtyManage;" \n
                          "	" \n
                          "	{" \n
                          "		if (!(_x in _CurUnits) && {!(isPlayer _x)}) then" \n
@@ -332,7 +320,7 @@ class FSM
                                 class Simulation_Pause
                                 {
                                         itemno = 7;
-                                        priority = 9.000000;
+                                        priority = 6.000000;
                                         to="Simulation_Pause";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!(simulationEnabled _leader)"/*%FSM</CONDITION""">*/;
@@ -343,7 +331,7 @@ class FSM
                                 class Frequent_Checks
                                 {
                                         itemno = 11;
-                                        priority = 7.000000;
+                                        priority = 5.000000;
                                         to="Full_Check";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_BackbkC + 30) < time"/*%FSM</CONDITION""">*/;
@@ -354,7 +342,7 @@ class FSM
                                 class RearmCheck
                                 {
                                         itemno = 12;
-                                        priority = 6.000000;
+                                        priority = 4.000000;
                                         to="RearmCheck";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_BackbkC2 + 60) < time"/*%FSM</CONDITION""">*/;
@@ -365,7 +353,7 @@ class FSM
                                 class Five_Minute_Chec
                                 {
                                         itemno = 29;
-                                        priority = 5.000000;
+                                        priority = 3.000000;
                                         to="Five_Minute_Chec";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_BackbkC3 + 300) < time"/*%FSM</CONDITION""">*/;
@@ -376,7 +364,7 @@ class FSM
                                 class TwoMinuteChecks
                                 {
                                         itemno = 32;
-                                        priority = 4.000000;
+                                        priority = 2.000000;
                                         to="Two_Minute_Check";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_BackbkCC4 + 120) < time"/*%FSM</CONDITION""">*/;
@@ -387,21 +375,10 @@ class FSM
                                 class Exit_Cond
                                 {
                                         itemno = 5;
-                                        priority = 3.000000;
+                                        priority = 1.000000;
                                         to="Exit_FSM_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_Group getvariable [""Vcm_Disable"",false]) || {(((units _Group) findIf {alive _x}) isEqualTo -1)} || {!(side _group in VCM_SIDEENABLED)} || {!(local _group)} || {isplayer (leader _group)} || {!((leader _group) isKindOf ""Man"")}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Arty_Pause">*/
-                                class Arty_Pause
-                                {
-                                        itemno = 41;
-                                        priority = 2.000000;
-                                        to="Artillery_Pause";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_ArtyGroupBool"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -463,7 +440,7 @@ class FSM
                                 class Simulation_Enabl
                                 {
                                         itemno = 9;
-                                        priority = 8.000000;
+                                        priority = 2.000000;
                                         to="Start_Point";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"simulationEnabled (leader _group)"/*%FSM</CONDITION""">*/;
@@ -800,7 +777,7 @@ class FSM
                                 /*%FSM<LINK "Combat_Movement">*/
                                 class Combat_Movement
                                 {
-                                        itemno = 56;
+                                        itemno = 52;
                                         priority = 5.000000;
                                         to="Return";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -843,7 +820,8 @@ class FSM
                                         to="Return";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"VCM_ARTYENABLE && {(_ArtyT + VCM_ARTYDELAY) < time} && {side _Group in VCM_ARTYSIDES} && {!(_NearestEnemy isEqualTo [0,0,0])}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"[_Group,(group _NearestEnemy),_LocKnown,_PredictedLoc] call VCM_fnc_ArtyCall;" \n
+                                        action=/*%FSM<ACTION""">*/"[_PredictedLoc, 100, random 5, ""HE""] spawn A3A_fnc_artilleryFireMission;" \n
+                                         "" \n
                                          "switch ((side _Group)) do {" \n
                                          "	case west: {VCM_ARTYWT = time;};" \n
                                          "	case east: {VCM_ARTYET = time;}; " \n
@@ -878,7 +856,7 @@ class FSM
                                 /*%FSM<LINK "Grenade_Check">*/
                                 class Grenade_Check
                                 {
-                                        itemno = 57;
+                                        itemno = 53;
                                         priority = 2.000000;
                                         to="Return";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -902,7 +880,7 @@ class FSM
                                 /*%FSM<LINK "Too_Far">*/
                                 class Too_Far
                                 {
-                                        itemno = 55;
+                                        itemno = 51;
                                         priority = 1.000000;
                                         to="Return";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -1002,58 +980,11 @@ class FSM
                         };
                 };
                 /*%FSM</STATE>*/
-                /*%FSM<STATE "Artillery_Pause">*/
-                class Artillery_Pause
-                {
-                        name = "Artillery_Pause";
-                        itemno = 42;
-                        init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
-                         "_t = time;" \n
-                         "_ArtyGroupBool = _Group call VCM_fnc_ArtyManage;"/*%FSM</STATEINIT""">*/;
-                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-                        class Links
-                        {
-                                /*%FSM<LINK "Arty_Disabled">*/
-                                class Arty_Disabled
-                                {
-                                        itemno = 44;
-                                        priority = 1.000000;
-                                        to="Start_Point";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!(_ArtyGroupBool)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Exit_Cond">*/
-                                class Exit_Cond
-                                {
-                                        itemno = 40;
-                                        priority = 1.000000;
-                                        to="Exit_FSM_2";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_Group getvariable [""Vcm_Disable"",false]) || {(((units _Group) findIf {alive _x}) isEqualTo -1)} || {!(side _group in VCM_SIDEENABLED)} || {!(local _group)} || {isplayer (leader _group)} || {!((leader _group) isKindOf ""Man"")}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Wait">*/
-                                class Wait
-                                {
-                                        itemno = 43;
-                                        priority = 0.000000;
-                                        to="Artillery_Pause";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"time > _t + 10"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                        };
-                };
-                /*%FSM</STATE>*/
                 /*%FSM<STATE "Veh_Combat_Brain">*/
                 class Veh_Combat_Brain
                 {
                         name = "Veh_Combat_Brain";
-                        itemno = 46;
+                        itemno = 42;
                         init = /*%FSM<STATEINIT""">*/"private _t = time;" \n
                          "_Wait = 5;" \n
                          "" \n
@@ -1075,7 +1006,7 @@ class FSM
                                 /*%FSM<LINK "Transport_Orders">*/
                                 class Transport_Orders
                                 {
-                                        itemno = 50;
+                                        itemno = 46;
                                         priority = 2.000000;
                                         to="Return";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -1087,7 +1018,7 @@ class FSM
                                 /*%FSM<LINK "Attack_Orders">*/
                                 class Attack_Orders
                                 {
-                                        itemno = 51;
+                                        itemno = 47;
                                         priority = 1.000000;
                                         to="Return";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -1099,7 +1030,7 @@ class FSM
                                 /*%FSM<LINK "True">*/
                                 class True
                                 {
-                                        itemno = 49;
+                                        itemno = 45;
                                         priority = 0.000000;
                                         to="Return";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -1114,7 +1045,7 @@ class FSM
                 class Checks
                 {
                         name = "Checks";
-                        itemno = 47;
+                        itemno = 43;
                         init = /*%FSM<STATEINIT""">*/"private _t = time;" \n
                          "_Wait = 5;" \n
                          "" \n
@@ -1125,7 +1056,7 @@ class FSM
                                 /*%FSM<LINK "Veh">*/
                                 class Veh
                                 {
-                                        itemno = 45;
+                                        itemno = 41;
                                         priority = 1.000000;
                                         to="Veh_Combat_Brain";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -1136,7 +1067,7 @@ class FSM
                                 /*%FSM<LINK "Not_All_Vehicle">*/
                                 class Not_All_Vehicle
                                 {
-                                        itemno = 48;
+                                        itemno = 44;
                                         priority = 0.000000;
                                         to="Inf_Combat_Brain";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;

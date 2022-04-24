@@ -152,8 +152,7 @@ if ((_frontierX) and (_markerX in outposts)) then {
 		private _groupX = createGroup _sideX;
 		private _veh = _typeVehX createVehicle (_spawnParameter select 0);
 
-		//_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
-		//todo Hazey to replace this function
+		[_groupX] call A3A_fnc_artilleryAdd;
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: MON_artillery_add FROM: fn_createAIOutposts#1"];
 
 		private _unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;

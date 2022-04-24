@@ -97,6 +97,15 @@ class CfgFunctions
             class vehicleSort {};
         };
 
+        class Artillery {
+            file = QPATHTOFOLDER(functions\Artillery);
+            class artilleryAdd {};
+            class artilleryDangerClose {};
+            class artilleryFireMission {};
+            class artilleryGetBattery {};
+            class artilleryGetRounds {};
+        };
+
         class Base {
             file = QPATHTOFOLDER(functions\Base);
             class addActionBreachVehicle {};

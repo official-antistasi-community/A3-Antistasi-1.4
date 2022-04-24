@@ -28,6 +28,12 @@ publicVariable "PATCOM_DEBUG";
 PATCOM_VISUAL_RANGE = 400; // How far should PATCOM look for Enemies.
 publicVariable "PATCOM_VISUAL_RANGE";
 
+PATCOM_ARTILLERY_MANAGER = true;
+publicVariable "PATCOM_ARTILLERY_MANAGER";
+
+PATCOM_ARTILLERY_DELAY = 10;
+publicVariable "PATCOM_ARTILLERY_DELAY";
+
 // This Hashmap acts as a blacklist to remove unwanted buildings
 PATCOM_Building_Blacklist = createHashMap;
 
@@ -104,5 +110,8 @@ publicVariable "PATCOM_Patrol_Animations";
 		sleep 30;
 	};
 };
+
+PATCOM_INIT_COMPLETE = true;
+publicVariable "PATCOM_INIT_COMPLETE";
 
 Info("PATCOM | Init Complete");

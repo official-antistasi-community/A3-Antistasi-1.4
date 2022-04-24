@@ -34,6 +34,8 @@ params [
 	["_searchBuildings", false]
 ];
 
+waitUntil {((!isNil "PATCOM_INIT_COMPLETE") && (PATCOM_INIT_COMPLETE))};
+
 [_group, _patrolType, _minDist, _maxDist, _dist, _fromCenter, _centerPos, _searchBuildings] spawn {
 	params ["_group","_patrolType", "_minDist", "_maxDist", "_dist", "_fromCenter", "_centerPos", "_searchBuildings"];
 

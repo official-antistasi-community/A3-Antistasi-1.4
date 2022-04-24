@@ -30,7 +30,7 @@ if (_typeX isEqualType "") then {
     if (_typeX == FactionGet(reb,"unitCrew")) then {
         private _veh = FactionGet(reb,"staticMortar") createVehicle _positionX;
 
-        //[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
+        [_groupX] call A3A_fnc_artilleryAdd;
 
         _unit assignAsGunner _veh;
         _unit moveInGunner _veh;

@@ -22,9 +22,11 @@ if (_groupX getVariable "staticAutoT") exitWith
 	};
 
 ["Static Auto Target", format ["Mounted Static Squad %1 set to Auto Target Mode ON.", groupID _groupX]] call A3A_fnc_customHint;
-_groupX setVariable ["staticAutoT",true,true];
+_groupX setVariable ["staticAutoT", true, true];
 
-//if (typeOf _static == FactionGet(reb,"staticMortar")) exitWith {_nul=[_static] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);};
+if (typeOf _static == FactionGet(reb,"staticMortar")) exitWith {
+	[_groupX] call A3A_fnc_artilleryAdd;
+};
 //todo Hazey to replace this function
 diag_log text format["Hazey Debug--- CALL ATTEMPT: MON_artillery_add FROM: fn_staticAutoT"];
 

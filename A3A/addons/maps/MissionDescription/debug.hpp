@@ -9,5 +9,7 @@ enableDebugConsole[] = {
     "76561198000461190", //John Jordan
     "76561198016623887", //Lazejun
     "76561197969814277", //Giddi
+    "76561197963441999", //Hazey
 };
 allowFunctionsRecompile = 1;
+

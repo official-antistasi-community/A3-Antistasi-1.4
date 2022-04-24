@@ -134,7 +134,7 @@ link75[] = {51,26};
 link76[] = {52,26};
 link77[] = {53,26};
 globals[] = {0.000000,0,0,0,0,640,480,2,652,6316128,1,568.424805,1674.378906,777.971069,-64.211777,1174,894,1};
-window[] = {2,-1,-1,-1,-1,1208,182,2634,182,3,1192};
+window[] = {2,-1,-1,-1,-1,1052,26,2478,26,3,1192};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -821,6 +821,12 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"VCM_ARTYENABLE && {(_ArtyT + VCM_ARTYDELAY) < time} && {side _Group in VCM_ARTYSIDES} && {!(_NearestEnemy isEqualTo [0,0,0])}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"[_PredictedLoc, 100, random 5, ""HE""] spawn A3A_fnc_artilleryFireMission;" \n
+                                         "" \n
+                                         "switch ((side _Group)) do {" \n
+                                         "	case west: {VCM_ARTYWT = time;};" \n
+                                         "	case east: {VCM_ARTYET = time;}; " \n
+                                         "	case resistance: {VCM_ARTYRT = time;}; " \n
+                                         "};" \n
                                          "" \n
                                          "if (VCM_DebugFSM) then {systemchat ""ARTY CHECK"";};"/*%FSM</ACTION""">*/;
                                 };

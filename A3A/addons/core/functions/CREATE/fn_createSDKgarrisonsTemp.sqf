@@ -48,7 +48,7 @@ if (_typeX isEqualType "") then {
 
     [_unit,_markerX] spawn {
         params ["_unit", "_markerX"];
-        waitUntil {sleep 5; (spawner getVariable _markerX == 2)};
+        waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
         if (alive _unit) then {
             private _groupX = group _unit;
             if ((_unit getVariable "unitType") isEqualTo FactionGet(reb,"unitCrew")) then {deleteVehicle (vehicle _unit)};

@@ -30,7 +30,7 @@ private _musicSource = "RoadCone_L_F" createVehicle position _building;
 _musicSource attachTo [_building, [1,1,1]];
 
 // Hide the cone, we don't want to see it!
-hideObjectGlobal _musicSource;
+[_musicSource, true] remoteExec ["hideObjectGlobal", 2];
 
 [_building, _musicSource] spawn {
 	params ["_building", "_musicSource", "_locationType"];

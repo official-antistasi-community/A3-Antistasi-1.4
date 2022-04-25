@@ -46,7 +46,7 @@ Vcm_Settings =
 	VCM_CARGOCHNG = true; //If true, Vcom will handle disembarking/re-embarking orders instead of vanilla. This is with the intention to prevent the endless embark/disembark loops AI are given.	
 	VCM_TURRETUNLOAD = true; //If true = Prevents AI vehicle turret positions from leaving a vehicle just beecause it is slightly damaged. Example: leaving a tank when just the tracks are damaged.	
 	VCM_DISEMBARKRANGE = 500; //How far AI will disembark from their vehicles. If the vehicle is damaged, they will disembark.
-	Vcm_DrivingActivated = true; //AI will use experimental driving improvements.
+	Vcm_DrivingActivated = false; //AI will use experimental driving improvements.
 	Vcm_GrenadeChance = 10; 	//Chance the AI will throw a grenade.
 	Vcm_GrenadeCoolDown = 60; 	//Cooldown between each grenade throw. This does not impact vanilla throwing.	
 	Vcm_SmokeChance = 5; 		//Chance the AI will throw a smoke grenade.

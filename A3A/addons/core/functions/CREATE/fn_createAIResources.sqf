@@ -225,7 +225,7 @@ for "_i" from 0 to (count _array - 1) do {
 	};
 };
 
-waitUntil {sleep 5; (spawner getVariable _markerX == 2)};
+waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
 [_markerX] call A3A_fnc_freeSpawnPositions;
 

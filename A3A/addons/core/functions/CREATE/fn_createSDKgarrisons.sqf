@@ -118,7 +118,7 @@ for "_i" from 0 to (count _groups) - 1 do {
 	};
 };
 
-waitUntil {sleep 5; (spawner getVariable _markerX == 2)};
+waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
 { if (alive _x) then { deleteVehicle _x }; } forEach _soldiers;
 

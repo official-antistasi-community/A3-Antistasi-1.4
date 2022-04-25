@@ -162,7 +162,7 @@ if (_type == "City") then {
 };
 
 // Handle removal of civ's.
-waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
+waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 {if (alive _x) then {deleteVehicle _x};} forEach _civilians;
 {
 	_x setVariable ["PATCOM_Controlled", false];

@@ -110,7 +110,7 @@ if (_patrol) then {
 
 		private _groupType = selectRandom _groupTypes;
 
-		private _spawnPosition = [_positionX, 50, 150, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+		private _spawnPosition = [_positionX, 50, 150, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 		// We run a final check to see if the position is actually valid. If its not, we just exit.
 		if (count _spawnPosition <= 2) exitWith {};
 
@@ -370,7 +370,7 @@ for "_i" from 0 to (count _array - 1) do {
 	_groupX = if (_i == 0) then {
 		[_positionX, _sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup
 	} else {
-		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup
 	};
 

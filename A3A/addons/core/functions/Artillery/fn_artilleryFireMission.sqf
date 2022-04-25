@@ -70,7 +70,7 @@ private _sleep = random _maxFireRate;
 while {((_roundsSent < _roundCount) && (alive (gunner _selBattery)))} do {
 	_roundsSent = _roundsSent + 1;
 
-	private _finalTargetPos = [_targetPos, 0, (_area + _artilleryVarience), 0, 1, -1, 0] call A3A_fnc_getSafeSpawnPos;
+	private _finalTargetPos = [_targetPos, 0, (_area + _artilleryVarience), 0, 1, -1, 0] call A3A_fnc_getSafePos;
 	_selBattery doArtilleryFire [_finalTargetPos, _ammoType, 1];
 				
 	if (_sleep < _minFireRate) then {

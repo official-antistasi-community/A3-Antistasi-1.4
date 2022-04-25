@@ -77,7 +77,7 @@ private _countX = 0;
 private _radius = [_markerX] call A3A_fnc_sizeMarker;
 _radius = round (_radius / 2);
 while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
-	// private _spawnPosition = [_positionX, 10, _radius, 0, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+	// private _spawnPosition = [_positionX, 10, _radius, 0, 0, -1, 0] call A3A_fnc_getSafePos;
 	// We Opt to use this method over the above. This will provide road positions for spawning rather than a random position.
 	// We want to keep these units within the city for the most part.
 	private _spawnPosition = [];
@@ -85,7 +85,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	while {(count _spawnPosition <= 2)} do {
 		//_spawnPosition = [[[_positionX, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
 		_spawnPosition = [[[_positionX, _radius]], ["water"]] call BIS_fnc_randomPos;
-		//_spawnPosition = [_positionX, 50 + (random 50), 200, 20, 10, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+		//_spawnPosition = [_positionX, 50 + (random 50), 200, 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 		sleep 0.50;
 	};
 	private _groupX = [_spawnPosition, _factionSide, _factionType] call A3A_fnc_spawnGroup;

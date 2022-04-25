@@ -115,7 +115,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 ///////////////////
 // Handle Removal
 ///////////////////
-waitUntil {sleep 5;(spawner getVariable _markerX == 2)};
+waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 {if (alive _x) then {deleteVehicle _x}} forEach _soldiers;
 {deleteVehicle _x} forEach _dogs;
 

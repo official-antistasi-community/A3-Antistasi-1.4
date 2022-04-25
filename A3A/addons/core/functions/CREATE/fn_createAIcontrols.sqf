@@ -301,7 +301,7 @@ if (spawner getVariable _markerX != 2) then {
 ///////////////////
 // Handle Removal
 ///////////////////
-waitUntil {sleep 10;(spawner getVariable _markerX == 2)};
+waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 { if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
 { deleteVehicle _x } forEach _dogs;
 

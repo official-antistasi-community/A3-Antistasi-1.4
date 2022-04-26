@@ -472,4 +472,35 @@ class Templates
 
         Nodes[] = {"CUP_Logistics_Nodes.sqf"};
     };
+
+    class BW
+    {
+        priorityOcc = 7;
+        priorityInv = 7;
+        priorityReb = 7;
+        priorityCiv = 7;
+
+        requiredAddons[] = {""};
+        path = QPATHTOFOLDER(Templates\Templates\BW);
+
+        class AI {
+            
+        };
+
+        class Reb {
+            
+        };
+
+        class Civ {}; // Leave empty as it will default to the single Civ file.
+
+        class worldDefaults {
+            class Default {
+                Occ = "";
+                Inv = "";
+                Reb = "";
+            };
+        };
+
+        Nodes[] = {"BW_Logistics_Nodes.sqf"};
+    };
 };

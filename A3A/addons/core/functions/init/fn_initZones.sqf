@@ -20,7 +20,7 @@ if (!isClass _mapInfo) then {_mapInfo = configFile/"A3A"/"mapInfo"/toLower world
 
 private ["_name", "_sizeX", "_sizeY", "_size", "_pos", "_mrk"];
 
-if ((toLower worldName) in ["altis", "chernarus_summer", "cup_chernarus_A3"]) then {
+if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
 	"((getText (_x >> ""type"")) == ""Hill"") &&
 	!((getText (_x >> ""name"")) isEqualTo """") &&
 	!(configName _x isEqualTo ""Magos"")"
@@ -163,7 +163,7 @@ private _replaceBadAntenna = {
 		};
 		private _antennaPos = getPos _antenna;
 		_antennaPos set [2, 0];
-		private _antennaClass = if (worldName == "cup_chernarus_A3") then { "Land_Telek1" } else { "Land_TTowerBig_2_F" };
+		private _antennaClass = if (worldName == "chernarus_summer") then { "Land_Telek1" } else { "Land_TTowerBig_2_F" };
 		_antenna = createVehicle [_antennaClass, _antennaPos, [], 0, "NONE"];
 	};
 	_antenna;

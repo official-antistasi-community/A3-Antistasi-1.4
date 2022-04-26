@@ -257,38 +257,6 @@
         <Chinesesimp>在树林中打猎</Chinesesimp>
         <Russian>Охота в лесу</Russian>
       </Key>
-      <Key ID="STR_antistasi_mission_info_chernarus_2020_mapname_text">
-        <Original>Antistasi - Kolkhoz in revolt</Original>
-        <English>Antistasi - Kolkhoz in revolt</English>
-        <Russian>Antistasi - Революция колхоза</Russian>
-        <Chinesesimp>Antistasi - Kolkhoz 起义</Chinesesimp>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_chernarus_2020_mapname_short_text">
-        <Original>Antistasi Chernarus</Original>
-        <English>Antistasi Chernarus</English>
-        <Russian>Antistasi Чернорусь</Russian>
-        <Chinesesimp>Antistasi Chernarus</Chinesesimp>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_chernarus_2020_blurb_text">
-        <Original>Between the anvil and a steamroller.</Original>
-        <English>Between the anvil and a steamroller.</English>
-        <French>Entre l'enclume et un rouleau compresseur</French>
-        <Russian>Между катком и наковальней.</Russian>
-        <German>Zwischen einem Amboss und einer Dampfwalze.</German>
-        <Czech>Mezi kovadlinou a parním válcem.</Czech>
-        <Korean>모루와 강압기 사이</Korean>
-        <Chinesesimp>在砧板和压辊之间。</Chinesesimp>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_chernarus_2020_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
-        <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
-        <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
-        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
-        <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
-        <Korean>반군 지도자가 되십시오. 수적 그리고 질적으로 막강한 적과 싸우십시오. 18개의 서브 미션과 함께 언제 어디든지 게릴라 전술을 사용하십시오.</Korean>
-        <Chinesesimp>成为抵抗军领袖。与技术、数量、资产和载具远胜于你的强大敌人作战。面对完全动态的世界和大约18种支线任务, 任何时间, 任何地点, 任何情况, 运用游击战术。</Chinesesimp>
-      </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_summer_mapname_short_text">
         <Original>Antistasi Chernarus</Original>
         <English>Antistasi Chernarus</English>

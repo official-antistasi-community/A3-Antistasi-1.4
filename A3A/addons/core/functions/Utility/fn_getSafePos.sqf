@@ -21,11 +21,6 @@
 		6: (Optional) NUMBER - shore mode:
 			0 - does not have to be at a shore
 			1 - must be at a shore
-				
-						
-		7: (Optional) ARRAY - array in format [landPosition, seaPosition], where:
-			landPosition: ARRAY - in format [x,y,z] or [x,y,z] - default position on land
-			seaPosition: ARRAY - in format [x,y,z] or [x,y,z] - default position on water
 
     Return Value:
     	ARRAY - position solution
@@ -83,7 +78,15 @@ for "_i" from 1 to 3000 do {
 
 if !(_Pass) then {
 	// If nothing suitable is found, we fall back to using randomPos around the checkPosition.
-	_FinalResult = [[[_checkPos, _maxdistance]], ["water"]] call BIS_fnc_randomPos;
+	if (_waterMode == 0) then {
+		_FinalResult = [[[_checkPos, _maxdistance]], ["water"]] call BIS_fnc_randomPos;
+	};
+	if (_waterMode == 1) then {
+		_FinalResult = [[[_checkPos, _maxdistance]], []] call BIS_fnc_randomPos;
+	};
+	if (_waterMode == 2) then {
+		_FinalResult = [[[_checkPos, _maxdistance]], ["ground"]] call BIS_fnc_randomPos;
+	};
 };
 
-_FinalResult		
+_FinalResult	

@@ -71,6 +71,7 @@ class CfgFunctions
             class allMagazines {};
             class ammunitionTransfer {};
             class arsenalManage {};
+            class arsenalWarLevelUnlockIncrease {};
             class categoryOverrides {};
             class checkRadiosUnlocked {};
             class configSort {};
@@ -91,6 +92,7 @@ class CfgFunctions
             class launcherInfo {};
             class loot {};
             class randomRifle {};
+            class spawnRandomCrate {};
             class transfer {};
             class unlockEquipment {};
             class vehicleSort {};

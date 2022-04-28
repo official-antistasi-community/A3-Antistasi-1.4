@@ -16,7 +16,7 @@ antistasiVersion = QUOTE(VERSION);
 Info("Setting initial variables");
 debug = false;
 A3A_customHintEnable = false; // Disables custom hints for boot duration. Is set to true in initClient.
-
+call A3A_fnc_arsenalWarLevelUnlockIncrease.sqf;
 ////////////////////////////////////
 //     BEGIN SIDES AND COLORS    ///
 ////////////////////////////////////

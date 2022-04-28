@@ -52,9 +52,9 @@ private _initialRebelEquipment = [
 "rhs_acc_2dpZenit","Binocular"];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
-if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155_coyote"};
+if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
-if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "TFAR_anprc155_coyote"};
+if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155","TFAR_anprc155_coyote"]};
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 private _rebUniforms = [
@@ -116,17 +116,26 @@ if (allowDLCExpansion) then {_dlcUniforms append [
 
 ["headgear", [
     "H_Booniehat_khk_hs",
-    "H_Booniehat_tan",
-    "H_Cap_tan",
+    "H_Booniehat_oli",
     "H_Cap_oli_hs",
     "H_Cap_blk",
     "H_Cap_headphones",
-    "H_ShemagOpen_tan",
     "H_Shemag_olive_hs",
+    "H_Bandanna_gry",
     "H_Bandanna_khk_hs",
-    "H_Bandanna_sand",
-    "H_Bandanna_cbr"
+    "H_Bandanna_sgg",
+    "H_Bandanna_camo"
 ]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["LivonianHead_6","Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03",
+"WhiteHead_05","WhiteHead_07","WhiteHead_08","WhiteHead_09","WhiteHead_10",
+"WhiteHead_12","WhiteHead_13","WhiteHead_14","WhiteHead_15","WhiteHead_16",
+"WhiteHead_17","WhiteHead_19","WhiteHead_20","WhiteHead_21"]] call _fnc_saveToTemplate;
+["voices", ["RHS_Male01CZ","RHS_Male02CZ","RHS_Male03CZ","RHS_Male04CZ","RHS_Male05CZ"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

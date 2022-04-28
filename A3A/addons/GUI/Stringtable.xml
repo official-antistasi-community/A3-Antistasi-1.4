@@ -1130,5 +1130,31 @@
         <English>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</English>
       </Key>
     </Container>
+    <Container name="arsenal_limits_dialog">
+      <Key ID="STR_antistasi_arsenal_limits_dialog_title">
+        <Original>ARSENAL GUEST LIMITS</Original>
+        <English>ARSENAL GUEST LIMITS</English>
+      </Key>
+      <Key ID="STR_antistasi_arsenal_limits_dialog_limit">
+        <Original>Limit</Original>
+        <English>Limit</English>
+      </Key>
+      <Key ID="STR_antistasi_arsenal_limits_dialog_current">
+        <Original>Current</Original>
+        <English>Current</English>
+      </Key>
+      <Key ID="STR_antistasi_arsenal_limits_dialog_close">
+        <Original>CLOSE</Original>
+        <English>CLOSE</English>
+      </Key>
+      <Key ID="STR_antistasi_arsenal_limits_dialog_step">
+        <Original>STEP</Original>
+        <English>STEP</English>
+      </Key>
+      <Key ID="STR_antistasi_arsenal_limits_dialog_reset">
+        <Original>RESET</Original>
+        <English>RESET</English>
+      </Key>
+    </Container>
   </Package>
 </Project>

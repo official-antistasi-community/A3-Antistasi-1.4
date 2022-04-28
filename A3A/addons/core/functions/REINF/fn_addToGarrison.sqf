@@ -67,9 +67,7 @@ if (isNull _groupX) then
 	{
 	_groupX = createGroup teamPlayer;
 	_unitsX joinSilent _groupX;
-	//{arrayids = arrayids + [name _x]} forEach _unitsX;
 	["Garrison", "Adding units to garrison."] call A3A_fnc_customHint;
-	if !(A3A_hasIFA) then {{arrayids pushBackUnique (name _x)} forEach _unitsX};
 	}
 else
 	{

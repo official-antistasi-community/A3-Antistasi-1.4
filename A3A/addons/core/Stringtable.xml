@@ -3060,14 +3060,17 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_title">
         <Original>Information Bar</Original>
+        <French>Barre d'informations</French>
         <Russian>Информационная строка</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
         <Original>You've turned off top information bar. To enable it, press %1.</Original>
+        <French>Vous avez désactivé la barre d'informations supérieure. Pour l'activer, appuyez sur %1.</French>
         <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите %1.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
         <Original>You've turned on top information bar. To disable it, press %1.</Original>
+        <French>Vous avez activé la barre d'informations supérieure. Pour la désactiver, appuyez sur %1.</French>
         <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите %1.</Russian>
       </Key>
     </Container>

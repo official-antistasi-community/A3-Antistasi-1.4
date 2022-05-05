@@ -3241,21 +3241,25 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_vs_Inv">
         <Original>Reb vs Gov vs Inv</Original>
+        <French>Reb vs Gouv vs Env</French>
         <Chinesesimp>起义军 vs 政府军 vs 侵略者</Chinesesimp>
         <Russian>Зеленые vs Синие vs Красные</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_and_Inv">
         <Original>Reb vs Gov &amp; Inv</Original>
+        <French>Reb vs Gouv &amp; Env</French>
         <Chinesesimp>起义军 vs 政府军 &amp; 侵略者</Chinesesimp>
         <Russian>Зеленые vs Синие и Красные</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov">
         <Original>Reb vs Gov</Original>
+        <French>Reb vs Gouv</French>
         <Chinesesimp>起义军 vs 政府军</Chinesesimp>
         <Russian>Зеленые vs Синие</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Inv">
         <Original>Reb vs Inv</Original>
+        <French>Reb vs Env</French>
         <Chinesesimp>起义军 vs 侵略者</Chinesesimp>
         <Russian>Зеленые vs Красные</Russian>
       </Key>
@@ -3263,6 +3267,7 @@
     <Container name="Utility_Items">
         <Key ID="STR_A3A_Utility_Items_Feedback_Normal">
             <Original>Q/E to rotate - Space/Enter to stop.</Original>
+            <French>Q/E pour tourner - Espace/Entrée pour arrêter.</French>
             <English>Q/E to rotate - Space/Enter to stop.</English>
         </Key>
         <Key ID="STR_A3A_Utility_Items_Feedback_Far">
@@ -3272,6 +3277,7 @@
         </Key>
         <Key ID="STR_A3A_Utility_Items_Feedback_Title">
             <Original>Utility items</Original>
+            <French>Articles utilitaires</French>
             <English>Utility items</English>
         </Key>
         <Key ID="STR_A3A_Utility_Items_Feedback_Attached_Objects">

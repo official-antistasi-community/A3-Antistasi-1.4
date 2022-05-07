@@ -531,6 +531,22 @@
         <English>In the Heat of the Takistani Desert</English>
         <Chinesesimp>在 Takistan 沙漠的热浪中</Chinesesimp>
       </Key>
+      <Key ID="STR_antistasi_mission_info_vn_khe_sanh_mapname_short_text">
+        <Original>Antistasi Khe Sanh</Original>
+        <English>Antistasi Khe Sanh</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vn_khe_sanh_mapname_text">
+        <Original>Antistasi - Liberation of Khe Sanh</Original>
+        <English>Antistasi - Liberation of Khe Sanh</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vn_khe_sanh_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vn_khe_sanh_blurb_text">
+        <Original>Placeholder</Original>
+        <English>Placeholder</English>
+      </Key>
     </Container>
   </Package>
 </Project>

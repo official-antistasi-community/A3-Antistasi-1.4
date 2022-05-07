@@ -95,5 +95,10 @@ class CfgMissions
             briefingName = $STR_antistasi_mission_info_vt7_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_vt7.vt7";
         };
+        class Antistasi_vn_khe_sanh
+        {
+            briefingName = $STR_antistasi_mission_info_vn_khe_sanh_mapname_text;
+            directory = "x\A3A\addons\maps\Antistasi_vn_khe_sanh.vn_khe_sanh";
+        };
     };
 };

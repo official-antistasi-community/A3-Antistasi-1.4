@@ -80,7 +80,7 @@ if (_type == "Resource") then {
 			_civilianGroups pushBack _groupX;
 			
 			for "_i" from 1 to _civilianPopulation do {
-				private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+        private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 				private _civUnit = [_groupX, FactionGet(civ, "unitWorker"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
 				_civUnit setVariable ["isScared", false];
 				_civUnit setVariable ["markerX", _markerX, true];

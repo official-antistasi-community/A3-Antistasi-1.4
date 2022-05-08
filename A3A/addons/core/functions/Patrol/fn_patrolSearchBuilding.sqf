@@ -74,6 +74,6 @@ if ((leader _group) distance _building > 250) exitwith {};
 	_group setBehaviour "SAFE";
 
 	// We set this waypoint quickly to leave the area. Hopefully this will help with units that get stuck
-	private _nextWaypoint = [getPos (leader _group), 50, 100, 0, 0, -1, 0, getPos (leader _group)] call A3A_fnc_getSafeSpawnPos;
+	private _nextWaypoint = [getPos (leader _group), 50, 100, 0, 0, -1, 0, getPos (leader _group)] call A3A_fnc_getSafePos;
 	[_group, _nextWaypoint, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };

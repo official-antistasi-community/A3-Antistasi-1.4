@@ -806,7 +806,7 @@ class CfgFunctions
             class getAdmin {};
             class getDayState {};
             class getRoadDirection {};
-            class getSafeSpawnPos {};
+            class getSafePos {};
             class localLog {};
             class log {};
             class setPos {};

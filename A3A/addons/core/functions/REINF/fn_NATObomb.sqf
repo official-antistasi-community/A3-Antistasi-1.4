@@ -69,7 +69,7 @@ _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, if (_isH
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
 _plane flyInHeight 100;
-private _minAltASL = ATLToASL [_positionX select 0, _positionX select 1, 0];
+private _minAltASL = ATLToASL [_pos1 select 0, _pos1 select 1, 0];
 _plane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (_minAltASL select 2) +100];
 
 driver _plane sideChat "Starting Bomb Run. ETA 30 seconds.";

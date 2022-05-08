@@ -111,7 +111,7 @@ if (count _mrkMar > 0) then {
 			// We keep trying to get a safe pos until one is found.
 			private _spawnPosition = [];
 			while {(count _spawnPosition <= 2)} do {
-				_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafeSpawnPos;
+				_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafePos;
 				sleep 0.001;
 			};
 

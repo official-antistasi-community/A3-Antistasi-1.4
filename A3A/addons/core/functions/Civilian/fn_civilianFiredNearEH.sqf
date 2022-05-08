@@ -49,7 +49,7 @@ if (_distance < 50) then {
 		// We let the waypoint stuff happen in scheduled space.
 		[_unit] spawn {
 			params ["_unit"];
-			private _positionX = [getPos _unit, 100, 200, 0, 0, -1, 0] call A3A_fnc_getSafeSpawnPos;
+			private _positionX = [getPos _unit, 100, 200, 0, 0, -1, 0] call A3A_fnc_getSafePos;
 			_unit doMove _positionX;
 			_unit forceWalk false;
 			_unit setSpeedMode "FULL";

@@ -122,7 +122,8 @@ if (count _IObjA > 0) then
 			If ((diag_tickTime - (_Unit getVariable "VCM_TO")) > 15 || !(alive _Unit)) exitwith {_Unit forcespeed -1;_Unit enableAI "MOVE";};
 			
 			sleep 0.15;
-			[_Unit,true] spawn VCM_fnc_BabeOver;
+			//[_Unit,true] spawn VCM_fnc_BabeOver;
+			_Unit execVM "z\emr\addons\main\functions\fnc_action.sqf";
 			_Unit spawn
 			{
 				sleep 3;
@@ -134,7 +135,8 @@ if (count _IObjA > 0) then
 					{
 						_this playMoveNow "AmovPercMwlkSrasWrflDf";					
 					};
-					[_this,true] spawn VCM_fnc_BabeOver;					
+					//[_this,true] spawn VCM_fnc_BabeOver;
+					_this execVM "z\emr\addons\main\functions\fnc_action.sqf";
 					((getposATL _this)#2) < 0.1
 				};
 				_this doFollow leader (group _this);

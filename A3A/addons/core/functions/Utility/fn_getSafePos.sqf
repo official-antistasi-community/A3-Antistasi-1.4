@@ -21,11 +21,6 @@
 		6: (Optional) NUMBER - shore mode:
 			0 - does not have to be at a shore
 			1 - must be at a shore
-				
-						
-		7: (Optional) ARRAY - array in format [landPosition, seaPosition], where:
-			landPosition: ARRAY - in format [x,y,z] or [x,y,z] - default position on land
-			seaPosition: ARRAY - in format [x,y,z] or [x,y,z] - default position on water
 
     Return Value:
     	ARRAY - position solution
@@ -35,12 +30,12 @@
     Public: No
 
     Example: 
-		[_markPos, 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafeSpawnPos;
+		[_markPos, 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafePos;
 
     License: MIT License
 */
 
-params ["_checkPos","_minDistance","_maxDistance","_objectProximity","_waterMode","_maxGradient","_shoreMode","_defaultPos"];
+params ["_checkPos","_minDistance","_maxDistance","_objectProximity","_waterMode","_maxGradient","_shoreMode","_type"];
 
 // support object for center pos as well
 if (_checkPos isEqualType objNull) then {_checkPos = getPos _checkPos};
@@ -64,7 +59,7 @@ private _FinalResult = _checkPos;
 // We add a limit of 3000 to avoid locking up the game if improper params are passed.
 // It is possible a while loop could lock up if bad params are provided.
 private _Pass = true;
-for "_i" from 1 to 1000 do {
+for "_i" from 1 to 3000 do {
 	_Pass = true;
 	
 	_FinalResult = _checkPos getPos [(_minDistance + (random _maxdistance)), random 360];
@@ -82,7 +77,16 @@ for "_i" from 1 to 1000 do {
 };
 
 if !(_Pass) then {
-	_FinalResult = _defaultPos;
+	// If nothing suitable is found, we fall back to using randomPos around the checkPosition.
+	if (_waterMode == 0) then {
+		_FinalResult = [[[_checkPos, _maxdistance]], ["water"]] call BIS_fnc_randomPos;
+	};
+	if (_waterMode == 1) then {
+		_FinalResult = [[[_checkPos, _maxdistance]], []] call BIS_fnc_randomPos;
+	};
+	if (_waterMode == 2) then {
+		_FinalResult = [[[_checkPos, _maxdistance]], ["ground"]] call BIS_fnc_randomPos;
+	};
 };
 
-_FinalResult		
+_FinalResult	

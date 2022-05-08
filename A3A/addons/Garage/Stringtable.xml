@@ -50,7 +50,7 @@
         <Key ID="STR_HR_GRG_Generic_Static">
             <Original>Statics</Original>
             <English>Statics</English>
-            <French>Statique </French>
+            <French>Statique</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Mounts">
             <Original>Mounts</Original>
@@ -120,7 +120,7 @@
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Disabled">
             <Original>Refuel disabled by server settings</Original>
             <English>Refuel disabled by server settings</English>
-            <French>Ravitaillement désactivé par le serveur </French>
+            <French>Ravitaillement désactivé par le serveur</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Available">
             <Original>Vehicles will be repaired when ungaraged</Original>
@@ -135,7 +135,7 @@
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Disabled">
             <Original>Repair disabled by server settings</Original>
             <English>Repair disabled by server settings</English>
-            <French>Réparation désactivée par le serveur </French>
+            <French>Réparation désactivée par le serveur</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isAmmoSource">
             <Original>Vehicle is an ammo source</Original>
@@ -377,7 +377,7 @@
         <Key ID="STR_HR_GRG_Feedback_Cam_Zoom">
             <Original>Zoom: Right Mouse Button + Mouse wheel</Original>
             <English>Zoom: Right Mouse Button + Mouse wheel</English>
-            <French>Zoom : bouton droit de la souris + molette de la souris</French>
+            <French>Zoom: bouton droit de la souris + molette de la souris</French>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_Mirror">
             <Original>Mirror</Original>

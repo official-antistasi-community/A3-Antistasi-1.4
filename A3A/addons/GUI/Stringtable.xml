@@ -318,7 +318,7 @@
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip">
         <Original>FFV seat</Original>
         <English>FFV seat</English>
-        <French>siège FFV</French>
+        <French>Siège FFV</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_amount_tooltip">
         <Original>%1 Gunners</Original>
@@ -686,7 +686,7 @@
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_barrage_tooltip">
         <Original>Number of rounds set by barrage length</Original>
         <English>Number of rounds set by barrage length</English>
-        <French>Number of rounds set by barrage length</French>
+        <French>Nombre d'obus défini par la longueur du barrage</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_click_map">
         <Original>CLICK MAP</Original>

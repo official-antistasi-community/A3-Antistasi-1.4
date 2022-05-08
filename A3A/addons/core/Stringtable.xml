@@ -2980,7 +2980,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_sniper">
         <Original>Recruit Sniper Team</Original>
-        <French> Recruter une équipe de tireurs d'élite</French>
+        <French>Recruter une équipe de tireurs d'élite</French>
         <Chinesesimp>招募狙击小组</Chinesesimp>
         <Russian>Группа снайперов</Russian>
       </Key>
@@ -3077,7 +3077,7 @@
     <Container name="garage_sell">
       <Key ID="STR_antistasi_dialogs_garage_sell">
         <Original>Sell or Garage Vehicle?</Original>
-        <French>Vendre ou Ranger le Véhicule?</French>
+        <French>Vendre ou Ranger le Véhicule ?</French>
         <Chinesesimp>出售或存储车辆</Chinesesimp>
         <Russian>Продать или поставить в гараж?</Russian>
       </Key>

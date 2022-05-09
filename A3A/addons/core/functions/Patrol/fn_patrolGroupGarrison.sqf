@@ -16,7 +16,7 @@
     Public: No
 
     Example: 
-        [_group, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+        [_group, getMarkerPos _markerX, _size] spawn A3A_fnc_patrolGroupGarrison;
 
     License: MIT License
 */

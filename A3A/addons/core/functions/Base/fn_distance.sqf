@@ -128,7 +128,7 @@ private _processOccupantMarker = {
                 case (_marker in factories):
                 {
                     [[_marker], "A3A_fnc_createAIresources"] call A3A_fnc_scheduler;
-                    [[_marker, "Resource", 4, 4], "A3A_fnc_createAmbientCiv"] call A3A_fnc_scheduler;
+                    [[_marker, 4, 4], "A3A_fnc_createAmbientCivRes"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in outposts);
@@ -230,7 +230,7 @@ private _processFIAMarker = {
                 case !(_marker in controlsX):
                 {
                     [[_marker], "A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler;
-                    [[_marker, "Resource", 4, 4], "A3A_fnc_createAmbientCiv"] call A3A_fnc_scheduler;
+                    [[_marker, 4, 4], "A3A_fnc_createAmbientCivRes"] call A3A_fnc_scheduler;
                 };
             };
         };
@@ -327,7 +327,7 @@ private _processInvaderMarker = {
                 case (_marker in factories):
                 {
                     [[_marker], "A3A_fnc_createAIresources"] call A3A_fnc_scheduler;
-                    [[_marker, "Resource", 4], "A3A_fnc_createAmbientCiv"] call A3A_fnc_scheduler;
+                    [[_marker, 4], "A3A_fnc_createAmbientCivRes"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in outposts);
@@ -373,7 +373,7 @@ private _processCityCivMarker = {
 
             if !(_marker in destroyedSites) then
             {
-                [[_marker, "City", 6], "A3A_fnc_createAmbientCiv"] call A3A_fnc_scheduler;
+                [[_marker, 6], "A3A_fnc_createAmbientCivCity"] call A3A_fnc_scheduler;
                 [[_marker], "A3A_fnc_createAmbientCivTraffic"] call A3A_fnc_scheduler;
             };
         };

@@ -201,7 +201,8 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\Civilian);
             class civilianFiredNearEH {};
             class civilianInitEH {};
-            class createAmbientCiv {};
+            class fn_createAmbientCivCity {};
+            class fn_createAmbientCivRes {};
             class createAmbientCivTraffic {};
             class createCivilianTracks {};
             class createMusicSource {};

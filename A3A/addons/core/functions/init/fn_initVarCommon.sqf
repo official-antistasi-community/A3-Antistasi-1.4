@@ -85,6 +85,13 @@ allDLCMods = _modsInfo select {_x#2};
 allCDLC = _modsInfo select { !(_x#2) && _x#3 };
 allmods = _modsInfo - allDLCMods - allCDLC;
 
+// Load the climate here for the moment, because we need it early and globally
+private _worldName = toLower worldName;
+A3A_climate = toLower (if (isText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")) then {
+    getText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")
+} else {
+    getText (configFile/"A3A"/"mapInfo"/_worldName/"climate")
+});
 
 // Short Info of loaded mods needs to be added to this array. eg: `A3A_loadedTemplateInfoXML pushBack ["RHS","All factions will be replaced by RHS (AFRF &amp; USAF &amp; GREF)."];`
 A3A_loadedTemplateInfoXML = [];

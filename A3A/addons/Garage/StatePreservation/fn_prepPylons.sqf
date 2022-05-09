@@ -32,9 +32,10 @@ private _toRemove = [];
 {
     private _turret = _x;
     private _baseWeapons = getArray (([_veh, _turret] call BIS_fnc_turretConfig) / "Weapons");
-    private _weapons = _veh weaponsTurret _turret;
+    private _weapons = (_veh weaponsTurret _turret) apply { toLower _x };
     // Avoiding array subtract in case there's a pylon and non-pylon copy of the same weapon
-    { _weapons deleteAt (_weapons find _x) } forEach _baseWeapons;
+    // RHS has case bugs (zu-23 notably) so we force everything lower
+    { _weapons deleteAt (_weapons find toLower _x) } forEach _baseWeapons;
     { _toRemove pushBack [_x, _turret] } forEach _weapons;
 
 } forEach _turrets;

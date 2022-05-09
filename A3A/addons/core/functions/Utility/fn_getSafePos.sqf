@@ -35,7 +35,18 @@
     License: MIT License
 */
 
-params ["_checkPos","_minDistance","_maxDistance","_objectProximity","_waterMode","_maxGradient","_shoreMode","_type"];
+params [
+		"_checkPos",
+		["_minDistance", 0],
+		["_maxDistance", 25],
+		["_objectProximity", 0],
+		["_waterMode", 0],
+		["_maxGradient", -1],
+		["_shoreMode", 0],
+		["_type", "Waypoint"]
+	];
+
+if (_checkPos isEqualType "") exitWith {};
 
 // support object for center pos as well
 if (_checkPos isEqualType objNull) then {_checkPos = getPos _checkPos};
@@ -62,7 +73,7 @@ private _Pass = true;
 for "_i" from 1 to 3000 do {
 	_Pass = true;
 	
-	_FinalResult = _checkPos getPos [(_minDistance + (random _maxdistance)), random 360];
+	_FinalResult = _checkPos getPos [_minDistance + (random _maxdistance), random 360];
 
 	// position is roughly suitable
 	if (_FinalResult isFlatEmpty [-1, -1, _maxGradient, _gradientRadius, _waterMode, _shoreMode] isEqualTo []) then {_Pass = false;};

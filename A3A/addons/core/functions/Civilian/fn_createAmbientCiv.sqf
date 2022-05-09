@@ -64,7 +64,7 @@ if (_type == "City") then {
 		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 		_groupX = createGroup civilian;
 		_civilianGroups pushBack _groupX;
-		_civPress = [_groupX, FactionGet(civ, "unitPress"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
+		private _civPress = [_groupX, FactionGet(civ, "unitPress"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
 		[_civPress] spawn A3A_fnc_CIVinit;
 		_civilians pushBack _civPress;
 		[_groupX, "Patrol_Area", 5, 50, 300, false, [], true] call A3A_fnc_patrolLoop;
@@ -80,7 +80,7 @@ if (_type == "Resource") then {
 			_civilianGroups pushBack _groupX;
 			
 			for "_i" from 1 to _civilianPopulation do {
-        private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+        		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 				private _civUnit = [_groupX, FactionGet(civ, "unitWorker"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
 				_civUnit setVariable ["isScared", false];
 				_civUnit setVariable ["markerX", _markerX, true];

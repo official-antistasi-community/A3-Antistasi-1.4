@@ -120,6 +120,6 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 {deleteVehicle _x} forEach _dogs;
 
 {
-	_x setVariable ["PATCOM_Controlled", ""];
+	_x setVariable ["PATCOM_Controlled", false];
 	deleteGroup _x;
 } forEach _groups;

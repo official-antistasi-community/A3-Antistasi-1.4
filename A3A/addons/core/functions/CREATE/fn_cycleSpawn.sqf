@@ -99,7 +99,7 @@ private _lineIndex = 0;
 			sleep 0.25;
 		} forEach _crewArray;
 
-		[_groupX, getMarkerPos _markerX, _patrolSize] call A3A_fnc_patrolGroupGarrison;
+		[_groupX, getMarkerPos _markerX, _patrolSize] spawn A3A_fnc_patrolGroupGarrison;
 		// Disable VCOM. It gives weird behaviour if enabled.
 		_groupX setVariable ["Vcm_Disable", true];
 

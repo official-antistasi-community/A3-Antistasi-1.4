@@ -212,7 +212,7 @@ for "_i" from 0 to (count _array - 1) do {
 	} forEach units _groupX;
 
 	if (_i == 0) then {
-		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		[_groupX, getMarkerPos _markerX, _size] spawn A3A_fnc_patrolGroupGarrison;
 
 		// Disable VCOM. It gives weird behaviour if enabled.
 		_groupX setVariable ["Vcm_Disable", true];
@@ -236,7 +236,7 @@ deleteMarker _mrk;
 { deleteVehicle _x } forEach _dogs;
 
 { 
-	_x setVariable ["PATCOM_Controlled", ""];
+	_x setVariable ["PATCOM_Controlled", false];
 	deleteGroup _x ;
 } forEach _groups;
 

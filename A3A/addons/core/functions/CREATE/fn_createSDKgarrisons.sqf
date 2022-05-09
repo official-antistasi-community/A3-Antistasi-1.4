@@ -107,7 +107,7 @@ for "_i" from 0 to (count _groups) - 1 do {
 	_groupX = _groups select _i;
 	if (_i == 0) then {
 		diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_createSDKgarrisons#2"];
-		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		[_groupX, getMarkerPos _markerX, _size] spawn A3A_fnc_patrolGroupGarrison;
 		// Disable VCOM. It gives weird behaviour if enabled.
 		_groupX setVariable ["Vcm_Disable", true];
 	} else {
@@ -123,7 +123,7 @@ waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 { if (alive _x) then { deleteVehicle _x }; } forEach _soldiers;
 
 { 
-	_x setVariable ["PATCOM_Controlled", ""];
+	_x setVariable ["PATCOM_Controlled", false];
 	deleteGroup _x ;
 } forEach _groups;
 

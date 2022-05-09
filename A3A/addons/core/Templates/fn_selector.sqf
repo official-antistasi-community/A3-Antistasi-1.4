@@ -2,15 +2,10 @@
 FIX_LINE_NUMBERS()
 
 private _worldName = toLower worldName;
-A3A_climate = toLower (if (isText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")) then {
-    getText (missionConfigFile/"A3A"/"mapInfo"/_worldName/"climate")
-} else {
-    getText (configFile/"A3A"/"mapInfo"/_worldName/"climate")
-});
 
 private _fnc_requirementMeet = { getArray (_this/"requiredAddons") findIf { !(isClass (configFile/"CfgPatches"/_x)) } == -1 };
 
-//dependecies: _worldName
+//dependecies: _worldName, A3A_climate
 private _fnc_gatherTemplates = {
     params ["_type", ["_pool", []]]; //_pool and _nodes are modified
     if (isClass (_x/_type)) then {

@@ -25,7 +25,7 @@ private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;
 private _city = [citiesX, _positionX] call BIS_fnc_nearestPosition;
 private _mrkFinal = createMarker [format ["LOG%1", random 100], _positionX];
 private _nameDest = [_city] call A3A_fnc_localizar;
-private _mrkFinal setMarkerShape "ICON";
+_mrkFinal setMarkerShape "ICON";
 private _pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1 ,50, "C_Van_01_box_F"];
 
 private _truckX = "C_Van_01_box_F" createVehicle _pos;
@@ -60,7 +60,7 @@ for "_i" from 1 to 4 do {
 	private _groupX = [_positionX, Occupants, _groupType] call A3A_fnc_spawnGroup;
 	sleep 1;
 
-	[_groupX, "Patrol_Area", 25, 50, 100, true, _mrk, true] call A3A_fnc_patrolLoop;
+	[_groupX, "Patrol_Area", 25, 50, 100, true, _positionX, true] call A3A_fnc_patrolLoop;
 
 	diag_log text format["Hazey Debug--- CALL ATTEMPT: UPSMON FROM: fn_LOG_Bank#1"];
 

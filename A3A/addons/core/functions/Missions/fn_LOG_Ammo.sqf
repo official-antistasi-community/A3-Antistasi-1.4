@@ -4,6 +4,8 @@ if (!isServer and hasInterface) exitWith{};
 FIX_LINE_NUMBERS()
 params ["_markerX"];
 
+private _groups = [];
+private _vehicles = [];
 private _difficultX = if (random 10 < tierWar) then {true} else {false};
 private _positionX = getMarkerPos _markerX;
 private _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
@@ -43,6 +45,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	_truckCreated = true;
 	[_truckX] spawn A3A_fnc_fillLootCrate;
 	[_truckX, _sideX] call A3A_fnc_AIVEHinit;
+	_vehicles pushBack _truckX;
 
 	private _mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], _pos];
 	_mrk setMarkerShapeLocal "RECTANGLE";
@@ -59,6 +62,8 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 
 	private _groupX = [_pos, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 
+	_groups pushBack _groupX;
+
 	sleep 1;
 
 	if (random 10 < 33) then {
@@ -73,6 +78,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 
 	private _groupX1 = [_pos, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 
+	_groups pushBack _groupX1;
 	sleep 1;
 
 	[_groupX1, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolLoop;
@@ -130,8 +136,12 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 
 if (_truckCreated) then {
 	// TODO: Head off to nearby base
-	[_groupX] spawn A3A_fnc_groupDespawner;
-	[_groupX1] spawn A3A_fnc_groupDespawner;
-	[_truckX] spawn A3A_fnc_vehDespawner;
-	// delete truck contents maybe?
+	{
+		[_x] spawn A3A_fnc_groupDespawner 
+	} forEach _groups;
+
+	// TODO: delete truck contents maybe?
+	{
+		[_x] spawn A3A_fnc_vehDespawner 
+	} forEach _vehicles;
 };

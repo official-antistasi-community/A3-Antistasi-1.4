@@ -29,7 +29,7 @@ _esAAF = true;
 if (_markerX in destroyedSites) then
 	{
 	_esAAF = false;
-	_params = [_positionX,Invaders,_faction get "groupSpecOps"];
+	_params = [_positionX,Invaders, selectRandom (_faction get "groupSpecOpsRandom")];
 	}
 else
 	{

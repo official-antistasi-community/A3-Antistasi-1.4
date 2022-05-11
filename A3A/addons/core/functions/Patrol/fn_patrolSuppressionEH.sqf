@@ -28,7 +28,7 @@
 params ["_unit", "_distance", "_shooter", "_instigator", "_ammoObject", "_ammoClassName", "_ammoConfig"];
 
 if (_distance < 5) then {
-	private _UnitSupChk = _unit getvariable ["PATCOM_Supp_Time", -100];
+	private _UnitSupChk = _unit getVariable ["PATCOM_Supp_Time", -100];
 	
 	if (_UnitSupChk + 10 < time) then {
 		if (PATCOM_DEBUG) then {
@@ -39,6 +39,6 @@ if (_distance < 5) then {
 		_unit enableAI "AUTOCOMBAT";
 		_unit dotarget _shooter;
 		_unit doSuppressiveFire _shooter;
-		_unit setvariable ["PATCOM_Supp_Time", time];
+		_unit setVariable ["PATCOM_Supp_Time", time];
 	};
 };

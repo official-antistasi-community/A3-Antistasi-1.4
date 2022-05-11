@@ -15,7 +15,6 @@ class CfgPatches {
 };
 
 #include "CfgSounds.hpp"
-#include "CfgRemoteExec.hpp"
 
 class A3A {
     #include "Templates.hpp"

@@ -2442,7 +2442,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle_tooltip">
         <Original>Allow other groups to mount this vehicle</Original>
-        <French>Autoriser d'autres groupes à monter sur ce véhicule</French>
+        <French>Autoriser d'autres groupes à monter dans ce véhicule</French>
         <Chinesesimp>允许其他小队搭乘该载具</Chinesesimp>
         <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
       </Key>
@@ -3012,7 +3012,7 @@
     <Container name="player_money">
       <Key ID="STR_antistasi_dialogs_player_money">
         <Original>Player and Money Interaction</Original>
-        <French>Player and Money Interaction</French>
+        <French>Interaction Joueur et Argent</French>
         <Chinesesimp>玩家/资金</Chinesesimp>
         <Russian>Меню Игроков и Снабжения</Russian>
       </Key>

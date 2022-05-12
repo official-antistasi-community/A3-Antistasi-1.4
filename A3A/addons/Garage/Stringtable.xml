@@ -45,7 +45,7 @@
         <Key ID="STR_HR_GRG_Generic_Boat">
             <Original>Ships</Original>
             <English>Ships</English>
-            <French>Navires /French>
+            <French>Navires</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Static">
             <Original>Statics</Original>
@@ -200,7 +200,7 @@
         <Key ID ="STR_HR_GRG_Refuel_fullRefuel">
             <Original>Vehicle can be fully refueled with</Original>
             <English>Vehicle can be fully refueled with</English>
-            <French>Le véhicule peut être entièrement alimenté avec</French>
+            <French>Le véhicule peut être entièrement ravitaillé avec</French>
         </Key>
         <Key ID ="STR_HR_GRG_Refuel_partialRefuel">
             <Original>Vehicle can only be partially refueled to</Original>

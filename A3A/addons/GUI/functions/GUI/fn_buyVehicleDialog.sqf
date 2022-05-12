@@ -134,22 +134,28 @@ switch (_mode) do
             // Object Render
             _button ctrlAddEventHandler ["MouseEnter", {
                 params ["_control"];
-                if (isNil "Dev_GUI_prevInjectEnter") then {
+                if (true || isNil "Dev_GUI_prevInjectEnter") then {
                     params ["_control"];
+                    private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
+
                     private _model = _control getVariable "model";
+                    private _className = _control getVariable "className";
                     private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
                     private _objPreview = _display displayCtrl A3A_IDC_BUYVEHICLEOBJECTRENDER;  // 9303;
                     _objPreview ctrlSetModel _model;
-                    _objPreview ctrlSetModelScale 0.2;
+                    private _boundingDiameter = [_className] call A3A_fnc_GUI_sizeOf;
+                    _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
+                    _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
 
                     private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
-
+// A3A_faction_reb set ['vehicleLightArmed',"B_T_VTOL_01_vehicle_F"];  // Big test item.
                     private _mouseAbsolutePos = getMousePosition;
                     private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
                     _mouseAbsolutePos vectorDiff _mouseRelativePos params ["_objPreview_x", "_objPreview_y"];
 
-                    _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 2, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale)];
 
+                    private _yAdjustment = 0.25 * _UIScaleAdjustment;
+                    _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
                     _editorPreviewPicture ctrlShow false;
                     _editorPreviewPicture ctrlCommit 1;
 
@@ -161,7 +167,7 @@ switch (_mode) do
             }];
             _button ctrlAddEventHandler ["MouseExit", {
                 params ["_control"];
-                if (isNil "Dev_GUI_prevInjectExit") then {
+                if (true || isNil "Dev_GUI_prevInjectExit") then {
                     params ["_control"];
                     private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
                     private _objPreview = _display displayCtrl A3A_IDC_BUYVEHICLEOBJECTRENDER;  // 9303;

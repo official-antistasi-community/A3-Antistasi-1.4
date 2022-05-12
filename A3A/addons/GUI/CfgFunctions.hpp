@@ -28,5 +28,9 @@ class CfgFunctions {
             class recruitSquadDialog {};
             class requestMissionDialog {};
         };
+        class ObjectHelpers {
+            file = QPATHTOFOLDER(functions\ObjectHelpers);
+            class GUI_sizeOf {};
+        };
     };
 };

@@ -9,6 +9,7 @@ class Templates
 
         requiredAddons[] = {}; //the cfgPatches class of the mod these templates are depending on
         path = QPATHTOFOLDER(Templates\Templates\Vanilla); //the path to the template folder
+        logo = "a3\ui_f\data\logos\arma3_white_ca.paa";
 
         //Type class: AI, Reb, Civ
         class AI
@@ -30,9 +31,12 @@ class Templates
                     temperate = "Enoch";
                     Default = "Arid"; //default is the fallback if the climate is not in this class
                 };
+                flagTexture = "A3\Data_F\Flags\Flag_CSAT_CO.paa";
             };
 
-            class LDF {};
+            class LDF {
+                flagTexture = "a3\data_f_enoch\flags\flag_enoch_co.paa";
+            };
 
             class NATO
             {
@@ -42,20 +46,29 @@ class Templates
                     tropical = "Tropical";
                     Default = "Temperate";
                 };
+                flagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
             };
 
-            class AAF {};
+            class AAF {
+                flagTexture = "a3\data_f\flags\flag_aaf_co.paa";
+            };
 
         };
 
         class Reb
         {
-            class FIA {};
+            class FIA {
+                flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+            };
 
-            class SDK {};
+            class SDK {
+                flagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
+            };
         };
 
-        class Civ {}; //leave empty for a single template for this modset, file name would follow: {path}\{Modset}_{Type}.sqf
+        class Civ {
+            flagTexture = "a3\data_f\flags\flag_aaf_co.paa";
+        }; //leave empty for a single template for this modset, file name would follow: {path}\{Modset}_{Type}.sqf
 
         //default template selection, classes within are worldname with side properties with faction name assigned to it (or empty when only one available)
         class worldDefaults
@@ -97,19 +110,27 @@ class Templates
 
         requiredAddons[] = {"vn_weapons"};
         path = QPATHTOFOLDER(Templates\Templates\VN);
-
+        logo = "\vn\data_f_vietnam\logos\vn_sml_ca.paa";
         class AI
         {
-            class MACV {};
-            class PAVN {};
+            class MACV {
+                flagTexture = "vn\objects_f_vietnam\flags\data\vn_flag_01_usa_co.paa";
+            };
+            class PAVN {
+                flagTexture = "vn\objects_f_vietnam\flags\data\vn_flag_01_pavn_co.paa";
+            };
         };
 
         class Reb
         {
-            class POF {};
+            class POF {
+                flagTexture = "vn\objects_f_vietnam\flags\data\vn_flag_01_lao_dmg_ca.paa"
+            };
         };
 
-        class Civ {};
+        class Civ {
+            flagTexture = "\vn\objects_f_vietnam\flags\vn_flag_01_lao_co.paa";
+        };
 
         class worldDefaults
         {
@@ -133,6 +154,7 @@ class Templates
 
         requiredAddons[] = {"rhsgref_main"};// this requires usaf and afrf internaly so coveres all 3
         path = QPATHTOFOLDER(Templates\Templates\RHS);
+        logo = "\rhsusf\addons\rhsusf_main\data\rhs_logo_ca.paa";
 
         class AI
         {
@@ -143,9 +165,12 @@ class Templates
                     arid = "Arid";
                     Default = "Temperate";
                 };
+                flagTexture = "rhsafrf\addons\rhs_main\data\flag_rus_co.paa";
             };
 
-            class CDF {};
+            class CDF {
+                flagTexture = "\rhsgref\addons\rhsgref_main\data\Flags\flag_cdf_co.paa";
+            };
 
             class USAF_Army
             {
@@ -155,6 +180,7 @@ class Templates
                     arid = "Arid";
                     Default = "Temperate";
                 };
+                flagTexture = "a3\data_f\flags\flag_us_co.paa";
             };
             class USAF_Marines
             {
@@ -164,15 +190,20 @@ class Templates
                     arid = "Arid";
                     Default = "Temperate";
                 };
+                flagTexture = "a3\data_f\flags\flag_us_co.paa";
             };
         };
 
         class Reb
         {
-            class NAPA {};
+            class NAPA {
+                flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+            };
         };
 
-        class Civ {};
+        class Civ {
+            flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        };
 
         class worldDefaults
         {
@@ -203,31 +234,55 @@ class Templates
 
         requiredAddons[] = {"UK3CB_Factions_Vehicles_SUV"};
         path = QPATHTOFOLDER(Templates\Templates\3CB);
-
+        logo = "\UK3CB_Factions\addons\uk3cb_factions_Common\data\ui\logo_3cb_ca.paa";
         class AI
         {
-            class ADA {};
-            class ANA {};
-            class CW_SOV {};
-            class CW_US {};
-            class HIDF {};
-            class MDF {};
-            class TKA_East {};
-            class TKA_Mix {};
-            class TKA_West {};
+            class ADA {
+                flagTexture = "uk3cb_factions\addons\uk3cb_factions_adc\flag\adc_flag_co.paa";
+            };
+            class ANA {
+                flagTexture = "uk3cb_factions\addons\uk3cb_factions_ana\flag\afg_13_flag_co.paa";
+            };
+            class CW_SOV {
+                flagTexture = "uk3cb_factions\addons\uk3cb_factions_cw_sov\flag\cw_sov_army_flag_co.paa";
+            };
+            class CW_US {
+                flagTexture = "a3\data_f\flags\flag_us_co.paa";
+            };
+            class HIDF {
+                flagTexture = "a3\data_f_exp\flags\flag_tanoa_co.paa";
+            };
+            class MDF {
+                flagTexture = "uk3cb_factions\addons\uk3cb_factions_mdf\flag\mal_flag_co.paa";
+            };
+            class TKA_East {
+                flagTexture = "UK3CB_Factions\addons\UK3CB_Factions_TKA\Flag\tka_flag_co.paa";
+            };
+            class TKA_Mix {
+                flagTexture = "UK3CB_Factions\addons\UK3CB_Factions_TKA\Flag\tka_flag_co.paa";
+            };
+            class TKA_West {
+                flagTexture = "UK3CB_Factions\addons\UK3CB_Factions_TKA\Flag\tka_flag_co.paa";
+            };
             class AAF {
                 displayName = "3CB AAF";
+                flagTexture = "a3\data_f\flags\flag_aaf_co.paa";
             };
         };
 
         class Reb
         {
-            class CNM {};
-            class TKM {};
+            class CNM {
+                flagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_CCM\Flag\ccm_i_flag_co.paa";
+            };
+            class TKM {
+                flagTexture = "uk3cb_factions\addons\uk3cb_factions_tkm\flag\tkm_b_flag_co.paa";
+            };
         };
 
         class Civ
         {
+            flagTexture = "a3\data_f\flags\flag_fia_co.paa";
             class CHC {
                 displayName = "Chernarussian Civilians";
             };
@@ -298,6 +353,7 @@ class Templates
             ,"UK3CB_BAF_Equipment"
         };
         path = QPATHTOFOLDER(Templates\Templates\3CB);
+        logo = "\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_Ammo\data\ui\logo_small_3cb_ca.paa";
 
         class AI
         {
@@ -309,6 +365,7 @@ class Templates
                     tropical = "Tropical";
                     Default = "Temperate";
                 };
+                flagTexture = "\A3\Data_F\Flags\flag_uk_co.paa";
             };
         };
 
@@ -330,6 +387,7 @@ class Templates
 
         requiredAddons[] = {"CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core"};        // units, weapons, vehicles
         path = QPATHTOFOLDER(Templates\Templates\CUP);
+        logo = "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa";
 
         class AI
         {
@@ -340,6 +398,7 @@ class Templates
                     arid = "Arid";
                     Default = "Temperate";
 				};
+                flagTexture = "cup\baseconfigs\cup_baseconfigs\data\flags\flag_cz_co.paa";
 			};
 			class AFRF
 			{
@@ -349,6 +408,7 @@ class Templates
                     arid = "Arid";
                     Default = "Temperate";
 				};
+                flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_rus_co.paa";
 			};
 			class BAF
 			{
@@ -357,6 +417,7 @@ class Templates
                     arid = "Arid";
                     Default = "Temperate";
 				};
+                flagTexture = "\A3\Data_F\Flags\flag_uk_co.paa";
 			};
 			class CDF
 			{
@@ -365,6 +426,7 @@ class Templates
                     arctic = "Arctic";
 					Default = "Temperate";
 				};
+                flagTexture = "cup\baseconfigs\cup_baseconfigs\data\flags\flag_cdf_co.paa";
 			};
 			class RACS
 			{
@@ -373,6 +435,7 @@ class Templates
                     arid = "Arid";
 					Default = "Tropical";
 				};
+                flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_racs_co.paa";
 			};
 			class SLA
 			{
@@ -380,6 +443,7 @@ class Templates
 				class camo {
 					Default = "Temperate";
 				};
+                flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_sla_co.paa";
 			};
 			class TKA
 			{
@@ -387,6 +451,7 @@ class Templates
 				class camo {
 					Default = "Arid";
 				};
+                flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_tka_co.paa";
 			};
 			class US_Army
 			{
@@ -395,6 +460,7 @@ class Templates
                     arid = "Arid"
                     Default = "Temperate";
 				};
+                flagTexture = "a3\data_f\flags\flag_us_co.paa";
 			};
 			class US_Marine
 			{
@@ -403,6 +469,7 @@ class Templates
                     arid = "Arid"
                     Default = "Temperate";
 				};
+                flagTexture = "a3\data_f\flags\flag_us_co.paa";
 			};
             class ION
 			{
@@ -411,13 +478,18 @@ class Templates
                     arctic = "Arctic";
                     Default = "Arid";
 				};
+                flagTexture = "\A3\Data_F\Flags\flag_ion_CO.paa";
 			};
         };
 
-        class Reb {};
+        class Reb {
+            flagTexture = "cup\baseconfigs\cup_baseconfigs\data\flags\flag_napa_co.paa";
+        };
     
 
-        class Civ {};
+        class Civ {
+            flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        };
 
         class worldDefaults
         {

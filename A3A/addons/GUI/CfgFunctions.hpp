@@ -12,6 +12,7 @@ class CfgFunctions {
             class configColorToArray {};
             class constructTab {};
             class donateTab {};
+            class factionSelectorDialog {};
             class fastTravelTab {};
             class fireMissionEH {};
             class getGroupInfo {};

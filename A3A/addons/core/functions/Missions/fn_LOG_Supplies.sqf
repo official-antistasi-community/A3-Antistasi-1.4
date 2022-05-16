@@ -113,8 +113,14 @@ else
 	};
 
 _ecpos = getpos _truckX;
-deleteVehicle _truckX;
-_emptybox = "Land_Pallet_F" createVehicle _ecpos;
-[_emptybox] spawn A3A_fnc_postmortem;
+if (isNull attachedTo _truckX) then {
+	deleteVehicle _truckX;
+	_emptybox = "Land_Pallet_F" createVehicle _ecpos;
+	[_emptybox] spawn A3A_fnc_postmortem;
+} else {
+	//add seat back!
+	[attachedTo _truckX] remoteExec ["A3A_fnc_logistics_unload",2];
+	deleteVehicle _truckX;
+};
 
 [_taskId, "SUPP", 900] spawn A3A_fnc_taskDelete;

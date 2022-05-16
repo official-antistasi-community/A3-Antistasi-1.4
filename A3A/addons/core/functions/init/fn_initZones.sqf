@@ -289,7 +289,7 @@ A3A_fuelStations apply {
 	_mrkFinalFuel = createMarker [format ["Ant%1", mapGridPosition _x], position _x];
 	_mrkFinalFuel setMarkerShape "ICON";
 	_mrkFinalFuel setMarkerType "loc_Fuelstation";
-	_mrkFinalFuel setMarkerColor "ColorGrey"; 
+	_mrkFinalFuel setMarkerColor "ColorWhite"; 
 	_mrkFinalFuel setMarkerText "Fuel station";
 	_mrkFinalFuel setMarkerAlpha 0.75;
 	if(A3A_hasACE) then {

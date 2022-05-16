@@ -464,6 +464,7 @@ class CfgFunctions
             class playerLeashCheckPosition {};
             class playerScoreAdd {};
             class promotePlayer {};
+            class radioJamACRE {};
             class radioJam {};
             class ranksMP {};
             class resourcesPlayer {};

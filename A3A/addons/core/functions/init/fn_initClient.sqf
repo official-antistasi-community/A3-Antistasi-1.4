@@ -64,7 +64,7 @@ if (isMultiplayer) then {
 	cutText ["Starting Mission","BLACK IN",0];
 	Info("Server loaded!");
     Info_1("JIP client: %1",_isJIP);
-	if (A3A_hasTFAR || A3A_hasTFARBeta) then {
+	if (A3A_hasTFAR || A3A_hasTFARBeta || A3A_hasACRE) then {
         [] spawn A3A_fnc_radioJam;
 	};
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection

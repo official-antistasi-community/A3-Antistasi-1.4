@@ -63,12 +63,14 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
     - [Steam Workshop: 1832910657](https://steamcommunity.com/sharedfiles/filedetails/?id=1832910657)
 
 ### [Suggested Modlists](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/?section=collections)
-- RHS Collection
+- RHS Base Collection
     - [Steam Workshop: 2498438772](https://steamcommunity.com/sharedfiles/filedetails/?id=2498438772)
-- 3CB BAF
+- 3CB BAF Base Collection
     - [Steam Workshop: 2498453852](https://steamcommunity.com/sharedfiles/filedetails/?id=2498453852)
-- 3CB Factions
+- 3CB Factions Base Collection
     - [Steam Workshop: 2498466977](https://steamcommunity.com/sharedfiles/filedetails/?id=2498466977)
+- 3CB BAF & Factions Base Collection
+    - [Steam Workshop: 2575673140](https://steamcommunity.com/sharedfiles/filedetails/?id=2575673140)
 
 ## Features:
 

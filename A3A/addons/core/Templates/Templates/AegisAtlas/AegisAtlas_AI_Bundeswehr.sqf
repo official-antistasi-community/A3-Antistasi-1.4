@@ -7,9 +7,9 @@
 ["name", "Bundeswehr"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "Bundeswehr Support Corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_Germany_F"] call _fnc_saveToTemplate;
-//["flagTexture", "a3\data_f_enoch\flags\flag_Germany_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_Germany"] call _fnc_saveToTemplate;
+["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;
+["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_NATO"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //

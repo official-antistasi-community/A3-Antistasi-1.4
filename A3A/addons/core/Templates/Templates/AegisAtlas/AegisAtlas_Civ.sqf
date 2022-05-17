@@ -109,10 +109,12 @@ private _workerUniforms = [
 
 private _dlcUniforms = [];
 
-if (allowDLCExpansion) then {_dlcUniforms append [
+if (allowDLCExpansion) then {
+  _dlcUniforms append [
     "U_C_man_sport_1_F",
     "U_C_man_sport_2_F",
-    "U_C_man_sport_3_F"];
+    "U_C_man_sport_3_F"
+  ];
 };
 
 if (allowDLCOrange) then {

@@ -8,7 +8,7 @@
 ["spawnMarkerName", "Belarussian Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_Belarus_F"] call _fnc_saveToTemplate;
-//["flagTexture", "A3\Data_F\Flags\Flag_Belarus_CO.paa"] call _fnc_saveToTemplate;
+["flagTexture", "a3_atlas\data_f_atlas\flags\flag_belarus_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_Belarus"] call _fnc_saveToTemplate;
 
 //////////////////////////

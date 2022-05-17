@@ -8,7 +8,7 @@
 ["spawnMarkerName", "Takistani Army Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_Takistan_F"] call _fnc_saveToTemplate;
-//["flagTexture", "A3\Data_F\Flags\Flag_CSAT_CO.paa"] call _fnc_saveToTemplate;
+["flagTexture", "a3_atlas\data_f_atlas\flags\flag_takistan_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_Takistan"] call _fnc_saveToTemplate;
 
 //////////////////////////

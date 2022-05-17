@@ -7,9 +7,9 @@
 ["name", "Argana"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "Argana Support Corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_Argana_F"] call _fnc_saveToTemplate;
-//["flagTexture", "A3\Data_F\Flags\Flag_Argana_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_Argana"] call _fnc_saveToTemplate;
+["flag", "Flag_CSAT_F"] call _fnc_saveToTemplate;
+["flagTexture", "A3\Data_F\Flags\Flag_CSAT_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_CSAT"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //

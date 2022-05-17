@@ -480,32 +480,55 @@ class Templates
         priorityReb = 7;
         priorityCiv = 7;
 
-        requiredAddons[] = {"A3_Aegis_BaseConfig_F_Aegis", "A3_Atlas_BaseConfig_F_Atlas"}; //the cfgPatches class of the mod these templates are depending on
-        path = QPATHTOFOLDER(Templates\Templates\AegisAtlas); //the path to the template folder
+        requiredAddons[] = {
+            "A3_Aegis_BaseConfig_F_Aegis",
+            "A3_Atlas_BaseConfig_F_Atlas"
+        };
+        path = QPATHTOFOLDER(Templates\Templates\AegisAtlas);
 
-        //Type class: AI, Reb, Civ
         class AI
         {
-            class Iran {};
-            class China {};
-            class Russia {};
             class Argana {};
             class Belarus {};
+            class China {};
+            class Iran {};
+            class Russia {};
             class Takistani {};
 
             class AAF {};
             class LDF {};
 
+            class ADF
+            {
+                class camo
+                {
+                    arid = "Arid"; // Not on any map yet
+                    tropical = "Tropical"; // Not on any map yet
+                    Default = "Temperate"; // Not on any map yet
+                };
+            };
+            class BAF
+            {
+                class camo
+                {
+                    arid = "Arid";
+                    tropical = "Tropical"; // Not on any map yet
+                    Default = "Temperate"; // Not on any map yet
+                };
+            };
+            class Bundeswehr {};
+            class HIMF {};
+            class Legionnaires {}; // Not on any map yet
             class US
             {
                 class camo
                 {
-                    arid = "Arid"
-                    tropical = "Tropical";
+                    arid = "Arid";
+                    tropical = "Tropical"; // Not on any map yet
                     Default = "Temperate";
                 };
             };
-            class Bundeswehr {};
+
         };
 
         class Reb
@@ -516,7 +539,6 @@ class Templates
 
         class Civ {};
 
-        //default template selection, classes within are worldname with side properties with faction name assigned to it (or empty when only one available)
         class worldDefaults
         {
             class Default
@@ -533,8 +555,8 @@ class Templates
 
             class tanoa
             {
-                Occ = "China";
-                Inv = "US";
+                Occ = "HIMF";
+                Inv = "China";
                 Reb = "SDK";
             };
 
@@ -547,7 +569,7 @@ class Templates
             class malden: Default
             {
                 Occ = "Argana";
-                Inv = "US";
+                Inv = "BAF";
             };
 
             class vt7: Default
@@ -567,7 +589,7 @@ class Templates
                 Occ = "Russia";
                 Inv = "US";
             };
-            
+
             class chernarus_winter: chernarus_summer {};
         };
 

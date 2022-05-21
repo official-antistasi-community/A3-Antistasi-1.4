@@ -22,7 +22,7 @@
 
 ["vehicleCivCar", "UK3CB_C_Hilux_Open"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "UK3CB_TKC_C_Kamaz_Open"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "UK3CB_CHC_C_Mi8AMT"] call _fnc_saveToTemplate;
+["vehicleCivHeli", "UK3CB_C_Bell412_Civ"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
 
 ["staticMG", "UK3CB_NAP_I_DSHKM"] call _fnc_saveToTemplate;

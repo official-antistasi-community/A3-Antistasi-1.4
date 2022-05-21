@@ -38,9 +38,9 @@
 ["vehiclesPlanesAA", ["UK3CB_TKA_B_L39_PYLON", "rhsusf_f22"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["UK3CB_TKA_B_C130J"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["UK3CB_TKA_B_UH1H", "UK3CB_TKA_B_UH1H_M240"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["UK3CB_TKA_B_Mi8AMT", "UK3CB_TKA_B_Mi8"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_TKA_O_UH1H_GUNSHIP", "UK3CB_TKA_B_Mi8AMTSh", "UK3CB_TKA_B_Mi_24P", "UK3CB_TKA_B_Mi_24V", "RHS_AH1Z", "RHS_AH1Z_CS", "RHS_AH1Z_GS"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["UK3CB_TKA_B_UH1H", "UK3CB_TKA_B_UH1H_M240", "UK3CB_TKA_B_Bell412_Utility"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["UK3CB_TKA_B_Mi8AMT", "UK3CB_TKA_B_Mi8", "UK3CB_TKA_B_Bell412_Utility"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_TKA_O_UH1H_GUNSHIP", "UK3CB_TKA_B_Mi8AMTSh", "UK3CB_TKA_B_Mi_24P", "UK3CB_TKA_B_Mi_24V", "RHS_AH1Z", "RHS_AH1Z_CS", "RHS_AH1Z_GS", "UK3CB_TKA_B_Bell412_Armed", "UK3CB_TKA_B_Bell412_Armed_AT"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhsusf_m109_usarmy", "UK3CB_TKA_B_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -71,9 +71,9 @@
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
 
-//////////////////////////
-///  Identitiy Stuff   ///
-//////////////////////////
+/////////////////////
+///  Identities   ///
+/////////////////////
 
 ["voices", ["Male01PER","Male02PER","Male03PER"]] call _fnc_saveToTemplate;
 ["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;

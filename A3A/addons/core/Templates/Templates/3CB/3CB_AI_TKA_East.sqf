@@ -34,8 +34,8 @@
 ["vehiclesGunBoats", ["UK3CB_TKA_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["UK3CB_TKA_O_BMP2", "UK3CB_TKA_O_BTR70"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["UK3CB_TKA_B_Su25SM_CAS"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["UK3CB_TKA_O_MIG29SM"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["UK3CB_TKA_B_Su25SM_CAS", "UK3CB_TKA_B_MIG21_AT"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["UK3CB_TKA_O_MIG29SM", "UK3CB_TKA_B_MIG21_AA"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["UK3CB_TKA_B_C130J"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["UK3CB_TKA_B_UH1H", "UK3CB_TKA_B_UH1H_M240"]] call _fnc_saveToTemplate;
@@ -70,9 +70,9 @@
 ["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhs_mine_pmn2"]] call _fnc_saveToTemplate;
 
-//////////////////////////
-///  Identitiy Stuff   ///
-//////////////////////////
+/////////////////////
+///  Identities   ///
+/////////////////////
 
 ["voices", ["Male01PER","Male02PER","Male03PER"]] call _fnc_saveToTemplate;
 ["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;

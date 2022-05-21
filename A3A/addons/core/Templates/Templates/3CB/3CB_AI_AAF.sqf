@@ -28,7 +28,7 @@
 ["vehiclesFuelTrucks", ["UK3CB_AAF_B_MTVR_Refuel", "UK3CB_AAF_B_M939_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_AAF_B_M113_AMB"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_AAV", "UK3CB_AAF_B_LAV25_HQ", "UK3CB_AAF_B_M113_M2", "UK3CB_AAF_B_AAV"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["UK3CB_AAF_B_M60A3", "UK3CB_AAF_I_T72BC"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["UK3CB_AAF_B_M60A3", "UK3CB_AAF_I_T72BC", "UK3CB_AAF_B_FV4201", "UK3CB_AAF_B_M1A1"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_AAF_O_ZsuTank", "UK3CB_AAF_O_MTLB_ZU23"]] call _fnc_saveToTemplate; //UK3CB_AAF_O_2S6M_Tunguska
 
 ["vehiclesTransportBoats", ["UK3CB_AAF_B_RHIB"]] call _fnc_saveToTemplate;
@@ -39,13 +39,15 @@
 ["vehiclesPlanesAA", ["UK3CB_AAF_O_MIG29S"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["UK3CB_AAF_B_C130J"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["UK3CB_AAF_B_UH1H", "UK3CB_AAF_B_Benches_MH9"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["UK3CB_AAF_B_UH1H", "UK3CB_AAF_B_Benches_MH9", "UK3CB_AAF_B_Bell412_Utility"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["UK3CB_AAF_B_UH60M2", "UK3CB_AAF_B_UH60M", "UK3CB_AAF_O_Mi8AMT", "UK3CB_AAF_O_Mi8", "UK3CB_AAF_I_UH1H_M240"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_AAF_B_AH1Z_GS", "UK3CB_AAF_B_AH1Z", "UK3CB_AAF_B_UH1H_GUNSHIP", "UK3CB_AAF_I_Mi_24V", "UK3CB_AAF_I_Mi8AMTSh"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_AAF_B_AH1Z_GS", "UK3CB_AAF_B_AH1Z", "UK3CB_AAF_B_UH1H_GUNSHIP", "UK3CB_AAF_I_Mi_24V", "UK3CB_AAF_I_Mi8AMTSh", "UK3CB_AAF_B_Bell412_Armed", "UK3CB_AAF_B_Bell412_Armed_AT"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["UK3CB_AAF_B_M109"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["UK3CB_AAF_B_M109", "UK3CB_AAF_B_M270_MLRS_HE", "UK3CB_AAF_B_M270_MLRS_CLUSTER"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["UK3CB_AAF_B_M109", ["rhs_mag_155mm_m795_28"]]
+["UK3CB_AAF_B_M109", ["rhs_mag_155mm_m795_28"]],
+["UK3CB_AAF_B_M270_MLRS_HE", ["UK3CB_M31_MLRS_X12"]],
+["UK3CB_AAF_B_M270_MLRS_CLUSTER", ["UK3CB_M26_MLRS_X12"]]
 ]] call _fnc_saveToTemplate;
 
 ["uavsAttack", ["B_UAV_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;

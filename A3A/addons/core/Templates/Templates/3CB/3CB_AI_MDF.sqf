@@ -38,9 +38,9 @@
 ["vehiclesPlanesAA", ["UK3CB_MDF_B_Mystere_AA1"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["UK3CB_MDF_B_C130J"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["UK3CB_MDF_B_UH1H"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["UK3CB_MDF_B_UH1H_M240"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_MDF_B_AH1Z_NAVY", "UK3CB_MDF_B_AH1Z_CS_NAVY", "UK3CB_MDF_B_AH1Z_GS_NAVY", "UK3CB_MDF_B_UH1H_GUNSHIP", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["UK3CB_MDF_B_UH1H", "UK3CB_MDF_B_Bell412_Utility"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["UK3CB_MDF_B_UH1H_M240", "UK3CB_MDF_B_Bell412_Utility"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_MDF_B_AH1Z_NAVY", "UK3CB_MDF_B_AH1Z_CS_NAVY", "UK3CB_MDF_B_AH1Z_GS_NAVY", "UK3CB_MDF_B_UH1H_GUNSHIP", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY", "UK3CB_MDF_B_Bell412_Armed_NAVY", "UK3CB_MDF_B_Bell412_Armed_AT_NAVY"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_CW_US_B_EARLY_M109"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [

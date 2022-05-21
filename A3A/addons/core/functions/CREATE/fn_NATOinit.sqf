@@ -19,6 +19,7 @@ if ((isNil "_unit") || (isNull _unit)) exitWith
 
 private _type = _unit getVariable "unitType";
 private _side = side (group _unit);
+private _faction = Faction(_side);
 
 if (isNil "_type") then {
     Error_2("Unit does not have a type assigned: %1, vehicle: %2", typeOf _unit, typeOf vehicle _unit);
@@ -76,16 +77,41 @@ else
 
 //Calculates the skill of the given unit
 private _skill = (0.15 * skillMult) + (0.04 * difficultyCoef) + (0.02 * tierWar);
-if ("militia_" in (_unit getVariable "unitType")) then
-{
-    _skill = _skill min (0.2 * skillMult);
-};
-if ("police" in (_unit getVariable "unitType")) then
-{
-    _skill = _skill min (0.12 * skillMult);
-};
-_unit setSkill _skill;
+private _regularFaces = (_faction get "faces");
+private _regularVoices = (_faction get "voices");
+private ["_face", "_voice"];
 
+switch (true) do {
+case ("militia_" in (_unit getVariable "unitType")): 
+    {
+    _skill = _skill min (0.2 * skillMult);
+    _face = selectRandom (_faction getOrDefault ["milFaces", _regularFaces]);
+    _voice = selectRandom (_faction getOrDefault ["milVoices", _regularVoices]);
+    };
+case ("police" in (_unit getVariable "unitType")):
+    {
+    _skill = _skill min (0.12 * skillMult);
+    _face = selectRandom (_faction getOrDefault ["polFaces", _regularFaces]);
+    _voice = selectRandom (_faction getOrDefault ["polVoices", _regularVoices]);
+    };
+case ("SF" in (_unit getVariable "unitType")):
+    {
+    _skill = _skill min (0.12 * skillMult);
+    _face = selectRandom (_faction getOrDefault ["sfFaces", _regularFaces]);
+    _voice = selectRandom (_faction getOrDefault ["sfVoices", _regularVoices]);
+    };
+case ("Traitor" in (_unit getVariable "unitType")):
+    {
+    _face = selectRandom (A3A_faction_reb  get "faces");
+    _voice = "NoVoice";
+    };
+default {
+    _face = selectRandom _regularFaces;
+    _voice = selectRandom _regularVoices;
+    };
+};
+[_unit, _face, _voice] call BIS_fnc_setIdentity;
+_unit setSkill _skill;
 //Adjusts squadleaders with improved skill and adds intel action
 if (_type in FactionGet(all,"SquadLeaders")) then
 {

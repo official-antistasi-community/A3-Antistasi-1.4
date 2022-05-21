@@ -45,11 +45,11 @@ if (_isAI && !_addToAI) exitWith {true};
 
 _unit addEventHandler ["Killed", {
     params ["_unit", "_killer", "_instigator", "_useEffects"];
-    [[_instigator,_killer], 60, 0.4, _unit] remoteExecCall ["A3A_fnc_punishment_FF",2,false];
+    [[_instigator,_killer], 60, 0.4, _unit] remoteExecCall ["A3A_fnc_punishment_evaluateEvent",2,false];
 }];
 _unit addEventHandler ["Hit", {
     params ["_unit", "_source", "_damage", "_instigator"];
-    [[_instigator,_source], 60, 0.4, _unit] remoteExecCall ["A3A_fnc_punishment_FF",2,false];
+    [[_instigator,_source], 60, 0.4, _unit] remoteExecCall ["A3A_fnc_punishment_evaluateEvent",2,false];
 }];
 
 if (_isAI) exitWith {true};

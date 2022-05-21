@@ -213,8 +213,8 @@ private _categoryOverrideTable = [
 ["LIB_M2_60_Tripod", ["StaticWeaponParts","Items"]],
 ["LIB_M2_60_Barrel", ["StaticWeaponParts","Items"]]   ];
 
-//Create a local namespace. Should only run on the server.
-categoryOverrides = false call A3A_fnc_createNamespace;
+//Create a local namespace.
+A3A_categoryOverrides = false call A3A_fnc_createNamespace;
 {
-	categoryOverrides setVariable [_x select 0, _x select 1];
+	A3A_categoryOverrides setVariable [_x select 0, _x select 1];
 } forEach _categoryOverrideTable;

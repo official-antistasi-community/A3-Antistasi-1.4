@@ -15,8 +15,11 @@ Environment: Any
 Public: Yes
 
 Example:
-    ["C_Offroad_01_F"] call A3A_fnc_GUI_sizeOf;  // 11.4563
-    ["C_Heli_Light_01_civil_F"] call A3A_fnc_GUI_sizeOf;  // 12.6111
+    ["C_Offroad_01_F"] call A3A_GUI_fnc_sizeOf;  // 11.4563
+    ["C_Heli_Light_01_civil_F"] call A3A_GUI_fnc_sizeOf;  // 12.6111
+    // Within GUI
+    ["C_Offroad_01_F"] call FUNC(sizeOf);  // 11.4563
+
 */
 
 params [

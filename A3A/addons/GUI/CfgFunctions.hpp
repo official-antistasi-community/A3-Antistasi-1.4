@@ -28,9 +28,11 @@ class CfgFunctions {
             class recruitSquadDialog {};
             class requestMissionDialog {};
         };
+    };
+    class A3A_GUI {
         class ObjectHelpers {
             file = QPATHTOFOLDER(functions\ObjectHelpers);
-            class GUI_sizeOf {};
+            class sizeOf {};
         };
     };
 };

@@ -143,7 +143,7 @@ switch (_mode) do
                     private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
                     private _objPreview = _display displayCtrl A3A_IDC_BUYVEHICLEOBJECTRENDER;  // 9303;
                     _objPreview ctrlSetModel _model;
-                    private _boundingDiameter = [_className] call A3A_fnc_GUI_sizeOf;
+                    private _boundingDiameter = [_className] call FUNC(sizeOf);
                     _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
                     _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
 

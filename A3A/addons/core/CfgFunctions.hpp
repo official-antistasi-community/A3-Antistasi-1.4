@@ -755,12 +755,13 @@ class CfgFunctions
             class createNamespace {};
             class deleteNamespace {};
             class getAdmin {};
+            class getRoadDirection {};
             class localLog {};
             class log {};
+            class requiredAddonsLoaded {};
             class setPos {};
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};
-            class getRoadDirection {};
         };
 
         class UtilityItems {

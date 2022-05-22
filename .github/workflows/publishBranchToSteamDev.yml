@@ -1,0 +1,46 @@
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v2
+
+    - name: Increment version locally
+      run: chmod +x ./tools/incrementVersion.js &&
+        node ./tools/incrementVersion.js -b ${{github.sha}}
+
+    - name: Build addons
+      run: '.\tools\Builder\buildAddons.ps1 -metaFileName meta_dev.cpp'
+
+    - name: Upload build addon artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: A3A
+        path: build\A3A
+
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [build]
+    steps:
+    - name: Download addon artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: A3A
+        path: A3A
+
+    - name: Publish to Steam Workshop
+      uses: arma-actions/workshop-upload@v1
+      with:
+        appId: '107410'      # default
+        itemId: '2729074499' # https://steamcommunity.com/sharedfiles/filedetails/?id=2729074499
+        contentPath: 'A3A'
+        changelog: '[url=https://github.com/official-antistasi-community/A3-Antistasi/commit/${{github.sha}}]Update from branch: ${{github.REF_NAME}}[/url].'
+      env:
+        STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+        STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}

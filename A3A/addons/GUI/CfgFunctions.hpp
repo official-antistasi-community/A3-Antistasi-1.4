@@ -30,4 +30,10 @@ class CfgFunctions {
             class requestMissionDialog {};
         };
     };
+    class A3A_GUI {
+        class ObjectHelpers {
+            file = QPATHTOFOLDER(functions\ObjectHelpers);
+            class sizeOf {};
+        };
+    };
 };

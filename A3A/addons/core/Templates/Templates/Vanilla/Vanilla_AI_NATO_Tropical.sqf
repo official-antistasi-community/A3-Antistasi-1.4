@@ -26,7 +26,7 @@
 ["vehiclesRepairTrucks", ["B_T_Truck_01_Repair_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["B_T_Truck_01_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["B_T_Truck_01_medical_F"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"]] call _fnc_saveToTemplate;
+private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F", "B_T_APC_Tracked_01_CRV_F"];
 ["vehiclesTanks", ["B_T_MBT_01_TUSK_F", "B_T_MBT_01_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["B_T_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
@@ -73,6 +73,12 @@
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+//If Western Sahara DLC
+if (allowDLCWS) then {
+		_APCs append ["B_T_APC_Wheeled_01_atgm_lxWS_v2", "B_T_APC_Wheeled_01_command_lxWS"];
+};
+["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
 
 //////////////////////////
 ///  Identitiy Stuff   ///

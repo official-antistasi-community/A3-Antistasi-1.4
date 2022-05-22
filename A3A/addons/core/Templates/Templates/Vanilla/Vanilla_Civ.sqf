@@ -109,9 +109,39 @@ if (allowDLCExpansion) then {_dlcUniforms append [
     "U_C_man_sport_3_F"];
 };
 
-if (allowDLCOrange) then {_dlcUniforms append [
+if (allowDLCOrange) then {
+  _dlcUniforms append [
     "U_C_Paramedic_01_F",
-    "U_C_Mechanic_01_F"];
+    "U_C_Mechanic_01_F"
+  ];
+  _workerUniforms append [
+    "U_C_ConstructionCoverall_Black_F",
+    "U_C_ConstructionCoverall_Blue_F",
+    "U_C_ConstructionCoverall_Red_F",
+    "U_C_ConstructionCoverall_Vrana_F"
+  ];
+};
+
+if (allowDLCWS) then {
+  _dlcUniforms append [
+    "U_lxWS_C_Djella_01",
+    "U_lxWS_C_Djella_02",
+    "U_lxWS_C_Djella_02a",
+    "U_lxWS_C_Djella_03",
+    "U_lxWS_C_Djella_04",
+    "U_lxWS_C_Djella_05",
+    "U_lxWS_C_Djella_06",
+    "U_lxWS_C_Djella_07",
+    "U_lxWS_Tak_01_A",
+    "U_lxWS_Tak_01_B",
+    "U_lxWS_Tak_01_C",
+    "U_lxWS_Tak_02_A",
+    "U_lxWS_Tak_02_B",
+    "U_lxWS_Tak_02_C",
+    "U_lxWS_Tak_03_A",
+    "U_lxWS_Tak_03_B",
+    "U_lxWS_Tak_03_C"
+  ];
 };
 
 ["uniforms", _civUniforms + _pressUniforms + _workerUniforms + _dlcUniforms] call _fnc_saveToTemplate;

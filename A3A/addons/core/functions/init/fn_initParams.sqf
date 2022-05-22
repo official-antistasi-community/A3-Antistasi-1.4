@@ -48,6 +48,7 @@ A3A_paramTable = [
     ["allowDLCEnoch", "Enoch", ["server"], false],
     ["allowDLCAoW", "AoW", ["server"], false],
     ["allowDLCVN", "VN", [], false],
+    ["allowDLCWS", "WS", [], false],
 
     ["membershipEnabled", "membership", [], true],
     ["switchCom", "switchComm", ["server"], true],						// dead param

@@ -13,7 +13,7 @@
 ["vehicleLightArmed", "I_G_Offroad_01_armed_F"] call _fnc_saveToTemplate;
 ["vehicleTruck", "I_G_Van_01_transport_F"] call _fnc_saveToTemplate;
 ["vehicleAT", "I_G_Offroad_01_AT_F"] call _fnc_saveToTemplate;
-private _vehicleAA = [""];
+private _vehicleAA = "";
 
 ["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
 ["vehicleRepair", "I_G_Offroad_01_repair_F"] call _fnc_saveToTemplate;
@@ -28,7 +28,7 @@ private _vehicleAA = [""];
 
 ["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate;
 ["staticAT", "I_static_AT_F"] call _fnc_saveToTemplate;
-private _staticAA = ["I_static_AA_F"];
+private _staticAA = "I_static_AA_F";
 ["staticMortar", "I_G_Mortar_01_F"] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
@@ -40,11 +40,11 @@ private _staticAA = ["I_static_AA_F"];
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
 if (allowDLCWS) then {
-  _vehicleAA = ["I_Tura_Truck_02_aa_lxWS"];
-  _staticAA = ["I_G_ZU23_lxWS_F"];
+  _vehicleAA = "I_Tura_Truck_02_aa_lxWS";
+  _staticAA = "B_G_ZU23_lxWS_F";
 };
-["vehicleAA", [_vehicleAA]] call _fnc_saveToTemplate;
-["staticAA", [_staticAA]] call _fnc_saveToTemplate;
+["vehicleAA", _vehicleAA] call _fnc_saveToTemplate;
+["staticAA", _staticAA] call _fnc_saveToTemplate;
 
 ///////////////////////////
 //  Rebel Starting Gear  //

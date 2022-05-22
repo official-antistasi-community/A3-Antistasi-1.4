@@ -83,7 +83,7 @@ private _APCs = ["B_T_APC_Wheeled_01_cannon_v2_F", "B_T_APC_Tracked_01_rcws_F"];
 if (allowDLCWS) then {
 		_APCs append ["B_T_APC_Wheeled_01_command_lxWS"];
 };
-["vehiclesAPCs", [_APCs]] call _fnc_saveToTemplate;
+["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -297,7 +297,7 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["Atlas_U_B_H_Soldier_F", "Atlas_U_B_H_Soldier_2_F", "Atlas_U_B_H_Soldier_3_F"]];;
 _militiaLoadoutData set ["vests", ["V_BandollierB_oli", "V_TacChestrig_oli"]];
 _militiaLoadoutData set ["Hvests", ["V_TacVest_oli"]];
-_militiaLoadoutData set ["backpacks", ["B_Kitbag_rgr", "B_Carryall_jungle", "B_TacticalPack_oli"];
+_militiaLoadoutData set ["backpacks", ["B_Kitbag_rgr", "B_Carryall_jungle", "B_TacticalPack_oli"]];
 _militiaLoadoutData set ["helmets", ["H_Booniehat_jungle_hs", "H_MilCap_jungle"]];
 
 _militiaLoadoutData set ["rifles", [

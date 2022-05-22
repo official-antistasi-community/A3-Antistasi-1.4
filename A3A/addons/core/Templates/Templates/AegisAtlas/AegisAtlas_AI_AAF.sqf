@@ -85,9 +85,9 @@ if (allowDLCWS) then {
 		_cargoTrucks = ["I_Truck_02_flatbed_lxWS", "I_Truck_02_cargo_lxWS"];
 		_AA append ["I_A_Truck_02_aa_lxWS"];
 };
-["vehiclesCargoTrucks", [_cargoTrucks]] call _fnc_saveToTemplate;
-["vehiclesAPCs", [_APCs]] call _fnc_saveToTemplate;
-["vehiclesAA", [_AA]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
+["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
+["vehiclesAA", _AA] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -101,7 +101,6 @@ _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
-
 _loadoutData set ["lightATLaunchers", [
 ["launch_MRAWS_green_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_green_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],

@@ -80,7 +80,7 @@ private _APCs = ["Atlas_B_G_APC_Wheeled_03_cannon_F"];
 if (allowDLCTanks) then {
 		_APCs append ["Atlas_B_G_LT_01_AT_F", "Atlas_B_G_LT_01_cannon_F"];
 };
-["vehiclesAPCs", [_APCs]] call _fnc_saveToTemplate;
+["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

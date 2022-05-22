@@ -21,15 +21,15 @@
 
 //Nearly everything below this line is an Array, which can contain multiple assets
 
-["vehiclesBasic", ["O_A_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["O_A_LSV_02_unarmed_F"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["O_A_LSV_02_AT_F", "O_A_LSV_02_armed_F"]] call _fnc_saveToTemplate;
-["vehiclesTrucks", ["O_A_Truck_02_transport_F", "O_A_Truck_02_F"]] call _fnc_saveToTemplate;
-private _cargoTrucks = ["O_A_Truck_02_transport_F", "O_A_Truck_02_F"];
-["vehiclesAmmoTrucks", ["O_A_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["O_A_Truck_02_box_F"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["O_A_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["O_A_Truck_02_medical_F"]] call _fnc_saveToTemplate;
+["vehiclesBasic", ["O_Quadbike_01_F"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["O_LSV_02_unarmed_F"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["O_LSV_02_AT_F", "O_LSV_02_armed_F"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["O_Truck_02_transport_F", "O_Truck_02_covered_F"]] call _fnc_saveToTemplate;
+private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F"];
+["vehiclesAmmoTrucks", ["O_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["O_Truck_02_box_F"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["O_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["O_Truck_02_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["O_A_APC_Tracked_02_cannon_F", "O_A_APC_Wheeled_02_rcws_v2_F"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["O_A_MBT_02_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["O_APC_Tracked_02_AA_F"]] call _fnc_saveToTemplate;
@@ -56,9 +56,9 @@ private _cargoTrucks = ["O_A_Truck_02_transport_F", "O_A_Truck_02_F"];
 ["uavsPortable", ["O_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities.
-["vehiclesMilitiaLightArmed", ["O_A_LSV_02_armed_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["O_A_Truck_02_transport_F", "O_A_Truck_02_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["O_A_LSV_02_unarmed_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["O_LSV_02_armed_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["O_Truck_02_transport_F", "O_Truck_02_covered_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["O_LSV_02_unarmed_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 
@@ -92,6 +92,8 @@ _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 _loadoutData set ["lightATLaunchers", [
+["launch_RPG32_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""],
+["launch_RPG32_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""],
 ["launch_RPG32_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""],
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
@@ -312,13 +314,13 @@ _militiaLoadoutData set ["backpacks", ["B_TacticalPack_ocamo", "B_Carryall_ocamo
 _militiaLoadoutData set ["helmets", ["H_MilCap_ocamo", "H_Cap_brn_SPECOPS_hs"]];
 
 _militiaLoadoutData set ["rifles", [
-["arifle_CTAR_blk_F", "", "acc_flashlight", "", ["30Rnd_580x42_Mag_F", "30Rnd_580x42_Mag_F", "30Rnd_580x42_Mag_Tracer_F"], [], ""]
+["arifle_Mk20_hex_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
 ]];
 _militiaLoadoutData set ["carbines", [
-["arifle_CTAR_blk_F", "", "acc_flashlight", "", ["30Rnd_580x42_Mag_F", "30Rnd_580x42_Mag_F", "30Rnd_580x42_Mag_Tracer_F"], [], ""]
+["arifle_Mk20C_hex_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["arifle_CTAR_GL_blk_F", "", "acc_flashlight", "", ["30Rnd_580x42_Mag_F", "30Rnd_580x42_Mag_F", "30Rnd_580x42_Mag_Tracer_F"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+["arifle_Mk20_GL_hex_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", [
 ["hgun_PDW2000_F", "", "", "", [], [], ""]

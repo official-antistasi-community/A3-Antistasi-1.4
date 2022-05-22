@@ -81,7 +81,7 @@ private _APCs = ["B_W_APC_Wheeled_01_cannon_v2_F", "B_W_APC_Tracked_01_rcws_F", 
 if (allowDLCWS) then {
 		_APCs append ["B_T_APC_Wheeled_01_atgm_lxWS_v2", "B_T_APC_Wheeled_01_command_lxWS"];
 };
-["vehiclesAPCs", [_APCs]] call _fnc_saveToTemplate;
+["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

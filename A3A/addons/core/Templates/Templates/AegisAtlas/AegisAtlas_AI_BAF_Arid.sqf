@@ -220,8 +220,8 @@ _sfLoadoutData set ["sidearms", [
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militaryLoadoutData set ["uniforms", ["U_B_UBACS_mtp_f", "U_B_UBACS_vest_mtp_f", "U_B_UBACS_tshirt_mtp_f"]];
-_militaryLoadoutData set ["vests", ["V_PlateRigKBT_01_light_Coyote_F", "V_PlateRigKBT_01_light_MTP_F"]];
-_militaryLoadoutData set ["Hvests", ["V_PlateRigKBT_01_heavy_Coyote_F", "V_PlateRigKBT_01_heavy_MTP_F"]];
+_militaryLoadoutData set ["vests", ["V_CarrierRigKBT_01_light_Coyote_F", "V_CarrierRigKBT_01_light_MTP_F"]];
+_militaryLoadoutData set ["Hvests", ["V_CarrierRigKBT_01_heavy_Coyote_F", "V_CarrierRigKBT_01_heavy_MTP_F"]];
 _militaryLoadoutData set ["backpacks", ["B_Carryall_mcamo", "B_Kitbag_mcamo", "B_TacticalPack_mcamo", "B_TacticalPack_khk"]];
 _militaryLoadoutData set ["helmets", ["H_HelmetB_plain_sand", "H_HelmetB_camo", "H_HelmetSpecB_sand"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator"]];
@@ -284,7 +284,7 @@ _policeLoadoutData set ["sidearms", ["hgun_G17_black_F"]];
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militiaLoadoutData set ["uniforms", ["U_B_UBACS_mtp_f", "U_B_UBACS_vest_mtp_f", "U_B_UBACS_tshirt_mtp_f"]];
-_militiaLoadoutData set ["vests", ["V_Chestrig_rgr", "V_PlateRigKBT_01_Coyote_F"]];
+_militiaLoadoutData set ["vests", ["V_Chestrig_rgr", "V_CarrierRigKBT_01_Coyote_F"]];
 _militiaLoadoutData set ["backpacks", ["B_AssaultPack_rgr"]];
 _militiaLoadoutData set ["helmets", ["H_HelmetB", "H_MilCap_mcamo", "H_Bandanna_mcamo_hs"]];
 
@@ -318,13 +318,13 @@ _militiaLoadoutData set ["sidearms", ["hgun_G17_black_F"]];
 //The following lines are determining the loadout of the vehicle crew
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _crewLoadoutData set ["uniforms", ["U_B_UBACS_vest_mtp_f"]];
-_crewLoadoutData set ["vests", ["V_PlateRigKBT_01_MTP_F"]];
+_crewLoadoutData set ["vests", ["V_CarrierRigKBT_01_MTP_F"]];
 _crewLoadoutData set ["helmets", ["H_HelmetCrew_B"]];
 
 //The following lines are determining the loadout of the pilots
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _pilotLoadoutData set ["uniforms", ["U_B_UBACS_vest_mtp_f"]];
-_pilotLoadoutData set ["vests", ["V_PlateRigKBT_01_MTP_F"]];
+_pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_MTP_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O", "H_PilotHelmetHeli_O_visor_up"]];
 
 // ##################### DO NOT TOUCH ANYTHING BELOW THIS LINE #####################

@@ -496,6 +496,7 @@ class Templates
             class Takistani {};
 
             class AAF {};
+            class Israel {};
             class LDF {};
 
             class ADF

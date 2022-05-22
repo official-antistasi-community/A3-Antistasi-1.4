@@ -13,7 +13,7 @@
 ["vehicleLightArmed", "I_C_Offroad_02_LMG_F"] call _fnc_saveToTemplate;
 ["vehicleTruck", "I_C_Van_01_transport_F"] call _fnc_saveToTemplate;
 ["vehicleAT", "I_C_Offroad_02_AT_F"] call _fnc_saveToTemplate;
-private _vehicleAA = [""];
+private _vehicleAA = "";
 
 ["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
 ["vehicleRepair", "I_G_Offroad_01_repair_F"] call _fnc_saveToTemplate;
@@ -28,7 +28,7 @@ private _vehicleAA = [""];
 
 ["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate;
 ["staticAT", "I_static_AT_F"] call _fnc_saveToTemplate;
-private _staticAA = ["I_static_AA_F"];
+private _staticAA = "I_static_AA_F";
 ["staticMortar", "I_G_Mortar_01_F"] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
@@ -40,26 +40,26 @@ private _staticAA = ["I_static_AA_F"];
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
 if (allowDLCWS) then {
-  _vehicleAA = ["I_Tura_Truck_02_aa_lxWS"];
-  _staticAA = ["I_G_ZU23_lxWS_F"];
+  _vehicleAA = "I_Tura_Truck_02_aa_lxWS";
+  _staticAA = "B_G_ZU23_lxWS_F";
 };
-["vehicleAA", [_vehicleAA]] call _fnc_saveToTemplate;
-["staticAA", [_staticAA]] call _fnc_saveToTemplate;
+["vehicleAA", _vehicleAA] call _fnc_saveToTemplate;
+["staticAA", _staticAA] call _fnc_saveToTemplate;
 
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////
 
 private _initialRebelEquipment = [
-"hgun_Pistol_01_F","hgun_ACPC2_black_F",
-"SMG_05_F","sgun_Mp153_classic_F",
-"10Rnd_9x21_Mag","9Rnd_45ACP_Mag","30Rnd_9x21_Mag_SMG_02","4Rnd_12Gauge_Pellets","MiniGrenade","SmokeShell",
-"B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oicamo","B_FieldPack_oucamo","B_FieldPack_owcamo","B_FieldPack_cbr","B_FieldPack_khk","B_FieldPack_semiarid",
-"V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_ChestrigF_blk","V_ChestrigF_rgr","V_ChestrigF_khk","V_ChestrigF_oli",
-"V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_BandollierB_taiga_F","V_BandollierB_tna_F",
-"V_Rangemaster_belt","V_Rangemaster_belt_blk","V_Rangemaster_belt_cbr","V_Rangemaster_belt_ghex_F","V_Rangemaster_belt_khk","V_Rangemaster_belt_oli","V_Rangemaster_belt_taiga_F","V_Rangemaster_belt_tna_F",
-"Binocular",
-"acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
+    "hgun_Pistol_01_F","hgun_ACPC2_black_F",
+    "SMG_05_F","sgun_Mp153_classic_F",
+    "10Rnd_9x21_Mag","9Rnd_45ACP_Mag","30Rnd_9x21_Mag_SMG_02","4Rnd_12Gauge_Pellets","MiniGrenade","SmokeShell",
+    "B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oicamo","B_FieldPack_oucamo","B_FieldPack_owcamo","B_FieldPack_cbr","B_FieldPack_khk","B_FieldPack_semiarid",
+    "V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_ChestrigF_blk","V_ChestrigF_rgr","V_ChestrigF_khk","V_ChestrigF_oli",
+    "V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_BandollierB_taiga_F","V_BandollierB_tna_F",
+    "V_Rangemaster_belt","V_Rangemaster_belt_blk","V_Rangemaster_belt_cbr","V_Rangemaster_belt_ghex_F","V_Rangemaster_belt_khk","V_Rangemaster_belt_oli","V_Rangemaster_belt_taiga_F","V_Rangemaster_belt_tna_F",
+    "Binocular",
+    "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};

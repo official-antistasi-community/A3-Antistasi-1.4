@@ -60,6 +60,26 @@ A3A_logistics_vehicleHardpoints = [
         [1,             [0,-3.4325,-0.798],      [14,15]]
     ]],
 
+    //WS Zamak Flatbed
+    ["O_Truck_02_flatbed_lxWS" call A3A_fnc_classNameToModel, [
+        [1,             [0,0.43,0.18],            []],
+        [1,             [0,-0.39,0.18],           []],
+        [1,             [0,-1.17,0.18],           []],
+        [1,             [0,-1.97,0.18],           []],
+        [1,             [0,-2.78,0.18],           []],
+        [1,             [0,-3.57,0.18],           []]
+    ]],
+
+    //WS Zamak Cargo
+    ["O_Truck_02_cargo_lxWS" call A3A_fnc_classNameToModel, [
+        [1,             [0,0.43,0.18],            []],
+        [1,             [0,-0.39,0.18],           []],
+        [1,             [0,-1.17,0.18],           []],
+        [1,             [0,-1.97,0.18],           []],
+        [1,             [0,-2.78,0.18],           []],
+        [1,             [0,-3.57,0.18],           []]
+    ]],
+
     //CSAT Tempest open
     ["O_Truck_03_transport_F" call A3A_fnc_classNameToModel,[
         [1,             [0,-0.5175,-0.413],       [1,6]],
@@ -105,13 +125,13 @@ A3A_logistics_vehicleHardpoints = [
 
     //Vanilla HEMTT Flatbed
     ["a3\Soft_F_Gamma\Truck_01\Truck_01_flatbed_F.p3d", [
-        [1,[0,0.7,-0.8],[]]
-        ,[1,[0,-0.1,-0.8],[]]
-        ,[1,[0,-0.9,-0.8],[]]
-        ,[1,[0,-1.7,-0.8],[]]
-        ,[1,[0,-2.5,-0.8],[]]
-        ,[1,[0,-3.3,-0.8],[]]
-        ,[1,[0,-4.1,-0.8],[]]
+        [1,             [0,0.7,-0.8],             []],
+        [1,             [0,-0.1,-0.8],            []],
+        [1,             [0,-0.9,-0.8],            []],
+        [1,             [0,-1.7,-0.8],            []],
+        [1,             [0,-2.5,-0.8],            []],
+        [1,             [0,-3.3,-0.8],            []],
+        [1,             [0,-4.1,-0.8],            []]
     ]],
 
     //Vanilla HEMTT Cargo
@@ -163,6 +183,7 @@ A3A_logistics_attachmentOffset = [
     ["B_Mortar_01_F" call A3A_fnc_classNameToModel,                             [-0.1,-0.5,0.74],           [0, 1, 0],                  2,      2000],              //Mortar
     ["B_HMG_02_high_F" call A3A_fnc_classNameToModel,                           [0.2, -0.5, 1.69],          [0, 1, 0],                  4,      100],               //M2 High
     ["B_HMG_02_F" call A3A_fnc_classNameToModel,                                [-0.2, 0, 1.24],            [0, -1, 0],                 4,      100],               //M2
+    ["B_G_ZU23_lxWS_F" call A3A_fnc_classNameToModel,                           [0,-1.65,1.96],             [0, 1, 0],                  6,      250],               //Zu23 from WS DLC
 
     //medium sized crates
     ["Box_NATO_AmmoVeh_F" call A3A_fnc_classNameToModel,                        [0,0,0.81],                 [1,0,0],                    2],                         //Vehicle ammo create
@@ -177,7 +198,7 @@ A3A_logistics_attachmentOffset = [
     //small sized crates                                                      //location                  //rotation                  //size                        //description
     ["Box_NATO_Equip_F" call A3A_fnc_classNameToModel,                          [0,0,0.37],                 [1,0,0],                    1],                         //Equipment box
     ["\A3\weapons_F\AmmoBoxes\WpnsBox_F",                                       [0,0,0.17],                 [0,1,0],                    1],                         //surrender crates
-    
+
     //fuel containers
     ["FlexibleTank_01_forest_F"call A3A_fnc_classNameToModel,                   [0,0,0.52],                 [1,0,0],                    1],
     ["B_Slingload_01_Fuel_F"call A3A_fnc_classNameToModel,                      [0,-0.25,1.35],             [0,1,0],                    7]
@@ -204,5 +225,6 @@ A3A_logistics_weapons = [
     ["B_HMG_01_F" call A3A_fnc_classNameToModel,[]],
     ["B_Mortar_01_F" call A3A_fnc_classNameToModel,["C_Boat_Civil_01_F" call A3A_fnc_classNameToModel, "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "C_Boat_Transport_02_F" call A3A_fnc_classNameToModel]],
     ["B_HMG_02_high_F" call A3A_fnc_classNameToModel,[]],
-    ["B_HMG_02_F" call A3A_fnc_classNameToModel,[]]
+    ["B_HMG_02_F" call A3A_fnc_classNameToModel,[]],
+    ["B_G_ZU23_lxWS_F" call A3A_fnc_classNameToModel,[]]
 ];

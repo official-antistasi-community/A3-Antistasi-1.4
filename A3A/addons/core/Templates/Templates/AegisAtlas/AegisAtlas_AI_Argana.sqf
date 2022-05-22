@@ -78,7 +78,7 @@ private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F"];
 if (allowDLCWS) then {
 		_cargoTrucks = ["O_A_Truck_02_flatbed_F", "O_A_Truck_02_cargo_F"];
 };
-["vehiclesCargoTrucks", [_cargoTrucks]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

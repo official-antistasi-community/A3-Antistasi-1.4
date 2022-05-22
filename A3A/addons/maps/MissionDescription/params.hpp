@@ -311,7 +311,7 @@ class Params
         values[] = {9999,1,0};
         texts[] = {"Load from save (Default: No)","Yes","No"};
         default = 9999;
-    }
+    };
     class Spacer0
     {
         title = "";

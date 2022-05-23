@@ -39,7 +39,7 @@ private _staticAA = "I_static_AA_F";
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
-if (allowDLCWS) then {
+if (allowDLCWS && A3A_hasWS) then {
   _vehicleAA = "I_Tura_Truck_02_aa_lxWS";
   _staticAA = "B_G_ZU23_lxWS_F";
 };
@@ -100,7 +100,7 @@ if (allowDLCExpansion) then {_dlcUniforms append [
 ];
 };
 
-if (allowDLCWS) then {_dlcUniforms append [
+if (allowDLCWS && A3A_hasWS) then {_dlcUniforms append [
     "U_lxWS_ION_Casual1",
     "U_lxWS_ION_Casual2",
     "U_lxWS_ION_Casual3",

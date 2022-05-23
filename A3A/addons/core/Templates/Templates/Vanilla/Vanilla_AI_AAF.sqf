@@ -78,7 +78,7 @@ if (allowDLCTanks) then {
 		_APCs append ["I_LT_01_AT_F", "I_LT_01_cannon_F"];
 };
 //If Western Sahara DLC
-if (allowDLCWS) then {
+if (allowDLCWS && A3A_hasWS) then {
 		_cargoTrucks = ["I_Truck_02_flatbed_lxWS", "I_Truck_02_cargo_lxWS"];
 		_AA append ["I_A_Truck_02_aa_lxWS"];
 };

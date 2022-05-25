@@ -1,5 +1,4 @@
 on:
-  workflow_dispatch:
   push:
     branches:
     - unstable
@@ -11,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Merge unstable -> steam-staging-2
         uses: devmasx/merge-branch@master
         with:
           type: now
           target_branch: steam-staging-2
           github_token: ${{ github.token }}
-    
+
   version:
     runs-on: windows-latest
     timeout-minutes: 2

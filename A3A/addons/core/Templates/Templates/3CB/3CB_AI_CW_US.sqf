@@ -42,10 +42,12 @@
 ["vehiclesHelisTransport", ["UK3CB_CW_US_B_EARLY_CH47", "UK3CB_CW_US_B_EARLY_UH1H_M240", "UK3CB_CW_US_B_LATE_UH60M2", "UK3CB_CW_US_B_LATE_UH60M", "UK3CB_CW_US_B_LATE_UH1H"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["UK3CB_CW_US_B_EARLY_UH1H_GUNSHIP", "UK3CB_CW_US_B_EARLY_AH1Z", "UK3CB_CW_US_B_EARLY_AH1Z_CS", "UK3CB_CW_US_B_EARLY_AH1Z_GS"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["UK3CB_CW_US_B_EARLY_M109", "RHS_M119_WD"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["UK3CB_CW_US_B_EARLY_M109", "RHS_M119_WD", "UK3CB_CW_US_B_LATE_M270_MLRS_HE", "UK3CB_CW_US_B_LATE_M270_MLRS_CLUSTER"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
 ["UK3CB_CW_US_B_EARLY_M109", ["rhs_mag_155mm_m795_28"]],
-["RHS_M119_WD", ["RHS_mag_m1_he_12"]]
+["RHS_M119_WD", ["RHS_mag_m1_he_12"]],
+["UK3CB_CW_US_B_LATE_M270_MLRS_HE", ["UK3CB_M31_MLRS_X12"]],
+["UK3CB_CW_US_B_LATE_M270_MLRS_CLUSTER", ["UK3CB_M26_MLRS_X12"]]
 ]] call _fnc_saveToTemplate;
 
 ["uavsAttack", []] call _fnc_saveToTemplate;
@@ -56,7 +58,7 @@
 ["vehiclesMilitiaTrucks", ["UK3CB_CW_US_B_EARLY_M939_Guntruck", "UK3CB_CW_US_B_EARLY_M939", "UK3CB_CW_US_B_EARLY_M939_Open"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["UK3CB_CW_US_B_EARLY_Willys_Jeep_Open", "UK3CB_CW_US_B_EARLY_M151_Jeep_Closed", "UK3CB_CW_US_B_EARLY_M151_Jeep_Open"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["UK3CB_ADP_B_LandRover_Closed"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["UK3CB_ADP_B_Datsun_Pickup","UK3CB_ADP_B_Hilux_Closed","UK3CB_ADP_B_Hilux_Open","UK3CB_ADP_B_LandRover_Open","UK3CB_ADP_B_LandRover_Closed","UK3CB_ADP_B_Offroad","UK3CB_ADP_B_Van_Transport"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["RHS_M2StaticMG_D"]] call _fnc_saveToTemplate;
 ["staticAT", ["RHS_TOW_TriPod_D"]] call _fnc_saveToTemplate;

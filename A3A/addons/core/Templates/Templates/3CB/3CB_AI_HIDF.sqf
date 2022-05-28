@@ -38,9 +38,9 @@
 ["vehiclesPlanesAA", ["UK3CB_B_Mystere_HIDF_AA1"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["RHS_C130J"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["rhs_uh1h_hidf_unarmed"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["rhs_uh1h_hidf"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["rhs_uh1h_hidf_gunship"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["rhs_uh1h_hidf_unarmed", "UK3CB_B_Bell412_Utility_HIDF"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["rhs_uh1h_hidf", "UK3CB_B_Bell412_Utility_HIDF"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["rhs_uh1h_hidf_gunship", "UK3CB_B_Bell412_Armed_HIDF", "UK3CB_B_Bell412_Armed_AT_HIDF"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_CW_US_B_EARLY_M109"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -55,7 +55,7 @@
 ["vehiclesMilitiaTrucks", ["UK3CB_I_G_Ural_Covered", "UK3CB_I_G_Ural_Open", "I_G_Van_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhsgref_tla_g_offroad", "UK3CB_I_G_LandRover_Closed"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F", "UK3CB_ADP_I_LandRover_Closed", "UK3CB_ADP_I_LandRover_Open"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["UK3CB_ADP_B_Datsun_Pickup","UK3CB_ADP_B_Hilux_Closed","UK3CB_ADP_B_Hilux_Open","UK3CB_ADP_B_LandRover_Open","UK3CB_ADP_B_LandRover_Closed","UK3CB_ADP_B_Offroad","UK3CB_ADP_B_Van_Transport"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["RHS_M2StaticMG_D"]] call _fnc_saveToTemplate;
 ["staticAT", ["RHS_TOW_TriPod_WD"]] call _fnc_saveToTemplate;

@@ -216,8 +216,12 @@ class Templates
             class TKA_East {};
             class TKA_Mix {};
             class TKA_West {};
+            class KRG {};
             class AAF {
                 displayName = "3CB AAF";
+            };
+            class LDF {
+                displayname = "3CB LDF"
             };
         };
 
@@ -250,6 +254,10 @@ class Templates
                 Inv = "TKA_East";
                 Reb = "TKM";
                 Civ = "TKC"
+            };
+            class enoch
+            {
+                Occ = "LDF";
             };
             class tem_anizay : kunduz {};
             class altis

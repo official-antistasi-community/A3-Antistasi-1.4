@@ -130,6 +130,8 @@ _loadoutData set ["slUniforms", []];
 _loadoutData set ["vests", []];
 _loadoutData set ["slVests", []];
 _loadoutData set ["glVests", []];
+_loadoutData set ["mgVests", []];
+_loadoutData set ["medVests", []];
 _loadoutData set ["sniVests", ["UK3CB_V_Chestrig_Tan"]];
 _loadoutData set ["backpacks", ["UK3CB_B_Alice_K", "B_Carryall_cbr", "B_Kitbag_cbr", "UK3CB_ANA_B_B_RIF"]];
 _loadoutData set ["engBackpacks", ["UK3CB_TKA_O_B_ENG_Tan"]];
@@ -413,7 +415,7 @@ _pilotLoadoutData set ["helmets", ["UK3CB_H_Pilot_Helmet"]];
 
 private _squadLeaderTemplate = {
     ["slHat"] call _fnc_setHelmet;
-    [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
+    [["slVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     [["slUniforms", "uniforms"] call _fnc_fallback] call _fnc_setUniform;
     [["slBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
@@ -465,7 +467,7 @@ private _riflemanTemplate = {
 
 private _medicTemplate = {
     [["Medhelmets", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
-    [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
+    [["medVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     [["medBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
@@ -489,7 +491,7 @@ private _medicTemplate = {
 
 private _grenadierTemplate = {
     ["helmets"] call _fnc_setHelmet;
-    [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
+    [["glVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
@@ -515,7 +517,7 @@ private _grenadierTemplate = {
 
 private _explosivesExpertTemplate = {
     ["helmets"] call _fnc_setHelmet;
-    [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
+    ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     [["engBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
@@ -547,7 +549,7 @@ private _explosivesExpertTemplate = {
 
 private _engineerTemplate = {
     ["helmets"] call _fnc_setHelmet;
-    [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
+    ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     [["engBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 

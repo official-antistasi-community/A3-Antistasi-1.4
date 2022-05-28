@@ -161,6 +161,12 @@ private _handleUniqueCases = { //handles unique name cases that the stored value
         case "diveGear"; //Mixed CFGVehicles and CFGGlasses
         case "flyGear";
         case "voices"; //CfgVoice maybe later
+        case "sfVoices";
+        case "milVoices";
+        case "sfFaces";
+        case "milFaces";
+        case "sfVoices";
+        case "polFaces";
         case "faces": {continue};
         default { Info("Entry: "+(str _entry)+" is lacking validation") };
     };

@@ -41,7 +41,7 @@ private _staticAA = "I_static_AA_F";
 
 if (allowDLCWS && A3A_hasWS) then {
   _vehicleAA = "I_Tura_Truck_02_aa_lxWS";
-  _staticAA = "B_G_ZU23_lxWS_F";
+  _staticAA = "I_Tura_ZU23_lxWS";
 };
 ["vehicleAA", _vehicleAA] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;

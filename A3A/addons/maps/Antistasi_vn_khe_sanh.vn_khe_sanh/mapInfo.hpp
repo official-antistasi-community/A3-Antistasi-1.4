@@ -1,4 +1,4 @@
-class tembelan {
+class vn_khe_sanh {
 	population[] = {
 		{"Khesanhvil",586}, {"Axau",25}, {"Xiso",200}, {"PalienKhun",25}, {"Koso",153}, {"BanNeme",72}, {"Avau",25}, {"ToRout",108},
 		{"RoRo",32}, {"Tavouac",200}, {"Thanh",28}, {"AHo",25}, {"ACoi",200}, {"Dan",200}, {"Bahy",25}, {"HaiPhuc",25},

@@ -19,7 +19,6 @@ private _vehicleAA = "";
 ["vehicleRepair", "B_G_Offroad_01_repair_F"] call _fnc_saveToTemplate;
 
 ["vehiclePlane", "I_C_Plane_Civil_01_F"] call _fnc_saveToTemplate;
-["vehicleHeli", ""] call _fnc_saveToTemplate;
 
 ["vehicleCivCar", "C_Offroad_01_F"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "C_Van_01_transport_F"] call _fnc_saveToTemplate;

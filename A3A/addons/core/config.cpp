@@ -14,6 +14,7 @@ class CfgPatches {
     };
 };
 
+#include "CfgSounds.hpp"
 class A3A {
     #include "Templates.hpp"
 

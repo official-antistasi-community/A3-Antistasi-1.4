@@ -37,6 +37,8 @@ HR_GRG_Cnd_canAccessAir = {
 //Lock on garaged vehicles ( Values: [{""}, { getPlayerUID player }] )
 HR_GRG_dLock = {""};
 
+HR_GRG_renderPlacementRays = false;
+
 //garage pool cap
 if (isNil "HR_GRG_PoolBase") then { HR_GRG_PoolBase = 10 }; //can be overwritten by CBA settings
 if (isNil "HR_GRG_PoolIncr") then { HR_GRG_PoolIncr = 2 }; //can be overwritten by CBA settings
@@ -59,6 +61,7 @@ HR_GRG_fnc_Hint = {
 };
 HR_GRG_fnc_vehInit = {
     if (_this isKindOf "StaticWeapon") then {staticsToSave pushBack _this; publicVariable "staticsToSave"};
+    _this setVariable ["ownerX",getPlayerUID player,true];
     [_this, TeamPlayer] call A3A_fnc_AIVEHinit;
 }; //is passed vehicle as _this
 HR_GRG_onOpenEvent = {
@@ -99,6 +102,10 @@ if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {
 
     ["HR_GRG_PoolIncr", "SLIDER", ["Capacity increase", "Capacity increase per war level"], [HR_GRG_Prefix,"Garage"], [0, 10, HR_GRG_PoolIncr, 0], true, {
         HR_GRG_PoolIncr = round _this;
+    }] call CBA_fnc_addSetting;
+
+    ["HR_GRG_renderPlacementRays", "CHECKBOX", ["Render placement rays", "Render the debug placement rays when placing vehicles"], [HR_GRG_Prefix,"Garage"], false, false, {
+        HR_GRG_renderPlacementRays = _this;
     }] call CBA_fnc_addSetting;
 
 };

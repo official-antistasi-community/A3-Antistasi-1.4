@@ -134,10 +134,6 @@ else
 
 if (!(isNil "loadLastSave") && {loadLastSave}) exitWith {};
 
-//Set carrier markers to the same as airbases below.
-if (isServer) then {"NATO_carrier" setMarkertype FactionGet(occ,"flagMarkerType")};
-if (isServer) then {"CSAT_carrier" setMarkertype FactionGet(inv,"flagMarkerType")};
-
 if (debug) then {
     Debug("Setting up Airbase stuff.");
 };

@@ -46,7 +46,7 @@ private _performanceLog = format [
 	,count entities ""
 	,{!isPlayer _x && !isNull (_x findNearestEnemy _x)} count allUnits
 	,{behaviour leader _x == "COMBAT"} count allGroups
-	,server getVariable "resourcesFIA"
+	,(server getVariable "resourcesFIA") toFixed 0
 	,server getVariable "hr"
     ,aggressionOccupants
     ,aggressionInvaders

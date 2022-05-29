@@ -719,7 +719,7 @@ while {(_waves > 0)} do
                     };
                 } forEach citiesX;
 				[60,-60,_mrkDestination,false] remoteExec ["A3A_fnc_citySupportChange",2];		// no pop scaling, force swing
-				["TaskFailed", ["", format ["%1 joined %2",[_mrkDestination, false] call A3A_fnc_location, FactionGet(occ,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+				["TaskFailed", ["", format ["%1 joined %2",_mrkDestination, FactionGet(occ,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 				sidesX setVariable [_mrkDestination,Occupants,true];
 				[Occupants, -10, 45] remoteExec ["A3A_fnc_addAggression",2];
 				_mrkD = format ["Dum%1",_mrkDestination];

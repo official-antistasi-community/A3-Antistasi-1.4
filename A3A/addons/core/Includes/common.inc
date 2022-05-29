@@ -15,4 +15,4 @@
 // Force new experimental UI.
 // #define UseDoomGUI
 // Enable completed sections of experimental UI.
-#define UseDoomGUIDone
+#define UseDoomGUIPreview

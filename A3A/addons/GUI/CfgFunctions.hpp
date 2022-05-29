@@ -6,6 +6,7 @@ class CfgFunctions {
             class adminTab {};
             class aiManagementTab {};
             class airSupportTab {};
+            class arsenalLimitsDialog {};
             class buyVehicleDialog {};
             class commanderTab {};
             class configColorToArray {};
@@ -27,6 +28,12 @@ class CfgFunctions {
             class recruitDialog {};
             class recruitSquadDialog {};
             class requestMissionDialog {};
+        };
+    };
+    class A3A_GUI {
+        class ObjectHelpers {
+            file = QPATHTOFOLDER(functions\ObjectHelpers);
+            class sizeOf {};
         };
     };
 };

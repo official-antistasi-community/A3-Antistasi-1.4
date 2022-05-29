@@ -39,6 +39,7 @@ params [
 if (!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {HR_GRG_placing = false};
 if (isNil "HR_GRG_curTexture") then {HR_GRG_curTexture = []};
 if (isNil "HR_GRG_curAnims") then {HR_GRG_curAnims = []};
+if (!isNil "HR_GRG_placing" && {HR_GRG_placing}) exitWith {Error_1("already placing, params: %1", _this)};
 HR_GRG_placing = true;
 
 //define global variables
@@ -395,15 +396,15 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         call HR_GRG_cleanUp
     };
 
-    #ifdef Debug //Debug render
-    HR_GRG_dispSquare params ["_adjustment", "_square"];
-    _square params ["_a","_b"];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [_a,0,0]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,_b,0]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,0,_c]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [-_a,0,0]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,-_b,0]), [0.9,0,0,1]];
-    drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,0,-_c]), [0.9,0,0,1]];
-    { drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _x#0,HR_GRG_dispVehicle modelToWorldVisual _x#1, [0.9,0,0,1]] } forEach HR_GRG_rays;
-    #endif
+    if (HR_GRG_renderPlacementRays) then { //Debug render
+        HR_GRG_dispSquare params ["_adjustment", "_square"];
+        _square params ["_a","_b"];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [_a,0,0]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,_b,0]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,0,_c]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [-_a,0,0]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,-_b,0]), [0.9,0,0,1]];
+        drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _adjustment,HR_GRG_dispVehicle modelToWorldVisual (_adjustment vectorAdd [0,0,-_c]), [0.9,0,0,1]];
+        { drawLine3D [HR_GRG_dispVehicle modelToWorldVisual _x#0,HR_GRG_dispVehicle modelToWorldVisual _x#1, [0.9,0,0,1]] } forEach HR_GRG_rays;
+    };
 }];

@@ -26,58 +26,38 @@ class Templates
                 class camo
                 { //template file name would follow: {path}\{Modset}_{Type}_{Faction}_{camo}.sqf
                 // note if `file` is set it becomes the following: {file}_{camo}.sqf
-                    tropical = "Tropical";
-                    temperate = "Enoch";
-                    Default = "Arid"; //default is the fallback if the climate is not in this class
+                    arid = "Arid";
+                    Default = "Temperate"; //default is the fallback if the climate is not in this class
                 };
             };
 
-            class LDF
-            {
-                class camo
-                {
-                    Default = "Enoch";
-                };
-            };
+            class CSAT_Apex {};
+
+            class CSAT_Enoch {};
+
+            class LDF {};
 
             class NATO
             {
                 class camo
                 {
+                    arid = "Arid";
                     tropical = "Tropical";
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    Default = "Temperate";
                 };
             };
 
-            class AAF
-            {
-                class camo
-                {
-                    Default = "Arid";
-                };
-            };
+            class NATO_Apex {};
+
+            class AAF {};
 
         };
 
         class Reb
         {
-            class FIA
-            {
-                class camo
-                {
-                    temperate = "Enoch";
-                    Default = "Arid";
-                };
-            };
+            class FIA {};
 
-            class SDK
-            {
-                class camo
-                {
-                    Default = "Tanoa";
-                };
-            };
+            class SDK {};
         };
 
         class Civ {}; //leave empty for a single template for this modset, file name would follow: {path}\{Modset}_{Type}.sqf
@@ -100,7 +80,15 @@ class Templates
 
             class tanoa: Default
             {
+                Occ = "NATO_Apex";
+                Inv = "CSAT_Apex";
                 Reb = "SDK";
+            };
+
+            class enoch: Default
+            {
+                Occ = "LDF";
+                Inv = "CSAT_Enoch";
             };
         };
 
@@ -160,26 +148,20 @@ class Templates
             {
                 class camo
                 {
-                    temperate = "Temperate";
-                    Default = "Arid";
-                };
-            };
-
-            class CDF
-            {
-                class camo
-                {
+                    arid = "Arid";
                     Default = "Temperate";
                 };
             };
+
+            class CDF {};
 
             class USAF_Army
             {
                 displayName = "USAF";
                 class camo
                 {
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    arid = "Arid";
+                    Default = "Temperate";
                 };
             };
             class USAF_Marines
@@ -187,22 +169,15 @@ class Templates
                 displayName = "US Marines";
                 class camo
                 {
-                    temperate = "Temperate";
-                    Default = "Arid";
+                    arid = "Arid";
+                    Default = "Temperate";
                 };
             };
         };
 
         class Reb
         {
-            class NAPA
-            {
-                class camo
-                {
-                    temperate = "Temperate";
-                    Default = "Arid";
-                };
-            };
+            class NAPA {};
         };
 
         class Civ {};
@@ -248,7 +223,6 @@ class Templates
             class TKA_East {};
             class TKA_Mix {};
             class TKA_West {};
-            class AAD {};
             class AAF {
                 displayName = "3CB AAF";
             };
@@ -256,98 +230,61 @@ class Templates
 
         class Reb
         {
-            class CNM
-            {
-                class camo
-                {
-                    Default = "Temperate";
-                };
-            };
-            class TKM
-            {
-                class camo
-                {
-                    Default = "Arid";
-                };
-            };
+            class CNM {};
+            class TKM {};
         };
 
         class Civ
         {
-            class camo //reserved classname will treate it like camo class in faction rather than faction class
-            {
-                temperate = "Temperate";
-                Default = "Arid";
+            class CHC {
+                displayName = "Chernarussian Civilians";
+            };
+            class TKC {
+                displayName = "Takistani Civilians";
             };
         };
 
         class worldDefaults
         {
-            class enoch
-            {
-                Occ = "USAF_Marines";
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
-            class chernarus_summer
-            {
-                Occ = "USAF_Marines";
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
-            class vt7
-            {
-                Occ = "USAF_Marines";
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
-            class tembelan
-            {
-                Occ = "USAF_Marines";
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
-            class chernarus_winter
-            {
-                Occ = "USAF_Marines"; //3cb factions depends on rhs and we nativly support this rhs template so this is safe
-                Inv = "AFRF";
-                Reb = "CNM";
-            };
             class cam_lao_nam
             {
                 Occ = "CW_US";
                 Inv = "CW_SOV";
-                Reb = "CNM";
             };
             class kunduz
             {
                 Occ = "ANA";
                 Inv = "TKA_East";
                 Reb = "TKM";
+                Civ = "TKC"
             };
+            class tem_anizay : kunduz {};
             class altis
             {
                 Occ = "AAF";
+                Inv = "ADA";
+            };
+            class takistan
+            {
+                Occ = "TKA_West";
                 Inv = "TKA_East";
                 Reb = "TKM";
+                Civ = "TKC"
             };
             class tanoa
             {
                 Occ = "HIDF";
                 Inv = "CW_SOV";
-                Reb = "CNM";
             };
             class malden
             {
                 Occ = "MDF";
-                Inv = "TKA_East";
-                Reb = "TKM";
+                Inv = "ANA";
             };
             class Default
             {
-                Occ = "TKA_West";
-                Inv = "TKA_East";
-                Reb = "TKM";
+                Reb = "CNM";
+                Civ = "CHC";
             };
         };
 
@@ -376,9 +313,9 @@ class Templates
                 class camo
                 {
                     arctic = "Arctic";
-                    temperate = "Temperate";
+                    arid = "Arid";
                     tropical = "Tropical";
-                    Default = "Arid";
+                    Default = "Temperate";
                 };
             };
         };
@@ -391,5 +328,156 @@ class Templates
         };
 
         Nodes[] = {"3CBBAF_Logistics_Nodes.sqf"};
+    };
+    class CUP
+    {
+        priorityOcc = 6;
+        priorityInv = 6;
+        priorityReb = 6;
+        priorityCiv = 6;
+
+        requiredAddons[] = {"CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core"};        // units, weapons, vehicles
+        path = QPATHTOFOLDER(Templates\Templates\CUP);
+
+        class AI
+        {
+            class ACR
+			{
+                displayName = "ACR CUP";
+				class camo {
+                    arid = "Arid";
+                    Default = "Temperate";
+				};
+			};
+			class AFRF
+			{
+                displayName = "AFRF CUP";
+				class camo {
+                    arctic = "Arctic";
+                    arid = "Arid";
+                    Default = "Temperate";
+				};
+			};
+			class BAF
+			{
+                displayName = "BAF CUP";
+				class camo {
+                    arid = "Arid";
+                    Default = "Temperate";
+				};
+			};
+			class CDF
+			{
+                displayName = "CDF CUP";
+				class camo {
+                    arctic = "Arctic";
+					Default = "Temperate";
+				};
+			};
+			class RACS
+			{
+                displayName = "RACS CUP";
+				class camo {
+                    arid = "Arid";
+					Default = "Tropical";
+				};
+			};
+			class SLA
+			{
+                displayName = "SLA CUP";
+				class camo {
+					Default = "Temperate";
+				};
+			};
+			class TKA
+			{
+                displayName = "TKA CUP";
+				class camo {
+					Default = "Arid";
+				};
+			};
+			class US_Army
+			{
+				displayName = "USAF CUP";
+				class camo {
+                    arid = "Arid"
+                    Default = "Temperate";
+				};
+			};
+			class US_Marine
+			{
+				displayName = "USMC CUP";
+				class camo {
+                    arid = "Arid"
+                    Default = "Temperate";
+				};
+			};
+            class ION
+			{
+				displayName = "ION CUP";
+				class camo {
+                    arctic = "Arctic";
+                    Default = "Arid";
+				};
+			};
+        };
+
+        class Reb {};
+    
+
+        class Civ {};
+
+        class worldDefaults
+        {
+            class enoch
+            {
+                Occ = "ACR";
+                Inv = "AFRF";
+            };
+            class chernarus_summer
+            {
+                Occ = "CDF";
+                Inv = "AFRF";
+            };
+            class vt7
+            {
+                Occ = "ACR";
+                Inv = "BAF";
+            };
+            class chernarus_winter
+            {
+                Occ = "CDF";
+                Inv = "AFRF";
+            };
+            class takistan
+            {
+                Occ = "TKA";
+                Inv = "US_Army";
+            };
+            class kunduz : takistan {};
+            class sara
+            {
+                Occ = "RACS";
+                Inv = "SLA";
+            };
+            class tanoa
+            {
+                Occ = "RACS";
+                Inv = "US_Marine";
+            };
+            class malden
+            {
+                Occ = "ION";
+                Inv = "US_Marine";
+            };
+            class Default
+            {
+                Occ = "ACR";
+                Inv = "ION";
+            };
+        };
+
+
+        Nodes[] = {"CUP_Logistics_Nodes.sqf"};
     };
 };

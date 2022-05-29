@@ -23,11 +23,39 @@ params [["_item", objNull, [objNull]], "_pickUp", ["_player", player]];
 
 if (_pickUp) then {
     if (([_player] call A3A_fnc_countAttachedObjects) > 0) exitWith {[localize "STR_A3A_Utility_Title", localize "STR_A3A_Utility_Items_Feedback_Normal"] call A3A_fnc_customHint};
+
+    // we need to prevent the player from carrying an object into a vehicle to prevent damage to vehicle
+    private _eventIDcarry = _player addEventHandler ["GetInMan", {
+        params ["_unit", "_role", "_vehicle", "_turret"];
+        // get variables
+        private _objectCarrying = _unit getVariable ['A3A_objectCarrying', nil];
+        if (isNil "_objectCarrying") exitwith {_unit removeEventHandler ["GetInMan", _thisEventHandler]};
+
+        //remove object and find safe placement
+        detach _objectCarrying;
+        _unit setVelocity [0,0,0];
+        _objectCarrying setVelocity [0,0,0];
+        _objectCarrying setVehiclePosition [position _unit, [], 10,"NONE"];
+
+        [_objectCarrying, true] remoteExec ["enableSimulationGlobal", 0];
+        
+
+
+        _unit setVariable ["A3A_carryingObject", nil];
+        _unit setVariable ['A3A_objectCarrying', nil];
+
+    }];
+
+    _player setVariable ['A3A_eventIDcarry', _eventIDcarry];
+    _player setVariable ['A3A_objectCarrying', _item];
+
+    // prevent killing players with item
+    [_item, false] remoteExec ["enableSimulationGlobal", 2];
     _item attachTo [_player, [0, 1.5, 0.5], "Chest"];
     _player setVariable ["A3A_carryingObject", true];
     [_player ,_item] spawn {
         params ["_player", "_item"];
-        waitUntil {_player forceWalk true; !alive _item or !(_player getVariable ["A3A_carryingObject", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _item) };
+        waitUntil {!alive _item or !(_player getVariable ["A3A_carryingObject", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _item) };
         [_item, false, _player] call A3A_fnc_carryItem;
     };
 } else {
@@ -42,7 +70,9 @@ if (_pickUp) then {
         detach _item;
         _item setVelocity [0,0,0];
         _item setPos [getPos _item # 0, getPos _item # 1, 0];
+        [_item, true] remoteExec ["enableSimulationGlobal", 2];
+        _eventIDcarry = _player getVariable 'A3A_eventIDcarry';
+        _player removeEventHandler ["GetInMan", _eventIDcarry];
     };
     _player setVariable ["A3A_carryingObject", nil];
-    _player forceWalk false;
 };

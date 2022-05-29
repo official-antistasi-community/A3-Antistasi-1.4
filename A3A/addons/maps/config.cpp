@@ -43,6 +43,11 @@ class CfgMissions
             briefingName = $STR_antistasi_mission_info_chernarus_winter_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_chernarus_winter.chernarus_winter";
         };
+        class Antistasi_chernarus
+        {
+            briefingName = $STR_antistasi_mission_info_chernarus_mapname_text;
+            directory = "x\A3A\addons\maps\Antistasi_chernarus.chernarus";
+        };
         class Antistasi_Enoch
         {
             briefingName = $STR_antistasi_mission_info_Enoch_mapname_text;

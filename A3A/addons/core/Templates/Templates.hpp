@@ -196,6 +196,7 @@ class Templates
                 Occ = "CDF";
             };
             class chernarus_winter : chernarus_summer {};
+            class chernarus : chernarus_summer {};
         };
 
         Nodes[] = {"RHS_Logistics_Nodes.sqf"};
@@ -423,7 +424,7 @@ class Templates
         };
 
         class Reb {};
-    
+
 
         class Civ {};
 
@@ -439,6 +440,8 @@ class Templates
                 Occ = "CDF";
                 Inv = "AFRF";
             };
+            class chernarus_winter : chernarus_summer {};
+            class chernarus : chernarus_summer {};
             class vt7
             {
                 Occ = "ACR";

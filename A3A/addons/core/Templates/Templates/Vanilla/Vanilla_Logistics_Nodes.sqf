@@ -59,27 +59,6 @@ A3A_logistics_vehicleHardpoints = [
         [1,             [0,-2.6025,-0.798],      [12,13]],
         [1,             [0,-3.4325,-0.798],      [14,15]]
     ]],
-
-    //WS Zamak Flatbed
-    ["O_Truck_02_flatbed_lxWS" call A3A_fnc_classNameToModel, [
-        [1,             [0,0.43,0.18],            []],
-        [1,             [0,-0.39,0.18],           []],
-        [1,             [0,-1.17,0.18],           []],
-        [1,             [0,-1.97,0.18],           []],
-        [1,             [0,-2.78,0.18],           []],
-        [1,             [0,-3.57,0.18],           []]
-    ]],
-
-    //WS Zamak Cargo
-    ["O_Truck_02_cargo_lxWS" call A3A_fnc_classNameToModel, [
-        [1,             [0,0.43,0.18],            []],
-        [1,             [0,-0.39,0.18],           []],
-        [1,             [0,-1.17,0.18],           []],
-        [1,             [0,-1.97,0.18],           []],
-        [1,             [0,-2.78,0.18],           []],
-        [1,             [0,-3.57,0.18],           []]
-    ]],
-
     //CSAT Tempest open
     ["O_Truck_03_transport_F" call A3A_fnc_classNameToModel,[
         [1,             [0,-0.5175,-0.413],       [1,6]],
@@ -183,8 +162,6 @@ A3A_logistics_attachmentOffset = [
     ["B_Mortar_01_F" call A3A_fnc_classNameToModel,                             [-0.1,-0.5,0.74],           [0, 1, 0],                  2,      2000],              //Mortar
     ["B_HMG_02_high_F" call A3A_fnc_classNameToModel,                           [0.2, -0.5, 1.69],          [0, 1, 0],                  4,      100],               //M2 High
     ["B_HMG_02_F" call A3A_fnc_classNameToModel,                                [-0.2, 0, 1.24],            [0, -1, 0],                 4,      100],               //M2
-    ["B_G_ZU23_lxWS_F" call A3A_fnc_classNameToModel,                           [0,-1.65,1.96],             [0, 1, 0],                  6,      250],               //Zu23 from WS DLC
-
     //medium sized crates
     ["Box_NATO_AmmoVeh_F" call A3A_fnc_classNameToModel,                        [0,0,0.81],                 [1,0,0],                    2],                         //Vehicle ammo create
     ["Land_PaperBox_01_open_boxes_F" call A3A_fnc_classNameToModel,             [0,0,0.62],                 [1,0,0],                    2],                         //Stef test supplybox
@@ -225,6 +202,34 @@ A3A_logistics_weapons = [
     ["B_HMG_01_F" call A3A_fnc_classNameToModel,[]],
     ["B_Mortar_01_F" call A3A_fnc_classNameToModel,["C_Boat_Civil_01_F" call A3A_fnc_classNameToModel, "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "C_Boat_Transport_02_F" call A3A_fnc_classNameToModel]],
     ["B_HMG_02_high_F" call A3A_fnc_classNameToModel,[]],
-    ["B_HMG_02_F" call A3A_fnc_classNameToModel,[]],
-    ["B_G_ZU23_lxWS_F" call A3A_fnc_classNameToModel,[]]
+    ["B_HMG_02_F" call A3A_fnc_classNameToModel,[]]
 ];
+
+if (A3A_hasWS) then {
+A3A_logistics_vehicleHardpoints append [
+    //WS Zamak Flatbed
+    ["O_Truck_02_flatbed_lxWS" call A3A_fnc_classNameToModel, [
+        [1,             [0,1.14,-0.79],            []],
+        [1,             [0,0.34,-0.79],            []],
+        [1,             [0,-0.46,-0.79],           []],
+        [1,             [0,-1.26,-0.79],           []],
+        [1,             [0,-2.06,-0.79],           []],
+        [1,             [0,-2.86,-0.79],           []]
+    ]],
+    //WS Zamak Cargo
+    ["O_Truck_02_cargo_lxWS" call A3A_fnc_classNameToModel, [
+        [1,             [0,1.14,-0.79],            []],
+        [1,             [0,0.34,-0.79],            []],
+        [1,             [0,-0.46,-0.79],           []],
+        [1,             [0,-1.26,-0.79],           []],
+        [1,             [0,-2.06,-0.79],           []],
+        [1,             [0,-2.86,-0.79],           []]
+    ]]
+];
+A3A_logistics_attachmentOffset append [
+    ["I_Tura_ZU23_lxWS" call A3A_fnc_classNameToModel,                          [0,0,1.96],                 [0, 1, 0],                  6,      250]               //Zu23 from WS DLC
+];
+A3A_logistics_weapons append [
+    ["I_Tura_ZU23_lxWS" call A3A_fnc_classNameToModel,[]]
+];
+};

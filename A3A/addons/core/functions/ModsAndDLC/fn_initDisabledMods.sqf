@@ -16,7 +16,6 @@ if (!allowDLCAoW) then {_disabledMods pushBack "aow"};
 if (!allowDLCVN) then {_disabledMods pushBack "vn"};
 if (!allowDLCWS) then {_disabledMods pushBack "ws"};
 
-
 Info_1("Disabled DLC: %1",_disabledMods);
 
 _disabledMods;

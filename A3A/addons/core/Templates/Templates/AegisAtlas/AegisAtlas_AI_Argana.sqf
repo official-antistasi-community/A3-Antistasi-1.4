@@ -75,7 +75,7 @@ private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F"];
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
 //If Western Sahara DLC
-if (allowDLCWS) then {
+if (allowDLCWS && A3A_hasWS) then {
 		_cargoTrucks = ["O_A_Truck_02_flatbed_F", "O_A_Truck_02_cargo_F"];
 };
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;

@@ -26,11 +26,14 @@ class Templates
                 class camo
                 { //template file name would follow: {path}\{Modset}_{Type}_{Faction}_{camo}.sqf
                 // note if `file` is set it becomes the following: {file}_{camo}.sqf
-                    tropical = "Tropical";
-                    temperate = "Enoch";
-                    Default = "Arid"; //default is the fallback if the climate is not in this class
+                    arid = "Arid";
+                    Default = "Temperate"; //default is the fallback if the climate is not in this class
                 };
             };
+
+            class CSAT_Apex {};
+
+            class CSAT_Enoch {};
 
             class LDF {};
 
@@ -43,6 +46,8 @@ class Templates
                     Default = "Temperate";
                 };
             };
+
+            class NATO_Apex {};
 
             class AAF {};
 
@@ -75,12 +80,15 @@ class Templates
 
             class tanoa: Default
             {
+                Occ = "NATO_Apex";
+                Inv = "CSAT_Apex";
                 Reb = "SDK";
             };
 
             class enoch: Default
             {
                 Occ = "LDF";
+                Inv = "CSAT_Enoch";
             };
         };
 
@@ -153,6 +161,7 @@ class Templates
                 class camo
                 {
                     arid = "Arid";
+                    arctic = "Arctic";
                     Default = "Temperate";
                 };
             };
@@ -215,8 +224,12 @@ class Templates
             class TKA_East {};
             class TKA_Mix {};
             class TKA_West {};
+            class KRG {};
             class AAF {
                 displayName = "3CB AAF";
+            };
+            class LDF {
+                displayname = "3CB LDF"
             };
         };
 
@@ -249,6 +262,10 @@ class Templates
                 Inv = "TKA_East";
                 Reb = "TKM";
                 Civ = "TKC"
+            };
+            class enoch
+            {
+                Occ = "LDF";
             };
             class tem_anizay : kunduz {};
             class altis
@@ -596,5 +613,4 @@ class Templates
 
         Nodes[] = {"AegisAtlas_Logistics_Nodes.sqf"};
     };
-
 };

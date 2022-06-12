@@ -116,16 +116,12 @@ if (A3A_hasUNS && {(_itemIsVanilla || _itemMod in _acemods || _itemMod in _TFARm
 				case "AccessorySights";
 				case "AccessoryBipod";
 				case "Binocular";
-				case "Compass";
 				case "GPS";
 				case "LaserDesignator";
 				case "MineDetector";
 				case "NVGoggles";
-				case "Radio";
 				case "UAVTerminal";
-				case "Compasses";
-				case "Unknown";
-				case "Watch": { false };
+				case "Unknown": { false };
 				default { true };
 			};
 		};

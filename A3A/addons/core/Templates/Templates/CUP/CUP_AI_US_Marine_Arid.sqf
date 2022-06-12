@@ -188,6 +188,8 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+_sfLoadoutData set ["items_marksman_extras", (_mmItems + _sfmmItems)];
+_sfLoadoutData set ["items_sniper_extras", (_mmItems + _sfmmItems)];
 _sfLoadoutData set ["uniforms", ["CUP_U_B_USMC_FROG1_DMARPAT", "CUP_U_B_USMC_FROG2_DMARPAT", "CUP_U_B_USMC_FROG3_DMARPAT", "CUP_U_B_USMC_FROG4_DMARPAT"]];
 _sfLoadoutData set ["vests", ["CUP_V_B_RRV_DA1"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_mc"]];

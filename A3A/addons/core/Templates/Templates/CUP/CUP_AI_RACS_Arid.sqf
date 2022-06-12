@@ -183,6 +183,8 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+_sfLoadoutData set ["items_marksman_extras", (_mmItems + _sfmmItems)];
+_sfLoadoutData set ["items_sniper_extras", (_mmItems + _sfmmItems)];
 _sfLoadoutData set ["uniforms", ["CUP_U_I_RACS_Desert_1", "CUP_U_I_RACS_Desert_2"]];
 _sfLoadoutData set ["vests", ["CUP_V_CPC_Fastbelt_coy"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_CPC_weapons_coy"]];

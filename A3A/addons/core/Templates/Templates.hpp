@@ -489,7 +489,7 @@ class Templates
 
         Nodes[] = {"CUP_Logistics_Nodes.sqf"};
     };
-};
+
     class UNS
     {
         priorityOcc = 7;
@@ -519,7 +519,7 @@ class Templates
             class Default {
                 Occ = "NVA";
                 Inv = "US";
-                Reb = "VC"
+                Reb = "VC";
             };
         };
 

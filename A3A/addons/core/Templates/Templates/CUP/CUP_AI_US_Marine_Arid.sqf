@@ -201,7 +201,7 @@ _sfLoadoutData set ["atBackpacks", ["CUP_B_USPack_Coyote"]];
 _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Tan_SF", "CUP_H_USArmy_ECH_MARPAT_des"]];
 _sfLoadoutData set ["slHat", ["CUP_H_USA_Cap_MARSOC_DEF"]];
 _sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
-_sfLoadoutData set ["binoculars", ["CUP_LRTV"]];
+_sfLoadoutData set ["binoculars", ["CUP_SOFLAM"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slRifles", [

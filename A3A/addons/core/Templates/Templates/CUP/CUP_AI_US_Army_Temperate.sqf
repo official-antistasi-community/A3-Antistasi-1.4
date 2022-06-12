@@ -195,7 +195,7 @@ _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Spray_SF", "CUP_H_OpsCore_Covered
 _sfLoadoutData set ["slHat", ["CUP_H_USA_Cap_Mcam_DEF"]];
 _sfLoadoutData set ["sniHats", ["CUP_H_USArmy_Boonie_hs_OCP"]];
 _sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
-_sfLoadoutData set ["binoculars", ["CUP_LRTV"]];
+_sfLoadoutData set ["binoculars", ["CUP_SOFLAM"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slRifles", [

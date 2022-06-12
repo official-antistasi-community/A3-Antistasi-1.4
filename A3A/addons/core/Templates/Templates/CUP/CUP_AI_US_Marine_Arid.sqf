@@ -67,9 +67,9 @@
 ["minefieldAT", ["CUP_Mine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
-//////////////////////////
-///  Identitiy Stuff   ///
-//////////////////////////
+/////////////////////
+///  Identities   ///
+/////////////////////
 
 ["voices", ["Barklem","GreekHead_A3_05","GreekHead_A3_06",
 "GreekHead_A3_09","Sturrock","WhiteHead_02","WhiteHead_04",

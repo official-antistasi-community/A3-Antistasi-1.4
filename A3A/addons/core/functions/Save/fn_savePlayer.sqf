@@ -84,7 +84,7 @@ if (isMultiplayer) then
 	};
 	[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
 
-    Info_3("Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney);
+    Info_3("Saved player %1: %2 rank, %3 money", _playerId, rank _playerUnit, _totalMoney toFixed 0);
 };
 
 if (!_globalSave) then { saveProfileNamespace };

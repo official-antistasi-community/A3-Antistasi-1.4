@@ -391,7 +391,7 @@ private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");
 private _fuelTank = FactionGet(reb,"vehicleFuelTank");
 if (isClass (configFile/"CfgVehicles"/_fuelDrum # 0)) then {
     private _dispName = getText (configFile/"CfgVehicles"/_fuelDrum # 0/"displayName");
-    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","_this == theBoss",4];
+    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","true",4];
 };
 if (isClass (configFile/"CfgVehicles"/_fuelTank # 0)) then {
     private _dispName = getText (configFile/"CfgVehicles"/_fuelTank # 0/"displayName");

@@ -97,6 +97,8 @@ A3A_climate = toLower (if (isText (missionConfigFile/"A3A"/"mapInfo"/_worldName/
 A3A_loadedTemplateInfoXML = [];
 
 //Mod detection is done locally to each client, in case some clients have different modsets for some reason.
+//WS CDLC Detection
+A3A_hasWS = isClass (configfile >> "CfgPatches" >> "Weapons_F_lxWS");
 //Radio Detection
 A3A_hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
 A3A_hasACRE = isClass (configFile >> "cfgPatches" >> "acre_main");

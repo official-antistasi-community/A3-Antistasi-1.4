@@ -23,7 +23,7 @@ params ["_cargo"];
 #include "..\..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-private _vehicles = (nearestObjects [_cargo,["Car","Ship"], 10]) - [_cargo];
+private _vehicles = (nearestObjects [_cargo,["Car","Ship","Tank"], 10]) - [_cargo];
 private _vehicle = _vehicles#0;
 if (isNil "_vehicle") exitWith {["Logistics", "No vehicle is close enough."] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 

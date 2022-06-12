@@ -31,8 +31,6 @@
     ,"RHS_Ural_Civ_02", 0.2
     ,"RHS_Ural_Open_Civ_02", 0.2]] call _fnc_saveToTemplate;
 
-["vehiclesCivHeli", []] call _fnc_saveToTemplate;
-
 ["vehiclesCivBoat", [
     "C_Boat_Civil_01_rescue_F", 0.1            // motorboats
     ,"C_Boat_Civil_01_police_F", 0.1

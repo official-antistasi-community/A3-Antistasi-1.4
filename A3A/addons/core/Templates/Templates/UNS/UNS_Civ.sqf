@@ -25,11 +25,11 @@
     ,"UNS_Sampan_Transport", 0.2
     ,"UNS_sampan_village", 0.3]] call _fnc_saveToTemplate;
 
-["vehiclesCivRepair", ["uns_zil157_repair", 0.3]] call _fnc_saveToTemplate;
+["vehiclesCivRepair", []] call _fnc_saveToTemplate;
 
 ["vehiclesCivMedical", []] call _fnc_saveToTemplate;
 
-["vehiclesCivFuel", ["uns_Zil157_refuel", 0.2]] call _fnc_saveToTemplate;
+["vehiclesCivFuel", []] call _fnc_saveToTemplate;
 
 /////////////////////
 ///  Identities   ///

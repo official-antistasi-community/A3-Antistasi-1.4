@@ -25,8 +25,6 @@
     ,"C_Truck_02_covered_F", 0.5
     ,"C_Tractor_01_F", 0.3    ]] call _fnc_saveToTemplate;
 
-["vehiclesCivHeli", []] call _fnc_saveToTemplate;
-
 ["vehiclesCivBoat", [
     "C_Boat_Civil_01_rescue_F", 0.1            // motorboats
     ,"C_Boat_Civil_01_police_F", 0.1
@@ -45,6 +43,14 @@
 ["vehiclesCivFuel", [
     "C_Van_01_fuel_F", 0.2
     ,"C_Truck_02_fuel_F", 0.1]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["GreekHead_A3_02", "GreekHead_A3_03", "GreekHead_A3_04", "GreekHead_A3_05", "GreekHead_A3_06",
+"GreekHead_A3_07", "GreekHead_A3_08", "GreekHead_A3_09", "Ioannou", "Barklem", "AfricanHead_02",
+"AsianHead_A3_02", "AsianHead_A3_03", "WhiteHead_05"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -101,9 +107,39 @@ if (allowDLCExpansion) then {_dlcUniforms append [
     "U_C_man_sport_3_F"];
 };
 
-if (allowDLCOrange) then {_dlcUniforms append [
+if (allowDLCOrange) then {
+  _dlcUniforms append [
     "U_C_Paramedic_01_F",
-    "U_C_Mechanic_01_F"];
+    "U_C_Mechanic_01_F"
+  ];
+  _workerUniforms append [
+    "U_C_ConstructionCoverall_Black_F",
+    "U_C_ConstructionCoverall_Blue_F",
+    "U_C_ConstructionCoverall_Red_F",
+    "U_C_ConstructionCoverall_Vrana_F"
+  ];
+};
+
+if (allowDLCWS && A3A_hasWS) then {
+  _dlcUniforms append [
+    "U_lxWS_C_Djella_01",
+    "U_lxWS_C_Djella_02",
+    "U_lxWS_C_Djella_02a",
+    "U_lxWS_C_Djella_03",
+    "U_lxWS_C_Djella_04",
+    "U_lxWS_C_Djella_05",
+    "U_lxWS_C_Djella_06",
+    "U_lxWS_C_Djella_07",
+    "U_lxWS_Tak_01_A",
+    "U_lxWS_Tak_01_B",
+    "U_lxWS_Tak_01_C",
+    "U_lxWS_Tak_02_A",
+    "U_lxWS_Tak_02_B",
+    "U_lxWS_Tak_02_C",
+    "U_lxWS_Tak_03_A",
+    "U_lxWS_Tak_03_B",
+    "U_lxWS_Tak_03_C"
+  ];
 };
 
 ["uniforms", _civUniforms + _pressUniforms + _workerUniforms + _dlcUniforms] call _fnc_saveToTemplate;

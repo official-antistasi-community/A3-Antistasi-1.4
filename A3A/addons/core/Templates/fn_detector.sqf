@@ -23,6 +23,7 @@ A3A_hasADV = false;
 A3A_hasD3S = false;
 A3A_hasRDS = false;
 A3A_hasKAT = false;
+A3A_hasCUP = false;
 A3A_hasUNS = false;
 
 //Actual Detection
@@ -59,6 +60,15 @@ if (allowDLCVN && isClass (configFile >> "CfgPatches" >> "vn_weapons")) then {A3
 
 //FFAA Detection
 if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {A3A_hasFFAA = true; Info("FFAA Detected.") };
+
+// CUP Detection
+if (
+  isClass (configFile >> "cfgPatches" >> "CUP_Creatures_People_Civil_Russia") && // cup units
+  isClass (configFile >> "cfgPatches" >> "CUP_BaseConfigs") &&                   // cup weapons
+  isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core")                 // cup vehicles
+) then {A3A_hasCUP = true; Info("CUP Detected.") };
+
+//ADDONS BELOW 
 
 //Ivory Car Pack Detection
 if (isClass (configfile >> "CfgPatches" >> "Ivory_Data")) then {A3A_hasIvory = true; Info("Ivory Cars Detected.") };

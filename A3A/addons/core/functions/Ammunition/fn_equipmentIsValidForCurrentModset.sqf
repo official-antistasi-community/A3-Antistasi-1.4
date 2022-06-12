@@ -13,7 +13,7 @@ if (toLower _itemMod in disabledMods) exitWith { false };
 if (getText (_configClass >> "picture") == "") exitWith { false };
 
 //Remove vanilla items if no vanilla sides (IFA handled seperately)
-if (_itemIsVanilla && {A3A_hasRHS}) exitWith {
+if (_itemIsVanilla && {A3A_hasRHS || A3A_hasCUP }) exitWith {
 	switch (_categories select 0) do {
 		case "Item": {
 			switch (_categories select 1) do {

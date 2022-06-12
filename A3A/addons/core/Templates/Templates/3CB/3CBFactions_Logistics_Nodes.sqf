@@ -167,6 +167,38 @@ A3A_logistics_vehicleHardpoints append [
     ["UK3CB_ADC_C_Pickup" call A3A_fnc_classNameToModel,[
         [1,             [0,-0.95,-0.84],          [4,5,6]],
         [1,             [0,-1.75,-0.84],          [7]]
+    ]],
+    //3CB M270_Carrier
+    ["UK3CB_KRG_B_M270_Carrier" call A3A_fnc_classNameToModel,[
+        [1,             [0,-0.4,1.12],          []],
+        [1,             [0,-1.2,1.12],          []],
+        [1,             [0,-2,1.12],            []],
+        [1,             [0,-2.8,1.12],          []]
+    ]],
+    //3CB T810 Open/closed, same Model
+    ["UK3CB_LDF_B_T810_Open" call A3A_fnc_classNameToModel,[
+        [1,             [0,0.7,-1],           [0,1]],
+        [1,             [0,-0.1,-1],          [2,3]],
+        [1,             [0,-0.9,-1],          [4,5]],
+        [1,             [0,-1.7,-1],          [6,7]],
+        [1,             [0,-2.5,-1],          [8,9]]
+    ]],
+    //3CB T810 Armed Open/closed, same Model
+    ["UK3CB_LDF_B_T810_Open_PKM" call A3A_fnc_classNameToModel,[
+        [1,             [0,0.7,-1.31],           [0,1]],
+        [1,             [0,-0.1,-1.31],          [2,3]],
+        [1,             [0,-0.9,-1.31],          [4,5]],
+        [1,             [0,-1.7,-1.31],          [6,7]],
+        [1,             [0,-2.5,-1.31],          [8,9]]
+    ]],
+    //3CB T810 Recovery
+    ["UK3CB_LDF_B_T810_Recovery" call A3A_fnc_classNameToModel,[
+        [1,             [0,0.7,-1],           []],
+        [1,             [0,-0.1,-1],          []],
+        [1,             [0,-0.9,-1],          []],
+        [1,             [0,-1.7,-1],          []],
+        [1,             [0,-2.5,-1],          []],
+        [1,             [0,-3.3,-1],          []]
     ]]
 ];
 
@@ -182,6 +214,8 @@ A3A_logistics_coveredVehicles append [
     "UK3CB_B_M939_Closed_HIDF" call A3A_fnc_classNameToModel
     , "UK3CB_B_MTVR_Closed_WDL" call A3A_fnc_classNameToModel
     , "UK3CB_C_V3S_Closed" call A3A_fnc_classNameToModel
+    , "UK3CB_LDF_B_T810_Closed_PKM" call A3A_fnc_classNameToModel
+    , "UK3CB_LDF_B_T810_Closed" call A3A_fnc_classNameToModel
 ];
 
 //if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]],

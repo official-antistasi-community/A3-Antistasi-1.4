@@ -43,15 +43,15 @@
 ///////////////////////////
 
 private _initialRebelEquipment = [
-"uns_baikal","uns_mosin","uns_kar98k","uns_mas36","uns_type99","uns_nagant_m1895",
-"uns_12gaugemag_2","uns_mosinmag","uns_kar98kmag","uns_mas36mag","uns_type99mag","uns_nagant_m1895mag","uns_f1gren","uns_molotov_mag","uns_rdg2",
-"uns_men_NVA_65_AS3_Bag","uns_simc_ARVN_ruck_1","uns_simc_ARVN_ruck_2","UNS_VC_R1",
-"uns_vc_chestrig","UNS_VC_A2",
+"uns_baikal", "uns_mosin", "uns_kar98k", "uns_mas36", "uns_type99", "uns_nagant_m1895", "uns_m127a1_flare", "uns_1Rnd_M127_mag",
+"uns_12gaugemag_2", "uns_mosinmag", "uns_kar98kmag", "uns_mas36mag", "uns_type99mag", "uns_nagant_m1895mag", "uns_f1gren", "uns_molotov_mag", "uns_rdg2",
+"uns_men_NVA_65_AS3_Bag", "uns_simc_ARVN_ruck_1", "uns_simc_ARVN_ruck_2", "UNS_VC_R1",
+"uns_vc_chestrig", "UNS_VC_A2",
 "Binocular"];
 
-if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","UNS_ItemRadio_PRC_90_TFAR"]};
+if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "UNS_ItemRadio_PRC_90_TFAR"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "UNS_USMC_RTO"};
-if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","UNS_ItemRadio_PRC_90_TFAR"]};
+if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "UNS_ItemRadio_PRC_90_TFAR"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "UNS_USMC_RTO"};
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
@@ -90,6 +90,16 @@ private _rebUniforms = [
     "uns_sas_booniehat_vc",
     "uns_H_Simc_nasi"
 ]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["voices", ["Male01CHI", "Male02CHI", "Male03CHI"]] call _fnc_saveToTemplate;
+["faces", ["AsianHead_A3_01", "AsianHead_A3_01_cfaces_vccamo01", "AsianHead_A3_01_cfaces_vccamo02", "AsianHead_A3_02",
+"AsianHead_A3_03", "AsianHead_A3_03_cfaces_vccamo01", "AsianHead_A3_03_cfaces_vccamo02",
+"AsianHead_A3_04", "AsianHead_A3_04_cfaces_vccamo01", "AsianHead_A3_05", "AsianHead_A3_05_cfaces_vccamo02",
+"AsianHead_A3_06", "AsianHead_A3_07", "AsianHead_A3_07_cfaces_vccamo01", "AsianHead_A3_07_cfaces_vccamo02"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

@@ -100,7 +100,7 @@ A3A_logistics_attachmentOffset append [
     ["uns_pk_high_VC" call A3A_fnc_classNameToModel,                                [0.04, 0, 0],             [0, 1, 0],                  4,                100],
     ["uns_m1941_82mm_mortarVC" call A3A_fnc_classNameToModel,                       [0,-0.52,0.74],           [0, 1, 0],                  3,                2000],
     ["uns_M1_81mm_mortar" call A3A_fnc_classNameToModel,                            [0.02,-0.39,0.70],        [0, 1, 0],                  3,                2000],
-    ["uns_M2_60mm_mortar" call A3A_fnc_classNameToModel,                            [-0.02,-0.39.74],         [0, 1, 0],                  3,                1500],
+    ["uns_M2_60mm_mortar" call A3A_fnc_classNameToModel,                            [-0.02,-0.39,0.74],         [0, 1, 0],                  3,                1500],
     ["uns_M30_107mm_mortar" call A3A_fnc_classNameToModel,                          [0.02,-0.6,1.05],         [0, 1, 0],                  3,                3000]
 ];
 

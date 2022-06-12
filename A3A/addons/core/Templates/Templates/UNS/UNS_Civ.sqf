@@ -13,8 +13,6 @@
 ["vehiclesCivIndustrial", [
     "uns_zil157", 0.5]] call _fnc_saveToTemplate;
 
-["vehiclesCivHeli", []] call _fnc_saveToTemplate;
-
 ["vehiclesCivBoat", [
     "UNS_skiff2_C", 0.4
     ,"UNS_skiff_C", 0.4
@@ -32,6 +30,13 @@
 ["vehiclesCivMedical", []] call _fnc_saveToTemplate;
 
 ["vehiclesCivFuel", ["uns_Zil157_refuel", 0.2]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["voices", ["Male01CHI", "Male02CHI", "Male03CHI"]] call _fnc_saveToTemplate;
+["faces", ["AsianHead_A3_01", "AsianHead_A3_02", "AsianHead_A3_04", "AsianHead_A3_05", "AsianHead_A3_06", "AsianHead_A3_07"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

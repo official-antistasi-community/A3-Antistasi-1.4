@@ -21,6 +21,10 @@ private _fnc_distCheck = {
 { if (isNull attachedTo _x) then { [_x, distanceSPWN1] call _fnc_distCheck } } forEach (allMissionObjects FactionGet(inv,"surrenderCrate"));// Surrender boxes CSAT
 { deleteVehicle _x } forEach (allMissionObjects "Leaflet_05_F");				// Drone drop leaflets
 { deleteVehicle _x } forEach (allMissionObjects "Ejection_Seat_Base_F");		// All vanilla ejection seats
+{ [_x, 200] call _fnc_distCheck } forEach (allMissionObjects "Land_Barricade_01_4m_F")
+{ [_x, 200] call _fnc_distCheck } forEach (allMissionObjects "Land_SandbagBarricade_01_half_F")
+{ [_x, 200] call _fnc_distCheck } forEach (allMissionObjects "Land_Tyres_F")
+{ [_x, 200] call _fnc_distCheck } forEach (allMissionObjects "Land_BagBunker_01_small_green_F")
 
 if (A3A_hasACE) then {
 	{ deleteVehicle _x } forEach (allMissionObjects "ACE_bodyBagObject");

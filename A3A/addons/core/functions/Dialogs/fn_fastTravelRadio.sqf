@@ -20,9 +20,9 @@ if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) ex
 
 _checkX = false;
 //_distanceX = 500 - (([_boss,false] call A3A_fnc_fogCheck) * 450);
-_distanceX = 500;
+//_distanceX = 500; dead code now
 
-{if ([_x,_distanceX] call A3A_fnc_enemyNearCheck) exitWith {_checkX = true}} forEach units _groupX;
+{if ([_x, enemyNearDistance] call A3A_fnc_enemyNearCheck) exitWith {_checkX = true}} forEach units _groupX;
 
 if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel with enemies near the group."] call A3A_fnc_customHint;};
 
@@ -54,7 +54,7 @@ if (count _positionTel > 0) then
 
 	//if (_base in outpostsFIA) exitWith {hint "You cannot Fast Travel to roadblocks and watchposts"; openMap [false,false]};
 
-	if ([getMarkerPos _base,500] call A3A_fnc_enemyNearCheck) exitWith {["Fast Travel", "You cannot Fast Travel to an area under attack or with enemies in the surrounding."] call A3A_fnc_customHint; openMap [false,false]};
+	if ([getMarkerPos _base, enemyNearDistance] call A3A_fnc_enemyNearCheck) exitWith {["Fast Travel", "You cannot Fast Travel to an area under attack or with enemies in the surrounding."] call A3A_fnc_customHint; openMap [false,false]};
 	if (!([player] call A3A_fnc_isMember) && {!([_positionTel] call A3A_fnc_playerLeashCheckPosition)}) exitWith {["Fast Travel", format ["There are no members nearby the target location. You need to be within %1 km of HQ or a member.", ceil (memberDistance/1e3)]] call A3A_fnc_customHint;};
 
 	if (_positionTel distance getMarkerPos _base < 50) then

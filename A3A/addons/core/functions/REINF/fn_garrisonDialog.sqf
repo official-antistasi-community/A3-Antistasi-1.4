@@ -38,7 +38,7 @@ if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {
 	_nul=CreateDialog "build_menu";
 #endif
 };
-if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {
+if ([_positionX, enemyNearDistance] call A3A_fnc_enemyNearCheck) exitWith {
 	["Garrison", "You cannot manage this garrison while there are enemies nearby."] call A3A_fnc_customHint;
 #ifdef UseDoomGUI
 	ERROR("Disabled due to UseDoomGUI Switch.")

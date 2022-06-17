@@ -25,7 +25,7 @@ _positionX = getMarkerPos _markerX;
 
 if (surfaceIsWater _positionX) exitWith {["Garrisons", "This Garrison is still updating, please try again in a few seconds."] call A3A_fnc_customHint;};
 
-if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {["Garrisons", "You cannot Recruit Garrison Units with enemies near the zone."] call A3A_fnc_customHint;};
+if ([_positionX, enemyNearDistance] call A3A_fnc_enemyNearCheck) exitWith {["Garrisons", "You cannot Recruit Garrison Units with enemies near the zone."] call A3A_fnc_customHint;};
 _nul = [-1,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 /*
 _garrison = [];

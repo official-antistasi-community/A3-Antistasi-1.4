@@ -124,15 +124,16 @@ else
     {
         if !(_x call A3A_fnc_canFight) then { continue };
         if (vehicle _x isKindOf "Air") then { continue };
-        if (_x getVariable ["A3A_resPool", ""] isEqualTo "defence") then { continue };
+        if (_x getVariable ["A3A_resPool", ""] isEqualTo "defence") then { continue };      // accounted for in supportSpends
         _friendStr = _friendStr + 10;
-        if (vehicle _x != _x and {_x == gunner vehicle _x}) then {
-            _friendStr = _friendStr + (A3A_groundVehicleThreat getOrDefault [typeOf vehicle _x, 0]);
-        };
+        // Don't include friendly statics atm because they're not remanned and not registered in recentDamage if gunner killed 
+        //if (vehicle _x != _x and {_x == gunner vehicle _x}) then {
+        //    _friendStr = _friendStr + (A3A_groundVehicleThreat getOrDefault [typeOf vehicle _x, 0]);
+        //};
     } forEach _nearFriends;
 
     Debug_3("Recent damage %1, enemy strength %2, friend strength %3", _recentDamage, _enemyStr, _friendStr);
-    _maxSpend = _maxSpend min 2*(_recentDamage + _enemyStr - _friendStr);
+    _maxSpend = _maxSpend min 3*(_recentDamage + _enemyStr - _friendStr);
 };
 if (_maxSpend <= 0) exitWith { 0 };
 
@@ -160,6 +161,3 @@ private _targPosSpend = 0;
 Debug_3("Callpos spend %1, targpos spend %2, max spend %3", _callPosSpend, _targPosSpend, _maxSpend);
 
 _curResources min (_maxSpend - (_callPosSpend max _targPosSpend));
-
-
-[[WEST,[6082.62,12483.4,0.00163269],[5864.64,12673,-1.52588e-005],390,731.668]]

@@ -1,53 +1,85 @@
-params ["_sleepTime", "_launcher", "_side", "_supportName"];
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-sleep _sleepTime;
 
-private _rounds = 4;
-private _onlineTime = 900;
+params ["_suppData", "_launcher", "_group", "_delay", "_reveal"];
+_suppData params ["_supportName", "_side", "_suppType", "_center", "_radius", "_suppTarget"];
 
-while {_onlineTime > 0} do
+sleep _delay;
+
+_launcher addEventHandler ["Fired", {
+    params ["_launcher", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+    _launcher setVariable ["A3A_currentMissile", _projectile];
+}];
+
+private _targetObj = objNull;
+private _timeout = time + 900;
+private _targTimeout = 0;
+private _acquisition = 0;
+private _missiles = 4;
+while {true} do
 {
-    private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-    if (count _targetList > 0) then
+    // check if launcher/crew are intact
+    if !(canFire _launcher and gunner _launcher call A3A_fnc_canFight) exitWith {
+        Info_1("%1 has been destroyed or disabled, aborting routine", _supportName);
+    };
+
+    // check if we're past the active time/missiles
+    if (time > _timeout or _missiles <= 0) exitWith {
+        Info_1("%1 has timed out or run out of missiles, aborting", _supportName);
+    };
+
+    if (isNull _targetObj) then
     {
-        private _target = _targetList deleteAt 0;
-        server setVariable [format ["%1_targets", _supportName], _targetList, true];
-
-        private _targetParams = _target select 0;
-        private _reveal = _target select 1;
-
-        private _targetObj = _targetParams select 0;
-        private _precision = _targetParams select 1;
-
-        private _dir = _launcher getDir _targetObj;
-        private _pos = _launcher getPos [250, _dir];
-        _pos = _pos vectorAdd [0,0,300];
-        if !(terrainIntersect [_pos vectorAdd [0, 0, 50], getPos _targetObj]) then
-        {
-            _launcher setVariable ["_currentTarget", _targetObj];
-            _launcher doWatch _pos;
-            _launcher reveal [_targetObj, 4];
-            sleep 10;
-            _launcher fireAtTarget [_targetObj];
-            _launcher doWatch objNull;
-            sleep 1;
-            [_reveal, getPos _targetObj, _side, "SAM", _launcher getVariable ["currentTextmarker", ""], ""] spawn A3A_fnc_showInterceptedSupportCall;
-            _rounds = _rounds - 1;
-            _onlineTime = _onlineTime - 11;
+        if (_suppTarget isEqualTo []) then { sleep 5; continue };
+            
+        // New target sent
+        _targetObj = _suppTarget select 0;
+        if !(alive _targetObj) exitWith {
+            _suppTarget resize 0;
+            Debug_1("%1 skips target, as it is already dead", _supportName);
+            continue;
         };
+        Debug_2("Next target for %2 is %1", _suppTarget, _supportName);
+
+        [_reveal, getPosATL _targetObj, _side, "SAM", _targetObj, 60] spawn A3A_fnc_showInterceptedSupportCall;
+        
+        _targTimeout = (time + 120);
+        _acquisition = 0;
     };
 
-    if(_rounds <= 0) exitWith
-    {
-        Info_1("%1 has no missiles left to fire, aborting", _supportName);
+    //Target no longer valid
+    if (!canMove _targetObj or time > _targTimeout) then {
+        Debug_1("%1 target lost or destroyed, returning to idle", _supportName);
+        _suppTarget resize 0;
+        _targetObj = objNull;
+        _launcher doWatch objNull;
+        continue;
     };
 
-    sleep 10;
-    _onlineTime = _onlineTime - 10;
+    // Update acquisition depending on whether path to target is blocked
+    private _dir = _launcher getDir _targetObj;
+    private _intercept = (getPosASL _launcher) getPos [250, _dir] vectorAdd [0,0,300];
+    private _isBlocked = terrainIntersectASL [_intercept, getPosASL _targetObj];
+    _acquisition = _acquisition + ([0.1, -0.1] select _isBlocked);
+    _acquisition = 1 min _acquisition max 0;
+    _launcher doWatch _intercept;
+    if (_acquisition < 1) then { sleep 1; continue };
+
+    // wait for previous missile to have effect (or not)
+    if (alive (_launcher getVariable ["A3A_currentMissile", objNull])) then { sleep 1; continue };
+
+    // Actually fire
+    Debug("Firing at target");
+    _launcher reveal [_targetObj, 4];           // does this do anything?
+    _launcher fireAtTarget [_targetObj];
+    [_reveal, getPosATL _targetObj, _side, "SAM", _targetObj, 60] spawn A3A_fnc_showInterceptedSupportCall;
+    _missiles = _missiles - 1;
+    _targTimeout = (time + 120);
+    sleep 1;
 };
 
-waitUntil {sleep 10; allPlayers findIf {getPos _x distance2D (getPos _launcher) < 1000} == -1};
-deleteVehicle _launcher;
+_suppData set [4, 0];       // zero radius to signal termination
 
-[_supportName, _side] spawn A3A_fnc_endSupport;
+[_launcher] spawn A3A_fnc_vehDespawner;
+[_group] spawn A3A_fnc_groupDespawner;

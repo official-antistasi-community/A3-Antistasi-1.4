@@ -6,12 +6,13 @@
 	Params:
 	1. Object: Vehicle object
 	2. Side: Side ownership for vehicle
+	3. String: (Optional) Resource pool for vehicle 
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params ["_veh", "_side"];
+
+params ["_veh", "_side", "_resPool"];
 if (isNil "_veh") exitWith {};
-#define OccAndInv(VAR) (FactionGet(occ,VAR) + FactionGet(inv,VAR))
 
 if !(isNil { _veh getVariable "ownerSide" }) exitWith
 {
@@ -21,6 +22,9 @@ if !(isNil { _veh getVariable "ownerSide" }) exitWith
 
 _veh setVariable ["originalSide", _side, true];
 _veh setVariable ["ownerSide", _side, true];
+
+if (isNil "_resPool") then { _resPool = "legacy" };
+_veh setVariable ["A3A_resPool", _resPool, true];
 
 // probably just shouldn't be called for these
 if ((_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
@@ -39,33 +43,24 @@ if (_side == teamPlayer) then
 _veh call A3A_fnc_vehicleTextureSync;
 
 private _typeX = typeOf _veh;
-if (
-    _typeX in (OccAndInv("vehiclesLight")
-        + OccAndInv("vehiclesTrucks")
-        + OccAndInv("vehiclesAmmoTrucks")
-        + OccAndInv("vehiclesRepairTrucks")
-        + OccAndInv("vehiclesFuelTrucks")
-        + OccAndInv("vehiclesMedical")
-    )
-    or (_typeX in FactionGet(all,"vehiclesArmor"))) then
+if (_veh isKindOf "Car" or _veh isKindOf "Tank") then
 {
-	_veh call A3A_fnc_addActionBreachVehicle;
+	// isn't this section basically supposed to be all ground vehicles?
+	if (_side == teamPlayer or _side == civilian) exitWith {};				// arguable
 
-	if !(_typeX in FactionGet(all,"vehiclesAttack")) then
+	if (_veh isKindOf "Car") then
 	{
-		if (_veh isKindOf "Car") then
+		_veh addEventHandler ["HandleDamage",{if (((_this select 1) find "wheel" != -1) and ((_this select 4=="") or (side (_this select 3) != teamPlayer)) and (!isPlayer driver (_this select 0))) then {0} else {(_this select 2)}}];
+		if ({"SmokeLauncher" in (_veh weaponsTurret _x)} count (allTurrets _veh) > 0) then
 		{
-			_veh addEventHandler ["HandleDamage",{if (((_this select 1) find "wheel" != -1) and ((_this select 4=="") or (side (_this select 3) != teamPlayer)) and (!isPlayer driver (_this select 0))) then {0} else {(_this select 2)}}];
-			if ({"SmokeLauncher" in (_veh weaponsTurret _x)} count (allTurrets _veh) > 0) then
-			{
-				_veh setVariable ["within",true];
-				_veh addEventHandler ["GetOut", {private ["_veh"]; _veh = _this select 0; if (side (_this select 2) != teamPlayer) then {if (_veh getVariable "within") then {_veh setVariable ["within",false]; [_veh] call A3A_fnc_smokeCoverAuto}}}];
-				_veh addEventHandler ["GetIn", {private ["_veh"]; _veh = _this select 0; if (side (_this select 2) != teamPlayer) then {_veh setVariable ["within",true]}}];
-			};
+			_veh setVariable ["within",true];
+			_veh addEventHandler ["GetOut", {private ["_veh"]; _veh = _this select 0; if (side (_this select 2) != teamPlayer) then {if (_veh getVariable "within") then {_veh setVariable ["within",false]; [_veh] call A3A_fnc_smokeCoverAuto}}}];
+			_veh addEventHandler ["GetIn", {private ["_veh"]; _veh = _this select 0; if (side (_this select 2) != teamPlayer) then {_veh setVariable ["within",true]}}];
 		};
 	}
 	else
 	{
+		_veh call A3A_fnc_addActionBreachVehicle;
 		if (_typeX in FactionGet(all,"vehiclesAPCs")) then
 		{
 			_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto; _veh removeEventHandler ["HandleDamage",_thisEventHandler]};if (((_this select 1) find "wheel" != -1) and (_this select 4=="") and (!isPlayer driver (_veh))) then {0;} else {(_this select 2);}}];
@@ -74,7 +69,7 @@ if (
 			_veh addEventHandler ["GetIn", {private ["_veh"];_veh = _this select 0; if (side (_this select 2) != teamPlayer) then {_veh setVariable ["within",true]}}];
 		}
 		else
-		{//vehiclesAttack is occ&inv tank and apc, so this is for occ&inv tanks
+		{	// tanks and AA
 			_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto; _veh removeEventHandler ["HandleDamage",_thisEventHandler]}; _this select 2}];
 		};
 	};
@@ -132,10 +127,39 @@ if (_side == civilian) then
 	}];
 };
 
+// Handler for enemy responses to vehicle damage
+if (_side == Invaders or _side == Occupants) then
+{
+	_veh addEventHandler ["HandleDamage", {
+		params ["_veh", "_part", "_damage", "_source"];
+		if (_damage < 0.5) exitWith { nil };			// rough as hell, but whatever
+		if (isNil "_source" or {isNull _source or side _source == side _veh}) exitWith { nil };
+
+		_veh removeEventHandler ["HandleDamage", _thisEventHandler];
+		if (_veh getVariable "ownerSide" != _veh getVariable "originalSide") exitWith { nil };
+
+		// Add 1/3 cost to recent casualties list on server
+		private _vehCost = A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0];
+		[_veh getVariable "ownerSide", getPos _veh, _vehCost/3] remoteExec ["A3A_fnc_addRecentDamage", 2];
+
+		// Attempt to call for support if there's a crew. Assume local, should be true
+		if !(isNull group _veh) then { [group _veh, _source] spawn A3A_fnc_callForSupport };
+		nil;
+	}];
+
+    _veh addEventHandler ["IncomingMissile", {
+		params ["_veh", "_ammo", "_source", "_instigator"];
+		private _group = group _veh;
+		if (isNull _group or { side _group == teamPlayer }) exitWith { _veh removeEventHandler ["IncomingMissile", _thisEventHandler] };
+		[_group, _source] spawn A3A_fnc_callForSupport;
+    }];
+};
+
 if(_typeX in (FactionGet(all, "vehiclesArtillery") + FactionGet(all, "staticMortars")) ) then
 {
     [_veh] call A3A_fnc_addArtilleryTrailEH;
-	[_veh] remoteExec ["A3A_fnc_addArtilleryDetectionEH", 2];
+// Redundant with support system?
+//	[_veh] remoteExec ["A3A_fnc_addArtilleryDetectionEH", 2];
 };
 
 // EH behaviour:
@@ -166,35 +190,22 @@ if (_side != teamPlayer) then
 if(_veh isKindOf "Air") then
 {
     //Start airspace control script if rebel player enters
-    _veh addEventHandler
-    [
-        "GetIn",
-        {
-            params ["_veh", "_role", "_unit"];
-            if((side (group _unit) == teamPlayer) && {isPlayer _unit}) then
-            {
-                [_veh] spawn A3A_fnc_airspaceControl;
-            };
-        }
-    ];
-
-
-    _veh addEventHandler
-    [
-        "IncomingMissile",
-        {
-            params ["_target", "_ammo", "_vehicle", "_instigator"];
-            private _group = group driver _target;
-            private _supportTypes = [_group, _vehicle] call A3A_fnc_chooseSupport;
-            _supportTypes = _supportTypes - ["QRF"];
-            private _reveal = [getPos _vehicle, side _group] call A3A_fnc_calculateSupportCallReveal;
-            [_vehicle, 4, _supportTypes, side _group, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
-        }
-    ]
+    _veh addEventHandler ["GetIn", {
+		params ["_veh", "_role", "_unit"];
+		if((side (group _unit) == teamPlayer) && {isPlayer _unit}) then
+		{
+			// TODO: check this isn't spammed
+			[_veh] spawn A3A_fnc_airspaceControl;
+		};
+    }];
 };
 
-// Handler to prevent vehDespawner deleting vehicles for an hour after rebels exit them
 
+// Handler for refunding vehicles after cleanup
+_veh addEventHandler ["Deleted", A3A_fnc_vehicleDeletedEH];
+
+
+// Handler to prevent vehDespawner deleting vehicles for an hour after rebels exit them
 _veh addEventHandler ["GetOut", {
 	params ["_veh", "_role", "_unit"];
 	if !(_unit isEqualType objNull) exitWith {

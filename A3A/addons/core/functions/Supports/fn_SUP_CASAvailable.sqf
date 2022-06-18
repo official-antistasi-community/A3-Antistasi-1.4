@@ -1,58 +1,17 @@
-params ["_side"];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+
+params ["_target", "_side"];
+
+
 private _faction = Faction(_side);
-if(tierWar < 5) exitWith {-1};
+if (_faction get "vehiclesPlanesCAS" isEqualTo []) exitWith { 0 };      // AA aircraft don't exist in this modset
+// TODO: move these existence checks to initSupports?
 
-private _lastSupport = server getVariable ["lastSupport", ["", 0]];
-if((_lastSupport select 0) == "CAS" && {(_lastSupport select 1) > time}) exitWith {-1};
+if (_target isKindOf "Air") exitWith { 0 };         // can't hit air
 
-//Make sure the vehicle are available
-if (_faction get "vehiclesPlanesCAS" isEqualTo []) exitWith {-1};
+if (_target isKindOf "Man") exitWith { 0.2 };       // Don't use too often against meatsacks
 
-
-//Select a timer index and the max number of timers available
-private _timerIndex = -1;
-private _playerAdjustment = (floor ((count allPlayers)/4)) + 1;
-
-//Search for a timer which allows the support to be fired
-if(_side == Occupants) then
-{
-    if(count occupantsCASTimer < _playerAdjustment) then
-    {
-        _timerIndex = count occupantsCASTimer;
-        for "_i" from ((count occupantsCASTimer) + 1) to _playerAdjustment do
-        {
-            occupantsCASTimer pushBack -1;
-        };
-    }
-    else
-    {
-        _timerIndex = occupantsCASTimer findIf {_x < time};
-        if(_playerAdjustment <= _timerIndex) then
-        {
-            _timerIndex = -1;
-        };
-    };
-};
-if(_side == Invaders) then
-{
-    if(count invadersCASTimer < _playerAdjustment) then
-    {
-        _timerIndex = count invadersCASTimer;
-        for "_i" from ((count invadersCASTimer) + 1) to _playerAdjustment do
-        {
-            invadersCASTimer pushBack -1;
-        };
-    }
-    else
-    {
-        _timerIndex = invadersCASTimer findIf {_x < time};
-        if(_playerAdjustment <= _timerIndex) then
-        {
-            _timerIndex = -1;
-        };
-    };
-};
-
-_timerIndex;
+// Against vehicles and statics, use more frequently against more dangerous stuff
+private _threat = A3A_groundVehicleThreat getOrDefault [typeOf _target, 0];
+0.4 + _threat / 100;

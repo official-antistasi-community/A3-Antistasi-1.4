@@ -41,7 +41,7 @@ private _specialVarLoads = [
     "prestigeBLUFOR","resourcesFIA","skillFIA","destroyedSites",
     "garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
     "idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-    "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
+    "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders", "enemyResources", "HQKnowledge",
     "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage","A3A_fuelAmountleftArray"
 ];
 
@@ -262,6 +262,18 @@ if (_varName in _specialVarLoads) then {
             server setVariable [_city,_dataX,true];
         };
     };
+    if (_varname == 'enemyResources') then {
+        A3A_resourcesDefenceOcc = _varValue#0;
+        A3A_resourcesDefenceInv = _varValue#1;
+        A3A_resourcesAttackOcc = _varValue#2;
+        A3A_resourcesAttackInv = _varValue#3;
+    };
+    if (_varname == 'HQKnowledge') then {
+        A3A_curHQInfoOcc = _varValue#0;
+        A3A_curHQInfoInv = _varValue#1;
+        A3A_oldHQInfoOcc = _varValue#2;
+        A3A_oldHQInfoInv = _varValue#3;
+    };
     if (_varname == 'idlebases') then {
         {
             server setVariable [(_x select 0),(_x select 1),true];
@@ -332,6 +344,9 @@ if (_varName in _specialVarLoads) then {
         publicVariable "staticsToSave";
     };
     if (_varname == 'tasks') then {
+/*
+    // These are really dangerous. Disable for now.
+    // Should be done after all the other init is completed if we really want it
         {
             if (_x == "rebelAttack") then {
                 if(attackCountdownInvaders > attackCountdownOccupants) then
@@ -350,6 +365,7 @@ if (_varName in _specialVarLoads) then {
                 };
             };
         } forEach _varvalue;
+*/
     };
 
     if(_varname == 'A3A_fuelAmountleftArray') then {

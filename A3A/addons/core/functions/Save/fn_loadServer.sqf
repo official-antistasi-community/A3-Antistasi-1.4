@@ -13,9 +13,7 @@ if (isServer) then {
 	["mrkCSAT"] call A3A_fnc_getStatVariable;
 	["destroyedSites"] call A3A_fnc_getStatVariable;
 	["minesX"] call A3A_fnc_getStatVariable;
-	["attackCountdownOccupants"] call A3A_fnc_getStatVariable;
-    ["attackCountdownInvaders"] call A3A_fnc_getStatVariable;
-    ["countCA"] call A3A_fnc_getStatVariable;
+//  ["countCA"] call A3A_fnc_getStatVariable;
 	["antennas"] call A3A_fnc_getStatVariable;
 	["hr"] call A3A_fnc_getStatVariable;
 	["dateX"] call A3A_fnc_getStatVariable;
@@ -31,8 +29,10 @@ if (isServer) then {
     ["HR_Garage"] call A3A_fnc_getStatVariable;
     ["A3A_fuelAmountleftArray"] call A3A_fnc_getStatVariable;
 	["destroyedBuildings"] call A3A_fnc_getStatVariable;
-	["idlebases"] call A3A_fnc_getStatVariable;
-	["idleassets"] call A3A_fnc_getStatVariable;
+	["enemyResources"] call A3A_fnc_getStatVariable;
+	["HQKnowledge"] call A3A_fnc_getStatVariable;
+//	["idlebases"] call A3A_fnc_getStatVariable;
+//	["idleassets"] call A3A_fnc_getStatVariable;
 	["killZones"] call A3A_fnc_getStatVariable;
 	["controlsSDK"] call A3A_fnc_getStatVariable;
 	["bombRuns"] call A3A_fnc_getStatVariable;

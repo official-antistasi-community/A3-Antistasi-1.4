@@ -42,9 +42,9 @@ private _text = "";
 private _sideName = _faction get "name";
 private _intelContent = "";
 
-if(_intelType == "Small") then
+if(_intelType == "Small" or _intelType == "Medium") then
 {
-    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.3, DECRYPTION_KEY, 0.35, CONVOY, 0.35];
+    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0, DECRYPTION_KEY, 0.65, CONVOY, 0.35];
     switch (_intelContent) do
     {
         case (TROOPS):
@@ -52,7 +52,7 @@ if(_intelType == "Small") then
             //Case not yet implemented as system is not usable right now
             //This can be added when the new garrison system is active
         };
-        case (TIME_LEFT):
+/*        case (TIME_LEFT):
         {
             private _nextAttack = 0;
             if(_side == Occupants) then
@@ -72,6 +72,7 @@ if(_intelType == "Small") then
                 _text = format ["%1 attack expected in %2 minutes", _sideName, round (_nextAttack / 60)];
             };
         };
+*/
         case (DECRYPTION_KEY):
         {
             if(_side == Occupants) then
@@ -110,6 +111,7 @@ if(_intelType == "Small") then
         };
     };
 };
+/*
 if(_intelType == "Medium") then
 {
     _intelContent = selectRandomWeighted [ACCESS_AIR, 0.2, ACCESS_HELI, 0.3, ACCESS_ARMOR, 0.3, CONVOYS, 0.2, COUNTER_ATTACK, 0];
@@ -150,6 +152,7 @@ if(_intelType == "Medium") then
         };
     };
 };
+*/
 if(_intelType == "Large") then
 {
     if("AS" in A3A_activeTasks) then

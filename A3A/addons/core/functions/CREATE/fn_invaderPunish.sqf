@@ -1,125 +1,78 @@
+/*
+Maintainer: John Jordan
+    Create invader city punishment attack
+
+Scope: Server, although written to work on HCs
+Environment: Scheduled, should be spawned
+
+Arguments:
+    <STRING> Destination marker (should be town)
+    <STRING> Origin marker (should be airbase)
+    <SCALAR> Optional, delay before sending vehicles (Default: Auto-calculated)
+*/
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-if (!isServer) exitWith { Error("Server-only function miscalled") };
-params ["_attackDestination", "_attackOrigin"];
 
-Info_2("Launching CSAT Punish Against %1 from %2", _attackDestination, _attackOrigin);
+if (!isServer) exitWith { Error("Server-only function miscalled") };
+
+params ["_mrkDest", "_mrkOrigin", ["_delay", -1]];
+
+ServerInfo_2("Launching CSAT Punishment Against %1 from %2", _mrkDest, _mrkOrigin);
 
 bigAttackInProgress = true;
 publicVariable "bigAttackInProgress";
 
-private _posDestination = getMarkerPos _attackDestination;
-private _posOrigin = getMarkerPos _attackOrigin;
-private _attackDir = _posOrigin getDir _posDestination;
-private _size = [_attackDestination] call A3A_fnc_sizeMarker;
-private _groups = [];
-private _soldiers = [];
-private _pilots = [];
-private _vehiclesX = [];
-private _civilians = [];
-private _civGroups = [];
-private _landingPads = [];
+private _posDest = getMarkerPos _mrkDest;
+private _posOrigin = getMarkerPos _mrkOrigin;
+private _size = [_mrkDest] call A3A_fnc_sizeMarker;
 
-private _nameDestination = [_attackDestination] call A3A_fnc_localizar;
+private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _taskId = "invaderPunish" + str A3A_taskCount;
-[[teamPlayer,civilian,Occupants],_taskId,[format ["%2 is attacking critical positions within %1! Defend the city at all costs",_nameDestination,FactionGet(inv,"name")],format ["%1 Punishment",FactionGet(inv,"name")],_attackDestination],getMarkerPos _attackDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian,Occupants],_taskId,[format ["%2 is attacking critical positions within %1! Defend the city at all costs",_nameDest,FactionGet(inv,"name")],format ["%1 Punishment",FactionGet(inv,"name")],_mrkDest],_posDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 [_taskId, "invaderPunish", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-// give smaller player groups a bit more time to respond
-private _playerScale = call A3A_fnc_getPlayerScale;
-[_attackOrigin, (5 / _playerScale) + 10] call A3A_fnc_addTimeForIdle;        // Reserve airbase for this attack
-sleep (60*5 / _playerScale);
+// Give smaller player groups a bit more time to respond
+if (_delay < 0) then { _delay = 5 / A3A_balancePlayerScale };
+[_mrkOrigin, _delay + 5] call A3A_fnc_addTimeForIdle;        // Reserve airbase for this attack
+sleep (60 * _delay);
 
-private _reveal = [_posDestination, Invaders] call A3A_fnc_calculateSupportCallReveal;
-[_posDestination, 4, ["MORTAR"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
-private _missionExpireTime = time + 3600;
-private _missionMinTime = time + 600;
 
-private _invaderAirTransport = (FactionGet(inv, "vehiclesHelisLight") + FactionGet(inv, "vehiclesHelisTransport") + FactionGet(inv, "vehiclesPlanesTransport")) select {[_x] call A3A_fnc_vehAvailable};
-private _invaderAttackHelis = FactionGet(inv, "vehiclesHelisAttack") select {[_x] call A3A_fnc_vehAvailable};
-
+// Create the attacking force
 // probably doesn't make much sense to aggro-scale this one as it's not a response
-private _numVehicles = round (2 + random 1 + _playerScale);
-private _numAttackHelis = if (count _invaderAttackHelis != 0) then { round (_numVehicles / 3) } else { 0 };
+private _vehCount = round (2 + random 1 + A3A_balancePlayerScale);
+private _attackRatio = (0.5 + random 1) * (tierWar * 0.03);
+private _attackCount = round (random 0.3 + _vehCount * _attackRatio);
 
-for "_i" from 1 to _numVehicles do
-{
-    if (_i > 3 and { [Invaders] call A3A_fnc_remUnitCount < 8 }) exitWith {};
-    private _typeAirVehicle = if (_i <= _numAttackHelis) then {selectRandom _invaderAttackHelis} else {selectRandom _invaderAirTransport};
-    private _spawnResult = [_posOrigin, _attackDir, _typeAirVehicle, Invaders] call A3A_fnc_spawnVehicle;
-    private _veh = _spawnResult select 0;
-    private _vehCrew = _spawnResult select 1;
-    {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
-    [_veh, Invaders] call A3A_fnc_AIVEHinit;
-    private _crewGroup = _spawnResult select 2;
-    _pilots append _vehCrew;
-    _groups pushBack _crewGroup;
-    _vehiclesX pushBack _veh;
+private _data = [Invaders, _mrkOrigin, _mrkDest, "attack", _vehCount, _attackCount] call A3A_fnc_createAttackForceAir;
+_data params ["_resources", "_vehicles", "_crewGroups", "_cargoGroups"];
 
-    //If we're an attack vehicle.
-    if (_typeAirVehicle in _invaderAttackHelis) then {
-        _wp1 = _crewGroup addWaypoint [_posDestination, 0];
-        _wp1 setWaypointType "SAD";
-        //[_veh,"Air Attack"] spawn A3A_fnc_inmuneConvoy;
-    } else {
-        {_x setBehaviour "CARELESS";} forEach units _crewGroup;
-        _typeGroup = [_typeAirVehicle,Invaders] call A3A_fnc_cargoSeats;
-        _groupX = [_posOrigin, Invaders, _typeGroup, true, false] call A3A_fnc_spawnGroup;          // forced spawn
-        {_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] call A3A_fnc_NATOinit; _x setVariable ["originX",_attackOrigin]} forEach units _groupX;
-        _groups pushBack _groupX;
-        //[_veh,"CSAT Air Transport"] spawn A3A_fnc_inmuneConvoy;
+[-_resources, Invaders, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
-        if (_typeAirVehicle isKindOf "Plane") exitWith {
-            [_veh,_groupX,_attackDestination,_attackOrigin] spawn A3A_fnc_paradrop;
-        };
+// May as well do it properly here
+A3A_supportStrikes pushBack [_side, "TROOPS", _targPos, time + 1800, 1800, _resources];
 
-        private _landPos = _posDestination getPos [random (_size/2) + _size/2, random 360];
-        _landPos = [_landPos, 0, _size/4, 10, 0, 0.20, 0,[],[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
+ServerInfo_1("Spawn performed: Air vehicles %1", _data#1 apply {typeOf _x}); 
 
-        if (_landPos isEqualTo [0,0,0]) exitWith {
-            {_x disableAI "TARGET"; _x disableAI "AUTOTARGET"} foreach units _crewGroup;
-            [_veh,_groupX,_posDestination,_posOrigin,_crewGroup] spawn A3A_fnc_fastrope;
-        };
+// Call up some artillery
+private _artyTargPos = _posDest getPos [_size/3, random 360];
+// ["_side", "_target", "_resPool", "_precision", "_reveal", "_delay"];
+[Invaders, _artyTargPos, "attack", 0, 0, 0] call A3A_fnc_requestArtillery;
 
-        _landPos set [2, 0];
-        private _pad = createVehicle ["Land_HelipadEmpty_F", _landPos, [], 0, "NONE"];
-        _landingPads pushBack _pad;
 
-        // Combat landing setup
-        _veh setVariable ["LandingPad", _pad, true];
-        _veh setVariable ["PosDestination", _posDestination, true];
-        _veh setVariable ["PosOrigin", _posOrigin, true];
-
-        //Create the waypoints for the crewGroup
-        private _vehWP0 = _crewGroup addWaypoint [_landPos, 0];
-        _vehWP0 setWaypointType "MOVE";
-        _vehWP0 setWaypointSpeed "FULL";
-        _vehWP0 setWaypointCompletionRadius 150;
-        _vehWP0 setWaypointBehaviour "CARELESS";
-
-        // Hack for tree-dodging on landing path
-        if(A3A_climate isEqualTo "tropical") then { _veh flyInHeight 250 };
-
-        [_veh, _landPos] spawn
-        {
-            params ["_vehicle", "_landPos"];
-            waitUntil {sleep 1; (_vehicle distance2D _landPos) < 600};
-            [_vehicle] spawn A3A_fnc_combatLanding;
-        };
-    };
-    sleep 20;
-};
-
-private _numCiv = (server getVariable _attackDestination) select 0;
+// Spawn in the "civilians" (rebel defenders)
+private _numCiv = (server getVariable _mrkDest) select 0;
 _numCiv = 4 + round sqrt (_numCiv);
 if (_numCiv > 30) then {_numCiv = 30};
 
+private _civilians = [];
+private _civGroups = [];
+private _civWeapons = unlockedsniperrifles + unlockedmachineguns + unlockedshotguns + unlockedrifles + unlockedsmgs + unlockedhandguns;
 while {count _civilians < _numCiv} do
 {
     private _groupCivil = createGroup teamPlayer;
     _civGroups pushBack _groupCivil;
     private _pos = while {true} do {
-        private _pos = _posDestination getPos [random _size / 2,random 360];
+        private _pos = _posDest getPos [random _size / 2,random 360];
         if (!surfaceIsWater _pos) exitWith { _pos };
     };
     for "_i" from 1 to (4 min (_numCiv - count _civilians)) do
@@ -128,23 +81,19 @@ while {count _civilians < _numCiv} do
         [_civ, selectRandom (A3A_faction_civ get "faces"), "NoVoice"] call BIS_fnc_setIdentity;
         _civ forceAddUniform selectRandom (A3A_faction_civ get "uniforms");
         _civ addHeadgear selectRandom (A3A_faction_civ get "headgear");
-        [_civ, selectRandom (unlockedsniperrifles + unlockedmachineguns + unlockedshotguns + unlockedrifles + unlockedsmgs + unlockedhandguns), 5, 0] call BIS_fnc_addWeapon;
+        [_civ, selectRandom _civWeapons, 5, 0] call BIS_fnc_addWeapon;
         _civ setSkill 0.5;
         _civilians pushBack _civ;
     };
-    [leader _groupCivil, _attackDestination, "AWARE","SPAWNED","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+    [leader _groupCivil, _mrkDest, "AWARE","SPAWNED","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 };
 
 
-if (tierWar >= 5) then {
-    for "_i" from 0 to round random 1 do {
-        if (FactionGet(inv,"vehiclesPlanesCAS") findIf { [_x] call A3A_fnc_vehAvailable } > -1) then {
-            private _reveal = [_posDestination, Invaders] call A3A_fnc_calculateSupportCallReveal;
-            [_posDestination, 4, ["AIRSTRIKE"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
-            sleep 30;
-        };
-    };
-};
+// Termination conditions
+private _missionExpireTime = time + 3600;
+private _missionMinTime = time + 600;
+private _soldiers = [];
+{ _soldiers append units _x } forEach _cargoGroups;
 
 waitUntil {
     sleep 10;
@@ -164,52 +113,44 @@ private _fnc_adjustNearCities = {
 };
 
 if (({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3) or (time > _missionExpireTime)) then {
-    Info_1("Rebels defeated a punishment attack against %1", _attackDestination);
+    Info_1("Rebels defeated a punishment attack against %1", _mrkDest);
     [_taskId, "invaderPunish", "SUCCEEDED"] call A3A_fnc_taskSetState;
-    [_posDestination, 30, 3000] call _fnc_adjustNearCities;
+    [_posDest, 30, 3000] call _fnc_adjustNearCities;
 
     [Occupants, -10, 90] remoteExec ["A3A_fnc_addAggression",2];
-    {if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_posDestination,teamPlayer] call A3A_fnc_distanceUnits);
+    {if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_posDest,teamPlayer] call A3A_fnc_distanceUnits);
     [10,theBoss] call A3A_fnc_playerScoreAdd;
 } else {
-    Info_1("Rebels lost a punishment attack against %1", _attackDestination);
+    Info_1("Rebels lost a punishment attack against %1", _mrkDest);
     [_taskId, "invaderPunish", "FAILED"] call A3A_fnc_taskSetState;
-    [_posDestination, -30, 3000] call _fnc_adjustNearCities;
+    [_posDest, -30, 3000] call _fnc_adjustNearCities;
 
-    destroyedSites = destroyedSites + [_attackDestination];
+    destroyedSites = destroyedSites + [_mrkDest];
     publicVariable "destroyedSites";
     private _mineTypes = A3A_faction_inv get "minefieldAPERS";
     for "_i" from 1 to 60 do {
-        private _mineX = createMine [selectRandom _mineTypes,_posDestination,[],_size];
+        private _mineX = createMine [selectRandom _mineTypes,_posDest,[],_size];
         Invaders revealMine _mineX;
     };
-    [_attackDestination] call A3A_fnc_destroyCity;
+    [_mrkDest] call A3A_fnc_destroyCity;
     // Putting this stuff here is a bit gross, but currently there's no cityFlip function. Usually done by resourceCheck.
-    sidesX setVariable [_attackDestination, Invaders, true];
-    garrison setVariable [_attackDestination, [], true];
-    [_attackDestination] call A3A_fnc_mrkUpdate;
+    sidesX setVariable [_mrkDest, Invaders, true];
+    garrison setVariable [_mrkDest, [], true];
+    [_mrkDest] call A3A_fnc_mrkUpdate;
 };
 
 sleep 15;
 [_taskId, "invaderPunish", 0] spawn A3A_fnc_taskDelete;
-[3600, Invaders] remoteExec ["A3A_fnc_timingCA", 2];
 
 bigAttackInProgress = false;
 publicVariable "bigAttackInProgress";
 
 
 // Order remaining aggressor units back to base, hand them to the group despawner
-{
-    private _wp = _x addWaypoint [_posOrigin, 50];
-    _wp setWaypointType "MOVE";
-    _x setCurrentWaypoint _wp;
-    [_x] spawn A3A_fnc_groupDespawner;
-} forEach _groups;
-
-{ [_x] spawn A3A_fnc_VEHdespawner } forEach _vehiclesX;
-{ deleteVehicle _x } forEach _landingPads;
+{ [_x] spawn A3A_fnc_VEHDespawner } forEach _vehicles;
+{ [_x] spawn A3A_fnc_enemyReturnToBase } forEach _crewGroups + _cargoGroups;
 
 // When the city marker is despawned, get rid of the civilians
-waitUntil {sleep 5; (spawner getVariable _attackDestination == 2)};
+waitUntil {sleep 5; (spawner getVariable _mrkDest == 2)};
 {deleteVehicle _x} forEach _civilians;
 {deleteGroup _x} forEach _civGroups;

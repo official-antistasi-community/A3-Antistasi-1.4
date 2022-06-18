@@ -1,31 +1,16 @@
-params ["_side"];
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
-if(tierWar < 8) exitWith {-1};
+params ["_target", "_side", "_maxSpend"];
 
-private _lastSupport = server getVariable ["lastSupport", ["", 0]];
-if((_lastSupport select 0) == "CARPETBOMB" && {(_lastSupport select 1) > time}) exitWith {-1};
+if (_target isKindOf "Air") exitWith { 0 };     // can't hit air. What about isTouchingGround though?
 
-if !(allowUnfairSupports) exitWith {-1};
+// Carpet bombs exist in every modset because they use a fake plane?
+//private _faction = Faction(_side);
+//if (_faction get "staticMortars" isEqualTo []) exitWith { 0 };
 
-private _timerIndex = -1;
-private _playerAdjustment = (floor ((count allPlayers)/8)) + 1;
-private _supportTimer = if(_side == Occupants) then {occupantsCarpetBombTimer} else {invadersCarpetBombTimer};
+// balance this one against airstrikes
+if (tierWar < 6) exitWith { 0 };
+private _weight = 1 - (tierWar - 5) / 10;       // 10% at tier 1 to 50% at tier 10
 
-if(count _supportTimer < _playerAdjustment) then
-{
-    _timerIndex = count _supportTimer;
-    for "_i" from ((count _supportTimer) + 1) to _playerAdjustment do
-    {
-        _supportTimer pushBack -1;
-    };
-}
-else
-{
-    _timerIndex = _supportTimer findIf {_x < time};
-    if(_playerAdjustment <= _timerIndex) then
-    {
-        _timerIndex = -1;
-    };
-};
-
-_timerIndex;
+_weight;

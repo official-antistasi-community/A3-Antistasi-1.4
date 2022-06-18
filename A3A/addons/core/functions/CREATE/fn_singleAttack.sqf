@@ -1,15 +1,12 @@
-params ["_markerDestination", "_side", "_super"];
 
-/*  Sends an attack force towards the given marker
+/*  Sends a combined attack force to capture the given marker
 
-    Execution on: Server
-
-    Scope: External
+    Environment: Server or HC, scheduled
 
     Params:
-        _markerDestination: MARKER : The target position where the attack will be send to
-        _side: SIDE or MARKER : The start parameter of the attack
-        _super: BOOLEAN : Determine if the attack should be super strong
+        _mrkDest: MARKER : The target position where the attack will be send to
+        _side: SIDE : The side to send the attack
+        _vehCount: NUMBER : Number of vehicles to use in the attack
 
     Returns:
         Nothing
@@ -17,164 +14,102 @@ params ["_markerDestination", "_side", "_super"];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-ServerInfo_1("Starting single attack with parameters %1", _this);
+params ["_mrkDest", "_side", "_vehCount"];
+private _targPos = markerPos _mrkDest;
 
-private _markerOrigin = "";
-private _posOrigin = [];
+ServerInfo_1("Starting attack with parameters %1", _this);
 
-private _posDestination = getMarkerPos _markerDestination;
+private _airbase = [_side, markerPos _mrkDest] call A3A_fnc_availableBasesAir;
+_basesAndWeights = [_side, markerPos _mrkDest, true] call A3A_fnc_availableBasesLand;
+private _landbase = _basesAndWeights#0 selectRandomWeighted _basesAndWeights#1;
+private _countLandBases = count (_basesAndWeights#0) / 2;
 
-//Don't attempt unless we have enough units spare on this machine to make a worthwhile attack
-if ([_side] call A3A_fnc_remUnitCount < 16) exitWith
-{
-    ServerInfo_1("SingleAttack to %1 cancelled because maximum unit count reached", _markerDestination);
-};
-
-if ([_posDestination,false] call A3A_fnc_fogCheck < 0.3) exitWith
-{
-    ServerInfo_1("SingleAttack to %1 cancelled due to heavy fog", _markerDestination);
-};
-
-//Parameter is the starting base
-if(_side isEqualType "") then
-{
-    _markerOrigin = _side;
-    _posOrigin = getMarkerPos _markerOrigin;
-    _side = sidesX getVariable [_markerOrigin, sideUnknown];
-    ServerInfo_2("Adapting attack params, side is %1, start base is %2", _side, _markerOrigin);
-};
-
-if(_side == sideUnknown) exitWith
-{
-    ServerError_1("Could not retrieve side for %1", _markerOrigin);
-};
-private _faction = Faction(_side);
-
-private _typeOfAttack = [_posDestination, _side] call A3A_fnc_chooseAttackType;
-if(_typeOfAttack == "") exitWith {};
-
-//No start based selected by now
-if(_markerOrigin == "") then
-{
-    _markerOrigin = [_posDestination, _side] call A3A_fnc_findBaseForQRF;
-    _posOrigin = getMarkerPos _markerOrigin;
-};
-
-if (_markerOrigin == "") exitWith
-{
-    ServerInfo_1("Small attack to %1 cancelled because no usable bases in vicinity",_markerDestination);
-};
-
-//Base selected, select units now
+private _resourcesSpent = 0;
 private _vehicles = [];
-private _groups = [];
-private _landPosBlacklist = [];
+private _crewGroups = [];
+private _cargoGroups = [];
 
-private _aggression = if (_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-private _playerScale = call A3A_fnc_getPlayerScale;
-if (sidesX getVariable [_markerDestination, sideUnknown] != teamPlayer) then { _aggression = 100 - _aggression; _playerScale = 1; };
-private _vehicleCount = random 1 + 2*_playerScale + _aggression/33 + ([0, 2] select _super);
-_vehicleCount = (round (_vehicleCount)) max 1;
+// Set the attack heli count now
+private _AHratio = tierWar * ([0.02, 0.03] select (_landBase == ""));
+private _AHcount = random 0.3 + _vehCount * (0.5 * random 1) * _AHratio;
 
-ServerDebug_3("Due to %1 aggression and %2 player scale, sending %3 vehicles", _aggression, _playerScale, _vehicleCount);
+ServerDebug_4("Land base %1 (%2 possible), air base %3, aiming for %4 attack helis", _landBase, _countLandBases, _airBase, _AHcount);
 
-//Set idle times for marker
-if (_markerOrigin in airportsX) then
+if (_landBase != "") then
 {
-    [_markerOrigin, 20] call A3A_fnc_addTimeForIdle;
-}
-else
-{
-    [_markerOrigin, 40] call A3A_fnc_addTimeForIdle;
+    private _groundVehCount = _vehCount - _AHcount;
+    // If we're sending a lot of stuff or there's only one land base, send some air transports anyway
+    if (_groundVehCount >= 4 or _countLandBases == 1) then { _groundVehCount = _groundVehCount * (0.5 + random 0.5) };
+    _groundVehCount = round _groundVehCount;
+    private _attackCount = round (_groundVehCount * (0.3 + random 0.2));
+
+    private _data = [_side, _landBase, _mrkDest, "defence", _groundVehCount, _attackCount] call A3A_fnc_createAttackForceLand;
+    _resourcesSpent = _resourcesSpent + _data#0;
+    _vehicles = _vehicles + _data#1;
+    _crewGroups = _crewGroups + _data#2;
+    _cargoGroups = _cargoGroups + _data#3;
+
+    [-(_data#0), _side, "defence"] remoteExec ["A3A_fnc_addEnemyResources", 2];
+
+    ServerInfo_1("Spawn performed: Ground vehicles %1", _data#1 apply {typeOf _x}); 
 };
 
-private _vehPool = [];
-private _replacement = [];
+// Now we delay until ground vehicles should have got somewhere near...
+private _approxTime = 60 + random 120;
+if (_landBase != "") then { _approxTime = (markerPos _landBase distance _targpos) / 15 };
 
-if ((_posOrigin distance2D _posDestination < distanceForLandAttack) && {[_posOrigin, _posDestination] call A3A_fnc_arePositionsConnected}) then
+private _reveal = [_targPos] call A3A_fnc_calculateSupportCallReveal;
+[_reveal, _side, "Counterattack", _targPos, _approxTime] remoteExec ["A3A_fnc_showInterceptedSetupCall", 2];
+
+sleep _approxTime;
+
+if (_airBase != "") then
 {
-    //The attack will be carried out by land and air vehicles
-	_vehPool = [_side] call A3A_fnc_getVehiclePoolForAttacks;
-    _replacement = (_faction get "vehiclesHelisLight") + (_faction get "vehiclesTrucks") + (_faction get "vehiclesLightArmed");
-}
-else
-{
-    //The attack will be carried out by air vehicles only
-	_vehPool = [_side, ["LandVehicle"]] call A3A_fnc_getVehiclePoolForAttacks;
-    _replacement = (_faction get "vehiclesHelisLight");
+    private _airVehCount = _vehCount - count (_vehicles);
+    if (_airVehCount <= 0) exitWith {};
+
+    private _data = [_side, _airBase, _mrkDest, "defence", _airVehCount, round _AHcount] call A3A_fnc_createAttackForceAir;
+    _resourcesSpent = _resourcesSpent + _data#0;
+    _vehicles = _vehicles + _data#1;
+    _crewGroups = _crewGroups + _data#2;
+    _cargoGroups = _cargoGroups + _data#3;
+
+    [-(_data#0), _side, "defence"] remoteExec ["A3A_fnc_addEnemyResources", 2];
+
+    ServerInfo_1("Spawn performed: Air vehicles %1", _data#1 apply {typeOf _x}); 
 };
 
-//If vehicle pool is empty, fill it up
-if(_vehPool isEqualTo []) then
-{
-    {_vehPool append [_x, 1]} forEach _replacement;
-};
 
-//Spawn in the vehicles
-for "_i" from 1 to _vehicleCount do
-{
-    if ([_side] call A3A_fnc_remUnitCount < 4) exitWith {
-        ServerInfo("Cancelling because maxUnits exceeded");
-    };
-
-    private _vehicleType = selectRandomWeighted _vehPool;
-    private _vehicleData = [_vehicleType, _typeOfAttack, _landPosBlacklist, _side, _markerOrigin, _posDestination] call A3A_fnc_createAttackVehicle;
-    if (_vehicleData isEqualType []) then
-    {
-        _vehicles pushBack (_vehicleData select 0);
-        _groups pushBack (_vehicleData select 1);
-        if !(isNull (_vehicleData select 2)) then
-        {
-            _groups pushBack (_vehicleData select 2);
-        };
-        _landPosBlacklist = (_vehicleData select 3);
-        sleep 5;
-    };
-};
-ServerInfo_2("Spawn Performed: Small %1 attack sent with %2 vehicles", _typeOfAttack, count _vehicles);
-
-//Prepare despawn conditions
+// Prepare despawn conditions
 private _endTime = time + 2700;
-private _qrfHasArrived = false;
-private _qrfHasWon = false;
+private _victory = false;
+private _soldiers = [];
+{ _soldiers append units _x } forEach _cargoGroups;
 
 while {true} do
 {
-    private _markerSide = sidesX getVariable [_markerDestination, sideUnknown];
-
-    if(_markerSide == _side) exitWith
-    {
-        ServerInfo_1("Small attack to %1 captured the marker, starting despawn routines", _markerDestination);
+    private _markerSide = sidesX getVariable _mrkDest;
+    if(_markerSide == _side) exitWith {
+        ServerInfo_1("Small attack to %1 captured the marker, starting despawn routines", _mrkDest);
+        _victory = true;
     };
 
-    //Trying to flip marker
-    [_markerDestination, _markerSide] remoteExec ["A3A_fnc_zoneCheck", 2];
-
-    private _groupAlive = false;
-    {
-        private _index = (units _x) findIf {[_x] call A3A_fnc_canFight};
-        if(_index != -1) exitWith
-        {
-            _groupAlive = true;
-        };
-    } forEach _groups;
-
-    if !(_groupAlive) exitWith
-    {
-        ServerInfo_1("Small attack to %1 has been eliminated, starting despawn routines", _markerDestination);
+    private _curSoldiers = { _x call A3A_fnc_canFight } count _soldiers;
+    if (_curSoldiers < count _soldiers * 0.25) exitWith {
+        ServerInfo_1("Small attack to %1 has been defeated, starting despawn routines", _mrkDest);
+    };
+    if(_endTime < time) exitWith {
+        ServerInfo_1("Small attack to %1 timed out, starting despawn routines", _mrkDest);
     };
 
-    sleep 60;
-    if(_endTime < time) exitWith
-    {
-        ServerInfo_1("Small attack to %1 timed out without winning or loosing, starting despawn routines", _markerDestination);
-    };
+    // Attempt to flip marker
+    [_mrkDest, _markerSide] remoteExec ["A3A_fnc_zoneCheck", 2];
+    sleep 30;
 };
 
+{ [_x] spawn A3A_fnc_VEHDespawner } forEach _vehicles;
+{ [_x] spawn A3A_fnc_enemyReturnToBase } forEach _crewGroups;
 {
-    [_x] spawn A3A_fnc_VEHDespawner;
-} forEach _vehicles;
-
-{
-    [_x] spawn A3A_fnc_groupDespawner;
-} forEach _groups;
+    [_x, [nil, _mrkDest] select _victory] spawn A3A_fnc_enemyReturnToBase;
+    sleep 10;
+} forEach _cargoGroups;

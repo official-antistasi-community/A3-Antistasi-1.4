@@ -183,7 +183,11 @@ else
 	}
 	else
 	{
-		if (isPlayer theBoss) then
+		// Add some rebel HQ info to occupants. Must be done on server.
+		{ A3A_curHQInfoOcc = A3A_curHQInfoOcc + 0.25 + random 0.5 } remoteExecCall ["call", 2];
+	};
+
+/*		if (isPlayer theBoss) then
 		{
 			if !("DEF_HQ" in A3A_activeTasks) then
 			{
@@ -199,6 +203,7 @@ else
 			};
 		};
 	};
+*/
 };
 
 traitorIntel = false; publicVariable "traitorIntel";

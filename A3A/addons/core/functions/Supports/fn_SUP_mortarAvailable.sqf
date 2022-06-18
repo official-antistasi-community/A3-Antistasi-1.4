@@ -1,57 +1,16 @@
-params ["_side"];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+
+params ["_target", "_side"];
+
+if (_target isKindOf "Air") exitWith { 0 };     // can't hit air
+
+// Mortars don't exist in this modset
 private _faction = Faction(_side);
-if(tierWar < 2) exitWith {-1};
+if (_faction get "staticMortars" isEqualTo []) exitWith { 0 };
 
-private _lastSupport = server getVariable ["lastSupport", ["", 0]];
-if((_lastSupport select 0) == "MORTAR" && {(_lastSupport select 1) > time}) exitWith {-1};
+// balance this one against artillery
+if (tierWar < 2) exitWith { 0 };
+private _weight = 1 - (0 max (tierWar - 5) / 10);
 
-//Mortars not available, block support
-if ((_faction get "staticMortars" isEqualTo []) || (_faction get "vehiclesArtillery" isEqualTo [])) exitWith {-1};
-
-//Select a timer index and the max number of timers available
-private _timerIndex = -1;
-private _playerAdjustment = (floor ((count allPlayers)/5)) + 1;
-
-//Search for a timer which allows the support to be fired
-if(_side == Occupants) then
-{
-    if(count occupantsMortarTimer < _playerAdjustment) then
-    {
-        _timerIndex = count occupantsMortarTimer;
-        for "_i" from ((count occupantsMortarTimer) + 1) to _playerAdjustment do
-        {
-            occupantsMortarTimer pushBack -1;
-        };
-    }
-    else
-    {
-        _timerIndex = occupantsMortarTimer findIf {_x < time};
-        if(_playerAdjustment <= _timerIndex) then
-        {
-            _timerIndex = -1;
-        };
-    };
-};
-if(_side == Invaders) then
-{
-    if(count invadersMortarTimer < _playerAdjustment) then
-    {
-        _timerIndex = count invadersMortarTimer;
-        for "_i" from ((count invadersMortarTimer) + 1) to _playerAdjustment do
-        {
-            invadersMortarTimer pushBack -1;
-        };
-    }
-    else
-    {
-        _timerIndex = invadersMortarTimer findIf {_x < time};
-        if(_playerAdjustment <= _timerIndex) then
-        {
-            _timerIndex = -1;
-        };
-    };
-};
-
-_timerIndex;
+_weight;

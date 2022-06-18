@@ -23,8 +23,8 @@ A3A_supportStrikes = [];
 A3A_activeSupports = [];
 
 // Interfaces:
-// Avail func: _weight = [_target, _side] call _availFunc;
-// Create func:  _resCost = [_suppname, _supptype, _side, _target, _targpos, _reveal] call _createFunc;
+// Avail func: _weight = [_target, _side, _maxSpend?] call _availFunc;
+// Create func:  _resCost = [_suppname, _side, _resPool, _maxSpend, _target, _targpos, _reveal, _delay] call _createFunc;
 
 // Support types to use, base types and relative weights
 A3A_supportTypesHM = createHashMapFromArray [

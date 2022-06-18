@@ -15,18 +15,27 @@ params ["_side"];
 
 Info_1("Starting attack choice script for side %1", _side);
 
-// Do we still want this in here?
-if (A3A_hasIFA and (sunOrMoon < 1)) exitWith
-{
-    Info("Aborting attack as IFA has no nightvision (at least thats what I assume)");
-    false;
-};
 
-
-// Make a weighted list of attack targets
+// Make a weighted list of rebel attack targets
 private _targetsAndWeights = [teamPlayer, _side] call A3A_fnc_findAttackTargets;
 _targetsAndWeights params ["_targets", "_weights"];
 
+// Give targets within mission distance higher weight
+// Returns total multiplier due to this adjustment
+private _rebWeightMul = call {
+    if (_targets isEqualTo []) exitWith {1};
+    private _totalW = 0; private _distW = 0;
+    private _hqPos = markerPos "Synd_HQ";
+    {
+        _totalW = _totalW + _x; 
+        if !(markerPos (_targets#_forEachIndex#0) distance2d _hqPos < distanceMission) then { continue };
+        _distW = _distW + _x;
+        _weights set [_forEachIndex, _x * A3A_attackMissionDistMul];
+    } forEach _weights;
+    1 + _distW * (A3A_attackMissionDistMul - 1) / _totalW;
+};
+
+// Add in the targets for the other enemy side
 if (gameMode == 1) then 
 {
     private _enemySide = [Occupants, Invaders] select (_side == Occupants); 
@@ -35,7 +44,7 @@ if (gameMode == 1) then
 
     // at war tier 1, want about 10% of attacks to be against rebels
     private _aggro = [aggressionOccupants, aggressionInvaders] select (_side == Invaders);
-    private _weightFactor = 0.05 * (tierWar + _aggro/20);
+    private _weightFactor = 0.05 * (tierWar + _aggro/20) * _rebWeightMul;
     _weights apply { _x * _weightFactor };
 
     _targets append (_targetsAndWeightsEnemy#0);
@@ -47,6 +56,10 @@ if (_targets isEqualTo []) exitWith {
     false;
 };
 
+{
+    Debug_2("Target: weight %1, %2", _weights#_forEachIndex, _x);
+} forEach _targets;
+
 // Cull anything worse than 10:1 value ratio, otherwise we'll launch some really stupid attacks occasionally
 private _minWeight = selectMax _weights / 10;
 private _culledTargets = [];
@@ -55,17 +68,8 @@ private _culledTargets = [];
     if (_weight > _minWeight) then { _culledTargets append [_x, _weight] };
 } forEach _targets;
 
-// Do something about reducing attacks against distant rebel targets?
-//if (_missionDistOnly) then {_possibleTargets = _possibleTargets select {(markerPos _x) distance2D (markerPos "Synd_HQ") < distanceMission}};
 
-
-// so now we just pick one?
-// things to do here:
-// - pick one of the attack targets
-// - figure out what type of attack it should be
-// - decide & handle simulation
-// - otherwise determine wave count and launch
-
+// Now we just pick a target
 private _target = selectRandomWeighted _culledTargets;
 _target params ["_targetMrk", "_originMrk", "_targetValue", "_localThreat", "_flyoverThreat", "_countLandAttackBases"];
 Debug_1("Selected attack is %1", _target);
@@ -102,7 +106,7 @@ if (_targetMrk == "Synd_HQ") exitWith {
     true;
 };
 
-// Otherwise it's a normal attack? Then we need to decide whether to simulate
+// Otherwise it's a major attack. Then we need to decide whether to simulate:
 if((spawner getVariable _targetMrk) != 2 || (sidesX getVariable _targetMrk) == teamPlayer) then
 {
     // Sending real attack, execute the fight
@@ -118,12 +122,12 @@ if((spawner getVariable _targetMrk) != 2 || (sidesX getVariable _targetMrk) == t
     // Purpose here is to increase the flat (as against result-dependent) part of the attack cost?
 
     Info_3("Starting waved attack with %1 waves from %2 to %3", _waves, _originMrk, _targetMrk);
-    [_targetMrk, _originMrk, _waves] spawn A3A_fnc_wavedCA;
+    [_targetMrk, _originMrk, _waves] spawn A3A_fnc_wavedAttack;
     true;
 }
 else
 {
-    // Calculate global available defence resources
+    // Get the available defence resources
     private _defSide = [Occupants, Invaders] select (_side == Occupants);
     private _defResources = [_defSide, _side, _targetMrk, 1] call A3A_fnc_maxDefenceSpend;      // might need multiplier?
 
@@ -145,7 +149,7 @@ else
         false;
     };
 
-    // Get these for free because we kinda already paid for them in the attack?
+    // Get the garrison for free because we already paid for them in the simulated attack
     private _maxTroops = 12 max round ((0.5 + random 0.5) * ([_targetMrk] call A3A_fnc_garrisonSize));
     private _soldiers = [];
     private _faction = Faction(_side);

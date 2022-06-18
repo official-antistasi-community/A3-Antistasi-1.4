@@ -349,6 +349,7 @@ class CfgFunctions
             //Other initialisation functions (generally called by the above)
             class briefing {};
             class cityinfo {};
+            class clientIdleChecker {};
             class credits {};
             class initACEUnconsciousHandler {};
             class initFuncs {};

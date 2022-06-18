@@ -235,6 +235,13 @@ class Params
         texts[] =  {"Load from save (Default: Normal)","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
         default = 9999;
     };
+    class attackMissionDistMul
+    {
+        title = "Enemy preference for attacking rebel targets within mission distance";
+        values[] = {9999,1,2,3,5};
+        texts[] =  {"Load from save (Default: 2x)","No change","2x","3x","5x"};
+        default = 9999;
+    };
     class AISkill
     {
         title = "Enemy versus friendly AI skill difficulty";

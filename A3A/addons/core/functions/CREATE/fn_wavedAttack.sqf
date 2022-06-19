@@ -27,17 +27,18 @@ forcedSpawn pushBack _mrkDest; publicVariable "forcedSpawn";
 
 Info_3("Creating waved attack against %1 from %2 with %3 waves", _mrkDest, _mrkOrigin, _maxWaves);
 
-// Task creation
+// Create a task for enemy vs rebel, notification only for enemy vs enemy
 private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _nameEnemy = _faction get "name";
 private _taskId = "wavedAttack" + str A3A_taskCount;
-private _taskStr = if (_targside == teamPlayer) then {
-    format ["%1 is attacking our garrison at %2. Stop them if you can, or live to fight another day.", _nameEnemy, _nameDest];
+if (_targside == teamPlayer) then {
+    private _taskStr = format ["%1 is attacking our garrison at %2. Stop them if you can, or live to fight another day.", _nameEnemy, _nameDest];
+    [true,_taskId,[_taskStr,format ["%1 Attack",_nameEnemy],_mrkDest],markerPos _mrkDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+    [_taskId, "wavedAttack", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 } else {
-    format ["%1 is attacking the %2 garrison at %3.", _nameEnemy, Faction(_targside) get "name", _nameDest];
+    private _text = format ["%1 is attacking the %2 garrison at %3.", _nameEnemy, Faction(_targside) get "name", _nameDest];
+    ["RadioIntercepted", [_text]] remoteExec ["BIS_fnc_showNotification", 0];
 };
-[true,_taskId,[_taskStr,format ["%1 Attack",_nameEnemy],_mrkDest],markerPos _mrkDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
-[_taskId, "wavedAttack", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 
 // These mostly used for cleanup?
@@ -116,7 +117,7 @@ while {_wave <= _maxWaves and !_victory} do
 
     // Now we delay until ground vehicles should have got somewhere near...
     private _approxTime = 60 + random 120;
-    if (_landBase != "") then { _approxTime = (markerPos _landBase distance _targpos) / 15 };
+    if (!isNil "_landBase") then { _approxTime = (markerPos _landBase distance _targpos) / 15 };
 
     private _reveal = [_targPos] call A3A_fnc_calculateSupportCallReveal;
     [_reveal, _side, "MajorAttack", _targPos, _approxTime] remoteExec ["A3A_fnc_showInterceptedSetupCall", 2];
@@ -205,23 +206,24 @@ while {_wave <= _maxWaves and !_victory} do
 
 // TODO: Check some of this stuff for locality requirements
 if (_victory) then {
-    [_taskId, "rebelAttack", "SUCCEEDED"] call A3A_fnc_taskSetState;
+    if (_targSide != teamPlayer) exitWith {};
+    [_taskId, "rebelAttack", "FAILED"] call A3A_fnc_taskSetState;
+    [_taskId, "rebelAttack", 30] spawn A3A_fnc_taskDelete;
+    if (_targside == teamPlayer) then { [-10,theBoss] call A3A_fnc_playerScoreAdd };
+} else {
+    [_mrkDest, _mrkOrigin] call A3A_fnc_minefieldAAF;
 
     if (_targSide != teamPlayer) exitWith {};
+    [_taskId, "rebelAttack", "SUCCEEDED"] call A3A_fnc_taskSetState;
+    [_taskId, "rebelAttack", 30] spawn A3A_fnc_taskDelete;
     private _nearRebels = [500, 0, markerPos _mrkDest, teamPlayer] call A3A_fnc_distanceUnits;
     { if (isPlayer _x) then { [10, _x] call A3A_fnc_playerScoreAdd } } forEach _nearRebels;
     [10, theBoss] call A3A_fnc_playerScoreAdd;
-} else {
-    [_taskId, "rebelAttack", "FAILED"] call A3A_fnc_taskSetState;
-    [_mrkDest, _mrkOrigin] call A3A_fnc_minefieldAAF;
-    if (_targside == teamPlayer) then { [-10,theBoss] call A3A_fnc_playerScoreAdd };
 };
-
 
 ServerInfo("Reached end of winning conditions. Starting despawn");
 sleep 30;
 
-[_taskId, "rebelAttack", 0] spawn A3A_fnc_taskDelete;
 bigAttackInProgress = false; publicVariable "bigAttackInProgress";
 forcedSpawn = forcedSpawn - [_mrkDest]; publicVariable "forcedSpawn";
 

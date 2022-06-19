@@ -127,8 +127,8 @@ while {true} do
 	// Decrease HQ knowledge values, old ones faster than current
 	if (A3A_curHQInfoOcc < 1) then { A3A_curHQInfoOcc = 0 max (A3A_curHQInfoOcc - 0.01) };
 	if (A3A_curHQInfoInv < 1) then { A3A_curHQInfoInv = 0 max (A3A_curHQInfoInv - 0.01) };
-	A3A_oldHQInfoOcc = A3A_oldHQInfoOcc apply { _x set [2, _x#2 - 0.1] } select { _x#2 <= 0 };			// arrays of [xpos, ypos, knowledge]
-	A3A_oldHQInfoInv = A3A_oldHQInfoInv apply { _x set [2, _x#2 - 0.1] } select { _x#2 <= 0 };
+ 	A3A_oldHQInfoOcc = A3A_oldHQInfoOcc select { _x set [2, _x#2 - 0.1]; _x#2 > 0 };			// arrays of [xpos, ypos, knowledge]
+	A3A_oldHQInfoInv = A3A_oldHQInfoInv select { _x set [2, _x#2 - 0.1]; _x#2 > 0 };
 
 	private _missionChance = 5 * A3A_activePlayerCount;
 	if ((!bigAttackInProgress) and (random 100 < _missionChance)) then {[] spawn A3A_fnc_missionRequest};

@@ -49,7 +49,6 @@ class CfgFunctions
             class napalmDamage {};
             class napalmParticles {};
             class nearEnemy {};
-            class occupantInvaderUnitKilledEH {};
             class paradrop {};
             class rearmCall {};
             class recallGroup {};
@@ -163,7 +162,6 @@ class CfgFunctions
             class rebuildAssets {};
             class rebuildRadioTower {};
             class relocateHQObjects {};
-            class remUnitCount {};
             class repairRuinedBuilding {};
             class resourceCheckSkipTime {};
             class resourcesFIA {};
@@ -261,7 +259,6 @@ class CfgFunctions
             class reinforcementsAI {};
             class registerUnitType {};
             class remoteBattle {};
-            class removeVehFromPool {};
             class safeVehicleSpawn {};
             class singleAttack {};
             class spawnGroup {};

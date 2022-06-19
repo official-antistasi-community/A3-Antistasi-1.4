@@ -7,7 +7,7 @@ Arguments:
     None
 */
 
-#define TIMEOUT_AFK 20      //300
+#define TIMEOUT_AFK 120
 
 A3A_lastActiveTime = time;
 A3A_lastPlayerDir = getDir player;

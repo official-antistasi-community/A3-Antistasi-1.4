@@ -1,4 +1,15 @@
+/*  Persistent AI script to make enemy attack helis behave better
+    Prevents helis giving enemies an easy kill on the first pass, and hovering once they run out of targets
 
+Scope: Server or HC
+Environment: Spawned
+
+Arguments:
+    <OBJECT> Vehicle (should be attack heli)
+    <GROUP> Crew group of vehicle, should be occupant or invader
+    <POSATL> Ground position to kill targets near
+
+*/
 
 // - SAD will still run out of steam with lockWP enabled.
 // - everything is dumb
@@ -9,9 +20,8 @@ FIX_LINE_NUMBERS()
 
 params ["_vehicle", "_group", "_targPos"];
 
-// TODO: set script handle so other stuff can remove it later
+// Set script handle so abort routines can remove it later
 _group setVariable ["A3A_AIScriptHandle", _thisScript];
-Debug_2("Script handle %1 (was %2)", _group getVariable "A3A_AIScriptHandle", _thisScript);
 
 while {count waypoints _group > 0} do { deleteWaypoint [_group, 0] };
 _group setBehaviourStrong "COMBAT";
@@ -32,7 +42,7 @@ while {true} do {
     if (currentWaypoint _group > 0 or time > _timeout ) then {
         _wayPos = _targPos getPos [50 + random 100, random 360];
         _destroyWP setWaypointPosition [_wayPos, 0];
-        Debug_1("Setting current waypoint for attack heli type %1", typeof vehicle leader _group);
+        //Debug_1("Setting current waypoint for attack heli type %1", typeof vehicle leader _group);
         _group setCurrentWaypoint _destroyWP;
         _timeout = time + 300;
    };

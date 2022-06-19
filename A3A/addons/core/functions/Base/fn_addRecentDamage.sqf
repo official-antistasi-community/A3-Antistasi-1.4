@@ -1,3 +1,14 @@
+/*  Adds an entry to the enemy recent damage records on the server
+
+Scope: Server
+Environment: Preferably unscheduled
+
+Arguments:
+    <SIDE> Side that took the damage, must be occupants or invaders
+    <POS2D> Position that damage was taken
+    <SCALAR> Resource value of damage, max 999
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

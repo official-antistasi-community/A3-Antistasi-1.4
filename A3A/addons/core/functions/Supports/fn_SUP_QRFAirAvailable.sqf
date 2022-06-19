@@ -1,3 +1,13 @@
+/*  Get Air QRF support selection weight against target
+
+Arguments:
+    <OBJECT> Target object
+    <SIDE> Side to send support from
+    <SCALAR> Max resource spend (not currently used)
+
+Return value:
+    <SCALAR> Weight value, 0 for unavailable or useless
+*/
 
 // make air a bit more likely with war tier? or not?
 // air QRFs are typically *less* effective at higher tiers, right?

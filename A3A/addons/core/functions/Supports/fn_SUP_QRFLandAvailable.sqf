@@ -1,11 +1,13 @@
+/*  Get land QRF support selection weight against target
 
-// make air a bit more likely with war tier? or not?
-// air QRFs are typically *less* effective at higher tiers, right?
+Arguments:
+    <OBJECT> Target object
+    <SIDE> Side to send support from
+    <SCALAR> Max resource spend (not currently used)
 
-// what else?
-// general area scan for threat levels?
-// or absolutely specific for AA vehicles?
-// later maybe. Only consider target for the moment.
+Return value:
+    <SCALAR> Weight value, 0 for unavailable or useless
+*/
 
 params ["_target", "_side"];
 

@@ -24,7 +24,7 @@ private _faction = Faction(_side);
 private _vehType = selectRandom (_faction get "vehiclesArtillery");
 private _shellType = ((_faction get "magazines") get _vehType)#0;
 
-Info_3("Artillery support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _target, _vehType, _shellType);
+Info_4("Artillery support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _target, _vehType, _shellType);
 
 private _possibleBases = airportsX select
 {

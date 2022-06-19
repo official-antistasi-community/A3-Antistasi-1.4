@@ -25,7 +25,7 @@ private _faction = Faction(_side);
 private _vehType = selectRandom (_faction get "staticMortars");
 private _shellType = _faction get "mortarMagazineHE";
 
-Info_3("Mortar support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _target, _vehType, _shellType);
+Info_4("Mortar support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _target, _vehType, _shellType);
 
 //Search for a outpost, that isnt more than 3 kilometers away, which isnt spawned
 private _possibleBases = (outposts + airportsX) select

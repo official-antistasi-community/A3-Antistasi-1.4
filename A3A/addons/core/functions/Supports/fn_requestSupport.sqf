@@ -52,7 +52,7 @@ if (_target isEqualType objNull and {!alive _target}) exitWith {
 // Find the first parent object. If we're using a static attached to a vehicle then the static is more important.
 if (_target isKindOf "Man" and !(isNull objectParent _target)) then { _target = objectParent _target };
 
-private _deprecisionRange = random (150 - ((_precision/4) * (_precision/4) * 125));
+private _deprecisionRange = random (100 - (_precision/4) * 80);
 private _targPos = _target getPos [_deprecisionRange, random 360];
 Debug_2("Final target %1 at position %2", _target, _targPos);
 

@@ -22,7 +22,7 @@ FIX_LINE_NUMBERS()
 params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
 
 private _aggroValue = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-if (_delay < 0) then { _delay = (0.5 + random 1) * (500 - 20*tierWar - 2.5*_aggroValue) };
+if (_delay < 0) then { _delay = (0.5 + random 1) * (400 - 10*tierWar - 2*_aggroValue) };
 
 // ["_side", "_basetype", "_target", "_endtime", "_duration", "_power"]
 A3A_supportStrikes pushBack [_side, "AREA", _targPos, time + 1200, 1200, 300];

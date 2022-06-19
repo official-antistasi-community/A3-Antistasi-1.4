@@ -43,8 +43,8 @@ while {time < _timeout && canMove _uav} do
     };
     {
         private _group = _x;
-        //or: [[_group, _spottedEnemies], { { _this#0 reveal _x } forEach _this#1 }] remoteExec ["call", leader _group];
-        { [_group, _x] remoteExec ["reveal", leader _group] } forEach _spottedEnemies;
+        //or: [[_group, _spottedEnemies], { { _this#0 reveal [_x, 2] } forEach _this#1 }] remoteExec ["call", leader _group];
+        { [_group, [_x, 2]] remoteExec ["reveal", leader _group] } forEach _spottedEnemies;
     } forEach _friendGroups;
 
     sleep 60;

@@ -1,12 +1,13 @@
 /*
 Maintainer: John Jordan
-	Send a special forces air attack to kill Petros
+    Send a special forces air attack to kill Petros
 
 Scope: Server
 Environment: Scheduled, should be spawned
 
 Arguments:
-    <SIDE> Side from which to send the attack (Occupants or Invaders) 
+    <SIDE> Side from which to send the attack (Occupants or Invaders)
+    <STRING> Marker name of airport to send the attack from
     <SCALAR> Optional: Delay in minutes after creating the task (Default: Auto-calculated from balancePlayerScale)
 */
 
@@ -15,19 +16,16 @@ FIX_LINE_NUMBERS()
 //Mission: HQ is under attack
 if (!isServer) exitWith { Error("Server-only function miscalled") };
 
-params ["_side", ["_delay", -1]];			// Side is now specified
-private _posDest = markerPos "Synd_HQ";
+params ["_side", "_airbase", ["_delay", -1]];			// Side is now specified
+private _targPos = markerPos "Synd_HQ";
 private _faction = Faction(_side);
 
 bigAttackInProgress = true;
 publicVariable "bigAttackInProgress";
 
 
-private _airbase = [_side, _posDest] call A3A_fnc_availableBasesAir;
-if (isNil "_airbase") exitWith { ServerInfo("HQ attack cancelled because no airbases available (how?)") };
-
 private _taskId = "DEF_HQ" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[format ["The enemy has sent SpecOps to find %1. Stop them, or move the HQ before they get here.",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_posDest,true,10,true,"Defend",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[format ["The enemy has sent SpecOps to find %1. Stop them, or move the HQ before they get here.",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_targPos,true,10,true,"Defend",true] call BIS_fnc_taskCreate;
 [_taskId, "DEF_HQ", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 // Give smaller player groups a bit more time to respond
@@ -41,7 +39,7 @@ private _vehCount = round (1 + random 1 + 2 * A3A_balancePlayerScale);
 private _attackRatio = (0.5 + random 1) * (tierWar * 0.03);
 private _attackCount = round (random 0.3 + _vehCount * _attackRatio);
 
-private _data = [_side, _airbase, _posDest, "attack", _vehCount, _attackCount, nil, "SpecOps"] call A3A_fnc_createAttackForceAir;
+private _data = [_side, _airbase, _targPos, "attack", _vehCount, _attackCount, nil, "SpecOps"] call A3A_fnc_createAttackForceAir;
 _data params ["_resources", "_vehicles", "_crewGroups", "_cargoGroups"];
 [-_resources, _side, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
@@ -57,14 +55,14 @@ ServerInfo_1("Spawn performed: Air vehicles %1", _data#1 apply {typeOf _x});
 
 // Call up some artillery
 call {
-	// Choose target/pos. Aim for static weapon if known, or just somewhere around flag otherwise
-	private _target = _posDest getPos [random 100, random 360];
-	private _vehicles = vehicles inAreaArray [_posDest, 100, 100];
-	_vehicles = _vehicles select { canFire _x and _x isKindOf "StaticWeapon" };
-	if !(_vehicles isEqualTo []) then { _target = selectRandom _vehicles };
+    // Choose target/pos. Aim for static weapon if known, or just somewhere around flag otherwise
+    private _target = _targPos getPos [random 100, random 360];
+    private _vehicles = vehicles inAreaArray [_targPos, 100, 100];
+    _vehicles = _vehicles select { canFire _x and _x isKindOf "StaticWeapon" };
+    if !(_vehicles isEqualTo []) then { _target = selectRandom _vehicles };
 
-	// ["_side", "_target", "_pool", "_precision", "_reveal", "_delay"];
-	[_side, _target, "attack", 2, 0, 0] call A3A_fnc_requestArtillery;
+    // ["_side", "_target", "_pool", "_precision", "_reveal", "_delay"];
+    [_side, _target, "attack", 2, 0, 0] call A3A_fnc_requestArtillery;
 };
 
 // TODO: Could add an extra timed "petros surrender" condition if there are too many enemies near him
@@ -81,10 +79,10 @@ while {true} do
         ServerInfo("HQ attack has been defeated, starting retreat");
     };
     if (time > _timeOut) exitWith {
-		ServerInfo("HQ attack timed out, starting retreat");
-	};
-	if (!alive _origPetros) exitWith {
-		ServerInfo("HQ attack succeeded in killing petros, starting retreat");
+        ServerInfo("HQ attack timed out, starting retreat");
+    };
+    if (!alive _origPetros) exitWith {
+        ServerInfo("HQ attack succeeded in killing petros, starting retreat");
     };
     sleep 30;
 };
@@ -95,15 +93,15 @@ while {true} do
 sleep 60;
 
 if (!alive _origPetros) then {
-	[_taskId, "DEF_HQ", "FAILED"] call A3A_fnc_taskSetState;
-	// Other results handled by petros death code
+    [_taskId, "DEF_HQ", "FAILED"] call A3A_fnc_taskSetState;
+    // Other results handled by petros death code
 } else {
-	[_taskId, "DEF_HQ", "SUCCEEDED"] call A3A_fnc_taskSetState;
-	if (_posDest distance markerPos respawnTeamPlayer < 500) then {			// assume we fought it out?
-		[_side, 10, 60] remoteExec ["A3A_fnc_addAggression",2];
-		// This is bullshit really
-		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_posDest,teamPlayer] call A3A_fnc_distanceUnits);
-	};
+    [_taskId, "DEF_HQ", "SUCCEEDED"] call A3A_fnc_taskSetState;
+    if (_targPos distance markerPos respawnTeamPlayer < 500) then {			// assume we fought it out?
+        [_side, 10, 60] remoteExec ["A3A_fnc_addAggression",2];
+        // This is bullshit really
+        {if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_targPos,teamPlayer] call A3A_fnc_distanceUnits);
+    };
 };
 
 bigAttackInProgress = false;

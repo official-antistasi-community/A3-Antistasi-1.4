@@ -39,7 +39,7 @@ Debug_2("%1 underway from %2", _supportName, _airport);
 
 
 private _remTargets = 2;
-private _timeout = time + 600;
+private _timeout = time + 900;
 private _currentlyAttacking = false;
 private _targetObj = objNull;
 while {true} do
@@ -103,6 +103,7 @@ while {true} do
 
             //_plane flyInHeight 1000;
             _currentlyAttacking = false;
+            _timeout = _timeout - 300;
         };
     };
 

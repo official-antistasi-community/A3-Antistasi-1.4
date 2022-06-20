@@ -51,7 +51,8 @@ private _fnc_executeWeaponFire =
         if (_currentHighest <= 0) exitWith {};
 
         private _weapCfg = configFile >> "cfgWeapons" >> _selectedWeapon;
-        private _modes = ["Single", "Close_AI", "this"] arrayIntersect getArray (_weapCfg >> "modes");
+        private _modes = ["Single", "Close_AI"] arrayIntersect getArray (_weapCfg >> "modes");
+        if (_modes isEqualTo []) then { _modes = getArray (_weapCfg >> "modes") };
         private _modeCfg = [_weapCfg >> (_modes#0), _weapCfg] select (_modes#0 == "this");
 
         //Force weapon fire
@@ -65,7 +66,8 @@ private _fnc_executeWeaponFire =
     {
         //Fire main gun with selected mode. Assume that we won't run out of ammo...
         private _weapCfg = configFile >> "cfgWeapons" >> _selectedWeapon;
-        private _modes = ["close", "this"] arrayIntersect getArray (_weapCfg >> "modes");
+        private _modes = ["close"] arrayIntersect getArray (_weapCfg >> "modes");           // can add preferred modes here in priority order
+        if (_modes isEqualTo []) then { _modes = getArray (_weapCfg >> "modes") };
         private _modeCfg = [_weapCfg >> (_modes#0), _weapCfg] select (_modes#0 == "this");
 
         //Force weapon fire

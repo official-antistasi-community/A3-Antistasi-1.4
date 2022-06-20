@@ -215,7 +215,7 @@ _group setCurrentWaypoint _loiterWP;
 
 private _acquisition = 0;
 private _targetObj = objNull;
-private _timeout = time + 600;
+private _timeout = time + 900;
 private _state = STATE_PICK_TARGET;
 while {true} do
 {
@@ -224,16 +224,17 @@ while {true} do
         Info_1("%1 has been destroyed or disabled, aborting routine", _supportName);
     };
 
-    if (time > _timeout) exitWith {
-        Info_1("%1 has timed out, returning to base", _supportName);
-    };
-
-    //Target no longer valid
-    if (_state != STATE_PICK_TARGET && !alive _targetObj) then { 
+    // Target no longer valid (canFight isn't ideal for vehicles but it works)
+    if (_state != STATE_PICK_TARGET && !(_targetObj call A3A_fnc_canFight)) then {
         Debug_1("%1 target lost or destroyed, returning to loiter", _supportName);
         _suppTarget resize 0;
         _group setCurrentWaypoint _loiterWP;
         _state = STATE_PICK_TARGET;
+        _timeout = _timeout - 300;
+    };
+
+    if (time > _timeout) exitWith {
+        Info_1("%1 has timed out, returning to base", _supportName);
     };
 
     switch (_state) do
@@ -243,7 +244,7 @@ while {true} do
             if (_suppTarget isEqualTo []) exitWith { sleep 5 };
             
             _targetObj = _suppTarget select 0;
-            if !(alive _targetObj) exitWith {
+            if !(_targetObj call A3A_fnc_canFight) exitWith {
                 _suppTarget resize 0;
                 Debug_1("%1 skips target, as it is already dead", _supportName);
             };
@@ -251,7 +252,7 @@ while {true} do
 
             [_reveal, getPos _targetObj, _side, "CAS", _targetObj, 60] spawn A3A_fnc_showInterceptedSupportCall;
             
-            _timeout = (time + 300);
+            _timeout = _timeout + 300;
             _loiterWP setWaypointPosition [_suppTarget select 1, 0];
             private _heavy = true;          // TODO: improve this?
             private _fireMatrix = [typeof _targetObj, _heavy] call _fnc_getFireMatrix;
@@ -304,7 +305,6 @@ while {true} do
                     Info_1("%1 out of ammo, returning to base", _supportName);
                     break;
                 };
-                _timeout = (time + 300);            // Add some time for next run/target
                 sleep 2;
             };
 

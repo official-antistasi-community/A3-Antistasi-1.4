@@ -155,10 +155,9 @@ while {_pointSum <= _neededPoints} do {
 };
 
 if (_pointSum >= _neededPoints) then {
-    private _intelText = ["Large", _side] call A3A_fnc_selectIntel;
-    [_intelText] remoteExec ["A3A_fnc_showIntel", 0];
+    ["Large", _side] remoteExec ["A3A_fnc_selectIntel", 2];
     {
-        ["Search Intel", "You managed to decifer the intel!"] call A3A_fnc_customHint;
+        ["Search Intel", "You managed to decipher the intel!"] call A3A_fnc_customHint;
         [10,_x] call A3A_fnc_playerScoreAdd;
     } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     [5, theBoss] call A3A_fnc_playerScoreAdd;

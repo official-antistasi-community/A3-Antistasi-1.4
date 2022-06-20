@@ -147,6 +147,17 @@ if (_side == Invaders or _side == Occupants) then
 		nil;
 	}];
 
+	if (_veh isKindOf "Helicopter") then {
+		// Event handler to (usually) get the crew out after crippling damage
+		// Doesn't cover dead pilot / live co-pilot case, should eventually be handled by AI routines
+		_veh addEventHandler ["Dammaged", {
+			params ["_veh"];
+			if (canMove _veh) exitWith {};
+			group _veh leaveVehicle _veh;
+			_veh removeEventHandler ["HandleDamage", _thisEventHandler];
+		}];
+	};
+
     _veh addEventHandler ["IncomingMissile", {
 		params ["_veh", "_ammo", "_source", "_instigator"];
 		private _group = group _veh;

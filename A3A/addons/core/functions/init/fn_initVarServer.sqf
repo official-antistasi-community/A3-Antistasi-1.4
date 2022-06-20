@@ -60,9 +60,6 @@ DECLARE_SERVER_VAR(difficultyCoef, 0);
 DECLARE_SERVER_VAR(bigAttackInProgress, false);
 DECLARE_SERVER_VAR(AAFpatrols,0);
 
-DECLARE_SERVER_VAR(occupantsRadioKeys, 0);
-DECLARE_SERVER_VAR(invaderRadioKeys, 0);
-
 //Vehicles currently in the garage
 DECLARE_SERVER_VAR(vehInGarage, []);
 
@@ -115,6 +112,10 @@ playerStartingMoney = 100;			// should probably be a parameter
 // horrible naming
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
+
+// Don't need to be distributed
+occupantsRadioKeys = 0;
+invaderRadioKeys = 0;
 
 // Recent casualties/damage taken by enemies, format [X, Y, time * 1000 + value]
 A3A_recentDamageOcc = [];

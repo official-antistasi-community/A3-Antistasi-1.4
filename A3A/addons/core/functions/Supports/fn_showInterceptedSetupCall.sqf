@@ -30,7 +30,6 @@ if(_position distance2D (getMarkerPos "Synd_HQ") < distanceMission) then
         if(occupantsRadioKeys > 0) then
         {
             occupantsRadioKeys = occupantsRadioKeys - 1;
-            publicVariable "occupantsRadioKeys";
             _reveal = 1;
         };
     }
@@ -39,7 +38,6 @@ if(_position distance2D (getMarkerPos "Synd_HQ") < distanceMission) then
         if(invaderRadioKeys > 0) then
         {
             invaderRadioKeys = invaderRadioKeys - 1;
-            publicVariable "invaderRadioKeys";
             _reveal = 1;
         };
     };

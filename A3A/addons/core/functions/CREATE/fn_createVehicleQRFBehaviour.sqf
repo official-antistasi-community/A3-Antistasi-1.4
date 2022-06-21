@@ -58,7 +58,7 @@ switch (true) do
         {_x disableAI "MINEDETECTION"} forEach (units _crewGroup);
         _vehicle allowCrewInImmobile true;
 
-        //Assing the waypoints
+        //Adding the waypoints
         [getPos _vehicle, _posDestination, _crewGroup] call A3A_fnc_WPCreate;
 
         // Turn final waypoint into SAD

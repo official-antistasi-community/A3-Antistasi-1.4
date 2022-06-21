@@ -18,8 +18,8 @@ params ["_timeToAdd", "_side"];
 // for now, fudge some effect on attack/defence resources
 
 if (_timeToAdd < 0) exitWith {};
-[-_timeToAdd/10, _side, "defence"] call A3A_fnc_addResources;
-[-_timeToAdd/10, _side, "attack"] call A3A_fnc_addResources;
+[-_timeToAdd/10, _side, "defence"] call A3A_fnc_addEnemyResources;
+[-_timeToAdd/10, _side, "attack"] call A3A_fnc_addEnemyResources;
 if (true) exitWith {};
 
 /*

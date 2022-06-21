@@ -153,6 +153,7 @@ if (_side == Invaders or _side == Occupants) then
 		_veh addEventHandler ["Dammaged", {
 			params ["_veh"];
 			if (canMove _veh) exitWith {};
+			Debug("Downed heli handler triggered");
 			group _veh leaveVehicle _veh;
 			_veh removeEventHandler ["HandleDamage", _thisEventHandler];
 		}];

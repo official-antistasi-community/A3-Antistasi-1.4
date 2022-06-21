@@ -20,9 +20,9 @@ private _targPos = markerPos _mrkDest;
 ServerInfo_1("Starting attack with parameters %1", _this);
 
 private _airbase = [_side, markerPos _mrkDest] call A3A_fnc_availableBasesAir;
-_basesAndWeights = [_side, markerPos _mrkDest, true] call A3A_fnc_availableBasesLand;
-private _landbase = _basesAndWeights#0 selectRandomWeighted _basesAndWeights#1;
-private _countLandBases = count (_basesAndWeights#0) / 2;
+private _basesAndWeights = [_side, markerPos _mrkDest, true] call A3A_fnc_availableBasesLand;
+private _countLandBases = count (_basesAndWeights#0);
+private _landBase = if (_countLandBases > 0) then { _basesAndWeights#0 selectRandomWeighted _basesAndWeights#1 } else { "" };
 
 private _resourcesSpent = 0;
 private _vehicles = [];
@@ -30,7 +30,7 @@ private _crewGroups = [];
 private _cargoGroups = [];
 
 // Set the attack heli count now
-private _AHratio = tierWar * ([0.02, 0.03] select (_landBase == ""));
+private _AHratio = tierWar * ([0.15, 0.03] select (_landBase == ""));
 private _AHcount = random 0.3 + _vehCount * (0.5 * random 1) * _AHratio;
 
 ServerDebug_4("Land base %1 (%2 possible), air base %3, aiming for %4 attack helis", _landBase, _countLandBases, _airBase, _AHcount);

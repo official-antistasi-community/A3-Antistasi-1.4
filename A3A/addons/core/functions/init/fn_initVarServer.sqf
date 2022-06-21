@@ -375,7 +375,7 @@ DECLARE_SERVER_VAR(A3A_vehClassToCrew,call A3A_fnc_initVehClassToCrew);
 // Hardcoded vehicle values here for the moment
 // Ideally allow some templates variation later
 
-#define OccAndInv(VAR) (FactionGetOrDefault(occ, VAR, []) + FactionGetOrDefault(inv, VAR, []))
+//#define OccAndInv(VAR) (FactionGetOrDefault(occ, VAR, []) + FactionGetOrDefault(inv, VAR, []))
 
 private _vehicleResourceCosts = createHashMap;
 
@@ -391,7 +391,6 @@ private _vehicleResourceCosts = createHashMap;
 { _vehicleResourceCosts set [_x, 300] } forEach FactionGet(all, "vehiclesPlanesCAS") + FactionGet(all, "vehiclesPlanesAA");
 { _vehicleResourceCosts set [_x, 300] } forEach FactionGet(all, "vehiclesHelisAttack");
 
-DECLARE_SERVER_VAR(A3A_vehicleResourceCosts, _vehicleResourceCosts);
 
 // Threat table
 private _groundVehicleThreat = createHashMap;
@@ -404,6 +403,22 @@ private _groundVehicleThreat = createHashMap;
 { _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery");
 { _groundVehicleThreat set [_x, 300] } forEach FactionGet(all, "vehiclesTanks");
 
+
+// Template overrides
+private _overrides = FactionGet(Occ, "vehicleAttributes") + FactionGet(Inv, "vehicleAttributes");
+{
+	private _vehType = _x select 0;
+	{
+		if !(_x isEqualType []) then { continue };		// first entry is classname
+		_x params ["_attr", "_val"];
+		call {
+			if (_attr == "threat") then { _groundVehicleThreat set [_vehType, _val] };
+			if (_attr == "cost") exitWith { _vehicleResourceCosts set [_vehType, _val] };
+		};
+	} forEach _x;
+} forEach _overrides;
+
+DECLARE_SERVER_VAR(A3A_vehicleResourceCosts, _vehicleResourceCosts);
 DECLARE_SERVER_VAR(A3A_groundVehicleThreat, _groundVehicleThreat);
 
 ///////////////////////////

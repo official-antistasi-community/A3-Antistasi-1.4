@@ -75,6 +75,11 @@ if (allowDLCWS && A3A_hasWS) then {
 };
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
 
+["vehicleAttributes", [
+    ["O_Heli_Light_02_dynamicLoadout_F", ["cost", 100]],
+    ["O_Heli_Light_02_F", ["cost", 100]]
+] call _fnc_saveToTemplate;
+
 /////////////////////
 ///  Identities   ///
 /////////////////////

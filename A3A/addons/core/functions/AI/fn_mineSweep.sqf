@@ -5,7 +5,8 @@ if (!isServer and hasInterface) exitWith {};
 private ["_costs","_groupX","_unit","_minesX","_radiusX","_roads","_truckX","_mineX","_countX"];
 
 private _typeExp = FactionGet(reb,"unitExp");
-_costs = server getVariable _typeExp + ([FactionGet(reb,"vehicleRepair")] call A3A_fnc_vehiclePrice);
+private _typeVeh = FactionGet(reb,"vehicleLightUnarmed");
+_costs = (server getVariable _typeExp) + ([_typeVeh] call A3A_fnc_vehiclePrice);
 
 [-1,-1*_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 
@@ -18,7 +19,7 @@ sleep 1;
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 
-_truckX = FactionGet(reb,"vehicleRepair") createVehicle _pos;
+_truckX = _typeVeh createVehicle _pos;
 
 [_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
 [_unit] spawn A3A_fnc_FIAinit;

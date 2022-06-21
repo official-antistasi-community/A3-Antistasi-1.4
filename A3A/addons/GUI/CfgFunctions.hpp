@@ -28,6 +28,7 @@ class CfgFunctions {
             class recruitDialog {};
             class recruitSquadDialog {};
             class requestMissionDialog {};
+            class teamLeaderRTSPlacerDialog {};
         };
     };
     class A3A_GUI {

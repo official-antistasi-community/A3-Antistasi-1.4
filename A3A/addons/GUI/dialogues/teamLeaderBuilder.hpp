@@ -10,8 +10,8 @@
 
 class A3A_teamLeaderBuilder
 {
-  	idd = A3A_IDDLEADERDIALOG;
-  	onLoad = "systemChat 'NO'";
+  	idd = A3A_IDD_TEAMLEADERDIALOG;
+  	onLoad = "[""onLoad""] spawn A3A_fnc_teamLeaderRTSPlacerDialog";
 	  movingenable = true;
 
 	class ControlsBackground
@@ -50,7 +50,7 @@ class A3A_teamLeaderBuilder
     // Main content
     class MainContent
     {
-      	idc = A3A_IDCLEADERBUILDERMAIN;
+      	idc = A3A_IDC_TEAMLEADERBUILDERMAIN;
 	  	  x = CENTER_X(160);
         y = BOTTOM - PX_H(26);
         w = PX_W(160);
@@ -58,9 +58,9 @@ class A3A_teamLeaderBuilder
 
       class Controls
       {
-        class VehiclesControlsGroup : A3A_ControlsGroupNoVScrollbars
+        class BuildingControlsGroup : A3A_ControlsGroupNoVScrollbars
         {
-          idc = A3A_IDC_VEHICLESGROUP;
+          idc = A3A_IDC_TEAMLEADERBUILDINGGROUP;
           x = 0;
           y = PX_H(4);
           w = PX_W(160);

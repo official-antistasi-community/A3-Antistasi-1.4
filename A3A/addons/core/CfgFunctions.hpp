@@ -771,7 +771,8 @@ class CfgFunctions
             class buyItem {};
             class attachedObjects {};
             class dropObject {};
-            class remainingFuel {};
+            class remainingFuel {}
+            class teamLeaderRTSPlacer {};
         };
     };
 };

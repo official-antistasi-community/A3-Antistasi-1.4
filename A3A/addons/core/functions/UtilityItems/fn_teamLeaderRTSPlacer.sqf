@@ -32,12 +32,15 @@ Example:
 #define KEY_DOWN_EH 13
 #define EACH_FRAME_EH 14
 #define UPDATE_BB 15
+#define TELL_MOUSE_DOWN_TO_CHILL 16
 
 
 
 
 
 if(!isNil "A3A_building_EHDB") exitwith {};
+
+call A3A_fnc_initBuildingDB;
 cam = "camcurator" camCreate (position player vectorAdd [0,0,2.5]);
 cam cameraEffect ["Internal", "top"];
 player enableSimulation false;
@@ -51,108 +54,6 @@ for "_i" from 1 to 36 do {
 };
 
 
-A3A_building_EHDB = [
-	false,
-	false,
-	false,
-	false, 
-	time,
-	[],
-	["Land_Bunker_01_tall_F", "Land_BagBunker_01_small_green_F", "Land_Tyres_F", "Land_SandbagBarricade_01_half_F", "Land_Barricade_01_4m_F", "Flag_AAF_F"],
-	0,
-	"Land_Bunker_01_tall_F" createVehicleLocal [0,0,0],
-	[], 
-	{
-		{deleteVehicle _x} forEach A3A_boundingCircle;
-		(A3A_building_EHDB # BUILD_DISPLAY) displayRemoveEventHandler ["KeyDown", (A3A_building_EHDB # KEY_DOWN_EH)];
-		removeMissionEventHandler ["EachFrame", (A3A_building_EHDB # EACH_FRAME_EH)];
-		(A3A_building_EHDB # BUILD_DISPLAY) displayRemoveEventHandler ["MouseButtonDown", (A3A_building_EHDB # MOUSE_DOWN_EH)];
-		(A3A_building_EHDB # BUILD_DISPLAY) closeDisplay 1;
-		cam cameraEffect ["terminate", "back"];
-		camDestroy cam;
-		deleteVehicle (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-		A3A_buildingRays = nil;
-		A3A_building_EHDB = nil;
-		player enableSimulation true;
-
-	},
-	-1,
-	-1,
-	-1,
-	-1,
-	{
-		private _bb = (0 boundingBoxReal (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT));
-		private _back = (_bb#0#1);
-		private _front = (_bb#1#1);
-		private _top = (_bb#1#2);
-		private _left = (_bb#0#0);
-		private _right = (_bb#1#0);
-		private _bottom = (_bb#0#2) + 0.2;//rais slightly from the ground
-		private _knee = _bottom + 0.5;
-		A3A_buildingRays = [
-		//outer box
-			[[_left,_back,_bottom], [_right,_back,_top]]			//back cross
-			,[[_left,_back,_top], [_right,_back,_bottom]]
-
-			,[[_left,_front,_bottom], [_right,_front,_top]]		 //front cross
-			,[[_left,_front,_top], [_right,_front,_bottom]]
-
-			,[[_left,_back,_bottom], [_left,_front,_top]]		   //left cross
-			,[[_left,_back,_top], [_left,_front,_bottom]]
-
-			,[[_right,_back,_bottom], [_right,_front,_top]]		 //right cross
-			,[[_right,_back,_top], [_right,_front,_bottom]]
-
-			,[[_left,_back,_top], [_right,_front,_top]]			 //top cross
-			,[[_right,_back,_top], [_left,_front,_top]]
-
-			,[[_left,_back,_bottom], [_right,_front,_bottom]]	   //bottom cross
-			,[[_right,_back,_bottom], [_left,_front,_bottom]]
-
-			,[[_left,_back,_bottom], [_left,_back,_top]]			//back left vertical
-			,[[_left,_front,_bottom], [_left,_front,_top]]		  //front left vertical
-			,[[_right,_back,_bottom], [_right,_back,_top]]		  //back right vertical
-			,[[_right,_front,_bottom], [_right,_front,_top]]		//front right vertical
-
-			,[[_left,_back,_bottom], [_left,_front,_bottom]]		//left bottom horisontal
-			,[[_left,_back,_top], [_left,_front,_top]]			  //left top horisontal
-
-			,[[_right,_back,_bottom], [_right,_front,_bottom]]	  //right bottom horisontal
-			,[[_right,_back,_top], [_right,_front,_top]]			//right top horisontal
-
-			,[[_left,_front,_bottom], [_right,_front,_bottom]]	  //front bottom horisontal
-			,[[_left,_front,_top], [_right,_front,_top]]			//front top horisontal
-
-			,[[_left,_back,_bottom], [_right,_back,_bottom]]		//back bottom horisontal
-			,[[_left,_back,_top], [_right,_back,_top]]			  //back top horisontal
-
-			//inner lines
-			,[[_left,_back,_bottom], [_right,_front,_top]]		  //diag 1
-			,[[_left,_back,_top], [_right,_front,_bottom]]
-
-			,[[_right,_back,_bottom], [_left,_front,_top]]		  //diag 2
-			,[[_right,_back,_top], [_left,_front,_bottom]]
-
-			,[[_left,_back,0], [_right,_front,0]]				   //diag 3
-			,[[_right,_back,0], [_left,_front,0]]
-
-			,[[_left,0,0], [_right,0,0]]							//center
-			,[[0,_back,0], [0,_front,0]]
-			,[[0,0,_bottom], [0,0,_top]]
-
-			,[[_left,_back,_knee], [_right,_front,_knee]]		   //knee check
-			,[[_right,_back,_knee], [_left,_front,_knee]]
-			,[[0,_back,_knee], [0,_front,_knee]]
-			,[[_left,0,_knee], [_right,0,_knee]]
-			,[[_left,_back,_knee], [_left,_front,_knee]]
-			,[[_left,_front,_knee], [_right,_front,_knee]]
-			,[[_right,_front,_knee], [_right,_back,_knee]]
-			,[[_right,_back,_knee], [_left,_back,_knee]]
-			];
-  
-	}	
-]; 
-
 private _emptyDisplay = findDisplay 46 createDisplay "A3A_teamLeaderBuilder";
 
 A3A_building_EHDB set [BUILD_DISPLAY, _emptyDisplay];
@@ -161,7 +62,7 @@ call (A3A_building_EHDB # UPDATE_BB);
 private _mouseDownEH = _emptyDisplay displayAddEventHandler ["MouseButtonDown", {
 	params ["_displayOrControl", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
 	
-	
+	if( A3A_building_EHDB # TELL_MOUSE_DOWN_TO_CHILL) exitWith {};
 	if ( _button isNotEqualTo 0) exitWith {};
 	if (isObjectHidden (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) exitWith {};
 	

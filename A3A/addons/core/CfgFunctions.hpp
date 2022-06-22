@@ -773,6 +773,7 @@ class CfgFunctions
             class dropObject {};
             class remainingFuel {}
             class teamLeaderRTSPlacer {};
+            class initBuildingDB {};
         };
     };
 };

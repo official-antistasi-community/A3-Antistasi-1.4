@@ -16,23 +16,7 @@ Example:
 
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
-#define E_PRESSED 0
-#define R_PRESSED 1
-#define UP_ARROW_KEY 2
-#define DOWN_ARROW_KEY 3
-#define WAIT_TIME 4
-#define BUILD_OBJECTS_ARRAY 5
-#define BUILD_OBJECT_LIST 6
-#define BUILD_LIST_INDEX 7
-#define BUILD_OBJECT_TEMP_OBJECT 8
-#define BUILD_OBJECT_TEMP_OBJECT_ARRAY 9
-#define END_BUILD_FUNC 10
-#define BUILD_DISPLAY 11
-#define MOUSE_DOWN_EH 12
-#define KEY_DOWN_EH 13
-#define EACH_FRAME_EH 14
-#define UPDATE_BB 15
-#define TELL_MOUSE_DOWN_TO_CHILL 16
+#include "placerDefines.hpp"
 
 
 
@@ -71,14 +55,15 @@ private _mouseDownEH = _emptyDisplay displayAddEventHandler ["MouseButtonDown", 
 	
 	
 	systemChat "Button Clicked!";
-	private _object = (A3A_building_EHDB # BUILD_OBJECT_LIST);
-	private _index = (A3A_building_EHDB # BUILD_LIST_INDEX);
+	//private _object = (A3A_building_EHDB # BUILD_OBJECT_LIST);  <- not needed with gui
+	//private _index = (A3A_building_EHDB # BUILD_LIST_INDEX);
+	private _className = (A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING);
 	private _direction = getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
 	
-	(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_object # _index, _vehiclePos, _direction];
+	(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_className, _vehiclePos, _direction];
 		
 	//deleteVehicle vec;
-	_vehicle = _object # _index createVehicleLocal [0,0,0];
+	_vehicle = _className createVehicleLocal [0,0,0];
 	_vehicle setDir _direction;
 	_vehicle setPos _vehiclePos;
 	playSound3D[getMissionPath "Sounds\hammer.ogg", player];
@@ -102,50 +87,11 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	};
 	
 	
-	// arrow keys
-	if (_key isEqualTo DIK_UP && (A3A_building_EHDB # WAIT_TIME) < time) then {
-		systemChat "UP Arrow Key Pressed";
-		A3A_building_EHDB set [UP_ARROW_KEY, true];
-		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
-		private _object = (A3A_building_EHDB # BUILD_OBJECT_LIST);
-		private _index = (A3A_building_EHDB # BUILD_LIST_INDEX);
-		_index = ((_index + 1 ) % count _object);
-		
-		private _vehPos =  getPos (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-		deleteVehicle (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-		A3A_building_EHDB set [BUILD_OBJECT_TEMP_OBJECT, (_object # _index) createVehicleLocal [0,0,0]];
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) enableSimulationGlobal false;
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setPos _vehPos; 
-		call (A3A_building_EHDB # UPDATE_BB);
-		A3A_building_EHDB set [BUILD_LIST_INDEX, _index];
-	};
-	
-	if (_key isEqualTo DIK_DOWN && (A3A_building_EHDB # WAIT_TIME) < time) then {
-		systemChat "DOWN Arrow Key Pressed";
-		A3A_building_EHDB set [DOWN_ARROW_KEY, true];
-		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
-		private _object = (A3A_building_EHDB # BUILD_OBJECT_LIST);
-		private _index = (A3A_building_EHDB # BUILD_LIST_INDEX);
-		_index = ((_index - 1 ) % 5);
-		
-		if(_index isEqualTo -1) then {
-			_index = (count _object) -1;
-		};
-		
-		private _vehPos =  getPos (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-		deleteVehicle (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-		A3A_building_EHDB set [BUILD_OBJECT_TEMP_OBJECT, (_object # _index) createVehicleLocal [0,0,0]];
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) enableSimulationGlobal false;
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setPos _vehPos;
-		call (A3A_building_EHDB # UPDATE_BB);
-		A3A_building_EHDB set [BUILD_LIST_INDEX, _index];
-	};
-	
 	if (_key isEqualTo DIK_E && (A3A_building_EHDB # WAIT_TIME) < time) then {
 		systemChat "E Key Pressed";
 		A3A_building_EHDB set [E_PRESSED, true];
 		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) - 5);
+		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) - 2);
 		
 	};
 	
@@ -153,14 +99,13 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 		systemChat "R Key Pressed";
 		A3A_building_EHDB set [R_PRESSED, true];
 		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) + 5);
+		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) + 2);
 	};	 
 }];
 
 A3A_building_EHDB set [KEY_DOWN_EH, _downKeyEH];
 
 
-//TODO hide the object if the distance is less than 20
 private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	//systemChat str position cam;
 	private _stateChange = false;
@@ -182,17 +127,11 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 		A3A_building_EHDB set [E_PRESSED, false];
 		_stateChange = true;
 	};
-	
-	// change vehicle keys
-	if (A3A_building_EHDB # UP_ARROW_KEY) then {
-		A3A_building_EHDB set [UP_ARROW_KEY, false];
+
+	if (A3A_building_EHDB # GUI_BUTTON_PRESSED) then {
+		A3A_building_EHDB set [GUI_BUTTON_PRESSED, false];
 		_stateChange = true;
 	};
-	
-	if (A3A_building_EHDB # DOWN_ARROW_KEY) then {
-		A3A_building_EHDB set [DOWN_ARROW_KEY, false];
-		_stateChange = true;
-	}; 
 	
 	
 	private _hide = {
@@ -212,7 +151,6 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 		
 		{
 			_x params ["_start", "_end"];
-			drawLine3D [(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) modelToWorldVisual _start, (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) modelToWorldVisual _end, [0.9,0,0,1]];
 			if (lineIntersects [(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) modelToWorldVisualWorld _start, (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) modelToWorldVisualWorld _end, (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)]) then {
 				_exit = true;
 			};

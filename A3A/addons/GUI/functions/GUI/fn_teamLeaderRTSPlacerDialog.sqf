@@ -7,23 +7,7 @@
 #include "..\..\dialogues\defines.hpp"
 #include "..\..\dialogues\textures.inc"
 #include "..\..\script_component.hpp"
-#define E_PRESSED 0
-#define R_PRESSED 1
-#define UP_ARROW_KEY 2
-#define DOWN_ARROW_KEY 3
-#define WAIT_TIME 4
-#define BUILD_OBJECTS_ARRAY 5
-#define BUILD_OBJECT_LIST 6
-#define BUILD_LIST_INDEX 7
-#define BUILD_OBJECT_TEMP_OBJECT 8
-#define BUILD_OBJECT_TEMP_OBJECT_ARRAY 9
-#define END_BUILD_FUNC 10
-#define BUILD_DISPLAY 11
-#define MOUSE_DOWN_EH 12
-#define KEY_DOWN_EH 13
-#define EACH_FRAME_EH 14
-#define UPDATE_BB 15
-#define TELL_MOUSE_DOWN_TO_CHILL 16
+#include "\x\A3A\addons\core\functions\UtilityItems\placerDefines.hpp"
 FIX_LINE_NUMBERS()
 
 params[["_mode","onLoad"], ["_params",[]]];
@@ -94,6 +78,7 @@ switch (_mode) do
 				private _className = _control getVariable ["className", "Land_Tyres_F"];
 				systemChat _className;
 
+				A3A_building_EHDB set [BUILD_OBJECT_SELECTED_STRING, _className];
 				private _vehPos =  getPos (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
 				deleteVehicle (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
 				A3A_building_EHDB set [BUILD_OBJECT_TEMP_OBJECT, _className createVehicleLocal [0,0,0]];

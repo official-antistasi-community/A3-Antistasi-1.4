@@ -1,20 +1,4 @@
-#define E_PRESSED 0
-#define R_PRESSED 1
-#define UP_ARROW_KEY 2
-#define DOWN_ARROW_KEY 3
-#define WAIT_TIME 4
-#define BUILD_OBJECTS_ARRAY 5
-#define BUILD_OBJECT_LIST 6
-#define BUILD_LIST_INDEX 7
-#define BUILD_OBJECT_TEMP_OBJECT 8
-#define BUILD_OBJECT_TEMP_OBJECT_ARRAY 9
-#define END_BUILD_FUNC 10
-#define BUILD_DISPLAY 11
-#define MOUSE_DOWN_EH 12
-#define KEY_DOWN_EH 13
-#define EACH_FRAME_EH 14
-#define UPDATE_BB 15
-#define TELL_MOUSE_DOWN_TO_CHILL 16
+#include "placerDefines.hpp"
 
 
 A3A_building_EHDB = [
@@ -24,8 +8,7 @@ A3A_building_EHDB = [
 	false, 
 	time,
 	[],
-	["Land_Bunker_01_tall_F", "Land_BagBunker_01_small_green_F", "Land_Tyres_F", "Land_SandbagBarricade_01_half_F", "Land_Barricade_01_4m_F", "Flag_AAF_F"],
-	0,
+	"Land_Bunker_01_tall_F",
 	"Land_Bunker_01_tall_F" createVehicleLocal [0,0,0],
 	[], 
 	{
@@ -37,9 +20,11 @@ A3A_building_EHDB = [
 		cam cameraEffect ["terminate", "back"];
 		camDestroy cam;
 		deleteVehicle (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
+		private _params = (A3A_building_EHDB # BUILD_OBJECTS_ARRAY);
 		A3A_buildingRays = nil;
 		A3A_building_EHDB = nil;
 		player enableSimulation true;
+		[_params] call A3A_fnc_placeBuilderObjects;
 
 	},
 	-1,
@@ -115,6 +100,5 @@ A3A_building_EHDB = [
 			,[[_right,_front,_knee], [_right,_back,_knee]]
 			,[[_right,_back,_knee], [_left,_back,_knee]]
 			];
-	},
-	false	
+	}	
 ]; 

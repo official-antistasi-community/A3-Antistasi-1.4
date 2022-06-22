@@ -21,7 +21,7 @@ class A3A_teamLeaderBuilder
             moving = true;
             colorBackground[] = A3A_COLOR_TITLEBAR_BACKGROUND;
             x = CENTER_X(160);
-            y = BOTTOM - PX_H(31);
+            y = BOTTOM - PX_H(41);
             w = PX_W(160);
             h = PX_H(5);
         };
@@ -29,9 +29,9 @@ class A3A_teamLeaderBuilder
         class Background : A3A_Background
         {
             x = CENTER_X(160);
-            y = BOTTOM - PX_H(26);
+            y = BOTTOM - PX_H(36);
             w = PX_W(160);
-            h = PX_H(26);
+            h = PX_H(36);
         };
     };
 
@@ -42,38 +42,31 @@ class A3A_teamLeaderBuilder
       idc = -1;
       text = "Builder";
       x = CENTER_X(160);
-      y = BOTTOM - PX_H(31);
+      y = BOTTOM - PX_H(41);
       w = PX_W(160);
       h = PX_H(5);
     };
 
     // Main content
-    class MainContent
+    class MainContent : A3A_DefaultControlsGroup
     {
       	idc = A3A_IDC_TEAMLEADERBUILDERMAIN;
 	  	  x = CENTER_X(160);
-        y = BOTTOM - PX_H(26);
+        y = BOTTOM - PX_H(36);
         w = PX_W(160);
-        h = PX_H(26);
+        h = PX_H(36);
 
       class Controls
       {
-        class BuildingControlsGroup : A3A_ControlsGroupNoVScrollbars
+        class BuildingControlsGroup : A3A_ControlsGroupNoHScrollbars
         {
           idc = A3A_IDC_TEAMLEADERBUILDINGGROUP;
           x = 0;
           y = PX_H(4);
           w = PX_W(160);
-          h = PX_H(26);
+          h = PX_H(36);
         };
       };
-    };
-
-    class CloseButton : A3A_CloseButton
-    {
-      idc = -1;
-      x = CENTER_X(160) + PX_W(160) - PX_W(5);
-      y = BOTTOM - PX_H(31);
     };
   };
 };

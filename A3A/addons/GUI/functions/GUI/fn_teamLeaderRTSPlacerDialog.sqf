@@ -19,11 +19,20 @@ switch (_mode) do
 		private _display = findDisplay A3A_IDD_TEAMLEADERDIALOG;
 		private _parent = (_display displayCtrl A3A_IDC_TEAMLEADERBUILDERMAIN);
 		private _buildControlsGroup = _parent controlsGroupCtrl A3A_IDC_TEAMLEADERBUILDINGGROUP;
+		private _backGround = _display displayCtrl A3A_IDC_TEAMLEADERBUILDERMAIN;
 
 
 
-		private _buildableObjects = ["Land_Bunker_01_tall_F", "Land_BagBunker_01_small_green_F", "Land_Tyres_F", "Land_SandbagBarricade_01_half_F", "Land_Barricade_01_4m_F", "Flag_AAF_F"];
+		_backGround ctrlAddEventHandler ["MouseExit", {
+			params ["_control"];
+			A3A_building_EHDB set [TELL_MOUSE_DOWN_TO_CHILL, false];
+		}];
+		_backGround ctrlAddEventHandler ["MouseEnter", {
+			params ["_control"];
+			A3A_building_EHDB set [TELL_MOUSE_DOWN_TO_CHILL, true];
+		}];
 
+		private _buildableObjects = ["Land_Bunker_02_light_double_f", "Land_BagBunker_01_small_green_F", "Land_Tyres_F", "Land_SandbagBarricade_01_half_F", "Land_Barricade_01_4m_F", "Flag_AAF_F", "Land_LifeguardTower_01_F", "Land_Rampart_F", "Land_Stone_4m_F", "Land_Stone_8m_F", "Land_BagFence_01_corner_green_F", "Land_BagFence_01_end_green_F", "Land_BagFence_01_long_green_F", "Land_BagFence_01_round_green_F", "Land_BagFence_01_short_green_F"];
 
 		{
 			private _className = _x;
@@ -57,12 +66,10 @@ switch (_mode) do
 
 			_button ctrlAddEventHandler ["MouseExit", {
 				params ["_control"];
-				private _className = _control getVariable ["className", "Land_Tyres_F"];
 				A3A_building_EHDB set [TELL_MOUSE_DOWN_TO_CHILL, false];
 			}];
 			_button ctrlAddEventHandler ["MouseEnter", {
 				params ["_control"];
-				private _className = _control getVariable ["className", "Land_Tyres_F"];
 				A3A_building_EHDB set [TELL_MOUSE_DOWN_TO_CHILL, true];
 			}];
 			_button ctrlAddEventHandler ["ButtonDown", {

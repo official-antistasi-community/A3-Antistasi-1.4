@@ -1,7 +1,3 @@
-//#define DIALOG_W 160 // Width of dialog in pixelGrid units
-//#define DIALOG_H 25 // Height of dialog in pixelGrid units
-//#define DIALOG_X CENTER_X(DIALOG_W) // Global x pos of dialog
-//#define DIALOG_Y CENTER_Y(DIALOG_H) // Global y pos of dialog
 
 #define CENTER_GRID_X ((getResolution select 2) * 0.5 * pixelW)
 #define CENTER_GRID_Y ((getResolution select 3) * 0.5 * pixelH)

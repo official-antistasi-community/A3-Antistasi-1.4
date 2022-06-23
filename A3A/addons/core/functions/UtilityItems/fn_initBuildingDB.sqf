@@ -1,5 +1,23 @@
 #include "placerDefines.hpp"
 
+/*
+Author: [Killerswin2]
+	DataBase constructor. Creates the placement database for the rts placer 
+Arguments:
+1. <object> object that will center placement
+2. <number> number that is used for the radius of placement
+Return Value:
+NONE
+Scope: Client
+Environment: Unscheduled
+Public: 
+no
+Example:
+[player, 100] call A3A_fnc_initBuildingDB
+*/
+
+
+
 params [["_buildCenter", player, [objNull]],[ "_buildRadius", 20,[0]]];
 
 
@@ -10,8 +28,8 @@ A3A_building_EHDB = [
 	false, 
 	time,
 	[],
-	"Land_Bunker_01_tall_F",
-	"Land_Bunker_01_tall_F" createVehicleLocal [0,0,0],
+	"Land_Bunker_02_light_double_f",
+	"Land_Bunker_02_light_double_f" createVehicleLocal [0,0,0],
 	[], 
 	{
 		{deleteVehicle _x} forEach A3A_boundingCircle;

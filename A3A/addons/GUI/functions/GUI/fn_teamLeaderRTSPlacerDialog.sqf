@@ -1,4 +1,17 @@
-
+/*
+Author: [Killerswin2, Hakon (Stole his bb code)]
+	creates the controls for the dialog. Picture and Button are created. Data Saved to buttons. 
+Arguments:
+1. <string> string for initilizer
+Return Value:
+NONE
+Scope: Client
+Environment: scheduled
+Public: 
+no
+Example:
+["onLoad"] spawn A3A_fnc_teamLeaderRTSPlacerDialog
+*/
 
 
 

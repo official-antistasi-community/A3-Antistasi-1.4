@@ -3,15 +3,16 @@ Author: [Killerswin2, Hakon (Stole his bb code)]
 	team leader structured placer. Allows teamleaders to gain access to a
 	rts like camera to place objects. 
 Arguments:
-NONE
+1. <object> object that will center placement
+2. <number> number that is used for the radius of placement
 Return Value:
 NONE
-Scope: Clients
+Scope: Client
 Environment: Unscheduled
 Public: 
 no
 Example:
-[] call A3A_fnc_teamLeaderRTSPlacer.sqf
+[player, 100] call A3A_fnc_teamLeaderRTSPlacer.sqf
 */
 
 

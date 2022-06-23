@@ -59,13 +59,11 @@ switch (_mode) do
 				params ["_control"];
 				private _className = _control getVariable ["className", "Land_Tyres_F"];
 				A3A_building_EHDB set [TELL_MOUSE_DOWN_TO_CHILL, false];
-				systemChat _className;
 			}];
 			_button ctrlAddEventHandler ["MouseEnter", {
 				params ["_control"];
 				private _className = _control getVariable ["className", "Land_Tyres_F"];
 				A3A_building_EHDB set [TELL_MOUSE_DOWN_TO_CHILL, true];
-				systemChat _className;
 			}];
 			_button ctrlAddEventHandler ["ButtonDown", {
 				params ["_control"];
@@ -76,7 +74,6 @@ switch (_mode) do
 				};
 
 				private _className = _control getVariable ["className", "Land_Tyres_F"];
-				systemChat _className;
 
 				A3A_building_EHDB set [BUILD_OBJECT_SELECTED_STRING, _className];
 				private _vehPos =  getPos (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);

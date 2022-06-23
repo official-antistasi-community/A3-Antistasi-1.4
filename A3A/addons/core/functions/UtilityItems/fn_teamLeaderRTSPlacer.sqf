@@ -18,20 +18,20 @@ Example:
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 #include "placerDefines.hpp"
 
-
+params [["_centerObject", player, [objNull]], ["_buildingRadius", 20, [0]]];
 
 
 
 if(!isNil "A3A_building_EHDB") exitwith {};
 
-call A3A_fnc_initBuildingDB;
-cam = "camcurator" camCreate (position player vectorAdd [0,0,2.5]);
+[_centerObject, _buildingRadius] call A3A_fnc_initBuildingDB;
+cam = "camcurator" camCreate (position _centerObject vectorAdd [0,0,2.5]);
 cam cameraEffect ["Internal", "top"];
 player enableSimulation false;
 
 A3A_boundingCircle = [];
 for "_i" from 1 to 36 do {
-	private _posStart = [20*(cos(10*_i)),20*(sin(10*_i)),0] vectorAdd getPos player;
+	private _posStart = [_buildingRadius * (cos(10*_i)), _buildingRadius * (sin(10*_i)),0] vectorAdd getPos _centerObject;
 	private _piece = "Sign_Sphere100cm_F" createVehicleLocal _posStart;
 	_piece enableSimulation false;
 	A3A_boundingCircle pushBack _piece;
@@ -39,7 +39,6 @@ for "_i" from 1 to 36 do {
 
 
 private _emptyDisplay = findDisplay 46 createDisplay "A3A_teamLeaderBuilder";
-
 A3A_building_EHDB set [BUILD_DISPLAY, _emptyDisplay];
 call (A3A_building_EHDB # UPDATE_BB);
 
@@ -51,12 +50,9 @@ private _mouseDownEH = _emptyDisplay displayAddEventHandler ["MouseButtonDown", 
 	if (isObjectHidden (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) exitWith {};
 	
 	private _vehiclePos = screenToWorld [_xPos, _yPos]; 
-	if(_vehiclePos distance player > 20) exitwith {};
+	if(_vehiclePos distance  (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitwith {};
 	
 	
-	systemChat "Button Clicked!";
-	//private _object = (A3A_building_EHDB # BUILD_OBJECT_LIST);  <- not needed with gui
-	//private _index = (A3A_building_EHDB # BUILD_LIST_INDEX);
 	private _className = (A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING);
 	private _direction = getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
 	
@@ -67,11 +63,7 @@ private _mouseDownEH = _emptyDisplay displayAddEventHandler ["MouseButtonDown", 
 	_vehicle setDir _direction;
 	_vehicle setPos _vehiclePos;
 	playSound3D[getMissionPath "Sounds\hammer.ogg", player];
-	(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle; 
-	
-	// we need to add an Action on the Pallets to cancel build later.
-	
-			 
+	(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle; 		 
 }];
 
 
@@ -81,14 +73,11 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	params["_displayOrControl","_key"];
 	if (_key in [DIK_ESCAPE,DIK_Y] && (A3A_building_EHDB # WAIT_TIME) < time) then {
 		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
-		systemChat "Escape Key Pressed";
-		
 		call (A3A_building_EHDB # END_BUILD_FUNC);
 	};
 	
 	
 	if (_key isEqualTo DIK_E && (A3A_building_EHDB # WAIT_TIME) < time) then {
-		systemChat "E Key Pressed";
 		A3A_building_EHDB set [E_PRESSED, true];
 		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
 		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) - 2);
@@ -96,7 +85,6 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	};
 	
 	if (_key isEqualTo DIK_R && (A3A_building_EHDB # WAIT_TIME) < time) then {
-		systemChat "R Key Pressed";
 		A3A_building_EHDB set [R_PRESSED, true];
 		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
 		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) + 2);
@@ -107,7 +95,6 @@ A3A_building_EHDB set [KEY_DOWN_EH, _downKeyEH];
 
 
 private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
-	//systemChat str position cam;
 	private _stateChange = false;
 	private _mousePosition = getMousePosition;
 	private _vehiclePostion = screenToWorld[_mousePosition #0, _mousePosition#1];
@@ -139,7 +126,7 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	};
 	
 	if (_stateChange) then {
-		if ((A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) distance player > 20) exitWith {true call _hide};
+		if ((A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) distance (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitWith {true call _hide};
 		
 		private _exit = false;
 		
@@ -161,19 +148,18 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	
 	private _camClampPosition = [0,0,0];
 	
-	private _playerX = (position player # 0);
-	private _playerY = (position player # 1);
-	private _playerZ = (position player # 2);
+	private _objectCenterX = (position (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) # 0);
+	private _objectCenterY = (position (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) # 1);
+	private _objectCenterZ = (position (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) # 2);
 	
 	private _cameraX = (position cam # 0);
 	private _cameraY = (position cam # 1);
 	private _cameraZ = (position cam # 2);
 		
-	_camClampPosition set  [0 ,[_cameraX, _playerX - 20, _playerX + 20] call BIS_fnc_clamp];
-	_camClampPosition set  [1, [_cameraY, _playerY - 20, _playerY + 20] call BIS_fnc_clamp];
-	_camClampPosition set  [2, [_cameraZ, _playerZ, _playerZ + 10] call BIS_fnc_clamp];
+	_camClampPosition set  [0 ,[_cameraX, _objectCenterX - (A3A_building_EHDB # BUILD_RADIUS), _objectCenterX + (A3A_building_EHDB # BUILD_RADIUS)] call BIS_fnc_clamp];
+	_camClampPosition set  [1, [_cameraY, _objectCenterY - (A3A_building_EHDB # BUILD_RADIUS), _objectCenterY + (A3A_building_EHDB # BUILD_RADIUS)] call BIS_fnc_clamp];
+	_camClampPosition set  [2, [_cameraZ, _objectCenterZ, _objectCenterZ + 10] call BIS_fnc_clamp];
 	
-	//systemChat str _vehiclePostion;
 	if (_stateChange) then {
 	   (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setPos _vehiclePostion; 
 	};

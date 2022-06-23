@@ -1,5 +1,7 @@
 #include "placerDefines.hpp"
 
+params [["_buildCenter", player, [objNull]],[ "_buildRadius", 20,[0]]];
+
 
 A3A_building_EHDB = [
 	false,
@@ -13,6 +15,7 @@ A3A_building_EHDB = [
 	[], 
 	{
 		{deleteVehicle _x} forEach A3A_boundingCircle;
+		{deleteVehicle _x} forEach (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY);
 		(A3A_building_EHDB # BUILD_DISPLAY) displayRemoveEventHandler ["KeyDown", (A3A_building_EHDB # KEY_DOWN_EH)];
 		removeMissionEventHandler ["EachFrame", (A3A_building_EHDB # EACH_FRAME_EH)];
 		(A3A_building_EHDB # BUILD_DISPLAY) displayRemoveEventHandler ["MouseButtonDown", (A3A_building_EHDB # MOUSE_DOWN_EH)];
@@ -99,6 +102,8 @@ A3A_building_EHDB = [
 			,[[_left,_front,_knee], [_right,_front,_knee]]
 			,[[_right,_front,_knee], [_right,_back,_knee]]
 			,[[_right,_back,_knee], [_left,_back,_knee]]
-			];
-	}	
+		];
+	},
+	_buildCenter,
+	_buildRadius
 ]; 

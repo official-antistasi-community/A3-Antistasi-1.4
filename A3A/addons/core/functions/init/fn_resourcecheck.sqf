@@ -127,6 +127,31 @@ while {true} do
 		publicVariable "difficultyCoef";
 	};
 
+	if (!isNil "A3A_notBuiltObjectList") then {
+		if (A3A_notBuiltObjectList isEqualTo []) exitWith {};
+
+	{
+		private _time = time;
+		private _object = _x # 0;
+		private _objectTimeout = _x # 1;
+
+		if (_time > _objectTimeout) then {
+
+			// remove the object from the list
+			A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_object, _objectTimeout]);
+			publicVariable "A3A_notBuiltObjectList";
+
+			private _eachFrameEH = _object getVariable "eachFrameEH";
+			["EachFrame", _eachFrameEH] remoteExec ["removeMissionEventHandler", 0];
+			deleteVehicle _object;
+		};
+		
+	} forEach A3A_notBuiltObjectList;
+
+	sleep 60;
+
+};
+
 	private _missionChance = 5 * count (allPlayers - (entities "HeadlessClient_F"));
 	if ((!bigAttackInProgress) and (random 100 < _missionChance)) then {[] spawn A3A_fnc_missionRequest};
 	//Removed from scheduler for now, as it errors on Headless Clients.

@@ -28,8 +28,8 @@ A3A_building_EHDB = [
 	false, 
 	time,
 	[],
-	"Land_Bunker_02_light_double_f",
-	"Land_Bunker_02_light_double_f" createVehicleLocal [0,0,0],
+	"Land_Can_V2_F",
+	"Land_Can_V2_F" createVehicleLocal [0,0,0],
 	[], 
 	{
 		{deleteVehicle _x} forEach A3A_boundingCircle;

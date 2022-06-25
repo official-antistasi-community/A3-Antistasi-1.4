@@ -27,7 +27,6 @@ if (!params [
 
 private _posY = 0;
 {
-    Debug_2("Pos Y: %1 | Class: %2", _posY, ctrlClassName _x);
     _x ctrlSetPositionY _posY;
     _posY = _posY + ((ctrlPosition _x) #3) + SPACER;
     _x ctrlCommit 0;

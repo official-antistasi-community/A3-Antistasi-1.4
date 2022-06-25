@@ -41,6 +41,4 @@ private _ctrl = (ctrlParent _parent) ctrlCreate [_ctrlClass, -1, _parent];
 _ctrl ctrlSetPositionY _yNew;
 _ctrl ctrlCommit 0;
 
-Debug_3("Ctrl emplaced | Pos: %1 | Ynew: %2 | Class: %3", ctrlPosition _ctrl, _yNew, ctrlClassName _ctrl);
-
 _ctrl;

@@ -31,6 +31,13 @@ class CfgFunctions {
         };
     };
     class A3A_GUI {
+        class controlsHelpers {
+            file = QPATHTOFOLDER(functions\controlsHelpers);
+            class directChildCtrls {};
+            class emplaceControl {};
+            class sortCGList {};
+        };
+
         class ObjectHelpers {
             file = QPATHTOFOLDER(functions\ObjectHelpers);
             class sizeOf {};

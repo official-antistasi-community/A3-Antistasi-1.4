@@ -19,8 +19,8 @@ Example:
 
 License: MIT License
 */
-#include "..\defines.hpp"
-#include "..\script_component.hpp"
+#include "..\..\dialogues\defines.hpp"
+#include "..\..\script_component.hpp"
 
 //validate arguments
 if (!params [

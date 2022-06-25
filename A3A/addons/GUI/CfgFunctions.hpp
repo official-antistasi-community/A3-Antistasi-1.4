@@ -30,7 +30,7 @@ class CfgFunctions {
             class requestMissionDialog {};
         };
     };
-    class A3A_GUI {
+    class ADDON {
         class controlsHelpers {
             file = QPATHTOFOLDER(functions\controlsHelpers);
             class directChildCtrls {};

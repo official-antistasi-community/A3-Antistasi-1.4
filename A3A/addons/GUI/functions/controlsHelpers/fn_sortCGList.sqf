@@ -30,6 +30,6 @@ private _posY = 0;
     _x ctrlSetPositionY _posY;
     _posY = _posY + ((ctrlPosition _x) #3) + SPACER;
     _x ctrlCommit 0;
-} forEach ((allControls _ctrlGroup) select { ctrlParentControlsGroup _x isEqualTo _ctrlGroup });
+} forEach (_ctrlGroup call FUNC(directChildCtrls));
 
 true;

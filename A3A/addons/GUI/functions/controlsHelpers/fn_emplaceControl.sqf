@@ -29,7 +29,7 @@ if (!params [
 ]) exitWith {controlNull};
 
 //get the position to place at the bottom of the list
-private _children = (allControls _parent) select { ctrlParentControlsGroup _x isEqualTo _parent };
+private _children = _parent call FUNC(directChildCtrls);
 private _count = count _children -1;
 private _yNew = if (_count < 0 ) then {0} else {
     ctrlPosition (_children # _count) params ["", "_y", "", "_h"];

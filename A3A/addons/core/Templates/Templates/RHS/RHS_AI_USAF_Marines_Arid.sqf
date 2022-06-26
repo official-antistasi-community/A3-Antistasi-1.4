@@ -40,7 +40,7 @@
 
 ["vehiclesHelisLight", ["RHS_UH1Y_UNARMED_d"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["RHS_UH1Y_UNARMED_d", "RHS_CH_47F_light", "rhsusf_CH53E_USMC_GAU21_D", "rhsusf_CH53E_USMC_D"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["RHS_AH1Z", "RHS_AH1Z_CS", "RHS_AH1Z_GS", "RHS_UH1Y_d", "RHS_UH1Y_FFAR_d", "RHS_UH1Y_d_GS"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["RHS_AH1Z", "RHS_AH1Z_CS", "RHS_AH1Z_GS", "RHS_UH1Y_d", "RHS_UH1Y_d_GS"]] call _fnc_saveToTemplate;            //  "RHS_UH1Y_FFAR_d"
 
 ["vehiclesArtillery", ["rhsusf_m109_usarmy", "rhsusf_M142_usarmy_D", "RHS_M119_D"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -70,6 +70,24 @@
 //Minefield definition
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+["vehicleAttributes", [
+    // Trash light helis
+    ["RHS_UH1Y_d", ["cost", 140]],          // rockets + door miniguns
+    ["RHS_UH1Y_d_GS", ["cost", 150]],       // more rockets
+
+    // Lunchboxes, exposed gunner, fragile
+    ["rhsusf_m113d_usarmy", ["cost", 60]],
+    ["rhsusf_m113d_usarmy_M240", ["cost", 50]],
+    ["rhsusf_m113d_usarmy_MK19", ["cost", 70]],
+
+    // Bradleys
+    ["RHS_M2A2", ["cost", 130], ["threat", 200]],
+    ["RHS_M2A3", ["cost", 130], ["threat", 200]],
+    ["RHS_M2A2_BUSKI", ["cost", 160], ["threat", 250]],
+    ["RHS_M2A3_BUSKI", ["cost", 160], ["threat", 250]],
+    ["RHS_M2A3_BUSKIII", ["cost", 190], ["threat", 300]]
+]] call _fnc_saveToTemplate;
 
 /////////////////////
 ///  Identities   ///

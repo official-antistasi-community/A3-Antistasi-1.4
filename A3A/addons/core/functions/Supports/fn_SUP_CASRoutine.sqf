@@ -12,7 +12,7 @@ sleep _sleepTime;
 private _spawnPos = (markerPos _airport);
 private _plane = createVehicle [_planeType, _spawnPos, [], 0, "FLY"];
 _plane setDir (_spawnPos getDir _suppCenter);
-_plane setPosATL (_spawnPos vectorAdd [0, 0, 1000]);
+_plane setPosATL (_spawnPos vectorAdd [0, 0, 500]);
 _plane setVelocityModelSpace [0, 150, 0];
 _plane flyInHeight 500;
 [_plane, _side, _resPool] call A3A_fnc_AIVehInit;
@@ -47,6 +47,7 @@ private _weapons = (_plane getVariable "rocketLauncher") + (_plane getVariable "
 _plane setVariable ["ammoCount", _ammoHM];
 Debug("Starting ammo: %1", _ammoHM);
 
+
 // Function to calculate ammo types/quantities to use against different vehicle types
 private _fnc_getFireMatrix =
 {
@@ -54,44 +55,17 @@ private _fnc_getFireMatrix =
     if (_targetType in FactionGet(all,"vehiclesTanks")) exitWith
     {
         Debug_1("%1 target is tank", _supportName);
-        if(_allowHeavyWeapon) exitWith
-        {[
-            [true, 25, 3, 1],
-            [true, 25, 3, 1],
-            [true, 35, 3, 1]
-        ]};
-        [
-            [true, 20, 3, 1],
-            [true, 20, 3, 1],
-            [true, 30, 3, 0]
-        ];
+        if(_allowHeavyWeapon) exitWith { [[true, 25, 3, 1], [true, 25, 3, 1], [true, 35, 3, 1]] };
+        [[true, 20, 3, 1], [true, 20, 3, 1], [true, 30, 3, 0]];
     };
     if (_targetType in FactionGet(all,"vehiclesArmor")) exitWith
     {
         Debug_1("%1 target is APC", _supportName);
-        if(_allowHeavyWeapon) exitWith
-        {[
-            [true, 30, 3, 1],
-            [true, 30, 3, 1],
-            [true, 30, 3, 0]
-        ]};
-        [
-            [true, 25, 3, 1],
-            [true, 25, 3, 0],
-            [true, 25, 3, 0]
-        ];
+        if(_allowHeavyWeapon) exitWith { [[true, 30, 3, 1], [true, 30, 3, 1], [true, 30, 3, 0]] };
+        [[true, 25, 3, 1], [true, 25, 3, 0], [true, 25, 3, 0]];
     };
-    if(_allowHeavyWeapon) exitWith
-    {[
-        [true, 35, 5, 0],
-        [true, 35, 5, 0],
-        [true, 35, 5, 0]
-    ]};
-    [
-        [true, 25, 3, 0],
-        [false, 25, 5, 0],
-        [true, 25, 3, 0]
-    ];
+    if(_allowHeavyWeapon) exitWith { [[true, 35, 5, 0], [true, 35, 5, 0], [true, 35, 5, 0]] };
+    [[true, 25, 3, 0], [false, 25, 5, 0], [true, 25, 3, 0]];
 };
 
 
@@ -117,9 +91,9 @@ _plane addEventHandler ["Fired", {
         private _airFric = getNumber (configFile >> "CfgAmmo" >> _ammo >> "airFriction");
         if (_airFric > 0) then { _airFric = _airFric * 0.002 } else { _airFric = _airFric * -1 };            // rockets use different scale
         private _travTime = (exp (_airFric*_dist) - 1) / (_airFric*_speed);         // Differential equation solution for a = fv^2
-        private _timeExp = 2 - 330*_airFric;                                        // slight fudge because airFric acts on fall rate with long travel
-        private _fallDist = 1.5 + 0.9 * (4.9 * _travTime ^ _timeExp);               // 0.9 factor is real (cos^2 incidence)
-        private _targetPos = (getPosASL _targetObj) vectorAdd [0, 0, _fallDist] vectorAdd (velocity _targetObj vectorMultiply _travTime);
+        private _timeExp = 2 - 450*_airFric;                                        // slight fudge because airFric acts on fall rate with long travel
+        private _fallDist = 0.986 * (4.9 * _travTime ^ _timeExp);                         // 0.986 is cos^2 incidence factor for 1/6 slope
+        private _targetPos = (eyePos _targetObj) vectorAdd [0, 0, _fallDist] vectorAdd (velocity _targetObj vectorMultiply _travTime);
         _aimError = _aimError + (speed _targetObj / 20) + _dist / 500;
         _targetPos = _targetPos apply {_x + (random 2 - 1) * _aimError};
         private _dir = (getPosASL _projectile) vectorFromTo _targetPos;
@@ -193,6 +167,7 @@ _plane addEventHandler ["Fired", {
     };
 }];
 
+
 //distances:
 #define DIST_REPOS 3000
 #define DIST_APPROACH 2000
@@ -205,16 +180,21 @@ private _loiterWP = _group addWaypoint [_suppCenter, 0];
 _loiterWP setWaypointSpeed "NORMAL";
 _loiterWP setWaypointType "Loiter";
 _loiterWP setWaypointLoiterRadius DIST_REPOS;
+_loiterWP setWaypointLoiterAltitude 500;
 _group setCurrentWaypoint _loiterWP;
+
+
+private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+private _baseSpotChance = 0.05 * (1 + _aggro / 100);
 
 //states:
 #define STATE_PICK_TARGET 1
 #define STATE_REPOSITION 2
 #define STATE_APPROACH 3
-#define STATE_ACQUIRE 4
 
-private _acquisition = 0;
+private _acquired = false;
 private _targetObj = objNull;
+private _lastKnownPos = [];         // PosASL
 private _timeout = time + 900;
 private _state = STATE_PICK_TARGET;
 while {true} do
@@ -240,10 +220,11 @@ while {true} do
     switch (_state) do
     {
         case STATE_PICK_TARGET: {
-            if (_plane distance2d _suppCenter > 2*DIST_REPOS) exitWith { sleep 5 };
+            if (_plane distance2d _suppCenter > 1.5*DIST_REPOS) exitWith { sleep 5 };
             if (_suppTarget isEqualTo []) exitWith { sleep 5 };
             
             _targetObj = _suppTarget select 0;
+            _lastKnownPos = ATLtoASL (_suppTarget select 1);
             if !(_targetObj call A3A_fnc_canFight) exitWith {
                 _suppTarget resize 0;
                 Debug_1("%1 skips target, as it is already dead", _supportName);
@@ -258,41 +239,43 @@ while {true} do
             private _fireMatrix = [typeof _targetObj, _heavy] call _fnc_getFireMatrix;
             _plane setVariable ["fireParams", _fireMatrix];
 
-            _acquisition = 0;
-            _state = STATE_ACQUIRE;
-        };
-
-        case STATE_ACQUIRE: {
-            // check LoS to target
-            private _targetPos = (getPosASL _targetObj) vectorAdd [0, 0, 1];
-            private _planePos = getPosASL _plane;
-            if (terrainIntersectASL [_targetPos, _planePos]) exitWith { 
-                Debug("Acquisition blocked by terrain");
-                sleep 5;
-            };
-            if (lineIntersects [_targetPos, _planePos, _targetObj, _plane]) exitWith {
-                Debug("Acquisition blocked by object");
-                sleep 5;
-            };
-            _acquisition = _acquisition + 0.1;
-            if (_acquisition > 0.5) exitWith {
-                Debug("Target acquired");
-                _state = STATE_APPROACH;
-            };
-            sleep 5;
+            _acquired = false;
+            _state = STATE_APPROACH;
         };
 
         case STATE_APPROACH: {
-            // If around 2km, start run if facing target (<25 degrees), else reposition
-            private _targetPos = (getPosASL _targetObj) vectorAdd [0, 0, 2];
-            private _targVector = _targetPos vectorDiff (getPosASL _plane);
-            if (_plane distance2d _targetObj < DIST_APPROACH+200) exitWith {
-                private _dotdir = vectorNormalized _targVector vectorDotProduct vectorDir _plane;
-                Debug_2("%1 had dotdir %2 at end of approach", _supportName, _dotdir);
-                if (_plane distance2d _targetObj < DIST_APPROACH-200 or _dotdir < 0.90) exitWith {
-                    Debug_1("%1 approach failed, switching to reposition", _supportName);
-                    _state = STATE_REPOSITION;
+            if (!_acquired) then {
+                private _targetPos = eyePos _targetObj;                 // Seems to work well even for non-turreted vehicles?
+                private _planePos = getPosASL _plane;
+                if (terrainIntersectASL [_targetPos, _planePos]) exitWith { 
+                    Debug("Acquisition blocked by terrain");
                 };
+                if (lineIntersects [_targetPos, _planePos, _targetObj, _plane]) exitWith {
+                    Debug("Acquisition blocked by object");
+                };
+
+                private _vis = 1 max getNumber (configFile >> "CfgVehicles" >> typeOf _targetObj >> "camouflage");
+                private _knownDist = _targetPos distance2d _lastKnownPos;
+                private _dist = _targetPos distance2d _planePos;
+                private _chance = _baseSpotChance * _vis * exp (_knownDist / -500) * exp (_dist / -3000);
+                if (_chance > random 1) then { _acquired = true };
+
+                Debug_4("Acquisition: vis %1, knowndist %2, dist %3, chance %4", _vis, _knownDist, _dist, _chance); 
+            };
+            if (_acquired) then { _lastKnownPos = eyePos _targetObj };
+
+            private _dist = _plane distance2d _lastKnownPos;
+            if (_dist < [300, 800] select _acquired) exitWith {
+                // If we're too close then break off and try again
+                Debug_2("%1 approach failed with %2 acquisition", _supportName, _acquired);
+                _state = STATE_REPOSITION;
+            };
+
+            if (_acquired and _dist < 2000) then {
+                // Wait until plane is pointing roughly in the right direction
+                private _targVector = _lastKnownPos vectorDiff (getPosASL _plane);
+                private _dotdir = vectorNormalized _targVector vectorDotProduct vectorDir _plane;
+                if (_dotdir < 0.90) exitWith {};
 
                 // Kick off the attack run and wait until it's done
                 _group setCurrentWaypoint _loiterWP;
@@ -305,42 +288,37 @@ while {true} do
                     Info_1("%1 out of ammo, returning to base", _supportName);
                     break;
                 };
-                sleep 2;
+                _state = STATE_REPOSITION;
+                continue;
             };
 
             // Move the approach waypoint
-            private _enterRunPos = vectorNormalized [_targVector#0, _targVector#1] vectorMultiply -DIST_APPROACH/2;
-            _enterRunPos = _enterRunPos vectorAdd [0,0,DIST_APPROACH/10] vectorAdd _targetPos;
-
-            // If something is obstructing the approach, repath
-            if (terrainIntersectASL [_targetPos, _enterRunPos]) exitWith {
-                Debug_1("%1 approach blocked, switching to reposition", _supportName);
-                _state = STATE_REPOSITION;
-            };
-
-            _setupWP setWaypointPosition [_enterRunPos, -1];
+            _setupWP setWaypointPosition [_lastKnownPos vectorAdd [0,0,50], -1];           // just aim above the target
             _group setCurrentWaypoint _setupWP;
+            _plane flyInHeight (500 * _dist / 3000);
             sleep 1;
         };
 
         case STATE_REPOSITION: {
             // if we're around 3km away and facing <100 degrees from the target, switch to approach
-            private _dist = _plane distance2d _targetObj;
-            private _targVector = (getPosASL _targetObj) vectorDiff (getPosASL _plane);
+            private _dist = _plane distance2d _lastKnownPos;
+            private _targVector = _lastKnownPos vectorDiff (getPosASL _plane);
             private _dotdir = vectorNormalized _targVector vectorDotProduct vectorDir _plane;
             if (_dist < DIST_REPOS+300 and _dist > DIST_REPOS-200 and _dotdir > -0.3) exitWith {
                 Debug_1("%1 switching to approach", _supportName); 
                 _state = STATE_APPROACH;
+                _acquired = false;
             };
 
             // Aim at point on circle that's 45 degrees clockwise from current pos
             // Larger circle 
             private _sideDir = [[_targVector#0, _targVector#1], -45] call BIS_fnc_rotateVector2D;
             private _repathPos = (vectorNormalized _sideDir) vectorMultiply -(2*DIST_REPOS - _dist);
-            _repathPos = _repathPos vectorAdd [0,0,600] vectorAdd (getPosASL _targetObj);
+            _repathPos = _repathPos vectorAdd [0,0,500] vectorAdd _lastKnownPos;
 
             _setupWP setWaypointPosition [_repathPos, -1];
             _group setCurrentWaypoint _setupWP;
+            _plane flyInHeight 500;
             sleep 2;
         };
 

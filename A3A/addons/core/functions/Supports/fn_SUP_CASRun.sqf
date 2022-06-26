@@ -91,18 +91,18 @@ private _fireParams = +(_plane getVariable "fireParams");
 _plane setVariable ["currentTarget", _target];
 
 private _enterRunPos = getPosASL _plane;
-private _targetPos = (getPosASL _target) vectorAdd [0, 0, 2];
+private _targetPos = eyePos _target;
 if(terrainIntersectASL [_enterRunPos, _targetPos]) exitWith {
     Debug_1("%1 gun way is blocked, recalculating", _supportName);
 };
 
-private _exitRunPos = _enterRunPos vectorDiff _targetPos;
-_exitRunPos = vectorNormalized [_exitRunPos#0, _exitRunPos#1] vectorMultiply 400;
-_exitRunPos = _exitRunPos vectorAdd [0,0,100] vectorAdd _targetPos;
+//private _exitRunPos = _enterRunPos vectorDiff _targetPos;
+//_exitRunPos = vectorNormalized [_exitRunPos#0, _exitRunPos#1] vectorMultiply 400;
+//_exitRunPos = _exitRunPos vectorAdd [0,0,100] vectorAdd _targetPos;
+private _exitRunPos = _targetPos vectorAdd [0,0,50];
 
 private _forwardSpeed = (velocityModelSpace _plane) select 1;
 private _timeForRun = (_enterRunPos vectorDistance _exitRunPos) / _forwardSpeed;
-private _nextPhaseInterval = 0.25;
 
 private _forward = _enterRunPos vectorFromTo _exitRunPos;
 private _speedVector = _forward vectorMultiply _forwardSpeed;
@@ -114,12 +114,20 @@ private _transform = [
         _forward, _forward,
         _upVector, _upVector, 0];
 
+// Set up intervals at which to fire
+private _fireIntervals = [1];       // dummy interval, will never be executed
+private _runDist = _plane distance2d _target;
+{ if (_runDist > _x) then { _fireIntervals pushBack (1 - _x / _runDist) } } forEach [700, 1000, 1500];
+reverse _fireIntervals;
+Debug_2("Fire intervals for run dist %1: %2", _runDist, _fireIntervals);
+
+
 addMissionEventHandler ["EachFrame",
 {
-    _thisArgs params ["_plane", "_target", "_startTime", "_timeForRun", "_transform", "_fireParams", "_fireFnc"];
+    _thisArgs params ["_plane", "_target", "_startTime", "_timeForRun", "_transform", "_fireParams", "_fireFnc", "_fireIntervals"];
     _interval = (time - _startTime) / _timeForRun;
 
-    if (!alive _target or _interval > 0.95 or !canMove _plane or isNull driver _plane) exitWith {
+    if (!alive _target or (_plane distance2d _target) < 400 or _interval > 0.95 or !canMove _plane or isNull driver _plane) exitWith {
         Debug_1("EachFrame handler terminated with interval %1", _interval);
         _transform set [8, 1];      // signal completion to the waitUntil
         removeMissionEventHandler ["EachFrame", _thisEventHandler];
@@ -128,13 +136,19 @@ addMissionEventHandler ["EachFrame",
     _transform set [8, _interval];
     _plane setVelocityTransformation _transform;
 
-/*
-    // Shortened version of code below
-    if (_interval > 1 - 0.25*(count _fireParams)) then {            // fire at 0.25, 0.5, 0.75
+    if (_interval > _fireIntervals#0) then {
         if (_fireParams#0#0) then { [_plane, _fireParams#0] spawn _fireFnc };
         _fireParams deleteAt 0;
+        _fireIntervals deleteAt 0;
     };
-*/
+
+}, [_plane, _target, time, _timeForRun, _transform, _fireParams, _fnc_executeWeaponFire, _fireIntervals]];
+
+waitUntil { sleep 1; _transform#8 >= 1 };
+
+Debug_1("Gun run for %1 finished, returning control", _supportName);
+
+/*
     if(_interval > 0.25 && (_fireParams#0#0)) then
     {
         Debug_1("Rounds to fire in first phase: %1", _fireParams#0);
@@ -160,10 +174,6 @@ addMissionEventHandler ["EachFrame",
         [_plane, _fireParams#2] spawn _fireFnc;
         (_fireParams#2) set [0, false];
     };
-}, [_plane, _target, time, _timeForRun, _transform, _fireParams, _fnc_executeWeaponFire]];
-
-waitUntil { sleep 1; _transform#8 >= 1 };
 
 Debug_3("Rounds unfired in third phase: %1, %2, %3", _plane getVariable "mainGunShots", _plane getVariable "rocketShots", _plane getVariable "missileShots");
-
-Debug_1("Gun run for %1 finished, returning control", _supportName);
+*/

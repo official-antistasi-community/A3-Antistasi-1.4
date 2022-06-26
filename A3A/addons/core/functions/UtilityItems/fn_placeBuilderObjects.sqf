@@ -26,7 +26,7 @@ private _constructionObjects = ["Land_WoodenPlanks_01_pine_F",
 //check if the buildList is empty or not?
 if (isNil "A3A_notBuiltObjectList") then {
 	A3A_notBuiltObjectList = [];
-}
+};
 	
 {
 	private _className = _x # 0;

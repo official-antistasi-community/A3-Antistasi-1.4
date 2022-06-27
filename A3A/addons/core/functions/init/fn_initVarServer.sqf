@@ -47,34 +47,18 @@ DECLARE_SERVER_VAR(distanceSPWN2, distanceSPWN*0.5);
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
 DECLARE_SERVER_VAR(distanceForLandAttack, if (A3A_hasIFA) then {5000} else {3000});
-//Max units we aim to spawn in. It's not very strictly adhered to.
-//DECLARE_SERVER_VAR(maxUnits, 140);
+//Max units we aim to spawn in. Unused now.
+DECLARE_SERVER_VAR(maxUnits, 140);
 
 //Disabled DLC according to server parameters
 DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
 
-//Legacy tool for scaling AI difficulty. Could use a rewrite.
-DECLARE_SERVER_VAR(difficultyCoef, if !(isMultiplayer) then {0} else {floor ((({side group _x == teamPlayer} count (call A3A_fnc_playableUnits)) - ({side group _x != teamPlayer} count (call A3A_fnc_playableUnits))) / 5)});
-
+//Legacy tool for scaling AI difficulty. Should die.
+DECLARE_SERVER_VAR(difficultyCoef, 0);
 
 //Mostly state variables, used by various parts of Antistasi.
 DECLARE_SERVER_VAR(bigAttackInProgress, false);
 DECLARE_SERVER_VAR(AAFpatrols,0);
-DECLARE_SERVER_VAR(smallCAmrk, []);
-DECLARE_SERVER_VAR(smallCApos, []);
-
-DECLARE_SERVER_VAR(attackPos, []);
-DECLARE_SERVER_VAR(attackMrk, []);
-DECLARE_SERVER_VAR(airstrike, []);
-
-//Variables used for the internal support system
-DECLARE_SERVER_VAR(occupantsSupports, []);
-DECLARE_SERVER_VAR(invadersSupports, []);
-
-DECLARE_SERVER_VAR(supportTargetsChanging, false);
-
-DECLARE_SERVER_VAR(occupantsRadioKeys, 0);
-DECLARE_SERVER_VAR(invaderRadioKeys, 0);
 
 //Vehicles currently in the garage
 DECLARE_SERVER_VAR(vehInGarage, []);
@@ -103,7 +87,7 @@ DECLARE_SERVER_VAR(A3A_taskCount, 0);
 //List of statics (MGs, AA, etc) that will be saved and loaded.
 DECLARE_SERVER_VAR(staticsToSave, []);
 //Whether the players have access to radios.
-DECLARE_SERVER_VAR(haveRadio, call A3A_fnc_checkRadiosUnlocked);
+DECLARE_SERVER_VAR(haveRadio, false);
 //List of vehicles that are reported (I.e - Players can't go undercover in them)
 DECLARE_SERVER_VAR(reportedVehs, []);
 //Currently destroyed buildings.
@@ -125,12 +109,44 @@ Info("Setting server only variables");
 
 playerStartingMoney = 100;			// should probably be a parameter
 
+// horrible naming
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
-// Indicates time in seconds before next counter attack.
-attackCountdownOccupants = 600;
-attackCountdownInvaders = 600;
 
+// Don't need to be distributed
+occupantsRadioKeys = 0;
+invaderRadioKeys = 0;
+
+// Recent casualties/damage taken by enemies, format [X, Y, time * 1000 + value]
+A3A_recentDamageOcc = [];
+A3A_recentDamageInv = [];
+
+// Balance params updated by aggressionUpdateLoop
+A3A_activePlayerCount = 1;
+A3A_balancePlayerScale = 1;
+A3A_balanceVehicleCost = 110;
+A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;
+
+// Define these here in case people want to change it live
+A3A_invaderDefenceMul = 1.5;
+A3A_invaderAttackMul = 1.5;
+
+// Current resources, overwritten by saved game
+A3A_resourcesDefenceOcc = A3A_balanceResourceRate * 3;													// 30% of max
+A3A_resourcesDefenceInv = A3A_balanceResourceRate * A3A_invaderDefenceMul * 6;							// 60% of max
+A3A_resourcesAttackOcc = -A3A_balanceResourceRate * A3A_enemyattackMul;									// ~100 min to attack
+A3A_resourcesAttackInv = -A3A_balanceResourceRate * A3A_enemyattackMul * A3A_invaderAttackMul * 0.5;	// ~50 min to attack
+
+// HQ knowledge values
+A3A_curHQInfoOcc = 0;			// 0-1 ranges for current HQ
+A3A_curHQInfoInv = 0;
+A3A_oldHQInfoOcc = [];			// arrays of [xpos, ypos, knowledge]
+A3A_oldHQInfoInv = [];
+
+// Used by createAIAction for... something
+attackMrk = [];
+
+// These are silly, should be nil/true and local-defined only
 cityIsSupportChanging = false;
 resourcesIsChanging = false;
 savingServer = false;
@@ -356,6 +372,55 @@ private _vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F"
 DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 DECLARE_SERVER_VAR(A3A_vehClassToCrew,call A3A_fnc_initVehClassToCrew);
 
+// Hardcoded vehicle values here for the moment
+// Ideally allow some templates variation later
+
+//#define OccAndInv(VAR) (FactionGetOrDefault(occ, VAR, []) + FactionGetOrDefault(inv, VAR, []))
+
+private _vehicleResourceCosts = createHashMap;
+
+{ _vehicleResourceCosts set [_x, 20] } forEach FactionGet(all, "vehiclesLightUnarmed") + FactionGet(all, "vehiclesTrucks");
+{ _vehicleResourceCosts set [_x, 50] } forEach FactionGet(all, "vehiclesLightArmed");
+{ _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesAPCs");
+{ _vehicleResourceCosts set [_x, 160] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery");
+{ _vehicleResourceCosts set [_x, 230] } forEach FactionGet(all, "vehiclesTanks");
+
+// could maybe increase price of transport planes due to higher effectiveness?
+{ _vehicleResourceCosts set [_x, 70] } forEach FactionGet(all, "vehiclesHelisLight");
+{ _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesHelisTransport") + FactionGet(all, "vehiclesPlanesTransport");
+{ _vehicleResourceCosts set [_x, 300] } forEach FactionGet(all, "vehiclesPlanesCAS") + FactionGet(all, "vehiclesPlanesAA");
+{ _vehicleResourceCosts set [_x, 300] } forEach FactionGet(all, "vehiclesHelisAttack");
+
+
+// Threat table
+private _groundVehicleThreat = createHashMap;
+
+{ _groundVehicleThreat set [_x, 40] } forEach FactionGet(all, "staticMG");
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "vehiclesLightArmed");
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars") + [FactionGet(Reb, "vehicleAT")];
+
+{ _groundVehicleThreat set [_x, 140] } forEach FactionGet(all, "vehiclesAPCs");
+{ _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery");
+{ _groundVehicleThreat set [_x, 300] } forEach FactionGet(all, "vehiclesTanks");
+
+
+// Template overrides
+private _overrides = FactionGet(Occ, "vehicleAttributes") + FactionGet(Inv, "vehicleAttributes");
+{
+	private _vehType = _x select 0;
+	{
+		if !(_x isEqualType []) then { continue };		// first entry is classname
+		_x params ["_attr", "_val"];
+		call {
+			if (_attr == "threat") then { _groundVehicleThreat set [_vehType, _val] };
+			if (_attr == "cost") exitWith { _vehicleResourceCosts set [_vehType, _val] };
+		};
+	} forEach _x;
+} forEach _overrides;
+
+DECLARE_SERVER_VAR(A3A_vehicleResourceCosts, _vehicleResourceCosts);
+DECLARE_SERVER_VAR(A3A_groundVehicleThreat, _groundVehicleThreat);
+
 ///////////////////////////
 //     MOD TEMPLATES    ///
 ///////////////////////////
@@ -386,29 +451,6 @@ Info("Creating pricelist");
 {server setVariable [_x,75,true]} forEach [FactionGet(reb,"unitMG"), FactionGet(reb,"unitGL"), FactionGet(reb,"unitLAT")];
 {server setVariable [_x,100,true]} forEach [FactionGet(reb,"unitMedic"), FactionGet(reb,"unitExp"), FactionGet(reb,"unitEng")];
 {server setVariable [_x,150,true]} forEach [FactionGet(reb,"unitSL"), FactionGet(reb,"unitSniper")];
-
-{timer setVariable [_x,3,true]} forEach (FactionGet(occ,"staticAT") + FactionGet(occ,"staticAA"));
-{timer setVariable [_x,6,true]} forEach (FactionGet(inv,"staticAT") + FactionGet(inv,"staticAA"));
-{timer setVariable [_x,0,true]} forEach FactionGet(occ,"vehiclesAPCs");
-{timer setVariable [_x,10,true]} forEach FactionGet(inv,"vehiclesAPCs");
-{timer setVariable [_x,0,true]} forEach FactionGet(occ,"vehiclesTanks");
-{timer setVariable [_x,10,true]} forEach FactionGet(inv,"vehiclesTanks");
-{timer setVariable [_x,0,true]} forEach FactionGet(occ,"vehiclesAA");
-{timer setVariable [_x,3,true]} forEach FactionGet(inv,"vehiclesAA");
-{timer setVariable [_x,3,true]} forEach FactionGet(occ,"vehiclesGunBoats");
-{timer setVariable [_x,3,true]} forEach FactionGet(inv,"vehiclesGunBoats");
-{timer setVariable [_x,0,true]} forEach FactionGet(occ,"vehiclesPlanesCAS");
-{timer setVariable [_x,10,true]} forEach FactionGet(inv,"vehiclesPlanesCAS");
-{timer setVariable [_x,0,true]} forEach FactionGet(occ,"vehiclesPlanesAA");
-{timer setVariable [_x,10,true]} forEach FactionGet(inv,"vehiclesPlanesAA");
-{timer setVariable [_x,1,true]} forEach FactionGet(occ,"vehiclesPlanesTransport");
-{timer setVariable [_x,1,true]} forEach FactionGet(occ,"vehiclesHelisTransport");
-{timer setVariable [_x,10,true]} forEach FactionGet(inv,"vehiclesPlanesTransport");
-{timer setVariable [_x,10,true]} forEach FactionGet(inv,"vehiclesHelisTransport");
-{timer setVariable [_x,0,true]} forEach FactionGet(occ,"vehiclesHelisAttack");
-{timer setVariable [_x,10,true]} forEach FactionGet(inv,"vehiclesHelisAttack");
-{timer setVariable [_x,0,true]} forEach FactionGet(occ, "vehiclesArtillery");
-{timer setVariable [_x,5,true]} forEach FactionGet(inv, "vehiclesArtillery");
 
 server setVariable [FactionGet(reb,"vehicleCivCar"),200,true];
 server setVariable [FactionGet(reb,"vehicleCivTruck"),600,true];

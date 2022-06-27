@@ -29,13 +29,17 @@ A3A_paramTable = [
     ["autoSave", "autoSave", [], true],
     ["autoSaveInterval", "autoSaveInterval", [], 3600],
     ["distanceMission", "mRadius", [], 4000],
-    ["skillMult", "AISkill", [], 2],
     ["civTraffic", "civTraffic", [], 2],
     ["limitedFT", "allowFT", [], true],									// backwards naming...
-    ["napalmEnabled", "napalmEnabled", [], false],
     ["playerMarkersEnabled", "pMarkers", [], true],
+
     ["allowUnfairSupports", "allowUnfairSupports", [], false],
     ["allowFuturisticSupports", "allowFuturisticSupports", [], false],
+    ["A3A_enemybalanceMul", "enemyBalanceMul", [], 10],
+    ["A3A_enemyAttackMul", "enemyAttackMul", [], 10],
+    ["A3A_attackMissionDistMul", "attackMissionDistMul", [], 2],
+    ["skillMult", "AISkill", [], 2],
+    ["napalmEnabled", "napalmEnabled", [], true],
 
     ["allowDLCKart", "Kart", ["server"], false],
     ["allowDLCMark", "Mark", ["server"], false],
@@ -95,7 +99,7 @@ A3A_paramTable = [
     // Not visible parameters yet, but otherwise handled the same way
     ["distanceSPWN", "", ["oldsave"], 1000],
     ["civPerc", "", ["oldsave"], 5],
-    ["maxUnits", "", ["oldsave"], 140],
+    ["maxUnits", "", ["oldsave"], 140],         // hopefully dead
     ["minPlayersRequiredForPVP", "", [], 2]
 
     // beware of the comma

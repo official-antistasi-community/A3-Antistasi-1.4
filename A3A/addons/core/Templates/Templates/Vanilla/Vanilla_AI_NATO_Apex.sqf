@@ -26,7 +26,7 @@
 ["vehiclesRepairTrucks", ["B_T_Truck_01_Repair_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["B_T_Truck_01_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["B_T_Truck_01_medical_F"]] call _fnc_saveToTemplate;
-private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F", "B_T_APC_Tracked_01_CRV_F"];
+private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"];           // CRV has no cargo: "B_T_APC_Tracked_01_CRV_F"
 ["vehiclesTanks", ["B_T_MBT_01_TUSK_F", "B_T_MBT_01_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["B_T_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 
@@ -76,6 +76,10 @@ if (allowDLCWS && A3A_hasWS) then {
     _APCs append ["B_T_APC_Wheeled_01_atgm_lxWS", "B_T_APC_Wheeled_01_command_lxWS"];
 };
 ["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
+
+["vehicleAttributes", [
+    ["B_Heli_Light_01_armed_F", ["cost", 100]]
+] call _fnc_saveToTemplate;
 
 /////////////////////
 ///  Identities   ///

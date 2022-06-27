@@ -7,16 +7,15 @@ private _playerNear = false;
 private _group = group _unit;
 private _side = side _group;
 
+// This is... quite weird
 if ({if ((isPlayer _x) and (_x distance _unit < distanceSPWN2)) exitWith {1}} count allUnits != 0) then
 {
 	_playerNear = true;
 	[_unit,"heal"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-	[_unit,true] remoteExec ["setCaptive"];
 	_unit setCaptive true;
 };
 
-_unit setFatigue 1;
-[_group,_injurer] spawn A3A_fnc_AIreactOnKill;
+_unit setFatigue 1;			// Doesn't do anything since Arma stamina rework?
 
 while
 {

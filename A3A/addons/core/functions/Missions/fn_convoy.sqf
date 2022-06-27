@@ -3,7 +3,7 @@ FIX_LINE_NUMBERS()
 
 //Mission: Capture/destroy the convoy
 if (!isServer and hasInterface) exitWith {};
-params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""], ["_startDelay", -1]];
+params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""], ["_resPool", "legacy"], ["_startDelay", -1]];
 
 private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
@@ -22,14 +22,14 @@ private _reinforcementsX = [];
 
 // Setup start time
 
-if (_startDelay < 0) then { _startDelay = random 5 + ([15, 5] select _difficult) }; 		// start delay, 5-10 or 15-20 mins real time
+if (_startDelay < 0) then { _startDelay = random 5 + ([10, 5] select _difficult) }; 		// start delay, 5-10 or 15-20 mins real time
 private _startDateNum = dateToNumber date + _startDelay * timeMultiplier / (365*24*60);
 private _startDate = numberToDate [date select 0, _startDateNum];
 private _displayTime = [_startDate] call A3A_fnc_dateToTimeString;
 
 private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _nameOrigin = [_mrkOrigin] call A3A_fnc_localizar;
-[_mrkOrigin, 30] call A3A_fnc_addTimeForIdle;
+[_mrkOrigin, _startDelay + 5] call A3A_fnc_addTimeForIdle;
 
 
 // Determine convoy type from destination
@@ -127,9 +127,9 @@ private _route = [_posOrigin, _posDest] call A3A_fnc_findPath;
 _route = _route apply { _x select 0 };			// reduce to position array
 if (_route isEqualTo []) then { _route = [_posOrigin, _posDest] };
 
-private _vehPool = [_sideX, ["Air"]] call A3A_fnc_getVehiclePoolForQRFs;
+private _vehPool = ([_sideX, tierWar] call A3A_getVehiclesGroundTransport) + ([_sideX, tierWar] call A3A_getVehiclesGroundSupport);
 private _pathState = [];			// Set the scope so that state is preserved between findPosOnRoute calls
-
+private _resourcesSpent = 0;
 
 // Spawning worker functions
 
@@ -151,12 +151,12 @@ private _fnc_spawnConvoyVehicle = {
     _veh allowDamage false;
 
     private _group = [_sideX, _veh] call A3A_fnc_createVehicleCrew;
-    { [_x] call A3A_fnc_NATOinit; _x allowDamage false; } forEach (units _group);
+    { [_x, nil, nil, _resPool] call A3A_fnc_NATOinit; _x allowDamage false; } forEach (units _group);
     _soldiers append (units _group);
     (driver _veh) stop true;
     deleteWaypoint [_group, 0];													// groups often start with a bogus waypoint
 
-    [_veh, _sideX] call A3A_fnc_AIVEHinit;
+    [_veh, _sideX, _resPool] call A3A_fnc_AIVEHinit;
     if (_vehType in FactionGet(all,"vehiclesArmor")) then { _veh allowCrewInImmobile true };			// move this to AIVEHinit at some point?
     _vehiclesX pushBack _veh;
     _markNames pushBack _markName;
@@ -170,7 +170,7 @@ private _fnc_spawnEscortVehicle = {
     private _typeGroup = [_typeVehEsc, _sideX] call A3A_fnc_cargoSeats;
     if (count _typeGroup == 0) exitWith {};
     private _groupEsc = [_posSpawn, _sideX, _typeGroup] call A3A_fnc_spawnGroup;				// Unit limit?
-    {[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh;} forEach units _groupEsc;
+    {[_x, nil, nil, _resPool] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh;} forEach units _groupEsc;
     _soldiers append (units _groupEsc);
 };
 
@@ -208,7 +208,7 @@ if (_convoyType == "Reinforcements") then
 {
     private _typeGroup = [_typeVehObj,_sideX] call A3A_fnc_cargoSeats;
     private _groupEsc = [_posSpawn,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
-    {[_x] call A3A_fnc_NATOinit;_x assignAsCargo _vehObj;_x moveInCargo _vehObj;} forEach units _groupEsc;
+    {[_x, nil, nil, _resPool] call A3A_fnc_NATOinit;_x assignAsCargo _vehObj;_x moveInCargo _vehObj;} forEach units _groupEsc;
     _soldiers append (units _groupEsc);
     _reinforcementsX append (units _groupEsc);
 };
@@ -235,6 +235,13 @@ sleep 2;
 private _typeVehX = selectRandom (if (_sideX == Occupants && _isMilitia) then {_faction get "vehiclesPolice"} else {_faction get "vehiclesLightArmed"});
 private _vehLead = [_typeVehX, "Convoy Lead"] call _fnc_spawnConvoyVehicle;
 
+// Apply convoy resource cost, if it's from attack or defence pool
+if (_resPool != "legacy") then {
+    private _resources = 10 * count _soldiers;
+    { _resources = _resources + A3A_vehicleResourceCosts getOrDefault [typeOf _x, 0] } forEach _vehiclesX;
+    [-_resources, _sideX, _resPool] remoteExec ["A3A_fnc_addEnemyResources", 2];
+};
+
 // Remove spawn-suicide protection
 sleep 2;
 {_x allowDamage true} forEach _vehiclesX;
@@ -251,6 +258,7 @@ ServerInfo("Convoy mission under way");
 // This array is used to share remaining convoy vehicles between threads
 private _convoyVehicles = +_vehiclesX;
 reverse _convoyVehicles;
+reverse _markNames;
 {
     (driver _x) stop false;
     [_x, _route, _convoyVehicles, 30, _x == _vehObj] spawn A3A_fnc_vehicleConvoyTravel;

@@ -71,6 +71,27 @@
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
 
+["vehiclesAPCs", ["rhsusf_M1117_D", "rhsusf_stryker_m1126_m2_d", "rhsusf_stryker_m1126_mk19_d", "rhsusf_stryker_m1127_m2_d", "rhsusf_stryker_m1132_m2_np_d", "rhsusf_m113d_usarmy", "rhsusf_m113d_usarmy_M240", "rhsusf_m113d_usarmy_MK19", "RHS_M2A2", "RHS_M2A2_BUSKI", "RHS_M2A3", "RHS_M2A3_BUSKI", "RHS_M2A3_BUSKIII"]] call _fnc_saveToTemplate;
+
+["vehicleAttributes", [
+    // Trash light helis
+    ["RHS_MELB_AH6M", ["cost", 100]],
+    ["RHS_MELB_AH6M_M", ["cost", 100]],
+    ["RHS_MELB_AH6M_H", ["cost", 150]],     // has 2x Hellfire
+
+    // Lunchboxes, exposed gunner, fragile
+    ["rhsusf_m113d_usarmy", ["cost", 60]],
+    ["rhsusf_m113d_usarmy_M240", ["cost", 50]],
+    ["rhsusf_m113d_usarmy_MK19", ["cost", 70]],
+
+    // Bradleys
+    ["RHS_M2A2", ["cost", 130], ["threat", 200]],
+    ["RHS_M2A3", ["cost", 130], ["threat", 200]],
+    ["RHS_M2A2_BUSKI", ["cost", 160], ["threat", 250]],
+    ["RHS_M2A3_BUSKI", ["cost", 160], ["threat", 250]],
+    ["RHS_M2A3_BUSKIII", ["cost", 190], ["threat", 300]]
+]] call _fnc_saveToTemplate;
+
 /////////////////////
 ///  Identities   ///
 /////////////////////

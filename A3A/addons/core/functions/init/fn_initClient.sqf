@@ -24,8 +24,8 @@ if (!isServer) then {
 
 // Headless clients install some support functions, register with the server and bail out
 if (!hasInterface) exitWith {
-	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
+	call A3A_fnc_initFuncs;
 	call A3A_fnc_loadNavGrid;
     Info_1("Headless client version: %1",QUOTE(VERSION));
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
@@ -40,8 +40,8 @@ player setVariable ["canSave", false, true];
 
 if (!isServer) then {
 	waitUntil {!isNil "initParamsDone"};
-	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
+	call A3A_fnc_initFuncs;
     Info_1("MP client version: %1",QUOTE(VERSION));
 }
 else {
@@ -82,6 +82,7 @@ if (isMultiplayer && {playerMarkersEnabled}) then {
 [player] spawn A3A_fnc_initRevive;		// with ACE medical, only used for helmet popping & TK checks
 [] spawn A3A_fnc_outOfBounds;
 [] spawn A3A_fnc_darkMapFix;
+[] spawn A3A_fnc_clientIdleChecker;
 
 if (!A3A_hasACE) then {
 	[] spawn A3A_fnc_tags;

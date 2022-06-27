@@ -19,25 +19,20 @@ if (_captured && (_side == _sideEnemy)) exitWith {};
 private _act = if (_captured) then {"captured"} else {"destroyed"};
 ServerDebug_4("%1 of %2 %3 by %4", _type, _side, _act, _sideEnemy);
 
-if (_side == Occupants or _side == Invaders) then
+private _vehCost = A3A_vehicleResourceCosts getOrDefault [_type, 0];
+if ((_side == Occupants or _side == Invaders) and _vehCost > 0) then
 {
-	_type remoteExecCall ["A3A_fnc_removeVehFromPool", 2];
+	if (_veh getVariable ["A3A_resPool", "legacy"] == "legacy") then {
+		// Vehicle not pre-resourced, deplete both pools
+		[-_vehCost, _side, "legacy"] remoteExecCall ["A3A_fnc_addEnemyResources", 2];
+	};
+	[_side, getPos _veh, 2*_vehCost/3] remoteExec ["A3A_fnc_addRecentDamage", 2];		// other third applied in HandleDamage
+
 	if (_sideEnemy != teamPlayer) exitWith {};
 
-	private _value = call {
-		if (_type in FactionGet(all,"vehiclesAPCs")) exitWith {5};
-		if (_type in FactionGet(all,"vehiclesTanks")) exitWith {10};
-		if (_type in FactionGet(all,"vehiclesAA") or _type in FactionGet(all,"vehiclesArtillery")) exitWith {10};
-		if (_type in FactionGet(all,"vehiclesHelisAttack")) exitWith {10};
-		if (_type in FactionGet(all,"vehiclesTransportAir")) exitWith {4};
-		if (_type in FactionGet(all,"vehiclesFixedWing")) exitWith {10};		// transportAir must be before this
-		if (_type isKindOf "StaticWeapon") exitWith {1};
-		2;		// trucks, light attack, boats, UAV etc
-	};
-
-    [_side, _value, 45] remoteExec ["A3A_fnc_addAggression", 2];
+    [_side, round (_vehCost / 50), 45] remoteExec ["A3A_fnc_addAggression", 2];
 	if (_side == Occupants) then {
-		[-_value/3, _value/3, position _veh] remoteExec ["A3A_fnc_citySupportChange", 2];
+		[-_vehCost / 100, _vehCost / 100, position _veh] remoteExec ["A3A_fnc_citySupportChange", 2];
 	};
 };
 

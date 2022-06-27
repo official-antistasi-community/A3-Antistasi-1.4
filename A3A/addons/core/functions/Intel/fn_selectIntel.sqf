@@ -3,6 +3,7 @@
 #define TIME_LEFT       101
 #define DECRYPTION_KEY  102
 #define CONVOY          103
+#define DEF_RESOURCES   104
 
 //Define results for medium intel
 #define ACCESS_ARMOR    200
@@ -10,6 +11,7 @@
 #define ACCESS_HELI     202
 #define CONVOYS         203
 #define COUNTER_ATTACK  204
+#define KEY_PACK        205
 
 //Define results for large intel
 #define WEAPON          300
@@ -42,9 +44,9 @@ private _text = "";
 private _sideName = _faction get "name";
 private _intelContent = "";
 
-if(_intelType == "Small") then
+if (_intelType == "Small") then
 {
-    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.3, DECRYPTION_KEY, 0.35, CONVOY, 0.35];
+    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.2, DEF_RESOURCES, 0.2, DECRYPTION_KEY, 0.6, CONVOY, 0];
     switch (_intelContent) do
     {
         case (TROOPS):
@@ -54,40 +56,51 @@ if(_intelType == "Small") then
         };
         case (TIME_LEFT):
         {
-            private _nextAttack = 0;
-            if(_side == Occupants) then
-            {
-                _nextAttack = attackCountdownOccupants + (random 600) - 300;
-            }
-            else
-            {
-                _nextAttack = attackCountdownInvaders + (random 600) - 300;
-            };
-            if(_nextAttack < 300) then
+            private _atkRes = [A3A_resourcesAttackOcc, A3A_resourcesAttackInv] select (_side == Invaders);
+            private _atkResRate = A3A_balanceResourceRate * A3A_enemyAttackMul / 100;           // per minute
+            if (_side == Invaders) then { _atkResRate = _atkResRate * A3A_invaderAttackMul };
+
+            private _nextAttack = (0.7 + random 0.6) * (-_atkRes / _atkResRate);
+            if(_nextAttack < 5) then
             {
                 _text = format ["%1 attack is imminent!", _sideName];
             }
             else
             {
-                _text = format ["%1 attack expected in %2 minutes", _sideName, round (_nextAttack / 60)];
+                _text = format ["%1 attack expected in %2 minutes", _sideName, round (_nextAttack)];
             };
+        };
+        case (DEF_RESOURCES):
+        {
+            private _defRes = [A3A_resourcesDefenceOcc, A3A_resourcesDefenceInv] select (_side == Invaders);
+            private _defResCap = A3A_balanceResourceRate * 10;
+            if (_side == Invaders) then { _defResCap = _defResCap * A3A_invaderDefenceMul };
+
+            private _fraction = _defRes / _defResCap;
+            private _fmt = call {
+                if (_fraction > 0.75) exitWith { "%1 has plenty of defence reserves available" };
+                if (_fraction > 0.50) exitWith { "%1 has moderate defence reserves available" };
+                if (_fraction > 0.25) exitWith { "%1 is short on defence reserves" };
+                if (_fraction > 0.00) exitWith { "%1 has almost no defence reserves left" };
+                "%1 is completely out of defence reserves!";
+            };
+            _text = format [_fmt, _sideName];
         };
         case (DECRYPTION_KEY):
         {
             if(_side == Occupants) then
             {
                 occupantsRadioKeys = occupantsRadioKeys + 1;
-                publicVariable "occupantsRadioKeys";
             }
             else
             {
                 invaderRadioKeys = invaderRadioKeys + 1;
-                publicVariable "invaderRadioKeys";
             };
-            _text = format ["You found a %1 decryption key!<br/>It allows your faction to fully decrypt the next support call.", _sideName];
+            _text = format ["We found a %1 decryption key!<br/>It allows us to fully decrypt the next support call.", _sideName];
         };
         case (CONVOY):
         {
+            // These aren't active at the moment
             private _convoyMarker = "";
             [] call A3A_fnc_cleanConvoyMarker;
             if(_side == Occupants) then
@@ -110,11 +123,27 @@ if(_intelType == "Small") then
         };
     };
 };
-if(_intelType == "Medium") then
+
+if (_intelType == "Medium") then
 {
-    _intelContent = selectRandomWeighted [ACCESS_AIR, 0.2, ACCESS_HELI, 0.3, ACCESS_ARMOR, 0.3, CONVOYS, 0.2, COUNTER_ATTACK, 0];
+    _intelContent = selectRandomWeighted [KEY_PACK, 1, ACCESS_AIR, 0, ACCESS_HELI, 0, ACCESS_ARMOR, 0, CONVOYS, 0, COUNTER_ATTACK, 0];
     switch (_intelContent) do
     {
+        case (KEY_PACK):
+        {
+            private _keyCount = round (3 + random 3);
+            if(_side == Occupants) then
+            {
+                occupantsRadioKeys = occupantsRadioKeys + _keyCount;
+            }
+            else
+            {
+                invaderRadioKeys = invaderRadioKeys + _keyCount;
+            };
+            _text = format ["You found a package of %1 decryption keys!<br/>They allow your faction to decrypt support calls.", _sideName];
+        };
+/*
+        // These are meaningless at the moment
         case (ACCESS_AIR):
         {
             _text = format ["%1 currently has access to<br/>%2", _sideName, ([_side, ACCESS_AIR] call A3A_fnc_getVehicleIntel)];
@@ -127,6 +156,7 @@ if(_intelType == "Medium") then
         {
             _text = format ["%1 currently has access to<br/>%2", _sideName, ([_side, ACCESS_ARMOR] call A3A_fnc_getVehicleIntel)];
         };
+*/
         case (CONVOYS):
         {
             [] call A3A_fnc_cleanConvoyMarker;
@@ -149,8 +179,10 @@ if(_intelType == "Medium") then
             //Not yet implemented, needs a rework of the attack script
         };
     };
+
 };
-if(_intelType == "Large") then
+
+if (_intelType == "Large") then
 {
     if("AS" in A3A_activeTasks) then
     {
@@ -164,7 +196,7 @@ if(_intelType == "Large") then
     {
         case (TRAITOR):
         {
-            _text = "You found data on the family of the traitor, we don't think he will do any more trouble";
+            _text = "You found incriminating data on the traitor, we don't think he will cause any more trouble";
             traitorIntel = true; publicVariable "traitorIntel";
         };
         case (WEAPON):
@@ -185,4 +217,4 @@ if(_intelType == "Large") then
     };
 };
 
-_text;
+[_text] remoteExec ["A3A_fnc_showIntel", 0];

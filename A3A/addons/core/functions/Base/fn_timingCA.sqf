@@ -14,6 +14,15 @@
 
 params ["_timeToAdd", "_side"];
 
+// Function is obsolete but still used by mission rewards
+// for now, fudge some effect on attack/defence resources
+
+if (_timeToAdd < 0) exitWith {};
+[-_timeToAdd/10, _side, "defence"] call A3A_fnc_addEnemyResources;
+[-_timeToAdd/10, _side, "attack"] call A3A_fnc_addEnemyResources;
+if (true) exitWith {};
+
+/*
 if (isNil "_timeToAdd") exitWith {};
 if !(_timeToAdd isEqualType 0) exitWith {};
 
@@ -55,3 +64,4 @@ if(_side == Invaders) then
     attackCountdownInvaders = attackCountdownInvaders + _timeToAdd;
     publicVariable "attackCountdownInvaders";
 };
+*/

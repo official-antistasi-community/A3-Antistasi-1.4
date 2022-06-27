@@ -82,15 +82,15 @@ if (_unitSide == Occupants) then {
 	[0, 1, getPos _unit] remoteExec ["A3A_fnc_citySupportChange", 2];
 };
 
-// check for zone capture
 private _markerX = _unit getVariable "markerX";
-if (!isNil "_markerX") then { [_markerX, _unitSide] remoteExec ["A3A_fnc_zoneCheck",2] };
+if (!isNil "_markerX") then { [_markerX, _unitSide] remoteExec ["A3A_fnc_zoneCheck", 2] };
+
 
 // timed cleanup functions
 [_unit] spawn A3A_fnc_postmortem;
 [_boxX] spawn A3A_fnc_postmortem;
 
-sleep 2;				// Also protects against box kills
+sleep 3;				// Also protects against box kills
 _unit allowDamage true;
 _unit addEventHandler ["HandleDamage", {
 	// If unit gets injured after the delay, run away

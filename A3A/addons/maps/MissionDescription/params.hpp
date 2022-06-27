@@ -102,13 +102,6 @@ class Params
         texts[] = {"Load from save (Default: Yes)","Yes","No"};
         default = 9999;
     };
-    class AISkill
-    {
-        title = "Mission Difficulty";
-        values[] = {9999,1,2,3};
-        texts[] = {"Load from save (Default: Normal)","Easy","Normal","Hard"};
-        default = 9999;
-    };
     class unlockItem
     {
         title = "Number of the same item required to unlock";
@@ -149,13 +142,6 @@ class Params
         title = "Fast Travel Targets Allowed";
         values[] = {9999,0,1};
         texts[] = {"Load from save (Default: Airports & HQ)","Any friendly position","Only Airports & HQ"};
-        default = 9999;
-    };
-    class napalmEnabled
-    {
-        title = "Enable Napalm Bombing for AI";
-        values[] = {9999,0,1};
-        texts[] = {"Load from save (Default: No)","No","Yes"};
         default = 9999;
     };
     class unlockedUnlimitedAmmo
@@ -219,6 +205,69 @@ class Params
         title = "Loot to crate: transfers unlocked items";
         values[] = {9999, 0, 1};
         texts[] = {"Load from save (Default: Disabled)", "Disabled", "Enabled"};
+        default = 9999;
+    };
+    class SpacerBalance
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class BalanceOptions
+    {
+        title = "BALANCE OPTIONS";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class enemyBalanceMul
+    {
+        title = "Overall enemy resource balance";
+        values[] = {9999,3,5,7,10,14,20,28};
+        texts[] =  {"Load from save (Default: Normal)","Trivial","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
+        default = 9999;
+    };
+    class enemyAttackMul
+    {
+        title = "Enemy attack resource balance (relative to overall balance)";
+        values[] = {9999,3,5,7,10,14,20,28};
+        texts[] =  {"Load from save (Default: Normal)","Trivial","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
+        default = 9999;
+    };
+    class attackMissionDistMul
+    {
+        title = "Enemy preference for attacking rebel targets within mission distance";
+        values[] = {9999,1,2,3,5};
+        texts[] =  {"Load from save (Default: 2x)","No change","2x","3x","5x"};
+        default = 9999;
+    };
+    class AISkill
+    {
+        title = "Enemy versus friendly AI skill difficulty";
+        values[] = {9999,1,2,3};
+        texts[] = {"Load from save (Default: Normal)","Enemies weaker","Normal","Enemies harder"};
+        default = 9999;
+    };
+    class napalmEnabled
+    {
+        title = "Enable Napalm Bombing for AI";
+        values[] = {9999,0,1};
+        texts[] = {"Load from save (Default: Yes)","No","Yes"};
+        default = 9999;
+    };
+    class allowUnfairSupports
+    {
+        title = "Allow unfair supports to be used by the enemy";
+        values[] = {9999, 0, 1};
+        texts[] = {"Load from save (Default: Not Allowed)", "Not allowed", "Allowed"};
+        default = 9999;
+    };
+    class allowFuturisticSupports
+    {
+        title = "[Experimental - Use at own risk](Requires unfair supports) Allow futuristic supports to be used by the enemy";
+        values[] = {9999, 0, 1};
+        texts[] = {"Load from save (Default: Not Allowed)", "Not allowed", "Allowed"};
         default = 9999;
     };
     class Spacer11
@@ -340,26 +389,12 @@ class Params
         texts[] = {"Load from save (Default: No)", "No", "Yes"};
         default = 9999;
     };
-    class SupportOptions
+    class SpacerCrate
     {
-        title = "SUPPORT OPTIONS";
+        title = "";
         values[] = {""};
         texts[] = {""};
         default = "";
-    };
-    class allowUnfairSupports
-    {
-        title = "[Experimental - Use at own risk] Allow unfair supports to be used by the enemy";
-        values[] = {9999, 0, 1};
-        texts[] = {"Load from save (Default: Not Allowed)", "Not allowed", "Allowed"};
-        default = 9999;
-    };
-    class allowFuturisticSupports
-    {
-        title = "[Experimental - Use at own risk](Requires unfair supports) Allow futuristic supports to be used by the enemy";
-        values[] = {9999, 0, 1};
-        texts[] = {"Load from save (Default: Not Allowed)", "Not allowed", "Allowed"};
-        default = 9999;
     };
     class CrateOptions
     {

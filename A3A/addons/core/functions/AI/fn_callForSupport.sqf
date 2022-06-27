@@ -1,5 +1,3 @@
-params ["_group", "_supportTypes", "_target"];
-
 /*  Simulates the call for support by a group by making the teamleader a bit more dumb for a time
 
     Execution on: HC or Server
@@ -8,7 +6,6 @@ params ["_group", "_supportTypes", "_target"];
 
     Params:
         _group: GROUP : The group which should call support
-        _supportTypes: ARRAY of STRINGs : The types of support the group calls for
         _target: OBJECT : The target object the group wants support against
 
     Returns:
@@ -16,48 +13,48 @@ params ["_group", "_supportTypes", "_target"];
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _groupLeader = leader _group;
 
-if(side _group == teamPlayer) exitWith
-{
-    Error_1("Rebel group %1 managed to call callForSupport, not allowed for rebel groups", _group);
+params ["_group", "_target"];
+private _groupLeader = leader _group;
+private _side = side _group;
+
+if(_side != Occupants and _side != Invaders) exitWith {
+    Error_2("Non-enemy group %1 of side %2 managed to call callForSupport", _group, _side);
 };
 
-if((_group getVariable ["canCallSupportAt", -1]) > (dateToNumber date)) exitWith {};
-
-//Block the group from calling support again
-private _date = date;
-_date set [4, (_date select 4) + 5];
-private _dateNumber = dateToNumber _date;
-_group setVariable ["canCallSupportAt", _dateNumber, true];
-
 //If groupleader is down, dont call support
-if !([_groupLeader] call A3A_fnc_canFight) exitWith {};
+if !(_groupLeader call A3A_fnc_canFight) exitWith {};
 
-Debug_4("Leader of %1 (side %2) is starting to call for help against %3 with helps %4", _group, side _group, _target, _supportTypes);
+if((_group getVariable ["A3A_canCallSupportAt", -1]) > time) exitWith {};
+
+private _timeToCallSupport = (10 + random 5) / A3A_balancePlayerScale;
+_group setVariable ["A3A_canCallSupportAt", time + 4*_timeToCallSupport];
+
+ServerDebug_4("Leader of %1 (side %2) is starting to request support against %3 (type %4)", _group, _side, _target, typeof _target);
 
 //Lower skill of group leader to simulate radio communication (!!!Barbolanis idea!!!)
+// TODO: this breaks differential leader skills. Maybe fix.
 private _oldSkill = skill _groupLeader;
 _groupLeader setSkill (_oldSkill - 0.2);
 
-//Wait for the call to happen
-private _timeToCallSupport = 10 + random 5;
 sleep _timeToCallSupport;
 
 //Reset leader skill
 _groupLeader setSkill _oldSkill;
 
 //If the group leader survived the call, proceed
-if([_groupLeader] call A3A_fnc_canFight) then
+if(_groupLeader call A3A_fnc_canFight) then
 {
-    private _revealed = [getPos _groupLeader, side _group] call A3A_fnc_calculateSupportCallReveal;
+    // why here? Are we intercepting the radio traffic?
+    private _revealed = [getPosATL _groupLeader, side _group] call A3A_fnc_calculateSupportCallReveal;
     //Starting the support
-    Debug_3("%1 managed to call help against %2, reveal value is %3", _group, _target, _revealed);
-    [_target, _group knowsAbout _target, _supportTypes, side _group, _revealed] remoteExec ["A3A_fnc_sendSupport", 2];
+    ServerDebug_2("%1 managed to request support, reveal value is %2", _group, _revealed);
+    [_side, _target, getPosATL _groupLeader, _group knowsAbout _target, _revealed] remoteExec ["A3A_fnc_requestSupport", 2];
 }
 else
 {
-    //Support call failed, resetting cooldown
-    Debug_1("%1 got no help as the leader is dead or down", _group);
-    _group setVariable ["canCallSupportAt", -1, true];
+    //Support call failed, reset cooldown
+    // TODO: should we try again with the new group leader?
+    ServerDebug_1("%1 failed to request support as the leader is dead or down", _group);
+    _group setVariable ["A3A_canCallSupportAt", nil];
 };

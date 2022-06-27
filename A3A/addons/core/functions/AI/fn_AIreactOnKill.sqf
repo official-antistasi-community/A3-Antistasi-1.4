@@ -1,15 +1,16 @@
 /*
 Author: Wurzel0701, Triada, jaj22, Spoffy, Barbolani
-    Defines and executes the behaviour of AI in case of a KIA in their group
+    Defines and executes the behaviour of enemy AI in case of a down or KIA in their group
 
 Arguments:
-    <GROUP> The group of which a unit has been killed
-    <OBJECT> The unit which has killed the group unit
+    <OBJECT> The unit which was downed or killed.
+    <GROUP> The group of the unit. May have changed since.
+    <OBJECT> The unit which downed or killed the unit
 
 Return Value:
     <NIL>
 
-Scope: Server/HC
+Scope: Server/HC, local to unit/group
 Environment: Scheduled
 Public: Yes
 Dependencies:
@@ -19,52 +20,40 @@ Dependencies:
     <HashMap> A3A_faction_all
 
 Example:
-[_group, _killer] spawn A3A_fnc_AIreactOnKill;
+[_unit, _group, _killer] spawn A3A_fnc_AIreactOnKill;
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params ["_group", "_killer"];
 
-private _enemy = objNull;
-private _aliveGroupMembers = (units _group) select {[_x] call A3A_fnc_canFight};
-private _unitCount = count _aliveGroupMembers;
+// TODO: what exactly should killer parameter be here?
+params ["_unit", "_group", "_killer"];
 
-//No group member left in fighting condition,
-if(_unitCount == 0) exitWith {};
+if (_unit getVariable ["downedTimeout", 0] > time) exitWith {};         // only count each unit once, at least within timeout
+_unit setVariable ["downedTimeout", time + 1200];
 
 //If _killer is not set or the same side (collision for example), abort here
 if((isNil "_killer") || {(isNull _killer) || {side (group _killer) == side _group}}) exitWith {};
 
+// Add the unit to recent kills for reaction purposes
+[side _group, getPosATL _unit, 10] remoteExec ["A3A_fnc_addRecentDamage", 2];
+
+private _enemy = objNull;
+private _activeGroupMembers = (units _group) select {_x call A3A_fnc_canFight};
+
+//No group member left in fighting condition, no reaction possible
+if(count _activeGroupMembers == 0) exitWith {};
+
 //Call help if possible
-if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
-{
-    private _supportTypes = [_group, _killer] call A3A_fnc_chooseSupport;
-    if((count _supportTypes) > 0) then
-    {
-        //Check if we are attacking the vehicle or man
-        private _enemyVehicle = objectParent _killer;
-        if(isNull _enemyVehicle && {!(_killer isKindOf "Man")}) then
-        {
-            _enemyVehicle = _enemy;
-        };
-        //Call the support on the unit or its vehicle
-        if(isNull _enemyVehicle) then
-        {
-            [_group, _supportTypes, _killer] spawn A3A_fnc_callForSupport;
-        }
-        else
-        {
-            [_group, _supportTypes, _enemyVehicle] spawn A3A_fnc_callForSupport;
-        };
-    };
+if(_group getVariable ["A3A_canCallSupportAt", -1] < time) then {
+    [_group, _killer] spawn A3A_fnc_callForSupport;
 };
 
 {
     if (fleeing _x) then
 	{
-        if ([_x] call A3A_fnc_canFight) then
+        if (_x call A3A_fnc_canFight) then
 		{
-            _enemy = _x findNearestEnemy _x;
+            private _enemy = _x findNearestEnemy _x;
             if (!isNull _enemy) then
 			{
                 if ((_x distance _enemy < 50) && (vehicle _x == _x)) then
@@ -87,9 +76,9 @@ if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
 	}
     else
 	{
-        if ([_x] call A3A_fnc_canFight) then
+        if (_x call A3A_fnc_canFight) then
 		{
-            _enemy = _x findNearestEnemy _x;
+            private _enemy = _x findNearestEnemy _x;
             if (!isNull _enemy) then
 			{
                 if (([primaryWeapon _x] call BIS_fnc_baseWeapon) in allMachineGuns) then
@@ -126,12 +115,12 @@ if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
 			};
             if (random 1 < 0.5) then
             {
-                if (count units _group > 0) then
+                if (count units _group > 0) then            // function is so slow that this isn't guaranteed
                 {
-                    _x allowFleeing (1 -(_x skill "courage") + (_unitCount/(count units _group)));
+                    _x allowFleeing (1 -(_x skill "courage") + (count _activeGroupMembers)/(count units _group));
                 };
             };
 		};
 	};
-    sleep 1 + (random 1);
-} forEach _aliveGroupMembers;
+    sleep (1 + random 1);
+} forEach _activeGroupMembers;

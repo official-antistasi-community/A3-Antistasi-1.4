@@ -1,6 +1,3 @@
-params ["_vehicleType", "_typeOfAttack", "_landPosBlacklist", "_side", "_markerOrigin", "_posDestination"];
-#include "..\..\script_component.hpp"
-FIX_LINE_NUMBERS()
 /*  Creates a vehicle for a QRF or small attack, including crew and cargo
 
     Execution on: HC or Server
@@ -9,7 +6,8 @@ FIX_LINE_NUMBERS()
 
     Parameters:
         _vehicleType: STRING : The name of the vehicle to spawn
-        _typeOfAttack: STRING : The type of the attack
+        _troopType: STRING : Type of cargo units to use
+        _resPool: STRING : Resource pool name for vehicle/troops, probably "attack" or "defence"
         _landPosBlacklist: ARRAY : List of blacklisted position
         _side: SIDE : The side of the attacker
         _markerOrigin: STRING : The name of the marker marking the origin
@@ -20,6 +18,10 @@ FIX_LINE_NUMBERS()
         or
         OBJECT : objNull if the spawning did not worked
 */
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
+params ["_vehicleType", "_troopType", "_resPool", "_landPosBlacklist", "_side", "_markerOrigin", "_posDestination"];
 
 private _faction = Faction(_side);
 private _vehicle = [_markerOrigin, _vehicleType] call A3A_fnc_spawnVehicleAtMarker;
@@ -28,44 +30,31 @@ if(isNull _vehicle) exitWith {objNull};
 
 private _crewGroup = [_side, _vehicle] call A3A_fnc_createVehicleCrew;
 {
-    [_x] call A3A_fnc_NATOinit
+    [_x, nil, nil, _resPool] call A3A_fnc_NATOinit
 } forEach (units _crewGroup);
-[_vehicle, _side] call A3A_fnc_AIVEHinit;
+[_vehicle, _side, _resPool] call A3A_fnc_AIVEHinit;
 
 private _cargoGroup = grpNull;
 private _expectedCargo = ([_vehicleType, true] call BIS_fnc_crewCount) - ([_vehicleType, false] call BIS_fnc_crewCount);
 if (_expectedCargo > 0) then
 {
-    //Vehicle is able to transport units
-    private _groupType = if (_typeOfAttack == "Normal") then
-    {
-        [_vehicleType, _side] call A3A_fnc_cargoSeats;
-    }
-    else
-    {
-        if (_typeOfAttack == "Air") then
-        {
-            _faction get "groupAA";
-        }
-        else
-        {
-            _faction get "groupAT";
-        };
-    };
+    // These types won't let the cargo group disembark, so they're a waste of units even if they have spare seats
+    if (_vehicleType in (FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesTanks"))) exitWith {};
 
+    //Vehicle is able to transport units
+    private _groupType = call {
+        if (_troopType == "Normal") exitWith { [_vehicleType, _side] call A3A_fnc_cargoSeats };
+        if (_troopType == "Specops") exitWith { _faction get "groupSpecOps" };
+        if (_troopType == "Air") exitWith { _faction get "groupAA" };
+        if (_troopType == "Tank") exitWith { _faction get "groupAT" };
+    };
+    
+    if (_expectedCargo < count _groupType) then { _groupType resize _expectedCargo };           // trim to cargo seat count
     _cargoGroup = [getMarkerPos _markerOrigin, _side, _groupType, true, false] call A3A_fnc_spawnGroup;         // force spawn, should be pre-checked
     {
         _x assignAsCargo _vehicle;
         _x moveInCargo _vehicle;
-        if !(isNull objectParent _x) then
-        {
-            [_x] call A3A_fnc_NATOinit;
-            _x setVariable ["originX", _markerOrigin];
-        }
-        else
-        {
-            deleteVehicle _x;
-        };
+        [_x, nil, nil, _resPool] call A3A_fnc_NATOinit;
     } forEach units _cargoGroup;
 };
 

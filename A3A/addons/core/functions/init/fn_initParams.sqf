@@ -35,11 +35,11 @@ A3A_paramTable = [
 
     ["allowUnfairSupports", "allowUnfairSupports", [], false],
     ["allowFuturisticSupports", "allowFuturisticSupports", [], false],
-    ["A3A_enemyAttackMul", "enemyAttackMul", [], 10],
     ["A3A_enemybalanceMul", "enemyBalanceMul", [], 10],
+    ["A3A_enemyAttackMul", "enemyAttackMul", [], 10],
     ["A3A_attackMissionDistMul", "attackMissionDistMul", [], 2],
     ["skillMult", "AISkill", [], 2],
-    ["napalmEnabled", "napalmEnabled", [], false],
+    ["napalmEnabled", "napalmEnabled", [], true],
 
     ["allowDLCKart", "Kart", ["server"], false],
     ["allowDLCMark", "Mark", ["server"], false],

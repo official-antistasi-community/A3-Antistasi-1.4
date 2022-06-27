@@ -26,7 +26,9 @@ if(_side != Occupants and _side != Invaders) exitWith {
 if !(_groupLeader call A3A_fnc_canFight) exitWith {};
 
 if((_group getVariable ["A3A_canCallSupportAt", -1]) > time) exitWith {};
-_group setVariable ["A3A_canCallSupportAt", time + 300];
+
+private _timeToCallSupport = (10 + random 5) / A3A_balancePlayerScale;
+_group setVariable ["A3A_canCallSupportAt", time + 4*_timeToCallSupport];
 
 ServerDebug_4("Leader of %1 (side %2) is starting to request support against %3 (type %4)", _group, _side, _target, typeof _target);
 
@@ -35,8 +37,6 @@ ServerDebug_4("Leader of %1 (side %2) is starting to request support against %3 
 private _oldSkill = skill _groupLeader;
 _groupLeader setSkill (_oldSkill - 0.2);
 
-//Wait for the call to happen
-private _timeToCallSupport = (10 + random 5) / A3A_balancePlayerScale;
 sleep _timeToCallSupport;
 
 //Reset leader skill
@@ -46,7 +46,7 @@ _groupLeader setSkill _oldSkill;
 if(_groupLeader call A3A_fnc_canFight) then
 {
     // why here? Are we intercepting the radio traffic?
-    private _revealed = [getPos _groupLeader, side _group] call A3A_fnc_calculateSupportCallReveal;
+    private _revealed = [getPosATL _groupLeader, side _group] call A3A_fnc_calculateSupportCallReveal;
     //Starting the support
     ServerDebug_2("%1 managed to request support, reveal value is %2", _group, _revealed);
     [_side, _target, getPosATL _groupLeader, _group knowsAbout _target, _revealed] remoteExec ["A3A_fnc_requestSupport", 2];

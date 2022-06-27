@@ -24,8 +24,8 @@ if (!isServer) then {
 
 // Headless clients install some support functions, register with the server and bail out
 if (!hasInterface) exitWith {
-	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
+	call A3A_fnc_initFuncs;
 	call A3A_fnc_loadNavGrid;
     Info_1("Headless client version: %1",QUOTE(VERSION));
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
@@ -40,8 +40,8 @@ player setVariable ["canSave", false, true];
 
 if (!isServer) then {
 	waitUntil {!isNil "initParamsDone"};
-	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
+	call A3A_fnc_initFuncs;
     Info_1("MP client version: %1",QUOTE(VERSION));
 }
 else {

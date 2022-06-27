@@ -132,9 +132,9 @@ A3A_invaderDefenceMul = 1.5;
 A3A_invaderAttackMul = 1.5;
 
 // Current resources, overwritten by saved game
-A3A_resourcesDefenceOcc = A3A_balanceResourceRate * 3;		// 30% of max
-A3A_resourcesAttackOcc = -A3A_balanceResourceRate * A3A_enemyattackMul;				// ~100 min to attack
-A3A_resourcesDefenceInv = A3A_balanceResourceRate * A3A_invaderDefenceMul * 0.5;		// 50% of max
+A3A_resourcesDefenceOcc = A3A_balanceResourceRate * 3;													// 30% of max
+A3A_resourcesDefenceInv = A3A_balanceResourceRate * A3A_invaderDefenceMul * 6;							// 60% of max
+A3A_resourcesAttackOcc = -A3A_balanceResourceRate * A3A_enemyattackMul;									// ~100 min to attack
 A3A_resourcesAttackInv = -A3A_balanceResourceRate * A3A_enemyattackMul * A3A_invaderAttackMul * 0.5;	// ~50 min to attack
 
 // HQ knowledge values

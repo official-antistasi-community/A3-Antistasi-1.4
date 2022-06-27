@@ -224,15 +224,15 @@ class Params
     class enemyBalanceMul
     {
         title = "Overall enemy resource balance";
-        values[] = {9999,5,7,10,14,20,28};
-        texts[] =  {"Load from save (Default: Normal)","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
+        values[] = {9999,3,5,7,10,14,20,28};
+        texts[] =  {"Load from save (Default: Normal)","Trivial","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
         default = 9999;
     };
     class enemyAttackMul
     {
         title = "Enemy attack resource balance (relative to overall balance)";
-        values[] = {9999,5,7,10,14,20,28};
-        texts[] =  {"Load from save (Default: Normal)","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
+        values[] = {9999,3,5,7,10,14,20,28};
+        texts[] =  {"Load from save (Default: Normal)","Trivial","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
         default = 9999;
     };
     class attackMissionDistMul
@@ -253,7 +253,7 @@ class Params
     {
         title = "Enable Napalm Bombing for AI";
         values[] = {9999,0,1};
-        texts[] = {"Load from save (Default: No)","No","Yes"};
+        texts[] = {"Load from save (Default: Yes)","No","Yes"};
         default = 9999;
     };
     class allowUnfairSupports

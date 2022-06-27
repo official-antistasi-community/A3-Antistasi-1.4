@@ -41,7 +41,7 @@ while {true} do
     A3A_balancePlayerScale = (A3A_activePlayerCount ^ 0.7 + 1 + tierWar / 4) / 6;           // Normalized to 1 == 6 players @ war tier 6
     A3A_balancePlayerScale = A3A_balancePlayerScale * (A3A_enemyBalanceMul / 10);           // enemyBalanceMul is default 10
     A3A_balanceVehicleCost = (100 + tierWar * 10);                                          // checked: does approximately match vehicle+crew+cargo costs
-    A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;              // base resources gained per 10 minutes
+    A3A_balanceResourceRate = 2 * A3A_balancePlayerScale * A3A_balanceVehicleCost;              // base resources gained per 10 minutes
     publicVariable "A3A_balancePlayerScale";            // needed for determining enemy skill on headless clients
 
     // Old balance param still used for marker spawning decisions at the moment
@@ -55,7 +55,7 @@ while {true} do
         private _resRateDef = A3A_balanceResourceRate / 10;
         if (gameMode != 1) then { _resRateDef = _resRateDef * (0.5 + aggressionOccupants/200) };
         if (_noAirport) then { _resRateDef = _resRateDef * 0.5 };
-        A3A_resourcesDefenceOcc = (A3A_resourcesDefenceOcc + _resRateDef) min (A3A_balanceResourceRate * 10);
+        A3A_resourcesDefenceOcc = (A3A_resourcesDefenceOcc + _resRateDef) min (_resRateDef * 100);
 
         private _resRateAtk = A3A_balanceResourceRate * A3A_enemyAttackMul / 100;       // enemyAttackMul is default 10, resource rate is per 10min
         if (gameMode != 1) then { _resRateAtk = _resRateAtk * (0.5 + aggressionOccupants/200) };
@@ -79,7 +79,7 @@ while {true} do
         private _resRateDef = A3A_invaderDefenceMul * A3A_balanceResourceRate / 10;
         if (gameMode != 1) then { _resRateDef = _resRateDef * (0.5 + aggressionInvaders/200) };
         if (_noAirport) then { _resRateDef = _resRateDef * 0.2 };               // Invaders continue attacking but stop defending
-        A3A_resourcesDefenceInv = (A3A_resourcesDefenceInv + _resRateDef) min (A3A_invaderDefenceMul * A3A_balanceResourceRate * 10);
+        A3A_resourcesDefenceInv = (A3A_resourcesDefenceInv + _resRateDef) min (_resRateDef * 100);
 
         private _resRateAtk = A3A_invaderAttackMul * A3A_balanceResourceRate * A3A_enemyAttackMul / 100;
         if (gameMode != 1) then { _resRateAtk = _resRateAtk * (0.5 + aggressionInvaders/200) };

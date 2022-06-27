@@ -64,10 +64,10 @@ A3A_supportMarkerTypes = [];     // format [markerName, markerType, hasRadio, de
 
 // Build arrays of markers that have defence bonuses
 { A3A_supportMarkerTypes pushBack [_x, "Airport", false, 1.0] } forEach airportsX;
-{ A3A_supportMarkerTypes pushBack [_x, "Seaport", false, 0.5] } forEach seaports;
-{ A3A_supportMarkerTypes pushBack [_x, "Outpost", false, 0.5] } forEach outposts;
-{ A3A_supportMarkerTypes pushBack [_x, "Resource", false, 0.35] } forEach resourcesX;
-{ A3A_supportMarkerTypes pushBack [_x, "Factory", false, 0.35] } forEach factories;
+{ A3A_supportMarkerTypes pushBack [_x, "Seaport", false, 0.6] } forEach seaports;
+{ A3A_supportMarkerTypes pushBack [_x, "Outpost", false, 0.6] } forEach outposts;
+{ A3A_supportMarkerTypes pushBack [_x, "Resource", false, 0.4] } forEach resourcesX;
+{ A3A_supportMarkerTypes pushBack [_x, "Factory", false, 0.4] } forEach factories;
 {
     _x pushBack (0.5 + random 0.5);         // current random defence multiplier
     private _pos = markerPos (_x#0);

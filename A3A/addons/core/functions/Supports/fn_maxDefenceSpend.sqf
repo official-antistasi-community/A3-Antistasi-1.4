@@ -8,7 +8,7 @@ Arguments:
     <SIDE> Side using the resources, must be occupants or invaders
     <OBJECT> or <SIDE> Target object or side to target
     <POSITION> or <STRING> Position of support caller, or a marker to defend/retake
-    <SCALAR> Optional, multiplier to maximum resource spend before spend/cur caps (Default: 1.0)
+    <SCALAR> Optional, additional cap relative to max location spend (Default: 1.0)
 
 Return Value:
     <NUMBER> Free defence resources to spend. 
@@ -33,8 +33,8 @@ if (gameMode == 1) then {
     _maxResources = _maxResources * (0.5 + _aggro/200);
 };
 Debug_2("Current resources %1, max resources %2", _curResources, _maxResources);
-private _maxSpend = _maxResources * _maxResMod;
 if (_curResources < 0) exitWith { 0 };
+
 
 // If target is air, use a global spend limit and only consider anti-air spends
 if (_target isEqualType objNull and {_target isKindOf "Air"}) exitWith
@@ -46,7 +46,7 @@ if (_target isEqualType objNull and {_target isKindOf "Air"}) exitWith
     // TODO: Might need to constrain this with the strike list so that you don't get multiple supports sent against one aircraft
 
     private _isArmed = typeOf _target in (FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesPlanesCAS") + FactionGet(all, "vehiclesPlanesAA"));
-    private _maxAASpend = _maxSpend * ([0.1, 0.4] select _isArmed);
+    private _maxAASpend = _maxResources * ([0.1, 0.4] select _isArmed);
     private _curAASpend = 0;
     {
         _x params ["_spSide", "_spCallPos", "_spTargPos", "_spRes", "_spTime"];
@@ -65,6 +65,8 @@ if (_target isEqualType objNull and {_target isKindOf "Air"}) exitWith
 
 
 // For ground targets, spend limit depends on markers near caller
+private _maxSpend = _maxResources;
+private _maxSpendLoc = _maxResources;
 if (_callPos isEqualType "") then
 {
     // If target is a marker, just return the location's maximum
@@ -76,6 +78,7 @@ if (_callPos isEqualType "") then
     };
     private _mrkType = A3A_supportMarkerTypes select _mrkIndex;
     _maxSpend = _maxSpend * (_mrkType#3);     // * _mrkType#4;            // location type multiplier * time-based random
+    _maxSpendLoc = _maxSpend * _maxResMod;
     Debug_1("Marker max spend %1", _maxSpend);
 }
 else 
@@ -98,6 +101,7 @@ else
         };
     } forEach _closeMrk;
     _maxSpend = _maxSpend * (_defMul - _defSub);
+    _maxSpendLoc = _maxSpend * _maxResMod;
     Debug_3("Maxspend %1 from defmul %2 and defsub %3", _maxSpend, _defMul, _defSub);
 
 
@@ -133,7 +137,7 @@ else
     } forEach _nearFriends;
 
     Debug_3("Recent damage %1, enemy strength %2, friend strength %3", _recentDamage, _enemyStr, _friendStr);
-    _maxSpend = _maxSpend min 3*(_recentDamage + _enemyStr - _friendStr);
+    _maxSpend = _maxSpend min 2*(2*_recentDamage + _enemyStr - _friendStr);
 };
 if (_maxSpend <= 0) exitWith { 0 };
 
@@ -158,6 +162,8 @@ private _targPosSpend = 0;
     _targPosSpend = _targPosSpend + linearConversion [0, 500, _targDist, _res, 0, true];
 
 } forEach A3A_supportSpends;
-Debug_3("Callpos spend %1, targpos spend %2, max spend %3", _callPosSpend, _targPosSpend, _maxSpend);
 
-_curResources min (_maxSpend - (_callPosSpend max _targPosSpend));
+Debug_4("Callpos spend %1, targpos spend %2, max spend %3, max loc %4", _callPosSpend, _targPosSpend, _maxSpend, _maxSpendLoc);
+
+_maxSpend = _maxSpend - (_callPosSpend max _targPosSpend);      // reduce by what's already been spent
+_curResources min _maxSpend min _maxSpendLoc;

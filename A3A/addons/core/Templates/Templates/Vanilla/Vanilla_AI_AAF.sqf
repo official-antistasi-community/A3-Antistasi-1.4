@@ -152,19 +152,6 @@ _loadoutData set ["atBackpacks", ["B_Carryall_oli"]];
 _loadoutData set ["helmets", []];
 _loadoutData set ["slHat", ["H_Beret_blk"]];
 _loadoutData set ["sniHats", ["H_Booniehat_dgtl"]];
-
-/* Facewear array:
-
-The first item in the array is a number that determines the selection weight of having facewear, ranging from 0 - 1.
-
-1 = There will always be a facewear item selected. Facewear is never unequipped.
-0.5 = All facewear options, including having no facewear, have an equal chance of being selected.
-0 = Facewear is always unequipped.
-
-Everything after the first number is the list of possible facewear that can be worn. 
-All facewear items have an equal chance of being picked, with the exception of the unequipped facewear chance affected by the weight number.
-*/
-
 _loadoutData set ["facewear", [0.5, "G_Tactical_Clear", "G_Tactical_Black", "G_Combat", "G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Sport_BlackWhite", "G_Sport_Blackyellow", "G_Sport_Greenblack", "G_Sport_Checkered", "G_Sport_Red", "G_Squares", "G_Squares_Tinted", "G_Lowprofile"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.

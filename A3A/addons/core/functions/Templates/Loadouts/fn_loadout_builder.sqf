@@ -120,6 +120,34 @@ private _fnc_setHelmet = {
 	[_finalLoadout, _helmet] call A3A_fnc_loadout_setHelmet;
 };
 
+//Adds facewear to the loadout, selected at random from the category in loadout data.
+private _fnc_setFacewear = {
+	params ["_key"];
+
+	private _data = _loadoutDataForTemplate getOrDefault [_key, []];
+	if (_data isEqualTo []) exitWith {};
+
+	// Setup weights for weighted randomization. (See vanilla AAF template for details)
+	private _selectFacewearWeight = _data select 0;
+	
+	private _weightsArray = [0]; // 0 here so that _selectFacewearWeight variable in the array has no weight and doesn't get selected as a facewear
+	
+	for "_i" from 1 to (count _data) - 1 do {
+		_weightsArray set [_i, _selectFacewearWeight];
+	};
+
+	// Resize data table to add "none/unequipped" option, and add corresponding weight to it.
+	_data resize ((count _data) + 1);
+	_weightsArray set [(count _weightsArray), 1 - _selectFacewearWeight];
+
+	// Randomy pick facewear option. If an option other than unequipped is picked, insert facewear to unit loadout.
+	private _facewear = _data selectRandomWeighted _weightsArray;
+	
+	if (!isNil "_facewear") then {
+		[_finalLoadout, _facewear] call A3A_fnc_loadout_setFacewear;
+	};
+};
+
 //Adds a vest to the loadout, selected at random from the category in loadout data.
 private _fnc_setVest = {
 	params ["_key"];

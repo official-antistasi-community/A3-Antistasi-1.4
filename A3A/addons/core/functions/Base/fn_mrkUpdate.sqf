@@ -12,7 +12,7 @@ if (_marker in airportsX) then {
     _mrkD setMarkerColorLocal "Default";
 } else {
     if (_marker in destroyedSites) exitWith { _mrkD setMarkerColorLocal "ColorBlack" };
-    if (_mrkSide == teamPlayer) exitWith { _mrkD setMarkerColor colorTeamPlayer };
+    if (_mrkSide == teamPlayer) exitWith { _mrkD setMarkerColorLocal colorTeamPlayer };
     _mrkD setMarkerColorLocal ([colorOccupants, colorInvaders] select (_mrkSide == Invaders));
 };
 

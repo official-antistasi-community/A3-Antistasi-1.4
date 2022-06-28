@@ -1,6 +1,6 @@
 /*
  * File: fn_loadout_setFacewear.sqf
- * Author: Spoffy
+ * Author: dZ
  * Description:
  *    Adds facewear to a unit loadout
  * Params:
@@ -14,8 +14,6 @@
 
 params ["_loadout", "_facewear"];
 
-_loadout set [ 7,
-	_facewear
-];
+_loadout set [7, _facewear];
 
 _loadout

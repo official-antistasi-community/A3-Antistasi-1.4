@@ -84,9 +84,7 @@ _loadoutData set ["binoculars", ["Binocular"]];
 
 _loadoutData set ["uniforms", _rebUniforms];
 
-_loadoutData set ["glasses", []];
-_loadoutData set ["goggles", []];
-_loadoutData set ["facemask", []];
+_loadoutData set ["facewear", []];
 
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
@@ -99,7 +97,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 
 private _squadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
-    [selectRandomWeighted [[], 2, "glasses", 1, "goggles", 0.5, "facemask", 0.8]] call _fnc_setFacewear;
+    [selectRandomWeighted ["facewear", 1]] call _fnc_setFacewear;
 
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;
@@ -109,7 +107,7 @@ private _squadLeaderTemplate = {
 
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
-    [selectRandomWeighted [[], 2, "glasses", 1, "goggles", 0.5, "facemask", 0.8]] call _fnc_setFacewear;
+    [selectRandomWeighted ["facewear", 1]] call _fnc_setFacewear;
     
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;

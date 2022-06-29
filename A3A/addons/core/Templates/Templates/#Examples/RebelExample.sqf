@@ -65,8 +65,6 @@ if (allowDLCExpansion) then {_dlcUniforms append [];
 
 ["headgear", []] call _fnc_saveToTemplate;          //Headgear used by Rebell Ai until you have Armored Headgear.
 
-["facewear", []] call _fnc_saveToTemplate;
-
 /////////////////////
 ///  Identities   ///
 /////////////////////
@@ -85,6 +83,7 @@ _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["binoculars", ["Binocular"]];
 
 _loadoutData set ["uniforms", _rebUniforms];
+_loadoutData set ["facewear", []];
 
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
@@ -97,6 +96,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 
 private _squadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
+    ["facewear"] call _fnc_setFacewear;
 
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;
@@ -106,7 +106,8 @@ private _squadLeaderTemplate = {
 
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
-
+    ["facewear"] call _fnc_setFacewear;
+    
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;

@@ -124,7 +124,7 @@ private _fnc_setFacewear = {
 	params ["_key"];
 	private _data = _loadoutDataForTemplate getOrDefault [_key, []];
 	if (_data isEqualTo []) exitWith {};
-	private _facewear = _data selectRandomWeighted;
+	private _facewear = selectRandomWeighted _data;
 	if (_facewear != "!EMPTY") then {
 		[_finalLoadout, _facewear] call A3A_fnc_loadout_setFacewear;
 	};

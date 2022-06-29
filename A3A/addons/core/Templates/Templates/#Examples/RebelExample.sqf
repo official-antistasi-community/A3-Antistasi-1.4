@@ -97,7 +97,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 
 private _squadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
-    [selectRandomWeighted ["facewear", 1]] call _fnc_setFacewear;
+    ["facewear"] call _fnc_setFacewear;
 
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;
@@ -107,7 +107,7 @@ private _squadLeaderTemplate = {
 
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
-    [selectRandomWeighted ["facewear", 1]] call _fnc_setFacewear;
+    ["facewear"] call _fnc_setFacewear;
     
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;

@@ -65,6 +65,19 @@ if (allowDLCExpansion) then {_dlcUniforms append [];
 
 ["headgear", []] call _fnc_saveToTemplate;          //Headgear used by Rebell Ai until you have Armored Headgear.
 
+/* Facewear array:
+
+The first item in the array is a number that determines the selection weight of having facewear, ranging from 0 - 1.
+
+1 = There will always be a facewear item selected. Facewear is never unequipped.
+0.5 = All facewear options, including having no facewear, have an equal chance of being selected.
+0 = Facewear is always unequipped.
+
+Everything after the first number is the list of possible facewear that can be worn. 
+All facewear items have an equal chance of being picked, with the exception of the unequipped facewear chance affected by the weight number.
+*/
+["facewear", []] call _fnc_saveToTemplate;
+
 /////////////////////
 ///  Identities   ///
 /////////////////////

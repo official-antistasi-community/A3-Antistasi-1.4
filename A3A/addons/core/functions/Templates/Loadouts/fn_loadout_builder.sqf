@@ -125,9 +125,7 @@ private _fnc_setFacewear = {
 	private _data = _loadoutDataForTemplate getOrDefault [_key, []];
 	if (_data isEqualTo []) exitWith {};
 	private _facewear = selectRandomWeighted _data;
-	if (_facewear != "!EMPTY") then {
-		[_finalLoadout, _facewear] call A3A_fnc_loadout_setFacewear;
-	};
+	[_finalLoadout, _facewear] call A3A_fnc_loadout_setFacewear;
 };
 
 //Adds a vest to the loadout, selected at random from the category in loadout data.

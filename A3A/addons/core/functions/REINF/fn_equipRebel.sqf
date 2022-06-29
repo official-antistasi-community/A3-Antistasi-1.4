@@ -60,28 +60,9 @@ private _helmet = selectRandomWeighted (A3A_rebelGear get "ArmoredHeadgear");
 if (_helmet == "") then { _helmet = selectRandom (A3A_faction_reb get "headgear") };
 _unit addHeadgear _helmet;
 
-// Add facewear for rebels, if rebel faction has a facewear table
-private _facewearData = A3A_faction_reb get "facewear";
-if (!isNil "_facewearData") then {
-    // Setup weights for weighted randomization. (See vanilla AAF template for details)
-	private _selectFacewearWeight = _facewearData select 0;
-    
-	private _weightsArray = [0]; // 0 here so that _selectFacewearWeight variable in the array has no weight and doesn't get selected as a facewear
-	
-	for "_i" from 1 to (count _facewearData) - 1 do {
-		_weightsArray set [_i, _selectFacewearWeight];
-	};
-
-	// Resize data table to add "none/unequipped" option, and add corresponding weight to it.
-	_facewearData resize ((count _facewearData) + 1);
-	_weightsArray set [(count _weightsArray), 1 - _selectFacewearWeight];
-
-	// Randomy pick facewear option. If an option other than unequipped is picked, insert facewear to unit loadout.
-	private _facewear = _facewearData selectRandomWeighted _weightsArray;
-
-    if (!isNil "_facewear") then {
-        _unit addGoggles _facewear;
-    };
+private _facewear = selectRandomWeighted (A3A_faction_reb get "facewear");
+if (_facewear != "!EMPTY") then {
+    _unit addGoggles _facewear;
 };
 
 private _vest = selectRandomWeighted (A3A_rebelGear get "ArmoredVests");

@@ -125,32 +125,6 @@ if (allowDLCWS && A3A_hasWS) then {_dlcUniforms append [
     "H_Bandanna_cbr"
 ]] call _fnc_saveToTemplate;
 
-["facewear", [0.5, 
-    "G_Shades_Black", 
-    "G_Shades_Blue", 
-    "G_Shades_Green", 
-    "G_Shades_Red", 
-    "G_Aviator", 
-    "G_Spectacles", 
-    "G_Spectacles_Tinted", 
-    "G_Sport_BlackWhite", 
-    "G_Sport_Blackyellow", 
-    "G_Sport_Greenblack", 
-    "G_Sport_Checkered", 
-    "G_Sport_Red", 
-    "G_Squares", 
-    "G_Squares_Tinted", 
-    "G_Lowprofile",
-    "G_Bandanna_blk",
-    "G_Bandanna_oli",
-    "G_Bandanna_khk",
-    "G_Bandanna_tan",
-    "G_Bandanna_beast",
-    "G_Bandanna_shades",
-    "G_Bandanna_sport",
-    "G_Bandanna_aviator"
-]] call _fnc_saveToTemplate;
-
 /////////////////////
 ///  Identities   ///
 /////////////////////
@@ -171,6 +145,7 @@ _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["binoculars", ["Binocular"]];
 
 _loadoutData set ["uniforms", _rebUniforms];
+_loadoutData set ["facewear", ["!EMPTY", 1, "G_Shades_Black", 1, "G_Shades_Blue", 1, "G_Shades_Green", 1, "G_Shades_Red", 1, "G_Aviator", 1, "G_Spectacles", 1, "G_Spectacles_Tinted", 1, "G_Sport_BlackWhite", 1, "G_Sport_Blackyellow", 1, "G_Sport_Greenblack", 1, "G_Sport_Checkered", 1, "G_Sport_Red", 1, "G_Squares", 1, "G_Squares_Tinted", 1, "G_Lowprofile", 1, "G_Bandanna_blk", "G_Bandanna_oli", 1, "G_Bandanna_khk", 1, "G_Bandanna_tan", 1, "G_Bandanna_beast", 1, "G_Bandanna_shades", 1, "G_Bandanna_sport", 1, "G_Bandanna_aviator", 1]];
 
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
@@ -183,6 +158,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 
 private _squadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
+    ["facewear"] call _fnc_setFacewear;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
@@ -195,7 +171,8 @@ private _squadLeaderTemplate = {
 
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
-
+    ["facewear"] call _fnc_setFacewear;
+    
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
 

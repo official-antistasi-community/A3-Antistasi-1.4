@@ -134,6 +134,7 @@ class CfgFunctions
             class garrisonInfo {};
             class getAggroLevelString {};
             class getRecentDamage {};
+            class getVehiclesAirSupport {};
             class getVehiclesGroundSupport {};
             class getVehiclesGroundTransport {};
             class vehicleBoxHeal {};

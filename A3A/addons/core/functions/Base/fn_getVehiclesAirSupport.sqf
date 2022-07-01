@@ -27,12 +27,12 @@ private _casWeight =       [ 5,  7,  9, 11, 13, 15, 17, 19, 21, 23] select _leve
 
 // eventually add dive bombers?
 
-if (_faction get "vehiclesLightAttackHelis" isEqualTo []) then { _AHWeight = _AHWeight + _lightAHWeight };
-if (_faction get "vehiclesAttackHelis" isEqualTo []) then { _casWeight = _casWeight + _AHWeight };
+if (_faction get "vehiclesHelisLightAttack" isEqualTo []) then { _AHWeight = _AHWeight + _lightAHWeight };
+if (_faction get "vehiclesHelisAttack" isEqualTo []) then { _casWeight = _casWeight + _AHWeight };
 if (_faction get "vehiclesPlanesCAS" isEqualTo []) then { _AHWeight = _AHWeight + _casWeight };
 
 if (_faction get "vehiclesPlanesCAS" isNotEqualTo []) then { _vehWeights append ["CAS", _casWeight] };
-[_faction get "vehiclesAttackHelis", _AHWeight] call _fnc_addArrayToWeights;
-[_faction get "vehiclesLightAttackHelis", _lightAHWeight] call _fnc_addArrayToWeights;
+[_faction get "vehiclesHelisAttack", _AHWeight] call _fnc_addArrayToWeights;
+[_faction get "vehiclesHelisLightAttack", _lightAHWeight] call _fnc_addArrayToWeights;
 
 _vehWeights;

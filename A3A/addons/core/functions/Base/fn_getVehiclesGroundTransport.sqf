@@ -27,7 +27,7 @@ private _carWeight =       [40, 30, 20, 10, 10, 10, 10, 10, 10, 10] select _leve
 private _truckWeight =     [60, 50, 45, 40, 35, 30, 25, 20, 15, 10] select _level;
 private _lapcWeight =      [30, 40, 50, 50, 45, 35, 30, 25, 20, 15] select _level;
 private _apcWeight =       [ 0, 10, 15, 20, 25, 30, 35, 40, 45, 50] select _level;
-private _ifvWeight =       [ 0,  0,  5, 10, 15, 20, 25, 30, 35, 40] select _level;
+private _ifvWeight =       [ 0,  0,  2,  4,  6,  8, 12, 16, 20, 25] select _level;
 
 // Assumption is that at least one of APC or battle bus exists
 if (_faction get "vehiclesIFVs" isEqualTo []) then { _apcWeight = _apcWeight + _ifvWeight };

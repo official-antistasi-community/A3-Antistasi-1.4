@@ -63,6 +63,8 @@
 ["minefieldAT", []] call _fnc_saveToTemplate;
 ["minefieldAPERS", []] call _fnc_saveToTemplate;
 
+#include "CUP_Vehicle_Attributes"
+
 /////////////////////
 ///  Identities   ///
 /////////////////////

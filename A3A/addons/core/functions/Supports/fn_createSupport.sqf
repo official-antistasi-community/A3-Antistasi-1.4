@@ -7,7 +7,7 @@
         _side: SIDE: The side of the support
         _caller: POS2D or STRING: Position of caller if it's a defence response, or resource pool to override ("attack")
         _maxSpend: NUMBER: Maximum resources to spend, mostly used for sizing QRFs
-        _target: OBJECT: The target object of the support. Not required for area supports.
+        _target: OBJECT: The target object of the support. objNull valid for AREA. false creates with no target (for TARGET)
         _targPos: POS2D: Target position of the support.
         _reveal: NUMBER: Amount of info to reveal to rebels, 0 low, 1 high
         _delay: NUMBER: Optional, setup delay time in seconds, otherwise will calculate based on war tier
@@ -31,7 +31,7 @@ private _supportIndex = A3A_activeSupports findIf {
     _x params ["_suppName", "_suppSide", "_suppType", "_center", "_radius", "_suppTarg"];
     _suppSide == _side and _suppType == _type and _suppTarg isEqualTo [] and { _targpos distance2d _center < _radius };
 };
-if (_supportIndex != -1) exitWith {
+if (_target isEqualType objNull and _supportIndex != -1) exitWith {
     private _activeSupport = A3A_activeSupports # _supportIndex;
     [_activeSupport, _target, _targPos] call A3A_fnc_addSupportTarget;
     A3A_supportCallInProgress = nil;

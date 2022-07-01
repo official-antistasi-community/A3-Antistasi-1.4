@@ -60,7 +60,7 @@ if (_veh isKindOf "Car" or _veh isKindOf "Tank") then
 	}
 	else
 	{
-		_veh call A3A_fnc_addActionBreachVehicle;
+		if (_typeX in FactionGet(all,"vehiclesArmor")) then { _veh call A3A_fnc_addActionBreachVehicle };
 		if (_typeX in FactionGet(all,"vehiclesAPCs")) then
 		{
 			_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto; _veh removeEventHandler ["HandleDamage",_thisEventHandler]};if (((_this select 1) find "wheel" != -1) and (_this select 4=="") and (!isPlayer driver (_veh))) then {0;} else {(_this select 2);}}];

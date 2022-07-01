@@ -26,7 +26,7 @@
 ["vehiclesRepairTrucks", ["CUP_B_T810_Repair_CZ_DES"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_B_T810_Refuel_CZ_DES"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_B_LR_Ambulance_CZ_D", "CUP_B_BMP2_AMB_CZ_Des"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["CUP_B_BRDM2_CZ_Des", "CUP_B_BRDM2_HQ_CZ_Des", "CUP_B_BMP2_CZ_Des"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_B_BRDM2_CZ_Des", "CUP_B_BRDM2_HQ_CZ_Des", "CUP_B_BMP2_CZ_Des", "CUP_B_BMP2_CZ_Des"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_T72_CZ"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_B_nM1097_AVENGER_USA_DES"]] call _fnc_saveToTemplate;
 
@@ -63,6 +63,8 @@
 
 ["minefieldAT", ["CUP_Mine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+#include "CUP_Vehicle_Attributes"
 
 /////////////////////
 ///  Identities   ///

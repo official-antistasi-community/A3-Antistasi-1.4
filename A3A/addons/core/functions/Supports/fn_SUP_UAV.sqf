@@ -34,9 +34,9 @@ if (_delay < 0) then { _delay = (0.5 + random 1) * (500 - 20*tierWar - 2.5*_aggr
 // ["_side", "_supptype", "_basetype", "_target", "_endtime", "_duration", "_power"]
 //A3A_supportStrikes pushBack [_side, "UAV", "TARGET", _target, time + 1200, 1200, 200];
 
-// name, side, suppType, center, radius, remTargets, targets
-private _suppData = [_supportName, _side, "UAV", _targPos, 1000, []];
-//A3A_activeSupports pushBack _suppData;                // doesn't have targets (atm), so not currently valid as an active support
+// name, side, suppType, center, radius, targets
+private _suppData = [_supportName, _side, "UAV", _targPos, 1000, [objNull, _targPos]];
+A3A_activeSupports pushBack _suppData;
 [_suppData, _resPool, _airport, _planeType, _delay, _reveal] spawn A3A_fnc_SUP_UAVRoutine;
 
 [_reveal, _side, "UAV", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;

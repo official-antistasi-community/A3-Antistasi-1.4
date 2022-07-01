@@ -33,37 +33,42 @@ private _vehicles = [];
 private _crewGroups = [];
 private _cargoGroups = [];
 
+// do we want to vary transport usage by war tier?
 private _faction = Faction(_side);
-private _attackHelis = _faction get "vehiclesHelisAttack";
 private _transportPlanes = _faction get "vehiclesPlanesTransport";
 private _transportHelis = _faction get "vehiclesHelisTransport";
+private _transportPool = [];
+{ _transportPool append [_x, 1 / count _transportPlanes] } forEach _transportPlanes;
+{ _transportPool append [_x, 2 / count _transportHelis] } forEach _transportHelis;
 
-// do we want to vary transport usage by war tier?
-private _transportsWeighted = [];
-{ _transportsWeighted append [_x, 1 / count _transportPlanes] } forEach _transportPlanes;
-{ _transportsWeighted append [_x, 2 / count _transportHelis] } forEach _transportHelis;
+private _supportPool = [_side, tierWar+_tierMod] call A3A_fnc_getVehiclesAirSupport;
 
 private _numTransports = 0;
 private _isTransport = _vehAttackCount < _vehCount;            // normal case, first vehicle should be a transport
 
 for "_i" from 1 to _vehCount do {
-    private _vehType = if (_isTransport) then { selectRandomWeighted _transportsWeighted } else { selectRandom _attackHelis };
+    private _vehType = selectRandomWeighted ([_supportPool, _transportPool] select _isTransport);
 
-    private _vehData = [_vehType, _troopType, _resPool, [], _side, _base, _targPos] call A3A_fnc_createAttackVehicle;
-    if !(_vehData isEqualType []) exitWith {};          // couldn't create for some reason. Not sure why for air vehicles.
+    if (_vehType == "CAS") then {
+        // no reveal because it's a sub-support, delay because it's faster than the helis
+        [_vehType, _side, _resPool, 500, false, _targPos, 0, 60] remoteExec ["A3A_fnc_createSupport", 2];
+    } else {
+        private _vehData = [_vehType, _troopType, _resPool, [], _side, _base, _targPos] call A3A_fnc_createAttackVehicle;
+        if !(_vehData isEqualType []) exitWith {};          // couldn't create for some reason. Not sure why for air vehicles.
 
-    _vehicles pushBack (_vehData#0);
-    _crewGroups pushBack (_vehData#1);
-    if !(isNull (_vehData#2)) then { _cargoGroups pushBack (_vehData#2) };
-    _landPosBlacklist = (_vehData#3);
+        _vehicles pushBack (_vehData#0);
+        _crewGroups pushBack (_vehData#1);
+        if !(isNull (_vehData#2)) then { _cargoGroups pushBack (_vehData#2) };
+        _landPosBlacklist = (_vehData#3);
 
-    private _vehCost = A3A_vehicleResourceCosts getOrDefault [_vehType, 0];
-    private _crewCost = 10 * (count units (_vehData#1) + count units (_vehData#2));
-    _resourcesSpent = _resourcesSpent + _vehCost + _crewCost;
+        private _vehCost = A3A_vehicleResourceCosts getOrDefault [_vehType, 0];
+        private _crewCost = 10 * (count units (_vehData#1) + count units (_vehData#2));
+        _resourcesSpent = _resourcesSpent + _vehCost + _crewCost;
+        sleep 5;
+    };
 
     if (_isTransport) then { _numTransports = _numTransports + 1 };
     _isTransport = (_numTransports / count _vehicles) < _transportRatio;
-    sleep 5;
 };
 
 [_resourcesSpent, _vehicles, _crewGroups, _cargoGroups];

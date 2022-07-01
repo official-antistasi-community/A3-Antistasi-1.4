@@ -24,8 +24,15 @@ private _policeWeight =    [40, 20,  0,  0,  0,  0,  0,  0,  0,  0] select _leve
 private _milCarWeight =    [40, 30, 20, 10,  5,  0,  0,  0,  0,  0] select _level;
 private _milTruckWeight =  [50, 40, 30, 20, 10,  0,  0,  0,  0,  0] select _level;
 private _carWeight =       [40, 30, 20, 10, 10, 10, 10, 10, 10, 10] select _level;
-private _truckWeight =     [80, 80, 80, 70, 60, 50, 40, 30, 30, 30] select _level;
-private _apcWeight =       [ 0, 20, 30, 30, 40, 50, 60, 70, 80, 90] select _level;
+private _truckWeight =     [60, 50, 45, 40, 35, 30, 25, 20, 15, 10] select _level;
+private _lapcWeight =      [30, 40, 50, 50, 45, 35, 30, 25, 20, 15] select _level;
+private _apcWeight =       [ 0, 10, 15, 20, 25, 30, 35, 40, 45, 50] select _level;
+private _ifvWeight =       [ 0,  0,  5, 10, 15, 20, 25, 30, 35, 40] select _level;
+
+// Assumption is that at least one of APC or battle bus exists
+if (_faction get "vehiclesIFVs" isEqualTo []) then { _apcWeight = _apcWeight + _ifvWeight };
+if (_faction get "vehiclesAPCs" isEqualTo []) then { _bbWeight = _bbWeight + _apcWeight };
+if (_faction get "vehiclesLightAPCs" isEqualTo []) then { _apcWeight = _apcWeight + _lapcWeight/2; _truckWeight = _truckWeight + _lapcWeight/2; };
 
 // only occupants use militia vehicle types?
 if (_side == Occupants) then
@@ -36,6 +43,8 @@ if (_side == Occupants) then
 };
 [_faction get "vehiclesLightUnarmed", _carWeight] call _fnc_addArrayToWeights;
 [_faction get "vehiclesTrucks", _truckWeight] call _fnc_addArrayToWeights;
+[_faction get "vehiclesLightAPCs", _lapcWeight] call _fnc_addArrayToWeights;
 [_faction get "vehiclesAPCs", _apcWeight] call _fnc_addArrayToWeights;
+[_faction get "vehiclesIFVs", _ifvWeight] call _fnc_addArrayToWeights;
 
 _vehWeights;

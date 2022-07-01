@@ -19,14 +19,16 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["rhs_tigr_msv", "rhs_tigr_m_msv"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["rhs_tigr_sts_msv", "rhsgref_BRDM2_HQ_msv", "rhsgref_BRDM2_msv", "RHS_Ural_Zu23_VMF_01"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["rhs_tigr_sts_msv", "rhs_tigr_sts_msv", "RHS_Ural_Zu23_VMF_01"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["rhs_gaz66_msv", "rhs_gaz66o_msv", "rhs_kamaz5350_open_msv", "rhs_kamaz5350_msv"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["rhs_gaz66_flat_msv", "rhs_gaz66o_flat_msv", "rhs_kamaz5350_flatbed_cover_msv", "rhs_kamaz5350_flatbed_msv"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["rhs_gaz66_ammo_msv"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["rhs_gaz66_repair_msv"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["RHS_Ural_Fuel_MSV_01"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["rhs_btr80_msv", "rhs_btr80a_msv", "rhs_bmp3m_msv", "rhs_btr80_vdv", "rhs_bmp2d_msv", "rhs_bmp2k_msv"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["rhsgref_BRDM2_HQ_msv", "rhsgref_BRDM2_msv", "rhs_btr80_msv", "rhs_btr80a_msv", "rhs_btr80_vdv"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["rhs_bmp3m_msv", "rhs_bmp2d_msv", "rhs_bmp2k_msv"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhs_t90sm_tv", "rhs_t80uk", "rhs_t72be_tv", "rhs_t72bd_tv", "rhs_t72bd_tv", "rhs_t72be_tv", "rhs_t72bc_tv"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["rhs_zsu234_aa"]] call _fnc_saveToTemplate;
 
@@ -40,7 +42,8 @@
 
 ["vehiclesHelisLight", ["rhs_ka60_c"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["RHS_Mi8AMT_vdv", "RHS_Mi8mt_vdv", "RHS_Mi8T_vdv"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["rhsgref_mi24g_CAS", "RHS_Mi24P_vvsc", "RHS_Mi24V_vvsc", "rhs_mi28n_vvs", "RHS_Ka52_vvs", "RHS_Mi8MTV3_vdv", "RHS_Mi8MTV3_heavy_vdv"]] call _fnc_saveToTemplate;       // "RHS_Mi8mtv3_Cargo_vdv"
+["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vdv", "RHS_Mi8MTV3_heavy_vdv", "RHS_Mi24P_vvsc"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["rhsgref_mi24g_CAS", "RHS_Mi24V_vvsc", "rhs_mi28n_vvs", "RHS_Ka52_vvs"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhs_2s1_tv", "rhs_2s3_tv", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -71,16 +74,7 @@
 ["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhs_mine_pmn2"]] call _fnc_saveToTemplate;
 
-["vehicleAttributes", [
-    ["RHS_Mi24P_vvsc", ["cost", 200]],      // no ball turret, not many missiles
-    ["RHS_Ka52_vvs", ["cost", 240]],        // no ball turret but lots of missiles
-    ["RHS_Mi8MTV3_vdv", ["cost", 140]],     // just rockets and PKTs
-    ["RHS_Mi8MTV3_heavy_vdv", ["cost", 150]],        // more rockets
-
-    ["rhs_btr80_msv", ["cost", 60]],        // fragile
-    ["rhs_btr80a_msv", ["cost", 60]],
-    ["rhs_btr80_vdv", ["cost", 60]]
-]] call _fnc_saveToTemplate;
+#include "RHS_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

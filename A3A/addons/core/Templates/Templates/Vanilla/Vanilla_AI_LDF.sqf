@@ -26,7 +26,9 @@ private _cargoTrucks = ["I_E_Truck_02_transport_F", "I_E_Truck_02_F"];
 ["vehiclesRepairTrucks", ["I_E_Truck_02_Box_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["I_E_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["I_E_APC_tracked_03_cannon_F", "B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["B_T_MBT_01_TUSK_F", "B_T_MBT_01_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["B_T_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 
@@ -39,8 +41,9 @@ private _cargoTrucks = ["I_E_Truck_02_transport_F", "I_E_Truck_02_F"];
 ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["I_E_Heli_light_03_unarmed_F", "B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["I_E_Heli_light_03_unarmed_F", "B_Heli_Transport_03_F", "B_Heli_Transport_01_camo_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["I_E_Heli_light_03_dynamicLoadout_F", "B_Heli_Light_01_armed_F", "B_Heli_Attack_01_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["B_Heli_Transport_03_F", "B_Heli_Transport_01_camo_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["I_E_Heli_light_03_dynamicLoadout_F", "B_Heli_Light_01_armed_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["B_Heli_Attack_01_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["B_T_MBT_01_arty_F", "I_E_Truck_02_MRL_F"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -76,6 +79,8 @@ if (allowDLCWS && A3A_hasWS) then {
     _cargoTrucks = ["I_E_Truck_02_cargo_lxWS","I_E_Truck_02_flatbed_lxWS"];
 };
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
+
+#include "Vanilla_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

@@ -63,12 +63,15 @@ setVar("vehiclesPolice", OccAndInv("vehiclesPolice"));
 setVar("vehiclesAttack", OccAndInv("vehiclesAttack") );
 setVar("vehiclesUAVs", OccAndInv("uavsAttack")+ OccAndInv("uavsPortable") );
 setVar("vehiclesAmmoTrucks", OccAndInv("vehiclesAmmoTrucks") );
+setVar("vehiclesLightAPCs", OccAndInv("vehiclesLightAPCs"));
 setVar("vehiclesAPCs", OccAndInv("vehiclesAPCs") );
+setVar("vehiclesIFVs", OccAndInv("vehiclesIFVs") );
 setVar("vehiclesTanks", OccAndInv("vehiclesTanks"));
 setVar("vehiclesAA", OccAndInv("vehiclesAA") + [Reb("vehicleAA")] - [""]);
 setVar("vehiclesArtillery", OccAndInv("vehiclesArtillery"));
 setVar("vehiclesTransportAir", OccAndInv("vehiclesHelisLight") + OccAndInv("vehiclesHelisTransport") + OccAndInv("vehiclesPlanesTransport") );
 setVar("vehiclesHelisLight", OccAndInv("vehiclesHelisLight"));
+setVar("vehiclesHelisLightAttack", OccAndInv("vehiclesHelisLightAttack"));
 setVar("vehiclesHelisAttack", OccAndInv("vehiclesHelisAttack"));
 setVar("vehiclesHelisTransport", OccAndInv("vehiclesHelisTransport"));
 setVar("vehiclesPlanesAA", OccAndInv("vehiclesPlanesAA"));
@@ -91,6 +94,7 @@ setVar("vehiclesBoats", _vehBoats);
 //Occ&Inv helicopters
 private _vehHelis =
 OccAndInv("vehiclesHelisTransport")
++ OccAndInv("vehiclesHelisLightAttack")
 + OccAndInv("vehiclesHelisAttack")
 + OccAndInv("vehiclesHelisLight");
 setVar("vehiclesHelis", _vehHelis);
@@ -131,6 +135,7 @@ getVar("vehiclesTanks")
 + getVar("vehiclesAA")
 + getVar("vehiclesArtillery")
 + getVar("vehiclesAPCs");
++ getVar("vehiclesIFVs");
 setVar("vehiclesArmor", _vehArmor);
 
 //vehicles that the AI have "unlimited" of

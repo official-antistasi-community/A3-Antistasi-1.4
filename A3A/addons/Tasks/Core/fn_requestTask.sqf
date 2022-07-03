@@ -45,7 +45,11 @@ _taskTypes = _taskTypes select {
     private _cfg = TASKS_CFG / _x;
 
     //Common criterias
+<<<<<<< HEAD
     if !(_cfg call _fnc_requirementMeet) then {
+=======
+    if (_cfg call _fnc_requirementMeet) then {
+>>>>>>> 31aff5b4 (fixed bad arguments for requiredAddons check)
         Debug_2("Task %1 is missing one or more required addons: %2", _x, getArray (_cfg/_requiredAddons)); continueWith false;
     };
 

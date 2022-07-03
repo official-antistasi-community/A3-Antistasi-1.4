@@ -64,31 +64,31 @@ A3A_logistics_vehicleHardpoints append [
     //Helicopters
     ["\uns_ch47a\uns_ch47a.p3d",[
         [1,             [0.01,3.6,-2.71],       []],
-        [1,             [0.01,2.8,-2.71],       []],
-        [1,             [0.01,2,-2.71],         []],
-        [1,             [0.01,1.2,-2.71],       []],
-        [1,             [0.01,0.4,-2.71],       []],
-        [1,             [0.01,-0.4,-2.71],      []],
-        [1,             [0.01,-1.2,-2.71],      []],
-        [1,             [0.01,-2,-2.71],        []],
-        [1,             [0.01,-2.8,-2.71],      []],
-        [1,             [0.01,-3.6,-2.71],      []]
+        [1,             [0.01,2.8,-2.71],       [0,1,23]],
+        [1,             [0.01,2,-2.71],         [2,3,22]],
+        [1,             [0.01,1.2,-2.71],       [4,19,21]],
+        [1,             [0.01,0.4,-2.71],       [5,18]],
+        [1,             [0.01,-0.4,-2.71],      [6,17]],
+        [1,             [0.01,-1.2,-2.71],      [7,8,16]],
+        [1,             [0.01,-2,-2.71],        [9,14,15]],
+        [1,             [0.01,-2.8,-2.71],      [10,13]],
+        [1,             [0.01,-3.6,-2.71],      [11,12,20]]
     ]],
     
     ["\uns_mi8\uns_Mi8_MT",[
-        [1,             [0.01,3.6,-2.29],      []],
-        [1,             [0.01,2.8,-2.29],      []],
-        [1,             [0.01,2,-2.29],        []],
-        [1,             [0.01,1.2,-2.29],      []],
-        [1,             [0.01,0.4,-2.29],      []]
+        [1,             [0.01,3.6,-2.29],      [2,3,4,5]],
+        [1,             [0.01,2.8,-2.29],      [6,7]],
+        [1,             [0.01,2,-2.29],        [8,9]],
+        [1,             [0.01,1.2,-2.29],      [10,11]],
+        [1,             [0.01,0.4,-2.29],      [12,13]]
     ]],
 
     ["\uns_mi8\uns_Mi8_MTV",[
-        [1,             [0.01,3.6,-2.29],      []],
-        [1,             [0.01,2.8,-2.29],      []],
-        [1,             [0.01,2,-2.29],        []],
-        [1,             [0.01,1.2,-2.29],      []],
-        [1,             [0.01,0.4,-2.29],      []]
+        [1,             [0.01,3.6,-2.29],      [1,2,3,4]],
+        [1,             [0.01,2.8,-2.29],      [5,6]],
+        [1,             [0.01,2,-2.29],        [7,8]],
+        [1,             [0.01,1.2,-2.29],      [9,10]],
+        [1,             [0.01,0.4,-2.29],      [11,12]]
     ]]
 ];
 
@@ -123,5 +123,6 @@ A3A_logistics_weapons append [
     ["uns_m1941_82mm_mortarVC" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck", "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "UNS_sampan_fish1" call A3A_fnc_classNameToModel]],
     ["uns_m2_high" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck"]],
     ["uns_M2_60mm_mortar" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck", "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "UNS_sampan_fish1" call A3A_fnc_classNameToModel]],
-    ["uns_m1941_82mm_mortarNVA" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck", "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "UNS_sampan_fish1" call A3A_fnc_classNameToModel]]
+    ["uns_M30_107mm_mortar" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck", "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "UNS_sampan_fish1" call A3A_fnc_classNameToModel]],
+    ["uns_M1_81mm_mortar" call A3A_fnc_classNameToModel,["uns_M35A2", "uns_nvatruck", "B_Boat_Transport_01_F" call A3A_fnc_classNameToModel, "UNS_sampan_fish1" call A3A_fnc_classNameToModel]]
 ];

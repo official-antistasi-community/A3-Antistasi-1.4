@@ -28,6 +28,12 @@ if (_group isEqualType sideUnknown) then {
 	_newGroup = true;
 };
 
+// Hack. Moving UAV AIs into gunner/turret manually does not work for some reason
+if (unitIsUAV _vehicle) then {
+	createVehicleCrew _vehicle;
+	crew _vehicle joinSilent _group;
+};
+
 if (isNil "_unitType") then {
 	_unitType = [side _group, _vehicle] call A3A_fnc_crewTypeForVehicle;
 };
@@ -37,7 +43,7 @@ private _config = configFile >> "CfgVehicles" >> _type;
 if (getNumber (_config >> "hasDriver") > 0 && isNull driver _vehicle) then {
 	private _driver = [_group, _unitType, getPos _vehicle, [], 10] call A3A_fnc_createUnit;
 	_driver assignAsDriver _vehicle;
-	_driver moveInAny _vehicle;
+	_driver moveInDriver _vehicle;
 };
 
 private _fnc_addCrewToTurrets = {

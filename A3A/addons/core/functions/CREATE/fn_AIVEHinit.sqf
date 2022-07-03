@@ -60,7 +60,7 @@ if (_veh isKindOf "Car" or _veh isKindOf "Tank") then
 	}
 	else
 	{
-		_veh call A3A_fnc_addActionBreachVehicle;
+		if (_typeX in FactionGet(all,"vehiclesArmor")) then { _veh call A3A_fnc_addActionBreachVehicle };
 		if (_typeX in FactionGet(all,"vehiclesAPCs")) then
 		{
 			_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto; _veh removeEventHandler ["HandleDamage",_thisEventHandler]};if (((_this select 1) find "wheel" != -1) and (_this select 4=="") and (!isPlayer driver (_veh))) then {0;} else {(_this select 2);}}];
@@ -155,7 +155,7 @@ if (_side == Invaders or _side == Occupants) then
 			if (canMove _veh) exitWith {};
 			Debug("Downed heli handler triggered");
 			group _veh leaveVehicle _veh;
-			_veh removeEventHandler ["HandleDamage", _thisEventHandler];
+			_veh removeEventHandler ["Dammaged", _thisEventHandler];
 		}];
 	};
 
@@ -214,8 +214,9 @@ if(_veh isKindOf "Air") then
 
 
 // Handler for refunding vehicles after cleanup
-_veh addEventHandler ["Deleted", A3A_fnc_vehicleDeletedEH];
-
+if (A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0] > 0) then {
+	_veh addEventHandler ["Deleted", A3A_fnc_vehicleDeletedEH];
+};
 
 // Handler to prevent vehDespawner deleting vehicles for an hour after rebels exit them
 _veh addEventHandler ["GetOut", {

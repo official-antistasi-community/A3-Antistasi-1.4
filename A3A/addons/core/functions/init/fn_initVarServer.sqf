@@ -372,35 +372,33 @@ private _vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F"
 DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 DECLARE_SERVER_VAR(A3A_vehClassToCrew,call A3A_fnc_initVehClassToCrew);
 
-// Hardcoded vehicle values here for the moment
-// Ideally allow some templates variation later
 
-//#define OccAndInv(VAR) (FactionGetOrDefault(occ, VAR, []) + FactionGetOrDefault(inv, VAR, []))
-
+// Default vehicle resource costs
 private _vehicleResourceCosts = createHashMap;
 
 { _vehicleResourceCosts set [_x, 20] } forEach FactionGet(all, "vehiclesLightUnarmed") + FactionGet(all, "vehiclesTrucks");
 { _vehicleResourceCosts set [_x, 50] } forEach FactionGet(all, "vehiclesLightArmed");
+{ _vehicleResourceCosts set [_x, 60] } forEach FactionGet(all, "vehiclesLightAPCs");
 { _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesAPCs");
-{ _vehicleResourceCosts set [_x, 160] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery");
+{ _vehicleResourceCosts set [_x, 150] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs");
 { _vehicleResourceCosts set [_x, 230] } forEach FactionGet(all, "vehiclesTanks");
 
-// could maybe increase price of transport planes due to higher effectiveness?
 { _vehicleResourceCosts set [_x, 70] } forEach FactionGet(all, "vehiclesHelisLight");
-{ _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesHelisTransport") + FactionGet(all, "vehiclesPlanesTransport");
-{ _vehicleResourceCosts set [_x, 300] } forEach FactionGet(all, "vehiclesPlanesCAS") + FactionGet(all, "vehiclesPlanesAA");
-{ _vehicleResourceCosts set [_x, 300] } forEach FactionGet(all, "vehiclesHelisAttack");
+{ _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesHelisTransport");
+{ _vehicleResourceCosts set [_x, 120] } forEach FactionGet(all, "vehiclesHelisLightAttack") + FactionGet(all, "vehiclesPlanesTransport");
+{ _vehicleResourceCosts set [_x, 250] } forEach FactionGet(all, "vehiclesPlanesCAS") + FactionGet(all, "vehiclesPlanesAA");
+{ _vehicleResourceCosts set [_x, 250] } forEach FactionGet(all, "vehiclesHelisAttack");
 
 
 // Threat table
 private _groundVehicleThreat = createHashMap;
 
 { _groundVehicleThreat set [_x, 40] } forEach FactionGet(all, "staticMG");
-{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "vehiclesLightArmed");
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "vehiclesLightArmed") + FactionGet(all, "vehiclesLightAPCs");
 { _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars") + [FactionGet(Reb, "vehicleAT")];
 
-{ _groundVehicleThreat set [_x, 140] } forEach FactionGet(all, "vehiclesAPCs");
-{ _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery");
+{ _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
+{ _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs");
 { _groundVehicleThreat set [_x, 300] } forEach FactionGet(all, "vehiclesTanks");
 
 
@@ -408,6 +406,7 @@ private _groundVehicleThreat = createHashMap;
 private _overrides = FactionGet(Occ, "vehicleAttributes") + FactionGet(Inv, "vehicleAttributes");
 {
 	private _vehType = _x select 0;
+	if !(_vehType in _vehicleResourceCosts) then { continue };
 	{
 		if !(_x isEqualType []) then { continue };		// first entry is classname
 		_x params ["_attr", "_val"];

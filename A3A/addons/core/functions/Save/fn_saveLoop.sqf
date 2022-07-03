@@ -232,7 +232,7 @@ private _resDefInv = A3A_resourcesDefenceInv;
 
 	private _allHP = getAllHitPointsDamage _veh select 2;
 	private _total = 0; { _total = _total + _x } forEach _allHP;
-	private _vehDamage = (damage _veh) max (_total / count _allHP);
+	private _vehDamage = damage _veh max (_total / count _allHP);
 
 	private _pool = _veh getVariable ["A3A_resPool", "legacy"];
 //	Debug_5("Vehicle type %1 deleted with side %2, pool %3, cost %4, damage %5", typeof _veh, _side, _pool, _vehCost, _vehDamage);

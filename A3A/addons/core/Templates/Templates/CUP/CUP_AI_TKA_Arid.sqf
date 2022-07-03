@@ -19,14 +19,16 @@
 
 ["vehiclesBasic", ["O_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["CUP_O_LR_Transport_TKA", "CUP_O_UAZ_Unarmed_TKA", "CUP_O_UAZ_Open_TKA", "CUP_O_BTR40_TKA"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["CUP_O_LR_MG_TKA", "CUP_O_LR_SPG9_TKA", "CUP_O_UAZ_AGS30_TKA", "CUP_O_UAZ_MG_TKA", "CUP_O_UAZ_METIS_TKA", "CUP_O_UAZ_SPG9_TKA"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["CUP_O_LR_MG_TKA", "CUP_O_LR_SPG9_TKA", "CUP_O_UAZ_AGS30_TKA", "CUP_O_UAZ_MG_TKA", "CUP_O_UAZ_METIS_TKA", "CUP_O_UAZ_SPG9_TKA", "CUP_O_BTR40_MG_TKA", "CUP_O_Ural_ZU23_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["CUP_O_V3S_Covered_TKA", "CUP_O_Ural_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["CUP_O_V3S_Open_TKA", "CUP_O_Ural_Open_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["CUP_O_V3S_Rearm_TKA", "CUP_O_Ural_Reammo_TKA", "CUP_O_M113A3_Reammo_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_O_Ural_Repair_TKA", "CUP_O_V3S_Repair_TKA", "CUP_O_M113A3_Repair_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_O_V3S_Refuel_TKA", "CUP_O_Ural_Refuel_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_O_LR_Ambulance_TKA", "CUP_O_BMP2_AMB_TKA", "CUP_O_M113A3_Med_TKA"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["CUP_O_BMP1_TKA", "CUP_O_BMP1P_TKA", "CUP_O_BMP2_TKA", "CUP_O_BMP2_ZU_TKA", "CUP_O_BRDM2_TKA", "CUP_O_BRDM2_ATGM_TKA", "CUP_O_BTR40_MG_TKA", "CUP_O_BTR80_TK", "CUP_O_BTR80A_TK", "CUP_O_M113A3_TKA", "CUP_O_MTLB_pk_TKA"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["CUP_O_BRDM2_TKA", "CUP_O_BRDM2_ATGM_TKA", "CUP_O_BTR60_TK", "CUP_O_BTR80_TK", "CUP_O_BTR80A_TK", "CUP_O_MTLB_pk_TKA"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_O_BMP1_TKA", "CUP_O_BMP1P_TKA", "CUP_O_BMP2_TKA", "CUP_O_BMP2_ZU_TKA", "CUP_O_M113A3_TKA"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["CUP_O_BMP2_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_O_T34_TKA", "CUP_O_T55_TK", "CUP_O_T72_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_O_ZSU23_TK"]] call _fnc_saveToTemplate;
 
@@ -40,6 +42,7 @@
 
 ["vehiclesHelisLight", ["CUP_O_UH1H_TKA", "CUP_O_UH1H_slick_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_O_Mi17_TK"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["CUP_O_UH1H_gunship_TKA", "CUP_O_UH1H_armed_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_O_Mi24_D_Dynamic_TK"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_O_BM21_TKA"]] call _fnc_saveToTemplate;
@@ -62,6 +65,8 @@
 
 ["minefieldAT", []] call _fnc_saveToTemplate;
 ["minefieldAPERS", []] call _fnc_saveToTemplate;
+
+#include "CUP_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

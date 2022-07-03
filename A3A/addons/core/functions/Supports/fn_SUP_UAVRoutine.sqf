@@ -4,6 +4,7 @@ FIX_LINE_NUMBERS()
 
 params ["_suppData", "_resPool", "_airport", "_planeType", "_sleepTime", "_reveal"];
 _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRadius", "_suppTarget"];
+// Doesn't actually process targets at the moment, it's just a dummy
 
 //Sleep to simulate preparation time
 sleep _sleepTime;

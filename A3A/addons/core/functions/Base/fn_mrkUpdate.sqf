@@ -1,106 +1,32 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private ["_markerX","_mrkD"];
 
-_markerX = _this select 0;
+params ["_marker"];
 
-_mrkD = format ["Dum%1",_markerX];
-if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
-	{
-	_textX = if (count (garrison getVariable [_markerX,[]]) > 0) then {format [": %1", count (garrison getVariable [_markerX,[]])]} else {""};
-	_mrkD setMarkerColor colorTeamPlayer;
-	if (_markerX in airportsX) then
-		{
-		_textX = format ["%2 Airbase%1",_textX,FactionGet(reb,"name")];
-		[_mrkD,format ["%1 Airbase",FactionGet(reb,"name")]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
-		//_mrkD setMarkerText format ["SDK Airbase%1",_textX];
-		if (markerType _mrkD != FactionGet(reb,"flagMarkerType")) then {_mrkD setMarkerType FactionGet(reb,"flagMarkerType")};
-		_mrkD setMarkerColor "Default";
-		}
-	else
-		{
-		if (_markerX in outposts) then
-			{
-			_textX = format ["%2 Outpost%1",_textX,FactionGet(reb,"name")];
-			[_mrkD,format ["%1 Outpost",FactionGet(reb,"name")]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
-			}
-		else
-			{
-			 if (_markerX in resourcesX) then
-			 	{
-			 	_textX = format ["Resources%1",_textX];
-			 	}
-			 else
-			 	{
-			 	if (_markerX in factories) then
-            		{
-            		_textX = format ["Factory%1",_textX];
-            		}
-            	else
-            		{
-            		if (_markerX in seaports) then {_textX = format ["Sea Port%1",_textX]};
-            		};
-			 	};
-			};
-		};
-	[_mrkD,_textX] remoteExec ["setMarkerTextLocal",[teamPlayer,civilian],true];
-	}
-else
-	{
-	if (_markerX in citiesX) exitWith {
-		_mrkD setMarkerText "";
-		_mrkD setMarkerColor ([colorOccupants, "ColorBlack"] select (_markerX in destroyedSites));
-	};
-	if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
-		{
-		if (_markerX in airportsX) then
-			{
-			_mrkD setMarkerText format ["%1 Airbase",FactionGet(occ,"name")];
-			_mrkD setMarkerType FactionGet(occ,"flagMarkerType");
-			_mrkD setMarkerColor "Default";
-			}
-		else
-			{
-			if (_markerX in outposts) then
-				{
-				_mrkD setMarkerText format ["%1 Outpost",FactionGet(occ,"name")]
-				};
-			_mrkD setMarkerColor colorOccupants;
-			};
-		}
-	else
-		{
-		if (_markerX in airportsX) then
-			{
-			_mrkD setMarkerText format ["%1 Airbase",FactionGet(inv,"name")];
-			_mrkD setMarkerType FactionGet(inv,"flagMarkerType");
-			_mrkD setMarkerColor "Default";
-			}
-		else
-			{
-			if (_markerX in outposts) then
-				{
-				_mrkD setMarkerText format ["%1 Outpost",FactionGet(inv,"name")];
-				};
-			_mrkD setMarkerColor colorInvaders;
-			};
-		};
-	if (_markerX in resourcesX) then
-	 	{
-			_mrkD setMarkerText "Resources";
-	 	}
-	 else
-	 	{
-	 	if (_markerX in factories) then
-    		{
-					_mrkD setMarkerText "Factory";
-    		}
-    	else
-    		{
-    		if (_markerX in seaports) then
-    			{
-    			_mrkD setMarkerText "Sea Port";
-    			};
-    		};
-	 	};
-	};
+private _mrkD = format ["Dum%1",_marker];
+private _mrkSide = sidesX getVariable _marker;
+private _faction = Faction(_mrkSide);
+
+if (_marker in airportsX) then {
+    _mrkD setMarkerTypeLocal (_faction get "flagMarkerType");
+    _mrkD setMarkerColorLocal "Default";
+} else {
+    if (_marker in destroyedSites) exitWith { _mrkD setMarkerColorLocal "ColorBlack" };
+    if (_mrkSide == teamPlayer) exitWith { _mrkD setMarkerColorLocal colorTeamPlayer };
+    _mrkD setMarkerColorLocal ([colorOccupants, colorInvaders] select (_mrkSide == Invaders));
+};
+
+private _mrkText = call {
+    if (_marker in airportsX) exitWith { format ["%1 Airbase", _faction get "name"] };
+    if (_marker in outposts) exitWith { format ["%1 Outpost", _faction get "name"] };
+    if (_marker in resourcesX) exitWith { "Resources" };
+    if (_marker in factories) exitWith { "Factory" };
+    if (_marker in seaports) exitWith { "Sea Port" };
+    ""; 		// city
+};
+
+if (_mrkSide == teamPlayer) then {
+    private _numTroops = count (garrison getVariable [_marker, []]);
+    if (_numTroops > 0) then { _mrkText = format ["%1: %2", _mrkText, _numTroops] };
+};
+_mrkD setMarkerText _mrkText;

@@ -26,7 +26,9 @@ private _cargoTrucks = ["I_Truck_02_transport_F", "I_Truck_02_covered_F"];
 ["vehiclesRepairTrucks", ["I_Truck_02_box_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["I_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["I_Truck_02_medical_F"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["I_APC_tracked_03_cannon_F", "I_APC_Wheeled_03_cannon_F"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["I_MBT_03_cannon_F"]] call _fnc_saveToTemplate;
 private _AA = ["I_LT_01_AA_F"];
 
@@ -39,8 +41,9 @@ private _AA = ["I_LT_01_AA_F"];
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["I_Heli_light_03_unarmed_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["I_Heli_light_03_unarmed_F", "I_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["I_Heli_light_03_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["I_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["I_Heli_light_03_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["B_Heli_Attack_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["I_Truck_02_MRL_F", "B_MBT_01_arty_F"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -84,16 +87,13 @@ if (allowDLCWS && A3A_hasWS) then {
 ["vehiclesLightArmed", _lightArmed] call _fnc_saveToTemplate;
 ["vehiclesAA", _AA] call _fnc_saveToTemplate;
 
-["vehicleAttributes", [
-    ["I_Heli_light_03_dynamicLoadout_F", ["cost", 100]],
-    ["I_Plane_Fighter_03_dynamicLoadout_F", ["cost", 200]]
-]] call _fnc_saveToTemplate;
+#include "Vanilla_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
 /////////////////////
 
-["faces", ["GreekHead_A3_01","GreekHead_A3_02","GreekHead_A3_03","GreekHead_A3_04","GreekHead_A3_05","GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08","GreekHead_A3_09","Ioannou","Mavros"]] call _fnc_saveToTemplate;
+["faces", ["GreekHead_A3_02","GreekHead_A3_03","GreekHead_A3_04","GreekHead_A3_05","GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08","GreekHead_A3_09","Ioannou","Mavros"]] call _fnc_saveToTemplate;
 ["voices", ["Male01GRE","Male02GRE","Male03GRE","Male04GRE","Male05GRE","Male06GRE"]] call _fnc_saveToTemplate;
 
 //////////////////////////

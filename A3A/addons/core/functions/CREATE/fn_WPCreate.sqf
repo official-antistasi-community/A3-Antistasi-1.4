@@ -3,8 +3,8 @@ Maintainer: Wurzel0701
     Creates waypoints for spawned units to safely arrive at targets
 
 Arguments:
-    <POS> The start position OR <STRING> The start marker
-    <POS> The end position OR <STRING> The end marker
+    <POSAGL> The start position OR <STRING> The start marker
+    <POSAGL> The end position OR <STRING> The end marker
     <GROUP> The group for which the waypoints should be created
 
 Return Value:

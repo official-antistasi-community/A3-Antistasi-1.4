@@ -1,7 +1,3 @@
-#include "..\..\script_component.hpp"
-FIX_LINE_NUMBERS()
-params ["_vehicle", "_crewGroup", "_cargoGroup", "_posDestination", "_markerOrigin", "_landPosBlacklist"];
-
 /*  Create the logic for attacking units, how different units should attack and behave
 
     Execution on: HC or Server
@@ -20,12 +16,15 @@ params ["_vehicle", "_crewGroup", "_cargoGroup", "_posDestination", "_markerOrig
         _landPosBlacklist: ARRAY : The updated list of blocked positions
 */
 
-private _posOrigin = getMarkerPos _markerOrigin;
-_posOrigin set [2, 50];
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+params ["_vehicle", "_crewGroup", "_cargoGroup", "_posDestination", "_markerOrigin", "_landPosBlacklist"];
 
+
+private _vehType = typeof _vehicle;
 switch (true) do
 {
-    case (typeof _vehicle in (FactionGet(all,"vehiclesTrucks") + FactionGet(all,"vehiclesLightUnarmed"))):
+    case (_vehType in FactionGet(all,"vehiclesTrucks") + FactionGet(all,"vehiclesLightUnarmed")):
     {
         //Move cargo group into crew group
         (units _cargoGroup) joinSilent _crewGroup;
@@ -53,13 +52,13 @@ switch (true) do
         //We could add the UPSMON routines here
         [_vehicle, "Inf Truck."] spawn A3A_fnc_inmuneConvoy;
     };
-    case ((typeof _vehicle in FactionGet(all,"vehiclesTanks")) or (typeof _vehicle in FactionGet(all,"vehiclesAA"))):
+    case (_vehType in FactionGet(all,"vehiclesTanks") + FactionGet(all,"vehiclesAA")):
     {
         {_x disableAI "MINEDETECTION"} forEach (units _crewGroup);
         _vehicle allowCrewInImmobile true;
 
         //Adding the waypoints
-        [getPos _vehicle, _posDestination, _crewGroup] call A3A_fnc_WPCreate;
+        [getPosATL _vehicle, _posDestination, _crewGroup] call A3A_fnc_WPCreate;
 
         // Turn final waypoint into SAD
         private _attackWP = [_crewGroup, count waypoints _crewGroup - 1];
@@ -68,13 +67,15 @@ switch (true) do
         //God AI
         //_vehWP1 setWaypointStatements ["true","{if (side _x != side this) then {this reveal [_x,4]}} forEach allUnits"];
 
-        private _typeName = if (typeof _vehicle in FactionGet(all,"vehiclesTanks")) then {"Tank"} else {"AA"};
+        private _typeName = if (_vehType in FactionGet(all,"vehiclesTanks")) then {"Tank"} else {"AA"};
         [_vehicle, _typeName] spawn A3A_fnc_inmuneConvoy;
     };
-    case (_vehicle isKindOf "Helicopter" && {(typeof _vehicle) in FactionGet(all,"vehiclesTransportAir")}):
+    case (_vehType in FactionGet(all,"vehiclesHelisTransport") + FactionGet(all,"vehiclesHelisLight")):
     {
         //Transport helicopter
         _landPos = [_posDestination, 200, 400, 10, 0, 0.12, 0, [], [[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
+        private _posOrigin = getMarkerPos _markerOrigin;
+        _posOrigin set [2, 50];
 
         {
             if(_x distance2D _landPos < 20) exitWith { _landPos = [0, 0, 0] };
@@ -95,7 +96,7 @@ switch (true) do
             };
         };
     };
-    case (_vehicle isKindOf "Helicopter" && {!((typeof _vehicle) in FactionGet(all,"vehiclesTransportAir"))}):
+    case (_vehType in FactionGet(all,"vehiclesHelisAttack") + FactionGet(all,"vehiclesHelisLightAttack")):
     {
         //Attack helicopter
         [_vehicle, _crewGroup, _posDestination] spawn A3A_fnc_attackHeli;
@@ -103,12 +104,12 @@ switch (true) do
 //        _vehWP0 setWaypointBehaviour "AWARE";
 //        _vehWP0 setWaypointType "SAD";
     };
-    case ((typeof _vehicle) in FactionGet(all,"vehiclesTransportAir") && {!(_vehicle isKindOf "Helicopter")}):
+    case (_vehType in FactionGet(all,"vehiclesTransportAir")):
     {
         //Dropship with para units
         [_vehicle, _cargoGroup, _posDestination, _markerOrigin] spawn A3A_fnc_paradrop;
     };
-    case (_vehicle isKindOf "Plane"):
+    case (_vehType in FactionGet(all,"vehiclesFixedWing")):
     {
         //Attack plane or drone - should be unused now?
         private _vehWP0 = _crewGroup addWaypoint [_posDestination, 0];
@@ -120,12 +121,12 @@ switch (true) do
     {
         // APC or armed MRAP, weapons + separate cargo units
         {_x disableAI "MINEDETECTION"} forEach (units _crewGroup);
-        _vehicle allowCrewInImmobile true;
+        if (_vehType in FactionGet(all,"vehiclesArmor")) then { _vehicle allowCrewInImmobile true };
 
         //Set up vehicle waypoints
-        private _landPos = [_posDestination, getPos _vehicle, false, _landPosBlacklist] call A3A_fnc_findSafeRoadToUnload;
+        private _landPos = [_posDestination, getPosATL _vehicle, false, _landPosBlacklist] call A3A_fnc_findSafeRoadToUnload;
         _landPosBlacklist pushBack _landPos;
-        [getPos _vehicle, _landPos, _crewGroup] call A3A_fnc_WPCreate;
+        [getPosATL _vehicle, _landPos, _crewGroup] call A3A_fnc_WPCreate;
 
         //Turn final waypoint into disembark. Should still be behaviour SAFE...
         private _vehWP0 = [_crewGroup, count waypoints _crewGroup - 1];
@@ -148,7 +149,7 @@ switch (true) do
         //Link the dismount waypoints
         _vehWP0 synchronizeWaypoint [_cargoWP0];
 
-        private _typeName = if (typeof _vehicle in FactionGet(all,"vehiclesAPCs")) then {"APC"} else {"MRAP"};
+        private _typeName = if (_vehType in FactionGet(all,"vehiclesArmor")) then {"APC"} else {"MRAP"};
         [_vehicle, _typeName] spawn A3A_fnc_inmuneConvoy;
     };
 };

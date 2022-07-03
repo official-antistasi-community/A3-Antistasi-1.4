@@ -84,7 +84,7 @@ if (allowDLCWS && A3A_hasWS) then {
 ///  Identities   ///
 /////////////////////
 
-["voices", ["Male0CHI","Male02CHI","Male03CHI"]] call _fnc_saveToTemplate;
+["voices", ["Male01CHI","Male02CHI","Male03CHI"]] call _fnc_saveToTemplate;
 ["faces", ["AsianHead_A3_01","AsianHead_A3_02","AsianHead_A3_03","AsianHead_A3_04","AsianHead_A3_05","AsianHead_A3_06","AsianHead_A3_07"]] call _fnc_saveToTemplate;
 
 

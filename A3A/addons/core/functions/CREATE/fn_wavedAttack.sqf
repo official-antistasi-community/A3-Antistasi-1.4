@@ -140,6 +140,7 @@ while {_wave <= _maxWaves and !_victory} do
         else {
             // ["_type", "_side", "_caller", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
             [_support, _side, "attack", 500, objNull, _targPos, 0, 0] call A3A_fnc_createSupport;
+            _airSupports pushBack _support;
             _airVehicleCount = _airVehicleCount - 1;
         };
     };

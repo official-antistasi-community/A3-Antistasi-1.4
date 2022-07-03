@@ -23,25 +23,24 @@ if (A3A_hasIFA) then {_timeLimit = _timeLimit * 2};
 private _displayTime = [_timeLimit] call FUNC(minutesFromNow);
 private _markerSide = sidesX getVariable [_marker, sideUnknown];
 
-private _taskName = "";
-private _taskDescription = "";
-
-if (_marker in resourcesX) then {
-	_taskName = localize "STR_antistasi_LTasks_CON_Outpost_resource_title";
-	_taskDescription = format [(localize "STR_antistasi_LTasks_CON_Outpost_resource_description"), _nameDest, _displayTime];
-};
-if (_marker in outposts) then {
-	_taskName = localize "STR_antistasi_LTasks_CON_Outpost_outpost_title";
-	_taskDescription = format [(localize "STR_antistasi_LTasks_CON_Outpost_outpost_description"), _nameDest, _displayTime];
-};
-if (_marker in seaports) then {
-	_taskName = localize "STR_antistasi_LTasks_CON_Outpost_seaport_title";
-	_taskDescription = format [(localize "STR_antistasi_LTasks_CON_Outpost_seaport_description"), _nameDest, _displayTime];
-};
-if (_marker in factories) then {
-	_taskName = localize "STR_antistasi_LTasks_CON_Outpost_factory_title";
-	_taskDescription = format [(localize "STR_antistasi_LTasks_CON_Outpost_factory_description"), _nameDest, _displayTime];
-};
+switch (true) do {
+    case (_marker in resourcesX): { [
+        localize "STR_antistasi_LTasks_CON_Outpost_resource_title",
+        format [(localize "STR_antistasi_LTasks_CON_Outpost_resource_description"), _nameDest, _displayTime]
+    ]};
+    case (_marker in outposts): { [
+        localize "STR_antistasi_LTasks_CON_Outpost_outpost_title",
+        format [(localize "STR_antistasi_LTasks_CON_Outpost_outpost_description"), _nameDest, _displayTime]
+    ]};
+    case (_marker in seaports): { [
+        localize "STR_antistasi_LTasks_CON_Outpost_seaport_title",
+        format [(localize "STR_antistasi_LTasks_CON_Outpost_seaport_description"), _nameDest, _displayTime]
+    ]};
+    case (_marker in factories): { [
+        localize "STR_antistasi_LTasks_CON_Outpost_factory_title",
+        format [(localize "STR_antistasi_LTasks_CON_Outpost_factory_description"), _nameDest, _displayTime]
+    ]};
+} params ["_taskName", "_taskDescription"];
 
 _this set ["title", _taskName];
 _this set ["description", _taskDescription];
@@ -62,22 +61,22 @@ _stages = [
         ["Required", true], //Type: bool | Optional | if the task needs the stage to succeed
         ["Reward", { //Type: code | Optional | the reward given for completing the stage
             private _multiplier = if (_this get "isDifficult") then {2} else {1};
-			private _pos = getMarkerPos (_this get "marker");
-			private _side = _this get "side";
+            private _pos = getMarkerPos (_this get "marker");
+            private _side = _this get "side";
 
-			if ((_this get "state") isEqualTo "SUCCEEDED") then
-			{ 
-				[0,200 * _multiplier] remoteExec ["A3A_fnc_resourcesFIA",2];
-				[-5 * _multiplier,0,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
-				[600 * _multiplier, _side] remoteExec ["A3A_fnc_timingCA",2];
-				{if (isPlayer _x) then {[10 * _multiplier,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_pos,teamPlayer] call A3A_fnc_distanceUnits);
-				[10 * _multiplier,theBoss] call A3A_fnc_playerScoreAdd;
+            if ((_this get "state") isEqualTo "SUCCEEDED") then
+            { 
+                [0,200 * _multiplier] remoteExec ["A3A_fnc_resourcesFIA",2];
+                [-5 * _multiplier,0,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
+                [600 * _multiplier, _side] remoteExec ["A3A_fnc_timingCA",2];
+                {if (isPlayer _x) then {[10 * _multiplier,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_pos,teamPlayer] call A3A_fnc_distanceUnits);
+                [10 * _multiplier,theBoss] call A3A_fnc_playerScoreAdd;
             } 
-			else 
-			{
-				[5,0,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
-				[-600, _side] remoteExec ["A3A_fnc_timingCA",2];
-				[-10,theBoss] call A3A_fnc_playerScoreAdd;
+            else 
+            {
+                [5,0,_pos] remoteExec ["A3A_fnc_citySupportChange",2];
+                [-600, _side] remoteExec ["A3A_fnc_timingCA",2];
+                [-10,theBoss] call A3A_fnc_playerScoreAdd;
             };
         }],
         ["Timeout", _timeLimit * 60] //Type: number | Optional | Time limit for the stage before auto fail

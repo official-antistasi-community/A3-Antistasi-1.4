@@ -261,6 +261,9 @@ if (A3A_hasACE) then {
     }] call CBA_fnc_addEventHandler;
 };
 
+// Prevent players getting shot by their own AIs. EH is respawn-persistent
+player addEventHandler ["HandleRating", {0}];
+
 call A3A_fnc_initUndercover;
 
 if (isMultiplayer) then {

@@ -52,7 +52,7 @@ _taskTypes = _taskTypes select {
     private _cat = getText (_cfg/"Category");
     if !(
         { (_x get "Category") isEqualTo _cat } count GVAR(ActiveTasks)
-        < ( GVAR(Settings) get ("MaxTasksOfCat_" + _cat) )
+        < ( GVAR(Settings) getOrDefault ["MaxTasksOfCat_" + _cat, 1, true] )
     ) then { Debug_1("Max tasks of type %1 active", _x); continueWith false; };
 
     //chained tasks
